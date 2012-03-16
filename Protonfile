@@ -1,0 +1,12 @@
+# This is a Proton site.
+# Install Proton (`gem install proton`) and type `proton` for help.
+requirement: 0.2
+
+# The folder where the site's source files are kept.
+site_path:       .
+output_path:     _output
+
+# Other paths:
+layouts_path:    _layouts
+extensions_path: _extensions
+partials_path:   .

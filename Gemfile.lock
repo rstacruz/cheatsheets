@@ -1,0 +1,41 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.8)
+    chunky_png (1.2.1)
+    compass (0.11.5)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    cuba (2.0.1)
+      rack
+      tilt
+    fssm (0.2.7)
+    haml (3.1.3)
+    hashie (1.0.0)
+    maruku (0.6.0)
+      syntax (>= 1.0.0)
+    proton (0.3.4)
+      RedCloth (~> 4.2.3)
+      compass (~> 0.11.1)
+      cuba (~> 2.0.0)
+      haml (~> 3.1.1)
+      hashie (~> 1.0.0)
+      maruku (~> 0.6.0)
+      sass (~> 3.1.1)
+      shake (~> 0.1)
+      tilt (~> 1.3.2)
+    rack (1.3.2)
+    rack-cache (1.0.2)
+      rack (>= 0.4)
+    sass (3.1.7)
+    shake (0.1.3)
+    syntax (1.0.0)
+    tilt (1.3.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  proton (~> 0.3.4)
+  rack-cache (~> 1.0.0)

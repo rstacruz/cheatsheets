@@ -1,0 +1,10 @@
+title: Cheat sheets
+---
+%ul.pages
+  - Dir['./*.*'].each do |p|
+    - name = File.basename(p, '.*')
+    - ext = File.extname(p)
+    - next  if %w[.sass .scss].include?(ext) || %w[config Gemfile index].include?(name) || name[0] == '_'
+    - url = name + ".html"
+    %li
+      %a{href: url}= name

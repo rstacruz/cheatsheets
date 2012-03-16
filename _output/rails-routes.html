@@ -6,15 +6,8 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Rails-routes</h1>
-  <h2>mapping</h2>
-
-<p><a href="http://guides.rubyonrails.org/routing.html">Guides/Routing</a></p>
-
-<p><a href="Rhttp://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html">ActionDispatch::Routing::Mapper</a>
-(See included modules)</p>
-
-<h3>Multiple resources</h3>
+  <h1>Rails Routes</h1>
+  <h3>Multiple resources</h3>
 
 <pre><code>resources :books
 # PhotosController:
@@ -64,6 +57,17 @@ match 'photo/*path' =&gt; 'photos#unknown'    # /photo/what/ever
 
 # params[:format] == 'jpg'
 match 'photos/:id' =&gt; 'photos#show', :defaults =&gt; { :format =&gt; 'jpg' }
+</code></pre>
+
+<h3>Get/post</h3>
+
+<p><code>get</code> is the same as <code>match via: :get</code>.</p>
+
+<pre><code>get 'photo/:id' =&gt; 'photos#show'
+# same as match 'photo/:id' =&gt; 'photos#show', via: :get
+
+post 'photo/:id' =&gt; 'photos#update'
+# same as match 'photo/:id' =&gt; 'photos#show', via: :post
 </code></pre>
 
 <h3>Redirection</h3>
@@ -188,6 +192,14 @@ root :to =&gt; 'welcome#index'
 # Note: This route will make all actions in every controller accessible via GET requests.
 match ':controller(/:action(/:id(.:format)))'
 </code></pre>
+
+<h3>References</h3>
+
+<ul>
+<li><p><a href="http://guides.rubyonrails.org/routing.html">Guides/Routing</a></p></li>
+<li><p><a href="http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html">ActionDispatch::Routing::Mapper</a>
+(See included modules)</p></li>
+</ul>
 
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>

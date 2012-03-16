@@ -1,7 +1,12 @@
 Tig shortcuts
 -------------
 
-Invocation
+### Installing
+
+    $ brew install tig --HEAD
+    $ apt-get install tig
+
+### Invocation
 
     tig blame FILE
     tig master        # Show a branch
@@ -9,24 +14,24 @@ Invocation
     tig FILE          # Show history of file
     tig v0.0.3:README # Show contents of file in a specific revision
 
-All views
----------
+### All views
 
- * `^N` - Next on parent view
- * `^P` - Previous on parent view
+    ^N    # Next on parent view
+    ^P    # Previous on parent view
 
-`m` - Main view
- * `D` - Toggle between date display modes
- * `A` - Toggle between author display modes
- * `C` - Cherry pick a commit
+### `m` - Main view
 
-`S` - Stage view
+    D     # Toggle between date display modes
+    A     # Toggle between author display modes
+    C     # Cherry pick a commit
 
- * `u` - Stage/unstage file or chunk
- * `!` - Revert file or chunk
- * `C` - Commit
- * `M` - Merge
+### `S` - Stage view
 
-`H` - Branch view
+    u     # Stage/unstage file or chunk
+    !     # Revert file or chunk
+    C     # Commit
+    M     # Merge
 
- * `i` - Change sort header
+### `H` - Branch view
+
+    i     # Change sort header

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Capybara</h1>
+  <h2>Navigating</h2>
+
+<pre><code>visit articles_path
+</code></pre>
+
+<h2>Clicking links and buttons</h2>
+
+<pre><code>click 'Link Text'
+click_button
+click_link
+</code></pre>
+
+<h2>Interacting with forms</h2>
+
+<pre><code>attach_file
+fill_in 'First Name', :with =&gt; 'John'
+check
+uncheck
+choose
+select
+unselect
+</code></pre>
+
+<h2>Querying</h2>
+
+<p>Takes a CSS selector (or XPath if you're into that).
+Translates nicely into RSpec matchers:</p>
+
+<pre><code>page.should have_no_button(&quot;Save&quot;)
+</code></pre>
+
+<p>Use should have<em>no</em>* versions with RSpec matchers b/c
+should_not doesn't wait for a timeout from the driver</p>
+
+<pre><code>page.has_content?
+page.has_css?
+page.has_no_content?
+page.has_no_css?
+page.has_no_xpath?
+page.has_xpath?
+page.has_link?
+page.has_no_link?
+page.has_button?(&quot;Update&quot;)
+page.has_no_button?
+page.has_field?
+page.has_no_field?
+page.has_checked_field?
+page.has_unchecked_field?
+page.has_no_table?
+page.has_table?
+page.has_select?
+page.has_no_select?
+</code></pre>
+
+<h2>Finding</h2>
+
+<pre><code>find
+find_button
+find_by_id
+find_field
+find_link
+locate
+</code></pre>
+
+<h2>Scoping</h2>
+
+<pre><code>within
+within_fieldset
+within_table
+within_frame
+scope_to
+</code></pre>
+
+<h2>Scripting</h2>
+
+<pre><code>execute_script
+evaluate_script
+</code></pre>
+
+<h2>Debugging</h2>
+
+<pre><code>save_and_open_page
+</code></pre>
+
+<h2>Miscellaneous</h2>
+
+<pre><code>all
+body
+current_url
+drag
+field_labeled
+source
+wait_until
+current_path
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

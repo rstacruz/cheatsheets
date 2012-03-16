@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Bash</h1>
+  <h3>String substitutions by patterns</h3>
+
+<pre><code>STR=/path/to/foo.c
+
+echo ${STR%.c}      #=&gt; &quot;/path/to/foo&quot;
+echo ${STR%.c}.o    #=&gt; &quot;/path/to/foo.o&quot;
+echo ${STR##*.}     #=&gt; &quot;c&quot; (extension)
+
+BASE=${SRC##*/}     #=&gt; &quot;foo.c&quot; (basepath)
+DIR=${SRC%$BASE}    #=&gt; &quot;/path/to&quot;
+</code></pre>
+
+<h3>Substitutions by regex</h3>
+
+<pre><code>echo ${STR/hi/hello}          # Replace first match
+echo ${STR//hi/hello}         # Replace all matches
+echo ${STR/#hi/hello}         # ^hi
+echo ${STR/%hi/hello}         # hi$
+
+echo &quot;${STR:0:3}&quot;             # .substr(0, 3) -- position, length
+echo &quot;${STR:-3:3}&quot;            # Negative position = from the right
+
+echo ${#line}                 # Length of $line
+
+[ -z &quot;$CC&quot; ] &amp;&amp; CC=gcc        # CC ||= &quot;gcc&quot;  assignment
+${CC:=gcc}                    # $CC || &quot;gcc&quot;
+</code></pre>
+
+<h3>Loops</h3>
+
+<pre><code>for i in /etc/rc.*; do
+  echo $i
+end
+</code></pre>
+
+<h2>Functions</h2>
+
+<h3>Defining functions</h3>
+
+<pre><code>myfunc() { ... }
+fuction myfunc { ... }
+fuction myfunc() { ... }
+</code></pre>
+
+<h3>Returning strings</h3>
+
+<pre><code>myfunc() {
+    local myresult='some value'
+    echo $myresult
+}
+
+result=$(myfunc)
+</code></pre>
+
+<h3>Errors</h3>
+
+<pre><code>myfunc() { return 1; }
+</code></pre>
+
+<h3>Arguments</h3>
+
+<pre><code>$#                          # Number of arguments
+$*                          # All args
+$1                          # First argument
+</code></pre>
+
+<h2>Ifs - files</h2>
+
+<pre><code># File conditions
+if [ -a FILE ]; then        # -e exists         -d directory        -f file
+fi                          # -r readable       -w writeable        -x executable
+                            # -h symlink        -s size &gt; 0
+
+# File comparisons
+if [ FILE1 -nt FILE2 ]      # -nt   1 more recent than 2
+                            # -ot   2 more recent than 1
+                            # -ef   same files
+</code></pre>
+
+<h2>Ifs</h2>
+
+<pre><code># String
+if [ -z STRING ]            # empty?
+if [ -n STRING ]            # not empty?
+
+# Numeric
+if [ $? -eq 0 ]             # -eq -ne -lt -le -gt -ge
+                            # $? is exit status by the way
+
+# Etc
+if [ -o noclobber ]         # if OPTIONNAME is enabled
+if [ ! EXPR ]               # not
+if [ ONE -a TWO ]           # and
+if [ ONE -o TWO ]           # or
+
+# Regex
+if [[ &quot;A&quot; =~ &quot;.&quot; ]]
+</code></pre>
+
+<h3>Numeric comparisons</h3>
+
+<pre><code>if $(( $a &lt; $b ))
+</code></pre>
+
+<h3>Unset variables</h3>
+
+<p>Assume <code>$FOO</code> is not set. Doing <em>this</em> will result in <em>that</em>:</p>
+
+<pre><code>${FOO:-word}                # Returns word
+${FOO:+word}                # Returns empty, or word if set
+${FOO:=word}                # Sets parameter to word, returns word
+${FOO:?message}             # Echoes message and exits
+
+${FOO=word}                 # : is optional in all of the above
+</code></pre>
+
+<h2>Numeric calculations</h2>
+
+<pre><code>$((RANDOM%=200))            # Random number 0..200
+$((a + 200))                # $ is optional
+</code></pre>
+
+<h2>Arrays</h2>
+
+<pre><code>Fruits[0]=&quot;Apple&quot;
+Fruits[1]=&quot;Banana&quot;
+Fruits[2]=&quot;Orange&quot;
+
+# Declaring using declare -a
+declare -a Fruits=('Apple' 'Banana' 'Orange')
+
+echo ${Fruits[0]}           # Element #0
+echo ${Fruits[@]}           # All elements, space-separated
+echo ${#Fruits[@]}          # Number of elements
+echo ${#Fruits}             # String length of the 1st element
+echo ${#Fruits[3]}          # String length of the Nth element
+echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
+
+Fruits=(&quot;${Fruits[@]}&quot; &quot;Watermelon&quot;)    # Push
+Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
+unset Fruits[2]                         # Remove one item
+Fruits=(&quot;${Fruits[@]}&quot;)                 # Duplicate
+Fruits=(&quot;${Fruits[@]}&quot; &quot;${Veggies[@]}&quot;) # Concatenate
+lines=(`cat &quot;logfile&quot;`)                 # Read from file
+</code></pre>
+
+<h2>Misc crap</h2>
+
+<pre><code>command -V cd               #=&gt; &quot;cd is a function/alias/whatever&quot;
+</code></pre>
+
+<h3>Options</h3>
+
+<pre><code>set -o noclobber            # Avoid overlay files (echo &quot;hi&quot; &gt; foo)
+set -o errexit              # Used to exit upon error, avoiding cascading errors
+set -o pipefail             # Unveils hidden failures
+set -o nounset              # Exposes unset variables
+</code></pre>
+
+<h3>Glob options</h3>
+
+<pre><code>set -o nullglob             # Non-matching globs are removed  ('*.foo' =&gt; '')
+set -o failglob             # Non-matching globs throw errors
+set -o nocaseglob           # Case insensitive globs
+set -o dotglob              # Wildcards match dotfiles (&quot;*.sh&quot; =&gt; &quot;.foo.sh&quot;)
+set -o globstar             # Allow ** for recursive matches ('lib/**/*.rb' =&gt; 'lib/a/b/c.rb')
+</code></pre>
+
+<p>set GLOBIGNORE as a colon-separated list of patterns to be removed from glob 
+matches.</p>
+
+<h3>Trap errors</h3>
+
+<pre><code>trap 'echo Error at about $LINENO' ERR
+</code></pre>
+
+<p>or</p>
+
+<pre><code>traperr() {
+  echo &quot;ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}&quot;
+}
+
+set -o errtrace
+trap traperr ERR
+</code></pre>
+
+<h2>References</h2>
+
+<ul>
+<li> http://wiki.bash-hackers.org/</li>
+</ul>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

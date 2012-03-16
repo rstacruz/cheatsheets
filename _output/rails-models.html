@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Rails Models</h1>
+  <h3>Generating models</h3>
+
+<pre><code>$ rails g model User
+</code></pre>
+
+<h3>Associations</h3>
+
+<pre><code>belongs_to
+has_one
+has_many
+has_many :through
+has_one :through
+has_and_belongs_to_many
+
+belongs_to :author,
+  class_name: 'User',
+  dependent: :destroy  // delete this
+</code></pre>
+
+<h3>Has many</h3>
+
+<pre><code>belongs_to :parent, :foreign_key =&gt; 'parent_id' class_name: 'Folder'
+has_many :folders, :foreign_key =&gt; 'parent_id', class_name: 'Folder'
+
+has_many :comments,    :order      =&gt; &quot;posted_on&quot;
+has_many :comments,    :include    =&gt; :author
+has_many :people,      :class_name =&gt; &quot;Person&quot;
+has_many :people,      :conditions =&gt; &quot;deleted = 0&quot;
+has_many :tracks,      :order      =&gt; &quot;position&quot;
+has_many :comments,    :dependent  =&gt; :nullify
+has_many :comments,    :dependent  =&gt; :destroy
+has_many :tags,        :as         =&gt; :taggable
+has_many :reports,     :readonly   =&gt; true
+has_many :subscribers, :through    =&gt; :subscriptions, class_name: &quot;User&quot;, :source =&gt; :user
+has_many :subscribers, :finder_sql =&gt;
+    'SELECT DISTINCT people.* ' +
+    'FROM people p, post_subscriptions ps ' +
+    'WHERE ps.post_id = #{id} AND ps.person_id = p.id ' +
+    'ORDER BY p.first_name'
+</code></pre>
+
+<h3>Many-to-many</h3>
+
+<p>If you have a join model:</p>
+
+<pre><code>class Programmer &lt; ActiveRecord::Base
+  has_many :assignments
+  has_many :projects, :through =&gt; :assignments
+end
+
+class Project &lt; ActiveRecord::Base
+  has_many :assignments
+  has_many :programmers, :through =&gt; :assignments
+end
+
+class Assignment
+  belongs_to :project
+  belongs_to :programmer
+end
+</code></pre>
+
+<p>Or HABTM:</p>
+
+<pre><code>has_and_belongs_to_many :projects
+has_and_belongs_to_many :projects, :include =&gt; [ :milestones, :manager ]
+has_and_belongs_to_many :nations, :class_name =&gt; &quot;Country&quot;
+has_and_belongs_to_many :categories, :join_table =&gt; &quot;prods_cats&quot;
+has_and_belongs_to_many :categories, :readonly =&gt; true
+has_and_belongs_to_many :active_projects, :join_table =&gt; 'developers_projects', :delete_sql =&gt;
+&quot;DELETE FROM developers_projects WHERE active=1 AND developer_id = #{id} AND project_id = #{record.id}&quot;
+</code></pre>
+
+<h3>Polymorphic associations</h3>
+
+<pre><code>class Post
+  has_many :attachments, :as =&gt; :parent
+end
+
+class Image
+  belongs_to :parent, :polymorphic =&gt; true
+end
+</code></pre>
+
+<p>And in migrations:</p>
+
+<pre><code>create_table :images do
+  t.references :post, :polymorphic =&gt; true
+end
+</code></pre>
+
+<h2>Migrations</h2>
+
+<h3>Run migrations</h3>
+
+<pre><code>$ rake db:migrate
+</code></pre>
+
+<h3>Migrations</h3>
+
+<pre><code>create_table :users do |t|
+  t.string :name
+  t.text   :description
+
+  t.primary_key :id
+  t.string
+  t.text
+  t.integer
+  t.float
+  t.decimal
+  t.datetime
+  t.timestamp
+  t.time
+  t.date
+  t.binary
+  t.boolean
+end
+
+options:
+  :null (boolean)
+  :limit (integer)
+  :default
+  :precision (integer)
+  :scale (integer)
+</code></pre>
+
+<h3>Tasks</h3>
+
+<pre><code>create_table
+change_table
+drop_table
+add_column
+change_column
+rename_column
+remove_column
+add_index
+remove_index
+</code></pre>
+
+<h3>Associations</h3>
+
+<pre><code>t.references :category   # kinda same as t.integer :category_id
+
+# Can have different types
+t.references :category, polymorphic: true
+</code></pre>
+
+<h3>Add/remove columns</h3>
+
+<pre><code>$ rails generate migration RemovePartNumberFromProducts part_number:string
+
+class RemovePartNumberFromProducts &lt; ActiveRecord::Migration
+  def up
+    remove_column :products, :part_number
+  end
+
+  def down
+    add_column :products, :part_number, :string
+  end
+end
+</code></pre>
+
+<h2>Validation</h2>
+
+<pre><code>class Person &lt; ActiveRecord::Base
+
+  # Checkboxes
+  validates :terms_of_service, :acceptance =&gt; true
+
+  # Validate associated records
+  has_many :books
+  validates_associated :books
+
+  # Confirmation (like passwords)
+  validates :email, :confirmation =&gt; true
+
+  # Format
+  validates :legacy_code, :format =&gt; {
+    :with    =&gt; /\A[a-zA-Z]+\z/,
+    :message =&gt; &quot;Only letters allowed&quot;
+  }
+
+  # Length
+  validates :name,     :length =&gt; { :minimum =&gt; 2 }
+  validates :bio,      :length =&gt; { :maximum =&gt; 500 }
+  validates :password, :length =&gt; { :in =&gt; 6..20 }
+  validates :number,   :length =&gt; { :is =&gt; 6 }
+
+  # Length (full enchalada)
+  validates :content, :length =&gt; {
+    :minimum   =&gt; 300,
+    :maximum   =&gt; 400,
+    :tokenizer =&gt; lambda { |str| str.scan(/\w+/) },
+    :too_short =&gt; &quot;must have at least %{count} words&quot;,
+    :too_long  =&gt; &quot;must have at most %{count} words&quot;
+  }
+end
+
+  # Numeric
+  validates :points,       :numericality =&gt; true
+  validates :games_played, :numericality =&gt; { :only_integer =&gt; true }
+
+  # Non empty
+  validates :name, :presence =&gt; true
+
+  # Multiple
+  validate :login, :email, :presence =&gt; true
+end
+</code></pre>
+
+<h3>Custom validations</h3>
+
+<pre><code>class Person &lt; ActiveRecord::Base
+  validate :foo_cant_be_nil
+
+  def foo_cant_be_nil
+    errors.add(:foo, 'cant be nil')  if foo.nil?
+  end
+end
+</code></pre>
+
+<h2>API</h2>
+
+<pre><code>items = Model.find_by_email(email)
+items = Model.where(first_name: &quot;Harvey&quot;)
+
+item = Model.find(id)
+
+item.serialize_hash
+item.new_record?
+
+item.create     # Same an #new then #save
+item.create!    # Same as above, but raises an Exception
+
+item.save
+item.save!      # Same as above, but raises an Exception
+
+item.update
+item.update_attributes
+item.update_attributes!
+
+item.valid?
+item.invalid?
+</code></pre>
+
+<p>http://guides.rubyonrails.org/active<em>record</em>validations_callbacks.html</p>
+
+<h3>Mass updates</h3>
+
+<pre><code># Updates person id 15
+Person.update 15, name: &quot;John&quot;, age: 24
+Person.update [1,2], [{name: &quot;John&quot;}, {name: &quot;foo&quot;}]
+</code></pre>
+
+<h3>Joining</h3>
+
+<pre><code>Student.joins(:schools).where(:schools =&gt; { :type =&gt; 'public' })
+Student.joins(:schools).where('schools.type' =&gt; 'public' )
+</code></pre>
+
+<h3>Serialize</h3>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  serialize :preferences
+end
+
+user = User.create(:preferences =&gt; { &quot;background&quot; =&gt; &quot;black&quot;, &quot;display&quot; =&gt; large })
+</code></pre>
+
+<p>You can also specify a class option as the second parameter that’ll raise an 
+exception if a serialized object is retrieved as a descendant of a class not in 
+the hierarchy.</p>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  serialize :preferences, Hash
+end
+
+user = User.create(:preferences =&gt; %w( one two three ))
+User.find(user.id).preferences    # raises SerializationTypeMismatch
+</code></pre>
+
+<h2>Overriding accessors</h2>
+
+<pre><code>class Song &lt; ActiveRecord::Base
+  # Uses an integer of seconds to hold the length of the song
+
+  def length=(minutes)
+    write_attribute(:length, minutes.to_i * 60)
+  end
+
+  def length
+    read_attribute(:length) / 60
+  end
+end
+</code></pre>
+
+<ul>
+<li>http://api.rubyonrails.org/classes/ActiveRecord/Base.html</li>
+</ul>
+
+<h2>Callbacks</h2>
+
+<pre><code>after_create
+after_initialize
+after_validation
+after_save
+after_commit
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

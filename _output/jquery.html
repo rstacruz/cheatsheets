@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>jQuery</h1>
+  <h3>Extending selectors</h3>
+
+<pre><code>// $(&quot;:inline&quot;)
+$.expr[':'].inline = function(a) {
+  return $(a).css('display') === 'inline';
+};
+</code></pre>
+
+<h3>Extend CSS properties</h3>
+
+<pre><code>$.cssHooks.someCSSProp = {
+  get: function(elem, computed, extra) {
+  },
+  set: function(elem, value) {
+  }
+};
+
+// Disable &quot;px&quot;
+$.cssNumber[&quot;someCSSProp&quot;] = true;
+</code></pre>
+
+<h3>fn.animate() hooks</h3>
+
+<pre><code>$.fn.step.someWhatever = function(fx) {
+  // ...
+}
+</code></pre>
+
+<h3>Mobile events</h3>
+
+<p>For support for <code>tap</code>, <code>swipe</code>, <code>swipeLeft</code>, et al, use 
+<a href="https://github.com/jquery/jquery-mobile/blob/master/js/jquery.mobile.event.js">jquery.mobile.event.js</a>. Be sure to set <code>$.support.touch</code> first.</p>
+
+<p>To get <code>$.support.touch</code> (and family), use this from 
+<a href="https://github.com/jquery/jquery-mobile/blob/master/js/jquery.mobile.support.js">jquery.mobile.support.js</a>:</p>
+
+<pre><code>$.extend($.support, {
+  orientation: &quot;orientation&quot; in window &amp;&amp; &quot;onorientationchange&quot; in window,
+  touch: &quot;ontouchend&quot; in document,
+  cssTransitions: &quot;WebKitTransitionEvent&quot; in window,
+  pushState: &quot;pushState&quot; in history &amp;&amp; &quot;replaceState&quot; in history,
+  mediaquery: $.mobile.media( &quot;only all&quot; ),
+  cssPseudoElement: !!propExists( &quot;content&quot; ),
+  touchOverflow: !!propExists( &quot;overflowScrolling&quot; ),
+  boxShadow: !!propExists( &quot;boxShadow&quot; ) &amp;&amp; !bb,
+  scrollTop: ( &quot;pageXOffset&quot; in window || &quot;scrollTop&quot; in document.documentElement || &quot;scrollTop&quot; in fakeBody[ 0 ] ) &amp;&amp; !webos &amp;&amp; !operamini,
+  dynamicBaseTag: baseTagTest()
+});
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

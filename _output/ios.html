@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Ios</h1>
+  <p>Path to Installous downloads:</p>
+
+<pre><code>/private/var/mobile/Documents/Installous/Downloads
+</code></pre>
+
+<p>Multiple Exchange accounts:</p>
+
+<pre><code>scp root@iphone.local:/private/var/mobile/Library/Preferences/com.apple.accountsettings.plist .
+</code></pre>
+
+<p>Ringtone conversion using ffmpeg:</p>
+
+<pre><code>ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Devise</h1>
+  <p><a href="https://github.com/plataformatec/devise">Devise</a> is a flexible authentication 
+gem.</p>
+
+<h2>Installation</h2>
+
+<p>Rails 3: Add the following to your Gemfile</p>
+
+<pre><code>gem &quot;devise&quot;
+gem &quot;hpricot&quot;
+gem &quot;ruby_parser&quot;
+</code></pre>
+
+<p>Install devise in your project</p>
+
+<pre><code>$ rails generate devise:install
+</code></pre>
+
+<p>Generate devise for your model</p>
+
+<pre><code>$ rails generate devise MODEL
+$ rake db:migrate
+</code></pre>
+
+<p>(Optional) Generate devise views</p>
+
+<pre><code>$ rails generate devise:views
+</code></pre>
+
+<h2>Helpers</h2>
+
+<pre><code>user_signed_in?
+current_user
+user_session
+destroy_user_session_path (Logout)
+new_user_session_path (Login)
+edit_user_registration_path (Edit registration)
+new_user_registration_path (Register new user)
+</code></pre>
+
+<h2>Controller stuff</h2>
+
+<pre><code>before_filter :authenticate_user!
+</code></pre>
+
+<h2>Model</h2>
+
+<h3>Model options</h3>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  devise :database_authenticatable,
+    :registerable,
+    :confirmable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable
+end
+</code></pre>
+
+<h3>Migration helpers</h3>
+
+<pre><code>create_table :users do |t|
+  t.database_authenticatable
+  t.confirmable
+  t.recoverable
+  t.rememberable
+  t.trackable
+  t.timestamps
+end
+</code></pre>
+
+<h2>Routing</h2>
+
+<h3>Authenticated and unauthenticated routes</h3>
+
+<pre><code>unauthenticated do
+   root :to =&gt; 'home#index'
+end
+
+authenticated do
+  root :to =&gt; 'dashboard#index'
+end
+</code></pre>
+
+<h3>As</h3>
+
+<pre><code>as :user do
+  get 'sign_in', :to =&gt; 'devise/sessions#new'
+end
+</code></pre>
+
+<h3>Devise_for magic</h3>
+
+<pre><code>devise_for :users
+
+    # Session routes for Authenticatable (default)
+         new_user_session GET  /users/sign_in                    {:controller=&gt;&quot;devise/sessions&quot;, :action=&gt;&quot;new&quot;}
+             user_session POST /users/sign_in                    {:controller=&gt;&quot;devise/sessions&quot;, :action=&gt;&quot;create&quot;}
+     destroy_user_session GET  /users/sign_out                   {:controller=&gt;&quot;devise/sessions&quot;, :action=&gt;&quot;destroy&quot;}
+
+    # Password routes for Recoverable, if User model has :recoverable configured
+        new_user_password GET  /users/password/new(.:format)     {:controller=&gt;&quot;devise/passwords&quot;, :action=&gt;&quot;new&quot;}
+       edit_user_password GET  /users/password/edit(.:format)    {:controller=&gt;&quot;devise/passwords&quot;, :action=&gt;&quot;edit&quot;}
+            user_password PUT  /users/password(.:format)         {:controller=&gt;&quot;devise/passwords&quot;, :action=&gt;&quot;update&quot;}
+                          POST /users/password(.:format)         {:controller=&gt;&quot;devise/passwords&quot;, :action=&gt;&quot;create&quot;}
+
+    # Confirmation routes for Confirmable, if User model has :confirmable configured
+    new_user_confirmation GET  /users/confirmation/new(.:format) {:controller=&gt;&quot;devise/confirmations&quot;, :action=&gt;&quot;new&quot;}
+        user_confirmation GET  /users/confirmation(.:format)     {:controller=&gt;&quot;devise/confirmations&quot;, :action=&gt;&quot;show&quot;}
+                          POST /users/confirmation(.:format)     {:controller=&gt;&quot;devise/confirmations&quot;, :action=&gt;&quot;create&quot;}
+</code></pre>
+
+<h3>Customizing devise_for</h3>
+
+<pre><code>devise_for :users,
+  :path =&gt; &quot;usuarios&quot;,
+  :path_names =&gt; {
+    :sign_in =&gt; 'login',
+    :sign_out =&gt; 'logout',
+    :password =&gt; 'secret',
+    :confirmation =&gt; 'verification',
+    :unlock =&gt; 'unblock',
+    :registration =&gt; 'register',
+    :sign_up =&gt; 'cmon_let_me_in' }
+</code></pre>
+
+<h2>Test helpers</h2>
+
+<pre><code>sign_in @user
+sign_out @user
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

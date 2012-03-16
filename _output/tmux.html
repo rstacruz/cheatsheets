@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>tmux Terminal Multiplexer</h1>
+  <h3>Commands</h3>
+
+<pre><code>$ tmux
+  -u        # UTF8 mode
+  -S ~/.tmux.socket
+
+$ tmux attach
+</code></pre>
+
+<h3>Help</h3>
+
+<pre><code>C-b ?
+</code></pre>
+
+<h3>Scrolling</h3>
+
+<pre><code>C-b [       # Enter scroll mode then press up and down
+</code></pre>
+
+<h3>Copy/paste</h3>
+
+<pre><code>C-b [       # 1. Enter scroll mode first.
+Space       # 2. Start selecting and move around.
+Enter       # 3. Press enter to copy.
+C-b ]       # Paste
+</code></pre>
+
+<h3>Panes</h3>
+
+<pre><code>C-b v       # vert
+C-b n       # horiz
+C-b hkjl    # navigation
+C-b HJKL    # resize
+C-b o       # next window
+C-b x       # close pane
+
+C-b { or }  # move windows around
+</code></pre>
+
+<h3>Windows</h3>
+
+<pre><code>C-b c       # New window
+C-b 1       # Go to window 1
+</code></pre>
+
+<h3>Detach/attach</h3>
+
+<pre><code>C-b d       # detatch
+C-b ( )     # Switch through sessions
+$ tmux attach
+</code></pre>
+
+<h3>Niceties</h3>
+
+<pre><code>C-b t    # Time
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

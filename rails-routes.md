@@ -55,6 +55,16 @@ mapping
     # params[:format] == 'jpg'
     match 'photos/:id' => 'photos#show', :defaults => { :format => 'jpg' }
 
+### Get/post
+
+`get` is the same as `match via: :get`.
+
+    get 'photo/:id' => 'photos#show'
+    # same as match 'photo/:id' => 'photos#show', via: :get
+
+    post 'photo/:id' => 'photos#update'
+    # same as match 'photo/:id' => 'photos#show', via: :post
+
 ### Redirection
 
     match '/stories' => redirect('/posts')

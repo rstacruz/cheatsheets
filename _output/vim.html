@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>vim</h1>
+  <pre><code>.    - repeat last command
+]p   - paste under the current indentation level
+</code></pre>
+
+<h2>Motions</h2>
+
+<pre><code>vip           - Select paragraph
+vipipipip     - Select more
+
+ap            - a paragraph
+ip            - inner paragraph
+
+{a,i}p        - Paragraph
+{a,i}w        - Word
+{a,i}s        - Sentence
+
+ab            - A block [(
+aB            - A block in [{
+at            - A XML tag block
+a[ ( { &lt;      - A [], (), or {} block
+a' &quot; `        - A quoted string
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>yip - Yank inner paragraph
+yap - Yank paragraph (including newline)
+</code></pre>
+
+<h2>SCSS!</h2>
+
+<pre><code>va{=     - reindent block
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Tig</h1>
+  <h2>Tig shortcuts</h2>
+
+<p>Invocation</p>
+
+<pre><code>tig blame FILE
+tig master        # Show a branch
+tig test..master  # Show difference between two bracnhes
+tig FILE          # Show history of file
+tig v0.0.3:README # Show contents of file in a specific revision
+</code></pre>
+
+<h2>All views</h2>
+
+<ul>
+<li><code>^N</code> - Next on parent view</li>
+<li><code>^P</code> - Previous on parent view</li>
+</ul>
+
+<p><code>m</code> - Main view
+ * <code>D</code> - Toggle between date display modes
+ * <code>A</code> - Toggle between author display modes
+ * <code>C</code> - Cherry pick a commit</p>
+
+<p><code>S</code> - Stage view</p>
+
+<ul>
+<li><code>u</code> - Stage/unstage file or chunk</li>
+<li><code>!</code> - Revert file or chunk</li>
+<li><code>C</code> - Commit</li>
+<li><code>M</code> - Merge</li>
+</ul>
+
+<p><code>H</code> - Branch view</p>
+
+<ul>
+<li><code>i</code> - Change sort header</li>
+</ul>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

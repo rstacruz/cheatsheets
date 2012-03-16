@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Makefile</h1>
+  <h3>Safe assignment</h3>
+
+<pre><code>prefix ?= /usr/local
+</code></pre>
+
+<h3>Cool stuff</h3>
+
+<pre><code>    gitdir ?= $(shell git --exec-path)
+    gitver ?= $(word 3,$(shell git --version))
+</code></pre>
+
+<h3>Substitutions</h3>
+
+<pre><code>    $(SOURCE:.cpp=.o)
+    $(patsubst %.cpp, %.c, $(SOURCES))
+</code></pre>
+
+<h3>Building files</h3>
+
+<pre><code>    %.o: %.c
+        ffmpeg -i $&lt; &gt; $@   # Input and output
+        foo $^
+</code></pre>
+
+<h3>Default task</h3>
+
+<pre><code>    default:
+        @echo &quot;hello.&quot;
+        @false
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

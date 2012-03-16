@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Textile</h1>
+  <h3>Pre blocks</h3>
+
+<pre><code>&lt;pre&gt;
+I am &lt;b&gt;very serious.&lt;/b&gt; -- this will get escaped.
+&lt;/pre&gt;
+</code></pre>
+
+<h3>Line breaks</h3>
+
+<pre><code>Line breaks.
+Just break the lines.
+</code></pre>
+
+<h3>Entities</h3>
+
+<pre><code>one(TM), two(R), three(C).
+</code></pre>
+
+<h3>Inlines</h3>
+
+<pre><code>_em_ *strong* __bold-italic__. ??citation??.
+@code@. -strikehtrough-. +insertion+.
+%span%. %{color:red}formatting%.
+&quot;Hypertext&quot;:index.html
+&quot;Text link&quot;:link
+
+[link]http://link.com
+
+!image.jpg!
+!image.jpg(title text)!
+!image.jpg!:link.html
+
+!&gt;right.jpg!
+</code></pre>
+
+<h3>Horizontal line</h3>
+
+<pre><code>--
+</code></pre>
+
+<h3>Blocks</h3>
+
+<pre><code>h1. Header 1
+
+h2. Header 2
+
+bq. Blockquote
+
+p(classname). Class.
+
+p(#id). ID.
+</code></pre>
+
+<h3>Lists</h3>
+
+<pre><code>## ordered list
+
+* unordered list
+</code></pre>
+
+<h3>Footnotes</h3>
+
+<pre><code>Footnotes[1].
+
+fn1. Something.
+</code></pre>
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

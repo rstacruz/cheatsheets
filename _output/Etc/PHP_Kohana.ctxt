@@ -1,0 +1,78 @@
+# Installing
+wget "http://kohanaphp.com/download?modules%5Bauth%5D=Auth&languages%5Ben_US%5D=en_US&format=zip" -O k.zip &&\
+unzip -q k.zip && rm k.zip &&\
+mv Kohana_*/* . && rm -rf Kohana_* &&\
+rm -f "Kohana License.html" &&\
+# htaccess
+cat example.htaccess | sed 's/RewriteBase .*/RewriteBase \//g' > .htaccess && rm example.htaccess &&\
+echo Done! Go and edit application/config/config.php and change the site stuff.
+
+# Public HTML
+mkdir -p public_html &&\
+mv index.html public_html &&\
+mv .htaccess public_html &&\
+echo Done. Now edit index.html's paths
+
+Git ignore
+(echo \*.swo; echo \*.swp; echo .DS_Store; echo Thumbs.db; echo \*~; echo application/logs; echo application/cache ) > .gitignore &&\
+
+# Database
+$config['default'] = array
+(
+    'benchmark'     => TRUE,
+    'persistent'    => FALSE,
+    'connection'    => array
+    (
+        'type'      => 'mysql',
+        'user'      => 'leet',       // set to db user name
+        'pass'      => 'l33t',       // set to db user password
+        'host'      => 'localhost',
+        'port'      => FALSE,
+        'socket'    => FALSE,
+        'database'  => 'leetdb'     // set to db name
+    ),
+    'character_set' => 'utf8',
+    'table_prefix'  => '',
+    'object'        => TRUE,
+    'cache'         => FALSE,
+    'escape'        => TRUE
+);
+
+
+// ORM model
+class Post_Model extends ORM {
+  protected $has_one = array('user'); // has_many, belong_to, has_one, has_and_belongs_to_many
+}
+
+// ORM
+$post = ORM::factory('post', 1);
+$post->name = "Post name";
+$post->save();
+foreach ($post->categories as $category)
+{
+    echo $category->name;
+}
+
+// Find (returns even if no row is found)
+$o = ORM::factory('article')->find(1);
+$o = ORM::factory('article')->where('title', $title)->find();
+if (!$o->loaded) { die('Not found'); }
+echo $o->title;
+
+// Find_all
+$o = ORM::factory('article')->find_all();
+foreach ($o as $article) { echo $article->title; }
+
+// ->$saved
+// ->$changed[]
+// ->$object_name (Blog_Post_Model => "blog_post")
+// ->$primary_key ('id')
+// ->$primary_val ('username') - more userfriendly identifier
+// ->$table_name
+// ->$ignored_columns = array('whatever')
+// ->$table_columns = array('id', 'username')
+// ->$sorting = array('last_login' => 'desc') -- default sorting
+
+//
+
+

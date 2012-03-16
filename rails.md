@@ -111,9 +111,24 @@ http://apidock.com/rails/ActionController/Base
 
     render nothing: true
     render template: 'products/show'
+    render status: 500
+    render status: :forbidden
+    render text: '...'
+    render layout: 'special_layout'
+    render layout: false
     render action: 'something'    # same as `file: 'my/something'`
                                   # Renders the template only, does not execute
                                   # the action
+
+    render json: object
+    render xml: object
+
+    render location: photo_url(photo)
+
+### Head-only responses
+
+    head :bad_request
+    head :created, location: photo_path(@photo)
 
 Layouts
 -------

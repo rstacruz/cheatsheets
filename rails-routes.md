@@ -1,10 +1,5 @@
-mapping
--------------
-
-[Guides/Routing](http://guides.rubyonrails.org/routing.html)
-
-[ActionDispatch::Routing::Mapper](Rhttp://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
-(See included modules)
+title: Rails Routes
+---
 
 ### Multiple resources
 
@@ -180,3 +175,11 @@ mapping
     # This is a legacy wild controller route that's not recommended for RESTful applications.
     # Note: This route will make all actions in every controller accessible via GET requests.
     match ':controller(/:action(/:id(.:format)))'
+
+### References
+
+ * [Guides/Routing](http://guides.rubyonrails.org/routing.html)
+
+ * [ActionDispatch::Routing::Mapper](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
+    (See included modules)
+

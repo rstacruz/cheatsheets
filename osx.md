@@ -21,3 +21,8 @@ Auto-hide other windows on dock switch
     defaults delete com.apple.dock single-app
     killall Dock
 
+Flush DNS
+---------
+
+    dscacheutil -flushcache
+

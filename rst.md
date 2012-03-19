@@ -43,9 +43,9 @@ title: ReStructuredText
     
     .. list-table::
     
-       * - :key:`Weekly work hours:`
-         - :val:`50 hours`
-       * - :key:`Cost per hour:`
-         - :val:`PhP 1,500/hour`
-       * - :key:`Weekly rate:`
-         - :val:`PhP 75,000/week`
+       * - :key:`Cuisine:`
+         - :val:`French/fusion`
+       * - :key:`Number of ingredients:`
+         - :val:`8`
+       * - :key:`Preparation time:`
+         - :val:`30 hours`

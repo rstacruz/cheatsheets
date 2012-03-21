@@ -90,6 +90,7 @@ And in migrations:
     Person.find_by_name(name)
     Person.find_last_by_name(name)
     Person.find_or_create_by_name(name)
+    Person.find_or_initialize_by_name(name)
 
     # Returns a list of recordns
     Person.find_all_by_name(name)
@@ -97,7 +98,7 @@ And in migrations:
     # Add a bang to make it raise an exception
     Person.find_by_name!(name)
 
-    # Use `scoped` instead of `find`
+    # You may use `scoped` instead of `find`
     Person.scoped_by_user_name
 
 Validation

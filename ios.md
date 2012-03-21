@@ -1,7 +1,3 @@
-Path to Installous downloads:
-
-    /private/var/mobile/Documents/Installous/Downloads
-
 Multiple Exchange accounts:
 
     scp root@iphone.local:/private/var/mobile/Library/Preferences/com.apple.accountsettings.plist .

@@ -84,6 +84,22 @@ And in migrations:
       t.references :post, :polymorphic => true
     end
 
+### Dynamic attribute-based finders
+
+    # Returns one record
+    Person.find_by_name(name)
+    Person.find_last_by_name(name)
+    Person.find_or_create_by_name(name)
+
+    # Returns a list of recordns
+    Person.find_all_by_name(name)
+
+    # Add a bang to make it raise an exception
+    Person.find_by_name!(name)
+
+    # Use `scoped` instead of `find`
+    Person.scoped_by_user_name
+
 Validation
 ----------
 

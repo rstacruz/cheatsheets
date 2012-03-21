@@ -57,51 +57,33 @@ title: RSpec
 
 ### Expectations
 
+    # Can be .should or .should_not
+
+    # Numeric
     target.should be < 6
     target.should == 5
+    target.should equal value
     target.should be_between(1, 10)
-    target.should_not == 'Samantha'
+    target.should be_close value, tolerance
 
-    target.should be <value>
-    target.should_not be <value>
-
+    target.should be value
     target.should satisfy {|arg| ...}
-    target.should_not satisfy {|arg| ...}
-
-    target.should equal <value>
-    target.should not_equal <value>
-
-    target.should be_close <value>, <tolerance>
-    target.should_not be_close <value>, <tolerance>
-
     target.should predicate [optional args]
-    target.should be_predicate [optional args]
-    target.should_not predicate [optional args]
-    target.should_not be_predicate [optional args]
-
-    target.should match <regex>
-    target.should_not match <regex>
+    target.should match regexp
 
     target.should be_an_instance_of <class>
-    target.should_not be_an_instance_of <class>
-
     target.should be_a_kind_of <class>
-    target.should_not be_a_kind_of <class>
 
     target.should respond_to <symbol>
-    target.should_not respond_to <symbol>
 
-    lambda {a_call}.should raise_error
-    lambda {a_call}.should raise_error(<exception> [, message])
-    lambda {a_call}.should_not raise_error
-    lambda {a_call}.should_not raise_error(<exception> [, message])
-    lambda {a_call}.should change(instance, method).from(number).to(number)
+    # Control flow
+    proc.should raise_error
+    proc.should raise_error(<exception> [, message])
 
     proc.should throw <symbol>
-    proc.should_not throw <symbol>
 
+    # Enumerables/arrays
     target.should include <object>
-    target.should_not include <object>
 
     target.should have(<number>).things
     target.should have_at_least(<number>).things
@@ -109,6 +91,10 @@ title: RSpec
 
     target.should have(<number>).errors_on(:field)
 
+    # Change
+    proc.should change(instance, method).from(number).to(number)
+
+    # proc.should <=> expect(&proc).to
     expect { thing.approve! }.to change(thing, :status).
         from(Status::AWAITING_APPROVAL).
         to(Status::APPROVED)

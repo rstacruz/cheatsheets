@@ -101,20 +101,42 @@ title: RSpec
 
     expect { thing.destroy }.to change(Thing, :count).by(-1)
 
-### Mocking a class
+### Mocking - basic
 
-    user_mock = mock "User"
-    user_mock.should_receive(:authenticate).with("password").and_return(true)
-    user_mock.should_receive(:coffee).exactly(3).times.and_return(:americano)
-    user_mock.should_receive(:coffee).exactly(5).times.and_raise(NotEnoughCoffeeExcep
-    ion)
+    book.stub(:title) { "The RSpec Book" }
+    book.stub(:title => "The RSpec Book")
+    book.stub(:title).and_return("The RSpec Book")
 
-    people_stub = mock "people"
-    people_stub.stub!(:each).and_yield(mock_user)
-    people_stub.stub!(:bad_method).and_raise(RuntimeError)
+    # First arg is a name, it's optional
+    book = double("book", :title => "The RSpec Book")
 
-    user_stub = mock_model("User", :id => 23, :username => "pat", :email =>
-    "pat@example.com")
+### Mocking - consecutive return values
 
-    my_instance.stub!(:msg).and_return(value)
-    MyClass.stub!(:msg).and_return(value)
+    die.stub(:roll).and_return(1,2,3)
+    die.roll # => 1
+    die.roll # => 2
+    die.roll # => 3
+    die.roll # => 3
+    die.roll # => 3
+
+### Expectations
+
+    double.should_receive(:msg).with(no_args())
+    double.should_receive(:msg).with(any_args())
+    double.should_receive(:msg).with(1, kind_of(Numeric), "b") #2nd argument can any kind of Numeric
+    double.should_receive(:msg).with(1, boolean(), "b") #2nd argument can true or false
+    double.should_receive(:msg).with(1, /abc/, "b") #2nd argument can be any String matching the submitted Regexp
+    double.should_receive(:msg).with(1, anything(), "b") #2nd argument can be anything at all
+    double.should_receive(:msg).with(1, ducktype(:abs, :div), "b") #2nd argument can be object that responds to #abs and #div
+
+    double.should_receive(:msg).once
+    double.should_receive(:msg).twice
+    double.should_receive(:msg).exactly(n).times
+    double.should_receive(:msg).at_least(:once)
+    double.should_receive(:msg).at_least(:twice)
+    double.should_receive(:msg).at_least(n).times
+    double.should_receive(:msg).at_most(:once)
+    double.should_receive(:msg).at_most(:twice)
+    double.should_receive(:msg).at_most(n).times
+    double.should_receive(:msg).any_number_of_times
+

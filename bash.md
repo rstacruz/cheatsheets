@@ -33,6 +33,14 @@ title: Bash
       echo $i
     end
 
+### Reading input
+
+    echo -n "Proceed? [y/n]: "
+    read ans
+    echo $ans
+
+    read -n 1 ans    # Just one character
+
 Functions
 ---------
 

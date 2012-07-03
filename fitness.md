@@ -20,3 +20,27 @@ http://www.bodybuilding.com/fun/mike1.htm
  * 5 x 100% (work set)
 
 http://corw.in/warmup/
+
+### Bench
+
+Jennifer Thompson video: http://www.youtube.com/watch?v=34XRmd3a8_0
+
+### Metabolism
+
+* At rest, 33% of the body's energy comes from carbohydrates, or glycogen, 
+  stored within the muscles and liver. 66% comes from fat.
+
+* During aerobic work, 50-60% of the energy comes from fats
+
+* Primarily carbohydrates are used during the first several minutes of exercise
+
+* For an average fit person, it takes 20 to 30 minutes of continuous aerobic 
+  activity to burn 50% fat and 50% carbohydrate
+
+* There is approximately a 7 fold increase of fat mobilization after 1 hour of 
+  exercise
+
+* Low intense exercise (<30% VO2 max) relies primarily on fat whereas high 
+  intense exercise (>70% VO2 max) primarily utilized carbohydrate.
+
+http://www.exrx.net/Nutrition/Substrates.html

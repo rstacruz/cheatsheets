@@ -2,9 +2,13 @@ Multiple Exchange accounts:
 
     scp root@iphone.local:/private/var/mobile/Library/Preferences/com.apple.accountsettings.plist .
 
+Winterboard themes:
+
+    /Library/Themes
+
 Copy photos:
 
-    scp -r root@iphone.local:/User/Media/DCIM/100APPLE ./photos
+    rsync -v -r root@iphone.local:/User/Media/DCIM/100APPLE ./photos
 
 Ringtone conversion using ffmpeg:
 

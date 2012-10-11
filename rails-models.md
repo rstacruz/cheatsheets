@@ -171,6 +171,14 @@ Validation
       end
     end
 
+### Errors
+
+    record.errors.valid?      #=> false
+    record.errors             #=> { :name => ["can't be blank"] }
+    record.errors.messages    #=> { :name => ["can't be blank"] }
+
+    record.errors[:name].any?
+
 API
 ---
 

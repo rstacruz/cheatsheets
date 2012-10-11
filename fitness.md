@@ -44,3 +44,13 @@ Jennifer Thompson video: http://www.youtube.com/watch?v=34XRmd3a8_0
   intense exercise (>70% VO2 max) primarily utilized carbohydrate.
 
 http://www.exrx.net/Nutrition/Substrates.html
+
+### Deloads on a cut
+
+ - "I would never recommend traditional style deloads on a cut, regardless of 
+ training regimen."
+
+ - "increase the rest day interval between sessions"
+
+https://www.facebook.com/permalink.php?story_fbid=273265046115238&id=116211138487297&comment_id=1262284&offset=0&total_comments=34
+

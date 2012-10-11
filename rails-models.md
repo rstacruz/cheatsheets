@@ -106,15 +106,23 @@ Validation
 
     class Person < ActiveRecord::Base
 
+      # Non empty
+      validates :name, :presence => true
+
       # Checkboxes
       validates :terms_of_service, :acceptance => true
 
-      # Validate associated records
+      # Validate the associated records to ensure they're valid as well
       has_many :books
       validates_associated :books
 
       # Confirmation (like passwords)
       validates :email, :confirmation => true
+
+      # Unique
+      validates :slug, :uniqueness => true
+      validates :slug, :uniqueness => { :case_sensitive => false }
+      validates :holiday, :uniqueness => { :scope => :year, :message => "only once a year" }
 
       # Format
       validates :legacy_code, :format => {
@@ -142,11 +150,15 @@ Validation
       validates :points,       :numericality => true
       validates :games_played, :numericality => { :only_integer => true }
 
-      # Non empty
-      validates :name, :presence => true
-    
       # Multiple
-      validate :login, :email, :presence => true
+      validates :login, :email, :presence => true
+
+      # Conditional
+      validates :description, :presence => true, :if => :published?
+      validates :description, :presence => true, :if => lambda { |obj| .. }
+
+      # On
+      validates :title, :presence => true, :on => :save   # :save | :create | :update
     end
 
 ### Custom validations
@@ -158,7 +170,7 @@ Validation
         errors.add(:foo, 'cant be nil')  if foo.nil?
       end
     end
-      
+
 API
 ---
 

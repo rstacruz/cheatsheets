@@ -9,6 +9,11 @@ title: HTML
     <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
     <!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
 
+### IE conditionals
+
+    <!--[if IE]>      I'm IE      <![endif]-->
+    <!--[if !IE]> --> Not IE <!-- <![endif]-->
+
 ### iPhone viewport
 
     <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>

@@ -31,6 +31,8 @@ Tig shortcuts
     !     # Revert file or chunk
     C     # Commit
     M     # Merge
+    1     # Stage line
+    []    # Increase/decrease the diff context
 
 ### `H` - Branch view
 

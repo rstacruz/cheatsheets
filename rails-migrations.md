@@ -1,6 +1,11 @@
 title: Rails migrations
 -------
 
+### Automatically make migrations
+
+    $ rails generate migration RemovePartNumberFromProducts part_number:string
+    $ rails generate migration AddNameToWidgets name:string
+
 ### Run migrations
 
     $ rake db:migrate

@@ -1,6 +1,11 @@
 title: Bash
 ---
 
+### Clever one liners
+
+    # Search and replace in all files
+    perl -p -i -e "s/from/to/g" **/*.css
+
 ### String substitutions by patterns
 
     STR=/path/to/foo.c
@@ -31,7 +36,7 @@ title: Bash
 
     for i in /etc/rc.*; do
       echo $i
-    end
+    done
 
 ### Reading input
 

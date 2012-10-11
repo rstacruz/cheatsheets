@@ -1,6 +1,24 @@
+### Compass: Sprites
 
-### Sprites
+    @import compass/utilities/sprites
 
+    $sprites: sprite-map('sprites/*.png')
+    $sprites: sprite-map('sprites/*.png', $spacing: 20px)
+
+    @mixin sprite($name)
+      background-image: sprite-url($sprite)
+
+      +sprite-dimensions($sprite, $name)
+      width: image-width(sprite-file($sprite, $name)
+      height: image-height(sprite-file($sprite, $name)
+
+      +sprite-background-position($sprite, $name[, $offset-x, $offset-y])
+      background-position: sprite-position($sprite, $name)
+      nth(sprite-position($sprite, $name), 1)   # X position
+      nth(sprite-position($sprite, $name), 2)   # Y position
+
+
+### Compass: Sprites (the @import way)
 
     // Sprite sets (applies to icon/*.png)
     $icon-spacing: 0
@@ -33,3 +51,11 @@
       background: sprite($icon-sprites, refresh, -2px, -9px)
       //background: url(...) -2px -19px;
 
+
+### Loopo
+
+    $i: 6;
+    @while $i > 0 {
+      .item-#{$i} { width: 2em * $i; }
+      $i: $i - 2;
+    }

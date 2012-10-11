@@ -7,7 +7,10 @@ Webkit extensions
 ### Font smoothing
 
     /* maxvoltar.com/archive/-webkit-font-smoothing */
-    html { -webkit-font-smoothing: antialiased; }
+    * {
+      text-rendering: optimizeLegibility !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
 
 ### Heading kerning pairs and ligature
 
@@ -28,3 +31,37 @@ Webkit extensions
 
     /* http://www.webkit.org/blog/85/introducing-text-stroke/ */
     -webkit-text-stroke: 3px black;
+
+### iOS Scrolling prevention
+
+    document.ontouchstart = (e) ->
+      $pane = $(e.target).closest('.scrollable>div')
+      if $pane.length is 0 or $pane[0].scrollHeight <= $pane.innerHeight()
+        e.preventDefault()
+
+    %ios-scrollable
+      &, >div
+        -webkit-overflow-scrolling: touch
+        overflow: auto
+
+      >div
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+
+### UIWebView optimizations
+
+    /* http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/ */
+
+    * {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-user-select: none;                /* disable text select */
+      -webkit-touch-callout: none;              /* disable callout, image save panel (popup) */
+      -webkit-tap-highlight-color: transparent; /* "turn off" link highlight */
+    }
+
+    a:focus {
+      outline:0; // Firefox (remove border on link click)
+    }

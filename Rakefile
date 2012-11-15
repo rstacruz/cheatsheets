@@ -5,5 +5,5 @@ end
 
 desc "Deploy"
 task :deploy => :build do
-  system "git update-ghpages rstacruz/cheatsheets -i _output"
+  system "git update-ghpages rstacruz/cheatsheets -i _output --force"
 end

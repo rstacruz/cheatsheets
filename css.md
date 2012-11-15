@@ -1,6 +1,18 @@
 title: CSS
 ---
 
+Animations
+----------
+
+### Animtaion
+
+    animation-direction: normal | reverse | alternate | alternate-reverse
+    animation-iteration-count: infinite | <number>
+
+    animation: <name> <duration> <timing-function> <delay> <count> <direction> <fill-mode>
+
+    animation: bounce 300ms linear infinite
+
 Webkit extensions
 -----------------
 

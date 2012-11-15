@@ -59,3 +59,7 @@
 		default:
 			@echo "hello."
       @false
+
+### Inclusion
+
+    include assets.make

@@ -27,3 +27,18 @@
     heroku addons:add wildcard_domains
 
     *.yourdomain.com => heroku.com
+
+## htpasswd (for PHP apps)
+
+Create an .htaccess file in the webroot:
+
+    AuthUserFile /app/www/.htpasswd
+    AuthType Basic
+    AuthName "Restricted Access"
+    Require valid-user
+
+Create a .htpasswd file:
+
+    htpasswd -c .htpasswd [username]
+
+https://gist.github.com/3316425

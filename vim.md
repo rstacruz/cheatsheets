@@ -40,6 +40,36 @@ Example:
     yip - Yank inner paragraph
     yap - Yank paragraph (including newline)
 
+Folds
+-----
+
+    zo   - Open
+    zO   - Open, recursive
+    zc   - Close
+    zC   - Close, recursive
+    za   - Toggle
+    zA   - Toggle, recursive
+
+    zv   - Open folds for this line
+
+    zM   - Close all
+    zR   - Open all
+
+    zm   - Fold more (foldlevel += 1)
+    zr   - Fold less (foldlevel -= 1)
+
+    zx   - Update
+
+Scrolling
+---------
+
+    zz   - Center this line
+
+Windows
+-------
+
+    z{height}<Cr>       - Resize pane to {height} lines tall
+
 Tags
 ----
 

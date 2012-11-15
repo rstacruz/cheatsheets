@@ -1,6 +1,9 @@
 title: FFaker
 ---
 
+    # gem install ffaker
+    require 'faker'
+
 ## Faker::Address
 
     Faker::Address.city                     #=> "Autumnside"

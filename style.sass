@@ -154,13 +154,10 @@ h2+pre, h3+pre
 
 ul.pages
   &, li
+    list-style-type: none
+  li
     margin: 0
     padding: 0
-    list-style-type: none
-
-  &
-    overflow: hidden
-    margin: 40px 0
 
   li
     width: 20%
@@ -170,18 +167,24 @@ ul.pages
   a
     display: block
     text-decoration: none
-    padding: 3px 5px
-    +border-radius(3px)
+    padding: 7px 8px
+    +border-radius(4px)
 
-    color: #888
-    font-weight: bold
+    color: #558
+    font-weight: normal
     font-size: 9pt
 
-  a:visited
+  a:before
+    content: '\203a'
     color: #999
+    margin-right: 7px
+
+  a:visited
+    opacity: 0.8
 
   a:hover
-    background: #fafafa
+    background: #eef
+    +box-shadow(inset 0 -1px 0 rgba(black, 0.05), inset 0 0 0 3px rgba(black, 0.03))
 
   li:first-letter
     text-transform: uppercase

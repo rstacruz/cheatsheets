@@ -2,7 +2,7 @@ title: FFaker
 ---
 
     # gem install ffaker
-    require 'faker'
+    require 'ffaker'
 
 ## Faker::Address
 

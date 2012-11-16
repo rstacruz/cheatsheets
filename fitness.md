@@ -40,8 +40,9 @@ Jennifer Thompson video: http://www.youtube.com/watch?v=34XRmd3a8_0
 * There is approximately a 7 fold increase of fat mobilization after 1 hour of 
   exercise
 
-* Low intense exercise (<30% VO2 max) relies primarily on fat whereas high 
-  intense exercise (>70% VO2 max) primarily utilized carbohydrate.
+* Low intense exercise (less than 30% VO2 max) relies primarily on fat whereas 
+  high intense exercise (greater than 70% VO2 max) primarily utilized 
+  carbohydrate.
 
 http://www.exrx.net/Nutrition/Substrates.html
 

@@ -8,15 +8,42 @@
     // x = 10, y = 20, width = 200, height = 100
     c.fillStyle = '#ff0000';
     c.strokeStyle = '#ff00ff';
+
     c.lineWidth = 5;
     c.lineCap = 'round';
+
     c.fillRect(10, 20, 200, 100);
+
     c.stroke();
+    c.fill();
+
+### Saving and restoring
+
+    c.save();
+
+    // Saves:
+    // strokeStyle fillStyle globalAlpha lineWidth lineCap lineJoin miterLimit 
+    // shadowOffsetX shadowOffsetY shadowBlur shadowColor
+    // globalCompositeOperation
+    // Transformations: translate rotate scale transform setTransform
+    // Clipping path
+
+    c.restore();
+
+### Transformations
+
+    c.translate(0, 0)
+    c.rotate(Math.PI*2/5)
+    c.scale(1.0, 1.0)
+
+See [MDN: Transformations][xform].
 
 ### Image drawing
 
     c.drawImage(image, dx, dy, [dw, dh]);
     /* `image` can be HTML Image/Canvas/Video */
+
+See [MDN: Images][images].
 
 ### Colors, styles shadows
 
@@ -27,6 +54,8 @@
     c.shadowOffsetY = 0;
     c.shadowOffsetBlur = 3.0;
     c.shadowColor = 'rgba(0,0,0,0.2)';
+
+See [MDN: Styles][styles].
 
 ### Gradients
 
@@ -47,12 +76,11 @@
     c.arc(...)
     c.closePath()
 
-### Text
+### More resources
 
+  * [Canvas Cheatsheet PDF][pdf]
 
-
-### Resources
-
-  * [Canvas Cheatsheet PDF][cc]
-[cc]: http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf
-
+[pdf]: http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf
+[xform]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations
+[styles]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors
+[images]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images

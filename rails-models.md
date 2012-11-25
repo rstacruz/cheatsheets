@@ -203,8 +203,12 @@ API
     item.valid?
     item.invalid?
 
+ * [Guides: callbacks](http://guides.rubyonrails.org/active_record_validations_callbacks.html)
 
-http://guides.rubyonrails.org/active_record_validations_callbacks.html
+### Sorting
+
+    posts.order(:title)
+    posts.order(:title).reverse
 
 ### Mass updates
 

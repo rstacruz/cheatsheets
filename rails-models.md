@@ -14,10 +14,6 @@ title: Rails Models
     has_one :through
     has_and_belongs_to_many
 
-    belongs_to :author,
-      class_name: 'User',
-      dependent: :destroy  // delete this
-
 ### Has many
 
     belongs_to :parent, :foreign_key => 'parent_id' class_name: 'Folder'
@@ -38,6 +34,26 @@ title: Rails Models
         'FROM people p, post_subscriptions ps ' +
         'WHERE ps.post_id = #{id} AND ps.person_id = p.id ' +
         'ORDER BY p.first_name'
+
+### belongs to
+
+    belongs_to :author,
+      :dependent      => :destroy    # or :delete
+
+      :class_name     => "Person"
+      :select         => "*"
+      :counter_cache  => true
+      :counter_cache  => :custom_counter
+      :include        => "Book"
+      :readonly       => true
+
+      :conditions     => 'published = true'
+
+      :touch          => true
+      :touch          => :authors_last_updated_at
+
+      :primary_key    => "name"
+      :foreign_key    => "author_name"
 
 ### Many-to-many
 

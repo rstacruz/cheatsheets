@@ -30,11 +30,29 @@
 
     c.restore();
 
+### Animation
+
+    onframe: function() {
+      c.clearRect(0, 0, w, h);
+    }
+
 ### Transformations
 
     c.translate(0, 0)
     c.rotate(Math.PI*2/5)
     c.scale(1.0, 1.0)
+
+To rotate along origin:
+
+    c.translate(ox, oy)
+    c.rotate(theta)
+    c.translate(-ox, -oy)
+
+To scale along origin:
+
+    c.translate(-ox*x, -oy*y)
+    c.scale(x, y)
+    c.translate(ox/x, oy/y)
 
 See [MDN: Transformations][xform].
 

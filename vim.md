@@ -62,9 +62,6 @@ Misc
 
     zz      # Center this line
 
-    `.      # Go to last edit
-    ``      # Go to last jump
-
 Windows
 -------
 
@@ -73,10 +70,18 @@ Windows
 Tags
 ----
 
-      ^]      # Jump to definition
-      g]      # See all definitions
-      ^O ^I   # Back/forward
+    ^]      # Jump to definition
+    g]      # See all definitions
+    ^O ^I   # Back/forward
 
-      :tselect Classname  # Find definitions of Classname
-      :tjump Classname    # Find definitions of Classname (auto-select 1st)
-      :tag Classname      # Jump to first definition of Classname
+    :tselect Classname  # Find definitions of Classname
+    :tjump Classname    # Find definitions of Classname (auto-select 1st)
+    :tag Classname      # Jump to first definition of Classname
+
+Marks
+-----
+
+    `^      # Last position of cursor in insert mode
+    `.      # Last change
+    ``      # Last jump
+

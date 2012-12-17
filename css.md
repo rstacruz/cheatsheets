@@ -1,17 +1,45 @@
 title: CSS
 ---
 
+Background
+----------
+
+### Shorthand
+
+    background: <color> <image> <position> <size> <repeat> <attachment> <clip>
+
+    # Example:
+    background: #ff0 url(bg.jpg) center top no-repeat fixed
+
+### Other properties
+
+    background-clip: border-box | padding-box | content-box [, ...]*
+
+    background-repeat: no-repeat | repeat-x | repeat-y
+
+    background-attachment: scroll | fixed | local
+
+### Compatibility
+
+  - background-clip: IE9+
+  - Multiple backgrounds: IE9+
+
 Animations
 ----------
 
-### Animtaion
-
-    animation-direction: normal | reverse | alternate | alternate-reverse
-    animation-iteration-count: infinite | <number>
+### Shorthand
 
     animation: <name> <duration> <timing-function> <delay> <count> <direction> <fill-mode>
 
+    # Example:
+    animation: bounce 300ms linear 0s infinite normal
     animation: bounce 300ms linear infinite
+
+### Other properties
+
+    animation-direction: normal | reverse | alternate | alternate-reverse
+
+    animation-iteration-count: infinite | <number>
 
 Webkit extensions
 -----------------

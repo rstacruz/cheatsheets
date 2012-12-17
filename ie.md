@@ -1,7 +1,7 @@
 title: Internet Explorer
 ---
 
-## Only in IE7+
+## Only available in IE7+
 
 Selectors:
 
@@ -15,7 +15,7 @@ CSS properties:
  - `max-width`
  - `position: fixed`
 
-## Only in IE8+
+## Only available in IE8+
 
 Selectors/pseudos: ([polyfill][selectivizr])
 
@@ -44,7 +44,7 @@ JS features:
  - JSON parsing
  - Cross-origin resource sharing
 
-## Only in IE9+
+## Only available in IE9+
 
 Selectors/pseudos: ([polyfill][selectivizr])
 
@@ -81,11 +81,11 @@ HTML5 features:
  - `<svg>`
  - `<img src='image.svg'>`
 
-## Only in IE10+
+## Only available in IE10+
 
 CSS features:
 
- - `-ms-animation`
+ - `animation`
  - `transition`
  - `linear-gradient()`
 

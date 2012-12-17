@@ -114,7 +114,7 @@ Always install these in almost every project:
 
 You may also need these:
 
- - [modernizr] for feature detection
+ - [modernizr] for feature detection and new HTML tags
 
 for CSS3 decorations:
 
@@ -154,4 +154,5 @@ Misc
 [html5shiv]: https://code.google.com/p/html5shiv/
 [fills]: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
 [json2]: https://github.com/douglascrockford/JSON-js
-[eccstender]: http://ecsstender.org/
+[modernizr]: https://modernizr.com
+[ecsstender]: http://ecsstender.org/

@@ -1,7 +1,7 @@
 title: Command line stuff
 ---
 
-### List (ls)
+## List (ls)
 
 Usage:
 
@@ -35,7 +35,7 @@ Sorting:
 
     -h   Human-readable size (3k)
 
-### Find (find)
+## Find (find)
 
 Usage:
 
@@ -78,7 +78,72 @@ Examples:
 
     find . -newerBt "24 hours ago"
 
-### Search-and-replace in all files
+## Tail
+
+Usage:
+
+    tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+
+Modes:
+
+    -f     # follow
+    -F     # follow by filename (accounts for log rotation)
+    -r     # Reverse order
+
+Options:
+
+    -bN    # N*512 bytes
+    -cN    # N bytes
+    -nN    # N lines
+
+    +N     # Start from line N
+
+## Sudo
+
+Listing:
+
+    -l           # List allowed commands
+
+Options:
+
+    -A           # Use $SUDO_ASKPASS
+    -b           # Run in background
+    -E           # Preserve environment
+    -H           # use target's $HOME
+    -n           # Don't prompt for password
+    -P           # Preserve group vector
+    -S           # Read password from stdin
+
+File descriptors:
+
+    -C fd        # Close all open file descriptors
+
+Prompt:
+
+    -p prompt    # Custom prompt (-p "%p password:")
+
+Interactive:
+
+    -i [cmd]     # Interactive shell without variables
+    -s [cmd]     # Interactive shell
+
+    -u user      # run as this user
+    -g group     # run as this group
+
+Timestamp:
+
+    -v           # revalidate timestamp for 5 mins
+    -k           # invalidate timestamp
+    -K           # just like -k
+
+## wc (Word count)
+
+    -c   # Bytes
+    -l   # Lines
+    -m   # Characters (incl multi-byte)
+    -w   # Words
+
+## Search-and-replace in all files
 
     perl -p -i -e 's/hello/HELLO/g' **/*
 

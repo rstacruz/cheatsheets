@@ -43,7 +43,7 @@ To use public images (AMI's), you need an SSH keypair from EC2.
 
 ### Ubuntu images
 
-    * [Ubuntu EC2 AMI locator](http://cloud-images.ubuntu.com/locator/ec2/)
+ * [Ubuntu EC2 AMI locator](http://cloud-images.ubuntu.com/locator/ec2/)
 
 ### Change certificates
 

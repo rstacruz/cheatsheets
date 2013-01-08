@@ -20,18 +20,18 @@ CSS properties:
 Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
 
  - `+` _(adjacent)_
- - `:first-child` _(unless for static elements)_
+ - `:first-child` <sup>1</sup>
  - `:focus`
  - `:before`, `:after` _(single colon only)_
 
 CSS properties:
 
  - `outline`
- - `display: inline-block` _(only for `<span>` and inlines)_
+ - `display: inline-block` <sup>2</sup>
  - `display: table`
+ - `border-collapse`, `border-spacing`, `table-layout`, ...
  - `whitespace: pre-wrap`
  - `whitespace: pre-line`
- - `border-collapse`, `border-spacing`, `table-layout`, ...
  - `box-sizing`
 
 Features:
@@ -143,9 +143,12 @@ Misc
     <!--[if IE]>      I'm IE      <![endif]-->
     <!--[if !IE]> --> Not IE <!-- <![endif]-->
 
-### iPhone viewport
+Footnotes
+---------
 
- * "Static" = doesn't work for elements inserted via JS
+ * (1) = doesn't work for elements inserted via JS
+ * (2) = IE6/7 can only support inline-block for elements that are naturally 
+ inline, like span
 
 [text-shadow]: https://github.com/heygrady/textshadow
 [ie7.js]: http://ie7-js.googlecode.com/svn/test/index.html

@@ -1,6 +1,19 @@
 title: ZNC bouncer
 ---
 
+## Start
+
+    /msg *status addserver irc.undernet.org [6667]
+    /msg *status connect
+
+    /msg *status loadmod webadmin
+    /msg *status loadmod admin
+    /msg *status loadmod away
+    /msg *status loadmod awaynick
+    /msg *status loadmod clientnotify    # Notifies when another client logs
+    /msg *status loadmod keepnick
+    /msg *status loadmod kickrejoin
+
 ## Away
 
     /msg *status loadmod away

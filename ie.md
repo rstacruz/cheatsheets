@@ -17,7 +17,7 @@ CSS properties:
 
 ## Only available in IE8+
 
-Selectors/pseudos: ([polyfill][selectivizr])
+Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
 
  - `+` _(adjacent)_
  - `:first-child` _(unless for static elements)_
@@ -46,7 +46,7 @@ JS features:
 
 ## Only available in IE9+
 
-Selectors/pseudos: ([polyfill][selectivizr])
+Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
 
  - `:first-of-type`, `:last-of-type`
  - `:last-child`
@@ -73,7 +73,7 @@ CSS properties:
 
 CSS features:
 
- - `@media` queries
+ - `@media` queries ([polyfill: respond.js][respond])
 
 HTML5 features:
 
@@ -111,6 +111,7 @@ Always install these in almost every project:
  - [selectivizr] for selectors
  - [html5shiv] for new HTML tags
  - [json2] for JSON parsing (IE7 below)
+ - [respond] for media queries
 
 You may also need these:
 
@@ -156,3 +157,4 @@ Misc
 [json2]: https://github.com/douglascrockford/JSON-js
 [modernizr]: https://modernizr.com
 [ecsstender]: http://ecsstender.org/
+[respond]: https://github.com/scottjehl/Respond

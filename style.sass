@@ -22,6 +22,21 @@ html
   background: #505060 * 0.8
   padding: 60px 20px
 
+a
+  &, &:visited
+    background-color: mix(#db3, white, 30%)
+    color: #db3 * 0.6
+    text-shadow: 0 1px 1px rgba(white, 0.2)
+
+    padding: 1px 2px
+    box-shadow: 0 1px 1px rgba(black, 0.3)
+    border-radius: 2px
+
+    text-decoration: none
+
+  &:hover
+    background-color: mix(#db3, white, 50%)
+
 @media screen and (max-width: 800px)
   html
     padding: 20px

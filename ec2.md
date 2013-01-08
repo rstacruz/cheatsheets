@@ -3,43 +3,43 @@ title: EC2 API tools
 
 ### Install
 
-    $ sudo apt-get install ec2-api-tools ec2-ami-tools  # Ubuntu
-    $ brew install ec2-api-tools ec2-ami-tools  # OSX/Homebrew
+    $ sudo apt-get install ec2-api-tools ec2-ami-tools
+    $ brew install ec2-api-tools ec2-ami-tools
 
 ### Key pair
 
-To use public images (AMI's), you need an SSH keypair from EC2.
-
-    $ ec2-add-keypair my-keypair > ~/.ec2/my-keypair.pem
-    $ chmod 600 ec2-keypair.pem
+    # To use public images (AMI's), you need an SSH keypair from EC2.
+      ec2-add-keypair my-keypair > ~/.ec2/my-keypair.pem
+      chmod 600 ec2-keypair.pem
 
 ### Start an instance
 
-    # Show images (AMI's) owned by amazon, or me
-    $ ec2-describe-images -o self -o amazon
+    # Start an instance using a given AMI image:
+    # (Use the Ubuntu locator, or ec2-describe-images)
+      ec2-run-instances ami-xxxxxx -k ec2-keypair
 
-    # Start an instance using a given AMI image
-    $ ec2-run-instances ami-xxxxxx -k ec2-keypair
+    # Open up ports (in the 'default' security group):
+      ec2-authorize default -p 22
+      ec2-authorize default -p 80
 
-    # Open up ports (in the 'default' security group)
-    $ ec2-authorize default -p 22
-    $ ec2-authorize default -p 80
-
-    # Now SSH to it
-    $ ssh -i ~/.ec2/my-keypair.pem root@ec2-xxx.amazonaws.com
+    # Connect
+      ssh -i ~/.ec2/my-keypair.pem root@ec2-xxx.amazonaws.com
 
 ### Management
 
-    # Show running
-    $ ec2-describe-instances
+    # Show running instances
+      ec2-describe-instances
 
     # Kill an instance
-    $ ec2-terminate-instances i-yourinstance
+      ec2-terminate-instances i-yourinstance
 
 ### Misc
 
     # Create a security group
-    $ ec2-add-group group_name -d "Description"
+      ec2-add-group group_name -d "Description"
+
+    # Show images (AMI's) owned by amazon, or me
+      ec2-describe-images -o self -o amazon
 
 ### Ubuntu images
 

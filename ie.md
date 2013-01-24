@@ -1,106 +1,82 @@
 title: Internet Explorer
 ---
 
-## Only available in IE7+
+### IE7+ only
 
-Selectors:
+ * Selectors:
+   - `>` _(descendant)_
+   - `[attr]` _(attribute)_
+   - `.class1.class2` _(multiple classes)_
+   - `~` _(sibling)_
+ * CSS properties:
+   - `max-width`
+   - `position: fixed`
 
- - `>` _(descendant)_
- - `[attr]` _(attribute)_
- - `.class1.class2` _(multiple classes)_
- - `~` _(sibling)_
+### IE8+ only
 
-CSS properties:
+ * Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
+   - `+` _(adjacent)_
+   - `:first-child` <sup>1</sup>
+   - `:focus`
+   - `:before`, `:after` _(single colon only)_
+ * CSS properties:
+   - `outline`
+   - `display: inline-block` <sup>2</sup>
+   - `display: table`
+   - `border-collapse`, `border-spacing`, `table-layout`, ...
+   - `whitespace: pre-wrap`
+   - `whitespace: pre-line`
+   - `box-sizing`
+ * Features:
+   - PNG alpha transparency
+   - `data:` URI
+ * JS features:
+   - JSON parsing
+   - Cross-origin resource sharing
 
- - `max-width`
- - `position: fixed`
+## IE9+ only
 
-## Only available in IE8+
+ * Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
+   - `:first-of-type`, `:last-of-type`
+   - `:last-child`
+   - `:empty`
+   - `:enabled`, `:disabled`, `:checked`
+   - `:not()`
+   - `:nth-child()`, `:nth-last-child()`,
+   - `:nth-of-type()`, `:nth-last-of-type()`, `:only-of-type()`
+   - `:only-child()`
+   - `:target`
+   - `::selection`
+ * CSS properties:
+   - `background-clip`
+   - `background-origin`
+   - `background-size`
+   - `background: x, y, z` _(multiple backgrounds)_
+   - `opacity`
+   - `border-radius`
+   - `box-shadow`
+   - `rgba()`
+   - `transform`
+ * CSS features:
+   - `@media` queries ([polyfill: respond.js][respond])
+ * HTML5 features:
+   - `<canvas>`
+   - `<svg>`
+   - `<img src='image.svg'>`
 
-Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
+### IE10+ only
 
- - `+` _(adjacent)_
- - `:first-child` <sup>1</sup>
- - `:focus`
- - `:before`, `:after` _(single colon only)_
+ * CSS features:
+   - `animation`
+   - `transition`
+   - `linear-gradient()`
+ * HTML features:
+   - `<input placeholder='..'>`
+   - `<input type='range'>`
+ * JS features:
+   - Web sockets
 
-CSS properties:
-
- - `outline`
- - `display: inline-block` <sup>2</sup>
- - `display: table`
- - `border-collapse`, `border-spacing`, `table-layout`, ...
- - `whitespace: pre-wrap`
- - `whitespace: pre-line`
- - `box-sizing`
-
-Features:
-
- - PNG alpha transparency
- - `data:` URI
-
-JS features:
-
- - JSON parsing
- - Cross-origin resource sharing
-
-## Only available in IE9+
-
-Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
-
- - `:first-of-type`, `:last-of-type`
- - `:last-child`
- - `:empty`
- - `:enabled`, `:disabled`, `:checked`
- - `:not()`
- - `:nth-child()`, `:nth-last-child()`,
- - `:nth-of-type()`, `:nth-last-of-type()`, `:only-of-type()`
- - `:only-child()`
- - `:target`
- - `::selection`
-
-CSS properties:
-
- - `background-clip`
- - `background-origin`
- - `background-size`
- - `background: x, y, z` _(multiple backgrounds)_
- - `opacity`
- - `border-radius`
- - `box-shadow`
- - `rgba()`
- - `transform`
-
-CSS features:
-
- - `@media` queries ([polyfill: respond.js][respond])
-
-HTML5 features:
-
- - `<canvas>`
- - `<svg>`
- - `<img src='image.svg'>`
-
-## Only available in IE10+
-
-CSS features:
-
- - `animation`
- - `transition`
- - `linear-gradient()`
-
-Features:
-
- - `<input placeholder='..'>`
- - `<input type='range'>`
-
-HTML5 features:
-
- - Web sockets
-
-## Not in IE10 (or below) at all
-
-CSS properties:
+### Not in IE10 (or below) at all
 
  - `text-shadow` ([polyfill][text-shadow])
 

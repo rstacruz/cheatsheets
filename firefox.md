@@ -13,8 +13,10 @@ title: Firefox
  * No more support for Mac OSX 10.5 and below
  * SVG `FillPaint` and `StrokePaint`
  * HTML `<iframe sandbox=...>` ([docs][iframe-sandbox])
+ * Official support for Windows 8 ([link][17reqs])
 
 [iframe-sandbox]: https://developer.mozilla.org/en-US/docs/HTML/Element/iframe#attr-sandbox
+[17reqs]: http://www.mozilla.org/en-US/firefox/17.0/system-requirements/
 
 ### Firefox 16 (Oct 2012)
 

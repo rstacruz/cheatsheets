@@ -55,3 +55,11 @@ http://www.exrx.net/Nutrition/Substrates.html
 
 https://www.facebook.com/permalink.php?story_fbid=273265046115238&id=116211138487297&comment_id=1262284&offset=0&total_comments=34
 
+### Conditioning with 5/3/1
+
+ - "For conditioning, I highly recommend 30-40 minutes of walking every day.  
+ Yes,  walking. If you’re asking why something so non-strenuous: if physique 
+ goals are your only concern, do not let the conditioning take away from your 
+ recovery."
+
+Jim Wendler: http://www.jimwendler.com/2012/09/531-and-bodybuilding/

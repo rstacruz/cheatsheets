@@ -6,6 +6,19 @@ title: EC2 API tools
     $ sudo apt-get install ec2-api-tools ec2-ami-tools
     $ brew install ec2-api-tools ec2-ami-tools
 
+### Pem files
+
+    $ brew info ec2-api-tools
+
+ * Before you can use these tools you must export some variables to your $SHELL
+   and download your X.509 certificate and private key from Amazon Web Services.
+
+ * Your certificate and private key are available at
+   [aws-portal.amazon.com](http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key).
+
+ * Download two `.pem` files, one starting with `pk-`, and one starting with `cert-`.
+   You need to put both into a folder in your home directory, `~/.ec2`.
+
 ### Key pair
 
     # To use public images (AMI's), you need an SSH keypair from EC2.

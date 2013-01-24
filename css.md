@@ -105,3 +105,20 @@ Webkit extensions
     a:focus {
       outline:0; // Firefox (remove border on link click)
     }
+
+Browser hacks
+-------------
+
+Not recommended, but here they are if you ever need them. Note that vendor 
+prefixes may go away eventually.
+
+### Mozilla-only
+
+    @-moz-document url-prefix() {
+      .box { color: blue; }
+    }
+
+### Webkit-only
+
+    @media all and (-webkit-min-device-pixel-ratio: 1) {
+    }

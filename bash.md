@@ -109,7 +109,7 @@ Ifs
 
 ### Numeric comparisons
 
-    if $(( $a < $b ))
+    if (( $a < $b ))
 
 ### Unset variables
 
@@ -131,12 +131,12 @@ Numeric calculations
 Arrays
 ------
 
+    # Declaring using declare -a
+    declare -a Fruits=('Apple' 'Banana' 'Orange')
+
     Fruits[0]="Apple"
     Fruits[1]="Banana"
     Fruits[2]="Orange"
-
-    # Declaring using declare -a
-    declare -a Fruits=('Apple' 'Banana' 'Orange')
 
     echo ${Fruits[0]}           # Element #0
     echo ${Fruits[@]}           # All elements, space-separated

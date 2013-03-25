@@ -7,6 +7,7 @@ title: Ubuntu/Debian
     dpkg -S `which tsclient`    # What package does it belong to?
     dpkg -L aria2c              # What does this package provide?
     dpkg -i *.deb               # Install a deb file
+    dpkg -s nodejs              # Show info
 
 ### Apt archives path
 

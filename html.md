@@ -78,7 +78,7 @@ Only do this if you're not placing the site in the root!
 
 ### Google jQuery
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 ### Unsupported message
 

@@ -94,6 +94,9 @@ Webkit extensions
 ### UIWebView optimizations
 
     /* http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/ */
+    /* 
+       http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/ 
+     */
 
     * {
       -webkit-tap-highlight-color: rgba(0,0,0,0);

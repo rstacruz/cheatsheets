@@ -43,6 +43,10 @@ http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html
     time_tag Date.yesterday, 'Yesterday'   #=> <time datetime="2010-11-03">Yesterday<%rtime>
     time_tag Date.today, :pubdate => true  #=> <time datetime="2010-11-04" pubdate="pubdate">November 04, 2010</time>
 
+    time_tag Date.today, \
+      :format => :short_date # (en.time.formats.short_date)
+
+
 ### Files
 
     = form_for @post, :multipart => true do |f|

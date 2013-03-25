@@ -192,3 +192,4 @@ References
 ----------
 
 *  http://wiki.bash-hackers.org/
+* http://wiki.bash-hackers.org/syntax/shellvars

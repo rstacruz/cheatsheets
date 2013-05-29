@@ -85,3 +85,7 @@ Marks
     `.      # Last change
     ``      # Last jump
 
+Calculator
+----------
+
+(Insert mode) <C-r>=128/2

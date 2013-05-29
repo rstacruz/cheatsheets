@@ -224,7 +224,7 @@ API
 ### Sorting
 
     posts.order(:title)
-    posts.order(:title).reverse
+    posts.order("title DESC")
 
 ### Mass updates
 

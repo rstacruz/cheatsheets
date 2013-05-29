@@ -2,9 +2,11 @@ Multiple Exchange accounts:
 
     scp root@iphone.local:/private/var/mobile/Library/Preferences/com.apple.accountsettings.plist .
 
-Winterboard themes:
+Paths:
 
-    /Library/Themes
+    /Library/Themes           # Winterboard themes
+    /User/Media/DCIM/100APPLE # Photos
+    /User/Media/Recordings    # Voice recordings
 
 Copy photos:
 

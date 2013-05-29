@@ -11,12 +11,14 @@ Options:
 
 Data options:
 
-    -d <data>    # --data: HTTP post data
+    -d <data>    # --data: HTTP post data, URL encoded (eg, status="Hello")
     -G           # --get: send -d data via get
 
 Headers:
 
     -A <str>     # --user-agent
+    -b name=val  # --cookie
+    -b FILE      # --cookie
     
 SSL:
 

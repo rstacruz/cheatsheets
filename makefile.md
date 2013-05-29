@@ -27,8 +27,11 @@
 ### Find files
 
     FILES = $(shell find images -name "*")
+    FILES = $(shell find test/*.js)
 
     $(patsubst images/%, assets/%, $(shell find images -name "*"))
+
+
 
 ### Substitutions
 

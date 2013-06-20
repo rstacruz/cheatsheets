@@ -3,6 +3,15 @@ title: Time formats
 
 ### Ruby
 
+    Date presets
+      %m/%d/%Y      - 06/05/2013
+      %A, %B %e, %Y - Sunday, January 5, 2013
+      %b %e         - Jan 5
+
+    Time presets
+      %H:%M  - 23:05
+      %I:%Mp - 11:05PM
+
     Weekday
       %a - Sun
       %A - Sunday
@@ -18,12 +27,12 @@ title: Time formats
       %d - 01..31
       %e - 1..31
     Time
-      %H - Hour of the day, 24-hour clock (00..23)
-      %I - Hour of the day, 12-hour clock (01..12)
-      %l - Hour of the day ()
-      %M - Minute of the hour (00..59)
-      %p - Meridian indicator (AM or PM)
-      %S - Second of the minute (00..60)
+      %H - Hour, 24-hour clock (00..23)
+      %I - Hour, 12-hour clock (01..12)
+      %l - Hour
+      %M - Minute (00..59)
+      %p - AM or PM
+      %S - Second (00..60)
       %Z - Time zone name
     Misc
       %j - Day of the year (001..366)
@@ -48,8 +57,8 @@ title: Time formats
       D         - 6..31
       DD        - 06..31
     Time
-      H, HH     - 24 hour time
-      h, hh     - 12 hour time (use in conjunction with a or A)
+      H, HH     - Hour, 24-hour clock
+      h, hh     - Hour, 12-hour clock
       m, mm     - Minutes
       s, ss     - Seconds
       S         - Deciseconds (1/10th of a second)

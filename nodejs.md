@@ -105,6 +105,17 @@ title: NodeJS api
         }
     });
 
+## [assert]
+
+    assert(val)
+    assert.equal(actual, expected)
+    assert.notEqual(a, e)
+
+    assert.deepEqual(a, e)
+    assert.notDeepEqual(a, e)
+
+    assert.throws(fn)
+
 [all]: http://nodejs.org/api/all.html
 [process]: http://nodejs.org/api/process.html
 [fs]: http://nodejs.org/api/fs.html
@@ -113,6 +124,5 @@ title: NodeJS api
 
     info = require('../package.json')
     info.version
-
 
     process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');

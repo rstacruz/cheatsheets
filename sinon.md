@@ -6,7 +6,7 @@ title: Sinon
     var fn = sinon.spy();
     fn();
     fn.calledOnce == true
-    fn.calledCount == 1
+    fn.callCount == 1
 
 ### Spy something
 

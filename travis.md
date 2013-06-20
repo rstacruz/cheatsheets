@@ -15,6 +15,7 @@ title: Travis (.travis.yml)
 
     language: ruby
     rvm:
+      - 2.0.0
       - 1.9.3
       - 1.8.7
       - rbx-19mode
@@ -36,7 +37,7 @@ title: Travis (.travis.yml)
       - "rack=master"
       - "rack=1.3.4"
 
-### Custom config
+### Custom test command
 
     script: make test
     before_script: make pretest
@@ -45,6 +46,36 @@ title: Travis (.travis.yml)
     before_script:
       - make pretest1
       - make pretest2
+
+### Branches
+
+    branches:
+      except:
+        - legacy
+
+      only:
+        - gh-pages
+        - /^deploy/
+
+### Etc
+
+    gemfile:
+     - gemfiles/Gemfile.rails-2.3.x
+     - gemfiles/Gemfile.rails-3.0.x
+
+### Notifications
+
+    notifications:
+      email:
+       - dropbox+travis@ricostacruz.com
+
+      email:
+        recipients:
+         - dropbox+travis@ricostacruz.com
+        on_success: <always|never|change>  # default: change
+        on_failure: <always|never|change>  # default: always
+
+      irc: "chat.freenode.net#travis"
 
 ### References
 

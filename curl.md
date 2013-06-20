@@ -16,9 +16,10 @@ Data options:
 
 Headers:
 
-    -A <str>     # --user-agent
-    -b name=val  # --cookie
-    -b FILE      # --cookie
+    -A <str>         # --user-agent
+    -b name=val      # --cookie
+    -b FILE          # --cookie
+    -H "X-Foo: y"    # --header
     
 SSL:
 

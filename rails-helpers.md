@@ -51,3 +51,15 @@ http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html
 
     = form_for @post, :multipart => true do |f|
       = f.file_field :picture
+
+### i18n
+
+    t('folders')
+    t('folders.save')
+
+    l(Time.now)
+
+    t('x_files', count: files.count)
+    # files:
+    #    one: 'one file'
+    #    other: '%{count} files'

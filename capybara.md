@@ -93,3 +93,22 @@ Miscellaneous
     wait_until
     current_path
 
+Capybara RSpec matchers
+-----------------------
+
+    expect(page).to have_button
+    expect(page).to have_checked_field
+    expect(page).to have_content '...'
+    expect(page).to have_css '...'
+    expect(page).to have_field
+    expect(page).to have_link
+    expect(page).to have_select
+    expect(page).to have_selector 'h1', text: 'Welcome'
+    expect(page).to have_table
+    expect(page).to have_text
+    expect(page).to have_unchecked_field
+    expect(page).to have_xpath
+
+    expect(page).to have_selector 'h1', text: 'Welcome'
+
+http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers

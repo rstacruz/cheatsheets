@@ -6,6 +6,11 @@ title: Minitest
     require 'minitest/autorun'
 
     describe "X" do
+      before do .. end
+      after do .. end
+      subject { .. }
+      let(:list) { Array.new }
+
       it "should work" do
         assert true
       end
@@ -13,17 +18,22 @@ title: Minitest
 
 ### Specs
 
-    a.must_equal b
-    3.must_be_close_to 2.99999
+    .must_equal b
+    .must_be_close_to 2.99999
+    .must_be_same_as b
 
-    collection.must_include needle
-    collection.must_be_empty
+    .must_include needle
+    .must_be_empty
 
     .must_be_kind_of
-    .must_match
-    a.must_be :<=, 42
-    obj.must_respond_to msg
-    a.must_be_same_as b
+    .must_be_instance_of
+    .must_be_nil
+    .must_match /regex/
+    .must_be :<=, 42
+    .must_respond_to msg
+
+    .must_be_silent  ( proc { "no stdout or stderr" }.must_be_silent)
+    .must_output "hi"
 
     proc { ... }.must_output out_or_nil [, err]
     proc { ... }.must_raise exception

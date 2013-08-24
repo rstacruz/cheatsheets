@@ -29,10 +29,10 @@ title: Package JSON
 
 ### Scripts
 
-   "scripts": {
-     "start": "node ./bin/xxx",       /* npm start */
-     "test": "vows --spec --isolate", /* npm test */
-   }
+    "scripts": {
+      "start": "node ./bin/xxx",       /* npm start */
+      "test": "vows --spec --isolate", /* npm test */
+    }
 
 ### Git
 
@@ -59,4 +59,4 @@ title: Package JSON
     "license": "MIT"
 
 
-http://package.json.nodejitsu.com/
+[Reference](http://package.json.nodejitsu.com/) (Nodejitsu.com)

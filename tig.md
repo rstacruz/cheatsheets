@@ -8,6 +8,10 @@ Tig shortcuts
 
 ### Invocation
 
+    tig
+
+    tig status
+
     tig blame FILE
     tig master        # Show a branch
     tig test..master  # Show difference between two bracnhes

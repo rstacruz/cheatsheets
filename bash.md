@@ -188,6 +188,18 @@ or
     set -o errtrace
     trap traperr ERR
 
+### Case/switch
+
+    case $1 in
+      start | up)
+        vagrant up
+        ;;
+
+      *)
+        echo "Usage: $0 {start|stop|ssh}"
+        ;;
+    esac
+
 References
 ----------
 

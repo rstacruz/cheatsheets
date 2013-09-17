@@ -3,12 +3,29 @@ title: Q.js
 
 ### Creating promises (Q.promise)
 
-    Q.promise (resolve, reject) ->
+    Q.promise (ok, fail) =>
       asyncFunction ->
         if error
-          reject new Error("Failure")
+          fail new Error("Failure")
         else
-          resolve deferred
+          ok(data)
+
+### For arrays
+
+    promises = [saveDisk(), saveCloud()]
+
+    # When all succeeds, or *at least one* error
+    Q.all(promises).done ->
+      alert "Saved"
+
+    # Same, but get the values
+    Q.all(promises).spread (a, b) ->
+      alert "Result A:" + a
+      alert "Result B:" + b
+
+    # When all either succeeds or errors
+    Q.allSettled(promises).done -> ...
+
 
 ### Creating promises from Node
 
@@ -50,3 +67,7 @@ title: Q.js
 
   .catch (e) ->
     console.error "Oh well", e
+
+### Reference
+
+ * https://github.com/kriskowal/q/wiki/API-Reference

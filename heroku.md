@@ -12,6 +12,12 @@
     # Transfer to another owner
       heroku sharing:transfer new@owner.com
 
+## `logs` - Show logs
+
+    heroku logs
+    heroku logs -t      # --tail (stream)
+    heroku logs -s app  # --source (only on app logs)
+
 ## `pg` - Postgresql
 
     # Start a database

@@ -34,12 +34,15 @@ title: Express.js
 
 ### Request
 
-    req.params
 
     // GET  /user/tj
-    req.params.name //=> "tj"
-
-    req.params[0]
+    req.path         //=> "/user/tj"
+    req.url          //=> "/user/tj"
+    req.xhr          //=> true|false
+    req.method       //=> "GET"
+    req.params
+    req.params.name  //=> "tj"
+    req.params[0]    
 
     // GET /search?q=tobi+ferret
     req.query.q // => "tobi ferret"
@@ -53,8 +56,6 @@ title: Express.js
     req.is('html')
     req.is('text/html')
 
-    req.path
-    req.xhr
 
 ## Response
 

@@ -19,10 +19,25 @@
     $<   -- Prerequisite (first)
     $*   -- Basename without extension of the target (?)
 
+### Command prefixes
+
+    -    Ignore errors
+    @    Don't print command
+    +    Run even if Make is in 'don't execute' mode
+
+Examples:
+
+    build:
+        @echo "Building"
+        -gcc $< $@
+        @echo "Construction complete"
+
+    -include .depend
+
 ### Cool stuff
 
-		gitdir ?= $(shell git --exec-path)
-		gitver ?= $(word 3,$(shell git --version))
+    gitdir ?= $(shell git --exec-path)
+    gitver ?= $(word 3,$(shell git --version))
 
 ### Find files
 
@@ -31,13 +46,11 @@
 
     $(patsubst images/%, assets/%, $(shell find images -name "*"))
 
-
-
 ### Substitutions
 
     # Same
-		$(SOURCE:.cpp=.o)
-		$(patsubst %.cpp, %.c, $(SOURCES))
+    $(SOURCE:.cpp=.o)
+    $(patsubst %.cpp, %.c, $(SOURCES))
 
     $(strip $(string_var))
 
@@ -53,15 +66,9 @@
 
 ### Building files
 
-		%.o: %.c
-			ffmpeg -i $< > $@   # Input and output
-			foo $^
-
-### Default task
-
-		default:
-			@echo "hello."
-      @false
+    %.o: %.c
+      ffmpeg -i $< > $@   # Input and output
+      foo $^
 
 ### Inclusion
 

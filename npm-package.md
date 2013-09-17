@@ -58,5 +58,4 @@ title: Package JSON
     "preferGlobal": true,
     "license": "MIT"
 
-
 [Reference](http://package.json.nodejitsu.com/) (Nodejitsu.com)

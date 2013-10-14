@@ -3,13 +3,11 @@ title: Find
 layout: default
 ---
 
-# Find
-
-Usage:
+### Usage
 
     find <path> <conditions> <actions>
 
-Conditions:
+### Conditions
 
     -name "*.c"
 
@@ -28,18 +26,18 @@ Conditions:
     -newerX  file.txt        # [c]hange, [m]odified, [B]create
     -newerXt "1 hour ago"    # [t]imestamp
 
-Condition flow:
+### Condition flow
 
     \! -name "*.c"
     \( x -or y \)
 
-Actions:
+### Actions
 
     -exec rm {} \;
     -print
     -delete
 
-Examples:
+### Examples
 
     find . -name '*.jpg'
     find . -name '*.jpg' -exec rm {} \;

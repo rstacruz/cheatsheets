@@ -1,4 +1,9 @@
-# irc.freenode.net
+---
+title: Freenode
+layout: default
+---
+
+### irc.freenode.net
 
     /msg nickserv identify [nick] <password>
     /msg nickserv info <nick>

@@ -1,4 +1,7 @@
-# Spreadsheet macros
+---
+title: Spreadsheet functions
+layout: default
+---
 
 ### If
 

@@ -1,9 +1,9 @@
+---
 title: Vows
+layout: default
 ---
 
-### Vows
-
-    * [Vowsjs.org](http://vowsjs.org/)
+  * [Vowsjs.org](http://vowsjs.org/)
 
 ### CoffeeScript usage
 

@@ -1,4 +1,6 @@
+---
 title: Rails form helpers
+layout: default
 ---
 
 ### Forms

@@ -1,4 +1,6 @@
+---
 title: Phusion Passenger
+layout: default
 ---
 
     server {

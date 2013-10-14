@@ -1,4 +1,6 @@
+---
 title: Machinist
+layout: default
 ---
 
 ### Installing

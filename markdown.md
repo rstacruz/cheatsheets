@@ -1,5 +1,7 @@
+---
 title: Markdown
-----
+layout: default
+---
 
 ### Headers
 

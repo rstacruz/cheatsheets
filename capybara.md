@@ -1,17 +1,19 @@
-Navigating
-----------
+---
+title: Capybara
+layout: default
+---
+
+### Navigating
 
     visit articles_path
 
-Clicking links and buttons
---------------------------
+### Clicking links and buttons
 
     click 'Link Text'
     click_button
     click_link
 
-Interacting with forms
-----------------------
+### Interacting with forms
 
     attach_file
     fill_in 'First Name', :with => 'John'
@@ -21,8 +23,7 @@ Interacting with forms
     select
     unselect
 
-Querying
---------
+### Querying
 
 Takes a CSS selector (or XPath if you're into that).
 Translates nicely into RSpec matchers:
@@ -51,8 +52,7 @@ should_not doesn't wait for a timeout from the driver
     page.has_select?
     page.has_no_select?
 
-Finding
--------
+### Finding
 
     find
     find_button
@@ -61,8 +61,7 @@ Finding
     find_link
     locate
 
-Scoping
--------
+### Scoping
 
     within
     within_fieldset
@@ -70,19 +69,16 @@ Scoping
     within_frame
     scope_to
 
-Scripting
----------
+### Scripting
 
     execute_script
     evaluate_script
 
-Debugging
----------
+### Debugging
 
     save_and_open_page
 
-Miscellaneous
--------------
+### Miscellaneous
 
     all
     body
@@ -93,8 +89,7 @@ Miscellaneous
     wait_until
     current_path
 
-Capybara RSpec matchers
------------------------
+### Capybara RSpec matchers
 
     expect(page).to have_button
     expect(page).to have_checked_field

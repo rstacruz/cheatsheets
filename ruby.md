@@ -1,3 +1,7 @@
+---
+title: Ruby
+layout: default
+---
 
 * `$!` - latest error message
 * `$@` - location of error
@@ -5,7 +9,7 @@
 * `$.` - line number last read by interpreter
 * `$&` - string last matched by regexp
 * `$~` - the last regexp match, as an array of subexpressions
-* `$n` - the nth subexpression in the last match (same as $~[n])
+* `$n` - the nth subexpression in the last match (same as `$~[n]`)
 * `$=` - case-insensitivity flag
 * `$/` - input record separator
 * `$\` - output record separator

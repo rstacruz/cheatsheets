@@ -1,4 +1,6 @@
+---
 title: HTML
+layout: default
 ---
 
 ### Head stuff

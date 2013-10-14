@@ -1,4 +1,6 @@
+---
 title: ReStructuredText
+layout: default
 ---
 
 ### Comments

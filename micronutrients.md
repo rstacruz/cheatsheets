@@ -1,5 +1,7 @@
-24 classical micronutrients
----------------------------
+---
+title: Essential micronutrients
+layout: default
+---
 
 ### Vitamin D
 

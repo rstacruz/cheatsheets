@@ -1,4 +1,7 @@
-# Commander.js
+---
+title: Commander.js
+layout: default
+---
 
 ### Initialize
 

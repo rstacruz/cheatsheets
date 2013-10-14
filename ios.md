@@ -1,3 +1,8 @@
+---
+title: iOS
+layout: default
+---
+
 Multiple Exchange accounts:
 
     scp root@iphone.local:/private/var/mobile/Library/Preferences/com.apple.accountsettings.plist .

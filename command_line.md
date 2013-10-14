@@ -1,4 +1,6 @@
+---
 title: Command line stuff
+layout: default
 ---
 
 ## List (ls)

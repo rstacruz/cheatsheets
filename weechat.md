@@ -1,3 +1,8 @@
+---
+title: Weechat
+layout: default
+---
+
 ### Keys
 
 (`A-` is alt)

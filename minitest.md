@@ -1,4 +1,6 @@
+---
 title: Minitest
+layout: default
 ---
 
 ### Usage

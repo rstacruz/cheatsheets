@@ -1,3 +1,8 @@
+---
+title: Sass
+layout: default
+---
+
 ### Compass: Sprites
 
     @import compass/utilities/sprites

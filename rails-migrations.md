@@ -1,5 +1,7 @@
+---
 title: Rails migrations
--------
+layout: default
+---
 
 ### Automatically make migrations
 

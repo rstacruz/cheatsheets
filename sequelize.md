@@ -1,4 +1,6 @@
+---
 title: Sequelize
+layout: default
 ---
 
 ### API

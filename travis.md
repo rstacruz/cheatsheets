@@ -1,4 +1,6 @@
-title: Travis (.travis.yml)
+---
+title: Travis.yml
+layout: default
 ---
 
 ### Node

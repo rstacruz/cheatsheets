@@ -1,3 +1,7 @@
+---
+title: Imagemagick
+layout: default
+---
 
 ### Resize to fit
 

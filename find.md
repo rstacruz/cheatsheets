@@ -1,3 +1,8 @@
+---
+title: Find
+layout: default
+---
+
 # Find
 
 Usage:

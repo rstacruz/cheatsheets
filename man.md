@@ -1,3 +1,8 @@
+---
+title: Man
+layout: default
+---
+
 ### Man paths
 
      1      General User Commands

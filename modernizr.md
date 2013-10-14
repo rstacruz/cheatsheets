@@ -1,4 +1,7 @@
+---
 title: Modernizr
+layout: default
+---
 
 ### Script
 

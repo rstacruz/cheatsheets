@@ -1,3 +1,8 @@
+---
+title: Shell.js
+layout: default
+---
+
 ### Require
 
     require 'shelljs/global'

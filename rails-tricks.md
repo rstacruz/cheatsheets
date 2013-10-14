@@ -1,3 +1,7 @@
+---
+title: Rails tricks
+layout: default
+---
 
 in config/environments/development.rb:
 

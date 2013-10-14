@@ -1,4 +1,6 @@
-title: ZSH
+---
+title: Zsh
+layout: default
 ---
 
 ### Stuff

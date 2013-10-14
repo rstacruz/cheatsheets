@@ -1,4 +1,6 @@
+---
 title: vim
+layout: default
 ----
 
 Command line
@@ -87,7 +89,7 @@ Marks
 
 ### Calculator
 
-(Insert mode) <C-r>=128/2
+    (Insert mode) <C-r>=128/2
 
 ### Highlights
 

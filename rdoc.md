@@ -1,5 +1,7 @@
+---
 title: Rdoc
-----
+layout: default
+---
 
 ### Basic RDoc format
 

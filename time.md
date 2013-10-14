@@ -1,4 +1,6 @@
+---
 title: Time formats
+layout: default
 ---
 
 ### Ruby

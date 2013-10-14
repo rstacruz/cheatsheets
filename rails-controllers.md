@@ -1,4 +1,6 @@
+---
 title: Rails Controllers
+layout: default
 ---
 
 ### Common stuff

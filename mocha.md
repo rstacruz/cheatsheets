@@ -1,3 +1,8 @@
+---
+title: Mocha.js
+layout: Default
+---
+
 ### BDD
 
     mocha.setup('bdd');

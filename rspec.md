@@ -1,5 +1,7 @@
+---
 title: RSpec
-----
+layout: default
+---
 
 ### Invoking tests
 

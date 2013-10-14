@@ -1,4 +1,6 @@
+---
 title: Middleman
+layout: default
 ---
 
 ### Compass config

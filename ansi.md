@@ -1,4 +1,7 @@
-# Ansi codes
+---
+title: Ansi codes
+layout: default
+---
 
 Format
 

@@ -1,3 +1,8 @@
+---
+title: Heroku
+layout: default
+---
+
 ## `create` - Create an app
 
     heroku create sushi

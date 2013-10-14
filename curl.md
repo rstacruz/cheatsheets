@@ -1,4 +1,6 @@
+---
 title: Curl
+layout: default
 ---
 
 Options:
@@ -23,11 +25,11 @@ Headers:
     
 SSL:
 
-   --cacert <file>
-   --capath <dir>
+    --cacert <file>
+    --capath <dir>
 
-   -E <cert>     # --ecrt: Client cert file
-   --cert-type   # der/pem/eng
+    -E <cert>     # --ecrt: Client cert file
+    --cert-type   # der/pem/eng
 
 ## Examples
 

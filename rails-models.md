@@ -1,5 +1,7 @@
+---
 title: Rails Models
-----
+layout: default
+---
 
 ### Generating models
 

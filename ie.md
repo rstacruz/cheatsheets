@@ -1,4 +1,6 @@
+---
 title: Internet Explorer
+layout: default
 ---
 
 ### IE7+ only

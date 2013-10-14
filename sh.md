@@ -1,4 +1,6 @@
-title: Bash
+---
+title: Shell scripting
+layout: default
 ---
 
 ### Clever one liners

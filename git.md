@@ -1,5 +1,7 @@
+---
 title: Git
---
+layout: default
+---
 
 ## Submodules
 

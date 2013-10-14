@@ -1,4 +1,7 @@
-# Underscore-string
+---
+title: Underscore-string
+layout: default
+---
 
 ### Usage
 

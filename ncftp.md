@@ -1,3 +1,8 @@
+---
+title: ncftp
+layout: default
+---
+
 Bookmarking
 
     $ ncftp

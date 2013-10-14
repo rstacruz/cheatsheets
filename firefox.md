@@ -1,5 +1,7 @@
+---
 title: Firefox
-----
+layout: default
+---
 
 ### Firefox 18 (Jan 2013)
 

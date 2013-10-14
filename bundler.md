@@ -1,5 +1,7 @@
+---
 title: Bundler
-----
+layout: default
+---
 
 ### Gems
 

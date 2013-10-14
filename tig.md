@@ -1,5 +1,7 @@
-Tig shortcuts
--------------
+---
+title: Tig
+layout: default
+---
 
 ### Installing
 

@@ -1,26 +1,47 @@
-class Tweetx < Formula
-  homepage 'http://code.google.com/p/tweetx/'
-  url 'http://tweetx.googlecode.com/files/tweetx-0.1.tar.gz'
-  version '0.1'
-  sha1 'e676f895ac5df1574f6fd4086ee57b9bf8d71e20'
+---
+title: Homebrew
+layout: default
+---
 
-  head 'https://github.com/b4winckler/macvim.git', :branch => 'master'
+### Commands
 
-  def options
-  [
-    ["--custom-icons", "Try to generate custom document icons."],
-  ]
-  end
+    brew unlink git
+    brew link git
 
-  depends_on 'cscope' if ARGV.include? '--with-cscope'
+    brew list                # List all installed
 
-  def install
-    system "./configure",
-      "--prefix=#{prefix}",
-      "--libdir=#{lib}"
-    system "make install"
+    brew list --versions git # See what versions of `git` you have
+    brew info git            # List versions, caveats, etc
+    brew cleanup git         # Remove old versions
+    brew edit git            # Edit this formula
+    brew home git            # Open homepage
 
-    man1.install 'manpage.1'
-    bin.install "foo"
-  end
-end
+### Stuff
+
+Nice Homebrew packages:
+
+ * `tig` - Git "GUI" for the console
+ * `mysql`
+ * `postgresql`
+ * `fmdiff` - Adaptor to use Apple's FileMerge as `diff` (`git config --global merge-tool fmdiff`)
+ * `cmus` - Curses-based music player
+ * `cclive` - Video downloader
+
+ Not from brew:
+
+* `DiffMerge` - nice free merge tool for OSX
+
+Tmux
+----
+
+Install a more-recent version that supports tmux -C
+
+    brew install https://github.com/adamv/homebrew-alt/raw/master/other/tmux-iterm2.rb
+
+Install the wrapper for stuff to enable OSX clipboard to work
+
+    brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+
+Make sure that your VIM alias uses it
+
+    alias vim="reattach-to-user-namespace /Application/MacVim/Contents/MacOS/Vim"

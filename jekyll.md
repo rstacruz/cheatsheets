@@ -1,5 +1,6 @@
 ---
 title: Jekyll
+layout: default
 ---
 
 ### Installation
@@ -60,36 +61,36 @@ Configuration
 Variables
 ---------
 
-    {{ site }}       - from config.yml
-    {{ page }}       - from frontmatter, and page-specific info
-    {{ content }}    - html content (use in layouts)
-    {{ paginator }}  - ...
+    {\{ site }}       - from config.yml
+    {\{ page }}       - from frontmatter, and page-specific info
+    {\{ content }}    - html content (use in layouts)
+    {\{ paginator }}  - ...
 
 ### Site
 
-    {{ site.time }}                 - current time
-    {{ site.pages }}                - list of pages
-    {{ site.posts }}                - list of posts
-    {{ site.related_posts }}        - list
-    {{ site.categories.CATEGORY }}  - list
-    {{ site.tags.TAG }}             - list
+    {\{ site.time }}                 - current time
+    {\{ site.pages }}                - list of pages
+    {\{ site.posts }}                - list of posts
+    {\{ site.related_posts }}        - list
+    {\{ site.categories.CATEGORY }}  - list
+    {\{ site.tags.TAG }}             - list
 
 ### Page
 
-    {{ page.content }}  - un-rendered content
-    {{ page.title }}
-    {{ page.excerpt }}  - un-rendered excerpt
-    {{ page.url }}
-    {{ page.date }}
-    {{ page.id }}
-    {{ page.categories }}
-    {{ page.tags }}
-    {{ page.path }}
+    {\{ page.content }}  - un-rendered content
+    {\{ page.title }}
+    {\{ page.excerpt }}  - un-rendered excerpt
+    {\{ page.url }}
+    {\{ page.date }}
+    {\{ page.id }}
+    {\{ page.categories }}
+    {\{ page.tags }}
+    {\{ page.path }}
 
 ### Paginator
 
-    {{ paginator.per_page }}
-    {{ paginator.posts }}
+    {\{ paginator.per_page }}
+    {\{ paginator.posts }}
     ...
 
 Sample code
@@ -97,26 +98,26 @@ Sample code
 
 ### Loops
 
-    {% for post in site.posts %}
+    {\% for post in site.posts %}
       <a href="{{ post.url }}">
-        <h2>{{ post.title }} &mdash; {{ post.date | date_to_string }}</h2>
+        <h2>{\{ post.title }} &mdash; {\{ post.date | date_to_string }}</h2>
       </a>
-      {{ post.content }}
-    {% endfor %}
+      {\{ post.content }}
+    {\% endfor %}
 
 ### Dates
 
-    {{ page.date | date: "%b %d, %Y" }}
+    {\{ page.date | date: "%b %d, %Y" }}
 
 ### If
 
-    {% if page.image.feature %}
-    {% else %}
-    {% endif %}
+    {\% if page.image.feature %}
+    {\% else %}
+    {\% endif %}
 
 ### Includes
 
-    {% include header.html %}
+    {\% include header.html %}
 
 Integration
 -----------
@@ -129,5 +130,5 @@ Integration
 
 ### Compass
 
-    https://gist.github.com/parkr/2874934
-    https://github.com/matthodan/jekyll-asset-pipeline
+  * [Compass](https://gist.github.com/parkr/2874934)
+  * [Asset pipeline](https://github.com/matthodan/jekyll-asset-pipeline)

@@ -1,5 +1,7 @@
+---
 title: Google Analytics
-----
+layout: default
+---
 
 ### Track events
 

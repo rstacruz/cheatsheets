@@ -1,4 +1,6 @@
-title: IE bug compenduum
+---
+title: IE bugs
+layout: default
 ----
 
 ### IE8: 'change' event doesn't always fire

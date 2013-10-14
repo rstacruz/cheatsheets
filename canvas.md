@@ -1,3 +1,8 @@
+---
+title: Canvas
+layout: default
+---
+
 ### Getting the context
 
     var canvas = document.getElementById('c');

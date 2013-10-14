@@ -1,4 +1,6 @@
+---
 title: FFaker
+layout: default
 ---
 
     # gem install ffaker

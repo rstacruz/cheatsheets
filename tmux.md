@@ -1,4 +1,6 @@
-title: tmux Terminal Multiplexer
+---
+title: tmux
+layout: default
 ---
 
 ### Commands

@@ -1,3 +1,8 @@
+---
+title: C Preprocessor
+layout: default
+---
+
 ### Compiling
 
     $ cpp -P file > outfile

@@ -1,4 +1,6 @@
-title: Package JSON
+---
+title: Package.json
+layout: default
 ---
 
 ### Basic

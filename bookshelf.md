@@ -1,4 +1,7 @@
-# Bookshelf.js
+---
+title: Bookshelf.js
+layout: default
+---
 
 Model
 -----

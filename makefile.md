@@ -1,3 +1,8 @@
+---
+title: Makefile
+layout: default
+---
+
 ### Var assignment
 
     JS_COMPRESSOR := $(uglify)

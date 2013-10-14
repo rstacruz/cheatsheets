@@ -1,4 +1,6 @@
-title: NodeJS api
+---
+title: Node.js API
+layout: default
 ----
 
 ## Globals
@@ -116,10 +118,6 @@ title: NodeJS api
 
     assert.throws(fn)
 
-[all]: http://nodejs.org/api/all.html
-[process]: http://nodejs.org/api/process.html
-[fs]: http://nodejs.org/api/fs.html
-
 ## Snippets
 
     info = require('../package.json')
@@ -139,3 +137,8 @@ title: NodeJS api
 
     // also { stdio: [process.stdin, process.stderr, process.stdout] }
 
+[all]: http://nodejs.org/api/all.html
+[path]: http://nodejs.org/api/path.html
+[process]: http://nodejs.org/api/process.html
+[fs]: http://nodejs.org/api/fs.html
+[assert]: http://nodejs.org/api/assert.html

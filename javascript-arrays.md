@@ -1,4 +1,9 @@
-# JavaScript arrays
+---
+title: JavaScript arrays
+layout: default
+---
+
+## JavaScript arrays
 
     array = [a,b,c,d,e]
 

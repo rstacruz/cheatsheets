@@ -1,3 +1,8 @@
+---
+title: Jade
+layout: default
+---
+
 ### Iteration
 
     ul

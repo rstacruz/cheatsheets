@@ -1,3 +1,10 @@
+---
+title: Sinon-chai
+layout: default
+---
+
+  * [Sinon-chai](https://github.com/domenic/sinon-chai)
+
 ### Assert
 
     expect(spy).called
@@ -43,5 +50,3 @@
     spy.should.have.always.returned(returnVal)
     spy.should.have.thrown(errorObjOrErrorTypeStringOrNothing)
     spy.should.have.always.thrown(errorObjOrErrorTypeStringOrNothing)
-
-https://github.com/domenic/sinon-chai

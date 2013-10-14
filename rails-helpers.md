@@ -1,4 +1,6 @@
+---
 title: Rails helpers
+layout: default
 ---
 
 ### Date helpers

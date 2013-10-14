@@ -1,4 +1,6 @@
+---
 title: jQuery
+layout: default
 ---
 
 ### Extending selectors

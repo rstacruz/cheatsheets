@@ -1,5 +1,7 @@
+---
 title: Rubygems
-----
+layout: default
+---
 
     gem build *.gemspec         # Build a gem
     gem install *.gem           # Install locally

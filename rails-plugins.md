@@ -1,3 +1,8 @@
+---
+title: Rails plugins
+layout: default
+---
+
 Generate a plugin
 -----------------
 
@@ -103,12 +108,12 @@ Use `NamedBase` instead if you want to take an argument. It will be available as
   
 When invoking `rails g XXX`:
 
- * [rails/]generators/XXX/XXX_generator.rb
- * [rails/]generators/XXX_generator.rb
+    [rails/]generators/XXX/XXX_generator.rb
+    [rails/]generators/XXX_generator.rb
 
 When invoking `rails g XXX:YYY`:
 
- * [rails/]generators/XXX/YYY_generator.rb
+    [rails/]generators/XXX/YYY_generator.rb
 
 ActiveModel 'acts as'
 ---------------------

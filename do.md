@@ -1,4 +1,6 @@
+---
 title: Do gem
+layout: default
 ----
 
  * [DAddYE/do](https://github.com/DAddYE/do)

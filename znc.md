@@ -1,4 +1,6 @@
+---
 title: ZNC bouncer
+layout: default
 ---
 
 ## Start

@@ -1,4 +1,6 @@
+---
 title: Jasmine
+layout: default
 ---
 
 [Jasmine](http://pivotal.github.com/jasmine/).

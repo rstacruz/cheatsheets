@@ -1,3 +1,8 @@
+---
+title: Chunky PNG
+layout: default
+---
+
 Loading
 
     image = ChunkyPNG::Image.from_file('filename.png')

@@ -1,3 +1,8 @@
+---
+title: Rails
+layout: default
+---
+
 Helpers
 -------
 

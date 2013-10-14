@@ -1,0 +1,12 @@
+{% include head.html %}
+
+<h1>
+  {{ page.title }}
+  <a class='back' href='.'>Index</a>
+</h1>
+
+{% for page in site.pages %}
+  <a href="{{ page.url }}">{{ page.title }}</a>
+{% endfor %}
+
+{% include foot.html %}

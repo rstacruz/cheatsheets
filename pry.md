@@ -1,5 +1,8 @@
+---
+
 title: Pry
---
+layout: default
+---
 
 ### cd / ls
 
@@ -35,15 +38,15 @@ Commands with `.` are shell commands
 
 ### Inspection
 
-   > show-method Array#select
+    > show-method Array#select
 
-   > ri Array#each
-   > cd Gem
-   > show-doc try_activate
+    > ri Array#each
+    > cd Gem
+    > show-doc try_activate
 
 Finding
 
-   > find-method each
+    > find-method each
    Array#each
    Array#each_index
    Enumerable#each_slice
@@ -51,18 +54,18 @@ Finding
 
 ### Editing
 
-   > edit-method Pry#repl
+    > edit-method Pry#repl
 
 ### Gems
 
-   > gem-cd foo      # Switch to gem's dir
-   > gem-install foo
-   > gem-list
+    > gem-cd foo      # Switch to gem's dir
+    > gem-install foo
+    > gem-list
 
 ### Misc commands
 
-   > hist          # History
-   > wtf?          # Trace of recent exception
+    > hist          # History
+    > wtf?          # Trace of recent exception
 
 ### Rails console
 
@@ -70,9 +73,9 @@ Finding
 
 ### Bonus: hirb
 
-   > table User.all
-   > view User.all
-   > view User.all, fields: %w[id name email]
+    > table User.all
+    > view User.all
+    > view User.all, fields: %w[id name email]
 
 ### Reference
 

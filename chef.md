@@ -1,3 +1,7 @@
+---
+title: Chef
+layout: default
+---
 
 ### Install
 In your server:

@@ -1,3 +1,8 @@
+---
+title: Rails features
+layout: default
+---
+
 ### Caching
 
 https://github.com/rails/actionpack-page_caching

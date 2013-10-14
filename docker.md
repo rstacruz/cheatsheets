@@ -1,3 +1,8 @@
+---
+title: docker
+layout: default
+---
+
 Command line interface
 ----------------------
 
@@ -32,7 +37,7 @@ Prerequisites:
   - Install Vagrant (http://vagrantup.com)
   - Install go (`brew install go`)
 
-Then make the Docker executable:
+Then make the Docker executable (v0.5.1?):
 
     $ git clone https://github.com/dotcloud/docker.git ~/src/docker
     $ cd ~/src/docker

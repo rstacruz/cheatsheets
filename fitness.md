@@ -1,4 +1,6 @@
+---
 title: Fitness
+layout: default
 ---
 
 ### Target heart rate

@@ -1,3 +1,10 @@
+---
+title: Vagrant
+layout: default
+---
+
+ * [Vagrant](http://vagrantup.com)
+
 ### Get started
 
 Add some base boxes:

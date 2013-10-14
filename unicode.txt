@@ -17,3 +17,5 @@
  ✓ check or tick mark &#010003;
  ❌ cross mark &#010060;
  💬 speech balloon &#128172;
+
+✈'

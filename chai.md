@@ -52,20 +52,25 @@ title: Chai
 
 ### Expectations
 
-    .equal(expected)
-    .eql // deepequal
-    .deep.equal(expected)
-    .be.a('string')
-    .include(val)
-    .be.ok(val)
-    .be.true
-    .be.false
-    .be.null
-    .be.undefined
-    .exist
-    .be.empty
-    .be.arguments
-    expect(10).above(5)
+    expect(object)
+      .equal(expected)
+      .eql // deepequal
+      .deep.equal(expected)
+      .be.a('string')
+      .include(val)
+
+      .be.ok(val)
+      .be.true
+      .be.false
+
+      .be.null
+      .be.undefined
+      .be.empty
+      .be.arguments
+      .be.function
+
+      .exist
+      expect(10).above(5)
 
 
 ### References

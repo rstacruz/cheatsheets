@@ -126,3 +126,16 @@ title: NodeJS api
     info.version
 
     process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');
+
+## Spawn
+
+    var spawn = require('child_process').spawn;
+    var proc = spawn(bin, argv, { stdio: 'inherit' });
+    proc.on('error', function(err) {
+      if (err.code == "ENOENT") { "does not exist" }
+      if (err.code == "EACCES") { "not executable" }
+    });
+    proc.on('exit', function(code) { ... });
+
+    // also { stdio: [process.stdin, process.stderr, process.stdout] }
+

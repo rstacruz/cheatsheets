@@ -24,3 +24,16 @@ title: Cron
     */15 * * * * every 15 mins
     0 */2 * * * every 2 hours
     0 0 0 * 0 every sunday midnight
+
+    @reboot every reboot
+
+### crontab
+
+    # Adding tasks easily
+    echo "@reboot echo hi" | crontab
+
+    # Open in editor
+    crontab -e
+
+    # List tasks
+    crontab -l [-u user]

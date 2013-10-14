@@ -30,6 +30,10 @@ title: Sinon
 
     sinon.stub($, 'ajax', function() { return 'x' });
 
+### Fake date
+
+    sinon.useFakeTimers(+new Date(2011,9,1));
+
 ### Fake server
 
     server = sinon.fakeServer.create();
@@ -47,3 +51,9 @@ title: Sinon
 
     xhr = sinon.useFakeXMLHttpRequest();
     xhr.restore();
+
+### Sandbox
+
+    beforeEach -> global.sinon = require('sinon').sandbox.create()
+    afterEach  -> global.sinon.restore()
+

@@ -85,7 +85,34 @@ Marks
     `.      # Last change
     ``      # Last jump
 
-Calculator
-----------
+### Calculator
 
 (Insert mode) <C-r>=128/2
+
+### Highlights
+
+    hi Comment
+      term=bold,underline
+      gui=bold
+      ctermfg=4
+      guifg=#80a0ff
+
+### Filetype detection
+
+    augroup filetypedetect
+      au! BufNewFile,BufRead *.json setf javascript
+    augroup END
+
+    au Filetype markdown setlocal spell
+
+### Conceal
+
+    set conceallevel=2
+    syn match newLine "<br>" conceal cchar=}
+    hi newLine guifg=green
+
+### Region conceal
+
+    syn region inBold concealends matchgroup=bTag start="<b>" end="</b>"
+    hi inBold gui=bold
+    hi bTag guifg=blue

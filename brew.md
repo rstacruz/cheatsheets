@@ -1,6 +1,21 @@
 title: Brew
 ---
 
+### Commands
+
+    brew unlink git
+    brew link git
+
+    brew list                # List all installed
+
+    brew list --versions git # See what versions of `git` you have
+    brew info git            # List versions, caveats, etc
+    brew cleanup git         # Remove old versions
+    brew edit git            # Edit this formula
+    brew home git            # Open homepage
+
+### Stuff
+
 Nice Homebrew packages:
 
  * `tig` - Git "GUI" for the console

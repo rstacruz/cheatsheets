@@ -45,7 +45,7 @@ layout: default
 
 ### Vitamin K
 
- * Sources: beans (legumes), green tea, veggies (mostly leafy), egg yolk, 
+ * Sources: beans (legumes), green tea, veggies (mostly leafy), egg yolk,
  chicken thigh
  * Major benefits: bone health
  * Fat-soluble
@@ -75,9 +75,9 @@ layout: default
 
 ### Vitamin A
 
- * Sources: meat, poultry, fish, fruits, leafy veggies, orange veggies 
+ * Sources: meat, poultry, fish, fruits, leafy veggies, orange veggies
 (squash/carrots)
-  * Dosage: 10,000iu for adults
+ * Dosage: 10,000iu for adults
  * Major benefits: vision, immune boost, reproduction
  * Fat-soluble
 

@@ -51,11 +51,27 @@ layout: default
           global_defs:
             DEBUG: false
 
-## Stuff
+## Extensions
 
-  * uglify-js-brunch
+Compile to JS/CSS
+
   * stylus-brunch
   * coffee-script-brunch
+  * less-brunch
+
+Compile to HTML
+
+  * static-jade-brunch
+
+Embedded templates
+
+  * emblem-brunch
+
+Etc
+
+  * uglify-js-brunch
+  * jshint-brunch
+  * imageoptimizer-brunch
 
 ## References
 

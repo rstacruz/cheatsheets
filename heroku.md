@@ -23,6 +23,12 @@ layout: default
     heroku logs -t      # --tail (stream)
     heroku logs -s app  # --source (only on app logs)
 
+## `releases`
+
+    heroku releases
+    heroku releases:info v25
+    heroku rollback
+
 ## `pg` - Postgresql
 
     # Start a database

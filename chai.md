@@ -55,8 +55,8 @@ layout: default
 
     expect(object)
       .equal(expected)
-      .eql // deepequal
-      .deep.equal(expected)
+      .eql
+      .deep.equal(expected) // same as .eql
       .be.a('string')
       .include(val)
 
@@ -69,10 +69,54 @@ layout: default
       .be.empty
       .be.arguments
       .be.function
+      .be.instanceOf
+
+      .gt(5)  # or .above .greaterThan
+      .gte    # or .at.least
+      .lt(5)  # or .below
+
+      .respondTo('bar')
+      .satisfy (n) -> n > 0
+
+      .have.members([2, 3, 4])
+      .have.keys(['foo'])
+      .have.key('foo')
 
       .exist
-      expect(10).above(5)
 
+### Chai-jQuery
+
+    global.jQuery = ...;
+    chai.use(require('chai-jquery'));
+
+    expect($body)
+
+      .have.attr('foo')
+      .have.prop('disabled')
+      .have.css('background')
+      .have.css('background-color', '#ffffff')
+      .have.data('foo')
+
+      .have.class('active')
+      .have.id('id')
+
+      .have.html('<em>hi</em>')
+      .have.text('hello')
+      .have.value('2013')
+
+      .be.visible
+      .be.hidden
+
+      .be.checked
+      .be.selected
+
+      .be.enabled
+      .be.disabled
+
+      .be.empty
+      .to.exist
+      .to.contain('text')
+      .to.have('.selector')
 
 ### References
 

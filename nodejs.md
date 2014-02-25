@@ -61,14 +61,17 @@ layout: default
 
 ### Streams
 
-    process.stdin.resume(); /* paused by default */
-    process.stdin.setEncoding('utf8');
-
-    process.stdin.on('data', function(chunk) { ... });
-    process.stdin.on('end', function() { ... });
-
     process.stdout.write('...');
     process.stderr.write('...');
+
+    function readStdin(fn) {
+      process.stdin.resume(); /* paused by default */
+      process.stdin.setEncoding('utf8');
+
+      var data = '';
+      process.stdin.on('data', function(chunk) { data += chunk.toString(); });
+      process.stdin.on('end', function() { fn(null, data); });
+    }
 
 ### stuff
 
@@ -125,7 +128,7 @@ layout: default
 
     process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');
 
-## Spawn
+## Spawn - passthru the in/out
 
     var spawn = require('child_process').spawn;
     var proc = spawn(bin, argv, { stdio: 'inherit' });
@@ -136,6 +139,11 @@ layout: default
     proc.on('exit', function(code) { ... });
 
     // also { stdio: [process.stdin, process.stderr, process.stdout] }
+
+    proc.stdout.on('data', function (data) {
+    });
+    proc.stderr.on('data', function (data) {
+    });
 
 [all]: http://nodejs.org/api/all.html
 [path]: http://nodejs.org/api/path.html

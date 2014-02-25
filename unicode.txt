@@ -1,21 +1,82 @@
- ▲▼▶
+•   \u2022
+·   \u00b7
+┄   \u2504
+—   \u2014 (mdash)
+–   \u2013 (ndash)
 
- ⬅⬆⬇ 
+◦   \u25e6 circle
+✈'  \u2708 airplane
+❄   \u2744 snowflake
+⚑   \u2691 flag
+☯   \u262f yinyang
+♞   \u265e horse
+☀   \u2600 rays
 
- ◢ ◣ ◤ ◥
- 
- : «» XOR ‹›, (), [], •, ⌘, ⌥, ▲▼, ▸▹, ◇ XOR ◆, ◐◑◒◓ ◢ ◣ ◤ ◥, ★ ☆  , ♠♥♣♦, ⚐⚑, ✂
+×   times
+
+★   star
+☆   star2
+
+⚐   \u2690 flag
+⚑   \u2691 flag
+
+✓   \u2713 check
+✕   \u2715
+✗   \u2717 x mark
+✘   \u2718 x mark bold
+❏   \u274f checkbox
+
+Spinners:
+  ◜◠◝◞◡◟
+  ❘❙❚
+
+Triangles:
+  ▲▼▶
+
+⬅ \u2b05
+⬆ \u2b06
+⬇ \u2b07
+
+◢
+◣
+◤
+◥
+
+«
+»
+‹
+›
+•
+⌘
+⌥
+
+▸ \u25b8
+▹
+
+◇ \u25c7
+◆
+
+◐
+◑
+◒
+◓
 
 
- ࣾ home &#002302;
- ℹ information &#008505;
- ♡ heart &#009825;
- ⚙ cog or gear &#009881;
- ⚿ key &#009919;
- ✉ envelope &#009993;
- ✎ pencil &#009998;
- ✓ check or tick mark &#010003;
- ❌ cross mark &#010060;
- 💬 speech balloon &#128172;
+♠
+♥
+♣
+♦
 
-✈'
+
+✂  scissors
+ℹ information &#008505;
+♡ heart &#009825;
+⚙ cog or gear &#009881;
+✉ envelope &#009993;
+✎ pencil &#009998;
+✓ check or tick mark &#010003;
+
+"x".charCodeAt(0)
+"x".charCodeAt(0).toString(16)
+
+http://www.danshort.com/HTMLentities/index.php?w=dingb

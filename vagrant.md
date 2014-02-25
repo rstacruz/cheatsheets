@@ -27,6 +27,6 @@ To stop, use one of the following:
 
     $ vagrant ssh        # then: sudo shutdown -h now
     $ vagrant suspend
-    $ vagrant destroy
+    $ vagrant destroy    # !!
 
 

@@ -8,6 +8,10 @@ Allows you to filter listings by a certain scope.
     scope :draft
     scope :for_approval
 
+    scope :public, if: ->{ current_admin_user.can?(...) }
+    scope "Unapproved", :pending
+    scope("Published") { |books| books.where(:published: true) }
+
 ### Sidebar filters
 
     filter :email

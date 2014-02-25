@@ -14,3 +14,6 @@ layout: default
 ### Apt archives path
 
     /var/cache/apt/archives
+
+### List services
+    service --status-all

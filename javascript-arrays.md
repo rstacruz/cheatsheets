@@ -15,6 +15,7 @@ layout: default
     array.slice(1)           //=> [b,c,d,e]
     array.slice(1,2)         //=> [b] 
 
+    // Destructive
     re = array.splice(1)     // re = [b,c,d,e]     array == [a]
     re = array.splice(1,2)   // re = [b,c]         array == [a,d,e]
 

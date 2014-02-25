@@ -17,6 +17,11 @@ Where:
     30-37  fg color
     40-47  bg color
 
+    1K     clear line (to beginning of line)
+    2K     clear line (entire line)
+    2J     clear screen
+    0;0H   move cursor to 0;0
+
 Colors
 
     0      black

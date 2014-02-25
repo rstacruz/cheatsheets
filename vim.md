@@ -28,6 +28,12 @@ Motions
     a[ ( { <      # A [], (), or {} block
     a' " `        # A quoted string
 
+    [( [{ [<      # previous ( or { or <
+    ])            # next
+
+    [m            # previous method start
+    [M            # previous method end
+
 Example:
 
     yip           # Yank inner paragraph
@@ -118,3 +124,21 @@ Marks
     syn region inBold concealends matchgroup=bTag start="<b>" end="</b>"
     hi inBold gui=bold
     hi bTag guifg=blue
+
+### Syntax
+
+    syn match :name ":regex" :flags
+
+    syn region Comment  start="/\*"  end="\*/"
+    syn region String   start=+"+    end=+"+	 skip=+\\"+
+
+    syn cluster :name contains=:n1,:n2,:n3...
+
+    flags:
+      keepend
+      oneline
+      nextgroup=
+      contains=
+      contained
+
+    hi def link markdownH1 htmlH1

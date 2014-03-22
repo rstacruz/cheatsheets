@@ -41,11 +41,6 @@ layout: default
       }
     });
 
-### markup
-
-    <img {{bindAttr src="avatarURL}}>
-    <button {{action follow}}>
-
 ### View
 
     App.InfoView = Ember.View.extend({
@@ -59,9 +54,17 @@ layout: default
 
     });
 
-          {{view Ember.TextField class="input block" 
-             valuebinding="emailAddresses" placeholder="Enter your friends's 
-               emails here!" autofocus=true}}
-          <button {{action invite emailAddresses}} class="btn big success">Invite your friends</button>
+### markup
+
+    <img {{bindAttr src="avatarURL"}}>
+    <button {{action follow}}>
+
+Value binding:
+
+    {{view Ember.TextField class="input block" valuebinding="emailAddresses"}}
+
+Actions:
+
+    <button {{action invite emailAddresses}}>Invite></button>
 
     <a href="#" {{action set "isEditingContacts" true target="view"}} 

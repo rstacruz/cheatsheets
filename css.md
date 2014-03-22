@@ -82,6 +82,9 @@ Webkit extensions
     * {
       text-rendering: optimizeLegibility !important;
       -webkit-font-smoothing: antialiased !important;
+      text-rendering: optimizeLegibility !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale;
     }
 
 ### Heading kerning pairs and ligature

@@ -54,6 +54,12 @@ Multiple args:
 
     -{prefix}-border-radius: 2px
 
+### Color operators
+
+    #888 + 50%    // => #c3c3c3
+    #888 - 50%    // => #444
+    #f00 + 50deg  // => #ffd500 (hue)
+
 ### Built-in functions
 
     alpha(#fff)   //=> 1

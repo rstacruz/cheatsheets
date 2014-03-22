@@ -72,8 +72,6 @@ layout: default
 
 ## `domains` - Custom domains
 
-      heroku addon:add custom_domains
-
     # Add both!
       heroku domains:add example.com
       heroku domains:add www.example.com

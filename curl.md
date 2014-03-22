@@ -11,6 +11,10 @@ Options:
     -v           # --verbose
     -vv          # Even more verbose
 
+Request:
+
+    --request POST
+
 Data options:
 
     -d <data>    # --data: HTTP post data, URL encoded (eg, status="Hello")

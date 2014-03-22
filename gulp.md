@@ -21,9 +21,10 @@ title: Gulp
  * gulp-nodemon
  * gulp-size (displays size)
 
- Example
+### Example
 
 
+    // gulpfile.js
     // Load plugins
     var gulp = require('gulp'),
         sass = require('gulp-ruby-sass'),
@@ -113,3 +114,23 @@ title: Gulp
 ### References
 
 https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
+
+### Livereload
+
+    var lr = require('tiny-lr')();
+
+    function notify (lr, root) {
+      return function (event) {
+        var fname = require('path').relative(root, event.path);
+        lr.changed({ body: { files: [ fname ] }});
+      };
+    }
+
+    gulp.task('livereload', function () {
+      lr.listen(35729)
+      gulp.watch('public/**/*', notify(lr, __dirname+'/public'));
+    });
+
+    // Express
+    app.use(require('connect-livereload')())
+    <!-- livereload --><script>document.write('<script src="'+(location.protocol||'http:')+'//'+(location.hostname||'localhost')+':35729/livereload.js?snipver=1"><\/scr'+'ipt>')</script>

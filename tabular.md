@@ -5,17 +5,17 @@ layout: default
 
 ### Examples
 
-:Tab /,
+`:Tab /,`
 
     hello , there
     hi    , you
 
-:Tab /,/r0
+`:Tab /,/r0`
 
     hello,there
        hi,  you
 
-:Tab /,/r1c1l0
+`:Tab /,/r1c1l0`
 
     # the separator counts as a column
     # [r]ight align, [1] space, [c]enter align the comma, [1] space,
@@ -28,8 +28,6 @@ layout: default
     abc,hello
       c,hi there
       a,yo
-
-    
 
 ### Specifiers
 

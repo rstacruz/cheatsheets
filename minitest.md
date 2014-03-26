@@ -42,26 +42,25 @@ layout: default
     proc { ... }.must_raise exception
     proc { ... }.must_throw sym
 
-
 ### Unit::TestCase
 
-  class TestHipster < MiniTest::Unit::TestCase
-    def setup
-      @subject = ["silly hats", "skinny jeans"]
-    end
+    class TestHipster < MiniTest::Unit::TestCase
+      def setup
+        @subject = ["silly hats", "skinny jeans"]
+      end
 
-    def teardown
-      @hipster.destroy!
-    end
+      def teardown
+        @hipster.destroy!
+      end
 
-    def test_for_helvetica_font
-      assert_equal "helvetica!", @hipster.preferred_font
-    end
+      def test_for_helvetica_font
+        assert_equal "helvetica!", @hipster.preferred_font
+      end
 
-    def test_not_mainstream
-      refute @hipster.mainstream?
+      def test_not_mainstream
+        refute @hipster.mainstream?
+      end
     end
-  end
 
 ### Assertions
 

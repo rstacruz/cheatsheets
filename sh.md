@@ -202,6 +202,14 @@ or
         ;;
     esac
 
+### Source relative
+
+    source "${0%/*}/../share/foo.sh"
+
+### printf
+
+    printf "Hello %s, I'm %s" Sven Olga
+
 References
 ----------
 

@@ -32,3 +32,8 @@ Colors
     5      magenta
     6      cyan
     7      white
+
+Stuff
+
+    hide_cursor() { printf "\e[?25l"; }
+    show_cursor() { printf "\e[?25h"; }

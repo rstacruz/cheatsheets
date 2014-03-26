@@ -84,6 +84,9 @@ layout: default
 
       .exist
 
+    expect(-> ...)
+      .throw /not a function/
+
 ### Chai-jQuery
 
     global.jQuery = ...;

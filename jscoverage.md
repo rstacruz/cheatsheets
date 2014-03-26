@@ -16,7 +16,8 @@ Set up the `coverage` task so you can do `npm run coverage` later.
 ### test/setup.js
 
 Instead of requiring `YOURFILE.js`, use `-cov.js` when it's necessary.  It's
-preferred to do this in the test files (rather than the main entry points).
+preferred to do this in the test files (rather than the main entry points) so 
+not to mess with browserify.
 
     var cov = (!! process.env.COVERAGE);
     global.Mylib = require(cov ? 'mylib' : 'mylib-cov');

@@ -24,12 +24,20 @@ layout: default
     -ac 1            # audio channels (1=mono, 2=stereo)
     -an              # no audio
     -vol N           # volume (256=normal)
-    
+
+    -acodec
+    -vcodec
+
 ### Ringtone conversion using ffmpeg
 
     ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
 
-### To webm
+### To web
 
-    ffmpeg -i input.mp4 -vcodec libvpx -acoder libvorbis output.webm
+    ffmpeg -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4
+    ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
 
+    <video width="320" height="240" controls>
+      <source src="movie.mp4"></source>
+      <source src="movie.webm"></source>
+    </video>

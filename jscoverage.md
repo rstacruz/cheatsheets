@@ -1,28 +1,27 @@
 ---
-title: Setting up jscoverage
+title: jscoverage
 layout: default
 ---
 
 ### Install
 
-    npm i --save-dev jscoverage
+    npm install --save-dev jscoverage
+
+### Ignore output
+
+    echo coverage.html >> .gitignore
 
 ### package.json
 
-Set up the `coverage` task so you can do `npm run coverage` later.
+The `coverage` task injects your source files (`lib`) with jscoverage hooks, runs `mocha -R html-cov`, then restores later.
 
-    "coverage": "./node_modules/.bin/jscoverage YOURFILE.js && env COVERAGE=true ./node_modules/.bin/mocha -R html-cov > coverage.html; rm YOURFILE-cov.js",
-
-### test/setup.js
-
-Instead of requiring `YOURFILE.js`, use `-cov.js` when it's necessary.  It's
-preferred to do this in the test files (rather than the main entry points) so 
-not to mess with browserify.
-
-    var cov = (!! process.env.COVERAGE);
-    global.Mylib = require(cov ? 'mylib' : 'mylib-cov');
+    "coverage": "./node_modules/.bin/jscoverage lib && (mv lib lib~; mv lib-cov lib; ./node_modules/.bin/mocha -R html-cov > coverage.html; mv -f lib~ lib)"
 
 ### Run
 
     npm run coverage
     open coverage.html
+
+### Caveats
+
+If you're using jsdom, be sure to expose the `window._$jscoverage` variable into the `global` scope.

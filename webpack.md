@@ -21,4 +21,27 @@ layout: default
       filename: '[name].js'
       /* also: [id] [hash] */
       chunkFilename: "[id].chunk.js"
+
+      libraryTarget: 'var' | 'this' | 'commonjs' | 'commonjs2' | 'amd' | 'umd'
+    }
+
+### Module
+
+    module: {
+      loaders: [ ... ]
+      preLoaders: [ ... ]
+      postLoaders: [ ... ]
+    }
+
+### Resolve
+
+    resolve: {
+      alias: {
+        'xyz': './foo.js'
+      }
+      modulesDirectories: [
+        'node_modules',
+        'web_modules' ]
+      }
+
     }

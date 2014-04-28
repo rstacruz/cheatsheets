@@ -15,7 +15,11 @@ layout: default
 
 The `coverage` task injects your source files (`lib`) with jscoverage hooks, runs `mocha -R html-cov`, then restores later.
 
-    "coverage": "./node_modules/.bin/jscoverage lib && (mv lib lib~; mv lib-cov lib; ./node_modules/.bin/mocha -R html-cov > coverage.html; mv -f lib~ lib)"
+    /* directory */
+    "coverage": "mv lib lib~; (./node_modules/.bin/jscoverage lib~ lib; ./node_modules/.bin/mocha -R html-cov > coverage.html); rm -rf lib; mv lib~ lib"
+
+    /* single file */
+    "coverage": "(cp index.js index.js~; ./node_modules/.bin/jscoverage index.js; mv index-cov.js index.js; ./node_modules/.bin/mocha -R html-cov > coverage.html); mv index.js~ index.js"
 
 ### Run
 

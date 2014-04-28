@@ -190,6 +190,7 @@ CLI interface
                          # [balance] no grand total
     -s, --subtotal       # [balance] show sub-accounts
                          # [other] show subtotals
+    --flat
 
 ### Effective dates
 

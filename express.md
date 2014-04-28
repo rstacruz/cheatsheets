@@ -58,6 +58,12 @@ layout: default
     req.is('html')
     req.is('text/html')
 
+    req.headers
+    req.headers['host']
+    req.headers['user-agent']
+    req.headers['accept-encoding']
+    req.headers['accept-language']
+
 
 ## Response
 

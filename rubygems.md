@@ -7,7 +7,8 @@ layout: default
     gem install *.gem           # Install locally
     gem push *.gem              # Upload to rubygems.org
     gem yank foogem -v 0.0.1    # Take it back
-    gem owner -a rico@ricostacruz.com
+
+    gem owner foogem -a rico@ricostacruz.com
 
     gem list                    # List local gems
     gem which rake              # Point to where lib/rake.rb is

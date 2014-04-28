@@ -138,6 +138,7 @@ layout: default
     });
     proc.on('exit', function(code) { ... });
 
+    // also { stdio: ['pipe', 'pipe', process.stdout] }
     // also { stdio: [process.stdin, process.stderr, process.stdout] }
 
     proc.stdout.on('data', function (data) {

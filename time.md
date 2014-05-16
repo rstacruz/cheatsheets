@@ -71,3 +71,8 @@ layout: default
       a, A      - AM/PM
     Misc
       DDD, DDDD - Day of year
+
+Examples:
+
+    YYYY-MM-DD         - 2014-01-01
+    dddd, MMMM Do YYYY - Friday, May 16th 2014

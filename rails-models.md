@@ -98,7 +98,7 @@ Or HABTM:
 
 And in migrations:
 
-    create_table :images do
+    create_table :images do |t|
       t.references :post, :polymorphic => true
     end
 

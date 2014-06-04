@@ -66,6 +66,7 @@ Animations
     # Example:
     animation: bounce 300ms linear 0s infinite normal
     animation: bounce 300ms linear infinite
+    animation: bounce 300ms linear infinite alternate-reverse
 
 ### Other properties
 
@@ -80,8 +81,6 @@ Webkit extensions
 
     /* maxvoltar.com/archive/-webkit-font-smoothing */
     * {
-      text-rendering: optimizeLegibility !important;
-      -webkit-font-smoothing: antialiased !important;
       text-rendering: optimizeLegibility !important;
       -webkit-font-smoothing: antialiased !important;
       -moz-osx-font-smoothing: grayscale;

@@ -21,6 +21,21 @@ layout: default
     I18n.translate :inbox, count: 1  # => 'one message'
     I18n.translate :inbox, count: 2  # => '2 messages'
 
+### Time
+
+    en:
+      date:
+        formats:
+          default: "%Y-%m-%d"
+          short: "%b %d"
+      time:
+        formats:
+          default: "%a, %d %b %Y %H:%M:%S %z"
+          short: "%d %b %H:%M"
+
+    I18n.l Time.now
+    I18n.l Time.now, format: :short
+
 ### ActiveRecord
 
     activerecord.attributes.user.name

@@ -50,6 +50,21 @@ layout: default
     add_index
     remove_index
 
+### Use models
+
+    class AddFlagToProduct < ActiveRecord::Migration
+      class Product < ActiveRecord::Base
+      end
+     
+      def change
+        add_column :products, :flag, :boolean
+        Product.reset_column_information
+        reversible do |dir|
+          dir.up { Product.update_all flag: false }
+        end
+      end
+    end
+
 ### Associations
     
     t.references :category   # kinda same as t.integer :category_id

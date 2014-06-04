@@ -10,7 +10,9 @@ Basic
     }
 
     .container > div {
-      flex: 0 1 auto; /* grow shrink basis */
+      flex: 0    0      40px;
+      flex: 0    1      auto;
+        /*  grow shrink basis */
     }
 
 Full
@@ -54,3 +56,20 @@ Full
       height: 100px;
       margin: auto;
     }
+
+### Mobile
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container > .top-bar {
+      flex: 0 0 100px;
+    }
+
+    .container > .content {
+      height: 100px;
+      flex: 1 0 auto;
+    }
+

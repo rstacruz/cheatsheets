@@ -210,7 +210,10 @@ or
 
     printf "Hello %s, I'm %s" Sven Olga
 
-References
+### Directory of script
+
+    DIR="${0%/*}"
+
 ----------
 
 *  http://wiki.bash-hackers.org/

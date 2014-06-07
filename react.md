@@ -102,8 +102,7 @@ layout: default
       }
     })
 
-### Two-way binding
-
+### [Two-way binding](http://facebook.github.io/react/docs/two-way-binding-helpers.html)
 
     React.createClass({
       mixins: [React.addons.LinkedStateMixin],
@@ -116,8 +115,6 @@ layout: default
     });
     // LinkedStateMixin adds a method to your React component called
     // linkState(). 
-
-http://facebook.github.io/react/docs/two-way-binding-helpers.html
 
 ### Lists
 
@@ -154,6 +151,7 @@ http://facebook.github.io/react/docs/two-way-binding-helpers.html
     });
 
 ### Mixins
+
     var TickTock = React.createClass({
       mixins: [SetIntervalMixin]
     }
@@ -162,8 +160,6 @@ http://facebook.github.io/react/docs/two-way-binding-helpers.html
       componentWillMount: function() { .. }
     }
 
-### Reusable components
-
-http://facebook.github.io/react/docs/reusable-components.html
+### [Reusable components](http://facebook.github.io/react/docs/reusable-components.html)
 
   * Prop validation

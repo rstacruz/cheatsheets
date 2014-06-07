@@ -1,7 +1,7 @@
 ---
 title: vim
 layout: default
-----
+---
 
 Command line
 ------------

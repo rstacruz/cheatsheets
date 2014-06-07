@@ -3,7 +3,9 @@ title: Code stuff
 layout: default
 ---
 
-Badges for open source projects
+Here are some badges for open source projects.
+
+### Badges
 
  * Version badge (gems, npm): http://badge.fury.io/
 

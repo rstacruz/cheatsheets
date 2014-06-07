@@ -1,12 +1,16 @@
+---
+html_class: home
+---
 {% include head.html %}
 
-<h1>
-  {{ page.title }}
-  <a class='back' href='.'>Index</a>
-</h1>
+<div class='header'>
+  <h1>{{ page.title }}</h1>
+</div>
 
-{% for page in site.pages %}
-  <a href=".{{ page.url }}">{{ page.title }}</a>
-{% endfor %}
+<div class='pages'>
+  {% for page in site.pages %}
+    <a href=".{{ page.url }}">{{ page.title }}</a>
+  {% endfor %}
+</div>
 
 {% include foot.html %}

@@ -1,5 +1,5 @@
 ---
-title: Ansible: getting started
+title: Ansible - Getting started
 layout: default
 ---
 

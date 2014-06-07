@@ -1,7 +1,7 @@
 ---
-title: Ubuntu/Debian
+title: Ubuntu
 layout: default
-----
+---
 
 ### Aptitude stuff
 

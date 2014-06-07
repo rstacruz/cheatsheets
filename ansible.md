@@ -86,11 +86,11 @@ layout: default
 
 ### Env vars
 
-  vars:
-     local_home: "{{ lookup('env','HOME') }}"
+    vars:
+      local_home: "{{ lookup('env','HOME') }}"
 
 ## Refereneces
 
-  * http://www.ansibleworks.com/docs/intro_configuration.html
-  * http://www.ansibleworks.com/docs/modules.html
+  * [Intro](http://www.ansibleworks.com/docs/intro_configuration.html)
+  * [Modules](http://www.ansibleworks.com/docs/modules.html)
 

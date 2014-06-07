@@ -1,7 +1,7 @@
 ---
 title: Node.js API
 layout: default
-----
+---
 
 ## Globals
 

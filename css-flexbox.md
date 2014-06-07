@@ -45,7 +45,7 @@ Full
       flex-grow: 0;
     }
 
-### Centering
+### Vertical center
 
     .container {
       display: flex;
@@ -57,14 +57,24 @@ Full
       margin: auto;
     }
 
-### Mobile
+### Reordering
+
+   .container > .top {
+    order: 1;
+   }
+
+   .container > .bottom {
+    order: 2;
+   }
+
+### Mobile layout
 
     .container {
       display: flex;
       flex-direction: column;
     }
 
-    .container > .top-bar {
+    .container > .top {
       flex: 0 0 100px;
     }
 

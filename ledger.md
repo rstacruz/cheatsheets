@@ -3,7 +3,7 @@ title: Ledger CLI
 layout: default
 ---
 
-### Queries
+### Examples
 
     # any/all matches
       ledger bal Rent Transportation  # any
@@ -41,7 +41,7 @@ layout: default
       ledger reg -b 01/25 -e 01/27 --subtotal
       ledger reg -b 01/25 -e 01/27 --subtotal grocery
 
-### Format
+## Format
 
     2013/01/03 * Rent for January
       Expenses:Rent   $600.00
@@ -92,6 +92,13 @@ layout: default
     2010/05/31 * Gas
       Expenses:Gasoline             11 GAL {=$2.299}
 
+### Commodity definitions
+
+    commodity $
+             note American Dollars
+             format $1,000.00
+             nomarket
+             default
 
 ### Budgeting
 
@@ -116,8 +123,6 @@ layout: default
 
 CLI interface
 -------------
-
-### Examples
 
     $ ledger bal         # show balance
     $ ledger reg grocery # show entries for grocery
@@ -170,19 +175,34 @@ CLI interface
     -b, --begin DATE
     -e, --end DATE
 
-    -d EXPR          # only transactions matching EXPR (`-d payee =~ /pioneer/`)
+    -d payee =~ /pioneer/
 
-    -C, --cleared    # only cleared transactions (with *)
-    -U, --uncleared  # only uncleared (no *)
-        --pending    # only pending (with !)
+    -C, --cleared    # (with *)
+    -U, --uncleared  # (no *)
+        --pending    # (with !)
 
     -R, --real       # ignore virtual postings (eg: "(Cash)  $-400")
     -L, --actual     # no automated postings (eg: "= /^Income/")
 
-        --aux-date   # use aux dates as if it were the primary dates
-
     -r, --related   # show the other side
                     # "reg -r savings" shows where it comes from)
+
+### Queries
+
+    ^regex$
+    @payee
+    %tag
+    =note
+    #code
+    term and term
+    term or term
+    not term
+    \( term \)
+
+Example:
+
+    ledger r ^expenses and @Denny's
+    ledger r food and @Starbucks and not dining
 
 ### Display
 
@@ -214,14 +234,6 @@ Then, when you receive the payment, you change it to
     "2013/09/02","","things", "Expenses:Things","P","2200","*",""
     "2013/09/04","","stuff",  "Assets:Cash","P","-20","*",""
     "2013/09/04","","stuff",  "Expneses:Others","P","20","*",""
-
-### Commodity
-
-    commodity $
-             note American Dollars
-             format $1,000.00
-             nomarket
-             default
 
 ### See
 

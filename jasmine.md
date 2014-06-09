@@ -3,8 +3,6 @@ title: Jasmine
 layout: default
 ---
 
-[Jasmine](http://pivotal.github.com/jasmine/).
-
     describe("A suite", function() {
       it("contains spec with an expectation", function() {
         expect(true).toBe(true);
@@ -133,3 +131,7 @@ Jasmine jQuery
     $('#some_element').click();
     expect('click').toHaveBeenPreventedOn($('#some_element'));
     expect('click').toHaveBeenTriggeredOn($('#some_element'));
+
+### Reference
+
+ * http://pivotal.github.com/jasmine/

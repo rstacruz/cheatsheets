@@ -1,6 +1,6 @@
 ---
 title: Mocha.js
-layout: Default
+layout: default
 ---
 
 ### BDD
@@ -34,3 +34,8 @@ layout: Default
     foo.should.have.length(3);
     tea.should.have.property('flavors').with.length(3);
 
+### See also
+
+ * [Chai](chai.html)
+ * [Sinon](sinon.html)
+ * [Sinon Chai](sinon-chai.html)

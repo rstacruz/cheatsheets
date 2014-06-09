@@ -3,19 +3,23 @@ title: CSS flexbox
 layout: default
 ---
 
-Basic
-
     .container {
       display: flex;
     }
 
-    .container > div {
-      flex: 0    0      40px;
-      flex: 0    1      auto;
-        /*  grow shrink basis */
+    .container.vertical {
+      flex-direction: column;
     }
 
-Full
+    .container > div {
+      flex: /* grow, shrink, basis */;
+      flex: 0 0 40px; /* fixed width */
+      flex: 0 1 auto; /* dynamic width */
+
+      order: 1;
+    }
+
+### Full reference
 
     .container {
       display: flex;
@@ -23,16 +27,16 @@ Full
 
       flex-direction: row;         /* ltr - default */
       flex-direction: row-reverse; /* rtl */
-
       flex-direction: column;         /* top-bottom */
       flex-direction: column-reverse; /* bottom-top */
 
       flex-wrap: nowrap; /* one-line */
       flex-wrap: wrap;   /* multi-line */
 
-      align-items: flex-start; /* vertical alignment - default */
-      align-items: flex-end;
-      align-items: center;
+      align-items: flex-start; /* vertically-align to top */
+      align-items: flex-end;   /* vertically-align to bottom */
+      align-items: center;     /* vertically-align to center */
+      align-items: stretch;    /* same height on all (default) */
 
       justify-content: flex-start; /* horizontal alignment - default */
       justify-content: flex-end;
@@ -44,6 +48,8 @@ Full
       order: 1;
       flex-grow: 0;
     }
+
+## Tricks
 
 ### Vertical center
 
@@ -59,15 +65,17 @@ Full
 
 ### Reordering
 
-   .container > .top {
-    order: 1;
-   }
-
-   .container > .bottom {
-    order: 2;
-   }
+    .container > .top {
+     order: 1;
+    }
+  
+    .container > .bottom {
+     order: 2;
+    }
 
 ### Mobile layout
+
+A fixed-heighttop bar and a dynamic-height content area.
 
     .container {
       display: flex;
@@ -83,3 +91,29 @@ Full
       flex: 1 0 auto;
     }
 
+### Table-like
+
+This creates columns that have different widths, but size accordingly according
+to the circumstances.
+
+    .container {
+      display: flex;
+    }
+
+    /* the 'px' values here are just suggested percentages */
+    .container > .checkbox { flex: 1 0 20px; }
+    .container > .subject  { flex: 1 0 400px; }
+    .container > .date     { flex: 1 0 120px; }
+
+### Vertical
+      
+Vertically-center all items.
+
+    .container {
+      align-items: center;
+    }
+
+### References
+
+ * [MDN: Using CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes)
+ * [Ultimate flexbox cheatsheet](http://www.sketchingwithcss.com/samplechapter/cheatsheet.html)

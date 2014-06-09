@@ -3,10 +3,6 @@ title: Harvey.js
 layout: default
 ---
 
-### Harvey
-
-    http://harvesthq.github.io/harvey/harvey.js
-
 ### Usage
 
     Harvey.attach('(min-width: 600px)', {
@@ -17,3 +13,8 @@ layout: default
       off: function () {
       }
     })
+
+### References
+
+ * http://harvesthq.github.io/harvey/harvey.js
+

@@ -3,12 +3,7 @@ title: Shell scripting
 layout: default
 ---
 
-### Clever one liners
-
-    # Search and replace in all files
-    perl -p -i -e "s/from/to/g" **/*.css
-
-### String substitutions by patterns
+### Pattern substitution
 
     STR=/path/to/foo.c
 
@@ -16,7 +11,7 @@ layout: default
     echo ${STR%.c}.o    #=> "/path/to/foo.o"
     echo ${STR##*.}     #=> "c" (extension)
 
-    BASE=${SRC##*/}     #=> "foo.c" (basepath)
+    BASE=${STR##*/}     #=> "foo.c" (basepath)
     DIR=${SRC%$BASE}    #=> "/path/to"
 
 ### Substitutions by regex
@@ -33,6 +28,7 @@ layout: default
 
     [ -z "$CC" ] && CC=gcc        # CC ||= "gcc"  assignment
     ${CC:=gcc}                    # $CC || "gcc"
+    ${CC:-gcc}                    # same as above
 
 ### Loops
 

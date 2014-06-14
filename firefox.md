@@ -3,12 +3,25 @@ title: Firefox
 layout: default
 ---
 
+### [Firefox 30](https://developer.mozilla.org/en-US/Firefox/Releases/30) (June 2014)
+
+ * CSS: Allow `line-height` in `<input type='button'>`
+ * JS: `Console.count()`
+ * JS: ES6 array and generator comprehensions
+
+### Firefox 29 (April 2014)
+
+ * New UI
+ * CSS: Unprefixed `box-shadow`
+
 ### Firefox 18 (Jan 2013)
 
  * Faster JS compiler (IonMonkey)
  * Mac retina support
- * JS `window.devicePixelRatio`
- * JS unprefixed `ontouchstart`
+ * JS: `window.devicePixelRatio`
+ * JS: unprefixed `ontouchstart`
+ * HTML: `<input type='number'>`
+ * HTML: `<input type='color'>`
 
 ### Firefox 17 (Nov 2012)
 

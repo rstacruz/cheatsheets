@@ -8,7 +8,7 @@ layout: default
     Date presets
       %m/%d/%Y      - 06/05/2013
       %A, %B %e, %Y - Sunday, January 5, 2013
-      %b %e         - Jan 5
+      %b %e %a      - Jan 5 Sun
 
     Time presets
       %H:%M  - 23:05

@@ -3,7 +3,13 @@ title: Rsync
 layout: default
 ---
 
-    rsync --progress -avz --exclude '.Trashes' --exclude '.Spotlight-V100' --exclude '.fseventsd'
+    rsync -avz ./src /dest
+
+### OSX
+
+    --exclude '.Trashes'
+    --exclude '.Spotlight-V100'
+    --exclude '.fseventsd'
 
 ### Options
 
@@ -19,6 +25,8 @@ Display:
     -h, --human-readable
         --progress
 
+Skipping:
+
     -u, --update     # skip files newer on dest
     -c, --checksum   # skip based on checksum, not mod-time & size
 
@@ -29,17 +37,16 @@ Backups:
 
         --backup-dir=DIR
 
-Include:
+### Include
 
     --exclude=PATTERN
-    --exclude-from=FILE
-
     --include=PATTERN
-    --include-from=FILE
 
+    --exclude-from=FILE
+    --include-from=FILE
     --files-from=FILE    # read list of filenames from FILe
 
-Archive:
+### Archive
 
     -a, --archive    # archive (-rlptgoD)
 

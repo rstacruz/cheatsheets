@@ -17,6 +17,7 @@
 })();
 
 (function () {
+  if (!window.JekyllEscape) return;
   var tags = document.querySelectorAll('pre code, pre span');
 
   for (var i=0, len=tags.length; i<len; i++) {

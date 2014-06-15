@@ -15,3 +15,15 @@
     });
   }
 })();
+
+(function () {
+  var tags = document.querySelectorAll('pre code, pre span');
+
+  for (var i=0, len=tags.length; i<len; i++) {
+    var tag = tags[i];
+    if (~tag.innerHTML.indexOf('{\\%'))
+      tag.innerHTML = tag.innerHTML.replace(/{\\%/g, '{%');
+    if (~tag.innerHTML.indexOf('{\\{'))
+      tag.innerHTML = tag.innerHTML.replace(/{\\{/g, '{{');
+  }
+})();

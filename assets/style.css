@@ -1,6 +1,6 @@
 html, body {
   font-family: lato, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.556;
   color: #444;
   margin: 0;
@@ -19,9 +19,13 @@ h1 {
   font-weight: 100;
 }
 
+pre {
+  line-height: 1.4;
+}
+
 pre, code {
   font-family: menlo, monospace;
-  font-size: 12px;
+  font-size: 0.9em;
 }
 
 a {
@@ -52,7 +56,7 @@ a {
  * stuff
  */
 
-.header, .content, .pages {
+div.header, div.content, div.pages {
   max-width: 800px;
   margin: 0 auto;
   padding-left: 15px;

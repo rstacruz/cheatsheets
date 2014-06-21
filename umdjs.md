@@ -3,7 +3,7 @@ title: Universal JS module loader
 layout: default
 ---
 
-### Basic (with dependency)
+### [With dependency](https://github.com/umdjs/umd/blob/master/amdWebGlobal.js)
 
 ~~~ js
 ;(function (root, factory) {
@@ -21,7 +21,7 @@ layout: default
 }));
 ~~~
 
-### Basic (no dependency)
+### No dependencies
 
 ~~~ js
 ;(function (root, factory) {
@@ -39,6 +39,23 @@ layout: default
 }));
 ~~~
 
+### [Supports circular references](https://github.com/umdjs/umd/blob/master/commonjsStrict.js)
+
+~~~ js
+(function (root, factory) {
+
+  if (typeof define === 'function' && define.amd) {
+    define(['exports', 'jquery'], factory);
+  } else if (typeof exports === 'object') {
+    factory(exports, require('jquery'));
+  } else {
+    factory((root.YourModule = {}), root.jQuery);
+  }
+
+}(this, function (exports, jQuery) {
+  exports.action = function () {};
+}));
+~~~
 
 ### Reference
 

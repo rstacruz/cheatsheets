@@ -29,15 +29,20 @@ layout: default
     a.default = function() { ... };
     array = [ 1, 2, 3, ];
 
+    /* jshint white: true, indent: 4 */
+    // check whitespace and indentation rules
+
+### Ignore
+
+    /* jshint ignore:start */
+    /* jshint ignore:end */
+
 ### Environments
 
-    browser /* window, document, ... */
-    node    /* module, exports, console, process, ... */
-    jquery  /* jQuery, $ */
+    /* jshint browser: true */ window, document, ...
+    /* jshint node: true */    module, exports, console, process, ...
+    /* jshint jquery: true */  jQuery, $
 
-
-
-    
 ### Also see
 
  * http://www.jshint.com/docs/options/

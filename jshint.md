@@ -3,23 +3,29 @@ title: Jshint
 layout: default
 ---
 
+### Inline
+
+    /* jshint undef: true */
+    /* global jQuery */
+    /* global -BAD_LIB */
+
 ### Relaxing
 
-    /* expr: true */
+    /* jshint expr: true */
     production && minify = true;
 
-    /* loopfunc: true */
+    /* jshint loopfunc: true */
     for (i=0; i<10; x++) {
       (function(i) {
       })(i);
     }
 
-    /* sub: true */
+    /* jshint sub: true */
     process.env['name_here'];
 
 ### Enforcement
 
-    /* es3: true (legacy IE compatibility) */
+    /* jshint es3: true (legacy IE compatibility) */
     a.default = function() { ... };
     array = [ 1, 2, 3, ];
 
@@ -34,6 +40,6 @@ layout: default
     
 ### Also see
 
- * www.jshint.com/docs/options/
+ * http://www.jshint.com/docs/options/
  * https://gist.github.com/haschek/2595796
 

@@ -7,6 +7,8 @@ Here are some badges for open source projects.
 
 ### Badges
 
+ * Everything: http://shields.io/
+
  * Version badge (gems, npm): http://badge.fury.io/
 
  * Dependencies (ruby): http://gemnasium.com/
@@ -18,6 +20,8 @@ Here are some badges for open source projects.
  * Test coverage: https://coveralls.io/
 
 ### Badge markdown
+
+[![Status](https://travis-ci.org/rstacruz/ento.svg?branch=master)](https://travis-ci.org/rstacruz/ento)  
 
     [![Status](https://travis-ci.org/USER/REPO.svg?branch=master)](https://travis-ci.org/USER/REPO)  
 
@@ -43,7 +47,7 @@ Here are some badges for open source projects.
 
 [![Gem](https://img.shields.io/gem/v/gem-rails-brightgreen.png)](http://rubygems.org/gems/rails "View this project in Rubygems")
 
-    [![Gem](https://img.shields.io/gem/v/gem-GEM-brightgreen.png)](http://rubygems.org/gems/GEM "View this project in Rubygems")
+    [![Gem](https://img.shields.io/badge/gem-GEM-brightgreen.png)](http://rubygems.org/gems/GEM "View this project in Rubygems")
 
 ### Etc
 

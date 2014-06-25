@@ -106,7 +106,7 @@ Here are some badges for open source projects.
 
     ## Thanks
 
-    **Jsfuse** © 2014, Rico Sta. Cruz. Released under the [MIT License].<br>
+    **Jsfuse** © 2014+, Rico Sta. Cruz. Released under the [MIT License].<br>
     Authored and maintained by Rico Sta. Cruz with help from [contributors].
 
     > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;

@@ -6,15 +6,15 @@ layout: default
 Selectors
 ---------
 
-    =  [attr="value"]       - exact
-    ~= [class~="box"]       - has word
-    |= [class|="icon"]      - exact, or prefix (eg, value-)
-    $= [href$=".doc"]       - ends in
-    *= [class*="-is-"]      - contains
+    [attr="value"]       /*  =   exact */
+    [class~="box"]       /*  ~=  has word */
+    [class|="icon"]      /*  |=  exact, or prefix (eg, value-) */
+    [href$=".doc"]       /*  $=  ends in */
+    [class*="-is-"]      /*  *=  contains */
 
-    + adjacent sibling
-    ~ far sibling
-    > direct child
+    h3 + p               /*  +   adjacent sibling */
+    article ~ footer     /*  ~   far sibling */
+    .container > .box    /*  >   direct child */
 
     :target (h2#foo:target)
     :disabled
@@ -32,47 +32,42 @@ Selectors
 
     :only-child
 
-
 Background
 ----------
 
 ### Shorthand
 
-    background: <color> <image> <position> <size> <repeat> <attachment> <clip>
-
-    # Example:
-    background: #ff0 url(bg.jpg) center top no-repeat fixed
+    background: #ff0  url(bg.jpg) center top 100px auto no-repeat fixed;
+             /* ^     ^           ^          ^          ^         ^
+                color image       position   size       repeat    attachment */
 
 ### Other properties
 
-    background-clip: border-box | padding-box | content-box [, ...]*
-
-    background-repeat: no-repeat | repeat-x | repeat-y
-
-    background-attachment: scroll | fixed | local
-
-### Compatibility
-
-  - background-clip: IE9+
-  - Multiple backgrounds: IE9+
+    background-clip: border-box | padding-box | content-box [, ...]*; /* IE9+ */
+    background-repeat: no-repeat | repeat-x | repeat-y;
+    background-attachment: scroll | fixed | local;
+    background: url(x), url(y); /* multiple (IE9+) */
 
 Animations
 ----------
 
 ### Shorthand
 
-    animation: <name> <duration> <timing-function> <delay> <count> <direction> <fill-mode>
+    animation: bounce 300ms    linear          100ms infinite alternate-reverse;
+            /* ^      ^        ^               ^     ^        ^
+               name   duration timing-function delay count    direction */
 
     # Example:
-    animation: bounce 300ms linear 0s infinite normal
-    animation: bounce 300ms linear infinite
-    animation: bounce 300ms linear infinite alternate-reverse
+    animation: bounce 300ms linear 0s infinite normal;
+    animation: bounce 300ms linear infinite;
+    animation: bounce 300ms linear infinite alternate-reverse;
 
-### Other properties
-
-    animation-direction: normal | reverse | alternate | alternate-reverse
-
-    animation-iteration-count: infinite | <number>
+    animation-name: bounce;
+    animation-delay: 100ms;
+    animation-duration: 300ms;
+    animation-direction: normal | reverse | alternate | alternate-reverse;
+    animation-iteration-count: infinite | <number>;
+    animation-timing-function: ease | linear | ease-in | ease-out | ease-in-out;
 
 Webkit extensions
 -----------------

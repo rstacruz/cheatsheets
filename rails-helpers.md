@@ -13,6 +13,7 @@ layout: default
 ### Numbers
 
     number_to_currency 20.33
+    number_to_currency 20.33, precision: 0
     number_with_precision 3.14159, precision: 2
     number_to_percentage 32       #=> "32%"
     number_with_delimiter 2048    #=> "2,048"

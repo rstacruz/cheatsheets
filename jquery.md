@@ -3,6 +3,16 @@ title: jQuery
 layout: default
 ---
 
+### Traversing
+
+    .children()
+    .closest('div')
+    .filter(':selected')
+    .find('div')
+    .has('div')
+
+    .first()
+
 ### Extending selectors
 
     // $(":inline")

@@ -64,7 +64,7 @@ layout: default
     process.stdout.write('...');
     process.stderr.write('...');
 
-    function readStdin(fn) {
+    function stdin(fn) {
       process.stdin.resume(); /* paused by default */
       process.stdin.setEncoding('utf8');
 

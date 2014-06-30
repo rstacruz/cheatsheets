@@ -5,9 +5,10 @@ layout: default
 
     $ http POST example.com/posts/3 \
         Origin:example.com  # :   HTTP headers
-        name="John Doe" \   # =   JSON data
-        q=="search" \       # ==  URL parameters
+        name="John Doe" \   # =   string
+        q=="search" \       # ==  URL parameters (?q=search)
         age:=29 \           # :=  for non-strings
+        list:='[1,3,4]'     # :=  json
         token=@token.txt \  # =@  read from file (text)
         user:=@user.json \  # :=@ read from file (json)
 

@@ -21,15 +21,21 @@ layout: default
 
 ### Adding items
 
-    array.push(Z)            // array == [a,b,c,d,e,Z]
-    array.unshift(Z)         // array == [Z,a,b,c,d,e]
+    array.push(X)            // array == [_,_,_,_,_,X]
+    array.unshift(X)         // array == [X,_,_,_,_,_]
+    array.splice(2, 0, X)    // array == [_,_,X,_,_,_]
 
-    array.concat([F,G])      //=> [a,b,c,d,e,F,G]
+    array.concat([X,Y])      //=> [_,_,_,_,_,X,Y]
 
-### Taking items
+### Replace items
+
+    array.splice(2, 1, X)    // array == [a,b,X,d,e]
+
+### Removing items
 
     array.pop()              //=> e      array == [a,b,c,d]
     array.shift()            //=> a      array == [b,c,d,e]
+    array.splice(2, 1)       //=> [c]    array == [a,b,d,e]
 
 
 

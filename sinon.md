@@ -57,3 +57,17 @@ title: Sinon
     beforeEach -> global.sinon = require('sinon').sandbox.create()
     afterEach  -> global.sinon.restore()
 
+###
+
+    .args
+    .thisValues
+    .returnValues
+
+    .getCalls
+
+    .called
+    .notCalled
+    .callCount
+    .calledOnce
+    .calledTwice
+    .callThrice

@@ -3,8 +3,6 @@ title: CSS antialiasing
 layout: default
 ---
 
-### On
-
     * {
       text-rendering: optimizeLegibility !important;
       -webkit-font-smoothing: antialiased !important;

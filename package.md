@@ -13,9 +13,9 @@ layout: default
       "version": "0.1.0",
       "engines": {"node": ">=0.8.0"},
       "repository": {
-         "type": "git",
-         "url": "https://github.com/rstacruz/___.git"
-       },
+        "type": "git",
+        "url": "https://github.com/rstacruz/___.git"
+      },
     }
 
 ### Dependencies

@@ -146,7 +146,7 @@ Markup
     {\% else %}
     {\% endif %}
 
-### Includes
+### Includes (partials)
 
     {\% include header.html %}
 
@@ -178,6 +178,39 @@ Blogging
 
     {\% for member in site.data.members %}
 
+Helpers and Filters
+-------------------
+
+     {\{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
+     {\{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
+     {\{ site.time | date_to_string }}      #=> 07 Nov 2008
+     {\{ site.time | date_to_long_string }} #=> 07 November 2008
+
+     | where:"year","2014"
+     | group_by:"genre"
+     | sort
+
+     | xml_escape
+     | cgi_escape
+     | uri_escape
+
+     | array_to_sentence_string
+     | number_of_words
+
+     | textilize
+     | markdownify
+     | jsonify
+
+     | camelize
+     | capitalize
+     | pluralize
+
+     | date: "%Y %m %d"
+     | default: "xxx"
+
+     | replace: "super", "mega"
+     | replace_first: "super", "mega"
+     
 Integration
 -----------
 
@@ -195,3 +228,6 @@ Integration
 ### References
 
   * http://jekyllrb.com/docs/home/
+  * http://jekyllrb.com/docs/templates/
+  * http://docs.shopify.com/themes/liquid-basics/output
+  * http://docs.shopify.com/themes/liquid-basics/logic

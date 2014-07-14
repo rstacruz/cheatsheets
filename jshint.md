@@ -3,8 +3,9 @@ title: Jshint
 layout: default
 ---
 
-### Relaxing
+### [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)
 
+Enable these options to *not* throw errors in these conditions.
 
     /* jshint asi: true */
     allow()
@@ -35,14 +36,40 @@ layout: default
     }
 
     /* jshint sub: true */
-    process.env['name_here'];
+    process.env['name_here']
 
-### Enforcement
+### [Enforcing](http://www.jshint.com/docs/options/#enforcing-options)
 
-    /* jshint es3: true */
-    // legacy IE compatibility
-    a.default = function() { ... };
-    array = [ 1, 2, 3, ];
+Enable these options to catch more errors.
+
+    /* jshint curly: true */
+    while (day)                     // err: use { }'s
+      shuffle();
+
+    /* jshint eqeqeq: true */
+    if (a == null)                  // err: use ===
+
+    /* jshint es3: true */          // ...for legacy IE compatibility
+    a.default = function() { ... }; // err: reserved word
+    array = [ 1, 2, 3, ];           // err: extra comma
+
+    /* jshint forin: true */
+    for (key in obj) { ... }        // err: check obj.hasOwnProperty(key)
+
+    /* jshint freeze: true */
+    Array.prototype.count = ...;    // err: don't modify native prototypes
+
+    /* jshint indent: 4 */
+    if (x) {                        // err: expected indent of 4, found 2
+      ...;
+    }
+
+    /* jshint quotmark: single */
+    /* jshint quotmark: double */
+    alert("hi");                    // err: only single allowed
+
+    /* jshint strict: true */
+    function() { ... }              // err: need "use strict"
 
     /* jshint white: true, indent: 4 */
     /* jshint maxdepth: 2 */
@@ -56,13 +83,14 @@ layout: default
     /* jshint ignore:start */
     /* jshint ignore:end */
 
-### Globals
+### Globals and [Environments](http://www.jshint.com/docs/options/#environments)
 
     /* jshint undef: true */
     /* global jQuery */
     /* global -BAD_LIB */
 
-    /* jshint browser: true */ window, document, ...
+    /* jshint devel: true */   console, alert, ...
+    /* jshint browser: true */ window, document, location, ...
     /* jshint node: true */    module, exports, console, process, ...
     /* jshint jquery: true */  jQuery, $
 

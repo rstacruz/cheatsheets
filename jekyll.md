@@ -4,6 +4,7 @@ layout: default
 jekyll_escape: true
 ---
 
+{% raw %}
 ### Installation
 
     $ gem install jekyll
@@ -56,60 +57,60 @@ Configuration
 
 ## [Variables](http://jekyllrb.com/docs/variables/)
 
-    {\{ site }}       - from config.yml
-    {\{ page }}       - from frontmatter, and page-specific info
-    {\{ content }}    - html content (use in layouts)
-    {\{ paginator }}  - ...
+    {{ site }}       - from config.yml
+    {{ page }}       - from frontmatter, and page-specific info
+    {{ content }}    - html content (use in layouts)
+    {{ paginator }}  - ...
 
 ### Site
 
-    {\{ site.time }}                 - current time
-    {\{ site.pages }}                - list of pages
-    {\{ site.posts }}                - list of posts
-    {\{ site.related_posts }}        - list
-    {\{ site.categories.CATEGORY }}  - list
-    {\{ site.tags.TAG }}             - list
+    {{ site.time }}                 - current time
+    {{ site.pages }}                - list of pages
+    {{ site.posts }}                - list of posts
+    {{ site.related_posts }}        - list
+    {{ site.categories.CATEGORY }}  - list
+    {{ site.tags.TAG }}             - list
 
-    {\{ site.static_files }}
+    {{ site.static_files }}
 
 ### Page
 
-    {\{ page.content }}  - un-rendered content
-    {\{ page.title }}
-    {\{ page.excerpt }}  - un-rendered excerpt
-    {\{ page.url }}
-    {\{ page.date }}
-    {\{ page.id }}       - unique id for RSS feeds
-    {\{ page.categories }}
-    {\{ page.tags }}
-    {\{ page.path }}
-    {\{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-    {\{ post.excerpt | strip_html }}
+    {{ page.content }}  - un-rendered content
+    {{ page.title }}
+    {{ page.excerpt }}  - un-rendered excerpt
+    {{ page.url }}
+    {{ page.date }}
+    {{ page.id }}       - unique id for RSS feeds
+    {{ page.categories }}
+    {{ page.tags }}
+    {{ page.path }}
+    {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+    {{ post.excerpt | strip_html }}
 
     <!-- blog pagination: -->
-    {\{ page.next }}
-    {\{ page.previous }}
+    {{ page.next }}
+    {{ page.previous }}
 
 ### [Paginator](http://jekyllrb.com/docs/pagination/)
 
-    {\{ paginator.page }}         - page number
-    {\{ paginator.total_posts}}
-    {\{ paginator.total_pages}}
-    {\{ paginator.per_page }}
+    {{ paginator.page }}         - page number
+    {{ paginator.total_posts}}
+    {{ paginator.total_pages}}
+    {{ paginator.per_page }}
 
-    {\% for post in paginator.posts %} ... {\% endfor %}
+    {% for post in paginator.posts %} ... {% endfor %}
 
-    {\% if paginator.previous_page %}
-      <a href="{\{ paginator.previous_page_path }}">Previous</a>
-    {\% else %}
-    {\% endif %}
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}">Previous</a>
+    {% else %}
+    {% endif %}
 
-    {\{ paginator.next_page }}     - page number
-    {\{ paginator.next_page_path }}
+    {{ paginator.next_page }}     - page number
+    {{ paginator.next_page_path }}
     ...
 
-    {\% if paginator.total_pages > 1 %}
-    {\% endif %}
+    {% if paginator.total_pages > 1 %}
+    {% endif %}
 
 Add this to `_config.yml`:
 
@@ -118,37 +119,37 @@ Add this to `_config.yml`:
 
 ### Code
 
-    {\% highlight ruby linenos %}
+    {% highlight ruby linenos %}
     def show
       ...
     end
-    {\% endhighlight %}
+    {% endhighlight %}
 
 Markup
 ------
 
 ### Loops
 
-    {\% for post in site.posts %}
+    {% for post in site.posts %}
       <a href="{{ post.url }}">
-        <h2>{\{ post.title }} &mdash; {\{ post.date | date_to_string }}</h2>
+        <h2>{{ post.title }} &mdash; {{ post.date | date_to_string }}</h2>
       </a>
-      {\{ post.content }}
-    {\% endfor %}
+      {{ post.content }}
+    {% endfor %}
 
 ### Dates
 
-    {\{ page.date | date: "%b %d, %Y" }}
+    {{ page.date | date: "%b %d, %Y" }}
 
 ### If
 
-    {\% if page.image.feature %}
-    {\% else %}
-    {\% endif %}
+    {% if page.image.feature %}
+    {% else %}
+    {% endif %}
 
 ### Includes (partials)
 
-    {\% include header.html %}
+    {% include header.html %}
 
 Blogging
 --------
@@ -157,7 +158,7 @@ Blogging
 
 ### Image paths
     
-    ![My helpful screenshot]({\{ site.url }}/assets/screenshot.jpg)
+    ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
 
 ### [Drafts](http://jekyllrb.com/docs/drafts/)
 
@@ -176,15 +177,15 @@ Blogging
 
     _data/members.yml
 
-    {\% for member in site.data.members %}
+    {% for member in site.data.members %}
 
 Helpers and Filters
 -------------------
 
-     {\{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
-     {\{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
-     {\{ site.time | date_to_string }}      #=> 07 Nov 2008
-     {\{ site.time | date_to_long_string }} #=> 07 November 2008
+     {{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
+     {{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
+     {{ site.time | date_to_string }}      #=> 07 Nov 2008
+     {{ site.time | date_to_long_string }} #=> 07 November 2008
 
      | where:"year","2014"
      | group_by:"genre"
@@ -231,3 +232,4 @@ Integration
   * http://jekyllrb.com/docs/templates/
   * http://docs.shopify.com/themes/liquid-basics/output
   * http://docs.shopify.com/themes/liquid-basics/logic
+{% endraw %}

@@ -4,7 +4,8 @@ layout: default
 vim: ft=javascript
 ---
 
-### Initialization
+{% raw %}
+### [Initialization](http://docs.ractivejs.org/latest/initialisation-options)
 
     new Ractive({
       el: $('..'),
@@ -12,15 +13,15 @@ vim: ft=javascript
       template: '...', // required
 
       // callbacks
-      init: function()     // on instanciate
-      complete: function() // on finish animations
+      init: function() {},    // on instanciate
+      complete: function() {}, // on finish animations
 
       // objs
-      data: { ... }
-      partials: { ... }    // global: Ractive.partials
-      transitions: { ... } // global: Ractive.transitions
-      components: { ... }
-      adaptors: [ ... ]
+      data: { ... },
+      partials: { ... },    // global: Ractive.partials
+      transitions: { ... }, // global: Ractive.transitions
+      components: { ... },
+      adaptors: [ ... ],
 
       // options
       magic: false
@@ -33,9 +34,7 @@ vim: ft=javascript
       sanitize: false
     })
 
-http://docs.ractivejs.org/latest/initialisation-options
-
-### Instance methods
+### [Instance methods](http://docs.ractivejs.org/latest/initialisation-options)
 
     view.set('a', true)
     view.set({ a: true })
@@ -53,7 +52,7 @@ http://docs.ractivejs.org/latest/initialisation-options
     view.nodes
     view.nodes['hello']   // .find('#hello')
 
-http://docs.ractivejs.org/latest/initialisation-options
+    view.findComponent('photo')
 
 ### Extend
 
@@ -62,7 +61,7 @@ http://docs.ractivejs.org/latest/initialisation-options
     })
     new View()
 
-### Components
+### [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
 
     Widget = Ractive.extend({ ... })
 
@@ -74,8 +73,7 @@ http://docs.ractivejs.org/latest/initialisation-options
       }
     });
 
-https://github.com/RactiveJS/Ractive/issues/74
-https://github.com/RactiveJS/Ractive/wiki/Components
+See: https://github.com/RactiveJS/Ractive/issues/74
 
 ### Partials
 
@@ -84,7 +82,7 @@ https://github.com/RactiveJS/Ractive/wiki/Components
 
 ### Events
 
-   view.on('teardown')
+    view.on('teardown')
 
 ### DOM Events
 
@@ -158,7 +156,7 @@ This transforms the `list` attribute via a helper function called `sort()`.
       t.complete();
     };
 
-### Decorators
+### [Decorators](http://docs.ractivejs.org/latest/decorators)
 
     <span decorator="tooltip:hello there">Hover me</span>
 
@@ -177,9 +175,7 @@ This transforms the `list` attribute via a helper function called `sort()`.
 
     tooltip: function (node, a, b, two, c) { ... }
 
-http://docs.ractivejs.org/latest/decorators
-
-### Adaptors
+### [Adaptors](http://docs.ractivejs.org/latest/adaptors)
 
     myAdaptor = {
       filter: function (object, keypath, ractive) {
@@ -200,6 +196,4 @@ http://docs.ractivejs.org/latest/decorators
         };
       }
     };
-
-
-http://docs.ractivejs.org/latest/adaptors
+{% endraw %}

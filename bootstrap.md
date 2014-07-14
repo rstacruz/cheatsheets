@@ -31,3 +31,13 @@ layout: default
     .col-sm-1
     .col-md-1
     .col-lg-1
+
+    .make-xs-column(12)
+    .make-sm-column(6)
+    .make-md-column(3)
+    .make-lg-column(3)
+
+### Utilities
+
+    .pull-left
+    .pull-right

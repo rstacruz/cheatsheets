@@ -5,7 +5,7 @@ vim: ft=javascript
 ---
 
 {% raw %}
-### [Initialization](http://docs.ractivejs.org/latest/initialisation-options)
+### [Initialization](http://docs.ractivejs.org/latest/options)
 
     new Ractive({
       el: $('..'),
@@ -34,18 +34,23 @@ vim: ft=javascript
       sanitize: false
     })
 
-### [Instance methods](http://docs.ractivejs.org/latest/initialisation-options)
+### Instance methods
+
+Updating values:
+
+    view.add('count', 1)       //=> promise
+    view.subtract('count', 1)  //=> promise
+    view.toggle('shown')       //=> promise
 
     view.set('a', true)
     view.set({ a: true })
-    view.merge(...)
+    view.reset({ a: true })
+    view.merge('list', [a,b,c])
+
     view.get('a')
+    view.data.a
 
-    view.on('event', function() { ... });
-    view.fire('event');
-
-    view.update()
-    view.updateModel()
+Nodes and components:
 
     view.find('.klass')
     view.findAll('.klass')
@@ -53,6 +58,25 @@ vim: ft=javascript
     view.nodes['hello']   // .find('#hello')
 
     view.findComponent('photo')
+    view.findAllComponents('photo')
+
+Events:
+
+    view.on('event', function() { ... })
+    view.off('event', fn)
+    view.fire('event')
+
+Etc:
+
+    view.update()
+    view.updateModel()
+
+    view.insert('.node .path')
+
+    view.observe({ 'name': function() { ... } })
+
+    view.toHTML()  //=> String
+    view.render()
 
 ### Extend
 
@@ -196,4 +220,19 @@ This transforms the `list` attribute via a helper function called `sort()`.
         };
       }
     };
+
+### [Computed properties](http://docs.ractivejs.org/latest/computed-properties)
+
+    new Ractive({
+      template: '{{area}}',
+      computed: {
+        area: function () { return this.get('width') * this.get('height'); }
+        area: '${width} * ${height}'
+        fullname: {
+          get: '${first} + " " + ${last}"
+          set: function (name) { ... }
+        }
+      }
+    });
+
 {% endraw %}

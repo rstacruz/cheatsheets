@@ -5,8 +5,29 @@ layout: default
 
 ### Relaxing
 
+
+    /* jshint asi: true */
+    allow()
+    missing_semicolons()
+
+    /* jshint boss: true */
+    if (m = str.match(/.../))
+
+    /* jshint debug: true */
+    debugger;
+
+    /* jshint eqnull: true */
+    if (x == null)
+
+    /* jshint evil: true */
+    eval('...')
+
     /* jshint expr: true */
     production && minify = true;
+
+    /* jshint laxcomma: true */
+    var one = 1
+      , two = 2;
 
     /* jshint loopfunc: true */
     for (i=0; i<10; x++) {
@@ -15,24 +36,6 @@ layout: default
 
     /* jshint sub: true */
     process.env['name_here'];
-
-    /* jshint boss: true */
-    if (m = str.match(/.../))
-
-    /* jshint asi: true */
-    allow()
-    missing_semicolons()
-
-    /* jshint evil: true */
-    eval('...')
-
-    /* jshint laxcomma: true */
-    var one = 1
-      , two = 2;
-
-    /* jshint sub: true */
-    person['name']
-
 
 ### Enforcement
 

@@ -5,24 +5,27 @@ layout: default
 
 ### Var assignment
 
-    JS_COMPRESSOR := $(uglify)
-
-    # Safe assignment
-    prefix ?= /usr/local
+    uglify = $(uglify)        # assignment
+    compressor := $(uglify)   # lazy assignment
+    prefix ?= /usr/local      # safe assignment
 
 ### Magic variables
 
-    $^   -- dependencies
-    $@   -- the thing to be built
+    out.o: src.c src.h
+      $@   - "out.o" (target)
+      $<   - "src.c" (first prerequisite)
+      $^   - "src.c src.h" (all prerequisites)
 
-    $@   -- Rule target
-    $%   -- Target member name ('foo' in 'foo.c' for '%.c')
-    $^   -- Prerequisites (all, without duplication)
-    $+   -- Prerequisites (all, with duplication)
-    $?   -- Prerequisites (new ones)
-    $|   -- Prerequisites (order-only?)
-    $<   -- Prerequisite (first)
-    $*   -- Basename without extension of the target (?)
+    %.o: %.c
+      $%   - target member name ("foo" in "foo.c")
+
+    also:
+      $+   - prerequisites (all, with duplication)
+      $?   - prerequisites (new ones)
+      $|   - prerequisites (order-only?)
+      $*   - basename without extension of the target (?)
+
+      $(@D) - target directory
 
 ### Command prefixes
 
@@ -30,44 +33,31 @@ layout: default
     @    Don't print command
     +    Run even if Make is in 'don't execute' mode
 
-Examples:
-
     build:
-        @echo "Building"
+        @echo "compiling"
         -gcc $< $@
-        @echo "Construction complete"
 
     -include .depend
 
-### Cool stuff
-
-    gitdir ?= $(shell git --exec-path)
-    gitver ?= $(word 3,$(shell git --version))
-
 ### Find files
 
-    FILES = $(shell find images -name "*")
-    FILES = $(shell find test/*.js)
-
-    $(patsubst images/%, assets/%, $(shell find images -name "*"))
+    js_files  := $(wildcard test/*.js)
+    all_files := $(shell find images -name "*")
 
 ### Substitutions
 
-    # Same
-    $(SOURCE:.cpp=.o)
-    $(patsubst %.cpp, %.c, $(SOURCES))
+    file     = $(SOURCE:.cpp=.o)   # foo.cpp => foo.o
+    outputs  = $(files:src/%.coffee=lib/%.js)
+
+    outputs  = $(patsubst %.c, %.o, $(wildcard *.c))
+    assets   = $(patsubst images/%, assets/%, $(wildcard images/*))
+
+### More functions
 
     $(strip $(string_var))
 
     $(filter %.less, $(files))
     $(filter-out %.less, $(files))
-
-### Executing
-
-    JS_COMPRESSOR := $(uglify)
-
-    docs:
-      $(JS_COMPRESSOR) file.js
 
 ### Building files
 
@@ -75,6 +65,24 @@ Examples:
       ffmpeg -i $< > $@   # Input and output
       foo $^
 
-### Inclusion
+### Includes
 
-    include assets.make
+    -include foo.make
+
+### Options
+
+    make
+      -e, --environment-overrides
+      -B, --always-make
+      -s, --silent
+
+      -j, --jobs=N   # parallel processing
+
+### Conditionals
+
+     foo: $(objects)
+     ifeq ($(CC),gcc)
+             $(CC) -o foo $(objects) $(libs_for_gcc)
+     else
+             $(CC) -o foo $(objects) $(normal_libs)
+     endif

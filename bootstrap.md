@@ -8,19 +8,20 @@ layout: default
              768          992                1200
     '     '     '     '     '     '     '     '     '
     <---------^------------^------------------^--------->
-            xs      sm              md             lg
+         xs         sm              md             lg
+       (phone)   (tablet)        (laptop)       (desktop)
 
 Min:
 
-    @media (min-width: @screen-sm-min)   /* small  >= 768px    tablet      */
-    @media (min-width: @screen-md-min)   /* medium >= 992px    desktop     */
-    @media (min-width: @screen-lg-min)   /* large  >= 1200px   big desktop */
+    @media (min-width: @screen-sm-min) { /* >= 768px (small tablet) */
+    @media (min-width: @screen-md-min) { /* >= 992px (medium laptop) */
+    @media (min-width: @screen-lg-min) { /* >= 1200px (large desktop) */
 
 Max:
 
-    @media (max-width: @screen-xs-max)   /* xsmall  < 768px    phone   */
-    @media (max-width: @screen-sm-max)   /* smalll  < 992px    tablet  */
-    @media (max-width: @screen-md-max)   /* medium  < 1200px   desktop */
+    @media (max-width: @screen-xs-max) { /* < 768px (xsmall phone) */
+    @media (max-width: @screen-sm-max) { /* < 992px (small tablet) */
+    @media (max-width: @screen-md-max) { /* < 1200px (medium laptop) */
 
 ### Columns
 

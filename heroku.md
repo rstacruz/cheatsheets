@@ -3,11 +3,11 @@ title: Heroku
 layout: default
 ---
 
-## `create` - Create an app
+### `create` - Create an app
 
     heroku create sushi
 
-## `sharing` - Collaboration
+### `sharing` - Collaboration
 
     # Manage collaborators
       heroku sharing                     # List
@@ -17,19 +17,19 @@ layout: default
     # Transfer to another owner
       heroku sharing:transfer new@owner.com
 
-## `logs` - Show logs
+### `logs` - Show logs
 
     heroku logs
     heroku logs -t      # --tail (stream)
     heroku logs -s app  # --source (only on app logs)
 
-## `releases`
+### `releases`
 
     heroku releases
     heroku releases:info v25
     heroku rollback
 
-## `pg` - Postgresql
+### `pg` - Postgresql
 
     # Start a database
       heroku addons:add heroku-postgresql
@@ -38,18 +38,22 @@ layout: default
     # Enable backups
       heroku addons:add pgbackups:auto-month
 
-## `ps` - Managing processes
+### `ps` - Managing processes
 
     heroku ps              # list
     heroku ps:scale web=1  # spawn more dynos
 
-## `run` - Running
+### `restart`
+
+    heroku restart
+
+### `run` - Running
 
     heroku run bash
     heroku run console                  # Rails console
     heroku run rake assets:precompile
 
-## `config` - Environment var configuration
+### `config` - Environment var configuration
 
     heroku config        # List
     heroku config -s     # List in shell format
@@ -61,7 +65,7 @@ layout: default
 
     heroku config:unset KEY1
 
-## `apps` - Applications
+### `apps` - Applications
 
     heroku apps                  # list
     heroku apps:create [NAME]
@@ -70,7 +74,12 @@ layout: default
     heroku apps:open             # open in browser
     heroku apps:rename NEWNAME
 
-## `domains` - Custom domains
+### `maintenance`
+
+    heroku maintenance:on
+    heroku maintenance:off
+
+### `domains` - Custom domains
 
     # Add both!
       heroku domains:add example.com
@@ -80,7 +89,7 @@ layout: default
       heroku domains:clear
       heroku domains:remove example.com
 
-## DNS records
+### DNS records
 
     # Root domains
     mydomain.com. (A)
@@ -92,13 +101,13 @@ layout: default
     .mydomain.com. (CNAME)
       => proxy.heroku.com
 
-## Wildcard domains
+### Wildcard domains
 
     heroku addons:add wildcard_domains
 
     *.yourdomain.com => heroku.com
 
-## htpasswd (for PHP apps)
+### htpasswd (for PHP apps)
 
 Create an `.htaccess` file in the webroot:
 
@@ -113,7 +122,7 @@ Create a `.htpasswd` file:
 
 See https://gist.github.com/3316425
 
-## References:
+### References:
 
  * https://addons.heroku.com/
  * https://devcenter.heroku.com/

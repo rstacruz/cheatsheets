@@ -160,9 +160,30 @@ pre {
 }
 
 /*
- * highlight
+ * table
  */
 
+table {
+  border-bottom: solid 1px #eee;
+  width: 100%; }
+
+td, th {
+  border-top: solid 1px #eee;
+  padding: 5px 10px; }
+
+th {
+  font-size: 0.9em;
+  font-weight: bold; }
+
+tr > :first-child {
+  padding-left: 0; }
+  
+tr > :last-child {
+  padding-left: 0; }
+
+/*
+ * highlight
+ */
 
 .hljs .keyword,
 .hljs .title

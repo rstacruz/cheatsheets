@@ -27,28 +27,15 @@ Here are some badges for open source projects.
 
 ### Versions
 
-[![npm version](https://img.shields.io/npm/v/jquery.png)](https://npmjs.org/package/jquery "View this project on npm")
-
-    [![npm version](https://img.shields.io/npm/v/PACKAGE.png)](https://npmjs.org/package/PACKAGE "View this project on npm")
-
-[![Gem version](https://img.shields.io/gem/v/rails.png)](http://rubygems.org/gems/rails "View this project in Rubygems")
-
-    [![Gem version](https://img.shields.io/gem/v/GEM.png)](http://rubygems.org/gems/GEM "View this project in Rubygems")
-
+[![npm version](https://img.shields.io/npm/v/jquery.svg)](https://npmjs.org/package/jquery "View this project on npm")
+[![npm version](https://badge.fury.io/js/jquery.svg)](https://npmjs.org/package/jquery "View this project on npm")
+[![Gem version](https://img.shields.io/gem/v/rails.svg)](http://rubygems.org/gems/rails "View this project in Rubygems")
 [![Latest version](http://img.shields.io/github/tag/rstacruz/nprogress.svg)](https://github.com/rstacruz/nprogress)
-
-    [![Latest version](http://img.shields.io/github/tag/USER/REPO.svg)](https://github.com/USER/REPO)
 
 ### Links
 
 [![npm](https://img.shields.io/badge/npm-jquery-brightgreen.png)](https://npmjs.org/package/jquery "View this project on npm")
-
-    [![npm](https://img.shields.io/badge/npm-PACKAGE-brightgreen.png)](https://npmjs.org/package/PACKAGE "View this project on npm")
-
 [![Gem](https://img.shields.io/gem/v/gem-rails-brightgreen.png)](http://rubygems.org/gems/rails "View this project in Rubygems")
-
-    [![Gem](https://img.shields.io/badge/gem-GEM-brightgreen.png)](http://rubygems.org/gems/GEM "View this project in Rubygems")
-
 ### Etc
 
 [![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/USER/REPO "Gitter chat")

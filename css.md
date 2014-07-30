@@ -37,9 +37,17 @@ Background
 
 ### Shorthand
 
-    background: #ff0  url(bg.jpg) center top 100px auto no-repeat fixed;
-             /* ^     ^           ^          ^          ^         ^
-                color image       position   size       repeat    attachment */
+    background: #ff0  url(bg.jpg) left top      / 100px auto no-repeat fixed;
+    background: #abc  url(bg.png) center center / cover      repeat-x  local;
+    /*          ^     ^           ^             ^            ^         ^
+                color image       position      size         repeat    attachment */
+
+### Multiple backgrounds
+
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('background.jpg') center center / cover,
+      #333;
 
 ### Other properties
 

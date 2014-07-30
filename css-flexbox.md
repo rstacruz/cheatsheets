@@ -33,9 +33,9 @@ layout: default
       flex-wrap: nowrap; /* one-line */
       flex-wrap: wrap;   /* multi-line */
 
-      align-items: flex-start; /* vertically-align to top */
-      align-items: flex-end;   /* vertically-align to bottom */
-      align-items: center;     /* vertically-align to center */
+      align-items: flex-start; /* vertical-align to top */
+      align-items: flex-end;   /* vertical-align to bottom */
+      align-items: center;     /* vertical-align to center */
       align-items: stretch;    /* same height on all (default) */
 
       justify-content: flex-start; /* horizontal alignment - default */

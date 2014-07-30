@@ -3,6 +3,10 @@ title: Firefox
 layout: default
 ---
 
+### [Firefox 31](https://www.mozilla.org/en-US/firefox/31.0/releasenotes/) (July 2014)
+
+ * CSS: variables
+
 ### [Firefox 30](https://developer.mozilla.org/en-US/Firefox/Releases/30) (June 2014)
 
  * CSS: Allow `line-height` in `<input type='button'>`

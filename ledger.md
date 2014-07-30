@@ -3,6 +3,17 @@ title: Ledger CLI
 layout: default
 ---
 
+    $ ledger bal
+    $ ledger reg
+
+    $ ledger reg grocery # show entries for grocery
+    $ ledger bal assets  # check if im broke
+
+      -b 01/01   # --begin
+      -e 01/31   # --end
+      -S date    # --sort
+      -S amount
+
 ### Examples
 
     # any/all matches
@@ -41,7 +52,8 @@ layout: default
       ledger reg -b 01/25 -e 01/27 --subtotal
       ledger reg -b 01/25 -e 01/27 --subtotal grocery
 
-## Format
+Format
+------
 
     2013/01/03 * Rent for January
       Expenses:Rent   $600.00
@@ -120,21 +132,6 @@ layout: default
    % also line comment
    | also line comment
    * also line comment
-
-CLI interface
--------------
-
-    $ ledger bal         # show balance
-    $ ledger reg grocery # show entries for grocery
-    $ ledger print       # show entries
-
-    $ ledger bal assets  # check if im broke
-
-      $2000 Assets
-      $1400   Savings
-       $600   Cash
-
-    $ ledger bal -b 2013/01/01 -e 2013/01/31
 
 ### Periods
 

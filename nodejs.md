@@ -65,12 +65,17 @@ layout: default
     process.stderr.write('...');
 
     function stdin(fn) {
-      process.stdin.resume(); /* paused by default */
-      process.stdin.setEncoding('utf8');
-
       var data = '';
-      process.stdin.on('data', function(chunk) { data += chunk.toString(); });
-      process.stdin.on('end', function() { fn(null, data); });
+
+      process.stdin.setEncoding('utf8');
+      process.stdin.on('readable', function() {
+        var chunk = process.stdin.read();
+        if (chunk !== null) data += chunk;
+      });
+
+      process.stdin.on('end', function() {
+        fn(null, data);
+      });
     }
 
 ### stuff

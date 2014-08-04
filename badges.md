@@ -23,8 +23,6 @@ Here are some badges for open source projects.
 
 [![Status](https://travis-ci.org/rstacruz/ento.svg?branch=master)](https://travis-ci.org/rstacruz/ento)  
 
-    [![Status](https://travis-ci.org/USER/REPO.svg?branch=master)](https://travis-ci.org/USER/REPO)  
-
 ### Versions
 
 [![npm version](https://img.shields.io/npm/v/jquery.svg)](https://npmjs.org/package/jquery "View this project on npm")

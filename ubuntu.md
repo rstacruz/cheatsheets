@@ -11,9 +11,12 @@ layout: default
     dpkg -i *.deb               # Install a deb file
     dpkg -s nodejs              # Show info
 
+    dpkg --get-selections       # list installed packages
+
 ### Apt archives path
 
     /var/cache/apt/archives
 
 ### List services
+
     service --status-all

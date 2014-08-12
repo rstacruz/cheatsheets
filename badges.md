@@ -98,6 +98,5 @@ Here are some badges for open source projects.
     > GitHub [@rstacruz](https://github.com/rstacruz) &nbsp;&middot;&nbsp;
     > Twitter [@rstacruz](https://twitter.com/rstacruz)
 
-    [MIT License]: License.md
     [MIT License]: http://mit-license.org/
     [contributors]: http://github.com/rstacruz/nprogress/contributors

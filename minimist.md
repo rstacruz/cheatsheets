@@ -18,6 +18,31 @@ args == {
 }
 ```
 
+```js
+if (args.help) {
+  var cmd = require('path').basename(process.argv[1]);
+  console.log(require('fs').readFileSync(__dirname+'/../help.txt','utf-8').replace(/\$0/g, cmd));
+  ].join('\n'));
+  process.exit();
+}
+
+if (args.version) {
+  console.log(require('../package.json').version);
+  process.exit();
+}
+```
+
+### Help.txt
+
+```
+Usage:
+  $0 FILES [options]
+
+Options:
+    -h, --help         print usage information
+    -V, --version      show version info and exit
+```
+
 ### Reference
 
  * https://www.npmjs.org/package/minimist

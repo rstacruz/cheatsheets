@@ -22,6 +22,8 @@ Where:
     2J     clear screen
     0;0H   move cursor to 0;0
 
+    1A     move up 1 line
+
 Colors
 
     0      black

@@ -1,0 +1,61 @@
+---
+title: Git extras
+layout: default
+---
+
+### Git-flow
+
+    $ git feature myfeature
+      switched to branch 'feature/rofl'
+
+    $ ...
+    $ git checkout develop
+    $ git feature finish myfeature
+      merging 'feature/rofl' into develop
+      deleted branch 'feature/rofl'
+
+Also `git-bug` and `git-refactor`.
+
+### Branches
+
+    $ git delete-merged-branches
+      # hint: do `git remote prune origin` after
+
+    $ git create-branch development
+    $ git delete-branch development
+
+    $ git fresh-branch gh-pages
+
+### Inspecting
+
+    $ git summary   # repo age, commits, active days, etc
+    $ git impact    # impact graph
+    $ git effort    # commits per file
+
+### Github
+
+     $ git fork strongloop/express
+
+### Tags
+
+     $ git release v1.0.0           # commit, tag, push-tags
+     $ git delete-tag v1.0.0
+
+### Conveniences
+
+     $ git ignore "*.log"
+
+### Locking
+
+Assumes that changes will not be committed.
+
+     $ git lock config/database.yml
+     $ git unlock config/database.yml
+
+### Etc
+
+     $ git obliterate secret.yml   # remove all references to it
+
+### References
+
+ * https://github.com/visionmedia/git-extras

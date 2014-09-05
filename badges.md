@@ -5,48 +5,30 @@ layout: default
 
 Here are some badges for open source projects.
 
-### Badges
-
- * Everything: http://shields.io/
-
- * Version badge (gems, npm): http://badge.fury.io/
-
- * Dependencies (ruby): http://gemnasium.com/
-
- * CI: http://travis-ci.org/
-
- * Code quality (ruby): http://codeclimate.com/
-
- * Test coverage: https://coveralls.io/
-
 ### Badge markdown
 
-[![Status](https://travis-ci.org/rstacruz/ento.svg?branch=master)](https://travis-ci.org/rstacruz/ento)  
+    Travis
+    [![Status](https://travis-ci.org/rstacruz/REPO.svg?branch=master)](https://travis-ci.org/rstacruz/REPO)  
 
-### Versions
+    Travis (shields.io)
+    [![Status](http://img.shields.io/travis/rstacruz/REPO/master.svg?style=flat)](https://travis-ci.org/rstacruz/REPO "See test builds")
 
-[![npm version](https://img.shields.io/npm/v/jquery.svg)](https://npmjs.org/package/jquery "View this project on npm")
-[![npm version](https://badge.fury.io/js/jquery.svg)](https://npmjs.org/package/jquery "View this project on npm")
-[![Gem version](https://img.shields.io/gem/v/rails.svg)](http://rubygems.org/gems/rails "View this project in Rubygems")
-[![Latest version](http://img.shields.io/github/tag/rstacruz/nprogress.svg)](https://github.com/rstacruz/nprogress)
+    NPM (shields.io)
+    [![npm version](http://img.shields.io/npm/v/REPO.svg?style=flat)](https://npmjs.org/package/REPO "View this project on npm")
 
-### Links
+    Ruby gem (shields.io)
+    [![Gem](https://img.shields.io/gem/v/GEMNAME.svg?style=flat)](http://rubygems.org/gems/GEMNAME "View this project in Rubygems")
 
-[![npm](https://img.shields.io/badge/npm-jquery-brightgreen.png)](https://npmjs.org/package/jquery "View this project on npm")
-[![Gem](https://img.shields.io/gem/v/gem-rails-brightgreen.png)](http://rubygems.org/gems/rails "View this project in Rubygems")
 ### Etc
 
-[![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/USER/REPO "Gitter chat")
-
+    Gitter chat
     [![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/USER/REPO "Gitter chat")
 
-[![Chat](http://img.shields.io/badge/gitter-rstacruz / nprogress-blue.svg)]( https://gitter.im/rstacruz/nprogress )
-
+    Gitter chat (shields.io)
     [![Chat](http://img.shields.io/badge/gitter-USER / REPO-blue.svg)]( https://gitter.im/USER/REPO )
 
-[![Development Dependency Status](https://david-dm.org/USER/REPO/dev-status.png?theme=shields.io)](https://david-dm.org/USER/REPO#info=devDependencies)
-
-    [![Development Dependency Status](https://david-dm.org/USER/REPO/dev-status.png?theme=shields.io)](https://david-dm.org/USER/REPO#info=devDependencies)
+    david-dm
+    [![Dependencies](http://img.shields.io/david/rstacruz/REPO.svg?style=flat)](https://david-dm.org/rstacruz/REPO)
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
@@ -83,20 +65,32 @@ Here are some badges for open source projects.
         $ bower install --save nprogress
         $ npm install --save nprogress
 
-    [![npm version](https://img.shields.io/npm/v/nprogress.png)](https://npmjs.org/package/nprogress "View this project on npm")
     [bower]: http://bower.io/search/?q=nprogress
     [npm]: https://www.npmjs.org/package/nprogress
 
 ### Acknowledgements
 
-    ## Thanks
-
-    **Jsfuse** © 2014+, Rico Sta. Cruz. Released under the [MIT License].<br>
-    Authored and maintained by Rico Sta. Cruz with help from [contributors].
+    **PROJECTNAME** © 2014+, Rico Sta. Cruz. Released under the [MIT] License.<br>
+    Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
 
     > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
     > GitHub [@rstacruz](https://github.com/rstacruz) &nbsp;&middot;&nbsp;
     > Twitter [@rstacruz](https://twitter.com/rstacruz)
 
-    [MIT License]: http://mit-license.org/
+    [MIT]: http://mit-license.org/
     [contributors]: http://github.com/rstacruz/nprogress/contributors
+
+### Links
+
+ * Everything: http://shields.io/
+
+ * Version badge (gems, npm): http://badge.fury.io/
+
+ * Dependencies (ruby): http://gemnasium.com/
+
+ * CI: http://travis-ci.org/
+
+ * Code quality (ruby): http://codeclimate.com/
+
+ * Test coverage: https://coveralls.io/
+

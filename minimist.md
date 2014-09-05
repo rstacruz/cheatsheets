@@ -19,10 +19,13 @@ args == {
 ```
 
 ```js
-if (args.help) {
+if (args.help || args._.length === 0) {
   var cmd = require('path').basename(process.argv[1]);
-  console.log(require('fs').readFileSync(__dirname+'/../help.txt','utf-8').replace(/\$0/g, cmd));
-  ].join('\n'));
+  console.log(
+    require('fs')
+      .readFileSync(__dirname+'/../help.txt','utf-8')
+      .replace(/\$0/g, cmd)
+      .trim());
   process.exit();
 }
 
@@ -36,11 +39,11 @@ if (args.version) {
 
 ```
 Usage:
-  $0 FILES [options]
+    $0 FILES [options]
 
 Options:
     -h, --help         print usage information
-    -V, --version      show version info and exit
+    -v, --version      show version info and exit
 ```
 
 ### Reference

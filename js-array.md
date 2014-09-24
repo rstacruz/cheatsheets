@@ -12,6 +12,7 @@ layout: default
 
 ### Subsets
 
+    array.slice(0,1)         //=> [a]
     array.slice(1)           //=> [b,c,d,e]
     array.slice(1,2)         //=> [b] 
 

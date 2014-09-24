@@ -25,6 +25,8 @@ Enable these options to *not* throw errors in these conditions.
 
     /* jshint expr: true */
     production && minify = true;
+    div.innerWidth;
+    expect(x).be.true;
 
     /* jshint laxcomma: true */
     var one = 1

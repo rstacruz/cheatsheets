@@ -56,9 +56,21 @@ Multiple args:
 
 ### Color operators
 
-    #888 + 50%    // => #c3c3c3
-    #888 - 50%    // => #444
+    #888 + 50%    // => #c3c3c3 (darken)
+    #888 - 50%    // => #444 (lighten)
     #f00 + 50deg  // => #ffd500 (hue)
+
+### Casting
+
+    n = 5px
+    foo: (n)em
+    foo: (n * 5)%
+
+### Lookup
+
+    light-blue = #3bd
+    name = 'blue'
+    lookup('light-' + name)
 
 ### Built-in functions
 
@@ -78,8 +90,6 @@ Multiple args:
 
     unquote(string)
 
-    s("rgba(0, 0, 0, %s)", 0.3)   // Works like eval?
-
 Add Property:
 
     gradient(color)
@@ -88,3 +98,39 @@ Add Property:
 
     body
       background: gradient(red)
+
+### Conditional
+
+    if color == blue
+    else if true and true
+    else if 'hey' is not 'bye'
+
+    // Aliases:
+    == is
+    != is not
+    != isnt
+
+### Definition
+
+    if ohnoes is defined
+      color: blue
+
+### False values
+
+    0
+    null
+    false
+    ''
+
+### Type check
+
+    if val is a 'string'
+    if val is a 'ident'
+
+### sprintf
+
+    '-webkit-gradient(%s, %s, %s)' % (linear (0 0) (0 100%))
+    // => -webkit-gradient(linear, 0 0, 0 100%)
+
+    s("rgba(0, 0, 0, %s)", 0.3)
+

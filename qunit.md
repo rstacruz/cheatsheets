@@ -5,8 +5,20 @@ layout: default
 
     QUnit.module('a');
     QUnit.test('ok', function (t) { ... });
+
+### Hooks
+
+    // each test
+    QUnit.testStart(function)
+    QUnit.testEnd(function)
+
+    // each module
     QUnit.moduleStart(function)
     QUnit.moduleEnd(function)
+
+    // all
+    QUnit.begin(function)
+    QUnit.done(function)
 
 ### Assertions
 
@@ -18,11 +30,3 @@ layout: default
     t.notEqual
 
     t.expect(amount)
-
-### Setup and teardown
-
-    QUnit.begin(function (details) {
-    });
-
-    QUnit.done(function (details) {
-    });

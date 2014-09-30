@@ -3,43 +3,24 @@ title: bluebird.js
 layout: default
 ---
 
-### Creating promises
-
-```js
-var Promise = require("bluebird");
-
-new Promise(function (ok, err) {
-  doStuff(function () {
-    if (success)
-      ok();
-    else
-      err();
-  });
-})
-```
+See [promise](promise.html).
 
 ### Consuming promises
 
 ```js
 promise
   .then(okFn, errFn)
-  .spread(okFn, errFn)
+  .spread(okFn, errFn) #*
   .catch(errFn)
-  .catch(TypeError, errFn)
-  .finally(fn)
+  .catch(TypeError, errFn) #*
+  .finally(fn) #*
+  .map(function (e) { ... })
+  .each(function (e) { ... });
 ```
 
 ### Handling simultaneous promises
 
-Via Arrays
-
 ```js
-var promises = [
-  promise1(), promise2(), ...
-]
-
-Promise.all(promises)     // succeeds when all succeed
-  .then(...)
 Promise.any(promises)     // succeeds if one succeeds first
   .then(...)
 ```
@@ -57,19 +38,10 @@ Promise.props({
 })
 ```
 
-### Turn foreign promises into Bluebird promises
-
-```js
-Promise.resolve($.get('http://google.com'))
-.then(...)
-```
-
 ### Consuming arrays
 
 ```js
 getFiles()
-  .map(function (e) { ... })
-  .each(function (e) { ... });
 ```
 
 ### Chain of promises

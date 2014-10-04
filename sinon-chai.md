@@ -5,6 +5,14 @@ layout: default
 
   * [Sinon-chai](https://github.com/domenic/sinon-chai)
 
+
+### Initialization
+
+```js
+var sinon = require('sinon');
+require('chai').use(require('sinon-chai'));
+```
+
 ### Assert
 
     expect(spy).called

@@ -59,42 +59,45 @@ layout: default
 
 ### Expectations
 
-    # Can be .should or .should_not
+    # Can be:
+    #   target.should
+    #   target.should_not
+    #   expect(target).to
 
     # Numeric
-    target.should be < 6
-    target.should == 5
-    target.should equal value
-    target.should be_between(1, 10)
-    target.should be_close value, tolerance
+    be < 6
+    == 5
+    equal value
+    be_between(1, 10)
+    be_close value, tolerance
 
-    target.should be value
-    target.should satisfy {|arg| ...}
-    target.should predicate [optional args]
-    target.should match regexp
+    be value
+    satisfy {|arg| ...}
+    predicate [optional args]
+    match regexp
 
-    target.should be_an_instance_of <class>
-    target.should be_a_kind_of <class>
+    be_an_instance_of <class>
+    be_a_kind_of <class>
 
-    target.should respond_to <symbol>
+    respond_to <symbol>
 
     # Control flow
-    proc.should raise_error
-    proc.should raise_error(<exception> [, message])
+    raise_error
+    raise_error(<exception> [, message])
 
-    proc.should throw <symbol>
+    throw <symbol>
 
     # Enumerables/arrays
-    target.should include <object>
+    include <object>
 
-    target.should have(<number>).things
-    target.should have_at_least(<number>).things
-    target.should have_at_most(<number>).things
+    have(<number>).things
+    have_at_least(<number>).things
+    have_at_most(<number>).things
 
-    target.should have(<number>).errors_on(:field)
+    have(<number>).errors_on(:field)
 
     # Change
-    proc.should change(instance, method).from(number).to(number)
+    change(instance, method).from(number).to(number)
 
     # proc.should <=> expect(&proc).to
     expect { thing.approve! }.to change(thing, :status).
@@ -123,22 +126,23 @@ layout: default
 
 ### Expectations
 
-    double.should_receive(:msg).with(no_args())
-    double.should_receive(:msg).with(any_args())
-    double.should_receive(:msg).with(1, kind_of(Numeric), "b") #2nd argument can any kind of Numeric
-    double.should_receive(:msg).with(1, boolean(), "b") #2nd argument can true or false
-    double.should_receive(:msg).with(1, /abc/, "b") #2nd argument can be any String matching the submitted Regexp
-    double.should_receive(:msg).with(1, anything(), "b") #2nd argument can be anything at all
-    double.should_receive(:msg).with(1, ducktype(:abs, :div), "b") #2nd argument can be object that responds to #abs and #div
+    expect(double).to receive(:msg)
+    expect(double).to receive(:msg).with(no_args())
+    expect(double).to receive(:msg).with(any_args())
+    expect(double).to receive(:msg).with(1, kind_of(Numeric), "b") #2nd argument can any kind of Numeric
+    expect(double).to receive(:msg).with(1, boolean(), "b") #2nd argument can true or false
+    expect(double).to receive(:msg).with(1, /abc/, "b") #2nd argument can be any String matching the submitted Regexp
+    expect(double).to receive(:msg).with(1, anything(), "b") #2nd argument can be anything at all
+    expect(double).to receive(:msg).with(1, ducktype(:abs, :div), "b") #2nd argument can be object that responds to #abs and #div
 
-    double.should_receive(:msg).once
-    double.should_receive(:msg).twice
-    double.should_receive(:msg).exactly(n).times
-    double.should_receive(:msg).at_least(:once)
-    double.should_receive(:msg).at_least(:twice)
-    double.should_receive(:msg).at_least(n).times
-    double.should_receive(:msg).at_most(:once)
-    double.should_receive(:msg).at_most(:twice)
-    double.should_receive(:msg).at_most(n).times
-    double.should_receive(:msg).any_number_of_times
+    expect(double).to receive(:msg).once
+    expect(double).to receive(:msg).twice
+    expect(double).to receive(:msg).exactly(n).times
+    expect(double).to receive(:msg).at_least(:once)
+    expect(double).to receive(:msg).at_least(:twice)
+    expect(double).to receive(:msg).at_least(n).times
+    expect(double).to receive(:msg).at_most(:once)
+    expect(double).to receive(:msg).at_most(:twice)
+    expect(double).to receive(:msg).at_most(n).times
+    expect(double).to receive(:msg).any_number_of_times
 

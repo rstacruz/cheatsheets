@@ -21,6 +21,12 @@ layout: default
 
     f.object
 
+### Fields for
+
+    = form_for @post do |f|
+      = fields_for :author, @post.author do |ff|
+        = ff.text_field :name
+
 ### Fields
 
     f.check_box :is_admin
@@ -32,7 +38,7 @@ layout: default
     f.label :post, :title, "Title"
     f.label :post, :title, "Title", class: "title"
     f.label(:post, :terms) { "Accept terms" }
-    #=> <label for="post_title">Title</label>
+    #=> <label for="post_title">Title</labele>
 
     radio_button("post", "category", "rails")
     radio_button("post", "category", "java")

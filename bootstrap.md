@@ -42,3 +42,7 @@ Max:
 
     .pull-left
     .pull-right
+
+    .hidden-{xs,sm,md,lg}
+    .visible-{xs,sm,md,lg}
+    .visible-{xs,sm,md,lg,print}-{block,inline,inline-block}

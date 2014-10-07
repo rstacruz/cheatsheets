@@ -16,20 +16,12 @@ layout: default
     brew edit git            # Edit this formula
     brew home git            # Open homepage
 
-### Stuff
-
-Nice Homebrew packages:
-
- * `tig` - Git "GUI" for the console
- * `mysql`
- * `postgresql`
- * `fmdiff` - Adaptor to use Apple's FileMerge as `diff` (`git config --global merge-tool fmdiff`)
- * `cmus` - Curses-based music player
- * `cclive` - Video downloader
-
- Not from brew:
-
-* `DiffMerge` - nice free merge tool for OSX
+### Tricks
+  
+```sh
+# Show latest casks
+cd "/usr/local/Library/Taps/caskroom/homebrew-cask/Casks" && git log --pretty=format: --name-only --since="30 days ago" | egrep "Casks" | uniq
+```
 
 Tmux
 ----

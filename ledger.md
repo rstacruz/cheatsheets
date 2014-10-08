@@ -24,30 +24,11 @@ layout: default
     # what did I spend on most? (--sorted)
       ledger reg Expenses -S amount
 
-    # how much do I have now?
-      ledger bal ^Assets ^Liabilities
-
     # how much did I have at this date? (--end)
       ledger bal -e 01/15 ^Assets ^Liabilities
 
     # how much did I spend and earn this month?
       ledger bal ^Expenses ^Income --invert
-
-    # what did I spend my Mastercard on? (--period, --begin, --end)
-    # ..list transactions in account "Mastercard" for this date.
-      ledger reg mastercard
-      ledger reg mastercard -p "january"
-      ledger reg mastercard -b 01/25 -e 01/31
-
-    # what did I do yesterday?
-    # ..list transactions on this day
-      ledger reg -p 01/26
-
-    # how much was spent on Expenses:Grocery?
-      ledger reg grocery
-      ledger reg grocery --weekly
-      ledger reg grocery --monthly
-
     # how much was spent over the course of 3 days? (totalled)
       ledger reg -b 01/25 -e 01/27 --subtotal
       ledger reg -b 01/25 -e 01/27 --subtotal grocery
@@ -222,15 +203,6 @@ Then, when you receive the payment, you change it to
      2008/01/01=2008/01/15 Client invoice ;  actual date money received
          Assets:Accounts Receivable            $100.00
          Income: Client name
-
-### CSV format
-
-    date,        ?,  desc,    account,      currency, amt, pending/cleared, ?
-    "2013/09/02","","things", "Assets:Cash","P","-2000","*",""
-    "2013/09/02","","things", "Liabilities:Card","P","-200","*",""
-    "2013/09/02","","things", "Expenses:Things","P","2200","*",""
-    "2013/09/04","","stuff",  "Assets:Cash","P","-20","*",""
-    "2013/09/04","","stuff",  "Expneses:Others","P","20","*",""
 
 ### See
 

@@ -34,7 +34,7 @@ layout: default
 
  * Sources: Nuts, needs, veg oils, leafy veggies
  * Major benefits: anti-oxidant, skin
- * Dosage: up to 10k IU? (RDA says 22IU daily, wtf?)
+ * Dosage: up to 22IU daily for adults? (RDA)
  * Fat-soluble 
 
 ### Vitamin C

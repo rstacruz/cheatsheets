@@ -3,23 +3,39 @@ title: Ledger examples
 layout: default
 ---
 
+Inspecting transactions:
+
     # show me expenses for october (--period)
-      ledger b Expenses -p oct (--period)
+      ledger r Expenses -p oct
 
-    # what's the mont expensive? (--sorted)
-      ledger r Expenses -S amount
+    # what's the most expensive? (--sorted)
+      ledger r Expenses -S amount --tail 10
 
-    # how much was spent on grocery?
-      ledger r grocery
-      ledger r grocery -W (--weekly)
-      ledger r grocery -M (--monthly)
+    # how much was spent on grocery? (--weekly, --monthly)
+      ledger r Grocery
+      ledger r Grocery -W
+      ledger r Grocery -M
 
     # what did I spend my Mastercard on? (--period, --begin, --end)
       ledger r mastercard
       ledger r mastercard -p "january"
       ledger r mastercard -b 01/25 -e 01/31
 
+Graphing:
+
+    # Graph my bank account balance, monthly
+      ledger r Savings -M
+
+    # Graph my expenses, monthly (-n = --collapse)
+      ledger r Expenses -M -n
+
+    # ...what's the average per month?
+      ledger r Expenses -M -n --average
+
+Simple:
+
     # what did I do yesterday?
     # ..list transactions on this day
-      ledger reg -p 01/26
+      ledger r -p 01/26
+      ledger r -p yesterday
 

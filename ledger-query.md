@@ -14,4 +14,6 @@ layout: default
 Examples:
 
     ledger r @taco
-    lede
+    ledger r comment =~ /landline/
+
+See: http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions

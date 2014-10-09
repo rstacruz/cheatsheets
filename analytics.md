@@ -22,11 +22,11 @@ References:
 
 ### analytics.js
 
-   ga('create', 'UA-XXXX-Y', 'auto');
-   ga('create', 'UA-XXXX-Y', { userId: 'USER_ID' });
-
-   ga('send', 'pageview');
-   ga('send', 'pageview', { 'dimension15': 'My custom dimension' );
+    ga('create', 'UA-XXXX-Y', 'auto');
+    ga('create', 'UA-XXXX-Y', { userId: 'USER_ID' });
+  
+    ga('send', 'pageview');
+    ga('send', 'pageview', { 'dimension15': 'My custom dimension' });
 
 Events:
 

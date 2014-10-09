@@ -17,7 +17,7 @@ This is a mocha template that loads js/css from cdn.
       <script src="https://cdn.rawgit.com/visionmedia/mocha/1.21.4/mocha.js"></script>
       <script src="https://cdn.rawgit.com/chaijs/chai/1.9.2/chai.js"></script>
       <script src="../index.js"></script>
-      <script>mocha.setup('bdd')</script>
+      <script>mocha.setup('bdd')</script
       <script src="tests.js"></script>
       <script>mocha.run()</script>
     </body>

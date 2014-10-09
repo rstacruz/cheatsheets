@@ -212,6 +212,12 @@ Helpers and Filters
      | replace: "super", "mega"
      | replace_first: "super", "mega"
      
+Comments
+--------
+
+    {% comment %}
+    {% endcomment %}
+
 Integration
 -----------
 
@@ -232,4 +238,5 @@ Integration
   * http://jekyllrb.com/docs/templates/
   * http://docs.shopify.com/themes/liquid-basics/output
   * http://docs.shopify.com/themes/liquid-basics/logic
+  * https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 {% endraw %}

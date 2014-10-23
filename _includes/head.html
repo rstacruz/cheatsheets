@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <title>{{ page.title }} cheatsheet</title>
-  <link href="assets/style.css" rel="stylesheet" />
+  <link href="http://ricostacruz.com/assets/article.css" rel="stylesheet" />
+  <style>
+    .article-content pre, .with-footnote pre , .panorama-section pre , .article-content > .panorama-section pre  {
+      /*max-width: 900px; */
+    }
+    .article-content pre > code, .with-footnote pre > code, .panorama-section pre > code, .article-content > .panorama-section pre > code {
+      background: transparent;
+      overflow: visible;
+      border-left-width: 3px;
+      border-top: solid 1px #eee;
+      border-top-left-radius: 3px;
+      padding-bottom: 0;
+      font-size: 0.85em;
+    }
+
+    .article-headline h1:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: #ddd;
+      margin: 40px auto;
+    }
+  </style>
 </head>
 <body>
 <div class='all'>

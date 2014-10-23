@@ -69,7 +69,7 @@ layout: default
 
     heroku apps                  # list
     heroku apps:create [NAME]
-    heroku apps:destroy
+    heroku apps:destroy --app APP
     heroku apps:info
     heroku apps:open             # open in browser
     heroku apps:rename NEWNAME

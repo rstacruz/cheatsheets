@@ -1,0 +1,19 @@
+{% include head.html %}
+
+<div class='blog-header'>
+  <div>
+    <h1><a href="/">{{ site.meta.name }}</a></h1>
+  </div>
+</div>
+
+<div class='article-item -cheatsheet'>
+  <div class='article-headline -cheatsheet'>
+    <h1>{{ page.title }}</h1>
+  </div>
+
+  <div class='article-content -cheatsheet'>
+  {{ content }}
+  </div>
+</div>
+
+{% include foot.html %}

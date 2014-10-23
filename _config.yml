@@ -1,8 +1,29 @@
+# files
+layouts: ./_/layouts
+destination: ./_/site
+sass:
+  sass_dir: ./_/sass
+
+# Markdown
+highlighter: pygments
 markdown: kramdown
 kramdown:
   input: GFM
+  hard_wrap: false
+  parse_block_html: true
+  use_coderay: true
+
+  coderay:
+    coderay_line_numbers: nil
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
 defaults:
   - scope:
       path: ""
     values:
       layout: "default"
+meta:
+  name: "Cheatsheets"

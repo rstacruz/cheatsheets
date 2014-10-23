@@ -32,6 +32,7 @@ Max:
     .col-sm-1
     .col-md-1
     .col-lg-1
+    .col-md-offset-1
 
     .make-xs-column(12)
     .make-sm-column(6)

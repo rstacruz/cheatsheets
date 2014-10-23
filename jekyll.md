@@ -11,22 +11,28 @@ jekyll_escape: true
 
 ### Directories
 
-    _config.yml
-
-    _drafts/
-
-    _includes/
-      header.html
-      footer.html
-
-    _layouts/
-      default.html
-
-    _posts/
-      2013-09-02-hello.md
-
-    _site/
-      ...
+    ./
+    ├── _config.yml
+    │
+    ├── _data/
+    │   └── ...
+    │
+    ├── _drafts/
+    │   └── ...
+    │
+    ├── _posts/
+    │   └── 2014-01-01-hello.md
+    │
+    ├── _layouts/
+    │   ├── default.html
+    │   └── post.html
+    │
+    ├── _includes/             - partials
+    │   ├── header.html
+    │   └── footer.html
+    │
+    └── _site/
+        └── ...
 
 ## [Front-matter](http://jekyllrb.com/docs/frontmatter/)
 
@@ -94,8 +100,8 @@ Configuration
 ### [Paginator](http://jekyllrb.com/docs/pagination/)
 
     {{ paginator.page }}         - page number
-    {{ paginator.total_posts}}
-    {{ paginator.total_pages}}
+    {{ paginator.total_posts }}
+    {{ paginator.total_pages }}
     {{ paginator.per_page }}
 
     {% for post in paginator.posts %} ... {% endfor %}

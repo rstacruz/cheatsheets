@@ -3,6 +3,7 @@ title: editorconfig
 layout: default
 ---
 
+### Example
 
 ```conf
 # top-most EditorConfig file
@@ -33,5 +34,21 @@ indent_style = space
 indent_size = 2
 ```
 
+### Properties
+
+```conf
+indent_style = {space|tab}
+indent_size = {4|tab}
+tab_width = 2
+end_of_line = {cr|lf|crlf}
+charset = {utf-8|utf-16be|utf-16le|latin1}
+trim_trailing_whitespace = false
+insert_final_newline = true
+max_line_length = 80
+```
+
+### References
+
 See: http://EditorConfig.org
+
 

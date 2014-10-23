@@ -1,0 +1,21 @@
+---
+html_class: home
+---
+{% include head.html %}
+
+<div class='blog-header'>
+  <div>
+    <h1><a href="/">{{ site.meta.name }}</a></h1>
+  </div>
+</div>
+
+<div class='pages-list'>
+  {% for page in site.pages %}
+    <a href=".{{ page.url }}">
+      <span class='title'>{{ page.title }}</span>
+      <span class='date'>{{ page.url }}</span>
+    </a>
+  {% endfor %}
+</div>
+
+{% include foot.html %}

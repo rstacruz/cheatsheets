@@ -39,3 +39,7 @@ Simple:
       ledger r -p 01/26
       ledger r -p yesterday
 
+Switches:
+
+    # what's everything I got in USD? (--exchange)
+      ledger b Assets -X USD

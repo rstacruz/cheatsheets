@@ -1,6 +1,4 @@
-all:
-	jekyll build
+PORT := 3000
 
-watch:
-	jekyll serve &
-	git ls-files | entr make
+start:
+	env BUNDLE_GEMFILE=./_/Gemfile bundle exec jekyll serve --drafts --watch --port ${PORT}

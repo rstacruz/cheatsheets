@@ -3,13 +3,13 @@ title: Makefile
 layout: default
 ---
 
-### Var assignment
+## Var assignment
 
     uglify = $(uglify)        # assignment
     compressor := $(uglify)   # lazy assignment
     prefix ?= /usr/local      # safe assignment
 
-### Magic variables
+## Magic variables
 
     out.o: src.c src.h
       $@   - "out.o" (target)
@@ -27,7 +27,7 @@ layout: default
 
       $(@D) - target directory
 
-### Command prefixes
+## Command prefixes
 
     -    Ignore errors
     @    Don't print command
@@ -39,12 +39,12 @@ layout: default
 
     -include .depend
 
-### Find files
+## Find files
 
     js_files  := $(wildcard test/*.js)
     all_files := $(shell find images -name "*")
 
-### Substitutions
+## Substitutions
 
     file     = $(SOURCE:.cpp=.o)   # foo.cpp => foo.o
     outputs  = $(files:src/%.coffee=lib/%.js)
@@ -52,24 +52,24 @@ layout: default
     outputs  = $(patsubst %.c, %.o, $(wildcard *.c))
     assets   = $(patsubst images/%, assets/%, $(wildcard images/*))
 
-### More functions
+## More functions
 
     $(strip $(string_var))
 
     $(filter %.less, $(files))
     $(filter-out %.less, $(files))
 
-### Building files
+## Building files
 
     %.o: %.c
       ffmpeg -i $< > $@   # Input and output
       foo $^
 
-### Includes
+## Includes
 
     -include foo.make
 
-### Options
+## Options
 
     make
       -e, --environment-overrides
@@ -78,7 +78,7 @@ layout: default
 
       -j, --jobs=N   # parallel processing
 
-### Conditionals
+## Conditionals
 
      foo: $(objects)
      ifeq ($(CC),gcc)

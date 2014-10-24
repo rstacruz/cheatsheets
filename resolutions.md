@@ -3,7 +3,7 @@ title: Resolutions
 layout: default
 ---
 
-### Phones
+## Phones
 
 | Resolution | DPPX | Actual resolution | PPI     | Actual PPI | Size | Devices    |
 | ---        | ---  | ---               | ---     | ---        | ---  | ---        |
@@ -15,7 +15,7 @@ layout: default
 | ---        | ---  | ---               | ----    | ---        | ---  | ---        |
 | 360 x 640  | @3x  | 1080 x 1920       | 147 ppi | 441 ppi    | 5"   | Galaxy S4 |
 
-### Tablets
+## Tablets
 
 | Resolution | DPPX | Actual resolution | PPI     | Actual PPI | Size | Devices          |
 | ---        | ---- | ---               | ---     | ---        | ---- | ---              |

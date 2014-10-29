@@ -3,34 +3,58 @@ title: Sinon
 layout: default
 ---
 
-### Spy
+### Creating spies
 
-    var fn = sinon.spy();
+    fn = sinon.spy();
+
     fn();
     fn.calledOnce == true
     fn.callCount == 1
 
-### Spy something
+### Spying/stubbing
 
     sinon.spy($, 'ajax')
 
-### Stub
+    $.ajax();
+    $.ajax.calledOnce == true
 
-    var fn = sinon.stub().returns(42);
-    fn() == 42
+    sinon.stub($, 'ajax', function () { ... }); // function optional
 
-    fn.withArgs(42).returns(1);
-    fn.withArgs(43).throws("TypeError");
-    stub.returnsArg(0); // Return 1st argument
-    stub.callsArg(0);
-
-### Stub something
-
-    sinon.stub($, 'ajax');
     $.ajax.calledWithMatch({ url: '/x' });
     $.ajax.restore();
 
-    sinon.stub($, 'ajax', function() { return 'x' });
+### Spy/stub properties
+
+    spy
+      .args        //=> [ [..], [..] ] one per call
+      .thisValues
+      .returnValues
+
+      .called      //=> true
+      .notCalled
+      .callCount
+      .calledOnce
+      .calledTwice
+      .calledThrice
+
+      .getCalls()   //=> Array
+      .getCall(0)
+      .firstCall
+
+### Anonymous stub
+
+    stub = sinon.stub().returns(42);
+    stub() == 42
+
+    stub
+      .withArgs(42).returns(1);
+      .withArgs(43).throws("TypeError");
+
+    stub
+      .returns(1);
+      .throws("TypeError");
+      .returnsArg(0); // Return 1st argument
+      .callsArg(0);
 
 ### Fake date
 
@@ -58,22 +82,3 @@ layout: default
 
     beforeEach -> global.sinon = require('sinon').sandbox.create()
     afterEach  -> global.sinon.restore()
-
-###
-
-    .args        //=> [ [..], [..] ] one per call
-    .thisValues
-    .returnValues
-
-    .called      //=> true
-    .notCalled
-    .callCount
-    .calledOnce
-    .calledTwice
-    .calledThrice
-
-    .getCalls()   //=> Array
-    .getCall(0)
-    .firstCall
-
-

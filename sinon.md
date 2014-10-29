@@ -1,4 +1,6 @@
+---
 title: Sinon
+layout: default
 ---
 
 ### Spy
@@ -59,15 +61,19 @@ title: Sinon
 
 ###
 
-    .args
+    .args        //=> [ [..], [..] ] one per call
     .thisValues
     .returnValues
 
-    .getCalls
-
-    .called
+    .called      //=> true
     .notCalled
     .callCount
     .calledOnce
     .calledTwice
-    .callThrice
+    .calledThrice
+
+    .getCalls()   //=> Array
+    .getCall(0)
+    .firstCall
+
+

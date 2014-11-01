@@ -17,7 +17,7 @@ layout: default
 
     var Component = React.createClass({ ... });
 
-    var compo = React.renderComponent(Component(), mountnode);
+    var compo = React.render(<Component />, mountnode);
 
 ### [API](http://facebook.github.io/react/docs/component-api.html)
 

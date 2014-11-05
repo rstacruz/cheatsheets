@@ -69,7 +69,7 @@ layout: default
     ⏎ – &#x23ce; – &#9166; – Return
     ⌫ – &#x232b; – &#9003; – Delete / Backspace
 
-    ▸   \u25b8
+    ▸   \u25b8 right arrow
     ▹
 
     ◇   \u25c7

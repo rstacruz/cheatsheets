@@ -3,6 +3,8 @@ title: jscoverage
 layout: default
 ---
 
+Also see [mocha-blanket](mocha-blanket.html).
+
 ### Install
 
     npm install --save-dev jscoverage
@@ -28,4 +30,5 @@ The `coverage` task injects your source files (`lib`) with jscoverage hooks, run
 
 ### Caveats
 
-If you're using jsdom, be sure to expose the `window._$jscoverage` variable into the `global` scope.
+If you're using jsdom, be sure to expose the `window._$jscoverage` variable into 
+the `global` scope.

@@ -47,3 +47,36 @@ Max:
     .hidden-{xs,sm,md,lg}
     .visible-{xs,sm,md,lg}
     .visible-{xs,sm,md,lg,print}-{block,inline,inline-block}
+
+### Modal
+
+    <a data-toggle='modal' data-target='#new'>
+
+    #new.modal.fade(role='dialog')
+      .modal-dialog // .modal-lg, .modal-sm
+        .modal-content
+          .modal-header
+            %h4.modal-title hello
+          .modal-body
+            ...
+          .modal-footer
+            ...
+
+
+### Modal via ajax (Rails)
+
+    %button.btn{data: { |
+      toggle: 'modal', |
+      target: '#chooseTheme', |
+      remote: '/path/to/remote'}
+      Change Theme
+
+    .modal.fade#chooseTheme
+      .modal-dialog.modal-xl
+        .modal-content
+          .modal-header
+            %h4.modal-title Choose a theme
+
+          .modal-body
+            .spinner-panel.-lg
+              %i

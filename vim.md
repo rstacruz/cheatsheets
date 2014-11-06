@@ -9,8 +9,8 @@ Command line
     <C-r><C-w>         # insert current word into the command line
     <C-r>"             # paste from " register
 
-Motions
--------
+Text objects
+------------
 
     vip           # Select paragraph
     vipipipip     # Select more
@@ -65,7 +65,8 @@ Misc
     .       # repeat last command
     ]p      # paste under the current indentation level
 
-    C-o     # Go back to previous location (C-i forward)
+    C-o     # Go back to previous location
+    C-i     # Go forward
     C-t     # Go back to last tag
 
     zz      # Center this line
@@ -142,3 +143,24 @@ Marks
       contained
 
     hi def link markdownH1 htmlH1
+
+### Mapping
+
+    nnoremap
+    vmap
+    ...
+
+Components:
+
+    [nvixso](nore)map
+     ^       ^
+     |       don't recurse
+     |
+     normal, visual, insert, eX mode, select, operator-pending
+
+Arguments:
+
+- `<buffer>` - only in current buffer
+- `<silent>` - no echo
+- `<nowait>`
+

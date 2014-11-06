@@ -26,7 +26,7 @@ Add to `package.json`:
 
 ```json
 "scripts": {
-  "coverage": "env COVERAGE=1 mocha -R html-cov > coverage.html"
+  "coverage": "env COVERAGE=1 mocha -R html-cov > coverage.html && open coverage.html"
 }
 ```
 
@@ -36,7 +36,7 @@ Be sure to ignore it:
 
 Then run:
 
-    $ npm run coverage && open coverage.html
+    $ npm run coverage
 
 ## Travis + coveralls.io support
 

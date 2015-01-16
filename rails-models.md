@@ -124,59 +124,51 @@ Validation
 
     class Person < ActiveRecord::Base
 
-      # Non empty
-      validates :name, :presence => true
+      validates :name,     presence: true
 
-      # Checkboxes
-      validates :terms_of_service, :acceptance => true
+      validates :terms,    acceptance: true
+
+      validates :email,    confirmation: true
+
+      validates :slug,     uniqueness: true
+      validates :slug,     uniqueness: { case_sensitive: false }
+      validates :holiday,  uniqueness: { scope: :year, :message => "only once a year" }
+
+      validates :code,     format: /regex/
+      validates :code,     format: { with: /regex/ }
+
+      validates :name,     length: { minimum: 2 }
+      validates :bio,      length: { maximum: 500 }
+      validates :password, length: { in => 6..20 }
+      validates :number,   length: { is => 6 }
+
+      validates :gender,   inclusion: %w(male female)
+      validates :gender,   inclusion: { in: %w(male female) }
+      validates :lol,      exclusion: %w(xyz)
+
+      validates :points,   numericality: true
+      validates :played,   numericality: { only_integer: true }
 
       # Validate the associated records to ensure they're valid as well
       has_many :books
       validates_associated :books
 
-      # Confirmation (like passwords)
-      validates :email, :confirmation => true
-
-      # Unique
-      validates :slug, :uniqueness => true
-      validates :slug, :uniqueness => { :case_sensitive => false }
-      validates :holiday, :uniqueness => { :scope => :year, :message => "only once a year" }
-
-      # Format
-      validates :legacy_code, :format => {
-        :with    => /\A[a-zA-Z]+\z/,
-        :message => "Only letters allowed"
-      }
-
-      # Length
-      validates :name,     :length => { :minimum => 2 }
-      validates :bio,      :length => { :maximum => 500 }
-      validates :password, :length => { :in => 6..20 }
-      validates :number,   :length => { :is => 6 }
-
       # Length (full enchalada)
-      validates :content, :length => {
-        :minimum   => 300,
-        :maximum   => 400,
-        :tokenizer => lambda { |str| str.scan(/\w+/) },
-        :too_short => "must have at least %{count} words",
-        :too_long  => "must have at most %{count} words"
-      }
-    end
-
-      # Numeric
-      validates :points,       :numericality => true
-      validates :games_played, :numericality => { :only_integer => true }
+      validates :content, length: {
+        minimum:   300,
+        maximum:   400,
+        tokenizer: lambda { |str| str.scan(/\w+/) },
+        too_short: "must have at least %{count} words",
+        too_long:  "must have at most %{count} words" }
 
       # Multiple
-      validates :login, :email, :presence => true
+      validates :login, :email, presence: true
 
       # Conditional
-      validates :description, :presence => true, :if => :published?
-      validates :description, :presence => true, :if => lambda { |obj| .. }
+      validates :description, presence: true, if: :published?
+      validates :description, presence: true, if: lambda { |obj| .. }
 
-      # On
-      validates :title, :presence => true, :on => :save   # :save | :create | :update
+      validates :title, presence: true, on: :save   # :save | :create | :update
     end
 
 ### Custom validations
@@ -238,6 +230,11 @@ API
 
     Student.joins(:schools).where(:schools => { :type => 'public' })
     Student.joins(:schools).where('schools.type' => 'public' )
+
+### Where interpolation
+
+    where("name = ?", "John")
+    where(["name = :name", { name: "John" }])
 
 ### Serialize
 

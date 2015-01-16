@@ -38,7 +38,16 @@ layout: default
 
 ### ActiveRecord
 
-    activerecord.attributes.user.name
+    activerecord:
+      attributes:
+        user:
+          name: "Name"
+      errors:
+        models:
+          venue:
+            attributes:
+              name:
+                blank: "Please enter a name."
 
     t 'blank', scope:
       activerecord.errors.models.[model_name].attributes.[attribute_name]
@@ -50,8 +59,6 @@ layout: default
     helpers.submit.[model]:
       create: "Create a %{model}"
       update: "Update %{model}"
-
-    activerecord.errors.models.venue.attributes.name.blank = "Please enter a name."
 
     confirmation - :confirmation
     acceptance   - :accepted

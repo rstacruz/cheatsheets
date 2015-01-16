@@ -57,6 +57,9 @@ Max:
         .modal-content
           .modal-header
             %h4.modal-title hello
+            %button.close{type: 'button', data: { dismiss: 'modal' }}
+              %span{'aria-hidden' => true}!= "&times;"
+              %span.sr-only Close
           .modal-body
             ...
           .modal-footer

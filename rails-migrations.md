@@ -12,7 +12,7 @@ layout: default
 
     $ rake db:migrate
 
-### Migrations
+### Creating tables
 
     create_table :users do |t|
       t.string :name
@@ -40,13 +40,24 @@ layout: default
 
 ### Operations
 
+    add_column    :users, :first_name, :string
+    remove_column :users, :first_name, :string
+
+    change_column :users, :first_name, :text
+    change_column :users, :first_name, :text
+
+    change_column_default :users, :admin, nil
+    change_column_null    :users, :email, true  # adds NOT NULL constraint
+
     create_table
     change_table
     drop_table
+
     add_column
     change_column
     rename_column
     remove_column
+
     add_index
     remove_index
 
@@ -72,19 +83,9 @@ layout: default
     # Can have different types
     t.references :category, polymorphic: true
 
-### Add/remove columns
+### Auto-Add/remove columns
   
     $ rails generate migration RemovePartNumberFromProducts part_number:string
-
-    class RemovePartNumberFromProducts < ActiveRecord::Migration
-      def up
-        remove_column :products, :part_number
-      end
-     
-      def down
-        add_column :products, :part_number, :string
-      end
-    end
 
 ### Indices
 

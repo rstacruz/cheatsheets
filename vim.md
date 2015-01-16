@@ -59,17 +59,25 @@ Folds
 
     zx      # Update
 
+Jumping
+-------
+
+    ^O      # Go back to previous location
+    ^I      # Go forward
+
 Misc
 ----
 
     .       # repeat last command
     ]p      # paste under the current indentation level
 
-    C-o     # Go back to previous location
-    C-i     # Go forward
-    C-t     # Go back to last tag
-
     zz      # Center this line
+
+Counters
+--------
+
+    ^A      # increment number
+    ^X      # decrement
 
 Windows
 -------
@@ -81,6 +89,7 @@ Tags
 
     ^]      # Jump to definition
     g]      # See all definitions
+    C-t     # Go back to last tag
     ^O ^I   # Back/forward
 
     :tselect Classname  # Find definitions of Classname
@@ -97,70 +106,3 @@ Marks
 ### Calculator
 
     (Insert mode) <C-r>=128/2
-
-### Highlights
-
-    hi Comment
-      term=bold,underline
-      gui=bold
-      ctermfg=4
-      guifg=#80a0ff
-
-### Filetype detection
-
-    augroup filetypedetect
-      au! BufNewFile,BufRead *.json setf javascript
-    augroup END
-
-    au Filetype markdown setlocal spell
-
-### Conceal
-
-    set conceallevel=2
-    syn match newLine "<br>" conceal cchar=}
-    hi newLine guifg=green
-
-### Region conceal
-
-    syn region inBold concealends matchgroup=bTag start="<b>" end="</b>"
-    hi inBold gui=bold
-    hi bTag guifg=blue
-
-### Syntax
-
-    syn match :name ":regex" :flags
-
-    syn region Comment  start="/\*"  end="\*/"
-    syn region String   start=+"+    end=+"+	 skip=+\\"+
-
-    syn cluster :name contains=:n1,:n2,:n3...
-
-    flags:
-      keepend
-      oneline
-      nextgroup=
-      contains=
-      contained
-
-    hi def link markdownH1 htmlH1
-
-### Mapping
-
-    nnoremap
-    vmap
-    ...
-
-Components:
-
-    [nvixso](nore)map
-     ^       ^
-     |       don't recurse
-     |
-     normal, visual, insert, eX mode, select, operator-pending
-
-Arguments:
-
-- `<buffer>` - only in current buffer
-- `<silent>` - no echo
-- `<nowait>`
-

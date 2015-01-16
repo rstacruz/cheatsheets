@@ -15,13 +15,24 @@ layout: default
 
 ## Interacting with forms
 
-    attach_file
-    fill_in 'First Name', :with => 'John'
-    check
-    uncheck
-    choose
-    select
+    attach_file 'Image', '/path/to/image.jpg'
+    fill_in 'First Name', with: 'John'
+
+    check 'A checkbox'
+    uncheck 'A checkbox'
+
+    choose 'A radio button'
+
+    select 'Option', from: 'Select box'
     unselect
+
+## Limiting
+
+    within '.classname' do
+      click '...'
+    end
+
+    within_fieldset :id do ... end
 
 ## Querying
 

@@ -38,19 +38,28 @@ Create the file `scripts/deploy-to-gh-pages.sh`
 ```
 #!/bin/bash
 # See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db
+set -o errexit
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
-rm -rf out || exit 0
-mkdir out
+rm -rf public
+mkdir public
 
-# build
-node build.js
+# config
+git config --global user.email "nobody@nobody.org"
+git config --global user.name "Travis CI"
+
+# build (CHANGE THIS)
+make
 
 # deploy
-( cd out
-  git init
-  git add .
-  git commit -m "Deploy to Github Pages" --author "Travis CI <nobody@nobody.org>"
-  git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
-)
+cd public
+git init
+git add .
+git commit -m "Deploy to Github Pages"
+git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+```
+
+From Ractive:
+
+```
+if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
 ```

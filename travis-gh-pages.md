@@ -21,21 +21,21 @@ travis encrypt -r user/repo GH_TOKEN=[the token here]
 
 ### Make it run the deploy script on deploy
 
-```
+```yaml
  # .travis.yml
 script:
   - bash ./scripts/deploy-to-gh-pages.sh
 env:
   global:
     - GH_REF: "github.com/user/repo.git"
-    - secure: "nlnXJW/imf/w..."
+    - secure: "nlnXJW/imf/w..."  # <-- from travis-encrypt
 ```
 
 ### Write deployer
 
 Create the file `scripts/deploy-to-gh-pages.sh`
 
-```
+```sh
 #!/bin/bash
 # See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db
 set -o errexit
@@ -58,7 +58,7 @@ git commit -m "Deploy to Github Pages"
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
 ```
 
-From Ractive:
+From Ractive, this might be useful in certain cases:
 
 ```
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi

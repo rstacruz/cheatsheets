@@ -28,6 +28,13 @@ layout: default
 
     array.concat([X,Y])      //=> [_,_,_,_,_,X,Y]
 
+### Inserting
+    // after -- [_,_,REF,NEW,_,_]
+    array.splice(array.indexOf(REF)+1, 0, NEW))
+
+    // before -- [_,_,NEW,REF,_,_]
+    array.splice(array.indexOf(REF), 0, NEW))
+
 ### Replace items
 
     array.splice(2, 1, X)    // array == [a,b,X,d,e]

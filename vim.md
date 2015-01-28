@@ -96,6 +96,15 @@ Tags
     :tjump Classname    # Find definitions of Classname (auto-select 1st)
     :tag Classname      # Jump to first definition of Classname
 
+Case
+----
+
+    ~     # toggle case (Case => cASE)
+    gU    # uppercase
+    gu    # lowercase
+
+    gUU   # uppercase current line (also gUgU)
+    guu   # lowercase current line (also gugu)
 Marks
 -----
 

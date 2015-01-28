@@ -3,37 +3,59 @@ title: "HTML: meta tags"
 layout: default
 ---
 
-### Viewport
+```html
+<meta charset='utf-8'>
 
-    <meta name='viewport' content='width=device-width'>
-    <meta name='viewport' content='width=1024'>
+<!-- title -->
+<title>...</title>
+<meta property='og:title'  content='...'>
+<meta name='twitter:title' content='...'>
 
-### UA
+<!-- url -->
+<meta property='og:url'  content='http://...'>
+<meta name='twitter:url' content='http://...'>
+<link rel='canonical'       href='http://...'>
 
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<!-- desc -->
+<meta name='description'         content='...'>
+<meta property='og:description'  content='...'>
+<meta name='twitter:description' content='...'>
 
-### URL
+<!-- image -->
+<meta property="og:image"  content="http://...">
+<meta name="twitter:image" content="http://...">
 
-    <meta property='og:url' content='http://...'>
-    <meta name='twitter:url' content='http://...'>
-    <link rel='canonical' href='http://...'>
+<!-- ua -->
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 
-### Title
-    
-    <title>...</title>
-    <meta property='og:title' content='...'>
-    <meta name='twitter:title' content='...'>
+<!-- viewport -->
+<meta name='viewport' content='width=device-width'>
+<meta name='viewport' content='width=1024'>
+```
 
-### Description
+### More opengraph
 
-    <meta name="description" content="...">
-    <meta property="og:description" content="...">
-    <meta property="twitter:description" content="...">
+```html
+<meta name="og:site_name" content="...">
+<meta name="og:type" content="website">
 
-### Image
+<meta name="fb:app_id" content="...">
+<meta name="fb:admins" content="UID1,UID2"> <!-- unless there's app_id -->
 
-    <meta name="twitter:image" content="http://...">
-    <meta property="og:image" content="http://...">
+<meta name="og:audio" content="http://.../theme.mp3">
+<meta name="og:video" content="http://.../trailer.swf">
+```
+
+### Opengraph for articles
+
+```html
+article:published_time
+article:modified_time
+article:expiration_time
+article:author
+article:section
+article:tag
+```
 
 ### Reference
 

@@ -3,57 +3,147 @@ title: ES6
 layout: default
 ---
 
-## Stable
+## Stable (io.js)
 
 New features you can use on io.js.
 
-### Promises
+```js
+/*
+ * Promises
+ */
 
-    new Promise(fn)
-      .then(fn)
-      .catch(fn)
+new Promise(fn)
+  .then(fn)
+  .catch(fn)
 
-    Promise.all(...)
-    Promise.race(...)
-    Promise.reject(...)
-    Promise.resolve(...)
+Promise.all(/*...*/)
+Promise.race(/*...*/)
+Promise.reject(/*...*/)
+Promise.resolve(/*...*/)
 
-### [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
+/*
+ * Destructuring
+ */
 
-    var message = `Hello there ${name}`;
+// Destructuring assignment
+var [first, last] = ["Nikola", "Tesla"];
+let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
 
-### [Block scoping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
 
-    if (true) {
-      let x = 1;
-    }
+// Available in loops too
+for (let {title, artist} in songs) {
+  // ...
+}
 
-### [Constants](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+/*
+ * Block scoping
+ */
+ 
+// Block scoping (let)
+function fn () {
+  let x = 0;
+  if (true) {
+    let x = 1; // only inside this `if`
+  }
+}
 
-    const a = 1;
+// Constants
+const a = 1;
 
-### Generators
+/*
+ * Syntax updates, etc
+ */
+ 
+// Short object syntax
+module.exports = {
+  sayHello,
+  sayGoodbye
+};
 
-    function*() {...}
+// Template strings
+var message = `Hello ${name}`;
 
-### Binary/octal
+// New string methods
+"hello".repeat(3)
+"hello".contains("ll")
+"\u1E9B\u0323".normalize("NFC")
 
-    var bin = 0b1010010;
-    var oct = 0755;
+// Binary/octal literals
+var bin = 0b1010010;
+var oct = 0755;
+```
 
-### String methods
+## Stable (6to5)
 
-    "hello".repeat(3)
-    "hello".contains("ll")
-    "\u1E9B\u0323".normalize("NFC")
+Available via 6to5
 
-### [Symbols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+```js
+/*
+ * Imports
+ */
 
-    var sym = Symbol("foo")
-    typeof sym === 'symbol'
+// Import; aka: require('...')
+import 'helpers';
 
-### [Collections](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+// Import; aka: Express = require('...')
+import Express from 'express';
 
-    Map, WeakMap
-    Set, WeakSet
+// Import; aka: indent = require('...').indent
+import { indent } from 'helpers';
 
+/*
+ * Exports
+ */
+
+// Export; aka: module.exports = ...
+export default function () {
+  // ...
+};
+
+// Export a method; aka: exports.mymethod = ...
+export function mymethod () {
+};
+
+// Export a value; aka: exports.pi = ...
+export var pi = 3.14159;
+
+
+/*
+ * Spread
+ */
+ 
+// Default arguments
+function greet(name="Jerry") {
+  return `Hello ${name}`;
+}
+
+// Spread arguments
+function fn(x, ...y) {
+  // y is an Array
+  return x * y.length;
+}
+
+// Rest
+fn(...[1,2,3]) // same as fn(1,2,3)
+
+// Fat arrows
+setTimeout(() => {
+  console.log('hi');
+});
+```
+
+## Experimental
+
+Available via 6to5's experimental mode
+
+```js
+/*
+ * Comprehensions
+ */
+ 
+// Basic comprehension
+var names = [for (c of customers) c.name];
+
+// Comprehension with IDs
+var names = [for (c of customers) if (c.admin) c.name];
+```

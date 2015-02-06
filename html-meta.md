@@ -57,6 +57,12 @@ article:section
 article:tag
 ```
 
+### Favicon
+
+```html
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+```
+
 ### Reference
 
  * https://dev.twitter.com/docs/cards

@@ -22,20 +22,6 @@ Promise.reject(/*...*/)
 Promise.resolve(/*...*/)
 
 /*
- * Destructuring
- */
-
-// Destructuring assignment
-var [first, last] = ["Nikola", "Tesla"];
-let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
-
-
-// Available in loops too
-for (let {title, artist} in songs) {
-  // ...
-}
-
-/*
  * Block scoping
  */
  
@@ -107,6 +93,19 @@ export function mymethod () {
 // Export a value; aka: exports.pi = ...
 export var pi = 3.14159;
 
+/*
+ * Destructuring
+ */
+
+// Destructuring assignment
+var [first, last] = ["Nikola", "Tesla"];
+let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
+
+
+// Available in loops too
+for (let {title, artist} in songs) {
+  // ...
+}
 
 /*
  * Spread

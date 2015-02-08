@@ -48,7 +48,6 @@ layout: default
 
     componentDidMount
     componentDidUpdate
-    componentDidUnmount
 
 
 ### Initial states

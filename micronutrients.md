@@ -50,13 +50,15 @@ layout: default
  * Major benefits: bone health
  * Fat-soluble
 
-### Vitamin B12
-
-### Vitamin B6
-
 ### Thiamin (Vitamin B1)
 
 ### Riboflavin (Vitamin B2)
+
+### Niacin (Vitamin B3)
+
+### Vitamin B6
+
+### Vitamin B12
 
 ### Potassium
 

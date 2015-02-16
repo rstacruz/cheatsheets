@@ -1,5 +1,5 @@
 ---
-title: Shell scripting
+title: Shell scripting (bash)
 layout: default
 ---
 
@@ -210,7 +210,28 @@ or
 
     DIR="${0%/*}"
 
-----------
+### Getting options
 
-*  http://wiki.bash-hackers.org/
+    while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
+      case $1 in
+        -V | --version )
+          echo $version
+          exit
+          ;;
+        -s | --string )
+          shift; string=$1
+          ;;
+        -f | --flag )
+          flag=1
+          ;;
+      esac
+      shift
+    done
+    if [[ "$1" == "--" ]]; then shift; fi
+
+    # compact
+    while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do; case $1 in
+    esac; shift; done
+
+* http://wiki.bash-hackers.org/
 * http://wiki.bash-hackers.org/syntax/shellvars

@@ -101,11 +101,17 @@ export var pi = 3.14159;
 var [first, last] = ["Nikola", "Tesla"];
 let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
 
-
 // Available in loops too
 for (let {title, artist} in songs) {
   // ...
 }
+
+// Functions
+function greet({ name, greeting }) {
+  // ...
+}
+
+greet({ name: "Larry", greeting: "Ahoy" });
 
 /*
  * Spread

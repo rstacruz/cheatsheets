@@ -83,3 +83,14 @@ Max:
           .modal-body
             .spinner-panel.-lg
               %i
+
+### Tooltip
+
+    data-toggle='tooltip'
+    title='tooltip'
+    data-placement='left|top|bottom|right'
+
+    $(function () {
+      $('[data-toogle~="tooltip"]').tooltip();
+    });
+

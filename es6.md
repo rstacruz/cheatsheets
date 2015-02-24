@@ -72,29 +72,29 @@ Available via [Babel]
 ### Module imports
 
 ```js
-// Import; aka: require('...')
+// aka: require('...')
 import 'helpers';
 
-// Import; aka: Express = require('...')
+// aka: Express = require('...')
 import Express from 'express';
 
-// Import; aka: indent = require('...').indent
+// aka: indent = require('...').indent
 import { indent } from 'helpers';
 ```
 
 ### Module exports
 
 ```js
-// Export; aka: module.exports = ...
+// aka: module.exports = ...
 export default function () {
   // ...
 };
 
-// Export a method; aka: exports.mymethod = ...
+// aka: exports.mymethod = ...
 export function mymethod () {
 };
 
-// Export a value; aka: exports.pi = ...
+// aka: exports.pi = ...
 export var pi = 3.14159;
 ```
 
@@ -122,7 +122,7 @@ greet({ name: "Larry", greeting: "Ahoy" });
 
 ```js
 // Default arguments
-function greet(name="Jerry") {
+function greet(name = "Jerry") {
   return `Hello ${name}`;
 }
 

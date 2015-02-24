@@ -59,9 +59,9 @@ var bin = 0b1010010;
 var oct = 0755;
 ```
 
-## Stable (6to5)
+## Stable ([Babel])
 
-Available via 6to5
+Available via [Babel]
 
 ```js
 /*
@@ -137,6 +137,34 @@ setTimeout(() => {
 });
 ```
 
+## Classes
+
+Available in [Babel]
+
+```js
+class Circle extends Shape {
+  // ctor
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  // methods
+  getArea() {
+    return Math.PI * 2 * this.radius;
+  }
+
+  // calling super methods
+  expand(n) {
+    return super.expand(n) * Math.PI;
+  }
+
+  // static methods
+  static createFromDiameter(diameter) {
+    return new Circle(diameter / 2);
+  }
+}
+```
+
 ## Experimental
 
 Available via 6to5's experimental mode
@@ -152,3 +180,5 @@ var names = [for (c of customers) c.name];
 // Comprehension with IDs
 var names = [for (c of customers) if (c.admin) c.name];
 ```
+
+[Babel]: http://babeljs.io

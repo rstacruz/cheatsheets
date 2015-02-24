@@ -7,11 +7,9 @@ layout: default
 
 New features you can use on io.js.
 
-```js
-/*
- * Promises
- */
+### Promises
 
+```js
 new Promise(fn)
   .then(fn)
   .catch(fn)
@@ -20,11 +18,11 @@ Promise.all(/*...*/)
 Promise.race(/*...*/)
 Promise.reject(/*...*/)
 Promise.resolve(/*...*/)
+```
 
-/*
- * Block scoping
- */
+### Block scoping
  
+```js
 // Block scoping (let)
 function fn () {
   let x = 0;
@@ -35,19 +33,27 @@ function fn () {
 
 // Constants
 const a = 1;
+```
 
-/*
- * Syntax updates, etc
- */
- 
-// Short object syntax
-module.exports = {
-  sayHello,
-  sayGoodbye
-};
+### Backtick strings
 
-// Template strings
+```js
+// interpolation
 var message = `Hello ${name}`;
+
+// Multiline
+var str = `
+hello
+world
+`;
+```
+
+### Syntax improvements
+
+```js
+// Short object syntax
+// aka: `exports = { hello:hello, bye:bye }`
+module.exports = { hello, bye };
 
 // New string methods
 "hello".repeat(3)
@@ -63,11 +69,9 @@ var oct = 0755;
 
 Available via [Babel]
 
-```js
-/*
- * Imports
- */
+### Module imports
 
+```js
 // Import; aka: require('...')
 import 'helpers';
 
@@ -76,11 +80,11 @@ import Express from 'express';
 
 // Import; aka: indent = require('...').indent
 import { indent } from 'helpers';
+```
 
-/*
- * Exports
- */
+### Module exports
 
+```js
 // Export; aka: module.exports = ...
 export default function () {
   // ...
@@ -92,11 +96,11 @@ export function mymethod () {
 
 // Export a value; aka: exports.pi = ...
 export var pi = 3.14159;
+```
 
-/*
- * Destructuring
- */
+### Destructuring
 
+```js
 // Destructuring assignment
 var [first, last] = ["Nikola", "Tesla"];
 let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
@@ -112,11 +116,11 @@ function greet({ name, greeting }) {
 }
 
 greet({ name: "Larry", greeting: "Ahoy" });
+```
 
-/*
- * Spread
- */
- 
+### Function arguments
+
+```js
 // Default arguments
 function greet(name="Jerry") {
   return `Hello ${name}`;
@@ -130,16 +134,21 @@ function fn(x, ...y) {
 
 // Rest
 fn(...[1,2,3]) // same as fn(1,2,3)
+```
 
+### Fat arrows
+
+```js
 // Fat arrows
 setTimeout(() => {
   console.log('hi');
 });
+
+// Short syntax (no `return` without `{}`)
+numbers.map(n => n * 2)
 ```
 
-## Classes
-
-Available in [Babel]
+### Classes
 
 ```js
 class Circle extends Shape {

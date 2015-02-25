@@ -48,13 +48,9 @@ world
 `;
 ```
 
-### Syntax improvements
+### Other improvements
 
 ```js
-// Short object syntax
-// aka: `exports = { hello:hello, bye:bye }`
-module.exports = { hello, bye };
-
 // New string methods
 "hello".repeat(3)
 "hello".contains("ll")
@@ -63,6 +59,35 @@ module.exports = { hello, bye };
 // Binary/octal literals
 var bin = 0b1010010;
 var oct = 0755;
+```
+
+### Object literal enhancements
+
+```js
+// Short object syntax
+// aka: `exports = { hello:hello, bye:bye }`
+module.exports = { hello, bye };
+
+App = {
+  // shorthand for `handler: handler`
+  handler,
+
+  // methods
+  start() {
+    this.go();
+  },
+
+  // getter/setter
+  get closed() {
+    return this.status === 'closed';
+  },
+
+  // custom prototypes
+  __proto__: protoObj,
+
+  // computed property names
+  [ "prop_"+n ]: 42
+};
 ```
 
 ## Stable ([Babel])

@@ -109,6 +109,7 @@ Logic can sometimes belong in stores.
 
 ## Stores and dispatchers
 
+### Instantiate
 Make a Dispatcher and Stores.
 
 ```js

@@ -5,13 +5,13 @@ layout: default
 
 ## Architecture
 
-You have:
-
 * __Dispatchers__ receive *actions* that get dispatched to its listeners.
 
 * __Stores__ are objects that store data, usually changed from a dispatcher listener.
 
 * __Views__ are React components that listen to Store changes, or emit *actions* to the dispatcher.
+
+----
 
 ## Dispatcher
 
@@ -22,10 +22,10 @@ var Dispatcher = require('flux').Dispatcher;
 
 d = new Dispatcher()
 
-// send a message
+// send a payload
 d.dispatch({ a: 'aaa', ... };
 
-// receive
+// receive payloads
 token = d.register(function (payload) {
   payload.a === 'aaa'
 })
@@ -39,17 +39,19 @@ You can ensure one listener is fired after another using `.waitFor()`.
 token1 = d.register(...);
 
 token2 = d.register(function (payload) {
+
   // ensure receiver 1 is fired before this
-  // can only be used within register(...)
-  d.waitFor([ token1 ])
+  d.waitFor([ token1 ]);
+  
+  // process here
 })
 ```
 
 ### Subclassing
 
-`Object.assign` is the preferred way to subclass Dispatcher (think `$.extend`).
+[Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) is the preferred way to subclass Dispatcher (think `$.extend`).
 
-You can make *action creators*, which are shortcuts for `dispatch()`.
+You can also make *action creators*, which are shortcuts for `dispatch()`.
 
 ```js
 var Dispatcher = require('flux').Dispatcher;
@@ -57,7 +59,7 @@ var assign = require('object-assign');
 
 var AppDispatcher = assign({}, Dispatcher.prototype, {
 
-  // shortcut for dispatching
+  // action creator
   handleViewAction: function (action) {
     this.dispatch({
       source: 'VIEW_ACTION',
@@ -68,6 +70,8 @@ var AppDispatcher = assign({}, Dispatcher.prototype, {
 })
 ```
 
+----
+
 ## Stores
 
 Stores are just like objects.
@@ -75,6 +79,8 @@ Stores are just like objects.
 ```js
 var TodoStore = { todos: {} };
 ```
+
+----
 
 ## Stores and dispatchers
 
@@ -97,7 +103,9 @@ d.register(function (data) {
 });
 ```
 
-## With Components
+----
+
+## With Views
 
 Components can listen to Dispatchers.
 
@@ -108,6 +116,8 @@ var TodoApp = React.createClass({
   }
 });
 ```
+
+----
 
 ### Also see
 

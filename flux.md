@@ -22,18 +22,18 @@ var Dispatcher = require('flux').Dispatcher;
 
 d = new Dispatcher();
 
-// send a payload
-d.dispatch({ a: 'aaa', ... };
+// send
+d.dispatch({ action: 'edit', ... };
 
-// receive payloads
+// receive
 token = d.register(function (payload) {
-  payload.a === 'aaa'
+  payload.action === 'edit'
 })
 ```
 
 ### Ensuring proper order
 
-You can ensure one listener is fired after another using `.waitFor()`.
+With multiple listeners, you can ensure one is fired after another using `.waitFor()`.
 
 ```js
 token1 = d.register(...);
@@ -80,7 +80,7 @@ var TodoStore = { todos: {} };
 ```
 
 ### Events
-Sometimes they're eventemitters, too.
+Sometimes they're eventemitters, too. Usually it's used to emit `change` events for views to pick up.
 
 ```js
 var TodoStore = assign({}, EventEmitter.prototype, {
@@ -137,15 +137,38 @@ Components can listen to Dispatchers.
 var TodoApp = React.createClass({
 
   componentDidMount() {
-    this.token = AppDispatcher.register(function (payload) {
+    this.token = AppDispatcher.register((payload) => {
       switch (payload.action) {
         case 'tab.change':
+          this.render();
           // ...
       }
     });
+  },
+  
+  componentDidUnmount() {
+    AppDispatcher.unregister(this.token);
   }
   
 });
+```
+
+Or to Stores.
+
+```js
+{
+  componentDidMount() {
+    TodoStore.on('change', this.onChange);
+  },
+  
+  componentDidUnmount() {
+    TodoState.removeListener('change', this.onChange);
+  },
+  
+  onChange(data) {
+    // ...
+  }
+}
 ```
 
 ----
@@ -154,5 +177,7 @@ var TodoApp = React.createClass({
 
 * [Dispatcher API][dispatcher]
 * [React cheatsheet](react.html)
+* [Dispatcher.js source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js)
+* [Flux-todomvc explanation](https://github.com/facebook/flux/tree/master/examples/flux-todomvc)
 
 [dispatcher]: http://facebook.github.io/flux/docs/dispatcher.html

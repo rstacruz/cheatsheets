@@ -141,13 +141,13 @@ layout: default
 
 ### Propagating properties to children
 
-    var CheckLink = React.createClass({
+    var VideoPlayer = React.createClass({
       render: function() {
-        // transferPropsTo() will take any props passed to CheckLink
-        // and copy them to <a>
-        return this.transferPropsTo(<a>{'√ '}{this.props.children}</a>);
+        return <VideoEmbed {...this.props} controls='false' />;
       }
     });
+
+    <VideoPlayer src="video.mp4" />
 
 ### Mixins
 

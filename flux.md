@@ -15,6 +15,7 @@ layout: default
 
 ## Dispatcher
 
+### Pub-sub
 [A dispatcher][dispatcher] emits events (`.dispatch()`) to its listeners (`.register(fn)`).
 
 ```js
@@ -73,6 +74,7 @@ var AppDispatcher = assign({}, Dispatcher.prototype, {
 
 ## Stores
 
+### Plain objects
 Stores are just like objects.
 
 ```js

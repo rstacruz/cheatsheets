@@ -131,7 +131,8 @@ d.register(function (data) {
 
 ## With Views
 
-Components can listen to Dispatchers.
+### Listen to dispatchers
+Views (React Components) can listen to Dispatchers.
 
 ```js
 var TodoApp = React.createClass({
@@ -153,7 +154,8 @@ var TodoApp = React.createClass({
 });
 ```
 
-Or to Stores.
+### Listen to Stores
+Or to Stores's `change` events.
 
 ```js
 {

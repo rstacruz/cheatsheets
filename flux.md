@@ -76,7 +76,7 @@ var AppDispatcher = assign({}, Dispatcher.prototype, {
 Stores are just like objects.
 
 ```js
-var TodoStore = { todos: {} };
+var TodoStore = { list: [] };
 ```
 
 ### Events

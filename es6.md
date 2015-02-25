@@ -105,6 +105,9 @@ import Express from 'express';
 
 // aka: indent = require('...').indent
 import { indent } from 'helpers';
+
+// aka: indent = require('...').indentSpaces
+import { indentSpaces as indent } from 'helpers';
 ```
 
 ### Module exports
@@ -198,6 +201,16 @@ class Circle extends Shape {
   }
 }
 ```
+
+### [For..of iteration](http://babeljs.io/docs/learn-es6/#iterators-for-of)
+
+```
+for (var i of iterable) {
+  // ...
+}
+```
+
+Works for Arrays and iterables (eg, generators).
 
 ## Experimental
 

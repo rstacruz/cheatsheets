@@ -15,12 +15,12 @@ layout: default
 
 ## Dispatcher
 
-A dispatcher emits (`.dispatch()`) events to its listeners (`.register(fn)`).
+[A dispatcher][dispatcher] emits events (`.dispatch()`) to its listeners (`.register(fn)`).
 
 ```js
 var Dispatcher = require('flux').Dispatcher;
 
-d = new Dispatcher()
+d = new Dispatcher();
 
 // send a payload
 d.dispatch({ a: 'aaa', ... };
@@ -31,7 +31,7 @@ token = d.register(function (payload) {
 })
 ```
 
-### Ensuring order
+### Ensuring proper order
 
 You can ensure one listener is fired after another using `.waitFor()`.
 
@@ -49,8 +49,7 @@ token2 = d.register(function (payload) {
 
 ### Subclassing
 
-[Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) is the preferred way to subclass Dispatcher (think `$.extend`).
-
+[Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) is the preferred way to subclass Dispatcher (think `$.extend`).<br>
 You can also make *action creators*, which are shortcuts for `dispatch()`.
 
 ```js
@@ -60,7 +59,7 @@ var assign = require('object-assign');
 var AppDispatcher = assign({}, Dispatcher.prototype, {
 
   // action creator
-  handleViewAction: function (action) {
+  handleViewAction(action) {
     this.dispatch({
       source: 'VIEW_ACTION',
       action: action
@@ -80,24 +79,49 @@ Stores are just like objects.
 var TodoStore = { todos: {} };
 ```
 
+### Events
+Sometimes they're eventemitters, too.
+
+```js
+var TodoStore = assign({}, EventEmitter.prototype, {
+  ...
+});
+
+TodoStore.emit('change');
+TodoStore.on('change', function () { ... });
+```
+
+### Model logic
+Logic can sometimes belong in stores.
+
+```js
+{
+  isAllActive() {
+    return this.list.every(item => item.active);
+  }
+}
+```
+
+
 ----
 
 ## Stores and dispatchers
 
-Make Dispatcher and Stores:
+Make a Dispatcher and Stores.
 
 ```js
 d = new Dispatcher();
 TabStore = { tab: 'home' };
 ```
 
-Dispatch events to alter the store:
+### Updating data
+Dispatch events to alter the store.
 
 ```js
-d.dispatch({ event: 'changeTab', tab: 'timeline' });
+d.dispatch({ action: 'tab.change', tab: 'timeline' });
 
 d.register(function (data) {
-  if (data.event === 'changeTab') {
+  if (data.action === 'tab.change') {
     TabStore.tab = data.tab;
   }
 });
@@ -111,9 +135,16 @@ Components can listen to Dispatchers.
 
 ```js
 var TodoApp = React.createClass({
-  componentDidMount: function () {
-    AppDispatcher.register(...);
+
+  componentDidMount() {
+    this.token = AppDispatcher.register(function (payload) {
+      switch (payload.action) {
+        case 'tab.change':
+          // ...
+      }
+    });
   }
+  
 });
 ```
 
@@ -121,5 +152,7 @@ var TodoApp = React.createClass({
 
 ### Also see
 
-* [Dispatcher API](http://facebook.github.io/flux/docs/dispatcher.html#content)
-* [React](react.html)
+* [Dispatcher API][dispatcher]
+* [React cheatsheet](react.html)
+
+[dispatcher]: http://facebook.github.io/flux/docs/dispatcher.html

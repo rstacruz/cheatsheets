@@ -49,22 +49,36 @@ c.forceUpdate()
 c.isMounted()
 ```
 
+### [Methods](http://facebook.github.io/react/docs/component-specs.html)
+
+```js
+{
+  render: function()
+  getInitialState: function()
+  getDefaultProps: function()
+  mixins: []
+  propTypes: {}       /* for validation */
+  statics: { .. }     /* static methods */
+  displayName: '..'   /* automatically filled in by jsx */
+}
+```
+
 ### [Lifecycle](http://facebook.github.io/react/docs/component-specs.html)
 
-    render: function()
-    getInitialState: function()
-    getDefaultProps: function()
-    propTypes: {}
-    mixins: []
-    statics: { .. } /* static methods */
-    displayName: '..'
+```js
+componentWillMount()
+componentDidMount()
 
-    componentWillMount
-    componentWillUpdate
-    componentWillUnmount
+// not on initial render
+componentWillReceiveProps(props)
+shouldComponentUpdate(props, state)
+componentWillUpdate(props, state)
+componentDidUpdate(prevProps, prevState)
 
-    componentDidMount
-    componentDidUpdate
+componentWillUnmount()
+
+// ...there is no DidUnmount or ReceiveState.
+```
 
 ### Initial states
 

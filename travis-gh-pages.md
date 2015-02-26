@@ -10,10 +10,6 @@ Taken from https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a82
 Use https://github.com/settings/tokens/new
 
 ```sh
-# via node
-npm install travis-encrypt -g
-travis-encrypt -r user/repo GH_TOKEN=[the token here]
-
 # via ruby
 gem install travis
 travis encrypt -r user/repo GH_TOKEN=[the token here]

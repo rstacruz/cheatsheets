@@ -1,5 +1,5 @@
 ---
-title: Travis: deploy gh-pages
+title: Deploy gh-pages via Travis
 layout: default
 ---
 

@@ -5,39 +5,49 @@ layout: default
 
 ### Basic class
 
-    React.createClass({
-      render: function () {
-        return (
-          <div>Hello {this.props.name}</div>
-        );
-      }
-    });
+```js
+React.createClass({
+  render: function () {
+    return (
+      <div>Hello {this.props.name}</div>
+    );
+  }
+});
+```
 
-### Using
+### Using components
 
-    var Component = React.createClass({ ... });
+```js
+var Component = React.createClass({ ... });
 
-    var compo = React.render(<Component />, mountnode);
+var compo = React.render(<Component />, mountnode);
+```
 
 ### States
 
-    this.setState({ editing: true });
-    this.state.editing === true
+```js
+this.setState({ editing: true });
+this.state.editing === true
 
-    this.replaceState({ ... });
+this.replaceState({ ... });
+```
 
-### Props
+### Properties
 
-    this.setProps({ fullscreen: true });
-    this.props.fullscreen === true
+```js
+this.setProps({ fullscreen: true });
+this.props.fullscreen === true
 
-    this.replaceProps({ ... });
+this.replaceProps({ ... });
+```
 
 ### [API](http://facebook.github.io/react/docs/component-api.html)
 
-    c.getDOMNode()
-    c.forceUpdate()
-    c.isMounted()
+```js
+c.getDOMNode()
+c.forceUpdate()
+c.isMounted()
+```
 
 ### [Lifecycle](http://facebook.github.io/react/docs/component-specs.html)
 
@@ -109,17 +119,19 @@ layout: default
 
 ### [Two-way binding](http://facebook.github.io/react/docs/two-way-binding-helpers.html)
 
-    React.createClass({
-      mixins: [React.addons.LinkedStateMixin],
-      getInitialState: function() {
-        return {value: 'Hello!'};
-      },
-      render: function() {
-        return <input type="text" valueLink={this.linkState('value')} />;
-      }
-    });
-    // LinkedStateMixin adds a method to your React component called
-    // linkState(). 
+```js
+React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {value: 'Hello!'};
+  },
+  render: function() {
+    return <input type="text" valueLink={this.linkState('value')} />;
+  }
+});
+// LinkedStateMixin adds a method to your React component called
+// linkState(). 
+```
 
 ### Lists
 
@@ -187,7 +199,7 @@ Also:
   }
 ```
 
-### Class set
+### [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html)
 
     render: function() {
       var cx = React.addons.classSet;
@@ -200,7 +212,7 @@ Also:
       return <div className={classes}>Great Scott!</div>;
     }
 
-### Propagating properties to children
+### [Propagating properties to children](http://facebook.github.io/react/docs/transferring-props.html)
 
     var VideoPlayer = React.createClass({
       render: function() {
@@ -220,6 +232,8 @@ Also:
       componentWillMount: function() { .. }
     }
 
-### [Reusable components](http://facebook.github.io/react/docs/reusable-components.html)
+----
 
-  * Prop validation
+### See also
+
+* [Animations](http://facebook.github.io/react/docs/animation.html)

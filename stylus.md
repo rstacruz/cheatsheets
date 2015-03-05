@@ -72,7 +72,7 @@ Multiple args:
     name = 'blue'
     lookup('light-' + name)
 
-### Built-in functions
+### [Built-in functions](http://learnboost.github.io/stylus/docs/bifs.html)
 
     alpha(#fff)   //=> 1
     alpha(rgba(0, 0, 0, 0.2))   //=> 0.2
@@ -80,15 +80,38 @@ Multiple args:
     dark(black)  //=> true
     light(black) //=> false
 
+    hue(#0a0)         //=> 50deg
+    saturation(#f00)  //=> 100%
+    lightness(#f00)   //=> 50%
+    luminosity(#f00)  //=> 0.2126
+
+    hue(#0a0, 0deg)
+    saturation(#f00, 50%)
+    lightness(#f00)
+
     lighten(color, 10%)
     darken(color, 10%)
     saturate(color, 10%)
+    desaturate(color, 10%)
     invert(color)
+
+    tint(color, 50%)  // mix with white
+    shade(color, 50%) // mix with black
+
+    unquote(string)
 
     width:  image-size(img)[0]
     height: image-size(img)[1]
 
-    unquote(string)
+### [Caching](http://learnboost.github.io/stylus/docs/bifs.html#cachekeys)
+
+    size($width)
+      +cache('w' + $width)
+        width: $width
+    .a { size: 10px }
+    .b { size: 10px }
+
+    // yields: .a, b { width: 10px }
 
 Add Property:
 

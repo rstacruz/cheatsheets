@@ -4,8 +4,8 @@ layout: default
 ---
 
     * {
-      text-rendering: optimizeLegibility !important;
-      -webkit-font-smoothing: antialiased !important;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 

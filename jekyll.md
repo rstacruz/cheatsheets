@@ -13,26 +13,26 @@ jekyll_escape: true
 
     ./
     ├── _config.yml
-    │
+    │
     ├── _data/
-    │   └── ...
-    │
+    │   └── ...
+    │
     ├── _drafts/
-    │   └── ...
-    │
+    │   └── ...
+    │
     ├── _posts/
-    │   └── 2014-01-01-hello.md
-    │
+    │   └── 2014-01-01-hello.md
+    │
     ├── _layouts/
-    │   ├── default.html
-    │   └── post.html
-    │
+    │   ├── default.html
+    │   └── post.html
+    │
     ├── _includes/             - partials
-    │   ├── header.html
-    │   └── footer.html
-    │
+    │   ├── header.html
+    │   └── footer.html
+    │
     └── _site/
-        └── ...
+        └── ...
 
 ## [Front-matter](http://jekyllrb.com/docs/frontmatter/)
 

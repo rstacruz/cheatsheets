@@ -27,3 +27,8 @@ defaults:
       layout: "default"
 meta:
   name: "Cheatsheets"
+  title: Cheatsheets
+  description: "A collection of cheatsheets I've written."
+  hostname: ricostacruz.com
+  author: Rico Sta. Cruz
+  url: http://ricostacruz.com/cheatsheets

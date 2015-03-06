@@ -32,3 +32,12 @@
 .pages-list a:focus .title {
   color: dodgerblue;
 }
+
+.post-headline.-cheatsheet:after {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 1px;
+  background: #ddd;
+  margin: 2.5em auto 1.8em auto;
+}

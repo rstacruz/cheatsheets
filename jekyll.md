@@ -188,35 +188,84 @@ Blogging
 Helpers and Filters
 -------------------
 
+### Dates
+
      {{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
      {{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
      {{ site.time | date_to_string }}      #=> 07 Nov 2008
      {{ site.time | date_to_long_string }} #=> 07 November 2008
+     | date: "%Y %m %d"
 
-     | where:"year","2014"
-     | group_by:"genre"
-     | sort
-
-     | xml_escape
-     | cgi_escape
-     | uri_escape
-
-     | array_to_sentence_string
-     | number_of_words
+### Preprocessors
 
      | textilize
      | markdownify
      | jsonify
+     | sassify
+     | scssify
+
+### Array
+
+     site.posts | where:"year","2014"
+     site.posts | group_by:"genre"   #=> { name, items }
+     site.posts | sort
+
+     | first
+     | last
+     | join: ","
+     | array_to_sentence_string   #=> CSS, JavaScript and HTML
+
+     | map: "post"   # works like 'pluck'
+     | size
+
+### [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
+
+     | default: "xxx"
+
+     | upcase
+     | downcase
+
+     | remove: "<p>"
+     | replace: "super", "mega"
+     | remove_first: "<p>"
+     | replace_first: "super", "mega"
+
+     | truncate: 5
+     | truncatewords: 20
+
+     | prepend: "Mr. "
+     | append: " Sr."
 
      | camelize
      | capitalize
      | pluralize
+     | strip_html
+     | strip_newlines
+     | newline_to_br
 
-     | date: "%Y %m %d"
-     | default: "xxx"
+     | split: ','
 
-     | replace: "super", "mega"
-     | replace_first: "super", "mega"
+     | escape
+     | escape_once
+
+     | slice: -3, 3
+
+### String filters, Jekyll-only
+
+     | number_of_words
+     | slugify
+
+     | xml_escape    #=> CDATA
+     | cgi_escape    #=> foo%2Cbar
+     | uri_escape    #=> foo,%20bar
+
+### Numbers
+
+     | minus: 2
+     | plus: 1
+     | time: 4
+     | divided_by: 3
+     | modulo: 2
      
 Comments
 --------
@@ -245,4 +294,5 @@ Integration
   * http://docs.shopify.com/themes/liquid-basics/output
   * http://docs.shopify.com/themes/liquid-basics/logic
   * https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+  * http://docs.shopify.com/themes/liquid-documentation/filters
 {% endraw %}

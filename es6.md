@@ -106,6 +106,21 @@ App = {
 };
 ```
 
+### [Generators](http://babeljs.io/docs/learn-es6/#generators)
+It's complicated.
+
+```js
+function* idMaker() {
+  var id = 0;
+  while (true) { yield id++; }
+}
+
+var gen = idMaker();
+gen.next().value  // 0
+gen.next().value  // 1
+gen.next().value  // 2
+```
+
 <br>
 
 ## Stable in Babel

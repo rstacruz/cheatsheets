@@ -1,7 +1,9 @@
 ---
-title: Middleman
+title: Middleman 3
 layout: default
 ---
+
+**NB:** This is for Middleman 3, not Middleman 4+.
 
 ### Compass config
 

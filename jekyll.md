@@ -49,17 +49,12 @@ jekyll_escape: true
     categories: ['html', 'css']
     tags: ['html', 'css']
 
-Configuration
--------------
+## [Configuration](http://jekyllrb.com/docs/configuration/)
 
     source: .
     destination: _site
     exclude: [dir, file, ...]
     include: ['.htaccess']
-
-### Reference
-
- * [Configuration](http://jekyllrb.com/docs/configuration/)
 
 ## [Variables](http://jekyllrb.com/docs/variables/)
 
@@ -157,12 +152,11 @@ Markup
 
     {% include header.html %}
 
-Blogging
---------
+## [Blogging](http://jekyllrb.com/docs/posts/)
 
     _posts/YEAR-MONTH-DAY-title.md
 
-### Image paths
+### [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resources)
     
     ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
 
@@ -170,6 +164,21 @@ Blogging
 
     vi _drafts/a-draft-post.md
     jekyll build --drafts
+
+### [Excerpts](http://jekyllrb.com/docs/posts/#post-excerpts)
+
+    {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+    {{ post.excerpt | strip_html }}
+
+### Excerpt separator
+
+    ---
+    excerpt_separator: <!--more-->
+    ---
+
+    Excerpt
+    <!--more-->
+    Out-of-excerpt
 
 ### [Permalinks](http://jekyllrb.com/docs/permalinks/)
 
@@ -184,6 +193,26 @@ Blogging
     _data/members.yml
 
     {% for member in site.data.members %}
+
+## [Collections](http://jekyllrb.com/docs/collections/)
+
+```yaml
+# _config.yml
+collections:
+  - authors
+```
+
+```yaml
+# _/authors/a-n-roquelaire.md
+---
+name: A. N. Roquelaire
+real_name: Anne Rice
+---
+```
+
+```
+{% for author in site.authors %}
+```
 
 Helpers and Filters
 -------------------

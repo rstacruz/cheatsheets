@@ -22,7 +22,7 @@ Promise.reject(/*...*/)
 Promise.resolve(/*...*/)
 ```
 
-### Block scoping
+### [Block scoping](http://babeljs.io/docs/learn-es6/#let-const)
 `let` is the new `var`.
  
 ```js
@@ -101,7 +101,7 @@ App = {
 Available via the [Babel] transpiler.
 {:.brief-intro.center.top-space-0}
 
-### Module imports
+### [Module imports](http://babeljs.io/docs/learn-es6/#modules)
 `import` is the new `require()`.
 
 ```js
@@ -118,7 +118,7 @@ import { indent } from 'helpers';
 import { indentSpaces as indent } from 'helpers';
 ```
 
-### Module exports
+### [Module exports](http://babeljs.io/docs/learn-es6/#modules)
 `export` is the new `module.exports =`.
 
 ```js

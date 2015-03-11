@@ -7,7 +7,8 @@ layout: default
 
 New features you can use on io.js.
 
-### Promises
+### [Promises](http://babeljs.io/docs/learn-es6/#promises)
+For asynchronous programming.
 
 ```js
 new Promise(fn)
@@ -21,6 +22,7 @@ Promise.resolve(/*...*/)
 ```
 
 ### Block scoping
+`let` is the new `var`.
  
 ```js
 // Block scoping (let)
@@ -35,7 +37,8 @@ function fn () {
 const a = 1;
 ```
 
-### Backtick strings
+### [Backtick strings](http://babeljs.io/docs/learn-es6/#template-strings)
+Templates and multiline strings.
 
 ```js
 // interpolation
@@ -49,6 +52,7 @@ world
 ```
 
 ### Other improvements
+New string [methods](http://babeljs.io/docs/learn-es6/#math-number-string-object-apis), [binary and octal](http://babeljs.io/docs/learn-es6/#binary-and-octal-literals) numbers.
 
 ```js
 // New string methods
@@ -61,7 +65,8 @@ var bin = 0b1010010;
 var oct = 0755;
 ```
 
-### Object literal enhancements
+### [Object literal enhancements](http://babeljs.io/docs/learn-es6/#enhanced-object-literals)
+Adds support for getters, setters, methods, shorthad.
 
 ```js
 // Short object syntax
@@ -95,6 +100,7 @@ App = {
 Available via [Babel]
 
 ### Module imports
+`import` is the new `require()`.
 
 ```js
 // aka: require('...')
@@ -111,6 +117,7 @@ import { indentSpaces as indent } from 'helpers';
 ```
 
 ### Module exports
+`export` is the new `module.exports =`.
 
 ```js
 // aka: module.exports = ...
@@ -126,7 +133,8 @@ export function mymethod () {
 export var pi = 3.14159;
 ```
 
-### Destructuring
+### [Destructuring](http://babeljs.io/docs/learn-es6/#destructuring)
+Supports for matching arrays and objects.
 
 ```js
 // Destructuring assignment
@@ -146,7 +154,8 @@ function greet({ name, greeting }) {
 greet({ name: "Larry", greeting: "Ahoy" });
 ```
 
-### Function arguments
+### [Function arguments](http://babeljs.io/docs/learn-es6/#default-rest-spread)
+Default, rest, spread.
 
 ```js
 // Default arguments
@@ -154,17 +163,18 @@ function greet(name = "Jerry") {
   return `Hello ${name}`;
 }
 
-// Spread arguments
+// Rest arguments
 function fn(x, ...y) {
   // y is an Array
   return x * y.length;
 }
 
-// Rest
+// Spread
 fn(...[1,2,3]) // same as fn(1,2,3)
 ```
 
-### Fat arrows
+### [Fat arrows](http://babeljs.io/docs/learn-es6/#arrows)
+Like functions but with `this` preserved.
 
 ```js
 // Fat arrows
@@ -176,7 +186,8 @@ setTimeout(() => {
 numbers.map(n => n * 2)
 ```
 
-### Classes
+### [Classes](http://babeljs.io/docs/learn-es6/#classes)
+Syntactic sugar for prototypes.
 
 ```js
 class Circle extends Shape {
@@ -203,6 +214,7 @@ class Circle extends Shape {
 ```
 
 ### [For..of iteration](http://babeljs.io/docs/learn-es6/#iterators-for-of)
+For iterating through generators and arrays.
 
 ```
 for (var i of iterable) {

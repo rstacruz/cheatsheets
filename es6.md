@@ -15,7 +15,9 @@ For asynchronous programming.
 new Promise(fn)
   .then(fn)
   .catch(fn)
+```
 
+```js
 Promise.all(/*...*/)
 Promise.race(/*...*/)
 Promise.reject(/*...*/)
@@ -33,7 +35,9 @@ function fn () {
     let x = 1; // only inside this `if`
   }
 }
+```
 
+```js
 // Constants
 const a = 1;
 ```
@@ -42,9 +46,11 @@ const a = 1;
 Templates and multiline strings.
 
 ```js
-// interpolation
+// Interpolation
 var message = `Hello ${name}`;
+```
 
+```js
 // Multiline
 var str = `
 hello
@@ -60,7 +66,9 @@ New string [methods](http://babeljs.io/docs/learn-es6/#math-number-string-object
 "hello".repeat(3)
 "hello".contains("ll")
 "\u1E9B\u0323".normalize("NFC")
+```
 
+```js
 // Binary/octal literals
 var bin = 0b1010010;
 var oct = 0755;
@@ -73,7 +81,9 @@ Adds support for getters, setters, methods, shorthand.
 // Short object syntax
 // aka: `exports = { hello:hello, bye:bye }`
 module.exports = { hello, bye };
+```
 
+```js
 App = {
   // shorthand for `handler: handler`
   handler,
@@ -142,12 +152,16 @@ Supports for matching arrays and objects.
 // Destructuring assignment
 var [first, last] = ["Nikola", "Tesla"];
 let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
+```
 
+```js
 // Available in loops too
 for (let {title, artist} in songs) {
   // ...
 }
+```
 
+```js
 // Functions
 function greet({ name, greeting }) {
   // ...
@@ -164,13 +178,17 @@ Default, rest, spread.
 function greet(name = "Jerry") {
   return `Hello ${name}`;
 }
+```
 
+```js
 // Rest arguments
 function fn(x, ...y) {
   // y is an Array
   return x * y.length;
 }
+```
 
+```js
 // Spread
 fn(...[1,2,3]) // same as fn(1,2,3)
 ```
@@ -183,7 +201,9 @@ Like functions but with `this` preserved.
 setTimeout(() => {
   console.log('hi');
 });
+```
 
+```js
 // Short syntax (no `return` without `{}`)
 numbers.map(n => n * 2)
 ```
@@ -218,24 +238,20 @@ class Circle extends Shape {
 ### [For..of iteration](http://babeljs.io/docs/learn-es6/#iterators-for-of)
 For iterating through generators and arrays.
 
-```
+```js
 for (var i of iterable) {
   // ...
 }
 ```
-
-Works for Arrays and iterables (eg, generators).
 
 ## Experimental
 
 Available via Babel's experimental mode.
 {:.brief-intro.center.top-space-0}
 
+### Comprehensions
+
 ```js
-/*
- * Comprehensions
- */
- 
 // Basic comprehension
 var names = [for (c of customers) c.name];
 

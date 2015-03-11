@@ -25,10 +25,16 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+# Site info
+url: http://ricostacruz.com/cheatsheets
 meta:
   name: "Cheatsheets"
   title: Cheatsheets
   description: "A collection of cheatsheets I've written."
   hostname: ricostacruz.com
   author: Rico Sta. Cruz
-  url: http://ricostacruz.com/cheatsheets
+
+# Google analytics
+analytics:
+  id: "UA-20473929-1"

@@ -66,7 +66,7 @@ var oct = 0755;
 ```
 
 ### [Object literal enhancements](http://babeljs.io/docs/learn-es6/#enhanced-object-literals)
-Adds support for getters, setters, methods, shorthad.
+Adds support for getters, setters, methods, shorthand.
 
 ```js
 // Short object syntax

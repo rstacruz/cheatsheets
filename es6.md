@@ -5,7 +5,8 @@ layout: default
 
 ## Stable (io.js)
 
-New features you can use on io.js.
+New features you can use on [io.js](http://iojs.org/).
+{:.brief-intro.center.top-space-0}
 
 ### [Promises](http://babeljs.io/docs/learn-es6/#promises)
 For asynchronous programming.
@@ -95,9 +96,10 @@ App = {
 };
 ```
 
-## Stable ([Babel])
+## Stable in Babel
 
-Available via [Babel]
+Available via the [Babel] transpiler.
+{:.brief-intro.center.top-space-0}
 
 ### Module imports
 `import` is the new `require()`.
@@ -226,7 +228,8 @@ Works for Arrays and iterables (eg, generators).
 
 ## Experimental
 
-Available via 6to5's experimental mode
+Available via Babel's experimental mode.
+{:.brief-intro.center.top-space-0}
 
 ```js
 /*

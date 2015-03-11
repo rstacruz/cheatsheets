@@ -41,3 +41,11 @@
   background: #ddd;
   margin: 2.5em auto 1.8em auto;
 }
+
+.about-the-site {
+  margin-top: 8em;
+}
+
+.about-the-site .back {
+  margin-right: 0;
+}

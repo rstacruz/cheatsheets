@@ -3,7 +3,7 @@ title: ES6
 layout: default
 ---
 
-## Stable (io.js)
+## Stable in io.js
 
 New features you can use on [io.js](http://iojs.org/).
 {:.brief-intro.center.top-space-0}

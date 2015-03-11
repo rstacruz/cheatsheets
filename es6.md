@@ -201,7 +201,14 @@ Like functions but with `this` preserved.
 ```js
 // Fat arrows
 setTimeout(() => {
-  console.log('hi');
+  ...
+});
+```
+
+```js
+// With arguments
+readFile('text.txt', (err, data) => {
+  ...
 });
 ```
 

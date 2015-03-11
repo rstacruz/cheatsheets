@@ -5,129 +5,169 @@ layout: default
 
 ## List (ls)
 
-Usage:
-
     ls [options] [paths]
 
-Format:
+### Format
 
-    -1   One entry per line
-    -l   Long view
-    -o   Long view (without groups)
-    -C   Multicolumn (sorted horizontally)
-    -x   Multicolumn (sorted vertically)
+| Switch | Description |
+|---|---|
+| `-1` | One entry per line |
+| `-l` | Long view |
+| `-o` | Long view (without groups) |
+| `-C` | Multicolumn (sorted horizontally) |
+| `-x` | Multicolumn (sorted vertically) |
+|---
+| `-F` | Add / after directories |
+| `-G` | Color |
+{:.shortcuts}
 
-    -F   Add / after directories
-    -G   Color
+### Options
 
-Options:
+| `-R` | Recurse |
+| `-a` | Include hidden (dotfiles) |
+| `-A` | Include hidden (but not . and ..) |
+{:.shortcuts}
 
-    -R   Recurse
-    -a   Include hidden (dotfiles)
-    -A   Include hidden (but not . and ..)
+### Sorting
 
-Sorting:
+| Switch | Description |
+|---|---|
+| `-r` | reverse order |
+| `-S` | sort by size |
+| `-t` | sort by time modified |
+| `-u` | sort by time accessed |
+| `-U` | sort by time created |
+| `-c` | sort by time status was changed |
+|---
+| `-h` | Human-readable size (3k) |
+{:.shortcuts}
 
-    -r   reverse order
-    -S   sort by size
-    -t   sort by time modified
-    -u   sort by time accessed
-    -U   sort by time created
-    -c   sort by time status was changed
-
-    -h   Human-readable size (3k)
+<br>
 
 ## Tail
 
-Usage:
-
     tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 
-Modes:
+### Modes
 
-    -f     # follow
-    -F     # follow by filename (accounts for log rotation)
-    -r     # Reverse order
+| `-f` | follow |
+| `-F` | follow by filename (accounts for log rotation) |
+| `-r` | Reverse order |
+{:.shortcuts}
 
-Options:
+### Options
 
-    -bN    # N*512 bytes
-    -cN    # N bytes
-    -nN    # N lines
+| `-bN` | N*512 bytes |
+| `-cN` | N bytes |
+| `-nN` | N lines |
+| `+N`  | Start from line N |
+{:.shortcuts}
 
-    +N     # Start from line N
+<br>
 
 ## Sudo
 
-Listing:
+```
+sudo [options] <command>
+```
 
-    -l           # List allowed commands
+### Listing
 
-Options:
+| `-l` | List allowed commands |
+{:.shortcuts}
 
-    -A           # Use $SUDO_ASKPASS
-    -b           # Run in background
-    -E           # Preserve environment
-    -H           # use target's $HOME
-    -n           # Don't prompt for password
-    -P           # Preserve group vector
-    -S           # Read password from stdin
+### Options
 
-File descriptors:
+| `-A` | Use $SUDO_ASKPASS |
+| `-b` | Run in background |
+| `-E` | Preserve environment |
+| `-H` | use target's $HOME |
+| `-n` | Don't prompt for password |
+| `-P` | Preserve group vector |
+| `-S` | Read password from stdin |
+{:.shortcuts}
 
-    -C fd        # Close all open file descriptors
+### File descriptors
 
-Prompt:
+| `-C fd` | Close all open file descriptors |
+{:.shortcuts}
 
-    -p prompt    # Custom prompt (-p "%p password:")
+### Prompt
 
-Interactive:
+| `-p prompt` | Custom prompt (-p "%p password:") |
+{:.shortcuts}
 
-    -i [cmd]     # Interactive shell without variables
-    -s [cmd]     # Interactive shell
+### Interactive
 
-    -u user      # run as this user
-    -g group     # run as this group
+| Switch | Description |
+|---|---|
+| `-i [cmd]` | Interactive shell without variables |
+| `-s [cmd]` | Interactive shell |
+|----
+| `-u user` | run as this user |
+| `-g group` | run as this group |
+{:.shortcuts}
 
-Timestamp:
+### Timestamp
 
-    -v           # revalidate timestamp for 5 mins
-    -k           # invalidate timestamp
-    -K           # just like -k
+| `-v` | revalidate timestamp for 5 mins |
+| `-k` | invalidate timestamp |
+| `-K` | just like -k |
+{:.shortcuts}
+
+<br>
 
 ## wc (Word count)
 
-    -c   # Bytes
-    -l   # Lines
-    -m   # Characters (incl multi-byte)
-    -w   # Words
+```
+... | wc [options]
+```
+
+| `-c` | Bytes |
+| `-l` | Lines |
+| `-m` | Characters (incl multi-byte) |
+| `-w` | Words |
+{:.shortcuts}
+
+<br>
 
 ## Search-and-replace in all files
 
     perl -p -i -e 's/hello/HELLO/g' **/*
 
+<br>
+
 ## Grep
 
-    -A num      # Print `num` lines of training context
+```
+grep [options] [pattern] [file ...]
+```
 
-    -G          # --basic-regexp (default)
-    -E          # --extended-regexp
-    -P          # --perl-regexp
+### Options
 
-    -f file     # --file (Get patterns for file)
-    -F          # --fixed-strings
+| Switch | Description |
+|---|---|
+| `-A num` | Print `num` lines of training context |
+|----
+| `-G` | --basic-regexp (default) |
+| `-E` | --extended-regexp |
+| `-P` | --perl-regexp |
+|----
+| `-f file` | --file (Get patterns for file) |
+| `-F` | --fixed-strings |
+|----
+| `-h` | --no-filename |
+| `-H` | --with-filename |
+|----
+| `-l` | --files-with-matches (just print filenames) |
+| `-L` | --files-without-match |
+|----
+| `-r, -R` | --recursive |
+| `-v` | --invert-match |
+| `-i` | --ignore-case |
+{:.shortcuts}
 
-    -h          # --no-filename
-    -H          # --with-filename
-
-    -l          # --files-with-matches (just print filenames)
-    -L          # --files-without-match
-
-    -r, -R      # --recursive
-    -v          # --invert-match
-    -i          # --ignore-case
-
-Synonyms:
+### Synonyms
 
     egrep  =>  grep -E
     fgrep  =>  grep -F

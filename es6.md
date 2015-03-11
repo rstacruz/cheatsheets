@@ -106,6 +106,8 @@ App = {
 };
 ```
 
+<br>
+
 ## Stable in Babel
 
 Available via the [Babel] transpiler.
@@ -244,9 +246,11 @@ for (var i of iterable) {
 }
 ```
 
+<br>
+
 ## Experimental
 
-Available via Babel's experimental mode.
+Available via [Babel]'s experimental mode.
 {:.brief-intro.center.top-space-0}
 
 ### Comprehensions

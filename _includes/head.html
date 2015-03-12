@@ -1,77 +1,9 @@
 <!doctype html>
 <html lang='en' class='{{ page.html_class }}'>
 <head>
-  <meta charset='utf-8'>
-
-  {% if page.title %}
-  <title>{{ page.title }} &mdash; {{ site.meta.title }}</title>
-  <meta content='{{ page.title }}' property='og:title'>
-  <meta content='{{ page.title }}' property='twitter:title'>
-  <meta content='article' property='og:type'>
-  {% else %}
-  <title>{{ site.meta.title }}</title>
-  <meta content='{{ site.meta.title }}' property='og:title'>
-  <meta content='{{ site.meta.title }}' property='twitter:title'>
-  <meta content='blog' property='og:type'>
-  {% endif %}
-
-  {% if page.description %}
-  <meta content="{{ page.description }}" name="description">
-  <meta content="{{ page.description }}" property="og:description">
-  {% else if page.url == '/index.html' && site.meta.description %}
-  <meta content="{{ site.meta.description }}" name="description">
-  <meta content="{{ site.meta.description }}" property="og:description">
-  {% endif %}
-
-  {% if page.url != '/index.html' %}
-  <link rel="canonical" href="{{ site.meta.url }}{{ page.url }}">
-  <meta name="og:url" content="{{ site.meta.url }}{{ page.url }}">
-  <link rel="prefetch" href="{{ site.meta.url }}">
-  <link rel="prerender" href="{{ site.meta.url }}">
-  {% endif %}
-
-  {% if page.author %}
-  {% for author in site.authors | where: "name", page.author %}
-    <meta content='{{ author.name }}' name='author'>
-    {% if author.ogp %}
-    <meta content='{{ author.ogp }}' property='article:author'>
-    {% endif %}
-  {% endfor %}
-  {% endif %}
-  {% if site.meta.title %}
-  <meta content='{{ site.meta.title }}' property='og:site_name'>
-  {% endif %}
-  {% if site.facebook.app_id %}
-  <meta content='{{ site.facebook.app_id }}' property='fb:app_id'>
-  {% endif %}
-  {% if site.facebook.admin %}
-  <meta content='{{ site.facebook.admin }}' property='fb:admins'>
-  {% endif %}
-  {% if page.date %}
-  <meta content='{{ page.date | date: "%Y-%m-%d" }}' property='article:published_date'>
-  {% endif %}
-  {% if page.image %}
-  <meta content='{{ page.image }}' property='og:image'>
-  <meta content='{{ page.image }}' name='twitter:image'>
-  {% endif %}
-
-  {% if page.tags[0] %}
-    <meta content='{{ page.tags[0] }}' property='article:section'>
-  {% endif %}
-  {% if page.tags %}
-  {% for tag in page.tags %}
-    <meta content='{{ tag }}' property='article:tag'>
-  {% endfor %}
-  {% endif %}
-
-  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <link href='/favicon.png' rel='shortcut icon'>
-
-  {% if site.analytics %}<script>if(~location.hostname.indexOf("{{site.meta.hostname}}")){var _gaq=_gaq||[];_gaq.push(["_setAccount","{{ site.analytics.id }}"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})()}</script>{% endif %}
-
+  {% include meta.html %}
   <link href="http://ricostacruz.com/til/assets/style.css?t={{ site.time | date: "%Y%m%d%H%M%S" }}" rel="stylesheet" />
-  <link href="assets/style.css?t={{ site.time | date: "%Y%m%d%H%M%S" }}" rel="stylesheet" />
+  <link href="{{base}}/assets/style.css?t={{ site.time | date: "%Y%m%d%H%M%S" }}" rel="stylesheet" />
 </head>
 <body>
 <div class='all'>

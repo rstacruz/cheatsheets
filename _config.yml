@@ -11,14 +11,6 @@ kramdown:
   input: GFM
   hard_wrap: false
   parse_block_html: true
-  use_coderay: true
-
-  coderay:
-    coderay_line_numbers: nil
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
 
 defaults:
   - scope:
@@ -28,13 +20,9 @@ defaults:
 
 # Site info
 url: http://ricostacruz.com/cheatsheets
-meta:
-  name: "Cheatsheets"
-  title: Cheatsheets
-  description: "A collection of cheatsheets I've written."
-  hostname: ricostacruz.com
-  author: Rico Sta. Cruz
+title: Cheatsheets
 
 # Google analytics
 analytics:
+  hostname: ricostacruz.com
   id: "UA-20473929-1"

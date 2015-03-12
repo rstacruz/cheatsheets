@@ -145,6 +145,7 @@ Markup
 ### If
 
     {% if page.image.feature %}
+    {% else if xyz %}
     {% else %}
     {% endif %}
 

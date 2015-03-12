@@ -6,7 +6,7 @@ html_class: home
 
 <div class='pages-list'>
   {% for page in site.pages %}
-    <a href=".{{ page.url }}">
+    <a href="{{base}}{{ page.url }}">
       <span class='title'>{{ page.title }}</span>
       <span class='date'>{{ page.url }}</span>
     </a>

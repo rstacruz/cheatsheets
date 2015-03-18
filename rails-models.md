@@ -124,9 +124,9 @@ Validation
 
     class Person < ActiveRecord::Base
 
-      validates :name,     presence: true
+      validates :name,     presence: true
 
-      validates :terms,    acceptance: true
+      validates :terms,    acceptance: true
 
       validates :email,    confirmation: true
 
@@ -150,8 +150,8 @@ Validation
       validates :played,   numericality: { only_integer: true }
 
       # Validate the associated records to ensure they're valid as well
-      has_many :books
-      validates_associated :books
+      has_many :books
+      validates_associated :books
 
       # Length (full enchalada)
       validates :content, length: {

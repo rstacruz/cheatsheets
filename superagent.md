@@ -19,7 +19,7 @@ layout: default
       charset: "UTF-8"
       headers: {
         'cache-control': 'public',
-        'content-type': 'text/html; charset=UTF-8"
+        'content-type': 'text/html; charset=UTF-8'
       }
 
       accepted: false

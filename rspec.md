@@ -51,60 +51,63 @@ layout: default
         it "should do this" do
           pending "some other thing"
 
-          subject.name = 'x'
-          subject.name.should == 'x'
+          expect(subject.name).to eq 'x'
         end
       end
     end
 
 ### Expectations
 
-    # Can be:
-    #   target.should
-    #   target.should_not
-    #   expect(target).to
+```rb
+target.should eq 1
+target.should_not eq 1
+expect(target).to eq 1
+expect(target).not_to eq 1
+```
 
-    # Numeric
-    be < 6
-    == 5
-    equal value
-    be_between(1, 10)
-    be_close value, tolerance
+```rb
+# Numeric
+be < 6
+== 5
+equal value
+be_between(1, 10)
+be_close value, tolerance
 
-    be value
-    satisfy {|arg| ...}
-    predicate [optional args]
-    match regexp
+be value
+satisfy {|arg| ...}
+predicate [optional args]
+match regexp
 
-    be_an_instance_of <class>
-    be_a_kind_of <class>
+be_an_instance_of <class>
+be_a_kind_of <class>
 
-    respond_to <symbol>
+respond_to <symbol>
 
-    # Control flow
-    raise_error
-    raise_error(<exception> [, message])
+# Control flow
+raise_error
+raise_error(<exception> [, message])
 
-    throw <symbol>
+throw <symbol>
 
-    # Enumerables/arrays
-    include <object>
+# Enumerables/arrays
+include <object>
 
-    have(<number>).things
-    have_at_least(<number>).things
-    have_at_most(<number>).things
+have(<number>).things
+have_at_least(<number>).things
+have_at_most(<number>).things
 
-    have(<number>).errors_on(:field)
+have(<number>).errors_on(:field)
 
-    # Change
-    change(instance, method).from(number).to(number)
+# Change
+change(instance, method).from(number).to(number)
 
-    # proc.should <=> expect(&proc).to
-    expect { thing.approve! }.to change(thing, :status).
-        from(Status::AWAITING_APPROVAL).
-        to(Status::APPROVED)
+# proc.should <=> expect(&proc).to
+expect { thing.approve! }.to change(thing, :status).
+    from(Status::AWAITING_APPROVAL).
+    to(Status::APPROVED)
 
-    expect { thing.destroy }.to change(Thing, :count).by(-1)
+expect { thing.destroy }.to change(Thing, :count).by(-1)
+```
 
 ### Mocking - basic
 

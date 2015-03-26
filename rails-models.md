@@ -139,8 +139,8 @@ Validation
 
       validates :name,     length: { minimum: 2 }
       validates :bio,      length: { maximum: 500 }
-      validates :password, length: { in => 6..20 }
-      validates :number,   length: { is => 6 }
+      validates :password, length: { in: => 6..20 }
+      validates :number,   length: { is: => 6 }
 
       validates :gender,   inclusion: %w(male female)
       validates :gender,   inclusion: { in: %w(male female) }
@@ -148,6 +148,9 @@ Validation
 
       validates :points,   numericality: true
       validates :played,   numericality: { only_integer: true }
+      # ... greater_than, greater_than_or_equal_to,
+      # ... less_than, less_than_or_equal_to
+      # ... odd, even, equal_to
 
       # Validate the associated records to ensure they're valid as well
       has_many :books

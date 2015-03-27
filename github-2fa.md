@@ -11,7 +11,7 @@ Install [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticato
 * Take a picture of the QR code using Google Authenticator.
 
 ### Enable password caching
-On your computer, [enable caching your GitHub HTTPS credentials](https://help.github.com/articles/caching-your-github-password-in-git/).
+On your computer, [enable caching your GitHub HTTPS credentials](https://help.github.com/articles/caching-your-github-password-in-git/). This allows you to store your 2FA token and not get asked for it everytime.
 
 ```
 git config --global credential.helper osxkeychain   # OSX
@@ -28,8 +28,8 @@ vim .git/config
 
 ### Generate an API key
 
-* [Generate an API key](https://github.com/settings/applications#personal-access-tokens) under "Personal Access Tokens".
-* Leave the scopes unchanged (as long as there's *repo* + *public_repo*)
+* [Generate an API key](https://github.com/settings/applications#personal-access-tokens) under "Personal Access Tokens". You'll use this as a password.
+* Leave the scopes unchanged. (as long as there's *repo* + *public_repo*)
 
 ### Git push
 Push a repo. You'll be asked for a password. Use the token for the password.

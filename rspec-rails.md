@@ -1,0 +1,105 @@
+---
+title: Rspec-rails controllers
+layout: default
+---
+
+### Models
+
+```rb
+# spec/models/*.rb
+decribe MyModel do
+end
+```
+
+### Controllers
+
+```rb
+# spec/controllers/*.rb
+describe MyController do
+  describe "POST update" do
+    it "works" do
+      post :update, { user: { name: "john" } }
+
+      controller
+      controller.send ...
+
+      response
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(response).to render_template("index")
+    end
+  end
+end
+```
+
+### Request
+
+```js
+# spec/requests/*.rb
+describe "home page" do
+  it "displays the user's username after successful login" do
+    user = User.create!(:username => "jdoe", :password => "secret")
+
+    get "/login"
+
+    assert_select "form.login" do
+      assert_select "input[name=?]", "username"
+      assert_select "input[name=?]", "password"
+      assert_select "input[type=?]", "submit"
+    end
+
+    post "/login", username: "jdoe", password: "secret"
+    # capybara
+    expect(page).to have_selector(".header .username", :text => "jdoe")
+  end
+end
+```
+
+### Routing
+
+```rb
+# spec/routing/*.rb
+describe "routing to profiles" do
+  it "routes /profile/:username to profile#show for username" do
+    expect(get: "/profiles/jsmith").to route_to(
+      controller: "profiles",
+      action: "show",
+      username: "jsmith"
+    )
+  end
+
+  it "does not expose a list of profiles" do
+    expect(get: "/profiles").not_to be_routable
+  end
+end
+```
+
+### Helpers
+
+```rb
+# spec/helpers/*.rb
+describe EventsHelper do
+  describe "#link_to_event" do
+    it "displays the title, and formatted date" do
+      event = Event.new("Ruby Kaigi", Date.new(2010, 8, 27))
+
+      # helper is an instance of ActionView::Base configured with the
+      # EventsHelper and all of Rails' built-in helpers
+      expect(helper.link_to_event).to match /Ruby Kaigi, 27 Aug, 2010/
+    end
+  end
+end
+```
+
+### Matchers
+
+```rb
+be_a_new(Widget)  # new_record?
+render_template("new")
+render_template(partial: 'form', locals: {...})
+redirect_to(widgets_path)
+route_to(..)
+be_routable
+have_http_status(500)
+have_http_status(:created)
+```

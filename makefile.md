@@ -29,9 +29,11 @@ layout: default
 
 ## Command prefixes
 
-    -    Ignore errors
-    @    Don't print command
-    +    Run even if Make is in 'don't execute' mode
+| Prefix | Description |
+| ------ | ----------- |
+| `-` | Ignore errors |
+| `@` | Don't print command |
+| `+` | Run even if Make is in 'don't execute' mode |
 
     build:
         @echo "compiling"

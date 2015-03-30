@@ -15,14 +15,16 @@ layout: default
 
  * Sources: meat, egg, legumes
  * Major benefits: test boost, immune boost
- * Doesn't go well with [Iron](#iron)
+ * Doesn't go well with [Iron](#iron), [Magnesium](#magnesium)
  * Dosage: 5-10mg daily
 
 ### Magnesium
 
  * Sources: grains, nuts, leafy vegetables
  * Dosage: 200-450mg daily
- * Major benefits: lower blood glucose
+ * Major benefits: lower blood glucose, sleep, insulin sensitivity
+ * Don't get Magnesium Oxide (low bioavailability)
+ * Get Magnesium Citrate
 
 ### Selenium
 

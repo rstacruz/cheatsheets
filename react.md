@@ -174,6 +174,7 @@ React.createClass({
     string: React.PropTypes.string,
   }
 });
+```
 
 Also:
 

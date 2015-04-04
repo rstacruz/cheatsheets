@@ -88,3 +88,12 @@ layout: default
      else
              $(CC) -o foo $(objects) $(normal_libs)
      endif
+
+## Recursive
+
+    deploy:
+      $(MAKE) deploy2
+
+## Further reading
+
+ * [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)

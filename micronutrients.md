@@ -23,12 +23,11 @@ layout: default
  * Sources: grains, nuts, leafy vegetables
  * Dosage: 200-450mg daily
  * Major benefits: lower blood glucose, sleep, insulin sensitivity
- * Don't get Magnesium Oxide (low bioavailability)
- * Get Magnesium Citrate
+ * Don't get Magnesium Oxide (low bioavailability), get Magnesium Citrate
 
 ### Selenium
 
- * Sources:
+ * Sources: nuts, fish (tuna, halibut), meat
  * Major benefits: anti-oxidant, anti-cancer
  * Dosage: 200-300ug daily
 

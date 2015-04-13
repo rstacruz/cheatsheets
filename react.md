@@ -44,7 +44,9 @@ this.replaceProps({ ... });
 ### [API](http://facebook.github.io/react/docs/component-api.html)
 
 ```js
-c.getDOMNode()
+c.getDOMNode() // deprecated 0.13
+React.findDOMNode(c) // 0.13+
+
 c.forceUpdate()
 c.isMounted()
 ```

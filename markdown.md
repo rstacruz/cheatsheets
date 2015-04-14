@@ -1,58 +1,106 @@
----
-title: Markdown
-layout: default
----
+Markdown Cheatsheet
+===================
 
-### Headers
+- - - - 
 
-    # h1
-    ### h3
+# Heading 1 #
 
-    Header 1
-    ========
+    Markup :  # Heading 1 #
 
-    Header 2
-    --------
+## Heading 2 ##
 
-### Links
+    Markup :  ## Heading 2 ##
 
-    [link](http://google.com)
+### Heading 3 ###
 
-    [link][google]
-    [google]: http://google.com
+    Markup :  ### Heading 3 ###
 
-    <http://google.com>
+#### Heading 4 ####
 
-### Images
+    Markup :  #### Heading 4 ####
 
-    ![Image alt text](/path/to/img.jpg)
-    ![Image alt text](/path/to/img.jpg "title")
-    ![Image alt text][img]
 
-    [img]: http://foo.com/img.jpg
+Common text
 
-### Emphasis
+    Markup :  Common text
 
-    *italic*
-    _italic_
+_Emphasized text_
 
-    **bold**
-    __bold__
+    Markup :  _Emphasized text_ or *Emphasized text*
 
-### Code
+__Strong text__
 
-        4 space indent
+    Markup :  __Strong text__ or **Strong text**
 
-### Blockquotes
+___Strong emphasized text___
 
-    > This is
-    > a blockquote
-    >
-    > > Nested
-    > > Blockquote
+    Markup :  ___Strong emphasized text___ or ***Strong emphasized text***
 
-### Horizontal line
+[Named Link](http://www.google.fr/) and http://www.google.fr/ or <http://example.com/>
 
-    ----
-    ****
+    Markup :  [Named Link](http://www.google.fr/) and http://www.google.fr/ or <http://example.com/>
 
+`code()`
+
+    Markup :  `code()`
+
+```javascript
+    var specificLanguage_code = 
+    {
+        "data": {
+            "lookedUpPlatform": 1,
+            "query": "Kasabian+Test+Transmission",
+            "lookedUpItem": {
+                "name": "Test Transmission",
+                "artist": "Kasabian",
+                "album": "Kasabian",
+                "picture": null,
+                "link": "http://open.spotify.com/track/5jhJur5n4fasblLSCOcrTp"
+            }
+        }
+    }
+```
+
+    Markup : ```javascript
+             ```
+
+* Bullet list
+ * Nested bullet
+  * Sub-nested bullet etc
+* Bullet list item 2
+
+~~~
+ Markup : * Bullet list
+           * Nested bullet
+            * Sub-nested bullet etc
+          * Bullet list item 2
+~~~
+
+1. A numbered list
+ 1. A nested numbered list
+ 2. Which is numbered
+2. Which is numbered
+
+~~~
+ Markup : 1. A numbered list
+           1. A nested numbered list
+           2. Which is numbered
+          2. Which is numbered
+~~~
+
+> Blockquote
+>> Nested blockquote
+
+    Markup :  > Blockquote
+              >> Nested Blockquote
+
+_Horizontal line :_
+- - - -
+
+    Markup :  - - - -
+
+_Image with alt :_
+
+![picture alt](http://www.brightlightpictures.com/assets/images/portfolio/thethaw_header.jpg "Title is optional")
+
+    Markup : ![picture alt](http://www.brightlightpictures.com/assets/images/portfolio/thethaw_header.jpg "Title is optional")

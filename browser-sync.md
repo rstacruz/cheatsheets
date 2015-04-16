@@ -2,15 +2,24 @@
 title: Browsersync
 ---
 
-[`npm install -g browser-sync`](http://browsersync.io)
-
 ```
+npm i -g browser-sync
+```
+{:.terminal}
+
+### Start a server
+
+```sh
 browser-sync start --server <path> --files='**/*.html, **/*.css'
 ```
 
-Options
+### Options
 
-```
+```sh
   --port=N
   --proxy="http://127.0.0.1:3000"
 ```
+
+### Reference
+
+* [browsersync.io](http://browsersync.io)

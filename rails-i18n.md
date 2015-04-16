@@ -96,14 +96,11 @@ en:
 
 ## ActiveRecord
 
-### Attributes
-
+### Models
 ```rb
 User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
-User.human_attribute_for :name   #=> "Name"
 ```
-{:.light}
 
 ```yml
 en:
@@ -113,6 +110,18 @@ en:
       child:
         one: "Child"
         other: "Children"
+```
+
+### Attributes
+
+```rb
+User.human_attribute_for :name   #=> "Name"
+```
+{:.light}
+
+```yml
+en:
+  activerecord:
     attributes:
       user:
         # activerecord.attributes.<model>.<field>

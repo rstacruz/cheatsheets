@@ -1,5 +1,6 @@
 ---
 title: Vim script
+hljs_languages: [vim]
 ---
 
 ```vim

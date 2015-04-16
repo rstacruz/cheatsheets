@@ -1,6 +1,7 @@
 ---
 title: Rails form helpers
 layout: default
+hljs_languages: [haml]
 ---
 
 ## Form builder

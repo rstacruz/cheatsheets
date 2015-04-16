@@ -14,13 +14,14 @@ t(:hello, scope: [:my, :messages])
 
 t('my.messages.hello', default: "Hello")
 ```
+{:.light}
 
 ### Interpolation
 
 ```rb
 t('hello', name: "John")
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 hello: "Hello %{name}"
@@ -32,7 +33,7 @@ hello: "Hello %{name}"
 # from the 'books/index' view
 t('.title')
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 en:
@@ -47,7 +48,7 @@ en:
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 inbox:
@@ -63,7 +64,7 @@ inbox:
 l(Time.now)
 l(Time.now, format: :short)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 en:
@@ -78,7 +79,7 @@ en:
 ```rb
 l(Date.today)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 en:
@@ -97,7 +98,7 @@ User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 User.human_attribute_for :name   #=> "Name"
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 en:
@@ -119,7 +120,7 @@ en:
 ```rb
 error_messages_for(...)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 activerecord:
@@ -192,14 +193,14 @@ number_to_rounded(3.14, precision: 0) #=> "3"
 number_to_human(12_000)               #=> "12 Thousand"
 number_to_human_size(12345)           #=> "12.3 kb"
 ```
-{:.terminal}
+{:.light}
 
 ### Delimited
 
 ```rb
 number_to_delimited(n)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 number:
@@ -216,7 +217,7 @@ number:
 ```rb
 number_to_currency(n)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 number:
@@ -235,7 +236,7 @@ number:
 ```rb
 number_to_percentage(n)
 ```
-{:.terminal}
+{:.light}
 
 ```yml
 number:
@@ -257,7 +258,7 @@ I18n.available_locales
 I18n.translate :ok   # aka, I18n.t
 I18n.localize date   # aka, I18n.l
 ```
-{:.terminal}
+{:.light}
 
 ## Reference
 

@@ -2,9 +2,6 @@
 title: Vim script
 ---
 
-Basics
-------
-
 ```vim
 let name = "John"
 echo "Hello, " . name

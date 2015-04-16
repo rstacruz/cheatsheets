@@ -20,12 +20,19 @@ t('my.messages.hello', default: "Hello")
 ```rb
 t('hello', name: "John")
 ```
+{:.terminal}
 
 ```yml
 hello: "Hello %{name}"
 ```
 
 ### Lazy lookup
+
+```rb
+# from the 'books/index' view
+t('.title')
+```
+{:.terminal}
 
 ```yml
 en:
@@ -34,17 +41,13 @@ en:
       title: "Título"
 ```
 
-```rb
-# from the 'books/index' view
-t('.title')
-```
-
 ### Plural
 
 ```rb
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
+{:.terminal}
 
 ```yml
 inbox:
@@ -60,6 +63,7 @@ inbox:
 l(Time.now)
 l(Time.now, format: :short)
 ```
+{:.terminal}
 
 ```yml
 en:
@@ -74,6 +78,7 @@ en:
 ```rb
 l(Date.today)
 ```
+{:.terminal}
 
 ```yml
 en:
@@ -92,6 +97,7 @@ User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 User.human_attribute_for :name   #=> "Name"
 ```
+{:.terminal}
 
 ```yml
 en:
@@ -109,6 +115,11 @@ en:
 ```
 
 ### Errors
+
+```rb
+error_messages_for(...)
+```
+{:.terminal}
 
 ```yml
 activerecord:
@@ -143,10 +154,6 @@ validates
   uniqueness   - :taken
   format       - :invalid
   numericality - :not_a_number
-```
-
-```rb
-error_messages_for(...)
 ```
 
 ### Labels
@@ -185,12 +192,14 @@ number_to_rounded(3.14, precision: 0) #=> "3"
 number_to_human(12_000)               #=> "12 Thousand"
 number_to_human_size(12345)           #=> "12.3 kb"
 ```
+{:.terminal}
 
 ### Delimited
 
 ```rb
 number_to_delimited(n)
 ```
+{:.terminal}
 
 ```yml
 number:
@@ -207,6 +216,7 @@ number:
 ```rb
 number_to_currency(n)
 ```
+{:.terminal}
 
 ```yml
 number:
@@ -225,6 +235,7 @@ number:
 ```rb
 number_to_percentage(n)
 ```
+{:.terminal}
 
 ```yml
 number:
@@ -246,6 +257,7 @@ I18n.available_locales
 I18n.translate :ok   # aka, I18n.t
 I18n.localize date   # aka, I18n.l
 ```
+{:.terminal}
 
 ## Reference
 

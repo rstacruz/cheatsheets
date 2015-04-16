@@ -90,7 +90,7 @@ call s:Initialize()
 call s:Initialize("hello")
 ```
 
-### Consuming arguments
+### Consuming return values
 
 ```vim
 echo "Result: " . s:Initialize()

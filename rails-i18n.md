@@ -31,8 +31,8 @@ hello: "Hello %{name}"
 
 ```rb
 # from the 'books/index' view
-t('.title')
-```
+t('.title'
+``n
 {:.light}
 
 ```yml
@@ -159,7 +159,13 @@ validates
 
 ### Labels
 
+```rb
+form_for @post do
+  f.label :body
 ```
+{:.light}
+
+```yml
 helpers:
   # helpers.label.<model>.<field>
   label:
@@ -168,6 +174,11 @@ helpers:
 ```
 
 ### Submit
+
+```rb
+form_for @post do
+  f.submit
+```
 
 ```yml
 helpers:

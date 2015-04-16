@@ -257,25 +257,27 @@ Vim-isms
 ### Execute a command
 Runs an ex command you typically run with `:`
 
+```vim
 execute "vsplit"
 execute "e " . fnameescape(filename)
+```
 
 ### Echo
 
-```
+```vim
 echohl WarningMsg | echomsg "=> " . a:msg | echohl None
 ```
 
-### Propmts
+### Prompts
 
-```
+```vim
 let result = confirm("Sure?")
 execute "confirm q"
 ```
 
 ### Built-ins
 
-```
+```vim
 has("feature")  " :h feature-list
 executable("python")
 globpath(&rtp, "syntax/c.vim")
@@ -290,15 +292,13 @@ exists("g:...")
 Mapping
 -------
 
-```
+```vim
 nnoremap
 vmap
 ...
 ```
 
-Components:
-
-```
+```vim
 [nvixso](nore)map
  ^       ^
  |       don't recurse
@@ -373,7 +373,7 @@ hi def link markdownH1 htmlH1
 
 ### Include guards
 
-```
+```vim
 if exists('g:loaded_myplugin')
   finish
 endif

@@ -10,6 +10,8 @@ let name = "John"
 echo "Hello, " . name
 ```
 
+You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let ...` and `:echo ...`.
+
 Variables
 ---------
 

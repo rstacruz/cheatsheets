@@ -36,8 +36,8 @@ hello: "Hello %{name}"
 
 ```rb
 # from the 'books/index' view
-t('.title'
-``n
+t('.title')
+```
 {:.light}
 
 ```yml

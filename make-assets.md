@@ -1,16 +1,18 @@
 ---
 title: Make for assets
-layout: default
+hljs_languages: [makefile]
 ---
 
 ## Basic compiling
 
-    bin := ./node_modules/.bin
+```makefile
+bin := ./node_modules/.bin
 
-    all: build/foo.js
+all: build/foo.js
 
-    build/%.js: src/%.coffee
-        @$(bin)/coffee < $^ > $@
+build/%.js: src/%.coffee
+    @$(bin)/coffee < $^ > $@
+```
 
 ## Stylus + Autoprefixer
 

@@ -10,7 +10,7 @@ let var = "hello"
 ```
 
 ### Variable prefixes
-The `s:` prefix is also available in function names.
+The `s:` prefix is also available in function names. See `:help local-variables`
 
 ```vim
 let g:ack_options = '-s -H'    " g: global
@@ -31,7 +31,7 @@ echo $PATH                     " $  env
 ```
 
 ### Vim options
-Prefix with `&`.
+Prefix with `&`
 
 ```vim
 echo 'tabstop is ' . &tabstop
@@ -53,8 +53,9 @@ let var += 5
 let var .= 'string'   " concat
 ```
 
-### [Strings](http://learnvimscriptthehardway.stevelosh.com/chapters/26.html)
-Also see `:help literal-string` and `:help expr-quote`.
+## [Strings](http://learnvimscriptthehardway.stevelosh.com/chapters/26.html)
+
+Also see `:help literal-string` and `:help expr-quote`
 
 ```vim
 let str = "String"
@@ -67,7 +68,7 @@ echo "result = " . re   " concatenation
 ```
 
 ### [String functions](learnvimscriptthehardway.stevelosh.com/chapters/27.html)
-Also see `:help functions`.
+Also see `:help functions`
 
 ```vim
 strlen(str)    " length
@@ -123,13 +124,35 @@ function! myfunction() abort
 endfunction
 ```
 
-### Dynamic arguments
+### [Var arguments](http://learnvimscriptthehardway.stevelosh.com/chapters/24.html)
+See `:help function-argument`
 
 ```vim
 function! infect(...)
-  echo a:0
-  echo a:1
+  echo a:0    "=> 2
+  echo a:1    "=> jake
+  echo a:2    "=> bella
+
+  for s in a:000  " a list
+    echon ' ' . s
+  endfor
 endfunction
+
+infect('jake', 'bella')
+```
+
+Loops
+-----
+
+```vim
+for s in list
+  echo s
+  continue  " jump to start of loop
+  break     " breaks out of a loop
+endfor
+
+while x < 5
+endwhile
 ```
 
 Custom commands
@@ -180,10 +203,62 @@ else
 endif
 ```
 
+### [Truthiness](http://learnvimscriptthehardway.stevelosh.com/chapters/21.html)
+No booleans. `0` is false, `1` is true.
+
+```vim
+if 1 | echo "true"  | endif
+if 0 | echo "false" | endif
+```
+
+```vim
+if 1       "=> 1 (true)
+if 0       "=> 0 (false)
+if "1"     "=> 1 (true)
+if "456"   "=> 1 (true)
+if "xfz"   "=> 0 (false)
+```
+
+### [Operators](http://learnvimscriptthehardway.stevelosh.com/chapters/22.html)
+See `:help expression-syntax`
+
+```vim
+if 3 > 2
+if a && b
+if (a && b) || (c && d)
+if !c
+```
+
+### Strings
+
+```vim
+if name ==# 'John'     " case-sensitive
+if name ==? 'John'     " case-insensitive
+if name == 'John'      " depends on :set ignorecase
+
+" also: is#, is?, >=#, >=?, and so on
+```
+
+### Identity operators
+Checks if it's the same instance object
+
+```
+a is b
+a isnot b
+```
+
+### Regexp matches
+
+```vim
+"hello" =~ /x/
+"hello" !~ /x/
+```
+
 ### Single line
 
 ```vim
 if empty(a:path) | return [] | endif
+a ? b : c
 ```
 
 ### Boolean logic
@@ -252,6 +327,8 @@ call filter(files, 'v:val != ""')
 Dictionaries
 ------------
 
+See `:help dict`
+
 ```vim
 let colors = {
   \ "apple": "red",
@@ -263,8 +340,27 @@ echo get(colors, "apple")   " supress error
 
 remove(colors, "apple")
 
+" :help E715
+if has_key(dict, 'foo')
+if empty(dict)
 keys(dict)
 len(dict)
+
+max(dict)
+min(dict)
+
+count(dict, 'x')
+string(dict)
+
+map(dict, '<>> " . v:val')
+```
+
+### Iteration
+
+```vim
+for key in keys(mydict)
+  echo key . ': ' . mydict(key)
+endfor
 ```
 
 ### Prefixes
@@ -290,8 +386,34 @@ str2nr("3")
 float2nr("3.14")
 ```
 
-Math
-----
+[Numbers](http://learnvimscriptthehardway.stevelosh.com/chapters/25.html)
+-------
+
+See `:help Number`
+
+```vim
+let int = 1000
+let int = 0xff
+let int = 0755   " octal
+```
+
+### Floats
+See `:help Float`
+
+```vim
+let fl = 100.1
+let fl = 5.4e4
+```
+
+### Arithmetic
+
+```vim
+3 / 2     "=> 1, integer division
+3 / 2.0   "=> 1.5
+3 * 2.0   "=> 6.0
+```
+
+### Math functions
 
 ```vim
 sqrt(100)
@@ -308,7 +430,7 @@ Vim-isms
 --------
 
 ### [Execute a command](http://learnvimscriptthehardway.stevelosh.com/chapters/28.html)
-Runs an ex command you typically run with `:`. Also see `:help execute`.
+Runs an ex command you typically run with `:`. Also see `:help execute`
 
 ```vim
 execute "vsplit"
@@ -325,6 +447,16 @@ normal! G   " skips key mappings
 execute "normal! gg/foo\<cr>dd"
 ```
 
+### Getting filenames
+
+```vim
+echo expand("%")      " path/file.txt
+echo expand("%:t")    " file.txt
+echo expand("%:p:h")  " /home/you/path/file.txt
+echo expand("%:r")    " path/file
+echo expand("%:e")    " txt
+```
+
 ### Silencing
 See `:help silent`
 
@@ -335,6 +467,10 @@ silent g/Aap/p
 ### Echo
 
 ```vim
+echoerr 'oh it failed'
+echomsg 'hello there'
+echo 'hello'
+
 echohl WarningMsg | echomsg "=> " . a:msg | echohl None
 ```
 

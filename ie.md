@@ -99,7 +99,7 @@ layout: default
  - [html5shiv] for new HTML tags (for IE8 below)
  - [respond] for media queries (for IE8 below)
 
-```html
+```nohighlight
 <!--[if lt IE 9]>
 <script src='//cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'>

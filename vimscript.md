@@ -40,7 +40,12 @@ echo &g:option
 echo &l:option
 ```
 
-### Operation assignment
+### Operators
+
+```vim
+a + b             " numbers only!
+'hello ' . name   " concat
+```
 
 ```vim
 let var -= 2
@@ -48,20 +53,34 @@ let var += 5
 let var .= 'string'   " concat
 ```
 
-### Strings
+### [Strings](http://learnvimscriptthehardway.stevelosh.com/chapters/26.html)
+Also see `:help literal-string` and `:help expr-quote`.
 
 ```vim
 let str = "String"
 let str = "String with \n newline"
 
 let literal = 'literal, no \ escaping'
+let literal = 'that''s enough'  # double '' => '
 
 echo "result = " . re   " concatenation
 ```
 
+### [String functions](learnvimscriptthehardway.stevelosh.com/chapters/27.html)
+Also see `:help functions`.
+
 ```vim
 strlen(str)    " length
+len(str)       " same
 strchars(str)  " character length
+
+split("one two three")       "=> ['one', 'two', 'three']
+split("one.two.three", '.')  "=> ['one', 'two', 'three']
+
+join(['a', 'b'], ',')  "=> 'a,b'
+
+tolower('Hello')
+toupper('Hello')
 ```
 
 Functions
@@ -288,12 +307,29 @@ asin() acos() atan()
 Vim-isms
 --------
 
-### Execute a command
-Runs an ex command you typically run with `:`
+### [Execute a command](http://learnvimscriptthehardway.stevelosh.com/chapters/28.html)
+Runs an ex command you typically run with `:`. Also see `:help execute`.
 
 ```vim
 execute "vsplit"
 execute "e " . fnameescape(filename)
+```
+
+### [Running keystrokes](http://learnvimscriptthehardway.stevelosh.com/chapters/29.html)
+Use `:normal` to execute keystrokes as if you're typing them in normal mode. Combine with `:execute` for special keystrokes.
+
+```vim
+normal G
+normal! G   " skips key mappings
+
+execute "normal! gg/foo\<cr>dd"
+```
+
+### Silencing
+See `:help silent`
+
+```vim
+silent g/Aap/p
 ```
 
 ### Echo

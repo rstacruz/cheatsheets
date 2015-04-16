@@ -2,6 +2,14 @@
 title: Vim script
 ---
 
+Basics
+------
+
+```vim
+let name = "John"
+echo "Hello, " . name
+```
+
 Variables
 ---------
 
@@ -62,7 +70,7 @@ let str = "String"
 let str = "String with \n newline"
 
 let literal = 'literal, no \ escaping'
-let literal = 'that''s enough'  # double '' => '
+let literal = 'that''s enough'  " double '' => '
 
 echo "result = " . re   " concatenation
 ```
@@ -472,6 +480,17 @@ echomsg 'hello there'
 echo 'hello'
 
 echohl WarningMsg | echomsg "=> " . a:msg | echohl None
+```
+
+
+### Settings
+
+```vim
+set number
+set nonumber
+set number!     " toggle
+set numberwidth=5
+set guioptions+=e
 ```
 
 ### Prompts

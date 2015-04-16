@@ -83,7 +83,7 @@ tolower('Hello')
 toupper('Hello')
 ```
 
-Functions
+[Functions](http://learnvimscriptthehardway.stevelosh.com/chapters/23.html)
 ---------
 
 ```vim

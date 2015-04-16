@@ -3,84 +3,90 @@ title: Internet Explorer
 layout: default
 ---
 
-### IE7+ only
+## CSS Selectors
 
- * Selectors:
-   - `>` _(descendant)_
-   - `[attr]` _(attribute)_
-   - `.class1.class2` _(multiple classes)_
-   - `~` _(sibling)_
- * CSS properties:
-   - `max-width`
-   - `position: fixed`
+| Feature                                                    | IE6 | 7   | 8   | 9   | 10 |
+| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
+| `>` _(descendant)_                                         |     | 7 ✓ | ✓   | ✓   | ✓  |
+| `[attr]` _(attribute)_                                     |     | 7 ✓ | ✓   | ✓   | ✓  |
+| `.class1.class2` _(multiple classes)_                      |     | 7 ✓ | ✓   | ✓   | ✓  |
+| `~` _(sibling)_                                            |     | 7 ✓ | ✓   | ✓   | ✓  |
+| `+` _(adjacent)_                                           |     | 7 ✓ | ✓   | ✓   | ✓  |
+| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
+| `:first-child` <sup>1</sup>                                |     |     | 8 ✓ | ✓   | ✓  |
+| `:focus`                                                   |     |     | 8 ✓ | ✓   | ✓  |
+| `:before` `:after` _(single colon only)_                   |     |     | 8 ✓ | ✓   | ✓  |
+| `:lang`                                                    |     |     | 8 ✓ | ✓   | ✓  |
+| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
+| `:first-of-type`, `:last-of-type`                          |     |     |     | 9 ✓ | ✓  |
+| `:last-child`                                              |     |     |     | 9 ✓ | ✓  |
+| `:empty`                                                   |     |     |     | 9 ✓ | ✓  |
+| `:enabled` `:disabled` `:checked`                          |     |     |     | 9 ✓ | ✓  |
+| `:not()`                                                   |     |     |     | 9 ✓ | ✓  |
+| `:nth-child()` `:nth-last-child()`                         |     |     |     | 9 ✓ | ✓  |
+| `:nth-of-type()` `:nth-last-of-type()` `:only-of-type()`   |     |     |     | 9 ✓ | ✓  |
+| `:only-child()`                                            |     |     |     | 9 ✓ | ✓  |
+| `:target`                                                  |     |     |     | 9 ✓ | ✓  |
+| `::selection`                                              |     |     |     | 9 ✓ | ✓  |
+| `:root`                                                    |     |     |     | 9 ✓ | ✓  |
+{:.wide.greycode}
 
-### IE8+ only
+## CSS properties
 
- * Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
-   - `+` _(adjacent)_
-   - `:first-child` <sup>1</sup>
-   - `:focus`
-   - `:before`, `:after` _(single colon only)_
- * CSS properties:
-   - `outline`
-   - `display: inline-block` <sup>2</sup>
-   - `display: table`
-   - `border-collapse`, `border-spacing`, `table-layout`, ...
-   - `whitespace: pre-wrap`
-   - `whitespace: pre-line`
-   - `box-sizing`
- * Features:
-   - PNG alpha transparency
-   - `data:` URI
- * JS features:
-   - JSON parsing
-   - Cross-origin resource sharing
+| Feature                                                    | IE6 | 7   | 8   | 9   | 10   | 11   |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| `max-width`                                                |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
+| `position: fixed`                                          |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| `outline`                                                  |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `display: inline-block` <sup>2</sup>                       |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `display: table`                                           |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `border-collapse`, `border-spacing`, `table-layout`, ...   |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `whitespace: pre-wrap`                                     |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `whitespace: pre-line`                                     |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `box-sizing`                                               |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| `background-clip`                                          |     |     |     | 9 ✓ | ✓    | ✓    |
+| `background-origin`                                        |     |     |     | 9 ✓ | ✓    | ✓    |
+| `background-size`                                          |     |     |     | 9 ✓ | ✓    | ✓    |
+| `background: x, y, z` _(multiple backgrounds)_             |     |     |     | 9 ✓ | ✓    | ✓    |
+| `opacity`                                                  |     |     |     | 9 ✓ | ✓    | ✓    |
+| `border-radius`                                            |     |     |     | 9 ✓ | ✓    | ✓    |
+| `box-shadow`                                               |     |     |     | 9 ✓ | ✓    | ✓    |
+| `rgba()`                                                   |     |     |     | 9 ✓ | ✓    | ✓    |
+| `transform`                                                |     |     |     | 9 ✓ | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| `animation`                                                |     |     |     |     | 10 ✓ | ✓    |
+| `transition`                                               |     |     |     |     | 10 ✓ | ✓    |
+| `linear-gradient()`                                        |     |     |     |     | 10 ✓ | ✓    |
+| `text-shadow` — [polyfill][text-shadow]                    |     |     |     |     | 10 ✓ | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| `border-image`                                             |     |     |     |     |      | 11 ✓ |
+{:.wide.greycode}
 
-## IE9+ only
+## Features
 
- * Selectors/pseudos: ([polyfill: selectivizr][selectivizr])
-   - `:first-of-type`, `:last-of-type`
-   - `:last-child`
-   - `:empty`
-   - `:enabled`, `:disabled`, `:checked`
-   - `:not()`
-   - `:nth-child()`, `:nth-last-child()`,
-   - `:nth-of-type()`, `:nth-last-of-type()`, `:only-of-type()`
-   - `:only-child()`
-   - `:target`
-   - `::selection`
- * CSS properties:
-   - `background-clip`
-   - `background-origin`
-   - `background-size`
-   - `background: x, y, z` _(multiple backgrounds)_
-   - `opacity`
-   - `border-radius`
-   - `box-shadow`
-   - `rgba()`
-   - `transform`
- * CSS features:
-   - `@media` queries ([polyfill: respond.js][respond])
- * HTML5 features:
-   - `<canvas>`
-   - `<svg>`
-   - `<img src='image.svg'>`
-
-### IE10+ only
-
- * CSS features:
-   - `animation`
-   - `transition`
-   - `linear-gradient()`
- * HTML features:
-   - `<input placeholder='..'>`
-   - `<input type='range'>`
- * JS features:
-   - Web sockets
-
-### Not in IE10 (or below) at all
-
- - `text-shadow` ([polyfill][text-shadow])
+| Feature                                                    | IE6 | 7   | 8   | 9   | 10   | 11   |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| PNG alpha transparency                                     |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| data URI [⊙][datauri]                                      |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| JS: JSON parsing [⊙][json]                                 |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| JS: Cross-origin resource sharing [⊙][cors]                |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| CSS: `@media` queries — [polyfill][respond]                |     |     |     | 9 ✓ | ✓    | ✓    |
+| HTML: `<canvas>`                                           |     |     |     | 9 ✓ | ✓    | ✓    |
+| HTML: `<svg>`                                              |     |     |     | 9 ✓ | ✓    | ✓    |
+| HTML: `<img src='image.svg'>`                              |     |     |     | 9 ✓ | ✓    | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| CSS: flexbox [⊙][flexbox] <sup>3</sup>                     |     |     |     |     | 10 ✓ | ✓    |
+| HTML: `<input placeholder='..'>` [⊙][placeholder]          |     |     |     |     | 10 ✓ | ✓    |
+| HTML: `<input type='range'>`                               |     |     |     |     | 10 ✓ | ✓    |
+| HTML: `<input required>` [⊙][validation]                   |     |     |     |     | 10 ✓ | ✓    |
+| JS: Web sockets                                            |     |     |     |     | 10 ✓ | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
+| JS: Fullscreen mode                                        |     |     |     |     |      | 11 ✓ |
+{:.wide.greycode}
 
 ## Polyfills
 
@@ -110,23 +116,27 @@ Misc
 
 ### IE Conditional comment HTML
 
-    <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-    <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-    <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
-    <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-    <!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+```html
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+```
 
 ### IE conditionals
 
-    <!--[if IE]>      I'm IE      <![endif]-->
-    <!--[if !IE]> --> Not IE <!-- <![endif]-->
+```html
+<!--[if IE]>      I'm IE      <![endif]-->
+<!--[if !IE]> --> Not IE <!-- <![endif]-->
+```
 
 Footnotes
 ---------
 
- * (1) = doesn't work for elements inserted via JS
- * (2) = IE6/7 can only support inline-block for elements that are naturally 
- inline, like span
+ * (1) = first-child: doesn't work for elements inserted via JS
+ * (2) = inline-block: IE6/7 can only support inline-block for elements that are naturally inline, like span
+ * (3) = CSS flexbox: IE10 only supports the 2012 syntax with `-ms-` prefix
 
 [text-shadow]: https://github.com/heygrady/textshadow
 [ie7.js]: http://ie7-js.googlecode.com/svn/test/index.html
@@ -139,3 +149,9 @@ Footnotes
 [modernizr]: https://modernizr.com
 [ecsstender]: http://ecsstender.org/
 [respond]: https://github.com/scottjehl/Respond
+[flexbox]: http://caniuse.com/#feat=flexbox
+[cors]: http://caniuse.com/#feat=cors
+[json]: http://caniuse.com/#feat=json
+[datauri]: http://caniuse.com/#feat=datauri
+[validation]: http://caniuse.com/#search=validation
+[placeholder]: http://caniuse.com/#feat=input-placeholder

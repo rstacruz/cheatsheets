@@ -93,3 +93,17 @@
     margin-top: 3em;
   }
 }
+
+.greycode code {
+  background: #f3f3f3;
+  padding: 5px 5px 4px 5px;
+  border-radius: 3px;
+}
+
+.greycode code + em {
+  color: #aaa;
+}
+
+.greycode a {
+  margin: 0 5px;
+}

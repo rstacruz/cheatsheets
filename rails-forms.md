@@ -3,21 +3,24 @@ title: Rails form helpers
 layout: default
 ---
 
-## Form builder (form_for)
-
-### Building forms
+## Form builder
 
 ```haml
 - form_for @post do |f|
 ```
+
+Field names will be prefixed with `post` (the class name), and values will be derived from this object (eg, `f.text_field :name` from `@post.name`).
 
 ### Options
 
 ```haml
 - form_for @post, |
   url: { method: 'put', action: 'create' }, |
-  html: { class: 'nifty_form' } do |f|
+  html: { class: 'nifty_form' } |
+  do |f|
 ```
+
+## Fields
 
 ### Text
 
@@ -38,20 +41,33 @@ f.label :remember_me, "Remember me"
 ```rb
 f.radio_button :gender, 'male'
 f.label :gender_male, "Male"
+
 f.radio_button :gender, 'female'
 f.label :gender_female, "Female"
 ```
 
-
 ### Label
 
 ```rb
-f.label :post, :title
-f.label :post, :title, "Title"
-f.label :post, :title, "Title", class: "title"
+f.label :title
+f.label :title, "Title"
+f.label :title, "Title", class: "title"
 f.label(:post, :terms) { "Accept terms" }
-#=> <label for="post_title">Title</labele>
 ```
+
+### Submit button
+
+```rb
+f.submit "Create"
+```
+
+### Hidden fields
+
+```rb
+f.hidden_field :id
+```
+
+## Misc
 
 ### The model
 
@@ -70,9 +86,11 @@ f.object
 ### Select dropdowns
 
 ```rb
-f.select :city_id, [['Lisbon',1], ['Madrid',2], ...], 4   # (4 = selected)
+f.select :city_id, [['Lisbon',1], ['Madrid',2], ...], 4
+# (4 = selected)
 
-options_for_select [['Lisbon',1], ['Madrid', 2], ...], 4  # Just makes <option> tags
+options_for_select [['Lisbon',1], ['Madrid',2], ...], 4
+# Just makes <option> tags
 ```
 
 ### Collections
@@ -89,12 +107,6 @@ f.collection_select :city_id, City.all, :id, :name
 f.time_zone_select :time_zone
 f.date_select :birthday
 ```
-
-### The rest
-
-    f.submit "Create"
-    f.hidden_field
-
 ### I18n
 
 ```yaml

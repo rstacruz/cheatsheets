@@ -10,11 +10,17 @@ let var = "hello"
 ```
 
 ### Variable prefixes
+The `s:` prefix is also available in function names.
 
 ```vim
 let g:ack_options = '-s -H'    " g: global
-let s:ack_program = 'ack'      " s: local to script
-let l:foo = 'bar'              " l: local to function
+let s:ack_program = 'ack'      " s: local (to script)
+let l:foo = 'bar'              " l: local (to function)
+```
+
+### Other prefixes
+
+```vim
 let w:foo = 'bar'              " w: window
 let b:state = 'on'             " b: buffer
 let t:state = 'off'            " t: tab
@@ -22,13 +28,10 @@ echo v:var                     " v: vim special
 
 let @/ = ''                    " @  register (this clears last search patterN)
 echo $PATH                     " $  env
-
-" they're actually a dictionary
-keys(s:)
 ```
 
 ### Vim options
-Prefix with `&`
+Prefix with `&`.
 
 ```vim
 echo 'tabstop is ' . &tabstop
@@ -245,9 +248,16 @@ keys(dict)
 len(dict)
 ```
 
+### Prefixes
+Prefixes (`s:`, `g:`, `l:`, etc) are actually dictionaries
+
+```vim
+keys(s:)
+```
+
 ### Extending
 
-```
+```vim
 " Extending with more
 let extend(s:fruits, { ... })
 ```

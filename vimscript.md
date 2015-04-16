@@ -233,7 +233,7 @@ call filter(files, 'v:val != ""')
 Dictionaries
 ------------
 
-```
+```vim
 let colors = {
   \ "apple": "red",
   \ "banana": "yellow"

@@ -5,13 +5,13 @@ title: Vim script
 Variables
 ---------
 
-```vimscript
+```vim
 let var = "hello"
 ```
 
 ### Variable prefixes
 
-```vimscript
+```vim
 let g:ack_options = '-s -H'    " g: global
 let s:ack_program = 'ack'      " s: local to script
 let l:foo = 'bar'              " l: local to function
@@ -30,7 +30,7 @@ keys(s:)
 ### Vim options
 Prefix with `&`
 
-```vimscript
+```vim
 echo 'tabstop is ' . &tabstop
 if &insertmode
 echo &g:option
@@ -39,7 +39,7 @@ echo &l:option
 
 ### Operation assignment
 
-```vimscript
+```vim
 let var -= 2
 let var += 5
 let var .= 'string'   " concat
@@ -47,7 +47,7 @@ let var .= 'string'   " concat
 
 ### Strings
 
-```vimscript
+```vim
 let str = "String"
 let str = "String with \n newline"
 
@@ -56,7 +56,7 @@ let literal = 'literal, no \ escaping'
 echo "result = " . re   " concatenation
 ```
 
-```vimscript
+```vim
 strlen(str)    " length
 strchars(str)  " character length
 ```
@@ -64,7 +64,7 @@ strchars(str)  " character length
 Functions
 ---------
 
-```vimscript
+```vim
 " prefix with s: for local script-only functions
 function! s:Initialize(cmd, args)
   " a: prefix for arguments
@@ -76,34 +76,34 @@ endfunction
 
 ### Namespacing
 
-```vimscript
+```vim
 function! myplugin#hello()
 ```
 
 ### Calling functions
 
-```vimscript
+```vim
 call s:Initialize()
 call s:Initialize("hello")
 ```
 
 ### Consuming arguments
 
-```vimscript
+```vim
 echo "Result: " . s:Initialize()
 ```
 
 ### Abortable
 Aborts when error is detected
 
-```vimscript
+```vim
 function! myfunction() abort
 endfunction
 ```
 
 ### Dynamic arguments
 
-```vimscript
+```vim
 function! infect(...)
   echo a:0
   echo a:1
@@ -113,7 +113,7 @@ endfunction
 Commands
 --------
 
-```vimscript
+```vim
 command! Save set fo=want tw=80 nowrap
 command! Save call s:Foo()
 ```
@@ -123,7 +123,7 @@ Flow
 
 ### Conditionals
 
-```vimscript
+```vim
 let char = getchar()
 if char == "\<LeftMouse>"
   " ...
@@ -136,13 +136,13 @@ endif
 
 ### Single line
 
-```vimscript
+```vim
 if empty(a:path) | return [] | endif
 ```
 
 ### Boolean logic
 
-```vimscript
+```vim
 if g:use_dispatch && s:has_dispatch
 endif
 ```
@@ -150,7 +150,7 @@ endif
 Lists
 -----
 
-```vimscript
+```vim
 let mylist = [1, two, 3, "four"]
 
 let first = mylist[0]
@@ -163,7 +163,7 @@ let second = get(mylist, 1, "NONE")
 
 ### Functions
 
-```vimscript
+```vim
 len(mylist)
 empty(mylist)
 
@@ -175,14 +175,14 @@ split('hello there world', ' ')
 
 ### Concatenation
 
-```vimscript
+```vim
 let longlist = mylist + [5, 6]
 let mylist += [7, 8]
 ```
 
 ### Sublists
 
-```vimscript
+```vim
 let shortlist = mylist[2:-1]
 let shortlist = mylist[2:]     " same
 
@@ -191,14 +191,14 @@ let shortlist = mylist[2:2]    " one item
 
 ### Push
 
-```vimscript
+```vim
 let alist = [1, 2, 3]
 let alist = add(alist, 4)
 ```
 
 ### Map
 
-```vimscript
+```vim
 call map(files, "bufname(v:val)")  " use v:val for value
 call filter(files, 'v:val != ""')
 ```
@@ -231,7 +231,7 @@ let extend(s:fruits, { ... })
 Casting
 -------
 
-```vimscript
+```vim
 str2float("2.3")
 str2nr("3")
 float2nr("3.14")
@@ -240,7 +240,7 @@ float2nr("3.14")
 Math
 ----
 
-```vimscript
+```vim
 sqrt(100)
 floor(3.5)
 ceil(3.3)

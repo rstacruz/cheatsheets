@@ -73,8 +73,10 @@ layout: default
 | data URI [⊙][datauri]                                      |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | JS: JSON parsing [⊙][json]                                 |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | JS: Cross-origin resource sharing [⊙][cors]                |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| JS: Local storage [⊙][localstorage]                        |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | CSS: `@media` queries — [polyfill][respond]                |     |     |     | 9 ✓ | ✓    | ✓    |
+| HTML: new HTML5 elements - [polyfill][html5shiv]           |     |     |     | 9 ✓ | ✓    | ✓    |
 | HTML: `<canvas>`                                           |     |     |     | 9 ✓ | ✓    | ✓    |
 | HTML: `<svg>`                                              |     |     |     | 9 ✓ | ✓    | ✓    |
 | HTML: `<img src='image.svg'>`                              |     |     |     | 9 ✓ | ✓    | ✓    |
@@ -90,18 +92,27 @@ layout: default
 
 ## Polyfills
 
-Always install these in almost every project:
+### Always install these in almost every project
 
- - [selectivizr] for selectors
- - [html5shiv] for new HTML tags
- - [json2] for JSON parsing (IE7 below)
- - [respond] for media queries
+ - [json2] for JSON parsing (for IE7 below)
+ - [selectivizr] for selectors (for IE8 below)
+ - [html5shiv] for new HTML tags (for IE8 below)
+ - [respond] for media queries (for IE8 below)
 
-You may also need these:
+```html
+<!--[if lt IE 9]>
+<script src='//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'>
+<script src='//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js'>
+<script src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js'>
+<script src='//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'>
+<![endif]--> 
+```
 
- - [modernizr] for feature detection and new HTML tags
+### You may also need
 
-for CSS3 decorations:
+ - [modernizr] for feature detection
+
+### for CSS3 decorations
 
  - [css3pie]
  - [cssSandpaper]
@@ -151,6 +162,7 @@ Footnotes
 [respond]: https://github.com/scottjehl/Respond
 [flexbox]: http://caniuse.com/#feat=flexbox
 [cors]: http://caniuse.com/#feat=cors
+[localstorage]: http://caniuse.com/#feat=localstorage
 [json]: http://caniuse.com/#feat=json
 [datauri]: http://caniuse.com/#feat=datauri
 [validation]: http://caniuse.com/#search=validation

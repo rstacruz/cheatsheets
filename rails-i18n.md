@@ -96,11 +96,13 @@ en:
 
 ## ActiveRecord
 
-### Models
+### Model names
+
 ```rb
 User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 ```
+{:.light}
 
 ```yml
 en:
@@ -129,7 +131,7 @@ en:
         email: "Email"
 ```
 
-### Errors
+### Error messages
 
 ```rb
 error_messages_for(...)
@@ -171,7 +173,7 @@ validates
   numericality - :not_a_number
 ```
 
-### Labels
+### Form labels
 
 ```rb
 form_for @post do
@@ -187,12 +189,13 @@ helpers:
       body: "Your body text"
 ```
 
-### Submit
+### Submit buttons
 
 ```rb
 form_for @post do
   f.submit
 ```
+{:.light}
 
 ```yml
 helpers:

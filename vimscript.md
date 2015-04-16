@@ -110,13 +110,37 @@ function! infect(...)
 endfunction
 ```
 
-Commands
---------
+Custom commands
+---------------
+
+Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
 
 ```vim
-command! Save set fo=want tw=80 nowrap
-command! Save call s:Foo()
+command! Save :set fo=want tw=80 nowrap
 ```
+
+### Commands calling functions
+
+```vim
+command! Save call script#foo()
+function! script#foo()
+  ...
+endfunction
+```
+
+### Commands with arguments
+
+```vim
+command! -nargs=? Save call script#foo(<args>
+```
+
+| What | What |
+| ---- | ---- |
+| `-nargs=0` | 0 arguments, default |
+| `-nargs=1` | 1 argument, includes spaces |
+| `-nargs=?` | 0 or 1 argument |
+| `-nargs=*` | 0+ arguments, space separated |
+| `-nargs=+` | 1+ arguments, space reparated |
 
 Flow
 ----

@@ -3,8 +3,6 @@ title: Rails i18n
 layout: default
 ---
 
-### Basics
-
 ```rb
 t('my.messages.hello')
 
@@ -15,6 +13,13 @@ t(:hello, scope: [:my, :messages])
 t('my.messages.hello', default: "Hello")
 ```
 {:.light}
+
+```yml
+en:
+  my:
+    messages:
+      hello: "Hello"
+```
 
 ### Interpolation
 

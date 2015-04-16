@@ -7,12 +7,16 @@ type: article
 <div class='post-list -single -cheatsheet'>
   <div class='post-item'>
     <div class='post-headline -cheatsheet'>
-      <h1>{{ page.title }}</h1>
+      <p class='prelude'><span></span></p>
+      <h1><span>{{ page.title }}</span></h1>
+      {% include social-list.html page=page %}
     </div>
 
     <div class='post-content -cheatsheet'>
       {{ content }}
     </div>
+
+    {% include social-list.html page=page %}
   </div>
 </div>
 

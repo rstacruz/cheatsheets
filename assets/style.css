@@ -1,9 +1,14 @@
+/*
+ * pages list
+ */
+
 .pages-list {
   font-size: 0.9em;
   max-width: 800px;
   margin: 60px auto;
   overflow: hidden;
 }
+
 .pages-list a {
   display: block;
   padding: 6px 0;
@@ -14,33 +19,62 @@
   box-shadow: none;
   transition: all 100ms linear;
 }
+
 .pages-list a .title,
 .pages-list a .date {
   display: block;
 }
+
 .pages-list a .title {
   font-weight: bold;
   color: #111;
   float: left;
 }
+
 .pages-list a .date {
   color: #aaa;
   font-size: 0.9em;
   float: right;
 }
+
 .pages-list a:hover .title,
 .pages-list a:focus .title {
   color: dodgerblue;
 }
 
-.post-headline.-cheatsheet:after {
-  content: '';
-  display: block;
-  width: 150px;
-  height: 1px;
-  background: #ddd;
-  margin: 2.5em auto 1.8em auto;
+/*
+ * post headline
+ */
+
+.post-headline.-cheatsheet .prelude {
+  color: #111;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+  font-weight: bold;
 }
+
+.post-headline.-cheatsheet .prelude span {
+  border-bottom: solid 3px #111;
+  padding: 1.5em 20px;
+}
+
+.post-headline.-cheatsheet .prelude span:before {
+  content: 'The great cheatsheet for';
+}
+
+.post-headline.-cheatsheet h1 {
+  color: #111;
+  font-size: 3.3em;
+  text-shadow:
+    2px 2px 0 white,
+    3px 3px 0 #ddd;
+}
+
+/*
+ * about the site
+ */
 
 .about-the-site {
   margin-top: 8em;
@@ -48,4 +82,14 @@
 
 .about-the-site .back {
   margin-right: 0;
+}
+
+/*
+ * markdown
+ */
+
+@media (min-width: 768px) {
+  h2 {
+    margin-top: 3em;
+  }
 }

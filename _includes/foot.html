@@ -1,9 +1,7 @@
   {% include about-the-site.html %}
-  <script src="assets/highlight.min.js"></script>
-  <script src="assets/script.js"></script>
-  <script>
-    hljs.configure({classPrefix: ''});
-    hljs.initHighlightingOnLoad();
-  </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="http://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
 </body>
 </html>

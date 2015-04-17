@@ -7,12 +7,12 @@ layout: default
 
 | CSS            | Xpath                                | ?                |
 | ---            | ---                                  | ---:             |
+| `h1`           | `//h1`                               | [?](#prefixes)   |
+| `div p`        | `//div//p`                           | [?](#axes)       |
+| ---            | ---                                  |                  |
 | `ul > li`      | `//ul/li`                            | [?](#axes)       |
 | `ul > li > a`  | `//ul/li/a`                          |                  |
 | `div > *`      | `//div/*`                            |                  |
-| ---            | ---                                  |                  |
-| `h1`           | `//h1`                               | [?](#prefixes)   |
-| `div p`        | `//div//p`                           | [?](#axes)       |
 | ---            | ---                                  |                  |
 | `h1 + ul`      | `//h1/following-sibling::ul`         | [?](#other-axes) |
 | `h1 + #id`     | `//h1/following-sibling::[@id="id"]` |                  |

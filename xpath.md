@@ -3,21 +3,27 @@ title: Xpath
 layout: default
 ---
 
-CSS equivalents
----------------
+### Descendant selectors
+
+| CSS            | Xpath                                | ?                |
+| ---            | ---                                  | ---:             |
+| `ul > li`      | `//ul/li`                            | [?](#axes)       |
+| `ul > li > a`  | `//ul/li/a`                          |                  |
+| `div > *`      | `//div/*`                            |                  |
+| ---            | ---                                  |                  |
+| `h1`           | `//h1`                               | [?](#prefixes)   |
+| `div p`        | `//div//p`                           | [?](#axes)       |
+| ---            | ---                                  |                  |
+| `h1 + ul`      | `//h1/following-sibling::ul`         | [?](#other-axes) |
+| `h1 + #id`     | `//h1/following-sibling::[@id="id"]` |                  |
+| ---            | ---                                  |                  |
+| `:root`        | `/`                                  | [?](#prefixes)   |
+| `:root > body` | `/body`                              |                  |
+{:.greycode.no-head}
+
+### Attribute selectors
 
 | CSS                    | Xpath                                | ?                      |
-| ---                    | ---                                  | ---:                   |
-| `ul > li`              | `//ul/li`                            | [?](#axes)             |
-| `div > *`              | `//div/*`                            |                        |
-| ---                    | ---                                  |                        |
-| `div p`                | `//div//p`                           | [?](#axes)             |
-| ---                    | ---                                  |                        |
-| `h1 ~ ul`              | `//h1/following-sibling::ul`         | [?](#other-axes)       |
-| `h1 ~ #id`             | `//h1/following-sibling::[@id="id"]` |                        |
-| ---                    | ---                                  |                        |
-| `:root`                | `/`                                  | [?](#prefixes)         |
-| `:root > body`         | `/body`                              |                        |
 | ---                    | ---                                  |                        |
 | `input[type="submit"]` | `//input[@type="submit"]`            | [?](#predicates)       |
 | `a[href^='/']`         | `//a[starts-with(@href, '/')]`       | [?](#string-functions) |
@@ -25,7 +31,12 @@ CSS equivalents
 | ---                    | ---                                  |                        |
 | `#id`                  | `//[@id="id"]`                       |                        |
 | `.class`               | `//[@class="class"]` *...see below*  |                        |
-| ---                    | ---                                  |                        |
+{:.greycode.no-head}
+
+### Order selectors
+
+| CSS                    | Xpath                                | ?                      |
+| ---                    | ---                                  | --                     |
 | `ul > li:first-child`  | `//ul/li[1]`                         | [?](#indexing)         |
 | `ul > li:nth-child(2)` | `//ul/li[2]`                         |                        |
 | `ul > li:last-child`   | `//ul/li[last()]`                    |                        |
@@ -37,31 +48,34 @@ CSS equivalents
 | `li:first-of-type`     | `//li[not(preceding-sibling::li)]`   |                        |
 {:.greycode.no-head}
 
+### jQuery
+
+| jQuery                       | Xpath                            | ?                |
+| ------                       | ---                              | --               |
+| `$('ul > li').parent()`      | `//ul/li/..`                     | [?](#other-axes) |
+| `$('li').closest('section')` | `//li/ancestor-or-self::section` |                  |
+| ----                         | ----                             |                  |
+| `$('a').attr('href')`        | `//a/@href`                      | [?](#steps)      |
+| `$('span').text()`           | `//span/text()`                  |                  |
+{:.greycode.no-head}
+
+### Other things
+
+| jQuery                  | Xpath                             | ?               |
+| ----                    | ----                              | --              |
+| Text match              | `//button[text()="Submit"]`       | [?](#operators) |
+| Text match (substring)  | `//button[contains(text(),"Go")]` |                 |
+| Arithmetic              | `//product[@price > 2.50]`        |                 |
+| Has children            | `//ul[*]`                         |                 |
+| Has children (specific) | `//ul[li]`                        |                 |
+{:.greycode.no-head}
+
 ### Class check
 Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround:
 
 ```sh
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
-
-### Other stuff
-For things that CSS alone can't do.
-
-| jQuery                       | Xpath                             |
-| ------                       | ---                               |
-| `$('ul > li').parent()`      | `//ul/li/..`                      |
-| `$('li').closest('section')` | `//li/ancestor-or-self::section`  |
-| ----                         | ----                              |
-| `$('a').attr('href')`        | `//a/@href`                       |
-| `$('span').text()`           | `//span/text()`                   |
-| ----                         | ----                              |
-| Text match                   | `//button[text()="Submit"]`       |
-| Text match (substring)       | `//button[contains(text(),"Go")]` |
-| Arithmetic                   | `//product[@price > 2.50]`        |
-| Has children                 | `//ul[*]`                         |
-| Has children (specific)      | `//ul[li]`                        |
-{:.greycode.no-head}
-
 
 Expressions
 -----------
@@ -220,7 +234,7 @@ boolean()
 Axes
 ----
 
-### The / separator
+### Using axes
 Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
 
 ```sh
@@ -308,7 +322,7 @@ More examples
 ```sh
 //*                 # all elements
 count(//*)          # count all elements
-//h1[1]/text()      # text of the first h1 heading
+(//h1)[1]/text()    # text of the first h1 heading
 //li[span]          # find a <li> with an <span> inside it
                     # ...expands to //li[child::span]
 //ul/li/..          # use .. to select a parent

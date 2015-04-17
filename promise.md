@@ -36,12 +36,12 @@ var promises = [
 
 // succeeds when all succeed
 Promise.all(promises)
-  .then(function (values) {
+  .then(function (results) {
   });
 
 // succeeds when one finishes first
 Promise.race(promises)
-  .then(function (value) {
+  .then(function (result) {
   });
 ```
 

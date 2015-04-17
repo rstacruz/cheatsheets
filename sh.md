@@ -1,5 +1,5 @@
 ---
-title: Shell scripting (bash)
+title: Bash scripting
 layout: default
 ---
 
@@ -233,5 +233,7 @@ or
     while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do; case $1 in
     esac; shift; done
 
-* http://wiki.bash-hackers.org/
-* http://wiki.bash-hackers.org/syntax/shellvars
+## Reference
+
+* [Bash-hackers wiki](http://wiki.bash-hackers.org/) (back-hackers.org)
+* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) (back-hackers.org)

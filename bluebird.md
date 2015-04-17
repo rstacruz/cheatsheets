@@ -49,7 +49,7 @@ Promise.join(
 Use `.all`, `.any`, `.race`, or `.some`.
 
 ```js
-Promise.all([ pro1, pro2 ])
+Promise.all([ promise1, promise2 ])
   .then(function (results) {
     results[0]
     results[1]
@@ -57,7 +57,8 @@ Promise.all([ pro1, pro2 ])
 
 // succeeds if one succeeds first
 Promise.any(promises)
-  .then(...)
+  .then(function (result) {
+  })
 ```
 
 ### Object

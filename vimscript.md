@@ -7,6 +7,7 @@ hljs_languages: [vim]
 let name = "John"
 echo "Hello, " . name
 ```
+{:.light}
 
 You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let ...` and `:echo ...`.
 
@@ -16,6 +17,7 @@ Variables
 ```vim
 let var = "hello"
 ```
+{:.light}
 
 ### Variable prefixes
 The `s:` prefix is also available in function names. See `:help local-variables`
@@ -104,6 +106,7 @@ function! s:Initialize(cmd, args)
   return true
 endfunction
 ```
+{:.light}
 
 ### Namespacing
 
@@ -171,6 +174,7 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 ```vim
 command! Save :set fo=want tw=80 nowrap
 ```
+{:.light}
 
 ### Commands calling functions
 

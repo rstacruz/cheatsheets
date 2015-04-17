@@ -261,7 +261,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 {:.light}
 
 ### Child axis
-When axis is not specified, a `name` is short for `child::name`. This makes `//a/b/c` work.
+This is the default axis. This makes `//a/b/c` work.
 
 ```sh
 # both the same

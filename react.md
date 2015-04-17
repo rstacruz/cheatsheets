@@ -162,7 +162,7 @@ table.lc tr>:nth-child(2) { text-align: right; }
 
 <br>
 
-### Example: loading AJAX data
+### Example: loading data
 See [initial AJAX data](http://facebook.github.io/react/tips/initial-ajax.html).
 
 ```js
@@ -170,7 +170,7 @@ React.createClass({
   componentWillMount: function () {
     $.get(this.props.url, function (data) {
       this.setState(data);
-    });
+    }.bind(this));
   },
 
   render: function () {

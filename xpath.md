@@ -6,33 +6,35 @@ layout: default
 CSS equivalents
 ---------------
 
-| CSS                    | Xpath                                |
-| ---                    | ---                                  |
-| `div p`                | `//div//p`                           |
-| `ul > li`              | `//ul/li`                            |
-| `div > *`              | `//div/*`                            |
-| `h1 ~ ul`              | `//h1/following-sibling::ul`         |
-| `h1 ~ #id`             | `//h1/following-sibling::[@id="id"]` |
-| ---                    | ---                                  |
-| `:root`                | `/`                                  |
-| `:root > body`         | `/body`                              |
-| ---                    | ---                                  |
-| `input[type="submit"]` | `//input[@type="submit"]`            |
-| `a[href^='/']`         | `//a[starts-with(@href, '/')]`       |
-| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`      |
-| ---                    | ---                                  |
-| `#id`                  | `//[@id="id"]`                       |
-| `.class`               | `//[@class="class"]` *...see below*  |
-| ---                    | ---                                  |
-| `ul > li:first-child`  | `//ul/li[1]`                         |
-| `ul > li:nth-child(2)` | `//ul/li[2]`                         |
-| `ul > li:last-child`   | `//ul/li[last()]`                    |
-| ---                    | ---                                  |
-| `li#id:first-child`    | `//li[@id="id"][1]`                  |
-| ---                    | ---                                  |
-| `a:first-child`        | `//a[1]`                             |
-| `a:last-child`         | `//a[last()]`                        |
-| `li:first-of-type`     | `//li[not(preceding-sibling::li)]`   |
+| CSS                    | Xpath                                | ?                      |
+| ---                    | ---                                  | ---:                   |
+| `ul > li`              | `//ul/li`                            | [?](#axes)             |
+| `div > *`              | `//div/*`                            |                        |
+| ---                    | ---                                  |                        |
+| `div p`                | `//div//p`                           | [?](#axes)             |
+| ---                    | ---                                  |                        |
+| `h1 ~ ul`              | `//h1/following-sibling::ul`         | [?](#other-axes)       |
+| `h1 ~ #id`             | `//h1/following-sibling::[@id="id"]` |                        |
+| ---                    | ---                                  |                        |
+| `:root`                | `/`                                  | [?](#prefixes)         |
+| `:root > body`         | `/body`                              |                        |
+| ---                    | ---                                  |                        |
+| `input[type="submit"]` | `//input[@type="submit"]`            | [?](#predicates)       |
+| `a[href^='/']`         | `//a[starts-with(@href, '/')]`       | [?](#string-functions) |
+| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`      |                        |
+| ---                    | ---                                  |                        |
+| `#id`                  | `//[@id="id"]`                       |                        |
+| `.class`               | `//[@class="class"]` *...see below*  |                        |
+| ---                    | ---                                  |                        |
+| `ul > li:first-child`  | `//ul/li[1]`                         | [?](#indexing)         |
+| `ul > li:nth-child(2)` | `//ul/li[2]`                         |                        |
+| `ul > li:last-child`   | `//ul/li[last()]`                    |                        |
+| ---                    | ---                                  |                        |
+| `li#id:first-child`    | `//li[@id="id"][1]`                  | [?](#chaining-order)   |
+| ---                    | ---                                  |                        |
+| `a:first-child`        | `//a[1]`                             |                        |
+| `a:last-child`         | `//a[last()]`                        |                        |
+| `li:first-of-type`     | `//li[not(preceding-sibling::li)]`   |                        |
 {:.greycode.no-head}
 
 ### Class check
@@ -42,15 +44,22 @@ Xpath doesn't have the "check if part of space-separated list" operator, so this
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
 
-### jQuery equivalents
+### Other stuff
 For things that CSS alone can't do.
 
-| jQuery                       | Xpath                            |
-| ------                       | ---                              |
-| `$('ul > li').parent()`      | `//ul/li/..`                     |
-| `$('li').closest('section')` | `//li/ancestor-or-self::section` |
-| `$('a').attr('href')`        | `//a/@href`                      |
-| `$('span').text()`           | `//span/text()`                  |
+| jQuery                       | Xpath                             |
+| ------                       | ---                               |
+| `$('ul > li').parent()`      | `//ul/li/..`                      |
+| `$('li').closest('section')` | `//li/ancestor-or-self::section`  |
+| ----                         | ----                              |
+| `$('a').attr('href')`        | `//a/@href`                       |
+| `$('span').text()`           | `//span/text()`                   |
+| ----                         | ----                              |
+| Text match                   | `//button[text()="Submit"]`       |
+| Text match (substring)       | `//button[contains(text(),"Go")]` |
+| Arithmetic                   | `//product[@price > 2.50]`        |
+| Has children                 | `//ul[*]`                         |
+| Has children (specific)      | `//ul[li]`                        |
 {:.greycode.no-head}
 
 
@@ -68,7 +77,7 @@ Begin your expression with any of these.
 {:.greycode.no-head}
 
 ### Axes
-Separate your steps with `/`. Use two (`//`) if you don't want direct descendants.
+Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
 | Axis | Example            |
 | ---  | ---                |
@@ -76,10 +85,18 @@ Separate your steps with `/`. Use two (`//`) if you don't want direct descendant
 | `//` *descendant* | `//[@id="list"]//a` |
 {:.greycode.no-head}
 
-### Selecting node data
+### Steps
+A step may have an element name (`div`) and [predicates](#predicate) (`[...]`). Both are optional.
 
 ```sh
-//a                     #=> <a>
+//div
+//div[@name='box']
+//[@id='link']
+```
+
+They can also be these other things.
+
+```sh
 //a/text()              #=> "Go home"
 //a/@href               #=> "index.html"
 //a/*                   #=> All a's child elements
@@ -88,7 +105,7 @@ Separate your steps with `/`. Use two (`//`) if you don't want direct descendant
 Predicates
 ----------
 
-### Predicates (`[]`)
+### Predicates (`[...]`)
 Restricts a nodeset only if some condition is true. They can be chained.
 
 ```sh
@@ -98,7 +115,7 @@ Restricts a nodeset only if some condition is true. They can be chained.
 ```
 
 ### Operators
-Use operators to make conditionals.
+Use comparison and logic operators to make conditionals.
 
 ```sh
 # Comparison
@@ -134,10 +151,11 @@ Use `[]` with a number, or `last()` or `position()`.
 //a[1]                  # first <a>
 //a[last()]             # last <a>
 //ol/li[2]              # second <li>
-//ol/li[position()=2]   # ...same as above
+//ol/li[position()=2]   # same as above
+//ol/li[position()>1]   # :not(:first-child)
 ```
 
-### Predicate order
+### Chaining order
 Order is significant, these two are different.
 
 ```sh
@@ -172,7 +190,7 @@ position()                 # //ol/li[position()=2]
 ### Boolean functions
 
 ```sh
-not(expr)                  # button[not(text()="Submit")]
+not(expr)                  # button[not(starts-with(text(),"Submit"))]
 ```
 
 ### String functions
@@ -202,40 +220,63 @@ boolean()
 Axes
 ----
 
+### The / separator
+Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
+
 ```sh
-//ul/li
-//div/h1/span
+//ul/li                       # $('ul > li')
+//ul/ancestor-or-self::li     # $('ul').closest('li')
 ```
 {:.light}
 
 ### Descendant-or-self axis
-When you use `//` for descendants, this is short or `/descendant-or-self::`.
+When you use `//` for descendants, this is short for the `descendant-or-self::` axis.
 
 ```sh
-//div//h4
-//div/descendant-or-self::h4
+# both the same
+  //div//h4
+  //div/descendant-or-self::h4
+```
 
-//ul//[last()]
-//ul/descendant-or-self::[last()]
+```sh
+# both the same
+  //ul//[last()]
+  //ul/descendant-or-self::[last()]
 ```
 
 ### Child axis
-When no axis is specifid, a step with a `name` is short for `child::name`. This is what makes `//a/b/c` work.
+When axis is not specified, a `name` is short for `child::name`. This is what makes `//a/b/c` work.
 
 ```sh
-//ul/li/a
-//ul/child::li/child::a
+# both the same
+  //ul/li/a
+  //child::ul/child::li/child::a
+```
+
+```sh
+# both the same
+# this works because `child::li` is truthy, so the predicate succeeds
+  //ul[li]
+  //ul[child::li]
+```
+
+```sh
+# both the same
+  //ul[count(li) > 2]
+  //ul[count(child::li) > 2]
 ```
 
 ### Attribute axis
 When you use `@` for attributes, that's short for the `attribute::` axis.
 
 ```sh
-//a/@href
-//a/attribute::href
+# both the same
+  //a/@href
+  //a/attribute::href
 
-//div[@id="box"]
-//div[attribute::id="box"]
+# both the same
+  //div[@id="box"]
+  //div[attribute::id="box"]
 ```
 
 ### Other axes
@@ -267,26 +308,26 @@ More examples
 ```sh
 //*                 # all elements
 count(//*)          # count all elements
-//h1[1]/text()      # hext of the first h1 heading
-//li[span]          # Find a <li> with an <span> inside it
+//h1[1]/text()      # text of the first h1 heading
+//li[span]          # find a <li> with an <span> inside it
                     # ...expands to //li[child::span]
 //ul/li/..          # use .. to select a parent
 ```
 
 ```sh
 # Find a <section> that directly contains h1#section-name
-  //section[child::h1[@id='section-name']]
-```
-
-```sh
-# like jQuery's $().closest('.box')
-  ./ancestor-or-self::[@class="box"]
+  //section[h1[@id='section-name']]
 ```
 
 ```sh
 # Find a <section> that contains h1#section-name
 # (Same as above, but use descendant-or-self instead of child)
   //section[//*[@id='section-name']]
+```
+
+```sh
+# like jQuery's $().closest('.box')
+  ./ancestor-or-self::[@class="box"]
 ```
 
 ```sh

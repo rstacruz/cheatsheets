@@ -5,90 +5,85 @@ layout: default
 
 ### Descendant selectors
 
-| CSS            | Xpath                                | ?                |
-| ---            | ---                                  | ---:             |
-| `h1`           | `//h1`                               | [?](#prefixes)   |
-| `div p`        | `//div//p`                           | [?](#axes)       |
-| ---            | ---                                  |                  |
-| `ul > li`      | `//ul/li`                            | [?](#axes)       |
-| `ul > li > a`  | `//ul/li/a`                          |                  |
-| `div > *`      | `//div/*`                            |                  |
-| ---            | ---                                  |                  |
-| `:root`        | `/`                                  | [?](#prefixes)   |
-| `:root > body` | `/body`                              |                  |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `h1`                         | `//h1`                                                   | [?](#prefixes)          |
+| `div p`                      | `//div//p`                                               | [?](#axes)              |
+| `ul > li`                    | `//ul/li`                                                | [?](#axes)              |
+| `ul > li > a`                | `//ul/li/a`                                              |                         |
+| `div > *`                    | `//div/*`                                                |                         |
+| ----                         | ----                                                     | --                      |
+| `:root`                      | `/`                                                      | [?](#prefixes)          |
+| `:root > body`               | `/body`                                                  |                         |
+{:.greycode.no-head.xp}
 
 ### Attribute selectors
 
-| CSS                    | Xpath                                                    | ?                      |
-| ---                    | ---                                                      | --:                    |
-| `#id`                  | `//[@id="id"]`                                           | [?](#predicates)       |
-| `.class`               | `//[@class="class"]` *...[kinda](#class-check)*          |                        |
-| `input[type="submit"]` | `//input[@type="submit"]`                                |                        |
-| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)   |
-| ---                    | ---                                                      |                        |
-| `a[rel]`               | `//a[@rel]`                                              |                        |
-| ---                    | ---                                                      |                        |
-| `a[href^='/']`         | `//a[starts-with(@href, '/')]`                           | [?](#string-functions) |
-| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`                          |                        |
-| `a[href~='://']`       | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                        |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `#id`                        | `//[@id="id"]`                                           | [?](#predicates)        |
+| `.class`                     | `//[@class="class"]` *...[kinda](#class-check)*          |                         |
+| `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
+| `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
+| `a[rel]`                     | `//a[@rel]`                                              |                         |
+| ----                         | ----                                                     | --                      |
+| `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
+| `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
+| `a[href~='://']`             | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                         |
+{:.greycode.no-head.xp}
 
-### Order selectors
+### Attribute selectors
 
-| CSS                    | Xpath               | ?              |
-| ---                    | ---                 | --:            |
-| `ul > li:first-child`  | `//ul/li[1]`        | [?](#indexing) |
-| `ul > li:nth-child(2)` | `//ul/li[2]`        |                |
-| `ul > li:last-child`   | `//ul/li[last()]`   |                |
-| ---                    | ---                 |                |
-| `li#id:first-child`    | `//li[@id="id"][1]` |                |
-| ---                    | ---                 |                |
-| `a:first-child`        | `//a[1]`            |                |
-| `a:last-child`         | `//a[last()]`       |                |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `ul > li:first-child`        | `//ul/li[1]`                                             | [?](#indexing)          |
+| `ul > li:nth-child(2)`       | `//ul/li[2]`                                             |                         |
+| `ul > li:last-child`         | `//ul/li[last()]`                                        |                         |
+| `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
+| `a:first-child`              | `//a[1]`                                                 |                         |
+| `a:last-child`               | `//a[last()]`                                            |                         |
+{:.greycode.no-head.xp}
 
 ### Siblings
 
-| CSS        | Xpath                                | ?                |
-| ---        | ---                                  | --:              |
-| `h1 ~ ul`  | `//h1/following-sibling::ul`         | [?](#other-axes) |
-| `h1 + ul`  | `//h1/following-sibling::ul[1]`      |                  |
-| ---        | ---                                  |                  |
-| `h1 ~ #id` | `//h1/following-sibling::[@id="id"]` |                  |
-{:.greycode.no-head}
-
-
-### Negation
-
-| CSS            | Xpath            | ?                       |
-| ---            | ---              | --:                     |
-| `h1:not([id])` | `//h1[not(@id)]` | [?](#boolean-functions) |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#other-axes)        |
+| `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
+| `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
+{:.greycode.no-head.xp}
 
 ### jQuery
 
-| jQuery                       | Xpath                            | ?                |
-| ------                       | ---                              | --:              |
-| `$('ul > li').parent()`      | `//ul/li/..`                     | [?](#other-axes) |
-| `$('li').closest('section')` | `//li/ancestor-or-self::section` |                  |
-| ----                         | ----                             |                  |
-| `$('a').attr('href')`        | `//a/@href`                      | [?](#steps)      |
-| `$('span').text()`           | `//span/text()`                  |                  |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `$('ul > li').parent()`      | `//ul/li/..`                                             | [?](#other-axes)        |
+| `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
+| `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
+| `$('span').text()`           | `//span/text()`                                          |                         |
+{:.greycode.no-head.xp}
 
 ### Other things
 
-| jQuery                  | Xpath                             | ?               |
-| ----                    | ----                              | --              |
-| Text match              | `//button[text()="Submit"]`       | [?](#operators) |
-| Text match (substring)  | `//button[contains(text(),"Go")]` |                 |
-| Arithmetic              | `//product[@price > 2.50]`        |                 |
-| Has children            | `//ul[*]`                         |                 |
-| Has children (specific) | `//ul[li]`                        |                 |
-| Or logic                | `//a[@name or @href]`             | [?](#operators) |
-| Union (joins results)   | `//a | //div`                     | [?](#unions)    |
-{:.greycode.no-head}
+| CSS                          | Xpath                                                    | ?                       |
+| ----                         | ----                                                     | --                      |
+| `h1:not([id])`               | `//h1[not(@id)]`                                         | [?](#boolean-functions) |
+| Text match                   | `//button[text()="Submit"]`                              | [?](#operators)         |
+| Text match (substring)       | `//button[contains(text(),"Go")]`                        |                         |
+| Arithmetic                   | `//product[@price > 2.50]`                               |                         |
+| Has children                 | `//ul[*]`                                                |                         |
+| Has children (specific)      | `//ul[li]`                                               |                         |
+| Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
+| Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
+{:.greycode.no-head.xp}
+
+<style>
+/* ensure tables align */
+table.xp {table-layout: fixed;}
+table.xp tr>:nth-child(1) {width: 30%;}
+table.xp tr>:nth-child(2) {width: auto;}
+table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
+</style>
 
 ### Class check
 Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)):

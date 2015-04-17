@@ -92,11 +92,12 @@
   h2 {
     margin-top: 3em;
   }
-}
 
-pre {
-  background: #fafafa;
-  border-bottom: solid 1px #eef3fa;
+  pre {
+    border-right: solid 1px #eef3fa;
+    border-bottom: solid 1px #c7d7ee;
+    border-radius: 4px;
+  }
 }
 
 /*

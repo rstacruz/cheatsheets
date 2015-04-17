@@ -3,7 +3,8 @@ title: React.js
 layout: default
 ---
 
-## Components
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking.
+{:.brief-intro.center}
 
 ```js
 var Component = React.createClass({
@@ -15,6 +16,26 @@ var Component = React.createClass({
 
 ```js
 var c = React.render(<Component name="John" />, document.body);
+```
+
+## Nesting
+Nest components to separate concerns. See [multiple components](http://facebook.github.io/react/docs/multiple-components.html).
+{:.center}
+
+```js
+var UserAvatar  = React.createClass({...});
+var UserProfile = React.createClass({...});
+```
+
+```js
+var Info = React.createClass({
+  render() {
+    return <div>
+      <UserAvatar  username={this.props.username} />
+      <UserProfile username={this.props.username} />
+    </div>;
+  }
+});
 ```
 
 ## States & Properties
@@ -33,7 +54,7 @@ this.props.fullscreen === true
 this.replaceProps({ ... });
 ```
 
-### Initial states and properties
+### Initial data
 
 ```js
 React.createClass({
@@ -73,8 +94,8 @@ c.replaceProps({ ... })
 c.refs
 ```
 
-### [Component specs](http://facebook.github.io/react/docs/component-specs.html)
-Methods and properties you can override in your class definitions.
+### Component specs
+Methods and properties you can override. See [component specs](http://facebook.github.io/react/docs/component-specs.html).
 
 | Method | What |
 | ---- | ---- |
@@ -262,28 +283,38 @@ propTypes: {
 
 ## Other features
 
-### [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html)
+### Class set
+Easily manipulate DOM classes. See [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html).
 
-    render: function() {
-      var cx = React.addons.classSet;
-      var classes = cx({
-        'message': true,
-        'message-important': this.props.isImportant,
-        'message-read': this.props.isRead
-      });
-      // same final string, but much cleaner
-      return <div className={classes}>Great Scott!</div>;
-    }
+```js
+render: function() {
+  var cx = React.addons.classSet;
+  var classes = cx({
+    'message': true,
+    'message-important': this.props.isImportant,
+    'message-read': this.props.isRead
+  });
+  // same final string, but much cleaner
+  return <div className={classes}>Great Scott!</div>;
+}
+```
 
-### [Propagating properties to children](http://facebook.github.io/react/docs/transferring-props.html)
+### Propagating properties
+See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
 
-    var VideoPlayer = React.createClass({
-      render: function() {
-        return <VideoEmbed {...this.props} controls='false' />;
-      }
-    });
+```html
+<VideoPlayer src="video.mp4" />
+```
 
-    <VideoPlayer src="video.mp4" />
+{:.light}
+```js
+var VideoPlayer = React.createClass({
+  render: function() {
+    /* propagates src="..." down to this sub component */
+    return <VideoEmbed {...this.props} controls='false' />;
+  }
+});
+```
 
 ### Mixins
 

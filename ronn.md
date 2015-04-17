@@ -35,8 +35,11 @@ or more line endings just like Markdown.
 
 ## OPTIONS
 
-  * `-R`, `--reporter`=[<name>] :
-    Use the reporter <name>.
+ * `-h`, `--help` :
+   Displays the help screen.
+
+ * `--version` : 
+   Displays version information.
 
 ## EXAMPLES
 
@@ -120,6 +123,20 @@ See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.
 | `6`     | Games                                         |
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |
+
+## Using ronn with npm
+
+Place manual files in `man/xxx.1.md`, then:
+
+```js
+"scripts": {
+  "prepublish": "npm run build-man",
+  "build-man": "ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\""
+},
+"directories": {
+  "man": "man"
+}
+```
 
 ## JavaScript version
 See [marked-man](https://github.com/kapouer/marked-man).

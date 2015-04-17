@@ -3,27 +3,21 @@ title: React.js
 layout: default
 ---
 
-### Basic class
+## Components
 
 ```js
-React.createClass({
+var Component = React.createClass({
   render: function () {
-    return (
-      <div>Hello {this.props.name}</div>
-    );
+    return <div>Hello {this.props.name}</div>;
   }
 });
 ```
 
-### Using components
-
 ```js
-var Component = React.createClass({ ... });
-
-var compo = React.render(<Component />, mountnode);
+var c = React.render(<Component name="John" />, document.body);
 ```
 
-### States
+## States & Properties
 
 ```js
 this.setState({ editing: true });
@@ -32,8 +26,6 @@ this.state.editing === true
 this.replaceState({ ... });
 ```
 
-### Properties
-
 ```js
 this.setProps({ fullscreen: true });
 this.props.fullscreen === true
@@ -41,180 +33,234 @@ this.props.fullscreen === true
 this.replaceProps({ ... });
 ```
 
-### [API](http://facebook.github.io/react/docs/component-api.html)
+### Initial states and properties
 
 ```js
-c.getDOMNode() // deprecated 0.13
-React.findDOMNode(c) // 0.13+
+React.createClass({
+  // Pre-populates `this.state.data`
+  getInitialState: function () {
+    return {data: []};
+  },
 
-c.forceUpdate()
-c.isMounted()
+  // Pre-populates `this.props.name`
+  getDefaultProps: function () {
+    return {name: ''};
+  }
+);
 ```
 
-### [Methods](http://facebook.github.io/react/docs/component-specs.html)
+## Component API
+
+These are methods available for `Component` instances. See [Component API](http://facebook.github.io/react/docs/component-api.html).
+{:.center}
 
 ```js
-{
-  render: function()
-  getInitialState: function()
-  getDefaultProps: function()
-  mixins: []
-  propTypes: {}       /* for validation */
-  statics: { .. }     /* static methods */
-  displayName: '..'   /* automatically filled in by jsx */
+React.findDOMNode(c) // 0.13+
+```
+
+```js
+c.forceUpdate()
+c.isMounted()
+
+c.state
+c.props
+
+c.setState({ ... })
+c.setProps({ ... })
+c.replaceState({ ... })
+c.replaceProps({ ... })
+
+c.refs
+```
+
+### [Component specs](http://facebook.github.io/react/docs/component-specs.html)
+Methods and properties you can override in your class definitions.
+
+| Method | What |
+| ---- | ---- |
+| [`render()`](http://facebook.github.io/react/docs/component-specs.html#render) | |
+| [`getInitialState()`](http://facebook.github.io/react/docs/component-specs.html#getinitialstate) | |
+| [`getDefaultProps()`](http://facebook.github.io/react/docs/component-specs.html#getdefaultprops) |  |
+| [`mixins: [ ... ]`](http://facebook.github.io/react/docs/component-specs.html#mixins) | Mixins |
+| [`propTypes: { ... }`](http://facebook.github.io/react/docs/component-specs.html#proptypes) | Validation ... [more](#property-validation) |
+| [`statics: { ... }`](http://facebook.github.io/react/docs/component-specs.html#statics) | Static methods |
+| [`displayName: "..."`](http://facebook.github.io/react/docs/component-specs.html#displayname) | Automatically filled by JSX |
+{:.greycode.no-head}
+
+## [Lifecycle](http://facebook.github.io/react/docs/component-specs.html)
+
+### Mounting
+
+| `componentWillMount()` | Before rendering (no DOM yet) |
+| `componentDidMount()` | After rendering |
+{:.greycode.no-head.lc}
+
+### Updating
+
+| `componentWillReceiveProps`*(newProps={})* | Use `setState()` here; not on initial |
+| `shouldComponentUpdate`*(newProps={}, newState={})* | Skips `render()` if returns false |
+| `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
+| `componentDidUpdate`*(prevProps={}, prevState={})* | Operate on the DOM here |
+{:.greycode.no-head.lc}
+
+### Cleanup
+
+| `componentWillUnmount()` | Invoked before DOM removal |
+{:.greycode.no-head.lc}
+
+<style>
+table.lc { table-layout: fixed; }
+table.lc tr>:nth-child(1) { width: 50%; }
+table.lc tr>:nth-child(2) { text-align: right; }
+</style>
+
+### Example: before rendering
+
+```js
+React.createClass({
+  componentWillMount: function () {
+    $.get(this.props.url, function (data) {
+      this.setState(data);
+    });
+  },
+
+  render: function () {
+    return (
+      <CommentList data={this.state.data} />
+    );
+  }
+});
+```
+
+## DOM nodes
+
+### References
+Allows access to DOM nodes. See [References](http://facebook.github.io/react/docs/more-about-refs.html).
+
+```html
+<input ref="myInput">
+```
+{:.light}
+
+```js
+this.refs.myInput
+React.findDOMNode(this.refs.myInput).focus()
+React.findDOMNode(this.refs.myInput).value
+```
+
+### DOM Events
+Add attributes like `onChange`. See [events](https://facebook.github.io/react/docs/events.html).
+
+```html
+<input type="text"
+    value={this.state.value}
+    onChange={this.handleChange} />
+```
+{:.light}
+
+```js
+handleChange: function(event) {
+  this.setState({ value: event.target.value });
 }
 ```
 
-### [Lifecycle](http://facebook.github.io/react/docs/component-specs.html)
+### Two-way binding
+Use [LinkedStateMixin](http://facebook.github.io/react/docs/two-way-binding-helpers.html) for easier two-way binding.
 
-```js
-componentWillMount()
-componentDidMount()
-
-// not on initial render
-componentWillReceiveProps(props)
-shouldComponentUpdate(props, state)
-componentWillUpdate(props, state)
-componentDidUpdate(prevProps, prevState)
-
-componentWillUnmount()
-
-// ...there is no DidUnmount or ReceiveState.
+```html
+Email: <input type="text" valueLink={this.linkState('email')} />
 ```
-
-### Initial states
-
-    React.createClass({
-      getInitialState: function () {
-        return {data: []};
-      },
-
-      render: function () {
-        return (
-          <CommentList data={this.state.data} />
-        );
-      }
-    });
-
-### Default properties
-
-    React.createClass({
-      getDefaultProps: function () {
-        return {name: ''};
-      }
-    );
-
-### Before rendering
-
-    React.createClass({
-      componentWillMount: function () {
-        $.get(this.props.url, function (data) {
-          this.setState(data);
-        });
-      },
-
-      render: function () {
-        return (
-          <CommentList data={this.state.data} />
-        );
-      }
-    });
-
-### Actions
-
-    <form onSubmit={this.handleSubmit}>
-      Name: <input ref="name">
-    </form>
-
-    React.createClass({
-      handleSubmit: function (event) {
-        name = this.refs['name'].getDOMNode().value;
-        // see two-way binding below
-      }
-    })
-
-### [Two-way binding](http://facebook.github.io/react/docs/two-way-binding-helpers.html)
+{:.light}
 
 ```js
 React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
-  getInitialState: function() {
-    return {value: 'Hello!'};
-  },
-  render: function() {
-    return <input type="text" valueLink={this.linkState('value')} />;
-  }
+  mixins: [React.addons.LinkedStateMixin]
 });
-// LinkedStateMixin adds a method to your React component called
-// linkState(). 
 ```
 
-### Lists
+```js
+this.state.email
+```
 
-    var TodoList = React.createClass({
-      render: function() {
-        var createItem = function(itemText) {
-          return <li>{itemText}</li>;
-        };
-        return <ul>{this.props.items.map(createItem)}</ul>;
-      }
-    });
+## Property validation
 
-### [Property validation](http://facebook.github.io/react/docs/reusable-components.html#prop-validation)
+### Basic types
+Primitive types: `.string`, `.number`, `.func`, and `.bool`. See [propTypes](http://facebook.github.io/react/docs/reusable-components.html#prop-validation).
 
 ```js
 React.createClass({
   propTypes: {
-    // required
-    requiredFunc: React.PropTypes.func.isRequired,
-    requiredAny: React.PropTypes.any.isRequired,
-
-    // primitives, optional by default
-    bool: React.PropTypes.bool,
-    func: React.PropTypes.func,
-    number: React.PropTypes.number,
-    string: React.PropTypes.string,
+    email:      React.PropTypes.string,
+    seats:      React.PropTypes.number,
+    callback:   React.PropTypes.func,
+    isClosed:   React.PropTypes.bool,
+    any:        React.PropTYpes.any,
   }
 });
 ```
 
-Also:
+### Required types
+Add `.isRequired`.
 
 ```js
-  propTypes: {
-    message: React.PropTypes.instanceOf(Message), // instanceof any Class
-    element: React.PropTypes.element, // A React element
-    enum: React.PropTypes.oneOf(['News', 'Photos']),
-    node: React.PropTypes.node, // num, string, element, or array of these
+propTypes: {
+  requiredFunc:  React.PropTypes.func.isRequired,
+  requiredAny:   React.PropTypes.any.isRequired,
+```
 
-    // any of below
-    union: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
-    ]),
+### React elements
+Use `.element`, `.node`.
 
-    // arrays
-    array: React.PropTypes.array,
-    arrayOf: React.PropTypes.arrayOf(React.PropTypes.number),
+```js
+propTypes: {
+  element:  React.PropTypes.element,  // react element
+  node:     React.PropTypes.node,     // num, string, element
+                                      // ...or array of those
+```
 
-    // objects
-    object: React.PropTypes.object,
-    objectOf: React.PropTypes.objectOf(React.PropTypes.number),
+### Enumerables
+Use `.oneOf`, `.oneOfType`.
 
-    // An object taking on a particular shape
-    object2: React.PropTypes.shape({
-      color: React.PropTypes.string,
-      fontSize: React.PropTypes.number
-    }),
+```
+propTypes: {
+  enum:     React.PropTypes.oneOf(['M','F']),  // enum
+  union:    React.PropTypes.oneOfType([        // any
+              React.PropTypes.string,
+              React.PropTypes.number ]),
+```
 
-    // custom validator
-    customProp: function(props, propName, componentName) {
-      if (!/matchme/.test(props[propName])) {
-        return new Error('Validation failed!');
-      }
+### Arrays and objects
+Use `.array[Of]`, `.object[Of]`, `.instanceOf`, `.shape`.
+
+```js
+propTypes: {
+  array:    React.PropTypes.array,
+  arrayOf:  React.PropTypes.arrayOf(React.PropTypes.number),
+  object:   React.PropTypes.object,
+  objectOf: React.PropTypes.objectOf(React.PropTypes.number),
+
+  message:  React.PropTypes.instanceOf(Message),
+
+  object2:  React.PropTypes.shape({
+    color:  React.PropTypes.string,
+    size:   React.PropTypes.number
+  }),
+```
+
+### Custom validation
+Supply your own function.
+
+```js
+propTypes: {
+  customProp: function(props, propName, componentName) {
+    if (!/matchme/.test(props[propName])) {
+      return new Error('Validation failed!');
     }
   }
+}
 ```
+
+## Other features
 
 ### [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html)
 
@@ -249,8 +295,52 @@ Also:
       componentWillMount: function() { .. }
     }
 
-----
+## [Top level API](https://facebook.github.io/react/docs/top-level-api.html)
 
-### See also
+```js
+React.findDOMNode(c)
+React.createClass({ ... })
+
+React.render(<Component />, domnode, [callback])
+React.unmountComponentAtNode(domnode)
+
+React.renderToString(<Component />)
+React.renderToStaticMarkup(<Component />)
+
+React.isValidElement(c)
+```
+
+## JSX patterns
+
+### Style shorthand
+See [inline styles](https://facebook.github.io/react/tips/inline-styles.html).
+
+```js
+var style = { backgroundImage: 'url(x.jpg)', height: 10 };
+return <div style={style}></div>;
+```
+
+### InnerHTML
+See [dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
+
+```js
+function createMarkup() { return {__html: 'First &middot; Second'}; };
+<div dangerouslySetInnerHTML={createMarkup()} />
+```
+
+### Lists
+
+```js
+var TodoList = React.createClass({
+  render: function() {
+    function item(itemText) {
+      return <li>{itemText}</li>;
+    };
+    return <ul>{this.props.items.map(item)}</ul>;
+  }
+});
+```
+
+## See also
 
 * [Animations](http://facebook.github.io/react/docs/animation.html)

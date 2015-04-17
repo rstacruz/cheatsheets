@@ -14,25 +14,24 @@ layout: default
 | `ul > li > a`  | `//ul/li/a`                          |                  |
 | `div > *`      | `//div/*`                            |                  |
 | ---            | ---                                  |                  |
-| `h1 + ul`      | `//h1/following-sibling::ul`         | [?](#other-axes) |
-| `h1 + #id`     | `//h1/following-sibling::[@id="id"]` |                  |
-| ---            | ---                                  |                  |
 | `:root`        | `/`                                  | [?](#prefixes)   |
 | `:root > body` | `/body`                              |                  |
 {:.greycode.no-head}
 
 ### Attribute selectors
 
-| CSS                    | Xpath                                    | ?                      |
-| ---                    | ---                                      | --:                    |
-| `#id`                  | `//[@id="id"]`                           | [?](#predicates)       |
-| `.class`               | `//[@class="class"]` *...see below*      |                        |
-| `input[type="submit"]` | `//input[@type="submit"]`                |                        |
-| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`             | [?](#chaining-order)   |
-| ---                    | ---                                      |                        |
-| `a[href^='/']`         | `//a[starts-with(@href, '/')]`           | [?](#string-functions) |
-| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`          |                        |
-| `a[href~='://']`       | `//a[contains(@href, '://')]` *...kinda* |                        |
+| CSS                    | Xpath                                                    | ?                      |
+| ---                    | ---                                                      | --:                    |
+| `#id`                  | `//[@id="id"]`                                           | [?](#predicates)       |
+| `.class`               | `//[@class="class"]` *...[kinda](#class-check)*          |                        |
+| `input[type="submit"]` | `//input[@type="submit"]`                                |                        |
+| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)   |
+| ---                    | ---                                                      |                        |
+| `a[rel]`               | `//a[@rel]`                                              |                        |
+| ---                    | ---                                                      |                        |
+| `a[href^='/']`         | `//a[starts-with(@href, '/')]`                           | [?](#string-functions) |
+| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`                          |                        |
+| `a[href~='://']`       | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                        |
 {:.greycode.no-head}
 
 ### Order selectors
@@ -47,6 +46,16 @@ layout: default
 | ---                    | ---                 |                |
 | `a:first-child`        | `//a[1]`            |                |
 | `a:last-child`         | `//a[last()]`       |                |
+{:.greycode.no-head}
+
+### Siblings
+
+| CSS        | Xpath                                | ?                |
+| ---        | ---                                  | --:              |
+| `h1 ~ ul`  | `//h1/following-sibling::ul`         | [?](#other-axes) |
+| `h1 + ul`  | `//h1/following-sibling::ul[1]`      |                  |
+| ---        | ---                                  |                  |
+| `h1 ~ #id` | `//h1/following-sibling::[@id="id"]` |                  |
 {:.greycode.no-head}
 
 ### jQuery
@@ -72,7 +81,7 @@ layout: default
 {:.greycode.no-head}
 
 ### Class check
-Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround:
+Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)):
 
 ```sh
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]

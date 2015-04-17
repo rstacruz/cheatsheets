@@ -48,7 +48,7 @@ layout: default
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#other-axes)        |
+| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
 {:.greycode.no-head.xp}

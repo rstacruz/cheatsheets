@@ -71,6 +71,7 @@ Underline: <variable> _emphasis_ *emphasis*
 Manual references: sh(1) markdown(7)
 Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 URL: [URL link](http://github.com/rstacruz)
+URL: <http://github.com>
 ```
     
 ## Frequently-used sections

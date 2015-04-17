@@ -63,17 +63,16 @@ render: function () {
 ```
 
 ### Setting defaults
+Pre-populates `this.state.comments` and `this.props.name`.
 
 ```js
 React.createClass({
-  // Pre-populates `this.state.data`
   getInitialState: function () {
-    return {data: []};
+    return { comments: [] };
   },
 
-  // Pre-populates `this.props.name`
   getDefaultProps: function () {
-    return {name: ''};
+    return { name: "Hello" };
   }
 );
 ```

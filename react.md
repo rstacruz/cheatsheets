@@ -351,6 +351,7 @@ var SetIntervalMixin = {
   componentWillMount: function() { .. }
 }
 ```
+{:.light}
 
 ```js
 var TickTock = React.createClass({

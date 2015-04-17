@@ -28,6 +28,7 @@ layout: default
 | `#id`                  | `//[@id="id"]`                      | [?](#predicates)       |
 | `.class`               | `//[@class="class"]` *...see below* |                        |
 | `input[type="submit"]` | `//input[@type="submit"]`           |                        |
+| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`        | [?](#chaining-order)   |
 | ---                    | ---                                 |                        |
 | `a[href^='/']`         | `//a[starts-with(@href, '/')]`      | [?](#string-functions) |
 | `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`     |                        |
@@ -35,16 +36,16 @@ layout: default
 
 ### Order selectors
 
-| CSS                    | Xpath                                | ?                      |
-| ---                    | ---                                  | --:                    |
-| `ul > li:first-child`  | `//ul/li[1]`                         | [?](#indexing)         |
-| `ul > li:nth-child(2)` | `//ul/li[2]`                         |                        |
-| `ul > li:last-child`   | `//ul/li[last()]`                    |                        |
-| ---                    | ---                                  |                        |
-| `li#id:first-child`    | `//li[@id="id"][1]`                  | [?](#chaining-order)   |
-| ---                    | ---                                  |                        |
-| `a:first-child`        | `//a[1]`                             |                        |
-| `a:last-child`         | `//a[last()]`                        |                        |
+| CSS                    | Xpath               | ?              |
+| ---                    | ---                 | --:            |
+| `ul > li:first-child`  | `//ul/li[1]`        | [?](#indexing) |
+| `ul > li:nth-child(2)` | `//ul/li[2]`        |                |
+| `ul > li:last-child`   | `//ul/li[last()]`   |                |
+| ---                    | ---                 |                |
+| `li#id:first-child`    | `//li[@id="id"][1]` |                |
+| ---                    | ---                 |                |
+| `a:first-child`        | `//a[1]`            |                |
+| `a:last-child`         | `//a[last()]`       |                |
 {:.greycode.no-head}
 
 ### jQuery

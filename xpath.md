@@ -91,6 +91,7 @@ Xpath doesn't have the "check if part of space-separated list" operator, so this
 ```sh
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
+{:.light}
 
 Expressions
 -----------
@@ -122,6 +123,7 @@ A step may have an element name (`div`) and [predicates](#predicate) (`[...]`). 
 //div[@name='box']
 //[@id='link']
 ```
+{:.light}
 
 They can also be these other things.
 
@@ -142,6 +144,7 @@ Restricts a nodeset only if some condition is true. They can be chained.
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
+{:.light}
 
 ### Operators
 Use comparison and logic operators to make conditionals.

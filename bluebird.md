@@ -3,7 +3,7 @@ title: bluebird.js
 layout: default
 ---
 
-Also see the [promise cheatsheet](promise.html).
+Also see the [promise cheatsheet](promise.html) and [Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).
 {:.center.brief-intro}
 
 ```js
@@ -17,14 +17,51 @@ promise
   .each(function (e) { ... })
 ```
 
-### Simultaneous promises (array)
+----
+
+### Multiple return values
+Use [Promise.spread](https://github.com/petkaantonov/bluebird/blob/master/API.md#spreadfunction-fulfilledhandler--function-rejectedhandler----promise).
 
 ```js
-Promise.any(promises)     // succeeds if one succeeds first
+.then(function () {
+  return [ 'abc', 'def' ];
+})
+.spread(function (abc, def) {
+  ...
+});
+```
+
+### Multiple promises
+Use [Promise.join](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisejoinpromisethenablevalue-promises-function-handler---promise) for fixed number of multiple promises.
+
+```js
+Promise.join(
+  getPictures(),
+  getMessages(),
+  getTweets(),
+  function (pics, msgs, tweets) {
+    return ...;
+  }
+)
+```
+
+### Multiple promises (array)
+Use `.all`, `.any`, `.race`, or `.some`.
+
+```js
+Promise.all([ pro1, pro2 ])
+  .then(function (results) {
+    results[0]
+    results[1]
+  })
+
+// succeeds if one succeeds first
+Promise.any(promises)
   .then(...)
 ```
 
-### Simultaneous promises (object)
+### Object
+Usually it's better to use `.join`, but whatever.
 
 ```js
 Promise.props({
@@ -38,6 +75,7 @@ Promise.props({
 ```
 
 ### Chain of promises
+Use [Promise.try](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisetryfunction-fn--arraydynamicdynamic-arguments--dynamic-ctx----promise) to start a chain.
 
 ```js
 function getPhotos() {
@@ -50,13 +88,10 @@ function getPhotos() {
 getPhotos().then(...)
 ```
 
-### Working with node-style functions
+### Using Node-style functions
+See [Promisification](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisification) API.
 
 ```js
 var readFile = Promise.promisify(fs.readFile);
 var fs = Promise.promisifyAll(require('fs'));
 ```
-
-## References
-
- * [Bluebird API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com)

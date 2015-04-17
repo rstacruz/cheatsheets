@@ -283,7 +283,7 @@ This is the default axis. This makes `//a/b/c` work.
 ```
 
 ### Descendant-or-self axis
-When you use `//` for descendants, this is short for the `descendant-or-self::` axis.
+`//` is short for the `descendant-or-self::` axis.
 
 ```sh
 # both the same

@@ -45,15 +45,19 @@ Use [props](https://facebook.github.io/react/docs/tutorial.html#using-props) (`t
 Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state) (`this.state`) to manage dynamic data.
 {:.center}
 
+```html
+<MyComponent fullscreen={true} />
+```
+{:.light}
+ 
 ```js
-this.setProps({ fullscreen: true });
-this.setState({ username: 'rstacruz' });
+// props
+  this.props.fullscreen //=> true
 
-this.props.fullscreen === true
-this.state.username === 'rstacruz'
-
-this.replaceProps({ ... });
-this.replaceState({ ... });
+// state
+  this.setState({ username: 'rstacruz' });
+  this.replaceState({ ... });
+  this.state.username //=> 'rstacruz'
 ```
 
 ```js
@@ -85,7 +89,8 @@ These are methods available for `Component` instances. See [Component API](http:
 {:.center}
 
 ```js
-React.findDOMNode(c) // 0.13+
+React.findDOMNode(c)  // 0.13+
+c.getDOMNode()        // 0.12 below
 ```
 {:.light}
 
@@ -97,9 +102,10 @@ c.state
 c.props
 
 c.setState({ ... })
-c.setProps({ ... })
 c.replaceState({ ... })
-c.replaceProps({ ... })
+
+c.setProps({ ... })       // for deprecation
+c.replaceProps({ ... })   // for deprecation
 
 c.refs
 ```
@@ -355,7 +361,7 @@ var TickTock = React.createClass({
 ## [Top level API](https://facebook.github.io/react/docs/top-level-api.html)
 
 ```js
-React.findDOMNode(c)
+React.findDOMNode(c) // 0.13+
 React.createClass({ ... })
 
 React.render(<Component />, domnode, [callback])

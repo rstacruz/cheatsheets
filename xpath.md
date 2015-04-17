@@ -23,15 +23,16 @@ layout: default
 
 ### Attribute selectors
 
-| CSS                    | Xpath                               | ?                      |
-| ---                    | ---                                 | --:                    |
-| `#id`                  | `//[@id="id"]`                      | [?](#predicates)       |
-| `.class`               | `//[@class="class"]` *...see below* |                        |
-| `input[type="submit"]` | `//input[@type="submit"]`           |                        |
-| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`        | [?](#chaining-order)   |
-| ---                    | ---                                 |                        |
-| `a[href^='/']`         | `//a[starts-with(@href, '/')]`      | [?](#string-functions) |
-| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`     |                        |
+| CSS                    | Xpath                                    | ?                      |
+| ---                    | ---                                      | --:                    |
+| `#id`                  | `//[@id="id"]`                           | [?](#predicates)       |
+| `.class`               | `//[@class="class"]` *...see below*      |                        |
+| `input[type="submit"]` | `//input[@type="submit"]`                |                        |
+| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`             | [?](#chaining-order)   |
+| ---                    | ---                                      |                        |
+| `a[href^='/']`         | `//a[starts-with(@href, '/')]`           | [?](#string-functions) |
+| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`          |                        |
+| `a[href~='://']`       | `//a[contains(@href, '://')]` *...kinda* |                        |
 {:.greycode.no-head}
 
 ### Order selectors

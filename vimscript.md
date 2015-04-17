@@ -281,8 +281,8 @@ a isnot b
 ### Regexp matches
 
 ```vim
-"hello" =~ /x/
-"hello" !~ /x/
+"hello" =~ '/x/'
+"hello" !~ '/x/'
 ```
 
 ### Single line

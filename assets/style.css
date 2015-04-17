@@ -48,7 +48,7 @@
 
 .post-headline.-cheatsheet .prelude {
   color: #111;
-  font-size: 0.8em;
+  font-size: 0.85em;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0;
@@ -64,9 +64,20 @@
   content: 'The great cheatsheet for';
 }
 
+@media (min-width: 769px) {
+  .post-headline.-cheatsheet .prelude {
+    max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .post-headline.-cheatsheet .prelude span {
+    display: inline-block;
+  }
+}
+
 .post-headline.-cheatsheet h1 {
   color: #111;
-  font-size: 3.3em;
+  font-size: 3.5em;
   text-shadow:
     2px 2px 0 white,
     3px 3px 0 #ddd;

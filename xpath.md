@@ -23,14 +23,14 @@ layout: default
 
 ### Attribute selectors
 
-| CSS                    | Xpath                                | ?                      |
-| ---                    | ---                                  |                        |
-| `input[type="submit"]` | `//input[@type="submit"]`            | [?](#predicates)       |
-| `a[href^='/']`         | `//a[starts-with(@href, '/')]`       | [?](#string-functions) |
-| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`      |                        |
-| ---                    | ---                                  |                        |
-| `#id`                  | `//[@id="id"]`                       |                        |
-| `.class`               | `//[@class="class"]` *...see below*  |                        |
+| CSS                    | Xpath                               | ?                      |
+| ---                    | ---                                 |                        |
+| `#id`                  | `//[@id="id"]`                      | [?](#predicates)       |
+| `.class`               | `//[@class="class"]` *...see below* |                        |
+| `input[type="submit"]` | `//input[@type="submit"]`           |                        |
+| ---                    | ---                                 |                        |
+| `a[href^='/']`         | `//a[starts-with(@href, '/')]`      | [?](#string-functions) |
+| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`     |                        |
 {:.greycode.no-head}
 
 ### Order selectors
@@ -45,7 +45,6 @@ layout: default
 | ---                    | ---                                  |                        |
 | `a:first-child`        | `//a[1]`                             |                        |
 | `a:last-child`         | `//a[last()]`                        |                        |
-| `li:first-of-type`     | `//li[not(preceding-sibling::li)]`   |                        |
 {:.greycode.no-head}
 
 ### jQuery

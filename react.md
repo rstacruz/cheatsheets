@@ -1,7 +1,8 @@
 ---
 title: React.js
-layout: default
 ---
+
+{%raw%}
 
 Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking.
 {:.brief-intro.center}
@@ -408,3 +409,4 @@ var TodoList = React.createClass({
 ## See also
 
 * [Animations](http://facebook.github.io/react/docs/animation.html)
+{%endraw%}

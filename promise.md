@@ -3,18 +3,18 @@ title: Promises
 layout: default
 ---
 
-Based on 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+Based on the [Promise API reference][promise] (mozilla.org).
+{:.brief-intro.center}
+
+[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 ### Creating promises
 
 ```js
 new Promise(function (ok, err) {
   doStuff(function () {
-    if (success)
-      ok();
-    else
-      err();
+    if (success) { ok(); }
+    else { err(); }
   });
 })
 ```
@@ -48,11 +48,11 @@ Promise.race(promises)
 ### Converting other promises
 
 ```js
-Promise.resolve("reason");
-Promise.resolve(promise);
-Promise.resolve(thenable);
+return Promise.resolve("result");
+return Promise.resolve(promise);
+return Promise.resolve(thenable);
 
-Promise.reject("reason");
+return Promise.reject("reason");
 
 Promise.resolve($.get('http://google.com'))
 .then(...)

@@ -39,22 +39,30 @@ var Info = React.createClass({
 ```
 
 ## States & Properties
+Use [props](https://facebook.github.io/react/docs/tutorial.html#using-props) (`this.props`) to access parameters passed from the parent.
+Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state) (`this.state`) to manage dynamic data.
+{:.center}
 
 ```js
-this.setState({ editing: true });
-this.state.editing === true
+this.setProps({ fullscreen: true });
+this.setState({ username: 'rstacruz' });
 
+this.props.fullscreen === true
+this.state.username === 'rstacruz'
+
+this.replaceProps({ ... });
 this.replaceState({ ... });
 ```
 
 ```js
-this.setProps({ fullscreen: true });
-this.props.fullscreen === true
-
-this.replaceProps({ ... });
+render: function () {
+  return <div class={this.props.fullscreen ? 'full' : ''}>
+    Welcome, {this.state.username}
+  </div>;
+}
 ```
 
-### Initial data
+### Setting defaults
 
 ```js
 React.createClass({
@@ -355,8 +363,8 @@ return <div style={style}></div>;
 See [dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
 
 ```js
-function createMarkup() { return {__html: 'First &middot; Second'}; };
-<div dangerouslySetInnerHTML={createMarkup()} />
+function markdownify() { return "<p>...</p>"; }
+<div dangerouslySetInnerHTML={{__html: markdownify()}} />
 ```
 
 ### Lists

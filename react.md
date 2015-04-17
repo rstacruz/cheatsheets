@@ -116,23 +116,26 @@ Methods and properties you can override. See [component specs](http://facebook.g
 | [`displayName: "..."`](http://facebook.github.io/react/docs/component-specs.html#displayname) | Automatically filled by JSX |
 {:.greycode.no-head}
 
-## [Lifecycle](http://facebook.github.io/react/docs/component-specs.html)
+## Lifecycle
 
 ### Mounting
+Before initial rendering occurs. Add your DOM stuff on didMount (events, timers, etc). See [reference](http://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount).
 
 | `componentWillMount()` | Before rendering (no DOM yet) |
 | `componentDidMount()` | After rendering |
 {:.greycode.no-head.lc}
 
 ### Updating
+Called when parents change properties and `.setState()`. These are not called for initial renders. See [reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
-| `componentWillReceiveProps`*(newProps={})* | Use `setState()` here; not on initial |
+| `componentWillReceiveProps`*(newProps={})* | Use `setState()` here |
 | `shouldComponentUpdate`*(newProps={}, newState={})* | Skips `render()` if returns false |
 | `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
 | `componentDidUpdate`*(prevProps={}, prevState={})* | Operate on the DOM here |
 {:.greycode.no-head.lc}
 
-### Cleanup
+### Unmounting
+Clear your DOM stuff here (probably done on didMount). See [reference](http://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount).
 
 | `componentWillUnmount()` | Invoked before DOM removal |
 {:.greycode.no-head.lc}
@@ -143,7 +146,7 @@ table.lc tr>:nth-child(1) { width: 50%; }
 table.lc tr>:nth-child(2) { text-align: right; }
 </style>
 
-### Example: before rendering
+### Example: loading AJAX data
 
 ```js
 React.createClass({
@@ -154,9 +157,7 @@ React.createClass({
   },
 
   render: function () {
-    return (
-      <CommentList data={this.state.data} />
-    );
+    return <CommentList data={this.state.data} />
   }
 });
 ```

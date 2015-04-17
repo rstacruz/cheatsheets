@@ -71,12 +71,15 @@ ronn-format(7), ronn(1)
 ## Formatting tags
 
 ```
-## FORMATTING
+Bold: `code` **strong**
+Underline: <variable> _emphasis_ *emphasis*
+```
 
-* Bold: `code` **strong**
-* Underline: <variable> _emphasis_ *emphasis*
-* Linking manual references: sh(1) markdown(7)
-* Linking sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALIA]
+### Linking
+
+```
+Manual references: sh(1) markdown(7)
+Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 ```
     
 ## Frequently-used sections

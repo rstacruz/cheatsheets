@@ -1,68 +1,113 @@
 ---
 title: Ronn
-layout: default
 ---
 
-### Generating
+Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html), [rtomayko/ronn](https://github.com/rtomayko/ronn).
+{:.center.brief-intro}
 
-    $ ronn foo.ronn
+```sh
+gem install ronn
+```
+{:.light}
 
-    $ ronn -r foo.ronn        # Creates foo.7
+```sh
+ronn foo.1.md      # creates foo.1.html
+ronn -r foo.1.md   # creates foo.1 (--roff)
+ronn -m foo.1.md   # view as manpage
+```
+{:.light}
 
-    $ ronn --html --style toc,80c foo.ronn
-    
-    # manual - top center
-    # org    - bottom left
-    $ ronn --manual="MY MANUAL" --organization="RONN 0.7.0"
+### Other options
 
-See [ronn.1](http://rtomayko.github.com/ronn/ronn.1.html).
+```sh
+--pipe                       # write to stdout
+--server, -S                 # serve in http://localhost:1207
 
-### Format
+--html, -5                   # default
+--fragment, -f               # html without header/title/footer
 
-    name(1) -- short, single-sentence description
-    =============================================
-    
-    ## SYNOPSIS
-    
-    `name` [<optional>...] <flags>
-    
-    ## DESCRIPTION
-    
-    A normal paragraph. This can span multiple lines and is terminated with two
-    or more line endings -- just like Markdown.
-    
-    Inline markup for `code`, `user input`, and **strong** are displayed
-    boldface; <variable>, _emphasis_, *emphasis*, are displayed in italics
-    (HTML) or underline (roff).
-    
-### Linking
+--style toc,80c              # toc (table of contents)
+                             # 80c (use 80c instead of 100c)
+                             # print (include print stylesheet)
+                             # dark
 
-    Manual references like sh(1), markdown(7), roff(7), etc. are hyperlinked in
-    HTML output.
-    
-    Link to sections like [STANDARDS][], [SEE ALSO][], or [WITH A DIFFERENT LINK
-    TEXT][#SEE-ALSO].
-    
-### Definition lists
-    
-      * `-a`, `--argument`=[<value>]:
-        One or more paragraphs describing the argument.
-    
-      * You can put whatever you *want* here, really:
-        Nesting and paragraph spacing are respected.
-    
-### Frequently used sections
-    
-    ## OPTIONS
-    ## SYNTAX
-    ## ENVIRONMENT
-    ## RETURN VALUES
-    ## STANDARDS
-    ## SECURITY CONSIDERATIONS
-    ## BUGS
-    ## HISTORY
-    ## AUTHOR
-    ## COPYRIGHT
-    ## SEE ALSO
+--manual="MY MANUAL"         # shown on top-center
+--organization="RONN 0.7.0"  # shown on bottom-left
+--date="YYYY-MM-DD"          # shown on bottom-center
+```
 
-See [ronn-format.7](http://rtomayko.github.com/ronn/ronn-format.7.html).
+## Basic template
+    
+```markdown
+name(1) -- short, single-sentence description
+=============================================
+
+## SYNOPSIS
+
+`name` [<optional>...] <flags>
+
+## DESCRIPTION
+
+A normal paragraph. This can span multiple lines and is terminated with two
+or more line endings just like Markdown.
+
+## OPTIONS
+
+  * `-R`, `--reporter`=[<name>] :
+    Use the reporter <name>.
+
+## EXAMPLES
+
+Indent examples with 4 spaces.
+
+    $ ls
+    $ ls -la
+
+## SEE ALSO
+
+ronn-format(7), ronn(1)
+```
+
+## Formatting tags
+
+```
+## FORMATTING
+
+* Bold: `code` **strong**
+* Underline: <variable> _emphasis_ *emphasis*
+* Linking manual references: sh(1) markdown(7)
+* Linking sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALIA]
+```
+    
+## Frequently-used sections
+    
+```markdown
+## NAME
+## SYNOPSIS
+## DESCRIPTION
+## OPTIONS
+## SYNTAX
+## ENVIRONMENT
+## RETURN VALUES
+## STANDARDS
+## SECURITY CONSIDERATIONS
+## BUGS
+## HISTORY
+## AUTHOR
+## COPYRIGHT
+## SEE ALSO
+```
+
+## Sections
+See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.com).
+
+| Section | Description                                   |
+| ---     | ---                                           |
+| `1`     | General commands                              |
+| `2`     | System calls                                  |
+| `3`     | C standard lib                                |
+| `4`     | Special files (/dev) and drivers              |
+| `5`     | File formats                                  |
+| `6`     | Games                                         |
+| `7`     | Misc                                          |
+| `8`     | System administration commands and procedures |

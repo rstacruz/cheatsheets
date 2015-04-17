@@ -178,7 +178,9 @@ for s in list
   continue  " jump to start of loop
   break     " breaks out of a loop
 endfor
+```
 
+```vim
 while x < 5
 endwhile
 ```

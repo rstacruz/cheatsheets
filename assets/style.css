@@ -178,3 +178,11 @@
 .hljs-comment {
   font-style: normal;
 }
+
+pre.light {
+  background: #fdfdff;
+}
+
+pre + pre {
+  margin-top: -1.7em;
+}

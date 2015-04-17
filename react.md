@@ -15,8 +15,9 @@ var Component = React.createClass({
 ```
 
 ```js
-var c = React.render(<Component name="John" />, document.body);
+React.render(<Component name="John" />, document.body);
 ```
+{:.light}
 
 ## Nesting
 Nest components to separate concerns. See [multiple components](http://facebook.github.io/react/docs/multiple-components.html).
@@ -26,6 +27,7 @@ Nest components to separate concerns. See [multiple components](http://facebook.
 var UserAvatar  = React.createClass({...});
 var UserProfile = React.createClass({...});
 ```
+{:.light}
 
 ```js
 var Info = React.createClass({
@@ -85,6 +87,7 @@ These are methods available for `Component` instances. See [Component API](http:
 ```js
 React.findDOMNode(c) // 0.13+
 ```
+{:.light}
 
 ```js
 c.forceUpdate()
@@ -111,7 +114,7 @@ Methods and properties you can override. See [component specs](http://facebook.g
 | [`getInitialState()`](http://facebook.github.io/react/docs/component-specs.html#getinitialstate) | |
 | [`getDefaultProps()`](http://facebook.github.io/react/docs/component-specs.html#getdefaultprops) |  |
 | ---- | ---- |
-| [`mixins: [ ... ]`](http://facebook.github.io/react/docs/component-specs.html#mixins) | Mixins |
+| [`mixins: [ ... ]`](http://facebook.github.io/react/docs/component-specs.html#mixins) | Mixins ... [more](#mixins) |
 | [`propTypes: { ... }`](http://facebook.github.io/react/docs/component-specs.html#proptypes) | Validation ... [more](#property-validation) |
 | [`statics: { ... }`](http://facebook.github.io/react/docs/component-specs.html#statics) | Static methods |
 | [`displayName: "..."`](http://facebook.github.io/react/docs/component-specs.html#displayname) | Automatically filled by JSX |
@@ -126,6 +129,8 @@ Before initial rendering occurs. Add your DOM stuff on didMount (events, timers,
 | `componentDidMount()` | After rendering |
 {:.greycode.no-head.lc}
 
+<br>
+
 ### Updating
 Called when parents change properties and `.setState()`. These are not called for initial renders. See [reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
@@ -134,6 +139,8 @@ Called when parents change properties and `.setState()`. These are not called fo
 | `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
 | `componentDidUpdate`*(prevProps={}, prevState={})* | Operate on the DOM here |
 {:.greycode.no-head.lc}
+
+<br>
 
 ### Unmounting
 Clear your DOM stuff here (probably done on didMount). See [reference](http://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount).
@@ -147,7 +154,10 @@ table.lc tr>:nth-child(1) { width: 50%; }
 table.lc tr>:nth-child(2) { text-align: right; }
 </style>
 
+<br>
+
 ### Example: loading AJAX data
+See [initial AJAX data](http://facebook.github.io/react/tips/initial-ajax.html).
 
 ```js
 React.createClass({
@@ -294,17 +304,18 @@ propTypes: {
 ## Other features
 
 ### Class set
-Easily manipulate DOM classes. See [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html).
+Manipulate DOM classes with [classnames](https://www.npmjs.org/package/classnames), previously known as `React.addons.classSet`. See [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html).
 
 ```js
+var cx = require('classnames');
+
 render: function() {
-  var cx = React.addons.classSet;
   var classes = cx({
     'message': true,
     'message-important': this.props.isImportant,
     'message-read': this.props.isRead
   });
-  // same final string, but much cleaner
+
   return <div className={classes}>Great Scott!</div>;
 }
 ```
@@ -315,8 +326,8 @@ See [Transferring props](http://facebook.github.io/react/docs/transferring-props
 ```html
 <VideoPlayer src="video.mp4" />
 ```
-
 {:.light}
+
 ```js
 var VideoPlayer = React.createClass({
   render: function() {
@@ -327,14 +338,19 @@ var VideoPlayer = React.createClass({
 ```
 
 ### Mixins
+See [addons](https://facebook.github.io/react/docs/addons.html) for some built-in mixins.
 
-    var TickTock = React.createClass({
-      mixins: [SetIntervalMixin]
-    }
+```js
+var SetIntervalMixin = {
+  componentWillMount: function() { .. }
+}
+```
 
-    SetIntervalMixin = {
-      componentWillMount: function() { .. }
-    }
+```js
+var TickTock = React.createClass({
+  mixins: [SetIntervalMixin]
+}
+```
 
 ## [Top level API](https://facebook.github.io/react/docs/top-level-api.html)
 

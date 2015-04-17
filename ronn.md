@@ -2,7 +2,7 @@
 title: Ronn
 ---
 
-Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html), [rtomayko/ronn](https://github.com/rtomayko/ronn).
+Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](https://github.com/rtomayko/ronn).
 {:.center.brief-intro}
 
 ```sh
@@ -16,25 +16,6 @@ ronn -r foo.1.md   # creates foo.1 (--roff)
 ronn -m foo.1.md   # view as manpage
 ```
 {:.light}
-
-### Other options
-
-```sh
---pipe                       # write to stdout
---server, -S                 # serve in http://localhost:1207
-
---html, -5                   # default
---fragment, -f               # html without header/title/footer
-
---style toc,80c              # toc (table of contents)
-                             # 80c (use 80c instead of 100c)
-                             # print (include print stylesheet)
-                             # dark
-
---manual="MY MANUAL"         # shown on top-center
---organization="RONN 0.7.0"  # shown on bottom-left
---date="YYYY-MM-DD"          # shown on bottom-center
-```
 
 ## Basic template
     
@@ -63,6 +44,11 @@ Indent examples with 4 spaces.
     $ ls
     $ ls -la
 
+## COPYRIGHT
+
+**PROJECTNAME** is copyright (c) 2015, Rico Sta. Cruz. Released under the MIT
+license.
+
 ## SEE ALSO
 
 ronn-format(7), ronn(1)
@@ -80,12 +66,12 @@ Underline: <variable> _emphasis_ *emphasis*
 ```
 Manual references: sh(1) markdown(7)
 Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
+URL: [URL link](http://github.com/rstacruz)
 ```
     
 ## Frequently-used sections
     
 ```markdown
-## NAME
 ## SYNOPSIS
 ## DESCRIPTION
 ## OPTIONS
@@ -101,6 +87,25 @@ Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 ## SEE ALSO
 ```
 
+## Other CLI options
+
+```sh
+--pipe                       # write to stdout
+--server, -S                 # serve in http://localhost:1207
+
+--html, -5                   # default
+--fragment, -f               # html without header/title/footer
+
+--style=toc,80c              # toc (table of contents)
+                             # 80c (use 80c instead of 100c)
+                             # print (include print stylesheet)
+                             # dark
+
+--manual="MY MANUAL"         # shown on top-center
+--organization="RONN 0.7.0"  # shown on bottom-left
+--date="YYYY-MM-DD"          # shown on bottom-center
+```
+
 ## Sections
 See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.com).
 
@@ -114,3 +119,25 @@ See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.
 | `6`     | Games                                         |
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |
+
+## JavaScript version
+See [marked-man](https://github.com/kapouer/marked-man).
+
+```sh
+npm install -g marked-man
+marked-man foo.1.md > foo.1
+```
+{:.light}
+
+### Differences
+
+* No definition lists
+* Can't use `<br>`
+
+### Mantastic
+
+[mantastic](http://mantastic.herokuapp.com/) is a hosted service.
+
+```
+curl -F page=@mymanpage.md http://mantastic.herokuapp.com
+```

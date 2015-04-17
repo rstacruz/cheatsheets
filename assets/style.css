@@ -106,8 +106,8 @@
 
 .greycode td:first-child code,
 .greycode th:first-child code {
-  background: #f3f3f3;
-  padding: 5px 5px 4px 5px;
+  background: white;
+  padding: 6px 8px 5px 8px;
   border-radius: 3px;
 }
 
@@ -124,12 +124,15 @@
 
 @media (min-width: 768px) {
   table.greycode {
-    width: calc(620px + 100px);
-    margin-left: -50px;
     background: #fcfcfc;
     border-radius: 4px;
     border-top: 0;
     border-bottom: solid 1px #c7d7ee;
+  }
+
+  table.greycode:not(.wide) {
+    width: calc(620px + 100px);
+    margin-left: -50px;
   }
 
   table.greycode thead:first-child > tr:first-child > th,

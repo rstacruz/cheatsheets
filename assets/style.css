@@ -95,7 +95,7 @@
 }
 
 pre {
-  background: #fcfcfc;
+  background: #fafafa;
   border-bottom: solid 1px #eef3fa;
 }
 
@@ -128,13 +128,17 @@ pre {
     background: #fcfcfc;
     border-radius: 4px;
     border-top: 0;
-    border-bottom: solid 1px #eef3fa;
+    border-bottom: solid 1px #c7d7ee;
   }
 
   table.greycode thead:first-child > tr:first-child > th,
   table.greycode thead:first-child > tr:first-child > td,
   table.greycode tbody:first-child > tr:first-child > th,
-  table.greycode tbody:first-child > tr:first-child > td {
+  table.greycode tbody:first-child > tr:first-child > td,
+  table.greycode.no-head thead:nth-child(2) > tr:first-child > th,
+  table.greycode.no-head thead:nth-child(2) > tr:first-child > td,
+  table.greycode.no-head tbody:nth-child(2) > tr:first-child > th,
+  table.greycode.no-head tbody:nth-child(2) > tr:first-child > td {
     border-top: 0;
   }
 

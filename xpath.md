@@ -58,6 +58,14 @@ layout: default
 | `h1 ~ #id` | `//h1/following-sibling::[@id="id"]` |                  |
 {:.greycode.no-head}
 
+
+### Negation
+
+| CSS            | Xpath            | ?                       |
+| ---            | ---              | --:                     |
+| `h1:not([id])` | `//h1[not(@id)]` | [?](#boolean-functions) |
+{:.greycode.no-head}
+
 ### jQuery
 
 | jQuery                       | Xpath                            | ?                |
@@ -78,6 +86,8 @@ layout: default
 | Arithmetic              | `//product[@price > 2.50]`        |                 |
 | Has children            | `//ul[*]`                         |                 |
 | Has children (specific) | `//ul[li]`                        |                 |
+| Or logic                | `//a[@name or @href]`             | [?](#operators) |
+| Union (joins results)   | `//a | //div`                     | [?](#unions)    |
 {:.greycode.no-head}
 
 ### Class check
@@ -325,6 +335,13 @@ There are other axes you can use.
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
 {:.greycode}
+
+### Unions
+Use `|` to join two expressions.
+
+```sh
+//a | //span
+```
 
 More examples
 -------------

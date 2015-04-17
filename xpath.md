@@ -127,21 +127,6 @@ You can use nodes inside predicates.
   //ul[li]
 ```
 
-### Nesting predicates
-This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
-
-```
-//section[//h1[@id='hi']]
-```
-
-### Predicate order
-Order is significant, these two are different.
-
-```sh
-a[1][@href='/']
-a[@href='/'][1]
-```
-
 ### Indexing
 Use `[]` with a number, or `last()` or `position()`.
 
@@ -152,42 +137,67 @@ Use `[]` with a number, or `last()` or `position()`.
 //ol/li[position()=2]   # ...same as above
 ```
 
+### Predicate order
+Order is significant, these two are different.
+
+```sh
+a[1][@href='/']
+a[@href='/'][1]
+```
+
+### Nesting predicates
+This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
+
+```
+//section[//h1[@id='hi']]
+```
+
+
 Functions
 ---------
 
 ### Node functions
 
-    text()                     # button[text()="Submit"]
-    name()                     # *[name()='div']
-    lang(str)
-    namespace-uri()
+```sh
+name()                     # //[starts-with(name(), 'h')]
+text()                     # //button[text()="Submit"]
+                           # //button/text()
+lang(str)
+namespace-uri()
 
-    count()                    # table[count(tr)=1]
-    position()                 # ol/li[position()=2]
+count()                    # //table[count(tr)=1]
+position()                 # //ol/li[position()=2]
+```
 
 ### Boolean functions
 
-    not(expr)                  # button[not(text()="Submit")]
+```sh
+not(expr)                  # button[not(text()="Submit")]
+```
 
 ### String functions
 
-    contains()                 # font[contains(@class,"head")]
-    starts-with()              # font[starts-with(@class,"head")]
-    ends-with()                # font[ends-with(@class,"head")]
+```sh
+contains()                 # font[contains(@class,"head")]
+starts-with()              # font[starts-with(@class,"head")]
+ends-with()                # font[ends-with(@class,"head")]
 
-    concat(x,y)
-    substring(str, start, len)
-    substring-before("01/02", "/")  #=> 01
-    substring-after("01/02", "/")   #=> 02
-    translate()
-    normalize-space()
-    string-length()
+concat(x,y)
+substring(str, start, len)
+substring-before("01/02", "/")  #=> 01
+substring-after("01/02", "/")   #=> 02
+translate()
+normalize-space()
+string-length()
+```
 
 ### Type conversion
 
-    string()
-    number()
-    boolean()
+```sh
+string()
+number()
+boolean()
+```
 
 Axes
 ----

@@ -3,14 +3,30 @@ title: Vim script
 hljs_languages: [vim]
 ---
 
+### Start hacking.
+You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let` and `:echo`.
+
 ```vim
 let name = "John"
 echo "Hello, " . name
 ```
 {:.light}
 
-### Start hacking.
-You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let` and `:echo`.
+### Learn by example
+[Here](http://www.vimbits.com/bits/46)'s another example with [functions](#functions), [variables](#variables) and [mapping](#mapping).
+
+```vim
+function! SuperTab()
+  let l:part = strpart(getline('.'),col('.')-2,1)
+  if (l:part=~'^\W\?$')
+      return "\<Tab>"
+  else
+      return "\<C-n>"
+  endif
+endfunction
+
+imap <Tab> <C-R>=SuperTab()<CR>
+```
 
 Variables
 ---------

@@ -29,7 +29,7 @@ layout: default
 | `:target`                                                  |     |     |     | 9 ✓ | ✓  |
 | `::selection`                                              |     |     |     | 9 ✓ | ✓  |
 | `:root`                                                    |     |     |     | 9 ✓ | ✓  |
-{:.wide.greycode}
+{:.wide.greycode.ie}
 
 ## CSS properties
 
@@ -62,7 +62,7 @@ layout: default
 | `text-shadow` — [polyfill][text-shadow]                    |     |     |     |     | 10 ✓ | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | `border-image`                                             |     |     |     |     |      | 11 ✓ |
-{:.wide.greycode}
+{:.wide.greycode.ie}
 
 ## Features
 
@@ -88,7 +88,13 @@ layout: default
 | JS: Web sockets                                            |     |     |     |     | 10 ✓ | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | JS: Fullscreen mode                                        |     |     |     |     |      | 11 ✓ |
-{:.wide.greycode}
+{:.wide.greycode.ie}
+
+<style>
+table.ie {table-layout:fixed;}
+table.ie tr>:not(:first-child) {text-align:right;width: 50px;padding-left:0;}
+table.ie tr>td:not(:first-child) {color: green;font-size:0.9em;}
+</style>
 
 ## Polyfills
 

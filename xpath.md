@@ -254,27 +254,14 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 
 ```sh
 //ul/li                       # $('ul > li')
+//ul/child::li                # $('ul > li') - same
+//ul/descendant-or-self::li   # $('ul li')
 //ul/ancestor-or-self::li     # $('ul').closest('li')
 ```
 {:.light}
 
-### Descendant-or-self axis
-When you use `//` for descendants, this is short for the `descendant-or-self::` axis.
-
-```sh
-# both the same
-  //div//h4
-  //div/descendant-or-self::h4
-```
-
-```sh
-# both the same
-  //ul//[last()]
-  //ul/descendant-or-self::[last()]
-```
-
 ### Child axis
-When axis is not specified, a `name` is short for `child::name`. This is what makes `//a/b/c` work.
+When axis is not specified, a `name` is short for `child::name`. This makes `//a/b/c` work.
 
 ```sh
 # both the same
@@ -295,17 +282,19 @@ When axis is not specified, a `name` is short for `child::name`. This is what ma
   //ul[count(child::li) > 2]
 ```
 
-### Attribute axis
-When you use `@` for attributes, that's short for the `attribute::` axis.
+### Descendant-or-self axis
+When you use `//` for descendants, this is short for the `descendant-or-self::` axis.
 
 ```sh
 # both the same
-  //a/@href
-  //a/attribute::href
+  //div//h4
+  //div/descendant-or-self::h4
+```
 
+```sh
 # both the same
-  //div[@id="box"]
-  //div[attribute::id="box"]
+  //ul//[last()]
+  //ul/descendant-or-self::[last()]
 ```
 
 ### Other axes

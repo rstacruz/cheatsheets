@@ -32,7 +32,7 @@ layout: default
 | `a[href~='://']`             | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                         |
 {:.greycode.no-head.xp}
 
-### Attribute selectors
+### Order selectors
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |

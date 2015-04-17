@@ -11,9 +11,10 @@ gem install ronn
 {:.light}
 
 ```sh
-ronn foo.1.md      # creates foo.1.html
-ronn -r foo.1.md   # creates foo.1 (--roff)
-ronn -m foo.1.md   # view as manpage
+ronn foo.1.md        # creates foo.1.html
+ronn -r foo.1.md     # creates foo.1 (--roff)
+ronn -r -h foo.1.md  # builds --roff and --html
+ronn -m foo.1.md     # view as manpage
 ```
 {:.light}
 

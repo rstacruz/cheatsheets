@@ -253,9 +253,10 @@ Axes
 Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
 
 ```sh
-//ul/li                       # $('ul > li')
-//ul/child::li                # $('ul > li') - same
-//ul/descendant-or-self::li   # $('ul li')
+//ul/li                       # ul > li
+//ul/child::li                # ul > li (same)
+//ul/following-sibling::li    # ul ~ li
+//ul/descendant-or-self::li   # ul li
 //ul/ancestor-or-self::li     # $('ul').closest('li')
 ```
 {:.light}

@@ -108,8 +108,10 @@ Methods and properties you can override. See [component specs](http://facebook.g
 | Method | What |
 | ---- | ---- |
 | [`render()`](http://facebook.github.io/react/docs/component-specs.html#render) | |
+| ---- | ---- |
 | [`getInitialState()`](http://facebook.github.io/react/docs/component-specs.html#getinitialstate) | |
 | [`getDefaultProps()`](http://facebook.github.io/react/docs/component-specs.html#getdefaultprops) |  |
+| ---- | ---- |
 | [`mixins: [ ... ]`](http://facebook.github.io/react/docs/component-specs.html#mixins) | Mixins |
 | [`propTypes: { ... }`](http://facebook.github.io/react/docs/component-specs.html#proptypes) | Validation ... [more](#property-validation) |
 | [`statics: { ... }`](http://facebook.github.io/react/docs/component-specs.html#statics) | Static methods |

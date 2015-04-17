@@ -24,7 +24,7 @@ layout: default
 ### Attribute selectors
 
 | CSS                    | Xpath                               | ?                      |
-| ---                    | ---                                 |                        |
+| ---                    | ---                                 | --:                    |
 | `#id`                  | `//[@id="id"]`                      | [?](#predicates)       |
 | `.class`               | `//[@class="class"]` *...see below* |                        |
 | `input[type="submit"]` | `//input[@type="submit"]`           |                        |
@@ -36,7 +36,7 @@ layout: default
 ### Order selectors
 
 | CSS                    | Xpath                                | ?                      |
-| ---                    | ---                                  | --                     |
+| ---                    | ---                                  | --:                    |
 | `ul > li:first-child`  | `//ul/li[1]`                         | [?](#indexing)         |
 | `ul > li:nth-child(2)` | `//ul/li[2]`                         |                        |
 | `ul > li:last-child`   | `//ul/li[last()]`                    |                        |
@@ -50,7 +50,7 @@ layout: default
 ### jQuery
 
 | jQuery                       | Xpath                            | ?                |
-| ------                       | ---                              | --               |
+| ------                       | ---                              | --:              |
 | `$('ul > li').parent()`      | `//ul/li/..`                     | [?](#other-axes) |
 | `$('li').closest('section')` | `//li/ancestor-or-self::section` |                  |
 | ----                         | ----                             |                  |

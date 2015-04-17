@@ -40,10 +40,14 @@ Promise.props({
 ### Chain of promises
 
 ```js
-Promise.try(function () {
-  if (err) throw new Error("boo");
-  return result;
-});
+function getPhotos() {
+  return Promise.try(function () {
+    if (err) throw new Error("boo");
+    return result;
+  });
+}
+
+getPhotos().then(...)
 ```
 
 ### Working with node-style functions

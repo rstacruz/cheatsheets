@@ -127,12 +127,12 @@ See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.
 
 ## Using ronn with npm
 
-Place manual files in `man/xxx.1.md`, then:
+Place manual files in `man/xxx.1.md`, then in package.json:
 
 ```js
 "scripts": {
   "prepublish": "npm run build-man",
-  "build-man": "ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\""
+  "build-man": "if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\"; fi"
 },
 "directories": {
   "man": "man"

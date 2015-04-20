@@ -3,7 +3,7 @@ title: Unicode symbols
 layout: default
 ---
 
-    ✈'  \u2708 airplane
+    ✈   \u2708 airplane
     ❄   \u2744 snowflake
     ⚑   \u2691 flag
     ☯   \u262f yinyang

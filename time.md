@@ -11,8 +11,8 @@ layout: default
       %b %e %a      - Jan 5 Sun
 
     Time presets
-      %H:%M  - 23:05
-      %I:%Mp - 11:05PM
+      %H:%M    - 23:05
+      %I:%M%p - 11:05PM
 
     Weekday
       %a - Sun

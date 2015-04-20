@@ -49,6 +49,9 @@ describe "home page" do
     end
 
     post "/login", username: "jdoe", password: "secret"
+
+    expect(response.status).to eql 200
+
     # capybara
     expect(page).to have_selector(".header .username", :text => "jdoe")
   end

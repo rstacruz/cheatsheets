@@ -16,28 +16,46 @@ Use `help` to preview it, and `text` to edit it.
 :set ft=text
 ```
 
+### Example
+
+```nohighlight
+*ack.txt*   Plugin that integrates ack with Vim
+
+==============================================================================
+USAGE INSTRUCTIONS                                                 *ack-usage*
+
+:Ack[!] {pattern}                                                       *:Ack*
+
+    Search recursively for {pattern}. See |:AckAdd|.
+    Also see http://beyondgrep.com for more information.
+```
+
+## Syntax reference
+
+| Code                 | Description                         | Example |
+| -----                | -----                               | -----:  |
+| `*tags*`             | Tags                                |
+| `|link-to-tags|`     | Links to tags | `|:command|`    |
+| `'vimoption'`        | Vim option | `'textwidth'`      |
+| -----                | -----                               |
+| `{code-text}`        | Code text | `{Visual}gf`        |
+| `<code-text>`        | Code text | `<PageDown>`        |
+| `` `code-text` ``    | Code text | `` `set fo=want` `` |
+| `CTRL-X`             | Code text                           |
+| -----                | -----                               |
+| `INTRODUCTION *tag*` | Section header                      |
+| `Column heading~`    | Highlighting                        |
+| `www.url.com`        | Web URL                             |
+| -----                | -----                               |
+| `=====`              | Separator                           |
+| `-----`              | Separator                           |
+{:.greycode}
+
 ### Tags
 
  * Tags are created with asterisks, eg, `*potion-usage*`
  * Links to tags are `|potion-usage|`
  * Press `^]` to jump to a tag
-
-## Syntax reference
-
-| `*tags*`          | Tags                              |
-| `INTRO *tag*`     | Section header                    |
-| `|link-to-tags|`  | Links to tags (eg, `|:command|`)  |
-| `'vimoption'`     | Vim option (eg, `'textwidth'`)    |
-| `{code-text}`     | Code text (eg, `{Visual}gf`)      |
-| `[code-text]`     | Code text (eg, `[xyz]`)           |
-| `<code-text>`     | Code text (eg, `<PageDown>`)      |
-| `` `command` ``   | Code text (eg, `cmd`)             |
-| `CTRL-X`          | Code text                         |
-| `www.url.com`     | Web URL                           |
-| `Column heading~` | Highlighting                      |
-| `=====`           | Separator                         |
-| `-----`           | Separator                         |
-{:.greycode}
 
 ### Code blocks
 Surround with `>` and `<` characters
@@ -98,16 +116,4 @@ vim:tw=78:ts=8:ft=help:norl:
 ```nohighlight
 Author:  Jack Hackness <captain@time.com>         *xyz-author*
 License: Same terms as Vim itself (see |license|)
-```
-
-### Command reference
-
-
-```nohighlight
-:Ack[!] [options] {pattern} [{directory}]                               *:Ack*
-
-    Search recursively in {directory} (which defaults to the current
-    directory) for the {pattern}.  Behaves just like the |:grep| command, but
-    will open the |Quickfix| window for you. If [!] is not given the first
-    occurence is jumped to.
 ```

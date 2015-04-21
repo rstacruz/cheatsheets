@@ -186,3 +186,22 @@ pre.light {
 pre + pre {
   margin-top: -1.7em;
 }
+
+.key-codes code {
+  background: #fdfdff;
+  padding: 3px 8px 3px 8px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  margin: 0 5px;
+}
+
+.key-codes code + code {
+  margin-left: 0;
+}
+
+.key-codes pre code {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
+}

@@ -1,7 +1,13 @@
----function 
+---
 title: vim
 layout: default
 ---
+
+ * [Digraphs](vim-digraphs.html)
+ * [Help text](vim-help.html)
+ * [Vimscript](vimscript.html)
+ * [Vim-unite](vim-unite.html)
+ * [Vim-easyalign](vim-easyalign.html)
 
 Command line
 ------------
@@ -115,6 +121,15 @@ Marks
     `^      # Last position of cursor in insert mode
     `.      # Last change
     ``      # Last jump
+
+Text alignment
+--------------
+
+See `:help formatting`
+
+    :center [width]
+    :right [width]
+    :left
 
 ### Calculator
 

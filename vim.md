@@ -8,6 +8,7 @@ layout: default
  * [Vimscript](vimscript.html)
  * [Vim-unite](vim-unite.html)
  * [Vim-easyalign](vim-easyalign.html)
+ * [Vim-rails](vim-rails.html)
 
 Command line
 ------------

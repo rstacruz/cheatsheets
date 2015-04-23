@@ -1,54 +1,68 @@
 ---
 title: Vim Easyalign
 html_class: key-codes
+hljs_languages: [vim]
 ---
 
-### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-This plugin allows you to align things.
+## Command mode
 
-| `{Visual}` `⏎`  | activate for selection          |
-| `ga` `{motion}` | activate for motion/text object |
-{:.greycode}
+### Align by delimiters
 
-After activating, press a delimiter key. Available delimeters are:<br>
-`<Space>` `=` `:` `.` `,` `&` `#` `|`
-
-## Example
-
-```
-a = foo
-pi = 3.1415
-hello = 'world'
+```vim
+:EasyAlign :       " preset characters (\=:.,&#|)
+:EasyAlign |
+:EasyAlign \       " \ means space
 ```
 
-Press `vip ⏎` or `gaip` to activate via *ip* (inner paragraph). Then press `=`
+### Align by regexp
 
-```
-a     = foo
-pi    = 3.1415
-hello = 'world'
+```vim
+:EasyAlign /[:;]+/
 ```
 
-## Useful delimiters
+### Specify which
 
-### Variable assignments
-`gaip` `=` will align 1st occurence of equal sign
-
-```js
-var one   = 1;
-var three = 3;
+```vim
+:EasyAlign |       " align by 1st `|`
+:EasyAlign 3 |     " align by 3rd `|`
+:EasyAlign * |     " align by all `|`s
 ```
 
-### JSON or YAML
-`gaip` `:` will align 1st occurence of colon
+### Add options
 
-```yaml
-url:      jdbc:mysql://localhost/test
-database: test
+```vim
+:EasyAlign * | l4r1
+
+  l4     " lN - left_margin
+  r1     " rN - right_margin
+         "    spaces to the left/right of `|`
+  ar     " a[lrc] - align
+         "    align left/right/center
+  dr     " d[lrc] - delimiter_align
+         "    alignment of the delimeter itself
 ```
 
-### Markdown tables
-`*|` Align all table delimeters
+### Spaces are optional
+
+```vim
+:EasyAlign * /[;:]+/ l3
+:EasyAlign*/[;:]+/l3
+```
+
+## Examples
+
+### `:EasyAlign = dr` (delimiter_align right)
+
+    apple    = 1
+    banana  += apple
+    cake   ||= banana
+
+### `:EasyAlign :` (for json or yaml)
+
+    url:      jdbc:mysql://localhost/test
+    database: test
+
+### `:EasyAlign *|` (markdown tables)
 
 ```nohighlight
 | `<Enter>` | right align                  |
@@ -56,60 +70,30 @@ database: test
 | `2`       | on 2nd occurence (and so on) |
 ```
 
-### Ruby or Python comments
-`#` Align comments
+Interactive mode
+----------------
 
-```
-let x = true     # one
-let y = false    # two
-let z = "abcdef" # three
-```
+| `{Visual}` `⏎`  | activate for selection          |
+| `ga` `{motion}` | activate for motion/text object |
+{:.greycode}
 
-## Modifiers
+Then press options (if available), then a delimiter.
 
-| `1`  | on 1st occurence (default)   |
-| `2`  | on 2nd occurence             |
-| `3`  | on 3rd occurence (and so on) |
-| `*`  | on all occurences            |
-| `-`  | on last occurence            |
-| `-2` | on 2nd to the last occurence |
+### Interactive mode options
 
-You may type modifiers before a delimiter. Example: `gaip` `*|` will align all `|` delimiters.
-
-## Alignment
-
-| `⏎`  | change alignment align |
-
-**Example:** `gaip` `⏎` `=` right aligns whatever is before the first delimeter (equal sign).
-
-```
-express = require('express')
-  xtend = require('xtend')
-    pip = require('pip')
-```
-
-**Example:** `gaip` `⏎` `2|` right aligns the 1st Markdown table column (ie, before the 2nd delimiter).
-
-```
-|     apple | $ 20 |
-|    orange | $ 42 |
-| pineapple | $ 11 |
-```
-
-## Margins
-
+| `⏎`              | Set `alignment`                                  |
 | `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimeter) |
 | `<ctrl-r>` `4 ⏎` | Set `right_margin`                               |
 | `↓`              | no margin                                        |
+{:.greycode}
 
-**Example**: `gaip` `<ctrl-l>` `8⏎` `=` puts 8 spaces before the equal sign
+### Example
 
-```
-var x         = "one"
-var xyz       = "two"
-```
+ * `gaip` `<ctrl-l>` `8⏎` `=` - puts 8 spaces before the equal sign
 
-## See also
+Also see
+--------
 
+* [vim-easy-align](https://github.com/junegunn/vim-easy-align)
 * [Examples](https://github.com/junegunn/vim-easy-align#examples)
 * [Alignment options](https://github.com/junegunn/vim-easy-align#alignment-options)

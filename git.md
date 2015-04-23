@@ -28,7 +28,8 @@ layout: default
     # delete remote branch
       git push origin :$branchname
 
-## Submodules
+Submodules
+----------
 
     # Import .gitmodules
       git submodule init
@@ -40,7 +41,39 @@ layout: default
     # (Use when you changed remotes in submodules)
       git submodule sync
 
-## Cherry pick
+Diff
+----
+
+### Diff with stats
+
+    git diff --stat
+    app/a.txt    | 2 +-
+    app/b.txt    | 8 ++----
+    2 files changed, 10 insertions(+), 84 deletions(-)
+
+### Just filenames
+
+    git diff --summary
+
+Log options
+-----------
+
+    --oneline
+      e11e9f9 Commit message here
+
+    --decorate
+      shows "(origin/master)"
+
+    --graph
+      shows graph lines
+
+    --date=relative
+      "2 hours ago"
+
+Misc
+----
+
+### Cherry pick
 
     git rebase 76acada^
 

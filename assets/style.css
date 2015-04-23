@@ -205,3 +205,8 @@ pre + pre {
   box-shadow: none;
   margin: 0;
 }
+
+h3 + pre,
+h3 + table {
+  margin-top: -1em;
+}

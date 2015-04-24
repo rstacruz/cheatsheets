@@ -10,39 +10,18 @@ layout: default
     test/factories/*.rb
     spec/factories/*.rb
 
-### Defining stuff
-
-    FactoryGirl.define do
-      factory ...
-    end
-
 ### Factories
 
-    # This will guess the User class
-    factory :user do
-      first_name "John"
-      last_name  { %w[Doe Smith Doyle].shuffle }
-      admin false
+    FactoryGirl.define do
+      factory :user do
+        first_name "John"
+        last_name  "Doe"
+        birthdate  { 21.years.ago }
+        admin false
 
-      # Sequences
-      sequence(:username) { |n| "user#{n}" }
-
-      # Associations
-      association :author
-      association :author, factory: user, last_name: "Ho"
-      author
-
-      # Traits
-      trait :admin do
-        admin true
+        profile   # assuming there's a factory :profile
       end
-
-      after :create do |user, evaluator| ... end
-      after :build
     end
-
-    factory :user, aliases: [:author, :commenter] do ... end
-    factory :admin_user, parent: :user do .. end
 
 ### Using
 
@@ -57,4 +36,54 @@ layout: default
 
     create_list(:user, 3)
     build_list(:user, 3)
+
+### Associations
+
+    factory :post do
+      after :create do |post|
+        create :theme, post: post             # has_one
+        create_list :comment, 3, post: post   # has_many
+      end
+    end
+
+### Ignores
+
+    factory :user do
+      ignore do
+        likes 30
+      end
+
+      after :create do |user, options|
+        create_list :like, options.likes, user: user
+      end
+    end
+
+    create(:user, likes: 10)
+
+### Traits
+
+    factory :user do
+      trait :admin do
+        admin true
+      end
+    end
+
+    create :user, :admin
+
+### Etc
+
+      # Sequences
+      sequence(:username) { |n| "user#{n}" }
+
+      # Associations
+      association :author
+      association :author, factory: user, last_name: "Ho"
+      author
+
+      after :create do |user, evaluator| ... end
+      after :build
+    end
+
+    factory :user, aliases: [:author, :commenter] do ... end
+    factory :admin_user, parent: :user do .. end
 

@@ -80,5 +80,10 @@ layout: default
 
 ### Sandbox
 
-    beforeEach -> global.sinon = require('sinon').sandbox.create()
-    afterEach  -> global.sinon.restore()
+    beforeEach(function() {
+      global.sinon = require('sinon').sandbox.create();
+    });
+
+    afterEach(function() {
+      global.sinon.restore();
+    });

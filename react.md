@@ -34,7 +34,7 @@ var UserProfile = React.createClass({...});
 var Info = React.createClass({
   render() {
     return <div>
-      <UserAvatar  username={this.props.username} />
+      <UserAvatar  username={this.props.avatar} />
       <UserProfile username={this.props.username} />
     </div>;
   }

@@ -17,6 +17,8 @@ end
 # spec/controllers/*.rb
 describe MyController do
   describe "POST update" do
+    render_views #optional
+
     it "works" do
       post :update, { user: { name: "john" } }
 
@@ -27,6 +29,8 @@ describe MyController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
       expect(response).to render_template("index")
+
+      response.status
     end
   end
 end

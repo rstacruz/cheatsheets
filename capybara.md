@@ -65,7 +65,6 @@ should_not doesn't wait for a timeout from the driver
 
 ## Finding
 
-    find
     find_button
     find_by_id
     find_field
@@ -74,47 +73,74 @@ should_not doesn't wait for a timeout from the driver
 
 ## Scoping
 
-    within
+    within '#delivery' do
+      fill_in 'Street', with: 'Hello'
+    end
+
+    within :xpath, '//article'
     within_fieldset
     within_table
     within_frame
     scope_to
 
+    find('#x').fill_in('Street', with: 'Hello')
+    # same as within
+
 ## Scripting
 
-    execute_script
-    evaluate_script
+    execute_script('$("input").trigger('change')')
+    evaluate_script('window.ga')
 
 ## Debugging
 
     save_and_open_page
 
-## Miscellaneous
+## Page
 
-    all
-    body
-    current_url
+    page
+      .all('h3')
+      .body
+      .html
+      .source
+      .current_host
+      .current_path
+      .current_url
+
+## Misc
+   
     drag
     field_labeled
-    source
     wait_until
-    current_path
-
+   
 ## Capybara RSpec matchers
 
+    # all selectors have:
+      text: 'welcome' 
+      visible: true
+      count: 4
+      between: 2..5
+      minimum: 2
+      maximum: 5
+      wait: N # has_text
+
+    expect(page).to have_selector '.blank-state'
+    expect(page).to have_selector 'h1#hola', text: 'Welcome'
     expect(page).to have_button
     expect(page).to have_checked_field
-    expect(page).to have_content '...'
     expect(page).to have_css '...'
     expect(page).to have_field
-    expect(page).to have_link
-    expect(page).to have_select
-    expect(page).to have_selector 'h1', text: 'Welcome'
-    expect(page).to have_table
-    expect(page).to have_text
+    expect(page).to have_link 'Logout',
+      href: logout_path
+    expect(page).to have_select 'Language',
+      selected: 'German'
+      options: ['Engish', 'German']
+      with_options: ['Engish', 'German'] # partial match
+    expect(page).to have_table '#table'
+    expect(page).to have_text 'Hello',
+      type: :visible | :all
+      # alias: have_content
     expect(page).to have_unchecked_field
     expect(page).to have_xpath
 
-    expect(page).to have_selector 'h1', text: 'Welcome'
-
 http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers
+http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers

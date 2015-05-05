@@ -97,3 +97,22 @@ Misc
      Frank Sinatra (5):
          Another commit
          This other commit
+
+## Bisect
+
+    git bisect start
+    git bisect bad    # current version is bad
+
+    git checkout HEAD~8
+    npm test          # see if it's good
+    git bisect good   # current version is good
+
+    git bisect run npm test
+
+    git bisect reset   # abort
+
+### Quicker
+
+    git bisect start HEAD HEAD~10 --   # culprit is among the last test
+    git bisect run make
+    git bisect reset

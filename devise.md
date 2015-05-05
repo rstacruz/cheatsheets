@@ -124,5 +124,8 @@ Routing
 Test helpers
 ------------
 
+    include Devise::TestHelpers
+    https://github.com/plataformatec/devise/blob/1094ba65aac1d37713f2cba71f9edad76b5ca274/lib/devise/test_helpers.rb
+
     sign_in @user
     sign_out @user

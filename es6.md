@@ -121,6 +121,33 @@ gen.next().value  // 1
 gen.next().value  // 2
 ```
 
+### [Classes](http://babeljs.io/docs/learn-es6/#classes)
+Syntactic sugar for prototypes.
+
+```js
+class Circle extends Shape {
+  // ctor
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  // methods
+  getArea() {
+    return Math.PI * 2 * this.radius;
+  }
+
+  // calling super methods
+  expand(n) {
+    return super.expand(n) * Math.PI;
+  }
+
+  // static methods
+  static createFromDiameter(diameter) {
+    return new Circle(diameter / 2);
+  }
+}
+```
+
 <br>
 
 ## Stable in Babel
@@ -188,7 +215,7 @@ greet({ name: "Larry", greeting: "Ahoy" });
 ```
 
 ### [Function arguments](http://babeljs.io/docs/learn-es6/#default-rest-spread)
-Default, rest, spread.
+Default, rest, spread. (iojs: `--harmony-rest-parameters`)
 
 ```js
 // Default arguments
@@ -230,33 +257,6 @@ readFile('text.txt', (err, data) => {
 ```js
 // Short syntax (no `return` without `{}`)
 numbers.map(n => n * 2)
-```
-
-### [Classes](http://babeljs.io/docs/learn-es6/#classes)
-Syntactic sugar for prototypes.
-
-```js
-class Circle extends Shape {
-  // ctor
-  constructor(radius) {
-    this.radius = radius;
-  }
-
-  // methods
-  getArea() {
-    return Math.PI * 2 * this.radius;
-  }
-
-  // calling super methods
-  expand(n) {
-    return super.expand(n) * Math.PI;
-  }
-
-  // static methods
-  static createFromDiameter(diameter) {
-    return new Circle(diameter / 2);
-  }
-}
 ```
 
 ### [For..of iteration](http://babeljs.io/docs/learn-es6/#iterators-for-of)

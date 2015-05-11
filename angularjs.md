@@ -68,7 +68,7 @@ In controller you call with parameter and will use promises to return data from 
       }
     });
 
-In HTML will use <name></name> to render your template <h1>Hello</h1>
+In HTML will use `<name></name>` to render your template `<h1>Hello</h1>`
 
 ### HTTP
 

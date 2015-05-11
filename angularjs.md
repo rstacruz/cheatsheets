@@ -42,6 +42,33 @@ layout: default
       ($scope, $http) ->
     ]
 
+### Service
+
+    App.factory('NameService', function($http){
+      return {
+        get: function(){
+          return $http.get(url);
+        }
+      }
+    });
+
+In controller you call with parameter and will use promises to return data from server.
+
+    App.controller('controllerName', 
+    function(NameService){
+      NameService.get()
+      .then(function(){})
+    })
+
+### Directive
+
+    App.directive('name', function(){
+      return {
+        template: '<h1>Hello</h1>' 
+      }
+    });
+
+In HTML will use <name></name> to render your template <h1>Hello</h1>
 
 ### HTTP
 

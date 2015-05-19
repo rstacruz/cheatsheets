@@ -4,13 +4,17 @@ title: Pry
 layout: default
 ---
 
-### cd / ls
+### cd
 
     > cd Array
 
     > ls
     Array.methods: [] try_convert
     Array#methods: & * + abbrev assoc at ...
+
+    > show-source
+
+### ls
 
     > ls         # All
 
@@ -36,11 +40,15 @@ Commands with `.` are shell commands
 
    pry(main)> .cat hello.txt
 
-### Inspection
+### Code
 
     > show-method Array#select
 
+### Docs
+
+    > ri Array
     > ri Array#each
+
     > cd Gem
     > show-doc try_activate
 
@@ -76,6 +84,12 @@ Finding
     > table User.all
     > view User.all
     > view User.all, fields: %w[id name email]
+
+### Rails
+
+    > show-models
+    > show-routes
+    > show-middleware
 
 ### Reference
 

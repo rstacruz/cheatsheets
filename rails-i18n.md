@@ -76,6 +76,7 @@ en:
   time:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
 ```
 
@@ -90,8 +91,9 @@ l(Date.today)
 en:
   date:
     formats:
-      default: "%Y-%m-%d"
-      short: "%b %d"
+      default: "%Y-%m-%d" # 2015-06-25
+      long: "%B %d, %Y"   # June 25, 2015
+      short: "%b %d"      # Jun 25
 ```
 
 ## ActiveRecord
@@ -293,3 +295,4 @@ I18n.localize date   # aka, I18n.l
  * http://guides.rubyonrails.org/i18n.html
  * http://rails-i18n.org/wiki
  * https://github.com/svenfuchs/i18n
+ * https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml

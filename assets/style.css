@@ -103,12 +103,6 @@
   h2 {
     margin-top: 3em;
   }
-
-  pre {
-    border-right: solid 1px #eef3fa;
-    border-bottom: solid 1px #c7d7ee;
-    border-radius: 4px;
-  }
 }
 
 /*
@@ -179,14 +173,6 @@
   font-style: normal;
 }
 
-pre.light {
-  background: #fdfdff;
-}
-
-pre + pre {
-  margin-top: -1.7em;
-}
-
 .key-codes code {
   background: #fdfdff;
   padding: 3px 8px 3px 8px;
@@ -204,9 +190,4 @@ pre + pre {
   padding: 0;
   box-shadow: none;
   margin: 0;
-}
-
-h3 + pre,
-h3 + table {
-  margin-top: -1em;
 }

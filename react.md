@@ -4,7 +4,7 @@ title: React.js
 
 {%raw%}
 
-Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking.
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
 {:.brief-intro.center}
 
 ```js

@@ -59,7 +59,7 @@ title: Vim digraphs
 ### Triangles
 
 | ▲  | △  | ▼  | ▽  |
-| UT | uT | DT | dT |
+| UT | uT | Dt | dT |
 
 | ▶  | ▷  | ◀  | ◁  |
 | PR | Tr | PL | Tl |

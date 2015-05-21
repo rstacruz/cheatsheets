@@ -6,8 +6,8 @@ html_class: key-codes
 Alternate files
 ---------------
 
-| `:A` |  alternate file |
-| `:R` |  related file   |
+| `:A` |  alternate file (test)          |
+| `:R` |  related file (controller/view) |
 
 ### What it does
 

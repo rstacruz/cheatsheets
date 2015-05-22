@@ -3,6 +3,17 @@ title: Rspec-rails controllers
 layout: default
 ---
 
+### Spec tasks
+
+    rake spec:controllers
+    rake spec:helpers
+    rake spec:lib
+    rake spec:mailers
+    rake spec:models
+    rake spec:requests
+    rake spec:routing
+    rake spec:views
+
 ### Models
 
 ```rb

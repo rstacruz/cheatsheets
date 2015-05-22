@@ -12,18 +12,6 @@ layout: default
     rake spec/models/mymodel_spec.rb
     rake spec/models/mymodel_spec.rb:27
 
-### Other spec tasks
-
-    rake spec:controllers
-    rake spec:helpers
-    rake spec:lib
-    rake spec:mailers
-    rake spec:models
-    rake spec:requests
-    rake spec:routing
-    rake spec:views
-
-
 ### Spec helpers
 
     module UserSpecHelper
@@ -149,3 +137,9 @@ expect { thing.destroy }.to change(Thing, :count).by(-1)
     expect(double).to receive(:msg).at_most(n).times
     expect(double).to receive(:msg).any_number_of_times
 
+## Subjects
+
+    describe CheckingAccount, "with a non-zero balance" do
+      subject(:account) { CheckingAccount.new }
+      it { is_expected.not_to be_overdrawn }
+    end

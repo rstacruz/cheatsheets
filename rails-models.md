@@ -3,11 +3,84 @@ title: Rails Models
 layout: default
 ---
 
-### Generating models
+### [Query methods](http://devdocs.io/rails/activerecord/querymethods#method-i-order)
+
+```rb
+items = Model
+  .where(first_name: "Harvey")
+
+  .order(:title)
+  .order(title: :desc)
+  .order("title DESC")
+
+  .reorder(:title)  # discards other .orders
+  .rewhere(...)
+
+  .limit(2)
+  .offset(1)
+  .uniq
+```
+
+### [FinderMethods](http://devdocs.io/rails/activerecord/findermethods)
+
+```rb
+item = Model.find(id)
+item = Model.find_by_email(email)
+item = Model.where(email: email).first
+
+Model
+  .exists?(5)
+  .exists?(name: "David")
+
+  .first
+  .last
+  .find_nth(4, [offset])
+```
+
+### [Persistence](http://devdocs.io/rails/activerecord/persistence)
+
+```rb
+item.new_record?
+item.persisted?
+item.destroyed?
+
+item.serialize_hash
+
+item.save
+item.save!      # Same as above, but raises an Exception
+
+item.update name: "John"
+item.update!
+
+item.update_column  :name, "John"  # skips validations and callbacks
+item.update_columns  name: "John"
+item.update_columns! name: "John"
+
+item.touch  # updates :updated_at
+item.touch :published_at
+
+item.valid?
+item.invalid?
+
+item.destroy
+item.delete  # skips callbacks
+```
+
+```rb
+Model.create     # Same an #new then #save
+Model.create!    # Same as above, but raises an Exception
+```
+
+### Sorting
+
+
+Generating
+----------
 
     $ rails g model User
 
-### Associations
+Associations
+------------
 
     belongs_to
     has_one
@@ -192,36 +265,12 @@ Validation
 
     record.errors[:name].any?
 
-API
----
+Other API
+---------
 
-    items = Model.find_by_email(email)
-    items = Model.where(first_name: "Harvey")
-
-    item = Model.find(id)
-
-    item.serialize_hash
-    item.new_record?
-
-    item.create     # Same an #new then #save
-    item.create!    # Same as above, but raises an Exception
-
-    item.save
-    item.save!      # Same as above, but raises an Exception
-
-    item.update
-    item.update_attributes
-    item.update_attributes!
-
-    item.valid?
-    item.invalid?
+### Callbacks
 
  * [Guides: callbacks](http://guides.rubyonrails.org/active_record_validations_callbacks.html)
-
-### Sorting
-
-    posts.order(:title)
-    posts.order("title DESC")
 
 ### Mass updates
 

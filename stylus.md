@@ -56,8 +56,8 @@ Multiple args:
 
 ### Color operators
 
-    #888 + 50%    // => #c3c3c3 (darken)
-    #888 - 50%    // => #444 (lighten)
+    #888 + 50%    // => #c3c3c3 (lighten)
+    #888 - 50%    // => #444 (darken)
     #f00 + 50deg  // => #ffd500 (hue)
 
 ### Casting

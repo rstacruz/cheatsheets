@@ -63,7 +63,7 @@ Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
 
 ```js
 render: function () {
-  return <div class={this.props.fullscreen ? 'full' : ''}>
+  return <div className={this.props.fullscreen ? 'full' : ''}>
     Welcome, {this.state.username}
   </div>;
 }

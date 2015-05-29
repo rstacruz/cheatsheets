@@ -23,7 +23,8 @@ var argv = require('yargs')
   .describe('v', 'show version information')
 
   // help text
-  .help('h')
+  .alias('h', 'help')
+  .help('help')
   .usage('Usage: $0 -x [num]')
   .showHelpOnFail(false, "Specify --help for available options")
 ```
@@ -53,7 +54,8 @@ var argv = require('yargs')
   // more help
   .example('...')
   .epilog('copyright 2015')
-  .command('start', start a server')
+  .command('start', 'start a server')
+```
 
 ### Stacking
 

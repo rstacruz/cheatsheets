@@ -6,21 +6,22 @@ title: Vimscript snippets
 
 ### Inspecting the buffer
 
-    getline('.')
+    line('.')      " current line number
+    col('.')
+
+    getline('.')   " current line as a string
     getline(1)
     getline(1, 0)
-    line('.')      " current line number
     search("^$")   " next blank line
 
     getcurpos()   " [bufnum, lnum, col, off, curswant]
-    getpos('.')
+    getpos('.')   " [bufnum, lnum, col, off]
 
     expand('<cword>') " word under cursor
-    expand("%") " current file
+    expand('%') " current file
 
-### Command line
-
-    
+    " syntax stack
+    map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 
 ### Files
 

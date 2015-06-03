@@ -64,12 +64,28 @@ Functions
     getline('.')          " current line as a string
     getline(1)            " get line 1
     getline(1, 5)         " get lines 1-5
-    search('^$')          " next blank line
+    search('^$')          " next blank line, returns line number
+    search('^$','n')      " but dont move cursor
 
     getcurpos()           " [bufnum, lnum, col, off, curswant]
     getpos('.')           " [bufnum, lnum, col, off]
 
     nextnonblank(1)       " next non-blank line after line1
+    prevnonblank()
+
+### Marks
+
+    getpos("'a")          " position of a mark
+    setpos("'a",...)
+
+    getpos("'<")          " position of selection start
+
+### Cursor
+
+    cursor(line,col)      " moves cursor
+    cursor(line,col,off,curswant)
+
+    getcurpos()           " returns [bufnum,line,col,off,curswant]
 
 ### Expand
 
@@ -165,6 +181,11 @@ Functions
 ### Shell
 
     system('ls '.shellescape(expand('%:h')))
+
+### Registers
+
+    getreg('*')
+    getregtype('*')     " v(char), V(line) <ctrl-v>(block)
 
 Executing
 ---------

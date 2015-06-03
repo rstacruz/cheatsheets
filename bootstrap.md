@@ -39,6 +39,10 @@ Max:
     .make-md-column(3)
     .make-lg-column(3)
 
+    .make-sm-column-offset(1)
+    .make-sm-column-push(1)
+    .make-sm-column-pull(1)
+
 ### Utilities
 
     .pull-left
@@ -47,6 +51,14 @@ Max:
     .hidden-{xs,sm,md,lg}
     .visible-{xs,sm,md,lg}
     .visible-{xs,sm,md,lg,print}-{block,inline,inline-block}
+
+    .center-block  /* margin: auto */
+    .clearfix
+    .text-{center,left,right,justify,nowrap}
+    .text-{lowercase,uppercase,capitalize}
+
+    .show
+    .hidden
 
 ### Modal
 
@@ -64,7 +76,6 @@ Max:
             ...
           .modal-footer
             ...
-
 
 ### Modal via ajax (Rails)
 
@@ -93,4 +104,3 @@ Max:
     $(function () {
       $('[data-toogle~="tooltip"]').tooltip();
     });
-

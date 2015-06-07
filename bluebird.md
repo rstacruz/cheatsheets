@@ -96,3 +96,25 @@ See [Promisification](https://github.com/petkaantonov/bluebird/blob/master/API.m
 var readFile = Promise.promisify(fs.readFile);
 var fs = Promise.promisifyAll(require('fs'));
 ```
+
+### Promise-returning methods
+See [Promise.method](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisemethodfunction-fn---function) to allow `return`ing values that will be promise resolutions.
+
+```js
+User.login = Promise.method(function(email, password) {
+  if (!valid)
+    throw new Error("Email not valid");
+
+  return /* promise */;
+});
+```
+
+### Generators
+See [Promise.coroutine](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisecoroutinegeneratorfunction-generatorfunction---function).
+
+```
+User.login = Promise.coroutine(function* (email, password) {
+  let user = yield User.find({email: email}).fetch();
+  return user;
+});
+```

@@ -118,8 +118,9 @@ should_not doesn't wait for a timeout from the driver
 ## Capybara RSpec matchers
 
 ```rb
-# all selectors have...
-  text: 'welcome' 
+# all matchers have...
+  text: 'welcome'
+  text: /Hello/
   visible: true
   count: 4
   between: 2..5

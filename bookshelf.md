@@ -6,6 +6,7 @@ layout: default
 Model
 -----
 
+    # or Bookshelf.Mode.extend({..})
     class Book extends Bookshelf.Model
       tableName: 'books'
 

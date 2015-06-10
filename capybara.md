@@ -125,7 +125,7 @@ should_not doesn't wait for a timeout from the driver
   between: 2..5
   minimum: 2
   maximum: 5
-  wait: N # has_text
+  wait: 10
 
 expect(page).to have_selector '.blank-state'
 expect(page).to have_selector 'h1#hola', text: 'Welcome'

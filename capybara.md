@@ -106,41 +106,46 @@ should_not doesn't wait for a timeout from the driver
       .current_path
       .current_url
 
+## AJAX
+
+    using_wait_time(10) { ... }
+
 ## Misc
    
     drag
     field_labeled
-    wait_until
    
 ## Capybara RSpec matchers
 
-    # all selectors have:
-      text: 'welcome' 
-      visible: true
-      count: 4
-      between: 2..5
-      minimum: 2
-      maximum: 5
-      wait: N # has_text
+```rb
+# all selectors have...
+  text: 'welcome' 
+  visible: true
+  count: 4
+  between: 2..5
+  minimum: 2
+  maximum: 5
+  wait: N # has_text
 
-    expect(page).to have_selector '.blank-state'
-    expect(page).to have_selector 'h1#hola', text: 'Welcome'
-    expect(page).to have_button
-    expect(page).to have_checked_field
-    expect(page).to have_css '...'
-    expect(page).to have_field
-    expect(page).to have_link 'Logout',
-      href: logout_path
-    expect(page).to have_select 'Language',
-      selected: 'German'
-      options: ['Engish', 'German']
-      with_options: ['Engish', 'German'] # partial match
-    expect(page).to have_table '#table'
-    expect(page).to have_text 'Hello',
-      type: :visible | :all
-      # alias: have_content
-    expect(page).to have_unchecked_field
-    expect(page).to have_xpath
+expect(page).to have_selector '.blank-state'
+expect(page).to have_selector 'h1#hola', text: 'Welcome'
+expect(page).to have_button
+expect(page).to have_checked_field
+expect(page).to have_css '...'
+expect(page).to have_field
+expect(page).to have_link 'Logout',
+  href: logout_path
+expect(page).to have_select 'Language',
+  selected: 'German'
+  options: ['Engish', 'German']
+  with_options: ['Engish', 'German'] # partial match
+expect(page).to have_table '#table'
+expect(page).to have_text 'Hello',
+  type: :visible | :all
+  # alias: have_content
+expect(page).to have_unchecked_field
+expect(page).to have_xpath
+```
 
-http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers
-http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers
+- <http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>
+- <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers>

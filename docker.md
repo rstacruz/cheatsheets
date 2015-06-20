@@ -3,94 +3,99 @@ title: docker
 layout: default
 ---
 
-Command line interface
-----------------------
+Manage images
+-------------
 
-Quick install on a server:
+Create an `image` from a Dockerfile:
 
-    $ curl get.docker.io | sudo sh -x
+```yml
+docker build [options] .
+  -t "app/container_name"    # name
+```
 
-To pull from docker's registry:
+Run a command in an `image`:
 
-    $ docker pull "ubuntu"
+```yml
+docker run [options] IMAGE
+  # see `docker create` for options
+```
 
-To build from your own `Dockerfile`:
+Manage containers
+-----------------
 
-    $ docker build -t "app/container_name" .
+Create a `container` from an `image`:
 
-To run:
+```yml
+docker create [options] IMAGE
+  -a, --attach               # attach stdout/err
+  -i, --interactive          # attach stdin (interactive)
+  -t, --tty                  # pseudo-tty
+      --name NAME            # name your image
+  -p, --publish 5000:5000    # port map
+      --expose 5432          # expose a port to linked containers
+  -P, --publish-all          # publish all ports
+      --link container:alias # linking
+  -v, --volume `pwd`:/app    # mount (absolute paths needed)
+  -e, --env NAME=hello       # env vars
+```
 
-    $ docker run "app/container_name" [command and args]
-      -i -t                # Interactive mode + pseudo-TTY
-      -e ENVVAR=value      # Environment vars
-      -p 4444              # Expose a port (??)
-      -d                   # Detached mode
+```
+$ docker create --name app_redis_1 \
+  --expose 6379 \
+  redis:3.0.2
+```
 
-    $ docker run -t "ubuntu" -i bash
+Run in a `container`:
 
-OSX Install
------------
+```yml
+docker exec [options] CONTAINER COMMAND
+  -d, --detach        # run in background
+  -i, --interactive   # stdin
+  -t, --tty           # interactive
+```
 
-Prerequisites:
+```
+$ docker exec app_web_1 tail logs/development.log
+$ docker exec -t -i app_web_1 rails c
+```
 
-  - Install Virtualbox (`brew install virtualbox`)
-  - Install Vagrant (http://vagrantup.com)
-  - Install go (`brew install go`)
+Start/stop a `container`:
 
-Then make the Docker executable (v0.5.1?):
+```yml
+docker start [options] CONTAINER
+  -a, --attach        # attach stdout/err
+  -i, --interactive   # attach stdin
 
-    $ git clone https://github.com/dotcloud/docker.git ~/src/docker
-    $ cd ~/src/docker
-    $ make
-    $ mv ./bin/docker /usr/local/bin/docker
+docker stop [options] CONTAINER
+```
 
-Then run docker:
+Manage `container`s:
 
-    $ cd ~/src/docker
-    $ vagrant up
-
+```
+$ docker ps
+$ docker ps -a
+$ docker kill $ID
+```
 
 Managing
 --------
 
-Manage images:
+Manage `image`s:
 
-    # List images
-    $ docker images
-    REPOSITORY   TAG        ID
-    ubuntu       12.10      b750fe78269d
-    me/myapp     latest     7b2431a8d968
+```sh
+$ docker images
+  REPOSITORY   TAG        ID
+  ubuntu       12.10      b750fe78269d
+  me/myapp     latest     7b2431a8d968
 
-    # Delete an image
-    $ docker rmi b750fe78269d
+$ docker images -a   # also show intermediate
+```
 
-Manage processes:
+Delete `image`s:
 
-    $ docker ps
-    $ docker kill $ID
-    $ docker rmi $ID
-
-Manage containers:
-
-Updating containers
--------------------
-
-    $ docker commit "app/container_name" -m "Change stuff"
-
-More
-----
-
-Start a worker
-
-    # Start a very useful long-running process
-    JOB=$(docker run -d ubuntu /bin/sh -c "while true; do echo Hello world; sleep 1; 
-        done")
-
-    # Collect the output of the job so far
-    docker logs $JOB
-
-    # Kill the job
-    docker kill $JOB
+```yml
+docker rmi b750fe78269d
+```
 
 Resources
 ---------

@@ -16,7 +16,7 @@ You'll need these:
 
 ### Turning on
 
-    $ boot2docker up
+    $ boot2docker start
 
       Waiting for VM to be started...... Started.
       To connect the Docker client to the Docker daemon, please set:

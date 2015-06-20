@@ -8,4 +8,5 @@ build: bundle
 	${bundle} exec jekyll build --safe
 
 bundle:
+	ruby -v
 	${bundle}

@@ -4,6 +4,15 @@ destination: ./_/site
 sass:
   sass_dir: ./_/sass
 
+exclude:
+  - Makefile
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - CNAME
+  - vendor
+  - _deprecated
+
 # Markdown
 highlighter: pygments
 markdown: kramdown

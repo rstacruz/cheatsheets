@@ -97,45 +97,20 @@ expect { thing.approve! }.to change(thing, :status).
 expect { thing.destroy }.to change(Thing, :count).by(-1)
 ```
 
-### Mocking - basic
+### Double
 
-    book.stub(:title) { "The RSpec Book" }
-    book.stub(:title => "The RSpec Book")
-    book.stub(:title).and_return("The RSpec Book")
+```rb
+book = double('book')
+book = instance_double('Book', pages: 250)
+```
 
-    # First arg is a name, it's optional
-    book = double("book", :title => "The RSpec Book")
+### Method stubs
 
-### Mocking - consecutive return values
+```rb
+allow(die).to receive(:roll) { 3 }
+```
 
-    die.stub(:roll).and_return(1,2,3)
-    die.roll # => 1
-    die.roll # => 2
-    die.roll # => 3
-    die.roll # => 3
-    die.roll # => 3
-
-### Expectations
-
-    expect(double).to receive(:msg)
-    expect(double).to receive(:msg).with(no_args())
-    expect(double).to receive(:msg).with(any_args())
-    expect(double).to receive(:msg).with(1, kind_of(Numeric), "b") #2nd argument can any kind of Numeric
-    expect(double).to receive(:msg).with(1, boolean(), "b") #2nd argument can true or false
-    expect(double).to receive(:msg).with(1, /abc/, "b") #2nd argument can be any String matching the submitted Regexp
-    expect(double).to receive(:msg).with(1, anything(), "b") #2nd argument can be anything at all
-    expect(double).to receive(:msg).with(1, ducktype(:abs, :div), "b") #2nd argument can be object that responds to #abs and #div
-
-    expect(double).to receive(:msg).once
-    expect(double).to receive(:msg).twice
-    expect(double).to receive(:msg).exactly(n).times
-    expect(double).to receive(:msg).at_least(:once)
-    expect(double).to receive(:msg).at_least(:twice)
-    expect(double).to receive(:msg).at_least(n).times
-    expect(double).to receive(:msg).at_most(:once)
-    expect(double).to receive(:msg).at_most(:twice)
-    expect(double).to receive(:msg).at_most(n).times
-    expect(double).to receive(:msg).any_number_of_times
+https://relishapp.com/rspec/rspec-mocks/docs
 
 ## Subjects
 

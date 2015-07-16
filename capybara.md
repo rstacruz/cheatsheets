@@ -148,5 +148,16 @@ expect(page).to have_unchecked_field
 expect(page).to have_xpath
 ```
 
+## Page object
+
+```rb
+page.status_code == 200
+page.response_headers
+```
+
+ - <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
+
+## See also
+
 - <http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>
 - <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers>

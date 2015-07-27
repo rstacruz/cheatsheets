@@ -263,7 +263,7 @@ numbers.map(n => n * 2)
 For iterating through generators and arrays.
 
 ```js
-for (var i of iterable) {
+for (let i of iterable) {
   // ...
 }
 ```

@@ -8,7 +8,7 @@ layout: default
 New features you can use on [io.js](http://iojs.org/).
 {:.brief-intro.center.top-space-0}
 
-### [Promises](http://babeljs.io/docs/learn-es6/#promises)
+### [Promises](http://babeljs.io/docs/learn-es2015/#promises)
 For asynchronous programming.
 
 ```js
@@ -24,7 +24,7 @@ Promise.reject(/*...*/)
 Promise.resolve(/*...*/)
 ```
 
-### [Block scoping](http://babeljs.io/docs/learn-es6/#let-const)
+### [Block scoping](http://babeljs.io/docs/learn-es2015/#let-const)
 `let` is the new `var`.
  
 ```js
@@ -42,7 +42,7 @@ function fn () {
 const a = 1;
 ```
 
-### [Backtick strings](http://babeljs.io/docs/learn-es6/#template-strings)
+### [Backtick strings](http://babeljs.io/docs/learn-es2015/#template-strings)
 Templates and multiline strings.
 
 ```js
@@ -59,7 +59,7 @@ world
 ```
 
 ### Other improvements
-New string [methods](http://babeljs.io/docs/learn-es6/#math-number-string-object-apis), [binary and octal](http://babeljs.io/docs/learn-es6/#binary-and-octal-literals) numbers.
+New string [methods](http://babeljs.io/docs/learn-es2015/#math-number-string-object-apis), [binary and octal](http://babeljs.io/docs/learn-es2015/#binary-and-octal-literals) numbers.
 
 ```js
 // New string methods
@@ -74,7 +74,7 @@ var bin = 0b1010010;
 var oct = 0755;
 ```
 
-### [Object literal enhancements](http://babeljs.io/docs/learn-es6/#enhanced-object-literals)
+### [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
 Adds support for getters, setters, methods, shorthand.
 
 ```js
@@ -106,7 +106,7 @@ App = {
 };
 ```
 
-### [Generators](http://babeljs.io/docs/learn-es6/#generators)
+### [Generators](http://babeljs.io/docs/learn-es2015/#generators)
 It's complicated.
 
 ```js
@@ -121,7 +121,7 @@ gen.next().value  // 1
 gen.next().value  // 2
 ```
 
-### [Classes](http://babeljs.io/docs/learn-es6/#classes)
+### [Classes](http://babeljs.io/docs/learn-es2015/#classes)
 Syntactic sugar for prototypes.
 
 ```js
@@ -155,7 +155,7 @@ class Circle extends Shape {
 Available via the [Babel] transpiler.
 {:.brief-intro.center.top-space-0}
 
-### [Module imports](http://babeljs.io/docs/learn-es6/#modules)
+### [Module imports](http://babeljs.io/docs/learn-es2015/#modules)
 `import` is the new `require()`.
 
 ```js
@@ -172,7 +172,7 @@ import { indent } from 'helpers';
 import { indentSpaces as indent } from 'helpers';
 ```
 
-### [Module exports](http://babeljs.io/docs/learn-es6/#modules)
+### [Module exports](http://babeljs.io/docs/learn-es2015/#modules)
 `export` is the new `module.exports =`.
 
 ```js
@@ -189,7 +189,7 @@ export function mymethod () {
 export var pi = 3.14159;
 ```
 
-### [Destructuring](http://babeljs.io/docs/learn-es6/#destructuring)
+### [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
 Supports for matching arrays and objects.
 
 ```js
@@ -214,7 +214,7 @@ function greet({ name, greeting }) {
 greet({ name: "Larry", greeting: "Ahoy" });
 ```
 
-### [Function arguments](http://babeljs.io/docs/learn-es6/#default-rest-spread)
+### [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
 Default, rest, spread. (iojs: `--harmony-rest-parameters`)
 
 ```js
@@ -237,7 +237,7 @@ function fn(x, ...y) {
 fn(...[1,2,3]) // same as fn(1,2,3)
 ```
 
-### [Fat arrows](http://babeljs.io/docs/learn-es6/#arrows)
+### [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)
 Like functions but with `this` preserved.
 
 ```js
@@ -259,7 +259,7 @@ readFile('text.txt', (err, data) => {
 numbers.map(n => n * 2)
 ```
 
-### [For..of iteration](http://babeljs.io/docs/learn-es6/#iterators-for-of)
+### [For..of iteration](http://babeljs.io/docs/learn-es2015/#iterators-for-of)
 For iterating through generators and arrays.
 
 ```js

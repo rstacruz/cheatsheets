@@ -240,6 +240,7 @@ React.createClass({
   propTypes: {
     email:      React.PropTypes.string,
     seats:      React.PropTypes.number,
+    settings:   React.PropTypes.object,
     callback:   React.PropTypes.func,
     isClosed:   React.PropTypes.bool,
     any:        React.PropTYpes.any,

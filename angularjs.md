@@ -45,7 +45,7 @@ layout: default
 
 ### Service
 
-    App.factory('NameService', function($http){
+    App.service('NameService', function($http){
       return {
         get: function(){
           return $http.get(url);

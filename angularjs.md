@@ -11,6 +11,7 @@ layout: default
       <li ng-repeat="phone in phones">
         {{phone.name}}
       </li>
+    </ul>
 
 ### Model (ng-model)
 
@@ -54,7 +55,7 @@ layout: default
 
 In controller you call with parameter and will use promises to return data from server.
 
-    App.controller('controllerName', 
+    App.controller('controllerName',
     function(NameService){
       NameService.get()
       .then(function(){})
@@ -64,7 +65,7 @@ In controller you call with parameter and will use promises to return data from 
 
     App.directive('name', function(){
       return {
-        template: '<h1>Hello</h1>' 
+        template: '<h1>Hello</h1>'
       }
     });
 

@@ -7,10 +7,10 @@ title: Social media images
 | What | Dimensions |
 |:---- | ----------:|
 | Cover photo | 851 x 315 |
-| Display picture | 180 x 180 |
+| Display picture | 168 x 168 ? |
 | Highlighted image | 1200 x 717 (appears 843 x 504) |
-| Share image | 1200 x 900 (appears 851 x 315) | 
-| Share link (og:image) | 1200 x 627 (1.9:1) |
+| Share link (og:image) | 940 x 492 (1.91:1, appears as 470 x 246) |
+| Share link (square) | 1:1, appears as 114 x 114? |
 
 ### Twitter
 

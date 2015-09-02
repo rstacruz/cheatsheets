@@ -233,6 +233,12 @@ or
     while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do; case $1 in
     esac; shift; done
 
+### Reading
+
+    cat x | while read line; do
+      echo $line
+    done
+
 ## Reference
 
 * [Bash-hackers wiki](http://wiki.bash-hackers.org/) (back-hackers.org)

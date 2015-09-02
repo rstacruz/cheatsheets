@@ -243,7 +243,7 @@ React.createClass({
     settings:   React.PropTypes.object,
     callback:   React.PropTypes.func,
     isClosed:   React.PropTypes.bool,
-    any:        React.PropTYpes.any,
+    any:        React.PropTypes.any,
   }
 });
 ```

@@ -12,6 +12,7 @@ layout: default
 | ---                        | ---                         |
 | `brew unlink git`          | Unlink                      |
 | `brew link git`            | Link                        |
+| `brew switch git 2.5.0`    | Change versions             |
 | ---                        | ---                         |
 | `brew list --versions git` | See what versions you have  |
 | `brew info git`            | List versions, caveats, etc |

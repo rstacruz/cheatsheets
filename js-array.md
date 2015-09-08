@@ -47,10 +47,14 @@ layout: default
 
 ### Iterables
 
+    .filter(n => ...) => Array
+
     .find(n => ...)  // es6
     .findIndex(...)  // es6
-    .every(n => ...) // ie9+
-    .some(n => ..)   // ie9+
+
+    .every(n => ...) => Boolean // ie9+
+    .some(n => ..) => Boolean   // ie9+
+
     .map(n => ...)   // ie9+
     .reduce((total, n) => total) // ie9+
     .reduceRight(...)

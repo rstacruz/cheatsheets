@@ -116,3 +116,9 @@ Misc
     git bisect start HEAD HEAD~10 --   # culprit is among the last test
     git bisect run make
     git bisect reset
+
+## Searching
+
+    git log --grep="fixes things"  # search in commit messages
+    git log -S"window.alert"       # search in code
+    git log -G"foo.*"              # search in code (regex)

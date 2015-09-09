@@ -22,7 +22,7 @@ Router.run(routes, Router.HashLocation, (Root) => {
 
 ```js
 const routes = (
-  <Routeh handler={Chrome}>
+  <Route handler={Chrome}>
     <Route path='about' handler={About} />
     <Route path='inbox' handler={Inbox} />
     <Route path='messages/:id' handler={Message} />

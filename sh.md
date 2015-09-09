@@ -53,6 +53,12 @@ Loops
         echo "Welcome $i"
     done
 
+### Reading lines
+
+    cat file.txt | while read line; do
+      echo $line
+    done
+
 Functions
 ---------
 
@@ -250,11 +256,11 @@ or
     while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do; case $1 in
     esac; shift; done
 
-### Reading
+### Heredoc
 
-    cat x | while read line; do
-      echo $line
-    done
+    cat <<END
+    hello world
+    END
 
 ## Reference
 

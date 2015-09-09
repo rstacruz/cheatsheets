@@ -30,12 +30,6 @@ layout: default
     ${CC:=gcc}                    # $CC || "gcc"
     ${CC:-gcc}                    # same as above
 
-### Loops
-
-    for i in /etc/rc.*; do
-      echo $i
-    done
-
 ### Reading input
 
     echo -n "Proceed? [y/n]: "
@@ -43,6 +37,21 @@ layout: default
     echo $ans
 
     read -n 1 ans    # Just one character
+
+Loops
+-----
+
+### Basic for loop
+
+    for i in /etc/rc.*; do
+      echo $i
+    done
+
+### Ranges
+
+    for i in {1..5}; do
+        echo "Welcome $i"
+    done
 
 Functions
 ---------
@@ -143,12 +152,20 @@ Arrays
     echo ${#Fruits[3]}          # String length of the Nth element
     echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 
+### Operations
+
     Fruits=("${Fruits[@]}" "Watermelon")    # Push
     Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
     unset Fruits[2]                         # Remove one item
     Fruits=("${Fruits[@]}")                 # Duplicate
     Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
     lines=(`cat "logfile"`)                 # Read from file
+
+### Iteration
+
+    for i in "${arrayName[@]}"; do
+      echo $i
+    done
 
 Misc crap
 ---------

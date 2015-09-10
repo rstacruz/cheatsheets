@@ -14,7 +14,6 @@ title: Git revisions
 | `v1.0.0` | tag |
 | `origin/master` | aka, *refs/remotes/origin/master* |
 | `heads/master` | aka, *refs/heads/master* |
-| `refs/heads/master` | ... |
 {:.shortcuts}
 
 ### Searching back

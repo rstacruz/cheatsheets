@@ -48,13 +48,10 @@ title: Git revisions
 
 ### Ranges illustration
 
-```
- F   - master
- E C - fix
- D B
- |-'
- A
+```no-highlight
+A -+- E - F - G   master
+   '- B - C - D   fix
 
-master..fix   = BC
-master...fix  = BC and FED
+master..fix   = BCD
+master...fix  = BCD and EFG
 ```

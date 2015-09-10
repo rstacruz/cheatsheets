@@ -44,6 +44,7 @@ title: Git revisions
 | `master...fix` | reachable from *fix* and *master*, but not both |
 | `HEAD^@` | parents of *HEAD* |
 | `HEAD^!` | *HEAD*, then excluding parents's ancestors |
+| `HEAD^{:/fix}` | search previous *HEAD*s matching criteria |
 {:.shortcuts}
 
 ### Ranges illustration
@@ -54,4 +55,14 @@ A -+- E - F - G   master
 
 master..fix   = BCD
 master...fix  = BCD and EFG
+```
+
+## Example usages
+
+```sh
+git log master...develop    # inspect differences in branches
+git rebase -i HEAD~3        # rebase last 3 commits
+git reset --hard HEAD@{2}   # undo last operation that changed HEAD
+git show ":/fix bug"        # search commit with regex
+git checkout v2^{}          # checkout the `v2` tag (not `v2` branch)
 ```

@@ -48,7 +48,7 @@ title: Git revisions
 
 ### Ranges illustration
 
-```no-highlight
+```nohighlight
 A -+- E - F - G   master
    '- B - C - D   fix
 

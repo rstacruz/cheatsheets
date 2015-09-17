@@ -113,7 +113,13 @@ Misc
 
 ### Quicker
 
-    git bisect start HEAD HEAD~10 --   # culprit is among the last test
+    git bisect start
+    git bisect bad    # mark commit as bad
+    git checkout HEAD~10
+    git bisect good   # mark commit as good
+    git bisect reset   # stop
+    git bisect start HEAD HEAD~10   # same as bad HEAD, good HEAD~10
+
     git bisect run make
     git bisect reset
 

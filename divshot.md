@@ -2,6 +2,8 @@
 title: Divshot
 ---
 
+## Getting started
+
 ### Install divshot-cli
 
 ```
@@ -9,9 +11,7 @@ $ npm install -g divshot-cli
 $ divshot login
 ```
 
-### Create `divshot.json`
-
-Only `root` is mandatory.
+### Create divshot.json
 
 ```json
 {
@@ -23,7 +23,6 @@ Only `root` is mandatory.
 ### Push your app
 
 ```
-$ divshot config:add name your-app-name-here
 $ divshot push
 ```
 
@@ -61,4 +60,69 @@ See [configuration reference](https://docs.divshot.com/guides/configuration) and
     }
   }
 }
+```
+
+## CLI
+
+```sh
+divshot s   # server
+
+divshot push [staging|production|development]
+divshot pull [staging|production|development]
+divshot purge   # cleans cache
+divshot files
+
+divshot promote development production
+
+divshot open [<env>]
+```
+
+### Config
+Edits `divshot.json`
+
+```
+
+divshot config:add name your-app-name
+divshot config:remove name
+```
+
+### Environment vars
+
+```
+divshot env:add <env> KEY=value
+divshot env:remove <env> KEY
+divshot env:pull <env>
+```
+
+### App manangement
+
+```
+divshot create <appname>
+divshot rename <newname>
+divshot status
+divshot destroy
+```
+
+divshot apps
+divshot account
+```
+
+### Password protect
+
+```sh
+divshot protect <env> <username:password>
+```
+
+## Custom domains
+
+See [custom domains guide](http://docs.divshot.com/guides/domains).
+
+```sh
+divshot domains:add foo.bar.com
+```
+
+In your DNS create a `CNAME`: (no apex domains are supported)
+
+```
+www.    CNAME    yourname.divshot.io
 ```

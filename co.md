@@ -5,10 +5,11 @@ title: co
 [co]: https://github.com/tj/co
 [thunkify]: https://github.com/visionmedia/node-thunkify
 [unyield]: https://github.com/MatthewMueller/unyield
+[promisify]: https://www.npmjs.com/package/promisify
 
 [co] allows you to use generators to manage async flow.
 
-### Generator → promise
+### Running generators
 
 A generator can `yield` a thunk or promise. Using `co()` will immediately invoke the block inside it.
 
@@ -18,7 +19,7 @@ co(function * () {
 }).then(...)
 ```
 
-### Generator() → Promise()
+### Generator → Promise
 
 Use `co.wrap()`. Most of the time, you'll be using co.wrap.
 
@@ -30,7 +31,7 @@ var fn = co.wrap(function * (val) {
 fn().then(...)
 ```
 
-### Generator() → Node callback()
+### Generator → Node callback
 
 Use [unyield]. (You can [thunkify] this later)
 
@@ -41,9 +42,9 @@ var get = unyield(function * () {
 get(function (err, res) { ... })
 ```
 
-### Node callback() → Thunk()
+### Node callback → Thunk
 
-Use [thunkify]. You can yield this.
+Use [thunkify]. You can yield this. You can also use [promisify] too.
 
 ```js
 var readFile = thunkify(fs.readFile)

@@ -5,7 +5,7 @@ title: co
 [co]: https://github.com/tj/co
 [thunkify]: https://github.com/visionmedia/node-thunkify
 [unyield]: https://github.com/MatthewMueller/unyield
-[promisify]: https://www.npmjs.com/package/promisify
+[thenify]: https://www.npmjs.com/package/thenify
 [mz]: https://www.npmjs.com/package/mz
 
 [co] allows you to use generators to manage async flow.
@@ -45,7 +45,7 @@ get(function (err, res) { ... })
 
 ### Node callback → Thunk
 
-Use [thunkify]. You can yield this. You can also use [promisify].func too.
+Use [thunkify]. You can yield this. You can also use [thenify] too.
 
 ```js
 var readFile = thunkify(fs.readFile)
@@ -57,7 +57,7 @@ co(function * () {
 
 ### Using Node.js API
 
-Uze [mz]. You can also either [thunkify] or [promisify].func Node.js API.
+Uze [mz] for async Node.js API. You can also either [thunkify] or [thenify] them instead.
 
 ```js
 var readFile = require('mz/fs').readFile

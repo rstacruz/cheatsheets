@@ -12,7 +12,7 @@ Use https://github.com/settings/tokens/new
 ```sh
 # via ruby
 gem install travis
-travis encrypt -r user/repo GH_TOKEN=[the token here]
+travis encrypt -r user/repo GITHUB_TOKEN=[the token here]
 ```
 
 ### Make it run the deploy script on deploy
@@ -23,7 +23,7 @@ script:
   - bash ./scripts/deploy-to-gh-pages.sh
 env:
   global:
-    - GH_REF: "github.com/user/repo.git"
+    - GITHUB_REPO: "user/repo"
     - secure: "nlnXJW/imf/w..."  # <-- from travis-encrypt
 ```
 
@@ -51,7 +51,7 @@ cd public
 git init
 git add .
 git commit -m "Deploy to Github Pages"
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1
 ```
 
 From Ractive, this might be useful in certain cases:

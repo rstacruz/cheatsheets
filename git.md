@@ -100,28 +100,21 @@ Misc
 
 ## Bisect
 
+    git bisect start HEAD HEAD~6
+    git bisect run npm test
+    git checkout refs/bisect/bad   # this is where it screwed up
+    git bisect reset
+
+### Manual bisection
+
     git bisect start
-    git bisect bad    # current version is bad
+    git bisect good   # current version is good
 
     git checkout HEAD~8
     npm test          # see if it's good
-    git bisect good   # current version is good
+    git bisect bad    # current version is bad
 
-    git bisect run npm test
-
-    git bisect reset   # abort
-
-### Quicker
-
-    git bisect start
-    git bisect bad    # mark commit as bad
-    git checkout HEAD~10
-    git bisect good   # mark commit as good
-    git bisect reset   # stop
-    git bisect start HEAD HEAD~10   # same as bad HEAD, good HEAD~10
-
-    git bisect run make
-    git bisect reset
+    git bisect reset  # abort
 
 ## Searching
 

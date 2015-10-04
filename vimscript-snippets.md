@@ -11,7 +11,7 @@ title: Vimscript snippets
 
 ### Call a function in insert mode
 
-    inoremap X <CR>=script#myfunction()<CR>
+    inoremap X <C-R>=script#myfunction()<CR>
     inoremap <F2> <C-R>=MyVimFunc()?'':''<CR>
 
 ### Checking plugins

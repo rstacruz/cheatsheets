@@ -1,0 +1,48 @@
+.site-header, .social-list, .about-the-site,
+#see-also, #see-also+ul {
+  display: none;
+}
+/*.post-headline.-cheatsheet .prelude span:before {
+  content: 'cheatsheet for'
+}*/
+.post-list {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.post-item {
+  max-width: 100%;
+}
+.post-headline.-cheatsheet .prelude {
+  max-width: 300px;
+}
+.post-headline, p.prelude {
+  margin-top: 0;
+}
+.post-headline.-cheatsheet .prelude {
+  font-size: 0.6em;
+  letter-spacing: 1px;
+}
+.post-headline {
+  margin-bottom: 1.5em;
+}
+.post-headline.-cheatsheet .prelude span {
+  padding: 0.75em 20px;
+  border-bottom: solid 1.5px #111;
+}
+.post-headline.-cheatsheet h1 {
+  font-size: 1.75em;
+  text-shadow: none;
+}
+pre {
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+h3 {
+  margin: 1em 0;
+}
+pre {
+  margin-top: 1.1em;
+  margin-bottom: 1.1em;
+}

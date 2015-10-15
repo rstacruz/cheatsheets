@@ -36,7 +36,7 @@ layout: default
 > show-doc try_activate
 ```
 
-Finding
+### Finding
 
 ```no-highlight
 > find-method each
@@ -96,7 +96,7 @@ Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
 ### Shell integration
 
-`shell-mode` adds dir to the prompt.
+shell-mode adds dir to the prompt.
 
     pry(main)> shell-mode
     pry(main):/home/x $

@@ -10,7 +10,7 @@ layout: default
 > cd Array
 ```
 
-```no-highlight
+```nohighlight
 > ls
   Array.methods: [] try_convert
   Array#methods: & * + abbrev assoc at ...
@@ -22,13 +22,13 @@ layout: default
 
 ### Code
 
-```no-highlight
+```nohighlight
 > show-method Array#select
 ```
 
 ### Docs
 
-```no-highlight
+```nohighlight
 > ri Array
 > ri Array#each
 
@@ -38,7 +38,7 @@ layout: default
 
 ### Finding
 
-```no-highlight
+```nohighlight
 > find-method each
   Array#each
   Array#each_index

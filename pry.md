@@ -99,7 +99,7 @@ shell-mode adds dir to the prompt.
 
 Commands with `.` are shell commands.
 
-   pry(main)> .cat hello.txt
+    pry(main)> .cat hello.txt
 
 ## hirb
 Add the [hirb](https://rubygems.org/gems/hirb) gem.

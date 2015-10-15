@@ -6,13 +6,78 @@ layout: default
 
 ### cd
 
-    > cd Array
+```
+> cd Array
+```
 
-    > ls
-    Array.methods: [] try_convert
-    Array#methods: & * + abbrev assoc at ...
+```no-highlight
+> ls
+  Array.methods: [] try_convert
+  Array#methods: & * + abbrev assoc at ...
+```
 
-    > show-source
+```
+> show-source
+```
+
+### Code
+
+```no-highlight
+> show-method Array#select
+```
+
+### Docs
+
+```no-highlight
+> ri Array
+> ri Array#each
+
+> cd Gem
+> show-doc try_activate
+```
+
+Finding
+
+```no-highlight
+> find-method each
+  Array#each
+  Array#each_index
+  Enumerable#each_slice
+  ...
+```
+
+### Editing
+
+    > edit Pry#repl
+
+### Gems
+
+    > gem-cd foo      # Switch to gem's dir
+    > gem-install foo
+    > gem-list
+
+### Misc commands
+
+    > hist          # History
+    > wtf?          # Trace of recent exception
+
+### Rails console
+
+Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
+
+    $ pry -r ./config/environment
+
+### Bonus: hirb
+
+    > table User.all
+    > view User.all
+    > view User.all, fields: %w[id name email]
+
+### Rails
+
+    > show-models
+    > show-routes
+    > show-middleware
 
 ### ls
 
@@ -31,65 +96,14 @@ layout: default
 
 ### Shell integration
 
-shell-mode adds dir to the prompt
+`shell-mode` adds dir to the prompt.
 
     pry(main)> shell-mode
     pry(main):/home/x $
 
-Commands with `.` are shell commands
+Commands with `.` are shell commands.
 
    pry(main)> .cat hello.txt
-
-### Code
-
-    > show-method Array#select
-
-### Docs
-
-    > ri Array
-    > ri Array#each
-
-    > cd Gem
-    > show-doc try_activate
-
-Finding
-
-    > find-method each
-   Array#each
-   Array#each_index
-   Enumerable#each_slice
-   ...
-
-### Editing
-
-    > edit-method Pry#repl
-
-### Gems
-
-    > gem-cd foo      # Switch to gem's dir
-    > gem-install foo
-    > gem-list
-
-### Misc commands
-
-    > hist          # History
-    > wtf?          # Trace of recent exception
-
-### Rails console
-
-   $ pry -r ./config/environment
-
-### Bonus: hirb
-
-    > table User.all
-    > view User.all
-    > view User.all, fields: %w[id name email]
-
-### Rails
-
-    > show-models
-    > show-routes
-    > show-middleware
 
 ### Reference
 

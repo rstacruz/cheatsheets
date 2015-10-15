@@ -61,17 +61,13 @@ layout: default
     > hist          # History
     > wtf?          # Trace of recent exception
 
+## Rails
+
 ### Rails console
 
 Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
     $ pry -r ./config/environment
-
-### Bonus: hirb
-
-    > table User.all
-    > view User.all
-    > view User.all, fields: %w[id name email]
 
 ### Rails
 
@@ -94,7 +90,7 @@ Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
     > ls -G xx   # Grey by regex
 
-### Shell integration
+## Shell integration
 
 shell-mode adds dir to the prompt.
 
@@ -105,7 +101,14 @@ Commands with `.` are shell commands.
 
    pry(main)> .cat hello.txt
 
-### Reference
+## hirb
+Add the [hirb](https://rubygems.org/gems/hirb) gem.
+
+    > table User.all
+    > view User.all
+    > view User.all, fields: %w[id name email]
+
+## Reference
 
  * [Pry](https://github.com/pry/pry)
  * [Hirb](https://github.com/cldwalker/hirb)

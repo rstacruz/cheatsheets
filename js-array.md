@@ -29,6 +29,7 @@ layout: default
     array.concat([X,Y])      //=> [_,_,_,_,_,X,Y]
 
 ### Inserting
+
     // after -- [_,_,REF,NEW,_,_]
     array.splice(array.indexOf(REF)+1, 0, NEW))
 

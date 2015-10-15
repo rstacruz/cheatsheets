@@ -5,27 +5,43 @@ layout: default
 
 ### Node
 
-    language: node_js
-    node_js:
-      - "0.10"
+```yml
+language: node_js
+node_js:
+- '4'
+```
 
- * Provides: 0.10, 0.8, 0.6, 0.11 (latest dev)
- * Defaults install to `npm install`
- * Defaults test to `npm test`
+* Provides: 0.10, 0.8, 0.6, 0.11 (latest dev)
+* Defaults install to `npm install`
+* Defaults test to `npm test`
 
 ### Ruby
 
-    language: ruby
-    rvm:
-      - 2.0.0
-      - 1.9.3
-      - 1.8.7
-      - rbx-19mode
-      - jruby-19mode
-      - jruby-18mode
+```yml
+language: ruby
+rvm:
+- 2.0.0
+- 1.9.3
+- 1.8.7
+- rbx-19mode
+- jruby-19mode
+- jruby-18mode
+```
 
- * * Defaults install to `bundle install`
- * Defaults test to `rake`
+* Defaults install to `bundle install`
+* Defaults test to `rake`
+
+### Build lifecycle
+
+* `before_install`
+* `install`
+* `before_script`
+* `script`
+* `after_success` or `after_failure`
+* `after_script`
+* OPTIONAL `before_deploy`
+* OPTIONAL `deploy`
+* OPTIONAL `after_deploy`
 
 ### Branches
 

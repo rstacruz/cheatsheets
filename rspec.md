@@ -107,7 +107,35 @@ book = instance_double('Book', pages: 250)
 ### Method stubs
 
 ```rb
+allow(die).to receive(:roll)
 allow(die).to receive(:roll) { 3 }
+
+expect(die).to receive(:roll)
+  .with(1)
+  .with(1, true)
+  .with(boolean)
+  .with(anything)
+  .with(any_args)
+  .with(1, any_args)
+  .with(no_args)
+  .with(hash_including(a: 1))
+  .with(hash_excluding(a: 1))
+  .with(array_including(:a, :b))
+  .with(array_excluding(:a, :b))
+  .with(instance_of(Fixnum))
+  .with(kind_of(Numeric))
+  .with(<matcher>)
+
+
+  .once
+  .twice
+  .exactly(n).times
+  .at_least(:once)
+  .at_least(:twice)
+  .at_least(n).times
+  .at_most(:once)
+  .at_most(:twice)
+  .at_most(n).times
 ```
 
 https://relishapp.com/rspec/rspec-mocks/docs

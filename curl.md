@@ -11,6 +11,8 @@ Options:
     -v           # --verbose
     -vv          # Even more verbose
 
+    -I           # --head: headers only
+
 Request:
 
     -X POST          # --request

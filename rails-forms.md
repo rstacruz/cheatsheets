@@ -138,3 +138,13 @@ radio_button("post", "category", "java")
 # <input type="radio" id="post_category_rails" name="post[category]"
 #  value="rails" checked="checked" />
 ```
+
+### Reference
+
+```rb
+select(method, choices = nil, options = {}, html_options = {}, &block)
+  choices == [ ['label', id], ... ]
+
+submit(value=nil, options={})
+```
+

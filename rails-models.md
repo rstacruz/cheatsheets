@@ -7,18 +7,37 @@ layout: default
 
 ```rb
 items = Model
-  .where(first_name: "Harvey")
+  .where(first_name: 'Harvey')
+  .where('id = 3')
+  .where('id = ?', 3)
 
   .order(:title)
   .order(title: :desc)
   .order("title DESC")
 
-  .reorder(:title)  # discards other .orders
-  .rewhere(...)
+  .reorder(:title)  # discards other .order's
+  .rewhere(...)     # discards other .where's
 
   .limit(2)
   .offset(1)
   .uniq
+```
+
+Advanced:
+
+```rb
+  .select(:id)
+  .select([:id, :name])
+
+  .group(:name)   # GROUP BY name
+  .group('name AS grouped_name, age')
+  .having('SUM(price) > 30')  # needs to be chained with .group
+
+  .includes(:user)
+  .includes(user: [:articles])
+
+  .references(:posts)
+  # .where("posts.name = 'foo'").references(:posts)
 ```
 
 ### [FinderMethods](http://devdocs.io/rails/activerecord/findermethods)

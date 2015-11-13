@@ -15,7 +15,7 @@ title: Projectionist
   }
 ```
 
-### Available options
+## Available options
 
 ```js
 {
@@ -34,7 +34,7 @@ title: Projectionist
 }
 ```
 
-### Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
@@ -54,6 +54,6 @@ title: Projectionist
 | `:ProjectDo {cmd}` | run command in root |
 {:.shortcuts}
 
-### Reference
+## Reference
 
 See [vim-projectionist](https://github.com/tpope/vim-projectionist).

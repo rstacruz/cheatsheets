@@ -32,6 +32,7 @@ title: Projectionist
     "make": "node", /* for makeprg */
   }
 }
+```
 
 ### Commands
 

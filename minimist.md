@@ -4,46 +4,43 @@ layout: default
 ---
 
 ```js
-var args = require('minimist')(process.argv.slice(2), {
+var minimist = require('minimist')
+
+var args = minimist(process.argv.slice(2), {
   string: 'lang',
   boolean: 'pager',
-  alias: { h: 'help', v: 'version' }
+  alias: { h: 'help', v: 'version' },
+  default: { lang: 'en' },
+  '--': true,
+  stopEarly: true, /* populate _ with first non-option */
+  unknown: function () { ... } /* invoked on unknown param */
 });
 
 // --lang xml --no-pager -h index.js package.json
 args == {
-  lang: 'xml', pager: false,
-  h: true, help: true,
+  lang: 'xml',
+  pager: false,
+  h: true,
+  help: true,
   _: [ 'index.js', 'package.json' ]
 }
 ```
 
+### Help and version
+
+Use [meow](https://www.npmjs.com/package/meow).
+
 ```js
-if (args.help || args._.length === 0) {
-  var cmd = require('path').basename(process.argv[1]);
-  console.log(
-    require('fs')
-      .readFileSync(__dirname+'/../help.txt','utf-8')
-      .replace(/\$0/g, cmd)
-      .trim());
-  process.exit();
-}
+meow(`
+    Usage:
+        $0 FILES [options]
 
-if (args.version) {
-  console.log(require('../package.json').version);
-  process.exit();
-}
-```
-
-### Help.txt
-
-```
-Usage:
-    $0 FILES [options]
-
-Options:
-    -h, --help         print usage information
-    -v, --version      show version info and exit
+    Options:
+        -h, --help         print usage information
+        -v, --version      show version info and exit
+`, {
+  /* options */
+})
 ```
 
 ### Reference

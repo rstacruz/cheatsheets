@@ -29,3 +29,11 @@ title: Vimscript snippets
 
     " calling hello#method() will load only if autoload()
 
+## Misc
+
+### Version check
+
+    if version < 704
+      echom "requires vim >= 7.4"
+    endif
+

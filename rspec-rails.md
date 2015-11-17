@@ -40,6 +40,9 @@ describe MyController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
       expect(response).to render_template("index")
+      expect(response).to redirect_to '/..'
+
+      expect(assigns :article).to eq article
 
       response.status
     end
@@ -105,6 +108,20 @@ describe EventsHelper do
       # EventsHelper and all of Rails' built-in helpers
       expect(helper.link_to_event).to match /Ruby Kaigi, 27 Aug, 2010/
     end
+  end
+end
+```
+
+### Features
+
+```rb
+# spec/features/*.rb
+feature 'Signing in' do
+  background do
+    User.make email: 'hi@gmail.com'
+  end
+
+  scenario 'Signing in with credentials' do
   end
 end
 ```

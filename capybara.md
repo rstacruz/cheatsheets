@@ -157,6 +157,67 @@ page.response_headers
 
  - <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
 
+## Poltergeist
+
+Use [poltergeist](https://github.com/teampoltergeist/poltergeist) to integrate PhantomJS.
+
+```rb
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector => true)
+end
+Capybara.javascript_driver = :poltergeist
+```
+
+### Blacklist
+
+```rb
+config.before :each, :js do
+  page.driver.browser.url_blacklist = [
+    'fonts.googleapis.com',
+    'use.typekit.net',
+    'f.vimeocdn.com',
+    'player.vimeo.com',
+    'www.googletagmanager.com'
+  ].flat_map { |domain| [ "http://#{domain}", "https://#{domain}" ] }
+end
+```
+
+### Debugging
+
+Enable `inspector: true` and then:
+
+```rb
+page.driver.debug
+```
+
+Pause execution for a while:
+
+```rb
+page.driver.pause
+```
+
+## Selenium
+
+### Accepting confirm() and alert()
+
+```rb
+accept_alert { ... }
+dismiss_confirm { ... }
+accept_prompt(with: 'hi') { ... }
+```
+
+Alternatively:
+
+```rb
+page.driver.browser.switch_to.alert.accept
+```
+
+### Updating session
+
+```rb
+page.set_rack_session(foo: 'bar')
+```
+
 ## See also
 
 - <http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>

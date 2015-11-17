@@ -16,7 +16,7 @@ var Component = React.createClass({
 ```
 
 ```js
-React.render(<Component name="John" />, document.body);
+ReactDOM.render(<Component name="John" />, document.body);
 ```
 {:.light}
 
@@ -90,7 +90,8 @@ These are methods available for `Component` instances. See [Component API](http:
 {:.center}
 
 ```js
-React.findDOMNode(c)  // 0.13+
+ReactDOM.findDOMNode(c)  // 0.14+
+React.findDOMNode(c)  // 0.13
 c.getDOMNode()        // 0.12 below
 ```
 {:.light}
@@ -192,8 +193,8 @@ Allows access to DOM nodes. See [References](http://facebook.github.io/react/doc
 
 ```js
 this.refs.myInput
-React.findDOMNode(this.refs.myInput).focus()
-React.findDOMNode(this.refs.myInput).value
+ReactDOM.findDOMNode(this.refs.myInput).focus()
+ReactDOM.findDOMNode(this.refs.myInput).value
 ```
 
 ### DOM Events
@@ -364,16 +365,16 @@ var TickTock = React.createClass({
 ## [Top level API](https://facebook.github.io/react/docs/top-level-api.html)
 
 ```js
-React.findDOMNode(c) // 0.13+
 React.createClass({ ... })
 
-React.render(<Component />, domnode, [callback])
-React.unmountComponentAtNode(domnode)
-
-React.renderToString(<Component />)
-React.renderToStaticMarkup(<Component />)
-
 React.isValidElement(c)
+
+ReactDOM.findDOMNode(c) // 0.14+
+ReactDOM.render(<Component />, domnode, [callback]) // 0.14+
+ReactDOM.unmountComponentAtNode(domnode) // 0.14+
+
+ReactDOMServer.renderToString(<Component />) // 0.14+
+ReactDOMServer.renderToStaticMarkup(<Component />) // 0.14+
 ```
 
 ## JSX patterns

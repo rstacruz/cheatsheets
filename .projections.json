@@ -1,0 +1,10 @@
+{
+  "*.md": {
+    "type": "cheat",
+    "template": [
+      "---",
+      "title: {basename|capitalize}",
+      "---"
+    ]
+  }
+}

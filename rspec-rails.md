@@ -1,5 +1,5 @@
 ---
-title: Rspec-rails controllers
+title: Rspec-rails
 layout: default
 ---
 

@@ -6,6 +6,7 @@ title: Arel
 
 ```rb
 users = Arel::Table.new(:users)
+users = User.arel_table  # ActiveRecord model
 ```
 
 ### Fields
@@ -50,3 +51,20 @@ users.project(users[:age].sum) # .average .minimum .maximum
 users.project(users[:id].count)
 users.project(users[:id].count.as('user_count'))
 ```
+
+### `order`
+
+```rb
+users.order(users[:name])
+```
+
+### With ActiveRecord
+
+```rb
+User.arel_table
+User.where(id: 1).arel
+```
+
+## Reference
+
+* <http://github.com/rails/arel>

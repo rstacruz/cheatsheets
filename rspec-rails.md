@@ -117,6 +117,8 @@ end
 ```rb
 # spec/features/*.rb
 feature 'Signing in' do
+  given(:something) { "hi" }
+
   background do
     User.make email: 'hi@gmail.com'
   end

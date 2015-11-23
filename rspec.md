@@ -59,7 +59,7 @@ be < 6
 == 5
 equal value
 be_between(1, 10)
-be_close value, tolerance
+be_within(0.05).of value
 
 be value
 satisfy {|arg| ...}

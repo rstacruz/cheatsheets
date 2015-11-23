@@ -1,6 +1,6 @@
 ---
 title: Rails
-layout: default
+category: Ruby
 ---
 
 Helpers

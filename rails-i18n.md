@@ -1,6 +1,6 @@
 ---
 title: Rails i18n
-layout: default
+category: Ruby
 ---
 
 ```rb

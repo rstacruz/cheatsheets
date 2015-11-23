@@ -1,6 +1,6 @@
 ---
 title: Rails migrations
-layout: default
+category: Ruby
 ---
 
 ### Automatically make migrations

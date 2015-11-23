@@ -1,5 +1,6 @@
 ---
 title: React.js
+category: JavaScript
 ---
 
 {%raw%}

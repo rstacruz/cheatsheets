@@ -1,6 +1,6 @@
 ---
 title: Rails gems
-layout: default
+category: Ruby
 ---
 
 ### Rico's preferred rails gems
@@ -22,5 +22,3 @@ Prod:
     gem 'bourbon'
     gem 'neat'
     gem 'turbolinks'
-    gem 'nkss_rails'
-    gem 'jquery-turbolinks'

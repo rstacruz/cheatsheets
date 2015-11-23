@@ -1,6 +1,6 @@
 ---
 title: Rake
-layout: default
+category: Ruby
 ---
 
 ### Basic syntax

@@ -4,6 +4,7 @@
     "template": [
       "---",
       "title: {basename|capitalize}",
+      "category: Ruby",
       "---"
     ]
   }

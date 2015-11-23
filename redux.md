@@ -1,5 +1,6 @@
 ---
 title: Redux
+category: JavaScript
 ---
 
 ### Stores

@@ -1,6 +1,5 @@
 ---
 title: Regexp
-layout: default
 ---
 
     (?P<named_match>...)

@@ -1,6 +1,7 @@
 ---
 title: Rails Controllers
 layout: default
+category: Ruby
 ---
 
 ### Common stuff

@@ -1,6 +1,6 @@
 ---
 title: Rails features
-layout: default
+category: Ruby
 ---
 
 ### [Page caching](https://github.com/rails/actionpack-page_caching)

@@ -1,5 +1,6 @@
 ---
 title: Ansible roles
+category: Ansible
 ---
 
 ### Structure

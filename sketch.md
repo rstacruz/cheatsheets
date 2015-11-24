@@ -1,5 +1,6 @@
 ---
 title: Sketch
+category: Apps
 ---
 
 ### Insert

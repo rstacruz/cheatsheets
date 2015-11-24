@@ -1,3 +1,7 @@
+---
+title: AppleScript
+---
+
 Running
 
     osascript -e "..."

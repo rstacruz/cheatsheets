@@ -1,5 +1,6 @@
 ---
 title: Zombie
+category: JavaScript
 ---
 
 

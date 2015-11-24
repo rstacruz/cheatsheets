@@ -1,5 +1,6 @@
 ---
 title: Ansible
+category: Ansible
 ---
 
 ## Getting started

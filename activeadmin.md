@@ -1,4 +1,5 @@
 title: ActiveAdmin
+category: Ruby
 ---
 
 ### Listing scopes

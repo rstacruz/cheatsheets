@@ -1,5 +1,6 @@
 ---
 title: Superagent
+category: JavaScript
 ---
 
 ### Result

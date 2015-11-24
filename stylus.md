@@ -1,5 +1,6 @@
 ---
 title: Stylus
+category: CSS
 ---
 
 ### Variables

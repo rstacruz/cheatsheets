@@ -1,5 +1,6 @@
 ---
 title: Sass
+category: CSS
 ---
 
 ### Color functions

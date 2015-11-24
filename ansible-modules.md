@@ -1,5 +1,6 @@
 ---
 title: Ansible modules
+category: Ansible
 ---
 
 ### Aptitude

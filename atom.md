@@ -1,5 +1,6 @@
 ---
 title: Atom
+category: Apps
 ---
 
 ### Symbols view

@@ -1,5 +1,6 @@
 ---
 title: Applinks
+category: HTML
 ---
 
 

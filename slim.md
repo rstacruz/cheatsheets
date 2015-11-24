@@ -1,5 +1,6 @@
 ---
 title: Slim
+category: Ruby
 ---
 
 ```slim

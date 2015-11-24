@@ -1,5 +1,6 @@
 ---
 title: Angular.js
+category: JavaScript
 ---
 
     <html ng-app="nameApp">

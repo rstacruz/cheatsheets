@@ -1,5 +1,6 @@
 ---
 title: Ansible examples
+category: Ansible
 ---
 
 ### Examples

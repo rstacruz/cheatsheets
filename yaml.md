@@ -1,5 +1,6 @@
 ---
 title: Yaml
+category: Markup
 ---
 
     Multiline: |

@@ -1,5 +1,6 @@
 ---
 title: Jshint
+category: JavaScript libraries
 ---
 
 ### [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)

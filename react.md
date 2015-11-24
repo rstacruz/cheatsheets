@@ -1,6 +1,6 @@
 ---
 title: React.js
-category: JavaScript
+category: React
 ---
 
 {%raw%}

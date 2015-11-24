@@ -1,5 +1,5 @@
 ---
-title: Package.json
+title: package.json
 category: Node.js
 ---
 

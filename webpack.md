@@ -1,6 +1,6 @@
 ---
 title: Webpack
-category: JavaScript
+category: JavaScript libraries
 ---
 
 ### Config

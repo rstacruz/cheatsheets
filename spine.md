@@ -1,6 +1,6 @@
 ---
 title: Spine
-category: JavaScript
+category: JavaScript libraries
 vim: ft=python
 ---
 

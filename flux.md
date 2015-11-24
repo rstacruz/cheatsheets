@@ -1,6 +1,6 @@
 ---
 title: Flux architecture
-category: JavaScript libraries
+category: React
 ---
 
 ## Architecture

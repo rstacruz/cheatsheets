@@ -1,6 +1,6 @@
 ---
 title: Commander.js
-category: JavaScript
+category: JavaScript libraries
 ---
 
 ### Initialize

@@ -1,6 +1,6 @@
 ---
 title: React-router
-category: JavaScript
+category: React
 ---
 
 ### Basic

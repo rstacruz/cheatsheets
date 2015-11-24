@@ -1,6 +1,6 @@
 ---
 title: Zombie
-category: JavaScript
+category: JavaScript libraries
 ---
 
 

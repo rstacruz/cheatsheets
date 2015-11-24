@@ -68,14 +68,15 @@ item.serialize_hash
 item.save
 item.save!      # Same as above, but raises an Exception
 
-item.update name: "John"
-item.update!
+item.update  name: 'John'  # Saves immediately
+item.update! name: 'John'
 
-item.update_column  :name, "John"  # skips validations and callbacks
-item.update_columns  name: "John"
-item.update_columns! name: "John"
 
-item.touch  # updates :updated_at
+item.update_column  :name, 'John'  # skips validations and callbacks
+item.update_columns  name: 'John'
+item.update_columns! name: 'John'
+
+item.touch                 # updates :updated_at
 item.touch :published_at
 
 item.destroy
@@ -85,6 +86,15 @@ item.delete  # skips callbacks
 ```rb
 Model.create     # Same an #new then #save
 Model.create!    # Same as above, but raises an Exception
+```
+
+### [AttributeAssignment](http://devdocs.io/rails/activerecord/attributeassignment)
+
+```rb
+item.attributes                      # #<Hash>
+
+item.attributes = { name: 'John' }   # Merges attributes in. Doesn't save.
+item.assign_attributes name: 'John'  # Same as above
 ```
 
 ### [Dirty](http://devdocs.io/rails/activerecord/dirty)

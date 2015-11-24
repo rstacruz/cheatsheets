@@ -1,5 +1,6 @@
 ---
 title: rename
+category: CLI
 ---
 
 ### Installation

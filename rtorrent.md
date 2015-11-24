@@ -1,5 +1,6 @@
 ---
 title: Rtorrent
+category: CLI
 ---
 
 ### Global

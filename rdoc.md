@@ -1,6 +1,6 @@
 ---
 title: Rdoc
-category: Ruby
+category: Markup
 ---
 
 ### Basic RDoc format

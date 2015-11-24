@@ -1,5 +1,6 @@
 ---
 title: Promises
+category: JavaScript
 ---
 
 Based on the [Promise API reference][promise] (mozilla.org).

@@ -1,5 +1,6 @@
 ---
-title: Rack-test
+title: rack-test
+category: Ruby libraries
 ---
 
 ```rb

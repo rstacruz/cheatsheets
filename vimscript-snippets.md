@@ -1,5 +1,6 @@
 ---
 title: Vimscript snippets
+category: Vim
 ---
 
 ### Bind function to key and command

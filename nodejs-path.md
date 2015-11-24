@@ -1,5 +1,6 @@
 ---
-title: Node.js - path
+title: path
+category: Node.js
 ---
 
     fs.realpath('/etc/passwd', function(err, path) { /* "/private/etc/passwd" */ 

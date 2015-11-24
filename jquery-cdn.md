@@ -1,5 +1,6 @@
 ---
 title: jQuery CDN
+category: JavaScript
 ---
 
 ### Google jQuery

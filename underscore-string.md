@@ -1,5 +1,6 @@
 ---
 title: Underscore-string
+category: JavaScript
 ---
 
 ### Usage

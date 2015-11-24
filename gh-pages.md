@@ -1,5 +1,6 @@
 ---
 title: GitHub pages
+category: Git
 ---
 
     $ echo "foobar.com" > CNAME

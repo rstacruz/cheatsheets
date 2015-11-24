@@ -1,5 +1,6 @@
 ---
 title: Vim helpfiles
+category: Vim
 ---
 
 ```

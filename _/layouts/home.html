@@ -4,13 +4,20 @@ html_class: home
 {% include head.html %}
 {% include site-header.html %}
 
-<div class='pages-list'>
-  {% for page in site.pages %}
-    <a href="{{base}}{{ page.url }}">
-      <span class='title'>{{ page.title }}</span>
-      <span class='date'>{{ page.url }}</span>
-    </a>
-  {% endfor %}
-</div>
+{% for category in site.category_names %}
+  <div class='pages-header'>
+    <h2>{{ category }}</h2>
+  </div>
+  <div class='pages-list'>
+    {% for page in site.pages %}
+      {% if page.category == category %}
+        <a href="{{base}}{{ page.url }}">
+          <span class='title'>{{ page.title }}</span>
+          <span class='date'>{{ page.url }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endfor %}
 
 {% include foot.html %}

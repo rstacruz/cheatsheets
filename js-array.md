@@ -1,5 +1,6 @@
 ---
 title: JavaScript arrays
+category: JavaScript
 ---
 
 ## JavaScript arrays

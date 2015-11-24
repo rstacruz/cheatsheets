@@ -1,5 +1,6 @@
 ---
 title: Weinre
+category: JavaScript
 ---
 
  * [Weinre](http://people.apache.org/~pmuellr/weinre/)

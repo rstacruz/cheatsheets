@@ -1,5 +1,6 @@
 ---
 title: Vim digraphs
+category: Vim
 ---
 
 ### Typing digraphs in insert mode

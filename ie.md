@@ -1,5 +1,6 @@
 ---
 title: Internet Explorer
+category: HTML
 ---
 
 ## CSS Selectors

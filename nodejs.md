@@ -1,5 +1,6 @@
 ---
 title: Node.js API
+category: Node.js
 ---
 
 ## Globals

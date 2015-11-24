@@ -1,5 +1,6 @@
 ---
 title: Deploy gh-pages via Travis
+category: Git
 ---
 
 Taken from https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db

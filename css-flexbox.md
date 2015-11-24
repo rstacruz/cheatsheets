@@ -1,5 +1,6 @@
 ---
 title: CSS flexbox
+category: CSS
 ---
 
     .container {

@@ -1,5 +1,6 @@
 ---
-title: CSS
+title: CSS background
+category: CSS
 ---
 
 Background

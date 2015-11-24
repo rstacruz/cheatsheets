@@ -1,5 +1,6 @@
 ---
-title: Node.js - fs
+title: fs
+category: Node.js
 ---
 
 ### Reading

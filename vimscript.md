@@ -1,5 +1,6 @@
 ---
 title: Vim script
+category: Vim
 hljs_languages: [vim]
 ---
 

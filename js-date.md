@@ -1,5 +1,6 @@
 ---
 title: JavaScript Date
+category: JavaScript
 ---
 
 ### Constructor

@@ -1,5 +1,6 @@
 ---
 title: Tig
+category: Git
 ---
 
 ### Installing

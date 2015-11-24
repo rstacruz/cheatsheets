@@ -1,5 +1,6 @@
 ---
 title: Gulp
+category: JavaScript
 ---
 
  * gulp-ruby-sass

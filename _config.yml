@@ -26,6 +26,7 @@ defaults:
       path: ""
     values:
       layout: "default"
+      category: "Others"
 
 # Site info
 url: http://ricostacruz.com/cheatsheets
@@ -35,3 +36,16 @@ title: Cheatsheets
 analytics:
   hostname: ricostacruz.com
   id: "UA-20473929-1"
+
+category_names:
+  - Ruby
+  - Ansible
+  - Git
+  - Apps
+  - JavaScript
+  - Node.js
+  - HTML
+  - CSS
+  - Command line
+  - VIM
+  - Others

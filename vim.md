@@ -1,5 +1,6 @@
 ---
 title: vim
+category: Vim
 ---
 
  * [Digraphs](vim-digraphs.html)

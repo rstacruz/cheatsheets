@@ -1,5 +1,6 @@
 ---
 title: Commander.js
+category: JavaScript
 ---
 
 ### Initialize

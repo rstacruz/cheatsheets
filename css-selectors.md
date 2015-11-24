@@ -1,5 +1,6 @@
 ---
 title: CSS selectors
+category: CSS
 ---
 
     [attr="value"]       /*  =   exact */

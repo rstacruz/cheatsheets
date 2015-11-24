@@ -1,5 +1,6 @@
 ---
 title: Curl
+category: Command line
 ---
 
 Options:

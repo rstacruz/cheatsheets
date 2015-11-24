@@ -1,5 +1,6 @@
 ---
 title: Find
+category: Command line
 ---
 
 ### Usage

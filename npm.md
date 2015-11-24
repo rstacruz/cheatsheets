@@ -1,5 +1,6 @@
 ---
 title: npm
+category: JavaScript
 ---
 
     npm install

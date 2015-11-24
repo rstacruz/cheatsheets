@@ -1,5 +1,6 @@
 ---
 title: CSS antialiasing
+category: CSS
 ---
 
     * {

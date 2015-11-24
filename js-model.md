@@ -1,5 +1,6 @@
 ---
 title: Js-Model
+category: JavaScript
 ---
 
     Project = Model "project", ->

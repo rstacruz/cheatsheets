@@ -1,5 +1,6 @@
 ---
 title: Inkscape
+category: Apps
 ---
 
 ### All

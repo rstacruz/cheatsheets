@@ -1,5 +1,6 @@
 ---
 title: Vimscript functions
+category: Vim
 ---
 
 Dictionaries

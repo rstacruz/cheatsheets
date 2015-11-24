@@ -1,5 +1,6 @@
 ---
 title: jscoverage
+category: JavaScript
 ---
 
 Also see [mocha-blanket](mocha-blanket.html).

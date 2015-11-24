@@ -2,6 +2,7 @@
 title: Vim Easyalign
 html_class: key-codes
 hljs_languages: [vim]
+category: Vim
 ---
 
 ## Command mode

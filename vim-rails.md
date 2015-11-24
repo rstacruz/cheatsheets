@@ -1,5 +1,6 @@
 ---
 title: Vim-rails
+category: Vim
 html_class: key-codes
 ---
 

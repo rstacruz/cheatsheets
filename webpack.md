@@ -1,5 +1,6 @@
 ---
 title: Webpack
+category: JavaScript
 ---
 
 ### Config

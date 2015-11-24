@@ -1,5 +1,6 @@
 ---
 title: applicationCache
+category: JavaScript
 ---
 
 ### applicationCache checking

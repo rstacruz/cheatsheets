@@ -1,5 +1,6 @@
 ---
 title: Nopt
+category: JavaScript
 ---
 
 ```js

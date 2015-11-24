@@ -108,6 +108,39 @@ Add the [hirb](https://rubygems.org/gems/hirb) gem.
     > view User.all
     > view User.all, fields: %w[id name email]
 
+## pry-rescue
+Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
+
+```rb
+Pry::rescue {
+  # raise exceptions here
+}
+```
+
+Or run:
+
+```
+bundle exec rescue rspec
+```
+
+Additional commands:
+
+```
+pry(main)> cd-cause
+pry(main)> try-again
+```
+
+## pry-remote
+Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
+
+```rb
+# In your code:
+binding.remote_pry
+
+# In the shell:
+bundle exec pry-remote
+```
+
 ## Reference
 
  * [Pry](https://github.com/pry/pry)

@@ -1,5 +1,6 @@
 ---
 title: Git revisions
+category: Git
 ---
 
 ### Commits

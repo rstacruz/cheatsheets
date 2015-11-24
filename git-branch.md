@@ -1,6 +1,6 @@
 ---
 title: Git branches
-layout: default
+category: Git
 ---
 
     # create a new branch

@@ -1,6 +1,6 @@
 ---
 title: Rspec-rails
-layout: default
+category: Ruby
 ---
 
 ### Spec tasks
@@ -139,4 +139,16 @@ route_to(..)
 be_routable
 have_http_status(500)
 have_http_status(:created)
+```
+
+### Time helpers
+
+```
+travel_to Time.new(2014, 11, 14, 01, 04, 44)
+...
+travel_back
+
+travel_to Time.new(2014, 11, 14, 01, 04, 44) do
+  ...
+end
 ```

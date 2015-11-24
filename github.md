@@ -1,6 +1,6 @@
 ---
 title: GitHub
-layout: default
+category: Git
 ---
 
 ### URLs

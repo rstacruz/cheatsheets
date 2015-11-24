@@ -1,6 +1,6 @@
 ---
 title: RSpec
-layout: default
+category: Ruby
 ---
 
 ### Invoking tests

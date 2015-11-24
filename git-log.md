@@ -1,5 +1,6 @@
 ---
 title: git log
+category: Git
 ---
 
 ### Revision ranges

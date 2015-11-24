@@ -1,7 +1,6 @@
 ---
-
 title: Pry
-layout: default
+category: Ruby
 ---
 
 ### cd

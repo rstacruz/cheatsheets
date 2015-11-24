@@ -1,6 +1,6 @@
 ---
 title: Git tricks
-layout: default
+category: Git
 ---
 
 ## Refs

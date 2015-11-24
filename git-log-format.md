@@ -1,6 +1,6 @@
 ---
 title: Git log format string
-layout: default
+category: Git
 ---
 
     git log --pretty="format: ..."

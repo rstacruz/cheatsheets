@@ -1,6 +1,6 @@
 ---
 title: Git extras
-layout: default
+category: Git
 ---
 
 ### Git-flow

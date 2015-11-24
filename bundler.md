@@ -1,5 +1,6 @@
 ---
 title: Bundler
+category: Ruby
 ---
 
 ### Commands

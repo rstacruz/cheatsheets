@@ -1,5 +1,6 @@
 ---
 title: Heroku
+category: Devops
 ---
 
 ### `create` - Create an app

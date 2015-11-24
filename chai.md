@@ -1,5 +1,6 @@
 ---
 title: Chai.js
+category: JavaScript libraries
 ---
 
 ### Assert

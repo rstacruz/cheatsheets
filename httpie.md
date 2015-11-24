@@ -1,5 +1,6 @@
 ---
 title: httpie
+category: CLI
 ---
 
     $ http POST example.com/posts/3 \

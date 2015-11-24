@@ -1,5 +1,6 @@
 ---
-title: Flux
+title: Flux architecture
+category: JavaScript libraries
 ---
 
 ## Architecture

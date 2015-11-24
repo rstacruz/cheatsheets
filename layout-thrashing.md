@@ -1,5 +1,6 @@
 ---
 title: Layout thrashing
+category: HTML
 ---
 
 ### Things that cause invalidation

@@ -1,5 +1,6 @@
 ---
 title: Lodash
+category: JavaScript libraries
 ---
 
 > This is an incomplete list.

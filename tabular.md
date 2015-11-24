@@ -1,5 +1,6 @@
 ---
 title: Tabular
+category: Vim
 ---
 
 ### Examples

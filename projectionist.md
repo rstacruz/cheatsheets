@@ -1,5 +1,6 @@
 ---
 title: Projectionist
+category: Vim
 ---
 
 

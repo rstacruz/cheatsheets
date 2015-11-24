@@ -1,5 +1,6 @@
 ---
 title: Ffmpeg
+category: CLI
 ---
 
 ### Common switches

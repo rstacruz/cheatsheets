@@ -1,5 +1,6 @@
 ---
 title: Capybara
+category: Ruby libraries
 ---
 
 ## Navigating

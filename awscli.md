@@ -1,5 +1,6 @@
 ---
 title: AWS CLI
+category: Devops
 ---
 
 ### EC2

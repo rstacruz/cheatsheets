@@ -1,6 +1,5 @@
 ---
 title: Spine
-layout: default
 vim: ft=python
 ---
 

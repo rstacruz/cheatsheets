@@ -1,6 +1,5 @@
 ---
 title: rename
-layout: default
 ---
 
 ### Installation

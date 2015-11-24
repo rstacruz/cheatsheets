@@ -1,6 +1,5 @@
 ---
 title: Chai.js
-layout: default
 ---
 
 ### Assert

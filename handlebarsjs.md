@@ -1,6 +1,5 @@
 ---
 title: Handlebars.js
-layout: default
 ---
 
 ### Helpers

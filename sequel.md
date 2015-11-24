@@ -1,6 +1,5 @@
 ---
 title: Sequel
-layout: default
 ---
 
 ### Open a database

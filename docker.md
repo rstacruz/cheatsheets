@@ -1,6 +1,5 @@
 ---
 title: docker
-layout: default
 ---
 
 Manage images

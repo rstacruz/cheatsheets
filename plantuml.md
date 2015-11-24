@@ -1,6 +1,5 @@
 ---
 title: PlantUML
-layout: default
 ---
 
 ### Format

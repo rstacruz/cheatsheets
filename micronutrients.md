@@ -1,6 +1,5 @@
 ---
 title: Essential micronutrients
-layout: default
 ---
 
 ### Vitamin D

@@ -1,6 +1,5 @@
 ---
 title: Heroku
-layout: default
 ---
 
 ### `create` - Create an app

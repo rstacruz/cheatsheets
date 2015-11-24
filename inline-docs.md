@@ -1,6 +1,5 @@
 ---
 title: Inline documentation
-layout: default
 ---
 
 * Ruby: rdoc

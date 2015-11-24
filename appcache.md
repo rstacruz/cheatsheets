@@ -1,6 +1,5 @@
 ---
 title: Appcache
-layout: default
 ---
 
 ### Format

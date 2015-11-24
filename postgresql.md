@@ -1,6 +1,5 @@
 ---
 title: Postgresql
-layout: default
 ---
 
 ### Console

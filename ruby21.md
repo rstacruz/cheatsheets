@@ -1,6 +1,5 @@
 ---
 title: Ruby 2.1
-layout: default
 ---
 
 ### Named arguments with defaults

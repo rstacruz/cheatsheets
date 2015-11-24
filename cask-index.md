@@ -1,6 +1,5 @@
 ---
 title: Caskroom index
-layout: default
 ---
 
 

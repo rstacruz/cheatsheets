@@ -1,6 +1,5 @@
 ---
 title: Node.js - assert
-layout: default
 ---
 
     assert(val)

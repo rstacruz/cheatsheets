@@ -1,6 +1,5 @@
 ---
 title: Ledger periods
-layout: default
 ---
 
     [INTERVAL] [BEGIN] [END]

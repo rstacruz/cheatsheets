@@ -1,6 +1,5 @@
 ---
 title: Devise
-layout: default
 ---
 
 [Devise](https://github.com/plataformatec/devise) is a flexible authentication 

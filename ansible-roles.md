@@ -1,6 +1,5 @@
 ---
 title: Ansible roles
-layout: default
 ---
 
 ### Structure

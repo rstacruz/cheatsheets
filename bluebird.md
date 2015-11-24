@@ -1,6 +1,5 @@
 ---
 title: bluebird.js
-layout: default
 ---
 
 Also see the [promise cheatsheet](promise.html) and [Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).

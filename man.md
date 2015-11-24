@@ -1,6 +1,5 @@
 ---
 title: Man
-layout: default
 ---
 
 ### Man paths

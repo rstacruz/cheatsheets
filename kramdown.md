@@ -1,6 +1,5 @@
 ---
 title: Kramdown
-layout: default
 ---
 
 ### Configuration

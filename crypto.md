@@ -1,6 +1,5 @@
 ---
 title: Cryptography
-layout: default
 ---
 
  * [PBKDF2](http://en.wikipedia.org/wiki/PBKDF2) - password-based key derivation 

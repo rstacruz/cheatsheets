@@ -1,6 +1,5 @@
 ---
 title: Imagemagick
-layout: default
 ---
 
 ### Stuff

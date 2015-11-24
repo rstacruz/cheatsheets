@@ -1,6 +1,5 @@
 ---
 title: Ansible examples
-layout: default
 ---
 
 ### Examples

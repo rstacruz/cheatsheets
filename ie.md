@@ -1,6 +1,5 @@
 ---
 title: Internet Explorer
-layout: default
 ---
 
 ## CSS Selectors

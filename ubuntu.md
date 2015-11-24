@@ -1,6 +1,5 @@
 ---
 title: Ubuntu
-layout: default
 ---
 
 ### Aptitude stuff

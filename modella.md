@@ -1,6 +1,5 @@
 ---
 title: Modella
-layout: default
 ---
 
 ### Basic

@@ -1,6 +1,5 @@
 ---
 title: Travis.yml
-layout: default
 ---
 
 ### Node

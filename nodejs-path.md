@@ -1,6 +1,5 @@
 ---
 title: Node.js - path
-layout: default
 ---
 
     fs.realpath('/etc/passwd', function(err, path) { /* "/private/etc/passwd" */ 

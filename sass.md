@@ -1,6 +1,5 @@
 ---
 title: Sass
-layout: default
 ---
 
 ### Color functions

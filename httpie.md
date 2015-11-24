@@ -1,6 +1,5 @@
 ---
 title: httpie
-layout: default
 ---
 
     $ http POST example.com/posts/3 \

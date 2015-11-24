@@ -1,6 +1,5 @@
 ---
 title: Canvas
-layout: default
 ---
 
 ### Getting the context

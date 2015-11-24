@@ -1,6 +1,5 @@
 ---
 title: Chef
-layout: default
 ---
 
 ### Install

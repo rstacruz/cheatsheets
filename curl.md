@@ -1,6 +1,5 @@
 ---
 title: Curl
-layout: default
 ---
 
 Options:

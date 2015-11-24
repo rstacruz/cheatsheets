@@ -1,6 +1,5 @@
 ---
 title: Pass
-layout: default
 ---
 
 ### Store and retrieve

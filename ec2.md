@@ -1,6 +1,5 @@
 ---
 title: EC2 API tools
-layout: default
 ---
 
 ### Install

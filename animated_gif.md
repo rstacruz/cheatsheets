@@ -1,6 +1,5 @@
 ---
 title: Animated gifs
-layout: default
 ---
 
 ### Convert mp4 to gif

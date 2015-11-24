@@ -1,6 +1,5 @@
 ---
 title: PSD.rb
-layout: default
 ---
 
 ### Opening

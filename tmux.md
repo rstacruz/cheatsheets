@@ -1,6 +1,5 @@
 ---
 title: tmux
-layout: default
 ---
 
 ### Commands

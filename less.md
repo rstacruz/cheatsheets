@@ -1,6 +1,5 @@
 ---
 title: Less.js
-layout: default
 ---
 
 ### Functions

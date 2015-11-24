@@ -1,6 +1,5 @@
 ---
 title: Ruby
-layout: default
 ---
 
 * `$!` - latest error message

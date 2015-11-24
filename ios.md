@@ -1,6 +1,5 @@
 ---
 title: iOS
-layout: default
 ---
 
 Multiple Exchange accounts:

@@ -1,6 +1,5 @@
 ---
 title: SimpleForm
-layout: default
 ---
 
 ```ruby

@@ -1,6 +1,5 @@
 ---
 title: Ractive.js
-layout: default
 vim: ft=javascript
 ---
 

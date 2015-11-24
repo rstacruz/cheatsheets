@@ -1,6 +1,5 @@
 ---
 title: Ember.js
-layout: default
 ---
 
 ### Routes

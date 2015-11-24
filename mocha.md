@@ -1,6 +1,5 @@
 ---
 title: Mocha.js
-layout: default
 ---
 
 ### BDD

@@ -1,6 +1,5 @@
 ---
 title: Unicode symbols
-layout: default
 ---
 
     ✈   \u2708 airplane

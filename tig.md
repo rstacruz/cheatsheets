@@ -1,6 +1,5 @@
 ---
 title: Tig
-layout: default
 ---
 
 ### Installing

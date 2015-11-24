@@ -1,6 +1,5 @@
 ---
 title: CSS
-layout: default
 ---
 
 Background

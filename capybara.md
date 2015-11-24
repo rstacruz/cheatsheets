@@ -1,6 +1,5 @@
 ---
 title: Capybara
-layout: default
 ---
 
 ## Navigating

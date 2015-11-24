@@ -1,6 +1,5 @@
 ---
 title: Qunit
-layout: default
 ---
 
     QUnit.module('a');

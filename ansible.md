@@ -1,6 +1,5 @@
 ---
 title: Ansible
-layout: default
 ---
 
 ## Getting started

@@ -1,6 +1,5 @@
 ---
 title: Email
-layout: default
 ---
 
 ### Avoid these

@@ -1,6 +1,5 @@
 ---
 title: "HTML: meta tags"
-layout: default
 ---
 
 ```html

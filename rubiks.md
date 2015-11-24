@@ -1,6 +1,5 @@
 ---
 title: Rubiks cube
-layout: default
 ---
 
 ### Getting the cross

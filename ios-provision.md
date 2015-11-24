@@ -1,6 +1,5 @@
 ---
 title: iOS Provisioning Profiles
-layout: default
 ---
 
 ### Types of profiles

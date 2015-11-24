@@ -1,6 +1,5 @@
 ---
 title: Jasmine
-layout: default
 ---
 
     describe("A suite", function() {

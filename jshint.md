@@ -1,6 +1,5 @@
 ---
 title: Jshint
-layout: default
 ---
 
 ### [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)

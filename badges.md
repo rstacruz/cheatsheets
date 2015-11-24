@@ -1,6 +1,5 @@
 ---
 title: Code stuff
-layout: default
 ---
 
 Here are some badges for open source projects.

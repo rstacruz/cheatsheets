@@ -1,6 +1,5 @@
 ---
 title: Spreadsheet functions
-layout: default
 ---
 
 ### If

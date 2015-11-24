@@ -1,6 +1,5 @@
 ---
 title: Webpack
-layout: default
 ---
 
 ### Config

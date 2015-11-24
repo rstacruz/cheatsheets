@@ -1,6 +1,5 @@
 ---
 title: Zsh
-layout: default
 ---
 
 ### Stuff

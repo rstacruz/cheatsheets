@@ -1,6 +1,5 @@
 ---
 title: Ledger CSV format
-layout: default
 ---
 
     $ ledger csv

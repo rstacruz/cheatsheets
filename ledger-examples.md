@@ -1,6 +1,5 @@
 ---
 title: Ledger examples
-layout: default
 ---
 
 Inspecting transactions:

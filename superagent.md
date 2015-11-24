@@ -1,6 +1,5 @@
 ---
 title: Superagent
-layout: default
 ---
 
 ### Result

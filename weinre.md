@@ -1,6 +1,5 @@
 ---
 title: Weinre
-layout: default
 ---
 
  * [Weinre](http://people.apache.org/~pmuellr/weinre/)

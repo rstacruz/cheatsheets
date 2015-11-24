@@ -1,6 +1,5 @@
 ---
 title: Stylus
-layout: default
 ---
 
 ### Variables

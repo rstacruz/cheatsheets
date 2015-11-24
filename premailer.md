@@ -1,6 +1,5 @@
 ---
 title: Premailer
-layout: default
 ---
 
 

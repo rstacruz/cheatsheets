@@ -1,6 +1,5 @@
 ---
 title: Textile
-layout: default
 ---
 
 ### Pre blocks

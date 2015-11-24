@@ -1,6 +1,5 @@
 ---
 title: Ledger queries
-layout: default
 ---
 
  - @`payee`

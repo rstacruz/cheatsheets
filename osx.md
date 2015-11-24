@@ -1,6 +1,5 @@
 ---
 title: OS X
-layout: default
 ---
 
 ### Locations of startup items

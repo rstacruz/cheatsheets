@@ -1,6 +1,5 @@
 ---
 title: jscoverage
-layout: default
 ---
 
 Also see [mocha-blanket](mocha-blanket.html).

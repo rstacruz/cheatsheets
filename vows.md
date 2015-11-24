@@ -1,6 +1,5 @@
 ---
 title: Vows
-layout: default
 ---
 
   * [Vowsjs.org](http://vowsjs.org/)

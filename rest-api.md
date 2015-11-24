@@ -1,6 +1,5 @@
 ---
 title: RESTful API
-layout: default
 ---
 
 ### Status codes

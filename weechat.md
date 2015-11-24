@@ -1,6 +1,5 @@
 ---
 title: Weechat
-layout: default
 ---
 
 ### Keys

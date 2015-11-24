@@ -1,6 +1,5 @@
 ---
 title: editorconfig
-layout: default
 ---
 
 ### Example

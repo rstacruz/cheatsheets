@@ -1,6 +1,5 @@
 ---
 title: Cordova
-layout: default
 ---
 
     cordova plugin ls

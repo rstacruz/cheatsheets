@@ -1,6 +1,5 @@
 ---
 title: Ledger CLI
-layout: default
 ---
 
     $ ledger bal

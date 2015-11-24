@@ -1,6 +1,5 @@
 ---
 title: Browserify
-layout: default
 ---
 
     browserify input.js

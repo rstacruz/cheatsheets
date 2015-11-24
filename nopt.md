@@ -1,6 +1,5 @@
 ---
 title: Nopt
-layout: default
 ---
 
 ```js

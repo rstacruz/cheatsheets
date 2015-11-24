@@ -1,6 +1,5 @@
 ---
 title: Google Webfonts
-layout: default
 ---
 
 ### Link tag

@@ -1,6 +1,5 @@
 ---
 title: Shell.js
-layout: default
 ---
 
 ### Require

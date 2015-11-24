@@ -1,6 +1,5 @@
 ---
 title: Sinon
-layout: default
 ---
 
 ### Creating spies

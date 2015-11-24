@@ -1,6 +1,5 @@
 ---
 title: Homebrew index
-layout: default
 ---
 
 

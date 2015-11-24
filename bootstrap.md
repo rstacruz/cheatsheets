@@ -1,6 +1,5 @@
 ---
 title: Bootstrap
-layout: default
 ---
 
 ### Screen sizes

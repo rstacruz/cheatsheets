@@ -1,6 +1,5 @@
 ---
 title: Freenode
-layout: default
 ---
 
 ### irc.freenode.net

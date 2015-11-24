@@ -1,6 +1,5 @@
 ---
 title: Flux
-layout: default
 ---
 
 ## Architecture

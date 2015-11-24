@@ -1,6 +1,5 @@
 ---
 title: Resolutions
-layout: default
 ---
 
 ## Phones

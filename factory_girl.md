@@ -1,6 +1,5 @@
 ---
 title: FactoryGirl
-layout: default
 ---
 
 ### Paths

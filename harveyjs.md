@@ -1,6 +1,5 @@
 ---
 title: Harvey.js
-layout: default
 ---
 
 ### Usage

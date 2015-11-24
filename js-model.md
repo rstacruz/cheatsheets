@@ -1,6 +1,5 @@
 ---
 title: Js-Model
-layout: default
 ---
 
     Project = Model "project", ->

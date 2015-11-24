@@ -1,6 +1,5 @@
 ---
 title: Docker on OSX
-layout: default
 ---
 
 You'll need these:

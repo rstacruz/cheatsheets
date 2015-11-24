@@ -1,6 +1,5 @@
 ---
 title: Bundler
-layout: default
 ---
 
 ### Commands

@@ -1,6 +1,5 @@
 ---
 title: Linux
-layout: default
 ---
 
 ### Mounting a RAM drive

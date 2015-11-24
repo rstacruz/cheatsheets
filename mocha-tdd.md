@@ -1,6 +1,5 @@
 ---
 title: Mocha.js - TDD interface
-layout: default
 ---
 
 ### TDD

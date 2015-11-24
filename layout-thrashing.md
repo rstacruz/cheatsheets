@@ -1,6 +1,5 @@
 ---
 title: Layout thrashing
-layout: default
 ---
 
 ### Things that cause invalidation

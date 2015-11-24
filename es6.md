@@ -1,6 +1,5 @@
 ---
 title: ES6
-layout: default
 ---
 
 ## Stable in io.js

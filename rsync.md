@@ -1,6 +1,5 @@
 ---
 title: Rsync
-layout: default
 ---
 
     rsync -avz ./src /dest

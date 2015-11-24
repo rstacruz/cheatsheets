@@ -1,6 +1,5 @@
 ---
 title: jQuery CDN
-layout: default
 ---
 
 ### Google jQuery

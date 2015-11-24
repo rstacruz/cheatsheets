@@ -1,6 +1,5 @@
 ---
 title: Gremlins.js
-layout: default
 ---
 
 ### Example

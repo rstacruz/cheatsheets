@@ -1,6 +1,5 @@
 ---
 title: Inkscape
-layout: default
 ---
 
 ### All

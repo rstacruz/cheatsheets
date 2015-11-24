@@ -1,6 +1,5 @@
 ---
 title: Zombie
-layout: default
 ---
 
 

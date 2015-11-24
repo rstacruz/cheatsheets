@@ -1,6 +1,5 @@
 ---
 title: Chunky PNG
-layout: default
 ---
 
 ### Loading

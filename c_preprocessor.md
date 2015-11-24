@@ -1,6 +1,5 @@
 ---
 title: C Preprocessor
-layout: default
 ---
 
 ### Compiling

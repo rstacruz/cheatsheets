@@ -1,6 +1,5 @@
 ---
 title: Q.js
-layout: default
 ---
 
 ### Creating promises (Q.promise)

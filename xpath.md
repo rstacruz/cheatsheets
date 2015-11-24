@@ -1,6 +1,5 @@
 ---
 title: Xpath
-layout: default
 ---
 
 ### Descendant selectors

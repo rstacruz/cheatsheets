@@ -1,6 +1,5 @@
 ---
 title: applicationCache
-layout: default
 ---
 
 ### applicationCache checking

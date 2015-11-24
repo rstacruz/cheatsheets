@@ -1,6 +1,5 @@
 ---
 title: Gmail
-layout: default
 ---
 
 ### IMAP

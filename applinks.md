@@ -1,6 +1,5 @@
 ---
 title: Applinks
-layout: default
 ---
 
 

@@ -1,6 +1,5 @@
 ---
 title: Nock
-layout: default
 ---
 
 ### Nock

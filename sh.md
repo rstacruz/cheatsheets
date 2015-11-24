@@ -1,6 +1,5 @@
 ---
 title: Bash scripting
-layout: default
 ---
 
 ### Pattern substitution

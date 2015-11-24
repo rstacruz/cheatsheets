@@ -1,6 +1,5 @@
 ---
 title: JavaScript arrays
-layout: default
 ---
 
 ## JavaScript arrays

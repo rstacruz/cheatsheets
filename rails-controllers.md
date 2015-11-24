@@ -1,6 +1,5 @@
 ---
 title: Rails Controllers
-layout: default
 category: Ruby
 ---
 

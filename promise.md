@@ -1,6 +1,5 @@
 ---
 title: Promises
-layout: default
 ---
 
 Based on the [Promise API reference][promise] (mozilla.org).

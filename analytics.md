@@ -1,6 +1,5 @@
 ---
 title: Analytics
-layout: default
 ---
 
 ### Mixpanel

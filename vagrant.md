@@ -1,6 +1,5 @@
 ---
 title: Vagrant
-layout: default
 ---
 
 ### Get started

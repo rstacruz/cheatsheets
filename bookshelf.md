@@ -1,6 +1,5 @@
 ---
 title: Bookshelf.js
-layout: default
 ---
 
 Model

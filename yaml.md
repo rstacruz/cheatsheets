@@ -1,6 +1,5 @@
 ---
 title: Yaml
-layout: default
 ---
 
     Multiline: |

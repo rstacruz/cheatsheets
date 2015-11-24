@@ -1,6 +1,5 @@
 ---
 title: Commander.js
-layout: default
 ---
 
 ### Initialize

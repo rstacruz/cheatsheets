@@ -1,6 +1,5 @@
 ---
 title: Tabular
-layout: default
 ---
 
 ### Examples

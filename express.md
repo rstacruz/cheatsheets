@@ -1,6 +1,5 @@
 ---
 title: Express.js
-layout: default
 ---
 
 ### Settings

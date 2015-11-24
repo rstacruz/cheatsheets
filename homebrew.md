@@ -1,6 +1,5 @@
 ---
 title: Homebrew
-layout: default
 ---
 
 ### Commands

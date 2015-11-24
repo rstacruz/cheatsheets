@@ -1,6 +1,5 @@
 ---
 title: Semver
-layout: default
 ---
 
 Given a version number `MAJOR.MINOR.PATCH`:

@@ -1,6 +1,5 @@
 ---
 title: Google Analytics
-layout: default
 ---
 
 ### Pageview

@@ -1,6 +1,5 @@
 ---
 title: Emacs
-layout: default
 ---
 
 ### Movements

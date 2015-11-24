@@ -1,6 +1,5 @@
 ---
 title: Jekyll
-layout: default
 jekyll_escape: true
 ---
 

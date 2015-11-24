@@ -1,6 +1,5 @@
 ---
 title: Bower API
-layout: default
 ---
 
     require('bower').config

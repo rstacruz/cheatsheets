@@ -1,6 +1,5 @@
 ---
 title: JavaScript Date
-layout: default
 ---
 
 ### Constructor

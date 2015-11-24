@@ -1,6 +1,5 @@
 ---
 title: CSS selectors
-layout: default
 ---
 
     [attr="value"]       /*  =   exact */

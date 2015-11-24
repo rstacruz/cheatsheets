@@ -1,6 +1,5 @@
 ---
 title: minimist
-layout: default
 ---
 
 ```js

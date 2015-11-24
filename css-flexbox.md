@@ -1,6 +1,5 @@
 ---
 title: CSS flexbox
-layout: default
 ---
 
     .container {

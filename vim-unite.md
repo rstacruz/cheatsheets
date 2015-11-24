@@ -1,6 +1,5 @@
 ---
 title: Vim-Unite
-layout: default
 ---
 
 ### Usage

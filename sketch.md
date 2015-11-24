@@ -1,6 +1,5 @@
 ---
 title: Sketch
-layout: default
 ---
 
 ### Insert

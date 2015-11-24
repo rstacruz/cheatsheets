@@ -1,6 +1,5 @@
 ---
 title: Ffmpeg
-layout: default
 ---
 
 ### Common switches

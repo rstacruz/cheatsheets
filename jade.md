@@ -1,6 +1,5 @@
 ---
 title: Jade
-layout: default
 ---
 
 ### Iteration

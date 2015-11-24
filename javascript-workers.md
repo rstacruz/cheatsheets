@@ -1,6 +1,5 @@
 ---
 title: JavaScript workers
-layout: default
 ---
 
 ## Web workers

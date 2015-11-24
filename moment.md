@@ -1,6 +1,5 @@
 ---
 title: Moment.js
-layout: default
 ---
 
 ### Formatting

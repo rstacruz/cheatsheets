@@ -1,6 +1,5 @@
 ---
 title: Sinon-chai
-layout: default
 ---
 
   * [Sinon-chai](https://github.com/domenic/sinon-chai)

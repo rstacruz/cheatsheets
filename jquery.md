@@ -1,6 +1,5 @@
 ---
 title: jQuery
-layout: default
 ---
 
 ### Traversing

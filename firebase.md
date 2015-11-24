@@ -1,6 +1,5 @@
 ---
 title: Firebase
-layout: default
 ---
 
 wip

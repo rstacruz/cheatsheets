@@ -1,6 +1,5 @@
 ---
 title: Rtorrent
-layout: default
 ---
 
 ### Global

@@ -1,6 +1,5 @@
 ---
 title: GitHub pages
-layout: default
 ---
 
     $ echo "foobar.com" > CNAME

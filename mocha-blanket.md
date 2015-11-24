@@ -1,6 +1,5 @@
 ---
 title: Mocha blanket
-layout: default
 ---
 
 Use [blanket] for easy coverage reporting.

@@ -1,6 +1,5 @@
 ---
 title: Node.js - fs
-layout: default
 ---
 
 ### Reading

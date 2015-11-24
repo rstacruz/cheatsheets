@@ -1,6 +1,5 @@
 ---
 title: Angular.js
-layout: default
 ---
 
     <html ng-app="nameApp">

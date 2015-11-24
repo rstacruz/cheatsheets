@@ -1,6 +1,5 @@
 ---
 title: Find
-layout: default
 ---
 
 ### Usage

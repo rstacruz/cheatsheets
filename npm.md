@@ -1,6 +1,5 @@
 ---
 title: npm
-layout: default
 ---
 
     npm install

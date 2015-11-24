@@ -1,6 +1,5 @@
 ---
 title: Universal JS module loader
-layout: default
 ---
 
 ### [With dependency](https://github.com/umdjs/umd/blob/master/amdWebGlobal.js)

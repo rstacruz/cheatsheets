@@ -1,6 +1,5 @@
 ---
 title: "HTML: input tag"
-layout: default
 ---
 
      <input ...

@@ -1,6 +1,5 @@
 ---
 title: Brunch
-layout: default
 ---
 
 ## Paths

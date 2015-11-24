@@ -1,6 +1,5 @@
 ---
 title: Node.js - process
-layout: default
 ---
 
 ### Streams

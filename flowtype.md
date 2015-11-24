@@ -1,6 +1,5 @@
 ---
 title: Flow
-layout: default
 ---
 
 ### Simple failing example

@@ -1,6 +1,5 @@
 ---
 title: Atom
-layout: default
 ---
 
 ### Symbols view

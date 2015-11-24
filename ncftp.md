@@ -1,6 +1,5 @@
 ---
 title: ncftp
-layout: default
 ---
 
 Bookmarking

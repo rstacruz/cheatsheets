@@ -1,6 +1,5 @@
 ---
 title: Sed
-layout: default
 ---
 
 ### OSX Caveat

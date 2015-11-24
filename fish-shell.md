@@ -1,5 +1,6 @@
 ---
 title: Fish shell
+category: CLI
 ---
 
 ## Function

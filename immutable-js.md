@@ -1,5 +1,6 @@
 ---
 title: Immutable.js
+category: JavaScript libraries
 ---
 
 ```js

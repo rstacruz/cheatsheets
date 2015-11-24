@@ -1,5 +1,6 @@
 ---
-title: Mocha.js - TDD interface
+title: Mocha.js TDD interface
+category: JavaScript libraries
 ---
 
 ### TDD

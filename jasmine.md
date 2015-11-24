@@ -1,5 +1,6 @@
 ---
 title: Jasmine
+category: JavaScript libraries
 ---
 
     describe("A suite", function() {

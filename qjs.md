@@ -1,5 +1,6 @@
 ---
 title: Q.js
+category: JavaScript libraries
 ---
 
 ### Creating promises (Q.promise)

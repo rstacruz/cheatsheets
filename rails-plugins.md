@@ -1,6 +1,6 @@
 ---
 title: Rails plugins
-category: Ruby
+category: Rails
 ---
 
 Generate a plugin

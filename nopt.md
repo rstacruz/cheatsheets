@@ -1,6 +1,6 @@
 ---
 title: Nopt
-category: JavaScript
+category: JavaScript libraries
 ---
 
 ```js

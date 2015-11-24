@@ -1,5 +1,6 @@
 ---
 title: Metalsmith
+category: JavaScript libraries
 ---
 
 ### [metalsmith-templates](https://www.npmjs.com/package/metalsmith-templates)

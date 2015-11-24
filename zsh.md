@@ -1,5 +1,6 @@
 ---
 title: Zsh
+category: CLI
 ---
 
 ### Stuff

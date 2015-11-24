@@ -1,5 +1,6 @@
 ---
 title: Minitest
+category: Ruby
 ---
 
 ### Usage

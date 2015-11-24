@@ -1,5 +1,6 @@
 ---
 title: bluebird.js
+category: JavaScript libraries
 ---
 
 Also see the [promise cheatsheet](promise.html) and [Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).

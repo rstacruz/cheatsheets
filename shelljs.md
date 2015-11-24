@@ -1,5 +1,6 @@
 ---
 title: Shell.js
+category: JavaScript libraries
 ---
 
 ### Require

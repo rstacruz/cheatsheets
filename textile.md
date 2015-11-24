@@ -1,5 +1,6 @@
 ---
 title: Textile
+category: Markup
 ---
 
 ### Pre blocks

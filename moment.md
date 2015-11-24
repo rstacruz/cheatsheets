@@ -1,5 +1,6 @@
 ---
 title: Moment.js
+category: JavaScript libraries
 ---
 
 ### Formatting

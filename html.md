@@ -1,5 +1,6 @@
 ---
 title: HTML
+category: HTML
 ---
 
 ### Head stuff

@@ -1,5 +1,6 @@
 ---
 title: Express.js
+category: JavaScript libraries
 ---
 
 ### Settings

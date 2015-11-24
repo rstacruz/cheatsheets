@@ -1,6 +1,6 @@
 ---
 title: Find
-category: Command line
+category: CLI
 ---
 
 ### Usage

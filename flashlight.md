@@ -1,5 +1,6 @@
 ---
 title: Flashlight
+category: Apps
 ---
 
 * add Dinner with Pancho 5 pm tomorrow

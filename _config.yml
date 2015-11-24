@@ -38,14 +38,20 @@ analytics:
   id: "UA-20473929-1"
 
 category_names:
-  - Ruby
   - Ansible
-  - Git
   - Apps
-  - JavaScript
-  - Node.js
-  - HTML
+  - CLI
   - CSS
   - Command line
+  - Devops
+  - Git
+  - HTML
+  - JavaScript
+  - JavaScript libraries
+  - Markup
+  - Node.js
+  - Rails
+  - Ruby
+  - Ruby libraries
   - VIM
   - Others

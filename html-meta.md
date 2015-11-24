@@ -1,5 +1,6 @@
 ---
-title: "HTML: meta tags"
+title: Meta tags
+category: HTML
 ---
 
 ```html

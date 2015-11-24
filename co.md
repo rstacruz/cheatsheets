@@ -1,5 +1,6 @@
 ---
 title: co
+category: JavaScript libraries
 ---
 
 [co]: https://github.com/tj/co

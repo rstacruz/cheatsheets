@@ -1,5 +1,6 @@
 ---
 title: Browserify
+category: JavaScript libraries
 ---
 
     browserify input.js

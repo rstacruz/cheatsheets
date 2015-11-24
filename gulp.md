@@ -1,6 +1,6 @@
 ---
 title: Gulp
-category: JavaScript
+category: JavaScript libraries
 ---
 
  * gulp-ruby-sass

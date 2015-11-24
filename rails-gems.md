@@ -1,6 +1,6 @@
 ---
 title: Rails gems
-category: Ruby
+category: Rails
 ---
 
 ### Rico's preferred rails gems

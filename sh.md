@@ -1,5 +1,6 @@
 ---
 title: Bash scripting
+category: CLI
 ---
 
 ### Pattern substitution

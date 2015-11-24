@@ -1,5 +1,6 @@
 ---
 title: Sed
+category: CLI
 ---
 
 ### OSX Caveat

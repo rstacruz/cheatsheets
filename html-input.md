@@ -1,5 +1,6 @@
 ---
-title: "HTML: input tag"
+title: Input tag
+category: HTML
 ---
 
      <input ...

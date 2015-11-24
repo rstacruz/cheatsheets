@@ -1,6 +1,6 @@
 ---
 title: Rails
-category: Ruby
+category: Rails
 ---
 
 Helpers

@@ -1,6 +1,6 @@
 ---
-title: Rails i18n
-category: Ruby
+title: i18n
+category: Rails
 ---
 
 ```rb

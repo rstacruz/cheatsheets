@@ -1,6 +1,6 @@
 ---
-title: Rails Controllers
-category: Ruby
+title: Controllers
+category: Rails
 ---
 
 ### Common stuff

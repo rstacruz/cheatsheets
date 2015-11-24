@@ -1,5 +1,6 @@
 ---
 title: expect.js
+category: JavaScript libraries
 ---
 
 ```js

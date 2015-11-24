@@ -1,6 +1,6 @@
 ---
-title: Rails routes
-category: Ruby
+title: Routes
+category: Rails
 ---
 
 ### Multiple resources

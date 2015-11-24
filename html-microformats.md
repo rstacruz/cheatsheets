@@ -1,5 +1,6 @@
 ---
-title: "HTML: microformats"
+title: Microformats
+category: HTML
 ---
 
 ### Author

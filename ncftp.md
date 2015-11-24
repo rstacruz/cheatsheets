@@ -1,5 +1,6 @@
 ---
 title: ncftp
+category: CLI
 ---
 
 Bookmarking

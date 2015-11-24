@@ -1,6 +1,6 @@
 ---
 title: Curl
-category: Command line
+category: CLI
 ---
 
 Options:

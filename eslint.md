@@ -1,5 +1,6 @@
 ---
 title: eslint
+category: JavaScript libraries
 ---
 
 ```js

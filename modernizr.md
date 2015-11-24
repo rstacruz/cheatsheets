@@ -1,5 +1,6 @@
 ---
 title: Modernizr
+category: JavaScript libraries
 ---
 
 ### Script

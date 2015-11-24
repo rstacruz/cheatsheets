@@ -1,5 +1,6 @@
 ---
 title: EC2 API tools
+category: Devops
 ---
 
 ### Install

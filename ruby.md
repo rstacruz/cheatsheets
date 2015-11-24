@@ -1,5 +1,6 @@
 ---
 title: Ruby
+category: Ruby
 ---
 
 * `$!` - latest error message

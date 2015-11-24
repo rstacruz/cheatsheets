@@ -1,7 +1,7 @@
 ---
-title: Rails form helpers
+title: Form helpers
 hljs_languages: [haml]
-category: Ruby
+category: Rails
 ---
 
 ## Form builder

@@ -1,5 +1,6 @@
 ---
 title: Machinist
+category: Ruby libraries
 ---
 
 ### Installing

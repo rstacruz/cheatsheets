@@ -1,5 +1,6 @@
 ---
 title: Sinon
+category: JavaScript libraries
 ---
 
 ### Creating spies

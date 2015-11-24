@@ -1,6 +1,6 @@
 ---
 title: Harvey.js
-category: JavaScript
+category: JavaScript libraries
 ---
 
 ### Usage

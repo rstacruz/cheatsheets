@@ -1,6 +1,6 @@
 ---
 title: Slim
-category: Ruby
+category: Ruby libraries
 ---
 
 ```slim

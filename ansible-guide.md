@@ -1,5 +1,5 @@
 ---
-title: Ansible - Getting started
+title: Getting started
 category: Ansible
 ---
 

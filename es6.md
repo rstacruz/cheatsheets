@@ -1,5 +1,6 @@
 ---
-title: ES6
+title: ES2015
+category: JavaScript
 ---
 
 ## Stable in io.js

@@ -1,5 +1,6 @@
 ---
-title: docker
+title: Docker CLI
+category: Devops
 ---
 
 Manage images

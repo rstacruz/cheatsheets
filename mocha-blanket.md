@@ -1,5 +1,6 @@
 ---
 title: Mocha blanket
+category: JavaScript libraries
 ---
 
 Use [blanket] for easy coverage reporting.

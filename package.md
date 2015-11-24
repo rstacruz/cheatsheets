@@ -1,5 +1,6 @@
 ---
 title: Package.json
+category: Node.js
 ---
 
 ### Basic

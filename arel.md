@@ -1,6 +1,6 @@
 ---
 title: Arel
-category: Ruby
+category: Rails
 ---
 
 ### Tables

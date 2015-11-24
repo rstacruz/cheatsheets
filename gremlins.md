@@ -1,5 +1,6 @@
 ---
 title: Gremlins.js
+category: JavaScript libraries
 ---
 
 ### Example

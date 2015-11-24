@@ -1,6 +1,6 @@
 ---
-title: Rails migrations
-category: Ruby
+title: Migrations
+category: Rails
 ---
 
 ### Automatically make migrations

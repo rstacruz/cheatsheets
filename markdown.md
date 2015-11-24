@@ -1,5 +1,6 @@
 ---
 title: Markdown
+category: Markup
 ---
 
 ### Headers

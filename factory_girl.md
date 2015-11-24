@@ -1,5 +1,6 @@
 ---
 title: FactoryGirl
+category: Ruby libraries
 ---
 
 ### Paths

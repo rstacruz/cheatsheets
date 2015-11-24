@@ -1,5 +1,6 @@
 ---
 title: FFaker
+category: Ruby libraries
 ---
 
     # gem install ffaker

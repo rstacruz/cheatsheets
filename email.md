@@ -1,5 +1,6 @@
 ---
 title: Email
+category: HTML
 ---
 
 ### Avoid these

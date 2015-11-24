@@ -1,5 +1,6 @@
 ---
 title: Bookshelf.js
+category: JavaScript libraries
 ---
 
 Model

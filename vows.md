@@ -1,6 +1,6 @@
 ---
 title: Vows
-category: JavaScript
+category: JavaScript libraries
 ---
 
   * [Vowsjs.org](http://vowsjs.org/)

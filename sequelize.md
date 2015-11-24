@@ -1,5 +1,6 @@
 ---
 title: Sequelize
+category: Ruby libraries
 ---
 
 ### API

@@ -1,5 +1,6 @@
 ---
 title: Modella
+category: JavaScript libraries
 ---
 
 ### Basic

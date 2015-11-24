@@ -1,6 +1,6 @@
 ---
 title: jQuery
-category: JavaScript
+category: JavaScript libraries
 ---
 
 ### Traversing

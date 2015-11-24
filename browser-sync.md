@@ -1,5 +1,6 @@
 ---
 title: Browsersync
+category: JavaScript libraries
 ---
 
 ```

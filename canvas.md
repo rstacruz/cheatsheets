@@ -1,5 +1,6 @@
 ---
 title: Canvas
+category: JavaScript
 ---
 
 ### Getting the context

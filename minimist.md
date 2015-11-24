@@ -1,5 +1,6 @@
 ---
 title: minimist
+category: JavaScript libraries
 ---
 
 ```js

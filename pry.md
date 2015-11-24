@@ -1,6 +1,6 @@
 ---
 title: Pry
-category: Ruby
+category: Ruby libraries
 ---
 
 ### cd

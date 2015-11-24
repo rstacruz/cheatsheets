@@ -1,5 +1,6 @@
 ---
 title: Mocha HTML
+category: JavaScript libraries
 ---
 
 This is a mocha template that loads js/css from cdn.

@@ -1,5 +1,6 @@
 ---
 title: Deis
+category: Devops
 ---
 
 ### Deploy

@@ -1,5 +1,6 @@
 ---
 title: Chef
+category: Devops
 ---
 
 ### Install

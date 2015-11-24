@@ -1,5 +1,6 @@
 ---
 title: Mocha.js
+category: JavaScript libraries
 ---
 
 ### BDD

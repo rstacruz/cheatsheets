@@ -1,5 +1,6 @@
 ---
 title: "Shell: named pipes"
+category: CLI
 ---
 
 ```sh

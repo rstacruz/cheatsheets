@@ -1,6 +1,6 @@
 ---
-title: Rails Models
-category: Ruby
+title: Models
+category: Rails
 ---
 
 ### [Query methods](http://devdocs.io/rails/activerecord/querymethods#method-i-order)

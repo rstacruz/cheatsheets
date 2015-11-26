@@ -97,7 +97,7 @@ item.attributes = { name: 'John' }   # Merges attributes in. Doesn't save.
 item.assign_attributes name: 'John'  # Same as above
 ```
 
-### [Dirty](http://devdocs.io/rails/activerecord/dirty)
+### [Dirty](http://devdocs.io/rails/activemodel/dirty)
 
 ```rb
 item.changed?

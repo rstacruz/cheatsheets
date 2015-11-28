@@ -23,6 +23,12 @@ category: Ruby libraries
       end
     end
 
+### Others
+
+    factory :user { ... }
+    factory :sample_user, class: 'User' { ... }
+    factory :user, aliases: [:author, :client] { ... }
+
 ### Using
 
     FactoryGirl.build(:user)
@@ -37,7 +43,13 @@ category: Ruby libraries
     create_list(:user, 3)
     build_list(:user, 3)
 
-### Associations
+## Associations
+
+    factory :post do
+      author  # assumes there's a factory :author
+    end
+
+### More complicated
 
     factory :post do
       after :create do |post|
@@ -46,21 +58,7 @@ category: Ruby libraries
       end
     end
 
-### Ignores
-
-    factory :user do
-      ignore do
-        likes 30
-      end
-
-      after :create do |user, options|
-        create_list :like, options.likes, user: user
-      end
-    end
-
-    create(:user, likes: 10)
-
-### Traits
+## Traits
 
     factory :user do
       trait :admin do
@@ -69,6 +67,20 @@ category: Ruby libraries
     end
 
     create :user, :admin
+
+## Transients
+
+    factory :user do
+      transient do
+        upcased true
+      end
+
+      after :create do |user, options|
+        user.name.upcase! if options.upcased
+      end
+    end
+
+    create(user, upcased: true)
 
 ### Etc
 
@@ -87,3 +99,6 @@ category: Ruby libraries
     factory :user, aliases: [:author, :commenter] do ... end
     factory :admin_user, parent: :user do .. end
 
+## See also
+
+* <http://rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md>

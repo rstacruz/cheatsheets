@@ -1,5 +1,6 @@
 ---
 title: Ledger CSV format
+category: Ledger
 ---
 
     $ ledger csv

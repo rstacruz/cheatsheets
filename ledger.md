@@ -1,5 +1,6 @@
 ---
 title: Ledger CLI
+category: Ledger
 ---
 
     $ ledger bal

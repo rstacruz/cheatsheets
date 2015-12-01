@@ -1,5 +1,6 @@
 ---
 title: Ledger examples
+category: Ledger
 ---
 
 Inspecting transactions:

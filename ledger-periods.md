@@ -1,5 +1,6 @@
 ---
 title: Ledger periods
+category: Ledger
 ---
 
     [INTERVAL] [BEGIN] [END]

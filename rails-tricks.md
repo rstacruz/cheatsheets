@@ -58,4 +58,7 @@ Order
 
     scope :recent, -> { order created_at: :desc }
 
+Group by month
 
+    .group("to_char(created_at, 'YYYY-MM')")
+    .group("to_char(created_at, 'YYYY-MM')").count

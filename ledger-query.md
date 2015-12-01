@@ -1,5 +1,6 @@
 ---
 title: Ledger queries
+category: Ledger
 ---
 
  - @`payee`

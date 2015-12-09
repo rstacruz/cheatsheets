@@ -9,7 +9,7 @@ category: Ledger
 hledger {bal|reg} {interval} {period} {query}
 ```
 
-### Query
+## Query
 Used on all commands (`bal`, `reg`, etc).
 
 ```
@@ -20,20 +20,32 @@ inacct:'A:B'     # transactions related to account
 
 acctonly:A       # no subaccounts
 inacctonly:A     # same, but no subaccounts
+```
 
+### Amounts
+
+```
 amt:2000         # amount (in absolute value)
 amt:<200         # amount comparison (in absolute value)
 amt:<+200        # amount comparison
                  # also: <=, >, >=
+```
 
+### Other queries
+
+```
 desc:REGEX
-
 code:REGEX
-cur:'\$'
-depth:N          # --depth 2
 tag:REGEX
+cur:'\$'
+```
+
+```
+depth:N          # --depth 2
 not:...          # eg, not:status:!
 ```
+
+### Filter by status/type
 
 ```
 real:1           # -R, --real, no virtuals
@@ -102,12 +114,6 @@ Also: (only in `bal`)
 -A, --average
 ```
 
-
-### Format
-
-```
---format "%20(account) %12(total)
-```
 
 ## Accounts
 

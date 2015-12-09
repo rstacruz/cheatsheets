@@ -13,33 +13,33 @@ hledger {bal|reg} {interval} {period} {query}
 Used on all commands (`bal`, `reg`, etc).
 
 ```
-Assets           ; An account (regex)
-acct:Assets      ; same
-^Assets          ; Starting with Assets (eg, not 'Expenses:Assets')
-inacct:'A:B'     ; transactions related to account
+Assets           # An account (regex)
+acct:Assets      # same
+^Assets          # Starting with Assets (eg, not 'Expenses:Assets')
+inacct:'A:B'     # transactions related to account
 
-acctonly:A       ; no subaccounts
-inacctonly:A     ; same, but no subaccounts
+acctonly:A       # no subaccounts
+inacctonly:A     # same, but no subaccounts
 
-amt:2000         ; amount (in absolute value)
-amt:<200         ; amount comparison (in absolute value)
-amt:<+200        ; amount comparison
-                 ; also: <=, >, >=
+amt:2000         # amount (in absolute value)
+amt:<200         # amount comparison (in absolute value)
+amt:<+200        # amount comparison
+                 # also: <=, >, >=
 
 desc:REGEX
 
 code:REGEX
 cur:'\$'
-depth:N          ; --depth 2
+depth:N          # --depth 2
 tag:REGEX
-not:...          ; eg, not:status:!
+not:...          # eg, not:status:!
 ```
 
 ```
-real:1           ; -R, --real, no virtuals
-status:!         ;     --pending
-status:*         ; -C, --cleared
-status:          ;     --uncleared
+real:1           # -R, --real, no virtuals
+status:!         #     --pending
+status:*         # -C, --cleared
+status:          #     --uncleared
 ```
 
 ### Intervals
@@ -57,8 +57,8 @@ Used on all commands (`bal`, `reg`, etc). Displays in multi-column mode. In `led
 
 ```
 date:2015/01/01
-date:2015/01/01-    ; -b, --begin
-date:-2015/01/01    ; -e, --end
+date:2015/01/01-    # -b, --begin
+date:-2015/01/01    # -e, --end
 date2:PERIODEXPR
 ```
 
@@ -66,7 +66,7 @@ date2:PERIODEXPR
 -p, --period=...
   -p "2009/01/01"
   -p "2009/01/01 to 2009/12/31"
-  -p "2009/01/01to2009/12/31"      ; spaces optional
+  -p "2009/01/01to2009/12/31"      # spaces optional
   -p "1/1 to 12/31"
   -p "to 2009"
   -p "weekly"

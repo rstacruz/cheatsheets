@@ -3,13 +3,6 @@ title: Hledger
 category: Ledger
 ---
 
-### Accounts
-
-```
-hledger accounts
-hledger accounts --tree
-```
-
 ## Reporting
 
 ```
@@ -114,6 +107,12 @@ Also: (only in `bal`)
 
 ```
 --format "%20(account) %12(total)
+```
+
+## Accounts
+
+```
+hledger accounts [--tree]
 ```
 
 ## See also

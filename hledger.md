@@ -13,15 +13,16 @@ hledger accounts --tree
 ## Reporting
 
 ```
-hledger {bal|reg} {interval} {range} {query}
+hledger {bal|reg} {interval} {period} {query}
 ```
 
 ### Query
+Used on all commands (`bal`, `reg`, etc).
 
 ```
-Assets           ; An account
-^Assets          ; Starting with Assets
-acct:Assets      ; account by regex
+Assets           ; An account (regex)
+acct:Assets      ; same
+^Assets          ; Starting with Assets (eg, not 'Expenses:Assets')
 inacct:'A:B'     ; transactions related to account
 
 acctonly:A       ; no subaccounts
@@ -38,7 +39,7 @@ code:REGEX
 cur:'\$'
 depth:N          ; --depth 2
 tag:REGEX
-not:...
+not:...          ; eg, not:status:!
 ```
 
 ```
@@ -49,6 +50,7 @@ status:          ;     --uncleared
 ```
 
 ### Intervals
+Used on all commands (`bal`, `reg`, etc). Displays in multi-column mode. In `ledger-cli`, only `reg` is supported. Can also specified via `-p` (period).
 
 ```
 -D, --daily
@@ -58,21 +60,17 @@ status:          ;     --uncleared
 -Y, --yearly
 ```
 
-### Range
+### Periods
 
 ```
--p, --period=...
 date:2015/01/01
 date:2015/01/01-    ; -b, --begin
 date:-2015/01/01    ; -e, --end
 date2:PERIODEXPR
 ```
 
-### Periods
-
 ```
-  -p, --period=...
-
+-p, --period=...
   -p "2009/01/01"
   -p "2009/01/01 to 2009/12/31"
   -p "2009/01/01to2009/12/31"      ; spaces optional
@@ -82,17 +80,35 @@ date2:PERIODEXPR
   -p "weekly 2009/01/01 to 2009/12/31"
 ```
 
-## Balance
+## Display formats
 
+```
+    --tree          # only in bal
+    --flat
+
+    --depth 2       # collapse those under this depth
+    --drop 1        # drop top-level accounts
+-B, --cost          # convert to default currency
+-E, --empty         # don't strip out $0 accounts
+    --date2         # use date2 when available
+```
+
+## Multi-column mode
 When used with intervals (like `--weekly`):
-```
---cumulative    # show ending balance per period
---historical    # like --cumulative but only for --begin
-```
 
 ```
---tree
+-T, --row-total
+-N, --no-total
 ```
+
+Also: (only in `bal`)
+
+```
+    --cumulative    # show ending balance per period
+-I, --historical    # like --cumulative but only for --begin
+-A, --average
+```
+
 
 ### Format
 
@@ -100,21 +116,7 @@ When used with intervals (like `--weekly`):
 --format "%20(account) %12(total)
 ```
 
-## Register
+## See also
 
-
-## Querying
-
-```
-acct:REGEX
-amt:N
-amt:<N   (and <=, >, >=)
-code:REGEX
-cur:'\$'
-desc:REGEX
-date:PERIODEXPR
-date2:PERIODEXPR
-depth:N
-tag:REGEX
-not:
-```
+* <http://hledger.org/manual.html>
+* <http://ledger-cli.org/3.0/doc/ledger3.html>

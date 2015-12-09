@@ -81,4 +81,4 @@ category: Vim
 .all table tr:first-child td { font-size: 1.3em; padding-bottom: 0; }
 .all table tr:first-child+tr td { font-size: 0.9em; color: dodgerblue; border-top: 0; padding-top: 0; font-family: fira mono, monospace; }
 .all table em { color: #aaa; font-size: 0.9em; font-style: normal; font-family: roboto, sans-serif; }
-</sytle>
+</style>

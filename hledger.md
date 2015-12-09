@@ -6,11 +6,16 @@ category: Ledger
 ## Reporting
 
 ```
-hledger {bal|reg} {interval} {period} {query}
+hledger bal {query}
+hledger reg {query}
 ```
+{:.large.terminal}
 
 ## Query
-Used on all commands (`bal`, `reg`, etc).
+
+Queries are used on all commands (`bal`, `reg`, etc).
+
+### Accounts
 
 ```
 Assets           # An account (regex)
@@ -54,18 +59,8 @@ status:*         # -C, --cleared
 status:          #     --uncleared
 ```
 
-### Intervals
-Used on all commands (`bal`, `reg`, etc). Displays in multi-column mode. In `ledger-cli`, only `reg` is supported. Can also specified via `-p` (period).
-
-```
--D, --daily
--W, --weekly
--M, --monthly
--Q, --quarterly
--Y, --yearly
-```
-
 ### Periods
+For dates and intervals (see above).
 
 ```
 date:2015/01/01
@@ -81,8 +76,43 @@ date2:PERIODEXPR
   -p "2009/01/01to2009/12/31"      # spaces optional
   -p "1/1 to 12/31"
   -p "to 2009"
-  -p "weekly"
+  -p "weekly"                      # -W, --weekly
   -p "weekly 2009/01/01 to 2009/12/31"
+```
+
+### Intervals
+Used on all commands (`bal`, `reg`, etc). Displays in multi-column mode. In `ledger-cli`, only `reg` is supported. Can also specified via `-p` (period).
+
+```
+-D, --daily
+-W, --weekly
+-M, --monthly
+-Q, --quarterly
+-Y, --yearly
+```
+
+### Smart dates
+Used for `--period`, `--begin` and `--end` (`-p` `-b` `-e`).
+
+```
+-p 2015/01/01
+-p 2015/01
+-p 2015
+-p january
+-p jan
+-p 05/25
+```
+
+```
+-b today
+-b yesterday
+-e tomorrow
+```
+
+```
+-p this week
+-p last month
+-p this year
 ```
 
 ## Display formats
@@ -119,6 +149,34 @@ Also: (only in `bal`)
 
 ```
 hledger accounts [--tree]
+```
+
+## Other commands
+
+```
+hledger balancesheet       # bs
+hledger incomestatement    # is
+hledger cashflow           # cf
+hledger print
+hledger activity
+hledger stats
+```
+
+## Examples
+
+```
+# Current balance
+  hledger bal Assets
+  hledger balancesheet
+
+  hledger balancesheet Assets [--cleared --cost --empty -e tomorrow]
+  # ...discard future stuff; convert foreign currencies
+
+# Monthly changes in assets
+  hledger bal Assets Liabilities --monthly --tree --historical [--cleared --cost --empty -e tomorrow]
+
+# Weekly expenses
+  hledger bal Expenses --weekly --average --tree -b 'last month' [--cleared --cost --empty -e tomorrow]
 ```
 
 ## See also

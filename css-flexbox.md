@@ -68,7 +68,7 @@ category: CSS
     .container > .top {
      order: 1;
     }
-  
+
     .container > .bottom {
      order: 2;
     }
@@ -106,7 +106,7 @@ to the circumstances.
     .container > .date     { flex: 1 0 120px; }
 
 ### Vertical
-      
+
 Vertically-center all items.
 
     .container {

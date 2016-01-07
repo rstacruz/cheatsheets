@@ -6,55 +6,41 @@ category: JavaScript libraries
 Model
 -----
 
-    # or Bookshelf.Mode.extend({..})
-    class Book extends Bookshelf.Model
-      tableName: 'books'
+```js
+Summary = bookshelf.Model.extend({
+  tableName: 'summaries',
+  hasTimestamps: true,
+  hasTimestamps: ['created_at', 'updated_at'],
+})
+```
 
 ### Associations
 
-    class Book extends Bookshelf.Model
-      # Associations
-      author:  -> @belongsTo(Author)
-      summary: -> @hasOne(Summary)
-      pages:   -> @hasMany(Pages)
-      shelves: -> @belongsToMany(Shelves)
+```js
+Summary = bookshelf.Model.extend({
+  book () {
+    return this.belongsTo(Book)
+  },
+  author () {
+    return this.hasOne(Author)
+  }
+  // belongsToMany
+  // hasMany
+  // hasMany().through()
+})
+```
 
-      @hasMany(Comment)
-        .through(Chapter)
+### CRUD
 
-      @belongsToMany(Comment)
-        .withPivot(['created_at'])
+```js
+Book.create({ title: '..' }).save()
+new Book({ title: '..' }).save()
 
-### Collections
+new Book({ id: 1 }).fetch()
 
-    class Books extends Bookshelf.Collection
-      model: Book
-
-    books = new Books()
-    books.query(where: { id: 2 })
-    .fetch()
-    .then ->
-
-### Fetching associations
-
-    new Book(id: 1).summary().fetch()
-    .then (summary) ->
-    
-Manipulation
-------------
-
-### Reading (Fetch by ID)
-
-    new Story(id: 2).fetch()
-    .then (story) ->
-      story.id       #=> 2
-      story.title    #=> "Through the Looking Glass"
-
-      story.summary = "Hello"
-      story.save()
-
-    .then -> ...
-
-### References
-
- * http://bookshelfjs.org/
+Book.where({ id: 1 }).fetch()
+Book.where('favorite_color', 'red').fetch()
+Book.where('favorite_color', '<>', 'red').fetch()
+Book
+  .query((q) => q.orderBy('updated_at')
+```

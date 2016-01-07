@@ -5,11 +5,13 @@ title: Imagemagick
 ### Stuff
 
     -resize 100x40
-    -flip           # vertical
-    -flop           # horizontal
-    -transpose      # flip vertical + rotate 90deg
-    -transverse     # flip horizontal + rotate 270deg
-    -trim           # trim image edges
+    -crop 40x30+10+10   # (width)x(height)+(x)+y
+    -crop 40x30-10-10   # (width)x(height)+(x)+y
+    -flip               # vertical
+    -flop               # horizontal
+    -transpose          # flip vertical + rotate 90deg
+    -transverse         # flip horizontal + rotate 270deg
+    -trim               # trim image edges
     -rotate 90
 
 ### Resize to fit

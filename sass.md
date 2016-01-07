@@ -36,6 +36,13 @@ category: CSS
 
 http://sass-lang.com/documentation/Sass/Script/Functions.html
 
+### Functions
+
+    unquote('hello')
+    quote(hello)
+    unit(3em)        => 'em'
+    unitless(100px)  => false
+
 ### Loops
 
     $i: 6;
@@ -56,3 +63,7 @@ http://sass-lang.com/documentation/Sass/Script/Functions.html
     length($list)
 
     @each $item in $list { ... }
+
+## Reference
+
+- <http://sass-lang.com/documentation/Sass/Script/Functions.html>

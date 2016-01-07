@@ -11,7 +11,6 @@ const cli = require('meow')(`
     -h, --help       show usage information
     -v, --version    print version info and exit
 `, {
-alias: {
   alias: { h: 'help', v: 'version', x: 'excludeTag' },
   string: ['lang'],
   boolean: ['pager'],

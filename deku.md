@@ -1,86 +1,49 @@
 ---
-title: Deku
+title: Deku v2
 category: JavaScript libraries
 ---
 
-```js
-/** @jsx element */
-import element from 'virtual-element'  // replacement for React.createElement
-import {render, tree} from 'deku'
-
-var app = <div class='my-app'>Hello World!</div>
-
-render(tree(app), document.body)
-```
- 
 ## Components
 
 ```js
-Button = {
-  render () { return <button>Submit</button> }
-}
+/** @jsx element */
+import { element } from 'deku'
 
-App = {
-  render () { return <div><Button /></div> }
-}
-
-render(tree(<App />), document.body)
-// or with virtual-element
-render(tree(element(App)), document.body)
-```
-
-## Component props/state
-
-```js
-App = {
-  render ({ props, state }) {
-    return <div>{ /*...use state.store here*/ }</div>
-  }
-
-  initialState (props) {
-    return { store: store.getState() }
-  },
-
-  afterMount (comp, el, setState) {
-    store.subscribe(() => setState({ store: store.getState() }))
+function render ({ props, children, context, path }) {
+  // props    = properties object
+  // children = children array
+  // path     = path to current component (like 0.1.5.2)
+  // context  = common properties in all components
+  return (
+    <div class='App' hidden={props.hidden} color={context.theme.color}>
+      {children}
+    </div>
   }
 }
 
-render(tree(<App />), document.body)
+function onCreate ({ props, dispatch, path }) { ... }
+function onUpdate ({ props, dispatch, path }) { ... }
+function onRemove ({ props, dispatch, path }) { ... }
+// actually { children, props, path, context }
+
+export default { render, onCreate, onRemove }
 ```
 
-## Events
+## Rendering
 
 ```js
-<a onClick={onClick}>{props.text}</a>
+import { createStore } from 'redux'
+import { dom, element } from 'deku'
+
+// Create a Redux store to handle all UI actions and side-effects
+let store = createStore(reducer)
+
+// Create a renderer that can turn vnodes into real DOM elements
+let render = createRenderer(document.body, store.dispatch)
+
+// Update the page and add redux state to the context
+render(
+  <MyButton>Hello World!</MyButton>,
+  store.getState()
+  )
 ```
-
-## Magic virtual element
-Use [magic-virtual-element](https://github.com/dekujs/magic-virtual-element) to enable nice classnames.
-
-```
-import element from 'magic-virtual-element'
-<div style={style} class={[ 'button', '-active' ]}>
-```
-
-## Reference
-
-```
-name = 'MyComponent'
-
-// Defaults
-initialState (props) {...} // return initial state
-defaultProps = { style: 'rout' }
-
-// Render
-render ({props, state}, setState) {...}
-
-// Lifecycle
-beforeUpdate  ({props, state, id}, nextProps, nextState) {}
-afterRender   ({props, state, id}, el) {}
-afterUpdate   ({props, state, id}, prevProps, prevState, setState) {}
-afterMount    ({props, state, id}, el, setState) {}
-beforeUnmount ({props, state, id}, el) {}
-```
-
-See: <https://www.npmjs.com/package/deku>

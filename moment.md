@@ -21,8 +21,8 @@ category: JavaScript libraries
 
 ### Add
 
-    .add('days', 1)
-    .subtract('days', 1)
+    .add(1, 'day')
+    .subtract(2, 'days')
 
     .startOf('day')
     .endOf('day')
@@ -38,6 +38,8 @@ category: JavaScript libraries
     .format('lll')    // Jun 9 2014 9:32 PM
     .format('LLLL')   // Monday, June 9 2014 9:32 PM
     .format('llll')   // Mon, Jun 9 2014 9:32 PM
+
+See [datetime](datetime.html) for more.
 
 ### Reference
 

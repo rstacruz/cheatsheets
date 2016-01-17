@@ -29,14 +29,16 @@ Headers:
     -b name=val      # --cookie
     -b FILE          # --cookie
     -H "X-Foo: y"    # --header
-    
+    --compressed     # use deflate/gzip
+
 SSL:
 
     --cacert <file>
     --capath <dir>
 
-    -E <cert>     # --ecrt: Client cert file
-    --cert-type   # der/pem/eng
+    -E, --ecrt <cert>     # --ecrt: Client cert file
+        --cert-type       # der/pem/eng
+    -k, --insecure        # for self-signed certs
 
 ## Examples
 
@@ -45,6 +47,6 @@ SSL:
 
     # Auth/data:
       curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
-   
+
     # multipart file upload
-      curl -v -include --form key1=value1 --form upload=@localfilename URL 
+      curl -v -include --form key1=value1 --form upload=@localfilename URL

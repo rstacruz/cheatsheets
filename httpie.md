@@ -20,7 +20,7 @@ category: CLI
 
 ### Options
 
-    --pretty=none # all,colors,format
+    --pretty=none        # all,colors,format
 
     --print=HBhb
       # H : request headers
@@ -28,7 +28,9 @@ category: CLI
       # h : response headers
       # b : response body
 
-    --output FILE (or -o)
+    -v, --verbose        # same as --print=HhBb
+
+    -o, --output FILE
 
     --follow
     --timeout SECONDS
@@ -42,7 +44,6 @@ category: CLI
     --auth-type {basic,digest}
 
     --proxy http:http://foo.bar:3128
-
 
 ### References
 

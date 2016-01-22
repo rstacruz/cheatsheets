@@ -84,6 +84,7 @@ Format
     ; fixed lot prices
     2010/05/31 * Gas
       Expenses:Gasoline             11 GAL {=$2.299}
+      Assets:Cash
 
 ### Commodity definitions
 

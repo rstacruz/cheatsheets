@@ -112,9 +112,11 @@ $i: 6;
 
 ```scss
 @if $position == 'left' {
+   position: absolute;
    left: 0;
 }
-@else $position == 'top' {
+@else {
+   position: static;
 }
 ```
 

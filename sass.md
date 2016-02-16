@@ -123,9 +123,9 @@ $i: 6;
 ## Interpolation
 
 ```scss
-$klass: 'button'
+$klass: 'button';
 
-.#{$klass} { ... } /* same as `.button` */
+.#{$klass} { ... }  /* same as `.button` */
 ```
 
 ## Lists

@@ -1,9 +1,4 @@
 # files
-layouts: ./_/layouts
-destination: ./_/site
-sass:
-  sass_dir: ./_/sass
-
 exclude:
   - Makefile
   - README.md

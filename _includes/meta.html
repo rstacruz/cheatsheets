@@ -3,6 +3,7 @@
 {%comment%}<!-- set the base -->{%endcomment%}
 {% assign base = '' %}
 {% assign depth = page.url | split: '/' | size | minus: 1 %}
+<meta property='page:depth' content='{{depth}}'>
 {% if depth == 1 %}{% assign base = '.' %}
 {% elsif depth == 2 %}{% assign base = '..' %}
 {% elsif depth == 3 %}{% assign base = '../..' %}

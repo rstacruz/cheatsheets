@@ -1,6 +1,6 @@
 ---
 title: Koa
-category: Ruby
+category: JavaScript libraries
 ---
 
 ### Reference

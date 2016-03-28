@@ -20,6 +20,7 @@ category: Ruby
 
 ### Specs (.must/.wont)
 
+    expect(x)
     .must_be :==, 0
     .must_equal b
     .must_be_close_to 2.99999

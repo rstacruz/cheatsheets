@@ -25,8 +25,8 @@ category: CSS
       display: flex;
       display: inline-flex;
 
-      flex-direction: row;         /* ltr - default */
-      flex-direction: row-reverse; /* rtl */
+      flex-direction: row;            /* ltr - default */
+      flex-direction: row-reverse;    /* rtl */
       flex-direction: column;         /* top-bottom */
       flex-direction: column-reverse; /* bottom-top */
 
@@ -47,6 +47,9 @@ category: CSS
       flex: 1 0 0;
       order: 1;
       flex-grow: 0;
+
+      align-self: flex-start;  /* left */
+      margin-left: auto;       /* right */
     }
 
 ## Tricks
@@ -61,6 +64,14 @@ category: CSS
       width: 100px;
       height: 100px;
       margin: auto;
+    }
+
+### Vertical center (2)
+
+    .container {
+      display: flex;
+      align-items: center;     /* vertical */
+      justify-content: center; /* horizontal */
     }
 
 ### Reordering
@@ -112,6 +123,11 @@ Vertically-center all items.
     .container {
       align-items: center;
     }
+
+### Left and right
+
+    .menu > .left  { align-self: flex-start; }
+    .menu > .right { align-self: flex-end; }
 
 ### References
 

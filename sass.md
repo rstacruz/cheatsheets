@@ -190,9 +190,12 @@ $i: 6;
 ## Interpolation
 
 ```scss
-$klass: 'button';
+.#{$klass} { ... }      /* Class */
+call($function-name)    /* Functions */
 
-.#{$klass} { ... }  /* same as `.button` */
+@media #{$tablet}
+font: #{$size}/#{$line-height}
+url("#{$background}.jpg")
 ```
 
 ## Lists

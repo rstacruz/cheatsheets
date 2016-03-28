@@ -7,12 +7,12 @@ category: Devops
 
     heroku create sushi
 
-### `sharing` - Collaboration
+### `access` - Collaboration
 
     # Manage collaborators
-      heroku sharing                     # List
-      heroku sharing:add me@xy.com
-      heroku sharing:remove me@xy.com
+      heroku access                     # List
+      heroku access:add me@xy.com
+      heroku access:remove me@xy.com
 
     # Transfer to another owner
       heroku sharing:transfer new@owner.com

@@ -110,6 +110,11 @@ category: Rails
     add_index :accounts, [:branch_id, :party_id, :surname],
       :order => {:branch_id => :desc, :part_id => :asc}
 
+### In console
+Use `ActiveRecord::Migration`.
+
+    ActiveRecord::Migration.add_index :posts, :slug
+
 ### References
 
  * http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index

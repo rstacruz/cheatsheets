@@ -3,9 +3,10 @@ title: Routes
 category: Rails
 ---
 
-### Multiple resources
+## Multiple resources (`resources`)
 
     resources :books
+
     # PhotosController:
     # index  =>    GET /photos
     # new    =>    GET /photos/new
@@ -19,16 +20,32 @@ category: Rails
     # new_book_path
     # book_path(id)
     # edit_book_path(id)
-    #
+
+### Custom actions
 
     resources :photos do
       member { get 'preview' }       # /photo/1/preview
-      get 'preview', on: :member     # (..same as the first)
       collection { get 'search' }    # /photos/search
+
+      get 'preview', on: :member     # (..same as the first)
     end
 
-### Single resource
-    
+### Options
+
+    resources :photos,
+      path_names: { new: 'brand_new' }    # /photos/1/brand_new
+      path: 'postings'                    # /postings
+      only: :index
+      only: [:index, :show]
+      except: :show
+      except: [:index, :show]
+
+      shallow: true                       # also generate shallow routes
+      shalow_path: 'secret'
+      shallow_prefix: 'secret'
+
+## Single resource (`resource`)
+
     resource :coder
 
     # CodersController:
@@ -39,7 +56,7 @@ category: Rails
     # update =>    PUT /coder
     # delete => DELETE /coder
 
-### Matching
+## Matching (`match`)
 
     match 'photo/:id' => 'photos#show'  # /photo/what-is-it
     match 'photo/:id', id: /[0-9]+/     # /photo/0192

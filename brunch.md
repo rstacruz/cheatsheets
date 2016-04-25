@@ -14,33 +14,52 @@ category: JavaScript libraries
 
 ## Config
 
-    files:
-      javascripts:   # or 'stylesheets' or 'templates'
-        order:
-          before: [ 'normalize.css' ]
-          after:  [ 'helpers.css' ]
+```js
+module.exports = {
+  files: {
+    javascripts: {  # or 'stylesheets' or 'templates'
+      order: {
+        before: [ 'normalize.css' ],
+        after:  [ 'helpers.css' ],
 
-        joinTo: 'app.js'
-        joinTo:
-          'js/app.js':    /^app/
-          'js/vendor.js': /^vendor/
-        pluginHelpers: 'js/vendor.js'
+      joinTo: 'app.js',
+      joinTo: {
+        'js/app.js':    /^app/,
+        'js/vendor.js': /^vendor/
+      },
+      pluginHelpers: 'js/vendor.js'
+    }
+  }
 
-    paths:
-      public: 'public'                       # where to compile
-      watched: ['app','test','vendor']       # what to monitor
+  paths: {
+    public: 'public',                      # where to compile
+    watched: ['app','test','vendor'],      # what to monitor
+ }
 
-    modules:
-      wrapper: 'amd'
-      definition: 'amd'
-      nameCleaner: (path) -> path.replace /^app\//, ''
+  modules: {
+    wrapper: 'amd',
+    definition: 'amd',
+    nameCleaner: (path) => path.replace(/^app\//, '')
+  }
 
-    # brunch b --apply production
-    overrides:
-      production:
-        optimize: true
-        sourceMaps: false
-        plugins: autoReload: enabled: false
+  npm: { styles, globals }
+
+  plugins: {
+    sass: { ... }
+  }
+
+  // brunch w --apply testing
+  // BRUNCH_ENV=testing brunch build
+  overrides: {
+    production: {
+      optimize: true,
+      sourceMaps: false,
+      plugins: { autoReload: { enabled: false } }
+    }
+  }
+
+  onCompile: (files, assets) => { ... }
+```
 
 ## Plugins
 
@@ -53,11 +72,11 @@ category: JavaScript libraries
 
 ## Extensions
 
-Compile to JS/CSS
+Compile to CSS
 
   * stylus-brunch
-  * coffee-script-brunch
   * less-brunch
+  * sass-brunch
 
 Compile to HTML
 
@@ -75,4 +94,4 @@ Etc
 
 ## References
 
-  * https://github.com/brunch/brunch/blob/master/docs/config.md
+  * <https://github.com/brunch/brunch/blob/master/docs/config.md>

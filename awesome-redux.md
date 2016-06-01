@@ -1,6 +1,6 @@
 ---
 title: Awesome-redux
-category: Ruby
+category: JavaScript libraries
 ---
 
 ### [redux-actions](https://www.npmjs.com/package/redux-actions)

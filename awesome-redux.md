@@ -33,6 +33,18 @@ store.dispatch([
 ])
 ```
 
+### [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
+Combines reducers (like *combineReducers()*), but without namespacing magic.
+
+```js
+re = reduceReducers(
+  (state, action) => state + action.number,
+  (state, action) => state + action.number
+)
+
+re(10, { number: 2 })  //=> 14
+```
+
 Async
 -----
 

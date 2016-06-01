@@ -23,6 +23,19 @@ A standard for flux action objects. An action may have an `error`, `payload` and
 { type: 'ADD_TODO', payload: new Error(), error: true }
 ```
 
+### [redux-multi](https://github.com/ashaffer/redux-multi)
+Dispatch multiple actions in one action creator.
+
+```js
+store.dispatch([
+  { type: 'INCREMENT', payload: 2 },
+  { type: 'INCREMENT', payload: 3 }
+])
+```
+
+Async
+-----
+
 ### [redux-promise](https://github.com/acdlite/redux-promise)
 Pass promises to actions. Dispatches a flux-standard-action.
 
@@ -61,12 +74,28 @@ Pass side effects declaratively to keep your actions pure.
 }
 ```
 
-### [redux-multi](https://github.com/ashaffer/redux-multi)
-Dispatch multiple actions in one action creator.
+### [redux-thunk](https://www.npmjs.com/package/redux-thunk)
+Pass "thunks" to as actions.
 
 ```js
-store.dispatch([
-  { type: 'INCREMENT', payload: 2 },
-  { type: 'INCREMENT', payload: 3 }
-])
+function fetchPosts () {
+  // Usually returns a promise.
+  return function (dispatch, getState) {
+    dispatch({ type: 'posts:fetch' })
+    return API.get('/posts')
+      .then(payload => dispatch({ type: 'posts:fetch:done', payload })
+      .then(error => dispatch({ type: 'posts:fetch:error', error })
+  }
+}
+
+store.dispatch(fetchPosts())
+
+// That's actually shorthand for:
+fetchPosts()(store.dispatch, store.getState)
+
+// Optional: since fetchPosts returns a promise, it can be chained
+// for server-side rendering
+store.dispatch(fetchPosts()).then(() => {
+  ReactDOMServer.renderToString(<MyApp store={store} />)
+})
 ```

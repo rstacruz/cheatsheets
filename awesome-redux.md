@@ -55,7 +55,10 @@ fetchData = (url) => (dispatch) => {
     .catch((error) => dispatch({ type: 'FETCH_ERROR', error })
 })
 
-store.dispatch(fetchData('http://google.com'))
+store.dispatch(fetchData('/posts'))
+
+// That's actually shorthand for:
+fetchData('/posts')(store.dispatch)
 ```
 
 ### [redux-effects](https://www.npmjs.com/package/redux-effects)
@@ -75,25 +78,22 @@ Pass side effects declaratively to keep your actions pure.
 ```
 
 ### [redux-thunk](https://www.npmjs.com/package/redux-thunk)
-Pass "thunks" to as actions.
+Pass "thunks" to as actions. Extremely similar to redux-promises, but has support for getState.
 
 ```js
-function fetchPosts () {
-  // Usually returns a promise.
-  return function (dispatch, getState) {
-    dispatch({ type: 'posts:fetch' })
-    return API.get('/posts')
-      .then(payload => dispatch({ type: 'posts:fetch:done', payload })
-      .then(error => dispatch({ type: 'posts:fetch:error', error })
-  }
-}
+fetchData = (url) => (dispatch, getState) => {
+  dispatch({ type: 'FETCH_REQUEST' })
+  fetch(url)
+    .then((data) => dispatch({ type: 'FETCH_DONE', data })
+    .catch((error) => dispatch({ type: 'FETCH_ERROR', error })
+})
 
-store.dispatch(fetchPosts())
+store.dispatch(fetchData('/posts'))
 
 // That's actually shorthand for:
-fetchPosts()(store.dispatch, store.getState)
+fetchData('/posts')(store.dispatch, store.getState)
 
-// Optional: since fetchPosts returns a promise, it can be chained
+// Optional: since fetchData returns a promise, it can be chained
 // for server-side rendering
 store.dispatch(fetchPosts()).then(() => {
   ReactDOMServer.renderToString(<MyApp store={store} />)

@@ -45,6 +45,9 @@ re = reduceReducers(
 re(10, { number: 2 })  //=> 14
 ```
 
+### [redux-batched-updates](https://www.npmjs.com/package/redux-batched-updates)
+Batch React updates that occur as a result of Redux dispatches. Uses `react/addons` (v0.12+). Debounces dispatch() calls.
+
 Async
 -----
 

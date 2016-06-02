@@ -38,9 +38,51 @@ conn.secret_key_base # ...
 conn.state           # :unset, :set, :file, :sent, :chunked
 ```
 
-## Session
+## Assigns
 
+```elixir
+conn = assign(conn, :user_id, 100)
+conn.assigns[:hello]
 ```
+
+```elixir
+conn = async_assign(conn, :location, fn -> geoip_lookup() end)
+await_assign(conn, :location)
+```
+
+## Fetchables
+
+```elixir
+conn = fetch_session(conn)   # or plug :fetch_session
+
 conn = put_session(conn, :message, "new stuff we just set in the session")
 get_session(conn, :message)
+conn = clear_session(conn)
+```
+
+Also: `flash` `cookie` `params`
+
+```elixir
+conn
+|> put_flash(:info, "Success")
+|> put_flash(:error, "Oh no")
+```
+
+```elixir
+|> halt
+
+|> put_resp_content_type("text/plain")
+|> put_layout(false)
+|> put_status(202)
+|> put_status(:not_found)
+
+|> render "index.html"
+|> render "index.html", hello: "world"
+|> render MyApp.ErrorView, "404.html"
+
+|> redirect to: "/foo"
+|> redirect external: "http://www.google.com/"
+|> text "Hello"
+
+|> send_resp(201, "")
 ```

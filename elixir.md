@@ -69,7 +69,21 @@ tuple_size(tuple)
 ### Maps
 
 ```elixir
-put_in(data, keys, value)
+import Map
+
+map = %{a: "Apple"}       # atom keys (:a)
+map = %{"a" => "Apple"}   # string keys ("a")
+
+put(map, :b, "Banana")
+update(map, :a, &(&1 + 1))
+update(map, :a, fun a -> a + 1 end)
+get_and_update(map, :a, &(&1 || "default"))
+
+# Deep functions (_in)
+put_in(map, [:b, :c], "Banana")
+put_in(map[:b][:c], "Banana")    # via macros
+get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
+
 Map.get(map, key)
 Map.put(map, key, value)
 ```
@@ -163,6 +177,7 @@ Also see [Enum](#enum).
 ```js
 import List
 list = [ 1, 2, 3, 4 ]
+list = [ 1 | list ]     # unshift (prepend)
 
 first(list)
 last(list)
@@ -207,7 +222,7 @@ end
 %User{name: "John", age: 20}
 ```
 
-### Functions
+## Functions
 
 ### Function heads
 
@@ -216,3 +231,25 @@ def join(a, b \\ nil)
 def join(a, b) when is_nil(b) do: a end
 def join(a, b) do: a <> b; end
 ```
+
+## Modules
+
+### Metaprogramming
+
+```elixir
+__MODULE__
+__MODULE__.__info__
+
+@after_compile __MODULE__
+def __before_compile__(env)
+def __after_compile__(env, _bytecode)
+def __using__(opts)    # invoked on `use`
+
+@on_definition {__MODULE__, :on_def}
+def on_def(_env, kind, name, args, guards, body)
+
+@on_load :load_check
+def load_check
+```
+
+[Reference](http://elixir-lang.org/docs/stable/elixir/Module.html)

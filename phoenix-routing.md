@@ -13,12 +13,19 @@ mix phoenix.routes
 get "/", PageController, :index
 ```
 
+Also: `put` `post` `patch` `options` `delete` `head`
+
 ## Resources
 
 ```elixir
 resources "/users", UserController
 resources "/users", UserController, only: [:index, :show]
 resources "/users", UserController, except: [:delete]
+
+  as: :person    # helper name (person_path)
+  name: :person  # ...?
+  param: :id     # name of parameter for this resource
+
 ```
 
 | Method    | Path              | Helper                     |

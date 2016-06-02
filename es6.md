@@ -268,21 +268,4 @@ for (let i of iterable) {
 }
 ```
 
-<br>
-
-## Experimental
-
-Available via [Babel]'s experimental mode.
-{:.brief-intro.center.top-space-0}
-
-### Comprehensions
-
-```js
-// Basic comprehension
-var names = [for (c of customers) c.name];
-
-// Comprehension with IDs
-var names = [for (c of customers) if (c.admin) c.name];
-```
-
 [Babel]: http://babeljs.io

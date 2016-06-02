@@ -3,6 +3,26 @@ title: Elixir
 category: Development
 ---
 
+## Importing
+
+```elixir
+require Redux   # compiles a module
+import Redux    # compiles, and you can use without the `Redux.` prefix
+
+use Redux       # compiles, and runs Redux.__using__/1
+use Redux, async: true
+
+import Redux, only: [duplicate: 2]
+import Redux, only: :functions
+import Redux, only: :macros
+
+alias Foo.Bar, as: Bar
+alias Foo.Bar   # same as above
+
+alias Foo.{Bar, Baz}
+import Foo.{Bar, Baz}
+```
+
 ## Type checks
 
 ```elixir
@@ -66,7 +86,7 @@ put_elem(tuple, index, value)
 tuple_size(tuple)
 ```
 
-### Maps
+## Maps
 
 ```elixir
 import Map
@@ -74,21 +94,35 @@ import Map
 map = %{a: "Apple"}       # atom keys (:a)
 map = %{"a" => "Apple"}   # string keys ("a")
 
+map = %{map | a: "Atis"}  # key must exist
+
+map[:a]
+map.a      # same
+```
+
+### Updating
+
+```elixir
 put(map, :b, "Banana")
+merge(map, %{b: "Banana"})
 update(map, :a, &(&1 + 1))
 update(map, :a, fun a -> a + 1 end)
-get_and_update(map, :a, &(&1 || "default"))
+{old, new} = get_and_update(map, :a, &(&1 || "default"))
+
 
 # Deep functions (_in)
 put_in(map, [:b, :c], "Banana")
 put_in(map[:b][:c], "Banana")    # via macros
 get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
-
-Map.get(map, key)
-Map.put(map, key, value)
 ```
 
-### String
+### Reading
+
+```
+Map.keys(map)
+```
+
+## String
 
 ```elixir
 import String
@@ -220,6 +254,8 @@ defmodule User do
 end
 
 %User{name: "John", age: 20}
+
+%User{}.struct  #=> User
 ```
 
 ## Functions
@@ -230,6 +266,68 @@ end
 def join(a, b \\ nil)
 def join(a, b) when is_nil(b) do: a end
 def join(a, b) do: a <> b; end
+```
+
+## Protocols
+
+```elixir
+defprotocol Blank do
+  @doc "Returns true if data is considered blank/empty"
+  def blank?(data)
+end
+```
+
+```elixir
+defimpl Blank, for: List do
+  def blank?([]), do: true
+  def blank?(_), do: false
+end
+
+Blank.blank?([])  #=> true
+```
+
+### Any
+
+```elixir
+defimpl Blank, for: Any do ... end
+
+defmodule User do
+  @derive Blank     # Falls back to Any
+  defstruct name: ""
+end
+```
+
+### Examples
+
+- `Enumerable` and `Enum.map()`
+- `Inspect` and `inspect()`
+
+## Comprehensions
+
+```elixir
+for n <- [1, 2, 3, 4], do: n * n
+for n <- 1..4, do: n * n
+
+for {key, val} <- %{a: 10, b: 20}, do: val  #=> [10, 20]
+for {key, val} <- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
+```
+
+### Conditions
+
+```elixir
+for n <- 1..10, rem(n, 2) == 0, do: n
+#=> [2, 4, 6, 8, 10]
+```
+
+### Complex
+
+```elixir
+for dir <- dirs,
+    file <- File.ls!(dir),          # nested comprehension
+    path = Path.join(dir, file),    # invoked
+    File.regular?(path) do          # condition
+  IO.puts(file,
+end
 ```
 
 ## Modules
@@ -250,6 +348,55 @@ def on_def(_env, kind, name, args, guards, body)
 
 @on_load :load_check
 def load_check
+```
+
+## Regexp
+
+```elixir
+exp = ~r/hello/
+exp = ~r/hello/i
+"hello world" =~ exp
+```
+
+## [Sigils](http://elixir-lang.org/getting-started/sigils.html)
+
+```elixir
+~r/regexp/
+~w(list of strings)
+~s[strings with #{interpolation} and \x20 escape codes]
+~S[no interpolation and no escapes]
+~c(char list)
+```
+
+Allowed chars: `/` `|` `"` `'` `(` `[` `{` `<` `"""`
+
+## [Typespecs](http://elixir-lang.org/getting-started/typespecs-and-behaviours.html)
+
+Useful for [dialyzer](http://www.erlang.org/doc/man/dialyzer.html)
+
+```elixir
+@spec round(number) :: integer
+
+@type number_with_remark :: {number, String.t}
+@spec add(number, number) :: number_with_remark
+```
+
+## Behaviours
+
+```elixir
+defmodule Parser do
+  @callback parse(String.t) :: any
+  @callback extensions() :: [String.t]
+end
+```
+
+```elixir
+defmodule JSONParser do
+  @behaviour Parser
+
+  def parse(str), do: # ... parse JSON
+  def extensions, do: ["json"]
+end
 ```
 
 [Reference](http://elixir-lang.org/docs/stable/elixir/Module.html)

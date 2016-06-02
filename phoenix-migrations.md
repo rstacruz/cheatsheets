@@ -6,14 +6,20 @@ category: Elixir
 ## Creating
 
 ```
-$ mix ecto.gen.migration  add_posts_table
-  creating priv/repo/migrations/20160602085927_add_posts_table.exs
+$ mix ecto.gen.migration update_posts_table
+  creating priv/repo/migrations/20160602085927_update_posts_table.exs
   ...
 
 $ mix ecto.migrate
 $ mix ecto.rollback
 ```
 
+### Creating models
+
+```
+$ mix phoenix.gen.model Message messages user_id:integer content:text
+# creates models and tests
+```
 
 ## Tables
 

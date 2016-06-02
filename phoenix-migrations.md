@@ -1,5 +1,5 @@
 ---
-title: Phoenix: Migrations
+title: "Phoenix: Migrations"
 category: Elixir
 ---
 

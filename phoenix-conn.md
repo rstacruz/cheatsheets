@@ -13,8 +13,8 @@ conn.request_path #=> "/posts/1"
 conn.query_string #=> "utm_source=twitter"
 conn.port         #=> 80
 conn.scheme       #=> :http
-conn.peer         #=> {{127, 0, 0, 1}, 12345}
-conn.remote_ip    #=> {151, 236, 219, 228}
+conn.peer         #=> { {127, 0, 0, 1}, 12345 }
+conn.remote_ip    #=> { 151, 236, 219, 228 }
 conn.req_headers  #=> [{"content-type", "text/plain"}]
 ```
 

@@ -56,70 +56,10 @@ left <> right   # concat string/binary
 left =~ right   # regexp
 ```
 
-### Numbers
-
-```
-abs(n)
-rem(a, b)   # remainder (modulo)
-div(a, b)   # integer division
-round(n)
-```
-
-### Functions
-
-```
-apply(fn, args)
-apply(module, fn, args)
-```
-
 ### Inspecting
 
 ```elixir
 inspect(arg, opts \\ [])
-```
-
-### Tuples
-
-```elixir
-elem(tuple, 1)    # like tuple[1]
-put_elem(tuple, index, value)
-tuple_size(tuple)
-```
-
-## Maps
-
-```elixir
-import Map
-
-map = %{a: "Apple"}       # atom keys (:a)
-map = %{"a" => "Apple"}   # string keys ("a")
-
-map = %{map | a: "Atis"}  # key must exist
-
-map[:a]
-map.a      # same
-```
-
-### Updating
-
-```elixir
-put(map, :b, "Banana")
-merge(map, %{b: "Banana"})
-update(map, :a, &(&1 + 1))
-update(map, :a, fun a -> a + 1 end)
-{old, new} = get_and_update(map, :a, &(&1 || "default"))
-
-
-# Deep functions (_in)
-put_in(map, [:b, :c], "Banana")
-put_in(map[:b][:c], "Banana")    # via macros
-get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
-```
-
-### Reading
-
-```
-Map.keys(map)
 ```
 
 ## String
@@ -133,6 +73,15 @@ str |> slice(2..-1)  #=> "llo"
 str |> split(" ")    #=> ["hello"]
 str |> capitalize()  #=> "Hello"
 str |> match(regex)
+```
+
+## Numbers
+
+```elixir
+abs(n)
+rem(a, b)   # remainder (modulo)
+div(a, b)   # integer division
+round(n)
 ```
 
 ### Float
@@ -178,33 +127,64 @@ Float.to_string(34.1)  #=> "3.4100e+01"
 Float.to_string(34.1, [decimals: 2, compact: true])  #=> "34.1"
 ```
 
-### Map
+## Map
 
-```js
+```elixir
+map = %{name: "hi"}       # atom keys (:name)
+map = %{"name" => "hi"}   # string keys ("name")
+```
+
+### Updating
+```elixir
 import Map
-map = %{id: 1, name: "hi"}
 
-delete(map, :name)    #=> "hi"
-pop(map, :name)       #=> %{id: 1}
+map = %{map | name: "yo"}  # key must exist
 
 put(map, :id, 2)      #=> %{id: 2, name: "hi"}
-put_new(map, :id, 2)  # only if `id` doesn't exist
+put_new(map, :id, 2)  # only if `id` doesn't exist (`||=`)
 
+put(map, :b, "Banana")
+merge(map, %{b: "Banana"})
+update(map, :a, &(&1 + 1))
+update(map, :a, fun a -> a + 1 end)
+
+{old, new} = get_and_update(map, :a, &(&1 || "default"))
+```
+
+### Deleting
+```elixir
+delete(map, :name)    #=> "hi"
+pop(map, :name)       #=> %{id: 1}
+```
+
+### Reading
+
+```elixir
 get(map, :id)         #=> 1
 keys(map)             #=> [:id, :name]
 values(map)           #=> [1, "hi"]
 
 to_list(map)          #=> [id: 1, name: "hi"]
                       #=> [{:id, 1}, {:name, "hi"}]
+```
 
-merge(map, %{name: "hello"})
+### Deep
 
+```elixir
+put_in(map, [:b, :c], "Banana")
+put_in(map[:b][:c], "Banana")    # via macros
+get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
+```
+
+### Constructing
+
+```elixir
 Map.new([{:b, 1}, {:a, 2}])
 Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  #=> %{a: :a, b: :b}
 ```
 
-### List
+## List
 
 Also see [Enum](#enum).
 
@@ -220,7 +200,7 @@ flatten(list)
 flatten(list, tail)
 ```
 
-### Enum
+## Enum
 
 ```elixir
 # consider streams instead
@@ -242,7 +222,48 @@ any?(list)          #=> true
 concat(list, [:d])  #=> [:d]
 ```
 
-There's really way too many things, just see <https://learnxinyminutes.com/docs/elixir/>.
+## Tuples
+
+```elixir
+tuple = { :a, :b }
+
+elem(tuple, 1)    # like tuple[1]
+put_elem(tuple, index, value)
+tuple_size(tuple)
+```
+
+### Keyword lists
+
+```elixir
+list = [{ :name, "John" }, { :age, 15 }]
+list.name
+```
+
+## Functions
+
+### Lambdas
+
+```elixir
+square = fn n -> n*n end
+square.(20)
+```
+
+### & syntax
+
+```elixir
+square = &(&1 * &1)
+square.(20)
+
+square = &Math.square/1
+```
+
+### Running
+
+```elixir
+fun.(args)
+apply(fun, args)
+apply(module, fun, args)
+```
 
 ## Syntax
 
@@ -264,8 +285,8 @@ end
 
 ```elixir
 def join(a, b \\ nil)
-def join(a, b) when is_nil(b) do: a end
-def join(a, b) do: a <> b; end
+def join(a, b) when is_nil(b) do: a
+def join(a, b) do: a <> b
 ```
 
 ## Protocols
@@ -326,7 +347,7 @@ for dir <- dirs,
     file <- File.ls!(dir),          # nested comprehension
     path = Path.join(dir, file),    # invoked
     File.regular?(path) do          # condition
-  IO.puts(file,
+  IO.puts(file)
 end
 ```
 
@@ -400,3 +421,8 @@ end
 ```
 
 [Reference](http://elixir-lang.org/docs/stable/elixir/Module.html)
+
+## References
+
+- [Learn Elixir in Y minutes](https://learnxinyminutes.com/docs/elixir/)
+

@@ -236,7 +236,11 @@ tuple_size(tuple)
 
 ```elixir
 list = [{ :name, "John" }, { :age, 15 }]
-list.name
+list[:name]
+
+# For string-indexed keyword lists
+list = [{"size", 2}, {"type", "shoe"}]
+List.keyfind(list, "size", 0)  #=> {"size", 2}
 ```
 
 ## Functions

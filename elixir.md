@@ -191,7 +191,8 @@ Also see [Enum](#enum).
 ```js
 import List
 list = [ 1, 2, 3, 4 ]
-list = [ 1 | list ]     # unshift (prepend)
+list = list ++ [5]      # push (append)
+list = [ 0 | list ]     # unshift (prepend)
 
 first(list)
 last(list)

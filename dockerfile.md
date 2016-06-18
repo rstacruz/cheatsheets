@@ -25,3 +25,20 @@ RUN bundle install
 ```
 WORKDIR /myapp
 ```
+
+### Onbuild
+
+```docker
+ONBUILD RUN bundle install   # when used with another file
+```
+
+### Commands
+
+```docker
+EXPOSE 5900
+CMD    ["bundle", "exec", "rails", "server"]
+```
+
+### Reference
+
+- <https://docs.docker.com/engine/reference/builder/>

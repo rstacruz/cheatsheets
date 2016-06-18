@@ -3,6 +3,14 @@ title: "Phoenix: Ecto models"
 category: Elixir
 ---
 
+## Generating
+
+```
+$ mix phoenix.gen.html Profile profiles email:string age:integer
+
+$ mix phoenix.gen.html User users email:string hashed_password:string
+```
+
 ## Schema
 
 ```elixir
@@ -12,6 +20,10 @@ defmodule User do
   schema "users" do
     field :name
     field :age, :integer
+    # :id :binary :integer :float :boolean :string :binary
+    # {:array, inner_type} :decimal :map
+
+    field :password, virtual: true
   end
 end
 ```
@@ -60,7 +72,7 @@ changeset.optional   #=> [:body]
 ### Updating
 
 ```elixir
-changeset
+changeset #(or model)
 |> change(title: "New title")
 |> change(%{ title: "New title" })
 |> put_change(:title, "New title")
@@ -81,4 +93,80 @@ get_field(changeset, :title)     #=> "hi" (even if unchanged)
 
 fetch_change(changeset, :title)  #=> {:ok, "hi"} | :error
 fetch_field(changeset, :title)   #=> {:changes | :model, "value"} | :error
+```
+
+## Ecto
+
+### Get one
+
+```elixir
+Repo.get(User, id)
+Repo.get_by(User, email: "john@hello.com")  #=> %User{} | nil
+
+# also get! get_by!
+```
+
+### Create/update
+
+```elixir
+changeset |> Repo.update
+changeset |> Repo.insert
+changeset |> Repo.insert_or_update
+```
+
+```
+User
+|> Ecto.Changeset.change(%{name: "hi"})
+|> Repo.insert
+```
+
+## Many
+
+### Queries
+
+```elixir
+from p in Post,
+  where: p.title == "Hello",
+  where: [state: "Sweden"],
+
+  limit: 1,
+  offset: 10,
+
+  order_by: c.name,
+  order_by: [c.name, c.title],
+  order_by: [asc: c.name, desc: c.title],
+
+  preload: [:comments],
+  preload: [comments: {c, likes: l}],
+
+  join: c in assoc(c, :comments),
+  join: p in Post, on: c.post_id == p.id,
+  group_by: p,
+
+  select: p,
+  select: {p.title, p.description},
+  select: [p.title, p.description],
+```
+
+### Get many
+
+```elixir
+Repo.all(User)
+```
+
+### Update many
+
+```elixir
+Repo.update_all(Post, set: [title: "Title"])
+Repo.update_all(Post, inc: [views: 1])
+```
+
+### Chaining `_all` with queries
+
+```elixir
+from(p in Post, where: p.id < 10)
+|> Repo.update_all(...)
+
+from(p in Post, where: p.id < 10)
+|> Repo.all()
 ```

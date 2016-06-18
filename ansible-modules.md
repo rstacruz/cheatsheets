@@ -7,11 +7,13 @@ category: Ansible
 
     - apt_key: id=AC40B2F7 url="http://..."
         state=present
-        
+
     - apt: pkg=nodejs state=present
         state=present # absent | latest
         update_cache=yes
         force=no
+
+   - apt: deb=https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 
     - apt_repository: repo='deb https://... raring main'
         state=present
@@ -58,3 +60,7 @@ category: Ansible
     - shell: apt-get install nginx -y
     - script: /x/y/script.sh
 
+### local_action
+
+    - name: do something locally
+      local_action: shell echo hello

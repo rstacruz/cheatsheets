@@ -36,3 +36,4 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 ## References
 
 * <http://erlang.org/doc/man/ets.html>
+* <http://learnyousomeerlang.com/ets>

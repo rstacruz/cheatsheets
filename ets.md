@@ -4,7 +4,7 @@ category: Elixir
 ---
 
 ```elixir
-iex> table = :ets.new(:my_table)
+iex> table = :ets.new(:my_table, [])
      8211
 
 iex> :ets.insert(table, {:fruit, "Apple"})
@@ -12,6 +12,7 @@ iex> :ets.lookup(table, :fruit)
      [{:fruit, "Apple"}]
 
 iex> :ets.delete(table)
+iex> :ets.delete_all_objects(table)
 ```
 
 ### Flags

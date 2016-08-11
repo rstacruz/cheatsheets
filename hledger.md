@@ -13,9 +13,7 @@ hledger reg {query}
 
 ## Query
 
-Queries are used on all commands (`bal`, `reg`, etc).
-
-### Accounts
+Queries are used on all commands (`bal`, `reg`, etc). [(docs)](http://hledger.org/manual.html#queries)
 
 ```
 Assets           # An account (regex)
@@ -25,27 +23,20 @@ inacct:'A:B'     # transactions related to account
 
 acctonly:A       # no subaccounts
 inacctonly:A     # same, but no subaccounts
-```
 
-### Amounts
-
-```
 amt:2000         # amount (in absolute value)
 amt:<200         # amount comparison (in absolute value)
 amt:<+200        # amount comparison
                  # also: <=, >, >=
-```
 
-### Other queries
-
-```
-desc:REGEX
-code:REGEX
+desc:REGEX      # description
+code:REGEX      # transaction code (check number?)
 tag:REGEX
 cur:'\$'
-```
 
-```
+real:            # real posts
+real:0           # virtual posts
+
 depth:N          # --depth 2
 not:...          # eg, not:status:!
 ```

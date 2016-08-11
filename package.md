@@ -51,6 +51,19 @@ category: Node.js
     "private": true,
     "preferGlobal": true
 
+### Config
+
+```js
+{
+  "config": {
+    "foobar": "hello"
+  },
+  "scripts": {
+    "run": "echo $npm_package_config_foobar"
+  }
+}
+```
+
 ### References
     
  * http://package.json.nodejitsu.com/

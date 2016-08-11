@@ -74,6 +74,13 @@ rvm:
         - gh-pages
         - /^deploy/
 
+### Apt packages
+
+    before_install:
+    - sudo apt-get update -q
+    - sudo apt-get install gcc-4.8 -y
+<https://docs.travis-ci.com/user/installing-dependencies/>
+
 ### Etc
 
     gemfile:

@@ -35,3 +35,11 @@ _Replace ⌘ with Ctrl on Windows and Linux._
 {:.shortcuts}
 
 _Replace ⌘ with Ctrl on Windows and Linux._
+
+### Command line
+Use `subl` to open files in Sublime from the terminal.
+
+```sh
+$ subl .
+$ subl README.md
+```

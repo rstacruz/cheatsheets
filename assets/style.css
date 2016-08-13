@@ -208,6 +208,11 @@
 .side-ad a {
   text-decoration: none;
   box-shadow: none;
+  background: rgba(255, 255, 255, .01);
+}
+
+.side-ad a:hover {
+  color: #111;
 }
 
 .side-ad .carbon-text {
@@ -218,6 +223,12 @@
 .side-ad .carbon-poweredby {
   display: block;
   color: #aaa;
+}
+
+@media (max-width: 480px) {
+  .side-ad {
+    display: none;
+  }
 }
 
 /*
@@ -242,6 +253,12 @@
 .headline-ad a {
   text-decoration: none;
   box-shadow: none;
+  display: block;
+  background: rgba(255, 255, 255, .01);
+}
+
+.headline-ad a:hover {
+  color: #111;
 }
 
 .headline-ad img {

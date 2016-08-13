@@ -1,6 +1,7 @@
 ---
 title: httpie
 category: CLI
+layout: default-ad
 ---
 
     $ http POST example.com/posts/3 \

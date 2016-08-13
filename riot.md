@@ -1,6 +1,7 @@
 ---
 title: Riot.js
 category: JavaScript libraries
+layout: default-ad
 ---
 
 ## Tags

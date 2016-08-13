@@ -1,6 +1,7 @@
 ---
 title: Sinon
 category: JavaScript libraries
+layout: default-ad
 ---
 
 ### Creating spies

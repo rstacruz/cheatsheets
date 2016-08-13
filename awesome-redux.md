@@ -1,6 +1,7 @@
 ---
 title: Awesome-redux
 category: JavaScript libraries
+layout: default-ad
 ---
 
 ### [redux-actions](https://www.npmjs.com/package/redux-actions)

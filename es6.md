@@ -1,6 +1,7 @@
 ---
 title: ES2015
 category: JavaScript
+layout: default-ad
 ---
 
 ## Stable in io.js

@@ -1,6 +1,7 @@
 ---
 title: Jasmine
 category: JavaScript libraries
+layout: default-ad
 ---
 
     describe("A suite", function() {

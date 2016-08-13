@@ -1,6 +1,7 @@
 ---
 title: Chai.js
 category: JavaScript libraries
+layout: default-ad
 ---
 
 ### Assert

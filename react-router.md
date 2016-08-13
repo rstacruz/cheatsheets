@@ -1,6 +1,7 @@
 ---
 title: React-router
 category: React
+layout: default-ad
 ---
 
 ### Basic

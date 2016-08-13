@@ -1,6 +1,7 @@
 ---
 title: Immutable.js
 category: JavaScript libraries
+layout: default-ad
 ---
 
 ```js

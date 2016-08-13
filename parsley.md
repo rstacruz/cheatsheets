@@ -1,5 +1,6 @@
 ---
 title: Parsley.js
+layout: default-ad
 ---
 
 ### Enabling

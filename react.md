@@ -1,6 +1,7 @@
 ---
 title: React.js
 category: React
+layout: default-ad
 ---
 
 {%raw%}

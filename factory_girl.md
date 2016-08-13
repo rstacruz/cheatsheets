@@ -1,6 +1,7 @@
 ---
 title: FactoryGirl
 category: Ruby libraries
+layout: default-ad
 ---
 
 ### Paths

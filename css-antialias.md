@@ -1,6 +1,7 @@
 ---
 title: CSS antialiasing
 category: CSS
+layout: default-ad
 ---
 
     * {

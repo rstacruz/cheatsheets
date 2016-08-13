@@ -1,0 +1,28 @@
+---
+type: article
+---
+{% include head.html %}
+{% include site-header.html %}
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    {% include social-list.html page=page class="-collapse" %}
+
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>{{ page.title }}</span></h1>
+    </div>
+
+    <div class='headline-ad'>
+      <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      {{ content }}
+    </div>
+
+    {% include social-list.html page=page %}
+  </div>
+</div>
+
+{% include foot.html %}

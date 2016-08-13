@@ -2,6 +2,7 @@
 title: Vim script
 category: Vim
 hljs_languages: [vim]
+layout: default-ad
 ---
 
 ### Start hacking.

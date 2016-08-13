@@ -61,7 +61,7 @@
 }
 
 .post-headline.-cheatsheet .prelude span:before {
-  content: 'The great cheatsheet for';
+  content: 'Cheatsheet for';
 }
 
 @media (min-width: 769px) {
@@ -191,3 +191,85 @@
   box-shadow: none;
   margin: 0;
 }
+
+/*
+ * Carbon: side
+ */
+
+.side-ad {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 130px;
+  display: block;
+  font-size: .8em;
+}
+
+.side-ad a {
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.side-ad .carbon-text {
+  margin-top: 5px;
+  display: block;
+}
+
+.side-ad .carbon-poweredby {
+  display: block;
+  color: #aaa;
+}
+
+/*
+ * Cardbon: headline
+ */
+
+.headline-ad {
+  width: 300px;
+  min-height: 100px;
+  font-size: .8em;
+  margin: 0 auto 45px auto;
+  line-height: 1.5;
+}
+
+.headline-ad:after {
+  content: '';
+  display: table;
+  clear: both;
+  zoom: 1;
+}
+
+.headline-ad a {
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.headline-ad img {
+  float: left;
+  margin-right: 15px;
+  background: #fafafa;
+}
+
+.headline-ad .carbon-text {
+}
+
+.headline-ad .carbon-poweredby {
+  display: block;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.social-list.-collapse {
+  margin-top: 0;
+  position: absolute;
+  top: 40vh;
+  left: 30px;
+  width: 32px;
+}
+
+@media (max-width: 480px) {
+  .social-list.-collapse {
+    display: none;
+  }
+}
+

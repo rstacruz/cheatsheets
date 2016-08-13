@@ -1,6 +1,7 @@
 ---
 title: Docker CLI
 category: Devops
+layout: default-ad
 ---
 
 Manage images

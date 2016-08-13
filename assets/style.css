@@ -225,7 +225,7 @@
   color: #aaa;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .side-ad {
     display: none;
   }

@@ -28,3 +28,12 @@ category: JavaScript
 
     # Check for outdated packages
       npm outdated [PACKAGE]
+
+npm owner add josefrancisco.verdu@gmail.com docpress
+npm owner add josefrancisco.verdu@gmail.com docpress-core
+npm owner add josefrancisco.verdu@gmail.com docpress-base
+npm owner add josefrancisco.verdu@gmail.com docpress-search
+npm owner add ilya@burstcreations.com docpress
+npm owner add ilya@burstcreations.com docpress-core
+npm owner add ilya@burstcreations.com docpress-base
+npm owner add ilya@burstcreations.com docpress-search

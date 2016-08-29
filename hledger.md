@@ -19,10 +19,8 @@ Queries are used on all commands (`bal`, `reg`, etc). [(docs)](http://hledger.or
 Assets           # An account (regex)
 acct:Assets      # same
 ^Assets          # Starting with Assets (eg, not 'Expenses:Assets')
-inacct:'A:B'     # transactions related to account
 
 acctonly:A       # no subaccounts
-inacctonly:A     # same, but no subaccounts
 
 amt:2000         # amount (in absolute value)
 amt:<200         # amount comparison (in absolute value)

@@ -6,7 +6,7 @@ html_class: home
 
 {% for category in site.category_names %}
   <div class='pages-header'>
-    <h2>{{ category }}</h2>
+    <h2 id='{{ category | downcase | replace: " ", "-" }}'>{{ category }}</h2>
   </div>
   <div class='pages-list'>
     {% for page in site.pages %}

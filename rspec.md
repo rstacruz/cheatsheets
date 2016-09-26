@@ -5,22 +5,14 @@ category: Ruby
 
 ### Invoking tests
 
-    rake -T spec      # List spec tasks
+```sh
+rake -T spec      # List spec tasks
 
-    rake spec         # Run all
+rake spec         # Run all
 
-    rake spec/models/mymodel_spec.rb
-    rake spec/models/mymodel_spec.rb:27
-
-### Spec helpers
-
-    module UserSpecHelper
-      def valid_user_attributes
-        { :email => "joe@bloggs.com",
-          :username => "joebloggs",
-          :password => "abcdefg"}
-      end
-    end
+rake spec/models/mymodel_spec.rb
+rake spec/models/mymodel_spec.rb:27
+```
 
 ## A tests
 
@@ -144,7 +136,7 @@ expect { thing.destroy }.to \
   .by(-1)
 ```
 
-### Double
+## Doubles
 
 ```rb
 book = double('book')
@@ -185,3 +177,23 @@ expect(die).to receive(:roll)
 ```
 
 https://relishapp.com/rspec/rspec-mocks/docs
+
+## Spec helpers
+
+```rb
+module UserSpecHelper
+  def valid_user_attributes
+    { :email => "joe@bloggs.com",
+      :username => "joebloggs",
+      :password => "abcdefg"}
+  end
+end
+```
+
+```rb
+describe User do
+  include UserSpecHelper
+
+  ...
+end
+```

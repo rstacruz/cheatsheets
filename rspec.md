@@ -22,29 +22,52 @@ category: Ruby
       end
     end
 
-### A test
+## A tests
 
-    describe "A User (in general)" do
-      include UserSpecHelper
+```rb
+describe "A User (in general)" do
+  include UserSpecHelper
 
-      before(:each) do
-        @user = User.new
-      end
+  subject { Person.new }
 
-      subject {
-        Person.new
-      }
+  let(:admin) { Person.new(role: :admin) }
 
-      context "setter methods" do
-        it "should do this" do
-          pending "some other thing"
+  context "setter methods" do
+    it "should do this" do
+      pending "some other thing"
 
-          expect(subject.name).to eq 'x'
-        end
-      end
+      expect(subject.name).to eq 'x'
     end
+  end
+end
+```
 
-### Expectations
+### Before/after
+
+```rb
+before :each do
+  # before all tests
+end
+
+before do
+  # before this suite
+end
+
+after do
+  # after this suite
+end
+```
+
+### Subjects
+
+```rb
+subject { CheckingAccount.new }
+it { is_expected.to be_empty }
+
+# also names: subject(:account) { ... }
+```
+
+## Expectations
 
 ```rb
 target.should eq 1
@@ -150,7 +173,6 @@ expect(die).to receive(:roll)
   .with(kind_of(Numeric))
   .with(<matcher>)
 
-
   .once
   .twice
   .exactly(n).times
@@ -163,10 +185,3 @@ expect(die).to receive(:roll)
 ```
 
 https://relishapp.com/rspec/rspec-mocks/docs
-
-## Subjects
-
-    describe CheckingAccount, "with a non-zero balance" do
-      subject(:account) { CheckingAccount.new }
-      it { is_expected.not_to be_overdrawn }
-    end

@@ -49,6 +49,7 @@ category: Ruby
 ```rb
 target.should eq 1
 target.should_not eq 1
+
 expect(target).to eq 1
 expect(target).not_to eq 1
 ```

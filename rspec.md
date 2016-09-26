@@ -53,48 +53,71 @@ expect(target).to eq 1
 expect(target).not_to eq 1
 ```
 
+### Numeric
+
 ```rb
-# Numeric
-be < 6
-== 5
-equal value
-be_between(1, 10)
-be_within(0.05).of value
+expect(5).to be < 6
+expect(5).to == 5
+expect(5).to equal value
+expect(5).to be_between(1, 10)
+expect(5).to be_within(0.05).of value
+```
 
-be value
-satisfy {|arg| ...}
-predicate [optional args]
-match regexp
+### Comparison
 
-be_an_instance_of <class>
-be_a_kind_of <class>
+```rb
+expect(x).to be value
+expect(x).to satisfy { |arg| ... }
+expect(x).to match /regexp/
+```
 
-respond_to <symbol>
+### Predicate
 
-# Control flow
-raise_error
-raise_error(<exception> [, message])
+```rb
+expect(x).to be_zero    # FixNum#zero?
+expect(x).to be_empty   # Array#empty?
+expect(x).to have_key   # Hash#has_key?
+```
 
-throw <symbol>
+### Objects
 
-# Enumerables/arrays
-include <object>
+```rb
+expect(obj).to be_an_instance_of MyClass
+expect(obj).to be_a_kind_of MyClass
+expect(obj).to respond_to :save!
+```
 
-have(<number>).things
-have_at_least(<number>).things
-have_at_most(<number>).things
+### Control flow
 
-have(<number>).errors_on(:field)
+```rb
+expect { user.save! }.to raise_error
+expect { user.save! }.to raise_error(ExceptionName, /msg/)
+expect { user.save! }.to throw :symbol
+```
 
-# Change
-change(instance, method).from(number).to(number)
+### Enumerables/arrays
 
-# proc.should <=> expect(&proc).to
-expect { thing.approve! }.to change(thing, :status).
-    from(Status::AWAITING_APPROVAL).
-    to(Status::APPROVED)
+```rb
+expect(list).to include(<object>)
 
-expect { thing.destroy }.to change(Thing, :count).by(-1)
+expect(list).to have(1).things
+expect(list).to have_at_least(2).things
+expect(list).to have_at_most(3).things
+
+expect(list).to have(2).errors_on(:field)
+```
+
+### Change
+
+```rb
+expect { thing.approve! }.to \
+  change(thing, :status)
+  .from(Status::AWAITING_APPROVAL)
+  .to(Status::APPROVED)
+
+expect { thing.destroy }.to \
+  change(Thing, :count)
+  .by(-1)
 ```
 
 ### Double

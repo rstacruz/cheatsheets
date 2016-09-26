@@ -29,13 +29,69 @@ boolean
 mixed
 number
 string
-void
+void           // undefined
+null           // null (but not undefined)
+
+?number        // maybe (number | void | null)
+
+{a: Number}    // object with a shape
+[any, number]  // tuples (fixed-length arrays)
 
 Array<T>
 Class<T>
 Function
 Object
 ```
+
+## [Type aliases](https://flowtype.org/docs/quick-reference.html#type-aliases)
+
+```js
+type Tree = {
+  foo: string,
+  bar: number,
+  qux: (foo: string, bar: number) => boolean
+}
+
+type Generic<T> = {
+  foo: T
+}
+```
+
+## [Generic classes](https://flowtype.org/docs/quick-reference.html#generics)
+
+```js
+class GenericClass<T> {
+  x: T;
+  constructor (x: T) { ... }
+}
+
+var n: GenericClass<number> = new GenericClass(0)
+```
+
+## [Interfaces](https://flowtype.org/docs/quick-reference.html#interfaces)
+
+```js
+interface Jsonable {
+  toJSON(): string
+}
+
+class Foo {
+  toJSON() { return '{}' }
+}
+
+(new Foo: Jsonable)
+```
+
+## [Functions](https://flowtype.org/docs/functions.html)
+
+```js
+function createRenderer (): () => void {
+  return function () { }
+}
+```
+
+
+## Examples
 
 ```js
 var myNumbers: Array<number> = [42]

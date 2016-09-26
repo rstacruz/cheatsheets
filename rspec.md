@@ -14,7 +14,7 @@ rake spec/models/mymodel_spec.rb
 rake spec/models/mymodel_spec.rb:27
 ```
 
-## A tests
+## Writing tests
 
 ```rb
 describe "A User (in general)" do

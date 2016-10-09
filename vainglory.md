@@ -20,6 +20,8 @@ Last updated for Vainglory 1.22.
 | Cooldown            | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC]  |
 | Slow                | [Frostburn][FB]                   |                              | [Shiversteel][SS] |
 
+{:.wide}
+
 ## T3 CP items
 
 | Item                      | Cost | CP      | Use                                                                                    |
@@ -31,6 +33,8 @@ Last updated for Vainglory 1.22.
 | [Frostburn][FB]           | 2600 | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
 | [Shatterglass][SG]        | 3000 | +150 cp | __Raw power__            <br> -                                                        |
 | [Clockwork][CW]           | 2500 | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
+
+{:.wide}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
 [AC]: http://www.vaingloryfire.com/vainglory/wiki/items/alternating-current
@@ -52,6 +56,8 @@ Last updated for Vainglory 1.22.
 | [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
 | [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                               |
 
+{:.wide}
+
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
 [BP]: http://www.vaingloryfire.com/vainglory/wiki/items/breaking-point
 [SM]: http://www.vaingloryfire.com/vainglory/wiki/items/serpent-mask
@@ -71,6 +77,8 @@ Last updated for Vainglory 1.22.
 | [Shiversteel][SS]         | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
 | [War Treads][WBoot]       | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
 
+{:.wide}
+
 ## T3 Defense
 
 | Item                            | Cost | HP      | Armor   | Shield  | Use                             |
@@ -80,6 +88,8 @@ Last updated for Vainglory 1.22.
 | [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed |
 | [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                 |
 | [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)      |
+
+{:.wide}
 
 [Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal
 [Cru]: http://www.vaingloryfire.com/vainglory/wiki/items/aegis
@@ -94,6 +104,8 @@ Last updated for Vainglory 1.22.
 | [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) <br> incl. nearby teammates   | __HP, assist__ |
 | [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                               | __Energy__     |
 | [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) <br> damaging resets cooldown | __Gap close__  |
+
+{:.wide}
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption
 [HBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/halcyon-chargers

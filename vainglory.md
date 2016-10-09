@@ -65,10 +65,10 @@ Last updated for Vainglory 1.22.
 | Item                             | Cost | HP      | Use                                           |
 | ---                              | ---  | ---     | ---                                           |
 | Boots: [Halcyon Chargers][HBoot] | 2300 | +200 hp | +15% cooldown, +250 energy, +4 recharge       |
-| [Shiversteel][SS]                | 1450 | +500 hp | active: slow targets                          |
 | [Stormcrown][SC]                 | 2200 | +200 hp | +30% cooldown, +4 recharge, bonus true damage |
 | Boots: [Journey Boots][JBoot]    | 1900 | +250 hp | damaging heroes resets sprint cooldown        |
 | [Contraption][Con]               | 2100 | +350 hp | traps/flares, +40% cooldown, +3 recharge      |
+| [Shiversteel][SS]                | 1450 | +500 hp | active: slow targets                          |
 | Boots: [War Treads][WBoot]       | 2500 | +600 hp | gives sprint to nearby teammates              |
 
 ## T3 Defense

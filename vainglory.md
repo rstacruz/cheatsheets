@@ -8,19 +8,19 @@ Last updated for Vainglory 1.22.
 
 ## T3 items by use
 
-| Use                   | CP                                | WP                           | Util                                                    |
-| ---                   | ---                               | ---                          | ---                                                     |
-| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                         |
-| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                         |
-| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                         |
-| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                         |
-| __Bonus damage__      |                                   | [Tension][TB]                |                                                         |
-| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                         |
-| __Critical__          |                                   | [Monocle][TM]                |                                                         |
-| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              |                                                         |
-| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                |
-| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                       |
-| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield), [Crucible][Cru] (team/HP) |
+| Use                   | CP                                | WP                           | Util                                                        |
+| ---                   | ---                               | ---                          | ---                                                         |
+| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                             |
+| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                             |
+| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                             |
+| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                             |
+| __Bonus damage__      |                                   | [Tension][TB]                |                                                             |
+| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                             |
+| __Critical__          |                                   | [Monocle][TM]                |                                                             |
+| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              |                                                             |
+| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                    |
+| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                           |
+| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP) |
 {:.wide}
 
 ## T3 CP items

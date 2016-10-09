@@ -4,23 +4,23 @@ category: Misc
 ---
 
 Last updated for Vainglory 1.22.
+{:.center}
 
 ## T3 items by use
 
-| Use                 | CP                                | WP                           | Util                                                    |
-| ---                 | ---                               | ---                          | ---                                                     |
-| Armor/shield pierce | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                         |
-| Stacking damage     | [Myth][BM]                        | [Break][BP]                  |                                                         |
-| Lifesteal           | [Eve][Eve]                        | [Serpent][SM]                |                                                         |
-| Raw power           | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                         |
-| Bonus damage        |                                   | [Tension][TB]                |                                                         |
-| Attack speed        | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                         |
-| Critical            |                                   | [Monocle][TM]                |                                                         |
-| Basic damage        | [Aftershock][AS], [Alt][AC]       |                              |                                                         |
-| Cooldown            | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                |
-| Slow                | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                       |
-| Reflex block        |                                   |                              | [Aegis][Aegis] (self/shield), [Crucible][Cru] (team/HP) |
-
+| Use                   | CP                                | WP                           | Util                                                    |
+| ---                   | ---                               | ---                          | ---                                                     |
+| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                         |
+| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                         |
+| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                         |
+| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                         |
+| __Bonus damage__      |                                   | [Tension][TB]                |                                                         |
+| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                         |
+| __Critical__          |                                   | [Monocle][TM]                |                                                         |
+| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              |                                                         |
+| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                |
+| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                       |
+| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield), [Crucible][Cru] (team/HP) |
 {:.wide}
 
 ## T3 CP items
@@ -34,7 +34,6 @@ Last updated for Vainglory 1.22.
 | [Frostburn][FB]           | 2600 | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
 | [Shatterglass][SG]        | 3000 | +150 cp | __Raw power__            <br> -                                                        |
 | [Clockwork][CW]           | 2500 | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
-
 {:.wide}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
@@ -56,7 +55,6 @@ Last updated for Vainglory 1.22.
 | [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed          |
 | [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
 | [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                               |
-
 {:.wide}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
@@ -77,7 +75,6 @@ Last updated for Vainglory 1.22.
 | [Contraption][Con]        | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
 | [Shiversteel][SS]         | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
 | [War Treads][WBoot]       | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
-
 {:.wide}
 
 ## T3 Defense
@@ -89,7 +86,6 @@ Last updated for Vainglory 1.22.
 | [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed |
 | [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                 |
 | [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)      |
-
 {:.wide}
 
 [Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal
@@ -105,7 +101,6 @@ Last updated for Vainglory 1.22.
 | [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) <br> incl. nearby teammates   | __HP, assist__ |
 | [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                               | __Energy__     |
 | [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) <br> damaging resets cooldown | __Gap close__  |
-
 {:.wide}
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption

@@ -1,24 +1,24 @@
 ---
 title: Vainglory
-category: Ruby
+category: Misc
 ---
 
 Last updated for Vainglory 1.22.
 
 ## T3 items by use
 
-| Use                | CP                                | WP                                          | Util              |
-| ---                | ---                               | ---                                         | ---               |
-| Armor pierce       | [Broken Myth][BM]                 | [Bonesaw][BS], [Tension Bow][TB]            | -                 |
-| Stacking damage    | [Broken Myth][BM]                 | [Breaking Point][BP]                        | -                 |
-| Lifesteal          | [Eve of Harvest][Eve]             | [Serpent Mask][SM]                          | -                 |
-| Raw power          | [Shatterglass][SG]                | [Sorrowblade][SB]                           | -                 |
-| Bonus damage       | -                                 | [Tension Bow][TB]                           | -                 |
-| Attack speed       | [Alternating current][AC]         | [Tornado Trigger][TT], [Breaking Point][BP] | -                 |
-| Critical           | -                                 | [Tyrant's Monocle][TM]                      | -                 |
-| Basic after attack | [Aftershock][AS]                  | -                                           | -                 |
-| Cooldown           | [Clockwork][CP], [Aftershock][AS] | -                                           | [Stormcrown][SC]  |
-| Slow               | [Frostburn][FB]                   | -                                           | [Shiversteel][SS] |
+| Use                | CP                                | WP                           | Util              |
+| ---                | ---                               | ---                          | ---               |
+| Armor pierce       | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                   |
+| Stacking damage    | [Myth][BM]                        | [Break][BP]                  |                   |
+| Lifesteal          | [Eve][Eve]                        | [Serpent][SM]                |                   |
+| Raw power          | [Shatterglass][SG]                | [Sorrowblade][SB]            |                   |
+| Bonus damage       |                                   | [Tension][TB]                |                   |
+| Attack speed       | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                   |
+| Critical           |                                   | [Monocle][TM]                |                   |
+| Basic after attack | [Aftershock][AS]                  |                              |                   |
+| Cooldown           | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC]  |
+| Slow               | [Frostburn][FB]                   |                              | [Shiversteel][SS] |
 
 ## T3 CP items
 
@@ -42,15 +42,15 @@ Last updated for Vainglory 1.22.
 
 ## T3 WP items
 
-| Item                   | Cost | WP   | Other                                           |
-| ----                   | ---  | ---  | ---                                             |
-| [Tornado Trigger][TT]  | 2600 | -    | +75% atk speed, +20% crit change, +20% crit dmg |
-| [Bonesaw][BS]          | 2700 | +15 wp | stacking armor shred                            |
-| [Tension Bow][TB]      | 2300 | +45 wp | +8% armor pierce, bonus damage every 6s         |
-| [Tyrant's Monocle][TM] | 2750 | +50 wp | +40% crit change, +20% crit damage              |
-| [Breaking Point][BP]   | 2600 | +55 wp | +35% atk speed, stacking weapon damage          |
-| [Serpent Mask][SM]     | 2800 | +85 wp | +10% lifesteal, stacking lifesteal              |
-| [Sorrowblade][SB]      | 3100 | +150 wp | -                                               |
+| Item                   | Cost | WP      | Other                                           |
+| ----                   | ---  | ---     | ---                                             |
+| [Tornado Trigger][TT]  | 2600 |         | +75% atk speed, +20% crit change, +20% crit dmg |
+| [Bonesaw][BS]          | 2700 | +15 wp  | stacking armor shred                            |
+| [Tension Bow][TB]      | 2300 | +45 wp  | +8% armor pierce, bonus damage every 6s         |
+| [Tyrant's Monocle][TM] | 2750 | +50 wp  | +40% crit change, +20% crit damage              |
+| [Breaking Point][BP]   | 2600 | +55 wp  | +35% atk speed, stacking weapon damage          |
+| [Serpent Mask][SM]     | 2800 | +85 wp  | +10% lifesteal, stacking lifesteal              |
+| [Sorrowblade][SB]      | 3100 | +150 wp |                                                 |
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
 [BP]: http://www.vaingloryfire.com/vainglory/wiki/items/breaking-point
@@ -71,12 +71,28 @@ Last updated for Vainglory 1.22.
 | [Contraption][Con]               | 2100 | +350 hp | traps/flares, +40% cooldown, +3 recharge      |
 | Boots: [War Treads][WBoot]       | 2500 | +600 hp | gives sprint to nearby teammates              |
 
+## T3 Defense
+
+| Item                            | Cost | HP      | Armor   | Shield  | Other                              |
+| ---                             | ---  | ---     | ---     | ---     | ---                                |
+| [Aegis][Aegis]                  | 2250 |         | +30 ar  | +125 sh |                                    |
+| [Fountain of Renewal][Fountain] | 2300 | +200 hp | +30 ar  | +75 sh  | active: heal allies                |
+| [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | active: reduce target attack speed |
+| [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                    |
+| [Crucible][Cru]                 | 1850 | +600 hp |         |         | active: reflex block               |
+
+[Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal
+[Cru]: http://www.vaingloryfire.com/vainglory/wiki/items/aegis
+[Aegis]: http://www.vaingloryfire.com/vainglory/wiki/items/aegis
+[Atlas]: http://www.vaingloryfire.com/vainglory/wiki/items/atlas-pauldron
+[Metal]: http://www.vaingloryfire.com/vainglory/wiki/items/metal-jacket
+
 ## T3 Boots
 
 | Item                      | Movement speed | HP      | Sprint                                       |
 | ---                       | ---            | ---     | ---                                          |
 | [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) - incl. nearby teammates   |
-| [Halcyon Chargers][HBoot] | +0.5           | -       | 3s (50s cooldown)                            |
+| [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                            |
 | [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) - damaging resets cooldown |
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption

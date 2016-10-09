@@ -7,18 +7,19 @@ Last updated for Vainglory 1.22.
 
 ## T3 items by use
 
-| Use                 | CP                                | WP                           | Util              |
-| ---                 | ---                               | ---                          | ---               |
-| Armor/shield pierce | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                   |
-| Stacking damage     | [Myth][BM]                        | [Break][BP]                  |                   |
-| Lifesteal           | [Eve][Eve]                        | [Serpent][SM]                |                   |
-| Raw power           | [Shatterglass][SG]                | [Sorrowblade][SB]            |                   |
-| Bonus damage        |                                   | [Tension][TB]                |                   |
-| Attack speed        | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                   |
-| Critical            |                                   | [Monocle][TM]                |                   |
-| Basic damage        | [Aftershock][AS], [Alt][AC]       |                              |                   |
-| Cooldown            | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC]  |
-| Slow                | [Frostburn][FB]                   |                              | [Shiversteel][SS] |
+| Use                 | CP                                | WP                           | Util                                                    |
+| ---                 | ---                               | ---                          | ---                                                     |
+| Armor/shield pierce | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                         |
+| Stacking damage     | [Myth][BM]                        | [Break][BP]                  |                                                         |
+| Lifesteal           | [Eve][Eve]                        | [Serpent][SM]                |                                                         |
+| Raw power           | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                         |
+| Bonus damage        |                                   | [Tension][TB]                |                                                         |
+| Attack speed        | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                         |
+| Critical            |                                   | [Monocle][TM]                |                                                         |
+| Basic damage        | [Aftershock][AS], [Alt][AC]       |                              |                                                         |
+| Cooldown            | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                |
+| Slow                | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                       |
+| Reflex block        |                                   |                              | [Aegis][Aegis] (self/shield), [Crucible][Cru] (team/HP) |
 
 {:.wide}
 

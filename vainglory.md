@@ -69,7 +69,7 @@ Last updated for Vainglory 1.22.
 | [Journey Boots][JBoot]    | 1900 | +250 hp | 👟 __Boots__     <br> damaging heroes resets sprint cooldown        |
 | [Contraption][Con]        | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
 | [Shiversteel][SS]         | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
-| [War Treads][WBoot]       | 2500 | +600 hp | 👟 __Boots_      <br> gives sprint to nearby teammates              |
+| [War Treads][WBoot]       | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
 
 ## T3 Defense
 
@@ -96,9 +96,9 @@ Last updated for Vainglory 1.22.
 | [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) <br> damaging resets cooldown | __Gap close__  |
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption
-[HBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/halcyon-boots
+[HBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/halcyon-chargers
 [WBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/war-treads
-[JBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/war-treads
+[JBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/journey-boots
 [SC]: http://www.vaingloryfire.com/vainglory/wiki/items/stormcrown
 [SS]: http://www.vaingloryfire.com/vainglory/wiki/items/shiversteel
 

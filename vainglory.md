@@ -89,11 +89,11 @@ Last updated for Vainglory 1.22.
 
 ## T3 Boots
 
-| Item                      | Movement speed | HP      | Sprint                                       | Use            |
-| ---                       | ---            | ---     | ---                                          | ---            |
-| [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) - incl. nearby teammates   | __HP, assist__ |
-| [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                            | __Energy__     |
-| [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) - damaging resets cooldown | __Gap close__  |
+| Item                      | Movement speed | HP      | Sprint                                          | Use            |
+| ---                       | ---            | ---     | ---                                             | ---            |
+| [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) <br> incl. nearby teammates   | __HP, assist__ |
+| [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                               | __Energy__     |
+| [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) <br> damaging resets cooldown | __Gap close__  |
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption
 [HBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/halcyon-boots

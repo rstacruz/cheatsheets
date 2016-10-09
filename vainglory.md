@@ -102,6 +102,19 @@ Last updated for Vainglory 1.22.
 [SC]: http://www.vaingloryfire.com/vainglory/wiki/items/stormcrown
 [SS]: http://www.vaingloryfire.com/vainglory/wiki/items/shiversteel
 
+## [Skill tier names](http://www.vaingloryfire.com/vainglory/forum/general-discussion/bronze-silver-gold-rankings-5312)
+
+1. Just Beginning
+2. Getting There
+3. Rock Solid
+4. Worthy Foe
+5. Got Swagger
+6. Credible Threat
+7. The Hotness
+8. Simply Amazing
+9. Pinnacle of Awesome
+10. Vainglorious
+
 ## References
 
 - [Vaingloryfire.com](http://www.vaingloryfire.com/)

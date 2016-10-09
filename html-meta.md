@@ -36,14 +36,14 @@ category: HTML
 ### More opengraph
 
 ```html
-<meta name="og:site_name" content="...">
-<meta name="og:type" content="website">
+<meta property="og:site_name" content="...">
+<meta property="og:type" content="website">
 
-<meta name="fb:app_id" content="...">
-<meta name="fb:admins" content="UID1,UID2"> <!-- unless there's app_id -->
+<meta property="fb:app_id" content="...">
+<meta property="fb:admins" content="UID1,UID2"> <!-- unless there's app_id -->
 
-<meta name="og:audio" content="http://.../theme.mp3">
-<meta name="og:video" content="http://.../trailer.swf">
+<meta property="og:audio" content="http://.../theme.mp3">
+<meta property="og:video" content="http://.../trailer.swf">
 ```
 
 ### Opengraph for articles

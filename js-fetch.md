@@ -14,8 +14,8 @@ fetch('/data.json')
 ```js
 fetch('/data.json')
 .then(res => {
-  res.text()       // response body
-  res.json()       // parse via JSON
+  res.text()       // response body (=> Promise)
+  res.json()       // parse via JSON (=> Promise)
   res.status       //=> 200
   res.statusText   //=> 'OK'
   res.redirected   //=> false

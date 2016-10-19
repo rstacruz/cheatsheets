@@ -103,3 +103,9 @@ Max:
     $(function () {
       $('[data-toogle~="tooltip"]').tooltip();
     });
+
+### Input groups
+
+    .input-group
+        input.form-control(type='text')
+        .input-group-addon years

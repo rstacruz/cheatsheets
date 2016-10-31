@@ -27,13 +27,13 @@ Last updated for Vainglory 1.22.
 
 | Item                      | Cost | CP      | Use                                                                                    |
 | ----                      | ---  | ---     | ---                                                                                    |
-| [Aftershock][AS]          | 2400 | +35 cp  | __Basic dmg, atk speed__ <br> *+basic dmg after ability*, +25% cooldown, +2.5 recharge |
-| [Eve of Harvest][Eve]     | 2600 | +55 cp  | __Lifesteal__            <br> *+10% lifesteal*, +250 energy, +5 recharge               |
-| [Alternating Current][AC] | 2800 | +60 cp  | __Basic dmg__            <br> *+basic dmg based on CP*, +65% atk speed                 |
-| [Broken Myth][BM]         | 2150 | +70 cp  | __Stack dmg__            <br> +10% shield pierce, stacking dmg                         |
-| [Frostburn][FB]           | 2600 | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
-| [Shatterglass][SG]        | 3000 | +150 cp | __Raw power__            <br> -                                                        |
-| [Clockwork][CW]           | 2500 | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
+| AS: [Aftershock][AS]          | 2400 | +35 cp  | __Basic dmg, atk speed__ <br> *+basic dmg after ability*, +25% cooldown, +2.5 recharge |
+| EoH: [Eve of Harvest][Eve]     | 2600 | +55 cp  | __Lifesteal__            <br> *+10% lifesteal*, +250 energy, +5 recharge               |
+| AC: [Alternating Current][AC] | 2800 | +60 cp  | __Basic dmg__            <br> *+basic dmg based on CP*, +65% atk speed                 |
+| BM: [Broken Myth][BM]         | 2150 | +70 cp  | __Stack dmg__            <br> +10% shield pierce, stacking dmg                         |
+| FB: [Frostburn][FB]           | 2600 | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
+| SG: [Shatterglass][SG]        | 3000 | +150 cp | __Raw power__            <br> -                                                        |
+| CW: [Clockwork][CW]           | 2500 | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
 {:.wide}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
@@ -48,13 +48,13 @@ Last updated for Vainglory 1.22.
 
 | Item                   | Cost | WP      | Other                                                                 |
 | ----                   | ---  | ---     | ---                                                                   |
-| [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg |
-| [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                            |
-| [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce         |
-| [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg              |
-| [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed          |
-| [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
-| [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                               |
+| TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg |
+| BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                            |
+| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce         |
+| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg              |
+| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed          |
+| SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
+| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                               |
 {:.wide}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
@@ -123,6 +123,8 @@ Last updated for Vainglory 1.22.
 9. Pinnacle of Awesome
 10. Vainglorious
 
-## References
+## Useful references
 
 - [Vaingloryfire.com](http://www.vaingloryfire.com/)
+- [Version history](http://forums.vainglorygame.com/index.php?threads/41129/) (forums.vainglorygame.com)
+- [Skill tier points](http://brokenmyth.net/skill-tier-point-far-next-tier/#more-10043) (brokenmyth.net)

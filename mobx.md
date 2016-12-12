@@ -11,6 +11,7 @@ import {observable, computed} from 'mobx'
 class Page {
   @observable title = ''
   @observable published = false
+  @observable author = null
 
   @computed get authorName () {
     return this.author || 'Anonymous'
@@ -70,6 +71,23 @@ class Foo {
   }
 }
 ```
+
+### expr()
+
+```js
+// A temporary computed value. Its result is cached.
+render () {
+  const isPublished = expr(() => page.published === true)
+  if (isPublished) { ... }
+}
+```
+
+## [Modifiers](http://mobxjs.github.io/mobx/refguide/modifiers.html)
+
+- `asMap(obj)` - JS map (dynamic keys)
+- `asReference(fn)` - don't observe me
+- `asStructure(obj)` - JS object (observe as deepEqual)
+- `asFlat(array)` - JS array (observe its children)
 
 ## React
 

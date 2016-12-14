@@ -8,20 +8,20 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 
 ## T3 items by use
 
-| Use                   | CP                                | WP                           | Util                                                        |
-| ---                   | ---                               | ---                          | ---                                                         |
-| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                             |
-| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                             |
-| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                             |
-| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                             |
-| __Bonus damage__      |                                   | [Tension][TB]                |                                                             |
-| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                             |
-| __Critical__          |                                   | [Monocle][TM]                |                                                             |
-| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              |                                                             |
-| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                    |
-| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                           |
-| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP) |
-| __Ability repeat__    | [Echo][Echo]                      |                              | |
+| Use                   | CP                                | WP                           | Util                                                                           |
+| ---                   | ---                               | ---                          | ---                                                                            |
+| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                                                |
+| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                                                |
+| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                                                |
+| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                                                |
+| __Bonus damage__      |                                   | [Tension][TB]                |                                                                                |
+| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                                                |
+| __Critical__          |                                   | [Monocle][TM]                |                                                                                |
+| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              | [Stormcrown][SC]                                                               |
+| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
+| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
+| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |
+| __Ability repeat__    | [Echo][Echo]                      |                              |                                                                                |
 {:.wide}
 
 ## T3 CP items
@@ -35,7 +35,7 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | FB: [Frostburn][FB]           | 2600  | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
 | SG: [Shatterglass][SG]        | 3000  | +150 cp | __Raw power__            <br> -                                                        |
 | CW: [Clockwork][CW]           | 2500  | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
-| Echo: [Echo][Echo] (2.0)      | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
+| [Echo][Echo] (2.0)            | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
 {:.wide}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
@@ -75,10 +75,10 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | [Halcyon Chargers][HBoot]       | 2300 | +200 hp | 👟 __Boots__     <br> +15% cooldown, +250 energy, +4 recharge       |
 | [Stormcrown][SC]                | 2200 | +200 hp | 🔴 __Bonus dmg__ <br> +30% cooldown, +4 recharge, bonus true damage |
 | [Journey Boots][JBoot]          | 1900 | +250 hp | 👟 __Boots__     <br> damaging heroes resets sprint cooldown        |
+| [Nullwave Gauntlet][Null] (2.0) | 2250 | +300 hp | __Item silence__ <br> +25% cooldown                                 |
 | [Contraption][Con]              | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
 | [Shiversteel][SS]               | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
 | [War Treads][WBoot]             | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
-| [Nullwave Gauntlet][Null] (2.0) | 2250 | +300 hp | __Item silence__ <br> +25% cooldown                                 |
 {:.wide}
 
 ## T3 Defense
@@ -99,6 +99,7 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [Atlas]: http://www.vaingloryfire.com/vainglory/wiki/items/atlas-pauldron
 [Metal]: http://www.vaingloryfire.com/vainglory/wiki/items/metal-jacket
 [Husk]: http://www.vaingloryfire.com/vainglory/wiki/items/slumbering-husk
+[Null]: http://www.vaingloryfire.com/vainglory/wiki/items/nullwave-gauntlet
 
 ## T3 Boots
 

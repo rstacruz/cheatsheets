@@ -3,7 +3,7 @@ title: Vainglory
 category: Misc
 ---
 
-Last updated for Vainglory 1.22.
+Last updated for Vainglory 1.22 with some 2.0 stuff.
 {:.center}
 
 ## T3 items by use
@@ -21,19 +21,21 @@ Last updated for Vainglory 1.22.
 | __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Halcyon Boots][HBoot]                    |
 | __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                           |
 | __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP) |
+| __Ability repeat__    | [Echo][Echo]                      |                              | |
 {:.wide}
 
 ## T3 CP items
 
-| Item                      | Cost | CP      | Use                                                                                    |
-| ----                      | ---  | ---     | ---                                                                                    |
-| AS: [Aftershock][AS]          | 2400 | +35 cp  | __Basic dmg, atk speed__ <br> *+basic dmg after ability*, +25% cooldown, +2.5 recharge |
-| EoH: [Eve of Harvest][Eve]     | 2600 | +55 cp  | __Lifesteal__            <br> *+10% lifesteal*, +250 energy, +5 recharge               |
-| AC: [Alternating Current][AC] | 2800 | +60 cp  | __Basic dmg__            <br> *+basic dmg based on CP*, +65% atk speed                 |
-| BM: [Broken Myth][BM]         | 2150 | +70 cp  | __Stack dmg__            <br> +10% shield pierce, stacking dmg                         |
-| FB: [Frostburn][FB]           | 2600 | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
-| SG: [Shatterglass][SG]        | 3000 | +150 cp | __Raw power__            <br> -                                                        |
-| CW: [Clockwork][CW]           | 2500 | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
+| Item                          | Cost  | CP      | Use                                                                                    |
+| ----                          | ---   | ---     | ---                                                                                    |
+| AS: [Aftershock][AS]          | 2400  | +35 cp  | __Basic dmg, atk speed__ <br> *+basic dmg after ability*, +25% cooldown, +2.5 recharge |
+| EoH: [Eve of Harvest][Eve]    | 2600  | +55 cp  | __Lifesteal__            <br> *+10% lifesteal*, +250 energy, +5 recharge               |
+| AC: [Alternating Current][AC] | 2800  | +60 cp  | __Basic dmg__            <br> *+basic dmg based on CP*, +65% atk speed                 |
+| BM: [Broken Myth][BM]         | 2150  | +70 cp  | __Stack dmg__            <br> +10% shield pierce, stacking dmg                         |
+| FB: [Frostburn][FB]           | 2600  | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
+| SG: [Shatterglass][SG]        | 3000  | +150 cp | __Raw power__            <br> -                                                        |
+| CW: [Clockwork][CW]           | 2500  | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
+| Echo: [Echo][Echo] (2.0)      | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
 {:.wide}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
@@ -43,18 +45,19 @@ Last updated for Vainglory 1.22.
 [BM]: http://www.vaingloryfire.com/vainglory/wiki/items/broken-myth
 [CW]: http://www.vaingloryfire.com/vainglory/wiki/items/clockwork
 [FB]: http://www.vaingloryfire.com/vainglory/wiki/items/frostburn
+[Echo]: http://www.vaingloryfire.com/vainglory/wiki/items/echo
 
 ## T3 WP items
 
-| Item                   | Cost | WP      | Other                                                                 |
-| ----                   | ---  | ---     | ---                                                                   |
+| Item                       | Cost | WP      | Other                                                                   |
+| ----                       | ---  | ---     | ---                                                                     |
 | TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg |
 | BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                            |
-| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce         |
-| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg              |
-| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed          |
+| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce            |
+| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg                 |
+| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed             |
 | SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
-| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                               |
+| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                                 |
 {:.wide}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
@@ -67,25 +70,27 @@ Last updated for Vainglory 1.22.
 
 ## T3 Utils by HP
 
-| Item                      | Cost | HP      | Use                                                                 |
-| ---                       | ---  | ---     | ---                                                                 |
-| [Halcyon Chargers][HBoot] | 2300 | +200 hp | 👟 __Boots__     <br> +15% cooldown, +250 energy, +4 recharge       |
-| [Stormcrown][SC]          | 2200 | +200 hp | 🔴 __Bonus dmg__ <br> +30% cooldown, +4 recharge, bonus true damage |
-| [Journey Boots][JBoot]    | 1900 | +250 hp | 👟 __Boots__     <br> damaging heroes resets sprint cooldown        |
-| [Contraption][Con]        | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
-| [Shiversteel][SS]         | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
-| [War Treads][WBoot]       | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
+| Item                            | Cost | HP      | Use                                                                 |
+| ---                             | ---  | ---     | ---                                                                 |
+| [Halcyon Chargers][HBoot]       | 2300 | +200 hp | 👟 __Boots__     <br> +15% cooldown, +250 energy, +4 recharge       |
+| [Stormcrown][SC]                | 2200 | +200 hp | 🔴 __Bonus dmg__ <br> +30% cooldown, +4 recharge, bonus true damage |
+| [Journey Boots][JBoot]          | 1900 | +250 hp | 👟 __Boots__     <br> damaging heroes resets sprint cooldown        |
+| [Contraption][Con]              | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
+| [Shiversteel][SS]               | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
+| [War Treads][WBoot]             | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
+| [Nullwave Gauntlet][Null] (2.0) | 2250 | +300 hp | __Item silence__ <br> +25% cooldown                                 |
 {:.wide}
 
 ## T3 Defense
 
-| Item                            | Cost | HP      | Armor   | Shield  | Use                             |
-| ---                             | ---  | ---     | ---     | ---     | ---                             |
-| [Aegis][Aegis]                  | 2250 |         | +30 ar  | +125 sh | ✊__Reflex block__ (self)      |
-| [Fountain of Renewal][Fountain] | 2300 | +200 hp | +30 ar  | +75 sh  | ❤ __Heal__ allies               |
-| [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed |
-| [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                 |
-| [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)      |
+| Item                            | Cost | HP      | Armor   | Shield  | Use                                             |
+| ---                             | ---  | ---     | ---     | ---     | ---                                             |
+| [Aegis][Aegis]                  | 2250 |         | +30 ar  | +125 sh | ✊__Reflex block__ (self)                       |
+| [Fountain of Renewal][Fountain] | 2300 | +200 hp | +30 ar  | +75 sh  | ❤ __Heal__ allies                               |
+| [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed                 |
+| [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                                 |
+| [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)                      |
+| [Slumbering Husk][Husk] (2.0)   | 1600 | +400 hp |         |         | __Fortification__ (when taking too much damage) |
 {:.wide}
 
 [Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal
@@ -93,6 +98,7 @@ Last updated for Vainglory 1.22.
 [Aegis]: http://www.vaingloryfire.com/vainglory/wiki/items/aegis
 [Atlas]: http://www.vaingloryfire.com/vainglory/wiki/items/atlas-pauldron
 [Metal]: http://www.vaingloryfire.com/vainglory/wiki/items/metal-jacket
+[Husk]: http://www.vaingloryfire.com/vainglory/wiki/items/slumbering-husk
 
 ## T3 Boots
 

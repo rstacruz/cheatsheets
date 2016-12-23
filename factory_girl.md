@@ -4,33 +4,24 @@ category: Ruby libraries
 layout: default-ad
 ---
 
-### Paths
-
-    test/factories.rb
-    spec/factories.rb
-    test/factories/*.rb
-    spec/factories/*.rb
-
-### Factories
+## Factories
 
     FactoryGirl.define do
       factory :user do
-        first_name "John"
-        last_name  "Doe"
+        first_name 'John'
+        last_name  'Doe'
         birthdate  { 21.years.ago }
         admin false
 
-        profile   # assuming there's a factory :profile
+        sequence(:username) { |n| "user#{n}" }
       end
     end
 
-### Others
+    # Also available:
+    factory :user, class: 'User'
+    factory :user, aliases: [:author]
 
-    factory :user { ... }
-    factory :sample_user, class: 'User' { ... }
-    factory :user, aliases: [:author, :client] { ... }
-
-### Using
+## Using
 
     FactoryGirl.build(:user)
 
@@ -39,7 +30,7 @@ layout: default-ad
     attributes_for(:user) # hash
     build_stubbed(:user)  # stubbed out attributes
 
-    build(:user, name: "John")
+    build(:user, name: 'John')
 
     create_list(:user, 3)
     build_list(:user, 3)
@@ -47,10 +38,13 @@ layout: default-ad
 ## Associations
 
     factory :post do
+      association :author, factory: :user
+      association :author, factory: [:user, :admin]
+
       author  # assumes there's a factory :author
     end
 
-### More complicated
+### After-create hooks
 
     factory :post do
       after :create do |post|
@@ -69,7 +63,21 @@ layout: default-ad
 
     create :user, :admin
 
-## Transients
+## Nested factories
+
+    factory :user do
+      first_name 'John'
+
+      factory :sample_user do
+        first_name { FFaker::Name.first_name }
+      end
+    end
+
+    # create :sample_user
+
+    # Also: factory :sample_user, parent: :user
+
+## Options (transients)
 
     factory :user do
       transient do
@@ -83,22 +91,12 @@ layout: default-ad
 
     create(user, upcased: true)
 
-### Etc
+## Paths
 
-      # Sequences
-      sequence(:username) { |n| "user#{n}" }
-
-      # Associations
-      association :author
-      association :author, factory: user, last_name: "Ho"
-      author
-
-      after :create do |user, evaluator| ... end
-      after :build
-    end
-
-    factory :user, aliases: [:author, :commenter] do ... end
-    factory :admin_user, parent: :user do .. end
+    test/factories.rb
+    spec/factories.rb
+    test/factories/*.rb
+    spec/factories/*.rb
 
 ## See also
 

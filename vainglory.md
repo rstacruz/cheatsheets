@@ -58,6 +58,7 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed             |
 | SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
 | SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                                 |
+| PS: [Poison Shiv][PS]      | ?    | ?       | __Mortal wounds__ <br> -                                                |
 {:.wide}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
@@ -67,6 +68,7 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [TB]: http://www.vaingloryfire.com/vainglory/wiki/items/tension-bow
 [TT]: http://www.vaingloryfire.com/vainglory/wiki/items/tornado-trigger
 [TM]: http://www.vaingloryfire.com/vainglory/wiki/items/tyrants-monocle
+[PS]: http://www.vaingloryfire.com/vainglory/wiki/items/poison-shiv
 
 ## T3 Utils by HP
 

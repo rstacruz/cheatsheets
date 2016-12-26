@@ -21,7 +21,7 @@ promise
 ----
 
 ### Multiple return values
-Use [Promise.spread](https://github.com/petkaantonov/bluebird/blob/master/API.md#spreadfunction-fulfilledhandler--function-rejectedhandler----promise).
+Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html).
 
 ```js
 .then(function () {
@@ -33,7 +33,7 @@ Use [Promise.spread](https://github.com/petkaantonov/bluebird/blob/master/API.md
 ```
 
 ### Multiple promises
-Use [Promise.join](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisejoinpromisethenablevalue-promises-function-handler---promise) for fixed number of multiple promises.
+Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html).
 
 ```js
 Promise.join(
@@ -47,7 +47,11 @@ Promise.join(
 ```
 
 ### Multiple promises (array)
-Use `.all`, `.any`, `.race`, or `.some`.
+Use
+[.all](http://bluebirdjs.com/docs/api/promise.all.html),
+[.any](http://bluebirdjs.com/docs/api/promise.any.html),
+[.race](http://bluebirdjs.com/docs/api/promise.race.html), or
+[.some](http://bluebirdjs.com/docs/api/promise.some.html).
 
 ```js
 Promise.all([ promise1, promise2 ])
@@ -77,7 +81,7 @@ Promise.props({
 ```
 
 ### Chain of promises
-Use [Promise.try](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisetryfunction-fn--arraydynamicdynamic-arguments--dynamic-ctx----promise) to start a chain.
+Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 
 ```js
 function getPhotos() {
@@ -91,7 +95,7 @@ getPhotos().then(...)
 ```
 
 ### Using Node-style functions
-See [Promisification](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisification) API.
+See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
 ```js
 var readFile = Promise.promisify(fs.readFile);
@@ -99,7 +103,7 @@ var fs = Promise.promisifyAll(require('fs'));
 ```
 
 ### Promise-returning methods
-See [Promise.method](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisemethodfunction-fn---function) to allow `return`ing values that will be promise resolutions.
+See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
 ```js
 User.login = Promise.method(function(email, password) {
@@ -111,7 +115,7 @@ User.login = Promise.method(function(email, password) {
 ```
 
 ### Generators
-See [Promise.coroutine](https://github.com/petkaantonov/bluebird/blob/master/API.md#promisecoroutinegeneratorfunction-generatorfunction---function).
+See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 
 ```
 User.login = Promise.coroutine(function* (email, password) {
@@ -119,3 +123,7 @@ User.login = Promise.coroutine(function* (email, password) {
   return user;
 });
 ```
+
+## Reference
+
+<http://bluebirdjs.com/docs/api-reference.html>

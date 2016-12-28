@@ -19,6 +19,16 @@ category: Misc
 //       height: 1.74 } }
 ```
 
+### Lists
+GraphQL queries look the same for both single items or lists of items.
+
+```js
+{ friends { name } }
+// → { friends:
+//     [ { name: "Luke Skywalker" },
+//       { name: "Han Solo" },
+//       { name: "R2D2" } ] }
+```
 ### Lookups
 
 ```js
@@ -43,22 +53,16 @@ category: Misc
 //     { name: "Han Solo" } }
 ```
 
-### Variables
+### Operation names and variables
+
+Just to make things less ambiguous. Also, to use variables, you need an operation name.
 
 ```js
-{ hero(id: $id) }  // Query
----
-{ id: '1000' }     // Variables
-```
-
-### Operation name
-
-Just to make things less ambiguous.
-
-```js
-query FindHero($id: String) {
+query FindHero($id: String!) {
   hero(id: $id) { name }
 }
+---
+{ id: '1000' }     // Variables
 ```
 
 ### Mutations
@@ -70,6 +74,20 @@ Mutations are just fields that do something when queried.
 ---
 { review: { stars: 5 } }          // Variables
 // → { createReview: { id: 5291 } }
+```
+
+### Multiple types
+
+Great for searching.
+
+```js
+{
+  search(q: "john") {
+    id
+    ... on User { name }
+    ... on Comment { body author { name } }
+  }
+}
 ```
 
 Over HTTP
@@ -91,7 +109,12 @@ fetch('http://myapi/graphql', {
     "variables": { ... }
   })
 })
+```
 
+Schema
+------
+
+See: <https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png>
 
 References
 ----------

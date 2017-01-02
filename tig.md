@@ -16,7 +16,7 @@ category: Git
 
     tig blame FILE
     tig master        # Show a branch
-    tig test..master  # Show difference between two bracnhes
+    tig test..master  # Show difference between two branches
     tig FILE          # Show history of file
     tig v0.0.3:README # Show contents of file in a specific revision
 

@@ -15,7 +15,7 @@ category: Devops
       heroku access:remove me@xy.com
 
     # Transfer to another owner
-      heroku sharing:transfer new@owner.com
+      heroku apps:transfer new@owner.com
 
 ### `logs` - Show logs
 

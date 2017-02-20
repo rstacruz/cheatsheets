@@ -93,3 +93,19 @@ Start each example with `complete -c cmdname`
 
   -a "(cat /etc/passwd | cut -d : -f 1)"
     # first argument as filename
+
+### Keys
+
+| `Alt ←` `Alt →` | Move word |
+| `^U` | delete to beginning |
+| `^W` | delete to previous `/` |
+| `Alt D` | delete next word |
+{:.shortcuts}
+
+| `Alt H` | help on word (man) |
+| `Alt W` | help on word (short descriptions) |
+| `Alt L` | list directory on cursor |
+{:.shortcuts}
+
+| `Alt ↑` | search keywords |
+{:.shortcuts}

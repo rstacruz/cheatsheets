@@ -64,3 +64,8 @@ category: Ansible
 
     - name: do something locally
       local_action: shell echo hello
+
+### debug
+
+    - debug:
+        msg: "Hello {{ var }}"

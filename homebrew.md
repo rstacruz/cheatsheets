@@ -25,24 +25,7 @@ layout: default-ad
 
 | Command         | Description              |
 | ---             | ---                      |
-| `brew update`   | Update brew              |
+| `brew update`   | Update brew and cask     |
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
 {:.no-head.greycode}
-
-## Caskroom
-
-### Updating caskroom
-
-```sh
-brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-```
-
-### Show latest casks
-  
-```sh
-cd "/usr/local/Library/Taps/caskroom/homebrew-cask/Casks" && \
-   git log --pretty=format: --name-only --since="30 days ago" | \
-   egrep "Casks" | uniq
-```
-

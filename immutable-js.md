@@ -40,6 +40,6 @@ nested
   .mergeDeep({ user: { profile: { age: 90 } } })
   .setIn([ 'user', 'profile', 'name' ], 'Jack')
   .updateIn([ 'user', 'profile', 'name' ], (s) => s.toUpperCase())
-  .getIn(['user', 'profile', 'name']) // 'Jack'
+  .getIn(['user', 'profile', 'name']) // 'JACK'
 ```
 

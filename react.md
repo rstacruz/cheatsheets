@@ -171,7 +171,7 @@ See [initial AJAX data](http://facebook.github.io/react/tips/initial-ajax.html).
 
 ```js
 React.createClass({
-  componentWillMount: function () {
+  componentDidMount: function () {
     $.get(this.props.url, function (data) {
       this.setState(data);
     }.bind(this));

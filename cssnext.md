@@ -3,16 +3,6 @@ title: cssnext
 category: JavaScript libraries
 ---
 
-## Nesting
-
-```css
-.class-name {
-  & .nesting { ... }      // direct nesting starts with &
-  @nest span & { ... }    // complex nesting
-  @media (min-width: 30em) { ... }
-}
-```
-
 ## Variables
 
 ```css
@@ -26,7 +16,7 @@ body {
 }
 ```
 
-## Colors
+### Colors
 
 Also see [colorme.io](http://colorme.io/).
 
@@ -55,7 +45,7 @@ a {
 }
 ```
 
-## Mixins
+### Mixins
 
 ```css
 :root {
@@ -71,20 +61,20 @@ a {
 }
 ```
 
-## Custom media queries
+Selectors
+---------
+
+### Nesting
 
 ```css
-@custom-media --viewport-medium (width <= 50rem);
-@media (--viewport-medium) { ... }
+.class-name {
+  & .nesting { ... }      // direct nesting starts with &
+  @nest span & { ... }    // complex nesting
+  @media (min-width: 30em) { ... }
+}
 ```
 
-## Media query ranges
-
-```css
-@media (width >= 500px) { ... }    /* (min-width: 500px) */
-```
-
-## Custom selectors
+### Custom selectors
 
 ```css
 @custom-selector :--button button, input[type='submit'], input[type='button'];
@@ -94,7 +84,36 @@ a {
 :--button:--enter { ... }
 ```
 
-## Property fallbacks
+### Future selectors
+
+```css
+:any-link { ... }         /* :link, :visited */
+p:matches(.a, .b) { ... } /* p.a, p.b */
+p:not(.a, .b) { ... }     /* p:not(.a), p:not(.b) */
+a::before { ... }         /* a:before -- for IE compatibility */
+[frame=hsides i] { ... }  /* [frame=hsides] -- but case insensitive */
+```
+
+Media queries
+-------------
+
+### Custom media queries
+
+```css
+@custom-media --viewport-medium (width <= 50rem);
+@media (--viewport-medium) { ... }
+```
+
+### Media query ranges
+
+```css
+@media (width >= 500px) { ... }    /* (min-width: 500px) */
+```
+
+Properties
+----------
+
+### Property fallbacks
 
 ```css
 /* font-feature-settings fallback */
@@ -105,27 +124,7 @@ div { filter: blur(4px); }            /* svg filter fallback */
 div { overflow-wrap: break-word; }    /* word-wrap fallback */
 ```
 
-## Reset
-
-```css
-div {
-  all: initial;
-}
-
-/* Sets animation, background, margin, padding, and so on */
-```
-
-## Future classes
-
-```css
-:any-link { ... }         /* :link, :visited */
-p:matches(.a, .b) { ... } /* p.a, p.b */
-p:not(.a, .b) { ... }     /* p:not(.a), p:not(.b) */
-a::before { ... }         /* a:before -- for IE compatibility */
-[frame=hsides i] { ... }  /* [frame=hsides] -- but case insensitive */
-```
-
-## Autoprefixing
+### Autoprefixing
 
 ```css
 div {
@@ -138,6 +137,17 @@ div {
  * display: flex;
  */
 ```
+
+### Reset
+
+```css
+div {
+  all: initial;
+}
+
+/* Sets animation, background, margin, padding, and so on */
+```
+
 
 ## References
 

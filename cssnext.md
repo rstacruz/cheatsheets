@@ -39,7 +39,7 @@ a {
   color: #0000ff80;      /* rgba(0, 0, 255, 0.5) */
 
   color: hwb(90, 0%, 0%, 0.5);     /* like hsl() but easier for humans */
-  color: hsl(90deg 90% 70%%);      /* hsl(180, 90%, 70%) -- supports deg */
+  color: hsl(90deg 90% 70%);       /* hsl(180, 90%, 70%) -- supports deg */
   color: hsl(90deg 90% 70% / 30%); /* hsla(180, 90%, 70%, 0.3) */
   color: rgb(30 60 90 / 30%);      /* rgba(30, 60, 90, 0.3) */
 }

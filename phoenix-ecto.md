@@ -32,6 +32,9 @@ end
 
 ```elixir
 def changeset(user, params \\ :empty) do
+  %User{}
+  |> Ecto.Changeset.change   # basic casting to changeset
+
   user
   |> cast(params, ~w(name email), ~w(age)) # params to Changeset
 
@@ -54,8 +57,8 @@ def changeset(user, params \\ :empty) do
 
   |> unique_constraint(:email)
   |> foreign_key_constraint(:post_id)
-  |> assoc_constraint(:post)   # ensure post_id exists
-  |> exclude_constraint(:name)
+  |> assoc_constraint(:post)      # ensure post_id exists
+  |> no_assoc_constraint(:post)   # negative (useful for deletions)
 end
 ```
 
@@ -64,7 +67,8 @@ changeset.valid?
 changeset.errors     #=> [title: "empty"]
 
 changeset.changes    #=> %{}
-changeset.params
+changeset.params[:title]
+
 changeset.required   #=> [:title]
 changeset.optional   #=> [:body]
 ```

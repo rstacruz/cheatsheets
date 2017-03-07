@@ -10,9 +10,9 @@ category: JavaScript
 | Number to string | `'' + num` | `num.toString()` |
 | Date to UNIX timestamp | `+new Date()` | `new Date().getTime()` |
 | Any to boolean | `!!value` | `Boolean(value)` |
-| Check array contents | `if (~arr.indexOf(v))` | `if (arr.contains(v))` \* |
+| Check array contents | `if (~arr.indexOf(v))` | `if (arr.includes(v))` |
 
-> * = `.contains` is ES6-only, otherwise use `.indexOf(val) !== -1`
+> `.includes` is ES6-only, otherwise use `.indexOf(val) !== -1` if you don't polyfill
 
 ## Examples
 

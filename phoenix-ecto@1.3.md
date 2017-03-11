@@ -3,19 +3,17 @@ title: "Phoenix: Ecto models"
 category: Elixir
 ---
 
-This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](phoenix-ecto@1.3.html).
-
 ## Generating
 
 ```
-$ mix phoenix.gen.html Profile profiles email:string age:integer
-$ mix phoenix.gen.html User users email:string hashed_password:string
+$ mix phx.gen.html Accounts Profile profiles email:string age:integer
+$ mix phx.gen.html Accounts User users email:string hashed_password:string
 ```
 
 ## Schema
 
 ```elixir
-defmodule User do
+defmodule Myapp.Accounts.User do
   use Ecto.Schema
 
   schema "users" do
@@ -25,6 +23,8 @@ defmodule User do
     # {:array, inner_type} :decimal :map
 
     field :password, virtual: true
+
+    timestamps()
   end
 end
 ```

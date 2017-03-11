@@ -35,20 +35,60 @@ store.dispatch({ type: 'DECREMENT' }); // 10
 ```js
 React.render(
   <Provider store={store}>
-    {() => <App />}
+    <App />
   </Provider>, mountNode)
 ```
 
 ```js
 class App extends React.Component {
-  render () { return <div>{this.props.message}</div> }
+  render () {
+    return
+      <div onClick={() => this.props.onMessageClick('hello')}>
+        {this.props.message}
+    </div>
+  }
 }
 
-function select (state) {
+function mapStateToProps (state) {
   return { message: state.message }
 }
 
-export default connect(select)(App);
+function mapDispatchToProps (dispatch) {
+  return {
+    onMessageClick (message) {
+      dispatch({ type: 'click', message })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+```
+
+## Middleware
+
+```js
+// noop middleware
+const logger = store => dispatch => action { dispatch(action) }
+
+const logger = store => {
+  // This function runs on createStore().
+  // It returns a decorator for dispatch().
+
+  return dispatch => {
+    // Runs on createStore(), too.
+    // It returns a new dispatch() function
+
+    return action => {
+      // Runs on every dispatch()
+    }
+  }
+}
+```
+
+### Applying middleware
+
+```js
+const store = createStore(reducer, {}, applyMiddleware(logger, thunk, ...))
 ```
 
 ## Reference

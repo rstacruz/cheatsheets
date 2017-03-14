@@ -63,6 +63,20 @@ article:tag
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 ```
 
+### Web app
+
+```html
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- black | black-translucent | default -->
+```
+
+### Apple-only
+
+```html
+<meta name="format-detection" content="telephone=no">
+```
+
 ### Reference
 
  * https://dev.twitter.com/docs/cards

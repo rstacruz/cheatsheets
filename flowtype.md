@@ -43,6 +43,28 @@ Function
 Object
 ```
 
+## [Dynamic object keys](https://flowtype.org/docs/objects.html#objects-as-maps)
+
+```js
+type Items = {
+  [key: string]: Item
+}
+```
+
+## [Enums](https://flowtype.org/docs/utility-types.html#keyst)
+
+```js
+type Suit = "Diamonds" | "Clubs" | "Hearts" | "Spades"
+
+const countries = {
+  US: "United States",
+  IT: "Italy",
+  FR: "France"
+}
+
+type Country = $Keys<typeof countries>
+```
+
 ## [Type aliases](https://flowtype.org/docs/quick-reference.html#type-aliases)
 
 ```js
@@ -85,11 +107,23 @@ class Foo {
 ## [Functions](https://flowtype.org/docs/functions.html)
 
 ```js
-function createRenderer (): () => void {
-  return function () { }
+const callback: () => void = function () {}
+```
+
+```js
+function filter<T> (list: Array<T>, callback: (item: T) => boolean): Array<T> {
 }
 ```
 
+## Imports
+
+```js
+import type { Person } from '../person'
+```
+
+```js
+export type Person = { id: string }
+```
 
 ## Examples
 

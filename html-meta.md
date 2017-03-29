@@ -57,27 +57,58 @@ article:section
 article:tag
 ```
 
-### Favicon
-
-```html
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-```
-
-### Web app
-
-```html
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- black | black-translucent | default -->
-```
-
 ### Apple-only
 
 ```html
-<meta name="format-detection" content="telephone=no">
+<meta name='format-detection' content='telephone=no'>
 ```
+
+## Progressive web apps
+
+### Add to homescreen
+
+```html
+<meta name='mobile-web-app-capable' content='yes'>
+<meta name='apple-mobile-web-app-capable' content='yes'>
+<meta name='apple-mobile-web-app-status-bar-style' content='black'> <!-- black | black-translucent | default -->
+```
+
+### [Theme color](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
+
+```html
+<meta name='theme-color' content='#ff00ff'>
+```
+
+### [Manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
+
+```html
+<link rel='manifest' href='/manifest.json'>
+```
+
+### [Icons](https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/)
+
+```html
+<!-- Minimal -->
+<link rel='icon' type='image/png' href='favicon@32.png'>
+<link rel='icon' sizes='192x192' href='icon@192.png'>
+<link rel='apple-touch-icon' href='icon@152.png'>
+<meta name='msapplication-square310x310logo' content='icon@310.png'>
+
+<!-- Apple -->
+<link rel='apple-touch-icon' href='touch-icon-iphone.png'>
+<link rel='apple-touch-icon' sizes='76x76' href='touch-icon-ipad.png'>
+<link rel='apple-touch-icon' sizes='120x120' href='touch-icon-iphone-retina.png'>
+<link rel='apple-touch-icon' sizes='152x152' href='touch-icon-ipad-retina.png'>
+
+<!-- Microsoft -->
+<meta name='msapplication-square70x70logo' content='icon_smalltile.png'>
+<meta name='msapplication-square150x150logo' content='icon_mediumtile.png'>
+<meta name='msapplication-wide310x150logo' content='icon_widetile.png'>
+```
+
+Chrome on Android recommends [192x192](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
 
 ### Reference
 
- * https://dev.twitter.com/docs/cards
- * https://developers.facebook.com/docs/opengraphprotocol/#types
+ * <https://dev.twitter.com/docs/cards>
+ * <https://developers.facebook.com/docs/opengraphprotocol/#types>

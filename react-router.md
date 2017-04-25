@@ -4,54 +4,65 @@ category: React
 layout: default-ad
 ---
 
+_Updated for **v2.0.0**_
+
 ### Basic
 
 ```js
-import { default as Router, Route } from 'react-router'
+import { render } from 'react-dom'
+import { Router, Route, browserHistory } from 'react-router'
 
-const routes = (
-  <Route>
-    <Route path='*' handler={RootView} />
-  </Route>
-)
+// Import RootView and NoMatch
 
-Router.run(routes, Router.HashLocation, (Root) => {
-  React.render(<Root />, document.getElementById('all'))
-})
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={RootView} />
+    <Route path="*" component={PageNotFound} />
+  </Router>
+), document.getElementById('app'))
 ```
 
 ### Nesting
 
 ```js
-const routes = (
-  <Route handler={Chrome}>
-    <Route path='about' handler={About} />
-    <Route path='inbox' handler={Inbox} />
-    <Route path='messages/:id' handler={Message} />
-  </Route>
-)
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, browserHistory } from 'react-router'
 
-import { RouteHandler } from 'react-router'
+// Import About, Inbox and Messages
 
-const Chrome = React.createClass({
+class Chrome extends React {
   render () {
     return (
       <div>
         <h1>App</h1>
-        <RouteHandler />
+        <a href="/about">About</a>
+        <a href="/inbox">Inbox</a>
+        <a href="/messages">Messages</a>
+        { this.props.children }
       </div>
     )
   }
-})
+}
+
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={Chrome}>
+      <Route path="about" component={About} />
+      <Route path="inbox" component={Inbox} />
+      <Route path="messages" component={Messages} />
+    </Route>
+  </Router>
+), document.getElementById('app'))
 ```
 
 ### URL params
 
 ```js
-var Message = React.createClass({
-  componentDidMount: function () {
+class Message extends React {
+  componentDidMount() {
     // from the path `/inbox/messages/:id`
-    var id = this.props.params.id
+    const id = this.props.params.id
     ...
 ```
 
@@ -60,55 +71,35 @@ var Message = React.createClass({
 ```js
 import { Link } from 'react-router'
 
-<!-- make a named route `user` -->
-<Link to='user' params={{userId: 10}} />
+/* Nav Component */
+  ...
+  render() {
+    ...
+    const userId = 10;
 
-<Link to='login'
-  activeClassName='-active'
-  onClick='...'>
+    return (
+      // Adding params is as simple as appending them to the route
+      <Link to={`user/${userId}`}>User 10</Link>
 
+      // Classes can be added to the link element if the current route is the one they link to
+      <Link to="login"
+        activeClassName="-active">Login</Link>
+    )
+  }
 ```
 
 ### Other config
 
 ```js
-<Route path='/'>
-  <DefaultRoute handler={Home} />
-  <NotFoundRoute handler={NotFound} />
-  
-  <Redirect from='login' to='sessions/new' />
-  <Redirect from='login' to='sessions/new' params={{from: 'home'}} />
-  <Redirect from='profile/:id' to='about-user' />
+<Route path="/">
+  <IndexRoute component={Home} />
+  <Route path="*" handler={NotFound} />
 
-  <Route name='about-user' ... />
-```
+  // arbitrary/url/login -> /arbitrary/url/sessions/new
+  <Redirect from="login" to="sessions/new" />
+  // arbitrary/url/about/1 -> /arbitrary/url/profile/1
+  <Redirect from="about/:id" to="profile/:id" />
 
-### Router.create
-
-```js
-var router = Router.create({
-  routes: <Route>...</Route>,
-  location: Router.HistoryLocation
-})
-
-router.run((Root) => { ... })
-```
-
-### Navigation
-
-```js
-import { Navigation } from 'react-router'
-
-React.createClass({
-  mixins: [ Navigation ], ...
-})
-
-this
-  .transitionTo('user', {id: 10})
-  .transitionTo('/path')
-  .transitionTo('http://...')
-  .replaceWith('about')
-  .makePath('about') // return URL
-  .makeHref('about') // return URL
-  .goBack()
+  <Route name="about-user" ... />
+  ...
 ```

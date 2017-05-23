@@ -46,7 +46,7 @@ user_path(Endpoint, :show, 17)              #=> /users/17
 user_path(Endpoint, :show, %User{id: 17})   #=> /users/17
 user_path(Endpoint, :show, 17, admin: true) #=> /users/17?admin=true
 
-user_path(Endpoint, :index) #=> "http://localhost:4000/users"
+user_url(Endpoint, :index) #=> "http://localhost:4000/users"
 ```
 
 ```elixir

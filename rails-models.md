@@ -348,8 +348,17 @@ Other API
 
 ### Joining
 
-    Student.joins(:schools).where(:schools => { :type => 'public' })
+    Student.joins(:schools).where(schools: { type: 'public' })
     Student.joins(:schools).where('schools.type' => 'public' )
+
+    # multiple associations
+    Article.joins(:category, :comments)
+
+    # nested assocations
+    Article.joins(comments: :guest)
+
+    # sql
+    Author.joins("INNER JOIN posts ON posts.author_id = authors.id AND posts.published = 't'")
 
 ### Where interpolation
 

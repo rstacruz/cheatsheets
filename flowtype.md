@@ -119,6 +119,7 @@ function filter<T> (list: Array<T>, callback: (item: T) => boolean): Array<T> {
 
 ```js
 import type { Person } from '../person'
+import typeof Config from '../config'
 ```
 
 ```js
@@ -141,4 +142,27 @@ var b: MyClass = new a()
 var add: ((num1: number, num2: number) => number) = function(num1, num2) {
   return num1 + num2;
 };
+```
+
+## Comment syntax
+
+```js
+/*::
+  export type Foo = { ... }
+*/
+
+function add(n /*: number */) { ... }
+```
+
+## React
+
+```js
+React$Element<any>
+```
+
+```js
+class Foo extends React.Component {
+  /*:: state: { open: boolean } */
+  /*:: props: { open: boolean } */
+}
 ```

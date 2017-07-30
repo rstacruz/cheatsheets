@@ -148,6 +148,7 @@ book = instance_double('Book', pages: 250)
 ```rb
 allow(die).to receive(:roll)
 allow(die).to receive(:roll) { 3 }
+allow_any_instance_of(Die).to receive(:roll)
 
 expect(die).to receive(:roll)
   .with(1)

@@ -42,6 +42,8 @@ function MyComponent ({ name }) {
 }
 ```
 
+Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+
 ### Nesting
 
 ```jsx
@@ -93,48 +95,59 @@ These are methods available for `Component` instances. See [Component API](http:
 
 Methods and properties you can override. See [component specs](http://facebook.github.io/react/docs/component-specs.html).
 
-### States & properties
+### Properties
 
 ```html
-<MyComponent fullscreen={true} />
-```
- 
-```jsx
-// props
-  this.props.fullscreen //=> true
-
-// state
-  this.setState({ username: 'rstacruz' });
-  this.replaceState({ ... });
-  this.state.username //=> 'rstacruz'
+<Video fullscreen={true} />
 ```
 
 ```jsx
-render: function () {
-  return <div className={this.props.fullscreen ? 'full' : ''}>
-    Welcome, {this.state.username}
-  </div>;
+class Video extends React.Component {
+  render () {
+    this.props.fullscreen
+    /* ... */
+  }
 }
 ```
 
 Use [props](https://facebook.github.io/react/docs/tutorial.html#using-props) (`this.props`) to access parameters passed from the parent.
-Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state) (`this.state`) to manage dynamic data.
 
-### Setting defaults
+### States
 
 ```jsx
-React.createClass({
-  getInitialState: function () {
-    return { comments: [] };
-  },
-
-  getDefaultProps: function () {
-    return { name: "Hello" };
-  }
-);
+this.setState({ username: 'rstacruz' })
+this.replaceState({ ... })
 ```
 
-Pre-populates `this.state.comments` and `this.props.name`.
+```jsx
+render () {
+  this.state.username
+  /* ... */
+}
+```
+
+Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state) (`this.state`) to manage dynamic data.
+
+### Setting default props
+
+```jsx
+class Hello extends React.Component {
+  constructor (props) {
+    super({ shown: true, ...props })
+  }
+}
+```
+
+### Setting default state
+
+```jsx
+class Hello extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { visible: true }
+  }
+}
+```
 
 Lifecycle
 ---------

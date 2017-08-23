@@ -115,6 +115,18 @@ expect(fn)
   .toHaveBeenCalledWith(expect.stringMatching(regexp))
 ```
 
+## [Timers](https://facebook.github.io/jest/docs/timer-mocks.html)
+
+```js
+jest.useFakeTimers()
+
+it('works', () => {
+  jest.runOnlyPendingTimers()
+  jest.runTimersToTime(1000)
+  jest.runAllTimers()
+})
+```
+
 ## References
 
 Based on Jest v19. <http://facebook.github.io/jest/>

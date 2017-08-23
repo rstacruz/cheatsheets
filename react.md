@@ -167,14 +167,19 @@ DOM nodes
 
 ### References
 
-```html
-<input ref="myInput">
+```jsx
+class MyComponent extends React.Component {
+  render () {
+    return <div>
+      <input ref={el => this.input = el} />
+    </div>
+  }
+}
 ```
 
 ```jsx
-this.refs.myInput
-ReactDOM.findDOMNode(this.refs.myInput).focus()
-ReactDOM.findDOMNode(this.refs.myInput).value
+this.input.focus()
+this.input.value()
 ```
 
 Allows access to DOM nodes. See [References](http://facebook.github.io/react/docs/more-about-refs.html).

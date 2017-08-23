@@ -1,6 +1,7 @@
 ---
 title: Sketch
 category: Apps
+layout: 2017/sheet
 ---
 
 ### Insert
@@ -12,7 +13,6 @@ category: Apps
 | `R` | rect |
 | `O` | oval |
 | `U` | rounded |
-{:.shortcuts}
 
 ### Show
 
@@ -21,7 +21,6 @@ category: Apps
 | `^P` | pixels |
 | `^H` | selection handles |
 | `^R` | rulers |
-{:.shortcuts}
 
 ### Sidebars
 
@@ -29,7 +28,6 @@ category: Apps
 | `⌘⌥2` | toggle right (inspector) |
 | `⌘⌥3` | toggle both |
 | `⌘.`  | presentation |
-{:.shortcuts}
 
 ### Zoom
 
@@ -37,19 +35,16 @@ category: Apps
 | `⌘1` | fit to screen |
 | `⌘2` | fit selection to screen |
 | `⌘3` | center selection |
-{:.shortcuts}
 
 ### Arrange
 
 | `⌘⌥ up/dn` | forward or backward |
 | `^⌘⌥ up/dn` | front or back |
-{:.shortcuts}
 
 ### Distribute
 
 | `^⌘H` | horizontal |
 | `^⌘V` | vertical |
-{:.shortcuts}
 
 ### Layers
 
@@ -57,7 +52,6 @@ category: Apps
 | `⌘F` | find |
 | `⌘G` | group |
 | `⌘⇧G` | ungroup |
-{:.shortcuts}
 
 ### Font
 
@@ -65,4 +59,3 @@ category: Apps
 | `⌘⇧[` | left align |
 | `⌘⇧\` | center align |
 | `⌘⇧]` | right align |
-{:.shortcuts}

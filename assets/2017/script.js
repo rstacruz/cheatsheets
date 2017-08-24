@@ -64,8 +64,6 @@ function groupify ($this, { tag, wrapper, body }) {
   function wrap ($pivot, $first, $sibs) {
     const $wrap = $(wrapper)
     $wrap.addClass($pivot.attr('class'))
-    console.log($pivot[0])
-    console.log('addclass', $pivot.attr('class'))
     $pivot.before($wrap)
 
     const $body = $(body)

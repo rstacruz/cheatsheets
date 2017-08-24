@@ -61,6 +61,11 @@
   font-size: 0.86em;
 }
 
+.MarkdownBody pre,
+.MarkdownBody code {
+  font-family: $monospace-font;
+}
+
 /*
  * Undo prism theme crap
  */

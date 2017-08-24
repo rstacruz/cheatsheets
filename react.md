@@ -87,24 +87,6 @@ class Info extends React.Component {
 Nest components to separate concerns. See: [multiple components](http://facebook.github.io/react/docs/multiple-components.html)
 
 
-### Component API
-
-```jsx
-this.forceUpdate()
-```
-
-```jsx
-this.setState({ ... })
-this.replaceState({ ... })
-```
-
-```jsx
-this.state
-this.props
-```
-
-These methods and properies are available for `Component` instances. See [Component API](http://facebook.github.io/react/docs/component-api.html).
-
 ### Properties
 
 ```html
@@ -136,7 +118,7 @@ render () {
 ```
 
 Use states (`this.state`) to manage dynamic data.
-See [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state).
+See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
 
 ### Setting default props
 
@@ -146,7 +128,7 @@ Hello.defaultProps = {
 }
 ```
 
-See [defaultProps](https://facebook.github.io/react/docs/react-component.html#defaultprops).
+See: [defaultProps](https://facebook.github.io/react/docs/react-component.html#defaultprops)
 
 ### Setting default state
 
@@ -159,16 +141,36 @@ class Hello extends React.Component {
 }
 ```
 
+### Component API
+
+```jsx
+this.forceUpdate()
+```
+
+```jsx
+this.setState({ ... })
+```
+
+```jsx
+this.state
+this.props
+```
+
+These methods and properies are available for `Component` instances. See: [Component API](http://facebook.github.io/react/docs/component-api.html)
+
 Lifecycle
 ---------
 {: .-two-column}
 
 ### Mounting
 
+| Method | Description |
+| --- | --- |
 | `constructor` _(props)_ | Before rendering [#](https://facebook.github.io/react/docs/react-component.html#constructor) |
 | `componentWillMount()` | _Don't use this_ [#](https://facebook.github.io/react/docs/react-component.html#componentwillmount) |
 | `render()` | Render  [#](https://facebook.github.io/react/docs/react-component.html#render) |
 | `componentDidMount()` | After rendering (DOM available) [#](https://facebook.github.io/react/docs/react-component.html#componentdidmount) |
+| --- | --- |
 | `componentWillUnmount()` | Before DOM removal [#](https://facebook.github.io/react/docs/react-component.html#componentwillunmount) |
 
 Set initial the state on `constructor()`.
@@ -176,13 +178,15 @@ Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them 
 
 ### Updating
 
+| Method | Description |
+| --- | --- |
 | `componentWillReceiveProps` *(newProps)* | Use `setState()` here |
 | `shouldComponentUpdate` *(newProps, newState)* | Skips `render()` if returns false |
 | `componentWillUpdate` *(newProps, newState)* | Can't use `setState()` here |
 | `render()` | Render |
 | `componentDidUpdate` *(prevProps, prevState)* | Operate on the DOM here |
 
-Called when parents change properties and `.setState()`. These are not called for initial renders. See [reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
+Called when parents change properties and `.setState()`. These are not called for initial renders. See: [Reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
 DOM nodes
 ---------
@@ -205,7 +209,7 @@ this.input.focus()
 this.input.value()
 ```
 
-Allows access to DOM nodes. See [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html).
+Allows access to DOM nodes. See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
 
 ### DOM Events
 
@@ -221,50 +225,54 @@ handleChange: function(event) {
 }
 ```
 
-Add attributes like `onChange`. See [events](https://facebook.github.io/react/docs/events.html).
+Add attributes like `onChange`. See: [Events](https://facebook.github.io/react/docs/events.html)
 
 Property validation
 -------------------
 {: .-three-column}
 
-### React.PropTypes
+### PropTypes
 
-| PropType                  | Description   |
-| ---                       | ---           |
-| `any`                     | Anything      |
-| ---                       | ---           |
-| `string`                  |               |
-| `number`                  |               |
-| `func`                    | Function      |
-| `bool`                    | True or false |
-| ---                       | ---           |
-| `oneOf`_(any)_            | Enum types    |
-| `oneOfType`_(type array)_ | Union         |
-| ---                       | ---           |
-| `array`                   |               |
-| `arrayOf`_(...)_          |               |
-| ---                       | ---           |
-| `object`                  |               |
-| `objectOf`_(...)_         |               |
-| `instanceOf`_(...)_       |               |
-| `shape`_(...)_            |               |
-| ---                       | ---           |
-| `element`                 | React element |
-| `node`                    | DOM node      |
-| ---                       | ---           |
-| `.isRequired`             | Required      |
+```js
+import PropTypes from 'prop-types'
+```
 
-See [propTypes](http://facebook.github.io/react/docs/reusable-components.html#prop-validation).
+See: [Typechecking with PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
+
+| PropType                  | Description                          |
+| ---                       | ---                                  |
+| `any`                     | Anything                             |
+| ---                       | ---                                  |
+| `string`                  |                                      |
+| `number`                  |                                      |
+| `func`                    | Function                             |
+| `bool`                    | True or false                        |
+| ---                       | ---                                  |
+| `oneOf`_(any)_            | Enum types                           |
+| `oneOfType`_(type array)_ | Union                                |
+| ---                       | ---                                  |
+| `array`                   |                                      |
+| `arrayOf`_(...)_          |                                      |
+| ---                       | ---                                  |
+| `object`                  |                                      |
+| `objectOf`_(...)_         | Object with values of a certain type |
+| `instanceOf`_(...)_       | Instance of a class                  |
+| `shape`_(...)_            |                                      |
+| ---                       | ---                                  |
+| `element`                 | React element                        |
+| `node`                    | DOM node                             |
+| ---                       | ---                                  |
+| `.isRequired`             | Required                             |
 
 ### Basic types
 
 ```jsx
 MyComponent.propTypes = {
-  email:      React.PropTypes.string,
-  seats:      React.PropTypes.number,
-  callback:   React.PropTypes.func,
-  isClosed:   React.PropTypes.bool,
-  any:        React.PropTypes.any
+  email:      PropTypes.string,
+  seats:      PropTypes.number,
+  callback:   PropTypes.func,
+  isClosed:   PropTypes.bool,
+  any:        PropTypes.any
 }
 ```
 
@@ -272,7 +280,7 @@ MyComponent.propTypes = {
 
 ```jsx
 MyCo.propTypes = {
-  name:  React.PropTypes.string.isRequired
+  name:  PropTypes.string.isRequired
 }
 ```
 
@@ -281,10 +289,10 @@ MyCo.propTypes = {
 ```jsx
 MyCo.propTypes = {
   // React element
-  element: React.PropTypes.element,
+  element: PropTypes.element,
 
   // num, string, element, or an array of those
-  node: React.PropTypes.node
+  node: PropTypes.node
 }
 ```
 
@@ -292,7 +300,7 @@ MyCo.propTypes = {
 
 ```jsx
 MyCo.propTypes = {
-  direction: React.PropTypes.oneOf([
+  direction: PropTypes.oneOf([
     'left', 'right'
   ])
 }
@@ -302,15 +310,19 @@ MyCo.propTypes = {
 
 ```jsx
 MyCo.propTypes = {
-  array:    React.PropTypes.array,
-  arrayOf:  React.PropTypes.arrayOf(React.PropTypes.number),
-  object:   React.PropTypes.object,
-  objectOf: React.PropTypes.objectOf(React.PropTypes.number),
-  message:  React.PropTypes.instanceOf(Message),
+  list: PropTypes.array,
+  ages: PropTypes.arrayOf(PropTypes.number),
+  user: PropTypes.object,
+  user: PropTypes.objectOf(PropTypes.number),
+  message: PropTypes.instanceOf(Message)
+}
+```
 
-  object2:  React.PropTypes.shape({
-    color:  React.PropTypes.string,
-    size:   React.PropTypes.number
+```jsx
+MyCo.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    age:  PropTypes.number
   })
 }
 ```
@@ -376,7 +388,11 @@ var style = { height: 10 }
 return <div style={style}></div>
 ```
 
-See [inline styles](https://facebook.github.io/react/tips/inline-styles.html).
+```jsx
+return <div style={{ margin: 0, padding: 0 }}></div>
+```
+
+See: [Inline styles](https://facebook.github.io/react/tips/inline-styles.html)
 
 ### Inner HTML
 
@@ -385,7 +401,7 @@ function markdownify() { return "<p>...</p>"; }
 <div dangerouslySetInnerHTML={{__html: markdownify()}} />
 ```
 
-See [dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
+See: [Dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html)
 
 ### Lists
 

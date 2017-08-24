@@ -19,35 +19,13 @@
   // Each section
   & > .h3-section {
     float: left;
-    padding: $gutter / 2;
+    padding: $gutter / 4;
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 481px) {
     & > .h3-section {
-      width: 50%;
-    }
-
-    & > .h3-section.-wide {
-      width: 100%;
-    }
-
-    & > .h3-section.-halfwide {
-      width: 100%;
-    }
-  }
-
-  @media (min-width: 960px) {
-    & > .h3-section {
-      width: 33.33%;
-    }
-
-    & > .h3-section.-wide {
-      width: 66.67%;
-    }
-
-    & > .h3-section.-halfwide {
-      width: 50%;
+      padding: $gutter / 2;
     }
   }
 }
@@ -58,7 +36,7 @@
 
 .h3-section-list,
 .h3-section-list.-two-column {
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     & > .h3-section {
       width: 50%;
     }
@@ -80,13 +58,13 @@
  */
 
 .h3-section-list.-three-column {
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     & > .h3-section {
       width: 50%;
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 961px) {
     & > .h3-section {
       width: 33.33%;
     }
@@ -98,13 +76,13 @@
  */
 
 .h3-section-list.-left-reference {
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     & > .h3-section {
       width: 50%;
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 961px) {
     & > .h3-section {
       width: 66.67%;
     }

@@ -13,12 +13,13 @@
 
   /* Horizontal lines */
   & tbody + tbody {
-    border-top: solid 1px $dark-line-color;
+    border-top: solid 4px $line-color;
   }
 
   & td,
   & th {
     padding: 8px 16px;
+    vertical-align: top;
   }
 
   & tr td:last-child {
@@ -52,7 +53,7 @@
     font-size: 1em;
     padding: 5px 6px;
     padding-left: 8px; // compensation
-    background: #fafafa;
+    background: $gray-bg;
     border-radius: 3px;
     margin-right: 2px;
     letter-spacing: 0.2em;

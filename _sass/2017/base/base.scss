@@ -3,7 +3,7 @@
  */
 
 html, body {
-  background: #fcfcfc;
+  background: $body-bg;
   font-family: $body-font;
   font-size: 14px;
   line-height: 1.6;
@@ -11,11 +11,22 @@ html, body {
 }
 
 body {
-  padding: 16px;
-  max-width: $column * 3 + 32px;
+  padding: 8px;
   margin: 0 auto;
+}
+
+@media (min-width: 481px) {
+  body {
+    padding: 16px;
+    max-width: $column * 3 + 32px;
+  }
 }
 
 pre, code {
   font-family: $monospace-font;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

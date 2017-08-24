@@ -2,17 +2,19 @@ $gutter: 32px;
 $column: 400px;
 
 $body-font: roboto, sans-serif;
-$monospace-font: menlo, monospace;
+$monospace-font: 'fira mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
 
+$body-bg: #f8f8fb;
 $gray-bg: #fcfcfc;
 $gray-text: #678;
 $text-color: #333;
 $baseA-400: #53a;
 $baseB-400: #35a;
-$line-color: #f5f5f5;
-$dark-line-color: #ccc;
+$line-color: rgba(50, 80, 150, 0.1);
+$dark-line-color: rgba(50, 80, 150, 0.2);
 
 @import url('https://unpkg.com/sanitize.css@5.0.0/sanitize.css');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
 
 @import './base/base';
 @import './markdown/headings';

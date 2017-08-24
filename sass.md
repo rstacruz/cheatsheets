@@ -120,7 +120,7 @@ lightness($color)
 alpha($color)         /* aka opacity() */
 ```
 
-### Full adjustments
+### Adjustments
 
 ```scss
 /* Changes by fixed amounts */

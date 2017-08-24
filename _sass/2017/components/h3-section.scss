@@ -79,10 +79,17 @@
 }
 
 .h3-section.-prime > .body {
-  border: solid 2px lighten($baseB-400, 50%);
+  border: solid 2px $baseB-600;
   border-radius: 2px;
   box-shadow:
     0 8px 12px rgba(80, 100, 150, 0.07),
     0 4px 8px rgba(80, 100, 150, 0.07),
     0 2px 3px rgba(80, 100, 150, 0.15);
+
+  & > pre ~ p,
+  & > ul ~ p,
+  & > iframe ~ p,
+  & > table ~ p {
+    border-top: solid 2px $baseB-600;
+  }
 }

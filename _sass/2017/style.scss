@@ -10,6 +10,7 @@ $gray-text: #678;
 $text-color: #333;
 $baseA-400: #53a;
 $baseB-400: #35a;
+$baseB-600: adjust-color($baseB-400, $lightness: 20%, $hue: -20deg);
 $line-color: rgba(50, 80, 150, 0.1);
 $dark-line-color: rgba(50, 80, 150, 0.2);
 

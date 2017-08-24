@@ -6,13 +6,18 @@ $body-font: $system-font;
 $heading-font: 'Helvetica Neue', $system-font;
 $monospace-font: 'fira mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
 
+$baseA: #8370bd; // indigo
+$baseB: #2b72a2; // blue
+$baseC: #17c694; // teal
+$baseM: #667788; // gray
+
 $body-bg: #f1f3f5;
 $gray-bg: #fcfcfc;
-$gray-text: #678;
+$gray-text: $baseM;
 $text-color: #345;
-$baseA-400: #6d47e2; // indigo
-$baseB-400: #35a; // blue
-$baseB-600: adjust-color($baseB-400, $lightness: 20%, $hue: -20deg);
+
+$baseB3: adjust-color($baseB, $lightness: 20%, $hue: -20deg);
+
 $line-color: rgba(50, 80, 150, 0.05);
 $dark-line-color: rgba(50, 80, 150, 0.14);
 

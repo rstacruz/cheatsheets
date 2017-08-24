@@ -46,13 +46,13 @@
   font-family: $heading-font;
   @include font-size(2);
   font-weight: 300;
-  color: $baseA-400;
+  color: $baseA;
 }
 
 .MarkdownBody {
   a,
   a:visited {
-    color: $baseB-400;
+    color: $baseB;
     text-decoration: none;
   }
 
@@ -108,8 +108,8 @@
   .line-highlight {
     background: linear-gradient(
       to right,
-      rgba($baseB-400, 0.05) 75%,
-      rgba($baseB-400, 0));
+      rgba($baseB, 0.05) 75%,
+      rgba($baseB, 0));
   }
 
   // Line highlight ranges
@@ -128,11 +128,11 @@
  */
 
 .token {
-  $cA: saturate(darken(#58a, 10%), 25%); // Blue
+  $cA: $baseB;
   $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
   $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
 
-  $cB: saturate(#3a8, 25%); // Green
+  $cB: $baseC;
   $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
 
   $cM: #aaa; // Mute

@@ -1,9 +1,72 @@
 ---
 title: Sass
 category: CSS
+layout: 2017/sheet
 ---
 
+## Basics
+{: .-three-column}
+
+### Variables
+
+```scss
+$red: #833;
+
+body {
+  color: $red;
+}
+```
+
+### Nesting
+
+```scss
+.markdown-body {
+  p {
+    color: blue;
+  }
+
+  &:hover {
+    color: red;
+  }
+}
+```
+
+### Mixins
+
+```scss
+@mixin heading-font {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  @include heading-font;
+}
+```
+
+### Mixin properties
+
+```scss
+@mixin font-size($n) {
+  font-size: $n * 1.2em;
+}
+```
+
+### Extend
+
+```scss
+.button {
+  ···
+}
+
+.push-button {
+  @extend .button;
+}
+```
+
 ## Color functions
+
+### rgba
 
 ```scss
 rgb(100, 120, 140)
@@ -22,15 +85,27 @@ mix($a, $b, 10%)   /* 10% a, 90% b */
 ```scss
 darken($color, 5%)
 lighten($color, 5%)
+```
 
+```scss
 saturate($color, 5%)
 desaturate($color, 5%)
 grayscale($color)
+```
 
+```scss
 adjust-hue($color, 15deg)
 compliment($color)    /* like adjust-hue(_, 180deg) */
 invert($color)
+```
 
+```scss
+adjust-hue($color, 15deg)
+compliment($color)    /* like adjust-hue(_, 180deg) */
+invert($color)
+```
+
+```scss
 fade-in($color, .5)   /* aka opacify() */
 fade-out($color, .5)  /* aka transparentize() - halves the opacity */
 rgba($color, .5)      /* sets alpha to .5 */
@@ -53,16 +128,20 @@ adjust-color($color, $blue: 5)
 adjust-color($color, $lightness: -30%)   /* like darken(_, 30%) */
 adjust-color($color, $alpha: -0.4)       /* like fade-out(_, .4) */
 adjust-color($color, $hue: 30deg)        /* like adjust-hue(_, 15deg) */
+```
 
+```scss
 /* Changes via percentage */
 scale-color($color, $lightness: 50%)
+```
 
+```scss
 /* Changes one property completely */
 change-color($color, $hue: 180deg)
 change-color($color, $blue: 250)
-
-/* Supported: $red $green $blue $hue $saturation $lightness $alpha */
 ```
+
+Supported: `$red` `$green` `$blue` `$hue` `$saturation` `$lightness` `$alpha`
 
 ## Other functions
 
@@ -71,10 +150,14 @@ change-color($color, $blue: 250)
 ```scss
 unquote('hello')
 quote(hello)
+```
 
+```scss
 to-upper-case(hello)
 to-lower-case(hello)
+```
 
+```scss
 str-length(hello world)
 str-slice(hello, 2, 5)      /* "ello" - it's 1-based, not 0-based */
 str-insert("abcd", "X", 1)  /* "Xabcd" */
@@ -94,10 +177,14 @@ floor(3.5)
 ceil(3.5)
 round(3.5)
 abs(3.5)
+```
 
+```scss
 min(1, 2, 3)
 max(1, 2, 3)
+```
 
+```scss
 percentage(.5)   /* 50% */
 random(3)        /* 0..3 */
 ```
@@ -108,7 +195,9 @@ random(3)        /* 0..3 */
 variable-exists(red)    /* checks for $red */
 mixin-exists(red-text)  /* checks for @mixin red-text */
 function-exists(redify)
+```
 
+```scss
 global-variable-exists(red)
 ```
 
@@ -123,9 +212,13 @@ selector-unify(...)
 
 ## Feature checks
 
+### Feature check
+
 ```scss
 feature-exists(global-variable-shadowing)
 ```
+
+### Features
 
 * global-variable-shadowing
 * extend-selector-pseudoclass
@@ -175,7 +268,9 @@ $i: 6;
 }
 ```
 
-## Conditionals
+## Other features
+
+### Conditionals
 
 ```scss
 @if $position == 'left' {
@@ -187,7 +282,7 @@ $i: 6;
 }
 ```
 
-## Interpolation
+### Interpolation
 
 ```scss
 .#{$klass} { ... }      /* Class */
@@ -198,7 +293,7 @@ font: #{$size}/#{$line-height}
 url("#{$background}.jpg")
 ```
 
-## Lists
+### Lists
 
 ```scss
 $list: (a b c);
@@ -209,7 +304,7 @@ length($list)
 @each $item in $list { ... }
 ```
 
-## Maps
+### Maps
 
 ```scss
 $map: (key1: value1, key2: value2, key3: value3);
@@ -217,7 +312,8 @@ $map: (key1: value1, key2: value2, key3: value3);
 map-get($map, key1)
 ```
 
-## Reference
+## See also
+{: .-one-column}
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>
 - <http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript>

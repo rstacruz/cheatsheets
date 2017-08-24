@@ -12,7 +12,7 @@
   & {
     background: white;
     box-shadow:
-      0 4px 8px rgba(80, 100, 150, 0.07),
+      0 6px 8px rgba(80, 100, 150, 0.07),
       0 2px 3px rgba(80, 100, 150, 0.15);
   }
 
@@ -79,6 +79,10 @@
 }
 
 .h3-section.-prime > .body {
-  border: solid 2px $baseA-400;
+  border: solid 2px lighten($baseB-400, 50%);
   border-radius: 2px;
+  box-shadow:
+    0 8px 12px rgba(80, 100, 150, 0.07),
+    0 4px 8px rgba(80, 100, 150, 0.07),
+    0 2px 3px rgba(80, 100, 150, 0.15);
 }

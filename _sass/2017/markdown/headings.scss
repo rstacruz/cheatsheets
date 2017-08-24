@@ -55,3 +55,29 @@
     width: 100%;
   }
 }
+
+.MarkdownBody code {
+  color: $gray-text;
+  font-size: 0.86em;
+}
+
+/*
+ * Undo prism theme crap
+ */
+
+.MarkdownBody pre {
+  box-shadow: none;
+  border-left: 0;
+  overflow: hidden;
+  overflow-x: auto;
+  background: white;
+}
+
+.MarkdownBody pre > code {
+  color: $text-color;
+  max-height: auto;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+  font-size: 1em;
+}

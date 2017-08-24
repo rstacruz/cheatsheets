@@ -94,8 +94,10 @@
  */
 
 .h3-section.-prime > .body {
-  border-radius: 2px;
-  box-shadow:
-    0 8px 12px rgba($baseB-600, 0.3),
-    0 2px 3px rgba($baseB-400, 0.35);
+  @media (min-width: 481px) {
+    border-radius: 2px;
+    box-shadow:
+      0 8px 12px rgba($baseB-600, 0.3),
+      0 2px 3px rgba($baseB-400, 0.35);
+  }
 }

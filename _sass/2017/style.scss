@@ -1,7 +1,8 @@
 $gutter: 32px;
 $column: 400px;
 
-$body-font: roboto, sans-serif;
+$system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$body-font: $system-font;
 $monospace-font: 'fira mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
 
 $body-bg: #f8f8fb;

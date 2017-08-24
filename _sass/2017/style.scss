@@ -22,9 +22,6 @@ $modularscale: (
   1280px: (base: 14px, ratio: 1.2)
 );
 
-@import url('https://unpkg.com/sanitize.css@5.0.0/sanitize.css');
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
-
 @import './utils/modularscale';
 @import './utils/font-size';
 @import './base/base';

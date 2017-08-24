@@ -158,8 +158,9 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 | --- | --- |
 | `${FOO/from/to}` | Replace first match |
 | `${FOO//from/to}` | Replace all |
-| `${FOO/#from/to}` | Replace prefix |
+| --- | --- |
 | `${FOO/%from/to}` | Replace suffix |
+| `${FOO/#from/to}` | Replace prefix |
 
 ### Substrings
 

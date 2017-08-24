@@ -26,6 +26,10 @@
     text-align: right;
   }
 
+  & td:first-child {
+    white-space: nowrap;
+  }
+
   & td:first-child > code {
     font-size: 0.86em;
     color: #35a;

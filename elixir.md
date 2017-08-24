@@ -1,29 +1,26 @@
 ---
 title: Elixir
 category: Development
+layout: 2017/sheet
 ---
 
-## Importing
+## Reference
 
-```elixir
-require Redux   # compiles a module
-import Redux    # compiles, and you can use without the `Redux.` prefix
+### Primitives
 
-use Redux       # compiles, and runs Redux.__using__/1
-use Redux, async: true
+| `nil`                   | Nil/null      |
+| `true` _/_ `false`      | Boolean       |
+| `'hello'`               | Char list     |
+| `<<2, 3>>`              | Binary        |
+| `"hello"`               | Binary string |
+| `:hello`                | Atom          |
+| `[a, b]`                | List          |
+| `{a, b}`                | Tuple         |
+| `%{a: "hello"}`         | Map           |
+| `%MyStruct{a: "hello"}` | Struct        |
+| `fn -> ... end`         | Function      |
 
-import Redux, only: [duplicate: 2]
-import Redux, only: :functions
-import Redux, only: :macros
-
-alias Foo.Bar, as: Bar
-alias Foo.Bar   # same as above
-
-alias Foo.{Bar, Baz}
-import Foo.{Bar, Baz}
-```
-
-## Type checks
+### Type checks
 
 ```elixir
 is_atom/1
@@ -33,12 +30,16 @@ is_function/1
 is_function/2
 is_integer/1
 is_float/1
+```
 
+```elixir
 is_binary/1
 is_list/1
 is_map/1
 is_tuple/1
+```
 
+```elixir
 is_nil/1
 is_number/1
 is_pid/1
@@ -56,16 +57,40 @@ left <> right   # concat string/binary
 left =~ right   # regexp
 ```
 
-### Inspecting
+### Importing
 
 ```elixir
-inspect(arg, opts \\ [])
+require Redux   # compiles a module
+import Redux    # compiles, and you can use without the `Redux.` prefix
+
+use Redux       # compiles, and runs Redux.__using__/1
+use Redux, async: true
+
+import Redux, only: [duplicate: 2]
+import Redux, only: :functions
+import Redux, only: :macros
+
+import Foo.{Bar, Baz}
+```
+
+### Aliases
+
+```elixir
+alias Foo.Bar, as: Bar
+alias Foo.Bar   # same as above
+
+alias Foo.{Bar, Baz}
 ```
 
 ## String
 
+### Functions
+
 ```elixir
 import String
+```
+
+```elixir
 str = "hello"
 str |> length()      #=> 5
 str |> codepoints()  #=> ["h", "e", "l", "l", "o"]
@@ -75,19 +100,33 @@ str |> capitalize()  #=> "Hello"
 str |> match(regex)
 ```
 
+### Inspecting objects
+
+```elixir
+inspect(object, opts \\ [])
+```
+```elixir
+value |> IO.inspect()
+```
+
 ## Numbers
+
+### Operations
 
 ```elixir
 abs(n)
+round(n)
 rem(a, b)   # remainder (modulo)
 div(a, b)   # integer division
-round(n)
 ```
 
 ### Float
 
 ```elixir
 import Float
+```
+
+```elixir
 n = 10.3
 n |> ceil()            #=> 11.0
 n |> ceil(2)           #=> 11.30
@@ -101,17 +140,20 @@ Float.parse("34")  #=> { 34.0, "" }
 
 ```elixir
 import Integer
+```
+
+```elixir
 n = 12
-digits(n)        #=> [1, 2]
-to_char_list(n)  #=> '12'
-to_string(n)
-is_even(n)
-is_odd(n)
+n |> digits()        #=> [1, 2]
+n |> to_char_list()  #=> '12'
+n |> to_string()     #=> "12"
+n |> is_even()
+n |> is_odd()
 
 # Different base:
-digits(n, 2)       #=> [1, 1, 0, 0]
-to_char_list(n, 2) #=> '1100'
-to_string(n, 2)
+n |> digits(2)        #=> [1, 1, 0, 0]
+n |> to_char_list(2)  #=> '1100'
+n |> to_string(2)     #=> "1100"
 
 parse("12")       #=> 12
 undigits([1, 2])  #=> 12
@@ -129,42 +171,46 @@ Float.to_string(34.1, [decimals: 2, compact: true])  #=> "34.1"
 
 ## Map
 
+### Defining
+
 ```elixir
 map = %{name: "hi"}       # atom keys (:name)
 map = %{"name" => "hi"}   # string keys ("name")
 ```
 
 ### Updating
+
 ```elixir
 import Map
 
 map = %{map | name: "yo"}  # key must exist
 
-put(map, :id, 2)      #=> %{id: 2, name: "hi"}
-put_new(map, :id, 2)  # only if `id` doesn't exist (`||=`)
+map |> put(:id, 2)      #=> %{id: 2, name: "hi"}
+map |> put_new(:id, 2)  # only if `id` doesn't exist (`||=`)
 
-put(map, :b, "Banana")
-merge(map, %{b: "Banana"})
-update(map, :a, &(&1 + 1))
-update(map, :a, fun a -> a + 1 end)
+map |> put(:b, "Banana")
+map |> merge(%{b: "Banana"})
+map |> update(:a, &(&1 + 1))
+map |> update(:a, fun a -> a + 1 end)
 
-{old, new} = get_and_update(map, :a, &(&1 || "default"))
+{old, new} = map |> get_and_update(:a, &(&1 || "default"))
 ```
 
 ### Deleting
+
 ```elixir
-delete(map, :name)    #=> "hi"
-pop(map, :name)       #=> %{id: 1}
+map |> delete(:name)    #=> "hi"
+map |> pop(:name)       #=> %{id: 1}
 ```
 
 ### Reading
 
 ```elixir
-get(map, :id)         #=> 1
-keys(map)             #=> [:id, :name]
-values(map)           #=> [1, "hi"]
+map |> get(:id)         #=> 1
+map |> keys()           #=> [:id, :name]
+map |> values()         #=> [1, "hi"]
 
-to_list(map)          #=> [id: 1, name: "hi"]
+map |> to_list()      #=> [id: 1, name: "hi"]
                       #=> [{:id, 1}, {:name, "hi"}]
 ```
 
@@ -186,8 +232,6 @@ Map.new([:a, :b], fn x -> {x, x} end)  #=> %{a: :a, b: :b}
 
 ## List
 
-Also see [Enum](#enum).
-
 ```js
 import List
 list = [ 1, 2, 3, 4 ]
@@ -201,10 +245,12 @@ flatten(list)
 flatten(list, tail)
 ```
 
+Also see [Enum](#enum).
+
+
 ## Enum
 
 ```elixir
-# consider streams instead
 import Enum
 
 # High-order
@@ -223,14 +269,18 @@ any?(list)          #=> true
 concat(list, [:d])  #=> [:d]
 ```
 
+Also, consider streams instead.
+
 ## Tuples
+
+### Tuples
 
 ```elixir
 tuple = { :a, :b }
 
-elem(tuple, 1)    # like tuple[1]
-put_elem(tuple, index, value)
-tuple_size(tuple)
+tuple |> elem(1)    # like tuple[1]
+tuple |> put_elem(index, value)
+tuple |> tuple_size()
 ```
 
 ### Keyword lists
@@ -270,9 +320,17 @@ apply(fun, args)
 apply(module, fun, args)
 ```
 
-## Syntax
+### Function heads
 
-### [Structs](http://elixir-lang.org/getting-started/structs.html)
+```elixir
+def join(a, b \\ nil)
+def join(a, b) when is_nil(b) do: a
+def join(a, b) do: a <> b
+```
+
+## Structs
+
+### Structs
 
 ```elixir
 defmodule User do
@@ -284,17 +342,11 @@ end
 %User{}.struct  #=> User
 ```
 
-## Functions
-
-### Function heads
-
-```elixir
-def join(a, b \\ nil)
-def join(a, b) when is_nil(b) do: a
-def join(a, b) do: a <> b
-```
+See: [Structs](http://elixir-lang.org/getting-started/structs.html)
 
 ## Protocols
+
+### Defining protocols
 
 ```elixir
 defprotocol Blank do
@@ -330,6 +382,8 @@ end
 
 ## Comprehensions
 
+### For
+
 ```elixir
 for n <- [1, 2, 3, 4], do: n * n
 for n <- 1..4, do: n * n
@@ -356,7 +410,7 @@ for dir <- dirs,
 end
 ```
 
-## Modules
+## Misc
 
 ### Metaprogramming
 
@@ -376,7 +430,7 @@ def on_def(_env, kind, name, args, guards, body)
 def load_check
 ```
 
-## Regexp
+### Regexp
 
 ```elixir
 exp = ~r/hello/
@@ -384,7 +438,7 @@ exp = ~r/hello/i
 "hello world" =~ exp
 ```
 
-## [Sigils](http://elixir-lang.org/getting-started/sigils.html)
+### Sigils
 
 ```elixir
 ~r/regexp/
@@ -394,11 +448,10 @@ exp = ~r/hello/i
 ~c(char list)
 ```
 
-Allowed chars: `/` `|` `"` `'` `(` `[` `{` `<` `"""`
+Allowed chars: `/` `|` `"` `'` `(` `[` `{` `<` `"""`.
+See: [Sigils](http://elixir-lang.org/getting-started/sigils.html)
 
-## [Typespecs](http://elixir-lang.org/getting-started/typespecs-and-behaviours.html)
-
-Useful for [dialyzer](http://www.erlang.org/doc/man/dialyzer.html)
+### Type specs
 
 ```elixir
 @spec round(number) :: integer
@@ -407,7 +460,10 @@ Useful for [dialyzer](http://www.erlang.org/doc/man/dialyzer.html)
 @spec add(number, number) :: number_with_remark
 ```
 
-## Behaviours
+Useful for [dialyzer](http://www.erlang.org/doc/man/dialyzer.html).
+See: [Typespecs](http://elixir-lang.org/getting-started/typespecs-and-behaviours.html)
+
+### Behaviours
 
 ```elixir
 defmodule Parser do
@@ -425,9 +481,9 @@ defmodule JSONParser do
 end
 ```
 
-[Reference](http://elixir-lang.org/docs/stable/elixir/Module.html)
+See: [Module](http://elixir-lang.org/docs/stable/elixir/Module.html)
 
 ## References
+{: .-one-column}
 
 - [Learn Elixir in Y minutes](https://learnxinyminutes.com/docs/elixir/)
-

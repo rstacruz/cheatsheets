@@ -124,7 +124,7 @@
 }
 
 /*
- * Syntax highlight
+ * Syntax kighlight
  */
 
 .token {
@@ -160,6 +160,7 @@
     color: $cA-3;
   }
 
+  &.comment,
   &.punctuation,
   &.operator {
     color: $cM;

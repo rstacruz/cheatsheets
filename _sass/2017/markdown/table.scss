@@ -50,11 +50,9 @@
 .MarkdownBody table.-shortcuts {
   code {
     font-size: 1em;
-    padding: 3px 8px;
+    padding: 5px 6px;
+    padding-left: 8px; // compensation
     background: #fafafa;
-    box-shadow:
-      0 2px 0 rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     margin-right: 2px;
     letter-spacing: 0.2em;

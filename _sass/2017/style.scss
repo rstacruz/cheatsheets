@@ -3,14 +3,15 @@ $column: 400px;
 
 $system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 $body-font: $system-font;
+$heading-font: 'Helvetica Neue', $system-font;
 $monospace-font: 'fira mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
 
 $body-bg: #f1f3f5;
 $gray-bg: #fcfcfc;
 $gray-text: #678;
-$text-color: #333;
-$baseA-400: #53a;
-$baseB-400: #35a;
+$text-color: #345;
+$baseA-400: #6d47e2; // indigo
+$baseB-400: #35a; // blue
 $baseB-600: adjust-color($baseB-400, $lightness: 20%, $hue: -20deg);
 $line-color: rgba(50, 80, 150, 0.05);
 $dark-line-color: rgba(50, 80, 150, 0.14);

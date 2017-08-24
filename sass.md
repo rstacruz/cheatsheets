@@ -127,12 +127,6 @@ invert($color)
 ```
 
 ```scss
-adjust-hue($color, 15deg)
-compliment($color)    // like adjust-hue(_, 180deg)
-invert($color)
-```
-
-```scss
 fade-in($color, .5)   // aka opacify()
 fade-out($color, .5)  // aka transparentize() - halves the opacity
 rgba($color, .5)      // sets alpha to .5

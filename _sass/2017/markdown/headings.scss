@@ -43,7 +43,7 @@
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
-  font-family: $body-font;
+  font-family: $heading-font;
   @include font-size(2);
   font-weight: 300;
   color: $baseA-400;
@@ -120,5 +120,48 @@
   .line-highlight::before,
   .line-highlight::after {
     display: none;
+  }
+}
+
+/*
+ * Syntax highlight
+ */
+
+.token {
+  $cA: saturate(darken(#58a, 10%), 25%); // Blue
+  $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
+  $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
+
+  $cB: saturate(#3a8, 25%); // Green
+  $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
+
+  $cM: #aaa; // Mute
+
+  &.tag,
+  &.keyword {
+    color: $cA;
+  }
+
+  &.tag {
+    color: $cA-7;
+  }
+
+  &.value,
+  &.string,
+  &.number,
+  &.attr-value,
+  &.boolean,
+  &.regex {
+    color: $cB;
+  }
+
+  &.function,
+  &.attr-name {
+    color: $cA-3;
+  }
+
+  &.punctuation,
+  &.operator {
+    color: $cM;
   }
 }

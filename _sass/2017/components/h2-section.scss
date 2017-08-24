@@ -1,0 +1,14 @@
+/*
+ * h2 section
+ */
+
+/* Hide the first h2 heading */
+.h2-section {
+  & > h2 {
+    margin-top: 64px;
+  }
+
+  &:first-child > h2 {
+    display: none;
+  }
+}

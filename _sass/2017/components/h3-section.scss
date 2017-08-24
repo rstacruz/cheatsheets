@@ -1,0 +1,80 @@
+/*
+ * H3 section
+ */
+
+.h3-section > .body {
+  & > pre {
+    margin: 0;
+    padding: 16px;
+    font-size: 12px;
+    overflow: auto;
+    background: white;
+  }
+
+  & {
+    background: white;
+    box-shadow:
+      0 4px 5px rgba(80, 100, 150, 0.05),
+      0 2px 3px rgba(80, 100, 150, 0.1);
+  }
+
+  & > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  & > ul > li {
+    padding: 8px 16px;
+    padding-left: 32px;
+    position: relative;
+  }
+
+  & > ul > li::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #666;
+    border-radius: 50%;
+    left: 16px;
+    top: 16px;
+  }
+
+  & > ul > li + li {
+    border-top: solid 1px $line-color;
+  }
+
+  /* Paragraphs */
+  & > p {
+    padding: 16px;
+    margin: 0;
+  }
+
+  /* Description paragraphs */
+  & > pre ~ p,
+  & > ul ~ p,
+  & > iframe ~ p,
+  & > table ~ p {
+    background: $gray-bg;
+    color: $gray-text;
+
+    /* Links */
+    & a,
+    & a:visited {
+      color: $text-color;
+      text-decoration: none;
+      border-bottom: solid 1px $line-color;
+    }
+
+    & a:hover {
+      color: $baseB-400;
+    }
+  }
+
+  /* Line divisions */
+  & > *:not(:first-child) {
+    border-top: solid 1px $line-color;
+  }
+}

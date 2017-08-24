@@ -1,0 +1,21 @@
+/*
+ * Base
+ */
+
+html, body {
+  background: #fcfcfc;
+  font-family: $body-font;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $text-color;
+}
+
+body {
+  padding: 16px;
+  max-width: $column * 3 + 32px;
+  margin: 0 auto;
+}
+
+pre, code {
+  font-family: $monospace-font;
+}

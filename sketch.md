@@ -4,58 +4,70 @@ category: Apps
 layout: 2017/sheet
 ---
 
+Shortcuts
+---------
+{: .-three-column}
+
 ### Insert
 
-| `V` | vector |
-| `P` | pencil |
-| `T` | text |
-| `L` | line |
-| `R` | rect |
-| `O` | oval |
-| `U` | rounded |
+| `V` | Vector |
+| `P` | Pencil |
+| `T` | Text |
+| `L` | Line |
+| `R` | Rectangle |
+| `O` | Oval |
+| `U` | Rounded |
+{: .-shortcuts}
 
 ### Show
 
-| `^G` | grid |
-| `^L` | layout |
-| `^P` | pixels |
-| `^H` | selection handles |
-| `^R` | rulers |
+| `^G` | Show grid |
+| `^L` | Show layout |
+| `^P` | Show pixels |
+| `^H` | Show selection handles |
+| `^R` | Show rulers |
+{: .-shortcuts}
 
 ### Sidebars
 
-| `⌘⌥1` | toggle left (layers) |
-| `⌘⌥2` | toggle right (inspector) |
-| `⌘⌥3` | toggle both |
-| `⌘.`  | presentation |
+| `⌘⌥1` | Toggle left (layers) |
+| `⌘⌥2` | Toggle right (inspector) |
+| `⌘⌥3` | Toggle both |
+| `⌘.`  | Presentation mode |
+{: .-shortcuts}
 
 ### Zoom
 
 | `⌘0` | 100% |
-| `⌘1` | fit to screen |
-| `⌘2` | fit selection to screen |
-| `⌘3` | center selection |
+| `⌘1` | Fit to screen |
+| `⌘2` | Fit selection to screen |
+| `⌘3` | Center selection |
+{: .-shortcuts}
 
 ### Arrange
 
-| `⌘⌥ up/dn` | forward or backward |
-| `^⌘⌥ up/dn` | front or back |
+| `⌘⌥↑` _/_ `↓` | Forward or backward |
+| `^⌘⌥↑` _/_ `↓` | Front or back |
+{: .-shortcuts}
 
 ### Distribute
 
-| `^⌘H` | horizontal |
-| `^⌘V` | vertical |
+| `^⌘H` | Horizontal |
+| `^⌘V` | Vertical |
+{: .-shortcuts}
 
 ### Layers
 
-| `⌘R` | rename |
-| `⌘F` | find |
-| `⌘G` | group |
-| `⌘⇧G` | ungroup |
+| `⌘R` | Rename layer |
+| `⌘F` | Find layer |
+| `⌘G` | Group |
+| `⌘⇧G` | Ungroup |
+{: .-shortcuts}
 
 ### Font
 
-| `⌘⌥ +/-` | bigger/smaller |
-| `⌘⇧[` | left align |
-| `⌘⇧\` | center align |
-| `⌘⇧]` | right align |
+| `⌘⌥ +` _/_ `-` | Bigger/smaller |
+| `⌘⇧[` | Left align |
+| `⌘⇧\` | Center align |
+| `⌘⇧]` | Right align |
+{: .-shortcuts}

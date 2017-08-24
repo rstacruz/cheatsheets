@@ -1,0 +1,57 @@
+/*
+ * MarkdownBody context
+ */
+
+.main-heading,
+.MarkdownBody h1,
+.MarkdownBody h2 {
+  font-weight: 300;
+  font-family: $body-font;
+  margin: $gutter / 2;
+  padding: 0;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: solid 1px $line-color;
+}
+
+.main-heading,
+.MarkdownBody h1 {
+  font-size: 3.2em;
+}
+
+.MarkdownBody h2 {
+  font-size: 2.4em;
+}
+
+.MarkdownBody h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+  font-family: $body-font;
+  font-size: 1.66em;
+  font-weight: 300;
+  color: $baseA-400;
+}
+
+.MarkdownBody {
+  a,
+  a:visited {
+    color: $baseB-400;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  em {
+    font-style: normal;
+    color: $gray-text;
+  }
+
+  iframe {
+    border: 0;
+    margin: 0;
+    width: 100%;
+  }
+}

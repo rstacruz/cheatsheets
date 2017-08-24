@@ -1,0 +1,64 @@
+/*
+ * Table
+ */
+
+.MarkdownBody table {
+  & {
+    width: 100%;
+  }
+
+  & tr + tr {
+    border-top: solid 1px $line-color;
+  }
+
+  /* Horizontal lines */
+  & tbody + tbody {
+    border-top: solid 1px $dark-line-color;
+  }
+
+  & td,
+  & th {
+    padding: 8px 16px;
+  }
+
+  & tr td:last-child {
+    text-align: right;
+  }
+
+  & td:first-child > code {
+    font-size: 0.86em;
+    color: #35a;
+  }
+
+  & a,
+  & a:visited {
+    color: #35a;
+    text-decoration: none;
+  }
+
+  & td:first-child > code ~ em {
+    font-style: normal;
+    font-size: 0.86em;
+    color: $gray-text;
+  }
+
+  & thead {
+    display: none;
+  }
+}
+
+.MarkdownBody table.-shortcuts {
+  code {
+    font-size: 1em;
+    padding: 3px 8px;
+    background: #fafafa;
+    box-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    margin-right: 2px;
+    letter-spacing: 0.2em;
+    font-family: roboto;
+    color: $text-color;
+  }
+}

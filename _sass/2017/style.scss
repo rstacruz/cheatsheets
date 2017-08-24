@@ -11,12 +11,21 @@ $text-color: #333;
 $baseA-400: #53a;
 $baseB-400: #35a;
 $baseB-600: adjust-color($baseB-400, $lightness: 20%, $hue: -20deg);
-$line-color: rgba(50, 80, 150, 0.1);
+$line-color: rgba(50, 80, 150, 0.07);
 $dark-line-color: rgba(50, 80, 150, 0.2);
+
+$modularscale: (
+  base: 14px, ratio: 1.2,
+  480px: (base: 13px, ratio: 1.15),
+  768px: (base: 14px, ratio: 1.17),
+  1280px: (base: 14px, ratio: 1.2)
+);
 
 @import url('https://unpkg.com/sanitize.css@5.0.0/sanitize.css');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
 
+@import './utils/modularscale';
+@import './utils/font-size';
 @import './base/base';
 @import './markdown/headings';
 @import './markdown/table';

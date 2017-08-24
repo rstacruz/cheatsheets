@@ -11,7 +11,9 @@ layout: 2017/sheet
 
 ```scss
 $red: #833;
+```
 
+```scss
 body {
   color: $red;
 }
@@ -31,6 +33,13 @@ body {
 }
 ```
 
+### Comments
+
+```scss
+/* Block comments */
+// Line comments
+```
+
 ### Mixins
 
 ```scss
@@ -38,7 +47,9 @@ body {
   font-family: sans-serif;
   font-weight: bold;
 }
+```
 
+```scss
 h1 {
   @include heading-font;
 }
@@ -52,17 +63,33 @@ h1 {
 }
 ```
 
+```scss
+body {
+  @include font-size(2);
+}
+```
+
 ### Extend
 
 ```scss
 .button {
   ···
 }
+```
 
+```scss
 .push-button {
   @extend .button;
 }
 ```
+
+### Composing
+
+```scss
+@import './other_sass_file`;
+```
+
+The `.scss` or `.sass` extension is optional.
 
 ## Color functions
 
@@ -77,7 +104,7 @@ rgba($color, .5)
 ### Mixing
 
 ```scss
-mix($a, $b, 10%)   /* 10% a, 90% b */
+mix($a, $b, 10%)   // 10% a, 90% b
 ```
 
 ### Modifying HSLA
@@ -95,20 +122,20 @@ grayscale($color)
 
 ```scss
 adjust-hue($color, 15deg)
-compliment($color)    /* like adjust-hue(_, 180deg) */
+compliment($color)    // like adjust-hue(_, 180deg)
 invert($color)
 ```
 
 ```scss
 adjust-hue($color, 15deg)
-compliment($color)    /* like adjust-hue(_, 180deg) */
+compliment($color)    // like adjust-hue(_, 180deg)
 invert($color)
 ```
 
 ```scss
-fade-in($color, .5)   /* aka opacify() */
-fade-out($color, .5)  /* aka transparentize() - halves the opacity */
-rgba($color, .5)      /* sets alpha to .5 */
+fade-in($color, .5)   // aka opacify()
+fade-out($color, .5)  // aka transparentize() - halves the opacity
+rgba($color, .5)      // sets alpha to .5
 ```
 
 ### Getting HSL values
@@ -117,26 +144,26 @@ rgba($color, .5)      /* sets alpha to .5 */
 hue($color)
 saturation($color)
 lightness($color)
-alpha($color)         /* aka opacity() */
+alpha($color)         // aka opacity()
 ```
 
 ### Adjustments
 
 ```scss
-/* Changes by fixed amounts */
+// Changes by fixed amounts
 adjust-color($color, $blue: 5)
-adjust-color($color, $lightness: -30%)   /* like darken(_, 30%) */
-adjust-color($color, $alpha: -0.4)       /* like fade-out(_, .4) */
-adjust-color($color, $hue: 30deg)        /* like adjust-hue(_, 15deg) */
+adjust-color($color, $lightness: -30%)   // like darken(_, 30%)
+adjust-color($color, $alpha: -0.4)       // like fade-out(_, .4)
+adjust-color($color, $hue: 30deg)        // like adjust-hue(_, 15deg)
 ```
 
 ```scss
-/* Changes via percentage */
+// Changes via percentage
 scale-color($color, $lightness: 50%)
 ```
 
 ```scss
-/* Changes one property completely */
+// Changes one property completely
 change-color($color, $hue: 180deg)
 change-color($color, $blue: 250)
 ```
@@ -159,15 +186,15 @@ to-lower-case(hello)
 
 ```scss
 str-length(hello world)
-str-slice(hello, 2, 5)      /* "ello" - it's 1-based, not 0-based */
-str-insert("abcd", "X", 1)  /* "Xabcd" */
+str-slice(hello, 2, 5)      // "ello" - it's 1-based, not 0-based
+str-insert("abcd", "X", 1)  // "Xabcd"
 ```
 
 ### Units
 
 ```scss
-unit(3em)        /* 'em' */
-unitless(100px)  /* false */
+unit(3em)        // 'em'
+unitless(100px)  // false
 ```
 
 ### Numbers
@@ -185,15 +212,15 @@ max(1, 2, 3)
 ```
 
 ```scss
-percentage(.5)   /* 50% */
-random(3)        /* 0..3 */
+percentage(.5)   // 50%
+random(3)        // 0..3
 ```
 
 ### Misc
 
 ```scss
-variable-exists(red)    /* checks for $red */
-mixin-exists(red-text)  /* checks for @mixin red-text */
+variable-exists(red)    // checks for $red
+mixin-exists(red-text)  // checks for @mixin red-text
 function-exists(redify)
 ```
 
@@ -202,8 +229,8 @@ global-variable-exists(red)
 ```
 
 ```scss
-selector-append('.menu', 'li', 'a')   /* .menu li a */
-selector-nest('.menu', '&:hover li')  /* .menu:hover li */
+selector-append('.menu', 'li', 'a')   // .menu li a
+selector-nest('.menu', '&:hover li')  // .menu:hover li
 selector-extend(...)
 selector-parse(...)
 selector-replace(...)
@@ -285,8 +312,8 @@ $i: 6;
 ### Interpolation
 
 ```scss
-.#{$klass} { ... }      /* Class */
-call($function-name)    /* Functions */
+.#{$klass} { ... }      // Class
+call($function-name)    // Functions
 
 @media #{$tablet}
 font: #{$size}/#{$line-height}
@@ -298,7 +325,7 @@ url("#{$background}.jpg")
 ```scss
 $list: (a b c);
 
-nth($list, 1)  /* starts with 1 */
+nth($list, 1)  // starts with 1
 length($list)
 
 @each $item in $list { ... }

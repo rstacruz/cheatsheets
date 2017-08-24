@@ -11,16 +11,32 @@
   padding: 0;
   margin-bottom: 16px;
   padding-bottom: 16px;
+  margin-top: 64px;
   border-bottom: solid 1px $line-color;
+
+  @media (max-width: 768px) {
+    margin: $gutter / 2;
+    margin-bottom: 8px;
+    margin-top: 32px;
+    padding-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    margin: $gutter / 4;
+    margin-bottom: 8px;
+    margin-top: 32px;
+    padding-bottom: 8px;
+  }
 }
 
 .main-heading,
 .MarkdownBody h1 {
-  font-size: 3.2em;
+  @include font-size(6);
+  margin-top: 0;
 }
 
 .MarkdownBody h2 {
-  font-size: 2.4em;
+  @include font-size(5);
 }
 
 .MarkdownBody h3 {
@@ -28,7 +44,7 @@
   padding: 0;
   margin-bottom: 16px;
   font-family: $body-font;
-  font-size: 1.66em;
+  @include font-size(2);
   font-weight: 300;
   color: $baseA-400;
 }

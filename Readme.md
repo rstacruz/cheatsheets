@@ -10,6 +10,10 @@ H2's support these:
     {: .-three-column}
     {: .-left-reference}
 
+H3's support these:
+
+    {: .-prime}
+
 Tables support these:
 
     {: .-shortcuts}

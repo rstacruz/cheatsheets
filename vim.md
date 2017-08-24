@@ -8,6 +8,24 @@ Getting started
 ---------------
 {: .-three-column}
 
+### Exiting
+{: .-prime}
+
+| Shortcut       | Description                      |
+| ---            | ---                              |
+| `:qa`          | Close all files                  |
+| `:qa!`         | Close all files, abandon changes |
+| ---            | ---                              |
+| `:w`           | Save                             |
+| `:wq` _/_ `:x` | Save and close file              |
+| ---            | ---                              |
+| `:q`           | Close file                       |
+| `:q!`          | Close file, abandon changes      |
+| ---            | ---                              |
+| `ZZ`           | Save and quit                    |
+| `ZQ`           | Quit without checking changes    |
+{: .-shortcuts}
+
 ### Navigating
 
 | Shortcut        | Description                        |
@@ -24,6 +42,9 @@ Getting started
 | `$`             | End of line                        |
 | `gg`            | First line                         |
 | `G`             | Last line                          |
+| ---             | ---                                |
+| `:n`            | Go to line `n`                     |
+| `nG`            | Go to line `n`                     |
 {: .-shortcuts}
 
 ### Entering insert mode

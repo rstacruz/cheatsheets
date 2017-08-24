@@ -70,19 +70,39 @@
  * Undo prism theme crap
  */
 
-.MarkdownBody pre {
-  box-shadow: none;
-  border-left: 0;
-  overflow: hidden;
-  overflow-x: auto;
-  background: white;
-}
+.MarkdownBody {
+  pre {
+    box-shadow: none;
+    border-left: 0;
+    overflow: hidden;
+    overflow-x: auto;
+    background: white;
+  }
 
-.MarkdownBody pre > code {
-  color: $text-color;
-  max-height: auto;
-  padding: 0;
-  background: transparent;
-  overflow: visible;
-  font-size: 1em;
+  pre > code {
+    color: $text-color;
+    max-height: auto;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    font-size: 1em;
+  }
+
+  // Line highlight
+  .line-highlight {
+    background: linear-gradient(
+      to right,
+      rgba($baseB-400, 0.05) 75%,
+      rgba($baseB-400, 0));
+  }
+
+  // Line highlight ranges
+  .line-highlight[data-end] {
+    margin-top: 0;
+  }
+
+  .line-highlight::before,
+  .line-highlight::after {
+    display: none;
+  }
 }

@@ -6,11 +6,12 @@ layout: 2017/sheet
 
 {%raw%}
 
-Example
--------
-{: .-left-reference}
+Components
+----------
+{: .-three-column}
 
-### Basic example
+### Components
+{: .-prime}
 
 ```jsx
 import React from 'react'
@@ -32,37 +33,42 @@ const el = document.body
 ReactDOM.render(<Hello name='John' />, el)
 ```
 
-Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output)).
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
 
-### Try it
+### Properties
 
-<iframe src="http://jsbin.com/yafixat/edit?js,output" height="400"></iframe>
-
-[Open in jsbin](http://jsbin.com/yafixat/edit?js,output)
-{: target="_blank"}
-
-Components
-----------
-{: .-three-column}
-
-### Class components
+```html
+<Video fullscreen={true} />
+```
 
 ```jsx
-class MyComponent extends React.Component {
-  render () {
-    return <div className='message-box'>
-      Hello {this.props.name}
-    </div>
-  }
+render () {
+  this.props.fullscreen
+  ···
+}
+```
+{: data-line="2"}
+
+Use `this.props` to access properties passed to the component.
+See: [Properties](https://facebook.github.io/react/docs/tutorial.html#using-props)
+
+### States
+
+```jsx
+this.setState({ username: 'rstacruz' })
+```
+
+```jsx
+render () {
+  this.state.username
+  ···
 }
 ```
 
-```jsx
-const el = document.body
-ReactDOM.render(<MyComponent name='John' />, el)
-```
+Use states (`this.state`) to manage dynamic data.
+See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
 
-### Functional components
+### Function components
 
 ```jsx
 function MyComponent ({ name }) {
@@ -73,6 +79,7 @@ function MyComponent ({ name }) {
 ```
 
 Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
 
 ### Nesting
 
@@ -88,42 +95,10 @@ class Info extends React.Component {
   }
 }
 ```
+{: data-line="6-7"}
 
-Nest components to separate concerns. See: [multiple components](http://facebook.github.io/react/docs/multiple-components.html)
+Nest components to separate concerns. See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
 
-
-### Properties
-
-```html
-<Video fullscreen={true} />
-```
-
-```jsx
-class Video extends React.Component {
-  render () {
-    this.props.fullscreen
-    /* ... */
-  }
-}
-```
-
-Use [props](https://facebook.github.io/react/docs/tutorial.html#using-props) (`this.props`) to access parameters passed from the parent.
-
-### States
-
-```jsx
-this.setState({ username: 'rstacruz' })
-```
-
-```jsx
-render () {
-  this.state.username
-  /* ... */
-}
-```
-
-Use states (`this.state`) to manage dynamic data.
-See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
 
 ### Setting default props
 
@@ -145,6 +120,30 @@ class Hello extends React.Component {
   }
 }
 ```
+{: data-line="4"}
+
+Set the default state in the `constructor()`.
+
+### Children
+
+```jsx
+class AlertBox extends React.Component {
+  render () {
+    return <div className='alert-box'>
+      {this.props.children}
+    </div>
+  }
+}
+```
+{: data-line="4"}
+
+```jsx
+<AlertBox>
+<h1>You have pending notifications</h1>
+</AlertBox>
+```
+
+Children are passed as the `children` property.
 
 ### Component API
 
@@ -208,6 +207,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
+{: data-line="4"}
 
 ```jsx
 this.input.focus()
@@ -223,6 +223,7 @@ Allows access to DOM nodes. See: [Refs and the DOM](https://facebook.github.io/r
     value={this.state.value}
     onChange={this.handleChange} />
 ```
+{: data-line="3"}
 
 ```jsx
 handleChange: function(event) {
@@ -361,6 +362,7 @@ class VideoPlayer extends React.Component {
   }
 }
 ```
+{: data-line="3"}
 
 Propagates `src="..."` down to the sub-component.
 See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
@@ -434,6 +436,41 @@ Always supply a `key` property.
   : null}
 </div>
 ```
+
+Examples
+-------
+{: .-left-reference}
+
+### Basic example
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+```
+
+```jsx
+class Hello extends React.Component {
+  render () {
+    return <div className='message-box'>
+      Hello {this.props.name}
+    </div>
+  }
+}
+```
+
+```jsx
+const el = document.body
+ReactDOM.render(<Hello name='John' />, el)
+```
+
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output)).
+
+### Try it
+
+<iframe src="http://jsbin.com/yafixat/edit?js,output" height="400"></iframe>
+
+[Open in jsbin](http://jsbin.com/yafixat/edit?js,output)
+{: target="_blank"}
 
 Also see
 --------

@@ -120,40 +120,19 @@ echo ${name:0:length}  #=> "jo"
 
 See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 
-### Pattern substitution
-
 ```bash
 STR="/path/to/foo.cpp"
+echo ${STR%.cpp}    # /path/to/foo
+echo ${STR%.cpp}.o  # /path/to/foo.o
+
+echo ${STR##*.}     # cpp (extension)
+echo ${STR##*/}     # foo.cpp (basepath)
+
+echo ${STR#*/}      # path/to/foo.cpp
+echo ${STR##*/}     # foo.cpp
+
+echo ${STR/foo/bar} # /path/to/bar.cpp
 ```
-
-| `${STR%.cpp}`   | `/path/to/foo`         |
-| `${STR%.cpp}.o` | `/path/to/foo.o`       |
-| `${STR##*.}`    | `cpp` _(extension)_    |
-| `${STR##*/}`    | `foo.cpp` _(basepath)_ |
-
-### Directory name
-
-```bash
-SRC="/path/to/foo.cpp"
-BASE=${STR##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
-```
-
-### Regexp-like substitution
-
-```bash
-STR="Hey world"
-```
-
-| `${STR/Hey/Hello}` | Replace first match |
-| `${STR//Hey/Hello}` | Replace all |
-| `${STR/#Hey/Hello}` | Like `^Hey` |
-| `${STR/%world/mundo}` | Like `world$` |
-
-### Substrings
-
-| `${STR:0:3}`  | Substring: `"Hey"` _(position, length)_ |
-| `${STR:-3:3}` | Substring from the right                |
 
 ```bash
 STR="Hello world"
@@ -161,22 +140,42 @@ echo ${STR:6:5}   # "world"
 echo ${STR:-5:5}  # "world"
 ```
 
+```bash
+SRC="/path/to/foo.cpp"
+BASE=${STR##*/}   #=> "foo.cpp" (basepath)
+DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+```
+
+### Substitution
+
+| Code | Description |
+| --- | --- |
+| `${FOO%suffix}` | Remove suffix |
+| `${FOO#prefix}` | Remove prefix |
+| --- | --- |
+| `${FOO%%suffix}` | Remove long suffix |
+| `${FOO##prefix}` | Remove long prefix |
+| --- | --- |
+| `${FOO/from/to}` | Replace first match |
+| `${FOO//from/to}` | Replace all |
+| `${FOO/#from/to}` | Replace prefix |
+| `${FOO/%from/to}` | Replace suffix |
+
+### Substrings
+
+| `${FOO:0:3}`  | Substring _(position, length)_ |
+| `${FOO:-3:3}` | Substring from the right |
+
 ### Length
 
-| `${#STR}` | Length of `$STR` |
+| `${#FOO}` | Length of `$FOO` |
 
 ### Default values
 
-| `${CC:-gcc}`             | `$CC || "gcc"`            |
-
-### Unset variables
-
-Assuming `$FOO` is not set:
-
-| `${FOO:-word}`    | Returns `word`                        |
-| `${FOO:+word}`    | Returns empty (or `word` if set)      |
-| `${FOO:=word}`    | Sets `$FOO` to `word`, returns `word` |
-| `${FOO:?message}` | Echoes message and exits              |
+| `${FOO:-val}`        | `$FOO`, or `val` if not set |
+| `${FOO:=val}`        | Set `$FOO` to `val` if not set |
+| `${FOO:+val}`        | `val` if `$FOO` is set |
+| `${FOO:?message}`    | Show error message ande xit if `$FOO` is not set |
 
 The `:` is optional (eg, `${FOO=word}` works)
 

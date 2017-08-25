@@ -18,6 +18,10 @@ Tables support these:
 
     {: .-shortcuts}
 
+Pre's support these:
+
+    {: .-setup}
+
 Each sheet supports these metadata:
 
 ```yml

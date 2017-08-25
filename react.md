@@ -18,6 +18,7 @@ Components
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
+{: .-setup}
 
 ```jsx
 class Hello extends React.Component {
@@ -41,6 +42,7 @@ Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hack
 ```html
 <Video fullscreen={true} />
 ```
+{: .-setup}
 
 ```jsx
 render () {
@@ -140,7 +142,7 @@ class AlertBox extends React.Component {
 
 ```jsx
 <AlertBox>
-<h1>You have pending notifications</h1>
+  <h1>You have pending notifications</h1>
 </AlertBox>
 ```
 
@@ -243,6 +245,7 @@ Property validation
 ```js
 import PropTypes from 'prop-types'
 ```
+{: .-setup}
 
 See: [Typechecking with PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
@@ -355,6 +358,7 @@ MyCo.propTypes = {
 ```html
 <VideoPlayer src="video.mp4" />
 ```
+{: .-setup}
 
 ```jsx
 class VideoPlayer extends React.Component {
@@ -425,6 +429,7 @@ class TodoList extends React.Component {
   }
 }
 ```
+{: data-line="6-7"}
 
 Always supply a `key` property.
 
@@ -432,9 +437,9 @@ Always supply a `key` property.
 
 ```jsx
 <div>
-{showPopup
-  ? <Popup />
-  : null}
+  {showPopup
+    ? <Popup />
+    : null}
 </div>
 ```
 

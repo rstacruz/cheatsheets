@@ -12,19 +12,8 @@ html, body {
 
 body {
   @include font-size(0);
-  padding: 8px;
-  margin: 0 auto;
-}
-
-/*
- * Layout
- */
-
-@media (min-width: 481px) {
-  body {
-    padding: 16px;
-    max-width: $column * 3 + 32px;
-  }
+  padding: 0;
+  margin: 0;
 }
 
 /*

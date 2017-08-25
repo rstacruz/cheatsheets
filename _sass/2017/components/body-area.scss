@@ -1,0 +1,9 @@
+.body-area {
+  max-width: $column * 3 + 32px;
+  margin: 0 auto;
+  padding: 8px;
+
+  @media (min-width: 481px) {
+    padding: 16px;
+  }
+}

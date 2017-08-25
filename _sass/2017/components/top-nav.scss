@@ -1,0 +1,31 @@
+.top-nav {
+  & {
+    border-bottom: solid 1px $dark-line-color;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+  }
+
+  & > .brand {
+    @include font-size(-1);
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    &,
+    &:visited {
+      color: $text-color;
+    }
+
+    &:hover {
+      color: $baseA;
+    }
+  }
+
+  & > .actions > .social {
+    // TODO
+    display: none;
+  }
+}

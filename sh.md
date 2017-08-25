@@ -360,14 +360,6 @@ if [ -e "file.txt" ]; then
 fi
 ```
 
-Numeric calculations
---------------------
-
-```bash
-$((RANDOM%=200))            # Random number 0..200
-$((a + 200))                # $ is optional
-```
-
 Arrays
 ------
 
@@ -440,6 +432,16 @@ matches.
 
 Miscellaneous
 -------------
+
+### Numeric calculations
+
+```bash
+$((a + 200))      # Add 200 to $a
+```
+
+```bash
+$((RANDOM%=200))  # Random number 0..200
+```
 
 ### Subshells
 

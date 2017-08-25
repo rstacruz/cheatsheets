@@ -7,4 +7,10 @@
   &:first-child > h2 {
     display: none;
   }
+
+  @media (min-width: 481px) {
+    & + & {
+      margin-top: 32px;
+    }
+  }
 }

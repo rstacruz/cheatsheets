@@ -18,15 +18,9 @@
 
   // Each section
   & > .h3-section {
+    @include gutter(padding);
     float: left;
-    padding: $gutter / 4;
     width: 100%;
-  }
-
-  @media (min-width: 481px) {
-    & > .h3-section {
-      padding: $gutter / 2;
-    }
   }
 }
 

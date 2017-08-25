@@ -7,10 +7,11 @@
 
   & > h1 {
     @include font-size(6);
+    line-height: 1.2;
     font-weight: 300;
     font-family: $body-font;
     margin: 0;
-    padding: 0;
+    padding: 16px 0;
   }
 
   & > h1 > em {

@@ -10,16 +10,13 @@
 
   & {
     background: white;
-    box-shadow:
-      0 6px 8px rgba(80, 100, 150, 0.02),
-      0 1px 2px rgba(80, 100, 150, 0.20);
+    box-shadow: $shadow3;
   }
 
   /* Collapse/flush */
   @media (max-width: 480px) {
     margin: 0 -16px;
-    box-shadow:
-      0 1px 1px rgba(80, 100, 150, 0.30);
+    box-shadow: $shadow2;
   }
 
   /* Border radius */
@@ -114,8 +111,6 @@
 .h3-section.-prime > .body {
   @media (min-width: 481px) {
     border-radius: 2px;
-    box-shadow:
-      0 8px 12px rgba($baseB3, 0.1),
-      0 2px 3px rgba($baseB, 0.18);
+    box-shadow: $shadow6;
   }
 }

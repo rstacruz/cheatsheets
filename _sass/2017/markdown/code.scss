@@ -1,0 +1,94 @@
+.MarkdownBody code {
+  color: $gray-text;
+  font-size: 0.86em;
+}
+
+.MarkdownBody pre,
+.MarkdownBody code {
+  font-family: $monospace-font;
+}
+
+/*
+ * Undo prism theme crap
+ */
+
+.MarkdownBody {
+  pre {
+    box-shadow: none;
+    border-left: 0;
+    overflow: hidden;
+    overflow-x: auto;
+    background: white;
+  }
+
+  pre > code {
+    color: $text-color;
+    max-height: auto;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    font-size: 1em;
+  }
+
+  // Line highlight
+  .line-highlight {
+    background: linear-gradient(
+      to right,
+      rgba($baseB, 0.05) 75%,
+      rgba($baseB, 0));
+  }
+
+  // Line highlight ranges
+  .line-highlight[data-end] {
+    margin-top: 0;
+  }
+
+  .line-highlight::before,
+  .line-highlight::after {
+    display: none;
+  }
+}
+
+/*
+ * Syntax kighlight
+ */
+
+.token {
+  $cA: $baseB;
+  $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
+  $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
+
+  $cB: $baseC;
+  $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
+
+  $cM: #aaa; // Mute
+
+  &.tag,
+  &.keyword {
+    color: $cA;
+  }
+
+  &.tag {
+    color: $cA-7;
+  }
+
+  &.value,
+  &.string,
+  &.number,
+  &.attr-value,
+  &.boolean,
+  &.regex {
+    color: $cB;
+  }
+
+  &.function,
+  &.attr-name {
+    color: $cA-3;
+  }
+
+  &.comment,
+  &.punctuation,
+  &.operator {
+    color: $cM;
+  }
+}

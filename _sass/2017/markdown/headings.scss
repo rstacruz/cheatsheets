@@ -2,41 +2,12 @@
  * MarkdownBody context
  */
 
-.main-heading,
-.MarkdownBody h1,
 .MarkdownBody h2 {
+  @include heading-style;
+  @include font-size(5);
   font-weight: 300;
   font-family: $body-font;
-  margin: $gutter / 2;
-  padding: 0;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  margin-top: 64px;
-  border-bottom: solid 1px $line-color;
-
-  @media (max-width: 768px) {
-    margin: $gutter / 2;
-    margin-bottom: 8px;
-    margin-top: 32px;
-    padding-bottom: 8px;
-  }
-
-  @media (max-width: 480px) {
-    margin: $gutter / 4;
-    margin-bottom: 8px;
-    margin-top: 32px;
-    padding-bottom: 8px;
-  }
-}
-
-.main-heading,
-.MarkdownBody h1 {
-  @include font-size(6);
   margin-top: 0;
-}
-
-.MarkdownBody h2 {
-  @include font-size(5);
 }
 
 .MarkdownBody h3 {
@@ -69,100 +40,5 @@
     border: 0;
     margin: 0;
     width: 100%;
-  }
-}
-
-.MarkdownBody code {
-  color: $gray-text;
-  font-size: 0.86em;
-}
-
-.MarkdownBody pre,
-.MarkdownBody code {
-  font-family: $monospace-font;
-}
-
-/*
- * Undo prism theme crap
- */
-
-.MarkdownBody {
-  pre {
-    box-shadow: none;
-    border-left: 0;
-    overflow: hidden;
-    overflow-x: auto;
-    background: white;
-  }
-
-  pre > code {
-    color: $text-color;
-    max-height: auto;
-    padding: 0;
-    background: transparent;
-    overflow: visible;
-    font-size: 1em;
-  }
-
-  // Line highlight
-  .line-highlight {
-    background: linear-gradient(
-      to right,
-      rgba($baseB, 0.05) 75%,
-      rgba($baseB, 0));
-  }
-
-  // Line highlight ranges
-  .line-highlight[data-end] {
-    margin-top: 0;
-  }
-
-  .line-highlight::before,
-  .line-highlight::after {
-    display: none;
-  }
-}
-
-/*
- * Syntax kighlight
- */
-
-.token {
-  $cA: $baseB;
-  $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
-  $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
-
-  $cB: $baseC;
-  $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
-
-  $cM: #aaa; // Mute
-
-  &.tag,
-  &.keyword {
-    color: $cA;
-  }
-
-  &.tag {
-    color: $cA-7;
-  }
-
-  &.value,
-  &.string,
-  &.number,
-  &.attr-value,
-  &.boolean,
-  &.regex {
-    color: $cB;
-  }
-
-  &.function,
-  &.attr-name {
-    color: $cA-3;
-  }
-
-  &.comment,
-  &.punctuation,
-  &.operator {
-    color: $cM;
   }
 }

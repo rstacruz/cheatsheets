@@ -1,25 +1,61 @@
+/*
+ * Metrics
+ */
+
 $gutter: 32px;
 $column: 400px;
+
+/*
+ * Fonts
+ */
 
 $system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 $body-font: $system-font;
 $heading-font: 'Helvetica Neue', $system-font;
-$monospace-font: 'fira mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
+$monospace-font: 'Fira Mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+/*
+ * Base colors
+ */
 
 $baseA: #8370bd; // indigo
 $baseB: #2b72a2; // blue
 $baseC: #17c694; // teal
 $baseM: #667788; // gray
 
+$baseB3: adjust-color($baseB, $lightness: 20%, $hue: -20deg);
+$baseB7: adjust-color($baseB, $lightness: -20%, $hue: 20deg);
+$baseM3: adjust-color($baseM, $lightness: -20%);
+$baseM4: adjust-color($baseM, $lightness: -10%);
+$baseM6: adjust-color($baseM, $lightness: 10%);
+$baseM7: adjust-color($baseM, $lightness: 20%);
+
 $body-bg: #f1f3f5;
 $gray-bg: #fcfcfc;
 $gray-text: $baseM;
 $text-color: #345;
 
-$baseB3: adjust-color($baseB, $lightness: 20%, $hue: -20deg);
-
 $line-color: rgba(50, 80, 150, 0.05);
 $dark-line-color: rgba(50, 80, 150, 0.14);
+
+//
+// Shadows
+//
+
+$shadow2:
+  0 1px 1px rgba($baseM, 0.30);
+
+$shadow3:
+  0 6px 8px rgba($baseM, 0.02),
+  0 1px 2px rgba($baseM, 0.20);
+
+$shadow6:
+  0 8px 12px rgba($baseB3, 0.1),
+  0 2px 3px rgba($baseB, 0.18);
+
+/*
+ * Mod scale
+ */
 
 $modularscale: (
   base: 14px, ratio: 1.2,
@@ -28,11 +64,19 @@ $modularscale: (
   1280px: (base: 14px, ratio: 1.2)
 );
 
+/*
+ * Imports
+ */
+
 @import './utils/modularscale';
 @import './utils/font-size';
+@import './utils/heading-style';
 @import './base/base';
+@import './markdown/code';
 @import './markdown/headings';
 @import './markdown/table';
 @import './components/h2-section';
-@import './components/h3-section-list';
 @import './components/h3-section';
+@import './components/h3-section-list';
+@import './components/headline-ad';
+@import './components/main-heading';

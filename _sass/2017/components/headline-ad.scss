@@ -1,0 +1,79 @@
+/*
+ * Carbon ads
+ *
+ *     .headline-ad
+ *       #carbonads
+ *         span
+ *           span.carbon-wrap
+ *             a.carbon-img > img
+ *           a.carbon-text {description}
+ *           a.carbon-poweredby {powered by Carbon}
+ */
+
+.HeadlineAd {
+  @include font-size(-1);
+
+  & {
+    display: inline-block;
+  }
+
+  &,
+  & > div > span {
+    min-width: 130px + 16px + 64px;
+    max-width: 400px;
+    height: 100px;
+  }
+
+  & > div > span {
+    display: inline-block;
+    text-align: right;
+  }
+
+  & > div > span::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  .carbon-img,
+  .carbon-text,
+  .carbon-poweredby {
+    text-decoration: none;
+    display: block;
+  }
+
+  .carbon-img {
+    float: right;
+    margin-left: 16px;
+    width: 130px;
+    height: 100px;
+    box-shadow: $shadow3;
+  }
+
+  .carbon-img > img {
+    border-radius: 3px;
+    background: white;
+  }
+
+  .carbon-img:hover {
+    transform: translate3d(0, -1px, 0);
+    box-shadow: $shadow6;
+  }
+
+  .carbon-text,
+  .carbon-text:visited {
+    color: $gray-text;
+  }
+
+  .carbon-poweredby,
+  .carbon-poweredby:visited {
+    color: lighten($gray-text, 20%);
+  }
+
+  .carbon-text:hover,
+  .carbon-poweredby:hover {
+    color: $baseB3;
+  }
+}
+

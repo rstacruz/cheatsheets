@@ -2,7 +2,14 @@
 type: article
 ---
 {% include 2017/head.html %}
-<h1 class='main-heading'>{{ page.title }}</h1>
+<div class='main-heading {% if page.ads %}-with-ads{% endif %}'>
+  <h1 class='h1'>{{ page.title }} <em>cheatsheet</em></h1>
+  {% if page.ads %}
+    <div class='HeadlineAd ad'>
+      <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
+    </div>
+  {% endif %}
+</div>
 <div class='post-content MarkdownBody' data-js-main-body>
   {{ content }}
 </div>

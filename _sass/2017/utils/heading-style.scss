@@ -1,0 +1,22 @@
+@mixin heading-style {
+  margin: $gutter / 2;
+  padding: 0;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  margin-top: 64px;
+  border-bottom: solid 1px $line-color;
+
+  @media (max-width: 768px) {
+    margin: $gutter / 2;
+    margin-bottom: 8px;
+    margin-top: 32px;
+    padding-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    margin: $gutter / 4;
+    margin-bottom: 8px;
+    margin-top: 32px;
+    padding-bottom: 8px;
+  }
+}

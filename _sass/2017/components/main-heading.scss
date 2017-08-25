@@ -11,7 +11,6 @@
     font-weight: 300;
     font-family: $body-font;
     margin: 0;
-    padding: 16px 0;
   }
 
   & > h1 > em {
@@ -42,7 +41,6 @@
     // Advertisement
     & > .ad {
       flex: 0 1 auto;
-      margin-bottom: 16px;
     }
   }
 
@@ -64,6 +62,7 @@
     & > .ad {
       order: 1;
       margin-left: auto;
+      margin-bottom: 16px;
     }
   }
 }

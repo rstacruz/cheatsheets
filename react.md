@@ -98,7 +98,7 @@ class Info extends React.Component {
   }
 }
 ```
-{: data-line="6-7"}
+{: data-line="6,7"}
 
 Nest components to separate concerns. See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
 
@@ -208,33 +208,126 @@ class MyComponent extends React.Component {
       <input ref={el => this.input = el} />
     </div>
   }
+
+  componentDidMount () {
+    this.input.focus()
+  }
 }
 ```
-{: data-line="4"}
-
-```jsx
-this.input.focus()
-this.input.value()
-```
+{: data-line="4,9"}
 
 Allows access to DOM nodes. See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
 
 ### DOM Events
 
+```jsx
+class MyComponent extends React.Component {
+  render () {
+    <input type="text"
+        value={this.state.value}
+        onChange={event => this.onChange(event)} />
+  }
+
+  onChange (event) {
+    this.setState({ value: event.target.vlaue })
+  }
+}
+```
+{: data-line="5,9"}
+
+Pass functions to attributes like `onChange`. See: [Events](https://facebook.github.io/react/docs/events.html)
+
+## Other features
+
+### Transfering props
+
 ```html
-<input type="text"
-    value={this.state.value}
-    onChange={this.handleChange} />
+<VideoPlayer src="video.mp4" />
+```
+{: .-setup}
+
+```jsx
+class VideoPlayer extends React.Component {
+  render () {
+    return <VideoEmbed {...this.props} />
+  }
+}
 ```
 {: data-line="3"}
 
+Propagates `src="..."` down to the sub-component.
+See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
+
+### Top-level API
+
 ```jsx
-handleChange: function(event) {
-  this.setState({ value: event.target.value });
-}
+React.createClass({ ... })
+React.isValidElement(c)
 ```
 
-Add attributes like `onChange`. See: [Events](https://facebook.github.io/react/docs/events.html)
+```jsx
+ReactDOM.render(<Component />, domnode, [callback])
+ReactDOM.unmountComponentAtNode(domnode)
+```
+
+```jsx
+ReactDOMServer.renderToString(<Component />)
+ReactDOMServer.renderToStaticMarkup(<Component />)
+```
+
+JSX patterns
+------------
+{: .-two-column}
+
+### Style shorthand
+
+```jsx
+var style = { height: 10 }
+return <div style={style}></div>
+```
+
+```jsx
+return <div style={{ margin: 0, padding: 0 }}></div>
+```
+
+See: [Inline styles](https://facebook.github.io/react/tips/inline-styles.html)
+
+### Inner HTML
+
+```jsx
+function markdownify() { return "<p>...</p>"; }
+<div dangerouslySetInnerHTML={{__html: markdownify()}} />
+```
+
+See: [Dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html)
+
+### Lists
+
+```jsx
+class TodoList extends React.Component {
+  render () {
+    const { items } = this.props
+
+    return <ul>
+      {items.map(item =>
+        <TodoItem item={item} key={item.key} />)}
+    </ul>
+  }
+}
+```
+{: data-line="6,7"}
+
+Always supply a `key` property.
+
+### Conditionals
+
+```jsx
+<div>
+  {showPopup
+    ? <Popup />
+    : null}
+</div>
+```
 
 Property validation
 -------------------
@@ -351,100 +444,8 @@ MyCo.propTypes = {
 }
 ```
 
-## Other features
-
-### Transfering props
-
-```html
-<VideoPlayer src="video.mp4" />
-```
-{: .-setup}
-
-```jsx
-class VideoPlayer extends React.Component {
-  render () {
-    return <VideoEmbed {...this.props} />
-  }
-}
-```
-{: data-line="3"}
-
-Propagates `src="..."` down to the sub-component.
-See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
-
-### Top-level API
-
-```jsx
-React.createClass({ ... })
-React.isValidElement(c)
-```
-
-```jsx
-ReactDOM.render(<Component />, domnode, [callback])
-ReactDOM.unmountComponentAtNode(domnode)
-```
-
-```jsx
-ReactDOMServer.renderToString(<Component />)
-ReactDOMServer.renderToStaticMarkup(<Component />)
-```
-
-JSX patterns
-------------
-{: .-two-column}
-
-### Style shorthand
-
-```jsx
-var style = { height: 10 }
-return <div style={style}></div>
-```
-
-```jsx
-return <div style={{ margin: 0, padding: 0 }}></div>
-```
-
-See: [Inline styles](https://facebook.github.io/react/tips/inline-styles.html)
-
-### Inner HTML
-
-```jsx
-function markdownify() { return "<p>...</p>"; }
-<div dangerouslySetInnerHTML={{__html: markdownify()}} />
-```
-
-See: [Dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html)
-
-### Lists
-
-```jsx
-class TodoList extends React.Component {
-  render () {
-    const { items } = this.props
-
-    return <ul>
-      {items.map(item =>
-        <TodoItem item={item} key={item.key} />)}
-    </ul>
-  }
-}
-```
-{: data-line="6-7"}
-
-Always supply a `key` property.
-
-### Conditionals
-
-```jsx
-<div>
-  {showPopup
-    ? <Popup />
-    : null}
-</div>
-```
-
 Examples
--------
+--------
 {: .-left-reference}
 
 ### Basic example

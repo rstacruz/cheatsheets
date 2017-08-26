@@ -88,13 +88,13 @@
     /* Links */
     & a,
     & a:visited {
-      color: $text-color;
+      color: $base-text;
       text-decoration: none;
       border-bottom: solid 1px $line-color;
     }
 
     & a:hover {
-      color: $baseB;
+      color: $base-b;
     }
   }
 
@@ -112,5 +112,40 @@
   @media (min-width: 481px) {
     border-radius: 2px;
     box-shadow: $shadow6;
+  }
+}
+
+ul.-also-see.-also-see.-also-see {
+  display: flex;
+  flex-wrap: wrap;
+  background: $gray-bg;
+
+  & > li {
+    flex: 1 0 20%;
+    padding: 24px;
+    border-top: solid 1px $dark-line-color;
+
+    & + li {
+      border-left: solid 1px $dark-line-color;
+    }
+  }
+
+  &,
+  & > li {
+    list-style-type: none;
+  }
+
+  & > li::before {
+    display: none;
+  }
+
+  & > li > a {
+    @include font-size(1);
+    display: block;
+  }
+
+  & > li > em {
+    @include font-size(-1);
+    display: block;
   }
 }

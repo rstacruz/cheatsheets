@@ -3,11 +3,11 @@
  */
 
 html, body {
-  background: $body-bg;
+  background: $base-body;
   font-family: $body-font;
   font-size: 14px;
   line-height: 1.6;
-  color: $text-color;
+  color: $base-text;
 }
 
 body {
@@ -43,13 +43,13 @@ pre {
  */
 
 a {
-  color: $baseB;
+  color: $base-b;
 }
 
 a:visited {
-  color: $baseB7;
+  color: $base-b7;
 }
 
 a:hover {
-  color: $baseB3;
+  color: $base-b3;
 }

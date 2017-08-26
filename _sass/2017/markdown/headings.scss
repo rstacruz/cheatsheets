@@ -18,13 +18,13 @@
   font-family: $heading-font;
   @include font-size(2);
   font-weight: 300;
-  color: $baseA;
+  color: $base-a;
 }
 
 .MarkdownBody {
   a,
   a:visited {
-    color: $baseB;
+    color: $base-b;
     text-decoration: none;
   }
 

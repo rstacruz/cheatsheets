@@ -19,40 +19,44 @@ $monospace-font: 'Fira Mono', Consolas, menlo, 'Andale Mono', 'Ubuntu Mono', mon
  * Base colors
  */
 
-$baseA: #8370bd; // indigo
-$baseB: #2b72a2; // blue
-$baseC: #17c694; // teal
-$baseM: #667788; // gray
+$base-body: #f1f3f5;
+$base-panel: white;
+$base-head: #111;
+$base-text: #345;
+$base-mute: #667788; // gray
 
-$baseB3: adjust-color($baseB, $lightness: 20%, $hue: -20deg);
-$baseB7: adjust-color($baseB, $lightness: -20%, $hue: 20deg);
-$baseM3: adjust-color($baseM, $lightness: -20%);
-$baseM4: adjust-color($baseM, $lightness: -10%);
-$baseM6: adjust-color($baseM, $lightness: 10%);
-$baseM7: adjust-color($baseM, $lightness: 20%);
+$base-a: #8370bd; // indigo
+$base-b: #2b72a2; // blue
+$base-c: #17c694; // teal
 
-$body-bg: #f1f3f5;
-$gray-bg: #fcfcfc;
-$gray-text: $baseM;
-$text-color: #345;
+$base-b3: adjust-color($base-b, $lightness: 16%, $hue: -20deg);
+$base-b7: adjust-color($base-b, $lightness: -16%, $hue: 20deg);
+$base-mute3: adjust-color($base-mute, $lightness: -16%);
+$base-mute4: adjust-color($base-mute, $lightness: -8%);
+$base-mute6: adjust-color($base-mute, $lightness: 8%);
+$base-mute7: adjust-color($base-mute, $lightness: 16%);
 
-$line-color: rgba(50, 80, 150, 0.05);
-$dark-line-color: rgba(50, 80, 150, 0.14);
+$body-bg: $base-body;
+$gray-bg: mix($base-body, $base-panel, 50%);
+$gray-text: $base-mute;
+
+$line-color: rgba($base-mute, 0.05);
+$dark-line-color: rgba($base-mute, 0.14);
 
 //
 // Shadows
 //
 
 $shadow2:
-  0 1px 1px rgba($baseM, 0.30);
+  0 1px 1px rgba($base-mute, 0.30);
 
 $shadow3:
-  0 6px 8px rgba($baseM, 0.02),
-  0 1px 2px rgba($baseM, 0.20);
+  0 6px 8px rgba($base-mute, 0.02),
+  0 1px 2px rgba($base-mute, 0.20);
 
 $shadow6:
-  0 8px 12px rgba($baseB3, 0.1),
-  0 2px 3px rgba($baseB, 0.18);
+  0 8px 12px rgba($base-b3, 0.1),
+  0 2px 3px rgba($base-b, 0.18);
 
 /*
  * Mod scale

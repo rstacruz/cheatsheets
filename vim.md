@@ -256,10 +256,13 @@ Also see
 --------
 {: .-one-column}
 
- * [Digraphs](vim-digraphs.html)
- * [Help text](vim-help.html)
- * [Vimscript](vimscript.html)
- * [Vim-unite](vim-unite.html)
- * [Vim-easyalign](vim-easyalign.html)
- * [Vim-rails](vim-rails.html)
+* [Digraphs](vim-digraphs.html)
+* [Help text](vim-help.html)
+* [Vimscript](vimscript.html)
+* [Vim-unite](vim-unite.html)
+* [Vim-easyalign](vim-easyalign.html)
+* [Vim-rails](vim-rails.html)
+{: .-also-see}
+
+This reference was made for Vim 8.0.
 

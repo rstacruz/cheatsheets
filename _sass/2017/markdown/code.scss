@@ -22,7 +22,7 @@
   }
 
   pre > code {
-    color: $text-color;
+    color: $base-text;
     max-height: auto;
     padding: 0;
     background: transparent;
@@ -34,8 +34,8 @@
   .line-highlight {
     background: linear-gradient(
       to right,
-      rgba($baseB, 0.05) 75%,
-      rgba($baseB, 0));
+      rgba($base-b, 0.05) 75%,
+      rgba($base-b, 0));
   }
 
   // Line highlight ranges
@@ -58,11 +58,11 @@
  */
 
 .token {
-  $cA: $baseB;
+  $cA: $base-b;
   $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
   $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
 
-  $cB: $baseC;
+  $cB: $base-c;
   $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
 
   $cM: #aaa; // Mute

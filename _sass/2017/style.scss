@@ -1,8 +1,11 @@
+@import url('https://unpkg.com/hint.css@2.5.0/hint.min.css');
 @import './variables';
-@import '../vendor/modularscale';
+@import '../vendor/modularscale/modularscale';
+@import '../vendor/iconfonts/ionicons@3';
 @import './utils/font-size';
 @import './utils/gutter';
 @import './utils/heading-style';
+@include ion-font;
 @import './base/base';
 @import './markdown/code';
 @import './markdown/headings';

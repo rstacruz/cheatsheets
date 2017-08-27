@@ -1,9 +1,18 @@
 <div class='top-nav'>
-  <a class='brand' href='{{base}}'>
-    Rico's cheatsheets
-  </a>
+  <div class='container'>
+    <a class='brand' href='{{base}}'>
+      Rico's cheatsheets
+    </a>
 
-  <div class='actions'>
-    {% include social-list.html class="social" page=include.page %}
+    <div class='actions'>
+      {% include social-list.html class="social page-actions" page=include.page %}
+      <ul class='page-actions'>
+        <li class='github'>
+          <a href='https://github.com/rstacruz/cheatsheets/blob/gh-pages/{{ page.path }}.md'>
+            <span class='text -visible'>Edit</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

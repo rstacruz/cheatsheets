@@ -6,9 +6,32 @@
     text-align: center;
   }
 
+  >.container {
+    @include gutter(padding-left);
+    @include gutter(padding-right);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.top-nav > .container {
+  & {
+    display: flex;
+    align-items: center;
+  }
+
+  & > .brand {
+    flex: 1 1 auto;
+  }
+
+  & > .actions {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
   & > .brand {
     @include font-size(-1);
-    display: block;
+    display: inline-block;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -25,7 +48,59 @@
   }
 
   & > .actions > .social {
-    // TODO
+  }
+}
+
+@mixin action-bar {
+  & {
+    height: 32px;
+  }
+
+  &,
+  & > li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  & > li > a,
+  & > li > a:visited {
+    color: $base-mute;
+    text-decoration: none;
+  }
+
+  & > li > a::before {
+    font-size: 16px;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  & > li > a > .text {
     display: none;
+  }
+
+  & > li > a > .text.-visible {
+    display: inline-block;
+    padding-left: 8px;
+  }
+}
+
+.page-actions {
+  & {
+    @include action-bar;
+  }
+
+  & > .facebook > a::before {
+    @include ion-icon('logo-facebook');
+  }
+
+  & > .twitter > a::before {
+    @include ion-icon('logo-twitter');
+  }
+
+  & > .github > a::before {
+    @include ion-icon('logo-github');
   }
 }

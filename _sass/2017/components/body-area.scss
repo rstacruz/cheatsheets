@@ -1,9 +1,5 @@
 .body-area {
-  max-width: $column * 3 + 32px;
+  max-width: $area-width;
   margin: 0 auto;
-  padding: 8px;
-
-  @media (min-width: 481px) {
-    padding: 16px;
-  }
+  @include gutter(padding);
 }

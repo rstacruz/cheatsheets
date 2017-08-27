@@ -266,30 +266,57 @@ See: [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resource
     vi _drafts/a-draft-post.md
     jekyll build --drafts
 
+Posts in `_drafts` only show up in development, but not production.
 See: [Drafts](http://jekyllrb.com/docs/drafts/)
 
-### [Excerpts](http://jekyllrb.com/docs/posts/#post-excerpts)
+### Defining excerpts
 
-    {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-    {{ post.excerpt | strip_html }}
+```
+---
+title: My blog post
+excerpt: This post is about cats
+---
+
+Hello, let's talk about cats. (···)
+```
+
+Put a key `excerpt` in the frontmatter.
+See: [Excerpts](http://jekyllrb.com/docs/posts/#post-excerpts)
+
+### Displaying excerpts
+
+```html
+{{ post.excerpt }}
+```
+
+```html
+{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+{{ post.excerpt | strip_html }}
+```
 
 ### Excerpt separator
 
-    ---
-    excerpt_separator: <!--more-->
-    ---
+```html
+---
+excerpt_separator: <!--more-->
+---
 
-    Excerpt
-    <!--more-->
-    Out-of-excerpt
+Excerpt here
+<!--more-->
+More post body here
+```
 
-### [Permalinks](http://jekyllrb.com/docs/permalinks/)
+Alternatively, you can put excerpts inline in your post by defining `excerpt_separator`.
+
+### Permalinks
 
     # _config.yml
     permalink: date   # /:categories/:year/:month/:day/:title.html
     permalink: pretty # /:categories/:year/:month/:day/:title/
     permalink: none   # /:categories/:title.html
     permalink: "/:title"
+
+See: [Permalinks](http://jekyllrb.com/docs/permalinks/)
 
 ## More features
 

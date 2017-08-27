@@ -131,7 +131,7 @@ function greet({ name, greeting }) {
   // ...
 }
 
-greet({ name: "Larry", greeting: "Ahoy" })
+greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
 Supports for matching arrays and objects.
@@ -159,7 +159,7 @@ function fn(x, ...y) {
 
 ```js
 // Spread
-fn(...[1,2,3]) // same as fn(1,2,3)
+fn(...[1, 2, 3]) // same as fn(1, 2, 3)
 ```
 
 Default, rest, spread.
@@ -197,7 +197,7 @@ Objects
 
 ```js
 module.exports = { hello, bye }
-// Same as `module.exports = { hello: hello, bye: bye }`
+// Same as: module.exports = { hello: hello, bye: bye }
 ```
 
 See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
@@ -210,7 +210,7 @@ const App = {
     console.log('running')
   }
 }
-// Same as `App = { start: function () {···} }`
+// Same as: App = { start: function () {···} }
 ```
 {: data-line="2"}
 
@@ -239,7 +239,7 @@ let event = 'click'
 let handlers = {
   ['on' + event]: true
 }
-// Same as `handlers = { 'onclick': true }`
+// Same as: handlers = { 'onclick': true }
 ```
 {: data-line="3"}
 
@@ -251,23 +251,28 @@ Modules
 ### Imports
 
 ```js
-// aka: require('···')
 import 'helpers'
+// aka: require('···')
 ```
 
 ```js
-// aka: Express = require('···').default || require('···')
 import Express from 'express'
+// aka: Express = require('···').default || require('···')
 ```
 
 ```js
-// aka: indent = require('···').indent
 import { indent } from 'helpers'
+// aka: indent = require('···').indent
 ```
 
 ```js
-// aka: indent = require('···').indentSpaces
+import * as Helpers from 'helpers'
+// aka: Helpers = require('···')
+```
+
+```js
 import { indentSpaces as indent } from 'helpers'
+// aka: indent = require('···').indentSpaces
 ```
 
 `import` is the new `require()`.
@@ -276,22 +281,21 @@ See: [Module imports](http://babeljs.io/docs/learn-es2015/#modules)
 ### Exports
 
 ```js
+export default function () { ··· }
 // aka: module.exports.default = ···
-export default function () {
-  // ···
-}
 ```
 
 ```js
+export function mymethod () { ··· }
 // aka: module.exports.mymethod = ···
-export function mymethod () {
-}
-
-// aka: module.exports.pi = ···
-export var pi = 3.14159
 ```
 
-`export` is the new `module.exports`.  
+```js
+export const pi = 3.14159
+// aka: module.exports.pi = ···
+```
+
+`export` is the new `module.exports`.
 See: [Module exports](http://babeljs.io/docs/learn-es2015/#modules)
 
 Generators
@@ -300,7 +304,7 @@ Generators
 ### Generators
 
 ```js
-function* idMaker() {
+function* idMaker () {
   var id = 0
   while (true) { yield id++ }
 }

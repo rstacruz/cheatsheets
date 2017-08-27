@@ -4,27 +4,32 @@
 
 ## Notes
 
-H2's support these:
+`h2` supports these:
 
     {: .-two-column}
     {: .-three-column}
     {: .-left-reference}
 
-H3's support these:
+`h3` supports these:
 
     {: .-prime}
 
-Tables support these:
+`table` supports these:
 
     {: .-shortcuts}
 
-Pre's support these:
+`pre` supports these:
 
     {: .-setup}
+
+`ul` supports these:
+
+    {: .-also-see}
 
 Each sheet supports these metadata:
 
 ```yml
+---
 title: React.js
 category: React
 layout: 2017/sheet   # 'default' | '2017/sheet'

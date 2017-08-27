@@ -1,6 +1,7 @@
 ---
 title: Rdoc
 category: Markup
+layout: 2017/sheet
 ---
 
 ### Basic RDoc format
@@ -17,31 +18,45 @@ category: Markup
     # @see http://url.com
     #
     # @return [true] if so
-    #
-    # == Definition lists
-    #
-    # list::  hi.
-    # +foo+:: parameterized
-    #
-    # == Definition lists
-    # [foo]   also
-    # [bar]   like this
 
 ### Inline
 
-    *bold*
-    _emphasized_
-    +code+
+```
+*bold*
+_emphasized_
++code+
+```
 
-    http://www.link.com
-    See Models::User@Examples
-    {Google}[http://google.com]
+```
+http://www.link.com
+See Models::User@Examples
+{Google}[http://google.com]
+```
 
 ### Skip
 
-    def input # :nodoc:
+```rb
+def input # :nodoc:
+```
 
-    module MyModule # :nodoc: all
+```rb
+module MyModule # :nodoc: all
+```
+
+### Definition lists
+
+```
+# == Definition lists
+#
+# list::  hi.
+# +foo+:: parameterized
+```
+
+```
+# == Definition lists
+# [foo]   also
+# [bar]   like this
+```
 
 ### Return types
 
@@ -65,17 +80,26 @@ category: Markup
 
 ### Sections
 
-    # :section: Expiry methods
-    # methods relating to expiring
+```rb
+# :section: Expiry methods
+# methods relating to expiring
 
-    def expire!
-    def expired?
-    ...
+def expire!
+def expired?
+...
+```
 
 ### Using tomdoc
 
-    # :markup: TomDoc
-    # at the beginning ofthe file
+```
+# :markup: TomDoc
+```
 
-http://rdoc.rubyforge.org/RDoc/Markup.html
-http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md
+Plase this at the beginning of the file.
+
+## Also see
+{: .-one-column}
+
+* <http://rdoc.rubyforge.org/RDoc/Markup.html>
+* <http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
+{: .-also-see}

@@ -1,0 +1,68 @@
+/*
+ * The top-level heading
+ */
+
+.main-heading {
+  @include heading-style;
+
+  & > h1 {
+    @include font-size(6);
+    line-height: 1.2;
+    font-weight: 300;
+    font-family: $body-font;
+    margin: 0;
+  }
+
+  & > h1 > em {
+    font-style: normal;
+    color: lighten($gray-text, 20%);
+  }
+}
+
+/*
+ * With ads
+ */
+
+.main-heading.-with-ads {
+  & {
+    display: flex;
+  }
+
+  // Desktop
+  @media (min-width: 541px) {
+    & {
+      align-items: flex-end; // bottom alighn
+    }
+
+    & > h1 {
+      flex: 1 0 auto;
+    }
+
+    // Advertisement
+    & > .ad {
+      flex: 0 1 auto;
+    }
+  }
+
+  @media (max-width: 540px) {
+    & {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    & > h1,
+    & > .ad {
+      flex: 1 0 100%;
+    }
+
+    & > h1 {
+      order: 2;
+    }
+
+    & > .ad {
+      order: 1;
+      margin-left: auto;
+      margin-bottom: 16px;
+    }
+  }
+}

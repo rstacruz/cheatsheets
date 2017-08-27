@@ -9,7 +9,7 @@ exclude:
   - _deprecated
 
 # Markdown
-highlighter: rouge
+highlighter: false
 markdown: kramdown
 kramdown:
   input: GFM

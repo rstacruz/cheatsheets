@@ -1,416 +1,491 @@
 ---
 title: React.js
 category: React
-layout: default-ad
+layout: 2017/sheet
+ads: true
 ---
 
 {%raw%}
 
-Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
-{:.brief-intro.center}
+Components
+----------
+{: .-three-column}
 
-```js
-var Component = React.createClass({
-  render: function () {
-    return <div>Hello {this.props.name}</div>;
+### Components
+{: .-prime}
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+```
+{: .-setup}
+
+```jsx
+class Hello extends React.Component {
+  render () {
+    return <div className='message-box'>
+      Hello {this.props.name}
+    </div>
   }
-});
-```
-
-```js
-ReactDOM.render(<Component name="John" />, document.body);
-```
-{:.light}
-
-## Nesting
-Nest components to separate concerns. See [multiple components](http://facebook.github.io/react/docs/multiple-components.html).
-{:.center}
-
-```js
-var UserAvatar  = React.createClass({...});
-var UserProfile = React.createClass({...});
-```
-{:.light}
-
-```js
-var Info = React.createClass({
-  render() {
-    return <div>
-      <UserAvatar src={this.props.avatar} />
-      <UserProfile username={this.props.username} />
-    </div>;
-  }
-});
-```
-
-## States & Properties
-Use [props](https://facebook.github.io/react/docs/tutorial.html#using-props) (`this.props`) to access parameters passed from the parent.
-Use [states](https://facebook.github.io/react/docs/tutorial.html#reactive-state) (`this.state`) to manage dynamic data.
-{:.center}
-
-```html
-<MyComponent fullscreen={true} />
-```
-{:.light}
- 
-```js
-// props
-  this.props.fullscreen //=> true
-
-// state
-  this.setState({ username: 'rstacruz' });
-  this.replaceState({ ... });
-  this.state.username //=> 'rstacruz'
-```
-
-```js
-render: function () {
-  return <div className={this.props.fullscreen ? 'full' : ''}>
-    Welcome, {this.state.username}
-  </div>;
 }
 ```
 
-### Setting defaults
-Pre-populates `this.state.comments` and `this.props.name`.
+```jsx
+const el = document.body
+ReactDOM.render(<Hello name='John' />, el)
+```
 
-```js
-React.createClass({
-  getInitialState: function () {
-    return { comments: [] };
-  },
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
 
-  getDefaultProps: function () {
-    return { name: "Hello" };
+### Properties
+
+```html
+<Video fullscreen={true} />
+```
+{: .-setup}
+
+```jsx
+render () {
+  this.props.fullscreen
+  ···
+}
+```
+{: data-line="2"}
+
+Use `this.props` to access properties passed to the component.
+See: [Properties](https://facebook.github.io/react/docs/tutorial.html#using-props)
+
+### States
+
+```jsx
+this.setState({ username: 'rstacruz' })
+```
+
+```jsx
+render () {
+  this.state.username
+  ···
+}
+```
+
+Use states (`this.state`) to manage dynamic data.
+See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
+
+### Function components
+
+```jsx
+function MyComponent ({ name }) {
+  return <div className='message-box'>
+    Hello {name}
+  </div>
+}
+```
+
+Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
+
+### Nesting
+
+```jsx
+class Info extends React.Component {
+  render () {
+    const { avatar, username } = this.props
+
+    return <div>
+      <UserAvatar src={avatar} />
+      <UserProfile username={username} />
+    </div>
   }
-);
+}
+```
+{: data-line="6,7"}
+
+Nest components to separate concerns. See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
+
+
+### Setting default props
+
+```jsx
+Hello.defaultProps = {
+  color: 'blue'
+}
 ```
 
-## Component API
+See: [defaultProps](https://facebook.github.io/react/docs/react-component.html#defaultprops)
 
-These are methods available for `Component` instances. See [Component API](http://facebook.github.io/react/docs/component-api.html).
-{:.center}
+### Setting default state
 
-```js
-ReactDOM.findDOMNode(c)  // 0.14+
-React.findDOMNode(c)  // 0.13
-c.getDOMNode()        // 0.12 below
+```jsx
+class Hello extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { visible: true }
+  }
+}
 ```
-{:.light}
+{: data-line="4"}
 
-```js
-c.forceUpdate()
-c.isMounted()
+Set the default state in the `constructor()`.
 
-c.state
-c.props
+### Children
 
-c.setState({ ... })
-c.replaceState({ ... })
+```jsx
+class AlertBox extends React.Component {
+  render () {
+    return <div className='alert-box'>
+      {this.props.children}
+    </div>
+  }
+}
+```
+{: data-line="4"}
 
-c.setProps({ ... })       // for deprecation
-c.replaceProps({ ... })   // for deprecation
-
-c.refs
+```jsx
+<AlertBox>
+  <h1>You have pending notifications</h1>
+</AlertBox>
 ```
 
-### Component specs
-Methods and properties you can override. See [component specs](http://facebook.github.io/react/docs/component-specs.html).
+Children are passed as the `children` property.
 
-| Method | What |
-| ---- | ---- |
-| [`render()`](http://facebook.github.io/react/docs/component-specs.html#render) | |
-| ---- | ---- |
-| [`getInitialState()`](http://facebook.github.io/react/docs/component-specs.html#getinitialstate) | |
-| [`getDefaultProps()`](http://facebook.github.io/react/docs/component-specs.html#getdefaultprops) |  |
-| ---- | ---- |
-| [`mixins: [ ... ]`](http://facebook.github.io/react/docs/component-specs.html#mixins) | Mixins ... [more](#mixins) |
-| [`propTypes: { ... }`](http://facebook.github.io/react/docs/component-specs.html#proptypes) | Validation ... [more](#property-validation) |
-| [`statics: { ... }`](http://facebook.github.io/react/docs/component-specs.html#statics) | Static methods |
-| [`displayName: "..."`](http://facebook.github.io/react/docs/component-specs.html#displayname) | Automatically filled by JSX |
-{:.greycode.no-head}
+### Component API
 
-## Lifecycle
+```jsx
+this.forceUpdate()
+```
+
+```jsx
+this.setState({ ... })
+```
+
+```jsx
+this.state
+this.props
+```
+
+These methods and properies are available for `Component` instances. See: [Component API](http://facebook.github.io/react/docs/component-api.html)
+
+Lifecycle
+---------
+{: .-two-column}
 
 ### Mounting
-Before initial rendering occurs. Add your DOM stuff on didMount (events, timers, etc). See [reference](http://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount).
 
-| `componentWillMount()` | Before rendering (no DOM yet) |
-| `componentDidMount()` | After rendering |
-{:.greycode.no-head.lc}
+| Method | Description |
+| --- | --- |
+| `constructor` _(props)_ | Before rendering [#](https://facebook.github.io/react/docs/react-component.html#constructor) |
+| `componentWillMount()` | _Don't use this_ [#](https://facebook.github.io/react/docs/react-component.html#componentwillmount) |
+| `render()` | Render  [#](https://facebook.github.io/react/docs/react-component.html#render) |
+| `componentDidMount()` | After rendering (DOM available) [#](https://facebook.github.io/react/docs/react-component.html#componentdidmount) |
+| --- | --- |
+| `componentWillUnmount()` | Before DOM removal [#](https://facebook.github.io/react/docs/react-component.html#componentwillunmount) |
 
-<br>
+Set initial the state on `constructor()`.
+Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
 
 ### Updating
-Called when parents change properties and `.setState()`. These are not called for initial renders. See [reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
-| `componentWillReceiveProps`*(newProps={})* | Use `setState()` here |
-| `shouldComponentUpdate`*(newProps={}, newState={})* | Skips `render()` if returns false |
-| `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
-| `componentDidUpdate`*(prevProps={}, prevState={})* | Operate on the DOM here |
-{:.greycode.no-head.lc}
+| Method | Description |
+| --- | --- |
+| `componentWillReceiveProps` *(newProps)* | Use `setState()` here |
+| `shouldComponentUpdate` *(newProps, newState)* | Skips `render()` if returns false |
+| `componentWillUpdate` *(newProps, newState)* | Can't use `setState()` here |
+| `render()` | Render |
+| `componentDidUpdate` *(prevProps, prevState)* | Operate on the DOM here |
 
-<br>
+Called when parents change properties and `.setState()`. These are not called for initial renders. See: [Reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
-### Unmounting
-Clear your DOM stuff here (probably done on didMount). See [reference](http://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount).
-
-| `componentWillUnmount()` | Invoked before DOM removal |
-{:.greycode.no-head.lc}
-
-<style>
-table.lc { table-layout: fixed; }
-table.lc tr>:nth-child(1) { width: 50%; }
-table.lc tr>:nth-child(2) { text-align: right; }
-</style>
-
-<br>
-
-### Example: loading data
-See [initial AJAX data](http://facebook.github.io/react/tips/initial-ajax.html).
-
-```js
-React.createClass({
-  componentDidMount: function () {
-    $.get(this.props.url, function (data) {
-      this.setState(data);
-    }.bind(this));
-  },
-
-  render: function () {
-    return <CommentList data={this.state.data} />
-  }
-});
-```
-
-## DOM nodes
+DOM nodes
+---------
+{: .-two-column}
 
 ### References
-Allows access to DOM nodes. See [References](http://facebook.github.io/react/docs/more-about-refs.html).
 
-```html
-<input ref="myInput">
-```
-{:.light}
+```jsx
+class MyComponent extends React.Component {
+  render () {
+    return <div>
+      <input ref={el => this.input = el} />
+    </div>
+  }
 
-```js
-this.refs.myInput
-ReactDOM.findDOMNode(this.refs.myInput).focus()
-ReactDOM.findDOMNode(this.refs.myInput).value
-```
-
-### DOM Events
-Add attributes like `onChange`. See [events](https://facebook.github.io/react/docs/events.html).
-
-```html
-<input type="text"
-    value={this.state.value}
-    onChange={this.handleChange} />
-```
-{:.light}
-
-```js
-handleChange: function(event) {
-  this.setState({ value: event.target.value });
+  componentDidMount () {
+    this.input.focus()
+  }
 }
 ```
+{: data-line="4,9"}
 
-### Two-way binding
-Use [LinkedStateMixin](http://facebook.github.io/react/docs/two-way-binding-helpers.html) for easier two-way binding.
+Allows access to DOM nodes. See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
+
+### DOM Events
+
+```jsx
+class MyComponent extends React.Component {
+  render () {
+    <input type="text"
+        value={this.state.value}
+        onChange={event => this.onChange(event)} />
+  }
+
+  onChange (event) {
+    this.setState({ value: event.target.vlaue })
+  }
+}
+```
+{: data-line="5,9"}
+
+Pass functions to attributes like `onChange`. See: [Events](https://facebook.github.io/react/docs/events.html)
+
+## Other features
+
+### Transfering props
 
 ```html
-Email: <input type="text" valueLink={this.linkState('email')} />
+<VideoPlayer src="video.mp4" />
 ```
-{:.light}
+{: .-setup}
+
+```jsx
+class VideoPlayer extends React.Component {
+  render () {
+    return <VideoEmbed {...this.props} />
+  }
+}
+```
+{: data-line="3"}
+
+Propagates `src="..."` down to the sub-component.
+See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
+
+### Top-level API
+
+```jsx
+React.createClass({ ... })
+React.isValidElement(c)
+```
+
+```jsx
+ReactDOM.render(<Component />, domnode, [callback])
+ReactDOM.unmountComponentAtNode(domnode)
+```
+
+```jsx
+ReactDOMServer.renderToString(<Component />)
+ReactDOMServer.renderToStaticMarkup(<Component />)
+```
+
+JSX patterns
+------------
+{: .-two-column}
+
+### Style shorthand
+
+```jsx
+var style = { height: 10 }
+return <div style={style}></div>
+```
+
+```jsx
+return <div style={{ margin: 0, padding: 0 }}></div>
+```
+
+See: [Inline styles](https://facebook.github.io/react/tips/inline-styles.html)
+
+### Inner HTML
+
+```jsx
+function markdownify() { return "<p>...</p>"; }
+<div dangerouslySetInnerHTML={{__html: markdownify()}} />
+```
+
+See: [Dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html)
+
+### Lists
+
+```jsx
+class TodoList extends React.Component {
+  render () {
+    const { items } = this.props
+
+    return <ul>
+      {items.map(item =>
+        <TodoItem item={item} key={item.key} />)}
+    </ul>
+  }
+}
+```
+{: data-line="6,7"}
+
+Always supply a `key` property.
+
+### Conditionals
+
+```jsx
+<div>
+  {showPopup
+    ? <Popup />
+    : null}
+</div>
+```
+
+Property validation
+-------------------
+{: .-three-column}
+
+### PropTypes
 
 ```js
-React.createClass({
-  mixins: [React.addons.LinkedStateMixin]
-});
+import PropTypes from 'prop-types'
 ```
+{: .-setup}
 
-```js
-this.state.email
-```
+See: [Typechecking with PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
-## Property validation
+| PropType                  | Description                          |
+| ---                       | ---                                  |
+| `any`                     | Anything                             |
+| ---                       | ---                                  |
+| `string`                  |                                      |
+| `number`                  |                                      |
+| `func`                    | Function                             |
+| `bool`                    | True or false                        |
+| ---                       | ---                                  |
+| `oneOf`_(any)_            | Enum types                           |
+| `oneOfType`_(type array)_ | Union                                |
+| ---                       | ---                                  |
+| `array`                   |                                      |
+| `arrayOf`_(...)_          |                                      |
+| ---                       | ---                                  |
+| `object`                  |                                      |
+| `objectOf`_(...)_         | Object with values of a certain type |
+| `instanceOf`_(...)_       | Instance of a class                  |
+| `shape`_(...)_            |                                      |
+| ---                       | ---                                  |
+| `element`                 | React element                        |
+| `node`                    | DOM node                             |
+| ---                       | ---                                  |
+| `.isRequired`             | Required                             |
 
 ### Basic types
-Primitive types: `.string`, `.number`, `.func`, and `.bool`. See [propTypes](http://facebook.github.io/react/docs/reusable-components.html#prop-validation).
 
-```js
-React.createClass({
-  propTypes: {
-    email:      React.PropTypes.string,
-    seats:      React.PropTypes.number,
-    settings:   React.PropTypes.object,
-    callback:   React.PropTypes.func,
-    isClosed:   React.PropTypes.bool,
-    any:        React.PropTypes.any,
-  }
-});
+```jsx
+MyComponent.propTypes = {
+  email:      PropTypes.string,
+  seats:      PropTypes.number,
+  callback:   PropTypes.func,
+  isClosed:   PropTypes.bool,
+  any:        PropTypes.any
+}
 ```
 
 ### Required types
-Add `.isRequired`.
 
-```js
-propTypes: {
-  requiredFunc:  React.PropTypes.func.isRequired,
-  requiredAny:   React.PropTypes.any.isRequired,
+```jsx
+MyCo.propTypes = {
+  name:  PropTypes.string.isRequired
+}
 ```
 
-### React elements
-Use `.element`, `.node`.
+### Elements
 
-```js
-propTypes: {
-  element:  React.PropTypes.element,  // react element
-  node:     React.PropTypes.node,     // num, string, element
-                                      // ...or array of those
+```jsx
+MyCo.propTypes = {
+  // React element
+  element: PropTypes.element,
+
+  // num, string, element, or an array of those
+  node: PropTypes.node
+}
 ```
 
-### Enumerables
-Use `.oneOf`, `.oneOfType`.
+### Enumerables (oneOf)
 
-```
-propTypes: {
-  enum:     React.PropTypes.oneOf(['M','F']),  // enum
-  union:    React.PropTypes.oneOfType([        // any
-              React.PropTypes.string,
-              React.PropTypes.number ]),
+```jsx
+MyCo.propTypes = {
+  direction: PropTypes.oneOf([
+    'left', 'right'
+  ])
+}
 ```
 
 ### Arrays and objects
-Use `.array[Of]`, `.object[Of]`, `.instanceOf`, `.shape`.
 
-```js
-propTypes: {
-  array:    React.PropTypes.array,
-  arrayOf:  React.PropTypes.arrayOf(React.PropTypes.number),
-  object:   React.PropTypes.object,
-  objectOf: React.PropTypes.objectOf(React.PropTypes.number),
-
-  message:  React.PropTypes.instanceOf(Message),
-
-  object2:  React.PropTypes.shape({
-    color:  React.PropTypes.string,
-    size:   React.PropTypes.number
-  }),
+```jsx
+MyCo.propTypes = {
+  list: PropTypes.array,
+  ages: PropTypes.arrayOf(PropTypes.number),
+  user: PropTypes.object,
+  user: PropTypes.objectOf(PropTypes.number),
+  message: PropTypes.instanceOf(Message)
+}
 ```
 
-### Custom validation
-Supply your own function.
+```jsx
+MyCo.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    age:  PropTypes.number
+  })
+}
+```
 
-```js
-propTypes: {
-  customProp: function(props, propName, componentName) {
-    if (!/matchme/.test(props[propName])) {
-      return new Error('Validation failed!');
+Use `.array[Of]`, `.object[Of]`, `.instanceOf`, `.shape`.
+
+### Custom validation
+
+```jsx
+MyCo.propTypes = {
+  customProp: (props, key, componentName) => {
+    if (!/matchme/.test(props[key])) {
+      return new Error('Validation failed!')
     }
   }
 }
 ```
 
-## Other features
+Examples
+--------
+{: .-left-reference}
 
-### Class set
-Manipulate DOM classes with [classnames](https://www.npmjs.org/package/classnames), previously known as `React.addons.classSet`. See [Class set](http://facebook.github.io/react/docs/class-name-manipulation.html).
+### Basic example
 
-```js
-var cx = require('classnames');
-
-render: function() {
-  var classes = cx({
-    'message': true,
-    'message-important': this.props.isImportant,
-    'message-read': this.props.isRead
-  });
-
-  return <div className={classes}>Great Scott!</div>;
-}
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
 ```
 
-### Propagating properties
-See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
-
-```html
-<VideoPlayer src="video.mp4" />
-```
-{:.light}
-
-```js
-var VideoPlayer = React.createClass({
-  render: function() {
-    /* propagates src="..." down to this sub component */
-    return <VideoEmbed {...this.props} controls='false' />;
+```jsx
+class Hello extends React.Component {
+  render () {
+    return <div className='message-box'>
+      Hello {this.props.name}
+    </div>
   }
-});
-```
-
-### Mixins
-See [addons](https://facebook.github.io/react/docs/addons.html) for some built-in mixins.
-
-```js
-var SetIntervalMixin = {
-  componentWillMount: function() { .. }
-}
-```
-{:.light}
-
-```js
-var TickTock = React.createClass({
-  mixins: [SetIntervalMixin]
 }
 ```
 
-## [Top level API](https://facebook.github.io/react/docs/top-level-api.html)
-
-```js
-React.createClass({ ... })
-
-React.isValidElement(c)
-
-ReactDOM.findDOMNode(c) // 0.14+
-ReactDOM.render(<Component />, domnode, [callback]) // 0.14+
-ReactDOM.unmountComponentAtNode(domnode) // 0.14+
-
-ReactDOMServer.renderToString(<Component />) // 0.14+
-ReactDOMServer.renderToStaticMarkup(<Component />) // 0.14+
+```jsx
+const el = document.body
+ReactDOM.render(<Hello name='John' />, el)
 ```
 
-## JSX patterns
+Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output)).
 
-### Style shorthand
-See [inline styles](https://facebook.github.io/react/tips/inline-styles.html).
+### Try it
 
-```js
-var style = { backgroundImage: 'url(x.jpg)', height: 10 };
-return <div style={style}></div>;
-```
+<iframe src="http://jsbin.com/yafixat/edit?js,output" height="400"></iframe>
 
-### InnerHTML
-See [dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).
+[Open in jsbin](http://jsbin.com/yafixat/edit?js,output)
+{: target="_blank"}
 
-```js
-function markdownify() { return "<p>...</p>"; }
-<div dangerouslySetInnerHTML={{__html: markdownify()}} />
-```
+Also see
+--------
+{: .-one-column}
 
-### Lists
+* This reference was made for React v15.
+* [React v0.14 cheatsheet](react@0.14.html) _Legacy version_
+* [React website](http://facebook.github.io/react) _facebook.github.io_
+{:.-also-see}
 
-```js
-var TodoList = React.createClass({
-  render: function() {
-    function item(itemText) {
-      return <li>{itemText}</li>;
-    };
-    return <ul>{this.props.items.map(item)}</ul>;
-  }
-});
-```
-
-## See also
-
-* [Animations](http://facebook.github.io/react/docs/animation.html)
 {%endraw%}

@@ -1,0 +1,54 @@
+.top-nav {
+  & {
+    border-bottom: solid 1px $dark-line-color;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+  }
+
+  >.container {
+    @include gutter(padding-left);
+    @include gutter(padding-right);
+    max-width: $area-width;
+    margin: 0 auto;
+  }
+}
+
+.top-nav > .container {
+  & {
+    display: flex;
+    align-items: center;
+  }
+
+  & > .brand {
+    flex: 1 1 auto;
+  }
+
+  & > .actions {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
+  & > .brand {
+    @include font-size(-1);
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    &,
+    &:visited {
+      color: $base-text;
+    }
+
+    &:hover {
+      color: $base-a;
+    }
+  }
+
+  & > .actions > .social {
+  }
+}
+
+// page-actions.scss

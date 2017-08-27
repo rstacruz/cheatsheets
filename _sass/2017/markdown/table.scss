@@ -1,0 +1,67 @@
+/*
+ * Table
+ */
+
+.MarkdownBody table {
+  & {
+    width: 100%;
+  }
+
+  & tr + tr {
+    border-top: solid 1px $line-color;
+  }
+
+  /* Horizontal lines */
+  & tbody + tbody {
+    border-top: solid 1px $dark-line-color;
+  }
+
+  & td,
+  & th {
+    padding: 8px 16px;
+    vertical-align: top;
+  }
+
+  & tr td:last-child {
+    text-align: right;
+  }
+
+  & td:first-child {
+    white-space: nowrap;
+  }
+
+  & td:first-child > code {
+    font-size: 0.86em;
+    color: #35a;
+  }
+
+  & a,
+  & a:visited {
+    color: #35a;
+    text-decoration: none;
+  }
+
+  & td:first-child > code ~ em {
+    font-style: normal;
+    font-size: 0.86em;
+    color: $gray-text;
+  }
+
+  & thead {
+    display: none;
+  }
+}
+
+.MarkdownBody table.-shortcuts {
+  code {
+    font-size: 1em;
+    padding: 5px 6px;
+    padding-left: 8px; // compensation
+    background: $gray-bg;
+    border-radius: 3px;
+    margin-right: 2px;
+    letter-spacing: 0.2em;
+    font-family: $body-font;
+    color: $base-text;
+  }
+}

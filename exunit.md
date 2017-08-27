@@ -1,7 +1,10 @@
 ---
 title: ExUnit
 category: Elixir
+layout: 2017/sheet
 ---
+
+### Test cases
 
 ```elixir
 defmodule MyTest do
@@ -43,7 +46,7 @@ defmodule AssertionTest do
 end
 ```
 
-### [Assertions](http://devdocs.io/elixir/ex_unit/exunit.assertions)
+### Assertions
 
 ```elixir
 assert x == y
@@ -57,8 +60,11 @@ assert_raise ArithmeticError, "message", fn -> ...
 assert_raise ArithmeticError, ~r/message/, fn -> ...
 
 flunk "This should've been an error"
+```
 
+See: [Assertions](http://devdocs.io/elixir/ex_unit/exunit.assertions)
 
 ## Also see
+{: .-one-column}
 
 - <http://devdocs.io/elixir/ex_unit/exunit#configure/1>

@@ -1,16 +1,11 @@
 ---
 title: ES2015
 category: JavaScript
-layout: default-ad
+layout: 2017/sheet
+ads: true
 ---
 
-## Stable in io.js
-
-New features you can use on [io.js](http://iojs.org/).
-{:.brief-intro.center.top-space-0}
-
-### [Promises](http://babeljs.io/docs/learn-es2015/#promises)
-For asynchronous programming.
+### Promises
 
 ```js
 new Promise(fn)
@@ -25,42 +20,57 @@ Promise.reject(/*...*/)
 Promise.resolve(/*...*/)
 ```
 
-### [Block scoping](http://babeljs.io/docs/learn-es2015/#let-const)
-`let` is the new `var`.
+For asynchronous programming.
+See: [Promises](http://babeljs.io/docs/learn-es2015/#promises)
+
+### Block scoping
  
 ```js
-// Block scoping (let)
 function fn () {
-  let x = 0;
+  let x = 0
   if (true) {
-    let x = 1; // only inside this `if`
+    let x = 1 // only inside this `if`
   }
 }
 ```
+{: data-line="2,4"}
 
 ```js
 // Constants
-const a = 1;
+const a = 1
 ```
 
-### [Backtick strings](http://babeljs.io/docs/learn-es2015/#template-strings)
-Templates and multiline strings.
+`let` is the new `var`.
+See: [Let and const](http://babeljs.io/docs/learn-es2015/#let-const)
+
+### Backtick strings
 
 ```js
 // Interpolation
-var message = `Hello ${name}`;
+var message = `Hello ${name}`
 ```
 
 ```js
-// Multiline
+// Multiline strings
 var str = `
 hello
 world
-`;
+`
 ```
 
-### Other improvements
-New string [methods](http://babeljs.io/docs/learn-es2015/#math-number-string-object-apis), [binary and octal](http://babeljs.io/docs/learn-es2015/#binary-and-octal-literals) numbers.
+Templates and multiline strings.
+See: [Template strings](http://babeljs.io/docs/learn-es2015/#template-strings)
+
+### Binary and octal literals
+
+```js
+let bin = 0b1010010
+let oct = 0755
+```
+
+See: [Binary and octal literals](http://babeljs.io/docs/learn-es2015/#binary-and-octal-literals)
+
+### New methods
 
 ```js
 // New string methods
@@ -69,134 +79,43 @@ New string [methods](http://babeljs.io/docs/learn-es2015/#math-number-string-obj
 "\u1E9B\u0323".normalize("NFC")
 ```
 
-```js
-// Binary/octal literals
-var bin = 0b1010010;
-var oct = 0755;
-```
+See: [New methods](http://babeljs.io/docs/learn-es2015/#math-number-string-object-apis)
 
-### [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
-Adds support for getters, setters, methods, shorthand.
-
-```js
-// Short object syntax
-// aka: `exports = { hello:hello, bye:bye }`
-module.exports = { hello, bye };
-```
-
-```js
-App = {
-  // shorthand for `handler: handler`
-  handler,
-
-  // methods
-  start() {
-    this.go();
-  },
-
-  // getter/setter
-  get closed() {
-    return this.status === 'closed';
-  },
-
-  // custom prototypes
-  __proto__: protoObj,
-
-  // computed property names
-  [ "prop_"+n ]: 42
-};
-```
-
-### [Generators](http://babeljs.io/docs/learn-es2015/#generators)
-It's complicated.
-
-```js
-function* idMaker() {
-  var id = 0;
-  while (true) { yield id++; }
-}
-
-var gen = idMaker();
-gen.next().value  // 0
-gen.next().value  // 1
-gen.next().value  // 2
-```
-
-### [Classes](http://babeljs.io/docs/learn-es2015/#classes)
-Syntactic sugar for prototypes.
+### Classes
 
 ```js
 class Circle extends Shape {
   // ctor
-  constructor(radius) {
-    this.radius = radius;
+  constructor (radius) {
+    this.radius = radius
   }
 
   // methods
-  getArea() {
-    return Math.PI * 2 * this.radius;
+  getArea () {
+    return Math.PI * 2 * this.radius
   }
 
   // calling super methods
-  expand(n) {
-    return super.expand(n) * Math.PI;
+  expand (n) {
+    return super.expand(n) * Math.PI
   }
 
   // static methods
   static createFromDiameter(diameter) {
-    return new Circle(diameter / 2);
+    return new Circle(diameter / 2)
   }
 }
 ```
 
-<br>
+Syntactic sugar for prototypes.
+See: [Classes](http://babeljs.io/docs/learn-es2015/#classes)
 
-## Stable in Babel
-
-Available via the [Babel] transpiler.
-{:.brief-intro.center.top-space-0}
-
-### [Module imports](http://babeljs.io/docs/learn-es2015/#modules)
-`import` is the new `require()`.
-
-```js
-// aka: require('...')
-import 'helpers';
-
-// aka: Express = require('...')
-import Express from 'express';
-
-// aka: indent = require('...').indent
-import { indent } from 'helpers';
-
-// aka: indent = require('...').indentSpaces
-import { indentSpaces as indent } from 'helpers';
-```
-
-### [Module exports](http://babeljs.io/docs/learn-es2015/#modules)
-`export` is the new `module.exports =`.
-
-```js
-// aka: module.exports = ...
-export default function () {
-  // ...
-};
-
-// aka: exports.mymethod = ...
-export function mymethod () {
-};
-
-// aka: exports.pi = ...
-export var pi = 3.14159;
-```
-
-### [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
-Supports for matching arrays and objects.
+### Destructuring
 
 ```js
 // Destructuring assignment
-var [first, last] = ["Nikola", "Tesla"];
-let {title, author} = { title: "The Silkworm", author: "R. Galbraith" };
+var [first, last] = ['Nikola', 'Tesla']
+let {title, author} = { title: 'The Silkworm', author: 'R. Galbraith' }
 ```
 
 ```js
@@ -212,16 +131,21 @@ function greet({ name, greeting }) {
   // ...
 }
 
-greet({ name: "Larry", greeting: "Ahoy" });
+greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
-### [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
-Default, rest, spread. (iojs: `--harmony-rest-parameters`)
+Supports for matching arrays and objects.
+See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
+
+Functions
+---------
+
+### Function arguments
 
 ```js
 // Default arguments
-function greet(name = "Jerry") {
-  return `Hello ${name}`;
+function greet (name = "Jerry") {
+  return `Hello ${name}`
 }
 ```
 
@@ -229,39 +153,174 @@ function greet(name = "Jerry") {
 // Rest arguments
 function fn(x, ...y) {
   // y is an Array
-  return x * y.length;
+  return x * y.length
 }
 ```
 
 ```js
 // Spread
-fn(...[1,2,3]) // same as fn(1,2,3)
+fn(...[1, 2, 3]) // same as fn(1, 2, 3)
 ```
 
-### [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)
-Like functions but with `this` preserved.
+Default, rest, spread.
+See: [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
+
+### Fat arrows
 
 ```js
 // Fat arrows
 setTimeout(() => {
   ...
-});
+})
 ```
 
 ```js
 // With arguments
 readFile('text.txt', (err, data) => {
   ...
-});
+})
 ```
 
 ```js
 // Short syntax (no `return` without `{}`)
 numbers.map(n => n * 2)
+// Same as: numbers.map(function (n) { return n * 2 })
 ```
 
-### [For..of iteration](http://babeljs.io/docs/learn-es2015/#iterators-for-of)
-For iterating through generators and arrays.
+Like functions but with `this` preserved.
+See: [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)
+
+Objects
+-------
+
+### Shorthand syntax
+
+```js
+module.exports = { hello, bye }
+// Same as: module.exports = { hello: hello, bye: bye }
+```
+
+See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+
+### Methods
+
+```js
+const App = {
+  start () {
+    console.log('running')
+  }
+}
+// Same as: App = { start: function () {···} }
+```
+{: data-line="2"}
+
+See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+
+### Getters and setters
+
+```js
+const App = {
+  get closed () {
+    return this.status === 'closed'
+  },
+  set closed (value) {
+    this.status === value ? 'closed' : 'open'
+  }
+}
+```
+{: data-line="2,5"}
+
+See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+
+### Computed property names
+
+```js
+let event = 'click'
+let handlers = {
+  ['on' + event]: true
+}
+// Same as: handlers = { 'onclick': true }
+```
+{: data-line="3"}
+
+See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+
+Modules
+-------
+
+### Imports
+
+```js
+import 'helpers'
+// aka: require('···')
+```
+
+```js
+import Express from 'express'
+// aka: Express = require('···').default || require('···')
+```
+
+```js
+import { indent } from 'helpers'
+// aka: indent = require('···').indent
+```
+
+```js
+import * as Helpers from 'helpers'
+// aka: Helpers = require('···')
+```
+
+```js
+import { indentSpaces as indent } from 'helpers'
+// aka: indent = require('···').indentSpaces
+```
+
+`import` is the new `require()`.
+See: [Module imports](http://babeljs.io/docs/learn-es2015/#modules)
+
+### Exports
+
+```js
+export default function () { ··· }
+// aka: module.exports.default = ···
+```
+
+```js
+export function mymethod () { ··· }
+// aka: module.exports.mymethod = ···
+```
+
+```js
+export const pi = 3.14159
+// aka: module.exports.pi = ···
+```
+
+`export` is the new `module.exports`.
+See: [Module exports](http://babeljs.io/docs/learn-es2015/#modules)
+
+Generators
+----------
+
+### Generators
+
+```js
+function* idMaker () {
+  var id = 0
+  while (true) { yield id++ }
+}
+```
+
+```js
+var gen = idMaker()
+gen.next().value  // 0
+gen.next().value  // 1
+gen.next().value  // 2
+```
+
+It's complicated.
+See: [Generators](http://babeljs.io/docs/learn-es2015/#generators)
+
+### For..of iteration
 
 ```js
 for (let i of iterable) {
@@ -269,4 +328,5 @@ for (let i of iterable) {
 }
 ```
 
-[Babel]: http://babeljs.io
+For iterating through generators and arrays.
+See: [For..of iteration](http://babeljs.io/docs/learn-es2015/#iterators-for-of)

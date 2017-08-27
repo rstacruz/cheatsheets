@@ -1,12 +1,55 @@
 ---
 title: Jekyll
 jekyll_escape: true
+layout: 2017/sheet
 ---
 
 {% raw %}
+
 ### Installation
 
-    $ gem install jekyll
+```bash
+# Install the gems
+gem install jekyll bundler
+```
+
+```bash
+# Create a new site at `./myblog`
+jekyll new myblog
+```
+
+```bash
+cd myblog
+bundle exec jekyll serve
+```
+
+See: [Jekyll quickstart](http://jekyllrb.com/docs/quickstart/)
+
+### Installation (GitHub pages version)
+
+```bash
+# Requires bundler
+gem install bundler
+```
+
+```bash
+# Build the Gemfile
+echo "source 'https://rubygems.org'" > Gemfile
+echo "gem 'github-pages', group: :jekyll_plugins" >> Gemfile
+```
+
+```bash
+# Install gems
+bundle
+```
+
+```bash
+# Start server
+bundle exec jekyll serve
+```
+
+This is the recommended setup, especially if you're using GitHub pages.
+See: [github/pages-gem](https://github.com/github/pages-gem)
 
 ### Directories
 
@@ -33,12 +76,17 @@ jekyll_escape: true
     └── _site/
         └── ...
 
-## [Front-matter](http://jekyllrb.com/docs/frontmatter/)
+## Front-matter
+{: .-three-column}
+
+### Basic frontmatter
 
     ---
     layout: post
     title: Hello
     ---
+
+See: [Front-matter](http://jekyllrb.com/docs/frontmatter/)
 
 ### Other frontmatter stuff
 
@@ -48,85 +96,28 @@ jekyll_escape: true
     categories: ['html', 'css']
     tags: ['html', 'css']
 
-## [Configuration](http://jekyllrb.com/docs/configuration/)
+### Configuration
 
     source: .
     destination: _site
     exclude: [dir, file, ...]
     include: ['.htaccess']
 
-## [Variables](http://jekyllrb.com/docs/variables/)
-
-    {{ site }}       - from config.yml
-    {{ page }}       - from frontmatter, and page-specific info
-    {{ content }}    - html content (use in layouts)
-    {{ paginator }}  - ...
-
-### Site
-
-    {{ site.time }}                 - current time
-    {{ site.pages }}                - list of pages
-    {{ site.posts }}                - list of posts
-    {{ site.related_posts }}        - list
-    {{ site.categories.CATEGORY }}  - list
-    {{ site.tags.TAG }}             - list
-
-    {{ site.static_files }}
-
-### Page
-
-    {{ page.content }}  - un-rendered content
-    {{ page.title }}
-    {{ page.excerpt }}  - un-rendered excerpt
-    {{ page.url }}
-    {{ page.date }}
-    {{ page.id }}       - unique id for RSS feeds
-    {{ page.categories }}
-    {{ page.tags }}
-    {{ page.path }}
-    {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-    {{ post.excerpt | strip_html }}
-
-    <!-- blog pagination: -->
-    {{ page.next }}
-    {{ page.previous }}
-
-### [Paginator](http://jekyllrb.com/docs/pagination/)
-
-    {{ paginator.page }}         - page number
-    {{ paginator.total_posts }}
-    {{ paginator.total_pages }}
-    {{ paginator.per_page }}
-
-    {% for post in paginator.posts %} ... {% endfor %}
-
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}">Previous</a>
-    {% else %}
-    {% endif %}
-
-    {{ paginator.next_page }}     - page number
-    {{ paginator.next_page_path }}
-    ...
-
-    {% if paginator.total_pages > 1 %}
-    {% endif %}
-
-Add this to `_config.yml`:
-
-    paginate: 5
-    paginate_path: "blog/:num"
-
-### Code
-
-    {% highlight ruby linenos %}
-    def show
-      ...
-    end
-    {% endhighlight %}
+See: [Configuration](http://jekyllrb.com/docs/configuration/)
 
 Markup
 ------
+
+### Page variables
+
+```html
+<title>{{ page.title }}</title>
+```
+
+```html
+<!-- Filters -->
+<p>{{ page.description | truncate_words: 20 }}
+```
 
 ### Loops
 
@@ -150,20 +141,132 @@ Markup
 
 ### Includes (partials)
 
-    {% include header.html %}
+```
+{% include header.html %}
+```
 
-## [Blogging](http://jekyllrb.com/docs/posts/)
+```html
+<!-- Including local vars -->
+{% include header.html page=page %}
+```
+
+### Comments
+
+```html
+{% comment %}
+{% endcomment %}
+```
+
+## Expression
+
+### Top-level variables
+
+    {{ site }}       - from config.yml
+    {{ page }}       - from frontmatter, and page-specific info
+    {{ content }}    - html content (use in layouts)
+    {{ paginator }}  - ...
+
+See: [Variables](http://jekyllrb.com/docs/variables/)
+
+### Site
+
+    {{ site.time }}                 - current time
+    {{ site.pages }}                - list of pages
+    {{ site.posts }}                - list of posts
+    {{ site.related_posts }}        - list
+    {{ site.categories.CATEGORY }}  - list
+    {{ site.tags.TAG }}             - list
+
+    {{ site.static_files }}
+
+### Page
+
+```html
+{{ page.content }}  - un-rendered content
+{{ page.title }}
+{{ page.excerpt }}  - un-rendered excerpt
+{{ page.url }}
+{{ page.date }}
+{{ page.id }}       - unique id for RSS feeds
+{{ page.categories }}
+{{ page.tags }}
+{{ page.path }}
+{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+{{ post.excerpt | strip_html }}
+```
+
+```html
+<!-- blog pagination: -->
+{{ page.next }}
+{{ page.previous }}
+```
+
+## Paginator
+
+### Paginator setup
+
+Add this to `_config.yml`:
+{: .-setup}
+
+```yml
+paginate: 5
+paginate_path: "blog/:num"
+```
+
+See: [Paginator](http://jekyllrb.com/docs/pagination/)
+
+
+### Numbers
+
+```
+{{ paginator.page }}         - page number
+{{ paginator.total_posts }}
+{{ paginator.total_pages }}
+{{ paginator.per_page }}
+```
+
+### Iterating through posts
+
+```
+{% for post in paginator.posts %} ... {% endfor %}
+```
+
+### Previous button
+
+```
+{% if paginator.total_pages > 1 %}
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}">Previous</a>
+  {% else %}
+  {% endif %}
+{% endif %}
+```
+
+```
+{{ paginator.next_page }}     - page number
+{{ paginator.next_page_path }}
+```
+
+## Blogging
+
+### Paths
 
     _posts/YEAR-MONTH-DAY-title.md
 
-### [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resources)
-    
+See: [Blogging](http://jekyllrb.com/docs/posts/)
+
+### Image paths
+
     ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
 
-### [Drafts](http://jekyllrb.com/docs/drafts/)
+See: [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resources)
+
+### Drafts
 
     vi _drafts/a-draft-post.md
     jekyll build --drafts
+
+See: [Drafts](http://jekyllrb.com/docs/drafts/)
 
 ### [Excerpts](http://jekyllrb.com/docs/posts/#post-excerpts)
 
@@ -188,21 +291,33 @@ Markup
     permalink: none   # /:categories/:title.html
     permalink: "/:title"
 
-## [Data](http://jekyllrb.com/docs/datafiles/)
+## More features
 
-    _data/members.yml
+### Data
 
-    {% for member in site.data.members %}
+```
+_data/members.yml
+```
+{: .-setup}
 
-## [Collections](http://jekyllrb.com/docs/collections/)
+```
+{% for member in site.data.members %}
+  ...
+{% endfor %}
+```
 
-```yaml
+See: [Data](http://jekyllrb.com/docs/datafiles/)
+
+### Collections
+
+```yml
 # _config.yml
 collections:
   - authors
 ```
+{: .-setup}
 
-```yaml
+```yml
 # _/authors/a-n-roquelaire.md
 ---
 name: A. N. Roquelaire
@@ -214,79 +329,115 @@ real_name: Anne Rice
 {% for author in site.authors %}
 ```
 
-Helpers and Filters
+See: [Collections](http://jekyllrb.com/docs/collections/)
+
+Helpers and filters
 -------------------
 
 ### Dates
 
-     {{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
-     {{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
-     {{ site.time | date_to_string }}      #=> 07 Nov 2008
-     {{ site.time | date_to_long_string }} #=> 07 November 2008
-     | date: "%Y %m %d"
+```
+{{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
+{{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
+{{ site.time | date_to_string }}      #=> 07 Nov 2008
+{{ site.time | date_to_long_string }} #=> 07 November 2008
+{{ site.time | date: "%Y %m %d" }}
+```
 
 ### Preprocessors
 
-     | textilize
-     | markdownify
-     | jsonify
-     | sassify
-     | scssify
+```
+| textilize
+| markdownify
+| jsonify
+| sassify
+| scssify
+```
 
-### Array
+### Array filters
 
-     site.posts | where:"year","2014"
-     site.posts | group_by:"genre"   #=> { name, items }
-     site.posts | sort
+```
+site.posts | where:"year","2014"
+site.posts | group_by:"genre"   #=> { name, items }
+site.posts | sort
+```
 
-     | first
-     | last
-     | join: ","
-     | array_to_sentence_string   #=> CSS, JavaScript and HTML
+```
+| first
+| last
+| join: ","
+| array_to_sentence_string   #=> CSS, JavaScript and HTML
+```
 
-     | map: "post"   # works like 'pluck'
-     | size
+```
+| map: "post"   # works like 'pluck'
+| size
+```
 
-### [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
+### String filters
 
-     | default: "xxx"
+```rb
+| default: "xxx"
+```
 
-     | upcase
-     | downcase
+```rb
+| upcase
+| downcase
+```
 
-     | remove: "<p>"
-     | replace: "super", "mega"
-     | remove_first: "<p>"
-     | replace_first: "super", "mega"
+```rb
+| remove: "<p>"
+| replace: "super", "mega"
+| remove_first: "<p>"
+| replace_first: "super", "mega"
+```
 
-     | truncate: 5
-     | truncatewords: 20
+```rb
+| truncate: 5
+| truncatewords: 20
+```
 
-     | prepend: "Mr. "
-     | append: " Sr."
+```rb
+| prepend: "Mr. "
+| append: " Sr."
+```
 
-     | camelize
-     | capitalize
-     | pluralize
-     | strip_html
-     | strip_newlines
-     | newline_to_br
+```rb
+| camelize
+| capitalize
+| pluralize
+| strip_html
+| strip_newlines
+| newline_to_br
+```
 
-     | split: ','
+```rb
+| split: ','
+```
 
-     | escape
-     | escape_once
+```rb
+| escape
+| escape_once
+```
 
-     | slice: -3, 3
+```rb
+| slice: -3, 3
+```
 
-### String filters, Jekyll-only
+See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
 
-     | number_of_words
-     | slugify
+### String filters (Jekyll-only)
 
-     | xml_escape    #=> CDATA
-     | cgi_escape    #=> foo%2Cbar
-     | uri_escape    #=> foo,%20bar
+```
+| number_of_words
+| slugify
+```
+
+```rb
+| xml_escape    #=> CDATA
+| cgi_escape    #=> foo%2Cbar
+| uri_escape    #=> foo,%20bar
+```
 
 ### Numbers
 
@@ -295,33 +446,44 @@ Helpers and Filters
      | time: 4
      | divided_by: 3
      | modulo: 2
-     
-Comments
---------
 
-    {% comment %}
-    {% endcomment %}
+### Code highlighter
+
+```html
+{% highlight ruby linenos %}
+def show
+  ...
+end
+{% endhighlight %}
+```
 
 Integration
 -----------
 
 ### Bundler
 
-    # _plugins/bundler.rb
-    require "bunder/setup"
-    Bundler.require :default
+In `_plugins/bundler.rb`:
+
+```rb
+require "bunder/setup"
+Bundler.require :default
+```
 
 ### Compass
 
   * [Compass](https://gist.github.com/parkr/2874934)
   * [Asset pipeline](https://github.com/matthodan/jekyll-asset-pipeline)
 
-### References
+Also see
+--------
+{: .-one-column}
 
-  * http://jekyllrb.com/docs/home/
-  * http://jekyllrb.com/docs/templates/
-  * http://docs.shopify.com/themes/liquid-basics/output
-  * http://docs.shopify.com/themes/liquid-basics/logic
-  * https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
-  * http://docs.shopify.com/themes/liquid-documentation/filters
+* [Jekyll docs](http://jekyllrb.com/docs/home/) _jekyllrb.com_
+* [Jekyll: templates](http://jekyllrb.com/docs/templates/) _jekyllrb.com_
+* [Liquid: output](http://docs.shopify.com/themes/liquid-basics/output) _shopify.com_
+* [Liquid: logic](http://docs.shopify.com/themes/liquid-basics/logic) _shopify.com_
+* [Liquid: filters](http://docs.shopify.com/themes/liquid-documentation/filters) _shopify.com_
+* [Liquid for designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) _github.com/Shopify_
+{: .-also-see}
+
 {% endraw %}

@@ -52,7 +52,9 @@
 }
 
 @mixin action-bar {
-  & {
+  &,
+  & > li,
+  & > li > a {
     height: 32px;
   }
 
@@ -82,8 +84,7 @@
   }
 
   & > li > a > .text.-visible {
-    display: inline-block;
-    padding-left: 8px;
+    display: inline;
   }
 }
 

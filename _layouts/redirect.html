@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% assign target = {{ page.redirect.to | remove: '.html' | replace: 'cheatsheets/cheatsheets', 'cheatsheets' %}
 <html lang="en-US">
   <meta charset="utf-8">
   <title>Redirecting…</title>
-  <link rel="canonical" href="{{ page.redirect.to | remove: '.html' }}">
-  <meta http-equiv="refresh" content="0; url={{ page.redirect.to | remove: '.html' }}">
+  <link rel="canonical" href="{{ target }}">
+  <meta http-equiv="refresh" content="0; url={{ target }}">
   <h1>Redirecting...</h1>
-  <a href="{{ page.redirect.to | remove: '.html' }}">Click here if you are not redirected.</a>
-  <script>location="{{ page.redirect.to | remove: '.html' }}"</script>
+  <a href="{{ target }}">Click here if you are not redirected.</a>
+  <script>location="{{ target }}"</script>
 </html>

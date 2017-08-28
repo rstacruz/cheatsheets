@@ -2,6 +2,7 @@
 title: Xpath
 category: HTML
 layout: default-ad
+tags: [Featured]
 ---
 
 ### Descendant selectors

@@ -15,10 +15,10 @@ type: website
       <span>Top cheatsheets</span>
     </h2>
 
-    {{ site.tags }}
-
-    {% for page in site.tags.Featured %}
-      {% include 2017/pages-list-item.html page=page %}
+    {% for page in site.pages %}
+      {% if page.tags contains 'Featured' %}
+        {% include 2017/pages-list-item.html page=page %}
+      {% endif %}
     {% endfor %}
 
     {% for category in site.category_names %}
@@ -28,9 +28,7 @@ type: website
 
       {% for page in site.pages %}
         {% if page.category == category %}
-          {% if page.type == article %}
-            {% include 2017/pages-list-item.html page=page %}
-          {% endif %}
+          {% include 2017/pages-list-item.html page=page %}
         {% endif %}
       {% endfor %}
     {% endfor %}

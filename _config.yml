@@ -1,3 +1,8 @@
+# gems
+gems:
+  - jekyll-redirect-from
+  - jekyll-github-metadata
+
 # files
 exclude:
   - Makefile
@@ -24,6 +29,7 @@ defaults:
       type: pages
     values:
       layout: "default"
+      type: article
       category: "Others"
 
 # Site info
@@ -55,3 +61,6 @@ category_names:
   - Ruby libraries
   - Vim
   - Others
+
+# https://help.github.com/articles/repository-metadata-on-github-pages/
+repository: rstacruz/cheatsheets

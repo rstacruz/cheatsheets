@@ -1,6 +1,10 @@
 ---
 title: package.json
 category: Node.js
+layout: 2017/sheet
+redirect_from:
+- /package.html
+- /package
 ---
 
 ### Basic
@@ -11,7 +15,9 @@ category: Node.js
       "keywords": [""],
       "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
       "version": "0.1.0",
-      "engines": {"node": ">=0.8.0"},
+      "engines": {
+        "node": ">=0.8.0"
+      },
       "main": "index",
       "bin": {
         "command": "./bin/command"
@@ -64,7 +70,9 @@ category: Node.js
 }
 ```
 
-### References
-    
- * http://package.json.nodejitsu.com/
+## References
+{: .-one-column}
+
+ * <http://package.json.nodejitsu.com/>
  * `npm help package.json`
+{: .-also-see}

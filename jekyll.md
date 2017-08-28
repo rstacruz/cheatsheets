@@ -133,12 +133,33 @@ Markup
 
     {{ page.date | date: "%b %d, %Y" }}
 
-### If
+### Conditionals
 
-    {% if page.image.feature %}
-    {% else if xyz %}
-    {% else %}
-    {% endif %}
+```html
+{% if page.image.feature %}
+{% else if xyz %}
+{% else %}
+{% endif %}
+```
+
+```html
+{% if page.category == 'React' %}
+{% if page.category == 'React' or page.featured %}
+{% if page.tags contains 'Featured' %}
+```
+
+### Case
+
+```html
+{% case shipping.title %}
+  {% when 'international' %}
+     Arriving in 2-3 weeks
+  {% when 'Domestic' %}
+     Arriving in 2-3 days
+  {% else %}
+     Thank you for your order!
+{% endcase %}
+```
 
 ### Includes (partials)
 

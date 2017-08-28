@@ -2,6 +2,7 @@
 title: CSS antialiasing
 category: CSS
 layout: 2017/sheet
+tags: [Featured]
 ---
 
 ### Antialias

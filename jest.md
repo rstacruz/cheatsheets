@@ -1,75 +1,190 @@
 ---
 title: Jest
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
-## Testing
+Testing
+-------
+{: .-three-column}
+
+### Quick start
+{: .-prime}
+
+```bash
+npm install --save-dev jest babel-jest
+```
 
 ```js
-beforeEach(() => { ... })
-afterEach(() => { ... })
+/* Add to package.json */
+"scripts": {
+  "test": "jest"
+}
+```
+{: .-setup}
 
-beforeAll(() => { ... })
-afterAll(() => { ... })
+```bash
+# Run your tests
+npm test -- --watch
+```
+{: .-setup}
 
+See: [Getting started](http://facebook.github.io/jest/docs/en/getting-started.html)
+
+### Writing tests
+
+```js
 describe('My work', () => {
   test('works', () => {
     expect(2).toEqual(2)
   })
+})
+```
 
-  test('works asynchonously', () => {
-    return new Promise((resolve, reject) => { ... })
-  })
+### BDD syntax
 
-  test('works asynchonously', async () => {
-    const hello = await foo()
-    ...
+```js
+describe('My work', () => {
+  it('works', () => {
+    ···
   })
 })
 ```
 
-## Expect
+`it` is an alias for `test`.
+See: [test()](http://facebook.github.io/jest/docs/en/api.html#testname-fn)
+
+### Asynchronous tests
+
+```js
+test('works with promises', () => {
+  return new Promise((resolve, reject) => {
+    ···
+  })
+})
+```
+
+```js
+test('works with async/await', async () => {
+  const hello = await foo()
+  ···
+})
+```
+
+Return promises, or use async/await.
+See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html)
+
+### Setup
+
+```js
+beforeEach(() => { ... })
+afterEach(() => { ... })
+```
+
+```js
+beforeAll(() => { ... })
+afterAll(() => { ... })
+```
+
+See: [afterAll() and more](http://facebook.github.io/jest/docs/en/api.html#afterallfn)
+
+### Focusing tests
+
+```js
+describe.only(···)
+it.only(···) // alias: fit()
+```
+
+See: [test.only](http://facebook.github.io/jest/docs/en/api.html#testonlyname-fn)
+
+
+### Skipping tests
+
+```js
+describe.skip(···)
+it.skip(···) // alias: xit()
+```
+
+See: [test.skip](http://facebook.github.io/jest/docs/en/api.html#testskipname-fn)
+
+Expect
+------
+{: .-three-column}
+
+### Basic expectations
 
 ```js
 expect(value)
   .not
   .toBe(value)
   .toEqual(value)
+```
 
-  // Snapshots
+See: [expect()](http://facebook.github.io/jest/docs/en/expect.html#expectvalue)
+
+### Snapshots
+
+```js
+expect(value)
   .toMatchSnapshot()
+```
 
-  // Errors
+### Errors
+
+```js
+expect(value)
   .toThrow(error)
   .toThrowErrorMatchingSnapshot()
+```
 
-  // Booleans
+### Booleans
+
+```js
+expect(value)
   .toBeFalsy()
   .toBeNull()
   .toBeTruthy()
   .toBeUndefined()
   .toBeDefined()
+```
 
-  // Numbers
+### Numbers
+
+```js
+expect(value)
   .toBeCloseTo(number, numDigits)
   .toBeGreaterThan(number)
   .toBeGreaterThanOrEqual(number)
   .toBeLessThan(number)
   .toBeLessThanOrEqual(number)
+```
 
-  // Objects
+### Objects
+
+```js
+expect(value)
   .toBeInstanceOf(Class)
   .toMatchObject(object)
   .toHaveProperty(keyPath, value)
+```
 
-  // Arrays
+### Objects
+
+```js
+expect(value)
   .toContain(item)
   .toContainEqual(item)
   .toHaveLength(number)
+```
 
-  // String
+### Strings
+
+```js
+expect(value)
   .toMatch(regexpOrString)
 ```
+
+### Others
 
 ```js
 expect.extend(matchers)
@@ -79,20 +194,28 @@ expect.addSnapshotSerializer(serializer)
 expect.assertions(1)
 ```
 
-## Snapshots
+More features
+-------------
 
-```
+### Snapshots
+
+```jsx
 const tree = renderer.create(
-<Link page="http://www.facebook.com">Facebook</Link>
+  <Link page="http://www.facebook.com">Facebook</Link>
 ).toJSON()
+```
 
+```jsx
 // First run creates a snapshot; subsequent runs match it
 expect(tree).toMatchSnapshot()
-
-// To update snapshots: jest --updateSnapshot
 ```
 
-## Mocks
+```bash
+# To update snapshots
+jest --updateSnapshot
+```
+
+### Mocks
 
 ```js
 const fn = jest.fn()
@@ -115,7 +238,7 @@ expect(fn)
   .toHaveBeenCalledWith(expect.stringMatching(regexp))
 ```
 
-## [Timers](https://facebook.github.io/jest/docs/timer-mocks.html)
+### Timers
 
 ```js
 jest.useFakeTimers()
@@ -127,6 +250,11 @@ it('works', () => {
 })
 ```
 
-## References
+See: [Timers](https://facebook.github.io/jest/docs/timer-mocks.html)
 
-Based on Jest v19. <http://facebook.github.io/jest/>
+## References
+{: .-one-column}
+
+- Based on Jest v19.
+- <http://facebook.github.io/jest/>
+{: .-also-see}

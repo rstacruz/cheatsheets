@@ -2,6 +2,7 @@
 title: Jekyll
 jekyll_escape: true
 layout: 2017/sheet
+tags: [Featured]
 ---
 
 {% raw %}

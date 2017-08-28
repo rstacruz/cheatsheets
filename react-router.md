@@ -4,6 +4,8 @@ category: React
 layout: default-ad
 ---
 
+{% raw %}
+
 ### Basic
 
 ```js
@@ -112,3 +114,5 @@ this
   .makeHref('about') // return URL
   .goBack()
 ```
+
+{% endraw %}

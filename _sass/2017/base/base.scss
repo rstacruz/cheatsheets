@@ -54,6 +54,7 @@ a:hover {
   color: $base-b3;
 }
 
-[aria-hidden] {
+/* prism.js adds area-hidden which it probably shouldn't */
+[aria-hidden]:not(.line-highlight) {
   display: none !important;
 }

@@ -1,6 +1,7 @@
 ---
 title: Pass
 layout: 2017/sheet
+category: CLI
 ---
 
 Reference

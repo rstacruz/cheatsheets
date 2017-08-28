@@ -13,8 +13,8 @@ $ ledger reg
 ```
 
 ```bash
-$ ledger reg grocery # show entries for grocery
-$ ledger bal assets  # check if im broke
+$ ledger reg grocery  # show entries for 'grocery'
+$ ledger bal assets   # check if i'm broke
 ```
 
 ```bash

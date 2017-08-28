@@ -1,0 +1,42 @@
+.missing-message.missing-message {
+  text-align: center;
+  border: solid 1px $dark-line-color;
+  margin: 32px 0;
+  padding: 16px;
+
+  & > h3,
+  & > p {
+    margin: 16px 0;
+    padding: 0;
+  }
+
+  & > h3 {
+    @include font-size(1);
+    font-weight: normal;
+    color: $base-text;
+  }
+
+  & > p {
+    color: $base-mute;
+  }
+}
+
+.push-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+
+  &,
+  &:visited {
+    background: $base-a;
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: darken($base-a, 16%);
+    box-shadow: none;
+    color: white;
+  }
+}

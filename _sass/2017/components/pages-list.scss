@@ -7,7 +7,10 @@
   }
 
   > .item {
-    padding: 4px 0;
+    flex: 0 0 100%;
+  }
+
+  > .item.article {
     flex: 0 0 50%;
   }
 
@@ -23,6 +26,7 @@
   text-decoration: none;
   display: block;
   white-space: nowrap;
+  padding: 4px 0;
 
   &,
   &:visited {
@@ -66,5 +70,4 @@
   padding: 0 0 16px 0;
   font-weight: normal;
   color: $base-b;
-  flex: 0 0 100%;
 }

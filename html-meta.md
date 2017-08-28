@@ -1,7 +1,8 @@
 ---
-title: Meta tags
+title: HTML meta tags
 category: HTML
 layout: 2017/sheet
+updated: 201708
 ---
 
 ### Meta tags

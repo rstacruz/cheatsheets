@@ -30,6 +30,16 @@ type: website
       {% endif %}
     {% endfor %}
 
+    <h2 class='category item' data-js-searchable-header>
+      <span>Recently updated</span>
+    </h2>
+
+    {% for page in site.pages %}
+      {% if page.updated >= site.last_updated %}
+        {% include 2017/pages-list-item.html page=page class='article item' %}
+      {% endif %}
+    {% endfor %}
+
     {% for category in site.category_names %}
       <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
         <span>{{ category }}</span>

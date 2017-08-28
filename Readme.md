@@ -38,5 +38,6 @@ title: React.js
 category: React
 layout: 2017/sheet   # 'default' | '2017/sheet'
 ads: false           # Add this to disable ads
+updated: 201708      # To show in the updated list
 ---
 ```

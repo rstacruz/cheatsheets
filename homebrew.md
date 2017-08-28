@@ -1,7 +1,6 @@
 ---
 title: Homebrew
 layout: 2017/sheet
-tags: [Featured]
 ---
 
 ### Commands

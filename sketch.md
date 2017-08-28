@@ -2,6 +2,7 @@
 title: Sketch
 category: Apps
 layout: 2017/sheet
+updated: 201708
 ---
 
 Shortcuts

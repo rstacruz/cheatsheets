@@ -3,9 +3,6 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-redirect_from:
-  - /sh
-  - /sh.html
 ---
 
 Getting started

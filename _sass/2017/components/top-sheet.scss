@@ -11,6 +11,7 @@
     width: auto;
     border-radius: 3px;
     box-shadow: $shadow2;
+    text-shadow: 0 1px 1px rgba($base-text, 0.3);
   }
 
   &:hover > .info,

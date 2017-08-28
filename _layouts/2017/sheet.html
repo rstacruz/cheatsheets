@@ -6,9 +6,9 @@ type: article
 {% include 2017/top-nav.html page=page %}
 
 <div class='body-area'>
-  <div class='main-heading {% if page.ads %}-with-ads{% endif %}'>
+  <div class='main-heading {% if page.ads != false %}-with-ads{% endif %}'>
     <h1 class='h1'>{{ page.title }} <em>cheatsheet</em></h1>
-    {% if page.ads %}
+    {% if page.ads != false %}
       <div class='HeadlineAd ad'>
         <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
       </div>

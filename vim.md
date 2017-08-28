@@ -218,9 +218,15 @@ Do these in visual mode.
 
 ### Marks
 
+| Shortcut        | Description                            |
+| ---             | ---                                    |
 | <code>`^</code> | Last position of cursor in insert mode |
 | <code>`.</code> | Last change                            |
 | <code>``</code> | Last jump                              |
+| ---             | ---                                    |
+| `ma`            | Mark this cursor position as `a`       |
+| `'a`            | Jump to cursor position `a`            |
+{: .-shortcuts}
 
 ### Misc
 
@@ -230,6 +236,7 @@ Do these in visual mode.
 | `]p`     | paste under the current indentation level |
 | ---      | ---                                       |
 | `zz`     | Center this line                          |
+{: .-shortcuts}
 
 ### Command line
 
@@ -237,6 +244,7 @@ Do these in visual mode.
 | ---          | ---                                       |
 | `<C-r><C-w>` | insert current word into the command line |
 | `<C-r>"`     | paste from " register                     |
+{: .-shortcuts}
 
 ### Text alignment
 

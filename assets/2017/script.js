@@ -87,7 +87,7 @@ const Search = {
   },
 
   show (val) {
-    const keywords = val.split(' ')
+    const keywords = val.split(/[ \-_]/)
     const selectors = keywords
       .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
       .join('')

@@ -13,29 +13,32 @@ updated: 201708
 
 ```html
 <!-- title -->
-<title>...</title>
-<meta property='og:title'  content='...'>
-<meta name='twitter:title' content='...'>
+<title>···</title>
+<meta property='og:title'  content='···'>
+<meta name='twitter:title' content='···'>
 ```
+{: data-line="2"}
 
 ```html
 <!-- url -->
-<meta property='og:url'  content='http://...'>
-<meta name='twitter:url' content='http://...'>
-<link rel='canonical'       href='http://...'>
+<link rel='canonical'       href='http://···'>
+<meta property='og:url'  content='http://···'>
+<meta name='twitter:url' content='http://···'>
 ```
+{: data-line="2"}
 
 ```html
-<!-- desc -->
-<meta name='description'         content='...'>
-<meta property='og:description'  content='...'>
-<meta name='twitter:description' content='...'>
+<!-- description -->
+<meta name='description'         content='···'>
+<meta property='og:description'  content='···'>
+<meta name='twitter:description' content='···'>
 ```
+{: data-line="2"}
 
 ```html
 <!-- image -->
-<meta property="og:image"  content="http://...">
-<meta name="twitter:image" content="http://...">
+<meta property="og:image"  content="http://···">
+<meta name="twitter:image" content="http://···">
 ```
 
 ```html
@@ -52,19 +55,22 @@ updated: 201708
 ### More opengraph
 
 ```html
-<meta property="og:site_name" content="...">
-<meta property="og:type" content="website">
+<meta property='og:site_name' content='···'>
+<meta property='og:type' content='website'>
 ```
 
 ```html
-<meta property="fb:app_id" content="...">
-<meta property="fb:admins" content="UID1,UID2"> <!-- unless there's app_id -->
+<meta property='fb:app_id' content='···'>
+<meta property='fb:admins' content='UID1,UID2'>
+<!-- ···unless there's app_id -->
 ```
 
 ```html
-<meta property="og:audio" content="http://.../theme.mp3">
-<meta property="og:video" content="http://.../trailer.swf">
+<meta property='og:audio' content='http://···/theme.mp3'>
+<meta property='og:video' content='http://···/trailer.swf'>
 ```
+
+See: [OpenGraph protocol](https://developers.facebook.com/docs/opengraphprotocol/) _(developers.facebook.com)_
 
 ### Opengraph for articles
 
@@ -88,14 +94,21 @@ updated: 201708
 ```html
 <meta name='mobile-web-app-capable' content='yes'>
 <meta name='apple-mobile-web-app-capable' content='yes'>
-<meta name='apple-mobile-web-app-status-bar-style' content='black'> <!-- black | black-translucent | default -->
 ```
 
-### [Theme color](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
+```html
+<meta name='apple-mobile-web-app-status-bar-style' content='black'>
+<!-- black | black-translucent | default -->
+```
+
+### Theme color
 
 ```html
 <meta name='theme-color' content='#ff00ff'>
 ```
+
+Android-only.
+See: [Theme color](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android)
 
 ### Manifest
 
@@ -103,6 +116,7 @@ updated: 201708
 <link rel='manifest' href='/manifest.json'>
 ```
 
+Android-only.
 See: [Manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
 
 ### Icons

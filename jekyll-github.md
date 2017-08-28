@@ -9,9 +9,7 @@ tags: [WIP]
 
 Jekyll
 ------
-{: .-three-column}
-
-### Jekyll gems
+{: .-one-column}
 
 * jekyll-avatar
 * jekyll-coffeescript
@@ -28,6 +26,7 @@ Jekyll
 * jekyll-sass-converter
 * jekyll-seo-tag
 * jekyll-sitemap
+{: .-four-column}
 
 As of github-pages v156.
 

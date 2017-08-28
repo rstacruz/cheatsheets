@@ -25,6 +25,8 @@
 `ul` supports these:
 
     {: .-also-see}
+    {: .-four-column}
+    {: .-six-column}
 
 Each sheet supports these metadata:
 

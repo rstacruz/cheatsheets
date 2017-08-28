@@ -1,5 +1,5 @@
 # gems
-gems:
+whitelist:
   - jekyll-redirect-from
   - jekyll-github-metadata
 

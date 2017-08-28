@@ -1,0 +1,21 @@
+.notice-box {
+  & {
+    margin-bottom: 24px;
+    color: $base-mute;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 16px;
+  }
+
+  &::before {
+    @include ion-icon('md-information-circle');
+    font-size: 24px;
+    margin-right: 8px;
+    color: $base-mute3;
+  }
+
+  & > a {
+    text-decoration: none;
+  }
+}

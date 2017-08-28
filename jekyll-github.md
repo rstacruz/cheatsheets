@@ -1,7 +1,7 @@
 ---
 title: Jekyll for GitHub pages
-jekyll_escape: true
 layout: 2017/sheet
+category: Jekyll
 tags: [WIP]
 ---
 

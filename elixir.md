@@ -1,6 +1,6 @@
 ---
 title: Elixir
-category: Development
+category: Elixir
 layout: 2017/sheet
 ---
 

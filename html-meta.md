@@ -1,33 +1,48 @@
 ---
 title: Meta tags
 category: HTML
+layout: 2017/sheet
 ---
+
+### Meta tags
 
 ```html
 <meta charset='utf-8'>
+```
 
+```html
 <!-- title -->
 <title>...</title>
 <meta property='og:title'  content='...'>
 <meta name='twitter:title' content='...'>
+```
 
+```html
 <!-- url -->
 <meta property='og:url'  content='http://...'>
 <meta name='twitter:url' content='http://...'>
 <link rel='canonical'       href='http://...'>
+```
 
+```html
 <!-- desc -->
 <meta name='description'         content='...'>
 <meta property='og:description'  content='...'>
 <meta name='twitter:description' content='...'>
+```
 
+```html
 <!-- image -->
 <meta property="og:image"  content="http://...">
 <meta name="twitter:image" content="http://...">
+```
 
+```html
 <!-- ua -->
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+```
 
+```html
 <!-- viewport -->
 <meta name='viewport' content='width=device-width'>
 <meta name='viewport' content='width=1024'>
@@ -38,24 +53,26 @@ category: HTML
 ```html
 <meta property="og:site_name" content="...">
 <meta property="og:type" content="website">
+```
 
+```html
 <meta property="fb:app_id" content="...">
 <meta property="fb:admins" content="UID1,UID2"> <!-- unless there's app_id -->
+```
 
+```html
 <meta property="og:audio" content="http://.../theme.mp3">
 <meta property="og:video" content="http://.../trailer.swf">
 ```
 
 ### Opengraph for articles
 
-```html
-article:published_time
-article:modified_time
-article:expiration_time
-article:author
-article:section
-article:tag
-```
+- `article:published_time`
+- `article:modified_time`
+- `article:expiration_time`
+- `article:author`
+- `article:section`
+- `article:tag`
 
 ### Apple-only
 
@@ -79,13 +96,15 @@ article:tag
 <meta name='theme-color' content='#ff00ff'>
 ```
 
-### [Manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
+### Manifest
 
 ```html
 <link rel='manifest' href='/manifest.json'>
 ```
 
-### [Icons](https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/)
+See: [Manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
+
+### Icons
 
 ```html
 <!-- Minimal -->
@@ -93,13 +112,17 @@ article:tag
 <link rel='icon' sizes='192x192' href='icon@192.png'>
 <link rel='apple-touch-icon' href='icon@152.png'>
 <meta name='msapplication-square310x310logo' content='icon@310.png'>
+```
 
+```html
 <!-- Apple -->
 <link rel='apple-touch-icon' href='touch-icon-iphone.png'>
 <link rel='apple-touch-icon' sizes='76x76' href='touch-icon-ipad.png'>
 <link rel='apple-touch-icon' sizes='120x120' href='touch-icon-iphone-retina.png'>
 <link rel='apple-touch-icon' sizes='152x152' href='touch-icon-ipad-retina.png'>
+```
 
+```html
 <!-- Microsoft -->
 <meta name='msapplication-square70x70logo' content='icon_smalltile.png'>
 <meta name='msapplication-square150x150logo' content='icon_mediumtile.png'>
@@ -107,8 +130,11 @@ article:tag
 ```
 
 Chrome on Android recommends [192x192](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
+See: [Icons](https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/)
 
-### Reference
+## Reference
+{: .-one-column}
 
  * <https://dev.twitter.com/docs/cards>
  * <https://developers.facebook.com/docs/opengraphprotocol/#types>
+{: .-also-see}

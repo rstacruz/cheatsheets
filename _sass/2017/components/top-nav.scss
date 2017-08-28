@@ -1,13 +1,29 @@
 .top-nav {
   & {
-    border-bottom: solid 1px $dark-line-color;
-    height: 48px;
-    line-height: 48px;
+    height: 64px;
+    line-height: 64px;
     text-align: center;
-    overflow: hidden;
+    position: relative;
   }
 
-  >.container {
+  // Horiz line
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 40%;
+    right: 40%;
+    bottom: 0;
+    height: 1px;
+    background: $dark-line-color;
+
+    @media (max-width: 480px) {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  > .container {
     @include gutter(padding-left);
     @include gutter(padding-right);
     max-width: $area-width;
@@ -19,6 +35,12 @@
   & {
     display: flex;
     align-items: center;
+    position: relative;
+  }
+
+  & > .left {
+    flex: 0 0 auto;
+    line-height: 32px;
   }
 
   & > .brand {
@@ -48,8 +70,37 @@
     }
   }
 
-  & > .actions > .social {
+  @media (min-width: 481px) {
+    & > .actions {
+      position: absolute;
+      @include gutter(right);
+      top: (64px - 32px) / 2;
+    }
+
+    & > .left {
+      position: absolute;
+      @include gutter(left);
+      top: (64px - 32px) / 2;
+    }
+  }
+
+  // Home link
+  & > .left > .home {
+    text-decoration: none;
+
+    &,
+    &:visited {
+      color: $base-mute;
+    }
+
+    &:hover,
+    &:focus {
+      color: $base-a;
+    }
+  }
+
+  & > .left > .home::before {
+    @include ion-icon('md-arrow-back');
+    font-size: 16px;
   }
 }
-
-// page-actions.scss

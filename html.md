@@ -1,6 +1,7 @@
 ---
 title: HTML
 category: HTML
+layout: 2017/sheet
 ---
 
 ### Head stuff
@@ -61,14 +62,14 @@ category: HTML
 
 ### Icons
 
-Only do this if you're not placing the site in the root!
-
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon">
     <link href="apple-touch-icon-57x57-precomposed.png" size="57x57" rel="apple-touch-icon">
     <link href="apple-touch-icon-72x72-precomposed.png" size="72x72" rel="apple-touch-icon">
     <link href="apple-touch-icon-114x114-precomposed.png" size="114x114" rel="apple-touch-icon">
     <link href="apple-touch-icon-144x144-precomposed.png" size="144x144" rel="apple-touch-icon">
+
+Only do this if you're not placing the site in the root!
 
 ### H5BP HTML tag
 

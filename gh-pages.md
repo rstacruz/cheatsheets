@@ -1,6 +1,6 @@
 ---
 title: GitHub pages
-category: Git
+category: Jekyll
 ---
 
     $ echo "foobar.com" > CNAME

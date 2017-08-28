@@ -1,6 +1,11 @@
 ---
 title: Pass
+layout: 2017/sheet
 ---
+
+Reference
+---------
+{: .-three-column}
 
 ### Store and retrieve
 
@@ -19,6 +24,8 @@ title: Pass
 
     $ pass edit twitter.com/rsc
 
-### References
+## References
+{: .-one-column}
 
- * http://passwordstore.org
+* <http://passwordstore.org>
+{: .-also-see}

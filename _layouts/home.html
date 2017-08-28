@@ -11,7 +11,7 @@ html_class: home
   <div class='pages-list'>
     {% for page in site.pages %}
       {% if page.category == category %}
-        <a href="{{base}}{{ page.url }}">
+        <a href="{{base}}{{ page.url | remove: '.html' }}">
           <span class='title'>{{ page.title }}</span>
           <span class='date'>{{ page.url | remove: '.html' | remove: '/' }}</span>
         </a>

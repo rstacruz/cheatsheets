@@ -21,7 +21,9 @@ type: website
           {% if page.type == article %}
             <a class='article item' href="{{base}}{{ page.url | remove: '.html' }}">
               <code class='slug'>{{ page.url | remove: '.html' | remove: '/' }}</code>
-              <span class='title'>{{ page.title }}</span>
+              {% if page.title | downcase != page.url | remove: '.html' | remove: '/' %}
+                <span class='title'>{{ page.title }}</span>
+              {% endif %}
             </a>
           {% endif %}
         {% endif %}

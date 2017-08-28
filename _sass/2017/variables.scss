@@ -33,10 +33,10 @@ $base-c: #17c694; // teal
 
 $base-b3: adjust-color($base-b, $lightness: 16%, $hue: -20deg);
 $base-b7: adjust-color($base-b, $lightness: -16%, $hue: 20deg);
-$base-mute3: adjust-color($base-mute, $lightness: -16%);
-$base-mute4: adjust-color($base-mute, $lightness: -8%);
-$base-mute6: adjust-color($base-mute, $lightness: 8%);
-$base-mute7: adjust-color($base-mute, $lightness: 16%);
+$base-mute7: adjust-color($base-mute, $lightness: -16%);
+$base-mute6: adjust-color($base-mute, $lightness: -8%);
+$base-mute4: adjust-color($base-mute, $lightness: 8%);
+$base-mute3: adjust-color($base-mute, $lightness: 16%);
 
 $body-bg: $base-body;
 $gray-bg: mix($base-body, $base-panel, 50%);

@@ -3,6 +3,10 @@ whitelist:
   - jekyll-redirect-from
   - jekyll-github-metadata
 
+plugins:
+  - jekyll-redirect-from
+  - jekyll-github-metadata
+
 # files
 exclude:
   - Makefile

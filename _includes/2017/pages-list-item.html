@@ -1,4 +1,6 @@
-<a class='article item' href="{{base}}{{ include.page.url | remove: '.html' }}">
+<a class='article item'
+  href="{{base}}{{ include.page.url | remove: '.html' }}"
+  data-js-searchable-item='{"slug":"{{ include.page.url | remove: '.html' | remove: '/' }}","category":"{{ include.page.category }}"}'>
   <code class='slug'>{{ include.page.url | remove: '.html' | remove: '/' }}</code>
 
   {% if include.page.layout == '2017/sheet' %}

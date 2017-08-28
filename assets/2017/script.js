@@ -1,3 +1,7 @@
+/*
+ * Wrapping
+ */
+
 $(function () {
   const $root = $('[data-js-main-body]')
   wrapify($root)
@@ -15,6 +19,116 @@ $(function () {
     })
   })
 })
+
+/*
+ * Search
+ */
+
+$(function () {
+  $('[data-js-searchable-item]').each(function () {
+    const $this = $(this)
+    const data = $this.data('js-searchable-item')
+    const words = permutate(data)
+
+    $this.attr('data-search-index', words.join(' '))
+  })
+
+  // Propagate item search indices to headers
+  $('[data-js-searchable-header]').each(function () {
+    const $this = $(this)
+    const $els = $this
+      .nextUntil('[data-js-searchable-header]')
+      .filter('[data-search-index]')
+
+    const keywords = $els
+      .map(function () { return $(this).attr('data-search-index') })
+      .get()
+      .join(' ')
+      .split(' ')
+
+    $this.attr('data-search-index', keywords.join(' '))
+  })
+})
+
+$(function () {
+  $('[data-js-search-input]').each(function () {
+    const $this = $(this)
+    const val = $this.val()
+
+    $this.on('input', () => {
+      const val = $this.val()
+
+      if (val === '') {
+        Search.showAll()
+      } else {
+        Search.show(val)
+      }
+    })
+  })
+
+  $('[data-js-search-form]').each(function () {
+    const $this = $(this)
+
+    $this.on('submit', e => {
+      e.preventDefault()
+      const href = $('a[data-search-index]:visible').eq(0).attr('href')
+      if (href) window.location = href
+    })
+  })
+})
+
+/*
+ * Search
+ */
+
+const Search = {
+  showAll () {
+    $('[data-search-index]').removeAttr('aria-hidden')
+  },
+
+  show (val) {
+    const keywords = val.split(' ')
+    const selectors = keywords
+      .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
+      .join('')
+
+    $('[data-search-index]').attr('aria-hidden', true)
+    $(selectors).removeAttr('aria-hidden')
+  }
+}
+
+/*
+ * Permutator
+ */
+
+function permutate (data) {
+  let words = []
+  if (data.slug) {
+    words = words.concat(permutateString(data.slug))
+  }
+  if (data.category) {
+    words = words.concat(permutateString(data.category))
+  }
+  return words
+}
+
+function permutateString (str) {
+  let words = []
+  let inputs = str.toLowerCase().split(/[ \-_]/)
+  inputs.forEach(word => {
+    words = words.concat(permutateWord(word))
+  })
+  return words
+}
+
+function permutateWord (str) {
+  let words = []
+  const len = str.length
+  for (var i = 1; i <= len; ++i) {
+    words.push(str.substr(0, i))
+  }
+  return words
+}
 
 /*
  * Wraps h2 sections into h2-section.

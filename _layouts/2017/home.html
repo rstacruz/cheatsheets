@@ -6,12 +6,12 @@ type: website
 {% include 2017/top-nav.html page=page %}
 
 <div class='body-area -slim'>
-  <div class='search-box'>
-    <input type='text' placeholder='Search...' autofocus>
-  </div>
+  <form data-js-search-form class='search-box'>
+    <input type='text' placeholder='Search...' autofocus data-js-search-input>
+  </form>
 
   <div class='pages-list'>
-    <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}'>
+    <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
       <span>Top cheatsheets</span>
     </h2>
 
@@ -22,7 +22,7 @@ type: website
     {% endfor %}
 
     {% for category in site.category_names %}
-      <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}'>
+      <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
         <span>{{ category }}</span>
       </h2>
 

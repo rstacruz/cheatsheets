@@ -53,3 +53,7 @@ a:visited {
 a:hover {
   color: $base-b3;
 }
+
+[aria-hidden] {
+  display: none !important;
+}

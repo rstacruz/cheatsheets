@@ -30,13 +30,13 @@ Jekyll
 
 As of github-pages v156.
 
-jekyll-github-metadata
-----------------------
+GitHub Metadata
+---------------
 
 ### Configuration
 
 ```yaml
-gems:
+whitelist:
   - jekyll-github-metadata
 
 repository: username/project
@@ -63,13 +63,13 @@ See: [Repository metadata on GitHub pages](https://help.github.com/articles/repo
 </a>
 ```
 
-jekyll-gist
------------
+Gists
+-----
 
 ### Configuration
 
 ```yaml
-gems:
+whitelist:
   - jekyll-gist
 ```
 
@@ -83,13 +83,13 @@ See: [jekyll-gist](https://github.com/jekyll/jekyll-gist)
 
 This places a Gist in your page.
 
-jekyll-mentions
----------------
+Mentions
+--------
 
 ### Configuration
 
 ```yaml
-gems:
+whitelist:
   - jekyll-mentions
 ```
 
@@ -104,14 +104,14 @@ Hey @rstacruz, what do you think of this?
 Just mention anyone in any page. Their names will be turned into links.
 
 
-jekyll-redirect-from
---------------------
+Redirects
+---------
 {: .-three-column}
 
 ### Configuration
 
 ```yaml
-gems:
+whitelist:
     - jekyll-redirect-from
 ```
 

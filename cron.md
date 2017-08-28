@@ -1,41 +1,58 @@
 ---
 title: Cron
 category: CLI
+layout: 2017/sheet
+tags: [Featured]
 ---
 
-### Format
-
- * Min Hour Day Month Weekday
-
+## Format
+{: .-two-column}
 
 ### Format
 
-    *    *    *    *    *  command to be executed
-    ┬    ┬    ┬    ┬    ┬
-    │    │    │    │    │
-    │    │    │    │    │
-    │    │    │    │    └───── day of week (0 - 6) (0 or 6 are Sunday to Saturday, or use names)
-    │    │    │    └────────── month (1 - 12)
-    │    │    └─────────────── day of month (1 - 31)
-    │    └──────────────────── hour (0 - 23)
-    └───────────────────────── min (0 - 59)
+```
+Min  Hour Day  Mon  Weekday
+```
+{: .-setup}
+
+```
+*    *    *    *    *  command to be executed
+```
+
+```
+┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)
+```
+{: .-setup}
 
 ### Examples
 
-    0 * * * * every hour
-    */15 * * * * every 15 mins
-    0 */2 * * * every 2 hours
-    0 0 0 * 0 every sunday midnight
+| Example        | Description           |
+| ---            | ---                   |
+| `0 * * * *`    | every hour            |
+| `*/15 * * * *` | every 15 mins         |
+| `0 */2 * * *`  | every 2 hours         |
+| `0 0 0 * 0`    | every Sunday midnight |
+| ---            | ---                   |
+| `@reboot`      | every reboot          |
 
-    @reboot every reboot
+### Crontab
 
-### crontab
+```bash
+# Adding tasks easily
+echo "@reboot echo hi" | crontab
+```
 
-    # Adding tasks easily
-    echo "@reboot echo hi" | crontab
+```bash
+# Open in editor
+crontab -e
+```
 
-    # Open in editor
-    crontab -e
-
-    # List tasks
-    crontab -l [-u user]
+```bash
+# List tasks
+crontab -l [-u user]
+```

@@ -2,7 +2,6 @@
 title: Cron
 category: CLI
 layout: 2017/sheet
-tags: [Featured]
 ---
 
 ## Format

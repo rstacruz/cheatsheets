@@ -24,13 +24,9 @@ type: website
   </div>
 
   <div class='pages-list'>
-    <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
-      <span>Top cheatsheets</span>
-    </h2>
-
     {% for page in site.pages %}
       {% if page.tags contains 'Featured' %}
-        {% include 2017/pages-list-item.html page=page %}
+        {% include 2017/pages-list-item.html page=page class='item top-sheet' %}
       {% endif %}
     {% endfor %}
 
@@ -41,7 +37,7 @@ type: website
 
       {% for page in site.pages %}
         {% if page.category == category %}
-          {% include 2017/pages-list-item.html page=page %}
+          {% include 2017/pages-list-item.html page=page class='article item' %}
         {% endif %}
       {% endfor %}
     {% endfor %}

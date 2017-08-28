@@ -1,14 +1,4 @@
-.search-box {
-  background: $base-panel;
-  box-shadow: $shadow3;
-
-  & > input {
-    padding: 16px;
-    background: transparent;
-    border: 0;
-    width: 100%;
-  }
-}
+// search-box.scss
 
 .pages-list {
   & {
@@ -19,6 +9,10 @@
   > .item {
     padding: 4px 0;
     flex: 0 0 50%;
+  }
+
+  > .item.top-sheet {
+    flex: 0 0 25%;
   }
 }
 
@@ -33,20 +27,20 @@
     color: $base-mute3;
   }
 
-  & > code {
+  & > .info > .slug {
     color: $base-head;
   }
 
-  &:visited > code {
+  &:visited > .info > .slug {
     color: $base-text;
   }
 
-  & > .title::before {
+  & > .info > .title::before {
     content: '';
     margin: 0 4px;
   }
 
-  & > .title {
+  & > .info > .title {
     opacity: 0;
   }
 
@@ -56,12 +50,9 @@
       color: $base-mute;
     }
 
-    & > code {
-      color: $base-a;
-    }
-
-    & > .title {
+    & > .info > .title {
       opacity: 1;
+      color: $base-a;
     }
   }
 }
@@ -74,4 +65,57 @@
   font-weight: normal;
   color: $base-b;
   flex: 0 0 100%;
+}
+
+.top-sheet.top-sheet {
+  padding: 4px;
+  text-decoration: none;
+
+  & > .info {
+    display: block;
+    background: darken($base-a, 8%);
+    color: white;
+    text-align: left;
+    padding: 16px;
+    width: auto;
+    border-radius: 3px;
+    box-shadow: $shadow2;
+  }
+
+  &:nth-of-type(3n + 1) {
+    & > .info {
+      background: darken($base-a, 8%);
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: darken($base-a, 16%);
+    }
+  }
+
+  &:nth-of-type(3n + 2) {
+    & > .info {
+      background: darken($base-b, 8%);
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: darken($base-b, 16%);
+    }
+  }
+
+  &:nth-of-type(3n + 3) {
+    & > .info {
+      background: darken($base-c, 8%);
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: darken($base-c, 16%);
+    }
+  }
+
+  & > .info > .title {
+    display: none;
+  }
 }

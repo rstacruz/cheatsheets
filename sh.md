@@ -2,7 +2,7 @@
 title: Bash scripting
 category: CLI
 layout: 2017/sheet
-ads: true
+tags: [Featured]
 ---
 
 Getting started

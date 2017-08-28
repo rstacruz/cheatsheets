@@ -5,7 +5,10 @@
 
 .h3-section-list {
   & {
-    margin: 0 auto;
+    @include gutter(margin-left, $multiplier: -1);
+    @include gutter(margin-right, $multiplier: -1);
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   // Clearfix

@@ -1,5 +1,5 @@
 @mixin heading-style {
-  margin: $gut;
+  margin: 0;
   padding: 0;
   margin-bottom: 16px + 8px;
   padding-bottom: 16px + 8px;
@@ -7,14 +7,12 @@
   border-bottom: solid 1px $dark-line-color;
 
   @media (max-width: 768px) {
-    margin: $gut;
     margin-bottom: 8px;
     margin-top: 32px;
     padding-bottom: 8px;
   }
 
   @media (max-width: 480px) {
-    margin: $gut-small;
     margin-bottom: 8px;
     margin-top: 32px;
     padding-bottom: 8px;

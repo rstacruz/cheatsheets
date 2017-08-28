@@ -1,5 +1,7 @@
 ---
 title: Fitness
+category: Fitness
+layout: 2017/sheet
 ---
 
 ### Target heart rate
@@ -10,7 +12,7 @@ title: Fitness
 Then take that number and multiply it by .75 - .85, which will give you your
 percentages of 75% -- 85% of your Max. HR."
 
-http://www.bodybuilding.com/fun/mike1.htm
+See: <http://www.bodybuilding.com/fun/mike1.htm>
 
 ### Warmup sets
 
@@ -20,11 +22,11 @@ http://www.bodybuilding.com/fun/mike1.htm
  * 2 x 80%
  * 5 x 100% (work set)
 
-http://corw.in/warmup/
+See: <http://corw.in/warmup/>
 
 ### Bench
 
-Jennifer Thompson video: http://www.youtube.com/watch?v=34XRmd3a8_0
+Jennifer Thompson video: <http://www.youtube.com/watch?v=34XRmd3a8_0>
 
 ### Metabolism
 
@@ -45,7 +47,7 @@ Jennifer Thompson video: http://www.youtube.com/watch?v=34XRmd3a8_0
   high intense exercise (greater than 70% VO2 max) primarily utilized 
   carbohydrate.
 
-http://www.exrx.net/Nutrition/Substrates.html
+See: [Substrates](http://www.exrx.net/Nutrition/Substrates.html) _(exrx.net)_
 
 ### Deloads on a cut
 
@@ -54,7 +56,7 @@ http://www.exrx.net/Nutrition/Substrates.html
 
  - "increase the rest day interval between sessions"
 
-https://www.facebook.com/permalink.php?story_fbid=273265046115238&id=116211138487297&comment_id=1262284&offset=0&total_comments=34
+See: [Link](https://www.facebook.com/permalink.php?story_fbid=273265046115238&id=116211138487297&comment_id=1262284&offset=0&total_comments=34) _(facebook.com)_
 
 ### Conditioning with 5/3/1
 
@@ -63,4 +65,4 @@ https://www.facebook.com/permalink.php?story_fbid=273265046115238&id=11621113848
  goals are your only concern, do not let the conditioning take away from your 
  recovery."
 
-Jim Wendler: http://www.jimwendler.com/2012/09/531-and-bodybuilding/
+See: [531 and Bodybuilding](http://www.jimwendler.com/2012/09/531-and-bodybuilding/) _(jimwendler.com)_

@@ -55,6 +55,11 @@
     position: relative;
   }
 
+  & > ul > li > p {
+    margin: 0;
+    padding: 0;
+  }
+
   & > ul > li::before {
     content: '';
     position: absolute;

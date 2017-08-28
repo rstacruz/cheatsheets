@@ -1,9 +1,11 @@
 ---
 title: Phat
 category: Fitness
+layout: 2017/sheet
+updated: 201708
 ---
 
-## Day 1: Upper Body Power
+### Day 1: Upper Body Power
 
 | Purpose           | Movement                         | Sets x Reps |
 | ----              | ----                             | ----        |
@@ -17,8 +19,9 @@ category: Fitness
 | ----              | ----                             | ----        |
 | Aux: curling      | Cambered bar curls               | 3 x 6-10    |
 | Aux: extension    | Skull crushers                   | 3 x 6-10    |
+{: .-headers}
 
-## Day 2: Lower Body Power
+### Day 2: Lower Body Power
 
 | Purpose                 | Movement                            | Sets x Reps |
 | ----                    | ----                                | ----        |
@@ -32,8 +35,9 @@ category: Fitness
 | ----                    | ----                                | ----        |
 | Aux: calf               | Standing calf raise                 | 3 x 6-10    |
 | Aux: calf               | Seated calf raise                   | 2 x 6-10    |
+{: .-headers}
 
-## Day 4: Upper Body Hypertrophy
+### Day 4: Upper Body Hypertrophy
 
 | Purpose          | Movement                                     | Sets x Reps |
 | ----             | ----                                         | ----        |
@@ -47,10 +51,11 @@ category: Fitness
 | Shoulder         | Seated dumbbell presses                      | 3 x 8-12    |
 | Shoulder         | Upright rows                                 | 2 x 12-15   |
 | Shoulder         | Side lateral raises with dumbbells or cables | 3 x 12-20   |
+{: .-headers}
 
 Speed work: with 65-70% of normal 3-5 rep max
 
-## Day 5: Lower Body Hypertrophy
+### Day 5: Lower Body Hypertrophy
 
 | Purpose          | Movement           | Sets x Reps |
 | ----             | ----               | ----        |
@@ -66,8 +71,9 @@ Speed work: with 65-70% of normal 3-5 rep max
 | ----             | ----               | ----        |
 | Calf             | Donkey calf raises | 4 x 10-15   |
 | Calf             | Seated calf raises | 3 x 15-20   |
+{: .-headers}
 
-## Day 6: Chest/Arms Hypertrophy
+### Day 6: Chest/Arms Hypertrophy
 
 | Purpose           | Movement                                  | Sets x Reps |
 | ----              | ----                                      | ----        |
@@ -83,3 +89,4 @@ Speed work: with 65-70% of normal 3-5 rep max
 | Extension         | Seated tricep extension with cambered bar | 3 x 8-12    |
 | Extension         | Cable pressdowns with rope attachment     | 2 x 12-15   |
 | Extension         | Cable kickbacks                           | 2 x 15-20   |
+{: .-headers}

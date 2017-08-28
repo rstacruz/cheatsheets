@@ -1,15 +1,14 @@
-<a class='{{ include.class }} -item-{{ include.page.url | remove: '.html' | remove: '/' }}'
+{% assign slug = include.page.url | remove: '.html' | remove_first: '/' %}
+<a class='{{ include.class }} -item-{{ slug }}'
   href="{{base}}{{ include.page.url | remove: '.html' }}"
-  data-js-searchable-item='{"slug":"{{ include.page.url | remove: '.html' | remove: '/' }}","category":"{{ include.page.category }}"}'>
+  data-js-searchable-item='{"slug":"{{ slug }}","category":"{{ include.page.category }}"}'>
   <span class='info'>
-    <code class='slug'>{{ include.page.url | remove: '.html' | remove: '/' }}</code>
+    <code class='slug'>{{ slug }}</code>
 
     {% if include.page.layout == '2017/sheet' %}
     <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
     {% endif %}
 
-    {% if include.page.title | downcase != include.page.url | remove: '.html' | remove: '/' %}
-      <span class='title'>{{ include.page.title }}</span>
-    {% endif %}
+    <span class='title'>{{ include.page.title }}</span>
   </span>
 </a>

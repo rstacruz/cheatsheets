@@ -5,6 +5,10 @@
 .main-heading {
   @include heading-style;
 
+  & {
+    margin-top: 32px;
+  }
+
   & > h1 {
     @include font-size(6);
     line-height: 1.2;

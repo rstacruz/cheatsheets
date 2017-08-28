@@ -11,12 +11,10 @@ html_class: home
   <div class='pages-list'>
     {% for page in site.pages %}
       {% if page.category == category %}
-        {% if page.type == article %}
-          <a href="{{base}}{{ page.url | remove: '.html' }}">
-            <span class='title'>{{ page.title }}</span>
-            <span class='date'>{{ page.url | remove: '.html' | remove: '/' }}</span>
-          </a>
-        {% endif %}
+        <a href="{{base}}{{ page.url }}">
+          <span class='title'>{{ page.title }}</span>
+          <span class='date'>{{ page.url | remove: '.html' | remove: '/' }}</span>
+        </a>
       {% endif %}
     {% endfor %}
   </div>

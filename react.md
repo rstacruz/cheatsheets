@@ -484,7 +484,7 @@ Also see
 {: .-one-column}
 
 * This reference was made for React v15.
-* [React v0.14 cheatsheet](react@0.14.html) _Legacy version_
+* [React v0.14 cheatsheet](react@0.14) _Legacy version_
 * [React website](http://facebook.github.io/react) _facebook.github.io_
 {:.-also-see}
 

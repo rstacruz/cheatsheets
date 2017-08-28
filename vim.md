@@ -264,12 +264,12 @@ Also see
 --------
 {: .-one-column}
 
-* [Digraphs](vim-digraphs.html)
-* [Help text](vim-help.html)
-* [Vimscript](vimscript.html)
-* [Vim-unite](vim-unite.html)
-* [Vim-easyalign](vim-easyalign.html)
-* [Vim-rails](vim-rails.html)
+* [Digraphs](vim-digraphs)
+* [Help text](vim-help)
+* [Vimscript](vimscript)
+* [Vim-unite](vim-unite)
+* [Vim-easyalign](vim-easyalign)
+* [Vim-rails](vim-rails)
 {: .-also-see}
 
 This reference was made for Vim 8.0.

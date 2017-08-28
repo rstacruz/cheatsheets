@@ -11,8 +11,10 @@
     flex: 0 0 50%;
   }
 
-  > .item.top-sheet {
-    flex: 0 0 25%;
+  @media (min-width: 581px) {
+    > .item.top-sheet {
+      flex: 0 0 25%;
+    }
   }
 }
 

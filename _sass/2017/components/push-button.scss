@@ -6,7 +6,11 @@
 
   &,
   &:visited {
-    background: $base-a;
+    background-color: $base-a;
+    background: linear-gradient(
+      to right,
+      $base-a,
+      adjust-color($base-a, $lightness: 2%, $hue: 16deg));
     color: white;
   }
 

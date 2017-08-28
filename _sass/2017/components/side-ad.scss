@@ -2,7 +2,7 @@
   @include font-size(-1);
   @include carbon-style;
 
-  @media (min-width: 769px) {
+  @media (min-width: 961px) {
     position: absolute;
     right: 32px;
     top: 80px;
@@ -14,7 +14,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     & {
       margin: 16px auto;
       max-width: 300px;

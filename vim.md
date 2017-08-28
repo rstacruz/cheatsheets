@@ -2,6 +2,7 @@
 title: Vim
 category: Vim
 layout: 2017/sheet
+tags: [Featured]
 ---
 
 Getting started

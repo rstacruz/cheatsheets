@@ -6,13 +6,16 @@
 
     <div class='actions'>
       {% include social-list.html class="social page-actions" page=include.page %}
-      <ul class='page-actions'>
-        <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
-          <a href='https://github.com/rstacruz/cheatsheets/blob/gh-pages/{{ page.path | remove: '.html' }}'>
-            <span class='text -visible'>Edit</span>
-          </a>
-        </li>
-      </ul>
+
+      {% if include.page.type == 'article' %}
+        <ul class='page-actions'>
+          <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
+            <a href='https://github.com/rstacruz/cheatsheets/blob/gh-pages/{{ page.path | remove: '.html' }}'>
+              <span class='text -visible'>Edit</span>
+            </a>
+          </li>
+        </ul>
+      {% endif %}
     </div>
   </div>
 </div>

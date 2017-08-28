@@ -1,0 +1,55 @@
+.search-box {
+  background: $base-panel;
+  box-shadow: $shadow3;
+
+  & > input {
+    padding: 16px;
+    background: transparent;
+    border: 0;
+    width: 100%;
+  }
+}
+
+.pages-list {
+  > .item {
+    border-top: solid 1px $dark-line-color;
+    padding: 4px 0;
+  }
+
+  > .article {
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    padding-left: 8px;
+
+    &,
+    &:visited {
+      color: $base-mute;
+    }
+
+    &:hover,
+    &:focus {
+      & > code {
+        color: $base-a;
+      }
+    }
+
+    & > code {
+      color: $base-head;
+    }
+
+    & > .title::before {
+      content: '/ ';
+      margin: 0 8px;
+      color: $base-mute;
+      opacity: 0.5;
+    }
+  }
+
+  > .category {
+    @include font-size(1);
+    margin: 0;
+    font-weight: normal;
+    color: $base-b;
+  }
+}

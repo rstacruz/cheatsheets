@@ -1,0 +1,33 @@
+---
+type: website
+---
+{% include 2017/head.html %}
+
+{% include 2017/top-nav.html page=page %}
+
+<div class='body-area -slim'>
+  <div class='search-box'>
+    <input type='text' placeholder='Search...' />
+  </div>
+
+  <div class='pages-list'>
+    {% for category in site.category_names %}
+      <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}'>
+        <span>{{ category }}</span>
+      </h2>
+
+      {% for page in site.pages %}
+        {% if page.category == category %}
+          {% if page.type == article %}
+            <a class='article item' href="{{base}}{{ page.url | remove: '.html' }}">
+              <code class='slug'>{{ page.url | remove: '.html' | remove: '/' }}</code>
+              <span class='title'>{{ page.title }}</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% include 2017/foot.html %}

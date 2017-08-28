@@ -58,6 +58,10 @@
     @include action-bar;
   }
 
+  & + & {
+    margin-left: 8px;
+  }
+
   & > .facebook > a::before {
     @include ion-icon('logo-facebook');
   }
@@ -75,9 +79,16 @@
     border-radius: 2px;
     padding: 0 16px;
     margin: 0 8px;
+    transition: all 100ms linear;
 
     & > .text {
       margin-left: 4px;
+    }
+
+    &:hover,
+    &:focus {
+      background: $base-panel;
+      box-shadow: $shadow3;
     }
   }
 

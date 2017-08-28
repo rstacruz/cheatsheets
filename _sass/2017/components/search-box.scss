@@ -13,6 +13,10 @@
     Flex: 1 0 auto;
   }
 
+  & > input:focus {
+    outline: 0;
+  }
+
   &::before {
     @include ion-icon('md-search');
     font-size: 32px;

@@ -20,8 +20,10 @@
   & th {
     padding: 8px 16px;
     vertical-align: top;
+    text-align: left;
   }
 
+  & tr th:last-child,
   & tr td:last-child {
     text-align: right;
   }
@@ -50,6 +52,11 @@
   & thead {
     display: none;
   }
+
+  & thead th {
+    font-weight: normal;
+    color: $base-a;
+  }
 }
 
 .MarkdownBody table.-shortcuts {
@@ -63,5 +70,20 @@
     letter-spacing: 0.2em;
     font-family: $body-font;
     color: $base-text;
+  }
+}
+
+.MarkdownBody table.-left-align {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
+  }
+}
+
+.MarkdownBody table.-headers {
+  & thead {
+    display: table-header-group;
+    border-bottom: solid 1px $dark-line-color;
   }
 }

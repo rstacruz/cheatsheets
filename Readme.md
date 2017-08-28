@@ -17,6 +17,8 @@
 `table` supports these:
 
     {: .-shortcuts}
+    {: .-left-align}
+    {: .-headers}
 
 `pre` supports these:
 

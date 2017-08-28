@@ -1,5 +1,6 @@
 ---
 title: Jade
+category: JavaScript libraries
 ---
 
 ```

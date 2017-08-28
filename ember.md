@@ -1,5 +1,6 @@
 ---
 title: Ember.js
+category: JavaScript libraries
 ---
 
 {% raw %}

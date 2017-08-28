@@ -41,3 +41,16 @@ ads: false           # Add this to disable ads
 updated: 201708      # To show in the updated list (update _config.yml)
 ---
 ```
+
+## Setting up redirects
+
+This example sets up a redirect from `es2015` to `es6`:
+
+```yml
+# /es2015.md
+---
+title: ES2015
+category: Hidden
+redirect_to: /es6
+---
+```

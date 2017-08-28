@@ -18,8 +18,10 @@ type: website
       Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a
       modest collection of cheatsheets I've written.
     </p>
-    <form data-js-search-form class='search-box search'>
-      <input type='text' placeholder='Search...' autofocus data-js-search-input>
+    <form data-js-search-form class='search'>
+      <label class='search-box'>
+        <input type='text' placeholder='Search...' autofocus data-js-search-input>
+      </label>
     </form>
   </div>
 
@@ -35,10 +37,12 @@ type: website
     </h2>
 
     {% for page in site.pages %}
-      {% if page.updated >= site.last_updated %}
-        {% unless page.tags contains 'Featured' %}
-          {% include 2017/pages-list-item.html page=page class='article item' %}
-        {% endunless %}
+      {% if page.updated %}
+        {% if page.updated >= site.last_updated %}
+          {% unless page.tags contains 'Featured' %}
+            {% include 2017/pages-list-item.html page=page class='article item' %}
+          {% endunless %}
+        {% endif %}
       {% endif %}
     {% endfor %}
 

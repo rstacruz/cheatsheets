@@ -1,0 +1,6 @@
+<a class='article item' href="{{base}}{{ include.page.url | remove: '.html' }}">
+  <code class='slug'>{{ include.page.url | remove: '.html' | remove: '/' }}</code>
+  {% if include.page.title | downcase != include.page.url | remove: '.html' | remove: '/' %}
+    <span class='title'>{{ include.page.title }}</span>
+  {% endif %}
+</a>

@@ -11,6 +11,16 @@ type: website
   </div>
 
   <div class='pages-list'>
+    <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}'>
+      <span>Top cheatsheets</span>
+    </h2>
+
+    {{ site.tags }}
+
+    {% for page in site.tags.Featured %}
+      {% include 2017/pages-list-item.html page=page %}
+    {% endfor %}
+
     {% for category in site.category_names %}
       <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}'>
         <span>{{ category }}</span>
@@ -19,12 +29,7 @@ type: website
       {% for page in site.pages %}
         {% if page.category == category %}
           {% if page.type == article %}
-            <a class='article item' href="{{base}}{{ page.url | remove: '.html' }}">
-              <code class='slug'>{{ page.url | remove: '.html' | remove: '/' }}</code>
-              {% if page.title | downcase != page.url | remove: '.html' | remove: '/' %}
-                <span class='title'>{{ page.title }}</span>
-              {% endif %}
-            </a>
+            {% include 2017/pages-list-item.html page=page %}
           {% endif %}
         {% endif %}
       {% endfor %}

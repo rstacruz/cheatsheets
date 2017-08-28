@@ -37,7 +37,7 @@ GitHub Metadata
 ### Configuration
 
 ```yaml
-whitelist:
+plugins:
   - jekyll-github-metadata
 
 repository: username/project
@@ -70,7 +70,7 @@ Gists
 ### Configuration
 
 ```yaml
-whitelist:
+plugins:
   - jekyll-gist
 ```
 
@@ -90,7 +90,7 @@ Mentions
 ### Configuration
 
 ```yaml
-whitelist:
+plugins:
   - jekyll-mentions
 ```
 
@@ -112,7 +112,7 @@ Redirects
 ### Configuration
 
 ```yaml
-whitelist:
+plugins:
     - jekyll-redirect-from
 ```
 

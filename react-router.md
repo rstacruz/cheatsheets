@@ -2,7 +2,6 @@
 title: React-router
 category: React
 layout: default-ad
-tags: [Featured]
 ---
 
 {% raw %}

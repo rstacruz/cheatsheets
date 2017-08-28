@@ -3,6 +3,7 @@ title: Vim
 category: Vim
 layout: 2017/sheet
 tags: [Featured]
+updated: 201708
 ---
 
 Getting started

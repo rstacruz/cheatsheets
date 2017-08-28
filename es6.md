@@ -3,6 +3,7 @@ title: ES2015+
 category: JavaScript
 layout: 2017/sheet
 tags: [Featured]
+updated: 201708
 ---
 
 ### Promises

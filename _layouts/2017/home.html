@@ -5,10 +5,23 @@ type: website
 
 {% include 2017/top-nav.html page=page %}
 
+<div class='SideAd'>
+  <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
+</div>
+
 <div class='body-area -slim'>
-  <form data-js-search-form class='search-box'>
-    <input type='text' placeholder='Search...' autofocus data-js-search-input>
-  </form>
+  <div class='site-header'>
+    <h1>
+      Rico's cheatsheets
+    </h1>
+    <p>
+      Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a
+      modest collection of cheatsheets I've written.
+    </p>
+    <form data-js-search-form class='search-box search'>
+      <input type='text' placeholder='Search...' autofocus data-js-search-input>
+    </form>
+  </div>
 
   <div class='pages-list'>
     <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>

@@ -1,0 +1,27 @@
+.site-header {
+  margin: 32px 0;
+
+  & > p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: $base-mute;
+  }
+
+  & > p > a {
+    text-decoration: none;
+  }
+
+  & > h1 {
+    @include font-size(5);
+    margin: 0;
+    padding: 0;
+    color: $base-head;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  & > .search {
+    margin-top: 32px;
+  }
+}

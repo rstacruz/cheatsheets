@@ -1,0 +1,26 @@
+.search-box {
+  background: $base-panel;
+  box-shadow: $shadow3;
+  display: flex;
+  height: 64px;
+
+  & > input {
+    @include font-size(2);
+    padding: 16px;
+    height: 64px;
+    background: transparent;
+    border: 0;
+    Flex: 1 0 auto;
+  }
+
+  &::before {
+    @include ion-icon('md-search');
+    font-size: 32px;
+    color: $base-head;
+    flex: 0 0 48px;
+    width: 48px;
+    line-height: 64px;
+    text-indent: 16px;
+    text-align: center;
+  }
+}

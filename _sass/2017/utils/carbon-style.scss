@@ -1,0 +1,44 @@
+/*
+ * Base carbon ads style
+ */
+
+@mixin carbon-style {
+  .carbon-img,
+  .carbon-text,
+  .carbon-poweredby {
+    text-decoration: none;
+    display: block;
+  }
+
+  .carbon-img {
+    width: 130px;
+    height: 100px;
+    box-shadow: $shadow3;
+  }
+
+  .carbon-img > img {
+    border-radius: 3px;
+    background: white;
+  }
+
+  .carbon-img:hover {
+    transform: translate3d(0, -1px, 0);
+    box-shadow: $shadow6;
+  }
+
+  .carbon-text,
+  .carbon-text:visited {
+    color: $gray-text;
+  }
+
+  .carbon-poweredby,
+  .carbon-poweredby:visited {
+    color: lighten($gray-text, 20%);
+  }
+
+  .carbon-text:hover,
+  .carbon-poweredby:hover {
+    color: $base-a;
+  }
+}
+

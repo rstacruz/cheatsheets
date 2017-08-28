@@ -1,0 +1,35 @@
+.SideAd {
+  @include font-size(-1);
+  @include carbon-style;
+
+  @media (min-width: 769px) {
+    position: absolute;
+    right: 32px;
+    top: 80px;
+
+    width: 130px;
+
+    .carbon-img {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & {
+      margin: 16px auto;
+      max-width: 300px;
+    }
+
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+      zoom: 1;
+    }
+
+    .carbon-img {
+      float: left;
+      margin-right: 16px;
+    }
+  }
+}

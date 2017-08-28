@@ -37,7 +37,9 @@ type: website
 
       {% for page in site.pages %}
         {% if page.category == category %}
-          {% include 2017/pages-list-item.html page=page class='article item' %}
+          {% if page.title %}
+            {% include 2017/pages-list-item.html page=page class='article item' %}
+          {% endif %}
         {% endif %}
       {% endfor %}
     {% endfor %}

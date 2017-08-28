@@ -110,9 +110,9 @@ Parameter expansions
 ```bash
 name="John"
 echo ${name}
-echo ${name/J/j}       #=> "john" (substitution)
-echo ${name:0:2}       #=> "jo" (slicing)
-echo ${food:-Cake}     #=> $food or "Cake"
+echo ${name/J/j}    #=> "john" (substitution)
+echo ${name:0:2}    #=> "jo" (slicing)
+echo ${food:-Cake}  #=> $food or "Cake"
 ```
 
 ```bash

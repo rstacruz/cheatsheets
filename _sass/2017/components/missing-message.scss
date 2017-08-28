@@ -20,23 +20,3 @@
     color: $base-mute;
   }
 }
-
-.push-button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 3px;
-
-  &,
-  &:visited {
-    background: $base-a;
-    color: white;
-  }
-
-  &:hover,
-  &:focus {
-    background: darken($base-a, 16%);
-    box-shadow: none;
-    color: white;
-  }
-}

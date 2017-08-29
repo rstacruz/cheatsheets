@@ -83,7 +83,7 @@
   & > a,
   & > a:visited {
     background: white;
-    color: $base-text;
+    color: $base-mute;
 
     & > strong {
       color: $base-a;
@@ -103,7 +103,7 @@
   &:first-of-type > a,
   &:first-of-type > a:visited {
     background: $base-a;
-    color: white;
+    color: rgba(white, 0.5);
 
     & > strong {
       color: white;
@@ -139,6 +139,5 @@
 
   & > a > span {
     @include font-size(-1);
-    opacity: 0.5;
   }
 }

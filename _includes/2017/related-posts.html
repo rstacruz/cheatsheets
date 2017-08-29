@@ -1,10 +1,10 @@
-{% assign category_posts = site.pages
+{% assign category_pages = site.pages
   | where: "category", include.page.category
   | where_exp: "page", "page.url != include.page.url"
   | where_exp: "page", "page.deprecated != true"
   | sort: "weight", "last"
 %}
-{% assign top_posts = site.pages
+{% assign top_pages = site.pages
   | where_exp: "page", "page.tags contains 'Featured'"
   | where_exp: "page", "page.url != include.page.url"
   | where_exp: "page", "page.deprecated != true"
@@ -19,16 +19,16 @@
     {% endif %}
 
     <ul class='related-post-list'>
-      {% for post in category_posts limit: 6 %}
-        {% include 2017/related-posts-item.html post=post class='item related-post-item' %}
+      {% for page in category_pages limit: 6 %}
+        {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
       {% endfor %}
     </ul>
 
     <h3>Top cheatsheets</h3>
 
     <ul class='related-post-list'>
-      {% for post in top_posts limit: 6 %}
-        {% include 2017/related-posts-item.html post=post class='item related-post-item' %}
+      {% for page in top_pages limit: 6 %}
+        {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
       {% endfor %}
     </ul>
   </div>

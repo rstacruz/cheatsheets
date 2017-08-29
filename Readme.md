@@ -8,6 +8,7 @@
 
     {: .-two-column}
     {: .-three-column}
+    {: .-wide-second}       # combine with -x-column
     {: .-left-reference}
 
 `h3` supports these:

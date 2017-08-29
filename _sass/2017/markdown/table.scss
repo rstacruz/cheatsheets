@@ -1,3 +1,11 @@
+@mixin table-align-left {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
+  }
+}
+
 /*
  * Table
  */
@@ -74,16 +82,39 @@
 }
 
 .MarkdownBody table.-left-align {
-  & tr th,
-  & tr td,
-  & tr td:last-child {
-    text-align: left;
-  }
+  @include table-align-left;
 }
 
 .MarkdownBody table.-headers {
   & thead {
     display: table-header-group;
     border-bottom: solid 1px $dark-line-color;
+  }
+}
+
+/*
+ * Key-value pairs (like in css)
+ */
+
+.MarkdownBody table.-key-values {
+  & tbody tr td + td code {
+    display: block;
+  }
+}
+
+.MarkdownBody table.-css-breakdown {
+  @include table-align-left;
+
+  & tr td {
+    @include font-size(1);
+  }
+
+  & tr:last-child {
+    background: $gray-bg;
+  }
+
+  & tr:last-child td {
+    @include font-size(-1);
+    color: $base-mute;
   }
 }

@@ -79,6 +79,12 @@
   }
 }
 
+.h3-section-list.-wide-second {
+  & > .h3-section:nth-child(2) {
+    width: 100%;
+  }
+}
+
 /*
  * Three column, left reference
  */

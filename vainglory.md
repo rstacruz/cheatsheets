@@ -1,30 +1,31 @@
 ---
 title: Vainglory
-category: Misc
+layout: 2017/sheet
 ---
 
-Last updated for Vainglory 1.22 with some 2.0 stuff.
-{:.center}
-
 ## T3 items by use
+{: .-one-column}
 
 | Use                   | CP                                | WP                           | Util                                                                           |
 | ---                   | ---                               | ---                          | ---                                                                            |
 | __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                                                |
 | __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                                                |
-| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM]                |                                                                                |
+| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM], [Shiv][PS]    |                                                                                |
 | __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                                                |
 | __Bonus damage__      |                                   | [Tension][TB]                |                                                                                |
-| __Attack speed__      | [Alt][AC]                         | [Tornado][TT], [Break][BP]   |                                                                                |
+| __Attack speed__      | [AC][AC]                          | [Tornado][TT], [Break][BP]   |                                                                                |
 | __Critical__          |                                   | [Monocle][TM]                |                                                                                |
-| __Basic damage__      | [Aftershock][AS], [Alt][AC]       |                              | [Stormcrown][SC]                                                               |
+| __Basic damage__      | [Aftershock][AS], [AC][AC]        |                              | [Stormcrown][SC]                                                               |
 | __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
 | __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
 | __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |
 | __Ability repeat__    | [Echo][Echo]                      |                              |                                                                                |
-{:.wide}
+{: .-left-align.-headers}
 
-## T3 CP items
+## Tier 3 items
+{: .-one-column}
+
+### Crystal power
 
 | Item                          | Cost  | CP      | Use                                                                                    |
 | ----                          | ---   | ---     | ---                                                                                    |
@@ -35,8 +36,8 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | FB: [Frostburn][FB]           | 2600  | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
 | SG: [Shatterglass][SG]        | 3000  | +150 cp | __Raw power__            <br> -                                                        |
 | CW: [Clockwork][CW]           | 2500  | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
-| [Echo][Echo] (2.0)            | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
-{:.wide}
+| [Echo][Echo]                  | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
+{: .-left-align.-headers}
 
 [AS]: http://www.vaingloryfire.com/vainglory/wiki/items/aftershock
 [AC]: http://www.vaingloryfire.com/vainglory/wiki/items/alternating-current
@@ -47,19 +48,19 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [FB]: http://www.vaingloryfire.com/vainglory/wiki/items/frostburn
 [Echo]: http://www.vaingloryfire.com/vainglory/wiki/items/echo
 
-## T3 WP items
+### Weapon power
 
-| Item                       | Cost | WP      | Other                                                                   |
-| ----                       | ---  | ---     | ---                                                                     |
-| TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg |
-| BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                            |
-| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce            |
-| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg                 |
-| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed             |
-| SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal              |
-| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                                 |
-| PS: [Poison Shiv][PS]      | ?    | ?       | __Mortal wounds__ <br> -                                                |
-{:.wide}
+| Item                       | Cost | WP      | Other                                                                         |
+| ----                       | ---  | ---     | ---                                                                           |
+| TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg       |
+| BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                                  |
+| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce                  |
+| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg                       |
+| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed                   |
+| SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal                    |
+| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                                       |
+| PS: [Poisoned Shiv][PS]    | 2250 | +30 wp  | __Mortal wounds__ <br> *mortal wounds for 2s*, +10% lifesteal, +30% atk speed |
+{: .-left-align.-headers}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw
 [BP]: http://www.vaingloryfire.com/vainglory/wiki/items/breaking-point
@@ -68,9 +69,9 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [TB]: http://www.vaingloryfire.com/vainglory/wiki/items/tension-bow
 [TT]: http://www.vaingloryfire.com/vainglory/wiki/items/tornado-trigger
 [TM]: http://www.vaingloryfire.com/vainglory/wiki/items/tyrants-monocle
-[PS]: http://www.vaingloryfire.com/vainglory/wiki/items/poison-shiv
+[PS]: http://www.vaingloryfire.com/vainglory/wiki/items/poisoned-shiv
 
-## T3 Utils by HP
+### Utilities
 
 | Item                            | Cost | HP      | Use                                                                 |
 | ---                             | ---  | ---     | ---                                                                 |
@@ -81,9 +82,9 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | [Contraption][Con]              | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
 | [Shiversteel][SS]               | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
 | [War Treads][WBoot]             | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
-{:.wide}
+{: .-left-align.-headers}
 
-## T3 Defense
+### Defense
 
 | Item                            | Cost | HP      | Armor   | Shield  | Use                                             |
 | ---                             | ---  | ---     | ---     | ---     | ---                                             |
@@ -93,7 +94,7 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 | [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                                 |
 | [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)                      |
 | [Slumbering Husk][Husk] (2.0)   | 1600 | +400 hp |         |         | __Fortification__ (when taking too much damage) |
-{:.wide}
+{: .-left-align.-headers}
 
 [Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal
 [Cru]: http://www.vaingloryfire.com/vainglory/wiki/items/aegis
@@ -103,14 +104,14 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [Husk]: http://www.vaingloryfire.com/vainglory/wiki/items/slumbering-husk
 [Null]: http://www.vaingloryfire.com/vainglory/wiki/items/nullwave-gauntlet
 
-## T3 Boots
+### Boots
 
 | Item                      | Movement speed | HP      | Sprint                                          | Use            |
 | ---                       | ---            | ---     | ---                                             | ---            |
 | [War Treads][WBoot]       | +0.4           | +600 hp | 2s (60s cooldown) <br> incl. nearby teammates   | __HP, assist__ |
 | [Halcyon Chargers][HBoot] | +0.5           |         | 3s (50s cooldown)                               | __Energy__     |
 | [Journey Boots][JBoot]    | +0.6           | +250 hp | 2s (60s cooldown) <br> damaging resets cooldown | __Gap close__  |
-{:.wide}
+{: .-left-align.-headers}
 
 [Con]: http://www.vaingloryfire.com/vainglory/wiki/items/contraption
 [HBoot]: http://www.vaingloryfire.com/vainglory/wiki/items/halcyon-chargers
@@ -119,21 +120,24 @@ Last updated for Vainglory 1.22 with some 2.0 stuff.
 [SC]: http://www.vaingloryfire.com/vainglory/wiki/items/stormcrown
 [SS]: http://www.vaingloryfire.com/vainglory/wiki/items/shiversteel
 
-## [Skill tier names](http://www.vaingloryfire.com/vainglory/forum/general-discussion/bronze-silver-gold-rankings-5312)
+## Skill tier names
 
-1. Just Beginning
-2. Getting There
-3. Rock Solid
-4. Worthy Foe
-5. Got Swagger
-6. Credible Threat
-7. The Hotness
-8. Simply Amazing
-9. Pinnacle of Awesome
-10. Vainglorious
+| Just Beginning | 1 |
+| Getting There | 2 |
+| Rock Solid | 3 |
+| Worthy Foe |4 |
+| Got Swagger | 5 |
+| Credible Threat | 6 |
+| The Hotness | 7 |
+| Simply Amazing | 8 |
+| Pinnacle of Awesome | 9 |
+| Vainglorious | 10 |
 
-## Useful references
+See: [Skill tier names](http://www.vaingloryfire.com/vainglory/forum/general-discussion/bronze-silver-gold-rankings-5312)
 
+## References
+
+- Last updated for Vainglory 1.22 with some 2.0 stuff.
 - [Vaingloryfire.com](http://www.vaingloryfire.com/)
 - [Version history](http://forums.vainglorygame.com/index.php?threads/41129/) (forums.vainglorygame.com)
 - [Skill tier points](http://brokenmyth.net/skill-tier-point-far-next-tier/#more-10043) (brokenmyth.net)

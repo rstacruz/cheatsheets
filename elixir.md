@@ -7,7 +7,102 @@ updated: 201708
 weight: -10
 ---
 
-## Reference
+## Getting started
+{: .-three-column}
+
+### Hello world
+{: .-prime}
+
+```elixir
+# hello.exs
+defmodule Greeter do
+  def greet(name) do
+    IO.puts "Hello, " <> name <> "!"
+  end
+end
+
+Greeter.greet("world")
+```
+
+```bash
+elixir hello.exs
+# Hello, world!
+```
+{: .-setup}
+
+### Variables
+
+```elixir
+age = 23
+```
+
+### Maps
+
+```elixir
+user = %{
+  name: "John",
+  city: "Melbourne"
+}
+```
+
+```elixir
+IO.puts "Hello, " <> user.name
+```
+{: .-setup}
+
+### Lists
+
+```elixir
+users = [ "Tom", "Dick", "Harry" ]
+```
+{: data-line="1"}
+
+```elixir
+Enum.map(user, fn user ->
+  IO.puts "Hello " <> user
+end)
+```
+
+### Piping
+
+```elixir
+source
+|> transform(:hello)
+|> print()
+```
+{: data-line="2,3"}
+
+```elixir
+# Same as:
+print(transform(source, :hello))
+```
+
+These two are equivalent.
+
+### Pattern matching
+
+```elixir
+user = %{name: "Tom", age: 23}
+%{name: username} = user
+```
+{: data-line="2"}
+
+This sets `username` to `"Tom"`.
+
+### Pattern matching in functions
+
+```elixir
+def greet(%{name: username}) do
+  IO.puts "Hello, " <> username
+end
+
+user = %{name: "Tom", age: 23}
+```
+{: data-line="1"}
+
+Pattern matching works in function parameters too.
+
+## Types
 
 ### Primitives
 

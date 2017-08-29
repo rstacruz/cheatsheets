@@ -6,14 +6,18 @@ tags: [WIP]
 updated: 201708.29
 ---
 
+## Schemas
+{: .-three-column}
+
 ### Generating
 
 ```bash
-$ mix phx.gen.html Accounts Profile profiles email:string age:integer
-```
-
-```bash
-$ mix phx.gen.html Accounts User users email:string hashed_password:string
+$ mix phx.gen.html \
+    Accounts \       # domain
+    Profile \        # schema
+    profiles \       # table name
+    email:string \
+    age:integer
 ```
 
 ### Schema
@@ -25,9 +29,6 @@ defmodule Myapp.Accounts.User do
   schema "users" do
     field :name
     field :age, :integer
-    # :id :binary :integer :float :boolean :string :binary
-    # {:array, inner_type} :decimal :map
-
     field :password, virtual: true
 
     timestamps()

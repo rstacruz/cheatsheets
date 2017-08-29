@@ -1,33 +1,42 @@
 ---
 title: Erlang ETS
 category: Elixir
+layout: 2017/sheet
 ---
+
+## ETS
+
+### Usage
 
 ```elixir
 iex> table = :ets.new(:my_table, [])
      8211
+```
 
+```elixir
 iex> :ets.insert(table, {:fruit, "Apple"})
 iex> :ets.lookup(table, :fruit)
      [{:fruit, "Apple"}]
+```
 
+```elixir
 iex> :ets.delete(table)
 iex> :ets.delete_all_objects(table)
 ```
 
 ### Flags
 
-```
+```elixir
 iex> table = :ets.new(:my_table, [:set, :protected])
 ```
+{: .-setup}
 
-- `:set` - no duplicate keys (or: `:ordered_set`, `:bag`, `:duplicate_bag`)
-- `:protected` - only this process can use it (or: `:public`, `:private`)
+| `:set` | no duplicate keys (or: `:ordered_set`, `:bag`, `:duplicate_bag`) |
+| `:protected` | only this process can use it (or: `:public`, `:private`) |
 
-### Other functions
+### Ordered sets
 
 ```elixir
-# Ordered sets
 :ets.first(table)
 :ets.last(table)
 :ets.next(table, key)
@@ -35,6 +44,7 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 ```
 
 ## References
+{: .-one-column}
 
 * <http://erlang.org/doc/man/ets.html>
 * <http://learnyousomeerlang.com/ets>

@@ -4,9 +4,9 @@ category: Jekyll
 layout: 2017/sheet
 ---
 
-## Setting up a domain
+## Custom domains
 
-### Update your repo
+### Custom domains
 
 ```sh
 $ echo "foobar.com" > CNAME
@@ -14,6 +14,8 @@ $ git commit && git push
 ```
 
 Create a `CNAME` file with your domain on it.
+
+See: [Setting up a custom domain](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/) _(github.com)_
 
 ### Set up your domain
 
@@ -30,7 +32,8 @@ Apex domains:
 Apex domains (alternative):
 {: .-setup}
 
-    A => 192.30.252.153, 192.30.252.154
+    A => 192.30.252.153
+    A => 192.30.252.154
 
 ## References
 {: .-one-column}

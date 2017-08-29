@@ -50,7 +50,9 @@
   }
 }
 
-.MarkdownBody pre.-setup {
+.MarkdownBody pre.-setup,
+.MarkdownBody p.-setup,
+.MarkdownBody ul.-setup {
   background: $gray-bg;
 }
 

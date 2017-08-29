@@ -1,7 +1,10 @@
 ---
-title: "CSS: System font stack"
+title: "CSS system font stack"
 category: CSS
+layout: 2017/sheet
 ---
+
+### System fonts
 
 ```css
 font-family: -apple-system, BlinkMacSystemFont,
@@ -9,6 +12,10 @@ font-family: -apple-system, BlinkMacSystemFont,
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
 ```
+
+This uses whatever system font is available. See: [System shock - Designing Medium](https://medium.design/system-shock-6b1dc6d6596f?gi=90078e194544) _(medium.com)_
+
+### Explanation
 
 | Font                 | OS                      |
 | ----                 | --                      |
@@ -23,4 +30,7 @@ font-family: -apple-system, BlinkMacSystemFont,
 | `Droid Sans`         | Android (until 3.2)     |
 | `Helvetica Neue`     | OS X (10.9)             |
 
-Reference: <https://medium.com/design/system-shock-6b1dc6d6596f>
+## Reference
+{: .-one-column}
+
+- <https://medium.com/design/system-shock-6b1dc6d6596f>

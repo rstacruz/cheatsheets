@@ -37,8 +37,11 @@ Each sheet supports these metadata:
 title: React.js
 category: React
 layout: 2017/sheet   # 'default' | '2017/sheet'
-ads: false           # Add this to disable ads
+
+# Optional:
 updated: 201708      # To show in the updated list (update _config.yml)
+ads: false           # Add this to disable ads
+weight: -5           # lower number = higher in related posts list
 ---
 ```
 

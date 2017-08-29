@@ -262,17 +262,9 @@ See `:help formatting`
 
 Do this in insert mode.
 
-Also see
---------
+References
+----------
 {: .-one-column}
-
-* [Digraphs](vim-digraphs)
-* [Help text](vim-help)
-* [Vimscript](vimscript)
-* [Vim-unite](vim-unite)
-* [Vim-easyalign](vim-easyalign)
-* [Vim-rails](vim-rails)
-{: .-also-see}
 
 This reference was made for Vim 8.0.
 

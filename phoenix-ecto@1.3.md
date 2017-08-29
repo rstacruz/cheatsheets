@@ -1,5 +1,5 @@
 ---
-title: "Phoenix: Ecto models"
+title: "Phoenix: Ecto"
 category: Elixir
 layout: 2017/sheet
 tags: [WIP]
@@ -8,8 +8,11 @@ updated: 201708.29
 
 ### Generating
 
-```
+```bash
 $ mix phx.gen.html Accounts Profile profiles email:string age:integer
+```
+
+```bash
 $ mix phx.gen.html Accounts User users email:string hashed_password:string
 ```
 

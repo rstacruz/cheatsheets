@@ -145,14 +145,22 @@ end
 
 ### Primitives
 
+| Sample                  | Type          |
+| ---                     | ---           |
 | `nil`                   | Nil/null      |
 | `true` _/_ `false`      | Boolean       |
+| ---                     | ---           |
+| `23`                    | Integer       |
+| `3.14`                  | Float         |
+| ---                     | ---           |
 | `'hello'`               | Char list     |
 | `<<2, 3>>`              | Binary        |
 | `"hello"`               | Binary string |
 | `:hello`                | Atom          |
+| ---                     | ---           |
 | `[a, b]`                | List          |
 | `{a, b}`                | Tuple         |
+| ---                     | ---           |
 | `%{a: "hello"}`         | Map           |
 | `%MyStruct{a: "hello"}` | Struct        |
 | `fn -> ... end`         | Function      |
@@ -193,6 +201,9 @@ left ++ right   # concat lists
 left <> right   # concat string/binary
 left =~ right   # regexp
 ```
+
+Modules
+-------
 
 ### Importing
 

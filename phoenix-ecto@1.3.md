@@ -1,6 +1,6 @@
 ---
 title: "Phoenix: Ecto models"
-category: Elixir
+category: Hidden
 redirect_to: /phoenix-ecto
 deprecated: true
 ---

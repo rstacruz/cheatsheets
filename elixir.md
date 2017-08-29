@@ -102,6 +102,45 @@ user = %{name: "Tom", age: 23}
 
 Pattern matching works in function parameters too.
 
+Control flow
+------------
+{: .-three-column}
+
+### If
+
+```elixir
+if false do
+  "This will never be seen"
+else
+  "This will"
+end
+```
+
+### Cond
+
+```elixir
+cond do
+  1 + 1 == 3 ->
+    "I will never be seen"
+  2 * 5 == 12 ->
+    "Me neither"
+  _ ->
+    "But I will (this is essentially an else)"
+end
+```
+
+### Errors
+
+```elixir
+try do
+  throw(:hello)
+catch
+  message -> "Got #{message}."
+after
+  IO.puts("I'm the after clause.")
+end
+```
+
 ## Types
 
 ### Primitives

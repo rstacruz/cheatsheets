@@ -1,60 +1,86 @@
 ---
 title: js-model
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
-    Project = Model "project", ->
-      @extend
-        findByTitle: (title) -> ...
+### Example
 
-      @include
-        markAsDone: -> ...
+```bash
+Project = Model "project", ->
+  @extend
+    findByTitle: (title) -> ...
 
-      # ActiveRecord::Base.include_root_in_json = false
-    });
+  @include
+    markAsDone: -> ...
 
-    project = Project.find(1)
-    project = Project.findByTitle("hello")
+  # ActiveRecord::Base.include_root_in_json = false
+```
 
-    project.markAsDone()
+```bash
+project = Project.find(1)
+project = Project.findByTitle("hello")
+
+project.markAsDone()
+```
 
 ### Persistence
 
-    Project "hi", ->
-      @persistence Model.REST, "/projects"
-      @persistence Model.localStorage
+```bash
+Project "hi", ->
+  @persistence Model.REST, "/projects"
+  @persistence Model.localStorage
+```
 
-    Project.load ->
-      // loaded
+```bash
+Project.load ->
+  # loaded
+```
 
 ### Attrs
 
-    project = new Project(name: "Hello")
+```bash
+project = new Project(name: "Hello")
 
-    project.attr('name', "Hey")
-    project.attr('name')
+project.attr('name', "Hey")
+project.attr('name')
 
-    project.save()
-    project.destroy()
+project.save()
+project.destroy()
+```
 
 ### Collection
 
-    Food.add(egg)
-    Food.all()
-    Food.select (food) -> ...
-    Food.first()
+```bash
+Food.add(egg)
+Food.all()
+Food.select (food) -> ...
+Food.first()
+```
 
-    Food.find(id)
+```bash
+Food.find(id)
+```
 
 ### Events
 
-    Project.bind "add", (obj) ->
-    Project.bind "remove", (obj) ->
+```bash
+# Classes
+Project.bind "add", (obj) ->
+Project.bind "remove", (obj) ->
+```
 
-    # Instances
-    project.bind "update", ->
-    project.bind "destroy", ->
+```bash
+# Instances
+project.bind "update", ->
+project.bind "destroy", ->
+```
 
-    project.trigger "turn_blue"
+```bash
+project.trigger "turn_blue"
+```
 
-http://benpickles.github.io/js-model/
+## References
+{: .-one-column}
+
+- <http://benpickles.github.io/js-model/>

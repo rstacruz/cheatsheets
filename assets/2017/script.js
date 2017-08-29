@@ -78,6 +78,14 @@ $(function () {
 })
 
 /*
+ * Helper for splitting to words
+ */
+
+function splitwords (str) {
+  return str.toLowerCase().split(/[ \/\-_]/)
+}
+
+/*
  * Search
  */
 
@@ -87,7 +95,7 @@ const Search = {
   },
 
   show (val) {
-    const keywords = val.split(/[ \-_]/)
+    const keywords = splitwords(val)
     const selectors = keywords
       .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
       .join('')
@@ -114,7 +122,7 @@ function permutate (data) {
 
 function permutateString (str) {
   let words = []
-  let inputs = str.toLowerCase().split(/[ \-_]/)
+  let inputs = splitwords(str)
   inputs.forEach(word => {
     words = words.concat(permutateWord(word))
   })

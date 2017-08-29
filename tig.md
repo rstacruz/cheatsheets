@@ -84,3 +84,8 @@ You can substitute `git log` → `tig`.
 
 | `i` | Change sort header |
 {: .-shortcuts}
+
+### `h` - Blame view
+
+| `,` | Parent commit |
+{: .-shortcuts}

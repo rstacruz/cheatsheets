@@ -1,0 +1,35 @@
+{% assign category_posts = site.pages
+  | where: "category", include.page.category
+  | where_exp: "page", "page.url != include.page.url"
+  | where_exp: "page", "page.deprecated != true"
+  | sort: "weight", "last"
+%}
+{% assign top_posts = site.pages
+  | where_exp: "page", "page.tags contains 'Featured'"
+  | where_exp: "page", "page.url != include.page.url"
+  | where_exp: "page", "page.deprecated != true"
+  | sort: "weight", "last"
+%}
+<div class='related-posts'>
+  <div class='container'>
+    {% if include.page.category == 'Others' %}
+      <h3>Other cheatsheets</h3>
+    {% else %}
+      <h3>Other {{ include.page.category }} cheatsheets</h3>
+    {% endif %}
+
+    <ul class='related-post-list'>
+      {% for post in category_posts limit: 6 %}
+        {% include 2017/related-posts-item.html post=post class='item related-post-item' %}
+      {% endfor %}
+    </ul>
+
+    <h3>Top cheatsheets</h3>
+
+    <ul class='related-post-list'>
+      {% for post in top_posts limit: 6 %}
+        {% include 2017/related-posts-item.html post=post class='item related-post-item' %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

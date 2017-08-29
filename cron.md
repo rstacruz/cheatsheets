@@ -3,6 +3,7 @@ title: Cron
 category: CLI
 layout: 2017/sheet
 updated: 201708
+weight: -3
 ---
 
 ## Format

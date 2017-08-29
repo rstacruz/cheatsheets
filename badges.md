@@ -1,5 +1,5 @@
 ---
-title: Code stuff
+title: Code badges
 ---
 
 Here are some badges for open source projects.

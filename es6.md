@@ -4,6 +4,7 @@ category: JavaScript
 layout: 2017/sheet
 tags: [Featured]
 updated: 201708
+weight: -10
 ---
 
 ### Promises

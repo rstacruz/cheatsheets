@@ -1,7 +1,8 @@
 ---
-title: React.js
+title: React.js (v0.14)
 category: React
 layout: default-ad
+deprecated: true
 ---
 
 {%raw%}

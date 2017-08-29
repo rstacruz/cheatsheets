@@ -408,21 +408,31 @@ Helpers and filters
 ### Array filters
 
 ```
-site.posts | where:"year","2014"
-site.posts | group_by:"genre"   #=> { name, items }
-site.posts | sort
+{{ site.pages | where: "year","2014" }}
+```
+
+```
+| where: "year","2014"
+| where_exp: "item", "item.year >= 2014"
+| group_by: "genre"   #=> { name, items }
+| sort
+| sort: 'author'
 ```
 
 ```
 | first
 | last
 | join: ","
-| array_to_sentence_string   #=> CSS, JavaScript and HTML
+| array_to_sentence_string   #=> "CSS, JS and HTML"
 ```
 
 ```
 | map: "post"   # works like 'pluck'
 | size
+```
+
+```
+{% assign list = list | push: 'd' %}
 ```
 
 ### String filters
@@ -530,6 +540,7 @@ Also see
 {: .-one-column}
 
 * [Jekyll docs](http://jekyllrb.com/docs/home/) _jekyllrb.com_
+* [CloudCannon Jekyll cheatsheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/) _cloudcannon.com_
 * [Jekyll: templates](http://jekyllrb.com/docs/templates/) _jekyllrb.com_
 * [Liquid: output](http://docs.shopify.com/themes/liquid-basics/output) _shopify.com_
 * [Liquid: logic](http://docs.shopify.com/themes/liquid-basics/logic) _shopify.com_

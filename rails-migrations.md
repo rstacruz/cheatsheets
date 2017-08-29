@@ -6,10 +6,10 @@ category: Rails
 ### Automatically make migrations
 
     $ rails generate migration RemovePartNumberFromProducts part_number:string
-    $ rails generate migration remove_part_number_from_products part_number # rails assumes string if not type given
+    $ rails generate migration remove_part_number_from_products part_number # rails assumes string if not type given - and you can use snake_case
     
     $ rails generate migration AddNameToWidgets name:string
-    $ rails generate migration add_name_to_widgets name:string
+    $ rails g migration add_name_to_widgets name:string # you can use the short cut 'g' instead of generate - they both do the same thing
 
 ### Run migrations
 

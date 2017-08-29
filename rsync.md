@@ -2,6 +2,7 @@
 title: Rsync
 category: CLI
 layout: 2017/sheet
+weight: -1
 ---
 
 ### Basic example

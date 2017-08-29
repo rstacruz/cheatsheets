@@ -35,6 +35,23 @@ defmodule Myapp.Accounts.User do
 end
 ```
 
+### Field types
+
+| Field |
+| --- |
+| `:id` |
+| `:binary` |
+| `:boolean` |
+| `:string` |
+| --- |
+| `:integer` |
+| `:float` |
+| `:decimal` |
+| --- |
+| `{:array, inner_type}` |
+| `:map` |
+{: .-left-align}
+
 ## Changesets
 
 ### Changesets

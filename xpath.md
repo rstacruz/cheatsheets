@@ -323,8 +323,8 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 
 ```bash
 # both the same
-  //ul//[last()]
-  //ul/descendant-or-self::[last()]
+//ul//[last()]
+//ul/descendant-or-self::[last()]
 ```
 
 ### Other axes

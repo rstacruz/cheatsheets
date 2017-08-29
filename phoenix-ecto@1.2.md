@@ -1,22 +1,21 @@
 ---
 title: "Phoenix: Ecto models"
 category: Elixir
-layout: 2017/sheet
-tags: [WIP]
-updated: 201708.29
 ---
 
-### Generating
+This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](phoenix-ecto@1.3.html).
+
+## Generating
 
 ```
-$ mix phx.gen.html Accounts Profile profiles email:string age:integer
-$ mix phx.gen.html Accounts User users email:string hashed_password:string
+$ mix phoenix.gen.html Profile profiles email:string age:integer
+$ mix phoenix.gen.html User users email:string hashed_password:string
 ```
 
-### Schema
+## Schema
 
 ```elixir
-defmodule Myapp.Accounts.User do
+defmodule User do
   use Ecto.Schema
 
   schema "users" do
@@ -26,15 +25,11 @@ defmodule Myapp.Accounts.User do
     # {:array, inner_type} :decimal :map
 
     field :password, virtual: true
-
-    timestamps()
   end
 end
 ```
 
 ## Changesets
-
-### Changesets
 
 ```elixir
 def changeset(user, params \\ :empty) do
@@ -67,8 +62,6 @@ def changeset(user, params \\ :empty) do
   |> no_assoc_constraint(:post)   # negative (useful for deletions)
 end
 ```
-
-### Changeset fields
 
 ```elixir
 changeset.valid?
@@ -107,7 +100,7 @@ fetch_change(changeset, :title)  #=> {:ok, "hi"} | :error
 fetch_field(changeset, :title)   #=> {:changes | :model, "value"} | :error
 ```
 
-## Repo
+## Ecto
 
 ### Get one
 

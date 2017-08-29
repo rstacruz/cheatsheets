@@ -60,7 +60,7 @@
 }
 
 .MarkdownBody table.-shortcuts {
-  code {
+  td:first-child > code {
     font-size: 1em;
     padding: 5px 6px;
     padding-left: 8px; // compensation

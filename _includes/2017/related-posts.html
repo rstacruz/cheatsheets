@@ -2,6 +2,7 @@
   | where: "category", include.page.category
   | where_exp: "page", "page.url != include.page.url"
   | where_exp: "page", "page.deprecated != true"
+  | where_exp: "page", "page.redirect_to == null"
   | sort: "weight", "last"
 %}
 {% assign top_pages = site.pages

@@ -1,27 +1,33 @@
 ---
 title: applicationCache
 category: JavaScript
+layout: 2017/sheet
 ---
+
+## Reference
+{: .-one-column}
 
 ### applicationCache checking
 
-    if (window.applicationCache){
-      // "Naturally" reload when an update is available
-      var reload = false;
-      window.applicationCache.addEventListener('updateready', function(){
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY){
-          window.applicationCache.swapCache();
-          reload = true;
-        }
-      }, false);
+```js
+if (window.applicationCache) {
+  // "Naturally" reload when an update is available
+  var reload = false
 
-      setInterval(function(){
-        try { // There's nothing to update for first-time load, browser freaks out :/
-          window.applicationCache.update();
-        } catch (e){}
-      }, 1000*60*60); // Every hour
+  window.applicationCache.addEventListener('updateready', () => {
+    if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+      window.applicationCache.swapCache()
+      reload = true
     }
+  }, false)
 
-### Reference
+  setInterval(() => {
+    try {
+      // There's nothing to update for first-time load, browser freaks out :/
+      window.applicationCache.update()
+    } catch (e) { }
+  }, 1000 * 60 * 60) // Every hour
+}
+```
 
- * https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache
+This is a deprecated HTML feature. See: [Using the application cache](https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache) _(developer.mozilla.org)_

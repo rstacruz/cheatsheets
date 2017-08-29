@@ -1,13 +1,22 @@
 ---
 title: fetch()
 category: JavaScript
+layout: 2017/sheet
+weight: -3
 ---
+
+### Fetch
+{: .-prime}
 
 ```js
 fetch('/data.json')
   .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
   .catch(err => ...)
 ```
+{: data-line="4"}
 
 ### Response
 
@@ -21,7 +30,9 @@ fetch('/data.json')
   res.redirected   //=> false
   res.ok           //=> true
   res.url          //=> 'http://site.com/data.json'
-  res.type         //=> 'basic' ('cors' 'default' 'error' 'opaque' 'opaqueredirect')
+  res.type         //=> 'basic'
+                   //   ('cors' 'default' 'error'
+                   //    'opaque' 'opaqueredirect')
 
   res.headers.get('Content-Type')
 })
@@ -47,8 +58,6 @@ fetch('/data.json', {
 
 ### Catching errors
 
-Non-2xx responses are still successful requests. Use another function to turn them to errors.
-
 ```js
 fetch('/data.json')
   .then(checkStatus)
@@ -66,13 +75,18 @@ function checkStatus (res) {
 }
 ```
 
-## Using with node.js
+Non-2xx responses are still successful requests. Use another function to turn them to errors.
+
+### Using with node.js
 
 ```js
-var fetch = require('isomorphic-fetch')
+const fetch = require('isomorphic-fetch')
 ```
 
+See: [isomorphic-fetch](https://npmjs.com/package/isomorphic-fetch) _(npmjs.com)_
+
 ## References
+{: .-one-column}
 
 - <https://fetch.spec.whatwg.org/>
 - <https://www.npmjs.com/package/whatwg-fetch>

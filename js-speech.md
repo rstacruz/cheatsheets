@@ -1,7 +1,12 @@
 ---
 title: JavaScript speech synthesis
-category: Ruby
+category: JavaScript
+layout: 2017/sheet
+weight: -1
 ---
+
+## SpeechSynthesisUtterance
+{: .-one-column}
 
 ```js
 function speak (message) {
@@ -12,6 +17,8 @@ function speak (message) {
 }
 ```
 
-## Reference
+```js
+speak('Hello, world')
+```
 
-* <https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance>
+See: [SpeechSynthesisUtterance](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance) _(developer.mozilla.org)_

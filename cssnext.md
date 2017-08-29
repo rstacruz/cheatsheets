@@ -1,15 +1,18 @@
 ---
 title: cssnext
-category: JavaScript libraries
+category: CSS
+layout: 2017/sheet
 ---
 
-## Variables
+### Variables
 
-```css
+```scss
 :root {
   --text-color: #30333a;
 }
+```
 
+```scss
 body {
   background: var(--text-color);
   background: color(var(--text-color) shade(30%));
@@ -18,9 +21,7 @@ body {
 
 ### Colors
 
-Also see [colorme.io](http://colorme.io/).
-
-```css
+```scss
 a {
   /* Adjustments */
   color: color(red alpha(-10%));
@@ -45,9 +46,11 @@ a {
 }
 ```
 
+Also see [colorme.io](http://colorme.io/).
+
 ### Mixins
 
-```css
+```scss
 :root {
   --centered: {
     display: flex;
@@ -66,32 +69,35 @@ Selectors
 
 ### Nesting
 
-```css
+```scss
 .class-name {
-  & .nesting { ... }      // direct nesting starts with &
-  @nest span & { ... }    // complex nesting
-  @media (min-width: 30em) { ... }
+  & .nesting { ··· }      /* direct nesting starts with & */
+  @nest span & { ··· }    /* complex nesting */
+  @media (min-width: 30em) { ··· }
 }
 ```
 
 ### Custom selectors
 
-```css
-@custom-selector :--button button, input[type='submit'], input[type='button'];
+```scss
+@custom-selector :--button input[type='submit'], input[type='button'];
 @custom-selector :--enter :hover, :focus;
-
-:--button { ... }
-:--button:--enter { ... }
 ```
+
+```scss
+:--button { ··· }
+:--button:--enter { ··· }
+```
+{: .-setup}
 
 ### Future selectors
 
-```css
-:any-link { ... }         /* :link, :visited */
-p:matches(.a, .b) { ... } /* p.a, p.b */
-p:not(.a, .b) { ... }     /* p:not(.a), p:not(.b) */
-a::before { ... }         /* a:before -- for IE compatibility */
-[frame=hsides i] { ... }  /* [frame=hsides] -- but case insensitive */
+```scss
+:any-link { ··· }         /* :link, :visited */
+p:matches(.a, .b) { ··· } /* p.a, p.b */
+p:not(.a, .b) { ··· }     /* p:not(.a), p:not(.b) */
+a::before { ··· }         /* a:before -- for IE compatibility */
+[frame=hsides i] { ··· }  /* [frame=hsides] -- but case insensitive */
 ```
 
 Media queries
@@ -99,15 +105,18 @@ Media queries
 
 ### Custom media queries
 
-```css
+```scss
 @custom-media --viewport-medium (width <= 50rem);
-@media (--viewport-medium) { ... }
+```
+
+```scss
+@media (--viewport-medium) { ··· }
 ```
 
 ### Media query ranges
 
-```css
-@media (width >= 500px) { ... }    /* (min-width: 500px) */
+```scss
+@media (width >= 500px) { ··· }    /* (min-width: 500px) */
 ```
 
 Properties
@@ -115,22 +124,26 @@ Properties
 
 ### Property fallbacks
 
-```css
+```scss
 /* font-feature-settings fallback */
 h2 { font-variant-caps: small-caps; }
 table { font-variant-numeric: lining-nums; }
+```
 
-div { filter: blur(4px); }            /* svg filter fallback */
-div { overflow-wrap: break-word; }    /* word-wrap fallback */
+```scss
+div { filter: blur(4px); }          /* svg filter fallback */
+div { overflow-wrap: break-word; }  /* word-wrap fallback */
 ```
 
 ### Autoprefixing
 
-```css
+```scss
 div {
   display: flex;
 }
+```
 
+```scss
 /*
  * display: -webkit-box;
  * display: -ms-flexbox;
@@ -140,15 +153,16 @@ div {
 
 ### Reset
 
-```css
+```scss
 div {
   all: initial;
 }
-
-/* Sets animation, background, margin, padding, and so on */
 ```
 
+Sets animation, background, margin, padding, and so on.
 
 ## References
+{: .-one-column}
 
-Based on cssnext 2.9.0. See: <http://cssnext.io/features/>
+- Based on cssnext 2.9.0.
+- <http://cssnext.io/features/>

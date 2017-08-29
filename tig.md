@@ -1,45 +1,86 @@
 ---
 title: Tig
 category: Git
+layout: 2017/sheet
+updated: 201708.29
+weight: -3
 ---
 
 ### Installing
 
-    $ brew install tig --HEAD
-    $ apt-get install tig
+```bash
+# MacOS + Homebrew
+$ brew install tig --HEAD
+```
+
+```bash
+# Ubuntu
+$ sudo apt install tig
+```
 
 ### Invocation
 
-    tig
+| Command             | Description                                  |
+| ---                 | ---                                          |
+| `tig`               |                                              |
+| ---                 | ---                                          |
+| `tig status`        | Status                                       |
+| `tig blame FILE`    | Blame                                        |
+| ---                 | ---                                          |
+| `tig master`        | Show a branch                                |
+| `tig test..master`  | Show difference between two branches         |
+| `tig FILE`          | Show history of file                         |
+| `tig v0.0.3:README` | Show contents of file in a specific revision |
 
-    tig status
+You can substitute `git log` → `tig`.
 
-    tig blame FILE
-    tig master        # Show a branch
-    tig test..master  # Show difference between two branches
-    tig FILE          # Show history of file
-    tig v0.0.3:README # Show contents of file in a specific revision
+## Shortcut keys
+{: .-three-column}
+
+### Switching views
+
+| `m` | Main view |
+| `s` | Status |
+| `t` | Tree (files) |
+| `g` | Grep |
+| `h` | Help |
+{: .-shortcuts}
 
 ### All views
 
-    ^N    # Next on parent view
-    ^P    # Previous on parent view
+| Shortcut   | Description             |
+| ---        | ---                     |
+| `j`  `k`   | Up/down                 |
+| `↑J`  `↑K` | Next/previous           |
+| ---        | ---                     |
+| `<`        | Back                    |
+| `↑R`       | Refresh                 |
+| `q`        | Close                   |
+| `↑Q`       | Close all               |
+| ---        | ---                     |
+| `^N`       | Next on parent view     |
+| `^P`       | Previous on parent view |
+{: .-shortcuts}
 
 ### `m` - Main view
 
-    D     # Toggle between date display modes
-    A     # Toggle between author display modes
-    C     # Cherry pick a commit
+| `↑D` | Toggle date display modes   |
+| `↑A` | Toggle author display modes |
+| `↑X` | Toggle commit sha           |
+| `↑C` | Cherry pick a commit        |
+{: .-shortcuts}
 
-### `S` - Stage view
+### `s` - Stage view
 
-    u     # Stage/unstage file or chunk
-    !     # Revert file or chunk
-    C     # Commit
-    M     # Merge
-    1     # Stage line
-    []    # Increase/decrease the diff context
+| `u`     | Stage/unstage file or chunk        |
+| `!`     | Revert file or chunk               |
+| `C`     | Commit                             |
+| `M`     | Merge                              |
+| `1`     | Stage line                         |
+| `[` `]` | Increase/decrease the diff context |
+{: .-shortcuts}
 
-### `H` - Branch view
+### `h` - Branch view
 
-    i     # Change sort header
+| `i` | Change sort header |
+{: .-shortcuts}

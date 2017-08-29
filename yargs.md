@@ -49,7 +49,7 @@ var argv = require('yargs')
   })
 ```
 
-### Exmaples and more help stuff
+### Examples and more help stuff
 
 ```js
   // more help

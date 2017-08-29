@@ -1,10 +1,12 @@
 ---
 title: Xpath
 category: HTML
-layout: default-ad
+layout: 2017/sheet
 tags: [Featured]
 weight: -5
 ---
+
+## Selectors
 
 ### Descendant selectors
 
@@ -18,7 +20,7 @@ weight: -5
 | ----                         | ----                                                     | --                      |
 | `:root`                      | `/`                                                      | [?](#prefixes)          |
 | `:root > body`               | `/body`                                                  |                         |
-{:.greycode.no-head.xp}
+{: .xp}
 
 ### Attribute selectors
 
@@ -33,7 +35,7 @@ weight: -5
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
 | `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
 | `a[href~='://']`             | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                         |
-{:.greycode.no-head.xp}
+{: .xp}
 
 ### Order selectors
 
@@ -45,7 +47,7 @@ weight: -5
 | `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
 | `a:first-child`              | `//a[1]`                                                 |                         |
 | `a:last-child`               | `//a[last()]`                                            |                         |
-{:.greycode.no-head.xp}
+{: .xp}
 
 ### Siblings
 
@@ -54,7 +56,7 @@ weight: -5
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
-{:.greycode.no-head.xp}
+{: .xp}
 
 ### jQuery
 
@@ -64,7 +66,7 @@ weight: -5
 | `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
 | `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
 | `$('span').text()`           | `//span/text()`                                          |                         |
-{:.greycode.no-head.xp}
+{: .xp}
 
 ### Other things
 
@@ -78,111 +80,119 @@ weight: -5
 | Has children (specific)      | `//ul[li]`                                               |                         |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-{:.greycode.no-head.xp}
+{: .xp}
 
 <style>
 /* ensure tables align */
 table.xp {table-layout: fixed;}
-table.xp tr>:nth-child(1) {width: 30%;}
+table.xp tr>:nth-child(1) {width: 35%;}
 table.xp tr>:nth-child(2) {width: auto;}
 table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
 </style>
 
 ### Class check
-Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)):
 
-```sh
+```bash
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
-{:.light}
+
+Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)).
 
 Expressions
 -----------
 
+### Steps and axes
+
+| `//` | `ul` | `/`  | `a[@id='link']` |
+| Axis | Step | Axis | Step            |
+{: .-css-breakdown}
+
 ### Prefixes
+
+| Prefix | Example               | What     |
+| ---    | ---                   | ---      |
+| `//`   | `//hr[@class='edge']` | Anywhere |
+| `./`   | `./a`                 | Relative |
+| `/`    | `/html/body/div`      | Root     |
+{: .-headers}
+
 Begin your expression with any of these.
 
-| Prefix          | Example               |
-| ---             | ---                   |
-| `//` *anywhere* | `//hr[@class='edge']` |
-| `./` *relative* | `./a`                 |
-| `/` *root*      | `/html/body/div`      |
-{:.greycode.no-head}
-
 ### Axes
+
+| Axis | Example             | What       |
+| ---  | ---                 | ---        |
+| `/`  | `//ul/li/a`         | Child      |
+| `//` | `//[@id="list"]//a` | Descendant |
+{: .-headers}
+
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
-| Axis | Example            |
-| ---  | ---                |
-| `/` *child* | `//ul/li/a`        |
-| `//` *descendant* | `//[@id="list"]//a` |
-{:.greycode.no-head}
-
 ### Steps
-A step may have an element name (`div`) and [predicates](#predicate) (`[...]`). Both are optional.
 
-```sh
+```bash
 //div
 //div[@name='box']
 //[@id='link']
 ```
-{:.light}
 
-They can also be these other things.
+A step may have an element name (`div`) and [predicates](#predicate) (`[...]`). Both are optional.
+They can also be these other things:
 
-```sh
-//a/text()              #=> "Go home"
-//a/@href               #=> "index.html"
-//a/*                   #=> All a's child elements
+```bash
+//a/text()     #=> "Go home"
+//a/@href      #=> "index.html"
+//a/*          #=> All a's child elements
 ```
 
 Predicates
 ----------
 
-### Predicates (`[...]`)
-Restricts a nodeset only if some condition is true. They can be chained.
+### Predicates
 
-```sh
+```bash
 //div[true()] 
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
-{:.light}
+
+Restricts a nodeset only if some condition is true. They can be chained.
 
 ### Operators
+
+```bash
+# Comparison
+//a[@id = "xyz"]
+//a[@id != "xyz"]
+//a[@price > 25]
+```
+
+```bash
+# Logic (and/or)
+//div[@id="head" and position()=2]
+//div[(x and y) or not(z)]
+```
+
 Use comparison and logic operators to make conditionals.
 
-```sh
-# Comparison
-  //a[@id = "xyz"]
-  //a[@id != "xyz"]
-  //a[@price > 25]
-```
-
-```sh
-# Logic (and/or)
-  //div[@id="head" and position()=2]
-  //div[(x and y) or not(z)]
-```
-
 ### Using nodes
+
+```bash
+# Use them inside functions
+//ul[count(li) > 2]
+//ul[count(li[@class='hide']) > 0]
+```
+
+```bash
+# This returns `<ul>` that has a `<li>` child
+//ul[li]
+```
+
 You can use nodes inside predicates.
 
-```sh
-# Use them inside functions
-  //ul[count(li) > 2]
-  //ul[count(li[@class='hide']) > 0]
-```
-
-```sh
-# This returns `<ul>` that has a `<li>` child
-  //ul[li]
-```
-
 ### Indexing
-Use `[]` with a number, or `last()` or `position()`.
 
-```sh
+```bash
 //a[1]                  # first <a>
 //a[last()]             # last <a>
 //ol/li[2]              # second <li>
@@ -190,51 +200,58 @@ Use `[]` with a number, or `last()` or `position()`.
 //ol/li[position()>1]   # :not(:first-child)
 ```
 
-### Chaining order
-Order is significant, these two are different.
+Use `[]` with a number, or `last()` or `position()`.
 
-```sh
+### Chaining order
+
+```bash
 a[1][@href='/']
 a[@href='/'][1]
 ```
 
+Order is significant, these two are different.
+
 ### Nesting predicates
-This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
 ```
 //section[//h1[@id='hi']]
 ```
 
+This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
 Functions
 ---------
 
 ### Node functions
 
-```sh
+```bash
 name()                     # //[starts-with(name(), 'h')]
 text()                     # //button[text()="Submit"]
                            # //button/text()
 lang(str)
 namespace-uri()
+```
 
+```bash
 count()                    # //table[count(tr)=1]
 position()                 # //ol/li[position()=2]
 ```
 
 ### Boolean functions
 
-```sh
+```bash
 not(expr)                  # button[not(starts-with(text(),"Submit"))]
 ```
 
 ### String functions
 
-```sh
+```bash
 contains()                 # font[contains(@class,"head")]
 starts-with()              # font[starts-with(@class,"head")]
 ends-with()                # font[ends-with(@class,"head")]
+```
 
+```bash
 concat(x,y)
 substring(str, start, len)
 substring-before("01/02", "/")  #=> 01
@@ -246,7 +263,7 @@ string-length()
 
 ### Type conversion
 
-```sh
+```bash
 string()
 number()
 boolean()
@@ -256,58 +273,63 @@ Axes
 ----
 
 ### Using axes
-Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
 
-```sh
+```bash
 //ul/li                       # ul > li
 //ul/child::li                # ul > li (same)
 //ul/following-sibling::li    # ul ~ li
 //ul/descendant-or-self::li   # ul li
 //ul/ancestor-or-self::li     # $('ul').closest('li')
 ```
-{:.light}
+
+Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
+
+| `//` | `ul` | `/child::` | `li` |
+| Axis | Step | Axis       | Step |
+{: .-css-breakdown}
 
 ### Child axis
-This is the default axis. This makes `//a/b/c` work.
 
-```sh
+```bash
 # both the same
-  //ul/li/a
-  //child::ul/child::li/child::a
+//ul/li/a
+//child::ul/child::li/child::a
 ```
 
-```sh
+`child::` is the default axis. This makes `//a/b/c` work.
+
+```bash
 # both the same
 # this works because `child::li` is truthy, so the predicate succeeds
-  //ul[li]
-  //ul[child::li]
+//ul[li]
+//ul[child::li]
 ```
 
-```sh
+```bash
 # both the same
-  //ul[count(li) > 2]
-  //ul[count(child::li) > 2]
+//ul[count(li) > 2]
+//ul[count(child::li) > 2]
 ```
 
 ### Descendant-or-self axis
-`//` is short for the `descendant-or-self::` axis.
 
-```sh
+```bash
 # both the same
-  //div//h4
-  //div/descendant-or-self::h4
+//div//h4
+//div/descendant-or-self::h4
 ```
 
-```sh
+`//` is short for the `descendant-or-self::` axis.
+
+```bash
 # both the same
   //ul//[last()]
   //ul/descendant-or-self::[last()]
 ```
 
 ### Other axes
-There are other axes you can use.
 
-| Axis                 | Abbrev | Description                                      |
+| Axis                 | Abbrev | Notes                                            |
 | ---                  | ---    | ---                                              |
 | `ancestor`           |        |                                                  |
 | `ancestor-or-self`   |        |                                                  |
@@ -325,19 +347,24 @@ There are other axes you can use.
 | `following-sibling`  |        |                                                  |
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
-{:.greycode}
+{: .-headers}
+
+There are other axes you can use.
 
 ### Unions
-Use `|` to join two expressions.
 
-```sh
+```bash
 //a | //span
 ```
+
+Use `|` to join two expressions.
 
 More examples
 -------------
 
-```sh
+### Examples
+
+```bash
 //*                 # all elements
 count(//*)          # count all elements
 (//h1)[1]/text()    # text of the first h1 heading
@@ -346,28 +373,39 @@ count(//*)          # count all elements
 //ul/li/..          # use .. to select a parent
 ```
 
-```sh
-# Find a <section> that directly contains h1#section-name
-  //section[h1[@id='section-name']]
-```
+### Find a parent
 
-```sh
+```bash
+//section[h1[@id='section-name']]
+```
+Finds a `<section>` that directly contains `h1#section-name`
+
+```bash
 # Find a <section> that contains h1#section-name
-# (Same as above, but use descendant-or-self instead of child)
-  //section[//*[@id='section-name']]
+//section[//*[@id='section-name']]
 ```
 
-```sh
-# like jQuery's $().closest('.box')
-  ./ancestor-or-self::[@class="box"]
+Finds a `<section>` that contains `h1#section-name`.
+(Same as above, but uses descendant-or-self instead of child)
+
+### Closest
+
+```bash
+./ancestor-or-self::[@class="box"]
 ```
 
-```sh
-# Find <item> and check its attributes
-  //item[@price > 2*@discount]
+Works like jQuery's `$().closest('.box')`.
+
+### Attributes
+
+```bash
+//item[@price > 2*@discount]
 ```
+
+Finds `<item>` and check its attributes
 
 References
 ----------
+{: .-one-column}
 
-* [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) (whitebeam.org)
+* [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_

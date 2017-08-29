@@ -1,19 +1,25 @@
 ---
 title: Lodash
 category: JavaScript libraries
+layout: 2017/sheet
+weight: -3
 ---
 
-> This is an incomplete list.
+This is not a complete list.
+
+<!--more-->
 
 ## Collections
 
-Works for both arrays and objects.
+### Finding
 
 ```js
 _.filter(list, (n) => n % 2)    //=> Array
 _.find(list, (n) => n % 2)      //=> item
 _.findRight(list, ...)          //=> item
 ```
+
+Works for both arrays and objects.
 
 ### Accessing
 
@@ -46,6 +52,8 @@ _.any(users, ...)                //=> true|false (aka _.some)
 
 ## Array
 
+### Arrays
+
 ```js
 _.chunk([ abcd ], 2)           //=> [ [ab], [cd] ]
 _.compact(list)
@@ -62,20 +70,27 @@ _.drop([ abcdef ], 2)          //=> [   cdef ]
 _.dropRight([ abcdef ], 2)     //=> [ abcd   ]
 _.take([ abcdef ], 2)          //=> [ ab     ]
 _.takeRight([ abcdef ], 2)     //=> [     de ]
+_.slice([ abcdef ], 2, 4)      //=> [   cd   ]
+```
 
+```js
 _.initial([ abcdef ])          //=> [ abcde  ] - dropRight(list, 1)
 _.rest([ abcdef ])             //=> [  bcdef ] - takeRight(list, 1)
+```
 
-_.slice([ abcdef ], 2, 4)      //=> [   cd   ]
-
+```js
 _.dropWhile(list, 'active')            // works like filter
 _.dropWhile(list, 'active', true)
 _.dropWhile(list, { active: true })
 _.dropWhile(list, (n) => ...)
 _.dropRightWhile(list, ...)
+```
 
+```js
 _.without([ abcde ], b)        //=> [ acde ]
+```
 
+```js
 _.remove(list, (n) => n % 2)
 ```
 
@@ -130,7 +145,7 @@ _.curry(greet)('hi')         //=> function(name)
 _.curryRight(greet)('joe')   //=> function(greet)
 ```
 
-## Functions - decorating
+## Decorating functions
 
 ### Throttling
 

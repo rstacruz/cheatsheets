@@ -35,6 +35,7 @@ defaults:
       layout: "default"
       type: article
       category: "Others"
+      excerpt_separator: "<!--more-->"
 
 # Site info
 url: http://ricostacruz.com/cheatsheets

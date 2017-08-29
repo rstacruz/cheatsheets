@@ -1,19 +1,30 @@
 ---
 title: Ledger queries
 category: Ledger
+layout: 2017/sheet
 ---
 
- - @`payee`
- - %`tag`
- - =`note`
- - #`code`
- - `term` and `term`
- - `term` or `term`
- - not `term`
+### Query characters
 
-Examples:
+| Query           | Description |
+| ---             | ---         |
+| `@payee`        | Payee       |
+| `%tag`          | Tag         |
+| `=note`         | Note        |
+| `#code`         | Code        |
+| ---             | ---         |
+| `TERM and TERM` | Boolean and |
+| `TERM or TERM`  | Boolean or  |
+| `not TERM`      | Boolean not |
 
-    ledger r @taco
-    ledger r comment =~ /landline/
+### Examples
 
-See: http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions
+```sh
+ledger r @taco
+ledger r comment =~ /landline/
+```
+
+## References
+{: .-one-column}
+
+- <http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions>

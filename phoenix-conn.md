@@ -98,6 +98,9 @@ conn
 |> put_layout(:foo)
 |> put_layout(false)
 |> put_view(ErrorView)
+```
+
+```elixir
 |> put_secure_browser_headers()
 # prevent clickjacking, nosniff, and xss protection
 # x-frame-options, x-content-type-options, x-xss-protection

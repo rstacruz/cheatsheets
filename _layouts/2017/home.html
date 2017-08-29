@@ -1,8 +1,14 @@
 ---
 type: website
 ---
+{% assign featured_pages = site.pages
+  | where_exp: "page", "page.tags contains 'Featured'"
+%}
+{% assign recent_pages = site.pages
+  | where_exp: "page", "page.updated"
+  | where_exp: "page", "page.updated >= site.last_updated"
+%}
 {% include 2017/head.html %}
-
 {% include 2017/top-nav.html page=page %}
 
 <div class='SideAd'>
@@ -26,24 +32,18 @@ type: website
   </div>
 
   <div class='pages-list'>
-    {% for page in site.pages %}
-      {% if page.tags contains 'Featured' %}
-        {% include 2017/pages-list-item.html page=page class='item top-sheet' %}
-      {% endif %}
+    {% for page in featured_pages %}
+      {% include 2017/pages-list-item.html page=page class='item top-sheet' %}
     {% endfor %}
 
     <h2 class='category item' data-js-searchable-header>
       <span>Recently updated</span>
     </h2>
 
-    {% for page in site.pages %}
-      {% if page.updated %}
-        {% if page.updated >= site.last_updated %}
-          {% unless page.tags contains 'Featured' %}
-            {% include 2017/pages-list-item.html page=page class='article item' %}
-          {% endunless %}
-        {% endif %}
-      {% endif %}
+    {% for page in recent_pages %}
+      {% unless page.tags contains 'Featured' %}
+        {% include 2017/pages-list-item.html page=page class='article item' %}
+      {% endunless %}
     {% endfor %}
 
     {% for category in site.category_names %}

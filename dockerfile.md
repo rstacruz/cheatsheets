@@ -1,7 +1,11 @@
 ---
 title: Dockerfile
 category: Devops
+layout: 2017/sheet
 ---
+
+## Reference
+{: .-three-column}
 
 ### Inheritance
 
@@ -28,8 +32,9 @@ WORKDIR /myapp
 
 ### Onbuild
 
-```docker
-ONBUILD RUN bundle install   # when used with another file
+```bash
+ONBUILD RUN bundle install
+# when used with another file
 ```
 
 ### Commands
@@ -39,6 +44,7 @@ EXPOSE 5900
 CMD    ["bundle", "exec", "rails", "server"]
 ```
 
-### Reference
+## See also
+{: .-one-column}
 
 - <https://docs.docker.com/engine/reference/builder/>

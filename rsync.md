@@ -1,62 +1,84 @@
 ---
 title: Rsync
 category: CLI
+layout: 2017/sheet
 ---
 
-    rsync -avz ./src /dest
+### Basic example
+{: .-prime}
+
+```bash
+rsync -avz ./src /dest
+```
 
 ### OSX
 
-    --exclude '.Trashes'
-    --exclude '.Spotlight-V100'
-    --exclude '.fseventsd'
+```bash
+--exclude '.Trashes'
+--exclude '.Spotlight-V100'
+--exclude '.fseventsd'
+```
 
-### Options
+### Transfer options
 
-Transfer:
+```bash
+-z, --compress
+-n, --dry-run
+```
 
-    -z, --compress
-    -n, --dry-run
+### Display options
 
-Display:
+```bash
+-q, --quiet
+-v, --verbose
+-h, --human-readable
+    --progress
+```
 
-    -q, --quiet
-    -v, --verbose
-    -h, --human-readable
-        --progress
+### Skipping options
 
-Skipping:
+```bash
+-u, --update     # skip files newer on dest
+-c, --checksum   # skip based on checksum, not mod-time & size
+```
 
-    -u, --update     # skip files newer on dest
-    -c, --checksum   # skip based on checksum, not mod-time & size
+### Backup options
 
-Backups:
+```bash
+-b, --backup           # backup with suffix
+    --suffix=SUFFIX    # default ~ without --backup-dir
+    --backup-dir=DIR
+```
 
-    -b, --backup           # backup with suffix
-        --suffix=SUFFIX    # default ~ without --backup-dir
+### Include options
 
-        --backup-dir=DIR
+```bash
+--exclude=PATTERN
+--include=PATTERN
+```
 
-### Include
+```bash
+--exclude-from=FILE
+--include-from=FILE
+--files-from=FILE    # read list of filenames from FILe
+```
 
-    --exclude=PATTERN
-    --include=PATTERN
+### Archive options
 
-    --exclude-from=FILE
-    --include-from=FILE
-    --files-from=FILE    # read list of filenames from FILe
+```bash
+-a, --archive    # archive (-rlptgoD)
+```
 
-### Archive
+```bash
+-r, --recursive
+-l, --links      # copy symlinks as links
+-p, --perms      # preserve permissions
+-t, --times      # preserve times
+-g, --group      # preserve group
+-o, --owner      # preserve owner
+-D               # --devices --specials
+```
 
-    -a, --archive    # archive (-rlptgoD)
-
-    -r, --recursive
-    -l, --links      # copy symlinks as links
-    -p, --perms      # preserve permissions
-    -t, --times      # preserve times
-    -g, --group      # preserve group
-    -o, --owner      # preserve owner
-    -D               # --devices --specials
-
-    --delete         # Delete extra files
-
+```bash
+--delete         # Delete extra files
+```

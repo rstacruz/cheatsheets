@@ -1,5 +1,5 @@
 ---
-title: Fitness
+title: General fitness notes
 category: Fitness
 layout: 2017/sheet
 ---

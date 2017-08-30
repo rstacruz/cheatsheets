@@ -1,6 +1,11 @@
 ---
 title: Essential micronutrients
+category: Fitness
+layout: 2017/sheet
 ---
+
+## Vitamins
+{: .-three-column}
 
 ### Vitamin D
 
@@ -10,12 +15,16 @@ title: Essential micronutrients
  * Fat-soluble
  * Best taken with meals or a source of fat
 
+See: [Examine.com](http://examine.com/supplements/Vitamin+D/)
+
 ### Zinc
 
  * Sources: meat, egg, legumes
  * Major benefits: test boost, immune boost
  * Doesn't go well with [Iron](#iron), [Magnesium](#magnesium)
  * Dosage: 5-10mg daily
+
+See: [Examine.com](http://examine.com/supplements/Zinc/)
 
 ### Magnesium
 
@@ -24,24 +33,32 @@ title: Essential micronutrients
  * Major benefits: lower blood glucose, sleep, insulin sensitivity
  * Don't get Magnesium Oxide (low bioavailability), get Magnesium Citrate
 
+See: [Examine.com](http://examine.com/supplements/Magnesium/)
+
 ### Selenium
 
  * Sources: nuts, fish (tuna, halibut), meat
  * Major benefits: anti-oxidant, anti-cancer
  * Dosage: 200-300ug daily
 
+See: [Examine.com](http://examine.com/supplements/Selenium/)
+
 ### Vitamin E
 
  * Sources: Nuts, needs, veg oils, leafy veggies
  * Major benefits: anti-oxidant, skin
  * Dosage: up to 22IU daily for adults? (RDA)
- * Fat-soluble 
+ * Fat-soluble
+
+See: [nih.gov](http://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/)
 
 ### Vitamin C
 
  * Sources: fruits (esp citrus), leafy veggies
  * Dosage: 75mg daily (females), 90mg (males)
  * Major benefits: anti-oxidant
+
+See: [Examine.com](http://examine.com/supplements/Vitamin+C/)
 
 ### Vitamin K
 
@@ -50,19 +67,35 @@ title: Essential micronutrients
  * Major benefits: bone health
  * Fat-soluble
 
+See: [Examine.com](http://examine.com/supplements/Vitamin+K/)
+
 ### Thiamin (Vitamin B1)
+
+- ···
 
 ### Riboflavin (Vitamin B2)
 
+- ···
+
 ### Niacin (Vitamin B3)
+
+- ···
 
 ### Vitamin B6
 
+- ···
+
 ### Vitamin B12
+
+- ···
 
 ### Potassium
 
+- ···
+
 ### Omega 3
+
+- ···
 
 ### Calcium
 
@@ -70,10 +103,14 @@ title: Essential micronutrients
  * Dosage: 1000mg daily for adults
  * Major benefits: bone mass/strength
 
+See: [nih.gov](http://ods.od.nih.gov/factsheets/calcium.asp)
+
 ### Iodine
 
  * Sources: dairy (yogurt, milk, eggs)
  * Major benefits: thyroid gland regulation
+
+See: [whfoods.com](http://www.whfoods.com/genpage.php?tname=nutrient&dbid=69)
 
 ### Vitamin A
 
@@ -83,26 +120,11 @@ title: Essential micronutrients
  * Major benefits: vision, immune boost, reproduction
  * Fat-soluble
 
+See: [nih.gov](http://ods.od.nih.gov/factsheets/Vitam-HealthProfessional/)
+
 ### Iron
 
  * Sources: soybeans, nuts/beans/lentils, beef, whole grains
  * Major benefits: oxygen transport, energy metabolism
 
-References
-----------
-
-* Examine:
-  [K](http://examine.com/supplements/Vitamin+K/)
-  [C](http://examine.com/supplements/Vitamin+C/)
-  [Sel](http://examine.com/supplements/Selenium/)
-  [D](http://examine.com/supplements/Vitamin+D/)
-  [Zinc](http://examine.com/supplements/Zinc/)
-  [Mg](http://examine.com/supplements/Magnesium/)
-* Nih.gov:
-  [E](http://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/)
-  [Ca](http://ods.od.nih.gov/factsheets/calcium.asp)
-  [A](http://ods.od.nih.gov/factsheets/Vitam-HealthProfessional/)
-* Whfoods.com:
-  [I](http://www.whfoods.com/genpage.php?tname=nutrient&dbid=69)
-  [Fe](http://www.whfoods.com/genpage.php?tname=nutrient&dbid=70)
-
+See: [whfoods.com](http://www.whfoods.com/genpage.php?tname=nutrient&dbid=70)

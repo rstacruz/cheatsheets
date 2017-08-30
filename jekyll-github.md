@@ -29,7 +29,7 @@ Jekyll
 * jekyll-sitemap
 {: .-four-column}
 
-As of github-pages v156.
+As of github-pages v156. For an updated list, see: [Dependency versions](https://pages.github.com/versions/) _(pages.github.com)_
 
 GitHub Metadata
 ---------------

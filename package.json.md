@@ -2,64 +2,80 @@
 title: package.json
 category: Node.js
 layout: 2017/sheet
-redirect_from:
-- /package.html
-- /package
+prism_languages: [json]
+updated: 201708.30
+weight: -3
 ---
 
 ### Basic
 
-    {
-      "name": "expo",
-      "description": "",
-      "keywords": [""],
-      "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
-      "version": "0.1.0",
-      "engines": {
-        "node": ">=0.8.0"
-      },
-      "main": "index",
-      "bin": {
-        "command": "./bin/command"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/rstacruz/___.git"
-      },
-      "license": "MIT"
-    }
+```json
+{
+  "name": "expo",
+  "description": "My package",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": ["http", "server"],
+  "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "index",
+  "bin": {
+    "command": "./bin/command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rstacruz/___.git"
+  },
+}
+```
+{: data-line="2,3,4,5"}
+
+Highlighted lines are required.
 
 ### Dependencies
 
-    "dependencies": {
-      "colors"   : "*",
-      "flatiron" : "0.1.x",
-      "flatiron" : "~0.1.0",
-      "plates"   : "https://github.com/user/project/tarball/branch",
-      "stuff"    : "git://github.com/user/project.git#commit-ish"
-    },
-    "devDependencies": {
-      ...
-    },
+```json
+"dependencies": {
+  "colors":   "*",
+  "flatiron": "0.1.x",
+  "flatiron": "~0.1.0",
+  "plates":   "https://github.com/user/project/tarball/branch",
+  "stuff":    "git://github.com/user/project.git#commit-ish"
+},
+```
+
+```json
+"devDependencies": { ··· },
+"peerDependencies": { ··· },
+"optionalDependencies": { ··· },
+```
+
+See [Semver cheatsheet](./semver) for explanation of version ranges.
 
 ### Scripts
 
-    "scripts": {
-      "start": "node ./bin/xxx",       /* npm start */
-      "test": "vows --spec --isolate", /* npm test */
-      "postinstall": "...",
-      "prepublish": "grunt build",     /* after 'npm install' and before 'npm 
-                                          publish' */
-    }
+```json
+"scripts": {
+  "start": "node ./bin/xxx",       /* npm start */
+  "test": "vows --spec --isolate", /* npm test */
+  "postinstall": "...",
+  "prepublish": "grunt build",     /* after 'npm install' and before 'npm 
+                                      publish' */
+}
+```
 
 ### Misc
 
-    "private": true,
-    "preferGlobal": true
+```json
+"private": true,
+"preferGlobal": true
+```
 
 ### Config
 
-```js
+```json
 {
   "config": {
     "foobar": "hello"
@@ -69,6 +85,8 @@ redirect_from:
   }
 }
 ```
+
+Keys in `config` are exposed as env vars to scripts.
 
 ## References
 {: .-one-column}

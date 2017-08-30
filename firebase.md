@@ -1,71 +1,88 @@
 ---
 title: Firebase
+prism_languages: [coffeescript]
+tags: [WIP]
+layout: 2017/sheet
 ---
 
-wip
+### Authenticating
 
-### Starting
-
-``` coffee
-Fb = new Firebase('https://xxx.firebase.io')
-Fb.auth(TOKEN, (err, result) -> ...)
-  .authAnonymously(...)
-  .authWithPassword(...)
-  .authWithOAuthPopup(...)
-  .authWithOAuthToken(...)
+```js
+FB = new Firebase('https://xxx.firebase.io')
+FB.auth(TOKEN, (err, result) => { ···})
 ```
 
-### Updating values
+```js
+FB.authAnonymously(···)
+FB.authWithPassword(···)
+FB.authWithOAuthPopup(···)
+FB.authWithOAuthToken(···)
+```
 
-``` coffee
-Users = Fb.child('users')
+### Using
 
-# create
-  user = Users.push(first: "Frank", last: "Sinatra")
+```js
+Users = FB.child('users')
+```
 
-# retrieve
-  user = Users.child('alan')  # gets `users/alan`
+```js
+// Create
+user = Users.push(first: "Frank", last: "Sinatra")
+```
 
-# setting
-  user
-    .set(first: "Miles", last: "Davis")
-    .update(first: "Miles")
-    .setWithPriority({ ... }, priority)
+```js
+// Retrieve
+user = Users.child('alan')  // gets `users/alan`
+```
 
+```js
+// Update
+user.set(first: "Miles", last: "Davis")
+user.update(first: "Miles")
+user.setWithPriority({ ··· }, priority)
+```
 
-# destroy
-  user.remove()
+```js
+// Destroy
+user.remove()
+```
 
-# getting
-  user.name()  # primary id
+```js
+// Getting
+user.name()  // primary id
 
-  user.once 'value', (snap) ->
-    snap.name()  # primary id
-    snap.val()   # value
-  , (err) ->
+user.once('value', (snap) => {
+  snap.name()  // primary id
+  snap.val()   // value
+}, (err) => {
+  ···
+})
+```
 
-# traversal
-  user.parent()
+```js
+// traversal
+user.parent()
 ```
 
 ### Querying
 
-```coffee
-Users = Fb.child('users')
+```coffeescript
+Users = FB.child('users')
 Users
   .startAt(1000)
   .limit(50)
   .equalTo(priority, [name])
-  .on 'child_added', (snap) -> ...
+  .on 'child_added', (snap) -> ···
 ```
 ### Lists
 
-```coffee
-Posts = Fb.child('posts')
+```coffeescript
+Posts = FB.child('posts')
 post = Posts.push({ title: "How to do things", author: "alan" })
 ```
 
-### References
+## References
+{: .-one-column}
 
-* https://www.firebase.com/docs/web/api/
-* https://www.firebase.com/docs/web/recipes.html
+* <https://www.firebase.com/docs/web/api/>
+* <https://www.firebase.com/docs/web/recipes.html>

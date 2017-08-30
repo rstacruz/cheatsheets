@@ -41,12 +41,16 @@ layout: 2017/sheet   # 'default' | '2017/sheet'
 
 # Optional:
 updated: 2017-08-30       # To show in the updated list
-ads: false              # Add this to disable ads
-weight: -5              # lower number = higher in related posts list
-deprecated: true        # Don't show in related posts
-prism_languages: [vim]  # Extra syntax highlighting
+ads: false                # Add this to disable ads
+weight: -5                # lower number = higher in related posts list
+deprecated: true          # Don't show in related posts
+prism_languages: [vim]    # Extra syntax highlighting
 ---
 ```
+
+For supported prism languages:
+
+- <https://github.com/PrismJS/prism/tree/gh-pages/components>
 
 ## Setting up redirects
 

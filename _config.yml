@@ -36,6 +36,12 @@ defaults:
       type: article
       category: "Others"
       excerpt_separator: "<!--more-->"
+      prism_languages:
+        - jsx
+        - bash
+        - scss
+        - elixir
+        - ruby
 
 # Site info
 url: http://ricostacruz.com/cheatsheets

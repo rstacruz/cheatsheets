@@ -12,8 +12,6 @@ weight: -3
 <meta charset='utf-8'>
 ```
 
-Title
-
 ```html
 <!-- title -->
 <title>···</title>

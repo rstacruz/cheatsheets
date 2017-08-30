@@ -228,6 +228,7 @@ function qs (search) {
 }
 
 function qsdecode (string) {
+  if (!string) string = ''
   string = string.replace(/\+/g, ' ')
   return string
 }

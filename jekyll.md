@@ -198,27 +198,32 @@ Markup
 {% endcomment %}
 ```
 
-## Expression
+## Variables
 
 ### Top-level variables
 
-    {{ site }}       - from config.yml
-    {{ page }}       - from frontmatter, and page-specific info
-    {{ content }}    - html content (use in layouts)
-    {{ paginator }}  - ...
+
+| `{{ site }}` | Data from `config.yml` |
+| `{{ page }}` | From frontmatter, and page-specific info |
+| `{{ content }}` | HTML content (use in layouts) |
+| `{{ paginator }}` | Paginator |
 
 See: [Variables](http://jekyllrb.com/docs/variables/)
 
 ### Site
 
-    {{ site.time }}                 - current time
-    {{ site.pages }}                - list of pages
-    {{ site.posts }}                - list of posts
-    {{ site.related_posts }}        - list
-    {{ site.categories.CATEGORY }}  - list
-    {{ site.tags.TAG }}             - list
+```html
+{{ site.time }}
+```
+{: .-setup}
 
-    {{ site.static_files }}
+| `site.time` | Current time |
+| `site.pages` | List of pages |
+| `site.posts` | List of blog posts |
+| `site.related_posts` | List of posts related to current |
+| `site.categories.CATEGORY` | List |
+| `site.tags.TAG` | List |
+| `site.static_files` | List |
 
 ### Page
 
@@ -232,8 +237,9 @@ See: [Variables](http://jekyllrb.com/docs/variables/)
 {{ page.categories }}
 {{ page.tags }}
 {{ page.path }}
-{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-{{ post.excerpt | strip_html }}
+{{ page.dir }}
+{{ page.excerpt | remove: '<p>' | remove: '</p>' }}
+{{ page.excerpt | strip_html }}
 ```
 
 ```html
@@ -241,6 +247,145 @@ See: [Variables](http://jekyllrb.com/docs/variables/)
 {{ page.next }}
 {{ page.previous }}
 ```
+
+Filters
+-------
+{: .-three-column}
+
+### Dates
+
+```ruby
+{{ site.time | date: "%Y %m %d" }}
+```
+{: .-setup}
+
+| `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
+| `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
+| `date_to_string` | → `07 Nov 2008` |
+| `date_to_long_string` | → `07 November 2008` |
+| `date:` _'%Y %m %d'_ | → `2017 Nov  7` |
+
+### Preprocessors
+
+
+```ruby
+{{ page.description | markdownify }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `textilize` | Textile |
+| `markdownify` | Markdown |
+| `jsonify` | JSON |
+| `sassify` | Sass |
+| `scssify` | SCSS |
+| `smartify` | Smartypants |
+
+### Array filters
+
+```ruby
+{{ site.pages | where: "year", "2014" }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `where:` _"year", "2014"_ | |
+| `where_exp:` _"item", "item.year >= 2014"_ | |
+| --- | --- |
+| `group_by:` _"genre"_   | → `{name, items}` |
+| `group_by_exp:` _"item", "item.genre"_   | → `{name, items}` |
+| --- | --- |
+| `sort` | |
+| `sort:` _'author'_ | |
+| --- | --- |
+| `uniq` | |
+| --- | --- |
+| `first` | |
+| `last` | |
+| `join:` _','_ | |
+| `array_to_setentence_string` | → `"X, Y and Z"` |
+| --- | --- |
+| `map:` _'post'_ | Works like 'pluck' |
+| --- | --- |
+| `size` | |
+| `push:` _'xxx'_ | Adds an item |
+
+### String filters
+
+```ruby
+{{ page.title | default: "xxx" }}
+```
+{: .-setup}
+
+| Filter                             | Description |
+| ---                                | ---         |
+| `default:` _'xxx'_                 |             |
+| ---                                | ---         |
+| `upcase`                           |             |
+| `downcase`                         |             |
+| ---                                | ---         |
+| `remove:` _'p'_                    |             |
+| `replace:` _'super', 'mega'_       |             |
+| `remove_first:` _'p'_              |             |
+| `replace_first:` _'super', 'mega'_ |             |
+| ---                                | ---         |
+| `truncate:` _5_                    |             |
+| `truncatewords:` _20_              |             |
+| ---                                | ---         |
+| `prepend:` _'Mr. '_                |             |
+| `append:` _'Jr.'_                  |             |
+| ---                                | ---         |
+| `camelize`                         |             |
+| `capitalize`                       |             |
+| `strip_html`                       |             |
+| `strip_newlines`                   |             |
+| `newlines_to_br`                   |             |
+| ---                                | ---         |
+| `split:` _','_                     |             |
+| ---                                | ---         |
+| `escape`                           |             |
+| `escape_once`                      |             |
+| ---                                | ---         |
+| `slice:` _-3, 3_                   |             |
+
+See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
+
+### String filters (Jekyll-only)
+
+```ruby
+{{ page.excerpt | number_of_words }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `number_of_words` | |
+| `slugify` | |
+| --- | --- |
+| `xml_escape` | → `CDATA` |
+| `cgi_escape` | → `foo%2Cbar` |
+| `uri_escape` | → `foo,%20bar` |
+
+### Numbers
+
+```
+{{ site.posts.size | minus: 2 }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `minus:` _2_ | |
+| `plus:` _2_ | |
+| `times:` _2_ | |
+| `divided_by:` _2_ | |
+| `modulo:` _2_ | |
+| --- | --- |
+| `ceil` | |
+| `floor` | |
+| `round` | |
 
 ## Paginator
 
@@ -255,7 +400,6 @@ paginate_path: "blog/:num"
 ```
 
 See: [Paginator](http://jekyllrb.com/docs/pagination/)
-
 
 ### Numbers
 
@@ -408,145 +552,6 @@ def show
 end
 {% endhighlight %}
 ```
-
-Helpers and filters
--------------------
-{: .-three-column}
-
-### Dates
-
-```ruby
-{{ site.time | date: "%Y %m %d" }}
-```
-{: .-setup}
-
-| `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
-| `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
-| `date_to_string` | → `07 Nov 2008` |
-| `date_to_long_string` | → `07 November 2008` |
-| `date:` _'%Y %m %d'_ | → `2017 Nov  7` |
-
-### Preprocessors
-
-
-```ruby
-{{ page.description | markdownify }}
-```
-{: .-setup}
-
-| Filter | Description |
-| --- | --- |
-| `textilize` | Textile |
-| `markdownify` | Markdown |
-| `jsonify` | JSON |
-| `sassify` | Sass |
-| `scssify` | SCSS |
-| `smartify` | Smartypants |
-
-### Array filters
-
-```ruby
-{{ site.pages | where: "year", "2014" }}
-```
-{: .-setup}
-
-| Filter | Description |
-| --- | --- |
-| `where:` _"year", "2014"_ | |
-| `where_exp:` _"item", "item.year >= 2014"_ | |
-| --- | --- |
-| `group_by:` _"genre"_   | → `{name, items}` |
-| `group_by_exp:` _"item", "item.genre"_   | → `{name, items}` |
-| --- | --- |
-| `sort` | |
-| `sort:` _'author'_ | |
-| --- | --- |
-| `uniq` | |
-| --- | --- |
-| `first` | |
-| `last` | |
-| `join:` _','_ | |
-| `array_to_setentence_string` | → `"X, Y and Z"` |
-| --- | --- |
-| `map:` _'post'_ | Works like 'pluck' |
-| --- | --- |
-| `size` | |
-| `push:` _'xxx'_ | Adds an item |
-
-### String filters
-
-```ruby
-{{ page.title | default: "xxx" }}
-```
-{: .-setup}
-
-| Filter                             | Description |
-| ---                                | ---         |
-| `default:` _'xxx'_                 |             |
-| ---                                | ---         |
-| `upcase`                           |             |
-| `downcase`                         |             |
-| ---                                | ---         |
-| `remove:` _'p'_                    |             |
-| `replace:` _'super', 'mega'_       |             |
-| `remove_first:` _'p'_              |             |
-| `replace_first:` _'super', 'mega'_ |             |
-| ---                                | ---         |
-| `truncate:` _5_                    |             |
-| `truncatewords:` _20_              |             |
-| ---                                | ---         |
-| `prepend:` _'Mr. '_                |             |
-| `append:` _'Jr.'_                  |             |
-| ---                                | ---         |
-| `camelize`                         |             |
-| `capitalize`                       |             |
-| `strip_html`                       |             |
-| `strip_newlines`                   |             |
-| `newlines_to_br`                   |             |
-| ---                                | ---         |
-| `split:` _','_                     |             |
-| ---                                | ---         |
-| `escape`                           |             |
-| `escape_once`                      |             |
-| ---                                | ---         |
-| `slice:` _-3, 3_                   |             |
-
-See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
-
-### String filters (Jekyll-only)
-
-```ruby
-{{ page.excerpt | number_of_words }}
-```
-{: .-setup}
-
-| Filter | Description |
-| --- | --- |
-| `number_of_words` | |
-| `slugify` | |
-| --- | --- |
-| `xml_escape` | → `CDATA` |
-| `cgi_escape` | → `foo%2Cbar` |
-| `uri_escape` | → `foo,%20bar` |
-
-### Numbers
-
-```
-{{ site.posts.size | minus: 2 }}
-```
-{: .-setup}
-
-| Filter | Description |
-| --- | --- |
-| `minus:` _2_ | |
-| `plus:` _2_ | |
-| `times:` _2_ | |
-| `divided_by:` _2_ | |
-| `modulo:` _2_ | |
-| --- | --- |
-| `ceil` | |
-| `floor` | |
-| `round` | |
 
 Integration
 -----------

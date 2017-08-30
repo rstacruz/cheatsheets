@@ -133,12 +133,15 @@ These don't do anything and can be chained.
 expect(object).not.equal('x')
 ```
 
-### Chai-jQuery
+## Chai with jQuery
+
+### Using chai-jquery
 
 ```js
 global.jQuery = ···
 chai.use(require('chai-jquery'))
 ```
+{: .-setup}
 
 ```js
 expect($body)
@@ -158,6 +161,12 @@ expect($body)
   .have.html('<em>hi</em>')
   .have.text('hello')
   .have.value('2013')
+```
+
+### Continued
+
+```js
+expect($body)
 ```
 
 ```js

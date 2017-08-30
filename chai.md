@@ -1,131 +1,172 @@
 ---
 title: Chai.js
 category: JavaScript libraries
-layout: default-ad
+layout: 2017/sheet
+weight: -3
 ---
 
 ### Assert
 
-    assert(val)
-    assert.fail(actual, expected)
-    assert.ok(val) // is truthy
-    assert.equal(actual, expected) // 'compare with =='
-    assert.strictEqual
-    assert.deepEqual
+```js
+assert(val)
+assert.fail(actual, expected)
+assert.ok(val)                        // is truthy
+assert.equal(actual, expected)        // compare with ==
+assert.strictEqual(actual, expected)  // compare with ===
+assert.deepEqual(actual, expected)    // deep equal check
+```
 
-    assert.isTrue
-    assert.isFalse
+```js
+assert.isTrue(val)
+assert.isFalse(val)
+```
 
-    assert.isNull
-    assert.isNotNull
-    assert.isUndefined
-    assert.isDefined
-    assert.isFunction
-    assert.isObject
-    assert.isArray
-    assert.isString
-    assert.isNumber
-    assert.isBoolean
+```js
+assert.isNull(val)
+assert.isNotNull(val)
+assert.isUndefined(val)
+assert.isDefined(val)
+assert.isFunction(val)
+assert.isObject(val)
+assert.isArray(val)
+assert.isString(val)
+assert.isNumber(val)
+assert.isBoolean(val)
+```
 
-    assert.typeOf(/tea/, 'regexp') // Object.prototype.toString()
-    assert.instanceOf(chai, Tea)
-    assert.include([ a,b,c ], a)
-    assert.match(val, /regexp/)
-    assert.property(obj, 'tea') // 'tea' in object
-    assert.deepProperty(obj, 'tea.green')
-    assert.propertyVal(person, 'name', 'John')
-    assert.deepPropertyVal(post, 'author.name', 'John')
+```js
+assert.typeOf(/tea/, 'regexp') // Object.prototype.toString()
+assert.instanceOf(chai, Tea)
+assert.include([ a,b,c ], a)
+assert.match(val, /regexp/)
+assert.property(obj, 'tea') // 'tea' in object
+assert.deepProperty(obj, 'tea.green')
+assert.propertyVal(person, 'name', 'John')
+assert.deepPropertyVal(post, 'author.name', 'John')
+```
 
-    assert.lengthOf(object, 3)
-    assert.throws(function() { ... })
-    assert.throws(function() { ... }, /reference error/)
-    assert.doesNotThrow
+```js
+assert.lengthOf(object, 3)
+assert.throws(function() { ... })
+assert.throws(function() { ... }, /reference error/)
+assert.doesNotThrow
+```
 
-    assert.operator(1, '<', 2)
-    assert.closeTo(actual, expected)
+```js
+assert.operator(1, '<', 2)
+assert.closeTo(actual, expected)
+```
+
+See: [Assert API](http://chaijs.com/api/assert/) _(chaijs.com)_
+
+### BDD syntax
+
+```js
+expect(object)
+  .to.equal(expected)
+  .to.eql(expected)        // deep equality
+  .to.deep.equal(expected) // same as .eql
+  .to.be.a('string')
+  .to.include(val)
+```
+
+```js
+  .be.ok(val)
+  .be.true
+  .be.false
+  .to.exist
+```
+
+```js
+  .to.be.null
+  .to.be.undefined
+  .to.be.empty
+  .to.be.arguments
+  .to.be.function
+  .to.be.instanceOf
+```
+
+```js
+  .to.be.gt(5)  // aka: .above .greaterThan
+  .to.be.gte(5) // aka: .at.least
+  .to.be.lt(5)  // aka: .below
+```
+
+```js
+  .to.respondTo('bar')
+  .to.satisfy((n) => n > 0)
+```
+
+```js
+  .to.have.members([2, 3, 4])
+  .to.have.keys(['foo'])
+  .to.have.key('foo')
+```
+
+```js
+expect(() => { ··· })
+  .to.throw(/not a function/)
+```
+
+See: [BDD](http://chaijs.com/api/bdd/) _(chaijs.com)_
 
 ### Should: chains
 
     .to .be .been .is .that .and .have .with .at .of .same
 
+These don't do anything and can be chained.
+
 ### Should not
 
-    expect(object).not.equal('x')
-
-### Expectations
-
-    expect(object)
-      .equal(expected)
-      .eql
-      .deep.equal(expected) // same as .eql
-      .be.a('string')
-      .include(val)
-
-      .be.ok(val)
-      .be.true
-      .be.false
-
-      .be.null
-      .be.undefined
-      .be.empty
-      .be.arguments
-      .be.function
-      .be.instanceOf
-
-      .gt(5)  # or .above .greaterThan
-      .gte    # or .at.least
-      .lt(5)  # or .below
-
-      .respondTo('bar')
-      .satisfy (n) -> n > 0
-
-      .have.members([2, 3, 4])
-      .have.keys(['foo'])
-      .have.key('foo')
-
-      .exist
-
-    expect(-> ...)
-      .throw /not a function/
+```js
+expect(object).not.equal('x')
+```
 
 ### Chai-jQuery
 
-    global.jQuery = ...;
-    chai.use(require('chai-jquery'));
+```js
+global.jQuery = ···
+chai.use(require('chai-jquery'))
+```
 
-    expect($body)
+```js
+expect($body)
+  .have.attr('foo')
+  .have.prop('disabled')
+  .have.css('background')
+  .have.css('background-color', '#ffffff')
+  .have.data('foo')
+```
 
-      .have.attr('foo')
-      .have.prop('disabled')
-      .have.css('background')
-      .have.css('background-color', '#ffffff')
-      .have.data('foo')
+```js
+  .have.class('active')
+  .have.id('id')
+```
 
-      .have.class('active')
-      .have.id('id')
+```js
+  .have.html('<em>hi</em>')
+  .have.text('hello')
+  .have.value('2013')
+```
 
-      .have.html('<em>hi</em>')
-      .have.text('hello')
-      .have.value('2013')
+```js
+  .be.visible
+  .be.hidden
+```
 
-      .be.visible
-      .be.hidden
+```js
+  .be.checked
+  .be.selected
+```
 
-      .be.checked
-      .be.selected
+```js
+  .be.enabled
+  .be.disabled
+```
 
-      .be.enabled
-      .be.disabled
-
-      .be.empty
-      .to.exist
-      .to.contain('text')
-      .to.have('.selector')
-
-### References
-
- * http://chaijs.com/api/assert/
-
-
-
-
+```js
+  .be.empty
+  .to.exist
+  .to.contain('text')
+  .to.have('.selector')
+```

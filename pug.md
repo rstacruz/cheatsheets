@@ -100,6 +100,7 @@ mixin list
   ul
     ···
 ```
+{: data-line="1"}
 
 ```jade
 +list
@@ -111,6 +112,7 @@ mixin list
 mixin pet(name)
   span.pet= name
 ```
+{: data-line="1"}
 
 ```jade
 +pet('cat')
@@ -124,7 +126,7 @@ mixin article(title)
     h2.title= title
     block
 ```
-{: data-line="4"}
+{: data-line="1,4"}
 
 ```jade
 +article('hello there')

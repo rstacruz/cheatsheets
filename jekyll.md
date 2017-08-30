@@ -86,27 +86,42 @@ See: [github/pages-gem](https://github.com/github/pages-gem)
 
 ### Basic frontmatter
 
-    ---
-    layout: post
-    title: Hello
-    ---
+```
+---
+layout: post
+title: Hello
+---
+Hello! this is my post.
+```
+{: data-line="1,2,3,4"}
 
+Attach metadata to a page by adding them on top of the page, delimited by `---`.
 See: [Front-matter](http://jekyllrb.com/docs/frontmatter/)
 
 ### Other frontmatter stuff
 
-    permalink: '/hello'
-    published: false
-    category: apple
-    categories: ['html', 'css']
-    tags: ['html', 'css']
+```yaml
+permalink: '/hello'
+published: false
+category: apple
+categories: ['html', 'css']
+tags: ['html', 'css']
+```
 
 ### Configuration
 
-    source: .
-    destination: _site
-    exclude: [dir, file, ...]
-    include: ['.htaccess']
+In `_config.yml`:
+{: .-setup}
+
+```yaml
+# Optional
+source: .
+destination: _site
+exclude:
+- Gemfile
+- Gemfile.lock
+include: ['.htaccess']
+```
 
 See: [Configuration](http://jekyllrb.com/docs/configuration/)
 
@@ -384,132 +399,6 @@ real_name: Anne Rice
 
 See: [Collections](http://jekyllrb.com/docs/collections/)
 
-Helpers and filters
--------------------
-
-### Dates
-
-```
-{{ site.time | date_to_xmlschema }}   #=> 2008-11-07T13:07:54-08:00
-{{ site.time | date_to_rfc822 }}      #=> Mon, 07 Nov 2008 13:07:54 -0800
-{{ site.time | date_to_string }}      #=> 07 Nov 2008
-{{ site.time | date_to_long_string }} #=> 07 November 2008
-{{ site.time | date: "%Y %m %d" }}
-```
-
-### Preprocessors
-
-```
-| textilize
-| markdownify
-| jsonify
-| sassify
-| scssify
-```
-
-### Array filters
-
-```
-{{ site.pages | where: "year","2014" }}
-```
-
-```
-| where: "year","2014"
-| where_exp: "item", "item.year >= 2014"
-| group_by: "genre"   #=> { name, items }
-| sort
-| sort: 'author'
-```
-
-```
-| first
-| last
-| join: ","
-| array_to_sentence_string   #=> "CSS, JS and HTML"
-```
-
-```
-| map: "post"   # works like 'pluck'
-| size
-```
-
-```
-{% assign list = list | push: 'd' %}
-```
-
-### String filters
-
-```rb
-| default: "xxx"
-```
-
-```rb
-| upcase
-| downcase
-```
-
-```rb
-| remove: "<p>"
-| replace: "super", "mega"
-| remove_first: "<p>"
-| replace_first: "super", "mega"
-```
-
-```rb
-| truncate: 5
-| truncatewords: 20
-```
-
-```rb
-| prepend: "Mr. "
-| append: " Sr."
-```
-
-```rb
-| camelize
-| capitalize
-| pluralize
-| strip_html
-| strip_newlines
-| newline_to_br
-```
-
-```rb
-| split: ','
-```
-
-```rb
-| escape
-| escape_once
-```
-
-```rb
-| slice: -3, 3
-```
-
-See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
-
-### String filters (Jekyll-only)
-
-```
-| number_of_words
-| slugify
-```
-
-```rb
-| xml_escape    #=> CDATA
-| cgi_escape    #=> foo%2Cbar
-| uri_escape    #=> foo,%20bar
-```
-
-### Numbers
-
-     | minus: 2
-     | plus: 1
-     | time: 4
-     | divided_by: 3
-     | modulo: 2
-
 ### Code highlighter
 
 ```html
@@ -520,14 +409,154 @@ end
 {% endhighlight %}
 ```
 
+Helpers and filters
+-------------------
+{: .-three-column}
+
+### Dates
+
+```ruby
+{{ site.time | date: "%Y %m %d" }}
+```
+{: .-setup}
+
+| `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
+| `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
+| `date_to_string` | → `07 Nov 2008` |
+| `date_to_long_string` | → `07 November 2008` |
+| `date:` _'%Y %m %d'_ | → `2017 Nov  7` |
+
+### Preprocessors
+
+
+```ruby
+{{ page.description | markdownify }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `textilize` | Textile |
+| `markdownify` | Markdown |
+| `jsonify` | JSON |
+| `sassify` | Sass |
+| `scssify` | SCSS |
+| `smartify` | Smartypants |
+
+### Array filters
+
+```ruby
+{{ site.pages | where: "year", "2014" }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `where:` _"year", "2014"_ | |
+| `where_exp:` _"item", "item.year >= 2014"_ | |
+| --- | --- |
+| `group_by:` _"genre"_   | → `{name, items}` |
+| `group_by_exp:` _"item", "item.genre"_   | → `{name, items}` |
+| --- | --- |
+| `sort` | |
+| `sort:` _'author'_ | |
+| --- | --- |
+| `uniq` | |
+| --- | --- |
+| `first` | |
+| `last` | |
+| `join:` _','_ | |
+| `array_to_setentence_string` | → `"X, Y and Z"` |
+| --- | --- |
+| `map:` _'post'_ | Works like 'pluck' |
+| --- | --- |
+| `size` | |
+| `push:` _'xxx'_ | Adds an item |
+
+### String filters
+
+```ruby
+{{ page.title | default: "xxx" }}
+```
+{: .-setup}
+
+| Filter                             | Description |
+| ---                                | ---         |
+| `default:` _'xxx'_                 |             |
+| ---                                | ---         |
+| `upcase`                           |             |
+| `downcase`                         |             |
+| ---                                | ---         |
+| `remove:` _'p'_                    |             |
+| `replace:` _'super', 'mega'_       |             |
+| `remove_first:` _'p'_              |             |
+| `replace_first:` _'super', 'mega'_ |             |
+| ---                                | ---         |
+| `truncate:` _5_                    |             |
+| `truncatewords:` _20_              |             |
+| ---                                | ---         |
+| `prepend:` _'Mr. '_                |             |
+| `append:` _'Jr.'_                  |             |
+| ---                                | ---         |
+| `camelize`                         |             |
+| `capitalize`                       |             |
+| `strip_html`                       |             |
+| `strip_newlines`                   |             |
+| `newlines_to_br`                   |             |
+| ---                                | ---         |
+| `split:` _','_                     |             |
+| ---                                | ---         |
+| `escape`                           |             |
+| `escape_once`                      |             |
+| ---                                | ---         |
+| `slice:` _-3, 3_                   |             |
+
+See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
+
+### String filters (Jekyll-only)
+
+```ruby
+{{ page.excerpt | number_of_words }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `number_of_words` | |
+| `slugify` | |
+| --- | --- |
+| `xml_escape` | → `CDATA` |
+| `cgi_escape` | → `foo%2Cbar` |
+| `uri_escape` | → `foo,%20bar` |
+
+### Numbers
+
+```
+{{ site.posts.size | minus: 2 }}
+```
+{: .-setup}
+
+| Filter | Description |
+| --- | --- |
+| `minus:` _2_ | |
+| `plus:` _2_ | |
+| `times:` _2_ | |
+| `divided_by:` _2_ | |
+| `modulo:` _2_ | |
+| --- | --- |
+| `ceil` | |
+| `floor` | |
+| `round` | |
+
 Integration
 -----------
 
 ### Bundler
 
 In `_plugins/bundler.rb`:
+{: .-setup}
 
-```rb
+```ruby
 require "bunder/setup"
 Bundler.require :default
 ```

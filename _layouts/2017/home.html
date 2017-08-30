@@ -6,7 +6,7 @@ type: website
 %}
 {% assign recent_pages = site.pages
   | where_exp: "page", "page.updated"
-  | where_exp: "page", "page.updated >= site.last_updated"
+  | sort: "updated", "first"
 %}
 {% include 2017/head.html %}
 {% include 2017/top-nav.html page=page %}
@@ -40,10 +40,12 @@ type: website
       <span>Recently updated</span>
     </h2>
 
-    {% for page in recent_pages %}
-      {% unless page.tags contains 'Featured' %}
-        {% include 2017/pages-list-item.html page=page class='article item' %}
-      {% endunless %}
+    {% for page in recent_pages reversed %}
+      {% if forloop.index < 12 %}
+        {% unless page.tags contains 'Featured' %}
+          {% include 2017/pages-list-item.html page=page class='article item' %}
+        {% endunless %}
+      {% endif %}
     {% endfor %}
 
     {% for category in site.category_names %}

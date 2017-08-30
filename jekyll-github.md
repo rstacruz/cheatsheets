@@ -3,7 +3,7 @@ title: Jekyll for GitHub pages
 layout: 2017/sheet
 category: Jekyll
 tags: [WIP]
-updated: 201708
+updated: 20170826
 ---
 
 {% raw %}

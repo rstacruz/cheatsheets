@@ -2,7 +2,7 @@
 title: CSS flexbox
 category: CSS
 layout: 2017/sheet
-updated: 201708.29
+updated: 20170829
 weight: -3
 ---
 

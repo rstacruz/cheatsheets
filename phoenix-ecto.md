@@ -3,7 +3,7 @@ title: "Phoenix: Ecto"
 category: Elixir
 layout: 2017/sheet
 tags: [WIP]
-updated: 201708.29
+updated: 20170829
 ---
 
 ## Schemas

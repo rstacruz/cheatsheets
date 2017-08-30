@@ -2,7 +2,7 @@
 title: HTML emails
 category: HTML
 layout: 2017/sheet
-updated: 201708.29
+updated: 20170829
 ---
 
 ### Properties to avoid

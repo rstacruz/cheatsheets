@@ -3,7 +3,7 @@ title: Elixir
 category: Elixir
 layout: 2017/sheet
 tags: [New]
-updated: 201708
+updated: 20170826
 weight: -10
 ---
 

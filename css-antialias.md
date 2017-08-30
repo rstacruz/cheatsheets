@@ -3,7 +3,7 @@ title: CSS antialiasing
 category: CSS
 layout: 2017/sheet
 tags: [Featured]
-updated: 201708
+updated: 20170826
 ---
 
 ### Antialias

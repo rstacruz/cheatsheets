@@ -2,7 +2,7 @@
 title: cssnext
 category: CSS
 layout: 2017/sheet
-updated: 201708.30
+updated: 20170830
 weight: -3
 ---
 

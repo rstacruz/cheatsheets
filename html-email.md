@@ -31,8 +31,8 @@ updated: 201708.29
 | `E[attr]`                  | (Outlook, Gmail)        |
 | `E:nth-child(n)`           | (Outlook, Gmail)        |
 | `::before` _and_ `::after` | (Outlook, Yahoo, Gmail) |
-| `E F`                      | (Outlook, Gmail)        |
-| `E + F`, `E > F` _etc_     | (Gmail)                 |
+| `E F`                      | (Gmail)                 |
+| `E + F`, `E > F` _etc_     | (Outlook, Gmail)        |
 
 Inline your CSS as much as possible.
 

@@ -3,28 +3,52 @@
   box-shadow: $shadow3;
   display: flex;
   height: 64px;
+  align-items: center;
+  cursor: text;
 
   & > input {
+    font-family: $body-font;
     @include font-size(2);
     padding: 16px;
     height: 64px;
     background: transparent;
     border: 0;
     Flex: 1 0 auto;
+    padding-left: 0;
+    font-weight: bold;
+    color: $base-head;
+
+    &::placeholder {
+      font-weight: normal;
+      color: $base-mute;
+    }
   }
 
   & > input:focus {
     outline: 0;
   }
 
+  & > .prefix,
+  & > .sep {
+    @include font-size(2);
+    display: block;
+    color: $base-mute;
+    font-weight: 400;
+    opacity: 0.5;
+    user-select: none;
+  }
+
+  & > .sep {
+    margin: 0 8px;
+  }
+
   &::before {
     @include ion-icon('md-search');
     font-size: 32px;
     color: $base-head;
-    flex: 0 0 48px;
-    width: 48px;
+    flex: 0 0 64px;
+    width: 64px;
     line-height: 64px;
-    text-indent: 16px;
     text-align: center;
   }
 }

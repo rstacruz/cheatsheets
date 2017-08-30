@@ -30,8 +30,3 @@ This uses whatever system font is available. See: [System shock - Designing Medi
 | `Fira Sans`          | Firefox OS              |
 | `Droid Sans`         | Android (until 3.2)     |
 | `Helvetica Neue`     | OS X (10.9)             |
-
-## Reference
-{: .-one-column}
-
-- <https://medium.com/design/system-shock-6b1dc6d6596f>

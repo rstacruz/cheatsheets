@@ -3,9 +3,15 @@ title: Chai.js
 category: JavaScript libraries
 layout: 2017/sheet
 weight: -3
+version: chai v4.x
 ---
 
 ### Assert
+
+```js
+const { assert } = require('chai')
+```
+{: .-setup}
 
 ```js
 assert(val)
@@ -60,6 +66,11 @@ assert.closeTo(actual, expected)
 See: [Assert API](http://chaijs.com/api/assert/) _(chaijs.com)_
 
 ### BDD syntax
+
+```js
+const { expect } = require('chai')
+```
+{: .-setup}
 
 ```js
 expect(object)

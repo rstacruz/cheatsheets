@@ -21,7 +21,7 @@
   &,
   & > div > span {
     min-width: 130px + 16px + 64px;
-    max-width: 400px;
+    max-width: 380px;
     height: 100px;
   }
 
@@ -40,5 +40,21 @@
   .carbon-img {
     float: right;
     margin-left: 16px;
+  }
+
+  .carbon-text:first-line {
+    @include font-size(1);
+    color: $base-head;
+    font-weight: 300;
+    margin-bottom: -0.02em;
+  }
+
+  .carbon-poweredby::before {
+    display: block;
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: $dark-line-color;
+    margin: 8px (130px + 16px) 8px auto;
   }
 }

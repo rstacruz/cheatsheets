@@ -6,14 +6,14 @@ type: article
 {% include 2017/top-nav.html page=page %}
 
 <div class='body-area'>
-  <div class='main-heading {% if page.ads != false %}-with-ads{% endif %}'>
+  <header class='main-heading {% if page.ads != false %}-with-ads{% endif %}'>
     <h1 class='h1'>{{ page.title }} <em>cheatsheet</em></h1>
     {% if page.ads != false %}
       <div class='HeadlineAd ad'>
         <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
       </div>
     {% endif %}
-  </div>
+  </header>
 
   {% if page.tags contains 'WIP' %}
     <aside class='notice-box'>
@@ -21,9 +21,9 @@ type: article
     </aside>
   {% endif %}
 
-  <div class='post-content MarkdownBody' data-js-main-body>
+  <main class='post-content MarkdownBody' data-js-main-body>
     {{ content }}
-  </div>
+  </main>
 </div>
 
 {% include 2017/related-posts.html page=page %}

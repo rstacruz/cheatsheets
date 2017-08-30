@@ -1,21 +1,21 @@
 ---
-title: Vim script
+title: Vim scripting
 category: Vim
-hljs_languages: [vim]
-layout: default-ad
+prism_languages: [vim]
+layout: 2017/sheet
+weight: -10
 ---
 
-### Start hacking.
-You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let` and `:echo`.
+### Start hacking
 
 ```vim
 let name = "John"
 echo "Hello, " . name
 ```
-{:.light}
+
+You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or you can type the commands individually in normal mode as `:let` and `:echo`.
 
 ### Learn by example
-[Here](http://www.vimbits.com/bits/46)'s another example with [functions](#functions), [variables](#variables) and [mapping](#mapping).
 
 ```vim
 function! SuperTab()
@@ -30,16 +30,19 @@ endfunction
 imap <Tab> <C-R>=SuperTab()<CR>
 ```
 
+[Here](http://www.vimbits.com/bits/46)'s another example with [functions](#functions), [variables](#variables) and [mapping](#mapping).
+
 Variables
 ---------
+
+### Defining
+{: .-prime}
 
 ```vim
 let var = "hello"
 ```
-{:.light}
 
 ### Variable prefixes
-The `s:` prefix is also available in function names. See `:help local-variables`
 
 ```vim
 let g:ack_options = '-s -H'    " g: global
@@ -47,20 +50,23 @@ let s:ack_program = 'ack'      " s: local (to script)
 let l:foo = 'bar'              " l: local (to function)
 ```
 
+The `s:` prefix is also available in function names. See `:help local-variables`
+
 ### Other prefixes
 
 ```vim
-let w:foo = 'bar'              " w: window
-let b:state = 'on'             " b: buffer
-let t:state = 'off'            " t: tab
-echo v:var                     " v: vim special
+let w:foo = 'bar'    " w: window
+let b:state = 'on'   " b: buffer
+let t:state = 'off'  " t: tab
+echo v:var           " v: vim special
+```
 
-let @/ = ''                    " @  register (this clears last search patterN)
-echo $PATH                     " $  env
+```vim
+let @/ = ''          " @  register (this clears last search pattern)
+echo $PATH           " $  env
 ```
 
 ### Vim options
-Prefix with `&`
 
 ```vim
 echo 'tabstop is ' . &tabstop
@@ -68,6 +74,8 @@ if &insertmode
 echo &g:option
 echo &l:option
 ```
+
+Prefix Vim options with `&`
 
 ### Operators
 
@@ -82,9 +90,9 @@ let var += 5
 let var .= 'string'   " concat
 ```
 
-## [Strings](http://learnvimscriptthehardway.stevelosh.com/chapters/26.html)
+## Strings
 
-Also see `:help literal-string` and `:help expr-quote`
+### Strings
 
 ```vim
 let str = "String"
@@ -96,8 +104,10 @@ let literal = 'that''s enough'  " double '' => '
 echo "result = " . re   " concatenation
 ```
 
-### [String functions](learnvimscriptthehardway.stevelosh.com/chapters/27.html)
-Also see `:help functions`
+Also see `:help literal-string` and `:help expr-quote`.
+See: [Strings](http://learnvimscriptthehardway.stevelosh.com/chapters/26.html)
+
+### String functions
 
 ```vim
 strlen(str)    " length
@@ -113,8 +123,14 @@ tolower('Hello')
 toupper('Hello')
 ```
 
-[Functions](http://learnvimscriptthehardway.stevelosh.com/chapters/23.html)
+Also see `:help functions`
+See: [String functions](learnvimscriptthehardway.stevelosh.com/chapters/27.html)
+
+Functions
 ---------
+
+### Functions
+{: .-prime}
 
 ```vim
 " prefix with s: for local script-only functions
@@ -125,7 +141,8 @@ function! s:Initialize(cmd, args)
   return true
 endfunction
 ```
-{:.light}
+
+See: [Functions](http://learnvimscriptthehardway.stevelosh.com/chapters/23.html)
 
 ### Namespacing
 
@@ -154,8 +171,7 @@ function! myfunction() abort
 endfunction
 ```
 
-### [Var arguments](http://learnvimscriptthehardway.stevelosh.com/chapters/24.html)
-See `:help function-argument`
+### Var arguments
 
 ```vim
 function! infect(...)
@@ -170,6 +186,8 @@ endfunction
 
 infect('jake', 'bella')
 ```
+
+See `:help function-argument`.  See: [Var arguments](http://learnvimscriptthehardway.stevelosh.com/chapters/24.html)
 
 Loops
 -----
@@ -190,12 +208,14 @@ endwhile
 Custom commands
 ---------------
 
-Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
+### Custom commands
+{: .-prime}
 
 ```vim
 command! Save :set fo=want tw=80 nowrap
 ```
-{:.light}
+
+Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
 
 ### Commands calling functions
 
@@ -236,8 +256,7 @@ else
 endif
 ```
 
-### [Truthiness](http://learnvimscriptthehardway.stevelosh.com/chapters/21.html)
-No booleans. `0` is false, `1` is true.
+### Truthiness
 
 ```vim
 if 1 | echo "true"  | endif
@@ -252,8 +271,10 @@ if "456"   "=> 1 (true)
 if "xfz"   "=> 0 (false)
 ```
 
-### [Operators](http://learnvimscriptthehardway.stevelosh.com/chapters/22.html)
-See `:help expression-syntax`
+No booleans. `0` is false, `1` is true.
+See: [Truthiness](http://learnvimscriptthehardway.stevelosh.com/chapters/21.html)
+
+### Operators
 
 ```vim
 if 3 > 2
@@ -261,6 +282,9 @@ if a && b
 if (a && b) || (c && d)
 if !c
 ```
+
+See `:help expression-syntax`.
+See: [Operators](http://learnvimscriptthehardway.stevelosh.com/chapters/22.html)
 
 ### Strings
 
@@ -273,12 +297,13 @@ if name == 'John'      " depends on :set ignorecase
 ```
 
 ### Identity operators
-Checks if it's the same instance object
 
-```
+```vim
 a is b
 a isnot b
 ```
+
+Checks if it's the same instance object.
 
 ### Regexp matches
 
@@ -294,15 +319,20 @@ if empty(a:path) | return [] | endif
 a ? b : c
 ```
 
+Use `|` to join lines together.
+
 ### Boolean logic
 
 ```vim
 if g:use_dispatch && s:has_dispatch
+  ···
 endif
 ```
 
 Lists
 -----
+
+### Lists
 
 ```vim
 let mylist = [1, two, 3, "four"]
@@ -360,7 +390,7 @@ call filter(files, 'v:val != ""')
 Dictionaries
 ------------
 
-See `:help dict`
+### Dictionaries
 
 ```vim
 let colors = {
@@ -370,21 +400,35 @@ let colors = {
 
 echo colors["a"]
 echo get(colors, "apple")   " supress error
+```
 
+See `:help dict`
+
+### Using dictionaries
+
+```vim
 remove(colors, "apple")
+```
 
+```vim
 " :help E715
 if has_key(dict, 'foo')
 if empty(dict)
 keys(dict)
 len(dict)
+```
 
+```vim
 max(dict)
 min(dict)
+```
 
+```vim
 count(dict, 'x')
 string(dict)
+```
 
+```vim
 map(dict, '<>> " . v:val')
 ```
 
@@ -397,11 +441,12 @@ endfor
 ```
 
 ### Prefixes
-Prefixes (`s:`, `g:`, `l:`, etc) are actually dictionaries
 
 ```vim
 keys(s:)
 ```
+
+Prefixes (`s:`, `g:`, `l:`, etc) are actually dictionaries.
 
 ### Extending
 
@@ -419,10 +464,11 @@ str2nr("3")
 float2nr("3.14")
 ```
 
-[Numbers](http://learnvimscriptthehardway.stevelosh.com/chapters/25.html)
+Numbers
 -------
 
-See `:help Number`
+### Numbers
+{: .-prime}
 
 ```vim
 let int = 1000
@@ -430,13 +476,17 @@ let int = 0xff
 let int = 0755   " octal
 ```
 
+See `:help Number`.
+See: [Numbers](http://learnvimscriptthehardway.stevelosh.com/chapters/25.html)
+
 ### Floats
-See `:help Float`
 
 ```vim
 let fl = 100.1
 let fl = 5.4e4
 ```
+
+See `:help Float`
 
 ### Arithmetic
 
@@ -462,16 +512,17 @@ asin() acos() atan()
 Vim-isms
 --------
 
-### [Execute a command](http://learnvimscriptthehardway.stevelosh.com/chapters/28.html)
-Runs an ex command you typically run with `:`. Also see `:help execute`
+### Execute a command
 
 ```vim
 execute "vsplit"
 execute "e " . fnameescape(filename)
 ```
 
-### [Running keystrokes](http://learnvimscriptthehardway.stevelosh.com/chapters/29.html)
-Use `:normal` to execute keystrokes as if you're typing them in normal mode. Combine with `:execute` for special keystrokes.
+Runs an ex command you typically run with `:`. Also see `:help execute`.
+See: [Execute a command](http://learnvimscriptthehardway.stevelosh.com/chapters/28.html)
+
+### Running keystrokes
 
 ```vim
 normal G
@@ -479,6 +530,9 @@ normal! G   " skips key mappings
 
 execute "normal! gg/foo\<cr>dd"
 ```
+
+Use `:normal` to execute keystrokes as if you're typing them in normal mode. Combine with `:execute` for special keystrokes.
+See: [Running keystrokes](http://learnvimscriptthehardway.stevelosh.com/chapters/29.html)
 
 ### Getting filenames
 
@@ -490,12 +544,15 @@ echo expand("%:r")    " path/file
 echo expand("%:e")    " txt
 ```
 
+See `:help expand`
+
 ### Silencing
-See `:help silent`
 
 ```vim
 silent g/Aap/p
 ```
+
+Supresses output. See `:help silent`
 
 ### Echo
 
@@ -541,33 +598,48 @@ exists("g:...")
 
 Mapping
 -------
+{: .-three-column}
+
+### Mapping commands
 
 ```vim
-nnoremap
+nmap
 vmap
+imap
+xmap
+nnoremap
+vnoremap
+inoremap
+xnoremap
 ...
 ```
 
+### Explanation
+
 ```vim
 [nvixso](nore)map
- ^       ^
- |       don't recurse
- |
- normal, visual, insert, eX mode, select, operator-pending
 ```
 
-Arguments:
+```
+ │       └ don't recurse
+ │
+ └ normal, visual, insert,
+   eX mode, select, operator-pending
+```
+{: .-setup}
 
-- `<buffer>` - only in current buffer
-- `<silent>` - no echo
-- `<nowait>`
+### Arguments
+
+| `<buffer>` | only in current buffer |
+| `<silent>` | no echo |
+| `<nowait>` | |
 
 Syntax
 ------
 
 ### Highlights
 
-```
+```vim
 hi Comment
   term=bold,underline
   gui=bold
@@ -577,7 +649,7 @@ hi Comment
 
 ### Filetype detection
 
-```
+```vim
 augroup filetypedetect
   au! BufNewFile,BufRead *.json setf javascript
 augroup END
@@ -587,7 +659,7 @@ au Filetype markdown setlocal spell
 
 ### Conceal
 
-```
+```vim
 set conceallevel=2
 syn match newLine "<br>" conceal cchar=}
 hi newLine guifg=green
@@ -595,7 +667,7 @@ hi newLine guifg=green
 
 ### Region conceal
 
-```
+```vim
 syn region inBold concealends matchgroup=bTag start="<b>" end="</b>"
 hi inBold gui=bold
 hi bTag guifg=blue
@@ -603,7 +675,7 @@ hi bTag guifg=blue
 
 ### Syntax
 
-```
+```vim
 syn match :name ":regex" :flags
 
 syn region Comment  start="/\*"  end="\*/"

@@ -40,10 +40,11 @@ category: React
 layout: 2017/sheet   # 'default' | '2017/sheet'
 
 # Optional:
-updated: 201708      # To show in the updated list (update _config.yml)
-ads: false           # Add this to disable ads
-weight: -5           # lower number = higher in related posts list
-deprecated: true     # Don't show in related posts
+updated: 201708         # To show in the updated list (update _config.yml)
+ads: false              # Add this to disable ads
+weight: -5              # lower number = higher in related posts list
+deprecated: true        # Don't show in related posts
+prism_languages: [vim]  # Extra syntax highlighting
 ---
 ```
 

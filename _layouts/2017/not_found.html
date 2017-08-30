@@ -1,0 +1,31 @@
+---
+type: website
+permalink: /404.html
+---
+{% include 2017/head.html %}
+{% include 2017/top-nav.html page=page noshare=true %}
+
+<div class='body-area -slim'>
+  <div class='site-header'>
+    <h1>
+      Not found
+    </h1>
+    <p>
+      Sorry, we don't have a cheatsheet for this yet. Try searching!
+    </p>
+
+    <form class='search' action='.' method='get'>
+      <label class='search-box'>
+        <!-- <span class='prefix'>devhints.io</span> -->
+        <!-- <span class='sep'>/</span> -->
+        <input name='q' type='text' placeholder='Search...' autofocus data-js-search-input>
+      </label>
+    </form>
+
+    <p class='action'>
+      <a class='push-button' href='./'>Back to home</a>
+    </p>
+  </div>
+</div>
+
+{% include 2017/foot.html %}

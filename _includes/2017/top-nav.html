@@ -8,18 +8,20 @@
       Rico's cheatsheets
     </a>
 
-    <div class='actions'>
-      {% include social-list.html class="social page-actions" page=include.page %}
+    {% unless include.noshare %}
+      <div class='actions'>
+        {% include social-list.html class="social page-actions" page=include.page %}
 
-      {% if include.page.type != 'website' %}
-        <ul class='page-actions'>
-          <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
-            <a href='{{ site.github.repository_url }}/blob/gh-pages/{{ page.path | remove: '.html' }}'>
-              <span class='text -visible'>Edit</span>
-            </a>
-          </li>
-        </ul>
-      {% endif %}
-    </div>
+        {% if include.page.type != 'website' %}
+          <ul class='page-actions'>
+            <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
+              <a href='{{ site.github.repository_url }}/blob/gh-pages/{{ page.path | remove: '.html' }}'>
+                <span class='text -visible'>Edit</span>
+              </a>
+            </li>
+          </ul>
+        {% endif %}
+      </div>
+    {% endunless %}
   </div>
 </nav>

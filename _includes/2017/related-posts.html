@@ -6,7 +6,6 @@
   | sort: "weight", "last"
 %}
 {% assign top_pages = site.pages
-  | where_exp: "page", "page.tags contains 'Featured'"
   | where_exp: "page", "page.url != include.page.url"
   | where_exp: "page", "page.deprecated != true"
   | sort: "weight", "last"

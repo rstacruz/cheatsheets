@@ -6,6 +6,21 @@ tags: [Featured]
 weight: -5
 ---
 
+## Testing
+
+### Xpath test bed
+
+Test queries in the Xpath test bed:<br>
+[Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+
+### Browser console
+
+```js
+$x('//div')
+```
+
+Works in Firefox and Chrome.
+
 ## Selectors
 
 ### Descendant selectors

@@ -1,124 +1,167 @@
 ---
 title: Capybara
 category: Ruby libraries
+layout: 2017/sheet
+weight: -5
+updated: 2017-08-30
 ---
 
-## Navigating
+### Navigating
 
     visit articles_path
 
-## Clicking links and buttons
+### Clicking links and buttons
 
     click 'Link Text'
     click_button
     click_link
 
-## Interacting with forms
+### Interacting with forms
 
-    attach_file 'Image', '/path/to/image.jpg'
-    fill_in 'First Name', with: 'John'
+```ruby
+attach_file 'Image', '/path/to/image.jpg'
+fill_in 'First Name', with: 'John'
+```
 
-    check 'A checkbox'
-    uncheck 'A checkbox'
+```ruby
+check 'A checkbox'
+uncheck 'A checkbox'
+```
 
-    choose 'A radio button'
+```ruby
+choose 'A radio button'
+```
 
-    select 'Option', from: 'Select box'
-    unselect
+```ruby
+select 'Option', from: 'Select box'
+unselect
+```
 
-## Limiting
+### Limiting
 
-    within '.classname' do
-      click '...'
-    end
+```ruby
+within '.classname' do
+  click '...'
+end
+```
 
-    within_fieldset :id do ... end
+```ruby
+within_fieldset :id do
+  ...
+end
+```
 
 ## Querying
 
-Takes a CSS selector (or XPath if you're into that).
-Translates nicely into RSpec matchers:
+### Predicates
 
-    page.should have_no_button("Save")
+| Positive                              | Negative                                |
+| ---                                   | ---                                     |
+| `page.has_content?`                   | `page.has_no_content?`                  |  |
+| ---                                   | ---                                     |
+| `page.has_css?` _(selector)_          | `page.has_no_css?`_(selector)_          |  |
+| ---                                   | ---                                     |
+| `page.has_xpath?`_(path)_             | `page.has_no_xpath?`_(path)_            |  |
+| ---                                   | ---                                     |
+| `page.has_link?`_(selector)_          | `page.has_no_link?`_(selector)_         |  |
+| ---                                   | ---                                     |
+| `page.has_button?`_(selector)_        | `page.has_no_button?`_(selector)_       |  |
+| ---                                   | ---                                     |
+| `page.has_field?`_(selector)_         | `page.has_no_field?`_(selector)_        |  |
+| ---                                   | ---                                     |
+| `page.has_checked_field?`_(selector)_ | `page.has_unchecked_field?`_(selector)_ |  |
+| ---                                   | ---                                     |
+| `page.has_table?`_(selector)_         | `page.has_no_table?`_(selector)_        |  |
+| ---                                   | ---                                     |
+| `page.has_select?`_(selector)_        | `page.has_no_select?`_(selector)_       |  |
+{: .-headers}
 
-Use should have_no_* versions with RSpec matchers b/c
-should_not doesn't wait for a timeout from the driver
+In Rspec, these also map to matchers like `page.should have_content`.
 
-    page.has_content?
-    page.has_css?
-    page.has_no_content?
-    page.has_no_css?
-    page.has_no_xpath?
-    page.has_xpath?
-    page.has_link?
-    page.has_no_link?
-    page.has_button?("Update")
-    page.has_no_button?
-    page.has_field?
-    page.has_no_field?
-    page.has_checked_field?
-    page.has_unchecked_field?
-    page.has_no_table?
-    page.has_table?
-    page.has_select?
-    page.has_no_select?
+### Selectors
 
-## Finding
+```ruby
+expect(page).to have_button('Save')
+```
 
-    find_button
-    find_by_id
-    find_field
-    find_link
-    locate
+```ruby
+expect(page).to have_button('#submit')
+```
 
-## Scoping
+```ruby
+expect(page).to have_button('//[@id="submit"]')
+```
 
-    within '#delivery' do
-      fill_in 'Street', with: 'Hello'
-    end
+The `selector` arguments can be text, CSS selector, or XPath expression.
 
-    within :xpath, '//article'
-    within_fieldset
-    within_table
-    within_frame
-    scope_to
+### RSpec Assertions
 
-    find('#x').fill_in('Street', with: 'Hello')
-    # same as within
+```ruby
+page.has_button?('Save')
+```
 
-## Scripting
+```ruby
+expect(page).to have_no_button('Save')
+```
 
-    execute_script('$("input").trigger('change')')
-    evaluate_script('window.ga')
+In RSpec, you can use `page.should` assertions.
 
-## Debugging
+### About negatives
 
-    save_and_open_page
+```ruby
+expect(page).to have_no_button('Save')   # OK
+```
+```ruby
+expect(page).not_to have_button('Save')  # Bad
+```
 
-## Page
+Use `should have_no_*` versions with RSpec matchers because
+`should_not have_*` doesn't wait for a timeout from the driver.
 
-    page
-      .all('h3')
-      .body
-      .html
-      .source
-      .current_host
-      .current_path
-      .current_url
+## RSpec
 
-## AJAX
+### Matchers
 
-    using_wait_time(10) { ... }
+```ruby
+expect(page).to \
+```
+{: .-setup}
 
-## Misc
-   
-    drag
-    field_labeled
-   
-## Capybara RSpec matchers
+```ruby
+  have_selector '.blank-state'
+  have_selector 'h1#hola', text: 'Welcome'
+  have_button
+  have_checked_field
+  have_css '...'
+  have_field
+  have_table '#table'
+  have_unchecked_field
+  have_xpath
+```
 
-```rb
-# all matchers have...
+```ruby
+  have_link 'Logout', href: logout_path
+```
+
+```ruby
+  have_select 'Language',
+    selected: 'German'
+    options: ['Engish', 'German']
+    with_options: ['Engish', 'German'] # partial match
+```
+
+```ruby
+  have_text 'Hello',
+    type: :visible # or :all
+    # alias: have_content
+```
+
+### Common options
+
+All matchers have these options:
+{: .-setup}
+
+```ruby
   text: 'welcome'
   text: /Hello/
   visible: true
@@ -127,39 +170,95 @@ should_not doesn't wait for a timeout from the driver
   minimum: 2
   maximum: 5
   wait: 10
-
-expect(page).to have_selector '.blank-state'
-expect(page).to have_selector 'h1#hola', text: 'Welcome'
-expect(page).to have_button
-expect(page).to have_checked_field
-expect(page).to have_css '...'
-expect(page).to have_field
-expect(page).to have_link 'Logout',
-  href: logout_path
-expect(page).to have_select 'Language',
-  selected: 'German'
-  options: ['Engish', 'German']
-  with_options: ['Engish', 'German'] # partial match
-expect(page).to have_table '#table'
-expect(page).to have_text 'Hello',
-  type: :visible | :all
-  # alias: have_content
-expect(page).to have_unchecked_field
-expect(page).to have_xpath
 ```
 
-## Page object
+## Other features
+
+### Finding
+
+```ruby
+find(selector)
+find_button(selector)
+find_by_id(id)
+find_field(selector)
+find_link(selector)
+locate
+```
+
+### Scoping
+
+```ruby
+within '#delivery' do
+  fill_in 'Street', with: 'Hello'
+end
+```
+
+```ruby
+within :xpath, '//article'
+within_fieldset
+within_table
+within_frame
+scope_to
+```
+
+```ruby
+find('#x').fill_in('Street', with: 'Hello')
+# same as within
+```
+
+### Scripting
+
+```ruby
+execute_script('$("input").trigger('change')')
+evaluate_script('window.ga')
+```
+
+Executes JavaScript.
+
+### Debugging
+
+```ruby
+save_and_open_page
+```
+
+Opens the webpage in your browser.
+
+### Page
+
+```ruby
+page
+  .all('h3')
+  .body
+  .html
+  .source
+  .current_host
+  .current_path
+  .current_url
+```
+
+### AJAX
+
+```ruby
+using_wait_time 10 do
+  ...
+end
+```
+
+### Misc
+
+    drag
+    field_labeled
+
+### Page object
 
 ```rb
 page.status_code == 200
 page.response_headers
 ```
 
- - <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
+See: <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
 
-## Poltergeist
-
-Use [poltergeist](https://github.com/teampoltergeist/poltergeist) to integrate PhantomJS.
+### Poltergeist
 
 ```rb
 Capybara.register_driver :poltergeist do |app|
@@ -167,6 +266,8 @@ Capybara.register_driver :poltergeist do |app|
 end
 Capybara.javascript_driver = :poltergeist
 ```
+
+Use [poltergeist](https://github.com/teampoltergeist/poltergeist) to integrate PhantomJS.
 
 ### Blacklist
 
@@ -185,12 +286,13 @@ end
 ### Debugging
 
 Enable `inspector: true` and then:
+{: .-setup}
 
 ```rb
 page.driver.debug
 ```
 
-Pause execution for a while:
+To pause execution for a while:
 
 ```rb
 page.driver.pause
@@ -200,7 +302,7 @@ page.driver.pause
 
 ### Accepting confirm() and alert()
 
-```rb
+```ruby
 accept_alert { ... }
 dismiss_confirm { ... }
 accept_prompt(with: 'hi') { ... }
@@ -208,17 +310,18 @@ accept_prompt(with: 'hi') { ... }
 
 Alternatively:
 
-```rb
+```ruby
 page.driver.browser.switch_to.alert.accept
 ```
 
 ### Updating session
 
-```rb
+```ruby
 page.set_rack_session(foo: 'bar')
 ```
 
 ## See also
+{: .-one-column}
 
 - <http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>
 - <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers>

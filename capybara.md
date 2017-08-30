@@ -130,13 +130,13 @@ expect(page).to \
 ```ruby
   have_selector '.blank-state'
   have_selector 'h1#hola', text: 'Welcome'
-  have_button
-  have_checked_field
-  have_css '...'
-  have_field
-  have_table '#table'
+  have_button 'Save'
+  have_checked_field '#field'
   have_unchecked_field
-  have_xpath
+  have_css '.class'
+  have_field '#field'
+  have_table '#table'
+  have_xpath '//div'
 ```
 
 ```ruby
@@ -251,7 +251,7 @@ end
 
 ### Page object
 
-```rb
+```ruby
 page.status_code == 200
 page.response_headers
 ```
@@ -260,7 +260,7 @@ See: <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
 
 ### Poltergeist
 
-```rb
+```ruby
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, :inspector => true)
 end
@@ -271,7 +271,7 @@ Use [poltergeist](https://github.com/teampoltergeist/poltergeist) to integrate P
 
 ### Blacklist
 
-```rb
+```ruby
 config.before :each, :js do
   page.driver.browser.url_blacklist = [
     'fonts.googleapis.com',
@@ -288,13 +288,13 @@ end
 Enable `inspector: true` and then:
 {: .-setup}
 
-```rb
+```ruby
 page.driver.debug
 ```
 
 To pause execution for a while:
 
-```rb
+```ruby
 page.driver.pause
 ```
 

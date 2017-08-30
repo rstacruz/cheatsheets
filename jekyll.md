@@ -4,7 +4,7 @@ jekyll_escape: true
 layout: 2017/sheet
 tags: [Featured]
 category: Jekyll
-updated: 20170826
+updated: 2017-08-26
 ---
 
 {% raw %}

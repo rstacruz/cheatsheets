@@ -3,7 +3,7 @@ title: package.json
 category: Node.js
 layout: 2017/sheet
 prism_languages: [json]
-updated: 20170830
+updated: 2017-08-30
 weight: -3
 ---
 

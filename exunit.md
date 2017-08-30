@@ -2,7 +2,7 @@
 title: ExUnit
 category: Elixir
 layout: 2017/sheet
-updated: 20170826
+updated: 2017-08-26
 ---
 
 ### Test cases

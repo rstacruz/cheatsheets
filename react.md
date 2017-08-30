@@ -4,7 +4,7 @@ category: React
 layout: 2017/sheet
 ads: true
 tags: [Featured]
-updated: 20170826
+updated: 2017-08-26
 weight: -10
 ---
 

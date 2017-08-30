@@ -2,7 +2,7 @@
 title: Flow
 layout: 2017/sheet
 category: JavaScript libraries
-updated: 20170826
+updated: 2017-08-26
 ---
 
 ### Simple failing example

@@ -3,7 +3,7 @@ title: Vim scripting
 category: Vim
 prism_languages: [vim]
 layout: 2017/sheet
-updated: 20170830
+updated: 2017-08-30
 weight: -10
 ---
 

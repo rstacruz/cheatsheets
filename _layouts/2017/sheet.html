@@ -16,9 +16,9 @@ type: article
   </div>
 
   {% if page.tags contains 'WIP' %}
-    <div class='notice-box'>
+    <aside class='notice-box'>
       This page is a work in progress. You can help by <a href='{{ site.github.repository_url }}/blob/gh-pages/{{ page.path | remove: '.html' }}'>suggesting edits</a>!
-    </div>
+    </aside>
   {% endif %}
 
   <div class='post-content MarkdownBody' data-js-main-body>

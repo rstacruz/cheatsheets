@@ -1,31 +1,48 @@
 ---
-title: Awesome-redux
-category: JavaScript libraries
-layout: default-ad
+title: Awesome Redux
+category: React
+layout: 2017/sheet
+updated: 2017-08-30
 ---
 
-### [redux-actions](https://www.npmjs.com/package/redux-actions)
+### redux-actions
+
 Create action creators in flux standard action format.
+{: .-setup}
 
 ```js
 increment = createAction('INCREMENT', amount => amount)
 increment = createAction('INCREMENT')  // same
+```
 
-err = new Error()
+```js
 increment(42) === { type: 'INCREMENT', payload: 42 }
+```
+
+```js
+// Errors are handled for you:
+err = new Error()
 increment(err) === { type: 'INCREMENT', payload: err, error: true }
 ```
 
-### [flux-standard-action](https://github.com/acdlite/flux-standard-action)
-A standard for flux action objects. An action may have an `error`, `payload` and `meta` and nothing else.
+See: [redux-actions](https://www.npmjs.com/package/redux-actions)
 
-```
+### flux-standard-ation
+
+A standard for flux action objects. An action may have an `error`, `payload` and `meta` and nothing else.
+{: .-setup}
+
+```js
 { type: 'ADD_TODO', payload: { text: 'Work it' } }
 { type: 'ADD_TODO', payload: new Error(), error: true }
 ```
 
-### [redux-multi](https://github.com/ashaffer/redux-multi)
+See: [flux-standard-action](https://github.com/acdlite/flux-standard-action)
+
+### redux-multi
+
 Dispatch multiple actions in one action creator.
+{: .-setup}
 
 ```js
 store.dispatch([
@@ -34,8 +51,11 @@ store.dispatch([
 ])
 ```
 
-### [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
+See: [redux-multi](https://github.com/ashaffer/redux-multi)
+
+### reduce-reducers
 Combines reducers (like *combineReducers()*), but without namespacing magic.
+{: .-setup}
 
 ```js
 re = reduceReducers(
@@ -46,22 +66,38 @@ re = reduceReducers(
 re(10, { number: 2 })  //=> 14
 ```
 
-### [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+See: [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
+
+### redux-logger
+
 Logs actions to your console.
+{: .-setup}
+
+```js
+// Nothing to see here
+```
+
+See: [redux-logger](https://github.com/evgenyrodionov/redux-logger)
 
 Async
 -----
 
-### [redux-promise](https://github.com/acdlite/redux-promise)
+### redux-promise
+
 Pass promises to actions. Dispatches a flux-standard-action.
+{: .-setup}
 
 ```js
 increment = createAction('INCREMENT')  // redux-actions
 increment(Promise.resolve(42))
 ```
 
-### [redux-promises](https://www.npmjs.com/package/redux-promises)
+See: [redux-promise](https://github.com/acdlite/redux-promise)
+
+### redux-promises
+
 Sorta like that, too. Works by letting you pass *thunks* (functions) to `dispatch()`. Also has 'idle checking'.
+{: .-setup}
 
 ```js
 fetchData = (url) => (dispatch) => {
@@ -72,13 +108,19 @@ fetchData = (url) => (dispatch) => {
 })
 
 store.dispatch(fetchData('/posts'))
+```
 
+```js
 // That's actually shorthand for:
 fetchData('/posts')(store.dispatch)
 ```
 
-### [redux-effects](https://www.npmjs.com/package/redux-effects)
+See: [redux-promises](https://www.npmjs.com/package/redux-promises)
+
+### redux-effects
+
 Pass side effects declaratively to keep your actions pure.
+{: .-setup}
 
 ```js
 {
@@ -93,8 +135,12 @@ Pass side effects declaratively to keep your actions pure.
 }
 ```
 
-### [redux-thunk](https://www.npmjs.com/package/redux-thunk)
+See: [redux-effects](https://www.npmjs.com/package/redux-effects)
+
+### redux-thunk
+
 Pass "thunks" to as actions. Extremely similar to redux-promises, but has support for getState.
+{: .-setup}
 
 ```js
 fetchData = (url) => (dispatch, getState) => {
@@ -105,13 +151,19 @@ fetchData = (url) => (dispatch, getState) => {
 })
 
 store.dispatch(fetchData('/posts'))
+```
 
+```js
 // That's actually shorthand for:
 fetchData('/posts')(store.dispatch, store.getState)
+```
 
+```js
 // Optional: since fetchData returns a promise, it can be chained
 // for server-side rendering
 store.dispatch(fetchPosts()).then(() => {
   ReactDOMServer.renderToString(<MyApp store={store} />)
 })
 ```
+
+See: [redux-thunk](https://www.npmjs.com/package/redux-thunk)

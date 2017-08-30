@@ -1,36 +1,77 @@
 ---
 title: Redux
 category: React
+layout: 2017/sheet
+updated: 2017-08-30
+weight: -3
 ---
 
-### Stores
+### Creating a store
 
 ```js
-import { createStore } from 'redux';
- 
-function counter(state = 0, action) {
+import { createStore } from 'redux'
+```
+{: .-setup}
+
+```js
+// Reducer
+function counter (state = { value: 0 }, action) {
   switch (action.type) {
   case 'INCREMENT':
-    return state + 1;
+    return { value: state.value + 1 }
   case 'DECREMENT':
-    return state - 1;
+    return { value: state.value - 1 }
   default:
-    return state;
+    return state
   }
 }
 ```
 
 ```js
-let store = createStore(counter);
-
-store.subscribe(() => { ... })
-store.dispatch({ action })
-store.getState()
-store.dispatch({ type: 'INCREMENT' }); // 1 
-store.dispatch({ type: 'DECREMENT' }); // 10
+let store = createStore(counter)
 ```
 
-### React Redux
+```js
+// Optional - you can pass `initialState` as a second arg
+let store = createStore(counter, { value: 0 })
+```
+
+A store is made from a reducer function, which takes the current `state`, and
+returns a new `state` depending on the `action` it was given.
+
+### Using a store
+
+```js
+let store = createStore(counter)
+```
+{: .-setup}
+
+```js
+// Dispatches an action; this changes the state
+store.dispatch({ type: 'INCREMENT' })
+store.dispatch({ type: 'DECREMENT' })
+```
+
+```js
+// Gets the current state
+store.getState()
+```
+
+```js
+// Listens for changes
+store.subscribe(() => { ... })
+```
+
+Dispatch actions to change the store's state.
+
+## React Redux
+
+### Provider
+
+```js
+import { Provider } from 'react-redux'
+```
+{: .-setup}
 
 ```js
 React.render(
@@ -39,21 +80,35 @@ React.render(
   </Provider>, mountNode)
 ```
 
-```js
-class App extends React.Component {
-  render () {
-    return
-      <div onClick={() => this.props.onMessageClick('hello')}>
-        {this.props.message}
-    </div>
-  }
-}
+The `<Provider>` component makes the store available in your React components. You need this so you can use `connect()`.
 
-function mapStateToProps (state) {
+### Mapping state
+
+```js
+import { connect } from 'react-redux'
+```
+{: .-setup}
+
+```js
+// A functional React component
+function App ({ messasge, onMessageClick }) {
+  return (
+    <div onClick={() => onMessageClick('hello')}>
+      {message}
+    </div>
+  )
+}
+```
+
+```js
+// Maps `state` to `props`:
+// These will be added as props to the component.
+function mapState (state) {
   return { message: state.message }
 }
 
-function mapDispatchToProps (dispatch) {
+// Maps `dispatch` to `props`:
+function mapDispatch (dispatch) {
   return {
     onMessageClick (message) {
       dispatch({ type: 'click', message })
@@ -61,15 +116,37 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// Connect them:
+export default connect(mapState, mapDispatch)(App)
 ```
 
+### Shorthand
+
+```js
+export default connect(
+  (state) => ({
+    message: state.message
+  })
+  (dispatch) => ({
+    onMessageClick: (message) => {
+      dispatch({ type: 'click', message })
+    }
+  })
+)(App)
+```
+
+Same as above, but shorter.
+
 ## Middleware
+
+### Signature
 
 ```js
 // noop middleware
 const logger = store => dispatch => action { dispatch(action) }
+```
 
+```js
 const logger = store => {
   // This function runs on createStore().
   // It returns a decorator for dispatch().
@@ -85,14 +162,25 @@ const logger = store => {
 }
 ```
 
+Middlewares are simply decorators for `dispatch()` to allow you to take
+different kinds of actions, and to perform different tasks when receiving
+actions.
+
 ### Applying middleware
 
 ```js
-const store = createStore(reducer, {}, applyMiddleware(logger, thunk, ...))
+const enhancer = applyMiddleware(logger, thunk, ...)
 ```
 
-## Reference
+```js
+const store = createStore(reducer, {}, enhancer)
+```
+{: data-line="1"}
 
-* [Redux](https://www.npmjs.com/package/redux)
-* [React-redux](https://www.npmjs.com/package/react-redux)
-* [Usage with React](http://rackt.github.io/redux/docs/basics/UsageWithReact.html)
+## References
+{: .-one-column}
+
+* [Redux](https://www.npmjs.com/package/redux) _(npmjs.com)_
+* [React-redux](https://www.npmjs.com/package/react-redux) _(npmjs.com)_
+* [Usage with React](http://redux.js.org/docs/basics/UsageWithReact.html) _(redux.js.org)_
+{: .-also-see}

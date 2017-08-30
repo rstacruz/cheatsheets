@@ -37,8 +37,10 @@ gem install bundler
 
 ```bash
 # Build the Gemfile
-echo "source 'https://rubygems.org'" > Gemfile
-echo "gem 'github-pages', group: :jekyll_plugins" >> Gemfile
+cat > Gemfile <<-END
+  source 'https://rubygems.org'
+  gem 'github-pages', group: :jekyll_plugins
+END
 ```
 
 ```bash

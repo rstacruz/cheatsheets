@@ -11,26 +11,52 @@
   | where_exp: "page", "page.deprecated != true"
   | sort: "weight", "last"
 %}
-<div class='related-posts'>
+<div class='related-posts' id='related'>
   <div class='container'>
-    {% if include.page.category == 'Others' %}
-      <h3>Other cheatsheets</h3>
-    {% else %}
-      <h3>Other {{ include.page.category }} cheatsheets</h3>
-    {% endif %}
+    <div class='related-posts-section'>
+      <div class='callout'>
+        <a class='related-posts-callout' href='{{ base }}'>
+          <div class='text'>
+            <i class='icon'></i>
 
-    <ul class='related-post-list'>
-      {% for page in category_pages limit: 6 %}
-        {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
-      {% endfor %}
-    </ul>
+            <span class='description'>
+              Over {{ site.pages | size }} curated cheatsheets, by developers for developers.
+            </span>
 
-    <h3>Top cheatsheets</h3>
+            <span class='push-button -dark'>
+              Cheatsheets home
+            </span>
+          </div>
+        </a>
+      </div>
 
-    <ul class='related-post-list'>
-      {% for page in top_pages limit: 6 %}
-        {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
-      {% endfor %}
-    </ul>
+      <div class='group'>
+        <div class='related-posts-group'>
+          {% if include.page.category == 'Others' %}
+            <h3>Other cheatsheets</h3>
+          {% else %}
+            <h3>Other {{ include.page.category }} cheatsheets</h3>
+          {% endif %}
+
+          <ul class='related-post-list'>
+            {% for page in category_pages limit: 6 %}
+              {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class='group'>
+        <div class='related-posts-group'>
+          <h3>Top cheatsheets</h3>
+
+          <ul class='related-post-list'>
+            {% for page in top_pages limit: 6 %}
+              {% include 2017/related-posts-item.html page=page class='item related-post-item' %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

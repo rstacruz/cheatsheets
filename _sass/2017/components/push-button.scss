@@ -7,10 +7,7 @@
   &,
   &:visited {
     background-color: $base-a;
-    background: linear-gradient(
-      to right,
-      $base-a,
-      adjust-color($base-a, $lightness: 2%, $hue: 16deg));
+    background: $base-a-gradient;
     color: white;
   }
 
@@ -18,6 +15,20 @@
   &:focus {
     background: darken($base-a, 16%);
     box-shadow: none;
+    color: white;
+  }
+}
+
+.push-button.-dark {
+  &,
+  &:visited {
+    background: darken($base-a, 16%);
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: darken($base-a, 24%);
     color: white;
   }
 }

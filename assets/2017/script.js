@@ -82,7 +82,11 @@ $(function () {
  */
 
 function splitwords (str) {
-  return str.toLowerCase().split(/[ \/\-_]/)
+  const words = str.toLowerCase()
+    .split(/[ \/\-_]/)
+    .filter(k => k && k.length !== 0)
+
+  return words
 }
 
 /*
@@ -96,6 +100,9 @@ const Search = {
 
   show (val) {
     const keywords = splitwords(val)
+
+    if (!keywords.length) return Search.showAll()
+
     const selectors = keywords
       .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
       .join('')
@@ -123,9 +130,11 @@ function permutate (data) {
 function permutateString (str) {
   let words = []
   let inputs = splitwords(str)
+
   inputs.forEach(word => {
     words = words.concat(permutateWord(word))
   })
+
   return words
 }
 

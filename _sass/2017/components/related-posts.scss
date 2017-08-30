@@ -1,9 +1,14 @@
 .related-posts {
   & {
-    @include gutter(padding-top, $multiplier: 4);
-    @include gutter(padding-bottom, $multiplier: 4);
     @include gutter(margin-top, $multiplier: 4);
+    padding-top: 16px;
+    padding-bottom: 16px;
     background: $gray-bg;
+  }
+
+  @media (min-width: 481px) {
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   & > .container {
@@ -11,22 +16,6 @@
     @include gutter(padding-right);
     max-width: $area-width;
     margin: 0 auto;
-  }
-
-  & > .container > h3 {
-    @include font-size(1);
-    font-weight: normal;
-    color: $base-head;
-    margin: 16px 0;
-    padding: 0;
-  }
-
-  & > .container > :first-child {
-    margin-top: 0;
-  }
-
-  & > .container > :last-child {
-    margin-bottom: 0;
   }
 }
 
@@ -41,6 +30,7 @@
   & {
     display: flex;
     margin: -4px;
+    flex-wrap: wrap;
   }
 
   @media (max-width: 768px) {
@@ -48,96 +38,12 @@
   }
 
   & > .item {
-    flex: 1 1 (100% / 2);
+    flex: 1 1 auto;
     margin: 4px;
 
     @media (min-width: 481px) {
-      flex: 1 1 (100% / 4);
-    }
-
-    @media (min-width: 769px) {
-      flex: 1 1 (100% / 8);
+      flex: 1 1 40%;
     }
   }
 
-}
-
-.related-post-item.related-post-item {
-  & {
-    display: flex;
-    text-align: left;
-    line-height: 1.4;
-  }
-
-  // Layout
-  & > a {
-    flex: 1 1 100%;
-    display: block;
-    border-radius: 2px;
-    box-shadow: $shadow2;
-    padding: 16px;
-    text-decoration: none;
-  }
-
-  // Color
-  & > a,
-  & > a:visited {
-    background: white;
-    color: $base-mute;
-
-    & > strong {
-      color: $base-a;
-    }
-
-    &:hover,
-    &:focus {
-      color: $base-a;
-    }
-
-    &:hover > strong,
-    &:focus > strong {
-      color: darken($base-a, 16%);
-    }
-  }
-
-  &:first-of-type > a,
-  &:first-of-type > a:visited {
-    background: $base-a;
-    color: rgba(white, 0.5);
-
-    & > strong {
-      color: white;
-    }
-
-    &:hover,
-    &:focus {
-      color: white;
-    }
-
-    &:hover > strong,
-    &:focus > strong {
-      color: white;
-    }
-
-    &:hover,
-    &:focus {
-      background: darken($base-a, 8%);
-    }
-  }
-
-  @media (min-width: 481px) {
-    & > a > strong,
-    & > a > span {
-      display: block;
-    }
-  }
-
-  & > a > strong {
-    @include font-size(1);
-    font-weight: normal;
-  }
-
-  & > a > span {
-    @include font-size(-1);
-  }
 }

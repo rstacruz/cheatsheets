@@ -46,6 +46,15 @@ $line-color: rgba($base-mute, 0.05);
 $dark-line-color: rgba($base-mute, 0.2);
 
 //
+// Variants
+//
+
+$base-a-gradient: linear-gradient(
+  5deg,
+  $base-a,
+  adjust-color($base-a, $lightness: 2%, $hue: 16deg));
+
+//
 // Shadows
 //
 

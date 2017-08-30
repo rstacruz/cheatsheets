@@ -64,6 +64,12 @@ $(function () {
         Search.show(val)
       }
     })
+
+    const query = (qs(window.location.search) || {}).q
+    if (query && query.length) {
+      $this.val(query)
+      Search.show(query)
+    }
   })
 
   $('[data-js-search-form]').each(function () {
@@ -206,4 +212,22 @@ function groupify ($this, { tag, wrapper, body }) {
 
     return $wrap
   }
+}
+
+/*
+ * Helper: minimal qs implementation
+ */
+
+function qs (search) {
+  search = search.substr(1)
+  const parts = search.split('&').map(p => p.split('='))
+  return parts.reduce((result, part) => {
+    result[part[0]] = qsdecode(part[1])
+    return result
+  }, {})
+}
+
+function qsdecode (string) {
+  string = string.replace(/\+/g, ' ')
+  return string
 }

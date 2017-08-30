@@ -226,7 +226,6 @@ const fn = jest.fn(n => n * n)
 
 ```js
 expect(fn)
-  // Functions
   .toHaveBeenCalled()
   .toHaveBeenCalledTimes(number)
   .toHaveBeenCalledWith(arg1, arg2, ...)

@@ -147,7 +147,6 @@ weight: -3
 }
 
 .container > .content {
-  height: 100px;
   flex: 1 0 auto;
 }
 ```

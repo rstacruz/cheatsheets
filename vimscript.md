@@ -165,12 +165,13 @@ echo "Result: " . s:Initialize()
 ```
 
 ### Abortable
-Aborts when error is detected
 
 ```vim
 function! myfunction() abort
 endfunction
 ```
+
+Aborts when an error occurs.
 
 ### Var arguments
 
@@ -215,6 +216,7 @@ Custom commands
 ```vim
 command! Save :set fo=want tw=80 nowrap
 ```
+{: .-setup}
 
 Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
 
@@ -222,6 +224,9 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 
 ```vim
 command! Save call script#foo()
+```
+
+```vim
 function! script#foo()
   ...
 endfunction

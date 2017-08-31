@@ -34,7 +34,7 @@ pre {
  * Antialias
  */
 
-* {
+*:not(pre):not(code) {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

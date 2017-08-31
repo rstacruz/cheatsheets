@@ -22,7 +22,7 @@
   }
 
   pre > code {
-    color: $base-text;
+    color: $base-head;
     max-height: auto;
     padding: 0;
     background: transparent;
@@ -62,11 +62,11 @@
 
 .token {
   $cA: $base-b;
-  $cA-3: adjust-color($cA, $lightness: 15%, $hue: -10deg);
-  $cA-7: adjust-color($cA, $lightness: -15%, $hue: 10deg);
+  $cA-3: adjust-color($cA, $lightness: 8%, $hue: -10deg);
+  $cA-7: adjust-color($cA, $lightness: -8%, $hue: 10deg);
 
   $cB: $base-c;
-  $cB-3: adjust-color($cB, $lightness: 15%, $hue: -10deg);
+  $cB-3: adjust-color($cB, $lightness: 8%, $hue: -10deg);
 
   $cM: #aaa; // Mute
 

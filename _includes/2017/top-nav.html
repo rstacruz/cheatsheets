@@ -1,8 +1,10 @@
 <nav class='top-nav'>
   <div class='container'>
-    <div class='left'>
-      <a class='home' href='{{base}}'></a>
-    </div>
+    {% unless include.is_home %}
+      <div class='left'>
+        <a class='home back-button' href='{{base}}'></a>
+      </div>
+    {% endunless %}
 
     <a class='brand' href='{{base}}'>
       Rico's cheatsheets

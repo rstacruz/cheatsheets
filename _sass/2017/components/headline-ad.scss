@@ -30,6 +30,7 @@
     text-align: right;
   }
 
+  // Clearfix
   & > div > span::after {
     content: '';
     display: table;
@@ -49,12 +50,14 @@
     margin-bottom: -0.02em;
   }
 
-  .carbon-poweredby::before {
-    display: block;
-    content: '';
-    width: 32px;
-    height: 1px;
-    background: $dark-line-color;
-    margin: 8px (130px + 16px) 8px auto;
+  @media (min-width: 481px) {
+    .carbon-poweredby::before {
+      display: block;
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: $dark-line-color;
+      margin: 8px (130px + 16px) 8px auto;
+    }
   }
 }

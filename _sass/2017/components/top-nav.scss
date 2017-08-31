@@ -1,29 +1,52 @@
 .top-nav {
-  & {
+  &,
+  & > .container {
     height: 64px;
     line-height: 64px;
     text-align: center;
     position: relative;
   }
 
-  // Horiz line
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 40%;
-    right: 40%;
-    bottom: 0;
-    height: 1px;
-    background: $dark-line-color;
+  // Smaller on mobile
+  @media (max-width: 480px) {
+    & > .container {
+      height: 32px;
+      line-height: 32px;
+      margin-top: 8px;
+    }
 
-    @media (max-width: 480px) {
-      left: 0;
-      right: 0;
+    & {
+      height: 32px + 8px + 8px;
+      padding: 8px 0;
+      border-bottom: solid 1px $dark-line-color;
+      margin-bottom: 8px;
     }
   }
 
-  > .container {
+  // Horiz line
+  @media (min-width: 481px) {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 40%;
+      right: 40%;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(to right,
+        transparent,
+        $dark-line-color 20%,
+        $dark-line-color 80%,
+        transparent);
+
+      @media (max-width: 480px) {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  & > .container {
     @include gutter(padding-left);
     @include gutter(padding-right);
     max-width: $area-width;
@@ -70,6 +93,18 @@
     }
   }
 
+  // Mobile
+  @media (max-width: 480px) {
+    & > .brand {
+      display: none;
+    }
+
+    & > .actions {
+      margin-left: auto;
+    }
+  }
+
+  // Desktop: absolute the actions
   @media (min-width: 481px) {
     & > .actions {
       position: absolute;
@@ -84,23 +119,9 @@
     }
   }
 
-  // Home link
+  // Offset so it doesn't look misasligned
   & > .left > .home {
-    text-decoration: none;
-
-    &,
-    &:visited {
-      color: $base-mute;
-    }
-
-    &:hover,
-    &:focus {
-      color: $base-a;
-    }
-  }
-
-  & > .left > .home::before {
-    @include ion-icon('md-arrow-back');
-    font-size: 16px;
+    position: relative;
+    left: -16px;
   }
 }

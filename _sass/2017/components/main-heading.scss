@@ -48,10 +48,12 @@
     }
   }
 
+  // Mobile: reorder things
   @media (max-width: 540px) {
     & {
       flex-direction: column;
       flex-wrap: wrap;
+      margin-top: 0;
     }
 
     & > h1,

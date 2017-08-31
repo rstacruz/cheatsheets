@@ -238,14 +238,15 @@ alias Foo.{Bar, Baz}
 ```elixir
 import String
 ```
+{: .-setup}
 
 ```elixir
 str = "hello"
-str |> length()      #=> 5
-str |> codepoints()  #=> ["h", "e", "l", "l", "o"]
-str |> slice(2..-1)  #=> "llo"
-str |> split(" ")    #=> ["hello"]
-str |> capitalize()  #=> "Hello"
+str |> length()        # → 5
+str |> codepoints()    # → ["h", "e", "l", "l", "o"]
+str |> slice(2..-1)    # → "llo"
+str |> split(" ")      # → ["hello"]
+str |> capitalize()    # → "Hello"
 str |> match(regex)
 ```
 
@@ -274,15 +275,22 @@ div(a, b)   # integer division
 ```elixir
 import Float
 ```
+{: .-setup}
 
 ```elixir
 n = 10.3
-n |> ceil()            #=> 11.0
-n |> ceil(2)           #=> 11.30
-n |> to_string()       #=> "1.030000+e01"
-n |> to_string([decimals: 2, compact: true])
+```
+{: .-setup}
 
-Float.parse("34")  #=> { 34.0, "" }
+```elixir
+n |> ceil()            # → 11.0
+n |> ceil(2)           # → 11.30
+n |> to_string()       # → "1.030000+e01"
+n |> to_string([decimals: 2, compact: true])
+```
+
+```elixir
+Float.parse("34")  # → { 34.0, "" }
 ```
 
 ### Integer
@@ -290,32 +298,43 @@ Float.parse("34")  #=> { 34.0, "" }
 ```elixir
 import Integer
 ```
+{: .-setup}
 
 ```elixir
 n = 12
-n |> digits()        #=> [1, 2]
-n |> to_char_list()  #=> '12'
-n |> to_string()     #=> "12"
+```
+{: .-setup}
+
+```elixir
+n |> digits()         # → [1, 2]
+n |> to_char_list()   # → '12'
+n |> to_string()      # → "12"
 n |> is_even()
 n |> is_odd()
+```
 
+```elixir
 # Different base:
-n |> digits(2)        #=> [1, 1, 0, 0]
-n |> to_char_list(2)  #=> '1100'
-n |> to_string(2)     #=> "1100"
+n |> digits(2)        # → [1, 1, 0, 0]
+n |> to_char_list(2)  # → '1100'
+n |> to_string(2)     # → "1100"
+```
 
-parse("12")       #=> 12
-undigits([1, 2])  #=> 12
+```elixir
+parse("12")           # → {12, ""}
+undigits([1, 2])      # → 12
 ```
 
 ### Type casting
 
 ```elixir
-Float.parse("34.1")    #=> {34.1, ""}
-Integer.parse("34")    #=> {34, ""}
+Float.parse("34.1")    # → {34.1, ""}
+Integer.parse("34")    # → {34, ""}
+```
 
-Float.to_string(34.1)  #=> "3.4100e+01"
-Float.to_string(34.1, [decimals: 2, compact: true])  #=> "34.1"
+```elixir
+Float.to_string(34.1)  # → "3.4100e+01"
+Float.to_string(34.1, [decimals: 2, compact: true])  # → "34.1"
 ```
 
 ## Map
@@ -323,44 +342,56 @@ Float.to_string(34.1, [decimals: 2, compact: true])  #=> "34.1"
 ### Defining
 
 ```elixir
-map = %{name: "hi"}       # atom keys (:name)
-map = %{"name" => "hi"}   # string keys ("name")
+m = %{name: "hi"}       # atom keys (:name)
+m = %{"name" => "hi"}   # string keys ("name")
 ```
 
 ### Updating
 
 ```elixir
 import Map
+```
+{: .-setup}
 
-map = %{map | name: "yo"}  # key must exist
+```elixir
+m = %{m | name: "yo"}  # key must exist
+```
 
-map |> put(:id, 2)      #=> %{id: 2, name: "hi"}
-map |> put_new(:id, 2)  # only if `id` doesn't exist (`||=`)
+```elixir
+m |> put(:id, 2)      # → %{id: 2, name: "hi"}
+m |> put_new(:id, 2)  # only if `id` doesn't exist (`||=`)
+```
 
-map |> put(:b, "Banana")
-map |> merge(%{b: "Banana"})
-map |> update(:a, &(&1 + 1))
-map |> update(:a, fun a -> a + 1 end)
+```elixir
+m |> put(:b, "Banana")
+m |> merge(%{b: "Banana"})
+m |> update(:a, &(&1 + 1))
+m |> update(:a, fun a -> a + 1 end)
+```
 
-{old, new} = map |> get_and_update(:a, &(&1 || "default"))
+```elixir
+m |> get_and_update(:a, &(&1 || "default"))
+# → {old, new}
 ```
 
 ### Deleting
 
 ```elixir
-map |> delete(:name)    #=> "hi"
-map |> pop(:name)       #=> %{id: 1}
+m |> delete(:name)  # → %{}
+m |> pop(:name)     # → {"John", %{}}
 ```
 
 ### Reading
 
 ```elixir
-map |> get(:id)         #=> 1
-map |> keys()           #=> [:id, :name]
-map |> values()         #=> [1, "hi"]
+m |> get(:id)       # → 1
+m |> keys()         # → [:id, :name]
+m |> values()       # → [1, "hi"]
+```
 
-map |> to_list()      #=> [id: 1, name: "hi"]
-                      #=> [{:id, 1}, {:name, "hi"}]
+```elixir
+m |> to_list()      # → [id: 1, name: "hi"]
+                    # → [{:id, 1}, {:name, "hi"}]
 ```
 
 ### Deep
@@ -368,30 +399,45 @@ map |> to_list()      #=> [id: 1, name: "hi"]
 ```elixir
 put_in(map, [:b, :c], "Banana")
 put_in(map[:b][:c], "Banana")    # via macros
+```
+
+```elixir
 get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
 ```
 
-### Constructing
+### Constructing from lists
 
 ```elixir
 Map.new([{:b, 1}, {:a, 2}])
 Map.new([a: 1, b: 2])
-Map.new([:a, :b], fn x -> {x, x} end)  #=> %{a: :a, b: :b}
+Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
 ```
 
 ## List
 
-```js
+```elixir
 import List
-list = [ 1, 2, 3, 4 ]
-list = list ++ [5]      # push (append)
-list = [ 0 | list ]     # unshift (prepend)
+```
+{: .-setup}
 
-first(list)
-last(list)
+```elixir
+l = [ 1, 2, 3, 4 ]
+```
+{: .-setup}
 
-flatten(list)
-flatten(list, tail)
+```elixir
+l = l ++ [5]         # push (append)
+l = [ 0 | list ]     # unshift (prepend)
+```
+
+```elixir
+l |> first()
+l |> last()
+```
+
+```elixir
+l |> flatten()
+l |> flatten(tail)
 ```
 
 Also see [Enum](#enum).
@@ -399,37 +445,64 @@ Also see [Enum](#enum).
 
 ## Enum
 
+### Usage
+
 ```elixir
 import Enum
+```
+{: .-setup}
 
-# High-order
-reduce(list, acc, fn)
-map(list, fn)
-reject(list, fn)
-any?(list, fn)
-empty?(list, fn)
-
+```elixir
 list = [:a, :b, :c]
-at(list, 0)         #=> :a
-count(list)         #=> 3
-empty?(list)        #=> false
-any?(list)          #=> true
+```
+{: .-setup}
 
-concat(list, [:d])  #=> [:d]
+```elixir
+list |> at(0)         # → :a
+list |> count()       # → 3
+list |> empty?()      # → false
+list |> any?()        # → true
+```
+
+```elixir
+list |> concat([:d])  # → [:d]
 ```
 
 Also, consider streams instead.
 
-## Tuples
+### Map/reduce
+
+```elixir
+list |> reduce(fn)
+list |> reduce(acc, fn)
+list |> map(fn)
+list |> reject(fn)
+list |> any?(fn)
+list |> empty?(fn)
+```
+
+```elixir
+[1, 2, 3, 4]
+|> Enum.reduce(0, fn(x, acc) -> x + acc end)
+```
+
+## Tuple
 
 ### Tuples
 
 ```elixir
-tuple = { :a, :b }
+import Tuple
+```
+{: .-setup}
 
-tuple |> elem(1)    # like tuple[1]
-tuple |> put_elem(index, value)
-tuple |> tuple_size()
+```elixir
+t = { :a, :b }
+```
+
+```elixir
+t |> elem(1)    # like tuple[1]
+t |> put_elem(index, value)
+t |> tuple_size()
 ```
 
 ### Keyword lists
@@ -437,10 +510,12 @@ tuple |> tuple_size()
 ```elixir
 list = [{ :name, "John" }, { :age, 15 }]
 list[:name]
+```
 
-# For string-indexed keyword lists
+```elixir
+# For string-keyed keyword lists
 list = [{"size", 2}, {"type", "shoe"}]
-List.keyfind(list, "size", 0)  #=> {"size", 2}
+List.keyfind(list, "size", 0)  # → {"size", 2}
 ```
 
 ## Functions
@@ -488,7 +563,7 @@ end
 
 %User{name: "John", age: 20}
 
-%User{}.struct  #=> User
+%User{}.struct  # → User
 ```
 
 See: [Structs](http://elixir-lang.org/getting-started/structs.html)
@@ -510,7 +585,7 @@ defimpl Blank, for: List do
   def blank?(_), do: false
 end
 
-Blank.blank?([])  #=> true
+Blank.blank?([])  # → true
 ```
 
 ### Any
@@ -536,8 +611,14 @@ end
 ```elixir
 for n <- [1, 2, 3, 4], do: n * n
 for n <- 1..4, do: n * n
+```
 
-for {key, val} <- %{a: 10, b: 20}, do: val  #=> [10, 20]
+```elixir
+for {key, val} <- %{a: 10, b: 20}, do: val
+# → [10, 20]
+```
+
+```elixir
 for {key, val} <- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
 ```
 
@@ -545,7 +626,7 @@ for {key, val} <- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
 
 ```elixir
 for n <- 1..10, rem(n, 2) == 0, do: n
-#=> [2, 4, 6, 8, 10]
+# → [2, 4, 6, 8, 10]
 ```
 
 ### Complex

@@ -137,9 +137,7 @@ Background
 | `background-color:`      | `<color>`                                |
 | `background-image:`      | `url(...)`                               |
 | `background-position:`   | `left/center/right` `top/center/bottom`  |
-| `background-size:`       | `cover`                                  |
-|                          | `X Y`                                    |
-| ---                      | ---                                      |
+| `background-size:`       | `cover` `X Y`                            |
 | `background-clip:`       | `border-box` `padding-box` `content-box` |
 | `background-repeat:`     | `no-repeat` `repeat-x` `repeat-y`        |
 | `background-attachment:` | `scroll` `fixed` `local`                 |

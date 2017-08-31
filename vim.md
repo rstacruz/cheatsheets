@@ -132,6 +132,7 @@ Operators let you operate in a range of text (defined by *motion*). These are pr
 | `gu`     | Lowercase                       |
 | ---      | ---                             |
 | `!`      | Filter through external program |
+{: .-shortcuts}
 
 See `:help operator`
 

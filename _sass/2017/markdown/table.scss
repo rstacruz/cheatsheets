@@ -110,6 +110,15 @@
 
   & tr td {
     @include font-size(1);
+    white-space: nowrap;
+  }
+
+  & tr td:not(:last-child) {
+    padding-right: 4px;
+  }
+
+  & tr td:not(:first-child) {
+    padding-left: 4px;
   }
 
   & tr:last-child {
@@ -119,5 +128,6 @@
   & tr:last-child td {
     @include font-size(-1);
     color: $base-mute;
+    white-space: auto;
   }
 }

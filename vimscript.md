@@ -216,7 +216,6 @@ Custom commands
 ```vim
 command! Save :set fo=want tw=80 nowrap
 ```
-{: .-setup}
 
 Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
 
@@ -225,6 +224,7 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 ```vim
 command! Save call script#foo()
 ```
+{: .-setup}
 
 ```vim
 function! script#foo()
@@ -237,6 +237,7 @@ endfunction
 ```vim
 command! -nargs=? Save call script#foo(<args>)
 ```
+{: .-setup}
 
 | What | What |
 | ---- | ---- |

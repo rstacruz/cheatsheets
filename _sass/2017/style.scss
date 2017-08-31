@@ -6,6 +6,7 @@
 @import './utils/font-size';
 @import './utils/gutter';
 @import './utils/heading-style';
+@import './utils/section-with-container';
 @include ion-font;
 @import './base/base';
 @import './markdown/code';
@@ -18,11 +19,13 @@
 @import './components/h3-section';
 @import './components/h3-section-list';
 @import './components/headline-ad';
+@import './components/home-button';
 @import './components/main-heading';
 @import './components/missing-message';
 @import './components/notice-box';
 @import './components/page-actions';
 @import './components/pages-list';
+@import './components/pre-footer';
 @import './components/push-button';
 @import './components/related-posts';
 @import './components/related-posts-callout';
@@ -30,6 +33,7 @@
 @import './components/related-posts-section';
 @import './components/related-post-item';
 @import './components/search-box';
+@import './components/search-footer';
 @import './components/side-ad';
 @import './components/site-header';
 @import './components/top-nav';

@@ -3,7 +3,7 @@ title: Pug
 category: JavaScript libraries
 layout: 2017/sheet
 prism_languages: [jade]
-updated: 2017-08-30
+updated: 2017-08-31
 weight: -3
 ---
 
@@ -11,6 +11,7 @@ weight: -3
 {: .-three-column}
 
 ### Basic document
+{: .-prime}
 
 ```jade
 doctype html
@@ -19,11 +20,47 @@ html(lang='en')
     | This is some text, hello there,
     = name
 
-  if showControls
-    button.red Edit this page
-
   - javascript()
 ```
+
+### Elements
+
+```jade
+div
+  | Just a div
+```
+
+```jade
+.search
+  | A div, with class 'search'
+```
+
+```jade
+h1 A heading with text
+```
+
+```jade
+h1= page.title
+```
+
+```jade
+div.class
+div.class1.class2
+h1.header
+```
+
+### Attributes
+
+```jade
+input(type='text' name='q' autofocus)
+```
+
+```jade
+- var authenticated = true
+body(class=authenticated ? 'authed' : 'anon')
+```
+
+See: [Attributes](https://pugjs.org/language/attributes.html)
 
 ### Comments
 
@@ -32,8 +69,16 @@ html(lang='en')
 ```
 
 ```jade
--// This is a silent comment
+//- This is a silent comment
 ```
+
+```jade
+//-
+  Nesting inside a comment creates
+  a comment block
+```
+
+See: [Comments](https://pugjs.org/language/attributes.html)
 
 ### Iteration
 
@@ -46,7 +91,7 @@ ul
 ### Layouts
 
 ```jade
--// page.pug
+//- page.pug
 extends layout.pug
 
 block title
@@ -57,7 +102,7 @@ block content
 ```
 
 ```jade
--// layout.pug
+//- layout.pug
 title
   block title
 body
@@ -73,6 +118,8 @@ include ./includes/head.pug
 ```jade
 include:markdown article.md
 ```
+
+See: [Includes](https://pugjs.org/language/includes.html)
 
 ### Multiline text
 
@@ -91,6 +138,18 @@ script.
 ```
 {: data-line="1"}
 
+### Conditionals
+
+```jade
+if authenticated
+  a(href='/logout') Sign out
+else
+  a(href='/login') Sign in
+```
+{: data-line="1,3"}
+
+See: [Conditionals](https://pugjs.org/language/conditionals.html)
+
 ## Mixins
 {: .-three-column}
 
@@ -107,7 +166,10 @@ mixin list
 +list
 ```
 
-### Mixin with arguments
+Mixins allow you to create reusable code blocks.
+See: [Mixins](https://pugjs.org/language/mixins.html)
+
+### Mixin attributes
 
 ```jade
 mixin pet(name)
@@ -119,7 +181,9 @@ mixin pet(name)
 +pet('cat')
 ```
 
-### Mixin with content
+See: [Mixin attributes](https://pugjs.org/language/mixins.html#mixin-attributes)
+
+### Mixin blocks
 
 ```jade
 mixin article(title)
@@ -133,3 +197,5 @@ mixin article(title)
 +article('hello there')
   p Content goes here
 ```
+
+See: [Mixin blocks](https://pugjs.org/language/mixins.html#mixin-blocks)

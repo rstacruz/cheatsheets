@@ -52,3 +52,32 @@
     text-align: center;
   }
 }
+
+/*
+ * Small
+ */
+
+.search-box.-small {
+  & {
+    height: 48px;
+  }
+
+  & > input {
+    padding: 8px;
+    height: 48px;
+    padding-left: 0;
+  }
+
+  & > .prefix,
+  & > .sep,
+  & > input {
+    @include font-size(1);
+  }
+
+  &::before {
+    flex: 0 0 48px;
+    width: 48px;
+    line-height: 48px;
+    font-size: 24px;
+  }
+}

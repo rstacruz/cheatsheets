@@ -1,0 +1,18 @@
+<form
+  {% if include.live %}data-js-search-form{% endif %}
+  class='search'action='{{ base }}' method='get'>
+  <label class='search-box {{ include.class }}'>
+    {% comment %}
+    <span class='prefix'>devhints.io</span>
+    <span class='sep'>/</span>
+    {% endcomment %}
+    <input name='q'
+      type='text'
+      {% if include.live %}
+        autofocus data-js-search-input
+        placeholder='Search...'
+      {% else %}
+        placeholder='Search {{ site.pages | size }}+ cheatsheets'
+      {% endif %}>
+  </label>
+</form>

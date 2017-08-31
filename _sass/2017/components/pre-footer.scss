@@ -1,0 +1,19 @@
+/*
+ * Spacer before footer
+ */
+
+.pre-footer {
+  & {
+    padding: 32px;
+    padding-top: 24px;
+    padding-bottom: 48px;
+    text-align: center;
+  }
+
+  & > .icon::before {
+    @include ion-icon('ios-flash');
+    color: $base-mute;
+    font-size: 32px;
+    opacity: 0.25;
+  }
+}

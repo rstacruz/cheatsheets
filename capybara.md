@@ -55,26 +55,33 @@ end
 
 ### Predicates
 
-| Positive                              | Negative                                |
-| ---                                   | ---                                     |
-| `page.has_content?`                   | `page.has_no_content?`                  |  |
-| ---                                   | ---                                     |
-| `page.has_css?` _(selector)_          | `page.has_no_css?`_(selector)_          |  |
-| ---                                   | ---                                     |
-| `page.has_xpath?`_(path)_             | `page.has_no_xpath?`_(path)_            |  |
-| ---                                   | ---                                     |
-| `page.has_link?`_(selector)_          | `page.has_no_link?`_(selector)_         |  |
-| ---                                   | ---                                     |
-| `page.has_button?`_(selector)_        | `page.has_no_button?`_(selector)_       |  |
-| ---                                   | ---                                     |
-| `page.has_field?`_(selector)_         | `page.has_no_field?`_(selector)_        |  |
-| ---                                   | ---                                     |
-| `page.has_checked_field?`_(selector)_ | `page.has_unchecked_field?`_(selector)_ |  |
-| ---                                   | ---                                     |
-| `page.has_table?`_(selector)_         | `page.has_no_table?`_(selector)_        |  |
-| ---                                   | ---                                     |
-| `page.has_select?`_(selector)_        | `page.has_no_select?`_(selector)_       |  |
-{: .-headers}
+```ruby
+page.has_css?('.button')
+expect(page).to have_css('.button')
+page.should have_css('.button')
+```
+{: .-setup}
+
+| Positive                          | Negative               |
+| ---                               | ---                    |
+| `has_content?`                    | `has_no_content?`      |
+| ---                               | ---                    |
+| `has_css?` _(selector)_           | `has_no_css?`          |
+| ---                               | ---                    |
+| `has_xpath?` _(path)_             | `has_no_xpath?`        |
+| ---                               | ---                    |
+| `has_link?` _(selector)_          | `has_no_link?`         |
+| ---                               | ---                    |
+| `has_button?` _(selector)_        | `has_no_button?`       |
+| ---                               | ---                    |
+| `has_field?` _(selector)_         | `has_no_field?`        |
+| ---                               | ---                    |
+| `has_checked_field?` _(selector)_ | `has_unchecked_field?` |
+| ---                               | ---                    |
+| `has_table?` _(selector)_         | `has_no_table?`        |
+| ---                               | ---                    |
+| `has_select?` _(selector)_        | `has_no_select?`       |
+{: .-headers.-left-align}
 
 In Rspec, these also map to matchers like `page.should have_content`.
 
@@ -94,7 +101,7 @@ expect(page).to have_button('//[@id="submit"]')
 
 The `selector` arguments can be text, CSS selector, or XPath expression.
 
-### RSpec Assertions
+### RSpec assertions
 
 ```ruby
 page.has_button?('Save')

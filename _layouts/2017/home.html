@@ -24,13 +24,7 @@ type: website
       Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a
       modest collection of cheatsheets I've written.
     </p>
-    <form data-js-search-form class='search' action='.' method='get'>
-      <label class='search-box'>
-        <!-- <span class='prefix'>devhints.io</span> -->
-        <!-- <span class='sep'>/</span> -->
-        <input name='q' type='text' placeholder='Search...' autofocus data-js-search-input>
-      </label>
-    </form>
+    {% include 2017/search-form.html live=true %}
   </div>
 
   <div class='pages-list'>

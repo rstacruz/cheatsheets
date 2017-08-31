@@ -4,7 +4,7 @@ category: React
 layout: 2017/sheet
 ads: true
 tags: [Featured]
-updated: 2017-08-26
+updated: 2017-08-31
 weight: -10
 ---
 
@@ -70,22 +70,10 @@ render () {
   ···
 }
 ```
+{: data-line="2"}
 
 Use states (`this.state`) to manage dynamic data.
 See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
-
-### Function components
-
-```jsx
-function MyComponent ({ name }) {
-  return <div className='message-box'>
-    Hello {name}
-  </div>
-}
-```
-
-Functional components have no state. Also, their `props` are passed as the first parameter to a function.
-See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
 
 ### Nesting
 
@@ -106,6 +94,31 @@ class Info extends React.Component {
 Nest components to separate concerns. See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
 
 
+### Children
+
+```jsx
+<AlertBox>
+  <h1>You have pending notifications</h1>
+</AlertBox>
+```
+{: data-line="2"}
+
+```jsx
+class AlertBox extends React.Component {
+  render () {
+    return <div className='alert-box'>
+      {this.props.children}
+    </div>
+  }
+}
+```
+{: data-line="4"}
+
+Children are passed as the `children` property.
+
+Defaults
+--------
+
 ### Setting default props
 
 ```jsx
@@ -113,6 +126,7 @@ Hello.defaultProps = {
   color: 'blue'
 }
 ```
+{: data-line="1"}
 
 See: [defaultProps](https://facebook.github.io/react/docs/react-component.html#defaultprops)
 
@@ -130,26 +144,35 @@ class Hello extends React.Component {
 
 Set the default state in the `constructor()`.
 
-### Children
+Other components
+----------------
+{: .-three-column}
+
+### Function components
 
 ```jsx
-class AlertBox extends React.Component {
-  render () {
-    return <div className='alert-box'>
-      {this.props.children}
-    </div>
-  }
+function MyComponent ({ name }) {
+  return <div className='message-box'>
+    Hello {name}
+  </div>
 }
 ```
-{: data-line="4"}
+{: data-line="1"}
+
+Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
+
+### Pure components
 
 ```jsx
-<AlertBox>
-  <h1>You have pending notifications</h1>
-</AlertBox>
+class MessageBox extends React.PureComponent {
+  ···
+}
 ```
+{: data-line="1"}
 
-Children are passed as the `children` property.
+Performance-optimized version of `React.Component`. Doesn't rerender if props/state hasn't changed.
+See: [Pure components](https://facebook.github.io/react/docs/react-api.html#react.purecomponent)
 
 ### Component API
 

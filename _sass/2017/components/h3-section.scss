@@ -50,7 +50,7 @@
   }
 
   &::after {
-    @include section-gutter(margin-left, $multiplier: 2);
+    @include section-gutter(margin-left, $multiplier: 1.5);
     content: '';
     display: inline-block;
     vertical-align: middle;

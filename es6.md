@@ -108,6 +108,7 @@ class Circle extends Shape {
   }
 }
 ```
+{: data-line="1,3,8,13,18"}
 
 Syntactic sugar for prototypes.
 See: [Classes](http://babeljs.io/docs/learn-es2015/#classes)
@@ -126,6 +127,7 @@ for (let {title, artist} in songs) {
   // ...
 }
 ```
+{: data-line="2"}
 
 ```js
 // Functions
@@ -135,9 +137,18 @@ function greet({ name, greeting }) {
 
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
+{: data-line="2"}
 
 Supports for matching arrays and objects.
 See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
+
+### Exponent operator
+
+```js
+const byte = 2 ** 8
+// Same as: Math.pow(2, 8)
+```
+{: data-line="1"}
 
 Functions
 ---------
@@ -150,6 +161,7 @@ function greet (name = "Jerry") {
   return `Hello ${name}`
 }
 ```
+{: data-line="2"}
 
 ```js
 // Rest arguments
@@ -158,11 +170,14 @@ function fn(x, ...y) {
   return x * y.length
 }
 ```
+{: data-line="2"}
 
 ```js
 // Spread
-fn(...[1, 2, 3]) // same as fn(1, 2, 3)
+fn(...[1, 2, 3])
+// same as fn(1, 2, 3)
 ```
+{: data-line="2"}
 
 Default, rest, spread.
 See: [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
@@ -175,6 +190,7 @@ setTimeout(() => {
   ...
 })
 ```
+{: data-line="2"}
 
 ```js
 // With arguments
@@ -182,12 +198,14 @@ readFile('text.txt', (err, data) => {
   ...
 })
 ```
+{: data-line="2"}
 
 ```js
 // Short syntax (no `return` without `{}`)
 numbers.map(n => n * 2)
 // Same as: numbers.map(function (n) { return n * 2 })
 ```
+{: data-line="2"}
 
 Like functions but with `this` preserved.
 See: [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)

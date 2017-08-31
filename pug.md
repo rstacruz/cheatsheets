@@ -15,13 +15,14 @@ weight: -3
 ```jade
 doctype html
 html(lang='en')
-  - javascript()
   h1.class#id(name='hi')
-    | Text. Hello there,
+    | This is some text, hello there,
     = name
 
   if showControls
     button.red Edit this page
+
+  - javascript()
 ```
 
 ### Comments

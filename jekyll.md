@@ -305,7 +305,7 @@ Filters
 | `first` | |
 | `last` | |
 | `join:` _','_ | |
-| `array_to_setentence_string` | → `"X, Y and Z"` |
+| `array_to_sentence_string` | → `"X, Y and Z"` |
 | --- | --- |
 | `map:` _'post'_ | Works like 'pluck' |
 | --- | --- |

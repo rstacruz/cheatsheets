@@ -38,9 +38,7 @@ type: website
 
     {% for page in recent_pages reversed %}
       {% if forloop.index < 20 %}
-        {% unless page.tags contains 'Featured' %}
-          {% include 2017/pages-list-item.html page=page class='article item' %}
-        {% endunless %}
+        {% include 2017/pages-list-item.html page=page class='article item' %}
       {% endif %}
     {% endfor %}
 

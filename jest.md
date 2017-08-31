@@ -202,20 +202,36 @@ See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html
 ### Snapshots
 
 ```jsx
-const tree = renderer.create(
-  <Link page="http://www.facebook.com">Facebook</Link>
-).toJSON()
+it('works', () => {
+  const output = something()
+  expect(output).toMatchSnapshot()
+})
 ```
+{: data-line="3"}
+
+First run creates a snapshot. Subsequent runs match the saved snapshot.
+See: [Snapshot testing](http://facebook.github.io/jest/docs/en/snapshot-testing.html)
+
+### React test renderer
 
 ```jsx
-// First run creates a snapshot; subsequent runs match it
-expect(tree).toMatchSnapshot()
+import renderer from 'react-test-renderer'
 ```
+{: .-setup}
 
-```bash
-# To update snapshots
-jest --updateSnapshot
+```jsx
+it('works', () => {
+  const tree = renderer.create(
+    <Link page="http://www.facebook.com">Facebook</Link>
+  ).toJSON()
+
+  expect(tree).toMatchSnapshot()
+})
 ```
+{: data-line="2,3,4"}
+
+React's test renderer can be used for Jest snapshots.
+See: [Snapshot test](http://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test)
 
 ### Mocks
 

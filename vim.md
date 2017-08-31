@@ -100,10 +100,88 @@ Getting started
 | `y`         | Yank selection _(Copy)_ |
 {: .-shortcuts}
 
-Text objects
-------------
+See [Operators](#operators) for other things you can do.
+
+Operators
+---------
+{: .-three-column}
 
 ### Usage
+{: .-prime}
+
+Operators let you operate in a range of text (defined by *motion*). These are preformed in normal mode.
+{: .-setup}
+
+| `d`      | `w`    |
+| Operator | Motion |
+{: .-css-breakdown}
+
+### Operators list
+
+| Shortcut | Description                     |
+| ---      | ---                             |
+| `d`      | Delete                          |
+| `y`      | Yank _(copy)_                   |
+| `c`      | Change _(delete then insert)_   |
+| ---      | ---                             |
+| `>`      | Indent right                    |
+| `<`      | Indent left                     |
+| ---      | ---                             |
+| `g~`     | Swap case                       |
+| `gU`     | Uppercase                       |
+| `gu`     | Lowercase                       |
+| ---      | ---                             |
+| `!`      | Filter through external program |
+
+See `:help operator`
+
+### Examples
+
+Combine operators with *motions* to use them.
+{: .-setup}
+
+| Shortcut               | Description                               |
+| ---                    | ---                                       |
+| `d`_d_                 | _(repeat the letter)_ Delete current line |
+| `d`_w_                 | Delete to next word                       |
+| `d`_b_                 | Delete to beginning of word               |
+| _2_`dd`                | Delete 2 lines                            |
+| `d`_ip_                | Delete a text object _(inside paragraph)_ |
+| _(in visual mode)_ `d` | Delete selection                          |
+
+See: `:help motion.txt`
+
+Text objects
+------------
+{: .-three-column}
+
+### Usage
+{: .-prime}
+
+Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
+{: .-setup}
+
+| `v`      | `i`                  | `p`         |
+| Operator | [i]nside or [a]round | Text object |
+{: .-css-breakdown}
+
+### Text objects
+
+| Shortcut               | Description           |
+| ---                    | ---                   |
+| `p`                    | Paragraph             |
+| `w`                    | Word                  |
+| `s`                    | Sentence              |
+| ---                    | ---                   |
+| `[` `(` `{` `<`        | A [], (), or {} block |
+| `'` `"` <code>`</code> | A quoted string       |
+| ---                    | ---                   |
+| `b`                    | A block [(            |
+| `B`                    | A block in [{         |
+| `t`                    | A XML tag block       |
+{: .-shortcuts}
+
+### Examples
 
 | Shortcut    | Description                        |
 | ---         | ---                                |
@@ -114,38 +192,10 @@ Text objects
 | `yap`       | Yank paragraph (including newline) |
 | ---         | ---                                |
 | `dip`       | Delete inner paragraph             |
+| `cip`       | Change inner paragraph             |
 {: .-shortcuts}
 
-### Text objects
-
-| Shortcut                  | Description           |
-| ---                       | ---                   |
-| `ap`                      | a paragraph           |
-| `ip`                      | inner paragraph       |
-| ---                       | ---                   |
-| `ap` `ip`                 | Paragraph             |
-| `aw` `iw`                 | Word                  |
-| `as` `is`                 | Sentence              |
-| ---                       | ---                   |
-| `a[` `a(` `a{` `a<`       | A [], (), or {} block |
-| `a'` `a"` <code>a`</code> | A quoted string       |
-| ---                       | ---                   |
-| `ab`                      | A block [(            |
-| `aB`                      | A block in [{         |
-| `at`                      | A XML tag block       |
-{: .-shortcuts}
-
-### Navigation
-
-| Shortcut            | Description                |
-| ---                 | ---                        |
-| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
-| `])`                | next                       |
-| ---                 | ---                        |
-| `[m`                | previous method start      |
-| `[M`                | previous method end        |
-{: .-shortcuts}
-
+See [Operators](#operators) for other things you can do.
 
 Misc
 ----
@@ -170,6 +220,17 @@ Misc
 {: .-shortcuts}
 
 Uppercase ones are recursive (eg, `zO` is open recursively).
+
+### Navigation
+
+| Shortcut            | Description                |
+| ---                 | ---                        |
+| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
+| `])`                | next                       |
+| ---                 | ---                        |
+| `[m`                | previous method start      |
+| `[M`                | previous method end        |
+{: .-shortcuts}
 
 ### Jumping
 

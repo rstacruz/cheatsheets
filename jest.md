@@ -54,26 +54,6 @@ describe('My work', () => {
 `it` is an alias for `test`.
 See: [test()](http://facebook.github.io/jest/docs/en/api.html#testname-fn)
 
-### Asynchronous tests
-
-```js
-test('works with promises', () => {
-  return new Promise((resolve, reject) => {
-    ···
-  })
-})
-```
-
-```js
-test('works with async/await', async () => {
-  const hello = await foo()
-  ···
-})
-```
-
-Return promises, or use async/await.
-See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html)
-
 ### Setup
 
 ```js
@@ -198,6 +178,26 @@ expect.assertions(1)
 
 More features
 -------------
+
+### Asynchronous tests
+
+```js
+test('works with promises', () => {
+  return new Promise((resolve, reject) => {
+    ···
+  })
+})
+```
+
+```js
+test('works with async/await', async () => {
+  const hello = await foo()
+  ···
+})
+```
+
+Return promises, or use async/await.
+See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html)
 
 ### Snapshots
 

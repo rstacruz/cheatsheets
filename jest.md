@@ -189,6 +189,7 @@ test('works with promises', () => {
   })
 })
 ```
+{: data-line="2"}
 
 ```js
 test('works with async/await', async () => {
@@ -196,6 +197,7 @@ test('works with async/await', async () => {
   ···
 })
 ```
+{: data-line="2"}
 
 Return promises, or use async/await.
 See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html)
@@ -234,33 +236,13 @@ it('works', () => {
 React's test renderer can be used for Jest snapshots.
 See: [Snapshot test](http://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test)
 
-### Mocks
-
-```js
-const fn = jest.fn()
-const fn = jest.fn(n => n * n)
-```
-
-```js
-expect(fn)
-  .toHaveBeenCalled()
-  .toHaveBeenCalledTimes(number)
-  .toHaveBeenCalledWith(arg1, arg2, ...)
-  .toHaveBeenLastCalledWith(arg1, arg2, ...)
-
-  .toHaveBeenCalledWith(expect.anything())
-  .toHaveBeenCalledWith(expect.any(constructor))
-  .toHaveBeenCalledWith(expect.arrayContaining([ values ]))
-  .toHaveBeenCalledWith(expect.objectContaining({ props }))
-  .toHaveBeenCalledWith(expect.stringContaining(string))
-  .toHaveBeenCalledWith(expect.stringMatching(regexp))
-```
-
 ### Timers
 
 ```js
 jest.useFakeTimers()
+```
 
+```js
 it('works', () => {
   jest.runOnlyPendingTimers()
   jest.runTimersToTime(1000)
@@ -269,6 +251,100 @@ it('works', () => {
 ```
 
 See: [Timers](https://facebook.github.io/jest/docs/timer-mocks.html)
+
+## Mock functions
+
+### Mock functions
+
+```js
+const fn = jest.fn()
+```
+
+```js
+const fn = jest.fn(n => n * n)
+```
+
+See: [Mock functions](http://facebook.github.io/jest/docs/en/mock-functions.html#using-a-mock-function)
+
+### Assertions
+
+```js
+expect(fn)
+  .toHaveBeenCalled()
+  .toHaveBeenCalledTimes(number)
+  .toHaveBeenCalledWith(arg1, arg2, ...)
+  .toHaveBeenLastCalledWith(arg1, arg2, ...)
+```
+
+```js
+expect(fn)
+  .toHaveBeenCalledWith(expect.anything())
+  .toHaveBeenCalledWith(expect.any(constructor))
+  .toHaveBeenCalledWith(expect.arrayContaining([ values ]))
+  .toHaveBeenCalledWith(expect.objectContaining({ props }))
+  .toHaveBeenCalledWith(expect.stringContaining(string))
+  .toHaveBeenCalledWith(expect.stringMatching(regexp))
+```
+
+### Instances
+
+```js
+const Fn = jest.fn()
+
+a = new Fn()
+b = new Fn()
+```
+
+```js
+Fn.mock.instances
+// → [a, b]
+```
+{: data-line="1"}
+
+See: [.mock property](http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
+
+### Calls
+
+```js
+const fn = jest.fn()
+fn(123)
+fn(456)
+```
+
+```js
+fn.mock.calls.length   // → 2
+fn.mock.calls[0][0]    // → 123
+fn.mock.calls[1][0]    // → 456
+```
+{: data-line="1,2,3"}
+
+See: [.mock property](http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
+
+### Return values
+
+```js
+const fn = jest.fn(() => 'hello')
+```
+
+```js
+// or:
+jest.fn().mockReturnValue('hello')
+jest.fn().mockReturnValueOnce('hello')
+```
+
+### Mock implementations
+
+```js
+const fn = jest.fn()
+  .mockImplementationOnce(() => 1)
+  .mockImplementationOnce(() => 2)
+```
+{: data-line="2,3"}
+
+```js
+fn()    // → 1
+fn()    // → 2
+```
 
 ## References
 {: .-one-column}

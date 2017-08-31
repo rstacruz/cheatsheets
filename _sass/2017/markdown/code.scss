@@ -8,6 +8,11 @@
   font-family: $monospace-font;
 }
 
+// Reduce line height for box drawing characters
+.MarkdownBody pre.-box-chars {
+  line-height: 1.32;
+}
+
 /*
  * Undo prism theme crap
  */

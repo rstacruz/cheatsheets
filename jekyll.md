@@ -3,8 +3,9 @@ title: Jekyll
 jekyll_escape: true
 layout: 2017/sheet
 tags: [Featured]
+prism_languages: [bash, yaml, html, ruby]
 category: Jekyll
-updated: 2017-08-26
+updated: 2017-09-01
 ---
 
 {% raw %}
@@ -19,67 +20,52 @@ gem install jekyll bundler
 ```bash
 # Create a new site at `./myblog`
 jekyll new myblog
-```
-
-```bash
 cd myblog
-bundle exec jekyll serve
-```
-
-See: [Jekyll quickstart](http://jekyllrb.com/docs/quickstart/)
-
-### Installation (GitHub pages version)
-
-```bash
-# Requires bundler
-gem install bundler
 ```
 
 ```bash
-# Build the Gemfile
+# Optional: if you're targeting github-pages,
+# use this Gemfile instead.
 cat > Gemfile <<-END
-  source 'https://rubygems.org'
-  gem 'github-pages', group: :jekyll_plugins
+source 'https://rubygems.org'
+gem 'github-pages', group: :jekyll_plugins
 END
 ```
 
 ```bash
-# Install gems
-bundle
-```
-
-```bash
-# Start server
 bundle exec jekyll serve
 ```
 
-This is the recommended setup, especially if you're using GitHub pages.
+See: [Jekyll quickstart](http://jekyllrb.com/docs/quickstart/)<br>
 See: [github/pages-gem](https://github.com/github/pages-gem)
 
 ### Directories
 
-    ./
-    ├── _config.yml
-    │
-    ├── _data/
-    │   └── ...
-    │
-    ├── _drafts/
-    │   └── ...
-    │
-    ├── _posts/
-    │   └── 2014-01-01-hello.md
-    │
-    ├── _layouts/
-    │   ├── default.html
-    │   └── post.html
-    │
-    ├── _includes/             - partials
-    │   ├── header.html
-    │   └── footer.html
-    │
-    └── _site/
-        └── ...
+```
+./
+├── _config.yml
+│
+├── _data/
+│   └── ...
+│
+├── _drafts/
+│   └── ...
+│
+├── _posts/
+│   └── 2014-01-01-hello.md
+│
+├── _layouts/
+│   ├── default.html
+│   └── post.html
+│
+├── _includes/             - partials
+│   ├── header.html
+│   └── footer.html
+│
+└── _site/
+    └── ...
+```
+{: .-box-chars}
 
 ## Front-matter
 {: .-three-column}
@@ -114,7 +100,6 @@ In `_config.yml`:
 {: .-setup}
 
 ```yaml
-# Optional
 source: .
 destination: _site
 exclude:
@@ -123,6 +108,7 @@ exclude:
 include: ['.htaccess']
 ```
 
+All config keys are optional.
 See: [Configuration](http://jekyllrb.com/docs/configuration/)
 
 Markup

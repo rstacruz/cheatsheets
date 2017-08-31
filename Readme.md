@@ -24,6 +24,7 @@
 `pre` supports these:
 
     {: .-setup}
+    {: .-box-chars}
 
 `ul` supports these:
 

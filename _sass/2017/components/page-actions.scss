@@ -31,10 +31,10 @@
 
   & > li > a:hover,
   & > li > a:focus {
-    color: $base-b3;
+    color: $base-a;
 
     & > .text {
-      color: $base-b3;
+      color: $base-a;
     }
   }
 
@@ -83,12 +83,19 @@
 
     & > .text {
       margin-left: 4px;
+      position: relative;
+      top: -1px;
     }
 
     &:hover,
     &:focus {
-      background: $base-panel;
-      box-shadow: $shadow3;
+      background: $base-a-gradient;
+      box-shadow: $shadow2;
+
+      &,
+      & > .text {
+        color: white;
+      }
     }
   }
 

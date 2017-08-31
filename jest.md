@@ -42,6 +42,8 @@ describe('My work', () => {
 })
 ```
 
+See: [describe()](http://facebook.github.io/jest/docs/en/api.html#describename-fn), [test()](http://facebook.github.io/jest/docs/en/api.html#testname-fn), [expect()](http://facebook.github.io/jest/docs/en/expect.html#content)
+
 ### BDD syntax
 
 ```js
@@ -349,6 +351,6 @@ fn()    // → 2
 ## References
 {: .-one-column}
 
-- Based on Jest v19.
+- Based on Jest v20.
 - <http://facebook.github.io/jest/>
 {: .-also-see}

@@ -23,13 +23,11 @@ npm install --save-dev jest babel-jest
   "test": "jest"
 }
 ```
-{: .-setup}
 
 ```bash
 # Run your tests
 npm test -- --watch
 ```
-{: .-setup}
 
 See: [Getting started](http://facebook.github.io/jest/docs/en/getting-started.html)
 
@@ -120,8 +118,10 @@ expect(value)
   .not
   .toBe(value)
   .toEqual(value)
+  .toBeTruthy()
 ```
 
+Note that `toEqual` is a deep equality check.
 See: [expect()](http://facebook.github.io/jest/docs/en/expect.html#expectvalue)
 
 ### Snapshots

@@ -1,0 +1,3 @@
+@mixin section-gutter($property, $multiplier: 1) {
+  #{$property}: 16px * $multiplier;
+}

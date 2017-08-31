@@ -2,31 +2,16 @@
   margin: 0;
   padding: 0;
   margin-bottom: 16px + 8px;
-  padding-bottom: 16px + 8px;
   margin-top: 64px;
   position: relative;
-
-  // Line
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(to right, $dark-line-color 50%, transparent);
-  }
 
   @media (max-width: 768px) {
     margin-bottom: 8px;
     margin-top: 32px;
-    padding-bottom: 8px;
   }
 
   @media (max-width: 480px) {
     margin-bottom: 8px;
     margin-top: 32px;
-    padding-bottom: 8px;
   }
 }

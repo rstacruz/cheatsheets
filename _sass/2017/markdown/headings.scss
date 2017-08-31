@@ -4,7 +4,7 @@
 
 .MarkdownBody h2 {
   @include heading-style;
-  @include font-size(5);
+  @include font-size(6);
   line-height: 1.2;
   font-weight: 300;
   font-family: $heading-font;

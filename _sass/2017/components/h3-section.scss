@@ -38,6 +38,29 @@
 }
 
 /*
+ * Heading
+ */
+
+.h3-section > h3 {
+  & {
+    @include section-gutter(margin-bottom, $multiplier: 1);
+    @include section-gutter(margin-top, $multiplier: .5);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &::after {
+    @include section-gutter(margin-left, $multiplier: 2);
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba($base-a, 0.3), transparent 80%);
+  }
+}
+
+/*
  * Children
  */
 
@@ -110,7 +133,7 @@
 }
 
 /*
- * Prime
+ * Variant: Prime
  */
 
 .h3-section.-prime > .body {
@@ -119,6 +142,10 @@
     box-shadow: $shadow6;
   }
 }
+
+/*
+ * Variant: Also see :\
+ */
 
 ul.-also-see.-also-see.-also-see {
   display: flex;

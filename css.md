@@ -59,22 +59,22 @@ weight: -1
 | `:nth-child(3n+2)` | 2nd child in groups of 3 |
 | `:nth-child(-n+4)` | |
 | --- | --- |
-| `:nth-last-child(···)` | |
-| `:nth-of-type(···)` | |
+| `:nth-last-child(2)` | |
+| `:nth-of-type(2)` | |
 | --- | --- |
 
 ### Pseudo-class variations
 
 | Selector |
 | --- |
-| `:first-of-type(···)` |
-| `:last-of-type(···)` |
-| `:nth-of-type(···)` |
-| `:only-of-type(···)` |
+| `:first-of-type` |
+| `:last-of-type` |
+| `:nth-of-type(2)` |
+| `:only-of-type` |
 | --- |
 | `:first-child` |
 | `:last-child` |
-| `:nth-child(···)` |
+| `:nth-child(2)` |
 | `:only-child` |
 {: .-left-align}
 

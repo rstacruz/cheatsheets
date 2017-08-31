@@ -4,7 +4,7 @@ category: React
 layout: 2017/sheet
 ads: true
 tags: [Featured]
-updated: 2017-08-31
+updated: 2017-09-01
 weight: -10
 ---
 
@@ -300,6 +300,9 @@ ReactDOM.unmountComponentAtNode(domnode)
 ReactDOMServer.renderToString(<Component />)
 ReactDOMServer.renderToStaticMarkup(<Component />)
 ```
+
+There are more, but these are most common.
+See: [React top-level API](https://facebook.github.io/react/docs/react-api.html)
 
 JSX patterns
 ------------

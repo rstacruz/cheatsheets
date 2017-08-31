@@ -39,11 +39,11 @@ $ion-nativesize: "32px" !default;
 @mixin ion-font {
   @font-face {
     font-family: $ion-name;
-    src: url($ion-path + $ion-basename + ".eot?v=" + $ion-version);
-    src: url($ion-path + $ion-basename + ".eot?#iefix&v=" + $ion-version) format("embedded-opentype"),
-         url($ion-path + $ion-basename + ".woff?v=" + $ion-version) format("woff"),
-         url($ion-path + $ion-basename + ".ttf?v=" + $ion-version) format("truetype"),
-         url($ion-path + $ion-basename + ".svg?v=" + $ion-version + $ion-svghash) format("svg");
+    src: url($ion-path + $ion-basename + ".eot");
+    src: url($ion-path + $ion-basename + ".eot?#iefix") format("embedded-opentype"),
+         url($ion-path + $ion-basename + ".woff") format("woff"),
+         url($ion-path + $ion-basename + ".ttf") format("truetype"),
+         url($ion-path + $ion-basename + ".svg" + $ion-svghash) format("svg");
     font-weight: normal;
     font-style: normal;
   }

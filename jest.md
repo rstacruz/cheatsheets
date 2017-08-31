@@ -16,6 +16,7 @@ Testing
 ```bash
 npm install --save-dev jest babel-jest
 ```
+{: data-line="1"}
 
 ```js
 /* Add to package.json */

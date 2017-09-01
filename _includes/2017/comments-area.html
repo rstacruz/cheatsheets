@@ -1,10 +1,20 @@
-<section class='comments-area'>
+<section class='comments-area' id='comments'>
   <div class='container'>
-    <div class='comments-section'>
-      <div class='comments'>
-        <div id='disqus_thread'></div>
-        <noscript data-js-disqus='{"host":"{{ site.disqus_host }}","url":"{{ site.url }}{{ include.page.url | remove: '.html' }}","identifier": "{{ include.page.url | remove: '.html' | remove_first: '/' }}"}'></noscript>
+    <details class='comments-details'>
+      <summary>
+        <strong class='count'>
+          <span class='disqus-comment-count' data-disqus-url='{{ site.url }}{{ include.page.url | remove: '.html' }}#disqus_thread'></span>
+        </strong>
+      </summary>
+      <div class='comments-section'>
+        <div class='comments'>
+          <div id='disqus_thread'></div>
+          <noscript data-js-disqus='{"host":"{{ site.disqus_host }}","url":"{{ site.url }}{{ include.page.url | remove: '.html' }}","identifier": "{{ include.page.url | remove: '.html' | remove_first: '/' }}"}'></noscript>
+        </div>
       </div>
-    </div>
+    </details>
   </div>
 </section>
+
+<script id='dsq-count-scr' src='//{{ site.disqus_host }}/count.js' async></script>
+

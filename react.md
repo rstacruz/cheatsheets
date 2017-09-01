@@ -473,41 +473,6 @@ MyCo.propTypes = {
 }
 ```
 
-Examples
---------
-{: .-left-reference}
-
-### Basic example
-
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
-```
-
-```jsx
-class Hello extends React.Component {
-  render () {
-    return <div className='message-box'>
-      Hello {this.props.name}
-    </div>
-  }
-}
-```
-
-```jsx
-const el = document.body
-ReactDOM.render(<Hello name='John' />, el)
-```
-
-Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output)).
-
-### Try it
-
-<iframe src="http://jsbin.com/yafixat/edit?js,output" height="400"></iframe>
-
-[Open in jsbin](http://jsbin.com/yafixat/edit?js,output)
-{: target="_blank"}
-
 Also see
 --------
 {: .-one-column}

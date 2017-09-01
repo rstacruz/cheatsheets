@@ -3,10 +3,18 @@
  */
 
 .comments-details {
+  & {
+    margin-bottom: -16px;
+  }
+
+  &[open] {
+    margin-bottom: 0;
+  }
+
   & > summary {
     @include font-size(1);
     color: $base-a;
-    margin: 16px 0;
+    padding: 16px 0;
     white-space: nowrap;
     cursor: pointer;
   }

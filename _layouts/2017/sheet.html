@@ -26,6 +26,10 @@ type: article
   </main>
 </div>
 
+{% if site.disqus_host %}
+{% include 2017/comments-area.html page=page %}
+{% endif %}
+
 <div class='pre-footer'><i class='icon'></i></div>
 
 {% include 2017/search-footer.html %}

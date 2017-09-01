@@ -1,4 +1,7 @@
-# gems
+#
+# Jekyll configuration
+#
+
 whitelist:
   - jekyll-redirect-from
   - jekyll-github-metadata
@@ -7,7 +10,6 @@ plugins:
   - jekyll-redirect-from
   - jekyll-github-metadata
 
-# files
 exclude:
   - Makefile
   - README.md
@@ -17,7 +19,10 @@ exclude:
   - vendor
   - _deprecated
 
+#
 # Markdown
+#
+
 highlighter: false
 markdown: kramdown
 kramdown:
@@ -26,6 +31,10 @@ kramdown:
   parse_block_html: true
   syntax_highlighter_opts:
     disable: true
+
+#
+# Defaults
+#
 
 defaults:
   - scope:
@@ -44,14 +53,24 @@ defaults:
         - elixir
         - ruby
 
+#
 # Site info
+#
+
 url: http://ricostacruz.com/cheatsheets
 title: Cheatsheets
 
+#
 # Google analytics
+#
+#
 analytics:
   hostname: ricostacruz.com
   id: "UA-20473929-1"
+
+#
+# Categories
+#
 
 category_names:
   - Ansible
@@ -78,3 +97,9 @@ category_names:
 
 # https://help.github.com/articles/repository-metadata-on-github-pages/
 repository: rstacruz/cheatsheets
+
+#
+# Disqus comments: uncomment to disable disqus
+#
+
+disqus_host: devhints.disqus.com

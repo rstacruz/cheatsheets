@@ -1,5 +1,5 @@
 /*
- * Wrapping
+ * Behavior: Wrapping
  */
 
 $(function () {
@@ -8,7 +8,7 @@ $(function () {
 })
 
 /*
- * Isotope
+ * Behavior: Isotope
  */
 
 $(function () {
@@ -21,7 +21,7 @@ $(function () {
 })
 
 /*
- * Search
+ * Behavior: Search
  */
 
 $(function () {
@@ -49,6 +49,10 @@ $(function () {
     $this.attr('data-search-index', keywords.join(' '))
   })
 })
+
+/*
+ * Behavior: search input
+ */
 
 $(function () {
   $('[data-js-search-input]').each(function () {
@@ -82,6 +86,35 @@ $(function () {
     })
   })
 })
+
+/*
+ * Behavior: Disqus
+ */
+
+$(function () {
+  $('[data-js-disqus]').each(function () {
+    const $this = $(this)
+    const data = $this.data('js-disqus')
+
+    window.disqus_config = function () {
+      this.page.url = data.url
+      this.page.identifier = data.identifier
+    }
+
+    injectDisqus(data.host)
+  })
+})
+
+/*
+ * Helper: injects disqus
+ */
+
+function injectDisqus (host) {
+  var d = document, s = d.createElement('script')
+  s.src = 'https://' + host + '/embed.js'
+  s.setAttribute('data-timestamp', +new Date())
+  ;(d.head || d.body).appendChild(s)
+}
 
 /*
  * Helper for splitting to words

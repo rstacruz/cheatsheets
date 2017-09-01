@@ -4,26 +4,32 @@
 
 .comments-details {
   & > summary {
-    margin-bottom: 16px;
+    @include font-size(1);
+    color: $base-a;
+    margin: 16px 0;
     white-space: nowrap;
     cursor: pointer;
-    color: $base-head;
   }
 
   & > summary:hover,
   & > summary:focus {
-    color: $base-a;
+    &, & > .suffix {
+      color: $base-a7;
+    }
   }
 
-  & > summary > strong {
-    @include font-size(1);
+  & > summary > .count {
     font-weight: bold;
   }
 
-  & > summary > strong::before {
+  & > summary > .count::before {
     @include ion-icon('md-chatboxes');
     color: $base-a;
     font-size: 24px;
-    margin: 0 16px 0 8px;
+    margin: 0 8px;
+  }
+
+  & > summary > .suffix {
+    color: $base-mute;
   }
 }

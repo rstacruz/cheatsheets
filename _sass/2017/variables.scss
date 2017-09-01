@@ -32,6 +32,8 @@ $base-a: adjust-color(#8370bd, $lightness: -5%); // indigo
 $base-b: adjust-color(#2b72a2, $lightness: -5%); // blue
 $base-c: adjust-color(#17c694, $lightness: -5%); // teal
 
+$base-a3: adjust-color($base-a, $lightness: 16%, $hue: -20deg);
+$base-a7: adjust-color($base-a, $lightness: -16%, $hue: 20deg);
 $base-b3: adjust-color($base-b, $lightness: 16%, $hue: -20deg);
 $base-b7: adjust-color($base-b, $lightness: -16%, $hue: 20deg);
 $base-mute7: adjust-color($base-mute, $lightness: -16%);

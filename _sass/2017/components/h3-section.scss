@@ -43,14 +43,20 @@
 
 .h3-section > h3 {
   & {
-    @include section-gutter(margin-bottom, $multiplier: 1);
-    @include section-gutter(margin-top, $multiplier: .5);
+    margin-top: 8px;
+    margin-bottom: 16px;
     white-space: nowrap;
     overflow: hidden;
   }
 
+  // Mobile: the padding below h3-section is enough
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+
+  // Horizontal line
   &::after {
-    @include section-gutter(margin-left, $multiplier: 1.5);
+    margin-left: 24px;
     content: '';
     display: inline-block;
     vertical-align: middle;

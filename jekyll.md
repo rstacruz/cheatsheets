@@ -3,7 +3,7 @@ title: Jekyll
 jekyll_escape: true
 layout: 2017/sheet
 tags: [Featured]
-prism_languages: [bash, yaml, html, ruby]
+prism_languages: [bash, yaml, ruby]
 category: Jekyll
 updated: 2017-09-01
 ---

@@ -3,13 +3,13 @@
     <details class='comments-details'>
       <summary>
         <strong class='count'>
-          <span class='disqus-comment-count' data-disqus-url='{{ site.url }}{{ include.page.url | remove: '.html' }}#disqus_thread'></span>
+          <span class='disqus-comment-count' data-disqus-url='{{ site.url }}{{ include.page.url | remove: '.html' }}#disqus_thread'>Comments</span>
         </strong>
       </summary>
       <div class='comments-section'>
         <div class='comments'>
           <div id='disqus_thread'></div>
-          <noscript data-js-disqus='{"host":"{{ site.disqus_host }}","url":"{{ site.url }}{{ include.page.url | remove: '.html' }}","identifier": "{{ include.page.url | remove: '.html' | remove_first: '/' }}"}'></noscript>
+          <noscript data-js-disqus='{"host":"{{ site.disqus_host }}","url":"{{ site.url }}{{ include.page.url | remove: '.html' }}","identifier":"{{ include.page.url | remove: '.html' | remove_first: '/' }}"}'></noscript>
         </div>
       </div>
     </details>
@@ -17,4 +17,3 @@
 </section>
 
 <script id='dsq-count-scr' src='//{{ site.disqus_host }}/count.js' async></script>
-

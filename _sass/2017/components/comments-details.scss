@@ -7,15 +7,7 @@
     margin-bottom: 16px;
     white-space: nowrap;
     cursor: pointer;
-    color: $base-text;
-  }
-
-  & > summary::after {
-    content: '';
-    display: block;
-    background: linear-gradient(to right, $dark-line-color 50%, transparent);
-    margin-top: 16px;
-    height: 1px;
+    color: $base-head;
   }
 
   & > summary:hover,
@@ -25,7 +17,7 @@
 
   & > summary > strong {
     @include font-size(1);
-    font-weight: normal;
+    font-weight: bold;
   }
 
   & > summary > strong::before {

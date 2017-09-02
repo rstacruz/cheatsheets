@@ -325,6 +325,12 @@ See `:help formatting`
 
 Do this in insert mode.
 
+### Exiting with an error
+
+    :cquit
+
+Works like `:qa`, but throws an error. Great for aborting Git commands.
+
 References
 ----------
 {: .-one-column}

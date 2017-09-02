@@ -327,6 +327,7 @@ Do this in insert mode.
 
 ### Exiting with an error
 
+    :cq
     :cquit
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.

@@ -1,78 +1,176 @@
 ---
-title: Time formats
+title: Date & time formats
+layout: 2017/sheet
+weight: -5
+updated: 2017-09-04
 ---
 
-### Ruby
+### Common time formats
+{: .-one-column}
 
-    Date presets
-      %m/%d/%Y      - 06/05/2013
-      %A, %B %e, %Y - Sunday, January 5, 2013
-      %b %e %a      - Jan 5 Sun
+- [UNIX](#unix) - Used by Ruby, `date`, and more
+- [Moment.js](#moment-js) - Used by Moment.js and more
 
-    Time presets
-      %H:%M    - 23:05
-      %I:%M%p - 11:05PM
+## UNIX
+{: .-three-column}
 
-    Weekday
-      %a - Sun
-      %A - Sunday
-      %w - 0..6 (Sunday is 0)
-    Year
-      %y - 13
-      %Y - 2013
-    Month
-      %b - Jan
-      %B - January
-      %m - 01..12
-    Day
-      %d - 01..31
-      %e - 1..31
-    Time
-      %H - Hour, 24-hour clock (00..23)
-      %I - Hour, 12-hour clock (01..12)
-      %l - Hour
-      %M - Minute (00..59)
-      %p - AM or PM
-      %S - Second (00..60)
-      %Z - Time zone name
-    Misc
-      %j - Day of the year (001..366)
-      %% - Literal % character
+### Presets
 
-### Moment.js
+Date
+{: .-setup}
 
-    Weekday
-      d         - 4
-      dd        - Su
-      ddd       - Sun
-      dddd      - Sunday
-    Year
-      YY        - 13
-      YYYY      - 2013
-    Month
-      M         - 1..12 (Jan is 1)
-      MM        - 01..12 (Jan is 1)
-      MMM       - Jan
-      MMMM      - January
-    Day
-      D         - 6..31
-      DD        - 06..31
-    Time
-      H, HH     - Hour, 24-hour clock
-      h, hh     - Hour, 12-hour clock
-      m, mm     - Minutes
-      s, ss     - Seconds
-      S         - Deciseconds (1/10th of a second)
-      SS        - Centiseconds (1/100th of a second)
-      SSS       - Milliseconds (1/1000th of a second)
-      Z, ZZ     - Timezone offset as `+0700` or `+07:30`
-      X         - Unix timestamp
-      a, A      - AM/PM
-    Misc
-      DDD, DDDD - Day of year
+| Example         | Output                 |
+| ---             | ---                    |
+| `%m/%d/%Y`      | `06/05/2013`           |
+| `%A, %B %e, %Y` | `Sunday, June 5, 2013` |
+| `%b %e %a`      | `Jun 5 Sun`            |
+{: .-shortcuts}
 
-Examples:
+Time
+{: .-setup}
 
-    YYYY-MM-DD         - 2014-01-01
-    dddd, MMMM Do YYYY - Friday, May 16th 2014
-    hh:mm a            - 12:30 pm
+| Example         | Output                 |
+| ---             | ---                    |
+| `%H:%M`         | `23:05`                |
+| `%I:%M %p`      | `11:05 PM`             |
+{: .-shortcuts}
+
+Used by Ruby, UNIX `date`, and many more.
+
+### Date
+
+| Symbol | Example                  | Area        |
+| ---    | ---                      | ---         |
+| `%a`   | `Sun`                    | **Weekday** |
+| `%A`   | `Sunday`                 |             |
+| `%w`   | `0`..`6` _(Sunday is 0)_ |             |
+| ---    | ---                      | ---         |
+| `%y`   | `13`                     | **Year**    |
+| `%Y`   | `2013`                   |             |
+| ---    | ---                      | ---         |
+| `%b`   | `Jan`                    | **Month**   |
+| `%B`   | `January`                |             |
+| `%m`   | `01`..`12`               |             |
+| ---    | ---                      | ---         |
+| `%d`   | `01`..`31`               | **Day**     |
+| `%e`   | `1`..`31`                |             |
+{: .-shortcuts}
+
+### Time
+
+| Symbol | Example      | Area                |
+| ---    | ---          | ---                 |
+| `%l`   | `1`          | Hour                |
+| `%H`   | `00`..`23`   | 24h Hour            |
+| `%I`   | `01`..`12`   | 12h Hour            |
+| --     | ---          | ---                 |
+| `%M`   | `00`..`59`   | Minute              |
+| `%S`   | `00`..`60`   | Second              |
+| ---    | ---          | ---                 |
+| `%p`   | `AM`         | AM or PM            |
+| `%Z`   | `+08`        | Time zone           |
+| ---    | ---          | ---                 |
+| `%j`   | `001`..`366` | Day of the year     |
+| `%%`   | `%`          | Literal % character |
+{: .-shortcuts}
+
+
+## Moment.js
+{: .-three-column}
+
+### Examples
+
+Examples
+{:.-setup}
+
+| Example              | Output                             |
+| ---                  | ---                                |
+| `YYYY-MM-DD`         | `2014-01-01`                       |
+| `dddd, MMMM Do YYYY` | `Friday, May 16th 2014`            |
+| `hh:mm a`            | `12:30 pm`                         |
+{: .-shortcuts}
+
+Presets
+{: .-setup}
+
+| Example              | Output                             |
+| ---                  | ---                                |
+| `LT`                 | `8:30 PM`                          |
+| `LTS`                | `8:30:25 PM`                       |
+| ---                  | ---                                |
+| `LL`                 | `August 2 1985`                    |
+| `ll`                 | `Aug 2 1985`                       |
+| ---                  | ---                                |
+| `LLL`                | `August 2 1985 08:30 PM`           |
+| `lll`                | `Aug 2 1985 08:30 PM`              |
+| ---                  | ---                                |
+| `LLLL`               | `Thursday, August 2 1985 08:30 PM` |
+| `llll`               | `Thu, Aug 2 1985 08:30 PM`         |
+{: .-shortcuts}
+
+Used by Moment.js. Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+
+### Date
+
+| Symbol | Example                 | Area             |
+| ---    | ---                     | ---              |
+| `d`    | `0`..`6`                | **Weekday**      |
+| `dd`   | `Su`                    |                  |
+| `ddd`  | `Sun`                   |                  |
+| `dddd` | `Sunday`                |                  |
+| ---    | ---                     | ---              |
+| `YY`   | `13`                    | **Year**         |
+| `YYYY` | `2013`                  |                  |
+| ---    | ---                     | ---              |
+| `M`    | `1`..`12` _(Jan is 1)_  | **Month**        |
+| `Mo`   | `1st`..`31st`           |                  |
+| `MM`   | `01`..`12` _(Jan is 1)_ |                  |
+| `MMM`  | `Jan`                   |                  |
+| `MMMM` | `January`               |                  |
+| ---    | ---                     | ---              |
+| `Q`    | `1`..`4`                | **Quarter**      |
+| `Qo`   | `1st`..`4th`            |                  |
+| ---    | ---                     | ---              |
+| `D`    | `1`..`31`               | **Day**          |
+| `Do`   | `1st`..`31st`           |                  |
+| `DD`   | `01`..`31`              |                  |
+| ---    | ---                     | ---              |
+| `DDD`  | `1`..`365`              | **Day of year**  |
+| `DDDo` | `1st`..`365th`          |                  |
+| `DDDD` | `001`..`365`            |                  |
+| ---    | ---                     | ---              |
+| `w`    | `1`..`53`               | **Week of year** |
+| `wo`   | `1st`..`53rd`           |                  |
+| `ww`   | `01`..`53`              |                  |
+{: .-shortcuts}
+
+### Time
+
+| Symbol | Example      | Area                       |
+| ---    | ---          | ---                        |
+| `H`    | `0`..`23`    | **24h hour**               |
+| `HH`   | `00`..`23`   |                            |
+| ---    | ---          | ---                        |
+| `h`    | `1`..`12`    | **12h hour**               |
+| `hh`   | `01`..`12`   |                            |
+| ---    | ---          | ---                        |
+| `m`    | `0`..`59`    | **Minutes**                |
+| `mm`   | `00`..`59`   |                            |
+| ---    | ---          | ---                        |
+| `s`    | `0`..`59`    | **Seconds**                |
+| `ss`   | `00`..`59`   |                            |
+| ---    | ---          | ---                        |
+| `a`    | `am`         | **AM/PM**                  |
+| `A`    | `AM`         |                            |
+| ---    | ---          | ---                        |
+| `Z`    | `+07:00`     | **Timezone offset**        |
+| `ZZ`   | `+0730`      |                            |
+| ---    | ---          | ---                        |
+| `S`    | `0`..`9`     | Deciseconds                |
+| `SS`   | `00`..`99`   | Centiseconds               |
+| `SSS`  | `000`..`999` | Milliseconds               |
+| ---    | ---          | ---                        |
+| `X`    |              | Unix timestamp             |
+| `x`    |              | Millisecond Unix timestamp |
+{: .-shortcuts}
+

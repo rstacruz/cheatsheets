@@ -9,7 +9,7 @@ updated: 2017-09-04
 {: .-one-column}
 
 - [UNIX](#unix) - Used by Ruby, `date`, and more
-- [Moment.js](#moment-js) - Used by Moment.js and more
+- [Moment.js](#moment-js) - Used by Moment.js, date-fns, and more
 
 ## UNIX
 {: .-three-column}
@@ -108,7 +108,7 @@ Presets
 | `llll`               | `Thu, Aug 2 1985 08:30 PM`         |
 {: .-shortcuts}
 
-Used by Moment.js. Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
 
 ### Date
 

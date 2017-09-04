@@ -10,14 +10,14 @@ updated: 2017-09-04
 
 ```bash
 $ http POST example.com/posts/3 \
-    Origin:example.com  # :   HTTP headers
-    name="John Doe" \   # =   string
-    q=="search" \       # ==  URL parameters (?q=search)
-    age:=29 \           # :=  for non-strings
-    list:='[1,3,4]'     # :=  json
-    file@file.bin \     # @   attach file
-    token=@token.txt \  # =@  read from file (text)
-    user:=@user.json \  # :=@ read from file (json)
+    Origin:example.com \  # :   HTTP headers
+    name="John Doe" \     # =   string
+    q=="search" \         # ==  URL parameters (?q=search)
+    age:=29 \             # :=  for non-strings
+    list:='[1,3,4]'       # :=  json
+    file@file.bin \       # @   attach file
+    token=@token.txt \    # =@  read from file (text)
+    user:=@user.json      # :=@ read from file (json)
 ```
 
 ### Forms

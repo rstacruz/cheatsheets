@@ -1,10 +1,46 @@
 ---
 title: editorconfig
+layout: 2017/sheet
+prism_languages: [ini]
+weight: -1
+updated: 2017-09-04
 ---
 
-### Example
+### Short example
+{: .-prime}
 
-```conf
+```ini
+# editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+tab_width = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+This example should be fine for most projects indented by 2 spaces. See: [animate.css editorconfig](https://github.com/daneden/animate.css/blob/master/.editorconfig)
+
+### Properties
+
+```ini
+indent_style = {space|tab}
+indent_size = {4|tab}
+tab_width = 2
+end_of_line = {cr|lf|crlf}
+charset = {utf-8|utf-16be|utf-16le|latin1}
+trim_trailing_whitespace = false
+insert_final_newline = true
+max_line_length = 80
+```
+
+### Full example
+
+```ini
 # top-most EditorConfig file
 root = true
 
@@ -33,21 +69,6 @@ indent_style = space
 indent_size = 2
 ```
 
-### Properties
-
-```conf
-indent_style = {space|tab}
-indent_size = {4|tab}
-tab_width = 2
-end_of_line = {cr|lf|crlf}
-charset = {utf-8|utf-16be|utf-16le|latin1}
-trim_trailing_whitespace = false
-insert_final_newline = true
-max_line_length = 80
-```
-
 ### References
 
-See: http://EditorConfig.org
-
-
+- <http://EditorConfig.org>

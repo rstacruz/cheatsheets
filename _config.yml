@@ -13,6 +13,7 @@ plugins:
 exclude:
   - Makefile
   - README.md
+  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - CNAME

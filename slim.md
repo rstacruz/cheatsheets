@@ -1,9 +1,14 @@
 ---
 title: Slim
 category: Ruby libraries
+layout: 2017/sheet
+prism_languages: [jade]
+weight: -1
 ---
 
-```slim
+### Example
+
+```jade
 doctype html
 html
   head
@@ -18,16 +23,35 @@ html
       content='this is the song that never ends')
 ```
 
+### Attributes
+
+```jade
+meta[charset='utf-8']
+meta(name="keywords" content="template language")
+meta name="author" content=author
+```
+
+You can use parentheses, brackets, or none at all.
+
 ### Ruby attributes
 
-```slim
+```jade
 a class=[:menu,:highlight]
+```
+
+You can use Ruby expressions in attributes.
+
+### Hash attributes
+
+```jade
 .card *{'data-url' => place_path(place)}
 ```
 
-### Inline ruby
+You can destructure Ruby hashes as attributes.
 
-```slim
+### Inline Ruby
+
+```jade
 ruby:
   def foobar
     "hello"
@@ -36,23 +60,23 @@ ruby:
 div= foobar
 ```
 
-### Embedded js
+### Embedded JavaScript
 
-```slim
+```jade
 javascript:
   alert('Slim supports embedded javascript!')
 ```
 
 ### Comments
 
-```slim
+```jade
 / Comment
 /! HTML comment
 ```
 
 ### Ruby
 
-```slim
+```jade
 == yield
 = t('.hello')
 - 3.times do |i|
@@ -61,7 +85,7 @@ javascript:
 
 ### Verbatim text
 
-```slim
+```jade
 div
   | This is text
     it is nice
@@ -69,7 +93,7 @@ div
 
 ### Inline HTML
 
-```slim
+```jade
 <div class='foo'>
   - if articles.empty?
     | Nothing here
@@ -78,9 +102,11 @@ div
 
 ### Inline tags
 
-```slim
+```jade
 ul
   li: a(href='/') Home
 ```
 
-<http://slim-lang.com/>
+### References
+
+- <http://slim-lang.com/>

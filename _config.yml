@@ -59,6 +59,9 @@ defaults:
 
 url: http://ricostacruz.com/cheatsheets
 title: Cheatsheets
+alt_title: Rico's Cheatsheets
+home:
+  tagline: "Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written."
 
 #
 # Google analytics

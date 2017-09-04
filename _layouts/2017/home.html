@@ -18,11 +18,10 @@ type: website
 <div class='body-area -slim'>
   <div class='site-header'>
     <h1>
-      Rico's cheatsheets
+      {{ site.data.content.home.title }}
     </h1>
     <p>
-      Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a
-      modest collection of cheatsheets I've written.
+      {{ site.data.content.home.tagline }}
     </p>
     {% include 2017/search-form.html live=true %}
   </div>

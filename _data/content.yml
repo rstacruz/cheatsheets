@@ -1,0 +1,10 @@
+home:
+  title: "Rico's cheatsheets"
+  tagline: "Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written."
+top_nav:
+  title: "Rico's cheatsheets"
+social_list:
+  default_description: "Grand collection of web development cheatsheets"
+  description_prefix: "The ultimate cheatsheet for"
+  facebook_share: Share on Facebook
+  twitter_share: Share on Twitter

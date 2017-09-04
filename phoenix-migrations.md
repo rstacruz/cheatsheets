@@ -11,7 +11,7 @@ updated: 2017-09-04
 ```bash
 $ mix ecto.gen.migration update_posts_table
   creating priv/repo/migrations/20160602085927_update_posts_table.exs
-  ...
+  ···
 ```
 
 ```bash
@@ -27,7 +27,7 @@ Creates a migration (no models).
 $ mix phoenix.gen.model Message messages user_id:integer content:text
 ```
 
-Creates models and tests.
+This is only for Phoenix 1.2 or older; models aren't available in Phoenix 1.3+.
 
 ## Migration functions
 

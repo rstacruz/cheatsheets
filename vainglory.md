@@ -74,27 +74,27 @@ layout: 2017/sheet
 
 ### Utilities
 
-| Item                            | Cost | HP      | Use                                                                 |
-| ---                             | ---  | ---     | ---                                                                 |
-| [Halcyon Chargers][HBoot]       | 2300 | +200 hp | 👟 __Boots__     <br> +15% cooldown, +250 energy, +4 recharge       |
-| [Stormcrown][SC]                | 2200 | +200 hp | 🔴 __Bonus dmg__ <br> +30% cooldown, +4 recharge, bonus true damage |
-| [Journey Boots][JBoot]          | 1900 | +250 hp | 👟 __Boots__     <br> damaging heroes resets sprint cooldown        |
-| [Nullwave Gauntlet][Null] (2.0) | 2250 | +300 hp | __Item silence__ <br> +25% cooldown                                 |
-| [Contraption][Con]              | 2100 | +350 hp | 👀 __Vision__    <br> traps/flares, +40% cooldown, +3 recharge      |
-| [Shiversteel][SS]               | 1450 | +500 hp | 🐌 __Slow__      <br> active: slow targets                          |
-| [War Treads][WBoot]             | 2500 | +600 hp | 👟 __Boots__     <br> gives sprint to nearby teammates              |
+| Item                            | Cost | HP      | Use                                                                    |
+| ---                             | ---  | ---     | ---                                                                    |
+| [Halcyon Chargers][HBoot]       | 2300 | +200 hp | 👟 __Boots__        <br> +15% cooldown, +250 energy, +4 recharge       |
+| [Stormcrown][SC]                | 2200 | +200 hp | 🔴 __Bonus dmg__    <br> +30% cooldown, +4 recharge, bonus true damage |
+| [Journey Boots][JBoot]          | 1900 | +250 hp | 👟 __Boots__        <br> damaging heroes resets sprint cooldown        |
+| [Nullwave Gauntlet][Null] (2.0) | 2250 | +300 hp | 😶 __Item silence__ <br> +25% cooldown                                 |
+| [Contraption][Con]              | 2100 | +350 hp | 👀 __Vision__       <br> traps/flares, +40% cooldown, +3 recharge      |
+| [Shiversteel][SS]               | 1450 | +500 hp | 🐌 __Slow__         <br> active: slow targets                          |
+| [War Treads][WBoot]             | 2500 | +600 hp | 👟 __Boots__        <br> gives sprint to nearby teammates              |
 {: .-left-align.-headers}
 
 ### Defense
 
-| Item                            | Cost | HP      | Armor   | Shield  | Use                                             |
-| ---                             | ---  | ---     | ---     | ---     | ---                                             |
-| [Aegis][Aegis]                  | 2250 |         | +30 ar  | +125 sh | ✊__Reflex block__ (self)                       |
-| [Fountain of Renewal][Fountain] | 2300 | +200 hp | +30 ar  | +75 sh  | ❤ __Heal__ allies                               |
-| [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed                 |
-| [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                                 |
-| [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)                      |
-| [Slumbering Husk][Husk] (2.0)   | 1600 | +400 hp |         |         | __Fortification__ (when taking too much damage) |
+| Item                            | Cost | HP      | Armor   | Shield  | Use                                    |
+| ---                             | ---  | ---     | ---     | ---     | ---                                    |
+| [Aegis][Aegis]                  | 2250 |         | +30 ar  | +125 sh | ✊__Reflex block__ (self)              |
+| [Fountain of Renewal][Fountain] | 2300 | +200 hp | +30 ar  | +75 sh  | ❤ __Heal__ allies                      |
+| [Atlas Pauldron][Atlas]         | 1900 |         | +85 ar  | +35 sh  | 🐌 __Slow__ target attack speed        |
+| [Metal Jacket][Metal]           | 2100 |         | +170 ar | +35 sh  |                                        |
+| [Crucible][Cru]                 | 1850 | +600 hp |         |         | ✊ __Reflex block__ (team)             |
+| [Slumbering Husk][Husk] (2.0)   | 1600 | +400 hp |         |         | __Fortification__ against burst damage |
 {: .-left-align.-headers}
 
 [Fountain]: http://www.vaingloryfire.com/vainglory/wiki/items/fountain-of-renewal

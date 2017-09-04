@@ -6,6 +6,22 @@ weight: -1
 updated: 2017-09-04
 ---
 
+### Quick start
+
+```bash
+# Install Phoenix
+mix local.hex
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+```
+
+```bash
+# Create a new project
+mix phx.new hello
+```
+
+Install Erlang, Elixir, Node.js, Postgresql first.
+See: [Installation](https://hexdocs.pm/phoenix/installation.html) _(hexdocs.pm)_
+
 ### Directory structure
 
 ```

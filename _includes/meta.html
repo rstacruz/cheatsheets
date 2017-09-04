@@ -75,8 +75,8 @@
 {% endif %}
 
 {%comment%}<!-- tags -->{%endcomment%}
-{% if page.tags[0] %}
-  <meta content='{{ page.tags[0] }}' property='article:section'>
+{% if page.category %}
+  <meta content='{{ page.category }}' property='article:section'>
 {% endif %}
 {% if page.tags %}
 {% for tag in page.tags %}
@@ -85,7 +85,7 @@
 {% endif %}
 
 {%comment%}<!-- google analytics -->{%endcomment%}
-{% if site.analytics %}<script>if(~location.hostname.indexOf("{{site.analytics.hostname}}")){var _gaq=_gaq||[];_gaq.push(["_setAccount","{{ site.analytics.id }}"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})()}</script>{% endif %}
+{% if site.data.google_analytics.enabled %}<script>if(~location.hostname.indexOf("{{site.data.google_analytics.hostname}}")){var _gaq=_gaq||[];_gaq.push(["_setAccount","{{ site.data.google_analytics.id }}"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})()}</script>{% endif %}
 
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>

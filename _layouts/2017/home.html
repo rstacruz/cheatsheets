@@ -43,7 +43,7 @@ type: website
       {% endif %}
     {% endfor %}
 
-    {% for category in site.category_names %}
+    {% for category in site.data.category.names %}
       <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
         <span>{{ category }}</span>
       </h2>

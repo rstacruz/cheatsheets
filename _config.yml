@@ -1,6 +1,4 @@
-#
 # Jekyll configuration
-#
 
 whitelist:
   - jekyll-redirect-from
@@ -18,11 +16,8 @@ exclude:
   - Gemfile.lock
   - CNAME
   - vendor
-  - _deprecated
 
-#
 # Markdown
-#
 
 highlighter: false
 markdown: kramdown
@@ -33,9 +28,7 @@ kramdown:
   syntax_highlighter_opts:
     disable: true
 
-#
 # Defaults
-#
 
 defaults:
   - scope:
@@ -54,47 +47,12 @@ defaults:
         - elixir
         - ruby
 
-#
 # Site info
-#
 
 url: http://ricostacruz.com/cheatsheets
 title: Cheatsheets
 
-#
-# Google analytics
-#
-#
-analytics:
-  hostname: ricostacruz.com
-  id: "UA-20473929-1"
-
-#
-# Categories
-#
-
-category_names:
-  - Ansible
-  - Apps
-  - CLI
-  - CSS
-  - Devops
-  - Elixir
-  - Git
-  - HTML
-  - JavaScript
-  - JavaScript libraries
-  - Jekyll
-  - Ledger
-  - Markup
-  - Node.js
-  - Rails
-  - React
-  - Ruby
-  - Ruby libraries
-  - Vim
-  - Fitness
-  - Others
-
+# GitHub metadata
 # https://help.github.com/articles/repository-metadata-on-github-pages/
+
 repository: rstacruz/cheatsheets

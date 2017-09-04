@@ -1,8 +1,14 @@
 # Rico's cheatsheets
 
-> Collection of web development cheatsheets:
+> Collection of web development cheatsheets
 
-Visit: **<https://ricostacruz.com/cheatsheets/>**
+<br>
+
+<center>[<img src='_docs/images/screenshot.png' width=600>](https://ricostacruz.com/cheatsheets/)</center>
+
+<center>**<https://ricostacruz.com/cheatsheets/>**</center>
+
+<br>
 
 ---
 

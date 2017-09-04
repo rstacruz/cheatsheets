@@ -54,6 +54,14 @@ ads: false                # Add this to disable ads
 weight: -5                # lower number = higher in related posts list
 deprecated: true          # Don't show in related posts
 prism_languages: [vim]    # Extra syntax highlighting
+tags:
+  - WIP
+  - Featured
+
+# Special pages:
+# (don't set these for cheatsheets)
+type: home                # home | article | error
+og_type: website          # opengraph type
 ---
 ```
 

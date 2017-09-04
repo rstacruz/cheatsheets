@@ -1,23 +1,15 @@
----
-type: website
-permalink: /404.html
----
 {% include 2017/head.html %}
 {% include 2017/top-nav.html page=page noshare=true %}
 
 <div class='body-area -slim'>
   <div class='site-header'>
-    <h1>
-      Not found
-    </h1>
-    <p>
-      Sorry, we don't have a cheatsheet for this yet. Try searching!
-    </p>
+    <h1>{{ site.data.content.not_found.title }}</h1>
+    <p>{{ site.data.content.not_found.description }}</p>
 
     {% include 2017/search-form.html %}
 
     <p class='action'>
-      <a class='push-button' href='./'>Back to home</a>
+      <a class='push-button' href='./'>{{ site.data.content.not_found.home }}</a>
     </p>
   </div>
 </div>

@@ -11,7 +11,7 @@ sheet:
   suffix: cheatsheet
 
 social_list:
-  default_description: "Grand collection of web development cheatsheets"
+  default_description: "Ridiculous collection of web development cheatsheets"
   description: "The ultimate cheatsheet for TITLE."
   facebook_share: Share on Facebook
   twitter_share: Share on Twitter
@@ -33,3 +33,8 @@ search_form:
 comments_area:
   suffix: for this cheatsheet.
   link: "Write yours!"
+
+not_found:
+  title: Not found
+  description: Sorry, we don't have a cheatsheet for this yet. Try searching!
+  home: Back to home

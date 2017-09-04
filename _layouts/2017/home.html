@@ -1,6 +1,3 @@
----
-type: website
----
 {% assign featured_pages = site.pages
   | where_exp: "page", "page.tags contains 'Featured'"
 %}
@@ -9,7 +6,7 @@ type: website
   | sort: "updated", "first"
 %}
 {% include 2017/head.html %}
-{% include 2017/top-nav.html page=page is_home=true %}
+{% include 2017/top-nav.html page=page is_home=true noedit=true noback=true %}
 
 {% if site.data.carbon.enabled %}
   <div class='SideAd'>

@@ -20,12 +20,12 @@
 <title>{{ page.title }} cheatsheet</title>
 <meta content='{{ page.title }}' property='og:title'>
 <meta content='{{ page.title }}' property='twitter:title'>
-<meta content='{{ page.type | default: "article" }}' property='og:type'>
+<meta content='{{ page.og_type | default: "article" }}' property='og:type'>
 {% else %}
 <title>{{ site.title }}</title>
 <meta content='{{ site.title }}' property='og:title'>
 <meta content='{{ site.title }}' property='twitter:title'>
-<meta content='{{ page.type | default: "website" }}' property='og:type'>
+<meta content='{{ page.og_type | default: "website" }}' property='og:type'>
 {% endif %}
 
 {%comment%}<!-- description -->{%endcomment%}

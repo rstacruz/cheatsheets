@@ -1,4 +1,4 @@
-{% if include.page.home %}
+{% if include.page.type == 'home' %}
 {% assign description = site.data.content.social_list.default_description %}
 {% else %}
 {% assign description = site.data.content.social_list.description | replace: "TITLE", include.page.title %}

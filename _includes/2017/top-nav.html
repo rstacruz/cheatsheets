@@ -1,6 +1,12 @@
+{% comment %}
+Params:
+- noshare
+- noedit
+- noback
+{% endcomment %}
 <nav class='top-nav'>
   <div class='container'>
-    {% unless include.is_home %}
+    {% unless include.page.noback %}
       <div class='left'>
         <a class='home back-button' href='{{base}}'></a>
       </div>
@@ -14,7 +20,7 @@
       <div class='actions'>
         {% include social-list.html class="social page-actions" page=include.page %}
 
-        {% unless include.is_home %}
+        {% unless include.noedit %}
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='{{ site.data.content.top_nav.edit_on_github }}'>
               <a href='{{ site.github.repository_url }}/blob/gh-pages/{{ page.path | remove: '.html' }}'>

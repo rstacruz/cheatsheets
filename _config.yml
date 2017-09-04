@@ -36,6 +36,7 @@ defaults:
       type: pages
     values:
       layout: "default"
+      og_type: article
       type: article
       category: "Others"
       excerpt_separator: "<!--more-->"

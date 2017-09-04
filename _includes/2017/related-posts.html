@@ -10,6 +10,7 @@
   | where_exp: "page", "page.deprecated != true"
   | sort: "weight", "last"
 %}
+{% assign size = site.pages | size %}
 <footer class='related-posts-area' id='related'>
   <div class='container'>
     <div class='related-posts-section'>
@@ -19,11 +20,11 @@
             <i class='icon'></i>
 
             <span class='description'>
-              Over {{ site.pages | size }} curated cheatsheets, by developers for developers.
+              {{ site.data.content.related_posts_callout.description | replace: "SIZE", size }}
             </span>
 
             <span class='push-button -dark'>
-              Cheatsheets home
+              {{ site.data.content.related_posts_callout.link }}
             </span>
           </div>
         </a>
@@ -32,9 +33,9 @@
       <div class='group'>
         <div class='related-posts-group'>
           {% if include.page.category == 'Others' %}
-            <h3>Other cheatsheets</h3>
+            <h3>{{ site.data.content.related_posts_group.other }}</h3>
           {% else %}
-            <h3>Other {{ include.page.category }} cheatsheets</h3>
+            <h3>{{ site.data.content.related_posts_group.category | replace: "CATEGORY", include.page.category }}</h3>
           {% endif %}
 
           <ul class='related-post-list'>
@@ -47,7 +48,7 @@
 
       <div class='group'>
         <div class='related-posts-group'>
-          <h3>Top cheatsheets</h3>
+          <h3>{{ site.data.content.related_posts_group.top }}</h3>
 
           <ul class='related-post-list'>
             {% for page in top_pages limit: 6 %}

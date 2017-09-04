@@ -1,14 +1,28 @@
-:)
+# Rico's cheatsheets
+
+> Collection of web development cheatsheets:
+
+Visit: **<https://ricostacruz.com/cheatsheets/>**
 
 ---
 
-## Notes
+# Dev notes
+
+## Starting a local instance
+
+This is a mere Jekyll site, and `bundle exec jekyll serve` should be fine. But I suggest you use this instead:
+
+```
+make
+```
+
+## CSS classes
 
 `h2` supports these:
 
     {: .-two-column}
     {: .-three-column}
-    {: .-wide-second}       # combine with -x-column
+    {: .-wide-second}       # combine with -xxx-column
     {: .-left-reference}
 
 `h3` supports these:
@@ -32,6 +46,8 @@
     {: .-four-column}
     {: .-six-column}
 
+## Frontmatter
+
 Each sheet supports these metadata:
 
 ```yml
@@ -49,6 +65,8 @@ prism_languages: [vim]    # Extra syntax highlighting
 ---
 ```
 
+## Prism languages
+
 For supported prism languages:
 
 - <https://github.com/PrismJS/prism/tree/gh-pages/components>
@@ -65,3 +83,7 @@ category: Hidden
 redirect_to: /es6
 ---
 ```
+
+## Localizations
+
+See `_data/content.yml` for chrome strings.

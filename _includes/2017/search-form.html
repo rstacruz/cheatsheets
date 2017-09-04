@@ -3,16 +3,19 @@
   class='search'action='{{ base }}' method='get'>
   <label class='search-box {{ include.class }}'>
     {% comment %}
-    <span class='prefix'>devhints.io</span>
+    <span class='prefix'>{{ site.data.content.search_form.prefix }}</span>
     <span class='sep'>/</span>
     {% endcomment %}
     <input name='q'
       type='text'
       {% if include.live %}
+        {% assign placeholder = site.data.content.search_form.home_placeholder | replace: "%{size}", size %}
         autofocus data-js-search-input
-        placeholder='Search...'
+        placeholder='{{ placeholder }}'
       {% else %}
-        placeholder='Search {{ site.pages | size }}+ cheatsheets'
+        {% assign size = site.pages | size %}
+        {% assign placeholder = site.data.content.search_form.default_placeholder | replace: "SIZE", size %}
+        placeholder='{{ placeholder }}'
       {% endif %}>
   </label>
 </form>

@@ -11,9 +11,11 @@ type: website
 {% include 2017/head.html %}
 {% include 2017/top-nav.html page=page is_home=true %}
 
-<div class='SideAd'>
-  <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
-</div>
+{% if site.data.carbon.enabled %}
+  <div class='SideAd'>
+    <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
+  </div>
+{% endif %}
 
 <div class='body-area -slim'>
   <div class='site-header'>

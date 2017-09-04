@@ -1,22 +1,24 @@
 {% assign identifier = include.page.url | remove: '.html' | remove_first: '/' %}
-<section class='comments-area' id='comments'>
-  <div class='container'>
-    <details class='comments-details'>
-      <summary>
-        <strong class='count'>
-          <span class='disqus-comment-count' data-disqus-identifier="{{ identifier }}" data-disqus-url='{{ site.url }}/{{ identifier }}'>0 Comments</span>
-        </strong>
-        <span class='suffix'>for this cheatsheet.</span>
-        <span class='fauxlink'>Write yours!</span>
-      </summary>
-      <div class='comments-section'>
-        <div class='comments'>
-          <div id='disqus_thread'></div>
-          <noscript data-js-disqus='{"host":"{{ site.disqus_host }}","url":"{{ site.url }}/{{ identifier }}","identifier":"{{ identifier }}"}'></noscript>
+{% if site.data.disqus.enabled %}
+  <section class='comments-area' id='comments'>
+    <div class='container'>
+      <details class='comments-details'>
+        <summary>
+          <strong class='count'>
+            <span class='disqus-comment-count' data-disqus-identifier="{{ identifier }}" data-disqus-url='{{ site.url }}/{{ identifier }}'>0 Comments</span>
+          </strong>
+          <span class='suffix'>{{ site.data.content.comments_area.suffix }}</span>
+          <span class='fauxlink'>{{ site.data.content.comments_area.link }}</span>
+        </summary>
+        <div class='comments-section'>
+          <div class='comments'>
+            <div id='disqus_thread'></div>
+            <noscript data-js-disqus='{"host":"{{ site.data.disqus.host }}","url":"{{ site.url }}/{{ identifier }}","identifier":"{{ identifier }}"}'></noscript>
+          </div>
         </div>
-      </div>
-    </details>
-  </div>
-</section>
+      </details>
+    </div>
+  </section>
 
-<script id='dsq-count-scr' src='//{{ site.disqus_host }}/count.js' async></script>
+  <script id='dsq-count-scr' src='//{{ site.data.disqus.host }}/count.js' async></script>
+{% endif %}

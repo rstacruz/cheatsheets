@@ -20,8 +20,10 @@ html_class: home
   </div>
 {% endfor %}
 
-<div class='side-ad'>
-  <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
-</div>
+{% if site.data.carbon.enabled %}
+  <div class='side-ad'>
+    <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
+  </div>
+{% endif %}
 
 {% include foot.html %}

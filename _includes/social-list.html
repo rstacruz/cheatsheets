@@ -1,7 +1,7 @@
 {% if include.page.home %}
 {% assign description = site.data.content.social_list.default_description %}
 {% else %}
-{% assign description = site.data.content.social_list.description_prefix | append: " " | append: include.page.title | append: "." %}
+{% assign description = site.data.content.social_list.description | replace: "TITLE", include.page.title %}
 {% endif %}
 <ul class="social-list {{ include.class }}">
   <li class="facebook link hint--bottom" data-hint="{{ site.data.content.social_list.facebook_share }}"><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ include.page.url }}" target="share"><span class="text"></span></a></li>

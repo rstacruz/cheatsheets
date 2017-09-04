@@ -13,9 +13,11 @@ type: article
       <h1><span>{{ page.title }}</span></h1>
     </div>
 
-    <div class='headline-ad'>
-      <script async src='//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom' id="_carbonads_js"></script>
-    </div>
+    {% if site.data.carbon.enabled %}
+      <div class='headline-ad'>
+        <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
+      </div>
+    {% endif %}
 
     <div class='post-content -cheatsheet'>
       {{ content }}

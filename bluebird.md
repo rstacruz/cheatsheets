@@ -1,39 +1,45 @@
 ---
 title: bluebird.js
 category: JavaScript libraries
-layout: default-ad
+layout: 2017/sheet
+weight: -1
+updated: 2017-09-04
 ---
 
+### Also see
+
 Also see the [promise cheatsheet](promise.html) and [Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).
-{:.center.brief-intro}
+
+### Example
 
 ```js
 promise
   .then(okFn, errFn)
-  .spread(okFn, errFn) //*
+  .spread(okFn, errFn)        // *
   .catch(errFn)
-  .catch(TypeError, errFn) //*
-  .finally(fn) //*
-  .map(function (e) { ... })
-  .each(function (e) { ... })
+  .catch(TypeError, errFn)    // *
+  .finally(fn)                // *
+  .map(function (e) { ··· })  // *
+  .each(function (e) { ··· }) // *
 ```
 
-----
+Those marked with `*` are non-standard Promise API that only work with Bluebird promises.
 
 ### Multiple return values
-Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html).
 
 ```js
 .then(function () {
-  return [ 'abc', 'def' ];
+  return [ 'abc', 'def' ]
 })
 .spread(function (abc, def) {
-  ...
-});
+  ···
+})
 ```
+{: data-line="4"}
+
+Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
 
 ### Multiple promises
-Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html).
 
 ```js
 Promise.join(
@@ -41,10 +47,13 @@ Promise.join(
   getMessages(),
   getTweets(),
   function (pics, msgs, tweets) {
-    return ...;
+    return ···
   }
 )
 ```
+{: data-line="1"}
+
+Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
 
 ### Multiple promises (array)
 
@@ -66,17 +75,17 @@ Promise.any(promises)
   .then(results => {
   })
 ```
-
-Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
+{: data-line="1,8"}
 
 ```js
 Promise.map(urls, url => fetch(url))
-  .then(...)
+  .then(···)
 ```
+{: data-line="1"}
 
+Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
 
 ### Object
-Usually it's better to use `.join`, but whatever.
 
 ```js
 Promise.props({
@@ -88,9 +97,11 @@ Promise.props({
   res.posts
 })
 ```
+{: data-line="1"}
+
+Usually it's better to use `.join`, but whatever.
 
 ### Chain of promises
-Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 
 ```js
 function getPhotos() {
@@ -100,19 +111,23 @@ function getPhotos() {
   })
 }
 
-getPhotos().then(...)
+getPhotos().then(···)
 ```
+{: data-line="2"}
 
-### Using Node-style functions
-See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
+Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
+
+### Node-style functions
 
 ```js
 var readFile = Promise.promisify(fs.readFile)
 var fs = Promise.promisifyAll(require('fs'))
 ```
+{: data-line="2"}
+
+See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
 ### Promise-returning methods
-See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
 ```js
 User.login = Promise.method((email, password) => {
@@ -120,11 +135,13 @@ User.login = Promise.method((email, password) => {
     throw new Error("Email not valid")
 
   return /* promise */
-});
+})
 ```
+{: data-line="1"}
+
+See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
 ### Generators
-See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 
 ```
 User.login = Promise.coroutine(function* (email, password) {
@@ -132,6 +149,8 @@ User.login = Promise.coroutine(function* (email, password) {
   return user
 })
 ```
+
+See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 
 ## Reference
 

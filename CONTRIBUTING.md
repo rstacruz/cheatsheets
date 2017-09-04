@@ -19,7 +19,7 @@ make
 
 `h3` supports these:
 
-    {: .-prime}
+    {: .-prime}             # Highlight the body
 
 `table` supports these:
 
@@ -27,10 +27,15 @@ make
     {: .-left-align}
     {: .-headers}
 
+`p` supports these:
+
+    {: .-setup}             # Gray background
+    {: .-crosslink}         # Link with big arrow
+
 `pre` supports these:
 
-    {: .-setup}
-    {: .-box-chars}
+    {: .-setup}             # Gray background
+    {: .-box-chars}         # Box-drawing chars
 
 `ul` supports these:
 

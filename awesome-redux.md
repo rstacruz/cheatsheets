@@ -25,7 +25,8 @@ err = new Error()
 increment(err) === { type: 'INCREMENT', payload: err, error: true }
 ```
 
-See: [redux-actions](https://www.npmjs.com/package/redux-actions)
+[redux-actions](https://www.npmjs.com/package/redux-actions)
+{: .-crosslink}
 
 ### flux-standard-ation
 
@@ -37,7 +38,8 @@ A standard for flux action objects. An action may have an `error`, `payload` and
 { type: 'ADD_TODO', payload: new Error(), error: true }
 ```
 
-See: [flux-standard-action](https://github.com/acdlite/flux-standard-action)
+[flux-standard-action](https://github.com/acdlite/flux-standard-action)
+{: .-crosslink}
 
 ### redux-multi
 
@@ -51,7 +53,8 @@ store.dispatch([
 ])
 ```
 
-See: [redux-multi](https://github.com/ashaffer/redux-multi)
+[redux-multi](https://github.com/ashaffer/redux-multi)
+{: .-crosslink}
 
 ### reduce-reducers
 Combines reducers (like *combineReducers()*), but without namespacing magic.
@@ -66,7 +69,8 @@ re = reduceReducers(
 re(10, { number: 2 })  //=> 14
 ```
 
-See: [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
+[reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
+{: .-crosslink}
 
 ### redux-logger
 
@@ -77,7 +81,8 @@ Logs actions to your console.
 // Nothing to see here
 ```
 
-See: [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+[redux-logger](https://github.com/evgenyrodionov/redux-logger)
+{: .-crosslink}
 
 Async
 -----
@@ -92,7 +97,8 @@ increment = createAction('INCREMENT')  // redux-actions
 increment(Promise.resolve(42))
 ```
 
-See: [redux-promise](https://github.com/acdlite/redux-promise)
+[redux-promise](https://github.com/acdlite/redux-promise)
+{: .-crosslink}
 
 ### redux-promises
 
@@ -115,7 +121,8 @@ store.dispatch(fetchData('/posts'))
 fetchData('/posts')(store.dispatch)
 ```
 
-See: [redux-promises](https://www.npmjs.com/package/redux-promises)
+[redux-promises](https://www.npmjs.com/package/redux-promises)
+{: .-crosslink}
 
 ### redux-effects
 
@@ -135,7 +142,8 @@ Pass side effects declaratively to keep your actions pure.
 }
 ```
 
-See: [redux-effects](https://www.npmjs.com/package/redux-effects)
+[redux-effects](https://www.npmjs.com/package/redux-effects)
+{: .-crosslink}
 
 ### redux-thunk
 
@@ -166,4 +174,5 @@ store.dispatch(fetchPosts()).then(() => {
 })
 ```
 
-See: [redux-thunk](https://www.npmjs.com/package/redux-thunk)
+[redux-thunk](https://www.npmjs.com/package/redux-thunk)
+{: .-crosslink}

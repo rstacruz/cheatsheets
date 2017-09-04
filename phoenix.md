@@ -19,7 +19,7 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 mix phx.new hello
 ```
 
-Install Erlang, Elixir, Node.js, Postgresql first.
+Install Erlang, Elixir, Node.js, PostgreSQL first.
 See: [Installation](https://hexdocs.pm/phoenix/installation.html) _(hexdocs.pm)_
 
 ### Directory structure
@@ -54,9 +54,6 @@ See: [Adding pages](https://hexdocs.pm/phoenix/adding_pages.html) _(hexdocs.pm)_
 
 ### Migrations
 
-[Ecto migrations cheatsheet](./phoenix-migrations)
-{: .-crosslink}
-
 ```bash
 $ mix ecto.gen.migration update_posts_table
   creating priv/repo/migrations/20160602085927_update_posts_table.exs
@@ -74,10 +71,10 @@ create table(:documents) do
 end
 ```
 
-### Routing
-
-[Phoenix routing cheatsheet](./phoenix-routing)
+[Ecto migrations cheatsheet](./phoenix-migrations)
 {: .-crosslink}
+
+### Routing
 
 ```elixir
 get "/", PageController, :index
@@ -92,10 +89,10 @@ user_post_path(:index, 17)     # → /users/17/posts
 user_post_path(:show, 17, 12)  # → /users/17/posts/12
 ```
 
-### Conn
-
-[Phoenix conn cheatsheet](./phoenix-conn)
+[Phoenix routing cheatsheet](./phoenix-routing)
 {: .-crosslink}
+
+### Conn
 
 ```elixir
 conn.host          # → "example.com"
@@ -116,10 +113,10 @@ conn
 |> render(MyApp.ErrorView, "404.html")
 ```
 
-### Ecto
-
-[Ecto cheatsheet](./phoenix-ecto)
+[Phoenix conn cheatsheet](./phoenix-conn)
 {: .-crosslink}
+
+### Ecto
 
 ```bash
 $ mix phx.gen.html \
@@ -129,6 +126,9 @@ $ mix phx.gen.html \
     email:string \
     age:integer
 ```
+
+[Ecto cheatsheet](./phoenix-ecto)
+{: .-crosslink}
 
 ### Also see
 

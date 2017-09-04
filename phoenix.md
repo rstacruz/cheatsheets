@@ -54,8 +54,8 @@ See: [Adding pages](https://hexdocs.pm/phoenix/adding_pages.html) _(hexdocs.pm)_
 
 ### Migrations
 
-See [Ecto migrations cheatsheet](./phoenix-migrations).
-{: .-setup}
+[Ecto migrations cheatsheet](./phoenix-migrations)
+{: .-crosslink}
 
 ```bash
 $ mix ecto.gen.migration update_posts_table
@@ -76,8 +76,8 @@ end
 
 ### Routing
 
-See [Phoenix routing cheatsheet](./phoenix-routing).
-{: .-setup}
+[Phoenix routing cheatsheet](./phoenix-routing)
+{: .-crosslink}
 
 ```elixir
 get "/", PageController, :index
@@ -94,8 +94,8 @@ user_post_path(:show, 17, 12)  #=> /users/17/posts/12
 
 ### Conn
 
-See [Phoenix conn cheatsheet](./phoenix-conn).
-{: .-setup}
+[Phoenix conn cheatsheet](./phoenix-conn)
+{: .-crosslink}
 
 ```elixir
 conn.host          #=> "example.com"
@@ -118,9 +118,8 @@ conn
 
 ### Ecto
 
-
-See [Ecto cheatsheet](./phoenix-ecto).
-{: .-setup}
+[Ecto cheatsheet](./phoenix-ecto)
+{: .-crosslink}
 
 ```bash
 $ mix phx.gen.html \

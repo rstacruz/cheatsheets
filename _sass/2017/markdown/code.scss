@@ -57,7 +57,8 @@
 
 .MarkdownBody pre.-setup,
 .MarkdownBody p.-setup,
-.MarkdownBody ul.-setup {
+.MarkdownBody ul.-setup,
+.MarkdownBody p.-crosslink {
   background: $gray-bg;
 }
 

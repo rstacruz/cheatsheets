@@ -8,10 +8,12 @@
 @import './utils/heading-style';
 @import './utils/section-gutter';
 @import './utils/section-with-container';
+@import './placeholders/push-button';
 @include ion-font;
 @import './base/base';
 @import './markdown/code';
 @import './markdown/headings';
+@import './markdown/p';
 @import './markdown/table';
 @import './markdown/ul';
 @import './components/attribute-peg';

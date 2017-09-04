@@ -1,0 +1,44 @@
+/*
+ * Crosslink (eg, phoenix.md)
+ */
+
+.MarkdownBody p.-crosslink {
+  & > a {
+    display: block;
+    text-decoration: none;
+    color: $base-a;
+  }
+
+  & > a:visited {
+    color: $base-a;
+  }
+
+  & > a::before {
+    @include ion-icon('md-arrow-forward');
+    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  & > a,
+  & > a:visited {
+    &::before {
+      background: $base-a;
+      color: white;
+    }
+  }
+
+  & > a:hover,
+  & > a:focus {
+    & {
+      color: $base-a7;
+    }
+
+    &::before {
+      background: $base-a7;
+    }
+  }
+}

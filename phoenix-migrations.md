@@ -1,27 +1,37 @@
 ---
-title: "Phoenix: Migrations"
+title: "Phoenix: Ecto migrations"
 category: Elixir
+layout: 2017/sheet
+weight: -1
+updated: 2017-09-04
 ---
 
-## Creating
+### Creating
 
-```
+```bash
 $ mix ecto.gen.migration update_posts_table
   creating priv/repo/migrations/20160602085927_update_posts_table.exs
   ...
+```
 
+```bash
 $ mix ecto.migrate
 $ mix ecto.rollback
 ```
 
+Creates a migration (no models).
+
 ### Creating models
 
-```
+```bash
 $ mix phoenix.gen.model Message messages user_id:integer content:text
-# creates models and tests
 ```
 
-## Tables
+Creates models and tests.
+
+## Migration functions
+
+### Creating tables
 
 ```elixir
 create table(:documents) do
@@ -44,6 +54,8 @@ end
 create_if_not_exists table(:documents) do: ... end
 ```
 
+### Other operations
+
 ```elixir
 alter table(:posts) do
   add :summary, :text
@@ -60,12 +72,14 @@ rename table(:posts), to: table(:new_posts)
 ```elixir
 drop table(:documents)
 drop_if_exists table(:documents)
+```
 
+```elixir
 table(:documents)
 table(:weather, prefix: :north_america)
 ```
 
-## Indices
+### Indices
 
 ```elixir
 create index(:posts, [:slug], concurrently: true)
@@ -73,7 +87,7 @@ create unique_index(:posts, [:slug])
 drop index(:posts, [:name])
 ```
 
-## Execute
+### Execute SQL
 
 ```elixir
 execute "UPDATE posts SET published_at = NULL"
@@ -82,4 +96,4 @@ execute create: "posts", capped: true, size: 1024
 
 ## References
 
-* [Ecto.Migration](http://devdocs.io/phoenix/ecto/ecto.migration)
+- [Ecto.Migration](http://devdocs.io/phoenix/ecto/ecto.migration)

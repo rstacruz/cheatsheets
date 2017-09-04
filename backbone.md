@@ -1,35 +1,51 @@
+---
 title: Backbone.js
+layout: 2017/sheet
+updated: 2017-09-04
 ---
 
 ### Binding events
 
-    .on('event', callback);
-    .on('event', callback, context);
+```js
+.on('event', callback)
+.on('event', callback, context)
+```
 
-    .on({
-      'event1': callback,
-      'event2': callback
-    });
+```js
+.on({
+  'event1': callback,
+  'event2': callback
+})
+```
 
-    .on('all', callback);
+```js
+.on('all', callback)
+```
 
-    .once('event', callback);   /* Only happens once */
+```js
+.once('event', callback)   // Only happens once
+```
 
 ### Unbinding events
 
-    
-    object.off("change", onChange);    // just the `onChange` callback
-    object.off("change");              // all "change" callbacks
-    object.off(null, onChange);        // `onChange` callback for all events
-    object.off(null, null, context);   // all callbacks for `context` all events
-    object.off();                      // all
+```js
+object.off('change', onChange)    // just the `onChange` callback
+object.off('change')              // all 'change' callbacks
+object.off(null, onChange)        // `onChange` callback for all events
+object.off(null, null, context)   // all callbacks for `context` all events
+object.off()                      // all
+```
 
 ### Events
 
-    object.trigger('event')
+```js
+object.trigger('event')
+```
 
-    view.listenTo(object, event, callback)
-    view.stopListening()
+```js
+view.listenTo(object, event, callback)
+view.stopListening()
+```
 
 ### List of events
 
@@ -55,126 +71,194 @@ title: Backbone.js
 
 ### Views
 
-    // All attributes are optional
-    var View = Backbone.View.extend({
-      model: doc,
+```js
+// All attributes are optional
+var View = Backbone.View.extend({
+  model: doc,
+```
 
-      tagName: 'div',
-      className: 'document-item',
-      id: "document-" + doc.id,
-      attributes: { href: '#' },
+```js
+  tagName: 'div',
+  className: 'document-item',
+  id: "document-" + doc.id,
+  attributes: { href: '#' },
+```
 
-      el: 'body',
+```js
+  el: 'body',
+```
 
-      events: {
-        'click button.save': 'save',
-        'click .cancel': function() { ... },
-        'click': 'onclick'
-      },
+```js
+  events: {
+    'click button.save': 'save',
+    'click .cancel': function() { ··· },
+    'click': 'onclick'
+  },
+```
 
-      constructor: function() { ... },
-      render: function() { ... }
-    });
+```js
+  constructor: function() { ··· },
+  render: function() { ··· }
+})
+```
 
-    view = new View();
-    view = new View({ el: ... });
+```js
+view = new View()
+view = new View({ el: ··· })
+```
 
-    view.$el.show();
-    view.$("input");
+```js
+view.$el.show()
+view.$("input")
+```
 
-    view.remove();
+```js
+view.remove()
+```
 
-    view.delegateEvents();
-    view.undelegateEvents();
+```js
+view.delegateEvents()
+view.undelegateEvents()
+```
 
-### Model
+## Models
 
-    // All attributes are optional
-    var Model = Backbone.Model.extend({
-      defaults: {
-        'author': 'unknown'
-      },
-      idAttribute: '_id',
-      parse: function() {
-      }
-    });
+### Defining
 
-    var obj = new Model({ title: "Lolita", author: "Nabokov" });
+```js
+// All attributes are optional
+var Model = Backbone.Model.extend({
+  defaults: {
+    'author': 'unknown'
+  },
+  idAttribute: '_id',
+  parse: function() { ··· }
+})
+```
 
-    var obj = new Model({ collection: ... });
+### Instanciating
 
-    obj.id
-    obj.cid   //=> "c38" (client-side ID)
+```js
+var obj = new Model({ title: 'Lolita', author: 'Nabokov' })
+```
 
-    obj.clone()
+```js
+var obj = new Model({ collection: ··· })
+```
 
-    obj.hasChanged('title')
-    obj.changedAttributes()  /* false, or hash */
-    obj.previousAttributes() /* false, or hash */
-    obj.previous('title')
+### Methods
 
-    obj.isNew()
+```js
+obj.id
+obj.cid   // → 'c38' (client-side ID)
+```
 
-    obj.set({ title: 'A Study in Pink' });
-    obj.set({ title: 'A Study in Pink' }, { validate: true, silent: true });
-    obj.unset('title')
+```js
+obj.clone()
+```
 
-    obj.get('title')
-    obj.has('title')
-    obj.escape('title')     /* Like .get() but HTML-escaped */
+```js
+obj.hasChanged('title')
+obj.changedAttributes()  // false, or hash
+obj.previousAttributes() // false, or hash
+obj.previous('title')
+```
 
-    obj.clear()
-    obj.clear({ silent: true })
+```js
+obj.isNew()
+```
 
-    obj.save()
-    obj.save({ attributes })
-    obj.save(null, {
-      silent: true, patch: true, wait: true,
-      success: callback, error: callback
-    })
+```js
+obj.set({ title: 'A Study in Pink' })
+obj.set({ title: 'A Study in Pink' }, { validate: true, silent: true })
+obj.unset('title')
+```
 
-    obj.destroy()
-    obj.destroy({
-      wait: true,
-      success: callback, error: callback
-    })
+```js
+obj.get('title')
+obj.has('title')
+obj.escape('title')     /* Like .get() but HTML-escaped */
+```
 
-    obj.toJSON()
+```js
+obj.clear()
+obj.clear({ silent: true })
+```
 
-    obj.fetch()
-    obj.fetch({ success: callback, error: callback })
+```js
+obj.save()
+obj.save({ attributes })
+obj.save(null, {
+  silent: true, patch: true, wait: true,
+  success: callback, error: callback
+})
+```
 
-### Model: validation
+```js
+obj.destroy()
+obj.destroy({
+  wait: true,
+  success: callback, error: callback
+})
+```
 
-    var Model = Backbone.Model.extend({
-      validate: function(attrs, options) {
-        if (attrs.end < attrs.start) {
-          return "Can't end before it starts";
-        }
-      }
-    });
+```js
+obj.toJSON()
+```
 
-    obj.validationError  //=> "Can't end before it starts"
-    obj.isValid()
-    obj.on('invalid', function(model, error) { ... })
+```js
+obj.fetch()
+obj.fetch({ success: callback, error: callback })
+```
 
-    // Triggered on:
-    obj.save()
-    obj.set({...}, { validate: true })
+### Validation
 
-### Model: custom URLs
+```js
+var Model = Backbone.Model.extend({
+  validate: function(attrs, options) {
+    if (attrs.end < attrs.start) {
+      return 'Can't end before it starts'
+    }
+  }
+})
+```
+{: data-line="2"}
 
-    var Model = Backbone.Model.extend({
-      // Single URL (string or function)
-      url: '/account',
-      url: function() { return '/account'; },
+```js
+obj.validationError  //=> 'Can't end before it starts'
+obj.isValid()
+obj.on('invalid', function (model, error) { ··· })
+```
 
-      // Both of these two work the same way
-      url: function() { return '/books/' + this.id }),
-      urlRoot: '/books'
-    });
+```js
+// Triggered on:
+obj.save()
+obj.set({ ··· }, { validate: true })
+```
 
-    var obj = new Model({ url: ... });
-    var obj = new Model({ urlRoot: ... });
+### Custom URLs
 
+```js
+var Model = Backbone.Model.extend({
+  // Single URL (string or function)
+  url: '/account',
+  url: function() { return '/account' },
+```
 
+```js
+  // Both of these two work the same way
+  url: function() { return '/books/' + this.id }),
+  urlRoot: '/books'
+})
+```
+
+```js
+var obj = new Model({ url: ··· })
+var obj = new Model({ urlRoot: ··· })
+```
+
+## References
+{: .-one-column}
+
+- [Backbone website](http://backbonejs.org/) _(backbonejs.org)_
+- [Backbone patterns](http://ricostacruz.com/backbone-patterns/) _(ricostacruz.com)_

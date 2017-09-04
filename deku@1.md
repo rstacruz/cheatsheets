@@ -3,6 +3,8 @@ title: Deku v1
 category: JavaScript libraries
 ---
 
+This is for Deku v1. See [deku](./deku) for a more updated cheatsheet.
+
 ```js
 /** @jsx element */
 import element from 'virtual-element'  // replacement for React.createElement

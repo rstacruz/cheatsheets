@@ -9,16 +9,32 @@ updated: 2017-09-04
 ### Directory structure
 
 ```
-config/
-web/
-  controllers/
-  models/
-  views/
-  templates/
-  static/
+./
+├── _build
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── static/
+│   └── node_modules/
+├── config/
+├── deps/
+├── lib/
+│   ├── hello/
+│   └── hello_web/
+│       ├── channels/
+│       ├── controllers/
+│       ├── templates/
+│       ├── views/
+│       ├── router.ex
+│       └── gettext.ex
+├── hello.ex
+├── hello_web.ex
+├── priv/
+└── test/
 ```
+{: .-box-chars}
 
-This is Phoenix 1.2's structure. Phoenix 1.3 has no `models`.
+See: [Adding pages](https://hexdocs.pm/phoenix/adding_pages.html) _(hexdocs.pm)_
 
 ### Migrations
 
@@ -101,6 +117,5 @@ $ mix phx.gen.html \
 
 ### Also see
 
-- [Plug.Conn](./phoenix-conn.html)
-- [Ecto migrations](./phoenix-migrations.html)
-- [Router](./phoenix-routing.html)
+- [Phoenix framework site](http://phoenixframework.org/) _(phoenixframework.org)_
+- [Phoenix: getting started](https://hexdocs.pm/phoenix/overview.html) _(hexdocs.pm)_

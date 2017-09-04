@@ -1,13 +1,20 @@
 ---
 title: "Phoenix: Routing"
 category: Elixir
+layout: 2017/sheet
+weight: -1
 ---
 
+### Showing routes
+
 ```sh
-mix phoenix.routes
+mix phx.routes        # 1.3+
+mix phoenix.routes    # 1.2 and below
 ```
 
-## Single routes
+See: [Mix.Tasks.Phoenix.Routes](https://hexdocs.pm/phoenix/Mix.Tasks.Phoenix.Routes.html) _(hexdocs.pm)_
+
+### Single routes
 
 ```elixir
 get "/", PageController, :index
@@ -15,18 +22,22 @@ get "/", PageController, :index
 
 Also: `put` `post` `patch` `options` `delete` `head`
 
-## Resources
+### Resources
 
 ```elixir
 resources "/users", UserController
 resources "/users", UserController, only: [:index, :show]
 resources "/users", UserController, except: [:delete]
+```
 
+```elixir
+resources "/users", UserController,
   as: :person    # helper name (person_path)
   name: :person  # ...?
   param: :id     # name of parameter for this resource
-
 ```
+
+Generates these routes:
 
 | Method    | Path              | Helper                     |
 | ----      | ----              | ----                       |
@@ -37,34 +48,45 @@ resources "/users", UserController, except: [:delete]
 | POST      | `/users`          | `user_path(:create, user)` |
 | PATCH/PUT | `/users/:id`      | `user_path(:update, user)` |
 | DELETE    | `/users/:id`      | `user_path(:delete, user)` |
+{: .-left-align}
 
-## Path helpers
+See: [resources/4](https://hexdocs.pm/phoenix/Phoenix.Router.html#resources/4) _(hexdocs.pm)_
+
+### Path helpers
 
 ```elixir
-user_path(Endpoint, :index)                 #=> /users
-user_path(Endpoint, :show, 17)              #=> /users/17
-user_path(Endpoint, :show, %User{id: 17})   #=> /users/17
-user_path(Endpoint, :show, 17, admin: true) #=> /users/17?admin=true
+user_path(conn, :index)                 # → /users
+user_path(conn, :show, 17)              # → /users/17
+user_path(conn, :show, %User{id: 17})   # → /users/17
+user_path(conn, :show, 17, admin: true) # → /users/17?admin=true
+```
 
-user_url(Endpoint, :index) #=> "http://localhost:4000/users"
+```elixir
+user_url(conn, :index) # → "http://localhost:4000/users"
 ```
 
 ```elixir
 MyApp.Router.Helpers.user_path(MyApp.Endpoint, :index)
 ```
 
-## Nested resources
+See: [Helpers](https://hexdocs.pm/phoenix/Phoenix.Router.html#module-helpers) _(hexdocs.pm)_
+
+### Nested resources
 
 ```elixir
 resources "/users", UserController do
   resources "/posts", PostController
 end
-
-user_post_path(:index, 17)     #=> /users/17/posts
-user_post_path(:show, 17, 12)  #=> /users/17/posts/12
 ```
 
-## Scoped routes
+```elixir
+user_post_path(:index, 17)     # → /users/17/posts
+user_post_path(:show, 17, 12)  # → /users/17/posts/12
+```
+
+See: [Scopes and resources](https://hexdocs.pm/phoenix/Phoenix.Router.html#module-scopes-and-resources) _(hexdocs.pm)_
+
+### Scoped routes
 
 ```elixir
 scope "/admin" do
@@ -78,3 +100,5 @@ end
 scope "/admin", as: :admin do: ... end
 # admin_reviews_path() -> /admin/reviews
 ```
+
+See: [scope/2](https://hexdocs.pm/phoenix/Phoenix.Router.html#scope/2) _(hexdocs.pm)_

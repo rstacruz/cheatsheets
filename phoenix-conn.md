@@ -13,16 +13,16 @@ Request
 {: .-prime}
 
 ```elixir
-conn.host          #=> "example.com"
-conn.method        #=> "GET"
-conn.path_info     #=> ["posts", "1"]
-conn.request_path  #=> "/posts/1"
-conn.query_string  #=> "utm_source=twitter"
-conn.port          #=> 80
-conn.scheme        #=> :http
-conn.peer          #=> { {127, 0, 0, 1}, 12345 }
-conn.remote_ip     #=> { 151, 236, 219, 228 }
-conn.req_headers   #=> [{"content-type", "text/plain"}]
+conn.host          # → "example.com"
+conn.method        # → "GET"
+conn.path_info     # → ["posts", "1"]
+conn.request_path  # → "/posts/1"
+conn.query_string  # → "utm_source=twitter"
+conn.port          # → 80
+conn.scheme        # → :http
+conn.peer          # → { {127, 0, 0, 1}, 12345 }
+conn.remote_ip     # → { 151, 236, 219, 228 }
+conn.req_headers   # → [{"content-type", "text/plain"}]
 ```
 
 ```elixir
@@ -45,11 +45,11 @@ Response
 {: .-prime}
 
 ```elixir
-conn.resp_body     #=> "..."
-conn.resp_charset  #=> "utf-8"
-conn.resp_cookies  #=> ...
-conn.resp_headers  #=> ...
-conn.status        #=> ...
+conn.resp_body     # → "..."
+conn.resp_charset  # → "utf-8"
+conn.resp_cookies  # → ...
+conn.resp_headers  # → ...
+conn.status        # → ...
 ```
 
 ### Sending responses
@@ -134,7 +134,7 @@ conn.state            # :unset, :set, :file, :sent, :chunked
 ```js
 plug :accepts, ["html", "json"]
 conn |> accepts(["html", "json"])
-get_format(conn)  #=> "html"
+get_format(conn)  # → "html"
 conn.accepts
 ```
 

@@ -12,10 +12,10 @@ layout: 2017/sheet
 | __Stacking damage__    | [Myth][BM]                        | [Break][BP]                  |                                                                                |
 | __Lifesteal__          | [Eve][Eve]                        | [Serpent][SM], [Shiv][PS]    |                                                                                |
 | __Raw power__          | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                                                |
-| __Bonus damage__       |                                   | [Tension][TB]                |                                                                                |
+| __Burst damage__       | [Aftershock][AS]                  | [Tension][TB]                |                                                                                |
 | __Attack speed__       | [AC][AC]                          | [Tornado][TT], [Break][BP]   |                                                                                |
 | __Critical__           |                                   | [Monocle][TM]                |                                                                                |
-| __Auto-attack damage__ | [Aftershock][AS], [AC][AC]        | _everything_                 | [Stormcrown][SC]                                                               |
+| __Auto-attack damage__ | [AC][AC], [Aftershock][AS]        | _everything_                 | [Stormcrown][SC]                                                               |
 | __Cooldown__           | [Clockwork][CW], [Aftershock][AS] | Spellsword                   | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
 | __Slow__               | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
 | __Reflex block__       |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |

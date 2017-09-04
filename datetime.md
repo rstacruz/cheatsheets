@@ -80,32 +80,21 @@ Used by Ruby, UNIX `date`, and many more.
 
 ### Examples
 
-Examples
+Date
 {:.-setup}
 
 | Example              | Output                             |
 | ---                  | ---                                |
 | `YYYY-MM-DD`         | `2014-01-01`                       |
 | `dddd, MMMM Do YYYY` | `Friday, May 16th 2014`            |
-| `hh:mm a`            | `12:30 pm`                         |
 {: .-shortcuts}
 
-Presets
+Time
 {: .-setup}
 
 | Example              | Output                             |
 | ---                  | ---                                |
-| `LT`                 | `8:30 PM`                          |
-| `LTS`                | `8:30:25 PM`                       |
-| ---                  | ---                                |
-| `LL`                 | `August 2 1985`                    |
-| `ll`                 | `Aug 2 1985`                       |
-| ---                  | ---                                |
-| `LLL`                | `August 2 1985 08:30 PM`           |
-| `lll`                | `Aug 2 1985 08:30 PM`              |
-| ---                  | ---                                |
-| `LLLL`               | `Thursday, August 2 1985 08:30 PM` |
-| `llll`               | `Thu, Aug 2 1985 08:30 PM`         |
+| `hh:mm a`            | `12:30 pm`                         |
 {: .-shortcuts}
 
 Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
@@ -174,3 +163,19 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | `x`    |              | Millisecond Unix timestamp |
 {: .-shortcuts}
 
+### Presets
+
+| Example              | Output                             |
+| ---                  | ---                                |
+| `LT`                 | `8:30 PM`                          |
+| `LTS`                | `8:30:25 PM`                       |
+| ---                  | ---                                |
+| `LL`                 | `August 2 1985`                    |
+| `ll`                 | `Aug 2 1985`                       |
+| ---                  | ---                                |
+| `LLL`                | `August 2 1985 08:30 PM`           |
+| `lll`                | `Aug 2 1985 08:30 PM`              |
+| ---                  | ---                                |
+| `LLLL`               | `Thursday, August 2 1985 08:30 PM` |
+| `llll`               | `Thu, Aug 2 1985 08:30 PM`         |
+{: .-shortcuts}

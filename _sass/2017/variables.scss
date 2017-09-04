@@ -5,7 +5,8 @@
 $gut-small: 16px; // max 480px width
 $gut: 16px;
 $column: 400px;
-$code-size: 0.92em;
+$code-size: 0.96em;
+$code-line-height: 1.5;
 $area-width: $column * 3 + 32px;
 
 /*
@@ -16,7 +17,7 @@ $system-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 $system-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono', Courier, monospace;
 $body-font: $system-sans;
 $heading-font: $system-sans;
-$monospace-font: $system-mono;
+$monospace-font: cousine, $system-mono;
 
 /*
  * Base colors

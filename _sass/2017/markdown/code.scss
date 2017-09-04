@@ -24,6 +24,8 @@
     overflow: hidden;
     overflow-x: auto;
     background: white;
+    font-size: $code-size;
+    line-height: $code-line-height;
   }
 
   pre > code {

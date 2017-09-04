@@ -60,7 +60,7 @@ See: [Adding pages](https://hexdocs.pm/phoenix/adding_pages.html) _(hexdocs.pm)_
 ```bash
 $ mix ecto.gen.migration update_posts_table
   creating priv/repo/migrations/20160602085927_update_posts_table.exs
-  ...
+  ···
 ```
 
 ```elixir
@@ -107,7 +107,7 @@ conn.request_path  #=> "/posts/1"
 ```elixir
 conn
 |> put_status(202)
-|> html("<html><head>...")
+|> html("<html><head>···")
 |> json(%{ message: "Hello" })
 |> text("Hello")
 |> redirect(to: "/foo")

@@ -69,7 +69,9 @@ view.stopListening()
     * `route:[name]` (params)
     * `route` (router, route, params)
 
-### Views
+## Views
+
+### Defining
 
 ```js
 // All attributes are optional
@@ -101,15 +103,18 @@ var View = Backbone.View.extend({
   render: function() { ··· }
 })
 ```
+### Instanciating
 
 ```js
 view = new View()
 view = new View({ el: ··· })
 ```
 
+### Methods
+
 ```js
 view.$el.show()
-view.$("input")
+view.$('input')
 ```
 
 ```js

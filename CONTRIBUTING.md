@@ -79,3 +79,12 @@ redirect_to: /es6
 ## Localizations
 
 See `_data/content.yml` for chrome strings.
+
+## Forking
+
+So you want to fork this repo? Sure, here's what you need to know to whitelabel this:
+
+- It's all GitHub pages, so the branch has to be `gh-pages`.
+- All other GitHub pages gotchas apply (CNAME, etc).
+- Edit everything in `_data/` - this holds all 'config' for the site: ad IDs, strings, etc.
+- Edit `_config.yml` as well, lots of things may not apply to you.

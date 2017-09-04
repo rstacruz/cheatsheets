@@ -9,7 +9,7 @@ updated: 2017-09-04
 ### Parameters
 
 ```bash
-$ http POST example.com/posts/3 \
+$ http POST http://example.com/posts/3 \
     Origin:example.com \  # :   HTTP headers
     name="John Doe" \     # =   string
     q=="search" \         # ==  URL parameters (?q=search)
@@ -34,7 +34,10 @@ Print options:
 {: .-setup}
 
 ```bash
--v, --verbose            # same as --print=HhBb
+-v, --verbose            # same as --print=HhBb --all
+-h, --headers            # same as --print=h
+-b, --body               # same as --print=b
+    --all                # print intermediate requests
     --print=HhBb         # H: request headers
                          # B: request body
                          # h: response headers
@@ -51,18 +54,26 @@ Authentication:
     --auth-type digest
 ```
 
+Session:
+
+```bash
+    --session NAME       # store auth and cookies
+    --session-read-only NAME
+```
+
 Downloading:
 
 ```bash
-    --download
-    --continue
+-d, --download           # like wget
+-c, --continue
 -o, --output FILE
 ```
 
 Others:
 
 ```bash
-    --follow             # follow redirects
+-F, --follow             # follow redirects
+    --max-redirects N    # maximum for --follow
     --timeout SECONDS
     --verify no          # skip SSL verification
     --proxy http:http://foo.bar:3128

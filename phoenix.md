@@ -88,8 +88,8 @@ end
 ```
 
 ```elixir
-user_post_path(:index, 17)     #=> /users/17/posts
-user_post_path(:show, 17, 12)  #=> /users/17/posts/12
+user_post_path(:index, 17)     # → /users/17/posts
+user_post_path(:show, 17, 12)  # → /users/17/posts/12
 ```
 
 ### Conn
@@ -98,10 +98,10 @@ user_post_path(:show, 17, 12)  #=> /users/17/posts/12
 {: .-crosslink}
 
 ```elixir
-conn.host          #=> "example.com"
-conn.method        #=> "GET"
-conn.path_info     #=> ["posts", "1"]
-conn.request_path  #=> "/posts/1"
+conn.host          # → "example.com"
+conn.method        # → "GET"
+conn.path_info     # → ["posts", "1"]
+conn.request_path  # → "/posts/1"
 ```
 
 ```elixir

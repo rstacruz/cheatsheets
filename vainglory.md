@@ -6,20 +6,20 @@ layout: 2017/sheet
 ## T3 items by use
 {: .-one-column}
 
-| Use                   | CP                                | WP                           | Util                                                                           |
-| ---                   | ---                               | ---                          | ---                                                                            |
-| __Anti-armor/shield__ | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                                                |
-| __Stacking damage__   | [Myth][BM]                        | [Break][BP]                  |                                                                                |
-| __Lifesteal__         | [Eve][Eve]                        | [Serpent][SM], [Shiv][PS]    |                                                                                |
-| __Raw power__         | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                                                |
-| __Bonus damage__      |                                   | [Tension][TB]                |                                                                                |
-| __Attack speed__      | [AC][AC]                          | [Tornado][TT], [Break][BP]   |                                                                                |
-| __Critical__          |                                   | [Monocle][TM]                |                                                                                |
-| __Basic damage__      | [Aftershock][AS], [AC][AC]        |                              | [Stormcrown][SC]                                                               |
-| __Cooldown__          | [Clockwork][CW], [Aftershock][AS] |                              | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
-| __Slow__              | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
-| __Reflex block__      |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |
-| __Ability repeat__    | [Echo][Echo]                      |                              |                                                                                |
+| Use                    | CP                                | WP                           | Util                                                                           |
+| ---                    | ---                               | ---                          | ---                                                                            |
+| __Anti-armor/shield__  | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                                                |
+| __Stacking damage__    | [Myth][BM]                        | [Break][BP]                  |                                                                                |
+| __Lifesteal__          | [Eve][Eve]                        | [Serpent][SM], [Shiv][PS]    |                                                                                |
+| __Raw power__          | [Shatterglass][SG]                | [Sorrowblade][SB]            |                                                                                |
+| __Bonus damage__       |                                   | [Tension][TB]                |                                                                                |
+| __Attack speed__       | [AC][AC]                          | [Tornado][TT], [Break][BP]   |                                                                                |
+| __Critical__           |                                   | [Monocle][TM]                |                                                                                |
+| __Auto-attack damage__ | [Aftershock][AS], [AC][AC]        | _everything_                 | [Stormcrown][SC]                                                               |
+| __Cooldown__           | [Clockwork][CW], [Aftershock][AS] | Spellsword                   | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
+| __Slow__               | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
+| __Reflex block__       |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |
+| __Ability repeat__     | [Echo][Echo]                      |                              |                                                                                |
 {: .-left-align.-headers}
 
 ## Tier 3 items
@@ -52,14 +52,15 @@ layout: 2017/sheet
 
 | Item                       | Cost | WP      | Other                                                                         |
 | ----                       | ---  | ---     | ---                                                                           |
-| TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__    <br> *+75% atk speed*, +20% crit change, +20% crit dmg       |
-| BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__  <br> *stacking armor shred*                                  |
-| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__    <br> *bonus dmg every 6s*, +8% armor pierce                  |
-| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__         <br> *+40% crit chance*, +20% crit dmg                       |
-| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__ <br> *stacking weapon dmg*, +35% atk speed                   |
-| SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__    <br> *stacking lifesteal*, +10% lifesteal                    |
-| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__    <br> -                                                       |
+| TT: [Tornado Trigger][TT]  | 2600 |         | __Atk speed__     <br> *+75% atk speed*, +20% crit change, +20% crit dmg      |
+| BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__   <br> *stacking armor shred*                                 |
+| TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__     <br> *bonus dmg every 6s*, +8% armor pierce                 |
+| TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__          <br> *+40% crit chance*, +20% crit dmg                      |
+| BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__  <br> *stacking weapon dmg*, +35% atk speed                  |
+| SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__     <br> *stacking lifesteal*, +10% lifesteal                   |
+| SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__     <br> -                                                      |
 | PS: [Poisoned Shiv][PS]    | 2250 | +30 wp  | __Mortal wounds__ <br> *mortal wounds for 2s*, +10% lifesteal, +30% atk speed |
+| SS: Spellsword             | ?    | +90 wp  | __Cooldown__      <br> ?                                                      |
 {: .-left-align.-headers}
 
 [BS]: http://www.vaingloryfire.com/vainglory/wiki/items/bonesaw

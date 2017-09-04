@@ -217,7 +217,7 @@ obj.fetch({ success: callback, error: callback })
 var Model = Backbone.Model.extend({
   validate: function(attrs, options) {
     if (attrs.end < attrs.start) {
-      return 'Can't end before it starts'
+      return "Can't end before it starts"
     }
   }
 })
@@ -225,7 +225,7 @@ var Model = Backbone.Model.extend({
 {: data-line="2"}
 
 ```js
-obj.validationError  //=> 'Can't end before it starts'
+obj.validationError  //=> "Can't end before it starts"
 obj.isValid()
 obj.on('invalid', function (model, error) { ··· })
 ```

@@ -40,7 +40,8 @@
       {% endif %}
     {% endfor %}
 
-    {% for category in site.data.category.names %}
+
+    {% for category in site.data.categories.names %}
       <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
         <span>{{ category }}</span>
       </h2>
@@ -59,6 +60,7 @@
       <p>
         <a class='push-button' href='{{ site.github.repository_url }}/issues/new?title=Cheatsheet%20request:%20APP_NAME_HERE'>Request cheatsheet</a>
       </p>
+    </div>
   </div>
 </div>
 

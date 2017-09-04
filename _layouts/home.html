@@ -5,7 +5,7 @@ type: home
 {% include head.html %}
 {% include site-header.html %}
 
-{% for category in site.data.category.names %}
+{% for category in site.data.categories.names %}
   <div class='pages-header'>
     <h2 id='{{ category | downcase | replace: " ", "-" }}'>{{ category }}</h2>
   </div>

@@ -6,6 +6,14 @@ ads: true
 tags: [Featured]
 updated: 2017-09-01
 weight: -10
+
+# React 16 notes
+# --------------
+#
+# Add these for React 16:
+#
+# - componentDidCatch(error, info)
+# - Multiple elements in render()
 ---
 
 {%raw%}

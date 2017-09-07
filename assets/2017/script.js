@@ -1,4 +1,14 @@
 /*
+ * Behavior: preview=1
+ */
+
+$(function () {
+  if (~window.location.search.indexOf('preview=1')) {
+    $('.SideAd, .HeadlineAd').remove()
+  }
+})
+
+/*
  * Behavior: Wrapping
  */
 

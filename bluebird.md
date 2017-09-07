@@ -99,7 +99,7 @@ Promise.props({
 ```
 {: data-line="1"}
 
-Usually it's better to use `.join`, but whatever.
+Use [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
 
 ### Chain of promises
 
@@ -143,12 +143,13 @@ See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
 ### Generators
 
-```
+```js
 User.login = Promise.coroutine(function* (email, password) {
   let user = yield User.find({email: email}).fetch()
   return user
 })
 ```
+{: data-line="1"}
 
 See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 

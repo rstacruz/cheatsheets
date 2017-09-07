@@ -32,6 +32,8 @@
 {% if site.data.assets.preview_host %}
 <meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}?t={{ timestamp }}' property='og:image'>
 <meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}?t={{ timestamp }}' property='twitter:image'>
+<meta content='900' property='og:image:width'>
+<meta content='471' property='og:image:height'>
 {% endif %}
 
 {%comment%}<!-- description -->{%endcomment%}

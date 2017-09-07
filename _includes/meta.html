@@ -30,8 +30,14 @@
 
 {%comment%}<!-- image -->{%endcomment%}
 {% if site.data.assets.preview_host %}
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' | default: 'index' }}.jpg?t={{ timestamp }}' property='og:image'>
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' | default: 'index' }}.jpg?t={{ timestamp }}' property='twitter:image'>
+{{ page.url }}
+{% if page.type == 'home' %}
+<meta content='{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}' property='og:image'>
+<meta content='{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}' property='twitter:image'>
+{% else %}
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}.jpg?t={{ timestamp }}' property='og:image'>
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}.jpg?t={{ timestamp }}' property='twitter:image'>
+{% endif %}
 <meta content='900' property='og:image:width'>
 <meta content='471' property='og:image:height'>
 {% endif %}

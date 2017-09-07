@@ -1,0 +1,6 @@
+---
+type: other
+layout: false
+---
+{% for page in site.pages %}{% if page.type == 'article' %}{{ page.url | remove: '.html' }}
+{% endif %}{% endfor %}

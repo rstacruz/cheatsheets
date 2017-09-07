@@ -30,8 +30,8 @@
 
 {%comment%}<!-- image -->{%endcomment%}
 {% if site.data.assets.preview_host %}
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}' property='og:image'>
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}' property='twitter:image'>
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}?t={{ timestamp }}' property='og:image'>
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}?t={{ timestamp }}' property='twitter:image'>
 {% endif %}
 
 {%comment%}<!-- description -->{%endcomment%}

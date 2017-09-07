@@ -1,6 +1,7 @@
 ---
 title: Makefile
 hljs_languages: [makefile]
+layout: 2017/sheet
 ---
 
 ## Var assignment

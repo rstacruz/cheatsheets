@@ -113,39 +113,57 @@ See: [Configuration](http://jekyllrb.com/docs/configuration/)
 
 Markup
 ------
+{: .-three-column}
 
 ### Page variables
 
 ```html
-<title>{{ page.title }}</title>
+<title>
+  {{ page.title }}
+</title>
 ```
+{: data-line="2"}
+
+
+### Filters
 
 ```html
-<!-- Filters -->
-<p>{{ page.description | truncate_words: 20 }}
+<p>
+  {{ page.description | truncate_words: 20 }}
+</p>
 ```
+{: data-line="2"}
 
 ### Loops
 
-    {% for post in site.posts %}
-      <a href="{{ post.url }}">
-        <h2>{{ post.title }} &mdash; {{ post.date | date_to_string }}</h2>
-      </a>
-      {{ post.content }}
-    {% endfor %}
+```html
+{% for post in site.posts %}
+  <a href="{{ post.url }}">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.date | date_to_string }}</h2>
+  </a>
+{% endfor %}
+```
+{: data-line="1,6"}
 
 ### Dates
 
-    {{ page.date | date: "%b %d, %Y" }}
+```html
+{{ page.date | date: "%b %d, %Y" }}
+```
 
 ### Conditionals
 
 ```html
 {% if page.image.feature %}
-{% else if xyz %}
+  ...
+{% elsif xyz %}
+  ...
 {% else %}
+  ...
 {% endif %}
 ```
+{: data-line="1,3,5,7 }
 
 ```html
 {% if page.category == 'React' %}
@@ -165,24 +183,29 @@ Markup
      Thank you for your order!
 {% endcase %}
 ```
+{: data-line="1,2,4,6,8"}
 
 ### Includes (partials)
 
 ```
 {% include header.html %}
 ```
+{: data-line="1"}
 
 ```html
 <!-- Including local vars -->
 {% include header.html page=page %}
 ```
+{: data-line="2"}
 
 ### Comments
 
 ```html
 {% comment %}
+  This is a comment!
 {% endcomment %}
 ```
+{: data-line="1,3"}
 
 ## Variables
 

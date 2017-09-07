@@ -17,9 +17,9 @@
 <meta content='{{ page.full_title }}' property='twitter:title'>
 <meta content='article' property='og:type'>
 {% elsif page.title %}
-<title>{{ page.title }} cheatsheet</title>
-<meta content='{{ page.title }}' property='og:title'>
-<meta content='{{ page.title }}' property='twitter:title'>
+<title>{% include values/title.html page=page %}</title>
+<meta content='{% include values/title.html page=page %}' property='og:title'>
+<meta content='{% include values/title.html page=page %}' property='twitter:title'>
 <meta content='{{ page.og_type | default: "article" }}' property='og:type'>
 {% else %}
 <title>{{ site.title }}</title>
@@ -32,6 +32,10 @@
 {% if page.description %}
 <meta content="{{ page.description }}" name="description">
 <meta content="{{ page.description }}" property="og:description">
+{% else %}
+<meta content="{% include values/description.html page=page %}" name="description">
+<meta content="{% include values/description.html page=page %}" property="og:description">
+<meta content="{% include values/description.html page=page %}" property="twitter:description">
 {% endif %}
 
 {%comment%}<!-- canonical URL -->{%endcomment%}

@@ -28,6 +28,12 @@
 <meta content='{{ page.og_type | default: "website" }}' property='og:type'>
 {% endif %}
 
+{%comment%}<!-- image -->{%endcomment%}
+{% if site.data.assets.preview_host %}
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}' property='og:image'>
+<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}' property='twitter:image'>
+{% endif %}
+
 {%comment%}<!-- description -->{%endcomment%}
 {% if page.description %}
 <meta content="{{ page.description }}" name="description">

@@ -3,6 +3,7 @@ title: Yarn
 category: JavaScript libraries
 layout: 2017/sheet
 weight: -3
+updated: 2017-09-08
 ---
 
 ### npm equivalents
@@ -27,3 +28,35 @@ weight: -3
 ```
 
 These options are available for `yarn add`.
+
+### Workspaces
+
+```json
+/* package.json */
+"workspaces": [
+  "packages/*"
+]
+```
+
+```
+jest/
+├─ package.json
+└─ packages/
+   ├─ jest-matcher-utils/
+   │  └─ package.json
+   └─ jest-diff/
+      └─ package.json
+```
+
+(New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
+
+### Selective version resolution
+
+```json
+/* package.json */
+"resolutions": {
+  "**/sass-brunch/node-sass": "4.5.2"
+}
+```
+
+(New in 1.0) Allows you to specify versions for sub-dependencies. See: [Selective version resolutions](https://github.com/yarnpkg/yarn/pull/4105)

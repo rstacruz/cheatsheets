@@ -1,11 +1,13 @@
 ---
-title: Meta-tags
+title: Meta-tags gem
 category: Ruby libraries
+layout: 2017/sheet
+weight: -1
 ---
 
 ### Titles
 
-```rb
+```ruby
 set_meta_tags title: 'Member Login'
 # <title>Some Page Title</title>
 set_meta_tags site: 'Site Title', title: 'Member Login'
@@ -14,9 +16,17 @@ set_meta_tags site: 'Site Title', title: 'Member Login', reverse: true
 # <title>Page Title | Site Title</title>
 ```
 
+### Setting defaults
+
+```
+rails generate meta_tags:install
+```
+
+This creates `config/initializers/meta_tags.rb` that you can edit.
+
 ### Others
 
-```rb
+```ruby
 set_meta_tags description: "All text about keywords, other keywords"
 set_meta_tags keywords: %w[abc def ghi]
 set_meta_tags noindex: true
@@ -32,18 +42,23 @@ set_meta_tags og: { image: ['...'] }
 
 ### In views
 
-```rb
+```ruby
+# Displaying tags
 <%= display_meta_tags %>
 ```
 
-```rb
+```ruby
+# Displaying tags individually
+<h1><%= title %></h1>
+```
+
+```ruby
+# Setting tags
 <% title 'Member Login' %>
 <% description 'My page' %>
 <% keywords '..' %>
-
-<h1><%= title %></h1>
 ```
 
 ### Reference
 
-Accurate as of 2.1.0. See <https://github.com/kpumuk/meta-tags>.
+- Accurate as of 2.1.0. See: <https://github.com/kpumuk/meta-tags>

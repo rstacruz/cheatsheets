@@ -18,8 +18,13 @@ set_meta_tags site: 'Site Title', title: 'Member Login'
 ```
 
 ```ruby
-set_meta_tags site: 'Site Title', title: 'Member Login', reverse: true
-# <title>Page Title | Site Title</title>
+set_meta_tags(
+  site: 'Site Title',
+  title: 'Member Login',
+  reverse: true,
+  separator: '&middot;'.html_safe
+)
+# <title>Page Title · Site Title</title>
 ```
 
 Works in a controller or a view.

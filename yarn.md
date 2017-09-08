@@ -4,6 +4,7 @@ category: JavaScript libraries
 layout: 2017/sheet
 weight: -3
 updated: 2017-09-08
+prism_languages: [json, bash]
 ---
 
 ### npm equivalents
@@ -31,8 +32,10 @@ These options are available for `yarn add`.
 
 ### Workspaces
 
+In `package.json`:
+{: .-setup}
+
 ```json
-/* package.json */
 "workspaces": [
   "packages/*"
 ]
@@ -47,13 +50,16 @@ jest/
    └─ jest-diff/
       └─ package.json
 ```
+{: .-box-chars}
 
 (New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
 
 ### Selective version resolution
 
+In `package.json`:
+{: .-setup}
+
 ```json
-/* package.json */
 "resolutions": {
   "**/sass-brunch/node-sass": "4.5.2"
 }

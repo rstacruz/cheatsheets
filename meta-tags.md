@@ -40,17 +40,41 @@ This creates `config/initializers/meta_tags.rb` that you can edit.
 ### Others
 
 ```ruby
+set_meta_tags site: 'Site name'
+set_meta_tags title: 'Title'
 set_meta_tags description: "All text about keywords"
+```
+
+```ruby
 set_meta_tags keywords: %w[abc def ghi]
-set_meta_tags noindex: true
-set_meta_tags nofollow: true
 set_meta_tags canonical: 'http://...'
 set_meta_tags icon: 'favicon.ico'
 set_meta_tags author: 'http://...'
 set_meta_tags alternate: { 'fr' => 'http://...' }
 set_meta_tags prev: 'http://...'
 set_meta_tags next: 'http://...'
+set_meta_tags image_src: 'http://...'
+```
+
+```ruby
+set_meta_tags noindex: true
+set_meta_tags nofollow: true
+set_meta_tags follow: true
+```
+
+```ruby
 set_meta_tags og: { image: ['...'] }
+set_meta_tags twitter: { description: '...' }
+```
+```ruby
+set_meta_tags separator: '·'   # Site · Page title
+set_meta_tags prefix: ' '      # Around the separator
+set_meta_tags suffix: ' '
+```
+
+```ruby
+set_meta_tags lowercase: true  # Lowercase page title
+set_meta_tags reverse: true    # Site name last
 ```
 
 ### In views

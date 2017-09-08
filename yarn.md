@@ -60,3 +60,11 @@ jest/
 ```
 
 (New in 1.0) Allows you to specify versions for sub-dependencies. See: [Selective version resolutions](https://github.com/yarnpkg/yarn/pull/4105)
+
+### Create
+
+```bash
+yarn create react-app hello
+```
+
+Install `create-react-app` and runs it. See: [yarn create](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-yarn-create.md)

@@ -222,12 +222,12 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 ### Commands calling functions
 
 ```vim
-command! Save call script#foo()
+command! Save call <SID>foo()
 ```
 {: .-setup}
 
 ```vim
-function! script#foo()
+function! s:foo()
   ...
 endfunction
 ```

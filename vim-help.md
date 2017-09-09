@@ -1,21 +1,22 @@
 ---
 title: Vim helpfiles
 category: Vim
+layout: 2017/sheet
+updated: 2017-09-09
 ---
 
-```
-:help help-writing
-```
-{:.light}
+## Writing help files
+{: .-left-reference}
 
 ### Creating a document
-Use `help` to preview it, and `text` to edit it.
 
 ```nohighlight
 :e doc/potion.txt
 :set ft=help
 :set ft=text
 ```
+
+Use `ft=help` to preview it, and `ft=text` to edit it.
 
 ### Example
 
@@ -29,28 +30,37 @@ USAGE INSTRUCTIONS                                                 *ack-usage*
 
     Search recursively for {pattern}. See |:AckAdd|.
     Also see http://beyondgrep.com for more information.
+
+vim:tw=78:ts=8:ft=help:norl:
 ```
 
-## Syntax reference
+This is a cheatsheet for writing Vim help files. See: `:help help-writing`
 
-| Code                 | Description                         | Example |
-| -----                | -----                               | -----:  |
-| `*tags*`             | Tags                                |
-| `|link-to-tags|`     | Links to tags | `|:command|`    |
-| `'vimoption'`        | Vim option | `'textwidth'`      |
-| -----                | -----                               |
-| `{code-text}`        | Code text | `{Visual}gf`        |
-| `<code-text>`        | Code text | `<PageDown>`        |
-| `` `code-text` ``    | Code text | `` `set fo=want` `` |
-| `CTRL-X`             | Code text                           |
-| -----                | -----                               |
-| `INTRODUCTION *tag*` | Section header                      |
-| `Column heading~`    | Highlighting                        |
-| `www.url.com`        | Web URL                             |
-| -----                | -----                               |
-| `=====`              | Separator                           |
-| `-----`              | Separator                           |
-{:.greycode}
+## Syntax
+
+### Reference
+
+| Code                 | Description    | Example             |
+| -----                | -----          | -----               |
+| *Inline items*                                              |
+| -----                | -----          | -----               |
+| `*tags*`             | Tags           |                     |
+| `|link-to-tags|`     | Links to tags  | `|:command|`        |
+| `'vimoption'`        | Vim option     | `'textwidth'`       |
+| -----                | -----          | -----               |
+| `{code-text}`        | Code text      | `{Visual}gf`        |
+| `<code-text>`        | Code text      | `<PageDown>`        |
+| `` `code-text` ``    | Code text      | `` `set fo=want` `` |
+| `CTRL-X`             | Code text      |                     |
+| -----                | -----          | -----               |
+| *Block items*                                               |
+| -----                | -----          | -----               |
+| `INTRODUCTION *tag*` | Section header |                     |
+| `Column heading~`    | Highlighting   |                     |
+| `www.url.com`        | Web URL        |                     |
+| -----                | -----          | -----               |
+| `=====`              | Separator      |                     |
+| `-----`              | Separator      |                     |
 
 ### Tags
 
@@ -59,7 +69,6 @@ USAGE INSTRUCTIONS                                                 *ack-usage*
  * Press `^]` to jump to a tag
 
 ### Code blocks
-Surround with `>` and `<` characters
 
 ```
 Example: >
@@ -67,20 +76,24 @@ Example: >
 <
 ```
 
+Surround with `>` and `<` characters
+
 ### File header
-It's customary to start a file with a tag of the filename, plus a description
 
 ```
 *potion.txt*  functionality for the potion programming language
 ```
 
+It's customary to start a file with a tag of the filename, plus a description.
+
 ### Heading
-Starts with `ALL CAPS`, ends with `*a-tag*`
 
 ```
 ==============================================================================
 CONTENTS                                                     *potion-contents*
 ```
+
+Starts with `ALL CAPS`, ends with `*a-tag*`
 
 ### Notes
 Using `*Todo` and `*Error` will highlight your notes.

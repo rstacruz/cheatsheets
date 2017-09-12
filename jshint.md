@@ -1,106 +1,158 @@
 ---
 title: Jshint
 category: JavaScript libraries
+layout: 2017/sheet
+updated: 2017-09-12
 ---
 
-### [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)
+### Relaxing
 
 Enable these options to *not* throw errors in these conditions.
+See: [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)
+{: .-setup}
 
-    /* jshint asi: true */
-    allow()
-    missing_semicolons()
+```js
+/* jshint asi: true */
+allow()
+missing_semicolons()
+```
 
-    /* jshint boss: true */
-    if (m = str.match(/.../))
+```js
+/* jshint boss: true */
+if (m = str.match(/.../))
+```
 
-    /* jshint debug: true */
-    debugger;
+```js
+/* jshint debug: true */
+debugger;
+```
 
-    /* jshint eqnull: true */
-    if (x == null)
+```js
+/* jshint eqnull: true */
+if (x == null)
+```
 
-    /* jshint evil: true */
-    eval('...')
+```js
+/* jshint evil: true */
+eval('...')
+```
 
-    /* jshint expr: true */
-    production && minify = true;
-    div.innerWidth;
-    expect(x).be.true;
+```js
+/* jshint expr: true */
+production && minify = true;
+div.innerWidth;
+expect(x).be.true;
+```
 
-    /* jshint laxcomma: true */
-    var one = 1
-      , two = 2;
+```js
+/* jshint laxcomma: true */
+var one = 1
+  , two = 2;
+```
 
-    /* jshint loopfunc: true */
-    for (i=0; i<10; x++) {
-      (function(i) { ... })(i);
-    }
+```js
+/* jshint loopfunc: true */
+for (i=0; i<10; x++) {
+  (function(i) { ... })(i);
+}
+```
 
-    /* jshint sub: true */
-    process.env['name_here']
-    
-    /* jshint globalstrict: true */
-    "use strict";
+```js
+/* jshint sub: true */
+process.env['name_here']
+```
 
-### [Enforcing](http://www.jshint.com/docs/options/#enforcing-options)
+```js
+/* jshint strict: "global" */
+"use strict";
+```
+
+### Enforcing
 
 Enable these options to catch more errors.
+See: [Enforcing](http://www.jshint.com/docs/options/#enforcing-options)
+{: .-setup}
 
-    /* jshint curly: true */
-    while (day)                     // err: use { }'s
-      shuffle();
+```js
+/* jshint curly: true */
+while (day)                     // err: use { }'s
+  shuffle();
+```
 
-    /* jshint eqeqeq: true */
-    if (a == null)                  // err: use ===
+```js
+/* jshint eqeqeq: true */
+if (a == null)                  // err: use ===
+```
 
-    /* jshint es3: true */          // ...for legacy IE compatibility
-    a.default = function() { ... }; // err: reserved word
-    array = [ 1, 2, 3, ];           // err: extra comma
+```js
+/* jshint es3: true */
+// ...for legacy IE compatibility
+a.default = function() { ... }; // err: reserved word
+array = [ 1, 2, 3, ];           // err: extra comma
+```
 
-    /* jshint forin: true */
-    for (key in obj) { ... }        // err: check obj.hasOwnProperty(key)
+```js
+/* jshint forin: true */
+for (key in obj) { ... }        // err: check obj.hasOwnProperty(key)
+```
 
-    /* jshint freeze: true */
-    Array.prototype.count = ...;    // err: don't modify native prototypes
+```js
+/* jshint freeze: true */
+Array.prototype.count = ...;    // err: don't modify native prototypes
+```
 
-    /* jshint indent: 4 */
-    if (x) {                        // err: expected indent of 4, found 2
-      ...;
-    }
+```js
+/* jshint indent: 4 */
+if (x) {                        // err: expected indent of 4, found 2
+  ...;
+}
+```
 
-    /* jshint quotmark: single */
-    /* jshint quotmark: double */
-    alert("hi");                    // err: only single allowed
+```js
+/* jshint quotmark: single */
+/* jshint quotmark: double */
+alert("hi");                    // err: only single allowed
+```
 
-    /* jshint strict: true */
-    function() { ... }              // err: need "use strict"
+```js
+/* jshint strict: true */
+function() { ... }              // err: need "use strict"
+```
 
-    /* jshint white: true, indent: 4 */
-    /* jshint maxdepth: 2 */
-    /* jshint maxparams: 3 */
-    /* jshint maxstatements: 4 */
-    /* jshint maxcomplexity: 5 */
-    /* jshint maxlen: 80 */
+```js
+/* jshint white: true, indent: 4 */
+/* jshint maxdepth: 2 */
+/* jshint maxparams: 3 */
+/* jshint maxstatements: 4 */
+/* jshint maxcomplexity: 5 */
+/* jshint maxlen: 80 */
+```
 
 ### Ignore
 
-    /* jshint ignore:start */
-    /* jshint ignore:end */
+```js
+/* jshint ignore:start */
+/* jshint ignore:end */
+```
 
-### Globals and [Environments](http://www.jshint.com/docs/options/#environments)
+### Globals and Environments
 
-    /* jshint undef: true */
-    /* global jQuery */
-    /* global -BAD_LIB */
+```js
+/* jshint undef: true */
+/* global jQuery */
+/* global -BAD_LIB */
+```
 
-    /* jshint devel: true */   console, alert, ...
-    /* jshint browser: true */ window, document, location, ...
-    /* jshint node: true */    module, exports, console, process, ...
-    /* jshint jquery: true */  jQuery, $
+```js
+/* jshint devel: true */   console, alert, ...
+/* jshint browser: true */ window, document, location, ...
+/* jshint node: true */    module, exports, console, process, ...
+/* jshint jquery: true */  jQuery, $
+```
+
+See: [Environments](http://www.jshint.com/docs/options/#environments)
 
 ### Also see
 
- * http://www.jshint.com/docs/options/
- * https://gist.github.com/haschek/2595796
-
+* <http://www.jshint.com/docs/options/>
+* <https://gist.github.com/haschek/2595796>

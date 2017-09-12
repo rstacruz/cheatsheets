@@ -40,7 +40,7 @@ Enable these options to *not* throw errors in these conditions.
     /* jshint sub: true */
     process.env['name_here']
     
-    /* jshint  globalstrict: true*/
+    /* jshint  globalstrict: true */
     "use strict";
 
 ### [Enforcing](http://www.jshint.com/docs/options/#enforcing-options)

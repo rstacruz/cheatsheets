@@ -9,7 +9,7 @@ weight: -1
 ## Getting started
 {: .-three-column}
 
-### Moutning
+### Mounting
 {: .-prime}
 
 ```js

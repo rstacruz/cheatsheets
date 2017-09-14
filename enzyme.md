@@ -1,12 +1,20 @@
 ---
 title: Enzyme
 category: React
+layout: 2017/sheet
+updated: 2017-09-14
+weight: -1
 ---
 
 ## ReactWrapper
 
+### ReactWrapper
+
 ```js
 wrap = shallow(<MyComponent />) // => ReactWrapper (shallow)
+```
+
+```js
 wrap = mount(<MyComponent />)   // => ReactWrapper (full)
 ```
 

@@ -6,17 +6,55 @@ updated: 2017-09-14
 weight: -1
 ---
 
+## Getting started
+{: .-three-column}
+
+### Moutning
+{: .-prime}
+
+```js
+import {shallow, mount} from 'enzyme'
+```
+{: .-setup}
+
+```js
+wrap = shallow(<MyComponent />)
+```
+
+```js
+wrap = mount(<MyComponent />)
+```
+
+Shallow wrapping doesn't descend down to sub-components.
+A full mount also mounts sub-components.
+See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
+[Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
+
+### Jest
+
+```js
+import toJson from 'enzyme-to-json'
+```
+{: .-setup}
+
+```js
+it('works', () => {
+  wrap = mount(<MyComponent />)
+  expect(toJson(wrap)).toMatchSnapshot()
+})
+```
+
+Converts an Enzyme wrapper to a format compatible with Jest snapshots. See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
+
+### Debugging
+
+```js
+console.log(wrap.debug())
+```
+
+Shows HTML for debugging purposes. See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+
 ## ReactWrapper
-
-### ReactWrapper
-
-```js
-wrap = shallow(<MyComponent />) // => ReactWrapper (shallow)
-```
-
-```js
-wrap = mount(<MyComponent />)   // => ReactWrapper (full)
-```
 
 ### Traversing
 
@@ -39,6 +77,8 @@ wrap.getNode()        // => ReactElement
 wrap.getNodes()       // => Array<ReactElement>
 wrap.getDOMNode()     // => DOMComponent
 ```
+
+See: [Full rendering API](http://airbnb.io/enzyme/docs/api/mount.html)
 
 ### Actions
 
@@ -89,4 +129,4 @@ wrap.containsAnyMatchingElements([ <div /> ]) // => boolean
 
 ## References
 
-- <https://github.com/airbnb/enzyme/blob/master/docs/api/mount.md>
+- <https://airbnb.io/enzyme>

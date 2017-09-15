@@ -233,6 +233,58 @@ By defining the return value names in the signature, a `return` (no args) will r
 
 See: [Named return values](https://tour.golang.org/basics/7)
 
+## Packages
+{: .-three-column}
+
+### Importing
+
+```go
+import "fmt"
+import "math/rand"
+```
+
+```go
+import (
+  "fmt"        // gives fmt.Println
+  "math/rand"  // gives rand.Intn
+)
+```
+
+Both are the same.
+
+See: [Importing](https://tour.golang.org/basics/1)
+
+### Aliases
+
+```go
+import r "math/rand"
+```
+{: data-line="1"}
+
+```go
+r.Intn()
+```
+
+### Exporting names
+
+```go
+func Hello () {
+  ···
+}
+```
+
+Exported names begin with capital letters.
+
+See: [Exported names](https://tour.golang.org/basics/3)
+
+### Packages
+
+```go
+package hello
+```
+
+Every package file has to start with `package`.
+
 ## Concurrency
 {: .-three-column}
 
@@ -301,6 +353,7 @@ for i := range ch {
   ···
 }
 ```
+{: data-line="2"}
 
 ```go
 // Closed if ok == false

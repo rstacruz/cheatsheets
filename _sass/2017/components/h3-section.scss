@@ -132,9 +132,16 @@
     }
   }
 
-  /* Line divisions */
+  // Line divisions
   & > *:not(:first-child) {
     border-top: solid 1px $line-color;
+  }
+
+  // Collapse paragraphs together
+  & > p + p,
+  & > p + p:not(:first-child) {
+    margin-top: -1.5em;
+    border-top: 0;
   }
 }
 

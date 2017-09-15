@@ -64,6 +64,7 @@ render () {
 {: data-line="2"}
 
 Use `this.props` to access properties passed to the component.
+
 See: [Properties](https://facebook.github.io/react/docs/tutorial.html#using-props)
 
 ### States
@@ -81,6 +82,7 @@ render () {
 {: data-line="2"}
 
 Use states (`this.state`) to manage dynamic data.
+
 See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
 
 ### Nesting
@@ -99,8 +101,9 @@ class Info extends React.Component {
 ```
 {: data-line="6,7"}
 
-Nest components to separate concerns. See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
+Nest components to separate concerns.
 
+See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
 
 ### Children
 
@@ -168,6 +171,7 @@ function MyComponent ({ name }) {
 {: data-line="1"}
 
 Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+
 See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
 
 ### Pure components
@@ -180,6 +184,7 @@ class MessageBox extends React.PureComponent {
 {: data-line="1"}
 
 Performance-optimized version of `React.Component`. Doesn't rerender if props/state hasn't changed.
+
 See: [Pure components](https://facebook.github.io/react/docs/react-api.html#react.purecomponent)
 
 ### Component API
@@ -197,7 +202,9 @@ this.state
 this.props
 ```
 
-These methods and properies are available for `Component` instances. See: [Component API](http://facebook.github.io/react/docs/component-api.html)
+These methods and properies are available for `Component` instances.
+
+See: [Component API](http://facebook.github.io/react/docs/component-api.html)
 
 Lifecycle
 ---------
@@ -227,7 +234,9 @@ Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them 
 | `render()` | Render |
 | `componentDidUpdate` *(prevProps, prevState)* | Operate on the DOM here |
 
-Called when parents change properties and `.setState()`. These are not called for initial renders. See: [Reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
+Called when parents change properties and `.setState()`. These are not called for initial renders.
+
+See: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
 
 DOM nodes
 ---------
@@ -250,7 +259,9 @@ class MyComponent extends React.Component {
 ```
 {: data-line="4,9"}
 
-Allows access to DOM nodes. See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
+Allows access to DOM nodes.
+
+See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
 
 ### DOM Events
 
@@ -269,7 +280,9 @@ class MyComponent extends React.Component {
 ```
 {: data-line="5,9"}
 
-Pass functions to attributes like `onChange`. See: [Events](https://facebook.github.io/react/docs/events.html)
+Pass functions to attributes like `onChange`.
+
+See: [Events](https://facebook.github.io/react/docs/events.html)
 
 ## Other features
 
@@ -290,7 +303,8 @@ class VideoPlayer extends React.Component {
 {: data-line="3"}
 
 Propagates `src="..."` down to the sub-component.
-See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html).
+
+See [Transferring props](http://facebook.github.io/react/docs/transferring-props.html)
 
 ### Top-level API
 
@@ -310,6 +324,7 @@ ReactDOMServer.renderToStaticMarkup(<Component />)
 ```
 
 There are more, but these are most common.
+
 See: [React top-level API](https://facebook.github.io/react/docs/react-api.html)
 
 JSX patterns

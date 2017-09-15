@@ -332,7 +332,7 @@ See: [Defer, panic and recover](https://blog.golang.org/defer-panic-and-recover)
 func main() {
   defer func() {
     fmt.Println("Done")
-  }
+  }()
   fmt.Println("Working...")
 }
 ```

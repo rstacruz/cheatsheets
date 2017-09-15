@@ -443,6 +443,52 @@ v.X = 2
 
 Doing `v.X` is the same as doing `(*v).X`, when `v` is a pointer.
 
+## Methods
+
+### Receivers
+
+```go
+type Vertex struct {
+  X, Y float64
+}
+```
+
+```go
+func (v Vertex) Abs() float64 {
+  return math.Sqrt(v.X * v.X + v.Y * v.Y)
+}
+```
+{: data-line="1"}
+
+```go
+v: = Vertex{1, 2}
+v.Abs()
+```
+
+There are no classes, but you can define functions with _receivers_.
+
+See: [Methods](https://tour.golang.org/methods/1)
+
+### Mutation
+
+```go
+func (v *Vertex) Scale(f float64) {
+  v.X = v.X * f
+  v.y = v.Y * f
+}
+```
+{: data-line="1"}
+
+```go
+v := Vertex{6, 12}
+v.Scale(0.5)
+// `v` is updated
+```
+
+By defining your receiver as a pointer (`*Vertex`), you can do mutations.
+
+See: [Pointer receivers](https://tour.golang.org/methods/4)
+
 ## References
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_

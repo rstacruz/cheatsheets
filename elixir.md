@@ -17,7 +17,8 @@ weight: -10
 # hello.exs
 defmodule Greeter do
   def greet(name) do
-    IO.puts "Hello, " <> name <> "!"
+    message = "Hello, " <> name <> "!"
+    IO.puts message
   end
 end
 

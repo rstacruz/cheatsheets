@@ -38,3 +38,8 @@ not_found:
   title: Not found
   description: Sorry, we don't have a cheatsheet for this yet. Try searching!
   home: Back to home
+
+code_sponsor:
+  recommender_name: "@rstacruz"
+  recommender_url: "https://twitter.com/rstacruz"
+  recommender_suffix: "recommends:"

@@ -1,21 +1,50 @@
 .code-sponsor {
   & {
     text-align: center;
+    position: relative;
   }
 
   /* Prelude */
   & > .prelude {
+    position: relative;
+    z-index: 5;
     display: block;
     @include font-size(-1);
     color: lighten($gray-text, 20%);
     text-align: center;
-    margin-bottom: -8px;
     font-weight: normal;
     user-select: none;
+  }
+
+  & > .prelude > a,
+  & > .prelude > a:visited {
+    text-decoration: none;
+    color: lighten($gray-text, 20%);
+  }
+
+  & > .prelude > a:hover,
+  & > .prelude > a:focus {
+    color: $gray-text;
+  }
+
+  /* Compensate padding to put it next to prelude */
+  & > div {
+    position: relative;
+    z-index: 1;
+    margin-top: -16px;
+  }
+
+  /* Extra line between prelude and ad? */
+  & > .prelude + div {
+    margin-top: -8px;
   }
 
   & > div > iframe {
     display: inline-block;
     opacity: 0.7;
+  }
+
+  & > div:hover > iframe {
+    opacity: 1;
   }
 }

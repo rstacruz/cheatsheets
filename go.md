@@ -2,7 +2,6 @@
 title: Go
 layout: 2017/sheet
 prism_languages: [go, bash]
-tags: [WIP]
 weight: -3
 updated: 2017-09-15
 ---

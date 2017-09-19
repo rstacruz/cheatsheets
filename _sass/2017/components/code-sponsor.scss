@@ -3,15 +3,14 @@
     text-align: center;
   }
 
-  & > span {
+  /* Prelude */
+  & > .prelude {
     display: block;
     @include font-size(-1);
     color: lighten($gray-text, 20%);
     text-align: center;
     margin-bottom: -8px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: bold;
+    font-weight: normal;
     user-select: none;
   }
 

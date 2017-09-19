@@ -23,29 +23,6 @@
     }
   }
 
-  // Horiz line
-  @media (min-width: 481px) {
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 40%;
-      right: 40%;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(to right,
-        transparent,
-        $dark-line-color 20%,
-        $dark-line-color 80%,
-        transparent);
-
-      @media (max-width: 480px) {
-        left: 0;
-        right: 0;
-      }
-    }
-  }
-
   & > .container {
     @include gutter(padding-left);
     @include gutter(padding-right);

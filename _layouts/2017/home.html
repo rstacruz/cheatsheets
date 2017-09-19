@@ -22,7 +22,14 @@
     <p>
       {{ site.data.content.home.tagline }}
     </p>
+
     {% include 2017/search-form.html live=true %}
+
+    {% if site.data.codesponsor.enabled %}
+    <div class='adbox'>
+      {% include 2017/code-sponsor.html noprelude=true %}
+    </div>
+    {% endif %}
   </div>
 
   <div class='pages-list'>

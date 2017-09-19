@@ -8,9 +8,8 @@
 
     <div class='adbox'>
       {% if site.data.codesponsor.enabled %}
-      <div class='code-sponsor ad -codesponsor'>
-        <span>Also recommended:</span>
-        <div id='code-sponsor-widget'></div><script src='https://app.codesponsor.io/scripts/{{ site.data.codesponsor.id }}?theme=light&image=hide&height=100&width=330'></script>
+      <div class='ad -codesponsor'>
+        {% include 2017/code-sponsor.html %}
       </div>
       {% endif %}
 

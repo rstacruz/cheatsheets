@@ -13,7 +13,7 @@
   }
 
   & > h1 {
-    @include font-size(5);
+    @include font-size(7);
     margin: 0;
     padding: 0;
     color: $base-head;
@@ -27,5 +27,9 @@
 
   & > .action {
     margin-top: 32px;
+  }
+
+  & > .adbox {
+    margin-top: 16px;
   }
 }

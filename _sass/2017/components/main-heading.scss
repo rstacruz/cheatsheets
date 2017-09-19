@@ -10,7 +10,7 @@
   }
 
   & > h1 {
-    @include font-size(7);
+    @include font-size(8);
     line-height: 1.2;
     font-weight: 200;
     font-family: $body-font;
@@ -23,52 +23,21 @@
   }
 }
 
-/*
- * With ads
- */
-
-.main-heading.-with-ads {
-  & {
-    display: flex;
+.main-heading.-center {
+  & > h1 {
+    text-align: center;
   }
 
-  // Desktop
-  @media (min-width: 541px) {
-    & {
-      align-items: flex-end; // bottom alighn
-    }
-
-    & > h1 {
-      flex: 1 0 auto;
-    }
-
-    // Advertisement
-    & > .ad {
-      flex: 0 1 auto;
-    }
+  & > .adbox {
+    margin-top: 16px;
+    text-align: center;
   }
 
-  // Mobile: reorder things
-  @media (max-width: 540px) {
-    & {
-      flex-direction: column;
-      flex-wrap: wrap;
-      margin-top: 0;
-    }
+  & > .adbox > .ad {
+    display: inline-block;
+  }
 
-    & > h1,
-    & > .ad {
-      flex: 1 0 100%;
-    }
-
-    & > h1 {
-      order: 2;
-    }
-
-    & > .ad {
-      order: 1;
-      margin-left: auto;
-      margin-bottom: 16px;
-    }
+  & > .adbox > .ad.-carbon {
+    margin-top: 16px;
   }
 }

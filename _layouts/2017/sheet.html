@@ -3,15 +3,23 @@
 {% include 2017/top-nav.html page=page %}
 
 <div class='body-area'>
-  <header class='main-heading {% if page.ads != false %}-with-ads{% endif %}'>
+  <header class='main-heading -center'>
     <h1 class='h1'>{{ page.title }} <em>{{ site.data.content.sheet.suffix }}</em></h1>
-    {% if page.ads != false %}
+
+    <div class='adbox'>
+      {% if site.data.codesponsor.enabled %}
+      <div class='code-sponsor ad -codesponsor'>
+        <span>Also recommended:</span>
+        <div id='code-sponsor-widget'></div><script src='https://app.codesponsor.io/scripts/{{ site.data.codesponsor.id }}?theme=light&image=hide&height=100&width=330'></script>
+      </div>
+      {% endif %}
+
       {% if site.data.carbon.enabled %}
-        <div class='HeadlineAd ad'>
+        <div class='HeadlineAd ad -carbon'>
           <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
         </div>
       {% endif %}
-    {% endif %}
+    </div>
   </header>
 
   {% if page.tags contains 'WIP' %}

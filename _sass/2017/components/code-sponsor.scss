@@ -1,0 +1,22 @@
+.code-sponsor {
+  & {
+    text-align: center;
+  }
+
+  & > span {
+    display: block;
+    @include font-size(-1);
+    color: lighten($gray-text, 20%);
+    text-align: center;
+    margin-bottom: -8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  & > div > iframe {
+    display: inline-block;
+    opacity: 0.7;
+  }
+}

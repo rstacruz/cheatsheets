@@ -17,7 +17,7 @@ updated: 2017-09-15
 // hello.go
 package main
 
-import ( "fmt" )
+import "fmt"
 
 func main() {
   message := greetMe("world")

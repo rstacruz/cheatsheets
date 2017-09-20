@@ -1,9 +1,10 @@
 ---
 title: Blessed
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
-## Screen
+### Screen
 
 ```js
 screen = blessed.screen({
@@ -20,7 +21,7 @@ screen.title = 'My window title'
 screen.key(['escape', 'q', 'C-c'], (ch, key) => { ... })
 ```
 
-## Element
+### Element
 
 ```js
 box = blessed.box({
@@ -35,7 +36,7 @@ box = blessed.box({
 })
 ```
 
-## Tags
+### Tags
 
 ```
 {bold}

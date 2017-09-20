@@ -1,16 +1,26 @@
 ---
 title: Yaml
 category: Markup
+layout: 2017/sheet
+prism_languages: [yaml]
 ---
 
-    Multiline: |
-      hello
-      world
+### Multiline strings
 
-    Inheritance: &defaults
-      a: 2
-      b: 3
-    
-    Inherit:
-      <<: *defaults
-      b: 4
+```yaml
+Multiline: |
+  hello
+  world
+```
+
+### Inheritance
+
+```yaml
+parent: &defaults
+  a: 2
+  b: 3
+
+child:
+  <<: *defaults
+  b: 4
+```

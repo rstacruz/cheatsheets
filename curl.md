@@ -1,52 +1,79 @@
 ---
 title: Curl
 category: CLI
+layout: 2017/sheet
+updated: 2017-09-20
 ---
 
-Options:
+## Options
 
-    -o <file>    # --output: write to file
-    -u user:pass # --user: Authentication
+### Options
 
-    -v           # --verbose
-    -vv          # Even more verbose
+```bash
+-o <file>    # --output: write to file
+-u user:pass # --user: Authentication
+```
 
-    -I           # --head: headers only
+```bash
+-v           # --verbose
+-vv          # Even more verbose
+```
 
-Request:
+```bash
+-I           # --head: headers only
+```
 
-    -X POST          # --request
+### Request
 
-Data options:
+```bash
+-X POST          # --request
+```
 
-    -d 'data'    # --data: HTTP post data, URL encoded (eg, status="Hello")
-    -d @file     # --data via file
-    -G           # --get: send -d data via get
+### Data
 
-Headers:
+```bash
+-d 'data'    # --data: HTTP post data, URL encoded (eg, status="Hello")
+-d @file     # --data via file
+-G           # --get: send -d data via get
+```
 
-    -A <str>         # --user-agent
-    -b name=val      # --cookie
-    -b FILE          # --cookie
-    -H "X-Foo: y"    # --header
-    --compressed     # use deflate/gzip
+### Headers
 
-SSL:
+```bash
+-A <str>         # --user-agent
+-b name=val      # --cookie
+-b FILE          # --cookie
+-H "X-Foo: y"    # --header
+--compressed     # use deflate/gzip
+```
 
+### SSL
+
+```bash
     --cacert <file>
     --capath <dir>
+```
 
-    -E, --ecrt <cert>     # --ecrt: Client cert file
-        --cert-type       # der/pem/eng
-    -k, --insecure        # for self-signed certs
+```bash
+-E, --ecrt <cert>     # --ecrt: Client cert file
+    --cert-type       # der/pem/eng
+-k, --insecure        # for self-signed certs
+```
 
 ## Examples
+{: .-one-column}
 
-    # Post data:
-      curl -d password=x http://x.com/y
+```bash
+# Post data:
+curl -d password=x http://x.com/y
+```
 
-    # Auth/data:
-      curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
+```bash
+# Auth/data:
+curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
+```
 
-    # multipart file upload
-      curl -v -include --form key1=value1 --form upload=@localfilename URL
+```bash
+# multipart file upload
+curl -v -include --form key1=value1 --form upload=@localfilename URL
+```

@@ -1,9 +1,13 @@
 ---
 title: Tomdoc
 category: Markup
+layout: 2017/sheet
 ---
 
-```
+### Tomdoc
+{: .-prime}
+
+```ruby
 # Public: Duplicate some text an arbitrary number of times.
 #
 # text  - The String to be duplicated.
@@ -20,17 +24,17 @@ def multiplex(text, count)
 end
 ```
 
+See [tomdoc.org](http://tomdoc.org/).
+
 ### Tags
 
-```
-Deprecated
-Internal
-Public
-```
+- `Deprecated`
+- `Internal`
+- `Public`
 
 ### Options
 
-```
+```ruby
 # options - The Hash options used to refine the selection (default: {}):
 #           :color  - The String color to restrict by (optional).
 #           :weight - The Float weight to restrict by. The weight should
@@ -39,22 +43,32 @@ Public
 
 ### Yields
 
+```ruby
+# Yields the Integer index of the iteration.
 ```
-Yields the Integer index of the iteration.
-Returns the duplicated String.
-Returns nothing.
-Raises Errno::ENOENT if the file can't be found.
-Returns something else and this is a wrapped
-  multi-line comment.
+
+```ruby
+# Returns the duplicated String.
+```
+
+```ruby
+# Returns nothing.
+```
+
+```ruby
+# Raises Errno::ENOENT if the file can't be found.
+```
+
+```ruby
+# Returns something else and this is a wrapped
+#   multi-line comment.
 ```
 
 ### Signatures
 
-```
+```ruby
 # Signature
 #
 #   find_by_<field>[_and_<field>...](args)
 #
 ```
-
-See [tomdoc.org](http://tomdoc.org/).

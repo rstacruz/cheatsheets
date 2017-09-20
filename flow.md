@@ -2,29 +2,191 @@
 title: Flow
 layout: 2017/sheet
 category: JavaScript libraries
-updated: 2017-08-26
+updated: 2017-09-20
+weight: -3
 ---
 
-### Simple failing example
+## Getting started
+{: .-three-column}
+
+### Simple example
+{: .-prime}
 
 ```js
 /* @flow */
+function square (n: number) {
+  return n * n
+}
 
-function foo(x) { return x * 10 }
-foo('Hello, world!')
+const four = square(2)
 ```
+{: data-line="1,2"}
 
-### Annotations
+Most of what you need to do is to simply add annotations to function arguments!
+
+See: [flow.org docs](https://flow.org/en/docs/)
+
+### Type aliases
 
 ```js
-// Simple
-function foo(x: string, y: number): string { ... }
+type Person = {
+  name: string,
+  age: number,
+  isAdmin: boolean,
+  likes: Array<string>
+}
+```
+{: data-line="1,2,3,4,5,6"}
+
+```js
+function greet(user: Person) {
+  console.log('hello', user.name)
+}
+```
+{: data-line="1"}
+
+```js
+greet({ name: 'Miles Davis', ··· })
+```
+
+This is the typical way to define the shape of complex objects.
+
+### Variables
+
+```js
+const count: number = 200
+```
+
+You typically don't need to do this, function args are often enough.
+
+See: [Variable types](https://flow.org/en/docs/types/variables/)
+
+### Importing and exporting
+
+```js
+import type { Person } from './types'
 ```
 
 ```js
-// Arrays
-function total(numbers: Array<number>) { ... }
+export type Person = {
+  ···
+}
 ```
+
+See: [Module types](https://flow.org/en/docs/types/modules)
+
+### Union types
+
+```js
+type Action = number | string
+```
+
+```js
+type Direction = 'left' | 'right'
+```
+
+See: [Unions](https://flow.org/en/docs/types/unions/)
+
+## Optionals
+
+### Maybe types
+
+```js
+type Album = {
+  name: ?string
+}
+```
+{: data-line="2"}
+
+```js
+const a: Album = { }                 // ✗ Error
+const a: Album = { name: 'Blue' }    // ✓ OK
+const a: Album = { name: null }      // ✓ OK
+const a: Album = { name: undefined } // ✓ OK
+```
+
+This makes `name` either a string or null.
+
+See: [Maybe types](https://flow.org/en/docs/types/primitives/#toc-maybe-types)
+
+### Optional properties
+
+```js
+type Album = {
+  name?: string
+}
+```
+{: data-line="2"}
+
+```js
+const a: Album = { } // ✓ OK
+a.name = 'Blue'      // ✓ OK
+a.name = null        // ✓ OK
+a.name = undefined   // ✓ OK
+```
+
+This makes an `Album` valid even if `artist` is not part of the keys. This is different from "maybe" types.
+
+See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-optional-object-properties)
+
+## Objects
+{: .-three-column}
+
+### Extra object fields
+
+```js
+type Artist = {
+  name: string,
+  label: string
+}
+```
+
+```js
+const a: Artist = {
+  name: 'Miguel Migs',
+  label: 'Naked Music'
+}
+
+a.genre = 'House' // ✓ OK
+```
+{: data-line="6"}
+
+You can add more fields to an object.
+
+See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
+
+### Exact object types
+
+```js
+type Artist = {|
+  name: string,
+  label: string
+|}
+```
+{: data-line="1,4"}
+
+```js
+const a: Artist = { ··· }
+a.genre = 'House' // ✗ Error
+```
+{: data-line="2"}
+
+Exact object types prevent extra properties from being added to an object.
+
+See: [Exact object types](https://flow.org/en/docs/types/objects/#toc-exact-object-types)
+
+### Dynamic keys
+
+```js
+type Items = {
+  [key: string]: Item
+}
+```
+{: data-line="2"}
+
+See: [Dynamic object keys](https://flow.org/docs/objects.html#objects-as-maps)
+
+## Advanced features
 
 ### Primitives
 
@@ -48,16 +210,6 @@ function total(numbers: Array<number>) { ... }
 | ---             | ---                          |
 | `?number`       | Maybe (number, void, null)   |
 | `a | b`         | Union types                  |
-
-### Dynamic keys
-
-```js
-type Items = {
-  [key: string]: Item
-}
-```
-
-See: [Dynamic object keys](https://flow.org/docs/objects.html#objects-as-maps)
 
 ### Enums
 
@@ -170,6 +322,7 @@ class Foo extends React.Component {
   /*:: props: { open: boolean } */
 }
 ```
+
 ## Examples
 
 ### Examples
@@ -188,15 +341,9 @@ var b: MyClass = new a()
 ### Function signature
 
 ```js
-var add: ((num1: number, num2: number) => number) = function (num1, num2) {
-  return num1 + num2
-}
-```
+type Callback = (?Error, string) => any
 
-You don't need to do this! It's inferred. This is better:
-
-```js
-var add = function (num1: number, num2: number) {
-  return num1 + num2
+function fetch (callback: Callback) {
+  ···
 }
 ```

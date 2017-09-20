@@ -1,7 +1,13 @@
 ---
 title: docker-compose
 category: Devops
+layout: 2017/sheet
+prism_languages: [yaml]
+weight: -1
+updated: 2017-09-20
 ---
+
+### Basic example
 
 ```yaml
 # docker-compose.yml
@@ -18,22 +24,26 @@ services:
     image: redis
 ```
 
-## Command
+### Commands
 
 ```sh
 docker-compose start
 docker-compose stop
+```
 
+```sh
 docker-compose pause
 docker-compose unpause
+```
 
+```sh
 docker-compose ps
 docker-compose up
 docker-compose down
-
 ```
 
 ## Reference
+{: .-one-column}
 
 ```yaml
 web:
@@ -92,26 +102,53 @@ web:
     - ./_data:/var/lib/mysql
 ```
 
-## Less-often used
+## Advanced features
+{: .-three-column}
+
+### Labels
 
 ```yaml
-web:
-  labels:
-    com.example.description: "Accounting web app"
+services:
+  web:
+    labels:
+      com.example.description: "Accounting web app"
+```
 
-  # change dns servers
-  dns: 8.8.8.8
-  dns:
-    - 8.8.8.8
-    - 8.8.4.4
+### DNS servers
 
-  devices:
-  - "/dev/ttyUSB0:/dev/ttyUSB0"
+```yaml
+services:
+  web:
+    dns: 8.8.8.8
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+```
 
-  external_links:
-    - redis_1
-    - project_db_1:mysql
+### Devices
 
-  extra_hosts:
-    - "somehost:192.168.1.100"
+```yaml
+services:
+  web:
+    devices:
+    - "/dev/ttyUSB0:/dev/ttyUSB0"
+```
+
+### External links
+
+```yaml
+services:
+  web:
+    external_links:
+      - redis_1
+      - project_db_1:mysql
+```
+
+### Hosts
+
+```yaml
+services:
+  web:
+    extra_hosts:
+      - "somehost:192.168.1.100"
 ```

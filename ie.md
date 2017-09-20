@@ -1,45 +1,52 @@
 ---
 title: Internet Explorer
 category: HTML
+layout: 2017/sheet
+updated: 2017-09-20
 ---
 
-## CSS Selectors
+## Support table
+{: .-one-column}
 
-| Feature                                                    | IE6 | 7   | 8   | 9   | 10 |
-| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
-| `>` _(descendant)_                                         |     | 7 ✓ | ✓   | ✓   | ✓  |
-| `[attr]` _(attribute)_                                     |     | 7 ✓ | ✓   | ✓   | ✓  |
-| `.class1.class2` _(multiple classes)_                      |     | 7 ✓ | ✓   | ✓   | ✓  |
-| `~` _(sibling)_                                            |     | 7 ✓ | ✓   | ✓   | ✓  |
-| `+` _(adjacent)_                                           |     | 7 ✓ | ✓   | ✓   | ✓  |
-| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
-| `:first-child` <sup>1</sup>                                |     |     | 8 ✓ | ✓   | ✓  |
-| `:focus`                                                   |     |     | 8 ✓ | ✓   | ✓  |
-| `:before` `:after` _(single colon only)_                   |     |     | 8 ✓ | ✓   | ✓  |
-| `:lang`                                                    |     |     | 8 ✓ | ✓   | ✓  |
-| ---------------------------------------------------------- | -   | -   | -   | -   | -- |
-| `:first-of-type`, `:last-of-type`                          |     |     |     | 9 ✓ | ✓  |
-| `:last-child`                                              |     |     |     | 9 ✓ | ✓  |
-| `:empty`                                                   |     |     |     | 9 ✓ | ✓  |
-| `:enabled` `:disabled` `:checked`                          |     |     |     | 9 ✓ | ✓  |
-| `:not()`                                                   |     |     |     | 9 ✓ | ✓  |
-| `:nth-child()` `:nth-last-child()`                         |     |     |     | 9 ✓ | ✓  |
-| `:nth-of-type()` `:nth-last-of-type()` `:only-of-type()`   |     |     |     | 9 ✓ | ✓  |
-| `:only-child()`                                            |     |     |     | 9 ✓ | ✓  |
-| `:target`                                                  |     |     |     | 9 ✓ | ✓  |
-| `::selection`                                              |     |     |     | 9 ✓ | ✓  |
-| `:root`                                                    |     |     |     | 9 ✓ | ✓  |
-{:.wide.greycode.ie}
+### CSS Selectors
 
-## CSS properties
+| Feature                                                    | IE6 | IE7 | IE8 | IE9 | IE10 |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   |
+| `>` _(descendant)_                                         |     | 7 ✓ | ✓   | ✓   | ✓    |
+| `[attr]` _(attribute)_                                     |     | 7 ✓ | ✓   | ✓   | ✓    |
+| `.class1.class2` _(multiple classes)_                      |     | 7 ✓ | ✓   | ✓   | ✓    |
+| `~` _(sibling)_                                            |     | 7 ✓ | ✓   | ✓   | ✓    |
+| `+` _(adjacent)_                                           |     | 7 ✓ | ✓   | ✓   | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   |
+| `:first-child` <sup>\*</sup>                               |     |     | 8 ✓ | ✓   | ✓    |
+| `:focus`                                                   |     |     | 8 ✓ | ✓   | ✓    |
+| `:before` `:after` _(single colon only)_                   |     |     | 8 ✓ | ✓   | ✓    |
+| `:lang`                                                    |     |     | 8 ✓ | ✓   | ✓    |
+| ---------------------------------------------------------- | -   | -   | -   | -   | --   |
+| `:first-of-type`, `:last-of-type`                          |     |     |     | 9 ✓ | ✓    |
+| `:last-child`                                              |     |     |     | 9 ✓ | ✓    |
+| `:empty`                                                   |     |     |     | 9 ✓ | ✓    |
+| `:enabled` `:disabled` `:checked`                          |     |     |     | 9 ✓ | ✓    |
+| `:not()`                                                   |     |     |     | 9 ✓ | ✓    |
+| `:nth-child()` `:nth-last-child()`                         |     |     |     | 9 ✓ | ✓    |
+| `:nth-of-type()` `:nth-last-of-type()` `:only-of-type()`   |     |     |     | 9 ✓ | ✓    |
+| `:only-child()`                                            |     |     |     | 9 ✓ | ✓    |
+| `:target`                                                  |     |     |     | 9 ✓ | ✓    |
+| `::selection`                                              |     |     |     | 9 ✓ | ✓    |
+| `:root`                                                    |     |     |     | 9 ✓ | ✓    |
+{: .-headers}
 
-| Feature                                                    | IE6 | 7   | 8   | 9   | 10   | 11   |
+`first-child:` doesn't work for elements inserted via JS.
+
+### CSS properties
+
+| Feature                                                    | IE6 | IE7 | IE8 | IE9 | IE10 | IE11 |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | `max-width`                                                |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
 | `position: fixed`                                          |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | `outline`                                                  |     |     | 8 ✓ | ✓   | ✓    | ✓    |
-| `display: inline-block` <sup>2</sup>                       |     |     | 8 ✓ | ✓   | ✓    | ✓    |
+| `display: inline-block` <sup>\*</sup>                      |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | `display: table`                                           |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | `border-collapse`, `border-spacing`, `table-layout`, ...   |     |     | 8 ✓ | ✓   | ✓    | ✓    |
 | `whitespace: pre-wrap`                                     |     |     | 8 ✓ | ✓   | ✓    | ✓    |
@@ -62,11 +69,13 @@ category: HTML
 | `text-shadow` — [polyfill][text-shadow]                    |     |     |     |     | 10 ✓ | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | `border-image`                                             |     |     |     |     |      | 11 ✓ |
-{:.wide.greycode.ie}
+{: .-headers}
 
-## Features
+`inline-block:` IE6/7 can only support inline-block for elements that are naturally inline, like span
 
-| Feature                                                    | IE6 | 7   | 8   | 9   | 10   | 11   |
+### Features
+
+| Feature                                                    | IE6 | IE7 | IE8 | IE9 | IE10 | IE11 |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | PNG alpha transparency                                     |     | 7 ✓ | ✓   | ✓   | ✓    | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
@@ -81,24 +90,22 @@ category: HTML
 | HTML: `<svg>`                                              |     |     |     | 9 ✓ | ✓    | ✓    |
 | HTML: `<img src='image.svg'>`                              |     |     |     | 9 ✓ | ✓    | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
-| CSS: flexbox [⊙][flexbox] <sup>3</sup>                     |     |     |     |     | 10 ✓ | ✓    |
+| CSS: flexbox [⊙][flexbox] <sup>\*</sup>                    |     |     |     |     | 10 ✓ | ✓    |
 | HTML: `<input placeholder='..'>` [⊙][placeholder]          |     |     |     |     | 10 ✓ | ✓    |
 | HTML: `<input type='range'>`                               |     |     |     |     | 10 ✓ | ✓    |
 | HTML: `<input required>` [⊙][validation]                   |     |     |     |     | 10 ✓ | ✓    |
 | JS: Web sockets                                            |     |     |     |     | 10 ✓ | ✓    |
 | ---------------------------------------------------------- | -   | -   | -   | -   | --   | --   |
 | JS: Fullscreen mode                                        |     |     |     |     |      | 11 ✓ |
-{:.wide.greycode.ie}
+{: .-headers}
 
-<style>
-table.ie {table-layout:fixed;}
-table.ie tr>:not(:first-child) {text-align:right;width: 50px;padding-left:0;}
-table.ie tr>td:not(:first-child) {color: green;font-size:0.9em;}
-</style>
+`flexbox:` IE10 only supports the 2012 syntax with -ms- prefix.
 
 ## Polyfills
 
-### Always install these in almost every project
+### IE polyfills
+
+Always install these in almost every project:
 
  - [json2] for JSON parsing (for IE7 below)
  - [selectivizr] for selectors (for IE8 below)
@@ -106,7 +113,7 @@ table.ie tr>td:not(:first-child) {color: green;font-size:0.9em;}
  - [respond] for media queries (for IE8 below)
  - See [this article](http://ricostacruz.com/til/ie-polyfills.html) for info
 
-```nohighlight
+```html
 <!--[if lt IE 9]>
 <script src='//cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js'>
@@ -126,9 +133,7 @@ table.ie tr>td:not(:first-child) {color: green;font-size:0.9em;}
  - [cssSandpaper]
  - [ecsstender]
 
-Also see:
-
- - [Cross-browser polyfills list][fills]
+See: [Cross-browser polyfills list][fills]
 
 Misc
 ----
@@ -149,13 +154,6 @@ Misc
 <!--[if IE]>      I'm IE      <![endif]-->
 <!--[if !IE]> --> Not IE <!-- <![endif]-->
 ```
-
-Footnotes
----------
-
- * (1) = first-child: doesn't work for elements inserted via JS
- * (2) = inline-block: IE6/7 can only support inline-block for elements that are naturally inline, like span
- * (3) = CSS flexbox: IE10 only supports the 2012 syntax with `-ms-` prefix
 
 [text-shadow]: https://github.com/heygrady/textshadow
 [ie7.js]: http://ie7-js.googlecode.com/svn/test/index.html

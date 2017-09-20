@@ -54,6 +54,10 @@
   & > .h3-section {
     width: 100%;
   }
+
+  & > .h3-section + .h3-section {
+    margin-top: 16px;
+  }
 }
 
 /*

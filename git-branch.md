@@ -1,24 +1,57 @@
 ---
 title: Git branches
 category: Git
+layout: 2017/sheet
+updated: 2017-09-20
 ---
 
-    # create a new branch
-      git checkout -b $branchname
-      git push origin $branchname --set-upstream
+## Working with branches
+{: .-three-column}
 
-    # get a remote branch
-      git fetch origin
-      git checkout --track origin/$branchname
+### Creating
 
-    # delete local remote-tracking branches (lol)
-      git remote prune origin
+```bash
+git checkout -b $branchname
+git push origin $branchname --set-upstream
+```
 
-    # list merged branches
-      git branch -a --merged
+Creates a new branch locally then pushes it.
 
-    # delete remote branch
-      git push origin :$branchname
+### Getting from remote
 
-    # get current sha1 (?)
-      git show-ref HEAD -s
+```bash
+git fetch origin
+git checkout --track origin/$branchname
+```
+
+Gets a branch in a remote.
+
+### Delete local remote-tracking branches
+
+```bash
+git remote prune origin
+```
+
+Deletes `origin/*` branches in your local copy. Doesn't affect the remote.
+
+### List merged branches
+
+```bash
+git branch -a --merged
+```
+
+List outdated branches that have been merged into the current one.
+
+### Delete remote branch
+
+```bash
+git push origin :$branchname
+```
+
+Works for tags, too!
+
+### Get current sha1
+
+```bash
+git show-ref HEAD -s
+```

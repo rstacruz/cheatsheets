@@ -4,7 +4,7 @@
 
 $(function () {
   if (~window.location.search.indexOf('preview=1')) {
-    $('.SideAd, .HeadlineAd').remove()
+    $('[data-js-no-preview]').remove()
   }
 })
 

@@ -109,22 +109,10 @@ Mixins can be applied in two different ways.
 ### Argument defaults
 
 ```stylus
-border-radius(n=2px)
+border-radius(n = 2px)
   -webkit-border-radius: n
 ```
-
-Multiple args:
-
-```stylus
-xy(left, top)
-  left: left
-  top: top
-```
-
-```stylus
-div
-  xy: 2px 2px
-```
+{: data-line="1"}
 
 ### Block mixins
 
@@ -262,9 +250,9 @@ See: [Interpolation](http://stylus-lang.com/docs/interpolation.html)
 ### Color operators
 
 ```stylus
-#888 + 50%    // => #c3c3c3 (lighten)
-#888 - 50%    // => #444 (darken)
-#f00 + 50deg  // => #ffd500 (hue)
+#888 + 50%    // → #c3c3c3 (lighten)
+#888 - 50%    // → #444 (darken)
+#f00 + 50deg  // → #ffd500 (hue)
 ```
 
 ### Casting
@@ -353,7 +341,7 @@ false
 ```stylus
 if val is a 'string'
 if val is a 'ident'
-if #fff is a 'rgba'    // => true
+if #fff is a 'rgba'    // → true
 ```
 
 See: [Instance check](http://stylus-lang.com/docs/operators.html#instance-check-is-a)
@@ -365,20 +353,20 @@ Built-in functions
 ### Color functions
 
 ```stylus
-alpha(#fff)   //=> 1
-alpha(rgba(0, 0, 0, 0.2))   //=> 0.2
+alpha(#fff)   //→ 1
+alpha(rgba(0, 0, 0, 0.2))   //→ 0.2
 ```
 
 ```stylus
-dark(black)  //=> true
-light(black) //=> false
+dark(black)  //→ true
+light(black) //→ false
 ```
 
 ```stylus
-hue(#0a0)         //=> 50deg
-saturation(#f00)  //=> 100%
-lightness(#f00)   //=> 50%
-luminosity(#f00)  //=> 0.2126
+hue(#0a0)         //→ 50deg
+saturation(#f00)  //→ 100%
+lightness(#f00)   //→ 50%
+luminosity(#f00)  //→ 0.2126
 ```
 
 ```stylus
@@ -454,7 +442,7 @@ See: [add-property](http://stylus-lang.com/docs/bifs.html#add-propertyname-expr)
 
 ```stylus
 '-webkit-gradient(%s, %s, %s)' % (linear (0 0) (0 100%))
-// => -webkit-gradient(linear, 0 0, 0 100%)
+// → -webkit-gradient(linear, 0 0, 0 100%)
 ```
 
 ```stylus
@@ -467,7 +455,7 @@ See: [s](http://stylus-lang.com/docs/bifs.html#sfmt-)
 
 ```
 background: embedurl('logo.png')
-// => background: url("data:image/png;base64,…")
+// → background: url("data:image/png;base64,…")
 ```
 
 See: [embedurl](http://stylus-lang.com/docs/bifs.html#embedurlpath-encoding)

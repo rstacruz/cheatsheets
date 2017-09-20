@@ -1,32 +1,42 @@
 ---
 title: Weechat
 category: Apps
+layout: 2017/sheet
 ---
 
-### Keys
-
-(`A-` is alt)
+## Keys
+{: .-three-column}
 
 ### Buffers
 
-    ^s ^u          - Set unread marker on all windows
+| Shortcut         | Description                      |
+| ---              | ---                              |
+| `^s` / `^u`      | Set unread marker on all windows |
+| ---              | ---                              |
+| `^p, A-left`     | Switch buffer left               |
+| `^n, A-right`    | Switch buffer right              |
+| `A-a`            | Next buffer with activity        |
+| `A-0...9`        | Switch buffers                   |
+| ---              | ---                              |
+| `F9` /` F10`     | Scroll buffer title              |
+| `F11` / `F12`    | Scroll nick list                 |
+| ---              | ---                              |
+| `A-w A-Left`     | Switch windows                   |
+| `A-w A-b`        | Balance windows                  |
+{: .-shortcuts}
 
-    ^p, A-left     - Switch buffer left
-    ^n, A-right    - Switch buffer right
-    A-a            - Next buffer with activity
-    A-0...9        - Switch buffers
+(`A-` is alt.)
 
-    F9/F10         - Scroll buffer title
-    F11/F12        - Scroll nick list
+### Window commands
 
-    A-w A-Left     - Switch windows
-    A-w A-b        - Balance windows
-
-    /window splith
-    /window splitv
-    /window zoom
+| Shortcut         | Description                      |
+| ---              | ---                              |
+| `/window splith` | Split horizontal                 |
+| `/window splitv` | Split vertical                   |
+| `/window zoom`   | Zoom                             |
 
 ### Search
 
-    ^r             - Search
-    Enter, ^j, ^m  - Stop search
+| `^r`              | Search      |
+| `Enter` `^j` `^m` | Stop search |
+{: .-shortcuts}

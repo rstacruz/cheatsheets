@@ -1,5 +1,7 @@
 {%
-  if page.type == 'article'
+  if page.intro
+%}{{ page.intro | markdownify | strip_html }}{%
+  elsif page.type == 'article'
 %}A comprehensive cheatsheet for {{ page.title }}.{%
   endif
 %}

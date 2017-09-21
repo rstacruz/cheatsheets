@@ -4,6 +4,8 @@ category: JavaScript libraries
 layout: 2017/sheet
 updated: 2017-09-01
 weight: -3
+intro: |
+  A quick overview to [Jest](https://facebook.github.io/jest/), a test framework for Node.js. This guide targets Jest v20.
 ---
 
 Testing
@@ -328,8 +330,9 @@ See: [.mock property](http://facebook.github.io/jest/docs/en/mock-functions.html
 const fn = jest.fn(() => 'hello')
 ```
 
+#### or:
+
 ```js
-// or:
 jest.fn().mockReturnValue('hello')
 jest.fn().mockReturnValueOnce('hello')
 ```
@@ -351,6 +354,5 @@ fn()    // → 2
 ## References
 {: .-one-column}
 
-- Based on Jest v20.
 - <http://facebook.github.io/jest/>
 {: .-also-see}

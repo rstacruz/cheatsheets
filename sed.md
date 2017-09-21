@@ -1,30 +1,41 @@
 ---
-title: Sed
+title: sed
 category: CLI
+layout: 2017/sheet
+intro: |
+  Here's home hints on using sed.
 ---
 
-### OSX Caveat
+### In place replacements
 
-To do in place replacements `-i ''` is required (GNU/sed is different)
+#### In GNU sed: use `-i` without arg.
 
-    sed -i '' -e 's/foo/bar/' example.md
+```bash
+sed -i -e 's/foo/bar/' example.md
+```
 
-### GNU/sed
+#### In OSX, `-i ''` is required.
 
-To do in place replacements use `-i` without arg
+```bash
+sed -i '' -e 's/foo/bar/' example.md
+```
 
-    sed -i -e 's/foo/bar/' example.md
+### File regions
 
-### Yes
+#### Print until a certain line is met
 
-Print until a certain line is met
+```bash
+sed '/begin api/q'
+```
 
-    sed '/begin api/q'
+#### Print until a certain line is met, but not that line
 
-Print until a certain line is met, but not that line
+```bash
+sed '/^# begin/,$d'
+```
 
-    sed '/^# begin/,$d'
+#### Print everything after a given line
 
-Print everything after a given line
-
-    sed -n '/end api/,$p'
+```bash
+sed -n '/end api/,$p'
+```

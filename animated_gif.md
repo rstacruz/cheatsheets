@@ -1,16 +1,28 @@
 ---
-title: Animated gifs
+title: Animated GIFs
 category: CLI
+layout: 2017/sheet
 ---
 
-### Convert mp4 to gif
+## Animated GIFs
+{: .-one-column}
 
-    mkdir -p gif
-    mplayer -ao null -vo gif89a:outdir=gif $mp4
-    mogrify -format gif *.png
-    gifsicle --colors=256 --delay=4 --loopcount=0 --dither -O3 gif/*.gif > ${mp4%.*}.gif
-    rm -rf gif
+### Convert MP4 to GIF
 
-### Or a given range (-ss -endpos)
+```bash
+mkdir -p gif
+mplayer -ao null -vo gif89a:outdir=gif $INPUT
+mogrify -format gif *.png
+gifsicle --colors=256 --delay=4 --loopcount=0 --dither -O3 gif/*.gif > ${INPUT%.*}.gif
+rm -rf gif
+```
 
-    mplayer -ao null -ss 0:02:06 -endpos 0:05:00 -vo gif89a:outdir=gif videofile.mp4
+You'll need `mplayer`, `imagemagick` and `gifsicle`. This converts frames to .png, then turns them into an animated gif.
+
+### A given range
+
+```bash
+mplayer -ao null -ss 0:02:06 -endpos 0:05:00 -vo gif89a:outdir=gif videofile.mp4
+```
+
+See `-ss` and `-endpos`.

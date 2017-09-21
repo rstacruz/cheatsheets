@@ -15,14 +15,18 @@ Getting started
 ### Quick start
 {: .-prime}
 
+#### app.js
+{: .-file}
+
 ```js
-// app.js
 const Camp = require('camp')
 const camp = Camp.start({ port: 1234 })
 ```
 
+#### web/index.html
+{: .-file}
+
 ```html
-<!-- web/index.html -->
 <!doctype html>
 <body>Hello world!</body>
 ```
@@ -31,8 +35,9 @@ Camp serves files in `web/` by default.
 
 ### Routes
 
+#### Handles `/search?q=rainbows`
+
 ```js
-// /search?q=rainbows
 camp.path('/search', (req, res) => {
   const q = res.query.q
   res.json({ results: ··· })

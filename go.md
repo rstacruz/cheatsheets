@@ -12,8 +12,10 @@ updated: 2017-09-15
 ### Hello world
 {: .-prime}
 
+#### hello.go
+{: .-file}
+
 ```go
-// hello.go
 package main
 
 import "fmt"
@@ -36,14 +38,16 @@ Or try it out in the [Go repl](https://repl.it/languages/go), or [A Tour of Go](
 
 ### Variables
 
+#### Variable declaration
+
 ```go
-// Variable declaration
 var msg string
 msg = "Hello"
 ```
 
+#### Shortcut of above (Infers type)
+
 ```go
-// Shortcut of above (Infers type)
 msg := "Hello"
 ```
 
@@ -75,16 +79,18 @@ Strings are of type `string`.
 
 ### Numbers
 
+#### Typical types
+
 ```go
-// Typical types:
 num := 3          // int
 num := 3.         // float64
 num := 3 + 4i     // complex128
 num := byte('a')  // byte (alias for uint8)
 ```
 
+#### Other types
+
 ```go
-// Other types:
 var u uint = 7        // uint (unsigned)
 var p float32 = 22.7  // 32-bit float
 ```
@@ -339,25 +345,28 @@ See: [Buffered channels](https://tour.golang.org/concurrency/3)
 
 ### Closing channels
 
+#### Closes a channel
+
 ```go
-// Closes a channel
 ch <- 1
 ch <- 2
 ch <- 3
 close(ch)
 ```
-{: data-line="5"}
+{: data-line="4"}
+
+#### Iterates across a channel until its closed
 
 ```go
-// Iterates across a channel until its closed
 for i := range ch {
   ···
 }
 ```
-{: data-line="2"}
+{: data-line="1"}
+
+#### Closed if `ok == false`
 
 ```go
-// Closed if ok == false
 v, ok := <- ch
 ```
 

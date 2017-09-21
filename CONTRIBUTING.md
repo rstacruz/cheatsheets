@@ -43,6 +43,14 @@ make
     {: .-four-column}
     {: .-six-column}
 
+`h3` sections can have:
+
+    pre
+    p
+    ul
+    table
+    h4
+
 ## Frontmatter
 
 Each sheet supports these metadata:

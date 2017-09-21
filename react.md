@@ -394,30 +394,40 @@ import PropTypes from 'prop-types'
 
 See: [Typechecking with PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
-| PropType                  | Description                          |
-| ---                       | ---                                  |
 | `any`                     | Anything                             |
-| ---                       | ---                                  |
+
+#### Basic
+
 | `string`                  |                                      |
 | `number`                  |                                      |
 | `func`                    | Function                             |
 | `bool`                    | True or false                        |
-| ---                       | ---                                  |
+
+#### Enum
+
 | `oneOf`_(any)_            | Enum types                           |
 | `oneOfType`_(type array)_ | Union                                |
-| ---                       | ---                                  |
+
+#### Array
+
 | `array`                   |                                      |
 | `arrayOf`_(...)_          |                                      |
-| ---                       | ---                                  |
+
+#### Object
+
 | `object`                  |                                      |
 | `objectOf`_(...)_         | Object with values of a certain type |
 | `instanceOf`_(...)_       | Instance of a class                  |
 | `shape`_(...)_            |                                      |
-| ---                       | ---                                  |
+
+#### Elements
+
 | `element`                 | React element                        |
 | `node`                    | DOM node                             |
-| ---                       | ---                                  |
-| `.isRequired`             | Required                             |
+
+#### Required
+
+| `(···).isRequired`        | Required                             |
 
 ### Basic types
 

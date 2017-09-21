@@ -111,6 +111,20 @@
     margin: 0;
   }
 
+  /* Headings in between bodies */
+  & > h4 {
+    @include font-size(-1);
+    margin: 0;
+    padding: 4px 16px;
+    font-weight: normal;
+    background: $gray-bg;
+    color: $gray-text;
+
+    & + * {
+      border-top: solid 1px $line-color;
+    }
+  }
+
   /* Description paragraphs */
   & > pre ~ p,
   & > ul ~ p,

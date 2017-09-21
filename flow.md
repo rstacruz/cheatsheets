@@ -26,6 +26,17 @@ Most of what you need to do is to simply add annotations to function arguments!
 
 See: [flow.org docs](https://flow.org/en/docs/)
 
+### Type inference
+
+```js
+function square (n: number) {
+  const result = n * n
+}
+```
+{: data-line="2"}
+
+`result` is inferred to be a number because `number * number` will result in a number. There's no need to give it annotations.
+
 ### Type aliases
 
 ```js

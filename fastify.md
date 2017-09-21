@@ -7,6 +7,8 @@ intro: |
   [Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
 ---
 
+## Getting started
+
 ### Hello world
 {: .-prime}
 
@@ -19,18 +21,17 @@ fastify.get('/', (req, reply) => {
 
 fastify.listen(3000, err => {
   if (err) throw err
-  console.log(`server listening on ${fastify.server.address().port}`)
+  const port = fastify.server.address().port
+  console.log(`server listening on ${port}`)
 })
 ```
 
-### Register
+### Plugins
 
 #### app.js
 
 ```js
-fastify.register(require('./route')), err => {
-  if (err) throw err
-})
+fastify.register(require('./route'))
 ```
 
 #### route.js
@@ -40,21 +41,14 @@ function (fastify, opts, next) {
   fastify.get('/', (req, reply) => {
     reply.send({ hello: 'world' })
   })
+
+  next()
 })
 ```
 
-See: [Register](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#register)
+Compose your app functionality into plugins. Plugins are simply functions.
 
-### Register with prefix
-
-```js
-fastify.register(
-  require('./route'),
-  { prefix: '/v1' }
-)
-```
-
-This prefixes all routes in that module.
+See: [Plugins](https://github.com/fastify/fastify/blob/master/docs/Plugins.md)
 
 ## Routes
 
@@ -94,7 +88,8 @@ fastify.get('/', options, async (req, reply) => {
 
 When using async functions, you can either `return` data or use `reply.send`.
 
-## Request/reply
+Request/reply
+-------------
 
 ### Request
 
@@ -180,3 +175,131 @@ fastify.route({
 By defining a JSON schema, you get validation and improved performance.
 
 See: [Validation and serialize](https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialize.md)
+
+Plugins
+-------
+
+### With function
+
+```js
+fastify.register(
+  require('./route'),
+  err => { if (err) throw err }
+)
+```
+{: data-line="3"}
+
+See: [Register](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#register)
+
+### Multiple
+
+```js
+fastify.register([
+  require('./another-route'),
+  require('./yet-another-route')
+], opts, (err) => {
+  if (err) throw err
+})
+```
+
+You can pass arrays to `register()`.
+
+### Register with prefix
+
+```js
+fastify.register(
+  require('./route'),
+  { prefix: '/v1' }
+)
+```
+
+This prefixes all routes in that module.
+
+### Helmet
+
+```js
+const helmet = require('fastify-helmet')
+
+fastify.register(helmet)
+```
+
+See: [fastify-helmet](https://github.com/fastify/fastify-helmet)
+
+### fastify-plugin
+
+```js
+const fp = require('fastify-plugin')
+
+module.exports = fp((fastify, opts, next) => {
+  // your plugin code
+  fastify.decorate('utility', () => {})
+
+  next()
+}, '0.x')
+```
+
+Allows you to limit Fastify versions via semver, and allows you not make a new Fastify scope.
+
+See: [fastify-plugin](https://github.com/fastify/fastify-plugin)
+
+### Decorators
+
+Middleware
+----------
+
+### Middleware
+
+```js
+fastify.use(require('cors')())
+fastify.use(require('dns-prefetch-control')())
+fastify.use(require('frameguard')())
+fastify.use(require('hide-powered-by')())
+fastify.use(require('hsts')())
+fastify.use(require('ienoopen')())
+fastify.use(require('x-xss-protection')())
+```
+
+Compatible with Express and Restify middlewares. (Don't use these middleware, these are covered by [fastify-helmet](https://github.com/fastify/fastify-helmet).)
+
+See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middlewares.md)
+
+Template rendering
+------------------
+
+### point-of-view
+
+```js
+const fastify = require('fastify')()
+
+fastify.register(require('point-of-view'), {
+  engine: {
+    ejs: require('ejs')
+  }
+})
+```
+{: data-line="3"}
+
+```js
+fastify.get('/', (req, reply) => {
+  reply.view('/templates/index.ejs', { text: 'text' })
+})
+```
+{: data-line="2"}
+
+Support `ejs`, `pug`, `handlebars` and `marko`.
+
+See: [point-of-view](https://github.com/fastify/point-of-view)
+
+### Options
+
+```js
+fastify.register(require('point-of-view'), {
+  engine: {
+    ejs: require('ejs')
+  },
+  templates: '/templates',
+  options: {}
+})
+```
+
+`templates` lets you update the templates folder. `options` are options passed onto the template engines.

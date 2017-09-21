@@ -16,8 +16,7 @@ updated: 2017-09-04
 
 ### Presets
 
-Date
-{: .-setup}
+#### Date
 
 | Example         | Output                 |
 | ---             | ---                    |
@@ -26,8 +25,7 @@ Date
 | `%b %e %a`      | `Jun 5 Sun`            |
 {: .-shortcuts}
 
-Time
-{: .-setup}
+#### Time
 
 | Example         | Output                 |
 | ---             | ---                    |
@@ -80,8 +78,7 @@ Used by Ruby, UNIX `date`, and many more.
 
 ### Examples
 
-Date
-{:.-setup}
+#### Date
 
 | Example              | Output                             |
 | ---                  | ---                                |
@@ -89,8 +86,7 @@ Date
 | `dddd, MMMM Do YYYY` | `Friday, May 16th 2014`            |
 {: .-shortcuts}
 
-Time
-{: .-setup}
+#### Time
 
 | Example              | Output                             |
 | ---                  | ---                                |

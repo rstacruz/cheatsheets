@@ -27,6 +27,12 @@
     </aside>
   {% endif %}
 
+  {% if page.intro %}
+    <div class='intro-content MarkdownBody'>
+      {{ page.intro | markdownify }}
+    </div>
+  {% endif %}
+
   <main class='post-content MarkdownBody' data-js-main-body>
     {{ content }}
   </main>

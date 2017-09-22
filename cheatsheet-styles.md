@@ -2,6 +2,7 @@
 title: Cheatsheet styles
 layout: 2017/sheet
 tags: [WIP]
+updated: 2017-09-22
 intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How
   meta!

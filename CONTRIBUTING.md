@@ -10,46 +10,7 @@ make
 
 ## CSS classes
 
-`h2` supports these:
-
-    {: .-two-column}
-    {: .-three-column}
-    {: .-wide-second}       # combine with -xxx-column
-    {: .-left-reference}
-
-`h3` supports these:
-
-    {: .-prime}             # Highlight the body
-
-`table` supports these:
-
-    {: .-shortcuts}
-    {: .-left-align}
-    {: .-headers}
-
-`p` supports these:
-
-    {: .-setup}             # Gray background
-    {: .-crosslink}         # Link with big arrow
-
-`pre` supports these:
-
-    {: .-setup}             # Gray background
-    {: .-box-chars}         # Box-drawing chars
-
-`ul` supports these:
-
-    {: .-also-see}
-    {: .-four-column}
-    {: .-six-column}
-
-`h3` sections can have:
-
-    pre
-    p
-    ul
-    table
-    h4
+See <https://ricostacruz.com/cheatsheets/cheatsheet-styles> for a reference on styling.
 
 ## Frontmatter
 

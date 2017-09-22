@@ -4,41 +4,36 @@ layout: 2017/sheet
 tags: [WIP]
 intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How
-  meta! You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
+  meta!
+  You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
 ---
 
-Sections
+Intro
+-----
+
+Variants
 --------
 {: .-three-column}
 
-### Adding variants
-{: .-prime}
-
-```
-## Section
-{: .-two-column}
-```
-
-Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
-
 ### H2 sections
 
-| `-one-column` | 1 column |
-| `-two-column` | _(default)_ 2 columns |
-| `-three-column` | 3 columns |
+| `-one-column` | |
+| `-two-column` | _(default)_|
+| `-three-column` | |
 | `-left-reference` | 3 columns<br>_(short first column)_ |
+| `-no-hide` | Don't hide H2 |
 
 See: [H2 sections](#two-columns)
 
 ### H3 sections
 
-| `-prime` | Adds highlight |
+| `-prime` | Highlight |
 
 See: [H3 sections](#h3-sections-1)
 
 ### Tables
 
-| `-shortcuts` | For shortcut keys |
+| `-shortcuts` | Shortcut keys |
 | `-left-align` | Don't right align last column |
 | `-headers` | Show headers |
 
@@ -57,17 +52,25 @@ See: [Code](#code-1)
 | `-crosslink` | Has arrow on the link |
 {: .-gray}
 
-Paragraphs are automatically gray, unless they're the first elements in an H3 section.
-
 See: [Paragraphs](#paragraphs-1)
 
 ### Lists
 
 | `-also-see` | Lighter background |
-| `-four-column` | 4 columns |
-| `-six-column` | 6 columns |
+| `-four-column` | |
+| `-six-column` | |
 
 See: [Lists](#lists-1)
+
+### Adding variants
+{: .-prime}
+
+```
+## Section
+{: .-two-column}
+```
+
+Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
 
 H3 sections
 -----------

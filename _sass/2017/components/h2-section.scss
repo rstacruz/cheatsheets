@@ -4,7 +4,7 @@
 
 /* Hide the first h2 heading */
 .h2-section {
-  &:first-child > h2 {
+  &:first-child:not(.-no-hide) > h2 {
     display: none;
   }
 

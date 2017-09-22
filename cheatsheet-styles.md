@@ -26,18 +26,15 @@ Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
 | `-one-column` | 1 column |
 | `-two-column` | _(default)_ 2 columns |
 | `-three-column` | 3 columns |
-| `-wide-second` | Combine with `-three-column` |
 | `-left-reference` | 3 columns<br>_(short first column)_ |
 
-[H2 sections](#two-columns)
-{: .-crosslink}
+See: [H2 sections](#two-columns)
 
 ### H3 sections
 
 | `-prime` | Adds highlight |
 
-[H3 sections](#h3-sections-1)
-{: .-crosslink}
+See: [H3 sections](#h3-sections-1)
 
 ### Tables
 
@@ -45,18 +42,16 @@ Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
 | `-left-align` | Don't right align last column |
 | `-headers` | Show headers |
 
-[Tables](#tables-1)
-{: .-crosslink}
+See: [Tables](#tables-1)
 
 ### Code
 
 | `-setup` | Gray background |
 | `-box-chars` | Less line height<br>_for box drawing chars_ |
 
-[Code](#code-1)
-{: .-crosslink}
+See: [Code](#code-1)
 
-### Paragraph
+### Paragraphs
 
 | `-setup` | Gray background |
 | `-crosslink` | Has arrow on the link |
@@ -64,14 +59,15 @@ Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
 
 Paragraphs are automatically gray, unless they're the first elements in an H3 section.
 
+See: [Paragraphs](#paragraphs-1)
+
 ### Lists
 
 | `-also-see` | Lighter background |
 | `-four-column` | 4 columns |
 | `-six-column` | 6 columns |
 
-[Lists](#lists-1)
-{: .-crosslink}
+See: [Lists](#lists-1)
 
 H3 sections
 -----------
@@ -274,6 +270,41 @@ Add `{: .-four-column}` to make large lists.
 
 Add `{: .-also-see}`.
 
+## Paragraphs
+{: .-three-column}
+
+### Basic paragraphs
+
+This is a basic section with paragraphs in it. When paragraphs are the first elements in an H3 section's body, they appear as white.
+
+### Basic paragraphs
+
+```
+···
+```
+
+When paragraphs appear after `pre`/`table`/`ul`, they appear with a gray background.
+
+### Preludes
+
+Here's a prelude paragraph. Add `{: .-setup}` to make paragraphs appear with a gray background.
+{: .-setup}
+
+```
+···
+```
+
+### Crosslink
+
+Add `{: .-crosslink}` to make big loud external links:
+
+```
+···
+```
+
+[Home](/)
+{: .-crosslink}
+
 ## Tables
 {: .-three-column}
 
@@ -329,6 +360,34 @@ Add `{: .-headers}` to add headers.
 ```
 
 ### Two
+
+```
+···
+```
+
+## Left reference
+{: .-left-reference}
+
+### One
+
+```
+···
+···
+···
+···
+···
+···
+···
+···
+```
+
+### Two
+
+```
+···
+```
+
+### Three
 
 ```
 ···

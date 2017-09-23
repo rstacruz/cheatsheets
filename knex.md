@@ -2,31 +2,81 @@
 title: Knex
 category: Hidden
 layout: 2017/sheet
+updated: 2017-09-23
+intro: |
+  [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
+  This guide targets v0.13.0.
 ---
 
 ## Getting started
 {: .-three-column}
 
+### Connect
+
+```js
+require('knex')({
+  client: 'pg',
+  connection: 'postgres://user:pass@localhost:5432/dbname'
+})
+```
+
+See: [Connect](#connect-1)
+
 ### Create table
 
 ```js
-knex.schema.createTable('accounts', (table) => {
+knex.schema.createTable('user', (table) => {
   table.increments('id')
-  table.string('account_name')
-  table.integer('user_id').unsigned().references('users.id')
+  table.string('name')
+  table.integer('age')
 })
-.then(() => {
-})
+.then(() => ···)
 ```
+
+See: [Schema](#schema)
 
 ### Select
 
 ```js
 knex('users')
-  .where({ email: 'hello@example.com' })
-  .then(rows => {
-  })
+  .where({ email: 'hi@example.com' })
+  .then(rows => ···)
 ```
+{: data-line="2"}
+
+See: [Select](#elect-1)
+
+### Insert
+
+```js
+knex('users')
+  .insert({ email: 'hi@example.com' })
+```
+{: data-line="2"}
+
+See: [Insert](#insert-1)
+
+### Update
+
+```js
+knex('users')
+  .where({ id: 135 })
+  .update({ email: 'hi@example.com' })
+```
+{: data-line="2,3"}
+
+See: [Update](#update-1)
+
+### Migrations
+
+```
+knex init
+knex migrate:make migration_name
+knex migrate:latest
+knex migrate:rollback
+```
+
+See: [Migrations](#migrations-1)
 
 ## Connect
 {: .-three-column}
@@ -132,6 +182,8 @@ knex
   })
 ```
 
+See: [Where clauses](http://knexjs.org/#Builder-wheres)
+
 ### Join
 
 ```js
@@ -169,7 +221,6 @@ knex('users')
   .joinRaw('natural full join table1')
 ```
 
-
 #### Grouping
 
 ```js
@@ -190,6 +241,8 @@ knex('users')
       .onNotExists(···)
   })
 ```
+
+See: [Join methods](http://knexjs.org/#Builder-join)
 
 ### Others
 
@@ -234,6 +287,8 @@ knex('users')
   .unionAll(···)
 ```
 
+See: [Query builder](http://knexjs.org/#Builder)
+
 ### Etc
 
 ```js
@@ -264,19 +319,158 @@ knex('users')
   .avg('age')
 ```
 
+See: [Query builder](http://knexjs.org/#Builder)
+
 ## Schema
 
 ### Create table
 
 ```js
-knex.schema.createTable('accounts', (table) => {
+knex.schema.createTable('accounts', table => {
+```
+
+#### Columns
+
+```js
   table.increments('id')
   table.string('account_name')
-  table.integer('user_id').unsigned().references('users.id')
+  table.integer('age')
+  table.float('age')
+  table.decimal('balance', 8, 2)
+  table.boolean('is_admin')
+  table.date('birthday')
+  table.time('created_at')
+  table.timestamp('created_at').defaultTo(knex.fn.now())
+  table.json('profile')
+  table.jsonb('profile')
+  table.uuid('id').primary()
+```
+
+#### Constraints
+
+```js
+  table.unique('email')
+  table.unique(['email', 'company_id'])
+  table.dropUnique(···)
+```
+
+#### Indices
+
+```js
+  table.foreign('company_id')
+    .references('companies.id')
+  table.dropForeign(···)
+```
+
+#### Variations
+
+```js
+  table.integer('user_id')
+    .unsigned()
+    .references('users.id')
+```
+
+```js
 })
-.then(() => {
+.then(() => ···)
+```
+{: .-setup}
+
+See: [Schema builder](http://knexjs.org/#Schema)
+
+### Alter table
+
+```js
+knex.schema.table('accounts', table => {
+```
+
+#### Create
+
+```js
+  table.string('first_name')
+```
+
+#### Alter
+
+```js
+  table.string('first_name').alter()
+  table.renameColumn('admin', 'is_admin')
+```
+
+#### Drop
+
+```js
+  table.dropColumn('admin')
+  table.dropTimestamps('created_at')
+```
+
+```js
 })
 ```
+{: .-setup}
+
+See: [Schema builder](http://knexjs.org/#Schema)
+
+### Other methods
+
+```js
+knex.schema
+  .renameTable('persons', 'people')
+  .dropTable('persons')
+```
+
+```js
+  .hasTable('users').then(exists => ···)
+  .hasColumn('users', 'id').then(exists => ···)
+```
+
+See: [Schema builder](http://knexjs.org/#Schema)
+
+## Modifying
+{: .-three-column}
+
+### Insert
+
+```js
+knex('users')
+```
+
+#### Insert one
+
+```js
+  .insert({ name: 'John' })
+```
+
+#### Insert many
+
+```js
+  .insert([
+    { name: 'Starsky' },
+    { name: 'Hutch' }
+  ])
+```
+
+See: [Insert](http://knexjs.org/#Builder-insert)
+
+### Update
+
+```js
+knex('users')
+  .where({ id: 2 })
+  .update({ name: 'Homer' })
+```
+
+See: [Update](http://knexjs.org/#Builder-update)
+
+### Delete
+
+```js
+knex('users')
+  .where({ id: 2 })
+  .del()
+```
+
+See: [Delete](http://knexjs.org/#Builder-del)
 
 ## Migrations
 
@@ -306,3 +500,5 @@ knex migrate:latest --env production
 ```
 knex migrate:rollback
 ```
+
+See: [Migrations](http://knexjs.org/#Migrations)

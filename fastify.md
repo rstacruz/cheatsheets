@@ -189,6 +189,16 @@ fastify.register(
 ```
 {: data-line="3"}
 
+#### route.js
+
+```js
+module.exports = (fastify, options, next) => {
+  fastify.get('/', ···)
+  next()
+}
+```
+
+
 See: [Register](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#register)
 
 ### Multiple

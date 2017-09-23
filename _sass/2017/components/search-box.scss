@@ -13,7 +13,7 @@
     height: 64px;
     background: transparent;
     border: 0;
-    Flex: 1 0 auto;
+    flex: 1 0 auto;
     padding-left: 0;
     font-weight: bold;
     color: $base-head;
@@ -28,20 +28,27 @@
     outline: 0;
   }
 
-  & > .prefix,
-  & > .sep {
-    @include font-size(2);
+  & > .prefix {
+    @include font-size(0);
     display: block;
-    color: $base-mute;
+    color: rgba($base-mute, 0.5);
     font-weight: 400;
-    opacity: 0.5;
     user-select: none;
+    line-height: 1.5em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: rgba($base-body, 0.5);
+    margin: 0 0 0 16px;
+    box-shadow: 0 1px 1px rgba($base-mute, 0.25);
   }
 
   & > .sep {
+    color: rgba($base-mute, 0.5);
+    @include font-size(2);
     margin: 0 8px;
   }
 
+  // Icon
   &::before {
     @include ion-icon('md-search');
     font-size: 32px;
@@ -50,6 +57,7 @@
     width: 64px;
     line-height: 64px;
     text-align: center;
+    order: 2;
   }
 }
 

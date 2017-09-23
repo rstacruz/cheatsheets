@@ -97,8 +97,10 @@
   }
 
   // Offset so it doesn't look misasligned
-  & > .left > .home {
-    position: relative;
-    left: -16px;
+  @media (min-width: $area-width) {
+    & > .left > .home {
+      position: relative;
+      left: -16px;
+    }
   }
 }

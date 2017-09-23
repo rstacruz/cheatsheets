@@ -33,4 +33,11 @@
     margin-top: 32px;
     margin-bottom: -16px;
   }
+
+  @media (max-width: 480px) {
+    & > .adbox {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+  }
 }

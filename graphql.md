@@ -1,44 +1,76 @@
 ---
 title: GraphQL
-category: Misc
+layout: 2017/sheet
+updated: 2017-09-23
 ---
 
+## Intro
+
 ## Queries
+{: .-three-column}
+
+### Basic query
 
 ```js
 { status }
-// → { status: 'available' }
 ```
+
+#### ↓
+
+```js
+{ status: 'available' }
+```
+{: .-setup}
 
 ### Nesting
 
 ```js
 { hero { name height } }
-// → { hero:
-//     { name: "Luke Skywalker",
-//       height: 1.74 } }
 ```
 
+#### ↓
+
+```js
+{ hero:
+    { name: "Luke Skywalker",
+      height: 1.74 } }
+```
+{: .-setup}
+
 ### Lists
-GraphQL queries look the same for both single items or lists of items.
 
 ```js
 { friends { name } }
-// → { friends:
-//     [ { name: "Luke Skywalker" },
-//       { name: "Han Solo" },
-//       { name: "R2D2" } ] }
 ```
+
+#### ↓
+
+```js
+{ friends:
+    [ { name: "Luke Skywalker" },
+      { name: "Han Solo" },
+      { name: "R2D2" } ] }
+```
+{: .-setup}
+
+GraphQL queries look the same for both single items or lists of items.
+
 ### Lookups
 
 ```js
 {
   hero(id: "1000") { id name }
 }
-// → { hero:
-//     { id: "1000",
-//     { name: "Luke Skywalker" } }
 ```
+
+#### ↓
+
+```js
+{ hero:
+    { id: "1000",
+    { name: "Luke Skywalker" } }
+```
+{: .-setup}
 
 ### Aliases
 
@@ -47,38 +79,58 @@ GraphQL queries look the same for both single items or lists of items.
   luke: hero(id: "1000") { name }
   han: hero(id: "1001") { name }
 }
-// → { luke:
-//     { name: "Luke Skywalker" },
-//     han:
-//     { name: "Han Solo" } }
 ```
+
+#### ↓
+
+```js
+{ luke:
+    { name: "Luke Skywalker" },
+    han:
+    { name: "Han Solo" } }
+```
+{: .-setup}
 
 ### Operation names and variables
 
-Just to make things less ambiguous. Also, to use variables, you need an operation name.
-
+#### Query
 ```js
 query FindHero($id: String!) {
   hero(id: $id) { name }
 }
----
-{ id: '1000' }     // Variables
+```
+
+Just to make things less ambiguous. Also, to use variables, you need an operation name.
+
+#### Variables
+
+```js
+{ id: '1000' }
 ```
 
 ### Mutations
 
-Mutations are just fields that do something when queried.
+#### Query
 
 ```js
-{ createReview($review) { id } }  // Query
----
-{ review: { stars: 5 } }          // Variables
-// → { createReview: { id: 5291 } }
+{ createReview($review) { id } }
 ```
 
-### Multiple types
+#### Variables
 
-Great for searching.
+```js
+{ review: { stars: 5 } }
+```
+
+#### ↓
+
+```js
+{ createReview: { id: 5291 } }
+```
+
+Mutations are just fields that do something when queried.
+
+### Multiple types
 
 ```js
 {
@@ -90,31 +142,125 @@ Great for searching.
 }
 ```
 
+Great for searching.
+
+
 Over HTTP
 ---------
 
+#### GET
+
 ```js
-// Get
-fetch('http://myapi/graphql?query={me{name}')
+fetch('http://myapi/graphql?query={ me { name } }')
 ```
 
-### POST
+#### POST
 
 ```js
-// Post
 fetch('http://myapi/graphql', {
   body: JSON.stringify({
-    query: "...",
-    operationName: "...",
-    "variables": { ... }
+    query: '...',
+    operationName: '...',
+    variables: { ... }
   })
 })
 ```
 
 Schema
 ------
+{: .-three-column}
 
-See: <https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png>
+### Basic schemas
+
+```js
+type Query {
+  me: User
+  users(limit: Int): [User]
+}
+
+type User {
+  id: ID!
+  name: String
+}
+```
+
+See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
+
+### Built in types
+
+#### Scalar types
+
+| `Int` | Integer |
+| `Float` | Float |
+| `String` | String |
+| `Boolean` | Boolean |
+| `ID` | ID |
+
+#### Type definitions
+
+| `scalar` | Scalar type |
+| `type` | Object type |
+| `interface` | Interface type |
+| `union` | Union type |
+| `enum` | Enumerable type |
+| `input` | Input object type |
+
+#### Type modifiers
+
+| `String` | Nullable string |
+| `String!` | Required string |
+| `[String]` | List of strings |
+| `[String]!` | Required list of strings |
+| `[String!]!` | Required list of required strings |
+
+### Mutations
+
+```js
+type Mutation {
+  users(params: ListUsersInput) [User]!
+}
+```
+
+### Interfaces
+
+```js
+interface Entity {
+  id: ID!
+}
+
+type User implements Entity {
+  id: ID!
+  name: String
+}
+```
+
+### Enums
+
+```js
+enum DIRECTION {
+  LEFT
+  RIGHT
+}
+
+type Root {
+  direction: DIRECTION!
+}
+```
+{: data-line="1,2,3,4"}
+
+### Unions
+
+```js
+type Artist { ··· }
+type Album { ··· }
+
+union Result = Artist | Album
+
+type Query {
+  search(q: String) [Result]
+}
+```
+{: data-line="4"}
 
 References
 ----------

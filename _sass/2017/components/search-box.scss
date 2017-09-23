@@ -48,6 +48,18 @@
     margin: 0 8px;
   }
 
+  // Hide prefix in mobiel
+  @media (max-width: 768px) {
+    & > .prefix,
+    & > .sep {
+      display: none;
+    }
+
+    & > input {
+      padding-left: 16px;
+    }
+  }
+
   // Icon
   &::before {
     @include ion-icon('md-search');

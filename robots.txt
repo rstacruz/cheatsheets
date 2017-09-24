@@ -216,14 +216,6 @@ Disallow: /parsley
 Disallow: /pass
 Disallow: /passenger
 Disallow: /perl-pie
-Disallow: /phoenix-conn
-Disallow: /phoenix-ecto
-Disallow: /phoenix-ecto@1.2
-Disallow: /phoenix-ecto@1.3
-Disallow: /phoenix-migrations
-Disallow: /phoenix-routing
-Disallow: /phoenix
-Disallow: /phoenix@1.2
 Disallow: /plantuml
 Disallow: /postgresql-json
 Disallow: /postgresql

@@ -116,6 +116,71 @@ $(function () {
 })
 
 /*
+ * Behavior: dismiss button
+ */
+
+$(function () {
+  $('[data-js-dismiss]').each(function () {
+    var $button = $(this)
+    var $parent = $button.closest('[data-js-dismissable]')
+    var id = $parent.data('js-dismissable').id || ''
+
+    $button.on('click', function (e) {
+      Dismiss.setDismissed(id)
+      e.preventDefault()
+      $parent.remove()
+    })
+  })
+
+  $('[data-js-dismissable]').each(function () {
+    var $this = $(this)
+    var id = $this.data('js-dismissable').id || ''
+    const isDismissed = Dismiss.isDismissed(id)
+    if (isDismissed || window.location.search.indexOf('preview') !== -1) {
+      $this.remove()
+    } else {
+      $this.removeClass('-hide')
+    }
+  })
+})
+
+/*
+ * Helper: dismissed
+ */
+
+const Dismiss = {
+  setDismissed: function (id) {
+    Store.update('dismissed', function (data) {
+      data[id] = true
+      return data
+    })
+  },
+
+  isDismissed: function (id) {
+    const data = Store.fetch('dismissed')
+    return data && data[id]
+  }
+}
+
+/*
+ * Simple LocalStorage shim
+ */
+
+const Store = {
+  update: function (key, fn) {
+    if (!window.localStorage) return
+    let data = JSON.parse(window.localStorage[key] || '{}')
+    data = fn(data)
+    window.localStorage[key] = JSON.stringify(data)
+  },
+
+  fetch: function (key) {
+    if (!window.localStorage) return
+    return JSON.parse(window.localStorage[key] || '{}')
+  }
+}
+
+/*
  * Helper: injects disqus
  */
 

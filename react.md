@@ -6,6 +6,8 @@ ads: true
 tags: [Featured]
 updated: 2017-09-01
 weight: -10
+intro: |
+  [React](https://facebook.github.io/react/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 
 # React 16 notes
 # --------------
@@ -220,6 +222,8 @@ Lifecycle
 | `componentDidMount()` | After rendering (DOM available) [#](https://facebook.github.io/react/docs/react-component.html#componentdidmount) |
 | --- | --- |
 | `componentWillUnmount()` | Before DOM removal [#](https://facebook.github.io/react/docs/react-component.html#componentwillunmount) |
+| --- | --- |
+| `componentDidCatch()` | Catch errors (16+) [#](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) |
 
 Set initial the state on `constructor()`.
 Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
@@ -380,6 +384,71 @@ Always supply a `key` property.
     : null}
 </div>
 ```
+
+New features
+------------
+{: .-three-column}
+
+### Returning fragments
+
+```js
+render () {
+  // Don't forget the keys!
+  return [
+    <li key="A">First item</li>,
+    <li key="B">Second item</li>
+  ]
+}
+```
+{: data-line="3,4,5,6"}
+
+You can return multiple nodes as arrays.
+
+See: [Fragments and strings](https://facebook.github.io/react/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
+
+### Errors
+
+```js
+class MyComponent extends React.Component {
+  ···
+  componentDidCatch (error, info) {
+    this.setState({ error })
+  }
+}
+```
+{: data-line="3,4,5"}
+
+Catch errors via `componentDidCatch`. (React 16+)
+
+See: [Error handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html)
+
+### Portals
+
+```js
+render () {
+  return React.createPortal(
+    this.props.children,
+    document.getElementById('menu')
+  )
+}
+```
+{: data-line="2,3,4,5"}
+
+This renders `this.props.children` into any location in the DOM.
+
+See: [Portals](https://facebook.github.io/react/docs/portals.html)
+
+### Hydration
+
+```js
+const el = document.getElementById('app')
+ReactDOM.hydrate(<App />, el)
+```
+{: data-line="2"}
+
+Use `ReactDOM.hydrate` instead of using `ReactDOM.render` if you're rendering over the output of [ReactDOMServer](https://facebook.github.io/react/docs/react-dom-server.html).
+
+See: [Hydrate](https://facebook.github.io/react/docs/react-dom.html#hydrate)
 
 Property validation
 -------------------

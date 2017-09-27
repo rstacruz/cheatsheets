@@ -19,7 +19,7 @@ social_list:
 
 related_posts_callout:
   description: Over SIZE curated cheatsheets, by developers for developers.
-  link: Cheatsheets home
+  link: Devhints home
 
 related_posts_group:
   top: Top cheatsheets

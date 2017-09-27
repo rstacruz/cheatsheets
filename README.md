@@ -1,6 +1,6 @@
-# Rico's cheatsheets
+# Devhints
 
-> Collection of web development cheatsheets
+> TL;DR for developer documentation - a ridiculous collection of cheatsheets
 
 <br>
 

@@ -21,6 +21,7 @@ exclude:
   - yarn.lock
   - package-lock.json
   - webpack.config.js
+  - node_modules
 
 # Markdown
 

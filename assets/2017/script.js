@@ -1,14 +1,4 @@
 /*
- * Behavior: preview=1
- */
-
-$(function () {
-  if (~window.location.search.indexOf('preview=1')) {
-    $('[data-js-no-preview]').remove()
-  }
-})
-
-/*
  * Behavior: Wrapping
  */
 

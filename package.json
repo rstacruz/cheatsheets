@@ -9,6 +9,8 @@
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.0",
+    "css-loader": "0.28.7",
+    "style-loader": "0.18.2",
     "webpack": "3.6.0"
   },
   "babel": {
@@ -17,6 +19,13 @@
     ]
   },
   "scripts": {
-    "dev": "webpack --watch --progress --colors"
+    "dev": "webpack --watch --progress --colors",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "isotope-layout": "3.0.4",
+    "jquery": "3.2.1",
+    "prismjs": "1.8.1",
+    "sanitize.css": "5.0.0"
   }
 }

@@ -13,17 +13,14 @@
     "style-loader": "0.18.2",
     "webpack": "3.6.0"
   },
-  "babel": {
-    "presets": [
-      "env"
-    ]
-  },
   "scripts": {
     "dev": "webpack --watch --progress --colors",
     "prepublish": "webpack"
   },
   "dependencies": {
+    "babel-polyfill": "6.26.0",
     "dom101": "1.3.0",
+    "hint.css": "2.5.0",
     "isotope-layout": "3.0.4",
     "jquery": "3.2.1",
     "onmount": "1.3.0",

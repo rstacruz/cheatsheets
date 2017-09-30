@@ -18,8 +18,7 @@ module.exports = {
           { loader: 'babel-loader' }
         ]
       }
-    ],
-    rules: [
+      ,
       {
         test: /\.css$/,
         use: [

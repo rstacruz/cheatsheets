@@ -2,6 +2,12 @@ import $ from 'jquery'
 import Isotope from 'isotope-layout/dist/isotope.pkgd.js'
 
 /*
+ * Ensure that main-body is evaluated first
+ */
+
+import './main-body'
+
+/*
  * Behavior: Isotope
  */
 

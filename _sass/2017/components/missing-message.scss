@@ -35,4 +35,12 @@
     color: $base-mute;
     flex: 0 0 auto;
   }
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+
+    & > p {
+      margin-top: 16px;
+    }
+  }
 }

@@ -59,3 +59,13 @@ a:hover {
 [aria-hidden]:not(.line-highlight) {
   display: none !important;
 }
+
+// No tooltips on mobile
+@media (max-width: 580px) {
+  .hint--bottom {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}

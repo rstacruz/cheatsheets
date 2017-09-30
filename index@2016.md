@@ -1,6 +1,6 @@
 ---
-full_title: "Cheatsheets — for web development and more"
-description: "A collection of cheatsheets I've written."
+full_title: "Devhints — for web development and more"
+description: "TL;DR for developer documentation - a ridiculous collection of cheatsheets"
 layout: home
 type: home
 og_type: website

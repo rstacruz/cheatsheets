@@ -99,6 +99,13 @@
     }
   }
 
+  // Space them out in mobile
+  @media (max-width: 768px) {
+    & > .link {
+      margin-left: 16px;
+    }
+  }
+
   // Collapse
   & > .link:first-child > a {
     margin-left: 0;

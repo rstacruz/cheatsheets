@@ -13,12 +13,14 @@
   }
 
   & > h1 {
-    @include font-size(7);
+    @include font-size(8);
+    line-height: 1.2;
     margin: 0;
     padding: 0;
     color: $base-head;
     font-weight: 300;
     text-align: center;
+    margin-bottom: 16px;
   }
 
   & > .search {
@@ -32,5 +34,12 @@
   & > .adbox {
     margin-top: 32px;
     margin-bottom: -16px;
+  }
+
+  @media (max-width: 480px) {
+    & > .adbox {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
   }
 }

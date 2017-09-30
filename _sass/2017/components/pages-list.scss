@@ -50,6 +50,12 @@
     opacity: 0;
   }
 
+  @media (max-width: 768px) {
+    & > .info > .title {
+      display: none;
+    }
+  }
+
   &:hover,
   &:focus {
     & {

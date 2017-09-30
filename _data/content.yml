@@ -1,9 +1,10 @@
 home:
   title: "Rico's cheatsheets"
-  tagline: "Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written."
+  tagline: |
+    Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.
 
 top_nav:
-  title: Devhints
+  title: Devhints.io
   edit: Edit
   edit_on_github: Edit this page on GitHub
 
@@ -18,7 +19,7 @@ social_list:
 
 related_posts_callout:
   description: Over SIZE curated cheatsheets, by developers for developers.
-  link: Cheatsheets home
+  link: Devhints home
 
 related_posts_group:
   top: Top cheatsheets
@@ -38,3 +39,9 @@ not_found:
   title: Not found
   description: Sorry, we don't have a cheatsheet for this yet. Try searching!
   home: Back to home
+
+announcement:
+  id: 2017-09-25-devhints-io
+  title: New URL 🎉
+  body: |
+    Hey, ricostacruz.com/cheatsheets is moving to devhints.io! Same content with a shorter and easier to remember URL.

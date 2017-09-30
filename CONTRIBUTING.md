@@ -10,7 +10,7 @@ make
 
 ## CSS classes
 
-See <https://ricostacruz.com/cheatsheets/cheatsheet-styles> for a reference on styling.
+See <https://devhints.io/cheatsheet-styles> for a reference on styling.
 
 ## Frontmatter
 

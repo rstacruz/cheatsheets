@@ -16,6 +16,11 @@ exclude:
   - Gemfile.lock
   - CNAME
   - vendor
+  - package.json
+  - .babelrc
+  - yarn.lock
+  - package-lock.json
+  - webpack.config.js
 
 # Markdown
 

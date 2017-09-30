@@ -1,0 +1,22 @@
+{
+  "name": "cheatsheets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rstacruz/cheatsheets.git",
+  "author": "Rico Sta. Cruz <rstacruz@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.0",
+    "webpack": "3.6.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "scripts": {
+    "dev": "webpack --watch --progress --colors"
+  }
+}

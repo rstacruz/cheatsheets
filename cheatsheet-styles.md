@@ -34,9 +34,10 @@ See: [H3 sections](#h3-sections-1)
 
 ### Tables
 
-| `-shortcuts` | Shortcut keys |
-| `-left-align` | Don't right align last column |
+| `-bold-first` | Bold first column |
 | `-headers` | Show headers |
+| `-left-align` | Don't right align last column |
+| `-shortcuts` | Shortcut keys |
 
 See: [Tables](#tables-1)
 

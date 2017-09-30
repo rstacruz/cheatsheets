@@ -8,20 +8,14 @@ intro: |
 ## Numbers
 {: .-two-column}
 
-### General
+### Western
 
 | Restaurant    | Online order                                                        | Phone       |
 | ---           | ---                                                                 | ---         |
 | Burger King   | [burgerkingdelivery.com.ph](https://www.burgerkingdelivery.com.ph/) | `2-22-22`   |
-| Chowking      | [chowkingdelivery.com](http://www.chowkingdelivery.com)             | `9-8888`    |
-| Goldilock's   | [goldilocksdelivery.com.ph](http://www.goldilocksdelivery.com.ph/)  | `888-1-999` |
-| Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
 | KFC           | [kfc.com.ph](https://www.kfc.com.ph)                                | `887-8888`  |
 | Kenny Rogers  | [kennys.com.ph](http://kennys.com.ph/)                              | `555-9000`  |
-| Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |
-| Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
 | McDonald's    | [mcdonalds.com.ph](http://www.mcdonalds.com.ph/mcdelivery)          | `8-6236`    |
-| North Park    | [northparkdelivery.com](http://northparkdelivery.com/)              | `7-3737`    |
 | Pancake House | [pancakehouse.com.ph](https://www.pancakehouse.com.ph/)             | `7-9000`    |
 | Wendy's       | [wendys.com.ph](https://wendys.com.ph/delivery/)                    | `533-3333`  |
 {: .-bold-first.-headers}
@@ -38,3 +32,22 @@ intro: |
 | Shakey's      | [shakeyspizza.ph](http://order.shakeyspizza.ph/)          | `77-7777`  |
 | Yellow Cab    | [yellowcabpizza.com](http://delivery.yellowcabpizza.com/) | `789-9999` |
 {: .-bold-first.-headers}
+
+### Asian
+
+| Restaurant    | Online order                                                        | Phone       |
+| ---           | ---                                                                 | ---         |
+| Chowking      | [chowkingdelivery.com](http://www.chowkingdelivery.com)             | `9-8888`    |
+| North Park    | [northparkdelivery.com](http://northparkdelivery.com/)              | `7-3737`    |
+{: .-bold-first.-headers}
+
+### Filipino
+
+| Restaurant    | Online order                                                        | Phone       |
+| ---           | ---                                                                 | ---         |
+| Goldilock's   | [goldilocksdelivery.com.ph](http://www.goldilocksdelivery.com.ph/)  | `888-1-999` |
+| Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
+| Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |
+| Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
+{: .-bold-first.-headers}
+

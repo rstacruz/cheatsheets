@@ -1194,9 +1194,9 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-dom101@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/dom101/-/dom101-1.3.0.tgz#d7fca30686240171b6cf17c2e855d6a32fa2c9c9"
+dom101@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/dom101/-/dom101-2.0.1.tgz#b40f643ce977e30989014bce40479bceef0ff29a"
 
 domain-browser@^1.1.1:
   version "1.1.7"

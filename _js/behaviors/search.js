@@ -1,3 +1,6 @@
+import $ from 'jquery'
+import * as Search from '../helpers/search'
+
 /*
  * Behavior: Search
  */
@@ -68,30 +71,6 @@ function splitwords (str) {
 
   return words
 }
-
-/*
- * Search
- */
-
-const Search = {
-  showAll () {
-    $('[data-search-index]').removeAttr('aria-hidden')
-  },
-
-  show (val) {
-    const keywords = splitwords(val)
-
-    if (!keywords.length) return Search.showAll()
-
-    const selectors = keywords
-      .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
-      .join('')
-
-    $('[data-search-index]').attr('aria-hidden', true)
-    $(selectors).removeAttr('aria-hidden')
-  }
-}
-
 
 /*
  * Helper: minimal qs implementation

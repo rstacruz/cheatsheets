@@ -23,8 +23,10 @@
     "prepublish": "webpack"
   },
   "dependencies": {
+    "dom101": "1.3.0",
     "isotope-layout": "3.0.4",
     "jquery": "3.2.1",
+    "onmount": "1.3.0",
     "prismjs": "1.8.1",
     "sanitize.css": "5.0.0"
   }

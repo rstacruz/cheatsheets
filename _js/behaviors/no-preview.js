@@ -1,11 +1,14 @@
 import $ from 'jquery'
+import ready from 'dom101/ready'
+import remove from 'dom101/remove'
+import onmount from 'onmount'
 
 /*
- * Behavior: [data-js-no-preview]
+ * Behavior: Things to remove when preview mode is on
  */
 
-$(function () {
+onmount('[data-js-no-preview]', function (b) {
   if (~window.location.search.indexOf('preview=1')) {
-    $('[data-js-no-preview]').remove()
+    remove(this)
   }
 })

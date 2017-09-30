@@ -3,14 +3,6 @@
  */
 
 $(function () {
-  $('[data-js-searchable-item]').each(function () {
-    const $this = $(this)
-    const data = $this.data('js-searchable-item')
-    const words = permutate(data)
-
-    $this.attr('data-search-index', words.join(' '))
-  })
-
   // Propagate item search indices to headers
   $('[data-js-searchable-header]').each(function () {
     const $this = $(this)
@@ -66,100 +58,6 @@ $(function () {
 })
 
 /*
- * Behavior: Disqus
- */
-
-$(function () {
-  $('[data-js-disqus]').each(function () {
-    const $this = $(this)
-    const data = $this.data('js-disqus')
-
-    window.disqus_config = function () {
-      this.page.url = data.url
-      this.page.identifier = data.identifier
-    }
-
-    injectDisqus(data.host)
-  })
-})
-
-/*
- * Behavior: dismiss button
- */
-
-$(function () {
-  $('[data-js-dismiss]').each(function () {
-    var $button = $(this)
-    var $parent = $button.closest('[data-js-dismissable]')
-    var id = $parent.data('js-dismissable').id || ''
-
-    $button.on('click', function (e) {
-      Dismiss.setDismissed(id)
-      e.preventDefault()
-      $parent.remove()
-    })
-  })
-
-  $('[data-js-dismissable]').each(function () {
-    var $this = $(this)
-    var id = $this.data('js-dismissable').id || ''
-    const isDismissed = Dismiss.isDismissed(id)
-    if (isDismissed || window.location.search.indexOf('preview') !== -1) {
-      $this.remove()
-    } else {
-      $this.removeClass('-hide')
-    }
-  })
-})
-
-/*
- * Helper: dismissed
- */
-
-const Dismiss = {
-  setDismissed: function (id) {
-    Store.update('dismissed', function (data) {
-      data[id] = true
-      return data
-    })
-  },
-
-  isDismissed: function (id) {
-    const data = Store.fetch('dismissed')
-    return data && data[id]
-  }
-}
-
-/*
- * Simple LocalStorage shim
- */
-
-const Store = {
-  update: function (key, fn) {
-    if (!window.localStorage) return
-    let data = JSON.parse(window.localStorage[key] || '{}')
-    data = fn(data)
-    window.localStorage[key] = JSON.stringify(data)
-  },
-
-  fetch: function (key) {
-    if (!window.localStorage) return
-    return JSON.parse(window.localStorage[key] || '{}')
-  }
-}
-
-/*
- * Helper: injects disqus
- */
-
-function injectDisqus (host) {
-  var d = document, s = d.createElement('script')
-  s.src = 'https://' + host + '/embed.js'
-  s.setAttribute('data-timestamp', +new Date())
-  ;(d.head || d.body).appendChild(s)
-}
-
-/*
  * Helper for splitting to words
  */
 
@@ -194,40 +92,6 @@ const Search = {
   }
 }
 
-/*
- * Permutator
- */
-
-function permutate (data) {
-  let words = []
-  if (data.slug) {
-    words = words.concat(permutateString(data.slug))
-  }
-  if (data.category) {
-    words = words.concat(permutateString(data.category))
-  }
-  return words
-}
-
-function permutateString (str) {
-  let words = []
-  let inputs = splitwords(str)
-
-  inputs.forEach(word => {
-    words = words.concat(permutateWord(word))
-  })
-
-  return words
-}
-
-function permutateWord (str) {
-  let words = []
-  const len = str.length
-  for (var i = 1; i <= len; ++i) {
-    words.push(str.substr(0, i))
-  }
-  return words
-}
 
 /*
  * Helper: minimal qs implementation

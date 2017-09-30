@@ -5,6 +5,7 @@
 $(function () {
   if (~window.location.search.indexOf('preview=1')) {
     $('[data-js-no-preview]').remove()
+    $('html').addClass('PreviewMode')
   }
 })
 

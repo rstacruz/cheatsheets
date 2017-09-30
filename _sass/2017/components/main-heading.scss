@@ -50,3 +50,11 @@
     background: lighten($gray-text, 40%);
   }
 }
+
+/**
+ * Add some space in preview mode
+ */
+
+.PreviewMode .main-heading {
+  margin-top: 16px;
+}

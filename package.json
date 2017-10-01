@@ -15,6 +15,7 @@
     "eslint-plugin-flowtype": "2.37.0",
     "jest": "21.2.1",
     "jest-html": "1.3.5",
+    "npm-run-all": "4.1.1",
     "prettier-standard": "7.0.1",
     "standard": "10.0.3",
     "style-loader": "0.18.2",
@@ -22,9 +23,13 @@
     "webpack": "3.6.0"
   },
   "scripts": {
-    "dev": "webpack --watch --progress --colors -p",
+    "dev": "run-p dev:webpack dev:jekyll",
+    "dev:webpack": "webpack --watch --colors -p",
+    "dev:jekyll": "bundle exec jekyll serve --safe --drafts --watch --port $PORT --incremental",
     "prepublish": "webpack -p",
     "test": "jest",
+    "test:all": "run-s test lint",
+    "lint": "standard -v",
     "jest-html": "jest-html"
   },
   "dependencies": {

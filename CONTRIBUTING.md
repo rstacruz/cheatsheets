@@ -2,10 +2,12 @@
 
 ## Starting a local instance
 
-This is a mere Jekyll site, and `bundle exec jekyll serve` should be fine. But I suggest you use this instead:
+This starts Jekyll and Webpack.
 
 ```
-make
+yarn install
+bundle install
+env PORT=4001 yarn run dev
 ```
 
 ## CSS classes
@@ -14,14 +16,11 @@ See <https://devhints.io/cheatsheet-styles> for a reference on styling.
 
 ## JavaScript
 
-When updating JavaScript, run the auto-updater:
-
-```
-yarn install
-yarn run dev
-```
+When updating JavaScript, be sure webpack is running (`yarn run dev` takes care of this).
 
 This auto-updates `/assets/packed/` with sources in `_js/`.
+
+## JavaScript tests
 
 There are also automated tests:
 

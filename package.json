@@ -7,15 +7,22 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-jest": "21.2.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.0",
     "css-loader": "0.28.7",
+    "eslint-plugin-flowtype": "2.37.0",
+    "jest": "21.2.1",
+    "prettier-standard": "7.0.1",
+    "standard": "10.0.3",
     "style-loader": "0.18.2",
     "webpack": "3.6.0"
   },
   "scripts": {
     "dev": "webpack --watch --progress --colors",
-    "prepublish": "webpack"
+    "prepublish": "webpack",
+    "test": "jest"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
@@ -26,5 +33,14 @@
     "onmount": "1.3.0",
     "prismjs": "1.8.1",
     "sanitize.css": "5.0.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "assets/script.js"
+    ],
+    "plugins": [
+      "flowtype"
+    ]
   }
 }

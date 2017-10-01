@@ -6,9 +6,9 @@
  */
 
 export default function injectDisqus (host) {
-  var d = document, s = d.createElement('script')
+  const d = document
+  const s = d.createElement('script')
   s.src = 'https://' + host + '/embed.js'
   s.setAttribute('data-timestamp', +new Date())
   ;(d.head || d.body).appendChild(s)
 }
-

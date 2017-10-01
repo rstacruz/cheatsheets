@@ -5,7 +5,8 @@ import $ from 'jquery'
  * Wraps h3 sections into h3-section.
  */
 
-export default function wrapify ($root) {
+export default function wrapify (root) {
+  const $root = $(root)
   const $h2sections = groupify($root, {
     tag: 'h2',
     wrapper: '<div class="h2-section">',

@@ -1,5 +1,3 @@
-import $ from 'jquery'
-import ready from 'dom101/ready'
 import remove from 'dom101/remove'
 import onmount from 'onmount'
 import addClass from 'dom101/add-class'

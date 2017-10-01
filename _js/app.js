@@ -7,6 +7,12 @@ require('prismjs/plugins/line-highlight/prism-line-highlight.min.js')
 require('sanitize.css')
 require('prismjs/plugins/line-highlight/prism-line-highlight.css')
 require('hint.css/hint.min.css')
+require('prismjs/components/prism-jsx.min.js')
+require('prismjs/components/prism-bash.min.js')
+require('prismjs/components/prism-scss.min.js')
+require('prismjs/components/prism-css.min.js')
+require('prismjs/components/prism-elixir.min.js')
+require('prismjs/components/prism-ruby.min.js')
 
 // All the others
 function requireAll (r) { r.keys().forEach(r) }

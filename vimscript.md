@@ -125,7 +125,7 @@ toupper('Hello')
 ```
 
 Also see `:help functions`
-See: [String functions](learnvimscriptthehardway.stevelosh.com/chapters/27.html)
+See: [String functions](http://learnvimscriptthehardway.stevelosh.com/chapters/27.html)
 
 Functions
 ---------

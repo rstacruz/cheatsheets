@@ -130,3 +130,9 @@
     white-space: auto;
   }
 }
+
+.MarkdownBody table.-bold-first {
+  & tr > td:first-child {
+    font-weight: bold;
+  }
+}

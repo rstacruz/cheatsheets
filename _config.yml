@@ -16,6 +16,12 @@ exclude:
   - Gemfile.lock
   - CNAME
   - vendor
+  - package.json
+  - .babelrc
+  - yarn.lock
+  - package-lock.json
+  - webpack.config.js
+  - node_modules
 
 # Markdown
 
@@ -40,13 +46,7 @@ defaults:
       type: article
       category: "Others"
       excerpt_separator: "<!--more-->"
-      prism_languages:
-        - jsx
-        - bash
-        - scss
-        - css
-        - elixir
-        - ruby
+      prism_languages: []
 
 # Site info
 

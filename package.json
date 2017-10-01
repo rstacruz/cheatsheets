@@ -18,11 +18,12 @@
     "prettier-standard": "7.0.1",
     "standard": "10.0.3",
     "style-loader": "0.18.2",
+    "uglifyjs-webpack-plugin": "0.4.6",
     "webpack": "3.6.0"
   },
   "scripts": {
-    "dev": "webpack --watch --progress --colors",
-    "prepublish": "webpack",
+    "dev": "webpack --watch --progress --colors -p",
+    "prepublish": "webpack -p",
     "test": "jest",
     "jest-html": "jest-html"
   },

@@ -8,7 +8,6 @@ import onmount from 'onmount'
 
 ready(() => {
   const body = document.querySelector('[data-js-main-body]')
-  if (!body) return
-  wrapify(body)
+  if (body) { wrapify(body) }
   setTimeout(() => { onmount() })
 })

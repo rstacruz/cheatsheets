@@ -4,12 +4,6 @@ import Isotope from 'isotope-layout/dist/isotope.pkgd.js'
 import onmount from 'onmount'
 
 /*
- * Ensure that main-body is evaluated first
- */
-
-import './main-body'
-
-/*
  * Behavior: Isotope
  */
 

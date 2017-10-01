@@ -9,12 +9,7 @@
 
   <!-- 3rd-party libs -->
   {% for lang in page.prism_languages %}<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-{{lang}}.min.js'></script>{% endfor %}
-
-  {% comment %}
-  <!-- No custom fonts -->
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Code:400'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,700'>
-  {% endcomment %}
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
 
   <!-- 2017 layout -->
   <link href='{{base}}/assets/2017/style.css?t={{ timestamp }}' rel='stylesheet'>

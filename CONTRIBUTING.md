@@ -12,6 +12,23 @@ make
 
 See <https://devhints.io/cheatsheet-styles> for a reference on styling.
 
+## JavaScript
+
+When updating JavaScript, run the auto-updater:
+
+```
+yarn install
+yarn run dev
+```
+
+This auto-updates `/assets/packed/` with sources in `_js/`.
+
+There are also automated tests:
+
+```
+yarn run test --watch
+```
+
 ## Frontmatter
 
 Each sheet supports these metadata:

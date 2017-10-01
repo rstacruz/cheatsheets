@@ -14,6 +14,7 @@
     "css-loader": "0.28.7",
     "eslint-plugin-flowtype": "2.37.0",
     "jest": "21.2.1",
+    "jest-html": "1.3.5",
     "prettier-standard": "7.0.1",
     "standard": "10.0.3",
     "style-loader": "0.18.2",
@@ -22,7 +23,8 @@
   "scripts": {
     "dev": "webpack --watch --progress --colors",
     "prepublish": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "jest-html": "jest-html"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
@@ -41,6 +43,11 @@
     ],
     "plugins": [
       "flowtype"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-html"
     ]
   }
 }

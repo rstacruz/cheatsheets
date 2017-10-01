@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
 
-import $ from 'jquery'
 import Isotope from 'isotope-layout/dist/isotope.pkgd.js'
 import onmount from 'onmount'
 

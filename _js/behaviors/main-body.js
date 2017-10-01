@@ -1,4 +1,3 @@
-import onmount from 'onmount'
 import wrapify from '../wrapify'
 import ready from 'dom101/ready'
 

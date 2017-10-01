@@ -1,13 +1,11 @@
-import $ from 'jquery'
 import onmount from 'onmount'
 import * as Search from '../helpers/search'
 import qs from '../helpers/qs'
+import on from 'dom101/on'
 
 onmount('[data-js-search-input]', function () {
-  const $this = $(this)
-
-  $this.on('input', () => {
-    const val = $this.val()
+  on(this, 'input', () => {
+    const val = this.value
 
     if (val === '') {
       Search.showAll()
@@ -18,7 +16,7 @@ onmount('[data-js-search-input]', function () {
 
   const query = (qs(window.location.search) || {}).q
   if (query && query.length) {
-    $this.val(query)
-    Search.show(query)
+    this.value = query
+    setTimeout(() => { Search.show(query) })
   }
 })

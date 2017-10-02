@@ -51,3 +51,6 @@ intro: |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
 {: .-bold-first.-headers}
 
+## -
+
+Hint: you can get to this page via [devhints.io/gutom](https://devhints.io/gutom) 🍅🍟

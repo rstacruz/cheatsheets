@@ -3,30 +3,14 @@ title: ES2015+
 category: JavaScript
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2017-10-02
 weight: -10
 ---
 
-### Promises
-
-```js
-new Promise(fn)
-  .then(fn)
-  .catch(fn)
-```
-
-```js
-Promise.all(/*...*/)
-Promise.race(/*...*/)
-Promise.reject(/*...*/)
-Promise.resolve(/*...*/)
-```
-
-For asynchronous programming.
-See: [Promises](http://babeljs.io/docs/learn-es2015/#promises)
-
 ### Block scoping
- 
+
+#### Let
+
 ```js
 function fn () {
   let x = 0
@@ -37,23 +21,26 @@ function fn () {
 ```
 {: data-line="2,4"}
 
+#### Const
+
 ```js
-// Constants
 const a = 1
 ```
 
-`let` is the new `var`.
+`let` is the new `var`. Constants work just ilke `let`, but can't be reassigned.
 See: [Let and const](http://babeljs.io/docs/learn-es2015/#let-const)
 
 ### Backtick strings
 
+#### Interpolation
+
 ```js
-// Interpolation
 var message = `Hello ${name}`
 ```
 
+#### Multiline strings
+
 ```js
-// Multiline strings
 var str = `
 hello
 world
@@ -74,8 +61,9 @@ See: [Binary and octal literals](http://babeljs.io/docs/learn-es2015/#binary-and
 
 ### New methods
 
+#### New string methods
+
 ```js
-// New string methods
 "hello".repeat(3)
 "hello".contains("ll")
 "\u1E9B\u0323".normalize("NFC")
@@ -87,60 +75,47 @@ See: [New methods](http://babeljs.io/docs/learn-es2015/#math-number-string-objec
 
 ```js
 class Circle extends Shape {
-  // ctor
+```
+
+#### Constructor
+
+```js
   constructor (radius) {
     this.radius = radius
   }
+```
+{: data-line="1"}
 
-  // methods
+#### Methods
+
+```js
   getArea () {
     return Math.PI * 2 * this.radius
   }
+```
+{: data-line="1"}
 
-  // calling super methods
+#### Calling superclass methods
+
+```js
   expand (n) {
     return super.expand(n) * Math.PI
   }
+```
+{: data-line="1"}
 
-  // static methods
+#### Static methods
+
+```js
   static createFromDiameter(diameter) {
     return new Circle(diameter / 2)
   }
 }
 ```
-{: data-line="1,3,8,13,18"}
+{: data-line="1"}
 
 Syntactic sugar for prototypes.
 See: [Classes](http://babeljs.io/docs/learn-es2015/#classes)
-
-### Destructuring
-
-```js
-// Destructuring assignment
-var [first, last] = ['Nikola', 'Tesla']
-let {title, author} = { title: 'The Silkworm', author: 'R. Galbraith' }
-```
-
-```js
-// Available in loops too
-for (let {title, artist} in songs) {
-  // ...
-}
-```
-{: data-line="2"}
-
-```js
-// Functions
-function greet({ name, greeting }) {
-  // ...
-}
-
-greet({ name: 'Larry', greeting: 'Ahoy' })
-```
-{: data-line="2"}
-
-Supports for matching arrays and objects.
-See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
 
 ### Exponent operator
 
@@ -150,62 +125,153 @@ const byte = 2 ** 8
 ```
 {: data-line="1"}
 
+Promises
+--------
+{: .-three-column}
+
+### Making promises
+
+```js
+new Promise((resolve, reject) => {
+  if (ok) { resolve(result) }
+  else { reject(error) }
+})
+```
+{: data-line="1"}
+
+For asynchronous programming.
+See: [Promises](http://babeljs.io/docs/learn-es2015/#promises)
+
+### Using promises
+
+```js
+promise
+  .then((result) => { ··· })
+  .catch((error) => { ··· })
+```
+{: data-line="2,3"}
+
+### Promise functions
+
+```js
+Promise.all(···)
+Promise.race(···)
+Promise.reject(···)
+Promise.resolve(···)
+```
+
+Destructuring
+-------------
+{: .-three-column}
+
+### Destructuring assignment
+
+#### Arrays
+
+```js
+var [first, last] = ['Nikola', 'Tesla']
+```
+
+#### Objects
+
+```js
+let {title, author} = {
+  title: 'The Silkworm',
+  author: 'R. Galbraith'
+}
+```
+{: data-line="1"}
+
+Supports for matching arrays and objects.
+See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
+
+
+### Function arguments
+
+```js
+function greet({ name, greeting }) {
+  console.log(`${greeting}, ${name}!`)
+}
+```
+{: data-line="1"}
+
+```js
+greet({ name: 'Larry', greeting: 'Ahoy' })
+```
+
+### Loops
+
+```js
+for (let {title, artist} in songs) {
+  ···
+}
+```
+{: data-line="1"}
+
+The assignment expressions work in loops, loo.
+
 Functions
 ---------
 
 ### Function arguments
 
+#### Default arguments
+
 ```js
-// Default arguments
 function greet (name = "Jerry") {
   return `Hello ${name}`
 }
 ```
-{: data-line="2"}
+{: data-line="1"}
+
+#### Rest arguments
 
 ```js
-// Rest arguments
 function fn(x, ...y) {
   // y is an Array
   return x * y.length
 }
 ```
-{: data-line="2"}
+{: data-line="1"}
+
+#### Spread
 
 ```js
-// Spread
 fn(...[1, 2, 3])
 // same as fn(1, 2, 3)
 ```
-{: data-line="2"}
+{: data-line="1"}
 
 Default, rest, spread.
 See: [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
 
 ### Fat arrows
 
-```js
-// Fat arrows
-setTimeout(() => {
-  ...
-})
-```
-{: data-line="2"}
+#### Fat arrows
 
 ```js
-// With arguments
+setTimeout(() => {
+  ···
+})
+```
+{: data-line="1"}
+
+#### With arguments
+
+```js
 readFile('text.txt', (err, data) => {
   ...
 })
 ```
-{: data-line="2"}
+{: data-line="1"}
 
+#### Implicit return
 ```js
-// Short syntax (no `return` without `{}`)
 numbers.map(n => n * 2)
+// No curly braces = implicit return
 // Same as: numbers.map(function (n) { return n * 2 })
 ```
-{: data-line="2"}
+{: data-line="1"}
 
 Like functions but with `this` preserved.
 See: [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)
@@ -332,9 +398,9 @@ function* idMaker () {
 
 ```js
 var gen = idMaker()
-gen.next().value  // 0
-gen.next().value  // 1
-gen.next().value  // 2
+gen.next().value  // → 0
+gen.next().value  // → 1
+gen.next().value  // → 2
 ```
 
 It's complicated.
@@ -344,7 +410,7 @@ See: [Generators](http://babeljs.io/docs/learn-es2015/#generators)
 
 ```js
 for (let i of iterable) {
-  // ...
+  ···
 }
 ```
 

@@ -1,35 +1,47 @@
 ---
 title: Ansible modules
 category: Ansible
-layout: 2017/s##heet
+layout: 2017/sheet
+prism_languages: [yaml]
+updated: 2017-10-03
 ---
 
 ### Aptitude
 
-```yml
-- apt_key: id=AC40B2F7 url="http://..."
-    state=present
-```
+#### Packages
 
-```yml
+```yaml
 - apt: pkg=nodejs state=present
     state=present # absent | latest
     update_cache=yes
     force=no
 ```
 
-```yml
+#### Deb files
+
+```yaml
 - apt: deb=https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 ```
 
-```yml
+#### Repositories
+
+```yaml
 - apt_repository: repo='deb https://... raring main'
+    state=present
+```
+
+#### Repository keys
+
+```yaml
+- apt_key: id=AC40B2F7 url="http://..."
     state=present
 ```
 
 ### file
 
-```yml
+#### File
+
+```yaml
 - file:
     state=directory # file | link | hard | touch | absent
     path=/etc/dir
@@ -40,13 +52,17 @@ layout: 2017/s##heet
     force=yes    # ln -nfs
 ```
 
-```yml
+#### Copy
+
+```yaml
 - copy:
     src=/app/config/nginx.conf
     dest=/etc/nginx/nginx.conf
 ```
 
-```yml
+#### Templates
+
+```yaml
 - template:
     src=config/redis.j2
     dest=/etc/redis.conf
@@ -54,7 +70,7 @@ layout: 2017/s##heet
 
 ### git
 
-```yml
+```yaml
 - git: repo=git://github.com/
     dest=/srv/checkout
     version=master
@@ -63,7 +79,7 @@ layout: 2017/s##heet
 ```
 
 ### user
-```yml
+```yaml
 - user: state=present name=git
     system=yes
     shell=/bin/sh
@@ -73,27 +89,27 @@ layout: 2017/s##heet
 
 ### service
 
-```yml
+```yaml
 - service: name=nginx state=started [enabled=yes]
 ```
 
 ### shell
 
-```yml
+```yaml
 - shell: apt-get install nginx -y
 - script: /x/y/script.sh
 ```
 
 ### local_action
 
-```yml
+```yaml
 - name: do something locally
   local_action: shell echo hello
 ```
 
 ### debug
 
-```yml
+```yaml
 - debug:
     msg: "Hello {{ var }}"
 ```

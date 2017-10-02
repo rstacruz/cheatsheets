@@ -10,14 +10,15 @@ intro: |
 
 ### Western
 
-| Restaurant    | Online order                                                        | Phone       |
-| ---           | ---                                                                 | ---         |
-| Burger King   | [burgerkingdelivery.com.ph](https://www.burgerkingdelivery.com.ph/) | `2-22-22`   |
-| KFC           | [kfc.com.ph](https://www.kfc.com.ph)                                | `887-8888`  |
-| Kenny Rogers  | [kennys.com.ph](http://kennys.com.ph/)                              | `555-9000`  |
-| McDonald's    | [mcdonalds.com.ph](http://www.mcdonalds.com.ph/mcdelivery)          | `8-6236`    |
-| Pancake House | [pancakehouse.com.ph](https://www.pancakehouse.com.ph/)             | `7-9000`    |
-| Wendy's       | [wendys.com.ph](https://wendys.com.ph/delivery/)                    | `533-3333`  |
+| Restaurant    | Online order                                                        | Phone      |
+| ---           | ---                                                                 | ---        |
+| Army Navy     | [armynavy.com.ph](http://www.armynavy.com.ph/)                      | `331-3131` |
+| Burger King   | [burgerkingdelivery.com.ph](https://www.burgerkingdelivery.com.ph/) | `2-22-22`  |
+| KFC           | [kfc.com.ph](https://www.kfc.com.ph)                                | `887-8888` |
+| Kenny Rogers  | [kennys.com.ph](http://kennys.com.ph/)                              | `555-9000` |
+| McDonald's    | [mcdonalds.com.ph](http://www.mcdonalds.com.ph/mcdelivery)          | `8-6236`   |
+| Pancake House | [pancakehouse.com.ph](https://www.pancakehouse.com.ph/)             | `7-9000`   |
+| Wendy's       | [wendys.com.ph](https://wendys.com.ph/delivery/)                    | `533-3333` |
 {: .-bold-first.-headers.-no-wrap}
 
 ### Pizza

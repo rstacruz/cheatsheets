@@ -6,6 +6,8 @@ prism_languages: [yaml]
 updated: 2017-10-03
 ---
 
+{% raw %}
+
 ### Aptitude
 
 #### Packages
@@ -113,3 +115,5 @@ updated: 2017-10-03
 - debug:
     msg: "Hello {{ var }}"
 ```
+
+{% endraw %}

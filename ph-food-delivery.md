@@ -18,7 +18,7 @@ intro: |
 | McDonald's    | [mcdonalds.com.ph](http://www.mcdonalds.com.ph/mcdelivery)          | `8-6236`    |
 | Pancake House | [pancakehouse.com.ph](https://www.pancakehouse.com.ph/)             | `7-9000`    |
 | Wendy's       | [wendys.com.ph](https://wendys.com.ph/delivery/)                    | `533-3333`  |
-{: .-bold-first.-headers}
+{: .-bold-first.-headers.-no-wrap}
 
 ### Pizza
 
@@ -31,7 +31,7 @@ intro: |
 | Pizza Hut     | [pizzahut.com.ph](https://order.pizzahut.com.ph)          | `911-1111` |
 | Shakey's      | [shakeyspizza.ph](http://order.shakeyspizza.ph/)          | `77-7777`  |
 | Yellow Cab    | [yellowcabpizza.com](http://delivery.yellowcabpizza.com/) | `789-9999` |
-{: .-bold-first.-headers}
+{: .-bold-first.-headers.-no-wrap}
 
 ### Asian
 
@@ -39,7 +39,7 @@ intro: |
 | ---           | ---                                                                 | ---         |
 | Chowking      | [chowkingdelivery.com](http://www.chowkingdelivery.com)             | `9-8888`    |
 | North Park    | [northparkdelivery.com](http://northparkdelivery.com/)              | `7-3737`    |
-{: .-bold-first.-headers}
+{: .-bold-first.-headers.-no-wrap}
 
 ### Filipino
 
@@ -49,7 +49,7 @@ intro: |
 | Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
 | Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
-{: .-bold-first.-headers}
+{: .-bold-first.-headers.-no-wrap}
 
 ## -
 

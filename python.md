@@ -76,7 +76,7 @@ title: Python
 
 ### Regex
 
-    import regex
+    import re
 
     re.match(r'^[aeiou]', str)
     re.sub(r'^[aeiou]', '?', str)

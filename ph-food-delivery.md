@@ -45,6 +45,7 @@ intro: |
 
 | Restaurant    | Online order                                                        | Phone       |
 | ---           | ---                                                                 | ---         |
+| Amber's       | [amber.com.ph](http://onlineordering.amber.com.ph/)                 | `884-8888`  |
 | Goldilock's   | [goldilocksdelivery.com.ph](http://www.goldilocksdelivery.com.ph/)  | `888-1-999` |
 | Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
 | Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |

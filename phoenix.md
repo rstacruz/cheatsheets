@@ -36,15 +36,15 @@ See: [Installation](https://hexdocs.pm/phoenix/installation.html) _(hexdocs.pm)_
 ├── deps/
 ├── lib/
 │   ├── hello/
-│   └── hello_web/
-│       ├── channels/
-│       ├── controllers/
-│       ├── templates/
-│       ├── views/
-│       ├── router.ex
-│       └── gettext.ex
-├── hello.ex
-├── hello_web.ex
+│   ├── hello.ex
+│   ├── hello_web/
+│   │   ├── channels/
+│   │   ├── controllers/
+│   │   ├── templates/
+│   │   ├── views/
+│   │   ├── router.ex
+│   │   └── gettext.ex
+│   └── hello_web.ex
 ├── priv/
 └── test/
 ```

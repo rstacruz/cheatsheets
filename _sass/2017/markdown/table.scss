@@ -136,3 +136,10 @@
     font-weight: bold;
   }
 }
+
+.MarkdownBody table.-no-wrap {
+  & td,
+  & th {
+    white-space: nowrap;
+  }
+}

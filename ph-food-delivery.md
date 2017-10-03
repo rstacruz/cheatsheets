@@ -38,6 +38,7 @@ intro: |
 
 | Restaurant    | Online order                                                        | Phone       |
 | ---           | ---                                                                 | ---         |
+| Bonchon       | [bonchon.com.ph](http://bonchon.com.ph/food/main-menu/) _(menu)_    | `633-1818`  |
 | Chowking      | [chowkingdelivery.com](http://www.chowkingdelivery.com)             | `9-8888`    |
 | North Park    | [northparkdelivery.com](http://northparkdelivery.com/)              | `7-3737`    |
 {: .-bold-first.-headers.-no-wrap}

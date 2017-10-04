@@ -7,8 +7,23 @@ module.exports = {
   entry: {
     app: './_js/app.js',
     vendor: [
+      // Large 3rd-party libs
       'jquery',
-      'prismjs'
+      'prismjs',
+
+      // Prism plugins
+      'prismjs/plugins/line-highlight/prism-line-highlight.min.js',
+      'prismjs/components/prism-jsx.min.js',
+      'prismjs/components/prism-bash.min.js',
+      'prismjs/components/prism-scss.min.js',
+      'prismjs/components/prism-css.min.js',
+      'prismjs/components/prism-elixir.min.js',
+      'prismjs/components/prism-ruby.min.js',
+
+      // CSS
+      'sanitize.css',
+      'prismjs/plugins/line-highlight/prism-line-highlight.css',
+      'hint.css/hint.min.css'
     ]
   },
   output: {

@@ -1,17 +1,12 @@
-<!doctype html>
-<html lang='en' class='no-js {{ page.html_class }}'>
-<head>
-  {% include meta.html %}
-  {% include polyfills.html %}
+{% include meta.html %}
+{% include polyfills.html %}
 
-  <!-- script -->
-  <script src='{{base}}/assets/packed/app.js?t={{ timestamp }}'></script>
+<!-- script -->
+<script src='{{base}}/assets/packed/app.js?t={{ timestamp }}'></script>
 
-  <!-- 3rd-party libs -->
-  {% for lang in page.prism_languages %}<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-{{lang}}.min.js'></script>{% endfor %}
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
+<!-- 3rd-party libs -->
+{% for lang in page.prism_languages %}<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-{{lang}}.min.js'></script>{% endfor %}
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
 
-  <!-- 2017 layout -->
-  <link href='{{base}}/assets/2017/style.css?t={{ timestamp }}' rel='stylesheet'>
-</head>
-<body>
+<!-- 2017 layout -->
+<link href='{{base}}/assets/2017/style.css?t={{ timestamp }}' rel='stylesheet'>

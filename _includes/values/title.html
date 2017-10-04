@@ -1,7 +1,11 @@
 {%
-  if page.type == 'article'
-%}{{ page.title }} cheatsheet {%
-  else
+  if page.full_title
+%}{{ page.full_title }}{%
+  elsif page.type == 'article'
+%}{{ page.title }} cheatsheet{%
+  elsif page.title
 %}{{ page.title }}{%
+  else
+%}{{ site.title }}{%
   endif
 %}

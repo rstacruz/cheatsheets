@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang='en'><head>
+
 {% assign featured_pages = site.pages
   | where_exp: "page", "page.tags contains 'Featured'"
 %}
@@ -6,6 +9,9 @@
   | sort: "updated", "first"
 %}
 {% include 2017/head.html %}
+
+</head><body>
+
 {% include 2017/top-nav.html page=page is_home=true noedit=true noback=true %}
 
 {% if site.data.carbon.enabled %}
@@ -74,3 +80,5 @@
 {% include 2017/announcements-list.html %}
 
 {% include 2017/foot.html %}
+</body>
+</html>

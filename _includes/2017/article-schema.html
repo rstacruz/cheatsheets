@@ -1,0 +1,34 @@
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": {{ meta_title | jsonify }},
+  "image": [ {{ meta_image | jsonify }} ],
+  "description": {{ meta_description | jsonify }}
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "{{ site.url }}/#{{ page.category | downcase | replace: ' ', '-' }}",
+      "name": "{{ page.category }}"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": {{ page_url | jsonify }},
+      "name": {{ page.title | jsonify }}
+    }
+  }]
+}
+</script>

@@ -1,7 +1,11 @@
 {%
   if page.intro
 %}{{ page.intro | markdownify | strip_html }}{%
+  elsif page.description
+%}{{ page.description }}{%
   elsif page.type == 'article'
+%}A comprehensive cheatsheet for {{ page.title }}.{%
+  else
 %}A comprehensive cheatsheet for {{ page.title }}.{%
   endif
 %}

@@ -1,65 +1,35 @@
+{% include 2017/meta-vars.html page=page %}
 <meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='{{ base }}/assets/favicon.png' rel='shortcut icon'>
 
-{%comment%}<!-- set the base -->{%endcomment%}
-{% assign base = '' %}
-{% assign depth = page.url | split: '/' | size | minus: 1 %}
-<meta property='page:depth' content='{{depth}}'>
-{% if depth <= 1 %}{% assign base = '.' %}
-{% elsif depth == 2 %}{% assign base = '..' %}
-{% elsif depth == 3 %}{% assign base = '../..' %}
-{% elsif depth == 4 %}{% assign base = '../../..' %}{% endif %}
-{% assign timestamp = site.time | date: "%Y%m%d%H%M%S" %}
-
-{%comment%}<!-- title -->{%endcomment%}
-{% if page.full_title %}
-<title>{{ page.full_title }}</title>
-<meta content='{{ page.full_title }}' property='og:title'>
-<meta content='{{ page.full_title }}' property='twitter:title'>
-<meta content='article' property='og:type'>
-{% elsif page.title %}
-<title>{% include values/title.html page=page %}</title>
-<meta content='{% include values/title.html page=page %}' property='og:title'>
-<meta content='{% include values/title.html page=page %}' property='twitter:title'>
-<meta content='{{ page.og_type | default: "article" }}' property='og:type'>
-{% else %}
-<title>{{ site.title }}</title>
-<meta content='{{ site.title }}' property='og:title'>
-<meta content='{{ site.title }}' property='twitter:title'>
-<meta content='{{ page.og_type | default: "website" }}' property='og:type'>
+{% if meta_title %}
+  <title>{{ meta_title }}</title>
+  <meta content='{{ meta_title }}' property='og:title'>
+  <meta content='{{ meta_title }}' property='twitter:title'>
+  <meta content='{{ page.og_type | default: "article" }}' property='og:type'>
 {% endif %}
 
-{%comment%}<!-- image -->{%endcomment%}
-{% if site.data.assets.preview_host %}
-{% if page.type == 'home' %}
-<meta content='{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}' property='og:image'>
-<meta content='{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}' property='twitter:image'>
-{% else %}
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}.jpg?t={{ timestamp }}' property='og:image'>
-<meta content='{{ site.data.assets.preview_host }}{{ page.url | remove: '.html' }}.jpg?t={{ timestamp }}' property='twitter:image'>
-{% endif %}
-<meta content='900' property='og:image:width'>
-<meta content='471' property='og:image:height'>
+{% if meta_image %}
+  <meta content='{{ meta_image | escape }}' property='og:image'>
+  <meta content='{{ meta_image | escape }}' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
 {% endif %}
 
-{%comment%}<!-- description -->{%endcomment%}
-{% if page.description %}
-<meta content="{{ page.description }}" name="description">
-<meta content="{{ page.description }}" property="og:description">
-{% else %}
-<meta content="{% include values/description.html page=page %}" name="description">
-<meta content="{% include values/description.html page=page %}" property="og:description">
-<meta content="{% include values/description.html page=page %}" property="twitter:description">
+{% if meta_description %}
+  <meta content="{{ meta_description | escape }}" name="description">
+  <meta content="{{ meta_description | escape }}" property="og:description">
+  <meta content="{{ meta_description | escape }}" property="twitter:description">
 {% endif %}
 
-{%comment%}<!-- canonical URL -->{%endcomment%}
 {% if page.url != '/index.html' %}
-<link rel="canonical" href="{{ site.url }}{{ page.url | remove: '.html' }}">
-<meta name="og:url" content="{{ site.url }}{{ page.url | remove: '.html' }}">
-<link rel="prefetch" href="{{ site.url }}">
-<link rel="prerender" href="{{ site.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '.html' }}">
+  <meta name="og:url" content="{{ site.url }}{{ page.url | remove: '.html' }}">
+  <link rel="prefetch" href="{{ site.url }}">
+  <link rel="prerender" href="{{ site.url }}">
 {% endif %}
 
-{%comment%}<!-- author -->{%endcomment%}
 {% if page.author %}
 {% for author in site.authors | where: "name", page.author %}
   <meta content='{{ author.name }}' name='author'>
@@ -69,39 +39,32 @@
 {% endfor %}
 {% endif %}
 
-{%comment%}<!-- site name -->{%endcomment%}
 {% if site.title %}
-<meta content='{{ site.title }}' property='og:site_name'>
+  <meta content='{{ site.title }}' property='og:site_name'>
 {% endif %}
 
-{%comment%}<!-- facebook -->{%endcomment%}
 {% if site.facebook.app_id %}
-<meta content='{{ site.facebook.app_id }}' property='fb:app_id'>
+  <meta content='{{ site.facebook.app_id }}' property='fb:app_id'>
 {% endif %}
+
 {% if site.facebook.admin %}
-<meta content='{{ site.facebook.admin }}' property='fb:admins'>
+  <meta content='{{ site.facebook.admin }}' property='fb:admins'>
 {% endif %}
 
-{%comment%}<!-- page meta -->{%endcomment%}
 {% if page.date %}
-<meta content='{{ page.date | date: "%Y-%m-%d" }}' property='article:published_date'>
-{% endif %}
-{% if page.image %}
-<meta content='{{ page.image }}' property='og:image'>
-<meta content='{{ page.image }}' name='twitter:image'>
+  <meta content='{{ page.date | date: "%Y-%m-%d" }}' property='article:published_date'>
 {% endif %}
 
-{%comment%}<!-- tags -->{%endcomment%}
 {% if page.category %}
   <meta content='{{ page.category }}' property='article:section'>
 {% endif %}
+
 {% if page.tags %}
 {% for tag in page.tags %}
   <meta content='{{ tag }}' property='article:tag'>
 {% endfor %}
 {% endif %}
 
-{%comment%}<!-- google analytics -->{%endcomment%}
 {% if site.data.google_analytics.enabled %}
 <script async src='https://www.googletagmanager.com/gtag/js?id={{ site.data.google_analytics.id }}'></script>
 <script>
@@ -113,9 +76,8 @@ gtag('config','{{ site.data.google_analytics.id }}');
 </script>
 {% endif %}
 
-<meta content='IE=edge' http-equiv='X-UA-Compatible'>
-<meta content='width=device-width, initial-scale=1.0' name='viewport'>
-<link href='{{ base }}/assets/favicon.png' rel='shortcut icon'>
+{% if depth %}
+  <meta property='page:depth' content='{{depth}}'>
+{% endif %}
 
-{%comment%}<!-- fouc -->{%endcomment%}
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>

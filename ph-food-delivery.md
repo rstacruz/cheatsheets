@@ -52,6 +52,7 @@ intro: |
 | Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
 | Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
+| Amber's       | [http://amber.com.ph/](http://amber.com.ph/v2/)                     | `884-8888`  |
 {: .-bold-first.-headers.-no-wrap}
 
 ## -

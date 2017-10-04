@@ -5,7 +5,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   context: join(__dirname, '..'),
   entry: {
-    app: './_js/app.js'
+    app: './_js/app.js',
+    vendor: [
+      'jquery',
+      'prismjs'
+    ]
   },
   output: {
     path: join(__dirname, '..', 'assets', 'packed'),
@@ -31,6 +35,16 @@ module.exports = {
   },
   stats: 'minimal',
   plugins: [
+    // Optimize module ID's for vendor chunks
+    new webpack.HashedModuleIdsPlugin({
+      hashFunction: 'sha256',
+      hashDigest: 'base64',
+      hashDigestLength: 20
+    }),
+
+    // Optimize vendor
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
+
     // Don't include debug symbols ever
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production'

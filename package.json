@@ -26,7 +26,6 @@
     "dev": "run-p dev:webpack dev:jekyll",
     "dev:webpack": "webpack --watch --colors -p",
     "dev:jekyll": "bundle exec jekyll serve --safe --drafts --watch --port $PORT --incremental",
-    "prepublish": "webpack -p",
     "test": "jest",
     "test:all": "run-s test lint",
     "lint": "standard -v",

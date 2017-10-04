@@ -14,6 +14,8 @@ It emits some blank lines because Jekyll, lol.
 
 {% endcomment %}
 
+{% assign depth = page.url | split: '/' | size | minus: 1 %}
+
 {% if depth <= 1 %}{% assign base = '.' %}
 {% elsif depth == 2 %}{% assign base = '..' %}
 {% elsif depth == 3 %}{% assign base = '../..' %}
@@ -32,7 +34,5 @@ It emits some blank lines because Jekyll, lol.
 {% assign meta_description = meta_description | strip_newlines %}
 
 {% assign base = '' %}
-
-{% assign depth = page.url | split: '/' | size | minus: 1 %}
 
 {% capture page_url %}{{ site.url }}{{ page.url | remove: '.html' }}{% endcapture %}

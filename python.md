@@ -10,7 +10,7 @@ title: Python
     list[:-1]  # return all but the last element
     
     list[i] = val
-    list[i:j] = otherlist  # insert otherlist between ith and jth element
+    list[i:j] = otherlist  # replace ith to jth element with otherlist
     del list[i:j]
 
     list.append(item)

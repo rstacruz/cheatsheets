@@ -5,9 +5,12 @@ title: Python
 ### Lists
 
     list = []
-
+    list[i:j]  # returns list subset
+    list[-1]   # access last element
+    list[:-1]  # return all but the last element
+    
     list[i] = val
-    list[i:j] = otherlist
+    list[i:j] = otherlist  # insert otherlist between ith and jth element
     del list[i:j]
 
     list.append(item)
@@ -15,9 +18,12 @@ title: Python
     list.insert(0, item)
     list.pop()
     list.remove(i)
+    list1 + list2     # combine two list    
+    set(list)         # remove duplicate elements from a list
 
     list.reverse()
     list.count(item)
+    sum(list)
 
     list.sort()
 
@@ -72,6 +78,9 @@ title: Python
 ### Comprehensions
 
     [fn(i) for i in list]            # .map
+    map(fn, list)                    # .map, returns iterator
+    
+    filter(fn, list)                 # .filter, returns iterator
     [fn(i) for i in list if i > 0]   # .filter.map
 
 ### Regex

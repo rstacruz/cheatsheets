@@ -27,7 +27,7 @@ function fn () {
 const a = 1
 ```
 
-`let` is the new `var`. Constants work just ilke `let`, but can't be reassigned.
+`let` is the new `var`. Constants work just like `let`, but can't be reassigned.
 See: [Let and const](http://babeljs.io/docs/learn-es2015/#let-const)
 
 ### Backtick strings

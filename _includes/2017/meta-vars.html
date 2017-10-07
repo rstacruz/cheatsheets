@@ -25,7 +25,7 @@ It emits some blank lines because Jekyll, lol.
 {% assign timestamp = site.time | date: "%Y%m%d%H%M%S" %}
 
 {% if site.data.assets.preview_host %}{% capture meta_image %}{%
-  if page.type == 'home'
+  if page.url == '/'
 %}{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}{%
   else
 %}{{ site.data.assets.preview_host }}{{ include.page.url | remove: '.html' }}.jpg?t={{ timestamp }}{%

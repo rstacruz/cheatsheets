@@ -2,6 +2,7 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <link href='{{ base }}/assets/favicon.png' rel='shortcut icon'>
+<meta content='{{ page.url }}' name='app:pageurl'>
 
 {% if meta_title %}
   <title>{{ meta_title }}</title>
@@ -25,7 +26,7 @@
 
 <link rel="canonical" href="{{ page_url }}">
 <meta name="og:url" content="{{ page_url }}">
-{% if page.type == 'home' %}
+{% if page.url == '/' %}
   <link rel="prefetch" href="{{ site.url }}">
   <link rel="prerender" href="{{ site.url }}">
 {% endif %}

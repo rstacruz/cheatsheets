@@ -54,7 +54,7 @@ See: [Template strings](http://babeljs.io/docs/learn-es2015/#template-strings)
 
 ```js
 let bin = 0b1010010
-let oct = 0755
+let oct = 0o755
 ```
 
 See: [Binary and octal literals](http://babeljs.io/docs/learn-es2015/#binary-and-octal-literals)

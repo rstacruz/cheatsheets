@@ -23,9 +23,9 @@
   <meta content="{{ meta_description | escape }}" property="twitter:description">
 {% endif %}
 
-{% if page.url != '/index.html' %}
-  <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '.html' }}">
-  <meta name="og:url" content="{{ site.url }}{{ page.url | remove: '.html' }}">
+<link rel="canonical" href="{{ page_url }}">
+<meta name="og:url" content="{{ page_url }}">
+{% if page.type == 'home' %}
   <link rel="prefetch" href="{{ site.url }}">
   <link rel="prerender" href="{{ site.url }}">
 {% endif %}

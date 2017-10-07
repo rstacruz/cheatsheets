@@ -24,9 +24,13 @@ It emits some blank lines because Jekyll, lol.
 
 {% assign timestamp = site.time | date: "%Y%m%d%H%M%S" %}
 
-{% if site.data.assets.preview_host %}
-{% capture meta_image %}{{ site.data.assets.preview_host }}{{ include.page.url | remove: '.html' }}.jpg?t={{ timestamp }}{% endcapture %}
-{% endif %}
+{% if site.data.assets.preview_host %}{% capture meta_image %}{%
+  if page.type == 'home'
+%}{{ site.data.assets.preview_host }}/index.jpg?t={{ timestamp }}{%
+  else
+%}{{ site.data.assets.preview_host }}{{ include.page.url | remove: '.html' }}.jpg?t={{ timestamp }}{%
+  endif
+%}{% endcapture %}{% endif %}
 
 {% capture meta_title %}{% include values/title.html page=include.page %}{% endcapture %}
 {% assign meta_title = meta_title | strip_newlines %}

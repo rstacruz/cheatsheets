@@ -178,7 +178,7 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 | `${FOO:-val}`        | `$FOO`, or `val` if not set |
 | `${FOO:=val}`        | Set `$FOO` to `val` if not set |
 | `${FOO:+val}`        | `val` if `$FOO` is set |
-| `${FOO:?message}`    | Show error message ande xit if `$FOO` is not set |
+| `${FOO:?message}`    | Show error message and exit if `$FOO` is not set |
 
 The `:` is optional (eg, `${FOO=word}` works)
 

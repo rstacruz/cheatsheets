@@ -42,7 +42,7 @@ introduction: |
 
 ### Usage
 
-```sh
+```bash
 echo "Hamburger" | figlet -f cybermedium
 ```
 
@@ -57,7 +57,7 @@ Run `figlet` with `-f <font>` to use a font.
 
 ### Toilet fonts
 
-```sh
+```bash
 echo "Hello" | \
   figlet -f smmono12 -d /usr/local/share/figlet
 ```

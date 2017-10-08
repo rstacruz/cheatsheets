@@ -13,6 +13,12 @@
   line-height: 1.32;
 }
 
+// For figlet.md
+.MarkdownBody pre.-figlet {
+  line-height: 1;
+  font-size: 11px;
+}
+
 /*
  * Undo prism theme crap
  */

@@ -55,6 +55,15 @@ _  _ ____ _  _ ___  _  _ ____ ____ ____ ____
 
 Run `figlet` with `-f <font>` to use a font.
 
+### Toilet fonts
+
+```sh
+echo "Hello" | \
+  figlet -f smmono12 -d /usr/local/share/figlet
+```
+
+Figlet comes with support for Toilet fonts, which are in `{share}/figlet`. This is not the default font dir, so you'll have to use `-d <path>` to access it.
+
 ## Rico's favorites
 
 ### wideterm

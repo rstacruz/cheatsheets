@@ -97,10 +97,11 @@ This defines a type `:post`, which is used by the resolver.
 
 ### Query arguments
 
+#### GraphQL query
+
 ```
 { user(id: "1") { ··· } }
 ```
-{: .-setup}
 
 #### web/schema.ex
 
@@ -116,7 +117,7 @@ end
 
 #### Resolver
 
-```
+```elixir
 def find(%{id: id} = args, _info) do
   ···
 end
@@ -127,6 +128,8 @@ See: [Query arguments](http://absinthe-graphql.org/tutorial/query-arguments/)
 
 ### Mutations
 
+#### GraphQL query
+
 ```
 {
   mutation CreatePost {
@@ -134,7 +137,6 @@ See: [Query arguments](http://absinthe-graphql.org/tutorial/query-arguments/)
   }
 }
 ```
-{: .-setup}
 
 #### web/schema.ex
 
@@ -147,6 +149,7 @@ mutation do
   end
 end
 ```
+{: data-line="1"}
 
 See: [Mutations](http://absinthe-graphql.org/tutorial/mutations/)
 

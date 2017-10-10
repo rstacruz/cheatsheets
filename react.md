@@ -4,18 +4,10 @@ category: React
 layout: 2017/sheet
 ads: true
 tags: [Featured]
-updated: 2017-09-01
+updated: 2017-10-10
 weight: -10
 intro: |
-  [React](https://facebook.github.io/react/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
-
-# React 16 notes
-# --------------
-#
-# Add these for React 16:
-#
-# - componentDidCatch(error, info)
-# - Multiple elements in render()
+  [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---
 
 {%raw%}
@@ -67,7 +59,7 @@ render () {
 
 Use `this.props` to access properties passed to the component.
 
-See: [Properties](https://facebook.github.io/react/docs/tutorial.html#using-props)
+See: [Properties](https://reactjs.org/docs/tutorial.html#using-props)
 
 ### States
 
@@ -85,7 +77,7 @@ render () {
 
 Use states (`this.state`) to manage dynamic data.
 
-See: [States](https://facebook.github.io/react/docs/tutorial.html#reactive-state)
+See: [States](https://reactjs.org/docs/tutorial.html#reactive-state)
 
 ### Nesting
 
@@ -105,7 +97,7 @@ class Info extends React.Component {
 
 Nest components to separate concerns.
 
-See: [Composing Components](https://facebook.github.io/react/docs/components-and-props.html#composing-components)
+See: [Composing Components](https://reactjs.org/docs/components-and-props.html#composing-components)
 
 ### Children
 
@@ -141,7 +133,7 @@ Hello.defaultProps = {
 ```
 {: data-line="1"}
 
-See: [defaultProps](https://facebook.github.io/react/docs/react-component.html#defaultprops)
+See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 
 ### Setting default state
 
@@ -156,6 +148,8 @@ class Hello extends React.Component {
 {: data-line="4"}
 
 Set the default state in the `constructor()`.
+
+See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
 Other components
 ----------------
@@ -174,7 +168,7 @@ function MyComponent ({ name }) {
 
 Functional components have no state. Also, their `props` are passed as the first parameter to a function.
 
-See: [Function and Class Components](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)
+See: [Function and Class Components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components)
 
 ### Pure components
 
@@ -187,7 +181,7 @@ class MessageBox extends React.PureComponent {
 
 Performance-optimized version of `React.Component`. Doesn't rerender if props/state hasn't changed.
 
-See: [Pure components](https://facebook.github.io/react/docs/react-api.html#react.purecomponent)
+See: [Pure components](https://reactjs.org/docs/react-api.html#react.purecomponent)
 
 ### Component API
 
@@ -216,14 +210,14 @@ Lifecycle
 
 | Method | Description |
 | --- | --- |
-| `constructor` _(props)_ | Before rendering [#](https://facebook.github.io/react/docs/react-component.html#constructor) |
-| `componentWillMount()` | _Don't use this_ [#](https://facebook.github.io/react/docs/react-component.html#componentwillmount) |
-| `render()` | Render  [#](https://facebook.github.io/react/docs/react-component.html#render) |
-| `componentDidMount()` | After rendering (DOM available) [#](https://facebook.github.io/react/docs/react-component.html#componentdidmount) |
+| `constructor` _(props)_ | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor) |
+| `componentWillMount()` | _Don't use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
+| `render()` | Render  [#](https://reactjs.org/docs/react-component.html#render) |
+| `componentDidMount()` | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
 | --- | --- |
-| `componentWillUnmount()` | Before DOM removal [#](https://facebook.github.io/react/docs/react-component.html#componentwillunmount) |
+| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
 | --- | --- |
-| `componentDidCatch()` | Catch errors (16+) [#](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) |
+| `componentDidCatch()` | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) |
 
 Set initial the state on `constructor()`.
 Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
@@ -265,7 +259,7 @@ class MyComponent extends React.Component {
 
 Allows access to DOM nodes.
 
-See: [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html)
+See: [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
 
 ### DOM Events
 
@@ -286,7 +280,7 @@ class MyComponent extends React.Component {
 
 Pass functions to attributes like `onChange`.
 
-See: [Events](https://facebook.github.io/react/docs/events.html)
+See: [Events](https://reactjs.org/docs/events.html)
 
 ## Other features
 
@@ -329,7 +323,7 @@ ReactDOMServer.renderToStaticMarkup(<Component />)
 
 There are more, but these are most common.
 
-See: [React top-level API](https://facebook.github.io/react/docs/react-api.html)
+See: [React top-level API](https://reactjs.org/docs/react-api.html)
 
 JSX patterns
 ------------
@@ -346,7 +340,7 @@ return <div style={style}></div>
 return <div style={{ margin: 0, padding: 0 }}></div>
 ```
 
-See: [Inline styles](https://facebook.github.io/react/tips/inline-styles.html)
+See: [Inline styles](https://reactjs.org/tips/inline-styles.html)
 
 ### Inner HTML
 
@@ -355,7 +349,7 @@ function markdownify() { return "<p>...</p>"; }
 <div dangerouslySetInnerHTML={{__html: markdownify()}} />
 ```
 
-See: [Dangerously set innerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html)
+See: [Dangerously set innerHTML](https://reactjs.org/tips/dangerously-set-inner-html.html)
 
 ### Lists
 
@@ -404,7 +398,7 @@ render () {
 
 You can return multiple nodes as arrays.
 
-See: [Fragments and strings](https://facebook.github.io/react/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
+See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 
 ### Errors
 
@@ -420,7 +414,7 @@ class MyComponent extends React.Component {
 
 Catch errors via `componentDidCatch`. (React 16+)
 
-See: [Error handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html)
+See: [Error handling in React 16](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
 
 ### Portals
 
@@ -436,7 +430,7 @@ render () {
 
 This renders `this.props.children` into any location in the DOM.
 
-See: [Portals](https://facebook.github.io/react/docs/portals.html)
+See: [Portals](https://reactjs.org/docs/portals.html)
 
 ### Hydration
 
@@ -446,9 +440,9 @@ ReactDOM.hydrate(<App />, el)
 ```
 {: data-line="2"}
 
-Use `ReactDOM.hydrate` instead of using `ReactDOM.render` if you're rendering over the output of [ReactDOMServer](https://facebook.github.io/react/docs/react-dom-server.html).
+Use `ReactDOM.hydrate` instead of using `ReactDOM.render` if you're rendering over the output of [ReactDOMServer](https://reactjs.org/docs/react-dom-server.html).
 
-See: [Hydrate](https://facebook.github.io/react/docs/react-dom.html#hydrate)
+See: [Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)
 
 Property validation
 -------------------
@@ -461,7 +455,7 @@ import PropTypes from 'prop-types'
 ```
 {: .-setup}
 
-See: [Typechecking with PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
+See: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
 | `any`                     | Anything                             |
 
@@ -577,11 +571,10 @@ MyCo.propTypes = {
 
 Also see
 --------
-{: .-one-column}
 
-* This reference was made for React v15.
+* [React website](https://reactjs.org) _(reactjs.org)_
+* [React cheatsheet](https://reactcheatsheet.com/) _(reactcheatsheet.com)_
+* [Awesome react](https://github.com/enaqx/awesome-react) _(github.com)_
 * [React v0.14 cheatsheet](react@0.14) _Legacy version_
-* [React website](http://facebook.github.io/react) _facebook.github.io_
-{:.-also-see}
 
 {%endraw%}

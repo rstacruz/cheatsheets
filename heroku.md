@@ -1,118 +1,195 @@
 ---
 title: Heroku
 category: Devops
+layout: 2017/sheet
+updated: 2017-10-11
+description: |
+  A one-page reference to common Heroku-CLI commands.
+intro: |
+  [Heroku](http://heroku.com/) is a web hosting platform supporting many languages, and this guide is a reference to Heroku's [command-line interface](http://heroku.com/).
 ---
 
 ### `create` - Create an app
 
-    heroku create sushi
+```bash
+heroku create sushi
+```
+
+```bash
+git push heroku master
+```
 
 ### `access` - Collaboration
 
-    # Manage collaborators
-      heroku access                     # List
-      heroku access:add me@xy.com
-      heroku access:remove me@xy.com
+#### Manage collaborators
 
-    # Transfer to another owner
-      heroku apps:transfer new@owner.com
+```bash
+heroku access                     # List
+heroku access:add me@xy.com
+heroku access:remove me@xy.com
+```
+
+#### Transfer to another owner
+
+```bash
+heroku apps:transfer new@owner.com
+```
 
 ### `logs` - Show logs
 
-    heroku logs
-    heroku logs -t      # --tail (stream)
-    heroku logs -s app  # --source (only on app logs)
+```bash
+heroku logs
+heroku logs -t      # --tail (stream)
+heroku logs -s app  # --source (only on app logs)
+```
 
 ### `releases`
 
-    heroku releases
-    heroku releases:info v25
-    heroku rollback
+```bash
+heroku releases
+heroku releases:info v25
+heroku rollback
+```
 
-### `pg` - Postgresql
+### `pg` - PostgreSQL
 
-    # Start a database
-      heroku addons:add heroku-postgresql
-      heroku pg:promote HEROKU_POSTGRESQL_PURPLE_URL
+#### Start a database
 
-    # Enable backups
-      heroku addons:add pgbackups:auto-month
+```bash
+heroku addons:add heroku-postgresql
+```
 
-### `ps` - Managing processes
+#### Enable backups
 
-    heroku ps              # list
-    heroku ps:scale web=1  # spawn more dynos
+```bash
+heroku addons:add pgbackups:auto-month
+```
 
-### `restart`
-
-    heroku restart
-
-### `run` - Running
-
-    heroku run bash
-    heroku run console                  # Rails console
-    heroku run rake assets:precompile
+See: [Heroku PostgreSQL](https://devcenter.heroku.com/articles/heroku-postgresql) _(devcenter.heroku.com)_
 
 ### `config` - Environment var configuration
 
-    heroku config        # List
-    heroku config -s     # List in shell format
+#### Listing
 
-    heroku config:get KEY
+```bash
+heroku config        # List
+heroku config -s     # List in shell format
+```
 
-    heroku config:set KEY=val
-    heroku config:set KEY1=val KEY2=val ...
+#### Getting
 
-    heroku config:unset KEY1
+```bash
+heroku config:get KEY
+```
+
+#### Setting
+
+```bash
+heroku config:set KEY=val
+heroku config:set KEY1=val KEY2=val ...
+```
+
+```bash
+heroku config:unset KEY1
+```
 
 ### `apps` - Applications
 
-    heroku apps                  # list
-    heroku apps:create [NAME]
-    heroku apps:destroy --app APP
-    heroku apps:info
-    heroku apps:open             # open in browser
-    heroku apps:rename NEWNAME
+```bash
+heroku apps                  # list
+heroku apps:create [NAME]
+heroku apps:destroy --app APP
+heroku apps:info
+heroku apps:open             # open in browser
+heroku apps:rename NEWNAME
+```
 
 ### `maintenance`
 
-    heroku maintenance:on
-    heroku maintenance:off
+```bash
+heroku maintenance:on
+```
+
+```bash
+heroku maintenance:off
+```
+
+## Processes
+
+
+### `ps` - Managing processes
+
+```bash
+heroku ps              # list
+heroku ps:scale web=1  # spawn more dynos
+```
+
+### `restart`
+
+```bash
+heroku restart
+```
+
+### `run` - Running tasks
+
+```bash
+heroku run bash
+heroku run console                  # Rails console
+heroku run rake assets:precompile
+```
+
+## Domains
 
 ### `domains` - Custom domains
 
-    # Add both!
-      heroku domains:add example.com
-      heroku domains:add www.example.com
+#### Add both!
 
-    # Removing:
-      heroku domains:clear
-      heroku domains:remove example.com
+```bash
+heroku domains:add example.com
+heroku domains:add www.example.com
+```
+
+#### Removing
+
+```bash
+heroku domains:clear
+heroku domains:remove example.com
+```
+
+See: [Custom domains](https://devcenter.heroku.com/articles/custom-domains) _(devcenter.heroku.com)_
 
 ### Wildcard domains
 
-    heroku addons:add wildcard_domains
+```bash
+heroku addons:add wildcard_domains
+```
 
-    *.yourdomain.com => heroku.com
+```bash
+*.yourdomain.com => heroku.com
+```
+
+## Other tricks
 
 ### htpasswd (for PHP apps)
 
 Create an `.htaccess` file in the webroot:
 
-    AuthUserFile /app/www/.htpasswd
-    AuthType Basic
-    AuthName "Restricted Access"
-    Require valid-user
+```bash
+AuthUserFile /app/www/.htpasswd
+AuthType Basic
+AuthName "Restricted Access"
+Require valid-user
+```
 
 Create a `.htpasswd` file:
 
-    $ htpasswd -c .htpasswd [username]
+```bash
+$ htpasswd -c .htpasswd [username]
+```
 
-See https://gist.github.com/3316425
+See: [gist.github.com](https://gist.github.com/3316425)
 
-### References:
+## References
 
- * https://addons.heroku.com/
- * https://devcenter.heroku.com/
- * https://devcenter.heroku.com/articles/custom-domains
- * https://devcenter.heroku.com/articles/heroku-postgresql
+ * <https://addons.heroku.com/>
+ * <https://devcenter.heroku.com/>

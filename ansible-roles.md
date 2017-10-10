@@ -1,6 +1,7 @@
 ---
 title: Ansible roles
 category: Ansible
+layout: 2017/sheet
 ---
 
 ### Structure
@@ -13,7 +14,8 @@ category: Ansible
         templates/          # 'template' will refer to this
         meta/               # Role dependencies here
         vars/
-        defaults/main.yml
+        defaults/
+          main.yml
 
 ### References
 

@@ -1,29 +1,40 @@
 ---
-title: Getting started
+title: "Ansible quickstart"
 category: Ansible
+layout: 2017/sheet
+description: |
+  A quick guide to getting started with your first Ansible playbook.
 ---
 
 ### Install Ansible
 
-```sh
+```bash
 $ brew install ansible            # OSX
-$ [sudo] pip install ansible      # elsewhere
+$ [sudo] apt install ansible      # elsewhere
 ```
+
+Ansible is available as a package in most OS's.
+
+See: [Installation](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
 ### Start your project
 
-```sh
+```bash
 ~$ mkdir setup
 ~$ cd setup
 ```
 
-### Create an inventory file
+Make a folder for your Ansible files.
 
-This is a list of hosts you want to manage, grouped into groups. (Hint: try
-using 127.0.0.1 to deploy to your local machine)
+See: [Getting started](http://docs.ansible.com/ansible/latest/intro_getting_started.html)
+
+## Creating your files
+
+### Inventory file
+
+#### ~/setup/hosts
 
 ```dosini
-; ~/setup/hosts
 [sites]
 127.0.0.1
 192.168.0.1
@@ -31,11 +42,16 @@ using 127.0.0.1 to deploy to your local machine)
 192.168.0.3
 ```
 
-### Create your first Playbook
+This is a list of hosts you want to manage, grouped into groups. (Hint: try
+using `localhost ansible_connection=local` to deploy to your local machine.)
+
+See: [Intro to Inventory](http://docs.ansible.com/ansible/latest/playbooks_intro.html)
+
+### Playbook
+
+#### ~/setup/playbook.yml
 
 ```yaml
-# ~/setup/playbook.yml
-
 - hosts: 127.0.0.1
   user: root
   tasks:
@@ -52,26 +68,38 @@ using 127.0.0.1 to deploy to your local machine)
       gem: name=bundler state=latest
 ```
 
-### Run it
+See: [Intro to Playbooks](http://docs.ansible.com/ansible/latest/intro_inventory.html)
 
-    ~/setup$ ls
-    hosts
-    playbook.yml
+## Running
 
-    ~/setup$ ansible-playbook -i hosts playbook.yml
-    PLAY [all] ********************************************************************
+### Running ansible-playbook
 
-    GATHERING FACTS ***************************************************************
-    ok: [127.0.0.1]
+```
+~/setup$ ls
+hosts
+playbook.yml
+```
 
-    TASK: [install nginx] *********************************************************
-    ok: [127.0.0.1]
+#### Running the playbook
 
-    TASK: start nginx every bootup] ***********************************************
-    ok: [127.0.0.1]
-    ...
+```
+~/setup$ ansible-playbook -i hosts playbook.yml
+PLAY [all] ********************************************************************
 
-### Read more
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
 
-  * http://lowendbox.com/blog/getting-started-with-ansible/
-  * http://www.ansibleworks.com/docs/modules.html
+TASK: [install nginx] *********************************************************
+ok: [127.0.0.1]
+
+TASK: start nginx every bootup] ***********************************************
+ok: [127.0.0.1]
+...
+```
+
+## Read more
+
+* [Getting started with Ansible](http://lowendbox.com/blog/getting-started-with-ansible/) _(lowendbox.com)_
+* [Getting started](http://docs.ansible.com/ansible/latest/intro_getting_started.html) _(docs.ansible.com)_
+* [Intro to Inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html) _(docs.ansible.com)_
+* [Intro to Playbooks](http://docs.ansible.com/ansible/latest/playbooks_intro.html) _(docs.ansible.com)_

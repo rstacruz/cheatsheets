@@ -1,7 +1,7 @@
 {%
   if page.description and page.intro
 %}{{ page.description }} {{ page.intro | markdownify | strip_html }}{%
-  if page.description
+  elsif page.description
 %}{{ page.description }}{%
   elsif page.intro
 %}One-page guide to {{ page.title }}: usage, examples, and more. {{ page.intro | markdownify | strip_html }}{%

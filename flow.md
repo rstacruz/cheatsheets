@@ -358,3 +358,9 @@ function fetch (callback: Callback) {
   ···
 }
 ```
+
+## References
+
+- [Flow website](https://www.saltycrane.com/flow-type-cheat-sheet/latest/) _(flow.org)_
+- [Getting started with Flow](https://flow.org/en/docs/getting-started/) _(flow.org)_
+- [Flow type cheatsheet](https://www.saltycrane.com/flow-type-cheat-sheet/latest/) _(saltycrane.com)_

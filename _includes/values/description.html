@@ -1,11 +1,13 @@
 {%
+  if page.description and page.intro
+%}{{ page.description }} {{ page.intro | markdownify | strip_html }}{%
   if page.description
 %}{{ page.description }}{%
   elsif page.intro
-%}{{ page.intro | markdownify | strip_html }}{%
+%}One-page guide to {{ page.title }}: usage, examples, and more. {{ page.intro | markdownify | strip_html }}{%
   elsif page.type == 'article'
-%}One-page reference for {{ page.title }}: usage, examples, links, snippets, and more.{%
+%}The one-page guide to {{ page.title }}: usage, examples, links, snippets, and more.{%
   else
-%}One-page reference for {{ page.title }}: usage, examples, links, snippets, and more.{%
+%}The one-page guide to {{ page.title }}: usage, examples, links, snippets, and more.{%
   endif
 %}

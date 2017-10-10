@@ -4,6 +4,8 @@ category: CSS
 layout: 2017/sheet
 tags: [Featured]
 updated: 2017-08-26
+intro: |
+  Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
 ---
 
 ### Antialias

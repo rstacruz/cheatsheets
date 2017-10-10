@@ -5,6 +5,8 @@ layout: 2017/sheet
 tags: [Featured]
 updated: 2017-10-02
 weight: -10
+intro: |
+  A quick overview of new JavaScript features in ES2015, ES2016, ES2017 and beyond.
 ---
 
 ### Block scoping

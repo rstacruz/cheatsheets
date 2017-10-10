@@ -5,7 +5,7 @@ layout: 2017/sheet
 weight: -3
 updated: 2017-09-04
 intro: |
-  Usage reference and examples for [HTTPie](https://httpie.org/), a command-line HTTP client.
+  [HTTPie](https://httpie.org/) is a command-line HTTP client.
 ---
 
 ### Parameters

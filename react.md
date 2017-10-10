@@ -574,7 +574,7 @@ Also see
 
 * [React website](https://reactjs.org) _(reactjs.org)_
 * [React cheatsheet](https://reactcheatsheet.com/) _(reactcheatsheet.com)_
-* [Awesome react](https://github.com/enaqx/awesome-react) _(github.com)_
+* [Awesome React](https://github.com/enaqx/awesome-react) _(github.com)_
 * [React v0.14 cheatsheet](react@0.14) _Legacy version_
 
 {%endraw%}

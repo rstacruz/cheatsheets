@@ -1,8 +1,8 @@
 {%
-  if page.intro
-%}{{ page.intro | markdownify | strip_html }}{%
-  elsif page.description
+  if page.description
 %}{{ page.description }}{%
+  elsif page.intro
+%}{{ page.intro | markdownify | strip_html }}{%
   elsif page.type == 'article'
 %}One-page reference for {{ page.title }}: usage, examples, links, snippets, and more.{%
   else

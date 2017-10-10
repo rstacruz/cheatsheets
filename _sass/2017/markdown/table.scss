@@ -143,3 +143,16 @@
     white-space: nowrap;
   }
 }
+
+.MarkdownBody table.-mute-em {
+  & td,
+  & th {
+    & em {
+      opacity: 0.5;
+    }
+
+    & em > code {
+      margin-right: 0.5em;
+    }
+  }
+}

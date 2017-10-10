@@ -5,64 +5,75 @@ layout: 2017/sheet
 updated: 2017-10-11
 description: ""
 intro: |
-  A list of revision specifications you can use with `git log` and many other Git commands. Summarized from `man gitrevisions`.
+  A list of revision specifications you can use with `git log` and many other Git commands. Summarized from `gitrevisions(7)` man page.
 ---
 
 ### Example usages
 
-```bash
-git log master...develop    # inspect differences in branches
-git rebase -i HEAD~3        # rebase last 3 commits
-git reset --hard HEAD@{2}   # undo last operation that changed HEAD
-git show ":/fix bug"        # search commit with regex
-git checkout v2^{}          # checkout the `v2` tag (not `v2` branch)
-```
-The 3rd argument in each of these commands is a `gitrevision`.
+| _`git log`_ `master...develop`  | inspect differences in branches         |
+| _`git rebase -i`_ `HEAD~3`      | rebase last 3 commits                   |
+| _`git reset --hard`_ `HEAD@{2}` | undo last operation that changed HEAD   |
+| _`git checkout`_ `v2^{}`        | checkout the `v2` tag (not `v2` branch) |
+{: .-mute-em}
+
+The 3rd argument in each of these commands is a `gitrevision`. These gitrevisions can be passed to many Git commands.
 
 ### Common git revisions
 
-| Reference       | Description                                     |
-| ---             | ---                                             |
-| `dae68e1`       | sha1                                            |
-| `HEAD`          | reference                                       |
-| `v1.0.0`        | tag                                             |
-| ---             | ---                                             |
-| `master`        | local branch                                    |
-| `origin/master` | remote branch                                   |
-| ---             | ---                                             |
-| `master~2`      | 2 commits back from master                      |
-| ---             | ---                                             |
-| `master..fix`   | reachable from *fix* but not *master*           |
-| `master...fix`  | reachable from *fix* and *master*, but not both |
+| Reference                    | Description                                     |
+| ---                          | ---                                             |
+| _`git show`_ `dae68e1`       | sha1                                            |
+| _`git show`_ `HEAD`          | reference                                       |
+| _`git show`_ `v1.0.0`        | tag                                             |
+| ---                          | ---                                             |
+| _`git show`_ `master`        | local branch                                    |
+| _`git show`_ `origin/master` | remote branch                                   |
+| ---                          | ---                                             |
+| _`git show`_ `master~2`      | 2 commits back from master                      |
+| ---                          | ---                                             |
+| _`git show`_ `master..fix`   | reachable from *fix* but not *master*           |
+| _`git show`_ `master...fix`  | reachable from *fix* and *master*, but not both |
+{: .-mute-em}
 
-These are just the common ones, there's a lot more below!
+These are just the common ones, there's a lot more below! (These work in many other commands, not just `git show`.)
 
 ## Reference
 
 ### Commits
 
-| `dae68e1` | sha1 |
+| _`git checkout`_ `dae68e1` | sha1 |
+{: .-mute-em}
 
 ### References
 
-| `HEAD`          | reference                         |
-| `master`        | branch                            |
-| `v1.0.0`        | tag                               |
-| `origin/master` | aka, *refs/remotes/origin/master* |
-| `heads/master`  | aka, *refs/heads/master*          |
+| Example                          | Description                       |
+| ---                              | ---                               |
+| _`git checkout`_ `HEAD`          | reference                         |
+| _`git checkout`_ `master`        | branch                            |
+| _`git checkout`_ `v1.0.0`        | tag                               |
+| ---                              | ---                               |
+| _`git checkout`_ `origin/master` | aka, *refs/remotes/origin/master* |
+| _`git checkout`_ `heads/master`  | aka, *refs/heads/master*          |
+{: .-mute-em}
 
 ### Searching back
 
-| `master@{yesterday}` | also *1 day ago*, etc                    |
-| `master@{2}`         | 2nd prior value                          |
-| `master@{push}`      | where *master* would push to             |
-| `master^`            | parent commit                            |
-| `master^2`           | 2nd parent, eg, what it merged           |
-| `master~5`           | 5 parents back                           |
-| `master^0`           | this commit; disambiguates from tags     |
-| `v0.99.8^{tag}`      | can be *commit*, *tag*, *tree*, *object* |
-| `v0.99.8^{}`         | defaults to *{tag}*                      |
-| `:/fix bug`          | searches commit messages                 |
+| Example                               | Description                              |
+| ---                                   | ---                                      |
+| _`git checkout`_ `master@{yesterday}` | also *1 day ago*, etc                    |
+| _`git checkout`_ `master@{2}`         | 2nd prior value                          |
+| _`git checkout`_ `master@{push}`      | where *master* would push to             |
+| ---                                   | ---                                      |
+| _`git checkout`_ `master^`            | parent commit                            |
+| _`git checkout`_ `master^2`           | 2nd parent, eg, what it merged           |
+| _`git checkout`_ `master~5`           | 5 parents back                           |
+| _`git checkout`_ `master^0`           | this commit; disambiguates from tags     |
+| ---                                   | ---                                      |
+| _`git checkout`_ `v0.99.8^{tag}`      | can be *commit*, *tag*, *tree*, *object* |
+| _`git checkout`_ `v0.99.8^{}`         | defaults to *{tag}*                      |
+| ---                                   | ---                                      |
+| _`git checkout`_ `":/fix bug"`        | searches commit messages                 |
+{: .-mute-em}
 
 ### Other
 
@@ -73,13 +84,14 @@ These are just the common ones, there's a lot more below!
 
 ### Ranges
 
-| `master`       | reachable parents from master                   |
-| `^master`      | exclude reachable parents from master           |
-| `master..fix`  | reachable from *fix* but not *master*           |
-| `master...fix` | reachable from *fix* and *master*, but not both |
-| `HEAD^@`       | parents of *HEAD*                               |
-| `HEAD^!`       | *HEAD*, then excluding parents's ancestors      |
-| `HEAD^{:/fix}` | search previous *HEAD*s matching criteria       |
+| _`git log`_ `master`       | reachable parents from master                   |
+| _`git log`_ `^master`      | exclude reachable parents from master           |
+| _`git log`_ `master..fix`  | reachable from *fix* but not *master*           |
+| _`git log`_ `master...fix` | reachable from *fix* and *master*, but not both |
+| _`git log`_ `HEAD^@`       | parents of *HEAD*                               |
+| _`git log`_ `HEAD^!`       | *HEAD*, then excluding parents's ancestors      |
+| _`git log`_ `HEAD^{:/fix}` | search previous *HEAD*s matching criteria       |
+{: .-mute-em}
 
 ### Ranges illustration
 
@@ -90,5 +102,11 @@ A ─┬─ E ── F ── G   master
 ```
 {: .-box-chars.-setup}
 
-| `master..fix`  | BCD         |
-| `master...fix` | BCD and EFG |
+| _`git log`_ `master..fix`  | BCD         |
+| _`git log`_ `master...fix` | BCD and EFG |
+{: .-mute-em}
+
+## References
+
+* [Git Tools - Revision Selection](https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html) _(git-scm.com)_
+* [gitrevisions(7)](https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html) _(kernel.org)_

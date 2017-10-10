@@ -37,6 +37,7 @@ See: [H3 sections](#h3-sections-1)
 | `-bold-first` | Bold first column |
 | `-headers` | Show headers |
 | `-left-align` | Don't right align last column |
+| `-mute-em` | Lower opacity for italics |
 | `-no-wrap` | Don't wrap text |
 | `-shortcuts` | Shortcut keys |
 

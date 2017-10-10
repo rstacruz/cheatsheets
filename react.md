@@ -7,7 +7,7 @@ tags: [Featured]
 updated: 2017-10-10
 weight: -10
 intro: |
-  [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
+  One-page reference to [React](https://reactjs.org/)'s components, lifecycle hooks, with examples and more. React is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---
 
 {%raw%}

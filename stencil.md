@@ -39,7 +39,7 @@ export class MyComponent {
 <my-component name='Groot' />
 ```
 
-That's the same example in the [Readme](https://github.com/ionic-team/stencil), that's as simple as you can get!
+That's the same example in the [Readme](https://github.com/ionic-team/stencil), that's as simple as you can get! Just use `<my-component>` like you would use any other HTML tag.
 
 ### DOM events
 

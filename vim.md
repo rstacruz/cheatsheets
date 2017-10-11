@@ -33,26 +33,32 @@ Getting started
 
 ### Navigating
 
-| Shortcut        | Description                        |
-| ---             | ---                                |
 | `h` `j` `k` `l` | Arrow keys                         |
 | `^u` _/_ `^d`   | Page up/page down                  |
-| ---             | ---                                |
+{: .-shortcuts}
+
+#### Words
+
 | `b` _/_ `w`     | Previous/next word                 |
 | `e` _/_ `ge`    | Previous/next end of word          |
-| ---             | ---                                |
+{: .-shortcuts}
+
+#### Line
+
 | `0` _(zero)_    | Start of line                      |
 | `^`             | Start of line _(after whitespace)_ |
-| ---             | ---                                |
 | `$`             | End of line                        |
+{: .-shortcuts}
+
+#### Document
+
 | `gg`            | First line                         |
 | `G`             | Last line                          |
-| ---             | ---                                |
 | `:n`            | Go to line `n`                     |
 | `nG`            | Go to line `n`                     |
 {: .-shortcuts}
 
-### Entering insert mode
+### Editing
 
 | Shortcut | Description                         |
 | ---      | ---                                 |
@@ -65,7 +71,8 @@ Getting started
 | `S`      | Delete line and insert              |
 | `C`      | Delete until end of line and insert |
 | ---      | ---                                 |
-| `R`      | Replace                             |
+| `r`      | Replace one character               |
+| `R`      | Enter Replace mode                  |
 {: .-shortcuts}
 
 ### Exiting insert mode
@@ -91,12 +98,13 @@ Getting started
 
 ### Visual mode
 
-| Shortcut    | Description             |
-| ---         | ---                     |
 | `v`         | Enter visual mode       |
 | `V`         | Enter visual line mode  |
 | `^v`        | Enter visual block mode |
-| ---         | ---                     |
+{: .-shortcuts}
+
+#### In visual mode
+
 | `d` _/_ `x` | Delete selection        |
 | `s`         | Replace selection       |
 | `y`         | Yank selection _(Copy)_ |
@@ -249,6 +257,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | `^A` | increment number |
 | `^X` | decrement |
+{: .-shortcuts}
 
 ### Windows
 

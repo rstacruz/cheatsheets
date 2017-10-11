@@ -52,6 +52,9 @@ user
 
 ```coffeescript
 Model.emit('event', [data...])
+```
+
+```coffeescript
 record.emit('event', [data...])
 ```
 
@@ -100,17 +103,15 @@ user
 ```coffeescript
 MyPlugin = ->
   return (Model) ->
-```
 
-```coffeescript
     Model.method = ...
     Model.prototype.method = ...
     Model.attr(...)
-```
 
-```coffeescript
     Model
 ```
+
+A plugin is a function that returns a model decorator (ie, a function that takes in a model and returns a model).
 
 ### Memory
 

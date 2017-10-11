@@ -2,6 +2,12 @@
  * Crosslink (eg, phoenix.md)
  */
 
+.MarkdownBody.MarkdownBody {
+  img {
+    max-width: 100%;
+  }
+}
+
 .MarkdownBody.MarkdownBody p.-crosslink {
   & > a {
     display: block;

@@ -79,3 +79,4 @@ abc,hello
 ## Also see
 
 - [godlygeek/tabular](https://github.com/godlygeek/tabular) _(github.com)_
+- [Aligning text with Tabular.vim](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/) _(vimcasts.org)_

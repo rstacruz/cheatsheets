@@ -1,9 +1,9 @@
 ---
-title: Rtorrent
+title: rTorrent
 category: CLI
 layout: 2017/sheet
 intro: |
-  [Rtorrent](https://rakshasa.github.io/rtorrent/) is a command-line torrent application. Here are some shortcut keys.
+  [rTorrent](https://rakshasa.github.io/rtorrent/) is a command-line torrent application. Here are some shortcut keys.
 ---
 
 ## Shortcuts
@@ -59,5 +59,5 @@ intro: |
 
 ## Also see
 
-- [Rtorrent website](https://rakshasa.github.io/rtorrent/) _(rakshasa.github.io)_
-- [Rtorrent wiki](https://github.com/rakshasa/rtorrent/wiki) _(github.com)_
+- [rTorrent website](https://rakshasa.github.io/rtorrent/) _(rakshasa.github.io)_
+- [rTorrent wiki](https://github.com/rakshasa/rtorrent/wiki) _(github.com)_

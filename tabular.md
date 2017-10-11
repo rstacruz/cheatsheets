@@ -8,43 +8,103 @@ intro: |
   [Tabular](https://github.com/godlygeek/tabular) is a Vim script for text alignment.
 ---
 
-## Examples
+## Common usage
+{: .-three-column}
+
+### Tables
+
+```
+:Tab /|
+```
+{: .-setup}
+
+```
+| Fruit  | Color  |
+| -----  | -----  |
+| Apple  | Red    |
+| Banana | Yellow |
+| Kiwi   | Green  |
+```
+
+### Variables
+
+```
+:Tab /=
+```
+{: .-setup}
+
+```
+title = "Hello"
+src   = "image.jpg"
+width = 640
+```
+
+### Colons
+
+```
+:Tab /:\zs/l0l1
+```
+{: .-setup}
+
+```
+title:       "Hello world"
+description: "This is a description"
+src:         "image.jpg"
+height:      320
+width:       640
+```
+
+## Tab command
 {: .-three-column}
 
 ### Basic example
 
 ```
-:Tab /,
+:Tab /:
 ```
 {: .-setup}
 
 ```bash
-hello , there
-hi    , you
+title : My picture
+src   : img.jpg
 ```
 
 ### Right align
 
 ```
-:Tab /,/r0
+:Tab /:/r0
 ```
 {: .-setup}
 
 ```bash
-hello,there
-   hi,  you
+title:My picture
+  src:   img.jpg
 ```
+
+### The \zs atom
+
+```
+:Tab /:\zs
+```
+{: .-setup}
+
+```
+title:  My picture
+src:    img.jpg
+```
+
+The `\zs` atom will exclude the `:` from the search match.
 
 ### Specifier
 
 ```
-:Tab /,/r1c1l0
+:Tab /:/r1c1l0
 ```
 {: .-setup}
 
 ```bash
-hello , etc
-   hi , etc
+title : My picture
+  src : img.jpg
 ```
 
 #### Explanation

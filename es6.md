@@ -104,7 +104,7 @@ class Circle extends Shape {
     return super.expand(n) * Math.PI
   }
 ```
-{: data-line="1"}
+{: data-line="2"}
 
 #### Static methods
 

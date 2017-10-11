@@ -169,6 +169,8 @@ See: [Slots](https://stenciljs.com/docs/templating#slots)
 
 ## Lifecycle
 
+### Lifecycle hooks
+
 | Event                   | Description      |
 | ---                     | ---              |
 | `componentWilLLoad()`   | Before rendering |
@@ -180,6 +182,16 @@ See: [Slots](https://stenciljs.com/docs/templating#slots)
 | `componentDidUnload()`  | After unmounting |
 
 See: [Component lifecycle](https://stenciljs.com/docs/component-lifecycle)
+
+### Example
+
+```js
+export class MyComponent {
+  componentWillUpdate () {
+    console.log('updating')
+  }
+}
+```
 
 ## References
 

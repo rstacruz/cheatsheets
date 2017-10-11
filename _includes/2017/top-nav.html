@@ -23,7 +23,7 @@ Params:
         {% unless include.noedit %}
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='{{ site.data.content.top_nav.edit_on_github }}'>
-              <a href='{{ site.github.repository_url }}/blob/gh-pages/{{ page.path | remove: '.html' }}'>
+              <a href='{{ site.github.repository_url }}/blob/master/{{ page.path | remove: '.html' }}'>
                 <span class='text -visible'>{{ site.data.content.top_nav.edit }}</span>
               </a>
             </li>

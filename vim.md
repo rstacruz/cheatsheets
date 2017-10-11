@@ -5,6 +5,8 @@ layout: 2017/sheet
 tags: [Featured]
 updated: 2017-08-26
 weight: -10
+intro: |
+  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.
 ---
 
 Getting started
@@ -332,9 +334,9 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
-References
-----------
-{: .-one-column}
+Also see
+--------
 
-This reference was made for Vim 8.0.
-
+- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
+- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_

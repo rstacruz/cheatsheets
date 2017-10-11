@@ -95,7 +95,7 @@ export class MyComponent {
 ```
 {: data-line="4,5"}
 
-Just do assignments. You can't do mutations tho, see later!
+Just do assignments. You can't do mutations though, see next section.
 
 See: [Managing component state](https://stenciljs.com/docs/decorators#managing-component-state)
 

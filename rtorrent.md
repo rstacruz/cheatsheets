@@ -1,39 +1,63 @@
 ---
 title: Rtorrent
 category: CLI
+layout: 2017/sheet
+intro: |
+  [Rtorrent](https://rakshasa.github.io/rtorrent/) is a command-line torrent application. Here are some shortcut keys.
 ---
+
+## Shortcuts
+{: .-three-column}
 
 ### Global
 
-    ^q        Quit
+| `^q` | Quit |
+{: .-shortcuts}
 
 ### Main view
 
-    bksp      Add torrent
-
-    ->        View download
-
-    1 - 7     Change view
-
-    ^S        Start download
-    ^D        Stop download (or remove stopped)
-    ^K        Close a torrent
-
-    + -       Change priority
+| Shortcut | Description |
+| --- | --- |
+| `bksp` | Add torrent |
+| --- | --- |
+| `->` | View download |
+| --- | --- |
+| `1` _-_ `7` | Change view |
+| --- | --- |
+| `^S` | Start download |
+| `^D` | Stop download (or remove stopped) |
+| `^K` | Close a torrent |
+| --- | --- |
+| `+` _/_ `-` | Change priority |
+{: .-shortcuts}
 
 ### Throttling
 
-    a/s/d    Increase the upload throttle by 1/5/50 KB
-    z/x/c    Decrease the upload throttle by 1/5/50 KB
-    A/S/D    Increase the download throttle by 1/5/50 KB
-    Z/X/C    Decrease the download throttle by 1/5/50 KB
+#### Upload
+
+| `a` _/_ `s` _/_ `d` | Increase upload throttle by 1/5/50 KB   |
+| `z` _/_ `x` _/_ `c` | Decrease upload throttle by 1/5/50 KB   |
+{: .-shortcuts}
+
+#### Download
+
+| `A` _/_ `S` _/_ `D` | Increase download throttle by 1/5/50 KB |
+| `Z` _/_ `X` _/_ `C` | Decrease download throttle by 1/5/50 KB |
+{: .-shortcuts}
 
 ### Download view
 
-    1/2      Adjust max uploads
-    3/4      Adjust min peers
-    5/6      Adjust max peers
+| `1` _/_ `2` | Adjust max uploads |
+| `3` _/_ `4` | Adjust min peers   |
+| `5` _/_ `6` | Adjust max peers   |
+{: .-shortcuts}
 
 ### File list view
 
-    space    Change priority
+| `space` | Change priority |
+{: .-shortcuts}
+
+## Also see
+
+- [Rtorrent website](https://rakshasa.github.io/rtorrent/) _(rakshasa.github.io)_
+- [Rtorrent wiki](https://github.com/rakshasa/rtorrent/wiki) _(github.com)_

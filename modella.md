@@ -1,82 +1,127 @@
 ---
 title: Modella
 category: JavaScript libraries
+layout: 2017/sheet
+prism_languages: [coffeescript]
+intro: |
+  [Modella](https://www.npmjs.com/package/modella) allows you to create simple models in JavaScript. This is a guide on basic usage of Modella in CoffeeScript.
 ---
 
-### Basic
+### Defining models
 
-    
-    User = Modella('User')
+```coffeescript
+User = Modella('User')
+```
 
-      .attr('name')
-      .attr('email', { required: true })
-      .use(require('modella-validators')
+```coffeescript
+  .attr('name')
+  .attr('email', { required: true })
+  .use(require('modella-validators'))
+```
 
-      .validator (u) ->
-        u.error('username', 'is required')  unless u.has('username')
+```coffeescript
+  .validator (u) ->
+    u.error('username', 'is required')  unless u.has('username')
+```
 
+### Instances
 
-    user
-      .name()
-      .name('John')
-      .set(name: 'John')
+```coffeescript
+user
+  .name()
+  .name('John')
+  .set(name: 'John')
+```
 
-      .has('name')   //=> true
-      .isNew()
-      .isValid()
+```coffeescript
+  .has('name')   # → true
+  .isNew()
+  .isValid()
+```
 
-      .save (err) ->
-      .remove (err) ->
-      .removed
-      .model         // === User
+```coffeescript
+  .save (err) ->
+  .remove (err) ->
+  .removed
+  .model         # === User
+```
 
-### Events
+## Events
 
-    Model.emit('event', [data...])
-    record.emit('event', [data...])
+### Emitting
+
+```coffeescript
+Model.emit('event', [data...])
+record.emit('event', [data...])
+```
 
 ### List of events
 
-    user
-      .on 'save', ->
-      .on 'create', ->
-      .on 'saving', (data, done) -> done()
+```coffeescript
+user
+  .on 'save', ->
+  .on 'create', ->
+  .on 'saving', (data, done) -> done()
+```
 
-      .on 'remove', ->
-      .on 'removing', (data, done) -> done()
+```coffeescript
+  .on 'remove', ->
+  .on 'removing', (data, done) -> done()
+```
 
-      .on 'valid', ->
-      .on 'invalid', ->
+```coffeescript
+  .on 'valid', ->
+  .on 'invalid', ->
+```
 
-      .on 'change', ->
-      .on 'change email', ->
+```coffeescript
+  .on 'change', ->
+  .on 'change email', ->
+```
 
-      .on 'initializing', (instance, attrs) ->
-      .on 'initialize', ->
+```coffeescript
+  .on 'initializing', (instance, attrs) ->
+  .on 'initialize', ->
+```
 
-      .on 'error', -> failed to save model
+```coffeescript
+  .on 'error', -> failed to save model
+```
 
-      .on 'setting', (instance, attrs) ->  # on Model#set()
-      .on 'attr', -> # new attr via Model.attr()
+```coffeescript
+  .on 'setting', (instance, attrs) ->  # on Model#set()
+  .on 'attr', -> # new attr via Model.attr()
+```
+
+## Misc
 
 ### Plugins
 
-    MyPlugin = ->
-      return (Model) ->
+```coffeescript
+MyPlugin = ->
+  return (Model) ->
+```
 
-        Model.method = ...
-        Model.prototype.method = ...
-        Model.attr(...)
+```coffeescript
+    Model.method = ...
+    Model.prototype.method = ...
+    Model.attr(...)
+```
 
-        Model
+```coffeescript
+    Model
+```
 
 ### Memory
 
-    User
-      .all (err, users) ->
-      .find id, (err, user) ->
+```coffeescript
+User
+  .all (err, users) ->
+  .find id, (err, user) ->
+```
 
-      .remove ->
-      .save ->
-      .update ->
-
+```coffeescript
+  .remove ->
+  .save ->
+  .update ->
+```

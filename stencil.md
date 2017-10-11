@@ -101,18 +101,17 @@ See: [Managing component state](https://stenciljs.com/docs/decorators#managing-c
 
 ### Updating arrays and objects
 
+#### ✗ Bad
 ```js
-this.names = [
-  ...this.names,
-  'Larry'
-]
+this.names.push('Larry')  // ⚠️
+this.options.show = true  // ⚠️
 ```
 
+#### ✓ OK
+
 ```js
-this.options = {
-  ...this.options,
-  visible: true
-}
+this.names = [ ...this.names, 'Larry' ]
+this.options = { ...this.options, show: true }
 ```
 
 Mutable operations such as `push()` won't work. You'll need to assign a new copy.

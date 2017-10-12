@@ -3,6 +3,7 @@ title: Enzyme
 category: React
 layout: 2017/sheet
 updated: 2017-10-12
+tags: [Featured]
 weight: -1
 intro: |
   [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.

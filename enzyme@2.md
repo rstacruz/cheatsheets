@@ -1,45 +1,16 @@
 ---
-title: Enzyme
+title: Enzyme v2
 category: React
 layout: 2017/sheet
-updated: 2017-10-12
+updated: 2017-09-14
 weight: -1
+deprecated_by: /enzyme
 intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 2.x.
 ---
 
 ## Getting started
 {: .-three-column}
-
-### Initial setup
-
-```
-npm install --save-dev enyzme \
-  enzyme-adapter-react-16 \
-  react-test-renderer
-```
-{: .-setup}
-
-#### test/setup.js
-
-```js
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-Enzyme.configure({ adapter: new Adapter() })
-```
-
-#### package.json
-
-```js
-"jest": {
-  "setupFiles": [
-    "test/setup.js"
-  ]
-}
-```
-
-This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's [installation instructions](http://airbnb.io/enzyme/#installation).
 
 ### Mounting
 {: .-prime}
@@ -59,39 +30,24 @@ wrap = mount(<MyComponent />)
 
 Shallow wrapping doesn't descend down to sub-components.
 A full mount also mounts sub-components.
-
 See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
 [Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
 
-### Jest snapshots
-
-```
-npm install --save-dev enzyme-to-json
-```
-{: .-setup}
-
-#### package.json
+### Jest
 
 ```js
-"jest": {
-  "snapshotSerializers": [
-    "enzyme-to-json/serializer"
-  ]
-}
+import toJson from 'enzyme-to-json'
 ```
-
-#### Test
+{: .-setup}
 
 ```js
 it('works', () => {
   wrap = mount(<MyComponent />)
-  expect(wrap).toMatchSnapshot()
+  expect(toJson(wrap)).toMatchSnapshot()
 })
 ```
 
-Converts an Enzyme wrapper to a format compatible with Jest snapshots.
-
-See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
+Converts an Enzyme wrapper to a format compatible with Jest snapshots. See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
 
 ### Debugging
 
@@ -99,9 +55,7 @@ See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
 console.log(wrap.debug())
 ```
 
-Shows HTML for debugging purposes.
-
-See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+Shows HTML for debugging purposes. See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## ReactWrapper
 
@@ -178,5 +132,4 @@ wrap.containsAnyMatchingElements([ <div /> ]) // => boolean
 
 ## References
 
-- [Enzyme website](https://airbnb.io/enzyme) _(airbnb.io)_
-- [Enzyme v2 cheatsheet](./enzyme@2) _(devhints.io)_ (old version)
+- <https://airbnb.io/enzyme>

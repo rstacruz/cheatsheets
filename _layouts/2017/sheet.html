@@ -33,6 +33,13 @@
     </aside>
   {% endif %}
 
+  {% if page.deprecated_by %}
+    <aside class='notice-box'>
+      <strong>Deprecated:</strong> This guide covers an older version.
+      <a href='{{ base }}{{ page.deprecated_by }}'>A newer version is available here.</a>
+    </aside>
+  {% endif %}
+
   {% if page.intro %}
     <div class='intro-content MarkdownBody'>
       {{ page.intro | markdownify }}

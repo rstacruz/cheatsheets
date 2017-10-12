@@ -16,20 +16,19 @@
 
   &:hover,
   &:focus {
-    background: $base-a;
+    background-color: $base-a;
     color: white;
   }
 
   & > i::before {
-    @include ion-icon('ios-home-outline');
-    font-size: 24px;
+    content: '';
+    @include ion-ios-home-outline(24px, $base-mute);
     height: 48px;
     line-height: 48px;
     width: 48px;
-    text-align: center;
   }
 
   &:hover > i::before {
-    @extend %ion-icon-ios-home;
+    background-image: ion-ios-home-image(white);
   }
 }

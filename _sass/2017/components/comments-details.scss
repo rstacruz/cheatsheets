@@ -36,9 +36,10 @@
   }
 
   & > summary > .count::before {
-    @include ion-icon('md-chatboxes');
+    @include ion-md-chatboxes(24px, $base-a);
+    content: '';
+    vertical-align: middle;
     color: $base-a;
-    font-size: 24px;
     margin: 0 8px;
   }
 

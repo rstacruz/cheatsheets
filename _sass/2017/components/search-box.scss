@@ -63,13 +63,11 @@
 
   // Icon
   &::before {
-    @include ion-icon('md-search');
-    font-size: 32px;
-    color: $base-head;
+    content: '';
+    @include ion-md-search(32px, $base-head);
+    background-position: center center;
     flex: 0 0 64px;
     width: 64px;
-    line-height: 64px;
-    text-align: center;
     order: 2;
   }
 }
@@ -99,6 +97,7 @@
     flex: 0 0 48px;
     width: 48px;
     line-height: 48px;
-    font-size: 24px;
+    background-size: 24px 24px;
+    background-position: center center;
   }
 }

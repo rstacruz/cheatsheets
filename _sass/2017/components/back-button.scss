@@ -35,8 +35,14 @@
 
   // Icon
   &::before {
-    @include ion-icon('md-arrow-back');
-    font-size: 24px;
+    content: '';
+    @include ion-md-arrow-back(24px, $base-text);
+    vertical-align: middle;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    @include ion-md-arrow-back(24px, white);
   }
 
   // Icon: smaller on mobile

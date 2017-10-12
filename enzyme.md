@@ -9,7 +9,40 @@ intro: |
 ---
 
 ## Getting started
-{: .-three-column}
+
+### Mounting
+{: .-prime}
+
+```js
+import {shallow, mount} from 'enzyme'
+```
+{: .-setup}
+
+```js
+wrap = shallow(<MyComponent />)
+```
+
+```js
+wrap = mount(<MyComponent />)
+```
+
+Shallow wrapping doesn't descend down to sub-components.
+A full mount also mounts sub-components.
+
+See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
+[Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
+
+### Debugging
+
+```js
+console.log(wrap.debug())
+```
+
+Shows HTML for debugging purposes.
+
+See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+
+## Installing
 
 ### Initial setup
 
@@ -39,29 +72,9 @@ Enzyme.configure({ adapter: new Adapter() })
 }
 ```
 
-This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's [installation instructions](http://airbnb.io/enzyme/#installation).
+This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's installation instructions.
 
-### Mounting
-{: .-prime}
-
-```js
-import {shallow, mount} from 'enzyme'
-```
-{: .-setup}
-
-```js
-wrap = shallow(<MyComponent />)
-```
-
-```js
-wrap = mount(<MyComponent />)
-```
-
-Shallow wrapping doesn't descend down to sub-components.
-A full mount also mounts sub-components.
-
-See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
-[Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
+See: [Installation](http://airbnb.io/enzyme/#installation)
 
 ### Jest snapshots
 
@@ -89,19 +102,9 @@ it('works', () => {
 })
 ```
 
-Converts an Enzyme wrapper to a format compatible with Jest snapshots.
+Optional, but recommended: This allows you to use Enzyme wrappers with Jest snapshots.
 
 See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
-
-### Debugging
-
-```js
-console.log(wrap.debug())
-```
-
-Shows HTML for debugging purposes.
-
-See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## ReactWrapper
 

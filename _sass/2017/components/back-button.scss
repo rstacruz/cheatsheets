@@ -37,6 +37,7 @@
   &::before {
     content: '';
     @include ion-md-arrow-back(24px, $base-text);
+    vertical-align: middle;
   }
 
   &:hover::before,

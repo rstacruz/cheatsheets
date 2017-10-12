@@ -1,8 +1,9 @@
-/*! ionicons-inline v0.0.6 | MIT | https://github.com/rstacruz/ionicons-inline */
+/*! ionicons-inline v0.0.7 | MIT | https://github.com/rstacruz/ionicons-inline */
 
 @mixin ion-base {
   line-height: 1em;
   display: inline-block;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

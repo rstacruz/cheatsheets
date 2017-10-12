@@ -89,3 +89,11 @@ So you want to fork this repo? Sure, here's what you need to know to whitelabel 
 - All other GitHub pages gotchas apply (CNAME, etc).
 - Edit everything in `_data/` - this holds all 'config' for the site: ad IDs, strings, etc.
 - Edit `_config.yml` as well, lots of things may not apply to you.
+
+## CloudFlare purging
+
+The site devhints.io is backed by CloudFlare. Updates will take 2 days to propagate to the website by default. To make sure recent changes will propagate, use this helper script. It will give instructions on how manual selective cache purging can be done.
+
+```bash
+./_support/cf-purge.sh
+```

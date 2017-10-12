@@ -9,10 +9,9 @@
   }
 
   &::before {
-    @include ion-icon('md-information-circle');
-    font-size: 24px;
+    content: '';
+    @include ion-md-information-circle(24px, $base-mute3);
     margin-right: 8px;
-    color: $base-mute3;
   }
 
   & > a {

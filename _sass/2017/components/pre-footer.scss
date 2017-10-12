@@ -1,4 +1,5 @@
 /*
+    content: '';
  * Spacer before footer
  */
 
@@ -11,9 +12,8 @@
   }
 
   & > .icon::before {
-    @include ion-icon('ios-flash');
-    color: $base-mute;
-    font-size: 32px;
+    content: '';
+    @include ion-ios-flash(32px, $base-mute);
     opacity: 0.25;
   }
 }

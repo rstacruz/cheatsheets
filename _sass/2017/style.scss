@@ -1,6 +1,5 @@
 @import './variables';
 @import '../vendor/modularscale/modularscale';
-@import '../vendor/iconfonts/ionicons@3';
 @import '../vendor/ionicons-inline/ionicons';
 @import './utils/carbon-style';
 @import './utils/font-size';
@@ -9,7 +8,6 @@
 @import './utils/section-gutter';
 @import './utils/section-with-container';
 @import './placeholders/push-button';
-@include ion-font;
 @import './base/base';
 @import './markdown/a-em';
 @import './markdown/code';

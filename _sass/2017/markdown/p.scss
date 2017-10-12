@@ -24,20 +24,19 @@
   }
 
   & > a::before {
-    @include ion-icon('md-arrow-forward');
-    font-size: 24px;
+    content: '';
+    @include ion-md-arrow-forward(16px, white);
     margin-right: 16px;
     width: 32px;
     height: 32px;
     line-height: 32px;
-    text-align: center;
     border-radius: 50%;
   }
 
   & > a,
   & > a:visited {
     &::before {
-      background: $base-a;
+      background-color: $base-a;
       color: white;
     }
   }
@@ -49,7 +48,7 @@
     }
 
     &::before {
-      background: $base-a7;
+      background-color: $base-a7;
     }
   }
 }

@@ -42,6 +42,93 @@ Shows HTML for debugging purposes.
 
 See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
+## Examples
+{: .-three-column}
+
+### Basic example
+{: .-prime}
+
+```js
+import { shallow } from 'enzyme'
+import MyComponent from '../MyComponent'
+```
+{: .-setup}
+
+```js
+it('works', () => {
+  const wrap = shallow(
+    <MyComponent name='Groot' />
+  )
+
+  expect(wrap.text()).toEqual('I am Groot')
+})
+```
+
+### Props and state
+
+#### Setting
+
+```js
+wrap.setProps({ name: 'Moe' })
+wrap.setState({ show: true })
+```
+
+#### Asserting
+
+```js
+expect(wrap.props('name')).toEqual('Moe')
+expect(wrap.state('show')).toEqual(true)
+```
+
+```js
+expect('name' in wrap.props()).toEqual(true)
+expect('show' in wrap.state()).toEqual(true)
+```
+
+### Matching elements
+
+```js
+expect(
+  wrap.containsMatchingElement(
+    <span>I am groot</span>
+  )
+).toBeTruthy()
+```
+
+`containsMatchingElement()` is probably the most useful assertion in Jest.
+
+### Snapshots
+
+```js
+expect(wrap).toMatchSnapshot()
+```
+
+Be sure you've set up enzyme-to-json for snapshots (see [Installing](#installing) below).
+
+### Traversions
+
+```js
+expect(
+  wrap.find('button').text()
+).toEqual('Submit')
+```
+
+Use `.find()` to traverse down to nodes. It will return wrapper objects, too.
+
+### Simulating events
+
+```js
+wrap.find('input').simulate('click')
+```
+
+#### With event object props
+
+```js
+wrap.find('input').simulate('change', {
+  target: { value: 'hello' }
+})
+```
+
 ## Installing
 
 ### Initial setup
@@ -111,23 +198,23 @@ See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
 ### Traversing
 
 ```js
-wrap.find('button')   // => ReactWrapper
-wrap.filter('button') // => ReactWrapper
-wrap.not('span')      // => ReactWrapper (inverse of filter())
-wrap.children()       // => ReactWrapper
-wrap.parent()         // => ReactWrapper
-wrap.closest('div')   // => ReactWrapper
-wrap.childAt(0)       // => ReactWrapper
-wrap.at(0)            // => ReactWrapper
-wrap.first()          // => ReactWrapper
-wrap.last()           // => ReactWrapper
+wrap.find('button')   // → ReactWrapper
+wrap.filter('button') // → ReactWrapper
+wrap.not('span')      // → ReactWrapper (inverse of filter())
+wrap.children()       // → ReactWrapper
+wrap.parent()         // → ReactWrapper
+wrap.closest('div')   // → ReactWrapper
+wrap.childAt(0)       // → ReactWrapper
+wrap.at(0)            // → ReactWrapper
+wrap.first()          // → ReactWrapper
+wrap.last()           // → ReactWrapper
 ```
 
 ```js
-wrap.get(0)           // => ReactElement
-wrap.getNode()        // => ReactElement
-wrap.getNodes()       // => Array<ReactElement>
-wrap.getDOMNode()     // => DOMComponent
+wrap.get(0)           // → ReactElement
+wrap.getNode()        // → ReactElement
+wrap.getNodes()       // → Array<ReactElement>
+wrap.getDOMNode()     // → DOMComponent
 ```
 
 See: [Full rendering API](http://airbnb.io/enzyme/docs/api/mount.html)
@@ -141,15 +228,25 @@ wrap.simulate('click')
 ### React components
 
 ```js
-wrap.setState({ ... })
-wrap.setProps({ ... })
-wrap.setContext({ ... })
+wrap.setState({ ··· })
+wrap.setProps({ ··· })
+wrap.setContext({ ··· })
+```
 
-wrap.state()            // => Any (get state)
-wrap.props()            // => object (get props)
-wrap.context()          // => Any (get context)
+```js
+wrap.state()         // get full state
+wrap.props()         // get full props
+wrap.context()       // get full context
+```
 
-wrap.instance()         // => ReactComponent
+```js
+wrap.state('key')    // → any
+wrap.props('key')    // → any
+wrap.context('key')  // → any
+```
+
+```js
+wrap.instance()      // → ReactComponent
 ```
 
 ### Mount
@@ -163,20 +260,23 @@ wrap.update()      // calls forceUpdate()
 ### Tests
 
 ```js
-wrap.debug()               // => string
-wrap.html()                // => string
-wrap.text()                // => string
-wrap.type()                // => string | function
-wrap.name()                // => string
-wrap.is('.classname')      // => boolean
-wrap.hasClass('class')     // => boolean
-wrap.exists()              // => boolean
-wrap.contains(<div />)     // => boolean
-wrap.contains([ <div /> ]) // => boolean
+wrap.debug()               // → string
+wrap.html()                // → string
+wrap.text()                // → string
+wrap.type()                // → string | function
+wrap.name()                // → string
+wrap.is('.classname')      // → boolean
+wrap.hasClass('class')     // → boolean
+wrap.exists()              // → boolean
+wrap.contains(<div />)     // → boolean
+wrap.contains([ <div /> ]) // → boolean
+wrap.some('.child')        // → boolean
 
-wrap.containsMatchingElement(<div />)         // => boolean
-wrap.containsAllMatchingElements([ <div /> ]) // => boolean
-wrap.containsAnyMatchingElements([ <div /> ]) // => boolean
+wrap.someWhere(n => n.hasClass('foo'))
+
+wrap.containsMatchingElement(<div />)         // → boolean
+wrap.containsAllMatchingElements([ <div /> ]) // → boolean
+wrap.containsAnyMatchingElements([ <div /> ]) // → boolean
 ```
 
 ## References

@@ -254,7 +254,7 @@ it('works', () => {
 })
 ```
 
-See: [Timers](https://facebook.github.io/jest/docs/timer-mocks.html)
+See: [Timer Mocks](http://facebook.github.io/jest/docs/en/timer-mocks.html)
 
 ## Mock functions
 

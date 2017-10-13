@@ -1,6 +1,6 @@
 import matches from 'dom101/matches'
 import addClass from 'dom101/add-class'
-import { appendMany, nextUntil, before, findChildren, createDiv } from './dom_helpers'
+import { appendMany, nextUntil, before, findChildren, createDiv } from '../helpers/dom'
 
 /**
  * Wraps h2 sections into h2-section.

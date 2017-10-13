@@ -1,5 +1,4 @@
 // 3rd party libs
-window.jQuery = window.$ = require('jquery')
 window.Prism = require('prismjs')
 
 // All the others

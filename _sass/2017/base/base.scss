@@ -69,3 +69,18 @@ a:hover {
     }
   }
 }
+
+/*
+ * Hide markdown before it's wrapped.
+ */
+
+html.WithJs .MarkdownBody {
+  & {
+    opacity: 0;
+  }
+
+  &.-wrapified {
+    opacity: 1;
+    transition: opacity 250ms linear;
+  }
+}

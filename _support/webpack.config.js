@@ -47,6 +47,12 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      // Never bundle jQuery
+      'jquery': join(__dirname, '..', '_js/helpers/noop.js')
+    }
+  },
   stats: 'minimal',
   plugins: [
     // Optimize module ID's for vendor chunks

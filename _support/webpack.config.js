@@ -8,7 +8,6 @@ module.exports = {
     app: './_js/app.js',
     vendor: [
       // Large 3rd-party libs
-      'jquery',
       'prismjs',
 
       // Prism plugins

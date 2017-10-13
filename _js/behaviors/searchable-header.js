@@ -1,5 +1,6 @@
 import onmount from 'onmount'
-import $ from 'jquery'
+import { nextUntil } from '../helpers/dom'
+import matches from 'dom101/matches'
 
 // Ensure that search-index is set first
 import './searchable-item'
@@ -9,16 +10,13 @@ import './searchable-item'
  */
 
 onmount('[data-js-searchable-header]', function () {
-  const $this = $(this)
-  const $els = $this
-    .nextUntil('[data-js-searchable-header]')
-    .filter('[data-search-index]')
+  const els = nextUntil(this, '[data-js-searchable-header]')
+    .filter(el => matches(el, '[data-search-index]'))
 
-  const keywords = $els
-    .map(function () { return $(this).attr('data-search-index') })
-    .get()
+  const keywords = els
+    .map(n => n.getAttribute('data-search-index'))
     .join(' ')
     .split(' ')
 
-  $this.attr('data-search-index', keywords.join(' '))
+  this.setAttribute('data-search-index', keywords.join(' '))
 })

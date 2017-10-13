@@ -1,63 +1,110 @@
-import $ from 'jquery'
+import matches from 'dom101/matches'
+import addClass from 'dom101/add-class'
+import { appendMany, nextUntil, before, findChildren, createDiv } from '../helpers/dom'
 
-/*
+/**
  * Wraps h2 sections into h2-section.
  * Wraps h3 sections into h3-section.
+ *
+ * @private
  */
 
 export default function wrapify (root) {
-  const $root = $(root)
-  const $h2sections = groupify($root, {
-    tag: 'h2',
-    wrapper: '<div class="h2-section">',
-    body: '<div class="body h3-section-list" data-js-h3-section-list>'
+  // These are your H2 sections. Returns a list of .h2-section nodes.
+  const sections = wrapifyH2(root)
+
+  // For each h2 section, wrap the H3's in them
+  sections.forEach(section => {
+    const bodies = findChildren(section, '[data-js-h3-section-list]')
+    bodies.forEach(body => { wrapifyH3(body) })
   })
+}
 
-  $h2sections.each(function () {
-    const $body = $(this).children('[data-js-h3-section-list]')
+/**
+ * Wraps h2 sections into h2-section.
+ * Creates and HTML structure like so:
+ *
+ *     .h2-section
+ *       h2.
+ *         (title)
+ *       .body.h3-section-list.
+ *         (body goes here)
+ *
+ * @private
+ */
 
-    groupify($body, {
-      tag: 'h3',
-      wrapper: '<div class="h3-section">',
-      body: '<div class="body">'
+function wrapifyH2 (root) {
+  return groupify(root, {
+    tag: 'h2',
+    wrapperFn: () => createDiv({ class: 'h2-section' }),
+    bodyFn: () => createDiv({
+      class: 'body h3-section-list',
+      'data-js-h3-section-list': ''
     })
   })
 }
 
-/*
- * Groups stuff
+/**
+ * Wraps h3 sections into h3-section.
+ * Creates and HTML structure like so:
+ *
+ *     .h3-section
+ *       h3.
+ *         (title)
+ *       .body.
+ *         (body goes here)
+ *
+ * @private
  */
 
-export function groupify ($this, { tag, wrapper, body }) {
-  const $first = $this.children(':first-child')
-  let $result = $()
+function wrapifyH3 (root) {
+  return groupify(root, {
+    tag: 'h3',
+    wrapperFn: () => createDiv({ class: 'h3-section' }),
+    bodyFn: () => createDiv({ class: 'body' })
+  })
+}
+
+/**
+ * Groups all headings (a `tag` selector) under wrappers like `.h2-section`
+ * (build by `wrapperFn()`).
+ * @private
+ */
+
+export function groupify (el, { tag, wrapperFn, bodyFn }) {
+  const first = el.children[0]
+  let result = []
 
   // Handle the markup before the first h2
-  if (!$first.is(tag)) {
-    const $sibs = $first.nextUntil(tag)
-    $result = $result.add(wrap($first, null, $first.add($sibs)))
+  if (first && !matches(first, tag)) {
+    const sibs = nextUntil(first, tag)
+    result.push(wrap(first, null, [ first, ...sibs ]))
   }
 
-  $this.children(tag).each(function () {
-    const $sibs = $(this).nextUntil(tag)
-    const $heading = $(this)
-    $result = $result.add(wrap($heading, $heading, $sibs))
+  // Find all h3's inside it
+  const children = findChildren(el, tag)
+
+  children.forEach(child => {
+    const sibs = nextUntil(child, tag)
+    result.push(wrap(child, child, sibs))
   })
 
-  return $result
+  return result
 
-  function wrap ($pivot, $first, $sibs) {
-    const $wrap = $(wrapper)
-    $wrap.addClass($pivot.attr('class'))
-    $pivot.before($wrap)
+  function wrap (pivot, first, sibs) {
+    const wrap = wrapperFn()
 
-    const $body = $(body)
-    $body.addClass($pivot.attr('class'))
-    $body.append($sibs)
+    const pivotClass = pivot.className
+    if (pivotClass) addClass(wrap, pivotClass)
+    before(pivot, wrap)
 
-    if ($first) $wrap.append($first)
-    $wrap.append($body)
+    const body = bodyFn()
+    if (pivotClass) addClass(body, pivotClass)
+    appendMany(body, sibs)
 
-    return $wrap
+    if (first) wrap.appendChild(first)
+    wrap.appendChild(body)
+
+    return wrap
   }
 }

@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import matches from 'dom101/matches'
+import addClass from 'dom101/add-class'
 
 /*
  * Wraps h2 sections into h2-section.
@@ -7,19 +9,38 @@ import $ from 'jquery'
 
 export default function wrapify (root) {
   const $root = $(root)
-  const $h2sections = groupify($root, {
+
+  const $h2sections = groupify(root, {
     tag: 'h2',
     wrapper: '<div class="h2-section">',
-    body: '<div class="body h3-section-list" data-js-h3-section-list>'
+    wrapperFn: () => {
+      const d = document.createElement('div')
+      d.className = 'h2-section'
+      return d
+    },
+    bodyFn: () => {
+      const d = document.createElement('div')
+      d.className = 'body h3-section-list'
+      d.setAttribute('data-js-h3-section-list', '')
+      return d
+    }
   })
 
-  $h2sections.each(function () {
+  $($h2sections).each(function () {
     const $body = $(this).children('[data-js-h3-section-list]')
 
-    groupify($body, {
+    groupify($body[0], {
       tag: 'h3',
-      wrapper: '<div class="h3-section">',
-      body: '<div class="body">'
+      wrapperFn: () => {
+        const d = document.createElement('div')
+        d.className = 'h3-section'
+        return d
+      },
+      bodyFn: () => {
+        const d = document.createElement('div')
+        d.className = 'body'
+        return d
+      }
     })
   })
 }
@@ -28,36 +49,85 @@ export default function wrapify (root) {
  * Groups stuff
  */
 
-export function groupify ($this, { tag, wrapper, body }) {
-  const $first = $this.children(':first-child')
-  let $result = $()
+export function groupify (el, { tag, wrapperFn, bodyFn }) {
+  const first = el.children[0]
+  const $first = $(first)
+  let result = []
 
   // Handle the markup before the first h2
-  if (!$first.is(tag)) {
-    const $sibs = $first.nextUntil(tag)
-    $result = $result.add(wrap($first, null, $first.add($sibs)))
+  if (first && !matches(first, tag)) {
+    const sibs = nextUntil(first, tag)
+    result.push(wrap(first, null, [ $first[0], ...sibs ]))
   }
 
-  $this.children(tag).each(function () {
-    const $sibs = $(this).nextUntil(tag)
-    const $heading = $(this)
-    $result = $result.add(wrap($heading, $heading, $sibs))
+  // Find all h3's inside it
+  const children = findChildren(el, tag)
+
+  children.forEach(child => {
+    const sibs = nextUntil(child, tag)
+    result.push(wrap(child, child, sibs))
   })
 
-  return $result
+  return result
 
-  function wrap ($pivot, $first, $sibs) {
-    const $wrap = $(wrapper)
-    $wrap.addClass($pivot.attr('class'))
-    $pivot.before($wrap)
+  function wrap (pivot, first, sibs) {
+    const wrap = wrapperFn()
 
-    const $body = $(body)
-    $body.addClass($pivot.attr('class'))
-    $body.append($sibs)
+    const pivotClass = pivot.className
+    if (pivotClass) addClass(wrap, pivotClass)
+    before(pivot, wrap)
 
-    if ($first) $wrap.append($first)
-    $wrap.append($body)
+    const body = bodyFn()
+    if (pivotClass) addClass(body, pivotClass)
+    appendMany(body, sibs)
 
-    return $wrap
+    if (first) wrap.appendChild(first)
+    wrap.appendChild(body)
+
+    return wrap
   }
 }
+
+/*
+ * Just like jQuery.append
+ */
+
+function appendMany (el, children) {
+  children.forEach(child => { el.appendChild(child) })
+}
+
+/*
+ * Just like jQuery.nextUntil
+ */
+
+function nextUntil (el, selector) {
+  const nextEl = el.nextSibling
+  return nextUntilTick(nextEl, selector, [])
+}
+
+function nextUntilTick (el, selector, acc) {
+  if (!el) return acc
+
+  const isMatch = matches(el, selector)
+  if (isMatch) return acc
+
+  return nextUntilTick(el.nextSibling, selector, [ ...acc, el ])
+}
+
+/*
+ * Just like jQuery.before
+ */
+
+function before (reference, newNode) {
+  reference.parentNode.insertBefore(newNode, reference)
+}
+
+/*
+ * Like jQuery.children('selector')
+ */
+
+function findChildren (el, selector) {
+  return [].slice.call(el.children)
+    .filter(child => matches(child, selector))
+}
+

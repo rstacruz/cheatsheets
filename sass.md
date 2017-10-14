@@ -135,14 +135,26 @@ fade-out($color, .5)  // aka transparentize() - halves the opacity
 rgba($color, .5)      // sets alpha to .5
 ```
 
-### Getting HSL values
+### Getting individual values
+
+#### HSLA
 
 ```scss
-hue($color)
-saturation($color)
-lightness($color)
-alpha($color)         // aka opacity()
+hue($color)         // → 0deg..360deg
+saturation($color)  // → 0%..100%
+lightness($color)   // → 0%..100%
+alpha($color)       // → 0..1 (aka opacity())
 ```
+
+#### RGB
+
+```
+red($color)         // → 0..255
+green($color)
+blue($color)
+```
+
+See: [hue()](http://sass-lang.com/documentation/Sass/Script/Functions.html#hue-instance_method), [red()](http://sass-lang.com/documentation/Sass/Script/Functions.html#red-instance_method)
 
 ### Adjustments
 

@@ -7,7 +7,7 @@ tags: [Featured]
 updated: 2017-10-10
 weight: -10
 description: |
-  One-page reference to React's components, lifecycle hooks. Complete with practical examples and more.
+  React.Component, render(), componentDidMount(), props, state, dangerouslySetInnerHTML...
 intro: |
   [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---

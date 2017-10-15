@@ -2,8 +2,14 @@
 title: CSS
 category: CSS
 layout: 2017/sheet
-tags: [WIP]
 weight: -1
+keywords:
+  - "margin, padding, border"
+  - "div, .class, #id, [attr]"
+  - "font, background"
+  - "display: block, inline, flex"
+  - Selectors
+  - Properties
 ---
 
 ## Basics

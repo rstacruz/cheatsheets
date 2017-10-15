@@ -97,3 +97,36 @@ The site devhints.io is backed by CloudFlare. Updates will take 2 days to propag
 ```bash
 ./_support/cf-purge.sh
 ```
+
+## SEO description
+
+There are multiple ways to set meta description.
+
+### keywords (and intro)
+
+Set `keywords` (and optionally `intro`). This is the easiest and the preferred
+way for now.
+
+```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+React.Component · render() · componentDidMount() · props/state · React is a
+JavaScript library for building web...
+```
+
+### description (and intro)
+
+Set `description` (and optionally `intro`)
+
+```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+One-page reference to React and its API. React is a JavaScript library for
+building web user interfaces...
+```
+
+### intro only
+
+If you left out `description` or `keywords`, a default description will be added.

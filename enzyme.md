@@ -5,8 +5,12 @@ layout: 2017/sheet
 updated: 2017-10-12
 tags: [Featured]
 weight: -1
-description: |
-  shallow() · mount() · wrap.setProps() · wrap.find().simulate('click') · wrap.contains(<div/>) ·
+keywords:
+  - shallow()
+  - mount()
+  - wrap.setProps()
+  - "wrap.find().simulate('click')"
+  - "wrap.contains(<div/>)"
 intro: |
   [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 ---

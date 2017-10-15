@@ -2,6 +2,9 @@
 title: Ronn
 category: Ruby libraries
 layout: 2017/sheet
+updated: 2017-10-15
+weight: -1
+prism_languages: [bash, ruby, json, markdown]
 intro: |
   Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](https://github.com/rtomayko/ronn).
 ---
@@ -13,13 +16,13 @@ intro: |
 
 #### Installation
 
-```
+```bash
 gem install ronn
 ```
 
 #### Usage
 
-```
+```bash
 ronn foo.1.md        # creates foo.1.html
 ronn -r foo.1.md     # creates foo.1 (--roff)
 ronn -r -h foo.1.md  # builds --roff and --html
@@ -30,7 +33,7 @@ Ronn is a Ruby gem.
 
 ### Basic template
 
-```
+```markdown
 name(1) -- short, single-sentence description
 =============================================
 
@@ -89,9 +92,19 @@ _emphasis_
 
 ### Linking
 
+#### Manual references
+
 ```
-Manual references: sh(1) markdown(7)
-Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
+sh(1)
+markdown(7)
+```
+
+#### Sections
+
+```
+[STANDARDS][]
+[SEE ALSO][]
+[DIFFERENT TEXT][#SEE-ALSO]
 ```
 
 #### URL links
@@ -103,6 +116,8 @@ Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 
 ## Frequently-used sections
 {: .-one-column}
+
+### Sections
 
 - `## SYNOPSIS`
 - `## DESCRIPTION`
@@ -121,25 +136,32 @@ Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 
 ## Other CLI options
 
-```
+### Options
+
+```bash
 --pipe                       # write to stdout
 --server, -S                 # serve in http://localhost:1207
+```
 
+```bash
 --html, -5                   # default
 --fragment, -f               # html without header/title/footer
+```
 
+```bash
 --style=toc,80c              # toc (table of contents)
                              # 80c (use 80c instead of 100c)
                              # print (include print stylesheet)
                              # dark
+```
 
+```bash
 --manual="MY MANUAL"         # shown on top-center
 --organization="RONN 0.7.0"  # shown on bottom-left
 --date="YYYY-MM-DD"          # shown on bottom-center
 ```
 
 ## Sections
-See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.com).
 
 | Section | Description                                   |
 | ---     | ---                                           |
@@ -152,11 +174,16 @@ See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |
 
-## Using ronn with npm
+See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.com).
+
+## Using with npm
+
+### npm scripts
 
 Place manual files in `man/xxx.1.md`, then in package.json:
+{: .-setup}
 
-```js
+```json
 "scripts": {
   "prepublish": "npm run build-man",
   "build-man": "if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\"; fi"
@@ -166,8 +193,6 @@ Place manual files in `man/xxx.1.md`, then in package.json:
 }
 ```
 
-## JavaScript version
-
 ### marked-man
 
 ```
@@ -175,18 +200,10 @@ npm install -g marked-man
 marked-man foo.1.md > foo.1
 ```
 
-See [marked-man](https://github.com/kapouer/marked-man).
-
 #### Differences
 
 * No definition lists
 * Can't use `<br>`
 
-### Mantastic
-
-```
-curl -F page=@mymanpage.md http://mantastic.herokuapp.com
-```
-
-[mantastic](http://mantastic.herokuapp.com/) is a hosted service. It's not available at the time of writing, I don't know if it'll be back.
+See [marked-man](https://github.com/kapouer/marked-man).
 

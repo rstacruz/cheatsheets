@@ -1,27 +1,36 @@
 ---
 title: Ronn
 category: Ruby libraries
+layout: 2017/sheet
+intro: |
+  Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](https://github.com/rtomayko/ronn).
 ---
 
-Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](https://github.com/rtomayko/ronn).
-{:.center.brief-intro}
+## Getting started
+{: .-left-reference}
 
-```sh
+### Installation
+
+#### Installation
+
+```
 gem install ronn
 ```
-{:.light}
 
-```sh
+#### Usage
+
+```
 ronn foo.1.md        # creates foo.1.html
 ronn -r foo.1.md     # creates foo.1 (--roff)
 ronn -r -h foo.1.md  # builds --roff and --html
 ronn -m foo.1.md     # view as manpage
 ```
-{:.light}
 
-## Basic template
-    
-```markdown
+Ronn is a Ruby gem.
+
+### Basic template
+
+```
 name(1) -- short, single-sentence description
 =============================================
 
@@ -61,9 +70,21 @@ ronn-format(7), ronn(1)
 
 ## Formatting tags
 
+### Inline
+
+#### Bold
+
 ```
-Bold: `code` **strong**
-Underline: <variable> _emphasis_ *emphasis*
+`code`
+**strong**
+```
+
+#### Underline
+
+```
+<variable>
+_emphasis_
+*emphasis*
 ```
 
 ### Linking
@@ -71,13 +92,18 @@ Underline: <variable> _emphasis_ *emphasis*
 ```
 Manual references: sh(1) markdown(7)
 Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
-URL: [URL link](http://github.com/rstacruz)
-URL: <http://github.com>
 ```
-    
+
+#### URL links
+
+```
+[URL link](http://github.com/rstacruz)
+<http://github.com>
+```
+
 ## Frequently-used sections
-    
-```markdown
+
+```
 ## SYNOPSIS
 ## DESCRIPTION
 ## OPTIONS
@@ -95,7 +121,7 @@ URL: <http://github.com>
 
 ## Other CLI options
 
-```sh
+```
 --pipe                       # write to stdout
 --server, -S                 # serve in http://localhost:1207
 
@@ -141,23 +167,26 @@ Place manual files in `man/xxx.1.md`, then in package.json:
 ```
 
 ## JavaScript version
-See [marked-man](https://github.com/kapouer/marked-man).
 
-```sh
+### marked-man
+
+```
 npm install -g marked-man
 marked-man foo.1.md > foo.1
 ```
-{:.light}
 
-### Differences
+See [marked-man](https://github.com/kapouer/marked-man).
+
+#### Differences
 
 * No definition lists
 * Can't use `<br>`
 
 ### Mantastic
 
-[mantastic](http://mantastic.herokuapp.com/) is a hosted service.
-
 ```
 curl -F page=@mymanpage.md http://mantastic.herokuapp.com
 ```
+
+[mantastic](http://mantastic.herokuapp.com/) is a hosted service. It's not available at the time of writing, I don't know if it'll be back.
+

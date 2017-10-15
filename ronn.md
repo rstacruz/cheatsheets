@@ -102,22 +102,22 @@ Sections: [STANDARDS][], [SEE ALSO][], [DIFFERENT TEXT][#SEE-ALSO]
 ```
 
 ## Frequently-used sections
+{: .-one-column}
 
-```
-## SYNOPSIS
-## DESCRIPTION
-## OPTIONS
-## SYNTAX
-## ENVIRONMENT
-## RETURN VALUES
-## STANDARDS
-## SECURITY CONSIDERATIONS
-## BUGS
-## HISTORY
-## AUTHOR
-## COPYRIGHT
-## SEE ALSO
-```
+- `## SYNOPSIS`
+- `## DESCRIPTION`
+- `## OPTIONS`
+- `## SYNTAX`
+- `## ENVIRONMENT`
+- `## RETURN VALUES`
+- `## STANDARDS`
+- `## SECURITY CONSIDERATIONS`
+- `## BUGS`
+- `## HISTORY`
+- `## AUTHOR`
+- `## COPYRIGHT`
+- `## SEE ALSO`
+{: .-four-column}
 
 ## Other CLI options
 

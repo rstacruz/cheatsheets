@@ -5,6 +5,8 @@ layout: 2017/sheet
 tags: [Featured]
 updated: 2017-08-26
 weight: -5
+description: |
+  Variables · mixins · darken() · adjust-color() · @for @each @while @if @else · $list: (a b c) · $map: (a: b, c: d)
 ---
 
 ## Basics

@@ -4,8 +4,14 @@ category: CLI
 layout: 2017/sheet
 tags: [Featured]
 updated: 2017-08-26
-description: |
-  One-page reference on Bash shell scripting. Learn about variables, functions, errors, process ID's with examples and more.
+keywords:
+  - Variables
+  - Functions
+  - Interpolation
+  - Brace expansions
+  - Loops
+  - Conditional execution
+  - Command substitution
 ---
 
 Getting started

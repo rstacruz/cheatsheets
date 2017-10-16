@@ -3,6 +3,15 @@ title: Stencil
 category: JavaScript libraries
 layout: 2017/sheet
 updated: 2017-10-11
+keywords:
+  - @Component
+  - @Prop()
+  - @State()
+  - render()
+  - componentWillLoad()
+  - componentWillUpdate()
+  - Templating
+  - Lifecycle
 intro: |
   [Stencil](https://github.com/ionic-team/stencil) is a compiler for web components made by the Ionic team. This guide targets Stencil v0.0.5.
 ---
@@ -172,7 +181,7 @@ See: [Slots](https://stenciljs.com/docs/templating#slots)
 
 | Event                   | Description      |
 | ---                     | ---              |
-| `componentWilLLoad()`   | Before rendering |
+| `componentWillLoad()`   | Before rendering |
 | `componentDidLoad()`    | After rendering  |
 | ---                     | ---              |
 | `componentWillUpdate()` | Before updating  |

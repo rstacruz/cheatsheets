@@ -1,25 +1,31 @@
 ---
 title: Inkscape
 category: Apps
+layout: 2017/sheet
+tags: [WIP]
 ---
 
 ### All
 
-    - =    - Zoom in/out
-    3 4    - Zoom to selection / drawing
-    5 6    - Zoom to page / page width
+| `-` _/_ `=` | Zoom in/out
+| `3` _/_ `4` | Zoom to selection / drawing
+| `5` _/_ `6` | Zoom to page / page width
+{: .-shortcuts}
 
 ### Select tool (F1)
 
-    [ ]    - Rotate
+| `[ ]` | Rotate
+{: .-shortcuts}
 
 ### Edit path (F2)
 
-    Ctrl    - constraint
+| `Ctrl` | constraint
+{: .-shortcuts}
 
-Dragging an anchor handle
+### Dragging an anchor handle
 
-    ctrl    - snap to 15 degrees
-    alt     - ?
+| `Ctrl` | snap to 15 degrees
+| `Alt` | ?
+{: .-shortcuts}
 
 ### Bezier (Shift F6)

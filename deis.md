@@ -1,6 +1,7 @@
 ---
 title: Deis
 category: Devops
+layout: 2017/sheet
 ---
 
 ### Deploy
@@ -60,8 +61,10 @@ deis limits:set web=1024 --cpu
 deis perms:create otheruser
 ```
 
-### [SSL](http://docs.deis.io/en/latest/using_deis/app-ssl/)
+### SSL
 
 ```
 deis certs:add server.crt server.key
 ```
+
+See: [SSL](http://docs.deis.io/en/latest/using_deis/app-ssl/)

@@ -49,7 +49,7 @@ m.startOf('hour')
 .format('llll')   // Mon, Jun 9 2014 9:32 PM
 ```
 
-See [datetime](datetime.html) for more.
+See [datetime](./datetime) for more.
 
 ## References
 

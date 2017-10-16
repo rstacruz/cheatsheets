@@ -1,24 +1,40 @@
 ---
 title: rename
 category: CLI
+layout: 2017/sheet
 ---
 
 ### Installation
 
-    # http://plasmasturm.org/code/rename/
-      brew install rename
+```bash
+brew install rename
+```
 
-### Examples
+See: <http://plasmasturm.org/code/rename/>
 
-    # Rename hello.txt to world.txt and so on
-      rename 's/hello/world/' *.txt
+### Regex substitution
 
-    # Search and replace
-      rename -s .png .jpg.png *.png
+```bash
+rename 's/hello/world/' *.txt
+```
+
+Rename `hello.txt` to `world.txt` and so on in `*.txt`.
+
+### Replace extension
+
+```bash
+rename -s .png .jpg.png *.png
+```
+
+Replace `.png` with `.jpg.png` in `*.png`.
       
 
 ### Options
 
-    -n    # Simulation
-    -l    # Symlink instead of rename
-    -i    # Interactive
+| `-n` | Simulation
+| `-l` | Symlink instead of rename
+| `-i` | Interactive
+
+## Also see
+
+- [Rename website](http://plasmasturm.org/code/rename/) _(plasmasturm.org)_

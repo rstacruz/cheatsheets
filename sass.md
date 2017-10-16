@@ -11,8 +11,8 @@ keywords:
   - darken()
   - adjust-color()
   - "@for @each @while @if @else"
-  - $list: (a b c)
-  - $map: (a: b, c: d)
+  - "$list: (a b c)"
+  - "$map: (a: b, c: d)"
 ---
 
 ## Basics

@@ -1,6 +1,10 @@
 {% include meta.html %}
 {% include polyfills.html %}
 
+<script src='{{base}}/assets/packed/vendor.js?t={{ timestamp }}'></script>
+<script src='{{base}}/assets/packed/app.js?t={{ timestamp }}'></script>
+{% for lang in page.prism_languages %}<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-{{lang}}.min.js'></script>{% endfor %}
+
 <!-- 3rd-party libs -->
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
 

@@ -3,20 +3,19 @@ title: Lodash
 category: JavaScript libraries
 layout: 2017/sheet
 weight: -3
+updated: 2017-10-17
+description: |
+  This is not a complete list.
 ---
-
-This is not a complete list.
-
-<!--more-->
 
 ## Collections
 
 ### Finding
 
 ```js
-_.filter(list, (n) => n % 2)    //=> Array
-_.find(list, (n) => n % 2)      //=> item
-_.findRight(list, ...)          //=> item
+_.filter(list, (n) => n % 2)    // → Array
+_.find(list, (n) => n % 2)      // → item
+_.findRight(list, ...)          // → item
 ```
 
 Works for both arrays and objects.
@@ -24,8 +23,8 @@ Works for both arrays and objects.
 ### Accessing
 
 ```js
-_.at([ abcd ], 0)               //=> [ a ] - same as list[0]
-_.at([ abcd ], [ 0, 1 ])        //=> [ ab ]
+_.at([ abcd ], 0)               // → [ a ] - same as list[0]
+_.at([ abcd ], [ 0, 1 ])        // → [ ab ]
 ```
 
 ### Set/get
@@ -46,8 +45,8 @@ _.map(list, ...)
 ```
 
 ```js
-_.every(users, (u) => u.active)  //=> true|false (aka _.all)
-_.any(users, ...)                //=> true|false (aka _.some)
+_.every(users, (u) => u.active)  // → true|false (aka _.all)
+_.any(users, ...)                // → true|false (aka _.some)
 ```
 
 ## Array
@@ -55,10 +54,10 @@ _.any(users, ...)                //=> true|false (aka _.some)
 ### Arrays
 
 ```js
-_.chunk([ abcd ], 2)           //=> [ [ab], [cd] ]
+_.chunk([ abcd ], 2)           // → [ [ab], [cd] ]
 _.compact(list)
 
-_.fill(Array(4), 'x')          //=> [ 'x', 'x', 'x', 'x' ]
+_.fill(Array(4), 'x')          // → [ 'x', 'x', 'x', 'x' ]
 _.flatten
 _.flattenDeep
 ```
@@ -66,16 +65,16 @@ _.flattenDeep
 ### Filtering
 
 ```js
-_.drop([ abcdef ], 2)          //=> [   cdef ]
-_.dropRight([ abcdef ], 2)     //=> [ abcd   ]
-_.take([ abcdef ], 2)          //=> [ ab     ]
-_.takeRight([ abcdef ], 2)     //=> [     de ]
-_.slice([ abcdef ], 2, 4)      //=> [   cd   ]
+_.drop([ abcdef ], 2)          // → [   cdef ]
+_.dropRight([ abcdef ], 2)     // → [ abcd   ]
+_.take([ abcdef ], 2)          // → [ ab     ]
+_.takeRight([ abcdef ], 2)     // → [     de ]
+_.slice([ abcdef ], 2, 4)      // → [   cd   ]
 ```
 
 ```js
-_.initial([ abcdef ])          //=> [ abcde  ] - dropRight(list, 1)
-_.rest([ abcdef ])             //=> [  bcdef ] - takeRight(list, 1)
+_.initial([ abcdef ])          // → [ abcde  ] - dropRight(list, 1)
+_.rest([ abcdef ])             // → [  bcdef ] - takeRight(list, 1)
 ```
 
 ```js
@@ -87,7 +86,7 @@ _.dropRightWhile(list, ...)
 ```
 
 ```js
-_.without([ abcde ], b)        //=> [ acde ]
+_.without([ abcde ], b)        // → [ acde ]
 ```
 
 ```js
@@ -97,30 +96,36 @@ _.remove(list, (n) => n % 2)
 ### Accessing
 
 ```js
-_.first([ abcdef ])            //=> a
-_.last([ abcdef ])             //=> f
+_.first([ abcdef ])            // → a
+_.last([ abcdef ])             // → f
 ```
 
 ### Sets
 
-```
+```js
 _.uniq()
-_.difference([ abc ], [ bc ])       //=> [ a    ]
-_.intersection([ abc ], [ bcd ])    //=> [  bc  ]
-_.union([ abc ], [ bcd ])           //=> [ abcd ] (unique)
+_.difference([ abc ], [ bc ])       // → [ a    ]
+_.intersection([ abc ], [ bcd ])    // → [  bc  ]
+_.union([ abc ], [ bcd ])           // → [ abcd ] (unique)
+```
 
+```js
 Array#concat()
 ```
 
 ### Indexes
 
+```js
+_.findIndex(list, fn)
+_.findLastIndex(list, fn)
 ```
-_.findIndex
-_.findLastIndex
 
+```js
 _.sortedIndex(list, val)
 _.sortedLastIndex(list, val)
+```
 
+```js
 _.indexOf(list, val)
 ```
 
@@ -131,18 +136,19 @@ _.indexOf(list, val)
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
+{: .-setup}
 
 ```js
 fn = _.partial(fn, 'hi')
-fn('joe')    //=> 'hi, joe!'
+fn('joe')    // → 'hi, joe!'
 
-_.partial(fn, 'joe')
-fn('yo')     //=> 'yo, joe!'
+fn = _.partial(fn, 'joe')
+fn('yo')     // → 'yo, joe!'
 ```
 
 ```js
-_.curry(greet)('hi')         //=> function(name)
-_.curryRight(greet)('joe')   //=> function(greet)
+_.curry(greet)('hi')         // → function(name)
+_.curryRight(greet)('joe')   // → function(greet)
 ```
 
 ## Decorating functions
@@ -181,19 +187,19 @@ _.memoize(fn, ...)
 ### Capitalization
 
 ```js
-_.capitalize('hello world')   //=> 'Hello world'
-_.startCase('hello_world')    //=> 'Hello World'
-_.snakeCase('hello world')    //=> 'hello_world'
-_.kebabCase('hello world')    //=> 'hello-world'
-_.camelCase('hello world')    //=> 'helloWorld'
+_.capitalize('hello world')   // → 'Hello world'
+_.startCase('hello_world')    // → 'Hello World'
+_.snakeCase('hello world')    // → 'hello_world'
+_.kebabCase('hello world')    // → 'hello-world'
+_.camelCase('hello world')    // → 'helloWorld'
 ```
 
 ### Padding
 
 ```js
-_.pad('abc', 8)           //=> '   abc  '
-_.padLeft('abc', 8)       //=> '     abc'
-_.padLeft('abc', 8, '-')  //=> '00000abc'
+_.pad('abc', 8)           // → '   abc  '
+_.padLeft('abc', 8)       // → '     abc'
+_.padLeft('abc', 8, '-')  // → '00000abc'
 _.padRight(...)
 ```
 
@@ -208,17 +214,19 @@ _.trimRight('  str  ')
 ### Etc
 
 ```js
-_.repeat('-', 2)              //=> '--'
-_.deburr('déjà vu')           //=> 'deja vu'
-_.trunc('hello world', 5)     //=> 'hello...'
+_.repeat('-', 2)              // → '--'
+_.deburr('déjà vu')           // → 'deja vu'
+_.trunc('hello world', 5)     // → 'hello...'
 ```
 
 ```js
-_.startsWith('abc', 'a')   //=> true
-_.endsWith('abc', 'c')     //=> true
+_.startsWith('abc', 'a')   // → true
+_.endsWith('abc', 'c')     // → true
 ```
 
 ## Objects
+
+### Keys and values
 
 ```js
 _.keys(obj)
@@ -226,6 +234,8 @@ _.values(obj)
 ```
 
 ## Chaining
+
+### Chain and value
 
 ```js
 _([1, 2, 3])

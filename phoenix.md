@@ -85,8 +85,8 @@ end
 ```
 
 ```elixir
-user_post_path(:index, 17)     # → /users/17/posts
-user_post_path(:show, 17, 12)  # → /users/17/posts/12
+user_post_path(conn, :index, 17)     # → /users/17/posts
+user_post_path(conn, :show, 17, 12)  # → /users/17/posts/12
 ```
 
 [Phoenix routing cheatsheet](./phoenix-routing)

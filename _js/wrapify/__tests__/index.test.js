@@ -54,3 +54,10 @@ function run (input, fn) {
     if (fn) fn($div)
   }
 }
+
+it('h2 + pre', run(`
+  <div>
+    <h2>heading</h2>
+    <pre class='language-markdown'>(code)</pre>
+  </div>
+`))

@@ -1720,9 +1720,9 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
-dom101@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/dom101/-/dom101-2.1.0.tgz#45fcee0100e078591696bec6e75276b5d03c0b5c"
+dom101@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/dom101/-/dom101-2.2.1.tgz#16bdf36daf58a5846f72f3d8e48ba0ec1b186330"
 
 domain-browser@^1.1.1:
   version "1.1.7"

@@ -1,6 +1,5 @@
 const join = require('path').resolve
 const webpack = require('webpack')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   context: join(__dirname, '..'),
@@ -27,7 +26,8 @@ module.exports = {
   },
   output: {
     path: join(__dirname, '..', 'assets', 'packed'),
-    filename: '[name].js'
+    filename: '[name].js',
+    devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
   },
   module: {
     rules: [
@@ -68,14 +68,7 @@ module.exports = {
     // Don't include debug symbols ever
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production'
-    }),
-
-    // Always minify, even in development.
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        compress: true,
-        mangle: true
-      }
     })
-  ]
+  ],
+  devtool: 'source-map'
 }

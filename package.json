@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "dom101": "2.1.0",
+    "dom101": "2.2.1",
     "hint.css": "2.5.0",
     "isotope-layout": "3.0.4",
     "jquery": "3.2.1",

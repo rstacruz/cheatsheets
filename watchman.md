@@ -1,11 +1,27 @@
-# Watchman
+---
+title: Watchman
+layout: 2017/sheet
+updated: 2017-10-18
+weight: -1
+keywords:
+- "watchman watch ~/src"
+- "watchman watch-list"
+- "watchman -- trigger ~/rsc remake '*.js' -- make "
+---
 
 ### Getting started
 
+```bash
+watchman watch ./src
 ```
-watchman watch ~/src
-watchman -- trigger ~/src remake '*.js' -- make
+
+Adds `./src` to the watch list.
+
+```bash
+watchman -- trigger ./src retest '*.js' -- npm test
 ```
+
+Adds a trigger called `retest` to run `npm test` every time `*.js` changes in `./src`.
 
 ### Watching
 
@@ -15,6 +31,6 @@ watchman watch-list
 watchman watch-del ~/src
 ```
 
-### Reference
+## Also see
 
- * [Documentation](https://facebook.github.io/watchman/docs/install.html) (github.io)
+ * [Documentation](https://facebook.github.io/watchman/docs/install.html) _(facebook.github.io)_

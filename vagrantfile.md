@@ -1,7 +1,11 @@
 ---
 title: Vagrantfile
 category: Devops
+layout: 2017/sheet
 ---
+
+## Vagrantfile
+{: .-one-column}
 
 ```rb
 Vagrant.configure("2") do |config|
@@ -120,4 +124,4 @@ end
 
 ## Also see
 
-* [Vagrant](vagrant.html)
+* [Vagrant cheatsheet](./vagrant)

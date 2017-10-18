@@ -108,3 +108,7 @@ See the next tables on format variables.
 | `%cr` | committer date (relative) |
 | `%ct` | committer date (unix timestamp) |
 | `%ci` | committer date (iso8601) |
+
+## Also see
+
+- [Git log cheatsheet](./git-log)

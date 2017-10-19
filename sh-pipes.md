@@ -1,12 +1,17 @@
 ---
 title: "Shell: named pipes"
 category: CLI
+layout: 2017/sheet
 ---
+
+### Named pipes
 
 ```sh
 diff <(ls ./old) <(ls ./new)
 ```
 
-## References
+This creates a virtual file with the contents of the output of `ls ./old`.
 
-* [Named pipe](https://en.wikipedia.org/wiki/Named_pipe) (wikipedia.org)
+### References
+
+* [Named pipe](https://en.wikipedia.org/wiki/Named_pipe) _(wikipedia.org)_

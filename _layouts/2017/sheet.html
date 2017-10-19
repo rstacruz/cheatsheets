@@ -9,18 +9,18 @@
 {% include 2017/top-nav.html page=page %}
 
 <div class='body-area'>
-  <header class='main-heading -center'>
+  <header class='main-heading -center' role='banner'>
     <h1 class='h1'>{{ page.title }} <em>{{ site.data.content.sheet.suffix }}</em></h1>
 
     <div class='adbox' data-js-no-preview>
       {% if site.data.codesponsor.enabled %}
-      <div class='ad -codesponsor'>
+      <div class='ad -codesponsor' role='complementary'>
         {% include 2017/code-sponsor.html %}
       </div>
       {% endif %}
 
       {% if site.data.carbon.enabled %}
-        <div class='HeadlineAd ad -carbon'>
+        <div class='HeadlineAd ad -carbon' role='complementary'>
           <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
         </div>
       {% endif %}
@@ -46,7 +46,7 @@
     </div>
   {% endif %}
 
-  <main class='post-content MarkdownBody' data-js-main-body>
+  <main class='post-content MarkdownBody' data-js-main-body role='main'>
     {{ content }}
   </main>
 </div>

@@ -9,14 +9,18 @@ const options = {
   minify: true,
   extract: true,
   ignore: [
-    'font-face'
+    '@font-face'
   ]
 }
 
 critical.generate({
   ...options,
   src: 'index.html',
-  dest: '../_includes/2017/critical/home.css'
+  dest: '../_includes/2017/critical/home.css',
+  include: [
+    // fade-in magic (base/fade)
+    /html\.WithJs/
+  ]
 })
 
 critical.generate({
@@ -27,6 +31,9 @@ critical.generate({
     /\.h3-section/,
 
     // eg, -six-column in devhints.io/layout-thrashing
-    /-column/
+    /-column/,
+
+    // fade-in magic (base/fade)
+    /html\.WithJs/
   ]
 })

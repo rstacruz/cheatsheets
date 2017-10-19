@@ -1,0 +1,43 @@
+/*
+ * "Preloader":
+ * This makes the content semi-transparent before the page ad loads.
+ */
+
+.post-content {
+  html.WithJs & {
+    opacity: 0;
+  }
+}
+
+/*
+ * Defer "loading" until page's onload event fires.
+ * (The page actually already loaded, we just pretend like it hasn't)
+ */
+
+.pages-list,
+.post-content.-wrapified,
+.intro-content {
+  html.WithJs & {
+    opacity: 0.4;
+  }
+
+  html.WithJs.LoadDone & {
+    opacity: 1;
+    transition: opacity 100ms linear 100ms;
+  }
+}
+
+/*
+ * Subtle animation to drive attention to the ad on laod
+ */
+
+// .code-sponsor {
+//   html.WithJs & {
+//     transform: translate3d(0, 16px, 0);
+//   }
+
+//   html.WithJs.LoadDone & {
+//     transform: translate3d(0, 0, 0);
+//     transition: transform 200ms ease-out;
+//   }
+// }

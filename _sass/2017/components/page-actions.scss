@@ -11,11 +11,6 @@
     width: auto;
   }
 
-  & > .link.link > a {
-    padding: 0 8px;
-  }
-
-  &,
   & > li {
     margin: 0;
     padding: 0;
@@ -37,11 +32,6 @@
     }
   }
 
-  & > li > a::before {
-    font-size: 16px;
-    text-align: center;
-  }
-
   & > li > a > .text {
     @include font-size(-1);
     display: none;
@@ -55,6 +45,8 @@
 .page-actions {
   & {
     @include action-bar;
+    margin: 0;
+    padding: 0;
   }
 
   & + & {
@@ -66,8 +58,6 @@
   & > .github > a::before {
     content: '';
     vertical-align: middle;
-    position: relative;
-    top: -2px;
   }
 
   & > .facebook > a::before {
@@ -83,7 +73,19 @@
   }
 
   & > .github > a:hover::before {
-    @include ion-logo-github(16px, white);
+    background-image: ion-logo-github-image(white);
+  }
+
+  & > .facebook > a::before,
+  & > .twitter > a::before {
+    width: 32px;
+    height: 32px;
+  }
+
+  // Compensate alignment
+  & > .github > a::before {
+    position: relative;
+    top: -2px;
   }
 
   & > .link.-button > a {

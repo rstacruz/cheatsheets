@@ -69,17 +69,3 @@ a:hover {
     }
   }
 }
-
-/*
- * Hide markdown before it's wrapped.
- */
-
-html.WithJs .post-content {
-  & {
-    opacity: 0;
-  }
-
-  &.-wrapified {
-    opacity: 1;
-  }
-}

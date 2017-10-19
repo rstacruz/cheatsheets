@@ -104,7 +104,7 @@ gpg --keyserver <URL> ...
 gpg --edit-key <KEY ID>
 # In the interactive prompt:
 gpg> sign
-gpg> quit
+gpg> save
 ```
 
 __NOTE:__ You can use the owner's email or name (or part thereof) instead of the key ID for `--edit-key`

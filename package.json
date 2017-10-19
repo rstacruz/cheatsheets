@@ -23,6 +23,7 @@
     "webpack": "3.6.0"
   },
   "scripts": {
+    "critical": "node _support/critical.js",
     "dev": "run-p dev:webpack dev:jekyll",
     "dev:webpack": "webpack --watch --colors -p",
     "dev:jekyll": "bundle exec jekyll serve --safe --drafts --watch --port $PORT --incremental",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "critical": "0.9.1",
     "dom101": "2.2.1",
     "hint.css": "2.5.0",
     "isotope-layout": "3.0.4",
@@ -52,7 +54,7 @@
   },
   "jest": {
     "snapshotSerializers": [
-      "<rootDir>/node_modules/jest-html"
+      " <rootDir>/node_modules/jest-html"
     ]
   }
 }

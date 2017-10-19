@@ -130,3 +130,16 @@ building web user interfaces...
 ### intro only
 
 If you left out `description` or `keywords`, a default description will be added.
+
+## Critical path CSS
+
+The critical path CSS is stored in:
+
+- `_includes/2017/critical/home.html`
+- `_includes/2017/critical/sheet.html`
+
+You'll need to update these every now and then when you change something in the CSS. Use this to update these snippets:
+
+```
+yarn run critical
+```

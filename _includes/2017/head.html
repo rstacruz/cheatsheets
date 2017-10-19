@@ -1,19 +1,16 @@
 {% include meta.html %}
 {% include polyfills.html %}
 
-<script src='{{base}}/assets/packed/vendor.js?t={{ timestamp }}'></script>
-<script src='{{base}}/assets/packed/app.js?t={{ timestamp }}'></script>
-{% for lang in page.prism_languages %}<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-{{lang}}.min.js'></script>{% endfor %}
+<!-- critical css -->
+{% if include.critical == 'home'
+%}<style>{% include 2017/critical/home.css %}</style>{%
+endif
+%}{%
+if include.critical == 'sheet'
+%}<style>{% include 2017/critical/sheet.css %}</style>{%
+endif %}
 
-{% if include.critical == 'home' %}
-<style>{% include 2017/critical/home.html %}</style>
-{% endif %}
-
-{% if include.critical == 'sheet' %}
-<style>{% include 2017/critical/sheet.html %}</style>
-{% endif %}
-
-<!-- css -->
+<!-- deferred css -->
 <script>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
 '{{base}}/assets/2017/style.css?t={{ timestamp }}'

@@ -16,13 +16,13 @@ const options = {
 critical.generate({
   ...options,
   src: 'index.html',
-  dest: '../_includes/2017/critical/home.html'
+  dest: '../_includes/2017/critical/home.css'
 })
 
 critical.generate({
   ...options,
   src: 'react.html',
-  dest: '../_includes/2017/critical/sheet.html',
+  dest: '../_includes/2017/critical/sheet.css',
   include: [
     /\.h3-section/
   ]

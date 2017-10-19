@@ -19,7 +19,6 @@ module.exports = {
       'prismjs/components/prism-ruby.min.js',
 
       // CSS
-      'sanitize.css',
       'prismjs/plugins/line-highlight/prism-line-highlight.css',
       'hint.css/hint.min.css'
     ]

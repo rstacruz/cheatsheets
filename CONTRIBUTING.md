@@ -143,3 +143,11 @@ You'll need to update these every now and then when you change something in the 
 ```
 yarn run critical
 ```
+
+## Critical path JS
+
+There's JavaScript that's included inline in every page. It's entrypoint is:
+
+- `_js/critical.js`
+
+This is automatically compiled into the partial `_includes/2017/critical/critical.js`. Keep this bundle as small as possible.

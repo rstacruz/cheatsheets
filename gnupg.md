@@ -18,7 +18,7 @@ Basics
 gpg -o key.gpg --export <KEY ID>
 ```
 
-#### __Export key in ASCII:__
+__Export key in ASCII:__
 
 ```bash
 gpg -o key.asc --armor --export <KEY ID>
@@ -33,7 +33,7 @@ gpg --import key.gpg
 gpg --import key.asc
 ```
 
-#### Only merge updates for keys already in key-ring:
+Only merge updates for keys already in key-ring:
 
 ```bash
 gpg --import key.asc --merge-options merge-only
@@ -41,21 +41,23 @@ gpg --import key.asc --merge-options merge-only
 
 ### Managing your keyring
 
-#### Generate a new key:
+Generate a new key:
+{: .-setup}
+
 ```bash
 gpg --gen-key
 # or, generate a new key with dialogs for all options
 gpg --full-gen-key
 ```
 
-#### List public keys:
+List public keys:
 
 ```bash
 gpg -k
 gpg --list-keys
 ```
 
-#### List secret keys:
+List secret keys:
 
 ```bash
 gpg -K
@@ -65,30 +67,47 @@ gpg --list-secret-keys
 
 ### Using a keyserver
 
-#### Import keys from keyserver:
+Import keys from keyserver:
+{: .-setup}
+
 ```bash
 gpg --receive-keys <KEY IDS>
 ```
 
-#### Upload keys to keyserver:
+Upload keys to keyserver:
+
 ```bash
 gpg --send-keys <KEY IDS>
 ```
 
-#### Request updates from keyserver for keys already in your keyring:
+Request updates from keyserver for keys already in your keyring:
+
 ```bash
 gpg --refresh-keys
 ```
 
-#### Search keys from keyserver:
+Search keys from keyserver:
+
 ```bash
 gpg --search-keys "<SEARCH STRING>"
 ```
 
-#### Override keyserver from `~/.gnupg/gpg.conf`
+Override keyserver from `~/.gnupg/gpg.conf`
+
 ```bash
 gpg --keyserver <URL> ...
 ```
+
+### Trusting a key
+
+```bash
+gpg --edit-key <KEY ID>
+# In the interactive prompt:
+gpg> sign
+gpg> quit
+```
+
+__NOTE:__ You can use the owner's email or name (or part thereof) instead of the key ID for `--edit-key`
 
 
 Encrypting
@@ -110,7 +129,7 @@ gpg -e -r "Bez" ...
 gpg -e -r "bezalelhermoso@gmail.com" ...
 ```
 
-#### Specifying multiple recipients
+Specifying multiple recipients
 
 ```bash
 gpg -e -r <RECIPIENT> -r <ANOTHER RECIPIENT> ... secret.txt
@@ -152,7 +171,7 @@ Signing & Verifying
 gpg -o signed-file.txt.gpg -s file.txt
 ```
 
-#### This can be used during encryption to also sign encrypted files:
+This can be used during encryption to also sign encrypted files:
 
 ```bash
 gpg -s -o secret.txt.gpg \
@@ -197,7 +216,7 @@ gpgconf --kill all
 
 ### Parsing keyring data
 
-Use `--with-colons` to produce an output that can easily be parsed i.e. with `awk`, `grep`, etc:
+Use `--with-colons` to produce an output that can easily be parsed i.e. with `awk`, `grep`. Fields are colon-separated.
 
 ```bash
 gpg -k --with-colons
@@ -205,26 +224,26 @@ gpg -k --with-colons
 
 Field Quick Reference:
 
-| Field | Description |
-| 1     | Record type |
-| 2     | Validity |
-| 3     | Key length in bits |
-| 4     | Public key algoritm |
-| 5     | Key ID |
-| 6     | Creation date |
-| 7     | Expiry date |
-| 8     | Certifcate S/N, UID hash, trust signature info |
-| 9     | Ownertrust |
-| 10    | User ID |
-| 11    | Signature class |
-| 12    | Key capabilities |
-| 13    | Issuer fingerprint |
-| 14    | Flag field |
-| 15    | S/N of token |
-| 16    | Hash algorithm |
-| 17    | Curve name |
-| 18    | Compliance flags |
-| 19    | Last update timestamp |
-| 20    | Origin |
+| Field # | Description |
+| 1       | Record type |
+| 2       | Validity |
+| 3       | Key length in bits |
+| 4       | Public key algoritm |
+| 5       | Key ID |
+| 6       | Creation date |
+| 7       | Expiry date |
+| 8       | Certifcate S/N, UID hash, trust signature info |
+| 9       | Ownertrust |
+| 10      | User ID |
+| 11      | Signature class |
+| 12      | Key capabilities |
+| 13      | Issuer fingerprint |
+| 14      | Flag field |
+| 15      | S/N of token |
+| 16      | Hash algorithm |
+| 17      | Curve name |
+| 18      | Compliance flags |
+| 19      | Last update timestamp |
+| 20      | Origin |
 
 

@@ -19,13 +19,21 @@ intro: |
 ## Parsley
 {: .-three-column}
 
+### Installing via NPM
+
+```
+npm install --save parsleyjs
+```
+
+[parsleyjs](https://www.npmjs.com/package/parsleyjs) is the Parsley form validator. ('parsley' is a different package)
+
 ### Enabling
 
 #### via HTML
 
 ```html
 <form data-parsley-validate>
-<!-- not preferred -->
+<!-- ✗ not preferred -->
 ```
 
 #### via JavaScript

@@ -24,6 +24,9 @@ critical.generate({
   src: 'react.html',
   dest: '../_includes/2017/critical/sheet.css',
   include: [
-    /\.h3-section/
+    /\.h3-section/,
+
+    // eg, -six-column in devhints.io/layout-thrashing
+    /-column/
   ]
 })

@@ -246,4 +246,6 @@ Field Quick Reference:
 | 19      | Last update timestamp |
 | 20      | Origin |
 
+See [GnuPG Details](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS) for more details.
+
 

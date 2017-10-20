@@ -7,22 +7,24 @@ layout: 2017/sheet
 Manage images
 -------------
 
-### Managing images
-
-Create an `image` from a Dockerfile:
-{: .-setup}
+### `docker build`
 
 ```yml
 docker build [options] .
   -t "app/container_name"    # name
 ```
 
-Run a command in an `image`:
+Create an `image` from a Dockerfile.
+
+
+### `docker run`
 
 ```yml
 docker run [options] IMAGE
   # see `docker create` for options
 ```
+
+Run a command in an `image`.
 
 Manage containers
 -----------------

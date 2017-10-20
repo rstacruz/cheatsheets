@@ -439,6 +439,40 @@ set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob 
 matches.
 
+History
+-------
+
+### Commands
+
+| `history` | Show history |
+| `shopt -s histverify` | Don't execute expanded result immediately |
+
+### Expansions
+
+| `!$` | Expand last parameter of most recent command |
+| `!*` | Expand all parameters of most recent command |
+| `!-n` | Expand `n`th most recent command |
+| `!n` | Expand `n`th command in history |
+| `!<command>` | Expand most recent invocation of command `<command>` |
+
+### Operations
+
+| `!!:s/<FROM>/<TO>/` | Replace first occurence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurences of `<FROM>` to `<TO>` in most recent command |
+| `!$:t` | Expand only basename from last parameter of most recent command |
+| `!$:h` | Expand only directory from last parameter of most recent command |
+
+`!!` and `!$` can be replaced with any valid expansion.
+
+### Slices
+
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first param is `1`) |
+| `!!:n-m` | Expand range of tokens from most recent command |
+| `!!:n-$` | Expand `n`th token to last from most recent command |
+
+`!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
+
+
 Miscellaneous
 -------------
 

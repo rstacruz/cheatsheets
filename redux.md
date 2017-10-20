@@ -91,7 +91,7 @@ import { connect } from 'react-redux'
 
 ```js
 // A functional React component
-function App ({ messasge, onMessageClick }) {
+function App ({ message, onMessageClick }) {
   return (
     <div onClick={() => onMessageClick('hello')}>
       {message}

@@ -3,7 +3,7 @@ title: ES2015+
 category: JavaScript
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-10-02
+updated: 2017-10-21
 weight: -10
 intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017 and beyond.
@@ -162,6 +162,21 @@ Promise.reject(···)
 Promise.resolve(···)
 ```
 
+### Async-await
+
+```js
+async function run () {
+  const user = await getUsers()
+  const tweets = await getTweets(user)
+  return [user, tweets]
+}
+```
+{: data-line="2,3"}
+
+`async` functions are another way of using functions.
+
+See: [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
 Destructuring
 -------------
 {: .-three-column}
@@ -211,6 +226,58 @@ for (let {title, artist} in songs) {
 {: data-line="1"}
 
 The assignment expressions work in loops, loo.
+
+Spread
+------
+
+### Object spread
+
+#### with Object spread
+
+```js
+const options = {
+  ...defaults,
+  visible: true
+}
+```
+{: data-line="2"}
+
+#### without Object spread
+
+```js
+const options = Object.assign(
+  {}, defaults,
+  { visible: true })
+```
+
+The Object spread operator lets you build new objects from other objects.
+
+See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+
+### Array spread
+
+#### with Object spread
+
+```js
+const users = [
+  ...admins,
+  ...editors,
+  'rstacruz'
+]
+```
+{: data-line="2,3"}
+
+#### without Object spread
+
+```js
+const users = admins
+  .concat(editors)
+  .concat([ '@rstacruz' ])
+```
+
+The spread operator lets you build new arrays in the same way.
+
+See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 Functions
 ---------

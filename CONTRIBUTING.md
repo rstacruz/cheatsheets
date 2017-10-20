@@ -144,6 +144,8 @@ You'll need to update these every now and then when you change something in the 
 yarn run critical
 ```
 
+You can temporarily disable critical path optimizations by loading it with `?nocrit=1`, eg, `https://devhints.io/?nocrit=1`.
+
 ## Critical path JS
 
 There's JavaScript that's included inline in every page. It's entrypoint is:

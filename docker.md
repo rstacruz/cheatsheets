@@ -1,13 +1,16 @@
 ---
 title: Docker CLI
 category: Devops
-layout: default-ad
+layout: 2017/sheet
 ---
 
 Manage images
 -------------
 
+### Managing images
+
 Create an `image` from a Dockerfile:
+{: .-setup}
 
 ```yml
 docker build [options] .
@@ -24,7 +27,7 @@ docker run [options] IMAGE
 Manage containers
 -----------------
 
-Create a `container` from an `image`:
+### `docker create`
 
 ```yml
 docker create [options] IMAGE
@@ -40,13 +43,17 @@ docker create [options] IMAGE
   -e, --env NAME=hello       # env vars
 ```
 
+#### Example
+
 ```
 $ docker create --name app_redis_1 \
   --expose 6379 \
   redis:3.0.2
 ```
 
-Run in a `container`:
+Create a `container` from an `image`.
+
+### `docker exec`
 
 ```yml
 docker exec [options] CONTAINER COMMAND
@@ -55,12 +62,17 @@ docker exec [options] CONTAINER COMMAND
   -t, --tty           # interactive
 ```
 
+#### Example
+
 ```
 $ docker exec app_web_1 tail logs/development.log
 $ docker exec -t -i app_web_1 rails c
 ```
 
-Start/stop a `container`:
+Run commands in a `container`.
+
+
+### `docker start`
 
 ```yml
 docker start [options] CONTAINER
@@ -70,7 +82,10 @@ docker start [options] CONTAINER
 docker stop [options] CONTAINER
 ```
 
-Manage `container`s:
+Start/stop a `container`.
+
+
+### `docker ps`
 
 ```
 $ docker ps
@@ -78,27 +93,35 @@ $ docker ps -a
 $ docker kill $ID
 ```
 
-Managing
---------
+Manage `container`s using ps/kill.
 
-Manage `image`s:
+Images
+------
+
+### `docker images`
 
 ```sh
 $ docker images
   REPOSITORY   TAG        ID
   ubuntu       12.10      b750fe78269d
   me/myapp     latest     7b2431a8d968
+```
 
+```sh
 $ docker images -a   # also show intermediate
 ```
 
-Delete `image`s:
+Manages `image`s.
+
+### `docker rmi`
 
 ```yml
 docker rmi b750fe78269d
 ```
 
-Resources
----------
+Deletes `image`s.
 
- * http://www.docker.io/gettingstarted/
+Also see
+--------
+
+ * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_

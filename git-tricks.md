@@ -85,6 +85,9 @@ Misc
     # show single commit info
       git log -1 f5a960b5
 
+    # Go back up to root directory
+      cd "$(git rev-parse --show-top-level)"
+
 ## Short log
 
      $ git shortlog

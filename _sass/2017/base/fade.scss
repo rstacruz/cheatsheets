@@ -1,3 +1,5 @@
+$bounce: cubic-bezier(.75,-0.5,0,1.75);
+
 /*
  * "Preloader":
  * This makes the content semi-transparent before the page ad loads.
@@ -6,6 +8,23 @@
 .post-content {
   html.WithJs & {
     opacity: 0;
+  }
+}
+
+/*
+ * Pop it in as the page loads
+ */
+
+.code-sponsor {
+  html.WithJs & {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  html.WithJs.LoadDone & {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 500ms $bounce, opacity 500ms linear;
   }
 }
 

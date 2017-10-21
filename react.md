@@ -278,7 +278,7 @@ class MyComponent extends React.Component {
   }
 
   onChange (event) {
-    this.setState({ value: event.target.vlaue })
+    this.setState({ value: event.target.value })
   }
 }
 ```

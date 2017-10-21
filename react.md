@@ -406,6 +406,19 @@ You can return multiple nodes as arrays.
 
 See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 
+### Returning strings
+
+```js
+render() {
+  return 'Look ma, no spans!';
+}
+```
+{: data-line="2"}
+
+You can return just a string.
+
+See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
+
 ### Errors
 
 ```js

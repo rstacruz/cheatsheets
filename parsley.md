@@ -42,7 +42,7 @@ npm install --save parsleyjs
 $('#form').parsley(/* options */)
 ```
 
-It's preferrable to explictly call `$.fn.parsley()`.
+It's preferable to explicitly call `$.fn.parsley()`.
 
 ### API
 

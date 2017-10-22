@@ -13,7 +13,7 @@ let colors = {
 }
 
 echo colors["a"]
-echo get(colors, "apple")   " supress error
+echo get(colors, "apple")   " suppress error
 
 remove(colors, "apple")
 
@@ -48,7 +48,7 @@ let mylist = [1, two, 3, "four"]
 let first = mylist[0]
 let last  = mylist[-1]
 
-" Supresses errors
+" Suppresses errors
 let second = get(mylist, 1)
 let second = get(mylist, 1, "NONE")
 ```
@@ -66,7 +66,7 @@ Functions
     getline(1)            " get line 1
     getline(1, 5)         " get lines 1-5
     search('^$')          " next blank line, returns line number
-    search('^$','n')      " but dont move cursor
+    search('^$','n')      " but don't move cursor
 
     getcurpos()           " [bufnum, lnum, col, off, curswant]
     getpos('.')           " [bufnum, lnum, col, off]

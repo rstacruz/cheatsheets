@@ -103,7 +103,7 @@ var View = Backbone.View.extend({
   render: function() { ··· }
 })
 ```
-### Instanciating
+### Instantiating
 
 ```js
 view = new View()
@@ -141,7 +141,7 @@ var Model = Backbone.Model.extend({
 })
 ```
 
-### Instanciating
+### Instantiating
 
 ```js
 var obj = new Model({ title: 'Lolita', author: 'Nabokov' })

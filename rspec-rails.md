@@ -18,7 +18,7 @@ category: Ruby
 
 ```rb
 # spec/models/*.rb
-decribe MyModel do
+describe MyModel do
 end
 ```
 

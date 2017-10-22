@@ -204,7 +204,7 @@ this.state
 this.props
 ```
 
-These methods and properies are available for `Component` instances.
+These methods and properties are available for `Component` instances.
 
 See: [Component API](http://facebook.github.io/react/docs/component-api.html)
 
@@ -290,7 +290,7 @@ See: [Events](https://reactjs.org/docs/events.html)
 
 ## Other features
 
-### Transfering props
+### Transferring props
 
 ```html
 <VideoPlayer src="video.mp4" />

@@ -40,7 +40,7 @@ category: Vim
   ar     " a[lrc] - align
          "    align left/right/center
   dr     " d[lrc] - delimiter_align
-         "    alignment of the delimeter itself
+         "    alignment of the delimiter itself
 ```
 
 ### Spaces are optional
@@ -66,9 +66,9 @@ category: Vim
 ### `:EasyAlign *|` (markdown tables)
 
 ```nohighlight
-| `<Enter>` | right align                  |
-| `1`       | on 1st occurence             |
-| `2`       | on 2nd occurence (and so on) |
+| `<Enter>` | right align                   |
+| `1`       | on 1st occurrence             |
+| `2`       | on 2nd occurrence (and so on) |
 ```
 
 Interactive mode
@@ -83,7 +83,7 @@ Then press options (if available), then a delimiter.
 ### Interactive mode options
 
 | `⏎`              | Set `alignment`                                  |
-| `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimeter) |
+| `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimiter) |
 | `<ctrl-r>` `4 ⏎` | Set `right_margin`                               |
 | `↓`              | no margin                                        |
 {:.greycode}

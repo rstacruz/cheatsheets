@@ -100,7 +100,7 @@ Only do this if you're not placing the site in the root!
     </div>
     <![endif]-->
 
-### HTML Compatiblity inspector
+### HTML Compatibility inspector
 
     <script src="http://ie.microsoft.com/testdrive/HTML5/CompatInspector/inspector.js"></script>
 

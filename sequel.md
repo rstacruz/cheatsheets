@@ -324,7 +324,7 @@ Provided by many_to_many
 
     deal = Deal[1]
     deal.changed_columns
-    deal.destory  # Calls hooks
+    deal.destroy  # Calls hooks
     deal.delete   # No hooks
     deal.exists?
     deal.new?

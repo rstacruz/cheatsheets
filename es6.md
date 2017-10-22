@@ -225,7 +225,7 @@ for (let {title, artist} in songs) {
 ```
 {: data-line="1"}
 
-The assignment expressions work in loops, loo.
+The assignment expressions work in loops, too.
 
 Spread
 ------

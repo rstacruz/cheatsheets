@@ -189,6 +189,17 @@ Destructuring
 var [first, last] = ['Nikola', 'Tesla']
 ```
 
+Default values can be assigned while destructuring arrays
+```js
+var subjectScores = [22, 33];
+var [maths = 50, physics = 50, chemistry = 50, ics] = subjectScores;
+
+/* 
+  results in:
+  maths === 22, physics === 33, chemistry === 50, ics === undefined
+*/
+```
+
 #### Objects
 
 ```js
@@ -197,6 +208,18 @@ let {title, author} = {
   author: 'R. Galbraith'
 }
 ```
+Default values can be assigned while destructuring objects
+```js
+var obj = {a : 1};
+var {a, b = 5} = obj;
+
+/* 
+  results in:
+  a === 1
+  b === 5
+*/
+```
+
 {: data-line="1"}
 
 Supports for matching arrays and objects.
@@ -209,11 +232,21 @@ See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
 function greet({ name, greeting }) {
   console.log(`${greeting}, ${name}!`)
 }
+
+function add([ num1, num2 ]) {
+  console.log(`result: ${num1 + num2}`)
+}
+
+function printCoordinates({ coordx: x, coordy: y }) {
+  console.log(`x: ${x}, y: ${y}`);
+}
 ```
 {: data-line="1"}
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
+add([2,4])
+printCoordinates({ coordx: 25, coordy: 90 })
 ```
 
 ### Loops

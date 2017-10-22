@@ -13,7 +13,7 @@ vim: ft=javascript
       template: '...', // required
 
       // callbacks
-      init: function() {},    // on instanciate
+      init: function() {},    // on instantiate
       complete: function() {}, // on finish animations
 
       // objs

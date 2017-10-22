@@ -457,8 +457,8 @@ History
 
 ### Operations
 
-| `!!:s/<FROM>/<TO>/` | Replace first occurence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurences of `<FROM>` to `<TO>` in most recent command |
+| `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |
 | `!$:h` | Expand only directory from last parameter of most recent command |
 

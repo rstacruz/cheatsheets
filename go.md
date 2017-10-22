@@ -176,7 +176,7 @@ if _, err := getResult(); err != nil {
 ```
 {: data-line="1"}
 
-A condition in an `if` statement can be preceeded with a statement before a `;`.
+A condition in an `if` statement can be preceded with a statement before a `;`.
 
 See: [If with a short statement](https://tour.golang.org/flowcontrol/6)
 

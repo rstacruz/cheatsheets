@@ -26,7 +26,7 @@ This uses whatever system font is available. See: [System shock - Designing Medi
 | `Roboto`             | Android 4.0+            |
 | `Oxygen`             | Linux, KDE              |
 | `Ubuntu`             | Linux, Ubuntu           |
-| `Cantarell`          | Linux, Gnome            |
+| `Cantarell`          | Linux, GNOME            |
 | `Fira Sans`          | Firefox OS              |
 | `Droid Sans`         | Android (until 3.2)     |
 | `Helvetica Neue`     | OS X (10.9)             |

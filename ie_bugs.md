@@ -13,7 +13,7 @@ Not for checkboxes, radios, multi-select lists. Use the `click` handler instead.
 
  * [(1)](http://www.gtalbot.org/BrowserBugsSection/MSIE7Bugs/LabelForWithImage.html)
 
-### IE8: an element's 'opacity' value isn't propogated to its positioned descendants
+### IE8: an element's 'opacity' value isn't propagated to its positioned descendants
 
  * [test case](http://jhop.me/tests/bugs/ie8/opacity_positioned.html)
 

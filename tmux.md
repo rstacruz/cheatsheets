@@ -43,7 +43,7 @@ title: tmux
 
 ### Detach/attach
 
-    C-b d       # detatch
+    C-b d       # Detach
     C-b ( )     # Switch through sessions
     $ tmux attach
 

@@ -1,5 +1,5 @@
 ---
-title: Postgresql
+title: PostgreSQL
 ---
 
 ### Console

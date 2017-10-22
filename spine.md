@@ -118,7 +118,7 @@ vim: ft=python
 
     .on 'create'
     .on 'update'
-    .on 'destory'
+    .on 'destroy'
 
     .on 'save'    # create / update
     .on 'change'  # create / update / destroy

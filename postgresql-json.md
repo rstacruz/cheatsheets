@@ -1,5 +1,5 @@
 ---
-title: Postgresql JSON
+title: PostgreSQL JSON
 layout: 2017/sheet
 prism_languages: [sql]
 updated: 2017-09-22

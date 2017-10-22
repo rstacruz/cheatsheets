@@ -228,11 +228,11 @@ Field Quick Reference:
 | 1       | Record type |
 | 2       | Validity |
 | 3       | Key length in bits |
-| 4       | Public key algoritm |
+| 4       | Public key algorithm |
 | 5       | Key ID |
 | 6       | Creation date |
 | 7       | Expiry date |
-| 8       | Certifcate S/N, UID hash, trust signature info |
+| 8       | Certificate S/N, UID hash, trust signature info |
 | 9       | Ownertrust |
 | 10      | User ID |
 | 11      | Signature class |

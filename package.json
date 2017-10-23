@@ -38,6 +38,8 @@
     "hint.css": "2.5.0",
     "isotope-layout": "3.0.4",
     "jquery": "3.2.1",
+    "lunr": "2.1.4",
+    "once": "1.4.0",
     "onmount": "1.3.0",
     "prismjs": "1.8.1",
     "sanitize.css": "5.0.0"

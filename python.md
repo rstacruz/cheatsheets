@@ -74,6 +74,8 @@ title: Python
 
     int(str)
     float(str)
+    str(int)
+    str(float)
 
 ### Comprehensions
 

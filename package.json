@@ -11,6 +11,7 @@
     "babel-jest": "21.2.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.0",
+    "concurrently": "3.5.0",
     "css-loader": "0.28.7",
     "eslint-plugin-flowtype": "2.37.0",
     "jest": "21.2.1",
@@ -23,12 +24,8 @@
     "webpack": "3.6.0"
   },
   "scripts": {
-    "critical": "node _support/critical.js",
-    "dev": "run-p dev:webpack dev:jekyll",
-    "dev:webpack": "webpack --watch --colors -p",
-    "dev:jekyll": "if [ -f _site ]; then run-s dev:jekyll:incremental; else run-s dev:jekyll:initial; fi",
-    "dev:jekyll:initial": "bundle exec jekyll serve --safe --drafts --watch --port $PORT --incremental",
-    "dev:jekyll:incremental": "bundle exec jekyll serve --skip-initial-build --safe --drafts --watch --port $PORT --incremental",
+    "critical": "make critical",
+    "dev": "make dev",
     "test": "jest",
     "test:all": "run-s test lint",
     "lint": "standard -v",

@@ -1,0 +1,21 @@
+---
+layout: blank
+type: other
+---
+{% assign pages = site.pages
+  | where_exp: "page", 'page.type == "article"'
+%}[
+{% for page in pages
+%}{% if forloop.index0 != 0 %},{% endif %}{
+  "id": {{ page.url | replace: ".html", "" | slice: 1, 9999 | jsonify }},
+  "title": {{ page.title | jsonify }},
+  "url": {{ page.url | replace: ".html", "" | jsonify }},
+  "category": {{ page.category | jsonify }},
+  "keywords": {{ page.keywords | jsonify }},
+  "content_html": {{ page.content | markdownify | strip | jsonify }},
+  "intro_html": {{ page.intro | markdownify | strip | jsonify }},
+  "description_html": {{ page.description | markdownify | strip | jsonify }},
+  "tags": {{ page.tags | jsonify }},
+  "updated": {{ page.updated | jsonify }}
+}{% endfor %}
+]

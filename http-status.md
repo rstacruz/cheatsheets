@@ -38,7 +38,7 @@ description: |
 | `303` | See Other          | [?](https://httpstatuses.com/303)                |
 | `304` | Not Modified       | [?](https://httpstatuses.com/304)                |
 | `305` | Use Proxy          | [?](https://httpstatuses.com/305)                |
-| `306` | Switch Proxy       | [?](https://httpstatusdogs.com/306-switch-proxy) |
+| `306` | *Switch Proxy*     | [?](https://httpstatusdogs.com/306-switch-proxy) |
 | `307` | Temporary Redirect | [?](https://httpstatuses.com/307)                |
 | `308` | Permanent Redirect | [?](https://httpstatuses.com/308)                |
 {: .xp}
@@ -89,17 +89,23 @@ description: |
 | `511` | Network Authentication Required | [?](https://httpstatuses.com/511) |
 {: .xp}
 
-## WebADV Status Codes
+## WebDAV Status Codes
+
+WebDAV is an extension of HTTP that allows clients to perform remote Web content authoring operations. It provides a framework for users to create, change and move documents on a server. It adds the following status codes on top of HTTP. 
+
+[Read more.](https://en.wikipedia.org/wiki/WebDAV)
+
 | Code  | Name                            | ?                                                                |
 | ----  | ----                            | -                                                                |
-| `102` | Processing (WebDAV)             | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#102) |
-| `207` | Multi-Status (WebDAV)           | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#207) |
-| `208` | Already Reported (WebDAV)       | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#208) |
-| `422` | Unprocessable Entity (WebDAV)   | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#422) |
-| `423` | Locked (WebDAV)                 | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#423) |
-| `424` | Failed Dependency (WebDAV)      | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#424) |
-| `507` | Insufficient Storage (WebDAV)   | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#507) |
-| `508` | Loop Detected (WebDAV)          | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#508) |
+| `102` | Processing                      | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#102) |
+| `207` | Multi-Status                    | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#207) |
+| `208` | Already Reported                | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#208) |
+| `422` | Unprocessable Entity            | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#422) |
+| `423` | Locked                          | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#423) |
+| `424` | Failed Dependency               | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#424) |
+| `507` | Insufficient Storage            | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#507) |
+| `508` | Loop Detected                   | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#508) |
+{: .xp}
 
 ## Also see
 

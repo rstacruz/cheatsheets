@@ -100,3 +100,47 @@
     }
   }
 }
+
+.h3-section-list.-versus {
+  & > .h3-section {
+    display: flex;
+  }
+
+  & > .h3-section + .h3-section {
+    margin-top: 0;
+  }
+
+  & > .h3-section > .body {
+    display: flex;
+    flex: 0 0 66.67%;
+    flex-wrap: wrap;
+  }
+
+  & > .h3-section > .body > pre {
+    flex: 0 0 50%;
+    background: white;
+  }
+
+  & > .h3-section > .body > pre + pre {
+    background: #faf7ff;
+  }
+
+  & > .h3-section > .body > pre ~ p {
+    flex: 0 0 100%;
+  }
+
+  & > .h3-section > h3 {
+    @include font-size(0);
+    flex: 0 0 16.667%;
+    padding-right: 16px;
+    text-align: right;
+  }
+
+  & > .h3-section > h3::after {
+    display: none;
+  }
+}
+
+h2.-versus {
+  text-align: center;
+}

@@ -34,6 +34,8 @@ Array.from(elements).forEach(el => {
 })
 ```
 
+The result of some DOM operations return NodeLists (eg, `querySelectorAll`, `children`, and others). These can't be iterated via `.forEach()` until you convert them to arrays using `Array.from()`.
+
 ## Classes
 {: .-versus}
 
@@ -90,7 +92,7 @@ $(el).addClass('expanded')
 el.classList.replace('collapsed', 'expanded')
 ```
 
-## Events
+## DOM ready
 {: .-versus}
 
 ### Document ready
@@ -114,6 +116,8 @@ ready(() => {
   console.log('loaded')
 })
 ```
+
+The [dom-loaded](https://www.npmjs.com/package/dom-loaded) npm package takes care of this for you.
 
 ## Attributes
 {: .-versus}
@@ -214,6 +218,18 @@ $(el).parent()
 el.parentNode
 ```
 
+### Siblings
+
+```js
+$(el).next()
+$(el).previous()
+```
+
+```js
+el.nextSibling
+el.previousSibling
+```
+
 ### Closest match
 
 ```js
@@ -311,6 +327,10 @@ $(refEl).after(newEl)
 refEl.parentNode.insertBefore(newEl, refEl.nextSibling)
 ```
 
+If `refEl` is at the end, `refEl.nextSibling` will be null. The behavior of `insertBefore(el, null)` is the same as `appendChild(el)`.
+
+See: [Node.insertBefore](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore) _(developer.mozilla.org)_
+
 ### Before/after (HTML)
 
 ```js
@@ -322,28 +342,6 @@ $(el).after('<span></span>')
 el.insertAdjacentHTML('beforebegin', '<span></span>')
 el.insertAdjacentHTML('afterend', '<span></span>')
 ```
-
-### Set text
-
-```js
-$(el).text('hello')
-```
-
-```js
-el.textContent = 'hello'
-```
-
-### Get text
-
-```js
-$(el).text()
-```
-
-```js
-el.textContent
-```
-
-<!-- needs polyfill for IE8 below -->
 
 ## Events
 {: .-versus}
@@ -358,10 +356,11 @@ $(el).on('click', (event) => {
 
 ```js
 el.addEventListener('click', (event) => {
+  ···
 })
 ```
 
-<!-- needs polyfill for IE8 below -->
+See: [EventTarget.addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) _(developer.mozilla.org)_
 
 ### Trigger
 
@@ -375,23 +374,79 @@ ev.initEvent('click', true, true)
 el.dispatchEvent(ev)
 ```
 
-<!-- See: [document.createEvent](https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent) -->
+See: [document.createEvent](https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent) _(developer.mozilla.org)_
 
+## HTML
+{: .-versus}
 
-<style>
-.-versus .body {
-display: flex;
-}
-.-versus .body > pre {
-flex: 0 0 50%;
-}
-.-versus .body > pre + pre {
-background: #faf7ff;
-}
-.-versus .body > pre ~ p {
-display: none;
-}
-.-versus h3 {
-display: none;
-}
-</style>
+### Getting HTML
+
+```js
+$(el).html()
+// → "<div>hello</div>"
+```
+
+```js
+el.innerHTML
+// → "<div>hello</div>"
+```
+
+### Setting HTML
+
+```js
+$(el).html('<span>ok</span>')
+```
+
+```js
+el.innerHTML = '<span>ok</span>'
+```
+
+See: [Element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) _(developer.mozilla.org)_
+
+### Getting text
+
+```js
+$(el).text()
+```
+
+```js
+el.textContent
+```
+
+<!-- needs polyfill for IE8 below -->
+
+### Setting text
+
+```js
+$(el).text('hello')
+```
+
+```js
+el.textContent = 'hello'
+```
+
+## Creating elements
+{: .-versus}
+
+### Create element
+
+```js
+div = $('<div>')
+div = $.parseHTML('<div>')
+```
+
+```js
+div = document.createElement('div')
+```
+
+### With class name
+
+```js
+div = $('<div class="hello">')
+div = $.parseHTML('<div class="hello">')
+```
+
+```js
+div = document.createElement('div')
+div.className = 'hello'
+```

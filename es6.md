@@ -256,7 +256,7 @@ See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### Array spread
 
-#### with Object spread
+#### with Array spread
 
 ```js
 const users = [
@@ -267,7 +267,7 @@ const users = [
 ```
 {: data-line="2,3"}
 
-#### without Object spread
+#### without Array spread
 
 ```js
 const users = admins

@@ -1,11 +1,11 @@
 ---
-title: DOM without jQuery
+title: DOM vs. jQuery
 category: JavaScript libraries
 layout: 2017/sheet
 ---
 
 ## Selectors
-{: .-one-column}
+{: .-versus.-no-hide}
 
 ### Selectors
 
@@ -35,7 +35,7 @@ Array.from(elements).forEach(el => {
 ```
 
 ## Classes
-{: .-one-column}
+{: .-versus}
 
 ### Add class
 
@@ -91,7 +91,7 @@ el.classList.replace('collapsed', 'expanded')
 ```
 
 ## Events
-{: .-one-column}
+{: .-versus}
 
 ### Document ready
 
@@ -116,7 +116,7 @@ ready(() => {
 ```
 
 ## Attributes
-{: .-one-column}
+{: .-versus}
 
 ### Get attribute
 
@@ -149,7 +149,7 @@ el.removeAttribute('hidden')
 ```
 
 ## Properties
-{: .-one-column}
+{: .-versus}
 
 ### Get checked
 
@@ -192,7 +192,7 @@ el.disabled = true
 ```
 
 ## Traversing
-{: .-one-column}
+{: .-versus}
 
 ### Children
 
@@ -214,6 +214,26 @@ $(el).parent()
 el.parentNode
 ```
 
+### Closest match
+
+```js
+$(el).closest('div')
+```
+
+```js
+el.closest('div')
+```
+
+### Match check
+
+```js
+$(el).is(':checked')
+```
+
+```js
+el.matches(':checked')
+```
+
 ### Finding
 
 ```js
@@ -226,7 +246,7 @@ el.querySelectorAll('button')
 ```
 
 ## Inputs
-{: .-one-column}
+{: .-versus}
 
 ### Blur
 
@@ -249,7 +269,7 @@ el.focus()
 ```
 
 ## DOM operations
-{: .-one-column}
+{: .-versus}
 
 ### Remove
 
@@ -259,6 +279,16 @@ $(el).remove()
 
 ```js
 el.parentNode.removeChild(el)
+```
+
+### Append
+
+```js
+$(el).append(newEl)
+```
+
+```js
+el.appendChild(newEl)
 ```
 
 ### Before
@@ -316,7 +346,7 @@ el.textContent
 <!-- needs polyfill for IE8 below -->
 
 ## Events
-{: .-one-column}
+{: .-versus}
 
 ### Attach event
 
@@ -349,19 +379,19 @@ el.dispatchEvent(ev)
 
 
 <style>
-.h3-section .body {
+.-versus .body {
 display: flex;
 }
-.h3-section .body > pre {
+.-versus .body > pre {
 flex: 0 0 50%;
 }
-.h3-section .body > pre + pre {
+.-versus .body > pre + pre {
 background: #faf7ff;
 }
-.h3-section .body > pre ~ p {
+.-versus .body > pre ~ p {
 display: none;
 }
-.h3-section h3 {
+.-versus h3 {
 display: none;
 }
 </style>

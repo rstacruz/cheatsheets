@@ -204,6 +204,50 @@ exports[`multiple h2s 1`] = `
 </div>
 `;
 
+exports[`no-wrapify mode 1`] = `
+<div>
+  
+    
+  <div
+    class="h2-section -versus -no-wrapify"
+  >
+    <h2
+      class="-versus -no-wrapify"
+    >
+      versus
+    </h2>
+    <div
+      class="body -versus -no-wrapify"
+    >
+      
+
+    
+      <h3>
+        install
+      </h3>
+      
+    
+      <p>
+        (install)
+      </p>
+      
+
+    
+      <h3>
+        usage
+      </h3>
+      
+    
+      <p>
+        (usage)
+      </p>
+      
+  
+    </div>
+  </div>
+</div>
+`;
+
 exports[`simple usage 1`] = `
 <div>
   
@@ -256,50 +300,6 @@ exports[`simple usage 1`] = `
   
         </div>
       </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`versus mode 1`] = `
-<div>
-  
-    
-  <div
-    class="h2-section -versus"
-  >
-    <h2
-      class="-versus"
-    >
-      versus
-    </h2>
-    <div
-      class="body -versus"
-    >
-      
-
-    
-      <h3>
-        install
-      </h3>
-      
-    
-      <p>
-        (install)
-      </p>
-      
-
-    
-      <h3>
-        usage
-      </h3>
-      
-    
-      <p>
-        (usage)
-      </p>
-      
-  
     </div>
   </div>
 </div>

@@ -51,9 +51,9 @@ it('h2 + pre', run(`
   </div>
 `))
 
-it('versus mode', run(`
+it('no-wrapify mode', run(`
   <div>
-    <h2 class='-versus'>versus</h2>
+    <h2 class='-versus -no-wrapify'>versus</h2>
 
     <h3>install</h3>
     <p>(install)</p>
@@ -62,7 +62,7 @@ it('versus mode', run(`
     <p>(usage)</p>
   </div>
 `, $div => {
-  expect($div.find('h2 + div.body.-versus').length).toEqual(1)
+  expect($div.find('h2 + div.body.-versus.-no-wrapify').length).toEqual(1)
 }))
 
 /*

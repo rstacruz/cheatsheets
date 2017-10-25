@@ -57,7 +57,7 @@ function wrapifyH2 (root) {
  */
 
 function isExcempted (h2) {
-  return h2.classList.contains('-versus')
+  return h2.classList.contains('-no-wrapify')
 }
 
 /**

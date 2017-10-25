@@ -37,11 +37,27 @@ function wrapifyH2 (root) {
   return groupify(root, {
     tag: 'h2',
     wrapperFn: () => createDiv({ class: 'h2-section' }),
-    bodyFn: () => createDiv({
-      class: 'body h3-section-list',
-      'data-js-h3-section-list': ''
-    })
+    bodyFn: (pivot) => {
+      if (isExcempted(pivot)) {
+        return createDiv({
+          class: 'body'
+        })
+      } else {
+        return createDiv({
+          class: 'body h3-section-list',
+          'data-js-h3-section-list': ''
+        })
+      }
+    }
   })
+}
+
+/**
+ * Checks if an H2 is excempted from formatting its descendant h3's
+ */
+
+function isExcempted (h2) {
+  return h2.classList.contains('-versus')
 }
 
 /**
@@ -98,7 +114,7 @@ export function groupify (el, { tag, wrapperFn, bodyFn }) {
     if (pivotClass) addClass(wrap, pivotClass)
     before(pivot, wrap)
 
-    const body = bodyFn()
+    const body = bodyFn(pivot)
     if (pivotClass) addClass(body, pivotClass)
     appendMany(body, sibs)
 

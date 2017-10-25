@@ -248,6 +248,106 @@ $(el).focus()
 el.focus()
 ```
 
+## DOM operations
+{: .-one-column}
+
+### Remove
+
+```js
+$(el).remove()
+```
+
+```js
+el.parentNode.removeChild(el)
+```
+
+### Before
+
+```js
+$(refEl).before(newEl)
+```
+
+```js
+refEl.parentNode.insertBefore(newEl, refEl)
+```
+
+### After
+
+```js
+$(refEl).after(newEl)
+```
+
+```js
+refEl.parentNode.insertBefore(newEl, refEl.nextSibling)
+```
+
+### Before/after (HTML)
+
+```js
+$(el).before('<span></span>')
+$(el).after('<span></span>')
+```
+
+```js
+el.insertAdjacentHTML('beforebegin', '<span></span>')
+el.insertAdjacentHTML('afterend', '<span></span>')
+```
+
+### Set text
+
+```js
+$(el).text('hello')
+```
+
+```js
+el.textContent = 'hello'
+```
+
+### Get text
+
+```js
+$(el).text()
+```
+
+```js
+el.textContent
+```
+
+<!-- needs polyfill for IE8 below -->
+
+## Events
+{: .-one-column}
+
+### Attach event
+
+```js
+$(el).on('click', (event) => {
+  ···
+})
+```
+
+```js
+el.addEventListener('click', (event) => {
+})
+```
+
+<!-- needs polyfill for IE8 below -->
+
+### Trigger
+
+```js
+$(el).trigger('click')
+```
+
+```js
+var ev = document.createEvent('HTMLEvents')
+ev.initEvent('click', true, true)
+el.dispatchEvent(ev)
+```
+
+<!-- See: [document.createEvent](https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent) -->
+
+
 <style>
 .h3-section .body {
 display: flex;
@@ -259,6 +359,9 @@ flex: 0 0 50%;
 background: #faf7ff;
 }
 .h3-section .body > pre ~ p {
+display: none;
+}
+.h3-section h3 {
 display: none;
 }
 </style>

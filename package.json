@@ -53,7 +53,7 @@
   },
   "jest": {
     "snapshotSerializers": [
-      " <rootDir>/node_modules/jest-html"
+      "jest-html"
     ]
   }
 }

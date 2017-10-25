@@ -4,11 +4,9 @@ import $ from 'jquery'
 
 it('simple usage', run(`
   <div>
-    <h2>simple usage<h2>
-
+    <h2>simple usage</h2>
     <h3>install</h3>
     <p>(install)</p>
-
     <h3>usage</h3>
     <p>(usage)</p>
   </div>
@@ -46,6 +44,31 @@ it('multiple h2s', run(`
   </div>
 `))
 
+it('h2 + pre', run(`
+  <div>
+    <h2>heading</h2>
+    <pre class='language-markdown'>(code)</pre>
+  </div>
+`))
+
+it('versus mode', run(`
+  <div>
+    <h2 class='-versus'>versus</h2>
+
+    <h3>install</h3>
+    <p>(install)</p>
+
+    <h3>usage</h3>
+    <p>(usage)</p>
+  </div>
+`, $div => {
+  expect($div.find('h2 + div.body.-versus').length).toEqual(1)
+}))
+
+/*
+ * Helper
+ */
+
 function run (input, fn) {
   return function () {
     const $div = $(input)
@@ -54,10 +77,3 @@ function run (input, fn) {
     if (fn) fn($div)
   }
 }
-
-it('h2 + pre', run(`
-  <div>
-    <h2>heading</h2>
-    <pre class='language-markdown'>(code)</pre>
-  </div>
-`))

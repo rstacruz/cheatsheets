@@ -379,9 +379,17 @@ Always supply a `key` property.
 
 ```jsx
 <div>
-  {showPopup
-    ? <Popup />
-    : null}
+  {showMyComponent
+    ? <MyComponent />
+    : <OtherComponent />}
+</div>
+```
+
+### Short-circuit evaluation
+
+```jsx
+<div>
+  {showPopup && <Popup />}
 </div>
 ```
 

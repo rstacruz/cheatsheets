@@ -202,6 +202,20 @@ let {title, author} = {
 Supports for matching arrays and objects.
 See: [Destructuring](http://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
 
+### Default values
+
+```js
+var scores = [22, 33]
+var [math = 50, sci = 50, arts = 50] = scores
+```
+
+#### Result
+
+```
+math === 22, sci === 23, arts === 50
+```
+
+Default values can be assigned while destructuring arrays or objects.
 
 ### Function arguments
 
@@ -215,6 +229,23 @@ function greet({ name, greeting }) {
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
+
+Destructuring of objects and arrays can be also be done in function arguments.
+
+### Reassigning keys
+
+```js
+function printCoordinates({ left: x, top: y }) {
+  console.log(`x: ${x}, y: ${y}`)
+}
+```
+{: data-line="1"}
+
+```js
+printCoordinates({ left: 25, top: 90 })
+```
+
+This example assigns `x` to the value of the `left` key.
 
 ### Loops
 

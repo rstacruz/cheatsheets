@@ -209,13 +209,14 @@ for i in {1..5}; do
     echo "Welcome $i"
 done
 ```
+
+#### With step size
+
 ```bash
-# Specifies range step size
 for i in {5..50..5}; do
     echo "Welcome $i"
 done
 ```
-
 
 ### Reading lines
 

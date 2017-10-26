@@ -210,6 +210,14 @@ for i in {1..5}; do
 done
 ```
 
+#### With step size
+
+```bash
+for i in {5..50..5}; do
+    echo "Welcome $i"
+done
+```
+
 ### Reading lines
 
 ```bash

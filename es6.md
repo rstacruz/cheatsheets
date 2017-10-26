@@ -212,7 +212,7 @@ var [math = 50, sci = 50, arts = 50] = scores
 #### Result
 
 ```
-math === 22, sci === 23, arts === 50
+// ”math === 22, sci === 23, arts === 50
 ```
 
 Default values can be assigned while destructuring arrays or objects.

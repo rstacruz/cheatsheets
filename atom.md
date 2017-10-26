@@ -64,32 +64,32 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 | Shortcut | Decription
 | ---      | ---
-| `⌘d`     | select word
-| `⌘l`     | select line
+| `⌘d`     | Select word
+| `⌘l`     | Select line
 | ---      | ---
-| `⌘↓`     | move line down
-| `⌘↑`     | move line up
+| `⌘↓`     | Move line down
+| `⌘↑`     | Move line up
 | ---      | ---
-| `⌘⏎`     | new line below
-| `⌘⇧⏎`    | new line above
+| `⌘⏎`     | New line below
+| `⌘⇧⏎`    | New line above
 | ---      | ---
-| `⌘⇧k`    | delete line
-| `⌘⇧d`    | duplicate line
+| `⌘⇧k`    | Delete line
+| `⌘⇧d`    | Duplicate line
 {: .-shortcuts}
 
 ### Project
 
 | Shortcut | Description
 | ---      | ---
-| `⌘⇧p`    | command palette
-| `⌘⇧a`    | add project folder
+| `⌘⇧p`    | Command palette
+| `⌘⇧a`    | Add project folder
 | ---      | ---
-| `⌘n`     | new file
-| `⌘⇧n`    | new window
+| `⌘n`     | New file
+| `⌘⇧n`    | New window
 | ---      | ---
-| `⌘f`     | find in file
-| `⌘⇧f`    | find in project
-| `⌘t`     | search files in project
+| `⌘f`     | Find in file
+| `⌘⇧f`    | Find in project
+| `⌘t`     | Search files in project
 {: .-shortcuts}
 
 ## Notes

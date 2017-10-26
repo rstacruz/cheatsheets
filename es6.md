@@ -410,7 +410,7 @@ const App = {
     return this.status === 'closed'
   },
   set closed (value) {
-    this.status === value ? 'closed' : 'open'
+    this.status = value ? 'closed' : 'open'
   }
 }
 ```

@@ -55,7 +55,7 @@ intro: |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
 {: .-bold-first.-headers.-no-wrap}
 
-### Desert
+### Dessert
 
 | Restaurant    | Online order                                                        | Phone       |
 | ---           | ---                                                                 | ---         |

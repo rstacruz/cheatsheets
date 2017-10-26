@@ -188,6 +188,7 @@ Destructuring
 ```js
 var [first, last] = ['Nikola', 'Tesla']
 ```
+{: data-line="1"}
 
 #### Objects
 
@@ -209,10 +210,9 @@ var scores = [22, 33]
 var [math = 50, sci = 50, arts = 50] = scores
 ```
 
-#### Result
-
-```
-// ”math === 22, sci === 23, arts === 50
+```js
+// Result:
+// math === 22, sci === 23, arts === 50
 ```
 
 Default values can be assigned while destructuring arrays or objects.

@@ -25,9 +25,16 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⌘ K` `⌘ 0`       | unfold everything                      |
 {: .-shortcuts}
 
+### Editing
+
+| `⌘ ⇧ D` | duplicate current line/selection |
+| `⌘ ⇧ K` | delete current line/selection |
+
 ### Goto
 
 | `⌘ P`         | goto anything |
+| `⌘ G`         | goto line number |
+| `⌘ R`         | goto symbol |
 | `⌘ P, :`      | goto line number (enter number after `:`) |
 | `⌘ P, #`      | goto and list fuzzy-matches of string (enter characters after `#`) |
 | `⌘ P, @`      | goto and list symbol (begin typing symbol name after `@`) |

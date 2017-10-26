@@ -34,6 +34,10 @@
     line-height: $code-line-height;
   }
 
+  pre.-wrap {
+    white-space: pre-wrap;
+  }
+
   pre > code {
     color: $base-head;
     max-height: auto;

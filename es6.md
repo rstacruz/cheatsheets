@@ -189,17 +189,6 @@ Destructuring
 var [first, last] = ['Nikola', 'Tesla']
 ```
 
-Default values can be assigned while destructuring arrays
-```js
-var subjectScores = [22, 33];
-var [maths = 50, physics = 50, chemistry = 50, ics] = subjectScores;
-
-/* 
-  results in:
-  maths === 22, physics === 33, chemistry === 50, ics === undefined
-*/
-```
-
 #### Objects
 
 ```js
@@ -208,23 +197,25 @@ let {title, author} = {
   author: 'R. Galbraith'
 }
 ```
-Default values can be assigned while destructuring objects
-```js
-var obj = {a : 1};
-var {a, b = 5} = obj;
-
-/* 
-  results in:
-  a === 1
-  b === 5
-*/
-```
-
 {: data-line="1"}
 
 Supports for matching arrays and objects.
 See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
 
+### Default values
+
+```js
+var scores = [22, 33]
+var [math = 50, sci = 50, arts = 50] = scores
+```
+
+#### Result
+
+```
+math === 22, sci === 23, arts === 50
+```
+
+Default values can be assigned while destructuring arrays or objects.
 
 ### Function arguments
 

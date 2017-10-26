@@ -55,6 +55,14 @@ intro: |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
 {: .-bold-first.-headers.-no-wrap}
 
+### Desert
+
+| Restaurant    | Online order                                                        | Phone       |
+| ---           | ---                                                                 | ---         |
+| Krispy Kreme  | [now.krispykreme.com.ph](http://now.krispykreme.com.ph/)            | `7-9000`    |
+| Red Ribbon    | [redribbononlinestore.com](http://redribbononlinestore.com/)        | `8-7777`    |
+{: .-bold-first.-headers.-no-wrap}
+
 ## -
 
 Hint: you can get to this page via [devhints.io/gutom](https://devhints.io/gutom) 🍅🍟

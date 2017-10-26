@@ -223,22 +223,29 @@ Default values can be assigned while destructuring arrays or objects.
 function greet({ name, greeting }) {
   console.log(`${greeting}, ${name}!`)
 }
-
-function add([ num1, num2 ]) {
-  console.log(`result: ${num1 + num2}`)
-}
-
-function printCoordinates({ coordx: x, coordy: y }) {
-  console.log(`x: ${x}, y: ${y}`);
-}
 ```
 {: data-line="1"}
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
-add([2,4])
-printCoordinates({ coordx: 25, coordy: 90 })
 ```
+
+Destructuring of objects and arrays can be also be done in function arguments.
+
+### Reassigning keys
+
+```js
+function printCoordinates({ left: x, top: y }) {
+  console.log(`x: ${x}, y: ${y}`)
+}
+```
+{: data-line="1"}
+
+```js
+printCoordinates({ left: 25, top: 90 })
+```
+
+This example assigns `x` to the value of the `left` key.
 
 ### Loops
 

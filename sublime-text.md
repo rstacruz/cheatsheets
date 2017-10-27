@@ -30,6 +30,7 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 | `⌘ ⇧ D` | duplicate current line/selection |
 | `⌘ ⇧ K` | delete current line/selection |
+{: .-shortcuts}
 
 ### Goto
 

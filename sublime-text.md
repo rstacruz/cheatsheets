@@ -8,7 +8,8 @@ layout: 2017/sheet
 
 | `⌘ D`       | select current word (repeat to include next instance of word) |
 | `⌘ L`       | select current line (repeat to include next line) |
-| `⌘ ⇧ A`    | select text inside tag (repeat to expand) |
+| `⌘ ⇧ L`     | split selection into multiple lines |
+| `⌘ ⇧ A`     | select text inside tag (repeat to expand) |
 | `Ctrl ⇧ M`  | select to curly or angle brackets (repeat to expand) |
 {: .-shortcuts}
 

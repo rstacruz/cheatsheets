@@ -1,24 +1,22 @@
 ---
 title: Immutable.js
 category: JavaScript libraries
-layout: default-ad
+layout: 2017/sheet
 ---
 
-```js
-var Immutable = require('immutable')
-```
-
-## Maps
+### Maps
 
 ```js
 var map = Immutable.Map({ a: 1, b: 2, c: 3 })
+```
 
+```js
 map
   .set('b', 50)
   .get('b') // 50
 ```
 
-## Lists
+### Lists
 
 ```js
 var list = Immutable.List.of(1, 2)
@@ -31,15 +29,17 @@ list
   .size
 ```
 
-## Nested maps
+### Nested maps
 
 ```js
 var nested = Immutable.fromJS({ user: { profile: { name: 'John' } } })
 
 nested
+  // Update
   .mergeDeep({ user: { profile: { age: 90 } } })
   .setIn([ 'user', 'profile', 'name' ], 'Jack')
   .updateIn([ 'user', 'profile', 'name' ], (s) => s.toUpperCase())
+
+  // Get
   .getIn(['user', 'profile', 'name']) // 'JACK'
 ```
-

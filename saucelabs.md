@@ -1,14 +1,22 @@
-Sign up for opensauce
+---
+title: Saucelabs
+layout: 2017/sheet
+---
+
+### Getting started
+
+Sign up for opensauce:
+{: .-setup}
 
 - http://saucelabs.com/opensauce
 
-Install zuul
+Install [zuul](https://npmjs.com/package/zuul):
 
 ```
 npm i -g zuul
 ```
 
-Configure zuul
+Configure zuul:
 
 ```yml
 # ~/.zuulrc
@@ -16,7 +24,7 @@ sauce_username: me
 sauce_key: abc12348-e3e2-...
 ```
 
-Add .zuul.yml to your project
+Add `.zuul.yml` to your project:
 
 ```yml
 # .zuul.yml
@@ -30,7 +38,7 @@ browsers:
     version: latest
 ```
 
-Try to run tests
+Try to run tests:
 
 ```
 zuul test/test.js

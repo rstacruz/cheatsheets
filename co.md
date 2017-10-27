@@ -1,6 +1,11 @@
 ---
 title: co
 category: JavaScript libraries
+layout: 2017/sheet
+updated: 2017-10-27
+weight: -1
+intro: |
+  [co](https://github.com/tj/co) allows you to use generators to manage async flow.
 ---
 
 [co]: https://github.com/tj/co
@@ -9,11 +14,7 @@ category: JavaScript libraries
 [thenify]: https://www.npmjs.com/package/thenify
 [mz]: https://www.npmjs.com/package/mz
 
-[co] allows you to use generators to manage async flow.
-
 ### Running generators
-
-A generator can `yield` a thunk or promise. Using `co()` will immediately invoke the block inside it.
 
 ```js
 co(function * () {
@@ -21,9 +22,9 @@ co(function * () {
 }).then(...)
 ```
 
-### Generator → Promise
+A generator can `yield` a thunk or promise. Using `co()` will immediately invoke the block inside it.
 
-Use `co.wrap()`. Most of the time, you'll be using co.wrap.
+### Generator → Promise
 
 ```js
 var fn = co.wrap(function * (val) {
@@ -33,9 +34,9 @@ var fn = co.wrap(function * (val) {
 fn().then(...)
 ```
 
-### Generator → Node callback
+Use `co.wrap()`. Most of the time, you'll be using co.wrap.
 
-Use [unyield]. (You can [thunkify] this later)
+### Generator → Node callback
 
 ```js
 var get = unyield(function * () {
@@ -44,9 +45,10 @@ var get = unyield(function * () {
 get(function (err, res) { ... })
 ```
 
-### Node callback → Thunk
+Use [unyield]. (You can [thunkify] this later)
 
-Use [thunkify]. You can yield this. You can also use [thenify] too.
+
+### Node callback → Thunk
 
 ```js
 var readFile = thunkify(fs.readFile)
@@ -56,9 +58,9 @@ co(function * () {
 })
 ```
 
-### Using Node.js API
+Use [thunkify]. You can yield this. You can also use [thenify] too.
 
-Uze [mz] for async Node.js API. You can also either [thunkify] or [thenify] them instead.
+### Using Node.js API
 
 ```js
 var readFile = require('mz/fs').readFile
@@ -70,3 +72,5 @@ var getLines = co.wrap(function * (filename) {
 
 getLines('file.txt').then((lines) => { ... })
 ```
+
+Use [mz] for async Node.js API. You can also either [thunkify] or [thenify] them instead.

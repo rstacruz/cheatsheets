@@ -51,6 +51,8 @@ m.startOf('hour')
 
 See [datetime](./datetime) for more.
 
+{% include common/moment_format.md title="Formatting" %}
+
 ## References
 
  * [Datetime cheatsheet](./datetime) _(devhints.io)_

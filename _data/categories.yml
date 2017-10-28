@@ -1,5 +1,6 @@
 enabled: true
 names:
+  - Analytics
   - Ansible
   - Apps
   - CLI

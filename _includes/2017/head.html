@@ -11,7 +11,7 @@ if include.critical == 'sheet'
 endif %}
 
 <!-- allow disabling critical CSS optimization by passing ?nocrit=1 -->
-<script id='critical-css-disable'>if (~window.location.search.indexOf('nocrit')){([].slice.call(document.querySelectorAll('#critical-css')).map(function(e){e.parentNode.removeChild(e)})}</script>
+<script id='critical-css-disable'>if (~window.location.search.indexOf('nocrit')){;[].slice.call(document.querySelectorAll('#critical-css')).map(function(e){e.parentNode.removeChild(e)})}</script>
 
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([

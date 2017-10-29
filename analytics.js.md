@@ -5,6 +5,7 @@ layout: 2017/sheet
 updated: DATE
 intro: |
   Google Analytics's analytics.js is deprecated.
+---
 
 ### Page view
 

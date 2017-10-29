@@ -54,24 +54,30 @@ end
 
 ### Using
 
+#### Build a model
+
 ```ruby
 FactoryBot.build(:user)
 ```
 
+#### Other ways
+
 ```ruby
-build(:user)           # not saved
-create(:user)          # saved
-attributes_for(:user)  # hash
+build(:user)           # → model (not saved)
+create(:user)          # → model (saved)
+attributes_for(:user)  # → hash
 build_stubbed(:user)   # stubbed out attributes
 ```
 
+#### With options
+
 ```ruby
-# With options:
 build(:user, name: 'John')
 ```
 
+#### Lists
+
 ```ruby
-# List:
 create_list(:user, 3)
 build_list(:user, 3)
 ```

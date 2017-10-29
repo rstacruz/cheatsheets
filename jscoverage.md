@@ -1,32 +1,51 @@
 ---
 title: jscoverage
 category: JavaScript libraries
+layout: 2017/sheet
+intro: |
+  A small guide into installing [jscoverage](https://npmjs.com/package./jscoverage). Also see [mocha-blanket](./mocha-blanket).
 ---
-
-Also see [mocha-blanket](mocha-blanket.html).
 
 ### Install
 
-    npm install --save-dev jscoverage
+#### Install via npm
 
-### Ignore output
+```bash
+npm install --save-dev jscoverage
+```
 
-    echo coverage.html >> .gitignore
+#### Ignore output
+
+```bash
+echo coverage.html >> .gitignore
+```
 
 ### package.json
 
 The `coverage` task injects your source files (`lib`) with jscoverage hooks, runs `mocha -R html-cov`, then restores later.
+{: .-setup}
 
-    /* directory */
-    "coverage": "mv lib lib~; (jscoverage lib~ lib; mocha -R html-cov > coverage.html); rm -rf lib; mv lib~ lib"
+```bash
+/* directory */
+"coverage": "mv lib lib~; (jscoverage lib~ lib; mocha -R html-cov > coverage.html); rm -rf lib; mv lib~ lib"
+```
+{: .-hard-wrap}
 
-    /* single file */
-    "coverage": "(cp index.js index.js~; jscoverage index.js; mv index-cov.js index.js; mocha -R html-cov > coverage.html); mv index.js~ index.js"
+```bash
+/* single file */
+"coverage": "(cp index.js index.js~; jscoverage index.js; mv index-cov.js index.js; mocha -R html-cov > coverage.html); mv index.js~ index.js"
+```
+{: .-hard-wrap}
 
 ### Run
 
-    npm run coverage
-    open coverage.html
+```bash
+npm run coverage
+```
+
+```bash
+open coverage.html
+```
 
 ### Caveats
 

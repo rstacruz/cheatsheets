@@ -23,7 +23,7 @@ dev-webpack:
 
 dev-jekyll:
 	if [ -f _site ]; then \
-		bundle exec jekyll serve --safe --drafts --watch --incremental --port $(PORT); \
+		bundle exec jekyll serve --safe --trace --drafts --watch --incremental --port $(PORT); \
 		else \
-		bundle exec jekyll serve --safe --drafts --watch --port $(PORT); \
+		bundle exec jekyll serve --safe --trace --drafts --watch --port $(PORT); \
 		fi

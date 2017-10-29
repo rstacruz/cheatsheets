@@ -8,11 +8,20 @@ weight: -1
 ### Example
 
 ```
-SELECT * FROM order_items LEFT OUTER JOIN orders ON order_items.order_id = orders.id
+SELECT * FROM order_items \
+  LEFT OUTER JOIN orders \
+  ON order_items.order_id = orders.id
 ```
 {: .-wrap}
 
+Joins are typically added to `SELECT` statements to add more columns and records.
+
 ### Diagram
+
+```
+SELECT * FROM `A` INNER JOIN `B`
+```
+{: .-setup}
 
 ```
 ┌────────┐
@@ -21,7 +30,7 @@ SELECT * FROM order_items LEFT OUTER JOIN orders ON order_items.order_id = order
 └────┼───┘  B │
      └────────┘
 ```
-{: .-box-chars}
+{: .-box-chars.-setup}
 
 | Join             | What            |
 | ----             | ----            |

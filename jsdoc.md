@@ -1,9 +1,12 @@
 ---
 title: Jsdoc
 category: JavaScript
+layout: 2017/sheet
+updated: 2017-10-29
+weight: -1
 ---
 
-## Functions
+### Functions
 
 ```js
 /*
@@ -22,9 +25,9 @@ category: JavaScript
 function foo(n) { return n }
 ```
 
-See: http://usejsdoc.org/index.html
+See: <http://usejsdoc.org/index.html>
 
-## Types
+### Types
 
 ```
 /**
@@ -38,16 +41,18 @@ See: http://usejsdoc.org/index.html
  */
 ```
 
-See: http://usejsdoc.org/tags-type.html
+See: <http://usejsdoc.org/tags-type.html>
 
-## Variables
+### Variables
 
 ```js
 /**
  * @type {number}
  */
 var FOO = 1
+```
 
+```js
 /**
  * @const {number}
  */
@@ -64,7 +69,9 @@ const FOO = 1
  * @property {string} artist - The artist
  * @property {number} year - The year
  */
+```
 
+```js
 /**
  * Plays a song
  * @param {Song} song - The {@link Song} to be played
@@ -74,9 +81,9 @@ function play (song) {
 }
 ```
 
-See: http://usejsdoc.org/tags-typedef.html
+See: <http://usejsdoc.org/tags-typedef.html>
 
-## Renaming
+### Renaming
 
 ```js
 /*
@@ -85,4 +92,4 @@ See: http://usejsdoc.org/tags-typedef.html
  */
 ```
 
-Prefer `alias` over `name`. See: http://usejsdoc.org/tags-alias.html
+Prefer `alias` over `name`. See: <http://usejsdoc.org/tags-alias.html>

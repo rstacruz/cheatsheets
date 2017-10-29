@@ -9,17 +9,15 @@ weight: -1
 ### Functions
 
 ```js
-/*
+/**
+ * This is a function.
+ *
  * @param {string} n - A string param
  * @return {string} A good string
  *
- * @throws {FooException}
- * @private
- * @deprecated
- * @see
+ * @example
  *
- * @function
- * @class
+ *     foo('hello')
  */
 
 function foo(n) { return n }
@@ -29,17 +27,15 @@ See: <http://usejsdoc.org/index.html>
 
 ### Types
 
-```
-/**
- * @param {string=} n - Optional param
- * @param {string} [n] - Optional param
- * @param {(string|number)} n - Multiple types
- * @param {*} n - Any type
- * @param {...string} n - Repeatable arguments
- * @param {string} [n="hi"] - Optional param with default
- * @param {string[]} n - An array of strings
- */
-```
+| Type                         | Description           |
+| ---                          | ---                   |
+| `@param {string=} n`         | Optional              |
+| `@param {string} [n]`        | Optional              |
+| `@param {(string|number)} n` | Multiple types        |
+| `@param {*} n`               | Any type              |
+| `@param {...string} n`       | Repeatable arguments  |
+| `@param {string} [n="hi"]`   | Optional with default |
+| `@param {string[]} n`        | Array of strings      |
 
 See: <http://usejsdoc.org/tags-type.html>
 
@@ -82,6 +78,20 @@ function play (song) {
 ```
 
 See: <http://usejsdoc.org/tags-typedef.html>
+
+### Other keywodrs
+
+```js
+/**
+ * @throws {FooException}
+ * @private
+ * @deprecated
+ * @see
+ *
+ * @function
+ * @class
+ */
+```
 
 ### Renaming
 

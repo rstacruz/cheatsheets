@@ -2,7 +2,7 @@
 title: Google Analytics's analytics.js
 category: Analytics
 layout: 2017/sheet
-updated: DATE
+updated: 2017-10-29
 intro: |
   Google Analytics's analytics.js is deprecated.
 ---

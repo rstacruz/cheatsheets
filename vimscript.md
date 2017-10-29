@@ -5,6 +5,7 @@ prism_languages: [vim]
 layout: 2017/sheet
 updated: 2017-08-30
 weight: -10
+tags: [Featurable]
 ---
 
 ### Start hacking

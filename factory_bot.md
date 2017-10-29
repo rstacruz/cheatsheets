@@ -3,7 +3,7 @@ title: Factory Bot
 category: Ruby libraries
 layout: 2017/sheet
 weight: -3
-updated: 2017-09-01
+updated: 2017-10-31
 keywords:
   - "FactoryBot.define do"
   - "factory :user"

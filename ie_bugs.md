@@ -1,23 +1,31 @@
 ---
-title: IE bugs
+title: Legacy IE bugs
 category: HTML
+layout: 2017/sheet
+updated: 2017-10-29
+intro: |
+  A bunch of bugs to take care of if you're going to target legacy IE browsers.
 ---
 
-### IE8: 'change' event doesn't always fire
+### IE8: 'change' event
 
-Not for checkboxes, radios, multi-select lists. Use the `click` handler instead.
+The 'change' event doesn't always fire. Not for checkboxes, radios, multi-select lists. Use the `click` handler instead.
 
  * [(1)](http://stackoverflow.com/questions/8005442/checkbox-change-event-works-when-click-the-label-in-ie8-ie7)
 
-### IE8: clicking label with input inside doesn't focus the input
+### IE8: label with input
+
+Clicking label with input inside doesn't focus the input.
 
  * [(1)](http://www.gtalbot.org/BrowserBugsSection/MSIE7Bugs/LabelForWithImage.html)
 
-### IE8: an element's 'opacity' value isn't propagated to its positioned descendants
+### IE8: Opacity propagation
+
+An element's 'opacity' value isn't propagated to its positioned descendants.
 
  * [test case](http://jhop.me/tests/bugs/ie8/opacity_positioned.html)
 
-### Lnks
+### Also see
 
- * [jhop.me](http://jhop.me/ie8-bugs)
- * [charlescooke.me.uk](http://www.charlescooke.me.uk/web/lab_notes/bugs/index.html)
+* [jhop.me](http://jhop.me/ie8-bugs)
+* [charlescooke.me.uk](http://www.charlescooke.me.uk/web/lab_notes/bugs/index.html)

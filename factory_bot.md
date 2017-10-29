@@ -38,15 +38,17 @@ See: [Defining factories](http://www.rubydoc.info/gems/factory_bot/file/GETTING_
 
 ### Extra options
 
+#### Custom class names
+
 ```ruby
-# Custom class names
 factory :user, class: 'User' do
   ···
 end
 ```
 
+#### Aliases
+
 ```ruby
-# Aliases
 factory :user, aliases: [:author] do
   ···
 end
@@ -94,7 +96,7 @@ end
 ```
 {: data-line="2,3"}
 
-or:
+#### or
 
 ```ruby
 factory :post do

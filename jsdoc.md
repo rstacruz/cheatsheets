@@ -55,7 +55,7 @@ var FOO = 1
 const FOO = 1
 ```
 
-## Typedef
+### Typedef
 
 ```js
 /**

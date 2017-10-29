@@ -22,6 +22,10 @@ Harvey.attach('(min-width: 600px)', {
 })
 ```
 
+### Deprecated
+
+Harvey.js hasn't been updated in a while, as of time of writing. Consider [enquire.js](https://github.com/WickyNilliams/enquire.js) instead.
+
 ### References
 
 * <http://harvesthq.github.io/harvey>

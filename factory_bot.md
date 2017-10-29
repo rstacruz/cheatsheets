@@ -9,6 +9,7 @@ keywords:
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
+tags: [Featurable]
 intro: |
   [Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests.
   It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.

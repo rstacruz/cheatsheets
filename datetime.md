@@ -3,6 +3,7 @@ title: Date & time formats
 layout: 2017/sheet
 weight: -5
 updated: 2017-09-04
+tags: [Featurable]
 ---
 
 ### Common time formats

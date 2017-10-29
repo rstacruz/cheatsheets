@@ -4,6 +4,7 @@ category: JavaScript libraries
 layout: 2017/sheet
 updated: 2017-09-01
 weight: -3
+tags: [Featurable]
 intro: |
   A quick overview to [Jest](https://facebook.github.io/jest/), a test framework for Node.js. This guide targets Jest v20.
 ---

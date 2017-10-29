@@ -5,6 +5,7 @@ layout: 2017/sheet
 weight: -3
 updated: 2017-09-08
 prism_languages: [json, bash]
+tags: [Featurable]
 ---
 
 ### npm equivalents

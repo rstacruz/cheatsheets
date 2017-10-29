@@ -1,7 +1,8 @@
-### Decorator Definitions
----
+# Decorator Definitions
 
-### Component (imports)
+## Component
+
+### With imports
 
 ```
 import { Component } from '@angular/core';
@@ -19,7 +20,7 @@ export class ExampleNameComponent {
 }
 ```
 
-### Component (inline)
+### Inline
 
 ```
 import { Component } from '@angular/core';
@@ -40,7 +41,9 @@ export class ExampleNameComponent {
 }
 ```
 
-### NgModule
+## NgModule
+
+### Basic
 
 ```
 import { NgModule } from '@angular/core';
@@ -54,7 +57,7 @@ import { NgModule } from '@angular/core';
 export class ExampleModule {}
 ```
 
-### NgModule (with imports)
+### With imports
 
 ```
 import { NgModule } from '@angular/core';
@@ -83,7 +86,7 @@ import { ExampleService } from '../services/example.service';
 export class ExampleModule {}
 ```
 
-### Injectable (Service)
+## Injectable (Service)
 
 ```
 import { Injectable } from '@angular/core';
@@ -94,7 +97,7 @@ export class ExampleService {
 }
 ```
 
-### Pipe
+## Pipe
 
 ```
 import { Pipe, PipeTransform } from '@angular/core';

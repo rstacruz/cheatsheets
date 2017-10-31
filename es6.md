@@ -166,7 +166,7 @@ Promise.resolve(···)
 
 ```js
 async function run () {
-  const user = await getUsers()
+  const user = await getUser()
   const tweets = await getTweets(user)
   return [user, tweets]
 }
@@ -212,7 +212,7 @@ var [math = 50, sci = 50, arts = 50] = scores
 
 ```js
 // Result:
-// math === 22, sci === 23, arts === 50
+// math === 22, sci === 33, arts === 50
 ```
 
 Default values can be assigned while destructuring arrays or objects.
@@ -303,7 +303,7 @@ const users = [
 ```js
 const users = admins
   .concat(editors)
-  .concat([ '@rstacruz' ])
+  .concat([ 'rstacruz' ])
 ```
 
 The spread operator lets you build new arrays in the same way.
@@ -318,7 +318,7 @@ Functions
 #### Default arguments
 
 ```js
-function greet (name = "Jerry") {
+function greet (name = 'Jerry') {
   return `Hello ${name}`
 }
 ```
@@ -423,7 +423,7 @@ See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-20
 ```js
 let event = 'click'
 let handlers = {
-  ['on' + event]: true
+  [`on${event}`]: true
 }
 // Same as: handlers = { 'onclick': true }
 ```

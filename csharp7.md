@@ -90,9 +90,18 @@ WriteLine($"found {names.first} {names.last}.");
 #### Tuple Deconstruction
 
 ```cs
-(string first, string middle, string last) = LookupName(id1); // deconstructing declaration
+(var first, var middle, var last) = LookupName(id1);
 WriteLine($"found {first} {last}.");
 ```
+or
+```cs
+var (first, middle, last) = LookupName(id1); // var outside
+```
+or
+```cs
+(first, middle, last) = LookupName(id2); // assign onto existing variables
+```
+
 
 ### Local Functions
 

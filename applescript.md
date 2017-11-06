@@ -23,7 +23,12 @@ Comments
 
 Say
 
-	say "Hi I am a Mac"
+	say "Hi I am a Mac" -- default voice
 
-	say "Hi I am a Mac" using "Zarvox"
+	say "Hi I am a Mac" using "Zarvox" -- specified voice
 
+Beep
+
+	beep -- beep once
+
+	beep 10 -- beep 10 times

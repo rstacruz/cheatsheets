@@ -141,7 +141,7 @@ wrap.find('input').simulate('change', {
 ### Initial setup
 
 ```
-npm install --save-dev enyzme \
+npm install --save-dev enzyme \
   enzyme-adapter-react-16 \
   react-test-renderer
 ```

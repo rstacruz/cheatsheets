@@ -20,3 +20,10 @@ Comments
 	a multi
 	line comment
 	*)
+
+Say
+
+	say "Hi I am a Mac"
+
+	say "Hi I am a Mac" using "Zarvox"
+

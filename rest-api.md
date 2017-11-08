@@ -13,7 +13,7 @@ title: RESTful API
 ### Error status
 
  * `401 Unauthorized` - not authenticated
- * `406 Forbidden` - authenticated but no permissions
+ * `403 Forbidden` - authenticated but no permissions
  * `422 Unprocessable entity` - validation
 
 ### Errors

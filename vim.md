@@ -294,14 +294,15 @@ Do these in visual mode.
 
 ### Marks
 
-| Shortcut        | Description                            |
-| ---             | ---                                    |
-| <code>`^</code> | Last position of cursor in insert mode |
-| <code>`.</code> | Last change                            |
-| <code>``</code> | Last jump                              |
-| ---             | ---                                    |
-| `ma`            | Mark this cursor position as `a`       |
-| `'a`            | Jump to cursor position `a`            |
+| Shortcut        | Description                                        |
+| ---             | ---                                                |
+| <code>`^</code> | Last position of cursor in insert mode             |
+| <code>`.</code> | Last change                                        |
+| <code>``</code> | Last jump                                          |
+| ---             | ---                                                |
+| `ma`            | Mark this cursor position as `a`                   |
+| <code>`a</code> | Jump to the cursor position `a`                    |
+| `'a`            | Jump to the beginning of the line with position `a`|
 {: .-shortcuts}
 
 ### Misc

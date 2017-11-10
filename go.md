@@ -26,7 +26,7 @@ func main() {
   fmt.Println(message)
 }
 
-func greetMe(name string) (string) {
+func greetMe(name string) string {
   return "Hello, " + name + "!"
 }
 ```

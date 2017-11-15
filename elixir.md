@@ -59,7 +59,7 @@ users = [ "Tom", "Dick", "Harry" ]
 {: data-line="1"}
 
 ```elixir
-Enum.map(user, fn user ->
+Enum.map(users, fn user ->
   IO.puts "Hello " <> user
 end)
 ```

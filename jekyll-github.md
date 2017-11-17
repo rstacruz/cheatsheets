@@ -46,7 +46,7 @@ repository: username/project
 Put this in your `_config.yml`.
 See: [Repository metadata on GitHub pages](https://help.github.com/articles/repository-metadata-on-github-pages/)
 
-### Listing erpos
+### Listing repos
 
 ```html
 {% for repository in site.github.public_repositories %}

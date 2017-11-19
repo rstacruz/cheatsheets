@@ -28,7 +28,7 @@ increment(err) === { type: 'INCREMENT', payload: err, error: true }
 [redux-actions](https://www.npmjs.com/package/redux-actions)
 {: .-crosslink}
 
-### flux-standard-ation
+### flux-standard-action
 
 A standard for flux action objects. An action may have an `error`, `payload` and `meta` and nothing else.
 {: .-setup}

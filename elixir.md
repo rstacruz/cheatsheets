@@ -155,7 +155,7 @@ end
 | `23`                    | Integer         |
 | `3.14`                  | Float           |
 | ---                     | ---             |
-| `'hello'`               | Char list       |
+| `'hello'`               | Charlist        |
 | `<<2, 3>>`              | Binary          |
 | `"hello"`               | Binary string   |
 | `:hello`                | Atom            |
@@ -308,7 +308,7 @@ n = 12
 
 ```elixir
 n |> digits()         # → [1, 2]
-n |> to_char_list()   # → '12'
+n |> to_charlist()    # → '12'
 n |> to_string()      # → "12"
 n |> is_even()
 n |> is_odd()
@@ -317,7 +317,7 @@ n |> is_odd()
 ```elixir
 # Different base:
 n |> digits(2)        # → [1, 1, 0, 0]
-n |> to_char_list(2)  # → '1100'
+n |> to_charlist(2)   # → '1100'
 n |> to_string(2)     # → "1100"
 ```
 
@@ -676,7 +676,7 @@ exp = ~r/hello/i
 ~w(list of strings)
 ~s[strings with #{interpolation} and \x20 escape codes]
 ~S[no interpolation and no escapes]
-~c(char list)
+~c(charlist)
 ```
 
 Allowed chars: `/` `|` `"` `'` `(` `[` `{` `<` `"""`.

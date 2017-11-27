@@ -250,7 +250,7 @@ This example assigns `x` to the value of the `left` key.
 ### Loops
 
 ```js
-for (let {title, artist} in songs) {
+for (let {title, artist} of songs) {
   ···
 }
 ```

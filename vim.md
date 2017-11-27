@@ -33,8 +33,8 @@ Getting started
 
 ### Navigating
 
-| `h` `j` `k` `l` | Arrow keys                         |
-| `^u` _/_ `^d`   | Page up/page down                  |
+| `h` `j` `k` `l`     | Arrow keys                         |
+| `<C-U>` _/_ `<C-D>` | Page up/page down                  |
 {: .-shortcuts}
 
 #### Words
@@ -79,8 +79,8 @@ Getting started
 
 | Shortcut | Description |
 | --- | --- |
-| `Esc` _/_ `^[` | Exit insert mode |
-| `^c` | Exit insert mode, and abort current command |
+| `Esc` _/_ `<C-[>` | Exit insert mode |
+| `<C-C>` | Exit insert mode, and abort current command |
 {: .-shortcuts}
 
 ### Clipboard
@@ -100,7 +100,7 @@ Getting started
 
 | `v`         | Enter visual mode       |
 | `V`         | Enter visual line mode  |
-| `^v`        | Enter visual block mode |
+| `<C-V>`        | Enter visual block mode |
 {: .-shortcuts}
 
 #### In visual mode
@@ -247,16 +247,16 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description                  |
 | ---      | ---                          |
-| `^O`     | Go back to previous location |
-| `^I`     | Go forward                   |
+| `<C-O>`     | Go back to previous location |
+| `<C-I>`     | Go forward                   |
 | ---      | ---                          |
 | `gf`     | go to file in cursor         |
 {: .-shortcuts}
 
 ### Counters
 
-| `^A` | increment number |
-| `^X` | decrement |
+| `<C-A>` | increment number |
+| `<C-X>` | decrement |
 {: .-shortcuts}
 
 ### Windows
@@ -269,10 +269,10 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---                   | ---                                             |
 | `:tag Classname`      | Jump to first definition of Classname           |
 | ---                   | ---                                             |
-| `^]`                  | Jump to definition                              |
+| `<C-]>`               | Jump to definition                              |
 | `g]`                  | See all definitions                             |
-| `^t`                  | Go back to last tag                             |
-| `^o ^i`               | Back/forward                                    |
+| `<C-T>`               | Go back to last tag                             |
+| `<C-O> <C-I>`         | Back/forward                                    |
 | ---                   | ---                                             |
 | `:tselect Classname`  | Find definitions of Classname                   |
 | `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
@@ -319,8 +319,8 @@ Do these in visual mode.
 
 | Shortcut     | Description                               |
 | ---          | ---                                       |
-| `<C-r><C-w>` | insert current word into the command line |
-| `<C-r>"`     | paste from " register                     |
+| `<C-R><C-W>` | insert current word into the command line |
+| `<C-R>"`     | paste from " register                     |
 {: .-shortcuts}
 
 ### Text alignment
@@ -333,7 +333,7 @@ See `:help formatting`
 
 ### Calculator
 
-    <C-r>=128/2
+    <C-R>=128/2
 
 Do this in insert mode.
 

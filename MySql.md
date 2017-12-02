@@ -202,3 +202,11 @@ title: MySql
 | --- | --- |
 | `git status` | List all *new or modified* files |
 | `git diff` | Show file differences that **haven't been** staged |
+
+
+| Purpose | Data Type | Example |
+| --- | --- | --- |
+| Integers | int(max) | int(5) |
+| `A large amount of text` | enum('value1',value2',...) | enum('apples','oranges','bananas') |
+
+

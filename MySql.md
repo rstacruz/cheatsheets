@@ -191,7 +191,8 @@ title: MySql
 | Values chosen from a list | enum('value1',value2',...) | enum('apples','oranges','bananas') |
 	
 	 _**max** is maximum to display, and **dec** is precision to the right of the decimal._ 
-	 
+
+
 ### MySQL Mathematical Functions
 
 | What | How |
@@ -209,3 +210,21 @@ title: MySql
 | nth power | pow(base,exponent) |
 | random number n, 0<n < 1 | rand() |
 | sin (similar cos, etc.) | sin(number) |
+
+
+### MySQL String Functions
+| What | How |
+| --- | --- |
+| Compare strings | strcmp(string1,string2) |
+| Convert to lower case | lower(string) |
+| Convert to upper case | upper(string) |
+| Left-trim whitespace (similar right) | ltrim(string) |
+| Substring of string | substring(string,index1,index2) |
+| Encrypt password | password(string) |
+| Encode string | encode(string,key) |
+| Decode string | decode(string,key) |
+| Get date | curdate() |
+| Get time | curtime() |
+| Extract day name from date string | dayname(string) |
+| Extract day number from date string | dayofweek(string) |
+| Extract month from date string | monthname(string) |

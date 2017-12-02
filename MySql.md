@@ -190,7 +190,8 @@ title: MySql
 	| Variable-length strings | varchar(max) | varchar(20) |
 	| A large amount of text | blob | blob |
 	| Values chosen from a list | enum('value1',value2',...) | enum('apples','oranges','bananas') |
-	| _**max** is maximum to display, and **dec** is precision to the right of the decimal._ |
+	
+	 _**max** is maximum to display, and **dec** is precision to the right of the decimal._ 
 
 | First Header  | Second Header |
 | ------------- | ------------- |

@@ -191,26 +191,21 @@ title: MySql
 | Values chosen from a list | enum('value1',value2',...) | enum('apples','oranges','bananas') |
 	
 	 _**max** is maximum to display, and **dec** is precision to the right of the decimal._ 
+	 
+### MySQL Mathematical Functions
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-
-| Command | Description |
+| What | How |
 | --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
-
-
-| Purpose | Data Type | Example |
-| --- | --- | --- |
-| Integers | int(max) | int(5) |
-| `A large amount of text` | enum('value1',value2',...) | enum('apples','oranges','bananas') |
-
-| Purpose | Data Type | Example |
-| --- | --- | --- |
-| Integers | int(max) | int(5) |
-| Floating-point (real) numbers | float(max, dec) | float(12,3) |
-| Double-precision floating-point | double(max, dec) | double(20,3) |
-| Dates and times | timestamp(max) | timestamp(8) (for YYYYMMDD) |
+| Count rows per group | COUNT(column | *) |
+| Average value of group | AVG(column) |
+| Minumum value of group | MIN(column) |
+| Maximum value of group | MAX(column) |
+| Sum values in a group | SUM(column) |
+| Absolute value | abs(number) |
+| Rounding numbers | round(number) |
+| Largest integer not greater | floor(number) |
+| Smallest integer not smaller | ceiling(number) |
+| Square root | sqrt(number) |
+| nth power | pow(base,exponent) |
+| random number n, 0<n < 1 | rand() |
+| sin (similar cos, etc.) | sin(number) |

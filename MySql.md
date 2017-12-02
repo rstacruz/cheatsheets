@@ -209,4 +209,9 @@ title: MySql
 | Integers | int(max) | int(5) |
 | `A large amount of text` | enum('value1',value2',...) | enum('apples','oranges','bananas') |
 
-
+| Purpose | Data Type | Example |
+| --- | --- | --- |
+| Integers | int(max) | int(5) |
+| Floating-point (real) numbers | float(max, dec) | float(12,3) |
+| Double-precision floating-point | double(max, dec) | double(20,3) |
+| Dates and times | timestamp(max) | timestamp(8) (for YYYYMMDD) |

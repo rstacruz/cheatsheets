@@ -176,3 +176,18 @@ title: MySql
     mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';
     ## Switch back to the mysqld_safe terminal and kill the process using Control + \
     $ /etc/init.d/mysql start
+    
+### Common MySQL Column Types
+
+    Purpose | Data Type | Example
+    ------- | --------- | -------
+    Integers | int(max) | int(5)
+    Floating-point (real) numbers | float(max, dec) | float(12,3)
+    Double-precision floating-point | double(max, dec) | double(20,3)
+    Dates and times | timestamp(max) | timestamp(8) (for YYYYMMDD)
+    timestamp(12) (for YYYYMMDDHHMMSS)
+    Fixed-length strings | char(max) | char(10)
+    Variable-length strings | varchar(max) | varchar(20)
+    A large amount of text | blob | blob
+    Values chosen from a list | enum('value1',value2',...) | enum('apples','oranges','bananas')
+    _**max** is maximum to display, and **dec** is precision to the right of the decimal._

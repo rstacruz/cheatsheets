@@ -81,8 +81,8 @@ title: MySql
     
 ### Create / Delete / Modify Table
     
-    Create
-    CREATE TABLE table (field1 type1, field2 type2, ...)
+    **Create**
+    CREATE TABLE table (field1 type1, field2 type2, ...)
     CREATE TABLE table (field1 type1, field2 type2, ..., INDEX (field))
     CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1))
     CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1, field2))
@@ -97,13 +97,13 @@ title: MySql
     CREATE TABLE table IF NOT EXISTS (...)
       
     CREATE TEMPORARY TABLE table (...)
-      
-    Drop
-    DROP TABLE table
+      
+    **Drop**
+    DROP TABLE table
     DROP TABLE IF EXISTS table
     DROP TABLE table1, table2, ...
       
-    Alter
+    **Alter**
     ALTER TABLE table MODIFY field1 type1
     ALTER TABLE table MODIFY field1 type1 NOT NULL ...
     ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1
@@ -116,7 +116,7 @@ title: MySql
     ALTER TABLE table DROP field1
     ALTER TABLE table ADD INDEX (field);
       
-    Change field order
+    **Change field order**
     ALTER TABLE table MODIFY field1 type1 FIRST
     ALTER TABLE table MODIFY field1 type1 AFTER another_field
     ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST

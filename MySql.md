@@ -191,3 +191,13 @@ title: MySql
 	| A large amount of text | blob | blob |
 	| Values chosen from a list | enum('value1',value2',...) | enum('apples','oranges','bananas') |
 	| _**max** is maximum to display, and **dec** is precision to the right of the decimal._ |
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |

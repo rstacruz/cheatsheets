@@ -1,8 +1,8 @@
 .berry-sponsor {
   text-align: center;
   position: relative;
-  height: 130px;
   overflow: hidden;
+  max-width: 320px;
 }
 
 /*
@@ -12,6 +12,15 @@
 .cs__header {
   color: $base-mute;
   @include font-size(-1);
+  display: block;
+  margin-bottom: 8px;
+
+  &::before,
+  &::after {
+    content: '—';
+    margin: 0 0.5em;
+    opacity: 0.5;
+  }
 }
 
 .cs__blurb {
@@ -28,10 +37,16 @@
   & > strong {
     color: $base-head;
     font-weight: bold;
-    display: block;
   }
 
-  & > span {
-    display: block;
+  &:hover,
+  &:focus {
+    & > strong {
+      color: $base-text;
+    }
+
+    & > span {
+      color: $base-mute;
+    }
   }
 }

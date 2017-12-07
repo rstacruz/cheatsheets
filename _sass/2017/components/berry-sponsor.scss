@@ -1,0 +1,52 @@
+.berry-sponsor {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+/*
+ * Berry styles
+ */
+
+.cs__header {
+  color: $base-mute;
+  @include font-size(-1);
+  display: block;
+  margin-bottom: 8px;
+
+  &::before,
+  &::after {
+    content: '—';
+    margin: 0 0.5em;
+    opacity: 0.5;
+  }
+}
+
+.cs__blurb {
+  &,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  & {
+    color: $base-text;
+  }
+
+  & > strong {
+    color: $base-head;
+    font-weight: bold;
+  }
+
+  &:hover,
+  &:focus {
+    & > strong {
+      color: $base-text;
+    }
+
+    & > span {
+      color: $base-mute;
+    }
+  }
+}

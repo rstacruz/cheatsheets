@@ -15,14 +15,14 @@ $bounce: cubic-bezier(.75,-0.5,0,1.75);
  * Pop it in as the page loads
  */
 
-.code-sponsor {
+.berry-sponsor {
   html.WithJs & {
-    transform: scale(0.7);
+    transform: scale(0.9) translate3d(0, -16px, 0);
     opacity: 0;
   }
 
   html.WithJs.LoadDone & {
-    transform: scale(1);
+    transform: scale(1) translate3d(0, 0, 0);
     opacity: 1;
     transition: transform 500ms $bounce, opacity 500ms linear;
   }
@@ -45,18 +45,3 @@ $bounce: cubic-bezier(.75,-0.5,0,1.75);
     transition: opacity 100ms linear 100ms;
   }
 }
-
-/*
- * Subtle animation to drive attention to the ad on laod
- */
-
-// .code-sponsor {
-//   html.WithJs & {
-//     transform: translate3d(0, 16px, 0);
-//   }
-
-//   html.WithJs.LoadDone & {
-//     transform: translate3d(0, 0, 0);
-//     transition: transform 200ms ease-out;
-//   }
-// }

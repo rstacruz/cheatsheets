@@ -1,0 +1,37 @@
+.berry-sponsor {
+  text-align: center;
+  position: relative;
+  height: 130px;
+  overflow: hidden;
+}
+
+/*
+ * Berry styles
+ */
+
+.cs__header {
+  color: $base-mute;
+  @include font-size(-1);
+}
+
+.cs__blurb {
+  &,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  & {
+    color: $base-text;
+  }
+
+  & > strong {
+    color: $base-head;
+    font-weight: bold;
+    display: block;
+  }
+
+  & > span {
+    display: block;
+  }
+}

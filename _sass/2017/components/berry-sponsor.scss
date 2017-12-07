@@ -34,6 +34,7 @@
 
   & {
     color: $base-text;
+    display: block;
   }
 
   & > strong {
@@ -51,4 +52,11 @@
       color: $base-mute;
     }
   }
+}
+
+.cs__pixel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
 }

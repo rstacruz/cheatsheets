@@ -54,13 +54,6 @@ echo "I'm in `pwd`"
 
 See [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
 
-### Conditional execution
-
-```bash
-git commit && git push
-git commit || echo "Commit failed"
-```
-
 ### Functions
 {: id='functions-example'}
 
@@ -78,6 +71,16 @@ See: [Functions](#functions)
 {: id='conditionals-example'}
 
 ```bash
+true # return exit status 0 (success)
+false # return exit status 1 (fail)
+
+# Last exit status
+false
+echo $? # => 0
+
+true && echo "First command success"
+false || echo "First command fail"
+
 if [ -z "$string" ]; then
   echo "String is empty"
 elif [ -n "$string" ]; then
@@ -612,7 +615,6 @@ read -n 1 ans    # Just one character
 
 ### Process IDs
 
-| `$?` | PID of last foreground task |
 | `$!` | PID of last background task |
 | `$$` | PID of shell |
 

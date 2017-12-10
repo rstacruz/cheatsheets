@@ -290,7 +290,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | `guu`    | lowercase current line (also `gugu`) |
 {: .-shortcuts}
 
-Do these in visual mode.
+Do these in visual or normal mode.
 
 ### Marks
 

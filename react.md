@@ -70,6 +70,13 @@ See: [Properties](https://reactjs.org/docs/tutorial.html#using-props)
 ### States
 
 ```jsx
+constructor(props) {
+  super(props)
+  this.state = {}
+}
+```
+
+```jsx
 this.setState({ username: 'rstacruz' })
 ```
 

@@ -126,7 +126,7 @@ export default connect(mapState, mapDispatch)(App)
 export default connect(
   (state) => ({
     message: state.message
-  })
+  }),
   (dispatch) => ({
     onMessageClick: (message) => {
       dispatch({ type: 'click', message })

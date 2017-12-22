@@ -8,7 +8,8 @@ layout: 2017/sheet
 
 | `⌘ D`       | select current word (repeat to include next instance of word) |
 | `⌘ L`       | select current line (repeat to include next line) |
-| `⌘ ⇧ A`    | select text inside tag (repeat to expand) |
+| `⌘ ⇧ L`     | split selection into multiple lines |
+| `⌘ ⇧ A`     | select text inside tag (repeat to expand) |
 | `Ctrl ⇧ M`  | select to curly or angle brackets (repeat to expand) |
 {: .-shortcuts}
 
@@ -25,9 +26,17 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⌘ K` `⌘ 0`       | unfold everything                      |
 {: .-shortcuts}
 
+### Editing
+
+| `⌘ ⇧ D` | duplicate current line/selection |
+| `⌘ ⇧ K` | delete current line/selection |
+{: .-shortcuts}
+
 ### Goto
 
 | `⌘ P`         | goto anything |
+| `⌘ G`         | goto line number |
+| `⌘ R`         | goto symbol |
 | `⌘ P, :`      | goto line number (enter number after `:`) |
 | `⌘ P, #`      | goto and list fuzzy-matches of string (enter characters after `#`) |
 | `⌘ P, @`      | goto and list symbol (begin typing symbol name after `@`) |

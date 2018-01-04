@@ -477,7 +477,7 @@ list |> any?()        # → true
 ```
 
 ```elixir
-list |> concat([:d])  # → [:d]
+list |> concat([:d])  # → [:a, :b, :c, :d]
 ```
 
 Also, consider streams instead.

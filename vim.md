@@ -58,6 +58,15 @@ Getting started
 | `nG`            | Go to line `n`                     |
 {: .-shortcuts}
 
+#### Window
+
+| `zz` | Center this line         |
+| `H`  | Move to top of screen    |
+| `M`  | Move to middle of screen |
+| `L`  | Move to bottom of screen |
+{: .-shortcuts}
+
+
 ### Editing
 
 | Shortcut | Description                         |
@@ -311,8 +320,6 @@ Do these in visual or normal mode.
 | ---      | ---                                       |
 | `.`      | repeat last command                       |
 | `]p`     | paste under the current indentation level |
-| ---      | ---                                       |
-| `zz`     | Center this line                          |
 {: .-shortcuts}
 
 ### Command line

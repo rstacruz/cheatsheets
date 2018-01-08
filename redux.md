@@ -26,6 +26,13 @@ function counter (state = { value: 0 }, action) {
   }
 }
 ```
+### Combine Reducers
+
+```js
+// Combine Reducers into one whole Reducer with combineReducers function
+const counterApp = combineReducers({counter,otherReducer,anotherReducer}); 
+// You can list down reducers here and thanks to ES6 Object literal, we have to only pass key(if key and value are same).
+```
 
 ```js
 let store = createStore(counter)

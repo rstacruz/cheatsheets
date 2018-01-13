@@ -144,7 +144,7 @@ factory :user do
   first_name 'John'
 
   factory :sample_user do
-    first_name { FFaker::Name.first_name }
+    first_name { Faker::Name.first_name }
   end
 end
 ```
@@ -166,7 +166,7 @@ end
 
 ```ruby
 factory :sample_user, parent: :user do
-  first_name { FFaker::Name.first_name }
+  first_name { Faker::Name.first_name }
 end
 ```
 {: data-line="1"}

@@ -52,9 +52,23 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 | Range              | Description           |
 | ---                | ---                   |
 | `1.2.3 - 2.3.0`    | is `>=1.2.3 <=2.3.4`  |
+
+#### Partial right
+
+| Range              | Description           |
+| ---                | ---                   |
 | `1.2.3 - 2.3`      | is `>=1.2.3 <2.4.0`   |
 | `1.2.3 - 2`        | is `>=1.2.3 <3.0.0`   |
-{: .-shortcuts}
+
+#### Partial left
+
+| Range              | Description           |
+| ---                | ---                   |
+| `1.2 - 2.3.0`      | is `1.2.0 - 2.3.0`    |
+
+When the right is partial (eg, `2.3`), missing pieces are assumed to be `x` (eg, `2.3.x`).
+
+When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, `1.2.0`).
 
 ### Combining ranges
 

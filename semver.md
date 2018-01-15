@@ -1,7 +1,7 @@
 ---
 title: Semver
 layout: 2017/sheet
-updated: 2017-08-26
+updated: 2018-01-15
 weight: -3
 ---
 
@@ -46,6 +46,22 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 | `*`      | any version         |                    |
 | `x`      | same                |                    |
 {: .-shortcuts}
+
+### Hyphenated ranges
+
+| Range              | Description           |
+| ---                | ---                   |
+| `1.2.3 - 2.3.0`    | is `>=1.2.3 <=2.3.4`  |
+| `1.2.3 - 2.3`      | is `>=1.2.3 <2.4.0`   |
+| `1.2.3 - 2`        | is `>=1.2.3 <3.0.0`   |
+{: .-shortcuts}
+
+### Combining ranges
+
+| Range              | Description           |
+| ---                | ---                   |
+| `>=0.14 <16`       | And (space-separated) |
+| `0.14.x || 15.x.x` | Or (pipe-separated)   |
 
 ### Pre-releases
 

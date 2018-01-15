@@ -3,7 +3,7 @@ title: Phoenix
 category: Elixir
 layout: 2017/sheet
 weight: -1
-updated: 2017-09-04
+updated: 2018-01-15
 ---
 
 ### Quick start
@@ -17,6 +17,11 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 ```bash
 # Create a new project
 mix phx.new hello
+```
+
+```bash
+# Start the application
+mix phx.server
 ```
 
 Install Erlang, Elixir, Node.js, PostgreSQL first.

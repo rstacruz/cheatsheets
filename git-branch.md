@@ -45,7 +45,7 @@ List outdated branches that have been merged into the current one.
 ### Delete remote branch
 
 ```bash
-git push origin :$branchname
+git push -d origin :$branchname
 ```
 
 Works for tags, too!

@@ -2,7 +2,7 @@
 title: Redux
 category: React
 layout: 2017/sheet
-updated: 2017-08-30
+updated: 2018-01-17
 weight: -3
 ---
 

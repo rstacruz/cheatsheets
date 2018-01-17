@@ -26,13 +26,6 @@ function counter (state = { value: 0 }, action) {
   }
 }
 ```
-### Combine Reducers
-
-```js
-// Combine Reducers into one whole Reducer with combineReducers function
-const counterApp = combineReducers({counter,otherReducer,anotherReducer}); 
-// You can list down reducers here and thanks to ES6 Object literal, we have to only pass key(if key and value are same).
-```
 
 ```js
 let store = createStore(counter)
@@ -143,6 +136,16 @@ export default connect(
 ```
 
 Same as above, but shorter.
+
+### Combining reducers
+
+```js
+const reducer = combineReducers({
+  counter, user, store
+})
+```
+
+Combines multiple reducers into one reducer function. See: [combineReducers](https://redux.js.org/docs/api/combineReducers.html) _(redux.js.org)_
 
 ## Middleware
 

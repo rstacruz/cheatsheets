@@ -106,6 +106,23 @@ class Info extends React.Component {
   }
 }
 ```
+As of React v16.2.0
+
+
+```jsx
+class Info extends React.Component {
+  render () {
+    const { avatar, username } = this.props
+
+    return <React.Fragment>
+      <UserAvatar src={avatar} />
+      <UserProfile username={username} />
+    </React.Fragment>
+  }
+}
+```
+
+
 {: data-line="6,7"}
 
 Nest components to separate concerns.

@@ -168,7 +168,7 @@ Predicates
 ### Predicates
 
 ```bash
-//div[true()] 
+//div[true()]
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
@@ -398,8 +398,7 @@ count(//*)          # count all elements
 Finds a `<section>` that directly contains `h1#section-name`
 
 ```bash
-# Find a <section> that contains h1#section-name
-//section[//*[@id='section-name']]
+//section[//h1[@id='section-name']]
 ```
 
 Finds a `<section>` that contains `h1#section-name`.

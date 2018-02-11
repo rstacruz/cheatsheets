@@ -51,7 +51,8 @@ Works in Firefox and Chrome.
 | ----                         | ----                                                     | --                      |
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
 | `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
-| `a[href~='://']`             | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                         |
+| `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
+| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
 {: .xp}
 
 ### Order selectors
@@ -168,7 +169,7 @@ Predicates
 ### Predicates
 
 ```bash
-//div[true()] 
+//div[true()]
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```

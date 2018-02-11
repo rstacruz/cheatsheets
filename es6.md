@@ -30,7 +30,7 @@ const a = 1
 ```
 
 `let` is the new `var`. Constants work just like `let`, but can't be reassigned.
-See: [Let and const](http://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const)
+See: [Let and const](https://babeljs.io/learn-es2015/#let--const)
 
 ### Backtick strings
 
@@ -50,7 +50,7 @@ world
 ```
 
 Templates and multiline strings.
-See: [Template strings](http://babeljs.io/learn-es2015/#ecmascript-2015-features-template-strings)
+See: [Template strings](https://babeljs.io/learn-es2015/#template-strings)
 
 ### Binary and octal literals
 
@@ -59,7 +59,7 @@ let bin = 0b1010010
 let oct = 0o755
 ```
 
-See: [Binary and octal literals](http://babeljs.io/learn-es2015/#ecmascript-2015-features-binary-and-octal-literals)
+See: [Binary and octal literals](https://babeljs.io/learn-es2015/#binary-and-octal-literals)
 
 ### New methods
 
@@ -71,7 +71,7 @@ See: [Binary and octal literals](http://babeljs.io/learn-es2015/#ecmascript-2015
 "\u1E9B\u0323".normalize("NFC")
 ```
 
-See: [New methods](http://babeljs.io/learn-es2015/#ecmascript-2015-features-math-number-string-object-apis)
+See: [New methods](https://babeljs.io/learn-es2015/#math--number--string--object-apis)
 
 ### Classes
 
@@ -117,7 +117,7 @@ class Circle extends Shape {
 {: data-line="1"}
 
 Syntactic sugar for prototypes.
-See: [Classes](http://babeljs.io/learn-es2015/#ecmascript-2015-features-classes)
+See: [Classes](https://babeljs.io/learn-es2015/#classes)
 
 ### Exponent operator
 
@@ -142,7 +142,7 @@ new Promise((resolve, reject) => {
 {: data-line="1"}
 
 For asynchronous programming.
-See: [Promises](http://babeljs.io/learn-es2015/#ecmascript-2015-features-promises)
+See: [Promises](https://babeljs.io/learn-es2015/#promises)
 
 ### Using promises
 
@@ -201,7 +201,7 @@ let {title, author} = {
 {: data-line="1"}
 
 Supports for matching arrays and objects.
-See: [Destructuring](http://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
+See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
 
 ### Default values
 
@@ -343,7 +343,7 @@ fn(...[1, 2, 3])
 {: data-line="1"}
 
 Default, rest, spread.
-See: [Function arguments](http://babeljs.io/learn-es2015/#ecmascript-2015-features-default-rest-spread)
+See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread)
 
 ### Fat arrows
 
@@ -374,7 +374,7 @@ numbers.map(n => n * 2)
 {: data-line="1"}
 
 Like functions but with `this` preserved.
-See: [Fat arrows](http://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this)
+See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)
 
 Objects
 -------
@@ -386,7 +386,7 @@ module.exports = { hello, bye }
 // Same as: module.exports = { hello: hello, bye: bye }
 ```
 
-See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
 ### Methods
 
@@ -400,7 +400,7 @@ const App = {
 ```
 {: data-line="2"}
 
-See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
+See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
 ### Getters and setters
 
@@ -416,7 +416,7 @@ const App = {
 ```
 {: data-line="2,5"}
 
-See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
+See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
 ### Computed property names
 
@@ -429,7 +429,7 @@ let handlers = {
 ```
 {: data-line="3"}
 
-See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
+See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
 Modules
 -------
@@ -462,7 +462,7 @@ import { indentSpaces as indent } from 'helpers'
 ```
 
 `import` is the new `require()`.
-See: [Module imports](http://babeljs.io/learn-es2015/#ecmascript-2015-features-modules)
+See: [Module imports](https://babeljs.io/learn-es2015/#modules)
 
 ### Exports
 
@@ -482,7 +482,7 @@ export const pi = 3.14159
 ```
 
 `export` is the new `module.exports`.
-See: [Module exports](http://babeljs.io/learn-es2015/#ecmascript-2015-features-modules)
+See: [Module exports](https://babeljs.io/learn-es2015/#modules)
 
 Generators
 ----------
@@ -504,7 +504,7 @@ gen.next().value  // → 2
 ```
 
 It's complicated.
-See: [Generators](http://babeljs.io/learn-es2015/#ecmascript-2015-features-generators)
+See: [Generators](https://babeljs.io/learn-es2015/#generators)
 
 ### For..of iteration
 
@@ -515,4 +515,4 @@ for (let i of iterable) {
 ```
 
 For iterating through generators and arrays.
-See: [For..of iteration](http://babeljs.io/learn-es2015/#ecmascript-2015-features-iterators-for-of)
+See: [For..of iteration](https://babeljs.io/learn-es2015/#iterators--forof)

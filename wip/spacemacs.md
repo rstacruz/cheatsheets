@@ -7,6 +7,10 @@ intro: |
   [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
 ---
 
+Shortcuts
+---------
+{: .-three-column}
+
 ### Layers
 
 | Shortcut  | Description       |

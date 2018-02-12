@@ -15,6 +15,16 @@ title: Spacemacs
 | `,`       | Same as `SPC` `m` |
 | ---       | ---               |
 | `SPC` `g` | Git               |
+| `SPC` `h` | Help              |
+{: .-shortcuts}
+
+### Help (`h`)
+
+| Shortcut        | Description    |
+| ---             | ---            |
+| `SPC` `h` `SPC` | Spacemacs help |
+| ---             | ---            |
+| `SPC` `h` `l`   | Layers         |
 {: .-shortcuts}
 
 ### File (`f`)
@@ -68,4 +78,3 @@ title: Spacemacs
 | `,` `-`     | Insert horizontal rule |
 | `,` `h` `1` | Insert H1              |
 {: .-shortcuts}
-

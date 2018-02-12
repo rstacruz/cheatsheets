@@ -27,65 +27,65 @@ Shortcuts
 | `SPC` `h` | Help              |
 {: .-shortcuts}
 
-### Help (`h`)
+### `SPC` `h` - Help
 
-| Prefix    | Shortcut | Description    |
-| ---       | ---      | ---            |
-| `SPC` `h` | `SPC`    | Spacemacs help |
-| ---       | ---      | ---            |
-|           | `l`      | Layers         |
+| Shortcut | Description    |
+| ---      | ---            |
+| `SPC`    | Spacemacs help |
+| ---      | ---            |
+| `l`      | Layers         |
 {: .-shortcuts}
 
-### File (`f`)
+### `SPC` `f` - File
 
-| Prefix    | Shortcut | Description |
-| ---       | ---      | ---         |
-| `SPC` `f` | `s`      | Save        |
-|           | `c`      | Copy        |
+| Shortcut | Description |
+| ---      | ---         |
+| `s`      | Save        |
+| `c`      | Copy        |
 {: .-shortcuts}
 
-### Buffer (`b`)
+### `SPC` `b` - Buffer
 
-| Prefix    | Shortcut | Description                |
-| ---       | ---      | ---                        |
-| `SPC` `b` | `n`      | Next buffer (`:bnext`)     |
-|           | `p`      | Previous buffer (`:bprev`) |
+| Shortcut | Description                |
+| ---      | ---                        |
+| `n`      | Next buffer (`:bnext`)     |
+| `p`      | Previous buffer (`:bprev`) |
 {: .-shortcuts}
 
-### Config (`fe`)
+### `SPC` `f` `e` - Config
 
-| Prefix        | Shortcut | Description              |
-| ---           | ---      | ---                      |
-| `SPC` `f` `e` | `d`      | Edit config              |
-|               | `D`      | Edit config and template |
-| ---           | ---      | ---                      |
-|               | `R`      | Reload config            |
+| Shortcut | Description              |
+| ---      | ---                      |
+| `d`      | Edit config              |
+| `D`      | Edit config and template |
+| ---      | ---                      |
+| `R`      | Reload config            |
 {: .-shortcuts}
 
-### Window (`w`)
+### `SPC` `w` - Window
 
-| Prefix    | Shortcut  | Description         |
-| ---       | ---       | ---                 |
-| `SPC` `w` | `.`       | Help                |
-| ---       | ---       |                     |
-|           | `h/j/k/l` | Select              |
-|           | `H/J/K/L` | Move                |
-| ---       | ---       | ---                 |
-|           | `s`       | Split               |
-|           | `S`       | Split & follow      |
-| ---       | ---       | ---                 |
-|           | `v`       | Split vert          |
-|           | `V`       | Split vert & follow |
+| Shortcut  | Description         |
+| ---       | ---                 |
+| `.`       | Help                |
+| ---       |                     |
+| `h/j/k/l` | Select              |
+| `H/J/K/L` | Move                |
+| ---       | ---                 |
+| `s`       | Split               |
+| `S`       | Split & follow      |
+| ---       | ---                 |
+| `v`       | Split vert          |
+| `V`       | Split vert & follow |
 {: .-shortcuts}
 
-### Project (`p`)
+### `SPC` `p` - Project
 
-| Prefix    | Shortcut | Description  |
-| ---       | ---      | ---          |
-| `SPC` `p` | `p`      | Open project |
-| --        | ---      | ---          |
-|           | `h`      | Open files   |
-|           | `f`      | Open files   |
+| Shortcut | Description  |
+| ---      | ---          |
+| `p`      | Open project |
+| ---      | ---          |
+| `h`      | Open files   |
+| `f`      | Open files   |
 {: .-shortcuts}
 
 ## Major modes

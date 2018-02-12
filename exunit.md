@@ -65,6 +65,36 @@ flunk "This should've been an error"
 
 See: [Assertions](http://devdocs.io/elixir/ex_unit/exunit.assertions)
 
+## Setup
+
+### Pattern matching
+
+```elixir
+setup do
+  {:ok, name: "John"}
+end
+```
+
+```elixir
+test "it works", %{name: name} do
+  assert name == "John"
+end
+```
+
+### Setup
+
+
+```elixir
+describe "a block" do
+  setup [:my_hook]
+end
+
+defp my_hook(context) do
+  # Invoked in every block in "a block"
+end
+```
+
+
 ## Also see
 {: .-one-column}
 

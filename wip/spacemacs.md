@@ -1,5 +1,10 @@
 ---
 title: Spacemacs
+layout: 2017/sheet
+category: Vim
+updated: 2018-02-12
+intro: |
+  [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
 ---
 
 ### Layers

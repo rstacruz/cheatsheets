@@ -1,8 +1,8 @@
 ---
 title: Spacemacs
 layout: 2017/sheet
-category: Vim
-updated: 2018-02-12
+category: Apps
+updated: 2018-02-15
 intro: |
   [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
 ---
@@ -31,12 +31,12 @@ Shortcuts
 
 ### More
 
-| Shortcut  | Description       |
-| ---       | ---               |
-| `SPC` `SPC` | M-x |
-| `SPC` `'` | Terminal  |
-| `SPC` `/` | Search |
-| `SPC` `0` | Neotree |
+| Shortcut    | Description |
+| ---         | ---         |
+| `SPC` `SPC` | M-x         |
+| `SPC` `'`   | Terminal    |
+| `SPC` `/`   | Search      |
+| `SPC` `0`   | Neotree     |
 
 ### `SPC` `h** - Help
 

@@ -172,6 +172,22 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 | `${FOO/%from/to}` | Replace suffix |
 | `${FOO/#from/to}` | Replace prefix |
 
+### Comments
+
+`# Single line comment`
+```bash
+: '
+This is a
+multi line 
+comment
+'
+```
+```bash
+# This is also 
+# a multi line
+# Comment
+```
+
 ### Substrings
 
 | `${FOO:0:3}`  | Substring _(position, length)_ |

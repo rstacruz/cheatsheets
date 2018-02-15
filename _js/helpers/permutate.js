@@ -18,7 +18,7 @@ export default function permutate (data) {
   return words
 }
 
-/*
+/**
  * Permutates strings.
  *
  * @example
@@ -64,7 +64,7 @@ export function permutateWord (str) {
 
 export function splitwords (str) {
   const words = str.toLowerCase()
-    .split(/[ \/\-_]/)
+    .split(/[ /\-_]/)
     .filter(k => k && k.length !== 0)
 
   return words

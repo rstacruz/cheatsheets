@@ -70,16 +70,26 @@
   }
 }
 
+@mixin shortcut-span {
+  font-size: 1rem;
+  padding: 5px 6px;
+  padding-left: 8px; // compensation
+  background: $gray-bg;
+  border-radius: 3px;
+  margin-right: 2px;
+  letter-spacing: 0.1em;
+  color: $base-text;
+}
+
 .MarkdownBody table.-shortcuts {
   td:first-child > code {
-    font-size: 1rem;
-    padding: 5px 6px;
-    padding-left: 8px; // compensation
-    background: $gray-bg;
-    border-radius: 3px;
-    margin-right: 2px;
-    letter-spacing: 0.1em;
-    color: $base-text;
+    @include shortcut-span;
+  }
+}
+
+.MarkdownBody table.-shortcuts-right {
+  td:last-child > code {
+    @include shortcut-span;
   }
 }
 

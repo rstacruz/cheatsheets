@@ -235,7 +235,7 @@ Destructuring of objects and arrays can be also be done in function arguments.
 ### Default values in destructured function arguments
 
 ```js
-function greet({ name = "Rauno", greeting = "Hello" } = {}) {
+function greet({ name = 'Rauno', greeting = 'Hello' } = {}) {
 	console.log(`${greeting}, ${name}!`);
 }
 ```

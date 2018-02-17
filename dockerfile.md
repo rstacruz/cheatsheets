@@ -30,6 +30,16 @@ RUN bundle install
 WORKDIR /myapp
 ```
 
+```
+VOLUME ["/data"]
+# Specification for mount point
+```
+
+```docker
+ADD file.xyz /file.xyz
+COPY --chown=user:group host_file.xyz /path/container_file.xyz
+```
+
 ### Onbuild
 
 ```bash
@@ -42,6 +52,30 @@ ONBUILD RUN bundle install
 ```docker
 EXPOSE 5900
 CMD    ["bundle", "exec", "rails", "server"]
+```
+
+### Entrypoint
+
+```docker
+ENTRYPOINT ["executable", "param1", "param2"]
+ENTRYPOINT command param1 param2
+# an ENTRYPOINT allows you to configure a container that will run as an executable.
+```
+
+```docker
+ENTRYPOINT exec top -b
+# this form will use shell processing to substitute shell environment variables, and will ignore any CMD or docker run command line arguments
+```
+
+### Metadata
+
+```docker
+LABEL "com.example.vendor"="ACME Incorporated"
+LABEL com.example.label-with-value="foo"
+LABEL version="1.0"
+LABEL description="This text illustrates \
+that label-values can span multiple lines."
+# add a metada
 ```
 
 ## See also

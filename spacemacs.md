@@ -31,28 +31,35 @@ Shortcuts
 
 ### More
 
-| Shortcut    | Description |
+| Description | Shortcut    |
 | ---         | ---         |
-| `SPC` `SPC` | M-x         |
-| `SPC` `'`   | Terminal    |
-| `SPC` `/`   | Search      |
-| `SPC` `0`   | Neotree     |
+| **M-x**     | `SPC` `SPC` |
+| Terminal    | `SPC` `'`   |
+| Search      | `SPC` `/`   |
+{: .-shortcuts-right}
 
-### `SPC` `h** - Help
+### `SPC` `h` - Help
 
 | Description        | Shortcut |
 | ---                | ---      |
 | **Spacemacs help** | `SPC`    |
 | ---                | ---      |
 | Layers             | `l`      |
+| Documentation      | `r`      |
+| FAQ                | `f`      |
+| Vimtutor           | `T`      |
 {: .-shortcuts-right}
 
 ### `SPC` `f` - File
 
-| Description | Shortcut |
-| ---         | ---      |
-| **Save**    | `s`      |
-| Copy        | `c`      |
+| Description   | Shortcut |
+| ---           | ---      |
+| **Save**      | `s`      |
+| Save all      | `S`      |
+| Copy          | `c`      |
+| Delete        | `D`      |
+| ---           | ---      |
+| Show filename | `y`      |
 {: .-shortcuts-right}
 
 ### `SPC` `b` - Buffer

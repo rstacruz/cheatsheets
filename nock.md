@@ -1,22 +1,28 @@
 ---
 title: Nock
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
 ### Nock
 
-    scope = nock('http://foo.com')
-    scope = nock('http://foo.com', { allowUnmocked: true })
+```js
+scope = nock('http://foo.com')
+scope = nock('http://foo.com', { allowUnmocked: true })
+```
 
-    nock('http://foo.com')
-      .get('/user')
-      .reply(200, { id: 1234 })
-
+```js
+nock('http://foo.com')
+  .get('/user')
+  .reply(200, { id: 1234 })
+```
 
 ### Filtering
 
-    nock('http://foo.com')
-      .filteringPath(/[&\?]token=[^&]*/g, '')
-      .get('/user')
+```js
+nock('http://foo.com')
+  .filteringPath(/[&\?]token=[^&]*/g, '')
+  .get('/user')
 
-    # catches "/user?token=..." as well
+// catches "/user?token=..." as well
+```

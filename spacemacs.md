@@ -3,6 +3,7 @@ title: Spacemacs
 layout: 2017/sheet
 category: Apps
 updated: 2018-02-15
+tags: [WIP]
 intro: |
   [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
 ---
@@ -153,3 +154,20 @@ Shortcuts
 ## References
 
 - [Spacemacs documentation](https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org) _(github.com)_
+
+## Emacs standard
+
+### File
+
+| Description      | Emacs       | Spacemacs     |
+| ---              | ---         | ---           |
+| Save             | `C-x` `C-s` | `SPC` `f` `s` |
+| Open             | `C-x` `C-f` | `SPC` `f` `f` |
+| Close            | `C-x` `C-k` |               |
+| ---              | ---         | ---           |
+| Split horizontal | `C-x` `2`   | `SPC` `w` `h` |
+| Split vertical   | `C-x` `3`   | `SPC` `w` `v` |
+| ---              | ---         | ---           |
+| Confirm          | `C-c` `C-c` |               |
+| Abort            | `C-c` `C-k` |               |
+{: .-shortcuts-right}

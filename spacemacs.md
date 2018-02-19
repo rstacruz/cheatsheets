@@ -151,9 +151,26 @@ Shortcuts
 | `,` `h` `1` | Insert H1              |
 {: .-shortcuts}
 
-## References
+## Other layers
 
-- [Spacemacs documentation](https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org) _(github.com)_
+### version-control
+
+| Shortcut              | Description            |
+| ---                   | ---                    |
+| `SPC` `g` `s`         | **Status**             |
+| ---                   | ---                    |
+| `SPC` `g` `m`         | **Open dispatch menu** |
+| `SPC` `g` `m` `s`     | Stage                  |
+| `SPC` `g` `m` `P` `p` | Push                   |
+| `SPC` `g` `m` `c`     | Commit                 |
+| ---                   | ---                    |
+| `SPC` `g` `t`         | Open time machine      |
+| ---                   | ---                    |
+| `SPC` `g` `l` `l`     | Open in GitHub         |
+| `SPC` `g` `l` `L`     | Show GitHub URL        |
+{: .-shortcuts}
+
+Version control is provided by Magit.
 
 ## Emacs standard
 
@@ -171,3 +188,7 @@ Shortcuts
 | Confirm          | `C-c` `C-c` |               |
 | Abort            | `C-c` `C-k` |               |
 {: .-shortcuts-right}
+
+## References
+
+- [Spacemacs documentation](https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org) _(github.com)_

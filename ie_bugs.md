@@ -24,8 +24,3 @@ Clicking label with input inside doesn't focus the input.
 An element's 'opacity' value isn't propagated to its positioned descendants.
 
  * [test case](http://jhop.me/tests/bugs/ie8/opacity_positioned.html)
-
-### Also see
-
-* [jhop.me](http://jhop.me/ie8-bugs)
-* [charlescooke.me.uk](http://www.charlescooke.me.uk/web/lab_notes/bugs/index.html)

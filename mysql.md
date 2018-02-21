@@ -5,14 +5,23 @@ layout: 2017/sheet
 updated: 2018-02-21
 ---
 
-### Create / delete
+## Basic
+
+### Create
 
 ```sql
 CREATE DATABASE mydb
 CREATE DATABASE mydb CHARACTER SET utf8
+```
+
+### Delete
+
+```sql
 DROP DATABASE mydb
 ALTER DATABASE mydb CHARACTER SET utf8
 ```
+
+## .sql handling
 
 ### Backup to .sql
 
@@ -33,7 +42,9 @@ mysqlcheck --all-databases
 mysqlcheck --all-databases --fast
 ```
 
-### Browsing commands
+## Browsing
+
+### Basic commands
 
 ```sql
 SHOW DATABASES
@@ -60,7 +71,7 @@ SELECT DISTINCT field1 FROM ...
 SELECT DISTINCT field1, field2 FROM ...
 ```
 
-### Select - Join
+### Select and join
 
 ```sql
 SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition
@@ -68,7 +79,9 @@ SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition
 SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 ```
 
-### Conditions
+## Conditions
+
+### Basic conditions
 
 ```sql
 field1 = value1
@@ -81,6 +94,8 @@ field1 IS NOT IN (value1, value2)
 condition1 AND condition2
 condition1 OR condition2
 ```
+
+## Manipulate DB
 
 ### Insert
 
@@ -103,7 +118,7 @@ UPDATE table1 SET field1=new_value1 WHERE condition
 UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE table1.id1 = table2.id2 AND condition
 ```
 
-### Create table
+### Create
     
 ```sql
 CREATE TABLE table (field1 type1, field2 type2, ...)
@@ -123,7 +138,7 @@ CREATE TABLE table IF NOT EXISTS (...)
 CREATE TEMPORARY TABLE table (...)
 ```
 
-### Drop table
+### Drop
 
 ```sql
 DROP TABLE table
@@ -131,7 +146,7 @@ DROP TABLE IF EXISTS table
 DROP TABLE table1, table2, ...
 ```
 
-### Alter table
+### Alter
 
 ```sql
 ALTER TABLE table MODIFY field1 type1
@@ -147,7 +162,7 @@ ALTER TABLE table DROP field1
 ALTER TABLE table ADD INDEX (field);
 ```
 
-### Change table
+### Change
 
 ```sql
 ALTER TABLE table MODIFY field1 type1 FIRST
@@ -163,7 +178,9 @@ CREATE TABLE table (..., PRIMARY KEY (field1, field2))
 CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2 (t2_field1, t2_field2))
 ```
 
-### Users and Privileges
+## Rights
+
+### Users and privileges
 
 ```sql
 GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
@@ -177,9 +194,23 @@ SET PASSWORD = OLD_PASSWORD('new_pass')
       
 DROP USER 'user'@'host'
 ```
-host ‘%’ indicates any host.
 
-### Main Data Types
+#### host '%' indicates any host.
+
+### Reset Root Password
+
+```bash
+$ /etc/init.d/mysql stop
+$ mysqld_safe --skip-grant-tables
+$ mysql # on another terminal
+mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';
+## Switch back to the mysqld_safe terminal and kill the process using Control + \
+$ /etc/init.d/mysql start
+```
+
+## Data types
+
+### Basic types
 
 ```sql
 TINYINT (1o: -217+128)
@@ -201,15 +232,4 @@ VARCHAR (single-line; explicit size) TEXT (multi-lines; max size=65535) BLOB (bi
 Variants for TEXT&BLOB: TINY (max=255) MEDIUM (max=~16000) LONG (max=4Go)
      
 ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)
-```sql
-
-### Reset Root Password
-
-```bash
-$ /etc/init.d/mysql stop
-$ mysqld_safe --skip-grant-tables
-$ mysql # on another terminal
-mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';
-## Switch back to the mysqld_safe terminal and kill the process using Control + \
-$ /etc/init.d/mysql start
 ```

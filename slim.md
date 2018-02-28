@@ -60,12 +60,25 @@ ruby:
 div= foobar
 ```
 
+### Inline Markdown
+
+```jade
+markdown:
+  ### On Markdown
+  
+  Slim can handle your [Markdown](https://daringfireball.net/projects/markdown/syntax) content for longer content blocks or `code`.
+  
+  Depending on your parser, like [Kramdown](https://kramdown.gettalong.org/quickref.html), other features might work, like assigning attributes or classes.
+  {: .classname}
+```
+
 ### Embedded JavaScript
 
 ```jade
 javascript:
   alert('Slim supports embedded javascript!')
 ```
+
 
 ### Comments
 

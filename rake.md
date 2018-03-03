@@ -1,6 +1,7 @@
 ---
 title: Rake
 category: Ruby
+layout: 2017/sheet
 ---
 
 ### Basic syntax
@@ -15,7 +16,7 @@ namespace :foo do
   task :baz => :dependency do
   end
 
-  task :baz => [:dep1, :dep2, dep3] do
+  task :baz => [:dep1, :dep2, :dep3] do
   end
 end
 

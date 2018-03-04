@@ -6,12 +6,23 @@ category: CLI
 
 Reference
 ---------
-{: .-three-column}
 
-### Store and retrieve
+### Create
 
-    $ pass insert twitter.com/rsc
-    $ pass twitter.com/rsc
+    $ pass init [-p] <gpg-id>
+    $ pass git init
+    $ pass git remote add origin <your.git:repository>
+    $ pass git push -u --all
+
+### Store
+
+    $ pass insert [-m] twitter.com/rsc
+    $ pass generate [-n] twitter.com/rsc length
+
+### Retreive
+
+    $ pass ls twitter.com/
+    $ pass show twitter.com/rsc
 
 ### Search
 
@@ -25,8 +36,11 @@ Reference
 
     $ pass edit twitter.com/rsc
 
+### Synchronize
+
+    $ pass git push
+    $ pass git pull
+
 ## References
-{: .-one-column}
 
 * <http://passwordstore.org>
-{: .-also-see}

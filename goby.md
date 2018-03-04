@@ -4,7 +4,7 @@ layout: 2017/sheet
 prism_languages: [ruby]
 weight: -3
 tags: [Featured]
-updated: 2018-03-03
+updated: 2018-03-04
 ---
 
 ## Getting started
@@ -38,7 +38,7 @@ $ goby hello.gb
 $ goby -i
 ```
 
-See [igb manual & test script](https://github.com/goby-lang/goby/blob/master/igb/manual_test.md).
+See [igb manual & test script](https://github.com/goby-lang/goby/blob/master/igb/manual_test.md). You can use `readline` features such as command history by arrow keys.
 
 ## Definition
 {: .-three-column}
@@ -50,10 +50,10 @@ def foo_bar(baz)
   puts baz
 end
 
-foo_bar "Hi, Goby!"
+foo_bar "Hi, Goby!" #=> Hi, Goby!
 ```
 
-Method name should be "`[a-z][a-z0-9_]+\??`"" (snake_case). You can omit `()` when calling, but cannot omit the one when defining.
+Method name should be "`[a-z][a-z0-9_]+\??`" (snake_case). You can omit `()` when calling, but cannot omit the one when defining.
 
 ------------
 
@@ -69,22 +69,39 @@ You can add a trailing "`?`"" for indicating "predicate method". ("`!`" is **uns
 
 ```ruby
 module Foo
-  def bar
+  def foo   
     99
   end
 end
 
-class Baz
-  include Foo
+module Bar
+  def bar
+    88
+  end
 end
 
-Baz.new.bar
-Foo.new.bar
+class Baz
+  include Foo    # `foo` will be an instance method
+  extend Bar     # `bar` will be a class method
+end
+
+Baz.new.foo      #=> 99
+Baz.bar          #=> 88
 ```
 
-Module name should be "`[A-Z][A-Za-z0-9_]+`" (UpperCamelCase). Modules can be included into other modules or classed via "`include`", but cannot be inherited.
+Module name should be "`[A-Z][A-Za-z0-9_]+`" (UpperCamelCase). Modules cannot be inherited.
 
----------
+Modules can be included into other modules or classed via "`include`", as well as can be used for extending other classes or modules via "`extend`".
+
+```ruby
+module Foo
+  def foo   
+    99
+  end
+end
+
+Foo.new.foo  #=> 99
+```
 
 Actually, Goby's module can be **instantiated** via "`#new`" like "`Foo.new`".
 
@@ -100,7 +117,7 @@ end
 class Baz < Foo
 end
 
-Baz.new.bar
+Baz.new.bar  #=> 99
 ```
 
 Class name should be "`[A-Z][A-Za-z0-9]+`" (UpperCamelCase). Inheritance with "`<`" is supported.
@@ -131,6 +148,67 @@ Foo::Bar::MAGIC
 
 Class/module/constants can be namespaced via `::`
 
+### Private method (to be implemented)
+
+```ruby
+class Foo
+  def bar
+    42
+  end
+  
+  def _baz  # private method
+    99
+  end
+end
+```
+
+Methods that starts with "`_`", like "`_baz`", declares that they are "private". You cannot call them from outside the class/module.
+
+## Parameters & arguments
+
+### definition
+
+* **Parameter** (param): to be used in *method definitions*
+* **Argument** (arg): to be used in *method call*
+
+### Parameter
+
+```ruby
+def foo(a, b="de", ary=[], hs={}, kwd:, mail:"ex@example.com", *sp)
+```
+
+The order of params in method definition should be:
+
+1. normal params (like `a`) or params with default value (like `a=1`)
+2. array or hash params (like `ary=[]` or `hs={}`)
+3. keyword params (like `kwd:`) or the one with default value (like `kwd: 1`)
+4. splat params (like `*sp`)
+
+Or you will receive an error.
+
+### Argument
+
+```ruby
+foo(a, b="de", ary=[], hs={}, kwd:, mail:"ex@example.com", *sp)
+```
+
+You can omit `()` around arguments, but using `()` is recommended.
+
+```ruby
+class Foo
+  def self.bar(a:, b:)
+    yield(a, b)
+  end
+end
+
+Foo.bar(a: 7, b: 4) do |i, j|
+  i*i + j*j
+end
+#=> 65
+```
+
+`do`-`end` block argument should be at the end of arguments.
+
 ## Variables
 {: .-three-column}
 
@@ -141,15 +219,7 @@ zip101 = "233-7383"
 magic_number = 42
 ```
 
-Should be "`[a-z][a-z0-9_]+`".
-
-### Black hole variable
-
-```ruby
-a, _ = [1, 2]
-```
-
-Single "`_`" is a special "black hole" variable (write-only).
+Should be "`[a-z][a-z0-9_]+`"(snake_case).
 
 ### Instance variable
 
@@ -162,7 +232,7 @@ class Foo
 end
 ```
 
-Should be "`@[a-z][a-z0-9_]+`"
+Should be "`@[a-z][a-z0-9_]+`"(snake_case).
 
 ### Attributes
 
@@ -188,22 +258,36 @@ You can use the following attribute declarations in classes/modules:
 * `attr_reader`
 * `attr_writer`
 
-### Private method (to be implemented)
+### Multiple assignment
 
 ```ruby
-class Foo
-  def bar
-    42
-  end
-  def _baz
-    99
-  end
-end
+a, b, c = [1, 2, 3]
 ```
 
-Methods that starts with "`_`", like "`_baz`", declares that they are "private". You cannot call them from outside the class/module.
+The right side of multiple assignment should be braced with array literal `[]`. Bare multipe assignment like `a, b = 1, 2` is unsupported.
 
-### Class variables
+```ruby
+a = [1, 2, 3]
+x, y, z = *a
+```
+
+Assigning array by `*` operator is also available.
+
+```ruby
+a, b, c = *[1, 2, 3]
+```
+
+Adding `*` to an array literal on multiple assignment is also possible. 
+
+### Black hole variable
+
+```ruby
+a, _ = [1, 2]
+```
+
+Single "`_`" is a special "black hole" variable (write-only).
+
+### Class variable
 
 Unsupported.
 
@@ -212,35 +296,134 @@ Unsupported.
 Unsupported.
 
 ## Literal
+{: .-three-column}
 
 ### Keyword
 
 `def`, `true`, `false`, `nil`, `if`, `elsif`, `else`, `case`, `when`, `return`, `self`, `end`, `while`, `do`, `yield`, `next`, `class`, `module`, `break`
 
-### String and symbol
+(`then` is **not** a keyword)
 
-### Numeric
+### String literal
 
-### Array
+```ruby
+"double quote"
+'single quote'
+```
 
-### Hash
+Double and single quotation can be used.
+
+### Symbol literal
+
+```ruby
+:symbol           # equivalent to "symbol"
+{ symbol: "value" }
+```
+
+Goby's symbol (using `:`) is just a short hand of string literal and is always `String` class (**no** `Symbol` class!).
+
+Note that symbol literal should be "`[a-zA-Z][a-zA-Z0-9_]+`" and cannot include any other letters, signs or spaces.
+
+### Numeric literal
+
+```ruby
+year   =  2018   # Integer
+offset = -42     # Integer
+PI     = 3.14    # Float
+G      = -9.8    # Float
+```
+
+### Array literal
+
+```ruby
+[1, 2, 3, "hello", :goby, { key: "value"}]
+[1, 2, [3, 4], 5, 6]
+```
+
+### Hash literal
+
+```ruby
+h = { key: "value", key2: "value2" }
+h[:key2]   #=> value2
+```
+
+Hash literal's keys should always be symbol literals. 
 
 ### Range
 
+```ruby
+(1..10).each do |x|
+  puts x*x
+end
+```
+
+"`..`" within parentheses "`( )`" represents a range.
+
 ### Boolean and `nil`
 
+```ruby
+true
+false
+nil
+
+!nil  #=> true
+```
+
+`true` and `false` belongs to `Boolean` class.
+
+`nil` belongs to `Null` class and treated as `false` on conditionals.
+
+Any objects except `nil` and `false` are `true` on conditionals.
+
 ### Operator
+
+```ruby
++           # unary
+**          # power
+-           # unary
+* / %       # multiplication, division, modulus
++ -         # addition, subtraction
+!           # logical inversion
+> >= < <=   # inequality comparison
+== !=       # equality comparison, negative comparison
+&&          # logical AND
+||          # logical OR
++= -=       # shorthand of addition/subtraction
+```
+
+Arithmetic and logical operators (under way).
+
+```ruby
+()          # chaning priority of interpretation
+[]          # array literal
+*           # multiple assignment
+..          # range
+```
+
+Other operators (under way)
 
 ## Flow control
 {: .-three-column}
 
 ### Conditional
 
+```ruby
+def foo(str)
+  if str.size > 10
+    puts "too big!"
+  else
+    if str.size < 3
+      puts "too short!"
+    else
+      puts "moderate"
+    end
+  end
+end
+```
+
 ### Case
 
 ### Exception
-
-### Multiple assignment
 
 ### Block
 

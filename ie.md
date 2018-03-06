@@ -115,11 +115,11 @@ Always install these in almost every project:
 
 ```html
 <!--[if lt IE 9]>
-<script src='//cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js'>
-<script src='//cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js'>
-<script src='//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js'>
+<script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'>
 <![endif]--> 
 ```
 
@@ -166,10 +166,10 @@ Misc
 [modernizr]: https://modernizr.com
 [ecsstender]: http://ecsstender.org/
 [respond]: https://github.com/scottjehl/Respond
-[flexbox]: http://caniuse.com/#feat=flexbox
-[cors]: http://caniuse.com/#feat=cors
-[localstorage]: http://caniuse.com/#feat=localstorage
-[json]: http://caniuse.com/#feat=json
-[datauri]: http://caniuse.com/#feat=datauri
-[validation]: http://caniuse.com/#search=validation
-[placeholder]: http://caniuse.com/#feat=input-placeholder
+[flexbox]: https://caniuse.com/#feat=flexbox
+[cors]: https://caniuse.com/#feat=cors
+[localstorage]: https://caniuse.com/#feat=localstorage
+[json]: https://caniuse.com/#feat=json
+[datauri]: https://caniuse.com/#feat=datauri
+[validation]: https://caniuse.com/#search=validation
+[placeholder]: https://caniuse.com/#feat=input-placeholder

@@ -3,6 +3,9 @@ title: Bulma
 layout: 2017/sheet
 prism_languages: [css, html]
 weight: -1
+updated: 2018-03-06
+authors:
+  - github: benolot
 description: |
   Basic guide on how to use Bulma, the lightweight css flexbox framework.
 ---
@@ -89,4 +92,3 @@ The following classes **transform** the text
 | `.is-capitalized`  | Transforms the **first character** of each word to **uppercase**   |
 | `.is-lowercase`    | Transforms **all** characters to **lowercase**                     |
 | `.is-uppercase`    | Transforms **all** characters to **uppercase**                     |
-

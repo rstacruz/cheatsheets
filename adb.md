@@ -1,9 +1,11 @@
 ---
-title: adb
+title: adb (Android Debug Bridge)
 category: CLI
 layout: 2017/sheet
 weight: -1
-updated: 2018-3-6
+authors:
+  - github: ZackNeyland
+updated: 2018-03-06
 ---
 
 ### Device Basics
@@ -26,11 +28,15 @@ updated: 2018-3-6
 `-s` can be used to send the commands to a specific device when multiple are connected.
 
 #### Examples
+
 ```
 $ adb wait-for-device devices
  List of devices attached
  somedevice-1234 device
  someotherdevice-1234 device
+```
+
+```
 $ adb -s somedevice-1234 root
 ```
 
@@ -59,6 +65,7 @@ $ adb logcat *:V > output.log
 | `adb pull <remote> <local>` | Copies the remote from the device to local |
 
 #### Examples
+
 ```
 $ echo "This is a test" > test.txt
 $ adb push  test.txt /sdcard/test.txt

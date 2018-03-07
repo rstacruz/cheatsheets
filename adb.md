@@ -3,7 +3,7 @@ title: adb
 category: CLI
 layout: 2017/sheet
 weight: -1
-updated: 2018-2-6
+updated: 2018-3-6
 ---
 
 ### Device Basics

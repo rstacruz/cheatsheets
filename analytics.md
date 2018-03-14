@@ -1,7 +1,6 @@
 ---
 title: Analytics libraries
 layout: 2017/sheet
-layout: 2017/sheet
 ---
 
 ### Mixpanel

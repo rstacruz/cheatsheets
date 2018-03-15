@@ -174,18 +174,16 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 
 ### Comments
 
-`# Single line comment`
+```bash
+# Single line comment
+```
+
 ```bash
 : '
 This is a
-multi line 
+multi line
 comment
 '
-```
-```bash
-# This is also 
-# a multi line
-# Comment
 ```
 
 ### Substrings
@@ -460,7 +458,7 @@ set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
 set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob 
+Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
 History

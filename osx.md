@@ -62,15 +62,15 @@ layout: 2017/sheet
 
 ### Usefull utils
 
- - `open` - open files and directories ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/open.1.html]
- - `textutil` - manipulate text files of various formats ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/textutil.1.html]
- - `pbcopy` / `pbpaste` - provide copying and pasting to the pasteboard ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/pbcopy.1.html]
- - `sips` - scriptable image processing system ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/sips.1.html]
- - `mdfind` - finds files matching a given query ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/mdfind.1.html]
- - `screencapture` - capture images from the screen ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/screencapture.1.html]
- - `defaults` - access the Mac OS X user defaults system ([man])[https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/defaults.1.html]
+ - `open` - open files and directories ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/open.1.html))
+ - `textutil` - manipulate text files of various formats ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/textutil.1.html))
+ - `pbcopy` / `pbpaste` - provide copying and pasting to the pasteboard ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/pbcopy.1.html))
+ - `sips` - scriptable image processing system ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/sips.1.html))
+ - `mdfind` - finds files matching a given query ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/mdfind.1.html))
+ - `screencapture` - capture images from the screen ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/screencapture.1.html))
+ - `defaults` - access the Mac OS X user defaults system ([man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/defaults.1.html))
  - `/usr/libexec/airportd`
  - `scutil`
 
- __INFO: `brew` (link)[https://brew.sh] is highly recomended utility__
+ __INFO: `brew` ([link](https://brew.sh)) is highly recomended utility__
  

@@ -45,18 +45,33 @@ Getting started
 
 #### Line
 
-| `0` _(zero)_    | Start of line                      |
-| `^`             | Start of line _(after whitespace)_ |
-| `$`             | End of line                        |
+| Shortcut     | Description                        |
+| ---          | ---                                |
+| `0` _(zero)_ | Start of line                      |
+| `^`          | Start of line _(after whitespace)_ |
+| `$`          | End of line                        |
 {: .-shortcuts}
 
 #### Document
 
-| `gg`            | First line                         |
-| `G`             | Last line                          |
-| `:n`            | Go to line `n`                     |
-| `nG`            | Go to line `n`                     |
+| Shortcut | Description    |
+| ---      | ---            |
+| `gg`     | First line     |
+| `G`      | Last line      |
+| `:n`     | Go to line `n` |
+| `nG`     | Go to line `n` |
 {: .-shortcuts}
+
+#### Window
+
+| Shortcut | Description              |
+| ---      | ---                      |
+| `zz`     | Center this line         |
+| `H`      | Move to top of screen    |
+| `M`      | Move to middle of screen |
+| `L`      | Move to bottom of screen |
+{: .-shortcuts}
+
 
 ### Editing
 
@@ -311,8 +326,6 @@ Do these in visual or normal mode.
 | ---      | ---                                       |
 | `.`      | repeat last command                       |
 | `]p`     | paste under the current indentation level |
-| ---      | ---                                       |
-| `zz`     | Center this line                          |
 {: .-shortcuts}
 
 ### Command line

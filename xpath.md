@@ -43,8 +43,8 @@ Works in Firefox and Chrome.
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `#id`                        | `//[@id="id"]`                                           | [?](#predicates)        |
-| `.class`                     | `//[@class="class"]` *...[kinda](#class-check)*          |                         |
+| `#id`                        | `//*[@id="id"]`                                           | [?](#predicates)        |
+| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*          |                         |
 | `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
 | `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
 | `a[rel]`                     | `//a[@rel]`                                              |                         |

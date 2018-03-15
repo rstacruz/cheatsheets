@@ -172,6 +172,20 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 | `${FOO/%from/to}` | Replace suffix |
 | `${FOO/#from/to}` | Replace prefix |
 
+### Comments
+
+```bash
+# Single line comment
+```
+
+```bash
+: '
+This is a
+multi line
+comment
+'
+```
+
 ### Substrings
 
 | `${FOO:0:3}`  | Substring _(position, length)_ |
@@ -444,7 +458,7 @@ set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
 set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob 
+Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
 History

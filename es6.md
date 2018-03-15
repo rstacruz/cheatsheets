@@ -37,13 +37,13 @@ See: [Let and const](https://babeljs.io/learn-es2015/#let--const)
 #### Interpolation
 
 ```js
-var message = `Hello ${name}`
+const message = `Hello ${name}`
 ```
 
 #### Multiline strings
 
 ```js
-var str = `
+const str = `
 hello
 world
 `
@@ -186,7 +186,7 @@ Destructuring
 #### Arrays
 
 ```js
-var [first, last] = ['Nikola', 'Tesla']
+const [first, last] = ['Nikola', 'Tesla']
 ```
 {: data-line="1"}
 
@@ -206,8 +206,8 @@ See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
 ### Default values
 
 ```js
-var scores = [22, 33]
-var [math = 50, sci = 50, arts = 50] = scores
+const scores = [22, 33]
+const [math = 50, sci = 50, arts = 50] = scores
 ```
 
 ```js
@@ -491,13 +491,13 @@ Generators
 
 ```js
 function* idMaker () {
-  var id = 0
+  let id = 0
   while (true) { yield id++ }
 }
 ```
 
 ```js
-var gen = idMaker()
+let gen = idMaker()
 gen.next().value  // → 0
 gen.next().value  // → 1
 gen.next().value  // → 2

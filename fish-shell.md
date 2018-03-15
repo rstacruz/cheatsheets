@@ -9,21 +9,26 @@ weight: -1
 
 ### Keys
 
-| Shortcut            | Description            |
-| ---                 | ---                    |
-| `Alt ←` _/_ `Alt →` | Move word              |
-| `^U`                | Delete to beginning    |
-| `^W`                | Delete to previous `/` |
-| `Alt D`             | Delete next word       |
-| ---                 | ---                    |
-| `Alt ↑`             | Last arguments         |
+| Shortcut            | Description                 |
+| ---                 | ---                         |
+| `Alt ←` _/_ `Alt →` | Move word                   |
+| `^U`                | Delete to beginning         |
+| `^W`                | Delete to previous `/`      |
+| `^D`                | Delete next character       |
+| `Alt D`             | Delete next word            |
+| `^C`                | Cancel line                 |
+| `Alt P`             | Page output                 |
+| ---                 | ---                         |
+| `Alt ↑` _/_ `Alt ↓` | Previous _/_ next arguments |
+| `Alt E` _/_ `Alt V` | Open in external editor     |
+| `^L`                | Repaint screen              |
 {: .-shortcuts}
 
 ### Help
 
-| `Alt H` | Help on word (man)                |
-| `Alt W` | Help on word (short descriptions) |
-| `Alt L` | List directory on cursor          |
+| `Alt H` | Help on word (man)                     |
+| `Alt W` | Help on word (short descriptions)      |
+| `Alt L` | List directory on cursor               |
 {: .-shortcuts}
 
 ## Function

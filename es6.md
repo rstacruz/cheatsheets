@@ -302,8 +302,7 @@ const users = [
 
 ```js
 const users = admins
-  .concat(editors)
-  .concat([ 'rstacruz' ])
+  .concat(editors, 'rstacruz')
 ```
 
 The spread operator lets you build new arrays in the same way.

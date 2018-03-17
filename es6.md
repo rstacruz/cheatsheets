@@ -232,18 +232,18 @@ greet({ name: 'Larry', greeting: 'Ahoy' })
 
 Destructuring of objects and arrays can be also be done in function arguments.
 
-### Default values in destructured function arguments
+### Default values
 
 ```js
-function greet({ name = 'Rauno', greeting = 'Hello' } = {}) {
-	console.log(`${greeting}, ${name}!`);
+function greet({ name = 'Rauno' } = {}) {
+  console.log(`Hi ${name}!`);
 }
 ```
 {: data-line="1"}
 
 ```js
-greet() // Hello, Rauno!
-greet({ name: 'Larry' }) // Hello, Larry!
+greet() // Hi Rauno!
+greet({ name: 'Larry' }) // Hi Larry!
 ```
 
 ### Reassigning keys

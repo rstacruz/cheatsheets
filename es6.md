@@ -443,22 +443,22 @@ import 'helpers'
 
 ```js
 import Express from 'express'
-// aka: Express = require('···').default || require('···')
+// aka: const Express = require('···').default || require('···')
 ```
 
 ```js
 import { indent } from 'helpers'
-// aka: indent = require('···').indent
+// aka: const indent = require('···').indent
 ```
 
 ```js
 import * as Helpers from 'helpers'
-// aka: Helpers = require('···')
+// aka: const Helpers = require('···')
 ```
 
 ```js
 import { indentSpaces as indent } from 'helpers'
-// aka: indent = require('···').indentSpaces
+// aka: const indent = require('···').indentSpaces
 ```
 
 `import` is the new `require()`.

@@ -6,7 +6,7 @@ update: _site critical
 
 # Builds _site
 _site:
-	bundle exec jekyll build
+	bundle exec jekyll build --incremental
 
 # Builds critical path CSS/JS
 critical: _site

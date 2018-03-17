@@ -3,3 +3,7 @@ rvm:
 - 2.4.2
 script:
   - make test
+cache:
+  directories:
+  - node_modules
+  - _site

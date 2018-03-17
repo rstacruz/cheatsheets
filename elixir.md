@@ -125,7 +125,7 @@ cond do
     "I will never be seen"
   2 * 5 == 12 ->
     "Me neither"
-  _ ->
+  true ->
     "But I will (this is essentially an else)"
 end
 ```

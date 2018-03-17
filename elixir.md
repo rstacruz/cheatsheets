@@ -116,6 +116,18 @@ else
   "This will"
 end
 ```
+### Case
+
+```elixir
+case {1, 2, 3} do
+  {4, 5, 6} ->
+    "This clause won't match"
+  {1, x, 3} ->
+    "This will match and bind x to 2"
+  _ ->
+   "This will match any value"
+end
+```
 
 ### Cond
 
@@ -466,7 +478,7 @@ list |> any?()        # → true
 ```
 
 ```elixir
-list |> concat([:d])  # → [:d]
+list |> concat([:d])  # → [:a, :b, :c, :d]
 ```
 
 Also, consider streams instead.

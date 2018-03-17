@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.5.0
 script:
-  - make _site
+  - make -B _site
   - if ! make test; then make test-warning; exit 16; fi
 cache:
   directories:

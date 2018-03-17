@@ -2,7 +2,7 @@
 
 > TL;DR for developer documentation - a ridiculous collection of cheatsheets
 
-[![Status](https://travis-ci.org/rstacruz/cheatsheets.svg?branch=master)](https://travis-ci.org/git@github.com:rstacruz/cheatsheets "See test builds")
+[![Status](https://travis-ci.org/rstacruz/cheatsheets.svg?branch=master)](https://travis-ci.org/rstacruz/cheatsheets "See test builds")
 
 <br>
 

@@ -27,3 +27,11 @@ dev-jekyll:
 		else \
 		bundle exec jekyll serve --safe --trace --drafts --watch --port $(PORT); \
 		fi
+
+test: _site
+	@test -f _site/vim.html
+	@test -f _site/react.html
+	@test -f _site/index.html
+	@grep "<script src" _site/index.html >/dev/null
+	@grep "<script src" _site/vim.html >/dev/null
+	@grep "<script src" _site/react.html >/dev/null

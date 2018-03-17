@@ -1,34 +1,57 @@
 ---
 title: AppleScript
-updated: 2017-11-06
+updated: 2018-03-17
+layout: 2017/sheet
 ---
 
-Running
+### Running
 
-    osascript -e "..."
+```
+osascript -e "..."
+```
 
-    display notification "X" with title "Y"
+```
+display notification "X" with title "Y"
+```
 
-Comments
+### Comments
 
-	-- This is a single line comment
+```
+-- This is a single line comment
+```
 
-	# This is another single line comment
+```
+# This is another single line comment
+```
 
-	(*
-	This is 
-	a multi
-	line comment
-	*)
+```
+(*
+This is
+a multi
+line comment
+*)
+```
 
-Say
+### Say
 
-	say "Hi I am a Mac" -- default voice
+```
+-- default voice
+say "Hi I am a Mac"
+```
 
-	say "Hi I am a Mac" using "Zarvox" -- specified voice
+```
+-- specified voice
+say "Hi I am a Mac" using "Zarvox"
+```
 
-Beep
+### Beep
 
-	beep -- beep once
+```
+-- beep once
+beep
+```
 
-	beep 10 -- beep 10 times
+```
+-- beep 10 times
+beep 10
+```

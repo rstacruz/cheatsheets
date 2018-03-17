@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.4.2
+  - 2.5.0
 script:
   - make test
 cache:

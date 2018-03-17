@@ -16,6 +16,9 @@ version: '2'
 services:
   web:
     build: .
+    # build from Dockerfile
+    context: ./Path
+    dockerfile: Dockerfile
     ports:
      - "5000:5000"
     volumes:

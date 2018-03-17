@@ -3,6 +3,8 @@ title: Rollup.js
 category: JavaScript libraries
 layout: 2017/sheet
 updated: 2017-11-01
+authors:
+  - github: ryanSN
 keywords:
   - rollup.watch
   - bundle
@@ -25,17 +27,20 @@ export default {
 }
 ```
 #### Terminal
+
 ```bash
 npm install -D rollup
 ```
 
-| `rollup -c -o bundle.js` | bundle using config
-| `rollup main.js --o bundle.js --f cjs` | bundle
-| `rollup --watch` | bundle continuously
+| Command                                | Description         |
+| ---                                    | ---                 |
+| `rollup -c -o bundle.js`               | bundle using config |
+| `rollup main.js --o bundle.js --f cjs` | bundle              |
+| `rollup --watch`                       | bundle continuously |
 
-You may need to use `./node_modules/.bin/rollup` as a command if you did not install rollup globally
+You may need to use `./node_modules/.bin/rollup` as a command if you did not install rollup globally.
 
-### Mutiple files
+### Mutiple outputs
 
 #### rollup.config.js
 
@@ -67,6 +72,7 @@ This creates `main.js` and `vendor.js`.
 ### Plugins
 
 #### Terminal
+
 ```bash
 npm install -D rollup-plugin-json
 ```
@@ -74,7 +80,7 @@ npm install -D rollup-plugin-json
 #### rollup.config.js
 
 ```js
-import json from 'rollup-plugin-json';
+import json from 'rollup-plugin-json'
 
 export default {
   input: 'src/main.js',
@@ -87,7 +93,6 @@ export default {
 
 ```
 
-
 ### npm packages
 
 #### Terminal
@@ -97,7 +102,7 @@ npm install --save-dev rollup-plugin-node-resolve
 
 #### rollup.config.js
 ```js
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
@@ -109,19 +114,20 @@ export default {
 }
 ```
 
-This time when you run a npm run build, no warning is emitted and contains the imported modules
-
+When you run a npm run build, no warning is emitted and contains the imported modules.
 
 ### Peer dependencies
 
 #### Terminal
+
 ```bash
 npm install -D rollup-plugin-node-resolve
 ```
 
 #### rollup.config.js
+
 ```js
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
@@ -151,8 +157,8 @@ npm install -D rollup-plugin-babel
 #### rollup.config.js
 
 ```js
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve'
+import babel from 'rollup-plugin-babel'
 
 export default {
   input: 'src/main.js',
@@ -168,6 +174,7 @@ export default {
   ]
 }
 ```
+
 #### src/.babelrc
 
 ```js

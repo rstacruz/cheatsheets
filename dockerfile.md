@@ -59,23 +59,30 @@ CMD    ["bundle", "exec", "rails", "server"]
 ```docker
 ENTRYPOINT ["executable", "param1", "param2"]
 ENTRYPOINT command param1 param2
-# an ENTRYPOINT allows you to configure a container that will run as an executable.
 ```
+
+Configures a container that will run as an executable.
 
 ```docker
 ENTRYPOINT exec top -b
-# this form will use shell processing to substitute shell environment variables, and will ignore any CMD or docker run command line arguments
 ```
+
+This will use shell processing to substitute shell variables, and will ignore any `CMD` or `docker run` command line arguments.
 
 ### Metadata
 
 ```docker
+LABEL version="1.0"
+```
+
+```docker
 LABEL "com.example.vendor"="ACME Incorporated"
 LABEL com.example.label-with-value="foo"
-LABEL version="1.0"
+```docker
+
+```docker
 LABEL description="This text illustrates \
 that label-values can span multiple lines."
-# add a metada
 ```
 
 ## See also

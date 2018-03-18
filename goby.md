@@ -50,7 +50,7 @@ String.methods
 #» ["!=", "*", "+", "<", "<=>", "==", "=~", ">", "[]", "[]=", "capitalize", "chop", "concat", "count", "delete", "downcase", "each_byte", "each_char", "each_line", "empty?", "end_with?", "eql?", "fmt", "include?", "insert", "length", "ljust", "match", "new", "replace", "replace_once", "reverse", "rjust", "size", "slice", "split", "start_with", "strip", "to_a", "to_bytes", "to_d", "to_f", "to_i", "to_s", "upcase", "!", "block_given?", "class", "exit", "instance_eval", "instance_variable_get", "instance_variable_set", "is_a?", "methods", "nil?", "object_id", "puts", "raise", "require", "require_relative", "send", "singleton_class", "sleep", "thread"]
 ```
 
-You can perform `methods` against any objects (classes and instances) to show methods.
+You can call `#methods` against on objects (classes and instances) to show methods.
 
 ### Showing ancestors
 
@@ -71,7 +71,7 @@ Bar.singleton_class.ancestors
 #» [#<Class:Bar>, #<Class:Object>, Class, Object]
 ```
 
-You can perform `ancestors` to show the inheritance path, as well as `singleton_class.ancestors` to show singleton classes.
+You can call `#ancestors` to show the inheritance chain. And `singleton_class.ancestors` to show singleton classes.
 
 ## Styling
 
@@ -200,7 +200,7 @@ Foo.new.bar b  #=> 2
 Foo.new.bar b  #=> 3
 ```
 
-When local variables are declared and then forms a block (such as `Block.new`), the  local variables within the block behaves as if they are "preserved" within the block when executed like instance variables of the block object. 
+When local variables are declared and then forms a block (such as `Block.new`), the local variable within the block behaves as if they are "preserved" within the block when executed like instance variables of the block object. 
 
 Actually, when the block is executed, the local variables are simply resolved to the ones in the original environment that the block was formed. In other words, such pre-declared local variables within the block has a **lexical scope** (performs static resolutions), and the behavior is called a **closure**.
 
@@ -243,7 +243,7 @@ Baz.new.foo      #=> 99
 Baz.bar          #=> 88
 ```
 
-Modules can be included into other modules or classed via "`include`", as well as can be used for extending other classes or modules via "`extend`".
+Modules can be included into other modules or classed via "`#include`", as well as can be used for extending other classes or modules via "`#extend`".
 
 In Goby, "**composition over inheritance**" concept is recommended. 
 
@@ -361,7 +361,7 @@ def area(radius)
 end
 ```
 
-`return` keyword is supported, but **not** recommended.
+`return` keyword is supported, but in most cases it's redundant (methods would return the last value by default).
 
 ```ruby
 def my_array
@@ -586,7 +586,7 @@ end
 Bar.new.foo  #=> Foo's instance method
 ```
 
-**Note**: currently, Goby's `include` can include **classes** as well. Treating the behavior is TBD. 
+**Note**: currently, Goby's `#include` can include **classes** as well. Treating the behavior is TBD. 
 
 ### `extend`
 
@@ -631,7 +631,7 @@ Bar.bar      #=> UndefinedMethodError: Undefined Method 'bar' for Bar
 Bar::Foo.bar
 ```
 
-As shown above, singleton methods (or module methods) within the module for `extend` **cannot** be the singleton methods of the extended class/modules. 
+As shown above, singleton methods (or module methods) within the module for `#extend` **cannot** be the singleton methods of the extended class/modules. 
 
 ```ruby
 class Foo
@@ -647,7 +647,7 @@ end
 Bar.new.foo  #=> Foo's instance method
 ```
 
-**Note**: currently, Goby's **classes** can also be used for `extend`. Treating the behavior is TBD. 
+**Note**: currently, Goby's **classes** can also be used for `#extend`. Treating the behavior is TBD. 
 
 ### Inheritance
 
@@ -687,7 +687,7 @@ Inheriting modules into a class is prohibited.
 
 ### Inheriting values
 
-Goby supports only **instance variables**, and class variables are **unsupported**: this means `include`/`extend`/inheritance do not automatically share any values among classes or insntances. Instead, you should explicitly share values among classes or instances in other ways such as Value Object pattern.
+Goby supports only **instance variables**, and class variables are **unsupported**: this means `#include`/`#extend`/inheritance do not automatically share any values among classes or insntances. Instead, you should explicitly share values among classes or instances in other ways such as Value Object pattern.
 
 ```ruby
 module Foo
@@ -738,7 +738,7 @@ class Foo
 end
 ```
 
-`require_relative` is to load your libraries that are relative to the current directory.
+`require_relative` is to load other goby files that are relative to the current directory.
 
 ## Parameter & argument
 
@@ -757,11 +757,10 @@ Keep parameters **at most around 2** as far as possible to keep interfaces simpl
 4. **keyword parameters** (like `kwd:`) 
 5. **keyword parameters with default value** (like `kwd: 1` or `ary: [1,2,3]` or `hsh: {key: "value"}`)
 6. splat parameters (like `*sp`)
-7. **block parameters** -- trailing after `()`
 
 Or you will receive an error.
 
-### Keyword parameter
+### Keyword parameter (WIP)
 
 ```ruby
 def foo(process:, verb: :GET, opt:{ csp: :enabled }, ary: [1, 2, 3])
@@ -823,14 +822,14 @@ end
 
 `do`-`end` block argument should be at the end of arguments.
 
-You can `yield` the received block. 
+You can use `yield` to evaluate the block. And use `get_block` to retrieve it as a `Block` object.
 
 ## Literal
 {: .-three-column}
 
 ### Keyword
 
-`def`, `true`, `false`, `nil`, `if`, `elsif`, `else`, `case`, `when`, `return`, `self`, `end`, `while`, `do`, `yield`, `next`, `class`, `module`, `break`
+`def`, `true`, `false`, `nil`, `if`, `elsif`, `else`, `case`, `when`, `return`, `self`, `end`, `while`, `do`, `yield`, `get_block`, `next`, `class`, `module`, `break`
 
 ### String literal
 

@@ -106,7 +106,7 @@ class Info extends React.Component {
   }
 }
 ```
-As of React v16.2.0 components can return multiple grouped elements without adding extra nodes to the DOM. In this example, you would get the nested components' nodes without a wrapping element.
+As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.
 
 ```jsx
 class Info extends React.Component {

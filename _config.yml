@@ -23,8 +23,6 @@ exclude:
   - webpack.config.js
   - node_modules
 
-incremental: true
-
 # Markdown
 
 highlighter: false

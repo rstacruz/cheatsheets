@@ -106,18 +106,19 @@ class Info extends React.Component {
   }
 }
 ```
-As of React v16.2.0
-
+As of React v16.2.0 components can return multiple grouped elements without adding extra nodes to the DOM. In this example, you would get the nested components' nodes without a wrapping element.
 
 ```jsx
 class Info extends React.Component {
   render () {
     const { avatar, username } = this.props
 
-    return <React.Fragment>
-      <UserAvatar src={avatar} />
-      <UserProfile username={username} />
-    </React.Fragment>
+    return (
+      <React.Fragment>
+        <UserAvatar src={avatar} />
+        <UserProfile username={username} />
+      </React.Fragment>
+    )
   }
 }
 ```

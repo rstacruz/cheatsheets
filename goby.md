@@ -751,12 +751,12 @@ end
 
 Keep parameters **at most around 2** as far as possible to keep interfaces simple. The order of parameters in method definition is restricted as follows:
 
-1. normal parameters (like `a`)
-2. normal parameters with default value (like `a=1`)
-3. optional parameters (array or hash, like `ary=[]` or `hs={}`)
+1. **normal parameters** (like `a`)
+2. **normal parameters with default value** (like `a=1`)
+3. **optional parameters** (array or hash, like `ary=[]` or `hs={}`)
 4. **keyword parameters** (like `kwd:`) 
 5. **keyword parameters with default value** (like `kwd: 1` or `ary: [1,2,3]` or `hsh: {key: "value"}`)
-6. splat parameters (like `*sp`)
+6. **splat parameters** (like `*sp`)
 
 Or you will receive an error.
 
@@ -1511,7 +1511,9 @@ c = p.context
 c.functions.first[:name] #=> "Open"
 ```
 
-An experimental library to load Golang's packages, and works only on Linux by now. Some parts are written in Goby code.
+An experimental library to load Golang's packages, and works on Linux and macOS by now. Some parts are written in Goby code.
+
+With `Plugin`, you can directly import most of existing Golang's packages and utilize them. Developing a package management system with this for Goby is ready.
 
 ### `GoObject`
 

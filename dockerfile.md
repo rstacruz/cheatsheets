@@ -2,6 +2,7 @@
 title: Dockerfile
 category: Devops
 layout: 2017/sheet
+prism_languages: [docker]
 updated: 2018-03-17
 ---
 
@@ -10,28 +11,28 @@ updated: 2018-03-17
 
 ### Inheritance
 
-```
+```docker
 FROM ruby:2.2.2
 ```
 
 ### Variables
 
-```
+```docker
 ENV APP_HOME /myapp
 RUN mkdir $APP_HOME
 ```
 
 ### Initialization
 
-```
+```docker
 RUN bundle install
 ```
 
-```
+```docker
 WORKDIR /myapp
 ```
 
-```
+```docker
 VOLUME ["/data"]
 # Specification for mount point
 ```
@@ -43,7 +44,7 @@ COPY --chown=user:group host_file.xyz /path/container_file.xyz
 
 ### Onbuild
 
-```bash
+```docker```
 ONBUILD RUN bundle install
 # when used with another file
 ```
@@ -79,7 +80,7 @@ LABEL version="1.0"
 ```docker
 LABEL "com.example.vendor"="ACME Incorporated"
 LABEL com.example.label-with-value="foo"
-```docker
+```
 
 ```docker
 LABEL description="This text illustrates \

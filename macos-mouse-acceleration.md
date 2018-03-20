@@ -4,6 +4,8 @@ layout: 2017/sheet
 category: macOS
 updated: 2018-03-20
 weight: -1
+keywords:
+  - "defaults write .GlobalPreferences com.apple.mouse.scaling -1"
 intro: |
   Disable mouse acceleration with this one weird trick.
 ---
@@ -19,7 +21,7 @@ defaults write .GlobalPreferences com.apple.mouse.scaling -1
 
 Note: Log out to take effect. If you change *Tracking Speed* under System Preferences, it will undo this fix. Only affects the mouse, not the trackpad.
 
-## Re-enabling
+### Re-enabling
 
 Under *System Preferences* → *Mouse*, change *Tracking Speed*.
 
@@ -29,7 +31,7 @@ Under *System Preferences* → *Mouse*, change *Tracking Speed*.
 defaults write .GlobalPreferences com.apple.trackpad.scaling -1
 ```
 
-Works the same way.
+Works the same way, but only affects trackpads.
 
 ## References
 

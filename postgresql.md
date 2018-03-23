@@ -2,7 +2,7 @@
 title: PostgreSQL
 ---
 
-Replace anything within <placeholder> accordingly
+Replace anything within `<placeholder>` accordingly
 
 ### Console
 

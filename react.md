@@ -426,7 +426,8 @@ New features
 
 You can return multiple elements as arrays or fragments.
 
-**Arrays**
+#### Arrays
+
 ```js
 render () {
   // Don't forget the keys!
@@ -438,7 +439,7 @@ render () {
 ```
 {: data-line="3,4,5,6"}
 
-**Fragments**
+#### Fragments
 ```js
 render () {
   // Fragments don't require keys!

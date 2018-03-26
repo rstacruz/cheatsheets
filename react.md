@@ -106,24 +106,25 @@ class Info extends React.Component {
   }
 }
 ```
-As of React v16.2.0
-
+As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.
 
 ```jsx
 class Info extends React.Component {
   render () {
     const { avatar, username } = this.props
 
-    return <React.Fragment>
-      <UserAvatar src={avatar} />
-      <UserProfile username={username} />
-    </React.Fragment>
+    return (
+      <React.Fragment>
+        <UserAvatar src={avatar} />
+        <UserProfile username={username} />
+      </React.Fragment>
+    )
   }
 }
 ```
 
 
-{: data-line="6,7"}
+{: data-line="5,6,7,8,9,10"}
 
 Nest components to separate concerns.
 
@@ -421,7 +422,11 @@ New features
 ------------
 {: .-three-column}
 
-### Returning fragments
+### Returning multiple elements
+
+You can return multiple elements as arrays or fragments.
+
+#### Arrays
 
 ```js
 render () {
@@ -434,7 +439,19 @@ render () {
 ```
 {: data-line="3,4,5,6"}
 
-You can return multiple nodes as arrays.
+#### Fragments
+```js
+render () {
+  // Fragments don't require keys!
+  return (
+    <React.Fragment>
+      <li>First item</li>
+      <li>Second item</li>
+    </React.Fragment>
+  )
+}
+```
+{: data-line="3,4,5,6,7,8"}
 
 See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 

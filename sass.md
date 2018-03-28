@@ -356,6 +356,32 @@ $map: (key1: value1, key2: value2, key3: value3);
 map-get($map, key1)
 ```
 
+## Useful patterns
+
+### Color classes
+
+```scss
+$primary: #AD96C7
+
+$colors:
+  'primary' $primary,
+  'secondary' dodger-blue
+;
+
+@each $i in $colors {
+  .myproject-c-#{nth($i, 1)} {
+    color: nth($i, 2)
+  }
+  .myproject-bg-#{nth($i, 1)} {
+    background-color: nth($i, 2)
+  }
+}
+```
+Generates classes that use styleguide colors to quickly prototype.
+```myproject-c-primary```: element text set to value of $primary
+```myproject-bg-primary```: element background color set to value of $primary
+
+
 ## See also
 {: .-one-column}
 

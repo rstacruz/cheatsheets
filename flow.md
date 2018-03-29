@@ -325,13 +325,16 @@ function add(n /*: number */) { ... }
 ### React
 
 ```js
-React$Element<any>
-```
+type Props = {
+  bar: number,
+}
 
-```js
-class Foo extends React.Component {
-  /*:: state: { open: boolean } */
-  /*:: props: { open: boolean } */
+type State = {
+  open: boolean,
+}
+
+class Foo extends React.Component<Props, State> {
+  // Component code
 }
 ```
 

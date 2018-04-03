@@ -133,7 +133,7 @@ type Album = {
 ```js
 const a: Album = { } // ✓ OK
 a.name = 'Blue'      // ✓ OK
-a.name = null        // ✓ OK
+a.name = null        // ✓ Error
 a.name = undefined   // ✓ OK
 ```
 

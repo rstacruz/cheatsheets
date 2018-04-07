@@ -19,6 +19,25 @@ tags: [Featurable]
 | `./node_modules/.bin/gulp` | `yarn run gulp` |
 {: .-left-align.-headers}
 
+### yarn install
+
+```
+--no-lockfile
+--pure-lockfile
+--frozen-lockfile
+--silent
+--offline
+--update-checksums
+--check-files
+--flat
+--force
+--ignore-scripts
+--modules-folder <path>
+--production[=true|false]
+```
+
+These options are available for `yarn install`.
+
 ### yarn add
 
 ```

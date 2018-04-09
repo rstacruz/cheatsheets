@@ -49,6 +49,12 @@ See [gitrevisions](./git-revisions).
     --all-match                   # AND in multi --grep
 ```
 
+### Tracing
+```bash
+    -L 155,155:myapp/model.py     #  trace the evolution of lines 155 of file myapp/model.py
+    -L 155,+5:somecode.cpp        #  trace the evolution of lines 155-160 of file somecode.cpp
+```
+
 ### Limiting
 
 ```bash

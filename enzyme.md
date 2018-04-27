@@ -2,7 +2,7 @@
 title: Enzyme
 category: React
 layout: 2017/sheet
-updated: 2017-10-12
+updated: 2018-04-27
 tags: [Featured]
 weight: -1
 keywords:
@@ -248,7 +248,7 @@ wrap.context()       // get full context
 
 ```js
 wrap.state('key')    // → any
-wrap.props('key')    // → any
+wrap.prop('key')    // → any
 wrap.context('key')  // → any
 ```
 

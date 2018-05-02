@@ -7,7 +7,9 @@ layout: 2017/sheet
 ### Heading kerning pairs and ligature
 
 ```css
-h1, h2, h3 { text-rendering: optimizeLegibility; }
+h1, h2, h3 {
+  text-rendering: optimizeLegibility;
+}
 ```
 
 ### Native-like iOS scrolling
@@ -86,7 +88,7 @@ Browser hacks
 
 ### Disclaimer
 
-Not recommended, but here they are if you ever need them. Note that vendor 
+Not recommended, but here they are if you ever need them. Note that vendor
 prefixes may go away eventually.
 
 ### Mozilla-only

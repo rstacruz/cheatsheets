@@ -68,6 +68,7 @@ See: [Binary and octal literals](https://babeljs.io/learn-es2015/#binary-and-oct
 ```js
 "hello".repeat(3)
 "hello".includes("ll")
+"hello".startsWith("he")
 "\u1E9B\u0323".normalize("NFC")
 ```
 

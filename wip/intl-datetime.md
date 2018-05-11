@@ -1,6 +1,7 @@
 ---
 title: Intl.DateTimeFormat
 category: Hidden
+layout: 2017/sheet
 tags: [WIP]
 intro: |
   `Intl.DateTimeFormat` is used to format date strings in JavaScript.

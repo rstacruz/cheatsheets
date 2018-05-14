@@ -137,7 +137,7 @@ a.name = null        // ✓ OK
 a.name = undefined   // ✓ OK
 ```
 
-This makes an `Album` valid even if `artist` is not part of the keys. This is different from "maybe" types.
+This makes an `Album` valid even if `name` is not part of the keys. This is different from "maybe" types.
 
 See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-optional-object-properties)
 

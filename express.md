@@ -5,74 +5,104 @@ category: JavaScript libraries
 
 ### Settings
 
-    app.set('x', 'yyy')
-    app.get('x') //=> 'yyy'
+```js
+app.set('x', 'yyy')
+app.get('x') //=> 'yyy'
 
-    app.enable('trust proxy')
-    app.disable('trust proxy')
+app.enable('trust proxy')
+app.disable('trust proxy')
 
-    app.enabled('trust proxy') //=> true
+app.enabled('trust proxy') //=> true
+```
 
 ### Env
 
-    app.get('env')
+```js
+app.get('env')
+```
 
 ### Config
 
-    app.configure('production', function() {
-      app.set...
-    });
+```js
+app.configure('production', function() {
+  app.set...
+})
+```
 
 ### Wares
 
-    app.use(express.static(__dirname + '/public'));
-    app.use(express.logger());
+```js
+app.use(express.static(__dirname + '/public'))
+app.use(express.logger())
+```
 
 ### Helpers
 
-    app.locals({
-      title: "MyApp",
-    });
+```js
+app.locals({
+  title: "MyApp",
+})
+```
+
+## Request & response
 
 ### Request
 
+```js
+// GET  /user/tj
+req.path         //=> "/user/tj"
+req.url          //=> "/user/tj"
+req.xhr          //=> true|false
+req.method       //=> "GET"
+req.params
+req.params.name  //=> "tj"
+req.params[0]
+```
 
-    // GET  /user/tj
-    req.path         //=> "/user/tj"
-    req.url          //=> "/user/tj"
-    req.xhr          //=> true|false
-    req.method       //=> "GET"
-    req.params
-    req.params.name  //=> "tj"
-    req.params[0]    
+```js
+// GET /search?q=tobi+ferret
+req.query.q // => "tobi ferret"
+```
 
-    // GET /search?q=tobi+ferret
-    req.query.q // => "tobi ferret"
+```js
+req.cookies
+```
 
-    req.cookies
+```js
+req.accepted
+// [ { value: 'application/json', quality: 1, type: 'application', subtype: 'json' },
+//   { value: 'text/html', quality: 0.5, type: 'text',subtype: 'html' } ]
+```
 
-    req.accepted
-    [ { value: 'application/json', quality: 1, type: 'application', subtype: 'json' },
-      { value: 'text/html', quality: 0.5, type: 'text',subtype: 'html' } ]
+```js
+req.is('html')
+req.is('text/html')
+```
 
-    req.is('html')
-    req.is('text/html')
+```js
+req.headers
+req.headers['host']
+req.headers['user-agent']
+req.headers['accept-encoding']
+req.headers['accept-language']
+```
 
-    req.headers
-    req.headers['host']
-    req.headers['user-agent']
-    req.headers['accept-encoding']
-    req.headers['accept-language']
+### Response
 
+```js
+res.redirect('/')
+res.redirect(301, '/')
+```
 
-## Response
+```js
+res.set('Content-Type', 'text/html')
+```
 
-    res.redirect('/')
-    res.redirect(301, '/')
+```js
+res.send('hi')
+res.send(200, 'hi')
+```
 
-    res.set('Content-Type', 'text/html')
-
-    res.send('hi')
-    res.send(200, 'hi')
-
-    res.json({ a: 2 })
+```js
+res.json({ a: 2 })
+```

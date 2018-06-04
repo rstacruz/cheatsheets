@@ -55,7 +55,7 @@ updated: 2017-09-20
 ```
 
 ```bash
--E, --ecrt <cert>     # --ecrt: Client cert file
+-E, --cert <cert>     # --cert: Client cert file
     --cert-type       # der/pem/eng
 -k, --insecure        # for self-signed certs
 ```

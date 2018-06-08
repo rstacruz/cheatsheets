@@ -144,7 +144,7 @@ See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-option
 ## Objects
 {: .-three-column}
 
-### Extra object fields
+### Width subtyping
 
 ```js
 type Artist = {
@@ -156,14 +156,13 @@ type Artist = {
 ```js
 const a: Artist = {
   name: 'Miguel Migs',
-  label: 'Naked Music'
+  label: 'Naked Music',
+  genre: 'House' // ✓ OK
 }
-
-a.genre = 'House' // ✓ OK
 ```
 {: data-line="6"}
 
-You can add more fields to an object.
+A type with more properties is "wider" and is a subtype of a "narrower" type.
 
 See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
 
@@ -178,10 +177,13 @@ type Artist = {|
 {: data-line="1,4"}
 
 ```js
-const a: Artist = { ··· }
-a.genre = 'House' // ✗ Error
+const a: Artist = {
+  name: 'Miguel Migs',
+  label: 'Naked Music',
+  genre: 'House' // ✗ Error
+}
 ```
-{: data-line="2"}
+{: data-line="4"}
 
 Exact object types prevent extra properties from being added to an object.
 

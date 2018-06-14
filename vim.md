@@ -134,7 +134,7 @@ Operators
 ### Usage
 {: .-prime}
 
-Operators let you operate in a range of text (defined by *motion*). These are preformed in normal mode.
+Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 {: .-setup}
 
 | `d`      | `w`    |

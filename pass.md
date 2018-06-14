@@ -23,7 +23,7 @@ $ pass insert [-m] twitter.com/rsc
 $ pass generate [-n] twitter.com/rsc length
 ```
 
-### Retreive
+### Retrieve
 
 ``` bash
 $ pass ls twitter.com/

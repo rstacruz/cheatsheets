@@ -62,7 +62,7 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 ### Editing
 
-| Shortcut | Decription
+| Shortcut | Description
 | ---      | ---
 | `⌘d`     | Select word
 | `⌘l`     | Select line

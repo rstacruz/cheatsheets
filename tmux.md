@@ -1,6 +1,13 @@
 ---
 title: tmux
+category: CLI
+layout: 2017/sheet
+updated: 2018-06-23
+tags: [WIP]
+intro: |
+  [tmux](http://tmux.github.io) is a terminal multiplexer, allowing a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session.
 ---
+
 
 ### Commands
 

@@ -2,41 +2,38 @@
 
 ## Starting a local instance
 
-This starts Jekyll and Webpack.
+This starts Jekyll and Webpack. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
 
-```
+```bash
 yarn install
 bundle install
 env PORT=4001 yarn run dev
 ```
 
-### Windows
+[node.js]: https://nodejs.org/en/download/package-manager/
+[ruby]: https://www.ruby-lang.org/en/documentation/installation/
+[yarn]: https://yarnpkg.com/en/docs/install
+[bundler]: https://bundler.io/
 
-1. Install **Ruby**: https://rubyinstaller.org/
-	* After the installation check the box and type `3` to select the 3rd option
-	* Add `C:\msys64\usr\bin` to PATH env variable 
-	* Add `C:\Ruby24-x64\bin` to PATH env variable
-2. Install **yarn**: https://yarnpkg.com/en/docs/install#windows
-3. Install **jekyll** via command prompt: `gem install jekyll bundler`
-4. Install **nodejs && npm**: https://nodejs.org/en/download/
-4. Install **webpack** via command prompt: `npm install -g webpack`
-5. If you have any issues after installing ruby, like `HOMEPATH` is not defined, then execute the below commands:
+### Docker
+
+You can also run a local instance using Docker. This is the preferred method, especially for Windows.
+You only need to install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Arch Linux](https://www.archlinux.org/packages/community/x86_64/docker/), [other](https://www.docker.com/community-edition#download)).
+
+First time setup:
+
 ```bash
-SETX HOMEDRIVE %SYSTEMDRIVE% -m
-SETX HOMEPATH \Users\%username% -m
-SET HOME=%SYSTEMDRIVE%\Users\%USERNAME%
-SETX HOME "%HOME%"
+# Build images (takes ~12mins)
+docker-compose build
+
+# First-time setup
+docker-compose run --rm web bundle install
 ```
 
-#### Start Jekyll and Webpack
-
-Go wherever the project's files are located and open a new command prompt, execute the below commands:
+Starting the server:
 
 ```bash
-yarn install
-bundle install
-SET PORT=4001
-yarn run dev
+docker-compose up
 ```
 
 ## CSS classes

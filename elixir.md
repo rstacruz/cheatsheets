@@ -271,6 +271,9 @@ inspect(object, opts \\ [])
 ```elixir
 value |> IO.inspect()
 ```
+```elixir
+value |> IO.inspect(label: "value")
+```
 
 ## Numbers
 

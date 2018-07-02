@@ -115,6 +115,7 @@ expect(object)
   .to.have.members([2, 3, 4])
   .to.have.keys(['foo'])
   .to.have.key('foo')
+  .to.have.lengthOf(3)
 ```
 
 ```js

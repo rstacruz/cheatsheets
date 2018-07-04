@@ -79,7 +79,7 @@ function play (song) {
 
 See: <http://usejsdoc.org/tags-typedef.html>
 
-### Other keywodrs
+### Other keywords
 
 ```js
 /**

@@ -52,6 +52,12 @@ Getting started
 | `$`          | End of line                        |
 {: .-shortcuts}
 
+#### Character
+
+| `fc`  | Go forward to character `c`  |
+| `Fc`  | Go backward to character `c` |
+{: .-shortcuts}
+
 #### Document
 
 | Shortcut | Description    |

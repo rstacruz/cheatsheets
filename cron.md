@@ -37,7 +37,7 @@ Min  Hour Day  Mon  Weekday
 | `0 * * * *`    | every hour            |
 | `*/15 * * * *` | every 15 mins         |
 | `0 */2 * * *`  | every 2 hours         |
-| `0 0 0 * 0`    | every Sunday midnight |
+| `0 0 * * 0`    | every Sunday midnight |
 | ---            | ---                   |
 | `@reboot`      | every reboot          |
 

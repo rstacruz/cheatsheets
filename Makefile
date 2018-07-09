@@ -1,5 +1,6 @@
 npmbin := ./node_modules/.bin
 PORT ?= 3000
+HOST ?= 127.0.0.1
 
 # Builds intermediate files. Needs a _site built first though
 update: _site critical
@@ -23,9 +24,9 @@ dev-webpack:
 
 dev-jekyll:
 	if [ -f _site ]; then \
-		bundle exec jekyll serve --safe --trace --drafts --watch --incremental --port $(PORT); \
+		bundle exec jekyll serve --safe --trace --drafts --watch --incremental --host $(HOST) --port $(PORT); \
 		else \
-		bundle exec jekyll serve --safe --trace --drafts --watch --port $(PORT); \
+		bundle exec jekyll serve --safe --trace --drafts --watch --host $(HOST) --port $(PORT); \
 		fi
 
 test: _site

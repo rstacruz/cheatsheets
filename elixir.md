@@ -271,6 +271,9 @@ inspect(object, opts \\ [])
 ```elixir
 value |> IO.inspect()
 ```
+```elixir
+value |> IO.inspect(label: "value")
+```
 
 ## Numbers
 
@@ -686,8 +689,8 @@ exp = ~r/hello/i
 ```elixir
 ~r/regexp/
 ~w(list of strings)
-~s[strings with #{interpolation} and \x20 escape codes]
-~S[no interpolation and no escapes]
+~s|strings with #{interpolation} and \x20 escape codes|
+~S|no interpolation and no escapes|
 ~c(charlist)
 ```
 

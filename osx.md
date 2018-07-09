@@ -50,8 +50,8 @@ layout: 2017/sheet
  - `networksetup` - Configure network (ip, dns, proxy, etc)
  - `tmutils` - Configure Time Machine (enable/disable, exclude path, delete snapshots, etc)
  - `mdutils` - Manage Spotlight (enable/disable, exclude, etc)
- - `diskutil` - Controll disk (format, eject, unmount, etc)
- - `launchctl` - Controll running "agents"
+ - `diskutil` - Control disk (format, eject, unmount, etc)
+ - `launchctl` - Control running "agents"
 
 ### Useful utils
 
@@ -65,4 +65,4 @@ layout: 2017/sheet
  - `/usr/libexec/airportd`
  - `scutil`
 
- __INFO: `brew` ([link](https://brew.sh)) is highly recomended utility__
+ __INFO: `brew` ([link](https://brew.sh)) is highly recommended utility__

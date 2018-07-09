@@ -68,7 +68,7 @@ category: Rails
     # Before/after filters
     around_filter :wrap_in_transaction
     def wrap_in_transaction(&blk)
-      ActiveRecord::Base.transation { yield }
+      ActiveRecord::Base.transaction { yield }
     end
 
 ### HTTP basic authentication

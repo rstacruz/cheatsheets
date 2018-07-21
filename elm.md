@@ -10,8 +10,7 @@ authors:
   - github: tuxagon
 ---
 
-Basics
------
+## Basics
 {: .-three-column}
 
 ### Comments
@@ -26,6 +25,8 @@ Basics
 
 ### Arithmetic
 
+| Code | Type |
+| --- | --- |
 | `1 + 1` | `2 : number` |
 | `8 - 1` | `7 : number` |
 | `10 * 2` | `20 : number` |
@@ -36,11 +37,15 @@ Basics
 
 ### Booleans
 
+| Code | Type |
+| --- | --- |
 | `not True` | `False : Bool` |
 | `not False` | `True : Bool` |
 
 ### Equality
 
+| Code | Type |
+| --- | --- |
 | `1 == 1` | `True : Bool` |
 | `1 /= 1` | `False : Bool` |
 
@@ -50,6 +55,8 @@ Comparison functions leverage `comparable` types, which include numbers,
 characters, strings, lists of comparable things, and tuples of
 comparable things.
 
+| Code | Type |
+| --- | --- |
 | `1 < 10` | `True : Bool` |
 | `1 > 10` | `False : Bool` |
 | `9 <= 10` | `True : Bool` |
@@ -405,6 +412,8 @@ HTML
 
 The logic of every Elm program will break up into three cleanly separated parts:
 
+| Part | Description |
+| --- | --- |
 | Model | the state of your application |
 | Update | a way to update your state |
 | View | a way to view your state as HTML |

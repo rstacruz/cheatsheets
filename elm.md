@@ -6,6 +6,8 @@ tags: [New]
 updated: 2018-07-08
 prism_language: [elm]
 weight: -10
+authors:
+  - github: tuxagon
 ---
 
 Basics

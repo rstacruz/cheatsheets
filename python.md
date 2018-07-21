@@ -15,19 +15,19 @@ title: Python
 
     list.append(item)
     list.extend(another_list)
-    list.insert(0, item)
+    list.insert(index, item)
     list.pop()        # returns and removes last element from the list
-    list.remove(i)
+    list.pop(i)       # returns and removes i-th element from the list
+    list.remove(i)    # removes the first item from the list whose value is i
     list1 + list2     # combine two list    
     set(list)         # remove duplicate elements from a list
 
-    list.reverse()
+    list.reverse()    # reverses the elements of the list in-place
     list.count(item)
     sum(list)
 
+    zip(list1, list2)  # returns list of tuples with n-th element of both list1 and list2
     list.sort()        # sorts in-place, returns None
-
-    zip(list1, list2)
     sorted(list)       # returns sorted copy of list
     ",".join(list)     # returns a string with list elements seperated by comma
 
@@ -43,9 +43,11 @@ title: Python
 ### Iteration
 
     for item in ["a", "b", "c"]:
-    for i in range(4):     # 0 to 3
-    for i in range(4, 8):  # 4 to 7
+    for i in range(4):        # 0 to 3
+    for i in range(4, 8):     # 4 to 7
+    for i in range(1, 9, 2):  # 1, 3, 5, 7
     for key, val in dict.items():
+    for index, item in enumerate(list):
 
 ### [String](https://docs.python.org/2/library/stdtypes.html#string-methods)
 

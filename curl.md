@@ -17,6 +17,7 @@ updated: 2017-09-20
 ```bash
 -v           # --verbose
 -vv          # Even more verbose
+-s           # silent
 ```
 
 ```bash

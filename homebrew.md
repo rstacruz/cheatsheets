@@ -19,13 +19,14 @@ weight: -3
 
 ### More package commands
 
-| Command                    | Description                 |
-| ---                        | ---                         |
-| `brew info git`            | List versions, caveats, etc |
-| `brew cleanup git`         | Remove old versions         |
-| `brew edit git`            | Edit this formula           |
-| `brew cat git`             | Print this formula          |
-| `brew home git`            | Open homepage               |
+| Command                        | Description                  |
+| ---                            | ---                          |
+| `brew info git`                | List versions, caveats, etc  |
+| `brew cleanup git`             | Remove old versions          |
+| `brew edit git`                | Edit this formula            |
+| `brew cat git`                 | Print this formula           |
+| `brew home git`                | Open homepage                |
+| `brew upgrade `brew outdated`` | Update all outdated packages |
 
 ### Global commands
 

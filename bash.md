@@ -78,9 +78,9 @@ See: [Functions](#functions)
 {: id='conditionals-example'}
 
 ```bash
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
@@ -237,7 +237,7 @@ done
 ### Reading lines
 
 ```bash
-cat file.txt | while read line; do
+< file.txt | while read line; do
   echo $line
 done
 ```
@@ -283,7 +283,7 @@ myfunc() {
 ```
 
 ```bash
-result=$(myfunc)
+result="$(myfunc)"
 ```
 
 ### Raising errors
@@ -319,61 +319,75 @@ Conditionals
 
 ### Conditions
 
+Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
+
 | Condition                | Description           |
 | ---                      | ---                   |
-| `[ -z STRING ]`          | Empty string          |
-| `[ -n STRING ]`          | Not empty string      |
+| `[[ -z STRING ]]`        | Empty string          |
+| `[[ -n STRING ]]`        | Not empty string      |
 | ---                      | ---                   |
-| `[ NUM -eq NUM ]`        | Equal                 |
-| `[ NUM -ne NUM ]`        | Not equal             |
-| `[ NUM -lt NUM ]`        | Less than             |
-| `[ NUM -le NUM ]`        | Less than or equal    |
-| `[ NUM -gt NUM ]`        | Greater than          |
-| `[ NUM -ge NUM ]`        | Greater than or equal |
+| `[[ NUM -eq NUM ]]`      | Equal                 |
+| `[[ NUM -ne NUM ]]`      | Not equal             |
+| `[[ NUM -lt NUM ]]`      | Less than             |
+| `[[ NUM -le NUM ]]`      | Less than or equal    |
+| `[[ NUM -gt NUM ]]`      | Greater than          |
+| `[[ NUM -ge NUM ]]`      | Greater than or equal |
 | ---                      | ---                   |
 | `[[ STRING =~ STRING ]]` | Regexp                |
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
 
-| Condition          | Description              |
-| ---                | ---                      |
-| `[ -o noclobber ]` | If OPTIONNAME is enabled |
-| ---                | ---                      |
-| `[ ! EXPR ]`       | Not                      |
-| `[ X ] && [ Y ]`   | And                      |
-| `[ X ] || [ Y ]`   | Or                       |
+| Condition              | Description              |
+| ---                    | ---                      |
+| `[[ -o noclobber ]]`   | If OPTIONNAME is enabled |
+| ---                    | ---                      |
+| `[[ ! EXPR ]]`         | Not                      |
+| `[[ X ]] && [[ Y ]]`   | And                      |
+| `[[ X ]] || [[ Y ]]`   | Or                       |
 
 ### File conditions
 
-| Condition             | Description             |
-| ---                   | ---                     |
-| `[ -e FILE ]`         | Exists                  |
-| `[ -r FILE ]`         | Readable                |
-| `[ -h FILE ]`         | Symlink                 |
-| `[ -d FILE ]`         | Directory               |
-| `[ -w FILE ]`         | Writable                |
-| `[ -s FILE ]`         | Size is > 0 bytes       |
-| `[ -f FILE ]`         | File                    |
-| `[ -x FILE ]`         | Executable              |
-| ---                   | ---                     |
-| `[ FILE1 -nt FILE2 ]` | 1 is more recent than 2 |
-| `[ FILE1 -ot FILE2 ]` | 2 is more recent than 1 |
-| `[ FILE1 -ef FILE2 ]` | Same files              |
+| Condition               | Description             |
+| ---                     | ---                     |
+| `[[ -e FILE ]]`         | Exists                  |
+| `[[ -r FILE ]]`         | Readable                |
+| `[[ -h FILE ]]`         | Symlink                 |
+| `[[ -d FILE ]]`         | Directory               |
+| `[[ -w FILE ]]`         | Writable                |
+| `[[ -s FILE ]]`         | Size is > 0 bytes       |
+| `[[ -f FILE ]]`         | File                    |
+| `[[ -x FILE ]]`         | Executable              |
+| ---                     | ---                     |
+| `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
+| `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
+| `[[ FILE1 -ef FILE2 ]]` | Same files              |
 
 ### Example
 
 ```bash
+if ping -c 1 google.com; then
+  echo "It appears you have a working internet connection"
+fi
+```` 
+
+```bash
+if grep -q 'foo' ~/.bash_history; then
+  echo "You appear to have typed 'foo' in the past"
+fi
+```
+
+```bash
 # String
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
 
 ```bash
 # Combinations
-if [ X ] && [ Y ]; then
+if [[ X ]] && [[ Y ]]; then
   ...
 fi
 ```
@@ -384,11 +398,13 @@ if [[ "A" =~ "." ]]
 ```
 
 ```bash
-if (( $a < $b ))
+if (( $a < $b )); then
+   echo "$a is smaller than $b"
+fi
 ```
 
 ```bash
-if [ -e "file.txt" ]; then
+if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
@@ -529,7 +545,7 @@ python hello.py &>/dev/null    # stdout and stderr to (null)
 ```
 
 ```bash
-python hello.py < foo.txt
+python hello.py < foo.txt      # feed foo.txt to stdin for python
 ```
 
 ### Inspecting commands
@@ -641,3 +657,5 @@ See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_p
 * [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
 * [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
 * [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_

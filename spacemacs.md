@@ -69,6 +69,12 @@ Shortcuts
 | ---                        | ---      |
 | Next buffer (`:bnext`)     | `n`      |
 | Previous buffer (`:bprev`) | `p`      |
+| Close current buffer       | `d`      |
+| Recent buffers             | `r`      |
+| Home buffer                | `h`      |
+| Scratch buffer             | `b`      |
+| Erase current buffer       | `e`      |
+| Kill other buffers         | `m`      |
 {: .-shortcuts-right}
 
 ### `SPC` `f` `e` - Config

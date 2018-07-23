@@ -72,7 +72,7 @@ Shortcuts
 | Close current buffer       | `d`      |
 | Recent buffers             | `r`      |
 | Home buffer                | `h`      |
-| Scratch buffer             | `b`      |
+| Scratch buffer             | `s`      |
 | Erase current buffer       | `e`      |
 | Kill other buffers         | `m`      |
 {: .-shortcuts-right}

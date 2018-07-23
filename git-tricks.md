@@ -28,6 +28,9 @@ category: Git
     # delete remote branch
       git push origin :$branchname
       
+    # go back to previous branch
+      git checkout -
+      
 ## Collaboration
 
     # Rebase your changes on top of the remote master

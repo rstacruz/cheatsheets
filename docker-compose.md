@@ -4,7 +4,7 @@ category: Devops
 layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2018-06-26
+updated: 2018-07-23
 ---
 
 ### Basic example
@@ -15,6 +15,7 @@ version: '2'
 
 services:
   web:
+    container_name: my_builded_container # Optionnal
     build: .
     # build from Dockerfile
     context: ./Path
@@ -29,20 +30,37 @@ services:
 
 ### Commands
 
+
 ```sh
-docker-compose start
-docker-compose stop
+# List the containers and their status of the containers in your compose file
+# Almost same as Docker ps
+docker-compose ps
+
+# Pull the images of the concerned file from the registry.
+# Usefull when using "latest" tag
+docker-compose pull
+
+# Build, create or recreate, start containers.
+docker-compose up
+# This command will run attached mode. To detach add -d parameter
+# Example: docker-compose up -d
+# Note by default it will create a project with the name of the current folder
+# add --project-name <foobar> to create your service with custom name
+
+# Stop containers and removes containers, networks and images created by UP.
+docker-compose down
+```
+
+```sh
+# Start the targeted service
+docker-compose start <service>
+# Stop the targeted service
+docker-compose stop <service>
 ```
 
 ```sh
 docker-compose pause
 docker-compose unpause
-```
-
-```sh
-docker-compose ps
-docker-compose up
-docker-compose down
 ```
 
 ## Reference
@@ -55,6 +73,13 @@ web:
   # build from Dockerfile
   build: .
 ```
+
+```yaml
+web:
+  # build from Dockerfile in custom Path
+  build: ./Path
+```
+
 
 ```yaml
   # build from custom Dockerfile
@@ -161,6 +186,7 @@ services:
 ### DNS servers
 
 ```yaml
+# Force the DNS server adress within the services
 services:
   web:
     dns: 8.8.8.8
@@ -191,6 +217,7 @@ services:
 ### Hosts
 
 ```yaml
+# Force the DNS resolution
 services:
   web:
     extra_hosts:

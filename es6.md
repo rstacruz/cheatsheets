@@ -136,8 +136,7 @@ Promises
 
 ```js
 new Promise((resolve, reject) => {
-  if (ok) { resolve(result) }
-  else { reject(error) }
+  ok ? resolve(result) : reject(error)
 })
 ```
 {: data-line="1"}

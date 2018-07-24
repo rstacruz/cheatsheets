@@ -14,6 +14,7 @@ weight: -1
 
 ```markdown
 # h1
+## h2
 ### h3
 ```
 
@@ -41,6 +42,18 @@ __bold__
 
 ```markdown
 `code`
+```
+
+### Lists
+
+```markdown
+* Item 1
+* Item 2
+```
+
+```markdown
+- Item 1
+- Item 2
 ```
 
 ### Links
@@ -108,4 +121,18 @@ codeFences.withLanguage()
 
 ```markdown
 ****
+```
+
+### Tables
+
+```markdown
+| Column 1 Heading | Column 2 Heading |
+| ---------------- | ---------------- |
+| Some content     | Other content    |
+```
+
+```markdown
+Column 1 Heading | Column 2 Heading
+--- | ---
+Some content | Other content
 ```

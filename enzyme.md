@@ -248,7 +248,7 @@ wrap.context()       // get full context
 
 ```js
 wrap.state('key')    // → any
-wrap.props('key')    // → any
+wrap.prop('key')    // → any
 wrap.context('key')  // → any
 ```
 

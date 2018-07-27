@@ -20,7 +20,7 @@ title: tmux
 
     $ tmux ls     # List sessions
 
-    $ tmux Detach
+    $ tmux detach
 
 #### Windows
 

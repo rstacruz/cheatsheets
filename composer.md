@@ -30,6 +30,7 @@ All composer commands, depending on your install, may need to use `php composer.
 | ---                       | ---                             |
 | `composer update laravel` | Update a certain package        |
 | `composer update vendor/*`| Update all packages in a folder |
+| `composer update --lock`  | Update lock file hash without updating any packages |
 
 
 

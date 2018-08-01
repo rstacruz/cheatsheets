@@ -47,7 +47,7 @@ echo 'Hi $NAME'  #=> Hi $NAME
 ### Shell execution
 
 ```bash
-echo "I'm in $(pwd)"
+echo "I'm in $(pwd)" # <= preferred
 echo "I'm in `pwd`"
 # Same
 ```
@@ -78,9 +78,9 @@ See: [Functions](#functions)
 {: id='conditionals-example'}
 
 ```bash
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
@@ -90,7 +90,7 @@ See: [Conditionals](#conditionals)
 ### Strict mode
 
 ```bash
-set -euo pipefail
+set -euo pipefail # Same as: set -e; set -u; set -o pipefail
 IFS=$'\n\t'
 ```
 
@@ -321,59 +321,59 @@ Conditionals
 
 | Condition                | Description           |
 | ---                      | ---                   |
-| `[ -z STRING ]`          | Empty string          |
-| `[ -n STRING ]`          | Not empty string      |
+| `[[ -z STRING ]]`        | Empty string          |
+| `[[ -n STRING ]]`        | Not empty string      |
 | ---                      | ---                   |
-| `[ NUM -eq NUM ]`        | Equal                 |
-| `[ NUM -ne NUM ]`        | Not equal             |
-| `[ NUM -lt NUM ]`        | Less than             |
-| `[ NUM -le NUM ]`        | Less than or equal    |
-| `[ NUM -gt NUM ]`        | Greater than          |
-| `[ NUM -ge NUM ]`        | Greater than or equal |
+| `[[ NUM -eq NUM ]]`      | Equal                 |
+| `[[ NUM -ne NUM ]]`      | Not equal             |
+| `[[ NUM -lt NUM ]]`      | Less than             |
+| `[[ NUM -le NUM ]]`      | Less than or equal    |
+| `[[ NUM -gt NUM ]]`      | Greater than          |
+| `[[ NUM -ge NUM ]]`      | Greater than or equal |
 | ---                      | ---                   |
 | `[[ STRING =~ STRING ]]` | Regexp                |
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
 
-| Condition          | Description              |
-| ---                | ---                      |
-| `[ -o noclobber ]` | If OPTIONNAME is enabled |
-| ---                | ---                      |
-| `[ ! EXPR ]`       | Not                      |
-| `[ X ] && [ Y ]`   | And                      |
-| `[ X ] || [ Y ]`   | Or                       |
+| Condition            | Description              |
+| ---                  | ---                      |
+| `[[ -o noclobber ]]` | If OPTIONNAME is enabled |
+| ---                  | ---                      |
+| `[[ ! EXPR ]]`       | Not                      |
+| `[[ X ]] && [[ Y ]]` | And                      |
+| `[[ X ]] || [[ Y ]]` | Or                       |
 
 ### File conditions
 
-| Condition             | Description             |
-| ---                   | ---                     |
-| `[ -e FILE ]`         | Exists                  |
-| `[ -r FILE ]`         | Readable                |
-| `[ -h FILE ]`         | Symlink                 |
-| `[ -d FILE ]`         | Directory               |
-| `[ -w FILE ]`         | Writable                |
-| `[ -s FILE ]`         | Size is > 0 bytes       |
-| `[ -f FILE ]`         | File                    |
-| `[ -x FILE ]`         | Executable              |
-| ---                   | ---                     |
-| `[ FILE1 -nt FILE2 ]` | 1 is more recent than 2 |
-| `[ FILE1 -ot FILE2 ]` | 2 is more recent than 1 |
-| `[ FILE1 -ef FILE2 ]` | Same files              |
+| Condition               | Description             |
+| ---                     | ---                     |
+| `[[ -e FILE ]]`         | Exists                  |
+| `[[ -r FILE ]]`         | Readable                |
+| `[[ -h FILE ]]`         | Symlink                 |
+| `[[ -d FILE ]]`         | Directory               |
+| `[[ -w FILE ]]`         | Writable                |
+| `[[ -s FILE ]]`         | Size is > 0 bytes       |
+| `[[ -f FILE ]]`         | File                    |
+| `[[ -x FILE ]]`         | Executable              |
+| ---                     | ---                     |
+| `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
+| `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
+| `[[ FILE1 -ef FILE2 ]]` | Same files              |
 
 ### Example
 
 ```bash
 # String
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
 
 ```bash
 # Combinations
-if [ X ] && [ Y ]; then
+if [[ X ]] && [[ Y ]]; then
   ...
 fi
 ```
@@ -384,11 +384,11 @@ if [[ "A" =~ "." ]]
 ```
 
 ```bash
-if (( $a < $b ))
+if (( a < b ))
 ```
 
 ```bash
-if [ -e "file.txt" ]; then
+if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
@@ -459,7 +459,7 @@ set -o nocaseglob  # Case insensitive globs
 set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
 set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
-
+Use `-` to enable an option, and `+` to disable it.
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
@@ -641,3 +641,4 @@ See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_p
 * [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
 * [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
 * [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+* [Let's do bash right!](https://github.com/progrium/bashstyle) _(github.com)_

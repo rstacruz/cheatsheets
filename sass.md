@@ -66,7 +66,7 @@ h1 {
 }
 ```
 
-### Mixin properties
+#### with parameters
 
 ```scss
 @mixin font-size($n) {
@@ -79,6 +79,38 @@ body {
   @include font-size(2);
 }
 ```
+
+#### with default values
+
+```scss
+@mixin pad($n: 10px) {
+  padding: $n;
+}
+```
+
+```scss
+body {
+  @include pad(15px);
+}
+```
+
+#### with a default variable
+
+$default-padding: 10px;
+
+```scss
+@mixin pad($n: $default-padding) {
+  padding: $n;
+}
+```
+
+```scss
+body {
+  @include pad(15px);
+}
+```
+
+This way default values can be overwritten without overwriting the mixin.
 
 ### Extend
 

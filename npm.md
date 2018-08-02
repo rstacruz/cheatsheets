@@ -12,6 +12,7 @@ updated: 2017-10-27
 | ---                               | ---                                |
 | `npm i`                           | Alias for `npm install`            |
 | `npm install`                     | Install everything in package.json |
+| `npm ci`                          | Install for deployment pipelines. Requires existing package-lock.json and will never touch package.json or package-lock.json. |
 | ---                               | ---                                |
 | `npm install lodash`              | Install a package                  |
 | `npm install --save-dev lodash`   | Install as devDependency           |

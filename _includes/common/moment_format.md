@@ -75,6 +75,7 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | ---    | ---          | ---                        |
 | `Z`    | `+07:00`     | **Timezone offset**        |
 | `ZZ`   | `+0730`      |                            |
+| `z`    | `CDT`        | Three letter abbr.         |
 | ---    | ---          | ---                        |
 | `S`    | `0`..`9`     | Deciseconds                |
 | `SS`   | `00`..`99`   | Centiseconds               |

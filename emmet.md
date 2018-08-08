@@ -2,6 +2,7 @@
 title: Emmet
 category: Markup
 layout: 2017/sheet
+prism_languages: [html]
 ---
 
 ### Child: >

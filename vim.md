@@ -78,6 +78,18 @@ Getting started
 | `L`      | Move to bottom of screen |
 {: .-shortcuts}
 
+ #### Tab pages
+| Shortcut              | Description                     |
+| ---                   | ---                             |
+| `:tabedit [file]`     | Edit file in a new tab          |
+| `:tabfind [file]`     | Open file if exists in new tab  |
+| `:tabclose`           | Close current tab               |
+| `:tabs`               | List all tabs                   | 
+| `:tabfirst`           | Go to first tab                 |
+| `:tablast`            | Go to last tab                  |
+| `:tabn    `           | Go to next tab                  |
+| `:tabp    `           | Go to previous tab              |
+
 
 ### Editing
 

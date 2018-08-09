@@ -78,7 +78,8 @@ Getting started
 | `L`      | Move to bottom of screen |
 {: .-shortcuts}
 
- #### Tab pages
+#### Tab pages
+
 | Shortcut              | Description                     |
 | ---                   | ---                             |
 | `:tabedit [file]`     | Edit file in a new tab          |
@@ -110,10 +111,10 @@ Getting started
 
 ### Exiting insert mode
 
-| Shortcut | Description |
-| --- | --- |
+| Shortcut          | Description |
+| ---               | ---         |
 | `Esc` _/_ `<C-[>` | Exit insert mode |
-| `<C-C>` | Exit insert mode, and abort current command |
+| `<C-C>`           | Exit insert mode, and abort current command |
 {: .-shortcuts}
 
 ### Clipboard
@@ -133,7 +134,7 @@ Getting started
 
 | `v`         | Enter visual mode       |
 | `V`         | Enter visual line mode  |
-| `<C-V>`        | Enter visual block mode |
+| `<C-V>`     | Enter visual block mode |
 {: .-shortcuts}
 
 #### In visual mode
@@ -241,7 +242,7 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 
 See [Operators](#operators) for other things you can do.
 
- ### Diff
+### Diff
  
 | Shortcut                             | Description                              |
 | ---                                  | ---                                      |
@@ -276,27 +277,27 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut            | Description                |
 | ---                 | ---                        |
-| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
-| `])`                | next                       |
+| `[(` `[{` `[<`      | Previous `(` or `{` or `<` |
+| `])`                | Next                       |
 | ---                 | ---                        |
-| `[m`                | previous method start      |
-| `[M`                | previous method end        |
+| `[m`                | Previous method start      |
+| `[M`                | Previous method end        |
 {: .-shortcuts}
 
 ### Jumping
 
 | Shortcut | Description                  |
 | ---      | ---                          |
-| `<C-O>`     | Go back to previous location |
-| `<C-I>`     | Go forward                   |
+| `<C-O>`  | Go back to previous location |
+| `<C-I>`  | Go forward                   |
 | ---      | ---                          |
-| `gf`     | go to file in cursor         |
+| `gf`     | Go to file in cursor         |
 {: .-shortcuts}
 
 ### Counters
 
-| `<C-A>` | increment number |
-| `<C-X>` | decrement |
+| `<C-A>` | Increment number |
+| `<C-X>` | Decrement |
 {: .-shortcuts}
 
 ### Windows
@@ -322,12 +323,12 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description                          |
 | ---      | ---                                  |
-| `~`      | toggle case (Case => cASE)           |
-| `gU`     | uppercase                            |
-| `gu`     | lowercase                            |
+| `~`      | Toggle case (Case => cASE)           |
+| `gU`     | Uppercase                            |
+| `gu`     | Lowercase                            |
 | ---      | ---                                  |
-| `gUU`    | uppercase current line (also `gUgU`) |
-| `guu`    | lowercase current line (also `gugu`) |
+| `gUU`    | Uppercase current line (also `gUgU`) |
+| `guu`    | Lowercase current line (also `gugu`) |
 {: .-shortcuts}
 
 Do these in visual or normal mode.
@@ -349,16 +350,16 @@ Do these in visual or normal mode.
 
 | Shortcut | Description                               |
 | ---      | ---                                       |
-| `.`      | repeat last command                       |
-| `]p`     | paste under the current indentation level |
+| `.`      | Repeat last command                       |
+| `]p`     | Paste under the current indentation level |
 {: .-shortcuts}
 
 ### Command line
 
 | Shortcut     | Description                               |
 | ---          | ---                                       |
-| `<C-R><C-W>` | insert current word into the command line |
-| `<C-R>"`     | paste from " register                     |
+| `<C-R><C-W>` | Insert current word into the command line |
+| `<C-R>"`     | Paste from " register                     |
 {: .-shortcuts}
 
 ### Text alignment
@@ -371,7 +372,8 @@ See `:help formatting`
 
 ### Calculator
 
-    <C-R>=128/2
+| Shortcut     | Description                               |
+| <C-R>=128/2  | Shows the result of the division : '64'   |
 
 Do this in insert mode.
 

@@ -229,6 +229,13 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 
 See [Operators](#operators) for other things you can do.
 
+ ### Diff
+ 
+| Shortcut                             | Description                              |
+| ---                                  | ---                                      |
+| `gvimdiff file1 file2 [file3]`       | See differencies between files, in HMI   |
+ 
+
 Misc
 ----
 

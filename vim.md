@@ -372,9 +372,9 @@ See `:help formatting`
 
 ### Calculator
 
-| Shortcut     | Description                               |
-| ---          | ---                                       |
-| <C-R>=128/2  | Shows the result of the division : '64'   |
+| Shortcut      | Description                               |
+| ---           | ---                                       |
+| `<C-R>=128/2` | Shows the result of the division : '64'   |
 
 Do this in insert mode.
 

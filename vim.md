@@ -33,14 +33,18 @@ Getting started
 
 ### Navigating
 
-| `h` `j` `k` `l`     | Arrow keys                         |
-| `<C-U>` _/_ `<C-D>` | Page up/page down                  |
+| Shortcut            | Description       |
+| ---                 | ---               |
+| `h` `j` `k` `l`     | Arrow keys        |
+| `<C-U>` _/_ `<C-D>` | Page up/page down |
 {: .-shortcuts}
 
 #### Words
 
-| `b` _/_ `w`     | Previous/next word                 |
-| `e` _/_ `ge`    | Previous/next end of word          |
+| Shortcut     | Description               |
+| ---          | ---                       |
+| `b` _/_ `w`  | Previous/next word        |
+| `e` _/_ `ge` | Previous/next end of word |
 {: .-shortcuts}
 
 #### Line
@@ -91,7 +95,6 @@ Getting started
 | `:tabn    `           | Go to next tab                  |
 | `:tabp    `           | Go to previous tab              |
 
-
 ### Editing
 
 | Shortcut | Description                         |
@@ -132,13 +135,17 @@ Getting started
 
 ### Visual mode
 
-| `v`         | Enter visual mode       |
-| `V`         | Enter visual line mode  |
-| `<C-V>`     | Enter visual block mode |
+| Shortcut | Description             |
+| ---      | ---                     |
+| `v`      | Enter visual mode       |
+| `V`      | Enter visual line mode  |
+| `<C-V>`  | Enter visual block mode |
 {: .-shortcuts}
 
 #### In visual mode
 
+| Shortcut    | Description             |
+| ---         | ---                     |
 | `d` _/_ `x` | Delete selection        |
 | `s`         | Replace selection       |
 | `y`         | Yank selection _(Copy)_ |
@@ -296,8 +303,10 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 ### Counters
 
-| `<C-A>` | Increment number |
-| `<C-X>` | Decrement |
+| Shortcut | Description      |
+| ---      | ---              |
+| `<C-A>`  | Increment number |
+| `<C-X>`  | Decrement        |
 {: .-shortcuts}
 
 ### Windows
@@ -360,6 +369,7 @@ Do these in visual or normal mode.
 | ---          | ---                                       |
 | `<C-R><C-W>` | Insert current word into the command line |
 | `<C-R>"`     | Paste from " register                     |
+| `<C-X><C-F>` | Auto-completion of path in insert mode    |
 {: .-shortcuts}
 
 ### Text alignment

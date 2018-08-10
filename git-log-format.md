@@ -54,7 +54,7 @@ See the next tables on format variables.
 | `%f` | commit subject, filename style |
 | `%b` | commit body |
 | --- | --- |
-| `%cd` | ref names |
+| `%d` | ref names |
 | `%e` | encoding |
 
 ## Author and committer

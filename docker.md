@@ -121,7 +121,14 @@ Manages `image`s.
 docker rmi b750fe78269d
 ```
 
-Deletes `image`s.
+Delete `image`.
+
+
+```yml
+docker rmi $(docker images -q) -f
+```
+
+Deletes all images.
 
 Also see
 --------

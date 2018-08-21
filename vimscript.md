@@ -460,7 +460,9 @@ Prefixes (`s:`, `g:`, `l:`, etc) are actually dictionaries.
 
 ```vim
 " Extending with more
-let extend(s:fruits, { ... })
+call extend(s:fruits, { ... })
+let s:fruits['banana'] = 42
+let s:fruits.apple = 1337
 ```
 
 Casting

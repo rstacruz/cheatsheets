@@ -1,7 +1,7 @@
 ---
 title: Semver
 layout: 2017/sheet
-updated: 2018-01-15
+updated: 2018-08-23
 weight: -3
 ---
 
@@ -93,4 +93,4 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 {: .-one-column}
 
  * <http://semver.org/>
- * <https://www.npmjs.org/doc/misc/semver.html>
+ * <https://docs.npmjs.com/misc/semver>

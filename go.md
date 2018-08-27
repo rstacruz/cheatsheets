@@ -506,7 +506,7 @@ See: [Methods](https://tour.golang.org/methods/1)
 ```go
 func (v *Vertex) Scale(f float64) {
   v.X = v.X * f
-  v.y = v.Y * f
+  v.Y = v.Y * f
 }
 ```
 {: data-line="1"}

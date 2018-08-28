@@ -321,6 +321,8 @@ Conditionals
 
 | Condition                | Description           |
 | ---                      | ---                   |
+| `[ STRING = STRING ]`    | Equal                 |
+| `[ STRING != STRING ]`   | Not Equal             |
 | `[ -z STRING ]`          | Empty string          |
 | `[ -n STRING ]`          | Not empty string      |
 | ---                      | ---                   |

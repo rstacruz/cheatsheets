@@ -332,6 +332,7 @@ Do these in visual or normal mode.
 | ---      | ---                                       |
 | `.`      | repeat last command                       |
 | `]p`     | paste under the current indentation level |
+| :w !sudo tee % | Solving write permissions issues using sudo and tee |
 {: .-shortcuts}
 
 ### Command line

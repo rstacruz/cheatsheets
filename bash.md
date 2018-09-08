@@ -481,6 +481,7 @@ History
 
 ### Operations
 
+| `sudo !!` | Execute last command as root |         
 | `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |
@@ -490,7 +491,9 @@ History
 
 ### Slices
 
-| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first param is `1`) |
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^` | Expand first argument from most recent command |
+| `!$` | Expand last token from most recent command |
 | `!!:n-m` | Expand range of tokens from most recent command |
 | `!!:n-$` | Expand `n`th token to last from most recent command |
 

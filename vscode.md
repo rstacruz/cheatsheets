@@ -70,6 +70,21 @@ intro: |
 | `⌘k` `w` | Close all        |
 {: .-shortcuts}
 
+### Navigation
+
+| Key    | Description             |
+| ------ | ----------------------- |
+| `⌘T`  |Show All Symbols        |
+| `⌘G`  | Go to Line...          |
+| `⌘P` | Go to File..., Quick Open|
+| ------ | ----------------------- |
+| `⌘ShiftO`| Go to Symbol...      |
+| `⌘ShiftM`| Show Problems	      |
+| `⌘ShiftP`| Show All Commands    |
+| `⌘ShiftTab`|Navigate Editor Group History |
+{: .-shortcuts}
+
+
 ### Debug
 
 | Key    | Description             |

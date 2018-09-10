@@ -133,7 +133,7 @@ grayscale($color)
 
 ```scss
 adjust-hue($color, 15deg)
-compliment($color)    // like adjust-hue(_, 180deg)
+complement($color)    // like adjust-hue(_, 180deg)
 invert($color)
 ```
 

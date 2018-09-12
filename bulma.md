@@ -76,7 +76,7 @@ The following classes modify the **font-size**
 | `.is-size-6`  | 1rem                  |
 | `.is-size-7`  | 0.75rem               |
 
-The following classes **allign** the text
+The following classes **align** the text
 
 | Class                 | Alignment                             |
 | ---                   | ---                                   |

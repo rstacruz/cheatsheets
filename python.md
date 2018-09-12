@@ -6,17 +6,17 @@ title: Python
 
     list = []
     list[i:j]  # returns list subset
-    list[-1]   # access last element
-    list[:-1]  # return all but the last element
+    list[-1]   # returns last element
+    list[:-1]  # returns all but the last element
     
     list[i] = val
     list[i:j] = otherlist  # replace ith to jth element with otherlist
     del list[i:j]
 
     list.append(item)
-    list.extend(list)
+    list.extend(another_list)
     list.insert(0, item)
-    list.pop()
+    list.pop()        # returns and removes last element from the list
     list.remove(i)
     list1 + list2     # combine two list    
     set(list)         # remove duplicate elements from a list
@@ -25,19 +25,19 @@ title: Python
     list.count(item)
     sum(list)
 
-    list.sort()
+    list.sort()        # sorts in-place, returns None
 
     zip(list1, list2)
-    sorted(list)
-    ",".join(list)
+    sorted(list)       # returns sorted copy of list
+    ",".join(list)     # returns a string with list elements seperated by comma
 
 ### Dict
 
     dict.keys()
     dict.values()
-    "key" in dict
-    dict["key"]   # throws KeyError
-    dict.get("key")
+    "key" in dict    # let's say this returns False, then...
+    dict["key"]      # ...this raises KeyError
+    dict.get("key")  # ...this returns None
     dict.setdefault("key", 1)
 
 ### Iteration

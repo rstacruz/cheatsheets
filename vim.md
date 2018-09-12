@@ -52,6 +52,12 @@ Getting started
 | `$`          | End of line                        |
 {: .-shortcuts}
 
+#### Character
+
+| `fc`  | Go forward to character `c`  |
+| `Fc`  | Go backward to character `c` |
+{: .-shortcuts}
+
 #### Document
 
 | Shortcut | Description    |
@@ -134,7 +140,7 @@ Operators
 ### Usage
 {: .-prime}
 
-Operators let you operate in a range of text (defined by *motion*). These are preformed in normal mode.
+Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 {: .-setup}
 
 | `d`      | `w`    |

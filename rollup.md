@@ -40,7 +40,7 @@ npm install -D rollup
 
 You may need to use `./node_modules/.bin/rollup` as a command if you did not install rollup globally.
 
-### Mutiple outputs
+### Multiple outputs
 
 #### rollup.config.js
 
@@ -106,7 +106,7 @@ import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
-  ouptut: {
+  output: {
     file: 'bundle.js',
     format: 'cjs'
   },

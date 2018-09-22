@@ -141,3 +141,24 @@ $ helm install <url-of-chart-in-repo>
 ```
 $ helm install –repo <repo-url> <chart-name>
 ```
+
+Other helm-chart Commands
+-------------
+
+### `Fetching helm-charts from repositories`
+
+```
+$ helm fetch [ <url> | <repo-name>/<chart-name> ]
+```
+
+### `Downloading helm-charts from repositories`
+
+```
+$ helm get <chart-release-name>
+```
+
+### `Listing helm-charts`
+
+```
+$ helm list
+```

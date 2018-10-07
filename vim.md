@@ -343,6 +343,19 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
+### Spell-check
+
+| Shortcut | Description                  |
+| ---      | ---                          |
+| `]s`     | Go to next bad/mispelled word  |
+| `[s`     | Go to next bad word, backwards |
+| ---      | ---                          |
+| `zu` / `C-X (Insert Mode)` | Suggest words for bad word under cursor from spellfile  |
+| ---      | ---                          |
+| `zg`  | Add bad word to spellfile (mark as good)        |
+| `zw`  | Mark word as bad/mispelling        |
+{: .-shortcuts}
+
 Also see
 --------
 

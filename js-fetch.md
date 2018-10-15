@@ -68,7 +68,7 @@ function checkStatus (res) {
   if (res.status >= 200 && res.status < 300) {
     return res
   } else {
-    var err = new Error(res.statusText)
+    let err = new Error(res.statusText)
     err.response = res
     throw err
   }

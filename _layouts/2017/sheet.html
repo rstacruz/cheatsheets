@@ -19,6 +19,12 @@
       </div>
       {% endif %}
 
+      {% if site.data.codefund.enabled %}
+      <div class='ad -codefund' role='complementary'>
+        {% include 2017/codefund.html %}
+      </div>
+      {% endif %}
+
       {% if site.data.carbon.enabled %}
         <div class='HeadlineAd ad -carbon' role='complementary'>
           <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
@@ -46,7 +52,7 @@
     </div>
   {% endif %}
 
-  <main class='post-content MarkdownBody' data-js-main-body role='main'>
+  <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
     {{ content }}
   </main>
 </div>

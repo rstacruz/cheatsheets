@@ -94,7 +94,7 @@ divshot env:remove <env> KEY
 divshot env:pull <env>
 ```
 
-### App manangement
+### App management
 
 ```
 divshot create <appname>

@@ -13,4 +13,13 @@
       margin-top: 48px;
     }
   }
+
+  /* Hide anchors until mouseover */
+  & > .anchor {
+    opacity: 0;
+  }
+
+  &:hover > .anchor {
+    opacity: 1;
+  }
 }

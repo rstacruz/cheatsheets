@@ -9,6 +9,10 @@
   font-weight: 200;
   font-family: $heading-font;
   margin-top: 0;
+
+  &:target {
+    color: $base-a;
+  }
 }
 
 .MarkdownBody h3 {

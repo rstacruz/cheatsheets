@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - rubygems:/usr/local/bundle
+    ports:
+      - '4001:4001'
+      - '35729:35729'
+    command: 'env PORT=4001 HOST=0.0.0.0 yarn run dev'
+
+volumes:
+  rubygems:

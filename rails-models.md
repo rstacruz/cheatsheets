@@ -505,7 +505,7 @@ Article.joins(:category, :comments)
 ```
 
 ```ruby
-# Nested assocations
+# Nested associations
 Article.joins(comments: :guest)
 ```
 

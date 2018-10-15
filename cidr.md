@@ -1,7 +1,11 @@
 ---
 title: CIDR
 category: Misc
+layout: 2017/sheet
+updated: 2018-05-14
 ---
+
+### CIDR ranges
 
 | Range           | First IP | Last IP        |
 | ---             | ---      | ---            |
@@ -10,6 +14,6 @@ category: Misc
 | **10.0.0.0/8**  | 10.0.0.0 | 10.255.255.255 |
 | **0.0.0.0/0**   | (all)    | (all)          |
 
-## Resources
+### Resources
 
-- [CIDR range calculator](http://ipaddressguide.com/cidr#range)
+- [CIDR range calculator](http://ipaddressguide.com/cidr#range) _(ipaddressguide.com)_

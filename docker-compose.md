@@ -4,7 +4,7 @@ category: Devops
 layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2018-03-17
+updated: 2018-06-26
 ---
 
 ### Basic example
@@ -46,60 +46,101 @@ docker-compose down
 ```
 
 ## Reference
-{: .-one-column}
+{: .-three-column}
+
+### Building
 
 ```yaml
 web:
   # build from Dockerfile
   build: .
+```
 
+```yaml
+  # build from custom Dockerfile
+  build:
+    context: ./dir
+    dockerfile: Dockerfile.dev
+```
+
+```yaml
   # build from image
   image: ubuntu
   image: ubuntu:14.04
   image: tutum/influxdb
   image: example-registry:4000/postgresql
   image: a4bc65fd
+```
 
+### Ports
+
+```yaml
   ports:
     - "3000"
     - "8000:80"  # guest:host
+```
 
+```yaml
+  # expose ports to linked services (not to host)
+  expose: ["3000"]
+```
+
+### Commands
+
+```yaml
   # command to execute
   command: bundle exec thin -p 3000
   command: [bundle, exec, thin, -p, 3000]
+```
 
+```yaml
   # override the entrypoint
   entrypoint: /app/start.sh
   entrypoint: [php, -d, vendor/bin/phpunit]
+```
 
+### Environment variables
+
+```yaml
   # environment vars
   environment:
     RACK_ENV: development
   environment:
     - RACK_ENV=development
+```
 
+```yaml
   # environment vars from file
   env_file: .env
   env_file: [.env, .development.env]
+```
 
-  # expose ports to linked services (not to host)
-  expose: ["3000"]
+### Dependencies
 
-  # make this service extend another
-  extends:
-    file: common.yml  # optional
-    service: webapp
-
+```yaml
   # makes the `db` service available as the hostname `database`
   # (implies depends_on)
   links:
     - db:database
     - redis
+```
 
+```yaml
   # make sure `db` is alive before starting
   depends_on:
     - db
+```
 
+### Other options
+
+```yaml
+  # make this service extend another
+  extends:
+    file: common.yml  # optional
+    service: webapp
+```
+
+```yaml
   volumes:
     - /var/lib/mysql
     - ./_data:/var/lib/mysql

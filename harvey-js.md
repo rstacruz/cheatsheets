@@ -1,5 +1,5 @@
 ---
 title: Harvey.js
-category: hidden
+category: Hidden
 redirect_to: /harvey.js
 ---

@@ -44,7 +44,7 @@ COPY --chown=user:group host_file.xyz /path/container_file.xyz
 
 ### Onbuild
 
-```docker```
+```docker
 ONBUILD RUN bundle install
 # when used with another file
 ```

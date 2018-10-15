@@ -249,21 +249,25 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 ### Navigation
 
-| Shortcut            | Description                |
-| ---                 | ---                        |
-| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
-| `])`                | next                       |
-| ---                 | ---                        |
-| `[m`                | previous method start      |
-| `[M`                | previous method end        |
+| Shortcut       | Description                |
+| ---            | ---                        |
+| `[(` `[{` `[<` | previous `(` or `{` or `<` |
+| `])`           | next                       |
+| ---            | ---                        |
+| `[m`           | previous method start      |
+| `[M`           | previous method end        |
+| ---            |                            |
+| `<C-D>`        | scroll down                |
+| `<C-U>`        | scroll up                  |
+
 {: .-shortcuts}
 
 ### Jumping
 
 | Shortcut | Description                  |
 | ---      | ---                          |
-| `<C-O>`     | Go back to previous location |
-| `<C-I>`     | Go forward                   |
+| `<C-O>`  | Go back to previous location |
+| `<C-I>`  | Go forward                   |
 | ---      | ---                          |
 | `gf`     | go to file in cursor         |
 {: .-shortcuts}

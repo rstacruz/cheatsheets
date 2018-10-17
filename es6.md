@@ -6,7 +6,7 @@ tags: [Featured]
 updated: 2017-10-21
 weight: -10
 intro: |
-  A quick overview of new JavaScript features in ES2015, ES2016, ES2017 and beyond.
+  A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
 ---
 
 ### Block scoping
@@ -154,6 +154,20 @@ promise
 ```
 {: data-line="2,3"}
 
+
+### Using promises with finally
+
+```js
+promise
+  .then((result) => { ··· })
+  .catch((error) => { ··· })
+  .finally(() => { // logic independent of success/error })
+```
+{: data-line="4"}
+
+The handler is called when the promise is fulfilled or rejected.
+
+
 ### Promise functions
 
 ```js
@@ -272,6 +286,17 @@ for (let {title, artist} of songs) {
 {: data-line="1"}
 
 The assignment expressions work in loops, too.
+
+
+### Object destructuring
+
+```js
+const { id, ...detail } = song;
+```
+{: data-line="1"}
+
+Extract some individually and others objects in the group using "rest (...) operator"
+
 
 Spread
 ------

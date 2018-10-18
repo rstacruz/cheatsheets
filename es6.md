@@ -474,6 +474,21 @@ let handlers = {
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
+
+### Extract values
+
+```js
+const fatherJS = { age: 57, name: "Brendan Eich" }
+
+Object.values(fatherJS)
+// [57, "Brendan Eich"]
+Object.entries(fatherJS)
+// [["age", 57], ["name", "Brendan Eich"]]
+```
+
+{: data-line="3,5"}
+
+
 Modules
 -------
 

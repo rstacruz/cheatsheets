@@ -2,7 +2,7 @@
 title: Enzyme
 category: React
 layout: 2017/sheet
-updated: 2017-10-12
+updated: 2018-10-18
 tags: [Featured]
 weight: -1
 keywords:
@@ -12,7 +12,7 @@ keywords:
   - "wrap.find().simulate('click')"
   - "wrap.contains(<div/>)"
 intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+  [Enzyme](https://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 ---
 
 ## Getting started
@@ -36,8 +36,8 @@ wrap = mount(<MyComponent />)
 Shallow wrapping doesn't descend down to sub-components.
 A full mount also mounts sub-components.
 
-See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
-[Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
+See: [Shallow rendering](https://airbnb.io/enzyme/docs/api/shallow.html),
+[Full rendering](https://airbnb.io/enzyme/docs/api/mount.html)
 
 ### Debugging
 
@@ -47,7 +47,7 @@ console.log(wrap.debug())
 
 Shows HTML for debugging purposes.
 
-See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+See: [debug()](https://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## Examples
 {: .-three-column}
@@ -83,8 +83,8 @@ wrap.setState({ show: true })
 #### Asserting
 
 ```js
-expect(wrap.props('name')).toEqual('Moe')
-expect(wrap.state('show')).toEqual(true)
+expect(wrap.props().name).toEqual('Moe')
+expect(wrap.state().show).toEqual(true)
 ```
 
 ```js

@@ -423,6 +423,7 @@ echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
+Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate

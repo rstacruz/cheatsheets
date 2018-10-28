@@ -475,7 +475,7 @@ See: [Delete](http://knexjs.org/#Builder-del)
 
 ### Setting up
 
-#### Creates knexfile.js
+#### Create knexfile.js
 
 ```
 ./node_modules/.bin/knex init
@@ -485,6 +485,7 @@ See: [Delete](http://knexjs.org/#Builder-del)
 
 ```
 knex migrate:make migration_name
+knex migrate:make migration_name --env production
 ```
 
 #### Run migrations
@@ -498,6 +499,7 @@ knex migrate:latest --env production
 
 ```
 knex migrate:rollback
+knex migrate:rollback --env production
 ```
 
 See: [Migrations](http://knexjs.org/#Migrations)

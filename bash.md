@@ -154,8 +154,8 @@ echo ${STR:-5:5}  # "world"
 
 ```bash
 SRC="/path/to/foo.cpp"
-BASE=${STR##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
+DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 ```
 
 ### Substitution

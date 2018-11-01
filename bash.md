@@ -331,6 +331,7 @@ Conditionals
 | `[ NUM -gt NUM ]`        | Greater than          |
 | `[ NUM -ge NUM ]`        | Greater than or equal |
 | ---                      | ---                   |
+| `[[ STRING == STRING ]]` | Equal                 |
 | `[[ STRING =~ STRING ]]` | Regexp                |
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
@@ -376,6 +377,11 @@ fi
 if [ X ] && [ Y ]; then
   ...
 fi
+```
+
+```bash
+# Equal
+if [[ "$A" == "$B" ]]
 ```
 
 ```bash

@@ -92,3 +92,18 @@ $person->setName('bob');
 
 echo $person->getName();
 ```
+
+### isset vs empty
+```php
+
+$options = [
+  'key' => 'value',
+  'blank' => '',
+  'nothing' => null,
+];
+
+var_dump(isset($options['key']), empty($options['key'])); // true, false
+var_dump(isset($options['blank']), empty($options['blank'])); // true, true
+var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
+
+```

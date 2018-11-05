@@ -44,6 +44,7 @@ title: Python
 
     for item in ["a", "b", "c"]:
     for i in range(4):     # 0 to 3
+    for i in reversed(range(4)):  # 3 down to 0
     for i in range(4, 8):  # 4 to 7
     for key, val in dict.items():
 

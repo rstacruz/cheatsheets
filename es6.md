@@ -367,7 +367,7 @@ See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread
 ```js
 setTimeout(() => {
   ···
-})
+,300 })
 ```
 {: data-line="1"}
 

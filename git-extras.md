@@ -42,23 +42,23 @@ Also `git-bug` and `git-refactor`.
 
 ### Tags
 
-     $ git release v1.0.0           # commit, tag, push-tags
-     $ git delete-tag v1.0.0
+    $ git release v1.0.0           # commit, tag, push-tags
+    $ git delete-tag v1.0.0
 
 ### Conveniences
 
-     $ git ignore "*.log"
+    $ git ignore "*.log"
 
 ### Locking
 
 Assumes that changes will not be committed.
 
-     $ git lock config/database.yml
-     $ git unlock config/database.yml
+    $ git lock config/database.yml
+    $ git unlock config/database.yml
 
 ### Etc
 
-     $ git obliterate secret.yml   # remove all references to it
+    $ git obliterate secret.yml   # remove all references to it
 
 ### References
 

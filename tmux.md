@@ -8,7 +8,23 @@ title: tmux
       -u        # UTF8 mode
       -S ~/.tmux.socket
 
-    $ tmux attach
+#### Sessions
+
+    $ tmux new
+    $ tmux new -s session_name
+
+    $ tmux attach # Default session
+    $ tmux attach -s session_name
+
+    $ tmux switch -t session_name
+
+    $ tmux ls     # List sessions
+
+    $ tmux detach
+
+#### Windows
+
+    $ tmux new-window
 
 ### Help
 

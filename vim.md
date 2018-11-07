@@ -368,7 +368,7 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 | `zg`                         | Add word to spell list                                |
 {: .-shortcuts}
 
-See :help spell
+See `:help spell`
 
 
 Also see

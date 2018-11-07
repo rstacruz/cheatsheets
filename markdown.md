@@ -109,3 +109,13 @@ codeFences.withLanguage()
 ```markdown
 ****
 ```
+
+### Table
+```markdown
+Tables|Are|Cool
+---|:---:|---:
+left-aligned|centered|right-aligned
+```
+Tables|Are|Cool
+---|:---:|---:
+left-aligned|centered|right-aligned

@@ -34,6 +34,14 @@ find <path> <conditions> <actions>
 ```
 
 ```bash
+-size 8            # Exactly 8 512-bit blocks 
+-size -128c        # Smaller than 128 bytes
+-size 1440k        # Exactly 1440KiB
+-size +10M         # Larger than 10MiB
+-size +2G          # Larger than 2GiB
+```
+
+```bash
 -newer   file.txt
 -newerm  file.txt        # modified newer than file.txt
 -newerX  file.txt        # [c]hange, [m]odified, [B]create

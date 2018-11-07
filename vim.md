@@ -111,6 +111,9 @@ Getting started
 | ---      | ---                                 |
 | `r`      | Replace one character               |
 | `R`      | Enter Replace mode                  |
+| ---      | ---                                 |
+| `u`      | Undo changes                        |
+| `<C-R>`  | Redo changes                        |
 {: .-shortcuts}
 
 ### Exiting insert mode

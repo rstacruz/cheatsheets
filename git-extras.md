@@ -34,7 +34,11 @@ Also `git-bug` and `git-refactor`.
 
 ### Github
 
-     $ git fork strongloop/express
+    $ git fork strongloop/express
+    # sync your fork with the original repository:
+    $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+    $ git fetch upstream; git merge upstream/master
+
 
 ### Tags
 

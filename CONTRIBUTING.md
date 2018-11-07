@@ -27,7 +27,7 @@ First time setup:
 docker-compose build
 
 # First-time setup
-docker-compose run --rm web bundle install
+docker-compose run --rm web bundle install && yarn
 ```
 
 Starting the server:

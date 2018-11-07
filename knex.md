@@ -43,7 +43,7 @@ knex('users')
 ```
 {: data-line="2"}
 
-See: [Select](#elect-1)
+See: [Select](#select-1)
 
 ### Insert
 

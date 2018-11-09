@@ -96,7 +96,10 @@ body {
 
 #### with a default variable
 
+```scss
+// Set a default value
 $default-padding: 10px;
+```
 
 ```scss
 @mixin pad($n: $default-padding) {
@@ -109,8 +112,6 @@ body {
   @include pad(15px);
 }
 ```
-
-This way default values can be overwritten without overwriting the mixin.
 
 ### Extend
 

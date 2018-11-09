@@ -388,7 +388,7 @@ numbers.map(n => n * 2)
 numbers.map(n => ({
   result: n * 2
 })
-// Implicitly returning objects requires parantheses around the object
+// Implicitly returning objects requires parentheses around the object
 ```
 {: data-line="1,4,5,6"}
 

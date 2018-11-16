@@ -385,8 +385,12 @@ readFile('text.txt', (err, data) => {
 numbers.map(n => n * 2)
 // No curly braces = implicit return
 // Same as: numbers.map(function (n) { return n * 2 })
+numbers.map(n => ({
+  result: n * 2
+})
+// Implicitly returning objects requires parentheses around the object
 ```
-{: data-line="1"}
+{: data-line="1,4,5,6"}
 
 Like functions but with `this` preserved.
 See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)

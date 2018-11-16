@@ -6,7 +6,7 @@ tags: [Featured]
 updated: 2017-10-21
 weight: -10
 intro: |
-  A quick overview of new JavaScript features in ES2015, ES2016, ES2017 and beyond.
+  A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
 ---
 
 ### Block scoping
@@ -69,6 +69,9 @@ See: [Binary and octal literals](https://babeljs.io/learn-es2015/#binary-and-oct
 "hello".repeat(3)
 "hello".includes("ll")
 "hello".startsWith("he")
+"hello".padStart(8) // "   hello"
+"hello".padEnd(8) // "hello   " 
+"hello".padEnd(8, '!') // hello!!!
 "\u1E9B\u0323".normalize("NFC")
 ```
 
@@ -153,6 +156,20 @@ promise
   .catch((error) => { ··· })
 ```
 {: data-line="2,3"}
+
+
+### Using promises with finally
+
+```js
+promise
+  .then((result) => { ··· })
+  .catch((error) => { ··· })
+  .finally(() => { // logic independent of success/error })
+```
+{: data-line="4"}
+
+The handler is called when the promise is fulfilled or rejected.
+
 
 ### Promise functions
 
@@ -272,6 +289,17 @@ for (let {title, artist} of songs) {
 {: data-line="1"}
 
 The assignment expressions work in loops, too.
+
+
+### Object destructuring
+
+```js
+const { id, ...detail } = song;
+```
+{: data-line="1"}
+
+Extract some individually and others objects in the group using "rest (...) operator"
+
 
 Spread
 ------
@@ -449,6 +477,21 @@ let handlers = {
 {: data-line="3"}
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
+
+
+### Extract values
+
+```js
+const fatherJS = { age: 57, name: "Brendan Eich" }
+
+Object.values(fatherJS)
+// [57, "Brendan Eich"]
+Object.entries(fatherJS)
+// [["age", 57], ["name", "Brendan Eich"]]
+```
+
+{: data-line="3,5"}
+
 
 Modules
 -------

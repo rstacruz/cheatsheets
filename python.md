@@ -78,6 +78,7 @@ title: Python
     float(str)
     str(int)
     str(float)
+    'string'.encode()
 
 ### Comprehensions
 

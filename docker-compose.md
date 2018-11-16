@@ -196,3 +196,64 @@ services:
     extra_hosts:
       - "somehost:192.168.1.100"
 ```
+
+### Networking
+
+```yaml
+networks:
+  network_name:
+    driver: bridge
+```
+
+### Alias
+
+```yaml
+services:
+  nginx:
+    image: nginx:latest
+    ...
+    networks:
+      network_name:
+        aliases:
+          - app.docker.local
+```
+
+### Volumes
+
+```yaml
+services:
+  mysql:
+    image: mysql:latest
+    ...
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
+    driver: local
+```
+
+### Bind Mounts
+
+```yaml
+services:
+  mysql:
+    image: mysql:latest
+    ...
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+```
+
+### Health Check
+
+```yaml
+services:
+  nginx:
+    image: nginx:latest
+    ...
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1 && echo 'OK'"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+```

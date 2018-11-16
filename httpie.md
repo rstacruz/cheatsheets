@@ -47,6 +47,7 @@ Print options:
                          # h: response headers
                          # b: response body
     --pretty=none        # all | colors | format
+    --json | -j          # Response is serialized as a JSON object.
 ```
 
 #### Authentication

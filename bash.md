@@ -481,7 +481,7 @@ History
 
 ### Operations
 
-| `sudo !!` | Execute last command as root |         
+| `!!` | Execute last command again |         
 | `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |

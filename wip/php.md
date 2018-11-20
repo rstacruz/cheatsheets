@@ -1,6 +1,6 @@
 ---
 title: PHP
-category: Other
+category: PHP
 layout: 2017/sheet
 prism_languages: [php]
 ---

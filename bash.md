@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2018-11-19
 keywords:
   - Variables
   - Functions
@@ -333,7 +333,6 @@ Conditionals
 | `[ NUM -gt NUM ]`        | Greater than          |
 | `[ NUM -ge NUM ]`        | Greater than or equal |
 | ---                      | ---                   |
-| `[[ STRING == STRING ]]` | Equal                 |
 | `[[ STRING =~ STRING ]]` | Regexp                |
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |

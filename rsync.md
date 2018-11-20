@@ -66,7 +66,7 @@ rsync -avz ./src/ /dest
 ```bash
 --exclude-from=FILE
 --include-from=FILE
---files-from=FILE    # read list of filenames from FILe
+--files-from=FILE    # read list of filenames from FILE
 ```
 
 ### Archive options

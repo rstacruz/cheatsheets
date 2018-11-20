@@ -298,7 +298,7 @@ const { id, ...detail } = song;
 ```
 {: data-line="1"}
 
-Extract some individually and others objects in the group using "rest (...) operator"
+Extract some keys individually and remaining keys in the object using rest (...) operator
 
 
 Spread

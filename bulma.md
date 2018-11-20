@@ -1,9 +1,10 @@
 ---
 title: Bulma
+category: CSS
 layout: 2017/sheet
 prism_languages: [css, html]
 weight: -1
-updated: 2018-03-06
+updated: 2018-11-19
 authors:
   - github: benolot
 description: |
@@ -94,10 +95,9 @@ The following classes **transform** the text
 
 ### WYSIWYG Content
 
-To provide default stylings for commonly generated WYSIWYG contents, use the
-`.content` class.
 ```html
 <div class="content">
+  <!-- start WYSIWYG contents -->
   <h1>Heading</h1>
   <p>Paragraph</p>
 
@@ -105,5 +105,8 @@ To provide default stylings for commonly generated WYSIWYG contents, use the
     <li>Item 1</li>
     <li>Item 2</li>
   </ul>
+  <!-- end WYSIWYG contents -->
 </div>
 ```
+
+To provide default stylings for commonly generated WYSIWYG contents, use the `.content` class.

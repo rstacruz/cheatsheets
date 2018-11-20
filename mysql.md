@@ -155,7 +155,7 @@ category: Databases
      ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)
     
 ### Reset Root Password
-    <code>$ /etc/init.d/mysql stop
+    $ /etc/init.d/mysql stop
     $ mysqld_safe --skip-grant-tables
     $ mysql # on another terminal
     mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';

@@ -85,7 +85,6 @@ end
 
 
 ```elixir
-
 defp my_hook(_context) do
   # Invoked in every block in "a block"
   {:ok, name: "John", age: 54}
@@ -99,12 +98,10 @@ describe "a block" do
     assert context[:age] == 54
   end
 end
-
-
 ```
 
 
 ## Also see
 {: .-one-column}
 
-- <http://devdocs.io/elixir/ex_unit/exunit#configure/1>
+* [ExUnit Docs](http://devdocs.io/elixir/ex_unit/exunit#configure/1)

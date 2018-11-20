@@ -1,13 +1,14 @@
 ---
 title: MySql
+category: Databases
 ---
- ### Create / Delete Database
+### Create / Delete Database
     CREATE DATABASE dbNameYouWant
     CREATE DATABASE dbNameYouWant CHARACTER SET utf8
     DROP DATABASE dbNameYouWant
     ALTER DATABASE dbNameYouWant CHARACTER SET utf8
     
- ### Backup Database to SQL File
+### Backup Database to SQL File
     mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
     
 ### Restore from backup SQL File
@@ -24,7 +25,7 @@ title: MySql
     SHOW PROCESSLIST
     KILL process_number
     
- ### Select
+### Select
     SELECT * FROM table
     SELECT * FROM table1, table2, ...
     SELECT field1, field2, ... FROM table1, table2, ...
@@ -37,12 +38,12 @@ title: MySql
     SELECT DISTINCT field1 FROM ...
     SELECT DISTINCT field1, field2 FROM ...
     
- ### Select - Join
+### Select - Join
     SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition
     SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition
     SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 
- ### Conditions
+### Conditions
     field1 = value1
     field1 <> value1
     field1 LIKE 'value _ %'

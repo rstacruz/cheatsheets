@@ -149,7 +149,7 @@ echo ${STR/foo/bar} # /path/to/bar.cpp
 ```bash
 STR="Hello world"
 echo ${STR:6:5}   # "world"
-echo ${STR:-5:5}  # "world"
+echo ${STR: -5:5}  # "world"
 ```
 
 ```bash
@@ -191,7 +191,7 @@ comment
 ### Substrings
 
 | `${FOO:0:3}`  | Substring _(position, length)_ |
-| `${FOO:-3:3}` | Substring from the right |
+| `${FOO: -3:3}` | Substring from the right |
 
 ### Length
 

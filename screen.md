@@ -13,6 +13,7 @@ title: screen
 ### Enter / Quit
     $ screen -S foo                 # Create a screen named "foo"
     $ screen -x foo                 # Attach to an existing screen named "foo"
+    $ screen -ls                    # List of existed screens
     [^A] [d] or [^A] [^D]           # Detach current screen
     exit or [^D] (in screen shell)  # Exit the shell starting the screen thus exit the screen
     

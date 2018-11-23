@@ -8,19 +8,17 @@ title: screen
     [a]                              # [a]
     [A]                              # [Shi­ft] + [a]
     [^A] [A]                         # [Control] + [a] then [Shi­ft] + [a]
-    [^A] [A]                         # different from [^A­][­a]
+    [^A] [A]                         # Different from [^A­][­a]
 
 ### Enter / Quit
-
-    $ screen -S foo                 # create a screen named "foo"
-    $ screen -x foo                 # attach to an existing screen named "foo"
-    [^A] [d] or [^A] [^D]           # detach current screen
-    exit or [^D] (in screen shell)  # exit the shell starting the screen thus exit the screen
+    $ screen -S foo                 # Create a screen named "foo"
+    $ screen -x foo                 # Attach to an existing screen named "foo"
+    [^A] [d] or [^A] [^D]           # Detach current screen
+    exit or [^D] (in screen shell)  # Exit the shell starting the screen thus exit the screen
     
 #### Window (screen tabs)
-
     [^A] [c]                        # Create a new window
-    exit or [^D] (in screen shell)  # exit the current shell created by the window, thus exit the window
+    exit or [^D] (in screen shell)  # Exit the current shell created by the window, thus exit the window
     [^A] [0]                        # Go to window 0
     [^A] [3]                        # Go to window 3
     [^A] [n]                        # Go to next window

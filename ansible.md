@@ -91,7 +91,7 @@ category: Ansible
     vars:
       local_home: "{{ lookup('env','HOME') }}"
 
-## Refereneces
+## References
 
   * [Intro](http://www.ansibleworks.com/docs/intro_configuration.html)
   * [Modules](http://www.ansibleworks.com/docs/modules.html)

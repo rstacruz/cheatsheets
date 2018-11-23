@@ -3,10 +3,11 @@ title: Vim
 category: Vim
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2018-09-11
 weight: -10
 intro: |
-  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.
+ [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
+ For shortcut notation, see `:help key-notation`.
 ---
 
 Getting started
@@ -33,30 +34,67 @@ Getting started
 
 ### Navigating
 
-| `h` `j` `k` `l` | Arrow keys                         |
-| `^u` _/_ `^d`   | Page up/page down                  |
+| Shortcut            | Description       |
+| ---                 | ---               |
+| `h` `j` `k` `l`     | Arrow keys        |
+| `<C-U>` _/_ `<C-D>` | Page up/page down |
 {: .-shortcuts}
 
 #### Words
 
-| `b` _/_ `w`     | Previous/next word                 |
-| `e` _/_ `ge`    | Previous/next end of word          |
+| Shortcut     | Description               |
+| ---          | ---                       |
+| `b` _/_ `w`  | Previous/next word        |
+| `e` _/_ `ge` | Previous/next end of word |
 {: .-shortcuts}
 
 #### Line
 
-| `0` _(zero)_    | Start of line                      |
-| `^`             | Start of line _(after whitespace)_ |
-| `$`             | End of line                        |
+| Shortcut     | Description                        |
+| ---          | ---                                |
+| `0` _(zero)_ | Start of line                      |
+| `^`          | Start of line _(after whitespace)_ |
+| `$`          | End of line                        |
+{: .-shortcuts}
+
+#### Character
+
+| `fc`  | Go forward to character `c`  |
+| `Fc`  | Go backward to character `c` |
 {: .-shortcuts}
 
 #### Document
 
-| `gg`            | First line                         |
-| `G`             | Last line                          |
-| `:n`            | Go to line `n`                     |
-| `nG`            | Go to line `n`                     |
+| Shortcut | Description    |
+| ---      | ---            |
+| `gg`     | First line     |
+| `G`      | Last line      |
+| `:n`     | Go to line `n` |
+| `nG`     | Go to line `n` |
 {: .-shortcuts}
+
+#### Window
+
+| Shortcut | Description              |
+| ---      | ---                      |
+| `zz`     | Center this line         |
+| `H`      | Move to top of screen    |
+| `M`      | Move to middle of screen |
+| `L`      | Move to bottom of screen |
+{: .-shortcuts}
+
+#### Tab pages
+
+| Shortcut              | Description                     |
+| ---                   | ---                             |
+| `:tabedit [file]`     | Edit file in a new tab          |
+| `:tabfind [file]`     | Open file if exists in new tab  |
+| `:tabclose`           | Close current tab               |
+| `:tabs`               | List all tabs                   | 
+| `:tabfirst`           | Go to first tab                 |
+| `:tablast`            | Go to last tab                  |
+| `:tabn    `           | Go to next tab                  |
+| `:tabp    `           | Go to previous tab              |
 
 ### Editing
 
@@ -73,14 +111,17 @@ Getting started
 | ---      | ---                                 |
 | `r`      | Replace one character               |
 | `R`      | Enter Replace mode                  |
+| ---      | ---                                 |
+| `u`      | Undo changes                        |
+| `<C-R>`  | Redo changes                        |
 {: .-shortcuts}
 
 ### Exiting insert mode
 
-| Shortcut | Description |
-| --- | --- |
-| `Esc` _/_ `^[` | Exit insert mode |
-| `^c` | Exit insert mode, and abort current command |
+| Shortcut          | Description |
+| ---               | ---         |
+| `Esc` _/_ `<C-[>` | Exit insert mode |
+| `<C-C>`           | Exit insert mode, and abort current command |
 {: .-shortcuts}
 
 ### Clipboard
@@ -98,13 +139,17 @@ Getting started
 
 ### Visual mode
 
-| `v`         | Enter visual mode       |
-| `V`         | Enter visual line mode  |
-| `^v`        | Enter visual block mode |
+| Shortcut | Description             |
+| ---      | ---                     |
+| `v`      | Enter visual mode       |
+| `V`      | Enter visual line mode  |
+| `<C-V>`  | Enter visual block mode |
 {: .-shortcuts}
 
 #### In visual mode
 
+| Shortcut    | Description             |
+| ---         | ---                     |
 | `d` _/_ `x` | Delete selection        |
 | `s`         | Replace selection       |
 | `y`         | Yank selection _(Copy)_ |
@@ -119,7 +164,7 @@ Operators
 ### Usage
 {: .-prime}
 
-Operators let you operate in a range of text (defined by *motion*). These are preformed in normal mode.
+Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 {: .-setup}
 
 | `d`      | `w`    |
@@ -208,6 +253,13 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 
 See [Operators](#operators) for other things you can do.
 
+### Diff
+ 
+| Shortcut                             | Description                              |
+| ---                                  | ---                                      |
+| `gvimdiff file1 file2 [file3]`       | See differencies between files, in HMI   |
+ 
+
 Misc
 ----
 
@@ -236,27 +288,29 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut            | Description                |
 | ---                 | ---                        |
-| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
-| `])`                | next                       |
+| `[(` `[{` `[<`      | Previous `(` or `{` or `<` |
+| `])`                | Next                       |
 | ---                 | ---                        |
-| `[m`                | previous method start      |
-| `[M`                | previous method end        |
+| `[m`                | Previous method start      |
+| `[M`                | Previous method end        |
 {: .-shortcuts}
 
 ### Jumping
 
 | Shortcut | Description                  |
 | ---      | ---                          |
-| `^O`     | Go back to previous location |
-| `^I`     | Go forward                   |
+| `<C-O>`  | Go back to previous location |
+| `<C-I>`  | Go forward                   |
 | ---      | ---                          |
-| `gf`     | go to file in cursor         |
+| `gf`     | Go to file in cursor         |
 {: .-shortcuts}
 
 ### Counters
 
-| `^A` | increment number |
-| `^X` | decrement |
+| Shortcut | Description      |
+| ---      | ---              |
+| `<C-A>`  | Increment number |
+| `<C-X>`  | Decrement        |
 {: .-shortcuts}
 
 ### Windows
@@ -269,10 +323,10 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---                   | ---                                             |
 | `:tag Classname`      | Jump to first definition of Classname           |
 | ---                   | ---                                             |
-| `^]`                  | Jump to definition                              |
+| `<C-]>`               | Jump to definition                              |
 | `g]`                  | See all definitions                             |
-| `^t`                  | Go back to last tag                             |
-| `^o ^i`               | Back/forward                                    |
+| `<C-T>`               | Go back to last tag                             |
+| `<C-O> <C-I>`         | Back/forward                                    |
 | ---                   | ---                                             |
 | `:tselect Classname`  | Find definitions of Classname                   |
 | `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
@@ -282,44 +336,44 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description                          |
 | ---      | ---                                  |
-| `~`      | toggle case (Case => cASE)           |
-| `gU`     | uppercase                            |
-| `gu`     | lowercase                            |
+| `~`      | Toggle case (Case => cASE)           |
+| `gU`     | Uppercase                            |
+| `gu`     | Lowercase                            |
 | ---      | ---                                  |
-| `gUU`    | uppercase current line (also `gUgU`) |
-| `guu`    | lowercase current line (also `gugu`) |
+| `gUU`    | Uppercase current line (also `gUgU`) |
+| `guu`    | Lowercase current line (also `gugu`) |
 {: .-shortcuts}
 
-Do these in visual mode.
+Do these in visual or normal mode.
 
 ### Marks
 
-| Shortcut        | Description                            |
-| ---             | ---                                    |
-| <code>`^</code> | Last position of cursor in insert mode |
-| <code>`.</code> | Last change                            |
-| <code>``</code> | Last jump                              |
-| ---             | ---                                    |
-| `ma`            | Mark this cursor position as `a`       |
-| `'a`            | Jump to cursor position `a`            |
+| Shortcut        | Description                                        |
+| ---             | ---                                                |
+| <code>`^</code> | Last position of cursor in insert mode             |
+| <code>`.</code> | Last change                                        |
+| <code>``</code> | Last jump                                          |
+| ---             | ---                                                |
+| `ma`            | Mark this cursor position as `a`                   |
+| <code>`a</code> | Jump to the cursor position `a`                    |
+| `'a`            | Jump to the beginning of the line with position `a`|
 {: .-shortcuts}
 
 ### Misc
 
 | Shortcut | Description                               |
 | ---      | ---                                       |
-| `.`      | repeat last command                       |
-| `]p`     | paste under the current indentation level |
-| ---      | ---                                       |
-| `zz`     | Center this line                          |
+| `.`      | Repeat last command                       |
+| `]p`     | Paste under the current indentation level |
 {: .-shortcuts}
 
 ### Command line
 
 | Shortcut     | Description                               |
 | ---          | ---                                       |
-| `<C-r><C-w>` | insert current word into the command line |
-| `<C-r>"`     | paste from " register                     |
+| `<C-R><C-W>` | Insert current word into the command line |
+| `<C-R>"`     | Paste from " register                     |
+| `<C-X><C-F>` | Auto-completion of path in insert mode    |
 {: .-shortcuts}
 
 ### Text alignment
@@ -332,7 +386,9 @@ See `:help formatting`
 
 ### Calculator
 
-    <C-r>=128/2
+| Shortcut      | Description                               |
+| ---           | ---                                       |
+| `<C-R>=128/2` | Shows the result of the division : '64'   |
 
 Do this in insert mode.
 
@@ -343,18 +399,22 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
-### Spell-check
 
-| Shortcut | Description                  |
-| ---      | ---                          |
-| `]s`     | Go to next bad/mispelled word  |
-| `[s`     | Go to next bad word, backwards |
-| ---      | ---                          |
-| `zu` / `C-X (Insert Mode)` | Suggest words for bad word under cursor from spellfile  |
-| ---      | ---                          |
-| `zg`  | Add bad word to spellfile (mark as good)        |
-| `zw`  | Mark word as bad/mispelling        |
+### Spell checking
+
+| Shortcut                     | Description                                             |
+| ---                          | ---                                                     |
+| `:set spell spelllang=en_us` | Turn on US English spell checking                       |
+| `]s`                         | Move to next misspelled word after the cursor           |
+| `[s`                         | Move to previous misspelled word before the cursor      |
+| `z=`                         | Suggest spellings for the word under/after the cursor   |
+| `zg`                         | Add word to spell list                                  |
+| `zw`                         | Mark word as bad/mispelling                             |
+| `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
+
+See `:help spell`
+
 
 Also see
 --------

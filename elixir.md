@@ -59,7 +59,7 @@ users = [ "Tom", "Dick", "Harry" ]
 {: data-line="1"}
 
 ```elixir
-Enum.map(user, fn user ->
+Enum.map(users, fn user ->
   IO.puts "Hello " <> user
 end)
 ```
@@ -116,6 +116,18 @@ else
   "This will"
 end
 ```
+### Case
+
+```elixir
+case {1, 2, 3} do
+  {4, 5, 6} ->
+    "This clause won't match"
+  {1, x, 3} ->
+    "This will match and bind x to 2"
+  _ ->
+   "This will match any value"
+end
+```
 
 ### Cond
 
@@ -125,7 +137,7 @@ cond do
     "I will never be seen"
   2 * 5 == 12 ->
     "Me neither"
-  _ ->
+  true ->
     "But I will (this is essentially an else)"
 end
 ```
@@ -155,7 +167,7 @@ end
 | `23`                    | Integer         |
 | `3.14`                  | Float           |
 | ---                     | ---             |
-| `'hello'`               | Char list       |
+| `'hello'`               | Charlist        |
 | `<<2, 3>>`              | Binary          |
 | `"hello"`               | Binary string   |
 | `:hello`                | Atom            |
@@ -259,6 +271,9 @@ inspect(object, opts \\ [])
 ```elixir
 value |> IO.inspect()
 ```
+```elixir
+value |> IO.inspect(label: "value")
+```
 
 ## Numbers
 
@@ -308,7 +323,7 @@ n = 12
 
 ```elixir
 n |> digits()         # → [1, 2]
-n |> to_char_list()   # → '12'
+n |> to_charlist()    # → '12'
 n |> to_string()      # → "12"
 n |> is_even()
 n |> is_odd()
@@ -317,7 +332,7 @@ n |> is_odd()
 ```elixir
 # Different base:
 n |> digits(2)        # → [1, 1, 0, 0]
-n |> to_char_list(2)  # → '1100'
+n |> to_charlist(2)   # → '1100'
 n |> to_string(2)     # → "1100"
 ```
 
@@ -466,7 +481,7 @@ list |> any?()        # → true
 ```
 
 ```elixir
-list |> concat([:d])  # → [:d]
+list |> concat([:d])  # → [:a, :b, :c, :d]
 ```
 
 Also, consider streams instead.
@@ -674,9 +689,9 @@ exp = ~r/hello/i
 ```elixir
 ~r/regexp/
 ~w(list of strings)
-~s[strings with #{interpolation} and \x20 escape codes]
-~S[no interpolation and no escapes]
-~c(char list)
+~s|strings with #{interpolation} and \x20 escape codes|
+~S|no interpolation and no escapes|
+~c(charlist)
 ```
 
 Allowed chars: `/` `|` `"` `'` `(` `[` `{` `<` `"""`.

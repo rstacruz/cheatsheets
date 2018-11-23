@@ -1,6 +1,8 @@
 ---
 title: Mobx
 category: JavaScript libraries
+layout: 2017/sheet
+updated:  2017-05-14
 ---
 
 ### Properties
@@ -19,7 +21,7 @@ class Page {
 }
 ```
 
-## Actions
+### Actions
 
 ```js
 class Page {
@@ -30,7 +32,7 @@ class Page {
 }
 ```
 
-## Plain objects
+### Plain objects
 
 ```js
 const person = observable({
@@ -46,6 +48,8 @@ temp.observe(...)
 ```
 
 ## Reactions
+
+### Importing
 
 ```js
 import {autorun, autorunAsync, when} from 'mobx'
@@ -90,6 +94,8 @@ render () {
 - `asFlat(array)` - JS array (observe its children)
 
 ## React
+
+### mobx-react
 
 ```js
 import { observer } from 'mobx-react'

@@ -1,0 +1,13 @@
+{% assign pixel_href = 'https://codefund.io/t/l/TOKEN/pixel.png' | replace: 'TOKEN', site.data.berry.token %}
+{% assign link_href = 'https://codefund.io/t/c/TOKEN/' | replace: 'TOKEN', site.data.berry.token %}
+
+<aside class='berry-sponsor' data-js-no-preview>
+  <div class='cs__wrapper'>
+    <div class='cs__header'>Proudly sponsored by</div>
+    <a href='{{ link_href }}' class='cs__blurb' target='_blank' rel='noopener'>
+      <strong>{{ site.data.berry.title }}</strong>
+      <span>{{ site.data.berry.description }}</span>
+    </a>
+    <img class='cs__pixel' src='{{ pixel_href }}' />
+  </div>
+</aside>

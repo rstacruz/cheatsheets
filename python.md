@@ -6,46 +6,48 @@ title: Python
 
     list = []
     list[i:j]  # returns list subset
-    list[-1]   # access last element
-    list[:-1]  # return all but the last element
+    list[-1]   # returns last element
+    list[:-1]  # returns all but the last element
     
     list[i] = val
     list[i:j] = otherlist  # replace ith to jth element with otherlist
     del list[i:j]
 
     list.append(item)
-    list.extend(list)
-    list.insert(0, item)
-    list.pop()
-    list.remove(i)
+    list.extend(another_list)
+    list.insert(index, item)
+    list.pop()        # returns and removes last element from the list
+    list.pop(i)       # returns and removes i-th element from the list
+    list.remove(i)    # removes the first item from the list whose value is i
     list1 + list2     # combine two list    
     set(list)         # remove duplicate elements from a list
 
-    list.reverse()
+    list.reverse()    # reverses the elements of the list in-place
     list.count(item)
     sum(list)
 
-    list.sort()
-
-    zip(list1, list2)
-    sorted(list)
-    ",".join(list)
+    zip(list1, list2)  # returns list of tuples with n-th element of both list1 and list2
+    list.sort()        # sorts in-place, returns None
+    sorted(list)       # returns sorted copy of list
+    ",".join(list)     # returns a string with list elements seperated by comma
 
 ### Dict
 
     dict.keys()
     dict.values()
-    "key" in dict
-    dict["key"]   # throws KeyError
-    dict.get("key")
+    "key" in dict    # let's say this returns False, then...
+    dict["key"]      # ...this raises KeyError
+    dict.get("key")  # ...this returns None
     dict.setdefault("key", 1)
 
 ### Iteration
 
     for item in ["a", "b", "c"]:
-    for i in range(4):     # 0 to 3
-    for i in range(4, 8):  # 4 to 7
+    for i in range(4):        # 0 to 3
+    for i in range(4, 8):     # 4 to 7
+    for i in range(1, 9, 2):  # 1, 3, 5, 7
     for key, val in dict.items():
+    for index, item in enumerate(list):
 
 ### [String](https://docs.python.org/2/library/stdtypes.html#string-methods)
 
@@ -74,6 +76,9 @@ title: Python
 
     int(str)
     float(str)
+    str(int)
+    str(float)
+    'string'.encode()
 
 ### Comprehensions
 

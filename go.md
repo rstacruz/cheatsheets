@@ -26,7 +26,7 @@ func main() {
   fmt.Println(message)
 }
 
-func greetMe(name string) (string) {
+func greetMe(name string) string {
   return "Hello, " + name + "!"
 }
 ```
@@ -176,7 +176,7 @@ if _, err := getResult(); err != nil {
 ```
 {: data-line="1"}
 
-A condition in an `if` statement can be preceeded with a statement before a `;`.
+A condition in an `if` statement can be preceded with a statement before a `;`.
 
 See: [If with a short statement](https://tour.golang.org/flowcontrol/6)
 
@@ -197,6 +197,27 @@ switch day {
 ```
 
 See: [Switch](https://github.com/golang/go/wiki/Switch)
+
+### For loop
+
+```go
+  for count := 0; count <= 10; count++ {
+		fmt.Println("My counter is at", count)
+	}
+```
+
+See: [For loops](https://tour.golang.org/flowcontrol/1)
+
+### For-Range loop
+
+```go
+  entry := []string{"Jack","John","Jones"}
+  for i, val := range entry {
+    fmt.Printf("At position %d, the character %s is present\n", i, val)
+  }
+```
+
+See: [For-Range loops](https://gobyexample.com/range)
 
 ## Functions
 {: .-three-column}
@@ -230,8 +251,8 @@ func getMessage() (a string, b string) {
 
 ```go
 func split(sum int) (x, y int) {
-  x := sum * 4 / 9
-  y := sum - x
+  x = sum * 4 / 9
+  y = sum - x
   return
 }
 ```
@@ -485,7 +506,7 @@ See: [Methods](https://tour.golang.org/methods/1)
 ```go
 func (v *Vertex) Scale(f float64) {
   v.X = v.X * f
-  v.y = v.Y * f
+  v.Y = v.Y * f
 }
 ```
 {: data-line="1"}
@@ -504,3 +525,8 @@ See: [Pointer receivers](https://tour.golang.org/methods/4)
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
+- [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_
+- [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
+- [Effective Go](https://golang.org/doc/effective_go.html) _(golang.org)_
+- [JustForFunc Youtube](https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw) _(youtube.com)_
+- [Style Guide](https://github.com/golang/go/wiki/CodeReviewComments) _(github.com)_

@@ -6,28 +6,30 @@ layout: 2017/sheet
 
 ### Basic RDoc format
 
-    # Foo.
-    # 
-    # @example
-    #
-    #   y
-    #   g
-    #
-    # @param [String] param_name The xx and xx.
-    #
-    # @see http://url.com
-    #
-    # @return [true] if so
+```rb
+# Foo.
+#
+# @example
+#
+#   y
+#   g
+#
+# @param [String] param_name The xx and xx.
+#
+# @see http://url.com
+#
+# @return [true] if so
+```
 
 ### Inline
 
-```
+```markdown
 *bold*
 _emphasized_
 +code+
 ```
 
-```
+```markdown
 http://www.link.com
 See Models::User@Examples
 {Google}[http://google.com]
@@ -45,14 +47,14 @@ module MyModule # :nodoc: all
 
 ### Definition lists
 
-```
+```rb
 # == Definition lists
 #
 # list::  hi.
 # +foo+:: parameterized
 ```
 
-```
+```rb
 # == Definition lists
 # [foo]   also
 # [bar]   like this
@@ -60,23 +62,29 @@ module MyModule # :nodoc: all
 
 ### Return types
 
-    # @return [String]
-    # @return [String, nil] the name
+```rb
+# @return [String]
+# @return [String, nil] the name
+```
 
 ### Callseq
 
-    # :call-seq:
-    #   ARGF.readlines(sep=$/)     -> array
-    #   ARGF.readlines(limit)      -> array
-    #   ARGF.readlines(sep, limit) -> array
-    # 
-    #   ARGF.to_a(sep=$/)     -> array
-    #   ARGF.to_a(limit)      -> array
-    #   ARGF.to_a(sep, limit) -> array
+```rb
+# :call-seq:
+#   ARGF.readlines(sep=$/)     -> array
+#   ARGF.readlines(limit)      -> array
+#   ARGF.readlines(sep, limit) -> array
+#
+#   ARGF.to_a(sep=$/)     -> array
+#   ARGF.to_a(limit)      -> array
+#   ARGF.to_a(sep, limit) -> array
+```
 
 ### Category
 
-    # :category: Utilities
+```rb
+# :category: Utilities
+```
 
 ### Sections
 
@@ -91,11 +99,11 @@ def expired?
 
 ### Using tomdoc
 
-```
+```rb
 # :markup: TomDoc
 ```
 
-Plase this at the beginning of the file.
+Place this at the beginning of the file.
 
 ## Also see
 {: .-one-column}

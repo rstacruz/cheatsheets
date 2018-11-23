@@ -1,9 +1,11 @@
 enabled: true
 names:
+  - Analytics
   - Ansible
   - Apps
   - CLI
   - CSS
+  - Databases
   - Devops
   - Elixir
   - Git
@@ -13,7 +15,9 @@ names:
   - Jekyll
   - Ledger
   - Markup
+  - macOS
   - Node.js
+  - PHP
   - Rails
   - React
   - Ruby

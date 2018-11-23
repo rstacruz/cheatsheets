@@ -5,6 +5,7 @@ layout: 2017/sheet
 prism_languages: [jade]
 updated: 2017-08-31
 weight: -3
+tags: [Featurable]
 ---
 
 ## Pug

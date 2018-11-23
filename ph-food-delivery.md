@@ -41,6 +41,7 @@ intro: |
 | Bonchon       | [bonchon.com.ph](http://bonchon.com.ph/food/main-menu/) _(menu)_    | `633-1818`  |
 | Chowking      | [chowkingdelivery.com](http://www.chowkingdelivery.com)             | `9-8888`    |
 | North Park    | [northparkdelivery.com](http://northparkdelivery.com/)              | `7-3737`    |
+| Yoshinoya     | [yoshinoya.ph](http://www.yoshinoya.ph/ordeonline.html/)            | `288-2888`  |
 {: .-bold-first.-headers.-no-wrap}
 
 ### Filipino
@@ -49,9 +50,17 @@ intro: |
 | ---           | ---                                                                 | ---         |
 | Amber's       | [amber.com.ph](http://onlineordering.amber.com.ph/)                 | `884-8888`  |
 | Goldilock's   | [goldilocksdelivery.com.ph](http://www.goldilocksdelivery.com.ph/)  | `888-1-999` |
-| Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `8-7000`    |
+| Jollibee      | [jollibeedelivery.com](http://jollibeedelivery.com)                 | `#8-7000`   |
 | Mang Inasal   | [manginasal.com](http://www.manginasal.com/menu/) _(menu)_          | `733-1111`  |
 | Max's         | [maxschicken.com](http://delivery.maxschicken.com/)                 | `7-9000`    |
+{: .-bold-first.-headers.-no-wrap}
+
+### Dessert
+
+| Restaurant    | Online order                                                        | Phone       |
+| ---           | ---                                                                 | ---         |
+| Krispy Kreme  | [now.krispykreme.com.ph](http://now.krispykreme.com.ph/)            | `7-9000`    |
+| Red Ribbon    | [redribbononlinestore.com](http://redribbononlinestore.com/)        | `8-7777`    |
 {: .-bold-first.-headers.-no-wrap}
 
 ## -

@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.5.0
+script:
+  - make -B _site
+  - if ! make test; then make test-warning; exit 16; fi
+cache:
+  directories:
+    - node_modules
+    - _site

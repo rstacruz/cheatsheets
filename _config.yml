@@ -22,6 +22,8 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - node_modules
+  - Dockerfile
+  - docker_compose.yml
 
 # Markdown
 

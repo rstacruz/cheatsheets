@@ -2,7 +2,7 @@
 title: Redux
 category: React
 layout: 2017/sheet
-updated: 2017-08-30
+updated: 2018-01-17
 weight: -3
 ---
 
@@ -91,7 +91,7 @@ import { connect } from 'react-redux'
 
 ```js
 // A functional React component
-function App ({ messasge, onMessageClick }) {
+function App ({ message, onMessageClick }) {
   return (
     <div onClick={() => onMessageClick('hello')}>
       {message}
@@ -126,7 +126,7 @@ export default connect(mapState, mapDispatch)(App)
 export default connect(
   (state) => ({
     message: state.message
-  })
+  }),
   (dispatch) => ({
     onMessageClick: (message) => {
       dispatch({ type: 'click', message })
@@ -136,6 +136,16 @@ export default connect(
 ```
 
 Same as above, but shorter.
+
+### Combining reducers
+
+```js
+const reducer = combineReducers({
+  counter, user, store
+})
+```
+
+Combines multiple reducers into one reducer function. See: [combineReducers](https://redux.js.org/docs/api/combineReducers.html) _(redux.js.org)_
 
 ## Middleware
 

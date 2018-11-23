@@ -1,20 +1,40 @@
 ---
-title: SQL Join
+title: SQL joins
+layout: 2017/sheet
+updated: 2017-10-30
+weight: -1
 ---
 
-```
-SELECT * FROM order_items LEFT OUTER JOIN orders ON order_items.order_id = orders.id
-```
+### Example
 
 ```
-.--------.
-| A  .---+----.
-|    | ∩ |    |
-'----+---'  B |
-     '--------'
+SELECT * FROM order_items \
+  LEFT OUTER JOIN orders \
+  ON order_items.order_id = orders.id
 ```
+{: .-wrap}
 
-* inner join = `∩`
-* left outer join = `A` + `∩`
-* right outer join = `∩` + `B`
-* full outer join = `A` + `∩` + `B`
+Joins are typically added to `SELECT` statements to add more columns and records.
+
+### Diagram
+
+```
+SELECT * FROM `A` INNER JOIN `B`
+```
+{: .-setup}
+
+```
+┌────────┐
+│ A  ┌───┼────┐
+│    │ ∩ │    │
+└────┼───┘  B │
+     └────────┘
+```
+{: .-box-chars.-setup}
+
+| Join             | What            |
+| ----             | ----            |
+| Inner join       | `∩`             |
+| Left outer join  | `A` + `∩`       |
+| Right outer join | `∩` + `B`       |
+| Full outer join  | `A` + `∩` + `B` |

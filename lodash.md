@@ -206,9 +206,9 @@ _.padRight(...)
 ### Trim
 
 ```js
-_.trim('  str  ')
-_.trimLeft('  str  ')
-_.trimRight('  str  ')
+_.trim('  str  ')         // → 'str' 
+_.trimLeft('  str  ')     // → 'str  '
+_.trimRight('  str  ')    // → '  str'
 ```
 
 ### Etc

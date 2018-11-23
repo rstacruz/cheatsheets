@@ -71,7 +71,7 @@ gremlins.createHorde()
 ```
 {: data-line="2,6"}
 
-### Asyncronous
+### Asynchronous
 
 ```js
 gremlins.createHorde()

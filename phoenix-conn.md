@@ -26,7 +26,8 @@ conn.req_headers   # → [{"content-type", "text/plain"}]
 ```
 
 ```elixir
-conn |> get_req_header("referrer")
+conn |> get_req_header("content-type")
+# → ["text/plain"]
 ```
 
 ### Updating conn

@@ -2,12 +2,38 @@
 
 ## Starting a local instance
 
-This starts Jekyll and Webpack.
+This starts Jekyll and Webpack. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
 
-```
+```bash
 yarn install
 bundle install
 env PORT=4001 yarn run dev
+```
+
+[node.js]: https://nodejs.org/en/download/package-manager/
+[ruby]: https://www.ruby-lang.org/en/documentation/installation/
+[yarn]: https://yarnpkg.com/en/docs/install
+[bundler]: https://bundler.io/
+
+### Docker
+
+You can also run a local instance using Docker. This is the preferred method, especially for Windows.
+You only need to install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Arch Linux](https://www.archlinux.org/packages/community/x86_64/docker/), [other](https://www.docker.com/community-edition#download)).
+
+First time setup:
+
+```bash
+# Build images (takes ~12mins)
+docker-compose build
+
+# First-time setup
+docker-compose run --rm web bundle install && yarn
+```
+
+Starting the server:
+
+```bash
+docker-compose up
 ```
 
 ## CSS classes
@@ -130,3 +156,26 @@ building web user interfaces...
 ### intro only
 
 If you left out `description` or `keywords`, a default description will be added.
+
+## Critical path CSS
+
+The critical path CSS is stored in:
+
+- `_includes/2017/critical/home.html`
+- `_includes/2017/critical/sheet.html`
+
+You'll need to update these every now and then when you change something in the CSS. Use this to update these snippets:
+
+```
+yarn run critical
+```
+
+You can temporarily disable critical path optimizations by loading it with `?nocrit=1`, eg, `https://devhints.io/?nocrit=1`.
+
+## Critical path JS
+
+There's JavaScript that's included inline in every page. It's entrypoint is:
+
+- `_js/critical.js`
+
+This is automatically compiled into the partial `_includes/2017/critical/critical.js`. Keep this bundle as small as possible.

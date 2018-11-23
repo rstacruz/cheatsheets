@@ -4,6 +4,7 @@ category: Ruby libraries
 layout: 2017/sheet
 weight: -5
 updated: 2017-08-30
+tags: [Featurable]
 ---
 
 ### Navigating

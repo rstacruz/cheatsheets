@@ -6,14 +6,14 @@ title: RESTful API
 
  * `200 OK` - successful get, patch (return a JSON object)
  * `201 Created` - successful post (return a JSON object)
- * `202 Accepted` - sucessful post, delete, path - async
+ * `202 Accepted` - successful post, delete, path - async
  * `204 No content` - successful delete
  * `206 Partial content` - successful get - async
 
 ### Error status
 
  * `401 Unauthorized` - not authenticated
- * `406 Forbidden` - authenticated but no permissions
+ * `403 Forbidden` - authenticated but no permissions
  * `422 Unprocessable entity` - validation
 
 ### Errors

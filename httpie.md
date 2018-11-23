@@ -47,9 +47,10 @@ Print options:
                          # h: response headers
                          # b: response body
     --pretty=none        # all | colors | format
+    --json | -j          # Response is serialized as a JSON object.
 ```
 
-Authentication:
+#### Authentication
 
 ```bash
     --session NAME
@@ -58,14 +59,14 @@ Authentication:
     --auth-type digest
 ```
 
-Session:
+#### Session
 
 ```bash
     --session NAME       # store auth and cookies
     --session-read-only NAME
 ```
 
-Downloading:
+#### Downloading
 
 ```bash
 -d, --download           # like wget
@@ -73,7 +74,7 @@ Downloading:
 -o, --output FILE
 ```
 
-Others:
+#### Others
 
 ```bash
 -F, --follow             # follow redirects

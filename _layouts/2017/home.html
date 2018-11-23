@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang='en'><head>
+<html class='NoJs' lang='en'><head>
 
 {% assign featured_pages = site.pages
   | where_exp: "page", "page.tags contains 'Featured'"
@@ -8,20 +8,20 @@
   | where_exp: "page", "page.updated"
   | sort: "updated", "first"
 %}
-{% include 2017/head.html %}
+{% include 2017/head.html critical='home' %}
 
 </head><body>
 
 {% include 2017/top-nav.html page=page is_home=true noedit=true noback=true %}
 
 {% if site.data.carbon.enabled %}
-  <div class='SideAd'>
+  <div class='SideAd' role='complementary'>
     <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
   </div>
 {% endif %}
 
 <div class='body-area -slim'>
-  <div class='site-header'>
+  <div class='site-header' role='banner'>
     <h1>
       {{ site.data.content.home.title }}
     </h1>
@@ -31,14 +31,20 @@
 
     {% include 2017/search-form.html live=true %}
 
-    {% if site.data.codesponsor.enabled %}
-    <div class='adbox'>
-      {% include 2017/code-sponsor.html noprelude=true %}
+    {% if site.data.berry.enabled %}
+    <div class='adbox' role='complementary'>
+      {% include 2017/berry-sponsor.html %}
+    </div>
+    {% endif %}
+
+    {% if site.data.codefund.enabled %}
+    <div class='adbox' role='complementary'>
+      {% include 2017/codefund.html %}
     </div>
     {% endif %}
   </div>
 
-  <div class='pages-list'>
+  <div class='pages-list' role='main'>
     {% for page in featured_pages %}
       {% include 2017/pages-list-item.html page=page class='item top-sheet' %}
     {% endfor %}
@@ -71,7 +77,7 @@
     <div class='message item missing-message'>
       <h3>See something missing?</h3>
       <p>
-        <a class='push-button' href='{{ site.github.repository_url }}/issues/new?title=Cheatsheet%20request:%20APP_NAME_HERE'>Request cheatsheet</a>
+        <a class='push-button' href='{{ site.github.repository_url }}/issues/907'>Request cheatsheet</a>
       </p>
     </div>
   </div>

@@ -4,6 +4,7 @@ layout: 2017/sheet
 category: JavaScript libraries
 updated: 2017-09-20
 weight: -3
+tags: [Featurable]
 ---
 
 ## Getting started
@@ -132,11 +133,11 @@ type Album = {
 ```js
 const a: Album = { } // ✓ OK
 a.name = 'Blue'      // ✓ OK
-a.name = null        // ✓ OK
+a.name = null        // ✗ Error
 a.name = undefined   // ✓ OK
 ```
 
-This makes an `Album` valid even if `artist` is not part of the keys. This is different from "maybe" types.
+This makes an `Album` valid even if `name` is not part of the keys. This is different from "maybe" types.
 
 See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-optional-object-properties)
 
@@ -324,13 +325,16 @@ function add(n /*: number */) { ... }
 ### React
 
 ```js
-React$Element<any>
-```
+type Props = {
+  bar: number,
+}
 
-```js
-class Foo extends React.Component {
-  /*:: state: { open: boolean } */
-  /*:: props: { open: boolean } */
+type State = {
+  open: boolean,
+}
+
+class Foo extends React.Component<Props, State> {
+  // Component code
 }
 ```
 

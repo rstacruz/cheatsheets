@@ -30,8 +30,8 @@ Shortcuts
 | --- | --- |
 | `⌘k` `←` | Split pane to the left |
 | --- | --- |
-| `⌥⌘=` | Grow pane |
-| `⌥⌘-` | Shrink pane |
+| `⌘⌥=` | Grow pane |
+| `⌘⌥-` | Shrink pane |
 | --- | --- |
 | `^⇧←` | Move tab to left |
 {: .-shortcuts}
@@ -59,3 +59,47 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | `^⇧9` | Show Git pane |
 | `^⇧8` | Show GitHub pane |
 {: .-shortcuts}
+
+### Editing
+
+| Shortcut | Description
+| ---      | ---
+| `⌘d`     | Select word
+| `⌘l`     | Select line
+| ---      | ---
+| `⌘↓`     | Move line down
+| `⌘↑`     | Move line up
+| ---      | ---
+| `⌘⏎`     | New line below
+| `⌘⇧⏎`    | New line above
+| ---      | ---
+| `⌘⇧k`    | Delete line
+| `⌘⇧d`    | Duplicate line
+{: .-shortcuts}
+
+### Project
+
+| Shortcut | Description
+| ---      | ---
+| `⌘⇧p`    | Command palette
+| `⌘⇧a`    | Add project folder
+| ---      | ---
+| `⌘n`     | New file
+| `⌘⇧n`    | New window
+| ---      | ---
+| `⌘f`     | Find in file
+| `⌘⇧f`    | Find in project
+| `⌘t`     | Search files in project
+{: .-shortcuts}
+
+## Notes
+
+### ⌘
+
+- For Windows and Linux, `⌘` is the `Control` key.
+- For macOS, it's the `Command` key.
+
+### ⌥
+
+- For Windows and Linux, `⌥` is the `Alt` key.
+- For macOS, it's the `Option` key.

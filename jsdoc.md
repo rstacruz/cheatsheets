@@ -1,60 +1,61 @@
 ---
 title: Jsdoc
 category: JavaScript
+layout: 2017/sheet
+updated: 2017-10-29
+weight: -1
 ---
 
-## Functions
+### Functions
 
 ```js
-/*
+/**
+ * This is a function.
+ *
  * @param {string} n - A string param
  * @return {string} A good string
  *
- * @throws {FooException}
- * @private
- * @deprecated
- * @see
+ * @example
  *
- * @function
- * @class
+ *     foo('hello')
  */
 
 function foo(n) { return n }
 ```
 
-See: http://usejsdoc.org/index.html
+See: <http://usejsdoc.org/index.html>
 
-## Types
+### Types
 
-```
-/**
- * @param {string=} n - Optional param
- * @param {string} [n] - Optional param
- * @param {(string|number)} n - Multiple types
- * @param {*} n - Any type
- * @param {...string} n - Repeatable arguments
- * @param {string} [n="hi"] - Optional param with default
- * @param {string[]} n - An array of strings
- */
-```
+| Type                         | Description           |
+| ---                          | ---                   |
+| `@param {string=} n`         | Optional              |
+| `@param {string} [n]`        | Optional              |
+| `@param {(string|number)} n` | Multiple types        |
+| `@param {*} n`               | Any type              |
+| `@param {...string} n`       | Repeatable arguments  |
+| `@param {string} [n="hi"]`   | Optional with default |
+| `@param {string[]} n`        | Array of strings      |
 
-See: http://usejsdoc.org/tags-type.html
+See: <http://usejsdoc.org/tags-type.html>
 
-## Variables
+### Variables
 
 ```js
 /**
  * @type {number}
  */
 var FOO = 1
+```
 
+```js
 /**
  * @const {number}
  */
 const FOO = 1
 ```
 
-## Typedef
+### Typedef
 
 ```js
 /**
@@ -64,7 +65,9 @@ const FOO = 1
  * @property {string} artist - The artist
  * @property {number} year - The year
  */
+```
 
+```js
 /**
  * Plays a song
  * @param {Song} song - The {@link Song} to be played
@@ -74,9 +77,23 @@ function play (song) {
 }
 ```
 
-See: http://usejsdoc.org/tags-typedef.html
+See: <http://usejsdoc.org/tags-typedef.html>
 
-## Renaming
+### Other keywords
+
+```js
+/**
+ * @throws {FooException}
+ * @private
+ * @deprecated
+ * @see
+ *
+ * @function
+ * @class
+ */
+```
+
+### Renaming
 
 ```js
 /*
@@ -85,4 +102,4 @@ See: http://usejsdoc.org/tags-typedef.html
  */
 ```
 
-Prefer `alias` over `name`. See: http://usejsdoc.org/tags-alias.html
+Prefer `alias` over `name`. See: <http://usejsdoc.org/tags-alias.html>

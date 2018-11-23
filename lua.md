@@ -1,4 +1,6 @@
+---
 title: Lua
+---
 
 ## Comments
 
@@ -30,7 +32,7 @@ title: Lua
 
     -- Remember, arrays are also tables
     array = { "a", "b", "c", "d" }
-    print(array[2])       -- "b" (zero-indexed)
+    print(array[2])       -- "b" (one-indexed)
     print(#array)         -- 4 (length)
 
 ## Loops

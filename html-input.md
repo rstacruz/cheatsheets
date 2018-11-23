@@ -1,58 +1,112 @@
 ---
 title: Input tag
 category: HTML
+layout: 2017/sheet
+updated: 2017-10-29
+weight: -3
 ---
 
-     <input ...
-       disabled
-       required
-       checked
+### Input
 
-       autofocus
+```html
+ <input ...
+   disabled
+   required
+   checked
+```
 
-       autocomplete='off'        <!-- autocomplete -->
-       autocompletetype='cc-exp'
-       autocapitalize='off'      <!-- for mobiles -->
-       pattern='\d*'             <!-- force numeric input in iOS -->
+```html
+   autofocus
+```
+
+```html
+   autocomplete='off'        <!-- autocomplete -->
+   autocompletetype='cc-exp'
+   autocapitalize='off'      <!-- for mobiles -->
+   pattern='\d*'             <!-- force numeric input in iOS -->
+```
 
 ### Input types
 
-Text:
+#### Text
 
- * email
- * hidden
- * month
- * password
- * tel
- * text
- * search
- * week
+* email
+* hidden
+* **password**
+* tel
+* **text**
+* search
+{: .-four-column}
 
-Time:
+#### Time
 
- * date
- * datetime
- * datetime-local
- * time
+* date
+* time
+{: .-four-column}
 
-Etc:
+#### Time (not widely supported)
 
- * file
- * radio
- * checkbox
+* month
+* week
+* datetime
+* datetime-local
+{: .-four-column}
 
-Buttons:
+#### Etc
 
- * button
- * reset
- * submit
- * image
+* **file**
+* **radio**
+* **checkbox**
+{: .-four-column}
 
-Numeric:
+#### Buttons
 
- * number
- * range
+* button
+* reset
+* submit
+* image
+{: .-four-column}
 
-### Ref
+#### Numeric
 
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+* number
+* range
+{: .-four-column}
+
+## Examples
+
+### Dates
+
+| Type | Example |
+| --- | --- |
+| `type='date'` | <input type='date'> |
+| `type='time'` | <input type='time'> |
+
+### Datetime
+
+| Type | Example |
+| --- | --- |
+| `type='datetime'` | <input type='datetime'> |
+| `type='datetime-local'` | <input type='datetime-local'> |
+
+`datetime` and `datetime-local` fields are not widely supported.
+
+### Numbers
+
+| Type | Example |
+| --- | --- |
+| `type='number'` | <input type='number'> |
+| `type='range'` | <input type='range'> |
+
+### Text
+
+| Type | Example |
+| --- | --- |
+| `type='text'` | <input type='text'> |
+| `type='password'` | <input type='password'> |
+| `type='search'` | <input type='search'> |
+| `type='tel'` | <input type='tel'> |
+
+## Also see
+
+ * <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input>

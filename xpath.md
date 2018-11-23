@@ -43,15 +43,16 @@ Works in Firefox and Chrome.
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `#id`                        | `//[@id="id"]`                                           | [?](#predicates)        |
-| `.class`                     | `//[@class="class"]` *...[kinda](#class-check)*          |                         |
+| `#id`                        | `//*[@id="id"]`                                           | [?](#predicates)        |
+| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*          |                         |
 | `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
 | `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
 | `a[rel]`                     | `//a[@rel]`                                              |                         |
 | ----                         | ----                                                     | --                      |
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
 | `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
-| `a[href~='://']`             | `//a[contains(@href, '://')]` *...[kinda](#class-check)* |                         |
+| `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
+| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
 {: .xp}
 
 ### Order selectors
@@ -168,7 +169,7 @@ Predicates
 ### Predicates
 
 ```bash
-//div[true()] 
+//div[true()]
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
@@ -398,8 +399,7 @@ count(//*)          # count all elements
 Finds a `<section>` that directly contains `h1#section-name`
 
 ```bash
-# Find a <section> that contains h1#section-name
-//section[//*[@id='section-name']]
+//section[//h1[@id='section-name']]
 ```
 
 Finds a `<section>` that contains `h1#section-name`.

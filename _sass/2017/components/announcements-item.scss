@@ -22,6 +22,15 @@
     padding: 0;
   }
 
+  & > .body > p {
+    margin: 0;
+    padding: 0;
+
+    & + p {
+      margin-top: 1em;
+    }
+  }
+
   & > .close {
     position: absolute;
     right: 0;

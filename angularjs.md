@@ -2,35 +2,40 @@
 title: Angular.js
 category: JavaScript libraries
 ---
-
-    <html ng-app="nameApp">
+```html
+    <html ng-app="nameApp">
+```
 
 ### Lists (ng-repeat)
-
+```html
     <ul ng-controller="MyListCtrl">
       <li ng-repeat="phone in phones">
         {{phone.name}}
       </li>
-    </ul>
+    </ul>
+```
 
 ### Model (ng-model)
 
+```html
     <select ng-model="orderProp">
       <option value="name">Alphabetical</option>
       <option value="age">Newest</option>
-    </select>
+    </select>
+```
 
 ### Defining a module
-
-    App = angular.module('myApp', []);
+```js
+    App = angular.module('myApp', []);
 
     App.controller('MyListCtrl', function ($scope) {
       $scope.phones = [ ... ];
-    });
+    });
+```
 
 ### Controller with protection from minification
-
-    App.controller('Name', [
+```js
+    App.controller('Name', [
       '$scope',
       '$http',
       function ($scope, $http) {
@@ -41,44 +46,48 @@ category: JavaScript libraries
       '$scope'
       '$http'
       ($scope, $http) ->
-    ]
+    ]
+```
 
 ### Service
-
-    App.service('NameService', function($http){
+```js
+    App.service('NameService', function($http){
       return {
         get: function(){
           return $http.get(url);
         }
       }
-    });
-
+    });
+```
 In controller you call with parameter and will use promises to return data from server.
 
-    App.controller('controllerName',
+```js
+    App.controller('controllerName',
     function(NameService){
       NameService.get()
       .then(function(){})
-    })
+    })
+```
 
 ### Directive
-
-    App.directive('name', function(){
+```js
+    App.directive('name', function(){
       return {
         template: '<h1>Hello</h1>'
       }
-    });
+    });
+```
 
 In HTML will use `<name></name>` to render your template `<h1>Hello</h1>`
 
 ### HTTP
-
-  App.controller('PhoneListCtrl', function ($scope, $http) {
-    $http.get('/data.json').success(function (data) {
-      $scope.phones = data;
-    })
-  });
-
+```js
+    App.controller('PhoneListCtrl', function ($scope, $http) {
+        $http.get('/data.json').success(function (data) {
+            $scope.phones = data;
+        })
+    });
+```
 References:
 
  * https://github.com/angular/angular-seed

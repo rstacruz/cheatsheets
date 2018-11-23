@@ -27,13 +27,14 @@ rename -s .png .jpg.png *.png
 ```
 
 Replace `.png` with `.jpg.png` in `*.png`.
-      
 
 ### Options
 
-| `-n` | Simulation
-| `-l` | Symlink instead of rename
-| `-i` | Interactive
+| Option | Description               |
+| ---    | ---                       |
+| `-n`   | Simulation                |
+| `-l`   | Symlink instead of rename |
+| `-i`   | Interactive               |
 
 ## Also see
 

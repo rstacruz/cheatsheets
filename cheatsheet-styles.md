@@ -45,8 +45,9 @@ See: [Tables](#tables-1)
 
 ### Code
 
-| `-setup` | Gray background |
 | `-box-chars` | Less line height<br>_for box drawing chars_ |
+| `-setup` | Gray background |
+| `-wrap` | Enables line-wrapping |
 
 See: [Code](#code-1)
 
@@ -196,6 +197,15 @@ function createNode(nodeName: string, options: { key: string }) {
 ```
 
 Long lines will have scrollbars.
+
+### Line wrapping
+
+```js
+<script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+```
+{: .-wrap}
+
+Add `-wrap` to wrap long lines.
 
 ## Lists
 {: .-three-column}

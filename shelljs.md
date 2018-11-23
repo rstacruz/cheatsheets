@@ -1,92 +1,149 @@
 ---
 title: Shell.js
 category: JavaScript libraries
+layout: 2017/sheet
+updated: 2017-10-27
+weight: -1
+intro: |
+  [ShellJS](https://github.com/shelljs/shelljs) is a portable (Windows/Linux/OS X) implementation of Unix shell commands on top of the Node.js API. 
 ---
+
+### Example
+
+```js
+var shell = require('shelljs')
+```
+
+```js
+if (!shell.which('git')) {
+  shell.echo('Sorry, this script requires git')
+  shell.exit(1)
+}
+```
+
+```js
+// Copy files to release dir
+shell.rm('-rf', 'out/Release')
+shell.cp('-R', 'stuff/', 'out/Release')
+```
+
+```js
+// Replace macros in each .js file
+shell.cd('lib')
+shell.ls('*.js').forEach(function (file) {
+  shell.sed('-i', 'BUILD_VERSION', 'v0.1.2', file)
+  shell.sed('-i', /^.*REMOVE_THIS_LINE.*$/, '', file)
+  shell.sed('-i', /.*REPLACE_LINE_WITH_MACRO.*\n/, shell.cat('macro.js'), file)
+})
+shell.cd('..')
+```
+
+```js
+// Run external tool synchronously
+if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
+  shell.echo('Error: Git commit failed')
+  shell.exit(1)
+}
+```
+
+Taken from the [Readme](https://github.com/shelljs/shelljs).
 
 ### Require
 
-    require 'shelljs/global'
+```js
+const sh = require('shelljs')
+```
 
 ### Paths
 
-    cd 'dir'
+```js
+sh.cd('dir')
+```
 
-    mkdir 'dir'
-    mkdir '-p', 'dir'
+```js
+sh.mkdir('dir')
+sh.mkdir('-p', 'dir')
+```
 
-### File manip
+### File manipulation
 
-    cp 'src', 'dest'
-    cp '-rf', 'src', 'dest'
+```js
+sh.cp('src', 'dest')
+sh.cp('-rf', 'src', 'dest')
+```
 
-    rm 'file'
-    rm '-rf', 'file'
+```js
+sh.rm('file')
+sh.rm('-rf', 'file')
+```
 
-    mv 'src', 'dest'
-    mv ['src1','src2'], 'dest'
+```js
+sh.mv('src', 'dest')
+sh.mv(['src1','src2'], 'dest')
+```
 
-    chmod '644', 'file'
-    chmod 755, 'file'
-    chmod 'u+x', 'file'
+```js
+sh.chmod('644', 'file')
+sh.chmod(755, 'file')
+sh.chmod('u+x', 'file')
+```
 
 ### Tests
 
-    test '-b', 'path'  # block device
-    test '-d', 'path'  # dir
-    test '-e', 'path'  # exists
-    test '-f', 'path'  # file
-    test '-L', 'path'  # symlink
+```js
+sh.test('-b', 'path')  // block device
+sh.test('-d', 'path')  // dir
+sh.test('-e', 'path')  // exists
+sh.test('-f', 'path')  // file
+sh.test('-L', 'path')  // symlink
+```
 
 ### Cat and output
 
-    src = cat('file*.txt')
+```js
+src = sh.cat('file*.txt')
+```
 
-    "hello".to('output.txt');
-    "hello".toEnd('append.txt');
+```js
+'hello'.to('output.txt')
+'hello'.toEnd('append.txt')
+```
 
-    cat('input.txt').to('output.txt');
+```js
+sh.cat('input.txt').to('output.txt')
+```
 
 ### Utils
 
-    which('x')
-    pwd()
+```js
+sh.which('x')
+sh.pwd()
+```
 
-    echo 'hi'
+```js
+sh.echo('hi')
+```
 
-    exec('node --version').code
-    exec('node --version').output
-    exec('node --version', {silent:true}).output
+```js
+sh.exec('node --version').code
+sh.exec('node --version').output
+sh.exec('node --version', { silent: true }).output
+```
 
-    exec 'node --version', (code, output) ->
-      echo "exit code #{code}"
+```js
+sh.exec('node --version', (code, output) => {
+  sh.echo(`exit code ${code}`)
+})
+```
 
-    tempdir()
+```js
+sh.tempdir()
+```
 
-    error()  # null if no error
+```js
+sh.error()  // null if no error
+```
 
-### Make
+## Also see
 
-    require 'shelljs/make'
-
-    target.all = ->
-      target.bundle()
-      target.docs()
-
-    target.bundle = ->
-      cd __dirname
-      mkdir 'build'
-      cd 'lib'
-      (cat '*.js').to '../build/output.js'
-
-    target.docs = ->
-      cd __dirname
-      mkdir 'docs'
-      cd 'lib'
-      for file in ls '*.js'
-        text = grep '//@', file     # extract special comments
-        text.replace '//@', ''      # remove comment tags
-        text.to 'docs/my_docs.md'
-
-### References
-
-  * https://github.com/arturadib/shelljs
+* <https://github.com/shelljs/shelljs>

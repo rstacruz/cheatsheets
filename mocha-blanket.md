@@ -1,13 +1,19 @@
 ---
 title: Mocha blanket
 category: JavaScript libraries
+layout: 2017/sheet
+intro: |
+  Use [blanket](https://npmjs.com/package/blanket) for easy coverage reporting for Mocha JavaScript tests.
 ---
 
-Use [blanket] for easy coverage reporting.
+### Quickstart guide
 
-## Quickstart guide
+Install blanket:
+{: .-setup}
 
-    $ npm i --save-dev blanket
+```bash
+npm i --save-dev blanket
+```
 
 In your test helpers, use Blanket before `require`ing:
 
@@ -20,8 +26,6 @@ if (process.env.COVERAGE) {
 thing = require('../index');
 ```
 
-## Add scripts to package.json
-
 Add to `package.json`:
 
 ```json
@@ -32,17 +36,24 @@ Add to `package.json`:
 
 Be sure to ignore it:
 
-    $ echo "coverage.html" >> .gitignore
+```bash
+echo "coverage.html" >> .gitignore
+```
 
 Then run:
 
-    $ npm run coverage
+```bash
+npm run coverage
+```
 
-## Travis + coveralls.io support
+### Travis + coveralls.io support
 
 Visit [coveralls.io] then activate your repo. Then install the appropriate packages:
+{: .-setup}
 
-    $ npm i --save-dev mocha-lcov-reporter coveralls
+```bash
+npm i --save-dev mocha-lcov-reporter coveralls
+```
 
 Add this to `.travis.yml`:
 

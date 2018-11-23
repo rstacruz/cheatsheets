@@ -1,0 +1,47 @@
+$bounce: cubic-bezier(.75,-0.5,0,1.75);
+
+/*
+ * "Preloader":
+ * This makes the content semi-transparent before the page ad loads.
+ */
+
+.post-content {
+  html.WithJs & {
+    opacity: 0;
+  }
+}
+
+/*
+ * Pop it in as the page loads
+ */
+
+.berry-sponsor {
+  html.WithJs & {
+    transform: scale(0.9) translate3d(0, -16px, 0);
+    opacity: 0;
+  }
+
+  html.WithJs.LoadDone & {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 1;
+    transition: transform 500ms $bounce, opacity 500ms linear;
+  }
+}
+
+/*
+ * Defer "loading" until page's onload event fires.
+ * (The page actually already loaded, we just pretend like it hasn't)
+ */
+
+.pages-list,
+.post-content.-wrapified,
+.intro-content {
+  html.WithJs & {
+    opacity: 0.4;
+  }
+
+  html.WithJs.LoadDone & {
+    opacity: 1;
+    transition: opacity 100ms linear 100ms;
+  }
+}

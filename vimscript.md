@@ -5,6 +5,7 @@ prism_languages: [vim]
 layout: 2017/sheet
 updated: 2017-08-30
 weight: -10
+tags: [Featurable]
 ---
 
 ### Start hacking
@@ -347,7 +348,7 @@ let mylist = [1, two, 3, "four"]
 let first = mylist[0]
 let last  = mylist[-1]
 
-" Supresses errors
+" Suppresses errors
 let second = get(mylist, 1)
 let second = get(mylist, 1, "NONE")
 ```
@@ -406,7 +407,7 @@ let colors = {
 }
 
 echo colors["a"]
-echo get(colors, "apple")   " supress error
+echo get(colors, "apple")   " suppress error
 ```
 
 See `:help dict`
@@ -559,7 +560,7 @@ See `:help expand`
 silent g/Aap/p
 ```
 
-Supresses output. See `:help silent`
+Suppresses output. See `:help silent`
 
 ### Echo
 

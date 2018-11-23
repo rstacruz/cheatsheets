@@ -41,7 +41,10 @@ not_found:
   home: Back to home
 
 announcement:
-  id: 2017-09-25-devhints-io
-  title: New URL 🎉
+  id: 2017-10-26-twitter
+  title: |
+    New: We're on Twitter ♥️
   body: |
-    Hey, ricostacruz.com/cheatsheets is moving to devhints.io! Same content with a shorter and easier to remember URL.
+    Follow [@devhints](https://twitter.com/devhints) on Twitter for daily "today I learned" snippets!
+
+    [![](https://img.shields.io/twitter/follow/devhints.svg?style=social&label=@devhints)](https://twitter.com/devhints)

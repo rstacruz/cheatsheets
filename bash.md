@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2018-11-19
 keywords:
   - Variables
   - Functions
@@ -80,7 +80,7 @@ See: [Functions](#functions)
 ```bash
 if [ -z "$string" ]; then
   echo "String is empty"
-elsif [ -n "$string" ]; then
+elif [ -n "$string" ]; then
   echo "String is not empty"
 fi
 ```
@@ -119,13 +119,15 @@ Parameter expansions
 name="John"
 echo ${name}
 echo ${name/J/j}    #=> "john" (substitution)
-echo ${name:0:2}    #=> "jo" (slicing)
+echo ${name:0:2}    #=> "Jo" (slicing)
+echo ${name::2}     #=> "Jo" (slicing)
+echo ${name::-1}    #=> "Joh" (slicing)
 echo ${food:-Cake}  #=> $food or "Cake"
 ```
 
 ```bash
 length=2
-echo ${name:0:length}  #=> "jo"
+echo ${name:0:length}  #=> "Jo"
 ```
 
 See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
@@ -152,8 +154,8 @@ echo ${STR:-5:5}  # "world"
 
 ```bash
 SRC="/path/to/foo.cpp"
-BASE=${STR##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
+DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 ```
 
 ### Substitution
@@ -171,6 +173,20 @@ DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
 | --- | --- |
 | `${FOO/%from/to}` | Replace suffix |
 | `${FOO/#from/to}` | Replace prefix |
+
+### Comments
+
+```bash
+# Single line comment
+```
+
+```bash
+: '
+This is a
+multi line
+comment
+'
+```
 
 ### Substrings
 
@@ -206,6 +222,14 @@ done
 
 ```bash
 for i in {1..5}; do
+    echo "Welcome $i"
+done
+```
+
+#### With step size
+
+```bash
+for i in {5..50..5}; do
     echo "Welcome $i"
 done
 ```
@@ -297,6 +321,8 @@ Conditionals
 
 | Condition                | Description           |
 | ---                      | ---                   |
+| `[ STRING = STRING ]`    | Equal                 |
+| `[ STRING != STRING ]`   | Not Equal             |
 | `[ -z STRING ]`          | Empty string          |
 | `[ -n STRING ]`          | Not empty string      |
 | ---                      | ---                   |
@@ -342,7 +368,7 @@ Conditionals
 # String
 if [ -z "$string" ]; then
   echo "String is empty"
-elsif [ -n "$string" ]; then
+elif [ -n "$string" ]; then
   echo "String is not empty"
 fi
 ```
@@ -352,6 +378,11 @@ fi
 if [ X ] && [ Y ]; then
   ...
 fi
+```
+
+```bash
+# Equal
+if [[ "$A" == "$B" ]]
 ```
 
 ```bash
@@ -399,6 +430,7 @@ echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
+Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
@@ -436,8 +468,45 @@ set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
 set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob 
+Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
+
+History
+-------
+
+### Commands
+
+| `history` | Show history |
+| `shopt -s histverify` | Don't execute expanded result immediately |
+
+### Expansions
+
+| `!$` | Expand last parameter of most recent command |
+| `!*` | Expand all parameters of most recent command |
+| `!-n` | Expand `n`th most recent command |
+| `!n` | Expand `n`th command in history |
+| `!<command>` | Expand most recent invocation of command `<command>` |
+
+### Operations
+
+| `!!` | Execute last command again |         
+| `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
+| `!$:t` | Expand only basename from last parameter of most recent command |
+| `!$:h` | Expand only directory from last parameter of most recent command |
+
+`!!` and `!$` can be replaced with any valid expansion.
+
+### Slices
+
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^` | Expand first argument from most recent command |
+| `!$` | Expand last token from most recent command |
+| `!!:n-m` | Expand range of tokens from most recent command |
+| `!!:n-$` | Expand `n`th token to last from most recent command |
+
+`!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
+
 
 Miscellaneous
 -------------
@@ -467,6 +536,7 @@ python hello.py >> output.txt  # stdout to (file), append
 python hello.py 2> error.log   # stderr to (file)
 python hello.py 2>&1           # stderr to stdout
 python hello.py 2>/dev/null    # stderr to (null)
+python hello.py &>/dev/null    # stdout and stderr to (null)
 ```
 
 ```bash
@@ -568,13 +638,23 @@ echo $ans
 read -n 1 ans    # Just one character
 ```
 
-### Process IDs
+### Special variables
 
-| `$?` | PID of last foreground task |
+| `$?` | Exit status of last task |
 | `$!` | PID of last background task |
 | `$$` | PID of shell |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+
+### Go to previous directory
+
+```bash
+pwd # /home/user/foo
+cd bar/
+pwd # /home/user/foo/bar
+cd -
+pwd # /home/user/foo
+```
 
 ## Also see
 {: .-one-column}

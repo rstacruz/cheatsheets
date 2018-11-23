@@ -22,4 +22,11 @@ onmount('[data-js-h3-section-list]', function () {
       iso.layout()
     })
   })
+
+  // Insurance against weirdness on pages like devhints.io/vim, where the
+  // critical path CSS may look different from the final CSS (because of the
+  // tables).
+  on(window, 'load', () => {
+    iso.layout()
+  })
 })

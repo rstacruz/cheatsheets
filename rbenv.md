@@ -56,6 +56,8 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 
 ### Locally
 
+| Command               | Description                 |
+| ---                   | ---                         |
 | `rbenv local 2.2.2`   | Use Ruby _2.2.2_ in project |
 | `rbenv local --unset` | Undo above                  |
 
@@ -63,13 +65,17 @@ Application-specific version numbers are stored in `.ruby-version`.
 
 ### Globally
 
+| Command                | Description               |
+| ---                    | ---                       |
 | `rbenv global 2.2.2`   | Use Ruby _2.2.2_ globally |
-| `rbenv global --unset` | Undo above                  |
+| `rbenv global --unset` | Undo above                |
 
 Global version numbers are stored in `~/.rbenv/version`.
 
 ### Shell
 
+| Command               | Description               |
+| ---                   | ---                       |
 | `rbenv shell 2.2.2`   | Use Ruby _2.2.2_ in shell |
 | `rbenv shell --unset` | Undo above                |
 

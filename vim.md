@@ -399,15 +399,18 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
+
 ### Spell checking
 
-| Shortcut                     | Description                                           |
-| ---                          | ---                                                   |
-| `:set spell spelllang=en_us` | Turn on US English spell checking                     |
-| `]s`                         | Move to next misspelled word after the cursor         |
-| `[s`                         | Move to previous misspelled word before the cursor    |
-| `z=`                         | Suggest spellings for the word under/after the cursor |
-| `zg`                         | Add word to spell list                                |
+| Shortcut                     | Description                                             |
+| ---                          | ---                                                     |
+| `:set spell spelllang=en_us` | Turn on US English spell checking                       |
+| `]s`                         | Move to next misspelled word after the cursor           |
+| `[s`                         | Move to previous misspelled word before the cursor      |
+| `z=`                         | Suggest spellings for the word under/after the cursor   |
+| `zg`                         | Add word to spell list                                  |
+| `zw`                         | Mark word as bad/mispelling                             |
+| `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
 
 See `:help spell`

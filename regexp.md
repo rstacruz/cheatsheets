@@ -22,7 +22,7 @@ description: |
 | `\d`    | Not digit |
 | `\S`    | Not whitespace |
 | `[abc]` | Any of a, b, or c |
-| `[a-e]` | Characters between `a` and `g` |
+| `[a-e]` | Characters between `a` and `e` |
 | `[1-9]` | Digit between `1` and `9` |
 
 ### Anchors

@@ -2,12 +2,15 @@
 title: Emmet
 category: Markup
 layout: 2017/sheet
-prism_languages: [html]
+prism_languages: [html, css]
+updated: 2018-11-10
+intro: |
+  Emmet is a markup language for expanding CSS rules into HTML
 ---
 
 ### Child: >
 
-```
+```css
 nav>ul>li
 ```
 Expands to
@@ -22,7 +25,7 @@ Expands to
 
 ### Sibling: +
 
-```
+```css
 section>p+p+p
 ```
 Expands to
@@ -36,7 +39,7 @@ Expands to
 
 ### Climb Up: ^
 
-```
+```css
 section>header>h1^footer
 ```
 Expands to
@@ -51,7 +54,7 @@ Expands to
 
 ### Grouping: ()
 
-```
+```css
 section>(header>nav>ul>li)+footer>p
 ```
 Expands to
@@ -72,7 +75,7 @@ Expands to
 
 ### Multiplication: \*
 
-```
+```css
 ul>li*3
 ```
 Expands to
@@ -86,7 +89,7 @@ Expands to
 
 ### IDs and Classes: . #
 
-```
+```css
 ul.menu>li.menu__item+li#id_item+li.menu__item#id_2
 ```
 Expands to
@@ -100,7 +103,7 @@ Expands to
 
 ### Numbering: $
 
-```
+```css
 ul>li.item$*3
 ul>li.item$$*3
 ul>li.item$@-*3
@@ -132,7 +135,7 @@ Expands to
 
 ### Attributes: []
 
-```
+```css
 input[type="text"]
 div[data-attr="test"]
 ```
@@ -144,7 +147,7 @@ Expands to
 
 ### Text: {}
 
-```
+```css
 p{Lorem ipsum}
 ```
 Expands to
@@ -154,7 +157,7 @@ Expands to
 
 ### Implicit tags
 
-```
+```css
 .default-block
 em>.default-inline
 ul>.default-list

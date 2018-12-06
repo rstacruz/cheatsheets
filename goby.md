@@ -3,15 +3,12 @@ title: Goby
 layout: 2017/sheet
 prism_languages: [ruby]
 weight: -3
-tags: [Featured]
 updated: 2018-04-07
+category: Ruby
+intro: |
+  Goby's language design is based on Ruby language's, slim and shaped up. Differences in syntax between them is very small.
 ---
 
-## Getting started
-
-## Introductoon
-
-Goby's language design is based on Ruby language's, slim and shaped up. Differences in syntax between them is very small.
 
 ## Getting started
 

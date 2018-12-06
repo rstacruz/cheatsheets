@@ -1,6 +1,6 @@
 ---
 title: PHP
-category: Other
+category: PHP
 layout: 2017/sheet
 prism_languages: [php]
 ---
@@ -28,11 +28,21 @@ See: [PHP tags](http://php.net/manual/en/language.basic-syntax.phptags.php)
 ```php
 <?php
 
-$fruits = array(
+$fruitsArray = array(
   "apple" => 20,
   "banana" => 30
-)
+);
+echo $fruitsArray['banana'];
 ```
+
+Or cast as object
+
+```php
+<?php
+
+$fruitsObject = (object) $fruits;
+echo $fruitsObject->banana;
+``` 
 
 ### Inspecting objects
 
@@ -44,3 +54,56 @@ var_dump($object)
 Prints the contents of a variable for inspection.
 
 See: [var_dump](http://php.net/var_dump)
+
+### Classes
+
+```php
+class Person {
+    public $name = '';
+}
+
+$person = new Person();
+$person->name = 'bob';
+
+echo $person->name;
+```
+
+### Getters and setters
+
+```php
+class Person 
+{
+    public $name = '';
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+}
+
+$person = new Person();
+$person->setName('bob');
+
+echo $person->getName();
+```
+
+### isset vs empty
+```php
+
+$options = [
+  'key' => 'value',
+  'blank' => '',
+  'nothing' => null,
+];
+
+var_dump(isset($options['key']), empty($options['key'])); // true, false
+var_dump(isset($options['blank']), empty($options['blank'])); // true, true
+var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
+
+```

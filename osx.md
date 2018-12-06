@@ -1,6 +1,7 @@
 ---
 title: OS X
 layout: 2017/sheet
+category: macOS
 ---
 
 ### Locations of startup items

@@ -1,9 +1,10 @@
 ---
 title: Bulma
+category: CSS
 layout: 2017/sheet
 prism_languages: [css, html]
 weight: -1
-updated: 2018-03-06
+updated: 2018-11-19
 authors:
   - github: benolot
 description: |
@@ -61,7 +62,6 @@ The following classes modify the **state**.
 .is-loading
 ```
 
-
 ### Typography Helpers
 
 The following classes modify the **font-size**
@@ -92,3 +92,21 @@ The following classes **transform** the text
 | `.is-capitalized`  | Transforms the **first character** of each word to **uppercase**   |
 | `.is-lowercase`    | Transforms **all** characters to **lowercase**                     |
 | `.is-uppercase`    | Transforms **all** characters to **uppercase**                     |
+
+### WYSIWYG Content
+
+```html
+<div class="content">
+  <!-- start WYSIWYG contents -->
+  <h1>Heading</h1>
+  <p>Paragraph</p>
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <!-- end WYSIWYG contents -->
+</div>
+```
+
+To provide default stylings for commonly generated WYSIWYG contents, use the `.content` class.

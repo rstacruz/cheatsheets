@@ -15,6 +15,7 @@ aws ec2 start-instances --instance-ids i-12345678c
 
 ```
 aws s3 ls s3://mybucket
+aws s3 rm s3://mybucket/folder --recursive
 aws s3 cp myfolder s3://mybucket/folder --recursive
 aws s3 sync myfolder s3://mybucket/folder --exclude *.tmp
 ```

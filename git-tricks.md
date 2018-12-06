@@ -28,6 +28,9 @@ category: Git
     # delete remote branch
       git push origin :$branchname
       
+    # go back to previous branch
+      git checkout -
+      
 ## Collaboration
 
     # Rebase your changes on top of the remote master
@@ -86,7 +89,7 @@ Misc
 
     git rebase 76acada^
 
-## Misc
+### Misc
 
     # get current sha1 (?)
       git show-ref HEAD -s
@@ -133,3 +136,13 @@ Misc
     git log --grep="fixes things"  # search in commit messages
     git log -S"window.alert"       # search in code
     git log -G"foo.*"              # search in code (regex)
+
+## GPG Signing
+
+    git config set user.signingkey <GPG KEY ID>       # Sets GPG key to use for signing
+
+    git commit -m "Implement feature Y" --gpg-sign    # Or -S, GPG signs commit
+
+    git config set commit.gpgsign true                # Sign commits by default
+    git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
+    

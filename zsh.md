@@ -27,6 +27,14 @@ layout: 2017/sheet
 chsh -s `which zsh`
 ```
 
+### Process Substitution
+
+| Expression        | Example                                               | Description
+| ---               | ---                                                   | ---
+| `<(COMMAND)`      | `grep "needle" <(curl "https://haystack.io")`         | Replace argument with _named pipe/FIFO_ (read-only) with command output
+| `=(COMMAND)`      | `vim =(curl "https://haystack.io")`                   | Replace argument with _file_ (writable) containing command output
+{: .-headers}
+
 ### Also see
 
 - [Bash cheatsheet](./bash)

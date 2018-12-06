@@ -46,4 +46,4 @@ All composer commands, depending on your install, may need to use `php composer.
 
 | Command                   | Description                                                 |
 | ---                       | ---                                                         |
-| `composer remove laravel` | Remove new package to composer.json and uninstall it        |
+| `composer remove laravel` | Remove new package from composer.json and uninstall it      |

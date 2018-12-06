@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2018-11-19
 keywords:
   - Variables
   - Functions
@@ -154,8 +154,8 @@ echo ${STR:-5:5}  # "world"
 
 ```bash
 SRC="/path/to/foo.cpp"
-BASE=${STR##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
+DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 ```
 
 ### Substitution
@@ -321,6 +321,8 @@ Conditionals
 
 | Condition                | Description           |
 | ---                      | ---                   |
+| `[ STRING = STRING ]`    | Equal                 |
+| `[ STRING != STRING ]`   | Not Equal             |
 | `[ -z STRING ]`          | Empty string          |
 | `[ -n STRING ]`          | Not empty string      |
 | ---                      | ---                   |
@@ -379,6 +381,11 @@ fi
 ```
 
 ```bash
+# Equal
+if [[ "$A" == "$B" ]]
+```
+
+```bash
 # Regex
 if [[ "A" =~ "." ]]
 ```
@@ -423,6 +430,7 @@ echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
+Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
@@ -481,6 +489,7 @@ History
 
 ### Operations
 
+| `!!` | Execute last command again |         
 | `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |
@@ -490,7 +499,9 @@ History
 
 ### Slices
 
-| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first param is `1`) |
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^` | Expand first argument from most recent command |
+| `!$` | Expand last token from most recent command |
 | `!!:n-m` | Expand range of tokens from most recent command |
 | `!!:n-$` | Expand `n`th token to last from most recent command |
 
@@ -634,6 +645,16 @@ read -n 1 ans    # Just one character
 | `$$` | PID of shell |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+
+### Go to previous directory
+
+```bash
+pwd # /home/user/foo
+cd bar/
+pwd # /home/user/foo/bar
+cd -
+pwd # /home/user/foo
+```
 
 ## Also see
 {: .-one-column}

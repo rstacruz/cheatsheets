@@ -2,6 +2,7 @@
 title: Backbone.js
 layout: 2017/sheet
 updated: 2017-09-04
+category: JavaScript libraries
 ---
 
 ### Binding events

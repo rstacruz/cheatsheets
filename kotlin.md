@@ -1,7 +1,9 @@
 ---
 title: Kotlin
 layout: 2017/sheet
-category: Languages
+updated: 2018-12-06
+category: Java & JVM
+prism_languages: [kotlin]
 intro: |
     [Kotlin](http://kotlinlang.org/) is a statically typed programming language for modern multiplatform applications.
 ---

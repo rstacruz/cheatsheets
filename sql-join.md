@@ -1,6 +1,7 @@
 ---
 title: SQL joins
 layout: 2017/sheet
+category: Databases
 updated: 2017-10-30
 weight: -1
 ---

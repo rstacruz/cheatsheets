@@ -2,6 +2,7 @@
 title: Knex
 layout: 2017/sheet
 updated: 2017-09-23
+category: Databases
 intro: |
   [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
   This guide targets v0.13.0.

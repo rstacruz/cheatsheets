@@ -1,5 +1,6 @@
 ---
 title: Python
+category: Python
 ---
 
 ### Lists

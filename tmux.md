@@ -1,5 +1,6 @@
 ---
 title: tmux
+category: CLI
 ---
 
 ### Commands

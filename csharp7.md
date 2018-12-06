@@ -1,14 +1,16 @@
 ---
 title: C# 7
-category: others
+category: C-like
+updated: 2018-12-06
 layout: 2017/sheet
+prism_languages: [csharp]
 description: |
   A quick overview of C# 7
 ---
 
 ### Out Variables
 
-```cs
+```csharp
 public void PrintCoordinates(Point p)
 {
     p.GetCoordinates(out int x, out int y);
@@ -22,7 +24,7 @@ public void PrintCoordinates(Point p)
 
 #### Is-expressions with patterns
 
-```cs
+```csharp
 public void PrintStars(object o)
 {
     if (o is null) return;     // constant pattern "null"
@@ -33,7 +35,7 @@ public void PrintStars(object o)
 
 #### Switch statements with patterns
 
-```cs
+```csharp
 switch(shape)
 {
     case Circle c:
@@ -57,7 +59,7 @@ switch(shape)
 
 #### Tuple type
 
-```cs
+```csharp
 (string, string, string) LookupName(long id) // tuple return type
 {
     ... // retrieve first, middle and last from data storage
@@ -65,47 +67,47 @@ switch(shape)
 }
 ```
 
-```cs
+```csharp
 var names = LookupName(id);
 WriteLine($"found {names.Item1} {names.Item3}.");
 ```
 
 #### Tuple elements with name
 
-```cs
+```csharp
 (string first, string middle, string last) LookupName(long id) // tuple elements have names
 ```
 
-```cs
+```csharp
 var names = LookupName(id);
 WriteLine($"found {names.first} {names.last}.");
 ```
 
 #### Tuple Literals
 
-```cs
+```csharp
    return (first: first, middle: middle, last: last); // named tuple elements in a literal
 ```
 
 #### Tuple Deconstruction
 
-```cs
+```csharp
 (var first, var middle, var last) = LookupName(id1);
 WriteLine($"found {first} {last}.");
 ```
 or
-```cs
+```csharp
 var (first, middle, last) = LookupName(id1); // var outside
 ```
 or
-```cs
+```csharp
 (first, middle, last) = LookupName(id2); // assign onto existing variables
 ```
 
 
 ### Local Functions
 
-```cs
+```csharp
 public int Fibonacci(int x)
 {
     if (x < 0) throw new ArgumentException("Less negativity please!", nameof(x));
@@ -124,20 +126,20 @@ public int Fibonacci(int x)
 
 #### Digit Separator inside numbers literals
 
-```cs
+```csharp
 var d = 123_456;
 var x = 0xAB_CD_EF;
 ```
 
 #### Binary Literals
 
-```cs
+```csharp
 var b = 0b1010_1011_1100_1101_1110_1111;
 ```
 
 ### Ref Returns and Locals
 
-```cs
+```csharp
 public ref int Find(int number, int[] numbers)
 {
     for (int i = 0; i < numbers.Length; i++)
@@ -160,7 +162,7 @@ WriteLine(array[4]); // prints 9
 
 C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:
 
-```cs
+```csharp
 class Person
 {
     private static ConcurrentDictionary<int, string> names = new ConcurrentDictionary<int, string>();
@@ -178,7 +180,7 @@ class Person
 
 ### Throw Expressions 
 
-```cs
+```csharp
 class Person
 {
     public string Name { get; }

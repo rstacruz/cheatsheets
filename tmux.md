@@ -38,8 +38,8 @@ category: CLI
 ### Copy/paste
 
     C-b [       # 1. Enter scroll mode first.
-    Space       # 2. Start selecting and move around.
-    Enter       # 3. Press enter to copy.
+    C-Space     # 2. Start selecting and move around.
+    Alt-w       # 3. Copy selected text.
     C-b ]       # Paste
 
 ### Panes

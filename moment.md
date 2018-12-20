@@ -9,19 +9,20 @@ tags: [Featurable]
 ### Parsing
 
 ```js
-m = moment("2013-03-01", "YYYY-MM-DD")
+m = moment('2013-03-01', 'YYYY-MM-DD')
 ```
 
 This parses the given date using the given format. Returns a moment object.
+
 ### Formatting
 
 ```js
 m
   .format()
   .format('dddd')
-  .format("MMM Do YY")  // → "Sep 2nd 07"
-  .fromNow()            // → "31 minutes ago"
-  .calendar()           // → "Last Friday at 9:32PM"
+  .format('MMM Do YY') // → "Sep 2nd 07"
+  .fromNow() // → "31 minutes ago"
+  .calendar() // → "Last Friday at 9:32PM"
 ```
 
 ### Add
@@ -56,6 +57,12 @@ See [datetime](./datetime) for more.
 
 ## References
 
- * [Datetime cheatsheet](./datetime) _(devhints.io)_
- * [Moment website](http://momentjs.com/) _(momentjs.com)_
- * [Moment docs](http://momentjs.com/docs/) _(momentjs.com)_
+### Alternatives
+
+* [You don't need Moment.js](https://github.com/you-dont-need/You-Dont-Need-Momentjs) _(github.com)_
+
+### Also see
+
+* [Datetime cheatsheet](./datetime) _(devhints.io)_
+* [Moment website](http://momentjs.com/) _(momentjs.com)_
+* [Moment docs](http://momentjs.com/docs/) _(momentjs.com)_

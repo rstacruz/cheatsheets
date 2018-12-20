@@ -1,5 +1,6 @@
 ---
 title: Emacs
+category: CLI
 ---
 
 ### Movements

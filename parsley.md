@@ -3,6 +3,7 @@ title: Parsley.js
 updated: 2017-10-19
 weight: -1
 layout: 2017/sheet
+category: JavaScript libraries
 keywords:
   - "data-parsley-validate"
   - "$('#form').parsley()"

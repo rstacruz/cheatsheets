@@ -17,6 +17,7 @@ updated: 2017-09-20
 ```bash
 -v           # --verbose
 -vv          # Even more verbose
+-s           # --silent
 ```
 
 ```bash
@@ -27,6 +28,7 @@ updated: 2017-09-20
 
 ```bash
 -X POST          # --request
+-L               # follow link if page redirects 
 ```
 
 ### Data

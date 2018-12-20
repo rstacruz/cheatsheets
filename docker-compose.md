@@ -196,3 +196,21 @@ services:
     extra_hosts:
       - "somehost:192.168.1.100"
 ```
+
+### Network
+
+```yaml
+# creates a custom network called `frontend`
+networks:
+  frontend:
+```
+
+### External network
+
+```yaml
+# join a pre-existing network
+networks:
+  default:
+    external:
+      name: frontend
+```

@@ -4,6 +4,7 @@ layout: 2017/sheet
 prism_languages: [go, bash]
 weight: -3
 tags: [Featured]
+category: C-like
 updated: 2017-09-15
 ---
 
@@ -197,6 +198,27 @@ switch day {
 ```
 
 See: [Switch](https://github.com/golang/go/wiki/Switch)
+
+### For loop
+
+```go
+  for count := 0; count <= 10; count++ {
+		fmt.Println("My counter is at", count)
+	}
+```
+
+See: [For loops](https://tour.golang.org/flowcontrol/1)
+
+### For-Range loop
+
+```go
+  entry := []string{"Jack","John","Jones"}
+  for i, val := range entry {
+    fmt.Printf("At position %d, the character %s is present\n", i, val)
+  }
+```
+
+See: [For-Range loops](https://gobyexample.com/range)
 
 ## Functions
 {: .-three-column}
@@ -485,7 +507,7 @@ See: [Methods](https://tour.golang.org/methods/1)
 ```go
 func (v *Vertex) Scale(f float64) {
   v.X = v.X * f
-  v.y = v.Y * f
+  v.Y = v.Y * f
 }
 ```
 {: data-line="1"}

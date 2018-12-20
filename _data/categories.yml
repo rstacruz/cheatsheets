@@ -3,12 +3,15 @@ names:
   - Analytics
   - Ansible
   - Apps
+  - C-like
   - CLI
   - CSS
+  - Databases
   - Devops
   - Elixir
   - Git
   - HTML
+  - Java & JVM
   - JavaScript
   - JavaScript libraries
   - Jekyll
@@ -16,6 +19,8 @@ names:
   - Markup
   - macOS
   - Node.js
+  - PHP
+  - Python
   - Rails
   - React
   - Ruby

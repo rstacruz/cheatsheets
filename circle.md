@@ -1,5 +1,6 @@
 ---
 title: CircleCI
+category: Devops
 ---
 
 ## circle.yml

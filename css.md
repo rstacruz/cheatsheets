@@ -170,23 +170,25 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 
 ### Properties
 
-| Property                     | Value                                              |
-| ---------------------------- | -------------------------------------------------- |
-| `animation:`                 | _(shorthand)_                                      |
-| `animation-name:`            | `<name>`                                           |
-| `animation-delay:`           | `<time>ms`                                         |
-| `animation-duration:`        | `<time>ms`                                         |
-| `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse` |
-| `animation-iteration-count:` | `infinite` `<number>`                              |
-| `animation-timing-function:` | `ease` `linear` `ease-in` `ease-out` `ease-in-out` |
+| Property                     | Value                                                    |
+| ---------------------------- | -------------------------------------------------------- |
+| `animation:`                 | _(shorthand)_                                            |
+| `animation-name:`            | `<name>`                                                 |
+| `animation-duration:`        | `<time>ms`                                               |
+| `animation-timing-function:` | `ease` `linear` `ease-in` `ease-out` `ease-in-out`       |
+| `animation-delay:`           | `<time>ms`                                               |
+| `animation-iteration-count:` | `infinite` `<number>`                                    |
+| `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse`       |
+| `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
+| `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |
 {: .-key-values}
 
 ### Shorthand
 
-|              | name     | duration | timing-function | delay   | count      | direction           |
-| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- |
-| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` |
-|              | name     | duration | timing-function | delay   | count      | direction           |
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
+| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
+| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `reverse`  |
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
 {: .-css-breakdown}
 
 ### Example
@@ -195,6 +197,7 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 animation: bounce 300ms linear 0s infinite normal;
 animation: bounce 300ms linear infinite;
 animation: bounce 300ms linear infinite alternate-reverse;
+animation: bounce 300ms linear 2s infinite alternate-reverse forwards normal;
 ```
 
 ### Event

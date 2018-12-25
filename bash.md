@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2018-11-19
+updated: 2018-12-25
 keywords:
   - Variables
   - Functions
@@ -122,6 +122,8 @@ echo ${name/J/j}    #=> "john" (substitution)
 echo ${name:0:2}    #=> "Jo" (slicing)
 echo ${name::2}     #=> "Jo" (slicing)
 echo ${name::-1}    #=> "Joh" (slicing)
+echo ${name:(-1)}   #=> "n" (slicing from right)
+echo ${name:(-2):1} #=> "h" (slicing from right)
 echo ${food:-Cake}  #=> $food or "Cake"
 ```
 

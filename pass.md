@@ -28,6 +28,7 @@ $ pass generate [-n] twitter.com/rsc length
 ``` bash
 $ pass ls twitter.com/
 $ pass show twitter.com/rsc
+$ pass -c twitter.com/rsc
 ```
 
 ### Search

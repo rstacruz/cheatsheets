@@ -56,6 +56,11 @@ __bold__
 - Item 2
 ```
 
+```markdown
+- [ ]
+- [x]
+```
+
 ### Links
 
 ```markdown

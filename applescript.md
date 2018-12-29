@@ -57,3 +57,10 @@ beep
 -- beep 10 times
 beep 10
 ```
+
+### Delay
+
+```applescript
+-- delay for 5 seconds
+delay 5
+```

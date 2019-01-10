@@ -2,7 +2,7 @@
 title: Jsdoc
 category: JavaScript
 layout: 2017/sheet
-updated: 2017-10-29
+updated: 2019-01-10
 weight: -1
 ---
 
@@ -78,6 +78,18 @@ function play (song) {
 ```
 
 See: <http://usejsdoc.org/tags-typedef.html>
+
+### Importing Types
+```js
+/**
+ * @typedef {import('Foo').default} Bar
+ */
+ 
+/**
+ * @param {Bar} x
+ */
+function test(x) { }
+```
 
 ### Other keywords
 

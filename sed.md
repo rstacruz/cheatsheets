@@ -39,3 +39,9 @@ sed '/^# begin/,$d'
 ```bash
 sed -n '/end api/,$p'
 ```
+
+#### Print everything except lines matching regex. useful for printing files with comments
+
+```bash
+sed -n '/regex/d;'
+```

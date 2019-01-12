@@ -24,6 +24,8 @@ Human Readable Format:
 
     $ df -h
 
+### Display disk usage
+
 Largest 10 folder/file in the current directory:
 
     $ du -hsx * | sort -rh | head -10

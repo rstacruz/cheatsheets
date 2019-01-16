@@ -8,8 +8,8 @@ category: CLI
 ## Var assignment
 
 ```makefile
-uglify = $(uglify)        # assignment
-compressor := $(uglify)   # lazy assignment
+uglify = $(uglify)        # assignment (right hand side is evaluated when variable is used)
+compressor := $(uglify)   # immediate assignment (right hand side is evaluated at assignment)
 prefix ?= /usr/local      # safe assignment
 ```
 

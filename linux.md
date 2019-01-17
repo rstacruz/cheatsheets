@@ -11,3 +11,6 @@ title: Linux
     sudo visudo
 
     username ALL=(ALL) NOPASSWD:/sbin/restart whatever
+
+### Answer yes in a bash script
+    yes | /your/command

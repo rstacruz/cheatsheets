@@ -2,6 +2,7 @@
 title: Knex
 layout: 2017/sheet
 updated: 2017-09-23
+category: Databases
 intro: |
   [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
   This guide targets v0.13.0.
@@ -43,7 +44,7 @@ knex('users')
 ```
 {: data-line="2"}
 
-See: [Select](#elect-1)
+See: [Select](#select-1)
 
 ### Insert
 
@@ -475,7 +476,7 @@ See: [Delete](http://knexjs.org/#Builder-del)
 
 ### Setting up
 
-#### Creates knexfile.js
+#### Create knexfile.js
 
 ```
 ./node_modules/.bin/knex init
@@ -485,6 +486,7 @@ See: [Delete](http://knexjs.org/#Builder-del)
 
 ```
 knex migrate:make migration_name
+knex migrate:make migration_name --env production
 ```
 
 #### Run migrations
@@ -498,6 +500,7 @@ knex migrate:latest --env production
 
 ```
 knex migrate:rollback
+knex migrate:rollback --env production
 ```
 
 See: [Migrations](http://knexjs.org/#Migrations)

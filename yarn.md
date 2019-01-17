@@ -16,6 +16,7 @@ tags: [Featurable]
 | `npm install gulp --save` | `yarn add gulp` |
 | `npm install gulp --save-dev --save-exact` | `yarn add gulp --dev --exact` |
 | `npm install -g gulp` | `yarn global add gulp` |
+| `npm update` | `yarn upgrade` |
 | `./node_modules/.bin/gulp` | `yarn run gulp` |
 {: .-left-align.-headers}
 

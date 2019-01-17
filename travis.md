@@ -1,5 +1,6 @@
 ---
 title: Travis.yml
+category: Devops
 ---
 
 ### Node

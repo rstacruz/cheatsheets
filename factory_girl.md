@@ -1,5 +1,5 @@
 ---
 title: Factory Girl
-category: JavaScript libraries
+category: Ruby libraries
 redirect_to: /factory_bot
 ---

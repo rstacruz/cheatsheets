@@ -34,27 +34,31 @@ Also `git-bug` and `git-refactor`.
 
 ### Github
 
-     $ git fork strongloop/express
+    $ git fork strongloop/express
+    # sync your fork with the original repository:
+    $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+    $ git fetch upstream; git merge upstream/master
+
 
 ### Tags
 
-     $ git release v1.0.0           # commit, tag, push-tags
-     $ git delete-tag v1.0.0
+    $ git release v1.0.0           # commit, tag, push-tags
+    $ git delete-tag v1.0.0
 
 ### Conveniences
 
-     $ git ignore "*.log"
+    $ git ignore "*.log"
 
 ### Locking
 
 Assumes that changes will not be committed.
 
-     $ git lock config/database.yml
-     $ git unlock config/database.yml
+    $ git lock config/database.yml
+    $ git unlock config/database.yml
 
 ### Etc
 
-     $ git obliterate secret.yml   # remove all references to it
+    $ git obliterate secret.yml   # remove all references to it
 
 ### References
 

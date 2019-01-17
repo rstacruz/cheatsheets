@@ -14,6 +14,7 @@ weight: -1
 
 ```markdown
 # h1
+## h2
 ### h3
 ```
 
@@ -41,6 +42,18 @@ __bold__
 
 ```markdown
 `code`
+```
+
+### Lists
+
+```markdown
+* Item 1
+* Item 2
+```
+
+```markdown
+- Item 1
+- Item 2
 ```
 
 ### Links
@@ -119,3 +132,4 @@ left-aligned|centered|right-aligned
 Tables|Are|Cool
 ---|:---:|---:
 left-aligned|centered|right-aligned
+

@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2017-08-26
+updated: 2018-12-25
 keywords:
   - Variables
   - Functions
@@ -78,9 +78,9 @@ See: [Functions](#functions)
 {: id='conditionals-example'}
 
 ```bash
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
@@ -122,6 +122,8 @@ echo ${name/J/j}    #=> "john" (substitution)
 echo ${name:0:2}    #=> "Jo" (slicing)
 echo ${name::2}     #=> "Jo" (slicing)
 echo ${name::-1}    #=> "Joh" (slicing)
+echo ${name:(-1)}   #=> "n" (slicing from right)
+echo ${name:(-2):1} #=> "h" (slicing from right)
 echo ${food:-Cake}  #=> $food or "Cake"
 ```
 
@@ -154,8 +156,8 @@ echo ${STR:-5:5}  # "world"
 
 ```bash
 SRC="/path/to/foo.cpp"
-BASE=${STR##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to" (dirpath)
+BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
+DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 ```
 
 ### Substitution
@@ -237,7 +239,7 @@ done
 ### Reading lines
 
 ```bash
-cat file.txt | while read line; do
+< file.txt | while read line; do
   echo $line
 done
 ```
@@ -283,7 +285,7 @@ myfunc() {
 ```
 
 ```bash
-result=$(myfunc)
+result="$(myfunc)"
 ```
 
 ### Raising errors
@@ -319,63 +321,84 @@ Conditionals
 
 ### Conditions
 
+Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
+
 | Condition                | Description           |
 | ---                      | ---                   |
-| `[ -z STRING ]`          | Empty string          |
-| `[ -n STRING ]`          | Not empty string      |
+| `[[ -z STRING ]]`        | Empty string          |
+| `[[ -n STRING ]]`        | Not empty string      |
+| `[[ STRING == STRING ]]` | Equal                 |
+| `[[ STRING != STRING ]]` | Not Equal             |
 | ---                      | ---                   |
-| `[ NUM -eq NUM ]`        | Equal                 |
-| `[ NUM -ne NUM ]`        | Not equal             |
-| `[ NUM -lt NUM ]`        | Less than             |
-| `[ NUM -le NUM ]`        | Less than or equal    |
-| `[ NUM -gt NUM ]`        | Greater than          |
-| `[ NUM -ge NUM ]`        | Greater than or equal |
+| `[[ NUM -eq NUM ]]`      | Equal                 |
+| `[[ NUM -ne NUM ]]`      | Not equal             |
+| `[[ NUM -lt NUM ]]`      | Less than             |
+| `[[ NUM -le NUM ]]`      | Less than or equal    |
+| `[[ NUM -gt NUM ]]`      | Greater than          |
+| `[[ NUM -ge NUM ]]`      | Greater than or equal |
 | ---                      | ---                   |
 | `[[ STRING =~ STRING ]]` | Regexp                |
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
 
-| Condition          | Description              |
-| ---                | ---                      |
-| `[ -o noclobber ]` | If OPTIONNAME is enabled |
-| ---                | ---                      |
-| `[ ! EXPR ]`       | Not                      |
-| `[ X ] && [ Y ]`   | And                      |
-| `[ X ] || [ Y ]`   | Or                       |
+| Condition              | Description              |
+| ---                    | ---                      |
+| `[[ -o noclobber ]]`   | If OPTIONNAME is enabled |
+| ---                    | ---                      |
+| `[[ ! EXPR ]]`         | Not                      |
+| `[[ X ]] && [[ Y ]]`   | And                      |
+| `[[ X ]] || [[ Y ]]`   | Or                       |
 
 ### File conditions
 
-| Condition             | Description             |
-| ---                   | ---                     |
-| `[ -e FILE ]`         | Exists                  |
-| `[ -r FILE ]`         | Readable                |
-| `[ -h FILE ]`         | Symlink                 |
-| `[ -d FILE ]`         | Directory               |
-| `[ -w FILE ]`         | Writable                |
-| `[ -s FILE ]`         | Size is > 0 bytes       |
-| `[ -f FILE ]`         | File                    |
-| `[ -x FILE ]`         | Executable              |
-| ---                   | ---                     |
-| `[ FILE1 -nt FILE2 ]` | 1 is more recent than 2 |
-| `[ FILE1 -ot FILE2 ]` | 2 is more recent than 1 |
-| `[ FILE1 -ef FILE2 ]` | Same files              |
+| Condition               | Description             |
+| ---                     | ---                     |
+| `[[ -e FILE ]]`         | Exists                  |
+| `[[ -r FILE ]]`         | Readable                |
+| `[[ -h FILE ]]`         | Symlink                 |
+| `[[ -d FILE ]]`         | Directory               |
+| `[[ -w FILE ]]`         | Writable                |
+| `[[ -s FILE ]]`         | Size is > 0 bytes       |
+| `[[ -f FILE ]]`         | File                    |
+| `[[ -x FILE ]]`         | Executable              |
+| ---                     | ---                     |
+| `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
+| `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
+| `[[ FILE1 -ef FILE2 ]]` | Same files              |
 
 ### Example
 
 ```bash
+if ping -c 1 google.com; then
+  echo "It appears you have a working internet connection"
+fi
+```` 
+
+```bash
+if grep -q 'foo' ~/.bash_history; then
+  echo "You appear to have typed 'foo' in the past"
+fi
+```
+
+```bash
 # String
-if [ -z "$string" ]; then
+if [[ -z "$string" ]]; then
   echo "String is empty"
-elif [ -n "$string" ]; then
+elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
 
 ```bash
 # Combinations
-if [ X ] && [ Y ]; then
+if [[ X ]] && [[ Y ]]; then
   ...
 fi
+```
+
+```bash
+# Equal
+if [[ "$A" == "$B" ]]
 ```
 
 ```bash
@@ -384,11 +407,13 @@ if [[ "A" =~ "." ]]
 ```
 
 ```bash
-if (( $a < $b ))
+if (( $a < $b )); then
+   echo "$a is smaller than $b"
+fi
 ```
 
 ```bash
-if [ -e "file.txt" ]; then
+if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
@@ -423,6 +448,7 @@ echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
+Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
@@ -481,6 +507,7 @@ History
 
 ### Operations
 
+| `!!` | Execute last command again |         
 | `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |
@@ -490,7 +517,9 @@ History
 
 ### Slices
 
-| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first param is `1`) |
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^` | Expand first argument from most recent command |
+| `!$` | Expand last token from most recent command |
 | `!!:n-m` | Expand range of tokens from most recent command |
 | `!!:n-$` | Expand `n`th token to last from most recent command |
 
@@ -529,7 +558,7 @@ python hello.py &>/dev/null    # stdout and stderr to (null)
 ```
 
 ```bash
-python hello.py < foo.txt
+python hello.py < foo.txt      # feed foo.txt to stdin for python
 ```
 
 ### Inspecting commands
@@ -635,9 +664,21 @@ read -n 1 ans    # Just one character
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
+### Go to previous directory
+
+```bash
+pwd # /home/user/foo
+cd bar/
+pwd # /home/user/foo/bar
+cd -
+pwd # /home/user/foo
+```
+
 ## Also see
 {: .-one-column}
 
 * [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
 * [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
 * [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_

@@ -1,46 +1,65 @@
 ---
 title: RESTful API
+updated: 2018-12-25
+layout: 2017/sheet
 ---
 
 ### Status codes
 
- * `200 OK` - successful get, patch (return a JSON object)
- * `201 Created` - successful post (return a JSON object)
- * `202 Accepted` - successful post, delete, path - async
- * `204 No content` - successful delete
- * `206 Partial content` - successful get - async
+| Code                  | Description                                  |
+| --------------------- | -------------------------------------------- |
+| `200 OK`              | Successful get, patch (return a JSON object) |
+| `201 Created`         | Successful post (return a JSON object)       |
+| `202 Accepted`        | Successful post, delete, path - async        |
+| `204 No content`      | Successful delete                            |
+| `206 Partial content` | Successful get - async                       |
 
 ### Error status
 
- * `401 Unauthorized` - not authenticated
- * `403 Forbidden` - authenticated but no permissions
- * `422 Unprocessable entity` - validation
+| Code                       | Description                       |
+| -------------------------- | --------------------------------- |
+| `401 Unauthorized`         | Not authenticated                 |
+| `403 Forbidden`            | Authenticated, but no permissions |
+| `422 Unprocessable entity` | Validation                        |
 
 ### Errors
 
-    HTTP/1.1 401 Unauthorized
-    {
-      'id': 'auth_failed',
-      'message': "You're not logged in."
-    }
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+{
+  'id': 'auth_failed',
+  'message': "You're not logged in."
+}
+```
 
-### Versioning ([info](https://github.com/interagent/http-api-design#version-with-accepts-header))
+Here's an example of a possible error reply.
 
-    GET /api/foo
-    Accept: application/json; version=1
+### Versioning
+
+```
+GET /api/foo
+Accept: application/json; version=1
+```
+
+You can pass a `version=x` to the Accept request header. [Info here](https://github.com/interagent/http-api-design#version-with-accepts-header)
 
 ### Authentication
 
-    curl -is https://$TOKEN@api.service.com/
+```
+curl -is https://$TOKEN@api.service.com/
+```
 
 ### Methods
 
- * `GET /articles/1` - read, returns *200*
- * `PUT /articles/1` - edit (or path), returns *200*
- * `DELETE /articles/1` - delete, returns *200*
- * `POST /articles` - create, returns *201*
- * `GET /articles` - list, returns *200*
+| Request              | Description                   |
+| -------------------- | ----------------------------- |
+| `GET /articles/1`    | read, returns _200_           |
+| `PUT /articles/1`    | edit (or path), returns _200_ |
+| `DELETE /articles/1` | delete, returns _200_         |
+| `POST /articles`     | create, returns _201_         |
+| `GET /articles`      | list, returns _200_           |
 
 ### References
 
- * https://github.com/interagent/http-api-design
+* [interagent/http-api-design](https://github.com/interagent/http-api-design) _(github.com)_

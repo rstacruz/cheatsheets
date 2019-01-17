@@ -49,10 +49,25 @@ function add (a: number, b: number) { ... }
 
 ## Type assertions
 
+#### Variables
 ```ts
 let len: number = (input as string).length
 let len: number = (<string> input).length  /* not allowed in JSX */
 ```
+
+#### Functions
+```ts
+function object(this: {a: number, b: number}, a: number, b: number) {
+  this.a = a;
+  this.b = b;
+  return this;
+}
+
+// this is used only for type declaration
+let a = object(1,2);
+// a has type {a: number, b: number}
+```
+
 
 ## Interfaces
 
@@ -133,6 +148,38 @@ class Point {
 }
 ```
 
+#### Inheritance
+
+```ts
+class Point {...}
+
+class Point3D extends Point {...}
+
+interface Colored {...}
+
+class Pixel extends Point implements Colored {...}
+```
+
+#### Short fields initialisation
+
+```ts
+class Point {
+  static instances = 0;
+  constructor(
+    public x: number,
+    public y: number,
+  ){}
+}
+```
+
+#### Fields which do not require initialisation
+```ts
+class Point {
+  public someUselessValue!: number;
+  ...
+}
+```
+
 ## Generics
 
 ```ts
@@ -148,6 +195,19 @@ let greeter = new Greeter<string>('Hello, world')
 
 ## Modules
 
-```
+```ts
 export interface User { ... }
+```
+
+## Type extraction
+
+```ts
+interface Building {
+  room: {
+    door: string,
+    walls: string[],
+  };
+}
+
+type Walls = Building['room']['walls']; // string[]
 ```

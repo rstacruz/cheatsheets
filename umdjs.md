@@ -1,5 +1,6 @@
 ---
 title: Universal JS module loader
+category: JavaScript libraries
 ---
 
 ### [With dependency](https://github.com/umdjs/umd/blob/master/amdWebGlobal.js)

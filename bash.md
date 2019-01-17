@@ -479,7 +479,7 @@ set -o nounset    # Exposes unset variables
 ### Glob options
 
 ```bash
-set -o nullglob    # Non-matching globs are removed  ('*.foo' => '')
+shopt -s nullglob  # Non-matching globs are removed  ('*.foo' => '')
 set -o failglob    # Non-matching globs throw errors
 set -o nocaseglob  # Case insensitive globs
 set -o dotglob     # Wildcards match dotfiles ("*.sh" => ".foo.sh")

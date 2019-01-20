@@ -8,10 +8,12 @@ category: CLI
 ## Var assignment
 
 ```makefile
-uglify = $(uglify)        # assignment (right hand side is evaluated when variable is used)
-compressor := $(uglify)   # immediate assignment (right hand side is evaluated at assignment)
+uglify = $(uglify)        # lazy assignment
+compressor := $(uglify)   # immediate assignment
 prefix ?= /usr/local      # safe assignment
 ```
+
+`=` expressions are only evaluated when they're being used.
 
 ## Magic variables
 

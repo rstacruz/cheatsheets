@@ -618,6 +618,15 @@ MyComponent.propTypes = {
 }
 ```
 
+### Default prop values
+```jsx
+MyComponent.defaultProps = {
+  email:      'my@email.com',
+  seats:      1,
+  isClosed:   false
+}
+```
+
 ### Required types
 
 ```jsx

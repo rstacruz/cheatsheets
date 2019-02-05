@@ -39,7 +39,7 @@ prism_languages: [css]
 
 ```css
   /* Areas */
-  grid-tamplate-areas:
+  grid-template-areas:
     "header header"
     "main aside"
     "footer footer"; /* Grid-style */

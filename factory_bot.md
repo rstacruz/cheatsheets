@@ -23,10 +23,10 @@ intro: |
 ```ruby
 FactoryBot.define do
   factory :user do
-    first_name 'John'
-    last_name  'Doe'
+    first_name { 'John' }
+    last_name { 'Doe' }
     birthdate  { 21.years.ago }
-    admin false
+    admin { false }
 
     sequence(:username) { |n| "user#{n}" }
   end
@@ -124,7 +124,7 @@ end
 ```ruby
 factory :user do
   trait :admin do
-    admin true
+    admin { true }
   end
 end
 ```
@@ -141,7 +141,7 @@ See: [Traits](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#T
 
 ```ruby
 factory :user do
-  first_name 'John'
+  first_name { 'John' }
 
   factory :sample_user do
     first_name { FFaker::Name.first_name }

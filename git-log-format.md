@@ -79,7 +79,7 @@ See the next tables on format variables.
 
 | Variable | Description |
 | --- | --- |
-| `%aD` | author date (rfc2882) |
+| `%aD` | author date (rfc2822) |
 | `%ar` | author date (relative) |
 | `%at` | author date (unix timestamp) |
 | `%ai` | author date (iso8601) |
@@ -104,7 +104,7 @@ See the next tables on format variables.
 
 | Variable | Description |
 | --- | --- |
-| `%cD` | committer date (rfc2882) |
+| `%cD` | committer date (rfc2822) |
 | `%cr` | committer date (relative) |
 | `%ct` | committer date (unix timestamp) |
 | `%ci` | committer date (iso8601) |

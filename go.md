@@ -150,6 +150,22 @@ u := uint(i)
 
 See: [Type conversions](https://tour.golang.org/basics/13)
 
+### Type checking
+
+```go
+package main
+
+import (
+  "fmt"        // gives fmt.Println
+  "reflect"  // gives reflect.TypeOf
+)
+
+func main() {
+  fmt.Println(reflect.TypeOf(2))    // int
+  fmt.Println(reflect.TypeOf(2.5))  // float64
+}
+```
+
 ## Flow control
 {: .-three-column}
 

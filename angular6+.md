@@ -149,3 +149,11 @@ export class CountdownPipe implements PipeTransform {
 ```html
 <span>{{myText | countdown:420}}</span>
 ```
+
+### Directives
+
+```html
+<ul>
+  <li *ngFor="let user of users">{{ user.name }}</li>
+</ul>
+```

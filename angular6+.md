@@ -6,6 +6,7 @@ intro: |
 ---
 
 ## Angular Cli commands
+
 ```cmd
     npm install -g @angular/cli  // install angular cli
     ng new hello-app  // create a new angular app
@@ -41,8 +42,58 @@ export class HelloComponent implements OnInit {
 ```
 
 ### Using a component
+
 ```html
 <body>
   <app-hello></app-hello>
 </body>
+```
+
+### Modules
+
+```ts
+import { HelloComponent } from './helloComponent';
+
+@NgModule({
+  declarations: [
+  ],
+  imports: [
+  ],
+  providers: [
+  ],
+})
+export class AppModule { }
+```
+
+### Routing
+
+```ts
+import { helloComponent } from './helloComponent';
+
+const routes: Routes = [
+  {
+    path: 'hello',
+    component: 'helloComponent',
+    canActivate: []
+  },
+  {
+    path: '**',
+    redirectTo: '/'
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+```
+
+### Using the Routes
+
+```html
+<nav>
+  <a routerLink="/hello">Hello</a>
+</nav>
+<router-outlet></router-outlet>
 ```

@@ -97,3 +97,55 @@ export class AppRoutingModule {}
 </nav>
 <router-outlet></router-outlet>
 ```
+
+### Service
+
+```ts
+import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class HelloService {
+
+    constructor(private http: HttpClient) {}
+
+    sendHello(details) {
+        interface ApiResponse {
+            status;
+            message;
+            token;
+        }
+        const headers = new HttpHeaders()
+        .set('Authorization', localStorage.getItem('token'));
+        return this.http.post<ApiResponse>('/api/hello', details, {headers: headers});
+    }
+
+}
+```
+
+### Pipes
+
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+
+@Pipe({
+    name: 'countdown',
+    pure: true
+})
+
+export class CountdownPipe implements PipeTransform {
+  transform(text: string, args: number) {
+    const maxLength = args || 0;
+    const length = text.length;
+
+    return (maxLength - length);
+  }
+}
+```
+
+### Using Pipes
+
+```html
+<span>{{myText | countdown:420}}</span>
+```

@@ -128,7 +128,7 @@ The site devhints.io is backed by CloudFlare. Updates will take 2 days to propag
 
 There are multiple ways to set meta description.
 
-### keywords (and intro)
+### Keywords (and intro)
 
 Set `keywords` (and optionally `intro`). This is the easiest and the preferred
 way for now.
@@ -141,7 +141,7 @@ React.Component · render() · componentDidMount() · props/state · React is a
 JavaScript library for building web...
 ```
 
-### description (and intro)
+### Description (and intro)
 
 Set `description` (and optionally `intro`)
 
@@ -153,7 +153,7 @@ One-page reference to React and its API. React is a JavaScript library for
 building web user interfaces...
 ```
 
-### intro only
+### Intro only
 
 If you left out `description` or `keywords`, a default description will be added.
 

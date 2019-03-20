@@ -8,7 +8,7 @@ description: |
   A quick overview of Python
 ---
 
-### import
+### Import
 
 ``` python
 import mypackage
@@ -191,7 +191,7 @@ while current_value <= 5:
 
 ### Comprehensions
 
-```
+``` python
 [fn(i) for i in list]            # .map
 map(fn, list)                    # .map, returns iterator
 
@@ -227,7 +227,7 @@ def greet_user():
 greet_user()
 ```
 
-##### Passing an Argument
+#### Passing an Argument
 
 ``` python
 def greet_user(username):
@@ -294,7 +294,7 @@ my_dog.search()
 ```
 
 #### Data Classes
-_python 3.7+_
+_Python 3.7+_
 
 ``` python
 from dataclasses import dataclass
@@ -359,6 +359,6 @@ else:
 ``` python
 import pdb; pdb.set_trace() # not built into pre 3.7
 
-breakpoint() # built into python 3.7+
+breakpoint() # built into Python 3.7+
 
 ```

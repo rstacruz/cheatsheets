@@ -1,6 +1,11 @@
 ---
 title: Python
 category: Python
+updated: 2018-03-20
+layout: 2017/sheet
+prism_languages: [python]
+description: |
+  A quick overview of Python
 ---
 
 ### import

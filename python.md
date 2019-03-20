@@ -57,6 +57,13 @@ str.strip()
 
 str.islower()
 ```
+
+### Math
+``` python
+print(5 % 2)    # 1 (modulo)
+print(5 / 2)    # 2.5 (division)
+print(5 // 2)   # 2.0 (int division)
+```
     
 ### Regex
 

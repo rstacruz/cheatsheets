@@ -224,10 +224,12 @@ list(filter(lambda x: x%2==1, [1,2,3])) # [1,3]
 ### If Statements
 
 ``` python
-if site == 'devhints.io':
-    print('TL;DR for developer documentation - a ridiculous collection of cheatsheets')
-else if site === 'python.org':
+if site == 'python.org':
     print('python standard library documentation')
+else if site.startswith('devhints') and site.endswith('.io'):
+    print('TL;DR for developer documentation - a ridiculous collection of cheatsheets')
+else if not site.startswith('google'):
+    print('non-Google website')
 else:
     pass
 ```

@@ -157,3 +157,20 @@ export class CountdownPipe implements PipeTransform {
   <li *ngFor="let user of users">{{ user.name }}</li>
 </ul>
 ```
+
+Lifecycle Hooks
+---------------
+{: .-two-column}
+
+
+| Method | Description |
+| --- | --- |
+| `ngOnChanges()` | Invoked every time there is a change in one of th input properties of the component. [#] |
+| `ngOnInit()` | Invoked when given component has been initialized.
+This hook is only called once after the first ngOnChanges. [#] |
+| `ngDoCheck()` | Invoked when the change detector of the given component is invoked. It allows us to implement our own change detection algorithm for the given component.[#] |
+| `ngAfterContentInit()` | Invoked after Angular performs any content projection into the components view. [#] |
+| `ngAfterContentChecked()` | Invoked each time the content of the given component has been checked by the change detection mechanism of Angular.[#] |
+| `ngAfterViewInit()` | Invoked when the component’s view has been fully initialized.[#] |
+| `ngAfterViewChecked()` | Invoked each time the view of the given component has been checked by the change detection mechanism of Angular.[#] |
+| `ngOnDestroy()` | This method will be invoked just before Angular destroys the component. [#] |

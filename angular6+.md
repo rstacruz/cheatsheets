@@ -1,6 +1,7 @@
 ---
 title: Angular 6+
 category: JavaScript Framework
+updated: 2019-03-20
 intro: | 
 [Angular](https://angular.io/) is a Javascript framework. This guide targets Angular v6+
 ---

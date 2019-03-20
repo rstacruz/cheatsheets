@@ -22,7 +22,7 @@ import mymodule as mod
 import mymodule from mypackage as mod
 ```
 
-### [String](https://docs.python.org/2/library/stdtypes.html#string-methods)
+### String
 
 #### String Creation
 

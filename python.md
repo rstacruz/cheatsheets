@@ -28,8 +28,9 @@ import mymodule from mypackage as mod
 
 ``` python
 site = "devhints"
-message = "Welcome to %s." % site
-message = f"Welcome to {site}"     # python 3.6+
+message = 'Welcome %s to %s' % ('User', site)
+message = 'Welcome {} to {}'.format('User', site)
+message = f"Welcome User to {site}" # Python 3.6+
 ```
     
 #### String Methods
@@ -39,10 +40,10 @@ str[0:4]
 len(str)
 
 string.replace("-", " ")
-",".join(list)
+",".join(list)  # join separating each element by the string
 "hi {0}".format('j')
 str.find(",")
-str.index(",")   # same, but raises IndexError
+str.index(",")  # same, but raises IndexError
 str.count(",")
 str.split(",")
 
@@ -128,20 +129,29 @@ modified.
 #### Tuple Creation
 
 ``` python
-list = tuple()
+sites = tuple()
 sites = ('github.com', 'devhints.io', 'python.org', )
+```
+
+#### Named Tuple
+``` python
+from collections import namedtuple
+Point = namedtuple('Point', 'x y')
+pt1 = Point(1.0, 5.0)
+print(pt1.x, pt1.y)
 ```
 
 ### Dictionary
 
 #### Dictionary Creation
 ``` python
+sites = {}
 sites = {'code': 'github.com', 'cheatsheets': 'devhints.io', 'docs': 'python.org', }
 ```
 
 #### Access Items in a Dictionary
 ``` python
-sittes['code']
+sites['code']
 ```
 
 #### Reassign an Item
@@ -167,6 +177,8 @@ float(str)
 str(int)
 str(float)
 'string'.encode()
+ord('A') # 65
+chr(65)  # A
 ```
 
 ### Iteration
@@ -192,11 +204,14 @@ while current_value <= 5:
 ### Comprehensions
 
 ``` python
-[fn(i) for i in list]            # .map
-map(fn, list)                    # .map, returns iterator
+[fn(i) for i in list]                   # .map
+map(fn, list)                           # .map, returns iterator
+map(lambda x, y: x+y, [1,2,3], [3,2,1]) # iterator: [4,4,4]
 
-filter(fn, list)                 # .filter, returns iterator
-[fn(i) for i in list if i > 0]   # .filter.map
+filter(fn, list)                        # .filter, returns iterator
+list(filter(lambda x: x%2==1, [1,2,3])) # [1,3]
+
+[fn(i) for i in list if i > 0]          # .filter.map
 ```
 
 ### If Statements
@@ -254,6 +269,13 @@ sum = add_numbers(3, 5)
 print(sum)
 ```
 
+#### Lambda
+``` python
+add_numbers = lambda x, y: x+y
+sum = add_numbers(3, 5)
+print(sum)
+```
+
 ### Classes
 
 #### Class Creation
@@ -290,7 +312,6 @@ my_dog = SARDog('Willie')
 print(my_dog.name + " is a search dog.")
 my_dog.sit()
 my_dog.search()
-
 ```
 
 #### Data Classes
@@ -358,7 +379,21 @@ else:
 
 ``` python
 import pdb; pdb.set_trace() # not built into pre 3.7
+breakpoint()                # built into Python 3.7+
+```
 
-breakpoint() # built into Python 3.7+
+### Assert
+``` python
+data = [1,2,3,4]
+assert len(data) == 4                   # OK
+assert len(data) == 5, "invalid length" # throws exception "invalid length"
+```
 
+### Combinatorics
+
+``` python
+import itertools
+itertools.product("10",repeat=2) # [('1', '1'), ('1', '0'), ('0', '1'), ('0', '0')]
+itertools.permutations("10")     # [('1', '0'), ('0', '1')]
+itertools.combinations("10", 2)  # [('1', '0')]
 ```

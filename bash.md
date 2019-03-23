@@ -464,8 +464,9 @@ for i in "${arrayName[@]}"; do
 done
 ```
 
-Dictionaries (Associative Arrays)
---------------------------------
+Dictionaries
+------------
+{: .-three-column}
 
 ### Defining
 
@@ -480,23 +481,33 @@ sounds[bird]="tweet"
 sounds[wolf]="howl"
 ```
 
+Declares `sound` as a Dictionary object (aka associative array).
+
 ### Working with dictionaries
 
 ```bash
-echo ${sounds[dog]}                     # Dog's sound
-echo ${sounds[@]}                       # All the values
-echo ${!sounds[@]}                      # All the keys
-echo ${#sounds[@]}                      # Number of elements
-unset sounds[dog]                       # Delete dog
+echo ${sounds[dog]} # Dog's sound
+echo ${sounds[@]}   # All values
+echo ${!sounds[@]}  # All keys
+echo ${#sounds[@]}  # Number of elements
+unset sounds[dog]   # Delete dog
 ```
 
 ### Iteration
+
+#### Iterate over values
+
 ```bash
-for i in "${sounds[@]}"; do             # Iterate over values
-  echo $i
+for val in "${sounds[@]}"; do
+  echo $val
 done
-for i in "${!sounds[@]}"; do             # Iterate over keys
-  echo $i
+```
+
+#### Iterate over keys
+
+```bash
+for key in "${!sounds[@]}"; do
+  echo $key
 done
 ```
 

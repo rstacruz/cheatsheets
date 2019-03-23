@@ -55,5 +55,6 @@ description: |
 | `a+`     | Match 1 or more |
 | `a?`     | Match 0 or 1 |
 | `a{5}`   | Match exactly 5 |
+| `a{,3}`  | Match up to 3 |
 | `a{3,}`  | Match 3 or more |
 | `a{1,3}` | Match between 1 and 3 |

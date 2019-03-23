@@ -79,17 +79,21 @@ function play (song) {
 
 See: <http://usejsdoc.org/tags-typedef.html>
 
-### Importing Types
+### Importing types
+
 ```js
 /**
- * @typedef {import('Foo').default} Bar
+ * @typedef {import('./Foo').default} Bar
  */
- 
+
 /**
  * @param {Bar} x
  */
+
 function test(x) { }
 ```
+
+This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types).
 
 ### Other keywords
 

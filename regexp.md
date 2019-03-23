@@ -19,7 +19,7 @@ description: |
 | `\d`    | Digit |
 | `\s`    | Whitespace |
 | `\W`    | Not word |
-| `\d`    | Not digit |
+| `\D`    | Not digit |
 | `\S`    | Not whitespace |
 | `[abc]` | Any of a, b, or c |
 | `[a-e]` | Characters between `a` and `e` |

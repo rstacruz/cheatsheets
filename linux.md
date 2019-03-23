@@ -13,4 +13,7 @@ title: Linux
     username ALL=(ALL) NOPASSWD:/sbin/restart whatever
 
 ### Answer yes in a bash script
-    yes | /your/command
+
+```bash
+yes | /your/command
+```

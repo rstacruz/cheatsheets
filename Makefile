@@ -26,11 +26,10 @@ ensure-bin:
 		echo "---"; \
 		exit 1; \
 		fi
-	@if ! bundle show jekyll &>/dev/null; then \
+	@if ! which jekyll &>/dev/null; then \
 		echo "---"; \
-		echo "Error: Jekyll not found, you may need to run '[docker-compose run --rm web] bundle install'."; \
+		echo "Warning: Jekyll not found, you may need to run '[docker-compose run --rm web] bundle install'."; \
 		echo "---"; \
-		exit 1; \
 		fi
 
 dev: ensure-bin ## Starts development server

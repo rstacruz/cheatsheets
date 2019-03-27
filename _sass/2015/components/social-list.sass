@@ -1,0 +1,73 @@
+/*
+ * .social-list -- social share icons
+ */
+
+.social-list
+  &, li
+    margin: 0
+    padding: 0
+
+  &
+    display: block
+    text-align: center
+    width: 100%
+    margin-top: 2em
+
+    @media (min-width: 768px)
+      margin-top: 4em
+
+  &.-top
+    margin-top: -2em
+
+    @media (min-width: 768px)
+      margin-top: -1em
+
+  li
+    display: inline-block
+
+  a
+    display: inline-block
+    padding: 6px
+    text-align: center
+    box-shadow: none
+
+  a:before, a:after
+    transition: all 100ms linear
+
+  .text
+    display: none
+
+  a:before
+    font-family: 'Ionicons'
+    font-weight: normal
+    font-style: normal
+    font-size: 18px
+    width: 40px
+    height: 40px
+    line-height: 40px
+    display: inline-block
+    text-align: center
+    border: solid 2px transparent
+    border-radius: 50%
+
+  @mixin socialiconify($color, $content, $filled)
+    &
+      color: darken($lightgray, 10%)
+
+    &:hover,
+    &:focus
+      color: $color
+    &:before
+      content: $filled
+    &:hover:before,
+    &:focus:before
+      border-color: $color
+      content: $filled
+
+  .facebook a
+    +socialiconify(#4c66a4, '\f230', '\f231')
+  .twitter a
+    +socialiconify(dodgerblue, '\f242', '\f243')
+  .googleplus a
+    +socialiconify(#f53, '\f234', '\f235')
+

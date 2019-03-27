@@ -1,0 +1,105 @@
+/*
+ * .about-the-site
+ */
+
+.about-the-site
+  &
+    position: relative
+
+  .container
+    text-align: center
+    padding: 3em 80px
+    margin: 0 auto
+    +clearfix
+
+    @media (max-width: 768px)
+      padding-left: 40px
+      padding-right: 40px
+
+  &:before
+    content: ''
+    position: absolute
+    display: block
+    left: 20px
+    right: 20px
+    top: 0
+    border-top: solid 1px $hairline
+
+  &
+    +body-font
+    font-size: 0.85em
+    color: lighten($gray, 20%)
+
+  a, a:visited
+    color: lighten($gray, 10%)
+    box-shadow: inset 0 -1px rgba(black, 0.05)
+    padding-bottom: 2px
+
+  a:hover, a:focus
+    color: $black
+    box-shadow: inset 0 -2px $accent
+
+  strong
+    +bold-font
+
+  strong a, strong a:visited
+    color: $black
+    box-shadow: none
+
+  strong a:hover, strong a:focus
+    color: $black
+    box-shadow: inset 0 -2px $accent
+
+  .identity
+    margin: 0
+    margin-top: 0.2em
+    float: right
+    +italic-font
+    +italic-font-size(2.5em)
+
+  .identity a,
+  .identity a:visited
+    color: $black
+    box-shadow: none
+
+  .identity a:hover,
+  .identity a:focus
+    color: $accent
+
+  .blurb
+    margin: 0
+    max-width: 500px
+    text-align: left
+    float: left
+    line-height: 1.55
+
+  .back
+    float: right
+    margin-top: 0.4em
+    margin-right: 2em
+
+  .fleuron:before
+    content: '\f492'
+    font-family: Ionicons
+    font-size: 16px
+    font-weight: normal
+    font-style: normal
+    display: inline-block
+    vertical-align: middle
+    color: $black
+    margin: 0 7px
+
+    @media (max-width: 768px)
+      display: none
+
+  @media (max-width: 768px)
+    .identity
+      float: left
+      clear: both
+    .blurb
+      float: none
+      margin-bottom: 1em
+      width: auto
+    .back
+      float: right
+      margin-right: 0

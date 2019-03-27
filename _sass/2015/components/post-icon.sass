@@ -1,0 +1,58 @@
+/*
+ * .post-icon -- category icons
+ */
+
+$icon-size: 56px
+
+@mixin iconify($color, $text)
+  &
+    background: $color
+    color: lighten($color, 50%)
+    box-shadow: -2px 2px #e67e22, 2px -2px #f1c40f, 1px -2px rgba($color, 0.2), 1px 3px rgba($color, 0.3)
+
+  span:after
+    content: $text
+
+.post-icon,
+abbr.post-icon
+  border: 0
+  margin: 0
+  display: inline-block
+  width: $icon-size
+  height: $icon-size
+  line-height: $icon-size + 2px
+  text-align: center
+  border-radius: 50%
+  color: #aaa
+  background: #eee
+
+  +body-font
+  font-size: 16px
+  letter-spacing: 1px
+
+  span:after
+    content: attr(data-label)
+    font-size: 0.9em
+    position: relative
+    top: -1px
+
+  @media (max-width: 480px)
+    transform: scale(0.75)
+
+  &.-icon-css
+    +iconify(#3498db, 'CSS')
+    font-size: 14px
+    line-height: $icon-size + 2px
+  &.-icon-development
+    +iconify(#34495e, 'DEV')
+    font-size: 14px
+    line-height: $icon-size + 2px
+  &.-icon-ruby
+    +iconify(#e74c3c, 'RB')
+    text-indent: 2px
+  &.-icon-javascript
+    +iconify(#2ecc71, 'JS')
+    text-indent: 1px
+  &.-icon-productivity
+    +iconify(#2ecc71, 'PROD')
+    text-indent: 1px

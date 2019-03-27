@@ -2,6 +2,12 @@ npmbin := ./node_modules/.bin
 PORT ?= 3000
 HOST ?= 127.0.0.1
 
+help:
+	@echo
+	@echo Makefile targets
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@echo
+
 # Builds intermediate files. Needs a _site built first though
 update: _site critical
 
@@ -9,10 +15,10 @@ update: _site critical
 _site:
 	bundle exec jekyll build --incremental
 
-# Builds critical path CSS/JS
-critical: _site
+critical: _site ## Builds critical path CSS/JS
 	node _support/critical.js
 
+# Ensure that bins are available.
 ensure-bin:
 	@if [ ! -d $(npmbin) ]; then \
 		echo "---"; \
@@ -20,9 +26,14 @@ ensure-bin:
 		echo "---"; \
 		exit 1; \
 		fi
+	@if ! bundle show jekyll &>/dev/null; then \
+		echo "---"; \
+		echo "Error: Jekyll not found, you may need to run '[docker-compose run --rm web] bundle install'."; \
+		echo "---"; \
+		exit 1; \
+		fi
 
-# Starts development server
-dev: ensure-bin
+dev: ensure-bin ## Starts development server
 	$(npmbin)/concurrently -k -p command -c "blue,green" \
 		"make dev-webpack" \
 		"make dev-jekyll"
@@ -37,7 +48,7 @@ dev-jekyll: ensure-bin
 		bundle exec jekyll serve --safe --trace --drafts --watch --host $(HOST) --port $(PORT); \
 		fi
 
-test: _site
+test: _site ## Runs rudimentary tests
 	@test -f _site/vim.html
 	@test -f _site/react.html
 	@test -f _site/index.html

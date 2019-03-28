@@ -34,6 +34,14 @@ git remote prune origin
 
 Deletes `origin/*` branches in your local copy. Doesn't affect the remote.
 
+### List existing branches
+
+```bash
+git branch --list
+```
+
+Existing branches are listed. Current branch will be highlighted with an asterisk.
+
 ### List merged branches
 
 ```bash
@@ -41,6 +49,14 @@ git branch -a --merged
 ```
 
 List outdated branches that have been merged into the current one.
+
+### Delete branch forcefully
+
+```bash
+git branch -D $branchname
+```
+
+Delete a branch irrespective of its merged status.
 
 ### Delete remote branch
 

@@ -5,10 +5,11 @@
 
 #### Date
 
-| Example              | Output                             |
-| ---                  | ---                                |
-| `YYYY-MM-DD`         | `2014-01-01`                       |
-| `dddd, MMMM Do YYYY` | `Friday, May 16th 2014`            |
+| Example                     | Output                             |
+| ---                         | ---                                |
+| `YYYY-MM-DD`                | `2014-01-01`                       |
+| `dddd, MMMM Do YYYY`        | `Friday, May 16th 2014`            |
+| `dddd [the] Do [of] MMMM`   | `Friday the 16th of May`           |
 {: .-shortcuts}
 
 #### Time

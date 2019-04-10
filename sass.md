@@ -130,7 +130,7 @@ body {
 ### Composing
 
 ```scss
-@import './other_sass_file`;
+@import './other_sass_file';
 ```
 
 The `.scss` or `.sass` extension is optional.

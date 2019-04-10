@@ -97,6 +97,18 @@ $ docker kill $ID
 
 Manage `container`s using ps/kill.
 
+
+### `docker logs`
+
+```
+$ docker logs $ID
+$ docker logs $ID 2>&1 | less
+$ docker logs -f $ID # Follow log output
+```
+
+See what's being logged in an `container`.
+
+
 Images
 ------
 

@@ -23,6 +23,7 @@ Getting started
 | `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
 | `:w`           | Save                             |
+| `:w!`          | Try to save write-protected file |
 | `:wq` _/_ `:x` | Save and close file              |
 | ---            | ---                              |
 | `:q`           | Close file                       |
@@ -55,6 +56,7 @@ Getting started
 | `0` _(zero)_ | Start of line                      |
 | `^`          | Start of line _(after whitespace)_ |
 | `$`          | End of line                        |
+| `n\|`        | Go to column `n`                   |
 {: .-shortcuts}
 
 #### Character

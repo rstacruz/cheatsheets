@@ -193,7 +193,7 @@ comment
 ### Substrings
 
 | `${FOO:0:3}`  | Substring _(position, length)_ |
-| `${FOO:-3:3}` | Substring from the right |
+| `${FOO:(-3):3}` | Substring from the right |
 
 ### Length
 

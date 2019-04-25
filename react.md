@@ -288,7 +288,7 @@ Lifecycle
 | Method | Description |
 | --- | --- |
 | `constructor` _(props)_ | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor) |
-| `componentWillMount()` | _Don't use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
+| `componentWillMount()` | _will be deprecated in next release_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
 | `render()` | Render  [#](https://reactjs.org/docs/react-component.html#render) |
 | `componentDidMount()` | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
 | --- | --- |

@@ -316,9 +316,12 @@ Checks if it's the same instance object.
 ### Regexp matches
 
 ```vim
-"hello" =~ '/x/'
-"hello" !~ '/x/'
+"hello" =~ 'xx*'
+"hello" !~ 'xx*'
+"hello" =~ '\v<\d+>'
 ```
+
+`\v` enables "extended" regex mode which allows word boundary (`<>`), `+`, and more.
 
 ### Single line
 

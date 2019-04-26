@@ -20,22 +20,51 @@ This parses the given date using the given format. Returns a moment object.
 m
   .format()
   .format('dddd')
-  .format('MMM Do YY') // → "Sep 2nd 07"
-  .fromNow() // → "31 minutes ago"
-  .calendar() // → "Last Friday at 9:32PM"
+  .format('MMM Do YY')   // → "Sep 2nd 07"
+  .fromNow()             // → "31 minutes ago"
+  .toNow()               // → "in 31 minutes"
+  .calendar()            // → "Last Friday at 9:32PM"
+  .toISOString()         // → "2014-06-09T04:00:00.000Z"
+  .toJSON()              // → "2014-06-09T04:00:00.000Z"
+  .local().format('lll') // → "Feb 25, 2015 8:02 AM" // EST if you're in EST
+  .utc().format('lll')   // → "Feb 25, 2015 1:02 PM" // UTC no matter where you're at
+```
+
+### Converting
+
+```js
+d = m.toDate()  // → javascript Date() class
+d = new Date(m) // → javascript Date() class
+m = moment(d)   // → new moment object
+d == m          // → false
+m.valueOf()     // → 1402286400000
+d.valueOf() == m.valueOf() // true
 ```
 
 ### Add
 
 ```js
 m.add(1, 'day')
+m.add(1, 'days')
 m.subtract(2, 'days')
+m.subtract(2, 'day')
+m.startOf('day')
+m.endOf('day')
 ```
 
 ```js
-m.startOf('day')
-m.endOf('day')
-m.startOf('hour')
+// Units Available
+'millisecond' + 's'
+'second' + 's'
+'minute' + 's'
+'hour' + 's'
+'day' + 's'
+'week' + 's'
+'month' + 's'
+'quarter' + 's'
+'year' + 's'
+//Alternatively
+'ms','s','m','h','d','w','M','Q','y'
 ```
 
 ### Internationalization
@@ -49,6 +78,8 @@ m.startOf('hour')
 .format('lll')    // Jun 9 2014 9:32 PM
 .format('LLLL')   // Monday, June 9 2014 9:32 PM
 .format('llll')   // Mon, Jun 9 2014 9:32 PM
+
+.toISOString()    // 2014-06-09T04:00:00.000Z
 ```
 
 See [datetime](./datetime) for more.

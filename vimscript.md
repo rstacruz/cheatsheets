@@ -22,7 +22,7 @@ You can either put this in a script (`script.vim`) and run it (`:source script.v
 ```vim
 function! SuperTab()
   let l:part = strpart(getline('.'),col('.')-2,1)
-  if (l:part=~'^\W\?$')
+  if (l:part =~ '^\W\?$')
       return "\<Tab>"
   else
       return "\<C-n>"

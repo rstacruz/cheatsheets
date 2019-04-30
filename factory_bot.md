@@ -182,7 +182,7 @@ Works the same as nested factories.
 ```ruby
 factory :user do
   transient do
-    upcased true
+    upcased { true }
   end
 
   after :create do |user, options|

@@ -33,7 +33,7 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | `YYYY` | `2013`                  |                  |
 | ---    | ---                     | ---              |
 | `M`    | `1`..`12` _(Jan is 1)_  | **Month**        |
-| `Mo`   | `1st`..`31st`           |                  |
+| `Mo`   | `1st`..`12th`           |                  |
 | `MM`   | `01`..`12` _(Jan is 1)_ |                  |
 | `MMM`  | `Jan`                   |                  |
 | `MMMM` | `January`               |                  |

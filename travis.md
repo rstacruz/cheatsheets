@@ -31,6 +31,19 @@ rvm:
 * Defaults install to `bundle install`
 * Defaults test to `rake`
 
+### Bash
+
+Setting `language` to **`bash`**, `sh` or `shell` is equivalent to **`minimal`**.
+
+```yaml
+language: bash
+before_script:
+  - bash --version
+```
+
+ * No default install
+ * No default script
+
 ### Build lifecycle
 
 * `before_install`
@@ -75,12 +88,36 @@ rvm:
         - gh-pages
         - /^deploy/
 
-### Apt packages
+### [apt] and [homebrew] packages
+
+[apt]: <https://docs.travis-ci.com/user/installing-dependencies#installing-packages-with-the-apt-addon/>
+[homebrew]: <https://docs.travis-ci.com/user/installing-dependencies/#installing-packages-on-macos>
+
+Via addons or scripted.
+
+#### addons
+
+```yaml
+addons:
+  apt:
+    update: true
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - openssl
+  homebrew:
+    update: true
+    packages:
+    - openssl
+    - coreutils
+```
+
+#### scripted
 
     before_install:
-    - sudo apt-get update -q
-    - sudo apt-get install gcc-4.8 -y
-<https://docs.travis-ci.com/user/installing-dependencies/>
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get -qq -y update         ; fi
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get -qq -y install gcc-4.8; fi
 
 ### Etc
 
@@ -104,6 +141,7 @@ rvm:
 
 ### References
 
- * http://about.travis-ci.org/docs/user/build-configuration/
- * http://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/
- * http://about.travis-ci.org/docs/user/languages/ruby/
+ * <https://docs.travis-ci.com/user/customizing-the-build/>
+ * <https://docs.travis-ci.com/user/languages/javascript-with-nodejs/>
+ * <https://docs.travis-ci.com/user/languages/ruby/>
+ * <https://docs.travis-ci.com/user/installing-dependencies>

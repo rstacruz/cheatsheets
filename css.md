@@ -48,6 +48,7 @@ keywords:
 | `[role="dialog"]` | `=` Exact                           |
 | `[class~="box"]`  | `~=` Has word                       |
 | `[class|="box"]`  | `|=` Exact or prefix (eg, `value-`) |
+| `[href^="/"]`     | `^=` Starts in                      |
 | `[href$=".doc"]`  | `$=` Ends in                        |
 | `[class*="-is-"]` | `*=` Contains                       |
 

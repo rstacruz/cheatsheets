@@ -23,7 +23,7 @@ weight: -1
 function foo(n) { return n }
 ```
 
-See: <http://usejsdoc.org/index.html>
+See: <https://jsdoc.app/index.html>
 
 ### Types
 
@@ -37,7 +37,7 @@ See: <http://usejsdoc.org/index.html>
 | `@param {string} [n="hi"]`   | Optional with default |
 | `@param {string[]} n`        | Array of strings      |
 
-See: <http://usejsdoc.org/tags-type.html>
+See: <https://jsdoc.app/tags-type.html>
 
 ### Variables
 
@@ -77,7 +77,7 @@ function play (song) {
 }
 ```
 
-See: <http://usejsdoc.org/tags-typedef.html>
+See: <https://jsdoc.app/tags-typedef.html>
 
 ### Importing types
 
@@ -118,4 +118,4 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
  */
 ```
 
-Prefer `alias` over `name`. See: <http://usejsdoc.org/tags-alias.html>
+Prefer `alias` over `name`. See: <https://jsdoc.app/tags-alias.html>

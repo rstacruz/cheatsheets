@@ -44,6 +44,11 @@ Field names will be prefixed with `post` (the class name), and values will be de
 = f.input :remember_me, :as => :boolean, :label => false, :inline_label => true if devise_mapping.rememberable?
 = f.input_field :name
 = f.input_field :remember_me, as: :boolean, boolean_style: :inline
+
+To use this with associations in your model, you can do the following:
+form_for @user do |f|
+  f.collection_check_boxes :role_ids, Role.all, :id, :name # using :roles here is not going to work.
+end
 ```
 
 ### Radio
@@ -76,6 +81,12 @@ f.full_error :token
 f.button :submit, "Create", class: 'buton primary'
 = link_to t(:cancel), taxpayers_path, class: 'btn btn-default button'
 = link_to t(:destroy), @my_model, :method => :delete, :data => { :confirm => t(:destroy_are_you_sure)}, class: 'button negative'
+
+= f.button :button, "Custom Button Text"
+
+= f.button :button do
+  Custom Button Text
+
 ```
 
 ### Hidden fields
@@ -95,9 +106,10 @@ f.object
 ### Fields for
 
 ```haml
-= form_for @post do |f|
-  = fields_for :author, @post.author do |ff|
-    = ff.text_field :name
+= form_for @user do |f|
+  = f.simple_fields_for :posts do |ff|
+    # Here you have all simple_form methods available
+    = ff.input :name
 ```
 
 ### Select dropdowns
@@ -108,6 +120,10 @@ f.select :city_id, [['Lisbon',1], ['Madrid',2], ...], 4
 
 options_for_select [['Lisbon',1], ['Madrid',2], ...], 4
 # Just makes <option> tags
+
+= f.input :role do
+  f.select :role, Role.all.map { |r| [r.name, r.id, { class: r.company.id }] }, include_blank: true 
+
 ```
 
 ### Collections

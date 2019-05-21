@@ -28,7 +28,7 @@ Field names will be prefixed with `post` (the class name), and values will be de
 
 ```rb
   =f.input :title
-  =f.input :view_details, as: :boolean
+  =f.input :view_details, as: :text
 ```
 
 ### Numeric
@@ -81,7 +81,7 @@ f.button :submit, "Create", class: 'buton primary'
 ### Hidden fields
 
 ```rb
-f.hidden_field :id
+f.input :id, as: :hidden
 ```
 
 ## Misc
@@ -163,23 +163,55 @@ f.date_select :birthday
 ```
 ### I18n
 
+**Be sure to check our locale file or the one copied to your application after you run
+rails generate simple_form:install.**
+
 ```yaml
-helpers:
-  submit:
-    # helpers.submit.<action>
-    create: "Create a %{model}"
-    update: "Confirm changes to %{model}"
-
-    # helpers.submit.<model>.<action>
-    article:
-      create: "Publish article"
-      update: "Update article"
-
-  # helpers.label.<model>.<field>
-  label:
-    post:
-      body: "Your body text"
+en:
+  simple_form:
+    labels:
+      user:
+        username: 'User name'
+        password: 'Password'
+    hints:
+      user:
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
+    placeholders:
+      user:
+        username: 'Your username'
+        password: '****'
+    include_blanks:
+      user:
+        age: 'Rather not say'
+    prompts:
+      user:
+        role: 'Select your role'
 ```
+
+### Collection Helpers translation
+```
+= f.input :role, collection: [:admin, :editor]
+
+en:
+  simple_form:
+    options:
+      user:
+        role:
+          admin: 'Administrator'
+          editor: 'Editor'
+```
+### Tranlsate Buttons
+
+```
+en:
+  helpers:
+    submit:
+      user:
+        create: "Add %{model}"
+        update: "Save Changes"
+```
+
 
 ### Outside `f`
 

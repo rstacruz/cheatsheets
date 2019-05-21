@@ -2,6 +2,7 @@
 title: Simple Form(Devise) helpers
 hljs_languages: [haml]
 category: Rails
+[Blog Plataformatech](http://simple-form.plataformatec.com.br/)
 ---
 
 ## Form builder
@@ -15,7 +16,7 @@ Field names will be prefixed with `post` (the class name), and values will be de
 ### Options
 
 ```haml
-= simple_form_form_for @post, |
+= simple_form_form_for @post, 
   url: { method: 'put', action: 'create' }, |
   html: { class: 'nifty_form' } |
   do |f|
@@ -39,8 +40,10 @@ Field names will be prefixed with `post` (the class name), and values will be de
 ### Checkbox
 
 ```rb
-f.check_box :remember_me
-f.label :remember_me, "Remember me"
+= f.label :remember_me, "Remember me"
+= f.input :remember_me, :as => :boolean, :label => false, :inline_label => true if devise_mapping.rememberable?
+= f.input_field :name
+= f.input_field :remember_me, as: :boolean, boolean_style: :inline
 ```
 
 ### Radio
@@ -60,6 +63,11 @@ f.label :title
 f.label :title, "Title"
 f.label :title, "Title", class: "title"
 f.label(:post, :terms) { "Accept terms" }
+f.label :username %>
+f.input_field :username %>
+f.hint 'No special characters, please!' 
+f.error :username, id: 'user_name_error' 
+f.full_error :token 
 ```
 
 ### Submit button
@@ -105,9 +113,46 @@ options_for_select [['Lisbon',1], ['Madrid',2], ...], 4
 ### Collections
 
 ```
+= f.input :age, collection: 18..60
+= f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries
 f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial
 f.collection_select :city_id, City.all, :id, :name
 # (field, collection, value_key, label_key)
+```
+
+### Associations
+
+```
+class User < ActiveRecord::Base
+  belongs_to :company
+  has_and_belongs_to_many :roles
+end
+
+class Company < ActiveRecord::Base
+  has_many :users
+end
+
+class Role < ActiveRecord::Base
+  has_and_belongs_to_many :users
+end
+
+= simple_form_for @user do |f|
+  = f.input :name 
+  = f.association :company 
+  = f.association :roles 
+  = f.button :submit
+  
+:select input with :multiple option for the :roles. You can, of course, change it to use radio
+buttons and checkboxes as well:
+
+= f.association :company, as: :radio_buttons
+= f.association :roles,   as: :check_boxes
+
+Additionally, you can specify the collection by hand, all together with the prompt:
+= f.association :company, collection: Company.active.order(:name), prompt: "Choose a Company"
+
+In case you want to declare different labels and values:
+= f.association :company, label_method: :company_name, value_method: :id, include_blank: false
 ```
 
 ### Time select
@@ -155,4 +200,5 @@ select(method, choices = nil, options = {}, html_options = {}, &block)
 
 submit(value=nil, options={})
 ```
+
 

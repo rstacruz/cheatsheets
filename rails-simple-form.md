@@ -34,7 +34,7 @@ Field names will be prefixed with `post` (the class name), and values will be de
 ### Numeric
 
 ```rb
-  = f.input :numeric_value, as: :integer, required: true, input_html: { value: 10 } #input_hml = value default
+  = f.input :numeric_value, as: :integer, required: true, input_html: { value: 10 } #input_hml = default value
 ```
 
 ### Checkbox

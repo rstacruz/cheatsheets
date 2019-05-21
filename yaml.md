@@ -24,3 +24,15 @@ child:
   <<: *defaults
   b: 4
 ```
+
+### Property
+
+```
+html tag with property:
+  %main{:role => "main"}
+```
+
+```
+tag div(css) with property:
+  .text-right{style: "margin-top: 5px;"}
+```

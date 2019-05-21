@@ -126,15 +126,19 @@ Getting started
 
 ### Clipboard
 
-| Shortcut | Description         |
-| ---      | ---                 |
-| `x`      | Delete character    |
-| ---      | ---                 |
-| `dd`     | Delete line _(Cut)_ |
-| `yy`     | Yank line _(Copy)_  |
-| ---      | ---                 |
-| `p`      | Paste               |
-| `P`      | Paste before        |
+| Shortcut | Description              |
+| ---      | ---                      |
+| `x`      | Delete character         |
+| ---      | ---                      |
+| `dd`     | Delete line _(Cut)_      |
+| `yy`     | Yank line _(Copy)_       |:file
+
+| ---      | ---                      |
+| `p`      | Paste                    |
+| `P`      | Paste before             |
+| :reg     | show register(clipboard) |
+| "xy      | yank into register x     |
+| "xp      | paste contents of reg x  |
 {: .-shortcuts}
 
 ### Visual mode
@@ -316,6 +320,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 ### Windows
 
 | `z{height}<Cr>` | Resize pane to `{height}` lines tall |
+| <C-w>+t <C-w>+K | Split vertical to horizontal         |
+| <C-w>+t <C-w>+H | Split horitontal to vertical         |
 
 ### Tags
 

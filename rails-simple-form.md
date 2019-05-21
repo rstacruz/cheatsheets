@@ -1,10 +1,10 @@
-[Blog Plataformatech](http://simple-form.plataformatec.com.br/)
-
 ---
 title: Simple Form(Devise) helpers
 hljs_languages: [haml]
 category: Rails
 ---
+
+[Blog Plataformatech](http://simple-form.plataformatec.com.br/)
 
 ## Form builder
 

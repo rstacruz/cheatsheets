@@ -21,8 +21,11 @@ Also `git-bug` and `git-refactor`.
     $ git delete-merged-branches
       # hint: do `git remote prune origin` after
 
-    $ git create-branch development
-    $ git delete-branch development
+    $ git checkout -b development     # create and switch to development branch
+    $ git checkout development        # switch do development branch
+    $ git branch -D development       # delete with force a local branch
+    $ git branch -d development       # delete a branch
+    $ git branch -m development new_name # rename a branch      
 
     $ git fresh-branch gh-pages
 

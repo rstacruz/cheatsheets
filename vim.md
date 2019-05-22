@@ -145,7 +145,6 @@ Getting started
 | ---      | ---                      |
 | `dd`     | Delete line _(Cut)_      |
 | `yy`     | Yank line _(Copy)_       |:file
-
 | ---      | ---                      |
 | `p`      | Paste                    |
 | `P`      | Paste before             |

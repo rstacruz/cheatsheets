@@ -114,10 +114,14 @@ Getting started
 
 #### Buffer
 
-| Shortcut | Description                  |
-| ---      | ---                          |
-| ls       | Show current buffers         |
-| b2       | Open buffer#2 in this window |
+| Shortcut    | Description                  |
+| ---         | ---                          |
+| ls          | Show current buffers         |
+| b2          | Open buffer#2 in this window |
+| :bd!        | deletes the current buffer, no error if unwritten changes |
+| :bufdo! bd! | deletes all buffers, no error on any unwritten changes |
+| :tabe +Nbuf | open buffer number N in new tab |
+| :tabnew     | Open new buffer              |
 
 ### Editing
 

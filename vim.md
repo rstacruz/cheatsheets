@@ -49,6 +49,14 @@ Getting started
 | `e` _/_ `ge` | Previous/next end of word |
 {: .-shortcuts}
 
+#### Especial characters
+| Shortcut         | Description                |
+| ---              | ---                        |
+| :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< | Show hide characters(tabs, spaces, eol) |
+| :set nolist      | Clear special view         |
+| :set noet|retab! | Convert spaces to tabs     |
+| :set et|retab    | Convert tabs to spaces     |
+
 #### Line
 
 | Shortcut          | Description                               |

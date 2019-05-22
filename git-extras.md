@@ -28,9 +28,13 @@ Also `git-bug` and `git-refactor`.
 
 ### Inspecting
 
-    $ git summary   # repo age, commits, active days, etc
-    $ git impact    # impact graph
-    $ git effort    # commits per file
+    $ glgp='git log --stat -p' 
+    $ gloga='git log --oneline --decorate --graph --all'
+    $ glo='git log --oneline --decorate'
+    $ glods='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %│
+C(bold blue)<%an>%Creset'\'' --date=short'  
+
+    glgp, gloga, glo, glods are alias in zshrc git-extras plugin
 
 ### Github
 

@@ -50,12 +50,12 @@ Getting started
 {: .-shortcuts}
 
 #### Especial characters
-| Shortcut         | Description                |
-| ---              | ---                        |
-| :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< | Show hide characters(tabs, spaces, eol) |
-| :set nolist      | Clear special view         |
-| :set noet|retab! | Convert spaces to tabs     |
-| :set et|retab    | Convert tabs to spaces     |
+| Shortcut         | Description                  |
+| ---              | ---                          |
+| :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< | Show special characters(tabs, spaces, eol) |
+| :set nolist      | Clear special character view |
+| :set noet|retab! | Convert spaces to tabs       |
+| :set et|retab    | Convert tabs to spaces       |
 
 #### Line
 

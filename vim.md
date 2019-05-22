@@ -51,11 +51,15 @@ Getting started
 
 #### Line
 
-| Shortcut     | Description                        |
-| ---          | ---                                |
-| `0` _(zero)_ | Start of line                      |
-| `^`          | Start of line _(after whitespace)_ |
-| `$`          | End of line                        |
+| Shortcut          | Description                               |
+| ---               | ---                                       |
+| `0` _(zero)_      | Start of line                             |
+| `^`               | Start of line _(after whitespace)_        |
+| `$`               | End of line                               |
+| :g/text_find      | Show all lines containing a pattern       |
+| :g!/text_find     | Show all lines not containing a pattern   |
+| :g/text_remove/d  | Delete all lines containing a pattern     |
+| :g!/text_remove/d | Delete lines not containing a pattern     |
 {: .-shortcuts}
 
 #### Character

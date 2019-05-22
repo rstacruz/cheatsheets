@@ -414,6 +414,18 @@ Do these in visual or normal mode.
 
 See `:help formatting`
 
+### Search and Replace
+
+| Shortcut             | Description                               |
+| ---                  | ---                                       |
+| :%s/old-text/new-text/g | Substitute all occurrences of a text with another text in the whole file |
+| :s/I/We/gi           | Substitution of a text with another text within a single line |
+| :1,10s/helo/hello/g  | Substitution of a text with another text within a range of lines |
+| :'<,'>s/helo/hello/g | Substitution of a text with another text by visual selection of lines(CTRL+V) |
+| :s/helo/hello/g 4    | Substitution of a text with another text only the 1st X number of lines |
+| :%s/\(good\|nice\)/awesome/g |  Substitute either word1 or word2 with a new word using regular expression |
+| :%s/awesome/wonderful/gc | Interactive Find and Replace in Vim Editor |
+
 ### Calculator
 
 | Shortcut      | Description                               |

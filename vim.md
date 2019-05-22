@@ -208,6 +208,8 @@ Combine operators with *motions* to use them.
 | _2_`dd`                | Delete 2 lines                            |
 | `d`_ip_                | Delete a text object _(inside paragraph)_ |
 | _(in visual mode)_ `d` | Delete selection                          |
+| :10,15d                | Delete from lina 10 to 15                 |
+| d126G                  | Delete,line number,go                     |
 
 See: `:help motion.txt`
 

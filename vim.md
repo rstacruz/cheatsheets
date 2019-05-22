@@ -95,6 +95,8 @@ Getting started
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
 | hide     | Close current window     |
+| <C+w> o  | Close other windows, keeps the active window only |
+| <C+w> =  | Make all splits equal size |
 {: .-shortcuts}
 
 #### Tab pages

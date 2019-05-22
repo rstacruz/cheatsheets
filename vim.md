@@ -94,6 +94,7 @@ Getting started
 | `H`      | Move to top of screen    |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
+| hide     | Close current window     |
 {: .-shortcuts}
 
 #### Tab pages
@@ -108,6 +109,13 @@ Getting started
 | `:tablast`            | Go to last tab                  |
 | `:tabn    `           | Go to next tab                  |
 | `:tabp    `           | Go to previous tab              |
+
+#### Buffer
+
+| Shortcut | Description                  |
+| ---      | ---                          |
+| ls       | Show current buffers         |
+| b2       | Open buffer#2 in this window |
 
 ### Editing
 

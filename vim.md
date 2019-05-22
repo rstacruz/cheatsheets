@@ -384,9 +384,11 @@ Do these in visual or normal mode.
 | <code>`.</code> | Last change                                        |
 | <code>``</code> | Last jump                                          |
 | ---             | ---                                                |
+| marks           | List all the marks                                 |
 | `ma`            | Mark this cursor position as `a`                   |
 | <code>`a</code> | Jump to the cursor position `a`                    |
 | `'a`            | Jump to the beginning of the line with position `a`|
+| `a              | Jump to position (line and column) of mark a       |
 {: .-shortcuts}
 
 ### Misc

@@ -248,8 +248,10 @@ grep "FATAL|Warning|Error" /var/log/syslog
 # Search in all files
 grep "Error" /var/log/*            
 
-#Search in specific extension files
+# Search in specific extension files
 grep "rahul" /var/log/*.log
+
+
 ```
 
 ### Options
@@ -299,6 +301,9 @@ ag readme -l -i -G ec$
 
 # Search string with --ignore-dir Flag
 ag readme -l --ignore-dir=railties/lib
+
+# Search string in specific extension files(.rb)
+ag create_table -C 3 -G .rb$
 
 ```
 

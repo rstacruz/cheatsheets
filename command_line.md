@@ -41,6 +41,7 @@ title: Command line stuff
 | `-h` | Human-readable size (3k) |
 {:.shortcuts}
 
+
 <br>
 
 ## Tail
@@ -61,6 +62,92 @@ title: Command line stuff
 | `-nN` | N lines |
 | `+N`  | Start from line N |
 {:.shortcuts}
+
+<br>
+
+### Delete Files older than X Days
+
+```
+find . -type f -name '*.xz' -mtime +30 -exec ls {}
+```
+
+### Find files are taking up the space
+
+##### Linux
+
+```
+sudo apt install ncdu 
+ncdu
+```
+
+##### Mac
+
+```
+brew install ncdu
+ncdu
+```
+
+<br>
+
+### Copy/Sync Files and Directory to or From a Server
+
+```
+[root@tecmint]$ rsync -avz rpmpkgs/ root@192.168.0.101:/home/
+
+root@192.168.0.101's password:
+
+sending incremental file list
+./
+httpd-2.2.3-82.el5.centos.i386.rpm
+...
+
+```
+
+### Copy/Sync a Remote Directory to a Local Machine
+
+```
+[root@tecmint]# rsync -avzh root@192.168.0.100:/home/tarunika/rpmpkgs /tmp/myrpms
+
+root@192.168.0.100's password:
+
+receiving incremental file list
+
+created directory /tmp/myrpms
+rpmpkgs/
+rpmpkgs/httpd-2.2.3-82.el5.centos.i386.rpm
+
+...
+```
+
+### Copy a File from a Remote Server to a Local Server with SSH
+
+```
+[root@tecmint]# rsync -avzhe ssh root@192.168.0.100:/root/install.log /tmp/
+
+root@192.168.0.100's password:
+
+receiving incremental file list
+install.log
+sent 30 bytes  received 8.12K bytes  1.48K bytes/sec
+...
+```
+
+### Show Progress While Transferring Data with rsync
+
+```
+[root@tecmint]# rsync -avzhe ssh --progress /home/rpmpkgs root@192.168.0.100:/root/rpmpkgs
+
+root@192.168.0.100's password:
+
+sending incremental file list
+
+created directory /root/rpmpkgs
+rpmpkgs/
+rpmpkgs/httpd-2.2.3-82.el5.centos.i386.rpm
+
+           1.02M 100%        2.72MB/s        0:00:00 (xfer#1, to-check=3/5)
+
+```
 
 <br>
 

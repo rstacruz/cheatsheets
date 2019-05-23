@@ -227,8 +227,13 @@ sudo [options] <command>
 
 ## Search-and-replace in all files
 
+```
+    # All folders
     perl -p -i -e 's/hello/HELLO/g' **/*
-
+    
+    # Specific file
+    perl -p -i -e 's/sending/receiving/g' tmux-client-57567.log
+```
 <br>
 
 ## Grep

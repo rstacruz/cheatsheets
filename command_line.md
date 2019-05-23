@@ -65,6 +65,14 @@ title: Command line stuff
 
 <br>
 
+### View current disk space
+
+```
+$ df -h
+```
+
+<br>
+
 ### Delete Files older than X Days
 
 ```
@@ -227,6 +235,21 @@ sudo [options] <command>
 
 ```
 grep [options] [pattern] [file ...]
+
+# find by filename 
+$ grep -rl "rahul" /home/
+
+# Search text in a file
+grep "FATAL" /var/log/syslog
+
+# Search multiple strings 
+grep "FATAL|Warning|Error" /var/log/syslog
+
+# Search in all files
+grep "Error" /var/log/*            
+
+#Search in specific extension files
+grep "rahul" /var/log/*.log
 ```
 
 ### Options
@@ -257,3 +280,38 @@ grep [options] [pattern] [file ...]
 
     egrep  =>  grep -E
     fgrep  =>  grep -F
+    
+   
+## Ag the Silver search
+
+```
+# Search string DHH with 3 rows extra informations
+ag -C 3 DHH  
+
+# Search string in specify path
+ag DHH guides/ 
+
+# Search string in filesnames that contain the word action.
+ag readme -l -G action
+
+# Search string only to match filenames that end with ec.
+ag readme -l -i -G ec$
+
+# Search string with --ignore-dir Flag
+ag readme -l --ignore-dir=railties/lib
+
+```
+
+<br>
+
+## Restart Linux Server using command prompt
+
+```
+   $  reboot
+   $  poweroff
+   $  shutdown -r 10  # Reboot server just after 10 minutes without displaying any message.
+   $  shudwown -r now # Reboot server immediately without any message.
+      # Reboot server at 02:10 AM with displaying proper message to user.
+   $  shutdown -r 02:10 "System is going to reboot..."  
+ ```
+    

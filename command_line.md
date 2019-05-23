@@ -302,6 +302,8 @@ grep "rahul" /var/log/*.log
    
 ## Ag the Silver search
 
+[More Samples](https://beyondgrep.com/feature-comparison/)
+
 ```
 # Search string DHH with 3 rows extra informations
 ag -C 3 DHH  
@@ -320,6 +322,13 @@ ag readme -l --ignore-dir=railties/lib
 
 # Search string in specific extension files(.rb)
 ag create_table -C 3 -G .rb$
+
+# Search string map in ruby files with line and column numbers
+ag --ruby map --column
+
+# List all file-types
+ag --list-file-types
+
 
 ```
 

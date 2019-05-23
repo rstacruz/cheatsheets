@@ -1,5 +1,5 @@
 ---
-title: Command line stuff
+Title: Command line stuff
 ---
 
 ## List (ls)
@@ -24,6 +24,7 @@ title: Command line stuff
 
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
+| -d */ | Only directories |
 | `-A` | Include hidden (but not . and ..) |
 {:.shortcuts}
 
@@ -41,6 +42,16 @@ title: Command line stuff
 | `-h` | Human-readable size (3k) |
 {:.shortcuts}
 
+#### Ls Samples
+
+```
+  ls -Cd */     # Only directories in column mode
+  ls -dl */     # Only directories in long view mode
+  ls -1d .*     # List only files with .dot(hiddden) 
+  ls -llt -tr   # Sort order by date(most recent)
+  ls -lah -S -r # List order by size
+  
+```
 
 <br>
 

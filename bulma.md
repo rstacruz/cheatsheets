@@ -11,6 +11,17 @@ authors:
 description: |
   Basic guide on how to use Bulma, the lightweight css flexbox framework.
 ---
+### Getting Started
+
+There are several ways to **get started** with Bulma. You can either:
+#### Use NPM (recommended):
+`npm install bulma`
+#### Use the cdnjs CDN: 
+https://cdnjs.com/libraries/bulma
+
+#### Download from the repository: 
+https://github.com/jgthms/bulma/tree/master/css
+
 
 ### Screen sizes
 
@@ -39,7 +50,7 @@ Wrap as many `.column`'s' as you like in a `.columns` wrapper
 
 ### Forms
 
-When combining several controls in a **form**, use the .field class as a container.
+When combining several controls in a **form**, use the `.field` class as a container.
 ```css
 <div class="field">
   <label class="label">Name</label>
@@ -50,7 +61,7 @@ When combining several controls in a **form**, use the .field class as a contain
 ```
 
 
-## Form controls 
+#### Form controls 
 
 The following form controls **classes** are supported.
 ```css
@@ -64,12 +75,12 @@ The following form controls **classes** are supported.
 .help
 ```
 
-## Form icons
+#### Form icons
 
 You can append one of 2 **modifiers** on a control.
 ```css
 .has-icons-left
-.and/or has-icons-right
+.has-icons-right
 ```
 
 You also need to add a modifier on the **icon**.

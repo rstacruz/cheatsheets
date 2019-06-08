@@ -494,7 +494,7 @@ func (v Vertex) Abs() float64 {
 {: data-line="1"}
 
 ```go
-v: = Vertex{1, 2}
+v := Vertex{1, 2}
 v.Abs()
 ```
 

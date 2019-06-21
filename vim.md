@@ -361,10 +361,14 @@ Do these in visual or normal mode.
 
 ### Misc
 
-| Shortcut | Description                               |
-| ---      | ---                                       |
-| `.`      | Repeat last command                       |
-| `]p`     | Paste under the current indentation level |
+| Shortcut      | Description                                              |
+| ---           | ---                                                      |
+| `.`           | Repeat last command                                      |
+| `]p`          | Paste under the current indentation level                |
+| :set number   | Display line numbers                                     |
+| :set nonumber | Hide line numbers                                        |
+| :set list     | Display unprintable characters, such as carriage returns |
+| :set nolist   | Hide unprintable characters                              |
 {: .-shortcuts}
 
 ### Command line

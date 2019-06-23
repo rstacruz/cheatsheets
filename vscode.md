@@ -22,6 +22,7 @@ intro: |
 | ----- | ----------------- |
 | `⇧⌘P` | Show all commands |
 | `⌘P`  | Show files        |
+| `⌘PP`  | Naviagte to the previous tab |
 {: .-shortcuts}
 
 ### Sidebars

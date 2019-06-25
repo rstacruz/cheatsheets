@@ -63,3 +63,8 @@ description: |
 | `a{3,}`  | Match 3 or more       |
 | `a{1,3}` | Match between 1 and 3 |
 
+### Multiple Possibilities
+| Pattern  | Description                                                    |
+| -------- | -------------------------------------------------------------- |
+| `|`      | To search for multiple patterns for example `/yes|no|maybe/`   |
+

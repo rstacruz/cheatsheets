@@ -64,14 +64,14 @@ description: |
 | `a{1,3}` | Match between 1 and 3 |
 
 ### Multiple Possibilities
-| Pattern  | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| `|`      | To search for multiple patterns for example `/yes|no|maybe/` |
+| Pattern | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| `|`     | To search for multiple patterns for example `/yes|no|maybe/` |
 
 ### Lazy Matching
-| Pattern  | Description                                                            |
-| -------- | ---------------------------------------------------------------------- |
-| `?`      | Finds the smallest part of the string that satisfies the regex pattern |
+| Pattern | Description                                                            |
+| ------- | ---------------------------------------------------------------------- |
+| `?`     | Finds the smallest part of the string that satisfies the regex pattern |
 
 ### +ve and -ve Lookahead
 | Pattern | Description                                                                                                                   |
@@ -80,9 +80,9 @@ description: |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
 
 ### Regex Related Functions
-| Function   | Description                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| .test()    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`              |
-| .match()   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns empty object` |                          |
-| .replace() | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                          |
+| Function     | Description                                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `.test()`    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`              |
+| `.match()`   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns empty object` |
+| `.replace()` | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                          |
 

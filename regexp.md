@@ -80,9 +80,15 @@ description: |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
 
 ### Regex Related Functions
-| Function     | Description                                                                                                                     |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `.test()`    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`              |
-| `.match()`   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns empty object` |
-| `.replace()` | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                          |
+| Function     | Description                                                                                                           |
+| ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `.test()`    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`    |
+| `.match()`   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns []` |
+| `.replace()` | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                |
+
+### Regex Flags
+| Flags | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| `i`   | Ignore Case : `let regex = /igNoreCase/i; regex.test('IgNoReCaSe') // returns true`  |
+| `g`   | Match Multiple : `let regex = /l/g; 'Hello World!'.match(regex) // returns [l,l,l]'` |
 

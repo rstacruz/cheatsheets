@@ -73,3 +73,9 @@ description: |
 | -------- | ---------------------------------------------------------------------- |
 | `?`      | Finds the smallest part of the string that satisfies the regex pattern |
 
+### +ve and -ve Lookahead
+| Pattern | Description                                                                                                                   |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `?=`    | Positive Lookahead `(?=...)` : will look to make sure the element in the search pattern is there, but won't actually match it |
+| `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
+

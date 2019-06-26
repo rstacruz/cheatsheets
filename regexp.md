@@ -80,15 +80,15 @@ description: |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
 
 ### Regex Related Functions
-| Function     | Description                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `.test()`    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`    |
-| `.match()`   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns []` |
-| `.replace()` | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                |
+| Function     | Description                                                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `.test()`    | Testing : <br> `/Hello/.test('Hello World!') // returns true` while <br> `/Greetings/.test('Hello World!') // returns false`    |
+| `.match()`   | Matching : <br> `'Hello World!'.match(/World/) // returns 'World'` while <br> `'Hello World!'.match(/Greetings/) // returns []` |
+| `.replace()` | Repalacing : <br> `'The Sky is White'.replace(/White/, "Blue")` <br> `// returns 'The Sky is Blue'`                             |
 
 ### Regex Flags
-| Flags | Description                                                                          |
-| ----- | ------------------------------------------------------------------------------------ |
-| `i`   | Ignore Case : `let regex = /igNoreCase/i; regex.test('IgNoReCaSe') // returns true`  |
-| `g`   | Match Multiple : `let regex = /l/g; 'Hello World!'.match(regex) // returns [l,l,l]'` |
+| Flags | Description                                                                                      |
+| ----- | ------------------------------------------------------------------------------------------------ |
+| `i`   | Ignore Case : <br> `let regex = /igNoreCase/i;` <br> `regex.test('IgNoReCaSe') // returns true`  |
+| `g`   | Match Multiple : <br> `let regex = /l/g;` <br> `'Hello World!'.match(regex) // returns [l,l,l]'` |
 

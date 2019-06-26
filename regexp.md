@@ -79,3 +79,10 @@ description: |
 | `?=`    | Positive Lookahead `(?=...)` : will look to make sure the element in the search pattern is there, but won't actually match it |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
 
+### Regex Related Functions
+| Function   | Description                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| .test()    | Testing : `/Hello/.test('Hello World!') // returns true` while `/Greetings/.test('Hello World!') // returns false`              |
+| .match()   | Matching : `'Hello World!'.match(/World/) // returns 'World'` while `'Hello World!'.match(/Greetings/) // returns empty object` |                          |
+| .replace() | Repalcing : `'The Sky is White'.replace(/White/, "Blue") // returns 'The Sky is Blue'`                                          |
+

@@ -79,6 +79,52 @@ function play (song) {
 
 See: <http://usejsdoc.org/tags-typedef.html>
 
+### Class Specific Callback
+
+```js
+/**
+ * This callback is displayed as part of the Requester class.
+ * @callback Requester~requestCallback
+ * @param {number} responseCode
+ * @param {string} responseMessage
+ */
+class Requester {
+  /**
+   * Request a thing, then invoke callback
+   * 
+   * @param {Requester~requestCallback} callback - Callback invoked when request completes
+   */
+  request(callback) {
+    // ...
+  }
+}
+```
+
+https://jsdoc.app/tags-callback.html
+
+### Global Callback
+
+```js
+/**
+ * This callback is displayed as a global member.
+ * @callback requestCallback
+ * @param {number} responseCode
+ * @param {string} responseMessage
+ */
+class Requester {
+  /**
+   * Request a thing, then invoke callback
+   * 
+   * @param {requestCallback} callback - Callback invoked when request completes
+   */
+  request(callback) {
+    // ...
+  }
+}
+```
+
+https://jsdoc.app/tags-callback.html
+
 ### Importing types
 
 ```js

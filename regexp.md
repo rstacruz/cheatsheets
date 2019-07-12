@@ -68,3 +68,8 @@ description: |
 | ------- | --------------------------------------------------------------- |
 | `\|`     | To search for multiple patterns for example `/yes\|no\|maybe/` |
 
+### Lazy Matching
+| Pattern | Description                                                            |
+| ------- | ---------------------------------------------------------------------- |
+| `?`     | Finds the smallest part of the string that satisfies the regex pattern |
+

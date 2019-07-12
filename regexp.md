@@ -79,10 +79,16 @@ description: |
 | `?=`    | Positive Lookahead `(?=...)` : will look to make sure the element in the search pattern is there, but won't actually match it |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
 
-### Regex Related Functions
+### RegExp Related Functions
 | Function     | Description                                                                                                                         |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `.test()`    | Testing : <br /> `/Hello/.test('Hello World!') // returns true` while <br /> `/Greetings/.test('Hello World!') // returns false`    |
 | `.match()`   | Matching : <br /> `'Hello World!'.match(/World/) // returns 'World'` while <br /> `'Hello World!'.match(/Greetings/) // returns []` |
 | `.replace()` | Repalacing : <br /> `'The Sky is White'.replace(/White/, "Blue")` <br /> `// returns 'The Sky is Blue'`                             |
 
+### RegExp Flags
+| Flags | Description                                                                                            |
+| ----- | ------------------------------------------------------------------------------------------------------ |
+| `i`   | Ignore Case : <br /> `let regexp = /igNoreCase/i;` <br /> `regexp.test('IgNoReCaSe') // returns true`  |
+| `g`   | Match Multiple : <br /> `let regexp = /l/g;` <br /> `'Hello World!'.match(regexp) // returns [l,l,l]'` |
+| `m`   | Multi Line Mode : <br /> adds the newline character `\n` to the regexp result when found               |

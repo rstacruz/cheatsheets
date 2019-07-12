@@ -64,9 +64,9 @@ description: |
 | `a{1,3}` | Match between 1 and 3 |
 
 ### Multiple Possibilities
-| Pattern | Description                                                     |
-| ------- | --------------------------------------------------------------- |
-| `\|`     | To search for multiple patterns for example `/yes\|no\|maybe/` |
+| Pattern | Description                                                    |
+| ------- | -------------------------------------------------------------- |
+| `\|`    | To search for multiple patterns for example `/yes\|no\|maybe/` |
 
 ### Lazy Matching
 | Pattern | Description                                                            |
@@ -78,4 +78,11 @@ description: |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `?=`    | Positive Lookahead `(?=...)` : will look to make sure the element in the search pattern is there, but won't actually match it |
 | `?!`    | Negative Lookahead `(?!...)` : will look to make sure the element in the search pattern is not there                          |
+
+### Regex Related Functions
+| Function     | Description                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `.test()`    | Testing : <br /> `/Hello/.test('Hello World!') // returns true` while <br /> `/Greetings/.test('Hello World!') // returns false`    |
+| `.match()`   | Matching : <br /> `'Hello World!'.match(/World/) // returns 'World'` while <br /> `'Hello World!'.match(/Greetings/) // returns []` |
+| `.replace()` | Repalacing : <br /> `'The Sky is White'.replace(/White/, "Blue")` <br /> `// returns 'The Sky is Blue'`                             |
 

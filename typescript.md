@@ -220,7 +220,10 @@ let greeter = new Greeter<string>('Hello, world')
 ### Modules
 
 ```ts
-export interface User { ... }
+declare module '*.svg' {
+  const svg: string;
+  export default svg;
+}
 ```
 
 ### Type extraction

@@ -34,6 +34,13 @@ let c: Color = Color.Green
 ```
 
 ## Declarations
+#### Literals
+
+```ts
+let str: 'foo'
+type Literals = 'bar' | 0 | true
+```
+
 ### Declarations
 
 ```ts

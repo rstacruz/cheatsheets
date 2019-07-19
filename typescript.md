@@ -1,11 +1,13 @@
 ---
 title: TypeScript
 category: JavaScript libraries
+layout: 2017/sheet
+prism_languages: [typescript]
+intro: |
+  TypeScript is just like ES6 with type-checking. All ES6 syntax (classes, etc) should work.
 ---
 
-TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
-
-## Basic types
+### Basic types
 
 ```ts
 any
@@ -32,6 +34,7 @@ let c: Color = Color.Green
 ```
 
 ## Declarations
+### Declarations
 
 ```ts
 let isDone: boolean
@@ -47,15 +50,17 @@ function add (a: number, b: number): number {
 function add (a: number, b: number) { ... }
 ```
 
-## Type assertions
+### Type assertions
 
 #### Variables
+
 ```ts
 let len: number = (input as string).length
 let len: number = (<string> input).length  /* not allowed in JSX */
 ```
 
 #### Functions
+
 ```ts
 function object(this: {a: number, b: number}, a: number, b: number) {
   this.a = a;
@@ -68,10 +73,9 @@ let a = object(1,2);
 // a has type {a: number, b: number}
 ```
 
+### Interfaces
 
-## Interfaces
-
-### Inline
+#### Inline
 
 ```ts
 function printLabel (options: { label: string }) {
@@ -83,7 +87,7 @@ function getUser (): { name: string; age?: number } {
 }
 ```
 
-### Explicit
+#### Explicit
 
 ```ts
 interface LabelOptions {
@@ -93,7 +97,7 @@ interface LabelOptions {
 function printLabel(options: LabelOptions) { ... }
 ```
 
-### Optional properties
+#### Optional properties
 
 ```ts
 interface User {
@@ -102,7 +106,7 @@ interface User {
 }
 ```
 
-### Read only
+#### Read only
 
 ```ts
 interface User {
@@ -110,7 +114,7 @@ interface User {
 }
 ```
 
-### Dynamic keys
+#### Dynamic keys
 
 ```ts
 {
@@ -118,13 +122,13 @@ interface User {
 }
 ```
 
-## Type aliases
+### Type aliases
 
 ```ts
 type Name = string | string[]
 ```
 
-## Function types
+### Function types
 
 ```ts
 interface User { ... }
@@ -134,7 +138,7 @@ function getUser(callback: (user: User) => any) { callback({...}) }
 getUser(function (user: User) { ... })
 ```
 
-## Classes
+### Classes
 
 ```ts
 class Point {
@@ -173,6 +177,7 @@ class Point {
 ```
 
 #### Fields which do not require initialisation
+
 ```ts
 class Point {
   public someUselessValue!: number;
@@ -180,7 +185,7 @@ class Point {
 }
 ```
 
-## Generics
+### Generics
 
 ```ts
 class Greeter<T> {
@@ -193,13 +198,13 @@ class Greeter<T> {
 let greeter = new Greeter<string>('Hello, world')
 ```
 
-## Modules
+### Modules
 
 ```ts
 export interface User { ... }
 ```
 
-## Type extraction
+### Type extraction
 
 ```ts
 interface Building {

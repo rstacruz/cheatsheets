@@ -2,6 +2,8 @@
 title: TypeScript
 category: JavaScript libraries
 layout: 2017/sheet
+updated: 2019-07-19
+weight: -1
 prism_languages: [typescript]
 intro: |
   TypeScript is just like ES6 with type-checking. All ES6 syntax (classes, etc) should work.

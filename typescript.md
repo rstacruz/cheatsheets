@@ -129,6 +129,18 @@ interface User {
 }
 ```
 
+#### Inheritance
+
+```ts
+interface User {
+  name: string;
+}
+
+interface Admin extends User {
+  password: string;
+}
+```
+
 ### Type aliases
 
 ```ts

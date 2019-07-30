@@ -232,7 +232,7 @@ Order is significant, these two are different.
 ### Nesting predicates
 
 ```
-//section[//h1[@id='hi']]
+//section[.//h1[@id='hi']]
 ```
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.

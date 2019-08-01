@@ -1,19 +1,19 @@
 ---
-title: Xpath
+title: XPath
 category: HTML
 layout: 2017/sheet
 tags: [Featured]
 weight: -5
 description: |
-  $x('//div//p//*') == $('div p *'), $x('//[@id="item"]') == $('#item'), and many other Xpath examples.
+  $x('//div//p//*') == $('div p *'), $x('//[@id="item"]') == $('#item'), and many other XPath examples.
 ---
 
 ## Testing
 
-### Xpath test bed
+### XPath test bed
 
-Test queries in the Xpath test bed:<br>
-[Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+Test queries in the XPath test bed:<br>
+[XPath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
 
 ### Browser console
 
@@ -27,7 +27,7 @@ Works in Firefox and Chrome.
 
 ### Descendant selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1`                         | `//h1`                                                   | [?](#prefixes)          |
 | `div p`                      | `//div//p`                                               | [?](#axes)              |
@@ -41,7 +41,7 @@ Works in Firefox and Chrome.
 
 ### Attribute selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `#id`                        | `//*[@id="id"]`                                           | [?](#predicates)        |
 | `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*          |                         |
@@ -57,7 +57,7 @@ Works in Firefox and Chrome.
 
 ### Order selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `ul > li:first-child`        | `//ul/li[1]`                                             | [?](#indexing)          |
 | `ul > li:nth-child(2)`       | `//ul/li[2]`                                             |                         |
@@ -69,7 +69,7 @@ Works in Firefox and Chrome.
 
 ### Siblings
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
@@ -78,7 +78,7 @@ Works in Firefox and Chrome.
 
 ### jQuery
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `$('ul > li').parent()`      | `//ul/li/..`                                             | [?](#other-axes)        |
 | `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
@@ -88,7 +88,7 @@ Works in Firefox and Chrome.
 
 ### Other things
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1:not([id])`               | `//h1[not(@id)]`                                         | [?](#boolean-functions) |
 | Text match                   | `//button[text()="Submit"]`                              | [?](#operators)         |
@@ -114,7 +114,7 @@ table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
 
-Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)).
+XPath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)).
 
 Expressions
 -----------
@@ -425,4 +425,4 @@ References
 ----------
 {: .-one-column}
 
-* [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+* [XPath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_

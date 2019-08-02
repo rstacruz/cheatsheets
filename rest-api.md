@@ -40,6 +40,7 @@ title: RESTful API
  * `DELETE /articles/1` - delete, returns *200*
  * `POST /articles` - create, returns *201*
  * `GET /articles` - list, returns *200*
+ * `PATCH /articles/1` - partial update, returns *204*
 
 ### References
 

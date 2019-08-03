@@ -44,7 +44,7 @@ create table(:documents) do
   add :age, :integer
   add :price, :float
   add :price, :float, precision: 10, scale: 2
-  add :published_at, :datetime
+  add :published_at, :utc_datetime
   add :group_id, references(:groups)
   add :object, :json
 

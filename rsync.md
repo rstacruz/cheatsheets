@@ -29,6 +29,7 @@ rsync -avz ./src/ /dest
 -z, --compress
 -n, --dry-run
     --partial   # allows resuming of aborted syncs
+    --bwlimit=RATE    # limit socket I/O bandwidth
 ```
 
 ### Display options

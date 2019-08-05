@@ -36,6 +36,7 @@ rsync -avz ./src/ /dest
 ```bash
 -q, --quiet
 -v, --verbose
+    --stats
 -h, --human-readable
     --progress
 -P                     # same as --partial --progress

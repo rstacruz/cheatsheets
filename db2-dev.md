@@ -1,7 +1,7 @@
 ---
 title: Db2 development
 layout: 2017/sheet
-updated: 2019-01-06
+updated: 2019-08-05
 category: Databases
 intro: This Cheat Sheet is for development in DB2
 ---
@@ -65,97 +65,129 @@ DESCRIBE SELECT * FROM mytable
 
 ```sql
 --Create a schema
-CREATE SCHEMA myschema
---Create a table in a specific tablespace
-CREATE TABLE mytable1 (mycol1 SMALLINT NOT NULL, mycol2 VARCHAR(16)) IN ts1 INDEX IN ts2
-CREATE TABLE myschema.othertable (mycol1 SMALLINT)
+CREATE SCHEMA sch1
+--Create a table specifying primary key
+CREATE TABLE tbl1 (col1 CHAR(1) NOT NULL PRIMARY KEY)
+CREATE TABLE tbl2 (col1 INT NOT NULL, col2 DATE NOT NULL, PRIMARY KEY (col1, col2))
+--Create a table specifying tablespaces
+CREATE TABLE tbl3 (col1 INT NOT NULL, col2 CHAR(1)) IN ts1 INDEX IN ts2
+--Create a table specifying schema
+CREATE TABLE sch1.tbl4 (col1 INT)
+--Create a table with auto incremental column
+CREATE TABLE tbl5 (col1 INT NOT NULL GENERATED AS IDENTITY)
 --Create a table like another one
-CREATE TABLE mytable2 LIKE mytable1 IN ts1 INDEX IN ts2
+CREATE TABLE tbl6 LIKE tbl1 IN ts1 INDEX IN ts2
 --Comment on table and column
-COMMENT ON TABLE mytable1 IS 'This is the comment of the table'
-COMMENT ON COLUMN mytable1.mycol1 IS 'Description of the field'
---Declare a temporary table
-DECALRE GLOBAL TEMPORARY TABLE mytemptab1 (col1 SMALLINT, col2 TIMESTAMP, col3 VARCHAR(50))
+COMMENT ON TABLE tbl1 IS 'Comment in table'
+COMMENT ON COLUMN tbl1.col1 IS 'Description of the field'
+--Declare a temporary table (session schema)
+DECLARE GLOBAL TEMPORARY TABLE tmp1 (col1 INT, col2 DATE) ON COMMIT PRESERVE ROWS
 --Create a global temporary tablespace
-CREATE GLOBAL TEMPORARY TABLE tmptable (col1 INTEGER)
+CREATE GLOBAL TEMPORARY TABLE tmp2 (col1 INT)
 --Create an index
-CREATE INDEX myidx ON mytable1 (mycol1)
-
+CREATE INDEX idx1 ON tbl2 (col2)
+--Create a unique index
+CREATE UNIQUE INDEX idx2 ON tbl5 (col1)
+--Drop an index
+DROP INDEX idx1
+--Add a column (requires Reorg table)
+ALTER TABLE tbl1 ADD COLUMN col3 timestamp
+--Change nullability
+ALTER TABLE tbl1 ALTER COLUMN col3 SET NOT NULL
+--Drop nullability
+ALTER TABLE tbl1 ALTER COLUMN col3 DROP NOT NULL
+--Rename a column
+ALTER TABLE tbl1 RENAME COLUMN col3 TO new3
+--Drop column
+ALTER TABLE tbl1 DROP COLUMN new3
 --Create a primary key constraint
-ALTER TABLE mytable1 ADD CONSTRAINT pkmytable PRIMARY KEY (mycol1)
+ALTER TABLE tbl5 ADD CONSTRAINT pkt5 PRIMARY KEY (col1)
+--Drop primary key
+ALTER TABLE tbl5 DROP PRIMARY KEY
+--Add identity
+ALTER TABLE tbl2 ALTER col1 SET GENERATED ALWAYS AS IDENTITY
+--Restart identity
+ALTER TABLE tbl2 ALTER col1 RESTART WITH 1
+--Drop identity
+ALTER TABLE tbl2 ALTER col1 DROP IDENTITY
 --Create a foreign key
-ALTER TABLE mytable2 ADD CONSTRAINT fkmytable FOREIGN KEY (mycol1) REFERENCES mytable1 (mycol1)
+ALTER TABLE tbl5 ADD CONSTRAINT fkt5 FOREIGN KEY (col1) REFERENCES tbl11 (col1)
 --Create a check constraint
-ALTER TABLE mytable1 ADD CONSTRAINT chk CHECK (mycol2 in ('a', 'b', 'c', 'd', 'e', 'f', 'g'))
+ALTER TABLE tbl1 ADD CONSTRAINT chk CHECK (col1 in ('a', 'b', 'c'))
 --Enforce a constraint
-ALTER TABLE mytable2 ALTER FOREIGN KEY fkmytable ENFORCED
-ALTER TABLE mytable1 ALTER CHECK chk ENFORCED
+ALTER TABLE tbl1 ALTER CHECK chk ENFORCED
 --Not enforce a constraint
-ALTER TABLE mytable2 ALTER FOREIGN KEY fkmytable NOT ENFORCED
+ALTER TABLE tbl5 ALTER FOREIGN KEY fkt5 NOT ENFORCED
+--Change the granularity of the locks
+ALTER TABLE tbl1 LOCKSIZE TABLE
 --Drop a table
-DROP TABLE mytable
+DROP TABLE tbl1
 --Rename a table
-RENAME TABLE mytable2 AS myothertable
+RENAME TABLE tbl2 TO table2
 --Truncate a table
-TRUNCATE TABLE mytable1 IMMEDIATE
+TRUNCATE TABLE tbl1 IMMEDIATE
 --Create a sequence
-CREATE SEQUENCE myseq AS INTEGER
+CREATE SEQUENCE seq AS INTEGER
 --Restart sequence
-ALTER SEQUENCE myseq RESTART WITH 15
+ALTER SEQUENCE seq RESTART WITH 15
 --Crete a stored procedure
-CREATE OR REPLACE PROCEDURE myproc (IN val SMALLINT, OUT ret VARCHAR(16)) SPECIFIC myproc1 BEGIN SET ret = (SELECT mycol2 FROM mytable1 WHERE mycol1 = val); END @
+CREATE OR REPLACE PROCEDURE prc1 (IN val INT, OUT ret DATE) SPECIFIC mypr BEGIN SET ret = (SELECT col2 FROM tbl2 WHERE col1 = val); END @
 --Create a trigger
-CREATE TRIGGER copy_value AFTER INSERT ON mytable1 REFERENCING NEW AS N FOR EACH ROW INSERT INTO mytable2 VALUES (N.mycol1, N.mycol2)
+CREATE TRIGGER cp_val AFTER INSERT ON tbl1 REFERENCING NEW AS n FOR EACH ROW INSERT INTO tbl2 VALUES (n.col1, n.col2)
 --Create a view
-CREATE VIEW VW1 AS SELECT mycol2 FROM mytable1
+CREATE VIEW vw1 AS SELECT col2 FROM tbl1
 ```
 
 ### DCL
 
 ```sql
 --Grant on a table
-GRANT SELECT, INSERT ON TABLE mytable TO GROUP recur
+GRANT SELECT, INSERT ON TABLE tbl1 TO user
 --Grant execution on a stored procedure
-GRANT EXECUTE ON PROCEDURE myproc(SMALLINT, VARCHAR(16)) TO USER jdoe
-GRANT EXECUTE ON SPECIFIC PROCEDURE myproc1 TO USER jdoe
+GRANT EXECUTE ON PROCEDURE prc1(INT, DATE) TO USER jdoe
+GRANT EXECUTE ON SPECIFIC PROCEDURE mypr TO GROUP admins
 --Revoke on a table
-REVOKE UPDATE, DELETE ON TABLE mytable FROM GROUP recur
+REVOKE DELETE ON TABLE mytable FROM recur
 ```
 
 ### DML
 
 ```sql
 --Insert values on a table
-INSERT INTO mytable1 (mycol1, mycol2) VALUES (1, 'a')
-INSERT INTO mytable1 VALUES (2, 'b')
-INSERT INTO mytable1 VALUES (3, 'c'), (4, 'd'), (5, 'e') --Atomic
+INSERT INTO tbl3 VALUES (2, 'b')
+INSERT INTO tbl3 VALUES (3, 'c'), (4, 'd'), (5, 'e') --Atomic
 --Insert certain columns
-INSERT INTO mytabl1 (mycol1) VALUES (6)
+INSERT INTO tbl1 (col1) VALUES (6)
 --Insert values from a select
-INSERT INTO myothertable SELECT mycol1, mycol2 FROM mytable1
+INSERT INTO tbl6 SELECT col1 FROM tbl1
+--Insert in temporary table
+INSERT INTO session.tmp1 VALUES (1)
 --Update fields
-UPDATE mytable1 SET mycol1 = 5, mycol2 = 'e' –all table
-UPDATE mytable1 SET mycol2 = 'd' WHERE mycol1 = 7
+UPDATE tbl3 SET col1 = 5, mycol2 = 'e' -–all table
+UPDATE tbl3 SET col2 = 'd' WHERE col1 = 7
 --Merge (upsert)
-MERGE INTO mytable1 AS t USING (SELECT mycol1 FROM myothertable) s ON (t.mycol1 = s.mycol1) WHEN MATCHED THEN UPDATE SET mycol2 = 'X' WHEN NOT MATCHED THEN INSERT VALUES (10, 'X')
+MERGE INTO tbl3 AS t USING (SELECT col1 FROM tbl1) s ON (t.col1 = s.col1) WHEN MATCHED THEN UPDATE SET col2 = 'X' WHEN NOT MATCHED THEN INSERT VALUES (10, 'X')
 --Delete rows
-DELETE FROM mytable1 –all table
-DELETE FROM mytable1 WHERE mycol1 > 5
+DELETE FROM tbl1 -–all table
+DELETE FROM tbl1 WHERE col1 > 5
 --Export
-EXPORT TO myfile OF DEL SELECT * FROM mytable1
+EXPORT TO myfile OF DEL SELECT * FROM tbl1
 --Import
 IMPORT FROM myfile OF DEL INSERT INTO mytable1
+--Cursor
+DECLARE cur1 CURSOR FOR SELECT * FROM tbl1
 --Load
-LOAD FROM myfile OF DEL INSERT INTO mytable1
---Query the status of the load in a table 
-LOAD QUERY TABLE mytable1
+LOAD FROM myfile OF DEL INSERT INTO tbl1
+LOAD FROM cur1 OF CURSOR INSERT INTO tbl1
+--Query the status of the load in a table
+LOAD QUERY TABLE tbl1
 --Set integrity
-SET INTEGRITY FOR mytable IMMEDIATE CHECKED
+SET INTEGRITY FOR tbl1 IMMEDIATE CHECKED
 --Ingest
-INGEST FROM FILE my_file.txt FORMAT DELIMITED INSERT INTO my_table
+INGEST FROM FILE myfile FORMAT DELIMITED INSERT INTO tbl1
 --Get the next value from a sequence
-VALUES NEXT VALUE FOR myseq 
-INSERT INTO mytabl1 (mycol1) VALUES (NEXT VALUE FOR myseq)
+VALUES NEXT VALUE FOR seq
+INSERT INTO tbl3 (col1) VALUES (NEXT VALUE FOR seq)
 ```
 
 ### TCL
@@ -175,15 +207,15 @@ ROLLBACK
 
 ```sql
 --Put a lock at table level
-LOCK TABLE mytable1 IN EXCLUSIVE MODE
+LOCK TABLE tbl1 IN EXCLUSIVE MODE
 --Execute a query without regard of commit rows
-SELECT * FROM mytable WITH UR
+SELECT * FROM tbl1 WITH UR --RR,RS,CS
 --Execute a query with only 5 rows
-SELECT * FROM mytable FETCH FIRST 5 ROWS ONLY
+SELECT * FROM tbl1 FETCH FIRST 5 ROWS ONLY
 --Perform a query to a dummy table (dual)
 SELECT 'Any string' FROM SYSIBM.SYSDUMMY1
 --Perform a query calling a function
-SELECT HEX(mycol2) FROM mytable1
+SELECT HEX(col2) FROM tbl5
 --Call a function
 VALUES HEX('AnyText')
 --Perform a cast
@@ -197,10 +229,15 @@ VALUES 'Sinead o''Connor'
 SELECT * FROM SYSCAT.TABLES
 SELECT * FROM SYSCAT.TABAUTH
 SELECT * FROM SYSCAT.ROUTINES
+```
+
+### SQL PL
+
+```sql
 --Create a compound statement – Anonymous block
-BEGIN DECLARE val SMALLINT; SET val = 1; WHILE (val <= 5) DO INSERT INTO mytable VALUES (val, val); SET val = val + 1; END WHILE; END @
---Perform a reorg via ADMIN_CMD
-CALL SYSPROC.ADMIN_CMD('REORG TABLE mytable')
+BEGIN DECLARE val SMALLINT; SET val = 1; WHILE (val <= 5) DO INSERT INTO tbl5 VALUES (val, val); SET val = val + 1; END WHILE; END @
+--Perform a reorg via ADMIN_CMD (Sometimes required after “alter table”)
+CALL SYSPROC.ADMIN_CMD('REORG TABLE tbl1')
 --Call a stored procedure with an IN and an OUTPUT parameter
-CALL myproc(5, ?)
+CALL prc1(5, ?)
 ```

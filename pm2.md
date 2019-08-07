@@ -65,3 +65,5 @@ updated: 2018-03-15
 | `pm2 start app.js --no-daemon`      | Run pm2 daemon in the foreground if it doesn't exist already	 |
 | `pm2 start app.js --no-vizion`      | Skip vizion features (versioning control)                      |
 | `pm2 start app.js --no-autorestart` | Do not automatically restart app                               |
+| ---                                 | ---                                                            |
+| `pm2 scale <appname> +2`            | Add 2 more process from selected proccess                      |

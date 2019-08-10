@@ -118,6 +118,20 @@ slice := []byte("Hello")
 
 Slices have a dynamic size, unlike arrays.
 
+### Maps
+```go
+m :=  m := make(map[string]int)
+m["key1"], m["key2"] = 1, 2
+
+for key, val := range m {
+  ...
+}
+
+delete(m, "key1")
+```
+
+See [Maps](https://gobyexample.com/maps)
+
 ### Pointers
 
 ```go

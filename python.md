@@ -11,7 +11,7 @@ category: Python
     list[:-1]  # returns all but the last element
     
     list[i] = val
-    list[i:j] = otherlist  # replace ith to jth element with otherlist
+    list[i:j] = otherlist  # replace ith to jth-1 elements with otherlist
     del list[i:j]
 
     list.append(item)

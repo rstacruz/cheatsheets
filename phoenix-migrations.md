@@ -29,6 +29,12 @@ $ mix phoenix.gen.model Message messages user_id:integer content:text
 
 This is only for Phoenix 1.2 or older; models aren't available in Phoenix 1.3+.
 
+### Creating context
+
+```bash
+$ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
+```
+ 
 ## Migration functions
 
 ### Creating tables

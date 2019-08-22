@@ -58,6 +58,8 @@ category: Python
     string.replace("-", " ")
     ",".join(list)
     "hi {0}".format('j')
+    f"hi {name}"
+    "hi %s" % name
     str.find(",")
     str.index(",")   # same, but raises IndexError
     str.count(",")

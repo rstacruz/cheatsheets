@@ -32,10 +32,10 @@ category: macOS
     killall -HUP mDNSResponder   # 10.8+
     dscacheutil -flushcache      # 10.7 below
 
-### Turn off spotlight
+### Disable spotlight indexing
 
-    sudo vim /etc/hostconfig  # change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-
-    mdutil -i off /
+    mdutil -a -i off                    # until next reboot on all volumes
+    touch FOLDER/.metadata_never_index  # if this file exists in FOLDER only for that FOLDER
 
 ### Turn on/off proxy
 
@@ -49,8 +49,8 @@ category: macOS
 ### System utils
 
  - `networksetup` - Configure network (ip, dns, proxy, etc)
- - `tmutils` - Configure Time Machine (enable/disable, exclude path, delete snapshots, etc)
- - `mdutils` - Manage Spotlight (enable/disable, exclude, etc)
+ - `tmutil` - Configure Time Machine (enable/disable, exclude path, delete snapshots, etc)
+ - `mdutil` - Manage Spotlight (enable/disable, exclude, etc)
  - `diskutil` - Control disk (format, eject, unmount, etc)
  - `launchctl` - Control running "agents"
 

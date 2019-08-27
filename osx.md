@@ -34,8 +34,10 @@ category: macOS
 
 ### Disable spotlight indexing
 
-    mdutil -a -i off                    # until next reboot on all volumes
-    touch FOLDER/.metadata_never_index  # if this file exists in FOLDER only for that FOLDER
+    mdutil -a -i off                    # disable indexing for all volumes
+    mdutil -i off MOUNT_POINT           # disable for specific volume
+    touch FOLDER/.metadata_never_index  # disable for FOLDER
+                                        
 
 ### Turn on/off proxy
 

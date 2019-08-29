@@ -82,6 +82,9 @@ docker start [options] CONTAINER
   -i, --interactive   # attach stdin
 
 docker stop [options] CONTAINER
+
+# stop all containers
+$ docker stop $(docker ps -a -q)
 ```
 
 Start/stop a `container`.

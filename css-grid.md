@@ -39,7 +39,7 @@ prism_languages: [css]
 
 ```css
   /* Areas */
-  grid-tamplate-areas:
+  grid-template-areas:
     "header header"
     "main aside"
     "footer footer"; /* Grid-style */
@@ -58,7 +58,7 @@ prism_languages: [css]
   /* The above is the same as below long-hand */
   grid-template-columns: 80% 20%;
   grid-template-rows: auto 100vh 10rem;
-  grid-tamplate-areas:
+  grid-template-areas:
     "header header"
     "main aside"
     "footer footer";
@@ -155,7 +155,7 @@ prism_languages: [css]
     / 80% 20%; /* Which is again equivalent to below */
   grid-template-columns: 80% 20%;
   grid-template-rows: auto 100vh 10rem;
-  grid-tamplate-areas:
+  grid-template-areas:
     "header header"
     "main aside"
     "footer footer";

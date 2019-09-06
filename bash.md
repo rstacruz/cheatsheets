@@ -78,10 +78,12 @@ See: [Functions](#functions)
 {: id='conditionals-example'}
 
 ```bash
-if [[ -z "$string" ]]; then
-  echo "String is empty"
-elif [[ -n "$string" ]]; then
-  echo "String is not empty"
+if [[ "$string" == "foo" ]]; then
+  echo "String equals to foo"
+elif [[ "$string" == "bar" ]]; then
+  echo "String equals to bar"
+else
+  echo "String not equals foo nor bar"
 fi
 ```
 

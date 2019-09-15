@@ -724,6 +724,15 @@ echo $ans
 read -n 1 ans    # Just one character
 ```
 
+### Calculating shasums
+
+```echo Hello, what do you want me to hash?
+read text
+echo
+echo 'the hash is: '
+echo -n $text | shasum -a 512
+```
+
 ### Special variables
 
 | `$?` | Exit status of last task |

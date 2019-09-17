@@ -36,6 +36,13 @@ category: CLI
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
 
+### Brew Cask commands (for interacting with graphical applications)
+
+| Command                       | Description                           |
+| ---                           | ---                                   |
+| `brew cask install firefox`   | Install the Firefox browser           |
+| `brew cask list`              | List installed applications           |
+
 ## Also see
 {: .-one-column}
 

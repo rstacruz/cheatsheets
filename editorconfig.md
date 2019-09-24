@@ -72,4 +72,4 @@ indent_size = 2
 
 ### References
 
-- <http://EditorConfig.org>
+- <https://EditorConfig.org>

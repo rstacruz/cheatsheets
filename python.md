@@ -101,3 +101,70 @@ category: Python
     expr.match(...)
     expr.sub(...)
 
+### Some new features in python3
+
+#### Basic features
+
+    print('bla')  # instead of print 'bla'
+    range(10)     # instead of xrange(10) for an iterator
+                  # list(range(10)) gives a list in python3
+                  # range(10) gives a list in python2
+
+#### f-strings ([PEP 498](https://www.python.org/dev/peps/pep-0498/))
+Since Python 3.6, there are so called f-strings.
+
+    x = 2
+    print(f'x is {x}')  # prints 'x is 2'
+    print(f'{2 * 7}')   # prints '14'
+    print(f'{obj}')     # prints what str(obj) returns
+    print(f'{obj!r}')   # prints what repr(obj) returns
+
+#### Optional type annotations ([PEP 484](https://www.python.org/dev/peps/pep-0484/))
+Type hints for function arguments and and their return types can (but don't need to) be given.
+The same thing applies for variables.
+These annotations can be checked by a static type checker.
+They will be ignored at runtime, though.
+Therefore, they don't harm the dynamic nature of the language or prevent type errors, but instead can be used to e.g. document the intent of the author and catch error earlier.
+They are also available at runtime through the `__annotations__` field.
+Types are also available in the `typing` module.
+
+    def greeting(name: str) -> str:
+        return 'Hello ' + name
+    name: str = 'John'
+    greeting(name)  # will print 'Hello John'
+    greeting(1)     # will raise TypeError at runtime, but static type checker
+                    # would recognize that input type does not match *before* runtime
+
+#### async / await ([PEP 492](https://www.python.org/dev/peps/pep-0492/))
+Multiple so called coroutines can be collected in a so called event loop which is the transition point between synchronous and asynchronous code.
+The event loop gives control flow to one of its coroutines until this coroutine _decides_ to give control flow back to another coroutine with the keyword `await` ("cooperative multitasking").
+The `await` keyboard can only be used inside a function defined with the `async` keyword.
+
+    async def read_data(db):
+        data = await db.fetch('SELECT ...')  # gives control flow back to the event loop
+                                             # will wait *at least* until the result is available
+                                             # context of function will be remembered
+        ...  # will be executed once control flow is taken over again, not before
+
+#### A glimpse of [function overloading](https://en.wikipedia.org/wiki/Function_overloading) ([PEP 443](https://www.python.org/dev/peps/pep-0443/))
+
+Since Python 3.4, there is a function decorator `@functools.singledispatch` which allows to define overloading-like behavior for the **first** function parameter only (in constrast to [PEP 3124](https://www.python.org/dev/peps/pep-3124/) which was not accepted).
+
+    from functools import singledispatch
+
+    @singledispatch  # "entry point", defines the function name
+    def f(x):
+        print('Some other type:', x)  # default implementation
+                  # called if none of the registred types matches
+
+    @f.register(int)
+    def _(x):
+        print('Integer:', x)
+
+    @f.register(list)
+    def _(x):
+        print('List entries:', *x)
+
+    f(1)          # prints 'Integer: 1'
+    f([1, 2, 3])  # prints 'List entries: 1 2 3'
+    f('default')  # prints 'Some other type: default'

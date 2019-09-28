@@ -36,10 +36,16 @@ let c: Color = Color.Green
 ```ts
 let isDone: boolean
 let isDone: boolean = false
+const iCannotBeReassigned = 1
 ```
 
 ```ts
 function add (a: number, b: number): number {
+  return a + b
+}
+
+// alternatively as an arrow function
+const add = (a: number, b: number): number => {
   return a + b
 }
 
@@ -98,7 +104,7 @@ function printLabel(options: LabelOptions) { ... }
 ```ts
 interface User {
   name: string,
-  age?: number
+  age?: number // can be a number or undefined
 }
 ```
 
@@ -121,7 +127,12 @@ interface User {
 ## Type aliases
 
 ```ts
+// union type: object of type Name can be string _or_ string[]
 type Name = string | string[]
+
+// intersection type:
+// object of type GoodPerson is a Person _and_ a Loggable
+type GoodPerson = Person & Loggable
 ```
 
 ## Function types
@@ -197,6 +208,12 @@ let greeter = new Greeter<string>('Hello, world')
 
 ```ts
 export interface User { ... }
+// can be imported in another module via:
+import { User } from 'filename'
+
+export default interface DefaultUser { ... }
+// can be imported in another module via:
+import DefaultUser from 'filename'
 ```
 
 ## Type extraction

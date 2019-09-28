@@ -91,7 +91,8 @@ import { connect } from 'react-redux'
 
 ```js
 // A functional React component
-function App ({ message, onMessageClick }) {
+function App (props) {
+  const { message, onMessageClick } = props
   return (
     <div onClick={() => onMessageClick('hello')}>
       {message}
@@ -102,22 +103,20 @@ function App ({ message, onMessageClick }) {
 
 ```js
 // Maps `state` to `props`:
-// These will be added as props to the component.
-function mapState (state) {
+// These will be passed as props to the component.
+function mapStateToProps (state) {
   return { message: state.message }
 }
 
 // Maps `dispatch` to `props`:
-function mapDispatch (dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
-    onMessageClick (message) {
-      dispatch({ type: 'click', message })
-    }
+    onMessageClick: (message) => dispatch({ type: 'click', message })
   }
 }
 
 // Connect them:
-export default connect(mapState, mapDispatch)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 ```
 
 ### Shorthand

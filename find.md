@@ -42,6 +42,16 @@ find <path> <conditions> <actions>
 ```
 
 ```bash
+-atime 0           # Last accessed between now and 24 hours ago
+-atime +0          # Accessed more than 24 hours ago
+-atime 1           # Accessed between 24 and 48 hours ago
+-atime +1          # Accessed more than 48 hours ago
+-atime -1          # Accessed less than 24 hours ago (same a 0)
+-ctime -6h30m      # File status changed within the last 6 hours and 30 minutes
+-mtime +1w         # Last modified more than 1 week ago
+```
+
+```bash
 -newer   file.txt
 -newerm  file.txt        # modified newer than file.txt
 -newerX  file.txt        # [c]hange, [m]odified, [B]create
@@ -72,4 +82,8 @@ find . -name '*.jpg' -exec rm {} \;
 
 ```bash
 find . -newerBt "24 hours ago"
+```
+
+```bash
+find . -type f -mtime +29 # find files modified more than 30 days ago
 ```

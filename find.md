@@ -2,6 +2,7 @@
 title: Find
 category: CLI
 layout: 2017/sheet
+updated: 2019-10-01
 ---
 
 ### Usage

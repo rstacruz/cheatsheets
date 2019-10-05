@@ -5,12 +5,11 @@ layout: 2017/sheet
 weight: -1
 authors:
   - github: rizqyhi
+  - github: izzergh
 updated: 2019-03-24
 description: |
   Basic cheatsheets for regular expression
 ---
-
-##
 
 {: .-three-column}
 
@@ -63,3 +62,12 @@ description: |
 | `a{3,}`  | Match 3 or more       |
 | `a{1,3}` | Match between 1 and 3 |
 
+### Lookahead & Lookbehind
+
+| Pattern      | Description                               |
+| ---          | ---                                       |
+| `a(?=b)`     | Match `a` in `baby` but not in `bay`      |
+| `a(?!b)`     | Match `a` in `Stan` but not in `Stab`     |
+| ---          | ---                                       |
+| `(?<=a)b`    | Match `b` in `crabs` but not in `cribs`   |
+| `(?<!a)b`    | Match `b` in `fib` but not in `fab`       |

@@ -123,6 +123,46 @@ docker rmi b750fe78269d
 
 Deletes `image`s.
 
+Clean up
+------
+
+### `clean All`
+```sh
+docker system prune
+```
+will clean up any resources — images, containers, volumes, and networks — that are dangling (not associated with a container)
+
+```sh
+docker system prune -a
+```
+additionally remove any stopped containers and all unused images (not just dangling images)
+
+### `docker containers`
+
+```sh
+docker stop $(docker ps -a -q)
+```
+
+stop all the running containers.
+
+```sh
+docker rm $(docker ps -a -q)
+```
+
+delete all the containers
+
+### `Images`
+```sh
+docker rmi $(docker images -a -q)
+```
+delte all the images
+
+### `Volumes`
+```sh
+docker volume prune
+```
+delete all the volumes
+
 Also see
 --------
 

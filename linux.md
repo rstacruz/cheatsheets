@@ -29,3 +29,9 @@ Human Readable Format:
 Largest 10 folder/file in the current directory:
 
     $ du -hsx * | sort -rh | head -10
+
+### Answer yes in a bash script
+
+```bash
+yes | /your/command
+```

@@ -2,7 +2,7 @@
 title: Jsdoc
 category: JavaScript
 layout: 2017/sheet
-updated: 2017-10-29
+updated: 2019-01-10
 weight: -1
 ---
 
@@ -31,11 +31,12 @@ See: <http://usejsdoc.org/index.html>
 | ---                          | ---                   |
 | `@param {string=} n`         | Optional              |
 | `@param {string} [n]`        | Optional              |
-| `@param {(string|number)} n` | Multiple types        |
+| `@param {(string\|number)} n`| Multiple types        |
 | `@param {*} n`               | Any type              |
 | `@param {...string} n`       | Repeatable arguments  |
 | `@param {string} [n="hi"]`   | Optional with default |
 | `@param {string[]} n`        | Array of strings      |
+| `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
 See: <http://usejsdoc.org/tags-type.html>
 
@@ -78,6 +79,22 @@ function play (song) {
 ```
 
 See: <http://usejsdoc.org/tags-typedef.html>
+
+### Importing types
+
+```js
+/**
+ * @typedef {import('./Foo').default} Bar
+ */
+
+/**
+ * @param {Bar} x
+ */
+
+function test(x) { }
+```
+
+This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types).
 
 ### Other keywords
 

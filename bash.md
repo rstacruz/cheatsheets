@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2018-12-25
+updated: 2019-03-23
 keywords:
   - Variables
   - Functions
@@ -199,6 +199,19 @@ comment
 
 | `${#FOO}` | Length of `$FOO` |
 
+### Manipulation
+
+```bash
+STR="HELLO WORLD!"
+echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
+echo ${STR,,}  #=> "hello world!" (all lowercase)
+
+STR="hello world!"
+echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
+echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+```
+
+
 ### Default values
 
 | `${FOO:-val}`        | `$FOO`, or `val` if not set |
@@ -216,6 +229,14 @@ Loops
 
 ```bash
 for i in /etc/rc.*; do
+  echo $i
+done
+```
+
+### C-like for loop
+
+```bash
+for ((i = 0 ; i < 100 ; i++)); do
   echo $i
 done
 ```
@@ -464,6 +485,53 @@ for i in "${arrayName[@]}"; do
 done
 ```
 
+Dictionaries
+------------
+{: .-three-column}
+
+### Defining
+
+```bash
+declare -A sounds
+```
+
+```bash
+sounds[dog]="bark"
+sounds[cow]="moo"
+sounds[bird]="tweet"
+sounds[wolf]="howl"
+```
+
+Declares `sound` as a Dictionary object (aka associative array).
+
+### Working with dictionaries
+
+```bash
+echo ${sounds[dog]} # Dog's sound
+echo ${sounds[@]}   # All values
+echo ${!sounds[@]}  # All keys
+echo ${#sounds[@]}  # Number of elements
+unset sounds[dog]   # Delete dog
+```
+
+### Iteration
+
+#### Iterate over values
+
+```bash
+for val in "${sounds[@]}"; do
+  echo $val
+done
+```
+
+#### Iterate over keys
+
+```bash
+for key in "${!sounds[@]}"; do
+  echo $key
+done
+```
+
 Options
 -------
 
@@ -610,6 +678,12 @@ source "${0%/*}/../share/foo.sh"
 ```bash
 printf "Hello %s, I'm %s" Sven Olga
 #=> "Hello Sven, I'm Olga
+
+printf "1 + 1 = %d" 2
+#=> "1 + 1 = 2"
+
+printf "This is how you print a float: %f" 2
+#=> "This is how you print a float: 2.000000"
 ```
 
 ### Directory of script

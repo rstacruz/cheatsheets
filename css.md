@@ -43,13 +43,14 @@ keywords:
 
 ### Attribute selectors
 
-| Selector          | Description                         |
-| ----------------- | ----------------------------------- |
-| `[role="dialog"]` | `=` Exact                           |
-| `[class~="box"]`  | `~=` Has word                       |
-| `[class|="box"]`  | `|=` Exact or prefix (eg, `value-`) |
-| `[href$=".doc"]`  | `$=` Ends in                        |
-| `[class*="-is-"]` | `*=` Contains                       |
+| Selector           | Description                         |
+| ------------------ | ----------------------------------- |
+| `[role="dialog"]`  | `=` Exact                           |
+| `[class~="box"]`   | `~=` Has word                       |
+| `[class|="box"]`   | `|=` Exact or prefix (eg, `value-`) |
+| `[href$=".doc"]`   | `$=` Ends in                        |
+| `[href^="/index"]` | `^=` Begins with                    |
+| `[class*="-is-"]`  | `*=` Contains                       |
 
 ### Pseudo-classes
 

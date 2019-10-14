@@ -1,0 +1,2 @@
+- name: Automatic rebase
+  uses: cirrus-actions/rebase@1.2

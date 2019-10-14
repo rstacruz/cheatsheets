@@ -248,7 +248,7 @@ function greet({ name, greeting }) {
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
-Destructuring of objects and arrays can be also be done in function arguments.
+Destructuring of objects and arrays can also be done in function arguments.
 
 ### Default values
 

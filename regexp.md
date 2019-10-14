@@ -47,9 +47,12 @@ description: |
 
 ### Groups
 
-| Pattern | Description   |
-| ------- | ------------- |
-| `(abc)` | Capture group |
+| Pattern   | Description               |
+| --------- | ------------------------- |
+| `(abc)`   | Capture group             |
+| `(a|b)`   | Match either a or b       |
+| `(?:abc)` | Match everything enclosed |
+
 
 ### Quantifiers
 

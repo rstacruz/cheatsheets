@@ -80,6 +80,27 @@ function play (song) {
 
 See: <http://usejsdoc.org/tags-typedef.html>
 
+### Typedef Shorthand
+
+```js
+/**
+ * A song
+ * @typedef {{title: string, artist: string, year: number}} Song
+ */
+```
+
+```js
+/**
+ * Plays a song
+ * @param {Song} song - The {@link Song} to be played
+ */
+
+function play (song) {
+}
+```
+
+See: <http://usejsdoc.org/tags-typedef.html>
+
 ### Importing types
 
 ```js

@@ -393,7 +393,7 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 if ping -c 1 google.com; then
   echo "It appears you have a working internet connection"
 fi
-````
+```
 
 ```bash
 if grep -q 'foo' ~/.bash_history; then

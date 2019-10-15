@@ -45,7 +45,7 @@ See: [Getting started](http://docs.ansible.com/ansible/latest/intro_getting_star
 This is a list of hosts you want to manage, grouped into groups. (Hint: try
 using `localhost ansible_connection=local` to deploy to your local machine.)
 
-See: [Intro to Inventory](http://docs.ansible.com/ansible/latest/playbooks_intro.html)
+See: [Intro to Inventory](http://docs.ansible.com/ansible/latest/intro_inventory.html)
 
 ### Playbook
 
@@ -68,7 +68,7 @@ See: [Intro to Inventory](http://docs.ansible.com/ansible/latest/playbooks_intro
       gem: name=bundler state=latest
 ```
 
-See: [Intro to Playbooks](http://docs.ansible.com/ansible/latest/intro_inventory.html)
+See: [Intro to Playbooks](http://docs.ansible.com/ansible/latest/playbooks_intro.html)
 
 ## Running
 

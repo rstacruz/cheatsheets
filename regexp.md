@@ -47,11 +47,11 @@ description: |
 
 ### Groups
 
-| Pattern   | Description               |
-| --------- | ------------------------- |
-| `(abc)`   | Capture group             |
-| `(a|b)`   | Match either a or b       |
-| `(?:abc)` | Match everything enclosed |
+| Pattern   | Description                    |
+| --------- | ------------------------------ |
+| `(abc)`   | Capture group                  |
+| `(a|b)`   | Match `a` or `b`               |
+| `(?:abc)` | Match `abc`, but don't capture |
 
 
 ### Quantifiers

@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2019-03-23
+updated: 2019-10-02
 keywords:
   - Variables
   - Functions
@@ -393,7 +393,7 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 if ping -c 1 google.com; then
   echo "It appears you have a working internet connection"
 fi
-```` 
+```
 
 ```bash
 if grep -q 'foo' ~/.bash_history; then
@@ -735,6 +735,7 @@ read -n 1 ans    # Just one character
 | `$?` | Exit status of last task |
 | `$!` | PID of last background task |
 | `$$` | PID of shell |
+| `$0` | Filename of the shell script |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

@@ -9,6 +9,7 @@ layout: 2017/sheet
 ```
 aws ec2 describe-instances
 aws ec2 start-instances --instance-ids i-12345678c
+aws ec2 terminate-instances --instance-ids i-12345678c
 ```
 
 ### S3

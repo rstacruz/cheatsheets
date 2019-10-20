@@ -54,6 +54,8 @@ docker-compose down
 web:
   # build from Dockerfile
   build: .
+  args:     # Add build arguments
+    APP_HOME: app
 ```
 
 ```yaml

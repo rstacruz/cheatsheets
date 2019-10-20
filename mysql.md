@@ -55,6 +55,7 @@ SELECT ... FROM ... WHERE condition GROUPBY field
 SELECT ... FROM ... WHERE condition GROUPBY field HAVING condition2
 SELECT ... FROM ... WHERE condition ORDER BY field1, field2
 SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC
+SELECT ... INTO #TempTable FROM ... WHERE condition ORDER BY field1, field2 DESC
 SELECT ... FROM ... WHERE condition LIMIT 10
 SELECT DISTINCT field1 FROM ...
 SELECT DISTINCT field1, field2 FROM ...

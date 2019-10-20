@@ -12,6 +12,7 @@ Manage images
 ```yml
 docker build [options] .
   -t "app/container_name"    # name
+  --build-arg APP_HOME=$APP_HOME    # Set build-time variables
 ```
 
 Create an `image` from a Dockerfile.

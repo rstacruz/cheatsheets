@@ -26,6 +26,11 @@ docker run [options] IMAGE
 
 Run a command in an `image`.
 
+#### Example
+```
+$ docker run -it debian:buster /bin/bash
+```
+
 Manage containers
 -----------------
 

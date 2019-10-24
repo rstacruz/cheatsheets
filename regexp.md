@@ -5,12 +5,11 @@ layout: 2017/sheet
 weight: -1
 authors:
   - github: rizqyhi
-updated: 2019-03-24
+  - github: kolapsys
+updated: 2019-10-24
 description: |
   Basic cheatsheets for regular expression
 ---
-
-##
 
 {: .-three-column}
 
@@ -31,10 +30,18 @@ description: |
 
 ### Anchors
 
-| Pattern | Description      |
-| ------- | ---------------- |
-| `^abc`  | Start with `abc` |
-| `abc$`  | End with `abc`   |
+| Pattern | Description             |
+| ------- | ----------------------- |
+| `\G`    | Start of match          |
+| `^`     | Start of string         |
+| `$`     | End of string           |
+| `\A`    | Start of string         |
+| `\Z`    | End of string           |
+| `\z`    | Absolute end of string  |
+| `\b`    | A word boundry          |
+| `\B`    | Non-word boundry        |
+| `^abc`  | Start with `abc`        |
+| `abc$`  | End with `abc`          |
 
 ### Escaped characters
 

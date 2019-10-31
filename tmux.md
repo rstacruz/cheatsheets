@@ -44,8 +44,8 @@ category: CLI
 
 ### Panes
 
-    C-b v       # vert
-    C-b n       # horiz
+    C-b %       # vert
+    C-b "       # horiz
     C-b hkjl    # navigation
     C-b HJKL    # resize
     C-b o       # next window

@@ -18,7 +18,7 @@ Test queries in the Xpath test bed:<br>
 ### Browser console
 
 ```js
-$x('//div')
+$x("//div")
 ```
 
 Works in Firefox and Chrome.

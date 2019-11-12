@@ -50,6 +50,7 @@ description: |
 | Pattern | Description   |
 | ------- | ------------- |
 | `(abc)` | Capture group |
+| `(?:abc)` | Non-capturing group |
 
 ### Quantifiers
 

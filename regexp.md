@@ -5,7 +5,8 @@ layout: 2017/sheet
 weight: -1
 authors:
   - github: rizqyhi
-updated: 2019-03-24
+  - github: samtrion
+updated: 2019-11-14
 description: |
   Basic cheatsheets for regular expression
 ---
@@ -16,18 +17,19 @@ description: |
 
 ### Character classes
 
-| Pattern | Description                    |
-| ------- | ------------------------------ |
-| `.`     | Any character, except newline  |
-| `\w`    | Word                           |
-| `\d`    | Digit                          |
-| `\s`    | Whitespace                     |
-| `\W`    | Not word                       |
-| `\D`    | Not digit                      |
-| `\S`    | Not whitespace                 |
-| `[abc]` | Any of a, b, or c              |
-| `[a-e]` | Characters between `a` and `e` |
-| `[1-9]` | Digit between `1` and `9`      |
+| Pattern  | Description                     |
+| -------- | ------------------------------- |
+| `.`      | Any character, except newline   |
+| `\w`     | Word                            |
+| `\d`     | Digit                           |
+| `\s`     | Whitespace                      |
+| `\W`     | Not word                        |
+| `\D`     | Not digit                       |
+| `\S`     | Not whitespace                  |
+| `[abc]`  | Any of a, b, or c               |
+| `[a-e]`  | Characters between `a` and `e`  |
+| `[1-9]`  | Digit between `1` and `9`       |
+| `[^abc]` | Any character except a, b and c |
 
 ### Anchors
 

@@ -36,6 +36,7 @@ See: <http://usejsdoc.org/index.html>
 | `@param {...string} n`       | Repeatable arguments  |
 | `@param {string} [n="hi"]`   | Optional with default |
 | `@param {string[]} n`        | Array of strings      |
+| `@type {Object.<string, number>} n`        | A dictionary where all values are numbers     |
 | `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
 See: <http://usejsdoc.org/tags-type.html>

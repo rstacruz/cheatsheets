@@ -50,5 +50,4 @@ Cask commands are used for interacting with graphical applications.
 
 * [Homebrew homepage](https://brew.sh/) _brew.sh_
 * [Homebrew docs](https://docs.brew.sh) _docs.brew.sh_
-* [Homebrew Cask](https://caskroom.github.io/) _caskroom.github.io_
 {: .-also-see}

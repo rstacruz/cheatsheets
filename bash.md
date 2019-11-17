@@ -390,18 +390,6 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 ### Example
 
 ```bash
-if ping -c 1 google.com; then
-  echo "It appears you have a working internet connection"
-fi
-```
-
-```bash
-if grep -q 'foo' ~/.bash_history; then
-  echo "You appear to have typed 'foo' in the past"
-fi
-```
-
-```bash
 # String
 if [[ -z "$string" ]]; then
   echo "String is empty"
@@ -747,6 +735,22 @@ cd bar/
 pwd # /home/user/foo/bar
 cd -
 pwd # /home/user/foo
+```
+
+### Check for command's result
+
+```bash
+if ping -c 1 google.com; then
+  echo "It appears you have a working internet connection"
+fi
+```
+
+### Grep check
+
+```bash
+if grep -q 'foo' ~/.bash_history; then
+  echo "You appear to have typed 'foo' in the past"
+fi
 ```
 
 ## Also see

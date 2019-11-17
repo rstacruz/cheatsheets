@@ -43,6 +43,15 @@ find <path> <conditions> <actions>
 ```
 
 ```bash
+-newer   file.txt
+-newerm  file.txt        # modified newer than file.txt
+-newerX  file.txt        # [c]hange, [m]odified, [B]create
+-newerXt "1 hour ago"    # [t]imestamp
+```
+
+### Access time conditions
+
+```bash
 -atime 0           # Last accessed between now and 24 hours ago
 -atime +0          # Accessed more than 24 hours ago
 -atime 1           # Accessed between 24 and 48 hours ago
@@ -52,12 +61,7 @@ find <path> <conditions> <actions>
 -mtime +1w         # Last modified more than 1 week ago
 ```
 
-```bash
--newer   file.txt
--newerm  file.txt        # modified newer than file.txt
--newerX  file.txt        # [c]hange, [m]odified, [B]create
--newerXt "1 hour ago"    # [t]imestamp
-```
+These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).
 
 ### Condition flow
 

@@ -17,19 +17,19 @@ description: |
 
 ### Character classes
 
-| Pattern  | Description                     |
-| -------- | ------------------------------- |
-| `.`      | Any character, except newline   |
-| `\w`     | Word                            |
-| `\d`     | Digit                           |
-| `\s`     | Whitespace                      |
-| `\W`     | Not word                        |
-| `\D`     | Not digit                       |
-| `\S`     | Not whitespace                  |
-| `[abc]`  | Any of a, b, or c               |
-| `[a-e]`  | Characters between `a` and `e`  |
-| `[1-9]`  | Digit between `1` and `9`       |
-| `[^abc]` | Any character except a, b and c |
+| Pattern  | Description                          |
+| -------- | ------------------------------------ |
+| `.`      | Any character, except newline        |
+| `\w`     | Word                                 |
+| `\d`     | Digit                                |
+| `\s`     | Whitespace                           |
+| `\W`     | Not word                             |
+| `\D`     | Not digit                            |
+| `\S`     | Not whitespace                       |
+| `[abc]`  | Any of a, b, or c                    |
+| `[a-e]`  | Characters between `a` and `e`       |
+| `[1-9]`  | Digit between `1` and `9`            |
+| `[^abc]` | Any character except `a`, `b` or `c` |
 
 ### Anchors
 

@@ -79,7 +79,7 @@ web:
 ```yaml
   ports:
     - "3000"
-    - "8000:80"  # guest:host
+    - "8000:80"  # host:container
 ```
 
 ```yaml

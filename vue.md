@@ -1,6 +1,12 @@
 ---
-title: Vue
-category: JavaScript libraries
+title: Vue.js
+category: JavaScript
+layout: 2017/sheet
+tags: [Featured]
+updated: 2019-11-22
+weight: -10
+intro: |
+  [Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
 ---
 
 {% raw %}

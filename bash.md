@@ -535,11 +535,11 @@ set -o nounset    # Exposes unset variables
 ### Glob options
 
 ```bash
-set -o nullglob    # Non-matching globs are removed  ('*.foo' => '')
-set -o failglob    # Non-matching globs throw errors
-set -o nocaseglob  # Case insensitive globs
-set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
-set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
+shopt -s nullglob    # Non-matching globs are removed  ('*.foo' => '')
+shopt -s failglob    # Non-matching globs throw errors
+shopt -s nocaseglob  # Case insensitive globs
+shopt -s dotglob     # Wildcards match dotfiles ("*.sh" => ".foo.sh")
+shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob

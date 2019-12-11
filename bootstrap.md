@@ -34,12 +34,14 @@ Max:
 @media (max-width: @screen-md-max) { // < 1200px (medium laptop)
 ```
 
-### Columns
+### Containers
 
 ```scss
 .container
 .container-fluid
 ```
+
+### Columns
 
 ```scss
 .col-xs-1

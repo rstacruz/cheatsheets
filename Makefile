@@ -13,7 +13,7 @@ update: _site critical
 
 # Builds _site
 _site:
-	bundle exec jekyll build --incremental
+	bundle exec jekyll build --source docs/ --incremental
 
 critical: _site ## Builds critical path CSS/JS
 	node _support/critical.js
@@ -42,10 +42,10 @@ dev-webpack: ensure-bin
 
 dev-jekyll: ensure-bin
 	if [ -f _site ]; then \
-		bundle exec jekyll serve --safe --trace --drafts --watch --incremental --host $(HOST) --port $(PORT); \
-		else \
-		bundle exec jekyll serve --safe --trace --drafts --watch --host $(HOST) --port $(PORT); \
-		fi
+		bundle exec jekyll serve --source docs/ --safe --trace --drafts --watch  --incremental --host $(HOST) --port $(PORT); \
+	else \
+		bundle exec jekyll serve --source docs/ --safe --trace --drafts --watch --host $(HOST) --port $(PORT); \
+	fi
 
 test: _site ## Runs rudimentary tests
 	@test -f _site/vim.html

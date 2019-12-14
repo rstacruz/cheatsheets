@@ -14,150 +14,119 @@ keywords:
   - Command substitution
 ---
 
+
+
+
 Getting started
 ---------------
-{: .-three-column}
+{: .-five-column}
 
-### Example
+You should always use a shellcheck (https://github.com/koalaman/shellcheck) if you are writing bash/shell script to avoid unnecesary issues.
 
-```bash
-#!/usr/bin/env bash
+Best practice is to write a POSIX shell script to make the script more functional (working on platforms without dynamic linking) and use bash only if the function is not available on shell (complicated regex, etc..)
 
-NAME="John"
-echo "Hello $NAME!"
-```
+Example
+-----
+{: .-seven-column}
 
-### Variables
+```sh
+die() {
+    err_code="$1"
+    message="$2"
 
-```bash
-NAME="John"
-echo $NAME
-echo "$NAME"
-echo "${NAME}!"
-```
+    case $err_code in
+        0) true ;;
+        1)
+            if [ -n "$message" ]; then
+                printf 'FATAL: %s\n' "$message"
+            elif [ -z "$message" ]; then
+                printf 'FATAL: %s\n' "Script returned false"
+            fi
+        ;;
+        2) printf 'FATAL: %s\n' "Syntax error" ;;
+        3) printf 'FATAL: %s\n' "Insufficient permission" ;;
+        *) printf 'FATAL: %s\n' "Unknown error code '$err_code' has been parsed in function die()" ; exit 2
+    esac
 
-### String quotes
+    # Do not exit on '0'
+    [ "$err_code" != 0 ] && exit "$err_code"
 
-```bash
-NAME="John"
-echo "Hi $NAME"  #=> Hi John
-echo 'Hi $NAME'  #=> Hi $NAME
-```
-
-### Shell execution
-
-```bash
-echo "I'm in $(pwd)"
-echo "I'm in `pwd`"
-# Same
-```
-
-See [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
-
-### Conditional execution
-
-```bash
-git commit && git push
-git commit || echo "Commit failed"
-```
-
-### Functions
-{: id='functions-example'}
-
-```bash
-get_name() {
-  echo "John"
+    unset message err_code
 }
 
-echo "You are $(get_name)"
+# Exit if end-user is not root
+[ -n "$(id -u)" ] && die 3
+
+# In case anyone decides to run this
+die 1 "Do not run this script, used for an example"
+
+# Capture arguments
+## While amount of arguments is greater then '1' do case in first argument in..
+while [ $# -ge 1 ]; do case $1 in
+    /*) # Full unix path
+        destdir="$1'
+        shift 1
+
+        url="https://dev.exherbo.org/stages/exherbo-x86_64-pc-linux-gnu-current.tar.xz"
+
+        if [ ! -d "$destdir" ]; then
+            mkdir "$destdir" || die 1 "Unable to make new directory in $destdir"
+        elif [ -d "$destdir" ]; then
+            printf 'DEBUG: %s\n' "Directory '$destdir' already exists"
+        else
+            printf 'Unexpected: %s\n' "Unexpecte happend while checking for '$destdir'"
+        fi
+
+        if ! command -v wget 2>/dev/null; then die 1 "wget is not available on this system"; fi
+
+        wget https://dev.exherbo.org/stages/exherbo-x86_64-pc-linux-gnu-current.tar.xz -O "$destdir/${url##https://dev.exherbo.org/stages/}"
+
+        # Extract the tarball only if it's not already extracted
+        [ ! -e "$destdir/etc/paludis" ] && tar xpf "$destdir/${url##https://dev.exherbo.org/stages/}" -C "$destdir"
+
+        # Mount dev for example
+        if ! grep -qF "$destdir/dev" /proc/mounts; then mount --rbind /dev "$destdir/dev/" || die 1 "Unable to mount '/dev' as rbind on '$destdir/dev'"; fi
+
+        unset url
+    ;;
+    *) die 2
+esac; done
 ```
 
-See: [Functions](#functions)
+Comments
+-----
+{: .-five-column}
 
-### Conditionals
-{: id='conditionals-example'}
+Comments are used to set parts of the code to be ignored by the program
 
-```bash
-if [[ -z "$string" ]]; then
-  echo "String is empty"
-elif [[ -n "$string" ]]; then
-  echo "String is not empty"
-fi
+```sh
+# Single line comment
+
+```sh
+: '
+This is a
+multi line
+comment
+'
 ```
 
-See: [Conditionals](#conditionals)
-
-### Strict mode
-
-```bash
-set -euo pipefail
-IFS=$'\n\t'
+```sh
+printf '%s\n' "Hello!" # In-line comment
 ```
 
-See: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+Variables
+-----
+{: .-five-column}
 
-### Brace expansion
+### Declaration
 
-```bash
-echo {A,B}.js
-```
+```sh
+# Store value 'John' in variable 'NAME'
+NAME=John
 
-| `{A,B}` | Same as `A B` |
-| `{A,B}.js` | Same as `A.js B.js` |
-| `{1..5}` | Same as `1 2 3 4 5` |
-
-See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
-
-
-Parameter expansions
---------------------
-{: .-three-column}
-
-### Basics
-
-```bash
-name="John"
-echo ${name}
-echo ${name/J/j}    #=> "john" (substitution)
-echo ${name:0:2}    #=> "Jo" (slicing)
-echo ${name::2}     #=> "Jo" (slicing)
-echo ${name::-1}    #=> "Joh" (slicing)
-echo ${name:(-1)}   #=> "n" (slicing from right)
-echo ${name:(-2):1} #=> "h" (slicing from right)
-echo ${food:-Cake}  #=> $food or "Cake"
-```
-
-```bash
-length=2
-echo ${name:0:length}  #=> "Jo"
-```
-
-See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
-
-```bash
-STR="/path/to/foo.cpp"
-echo ${STR%.cpp}    # /path/to/foo
-echo ${STR%.cpp}.o  # /path/to/foo.o
-
-echo ${STR##*.}     # cpp (extension)
-echo ${STR##*/}     # foo.cpp (basepath)
-
-echo ${STR#*/}      # path/to/foo.cpp
-echo ${STR##*/}     # foo.cpp
-
-echo ${STR/foo/bar} # /path/to/bar.cpp
-```
-
-```bash
-STR="Hello world"
-echo ${STR:6:5}   # "world"
-echo ${STR:-5:5}  # "world"
-```
-
-```bash
-SRC="/path/to/foo.cpp"
-BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
+printf '%s\n' $NAME      # Outputs 'John'
+printf '%s\n' "$NAME"    # Outputs 'John'
+printf '%s\n' "${NAME}"  # Outputs 'John'
 ```
 
 ### Substitution
@@ -176,20 +145,6 @@ DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 | `${FOO/%from/to}` | Replace suffix |
 | `${FOO/#from/to}` | Replace prefix |
 
-### Comments
-
-```bash
-# Single line comment
-```
-
-```bash
-: '
-This is a
-multi line
-comment
-'
-```
-
 ### Substrings
 
 | `${FOO:0:3}`  | Substring _(position, length)_ |
@@ -201,16 +156,15 @@ comment
 
 ### Manipulation
 
-```bash
+```sh
 STR="HELLO WORLD!"
-echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=> "hello world!" (all lowercase)
+printf '%s\n' ${STR,}   # Outputs "hELLO WORLD!" (lowercase 1st letter)
+printf '%s\n' ${STR,,}  # Outputs "hello world!" (all lowercase)
 
 STR="hello world!"
-echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+printf '%s\n' ${STR^}   # Outputs "Hello world!" (uppercase 1st letter)
+printf '%s\n' ${STR^^}  # Outputs "HELLO WORLD!" (all uppercase)
 ```
-
 
 ### Default values
 
@@ -221,107 +175,239 @@ echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
 
 The `:` is optional (eg, `${FOO=word}` works)
 
+### String manipulation
+
+```sh
+name=John
+
+printf '%s\n' ${name}
+printf '%s\n' ${name/J/j}    # Outputs 'john' (substitution)
+printf '%s\n' ${name:0:2}    # Outputs 'Jo' (slicing)
+printf '%s\n' ${name::2}     # Outputs 'Jo' (slicing)
+printf '%s\n' ${name::-1}    # Outputs 'Joh' (slicing)
+printf '%s\n' ${name:(-1)}   # Outputs 'n' (slicing from right)
+printf '%s\n' ${name:(-2):1} # Outputs 'h' (slicing from right)
+printf '%s\n' ${food:-Cake}  # Outputs value of 'food' variable or "Cake" if Cake is stored
+```
+
+```bash
+length=2
+printf '%s\n' ${name:0:length}  # Outputs 'Jo'
+#                      ^^^^^^ - Using the value '2' of variable 'lenght' in string manipulation
+```
+
+See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
+
+```sh
+STR=/path/to/foo.cpp
+
+# Symbol '#' means to slice from the start where '%' means slicing from then end of the string
+
+printf '%s\n' ${STR%.cpp}    # Outputs '/path/to/foo'
+printf '%s\n' ${STR%.cpp}.o  # Outputs '/path/to/foo.o'
+
+printf '%s\n' ${STR##*.}     # Outputs 'cpp' (extension)
+printf '%s\n' ${STR##*/}     # Outputs 'foo.cpp' (basepath)
+
+printf '%s\n' ${STR#*/}      # Outputs 'path/to/foo.cpp'
+printf '%s\n' ${STR##*/}     # Outputs 'foo.cpp'
+
+printf '%s\n' ${STR/foo/bar} # Outputs '/path/to/bar.cpp'
+```
+
+```sh
+STR="Hello world"
+
+printf '%s\n' ${STR:6:5}   # Outputs 'world'
+printf '%s\n' ${STR:-5:5}  # Outputs 'Hello' and 'World' on new line
+```
+
+```sh
+SRC=/path/to/foo.cpp
+
+BASE=${SRC##*/}   # Outputs 'foo.cpp' (basepath)
+DIR=${SRC%$BASE}  # Outputs '/path/to/' (dirpath)
+```
+
+### String quotes
+
+```sh
+NAME="John"
+
+printf '%s\n' "Hi $NAME"  # Outputs Hi John
+printf '%s\n' 'Hi $NAME'  # Outputs Hi $NAME (Taken literally)
+```
+
+Brace expansion
+-----
+{: .-three-column}
+
+```sh
+printf '%s\n' {A,B}.js
+```
+
+| `{A,B}` | Same as `A B` |
+| `{A,B}.js` | Same as `A.js B.js` |
+| `{1..5}` | Same as `1 2 3 4 5` |
+
+See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
+
+Functions
+-----
+{: .-three-column}
+
+{: id='functions-example'}
+
+Functions are used to store a code to be executed on demand
+
+### Defining functions
+
+```sh
+identifier() {
+  # Code here
+}
+
+# Same as above (alternative syntax)
+function identifier() {
+  # Code here
+}
+```
+
+### Arguments
+
+| Expression | Description                        |
+| ---        | ---                                |
+| `$#`       | Number of arguments                |
+| `$*`       | All arguments                      |
+| `$@`       | All arguments, starting from first |
+| `$1`       | First argument                     |
+
+See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+
+### Input in a function
+
+```sh
+# Square the number
+square() {
+    number="$1"
+
+    printf '%s\n' "$1 * $1" | bc
+
+    unset number
+}
+
+square 5 # Outputs '25'
+```
+
+### Returning values
+
+```sh
+# Output 'John' if called
+get_name() {
+  printf '%s\n' "John"
+}
+
+get_name # Outputs 'John'
+```
+
+
 Loops
 -----
 {: .-three-column}
 
 ### Basic for loop
 
-```bash
+```sh
 for i in /etc/rc.*; do
-  echo $i
+  printf '%s\n' $i
 done
 ```
 
 ### C-like for loop
 
-```bash
+```sh
 for ((i = 0 ; i < 100 ; i++)); do
-  echo $i
+  printf '%s\n' $i
 done
 ```
 
 ### Ranges
 
-```bash
+```sh
 for i in {1..5}; do
-    echo "Welcome $i"
+    printf '%s\n' "Welcome $i"
 done
 ```
 
 #### With step size
 
-```bash
+```sh
 for i in {5..50..5}; do
-    echo "Welcome $i"
+    printf '%s\n' "Welcome $i"
 done
 ```
 
 ### Reading lines
 
-```bash
+```sh
 < file.txt | while read line; do
-  echo $line
+  printf '%s\n' $line
 done
 ```
 
 ### Forever
 
-```bash
+```sh
 while true; do
   ···
 done
 ```
 
-Functions
----------
-{: .-three-column}
-
 ### Defining functions
 
-```bash
+```sh
 myfunc() {
-    echo "hello $1"
+    printf '%s\n' "hello $1"
 }
 ```
 
-```bash
+```sh
 # Same as above (alternate syntax)
 function myfunc() {
-    echo "hello $1"
+    printf '%s\n' "hello $1"
 }
 ```
 
-```bash
+```sh
 myfunc "John"
 ```
 
 ### Returning values
 
-```bash
+```sh
 myfunc() {
     local myresult='some value'
-    echo $myresult
+    printf '%s\n' $myresult
 }
 ```
 
-```bash
+```sh
 result="$(myfunc)"
 ```
 
 ### Raising errors
 
-```bash
+```sh
 myfunc() {
   return 1
 }
 ```
 
-```bash
+```sh
 if myfunc; then
-  echo "success"
+  printf '%s\n' "success"
 else
-  echo "failure"
+  printf '%s\n' "failure"
 fi
 ```
 
@@ -344,99 +430,146 @@ Conditionals
 
 Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
 
-| Condition                | Description           |
-| ---                      | ---                   |
-| `[[ -z STRING ]]`        | Empty string          |
-| `[[ -n STRING ]]`        | Not empty string      |
-| `[[ STRING == STRING ]]` | Equal                 |
-| `[[ STRING != STRING ]]` | Not Equal             |
-| ---                      | ---                   |
-| `[[ NUM -eq NUM ]]`      | Equal                 |
-| `[[ NUM -ne NUM ]]`      | Not equal             |
-| `[[ NUM -lt NUM ]]`      | Less than             |
-| `[[ NUM -le NUM ]]`      | Less than or equal    |
-| `[[ NUM -gt NUM ]]`      | Greater than          |
-| `[[ NUM -ge NUM ]]`      | Greater than or equal |
-| ---                      | ---                   |
-| `[[ STRING =~ STRING ]]` | Regexp                |
-| ---                      | ---                   |
-| `(( NUM < NUM ))`        | Numeric conditions    |
+| Condition                | Description              |
+| ---                      | ---                      |
+| `[ -z STRING ]`          | Empty string             |
+| `[ -n STRING ]`          | Not empty string         |
+| `[ STRING = STRING ]`    | Equal                    |
+| `[[ STRING == STRING ]]` | Equal (bash)             |
+| `[ STRING != STRING ]`   | Not Equal                |
+| ---                      | ---                      |
+| `[ NUM -eq NUM ]`        | Equal                    |
+| `[ NUM -ne NUM ]`        | Not equal                |
+| `[ NUM -lt NUM ]`        | Less than                |
+| `[ NUM -le NUM ]`        | Less than or equal       |
+| `[ NUM -gt NUM ]`        | Greater than             |
+| `[ NUM -ge NUM ]`        | Greater than or equal    |
+| ---                      | ---                      |
+| `[[ STRING =~ STRING ]]` | Regexp (bash)            |
+| ---                      | ---                      |
+| `(( NUM < NUM ))`        | Numeric conditions       |
 
-| Condition              | Description              |
-| ---                    | ---                      |
-| `[[ -o noclobber ]]`   | If OPTIONNAME is enabled |
-| ---                    | ---                      |
-| `[[ ! EXPR ]]`         | Not                      |
-| `[[ X ]] && [[ Y ]]`   | And                      |
-| `[[ X ]] || [[ Y ]]`   | Or                       |
+| Condition                | Description              |
+| ---                      | ---                      |
+| `[ -o noclobber ]`       | If OPTIONNAME is enabled |
+| ---                      | ---                      |
+| `[ ! EXPR ]`             | Not                      |
+| `[ X ] && [ Y ]`         | And                      |
+| `[ X ] || [ Y ]`         | Or                       |
 
 ### File conditions
 
-| Condition               | Description             |
-| ---                     | ---                     |
-| `[[ -e FILE ]]`         | Exists                  |
-| `[[ -r FILE ]]`         | Readable                |
-| `[[ -h FILE ]]`         | Symlink                 |
-| `[[ -d FILE ]]`         | Directory               |
-| `[[ -w FILE ]]`         | Writable                |
-| `[[ -s FILE ]]`         | Size is > 0 bytes       |
-| `[[ -f FILE ]]`         | File                    |
-| `[[ -x FILE ]]`         | Executable              |
-| ---                     | ---                     |
-| `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
-| `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
-| `[[ FILE1 -ef FILE2 ]]` | Same files              |
+| Condition               | Description               |
+| ---                     | ---                       |
+| `[ -e FILE ]`           | Exists                    |
+| `[ -r FILE ]`           | Readable                  |
+| `[ -h FILE ]`           | Symlink                   |
+| `[ -d FILE ]`           | Directory                 |
+| `[ -w FILE ]`           | Writable                  |
+| `[ -s FILE ]`           | Size is > 0 bytes         |
+| `[ -f FILE ]`           | File                      |
+| `[ -x FILE ]`           | Executable                |
+| ---                     | ---                       |
+| `[ FILE1 -nt FILE2 ]`   | 1 is more recent than 2   |
+| `[ FILE1 -ot FILE2 ]`   | 2 is more recent than 1   |
+| `[ FILE1 -ef FILE2 ]`   | Same files                |
 
-### Example
 
-```bash
+### Examples
+
+```sh
 # String
-if [[ -z "$string" ]]; then
-  echo "String is empty"
-elif [[ -n "$string" ]]; then
-  echo "String is not empty"
+if [ -z "$string" ]; then
+  printf '%s\n' "String is empty"
+elif [ -n "$string" ]; then
+  printf '%s\n' "String is not empty"
 fi
 ```
 
-```bash
+```sh
 # Combinations
-if [[ X ]] && [[ Y ]]; then
-  ...
+if [ X ] && [ Y ]; then
+    # Code here
 fi
 ```
 
-```bash
+```sh
 # Equal
-if [[ "$A" == "$B" ]]
+if [ "$A" = "$B" ]; then
+    # Code here
+fi
 ```
 
-```bash
-# Regex
-if [[ "A" =~ "." ]]
+```sh
+# Not equal
+if [ "$A" != "$B" ]; then
+    # Code here
+fi
+
+# Not equal
+if [ "$A" -ne "$B" ]; then 
+    # Code here
+fi
 ```
 
-```bash
+```sh
+# Regex (Bash only)
+if [[ "A" =~ "." ]]; then
+    # Code here
+fi
+```
+
+```sh
 if (( $a < $b )); then
-   echo "$a is smaller than $b"
+   printf '%s\n' "$a is smaller than $b"
 fi
 ```
 
-```bash
-if [[ -e "file.txt" ]]; then
-  echo "file exists"
+```sh
+if [ -e "file.txt" ]; then
+  printf '%s\n' "file exists"
 fi
+```
+
+```sh
+# If file contains string 'something'
+if grep -qF something path/to/file; then
+    # code here
+fi
+```
+
+### Case statements
+
+Case statements are generally used to simplify complex conditionals when you have multiple different choices.
+
+On POSIX shell case statemetns are also used for a RegEx.
+
+```sh
+case "$argument" in
+    melon|peach) printf '%s\n' "If variable 'argument' stores either 'melon' or 'peach" ;;
+    banana)
+        printf '%s\n' "If variable 'argument' stores 'banana'" 
+    ;;
+    Hon*)
+        printf '%s\n' "If variable 'argument' stores anything that starts with 'Hon' 
+    ;;
+    *)
+        printf '%s\n' "If none above matched"
+esac
 ```
 
 Arrays
 ------
 
+Arrays are supported only on bash
+
 ### Defining arrays
 
-```bash
+```sh
 Fruits=('Apple' 'Banana' 'Orange')
 ```
 
-```bash
+```sh
 Fruits[0]="Apple"
 Fruits[1]="Banana"
 Fruits[2]="Orange"
@@ -444,18 +577,18 @@ Fruits[2]="Orange"
 
 ### Working with arrays
 
-```bash
-echo ${Fruits[0]}           # Element #0
-echo ${Fruits[@]}           # All elements, space-separated
-echo ${#Fruits[@]}          # Number of elements
-echo ${#Fruits}             # String length of the 1st element
-echo ${#Fruits[3]}          # String length of the Nth element
-echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
+```sh
+printf '%s\n' ${Fruits[0]}           # Element #0
+printf '%s\n' ${Fruits[@]}           # All elements, space-separated
+printf '%s\n' ${#Fruits[@]}          # Number of elements
+printf '%s\n' ${#Fruits}             # String length of the 1st element
+printf '%s\n' ${#Fruits[3]}          # String length of the Nth element
+printf '%s\n' ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 ```
 
 ### Operations
 
-```bash
+```sh
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
 Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
@@ -467,9 +600,9 @@ lines=(`cat "logfile"`)                 # Read from file
 
 ### Iteration
 
-```bash
+```sh
 for i in "${arrayName[@]}"; do
-  echo $i
+  printf '%s\n' $i
 done
 ```
 
@@ -479,11 +612,11 @@ Dictionaries
 
 ### Defining
 
-```bash
+```sh
 declare -A sounds
 ```
 
-```bash
+```sh
 sounds[dog]="bark"
 sounds[cow]="moo"
 sounds[bird]="tweet"
@@ -494,11 +627,11 @@ Declares `sound` as a Dictionary object (aka associative array).
 
 ### Working with dictionaries
 
-```bash
-echo ${sounds[dog]} # Dog's sound
-echo ${sounds[@]}   # All values
-echo ${!sounds[@]}  # All keys
-echo ${#sounds[@]}  # Number of elements
+```sh
+printf '%s\n' ${sounds[dog]} # Dog's sound
+printf '%s\n' ${sounds[@]}   # All values
+printf '%s\n' ${!sounds[@]}  # All keys
+printf '%s\n' ${#sounds[@]}  # Number of elements
 unset sounds[dog]   # Delete dog
 ```
 
@@ -506,17 +639,17 @@ unset sounds[dog]   # Delete dog
 
 #### Iterate over values
 
-```bash
+```sh
 for val in "${sounds[@]}"; do
-  echo $val
+  printf '%s\n' $val
 done
 ```
 
 #### Iterate over keys
 
-```bash
+```sh
 for key in "${!sounds[@]}"; do
-  echo $key
+  printf '%s\n' $key
 done
 ```
 
@@ -525,8 +658,8 @@ Options
 
 ### Options
 
-```bash
-set -o noclobber  # Avoid overlay files (echo "hi" > foo)
+```sh
+set -o noclobber  # Avoid overlay files (printf '%s\n' "hi" > foo)
 set -o errexit    # Used to exit upon error, avoiding cascading errors
 set -o pipefail   # Unveils hidden failures
 set -o nounset    # Exposes unset variables
@@ -534,7 +667,7 @@ set -o nounset    # Exposes unset variables
 
 ### Glob options
 
-```bash
+```sh
 set -o nullglob    # Non-matching globs are removed  ('*.foo' => '')
 set -o failglob    # Non-matching globs throw errors
 set -o nocaseglob  # Case insensitive globs
@@ -585,26 +718,49 @@ History
 Miscellaneous
 -------------
 
+### Shell execution
+
+```sh
+# Change directory in '/usr'
+cd /usr
+
+printf '%s\n' "I am in $(pwd)" # Outputs 'I am in /usr'
+
+# Avoid! Breaks SC2006 (https://github.com/koalaman/shellcheck/wiki/SC2006)
+printf '%s\n' "I am in `pwd`"  # Outputs 'I am in /usr'
+```
+
+See [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
+
 ### Numeric calculations
 
-```bash
+```sh
 $((a + 200))      # Add 200 to $a
 ```
 
-```bash
+```sh
 $((RANDOM%=200))  # Random number 0..200
 ```
 
+### Strict mode
+
+```sh
+set -euo pipefail
+IFS=$'\n\t'
+```
+
+See: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+
 ### Subshells
 
-```bash
-(cd somedir; echo "I'm now in $PWD")
+```sh
+(cd somedir; printf '%s\n' "I'm now in $PWD")
 pwd # still in first directory
 ```
 
 ### Redirection
 
-```bash
+```sh
 python hello.py > output.txt   # stdout to (file)
 python hello.py >> output.txt  # stdout to (file), append
 python hello.py 2> error.log   # stderr to (file)
@@ -613,79 +769,65 @@ python hello.py 2>/dev/null    # stderr to (null)
 python hello.py &>/dev/null    # stdout and stderr to (null)
 ```
 
-```bash
+```sh
 python hello.py < foo.txt      # feed foo.txt to stdin for python
 ```
 
 ### Inspecting commands
 
-```bash
+```sh
 command -V cd
-#=> "cd is a function/alias/whatever"
+# Outputs "cd is a function/alias/whatever"
 ```
 
 ### Trap errors
 
-```bash
-trap 'echo Error at about $LINENO' ERR
+```sh
+trap 'printf '%s\n' Error at about $LINENO' ERR
 ```
 
 or
 
-```bash
+```sh
 traperr() {
-  echo "ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}"
+  printf '%s\n' "ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}"
 }
 
 set -o errtrace
 trap traperr ERR
 ```
 
-### Case/switch
-
-```bash
-case "$1" in
-  start | up)
-    vagrant up
-    ;;
-
-  *)
-    echo "Usage: $0 {start|stop|ssh}"
-    ;;
-esac
-```
-
 ### Source relative
 
-```bash
+```sh
 source "${0%/*}/../share/foo.sh"
 ```
 
 ### printf
 
-```bash
+```sh
 printf "Hello %s, I'm %s" Sven Olga
-#=> "Hello Sven, I'm Olga
+# Outputs "Hello Sven, I'm Olga
 
 printf "1 + 1 = %d" 2
-#=> "1 + 1 = 2"
+# Outputs "1 + 1 = 2"
 
 printf "This is how you print a float: %f" 2
-#=> "This is how you print a float: 2.000000"
+# Outputs "This is how you print a float: 2.000000"
 ```
 
 ### Directory of script
 
-```bash
+```sh
 DIR="${0%/*}"
 ```
 
 ### Getting options
 
-```bash
+```sh
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
   -V | --version )
-    echo $version
+    printf '%s\n' $version
     exit
     ;;
   -s | --string )
@@ -708,13 +850,13 @@ END
 
 ### Reading input
 
-```bash
-echo -n "Proceed? [y/n]: "
+```sh
+printf '%s\n' -n "Proceed? [y/n]: "
 read ans
-echo $ans
+printf '%s\n' $ans
 ```
 
-```bash
+```sh
 read -n 1 ans    # Just one character
 ```
 
@@ -729,7 +871,7 @@ See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_p
 
 ### Go to previous directory
 
-```bash
+```sh
 pwd # /home/user/foo
 cd bar/
 pwd # /home/user/foo/bar
@@ -739,17 +881,17 @@ pwd # /home/user/foo
 
 ### Check for command's result
 
-```bash
+```sh
 if ping -c 1 google.com; then
-  echo "It appears you have a working internet connection"
+  printf '%s\n' "It appears you have a working internet connection"
 fi
 ```
 
 ### Grep check
 
-```bash
+```sh
 if grep -q 'foo' ~/.bash_history; then
-  echo "You appear to have typed 'foo' in the past"
+  printf '%s\n' "You appear to have typed 'foo' in the past"
 fi
 ```
 

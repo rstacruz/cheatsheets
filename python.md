@@ -102,35 +102,44 @@ category: Python
     expr.match(...)
     expr.sub(...)
 
-### File manipulation
+## File manipulation
     
-    # Reading
-    
-    file = open("hello.txt", "r") #open the file in readmode 'r'
-    file.close() 
-    
-    print(file.read())  # read the file 
-    print fh.readline() # Reading line by line
-    
-    # Writing ( Overwrite the previous content ! )
-    
-    file = open("hello.txt","w") # open the fil in write mode
-    write("Hello World")
-    
-    text_lines = ["First line", "Second line", "a third and last line"] 
-    file.writelines(text_lines) # write the 3 line above inside hello.txt
-    
-    file.close()
-    
-    # Append File 
-    
-    file = open("Hello.txt", "a") #open file in append mode  
-    write("Hello World again")  
-    file.close()
-    
-    # Context Manager
-    
-    with open("welcome.txt" ,"r") as file: # file refer directly to the "welcome.txt" , mode = r , w , a
-       data = file.read()
-       # it close the file automatically no need for file.close()
-    
+### Reading
+
+```py
+file = open("hello.txt", "r") # open in read mode 'r'
+file.close() 
+
+print(file.read())  # read the file 
+print fh.readline() # Reading line by line
+```
+
+### Writing (overwrite)
+
+```py
+file = open("hello.txt", "w") # open in write mode 'w'
+write("Hello World")
+
+text_lines = ["First line", "Second line", "Last line"] 
+file.writelines(text_lines)
+
+file.close()
+```
+
+### Writing (append)
+
+```py
+file = open("Hello.txt", "a") # open in append mode
+write("Hello World again")  
+file.close()
+```
+
+### Context manager
+
+```py
+with open("welcome.txt", "r") as file:
+    # 'file' refers directly to the "welcome.txt"
+   data = file.read()
+```
+
+It closes the file automatically, no need for `file.close()`.

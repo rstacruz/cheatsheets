@@ -2,7 +2,6 @@
 title: Vue.js
 category: JavaScript
 layout: 2017/sheet
-tags: [Featured]
 updated: 2019-11-22
 weight: -10
 intro: |

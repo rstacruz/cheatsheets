@@ -435,6 +435,8 @@ Also see: [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
 
 #### Basic Hooks
 
+| Hook                         | Description                               |
+| ---------------------------- | ----------------------------------------- |
 | `useState`_(initialState)_   |                                           |
 | `useEffect`_(() => { ... })_ |                                           |
 | `useContext`_(MyContext)_    | value returned from `React.createContext` |
@@ -443,6 +445,8 @@ Full details: [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-
 
 #### Additional Hooks
 
+| Hook                                         | Description                                                                 |
+| -------------------------------------------- | ---------------------------------------------------------------------------- |
 | `useReducer`_(reducer, initialArg, init)_    |                                                                              |
 | `useCallback`_(() => { ... })_               |                                                                              |
 | `useMemo`_(() => { ... })_                   |                                                                              |

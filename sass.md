@@ -15,22 +15,57 @@ keywords:
   - "$map: (a: b, c: d)"
 ---
 
+## Definition:
+
+<em>`Sass`</em> is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.
+
+## Installation:
+### Install Anywhere (Standalone)
+
+You can install Sass on Windows, Mac, or Linux by downloading the package for your operating system from GitHub and adding it to your PATH. 
+### Install Anywhere (npm):
+
+```bash
+npm install -g sass
+```
+Once installed, you'll be able to run the sass executable to compile .sass and .scss files to .css files. For example:
+
+```sass
+sass source/stylesheets/index.scss build/stylesheets/index.css
+```
+### Preprocessing:
+* Sass lets you use features that don't exist in CSS yet like variables, nesting, mixins, inheritance and other nifty goodies that make writing CSS fun again.
+* Once Sass is installed, you can compile your Sass to CSS using the sass command. for Example; take a single Sass file, input.scss, and compile that file to output.css.
+`sass input.scss output.css`
+* To tells Sass to watch your source files for changes, and re-compile CSS each time you save your Sass:
+
+```bash
+sass --watch input.scss output.css
+
+```
+* To watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.
+
+```bash
+sass --watch app/sass:public/stylesheets
+```
+
 ## Basics
 {: .-three-column}
 
-### Variables
-
+### Variables <span class="inline-definition"> a way to store information that you want to reuse throughout your stylesheet.</span>
+* `Sass` uses the `$` symbol to make something a `variable`.
 ```scss
 $red: #833;
 ```
-
+<em>When the Sass is processed, it takes the variables we define for the $font-stack and $primary-color and outputs normal CSS with our variable values placed in the CSS. </em>
 ```scss
 body {
   color: $red;
 }
 ```
 
-### Nesting
+### Nesting  <span class="inline-definition">Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML </span>
+> Be aware that overly nested rules will result in over-qualified CSS that could prove hard to maintain and is generally considered bad practice.
 
 ```scss
 .markdown-body {

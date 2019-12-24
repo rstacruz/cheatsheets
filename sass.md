@@ -1,20 +1,24 @@
----
-title: Sass
-category: CSS
-layout: 2017/sheet
-tags: [Featured]
-updated: 2017-08-26
-weight: -5
-keywords:
-  - Variables
-  - mixins
-  - darken()
-  - adjust-color()
-  - "@for @each @while @if @else"
-  - "$list: (a b c)"
-  - "$map: (a: b, c: d)"
----
+<style>
+h2 {
+    border: 1px solid blue;
+    padding: 4px 2px;
+    border-radius: 46px;
+    padding-left: 19px;
+}
 
+h3 {font-style: italic;color: blue;}
+
+h3 {}
+
+pre {
+    color: green;
+    margin-left: 3%;
+    border: 1px dashed red;
+    padding: 4px;
+    display: block;
+}
+
+</style>
 ## Definition:
 
 <em>`Sass`</em> is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.
@@ -54,7 +58,8 @@ sass --watch app/sass:public/stylesheets
 
 ### Variables <span class="inline-definition"> a way to store information that you want to reuse throughout your stylesheet.</span>
 * `Sass` uses the `$` symbol to make something a `variable`.
-```scss
+
+```css
 $red: #833;
 ```
 <em>When the Sass is processed, it takes the variables we define for the $font-stack and $primary-color and outputs normal CSS with our variable values placed in the CSS. </em>
@@ -424,8 +429,7 @@ $map: (key1: value1, key2: value2, key3: value3);
 map-get($map, key1)
 ```
 
-## See also
-{: .-one-column}
+## See also:
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>
 - <http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript>

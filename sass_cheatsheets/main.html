@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 7.0.1">
+<title>sass</title>
+</head>
+<body>
+<style>
+h2 {
+    border: 1px solid blue;
+    padding: 4px 2px;
+    border-radius: 46px;
+    padding-left: 19px;
+}
+
+h3 {font-style: italic;color: blue;}
+
+h3 {}
+
+pre {
+    color: green;
+    margin-left: 3%;
+    border: 1px dashed red;
+    padding: 4px;
+    display: block;
+}
+
+</style>
+
+<h2>Definition:</h2>
+<p><em><code>Sass</code></em> is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.</p>
+<h2>Installation:</h2>
+<h3>Install Anywhere (Standalone)</h3>
+<p>You can install Sass on Windows, Mac, or Linux by downloading the package for your operating system from GitHub and adding it to your PATH. </p>
+<h3>Install Anywhere (npm):</h3>
+<pre><code class="bash">npm install -g sass
+</code></pre>
+
+<p>Once installed, you'll be able to run the sass executable to compile .sass and .scss files to .css files. For example:</p>
+<pre><code class="sass">sass source/stylesheets/index.scss build/stylesheets/index.css
+</code></pre>
+
+<h3>Preprocessing:</h3>
+<ul>
+<li>Sass lets you use features that don't exist in CSS yet like variables, nesting, mixins, inheritance and other nifty goodies that make writing CSS fun again.</li>
+<li>Once Sass is installed, you can compile your Sass to CSS using the sass command. for Example; take a single Sass file, input.scss, and compile that file to output.css.
+<code>sass input.scss output.css</code></li>
+<li>To tells Sass to watch your source files for changes, and re-compile CSS each time you save your Sass:</li>
+</ul>
+<pre><code class="bash">sass --watch input.scss output.css
+
+</code></pre>
+
+<ul>
+<li>To watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.</li>
+</ul>
+<pre><code class="bash">sass --watch app/sass:public/stylesheets
+</code></pre>
+
+<h2>Basics</h2>
+<p>{: .-three-column}</p>
+<h3>Variables <span class="inline-definition"> a way to store information that you want to reuse throughout your stylesheet.</span></h3>
+<ul>
+<li><code>Sass</code> uses the <code>$</code> symbol to make something a <code>variable</code>.</li>
+</ul>
+<pre><code class="css">$red: #833;
+</code></pre>
+
+<p><em>When the Sass is processed, it takes the variables we define for the $font-stack and $primary-color and outputs normal CSS with our variable values placed in the CSS. </em></p>
+<pre><code class="scss">body {
+  color: $red;
+}
+</code></pre>
+
+<h3>Nesting  <span class="inline-definition">Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML </span></h3>
+<blockquote>
+<p>Be aware that overly nested rules will result in over-qualified CSS that could prove hard to maintain and is generally considered bad practice.</p>
+</blockquote>
+<pre><code class="scss">.markdown-body {
+  p {
+    color: blue;
+  }
+
+  &amp;:hover {
+    color: red;
+  }
+}
+</code></pre>
+
+<h3>Comments</h3>
+<pre><code class="scss">/* Block comments */
+// Line comments
+</code></pre>
+
+<h3>Mixins</h3>
+<pre><code class="scss">@mixin heading-font {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+</code></pre>
+
+<pre><code class="scss">h1 {
+  @include heading-font;
+}
+</code></pre>
+
+<h4>with parameters</h4>
+<pre><code class="scss">@mixin font-size($n) {
+  font-size: $n * 1.2em;
+}
+</code></pre>
+
+<pre><code class="scss">body {
+  @include font-size(2);
+}
+</code></pre>
+
+<h4>with default values</h4>
+<pre><code class="scss">@mixin pad($n: 10px) {
+  padding: $n;
+}
+</code></pre>
+
+<pre><code class="scss">body {
+  @include pad(15px);
+}
+</code></pre>
+
+<h4>with a default variable</h4>
+<pre><code class="scss">// Set a default value
+$default-padding: 10px;
+</code></pre>
+
+<pre><code class="scss">@mixin pad($n: $default-padding) {
+  padding: $n;
+}
+</code></pre>
+
+<pre><code class="scss">body {
+  @include pad(15px);
+}
+</code></pre>
+
+<h3>Extend</h3>
+<pre><code class="scss">.button {
+  ···
+}
+</code></pre>
+
+<pre><code class="scss">.push-button {
+  @extend .button;
+}
+</code></pre>
+
+<h3>Composing</h3>
+<pre><code class="scss">@import './other_sass_file`;
+</code></pre>
+
+<p>The <code>.scss</code> or <code>.sass</code> extension is optional.</p>
+<h2>Color functions</h2>
+<h3>rgba</h3>
+<pre><code class="scss">rgb(100, 120, 140)
+rgba(100, 120, 140, .5)
+rgba($color, .5)
+</code></pre>
+
+<h3>Mixing</h3>
+<pre><code class="scss">mix($a, $b, 10%)   // 10% a, 90% b
+</code></pre>
+
+<h3>Modifying HSLA</h3>
+<pre><code class="scss">darken($color, 5%)
+lighten($color, 5%)
+</code></pre>
+
+<pre><code class="scss">saturate($color, 5%)
+desaturate($color, 5%)
+grayscale($color)
+</code></pre>
+
+<pre><code class="scss">adjust-hue($color, 15deg)
+complement($color)    // like adjust-hue(_, 180deg)
+invert($color)
+</code></pre>
+
+<pre><code class="scss">fade-in($color, .5)   // aka opacify()
+fade-out($color, .5)  // aka transparentize() - halves the opacity
+rgba($color, .5)      // sets alpha to .5
+</code></pre>
+
+<h3>Getting individual values</h3>
+<h4>HSLA</h4>
+<pre><code class="scss">hue($color)         // → 0deg..360deg
+saturation($color)  // → 0%..100%
+lightness($color)   // → 0%..100%
+alpha($color)       // → 0..1 (aka opacity())
+</code></pre>
+
+<h4>RGB</h4>
+<pre><code>red($color)         // → 0..255
+green($color)
+blue($color)
+</code></pre>
+
+<p>See: <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#hue-instance_method">hue()</a>, <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#red-instance_method">red()</a></p>
+<h3>Adjustments</h3>
+<pre><code class="scss">// Changes by fixed amounts
+adjust-color($color, $blue: 5)
+adjust-color($color, $lightness: -30%)   // like darken(_, 30%)
+adjust-color($color, $alpha: -0.4)       // like fade-out(_, .4)
+adjust-color($color, $hue: 30deg)        // like adjust-hue(_, 15deg)
+</code></pre>
+
+<pre><code class="scss">// Changes via percentage
+scale-color($color, $lightness: 50%)
+</code></pre>
+
+<pre><code class="scss">// Changes one property completely
+change-color($color, $hue: 180deg)
+change-color($color, $blue: 250)
+</code></pre>
+
+<p>Supported: <code>$red</code> <code>$green</code> <code>$blue</code> <code>$hue</code> <code>$saturation</code> <code>$lightness</code> <code>$alpha</code></p>
+<h2>Other functions</h2>
+<h3>Strings</h3>
+<pre><code class="scss">unquote('hello')
+quote(hello)
+</code></pre>
+
+<pre><code class="scss">to-upper-case(hello)
+to-lower-case(hello)
+</code></pre>
+
+<pre><code class="scss">str-length(hello world)
+str-slice(hello, 2, 5)      // &quot;ello&quot; - it's 1-based, not 0-based
+str-insert(&quot;abcd&quot;, &quot;X&quot;, 1)  // &quot;Xabcd&quot;
+</code></pre>
+
+<h3>Units</h3>
+<pre><code class="scss">unit(3em)        // 'em'
+unitless(100px)  // false
+</code></pre>
+
+<h3>Numbers</h3>
+<pre><code class="scss">floor(3.5)
+ceil(3.5)
+round(3.5)
+abs(3.5)
+</code></pre>
+
+<pre><code class="scss">min(1, 2, 3)
+max(1, 2, 3)
+</code></pre>
+
+<pre><code class="scss">percentage(.5)   // 50%
+random(3)        // 0..3
+</code></pre>
+
+<h3>Misc</h3>
+<pre><code class="scss">variable-exists(red)    // checks for $red
+mixin-exists(red-text)  // checks for @mixin red-text
+function-exists(redify)
+</code></pre>
+
+<pre><code class="scss">global-variable-exists(red)
+</code></pre>
+
+<pre><code class="scss">selector-append('.menu', 'li', 'a')   // .menu li a
+selector-nest('.menu', '&amp;:hover li')  // .menu:hover li
+selector-extend(...)
+selector-parse(...)
+selector-replace(...)
+selector-unify(...)
+</code></pre>
+
+<h2>Feature checks</h2>
+<h3>Feature check</h3>
+<pre><code class="scss">feature-exists(global-variable-shadowing)
+</code></pre>
+
+<h3>Features</h3>
+<ul>
+<li>global-variable-shadowing</li>
+<li>extend-selector-pseudoclass</li>
+<li>units-level-3</li>
+<li>at-error</li>
+</ul>
+<h2>Loops</h2>
+<h3>For loops</h3>
+<pre><code class="scss">@for $i from 1 through 4 {
+  .item-#{$i} { left: 20px * $i; }
+}
+</code></pre>
+
+<h3>Each loops (simple)</h3>
+<pre><code class="scss">$menu-items: home about services contact;
+
+@each $item in $menu-items {
+  .photo-#{$item} {
+    background: url('images/#{$item}.jpg');
+  }
+}
+</code></pre>
+
+<h3>Each loops (nested)</h3>
+<pre><code class="scss">$backgrounds: (home, 'home.jpg'), (about, 'about.jpg');
+
+@each $id, $image in $backgrounds {
+  .photo-#{$id} {
+    background: url($image);
+  }
+}
+</code></pre>
+
+<h3>While loops</h3>
+<pre><code class="scss">$i: 6;
+@while $i &gt; 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+</code></pre>
+
+<h2>Other features</h2>
+<h3>Conditionals</h3>
+<pre><code class="scss">@if $position == 'left' {
+   position: absolute;
+   left: 0;
+}
+@else {
+   position: static;
+}
+</code></pre>
+
+<h3>Interpolation</h3>
+<pre><code class="scss">.#{$klass} { ... }      // Class
+call($function-name)    // Functions
+
+@media #{$tablet}
+font: #{$size}/#{$line-height}
+url(&quot;#{$background}.jpg&quot;)
+</code></pre>
+
+<h3>Lists</h3>
+<pre><code class="scss">$list: (a b c);
+
+nth($list, 1)  // starts with 1
+length($list)
+
+@each $item in $list { ... }
+</code></pre>
+
+<h3>Maps</h3>
+<pre><code class="scss">$map: (key1: value1, key2: value2, key3: value3);
+
+map-get($map, key1)
+</code></pre>
+
+<h2>See also:</h2>
+<ul>
+<li><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">http://sass-lang.com/documentation/Sass/Script/Functions.html</a></li>
+<li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript">http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript</a></li>
+</ul>
+</body>
+</html>

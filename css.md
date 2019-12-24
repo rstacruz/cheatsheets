@@ -73,11 +73,11 @@ keywords:
 | `:nth-last-child(2)` |                                            |
 | `:nth-of-type(2)`    |                                            |
 | ---                  | ---                                        |
-| `:checked`           | Selects every checked element              |
-| `:disabled`          | Selects every disabled element             |
-| `:default`           | Selects the default element                |
+| `:checked`           | Checked inputs                             |
+| `:disabled`          | Disabled elements                          |
+| `:default`           | Default element in a group                 |
 | ---                  | ---                                        |
-| `:empty`             | Selects every element that has no children |
+| `:empty`             | Elements without children                  |
 
 ### Pseudo-class variations
 

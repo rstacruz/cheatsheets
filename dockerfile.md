@@ -22,6 +22,11 @@ ENV APP_HOME /myapp
 RUN mkdir $APP_HOME
 ```
 
+```docker
+ARG APP_HOME=""
+RUN mkdir $APP_HOME
+```
+
 ### Initialization
 
 ```docker

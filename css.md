@@ -28,7 +28,7 @@ keywords:
 
 | Selector          | Description  |
 | ----------------- | ------------ |
-| `*`               | All Elements |
+| `*`               | All elements |
 | `div`             | Element      |
 | `.class`          | Class        |
 | `#id`             | ID           |
@@ -43,7 +43,7 @@ keywords:
 | `.parent > .child`  | Direct descendant |
 | `.child + .sibling` | Adjacent sibling  |
 | `.child ~ .sibling` | Far sibling       |
-| `.class.class`      | Have both class   |
+| `.class1.class2`    | Have both classes |
 
 ### Attribute selectors
 

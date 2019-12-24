@@ -42,6 +42,7 @@ updated: 2017-10-27
 | `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
 
 ### Listing
+
 | Command                 | Description                                                         |
 | ---                     | ---                                                                 |
 | `npm list`              | Lists the installed versions of all dependencies in this software   | 

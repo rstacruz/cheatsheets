@@ -88,7 +88,7 @@ expect(wrap.state('show')).toEqual(true)
 ```
 
 ```js
-expect('name' in wrap.props()).toEqual(true)
+expect('name' in wrap.props()).toEqual('Moe')
 expect('show' in wrap.state()).toEqual(true)
 ```
 
@@ -248,7 +248,7 @@ wrap.context()       // get full context
 
 ```js
 wrap.state('key')    // → any
-wrap.prop('key')    // → any
+wrap.prop('key')     // → any
 wrap.context('key')  // → any
 ```
 

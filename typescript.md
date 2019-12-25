@@ -104,7 +104,7 @@ function printLabel(options: LabelOptions) { ... }
 ```ts
 interface User {
   name: string,
-  age?: number // can be a number or undefined
+  age?: number // can be a number or absent
 }
 ```
 

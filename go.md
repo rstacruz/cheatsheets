@@ -202,9 +202,9 @@ See: [Switch](https://github.com/golang/go/wiki/Switch)
 ### For loop
 
 ```go
-  for count := 0; count <= 10; count++ {
-		fmt.Println("My counter is at", count)
-	}
+for count := 0; count <= 10; count++ {
+  fmt.Println("My counter is at", count)
+}
 ```
 
 See: [For loops](https://tour.golang.org/flowcontrol/1)
@@ -212,10 +212,10 @@ See: [For loops](https://tour.golang.org/flowcontrol/1)
 ### For-Range loop
 
 ```go
-  entry := []string{"Jack","John","Jones"}
-  for i, val := range entry {
-    fmt.Printf("At position %d, the character %s is present\n", i, val)
-  }
+entry := []string{"Jack","John","Jones"}
+for i, val := range entry {
+  fmt.Printf("At position %d, the character %s is present\n", i, val)
+}
 ```
 
 See: [For-Range loops](https://gobyexample.com/range)
@@ -422,9 +422,23 @@ func main() {
   fmt.Println("Working...")
 }
 ```
+
 {: data-line="2,3,4"}
 
 Lambdas are better suited for defer blocks.
+
+```go
+func main() {
+  var d = int64(0)
+  defer func(d *int64) {
+    fmt.Printf("& %v Unix Sec\n", *d)
+  }(&d)
+  fmt.Print("Done ")
+  d = time.Now().Unix()
+}
+```
+{: data-line="3,4,5"}
+The defer func uses current value of d, unless we use a pointer to get final value at end of main.
 
 ## Structs
 {: .-three-column}

@@ -37,6 +37,13 @@ brew install awscli
 aws configure
 ```
 
+### Configuration profiles
+
+```
+aws configure --profile project1
+aws configure --profile project2
+```
+
 ## Elastic Beanstalk
 
 ### Configuration

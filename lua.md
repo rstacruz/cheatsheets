@@ -61,7 +61,7 @@ title: Lua
 
     if condition then
       print("yes")
-    elsif condition then
+    elseif condition then
       print("maybe")
     else
       print("no")

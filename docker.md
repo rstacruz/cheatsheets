@@ -24,6 +24,11 @@ docker run [options] IMAGE
   # see `docker create` for options
 ```
 
+#### Example
+
+```
+$ docker run -it debian:buster /bin/bash
+```
 Run a command in an `image`.
 
 Manage containers

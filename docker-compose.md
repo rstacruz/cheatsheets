@@ -54,6 +54,8 @@ docker-compose down
 web:
   # build from Dockerfile
   build: .
+  args:     # Add build arguments
+    APP_HOME: app
 ```
 
 ```yaml
@@ -77,7 +79,7 @@ web:
 ```yaml
   ports:
     - "3000"
-    - "8000:80"  # guest:host
+    - "8000:80"  # host:container
 ```
 
 ```yaml

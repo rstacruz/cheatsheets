@@ -6,27 +6,30 @@ weight: -1
 authors:
   - github: rizqyhi
   - github: kolapsys
-updated: 2019-10-24
+  - github: samtrion
+updated: 2019-11-14
 description: |
   Basic cheatsheets for regular expression
 ---
 
+## RegExp
 {: .-three-column}
 
 ### Character classes
 
-| Pattern | Description                    |
-| ------- | ------------------------------ |
-| `.`     | Any character, except newline  |
-| `\w`    | Word                           |
-| `\d`    | Digit                          |
-| `\s`    | Whitespace                     |
-| `\W`    | Not word                       |
-| `\D`    | Not digit                      |
-| `\S`    | Not whitespace                 |
-| `[abc]` | Any of a, b, or c              |
-| `[a-e]` | Characters between `a` and `e` |
-| `[1-9]` | Digit between `1` and `9`      |
+| Pattern  | Description                          |
+| -------- | ------------------------------------ |
+| `.`      | Any character, except newline        |
+| `\w`     | Word                                 |
+| `\d`     | Digit                                |
+| `\s`     | Whitespace                           |
+| `\W`     | Not word                             |
+| `\D`     | Not digit                            |
+| `\S`     | Not whitespace                       |
+| `[abc]`  | Any of a, b, or c                    |
+| `[a-e]`  | Characters between `a` and `e`       |
+| `[1-9]`  | Digit between `1` and `9`            |
+| `[^abc]` | Any character except `a`, `b` or `c` |
 
 ### Anchors
 
@@ -54,9 +57,12 @@ description: |
 
 ### Groups
 
-| Pattern | Description   |
-| ------- | ------------- |
-| `(abc)` | Capture group |
+| Pattern   | Description                    |
+| --------- | ------------------------------ |
+| `(abc)`   | Capture group                  |
+| `(a|b)`   | Match `a` or `b`               |
+| `(?:abc)` | Match `abc`, but don't capture |
+
 
 ### Quantifiers
 

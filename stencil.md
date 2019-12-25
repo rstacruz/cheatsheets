@@ -125,7 +125,7 @@ this.options = { ...this.options, show: true }
 
 Mutable operations such as `push()` won't work. You'll need to assign a new copy.
 
-See: [Updating arrays](https://stenciljs.com/docs/handling-arrays)
+See: [Updating arrays](https://stenciljs.com/docs/reactive-data/#updating-arrays)
 
 ## Slots
 

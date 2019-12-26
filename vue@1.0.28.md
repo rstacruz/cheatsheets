@@ -5,7 +5,7 @@ layout: 2017/sheet
 updated: 2019-11-22
 weight: -10
 intro: |
-  [Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
+  [Vue.js (v1.0.28)](https://v1.vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
 ---
 
 {% raw %}

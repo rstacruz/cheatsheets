@@ -5,15 +5,45 @@ layout: 2017/sheet
 category: CLI
 ---
 
-## Var assignment
+## Var assignments and functions
 
 ```makefile
 uglify = $(uglify)        # lazy assignment
 compressor := $(uglify)   # immediate assignment
-prefix ?= /usr/local      # safe assignment
+prefix ?= /usr/local      # safe lazy assignment: assign only if it hasn't been defined before.
 ```
 
-`=` expressions are only evaluated when they're being used.
+`=` expressions are only evaluated when they're being used and are like functions without parameters.
+```makefile
+uglify = $1                     # function returning the first parameter $1
+compressor := $(call uglify,a)  # function uglify returns a, which is assigned immediately to compressor
+```
+
+## Rules
+
+
+```makefile
+output file(s): input file(s) | order-only input file(s)/directory ; recipe
+	recipe
+```
+
+`order-only` means that recipe will not be executed, if timestamp changes.
+`recipe`is a script sent to the shell. If `.ONESHELL` is not specified, each line is sent separately.
+
+Note that the recipe in the second line starts with TAB by default.
+
+## Useful defaults
+
+In what follows is explained and copied from [Your Makefiles are wrong](https://tech.davis-hansson.com/p/make/).
+```Makefile
+SHELL := bash                               # Use Bash instead of the default console
+.ONESHELL:                                  # The whole recipe is executed by Bash
+.SHELLFLAGS := -eu -o pipefail -c           # Shows problems in recipes
+.DELETE_ON_ERROR:                           # If rule fails, the targets will be deleted.
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+.RECIPEPREFIX = >                           # Use > instead of TABs for recipes. Only supported in modern GNU Make
+```
 
 ## Magic variables
 
@@ -97,8 +127,10 @@ make
   -e, --environment-overrides
   -B, --always-make
   -s, --silent
+  -d, --debug
+  -p, -print-data-base   # print rules and variables that results from reading the makefile
 
-  -j, --jobs=N   # parallel processing
+  -j [N], --jobs[=N]         # parallel processing by N jobs
 ```
 
 ## Conditionals
@@ -122,3 +154,6 @@ deploy:
 ## Further reading
 
  * [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
+ * [Your Makefiles are wrong](https://tech.davis-hansson.com/p/make/)
+ * [Manual](https://www.gnu.org/software/make/manual/html_node/index.html)
+

@@ -45,8 +45,8 @@ sass source/stylesheets/index.scss build/stylesheets/index.css
 
 ```bash
 sass --watch input.scss output.css
-
 ```
+
 * To watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.
 
 ```bash

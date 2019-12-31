@@ -14,21 +14,18 @@ title: Linux
 
 ### Display the amount of available disk space
 
-    $ df
-
-All File System:
-
-    $ df -a
-
-Human Readable Format:
-
-    $ df -h
+```sh
+df
+df -h   # human-readable format
+df -a   # all filesystems
+```
 
 ### Display disk usage
 
-Largest 10 folder/file in the current directory:
-
-    $ du -hsx * | sort -rh | head -10
+```sh
+du
+du -hsx * | sort -rh | head -10    # largest 10 folders
+```
 
 ### Answer yes in a bash script
 

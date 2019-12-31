@@ -216,3 +216,17 @@ networks:
     external:
       name: frontend
 ```
+
+### Volume
+
+```yaml
+# Mount host paths or named volumes, specified as sub-options to a service
+  db:
+    image: postgres:latest
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+volumes:
+  dbdata:
+```

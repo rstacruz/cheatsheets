@@ -1,5 +1,19 @@
 # Developer notes
 
+## Gitpod 
+This repository supports contribution using [gitpod](https://gitpod.io) which is online IDE using [Theia](https://github.com/eclipse-theia/theia).
+
+To open-up the environment simple natigate on https://gitpod.io/#https://github.com/rstacruz/cheatsheets
+
+Or using a button:<br>
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rstacruz/cheatsheets)
+
+### Preview built website
+To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.
+
+<img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/>
+
+
 ## Starting a local instance
 
 This starts Jekyll and Webpack. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.

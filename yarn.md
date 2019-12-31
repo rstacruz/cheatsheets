@@ -12,6 +12,7 @@ tags: [Featurable]
 
 | npm | yarn |
 | --- | ---- |
+| `npm init` | `yarn init` |
 | `npm install` | `yarn` |
 | `npm install gulp --save` | `yarn add gulp` |
 | `npm install gulp --save-dev --save-exact` | `yarn add gulp --dev --exact` |

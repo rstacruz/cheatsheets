@@ -44,8 +44,8 @@ category: CLI
 
 ### Panes
 
-    C-b v       # vert
-    C-b n       # horiz
+    C-b %       # vert
+    C-b "       # horiz
     C-b hkjl    # navigation
     C-b HJKL    # resize
     C-b o       # next window
@@ -57,6 +57,9 @@ category: CLI
 
     C-b c       # New window
     C-b 1       # Go to window 1
+    C-b n       # Go to next window
+    C-b p       # Go to previous window
+    C-b w       # List all window
 
 ### Detach/attach
 

@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2019-03-23
+updated: 2019-10-02
 keywords:
   - Variables
   - Functions
@@ -390,18 +390,6 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 ### Example
 
 ```bash
-if ping -c 1 google.com; then
-  echo "It appears you have a working internet connection"
-fi
-```` 
-
-```bash
-if grep -q 'foo' ~/.bash_history; then
-  echo "You appear to have typed 'foo' in the past"
-fi
-```
-
-```bash
 # String
 if [[ -z "$string" ]]; then
   echo "String is empty"
@@ -424,7 +412,7 @@ if [[ "$A" == "$B" ]]
 
 ```bash
 # Regex
-if [[ "A" =~ "." ]]
+if [[ "A" =~ . ]]
 ```
 
 ```bash
@@ -547,11 +535,11 @@ set -o nounset    # Exposes unset variables
 ### Glob options
 
 ```bash
-set -o nullglob    # Non-matching globs are removed  ('*.foo' => '')
-set -o failglob    # Non-matching globs throw errors
-set -o nocaseglob  # Case insensitive globs
-set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
-set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
+shopt -s nullglob    # Non-matching globs are removed  ('*.foo' => '')
+shopt -s failglob    # Non-matching globs throw errors
+shopt -s nocaseglob  # Case insensitive globs
+shopt -s dotglob     # Wildcards match dotfiles ("*.sh" => ".foo.sh")
+shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
@@ -735,6 +723,7 @@ read -n 1 ans    # Just one character
 | `$?` | Exit status of last task |
 | `$!` | PID of last background task |
 | `$$` | PID of shell |
+| `$0` | Filename of the shell script |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
@@ -746,6 +735,22 @@ cd bar/
 pwd # /home/user/foo/bar
 cd -
 pwd # /home/user/foo
+```
+
+### Check for command's result
+
+```bash
+if ping -c 1 google.com; then
+  echo "It appears you have a working internet connection"
+fi
+```
+
+### Grep check
+
+```bash
+if grep -q 'foo' ~/.bash_history; then
+  echo "You appear to have typed 'foo' in the past"
+fi
 ```
 
 ## Also see

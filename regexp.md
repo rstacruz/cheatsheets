@@ -6,35 +6,46 @@ weight: -1
 authors:
   - github: rizqyhi
   - github: izzergh
-updated: 2019-03-24
+  - github: kolapsys
+  - github: samtrion
+updated: 2019-11-14
 description: |
   Basic cheatsheets for regular expression
 ---
 
-##
+## RegExp
 {: .-three-column}
 
 ### Character classes
 
-| Pattern | Description                    |
-| ------- | ------------------------------ |
-| `.`     | Any character, except newline  |
-| `\w`    | Word                           |
-| `\d`    | Digit                          |
-| `\s`    | Whitespace                     |
-| `\W`    | Not word                       |
-| `\D`    | Not digit                      |
-| `\S`    | Not whitespace                 |
-| `[abc]` | Any of a, b, or c              |
-| `[a-e]` | Characters between `a` and `e` |
-| `[1-9]` | Digit between `1` and `9`      |
+| Pattern  | Description                          |
+| -------- | ------------------------------------ |
+| `.`      | Any character, except newline        |
+| `\w`     | Word                                 |
+| `\d`     | Digit                                |
+| `\s`     | Whitespace                           |
+| `\W`     | Not word                             |
+| `\D`     | Not digit                            |
+| `\S`     | Not whitespace                       |
+| `[abc]`  | Any of a, b, or c                    |
+| `[a-e]`  | Characters between `a` and `e`       |
+| `[1-9]`  | Digit between `1` and `9`            |
+| `[^abc]` | Any character except `a`, `b` or `c` |
 
 ### Anchors
 
-| Pattern | Description      |
-| ------- | ---------------- |
-| `^abc`  | Start with `abc` |
-| `abc$`  | End with `abc`   |
+| Pattern | Description             |
+| ------- | ----------------------- |
+| `\G`    | Start of match          |
+| `^`     | Start of string         |
+| `$`     | End of string           |
+| `\A`    | Start of string         |
+| `\Z`    | End of string           |
+| `\z`    | Absolute end of string  |
+| `\b`    | A word boundry          |
+| `\B`    | Non-word boundry        |
+| `^abc`  | Start with `abc`        |
+| `abc$`  | End with `abc`          |
 
 ### Escaped characters
 
@@ -47,9 +58,12 @@ description: |
 
 ### Groups
 
-| Pattern | Description   |
-| ------- | ------------- |
-| `(abc)` | Capture group |
+| Pattern   | Description                    |
+| --------- | ------------------------------ |
+| `(abc)`   | Capture group                  |
+| `(a|b)`   | Match `a` or `b`               |
+| `(?:abc)` | Match `abc`, but don't capture |
+
 
 ### Quantifiers
 

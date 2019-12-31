@@ -88,7 +88,7 @@ expect(wrap.state('show')).toEqual(true)
 ```
 
 ```js
-expect('name' in wrap.props()).toEqual(true)
+expect('name' in wrap.props()).toEqual('Moe')
 expect('show' in wrap.state()).toEqual(true)
 ```
 
@@ -219,8 +219,8 @@ wrap.last()           // → ReactWrapper
 
 ```js
 wrap.get(0)           // → ReactElement
-wrap.getNode()        // → ReactElement
-wrap.getNodes()       // → Array<ReactElement>
+wrap.getElement()     // → ReactElement
+wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 
@@ -248,7 +248,7 @@ wrap.context()       // get full context
 
 ```js
 wrap.state('key')    // → any
-wrap.prop('key')    // → any
+wrap.prop('key')     // → any
 wrap.context('key')  // → any
 ```
 

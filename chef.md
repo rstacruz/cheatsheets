@@ -14,26 +14,26 @@ $ sudo apt-get install curl
 ```
 
 ```bash
-$ curl -L https://www.opscode.com/chef/install.sh | bash
+$ curl -L https://omnitruck.chef.io/install.sh | sudo bash
 Thank you for installing Chef!
 ```
 
 ```bash
 $ chef-solo -v
 ...
-Chef: 11.4.0
+Chef: 14.5.33
 ```
 
 ### Start the cookbook
 
 ```bash
- wget http://github.com/opscode/chef-repo/tarball/master -O - | tar xzf - --strip-components=1
+ wget http://github.com/chef-cookbooks/chef-repo/tarball/master -O - | tar xzf - --strip-components=1
 ```
 
 ### Knife
 
 ```bash
-$ knife cookbook site download mysql
+$ knife supermarket download mysql
 ```
 
 ### Invoking chef-solo
@@ -105,5 +105,5 @@ end
 
 ## Also see
 
-* [Getting started with Chef](http://gettingstartedwithchef.com/) _(gettingstartedwithchef.com)_
+* [Learn Chef Rally](https://learn.chef.io) _(learn.chef.io)_
 * [install_from_source.rb recipe](https://github.com/mdxp/nodejs-cookbook/blob/master/recipes/install_from_source.rb) _(github.com)_

@@ -217,7 +217,7 @@ find('#x').fill_in('Street', with: 'Hello')
 ### Scripting
 
 ```ruby
-execute_script('$("input").trigger('change')')
+execute_script('$("input").trigger("change")')
 evaluate_script('window.ga')
 ```
 

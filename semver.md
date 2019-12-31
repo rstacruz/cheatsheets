@@ -51,7 +51,7 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 
 | Range              | Description           |
 | ---                | ---                   |
-| `1.2.3 - 2.3.0`    | is `>=1.2.3 <=2.3.4`  |
+| `1.2.3 - 2.3.4`    | is `>=1.2.3 <=2.3.4`  |
 
 #### Partial right
 

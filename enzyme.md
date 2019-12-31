@@ -219,8 +219,8 @@ wrap.last()           // → ReactWrapper
 
 ```js
 wrap.get(0)           // → ReactElement
-wrap.getElement()        // → ReactElement
-wrap.getElements()       // → Array<ReactElement>
+wrap.getElement()     // → ReactElement
+wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 

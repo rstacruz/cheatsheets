@@ -57,6 +57,9 @@ category: CLI
 
     C-b c       # New window
     C-b 1       # Go to window 1
+    C-b n       # Go to next window
+    C-b p       # Go to previous window
+    C-b w       # List all window
 
 ### Detach/attach
 

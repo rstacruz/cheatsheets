@@ -1,28 +1,18 @@
 <style>
-  h1{color:brown;}
-  h2{color:green;}
-  html,body{background-color:black;}
-  body{margin:1%;border:2px solid yellow;}
-  p{color:white;}
-  pre{color:darkred;
-    border:1px dashed yellow;
-  }
-  i{color:orange;}
-
-</style>
-
+  h4,h6,p,pre{font-size:1.4em;}
+  </style>
 # Overview
 ## What's jQuery:
 
 jQuery is a fast, small, and feature-rich JavaScript library that makes HTML document traversal and manipulation, event handling, and animation much simpler and compatible with all browsers.
 
-<p class="example">Example:</p>
+#### Example:
 
 ```js
 //with javascript:
 var el = document.getElementById("start");
 el.innerHTML = "Go";
-// with jQuery, we need just a single line of code: 
+// with jQuery, we need just a single line of code:
 $("#start").html("Go");
 
 ```
@@ -48,7 +38,7 @@ $(function() {
 `$("selector").action()`
 
 ###### Examples
-  
+
 ```js
 $("p").hide()  // hides all <p> elements
 $(".demo").hide()  // hides all elements with class="demo"
@@ -56,22 +46,159 @@ $("#demo").hide()  // hides the element with id="demo"
 ```
 ## Selector
 ######  the jQuery selectors start with the dollar sign and parentheses: $(<i>selector</i>).
-
+```js
 $("div.menu")  // all <div> elements with class="menu"
-
 $("p:first")  // the first <p> element
-
 $("h1, p") // all <h1> and all <p> elements
-
 $("div p") // all <p> elements that are descendants of a <div> element
-
 $("*")  // all elements of the DOM
+```
+![jquery-selector.jpeg](https://api.sololearn.com/DownloadFile?id=3119)
 
-![jquery-selector]()
+# Attributes:
+## Get & Set Attribute Values
+
+```js
+$(function() {
+  $("a").attr("href"); // get href attribute
+  $("a").attr("href", "http://www.jquery.com"); // change the href attribute
+});
+```
+## Removing Attributes
+```js
+// remove the 'border' and 'class' attributes from the table
+$("table").removeAttr("border");
+$("table").removeAttr("class");
+```
+## Get Content
+```js
+$("p").html(); // get the content of 'p' including the HTML markup
+$("p").text(); // get the content of 'p' without the HTML markup
+```
+## Set Content (the existing content will lost.)
+ ```js
+$("#test").text("hello!"); // If the content you are setting contains
+//HTML markup, you should use the html() method instead of text().
+```
+## Val() method (hint: the value attribute of forms elements)
+```js
+
+<input type="text" id="name" value="Your Name">(function() {
+ $("#name").val(); // return "Your Name" OR:
+ $"#name".val("New Name"); // change to "New Name"
+});
+```
+## Adding Content and Elements (methods used to add new content to a selected element without deleting the existing content)
+```js
+$("#demo").append("David");//inserts content at the end of the selected elements.
+$("#demo").prepend("David");// inserts content at the beginning of the selected elements.
+$("#demo").before("<i>Some Title</i>");   // inserts content after the selected elements.
+$("#demo").after("<b>Welcome</b>"); // inserts content before the selected elements.
+
+```
+## Adding new Elements:(using .append,.prepend,.before,.after)
+```html
+<p id="demo">Hello</p>
+```
+```js
+var txt = $("<p></p>").text("Hi"); // create a new `<p>` element contains the text 'Hi'
+$("#demo").after(txt);//insert the newly created <p> element after the #demo paragraph.
+// add multiple elemens as a comma separated arguments
+$("#demo").append(var1, var2, var3).// the same way for prepend(),after(),before().
+
+```
+# Manipulating CSS
+
+## Adding & Removing Classes
+#### addClass()/ removeClass() and toggleClass().
+```html
+<div>Some text</div>
+```
+```css
+.header {
+  color: blue;
+  font-size:x-large;
+}
+.header-bg{
+  background-color: yellow;
+}
+.header-border{
+  border:2px dashed green;
+}
+```
+
+```js
+$("div").addClass("header"); // assigns the class 'header' to the div element
+$("div").addClass("header-bg header-header-border"); // assign multi class to the div element
+$("div").remveClass("header header-bg") // remove the classes .header and .header-bg
+$("div").toggleClass("header");// remove it if existed or add it to the element if not.
+```
+
+## CSS Properties
+```js
+// for single css property
+$(function() {
+  $("p").css("background-color"); // return the CSS background-color property 'values'
+  $("p").css("background-color", "blue"); // set the CSS background-color property to 'blue'
+});
+// for multiple css properties, use JSON syntax: css({"property":"value","property":"value",...});
+$("p").css({"color": "red", "font-size": "200%"}); //This will set the color and font-size properties of the paragraph.
+```
+## Dimensions
+<b>Note</b> : Adding arguments to these methods will change(set) element dimension properties.
+- The `width()` and `height()` (hint: `content`) methods get and set(by passing argument) the dimensions without the padding, borders and margins.
+- The `innerWidth()` and `innerHeight()` (hint: `padding`) methods also include the padding.
+- The `outerWidth() and outerHeight()`  (hint: `border`) methods include the padding and borders.
+Check out this image to understand how they work:
+![HTML Element- Dimensions](https://api.sololearn.com/DownloadFile?id=3120)
+---
+
+# Manipulate DOM
+## The DOM
+
+#### DOM Traversal:
+<b>`(the term  used to describe the process of moving through the DOM and finding (selecting) HTML elements based on their relation to other elements.)`</b>
+
+![Consider this structure:](https://api.sololearn.com/DownloadFile?id=3085)
+<br>
+
+- The `<html>` element is the parent of `<body>` and an ancestor of everything belo`w it.
+- The `<body>` element is the parent of the `<h1>` and `<a>` elements.
+- The `<h1>` and `<a>` elements are child elements of the `<body>` element and descendants of `<html>`.
+- The `<h1>` and `<a>` elements are siblings (they share the same parent).
+- An ancestor is a parent, grandparent, great-grandparent, and so on.
+- A descendant is a child, grandchild, great-grandchild, and so on.
+Siblings share the same parent.
 
 
+## Traversing
+
+The parent() method returns the direct parent element of the selected element. <b>Note:</b>
+The parent() method can only traverse a single level up the DOM tree.
+
+```html
+<div> div element<p>paragraph</p></div>
+```
+```js
+var e = $("p").parent();
+e.css("border", "2px solid red");
+```
+#### Most used traversal methods are presented below: 
+![](https://api.sololearn.com/DownloadFile?id=3044)
+
+#### eq() method: 
+
+select a specific element from multiple selected elements.
+For example, if the page contains multiple div elements and we want to select the **third one**: `$("div").eq(2);`
+
+## Removing Elements
+- remove selected elements from the DOM using the remove() method:
+```$("p").eq(1).remove();```
+- use `remove` method to remove multiple selected elements(including its child elements): `$("p").remove()`.
+
+> For example: to remove all siblings of the element with id="txt": `("#txt")siblings().remove();`
 
 
-
-
-
+#### Removing Contents:
+- To remove (leave it empty- no children) the child elements of the selected element(s):
+`$("div").empty();`

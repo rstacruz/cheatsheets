@@ -27,6 +27,7 @@ category: CLI
 | `brew edit git`            | Edit this formula           |
 | `brew cat git`             | Print this formula          |
 | `brew home git`            | Open homepage               |
+| `brew search git`          | Search for formulas         |
 
 ### Global commands
 

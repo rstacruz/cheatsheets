@@ -166,8 +166,8 @@ Check out this image to understand how they work:
 - The `<body>` element is the parent of the `<h1>` and `<a>` elements.
 - The `<h1>` and `<a>` elements are child elements of the `<body>` element and descendants of `<html>`.
 - The `<h1>` and `<a>` elements are siblings (they share the same parent).
-- An ancestor is a parent, grandparent, great-grandparent, and so on.
-- A descendant is a child, grandchild, great-grandchild, and so on.
+- An `ancestor` is a parent, grandparent, great-grandparent, and so on.
+- A `descendant` is a child, grandchild, great-grandchild, and so on.
 Siblings share the same parent.
 
 
@@ -202,3 +202,68 @@ For example, if the page contains multiple div elements and we want to select th
 #### Removing Contents:
 - To remove (leave it empty- no children) the child elements of the selected element(s):
 `$("div").empty();`
+> For Example: to empty the second child element of the element with id="nav":\
+`var e = $("#nav").children();`
+`e.eq(2).empty();`
+
+
+# Events
+## Handling Events:
+- `click`: To handle the click event on an element with id="demo" and display the current date when the button is clicked.
+```js
+$("#demo").click(function() {
+  $("body").html(Date());
+});
+```
+- `keydown`:  To handle the keydown event for the element with id="name" and assigns the content of the div with id="msg" the value of the input field.
+```js
+$("#name").keydown(function() {
+  $("#msg").html($("#name").val());
+});
+```
+- Another way to handle events in jQuery is by using the `on()` method.
+The on() method is used to attach an event to the selected element:
+```js
+$( "p" ).on( "click", function() {
+  alert("clicked");
+});
+```
+  > The `on()` method is useful for binding the same handler function to multiple events. You can provide multiple event names separated by spaces as the first argument. 
+- You can remove event handlers using the `off()` method:
+```js
+$("div").on("click", function() { 
+  alert('Hi there!'); 
+  $("div").off("click");
+});
+```
+## The Event Object
+#### Every event handling function can receive an event object, which contains properties and methods related to the event:
+- `pageX, pageY` the mouse position (X & Y coordinates) at the time the event occurred, relative to the top left of the page.
+- `type` the type of the event (e.g. "click").
+- `which` the button or key that was pressed.
+- `data` any data that was passed in when the event was bound.
+- `target` the DOM element that initiated the event.
+- `preventDefault()` prevent the default action of the event (e.g., following a link).
+- `stopPropagation()` Stop the event from bubbling up to other elements.
+
+#### For Examples: To handle the click event on an <a> element and prevent it from following the link provided in the href attribute:
+
+```html
+ <a href="https://www.sololearn.com">Click me</a>
+```
+```js
+ $(function() {
+ $( "a" ).click(function(event) {
+        alert(event.pageX);
+        event.preventDefault();
+    });
+});
+```
+#### Trigger Event: (trigger a click event without the user actually clicking on an element:)
+```js
+$("div").click(function() {
+alert("Clicked!");
+});
+$("div").trigger("click");
+```
+

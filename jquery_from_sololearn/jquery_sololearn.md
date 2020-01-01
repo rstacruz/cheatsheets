@@ -266,4 +266,48 @@ alert("Clicked!");
 });
 $("div").trigger("click");
 ```
+## Example: Creating TO-DO-LIST
+```html
+<h1>My To-Do List</h1>
+<input type="text" placeholder="New item" />
+<button id="add">Add</button>
+<ol id="mylist"></ol>
+```
+- First, we handle the click event for the button: $(function() {
+```js
+  $("#add").on("click", function() {
+    //event handler
+  });
+});
+```
+
+- Inside the event handler we select the value of the input field and create a new `<li>` element, adding it to the list:
+
+```js
+var val = $("input").val();
+if(val !== '') {
+  var elem = $("<li></li>").text(val);
+  $(elem).append("<button class='rem'>X</button>");
+  $("#mylist").append(elem);
+  $("input").val(""); //clear the input
+}
+```
+- Here's the complete code in action:
+```js
+$(function() {
+  $("#add").on("click", function() {
+    var val = $("input").val();
+    if(val !== '') {
+     var elem = $("<li></li>").text(val);
+     $(elem).append("<button class='rem'>X</button>");
+     $("#mylist").append(elem);
+     $("input").val("");
+     $(".rem").on("click", function() {
+      $(this).parent().remove(); // Remember, this is the current object. The code above removes the parent of the current object, which in our case is the parent of the remove button, the <li> element.
+
+     });
+    }
+  });
+});
+```
 

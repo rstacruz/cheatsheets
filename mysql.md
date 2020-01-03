@@ -5,11 +5,12 @@ layout: 2017/sheet
 category: Databases
 ---
 
-### Create / Delete Database
+### Create / Open / Delete Database
 
 ```sql
 CREATE DATABASE dbNameYouWant
 CREATE DATABASE dbNameYouWant CHARACTER SET utf8
+USE dbNameYouWant
 DROP DATABASE dbNameYouWant
 ALTER DATABASE dbNameYouWant CHARACTER SET utf8
 ```

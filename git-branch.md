@@ -56,12 +56,17 @@ List outdated branches that have been merged into the current one.
 git branch -D $branchname
 ```
 
-Delete a branch irrespective of its merged status.
+```bash
+git branch -d $branchname
+```
+
+> Note: You can also use the -D flag which is synonymous with --delete --force instead of -d. This will delete the branch regardless of its merge status.
+> Delete a branch irrespective of its merged status.
 
 ### Delete remote branch
 
 ```bash
-git push origin :$branchname
+git push origin --delete :$branchname
 ```
 
 Works for tags, too!

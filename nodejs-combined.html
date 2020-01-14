@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Globals</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <hr>
+<h2 id="title-nodejs-apicategory-nodejs">title: Node.js API
+category: Node.js</h2>
+<h2 id="globals">Globals</h2>
+<pre><code>__filename
+__dirname
+</code></pre>
+<h3 id="exec">exec</h3>
+<pre><code>var exec = require('child_process').exec,
+
+var child = exec('cat *.js bad_file | wc -l',
+  function (error, stdout, stderr) {
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+});
+</code></pre>
+<h2 id="snippets">Snippets</h2>
+<pre><code>info = require('../package.json')
+info.version
+
+process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');
+</code></pre>
+<h2 id="spawn---passthru-the-inout">Spawn - passthru the in/out</h2>
+<pre><code>var spawn = require('child_process').spawn;
+var proc = spawn(bin, argv, { stdio: 'inherit' });
+proc.on('error', function(err) {
+  if (err.code == &quot;ENOENT&quot;) { &quot;does not exist&quot; }
+  if (err.code == &quot;EACCES&quot;) { &quot;not executable&quot; }
+});
+proc.on('exit', function(code) { ... });
+
+// also { stdio: ['pipe', 'pipe', process.stdout] }
+// also { stdio: [process.stdin, process.stderr, process.stdout] }
+
+proc.stdout.on('data', function (data) {
+});
+proc.stderr.on('data', function (data) {
+});
+</code></pre>
+<hr>
+<h2 id="title-fscategory-nodejs">title: fs
+category: Node.js</h2>
+<h3 id="reading">Reading</h3>
+<pre><code>fs.readFile('file.txt', function(err, data) { .. });
+fs.readFile('file.txt', {encoding: 'utf-8'}, function(err, data) { .. });
+</code></pre>
+<h3 id="writing">Writing</h3>
+<pre><code>fs.writeFile('output.txt', function(err) { .. });
+fs.appendFile('output.txt', function(err) { .. });
+</code></pre>
+<h3 id="watch">Watch</h3>
+<pre><code>fs.watch('dir OR file.txt', { persistent: true }, function(event, file) {
+  event; /* rename | change */
+});
+</code></pre>
+<h3 id="getting-info">Getting info</h3>
+<pre><code>fs.exists('file.txt', function(exists /*bool*/) { ... });
+
+fs.stat('file.txt', function(stats) {
+  stats.isFile();
+  stats.isDirectory();
+  stats.isSymbolicLink();
+});
+</code></pre>
+<h3 id="file-operations">File operations</h3>
+<pre><code>fs.rename('old.txt', 'new.txt', function(){});
+fs.chown('file.txt', uid, gid, function(){});
+fs.symlink('src', 'dest', function(){});
+fs.unlink('path', function(){});
+fs.rmdir('path', function(){});
+
+fs.readdir('path', function(err, files) { .. }); /* `files` = array of names */
+</code></pre>
+<h3 id="path">Path</h3>
+<pre><code>fs.realpath('/etc/passwd', function(err, path) { /* &quot;/private/etc/passwd&quot; */ });
+</code></pre>
+<h3 id="sync">Sync</h3>
+<pre><code>data = fs.readFileSync('input.txt');
+fs.writeFileSync('output.txt', data);
+fs.appendFileSync('output.txt', data);
+fs.existsSync('file.txt');
+</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://nodejs.org/api/fs.html">http://nodejs.org/api/fs.html</a></li>
+</ul>
+<hr>
+<h2 id="title-pathcategory-nodejs">title: path
+category: Node.js</h2>
+<pre><code>fs.realpath('/etc/passwd', function(err, path) { /* &quot;/private/etc/passwd&quot; */ 
+});
+
+dir = path.join('etc', 'passwd');
+dir = path.resolve('/etc', 'passwd', '..', 'var');
+
+path.dirname('/etc/passwd')       //=&gt; &quot;/etc&quot;
+path.basename('/etc/passwd')      //=&gt; &quot;passwd&quot;
+path.basename('/etc/rc.d', '.d')  //=&gt; &quot;rc&quot;
+</code></pre>
+<h3 id="references-1">References</h3>
+<ul>
+<li><a href="http://nodejs.org/api/path.html">http://nodejs.org/api/path.html</a></li>
+</ul>
+<hr>
+<h2 id="title-processcategory-nodejs">title: process
+category: Node.js</h2>
+<h3 id="streams">Streams</h3>
+<pre><code>process.stdout.write('...');
+process.stderr.write('...');
+
+function stdin(fn) {
+  var data = '';
+
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('readable', function() {
+    var chunk = process.stdin.read();
+    if (chunk !== null) data += chunk;
+  });
+
+  process.stdin.on('end', function() {
+    fn(null, data);
+  });
+}
+</code></pre>
+<h3 id="stuff">stuff</h3>
+<pre><code>process.argv; //=&gt; ['node', 'file.js', 'one', 'two']
+process.env; //=&gt; {TERM: 'screen-256color', SHELL: '/bin/bash', ...}
+
+process.exit();
+process.exit(1);
+</code></pre>
+<h3 id="directories">Directories</h3>
+<pre><code>process.cwd(); //=&gt; &quot;/tmp&quot;
+process.chdir('dir');
+</code></pre>
+<h3 id="references-2">References</h3>
+<ul>
+<li><a href="http://nodejs.org/api/process.html">http://nodejs.org/api/process.html</a></li>
+</ul>
+<hr>
+<h2 id="title-nodejs-streamscategory-nodejslayout-2017sheetweight--1updated-2017-08-30">title: Node.js streams
+category: Node.js
+layout: 2017/sheet
+weight: -1
+updated: 2017-08-30</h2>
+<h3 id="types">Types</h3>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Readable</code></td>
+<td>Data emitter</td>
+</tr>
+<tr>
+<td><code>Writable</code></td>
+<td>Data receiver</td>
+</tr>
+<tr>
+<td><code>Transform</code></td>
+<td>Emitter and receiver</td>
+</tr>
+<tr>
+<td><code>Duplex</code></td>
+<td>Emitter and receiver (independent)</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="https://nodejs.org/api/stream.html#stream_stream">Stream</a> <em>(<a href="http://nodejs.org">nodejs.org</a>)</em></p>
+<h3 id="streams-1">Streams</h3>
+<pre><code class="language-js"><div><span class="hljs-keyword">const</span> Readable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'stream'</span>).Readable
+<span class="hljs-keyword">const</span> Writable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'stream'</span>).Writable
+<span class="hljs-keyword">const</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'stream'</span>).Transform
+</div></code></pre>
+<h3 id="piping">Piping</h3>
+<pre><code class="language-js"><div>clock()              <span class="hljs-comment">// Readable stream</span>
+  .pipe(xformer())   <span class="hljs-comment">// Transform stream</span>
+  .pipe(renderer())  <span class="hljs-comment">// Writable stream</span>
+</div></code></pre>
+<h3 id="methods">Methods</h3>
+<pre><code class="language-js"><div>stream.push(<span class="hljs-comment">/*...*/</span>)         <span class="hljs-comment">// Emit a chunk</span>
+stream.emit(<span class="hljs-string">'error'</span>, error)  <span class="hljs-comment">// Raise an error</span>
+stream.push(<span class="hljs-literal">null</span>)            <span class="hljs-comment">// Close a stream</span>
+</div></code></pre>
+<h3 id="events">Events</h3>
+<pre><code class="language-js"><div><span class="hljs-keyword">const</span> st = source()
+st.on(<span class="hljs-string">'data'</span>, (data) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'&lt;-'</span>, data) })
+st.on(<span class="hljs-string">'error'</span>, (err) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'!'</span>, err.message) })
+st.on(<span class="hljs-string">'close'</span>, () =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'** bye'</span>) })
+st.on(<span class="hljs-string">'finish'</span>, () =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'** bye'</span>) })
+</div></code></pre>
+<p>Assuming <code>source()</code> is a readable stream.</p>
+<h3 id="flowing-mode">Flowing mode</h3>
+<pre><code class="language-js"><div><span class="hljs-comment">// Toggle flowing mode</span>
+st.resume()
+st.pause()
+</div></code></pre>
+<pre><code class="language-js"><div><span class="hljs-comment">// Automatically turns on flowing mode</span>
+st.on(<span class="hljs-string">'data'</span>, <span class="hljs-comment">/*...*/</span>)
+</div></code></pre>
+<h2 id="stream-types">Stream types</h2>
+<p>{: .-three-column}</p>
+<h3 id="readable">Readable</h3>
+<pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clock</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">new</span> Readable({
+    <span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>,
+    read() {}
+  })
+
+  setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    stream.push({ <span class="hljs-attr">time</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() })
+  }, <span class="hljs-number">1000</span>)
+
+  <span class="hljs-keyword">return</span> stream
+}
+
+<span class="hljs-comment">// Implement read() if you</span>
+<span class="hljs-comment">// need on-demand reading.</span>
+</div></code></pre>
+<p>Readable streams are generators of data. Write data using <code>stream.push()</code>.</p>
+<h3 id="transform">Transform</h3>
+<pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">xformer</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Transform({
+    <span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">transform</span>: <span class="hljs-function">(<span class="hljs-params">data, _, done</span>) =&gt;</span> {
+      done(<span class="hljs-literal">null</span>, { ...data, <span class="hljs-attr">index</span>: count++ })
+    }
+  })
+}
+</div></code></pre>
+<p>Pass the updated chunk to <code>done(null, chunk)</code>.</p>
+<h3 id="writable">Writable</h3>
+<pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderer</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Writable({
+    <span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">write</span>: <span class="hljs-function">(<span class="hljs-params">data, _, done</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'&lt;-'</span>, data)
+      done()
+    }
+  })
+}
+</div></code></pre>
+<h3 id="all-together-now">All together now</h3>
+<pre><code class="language-js"><div>clock()              <span class="hljs-comment">// Readable stream</span>
+  .pipe(xformer())   <span class="hljs-comment">// Transform stream</span>
+  .pipe(renderer())  <span class="hljs-comment">// Writable stream</span>
+</div></code></pre>
+<h2 id="also-see">Also see</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://nodejs.org/api/stream.html">https://nodejs.org/api/stream.html</a></li>
+<li><a href="https://github.com/substack/stream-handbook">https://github.com/substack/stream-handbook</a></li>
+</ul>
+<hr>
+<h2 id="title-assertcategory-nodejs">title: assert
+category: Node.js</h2>
+<pre><code>assert(val)
+assert.equal(actual, expected)
+assert.notEqual(a, e)
+
+assert.deepEqual(a, e)
+assert.notDeepEqual(a, e)
+
+assert.throws(fn)
+</code></pre>
+<h3 id="references-3">References</h3>
+<ul>
+<li><a href="http://nodejs.org/api/assert.html">http://nodejs.org/api/assert.html</a></li>
+</ul>
+
+    </body>
+    </html>

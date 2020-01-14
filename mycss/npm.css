@@ -1,0 +1,48 @@
+
+html, body {
+    all:unset;
+}
+
+p {
+    max-width: max-content;
+    /* padding:unset; */
+    /* margin: unset; */
+    background-color: lightgrey;
+    text-align: left;
+}
+
+div.column {
+    border:1px dashed brown;
+    /* max-width:44%; */
+    margin:2px 2px;
+    padding:2px 2px!important;
+    font-size: 1.5em;
+}
+
+
+code{
+   color:blue;
+   font-style: italic;
+}
+span.hljs-comment{color:green;display: inline-block;}
+
+pre.hljs *,h3 {
+    padding:unset!important;
+}
+h3 {
+    color: red!important;
+    padding:unset!important; 
+    margin:unset!important;
+    border:1px solid darkgreen!important;
+    text-align: center;
+}
+/* 
+@media print{
+
+    div.column{
+        max-width:46%; 
+        margin:2px auto;
+    }
+    div.column h3{color:green;}
+} */
+

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>css-flexbox.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" media="print" href="mycss/npm.css">
+<link rel="stylesheet" media="screen" href="mycss/npm.css">
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: blue;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: blue;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: orangered;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<header><h1>Flexbox cheatsheet</h1></header>
+<div class="container">
+<div class="column">
+<h3 id="simple-example">Simple example</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+}
+</div></code></pre>
+</div>
+<div class="column">
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">1</span> auto;
+}
+</div></code></pre>
+<h3 id="container">Container</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+</div></code></pre>
+
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">flex</span>;
+  <span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">inline-flex</span>;
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">row</span>;            <span class="hljs-comment">/* ltr - default */</span>
+  <span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">row-reverse</span>;    <span class="hljs-comment">/* rtl */</span>
+  <span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">column</span>;         <span class="hljs-comment">/* top-bottom */</span>
+  <span class="hljs-selector-tag">flex-direction</span>: <span class="hljs-selector-tag">column-reverse</span>; <span class="hljs-comment">/* bottom-top */</span>
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">flex-wrap</span>: <span class="hljs-selector-tag">nowrap</span>; <span class="hljs-comment">/* one-line */</span>
+  <span class="hljs-selector-tag">flex-wrap</span>: <span class="hljs-selector-tag">wrap</span>;   <span class="hljs-comment">/* multi-line */</span>
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">flex-start</span>; <span class="hljs-comment">/* vertical-align to top */</span>
+  <span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">flex-end</span>;   <span class="hljs-comment">/* vertical-align to bottom */</span>
+  <span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">center</span>;     <span class="hljs-comment">/* vertical-align to center */</span>
+  <span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">stretch</span>;    <span class="hljs-comment">/* same height on all (default) */</span>
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">justify-content</span>: <span class="hljs-selector-tag">flex-start</span>; <span class="hljs-comment">/* horizontal alignment - default */</span>
+  <span class="hljs-selector-tag">justify-content</span>: <span class="hljs-selector-tag">flex-end</span>;
+  <span class="hljs-selector-tag">justify-content</span>: <span class="hljs-selector-tag">center</span>;
+</div></code></pre>
+<pre class="hljs"><code><div>}
+</div></code></pre>
+</div>
+<div class="column">
+<h3 id="child">Child</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-tag">div</span> {
+</div></code></pre>
+
+<pre class="hljs"><code><div>  <span class="hljs-comment">/* This: */</span>
+  <span class="hljs-selector-tag">flex</span>: 1 0 <span class="hljs-selector-tag">auto</span>;
+
+  <span class="hljs-comment">/* Is equivalent to this: */</span>
+  <span class="hljs-selector-tag">flex-grow</span>: 1;
+  <span class="hljs-selector-tag">flex-shrink</span>: 0;
+  <span class="hljs-selector-tag">flex-basis</span>: <span class="hljs-selector-tag">auto</span>;
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">order</span>: 1;
+</div></code></pre>
+<pre class="hljs"><code><div>  <span class="hljs-selector-tag">align-self</span>: <span class="hljs-selector-tag">flex-start</span>;  <span class="hljs-comment">/* left */</span>
+  <span class="hljs-selector-tag">margin-left</span>: <span class="hljs-selector-tag">auto</span>;       <span class="hljs-comment">/* right */</span>
+</div></code></pre>
+<pre class="hljs"><code><div>}
+</div></code></pre>
+</div>
+
+<h2 id="tricks">Tricks</h2>
+<div class="column">
+<h3 id="vertical-center">Vertical center</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+}
+
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">margin</span>: auto;
+}
+</div></code></pre>
+<h3 id="vertical-center-2">Vertical center (2)</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">align-items</span>: center;     <span class="hljs-comment">/* vertical */</span>
+  <span class="hljs-attribute">justify-content</span>: center; <span class="hljs-comment">/* horizontal */</span>
+}
+</div></code></pre>
+</div>
+<div class="column">
+<h3 id="reordering">Reordering</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.top</span> {
+ <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.bottom</span> {
+ <span class="hljs-attribute">order</span>: <span class="hljs-number">2</span>;
+}
+</div></code></pre>
+<h3 id="mobile-layout">Mobile layout</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+}
+
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.top</span> {
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">100px</span>;
+}
+
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.content</span> {
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> auto;
+}
+</div></code></pre>
+<p>A fixed-height top bar and a dynamic-height content area.</p>
+</div>
+<div class="column">
+<h3 id="table-like">Table-like</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: flex;
+}
+
+<span class="hljs-comment">/* the 'px' values here are just suggested percentages */</span>
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.checkbox</span> { <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span>; }
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.subject</span>  { <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">400px</span>; }
+<span class="hljs-selector-class">.container</span> &gt; <span class="hljs-selector-class">.date</span>     { <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">120px</span>; }
+</div></code></pre>
+<p>This creates columns that have different widths, but size accordingly according
+to the circumstances.</p>
+<h3 id="vertical">Vertical</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+}
+</div></code></pre>
+<p>Vertically-center all items.</p>
+<h3 id="left-and-right">Left and right</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.menu</span> &gt; <span class="hljs-selector-class">.left</span>  { <span class="hljs-attribute">align-self</span>: flex-start; }
+<span class="hljs-selector-class">.menu</span> &gt; <span class="hljs-selector-class">.right</span> { <span class="hljs-attribute">align-self</span>: flex-end; }
+</div></code></pre>
+
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">MDN: Using CSS flexbox</a></li>
+<li><a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">Ultimate flexbox cheatsheet</a></li>
+</ul>
+</div>
+
+</div>
+</body>
+</html>

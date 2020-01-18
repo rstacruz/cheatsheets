@@ -28,14 +28,43 @@
 <meta name="twitter:title" content="GRID: A simple visual cheatsheet for CSS Grid Layout">
 <meta name="twitter:description" content="Learn all about the properties available in CSS Grid Layout through simple visual examples.">
 <meta name="twitter:image" content="http://grid.malven.co/android-chrome-256x256.png"></head>
-<body>
+<style>
+body, * {
+  background-color:white;
+  color:blue;
+}
+section.set{
+border:1px dashed brown;
+margin:4px auto;
+}
+p.set__notes{
+  display: inline;
+  margin:unset;
+}
+h2.set__heading{
+  display: inline;
+  margin:unset;
+}
+.set__items>.item{
+border:1px groove saddlebrown;
+}
+div{
+ /* margin:auto!important; */
+ /* padding:2px 10px!important; */
 
+}
+section.set{
+  display: flex;
+  flex-direction: coumn;
+  flex-wrap: wrap;
+}
+
+</style>
+
+<body>
 
     
 
-  <div>container</div>
-  
-  
   <section class="set">
     <h2 class="set__heading">display</h2>
     <p class="set__notes">Establishes a new grid formatting context for children.</p>

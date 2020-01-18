@@ -4,8 +4,6 @@ category: CLI, GUI
 updated: 2020-01-18
 ---
 
-# Emacs Notes
-
 ## Modifier keys
 
   - `M` is Meta key with is ALT in windows or Linux, Option Key in Mac OS

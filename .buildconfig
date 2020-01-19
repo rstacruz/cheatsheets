@@ -1,0 +1,10 @@
+[default]
+name=Default
+runtime=host
+config-opts=
+run-opts=
+prefix=/home/faris/.cache/gnome-builder/install/cheatsheets/host
+app-id=
+postbuild=
+prebuild=
+default=true

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>npm_toprint.html</title>
+  <!-- <link rel="stylesheet" href="mycss/npm.css"> -->
+  <link rel="stylesheet" media="print" href="assets/print.css">
+</head>
+
+<body>
+<div class="container">
+  <div class="h2-section">
+      <h3 id="package-management">Package management</h3>
+     
+        <table>
+         <thead>
+           <tr>
+             <th>Command</th>
+             <th>Description</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><code>npm i</code></td>
+             <td>Alias for <code>npm install</code></td>
+           </tr>
+           <tr>
+             <td><code>npm install</code></td>
+             <td>Install everything in package.json</td>
+           </tr>
+           <tr>
+             <td><code>npm install --production</code></td>
+             <td>Install everything in package.json, except devDependecies</td>
+           </tr>
+         </tbody>
+         <tbody>
+           <tr>
+             <td><code>npm install lodash</code></td>
+             <td>Install a package</td>
+           </tr>
+           <tr>
+             <td><code>npm install --save-dev lodash</code></td>
+             <td>Install as devDependency</td>
+           </tr>
+           <tr>
+             <td><code>npm install --save-exact lodash</code></td>
+             <td>Install with exact</td>
+           </tr>
+         </tbody>
+        </table>
+        <p><code>--save</code> is the default as of npm@5. Previously, using <code>npm install</code>
+         without <code>--save</code> doesn’t update package.json.</p>
+      </div>
+      <div class="h3-section">
+        <h3 id="install-names">Install names</h3>
+       
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>npm i sax</code></td>
+                <td>NPM package</td>
+              </tr>
+              <tr>
+                <td><code>npm i sax@latest</code></td>
+                <td>Specify tag <code>latest</code></td>
+              </tr>
+              <tr>
+                <td><code>npm i sax@3.0.0</code></td>
+                <td>Specify version <code>3.0.0</code></td>
+              </tr>
+              <tr>
+                <td><code>npm i sax@"&gt;=1 &lt;2.0"</code></td>
+                <td>Specify version range</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><code>npm i @org/sax</code></td>
+                <td>Scoped NPM package</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><code>npm i user/repo</code></td>
+                <td>GitHub</td>
+              </tr>
+              <tr>
+                <td><code>npm i user/repo#master</code></td>
+                <td>GitHub</td>
+              </tr>
+              <tr>
+                <td><code>npm i github:user/repo</code></td>
+                <td>GitHub</td>
+              </tr>
+              <tr>
+                <td><code>npm i gitlab:user/repo</code></td>
+                <td>GitLab</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><code>npm i /path/to/repo</code></td>
+                <td>Absolute path</td>
+              </tr>
+              <tr>
+                <td><code>npm i ./archive.tgz</code></td>
+                <td>Tarball</td>
+              </tr>
+              <tr>
+                <td><code>npm i https://site.com/archive.tgz</code></td>
+                <td>Tarball via HTTP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="h3-section">
+        <h3 id="listing">Listing</h3>
+       
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>npm list</code></td>
+                <td>Lists the installed versions of all dependencies in this software</td>
+              </tr>
+              <tr>
+                <td><code>npm list -g --depth 0</code></td>
+                <td>Lists the installed versions of all globally installed packages</td>
+              </tr>
+              <tr>
+                <td><code>npm view</code></td>
+                <td>Lists the latest versions of all dependencies in this software</td>
+              </tr>
+              <tr>
+                <td><code>npm outdated</code></td>
+                <td>Lists only the dependencies in this software which are outdated</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="h3-section">
+        <h3 id="updating">Updating</h3>
+       
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>npm update</code></td>
+                <td>Update production packages</td>
+              </tr>
+              <tr>
+                <td><code>npm update --dev</code></td>
+                <td>Update dev packages</td>
+              </tr>
+              <tr>
+                <td><code>npm update -g</code></td>
+                <td>Update global packages</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><code>npm update lodash</code></td>
+                <td>Update a package</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="h3-section">
+        <h3 id="misc-features">Misc features</h3>
+       
+          <pre class=" language-bash"><code class=" language-bash"><span class="token comment" spellcheck="true"># Add someone as an owner</span>
+    <span class="token function">npm</span> owner add USERNAME PACKAGENAME
+    </code></pre>
+          <pre class=" language-bash"><code class=" language-bash"><span class="token comment" spellcheck="true"># list packages</span>
+    <span class="token function">npm</span> <span class="token function">ls</span>
+    </code></pre>
+          <pre class=" language-bash"><code class=" language-bash"><span class="token comment" spellcheck="true"># Adds warning to those that install a package of old versions</span>
+    <span class="token function">npm</span> deprecate PACKAGE@<span class="token string">"&lt; 0.2.0"</span> <span class="token string">"critical bug fixed in v0.2.0"</span>
+    </code></pre>
+          <pre class=" language-bash"><code class=" language-bash"><span class="token comment" spellcheck="true"># update all packages, or selected packages</span>
+    <span class="token function">npm</span> update <span class="token punctuation">[</span>-g<span class="token punctuation">]</span> PACKAGE
+    </code></pre>
+          <pre class=" language-bash"><code class=" language-bash"><span class="token comment" spellcheck="true"># Check for outdated packages</span>
+    <span class="token function">npm</span> outdated <span class="token punctuation">[</span>PACKAGE<span class="token punctuation">]</span>
+    </code></pre>
+        </div>
+      </div>
+ 
+    </body>
+
+</html>

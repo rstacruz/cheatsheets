@@ -4,18 +4,21 @@ category: JavaScript
 layout: 2017/sheet
 weight: -1
 updated: 2017-10-27
+github raw link: https://raw.githubusercontent.com/rstacruz/cheatsheets/master/npm.md
 ---
 
 ### Package management
 
-| Command                           | Description                        |
-| ---                               | ---                                |
-| `npm i`                           | Alias for `npm install`            |
-| `npm install`                     | Install everything in package.json |
-| ---                               | ---                                |
-| `npm install lodash`              | Install a package                  |
-| `npm install --save-dev lodash`   | Install as devDependency           |
-| `npm install --save-exact lodash` | Install with exact                 |
+| Command                           | Description                                               |
+| ---                               | ---                                                       |
+| `npm i`                           | Alias for `npm install`                                   |
+| `npm install`                     | Install everything in package.json                        |
+| `npm install --production`        | Install everything in package.json, except devDependecies |
+| ---                               | ---                                                       |  
+| `npm install lodash`              | Install a package                                         |
+| `npm install --save-dev lodash`   | Install as devDependency                                  |
+| `npm install --save-exact lodash` | Install with exact                                        |
+
 
 `--save` is the default as of npm@5. Previously, using `npm install` without `--save` doesn't update package.json.
 
@@ -38,6 +41,15 @@ updated: 2017-10-27
 | `npm i /path/to/repo`                | Absolute path           |
 | `npm i ./archive.tgz`                | Tarball                 |
 | `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
+
+### Listing
+
+| Command                 | Description                                                         |
+| ---                     | ---                                                                 |
+| `npm list`              | Lists the installed versions of all dependencies in this software   | 
+| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages     | 
+| `npm view`              | Lists the latest versions of all dependencies in this software      | 
+| `npm outdated`          | Lists only the dependencies in this software which are outdated     |
 
 ### Updating
 
@@ -76,3 +88,4 @@ npm update [-g] PACKAGE
 # Check for outdated packages
 npm outdated [PACKAGE]
 ```
+https://raw.githubusercontent.com/rstacruz/cheatsheets/master/npm.md

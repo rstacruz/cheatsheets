@@ -202,3 +202,5 @@ For example, if the page contains multiple div elements and we want to select th
 #### Removing Contents:
 - To remove (leave it empty- no children) the child elements of the selected element(s):
 `$("div").empty();`
+
+

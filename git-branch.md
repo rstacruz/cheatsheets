@@ -50,6 +50,14 @@ git branch -a --merged
 
 List outdated branches that have been merged into the current one.
 
+### Delete a local branch
+
+```bash
+git branch -d $branchname
+```
+
+Deletes the branch only if the changes have been pushed and merged with remote.
+
 ### Delete branch forcefully
 
 ```bash

@@ -80,7 +80,7 @@ git reset --hard
 ### Undo commits to a specific commit
 
 ```bash
-git reset --hard $commitID
+git reset --hard $commit_id
 
 # Now push to your branch
 git push --force

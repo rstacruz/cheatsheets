@@ -76,10 +76,12 @@ git show-ref HEAD -s
 ```bash
 git reset --hard
 ```
-### Undo commits to a specific commit and push to branch
+
+### Undo commits to a specific commit
 
 ```bash
-git reset --hard [commitID]
-//Now push to your branch
+git reset --hard $commitID
+
+# Now push to your branch
 git push --force
 ```

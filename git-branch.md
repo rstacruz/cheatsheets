@@ -79,3 +79,17 @@ Works for tags, too!
 ```bash
 git show-ref HEAD -s
 ```
+### Reset branch and remove all changes
+
+```bash
+git reset --hard
+```
+
+### Undo commits to a specific commit
+
+```bash
+git reset --hard $commit_id
+
+# Now push to your branch
+git push --force
+```

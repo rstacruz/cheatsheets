@@ -37,7 +37,8 @@ Getting started
 | Shortcut            | Description       |
 | ---                 | ---               |
 | `h` `j` `k` `l`     | Arrow keys        |
-| `<C-U>` _/_ `<C-D>` | Page up/page down |
+| `<C-U>` _/_ `<C-D>` | Half-page up/down |
+| `<C-B>` _/_ `<C-F>` | Page up/down      |
 {: .-shortcuts}
 
 #### Words
@@ -79,9 +80,20 @@ Getting started
 | ---      | ---                      |
 | `zz`     | Center this line         |
 | `zt`     | Top this line            |
-| `H`      | Move to top of screen    |
+| `zb`     | Bottom this line         |
+| `H`      | Move to top of scree     |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
+{: .-shortcuts}
+
+#### Search
+
+| Shortcut  | Description                         |
+| ---       | ---                                 |
+| `n`       | Next matching search pattern        |
+| `N`       | Previous match                      |
+| `*`       | Next whole word under cursor        |
+| `#`       | Previous whole word under cursor    |
 {: .-shortcuts}
 
 #### Tab pages
@@ -182,6 +194,7 @@ Operators let you operate in a range of text (defined by *motion*). These are pe
 | ---      | ---                             |
 | `>`      | Indent right                    |
 | `<`      | Indent left                     |
+| `=`      | Autoindent                      |
 | ---      | ---                             |
 | `g~`     | Swap case                       |
 | `gU`     | Uppercase                       |
@@ -349,15 +362,31 @@ Do these in visual or normal mode.
 
 ### Marks
 
-| Shortcut        | Description                                        |
-| ---             | ---                                                |
-| <code>`^</code> | Last position of cursor in insert mode             |
-| <code>`.</code> | Last change                                        |
-| <code>``</code> | Last jump                                          |
-| ---             | ---                                                |
-| `ma`            | Mark this cursor position as `a`                   |
-| <code>`a</code> | Jump to the cursor position `a`                    |
-| `'a`            | Jump to the beginning of the line with position `a`|
+| Shortcut           | Description                                          |
+| ---                | ---                                                  |
+| <code>`^</code>    | Last position of cursor in insert mode               |
+| <code>`.</code>    | Last change in current buffer                        |
+| <code>`"</code>    | Last exited current buffer                           |
+| <code>`0</code>    | In last file edited                                  |
+| <code>''</code>    | Back to line in current buffer where jumped from     |
+| <code>``</code>    | Back to position in current buffer where jumped from |
+| <code>`[</code>    | To beginning of previously changed or yanked text    |
+| <code>`]</code>    | To end of previously changed or yanked text          |
+| <code>`&lt;</code> | To beginning of last visual selection                |
+| <code>`&gt;</code> | To end of last visual selection                      |
+| ---                | ---                                                  |
+| `ma`               | Mark this cursor position as `a`                     |
+| <code>`a</code>    | Jump to the cursor position `a`                      |
+| `'a`               | Jump to the beginning of the line with position `a`  |
+| <code>d'a</code>   | Delete from current line to line of mark `a`         |
+| <code>d`a</code>   | Delete from current position to position of mark `a` |
+| <code>c'a</code>   | Change text from current line to line of `a`         |
+| <code>y`a</code>   | Yank text from current position to position of `a`   |
+| ---                | ---                                                  |
+| `:marks`           | List all current marks                               |
+| `:delm a`          | Delete mark `a`                                      |
+| `:delm a-d`        | Delete marks `a`, `b`, `c`, `d`                      |
+| `:delm abc`        | Delete marks `a`, `b`, `c`                           |
 {: .-shortcuts}
 
 ### Misc

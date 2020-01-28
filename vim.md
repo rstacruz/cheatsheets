@@ -3,7 +3,7 @@ title: Vim
 category: Vim
 layout: 2017/sheet
 tags: [Featured]
-updated: 2018-09-11
+updated: 2019-05-22
 weight: -10
 intro: |
  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
@@ -24,6 +24,7 @@ Getting started
 | ---            | ---                              |
 | `:w`           | Save                             |
 | `:wq` _/_ `:x` | Save and close file              |
+| :saveas file   | Save as to file                  |
 | ---            | ---                              |
 | `:q`           | Close file                       |
 | `:q!`          | Close file, abandon changes      |
@@ -48,13 +49,25 @@ Getting started
 | `e` _/_ `ge` | Previous/next end of word |
 {: .-shortcuts}
 
+#### Especial characters
+| Shortcut         | Description                  |
+| ---              | ---                          |
+| :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< | Show special characters(tabs, spaces, eol) |
+| :set nolist      | Clear special character view |
+| :set noet|retab! | Convert spaces to tabs       |
+| :set et|retab    | Convert tabs to spaces       |
+
 #### Line
 
-| Shortcut     | Description                        |
-| ---          | ---                                |
-| `0` _(zero)_ | Start of line                      |
-| `^`          | Start of line _(after whitespace)_ |
-| `$`          | End of line                        |
+| Shortcut          | Description                               |
+| ---               | ---                                       |
+| `0` _(zero)_      | Start of line                             |
+| `^`               | Start of line _(after whitespace)_        |
+| `$`               | End of line                               |
+| :g/text_find      | Show all lines containing a pattern       |
+| :g!/text_find     | Show all lines not containing a pattern   |
+| :g/text_remove/d  | Delete all lines containing a pattern     |
+| :g!/text_remove/d | Delete lines not containing a pattern     |
 {: .-shortcuts}
 
 #### Character
@@ -82,6 +95,9 @@ Getting started
 | `H`      | Move to top of screen    |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
+| hide     | Close current window     |
+| <C+w> o  | Close other windows, keeps the active window only |
+| <C+w> =  | Make all splits equal size |
 {: .-shortcuts}
 
 #### Tab pages
@@ -96,6 +112,17 @@ Getting started
 | `:tablast`            | Go to last tab                  |
 | `:tabn    `           | Go to next tab                  |
 | `:tabp    `           | Go to previous tab              |
+
+#### Buffer
+
+| Shortcut    | Description                  |
+| ---         | ---                          |
+| ls          | Show current buffers         |
+| b2          | Open buffer#2 in this window |
+| :bd!        | deletes the current buffer, no error if unwritten changes |
+| :bufdo! bd! | deletes all buffers, no error on any unwritten changes |
+| :tabe +Nbuf | open buffer number N in new tab |
+| :tabnew     | Open new buffer              |
 
 ### Editing
 
@@ -127,15 +154,18 @@ Getting started
 
 ### Clipboard
 
-| Shortcut | Description         |
-| ---      | ---                 |
-| `x`      | Delete character    |
-| ---      | ---                 |
-| `dd`     | Delete line _(Cut)_ |
-| `yy`     | Yank line _(Copy)_  |
-| ---      | ---                 |
-| `p`      | Paste               |
-| `P`      | Paste before        |
+| Shortcut | Description              |
+| ---      | ---                      |
+| `x`      | Delete character         |
+| ---      | ---                      |
+| `dd`     | Delete line _(Cut)_      |
+| `yy`     | Yank line _(Copy)_       |:file
+| ---      | ---                      |
+| `p`      | Paste                    |
+| `P`      | Paste before             |
+| :reg     | show register(clipboard) |
+| "xy      | yank into register x     |
+| "xp      | paste contents of reg x  |
 {: .-shortcuts}
 
 ### Visual mode
@@ -205,6 +235,8 @@ Combine operators with *motions* to use them.
 | _2_`dd`                | Delete 2 lines                            |
 | `d`_ip_                | Delete a text object _(inside paragraph)_ |
 | _(in visual mode)_ `d` | Delete selection                          |
+| :10,15d                | Delete from line 10 to 15                 |
+| d126G                  | Delete,line number,go                     |
 
 See: `:help motion.txt`
 
@@ -317,6 +349,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 ### Windows
 
 | `z{height}<Cr>` | Resize pane to `{height}` lines tall |
+| <C-w>+t <C-w>+K | Split vertical to horizontal         |
+| <C-w>+t <C-w>+H | Split horitontal to vertical         |
 
 ### Tags
 
@@ -355,9 +389,11 @@ Do these in visual or normal mode.
 | <code>`.</code> | Last change                                        |
 | <code>``</code> | Last jump                                          |
 | ---             | ---                                                |
+| marks           | List all the marks                                 |
 | `ma`            | Mark this cursor position as `a`                   |
 | <code>`a</code> | Jump to the cursor position `a`                    |
 | `'a`            | Jump to the beginning of the line with position `a`|
+| `a              | Jump to position (line and column) of mark a       |
 {: .-shortcuts}
 
 ### Misc
@@ -384,6 +420,18 @@ Do these in visual or normal mode.
     :left
 
 See `:help formatting`
+
+### Search and Replace
+
+| Shortcut             | Description                               |
+| ---                  | ---                                       |
+| :%s/old-text/new-text/g | Substitute all occurrences of a text with another text in the whole file |
+| :s/I/We/gi           | Substitution of a text with another text within a single line |
+| :1,10s/helo/hello/g  | Substitution of a text with another text within a range of lines |
+| :'<,'>s/helo/hello/g | Substitution of a text with another text by visual selection of lines(CTRL+V) |
+| :s/helo/hello/g 4    | Substitution of a text with another text only the 1st X number of lines |
+| :%s/\(good\|nice\)/awesome/g |  Substitute either word1 or word2 with a new word using regular expression |
+| :%s/awesome/wonderful/gc | Interactive Find and Replace in Vim Editor |
 
 ### Calculator
 

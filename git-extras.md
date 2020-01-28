@@ -21,16 +21,23 @@ Also `git-bug` and `git-refactor`.
     $ git delete-merged-branches
       # hint: do `git remote prune origin` after
 
-    $ git create-branch development
-    $ git delete-branch development
+    $ git checkout -b development     # create and switch to development branch
+    $ git checkout development        # switch do development branch
+    $ git branch -D development       # delete with force a local branch
+    $ git branch -d development       # delete a branch
+    $ git branch -m development new_name # rename a branch      
 
     $ git fresh-branch gh-pages
 
 ### Inspecting
 
-    $ git summary   # repo age, commits, active days, etc
-    $ git impact    # impact graph
-    $ git effort    # commits per file
+    $ glgp='git log --stat -p' 
+    $ gloga='git log --oneline --decorate --graph --all'
+    $ glo='git log --oneline --decorate'
+    $ glods='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %│
+C(bold blue)<%an>%Creset'\'' --date=short'  
+
+    glgp, gloga, glo, glods are alias in zshrc git-extras plugin
 
 ### Github
 

@@ -18,43 +18,6 @@ Alternate files
 | **Controller method** | test/controllers/ | app/views/      |
 | **View template**     | test/views/       | app/controllers |
 
-Abbreviations
--------------
-
-Type `:Rabbrev` for a full list.
-
-| Abbrev  | Expansion        |
-| ---     | ---              |
-| `AC::`  | ActionController |
-| `AR::`  | ActiveRecord     |
-| `AV::`  | ActionView       |
-| `...`   | ...              |
-| ---     | ---              |
-| `logd(` | logger.debug     |
-| `logi(` | logger.info      |
-| `...`   | ...              |
-{:.no-head.greycode}
-
-### Model
-
-| Abbrev   | Expansion                 |
-| ---      | ---                       |
-| `bt(`    | `belongs_to`              |
-| `hm(`    | `has_many`                |
-| `ho(`    | `has_one`                 |
-| `habtm(` | `has_and_belongs_to_many` |
-{:.no-head.greycode}
-
-### Controllers
-
-| Abbrev  | Expansion        |
-| ---     | ---              |
-| `pa[`   | params           |
-| `re(`   | redirect_to      |
-| `rp(`   | render partial:  |
-| `rst(`  | respond_to       |
-{:.no-head.greycode}
-
 ### Views
 
 | Abbrev  | Expansion                   |

@@ -81,7 +81,7 @@ Getting started
 | `zz`     | Center this line         |
 | `zt`     | Top this line            |
 | `zb`     | Bottom this line         |
-| `H`      | Move to top of scree     |
+| `H`      | Move to top of screen    |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
 {: .-shortcuts}

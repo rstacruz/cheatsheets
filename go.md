@@ -395,6 +395,39 @@ v, ok := <- ch
 
 See: [Range and close](https://tour.golang.org/concurrency/4)
 
+### WaitGroup
+
+```go
+import "sync"
+
+func main() {
+  var wg sync.WaitGroup
+  
+  for _, item := range itemList {
+    // Increment WaitGroup Counter
+    wg.Add(1)
+    go doOperation(item)
+  }
+  // Wait for goroutines to finish
+  wg.Wait()
+  
+}
+```
+{: data-line="1,4,8,12"}
+
+```go
+func doOperation(item string) {
+  defer wg.Done()
+  // do operation on item
+  // ...
+}
+```
+{: data-line="2"}
+
+A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
+See: [WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
+
+
 ## Error control
 
 ### Defer

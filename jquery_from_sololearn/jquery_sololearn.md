@@ -202,6 +202,10 @@ For example, if the page contains multiple div elements and we want to select th
 #### Removing Contents:
 - To remove (leave it empty- no children) the child elements of the selected element(s):
 `$("div").empty();`
+<<<<<<< HEAD
+
+
+=======
 > For Example: to empty the second child element of the element with id="nav":\
 `var e = $("#nav").children();`
 `e.eq(2).empty();`
@@ -311,3 +315,4 @@ $(function() {
 });
 ```
 
+>>>>>>> bd22392c3a2440c5e6b5a6d37458799dfcc9cc94

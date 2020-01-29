@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>css_grid_layout.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+
+</head>
+<body>
+ 
+<style>
+img{
+    max-width:70%;
+    /* height:auto; */
+    margin:5px auto;
+}
+</style>
+<h1 id="css-grid---container">CSS Grid - Container</h1>
+<p>A Grid Layout must have a parent element with the <em>display</em> property set to <em>grid</em> or <em>inline-grid</em>.</p>
+<ul>
+<li><strong>All direct child element(s) of the grid container automatically becomes grid items.</strong></li>
+</ul>
+<h2 id="grid-columns">Grid Columns:</h2>
+<p>The vertical lines of grid items are called columns.</p>
+<img src="https://www.w3schools.com/css/grid_columns.png" alt="" />
+<h2 id="grid-rows">Grid Rows</h2>
+<p>The horizontal lines of grid items are called <em>rows</em>.</p>
+<img src="https://www.w3schools.com/css/grid_rows.png" alt="" />
+<hr>
+<h2 id="grid-gaps">Grid Gaps</h2>
+<p>The spaces between each column/row are called <em>gaps</em>.</p>
+<img src="https://www.w3schools.com/css/grid_gaps.png" alt="grid-gaps.png" />
+<p><b>You can adjust the gap size by using one of the following properties:</b></p>
+<p><code>grid-column-gap</code> : <em>between the columns</em></p>
+<p><code>grid-row-gap</code>  : <em>between the rows</em></p>
+<p><code>grid-gap</code> : <em>shorthand: background called row lines.</em></p>
+<img src="https://www.w3schools.com/css/grid_lines.png" alt="">
+<p><b>Examples:</p>
+<ul>
+<li>Place a grid item at column line 1, and let it end on column line 3:</b></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {
+  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">grid-column-end</span>: <span class="hljs-number">3</span>;
+} 
+</div></code></pre>
+<ul>
+<li>Place a grid item at row line 1, and let it end on row line 3:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {
+ <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">1</span>;
+ <span class="hljs-attribute">grid-row-end</span>: <span class="hljs-number">3</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-grid-template-columns-property">The <code>grid-template-columns</code> Property</h2>
+<ul>
+<li>
+<p>Defines the number of columns in your <code>grid</code> layout, and it can <u>define the width of each <code>column</code>.</u></p>
+</li>
+<li>
+<p>The value is a space-separated-list, where each value defines the length of the respective column.</p>
+</li>
+</ul>
+<p>For Example: If you want your grid layout to contain 4 columns:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: auto auto auto auto;
+</div></code></pre>
+<blockquote>
+<p>Note: If you have more than 4 items in a 4 columns grid, the grid will <strong>automatically add a new row to put the items in.</strong></p>
+</blockquote>
+<p><b>The <code>grid-template-columns</code> property can also be used to specify the size <code>(width)</code> of the <code>columns</code>.
+Example:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">80px</span> <span class="hljs-number">200px</span> auto <span class="hljs-number">40px</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-grid-template-rows-property">The grid-template-rows Property</h2>
+<ul>
+<li>Defines the height of each row. The value is a space-separated-list, where each value defines the height of the respective row:
+<b>Example:</b></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">80px</span> <span class="hljs-number">200px</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-justify-content-property">The <code>justify-content</code> Property</h2>
+<p>The <code>justify-content</code> property is used to align the whole grid inside the container.</p>
+<img src="images/css_grid_layout/justify-content.png" alt="">
+<blockquote>
+<p>Note: The grid's total width has to be less than the container's width for the justify-content property to have any effect.</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">justify-content</span>: space-evenly;
+} 
+</div></code></pre>
+<p><img src="2020-01-18-22-27-10.png" alt=""></p>
+<ul>
+<li>The value <code>space-around</code> will give the columns equal amount of space around them:</li>
+</ul>
+<p><img src="2020-01-18-22-30-08.png" alt=""></p>
+<ul>
+<li>The value <code>space-between</code> will give the columns equal amount of space between them:</li>
+</ul>
+<p><img src="2020-01-18-22-31-11.png" alt=""></p>
+<ul>
+<li>The value <code>center</code> will align the grid in the middle of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-32-02.png" alt=""></p>
+<ul>
+<li>The value <code>start</code> will align the grid at the beginning of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-33-14.png" alt=""></p>
+<ul>
+<li>The value <code>end</code> will align the grid at the end of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-34-14.png" alt=""></p>
+<h2 id="the-align-content-property">The <code>align-content</code> Property</h2>
+<ul>
+<li>Used to vertically align the whole grid inside the container.</li>
+</ul>
+<p><img src="2020-01-18-22-35-53.png" alt=""></p>
+<blockquote>
+<p>Note: The grid's total height has to be less than the container's height for the align-content property to have any effect.</p>
+</blockquote>
+<blockquote>
+<p>The values are like <code>justify-content</code> values, BUT vertically align.</p>
+</blockquote>
+<hr>
+<h1 id="css-grid-item-child-elements---items">CSS Grid Item [Child Elements - Items]</h1>
+<blockquote>
+<p>A grid container contains grid items.</p>
+</blockquote>
+<ul>
+<li>By default, <u>a container has one grid item for each column, in each row, but you can style the grid items so that they will span multiple columns and/or rows.</u></li>
+</ul>
+<h2 id="the-grid-column-property">The grid-column Property:</h2>
+<p>The <code>grid-column</code> property defines on which column(s) to place an item. You define where the item will start, and where the item will end.</p>
+<blockquote>
+<p>Note: The grid-column property is a shorthand property for the grid-column-start and the grid-column-end properties.</p>
+</blockquote>
+<ul>
+<li>To place an item, you can refer to line numbers, or use the keyword &quot;span&quot; to define how many columns the item will span.</li>
+</ul>
+<blockquote>
+<p>Examples:</p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; start on column 1 and end before column 5:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-column</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-18-22-46-44.png" alt=""></p>
+<ul>
+<li>Make &quot;item1&quot; start on column 1 and span 3 columns:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item2</span> {<span class="hljs-attribute">grid-column</span>: <span class="hljs-number">2</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-18-22-48-05.png" alt=""></p>
+<hr>
+<h3 id="the-grid-row-property">The <code>grid-row</code> property:</h3>
+<ul>
+<li>The grid-row property defines on which row to place an item. You define where the item will start, and where the item will end.</li>
+</ul>
+<blockquote>
+<p>Note: The grid-row property is a shorthand property for the grid-row-start and the grid-row-end properties.</p>
+</blockquote>
+<blockquote>
+<p>To place an item, you can refer to line numbers, or use the keyword &quot;span&quot; to define how many rows the item will span:
+<b>Examples:</b></p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; start on row-line 1 and end on row-line 4:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-row</span>: <span class="hljs-number">1</span> / <span class="hljs-number">4</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-08-57.png" alt=""></p>
+<ul>
+<li>Make &quot;item1&quot; start on row 1 and <code>span</code> 2 rows:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-row</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">2</span>;} 
+</div></code></pre>
+<p><img src="2020-01-19-01-09-24.png" alt=""></p>
+<hr>
+<h3 id="the-grid-area-property">The <code>grid-area</code> Property</h3>
+<p><b>The grid-area property can be used as a shorthand property for the grid-row-start, grid-column-start, grid-row-end and the grid-column-end properties.</b></p>
+<h4 id="the-syntax">The Syntax:</h4>
+<p><code>grid-row-start / grid-column-start / grid-row-end / grid-column-end.</code></p>
+<blockquote>
+<p><b>Examples:</b></p>
+</blockquote>
+<ul>
+<li>Make &quot;item8&quot; start on row-line 1 and column-line 2, and end on row-line 5 and column line 6:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item8</span> {<span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">5</span> / <span class="hljs-number">6</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-17-39.png" alt=""></p>
+<ul>
+<li>Make &quot;item8&quot; start on row-line 2 and column-line 1, and span 2 rows and 3 columns:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item8</span> {<span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / span <span class="hljs-number">2</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-20-23.png" alt=""></p>
+<hr>
+<h1 id="naming-grid-items">Naming Grid Items</h1>
+<ul>
+<li>The grid-area property can also be used to assign names to grid items.</li>
+</ul>
+<p><img src="2020-01-19-01-22-03.png" alt=""></p>
+<blockquote>
+<p>Named grid items can be referred to by the grid-template-areas property of the grid container.</p>
+</blockquote>
+<ul>
+<li>Item1 gets the name &quot;myArea&quot; and spans all five columns in a five columns grid layout:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-area</span>: myArea;}
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea myArea myArea myArea'</span>;
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-23-43.png" alt=""></p>
+<blockquote>
+<p>Notes:</p>
+</blockquote>
+<ul>
+<li>Each row is defined by apostrophes (' ')</li>
+<li>The columns in each row is defined inside the apostrophes, separated by a space.</li>
+<li>Also note: A period sign represents a grid item with no name.</li>
+</ul>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<ul>
+<li>Let <code>myArea</code> span two columns in a five columns grid layout (period signs represent items with no name):</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-area</span>: myArea;}
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea . . .'</span>;
+}
+</div></code></pre>
+<p><img src="2020-01-19-01-26-34.png" alt=""></p>
+<ul>
+<li>To define two rows, define the column of the second row inside another set of apostrophes:</li>
+</ul>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; span two columns and two rows:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea . . .'</span> <span class="hljs-string">'myArea myArea . . .'</span>;
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-28-23.png" alt=""></p>
+<h2 id="example">Example</h2>
+<p><b>Name all items, and make a ready-to-use webpage template:</b><br></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: header; }
+<span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: menu; }
+<span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: main; }
+<span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: right; }
+<span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: footer; }
+
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-areas</span>:
+    <span class="hljs-string">'header header header header header header'</span>
+    <span class="hljs-string">'menu main main main right right'</span>
+    <span class="hljs-string">'menu footer footer footer footer footer'</span>;
+  <span class="hljs-attribute">grid-gap</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2196F3</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+}
+
+<span class="hljs-selector-class">.grid-container</span> &gt; <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(255, 255, 255, 0.8);
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">30px</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The grid-area Property<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can use the <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>grid-area<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> property to name grid items.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can refer to the name when you set up the grid layout, by using the <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>grid-template-areas<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> property on the grid container.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This grid layout contains six columns and three rows:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item1"</span>&gt;</span>Header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item2"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item3"</span>&gt;</span>Main<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item4"</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item5"</span>&gt;</span>Footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h2 id="the-order-of-the-items">The Order of the Items</h2>
+<ul>
+<li>The Grid Layout allows us to position the items anywhere we like. The first item in the HTML code does not have to appear as the first item in the grid.</li>
+</ul>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span> / <span class="hljs-number">4</span>; }
+<span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span>; }
+<span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">2</span>; }
+<span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / <span class="hljs-number">3</span>; }
+<span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span>; }
+<span class="hljs-selector-class">.item6</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span>; } 
+</div></code></pre>
+<p><img src="2020-01-19-01-32-11.png" alt=""></p>
+<ul>
+<li>You can re-arrange the order for certain screen sizes, by using media queries:</li>
+</ul>
+<style>
+img{
+    max-width:70%;
+    /* height:auto; */
+    margin:5px auto;
+}
+</style>
+<h1 id="css-grid---container">CSS Grid - Container</h1>
+<p>A Grid Layout must have a parent element with the <em>display</em> property set to <em>grid</em> or <em>inline-grid</em>.</p>
+<ul>
+<li><strong>All direct child element(s) of the grid container automatically becomes grid items.</strong></li>
+</ul>
+<h2 id="grid-columns">Grid Columns:</h2>
+<p>The vertical lines of grid items are called columns.</p>
+<img src="https://www.w3schools.com/css/grid_columns.png" alt="" />
+<h2 id="grid-rows">Grid Rows</h2>
+<p>The horizontal lines of grid items are called <em>rows</em>.</p>
+<img src="https://www.w3schools.com/css/grid_rows.png" alt="" />
+<hr>
+<h2 id="grid-gaps">Grid Gaps</h2>
+<p>The spaces between each column/row are called <em>gaps</em>.</p>
+<img src="https://www.w3schools.com/css/grid_gaps.png" alt="grid-gaps.png" />
+<p><b>You can adjust the gap size by using one of the following properties:</b></p>
+<p><code>grid-column-gap</code> : <em>between the columns</em></p>
+<p><code>grid-row-gap</code>  : <em>between the rows</em></p>
+<p><code>grid-gap</code> : <em>shorthand: background called row lines.</em></p>
+<img src="https://www.w3schools.com/css/grid_lines.png" alt="">
+<p><b>Examples:</p>
+<ul>
+<li>Place a grid item at column line 1, and let it end on column line 3:</b></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {
+  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">grid-column-end</span>: <span class="hljs-number">3</span>;
+} 
+</div></code></pre>
+<ul>
+<li>Place a grid item at row line 1, and let it end on row line 3:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {
+ <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">1</span>;
+ <span class="hljs-attribute">grid-row-end</span>: <span class="hljs-number">3</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-grid-template-columns-property">The <code>grid-template-columns</code> Property</h2>
+<ul>
+<li>
+<p>Defines the number of columns in your <code>grid</code> layout, and it can <u>define the width of each <code>column</code>.</u></p>
+</li>
+<li>
+<p>The value is a space-separated-list, where each value defines the length of the respective column.</p>
+</li>
+</ul>
+<p>For Example: If you want your grid layout to contain 4 columns:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: auto auto auto auto;
+</div></code></pre>
+<blockquote>
+<p>Note: If you have more than 4 items in a 4 columns grid, the grid will <strong>automatically add a new row to put the items in.</strong></p>
+</blockquote>
+<p><b>The <code>grid-template-columns</code> property can also be used to specify the size <code>(width)</code> of the <code>columns</code>.
+Example:</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">80px</span> <span class="hljs-number">200px</span> auto <span class="hljs-number">40px</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-grid-template-rows-property">The grid-template-rows Property</h2>
+<ul>
+<li>Defines the height of each row. The value is a space-separated-list, where each value defines the height of the respective row:
+<b>Example:</b></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">80px</span> <span class="hljs-number">200px</span>;
+} 
+</div></code></pre>
+<hr>
+<h2 id="the-justify-content-property">The <code>justify-content</code> Property</h2>
+<p>The <code>justify-content</code> property is used to align the whole grid inside the container.</p>
+<img src="images/css_grid_layout/justify-content.png" alt="">
+<blockquote>
+<p>Note: The grid's total width has to be less than the container's width for the justify-content property to have any effect.</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">justify-content</span>: space-evenly;
+} 
+</div></code></pre>
+<p><img src="2020-01-18-22-27-10.png" alt=""></p>
+<ul>
+<li>The value <code>space-around</code> will give the columns equal amount of space around them:</li>
+</ul>
+<p><img src="2020-01-18-22-30-08.png" alt=""></p>
+<ul>
+<li>The value <code>space-between</code> will give the columns equal amount of space between them:</li>
+</ul>
+<p><img src="2020-01-18-22-31-11.png" alt=""></p>
+<ul>
+<li>The value <code>center</code> will align the grid in the middle of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-32-02.png" alt=""></p>
+<ul>
+<li>The value <code>start</code> will align the grid at the beginning of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-33-14.png" alt=""></p>
+<ul>
+<li>The value <code>end</code> will align the grid at the end of the container:</li>
+</ul>
+<p><img src="2020-01-18-22-34-14.png" alt=""></p>
+<h2 id="the-align-content-property">The <code>align-content</code> Property</h2>
+<ul>
+<li>Used to vertically align the whole grid inside the container.</li>
+</ul>
+<p><img src="2020-01-18-22-35-53.png" alt=""></p>
+<blockquote>
+<p>Note: The grid's total height has to be less than the container's height for the align-content property to have any effect.</p>
+</blockquote>
+<blockquote>
+<p>The values are like <code>justify-content</code> values, BUT vertically align.</p>
+</blockquote>
+<hr>
+<h1 id="css-grid-item-child-elements---items">CSS Grid Item [Child Elements - Items]</h1>
+<blockquote>
+<p>A grid container contains grid items.</p>
+</blockquote>
+<ul>
+<li>By default, <u>a container has one grid item for each column, in each row, but you can style the grid items so that they will span multiple columns and/or rows.</u></li>
+</ul>
+<h2 id="the-grid-column-property">The grid-column Property:</h2>
+<p>The <code>grid-column</code> property defines on which column(s) to place an item. You define where the item will start, and where the item will end.</p>
+<blockquote>
+<p>Note: The grid-column property is a shorthand property for the grid-column-start and the grid-column-end properties.</p>
+</blockquote>
+<ul>
+<li>To place an item, you can refer to line numbers, or use the keyword &quot;span&quot; to define how many columns the item will span.</li>
+</ul>
+<blockquote>
+<p>Examples:</p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; start on column 1 and end before column 5:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-column</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-18-22-46-44.png" alt=""></p>
+<ul>
+<li>Make &quot;item1&quot; start on column 1 and span 3 columns:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item2</span> {<span class="hljs-attribute">grid-column</span>: <span class="hljs-number">2</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-18-22-48-05.png" alt=""></p>
+<hr>
+<h3 id="the-grid-row-property">The <code>grid-row</code> property:</h3>
+<ul>
+<li>The grid-row property defines on which row to place an item. You define where the item will start, and where the item will end.</li>
+</ul>
+<blockquote>
+<p>Note: The grid-row property is a shorthand property for the grid-row-start and the grid-row-end properties.</p>
+</blockquote>
+<blockquote>
+<p>To place an item, you can refer to line numbers, or use the keyword &quot;span&quot; to define how many rows the item will span:
+<b>Examples:</b></p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; start on row-line 1 and end on row-line 4:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-row</span>: <span class="hljs-number">1</span> / <span class="hljs-number">4</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-08-57.png" alt=""></p>
+<ul>
+<li>Make &quot;item1&quot; start on row 1 and <code>span</code> 2 rows:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-row</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">2</span>;} 
+</div></code></pre>
+<p><img src="2020-01-19-01-09-24.png" alt=""></p>
+<hr>
+<h3 id="the-grid-area-property">The <code>grid-area</code> Property</h3>
+<p><b>The grid-area property can be used as a shorthand property for the grid-row-start, grid-column-start, grid-row-end and the grid-column-end properties.</b></p>
+<h4 id="the-syntax">The Syntax:</h4>
+<p><code>grid-row-start / grid-column-start / grid-row-end / grid-column-end.</code></p>
+<blockquote>
+<p><b>Examples:</b></p>
+</blockquote>
+<ul>
+<li>Make &quot;item8&quot; start on row-line 1 and column-line 2, and end on row-line 5 and column line 6:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item8</span> {<span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">5</span> / <span class="hljs-number">6</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-17-39.png" alt=""></p>
+<ul>
+<li>Make &quot;item8&quot; start on row-line 2 and column-line 1, and span 2 rows and 3 columns:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item8</span> {<span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / span <span class="hljs-number">2</span> / span <span class="hljs-number">3</span>;}
+</div></code></pre>
+<p><img src="2020-01-19-01-20-23.png" alt=""></p>
+<hr>
+<h1 id="naming-grid-items">Naming Grid Items</h1>
+<ul>
+<li>The grid-area property can also be used to assign names to grid items.</li>
+</ul>
+<p><img src="2020-01-19-01-22-03.png" alt=""></p>
+<blockquote>
+<p>Named grid items can be referred to by the grid-template-areas property of the grid container.</p>
+</blockquote>
+<ul>
+<li>Item1 gets the name &quot;myArea&quot; and spans all five columns in a five columns grid layout:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-area</span>: myArea;}
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea myArea myArea myArea'</span>;
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-23-43.png" alt=""></p>
+<blockquote>
+<p>Notes:</p>
+</blockquote>
+<ul>
+<li>Each row is defined by apostrophes (' ')</li>
+<li>The columns in each row is defined inside the apostrophes, separated by a space.</li>
+<li>Also note: A period sign represents a grid item with no name.</li>
+</ul>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<ul>
+<li>Let <code>myArea</code> span two columns in a five columns grid layout (period signs represent items with no name):</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> {<span class="hljs-attribute">grid-area</span>: myArea;}
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea . . .'</span>;
+}
+</div></code></pre>
+<p><img src="2020-01-19-01-26-34.png" alt=""></p>
+<ul>
+<li>To define two rows, define the column of the second row inside another set of apostrophes:</li>
+</ul>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<ul>
+<li>Make &quot;item1&quot; span two columns and two rows:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'myArea myArea . . .'</span> <span class="hljs-string">'myArea myArea . . .'</span>;
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-28-23.png" alt=""></p>
+<h2 id="example">Example</h2>
+<p><b>Name all items, and make a ready-to-use webpage template:</b><br></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: header; }
+<span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: menu; }
+<span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: main; }
+<span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: right; }
+<span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: footer; }
+
+<span class="hljs-selector-class">.grid-container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-areas</span>:
+    <span class="hljs-string">'header header header header header header'</span>
+    <span class="hljs-string">'menu main main main right right'</span>
+    <span class="hljs-string">'menu footer footer footer footer footer'</span>;
+  <span class="hljs-attribute">grid-gap</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2196F3</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+}
+
+<span class="hljs-selector-class">.grid-container</span> &gt; <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(255, 255, 255, 0.8);
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">30px</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>The grid-area Property<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can use the <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>grid-area<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> property to name grid items.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can refer to the name when you set up the grid layout, by using the <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>grid-template-areas<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> property on the grid container.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This grid layout contains six columns and three rows:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item1"</span>&gt;</span>Header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item2"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item3"</span>&gt;</span>Main<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item4"</span>&gt;</span>Right<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item5"</span>&gt;</span>Footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h2 id="the-order-of-the-items">The Order of the Items</h2>
+<ul>
+<li>The Grid Layout allows us to position the items anywhere we like. The first item in the HTML code does not have to appear as the first item in the grid.</li>
+</ul>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span> / <span class="hljs-number">4</span>; }
+<span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span>; }
+<span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">2</span>; }
+<span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / <span class="hljs-number">3</span>; }
+<span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span>; }
+<span class="hljs-selector-class">.item6</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span>; } 
+</div></code></pre>
+<p><img src="2020-01-19-01-32-11.png" alt=""></p>
+<ul>
+<li>You can re-arrange the order for certain screen sizes, by using media queries:</li>
+</ul>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<pre class="hljs"><code><div>@<span class="hljs-keyword">media</span> only screen and (max-width: <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">3</span> / <span class="hljs-number">2</span> / <span class="hljs-number">4</span>; }
+  <span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span> / <span class="hljs-number">4</span>; }
+  <span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span>; }
+  <span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / span <span class="hljs-number">2</span> / <span class="hljs-number">3</span>; }
+  <span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span> / <span class="hljs-number">1</span> / <span class="hljs-number">4</span> / <span class="hljs-number">2</span>; }
+  <span class="hljs-selector-class">.item6</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span>; }
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-33-53.png" alt=""></p>
+<hr>
+<h1 id="css-templates">CSS TEMPLATES:</h1>
+<p>https://www.w3schools.com/css/css_templates.asp</p>
+<p><img src="2020-01-19-01-39-18.png" alt=""></p>
+<blockquote>
+<p>for Example:</p>
+</blockquote>
+<pre class="hljs"><code><div>@<span class="hljs-keyword">media</span> only screen and (max-width: <span class="hljs-number">500px</span>) {
+  <span class="hljs-selector-class">.item1</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">3</span> / <span class="hljs-number">2</span> / <span class="hljs-number">4</span>; }
+  <span class="hljs-selector-class">.item2</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span> / <span class="hljs-number">4</span>; }
+  <span class="hljs-selector-class">.item3</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">1</span> / <span class="hljs-number">3</span> / <span class="hljs-number">2</span>; }
+  <span class="hljs-selector-class">.item4</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">2</span> / span <span class="hljs-number">2</span> / <span class="hljs-number">3</span>; }
+  <span class="hljs-selector-class">.item5</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span> / <span class="hljs-number">1</span> / <span class="hljs-number">4</span> / <span class="hljs-number">2</span>; }
+  <span class="hljs-selector-class">.item6</span> { <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">2</span> / <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / <span class="hljs-number">4</span>; }
+} 
+</div></code></pre>
+<p><img src="2020-01-19-01-33-53.png" alt=""></p>
+<hr>
+<h1 id="css-templates">CSS TEMPLATES:</h1>
+<p>https://www.w3schools.com/css/css_templates.asp</p>
+<p><img src="2020-01-19-01-39-18.png" alt=""></p>
+
+</body>
+</html>

@@ -15,16 +15,24 @@ DROP DATABASE dbNameYouWant
 ALTER DATABASE dbNameYouWant CHARACTER SET utf8
 ```
 
-### Backup Database to SQL File
+### Backup specific Database or all Databases to SQL File
 
 ```bash
 mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
+mysqldump -u Username -p --all-databases > databasename_backup.sql
 ```
 
-### Restore from backup SQL File
+### Restore from backup SQL File a Databases or all Databases
 
 ```bash
 mysql - u Username -p dbNameYouWant < databasename_backup.sql
+mysql - u Username -p < databasename_backup.sql
+```
+
+### Drop all MySQL Databases
+
+```bash
+mysql -uroot -p -e "show databases" | grep -v Database | grep -v mysql| grep -v information_schema| gawk '{print "drop database `" $1 "`;select sleep(0.1);"}' | mysql -uroot -p
 ```
 
 ### Repair Tables After Unclean Shutdown
@@ -95,7 +103,7 @@ INSERT INTO table1 (field1, field2, ...) VALUES (value1, value2, ...)
 DELETE FROM table1 / TRUNCATE table1
 DELETE FROM table1 WHERE condition
 DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
-  table2.id2 AND condition
+table2.id2 AND condition
 ```
 
 ### Update
@@ -103,7 +111,7 @@ DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
 ```sql
 UPDATE table1 SET field1=new_value1 WHERE condition
 UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
-  table1.id1 = table2.id2 AND condition
+table1.id1 = table2.id2 AND condition
 ```
 
 ### Create / Delete / Modify Table
@@ -120,13 +128,13 @@ field2))
 
 ```sql
 CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,
-  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))
-    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]
+FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))
+[ON UPDATE|ON DELETE] [CASCADE|SET NULL]
 ```
 
 ```sql
 CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,
- FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))
+FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))
 ```
 
 ```sql
@@ -168,7 +176,7 @@ ALTER TABLE table MODIFY field1 type1 FIRST
 ALTER TABLE table MODIFY field1 type1 AFTER another_field
 ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST
 ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER
-  another_field
+another_field
 ```
 
 ### Keys

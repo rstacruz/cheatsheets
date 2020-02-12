@@ -49,6 +49,7 @@ category: CLI
     C-b hkjl    # navigation
     C-b HJKL    # resize
     C-b o       # next window
+    C-b q       # show pane numbers
     C-b x       # close pane
 
     C-b { or }  # move windows around

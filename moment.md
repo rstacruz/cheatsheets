@@ -17,12 +17,11 @@ This parses the given date using the given format. Returns a moment object.
 ### Formatting
 
 ```js
-m
-  .format()
-  .format('dddd')
-  .format('MMM Do YY') // → "Sep 2nd 07"
-  .fromNow() // → "31 minutes ago"
-  .calendar() // → "Last Friday at 9:32PM"
+m.format()            // "2013-03-01T00:00:00+01:00"
+m.format('dddd')      // "Friday"
+m.format('MMM Do YY') // "Mar 1st 13"
+m.fromNow()           // "7 years ago"
+m.calendar()          // "03/01/2013"
 ```
 
 ### Add

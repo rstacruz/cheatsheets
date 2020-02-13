@@ -31,7 +31,7 @@ section>p+p+p
 Expands to
 ```html
 <section>
-  <p></p>
+  <pt></p>
   <p></p>
   <p></p>
 </section>

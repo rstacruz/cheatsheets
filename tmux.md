@@ -15,7 +15,7 @@ category: CLI
     $ tmux new -s session_name
 
     $ tmux attach # Default session
-    $ tmux attach -s session_name
+    $ tmux attach -t session_name
 
     $ tmux switch -t session_name
 

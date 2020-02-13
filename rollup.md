@@ -74,13 +74,13 @@ This creates `main.js` and `vendor.js`.
 #### Terminal
 
 ```bash
-npm install -D rollup-plugin-json
+npm install -D @rollup/plugin-json
 ```
 
 #### rollup.config.js
 
 ```js
-import json from 'rollup-plugin-json'
+import json from '@rollup/plugin-json'
 
 export default {
   input: 'src/main.js',
@@ -97,12 +97,12 @@ export default {
 
 #### Terminal
 ```bash
-npm install --save-dev rollup-plugin-node-resolve
+npm install -D @rollup/plugin-node-resolve
 ```
 
 #### rollup.config.js
 ```js
-import resolve from 'rollup-plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
@@ -121,13 +121,13 @@ When you run a npm run build, no warning is emitted and contains the imported mo
 #### Terminal
 
 ```bash
-npm install -D rollup-plugin-node-resolve
+npm install -D @rollup/plugin-node-resolve
 ```
 
 #### rollup.config.js
 
 ```js
-import resolve from 'rollup-plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
@@ -157,7 +157,7 @@ npm install -D rollup-plugin-babel
 #### rollup.config.js
 
 ```js
-import resolve from 'rollup-plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 
 export default {

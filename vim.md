@@ -45,7 +45,7 @@ Getting started
 | Shortcut     | Description               |
 | ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
-| `e` _/_ `ge` | Previous/next end of word |
+| `ge` _/_ `e` | Previous/next end of word |
 {: .-shortcuts}
 
 #### Line

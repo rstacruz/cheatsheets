@@ -83,7 +83,7 @@ wrap.setState({ show: true })
 #### Asserting
 
 ```js
-expect(wrap.props('name')).toEqual('Moe')
+expect(wrap.prop('name')).toEqual('Moe')
 expect(wrap.state('show')).toEqual(true)
 ```
 

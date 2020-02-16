@@ -1,5 +1,5 @@
 ---
-title: Command line stuff
+Title: Command line stuff
 ---
 
 ## List (ls)
@@ -24,6 +24,7 @@ title: Command line stuff
 
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
+| -d */ | Only directories |
 | `-A` | Include hidden (but not . and ..) |
 {:.shortcuts}
 
@@ -40,6 +41,17 @@ title: Command line stuff
 |---
 | `-h` | Human-readable size (3k) |
 {:.shortcuts}
+
+#### Ls Samples
+
+```
+  ls -Cd */     # Only directories in column mode
+  ls -dl */     # Only directories in long view mode
+  ls -1d .*     # List only files with .dot(hiddden) 
+  ls -llt -tr   # Sort order by date(most recent)
+  ls -lah -S -r # List order by size
+  
+```
 
 <br>
 
@@ -61,6 +73,100 @@ title: Command line stuff
 | `-nN` | N lines |
 | `+N`  | Start from line N |
 {:.shortcuts}
+
+<br>
+
+### View current disk space
+
+```
+$ df -h
+```
+
+<br>
+
+### Delete Files older than X Days
+
+```
+find . -type f -name '*.xz' -mtime +30 -exec ls {}
+```
+
+### Find files are taking up the space
+
+##### Linux
+
+```
+sudo apt install ncdu 
+ncdu
+```
+
+##### Mac
+
+```
+brew install ncdu
+ncdu
+```
+
+<br>
+
+### Copy/Sync Files and Directory to or From a Server
+
+```
+[root@tecmint]$ rsync -avz rpmpkgs/ root@192.168.0.101:/home/
+
+root@192.168.0.101's password:
+
+sending incremental file list
+./
+httpd-2.2.3-82.el5.centos.i386.rpm
+...
+
+```
+
+### Copy/Sync a Remote Directory to a Local Machine
+
+```
+[root@tecmint]# rsync -avzh root@192.168.0.100:/home/tarunika/rpmpkgs /tmp/myrpms
+
+root@192.168.0.100's password:
+
+receiving incremental file list
+
+created directory /tmp/myrpms
+rpmpkgs/
+rpmpkgs/httpd-2.2.3-82.el5.centos.i386.rpm
+
+...
+```
+
+### Copy a File from a Remote Server to a Local Server with SSH
+
+```
+[root@tecmint]# rsync -avzhe ssh root@192.168.0.100:/root/install.log /tmp/
+
+root@192.168.0.100's password:
+
+receiving incremental file list
+install.log
+sent 30 bytes  received 8.12K bytes  1.48K bytes/sec
+...
+```
+
+### Show Progress While Transferring Data with rsync
+
+```
+[root@tecmint]# rsync -avzhe ssh --progress /home/rpmpkgs root@192.168.0.100:/root/rpmpkgs
+
+root@192.168.0.100's password:
+
+sending incremental file list
+
+created directory /root/rpmpkgs
+rpmpkgs/
+rpmpkgs/httpd-2.2.3-82.el5.centos.i386.rpm
+
+           1.02M 100%        2.72MB/s        0:00:00 (xfer#1, to-check=3/5)
+
+```
 
 <br>
 
@@ -132,14 +238,36 @@ sudo [options] <command>
 
 ## Search-and-replace in all files
 
+```
+    # All folders
     perl -p -i -e 's/hello/HELLO/g' **/*
-
+    
+    # Specific file
+    perl -p -i -e 's/sending/receiving/g' tmux-client-57567.log
+```
 <br>
 
 ## Grep
 
 ```
 grep [options] [pattern] [file ...]
+
+# find by filename 
+$ grep -rl "rahul" /home/
+
+# Search text in a file
+grep "FATAL" /var/log/syslog
+
+# Search multiple strings 
+grep "FATAL|Warning|Error" /var/log/syslog
+
+# Search in all files
+grep "Error" /var/log/*            
+
+# Search in specific extension files
+grep "rahul" /var/log/*.log
+
+
 ```
 
 ### Options
@@ -170,3 +298,50 @@ grep [options] [pattern] [file ...]
 
     egrep  =>  grep -E
     fgrep  =>  grep -F
+    
+   
+## Ag the Silver search
+
+[More Samples](https://beyondgrep.com/feature-comparison/)
+
+```
+# Search string DHH with 3 rows extra informations
+ag -C 3 DHH  
+
+# Search string in specify path
+ag DHH guides/ 
+
+# Search string in filesnames that contain the word action.
+ag readme -l -G action
+
+# Search string only to match filenames that end with ec.
+ag readme -l -i -G ec$
+
+# Search string with --ignore-dir Flag
+ag readme -l --ignore-dir=railties/lib
+
+# Search string in specific extension files(.rb)
+ag create_table -C 3 -G .rb$
+
+# Search string map in ruby files with line and column numbers
+ag --ruby map --column
+
+# List all file-types
+ag --list-file-types
+
+
+```
+
+<br>
+
+## Restart Linux Server using command prompt
+
+```
+   $  reboot
+   $  poweroff
+   $  shutdown -r 10  # Reboot server just after 10 minutes without displaying any message.
+   $  shudwown -r now # Reboot server immediately without any message.
+      # Reboot server at 02:10 AM with displaying proper message to user.
+   $  shutdown -r 02:10 "System is going to reboot..."  
+ ```
+    

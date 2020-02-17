@@ -15,7 +15,7 @@ updated: 2020-02-17
 go run main.go
 ```
 
-#### If there are multiple files with the same package (`main`), then all of the file names need to be added as arguments.
+#### If there are multiple main files with the same package name, then all of the file names need to be added as arguments.
 
 ```bash
 # COMMAND: go run <main-file> <main-file> <main-file> ...
@@ -183,6 +183,35 @@ go mod tidy
 
 ```bash
 go mod vendor
+```
+
+## Dep - Go dependency management tool
+{: .-three-column}
+
+### Initialize dep on a project
+
+```bash
+dep init
+```
+
+#### Ensure all dependencies are safely vendored
+
+```bash
+dep ensure
+```
+
+### Download/update dependency
+
+```bash
+# COMMAND: dep ensure -add <DEPENDENCY>
+dep ensure -add github.com/novalagung/gubrak/v2
+
+# update all dependencies
+dep ensure -update
+
+# update certain dependency
+# COMMAND: dep ensure -update <DEPENDENCY>
+dep ensure -update github.com/novalagung/gubrak/v2
 ```
 
 Also see

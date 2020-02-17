@@ -24,3 +24,12 @@ child:
   <<: *defaults
   b: 4
 ```
+
+### Reference content
+
+```yaml
+values:
+- &ref Something to reuse
+- *ref  # Reused content
+```
+

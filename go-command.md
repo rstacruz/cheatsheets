@@ -141,16 +141,14 @@ go doc -u -src github.com/novalagung/gubrak/v2.From
 go mod init my-project
 ```
 
-### Enable go module on a project inside `$GOPATH`
+### Enable go module on a project inside `$GOPATH`. For unix or linux
 
 ```bash
-cd $GOPATH/src/eaciit/project-name
-
 GO111MODULE=on go run main.go
 GO111MODULE=on go build
 ```
 
-#### For windows user
+#### Enable go module on a project inside `$GOPATH`. For windows
 
 ```bash
 SET GO111MODULE=on

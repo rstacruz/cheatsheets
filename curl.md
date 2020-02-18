@@ -21,6 +21,7 @@ updated: 2017-09-20
 ```
 
 ```bash
+-i           # --include: Include the HTTP-header in the output
 -I           # --head: headers only
 ```
 

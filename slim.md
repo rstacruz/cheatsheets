@@ -21,6 +21,44 @@ html
     meta(
       property='description'
       content='this is the song that never ends')
+  body
+    .foo This will be a div with the "foo" css class applied to it
+    #bar This will be a div with the "bar" id applies to it
+    
+    p You can use other html tags like this
+    span#baz You can also combine them with other formatting. So, this will be a span with the id "baz"
+    
+    a href="example.com" You can also add attributes after the the tag, like this
+    div[
+      data-example=true
+    ] You can also put the attributes in brackets and even break them onto multiple lines, if you prefer.
+    div(data-exampe=true) This also works
+    div{data-exampe=true} And so does this
+      
+    p> This line will have a trailing whitespace at the end
+    p> This line will have a leading whitespace at the beginning
+    
+    .verbatim-text
+      | This line will be copied verbatim
+      ' This line will be copied verbatim, with a trailing whitespace
+      
+    / This is a comment and will not be rendered in the output
+    /! This will insert an HTML comment
+    /[if IE]
+      .internet-explorer This will insert an IE conditional comment
+    
+    .eg You can also use ruby interpolation to insert #{anything_you_want} into a line
+      | Unescaped #{{content}} is also possible.
+    a href="http://#{url}" You can use interpolation in the attributes, too
+      
+    = this_will_insert_the_resulting_ruby_code_as_a_string
+    
+    - if condition
+      .eg This will only be rendered if "condition" is true
+    - else
+      .eg And this will only be rendered if "condition" is false
+      
+    <div>If you need to, you can render html just like normal, too!</div>
 ```
 
 ### Attributes

@@ -177,6 +177,14 @@ go get -u github.com/novalagung/gubrak/v2
 go mod tidy
 ```
 
+#### Download/tidy dependency from a private git repo
+
+```bash
+# simply add GIT_TERMINAL_PROMPT=1
+GIT_TERMINAL_PROMPT=1 go get github.com/novalagung/gubrak/v2
+GIT_TERMINAL_PROMPT=1 go mod tidy
+```
+
 #### Make vendored copy of dependencies. The command will generate new directory called `vendor` and all of dependencies used within the program will be copied into the folder.
 
 ```bash

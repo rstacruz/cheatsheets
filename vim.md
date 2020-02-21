@@ -362,10 +362,11 @@ Do these in visual or normal mode.
 
 ### Misc
 
-| Shortcut | Description                               |
-| ---      | ---                                       |
-| `.`      | Repeat last command                       |
-| `]p`     | Paste under the current indentation level |
+| Shortcut   | Description                                       |
+| ---        | ---                                               |
+| `.`        | Repeat last command                               |
+| `]p`       | Paste under the current indentation level         |
+| `:ff=unix` | Convert Windows line endings to Unix line endings |
 {: .-shortcuts}
 
 ### Command line

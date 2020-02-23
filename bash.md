@@ -327,12 +327,13 @@ fi
 
 ### Arguments
 
-| Expression | Description                        |
-| ---        | ---                                |
-| `$#`       | Number of arguments                |
-| `$*`       | All arguments                      |
-| `$@`       | All arguments, starting from first |
-| `$1`       | First argument                     |
+| Expression | Description                            |
+| ---        | ---                                    |
+| `$#`       | Number of arguments                    |
+| `$*`       | All arguments                          |
+| `$@`       | All arguments, starting from first     |
+| `$1`       | First argument                         |
+| `$_`       | Last argument of the previous command  |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

@@ -39,6 +39,12 @@ local dependencies to the last committed state. If that file is modified on the 
 
 This command changes only the `composer.lock` file.
 
+### Updating autoloader
+
+| Command                    | Description                        |
+| ---                        | ---                                |
+| `composer dumpautoload -o` | Generates optimized autoload files |
+
 ### Adding packages
 
 | Command                          | Description                                                 |

@@ -8,7 +8,6 @@ Here are some badges for open source projects.
 
     Travis
     [![Status](https://travis-ci.org/rstacruz/REPO.svg?branch=master)](https://travis-ci.org/rstacruz/REPO)  
-
     CodeClimate (shields.io)
     [![CodeClimate](http://img.shields.io/codeclimate/github/rstacruz/REPO.svg?style=flat)](https://codeclimate.com/github/rstacruz/REPO 
     "CodeClimate")
@@ -28,7 +27,7 @@ Here are some badges for open source projects.
 ### Etc
 
     Gitter chat
-    [![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/USER/REPO "Gitter chat")
+    [![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/REPO/GITTERROOM "Gitter chat")
 
     Gitter chat (shields.io)
     [![Chat](http://img.shields.io/badge/gitter-USER / REPO-blue.svg)]( https://gitter.im/USER/REPO )
@@ -36,7 +35,7 @@ Here are some badges for open source projects.
     david-dm
     [![Dependencies](http://img.shields.io/david/rstacruz/REPO.svg?style=flat)](https://david-dm.org/rstacruz/REPO)
 
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+    [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
     [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 

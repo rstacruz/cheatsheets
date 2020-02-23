@@ -43,7 +43,7 @@ Getting started
 #### Words
 
 | Shortcut     | Description               |
-| ---          | ---                       |
+ff| ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
 | `ge` _/_ `e` | Previous/next end of word |
 {: .-shortcuts}
@@ -366,6 +366,7 @@ Do these in visual or normal mode.
 | ---        | ---                                               |
 | `.`        | Repeat last command                               |
 | `]p`       | Paste under the current indentation level         |
+| ---        | ---                                               |
 | `:ff=unix` | Convert Windows line endings to Unix line endings |
 {: .-shortcuts}
 

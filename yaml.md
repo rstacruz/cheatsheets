@@ -28,8 +28,10 @@ child:
 ### Reference content
 
 ```yaml
-values:
-- &ref Something to reuse
-- *ref  # Reused content
+values: &ref
+  - These values
+  - will be reused below
+  
+other_values:
+  <<: *ref
 ```
-

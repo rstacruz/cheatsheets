@@ -21,6 +21,9 @@ rsync -avz ./src/ /dest
 --exclude '.Trashes'
 --exclude '.Spotlight-V100'
 --exclude '.fseventsd'
+# alternatively, define ignored patterns in ~/.cvsignore
+# in conjunction with passing the following flag
+-C, --cvs-exclude
 ```
 
 ### Transfer options

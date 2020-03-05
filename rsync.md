@@ -71,6 +71,10 @@ rsync -avz ./src/ /dest
 --files-from=FILE    # read list of filenames from FILE
 ```
 
+```bash
+-C, --cvs-exclude    # exclude from local/global .cvsignore
+```
+
 ### Archive options
 
 ```bash

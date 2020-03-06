@@ -101,7 +101,6 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 #### Arguments can be passed
 ```html
 <button @click="addToCart(product)">...
-}
 ```
 
 #### To prevent default behavior (e.g. page reload)

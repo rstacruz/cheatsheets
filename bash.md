@@ -754,6 +754,14 @@ if grep -q 'foo' ~/.bash_history; then
 fi
 ```
 
+### Output Grouping
+
+You can use `{ ... }` to group the output from several commands into one big blob. This syntax does not create a subshell (unlike the `()` syntax).
+
+```bash
+{ echo "Error: something happened"; echo "Warning: this incident will be logged"; } > log.txt
+```
+
 ## Also see
 {: .-one-column}
 

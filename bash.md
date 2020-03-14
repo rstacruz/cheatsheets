@@ -138,6 +138,7 @@ See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 STR="/path/to/foo.cpp"
 echo ${STR%.cpp}    # /path/to/foo
 echo ${STR%.cpp}.o  # /path/to/foo.o
+echo ${STR%/*}      # /path/to
 
 echo ${STR##*.}     # cpp (extension)
 echo ${STR##*/}     # foo.cpp (basepath)
@@ -563,7 +564,7 @@ History
 
 ### Operations
 
-| `!!` | Execute last command again |         
+| `!!` | Execute last command again |
 | `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
 | `!$:t` | Expand only basename from last parameter of most recent command |

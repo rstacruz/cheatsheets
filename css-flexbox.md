@@ -56,6 +56,9 @@ weight: -3
   justify-content: flex-start; /* horizontal alignment - default */
   justify-content: flex-end;
   justify-content: center;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
 ```
 
 ```css

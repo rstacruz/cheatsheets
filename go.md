@@ -135,6 +135,11 @@ func getPointer () (myPointer *int) {
 }
 ```
 {: data-line="3"}
+```go
+a := new(int)
+*a = 234
+```
+{: data-line="4"}
 
 Pointers point to a memory location of a variable. Go is fully garbage-collected.
 

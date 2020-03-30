@@ -1,4 +1,6 @@
-
+| title | category |
+| --- | --- |
+| dat | CLI |
 
 ### Installation
 

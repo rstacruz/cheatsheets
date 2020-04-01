@@ -368,8 +368,8 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | `[[ -o noclobber ]]`   | If OPTIONNAME is enabled |
 | ---                    | ---                      |
 | `[[ ! EXPR ]]`         | Not                      |
-| `[[ X ]] && [[ Y ]]`   | And                      |
-| `[[ X ]] || [[ Y ]]`   | Or                       |
+| `[[ X  &&  Y ]]`       | And                      |
+| `[[ X  ||  Y ]]`       | Or                       |
 
 ### File conditions
 
@@ -401,7 +401,7 @@ fi
 
 ```bash
 # Combinations
-if [[ X ]] && [[ Y ]]; then
+if [[ X && Y ]]; then
   ...
 fi
 ```

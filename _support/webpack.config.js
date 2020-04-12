@@ -33,23 +33,18 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader' }
-        ]
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
       }
     ]
   },
   resolve: {
     alias: {
       // Never bundle jQuery
-      'jquery': join(__dirname, '..', '_js/helpers/noop.js')
+      jquery: join(__dirname, '..', '_js/helpers/noop.js')
     }
   },
   stats: 'minimal',
@@ -68,6 +63,5 @@ module.exports = {
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production'
     })
-  ],
-  devtool: 'source-map'
+  ]
 }

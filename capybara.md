@@ -13,7 +13,7 @@ tags: [Featurable]
 
 ### Clicking links and buttons
 
-    click 'Link Text'
+    click_on 'Link Text'
     click_button
     click_link
 

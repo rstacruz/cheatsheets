@@ -214,12 +214,13 @@ echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
 
 ### Default values
 
-| `${FOO:-val}`        | `$FOO`, or `val` if not set |
-| `${FOO:=val}`        | Set `$FOO` to `val` if not set |
-| `${FOO:+val}`        | `val` if `$FOO` is set |
-| `${FOO:?message}`    | Show error message and exit if `$FOO` is not set |
+| `${FOO:-val}`        | `$FOO`, or `val` if unset (or null) |
+| `${FOO:=val}`        | Set `$FOO` to `val` if unset (or null) |
+| `${FOO:+val}`        | `val` if `$FOO` is set (and not null) |
+| `${FOO:?message}`    | Show error message and exit if `$FOO` is unset (or is null) |
 
-The `:` is optional (eg, `${FOO=word}` works)
+Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
+
 
 Loops
 -----

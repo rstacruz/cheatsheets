@@ -116,7 +116,6 @@ updated: 2020-01-18
 | Keys  | Description |
 | ----- | ----------- |
 | C-x u | Undo        |
-| C-\_  | Undo        |
 | C-/   | Undo        |
 | C-S-/ | Redo        |
 {: .-shortcuts}
@@ -147,8 +146,8 @@ updated: 2020-01-18
 | ---------------- | ----------------------------------------------------------------------- |
 | C-right          | Slurp; move closing parenthesis to the right to include nextexpression. |
 | C-left           | Barf; move closing parenthesis to the left to exclude lastexpression.   |
-| C-M-f            | Move to the opening/closing parenthesis.                                |
-| C-M-b            | Move to the opening/closing parenthesis.                                |
+| C-M-f            | Move forward to the opening/closing parenthesis.                                |
+| C-M-b            | Move backward to the opening/closing parenthesis.                                |
 | M-(              | Surround expression after point in parentheses(paredit-wrap-round).     |
 | M-x paredit-mode | Toggle paredit mode                                                     |
 {: .-shortcuts}

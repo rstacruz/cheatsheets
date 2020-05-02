@@ -16,6 +16,7 @@ module.exports = {
       'prismjs/components/prism-scss.min.js',
       'prismjs/components/prism-css.min.js',
       'prismjs/components/prism-elixir.min.js',
+      'prismjs/components/prism-elm.min.js',
       'prismjs/components/prism-ruby.min.js',
 
       // CSS

@@ -107,3 +107,26 @@ var_dump(isset($options['blank']), empty($options['blank'])); // true, true
 var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
 
 ```
+
+### Send JSON via Post request
+```php
+
+//The JSON data.
+$data = array(
+    'username' => 'MyUsername',
+    'password' => 'MyPassword'
+);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    "Content-Type: application/json",
+));
+curl_setopt($ch, CURLOPT_POST, 1);  //Tell cURL that we want to send a POST request
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));  //Attach our encoded JSON string to the POST fields.
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  //avoid outputting the return value directly. 
+
+$reply = curl_exec($ch);
+$error = curl_error($ch);
+curl_close($ch);
+
+```

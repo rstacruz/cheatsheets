@@ -122,15 +122,17 @@ category: Python
 file = open("hello.txt", "r") # open in read mode 'r'
 file.close() 
 
-print(file.read())  # read the file 
-print fh.readline() # Reading line by line
+---
+print(file.read())  # read the entire file and set the cursor at the end of file
+print file.readline() # Reading one line
+file.seek(0, 0) # place the cursor at the beggining of the file
 ```
 
 ### Writing (overwrite)
 
 ```py
 file = open("hello.txt", "w") # open in write mode 'w'
-write("Hello World")
+file.write("Hello World") 
 
 text_lines = ["First line", "Second line", "Last line"] 
 file.writelines(text_lines)
@@ -142,7 +144,7 @@ file.close()
 
 ```py
 file = open("Hello.txt", "a") # open in append mode
-write("Hello World again")  
+file.write("Hello World again")  
 file.close()
 ```
 
@@ -150,8 +152,9 @@ file.close()
 
 ```py
 with open("welcome.txt", "r") as file:
-    # 'file' refers directly to the "welcome.txt"
+    # 'file' refers directly to "welcome.txt"
    data = file.read()
+
+# It closes the file automatically at the end of scope, no need for `file.close()`.
 ```
 
-It closes the file automatically, no need for `file.close()`.

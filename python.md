@@ -58,7 +58,7 @@ category: Python
     string.replace("-", " ")
     ",".join(list)
     "hi {0}".format('j')
-    "hi {name}" # same as "hi {}".format('name')
+    f"hi {name}" # same as "hi {}".format('name')
     str.find(",")
     str.index(",")   # same, but raises IndexError
     str.count(",")

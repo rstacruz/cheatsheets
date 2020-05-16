@@ -1,3 +1,16 @@
+---
+title: kubectl
+category: kubernetes
+layout: 2017/sheet
+tags: [Featured]
+updated: 2020-05-16
+weight: -10
+intro: |
+ Kubectl is a command line tool for controlling Kubernetes clusters. `kubectl` looks for a file named config in the $HOME/.kube directory. You can specify other [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) files by setting the KUBECONFIG environment variable or by setting the [--kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) flag.
+
+This overview covers kubectl syntax, describes the command operations, and provides common examples. For details about each command, including all the supported flags and subcommands, see the [kubectl](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands/) reference documentation. For installation instructions see [installing kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
+---
+
 ## Getting started
 
 ### Kubectl Autocomplete
@@ -5,8 +18,8 @@
 #### BASH
 
 ```bash
-source <(kubectl completion bash) # active l'auto-complétion pour bash dans le shell courant, le paquet bash-completion devant être installé au préalable
-echo "source <(kubectl completion bash)" >> ~/.bashrc # ajoute l'auto-complétion de manière permanente à votre shell bash
+source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
 ```
 
 You can also use a shorthand alias for `kubectl` that also works with completion:
@@ -19,8 +32,8 @@ complete -F __start_kubectl k
 #### ZSH
 
 ```zsh
-source <(kubectl completion zsh)  # active l'auto-complétion pour zsh dans le shell courant
-echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc # ajoute l'auto-complétion de manière permanente à votre shell zsh
+source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
+echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
 ```
 
 ### Kubectl Context and Configuration
@@ -244,7 +257,7 @@ kubectl scale --replicas=5 rc/foo rc/bar rc/baz                   # Scale multip
 ### Deleting Resources
 
 ```bash
-kubectl delete -f ./pod.json                                              # Delete a pod using the type and name specified in pod.json
+kubectl delete -f ./pod.json                                            # Delete a pod using the type and name specified in pod.json
 kubectl delete pod,service baz foo                                        # Delete pods and services with same names "baz" and "foo"
 kubectl delete pods,services -l name=myLabel                              # Delete pods and services with label name=myLabel
 kubectl -n my-ns delete pod,svc --all                                      # Delete all pods and services in namespace my-ns,
@@ -254,28 +267,26 @@ kubectl get pods  -n mynamespace --no-headers=true | awk '/pattern1|pattern2/{pr
 
 ### Interacting with running Pods
 
-```bash
-kubectl logs my-pod                                 # dump pod logs (stdout)
-kubectl logs -l name=myLabel                        # dump pod logs, with label name=myLabel (stdout)
-kubectl logs my-pod --previous                      # dump pod logs (stdout) for a previous instantiation of a container
-kubectl logs my-pod -c my-container                 # dump pod container logs (stdout, multi-container case)
-kubectl logs -l name=myLabel -c my-container        # dump pod logs, with label name=myLabel (stdout)
-kubectl logs my-pod -c my-container --previous      # dump pod container logs (stdout, multi-container case) for a previous instantiation of a container
-kubectl logs -f my-pod                              # stream pod logs (stdout)
-kubectl logs -f my-pod -c my-container              # stream pod container logs (stdout, multi-container case)
-kubectl logs -f -l name=myLabel --all-containers    # stream all pods logs with label name=myLabel (stdout)
-kubectl run -i --tty busybox --image=busybox -- sh  # Run pod as interactive shell
-kubectl run nginx --image=nginx --restart=Never -n 
-mynamespace                                         # Run pod nginx in a specific namespace
-kubectl run nginx --image=nginx --restart=Never     # Run pod nginx and write its spec into a file called pod.yaml
---dry-run -o yaml > pod.yaml
+| Command | Description |
+| ------- | ----------- |
+| `kubectl logs my-pod` | dump pod logs (stdout) |
+| `kubectl logs -l name=myLabel` | dump pod logs, with label name=myLabel (stdout) |
+| `kubectl logs my-pod --previous` | dump pod logs (stdout) for a previous instantiation of a container |
+| `kubectl logs my-pod -c my-container` | dump pod container logs (stdout, multi-container case) |
+| `kubectl logs -l name=myLabel -c my-container` | dump pod logs, with label name=myLabel (stdout) |
+| `kubectl logs my-pod -c my-container --previous` | dump pod container logs (stdout, multi-container case) for a previous instantiation of a container |
+| `kubectl logs -f my-pod` | stream pod logs (stdout) |
+| `kubectl logs -f my-pod -c my-container` | stream pod container logs (stdout, multi-container case) |
+| `kubectl logs -f -l name=myLabel --all-containers` | stream all pods logs with label name=myLabel (stdout) |
+| `kubectl run -i --tty busybox --image=busybox -- sh` | Run pod as interactive shell |
+| `kubectl run nginx --image=nginx --restart=Never -n mynamespace` | Run pod nginx in a specific namespace |
+| `kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml` | Run pod nginx and write its spec into a file called pod.yaml |
+| `kubectl attach my-pod -i` | Attach to Running Container |
+| `kubectl port-forward my-pod 5000:6000` | Listen on port 5000 on the local machine and forward to port 6000 on my-pod |
+| `kubectl exec my-pod -- ls /` | Run command in existing pod (1 container case) |
+| `kubectl exec my-pod -c my-container -- ls /` | Run command in existing pod (multi-container case) |
+| `kubectl top pod POD_NAME --containers` | Show metrics for a given pod and its containers |
 
-kubectl attach my-pod -i                            # Attach to Running Container
-kubectl port-forward my-pod 5000:6000               # Listen on port 5000 on the local machine and forward to port 6000 on my-pod
-kubectl exec my-pod -- ls /                         # Run command in existing pod (1 container case)
-kubectl exec my-pod -c my-container -- ls /         # Run command in existing pod (multi-container case)
-kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
-```
 
 ### Interacting with Nodes and Cluster
 
@@ -332,7 +343,7 @@ Examples using `-o=custom-columns`:
 # All images running in a cluster
 kubectl get pods -A -o=custom-columns='DATA:spec.containers[*].image'
 
- # All images excluding "k8s.gcr.io/coredns:1.6.2"
+# All images excluding "k8s.gcr.io/coredns:1.6.2"
 kubectl get pods -A -o=custom-columns='DATA:spec.containers[?(@.image!="k8s.gcr.io/coredns:1.6.2")].image'
 
 # All fields under metadata regardless of name
@@ -345,8 +356,8 @@ More examples in the kubectl [reference documentation](https://kubernetes.io/doc
 
 Kubectl verbosity is controlled with the `-v` or `--v` flags followed by an integer representing the log level. General Kubernetes logging conventions and the associated log levels are described [here](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md).
 
-| Verbosity                           | Description                      |
-| ----------------------------------- | -------------------------------- |
+| Verbosity | Description |
+| --------- | ----------- |
 | `--v=0` | Generally useful for this to always be visible to a cluster operator. |
 | `--v=1` | A reasonable default log level if you don’t want verbosity. |
 | `--v=2` | Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems. |

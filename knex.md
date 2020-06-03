@@ -161,6 +161,7 @@ knex
   .where({ title: 'Hello' })
   .whereIn('id', [1, 2, 3])
   .whereNot(···)
+  .whereNotIn('id', [1, 2, 3])
 ```
 
 #### Where conditions

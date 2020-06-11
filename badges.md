@@ -37,8 +37,6 @@ Here are some badges for open source projects.
 
     [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-    [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-
 ### Support stuff
 
     Support

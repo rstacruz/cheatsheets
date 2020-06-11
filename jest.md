@@ -28,14 +28,6 @@ npm install --save-dev jest babel-jest
 }
 ```
 
-### Optional Flags
-```
-**--coverage** : See a summary of test coverage
-**--detectOpenHandles**: See a summary of ports that did not close
-**--runInBand**: Run all tests one after the other.
-npm test + [flag]
-```
-
 ```bash
 # Run your tests
 npm test -- --watch
@@ -100,6 +92,15 @@ it.skip(···) // alias: xit()
 ```
 
 See: [test.skip](http://facebook.github.io/jest/docs/en/api.html#testskipname-fn)
+
+
+### Optional flags
+
+| Flag                  | Description                              |
+| --------------------- | ---------------------------------------- |
+| `--coverage`          | See a summary of test coverage           |
+| `--detectOpenHandles` | See a summary of ports that didn't close |
+| `--runInBand`         | Run all tests one after the other        |
 
 Expect
 ------

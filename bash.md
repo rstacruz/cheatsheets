@@ -446,7 +446,8 @@ Fruits[2]="Orange"
 ### Working with arrays
 
 ```bash
-echo ${Fruits[0]}           # Element #0
+echo ${Fruits[1]}           # Element #1, shell arrays start at 1
+echo ${Fruits[-1]}          # Last element
 echo ${Fruits[@]}           # All elements, space-separated
 echo ${#Fruits[@]}          # Number of elements
 echo ${#Fruits}             # String length of the 1st element

@@ -53,9 +53,12 @@ weight: -3
 ```
 
 ```css
-  justify-content: flex-start; /* horizontal alignment - default */
-  justify-content: flex-end;
-  justify-content: center;
+  justify-content: flex-start;    /* [xxx        ] */
+  justify-content: center;        /* [    xxx    ] */
+  justify-content: flex-end;      /* [        xxx] */
+  justify-content: space-between; /* [x    x    x] */
+  justify-content: space-around;  /* [ x   x   x ] */
+  justify-content: space-evenly;  /* [  x  x  x  ] */
 ```
 
 ```css

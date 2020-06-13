@@ -43,7 +43,7 @@ Getting started
 #### Words
 
 | Shortcut     | Description               |
-ff| ---          | ---                       |
+| ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
 | `ge` _/_ `e` | Previous/next end of word |
 {: .-shortcuts}

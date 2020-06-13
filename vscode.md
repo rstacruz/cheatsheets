@@ -90,6 +90,20 @@ intro: |
 | `⇧⌘Y`  | Debug panel             |
 {: .-shortcuts}
 
+### Navigation
+| Key    | Description                           |
+| ------ | ------------------------------------- |
+| `F5`   | Show all Symbols                      |
+|`⌘T`    |Show all Symbols                       |
+|`⌃G`    |Go to Line...                          |
+|`⌘P`    |Go to File...                          |
+|`⇧⌘O`   |Go to Symbol...                        |
+|`⇧⌘M`   |Show Problems panel                    |
+|`F8/⇧F8`| Go to next/previous error or warning  |
+|`⌃⇧Tab` |Navigate editor group history          |
+|`⌃-/⌃⇧-`|Go back/forward                        |
+|`⌃⇧M`   |Toggle Tab moves focus                 |
+
 ## References
 
 * [Keyboard shortcuts (MacOS)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) _(code.visualstudio.com)_

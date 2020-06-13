@@ -11,7 +11,7 @@ category: CLI
 uglify = $(uglify)        # lazy assignment
 compressor := $(uglify)   # immediate assignment
 prefix ?= /usr/local      # safe assignment
-hello += world                # append
+hello += world            # append
 ```
 
 `=` expressions are only evaluated when they're being used.

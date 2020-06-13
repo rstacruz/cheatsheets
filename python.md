@@ -121,8 +121,9 @@ category: Python
 ```py
 file = open("hello.txt", "r") # open in read mode 'r'
 file.close() 
+```
 
----
+```py
 print(file.read())  # read the entire file and set the cursor at the end of file
 print file.readline() # Reading one line
 file.seek(0, 0) # place the cursor at the beggining of the file

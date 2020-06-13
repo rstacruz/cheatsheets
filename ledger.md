@@ -255,6 +255,7 @@ $ ledger reg
     ^regex$
     @payee
     %tag
+    %tag=value
     =note
     #code
     term and term

@@ -13,9 +13,11 @@ tags: [Featurable]
 
 ### Clicking links and buttons
 
-    click_on 'Link Text'
-    click_button
-    click_link
+```ruby
+click_on 'Link Text'
+click_button
+click_link
+```
 
 ### Interacting with forms
 

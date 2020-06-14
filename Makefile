@@ -9,14 +9,11 @@ help:
 	@echo
 
 # Builds intermediate files. Needs a _site built first though
-update: _site critical
+update: _site
 
 # Builds _site
 _site:
-	bundle exec jekyll build --incremental
-
-critical: _site ## Builds critical path CSS/JS
-	yarn critical
+	yarn build
 
 dev: 
 	yarn dev

@@ -1,10 +1,25 @@
 language: ruby
-rvm:
-- 2.5
+rvm: [2.7.1]
+
+before_install:
+  - nvm install 12
+  - nvm use 12
+  - node --version
+  - ruby --version
+
+install:
+  - yarn --frozen-lockfile
+  - bundle --jobs=3 --retry=3 --deployment --path=${BUNDLE_PATH:-vendor/bundle}
+
 script:
-- make -B _site
-- if ! make test; then make test-warning; exit 16; fi
-cache: bundler
+  - yarn build
+  - yarn test
+  - if ! make test; then make test-warning; exit 16; fi
+
+cache:
+  bundler: true
+  yarn: true
+
 notifications:
   slack:
     if: branch = master OR branch =~ ^.*slack.*$

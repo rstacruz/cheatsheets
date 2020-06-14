@@ -6,5 +6,7 @@ import onmount from 'onmount'
  */
 
 ready(() => {
-  setTimeout(() => { onmount() })
+  setTimeout(() => {
+    onmount()
+  })
 })

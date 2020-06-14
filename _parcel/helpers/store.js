@@ -9,7 +9,7 @@
  *     })
  */
 
-export function update (key, fn) {
+export function update(key, fn) {
   if (!window.localStorage) return
   let data = JSON.parse(window.localStorage[key] || '{}')
   data = fn(data)
@@ -23,7 +23,7 @@ export function update (key, fn) {
  *     const data = fetch('dismissed')
  */
 
-export function fetch (key) {
+export function fetch(key) {
   if (!window.localStorage) return
   return JSON.parse(window.localStorage[key] || '{}')
 }

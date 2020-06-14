@@ -6,7 +6,7 @@ import on from 'dom101/on'
  */
 
 onmount('[data-js-search-form]', function () {
-  on(this, 'submit', e => {
+  on(this, 'submit', (e) => {
     e.preventDefault()
 
     const link = document.querySelector('a[data-search-index]:visible')

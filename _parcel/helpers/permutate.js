@@ -7,7 +7,7 @@
  *     })
  */
 
-export default function permutate (data) {
+export default function permutate(data) {
   let words = []
   if (data.slug) {
     words = words.concat(permutateString(data.slug))
@@ -26,11 +26,11 @@ export default function permutate (data) {
  *     => ['h', 'hi', 'j', 'jo', 'joe']
  */
 
-export function permutateString (str) {
+export function permutateString(str) {
   let words = []
   let inputs = splitwords(str)
 
-  inputs.forEach(word => {
+  inputs.forEach((word) => {
     words = words.concat(permutateWord(word))
   })
 
@@ -45,7 +45,7 @@ export function permutateString (str) {
  *     => ['h', 'he', 'hel', 'hell', 'hello']
  */
 
-export function permutateWord (str) {
+export function permutateWord(str) {
   let words = []
   const len = str.length
   for (var i = 1; i <= len; ++i) {
@@ -62,10 +62,11 @@ export function permutateWord (str) {
  *     => ['hello', 'world']
  */
 
-export function splitwords (str) {
-  const words = str.toLowerCase()
+export function splitwords(str) {
+  const words = str
+    .toLowerCase()
     .split(/[ /\-_]/)
-    .filter(k => k && k.length !== 0)
+    .filter((k) => k && k.length !== 0)
 
   return words
 }

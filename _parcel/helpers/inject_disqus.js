@@ -5,12 +5,12 @@
  *     inject('devhints.disqus.com')
  */
 
-export default function inject (host) {
+export default function inject(host) {
   injectEmbed(host)
   injectCount(host)
 }
 
-export function injectEmbed (host) {
+export function injectEmbed(host) {
   const d = document
   const s = d.createElement('script')
   s.src = `https://${host}/embed.js`
@@ -18,7 +18,7 @@ export function injectEmbed (host) {
   ;(d.head || d.body).appendChild(s)
 }
 
-export function injectCount (host) {
+export function injectCount(host) {
   const d = document
   const s = d.createElement('script')
   s.src = `https://${host}/count.js`

@@ -9,7 +9,7 @@ const DEFAULTS = {
   // text of anchor
   text: '#',
   // append before or after innerText?
-  shouldAppend: false,
+  shouldAppend: false
 }
 
 /*
@@ -19,7 +19,9 @@ const DEFAULTS = {
 onmount('[data-js-anchors]', function () {
   const data = JSON.parse(this.getAttribute('data-js-anchors') || '{}')
   const rules = Array.isArray(data)
-    ? (data.length ? data : [DEFAULTS])
+    ? data.length
+      ? data
+      : [DEFAULTS]
     : [Object.assign({}, DEFAULTS, data)]
 
   for (const { rule, className, text, shouldAppend } of rules) {

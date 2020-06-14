@@ -14,7 +14,7 @@ onmount('[data-js-dismiss]', function () {
   const dismissable = getData(parent, 'js-dismissable')
   const id = (dismissable && dismissable.id) || ''
 
-  on(this, 'click', e => {
+  on(this, 'click', (e) => {
     Dismiss.setDismissed(id)
     e.preventDefault()
     if (parent) remove(parent)

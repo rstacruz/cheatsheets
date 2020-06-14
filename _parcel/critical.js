@@ -20,7 +20,7 @@ on(window, 'load', done)
 setTimeout(done, 5000)
 
 let isDone
-function done () {
+function done() {
   if (isDone) return
   addClass(document.documentElement, 'LoadDone')
   isDone = true

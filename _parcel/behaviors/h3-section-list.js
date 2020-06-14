@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 
-import Isotope from 'isotope-layout/dist/isotope.pkgd.js'
+import Isotope from 'isotope-layout'
 import onmount from 'onmount'
 import on from 'dom101/on'
 import qsa from 'dom101/query-selector-all'
@@ -17,7 +17,7 @@ onmount('[data-js-h3-section-list]', function () {
 
   const images = qsa('img', this)
 
-  images.forEach(image => {
+  images.forEach((image) => {
     on(image, 'load', () => {
       iso.layout()
     })

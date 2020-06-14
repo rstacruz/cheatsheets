@@ -8,8 +8,8 @@ import qsa from 'dom101/query-selector-all'
  *     Search.showAll()
  */
 
-export function showAll () {
-  qsa('[data-search-index]').forEach(el => {
+export function showAll() {
+  qsa('[data-search-index]').forEach((el) => {
     el.removeAttribute('aria-hidden')
   })
 }
@@ -21,20 +21,20 @@ export function showAll () {
  *     Search.show('hello')
  */
 
-export function show (val) {
+export function show(val) {
   const keywords = splitwords(val)
 
   if (!keywords.length) return showAll()
 
   const selectors = keywords
-    .map(k => `[data-search-index~=${JSON.stringify(k)}]`)
+    .map((k) => `[data-search-index~=${JSON.stringify(k)}]`)
     .join('')
 
-  qsa('[data-search-index]').forEach(el => {
+  qsa('[data-search-index]').forEach((el) => {
     el.setAttribute('aria-hidden', true)
   })
 
-  qsa(selectors).forEach(el => {
+  qsa(selectors).forEach((el) => {
     el.removeAttribute('aria-hidden')
   })
 }

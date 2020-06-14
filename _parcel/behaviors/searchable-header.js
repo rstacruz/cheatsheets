@@ -10,11 +10,12 @@ import './searchable-item'
  */
 
 onmount('[data-js-searchable-header]', function () {
-  const els = nextUntil(this, '[data-js-searchable-header]')
-    .filter(el => matches(el, '[data-search-index]'))
+  const els = nextUntil(this, '[data-js-searchable-header]').filter((el) =>
+    matches(el, '[data-search-index]')
+  )
 
   const keywords = els
-    .map(n => n.getAttribute('data-search-index'))
+    .map((n) => n.getAttribute('data-search-index'))
     .join(' ')
     .split(' ')
 

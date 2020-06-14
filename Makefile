@@ -16,36 +16,10 @@ _site:
 	bundle exec jekyll build --incremental
 
 critical: _site ## Builds critical path CSS/JS
-	node _support/critical.js
+	yarn critical
 
-# Ensure that bins are available.
-ensure-bin:
-	@if [ ! -d $(npmbin) ]; then \
-		echo "---"; \
-		echo "Error: $(npmbin) not found, you may need to run '[docker-compose run --rm web] yarn install'."; \
-		echo "---"; \
-		exit 1; \
-		fi
-	@if ! which jekyll &>/dev/null; then \
-		echo "---"; \
-		echo "Warning: Jekyll not found, you may need to run '[docker-compose run --rm web] bundle install'."; \
-		echo "---"; \
-		fi
-
-dev: ensure-bin ## Starts development server
-	$(npmbin)/concurrently -k -p command -c "blue,green" \
-		"make dev-webpack" \
-		"make dev-jekyll"
-
-dev-webpack: ensure-bin
-	$(npmbin)/webpack --watch --colors -p
-
-dev-jekyll: ensure-bin
-	if [ -f _site ]; then \
-		bundle exec jekyll serve --safe --trace --drafts --watch --incremental --host $(HOST) --port $(PORT); \
-		else \
-		bundle exec jekyll serve --safe --trace --drafts --watch --host $(HOST) --port $(PORT); \
-		fi
+dev: 
+	yarn dev
 
 test: _site ## Runs rudimentary tests
 	@test -f _site/vim.html

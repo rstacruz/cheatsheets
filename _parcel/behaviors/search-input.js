@@ -17,6 +17,8 @@ onmount('[data-js-search-input]', function () {
   const query = (qs(window.location.search) || {}).q
   if (query && query.length) {
     this.value = query
-    setTimeout(() => { Search.show(query) })
+    setTimeout(() => {
+      Search.show(query)
+    })
   }
 })

@@ -185,7 +185,7 @@ Delete all the volumes
 
 Docker Network
 -----------------
-### `Create Network`
+### `network create`
 
 ```sh
 docker network create [OPTIONS] NETWORK
@@ -204,7 +204,7 @@ Specify Network when running container
 docker run -it elasticsearch:2 --network round-robin-bridge
 ````
 
-### `Network Connect`
+### `network connect`
 
 ```sh
 docker network connect round-robin-bridge elasticsearch:2
@@ -212,7 +212,7 @@ docker network connect round-robin-bridge elasticsearch:2
 
 Connect a container to a network
 
-### `Network disconnect`
+### `network disconnect`
 
 ```sh
 docker network disconnect round-robin-bridge elasticsearch:2
@@ -220,7 +220,7 @@ docker network disconnect round-robin-bridge elasticsearch:2
 
 Disconnect a container from a network
 
-### `Network inpect`
+### `network inpect`
 
 ```sh
 docker network inspect [OPTIONS] NETWORK [NETWORK...]
@@ -229,7 +229,7 @@ docker network inspect [OPTIONS] NETWORK [NETWORK...]
 Display detailed information on one or more networks
 
 
-### `Network ls`
+### `network ls`
 
 ```sh
 docker network ls [OPTIONS]
@@ -237,7 +237,7 @@ docker network ls [OPTIONS]
 
 List networks
 
-### `Network prune`
+### `network prune`
 
 ```sh
 docker network prune [OPTIONS]
@@ -245,7 +245,7 @@ docker network prune [OPTIONS]
 
 Remove all unused networks
 
-### `Network rm`
+### `network rm`
 
 ```sh
 docker network rm [OPTIONS]

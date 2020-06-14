@@ -48,7 +48,7 @@ You can pass a `version=x` to the Accept request header. [Info here](https://git
 ### Authentication
 
 ```
-curl -is https://$TOKEN@api.service.com/
+curl -is https://$TOKEN@api.example.com/
 ```
 
 ### Methods

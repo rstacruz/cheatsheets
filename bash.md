@@ -138,6 +138,7 @@ See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 STR="/path/to/foo.cpp"
 echo ${STR%.cpp}    # /path/to/foo
 echo ${STR%.cpp}.o  # /path/to/foo.o
+echo ${STR%/*}      # /path/to
 
 echo ${STR##*.}     # cpp (extension)
 echo ${STR##*/}     # foo.cpp (basepath)
@@ -571,21 +572,25 @@ History
 
 ### Operations
 
-| `!!` | Execute last command again |         
-| `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
-| `!$:t` | Expand only basename from last parameter of most recent command |
-| `!$:h` | Expand only directory from last parameter of most recent command |
+| Code                 | Description                                                           |
+| -------------------- | --------------------------------------------------------------------- |
+| `!!`                 | Execute last command again                                            |
+| `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
+| `!$:t`               | Expand only basename from last parameter of most recent command       |
+| `!$:h`               | Expand only directory from last parameter of most recent command      |
 
 `!!` and `!$` can be replaced with any valid expansion.
 
 ### Slices
 
-| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
-| `!^` | Expand first argument from most recent command |
-| `!$` | Expand last token from most recent command |
-| `!!:n-m` | Expand range of tokens from most recent command |
-| `!!:n-$` | Expand `n`th token to last from most recent command |
+| Code     | Description                                                                              |
+| -------- | ---------------------------------------------------------------------------------------- |
+| `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^`     | Expand first argument from most recent command                                           |
+| `!$`     | Expand last token from most recent command                                               |
+| `!!:n-m` | Expand range of tokens from most recent command                                          |
+| `!!:n-$` | Expand `n`th token to last from most recent command                                      |
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 

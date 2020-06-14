@@ -80,3 +80,9 @@ curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
 # multipart file upload
 curl -v -include --form key1=value1 --form upload=@localfilename URL
 ```
+
+```bash
+# Use Curl to Check if a remote resource is available
+# details: https://matthewsetter.com/check-if-file-is-available-with-curl/
+curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarball.gz
+```

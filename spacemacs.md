@@ -69,6 +69,7 @@ Shortcuts
 | ---                        | ---      |
 | Next buffer (`:bnext`)     | `n`      |
 | Previous buffer (`:bprev`) | `p`      |
+| Delete buffer (`:bd`)      | `d`      |
 {: .-shortcuts-right}
 
 ### `SPC` `f` `e` - Config

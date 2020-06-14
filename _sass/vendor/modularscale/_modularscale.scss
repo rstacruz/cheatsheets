@@ -80,14 +80,14 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
   // This does not support non-integer exponents,
   // Check and return an error if a non-integer exponent is passed.
   @if (floor($e) != $e) {
-    @error '
-======================================================================
-Non-integer values are not supported in modularscale by default.
+    // @error '
+// ======================================================================
+// Non-integer values are not supported in modularscale by default.
 
-Try using mathsass in your project to add non-integer scale support.
-https://github.com/terkel/mathsass
-======================================================================
-'
+// Try using mathsass in your project to add non-integer scale support.
+// https://github.com/terkel/mathsass
+// ======================================================================
+// '
   }
 
   // Seed the return.

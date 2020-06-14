@@ -26,6 +26,5 @@ import './behaviors/search-form'
 import './behaviors/search-input'
 
 // CSS
-import 'sanitize.css/sanitize'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import 'hint.css/hint.min.css'

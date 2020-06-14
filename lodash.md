@@ -15,7 +15,7 @@ description: |
 ```js
 _.filter(list, (n) => n % 2)    // → Array
 _.find(list, (n) => n % 2)      // → item
-_.findRight(list, ...)          // → item
+_.findLast(list, ...)           // → item
 ```
 
 Works for both arrays and objects.

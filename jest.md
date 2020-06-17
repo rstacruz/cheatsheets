@@ -124,7 +124,11 @@ See: [expect()](http://facebook.github.io/jest/docs/en/expect.html#expectvalue)
 ```js
 expect(value)
   .toMatchSnapshot()
+  .toMatchInlineSnapshot()
 ```
+
+Note that `toMatchInlineSnapshot()` requires Prettier to be set up for the project.
+See: [Inline snapshots](https://jestjs.io/docs/en/snapshot-testing#inline-snapshots)
 
 ### Errors
 

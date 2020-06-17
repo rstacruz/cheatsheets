@@ -118,8 +118,8 @@ expect(value)
   .toMatchInlineSnapshot()
 ```
 
-Note that `toMatchInlineSnapshot() requires Prettier to be set up for the project.
-See: [Inline Snapshots](https://jestjs.io/docs/en/snapshot-testing#inline-snapshots)
+Note that `toMatchInlineSnapshot()` requires Prettier to be set up for the project.
+See: [Inline snapshots](https://jestjs.io/docs/en/snapshot-testing#inline-snapshots)
 
 ### Errors
 

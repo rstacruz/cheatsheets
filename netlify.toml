@@ -6,15 +6,15 @@
   # https://www.npmjs.com/package/netlify-purge-cloudflare-on-deploy
   package = "netlify-purge-cloudflare-on-deploy"
 
-# [[plugins]]
-#   # https://www.npmjs.com/package/netlify-plugin-minify-html
-#   package = "netlify-plugin-minify-html"
-#  
-#   [plugins.inputs]
-#     contexts = [ 'production', 'branch-deploy', 'deploy-preview' ]
-#  
-#   # https://github.com/kangax/html-minifier#options-quick-reference
-#   [plugins.inputs.minifierOptions]
-#     removeComments = true
-#     minifyCSS = true
-#     minifyJS = true
+[[plugins]]
+  # https://www.npmjs.com/package/netlify-plugin-minify-html
+  package = "netlify-plugin-minify-html"
+ 
+  [plugins.inputs]
+    contexts = [ 'production', 'branch-deploy', 'deploy-preview' ]
+ 
+  # https://github.com/kangax/html-minifier#options-quick-reference
+  [plugins.inputs.minifierOptions]
+    removeComments = true
+    minifyCSS = true
+    minifyJS = true

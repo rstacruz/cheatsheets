@@ -43,7 +43,7 @@ a:hover { color: #3ac1cb; }
 html.WithJs .post-content { opacity: 0; }
 
 /* Defer "loading" until page's onload event fires. (The page actually already loaded, we just pretend like it hasn't) */
-html.WithJs .pages-list, html.WithJs .post-content.-wrapified, html.WithJs .intro-content { opacity: 0.4; }
+html.WithJs .pages-list, html.WithJs .post-content.-wrapified, html.WithJs .intro-content { opacity: 0.98; }
 html.WithJs.LoadDone .pages-list, html.WithJs.LoadDone .post-content.-wrapified, html.WithJs.LoadDone .intro-content { opacity: 1; transition: opacity 100ms linear 100ms; }
 
 /* For links with sources, eg, [Foo](foo.com) _(foo.com)_ */

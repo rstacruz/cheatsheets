@@ -330,17 +330,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "brew",
-  "title": "Homebrew",
-  "url": "/brew",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "browser-sync",
   "title": "Browsersync",
   "url": "/browser-sync",
@@ -539,17 +528,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "commander-js",
-  "title": "Commander.js",
-  "url": "/commander-js",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "commander.js",
   "title": "Commander.js",
   "url": "/commander.js",
@@ -616,17 +594,6 @@
   "tags": null,
   "updated": "2018-12-06"
 },{
-  "id": "css-animation",
-  "title": "CSS animations",
-  "url": "/css-animation",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "css-antialias",
   "title": "CSS antialiasing",
   "url": "/css-antialias",
@@ -637,17 +604,6 @@
   "description_html": "",
   "tags": null,
   "updated": "2017-08-26"
-},{
-  "id": "css-background",
-  "title": "CSS background",
-  "url": "/css-background",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "css-flexbox",
   "title": "CSS flexbox",
@@ -660,17 +616,6 @@
   "tags": null,
   "updated": "2017-08-29"
 },{
-  "id": "css-font",
-  "title": "CSS font",
-  "url": "/css-font",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "css-grid",
   "title": "CSS Grid",
   "url": "/css-grid",
@@ -681,17 +626,6 @@
   "description_html": "",
   "tags": null,
   "updated": "2018-12-06"
-},{
-  "id": "css-selectors",
-  "title": "CSS selectors",
-  "url": "/css-selectors",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "css-system-font-stack",
   "title": "CSS system fonts",
@@ -747,17 +681,6 @@
   "description_html": "",
   "tags": null,
   "updated": "2017-09-20"
-},{
-  "id": "date",
-  "title": "Date",
-  "url": "/date",
-  "category": "Others",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "datetime",
   "title": "Date & time formats",
@@ -990,50 +913,6 @@
   "tags": null,
   "updated": "2017-09-14"
 },{
-  "id": "es2015",
-  "title": "ES2015",
-  "url": "/es2015",
-  "category": "JavaScript",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "es2016",
-  "title": "ES2016",
-  "url": "/es2016",
-  "category": "JavaScript",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "es2017",
-  "title": "ES2017",
-  "url": "/es2017",
-  "category": "JavaScript",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "es2018",
-  "title": "ES2018",
-  "url": "/es2018",
-  "category": "JavaScript",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "es6",
   "title": "ES2015+",
   "url": "/es6",
@@ -1051,17 +930,6 @@
   "category": "Elixir",
   "keywords": null,
   "content_html": "<h2 id=\"ets\">ETS</h2>\n\n<h3 id=\"usage\">Usage</h3>\n\n<pre><code class=\"language-elixir\">iex&gt; table = :ets.new(:my_table, [])\n     8211\n</code></pre>\n\n<pre><code class=\"language-elixir\">iex&gt; :ets.insert(table, {:fruit, \"Apple\"})\niex&gt; :ets.lookup(table, :fruit)\n     [{:fruit, \"Apple\"}]\n</code></pre>\n\n<pre><code class=\"language-elixir\">iex&gt; :ets.delete(table)\niex&gt; :ets.delete_all_objects(table)\n</code></pre>\n\n<h3 id=\"flags\">Flags</h3>\n\n<pre class=\"-setup\"><code class=\"language-elixir\">iex&gt; table = :ets.new(:my_table, [:set, :protected])\n</code></pre>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>:set</code></td>\n      <td>no duplicate keys (or: <code>:ordered_set</code>, <code>:bag</code>, <code>:duplicate_bag</code>)</td>\n    </tr>\n    <tr>\n      <td><code>:protected</code></td>\n      <td>only this process can use it (or: <code>:public</code>, <code>:private</code>)</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"ordered-sets\">Ordered sets</h3>\n\n<pre><code class=\"language-elixir\">:ets.first(table)\n:ets.last(table)\n:ets.next(table, key)\n:ets.prev(table, key)\n</code></pre>\n\n<h2 class=\"-one-column\" id=\"references\">References</h2>\n\n<ul>\n  <li><a href=\"http://erlang.org/doc/man/ets.html\">http://erlang.org/doc/man/ets.html</a></li>\n  <li><a href=\"http://learnyousomeerlang.com/ets\">http://learnyousomeerlang.com/ets</a></li>\n</ul>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "expect.js",
-  "title": "expect.js",
-  "url": "/expect.js",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -1111,17 +979,6 @@
   "tags": ["Featurable"],
   "updated": "2017-10-31"
 },{
-  "id": "factory_girl",
-  "title": "Factory Girl",
-  "url": "/factory_girl",
-  "category": "Ruby libraries",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "fastify",
   "title": "Fastify",
   "url": "/fastify",
@@ -1132,17 +989,6 @@
   "description_html": "",
   "tags": null,
   "updated": "2017-09-21"
-},{
-  "id": "fetch",
-  "title": "fetch()",
-  "url": "/fetch",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "ffaker",
   "title": "FFaker",
@@ -1232,17 +1078,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "flexbox",
-  "title": "Flexbox",
-  "url": "/flexbox",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "flow",
   "title": "Flow",
   "url": "/flow",
@@ -1253,17 +1088,6 @@
   "description_html": "",
   "tags": ["Featurable"],
   "updated": "2017-09-20"
-},{
-  "id": "flowtype",
-  "title": "Flow",
-  "url": "/flowtype",
-  "category": "JavaScript libraries",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "flux",
   "title": "Flux architecture",
@@ -1463,28 +1287,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "gpg",
-  "title": "GPG",
-  "url": "/gpg",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "gpgconf",
-  "title": "gpgconf",
-  "url": "/gpgconf",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "graphql",
   "title": "GraphQL",
   "url": "/graphql",
@@ -1518,17 +1320,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "gutom",
-  "title": "Gutom",
-  "url": "/gutom",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "haml",
   "title": "Haml",
   "url": "/haml",
@@ -1540,34 +1331,12 @@
   "tags": null,
   "updated": null
 },{
-  "id": "handlebars-js",
-  "title": "Handlebars.js",
-  "url": "/handlebars-js",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "handlebars.js",
   "title": "Handlebars.js",
   "url": "/handlebars.js",
   "category": "JavaScript libraries",
   "keywords": null,
   "content_html": "<h3 id=\"helpers\">Helpers</h3>\n\n<pre><code class=\"language-js\">Handlebars.registerHelper('link_to', function() {\n  return \"&lt;a href='\" + this.url + \"'&gt;\" + this.body + \"&lt;/a&gt;\";\n})\n</code></pre>\n\n<pre><code class=\"language-js\">var context = { posts: [{url: \"/hello-world\", body: \"Hello World!\"}] }\nvar source = \"&lt;ul&gt;{{#posts}}&lt;li&gt;{{{link_to}}}&lt;/li&gt;{{/posts}}&lt;/ul&gt;\"\n</code></pre>\n\n<pre><code class=\"language-js\">var template = Handlebars.compile(source)\ntemplate(context)\n</code></pre>\n\n<p>Would render:</p>\n\n<pre><code class=\"language-html\">&lt;ul&gt;\n  &lt;li&gt;&lt;a href='/hello-world'&gt;Hello World!&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n</code></pre>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "harvey-js",
-  "title": "Harvey.js",
-  "url": "/harvey-js",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -1733,17 +1502,6 @@
   "category": "Others",
   "keywords": null,
   "content_html": "<h3 id=\"stuff\">Stuff</h3>\n\n<pre><code>-resize 100x40\n-crop 40x30+10+10   # (width)x(height)+(x)+y\n-crop 40x30-10-10   # (width)x(height)+(x)+y\n-flip               # vertical\n-flop               # horizontal\n-transpose          # flip vertical + rotate 90deg\n-transverse         # flip horizontal + rotate 270deg\n-trim               # trim image edges\n-rotate 90\n</code></pre>\n\n<h3 id=\"resize-to-fit\">Resize to fit</h3>\n\n<pre><code>convert input.jpg -resize 80x80^ -gravity center -extent 80x80 icon.png\n</code></pre>\n\n<h3 id=\"convert-all-images-to-another-format\">Convert all images to another format</h3>\n\n<pre><code>mogrify -format jpg -quality 85 *.png\n</code></pre>\n\n<h3 id=\"make-a-pdf\">Make a pdf</h3>\n\n<pre><code>convert *.jpg hello.pdf\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://www.noah.org/wiki/ImageMagick</li>\n</ul>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "immutable-js",
-  "title": "Immutable.js",
-  "url": "/immutable-js",
-  "category": "Hidden",
-  "keywords": null,
-  "content_html": "",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -2562,6 +2320,17 @@
   "description_html": "",
   "tags": null,
   "updated": null
+},{
+  "id": "package-json",
+  "title": "package.json",
+  "url": "/package-json",
+  "category": "Node.js",
+  "keywords": null,
+  "content_html": "<h3 id=\"basic\">Basic</h3>\n\n<pre data-line=\"2,3,4,5\"><code class=\"language-json\">{\n  \"name\": \"expo\",\n  \"description\": \"My package\",\n  \"version\": \"0.1.0\",\n  \"license\": \"MIT\",\n  \"keywords\": [\"http\", \"server\"],\n  \"author\": \"Rico Sta. Cruz &lt;rstacruz@users.noreply.github.com&gt;\",\n  \"engines\": {\n    \"node\": \"&gt;=0.8.0\"\n  },\n  \"main\": \"index\",\n  \"bin\": {\n    \"command\": \"./bin/command\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/rstacruz/___.git\"\n  },\n}\n</code></pre>\n\n<p>Highlighted lines are required.</p>\n\n<h3 id=\"dependencies\">Dependencies</h3>\n\n<pre><code class=\"language-json\">\"dependencies\": {\n  \"colors\":   \"*\",\n  \"flatiron\": \"0.1.x\",\n  \"flatiron\": \"~0.1.0\",\n  \"plates\":   \"https://github.com/user/project/tarball/branch\",\n  \"stuff\":    \"git://github.com/user/project.git#commit-ish\"\n},\n</code></pre>\n\n<pre><code class=\"language-json\">\"devDependencies\": { ··· },\n\"peerDependencies\": { ··· },\n\"optionalDependencies\": { ··· },\n</code></pre>\n\n<p>See <a href=\"./semver\">Semver cheatsheet</a> for explanation of version ranges.</p>\n\n<h3 id=\"scripts\">Scripts</h3>\n\n<pre><code class=\"language-json\">\"scripts\": {\n  \"start\": \"node ./bin/xxx\",       /* npm start */\n  \"test\": \"vows --spec --isolate\", /* npm test */\n  \"postinstall\": \"...\",\n  \"prepublish\": \"grunt build\",     /* after 'npm install' and before 'npm \n                                      publish' */\n}\n</code></pre>\n\n<h3 id=\"misc\">Misc</h3>\n\n<pre><code class=\"language-json\">\"private\": true,\n\"preferGlobal\": true\n</code></pre>\n\n<h3 id=\"config\">Config</h3>\n\n<pre><code class=\"language-json\">{\n  \"config\": {\n    \"foobar\": \"hello\"\n  },\n  \"scripts\": {\n    \"run\": \"echo $npm_package_config_foobar\"\n  }\n}\n</code></pre>\n\n<p>Keys in <code>config</code> are exposed as env vars to scripts.</p>\n\n<h2 class=\"-one-column\" id=\"references\">References</h2>\n\n<ul class=\"-also-see\">\n  <li><a href=\"http://package.json.nodejitsu.com/\">http://package.json.nodejitsu.com/</a></li>\n  <li><code>npm help package.json</code></li>\n</ul>",
+  "intro_html": "",
+  "description_html": "",
+  "tags": null,
+  "updated": "2017-08-30"
 },{
   "id": "package",
   "title": "package.json",
@@ -4086,8 +3855,8 @@
   "url": "/zombie",
   "category": "JavaScript libraries",
   "keywords": null,
-  "content_html": "<pre><code>browser\n  .visit(\"http://.../\", -&gt;)\n  .fill(\"email\", \"zombie@underworld.dead\")\n  .fill(\"password\", \"eat-the-living\")\n  .select(\"Born\", \"1985\")\n  .uncheck(\"Send newsletter\")\n  .clickLink(\"Link name\")\n  .pressButton(\"Sign\", -&gt; ...)\n\n  .text(\"H1\")\n\n\nexpect(browser.query(\"#brains\"))\n\nexpect(browser.body.queryAll(\".hand\")).length 2\n\nconsole.log(browser.html())\nconsole.log(browser.html(\"table.parts\"))\n\nexpect(Browser.text(\".card-nopad small\"), \"A better way to get around!\")\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h2 id=\"zombie\">Zombie</h2>\n\n<h3 id=\"examples\">Examples</h3>\n\n<pre><code class=\"language-js\">browser\n  .visit(\"http://.../\", -&gt;)\n  .fill(\"email\", \"zombie@underworld.dead\")\n  .fill(\"password\", \"eat-the-living\")\n  .select(\"Born\", \"1985\")\n  .uncheck(\"Send newsletter\")\n  .clickLink(\"Link name\")\n  .pressButton(\"Sign\", () =&gt; { ... })\n  .text(\"H1\")\n</code></pre>\n\n<h3 id=\"expectations\">Expectations</h3>\n\n<pre><code class=\"language-js\">expect(browser.query(\"#brains\"))\n\nexpect(browser.body.queryAll(\".hand\")).length 2\n\nconsole.log(browser.html())\nconsole.log(browser.html(\"table.parts\"))\n\nexpect(Browser.text(\".card-nopad small\"), \"A better way to get around!\")\n</code></pre>",
+  "intro_html": "<p><a href=\"http://zombie.js.org/\">Zombie</a> is a full-stack testing solution for Node.js.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -4119,7 +3888,7 @@
   "url": "/redirects.json",
   "category": "Others",
   "keywords": null,
-  "content_html": "<p>{“/brew.html”:”https://devhints.io/homebrew”,”/commander-js.html”:”https://devhints.io/commander.js”,”/css-animation.html”:”https://devhints.io/css#animation”,”/css-background.html”:”https://devhints.io/css#background”,”/css-font.html”:”https://devhints.io/css#fonts”,”/css-selectors.html”:”https://devhints.io/css#selectors”,”/date.html”:”https://devhints.io/datetime”,”/es2015.html”:”https://devhints.io/es6”,”/es2016.html”:”https://devhints.io/es6”,”/es2017.html”:”https://devhints.io/es6”,”/es2018.html”:”https://devhints.io/es6”,”/expect.js.html”:”https://devhints.io/expectjs”,”/factory_girl.html”:”https://devhints.io/factory_bot”,”/fetch.html”:”https://devhints.io/js-fetch”,”/flexbox.html”:”https://devhints.io/css-flexbox”,”/flowtype.html”:”https://devhints.io/flow”,”/gpg.html”:”https://devhints.io/gnupg”,”/gpgconf.html”:”https://devhints.io/gnupg”,”/gutom.html”:”https://devhints.io/ph-food-delivery”,”/handlebars-js.html”:”https://devhints.io/handlebars.js”,”/harvey-js.html”:”https://devhints.io/harvey.js”,”/immutable-js.html”:”https://devhints.io/immutable.js”,”/jade.html”:”https://devhints.io/pug”,”/package.html”:”https://devhints.io/package.json”,”/phoenix-ecto@1.3.html”:”https://devhints.io/phoenix-ecto”,”/sh.html”:”https://devhints.io/bash”}</p>",
+  "content_html": "<p>{“/jade.html”:”https://devhints.io/pug”,”/package.html”:”https://devhints.io/package.json”,”/phoenix-ecto@1.3.html”:”https://devhints.io/phoenix-ecto”,”/sh.html”:”https://devhints.io/bash”}</p>",
   "intro_html": "",
   "description_html": "",
   "tags": null,

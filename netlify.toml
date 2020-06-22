@@ -1,3 +1,55 @@
 [build]
   command = "yarn build"
   publish = "_site/"
+
+[[redirects]]
+from = "/flexbox"
+to = "/css-flexbox"
+
+[[redirects]]
+from = "/flowtype"
+to = "/flow"
+
+[[redirects]]
+from = "/gpgconf"
+to = "/gnupg"
+
+[[redirects]]
+from = "/gpg"
+to = "/gnupg"
+
+[[redirects]]
+from = "/gutom"
+to = "/ph-food-delivery"
+
+[[redirects]]
+from = "/handlebars-js"
+to = "/handlebars.js"
+
+[[redirects]]
+from = "/harvey-js"
+to = "/harvey.js"
+
+[[redirects]]
+from = "/immutable-js"
+to = "/immutable.js"
+
+[[redirects]]
+from = "/jade"
+to = "/pug"
+
+[[redirects]]
+from = "/package"
+to = "/package-json"
+
+[[redirects]]
+from = "/package.json"
+to = "/package-json"
+
+[[redirects]]
+from = "/phoenix-ecto@1.3"
+to = "/phoenix-ecto"
+
+[[redirects]]
+from = "/sh"
+to = "/bash"

@@ -9,6 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Notes (read me) 📖"
+        run: |
+          # About this workflow
+          # -------------------
+          #
+          # This workflow generates GitHub pages, but IT IS NOT USED. It is
+          # only generated as an emergency fallback in case Netlify goes down.
+          #
+          # 😊
+
       - uses: actions/checkout@v2
         with:
           persist-credentials: false

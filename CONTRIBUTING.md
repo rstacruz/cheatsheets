@@ -1,7 +1,6 @@
 # Developer notes
 
-## Gitpod
-
+## Gitpod 
 This repository supports contribution using [gitpod](https://gitpod.io) which is online IDE using [Theia](https://github.com/eclipse-theia/theia).
 
 To open-up the environment simple natigate on https://gitpod.io/#https://github.com/rstacruz/cheatsheets
@@ -10,14 +9,14 @@ Or using a button:<br>
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rstacruz/cheatsheets)
 
 ### Preview built website
-
 To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.
 
 <img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/>
 
+
 ## Starting a local instance
 
-This starts Jekyll and Parcel. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
+This starts Jekyll and Webpack. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
 
 ```bash
 yarn install
@@ -57,11 +56,9 @@ See <https://devhints.io/cheatsheet-styles> for a reference on styling.
 
 ## JavaScript
 
-When updating JavaScript, be sure Parcel is running (`yarn dev` takes care of this).
+When updating JavaScript, be sure webpack is running (`yarn run dev` takes care of this).
 
-This auto-updates `/assets/packed/` and `_includes/2017/critical/` with sources in `_parcel/`.
-
-Before committing, run `yarn parcel:build` first.
+This auto-updates `/assets/packed/` with sources in `_js/`.
 
 ## JavaScript tests
 
@@ -78,16 +75,16 @@ Each sheet supports these metadata:
 ```yml
 ---
 title: React.js
-layout: 2017/sheet # 'default' | '2017/sheet'
+layout: 2017/sheet   # 'default' | '2017/sheet'
 
 # Optional:
 category: React
-updated: 2017-08-30 # To show in the updated list
-ads: false # Add this to disable ads
-weight: -5 # lower number = higher in related posts list
-deprecated: true # Don't show in related posts
-deprecated_by: /enzyme # Point to latest version
-prism_languages: [vim] # Extra syntax highlighting
+updated: 2017-08-30       # To show in the updated list
+ads: false                # Add this to disable ads
+weight: -5                # lower number = higher in related posts list
+deprecated: true          # Don't show in related posts
+deprecated_by: /enzyme    # Point to latest version
+prism_languages: [vim]    # Extra syntax highlighting
 intro: |
   This is some *Markdown* at the beginning of the article.
 tags:
@@ -96,10 +93,9 @@ tags:
 
 # Special pages:
 # (don't set these for cheatsheets)
-type: home # home | article | error
-og_type: website # opengraph type
+type: home                # home | article | error
+og_type: website          # opengraph type
 ---
-
 ```
 
 ## Prism languages
@@ -119,7 +115,6 @@ title: ES2015
 category: Hidden
 redirect_to: /es6
 ---
-
 ```
 
 ## Localizations
@@ -175,3 +170,26 @@ building web user interfaces...
 ### intro only
 
 If you left out `description` or `keywords`, a default description will be added.
+
+## Critical path CSS
+
+The critical path CSS is stored in:
+
+- `_includes/2017/critical/home.html`
+- `_includes/2017/critical/sheet.html`
+
+You'll need to update these every now and then when you change something in the CSS. Use this to update these snippets:
+
+```
+yarn run critical
+```
+
+You can temporarily disable critical path optimizations by loading it with `?nocrit=1`, eg, `https://devhints.io/?nocrit=1`.
+
+## Critical path JS
+
+There's JavaScript that's included inline in every page. It's entrypoint is:
+
+- `_js/critical.js`
+
+This is automatically compiled into the partial `_includes/2017/critical/critical.js`. Keep this bundle as small as possible.

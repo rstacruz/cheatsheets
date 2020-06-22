@@ -9,23 +9,21 @@ plugins:
   - jekyll-github-metadata
 
 exclude:
-  - .babelrc
-  - .cache
-  - CNAME
+  - Makefile
+  - README.md
   - CONTRIBUTING.md
-  - docker_compose.yml
-  - Dockerfile
   - Gemfile
   - Gemfile.lock
-  - Makefile
-  - node_modules
-  - package.json
-  - package-lock.json
-  - README.md
+  - CNAME
   - vendor
-  - webpack.config.js
-  - yarn-error.log
+  - package.json
+  - .babelrc
   - yarn.lock
+  - package-lock.json
+  - webpack.config.js
+  - node_modules
+  - Dockerfile
+  - docker_compose.yml
 
 # Markdown
 

@@ -14,7 +14,7 @@ install:
 script:
   - yarn build
   - yarn test
-  - if ! make test; then make test-warning; exit 16; fi
+  - yarn test:smoke
 
 cache:
   bundler: true

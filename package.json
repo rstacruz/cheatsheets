@@ -51,6 +51,7 @@
     "prejekyll:build": "bundle",
     "prejekyll:watch": "bundle",
     "prettier:format": "prettier --write '_parcel/**/*.{js,scss}'",
-    "test": "jest"
+    "test": "jest",
+    "test:smoke": "bash _support/smoke_test.sh"
   }
 }

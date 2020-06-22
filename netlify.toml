@@ -53,3 +53,59 @@ to = "/phoenix-ecto"
 [[redirects]]
 from = "/sh"
 to = "/bash"
+
+[[redirects]]
+from = "/commander-js"
+to = "/commander.js"
+
+[[redirects]]
+from = "/es2015"
+to = "/es6"
+
+[[redirects]]
+from = "/es2016"
+to = "/es6"
+
+[[redirects]]
+from = "/es2017"
+to = "/es6"
+
+[[redirects]]
+from = "/es2018"
+to = "/es6"
+
+[[redirects]]
+from = "/expect.js"
+to = "/expectjs"
+
+[[redirects]]
+from = "/factory_girl"
+to = "/factory_bot"
+
+[[redirects]]
+from = "/css-animation"
+to = "/css#animation"
+
+[[redirects]]
+from = "/css-background"
+to = "/css#background"
+
+[[redirects]]
+from = "/css-font"
+to = "/css#fonts"
+
+[[redirects]]
+from = "/css-selectors"
+to = "/css#selectors"
+
+[[redirects]]
+from = "/brew"
+to = "/homebrew"
+
+[[redirects]]
+from = "/date"
+to = "/datetime"
+
+[[redirects]]
+from = "/fetch"
+to = "/js-fetch"

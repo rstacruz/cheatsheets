@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/rspec.html' name='app:pageurl'>
+
+
+  <title>RSpec cheatsheet</title>
+  <meta content='RSpec cheatsheet' property='og:title'>
+  <meta content='RSpec cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/rspec.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/rspec.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to RSpec: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to RSpec: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to RSpec: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/rspec">
+<meta name="og:url" content="https://devhints.io/rspec">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Ruby' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "RSpec cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/rspec.jpg?t=20200622144344" ],
+  "description": "The one-page guide to RSpec: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#ruby",
+      "name": "Ruby"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/rspec",
+      "name": "RSpec"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>RSpec</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rspec.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20RSpec.%20https://devhints.io/rspec.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="invoking-tests">Invoking tests</h3>
+
+<pre><code class="language-sh">rake -T spec      # List spec tasks
+
+rake spec         # Run all
+
+rake spec/models/mymodel_spec.rb
+rake spec/models/mymodel_spec.rb:27
+</code></pre>
+
+<h2 id="writing-tests">Writing tests</h2>
+
+<pre><code class="language-rb">describe "A User (in general)" do
+  include UserSpecHelper
+
+  subject { Person.new }
+
+  let(:admin) { Person.new(role: :admin) }
+
+  context "setter methods" do
+    it "should do this" do
+      pending "some other thing"
+
+      expect(subject.name).to eq 'x'
+    end
+  end
+end
+</code></pre>
+
+<h3 id="beforeafter">Before/after</h3>
+
+<pre><code class="language-rb">before :each do
+  # before all tests
+end
+
+before do
+  # before this suite
+end
+
+after do
+  # after this suite
+end
+</code></pre>
+
+<h3 id="subjects">Subjects</h3>
+
+<pre><code class="language-rb">subject { CheckingAccount.new }
+it { is_expected.to be_empty }
+
+# also names: subject(:account) { ... }
+</code></pre>
+
+<h2 id="expectations">Expectations</h2>
+
+<pre><code class="language-rb">target.should eq 1
+target.should_not eq 1
+
+expect(target).to eq 1
+expect(target).not_to eq 1
+</code></pre>
+
+<h3 id="numeric">Numeric</h3>
+
+<pre><code class="language-rb">expect(5).to be &lt; 6
+expect(5).to == 5
+expect(5).to equal value
+expect(5).to be_between(1, 10)
+expect(5).to be_within(0.05).of value
+</code></pre>
+
+<h3 id="comparison">Comparison</h3>
+
+<pre><code class="language-rb">expect(x).to be value
+expect(x).to satisfy { |arg| ... }
+expect(x).to match /regexp/
+</code></pre>
+
+<h3 id="predicate">Predicate</h3>
+
+<pre><code class="language-rb">expect(x).to be_zero    # FixNum#zero?
+expect(x).to be_empty   # Array#empty?
+expect(x).to have_key   # Hash#has_key?
+</code></pre>
+
+<h3 id="objects">Objects</h3>
+
+<pre><code class="language-rb">expect(obj).to be_an_instance_of MyClass
+expect(obj).to be_a_kind_of MyClass
+expect(obj).to respond_to :save!
+</code></pre>
+
+<h3 id="control-flow">Control flow</h3>
+
+<pre><code class="language-rb">expect { user.save! }.to raise_error
+expect { user.save! }.to raise_error(ExceptionName, /msg/)
+expect { user.save! }.to throw :symbol
+</code></pre>
+
+<h3 id="enumerablesarrays">Enumerables/arrays</h3>
+
+<pre><code class="language-rb">expect(list).to include(&lt;object&gt;)
+
+expect(list).to have(1).things
+expect(list).to have_at_least(2).things
+expect(list).to have_at_most(3).things
+
+expect(list).to have(2).errors_on(:field)
+</code></pre>
+
+<h3 id="change">Change</h3>
+
+<pre><code class="language-rb">expect { thing.approve! }.to \
+  change(thing, :status)
+  .from(Status::AWAITING_APPROVAL)
+  .to(Status::APPROVED)
+
+expect { thing.destroy }.to \
+  change(Thing, :count)
+  .by(-1)
+</code></pre>
+
+<h2 id="doubles">Doubles</h2>
+
+<pre><code class="language-rb">book = double('book')
+book = instance_double('Book', pages: 250)
+</code></pre>
+
+<h3 id="method-stubs">Method stubs</h3>
+
+<pre><code class="language-rb">allow(die).to receive(:roll)
+allow(die).to receive(:roll) { 3 }
+allow_any_instance_of(Die).to receive(:roll)
+
+expect(die).to receive(:roll)
+  .with(1)
+  .with(1, true)
+  .with(boolean)
+  .with(anything)
+  .with(any_args)
+  .with(1, any_args)
+  .with(no_args)
+  .with(hash_including(a: 1))
+  .with(hash_excluding(a: 1))
+  .with(array_including(:a, :b))
+  .with(array_excluding(:a, :b))
+  .with(instance_of(Fixnum))
+  .with(kind_of(Numeric))
+  .with(&lt;matcher&gt;)
+
+  .once
+  .twice
+  .exactly(n).times
+  .at_least(:once)
+  .at_least(:twice)
+  .at_least(n).times
+  .at_most(:once)
+  .at_most(:twice)
+  .at_most(n).times
+</code></pre>
+
+<p>https://relishapp.com/rspec/rspec-mocks/docs</p>
+
+<h2 id="spec-helpers">Spec helpers</h2>
+
+<pre><code class="language-rb">module UserSpecHelper
+  def valid_user_attributes
+    { :email =&gt; "joe@bloggs.com",
+      :username =&gt; "joebloggs",
+      :password =&gt; "abcdefg"}
+  end
+end
+</code></pre>
+
+<pre><code class="language-rb">describe User do
+  include UserSpecHelper
+
+  ...
+end
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rspec.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20RSpec.%20https://devhints.io/rspec.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

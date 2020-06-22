@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/minitest.html' name='app:pageurl'>
+
+
+  <title>Minitest cheatsheet</title>
+  <meta content='Minitest cheatsheet' property='og:title'>
+  <meta content='Minitest cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/minitest.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/minitest.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Minitest: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Minitest: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Minitest: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/minitest">
+<meta name="og:url" content="https://devhints.io/minitest">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Ruby' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Minitest cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/minitest.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Minitest: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#ruby",
+      "name": "Ruby"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/minitest",
+      "name": "Minitest"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Minitest</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/minitest.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Minitest.%20https://devhints.io/minitest.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="usage">Usage</h3>
+
+<pre><code>require 'minitest/autorun'
+
+describe "X" do
+  before do .. end
+  after do .. end
+  subject { .. }
+  let(:list) { Array.new }
+
+  it "should work" do
+    assert true
+  end
+end
+</code></pre>
+
+<h3 id="specs-mustwont">Specs (.must/.wont)</h3>
+
+<pre><code>expect(x)
+.must_be :==, 0
+.must_equal b
+.must_be_close_to 2.99999
+.must_be_same_as b
+
+.must_include needle
+.must_be_empty
+
+.must_be_kind_of
+.must_be_instance_of
+.must_be_nil
+.must_match /regex/
+.must_be :&lt;=, 42
+.must_respond_to msg
+
+.must_be_silent  ( proc { "no stdout or stderr" }.must_be_silent)
+.must_output "hi"
+
+proc { ... }.must_output out_or_nil [, err]
+proc { ... }.must_raise exception
+proc { ... }.must_throw sym
+</code></pre>
+
+<h3 id="unittestcase">Unit::TestCase</h3>
+
+<pre><code>class TestHipster &lt; MiniTest::Unit::TestCase
+  def setup
+    @subject = ["silly hats", "skinny jeans"]
+  end
+
+  def teardown
+    @hipster.destroy!
+  end
+
+  def test_for_helvetica_font
+    assert_equal "helvetica!", @hipster.preferred_font
+  end
+
+  def test_not_mainstream
+    refute @hipster.mainstream?
+  end
+end
+</code></pre>
+
+<h3 id="assertions">Assertions</h3>
+
+<pre><code>assert
+assert_block { ... }
+assert_empty
+assert_equal 2, @size
+assert_in_delta @size, 1, 1
+assert_in_epsilon
+assert_includes @list, "item"
+assert_instance_of Array, @list
+assert_kind_of Enumerable, @list
+assert_match @str, /regex/
+assert_nil
+assert_operator @n, :==, 0
+assert_output
+assert_raises
+assert_respond_to
+assert_same
+assert_send
+assert_silent
+assert_throws
+</code></pre>
+
+<h3 id="minitestmock">MiniTest::Mock</h3>
+
+<p>A simple and clean mock system. There two essential methods at our disposal: expect and verify.</p>
+
+<pre><code>require 'minitest/autorun'
+
+describe Twipster, "Make every tweet a hipster tweet." do
+  before do
+    @twitter  = MiniTest::Mock.new
+    @twipster = Twipster.new(@twitter)
+  end
+
+  it "should append a #lolhipster hashtag and update Twitter with our status" do
+    tweet = "Skyrim? Too mainstream."
+    @twitter.expect :update, true, ["#{tweet} #lolhipster"]
+    @twipster.submit(tweet)
+    assert @twitter.verify # verifies tweet and hashtag was passed to `@twitter.update`
+  end
+end
+</code></pre>
+
+<h3 id="reporters">Reporters</h3>
+
+<pre><code>gem 'minitest-reporters'
+
+require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+[Default, Spec, Progress, RubyMate, RubyMine, JUnit]
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/minitest.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Minitest.%20https://devhints.io/minitest.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

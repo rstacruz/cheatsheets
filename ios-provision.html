@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/ios-provision.html' name='app:pageurl'>
+
+
+  <title>iOS Provisioning Profiles cheatsheet</title>
+  <meta content='iOS Provisioning Profiles cheatsheet' property='og:title'>
+  <meta content='iOS Provisioning Profiles cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/ios-provision.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/ios-provision.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to iOS Provisioning Profiles: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to iOS Provisioning Profiles: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to iOS Provisioning Profiles: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/ios-provision">
+<meta name="og:url" content="https://devhints.io/ios-provision">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Others' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "iOS Provisioning Profiles cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/ios-provision.jpg?t=20200622144344" ],
+  "description": "The one-page guide to iOS Provisioning Profiles: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#others",
+      "name": "Others"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/ios-provision",
+      "name": "iOS Provisioning Profiles"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>iOS Provisioning Profiles</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ios-provision.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20iOS%20Provisioning%20Profiles.%20https://devhints.io/ios-provision.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="types-of-profiles">Types of profiles</h3>
+
+<ul>
+  <li><strong>Development</strong> - deploy to an iPhone via XCode</li>
+  <li><strong>Adhoc</strong> - deploy via testflightapp.com</li>
+  <li><strong>Appstore</strong> - only used for submitting to the app store</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>What</th>
+      <th>Dev</th>
+      <th>Adhoc</th>
+      <th>Appstore</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSR file</td>
+      <td> </td>
+      <td>√</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>Device UDIDs</td>
+      <td>√</td>
+      <td>√</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Developers list</td>
+      <td>√</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtaining-a-csr-file">Obtaining a CSR file</h3>
+
+<p>Needed for Adhoc &amp; Appstore builds.</p>
+
+<ul>
+  <li>Open <em>Keychain Access.app</em></li>
+  <li><em>Keychain Access</em> menu -&gt; <em>Certificate Assistant</em> menu -&gt; <em>Request a 
+ certificate…</em>
+    <ul>
+      <li>User email address is <em>your email</em></li>
+      <li>Common name is <em>your name</em></li>
+      <li>CA Email address is <em>blank</em></li>
+      <li>Request is <em>Saved to disk</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="get-the-cer-files">Get the <code>.cer</code> files</h3>
+
+<p>Needed for Adhoc &amp; Appstore builds.</p>
+
+<ul>
+  <li>in the iOS dev portal, go to <em>Certificates</em>, and download the certificate.<br />
+ Install it on the dev machine.</li>
+</ul>
+
+<h3 id="obtaining-device-udids">Obtaining device UDIDs</h3>
+
+<p>Needed for Dev and Adhoc builds.</p>
+
+<ul>
+  <li>via iTunes: http://whatsmyudid.com</li>
+  <li>via XCode: cmd+shift+2 (Organizer), Devices</li>
+</ul>
+
+<h2 id="for-developers">For developers</h2>
+
+<p>Don’t ever ask Xcode to <em>Fix issue…</em> for you.</p>
+
+<h3 id="using-a-provisioning-profile">Using a provisioning profile</h3>
+
+<p>No need to use <code>.mobileprovision</code> files since XCode 5.</p>
+
+<ul>
+  <li>Open the <code>*.mobileprovision</code> file using Finder</li>
+  <li>XCode Project -&gt; <em>Build settings</em> tab -&gt; <em>Code signing</em> section -&gt; 
+ <em>Provisioning Profile</em> section
+    <ul>
+      <li>Set <em>Debug</em> to the <em>development</em> profile</li>
+      <li>Set <em>Release</em> to the <em>ad-hoc</em> profile</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="building-an-ipa-adhoc-or-appstore">Building an .ipa (Adhoc or Appstore)</h3>
+
+<ul>
+  <li>In the toolbar, select “iOS Device” as the target</li>
+  <li><em>Product</em> menu -&gt; <em>Archive</em></li>
+  <li>In the Organizer (Cmd+Shift+2) -&gt; <em>Archives</em> tab -&gt; <em>Distribute…</em> button</li>
+</ul>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ios-provision.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20iOS%20Provisioning%20Profiles.%20https://devhints.io/ios-provision.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

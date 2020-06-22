@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/python.html' name='app:pageurl'>
+
+
+  <title>Python cheatsheet</title>
+  <meta content='Python cheatsheet' property='og:title'>
+  <meta content='Python cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/python.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/python.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Python: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Python: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Python: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/python">
+<meta name="og:url" content="https://devhints.io/python">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Python' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Python cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/python.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Python: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#python",
+      "name": "Python"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/python",
+      "name": "Python"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Python</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/python.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Python.%20https://devhints.io/python.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="lists">Lists</h3>
+
+<pre><code>list = []
+list[i:j]  # returns list subset
+list[-1]   # returns last element
+list[:-1]  # returns all but the last element
+
+list[i] = val
+list[i:j] = otherlist  # replace ith to jth-1 elements with otherlist
+del list[i:j]
+
+list.append(item)
+list.extend(another_list)
+list.insert(index, item)
+list.pop()        # returns and removes last element from the list
+list.pop(i)       # returns and removes i-th element from the list
+list.remove(i)    # removes the first item from the list whose value is i
+list1 + list2     # combine two list    
+set(list)         # remove duplicate elements from a list
+
+list.reverse()    # reverses the elements of the list in-place
+list.count(item)
+sum(list)
+
+zip(list1, list2)  # returns list of tuples with n-th element of both list1 and list2
+list.sort()        # sorts in-place, returns None
+sorted(list)       # returns sorted copy of list
+",".join(list)     # returns a string with list elements seperated by comma
+</code></pre>
+
+<h3 id="dict">Dict</h3>
+
+<pre><code>dict.keys()
+dict.values()
+"key" in dict    # let's say this returns False, then...
+dict["key"]      # ...this raises KeyError
+dict.get("key")  # ...this returns None
+dict.setdefault("key", 1)
+</code></pre>
+
+<h3 id="iteration">Iteration</h3>
+
+<pre><code>for item in ["a", "b", "c"]:
+for i in range(4):        # 0 to 3
+for i in range(4, 8):     # 4 to 7
+for i in range(1, 9, 2):  # 1, 3, 5, 7
+for key, val in dict.items():
+for index, item in enumerate(list):
+</code></pre>
+
+<h3 id="string"><a href="https://docs.python.org/2/library/stdtypes.html#string-methods">String</a></h3>
+
+<pre><code>str[0:4]
+len(str)
+
+string.replace("-", " ")
+",".join(list)
+"hi {0}".format('j')
+f"hi {name}" # same as "hi {}".format('name')
+str.find(",")
+str.index(",")   # same, but raises IndexError
+str.count(",")
+str.split(",")
+
+str.lower()
+str.upper()
+str.title()
+
+str.lstrip()
+str.rstrip()
+str.strip()
+
+str.islower()
+
+/* escape characters */
+&gt;&gt;&gt; 'doesn\'t'  # use \' to escape the single quote...
+    "doesn't"
+&gt;&gt;&gt; "doesn't"  # ...or use double quotes instead
+    "doesn't"
+&gt;&gt;&gt; '"Yes," they said.'
+    '"Yes," they said.'
+&gt;&gt;&gt; "\"Yes,\" they said."
+    '"Yes," they said.'
+&gt;&gt;&gt; '"Isn\'t," they said.'
+    '"Isn\'t," they said.'
+</code></pre>
+
+<h3 id="casting">Casting</h3>
+
+<pre><code>int(str)
+float(str)
+str(int)
+str(float)
+'string'.encode()
+</code></pre>
+
+<h3 id="comprehensions">Comprehensions</h3>
+
+<pre><code>[fn(i) for i in list]            # .map
+map(fn, list)                    # .map, returns iterator
+
+filter(fn, list)                 # .filter, returns iterator
+[fn(i) for i in list if i &gt; 0]   # .filter.map
+</code></pre>
+
+<h3 id="regex">Regex</h3>
+
+<pre><code>import re
+
+re.match(r'^[aeiou]', str)
+re.sub(r'^[aeiou]', '?', str)
+re.sub(r'(xyz)', r'\1', str)
+
+expr = re.compile(r'^...$')
+expr.match(...)
+expr.sub(...)
+</code></pre>
+
+<h2 id="file-manipulation">File manipulation</h2>
+
+<h3 id="reading">Reading</h3>
+
+<pre><code class="language-py">file = open("hello.txt", "r") # open in read mode 'r'
+file.close() 
+</code></pre>
+
+<pre><code class="language-py">print(file.read())  # read the entire file and set the cursor at the end of file
+print file.readline() # Reading one line
+file.seek(0, 0) # place the cursor at the beggining of the file
+</code></pre>
+
+<h3 id="writing-overwrite">Writing (overwrite)</h3>
+
+<pre><code class="language-py">file = open("hello.txt", "w") # open in write mode 'w'
+file.write("Hello World") 
+
+text_lines = ["First line", "Second line", "Last line"] 
+file.writelines(text_lines)
+
+file.close()
+</code></pre>
+
+<h3 id="writing-append">Writing (append)</h3>
+
+<pre><code class="language-py">file = open("Hello.txt", "a") # open in append mode
+file.write("Hello World again")  
+file.close()
+</code></pre>
+
+<h3 id="context-manager">Context manager</h3>
+
+<pre><code class="language-py">with open("welcome.txt", "r") as file:
+    # 'file' refers directly to "welcome.txt"
+   data = file.read()
+
+# It closes the file automatically at the end of scope, no need for `file.close()`.
+</code></pre>
+
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/python.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Python.%20https://devhints.io/python.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

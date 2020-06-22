@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/ractive.html' name='app:pageurl'>
+
+
+  <title>Ractive.js cheatsheet</title>
+  <meta content='Ractive.js cheatsheet' property='og:title'>
+  <meta content='Ractive.js cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/ractive.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/ractive.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Ractive.js: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Ractive.js: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Ractive.js: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/ractive">
+<meta name="og:url" content="https://devhints.io/ractive">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='JavaScript libraries' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Ractive.js cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/ractive.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Ractive.js: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#javascript-libraries",
+      "name": "JavaScript libraries"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/ractive",
+      "name": "Ractive.js"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Ractive.js</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ractive.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Ractive.js.%20https://devhints.io/ractive.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      
+<h3 id="initialization"><a href="http://docs.ractivejs.org/latest/options">Initialization</a></h3>
+
+<pre><code>new Ractive({
+  el: $('..'),
+  el: '#box',
+  template: '...', // required
+
+  // callbacks
+  init: function() {},    // on instantiate
+  complete: function() {}, // on finish animations
+
+  // objs
+  data: { ... },
+  partials: { ... },    // global: Ractive.partials
+  transitions: { ... }, // global: Ractive.transitions
+  components: { ... },
+  adaptors: [ ... ],
+
+  // options
+  magic: false
+  modifyArrays: true
+  twoway: true
+  noIntro: true // true = disable transition on initial render
+  lazy: false   // false = use keyevents, true = use change/blur
+  append: false // false = overwrite element, true = append
+  debug: false
+  sanitize: false
+})
+</code></pre>
+
+<h2 id="instance-methods">Instance methods</h2>
+
+<h3 id="updating-values">Updating values</h3>
+
+<pre><code>view.add('count', 1)       //=&gt; promise
+view.subtract('count', 1)  //=&gt; promise
+view.toggle('shown')       //=&gt; promise
+
+view.set('a', true)
+view.set({ a: true })
+view.reset({ a: true })
+view.merge('list', [a,b,c])
+
+view.get('a')
+view.data.a
+</code></pre>
+
+<h3 id="nodes-and-components">Nodes and components</h3>
+
+<pre><code>view.find('.klass')
+view.findAll('.klass')
+view.nodes
+view.nodes['hello']   // .find('#hello')
+
+view.findComponent('photo')
+view.findAllComponents('photo')
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code>view.on('event', function() { ... })
+view.off('event', fn)
+view.fire('event')
+</code></pre>
+
+<h3 id="others">Others</h3>
+
+<pre><code>view.update()
+view.updateModel()
+
+view.insert('.node .path')
+
+view.observe({ 'name': function() { ... } })
+
+view.toHTML()  //=&gt; String
+view.render()
+</code></pre>
+
+<h2 id="extend">Extend</h2>
+
+<pre><code>View = Ractive.extend({
+  ...
+})
+new View()
+</code></pre>
+
+<h2 id="components"><a href="https://github.com/RactiveJS/Ractive/wiki/Components">Components</a></h2>
+
+<p class="center">See: https://github.com/RactiveJS/Ractive/issues/74</p>
+
+<pre><code>Widget = Ractive.extend({ ... })
+
+ractive = new Ractive({
+  el: 'main',
+  template: '&lt;widget foo="bar"/&gt;',
+  components: {
+    widget: Widget
+  }
+});
+</code></pre>
+
+<h2 id="partials">Partials</h2>
+
+<pre><code>// Global partials
+Ractive.partials.x = "&lt;..&gt;"
+</code></pre>
+
+<h2 id="events-1">Events</h2>
+
+<pre><code>view.on('teardown')
+</code></pre>
+
+<h3 id="dom-events">DOM Events</h3>
+
+<pre><code>&lt;button on-click='activate'&gt;Activate!&lt;/button&gt;
+
+view.on({
+  activate: function () { ... }
+});
+
+&lt;button on-click='sort:name'&gt;Sort by name&lt;/button&gt;
+view.on('sort', function (e, column) {
+  console.log('sorting by #{column}');
+});
+</code></pre>
+
+<h3 id="observing">Observing</h3>
+
+<pre><code> view.observe("name", function (name) {
+   console.log("Changed name to", name);
+ }, { init: false });
+</code></pre>
+
+<h2 id="markup">Markup</h2>
+
+<pre><code>Hello, {{name}}
+Body: {{{unescaped}}}
+
+&lt;!-- each --&gt;
+{{#mylist:i}}
+  &lt;li&gt;{{this.name}}&lt;/li&gt;
+  &lt;li&gt;{{name}}&lt;/li&gt;
+  &lt;li&gt;{{.}}&lt;/li&gt; &lt;!-- same as 'this' --&gt;
+{{/mylist}}
+
+{{^user}}Not logged in{{/user}} &lt;!-- if false --&gt;
+{{#user}}Welcome, sire{{/user}} &lt;!-- if true --&gt;
+
+{{&gt;partialName}}
+&lt;component&gt;
+
+{{#statusDogs[selected]}}
+</code></pre>
+
+<h2 id="transformed-attributes">Transformed attributes</h2>
+
+<p>This transforms the <code>list</code> attribute via a helper function called <code>sort()</code>.</p>
+
+<pre><code>{{# sort(list, "name") :num }}
+  &lt;li&gt;{{num}} - {{name}}&lt;/li&gt;
+{{/ end. any text goes here }}
+
+data: {
+  sort: function(array, column) { return array.whatever(); }
+}
+</code></pre>
+
+<h2 id="transitions">Transitions</h2>
+
+<pre><code>&lt;div intro="fade"&gt;
+&lt;div intro="bump"&gt;
+&lt;div intro="bump:{duration:400}"&gt;
+
+Ractive.transitions.bump = function(t, params) {
+   params = t.processParams( params, {
+     duration: 400,
+     color: t.isIntro ? 'rgb(0,255,0)' : 'rgb(255,0,0)'
+   });
+
+  if (t.isIntro) {
+    /* enter */
+  } else {
+    /* exit */
+  }
+
+  t.complete();
+};
+</code></pre>
+
+<h2 id="decorators"><a href="http://docs.ractivejs.org/latest/decorators">Decorators</a></h2>
+
+<pre><code>&lt;span decorator="tooltip:hello there"&gt;Hover me&lt;/span&gt;
+
+decorators: {
+  tooltip: function (node, content) {
+    // setup code here
+    return {
+      teardown: function () {
+        // cleanup code here
+      }
+    }
+  }
+}
+
+&lt;span decorator="tooltip:'a','b',2,'c'"&gt;Hover me&lt;/span&gt;
+
+tooltip: function (node, a, b, two, c) { ... }
+</code></pre>
+
+<h2 id="adaptors"><a href="http://docs.ractivejs.org/latest/adaptors">Adaptors</a></h2>
+
+<pre><code>myAdaptor = {
+  filter: function (object, keypath, ractive) {
+    // return `true` if a particular object is of the type we want to adapt
+  },
+  wrap: function (ractive, object, keypath, prefixer) {
+    // set up event bindings here
+    object.on('change', function () { ractive.set(prefixer({...})); });
+    // then return a wrapper:
+    return {
+      teardown: function () { .. },
+      // json representation
+      get: function () { return { a:2, b:3, c:4, ... }; },
+      // called on ractive.set
+      set: function (key, val) { },
+      // called on ractive.set on root (return false = die)
+      reset: function (data) { return false; }
+    };
+  }
+};
+</code></pre>
+
+<h2 id="computed-properties"><a href="http://docs.ractivejs.org/latest/computed-properties">Computed properties</a></h2>
+
+<pre><code>new Ractive({
+  template: '{{area}}',
+  computed: {
+    area: function () { return this.get('width') * this.get('height'); }
+    area: '${width} * ${height}'
+    fullname: {
+      get: '${first} + " " + ${last}"
+      set: function (name) { ... }
+    }
+  }
+});
+</code></pre>
+
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ractive.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Ractive.js.%20https://devhints.io/ractive.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

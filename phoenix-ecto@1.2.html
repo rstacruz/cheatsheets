@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/phoenix-ecto@1.2.html' name='app:pageurl'>
+
+
+  <title>Phoenix: Ecto models cheatsheet</title>
+  <meta content='Phoenix: Ecto models cheatsheet' property='og:title'>
+  <meta content='Phoenix: Ecto models cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/phoenix-ecto@1.2.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/phoenix-ecto@1.2.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Phoenix: Ecto models: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Phoenix: Ecto models: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Phoenix: Ecto models: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/phoenix-ecto@1.2">
+<meta name="og:url" content="https://devhints.io/phoenix-ecto@1.2">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Elixir' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Phoenix: Ecto models cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/phoenix-ecto@1.2.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Phoenix: Ecto models: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#elixir",
+      "name": "Elixir"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/phoenix-ecto@1.2",
+      "name": "Phoenix: Ecto models"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Phoenix: Ecto models</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/phoenix-ecto@1.2.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Phoenix:%20Ecto%20models.%20https://devhints.io/phoenix-ecto@1.2.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <p>This is for Phoenix 1.2 and below. <a href="phoenix-ecto@1.3.html">Phoenix 1.3 has a new API.</a>.</p>
+
+<h2 id="generating">Generating</h2>
+
+<pre><code>$ mix phoenix.gen.html Profile profiles email:string age:integer
+$ mix phoenix.gen.html User users email:string hashed_password:string
+</code></pre>
+
+<h2 id="schema">Schema</h2>
+
+<pre><code class="language-elixir">defmodule User do
+  use Ecto.Schema
+
+  schema "users" do
+    field :name
+    field :age, :integer
+    # :id :binary :integer :float :boolean :string :binary
+    # {:array, inner_type} :decimal :map
+
+    field :password, virtual: true
+  end
+end
+</code></pre>
+
+<h2 id="changesets">Changesets</h2>
+
+<pre><code class="language-elixir">def changeset(user, params \\ :empty) do
+  %User{}
+  |&gt; Ecto.Changeset.change   # basic casting to changeset
+
+  user
+  |&gt; cast(params, ~w(name email), ~w(age)) # params to Changeset
+
+  |&gt; validate_format(:email, ~r/@/)
+
+  |&gt; validate_inclusion(:age, 18..100)
+  |&gt; validate_exclusion(:role, ~w(admin superadmin))
+  |&gt; validate_subset(:pets, ~w(cat dog parrot whale))
+
+  |&gt; validate_length(:body, min: 1)
+  |&gt; validate_length(:body, min: 1, max: 160)
+  |&gt; validate_length(:partners, is: 2)
+
+  |&gt; validate_number(:pi, greater_than: 3)
+  |&gt; validate_number(:pi, less_than: 4)
+  |&gt; validate_number(:pi, equal_to: 42)
+
+  |&gt; validate_change(:title, fn _, _ -&gt; [])
+  |&gt; validate_confirmation(:password, message: "does not match")
+
+  |&gt; unique_constraint(:email)
+  |&gt; foreign_key_constraint(:post_id)
+  |&gt; assoc_constraint(:post)      # ensure post_id exists
+  |&gt; no_assoc_constraint(:post)   # negative (useful for deletions)
+end
+</code></pre>
+
+<pre><code class="language-elixir">changeset.valid?
+changeset.errors     #=&gt; [title: "empty"]
+
+changeset.changes    #=&gt; %{}
+changeset.params[:title]
+
+changeset.required   #=&gt; [:title]
+changeset.optional   #=&gt; [:body]
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<pre><code class="language-elixir">changeset #(or model)
+|&gt; change(title: "New title")
+|&gt; change(%{ title: "New title" })
+|&gt; put_change(:title, "New title")
+|&gt; force_change(:title, "New title")
+|&gt; update_change(:title, &amp;(&amp;1 &lt;&gt; "..."))
+
+|&gt; delete_change(:title)
+|&gt; merge(other_changeset)
+
+|&gt; add_error(:title, "empty")
+</code></pre>
+
+<h3 id="getting">Getting</h3>
+
+<pre><code class="language-elixir">get_change(changeset, :title)    #=&gt; "hi" (if changed)
+get_field(changeset, :title)     #=&gt; "hi" (even if unchanged)
+
+fetch_change(changeset, :title)  #=&gt; {:ok, "hi"} | :error
+fetch_field(changeset, :title)   #=&gt; {:changes | :model, "value"} | :error
+</code></pre>
+
+<h2 id="ecto">Ecto</h2>
+
+<h3 id="get-one">Get one</h3>
+
+<pre><code class="language-elixir">Repo.get(User, id)
+Repo.get_by(User, email: "john@hello.com")  #=&gt; %User{} | nil
+
+# also get! get_by!
+</code></pre>
+
+<h3 id="createupdate">Create/update</h3>
+
+<pre><code class="language-elixir">changeset |&gt; Repo.update
+changeset |&gt; Repo.insert
+changeset |&gt; Repo.insert_or_update
+</code></pre>
+
+<pre><code>User
+|&gt; Ecto.Changeset.change(%{name: "hi"})
+|&gt; Repo.insert
+</code></pre>
+
+<h2 id="many">Many</h2>
+
+<h3 id="queries">Queries</h3>
+
+<pre><code class="language-elixir">from p in Post,
+  where: p.title == "Hello",
+  where: [state: "Sweden"],
+
+  limit: 1,
+  offset: 10,
+
+  order_by: c.name,
+  order_by: [c.name, c.title],
+  order_by: [asc: c.name, desc: c.title],
+
+  preload: [:comments],
+  preload: [comments: {c, likes: l}],
+
+  join: c in assoc(c, :comments),
+  join: p in Post, on: c.post_id == p.id,
+  group_by: p,
+
+  select: p,
+  select: {p.title, p.description},
+  select: [p.title, p.description],
+</code></pre>
+
+<h3 id="get-many">Get many</h3>
+
+<pre><code class="language-elixir">Repo.all(User)
+</code></pre>
+
+<h3 id="update-many">Update many</h3>
+
+<pre><code class="language-elixir">Repo.update_all(Post, set: [title: "Title"])
+Repo.update_all(Post, inc: [views: 1])
+</code></pre>
+
+<h3 id="chaining-_all-with-queries">Chaining <code>_all</code> with queries</h3>
+
+<pre><code class="language-elixir">from(p in Post, where: p.id &lt; 10)
+|&gt; Repo.update_all(...)
+
+from(p in Post, where: p.id &lt; 10)
+|&gt; Repo.all()
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/phoenix-ecto@1.2.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Phoenix:%20Ecto%20models.%20https://devhints.io/phoenix-ecto@1.2.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

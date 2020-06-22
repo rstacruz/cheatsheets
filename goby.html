@@ -1,0 +1,1805 @@
+<!doctype html>
+<html class='NoJs' lang='en'><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/goby.html' name='app:pageurl'>
+
+
+  <title>Goby cheatsheet</title>
+  <meta content='Goby cheatsheet' property='og:title'>
+  <meta content='Goby cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/goby.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/goby.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="One-page guide to Goby: usage, examples, and more. Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small." name="description">
+  <meta content="One-page guide to Goby: usage, examples, and more. Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small." property="og:description">
+  <meta content="One-page guide to Goby: usage, examples, and more. Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/goby">
+<meta name="og:url" content="https://devhints.io/goby">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Ruby' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+<script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+
+<!-- critical css -->
+<style id='critical-css'>*,:after,:before{box-sizing:border-box}:after,:before{text-decoration:inherit;vertical-align:inherit}html{cursor:default;line-height:1.5;-moz-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-break:break-word}body{margin:0}h1{font-size:2em;margin:.67em 0}dl dl,dl ol,dl ul,ol dl,ol ol,ol ul,ul dl,ul ol,ul ul{margin:0}hr{height:0;overflow:visible}main{display:block}nav ol,nav ul{list-style:none;padding:0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}audio,canvas,iframe,img,svg,video{vertical-align:middle}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}iframe,img{border-style:none}svg:not([fill]){fill:currentColor}svg:not(:root){overflow:hidden}table{border-collapse:collapse}button,input,select{margin:0}button{overflow:visible;text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}fieldset{border:1px solid #a0a0a0;padding:.35em .75em .625em}input{overflow:visible}legend{color:inherit;display:table;max-width:100%;white-space:normal}progress{display:inline-block;vertical-align:baseline}select{text-transform:none}textarea{margin:0;overflow:auto;resize:vertical}[type=checkbox],[type=radio]{padding:0}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}details,dialog{display:block}dialog{background-color:#fff;border:solid;color:#000;height:-moz-fit-content;height:-webkit-fit-content;height:fit-content;left:0;margin:auto;padding:1em;position:absolute;right:0;width:-moz-fit-content;width:-webkit-fit-content;width:fit-content}dialog:not([open]){display:none}summary{display:list-item}canvas{display:inline-block}template{display:none}[tabindex],a,area,button,input,label,select,summary,textarea{-ms-touch-action:manipulation;touch-action:manipulation}[hidden]{display:none}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true],[disabled]{cursor:not-allowed}[aria-hidden=false][hidden]{display:initial}[aria-hidden=false][hidden]:not(:focus){clip:rect(0,0,0,0);position:absolute}body,html{background:#f1f3f5;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:14px;line-height:1.6;color:#345;overflow-x:hidden}body{font-size:13px;padding:0;margin:0}@media (min-width:480px) and (max-width:768px){body{font-size:calc(13px + 1*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){body{font-size:calc(14px + 0*(100vw - 768px)/512)}}@media (min-width:1280px){body{font-size:14px}}code,pre{font-family:cousine,SFMono-Regular,Consolas,Menlo,Liberation Mono,Ubuntu Mono,Courier,monospace;letter-spacing:-.03em}pre{font-size:.96em}:not(pre):not(code){-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{color:#26648e}a:visited{color:#15234d}a:hover{color:#3ac1cb}[aria-hidden]:not(.line-highlight){display:none!important}@media (max-width:580px){.hint--bottom:after,.hint--bottom:before{display:none}}html.WithJs .post-content{opacity:0}html.WithJs .intro-content,html.WithJs .pages-list,html.WithJs .post-content.-wrapified{opacity:.4}html.WithJs.LoadDone .intro-content,html.WithJs.LoadDone .pages-list,html.WithJs.LoadDone .post-content.-wrapified{opacity:1;transition:opacity .1s linear .1s}.MarkdownBody.MarkdownBody a+em{opacity:.5}.MarkdownBody code{color:#678;font-size:.96em}.MarkdownBody code,.MarkdownBody pre{font-family:cousine,SFMono-Regular,Consolas,Menlo,Liberation Mono,Ubuntu Mono,Courier,monospace}.MarkdownBody pre.-box-chars{line-height:1.32}.MarkdownBody pre.-figlet{line-height:1;font-size:11px}.MarkdownBody pre{box-shadow:none;border-left:0;overflow:hidden;overflow-x:auto;background:#fff;font-size:.96em;line-height:1.5}.MarkdownBody pre.-wrap{white-space:pre-wrap}.MarkdownBody pre>code{color:#111;max-height:auto;padding:0;background:transparent;overflow:visible;font-size:1em}.MarkdownBody .line-highlight{transform:translate3d(0,2px,0);background:linear-gradient(90deg,rgba(20,175,131,.05) 25%,transparent)}.MarkdownBody .line-highlight[data-end]{margin-top:0}.MarkdownBody .line-highlight:after,.MarkdownBody .line-highlight:before{display:none}.MarkdownBody p.-crosslink,.MarkdownBody p.-setup,.MarkdownBody pre.-setup,.MarkdownBody ul.-setup{background:#f8f9fa}.token.keyword,.token.tag{color:#26648e}.token.tag{color:#1d406e}.token.attr-value,.token.boolean,.token.number,.token.regex,.token.string,.token.value{color:#14af83}.token.attr-name,.token.function{color:#2e90ae}.token.comment,.token.operator,.token.punctuation{color:#aaa}.MarkdownBody h2{padding:0;position:relative;font-size:30.0697899531px;line-height:1.2;font-weight:200;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;margin:0 0 24px}@media (max-width:768px){.MarkdownBody h2{margin-bottom:8px;margin-top:32px}}@media (max-width:480px){.MarkdownBody h2{margin-bottom:8px;margin-top:32px}}@media (min-width:480px) and (max-width:768px){.MarkdownBody h2{font-size:calc(30.06979px + 4.03976*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.MarkdownBody h2{font-size:calc(34.10955px + 1.80275*(100vw - 768px)/512)}}@media (min-width:1280px){.MarkdownBody h2{font-size:35.9122988248px}}.MarkdownBody h2:target{color:#745fb5}.MarkdownBody h3{padding:0;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:17.1925px;font-weight:400;color:#745fb5}@media (min-width:480px) and (max-width:768px){.MarkdownBody h3{font-size:calc(17.1925px + 1.6459*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.MarkdownBody h3{font-size:calc(18.8384px + 0.3262*(100vw - 768px)/512)}}@media (min-width:1280px){.MarkdownBody h3{font-size:19.1646px}}.MarkdownBody a,.MarkdownBody a:visited{color:#26648e;text-decoration:none}.MarkdownBody a:hover{text-decoration:underline}.MarkdownBody em{font-style:normal;color:#678}.MarkdownBody iframe{border:0;margin:0;width:100%}.local-anchor{margin-left:-.9em;margin-right:.1em;padding:0 .1em}.MarkdownBody .local-anchor,.MarkdownBody .local-anchor:visited{color:#678;text-decoration:inherit;opacity:.5}.MarkdownBody .local-anchor:target,.MarkdownBody :target>.local-anchor{color:#745fb5;opacity:1}.MarkdownBody .local-anchor:focus,.MarkdownBody .local-anchor:hover{color:#fff;background:#745fb5;opacity:1;text-decoration:inherit}.MarkdownBody.MarkdownBody img{max-width:100%}.MarkdownBody.MarkdownBody p.-crosslink>a{display:block;text-decoration:none;color:#745fb5;border-bottom:0;box-shadow:none;margin:-16px;padding:16px}.MarkdownBody.MarkdownBody p.-crosslink>a:visited{color:#745fb5}.MarkdownBody.MarkdownBody p.-crosslink>a:before{content:"";display:inline-block;vertical-align:middle;background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23FFF' d='M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.7H85v42.75z'/%3E%3C/svg%3E") 50%/16px 16px no-repeat;height:16px;width:16px;margin-right:16px;width:32px;height:32px;line-height:32px;border-radius:50%}.MarkdownBody.MarkdownBody p.-crosslink>a:before,.MarkdownBody.MarkdownBody p.-crosslink>a:visited:before{background-color:#745fb5;color:#fff}.MarkdownBody.MarkdownBody p.-crosslink>a:focus,.MarkdownBody.MarkdownBody p.-crosslink>a:hover{color:#673d85}.MarkdownBody.MarkdownBody p.-crosslink>a:focus:before,.MarkdownBody.MarkdownBody p.-crosslink>a:hover:before{background-color:#673d85}.MarkdownBody table{width:100%}.MarkdownBody table tr+tr{border-top:1px solid rgba(102,119,136,.05)}.MarkdownBody table tbody+tbody{border-top:1px solid rgba(102,119,136,.2)}.MarkdownBody table td,.MarkdownBody table th{padding:8px 16px;vertical-align:top;text-align:left}.MarkdownBody table tr td:last-child,.MarkdownBody table tr th:last-child{text-align:right}.MarkdownBody table td:first-child{white-space:nowrap}.MarkdownBody table td>code{font-size:.96em}.MarkdownBody table td:first-child>code{color:#35a}.MarkdownBody table a,.MarkdownBody table a:visited{color:#35a;text-decoration:none}.MarkdownBody table td:first-child>code~em{font-size:11.3043478261px;font-style:normal;color:#678}@media (min-width:480px) and (max-width:768px){.MarkdownBody table td:first-child>code~em{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.MarkdownBody table td:first-child>code~em{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){.MarkdownBody table td:first-child>code~em{font-size:11.9658119658px}}.MarkdownBody table thead{display:none}.MarkdownBody table thead th{font-weight:400;color:#745fb5}.MarkdownBody table.-shortcuts-right td:last-child>code,.MarkdownBody table.-shortcuts td:first-child>code{font-size:1rem;padding:5px 6px 5px 8px;background:#f8f9fa;border-radius:3px;margin-right:2px;letter-spacing:.1em;color:#345}.MarkdownBody table.-left-align tr td,.MarkdownBody table.-left-align tr td:last-child,.MarkdownBody table.-left-align tr th{text-align:left}.MarkdownBody table.-headers thead{display:table-header-group;border-bottom:1px solid rgba(102,119,136,.2)}.MarkdownBody table.-key-values tbody tr td+td code{display:block}.MarkdownBody table.-css-breakdown tr td,.MarkdownBody table.-css-breakdown tr td:last-child,.MarkdownBody table.-css-breakdown tr th{text-align:left}.MarkdownBody table.-css-breakdown tr td{font-size:14.95px;white-space:nowrap}@media (min-width:480px) and (max-width:768px){.MarkdownBody table.-css-breakdown tr td{font-size:calc(14.95px + 1.29*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.MarkdownBody table.-css-breakdown tr td{font-size:calc(16.24px + 0.14*(100vw - 768px)/512)}}@media (min-width:1280px){.MarkdownBody table.-css-breakdown tr td{font-size:16.38px}}.MarkdownBody table.-css-breakdown tr td:not(:last-child){padding-right:4px}.MarkdownBody table.-css-breakdown tr td:not(:first-child){padding-left:4px}.MarkdownBody table.-css-breakdown tr:last-child{background:#f8f9fa}.MarkdownBody table.-css-breakdown tr:last-child td{font-size:11.3043478261px;color:#678;white-space:auto}@media (min-width:480px) and (max-width:768px){.MarkdownBody table.-css-breakdown tr:last-child td{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.MarkdownBody table.-css-breakdown tr:last-child td{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){.MarkdownBody table.-css-breakdown tr:last-child td{font-size:11.9658119658px}}.MarkdownBody table.-bold-first tr>td:first-child{font-weight:700}.MarkdownBody table.-no-wrap td,.MarkdownBody table.-no-wrap th{white-space:nowrap}.MarkdownBody table.-mute-em td em,.MarkdownBody table.-mute-em th em{opacity:.5}.MarkdownBody table.-mute-em td em>code,.MarkdownBody table.-mute-em th em>code{margin-right:.5em}.MarkdownBody ul.-six-column{display:flex;flex-wrap:wrap}.MarkdownBody ul.-six-column>li{flex:0 0 16.6666666667%}@media (max-width:480px){.MarkdownBody ul.-six-column>li{flex:0 0 50%}}@media (max-width:768px){.MarkdownBody ul.-six-column>li{flex:0 0 25%}}.MarkdownBody ul.-four-column{display:flex;flex-wrap:wrap}.MarkdownBody ul.-four-column>li{flex:0 0 25%}@media (max-width:480px){.MarkdownBody ul.-four-column>li{flex:0 0 50%}}@media (max-width:768px){.MarkdownBody ul.-four-column>li{flex:0 0 33.3333333333%}}.back-button{text-decoration:none;width:48px;height:48px;line-height:46px;text-align:center;display:inline-block;border-radius:50%;transition:all .1s linear}@media (max-width:480px){.back-button{width:32px;height:32px;line-height:30px}}.back-button,.back-button:visited{color:#678}.back-button:focus,.back-button:hover{color:#fff;background:#745fb5;opacity:1}.back-button:before{content:"";display:inline-block;background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23345' d='M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.7H427v-42.75z'/%3E%3C/svg%3E") 50%/24px 24px no-repeat;height:24px;width:24px;vertical-align:middle}.back-button:focus:before,.back-button:hover:before{display:inline-block;vertical-align:middle;background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23FFF' d='M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.7H427v-42.75z'/%3E%3C/svg%3E") 50%/24px 24px no-repeat;height:24px;width:24px}@media (max-width:480px){.back-button:before{font-size:16px}}.body-area{max-width:1232px;margin:0 auto;padding:16px}@media (max-width:480px){.body-area{padding:16px}}.body-area.-slim{max-width:740px}.codefund-sponsor{min-height:114px}.codefund-sponsor .cf-wrapper{margin-left:auto;margin-right:auto}.h3-section>.body>pre{margin:0;padding:16px}@media (max-width:768px){.h3-section>.body{overflow-x:auto}}.h3-section>.body{background:#fff;box-shadow:0 6px 8px rgba(102,119,136,.03),0 1px 2px rgba(102,119,136,.3)}@media (max-width:480px){.h3-section>.body{margin:0 -16px;box-shadow:0 1px 1px rgba(102,119,136,.55)}}@media (min-width:481px){.h3-section>.body{border-radius:2px}.h3-section>.body>:first-child{border-top-left-radius:3px;border-top-right-radius:3px}.h3-section>.body>:last-child{border-bottom-left-radius:3px;border-bottom-right-radius:3px}}.h3-section>h3{margin-top:8px;margin-bottom:16px;white-space:nowrap;overflow:hidden}@media (max-width:768px){.h3-section>h3{margin-top:0}}.h3-section>h3:after{margin-left:24px;content:"";display:inline-block;vertical-align:middle;width:100%;height:1px;background:linear-gradient(90deg,rgba(116,95,181,.2),transparent 80%)}.h3-section>.body>ul{margin:0;padding:0;list-style-type:none}.h3-section>.body>ul>li{padding:8px 8px 8px 36px;position:relative}.h3-section>.body>ul>li>p{margin:0;padding:0}.h3-section>.body>ul>li:before{content:"";position:absolute;display:inline-block;width:4px;height:4px;background:#678;border-radius:50%;left:16px;top:18px}.h3-section>.body>ul>li+li{border-top:1px solid rgba(102,119,136,.05)}.h3-section>.body>p{padding:16px;margin:0}.h3-section>.body>h4{font-size:11.3043478261px;margin:0;padding:4px 16px;font-weight:400;background:#f8f9fa;color:#678}@media (min-width:480px) and (max-width:768px){.h3-section>.body>h4{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.h3-section>.body>h4{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){.h3-section>.body>h4{font-size:11.9658119658px}}.h3-section>.body>h4+*{border-top:1px solid rgba(102,119,136,.05)}.h3-section>.body>iframe~p,.h3-section>.body>pre~p,.h3-section>.body>table~p,.h3-section>.body>ul~p{background:#f8f9fa;color:#678}.h3-section>.body>iframe~p a,.h3-section>.body>iframe~p a:visited,.h3-section>.body>pre~p a,.h3-section>.body>pre~p a:visited,.h3-section>.body>table~p a,.h3-section>.body>table~p a:visited,.h3-section>.body>ul~p a,.h3-section>.body>ul~p a:visited{color:#345;text-decoration:none;border-bottom:1px solid rgba(102,119,136,.05)}.h3-section>.body>iframe~p a:hover,.h3-section>.body>pre~p a:hover,.h3-section>.body>table~p a:hover,.h3-section>.body>ul~p a:hover{color:#26648e}.h3-section>.body>:not(:first-child){border-top:1px solid rgba(102,119,136,.05)}.h3-section>.body>p+p,.h3-section>.body>p+p:not(:first-child){margin-top:-1.5em;border-top:0}@media (min-width:481px){.h3-section.-prime>.body{border-radius:2px;box-shadow:0 6px 8px rgba(102,119,136,.03),0 1px 2px rgba(102,119,136,.3),0 8px 12px rgba(58,193,203,.1)}}ul.-also-see.-also-see.-also-see{display:flex;flex-wrap:wrap;background:#f8f9fa}ul.-also-see.-also-see.-also-see>li{flex:1 0 20%;padding:24px;border-top:1px solid rgba(102,119,136,.2)}ul.-also-see.-also-see.-also-see>li+li{border-left:1px solid rgba(102,119,136,.2)}ul.-also-see.-also-see.-also-see,ul.-also-see.-also-see.-also-see>li{list-style-type:none}ul.-also-see.-also-see.-also-see>li:before{display:none}ul.-also-see.-also-see.-also-see>li>a{font-size:14.95px;display:block}@media (min-width:480px) and (max-width:768px){ul.-also-see.-also-see.-also-see>li>a{font-size:calc(14.95px + 1.29*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){ul.-also-see.-also-see.-also-see>li>a{font-size:calc(16.24px + 0.14*(100vw - 768px)/512)}}@media (min-width:1280px){ul.-also-see.-also-see.-also-see>li>a{font-size:16.38px}}ul.-also-see.-also-see.-also-see>li>em{font-size:11.3043478261px;display:block}@media (min-width:480px) and (max-width:768px){ul.-also-see.-also-see.-also-see>li>em{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){ul.-also-see.-also-see.-also-see>li>em{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){ul.-also-see.-also-see.-also-see>li>em{font-size:11.9658119658px}}.h3-section-list{margin:0 -16px}@media (max-width:1264px){.h3-section-list{margin-left:-8px;margin-right:-8px}}.h3-section-list:after{content:"";display:table;clear:both;zoom:1}.h3-section-list>.h3-section{padding:16px;float:left;width:100%}@media (max-width:1264px){.h3-section-list>.h3-section{padding:8px}}@media (min-width:769px){.h3-section-list>.h3-section{padding-top:0}}@media (min-width:769px){.h3-section-list.-two-column>.h3-section,.h3-section-list>.h3-section{width:50%}}.h3-section-list.-one-column>.h3-section{width:100%}.h3-section-list.-one-column>.h3-section+.h3-section{margin-top:16px}@media (min-width:769px){.h3-section-list.-three-column>.h3-section{width:50%}}@media (min-width:961px){.h3-section-list.-three-column>.h3-section{width:33.33%}}@media (min-width:769px){.h3-section-list.-left-reference>.h3-section{width:50%}}@media (min-width:961px){.h3-section-list.-left-reference>.h3-section{width:66.67%}.h3-section-list.-left-reference>.h3-section:first-child{width:33.33%}}.main-heading{padding:0;margin:64px 0 24px;position:relative}@media (max-width:768px){.main-heading{margin-bottom:8px;margin-top:32px}}@media (max-width:480px){.main-heading{margin-bottom:8px;margin-top:32px}}.main-heading{margin-top:0;margin-bottom:0}.main-heading>h1{font-size:39.767297213px;line-height:1.2;font-weight:200;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;margin:0}@media (min-width:480px) and (max-width:768px){.main-heading>h1{font-size:calc(39.7673px + 6.13051*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.main-heading>h1{font-size:calc(45.89781px + 3.26254*(100vw - 768px)/512)}}@media (min-width:1280px){.main-heading>h1{font-size:49.1603458612px}}.main-heading>h1>em{font-style:normal;color:#9eaab6}.main-heading.-center>h1{text-align:center}.main-heading.-center>.adbox{margin-top:16px;text-align:center}.main-heading.-center>.adbox>.ad{display:inline-block}.main-heading.-center>.adbox>.ad.-carbon,.PreviewMode .main-heading{margin-top:16px}.page-actions{margin:0;padding:0;height:32px}.page-actions>.link.link>a{display:inline-block;height:32px;line-height:32px;vertical-align:top;width:auto}.page-actions>li{margin:0;padding:0;list-style-type:none}.page-actions>li>a,.page-actions>li>a:visited{color:#678;text-decoration:none}.page-actions>li>a:focus,.page-actions>li>a:focus>.text,.page-actions>li>a:hover,.page-actions>li>a:hover>.text{color:#745fb5}.page-actions>li>a>.text{font-size:11.3043478261px;display:none}@media (min-width:480px) and (max-width:768px){.page-actions>li>a>.text{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.page-actions>li>a>.text{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){.page-actions>li>a>.text{font-size:11.9658119658px}}.page-actions>li>a>.text.-visible{display:inline}.page-actions+.page-actions{margin-left:8px}.page-actions>.facebook>a:before,.page-actions>.github>a:before,.page-actions>.twitter>a:before{content:"";vertical-align:middle}.page-actions>.facebook>a:before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23345' d='M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z'/%3E%3C/svg%3E") 50%/16px 16px no-repeat}.page-actions>.facebook>a:before,.page-actions>.twitter>a:before{display:inline-block;vertical-align:middle;height:16px;width:16px}.page-actions>.twitter>a:before{background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23345' d='M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6-18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6.8 15 2.5 22.1-80.5-4-151.9-42.6-199.6-101.3-8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7-16-.4-31-4.8-44-12.1v1.2c0 47 33.4 86.1 77.7 95-8.1 2.2-16.7 3.4-25.5 3.4-6.2 0-12.3-.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3-33.1 26-74.9 41.5-120.3 41.5-7.8 0-15.5-.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-.1-8.4-.3-12.5C462.6 146 479 129 492 109.5z'/%3E%3C/svg%3E") 50%/16px 16px no-repeat}.page-actions>.github>a:before{display:inline-block;vertical-align:middle;background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23345' d='M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9 1.4.3 2.6.4 3.8.4 8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1-8.4 1.9-15.9 2.7-22.6 2.7-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1 10.5 0 20-3.4 25.6-6 2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8 0 0 1.6-.5 5-.5 8.1 0 26.4 3.1 56.6 24.1 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 30.2-21 48.5-24.1 56.6-24.1 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5 1.2 0 2.6-.1 4-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z'/%3E%3C/svg%3E") 50%/16px 16px no-repeat;height:16px;width:16px}.page-actions>.github>a:hover:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cpath fill='%23FFF' d='M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9 1.4.3 2.6.4 3.8.4 8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1-8.4 1.9-15.9 2.7-22.6 2.7-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1 10.5 0 20-3.4 25.6-6 2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8 0 0 1.6-.5 5-.5 8.1 0 26.4 3.1 56.6 24.1 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 30.2-21 48.5-24.1 56.6-24.1 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5 1.2 0 2.6-.1 4-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z'/%3E%3C/svg%3E")}.page-actions>.facebook>a:before,.page-actions>.twitter>a:before{width:32px;height:32px}.page-actions>.github>a:before{position:relative;top:-2px}.page-actions>.link.-button>a{box-shadow:inset 0 0 0 1px rgba(102,119,136,.2);border-radius:2px;padding:0 16px;margin:0 8px;transition:all .1s linear}.page-actions>.link.-button>a>.text{margin-left:4px;position:relative;top:-1px}.page-actions>.link.-button>a:focus,.page-actions>.link.-button>a:hover{background:linear-gradient(5deg,#745fb5,#9066b8);box-shadow:0 1px 1px rgba(102,119,136,.55)}.page-actions>.link.-button>a:focus,.page-actions>.link.-button>a:focus>.text,.page-actions>.link.-button>a:hover,.page-actions>.link.-button>a:hover>.text{color:#fff}@media (max-width:768px){.page-actions>.link{margin-left:16px}}.page-actions>.link:first-child>a{margin-left:0}.page-actions>.link:last-child>a{margin-right:0}.top-nav,.top-nav>.container{height:64px;line-height:64px;text-align:center;position:relative}@media (max-width:480px){.top-nav>.container{height:32px;line-height:32px;margin-top:8px}.top-nav{height:48px;padding:8px 0;border-bottom:1px solid rgba(102,119,136,.2);margin-bottom:8px}}.top-nav>.container{padding-left:16px;padding-right:16px;max-width:1232px;margin:0 auto}@media (max-width:480px){.top-nav>.container{padding-left:16px;padding-right:16px}}.top-nav>.container{display:flex;align-items:center;position:relative}.top-nav>.container>.left{flex:0 0 auto;line-height:32px}.top-nav>.container>.brand{flex:1 1 auto}.top-nav>.container>.actions{flex:0 0 auto;display:flex}.top-nav>.container>.brand{font-size:11.3043478261px;display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.05em;text-decoration:none}@media (min-width:480px) and (max-width:768px){.top-nav>.container>.brand{font-size:calc(11.30435px + 0.76462*(100vw - 480px)/288)}}@media (min-width:768px) and (max-width:1280px){.top-nav>.container>.brand{font-size:calc(12.06897px + -0.10315*(100vw - 768px)/512)}}@media (min-width:1280px){.top-nav>.container>.brand{font-size:11.9658119658px}}.top-nav>.container>.brand,.top-nav>.container>.brand:visited{color:#345}.top-nav>.container>.brand:hover{color:#745fb5}@media (max-width:480px){.top-nav>.container>.brand{display:none}.top-nav>.container>.actions{margin-left:auto}}@media (min-width:481px){.top-nav>.container>.actions{position:absolute;right:16px;top:16px}}@media (min-width:481px) and (max-width:480px){.top-nav>.container>.actions{right:16px}}@media (min-width:481px){.top-nav>.container>.left{position:absolute;left:16px;top:16px}}@media (min-width:481px) and (max-width:480px){.top-nav>.container>.left{left:16px}}@media (min-width:1232px){.top-nav>.container>.left>.home{position:relative;left:-16px}}</style>
+
+<!-- allow disabling critical CSS optimization by passing ?nocrit=1 -->
+<script id='critical-css-disable'>if (~window.location.search.indexOf('nocrit')){;[].slice.call(document.querySelectorAll('#critical-css')).map(function(e){e.parentNode.removeChild(e)})}</script>
+
+<!-- deferred css -->
+<script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
+'https://fonts.googleapis.com/css?family=Cousine',
+'./assets/2017/style.css?t=20200622144344'
+])</script>
+<noscript id='deferred-css-fallback'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20200622144344'>
+</noscript>
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Goby cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/goby.jpg?t=20200622144344" ],
+  "description": "One-page guide to Goby: usage, examples, and more. Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#ruby",
+      "name": "Ruby"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/goby",
+      "name": "Goby"
+    }
+  }]
+}
+</script>
+
+
+</head><body>
+
+
+<nav class='top-nav' data-js-no-preview role='navigation'>
+  <div class='container'>
+    
+      <div class='left'>
+        <a class='home back-button' href='.'></a>
+      </div>
+    
+
+    <a class='brand' href='.'>
+      Devhints.io
+    </a>
+
+    
+      <div class='actions'>
+        
+<ul class="social-list social page-actions">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/goby.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Goby.%20https://devhints.io/goby.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+
+        
+          <ul class='page-actions'>
+            <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
+              <a href='https://github.com/rstacruz/cheatsheets/blob/master/goby.md'>
+                <span class='text -visible'>Edit</span>
+              </a>
+            </li>
+          </ul>
+        
+      </div>
+    
+  </div>
+</nav>
+
+
+<div class='body-area'>
+  <header class='main-heading -center' role='banner'>
+    <h1 class='h1'>Goby <em>cheatsheet</em></h1>
+
+    <div class='adbox' data-js-no-preview>
+      
+      <div class='ad -codefund' role='complementary'>
+        <aside class='codefund-sponsor' data-js-no-preview>
+  <div id="codefund"><!-- fallback content --></div>
+  <script src="https://codefund.app/properties/51/funder.js" async="async"></script>
+  <script type="text/javascript">var abp;</script>
+  <script type="text/javascript" src="https://cdn2.codefund.app/assets/px.js?ch=1"></script>
+  <script type="text/javascript" src="https://cdn2.codefund.app/assets/px.js?ch=2"></script>
+</aside>
+
+      </div>
+      
+
+      
+    </div>
+  </header>
+
+  
+
+  
+
+  
+    <div class='intro-content MarkdownBody'>
+      <p>Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small.</p>
+
+    </div>
+  
+
+  <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
+    <h2 id="getting-started">Getting started</h2>
+
+<h3 class="-prime" id="hello-world">Hello world</h3>
+
+<h4 class="-file" id="hellogb">hello.gb</h4>
+
+<pre><code class="language-ruby">class Greet
+  attr_accessor :audience, :head, :tail
+  
+  def initialize
+    @head = "Hello, "
+    @tail = "!"
+  end
+
+  def name
+    audience.name
+  end
+
+  def say
+    puts head + name + tail
+  end
+end
+
+module MyName
+  attr_reader :name
+
+  def initialize
+    @name = self.class.to_s
+  end
+end
+
+class World
+  include MyName
+end
+
+greet = Greet.new
+greet.audience = World.new
+greet.say
+</code></pre>
+
+<p>Then run:</p>
+
+<pre><code class="language-bash">$ goby hello.gb
+#=&gt; Hello, World!
+</code></pre>
+
+<h3 id="repl-igb">REPL (igb)</h3>
+
+<pre><code class="language-bash">$ goby -i
+</code></pre>
+
+<ul>
+  <li><code>reset</code>: reset the VM</li>
+  <li><code>exit</code>: exit REPL</li>
+  <li><code>help</code>: show help</li>
+  <li>ctrl-c: cancel the block entered, or exit (on top level)</li>
+</ul>
+
+<p>See <a href="https://github.com/goby-lang/goby/blob/master/igb/manual_test.md">igb manual &amp; test script</a>. You can use <code>readline</code> features such as command history by arrow keys.</p>
+
+<h2 class="-three-column" id="variables">Variables</h2>
+
+<h3 id="local-variable">Local variable</h3>
+
+<pre><code class="language-ruby">zip101 = "233-7383"
+magic_number = 42
+</code></pre>
+
+<p>Should be “<code>[a-z][a-z0-9_]+</code>“(snake_case).</p>
+
+<h3 id="instance-variable">Instance variable</h3>
+
+<pre><code class="language-ruby">module State
+  def initialize(state)
+    @state = state      # declaring an instance variable by assignment
+  end
+  def show
+    @state              # accessible from other instance methods
+  end
+end
+
+state = State.new "success"
+state.show
+#=&gt; success
+</code></pre>
+
+<p>Should be “<code>@[a-z][a-z0-9_]+</code>“(snake_case).</p>
+
+<h3 id="multiple-assignment">Multiple assignment</h3>
+
+<pre><code class="language-ruby"># array literal
+a, b, c = [1, 2, 3]
+
+# array with '*'
+a = [1, 2, 3]
+x, y, z = *a
+
+# array literal with '*'
+a, b, c = *[1, 2, 3]
+
+# bare assignment: unsupported
+a, b, c = 1, 2, 3  #=&gt; unexpected 3 Line: 0
+</code></pre>
+
+<h3 id="black-hole-variable">Black hole variable</h3>
+
+<pre><code class="language-ruby"># '_' is write-only
+a, _ = [1, 2]
+</code></pre>
+
+<h3 id="class-variable">Class variable</h3>
+
+<p>Unsupported.</p>
+
+<h3 id="global-variable">Global variable</h3>
+
+<p>Unsupported.</p>
+
+<h2 id="method-definition">Method definition</h2>
+
+<h3 id="method-definition-and-calling">Method definition and calling</h3>
+
+<pre><code class="language-ruby">def foo_bar?(baz)
+  if baz == "Hi, Goby!"
+    true
+  else
+    false
+  end
+end
+
+foo_bar? "Hi, Goby!" #=&gt; true
+</code></pre>
+
+<p>Method name should be “<code>[a-z][a-z0-9_]+\??</code>” (snake_case). You can omit the trailing “<code>()</code>” only if no parameters are taken. Trailing using “<code>!</code>” is <strong>unsupported</strong>.</p>
+
+<h3 id="order-of-method-parameter">Order of method parameter</h3>
+
+<pre><code class="language-ruby">def foo(normal, default="value", hash={}, ary=[], keyword:, keyword_default:"key", *sprat)
+end
+</code></pre>
+
+<p>If a default value is provided to a parameter, the parameter can be omitted when calling. <code>()</code> can be omitted. The order of parameters in method definition is restricted as follows:</p>
+
+<ol>
+  <li><strong>normal parameters</strong> (like <code>a</code>)</li>
+  <li><strong>normal parameters with default value</strong> (like <code>a=1</code>)</li>
+  <li><strong>optional parameters</strong> (array or hash, like <code>ary=[]</code> or <code>hs={}</code>)</li>
+  <li><strong>keyword parameters</strong> (like <code>kwd:</code>)</li>
+  <li><strong>keyword parameters with default value</strong> (like <code>kwd: 1</code> or <code>ary: [1,2,3]</code> or <code>hsh: {key: "value"}</code>)</li>
+  <li><strong>splat parameters</strong> (like <code>*sp</code>)</li>
+</ol>
+
+<p>Or you will receive an error.</p>
+
+<h3 id="keyword-parameter-wip">Keyword parameter (WIP)</h3>
+
+<pre><code class="language-ruby">def foo(process:, verb: :GET, opt:{ csp: :enabled }, ary: [1, 2, 3])
+end
+</code></pre>
+
+<h3 id="returning-value">Returning value</h3>
+
+<pre><code class="language-ruby">PI = 3.14
+def area(radius)
+  radius * PI      # returns the result of evaluation
+end
+
+area 6             #=&gt; 18.84
+</code></pre>
+
+<h3 id="returning-multiple-value">Returning multiple value</h3>
+
+<pre><code class="language-ruby">def my_array
+  [1, 2, 3]
+end
+
+my_array   #=&gt; [1, 2, 3]
+</code></pre>
+
+<h3 id="instance-method">Instance method</h3>
+
+<pre><code class="language-ruby">module Foo
+  def bar       # defining instance method
+    puts "bar"
+  end
+  
+  def baz(count, email: "goby@example.com")
+    count.times do
+      puts email
+    end
+  end
+end
+
+foo = Foo.new
+foo.bar     #=&gt; bar
+foo.baz(3)  #↓
+goby@example.com
+goby@example.com
+goby@example.com
+</code></pre>
+
+<h3 id="singleton-method-1">Singleton method #1</h3>
+
+<pre><code class="language-ruby">str = "Goby"
+def str.foo     #1 singleton method on the object
+  self * 2
+end
+
+str.foo
+#=&gt; GobyGoby
+</code></pre>
+
+<h3 id="singleton-method-2">Singleton method #2</h3>
+
+<pre><code class="language-ruby">module Foo
+  def self.bar  #2 singleton method with `self.`
+    92
+  end
+end
+</code></pre>
+
+<h3 id="singleton-method-3">Singleton method #3</h3>
+
+<pre><code class="language-ruby">module Foo  
+  def Foo.bar   #3 singleton method with a class name (unrecommended)
+    88
+  end
+end
+</code></pre>
+
+<h3 id="singleton-method-4">Singleton method #4</h3>
+
+<pre><code class="language-ruby">module Foo end
+
+def Foo.bar     #4 singleton methods outside the Foo
+  9999
+end
+
+Foo.bar #=&gt; 9999
+</code></pre>
+
+<h3 id="attribute-accessor-method">Attribute accessor method</h3>
+
+<pre><code class="language-ruby">class Foo
+  attr_accessor :bar, :baz
+
+  def initialize
+    @bar = 42
+    @baz = 99
+  end
+end
+
+foo = Foo.new
+
+foo.bar = 77
+foo.baz = 88
+</code></pre>
+
+<p>You can use the following shorthands to declare attribute accessor methods in classes/modules:</p>
+
+<ul>
+  <li><code>attr_accessor</code></li>
+  <li><code>attr_reader</code></li>
+  <li><code>attr_writer</code></li>
+</ul>
+
+<h3 id="private-method-to-be-implemented">Private method (to be implemented)</h3>
+
+<pre><code class="language-ruby">class Foo
+  def bar
+    42
+  end
+  
+  def _baz  # leading '_' means private method
+    99
+  end
+end
+</code></pre>
+
+<h2 class="-three-column" id="moduleclass-definition">Module/Class definition</h2>
+
+<h3 id="module-definition-and-include">Module definition and <code>include</code></h3>
+
+<pre><code class="language-ruby">module Foo
+  def foo
+    "Foo's instance method"
+  end
+end
+
+class Bar
+  include Foo   # to include Foo
+end
+
+Bar.new.foo     #=&gt; Foo's instance method
+</code></pre>
+
+<p>Module names should be “<code>[A-Z][A-Za-z0-9_]+</code>” (UpperCamelCase). Modules cannot be inherited.</p>
+
+<h3 id="module-definition-and-extend">Module definition and <code>extend</code></h3>
+
+<pre><code class="language-ruby">module Foo
+  def foo
+    "Foo's instance method will be a singleton method"
+  end
+end
+
+class Bar
+  extend Foo   # to extend Foo  
+end
+
+Bar.foo        #=&gt; Foo's instance method will be a singleton method
+</code></pre>
+
+<p><code>extend</code> is to use the instance methods in the specified modules as <strong>singleton methods</strong> in your class or module.</p>
+
+<h3 id="module-instantiation">Module instantiation</h3>
+
+<pre><code class="language-ruby">module Foo   #module definition
+  def foo   
+    99
+  end
+end
+
+Foo.new.foo  #=&gt; 99
+</code></pre>
+
+<p>Actually, Goby’s module can be even <strong>instantiated</strong> via “<code>new</code>” like “<code>Foo.new</code>”.</p>
+
+<h3 id="class-definition-and-inheritance">Class definition and inheritance</h3>
+
+<pre><code class="language-ruby">class Foo       # class definition
+  def bar
+    99
+  end
+end
+
+class Baz &lt; Foo # inheritance
+end
+
+Baz.new.bar  #=&gt; 99
+</code></pre>
+
+<p>Class names should be “<code>[A-Z][A-Za-z0-9]+</code>” (UpperCamelCase). Inheritance with “<code>&lt;</code>” is supported.</p>
+
+<h3 id="constants">Constants</h3>
+
+<pre><code class="language-ruby">HTTP_ERROR_404 = 404
+HTTP_ERROR_404 = 500    # error
+</code></pre>
+
+<p>Constants should be “<code>[A-Z][A-Za-z0-9_]+</code>” (UPPER_SNAKECASE). Constants are <strong>not reentrant</strong> and the scope is <strong>global</strong>.</p>
+
+<h3 id="redefining-classmodules">Redefining class/modules</h3>
+
+<pre><code class="language-ruby">class Foo
+  def bar
+    99
+  end
+end
+
+class Foo
+  def bar  # redefining is possible
+    77
+  end
+end
+</code></pre>
+
+<h3 id="namespaces">Namespaces</h3>
+
+<pre><code class="language-ruby">class Foo
+  module Bar
+    MAGIC = 99
+    def baz
+      99
+    end
+  end
+end
+
+Foo::Bar.new.baz     # Use '::' for namespacing
+Foo::Bar::MAGIC      # Use '::' for namespacing
+</code></pre>
+
+<h2 id="load-library">Load library</h2>
+
+<h3 id="require"><code>require</code></h3>
+
+<pre><code class="language-ruby">require("uri")   # to activate URL class
+
+u = URI.parse("http://example.com")
+u.scheme   #=&gt; "http"
+</code></pre>
+
+<h3 id="require_relative"><code>require_relative</code></h3>
+
+<pre><code class="language-ruby">require_relative("bar")  # loading the local bar.gb
+
+class Foo
+  def self.bar(x)
+    Bar.foo do |ten|
+      x * ten
+    end
+  end
+
+  def self.baz
+    yield(100)
+  end
+end
+</code></pre>
+
+<h2 class="-three-column" id="literal">Literal</h2>
+
+<h3 id="keyword">Keyword</h3>
+
+<p><code>def</code>, <code>true</code>, <code>false</code>, <code>nil</code>, <code>if</code>, <code>elsif</code>, <code>else</code>, <code>case</code>, <code>when</code>, <code>return</code>, <code>self</code>, <code>end</code>, <code>while</code>, <code>do</code>, <code>yield</code>, <code>get_block</code>, <code>next</code>, <code>class</code>, <code>module</code>, <code>break</code></p>
+
+<h3 id="string-literal">String literal</h3>
+
+<pre><code class="language-ruby">"double quote"
+'single quote'
+</code></pre>
+
+<p>Double and single quotation can be used.</p>
+
+<h3 id="symbol-literal">Symbol literal</h3>
+
+<pre><code class="language-ruby">:symbol           # equivalent to "symbol"
+{ symbol: "value" }
+</code></pre>
+
+<p>Goby’s symbol (using <code>:</code>) is always <code>String</code> class.</p>
+
+<h3 id="numeric-literal">Numeric literal</h3>
+
+<pre><code class="language-ruby">year   =  2018   # Integer
+offset = -42     # Integer
+PI     = 3.14    # Float
+G      = -9.8    # Float
+</code></pre>
+
+<h3 id="array-literal">Array literal</h3>
+
+<pre><code class="language-ruby">[1, 2, 3, "hello", :goby, { key: "value"}]
+[1, 2, [3, 4], 5, 6]
+</code></pre>
+
+<h3 id="hash-literal">Hash literal</h3>
+
+<pre><code class="language-ruby">h = { key: "value", key2: "value2" }
+h[:key2]   #=&gt; value2
+</code></pre>
+
+<p>Hash literal’s keys should always be <strong>symbol literals</strong>.</p>
+
+<h3 id="range-literal">Range literal</h3>
+
+<pre><code class="language-ruby">(1..10).each do |x|    # '..' represents a range
+  puts x*x
+end
+</code></pre>
+
+<h3 id="boolean-and-nil">Boolean and <code>nil</code></h3>
+
+<pre><code class="language-ruby">true       # Boolean class
+false      # Boolean class
+nil        # Null class
+
+!nil  #=&gt; true
+</code></pre>
+
+<p>Any objects except <code>nil</code> and <code>false</code> will be treated as <code>true</code> on conditionals.</p>
+
+<h2 id="operator">Operator</h2>
+
+<h3 id="arithmeticlogicalassignment-operators">Arithmetic/logical/assignment operators</h3>
+
+<pre><code class="language-ruby">+           # unary
+**          # power
+-           # unary
+* / %       # multiplication, division, modulus
++ -         # addition, subtraction
+!           # logical inversion
+&gt; &gt;= &lt; &lt;=   # inequality comparison
+== !=       # equality comparison, negative comparison
+&amp;&amp;          # logical AND
+||          # logical OR
++= -=       # shorthand of addition/subtraction
+=           # assignment
+</code></pre>
+
+<p>*Priority of operators are TBD</p>
+
+<h3 id="other-operators">Other operators</h3>
+
+<pre><code class="language-ruby">()          # chaning priority of interpretation
+[]          # array literal
+*           # multiple assignment
+..          # range
+</code></pre>
+
+<p>*Priority of operators are TBD</p>
+
+<h3 id="delimiter">Delimiter</h3>
+
+<pre><code class="language-ruby">class Foo; end   # ';' to delimit
+
+class Bar end    # recommended
+</code></pre>
+
+<h3 id="string-interpolation-to-be-implemented">String interpolation (to be implemented)</h3>
+
+<pre><code class="language-ruby">puts "Error: #{error_message}"  # double quotation is required
+</code></pre>
+
+<h3 id="comment">Comment</h3>
+
+<pre><code class="language-ruby">puts "Goby"    # comments
+</code></pre>
+
+<p>Use the annotations to keep the comments concise.</p>
+
+<ul>
+  <li><code>TODO</code></li>
+  <li><code>FIXME</code></li>
+  <li><code>OPTIMIZE</code></li>
+  <li><code>HACK</code></li>
+  <li><code>REVIEW</code></li>
+</ul>
+
+<h3 id="io">I/O</h3>
+
+<ul>
+  <li>
+    <p><code>#puts</code></p>
+  </li>
+  <li>
+    <p>special constants: <code>ARGV</code>, <code>STDIN</code>, <code>STDOUT</code>, <code>STDERR</code>, <code>ENV</code></p>
+  </li>
+</ul>
+
+<h2 class="-three-column" id="flow-control">Flow control</h2>
+
+<h3 id="if-else-elsif"><code>if</code>, <code>else</code>, <code>elsif</code></h3>
+
+<pre><code class="language-ruby">def foo(str)
+  if str.size &gt; 10
+    puts "too big!"
+  elsif str.size &lt; 3
+    puts "too short!"
+  else
+    puts "moderate"
+  end
+end
+</code></pre>
+
+<p><code>then</code> is <strong>not</strong> supported.</p>
+
+<h3 id="break">Break</h3>
+
+<pre><code class="language-ruby">def foo(tail)
+  (5..tail).each do |t|
+    if t % 2 == 0 &amp;&amp; t % 5 == 0
+      puts "ouch!"
+      break       # finish the block
+    else
+      puts t
+    end
+  end
+  puts "out of the block"
+end
+
+foo 20
+#=&gt; 5 6 7 8 9
+#=&gt; ouch!
+#=&gt; out of the block
+</code></pre>
+
+<h3 id="case">Case</h3>
+
+<pre><code class="language-ruby">def foo(str)
+  case str
+  when "Elf"
+    puts "You might be Aragorn II!"
+  when "Aragorn"
+    puts "Long time no see, Aragorn!"
+  when "Frodo", "Sam", "Gandalf"
+    puts "One of us!"
+  else
+    puts "You're not yourself"
+  end
+end
+</code></pre>
+
+<h3 id="while">While</h3>
+
+<pre><code class="language-ruby">decr = 10
+while decr do
+  if decr &lt; 1
+    break
+  end
+  puts decr
+  decr -= 1
+end
+</code></pre>
+
+<p><code>while</code>, conditional and a <code>do</code>/<code>end</code> block can be used for a loop.</p>
+
+<h3 id="rescue">Rescue</h3>
+
+<p>Under construction. Join <a href="https://github.com/goby-lang/goby/issues/605">#605</a>.</p>
+
+<h2 class="-three-column" id="block">Block</h2>
+
+<h3 id="block-1">Block</h3>
+
+<pre><code class="language-ruby">def foo(ary: [1, 2, 3])
+  ary.each do |s|      # start of the block with |block variable|
+    puts s
+  end                  # end of the block
+end
+</code></pre>
+
+<p><code>{ }</code> cannot be used for forming a block.</p>
+
+<h3 id="yield"><code>yield</code></h3>
+
+<pre><code class="language-ruby">def foo
+  yield(10)  # executes the block given
+end
+
+foo do |ten|
+  ten + 20
+end
+</code></pre>
+
+<h3 id="block-object-and-call">Block object and <code>call</code></h3>
+
+<pre><code class="language-ruby">b = Block.new do
+  100
+end
+
+b.call  #=&gt; 100
+</code></pre>
+
+<p><code>Block.new</code> can take a block and then <code>call</code>.</p>
+
+<h3 id="passing-a-block">Passing a block</h3>
+
+<pre><code class="language-ruby">def baz
+  1000
+end
+
+class Foo
+  def exec_block(block)
+	block.call
+  end
+
+  def baz
+    100
+  end
+end
+
+b = Block.new do
+  baz
+end
+
+f = Foo.new
+f.exec_block(b)
+</code></pre>
+
+<h3 id="passing-a-block-with-block-arguments">Passing a block with block arguments</h3>
+
+<pre><code class="language-ruby">b = Block.new do |arg, offset|
+  arg + 1000 - offset
+end
+
+b.call(49, 500) #=&gt; 549
+</code></pre>
+
+<h3 id="special-get_block-keyword">Special <code>get_block</code> keyword</h3>
+
+<pre><code class="language-ruby">def bar(block)
+  # runs the block object and the block arg simultaneously
+  block.call + get_block.call
+end
+
+def foo
+  bar(get_block) do # passes two blocks to `bar`
+    20
+  end
+end
+
+foo do
+  10
+end
+</code></pre>
+
+<p><code>get_block</code> is not a method but a <strong>keyword</strong> to retrive a given block argument as a block object. By this, you can pass around or <code>call</code> the given block arguments as block objects.</p>
+
+<h3 id="closure">Closure</h3>
+
+<pre><code class="language-ruby">count = 0          # the declaration is used
+b = Block.new do
+  count += 1       # the block looks preserving the `count`
+end
+
+class Foo
+  def bar(blk)
+    count = 9      # (does not affect)
+    puts blk.call  # local variable is resolved to the one above
+  end
+end
+
+Foo.new.bar b  #=&gt; 1
+Foo.new.bar b  #=&gt; 2
+Foo.new.bar b  #=&gt; 3
+</code></pre>
+
+<h2 class="-three-column" id="native-class-primary">Native class (Primary)</h2>
+
+<p>Goby’s most “native” classes cannot instantiate with <code>new</code> in principle.</p>
+
+<h3 id="object"><code>Object</code></h3>
+
+<pre><code class="language-ruby">Bar.ancestors
+#» [Bar, Foo, Object]
+Bar.singleton_class.ancestors
+#» [#&lt;Class:Bar&gt;, #&lt;Class:Object&gt;, Class, Object]
+</code></pre>
+
+<p><code>Object</code> is actually just for creating singleton classes. See <code>Class</code>.</p>
+
+<ul>
+  <li>
+    <p><strong><code>Object.methods</code></strong>: <code>!</code>, <code>!=</code>, <code>==</code>, <code>block_given?</code>, <code>class</code>, <code>exit</code>, <code>instance_eval</code>, <code>instance_variable_get</code>, <code>instance_variable_set</code>, <code>is_a?</code>, <code>methods</code>, <code>nil?</code>, <code>object_id</code>, <code>puts</code>, <code>raise</code>, <code>require</code>, <code>require_relative</code>, <code>send</code>, <code>singleton_class</code>, <code>sleep</code>, <code>thread</code>, <code>to_s</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>ancestors</code>, <code>attr_accessor</code>, <code>attr_reader</code>, <code>attr_writer</code>, <code>extend</code>, <code>include</code>, <code>name</code>, <code>new</code>, <code>superclass</code></p>
+  </li>
+  <li>
+    <p><strong><code>Object.new.methods</code></strong>: <code>!</code>, <code>!=</code>, <code>==</code>, <code>block_given?</code>, <code>class</code>, <code>exit</code>, <code>instance_eval</code>, <code>instance_variable_get</code>, <code>instance_variable_set</code>, <code>is_a?</code>, <code>methods</code>, <code>nil?</code>, <code>object_id</code>, <code>puts</code>, <code>raise</code>, <code>require</code>, <code>require_relative</code>, <code>send</code>, <code>singleton_class</code>, <code>sleep</code>, <code>thread</code>, <code>to_s</code></p>
+  </li>
+</ul>
+
+<h3 id="class"><code>Class</code></h3>
+
+<pre><code class="language-ruby">String.ancestors      #=&gt; [String, Object]
+</code></pre>
+
+<p><code>Class</code> and <code>Object</code>can actually be regarded as the same and you don’t need to distinguish them in almost all the cases.</p>
+
+<ul>
+  <li><strong><code>Class.methods</code></strong>: <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>ancestors</code>, <code>attr_accessor</code>, <code>attr_reader</code>, <code>attr_writer</code>, <code>extend</code>, <code>include</code>, <code>name</code>, <code>new</code>, <code>superclass</code>, <code>!</code>, <code>!=</code>, <code>==</code>, <code>block_given?</code>, <code>class</code>, <code>exit</code>, <code>instance_eval</code>, <code>instance_variable_get</code>, <code>instance_variable_set</code>, <code>is_a?</code>, <code>methods</code>, <code>nil?</code>, <code>object_id</code>, <code>puts</code>, <code>raise</code>, <code>require</code>, <code>require_relative</code>, <code>send</code>, <code>singleton_class</code>, <code>sleep</code>, <code>thread</code>, <code>to_s</code></li>
+</ul>
+
+<h3 id="string"><code>String</code></h3>
+
+<pre><code class="language-ruby">puts "Hello" + ' ' + 'world'  #=&gt; Hello world
+</code></pre>
+
+<p>Fixed to <strong>UTF-8</strong> with mb4 support.</p>
+
+<ul>
+  <li><strong><code>String.methods</code></strong>: <code>fmt</code>,
+    <ul>
+      <li>the rest: <code>Class.methods</code></li>
+    </ul>
+  </li>
+  <li><strong><code>"a".methods</code></strong>:  <code>!=</code>, <code>*</code>, <code>+</code>, <code>&lt;</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>=~</code>, <code>&gt;</code>, <code>[]</code>, <code>[]=</code>, <code>capitalize</code>, <code>chop</code>, <code>concat</code>, <code>count</code>, <code>delete</code>, <code>downcase</code>, <code>each_byte</code>, <code>each_char</code>, <code>each_line</code>, <code>empty?</code>, <code>end_with?</code>, <code>eql?</code>, <code>fmt</code>, <code>include?</code>, <code>insert</code>, <code>length</code>, <code>ljust</code>, <code>match</code>, <code>new</code>, <code>replace</code>, <code>replace_once</code>, <code>reverse</code>, <code>rjust</code>, <code>size</code>, <code>slice</code>, <code>split</code>, <code>start_with</code>, <code>strip</code>, <code>to_a</code>, <code>to_bytes</code>, <code>to_d</code>, <code>to_f</code>, <code>to_i</code>, <code>to_s</code>, <code>upcase</code>,
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="integer"><code>Integer</code></h3>
+
+<pre><code class="language-ruby">37037 * 27      #=&gt; 999999
+</code></pre>
+
+<ul>
+  <li><strong><code>Integer.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>1.methods</code></strong>: <code>!=</code>, <code>%</code>, <code>*</code>, <code>**</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>even?</code>, <code>new</code>, <code>next</code>, <code>odd?</code>, <code>pred</code>, <code>ptr</code>, <code>times</code>, <code>to_f</code>, <code>to_float32</code>, <code>to_float64</code>, <code>to_i</code>, <code>to_int</code>, <code>to_int16</code>, <code>to_int32</code>, <code>to_int64</code>, <code>to_int8</code>, <code>to_s</code>, <code>to_uint</code>, <code>to_uint16</code>, <code>to_uint32</code>, <code>to_uint64</code>, <code>to_uint8</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="array"><code>Array</code></h3>
+
+<pre><code class="language-ruby">[1, "2", :card, [4, 5], { john: "doe" }]
+</code></pre>
+
+<ul>
+  <li><strong><code>Array.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>[1].methods</code></strong>: <code>*</code>, <code>+</code>, <code>[]</code>, <code>[]=</code>, <code>any?</code>, <code>at</code>, <code>clear</code>, <code>concat</code>, <code>count</code>, <code>delete_at</code>, <code>dig</code>, <code>each</code>, <code>each_index</code>, <code>empty?</code>, <code>first</code>, <code>flatten</code>, <code>include?</code>, <code>join</code>, <code>last</code>, <code>lazy</code>, <code>length</code>, <code>map</code>, <code>new</code>, <code>pop</code>, <code>push</code>, <code>reduce</code>, <code>reverse</code>, <code>reverse_each</code>, <code>rotate</code>, <code>select</code>, <code>shift</code>, <code>to_enum</code>, <code>unshift</code>, <code>values_at</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="hash"><code>Hash</code></h3>
+
+<pre><code class="language-ruby">h = { key: "value" }
+h = { "key": "value" }  #=&gt; error
+
+h["key"]  #=&gt; value
+h[:key]   #=&gt; value
+</code></pre>
+
+<p>Keys in hash literals should be <strong>symbol literals</strong>, while Hash index can be either string or symbol literals.</p>
+
+<ul>
+  <li><strong><code>Hash.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>{ key: "value" }.methods</code></strong>: <code>[]</code>, <code>[]=</code>, <code>any?</code>, <code>clear</code>, <code>default</code>, <code>default=</code>, <code>delete</code>, <code>delete_if</code>, <code>dig</code>, <code>each</code>, <code>each_key</code>, <code>each_value</code>, <code>empty?</code>, <code>eql?</code>, <code>fetch</code>, <code>fetch_values</code>, <code>has_key?</code>, <code>has_value?</code>, <code>keys</code>, <code>length</code>, <code>map_values</code>, <code>merge</code>, <code>new</code>, <code>select</code>, <code>sorted_keys</code>, <code>to_a</code>, <code>to_json</code>, <code>to_s</code>, <code>transform_values</code>, <code>values</code>, <code>values_at</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="range"><code>Range</code></h3>
+
+<pre><code class="language-ruby">(1..10).each do |i|
+  puts i ** 2
+end
+</code></pre>
+
+<ul>
+  <li><strong><code>Range.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>(1..10).methods</code></strong>: <code>!=</code>, <code>==</code>, <code>bsearch</code>, <code>each</code>, <code>first</code>, <code>include?</code>, <code>last</code>, <code>lazy</code>, <code>map</code>, <code>new</code>, <code>size</code>, <code>step</code>, <code>to_a</code>, <code>to_enum</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="block-2"><code>Block</code></h3>
+
+<pre><code class="language-ruby">b = Block.new do
+  100
+end
+
+b.call  #=&gt; 100
+</code></pre>
+
+<ul>
+  <li><strong><code>Block.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>(Block.new do end).methods</code></strong>: <code>call</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="-three-column" id="native-class-secondary">Native class (secondary)</h2>
+
+<h3 id="float"><code>Float</code></h3>
+
+<pre><code class="language-ruby">1.1 + 1.1   # =&gt; -2.2
+2.1 * -2.1  # =&gt; -4.41
+</code></pre>
+
+<p>Float literals like <code>3.14</code> or <code>-273.15</code>. <code>Float</code> class is based on Golang’s <code>float64</code> type.</p>
+
+<ul>
+  <li><strong><code>Float.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>3.14.methods</code></strong>: <code>!=</code>, <code>%</code>, <code>*</code>, <code>**</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>new</code>, <code>ptr</code>, <code>to_d</code>, <code>to_i</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="decimal"><code>Decimal</code></h3>
+
+<pre><code class="language-ruby">"3.14".to_d            # =&gt; 3.14
+"-0.7238943".to_d      # =&gt; -0.7238943
+"355/113".to_d         
+# =&gt; 3.1415929203539823008849557522123893805309734513274336283185840
+
+a = "16.1".to_d
+b = "1.1".to_d
+e = "17.2".to_d
+a + b # =&gt; 0.1
+a + b == e # =&gt; true
+
+('16.1'.to_d  + "1.1".to_d).to_s #=&gt; 17.2
+('16.1'.to_f  + "1.1".to_f).to_s #=&gt; 17.200000000000003
+</code></pre>
+
+<p>Experimental: the size is arbitrary and internally a fraction from Golang’s <code>big.Rat</code> type. Decimal literal is TBD for now and you can get <code>Decimal</code> number via <code>to_d</code> method from <code>Integer</code>/<code>Float</code>/<code>String</code>.</p>
+
+<ul>
+  <li><strong><code>Decimal.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>(1.1).to_d.methods</code></strong>: <code>!=</code>, <code>*</code>, <code>**</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>denominator</code>, <code>fraction</code>, <code>inverse</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="regexp"><code>Regexp</code></h3>
+
+<pre><code class="language-ruby">a = Regexp.new("orl")
+a.match?("Hello World")   #=&gt; true
+a.match?("Hello Regexp")  #=&gt; false
+
+b = Regexp.new("😏")
+b.match?("🤡 😏 😐")    #=&gt; true
+b.match?("😝 😍 😊")    #=&gt; false
+
+c = Regexp.new("居(ら(?=れ)|さ(?=せ)|る|ろ|れ(?=[ばる])|よ|(?=な[いかくけそ]|ま[しすせ]|そう|た|て))")
+c.match?("居られればいいのに")  #=&gt; true
+c.match?("居ずまいを正す")      #=&gt; false
+</code></pre>
+
+<p>Using <code>/ /</code> is to be implemented.</p>
+
+<ul>
+  <li><strong><code>Regexp.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>Regexp.new("^aa$").methods</code></strong>: <code>==</code>, <code>match?</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="matchdata"><code>MatchData</code></h3>
+
+<pre><code class="language-ruby"># numbered capture
+'abcd'.match(Regexp.new('(b.)'))
+#=&gt; #&lt;MatchData 0:"bc" 1:"bc"&gt;
+
+# named capture
+'abcd'.match(Regexp.new('a(?&lt;first&gt;b)(?&lt;second&gt;c)'))
+#=&gt; #&lt;MatchData 0:"abc" first:"b" second:"c"&gt;
+
+# converting to hash
+» 'abcd'.match(Regexp.new('a(?&lt;first&gt;b)(?&lt;second&gt;c)')).to_h
+#» { 0: "abc", first: "b", second: "c" }
+</code></pre>
+
+<p>The number keys in the captures are actually <code>String</code> class.The key <code>0</code> is the mached string.</p>
+
+<ul>
+  <li><strong><code>MatchData.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>'abcd'.match(Regexp.new('(b.)')).methods</code></strong>: <code>captures</code>, <code>length</code>, <code>new</code>, <code>to_a</code>, <code>to_h</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="file"><code>File</code></h3>
+
+<pre><code class="language-ruby">f = File.new("../test_fixtures/file_test/size.gb")
+f.name  #=&gt; "../test_fixtures/file_test/size.gb"
+</code></pre>
+
+<ul>
+  <li><strong><code>File.methods</code></strong>: <code>basename</code>, <code>chmod</code>, <code>delete</code>, <code>exist?</code>, <code>extname</code>, <code>join</code>
+    <ul>
+      <li>the rest: <code>Class.methods</code></li>
+    </ul>
+  </li>
+  <li><strong><code>File.new.methods</code></strong>: <code>basename</code>, <code>chmod</code>, <code>close</code>, <code>delete</code>, <code>exist?</code>, <code>extname</code>, <code>join</code>, <code>name</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="-three-column" id="native-class-golang-oriented">Native class (Golang-oriented)</h2>
+
+<h3 id="gomap"><code>GoMap</code></h3>
+
+<pre><code class="language-ruby">h = { foo: "bar" }
+m = GoMap.new(h)    # to pass values to Golang's code
+h2 = m.to_hash
+h2[:foo]   #=&gt; "bar"
+</code></pre>
+
+<ul>
+  <li><strong><code>GoMap.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>GoMap.new.methods</code></strong>: <code>get</code>, <code>set</code>, <code>to_hash</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="channel"><code>Channel</code></h3>
+
+<pre><code class="language-ruby">c = Channel.new
+
+1001.times do |i| # i start from 0 to 1000
+  thread do
+  	c.deliver(i)
+  end
+end
+
+r = 0
+1001.times do
+  r = r + c.receive
+end
+
+r #=&gt; 500500
+</code></pre>
+
+<p><code>Channel</code> class is to hold channels to work with <code>#thread</code>. See <code>thread</code>.</p>
+
+<ul>
+  <li><strong><code>Channel.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>Channel.new.methods</code></strong>: <code>close</code>, <code>deliver</code>, <code>new</code>, <code>receive</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="enumerator--lazy">Enumerator &amp; lazy</h2>
+
+<p>Pretty new experimental library.</p>
+
+<h3 id="lazyenumerator"><code>LazyEnumerator</code></h3>
+
+<pre><code class="language-ruby"># creating a lazy enumerator
+enumerator = LazyEnumerator.new(ArrayEnumerator.new([1, 2, 3])) do |value|
+	2 * value
+end
+result = []
+
+enumerator.each do |value|
+	result.push(value)
+end
+
+result   #=&gt; [2, 4, 6]
+</code></pre>
+
+<p>A shorthand <code>#lazy</code> method is also provided in <code>Array</code> and <code>Range</code> by now. See “Tips &amp; tricks” below.</p>
+
+<ul>
+  <li><strong><code>LazyEnumerator.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>[1, 2].lazy</code></strong>: <code>each</code>, <code>first</code>, <code>has_next?</code>, <code>initialize</code>, <code>map</code>, <code>next</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="arrayenumerator"><code>ArrayEnumerator</code></h3>
+
+<pre><code class="language-ruby">iterated_values = []
+
+enumerator = ArrayEnumerator.new([1, 2, 4])
+
+while enumerator.has_next? do
+	iterated_values.push(enumerator.next)
+end
+
+iterated_values   #=&gt; [1, 2, 4]
+</code></pre>
+
+<ul>
+  <li><strong><code>ArrayEnumerator.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>ArrayEnumerator.new([1, 2, 3]).methods</code></strong>: <code>has_next?</code>, <code>initialize</code>, <code>next</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rangeenumerator"><code>RangeEnumerator</code></h3>
+
+<pre><code class="language-ruby">iterated_values = []
+
+enumerator = RangeEnumerator.new((1..4))
+
+while enumerator.has_next? do
+	iterated_values.push(enumerator.next)
+end
+
+iterated_values   #=&gt; [1, 2, 3, 4]
+</code></pre>
+
+<ul>
+  <li><strong><code>RangeEnumerator.methods</code></strong>: the same as <code>Class.methods</code></li>
+  <li><strong><code>RangeEnumerator.new(1..2).methods</code></strong>: <code>has_next?</code>, <code>initialize</code>, <code>next</code>
+    <ul>
+      <li>the rest: <code>Object.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="special-class">Special class</h2>
+
+<h3 id="boolean"><code>Boolean</code></h3>
+
+<pre><code class="language-ruby">true.class  #=&gt; Boolean
+false.class #=&gt; Boolean
+</code></pre>
+
+<p>A special class that just to hold <code>true</code> and <code>false</code>. Cannot be instantiate.</p>
+
+<h3 id="null"><code>Null</code></h3>
+
+<pre><code class="language-ruby">nil.class   #=&gt; Null
+</code></pre>
+
+<p>A special class that just to hold <code>nil</code>. Cannot be instantiate.</p>
+
+<h3 id="method"><code>Method</code></h3>
+
+<p>(A special dummy class that just holds methods defined by Goby code.)</p>
+
+<h3 id="diggable"><code>Diggable</code></h3>
+
+<p>Provides <code>#dig</code> method. Currently. <code>Array</code> and <code>Hash</code> classes’ instance can be <code>Diggable</code>.</p>
+
+<pre><code class="language-ruby">[1, 2].dig(0, 1)  #=&gt; TypeError: Expect target to be Diggable, got Integer
+</code></pre>
+
+<h2 id="testing-framework">Testing framework</h2>
+
+<h3 id="spec"><code>Spec</code></h3>
+
+<pre><code class="language-ruby">require "spec"
+
+Spec.describe Spec do
+  it "fails and exit with code 1" do
+	expect(1).to eq(2)
+  end
+end
+
+Spec.run
+</code></pre>
+
+<ul>
+  <li><strong><code>Spec.methods</code></strong>: <code>describe</code>, <code>describes</code>, <code>instance</code>, <code>run</code>
+    <ul>
+      <li>the rest: <code>Object.methods</code></li>
+    </ul>
+  </li>
+  <li><strong><code>Spec.new.methods</code></strong>: <code>describes</code>, <code>initialize</code>, <code>run</code>, <code>session_successful</code>, <code>session_successful=</code>
+    <ul>
+      <li>the rest: <code>Hash.new.methods</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="tips--tricks">Tips &amp; tricks</h2>
+
+<h3 id="showing-methods">Showing methods</h3>
+
+<pre><code class="language-ruby">» "string".methods
+#» ["!=", "*", "+", "&lt;", "&lt;=&gt;", "==", "=~", "&gt;", "[]", "[]=", "capitalize", "chop", "concat", "count", "delete", "downcase", "each_byte", "each_char", "each_line", "empty?", "end_with?", "eql?", "fmt", "include?", "insert", "length", "ljust", "match", "new", "replace", "replace_once", "reverse", "rjust", "size", "slice", "split", "start_with", "strip", "to_a", "to_bytes", "to_d", "to_f", "to_i", "to_s", "upcase", "!", "block_given?", "class", "exit", "instance_eval", "instance_variable_get", "instance_variable_set", "is_a?", "methods", "nil?", "object_id", "puts", "raise", "require", "require_relative", "send", "singleton_class", "sleep", "thread"]
+</code></pre>
+
+<h3 id="showing-class">Showing class</h3>
+
+<pre><code class="language-ruby">» "string".class
+#» String
+</code></pre>
+
+<h3 id="showing-singleton-class">Showing singleton class</h3>
+
+<pre><code class="language-ruby">» "moji".singleton_class
+#» #&lt;Class:#&lt;String:842352325152&gt;&gt;
+
+» "moji".class.singleton_class
+#» #&lt;Class:String&gt;
+</code></pre>
+
+<h3 id="showing-ancestors">Showing ancestors</h3>
+
+<pre><code class="language-ruby">» Integer.ancestors
+#» [Integer, Object]
+
+» "moji".class.ancestors
+#» [String, Object]
+</code></pre>
+
+<h3 id="showing-singleton-classes-ancestors">Showing singleton classes’ ancestors</h3>
+
+<pre><code class="language-ruby">» "moji".class.singleton_class.ancestors
+#» [#&lt;Class:String&gt;, #&lt;Class:Object&gt;, Class, Object]
+</code></pre>
+
+<h3 id="showing-objects-id">Showing object’s id</h3>
+
+<pre><code class="language-ruby">» "moji".object_id
+#» 842352977920
+</code></pre>
+
+<h3 id="to_json"><code>#to_json</code></h3>
+
+<pre><code class="language-ruby">h = { a: 1, b: [1, "2", [4, 5, nil]]}
+h.to_json         # converts hash to JSON
+#=&gt; {"a":1, "b":[1, "2", [4, 5, null]]}
+</code></pre>
+
+<h3 id="customize-to_json">Customize <code>#to_json</code></h3>
+
+<p>Overwrite the <code>#to_json</code> in your class:</p>
+
+<pre><code class="language-ruby">class JobTitle
+  def initialize(name)
+    @name = name
+  end
+
+  def to_json
+    { title: @name }.to_json
+  end
+end
+
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+    @job = JobTitle.new("software engineer")
+  end
+
+  def to_json
+    { name: @name, age: @age, job: @job }.to_json
+  end
+end
+
+stan = Person.new("Stan", 23)
+h = { person: stan }
+h.to_json #=&gt; {"person":{"name":"Stan","job":{"title":"software engineer"},"age":23}}
+</code></pre>
+
+<h3 id="lazy-enumeration">Lazy enumeration</h3>
+
+<p>To avoid N + 1 query.</p>
+
+<pre><code class="language-ruby">enumerator = [1, 2, 3].lazy.map do |value|
+	2 * value
+end
+result = []
+
+enumerator.each do |value|
+	result.push(value)
+end
+
+result  #=&gt; [2, 4, 6]
+</code></pre>
+
+<p>You can call <code>#lazy.map</code> on <code>Array</code>, <code>Range</code>, or <code>JSON</code> objects.</p>
+
+<h2 id="styling">Styling</h2>
+
+<h3 id="quick-style-guide">Quick style guide</h3>
+
+<ul>
+  <li>UTF-8 should be used.</li>
+  <li>Only two spaces `  ` should be used for one indentation.
+    <ul>
+      <li>Tab cannot be used for indentation.</li>
+    </ul>
+  </li>
+  <li>For more, follow <a href="https://github.com/bbatsov/ruby-style-guide">RuboCop’s style guide</a> in principle.</li>
+</ul>
+
+<h3 id="document-notation">Document notation</h3>
+
+<ul>
+  <li><code>Class#instance_method</code> – use <code>#</code> to represent instance methods in documents</li>
+  <li><code>Class.class_method</code></li>
+  <li><code>Module.module_method</code></li>
+</ul>
+
+<h3 id="syntax-highlighting">Syntax highlighting</h3>
+
+<p>Ready for Vim and Sublime text. You can also use Ruby’s syntax highlighting so far.</p>
+
+<h2 id="references">References</h2>
+
+<h3 id="official">Official</h3>
+
+<ul>
+  <li>Official site: <a href="https://goby-lang.org/">https://goby-lang.org/</a></li>
+  <li>Repository: <a href="https://github.com/goby-lang/goby/">https://github.com/goby-lang/goby/</a></li>
+  <li>DevHints: <a href="https://devhints.io/goby">https://devhints.io/goby</a> (this page)</li>
+</ul>
+
+<h3 id="readings-for-goby-developers">Readings for Goby developers</h3>
+
+<ul>
+  <li><a href="https://interpreterbook.com/">Write an Interpreter in Go</a></li>
+  <li><a href="https://www.coursera.org/learn/nand2tetris2/home/welcome">Nand2Tetris II</a></li>
+  <li><a href="http://patshaughnessy.net/ruby-under-a-microscope">Ruby under a microscope</a></li>
+  <li><a href="http://www.atdot.net/yarv/insnstbl.html">YARV’s instruction table</a></li>
+</ul>
+
+<h3 id="jp-resource">JP resource</h3>
+
+<ul>
+  <li><a href="https://techracho.bpsinc.jp/hachi8833/2017_11_10/47787">Goby: Rubyライクな言語（1）Gobyを動かしてみる</a></li>
+  <li><a href="https://qiita.com/hanachin_/items/efc1c976a4f5749514ef">Gobyの組み込みクラスにメソッドを追加する方法</a></li>
+</ul>
+
+  </main>
+</div>
+
+<div class='pre-footer' data-js-no-preview><i class='icon'></i></div>
+
+
+
+  <section class='comments-area' id='comments' data-js-no-preview>
+    <div class='container'>
+      <details class='comments-details'>
+        <summary>
+          <strong class='count'>
+            <span class='disqus-comment-count' data-disqus-identifier="goby" data-disqus-url='https://devhints.io/goby'>0 Comments</span>
+          </strong>
+          <span class='suffix'>for this cheatsheet.</span>
+          <span class='fauxlink'>Write yours!</span>
+        </summary>
+        <div class='comments-section'>
+          <div class='comments'>
+            <div id='disqus_thread'></div>
+          </div>
+        </div>
+      </details>
+    </div>
+    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/goby","identifier":"goby"}'></noscript>
+  </section>
+
+
+<footer class='search-footer' data-js-no-preview>
+  <div class='container'>
+    <div class='search-footer-section'>
+      <div class='search'>
+        <form
+  
+  class='search' action='.' method='get'>
+  <label class='search-box -small'>
+    <span class='prefix'>devhints.io</span>
+    <span class='sep'>/</span>
+    <input name='q'
+      type='text'
+      
+        
+        
+        placeholder='Search 383+ cheatsheets'
+      >
+  </label>
+</form>
+
+      </div>
+      <div class='links'>
+        <a class='home-button' href='.'><i></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<footer class='related-posts-area' id='related' data-js-no-preview>
+  <div class='container'>
+    <div class='related-posts-section'>
+      <div class='callout'>
+        <a class='related-posts-callout' href='.'>
+          <div class='text'>
+            <i class='icon'></i>
+
+            <span class='description'>
+              Over 383 curated cheatsheets, by developers for developers.
+            </span>
+
+            <span class='push-button -dark'>
+              Devhints home
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class='group'>
+        <div class='related-posts-group'>
+          
+            <h3>Other Ruby cheatsheets</h3>
+          
+
+          <ul class='related-post-list'>
+            
+              <li class='item related-post-item'>
+  <a href='./rbenv'>
+    <strong>rbenv</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./activeadmin'>
+    <strong>ActiveAdmin</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./bundler'>
+    <strong>Bundler</strong>
+    <span>
+      cheatsheet
+
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./minitest'>
+    <strong>Minitest</strong>
+    <span>
+      cheatsheet
+
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./rake'>
+    <strong>Rake</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./rspec-rails'>
+    <strong>Rspec-rails</strong>
+    <span>
+      cheatsheet
+
+      
+    </span>
+  </a>
+</li>
+
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class='group'>
+        <div class='related-posts-group'>
+          <h3>Top cheatsheets</h3>
+
+          <ul class='related-post-list'>
+            
+              <li class='item related-post-item'>
+  <a href='./elixir'>
+    <strong>Elixir</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./es6'>
+    <strong>ES2015+</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./react'>
+    <strong>React.js</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./vim-diff'>
+    <strong>Vimdiff</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./vim'>
+    <strong>Vim</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./vimscript'>
+    <strong>Vim scripting</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"r6WJ":[function(require,module,exports) {
+function e(e,t){var r=e.matches||e.matchesSelector||e.msMatchesSelector||e.mozMatchesSelector||e.webkitMatchesSelector||e.oMatchesSelector;if(r)return r.call(e,t);if(e.parentNode){for(var c=e.parentNode.querySelectorAll(t),o=c.length;o--;0)if(c[o]===e)return!0;return!1}}module.exports=e;
+},{}],"cDuO":[function(require,module,exports) {
+function e(e,r){var n,o,t=e.length;if("number"==typeof t)for(n=0;n<t;n++)r(e[n],n);else for(n in o=0,e)e.hasOwnProperty(n)&&r(e[n],n,o++);return e}module.exports=e;
+},{}],"G20n":[function(require,module,exports) {
+var s=require("./each");function e(i,a){if(a)if(Array.isArray(a))s(a,function(s){e(i,s)});else if(i.classList){var r=a.split(" ").filter(Boolean);s(r,function(s){i.classList.add(s)})}else i.className+=" "+a}module.exports=e;
+},{"./each":"cDuO"}],"THIL":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.appendMany=c,exports.nextUntil=f,exports.before=s,exports.findChildren=d,exports.createDiv=p;var t=e(require("dom101/matches"));function e(t){return t&&t.__esModule?t:{default:t}}function r(t){return u(t)||i(t)||o(t)||n()}function n(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function o(t,e){if(t){if("string"==typeof t)return a(t,e);var r=Object.prototype.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?a(t,e):void 0}}function i(t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t))return Array.from(t)}function u(t){if(Array.isArray(t))return a(t)}function a(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=new Array(e);r<e;r++)n[r]=t[r];return n}function c(t,e){e.forEach(function(e){t.appendChild(e)})}function f(t,e){return l(t.nextSibling,e,[])}function l(e,n,o){return e?(0,t.default)(e,n)?o:l(e.nextSibling,n,[].concat(r(o),[e])):o}function s(t,e){t.parentNode.insertBefore(e,t)}function d(e,r){return[].slice.call(e.children).filter(function(e){return(0,t.default)(e,r)})}function p(t){var e=document.createElement("div");return Object.keys(t).forEach(function(r){e.setAttribute(r,t[r])}),e}
+},{"dom101/matches":"r6WJ"}],"hE9p":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=f,exports.groupify=p;var r=e(require("dom101/matches")),t=e(require("dom101/add-class")),n=require("../helpers/dom");function e(r){return r&&r.__esModule?r:{default:r}}function o(r){return c(r)||u(r)||i(r)||a()}function a(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function i(r,t){if(r){if("string"==typeof r)return s(r,t);var n=Object.prototype.toString.call(r).slice(8,-1);return"Object"===n&&r.constructor&&(n=r.constructor.name),"Map"===n||"Set"===n?Array.from(r):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?s(r,t):void 0}}function u(r){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(r))return Array.from(r)}function c(r){if(Array.isArray(r))return s(r)}function s(r,t){(null==t||t>r.length)&&(t=r.length);for(var n=0,e=new Array(t);n<t;n++)e[n]=r[n];return e}function f(r){l(r).forEach(function(r){(0,n.findChildren)(r,"[data-js-h3-section-list]").forEach(function(r){d(r)})})}function l(r){return p(r,{tag:"h2",wrapperFn:function(){return(0,n.createDiv)({class:"h2-section"})},bodyFn:function(){return(0,n.createDiv)({class:"body h3-section-list","data-js-h3-section-list":""})}})}function d(r){return p(r,{tag:"h3",wrapperFn:function(){return(0,n.createDiv)({class:"h3-section"})},bodyFn:function(){return(0,n.createDiv)({class:"body"})}})}function p(e,a){var i=a.tag,u=a.wrapperFn,c=a.bodyFn,s=e.children[0],f=[];if(s&&!(0,r.default)(s,i)){var l=(0,n.nextUntil)(s,i);f.push(d(s,null,[s].concat(o(l))))}return(0,n.findChildren)(e,i).forEach(function(r){var t=(0,n.nextUntil)(r,i);f.push(d(r,r,t))}),f;function d(r,e,o){var a=u(),i=r.className;i&&(0,t.default)(a,i),(0,n.before)(r,a);var s=c();return i&&(0,t.default)(s,i),(0,n.appendMany)(s,o),e&&a.appendChild(e),a.appendChild(s),a}}
+},{"dom101/matches":"r6WJ","dom101/add-class":"G20n","../helpers/dom":"THIL"}],"DJ2P":[function(require,module,exports) {
+function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+t,function(){e.call(n)})}module.exports=n;
+},{}],"eoMl":[function(require,module,exports) {
+"use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
+},{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
+<script src='./assets/packed/app.js?t=20200622144344'></script>
+<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-ruby.min.js'></script>
+
+
+</body>
+</html>

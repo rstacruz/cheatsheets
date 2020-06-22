@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/devise.html' name='app:pageurl'>
+
+
+  <title>Devise cheatsheet</title>
+  <meta content='Devise cheatsheet' property='og:title'>
+  <meta content='Devise cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/devise.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/devise.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Devise: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Devise: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Devise: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/devise">
+<meta name="og:url" content="https://devhints.io/devise">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Others' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Devise cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/devise.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Devise: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#others",
+      "name": "Others"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/devise",
+      "name": "Devise"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Devise</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/devise.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Devise.%20https://devhints.io/devise.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <p><a href="https://github.com/plataformatec/devise">Devise</a> is a flexible authentication 
+gem.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Rails 3: Add the following to your Gemfile</p>
+
+<pre><code>gem "devise"
+gem "hpricot"
+gem "ruby_parser"
+</code></pre>
+
+<p>Install devise in your project</p>
+
+<pre><code>$ rails generate devise:install
+</code></pre>
+
+<p>Generate devise for your model</p>
+
+<pre><code>$ rails generate devise MODEL
+$ rake db:migrate
+</code></pre>
+
+<p>(Optional) Generate devise views</p>
+
+<pre><code>$ rails generate devise:views
+</code></pre>
+
+<h2 id="helpers">Helpers</h2>
+
+<pre><code>user_signed_in?
+current_user
+user_session
+destroy_user_session_path (Logout)
+new_user_session_path (Login)
+edit_user_registration_path (Edit registration)
+new_user_registration_path (Register new user)
+</code></pre>
+
+<h2 id="controller-stuff">Controller stuff</h2>
+
+<pre><code>before_filter :authenticate_user!
+</code></pre>
+
+<h2 id="model">Model</h2>
+
+<h3 id="model-options">Model options</h3>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  devise :database_authenticatable,
+    :registerable,
+    :confirmable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable
+end
+</code></pre>
+
+<h3 id="migration-helpers">Migration helpers</h3>
+
+<pre><code>create_table :users do |t|
+  t.database_authenticatable
+  t.confirmable
+  t.recoverable
+  t.rememberable
+  t.trackable
+  t.timestamps
+end
+</code></pre>
+
+<h2 id="routing">Routing</h2>
+
+<h3 id="authenticated-and-unauthenticated-routes">Authenticated and unauthenticated routes</h3>
+
+<pre><code>unauthenticated do
+   root :to =&gt; 'home#index'
+end
+
+authenticated do
+  root :to =&gt; 'dashboard#index'
+end
+</code></pre>
+
+<h3 id="as">As</h3>
+<pre><code>as :user do
+  get 'sign_in', :to =&gt; 'devise/sessions#new'
+end
+</code></pre>
+
+<h3 id="devise_for-magic">Devise_for magic</h3>
+
+<pre><code>devise_for :users
+
+    # Session routes for Authenticatable (default)
+         new_user_session GET  /users/sign_in                    {:controller=&gt;"devise/sessions", :action=&gt;"new"}
+             user_session POST /users/sign_in                    {:controller=&gt;"devise/sessions", :action=&gt;"create"}
+     destroy_user_session GET  /users/sign_out                   {:controller=&gt;"devise/sessions", :action=&gt;"destroy"}
+   
+    # Password routes for Recoverable, if User model has :recoverable configured
+        new_user_password GET  /users/password/new(.:format)     {:controller=&gt;"devise/passwords", :action=&gt;"new"}
+       edit_user_password GET  /users/password/edit(.:format)    {:controller=&gt;"devise/passwords", :action=&gt;"edit"}
+            user_password PUT  /users/password(.:format)         {:controller=&gt;"devise/passwords", :action=&gt;"update"}
+                          POST /users/password(.:format)         {:controller=&gt;"devise/passwords", :action=&gt;"create"}
+   
+    # Confirmation routes for Confirmable, if User model has :confirmable configured
+    new_user_confirmation GET  /users/confirmation/new(.:format) {:controller=&gt;"devise/confirmations", :action=&gt;"new"}
+        user_confirmation GET  /users/confirmation(.:format)     {:controller=&gt;"devise/confirmations", :action=&gt;"show"}
+                          POST /users/confirmation(.:format)     {:controller=&gt;"devise/confirmations", :action=&gt;"create"}
+</code></pre>
+
+<h3 id="customizing-devise_for">Customizing devise_for</h3>
+
+<pre><code>devise_for :users,
+  :path =&gt; "usuarios",
+  :path_names =&gt; {
+    :sign_in =&gt; 'login',
+    :sign_out =&gt; 'logout',
+    :password =&gt; 'secret',
+    :confirmation =&gt; 'verification',
+    :unlock =&gt; 'unblock',
+    :registration =&gt; 'register',
+    :sign_up =&gt; 'cmon_let_me_in' }
+</code></pre>
+
+<h2 id="test-helpers">Test helpers</h2>
+
+<pre><code>include Devise::TestHelpers
+https://github.com/plataformatec/devise/blob/1094ba65aac1d37713f2cba71f9edad76b5ca274/lib/devise/test_helpers.rb
+
+sign_in @user
+sign_out @user
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/devise.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Devise.%20https://devhints.io/devise.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

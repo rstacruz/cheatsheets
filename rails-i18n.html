@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/rails-i18n.html' name='app:pageurl'>
+
+
+  <title>i18n cheatsheet</title>
+  <meta content='i18n cheatsheet' property='og:title'>
+  <meta content='i18n cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/rails-i18n.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/rails-i18n.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to i18n: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to i18n: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to i18n: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/rails-i18n">
+<meta name="og:url" content="https://devhints.io/rails-i18n">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Rails' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "i18n cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/rails-i18n.jpg?t=20200622144344" ],
+  "description": "The one-page guide to i18n: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#rails",
+      "name": "Rails"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/rails-i18n",
+      "name": "i18n"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>i18n</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-i18n.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20i18n.%20https://devhints.io/rails-i18n.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <pre class="light"><code class="language-rb">t('my.messages.hello')
+
+# same as 'my.messages.hello'
+t(:hello, scope: 'my.messages')
+t(:hello, scope: [:my, :messages])
+
+t('my.messages.hello', default: "Hello")
+</code></pre>
+
+<pre><code class="language-yml">en:
+  my:
+    messages:
+      hello: "Hello"
+</code></pre>
+
+<h3 id="interpolation">Interpolation</h3>
+
+<pre class="light"><code class="language-rb">t('hello', name: "John")
+</code></pre>
+
+<pre><code class="language-yml">hello: "Hello %{name}"
+</code></pre>
+
+<h3 id="lazy-lookup">Lazy lookup</h3>
+
+<pre class="light"><code class="language-rb"># from the 'books/index' view
+t('.title')
+</code></pre>
+
+<pre><code class="language-yml">en:
+  books:
+    index:
+      title: "Título"
+</code></pre>
+
+<h3 id="plural">Plural</h3>
+
+<pre class="light"><code class="language-rb">t(:inbox, count: 1)  #=&gt; 'one message'
+t(:inbox, count: 2)  #=&gt; '2 messages'
+</code></pre>
+
+<pre><code class="language-yml">inbox:
+  one: 'one message',
+  other: '%{count} messages'
+</code></pre>
+
+<h2 id="localizing">Localizing</h2>
+
+<h3 id="time">Time</h3>
+
+<pre class="light"><code class="language-rb">l(Time.now)
+l(Time.now, format: :short)
+</code></pre>
+
+<pre><code class="language-yml">en:
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+</code></pre>
+
+<h3 id="date">Date</h3>
+
+<pre class="light"><code class="language-rb">l(Date.today)
+</code></pre>
+
+<pre><code class="language-yml">en:
+  date:
+    formats:
+      default: "%Y-%m-%d" # 2015-06-25
+      long: "%B %d, %Y"   # June 25, 2015
+      short: "%b %d"      # Jun 25
+</code></pre>
+
+<h2 id="activerecord">ActiveRecord</h2>
+
+<h3 id="model-names">Model names</h3>
+
+<pre class="light"><code class="language-rb">User.model_name.human            #=&gt; "User"
+Child.model_name.human(count: 2) #=&gt; "Children"
+</code></pre>
+
+<pre><code class="language-yml">en:
+  activerecord:
+    models:
+      user: "User"
+      child:
+        one: "Child"
+        other: "Children"
+</code></pre>
+
+<h3 id="attributes">Attributes</h3>
+
+<pre class="light"><code class="language-rb">User.human_attribute_for :name   #=&gt; "Name"
+</code></pre>
+
+<pre><code class="language-yml">en:
+  activerecord:
+    attributes:
+      user:
+        # activerecord.attributes.&lt;model&gt;.&lt;field&gt;
+        name: "Name"
+        email: "Email"
+</code></pre>
+
+<h3 id="error-messages">Error messages</h3>
+
+<pre class="light"><code class="language-rb">error_messages_for(...)
+</code></pre>
+
+<pre><code class="language-yml">activerecord:
+  errors:
+    models:
+      venue:
+        attributes:
+          name:
+            blank: "Please enter a name."
+</code></pre>
+
+<p>Possible scopes (in order):</p>
+
+<pre><code class="language-yml">activerecord.errors.models.[model_name].attributes.[attribute_name].[error]
+activerecord.errors.models.[model_name].[error]
+activerecord.errors.messages.[error]
+errors.attributes.[attribute_name].[error]
+errors.messages.[error]
+</code></pre>
+
+<p>Where <code>[error]</code> can be:</p>
+
+<pre><code class="language-yml">validates
+  confirmation - :confirmation
+  acceptance   - :accepted
+  presence     - :blank
+  length       - :too_short (%{count})
+  length       - :too_long (%{count})
+  length       - :wrong_length (%{count})
+  uniqueness   - :taken
+  format       - :invalid
+  numericality - :not_a_number
+</code></pre>
+
+<h3 id="form-labels">Form labels</h3>
+
+<pre class="light"><code class="language-rb">form_for @post do
+  f.label :body
+</code></pre>
+
+<pre><code class="language-yml">helpers:
+  # helpers.label.&lt;model&gt;.&lt;field&gt;
+  label:
+    post:
+      body: "Your body text"
+</code></pre>
+
+<h3 id="submit-buttons">Submit buttons</h3>
+
+<pre class="light"><code class="language-rb">form_for @post do
+  f.submit
+</code></pre>
+
+<pre><code class="language-yml">helpers:
+  submit:
+    # helpers.submit.&lt;action&gt;
+    create: "Create a %{model}"
+    update: "Confirm changes to %{model}"
+
+    # helpers.submit.&lt;model&gt;.&lt;action&gt;
+    article:
+      create: "Publish article"
+      update: "Update article"
+</code></pre>
+
+<h2 id="numbers">Numbers</h2>
+
+<pre class="light"><code class="language-rb">number_to_delimited(2000)             #=&gt; "2,000"
+number_to_currency(12.3)              #=&gt; "$12.30"
+number_to_percentage(0.3)             #=&gt; "30%"
+number_to_rounded(3.14, precision: 0) #=&gt; "3"
+number_to_human(12_000)               #=&gt; "12 Thousand"
+number_to_human_size(12345)           #=&gt; "12.3 kb"
+</code></pre>
+
+<h3 id="delimited">Delimited</h3>
+
+<pre class="light"><code class="language-rb">number_to_delimited(n)
+</code></pre>
+
+<pre><code class="language-yml">number:
+  format:
+    separator: '.'
+    delimiter: ','
+    precision: 3
+    significant: false
+    strip_insignificant_zeroes: false
+</code></pre>
+
+<h3 id="currencies">Currencies</h3>
+
+<pre class="light"><code class="language-rb">number_to_currency(n)
+</code></pre>
+
+<pre><code class="language-yml">number:
+  currency:
+    format:
+      format: "%u%n" # %u = unit, %n = number
+      unit: "$"
+      separator: '.'
+      delimiter: ','
+      precision: 3
+      # (see number.format)
+</code></pre>
+
+<h3 id="percentage">Percentage</h3>
+
+<pre class="light"><code class="language-rb">number_to_percentage(n)
+</code></pre>
+
+<pre><code class="language-yml">number:
+  percentage:
+    format:
+      format: "%n%"
+      # (see number.format)
+</code></pre>
+
+<h2 id="programmatic-access">Programmatic access</h2>
+
+<pre class="light"><code class="language-rb">I18n.backend.store_translations :en, ok: "Ok"
+I18n.locale = :en
+I18n.default_locale = :en
+
+I18n.available_locales
+
+I18n.translate :ok   # aka, I18n.t
+I18n.localize date   # aka, I18n.l
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li>http://guides.rubyonrails.org/i18n.html</li>
+  <li>http://rails-i18n.org/wiki</li>
+  <li>https://github.com/svenfuchs/i18n</li>
+  <li>https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml</li>
+</ul>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-i18n.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20i18n.%20https://devhints.io/rails-i18n.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

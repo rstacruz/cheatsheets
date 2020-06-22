@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/ec2.html' name='app:pageurl'>
+
+
+  <title>EC2 API tools cheatsheet</title>
+  <meta content='EC2 API tools cheatsheet' property='og:title'>
+  <meta content='EC2 API tools cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/ec2.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/ec2.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to EC2 API tools: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to EC2 API tools: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to EC2 API tools: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/ec2">
+<meta name="og:url" content="https://devhints.io/ec2">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Devops' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "EC2 API tools cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/ec2.jpg?t=20200622144344" ],
+  "description": "The one-page guide to EC2 API tools: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#devops",
+      "name": "Devops"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/ec2",
+      "name": "EC2 API tools"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>EC2 API tools</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ec2.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20EC2%20API%20tools.%20https://devhints.io/ec2.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="install">Install</h3>
+
+<pre><code>$ sudo apt-get install ec2-api-tools ec2-ami-tools
+$ brew install ec2-api-tools ec2-ami-tools
+</code></pre>
+
+<h3 id="pem-files">Pem files</h3>
+
+<pre><code>$ brew info ec2-api-tools
+</code></pre>
+
+<ul>
+  <li>
+    <p>Before you can use these tools you must export some variables to your $SHELL
+and download your X.509 certificate and private key from Amazon Web Services.</p>
+  </li>
+  <li>
+    <p>Your certificate and private key are available at
+<a href="http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws-portal.amazon.com</a>.</p>
+  </li>
+  <li>
+    <p>Download two <code>.pem</code> files, one starting with <code>pk-</code>, and one starting with <code>cert-</code>.
+You need to put both into a folder in your home directory, <code>~/.ec2</code>.</p>
+  </li>
+</ul>
+
+<h3 id="key-pair">Key pair</h3>
+
+<pre><code># To use public images (AMI's), you need an SSH keypair from EC2.
+  ec2-add-keypair my-keypair &gt; ~/.ec2/my-keypair.pem
+  chmod 600 ec2-keypair.pem
+</code></pre>
+
+<h3 id="start-an-instance">Start an instance</h3>
+
+<pre><code># Start an instance using a given AMI image:
+# (Use the Ubuntu locator, or ec2-describe-images)
+  ec2-run-instances ami-xxxxxx -k ec2-keypair
+
+# Open up ports (in the 'default' security group):
+  ec2-authorize default -p 22
+  ec2-authorize default -p 80
+
+# Connect
+  ssh -i ~/.ec2/my-keypair.pem root@ec2-xxx.amazonaws.com
+</code></pre>
+
+<h3 id="management">Management</h3>
+
+<pre><code># Show running instances
+  ec2-describe-instances
+
+# Kill an instance
+  ec2-terminate-instances i-yourinstance
+</code></pre>
+
+<h3 id="misc">Misc</h3>
+
+<pre><code># Create a security group
+  ec2-add-group group_name -d "Description"
+
+# Show images (AMI's) owned by amazon, or me
+  ec2-describe-images -o self -o amazon
+</code></pre>
+
+<h3 id="ubuntu-images">Ubuntu images</h3>
+
+<ul>
+  <li><a href="http://cloud-images.ubuntu.com/locator/ec2/">Ubuntu EC2 AMI locator</a></li>
+</ul>
+
+<h3 id="change-certificates">Change certificates</h3>
+
+<pre><code>EC2_CERT_PATH="$HOME/.ec2"
+export EC2_PRIVATE_KEY="$(/bin/ls $EC2_CERT_PATH/pk-*.pem | /usr/bin/head -1)"
+export EC2_CERT="$(/bin/ls $EC2_CERT_PATH/cert-*.pem | /usr/bin/head -1)"
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/ec2.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20EC2%20API%20tools.%20https://devhints.io/ec2.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

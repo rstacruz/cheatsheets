@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/rails-helpers.html' name='app:pageurl'>
+
+
+  <title>Helpers cheatsheet</title>
+  <meta content='Helpers cheatsheet' property='og:title'>
+  <meta content='Helpers cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/rails-helpers.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/rails-helpers.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Helpers: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Helpers: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Helpers: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/rails-helpers">
+<meta name="og:url" content="https://devhints.io/rails-helpers">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Rails' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Helpers cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/rails-helpers.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Helpers: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#rails",
+      "name": "Rails"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/rails-helpers",
+      "name": "Helpers"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Helpers</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-helpers.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Helpers.%20https://devhints.io/rails-helpers.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="date">Date</h3>
+
+<pre><code>distance_of_time_in_words(Time.now, project.end_date) #=&gt; 3 hours
+distance_of_time_in_words_to_now(project.end_date)    #=&gt; 3 hours
+
+time_ago_in_words 3.minutes.ago #=&gt; "3 minutes"
+</code></pre>
+
+<h3 id="numbers">Numbers</h3>
+
+<pre><code>number_to_currency 20.33
+number_to_currency 20.33, precision: 0
+number_with_precision 3.14159, precision: 2
+number_to_percentage 32       #=&gt; "32%"
+number_with_delimiter 2048    #=&gt; "2,048"
+number_to_human 12000000      #=&gt; "12 million"
+number_to_human_size 12000000 #=&gt; "12 MB"
+number_to_phone "5551234"     #=&gt; "555-1234"
+</code></pre>
+
+<h3 id="cache">Cache</h3>
+
+<pre><code>&lt;% cache project do %&gt;
+&lt;% cache [project, current_user] do %&gt;
+
+&lt;% cache_if admin?, project do %&gt;
+&lt;% cache_unless admin?, project do %&gt;
+</code></pre>
+
+<h3 id="tags">Tags</h3>
+
+<pre><code>tag("br")
+tag("img", src: "image.jpg")
+content_tag(:p, "Hello")
+</code></pre>
+
+<h3 id="time-select">Time select</h3>
+
+<pre><code># Creates a time select tag that, when POSTed, will be stored in the article
+# variable in the sunrise attribute.
+time_select "article", "start_time"
+
+# All options are optional
+time_select "article", "start_time", \
+  include_seconds: true,
+  minute_step: 15,
+  prompt: true,
+  prompt: { hour: "Choose hr", minute: "Choose min", second: "Choose sec" },
+  ampm: true
+
+# For dates (all options are optional)
+date_select "article", "written_on", \
+  start_year: 1995,
+  use_month_numbers: true,
+  discard_day: true,
+  include_blank: true,
+  order: [:day, :month, :year],
+  default: 3.days.from_now,
+  default: { day: 20 },
+  prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }
+</code></pre>
+
+<h3 id="time-tag">Time tag</h3>
+
+<pre><code>time_tag Date.today 
+#=&gt; '&lt;time datetime="2010-11-04"&gt;November 04, 2010&lt;%rtime&gt;'
+
+time_tag Time.now
+#=&gt; '&lt;time datetime="2010-11-04T17:55:45+01:00"&gt;November 04, 2010 17:55&lt;/time&gt;'
+
+time_tag Date.yesterday, 'Yesterday'
+#=&gt; '&lt;time datetime="2010-11-03"&gt;Yesterday&lt;%rtime&gt;'
+
+time_tag Date.today, pubdate: true
+#=&gt; '&lt;time datetime="2010-11-04" pubdate="pubdate"&gt;November 04, 2010&lt;/time&gt;'
+
+time_tag Date.today, \
+  format: :short_date # (en.time.formats.short_date)
+</code></pre>
+
+<h3 id="files">Files</h3>
+
+<pre><code>= form_for @post, multipart: true do |f|
+  = f.file_field :picture
+</code></pre>
+
+<h3 id="i18n">i18n</h3>
+
+<pre><code>t('folders')
+t('folders.save')
+
+l(Time.now)
+
+t('x_files', count: files.count)
+# files:
+#    one: 'one file'
+#    other: '%{count} files'
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<pre><code>* http://api.rubyonrails.org/classes/ActionView/Helpers.html
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-helpers.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Helpers.%20https://devhints.io/rails-helpers.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

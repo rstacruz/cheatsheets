@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/rspec-rails.html' name='app:pageurl'>
+
+
+  <title>Rspec-rails cheatsheet</title>
+  <meta content='Rspec-rails cheatsheet' property='og:title'>
+  <meta content='Rspec-rails cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/rspec-rails.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/rspec-rails.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Rspec-rails: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Rspec-rails: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Rspec-rails: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/rspec-rails">
+<meta name="og:url" content="https://devhints.io/rspec-rails">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Ruby' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Rspec-rails cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/rspec-rails.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Rspec-rails: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#ruby",
+      "name": "Ruby"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/rspec-rails",
+      "name": "Rspec-rails"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Rspec-rails</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rspec-rails.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Rspec-rails.%20https://devhints.io/rspec-rails.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="spec-tasks">Spec tasks</h3>
+
+<pre><code>rake spec:controllers
+rake spec:helpers
+rake spec:lib
+rake spec:mailers
+rake spec:models
+rake spec:requests
+rake spec:routing
+rake spec:views
+</code></pre>
+
+<h3 id="models">Models</h3>
+
+<pre><code class="language-rb"># spec/models/*.rb
+describe MyModel do
+end
+</code></pre>
+
+<h3 id="controllers">Controllers</h3>
+
+<pre><code class="language-rb"># spec/controllers/*.rb
+describe MyController do
+  describe "POST update" do
+    render_views #optional
+
+    it "works" do
+      post :update, { user: { name: "john" } }
+
+      controller
+      controller.send ...
+
+      response
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+      expect(response).to render_template("index")
+      expect(response).to redirect_to '/..'
+
+      expect(assigns :article).to eq article
+
+      response.status
+    end
+  end
+end
+</code></pre>
+
+<h3 id="request">Request</h3>
+
+<pre><code class="language-js"># spec/requests/*.rb
+describe "home page" do
+  it "displays the user's username after successful login" do
+    get "/login"
+    post "/login", username: "jdoe", password: "secret"
+
+    expect(response.status).to eql 200
+    expect(response).to redirect_to(...)
+    expect(response).to render_template(:show)
+    expect(response.body).to include 'hello'
+    follow_redirect!
+  end
+end
+</code></pre>
+
+<h3 id="routing">Routing</h3>
+
+<pre><code class="language-rb"># spec/routing/*.rb
+describe "routing to profiles" do
+  it "routes /profile/:username to profile#show for username" do
+    expect(get: "/profiles/jsmith").to route_to(
+      controller: "profiles",
+      action: "show",
+      username: "jsmith"
+    )
+  end
+
+  it "does not expose a list of profiles" do
+    expect(get: "/profiles").not_to be_routable
+  end
+end
+</code></pre>
+
+<h3 id="helpers">Helpers</h3>
+
+<pre><code class="language-rb"># spec/helpers/*.rb
+describe EventsHelper do
+  describe "#link_to_event" do
+    it "displays the title, and formatted date" do
+      event = Event.new("Ruby Kaigi", Date.new(2010, 8, 27))
+
+      # helper is an instance of ActionView::Base configured with the
+      # EventsHelper and all of Rails' built-in helpers
+      expect(helper.link_to_event).to match /Ruby Kaigi, 27 Aug, 2010/
+    end
+  end
+end
+</code></pre>
+
+<h3 id="features">Features</h3>
+
+<pre><code class="language-rb"># spec/features/*.rb
+feature 'Signing in' do
+  given(:something) { "hi" }
+
+  background do
+    User.make email: 'hi@gmail.com'
+  end
+
+  scenario 'Signing in with credentials' do
+  end
+end
+</code></pre>
+
+<h3 id="matchers">Matchers</h3>
+
+<pre><code class="language-rb">be_a_new(Widget)  # new_record?
+render_template("new")
+render_template(partial: 'form', locals: {...})
+redirect_to(widgets_path)
+route_to(..)
+be_routable
+have_http_status(500)
+have_http_status(:created)
+</code></pre>
+
+<h3 id="time-helpers">Time helpers</h3>
+
+<pre><code>travel_to Time.new(2014, 11, 14, 01, 04, 44)
+...
+travel_back
+
+travel_to Time.new(2014, 11, 14, 01, 04, 44) do
+  ...
+end
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rspec-rails.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Rspec-rails.%20https://devhints.io/rspec-rails.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

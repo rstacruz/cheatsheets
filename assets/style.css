@@ -1,0 +1,292 @@
+/*
+ * pages list
+ */
+
+.pages-list {
+  font-size: 0.9em;
+  max-width: 800px;
+  margin: 60px auto;
+  overflow: hidden;
+}
+
+.pages-list a {
+  display: block;
+  padding: 6px 0;
+  text-align: left;
+  float: left;
+  width: 44%;
+  margin: 0 3%;
+  box-shadow: none;
+  transition: all 100ms linear;
+}
+
+.pages-list a .title,
+.pages-list a .date {
+  display: block;
+}
+
+.pages-list a .title {
+  font-weight: bold;
+  color: #111;
+  float: left;
+}
+
+.pages-list a .date {
+  color: #aaa;
+  font-size: 0.9em;
+  float: right;
+}
+
+.pages-list a:hover .title,
+.pages-list a:focus .title {
+  color: dodgerblue;
+}
+
+/*
+ * post headline
+ */
+
+.post-headline.-cheatsheet .prelude {
+  color: #111;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.post-headline.-cheatsheet .prelude span {
+  border-bottom: solid 3px #111;
+  padding: 1.5em 20px;
+}
+
+.post-headline.-cheatsheet .prelude span:before {
+  content: 'Cheatsheet for';
+}
+
+@media (min-width: 769px) {
+  .post-headline.-cheatsheet .prelude {
+    max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .post-headline.-cheatsheet .prelude span {
+    display: inline-block;
+  }
+}
+
+.post-headline.-cheatsheet h1 {
+  color: #111;
+  font-size: 3.5em;
+  text-shadow:
+    2px 2px 0 white,
+    3px 3px 0 #ddd;
+}
+
+/*
+ * about the site
+ */
+
+.about-the-site {
+  margin-top: 8em;
+}
+
+.about-the-site .back {
+  margin-right: 0;
+}
+
+/*
+ * markdown
+ */
+
+@media (min-width: 768px) {
+  h2 {
+    margin-top: 3em;
+  }
+}
+
+/*
+ * grey code
+ */
+
+.greycode td:first-child code,
+.greycode th:first-child code {
+  background: white;
+  padding: 6px 8px 5px 8px;
+  border-radius: 3px;
+}
+
+.greycode td:first-child code + em,
+.greycode th:first-child code + em {
+  color: #808890;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+
+.greycode a {
+  margin: 0 5px;
+}
+
+@media (min-width: 768px) {
+  table.greycode {
+    background: #fcfcfc;
+    border-radius: 4px;
+    border-top: 0;
+    border-bottom: solid 1px #c7d7ee;
+  }
+
+  table.greycode:not(.wide) {
+    width: calc(620px + 100px);
+    margin-left: -50px;
+  }
+
+  table.greycode thead:first-child > tr:first-child > th,
+  table.greycode thead:first-child > tr:first-child > td,
+  table.greycode tbody:first-child > tr:first-child > th,
+  table.greycode tbody:first-child > tr:first-child > td,
+  table.greycode.no-head thead:nth-child(2) > tr:first-child > th,
+  table.greycode.no-head thead:nth-child(2) > tr:first-child > td,
+  table.greycode.no-head tbody:nth-child(2) > tr:first-child > th,
+  table.greycode.no-head tbody:nth-child(2) > tr:first-child > td {
+    border-top: 0;
+  }
+
+  table.greycode thead > tr:first-child > th,
+  table.greycode thead > tr:first-child > td,
+  table.greycode tbody > tr:first-child > th,
+  table.greycode tbody > tr:first-child > td {
+    border-top: solid 1px #c7d7ee;
+  }
+
+  table.greycode td:first-child,
+  table.greycode th:first-child {
+    padding-left: 50px;
+  }
+
+  table.greycode td:last-child,
+  table.greycode th:last-child {
+    padding-right: 50px;
+  }
+}
+
+.hljs-comment {
+  font-style: normal;
+}
+
+.key-codes code {
+  background: #fdfdff;
+  padding: 3px 8px 3px 8px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  margin: 0 5px;
+}
+
+.key-codes code + code {
+  margin-left: 0;
+}
+
+.key-codes pre code {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/*
+ * Carbon: side
+ */
+
+.side-ad {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 130px;
+  display: block;
+  font-size: .8em;
+}
+
+.side-ad a {
+  text-decoration: none;
+  box-shadow: none;
+  background: rgba(255, 255, 255, .01);
+}
+
+.side-ad a:hover {
+  color: #111;
+}
+
+.side-ad .carbon-text {
+  margin-top: 5px;
+  display: block;
+}
+
+.side-ad .carbon-poweredby {
+  display: block;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .side-ad {
+    display: none;
+  }
+}
+
+/*
+ * Cardbon: headline
+ */
+
+.headline-ad {
+  width: 300px;
+  min-height: 100px;
+  font-size: .8em;
+  margin: 0 auto 45px auto;
+  line-height: 1.5;
+}
+
+.headline-ad:after {
+  content: '';
+  display: table;
+  clear: both;
+  zoom: 1;
+}
+
+.headline-ad a {
+  text-decoration: none;
+  box-shadow: none;
+  display: block;
+  background: rgba(255, 255, 255, .01);
+}
+
+.headline-ad a:hover {
+  color: #111;
+}
+
+.headline-ad img {
+  float: left;
+  margin-right: 15px;
+  background: #fafafa;
+}
+
+.headline-ad .carbon-text {
+}
+
+.headline-ad .carbon-poweredby {
+  display: block;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.social-list.-collapse {
+  margin-top: 0;
+  position: absolute;
+  top: 40vh;
+  left: 30px;
+  width: 32px;
+}
+
+@media (max-width: 480px) {
+  .social-list.-collapse {
+    display: none;
+  }
+}
+

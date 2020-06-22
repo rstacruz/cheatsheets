@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/sequel.html' name='app:pageurl'>
+
+
+  <title>Sequel cheatsheet</title>
+  <meta content='Sequel cheatsheet' property='og:title'>
+  <meta content='Sequel cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Sequel: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Sequel: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Sequel: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/sequel">
+<meta name="og:url" content="https://devhints.io/sequel">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Ruby libraries' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Sequel cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/sequel.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Sequel: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#ruby-libraries",
+      "name": "Ruby libraries"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/sequel",
+      "name": "Sequel"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Sequel</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/sequel.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Sequel.%20https://devhints.io/sequel.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="open-a-database">Open a database</h3>
+
+<pre><code>require 'rubygems'
+require 'sequel'
+
+DB = Sequel.sqlite('my_blog.db')
+DB = Sequel.connect('postgres://user:password@localhost/my_db')
+DB = Sequel.postgres('my_db', :user =&gt; 'user', :password =&gt; 'password', :host =&gt; 'localhost')
+DB = Sequel.ado('mydb')
+</code></pre>
+
+<h3 id="open-an-sqlite-memory-database">Open an SQLite memory database</h3>
+
+<p>Without a filename argument, the sqlite adapter will setup a new sqlite database in memory.</p>
+
+<pre><code>DB = Sequel.sqlite
+</code></pre>
+
+<h3 id="logging-sql-statements">Logging SQL statements</h3>
+
+<pre><code>require 'logger'
+DB = Sequel.sqlite '', :loggers =&gt; [Logger.new($stdout)]
+# or
+DB.loggers &lt;&lt; Logger.new(...)
+</code></pre>
+
+<h3 id="using-raw-sql">Using raw SQL</h3>
+
+<pre><code>DB.run "CREATE TABLE users (name VARCHAR(255) NOT NULL, age INT(3) NOT NULL)"
+dataset = DB["SELECT age FROM users WHERE name = ?", name]
+dataset.map(:age)
+DB.fetch("SELECT name FROM users") do |row|
+  p row[:name]
+end
+</code></pre>
+
+<h3 id="create-a-dataset">Create a dataset</h3>
+
+<pre><code>dataset = DB[:items]
+dataset = DB.from(:items)
+</code></pre>
+
+<h3 id="most-dataset-methods-are-chainable">Most dataset methods are chainable</h3>
+
+<pre><code>dataset = DB[:managers].where(:salary =&gt; 5000..10000).order(:name, :department)
+</code></pre>
+
+<h3 id="insert-rows">Insert rows</h3>
+
+<pre><code>dataset.insert(:name =&gt; 'Sharon', :grade =&gt; 50)
+</code></pre>
+
+<h3 id="retrieve-rows">Retrieve rows</h3>
+
+<pre><code>dataset.each{|r| p r}
+dataset.all # =&gt; [{...}, {...}, ...]
+dataset.first # =&gt; {...}
+</code></pre>
+
+<h3 id="updatedelete-rows">Update/Delete rows</h3>
+
+<pre><code>dataset.filter(~:active).delete
+dataset.filter('price &lt; ?', 100).update(:active =&gt; true)
+</code></pre>
+
+<h3 id="datasets-are-enumerable">Datasets are Enumerable</h3>
+
+<pre><code>dataset.map{|r| r[:name]}
+dataset.map(:name) # same as above
+
+dataset.inject(0){|sum, r| sum + r[:value]}
+dataset.sum(:value) # same as above
+</code></pre>
+
+<h3 id="filtering-see-also-docdataset_filteringrdoc">Filtering (see also doc/dataset_filtering.rdoc)</h3>
+
+<h4 id="equality">Equality</h4>
+
+<pre><code>dataset.filter(:name =&gt; 'abc')
+dataset.filter('name = ?', 'abc')
+</code></pre>
+
+<h4 id="inequality">Inequality</h4>
+
+<pre><code>dataset.filter{value &gt; 100}
+dataset.exclude{value &lt;= 100}
+</code></pre>
+
+<h4 id="inclusion">Inclusion</h4>
+
+<pre><code>dataset.filter(:value =&gt; 50..100)
+dataset.where{(value &gt;= 50) &amp; (value &lt;= 100)}
+
+dataset.where('value IN ?', [50,75,100])
+dataset.where(:value=&gt;[50,75,100])
+
+dataset.where(:id=&gt;other_dataset.select(:other_id))
+</code></pre>
+
+<h4 id="subselects-as-scalar-values">Subselects as scalar values</h4>
+
+<pre><code>dataset.where('price &gt; (SELECT avg(price) + 100 FROM table)')
+dataset.filter{price &gt; dataset.select(avg(price) + 100)}
+</code></pre>
+
+<h4 id="likeregexp">LIKE/Regexp</h4>
+
+<pre><code>DB[:items].filter(:name.like('AL%'))
+DB[:items].filter(:name =&gt; /^AL/)
+</code></pre>
+
+<h4 id="andornot">AND/OR/NOT</h4>
+
+<pre><code>DB[:items].filter{(x &gt; 5) &amp; (y &gt; 10)}.sql 
+# SELECT * FROM items WHERE ((x &gt; 5) AND (y &gt; 10))
+
+DB[:items].filter({:x =&gt; 1, :y =&gt; 2}.sql_or &amp; ~{:z =&gt; 3}).sql 
+# SELECT * FROM items WHERE (((x = 1) OR (y = 2)) AND (z != 3))
+</code></pre>
+
+<h4 id="mathematical-operators">Mathematical operators</h4>
+
+<pre><code>DB[:items].filter((:x + :y) &gt; :z).sql 
+# SELECT * FROM items WHERE ((x + y) &gt; z)
+
+DB[:items].filter{price - 100 &lt; avg(price)}.sql 
+# SELECT * FROM items WHERE ((price - 100) &lt; avg(price))
+</code></pre>
+
+<h3 id="ordering">Ordering</h3>
+
+<pre><code>dataset.order(:kind)
+dataset.reverse_order(:kind)
+dataset.order(:kind.desc, :name)
+</code></pre>
+
+<h3 id="limitoffset">Limit/Offset</h3>
+
+<pre><code>dataset.limit(30) # LIMIT 30
+dataset.limit(30, 10) # LIMIT 30 OFFSET 10
+</code></pre>
+
+<h3 id="joins">Joins</h3>
+
+<pre><code>DB[:items].left_outer_join(:categories, :id =&gt; :category_id).sql 
+# SELECT * FROM items LEFT OUTER JOIN categories ON categories.id = items.category_id
+
+DB[:items].join(:categories, :id =&gt; :category_id).join(:groups, :id =&gt; :items__group_id) 
+# SELECT * FROM items INNER JOIN categories ON categories.id = items.category_id INNER JOIN groups ON groups.id = items.group_id
+</code></pre>
+
+<h3 id="aggregate-functions-methods">Aggregate functions methods</h3>
+
+<pre><code>dataset.count #=&gt; record count
+dataset.max(:price)
+dataset.min(:price)
+dataset.avg(:price)
+dataset.sum(:stock)
+
+dataset.group_and_count(:category)
+dataset.group(:category).select(:category, :AVG.sql_function(:price))
+</code></pre>
+
+<h3 id="sql-functions--literals">SQL Functions / Literals</h3>
+
+<pre><code>dataset.update(:updated_at =&gt; :NOW.sql_function)
+dataset.update(:updated_at =&gt; 'NOW()'.lit)
+
+dataset.update(:updated_at =&gt; "DateValue('1/1/2001')".lit)
+dataset.update(:updated_at =&gt; :DateValue.sql_function('1/1/2001'))
+</code></pre>
+
+<h3 id="schema-manipulation">Schema Manipulation</h3>
+
+<pre><code>DB.create_table :items do
+  primary_key :id
+  String :name, :unique =&gt; true, :null =&gt; false
+  TrueClass :active, :default =&gt; true
+  foreign_key :category_id, :categories
+  DateTime :created_at
+  
+  index :created_at
+end
+
+DB.drop_table :items
+
+DB.create_table :test do
+  String :zipcode
+  enum :system, :elements =&gt; ['mac', 'linux', 'windows']
+end
+</code></pre>
+
+<h3 id="aliasing">Aliasing</h3>
+
+<pre><code>DB[:items].select(:name.as(:item_name))
+DB[:items].select(:name___item_name)
+DB[:items___items_table].select(:items_table__name___item_name)
+# SELECT items_table.name AS item_name FROM items AS items_table
+</code></pre>
+
+<h3 id="transactions">Transactions</h3>
+
+<pre><code>DB.transaction do
+  dataset.insert(:first_name =&gt; 'Inigo', :last_name =&gt; 'Montoya')
+  dataset.insert(:first_name =&gt; 'Farm', :last_name =&gt; 'Boy')
+end # Either both are inserted or neither are inserted
+</code></pre>
+
+<p>Database#transaction is re-entrant:</p>
+
+<pre><code>DB.transaction do # BEGIN issued only here
+  DB.transaction
+    dataset &lt;&lt; {:first_name =&gt; 'Inigo', :last_name =&gt; 'Montoya'}
+  end
+end # COMMIT issued only here
+</code></pre>
+
+<p>Transactions are aborted if an error is raised:</p>
+
+<pre><code>DB.transaction do
+  raise "some error occurred"
+end # ROLLBACK issued and the error is re-raised
+</code></pre>
+
+<p>Transactions can also be aborted by raising Sequel::Rollback:</p>
+
+<pre><code>DB.transaction do
+  raise(Sequel::Rollback) if something_bad_happened
+end # ROLLBACK issued and no error raised
+</code></pre>
+
+<p>Savepoints can be used if the database supports it:</p>
+
+<pre><code>DB.transaction do
+  dataset &lt;&lt; {:first_name =&gt; 'Farm', :last_name =&gt; 'Boy'} # Inserted
+  DB.transaction(:savepoint=&gt;true) # This savepoint is rolled back
+    dataset &lt;&lt; {:first_name =&gt; 'Inigo', :last_name =&gt; 'Montoya'} # Not inserted
+    raise(Sequel::Rollback) if something_bad_happened
+  end
+  dataset &lt;&lt; {:first_name =&gt; 'Prince', :last_name =&gt; 'Humperdink'} # Inserted
+end
+</code></pre>
+
+<h3 id="miscellaneous">Miscellaneous:</h3>
+
+<pre><code>dataset.sql # "SELECT * FROM items"
+dataset.delete_sql # "DELETE FROM items"
+dataset.where(:name =&gt; 'sequel').exists # "EXISTS ( SELECT * FROM items WHERE name = 'sequel' )"
+dataset.columns #=&gt; array of columns in the result set, does a SELECT
+DB.schema(:items) =&gt; [[:id, {:type=&gt;:integer, ...}], [:name, {:type=&gt;:string, ...}], ...]
+</code></pre>
+
+<hr />
+
+<h3 id="documents">Documents</h3>
+
+<pre><code>http://sequel.rubyforge.org/rdoc/files/doc/association_basics_rdoc.html
+http://sequel.rubyforge.org/rdoc/classes/Sequel/Schema/Generator.html
+http://sequel.rubyforge.org/rdoc/files/doc/validations_rdoc.html
+http://sequel.rubyforge.org/rdoc/classes/Sequel/Model.html
+</code></pre>
+
+<h3 id="alter-table">Alter table</h3>
+
+<pre><code>database.alter_table :deals do
+  add_column :name, String
+  drop_column :column_name
+  rename_column :from, :to
+
+  add_constraint :valid_name, :name.like('A%')
+  drop_constraint :constraint
+
+  add_full_text_index :body
+  add_spacial_index [columns]
+
+  add_index :price
+  drop_index :index
+
+  add_foreign_key :artist_id, :table
+  add_primary_key :id
+  add_unique_constraint [columns]
+  set_column_allow_null :foo, false
+  set_column_default :title, ''
+
+  set_column_type :price, 'char(10)'
+end
+</code></pre>
+
+<h3 id="model-associations">Model associations</h3>
+
+<pre><code>class Deal &lt; Sequel::Model
+
+  # Us (left) &lt;=&gt; Them (right)
+  many_to_many  :images,
+    left_id:    :deal_id,
+    right_id:   :image_id,
+    join_table: :image_links
+
+  one_to_many   :files,
+    key:        :deal_id,
+    class:      :DataFile,
+
+  many_to_one   :parent, class: self
+  one_to_many   :children, key: :parent_id, class: self
+
+  one_to_many :gold_albums, class: :Album do |ds|
+    ds.filter { copies_sold &gt; 50000 }
+  end
+</code></pre>
+
+<p>Provided by many_to_many</p>
+
+<pre><code>Deal[1].images
+Deal[1].add_image
+Deal[1].remove_image
+Deal[1].remove_all_images
+</code></pre>
+
+<h3 id="validations">Validations</h3>
+
+<pre><code>  def validate
+    super
+    errors.add(:name, 'cannot be empty') if !name || name.empty?
+
+    validates_presence [:title, :site]
+    validates_unique :name
+    validates_format /\Ahttps?:\/\//, :website, :message=&gt;'is not a valid URL'
+    validates_includes %w(a b c), :type
+    validates_integer :rating
+    validates_numeric :number
+    validates_type String, [:title, :description]
+
+    validates_integer :rating  if new?
+
+    # options: :message =&gt;, :allow_nil =&gt;, :allow_blank =&gt;,
+    #          :allow_missing =&gt;,
+
+    validates_exact_length 17, :isbn
+    validates_min_length 3, :name
+    validates_max_length 100, :name
+    validates_length_range 3..100, :name
+    
+    # Setter override
+    def filename=(name)
+      @values[:filename] = name
+    end
+  end
+end
+
+deal.errors
+</code></pre>
+
+<h3 id="model-stuff">Model stuff</h3>
+
+<pre><code>deal = Deal[1]
+deal.changed_columns
+deal.destroy  # Calls hooks
+deal.delete   # No hooks
+deal.exists?
+deal.new?
+deal.hash  # Only uniques
+deal.keys  #=&gt; [:id, :name]
+deal.modified!
+deal.modified?
+
+deal.lock!
+</code></pre>
+
+<h3 id="callbacks">Callbacks</h3>
+
+<pre><code>before_create
+after_create
+
+before_validation
+after_validation
+before_save
+before_update
+UPDATE QUERY
+after_update
+after_save
+
+before_destroy
+DELETE QUERY
+after_destroy
+</code></pre>
+
+<h3 id="schema">Schema</h3>
+
+<pre><code>class Deal &lt; Sequel::Model
+  set_schema do
+    primary_key :id
+    primary_key [:id, :title]
+    String :name, primary_key: true
+    
+    String  :title
+    Numeric :price
+    DateTime :expires
+
+    unique :whatever
+    check(:price) { num &gt; 0 }
+
+    foreign_key :artist_id
+    String :artist_name, key: :id
+
+    index :title
+    index [:artist_id, :name]
+    full_text_index :title
+
+    # String, Integer, Fixnum, Bignum, Float, Numeric, BigDecimal,
+    # Date, DateTime, Time, File, TrueClass, FalseClass
+  end
+end
+</code></pre>
+
+<h3 id="unrestrict-primary-key">Unrestrict primary key</h3>
+
+<pre><code>Category.create id: 'travel'   # error
+Category.unrestrict_primary_key
+Category.create id: 'travel'   # ok
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/sequel.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Sequel.%20https://devhints.io/sequel.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

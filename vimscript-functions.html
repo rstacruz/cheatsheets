@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/vimscript-functions.html' name='app:pageurl'>
+
+
+  <title>Vimscript functions cheatsheet</title>
+  <meta content='Vimscript functions cheatsheet' property='og:title'>
+  <meta content='Vimscript functions cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/vimscript-functions.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/vimscript-functions.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Vimscript functions: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Vimscript functions: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Vimscript functions: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/vimscript-functions">
+<meta name="og:url" content="https://devhints.io/vimscript-functions">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Vim' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Vimscript functions cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/vimscript-functions.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Vimscript functions: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#vim",
+      "name": "Vim"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/vimscript-functions",
+      "name": "Vimscript functions"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Vimscript functions</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/vimscript-functions.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Vimscript%20functions.%20https://devhints.io/vimscript-functions.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h2 id="dictionaries">Dictionaries</h2>
+
+<pre><code class="language-vim">let colors = {
+  \ "apple": "red",
+  \ "banana": "yellow"
+}
+
+echo colors["a"]
+echo get(colors, "apple")   " suppress error
+
+remove(colors, "apple")
+
+" :help E715
+if has_key(dict, 'foo')
+if empty(dict)
+keys(dict)
+len(dict)
+
+max(dict)
+min(dict)
+
+count(dict, 'x')
+string(dict)
+
+map(dict, '&lt;&gt;&gt; " . v:val')
+extend(s:fruits, { ... })
+</code></pre>
+
+<pre><code class="language-vim">for key in keys(mydict)
+  echo key . ': ' . mydict(key)
+endfor
+</code></pre>
+
+<h2 id="lists">Lists</h2>
+
+<pre><code class="language-vim">let mylist = [1, two, 3, "four"]
+
+let first = mylist[0]
+let last  = mylist[-1]
+
+" Suppresses errors
+let second = get(mylist, 1)
+let second = get(mylist, 1, "NONE")
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="buffer">Buffer</h3>
+
+<pre><code>line('.')             " current line number
+col('.')
+col('$')
+
+getline('.')          " current line as a string
+getline(1)            " get line 1
+getline(1, 5)         " get lines 1-5
+search('^$')          " next blank line, returns line number
+search('^$','n')      " but don't move cursor
+
+getcurpos()           " [bufnum, lnum, col, off, curswant]
+getpos('.')           " [bufnum, lnum, col, off]
+
+nextnonblank(1)       " next non-blank line after line1
+prevnonblank()
+</code></pre>
+
+<h3 id="marks">Marks</h3>
+
+<pre><code>getpos("'a")          " position of a mark
+setpos("'a",...)
+
+getpos("'&lt;")          " position of selection start
+</code></pre>
+
+<h3 id="cursor">Cursor</h3>
+
+<pre><code>cursor(line,col)      " moves cursor
+cursor(line,col,off,curswant)
+
+getcurpos()           " returns [bufnum,line,col,off,curswant]
+</code></pre>
+
+<h3 id="expand">Expand</h3>
+
+<pre><code>expand('&lt;cword&gt;')      " word under cursor
+expand('%')            " current file
+
+" &lt;cword&gt;  current word on cursor
+" :p    full path
+" :h    head
+" :p:h  dirname   (/Users/rsc/project)
+" :t    tail      (file.txt)
+" :r    root      (file)
+" :e    extension (.txt)
+" see :h cmdline-special
+</code></pre>
+
+<h3 id="files">Files</h3>
+
+<pre><code>fnameescape('string')
+fnamemodify('main.c', ':p:h')
+fnamemodify(fname, ':e')   " current file extension - see expand()
+filereadable(fname)
+getfsize('file.txt')
+getcwd()
+
+globpath(&amp;rtp, "plugin/commentary.vim")
+</code></pre>
+
+<h3 id="math">Math</h3>
+
+<pre><code>fmod(9, 2)  " modulus
+abs(-0.5)
+sqrt(9)
+
+trunc(1.84)
+floor(1.84)
+ceil(1.84)
+float2nr(3.14)
+</code></pre>
+
+<h3 id="casting">Casting</h3>
+
+<pre><code>str2float('0.2')
+str2nr('240')
+str2nr('ff', '16')
+
+string(0.3)
+</code></pre>
+
+<h3 id="type-checking">Type checking</h3>
+
+<pre><code>type(var) == type(0)
+type(var) == type("")
+type(var) == type(function("tr"))
+type(var) == type([])
+type(var) == type({})
+type(var) == type(0.0)
+</code></pre>
+
+<h3 id="datetime">Date/time</h3>
+
+<pre><code>strftime('%c')
+strftime('%c',getftime('file.c'))
+</code></pre>
+
+<h3 id="strings">Strings</h3>
+
+<pre><code>if a =~ '\s*'
+substitute(str, '.', 'x', 'g')
+strpart("abcdef", 3, 2)    " == "de" (substring)
+strpart("abcdef", 3)       " == "def"
+stridx("abcdef", "e")      " == "e"
+strridx()                  " reverse
+
+matchstr('testing','test')  " == 'test' (or '')
+match('testing','test')     " == 0
+matchend('testing','test')  " == 4
+match('testing','\ctest')   " ignore case
+
+split(str, '\zs')           " split into characters
+
+strlen(str)
+strchars()                  " accounts for composing chars
+strwidth()                  " accounts for ambig characters
+strdisplaywidth()           " accounts for tab stops
+
+toupper(str)
+tolower(str)
+tr('foo', '_-', '  ')
+</code></pre>
+
+<h3 id="syntax">Syntax</h3>
+
+<pre><code>synstack(line('.'),col('.'))   " returns many
+synID(line('.'),col('.'),1)    " only one
+
+synIDattr(id,"bg")
+synIDattr(id,"name")
+synIDtrans()
+
+" syntax stack
+map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+</code></pre>
+
+<h3 id="shell">Shell</h3>
+
+<pre><code>system('ls '.shellescape(expand('%:h')))
+</code></pre>
+
+<h3 id="registers">Registers</h3>
+
+<pre><code>getreg('*')
+getregtype('*')     " v(char), V(line) &lt;ctrl-v&gt;(block)
+</code></pre>
+
+<h2 id="comparisons">Comparisons</h2>
+
+<pre><code>if name ==# 'John'     " case-sensitive
+if name ==? 'John'     " case-insensitive
+if name == 'John'      " depends on :set ignorecase
+" also: is#, is?, &gt;=#, &gt;=?, and so on
+
+if "hello" =~ '.*'
+if "hello" !~ '.*'
+</code></pre>
+
+<h2 id="executing">Executing</h2>
+
+<h3 id="running-commands">Running commands</h3>
+
+<pre><code>normal 'ddahello'
+exe 'normal ^C'  " with expansions
+wincmd J
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/vimscript-functions.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Vimscript%20functions.%20https://devhints.io/vimscript-functions.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

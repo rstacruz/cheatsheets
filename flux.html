@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/flux.html' name='app:pageurl'>
+
+
+  <title>Flux architecture cheatsheet</title>
+  <meta content='Flux architecture cheatsheet' property='og:title'>
+  <meta content='Flux architecture cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/flux.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/flux.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Flux architecture: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Flux architecture: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Flux architecture: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/flux">
+<meta name="og:url" content="https://devhints.io/flux">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='React' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Flux architecture cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/flux.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Flux architecture: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#react",
+      "name": "React"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/flux",
+      "name": "Flux architecture"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Flux architecture</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/flux.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Flux%20architecture.%20https://devhints.io/flux.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h2 id="architecture">Architecture</h2>
+
+<ul>
+  <li>
+    <p><strong>Dispatchers</strong> receive <em>actions</em> that get dispatched to its listeners.</p>
+  </li>
+  <li>
+    <p><strong>Stores</strong> are objects that store data, usually changed from a dispatcher listener.</p>
+  </li>
+  <li>
+    <p><strong>Views</strong> are React components that listen to Store changes, or emit <em>actions</em> to the dispatcher.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="dispatcher">Dispatcher</h2>
+
+<h3 id="pub-sub">Pub-sub</h3>
+<p><a href="http://facebook.github.io/flux/docs/dispatcher.html">A dispatcher</a> emits events (<code>.dispatch()</code>) to its listeners (<code>.register(fn)</code>).</p>
+
+<pre><code class="language-js">var Dispatcher = require('flux').Dispatcher;
+
+d = new Dispatcher();
+
+// send
+d.dispatch({ action: 'edit', ... };
+
+// receive
+token = d.register(function (payload) {
+  payload.action === 'edit'
+})
+</code></pre>
+
+<h3 id="ensuring-proper-order">Ensuring proper order</h3>
+
+<p>With multiple listeners, you can ensure one is fired after another using <code>.waitFor()</code>.</p>
+
+<pre><code class="language-js">token1 = d.register(...);
+
+token2 = d.register(function (payload) {
+
+  // ensure receiver 1 is fired before this
+  d.waitFor([ token1 ]);
+  
+  // process here
+})
+</code></pre>
+
+<h3 id="subclassing">Subclassing</h3>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> is the preferred way to subclass Dispatcher (think <code>$.extend</code>).<br />
+You can also make <em>action creators</em>, which are shortcuts for <code>dispatch()</code>.</p>
+
+<pre><code class="language-js">var Dispatcher = require('flux').Dispatcher;
+var assign = require('object-assign');
+
+var AppDispatcher = assign({}, Dispatcher.prototype, {
+
+  // action creator
+  handleViewAction(action) {
+    this.dispatch({
+      source: 'VIEW_ACTION',
+      action: action
+    })
+  } 
+
+})
+</code></pre>
+
+<hr />
+
+<h2 id="stores">Stores</h2>
+
+<h3 id="plain-objects">Plain objects</h3>
+<p>Stores are just like objects.</p>
+
+<pre><code class="language-js">var TodoStore = { list: [] };
+</code></pre>
+
+<h3 id="events">Events</h3>
+<p>Sometimes they’re eventemitters, too. Usually it’s used to emit <code>change</code> events for views to pick up.</p>
+
+<pre><code class="language-js">var TodoStore = assign({}, EventEmitter.prototype, {
+  ...
+});
+
+TodoStore.emit('change');
+TodoStore.on('change', function () { ... });
+</code></pre>
+
+<h3 id="model-logic">Model logic</h3>
+<p>Logic can sometimes belong in stores.</p>
+
+<pre><code class="language-js">{
+  isAllActive() {
+    return this.list.every(item =&gt; item.active);
+  }
+}
+</code></pre>
+
+<hr />
+
+<h2 id="stores-and-dispatchers">Stores and dispatchers</h2>
+
+<h3 id="instantiate">Instantiate</h3>
+<p>Make a Dispatcher and Stores.</p>
+
+<pre><code class="language-js">d = new Dispatcher();
+TabStore = { tab: 'home' };
+</code></pre>
+
+<h3 id="updating-data">Updating data</h3>
+<p>Dispatch events to alter the store.</p>
+
+<pre><code class="language-js">d.dispatch({ action: 'tab.change', tab: 'timeline' });
+
+d.register(function (data) {
+  if (data.action === 'tab.change') {
+    TabStore.tab = data.tab;
+  }
+});
+</code></pre>
+
+<hr />
+
+<h2 id="with-views">With Views</h2>
+
+<h3 id="listen-to-dispatchers">Listen to dispatchers</h3>
+<p>Views (React Components) can listen to Dispatchers.</p>
+
+<pre><code class="language-js">var TodoApp = React.createClass({
+
+  componentDidMount() {
+    this.token = AppDispatcher.register((payload) =&gt; {
+      switch (payload.action) {
+        case 'tab.change':
+          this.render();
+          // ...
+      }
+    });
+  },
+  
+  componentDidUnmount() {
+    AppDispatcher.unregister(this.token);
+  }
+  
+});
+</code></pre>
+
+<h3 id="listen-to-stores">Listen to Stores</h3>
+<p>Or to Stores’s <code>change</code> events.</p>
+
+<pre><code class="language-js">{
+  componentDidMount() {
+    TodoStore.on('change', this.onChange);
+  },
+  
+  componentDidUnmount() {
+    TodoState.removeListener('change', this.onChange);
+  },
+  
+  onChange(data) {
+    // ...
+  }
+}
+</code></pre>
+
+<hr />
+
+<h3 id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="http://facebook.github.io/flux/docs/dispatcher.html">Dispatcher API</a></li>
+  <li><a href="react.html">React cheatsheet</a></li>
+  <li><a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js">Dispatcher.js source</a></li>
+  <li><a href="https://github.com/facebook/flux/tree/master/examples/flux-todomvc">Flux-todomvc explanation</a></li>
+</ul>
+
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/flux.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Flux%20architecture.%20https://devhints.io/flux.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

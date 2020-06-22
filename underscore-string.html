@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/underscore-string.html' name='app:pageurl'>
+
+
+  <title>Underscore-string cheatsheet</title>
+  <meta content='Underscore-string cheatsheet' property='og:title'>
+  <meta content='Underscore-string cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/underscore-string.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/underscore-string.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Underscore-string: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Underscore-string: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Underscore-string: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/underscore-string">
+<meta name="og:url" content="https://devhints.io/underscore-string">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='JavaScript libraries' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Underscore-string cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/underscore-string.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Underscore-string: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#javascript-libraries",
+      "name": "JavaScript libraries"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/underscore-string",
+      "name": "Underscore-string"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Underscore-string</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/underscore-string.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Underscore-string.%20https://devhints.io/underscore-string.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="usage">Usage</h3>
+
+<pre><code>// Use it like so:
+_.str.trim("hey");
+_s.trim("hey");
+
+// Unless you do:
+_.mixin(_.string.exports());
+
+// So you can:
+_.trim("hey");
+_("hey").trim();
+</code></pre>
+
+<h3 id="trimming">Trimming</h3>
+
+<pre><code>_.truncate("Hello world", 4) // =&gt; "Hell..."
+_.prune("Hello world", 5)    // =&gt; "Hello..."
+
+_.trim(" foo ")              // =&gt; "foo"
+_.trim("-foo-", '-')         // =&gt; "foo"
+_.ltrim
+_.rtrim
+</code></pre>
+
+<h3 id="numbers">Numbers</h3>
+
+<pre><code>_.numberFormat(1000, 2)  // =&gt; "1,000.00"
+</code></pre>
+
+<h3 id="caps">Caps</h3>
+
+<pre><code>_.capitalize("foo bar")       // =&gt; "Foo Bar"
+_.humanize("hey-there foo")   // =&gt; "Hey there foo"
+_.titleize('My name is hi')   // =&gt; "My Name Is Hi"
+
+_.dasherize('MozTransform')   // =&gt; "-moz-transform"
+_.underscored('MozTransform') // =&gt; "moz_transform"
+_.classify('-moz-transform')  // =&gt; "MozTransform"
+_.camelize('moz_transform')   // =&gt; "MozTransform"
+
+_.slugify("hey there")        // =&gt; "hey-there"
+
+_.swapCase("hELLO")           // =&gt; "Hello"
+</code></pre>
+
+<h3 id="checks">Checks</h3>
+
+<pre><code>_.startsWith('image.gif', 'image') // =&gt; true
+_.endsWith('image.gif', '.gif')    // =&gt; true
+_.isBlank(" ")                     // =&gt; true (also for "\n", "")
+</code></pre>
+
+<h3 id="html">HTML</h3>
+
+<pre><code>_.escapeHTML("&lt;div&gt;")
+_.unescapeHTML("&amp;lt;div&amp;gt;")
+_.stripTags("&lt;div&gt;hi&lt;/div&gt;")
+</code></pre>
+
+<h3 id="quote">Quote</h3>
+
+<pre><code>_.quote("hi", '"') // =&gt; '"hi"'
+_.unquote('"hi"')  // =&gt; "hi"
+</code></pre>
+
+<h3 id="splits">Splits</h3>
+
+<pre><code>_.lines("hi\nthere")     // =&gt; ["hi","there"]
+_.words("hi  there you") // =&gt; ["hi","there","you"]
+</code></pre>
+
+<h3 id="sprintf">Sprintf</h3>
+
+<pre><code>_.sprintf("%.1f", 1.17)
+</code></pre>
+
+<h3 id="pad">Pad</h3>
+
+<pre><code>_.pad("1", 8)               // =&gt; "       1"
+_.pad("1", 8, "0")          // =&gt; "00000001"
+_.pad("1", 8, " ", "right") // =&gt; "1       "
+_.pad("1", 8, " ", "both")  // =&gt; "    1   "
+
+_.lpad(..)  // same as _.pad(.., 'left')
+_.rpad(..)  // same as _.pad(.., 'right')
+_.lrpad(..) // same as _.pad(.., 'both')
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>https://github.com/epeli/underscore.string</li>
+</ul>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/underscore-string.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Underscore-string.%20https://devhints.io/underscore-string.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

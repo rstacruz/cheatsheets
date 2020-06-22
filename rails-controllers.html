@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/rails-controllers.html' name='app:pageurl'>
+
+
+  <title>Controllers cheatsheet</title>
+  <meta content='Controllers cheatsheet' property='og:title'>
+  <meta content='Controllers cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/rails-controllers.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/rails-controllers.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Controllers: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Controllers: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Controllers: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/rails-controllers">
+<meta name="og:url" content="https://devhints.io/rails-controllers">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Rails' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Controllers cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/rails-controllers.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Controllers: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#rails",
+      "name": "Rails"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/rails-controllers",
+      "name": "Controllers"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Controllers</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-controllers.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Controllers.%20https://devhints.io/rails-controllers.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h3 id="common-stuff">Common stuff</h3>
+
+<pre><code>redirect_to root_url
+redirect_to root_url, notice: "Good."
+</code></pre>
+
+<h3 id="special-hashes">Special hashes</h3>
+
+<pre><code>session[:user_id] = nil
+
+flash[:notice] = "Hello"    # Gets flushed on next request
+flash.keep                  # Persist flash values
+flash.now[:error] = "Boo"   # Available on the same request
+
+cookies[:hello] = "Hi"
+
+params[:page]
+
+# params is a combination of:
+query_parameters
+path_parameters
+request_parameters
+</code></pre>
+
+<h3 id="respond_to">respond_to</h3>
+
+<pre><code>respond_to do |format|
+  format.html
+  format.xml  { render xml: @users }
+  format.json { render json: @users }
+  format.js    # Will be executed by the browser
+end
+</code></pre>
+
+<h3 id="default_url_options">default_url_options</h3>
+
+<pre><code># The options parameter is the hash passed in to 'url_for'
+def default_url_options(options)
+  {:locale =&gt; I18n.locale}
+end
+</code></pre>
+
+<h3 id="filters">Filters</h3>
+
+<pre><code># Filter with callbacks
+before_filter :authenticate
+before_filter :authenticate, except: [:login]
+before_filter :authenticate, only: [:login]
+def authenticate
+  redirect_to login_url unless controller.logged_in?
+end
+
+# Filter with inline
+before_filter do |controller|
+  redirect_to login_url unless controller.logged_in?
+end
+
+# Filter with external classes
+before_filter LoginFilter
+class LoginFilter
+  def self.filter(controller) ...; end
+end
+
+# Filter exceptions
+skip_before_filter :require_login, only: [:new, :create]
+
+# Before/after filters
+around_filter :wrap_in_transaction
+def wrap_in_transaction(&amp;blk)
+  ActiveRecord::Base.transaction { yield }
+end
+</code></pre>
+
+<h3 id="http-basic-authentication">HTTP basic authentication</h3>
+
+<pre><code>before_filter :authenticate
+
+# Basic authentication:
+def authenticate
+  authenticate_or_request_with_http_basic { |u, p|
+    u == "root" &amp;&amp; p == "alpine"
+  }
+end
+
+# ...or digest (hashed) authentication:
+# uses the ha1 hash (username:realm:password)
+def authenticate_by_digest
+  realm = "Secret3000"
+  users = {
+    "rsc" =&gt; Digest::MD5.hexdigest("rsc:#{realm}:passwordhere")
+  }
+
+  authenticate_or_request_with_http_digest(realm) { |user|
+    users[user]
+  }
+end
+
+# For integration tests
+def test_access
+  auth = ActionController::HttpAuthentication::Basic.encode_credentials(user, pass)
+  get "/notes/1.xml", nil, 'HTTP_AUTHORIZATION' =&gt; auth
+end
+
+# Token auth
+is_logged_in = authenticate_with_http_token do |token, options|
+  token == our_secret_token
+end
+
+request_http_token_authentication  unless is_logged_in
+</code></pre>
+
+<h3 id="requestresponse">Request/response</h3>
+
+<pre><code>request.host            #=&gt; "www.example.com"
+request.domain          #=&gt; "www.example.com"
+request.domain(n=2)     #=&gt; "example.com"
+request.port            #=&gt; 80
+request.protocol        #=&gt; "http://"
+request.query_string    #=&gt; "q=duck+tales"
+request.url             #=&gt; "http://www.example.com/search?q=duck+tales"
+request.fullpath        #=&gt; "/search?q=duck+tales"
+
+request.headers         # Returns a hash
+
+request.format          #=&gt; "text/html"
+request.remote_ip       #=&gt; "203.167.220.220"
+request.local?          #=&gt; true (if localhost/127.0.0.1)
+
+request.xhr?
+
+request.method          #=&gt; "POST"
+request.method_symbol   #=&gt; :post
+request.get?
+request.post?
+request.put?
+request.delete?
+request.head?
+</code></pre>
+
+<h3 id="response">response</h3>
+
+<pre><code>response.body
+response.status         #=&gt; 404
+response.location       # Redirect location
+response.content_type
+response.charset
+response.headers
+
+response.headers["Content-Type"] = "application/pdf"
+</code></pre>
+
+<h3 id="streaming">Streaming</h3>
+
+<pre><code>send_data pdfdata, filename: "foo.pdf", type: "application/pdf"
+send_file Rails.root.join('public','filename.txt') [filename: '..', type: '..']
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://guides.rubyonrails.org/action_controller_overview.html">Guide</a></li>
+  <li><a href="http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html">HttpAuthentication::Basic</a></li>
+  <li><a href="http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html">HttpAuthentication::Token</a></li>
+</ul>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/rails-controllers.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Controllers.%20https://devhints.io/rails-controllers.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

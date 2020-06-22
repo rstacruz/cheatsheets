@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang='en' class='no-js key-codes'>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/vim-easyalign.html' name='app:pageurl'>
+
+
+  <title>Vim Easyalign cheatsheet</title>
+  <meta content='Vim Easyalign cheatsheet' property='og:title'>
+  <meta content='Vim Easyalign cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/vim-easyalign.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/vim-easyalign.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Vim Easyalign: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Vim Easyalign: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Vim Easyalign: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/vim-easyalign">
+<meta name="og:url" content="https://devhints.io/vim-easyalign">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Vim' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Vim Easyalign cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/vim-easyalign.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Vim Easyalign: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#vim",
+      "name": "Vim"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/vim-easyalign",
+      "name": "Vim Easyalign"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Vim Easyalign</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/vim-easyalign.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Vim%20Easyalign.%20https://devhints.io/vim-easyalign.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h2 id="command-mode">Command mode</h2>
+
+<h3 id="align-by-delimiters">Align by delimiters</h3>
+
+<pre><code class="language-vim">:EasyAlign :       " preset characters (\=:.,&amp;#|)
+:EasyAlign |
+:EasyAlign \       " \ means space
+</code></pre>
+
+<h3 id="align-by-regexp">Align by regexp</h3>
+
+<pre><code class="language-vim">:EasyAlign /[:;]+/
+</code></pre>
+
+<h3 id="specify-which">Specify which</h3>
+
+<pre><code class="language-vim">:EasyAlign |       " align by 1st `|`
+:EasyAlign 3 |     " align by 3rd `|`
+:EasyAlign * |     " align by all `|`s
+</code></pre>
+
+<h3 id="add-options">Add options</h3>
+
+<pre><code class="language-vim">:EasyAlign * | l4r1
+
+  l4     " lN - left_margin
+  r1     " rN - right_margin
+         "    spaces to the left/right of `|`
+  ar     " a[lrc] - align
+         "    align left/right/center
+  dr     " d[lrc] - delimiter_align
+         "    alignment of the delimiter itself
+</code></pre>
+
+<h3 id="spaces-are-optional">Spaces are optional</h3>
+
+<pre><code class="language-vim">:EasyAlign * /[;:]+/ l3
+:EasyAlign*/[;:]+/l3
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="easyalign--dr-delimiter_align-right"><code>:EasyAlign = dr</code> (delimiter_align right)</h3>
+
+<pre><code>apple    = 1
+banana  += apple
+cake   ||= banana
+</code></pre>
+
+<h3 id="easyalign--for-json-or-yaml"><code>:EasyAlign :</code> (for json or yaml)</h3>
+
+<pre><code>url:      jdbc:mysql://localhost/test
+database: test
+</code></pre>
+
+<h3 id="easyalign--markdown-tables"><code>:EasyAlign *|</code> (markdown tables)</h3>
+
+<pre><code class="language-nohighlight">| `&lt;Enter&gt;` | right align                   |
+| `1`       | on 1st occurrence             |
+| `2`       | on 2nd occurrence (and so on) |
+</code></pre>
+
+<h2 id="interactive-mode">Interactive mode</h2>
+
+<table class="greycode">
+  <tbody>
+    <tr>
+      <td><code>{Visual}</code> <code>⏎</code></td>
+      <td>activate for selection</td>
+    </tr>
+    <tr>
+      <td><code>ga</code> <code>{motion}</code></td>
+      <td>activate for motion/text object</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Then press options (if available), then a delimiter.</p>
+
+<h3 id="interactive-mode-options">Interactive mode options</h3>
+
+<table class="greycode">
+  <tbody>
+    <tr>
+      <td><code>⏎</code></td>
+      <td>Set <code>alignment</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;ctrl-l&gt;</code> <code>4 ⏎</code></td>
+      <td>Set <code>left_margin</code> (to the left of the delimiter)</td>
+    </tr>
+    <tr>
+      <td><code>&lt;ctrl-r&gt;</code> <code>4 ⏎</code></td>
+      <td>Set <code>right_margin</code></td>
+    </tr>
+    <tr>
+      <td><code>↓</code></td>
+      <td>no margin</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li><code>gaip</code> <code>&lt;ctrl-l&gt;</code> <code>8⏎</code> <code>=</code> - puts 8 spaces before the equal sign</li>
+</ul>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></li>
+  <li><a href="https://github.com/junegunn/vim-easy-align#examples">Examples</a></li>
+  <li><a href="https://github.com/junegunn/vim-easy-align#alignment-options">Alignment options</a></li>
+</ul>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/vim-easyalign.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Vim%20Easyalign.%20https://devhints.io/vim-easyalign.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/languages/vim.min.js"></script>
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

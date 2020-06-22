@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/travis-gh-pages.html' name='app:pageurl'>
+
+
+  <title>Deploy gh-pages via Travis cheatsheet</title>
+  <meta content='Deploy gh-pages via Travis cheatsheet' property='og:title'>
+  <meta content='Deploy gh-pages via Travis cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/travis-gh-pages.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/travis-gh-pages.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Deploy gh-pages via Travis: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Deploy gh-pages via Travis: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Deploy gh-pages via Travis: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/travis-gh-pages">
+<meta name="og:url" content="https://devhints.io/travis-gh-pages">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Git' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Deploy gh-pages via Travis cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/travis-gh-pages.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Deploy gh-pages via Travis: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#git",
+      "name": "Git"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/travis-gh-pages",
+      "name": "Deploy gh-pages via Travis"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Deploy gh-pages via Travis</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/travis-gh-pages.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Deploy%20gh-pages%20via%20Travis.%20https://devhints.io/travis-gh-pages.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <p>Taken from https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db</p>
+
+<h3 id="create-an-oauth-token-and-encrypt-it">Create an OAuth token and encrypt it</h3>
+
+<p>Use https://github.com/settings/tokens/new</p>
+
+<pre><code class="language-sh"># via ruby
+gem install travis
+travis encrypt -r user/repo GITHUB_TOKEN=[the token here]
+</code></pre>
+
+<h3 id="make-it-run-the-deploy-script-on-deploy">Make it run the deploy script on deploy</h3>
+
+<pre><code class="language-yaml"> # .travis.yml
+script:
+  - bash ./scripts/deploy-to-gh-pages.sh
+env:
+  global:
+    - GITHUB_REPO: "user/repo"
+    - secure: "nlnXJW/imf/w..."  # &lt;-- from travis-encrypt
+</code></pre>
+
+<h3 id="write-deployer">Write deployer</h3>
+
+<p>Create the file <code>scripts/deploy-to-gh-pages.sh</code></p>
+
+<pre><code class="language-sh">#!/bin/bash
+# See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db
+set -o errexit
+
+rm -rf public
+mkdir public
+
+# config
+git config --global user.email "nobody@nobody.org"
+git config --global user.name "Travis CI"
+
+# build (CHANGE THIS)
+make
+
+# deploy
+cd public
+git init
+git add .
+git commit -m "Deploy to Github Pages"
+git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<p>From Ractive, this might be useful in certain cases:</p>
+
+<pre><code>if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
+</code></pre>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/travis-gh-pages.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Deploy%20gh-pages%20via%20Travis.%20https://devhints.io/travis-gh-pages.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/lua.html' name='app:pageurl'>
+
+
+  <title>Lua cheatsheet</title>
+  <meta content='Lua cheatsheet' property='og:title'>
+  <meta content='Lua cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/lua.jpg?t=20200622144344' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/lua.jpg?t=20200622144344' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Lua: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Lua: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Lua: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/lua">
+<meta name="og:url" content="https://devhints.io/lua">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Others' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200622144344">
+  <link href="./assets/style.css?t=20200622144344" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200622144344" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Lua cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/lua.jpg?t=20200622144344" ],
+  "description": "The one-page guide to Lua: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#others",
+      "name": "Others"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/lua",
+      "name": "Lua"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Lua</span></h1>
+      
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/lua.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Lua.%20https://devhints.io/lua.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h2 id="comments">Comments</h2>
+
+<pre><code>-- comment
+--[[ Multiline
+     comment ]]
+</code></pre>
+
+<h2 id="invoking-functions">Invoking functions</h2>
+
+<pre><code>print()
+print("Hi")
+
+-- You can omit parentheses if the argument is one string or table literal
+print "Hello World"     &lt;--&gt;     print("Hello World")
+dofile 'a.lua'          &lt;--&gt;     dofile ('a.lua')
+print [[a multi-line    &lt;--&gt;     print([[a multi-line
+ message]]                        message]])
+f{x=10, y=20}           &lt;--&gt;     f({x=10, y=20})
+type{}                  &lt;--&gt;     type({})
+</code></pre>
+
+<h2 id="tables--arrays">Tables / arrays</h2>
+
+<pre><code>t = {}
+t = { a = 1, b = 2 }
+t.a = function() ... end
+
+t = { ["hello"] = 200 }
+t.hello
+
+-- Remember, arrays are also tables
+array = { "a", "b", "c", "d" }
+print(array[2])       -- "b" (one-indexed)
+print(#array)         -- 4 (length)
+</code></pre>
+
+<h2 id="loops">Loops</h2>
+
+<pre><code>while condition do
+end
+
+for i = 1,5 do
+end
+
+for i = start,finish,delta do
+end
+
+for k,v in pairs(tab) do
+end
+
+repeat
+until condition
+
+-- Breaking out:
+while x do
+  if condition then break end
+end
+</code></pre>
+
+<h2 id="conditionals">Conditionals</h2>
+
+<pre><code>if condition then
+  print("yes")
+elseif condition then
+  print("maybe")
+else
+  print("no")
+end
+</code></pre>
+
+<h2 id="variables">Variables</h2>
+
+<pre><code>local x = 2
+two, four = 2, 4
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<pre><code>function myFunction()
+  return 1
+end
+
+function myFunctionWithArgs(a, b)
+  -- ...
+end
+
+myFunction()
+
+anonymousFunctions(function()
+  -- ...
+end)
+
+-- Not exported in the module
+local function myPrivateFunction()
+end
+
+-- Splats
+function doAction(action, ...)
+  print("Doing '"..action.."' to", ...)
+  --&gt; print("Doing 'write' to", "Shirley", "Abed")
+end
+
+doAction('write', "Shirley", "Abed")
+</code></pre>
+
+<h2 id="lookups">Lookups</h2>
+
+<pre><code>mytable = { x = 2, y = function() .. end }
+
+-- The same:
+mytable.x
+mytable['x']
+
+-- Syntactic sugar, these are equivalent:
+mytable.y(mytable)
+mytable:y()
+
+mytable.y(mytable, a, b)
+mytable:y(a, b)
+
+function X:y(z) .. end
+function X.y(self, z) .. end
+</code></pre>
+
+<h2 id="metatables">Metatables</h2>
+
+<pre><code>mt = {}
+
+-- A metatable is simply a table with functions in it.
+mt.__tostring = function() return "lol" end
+mt.__add      = function(b) ... end       -- a + b
+mt.__mul      = function(b) ... end       -- a * b
+mt.__index    = function(k) ... end       -- Lookups (a[k] or a.k)
+mt.__newindex = function(k, v) ... end    -- Setters (a[k] = v)
+
+-- Metatables allow you to override behavior of another table.
+mytable = {}
+setmetatable(mytable, mt)
+
+print(myobject)
+</code></pre>
+
+<h2 id="classes">Classes</h2>
+
+<pre><code>Account = {}
+
+function Account:new(balance)
+  local t = setmetatable({}, { __index = Account })
+
+  -- Your constructor stuff
+  t.balance = (balance or 0)
+  return t
+end
+
+function Account:withdraw(amount)
+  print("Withdrawing "..amount.."...")
+  self.balance = self.balance - amount
+  self:report()
+end
+
+function Account:report()
+  print("Your current balance is: "..self.balance)
+end
+
+a = Account:new(9000)
+a:withdraw(200)    -- method call
+</code></pre>
+
+<h2 id="constants">Constants</h2>
+
+<pre><code>nil
+false
+true
+</code></pre>
+
+<h2 id="operators-and-their-metatable-names">Operators (and their metatable names)</h2>
+
+<pre><code>-- Relational (binary)
+-- __eq  __lt  __gt  __le  __ge
+   ==    &lt;     &gt;     &lt;=    &gt;=
+~=   -- Not equal, just like !=
+
+-- Arithmetic (binary)
+-- __add  __sub  __muv  __div  __mod  __pow
+   +      -      *      /      %      ^
+
+-- Arithmetic (unary)
+-- __unm (unary minus)
+   -
+
+-- Logic (and/or)
+nil and false  --&gt; nil
+false and nil  --&gt; false
+0 and 20       --&gt; 20
+10 and 20      --&gt; 20
+
+
+-- Length
+-- __len(array)
+#array
+
+
+-- Indexing
+-- __index(table, key)
+t[key]
+t.key
+
+-- __newindex(table, key, value)
+t[key]=value
+
+-- String concat
+-- __concat(left, right)
+"hello, "..name
+
+-- Call
+-- __call(func, ...)
+</code></pre>
+
+<h2 id="api-global-functions--ref">API: Global functions  <a href="http://lua.gts-stolberg.de/en/Basis.php">(ref)</a></h2>
+
+<pre><code>dofile("hello.lua")
+loadfile("hello.lua")
+
+assert(x)    -- x or (raise an error)
+assert(x, "failed")
+
+type(var)   -- "nil" | "number" | "string" | "boolean" | "table" | "function" | "thread" | "userdata"
+
+-- Does /not/ invoke meta methods (__index and __newindex)
+rawset(t, index, value)    -- Like t[index] = value
+rawget(t, index)           -- Like t[index]
+
+_G  -- Global context
+setfenv(1, {})  -- 1: current function, 2: caller, and so on -- {}: the new _G
+
+pairs(t)     -- iterable list of {key, value}
+ipairs(t)    -- iterable list of {index, value}
+
+tonumber("34")
+tonumber("8f", 16)
+</code></pre>
+
+<h2 id="api-strings">API: Strings</h2>
+
+<pre><code>'string'..'concatenation'
+
+s = "Hello"
+s:upper()
+s:lower()
+s:len()    -- Just like #s
+
+s:find()
+s:gfind()
+
+s:match()
+s:gmatch()
+
+s:sub()
+s:gsub()
+
+s:rep()
+s:char()
+s:dump()
+s:reverse()
+s:byte()
+s:format()
+</code></pre>
+
+<h2 id="api-tables">API: Tables</h2>
+
+<pre><code>table.foreach(t, function(row) ... end)
+table.setn
+table.insert(t, 21)          -- append (--&gt; t[#t+1] = 21)
+table.insert(t, 4, 99)
+table.getn
+table.concat
+table.sort
+table.remove(t, 4)
+</code></pre>
+
+<h2 id="api-math-ref">API: Math <a href="http://lua-users.org/wiki/MathLibraryTutorial">(ref)</a></h2>
+
+<pre><code>math.abs     math.acos    math.asin       math.atan    math.atan2
+math.ceil    math.cos     math.cosh       math.deg     math.exp
+math.floor   math.fmod    math.frexp      math.ldexp   math.log
+math.log10   math.max     math.min        math.modf    math.pow
+math.rad     math.random  math.randomseed math.sin     math.sinh
+math.sqrt    math.tan     math.tanh
+
+math.sqrt(144)
+math
+</code></pre>
+
+<h2 id="api-misc">API: Misc</h2>
+
+<pre><code>io.output(io.open("file.txt", "w"))
+io.write(x)
+io.close()
+
+for line in io.lines("file.txt")
+
+file = assert(io.open("file.txt", "r"))
+file:read()
+file:lines()
+file:close()
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<p>http://www.lua.org/pil/13.html
+  http://lua-users.org/wiki/ObjectOrientedProgramming</p>
+
+    </div>
+
+    
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/lua.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Lua.%20https://devhints.io/lua.html" target="share"><span class="text"></span></a></li>
+  
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+    
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+    
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>
+

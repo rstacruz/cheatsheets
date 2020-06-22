@@ -17,18 +17,3 @@ _site:
 
 dev: 
 	yarn dev
-
-test: _site ## Runs rudimentary tests
-	@test -f _site/vim.html
-	@test -f _site/react.html
-	@test -f _site/index.html
-	@grep "<script src" _site/index.html >/dev/null
-	@grep "<script src" _site/vim.html >/dev/null
-	@grep "<script src" _site/react.html >/dev/null
-
-test-warning:
-	@echo "========="
-	@echo "If your build failed at this point, it means"
-	@echo "the site failed to generate. Check the project"
-	@echo "out locally and try to find out why."
-	@echo "========="

@@ -1,26 +1,36 @@
 ---
 title: Zombie
 category: JavaScript libraries
+layout: 2017/sheet
+intro: |
+  [Zombie](http://zombie.js.org/) is a full-stack testing solution for Node.js.
 ---
 
+## Zombie
 
-    browser
-      .visit("http://.../", ->)
-      .fill("email", "zombie@underworld.dead")
-      .fill("password", "eat-the-living")
-      .select("Born", "1985")
-      .uncheck("Send newsletter")
-      .clickLink("Link name")
-      .pressButton("Sign", -> ...)
+### Examples
 
-      .text("H1")
+```js
+browser
+  .visit("http://.../", ->)
+  .fill("email", "zombie@underworld.dead")
+  .fill("password", "eat-the-living")
+  .select("Born", "1985")
+  .uncheck("Send newsletter")
+  .clickLink("Link name")
+  .pressButton("Sign", () => { ... })
+  .text("H1")
+```
 
+### Expectations
 
-    expect(browser.query("#brains"))
+```js
+expect(browser.query("#brains"))
 
-    expect(browser.body.queryAll(".hand")).length 2
+expect(browser.body.queryAll(".hand")).length 2
 
-    console.log(browser.html())
-    console.log(browser.html("table.parts"))
+console.log(browser.html())
+console.log(browser.html("table.parts"))
 
-    expect(Browser.text(".card-nopad small"), "A better way to get around!")
+expect(Browser.text(".card-nopad small"), "A better way to get around!")
+```

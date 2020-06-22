@@ -1,5 +1,8 @@
-name: Build and test
-on: push
+name: Deploy
+on: 
+  push:
+    branches:
+      master
 
 jobs:
   build:
@@ -7,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       # https://github.com/actions/cache/blob/master/examples.md#node---yarn
       - name: "Cache: Get yarn cache directory path"
@@ -46,5 +51,10 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - run: yarn build
-      - run: yarn test
-      - run: yarn test:smoke
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: _site

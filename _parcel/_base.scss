@@ -1,32 +1,3 @@
-// Vendor and variables
-@import 'sanitize.css/sanitize.css';
-@import '../_sass/2017/variables.scss';
-@import '../node_modules/modularscale-sass/stylesheets/_modularscale.scss';
-@import '../_sass/vendor/ionicons-inline/ionicons.scss';
-
-// Utilities
-@import '../_sass/2017/utils/carbon-style.scss';
-@import '../_sass/2017/utils/_font-size.scss';
-@import '../_sass/2017/utils/gutter.scss';
-@import '../_sass/2017/utils/heading-style.scss';
-@import '../_sass/2017/utils/section-gutter.scss';
-@import '../_sass/2017/utils/section-with-container.scss';
-
 // Base
-@import 'sanitize.css/sanitize.css';
 @import '../_sass/2017/base/base.scss';
 @import '../_sass/2017/base/fade.scss';
-
-// Components
-@import '../_sass/2017/components/attribute-peg.scss';
-@import '../_sass/2017/components/announcements-item.scss';
-@import '../_sass/2017/components/announcements-list.scss';
-@import '../_sass/2017/components/back-button.scss';
-@import '../_sass/2017/components/body-area.scss';
-@import '../_sass/2017/components/codefund-sponsor.scss';
-@import '../_sass/2017/components/page-actions.scss';
-@import '../_sass/2017/components/pages-list.scss';
-@import '../_sass/2017/components/search-box.scss';
-@import '../_sass/2017/components/site-header.scss';
-@import '../_sass/2017/components/top-nav.scss';
-@import '../_sass/2017/components/top-sheet.scss';

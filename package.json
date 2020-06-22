@@ -48,6 +48,8 @@
     "parcel:build": "run-s -s 'parcel:*:build'",
     "parcel:critical:build": "parcel build '_parcel/critical*.{js,scss}' -d _includes/2017/critical --no-source-maps --no-autoinstall",
     "parcel:critical:watch": "parcel watch '_parcel/critical*.{js,scss}' -d _includes/2017/critical --no-source-maps --no-autoinstall",
+    "prejekyll:build": "bundle",
+    "prejekyll:watch": "bundle",
     "prettier:format": "prettier --write '_parcel/**/*.{js,scss}'",
     "test": "jest"
   }

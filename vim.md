@@ -17,7 +17,7 @@ Getting started
 {: .-prime}
 
 | Shortcut       | Description                      |
-| ---            | ---                              |
+| -------------- | -------------------------------- |
 | `:qa`          | Close all files                  |
 | `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |

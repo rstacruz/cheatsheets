@@ -3,7 +3,7 @@ title: sed
 category: CLI
 layout: 2017/sheet
 intro: |
-  Here's home hints on using sed.
+  Here's some hints on using sed.
 ---
 
 ### In place replacements

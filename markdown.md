@@ -57,8 +57,8 @@ __bold__
 ```
 
 ```markdown
-- [ ]
-- [x]
+- [ ] Checkbox off
+- [x] Checkbox on
 ```
 
 ### Links

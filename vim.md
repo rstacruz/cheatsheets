@@ -102,6 +102,7 @@ Getting started
 | Shortcut | Description                         |
 | ---      | ---                                 |
 | `a`      | Append                              |
+| `A`      | Append from end of line             |
 | `i`      | Insert                              |
 | `o`      | Next line                           |
 | `O`      | Previous line                       |

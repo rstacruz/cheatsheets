@@ -461,6 +461,7 @@ echo ${#Fruits[@]}          # Number of elements
 echo ${#Fruits}             # String length of the 1st element
 echo ${#Fruits[3]}          # String length of the Nth element
 echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
+echo ${!Fruits[@]}          # Keys of all elements, space-separated
 ```
 
 ### Operations

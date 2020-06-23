@@ -197,10 +197,15 @@ _.camelCase('hello world')    // → 'helloWorld'
 ### Padding
 
 ```js
+_.pad('abc', 3)           // → 'abc'
 _.pad('abc', 8)           // → '   abc  '
-_.padLeft('abc', 8)       // → '     abc'
-_.padLeft('abc', 8, '-')  // → '00000abc'
-_.padRight(...)
+_.pad('abc', 8, '_-')     // → '_-abc_-_'
+_.padStart('abc', 3)      // → 'abc'
+_.padStart('abc', 6)      // → '   abc'
+_.padStart('abc', 6, '_-')// → '_-_abc'
+_.padEnd('abc', 3)        // → 'abc'
+_.padEnd('abc', 6)        // → 'abc   '
+_.padEnd('abc', 6, '_-')  // → 'abc_-_'
 ```
 
 ### Trim

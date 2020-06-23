@@ -56,6 +56,11 @@ __bold__
 - Item 2
 ```
 
+```markdown
+- [ ] Checkbox off
+- [x] Checkbox on
+```
+
 ### Links
 
 ```markdown

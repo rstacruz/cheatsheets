@@ -130,7 +130,7 @@ body {
 ### Composing
 
 ```scss
-@import './other_sass_file`;
+@import './other_sass_file';
 ```
 
 The `.scss` or `.sass` extension is optional.
@@ -189,7 +189,7 @@ alpha($color)       // → 0..1 (aka opacity())
 
 #### RGB
 
-```
+```scss
 red($color)         // → 0..255
 green($color)
 blue($color)

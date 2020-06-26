@@ -34,13 +34,20 @@ body {
 
 ```scss
 .markdown-body {
-  p {
+  a {
     color: blue;
+    &:hover {
+      color: red;
+    }
   }
+}
+```
 
-  &:hover {
-    color: red;
-  }
+#### to properties
+```scss
+text: {
+  align: center;          // like text-align: center
+  transform: uppercase;   // like text-transform: uppercase
 }
 ```
 
@@ -353,6 +360,10 @@ $i: 6;
 @if $position == 'left' {
    position: absolute;
    left: 0;
+}
+@else if $position == 'right' {
+   position: absolute;
+   right: 0;
 }
 @else {
    position: static;

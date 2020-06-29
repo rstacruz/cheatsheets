@@ -293,6 +293,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut            | Description                |
 | ---                 | ---                        |
+| `%`                 | Nearest/matching `{[()]}`  |
 | `[(` `[{` `[<`      | Previous `(` or `{` or `<` |
 | `])`                | Next                       |
 | ---                 | ---                        |

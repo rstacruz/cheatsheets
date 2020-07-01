@@ -118,6 +118,22 @@ slice := []byte("Hello")
 
 Slices have a dynamic size, unlike arrays.
 
+### Maps
+
+```go
+m := make(map[string]int) // map[key]value
+m = ["key"] = 4
+fmt.println["key"] // 4
+```
+
+Second return is if the key is present in the map.
+
+```go
+m := make(map[string]int)
+value, prs := m["key"]
+fmt.Println(prs) // false
+```
+
 ### Pointers
 
 ```go

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rstacruz@users.noreply.github.com>",
   "dependencies": {
+    "@rstacruz/prettier-plugin-markdown-extras": "file:_modules/@rstacruz/prettier-plugin-markdown-extras",
     "autoprefixer": "^9.8.2",
     "dom101": "^2.2.1",
     "hint.css": "^2.6.0",

@@ -1170,6 +1170,9 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@rstacruz/prettier-plugin-markdown-extras@file:_modules/@rstacruz/prettier-plugin-markdown-extras":
+  version "1.0.0"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.0.tgz#c8d68821a854c555bba172f3b06959a0039b236d"

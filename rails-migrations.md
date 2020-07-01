@@ -47,7 +47,6 @@ category: Rails
     remove_column :users, :first_name, :string
 
     change_column :users, :first_name, :text
-    change_column :users, :first_name, :text
 
     change_column_default :users, :admin, nil
     change_column_null    :users, :email, false # adds NOT NULL constraint

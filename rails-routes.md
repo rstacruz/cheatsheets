@@ -5,7 +5,7 @@ category: Rails
 
 ## Multiple resources (`resources`)
 
-    resources :books
+    resources :photos
 
     # PhotosController:
     # index  =>    GET /photos

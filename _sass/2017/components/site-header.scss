@@ -35,10 +35,10 @@
     margin: 16px auto;
   }
 
-  @media (max-width: 480px) {
+  @media (min-width: 481px) {
     & > .adbox {
-      margin-left: -16px;
-      margin-right: -16px;
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
   }
 }

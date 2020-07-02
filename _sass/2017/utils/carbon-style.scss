@@ -7,38 +7,47 @@
   .carbon-text,
   .carbon-poweredby {
     text-decoration: none;
-    display: block;
   }
 
-  .carbon-img {
-    width: 130px;
-    height: 100px;
-    box-shadow: $shadow3;
+  // Increase hit area
+  .carbon-text,
+  .carbon-poweredby {
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 
   .carbon-img > img {
+    width: 83px; // 13:10 ratio
+    height: 64px;
+    box-shadow: $shadow3;
     border-radius: 3px;
-    background: white;
+    background: rgba($gray-text, 0.2);
+    color: transparent;
   }
 
-  .carbon-img:hover {
+  .carbon-img:hover img {
     transform: translate3d(0, -1px, 0);
     box-shadow: $shadow6;
   }
 
   .carbon-text,
   .carbon-text:visited {
-    color: $gray-text;
+    color: $base-text;
   }
 
-  .carbon-poweredby,
-  .carbon-poweredby:visited {
-    color: lighten($gray-text, 20%);
+  // Allow line breaks
+  .carbon-text::after {
+    content: '  ';
   }
 
   .carbon-text:hover,
   .carbon-poweredby:hover {
-    color: $base-a;
+    color: $base-b;
+  }
+
+  .carbon-poweredby,
+  .carbon-poweredby:visited {
+    white-space: nowrap;
+    color: $gray-text;
   }
 }
-

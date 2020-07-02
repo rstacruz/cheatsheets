@@ -1,33 +1,84 @@
 /*
  * Carbon ads
  *
- *     .headline-ad
- *       #carbonads
+ *     .HeadlineAd
+ *       div#carbonads
  *         span
  *           span.carbon-wrap
  *             a.carbon-img > img
- *           a.carbon-text {description}
+ *             a.carbon-text {description}
  *           a.carbon-poweredby {powered by Carbon}
  */
 
+$placeholder-bg-size: 450px;
+
 .HeadlineAd {
-  @include font-size(-1);
   @include carbon-style;
 
   & {
-    display: inline-block;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  // Hide placeholders after carbon has loaded
+  #carbonads ~ .placeholder {
+    display: none;
+  }
+
+  & > .placeholder {
+    background-image: linear-gradient(
+      92deg,
+      rgba($gray-text, 0.1),
+      rgba($gray-text, 0.17) 15%,
+      rgba($gray-text, 0.1) 30%
+    );
+    background-size: $placeholder-bg-size 100%;
+    animation: 2.5s ease-in-out infinite placeholder-swish;
+    border-radius: 3px;
+    position: absolute;
+    display: block;
+  }
+
+  & > .placeholder.-one {
+    left: 0;
+    top: 0;
+    width: 83px;
+    height: 64px;
+  }
+
+  & > .placeholder.-two,
+  & > .placeholder.-three,
+  & > .placeholder.-four {
+    left: 99px;
+    top: 6px;
+    height: 8px;
+    width: 280px;
+  }
+
+  & > .placeholder.-three {
+    top: 28px;
+  }
+
+  & > .placeholder.-four {
+    top: 50px;
+    width: 80px;
+  }
+
+  // Make the ad show up above the placeholder
+  #carbonads {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Carbon wrapper
   &,
   & > div > span {
-    min-width: 130px + 16px + 64px;
-    max-width: 380px;
-    height: 100px;
-  }
-
-  & > div > span {
-    display: inline-block;
-    text-align: right;
+    display: block;
+    width: 380px;
+    height: 64px;
+    text-align: left;
   }
 
   // Clearfix
@@ -39,25 +90,22 @@
   }
 
   .carbon-img {
-    float: right;
-    margin-left: 16px;
-  }
-
-  .carbon-text:first-line {
-    @include font-size(1);
-    color: $base-head;
-    font-weight: 300;
-    margin-bottom: -0.02em;
-  }
-
-  @media (min-width: 481px) {
-    .carbon-poweredby::before {
-      display: block;
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: $dark-line-color;
-      margin: 8px (130px + 16px) 8px auto;
-    }
+    float: left;
+    margin-right: 16px;
   }
 }
+
+@keyframes placeholder-swish {
+  0% {
+    background-position: ($placeholder-bg-size * -1 / 3) 0%;
+  }
+
+  50% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+
+  100% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+}
+

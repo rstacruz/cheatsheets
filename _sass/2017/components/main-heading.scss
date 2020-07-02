@@ -38,8 +38,11 @@
     display: inline-block;
   }
 
-  & > .adbox > .ad.-carbon {
-    margin-top: 16px;
+  @media (min-width: 769px) {
+    & > .adbox {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
   }
 }
 

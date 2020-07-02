@@ -489,7 +489,6 @@ Object.values(fatherJS)
 Object.entries(fatherJS)
 // [["age", 57], ["name", "Brendan Eich"]]
 ```
-
 {: data-line="3,5"}
 
 

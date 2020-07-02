@@ -155,7 +155,6 @@ class Info extends Component {
 }
 ```
 
-
 {: data-line="5,6,7,8,9,10"}
 
 Nest components to separate concerns.
@@ -220,7 +219,6 @@ class Hello extends Component {
   }
 }
 ```
-
 {: data-line="2"}
 
 See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)

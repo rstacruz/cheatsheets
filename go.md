@@ -461,7 +461,6 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-
 {: data-line="2,3,4"}
 
 Lambdas are better suited for defer blocks.

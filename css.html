@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/css.jpg?t=20200701121030' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/css.jpg?t=20200701121030' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/css.jpg?t=20200702000347' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/css.jpg?t=20200702000347' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20200701121030'
+'./assets/2017/style.css?t=20200702000347'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20200701121030'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20200702000347'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "CSS cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/css.jpg?t=20200701121030" ],
+  "image": [ "https://assets.devhints.io/previews/css.jpg?t=20200702000347" ],
   "description": "margin, padding, border · div, .class, #id, [attr] · font, background · display: block, inline, flex · Selectors · Properties · One-page guide to CSS"
 }
 </script>
@@ -211,16 +211,16 @@ gtag('config','UA-106902774-1');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h2 id="basics">Basics</h2>
+    <h2 class="-three-column" id="basics">Basics</h2>
 
-<h3 class="-three-column" id="selectors">Selectors</h3>
+<h3 id="selectors">Selectors</h3>
 
-<pre><code class="language-css">.class {
+<pre class="-setup"><code class="language-css">.class {
   font-weight: bold;
 }
 </code></pre>
 
-<table class="-setup">
+<table>
   <thead>
     <tr>
       <th>Selector</th>
@@ -402,7 +402,7 @@ gtag('config','UA-106902774-1');
 
 <h3 id="pseudo-class-variations">Pseudo-class variations</h3>
 
-<table>
+<table class="-left-align">
   <thead>
     <tr>
       <th>Selector</th>
@@ -438,11 +438,11 @@ gtag('config','UA-106902774-1');
   </tbody>
 </table>
 
-<h2 class="-left-align" id="fonts">Fonts</h2>
+<h2 class="-left-reference" id="fonts">Fonts</h2>
 
-<h3 class="-left-reference" id="properties">Properties</h3>
+<h3 id="properties">Properties</h3>
 
-<table>
+<table class="-key-values">
   <thead>
     <tr>
       <th>Property</th>
@@ -493,9 +493,9 @@ gtag('config','UA-106902774-1');
   </tbody>
 </table>
 
-<h3 class="-key-values" id="shorthand">Shorthand</h3>
+<h3 class="-prime" id="shorthand">Shorthand</h3>
 
-<table class="-prime">
+<table class="-css-breakdown">
   <thead>
     <tr>
       <th> </th>
@@ -529,7 +529,7 @@ gtag('config','UA-106902774-1');
   </tbody>
 </table>
 
-<h3 class="-css-breakdown" id="example">Example</h3>
+<h3 id="example">Example</h3>
 
 <pre><code class="language-css">font-family: Arial;
 font-size: 12pt;
@@ -545,11 +545,11 @@ text-transform: uppercase; /* HELLO */
 text-transform: lowercase; /* hello */
 </code></pre>
 
-<h2 id="background">Background</h2>
+<h2 class="-left-reference" id="background">Background</h2>
 
-<h3 class="-left-reference" id="properties-1">Properties</h3>
+<h3 id="properties-1">Properties</h3>
 
-<table>
+<table class="-key-values">
   <thead>
     <tr>
       <th>Property</th>
@@ -594,9 +594,9 @@ text-transform: lowercase; /* hello */
   </tbody>
 </table>
 
-<h3 class="-key-values" id="shorthand-1">Shorthand</h3>
+<h3 id="shorthand-1">Shorthand</h3>
 
-<table>
+<table class="-css-breakdown">
   <thead>
     <tr>
       <th> </th>
@@ -647,17 +647,17 @@ text-transform: lowercase; /* hello */
   </tbody>
 </table>
 
-<h3 class="-css-breakdown" id="multiple-backgrounds">Multiple backgrounds</h3>
+<h3 id="multiple-backgrounds">Multiple backgrounds</h3>
 
 <pre><code class="language-css">background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
   url('background.jpg') center center / cover, #333;
 </code></pre>
 
-<h2 id="animation">Animation</h2>
+<h2 class="-left-reference" id="animation">Animation</h2>
 
-<h3 class="-left-reference" id="properties-2">Properties</h3>
+<h3 id="properties-2">Properties</h3>
 
-<table>
+<table class="-key-values">
   <thead>
     <tr>
       <th>Property</th>
@@ -704,9 +704,9 @@ text-transform: lowercase; /* hello */
   </tbody>
 </table>
 
-<h3 class="-key-values" id="shorthand-2">Shorthand</h3>
+<h3 id="shorthand-2">Shorthand</h3>
 
-<table>
+<table class="-css-breakdown">
   <thead>
     <tr>
       <th> </th>
@@ -746,7 +746,7 @@ text-transform: lowercase; /* hello */
   </tbody>
 </table>
 
-<h3 class="-css-breakdown" id="example-1">Example</h3>
+<h3 id="example-1">Example</h3>
 
 <pre><code class="language-css">animation: bounce 300ms linear 0s infinite normal;
 animation: bounce 300ms linear infinite;
@@ -1045,7 +1045,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20200701121030'></script>
+<script src='./assets/packed/app.js?t=20200702000347'></script>
 
 
 

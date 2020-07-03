@@ -1,14 +1,26 @@
 ---
 title: Freenode
+layout: 2017/sheet
+tags: [WIP]
 ---
 
-### irc.freenode.net
+### IRC server
 
-    /msg nickserv identify [nick] <password>
-    /msg nickserv info <nick>
+```
+irc.freenode.net
+```
+
+### NickServ commands
+
+```
+/msg nickserv identify [nick] <password>
+/msg nickserv info <nick>
+```
 
 ### Add a nick
 
-    /nick newnick
-    /msg nickserv identify <oldnick> <password>
-    /msg nickserv group
+```
+/nick newnick
+/msg nickserv identify <oldnick> <password>
+/msg nickserv group
+```

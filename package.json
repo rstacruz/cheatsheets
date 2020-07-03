@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@rstacruz/prettier-plugin-markdown-code-fences": "^1.0.0",
     "jest": "26.0.1",
     "jest-html": "1.5.0",
     "netlify-plugin-minify-html": "^0.2.3",

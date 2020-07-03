@@ -34,13 +34,20 @@ body {
 
 ```scss
 .markdown-body {
-  p {
+  a {
     color: blue;
+    &:hover {
+      color: red;
+    }
   }
+}
+```
 
-  &:hover {
-    color: red;
-  }
+#### to properties
+```scss
+text: {
+  align: center;          // like text-align: center
+  transform: uppercase;   // like text-transform: uppercase
 }
 ```
 
@@ -130,7 +137,7 @@ body {
 ### Composing
 
 ```scss
-@import './other_sass_file`;
+@import './other_sass_file';
 ```
 
 The `.scss` or `.sass` extension is optional.
@@ -189,7 +196,7 @@ alpha($color)       // → 0..1 (aka opacity())
 
 #### RGB
 
-```
+```scss
 red($color)         // → 0..255
 green($color)
 blue($color)
@@ -353,6 +360,10 @@ $i: 6;
 @if $position == 'left' {
    position: absolute;
    left: 0;
+}
+@else if $position == 'right' {
+   position: absolute;
+   right: 0;
 }
 @else {
    position: static;

@@ -1170,6 +1170,11 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@rstacruz/prettier-plugin-markdown-code-fences@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rstacruz/prettier-plugin-markdown-code-fences/-/prettier-plugin-markdown-code-fences-1.0.0.tgz#b432eed2db4726abe2c3efaa75c12322976a8ab6"
+  integrity sha512-p/P6BH6tGoCbgMemimUIXJSwi5enZ/HhLupATlPqJmjal00gociP1lbbUQEs97PWjLsgmY3kKu30yKzMSIs0mA==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.0.tgz#c8d68821a854c555bba172f3b06959a0039b236d"

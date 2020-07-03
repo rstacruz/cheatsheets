@@ -29,17 +29,13 @@
     text-align: center;
   }
 
-  & > .adbox {
+  & > .pubbox {
     margin-top: 16px;
     text-align: center;
   }
 
-  & > .adbox > .ad {
-    display: inline-block;
-  }
-
   @media (min-width: 769px) {
-    & > .adbox {
+    & > .pubbox {
       margin-top: 24px;
       margin-bottom: 24px;
     }

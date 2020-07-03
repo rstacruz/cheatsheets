@@ -93,8 +93,8 @@
   "url": "/ansi",
   "category": "CLI",
   "keywords": null,
-  "content_html": "<p>Format</p>\n\n<pre><code>\\033[#m\n</code></pre>\n\n<p>Where:</p>\n\n<pre><code>0      clear\n1      bold\n4      underline\n5      blink\n\n30-37  fg color\n40-47  bg color\n\n1K     clear line (to beginning of line)\n2K     clear line (entire line)\n2J     clear screen\n0;0H   move cursor to 0;0\n\n1A     move up 1 line\n</code></pre>\n\n<p>Colors</p>\n\n<pre><code>0      black\n1      red\n2      green\n3      yellow\n4      blue\n5      magenta\n6      cyan\n7      white\n</code></pre>\n\n<p>Stuff</p>\n\n<pre><code>hide_cursor() { printf \"\\e[?25l\"; }\nshow_cursor() { printf \"\\e[?25h\"; }\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"format\">Format</h3>\n\n<pre><code>\\033[#m\n</code></pre>\n\n<h3 id=\"ansi-codes\">ANSI codes</h3>\n\n<pre><code>0      clear\n1      bold\n4      underline\n5      blink\n\n30-37  fg color\n40-47  bg color\n\n1K     clear line (to beginning of line)\n2K     clear line (entire line)\n2J     clear screen\n0;0H   move cursor to 0;0\n\n1A     move up 1 line\n</code></pre>\n\n<h3 id=\"colors\">Colors</h3>\n\n<pre><code>0      black\n1      red\n2      green\n3      yellow\n4      blue\n5      magenta\n6      cyan\n7      white\n</code></pre>\n\n<h3 id=\"bash-utilities\">Bash utilities</h3>\n\n<pre><code class=\"language-sh\">hide_cursor() { printf \"\\e[?25l\"; }\nshow_cursor() { printf \"\\e[?25h\"; }\n</code></pre>",
+  "intro_html": "<p>Quick reference to ANSI color codes.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -203,7 +203,7 @@
   "url": "/atom",
   "category": "Apps",
   "keywords": null,
-  "content_html": "<h2 class=\"-three-column\" id=\"shortcuts\">Shortcuts</h2>\n\n<h3 id=\"tree\">Tree</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘\\</code></td>\n      <td>Toggle tree</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧\\</code></td>\n      <td>Reveal current file</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"comments\">Comments</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘/</code></td>\n      <td>Toggle comments</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"view\">View</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘k</code> <code>←</code></td>\n      <td>Split pane to the left</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⌥=</code></td>\n      <td>Grow pane</td>\n    </tr>\n    <tr>\n      <td><code>⌘⌥-</code></td>\n      <td>Shrink pane</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>^⇧←</code></td>\n      <td>Move tab to left</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"bracket-matcher\">Bracket matcher</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>^m</code></td>\n      <td>Go to matching bracket</td>\n    </tr>\n    <tr>\n      <td><code>^]</code></td>\n      <td>Remove brackets from selection</td>\n    </tr>\n    <tr>\n      <td><code>^⌘m</code></td>\n      <td>Select inside brackets</td>\n    </tr>\n    <tr>\n      <td><code>⌥⌘.</code></td>\n      <td>Close tag</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"symbols-view\">Symbols view</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>^⌥↓</code></td>\n      <td>Jump to declaration under cursor</td>\n    </tr>\n    <tr>\n      <td><code>^⇧r</code></td>\n      <td>Show tags</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Symbols view enables Ctags support for Atom.</p>\n\n<p>See: <a href=\"https://atom.io/packages/symbols-view\">Symbols view</a></p>\n\n<h3 id=\"git\">Git</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>^⇧9</code></td>\n      <td>Show Git pane</td>\n    </tr>\n    <tr>\n      <td><code>^⇧8</code></td>\n      <td>Show GitHub pane</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"editing\">Editing</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘d</code></td>\n      <td>Select word</td>\n    </tr>\n    <tr>\n      <td><code>⌘l</code></td>\n      <td>Select line</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘↓</code></td>\n      <td>Move line down</td>\n    </tr>\n    <tr>\n      <td><code>⌘↑</code></td>\n      <td>Move line up</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⏎</code></td>\n      <td>New line below</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧⏎</code></td>\n      <td>New line above</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⇧k</code></td>\n      <td>Delete line</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧d</code></td>\n      <td>Duplicate line</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"project\">Project</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘⇧p</code></td>\n      <td>Command palette</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧a</code></td>\n      <td>Add project folder</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘n</code></td>\n      <td>New file</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧n</code></td>\n      <td>New window</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘f</code></td>\n      <td>Find in file</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧f</code></td>\n      <td>Find in project</td>\n    </tr>\n    <tr>\n      <td><code>⌘t</code></td>\n      <td>Search files in project</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2 id=\"notes\">Notes</h2>\n\n<h3>⌘</h3>\n\n<ul>\n  <li>For Windows and Linux, <code>⌘</code> is the <code>Control</code> key.</li>\n  <li>For macOS, it’s the <code>Command</code> key.</li>\n</ul>\n\n<h3 id=\"-1\">⌥</h3>\n\n<ul>\n  <li>For Windows and Linux, <code>⌥</code> is the <code>Alt</code> key.</li>\n  <li>For macOS, it’s the <code>Option</code> key.</li>\n</ul>",
+  "content_html": "<h2 class=\"-three-column\" id=\"shortcuts\">Shortcuts</h2>\n\n<h3 id=\"tree\">Tree</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘\\</code></td>\n      <td>Toggle tree</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧\\</code></td>\n      <td>Reveal current file</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"comments\">Comments</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘/</code></td>\n      <td>Toggle comments</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"view\">View</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘k</code> <code>←</code></td>\n      <td>Split pane to the left</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⌥=</code></td>\n      <td>Grow pane</td>\n    </tr>\n    <tr>\n      <td><code>⌘⌥-</code></td>\n      <td>Shrink pane</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>^⇧←</code></td>\n      <td>Move tab to left</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"bracket-matcher\">Bracket matcher</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>^m</code></td>\n      <td>Go to matching bracket</td>\n    </tr>\n    <tr>\n      <td><code>^]</code></td>\n      <td>Remove brackets from selection</td>\n    </tr>\n    <tr>\n      <td><code>^⌘m</code></td>\n      <td>Select inside brackets</td>\n    </tr>\n    <tr>\n      <td><code>⌥⌘.</code></td>\n      <td>Close tag</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"symbols-view\">Symbols view</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>^⌥↓</code></td>\n      <td>Jump to declaration under cursor</td>\n    </tr>\n    <tr>\n      <td><code>^⇧r</code></td>\n      <td>Show tags</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Symbols view enables Ctags support for Atom.</p>\n\n<p>See: <a href=\"https://atom.io/packages/symbols-view\">Symbols view</a></p>\n\n<h3 id=\"git\">Git</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>^⇧9</code></td>\n      <td>Show Git pane</td>\n    </tr>\n    <tr>\n      <td><code>^⇧8</code></td>\n      <td>Show GitHub pane</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"editing\">Editing</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘d</code></td>\n      <td>Select word</td>\n    </tr>\n    <tr>\n      <td><code>⌘l</code></td>\n      <td>Select line</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘↓</code></td>\n      <td>Move line down</td>\n    </tr>\n    <tr>\n      <td><code>⌘↑</code></td>\n      <td>Move line up</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⏎</code></td>\n      <td>New line below</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧⏎</code></td>\n      <td>New line above</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘⇧k</code></td>\n      <td>Delete line</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧d</code></td>\n      <td>Duplicate line</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"project\">Project</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>⌘⇧p</code></td>\n      <td>Command palette</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧a</code></td>\n      <td>Add project folder</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘n</code></td>\n      <td>New file</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧n</code></td>\n      <td>New window</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>⌘f</code></td>\n      <td>Find in file</td>\n    </tr>\n    <tr>\n      <td><code>⌘⇧f</code></td>\n      <td>Find in project</td>\n    </tr>\n    <tr>\n      <td><code>⌘t</code></td>\n      <td>Search files in project</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2 id=\"notes\">Notes</h2>\n\n<h3>⌘</h3>\n\n<ul>\n  <li>For Windows and Linux, <code>⌘</code> is the <code>Control</code> key.</li>\n  <li>For macOS, it’s the <code>Command</code> key.</li>\n</ul>\n\n<h3 id=\"-1\">⌥</h3>\n\n<ul>\n  <li>For Windows and Linux, <code>⌥</code> is the <code>Alt</code> key.</li>\n  <li>For macOS, it’s the <code>Option</code> key.</li>\n</ul>",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -551,12 +551,12 @@
   "updated": "2018-03-06"
 },{
   "id": "cordova",
-  "title": "Cordova",
+  "title": "Apache Cordova",
   "url": "/cordova",
   "category": "Others",
   "keywords": null,
-  "content_html": "<pre><code>cordova plugin ls\ncordova plugin search facebook\ncordova plugin add com.phonegap.plugins.facebookconnect\n\ncordova platform add ios\ncordova platform ls\ncordova platform update ios\ncordova platform check\n</code></pre>\n\n<h3 id=\"some-plugins\">Some plugins</h3>\n\n<p>You’ll likely need these:</p>\n\n<ul>\n  <li><a href=\"https://github.com/apache/cordova-plugin-console\">org.apache.cordova.console</a></li>\n  <li><a href=\"https://github.com/apache/cordova-plugin-inappbrowser\">org.apache.cordova.inappbrowser</a></li>\n  <li><a href=\"https://github.com/apache/cordova-plugin-statusbar\">org.apache.cordova.statusbar</a></li>\n  <li>org.apache.cordova.splashscreen</li>\n</ul>\n\n<p>Also:</p>\n\n<ul>\n  <li>com.phonegap.plugins.facebookconnect</li>\n</ul>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"common-commands\">Common commands</h3>\n\n<pre><code>cordova plugin ls\ncordova plugin search facebook\ncordova plugin add com.phonegap.plugins.facebookconnect\n</code></pre>\n\n<pre><code>cordova platform add ios\ncordova platform ls\ncordova platform update ios\ncordova platform check\n</code></pre>\n\n<h3 id=\"common-plugins\">Common plugins</h3>\n\n<p>Some commonly-used plugins:</p>\n\n<ul>\n  <li><a href=\"https://github.com/apache/cordova-plugin-console\">org.apache.cordova.console</a></li>\n  <li><a href=\"https://github.com/apache/cordova-plugin-inappbrowser\">org.apache.cordova.inappbrowser</a></li>\n  <li><a href=\"https://github.com/apache/cordova-plugin-statusbar\">org.apache.cordova.statusbar</a></li>\n  <li>org.apache.cordova.splashscreen</li>\n</ul>\n\n<p>Also:</p>\n\n<ul>\n  <li>com.phonegap.plugins.facebookconnect</li>\n</ul>",
+  "intro_html": "<p>A quick reference to common <a href=\"https://cordova.apache.org/\">Apache Cordova</a> commands.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -571,17 +571,6 @@
   "description_html": "",
   "tags": null,
   "updated": "2017-08-26"
-},{
-  "id": "crypto",
-  "title": "Cryptography",
-  "url": "/crypto",
-  "category": "Others",
-  "keywords": null,
-  "content_html": "<ul>\n  <li>\n    <p><a href=\"http://en.wikipedia.org/wiki/PBKDF2\">PBKDF2</a> - password-based key derivation \n function</p>\n  </li>\n  <li>\n    <p><a href=\"http://en.wikipedia.org/wiki/HMAC\">HMAC</a> - Hash-based message authentication \n code</p>\n  </li>\n</ul>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
 },{
   "id": "csharp7",
   "title": "C# 7",
@@ -1116,10 +1105,10 @@
   "url": "/freenode",
   "category": "Others",
   "keywords": null,
-  "content_html": "<h3 id=\"ircfreenodenet\">irc.freenode.net</h3>\n\n<pre><code>/msg nickserv identify [nick] &lt;password&gt;\n/msg nickserv info &lt;nick&gt;\n</code></pre>\n\n<h3 id=\"add-a-nick\">Add a nick</h3>\n\n<pre><code>/nick newnick\n/msg nickserv identify &lt;oldnick&gt; &lt;password&gt;\n/msg nickserv group\n</code></pre>",
+  "content_html": "<h3 id=\"irc-server\">IRC server</h3>\n\n<pre><code>irc.freenode.net\n</code></pre>\n\n<h3 id=\"nickserv-commands\">NickServ commands</h3>\n\n<pre><code>/msg nickserv identify [nick] &lt;password&gt;\n/msg nickserv info &lt;nick&gt;\n</code></pre>\n\n<h3 id=\"add-a-nick\">Add a nick</h3>\n\n<pre><code>/nick newnick\n/msg nickserv identify &lt;oldnick&gt; &lt;password&gt;\n/msg nickserv group\n</code></pre>",
   "intro_html": "",
   "description_html": "",
-  "tags": null,
+  "tags": ["WIP"],
   "updated": null
 },{
   "id": "frequency-separation-retouching",
@@ -1270,8 +1259,8 @@
   "url": "/google-webfonts",
   "category": "Others",
   "keywords": null,
-  "content_html": "<h3 id=\"link-tag\">Link tag</h3>\n\n<pre><code>&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'&gt;\n</code></pre>\n\n<h3 id=\"css-import\">CSS import</h3>\n\n<pre><code>@import url(http://fonts.googleapis.com/css?family=Open+Sans);\n@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic|Montserrat:400,700);\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"link-tag\">Link tag</h3>\n\n<!-- prettier-ignore -->\n<pre><code class=\"language-html\">&lt;link href=\"http://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\" type=\"text/css\" /&gt;\n</code></pre>\n\n<h3 id=\"css-import\">CSS import</h3>\n\n<!-- prettier-ignore -->\n<pre><code class=\"language-css\">/* One font */\n@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');\n\n/* Combining multiple fonts */\n@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic|Montserrat:400,700'');\n</code></pre>\n\n<p>Great for using with <a href=\"https://codepen.io/\">Codepen.io</a> or similar websites!</p>",
+  "intro_html": "<p>Short snippets on using <a href=\"https://google.com/fonts\">Google Webfonts</a> in a web page.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -1501,8 +1490,8 @@
   "url": "/imagemagick",
   "category": "Others",
   "keywords": null,
-  "content_html": "<h3 id=\"stuff\">Stuff</h3>\n\n<pre><code>-resize 100x40\n-crop 40x30+10+10   # (width)x(height)+(x)+y\n-crop 40x30-10-10   # (width)x(height)+(x)+y\n-flip               # vertical\n-flop               # horizontal\n-transpose          # flip vertical + rotate 90deg\n-transverse         # flip horizontal + rotate 270deg\n-trim               # trim image edges\n-rotate 90\n</code></pre>\n\n<h3 id=\"resize-to-fit\">Resize to fit</h3>\n\n<pre><code>convert input.jpg -resize 80x80^ -gravity center -extent 80x80 icon.png\n</code></pre>\n\n<h3 id=\"convert-all-images-to-another-format\">Convert all images to another format</h3>\n\n<pre><code>mogrify -format jpg -quality 85 *.png\n</code></pre>\n\n<h3 id=\"make-a-pdf\">Make a pdf</h3>\n\n<pre><code>convert *.jpg hello.pdf\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://www.noah.org/wiki/ImageMagick</li>\n</ul>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"common-options\">Common options</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Option</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>-resize 100x40</code></td>\n      <td>Resize to a dimension</td>\n    </tr>\n    <tr>\n      <td><code>-crop 40x30+10+10</code></td>\n      <td>(width)x(height)+(x)+y</td>\n    </tr>\n    <tr>\n      <td><code>-crop 40x30-10-10</code></td>\n      <td>(width)x(height)+(x)+y</td>\n    </tr>\n    <tr>\n      <td><code>-flip</code></td>\n      <td>Vertical</td>\n    </tr>\n    <tr>\n      <td><code>-flop</code></td>\n      <td>Horizontal</td>\n    </tr>\n    <tr>\n      <td><code>-transpose</code></td>\n      <td>Flip vertical + rotate 90deg</td>\n    </tr>\n    <tr>\n      <td><code>-transverse</code></td>\n      <td>Flip horizontal + rotate 270deg</td>\n    </tr>\n    <tr>\n      <td><code>-trim</code></td>\n      <td>Trim image edges</td>\n    </tr>\n    <tr>\n      <td><code>-rotate 90</code></td>\n      <td>Rotate 90 degrees</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"resize-to-fit\">Resize to fit</h3>\n\n<pre><code class=\"language-sh\">convert input.jpg -resize 80x80^ -gravity center -extent 80x80 icon.png\n</code></pre>\n\n<h3 id=\"convert-all-images-to-another-format\">Convert all images to another format</h3>\n\n<pre><code class=\"language-sh\">mogrify -format jpg -quality 85 *.png\n</code></pre>\n\n<h3 id=\"make-a-pdf\">Make a pdf</h3>\n\n<pre><code class=\"language-sh\">convert *.jpg hello.pdf\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li><a href=\"http://www.noah.org/wiki/ImageMagick\">http://www.noah.org/wiki/ImageMagick</a></li>\n  <li><a href=\"https://www.imagemagick.org/\">https://www.imagemagick.org/</a></li>\n</ul>",
+  "intro_html": "<p>A quick reference for common <a href=\"https://www.imagemagick.org\">Imagemagick</a> commands and switches.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -1622,10 +1611,10 @@
   "url": "/jquery-cdn",
   "category": "JavaScript libraries",
   "keywords": null,
-  "content_html": "<h3 id=\"google-jquery\">Google jQuery</h3>\n\n<pre><code>&lt;script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"&gt;&lt;/script&gt;\n</code></pre>",
+  "content_html": "<h3 id=\"google-jquery\">Google jQuery</h3>\n\n<pre><code class=\"language-html\">&lt;script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"&gt;&lt;/script&gt;\n</code></pre>",
   "intro_html": "",
   "description_html": "",
-  "tags": null,
+  "tags": ["Archived"],
   "updated": null
 },{
   "id": "jquery",
@@ -2216,7 +2205,7 @@
   "url": "/nodejs-assert",
   "category": "Node.js",
   "keywords": null,
-  "content_html": "<pre><code>assert(val)\nassert.equal(actual, expected)\nassert.notEqual(a, e)\n\nassert.deepEqual(a, e)\nassert.notDeepEqual(a, e)\n\nassert.throws(fn)\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://nodejs.org/api/assert.html</li>\n</ul>",
+  "content_html": "<h3 id=\"assertions\">Assertions</h3>\n\n<pre><code class=\"language-js\">assert(val)\nassert.equal(actual, expected)\nassert.notEqual(a, e)\n</code></pre>\n\n<pre><code class=\"language-js\">assert.deepEqual(a, e)\nassert.notDeepEqual(a, e)\n</code></pre>\n\n<pre><code class=\"language-js\">assert.throws(fn)\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://nodejs.org/api/assert.html</li>\n</ul>",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -2234,12 +2223,12 @@
   "updated": null
 },{
   "id": "nodejs-path",
-  "title": "path",
+  "title": "Node.js path API",
   "url": "/nodejs-path",
   "category": "Node.js",
   "keywords": null,
-  "content_html": "<pre><code>fs.realpath('/etc/passwd', function(err, path) { /* \"/private/etc/passwd\" */ \n});\n\ndir = path.join('etc', 'passwd');\ndir = path.resolve('/etc', 'passwd', '..', 'var');\n\npath.dirname('/etc/passwd')       //=&gt; \"/etc\"\npath.basename('/etc/passwd')      //=&gt; \"passwd\"\npath.basename('/etc/rc.d', '.d')  //=&gt; \"rc\"\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://nodejs.org/api/path.html</li>\n</ul>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"functions\">Functions</h3>\n\n<pre><code class=\"language-js\">const fs = require('fs')\n\nfs.realpath('/etc/passwd', function (err, path) {\n  path // =&gt; \"/private/etc/passwd\"\n})\n</code></pre>\n\n<pre><code class=\"language-js\">const path = require('path')\ndir = path.join('etc', 'passwd')\ndir = path.resolve('/etc', 'passwd', '..', 'var')\n</code></pre>\n\n<pre><code class=\"language-js\">path.dirname('/etc/passwd') //      =&gt; \"/etc\"\npath.basename('/etc/passwd') //     =&gt; \"passwd\"\npath.basename('/etc/rc.d', '.d') // =&gt; \"rc\"\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>https://nodejs.org/api/path.html</li>\n</ul>",
+  "intro_html": "<p>Quick reference to the <a href=\"https://nodejs.org/api/path.html\">Node.js path API</a>.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -2392,10 +2381,10 @@
   "url": "/passenger",
   "category": "Others",
   "keywords": null,
-  "content_html": "<pre><code>server {\n   listen 80;\n   server_name www.yourhost.com;\n   root /somewhere/public;   # &lt;--- be sure to point to 'public'!\n   passenger_enabled on;\n   autoindex on; # Show directory listings\n}\n</code></pre>",
+  "content_html": "<h3 id=\"enabling-phusion-passenger\">Enabling Phusion passenger</h3>\n\n<pre><code>server {\n   listen 80;\n   server_name www.yourhost.com;\n   root /somewhere/public;   # &lt;--- be sure to point to 'public'!\n   passenger_enabled on;\n   autoindex on; # Show directory listings\n}\n</code></pre>\n\n<p>This is an example nginx configuration.</p>",
   "intro_html": "",
   "description_html": "",
-  "tags": null,
+  "tags": ["WIP"],
   "updated": null
 },{
   "id": "perl-pie",
@@ -2590,10 +2579,10 @@
   "url": "/premailer",
   "category": "Others",
   "keywords": null,
-  "content_html": "<pre><code>-premailer-width\n  Available on table, th and td elements\n-premailer-height\n  Available on table, tr, th and td elements\n-premailer-cellpadding\n  Available on table elements\n-premailer-cellspacing\n  Available on table elements\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"custom-css-properties\">Custom CSS properties</h3>\n\n<!-- prettier-ignore -->\n<pre><code class=\"language-css\">table, th, td {\n  /* Available on table, th and td elements */\n  -premailer-width: 32px;\n}\n\ntable, tr, th, td {\n  /* Available on table, tr, th and td elements */\n  -premailer-height: 32px;\n}\n\ntable {\n  /* Available on table elements */\n  -premailer-cellpadding: 32px;\n  -premailer-cellspacing: 32px;\n}\n</code></pre>",
+  "intro_html": "<p><a href=\"https://github.com/premailer/premailer/\">Premailer</a> is a Ruby library that inlines CSS into HTML.</p>",
   "description_html": "",
-  "tags": null,
+  "tags": ["WIP"],
   "updated": null
 },{
   "id": "projectionist",
@@ -2678,8 +2667,8 @@
   "url": "/qunit",
   "category": "JavaScript libraries",
   "keywords": null,
-  "content_html": "<pre><code>QUnit.module('a');\nQUnit.test('ok', function (t) { ... });\n</code></pre>\n\n<h3 id=\"hooks\">Hooks</h3>\n\n<pre><code>// each test\nQUnit.testStart(function)\nQUnit.testEnd(function)\n\n// each module\nQUnit.moduleStart(function)\nQUnit.moduleEnd(function)\n\n// all\nQUnit.begin(function)\nQUnit.done(function)\n</code></pre>\n\n<h3 id=\"assertions\">Assertions</h3>\n\n<pre><code>t.equal(actual, expected)\nt.deepEqual(actual, expected)\nt.strictEqual(actual, expected)\nt.propEqual(actual, expected)\n\nt.notEqual\n\nt.expect(amount)\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<pre><code class=\"language-js\">QUnit.module('a')\nQUnit.test('ok', function (t) {\n  /* ... */\n})\n</code></pre>\n\n<h3 id=\"hooks\">Hooks</h3>\n\n<h4 id=\"each-test\">Each test</h4>\n\n<pre><code class=\"language-js\">// each test\nQUnit.testStart(function)\nQUnit.testEnd(function)\n</code></pre>\n\n<pre><code class=\"language-js\">// each module\nQUnit.moduleStart(function)\nQUnit.moduleEnd(function)\n</code></pre>\n\n<pre><code class=\"language-js\">// all\nQUnit.begin(function)\nQUnit.done(function)\n</code></pre>\n\n<h3 id=\"assertions\">Assertions</h3>\n\n<pre><code class=\"language-js\">t.equal(actual, expected)\nt.deepEqual(actual, expected)\nt.strictEqual(actual, expected)\nt.propEqual(actual, expected)\nt.notEqual(actual, expected)\nt.expect(amount)\n</code></pre>",
+  "intro_html": "<p>A quick reference for the <a href=\"https://yarnpkg.com/package/qunit\">QUnit</a> testing library in JavaScript.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -2734,17 +2723,6 @@
   "category": "Rails",
   "keywords": null,
   "content_html": "<h2 id=\"form-builder\">Form builder</h2>\n\n<pre><code class=\"language-haml\">- form_for @post do |f|\n</code></pre>\n\n<p>Field names will be prefixed with <code>post</code> (the class name), and values will be derived from this object (eg, <code>f.text_field :name</code> from <code>@post.name</code>).</p>\n\n<h3 id=\"options\">Options</h3>\n\n<pre><code class=\"language-haml\">- form_for @post, |\n  url: { method: 'put', action: 'create' }, |\n  html: { class: 'nifty_form' } |\n  do |f|\n</code></pre>\n\n<h2 id=\"fields\">Fields</h2>\n\n<h3 id=\"text\">Text</h3>\n\n<pre><code class=\"language-rb\">f.text_field :title\nf.text_area :body, size: '60x12'\n</code></pre>\n\n<h3 id=\"checkbox\">Checkbox</h3>\n\n<pre><code class=\"language-rb\">f.check_box :remember_me\nf.label :remember_me, \"Remember me\"\n</code></pre>\n\n<h3 id=\"radio\">Radio</h3>\n\n<pre><code class=\"language-rb\">f.radio_button :gender, 'male'\nf.label :gender_male, \"Male\"\n\nf.radio_button :gender, 'female'\nf.label :gender_female, \"Female\"\n</code></pre>\n\n<h3 id=\"label\">Label</h3>\n\n<pre><code class=\"language-rb\">f.label :title\nf.label :title, \"Title\"\nf.label :title, \"Title\", class: \"title\"\nf.label(:post, :terms) { \"Accept terms\" }\n</code></pre>\n\n<h3 id=\"submit-button\">Submit button</h3>\n\n<pre><code class=\"language-rb\">f.submit \"Create\"\n</code></pre>\n\n<h3 id=\"hidden-fields\">Hidden fields</h3>\n\n<pre><code class=\"language-rb\">f.hidden_field :id\n</code></pre>\n\n<h2 id=\"misc\">Misc</h2>\n\n<h3 id=\"the-model\">The model</h3>\n\n<pre><code class=\"language-ruby\">f.object\n</code></pre>\n\n<h3 id=\"fields-for\">Fields for</h3>\n\n<pre><code class=\"language-haml\">= form_for @post do |f|\n  = fields_for :author, @post.author do |ff|\n    = ff.text_field :name\n</code></pre>\n\n<h3 id=\"select-dropdowns\">Select dropdowns</h3>\n\n<pre><code class=\"language-rb\">f.select :city_id, [['Lisbon',1], ['Madrid',2], ...], 4\n# (4 = selected)\n\noptions_for_select [['Lisbon',1], ['Madrid',2], ...], 4\n# Just makes &lt;option&gt; tags\n</code></pre>\n\n<h3 id=\"collections\">Collections</h3>\n\n<pre><code>f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial\nf.collection_select :city_id, City.all, :id, :name\n# (field, collection, value_key, label_key)\n</code></pre>\n\n<h3 id=\"time-select\">Time select</h3>\n\n<pre><code class=\"language-rb\">f.time_zone_select :time_zone\nf.date_select :birthday\n</code></pre>\n<h3 id=\"i18n\">I18n</h3>\n\n<pre><code class=\"language-yaml\">helpers:\n  submit:\n    # helpers.submit.&lt;action&gt;\n    create: \"Create a %{model}\"\n    update: \"Confirm changes to %{model}\"\n\n    # helpers.submit.&lt;model&gt;.&lt;action&gt;\n    article:\n      create: \"Publish article\"\n      update: \"Update article\"\n\n  # helpers.label.&lt;model&gt;.&lt;field&gt;\n  label:\n    post:\n      body: \"Your body text\"\n</code></pre>\n\n<h3 id=\"outside-f\">Outside <code>f</code></h3>\n\n<pre><code class=\"language-rb\">radio_button(\"post\", \"category\", \"rails\")\nradio_button(\"post\", \"category\", \"java\")\n\n# picks from @post.category\n# &lt;input type=\"radio\" id=\"post_category_rails\" name=\"post[category]\"\n#  value=\"rails\" checked=\"checked\" /&gt;\n</code></pre>\n\n<h3 id=\"reference\">Reference</h3>\n\n<pre><code class=\"language-rb\">select(method, choices = nil, options = {}, html_options = {}, &amp;block)\n  choices == [ ['label', id], ... ]\n\nsubmit(value=nil, options={})\n</code></pre>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "rails-gems",
-  "title": "Rails gems",
-  "url": "/rails-gems",
-  "category": "Rails",
-  "keywords": null,
-  "content_html": "<h3 id=\"ricos-preferred-rails-gems\">Rico’s preferred rails gems</h3>\n\n<p>Development:</p>\n\n<pre><code>gem 'spring' # code reloading\ngem 'letter_opener'\ngem 'better_errors'\ngem 'meta-tags'\ngem 'guard-rspec'\n</code></pre>\n\n<p>Prod:</p>\n\n<pre><code>gem 'kaminari'  # pagination\ngem 'devise'\ngem 'meta-tags', require: 'meta_tags'\ngem 'friendly_id'\ngem 'bourbon'\ngem 'neat'\ngem 'turbolinks'\n</code></pre>",
   "intro_html": "",
   "description_html": "",
   "tags": null,
@@ -3074,10 +3052,10 @@
   "url": "/ruby21",
   "category": "Ruby",
   "keywords": null,
-  "content_html": "<h3 id=\"named-arguments-with-defaults\">Named arguments with defaults</h3>\n\n<pre><code># length is required\ndef pad(num, length:, char: \"0\")\n  num.to_s.rjust(length, char)\nend\n\npad(42, length: 6)   #=&gt; \"000042\"\npad(42)              #=&gt; #&lt;ArgumentError: missing keyword: length&gt;\n</code></pre>\n\n<h3 id=\"moduleprepend\">Module.prepend</h3>\n\n<pre><code>prepend(Module.new do\n  define_method ...\nend)\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail</li>\n  <li>http://globaldev.co.uk/2014/05/ruby-2-1-in-detail</li>\n</ul>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"named-arguments-with-defaults\">Named arguments with defaults</h3>\n\n<pre><code class=\"language-ruby\"># length is required\ndef pad(num, length:, char: \"0\")\n  num.to_s.rjust(length, char)\nend\n</code></pre>\n\n<pre><code class=\"language-ruby\">pad(42, length: 6) #=&gt; \"000042\"\npad(42) #=&gt; #&lt;ArgumentError: missing keyword: length&gt;\n</code></pre>\n\n<h3 id=\"moduleprepend\">Module.prepend</h3>\n\n<pre><code class=\"language-ruby\">prepend(\n  Module.new do\n    define_method ...\n  end\n)\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li>http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail</li>\n  <li>http://globaldev.co.uk/2014/05/ruby-2-1-in-detail</li>\n</ul>",
+  "intro_html": "<p>Quick reference to the <a href=\"https://www.ruby-lang.org/\">new features in Ruby 2.1</a>.</p>",
   "description_html": "",
-  "tags": null,
+  "tags": ["Archived"],
   "updated": null
 },{
   "id": "rubygems",
@@ -3085,8 +3063,8 @@
   "url": "/rubygems",
   "category": "Ruby",
   "keywords": null,
-  "content_html": "<pre><code>gem build *.gemspec         # Build a gem\ngem install *.gem           # Install locally\ngem push *.gem              # Upload to rubygems.org\ngem yank foogem -v 0.0.1    # Take it back\n\ngem owner foogem -a rico@ricostacruz.com\n\ngem list                    # List local gems\ngem which rake              # Point to where lib/rake.rb is\ngem search -r rails         # [remote] Search for gems\n\n# https://github.com/fnando/gem-open\ngem open foogem\nGEM_EDITOR=\"vim\" gem open foogem\n\ncd $(basename `gem which rake`)  # Go to a gem's path\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"building-and-publishing\">Building and publishing</h3>\n\n<pre><code class=\"language-sh\">gem build *.gemspec         # Build a gem\ngem install *.gem           # Install locally\ngem push *.gem              # Upload to rubygems.org\ngem yank foogem -v 0.0.1    # Take it back\n</code></pre>\n\n<h3 id=\"querying\">Querying</h3>\n\n<pre><code class=\"language-sh\">gem owner foogem -a rico@ricostacruz.com\n\ngem list                    # List local gems\ngem which rake              # Point to where lib/rake.rb is\ngem search -r rails         # [remote] Search for gems\n</code></pre>\n\n<h3 id=\"opening-a-gem\">Opening a gem</h3>\n\n<pre><code class=\"language-sh\"># https://github.com/fnando/gem-open\ngem open foogem\nGEM_EDITOR=\"vim\" gem open foogem\n</code></pre>\n\n<h3 id=\"changing-to-a-directory\">Changing to a directory</h3>\n\n<pre><code class=\"language-sh\">cd $(basename `gem which rake`)  # Go to a gem's path\n</code></pre>",
+  "intro_html": "<p>A quick reference to common <a href=\"https://rubygems.org\">rubygems</a> CLI commands.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -3206,8 +3184,8 @@
   "url": "/siege",
   "category": "Others",
   "keywords": null,
-  "content_html": "<pre><code>siege -b -c=10 -t=5m http://...\n</code></pre>\n\n<pre><code>-c, --concurrent=N\n-t, --time=MINSm\n-r, --reps=N\n</code></pre>\n\n<pre><code>-i, --internet       Hit URLs randomly\n-b, --benchmark      No delay between requests\n</code></pre>\n\n<h3 id=\"configuration\">Configuration</h3>\n\n<pre><code>-f, --file=FILE      load urls.txt\n-R, --rc=FILE        load siegerc\n</code></pre>\n\n<blockquote>\n  <p>Also see: <a href=\"https://gist.github.com/stansmet/3067988\">siegerc</a></p>\n</blockquote>\n\n<h3 id=\"headers\">Headers</h3>\n\n<pre><code>-H, --header=\"Cookie: foo=bar\"\n-A, --user-agent=\"Mozilla\"\n-T, --content-type=\"text/html\"\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"basic-usage\">Basic usage</h3>\n\n<pre><code class=\"language-sh\">siege -b -c=10 -t=5m \"http://...\"\n</code></pre>\n\n<h3 id=\"options\">Options</h3>\n\n<h4 id=\"repetitions\">Repetitions</h4>\n\n<pre><code>-c, --concurrent=N\n-t, --time=MINSm\n-r, --reps=N\n</code></pre>\n\n<h4 id=\"modes\">Modes</h4>\n\n<pre><code>-i, --internet       Hit URLs randomly\n-b, --benchmark      No delay between requests\n</code></pre>\n\n<h4 id=\"configuration\">Configuration</h4>\n\n<pre><code>-f, --file=FILE      load urls.txt\n-R, --rc=FILE        load siegerc\n</code></pre>\n\n<h4 id=\"headers\">Headers</h4>\n\n<pre><code>-H, --header=\"Cookie: foo=bar\"\n-A, --user-agent=\"Mozilla\"\n-T, --content-type=\"text/html\"\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<p>Also see: <a href=\"https://gist.github.com/stansmet/3067988\">siegerc</a></p>",
+  "intro_html": "<p><a href=\"https://www.joedog.org/siege-home/\">Siege</a> is an HTTP and HTTPS load testing tool.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -3217,10 +3195,10 @@
   "url": "/simple_form",
   "category": "Others",
   "keywords": null,
-  "content_html": "<pre><code class=\"language-ruby\">&lt;%= f.input :email, required: false, autofocus: true %&gt;\n&lt;%= f.input :password, required: false %&gt;\n&lt;%= f.input :remember_me, as: :boolean %&gt;\n&lt;%= f.button :submit, \"Sign in\" %&gt;\n</code></pre>\n\n<pre><code class=\"language-ruby\">simple_form_for @x,\n  wrapper: :small\n</code></pre>",
+  "content_html": "<h3 id=\"inputs\">Inputs</h3>\n\n<pre><code class=\"language-ruby\">&lt;%= f.input :email, required: false, autofocus: true %&gt;\n&lt;%= f.input :password, required: false %&gt;\n&lt;%= f.input :remember_me, as: :boolean %&gt;\n&lt;%= f.button :submit, \"Sign in\" %&gt;\n</code></pre>\n\n<h3 id=\"adding-a-wrapper\">Adding a wrapper</h3>\n\n<pre><code class=\"language-ruby\">simple_form_for @x, wrapper: :small\n</code></pre>",
   "intro_html": "",
   "description_html": "",
-  "tags": null,
+  "tags": ["WIP"],
   "updated": null
 },{
   "id": "sinon-chai",
@@ -3305,10 +3283,10 @@
   "url": "/spreadsheet",
   "category": "Others",
   "keywords": null,
-  "content_html": "<h3 id=\"if\">If</h3>\n\n<pre><code>=IF(test, then, else)\n=IF(EQ(A1, \"paid\"), \"true\", \"false\")\n</code></pre>\n\n<h3 id=\"comparators\">Comparators</h3>\n\n<pre><code>=EQ(a,b) NE()\n=GT() GTE() LT() LTE()\n</code></pre>\n\n<h3 id=\"math\">Math</h3>\n\n<pre><code>=POW(2, 32)   # 2^32\n=SIN() ACOS() etc\n=CEILING(n,sig,mode)\n=FLOOR(n,sig,mode)\n=INT(n)\n\n=SUM(range)\n\n=SUMIF(range, criteria, sum_range)\n=SUMIF(A1:A5, \"&gt;300\", B1:B5)          # if A# is &gt;300, use B#\n</code></pre>\n\n<h3 id=\"core\">Core</h3>\n\n<pre><code>=TO_DATE(number)\n</code></pre>\n\n<h3 id=\"vlook\">Vlook</h3>\n\n<pre><code>=VLOOKUP(value, range, column_index)\n</code></pre>",
+  "content_html": "<h3 id=\"if\">If</h3>\n\n<pre><code>=IF(test, then, else)\n=IF(EQ(A1, \"paid\"), \"true\", \"false\")\n</code></pre>\n\n<h3 id=\"comparators\">Comparators</h3>\n\n<pre><code>=EQ(a,b)\n=NE(a,b)\n=GT(a,b)\n=GTE(a,b)\n=LT(a,b)\n=LTE(a,b)\n</code></pre>\n\n<h3 id=\"math\">Math</h3>\n\n<pre><code>=POW(2, 32)   # 2^32\n=SIN() ACOS() etc\n=CEILING(n,sig,mode)\n=FLOOR(n,sig,mode)\n=INT(n)\n</code></pre>\n\n<pre><code>=SUM(range)\n</code></pre>\n\n<pre><code>=SUMIF(range, criteria, sum_range)\n=SUMIF(A1:A5, \"&gt;300\", B1:B5)          # if A# is &gt;300, use B#\n</code></pre>\n\n<h3 id=\"core\">Core</h3>\n\n<pre><code>=TO_DATE(number)\n</code></pre>\n\n<h3 id=\"vlook\">Vlook</h3>\n\n<pre><code>=VLOOKUP(value, range, column_index)\n</code></pre>",
   "intro_html": "",
   "description_html": "",
-  "tags": null,
+  "tags": ["WIP"],
   "updated": null
 },{
   "id": "sql-join",
@@ -3789,10 +3767,10 @@
   "url": "/weinre",
   "category": "JavaScript libraries",
   "keywords": null,
-  "content_html": "<ul>\n  <li><a href=\"http://people.apache.org/~pmuellr/weinre/\">Weinre</a></li>\n</ul>\n\n<p>Install:</p>\n\n<pre><code>$ npm install -g weinre\n</code></pre>\n\n<p>Start the server:</p>\n\n<pre><code>$ weinre --boundHost 0.0.0.0\n$ open http://localhost:8080\n\n&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=1;js.src='http://'+location.hostname+':8080/target/target-script-min.js#anonymous';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weinre');&lt;/script&gt;\n</code></pre>",
-  "intro_html": "",
+  "content_html": "<h3 id=\"usage\">Usage</h3>\n\n<h4 id=\"install\">Install:</h4>\n\n<pre><code>$ npm install -g weinre\n</code></pre>\n\n<h4 id=\"start-the-server\">Start the server:</h4>\n\n<pre><code>$ weinre --boundHost 0.0.0.0\n$ open http://localhost:8080\n</code></pre>\n\n<h3 id=\"html-to-inject\">HTML to inject</h3>\n\n<!--prettier-ignore -->\n<pre><code class=\"language-html\">&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=1;js.src='http://'+location.hostname+':8080/target/target-script-min.js#anonymous';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weinre');&lt;/script&gt;\n</code></pre>\n\n<h3 id=\"references\">References</h3>\n\n<ul>\n  <li><a href=\"http://people.apache.org/~pmuellr/weinre/\">Weinre</a></li>\n</ul>",
+  "intro_html": "<p><a href=\"https://www.npmjs.com/package/weinre\">weinre</a> is a remote Web inspector. Note that it has been deprecated since 2016.</p>",
   "description_html": "",
-  "tags": null,
+  "tags": ["Archived"],
   "updated": null
 },{
   "id": "xpath",
@@ -3845,7 +3823,7 @@
   "category": "Others",
   "keywords": null,
   "content_html": "<h2 id=\"start\">Start</h2>\n\n<pre><code>/msg *status addserver irc.undernet.org [6667]\n/msg *status connect\n\n/msg *status loadmod webadmin\n/msg *status loadmod admin\n/msg *status loadmod away\n/msg *status loadmod awaynick\n/msg *status loadmod clientnotify    # Notifies when another client logs\n/msg *status loadmod keepnick\n/msg *status loadmod kickrejoin\n</code></pre>\n\n<h2 id=\"away\">Away</h2>\n\n<pre><code>/msg *status loadmod away\n/msg *away away\n/msg *away back\n/msg *away show   #=&gt; Show messages\n/msg *away delete all\n</code></pre>\n\n<h2 id=\"watch\">Watch</h2>\n\n<pre><code>/msg *status loadmod watch\n/msg *watch list\n/msg *watch add * *watch *rico*\n/msg *watch add * *watch *%nick%*\n</code></pre>",
-  "intro_html": "",
+  "intro_html": "<p>A quick reference to the <a href=\"https://znc.bg\">ZNC</a> IRC bouncer’s common commands.</p>",
   "description_html": "",
   "tags": null,
   "updated": null
@@ -3889,17 +3867,6 @@
   "category": "Others",
   "keywords": null,
   "content_html": "<p>{“/jade.html”:”https://devhints.io/pug”,”/package.html”:”https://devhints.io/package.json”,”/phoenix-ecto@1.3.html”:”https://devhints.io/phoenix-ecto”,”/sh.html”:”https://devhints.io/bash”}</p>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "bookshelf-contrib",
-  "title": "bookshelf-contrib.Scopes",
-  "url": "/bookshelf-contrib",
-  "category": "Others",
-  "keywords": null,
-  "content_html": "<h1 id=\"bookshelf-contribscopes\">bookshelf-contrib.Scopes</h1>\n<p>#\nclass Books\n  scopes:\n    published: (q) -&gt; q.where(published: true)</p>\n\n<p>Books.published().fetchAll()</p>\n\n<h1 id=\"bookshelf-contribqueryproxy\">bookshelf-contrib.QueryProxy</h1>\n<p>#\nBooks.query().where(published: true)\nBooks.where(published: true)</p>\n\n<h1 id=\"bookshelf-contribmigration\">bookshelf-contrib.Migration</h1>\n<p>class Migration\n  up: -&gt;\n  down: -&gt;</p>",
   "intro_html": "",
   "description_html": "",
   "tags": null,

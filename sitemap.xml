@@ -53,7 +53,6 @@
 <url><loc>https://devhints.io/composer</loc></url>
 <url><loc>https://devhints.io/cordova</loc></url>
 <url><loc>https://devhints.io/cron</loc></url>
-<url><loc>https://devhints.io/crypto</loc></url>
 <url><loc>https://devhints.io/csharp7</loc></url>
 <url><loc>https://devhints.io/css-antialias</loc></url>
 <url><loc>https://devhints.io/css-flexbox</loc></url>
@@ -250,7 +249,6 @@
 <url><loc>https://devhints.io/rails-controllers</loc></url>
 <url><loc>https://devhints.io/rails-features</loc></url>
 <url><loc>https://devhints.io/rails-forms</loc></url>
-<url><loc>https://devhints.io/rails-gems</loc></url>
 <url><loc>https://devhints.io/rails-helpers</loc></url>
 <url><loc>https://devhints.io/rails-i18n</loc></url>
 <url><loc>https://devhints.io/rails-migrations</loc></url>
@@ -355,7 +353,6 @@
 <url><loc>https://devhints.io/zsh</loc></url>
 <url><loc>https://devhints.io/assets/css/style.css</loc></url>
 <url><loc>https://devhints.io/redirects.json</loc></url>
-<url><loc>https://devhints.io/bookshelf-contrib</loc></url>
 
 </urlset>
 

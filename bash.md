@@ -207,13 +207,14 @@ comment
 ### Manipulation
 
 ```bash
-STR="HELLO WORLD!"
-echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=> "hello world!" (all lowercase)
+# always quote variables to avoid globbing & cmd escaping
+STR="HELLO WORLD!!"
+echo "${STR,}"   #=> "hELLO WORLD!" (lowercase 1st letter)
+echo "${STR,,}"  #=> "hello world!" (all lowercase)
 
 STR="hello world!"
-echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+echo "${STR^}"   #=> "Hello world!" (uppercase 1st letter)
+echo "${STR^^}"  #=> "HELLO WORLD!" (all uppercase)
 ```
 
 ### Default values

@@ -282,6 +282,29 @@ done < file.txt
 while true; do
   ···
 done
+while :; do
+  ···
+done
+```
+
+### Loop over delimited input/output
+
+```bash
+# csv-like, not optionally-quoted
+printf '%s,%s\n' cat dog | while IFS=',' read foo bar; do
+  echo "$foo"
+  echo "$bar"
+done
+
+while read foo bar; do
+  echo "$foo"
+  echo "$bar"
+done <<< 'cat dog'
+
+while IFS=$'\t' read foo bar; do
+  echo "$foo"
+  echo "$bar"
+done < <(echo $'cat\tdog')
 ```
 
 Functions

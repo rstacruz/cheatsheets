@@ -724,6 +724,12 @@ hello world
 END
 ```
 
+### Here Strings
+
+```sh
+cat <<< 'hello world'
+```
+
 ### Reading input
 
 ```bash

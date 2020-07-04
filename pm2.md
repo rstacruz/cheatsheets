@@ -3,7 +3,7 @@ title: pm2
 category: CLI
 layout: 2017/sheet
 authors: { github: "Dr-Dino" }
-updated: 2018-03-15
+updated: 2020-05-08
 ---
 
 ### Fork mode

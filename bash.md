@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2019-10-02
+updated: 2020-07-04
 keywords:
   - Variables
   - Functions

@@ -3,7 +3,7 @@ title: GnuPG
 category: CLI
 layout: 2017/sheet
 tags: []
-updated: 2017-10-18
+updated: 2017-10-22
 weight: 0
 intro: |
   [GnuPG](https://gnupg.org/) is a complete and free implementation of the OpenPGP standard.

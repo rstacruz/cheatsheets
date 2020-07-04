@@ -2,7 +2,7 @@
 title: Flow
 layout: 2017/sheet
 category: JavaScript libraries
-updated: 2017-09-20
+updated: 2018-11-07
 weight: -3
 tags: [Featurable]
 ---

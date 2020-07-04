@@ -2,7 +2,7 @@
 title: Fastify
 category: JavaScript libraries
 layout: 2017/sheet
-updated: 2017-09-21
+updated: 2017-09-23
 intro: |
   [Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
 ---

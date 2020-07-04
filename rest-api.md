@@ -1,6 +1,6 @@
 ---
 title: RESTful API
-updated: 2018-12-25
+updated: 2020-06-06
 layout: 2017/sheet
 category: API
 ---

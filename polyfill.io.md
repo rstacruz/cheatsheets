@@ -1,7 +1,7 @@
 ---
 title: Polyfill.io
 category: JavaScript libraries
-updated: 2017-10-26
+updated: 2020-07-02
 layout: 2017/sheet
 intro: |
   [Polyfill.io](https://polyfill.io) is a service that serves JavaScript polyfills.

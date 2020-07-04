@@ -8,7 +8,7 @@ authors:
   - github: izzergh
   - github: kolapsys
   - github: samtrion
-updated: 2019-11-14
+updated: 2020-03-10
 description: |
   Basic cheatsheets for regular expression
 ---

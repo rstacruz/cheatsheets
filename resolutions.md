@@ -1,7 +1,7 @@
 ---
 title: Screen resolutions
 layout: 2017/sheet
-updated: 2017-10-30
+updated: 2020-07-03
 weight: -1
 ---
 

@@ -282,29 +282,27 @@ Lifecycle
 {: .-two-column}
 
 ### Mounting
-
-| Method | Description |
-| --- | --- |
-| `constructor` _(props)_ | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor) |
-| `componentWillMount()` | _Don't use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
-| `render()` | Render  [#](https://reactjs.org/docs/react-component.html#render) |
-| `componentDidMount()` | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
-| --- | --- |
-| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
-| --- | --- |
-| `componentDidCatch()` | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) |
+| Method                   | Description                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `constructor` _(props)_  | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor)                      |
+| `componentWillMount()`   | _Don't use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount)               |
+| `render()`               | Render [#](https://reactjs.org/docs/react-component.html#render)                                     |
+| `componentDidMount()`    | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
+| ---                      | ---                                                                                                  |
+| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount)           |
+| ---                      | ---                                                                                                  |
+| `componentDidCatch()`    | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)          |
 
 Set initial the state on `constructor()`.
 Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
 
 ### Updating
-
-| Method | Description |
-| --- | --- |
-| `componentDidUpdate` *(prevProps, prevState, snapshot)* | Use `setState()` here, but remember to compare props |
-| `shouldComponentUpdate` *(newProps, newState)* | Skips `render()` if returns false |
-| `render()` | Render |
-| `componentDidUpdate` *(prevProps, prevState)* | Operate on the DOM here |
+| Method                                                  | Description                                          |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| `componentDidUpdate` _(prevProps, prevState, snapshot)_ | Use `setState()` here, but remember to compare props |
+| `shouldComponentUpdate` _(newProps, newState)_          | Skips `render()` if returns false                    |
+| `render()`                                              | Render                                               |
+| `componentDidUpdate` _(prevProps, prevState)_           | Operate on the DOM here                              |
 
 Called when parents change properties and `.setState()`. These are not called for initial renders.
 
@@ -714,40 +712,54 @@ import PropTypes from 'prop-types'
 
 See: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
-| `any`                     | Anything                             |
+| Key   | Description |
+| ----- | ----------- |
+| `any` | Anything    |
 
 #### Basic
 
-| `string`                  |                                      |
-| `number`                  |                                      |
-| `func`                    | Function                             |
-| `bool`                    | True or false                        |
+| Key      | Description   |
+| -------- | ------------- |
+| `string` |               |
+| `number` |               |
+| `func`   | Function      |
+| `bool`   | True or false |
 
 #### Enum
 
-| `oneOf`_(any)_            | Enum types                           |
-| `oneOfType`_(type array)_ | Union                                |
+| Key                       | Description |
+| ------------------------- | ----------- |
+| `oneOf`_(any)_            | Enum types  |
+| `oneOfType`_(type array)_ | Union       |
 
 #### Array
 
-| `array`                   |                                      |
-| `arrayOf`_(...)_          |                                      |
+| Key              | Description |
+| ---------------- | ----------- |
+| `array`          |             |
+| `arrayOf`_(...)_ |             |
 
 #### Object
 
-| `object`                  |                                      |
-| `objectOf`_(...)_         | Object with values of a certain type |
-| `instanceOf`_(...)_       | Instance of a class                  |
-| `shape`_(...)_            |                                      |
+| Key                 | Description                          |
+| ------------------- | ------------------------------------ |
+| `object`            |                                      |
+| `objectOf`_(...)_   | Object with values of a certain type |
+| `instanceOf`_(...)_ | Instance of a class                  |
+| `shape`_(...)_      |                                      |
 
 #### Elements
 
-| `element`                 | React element                        |
-| `node`                    | DOM node                             |
+| Key       | Description   |
+| --------- | ------------- |
+| `element` | React element |
+| `node`    | DOM node      |
 
 #### Required
 
-| `(···).isRequired`        | Required                             |
+| Key                | Description |
+| ------------------ | ----------- |
+| `(···).isRequired` | Required    |
 
 ### Basic types
 

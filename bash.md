@@ -102,9 +102,11 @@ See: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash
 echo {A,B}.js
 ```
 
-| `{A,B}` | Same as `A B` |
+| Expression | Description         |
+| ---------- | ------------------- |
+| `{A,B}`    | Same as `A B`       |
 | `{A,B}.js` | Same as `A.js B.js` |
-| `{1..5}` | Same as `1 2 3 4 5` |
+| `{1..5}`   | Same as `1 2 3 4 5` |
 
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
@@ -163,19 +165,19 @@ DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 
 ### Substitution
 
-| Code | Description |
-| --- | --- |
-| `${FOO%suffix}` | Remove suffix |
-| `${FOO#prefix}` | Remove prefix |
-| --- | --- |
-| `${FOO%%suffix}` | Remove long suffix |
-| `${FOO##prefix}` | Remove long prefix |
-| --- | --- |
-| `${FOO/from/to}` | Replace first match |
-| `${FOO//from/to}` | Replace all |
-| --- | --- |
-| `${FOO/%from/to}` | Replace suffix |
-| `${FOO/#from/to}` | Replace prefix |
+| Code              | Description         |
+| ----------------- | ------------------- |
+| `${FOO%suffix}`   | Remove suffix       |
+| `${FOO#prefix}`   | Remove prefix       |
+| ---               | ---                 |
+| `${FOO%%suffix}`  | Remove long suffix  |
+| `${FOO##prefix}`  | Remove long prefix  |
+| ---               | ---                 |
+| `${FOO/from/to}`  | Replace first match |
+| `${FOO//from/to}` | Replace all         |
+| ---               | ---                 |
+| `${FOO/%from/to}` | Replace suffix      |
+| `${FOO/#from/to}` | Replace prefix      |
 
 ### Comments
 
@@ -563,15 +565,19 @@ History
 
 ### Commands
 
-| `history` | Show history |
+| Command               | Description                               |
+| --------------------- | ----------------------------------------- |
+| `history`             | Show history                              |
 | `shopt -s histverify` | Don't execute expanded result immediately |
 
 ### Expansions
 
-| `!$` | Expand last parameter of most recent command |
-| `!*` | Expand all parameters of most recent command |
-| `!-n` | Expand `n`th most recent command |
-| `!n` | Expand `n`th command in history |
+| Expression   | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| `!$`         | Expand last parameter of most recent command         |
+| `!*`         | Expand all parameters of most recent command         |
+| `!-n`        | Expand `n`th most recent command                     |
+| `!n`         | Expand `n`th command in history                      |
 | `!<command>` | Expand most recent invocation of command `<command>` |
 
 ### Operations
@@ -737,10 +743,12 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| `$?` | Exit status of last task |
-| `$!` | PID of last background task |
-| `$$` | PID of shell |
-| `$0` | Filename of the shell script |
+| Expression | Description                  |
+| ---------- | ---------------------------- |
+| `$?`       | Exit status of last task     |
+| `$!`       | PID of last background task  |
+| `$$`       | PID of shell                 |
+| `$0`       | Filename of the shell script |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

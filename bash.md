@@ -267,9 +267,13 @@ done
 ### Reading lines
 
 ```bash
-cat file.txt | while read line; do
-  echo $line
+cat file1.txt file2.txt | while read line; do
+  echo "$line"
 done
+
+while read line; do
+  echo "$line"
+done < file.txt
 ```
 
 ### Forever

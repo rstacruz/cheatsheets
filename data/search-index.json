@@ -42,7 +42,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-03-06"
+  "updated": "2018-03-07"
 },{
   "id": "analytics.js",
   "title": "Google Analytics's analytics.js",
@@ -174,7 +174,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-03-17"
+  "updated": "2018-12-06"
 },{
   "id": "applinks",
   "title": "Applinks",
@@ -207,7 +207,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-20"
+  "updated": "2020-07-03"
 },{
   "id": "awesome-redux",
   "title": "Awesome Redux",
@@ -218,7 +218,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-30"
+  "updated": "2017-11-19"
 },{
   "id": "awscli",
   "title": "AWS CLI",
@@ -240,7 +240,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-04"
+  "updated": "2018-12-06"
 },{
   "id": "badges",
   "title": "Code badges",
@@ -258,11 +258,11 @@
   "url": "/bash",
   "category": "CLI",
   "keywords": ["Variables","Functions","Interpolation","Brace expansions","Loops","Conditional execution","Command substitution"],
-  "content_html": "<h2 class=\"-three-column\" id=\"getting-started\">Getting started</h2>\n\n<h3 id=\"example\">Example</h3>\n\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nNAME=\"John\"\necho \"Hello $NAME!\"\n</code></pre>\n\n<h3 id=\"variables\">Variables</h3>\n\n<pre><code class=\"language-bash\">NAME=\"John\"\necho $NAME\necho \"$NAME\"\necho \"${NAME}!\"\n</code></pre>\n\n<h3 id=\"string-quotes\">String quotes</h3>\n\n<pre><code class=\"language-bash\">NAME=\"John\"\necho \"Hi $NAME\"  #=&gt; Hi John\necho 'Hi $NAME'  #=&gt; Hi $NAME\n</code></pre>\n\n<h3 id=\"shell-execution\">Shell execution</h3>\n\n<pre><code class=\"language-bash\">echo \"I'm in $(pwd)\"\necho \"I'm in `pwd`\"\n# Same\n</code></pre>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/expansion/cmdsubst\">Command substitution</a></p>\n\n<h3 id=\"conditional-execution\">Conditional execution</h3>\n\n<pre><code class=\"language-bash\">git commit &amp;&amp; git push\ngit commit || echo \"Commit failed\"\n</code></pre>\n\n<h3 id=\"functions-example\">Functions</h3>\n\n<pre><code class=\"language-bash\">get_name() {\n  echo \"John\"\n}\n\necho \"You are $(get_name)\"\n</code></pre>\n\n<p>See: <a href=\"#functions\">Functions</a></p>\n\n<h3 id=\"conditionals-example\">Conditionals</h3>\n\n<pre><code class=\"language-bash\">if [[ -z \"$string\" ]]; then\n  echo \"String is empty\"\nelif [[ -n \"$string\" ]]; then\n  echo \"String is not empty\"\nfi\n</code></pre>\n\n<p>See: <a href=\"#conditionals\">Conditionals</a></p>\n\n<h3 id=\"strict-mode\">Strict mode</h3>\n\n<pre><code class=\"language-bash\">set -euo pipefail\nIFS=$'\\n\\t'\n</code></pre>\n\n<p>See: <a href=\"http://redsymbol.net/articles/unofficial-bash-strict-mode/\">Unofficial bash strict mode</a></p>\n\n<h3 id=\"brace-expansion\">Brace expansion</h3>\n\n<pre><code class=\"language-bash\">echo {A,B}.js\n</code></pre>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>{A,B}</code></td>\n      <td>Same as <code>A B</code></td>\n    </tr>\n    <tr>\n      <td><code>{A,B}.js</code></td>\n      <td>Same as <code>A.js B.js</code></td>\n    </tr>\n    <tr>\n      <td><code>{1..5}</code></td>\n      <td>Same as <code>1 2 3 4 5</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See: <a href=\"http://wiki.bash-hackers.org/syntax/expansion/brace\">Brace expansion</a></p>\n\n<h2 class=\"-three-column\" id=\"parameter-expansions\">Parameter expansions</h2>\n\n<h3 id=\"basics\">Basics</h3>\n\n<pre><code class=\"language-bash\">name=\"John\"\necho ${name}\necho ${name/J/j}    #=&gt; \"john\" (substitution)\necho ${name:0:2}    #=&gt; \"Jo\" (slicing)\necho ${name::2}     #=&gt; \"Jo\" (slicing)\necho ${name::-1}    #=&gt; \"Joh\" (slicing)\necho ${name:(-1)}   #=&gt; \"n\" (slicing from right)\necho ${name:(-2):1} #=&gt; \"h\" (slicing from right)\necho ${food:-Cake}  #=&gt; $food or \"Cake\"\n</code></pre>\n\n<pre><code class=\"language-bash\">length=2\necho ${name:0:length}  #=&gt; \"Jo\"\n</code></pre>\n\n<p>See: <a href=\"http://wiki.bash-hackers.org/syntax/pe\">Parameter expansion</a></p>\n\n<pre><code class=\"language-bash\">STR=\"/path/to/foo.cpp\"\necho ${STR%.cpp}    # /path/to/foo\necho ${STR%.cpp}.o  # /path/to/foo.o\necho ${STR%/*}      # /path/to\n\necho ${STR##*.}     # cpp (extension)\necho ${STR##*/}     # foo.cpp (basepath)\n\necho ${STR#*/}      # path/to/foo.cpp\necho ${STR##*/}     # foo.cpp\n\necho ${STR/foo/bar} # /path/to/bar.cpp\n</code></pre>\n\n<pre><code class=\"language-bash\">STR=\"Hello world\"\necho ${STR:6:5}   # \"world\"\necho ${STR:-5:5}  # \"world\"\n</code></pre>\n\n<pre><code class=\"language-bash\">SRC=\"/path/to/foo.cpp\"\nBASE=${SRC##*/}   #=&gt; \"foo.cpp\" (basepath)\nDIR=${SRC%$BASE}  #=&gt; \"/path/to/\" (dirpath)\n</code></pre>\n\n<h3 id=\"substitution\">Substitution</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO%suffix}</code></td>\n      <td>Remove suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO#prefix}</code></td>\n      <td>Remove prefix</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO%%suffix}</code></td>\n      <td>Remove long suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO##prefix}</code></td>\n      <td>Remove long prefix</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO/from/to}</code></td>\n      <td>Replace first match</td>\n    </tr>\n    <tr>\n      <td><code>${FOO//from/to}</code></td>\n      <td>Replace all</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO/%from/to}</code></td>\n      <td>Replace suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO/#from/to}</code></td>\n      <td>Replace prefix</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"comments\">Comments</h3>\n\n<pre><code class=\"language-bash\"># Single line comment\n</code></pre>\n\n<pre><code class=\"language-bash\">: '\nThis is a\nmulti line\ncomment\n'\n</code></pre>\n\n<h3 id=\"substrings\">Substrings</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO:0:3}</code></td>\n      <td>Substring <em>(position, length)</em></td>\n    </tr>\n    <tr>\n      <td><code>${FOO:(-3):3}</code></td>\n      <td>Substring from the right</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"length\">Length</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${#FOO}</code></td>\n      <td>Length of <code>$FOO</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"manipulation\">Manipulation</h3>\n\n<pre><code class=\"language-bash\">STR=\"HELLO WORLD!\"\necho ${STR,}   #=&gt; \"hELLO WORLD!\" (lowercase 1st letter)\necho ${STR,,}  #=&gt; \"hello world!\" (all lowercase)\n\nSTR=\"hello world!\"\necho ${STR^}   #=&gt; \"Hello world!\" (uppercase 1st letter)\necho ${STR^^}  #=&gt; \"HELLO WORLD!\" (all uppercase)\n</code></pre>\n\n<h3 id=\"default-values\">Default values</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO:-val}</code></td>\n      <td><code>$FOO</code>, or <code>val</code> if unset (or null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:=val}</code></td>\n      <td>Set <code>$FOO</code> to <code>val</code> if unset (or null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:+val}</code></td>\n      <td><code>val</code> if <code>$FOO</code> is set (and not null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:?message}</code></td>\n      <td>Show error message and exit if <code>$FOO</code> is unset (or null)</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${FOO-val}</code> expands to <code>val</code> if unset otherwise <code>$FOO</code>.</p>\n\n<h2 class=\"-three-column\" id=\"loops\">Loops</h2>\n\n<h3 id=\"basic-for-loop\">Basic for loop</h3>\n\n<pre><code class=\"language-bash\">for i in /etc/rc.*; do\n  echo $i\ndone\n</code></pre>\n\n<h3 id=\"c-like-for-loop\">C-like for loop</h3>\n\n<pre><code class=\"language-bash\">for ((i = 0 ; i &lt; 100 ; i++)); do\n  echo $i\ndone\n</code></pre>\n\n<h3 id=\"ranges\">Ranges</h3>\n\n<pre><code class=\"language-bash\">for i in {1..5}; do\n    echo \"Welcome $i\"\ndone\n</code></pre>\n\n<h4 id=\"with-step-size\">With step size</h4>\n\n<pre><code class=\"language-bash\">for i in {5..50..5}; do\n    echo \"Welcome $i\"\ndone\n</code></pre>\n\n<h3 id=\"reading-lines\">Reading lines</h3>\n\n<pre><code class=\"language-bash\">cat file.txt | while read line; do\n  echo $line\ndone\n</code></pre>\n\n<h3 id=\"forever\">Forever</h3>\n\n<pre><code class=\"language-bash\">while true; do\n  ···\ndone\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"functions\">Functions</h2>\n\n<h3 id=\"defining-functions\">Defining functions</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n    echo \"hello $1\"\n}\n</code></pre>\n\n<pre><code class=\"language-bash\"># Same as above (alternate syntax)\nfunction myfunc() {\n    echo \"hello $1\"\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">myfunc \"John\"\n</code></pre>\n\n<h3 id=\"returning-values\">Returning values</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n    local myresult='some value'\n    echo $myresult\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">result=\"$(myfunc)\"\n</code></pre>\n\n<h3 id=\"raising-errors\">Raising errors</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n  return 1\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">if myfunc; then\n  echo \"success\"\nelse\n  echo \"failure\"\nfi\n</code></pre>\n\n<h3 id=\"arguments\">Arguments</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>$#</code></td>\n      <td>Number of arguments</td>\n    </tr>\n    <tr>\n      <td><code>$*</code></td>\n      <td>All arguments</td>\n    </tr>\n    <tr>\n      <td><code>$@</code></td>\n      <td>All arguments, starting from first</td>\n    </tr>\n    <tr>\n      <td><code>$1</code></td>\n      <td>First argument</td>\n    </tr>\n    <tr>\n      <td><code>$_</code></td>\n      <td>Last argument of the previous command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables\">Special parameters</a>.</p>\n\n<h2 class=\"-three-column\" id=\"conditionals\">Conditionals</h2>\n\n<h3 id=\"conditions\">Conditions</h3>\n\n<p>Note that <code>[[</code> is actually a command/program that returns either <code>0</code> (true) or <code>1</code> (false). Any program that obeys the same logic (like all base utils, such as <code>grep(1)</code> or <code>ping(1)</code>) can be used as condition, see examples.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -z STRING ]]</code></td>\n      <td>Empty string</td>\n    </tr>\n    <tr>\n      <td><code>[[ -n STRING ]]</code></td>\n      <td>Not empty string</td>\n    </tr>\n    <tr>\n      <td><code>[[ STRING == STRING ]]</code></td>\n      <td>Equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ STRING != STRING ]]</code></td>\n      <td>Not Equal</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ NUM -eq NUM ]]</code></td>\n      <td>Equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -ne NUM ]]</code></td>\n      <td>Not equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -lt NUM ]]</code></td>\n      <td>Less than</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -le NUM ]]</code></td>\n      <td>Less than or equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -gt NUM ]]</code></td>\n      <td>Greater than</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -ge NUM ]]</code></td>\n      <td>Greater than or equal</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ STRING =~ STRING ]]</code></td>\n      <td>Regexp</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>(( NUM &lt; NUM ))</code></td>\n      <td>Numeric conditions</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"more-conditions\">More conditions</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -o noclobber ]]</code></td>\n      <td>If OPTIONNAME is enabled</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ ! EXPR ]]</code></td>\n      <td>Not</td>\n    </tr>\n    <tr>\n      <td><code>[[ X &amp;&amp; Y ]]</code></td>\n      <td>And</td>\n    </tr>\n    <tr>\n      <td><code>[[ X || Y ]]</code></td>\n      <td>Or</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"file-conditions\">File conditions</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -e FILE ]]</code></td>\n      <td>Exists</td>\n    </tr>\n    <tr>\n      <td><code>[[ -r FILE ]]</code></td>\n      <td>Readable</td>\n    </tr>\n    <tr>\n      <td><code>[[ -h FILE ]]</code></td>\n      <td>Symlink</td>\n    </tr>\n    <tr>\n      <td><code>[[ -d FILE ]]</code></td>\n      <td>Directory</td>\n    </tr>\n    <tr>\n      <td><code>[[ -w FILE ]]</code></td>\n      <td>Writable</td>\n    </tr>\n    <tr>\n      <td><code>[[ -s FILE ]]</code></td>\n      <td>Size is &gt; 0 bytes</td>\n    </tr>\n    <tr>\n      <td><code>[[ -f FILE ]]</code></td>\n      <td>File</td>\n    </tr>\n    <tr>\n      <td><code>[[ -x FILE ]]</code></td>\n      <td>Executable</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ FILE1 -nt FILE2 ]]</code></td>\n      <td>1 is more recent than 2</td>\n    </tr>\n    <tr>\n      <td><code>[[ FILE1 -ot FILE2 ]]</code></td>\n      <td>2 is more recent than 1</td>\n    </tr>\n    <tr>\n      <td><code>[[ FILE1 -ef FILE2 ]]</code></td>\n      <td>Same files</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"example-1\">Example</h3>\n\n<pre><code class=\"language-bash\"># String\nif [[ -z \"$string\" ]]; then\n  echo \"String is empty\"\nelif [[ -n \"$string\" ]]; then\n  echo \"String is not empty\"\nelse\n  echo \"This never happens\"\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\"># Combinations\nif [[ X &amp;&amp; Y ]]; then\n  ...\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\"># Equal\nif [[ \"$A\" == \"$B\" ]]\n</code></pre>\n\n<pre><code class=\"language-bash\"># Regex\nif [[ \"A\" =~ . ]]\n</code></pre>\n\n<pre><code class=\"language-bash\">if (( $a &lt; $b )); then\n   echo \"$a is smaller than $b\"\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\">if [[ -e \"file.txt\" ]]; then\n  echo \"file exists\"\nfi\n</code></pre>\n\n<h2 id=\"arrays\">Arrays</h2>\n\n<h3 id=\"defining-arrays\">Defining arrays</h3>\n\n<pre><code class=\"language-bash\">Fruits=('Apple' 'Banana' 'Orange')\n</code></pre>\n\n<pre><code class=\"language-bash\">Fruits[0]=\"Apple\"\nFruits[1]=\"Banana\"\nFruits[2]=\"Orange\"\n</code></pre>\n\n<h3 id=\"working-with-arrays\">Working with arrays</h3>\n\n<pre><code class=\"language-bash\">echo ${Fruits[0]}           # Element #0\necho ${Fruits[-1]}          # Last element\necho ${Fruits[@]}           # All elements, space-separated\necho ${#Fruits[@]}          # Number of elements\necho ${#Fruits}             # String length of the 1st element\necho ${#Fruits[3]}          # String length of the Nth element\necho ${Fruits[@]:3:2}       # Range (from position 3, length 2)\necho ${!Fruits[@]}          # Keys of all elements, space-separated\n</code></pre>\n\n<h3 id=\"operations\">Operations</h3>\n\n<pre><code class=\"language-bash\">Fruits=(\"${Fruits[@]}\" \"Watermelon\")    # Push\nFruits+=('Watermelon')                  # Also Push\nFruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match\nunset Fruits[2]                         # Remove one item\nFruits=(\"${Fruits[@]}\")                 # Duplicate\nFruits=(\"${Fruits[@]}\" \"${Veggies[@]}\") # Concatenate\nlines=(`cat \"logfile\"`)                 # Read from file\n</code></pre>\n\n<h3 id=\"iteration\">Iteration</h3>\n\n<pre><code class=\"language-bash\">for i in \"${arrayName[@]}\"; do\n  echo $i\ndone\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"dictionaries\">Dictionaries</h2>\n\n<h3 id=\"defining\">Defining</h3>\n\n<pre><code class=\"language-bash\">declare -A sounds\n</code></pre>\n\n<pre><code class=\"language-bash\">sounds[dog]=\"bark\"\nsounds[cow]=\"moo\"\nsounds[bird]=\"tweet\"\nsounds[wolf]=\"howl\"\n</code></pre>\n\n<p>Declares <code>sound</code> as a Dictionary object (aka associative array).</p>\n\n<h3 id=\"working-with-dictionaries\">Working with dictionaries</h3>\n\n<pre><code class=\"language-bash\">echo ${sounds[dog]} # Dog's sound\necho ${sounds[@]}   # All values\necho ${!sounds[@]}  # All keys\necho ${#sounds[@]}  # Number of elements\nunset sounds[dog]   # Delete dog\n</code></pre>\n\n<h3 id=\"iteration-1\">Iteration</h3>\n\n<h4 id=\"iterate-over-values\">Iterate over values</h4>\n\n<pre><code class=\"language-bash\">for val in \"${sounds[@]}\"; do\n  echo $val\ndone\n</code></pre>\n\n<h4 id=\"iterate-over-keys\">Iterate over keys</h4>\n\n<pre><code class=\"language-bash\">for key in \"${!sounds[@]}\"; do\n  echo $key\ndone\n</code></pre>\n\n<h2 id=\"options\">Options</h2>\n\n<h3 id=\"options-1\">Options</h3>\n\n<pre><code class=\"language-bash\">set -o noclobber  # Avoid overlay files (echo \"hi\" &gt; foo)\nset -o errexit    # Used to exit upon error, avoiding cascading errors\nset -o pipefail   # Unveils hidden failures\nset -o nounset    # Exposes unset variables\n</code></pre>\n\n<h3 id=\"glob-options\">Glob options</h3>\n\n<pre><code class=\"language-bash\">shopt -s nullglob    # Non-matching globs are removed  ('*.foo' =&gt; '')\nshopt -s failglob    # Non-matching globs throw errors\nshopt -s nocaseglob  # Case insensitive globs\nshopt -s dotglob     # Wildcards match dotfiles (\"*.sh\" =&gt; \".foo.sh\")\nshopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' =&gt; 'lib/a/b/c.rb')\n</code></pre>\n\n<p>Set <code>GLOBIGNORE</code> as a colon-separated list of patterns to be removed from glob\nmatches.</p>\n\n<h2 id=\"history\">History</h2>\n\n<h3 id=\"commands\">Commands</h3>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>history</code></td>\n      <td>Show history</td>\n    </tr>\n    <tr>\n      <td><code>shopt -s histverify</code></td>\n      <td>Don’t execute expanded result immediately</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"expansions\">Expansions</h3>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>!$</code></td>\n      <td>Expand last parameter of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!*</code></td>\n      <td>Expand all parameters of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!-n</code></td>\n      <td>Expand <code>n</code>th most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!n</code></td>\n      <td>Expand <code>n</code>th command in history</td>\n    </tr>\n    <tr>\n      <td><code>!&lt;command&gt;</code></td>\n      <td>Expand most recent invocation of command <code>&lt;command&gt;</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"operations-1\">Operations</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>!!</code></td>\n      <td>Execute last command again</td>\n    </tr>\n    <tr>\n      <td><code>!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td>\n      <td>Replace first occurrence of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td>\n      <td>Replace all occurrences of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$:t</code></td>\n      <td>Expand only basename from last parameter of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$:h</code></td>\n      <td>Expand only directory from last parameter of most recent command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><code>!!</code> and <code>!$</code> can be replaced with any valid expansion.</p>\n\n<h3 id=\"slices\">Slices</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>!!:n</code></td>\n      <td>Expand only <code>n</code>th token from most recent command (command is <code>0</code>; first argument is <code>1</code>)</td>\n    </tr>\n    <tr>\n      <td><code>!^</code></td>\n      <td>Expand first argument from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$</code></td>\n      <td>Expand last token from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:n-m</code></td>\n      <td>Expand range of tokens from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:n-$</code></td>\n      <td>Expand <code>n</code>th token to last from most recent command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><code>!!</code> can be replaced with any valid expansion i.e. <code>!cat</code>, <code>!-2</code>, <code>!42</code>, etc.</p>\n\n<h2 id=\"miscellaneous\">Miscellaneous</h2>\n\n<h3 id=\"numeric-calculations\">Numeric calculations</h3>\n\n<pre><code class=\"language-bash\">$((a + 200))      # Add 200 to $a\n</code></pre>\n\n<pre><code class=\"language-bash\">$((RANDOM%=200))  # Random number 0..200\n</code></pre>\n\n<h3 id=\"subshells\">Subshells</h3>\n\n<pre><code class=\"language-bash\">(cd somedir; echo \"I'm now in $PWD\")\npwd # still in first directory\n</code></pre>\n\n<h3 id=\"redirection\">Redirection</h3>\n\n<pre><code class=\"language-bash\">python hello.py &gt; output.txt   # stdout to (file)\npython hello.py &gt;&gt; output.txt  # stdout to (file), append\npython hello.py 2&gt; error.log   # stderr to (file)\npython hello.py 2&gt;&amp;1           # stderr to stdout\npython hello.py 2&gt;/dev/null    # stderr to (null)\npython hello.py &amp;&gt;/dev/null    # stdout and stderr to (null)\n</code></pre>\n\n<pre><code class=\"language-bash\">python hello.py &lt; foo.txt      # feed foo.txt to stdin for python\n</code></pre>\n\n<h3 id=\"inspecting-commands\">Inspecting commands</h3>\n\n<pre><code class=\"language-bash\">command -V cd\n#=&gt; \"cd is a function/alias/whatever\"\n</code></pre>\n\n<h3 id=\"trap-errors\">Trap errors</h3>\n\n<pre><code class=\"language-bash\">trap 'echo Error at about $LINENO' ERR\n</code></pre>\n\n<p>or</p>\n\n<pre><code class=\"language-bash\">traperr() {\n  echo \"ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}\"\n}\n\nset -o errtrace\ntrap traperr ERR\n</code></pre>\n\n<h3 id=\"caseswitch\">Case/switch</h3>\n\n<pre><code class=\"language-bash\">case \"$1\" in\n  start | up)\n    vagrant up\n    ;;\n\n  *)\n    echo \"Usage: $0 {start|stop|ssh}\"\n    ;;\nesac\n</code></pre>\n\n<h3 id=\"source-relative\">Source relative</h3>\n\n<pre><code class=\"language-bash\">source \"${0%/*}/../share/foo.sh\"\n</code></pre>\n\n<h3 id=\"printf\">printf</h3>\n\n<pre><code class=\"language-bash\">printf \"Hello %s, I'm %s\" Sven Olga\n#=&gt; \"Hello Sven, I'm Olga\n\nprintf \"1 + 1 = %d\" 2\n#=&gt; \"1 + 1 = 2\"\n\nprintf \"This is how you print a float: %f\" 2\n#=&gt; \"This is how you print a float: 2.000000\"\n</code></pre>\n\n<h3 id=\"directory-of-script\">Directory of script</h3>\n\n<pre><code class=\"language-bash\">DIR=\"${0%/*}\"\n</code></pre>\n\n<h3 id=\"getting-options\">Getting options</h3>\n\n<pre><code class=\"language-bash\">while [[ \"$1\" =~ ^- &amp;&amp; ! \"$1\" == \"--\" ]]; do case $1 in\n  -V | --version )\n    echo $version\n    exit\n    ;;\n  -s | --string )\n    shift; string=$1\n    ;;\n  -f | --flag )\n    flag=1\n    ;;\nesac; shift; done\nif [[ \"$1\" == '--' ]]; then shift; fi\n</code></pre>\n\n<h3 id=\"heredoc\">Heredoc</h3>\n\n<pre><code class=\"language-sh\">cat &lt;&lt;END\nhello world\nEND\n</code></pre>\n\n<h3 id=\"reading-input\">Reading input</h3>\n\n<pre><code class=\"language-bash\">echo -n \"Proceed? [y/n]: \"\nread ans\necho $ans\n</code></pre>\n\n<pre><code class=\"language-bash\">read -n 1 ans    # Just one character\n</code></pre>\n\n<h3 id=\"special-variables\">Special variables</h3>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>$?</code></td>\n      <td>Exit status of last task</td>\n    </tr>\n    <tr>\n      <td><code>$!</code></td>\n      <td>PID of last background task</td>\n    </tr>\n    <tr>\n      <td><code>$$</code></td>\n      <td>PID of shell</td>\n    </tr>\n    <tr>\n      <td><code>$0</code></td>\n      <td>Filename of the shell script</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables\">Special parameters</a>.</p>\n\n<h3 id=\"go-to-previous-directory\">Go to previous directory</h3>\n\n<pre><code class=\"language-bash\">pwd # /home/user/foo\ncd bar/\npwd # /home/user/foo/bar\ncd -\npwd # /home/user/foo\n</code></pre>\n\n<h3 id=\"check-for-commands-result\">Check for command’s result</h3>\n\n<pre><code class=\"language-bash\">if ping -c 1 google.com; then\n  echo \"It appears you have a working internet connection\"\nfi\n</code></pre>\n\n<h3 id=\"grep-check\">Grep check</h3>\n\n<pre><code class=\"language-bash\">if grep -q 'foo' ~/.bash_history; then\n  echo \"You appear to have typed 'foo' in the past\"\nfi\n</code></pre>\n\n<h2 class=\"-one-column\" id=\"also-see\">Also see</h2>\n\n<ul>\n  <li><a href=\"http://wiki.bash-hackers.org/\">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>\n  <li><a href=\"http://wiki.bash-hackers.org/syntax/shellvars\">Shell vars</a> <em>(bash-hackers.org)</em></li>\n  <li><a href=\"https://learnxinyminutes.com/docs/bash/\">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>\n  <li><a href=\"http://mywiki.wooledge.org/BashGuide\">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>\n  <li><a href=\"https://www.shellcheck.net/\">ShellCheck</a> <em>(shellcheck.net)</em></li>\n</ul>",
+  "content_html": "<h2 class=\"-three-column\" id=\"getting-started\">Getting started</h2>\n\n<h3 id=\"example\">Example</h3>\n\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nNAME=\"John\"\necho \"Hello $NAME!\"\n</code></pre>\n\n<h3 id=\"variables\">Variables</h3>\n\n<pre><code class=\"language-bash\">NAME=\"John\"\necho $NAME\necho \"$NAME\"\necho \"${NAME}!\"\n</code></pre>\n\n<h3 id=\"string-quotes\">String quotes</h3>\n\n<pre><code class=\"language-bash\">NAME=\"John\"\necho \"Hi $NAME\"  #=&gt; Hi John\necho 'Hi $NAME'  #=&gt; Hi $NAME\n</code></pre>\n\n<h3 id=\"shell-execution\">Shell execution</h3>\n\n<pre><code class=\"language-bash\">echo \"I'm in $(pwd)\"\necho \"I'm in `pwd`\"\n# Same\n</code></pre>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/expansion/cmdsubst\">Command substitution</a></p>\n\n<h3 id=\"conditional-execution\">Conditional execution</h3>\n\n<pre><code class=\"language-bash\">git commit &amp;&amp; git push\ngit commit || echo \"Commit failed\"\n</code></pre>\n\n<h3 id=\"functions-example\">Functions</h3>\n\n<pre><code class=\"language-bash\">get_name() {\n  echo \"John\"\n}\n\necho \"You are $(get_name)\"\n</code></pre>\n\n<p>See: <a href=\"#functions\">Functions</a></p>\n\n<h3 id=\"conditionals-example\">Conditionals</h3>\n\n<pre><code class=\"language-bash\">if [[ -z \"$string\" ]]; then\n  echo \"String is empty\"\nelif [[ -n \"$string\" ]]; then\n  echo \"String is not empty\"\nfi\n</code></pre>\n\n<p>See: <a href=\"#conditionals\">Conditionals</a></p>\n\n<h3 id=\"strict-mode\">Strict mode</h3>\n\n<pre><code class=\"language-bash\">set -euo pipefail\nIFS=$'\\n\\t'\n</code></pre>\n\n<p>See: <a href=\"http://redsymbol.net/articles/unofficial-bash-strict-mode/\">Unofficial bash strict mode</a></p>\n\n<h3 id=\"brace-expansion\">Brace expansion</h3>\n\n<pre><code class=\"language-bash\">echo {A,B}.js\n</code></pre>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>{A,B}</code></td>\n      <td>Same as <code>A B</code></td>\n    </tr>\n    <tr>\n      <td><code>{A,B}.js</code></td>\n      <td>Same as <code>A.js B.js</code></td>\n    </tr>\n    <tr>\n      <td><code>{1..5}</code></td>\n      <td>Same as <code>1 2 3 4 5</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See: <a href=\"http://wiki.bash-hackers.org/syntax/expansion/brace\">Brace expansion</a></p>\n\n<h2 class=\"-three-column\" id=\"parameter-expansions\">Parameter expansions</h2>\n\n<h3 id=\"basics\">Basics</h3>\n\n<pre><code class=\"language-bash\">name=\"John\"\necho ${name}\necho ${name/J/j}    #=&gt; \"john\" (substitution)\necho ${name:0:2}    #=&gt; \"Jo\" (slicing)\necho ${name::2}     #=&gt; \"Jo\" (slicing)\necho ${name::-1}    #=&gt; \"Joh\" (slicing)\necho ${name:(-1)}   #=&gt; \"n\" (slicing from right)\necho ${name:(-2):1} #=&gt; \"h\" (slicing from right)\necho ${food:-Cake}  #=&gt; $food or \"Cake\"\n</code></pre>\n\n<pre><code class=\"language-bash\">length=2\necho ${name:0:length}  #=&gt; \"Jo\"\n</code></pre>\n\n<p>See: <a href=\"http://wiki.bash-hackers.org/syntax/pe\">Parameter expansion</a></p>\n\n<pre><code class=\"language-bash\">STR=\"/path/to/foo.cpp\"\necho ${STR%.cpp}    # /path/to/foo\necho ${STR%.cpp}.o  # /path/to/foo.o\necho ${STR%/*}      # /path/to\n\necho ${STR##*.}     # cpp (extension)\necho ${STR##*/}     # foo.cpp (basepath)\n\necho ${STR#*/}      # path/to/foo.cpp\necho ${STR##*/}     # foo.cpp\n\necho ${STR/foo/bar} # /path/to/bar.cpp\n</code></pre>\n\n<pre><code class=\"language-bash\">STR=\"Hello world\"\necho ${STR:6:5}   # \"world\"\necho ${STR:-5:5}  # \"world\"\n</code></pre>\n\n<pre><code class=\"language-bash\">SRC=\"/path/to/foo.cpp\"\nBASE=${SRC##*/}   #=&gt; \"foo.cpp\" (basepath)\nDIR=${SRC%$BASE}  #=&gt; \"/path/to/\" (dirpath)\n</code></pre>\n\n<h3 id=\"substitution\">Substitution</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO%suffix}</code></td>\n      <td>Remove suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO#prefix}</code></td>\n      <td>Remove prefix</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO%%suffix}</code></td>\n      <td>Remove long suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO##prefix}</code></td>\n      <td>Remove long prefix</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO/from/to}</code></td>\n      <td>Replace first match</td>\n    </tr>\n    <tr>\n      <td><code>${FOO//from/to}</code></td>\n      <td>Replace all</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>${FOO/%from/to}</code></td>\n      <td>Replace suffix</td>\n    </tr>\n    <tr>\n      <td><code>${FOO/#from/to}</code></td>\n      <td>Replace prefix</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"comments\">Comments</h3>\n\n<pre><code class=\"language-bash\"># Single line comment\n</code></pre>\n\n<pre><code class=\"language-bash\">: '\nThis is a\nmulti line\ncomment\n'\n</code></pre>\n\n<h3 id=\"substrings\">Substrings</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO:0:3}</code></td>\n      <td>Substring <em>(position, length)</em></td>\n    </tr>\n    <tr>\n      <td><code>${FOO:(-3):3}</code></td>\n      <td>Substring from the right</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"length\">Length</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${#FOO}</code></td>\n      <td>Length of <code>$FOO</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"manipulation\">Manipulation</h3>\n\n<pre><code class=\"language-bash\">STR=\"HELLO WORLD!\"\necho ${STR,}   #=&gt; \"hELLO WORLD!\" (lowercase 1st letter)\necho ${STR,,}  #=&gt; \"hello world!\" (all lowercase)\n\nSTR=\"hello world!\"\necho ${STR^}   #=&gt; \"Hello world!\" (uppercase 1st letter)\necho ${STR^^}  #=&gt; \"HELLO WORLD!\" (all uppercase)\n</code></pre>\n\n<h3 id=\"default-values\">Default values</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>${FOO:-val}</code></td>\n      <td><code>$FOO</code>, or <code>val</code> if unset (or null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:=val}</code></td>\n      <td>Set <code>$FOO</code> to <code>val</code> if unset (or null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:+val}</code></td>\n      <td><code>val</code> if <code>$FOO</code> is set (and not null)</td>\n    </tr>\n    <tr>\n      <td><code>${FOO:?message}</code></td>\n      <td>Show error message and exit if <code>$FOO</code> is unset (or null)</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${FOO-val}</code> expands to <code>val</code> if unset otherwise <code>$FOO</code>.</p>\n\n<h2 class=\"-three-column\" id=\"loops\">Loops</h2>\n\n<h3 id=\"basic-for-loop\">Basic for loop</h3>\n\n<pre><code class=\"language-bash\">for i in /etc/rc.*; do\n  echo $i\ndone\n</code></pre>\n\n<h3 id=\"c-like-for-loop\">C-like for loop</h3>\n\n<pre><code class=\"language-bash\">for ((i = 0 ; i &lt; 100 ; i++)); do\n  echo $i\ndone\n</code></pre>\n\n<h3 id=\"ranges\">Ranges</h3>\n\n<pre><code class=\"language-bash\">for i in {1..5}; do\n    echo \"Welcome $i\"\ndone\n</code></pre>\n\n<h4 id=\"with-step-size\">With step size</h4>\n\n<pre><code class=\"language-bash\">for i in {5..50..5}; do\n    echo \"Welcome $i\"\ndone\n</code></pre>\n\n<h3 id=\"reading-lines\">Reading lines</h3>\n\n<pre><code class=\"language-bash\">cat file.txt | while read line; do\n  echo $line\ndone\n</code></pre>\n\n<h3 id=\"forever\">Forever</h3>\n\n<pre><code class=\"language-bash\">while true; do\n  ···\ndone\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"functions\">Functions</h2>\n\n<h3 id=\"defining-functions\">Defining functions</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n    echo \"hello $1\"\n}\n</code></pre>\n\n<pre><code class=\"language-bash\"># Same as above (alternate syntax)\nfunction myfunc() {\n    echo \"hello $1\"\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">myfunc \"John\"\n</code></pre>\n\n<h3 id=\"returning-values\">Returning values</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n    local myresult='some value'\n    echo $myresult\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">result=\"$(myfunc)\"\n</code></pre>\n\n<h3 id=\"raising-errors\">Raising errors</h3>\n\n<pre><code class=\"language-bash\">myfunc() {\n  return 1\n}\n</code></pre>\n\n<pre><code class=\"language-bash\">if myfunc; then\n  echo \"success\"\nelse\n  echo \"failure\"\nfi\n</code></pre>\n\n<h3 id=\"arguments\">Arguments</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>$#</code></td>\n      <td>Number of arguments</td>\n    </tr>\n    <tr>\n      <td><code>$*</code></td>\n      <td>All arguments</td>\n    </tr>\n    <tr>\n      <td><code>$@</code></td>\n      <td>All arguments, starting from first</td>\n    </tr>\n    <tr>\n      <td><code>$1</code></td>\n      <td>First argument</td>\n    </tr>\n    <tr>\n      <td><code>$_</code></td>\n      <td>Last argument of the previous command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables\">Special parameters</a>.</p>\n\n<h2 class=\"-three-column\" id=\"conditionals\">Conditionals</h2>\n\n<h3 id=\"conditions\">Conditions</h3>\n\n<p>Note that <code>[[</code> is actually a command/program that returns either <code>0</code> (true) or <code>1</code> (false). Any program that obeys the same logic (like all base utils, such as <code>grep(1)</code> or <code>ping(1)</code>) can be used as condition, see examples.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -z STRING ]]</code></td>\n      <td>Empty string</td>\n    </tr>\n    <tr>\n      <td><code>[[ -n STRING ]]</code></td>\n      <td>Not empty string</td>\n    </tr>\n    <tr>\n      <td><code>[[ STRING == STRING ]]</code></td>\n      <td>Equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ STRING != STRING ]]</code></td>\n      <td>Not Equal</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ NUM -eq NUM ]]</code></td>\n      <td>Equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -ne NUM ]]</code></td>\n      <td>Not equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -lt NUM ]]</code></td>\n      <td>Less than</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -le NUM ]]</code></td>\n      <td>Less than or equal</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -gt NUM ]]</code></td>\n      <td>Greater than</td>\n    </tr>\n    <tr>\n      <td><code>[[ NUM -ge NUM ]]</code></td>\n      <td>Greater than or equal</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ STRING =~ STRING ]]</code></td>\n      <td>Regexp</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>(( NUM &lt; NUM ))</code></td>\n      <td>Numeric conditions</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"more-conditions\">More conditions</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -o noclobber ]]</code></td>\n      <td>If OPTIONNAME is enabled</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ ! EXPR ]]</code></td>\n      <td>Not</td>\n    </tr>\n    <tr>\n      <td><code>[[ X &amp;&amp; Y ]]</code></td>\n      <td>And</td>\n    </tr>\n    <tr>\n      <td><code>[[ X || Y ]]</code></td>\n      <td>Or</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"file-conditions\">File conditions</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Condition</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>[[ -e FILE ]]</code></td>\n      <td>Exists</td>\n    </tr>\n    <tr>\n      <td><code>[[ -r FILE ]]</code></td>\n      <td>Readable</td>\n    </tr>\n    <tr>\n      <td><code>[[ -h FILE ]]</code></td>\n      <td>Symlink</td>\n    </tr>\n    <tr>\n      <td><code>[[ -d FILE ]]</code></td>\n      <td>Directory</td>\n    </tr>\n    <tr>\n      <td><code>[[ -w FILE ]]</code></td>\n      <td>Writable</td>\n    </tr>\n    <tr>\n      <td><code>[[ -s FILE ]]</code></td>\n      <td>Size is &gt; 0 bytes</td>\n    </tr>\n    <tr>\n      <td><code>[[ -f FILE ]]</code></td>\n      <td>File</td>\n    </tr>\n    <tr>\n      <td><code>[[ -x FILE ]]</code></td>\n      <td>Executable</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>[[ FILE1 -nt FILE2 ]]</code></td>\n      <td>1 is more recent than 2</td>\n    </tr>\n    <tr>\n      <td><code>[[ FILE1 -ot FILE2 ]]</code></td>\n      <td>2 is more recent than 1</td>\n    </tr>\n    <tr>\n      <td><code>[[ FILE1 -ef FILE2 ]]</code></td>\n      <td>Same files</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"example-1\">Example</h3>\n\n<pre><code class=\"language-bash\"># String\nif [[ -z \"$string\" ]]; then\n  echo \"String is empty\"\nelif [[ -n \"$string\" ]]; then\n  echo \"String is not empty\"\nelse\n  echo \"This never happens\"\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\"># Combinations\nif [[ X &amp;&amp; Y ]]; then\n  ...\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\"># Equal\nif [[ \"$A\" == \"$B\" ]]\n</code></pre>\n\n<pre><code class=\"language-bash\"># Regex\nif [[ \"A\" =~ . ]]\n</code></pre>\n\n<pre><code class=\"language-bash\">if (( $a &lt; $b )); then\n   echo \"$a is smaller than $b\"\nfi\n</code></pre>\n\n<pre><code class=\"language-bash\">if [[ -e \"file.txt\" ]]; then\n  echo \"file exists\"\nfi\n</code></pre>\n\n<h2 id=\"arrays\">Arrays</h2>\n\n<h3 id=\"defining-arrays\">Defining arrays</h3>\n\n<pre><code class=\"language-bash\">Fruits=('Apple' 'Banana' 'Orange')\n</code></pre>\n\n<pre><code class=\"language-bash\">Fruits[0]=\"Apple\"\nFruits[1]=\"Banana\"\nFruits[2]=\"Orange\"\n</code></pre>\n\n<h3 id=\"working-with-arrays\">Working with arrays</h3>\n\n<pre><code class=\"language-bash\">echo ${Fruits[0]}           # Element #0\necho ${Fruits[-1]}          # Last element\necho ${Fruits[@]}           # All elements, space-separated\necho ${#Fruits[@]}          # Number of elements\necho ${#Fruits}             # String length of the 1st element\necho ${#Fruits[3]}          # String length of the Nth element\necho ${Fruits[@]:3:2}       # Range (from position 3, length 2)\necho ${!Fruits[@]}          # Keys of all elements, space-separated\n</code></pre>\n\n<h3 id=\"operations\">Operations</h3>\n\n<pre><code class=\"language-bash\">Fruits=(\"${Fruits[@]}\" \"Watermelon\")    # Push\nFruits+=('Watermelon')                  # Also Push\nFruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match\nunset Fruits[2]                         # Remove one item\nFruits=(\"${Fruits[@]}\")                 # Duplicate\nFruits=(\"${Fruits[@]}\" \"${Veggies[@]}\") # Concatenate\nlines=(`cat \"logfile\"`)                 # Read from file\n</code></pre>\n\n<h3 id=\"iteration\">Iteration</h3>\n\n<pre><code class=\"language-bash\">for i in \"${arrayName[@]}\"; do\n  echo $i\ndone\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"dictionaries\">Dictionaries</h2>\n\n<h3 id=\"defining\">Defining</h3>\n\n<pre><code class=\"language-bash\">declare -A sounds\n</code></pre>\n\n<pre><code class=\"language-bash\">sounds[dog]=\"bark\"\nsounds[cow]=\"moo\"\nsounds[bird]=\"tweet\"\nsounds[wolf]=\"howl\"\n</code></pre>\n\n<p>Declares <code>sound</code> as a Dictionary object (aka associative array).</p>\n\n<h3 id=\"working-with-dictionaries\">Working with dictionaries</h3>\n\n<pre><code class=\"language-bash\">echo ${sounds[dog]} # Dog's sound\necho ${sounds[@]}   # All values\necho ${!sounds[@]}  # All keys\necho ${#sounds[@]}  # Number of elements\nunset sounds[dog]   # Delete dog\n</code></pre>\n\n<h3 id=\"iteration-1\">Iteration</h3>\n\n<h4 id=\"iterate-over-values\">Iterate over values</h4>\n\n<pre><code class=\"language-bash\">for val in \"${sounds[@]}\"; do\n  echo $val\ndone\n</code></pre>\n\n<h4 id=\"iterate-over-keys\">Iterate over keys</h4>\n\n<pre><code class=\"language-bash\">for key in \"${!sounds[@]}\"; do\n  echo $key\ndone\n</code></pre>\n\n<h2 id=\"options\">Options</h2>\n\n<h3 id=\"options-1\">Options</h3>\n\n<pre><code class=\"language-bash\">set -o noclobber  # Avoid overlay files (echo \"hi\" &gt; foo)\nset -o errexit    # Used to exit upon error, avoiding cascading errors\nset -o pipefail   # Unveils hidden failures\nset -o nounset    # Exposes unset variables\n</code></pre>\n\n<h3 id=\"glob-options\">Glob options</h3>\n\n<pre><code class=\"language-bash\">shopt -s nullglob    # Non-matching globs are removed  ('*.foo' =&gt; '')\nshopt -s failglob    # Non-matching globs throw errors\nshopt -s nocaseglob  # Case insensitive globs\nshopt -s dotglob     # Wildcards match dotfiles (\"*.sh\" =&gt; \".foo.sh\")\nshopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' =&gt; 'lib/a/b/c.rb')\n</code></pre>\n\n<p>Set <code>GLOBIGNORE</code> as a colon-separated list of patterns to be removed from glob\nmatches.</p>\n\n<h2 id=\"history\">History</h2>\n\n<h3 id=\"commands\">Commands</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Command</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>history</code></td>\n      <td>Show history</td>\n    </tr>\n    <tr>\n      <td><code>shopt -s histverify</code></td>\n      <td>Don’t execute expanded result immediately</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"expansions\">Expansions</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>!$</code></td>\n      <td>Expand last parameter of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!*</code></td>\n      <td>Expand all parameters of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!-n</code></td>\n      <td>Expand <code>n</code>th most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!n</code></td>\n      <td>Expand <code>n</code>th command in history</td>\n    </tr>\n    <tr>\n      <td><code>!&lt;command&gt;</code></td>\n      <td>Expand most recent invocation of command <code>&lt;command&gt;</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"operations-1\">Operations</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>!!</code></td>\n      <td>Execute last command again</td>\n    </tr>\n    <tr>\n      <td><code>!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td>\n      <td>Replace first occurrence of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td>\n      <td>Replace all occurrences of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$:t</code></td>\n      <td>Expand only basename from last parameter of most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$:h</code></td>\n      <td>Expand only directory from last parameter of most recent command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><code>!!</code> and <code>!$</code> can be replaced with any valid expansion.</p>\n\n<h3 id=\"slices\">Slices</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Code</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>!!:n</code></td>\n      <td>Expand only <code>n</code>th token from most recent command (command is <code>0</code>; first argument is <code>1</code>)</td>\n    </tr>\n    <tr>\n      <td><code>!^</code></td>\n      <td>Expand first argument from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!$</code></td>\n      <td>Expand last token from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:n-m</code></td>\n      <td>Expand range of tokens from most recent command</td>\n    </tr>\n    <tr>\n      <td><code>!!:n-$</code></td>\n      <td>Expand <code>n</code>th token to last from most recent command</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><code>!!</code> can be replaced with any valid expansion i.e. <code>!cat</code>, <code>!-2</code>, <code>!42</code>, etc.</p>\n\n<h2 id=\"miscellaneous\">Miscellaneous</h2>\n\n<h3 id=\"numeric-calculations\">Numeric calculations</h3>\n\n<pre><code class=\"language-bash\">$((a + 200))      # Add 200 to $a\n</code></pre>\n\n<pre><code class=\"language-bash\">$((RANDOM%=200))  # Random number 0..200\n</code></pre>\n\n<h3 id=\"subshells\">Subshells</h3>\n\n<pre><code class=\"language-bash\">(cd somedir; echo \"I'm now in $PWD\")\npwd # still in first directory\n</code></pre>\n\n<h3 id=\"redirection\">Redirection</h3>\n\n<pre><code class=\"language-bash\">python hello.py &gt; output.txt   # stdout to (file)\npython hello.py &gt;&gt; output.txt  # stdout to (file), append\npython hello.py 2&gt; error.log   # stderr to (file)\npython hello.py 2&gt;&amp;1           # stderr to stdout\npython hello.py 2&gt;/dev/null    # stderr to (null)\npython hello.py &amp;&gt;/dev/null    # stdout and stderr to (null)\n</code></pre>\n\n<pre><code class=\"language-bash\">python hello.py &lt; foo.txt      # feed foo.txt to stdin for python\n</code></pre>\n\n<h3 id=\"inspecting-commands\">Inspecting commands</h3>\n\n<pre><code class=\"language-bash\">command -V cd\n#=&gt; \"cd is a function/alias/whatever\"\n</code></pre>\n\n<h3 id=\"trap-errors\">Trap errors</h3>\n\n<pre><code class=\"language-bash\">trap 'echo Error at about $LINENO' ERR\n</code></pre>\n\n<p>or</p>\n\n<pre><code class=\"language-bash\">traperr() {\n  echo \"ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}\"\n}\n\nset -o errtrace\ntrap traperr ERR\n</code></pre>\n\n<h3 id=\"caseswitch\">Case/switch</h3>\n\n<pre><code class=\"language-bash\">case \"$1\" in\n  start | up)\n    vagrant up\n    ;;\n\n  *)\n    echo \"Usage: $0 {start|stop|ssh}\"\n    ;;\nesac\n</code></pre>\n\n<h3 id=\"source-relative\">Source relative</h3>\n\n<pre><code class=\"language-bash\">source \"${0%/*}/../share/foo.sh\"\n</code></pre>\n\n<h3 id=\"printf\">printf</h3>\n\n<pre><code class=\"language-bash\">printf \"Hello %s, I'm %s\" Sven Olga\n#=&gt; \"Hello Sven, I'm Olga\n\nprintf \"1 + 1 = %d\" 2\n#=&gt; \"1 + 1 = 2\"\n\nprintf \"This is how you print a float: %f\" 2\n#=&gt; \"This is how you print a float: 2.000000\"\n</code></pre>\n\n<h3 id=\"directory-of-script\">Directory of script</h3>\n\n<pre><code class=\"language-bash\">DIR=\"${0%/*}\"\n</code></pre>\n\n<h3 id=\"getting-options\">Getting options</h3>\n\n<pre><code class=\"language-bash\">while [[ \"$1\" =~ ^- &amp;&amp; ! \"$1\" == \"--\" ]]; do case $1 in\n  -V | --version )\n    echo $version\n    exit\n    ;;\n  -s | --string )\n    shift; string=$1\n    ;;\n  -f | --flag )\n    flag=1\n    ;;\nesac; shift; done\nif [[ \"$1\" == '--' ]]; then shift; fi\n</code></pre>\n\n<h3 id=\"heredoc\">Heredoc</h3>\n\n<pre><code class=\"language-sh\">cat &lt;&lt;END\nhello world\nEND\n</code></pre>\n\n<h3 id=\"reading-input\">Reading input</h3>\n\n<pre><code class=\"language-bash\">echo -n \"Proceed? [y/n]: \"\nread ans\necho $ans\n</code></pre>\n\n<pre><code class=\"language-bash\">read -n 1 ans    # Just one character\n</code></pre>\n\n<h3 id=\"special-variables\">Special variables</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Expression</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>$?</code></td>\n      <td>Exit status of last task</td>\n    </tr>\n    <tr>\n      <td><code>$!</code></td>\n      <td>PID of last background task</td>\n    </tr>\n    <tr>\n      <td><code>$$</code></td>\n      <td>PID of shell</td>\n    </tr>\n    <tr>\n      <td><code>$0</code></td>\n      <td>Filename of the shell script</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>See <a href=\"http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables\">Special parameters</a>.</p>\n\n<h3 id=\"go-to-previous-directory\">Go to previous directory</h3>\n\n<pre><code class=\"language-bash\">pwd # /home/user/foo\ncd bar/\npwd # /home/user/foo/bar\ncd -\npwd # /home/user/foo\n</code></pre>\n\n<h3 id=\"check-for-commands-result\">Check for command’s result</h3>\n\n<pre><code class=\"language-bash\">if ping -c 1 google.com; then\n  echo \"It appears you have a working internet connection\"\nfi\n</code></pre>\n\n<h3 id=\"grep-check\">Grep check</h3>\n\n<pre><code class=\"language-bash\">if grep -q 'foo' ~/.bash_history; then\n  echo \"You appear to have typed 'foo' in the past\"\nfi\n</code></pre>\n\n<h2 class=\"-one-column\" id=\"also-see\">Also see</h2>\n\n<ul>\n  <li><a href=\"http://wiki.bash-hackers.org/\">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>\n  <li><a href=\"http://wiki.bash-hackers.org/syntax/shellvars\">Shell vars</a> <em>(bash-hackers.org)</em></li>\n  <li><a href=\"https://learnxinyminutes.com/docs/bash/\">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>\n  <li><a href=\"http://mywiki.wooledge.org/BashGuide\">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>\n  <li><a href=\"https://www.shellcheck.net/\">ShellCheck</a> <em>(shellcheck.net)</em></li>\n</ul>",
   "intro_html": "",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2019-10-02"
+  "updated": "2020-07-04"
 },{
   "id": "blessed",
   "title": "Blessed",
@@ -284,7 +284,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-04"
+  "updated": "2017-09-08"
 },{
   "id": "bolt",
   "title": "Bolt Quickstart",
@@ -427,7 +427,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-08-30"
+  "updated": "2020-06-13"
 },{
   "id": "cask-index",
   "title": "Caskroom index",
@@ -449,7 +449,7 @@
   "intro_html": "",
   "description_html": "<p>expect(x).to.be.equal(y) 〉 assert.equal(x, y) 〉 .to.be.true 〉 jQuery, assertions, TDD and BDD, and other Chai examples.</p>",
   "tags": null,
-  "updated": "2017-08-30"
+  "updated": "2018-06-25"
 },{
   "id": "cheatsheet-styles",
   "title": "Cheatsheet styles",
@@ -460,7 +460,7 @@
   "intro_html": "<p>This is a reference of styles that you can use on Devhints cheatsheets. How\nmeta!\nYou can refer to this when contributing your own cheatsheets to the <a href=\"https://github.com/rstacruz/cheatsheets/\">GitHub repo</a>.</p>",
   "description_html": "",
   "tags": ["WIP"],
-  "updated": "2017-09-22"
+  "updated": "2017-10-26"
 },{
   "id": "chef",
   "title": "Chef",
@@ -548,7 +548,7 @@
   "intro_html": "",
   "description_html": "<p>Basic guide on how to use Composer, the PHP Package manager.</p>",
   "tags": null,
-  "updated": "2018-03-06"
+  "updated": "2020-02-23"
 },{
   "id": "cordova",
   "title": "Apache Cordova",
@@ -570,7 +570,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2018-05-03"
 },{
   "id": "csharp7",
   "title": "C# 7",
@@ -592,7 +592,7 @@
   "intro_html": "<p>Here’s a 4-line snippet on how to get beautiful, antialiased text with CSS.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2017-10-13"
 },{
   "id": "css-flexbox",
   "title": "CSS flexbox",
@@ -603,7 +603,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-29"
+  "updated": "2020-06-13"
 },{
   "id": "css-grid",
   "title": "CSS Grid",
@@ -614,7 +614,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-12-06"
+  "updated": "2019-08-23"
 },{
   "id": "css-system-font-stack",
   "title": "CSS system fonts",
@@ -658,7 +658,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-08-30"
+  "updated": "2017-10-30"
 },{
   "id": "curl",
   "title": "Curl",
@@ -669,7 +669,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-20"
+  "updated": "2020-03-09"
 },{
   "id": "datetime",
   "title": "Date & time formats",
@@ -680,7 +680,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-04"
+  "updated": "2017-11-27"
 },{
   "id": "deis",
   "title": "Deis",
@@ -757,7 +757,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-06-26"
+  "updated": "2020-01-01"
 },{
   "id": "docker",
   "title": "Docker CLI",
@@ -779,7 +779,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-03-17"
+  "updated": "2019-10-20"
 },{
   "id": "dom-range",
   "title": "DOM Range",
@@ -823,7 +823,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-04"
+  "updated": "2019-09-25"
 },{
   "id": "elixir-metaprogramming",
   "title": "Elixir metaprogramming",
@@ -845,7 +845,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["New"],
-  "updated": "2017-08-26"
+  "updated": "2018-07-04"
 },{
   "id": "emacs",
   "title": "Emacs",
@@ -878,7 +878,7 @@
   "intro_html": "<p>Emmet is a markup language for expanding CSS rules into HTML</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2018-11-10"
+  "updated": "2020-07-03"
 },{
   "id": "enzyme",
   "title": "Enzyme",
@@ -889,7 +889,7 @@
   "intro_html": "<p><a href=\"http://airbnb.io/enzyme\">Enzyme</a> lets you write unit tests for React components. This guide covers Enzyme 3.x.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2018-04-27"
+  "updated": "2020-02-12"
 },{
   "id": "enzyme@2",
   "title": "Enzyme v2",
@@ -900,7 +900,7 @@
   "intro_html": "<p><a href=\"http://airbnb.io/enzyme\">Enzyme</a> lets you write unit tests for React components. This guide covers Enzyme 2.x.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-14"
+  "updated": "2017-10-12"
 },{
   "id": "es6",
   "title": "ES2015+",
@@ -911,7 +911,7 @@
   "intro_html": "<p>A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2017-10-21"
+  "updated": "2020-07-02"
 },{
   "id": "ets",
   "title": "Erlang ETS",
@@ -955,7 +955,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2018-11-19"
 },{
   "id": "factory_bot",
   "title": "Factory Bot",
@@ -977,7 +977,7 @@
   "intro_html": "<p><a href=\"https://github.com/fastify/fastify\">Fastify</a> lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-21"
+  "updated": "2017-09-23"
 },{
   "id": "ffaker",
   "title": "FFaker",
@@ -1010,7 +1010,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-08"
+  "updated": "2018-06-14"
 },{
   "id": "find",
   "title": "Find",
@@ -1021,7 +1021,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2019-10-01"
+  "updated": "2019-11-17"
 },{
   "id": "firebase",
   "title": "Firebase",
@@ -1054,7 +1054,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-16"
+  "updated": "2018-01-31"
 },{
   "id": "flashlight",
   "title": "Flashlight",
@@ -1076,7 +1076,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-20"
+  "updated": "2018-11-07"
 },{
   "id": "flux",
   "title": "Flux architecture",
@@ -1153,7 +1153,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-20"
+  "updated": "2020-02-13"
 },{
   "id": "git-extras",
   "title": "Git extras",
@@ -1175,7 +1175,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-18"
+  "updated": "2018-11-07"
 },{
   "id": "git-log",
   "title": "git log",
@@ -1230,7 +1230,7 @@
   "intro_html": "<p><a href=\"https://gnupg.org/\">GnuPG</a> is a complete and free implementation of the OpenPGP standard.</p>",
   "description_html": "",
   "tags": [],
-  "updated": "2017-10-18"
+  "updated": "2017-10-22"
 },{
   "id": "go",
   "title": "Go",
@@ -1241,7 +1241,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2017-09-15"
+  "updated": "2020-07-02"
 },{
   "id": "goby",
   "title": "Goby",
@@ -1252,7 +1252,7 @@
   "intro_html": "<p>Goby’s language design is based on Ruby language’s, slim and shaped up. Differences in syntax between them is very small.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2018-04-07"
+  "updated": "2018-12-06"
 },{
   "id": "google-webfonts",
   "title": "Google Webfonts",
@@ -1285,7 +1285,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-23"
+  "updated": "2019-07-07"
 },{
   "id": "gremlins",
   "title": "Gremlins.js",
@@ -1296,7 +1296,7 @@
   "intro_html": "<p><a href=\"https://github.com/marmelab/gremlins.js\">Gremlins</a> is a JavaScript library to do “monkey-testing” by providing random user input (clicks, scrolls, and so on).</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-11"
+  "updated": "2017-10-22"
 },{
   "id": "gulp",
   "title": "Gulp",
@@ -1384,7 +1384,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-29"
+  "updated": "2017-08-30"
 },{
   "id": "html-input",
   "title": "Input tag",
@@ -1395,7 +1395,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-29"
+  "updated": "2017-10-30"
 },{
   "id": "html-meta",
   "title": "HTML meta tags",
@@ -1406,7 +1406,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2020-03-20"
 },{
   "id": "html-microformats",
   "title": "Microformats",
@@ -1461,7 +1461,7 @@
   "intro_html": "<p><a href=\"https://httpie.org/\">HTTPie</a> is a command-line HTTP client.</p>",
   "description_html": "<p>$ http POST http://example.com name=”John” Host:example.com — JSON, cookies, files, auth, and other httpie examples.</p>",
   "tags": null,
-  "updated": "2017-09-04"
+  "updated": "2018-11-16"
 },{
   "id": "ie",
   "title": "Internet Explorer",
@@ -1472,7 +1472,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-20"
+  "updated": "2018-03-06"
 },{
   "id": "ie_bugs",
   "title": "Legacy IE bugs",
@@ -1483,7 +1483,7 @@
   "intro_html": "<p>A bunch of bugs to take care of if you’re going to target legacy IE browsers.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-29"
+  "updated": "2018-03-06"
 },{
   "id": "imagemagick",
   "title": "Imagemagick",
@@ -1582,7 +1582,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["WIP"],
-  "updated": "2017-08-26"
+  "updated": "2017-11-17"
 },{
   "id": "jekyll",
   "title": "Jekyll",
@@ -1593,7 +1593,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-01"
+  "updated": "2018-08-25"
 },{
   "id": "jest",
   "title": "Jest",
@@ -1604,7 +1604,7 @@
   "intro_html": "<p>A quick overview to <a href=\"https://facebook.github.io/jest/\">Jest</a>, a test framework for Node.js. This guide targets Jest v20.</p>",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-01"
+  "updated": "2020-06-17"
 },{
   "id": "jquery-cdn",
   "title": "jQuery CDN",
@@ -1725,7 +1725,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2019-01-10"
+  "updated": "2020-06-23"
 },{
   "id": "jshint",
   "title": "Jshint",
@@ -1747,7 +1747,7 @@
   "intro_html": "<p><a href=\"http://knexjs.org/\">Knex</a> is an SQL query builder for Node.js.\nThis guide targets v0.13.0.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-23"
+  "updated": "2020-06-03"
 },{
   "id": "koa",
   "title": "Koa",
@@ -1857,7 +1857,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2020-05-23"
 },{
   "id": "less",
   "title": "Less.js",
@@ -1879,7 +1879,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2017-08-30"
 },{
   "id": "linux",
   "title": "Linux",
@@ -1901,7 +1901,7 @@
   "intro_html": "",
   "description_html": "<p>This is not a complete list.</p>",
   "tags": null,
-  "updated": "2017-10-17"
+  "updated": "2020-06-24"
 },{
   "id": "lua",
   "title": "Lua",
@@ -1978,7 +1978,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-20"
+  "updated": "2020-06-24"
 },{
   "id": "meow",
   "title": "Meow",
@@ -2066,7 +2066,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-05-14"
+  "updated": "2018-05-14"
 },{
   "id": "mocha-blanket",
   "title": "Mocha blanket",
@@ -2143,7 +2143,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-10-10"
+  "updated": "2020-02-12"
 },{
   "id": "mongodb",
   "title": "MongoDB",
@@ -2165,7 +2165,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-12-25"
+  "updated": "2020-01-03"
 },{
   "id": "ncftp",
   "title": "ncftp",
@@ -2286,7 +2286,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-27"
+  "updated": "2019-12-24"
 },{
   "id": "org-mode",
   "title": "Org Mode",
@@ -2319,7 +2319,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-30"
+  "updated": "2020-06-23"
 },{
   "id": "package",
   "title": "package.json",
@@ -2363,7 +2363,7 @@
   "intro_html": "<p><a href=\"http://parsleyjs.org/doc/\">Parsley</a> provides frontend form validation.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-19"
+  "updated": "2018-12-06"
 },{
   "id": "pass",
   "title": "Pass",
@@ -2418,7 +2418,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2017-08-30"
 },{
   "id": "phoenix-conn",
   "title": "Phoenix: Plug.Conn",
@@ -2429,7 +2429,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-29"
+  "updated": "2018-01-19"
 },{
   "id": "phoenix-ecto",
   "title": "Phoenix: Ecto",
@@ -2440,7 +2440,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["WIP"],
-  "updated": "2017-08-29"
+  "updated": "2017-08-30"
 },{
   "id": "phoenix-ecto@1.2",
   "title": "Phoenix: Ecto models",
@@ -2473,7 +2473,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-04"
+  "updated": "2020-02-23"
 },{
   "id": "phoenix-routing",
   "title": "Phoenix: Routing",
@@ -2495,7 +2495,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-01-15"
+  "updated": "2018-03-06"
 },{
   "id": "phoenix@1.2",
   "title": "Phoenix 1.2",
@@ -2506,7 +2506,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-01-15"
+  "updated": "2018-03-06"
 },{
   "id": "wip/php",
   "title": "PHP",
@@ -2539,7 +2539,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-03-15"
+  "updated": "2020-05-08"
 },{
   "id": "polyfill.io",
   "title": "Polyfill.io",
@@ -2550,7 +2550,7 @@
   "intro_html": "<p><a href=\"https://polyfill.io\">Polyfill.io</a> is a service that serves JavaScript polyfills.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-26"
+  "updated": "2020-07-02"
 },{
   "id": "postgresql-json",
   "title": "PostgreSQL JSON",
@@ -2561,7 +2561,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-09-22"
+  "updated": "2018-12-06"
 },{
   "id": "postgresql",
   "title": "PostgreSQL",
@@ -2638,7 +2638,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-08-31"
+  "updated": "2017-10-30"
 },{
   "id": "python",
   "title": "Python",
@@ -2836,7 +2836,7 @@
   "intro_html": "<p><a href=\"https://github.com/rbenv/rbenv\">rbenv</a> lets you manage installations of multiple Ruby versions.</p>",
   "description_html": "<p>A one-page guide to rbenv Ruby version manager, with usage examples and more.</p>",
   "tags": null,
-  "updated": "2017-10-11"
+  "updated": "2018-02-20"
 },{
   "id": "rdoc",
   "title": "Rdoc",
@@ -2865,11 +2865,11 @@
   "url": "/react",
   "category": "React",
   "keywords": ["React.Component","render()","componentDidMount()","props/state","dangerouslySetInnerHTML"],
-  "content_html": "<h2 class=\"-three-column\" id=\"components\">Components</h2>\n\n<h3 class=\"-prime\" id=\"components-1\">Components</h3>\n\n<pre class=\"-setup\"><code class=\"language-jsx\">import React from 'react'\nimport ReactDOM from 'react-dom'\n</code></pre>\n\n<pre><code class=\"language-jsx\">class Hello extends React.Component {\n  render () {\n    return &lt;div className='message-box'&gt;\n      Hello {this.props.name}\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">const el = document.body\nReactDOM.render(&lt;Hello name='John' /&gt;, el)\n</code></pre>\n\n<p>Use the <a href=\"http://jsfiddle.net/reactjs/69z2wepo/\">React.js jsfiddle</a> to start hacking. (or the unofficial <a href=\"http://jsbin.com/yafixat/edit?js,output\">jsbin</a>)</p>\n\n<h3 class=\"-prime\" id=\"import-multiple-exports\">Import multiple exports</h3>\n\n<pre class=\"-setup\"><code class=\"language-jsx\">import React, {Component} from 'react'\nimport ReactDOM from 'react-dom'\n</code></pre>\n\n<pre><code class=\"language-jsx\">class Hello extends Component {\n  ...\n}\n</code></pre>\n\n<h3 id=\"properties\">Properties</h3>\n\n<pre class=\"-setup\"><code class=\"language-html\">&lt;Video fullscreen={true} autoplay={false} /&gt;\n</code></pre>\n\n<pre data-line=\"2,3\"><code class=\"language-jsx\">render () {\n  this.props.fullscreen\n  const { fullscreen, autoplay } = this.props\n  ···\n}\n</code></pre>\n\n<p>Use <code>this.props</code> to access properties passed to the component.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/tutorial.html#using-props\">Properties</a></p>\n\n<h3 id=\"states\">States</h3>\n\n<pre><code class=\"language-jsx\">constructor(props) {\n  super(props)\n  this.state = { username: undefined }\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.setState({ username: 'rstacruz' })\n</code></pre>\n\n<pre data-line=\"2,3\"><code class=\"language-jsx\">render () {\n  this.state.username\n  const { username } = this.state\n  ···\n}\n</code></pre>\n\n<p>Use states (<code>this.state</code>) to manage dynamic data.</p>\n\n<p>With <a href=\"https://babeljs.io/\">Babel</a> you can use <a href=\"https://github.com/tc39/proposal-class-fields\">proposal-class-fields</a> and get rid of constructor</p>\n\n<pre><code class=\"language-jsx\">class Hello extends Component {\n  state = { username: undefined };\n  ...\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/tutorial.html#reactive-state\">States</a></p>\n\n<h3 id=\"nesting\">Nesting</h3>\n\n<pre><code class=\"language-jsx\">class Info extends Component {\n  render () {\n    const { avatar, username } = this.props\n\n    return &lt;div&gt;\n      &lt;UserAvatar src={avatar} /&gt;\n      &lt;UserProfile username={username} /&gt;\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n<p>As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.</p>\n\n<pre><code class=\"language-jsx\">import React, {\n  Component,\n  Fragment\n} from 'react'\n\nclass Info extends Component {\n  render () {\n    const { avatar, username } = this.props\n\n    return (\n      &lt;Fragment&gt;\n        &lt;UserAvatar src={avatar} /&gt;\n        &lt;UserProfile username={username} /&gt;\n      &lt;/Fragment&gt;\n    )\n  }\n}\n</code></pre>\n\n<p data-line=\"5,6,7,8,9,10\">Nest components to separate concerns.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/components-and-props.html#composing-components\">Composing Components</a></p>\n\n<h3 id=\"children\">Children</h3>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">&lt;AlertBox&gt;\n  &lt;h1&gt;You have pending notifications&lt;/h1&gt;\n&lt;/AlertBox&gt;\n</code></pre>\n\n<pre data-line=\"4\"><code class=\"language-jsx\">class AlertBox extends Component {\n  render () {\n    return &lt;div className='alert-box'&gt;\n      {this.props.children}\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n\n<p>Children are passed as the <code>children</code> property.</p>\n\n<h2 id=\"defaults\">Defaults</h2>\n\n<h3 id=\"setting-default-props\">Setting default props</h3>\n\n<pre data-line=\"1\"><code class=\"language-jsx\">Hello.defaultProps = {\n  color: 'blue'\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-component.html#defaultprops\">defaultProps</a></p>\n\n<h3 id=\"setting-default-state\">Setting default state</h3>\n\n<pre data-line=\"4\"><code class=\"language-jsx\">class Hello extends Component {\n  constructor (props) {\n    super(props)\n    this.state = { visible: true }\n  }\n}\n</code></pre>\n\n<p>Set the default state in the <code>constructor()</code>.</p>\n\n<p>And without constructor using <a href=\"https://babeljs.io/\">Babel</a> with <a href=\"https://github.com/tc39/proposal-class-fields\">proposal-class-fields</a>.</p>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">class Hello extends Component {\n    state = { visible: true }\n  }\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state\">Setting the default state</a></p>\n\n<h2 class=\"-three-column\" id=\"other-components\">Other components</h2>\n\n<h3 id=\"functional-components\">Functional components</h3>\n\n<pre data-line=\"1\"><code class=\"language-jsx\">function MyComponent ({ name }) {\n  return &lt;div className='message-box'&gt;\n    Hello {name}\n  &lt;/div&gt;\n}\n</code></pre>\n\n<p>Functional components have no state. Also, their <code>props</code> are passed as the first parameter to a function.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/components-and-props.html#functional-and-class-components\">Function and Class Components</a></p>\n\n<h3 id=\"pure-components\">Pure components</h3>\n\n<pre data-line=\"3\"><code class=\"language-jsx\">import React, {PureComponent} from 'react'\n\nclass MessageBox extends PureComponent {\n  ···\n}\n</code></pre>\n\n<p>Performance-optimized version of <code>React.Component</code>. Doesn’t rerender if props/state hasn’t changed.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-api.html#react.purecomponent\">Pure components</a></p>\n\n<h3 id=\"component-api\">Component API</h3>\n\n<pre><code class=\"language-jsx\">this.forceUpdate()\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.setState({ ... })\nthis.setState(state =&gt; { ... })\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.state\nthis.props\n</code></pre>\n\n<p>These methods and properties are available for <code>Component</code> instances.</p>\n\n<p>See: <a href=\"http://facebook.github.io/react/docs/component-api.html\">Component API</a></p>\n\n<h2 class=\"-two-column\" id=\"lifecycle\">Lifecycle</h2>\n\n<h3 id=\"mounting\">Mounting</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Method</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>constructor</code> <em>(props)</em></td>\n      <td>Before rendering <a href=\"https://reactjs.org/docs/react-component.html#constructor\">#</a></td>\n    </tr>\n    <tr>\n      <td><code>componentWillMount()</code></td>\n      <td><em>Don’t use this</em> <a href=\"https://reactjs.org/docs/react-component.html#componentwillmount\">#</a></td>\n    </tr>\n    <tr>\n      <td><code>render()</code></td>\n      <td>Render  <a href=\"https://reactjs.org/docs/react-component.html#render\">#</a></td>\n    </tr>\n    <tr>\n      <td><code>componentDidMount()</code></td>\n      <td>After rendering (DOM available) <a href=\"https://reactjs.org/docs/react-component.html#componentdidmount\">#</a></td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>componentWillUnmount()</code></td>\n      <td>Before DOM removal <a href=\"https://reactjs.org/docs/react-component.html#componentwillunmount\">#</a></td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>componentDidCatch()</code></td>\n      <td>Catch errors (16+) <a href=\"https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html\">#</a></td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Set initial the state on <code>constructor()</code>.\nAdd DOM event handlers, timers (etc) on <code>componentDidMount()</code>, then remove them on <code>componentWillUnmount()</code>.</p>\n\n<h3 id=\"updating\">Updating</h3>\n\n<table>\n  <thead>\n    <tr>\n      <th>Method</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>componentDidUpdate</code> <em>(prevProps, prevState, snapshot)</em></td>\n      <td>Use <code>setState()</code> here, but remember to compare props</td>\n    </tr>\n    <tr>\n      <td><code>shouldComponentUpdate</code> <em>(newProps, newState)</em></td>\n      <td>Skips <code>render()</code> if returns false</td>\n    </tr>\n    <tr>\n      <td><code>render()</code></td>\n      <td>Render</td>\n    </tr>\n    <tr>\n      <td><code>componentDidUpdate</code> <em>(prevProps, prevState)</em></td>\n      <td>Operate on the DOM here</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Called when parents change properties and <code>.setState()</code>. These are not called for initial renders.</p>\n\n<p>See: <a href=\"http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops\">Component specs</a></p>\n\n<h2 class=\"-two-column\" id=\"hooks-new\">Hooks (New)</h2>\n\n<h3 id=\"state-hook\">State Hook</h3>\n\n<pre data-line=\"5,10\"><code class=\"language-jsx\">import React, { useState } from 'react';\n\nfunction Example() {\n  // Declare a new state variable, which we'll call \"count\"\n  const [count, setCount] = useState(0);\n\n  return (\n    &lt;div&gt;\n      &lt;p&gt;You clicked {count} times&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;\n        Click me\n      &lt;/button&gt;\n    &lt;/div&gt;\n  );\n}\n</code></pre>\n\n<p>Hooks are a new addition in React 16.8.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/hooks-overview.html\">Hooks at a Glance</a></p>\n\n<h3 id=\"declaring-multiple-state-variables\">Declaring multiple state variables</h3>\n\n<pre><code class=\"language-jsx\">function ExampleWithManyStates() {\n  // Declare multiple state variables!\n  const [age, setAge] = useState(42);\n  const [fruit, setFruit] = useState('banana');\n  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);\n  // ...\n}\n</code></pre>\n\n<h3 id=\"effect-hook\">Effect hook</h3>\n\n<pre data-line=\"6,7,8,9,10\"><code class=\"language-jsx\">import React, { useState, useEffect } from 'react';\n\nfunction Example() {\n  const [count, setCount] = useState(0);\n\n  // Similar to componentDidMount and componentDidUpdate:\n  useEffect(() =&gt; {\n    // Update the document title using the browser API\n    document.title = `You clicked ${count} times`;\n  }, [count]);\n\n  return (\n    &lt;div&gt;\n      &lt;p&gt;You clicked {count} times&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;\n        Click me\n      &lt;/button&gt;\n    &lt;/div&gt;\n  );\n}\n</code></pre>\n\n<p>If you’re familiar with React class lifecycle methods, you can think of <code>useEffect</code> Hook as <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> combined.</p>\n\n<p>By default, React runs the effects after every render — including the first render.</p>\n\n<h3 id=\"building-your-own-hooks\">Building your own hooks</h3>\n\n<h4 id=\"define-friendstatus\">Define FriendStatus</h4>\n<pre data-line=\"11,12,13,14\"><code class=\"language-jsx\">import React, { useState, useEffect } from 'react';\n\nfunction FriendStatus(props) {\n  const [isOnline, setIsOnline] = useState(null);\n\n  useEffect(() =&gt; {\n    function handleStatusChange(status) {\n      setIsOnline(status.isOnline);\n    }\n\n    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);\n    return () =&gt; {\n      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);\n    };\n  }, [props.friend.id]);\n\n  if (isOnline === null) {\n    return 'Loading...';\n  }\n  return isOnline ? 'Online' : 'Offline';\n}\n</code></pre>\n\n<p>Effects may also optionally specify how to “clean up” after them by returning a function.</p>\n\n<h4 id=\"use-friendstatus\">Use FriendStatus</h4>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">function FriendStatus(props) {\n  const isOnline = useFriendStatus(props.friend.id);\n\n  if (isOnline === null) {\n    return 'Loading...';\n  }\n  return isOnline ? 'Online' : 'Offline';\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/hooks-custom.html\">Building Your Own Hooks</a></p>\n\n<h3 id=\"hooks-api-reference\">Hooks API Reference</h3>\n\n<p>Also see: <a href=\"https://reactjs.org/docs/hooks-faq.html\">Hooks FAQ</a></p>\n\n<h4 id=\"basic-hooks\">Basic Hooks</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Hook</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>useState</code><em>(initialState)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useEffect</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useContext</code><em>(MyContext)</em></td>\n      <td>value returned from <code>React.createContext</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Full details: <a href=\"https://reactjs.org/docs/hooks-reference.html#basic-hooks\">Basic Hooks</a></p>\n\n<h4 id=\"additional-hooks\">Additional Hooks</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Hook</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>useReducer</code><em>(reducer, initialArg, init)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useCallback</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useMemo</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useRef</code><em>(initialValue)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useImperativeHandle</code><em>(ref, () =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useLayoutEffect</code></td>\n      <td>identical to <code>useEffect</code>, but it fires synchronously after all DOM mutations</td>\n    </tr>\n    <tr>\n      <td><code>useDebugValue</code><em>(value)</em></td>\n      <td>display a label for custom hooks in React DevTools</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Full details: <a href=\"https://reactjs.org/docs/hooks-reference.html#additional-hooks\">Additional Hooks</a></p>\n\n<h2 class=\"-two-column\" id=\"dom-nodes\">DOM nodes</h2>\n\n<h3 id=\"references\">References</h3>\n\n<pre data-line=\"4,9\"><code class=\"language-jsx\">class MyComponent extends Component {\n  render () {\n    return &lt;div&gt;\n      &lt;input ref={el =&gt; this.input = el} /&gt;\n    &lt;/div&gt;\n  }\n\n  componentDidMount () {\n    this.input.focus()\n  }\n}\n</code></pre>\n\n<p>Allows access to DOM nodes.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/refs-and-the-dom.html\">Refs and the DOM</a></p>\n\n<h3 id=\"dom-events\">DOM Events</h3>\n\n<pre data-line=\"5,9\"><code class=\"language-jsx\">class MyComponent extends Component {\n  render () {\n    &lt;input type=\"text\"\n        value={this.state.value}\n        onChange={event =&gt; this.onChange(event)} /&gt;\n  }\n\n  onChange (event) {\n    this.setState({ value: event.target.value })\n  }\n}\n</code></pre>\n\n<p>Pass functions to attributes like <code>onChange</code>.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/events.html\">Events</a></p>\n\n<h2 id=\"other-features\">Other features</h2>\n\n<h3 id=\"transferring-props\">Transferring props</h3>\n\n<pre class=\"-setup\"><code class=\"language-html\">&lt;VideoPlayer src=\"video.mp4\" /&gt;\n</code></pre>\n\n<pre data-line=\"3\"><code class=\"language-jsx\">class VideoPlayer extends Component {\n  render () {\n    return &lt;VideoEmbed {...this.props} /&gt;\n  }\n}\n</code></pre>\n\n<p>Propagates <code>src=\"...\"</code> down to the sub-component.</p>\n\n<p>See <a href=\"http://facebook.github.io/react/docs/transferring-props.html\">Transferring props</a></p>\n\n<h3 id=\"top-level-api\">Top-level API</h3>\n\n<pre><code class=\"language-jsx\">React.createClass({ ... })\nReact.isValidElement(c)\n</code></pre>\n\n<pre><code class=\"language-jsx\">ReactDOM.render(&lt;Component /&gt;, domnode, [callback])\nReactDOM.unmountComponentAtNode(domnode)\n</code></pre>\n\n<pre><code class=\"language-jsx\">ReactDOMServer.renderToString(&lt;Component /&gt;)\nReactDOMServer.renderToStaticMarkup(&lt;Component /&gt;)\n</code></pre>\n\n<p>There are more, but these are most common.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-api.html\">React top-level API</a></p>\n\n<h2 class=\"-two-column\" id=\"jsx-patterns\">JSX patterns</h2>\n\n<h3 id=\"style-shorthand\">Style shorthand</h3>\n\n<pre><code class=\"language-jsx\">const style = { height: 10 }\nreturn &lt;div style={style}&gt;&lt;/div&gt;\n</code></pre>\n\n<pre><code class=\"language-jsx\">return &lt;div style={{ margin: 0, padding: 0 }}&gt;&lt;/div&gt;\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/tips/inline-styles.html\">Inline styles</a></p>\n\n<h3 id=\"inner-html\">Inner HTML</h3>\n\n<pre><code class=\"language-jsx\">function markdownify() { return \"&lt;p&gt;...&lt;/p&gt;\"; }\n&lt;div dangerouslySetInnerHTML={{__html: markdownify()}} /&gt;\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/tips/dangerously-set-inner-html.html\">Dangerously set innerHTML</a></p>\n\n<h3 id=\"lists\">Lists</h3>\n\n<pre data-line=\"6,7\"><code class=\"language-jsx\">class TodoList extends Component {\n  render () {\n    const { items } = this.props\n\n    return &lt;ul&gt;\n      {items.map(item =&gt;\n        &lt;TodoItem item={item} key={item.key} /&gt;)}\n    &lt;/ul&gt;\n  }\n}\n</code></pre>\n\n<p>Always supply a <code>key</code> property.</p>\n\n<h3 id=\"conditionals\">Conditionals</h3>\n\n<pre><code class=\"language-jsx\">&lt;Fragment&gt;\n  {showMyComponent\n    ? &lt;MyComponent /&gt;\n    : &lt;OtherComponent /&gt;}\n&lt;/Fragment&gt;\n</code></pre>\n\n<h3 id=\"short-circuit-evaluation\">Short-circuit evaluation</h3>\n\n<pre><code class=\"language-jsx\">&lt;Fragment&gt;\n  {showPopup &amp;&amp; &lt;Popup /&gt;}\n  ...\n&lt;/Fragment&gt;\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"new-features\">New features</h2>\n\n<h3 id=\"returning-multiple-elements\">Returning multiple elements</h3>\n\n<p>You can return multiple elements as arrays or fragments.</p>\n\n<h4 id=\"arrays\">Arrays</h4>\n\n<pre data-line=\"3,4,5,6\"><code class=\"language-js\">render () {\n  // Don't forget the keys!\n  return [\n    &lt;li key=\"A\"&gt;First item&lt;/li&gt;,\n    &lt;li key=\"B\"&gt;Second item&lt;/li&gt;\n  ]\n}\n</code></pre>\n\n<h4 id=\"fragments\">Fragments</h4>\n<pre data-line=\"3,4,5,6,7,8\"><code class=\"language-js\">render () {\n  // Fragments don't require keys!\n  return (\n    &lt;Fragment&gt;\n      &lt;li&gt;First item&lt;/li&gt;\n      &lt;li&gt;Second item&lt;/li&gt;\n    &lt;/Fragment&gt;\n  )\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings\">Fragments and strings</a></p>\n\n<h3 id=\"returning-strings\">Returning strings</h3>\n\n<pre data-line=\"2\"><code class=\"language-js\">render() {\n  return 'Look ma, no spans!';\n}\n</code></pre>\n\n<p>You can return just a string.</p>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings\">Fragments and strings</a></p>\n\n<h3 id=\"errors\">Errors</h3>\n\n<pre data-line=\"3,4,5\"><code class=\"language-js\">class MyComponent extends Component {\n  ···\n  componentDidCatch (error, info) {\n    this.setState({ error })\n  }\n}\n</code></pre>\n\n<p>Catch errors via <code>componentDidCatch</code>. (React 16+)</p>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html\">Error handling in React 16</a></p>\n\n<h3 id=\"portals\">Portals</h3>\n\n<pre data-line=\"2,3,4,5\"><code class=\"language-js\">render () {\n  return React.createPortal(\n    this.props.children,\n    document.getElementById('menu')\n  )\n}\n</code></pre>\n\n<p>This renders <code>this.props.children</code> into any location in the DOM.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/portals.html\">Portals</a></p>\n\n<h3 id=\"hydration\">Hydration</h3>\n\n<pre data-line=\"2\"><code class=\"language-js\">const el = document.getElementById('app')\nReactDOM.hydrate(&lt;App /&gt;, el)\n</code></pre>\n\n<p>Use <code>ReactDOM.hydrate</code> instead of using <code>ReactDOM.render</code> if you’re rendering over the output of <a href=\"https://reactjs.org/docs/react-dom-server.html\">ReactDOMServer</a>.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-dom.html#hydrate\">Hydrate</a></p>\n\n<h2 class=\"-three-column\" id=\"property-validation\">Property validation</h2>\n\n<h3 id=\"proptypes\">PropTypes</h3>\n\n<pre class=\"-setup\"><code class=\"language-js\">import PropTypes from 'prop-types'\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/typechecking-with-proptypes.html\">Typechecking with PropTypes</a></p>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>any</code></td>\n      <td>Anything</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"basic\">Basic</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>string</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>number</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>func</code></td>\n      <td>Function</td>\n    </tr>\n    <tr>\n      <td><code>bool</code></td>\n      <td>True or false</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"enum\">Enum</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>oneOf</code><em>(any)</em></td>\n      <td>Enum types</td>\n    </tr>\n    <tr>\n      <td><code>oneOfType</code><em>(type array)</em></td>\n      <td>Union</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"array\">Array</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>array</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>arrayOf</code><em>(…)</em></td>\n      <td> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"object\">Object</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>object</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>objectOf</code><em>(…)</em></td>\n      <td>Object with values of a certain type</td>\n    </tr>\n    <tr>\n      <td><code>instanceOf</code><em>(…)</em></td>\n      <td>Instance of a class</td>\n    </tr>\n    <tr>\n      <td><code>shape</code><em>(…)</em></td>\n      <td> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"elements\">Elements</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>element</code></td>\n      <td>React element</td>\n    </tr>\n    <tr>\n      <td><code>node</code></td>\n      <td>DOM node</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"required\">Required</h4>\n\n<table>\n  <tbody>\n    <tr>\n      <td><code>(···).isRequired</code></td>\n      <td>Required</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"basic-types\">Basic types</h3>\n\n<pre><code class=\"language-jsx\">MyComponent.propTypes = {\n  email:      PropTypes.string,\n  seats:      PropTypes.number,\n  callback:   PropTypes.func,\n  isClosed:   PropTypes.bool,\n  any:        PropTypes.any\n}\n</code></pre>\n\n<h3 id=\"required-types\">Required types</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  name:  PropTypes.string.isRequired\n}\n</code></pre>\n\n<h3 id=\"elements-1\">Elements</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  // React element\n  element: PropTypes.element,\n\n  // num, string, element, or an array of those\n  node: PropTypes.node\n}\n</code></pre>\n\n<h3 id=\"enumerables-oneof\">Enumerables (oneOf)</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  direction: PropTypes.oneOf([\n    'left', 'right'\n  ])\n}\n</code></pre>\n\n<h3 id=\"arrays-and-objects\">Arrays and objects</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  list: PropTypes.array,\n  ages: PropTypes.arrayOf(PropTypes.number),\n  user: PropTypes.object,\n  user: PropTypes.objectOf(PropTypes.number),\n  message: PropTypes.instanceOf(Message)\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  user: PropTypes.shape({\n    name: PropTypes.string,\n    age:  PropTypes.number\n  })\n}\n</code></pre>\n\n<p>Use <code>.array[Of]</code>, <code>.object[Of]</code>, <code>.instanceOf</code>, <code>.shape</code>.</p>\n\n<h3 id=\"custom-validation\">Custom validation</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  customProp: (props, key, componentName) =&gt; {\n    if (!/matchme/.test(props[key])) {\n      return new Error('Validation failed!')\n    }\n  }\n}\n</code></pre>\n\n<h2 id=\"also-see\">Also see</h2>\n\n<ul>\n  <li><a href=\"https://reactjs.org\">React website</a> <em>(reactjs.org)</em></li>\n  <li><a href=\"https://reactcheatsheet.com/\">React cheatsheet</a> <em>(reactcheatsheet.com)</em></li>\n  <li><a href=\"https://github.com/enaqx/awesome-react\">Awesome React</a> <em>(github.com)</em></li>\n  <li><a href=\"react@0.14\">React v0.14 cheatsheet</a> <em>Legacy version</em></li>\n</ul>",
+  "content_html": "<h2 class=\"-three-column\" id=\"components\">Components</h2>\n\n<h3 class=\"-prime\" id=\"components-1\">Components</h3>\n\n<pre class=\"-setup\"><code class=\"language-jsx\">import React from 'react'\nimport ReactDOM from 'react-dom'\n</code></pre>\n\n<pre><code class=\"language-jsx\">class Hello extends React.Component {\n  render () {\n    return &lt;div className='message-box'&gt;\n      Hello {this.props.name}\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">const el = document.body\nReactDOM.render(&lt;Hello name='John' /&gt;, el)\n</code></pre>\n\n<p>Use the <a href=\"http://jsfiddle.net/reactjs/69z2wepo/\">React.js jsfiddle</a> to start hacking. (or the unofficial <a href=\"http://jsbin.com/yafixat/edit?js,output\">jsbin</a>)</p>\n\n<h3 class=\"-prime\" id=\"import-multiple-exports\">Import multiple exports</h3>\n\n<pre class=\"-setup\"><code class=\"language-jsx\">import React, {Component} from 'react'\nimport ReactDOM from 'react-dom'\n</code></pre>\n\n<pre><code class=\"language-jsx\">class Hello extends Component {\n  ...\n}\n</code></pre>\n\n<h3 id=\"properties\">Properties</h3>\n\n<pre class=\"-setup\"><code class=\"language-html\">&lt;Video fullscreen={true} autoplay={false} /&gt;\n</code></pre>\n\n<pre data-line=\"2,3\"><code class=\"language-jsx\">render () {\n  this.props.fullscreen\n  const { fullscreen, autoplay } = this.props\n  ···\n}\n</code></pre>\n\n<p>Use <code>this.props</code> to access properties passed to the component.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/tutorial.html#using-props\">Properties</a></p>\n\n<h3 id=\"states\">States</h3>\n\n<pre><code class=\"language-jsx\">constructor(props) {\n  super(props)\n  this.state = { username: undefined }\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.setState({ username: 'rstacruz' })\n</code></pre>\n\n<pre data-line=\"2,3\"><code class=\"language-jsx\">render () {\n  this.state.username\n  const { username } = this.state\n  ···\n}\n</code></pre>\n\n<p>Use states (<code>this.state</code>) to manage dynamic data.</p>\n\n<p>With <a href=\"https://babeljs.io/\">Babel</a> you can use <a href=\"https://github.com/tc39/proposal-class-fields\">proposal-class-fields</a> and get rid of constructor</p>\n\n<pre><code class=\"language-jsx\">class Hello extends Component {\n  state = { username: undefined };\n  ...\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/tutorial.html#reactive-state\">States</a></p>\n\n<h3 id=\"nesting\">Nesting</h3>\n\n<pre><code class=\"language-jsx\">class Info extends Component {\n  render () {\n    const { avatar, username } = this.props\n\n    return &lt;div&gt;\n      &lt;UserAvatar src={avatar} /&gt;\n      &lt;UserProfile username={username} /&gt;\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n<p>As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.</p>\n\n<pre><code class=\"language-jsx\">import React, {\n  Component,\n  Fragment\n} from 'react'\n\nclass Info extends Component {\n  render () {\n    const { avatar, username } = this.props\n\n    return (\n      &lt;Fragment&gt;\n        &lt;UserAvatar src={avatar} /&gt;\n        &lt;UserProfile username={username} /&gt;\n      &lt;/Fragment&gt;\n    )\n  }\n}\n</code></pre>\n\n<p data-line=\"5,6,7,8,9,10\">Nest components to separate concerns.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/components-and-props.html#composing-components\">Composing Components</a></p>\n\n<h3 id=\"children\">Children</h3>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">&lt;AlertBox&gt;\n  &lt;h1&gt;You have pending notifications&lt;/h1&gt;\n&lt;/AlertBox&gt;\n</code></pre>\n\n<pre data-line=\"4\"><code class=\"language-jsx\">class AlertBox extends Component {\n  render () {\n    return &lt;div className='alert-box'&gt;\n      {this.props.children}\n    &lt;/div&gt;\n  }\n}\n</code></pre>\n\n<p>Children are passed as the <code>children</code> property.</p>\n\n<h2 id=\"defaults\">Defaults</h2>\n\n<h3 id=\"setting-default-props\">Setting default props</h3>\n\n<pre data-line=\"1\"><code class=\"language-jsx\">Hello.defaultProps = {\n  color: 'blue'\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-component.html#defaultprops\">defaultProps</a></p>\n\n<h3 id=\"setting-default-state\">Setting default state</h3>\n\n<pre data-line=\"4\"><code class=\"language-jsx\">class Hello extends Component {\n  constructor (props) {\n    super(props)\n    this.state = { visible: true }\n  }\n}\n</code></pre>\n\n<p>Set the default state in the <code>constructor()</code>.</p>\n\n<p>And without constructor using <a href=\"https://babeljs.io/\">Babel</a> with <a href=\"https://github.com/tc39/proposal-class-fields\">proposal-class-fields</a>.</p>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">class Hello extends Component {\n    state = { visible: true }\n  }\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state\">Setting the default state</a></p>\n\n<h2 class=\"-three-column\" id=\"other-components\">Other components</h2>\n\n<h3 id=\"functional-components\">Functional components</h3>\n\n<pre data-line=\"1\"><code class=\"language-jsx\">function MyComponent ({ name }) {\n  return &lt;div className='message-box'&gt;\n    Hello {name}\n  &lt;/div&gt;\n}\n</code></pre>\n\n<p>Functional components have no state. Also, their <code>props</code> are passed as the first parameter to a function.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/components-and-props.html#functional-and-class-components\">Function and Class Components</a></p>\n\n<h3 id=\"pure-components\">Pure components</h3>\n\n<pre data-line=\"3\"><code class=\"language-jsx\">import React, {PureComponent} from 'react'\n\nclass MessageBox extends PureComponent {\n  ···\n}\n</code></pre>\n\n<p>Performance-optimized version of <code>React.Component</code>. Doesn’t rerender if props/state hasn’t changed.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-api.html#react.purecomponent\">Pure components</a></p>\n\n<h3 id=\"component-api\">Component API</h3>\n\n<pre><code class=\"language-jsx\">this.forceUpdate()\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.setState({ ... })\nthis.setState(state =&gt; { ... })\n</code></pre>\n\n<pre><code class=\"language-jsx\">this.state\nthis.props\n</code></pre>\n\n<p>These methods and properties are available for <code>Component</code> instances.</p>\n\n<p>See: <a href=\"http://facebook.github.io/react/docs/component-api.html\">Component API</a></p>\n\n<h2 class=\"-two-column\" id=\"lifecycle\">Lifecycle</h2>\n\n<h3 id=\"mounting\">Mounting</h3>\n<p>| Method                   | Description                                                                                          |\n| ———————— | —————————————————————————————————- |\n| <code>constructor</code> <em>(props)</em>  | Before rendering <a href=\"https://reactjs.org/docs/react-component.html#constructor\">#</a>                      |\n| <code>componentWillMount()</code>   | <em>Don’t use this</em> <a href=\"https://reactjs.org/docs/react-component.html#componentwillmount\">#</a>               |\n| <code>render()</code>               | Render <a href=\"https://reactjs.org/docs/react-component.html#render\">#</a>                                     |\n| <code>componentDidMount()</code>    | After rendering (DOM available) <a href=\"https://reactjs.org/docs/react-component.html#componentdidmount\">#</a> |\n| —                      | —                                                                                                  |\n| <code>componentWillUnmount()</code> | Before DOM removal <a href=\"https://reactjs.org/docs/react-component.html#componentwillunmount\">#</a>           |\n| —                      | —                                                                                                  |\n| <code>componentDidCatch()</code>    | Catch errors (16+) <a href=\"https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html\">#</a>          |</p>\n\n<p>Set initial the state on <code>constructor()</code>.\nAdd DOM event handlers, timers (etc) on <code>componentDidMount()</code>, then remove them on <code>componentWillUnmount()</code>.</p>\n\n<h3 id=\"updating\">Updating</h3>\n<p>| Method                                                  | Description                                          |\n| ——————————————————- | —————————————————- |\n| <code>componentDidUpdate</code> <em>(prevProps, prevState, snapshot)</em> | Use <code>setState()</code> here, but remember to compare props |\n| <code>shouldComponentUpdate</code> <em>(newProps, newState)</em>          | Skips <code>render()</code> if returns false                    |\n| <code>render()</code>                                              | Render                                               |\n| <code>componentDidUpdate</code> <em>(prevProps, prevState)</em>           | Operate on the DOM here                              |</p>\n\n<p>Called when parents change properties and <code>.setState()</code>. These are not called for initial renders.</p>\n\n<p>See: <a href=\"http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops\">Component specs</a></p>\n\n<h2 class=\"-two-column\" id=\"hooks-new\">Hooks (New)</h2>\n\n<h3 id=\"state-hook\">State Hook</h3>\n\n<pre data-line=\"5,10\"><code class=\"language-jsx\">import React, { useState } from 'react';\n\nfunction Example() {\n  // Declare a new state variable, which we'll call \"count\"\n  const [count, setCount] = useState(0);\n\n  return (\n    &lt;div&gt;\n      &lt;p&gt;You clicked {count} times&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;\n        Click me\n      &lt;/button&gt;\n    &lt;/div&gt;\n  );\n}\n</code></pre>\n\n<p>Hooks are a new addition in React 16.8.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/hooks-overview.html\">Hooks at a Glance</a></p>\n\n<h3 id=\"declaring-multiple-state-variables\">Declaring multiple state variables</h3>\n\n<pre><code class=\"language-jsx\">function ExampleWithManyStates() {\n  // Declare multiple state variables!\n  const [age, setAge] = useState(42);\n  const [fruit, setFruit] = useState('banana');\n  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);\n  // ...\n}\n</code></pre>\n\n<h3 id=\"effect-hook\">Effect hook</h3>\n\n<pre data-line=\"6,7,8,9,10\"><code class=\"language-jsx\">import React, { useState, useEffect } from 'react';\n\nfunction Example() {\n  const [count, setCount] = useState(0);\n\n  // Similar to componentDidMount and componentDidUpdate:\n  useEffect(() =&gt; {\n    // Update the document title using the browser API\n    document.title = `You clicked ${count} times`;\n  }, [count]);\n\n  return (\n    &lt;div&gt;\n      &lt;p&gt;You clicked {count} times&lt;/p&gt;\n      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;\n        Click me\n      &lt;/button&gt;\n    &lt;/div&gt;\n  );\n}\n</code></pre>\n\n<p>If you’re familiar with React class lifecycle methods, you can think of <code>useEffect</code> Hook as <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> combined.</p>\n\n<p>By default, React runs the effects after every render — including the first render.</p>\n\n<h3 id=\"building-your-own-hooks\">Building your own hooks</h3>\n\n<h4 id=\"define-friendstatus\">Define FriendStatus</h4>\n<pre data-line=\"11,12,13,14\"><code class=\"language-jsx\">import React, { useState, useEffect } from 'react';\n\nfunction FriendStatus(props) {\n  const [isOnline, setIsOnline] = useState(null);\n\n  useEffect(() =&gt; {\n    function handleStatusChange(status) {\n      setIsOnline(status.isOnline);\n    }\n\n    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);\n    return () =&gt; {\n      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);\n    };\n  }, [props.friend.id]);\n\n  if (isOnline === null) {\n    return 'Loading...';\n  }\n  return isOnline ? 'Online' : 'Offline';\n}\n</code></pre>\n\n<p>Effects may also optionally specify how to “clean up” after them by returning a function.</p>\n\n<h4 id=\"use-friendstatus\">Use FriendStatus</h4>\n\n<pre data-line=\"2\"><code class=\"language-jsx\">function FriendStatus(props) {\n  const isOnline = useFriendStatus(props.friend.id);\n\n  if (isOnline === null) {\n    return 'Loading...';\n  }\n  return isOnline ? 'Online' : 'Offline';\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/hooks-custom.html\">Building Your Own Hooks</a></p>\n\n<h3 id=\"hooks-api-reference\">Hooks API Reference</h3>\n\n<p>Also see: <a href=\"https://reactjs.org/docs/hooks-faq.html\">Hooks FAQ</a></p>\n\n<h4 id=\"basic-hooks\">Basic Hooks</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Hook</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>useState</code><em>(initialState)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useEffect</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useContext</code><em>(MyContext)</em></td>\n      <td>value returned from <code>React.createContext</code></td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Full details: <a href=\"https://reactjs.org/docs/hooks-reference.html#basic-hooks\">Basic Hooks</a></p>\n\n<h4 id=\"additional-hooks\">Additional Hooks</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Hook</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>useReducer</code><em>(reducer, initialArg, init)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useCallback</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useMemo</code><em>(() =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useRef</code><em>(initialValue)</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useImperativeHandle</code><em>(ref, () =&gt; { … })</em></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>useLayoutEffect</code></td>\n      <td>identical to <code>useEffect</code>, but it fires synchronously after all DOM mutations</td>\n    </tr>\n    <tr>\n      <td><code>useDebugValue</code><em>(value)</em></td>\n      <td>display a label for custom hooks in React DevTools</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Full details: <a href=\"https://reactjs.org/docs/hooks-reference.html#additional-hooks\">Additional Hooks</a></p>\n\n<h2 class=\"-two-column\" id=\"dom-nodes\">DOM nodes</h2>\n\n<h3 id=\"references\">References</h3>\n\n<pre data-line=\"4,9\"><code class=\"language-jsx\">class MyComponent extends Component {\n  render () {\n    return &lt;div&gt;\n      &lt;input ref={el =&gt; this.input = el} /&gt;\n    &lt;/div&gt;\n  }\n\n  componentDidMount () {\n    this.input.focus()\n  }\n}\n</code></pre>\n\n<p>Allows access to DOM nodes.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/refs-and-the-dom.html\">Refs and the DOM</a></p>\n\n<h3 id=\"dom-events\">DOM Events</h3>\n\n<pre data-line=\"5,9\"><code class=\"language-jsx\">class MyComponent extends Component {\n  render () {\n    &lt;input type=\"text\"\n        value={this.state.value}\n        onChange={event =&gt; this.onChange(event)} /&gt;\n  }\n\n  onChange (event) {\n    this.setState({ value: event.target.value })\n  }\n}\n</code></pre>\n\n<p>Pass functions to attributes like <code>onChange</code>.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/events.html\">Events</a></p>\n\n<h2 id=\"other-features\">Other features</h2>\n\n<h3 id=\"transferring-props\">Transferring props</h3>\n\n<pre class=\"-setup\"><code class=\"language-html\">&lt;VideoPlayer src=\"video.mp4\" /&gt;\n</code></pre>\n\n<pre data-line=\"3\"><code class=\"language-jsx\">class VideoPlayer extends Component {\n  render () {\n    return &lt;VideoEmbed {...this.props} /&gt;\n  }\n}\n</code></pre>\n\n<p>Propagates <code>src=\"...\"</code> down to the sub-component.</p>\n\n<p>See <a href=\"http://facebook.github.io/react/docs/transferring-props.html\">Transferring props</a></p>\n\n<h3 id=\"top-level-api\">Top-level API</h3>\n\n<pre><code class=\"language-jsx\">React.createClass({ ... })\nReact.isValidElement(c)\n</code></pre>\n\n<pre><code class=\"language-jsx\">ReactDOM.render(&lt;Component /&gt;, domnode, [callback])\nReactDOM.unmountComponentAtNode(domnode)\n</code></pre>\n\n<pre><code class=\"language-jsx\">ReactDOMServer.renderToString(&lt;Component /&gt;)\nReactDOMServer.renderToStaticMarkup(&lt;Component /&gt;)\n</code></pre>\n\n<p>There are more, but these are most common.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-api.html\">React top-level API</a></p>\n\n<h2 class=\"-two-column\" id=\"jsx-patterns\">JSX patterns</h2>\n\n<h3 id=\"style-shorthand\">Style shorthand</h3>\n\n<pre><code class=\"language-jsx\">const style = { height: 10 }\nreturn &lt;div style={style}&gt;&lt;/div&gt;\n</code></pre>\n\n<pre><code class=\"language-jsx\">return &lt;div style={{ margin: 0, padding: 0 }}&gt;&lt;/div&gt;\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/tips/inline-styles.html\">Inline styles</a></p>\n\n<h3 id=\"inner-html\">Inner HTML</h3>\n\n<pre><code class=\"language-jsx\">function markdownify() { return \"&lt;p&gt;...&lt;/p&gt;\"; }\n&lt;div dangerouslySetInnerHTML={{__html: markdownify()}} /&gt;\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/tips/dangerously-set-inner-html.html\">Dangerously set innerHTML</a></p>\n\n<h3 id=\"lists\">Lists</h3>\n\n<pre data-line=\"6,7\"><code class=\"language-jsx\">class TodoList extends Component {\n  render () {\n    const { items } = this.props\n\n    return &lt;ul&gt;\n      {items.map(item =&gt;\n        &lt;TodoItem item={item} key={item.key} /&gt;)}\n    &lt;/ul&gt;\n  }\n}\n</code></pre>\n\n<p>Always supply a <code>key</code> property.</p>\n\n<h3 id=\"conditionals\">Conditionals</h3>\n\n<pre><code class=\"language-jsx\">&lt;Fragment&gt;\n  {showMyComponent\n    ? &lt;MyComponent /&gt;\n    : &lt;OtherComponent /&gt;}\n&lt;/Fragment&gt;\n</code></pre>\n\n<h3 id=\"short-circuit-evaluation\">Short-circuit evaluation</h3>\n\n<pre><code class=\"language-jsx\">&lt;Fragment&gt;\n  {showPopup &amp;&amp; &lt;Popup /&gt;}\n  ...\n&lt;/Fragment&gt;\n</code></pre>\n\n<h2 class=\"-three-column\" id=\"new-features\">New features</h2>\n\n<h3 id=\"returning-multiple-elements\">Returning multiple elements</h3>\n\n<p>You can return multiple elements as arrays or fragments.</p>\n\n<h4 id=\"arrays\">Arrays</h4>\n\n<pre data-line=\"3,4,5,6\"><code class=\"language-js\">render () {\n  // Don't forget the keys!\n  return [\n    &lt;li key=\"A\"&gt;First item&lt;/li&gt;,\n    &lt;li key=\"B\"&gt;Second item&lt;/li&gt;\n  ]\n}\n</code></pre>\n\n<h4 id=\"fragments\">Fragments</h4>\n<pre data-line=\"3,4,5,6,7,8\"><code class=\"language-js\">render () {\n  // Fragments don't require keys!\n  return (\n    &lt;Fragment&gt;\n      &lt;li&gt;First item&lt;/li&gt;\n      &lt;li&gt;Second item&lt;/li&gt;\n    &lt;/Fragment&gt;\n  )\n}\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings\">Fragments and strings</a></p>\n\n<h3 id=\"returning-strings\">Returning strings</h3>\n\n<pre data-line=\"2\"><code class=\"language-js\">render() {\n  return 'Look ma, no spans!';\n}\n</code></pre>\n\n<p>You can return just a string.</p>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings\">Fragments and strings</a></p>\n\n<h3 id=\"errors\">Errors</h3>\n\n<pre data-line=\"3,4,5\"><code class=\"language-js\">class MyComponent extends Component {\n  ···\n  componentDidCatch (error, info) {\n    this.setState({ error })\n  }\n}\n</code></pre>\n\n<p>Catch errors via <code>componentDidCatch</code>. (React 16+)</p>\n\n<p>See: <a href=\"https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html\">Error handling in React 16</a></p>\n\n<h3 id=\"portals\">Portals</h3>\n\n<pre data-line=\"2,3,4,5\"><code class=\"language-js\">render () {\n  return React.createPortal(\n    this.props.children,\n    document.getElementById('menu')\n  )\n}\n</code></pre>\n\n<p>This renders <code>this.props.children</code> into any location in the DOM.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/portals.html\">Portals</a></p>\n\n<h3 id=\"hydration\">Hydration</h3>\n\n<pre data-line=\"2\"><code class=\"language-js\">const el = document.getElementById('app')\nReactDOM.hydrate(&lt;App /&gt;, el)\n</code></pre>\n\n<p>Use <code>ReactDOM.hydrate</code> instead of using <code>ReactDOM.render</code> if you’re rendering over the output of <a href=\"https://reactjs.org/docs/react-dom-server.html\">ReactDOMServer</a>.</p>\n\n<p>See: <a href=\"https://reactjs.org/docs/react-dom.html#hydrate\">Hydrate</a></p>\n\n<h2 class=\"-three-column\" id=\"property-validation\">Property validation</h2>\n\n<h3 id=\"proptypes\">PropTypes</h3>\n\n<pre class=\"-setup\"><code class=\"language-js\">import PropTypes from 'prop-types'\n</code></pre>\n\n<p>See: <a href=\"https://reactjs.org/docs/typechecking-with-proptypes.html\">Typechecking with PropTypes</a></p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>any</code></td>\n      <td>Anything</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"basic\">Basic</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>string</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>number</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>func</code></td>\n      <td>Function</td>\n    </tr>\n    <tr>\n      <td><code>bool</code></td>\n      <td>True or false</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"enum\">Enum</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>oneOf</code><em>(any)</em></td>\n      <td>Enum types</td>\n    </tr>\n    <tr>\n      <td><code>oneOfType</code><em>(type array)</em></td>\n      <td>Union</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"array\">Array</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>array</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>arrayOf</code><em>(…)</em></td>\n      <td> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"object\">Object</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>object</code></td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td><code>objectOf</code><em>(…)</em></td>\n      <td>Object with values of a certain type</td>\n    </tr>\n    <tr>\n      <td><code>instanceOf</code><em>(…)</em></td>\n      <td>Instance of a class</td>\n    </tr>\n    <tr>\n      <td><code>shape</code><em>(…)</em></td>\n      <td> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"elements\">Elements</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>element</code></td>\n      <td>React element</td>\n    </tr>\n    <tr>\n      <td><code>node</code></td>\n      <td>DOM node</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"required\">Required</h4>\n\n<table>\n  <thead>\n    <tr>\n      <th>Key</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>(···).isRequired</code></td>\n      <td>Required</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"basic-types\">Basic types</h3>\n\n<pre><code class=\"language-jsx\">MyComponent.propTypes = {\n  email:      PropTypes.string,\n  seats:      PropTypes.number,\n  callback:   PropTypes.func,\n  isClosed:   PropTypes.bool,\n  any:        PropTypes.any\n}\n</code></pre>\n\n<h3 id=\"required-types\">Required types</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  name:  PropTypes.string.isRequired\n}\n</code></pre>\n\n<h3 id=\"elements-1\">Elements</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  // React element\n  element: PropTypes.element,\n\n  // num, string, element, or an array of those\n  node: PropTypes.node\n}\n</code></pre>\n\n<h3 id=\"enumerables-oneof\">Enumerables (oneOf)</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  direction: PropTypes.oneOf([\n    'left', 'right'\n  ])\n}\n</code></pre>\n\n<h3 id=\"arrays-and-objects\">Arrays and objects</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  list: PropTypes.array,\n  ages: PropTypes.arrayOf(PropTypes.number),\n  user: PropTypes.object,\n  user: PropTypes.objectOf(PropTypes.number),\n  message: PropTypes.instanceOf(Message)\n}\n</code></pre>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  user: PropTypes.shape({\n    name: PropTypes.string,\n    age:  PropTypes.number\n  })\n}\n</code></pre>\n\n<p>Use <code>.array[Of]</code>, <code>.object[Of]</code>, <code>.instanceOf</code>, <code>.shape</code>.</p>\n\n<h3 id=\"custom-validation\">Custom validation</h3>\n\n<pre><code class=\"language-jsx\">MyCo.propTypes = {\n  customProp: (props, key, componentName) =&gt; {\n    if (!/matchme/.test(props[key])) {\n      return new Error('Validation failed!')\n    }\n  }\n}\n</code></pre>\n\n<h2 id=\"also-see\">Also see</h2>\n\n<ul>\n  <li><a href=\"https://reactjs.org\">React website</a> <em>(reactjs.org)</em></li>\n  <li><a href=\"https://reactcheatsheet.com/\">React cheatsheet</a> <em>(reactcheatsheet.com)</em></li>\n  <li><a href=\"https://github.com/enaqx/awesome-react\">Awesome React</a> <em>(github.com)</em></li>\n  <li><a href=\"react@0.14\">React v0.14 cheatsheet</a> <em>Legacy version</em></li>\n</ul>",
   "intro_html": "<p><a href=\"https://reactjs.org/\">React</a> is a JavaScript library for building user interfaces. This guide targets React v15 to v16.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2018-10-04"
+  "updated": "2020-07-04"
 },{
   "id": "react@0.14",
   "title": "React.js (v0.14)",
@@ -2902,7 +2902,7 @@
   "intro_html": "",
   "description_html": "<p>Basic cheatsheets for regular expression</p>",
   "tags": null,
-  "updated": "2019-11-14"
+  "updated": "2020-03-10"
 },{
   "id": "rename",
   "title": "rename",
@@ -2924,7 +2924,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-30"
+  "updated": "2020-07-03"
 },{
   "id": "rest-api",
   "title": "RESTful API",
@@ -2935,7 +2935,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-12-25"
+  "updated": "2020-06-06"
 },{
   "id": "riot",
   "title": "Riot.js",
@@ -2957,7 +2957,7 @@
   "intro_html": "<p><a href=\"https://rollupjs.org/\">Rollup</a> Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-11-01"
+  "updated": "2020-01-29"
 },{
   "id": "ronn",
   "title": "Ronn",
@@ -3078,7 +3078,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2017-08-26"
+  "updated": "2020-07-03"
 },{
   "id": "saucelabs",
   "title": "Saucelabs",
@@ -3122,7 +3122,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-08-23"
+  "updated": "2019-12-31"
 },{
   "id": "sequel",
   "title": "Sequel",
@@ -3232,7 +3232,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2018-02-20"
 },{
   "id": "slim",
   "title": "Slim",
@@ -3265,7 +3265,7 @@
   "intro_html": "<p><a href=\"http://spacemacs.org\">Spacemacs</a> is a distribution for Emacs.</p>",
   "description_html": "",
   "tags": ["WIP"],
-  "updated": "2018-02-15"
+  "updated": "2020-05-22"
 },{
   "id": "spine",
   "title": "Spine",
@@ -3298,7 +3298,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-30"
+  "updated": "2018-12-06"
 },{
   "id": "stencil",
   "title": "Stencil",
@@ -3309,7 +3309,7 @@
   "intro_html": "<p><a href=\"https://github.com/ionic-team/stencil\">Stencil</a> is a compiler for web components made by the Ionic team. This guide targets Stencil v0.0.5.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-10-11"
+  "updated": "2019-05-08"
 },{
   "id": "strftime",
   "title": "strftime format",
@@ -3320,7 +3320,7 @@
   "intro_html": "<p>The strftime format is the standard date formatting for UNIX. It’s used in C, Ruby, and more.</p>",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-04"
+  "updated": "2017-11-27"
 },{
   "id": "stylus",
   "title": "Stylus",
@@ -3331,7 +3331,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-20"
+  "updated": "2017-10-30"
 },{
   "id": "sublime-text",
   "title": "Sublime Text",
@@ -3397,7 +3397,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-29"
+  "updated": "2018-11-16"
 },{
   "id": "tmux",
   "title": "tmux",
@@ -3551,7 +3551,7 @@
   "intro_html": "<p><a href=\"http://www.vim.org/\">Vim</a> is a very efficient text editor. This reference was made for Vim 8.0.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2017-08-26"
+  "updated": "2018-12-06"
 },{
   "id": "vim-digraphs",
   "title": "Vim digraphs",
@@ -3617,7 +3617,7 @@
   "intro_html": "<p><a href=\"http://www.vim.org/\">Vim</a> is a very efficient text editor. This reference was made for Vim 8.0. <br />\nFor shortcut notation, see <code>:help key-notation</code>.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2018-09-11"
+  "updated": "2020-07-03"
 },{
   "id": "vimscript-functions",
   "title": "Vimscript functions",
@@ -3650,7 +3650,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-08-30"
+  "updated": "2017-10-30"
 },{
   "id": "virtual-dom",
   "title": "Virtual-dom",
@@ -3683,7 +3683,7 @@
   "intro_html": "<p><a href=\"https://code.visualstudio.com/\">Visual Studio Code</a>, or VSCode, is an open-source code editor. This guide targets VSCode v1.19.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2018-02-03"
+  "updated": "2018-02-12"
 },{
   "id": "vue",
   "title": "Vue.js",
@@ -3815,7 +3815,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-09-08"
+  "updated": "2019-09-30"
 },{
   "id": "znc",
   "title": "ZNC bouncer",

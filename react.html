@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/react.jpg?t=20200703141337' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/react.jpg?t=20200703141337' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/react.jpg?t=20200704133443' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/react.jpg?t=20200704133443' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -103,11 +103,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20200703141337'
+'./assets/2017/style.css?t=20200704133443'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20200703141337'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20200704133443'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -119,7 +119,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "React.js cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/react.jpg?t=20200703141337" ],
+  "image": [ "https://assets.devhints.io/previews/react.jpg?t=20200704133443" ],
   "description": "React.Component · render() · componentDidMount() · props/state · dangerouslySetInnerHTML · React is a JavaScript library for building user interfaces. This guide targets React v15 to v16."
 }
 </script>
@@ -434,77 +434,27 @@ this.props
 <h2 class="-two-column" id="lifecycle">Lifecycle</h2>
 
 <h3 id="mounting">Mounting</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>constructor</code> <em>(props)</em></td>
-      <td>Before rendering <a href="https://reactjs.org/docs/react-component.html#constructor">#</a></td>
-    </tr>
-    <tr>
-      <td><code>componentWillMount()</code></td>
-      <td><em>Don’t use this</em> <a href="https://reactjs.org/docs/react-component.html#componentwillmount">#</a></td>
-    </tr>
-    <tr>
-      <td><code>render()</code></td>
-      <td>Render  <a href="https://reactjs.org/docs/react-component.html#render">#</a></td>
-    </tr>
-    <tr>
-      <td><code>componentDidMount()</code></td>
-      <td>After rendering (DOM available) <a href="https://reactjs.org/docs/react-component.html#componentdidmount">#</a></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>componentWillUnmount()</code></td>
-      <td>Before DOM removal <a href="https://reactjs.org/docs/react-component.html#componentwillunmount">#</a></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>componentDidCatch()</code></td>
-      <td>Catch errors (16+) <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">#</a></td>
-    </tr>
-  </tbody>
-</table>
+<p>| Method                   | Description                                                                                          |
+| ———————— | —————————————————————————————————- |
+| <code>constructor</code> <em>(props)</em>  | Before rendering <a href="https://reactjs.org/docs/react-component.html#constructor">#</a>                      |
+| <code>componentWillMount()</code>   | <em>Don’t use this</em> <a href="https://reactjs.org/docs/react-component.html#componentwillmount">#</a>               |
+| <code>render()</code>               | Render <a href="https://reactjs.org/docs/react-component.html#render">#</a>                                     |
+| <code>componentDidMount()</code>    | After rendering (DOM available) <a href="https://reactjs.org/docs/react-component.html#componentdidmount">#</a> |
+| —                      | —                                                                                                  |
+| <code>componentWillUnmount()</code> | Before DOM removal <a href="https://reactjs.org/docs/react-component.html#componentwillunmount">#</a>           |
+| —                      | —                                                                                                  |
+| <code>componentDidCatch()</code>    | Catch errors (16+) <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">#</a>          |</p>
 
 <p>Set initial the state on <code>constructor()</code>.
 Add DOM event handlers, timers (etc) on <code>componentDidMount()</code>, then remove them on <code>componentWillUnmount()</code>.</p>
 
 <h3 id="updating">Updating</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>componentDidUpdate</code> <em>(prevProps, prevState, snapshot)</em></td>
-      <td>Use <code>setState()</code> here, but remember to compare props</td>
-    </tr>
-    <tr>
-      <td><code>shouldComponentUpdate</code> <em>(newProps, newState)</em></td>
-      <td>Skips <code>render()</code> if returns false</td>
-    </tr>
-    <tr>
-      <td><code>render()</code></td>
-      <td>Render</td>
-    </tr>
-    <tr>
-      <td><code>componentDidUpdate</code> <em>(prevProps, prevState)</em></td>
-      <td>Operate on the DOM here</td>
-    </tr>
-  </tbody>
-</table>
+<p>| Method                                                  | Description                                          |
+| ——————————————————- | —————————————————- |
+| <code>componentDidUpdate</code> <em>(prevProps, prevState, snapshot)</em> | Use <code>setState()</code> here, but remember to compare props |
+| <code>shouldComponentUpdate</code> <em>(newProps, newState)</em>          | Skips <code>render()</code> if returns false                    |
+| <code>render()</code>                                              | Render                                               |
+| <code>componentDidUpdate</code> <em>(prevProps, prevState)</em>           | Operate on the DOM here                              |</p>
 
 <p>Called when parents change properties and <code>.setState()</code>. These are not called for initial renders.</p>
 
@@ -910,6 +860,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <p>See: <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">Typechecking with PropTypes</a></p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>any</code></td>
@@ -921,6 +877,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="basic">Basic</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>string</code></td>
@@ -944,6 +906,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="enum">Enum</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>oneOf</code><em>(any)</em></td>
@@ -959,6 +927,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="array">Array</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>array</code></td>
@@ -974,6 +948,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="object">Object</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>object</code></td>
@@ -997,6 +977,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="elements">Elements</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>element</code></td>
@@ -1012,6 +998,12 @@ ReactDOM.hydrate(&lt;App /&gt;, el)
 <h4 id="required">Required</h4>
 
 <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><code>(···).isRequired</code></td>
@@ -1382,7 +1374,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20200703141337'></script>
+<script src='./assets/packed/app.js?t=20200704133443'></script>
 
 
 

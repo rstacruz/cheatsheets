@@ -282,6 +282,7 @@ done < file.txt
 while true; do
   ···
 done
+
 while :; do
   ···
 done

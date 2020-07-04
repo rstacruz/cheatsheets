@@ -473,6 +473,24 @@ Arrays
 
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
+
+Fruits=(Apple Banana Orange)
+
+Fruits=($(echo Apple Banana Orange))
+
+Fruits=(Apple
+Banana
+Orange)
+
+readarray -t Fruits <<EOF 
+Apple
+Banana
+Orange
+EOF
+
+echo -n 'Apple,Banana,Orange' | readarray -d, -t Fruits
+
+mapfile -t Fruits < fruitlist.txt
 ```
 
 ```bash

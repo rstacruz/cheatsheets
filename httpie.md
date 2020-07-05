@@ -32,7 +32,8 @@ $ http --form POST example.com \
     cv=@document.txt
 ```
 
-### raw JSON
+### Raw JSON
+
 ```bash
 $ echo '{"hello": "world"}' | http POST example.com/post
 ```

@@ -1,62 +1,33 @@
 ---
 title: MySQL
-updated: 2020-01-03
+updated: 2020-03-09
 layout: 2017/sheet
 category: Databases
 ---
 
-### Create / Open / Delete Database
-
-```sql
-CREATE DATABASE dbNameYouWant
-CREATE DATABASE dbNameYouWant CHARACTER SET utf8
-USE dbNameYouWant
-DROP DATABASE dbNameYouWant
-ALTER DATABASE dbNameYouWant CHARACTER SET utf8
-```
-
-### Backup Database to SQL File
-
-```bash
-mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
-```
-
-### Restore from backup SQL File
-
-```bash
-mysql - u Username -p dbNameYouWant < databasename_backup.sql
-```
-
-### Repair Tables After Unclean Shutdown
-
-```bash
-mysqlcheck --all-databases
-mysqlcheck --all-databases --fast
-```
-
 ### Browsing
 
 ```sql
-SHOW DATABASES
-SHOW TABLES
-SHOW FIELDS FROM table / DESCRIBE table
-SHOW CREATE TABLE table
-SHOW PROCESSLIST
-KILL process_number
+SHOW DATABASES;
+SHOW TABLES;
+SHOW FIELDS FROM table / DESCRIBE table;
+SHOW CREATE TABLE table;
+SHOW PROCESSLIST;
+KILL process_number;
 ```
 
 ### Select
 
 ```sql
-SELECT * FROM table
-SELECT * FROM table1, table2, ...
-SELECT field1, field2, ... FROM table1, table2, ...
+SELECT * FROM table;
+SELECT * FROM table1, table2;
+SELECT field1, field2 FROM table1, table2;
 SELECT ... FROM ... WHERE condition
-SELECT ... FROM ... WHERE condition GROUPBY field
-SELECT ... FROM ... WHERE condition GROUPBY field HAVING condition2
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC
-SELECT ... FROM ... WHERE condition LIMIT 10
+SELECT ... FROM ... WHERE condition GROUPBY field;
+SELECT ... FROM ... WHERE condition GROUPBY field HAVING condition2;
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2;
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;
+SELECT ... FROM ... WHERE condition LIMIT 10;
 SELECT DISTINCT field1 FROM ...
 SELECT DISTINCT field1, field2 FROM ...
 ```
@@ -64,8 +35,8 @@ SELECT DISTINCT field1, field2 FROM ...
 ### Select - Join
 
 ```sql
-SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition
-SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition
+SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
+SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 ```
 
@@ -83,10 +54,39 @@ condition1 AND condition2
 condition1 OR condition2
 ```
 
+### Create / Open / Delete Database
+
+```sql
+CREATE DATABASE DatabaseName;
+CREATE DATABASE DatabaseName CHARACTER SET utf8;
+USE DatabaseName;
+DROP DATABASE DatabaseName;
+ALTER DATABASE DatabaseName CHARACTER SET utf8;
+```
+
+### Backup Database to SQL File
+
+```bash
+mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
+```
+
+### Restore from backup SQL File
+
+```bash
+mysql - u Username -p dbNameYouWant < databasename_backup.sql;
+```
+
+### Repair Tables After Unclean Shutdown
+
+```bash
+mysqlcheck --all-databases;
+mysqlcheck --all-databases --fast;
+```
+
 ### Insert
 
 ```sql
-INSERT INTO table1 (field1, field2, ...) VALUES (value1, value2, ...)
+INSERT INTO table1 (field1, field2) VALUES (value1, value2);
 ```
 
 ### Delete
@@ -101,9 +101,9 @@ DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
 ### Update
 
 ```sql
-UPDATE table1 SET field1=new_value1 WHERE condition
+UPDATE table1 SET field1=new_value1 WHERE condition;
 UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
-  table1.id1 = table2.id2 AND condition
+  table1.id1 = table2.id2 AND condition;
 ```
 
 ### Create / Delete / Modify Table
@@ -111,11 +111,10 @@ UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
 #### Create
 
 ```sql
-CREATE TABLE table (field1 type1, field2 type2, ...)
-CREATE TABLE table (field1 type1, field2 type2, ..., INDEX (field))
-CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1))
-CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1,
-field2))
+CREATE TABLE table (field1 type1, field2 type2);
+CREATE TABLE table (field1 type1, field2 type2, INDEX (field));
+CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));
+CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));
 ```
 
 ```sql
@@ -130,18 +129,18 @@ CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,
 ```
 
 ```sql
-CREATE TABLE table IF NOT EXISTS (...)
+CREATE TABLE table IF NOT EXISTS;
 ```
 
 ```sql
-CREATE TEMPORARY TABLE table (...)
+CREATE TEMPORARY TABLE table;
 ```
 
 #### Drop
 
 ```sql
-DROP TABLE table
-DROP TABLE IF EXISTS table
+DROP TABLE table;
+DROP TABLE IF EXISTS table;
 DROP TABLE table1, table2, ...
 ```
 
@@ -182,20 +181,22 @@ CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2
 ### Users and Privileges
 
 ```sql
+CREATE USER 'user'@'localhost';
 GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
+FLUSH PRIVILEGES;
 ```
 
 ```sql
-SET PASSWORD = PASSWORD('new_pass')
-SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass')
-SET PASSWORD = OLD_PASSWORD('new_pass')
+SET PASSWORD = PASSWORD('new_pass');
+SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');
+SET PASSWORD = OLD_PASSWORD('new_pass');
 ```
 
 ```sql
-DROP USER 'user'@'host'
+DROP USER 'user'@'host';
 ```
 
 Host ‘%’ indicates any host.

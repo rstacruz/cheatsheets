@@ -154,7 +154,7 @@ echo ${STR/foo/bar} # /path/to/bar.cpp
 ```bash
 STR="Hello world"
 echo ${STR:6:5}   # "world"
-echo ${STR:-5:5}  # "world"
+echo ${STR: -5:5}  # "world"
 ```
 
 ```bash

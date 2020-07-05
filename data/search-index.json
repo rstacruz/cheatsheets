@@ -1485,17 +1485,6 @@
   "tags": ["WIP"],
   "updated": null
 },{
-  "id": "inline-docs",
-  "title": "Inline documentation",
-  "url": "/inline-docs",
-  "category": "Others",
-  "keywords": null,
-  "content_html": "<ul>\n  <li>Ruby: rdoc</li>\n  <li>JavaScript: jsdoc</li>\n</ul>\n\n<h3 id=\"rdoc\">RDoc</h3>\n\n<pre><code># Gets a circle's area\n#\n# @example\n#\n#   area(3)\n#   #=&gt; 28.27\n#\n# @param [Number] r The radius of the ricle\n# @return [true] If so\n#\n# == Definition lists\n#\n# list::  hi.\n# +foo+:: parameterized\n#\n# == Definition lists\n# [foo]   also\n# [bar]   like this\n</code></pre>\n\n<p>http://rdoc.rubyforge.org/RDoc/Markup.html</p>\n\n<h3 id=\"jsdoc\">Jsdoc</h3>\n\n<pre><code>/**\n * Ads numbers\n *\n * @this {Circle}\n * @param {Number} r The radius\n</code></pre>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "wip/intl-datetime",
   "title": "Intl.DateTimeFormat",
   "url": "/wip/intl-datetime",

@@ -265,9 +265,9 @@ html.WithJs.LoadDone .pages-list, html.WithJs.LoadDone .post-content.-wrapified,
 @media (min-width: 768px) and (max-width: 1280px) { .h3-section > .body > h4 { font-size: calc( 12px + 0 * ( ( 100vw - 768px) / 512 ) ); } }
 @media (min-width: 1280px) { .h3-section > .body > h4 { font-size: 12px; } }
 .h3-section > .body > h4 + * { border-top: solid 1px rgba(102, 119, 136, 0.1); }
-.h3-section > .body > pre ~ p, .h3-section > .body > ul ~ p, .h3-section > .body > iframe ~ p, .h3-section > .body > table ~ p { background: #f8f9fa; color: #667788; /* Links */ }
-.h3-section > .body > pre ~ p a, .h3-section > .body > pre ~ p a:visited, .h3-section > .body > ul ~ p a, .h3-section > .body > ul ~ p a:visited, .h3-section > .body > iframe ~ p a, .h3-section > .body > iframe ~ p a:visited, .h3-section > .body > table ~ p a, .h3-section > .body > table ~ p a:visited { color: #345; text-decoration: none; border-bottom: solid 1px rgba(102, 119, 136, 0.1); }
-.h3-section > .body > pre ~ p a:hover, .h3-section > .body > ul ~ p a:hover, .h3-section > .body > iframe ~ p a:hover, .h3-section > .body > table ~ p a:hover { color: #26648e; }
+.h3-section > .body p { background: #f8f9fa; color: #667788; /* Links */ }
+.h3-section > .body p a, .h3-section > .body p a:visited { color: #345; text-decoration: none; border-bottom: solid 1px rgba(102, 119, 136, 0.1); }
+.h3-section > .body p a:hover { color: #26648e; }
 .h3-section > .body > *:not(:first-child) { border-top: solid 1px rgba(102, 119, 136, 0.1); }
 .h3-section > .body > p + p, .h3-section > .body > p + p:not(:first-child) { margin-top: -1.5em; border-top: 0; }
 
@@ -288,6 +288,21 @@ ul.-also-see.-also-see.-also-see > li > em { font-size: 11px; display: block; }
 @media (min-width: 480px) and (max-width: 768px) { ul.-also-see.-also-see.-also-see > li > em { font-size: calc( 11px + 1 * ( ( 100vw - 480px) / 288 ) ); } }
 @media (min-width: 768px) and (max-width: 1280px) { ul.-also-see.-also-see.-also-see > li > em { font-size: calc( 12px + 0 * ( ( 100vw - 768px) / 512 ) ); } }
 @media (min-width: 1280px) { ul.-also-see.-also-see.-also-see > li > em { font-size: 12px; } }
+
+.h3-section.-intro > .body > p { font-size: 15px; }
+@media (min-width: 480px) and (max-width: 768px) { .h3-section.-intro > .body > p { font-size: calc( 15px + 1 * ( ( 100vw - 480px) / 288 ) ); } }
+@media (min-width: 768px) and (max-width: 1280px) { .h3-section.-intro > .body > p { font-size: calc( 16px + 0 * ( ( 100vw - 768px) / 512 ) ); } }
+@media (min-width: 1280px) { .h3-section.-intro > .body > p { font-size: 16px; } }
+.h3-section.-intro > .body > ul > li { padding-left: 16px; position: relative; }
+.h3-section.-intro > .body > ul > li::before { display: none; }
+.h3-section.-intro > .body > ul > li > a { font-size: 15px; display: block; font-weight: bold; }
+@media (min-width: 480px) and (max-width: 768px) { .h3-section.-intro > .body > ul > li > a { font-size: calc( 15px + 1 * ( ( 100vw - 480px) / 288 ) ); } }
+@media (min-width: 768px) and (max-width: 1280px) { .h3-section.-intro > .body > ul > li > a { font-size: calc( 16px + 0 * ( ( 100vw - 768px) / 512 ) ); } }
+@media (min-width: 1280px) { .h3-section.-intro > .body > ul > li > a { font-size: 16px; } }
+.h3-section.-intro > .body > ul > li > a::before { content: ''; display: inline-block; vertical-align: middle; background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22rgb(150%2C155%2C207)%22%20d%3D%22M85%20277.375h259.704L225.002%20397.077%20256%20427l171-171L256%2085l-29.922%2029.924%20118.626%20119.7H85v42.75z%22%2F%3E%3C%2Fsvg%3E") center center/24px 24px no-repeat; height: 24px; width: 24px; position: absolute; right: 16px; top: 50%; margin-top: -12px; }
+.h3-section.-intro > .body > ul > li:hover > a::before { display: inline-block; vertical-align: middle; background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22rgb(116%2C95%2C181)%22%20d%3D%22M85%20277.375h259.704L225.002%20397.077%20256%20427l171-171L256%2085l-29.922%2029.924%20118.626%20119.7H85v42.75z%22%2F%3E%3C%2Fsvg%3E") center center/24px 24px no-repeat; height: 24px; width: 24px; }
+.h3-section.-intro > .body > ul > li > a::after { content: ''; position: absolute; display: block; top: 0; left: 0; bottom: 0; right: 0; }
+.h3-section.-intro > .body > ul > li em { color: #667788; }
 
 /* H3 section list: The body that is isotoped. */
 .h3-section-list { margin-left: -16px; margin-right: -16px; margin-top: 0; margin-bottom: 0; }
@@ -356,15 +371,17 @@ ul.-also-see.-also-see.-also-see > li > em { font-size: 11px; display: block; }
 @media (max-width: 768px) { .main-heading { margin-bottom: 8px; margin-top: 32px; } }
 @media (max-width: 480px) { .main-heading { margin-bottom: 8px; margin-top: 32px; } }
 .main-heading { margin-top: 0; margin-bottom: 0; }
-.main-heading > h1 { font-size: 40px; line-height: 1.2; font-weight: 200; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; margin: 0; }
+.main-heading > h1 { font-size: 40px; line-height: 1.2; font-weight: 200; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; margin: 0; text-align: center; }
 @media (min-width: 480px) and (max-width: 768px) { .main-heading > h1 { font-size: calc( 40px + 6 * ( ( 100vw - 480px) / 288 ) ); } }
 @media (min-width: 768px) and (max-width: 1280px) { .main-heading > h1 { font-size: calc( 46px + 3 * ( ( 100vw - 768px) / 512 ) ); } }
 @media (min-width: 1280px) { .main-heading > h1 { font-size: 49px; } }
 .main-heading > h1 > em { font-style: normal; color: #9eaab6; }
+.main-heading > .pubbox { margin-top: 16px; text-align: center; }
+@media (min-width: 769px) { .main-heading > .pubbox { margin-top: 24px; margin-bottom: 24px; } }
 
-.main-heading.-center > h1 { text-align: center; }
-.main-heading.-center > .pubbox { margin-top: 16px; text-align: center; }
-@media (min-width: 769px) { .main-heading.-center > .pubbox { margin-top: 24px; margin-bottom: 24px; } }
+@media (min-width: 769px) { .UseCompactHeader .main-heading { display: flex; align-items: flex-end; margin-bottom: 32px; }
+  .UseCompactHeader .main-heading > h1 { flex: 1 0 auto; text-align: left; padding-right: 32px; }
+  .UseCompactHeader .main-heading > .pubbox { flex: 0 0 auto; margin-top: 0; margin-bottom: 0; } }
 
 /** Add some space in preview mode */
 .PreviewMode .main-heading { margin-top: 16px; }

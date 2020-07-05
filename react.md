@@ -281,6 +281,7 @@ Lifecycle
 {: .-two-column}
 
 ### Mounting
+
 | Method                   | Description                                                                                          |
 | ------------------------ | ---------------------------------------------------------------------------------------------------- |
 | `constructor` _(props)_  | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor)                      |
@@ -296,6 +297,7 @@ Set initial the state on `constructor()`.
 Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
 
 ### Updating
+
 | Method                                                  | Description                                          |
 | ------------------------------------------------------- | ---------------------------------------------------- |
 | `componentDidUpdate` _(prevProps, prevState, snapshot)_ | Use `setState()` here, but remember to compare props |

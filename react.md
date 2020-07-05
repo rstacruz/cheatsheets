@@ -215,8 +215,7 @@ And without constructor using [Babel](https://babeljs.io/) with [proposal-class-
 
 ```jsx
 class Hello extends Component {
-    state = { visible: true }
-  }
+  state = { visible: true }
 }
 ```
 {: data-line="2"}

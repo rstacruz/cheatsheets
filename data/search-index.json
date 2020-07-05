@@ -2112,17 +2112,6 @@
   "tags": ["Featurable"],
   "updated": "2018-09-15"
 },{
-  "id": "mongodb",
-  "title": "MongoDB",
-  "url": "/mongodb",
-  "category": "Development",
-  "keywords": null,
-  "content_html": "<h2 id=\"querying\">Querying</h2>\n\n<p>```\n{ name: ‘john’ }\n{ name: { $eq: ‘john’ } }</p>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "mysql",
   "title": "MySQL",
   "url": "/mysql",

@@ -519,7 +519,7 @@ h3 + pre, h3 + table { margin-top: -1em; }
 .HeadlinePub .carbon-text:hover, .HeadlinePub .carbon-poweredby:hover { color: #333; }
 .HeadlinePub .carbon-poweredby, .HeadlinePub .carbon-poweredby:visited { white-space: nowrap; color: #678; }
 .HeadlinePub { position: relative; display: block; margin-left: auto; margin-right: auto; }
-.HeadlinePub #carbonads ~ .placeholder { display: none; }
+.HeadlinePub #carbonads ~ .placeholder { opacity: 0; transition: opacity 250ms linear; pointer-events: none; }
 .HeadlinePub > .placeholder { background-image: linear-gradient(92deg, rgba(102, 119, 136, 0.1), rgba(102, 119, 136, 0.17) 15%, rgba(102, 119, 136, 0.1) 30%); background-size: 450px 100%; animation: 2.5s ease-in-out infinite placeholder-swish; border-radius: 3px; position: absolute; display: block; }
 .HeadlinePub > .placeholder.-one { left: 0; top: 0; width: 83px; height: 64px; }
 .HeadlinePub > .placeholder.-two, .HeadlinePub > .placeholder.-three, .HeadlinePub > .placeholder.-four { left: 99px; top: 6px; height: 8px; width: 280px; }
@@ -527,9 +527,14 @@ h3 + pre, h3 + table { margin-top: -1em; }
 .HeadlinePub > .placeholder.-four { top: 50px; width: 80px; }
 .HeadlinePub #carbonads { position: relative; z-index: 1; }
 .HeadlinePub, .HeadlinePub > div > span { display: block; width: 380px; height: 64px; text-align: left; }
+.HighlightPubFirstLine .HeadlinePub > div > span:first-line { font-weight: bold; }
 .HeadlinePub > div > span::after { content: ''; display: table; clear: both; zoom: 1; }
 .HeadlinePub .carbon-img { float: left; margin-right: 16px; }
+
+#carbonads { animation: 250ms ease-out pub-text-enter; }
 
 @keyframes placeholder-swish { 0% { background-position: -150px 0%; }
   50% { background-position: 300px 0%; }
   100% { background-position: 300px 0%; } }
+@keyframes pub-text-enter { 0% { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; } }

@@ -2662,17 +2662,6 @@
   "tags": null,
   "updated": null
 },{
-  "id": "rails-features",
-  "title": "Rails features",
-  "url": "/rails-features",
-  "category": "Rails",
-  "keywords": null,
-  "content_html": "<h3 id=\"page-caching\"><a href=\"https://github.com/rails/actionpack-page_caching\">Page caching</a></h3>\n\n<pre><code>class WeblogController &lt; ActionController::Base\n  caches_page :show, :new\nend\n</code></pre>\n\n<p>This will generate cache files such as <code>weblog/show/5.html</code> and \n<code>weblog/new.html</code>, which match the URLs used that would normally trigger dynamic \npage generation</p>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "rails-forms",
   "title": "Form helpers",
   "url": "/rails-forms",
@@ -2977,17 +2966,6 @@
   "keywords": null,
   "content_html": "<h2 class=\"-three-column\" id=\"shortcuts\">Shortcuts</h2>\n\n<h3 id=\"global\">Global</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>^q</code></td>\n      <td>Quit</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"main-view\">Main view</h3>\n\n<table class=\"-shortcuts\">\n  <thead>\n    <tr>\n      <th>Shortcut</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><code>bksp</code></td>\n      <td>Add torrent</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>-&gt;</code></td>\n      <td>View download</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>1</code> <em>-</em> <code>7</code></td>\n      <td>Change view</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>^S</code></td>\n      <td>Start download</td>\n    </tr>\n    <tr>\n      <td><code>^D</code></td>\n      <td>Stop download (or remove stopped)</td>\n    </tr>\n    <tr>\n      <td><code>^K</code></td>\n      <td>Close a torrent</td>\n    </tr>\n  </tbody>\n  <tbody>\n    <tr>\n      <td><code>+</code> <em>/</em> <code>-</code></td>\n      <td>Change priority</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"throttling\">Throttling</h3>\n\n<h4 id=\"upload\">Upload</h4>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>a</code> <em>/</em> <code>s</code> <em>/</em> <code>d</code></td>\n      <td>Increase upload throttle by 1/5/50 KB</td>\n    </tr>\n    <tr>\n      <td><code>z</code> <em>/</em> <code>x</code> <em>/</em> <code>c</code></td>\n      <td>Decrease upload throttle by 1/5/50 KB</td>\n    </tr>\n  </tbody>\n</table>\n\n<h4 id=\"download\">Download</h4>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>A</code> <em>/</em> <code>S</code> <em>/</em> <code>D</code></td>\n      <td>Increase download throttle by 1/5/50 KB</td>\n    </tr>\n    <tr>\n      <td><code>Z</code> <em>/</em> <code>X</code> <em>/</em> <code>C</code></td>\n      <td>Decrease download throttle by 1/5/50 KB</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"download-view\">Download view</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>1</code> <em>/</em> <code>2</code></td>\n      <td>Adjust max uploads</td>\n    </tr>\n    <tr>\n      <td><code>3</code> <em>/</em> <code>4</code></td>\n      <td>Adjust min peers</td>\n    </tr>\n    <tr>\n      <td><code>5</code> <em>/</em> <code>6</code></td>\n      <td>Adjust max peers</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"file-list-view\">File list view</h3>\n\n<table class=\"-shortcuts\">\n  <tbody>\n    <tr>\n      <td><code>space</code></td>\n      <td>Change priority</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2 id=\"also-see\">Also see</h2>\n\n<ul>\n  <li><a href=\"https://rakshasa.github.io/rtorrent/\">rTorrent website</a> <em>(rakshasa.github.io)</em></li>\n  <li><a href=\"https://github.com/rakshasa/rtorrent/wiki\">rTorrent wiki</a> <em>(github.com)</em></li>\n</ul>",
   "intro_html": "<p><a href=\"https://rakshasa.github.io/rtorrent/\">rTorrent</a> is a command-line torrent application. Here are some shortcut keys.</p>",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
-  "id": "rubiks",
-  "title": "Rubiks cube",
-  "url": "/rubiks",
-  "category": "Others",
-  "keywords": null,
-  "content_html": "<h3 id=\"getting-the-cross\">Getting the cross</h3>\n\n<ul>\n  <li>L (N W C)</li>\n  <li>line (E C W)</li>\n  <li>cross (N E W S C)</li>\n</ul>\n\n<p><code>F R U R' U' F'</code></p>\n\n<h3 id=\"aligning-the-crosss-sides\">Aligning the cross’s sides</h3>\n\n<ul>\n  <li>Nothing aligned</li>\n  <li>line (N C S)</li>\n  <li>L (N C E)</li>\n  <li>All are aligned</li>\n</ul>\n\n<p><code>R U R' U R 2U R'</code></p>\n\n<h3 id=\"aligning-the-corners\">Aligning the corners</h3>\n\n<ul>\n  <li>0 spots ok</li>\n  <li>1 spot ok in south-east</li>\n  <li>4 spots ok: proceed</li>\n</ul>\n\n<p><code>U R U' L' U R' U' L</code></p>",
-  "intro_html": "",
   "description_html": "",
   "tags": null,
   "updated": null

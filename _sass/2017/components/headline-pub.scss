@@ -135,6 +135,10 @@ $placeholder-bg-size: 450px;
     text-align: left;
   }
 
+  .HighlightPubFirstLine & > div > span:first-line {
+    font-weight: bold;
+  }
+
   // Clearfix
   & > div > span::after {
     content: '';

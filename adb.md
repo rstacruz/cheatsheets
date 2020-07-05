@@ -5,7 +5,7 @@ layout: 2017/sheet
 weight: -1
 authors:
   - github: ZackNeyland
-updated: 2018-03-07
+updated: 2018-03-06
 ---
 
 ### Device Basics

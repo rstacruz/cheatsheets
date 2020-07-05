@@ -5,7 +5,7 @@ prism_languages: [go, bash]
 weight: -3
 tags: [Featured]
 category: C-like
-updated: 2020-07-02
+updated: 2020-06-21
 ---
 
 ## Getting started

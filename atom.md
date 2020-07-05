@@ -2,7 +2,7 @@
 title: Atom
 category: Apps
 layout: 2017/sheet
-updated: 2020-07-03
+updated: 2018-06-14
 ---
 
 ## Shortcuts

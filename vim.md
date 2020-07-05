@@ -3,7 +3,7 @@ title: Vim
 category: Vim
 layout: 2017/sheet
 tags: [Featured]
-updated: 2018-09-11
+updated: 2020-07-03
 weight: -10
 intro: |
  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
@@ -18,7 +18,7 @@ Getting started
 {: .-prime}
 
 | Shortcut       | Description                      |
-| ---            | ---                              |
+| -------------- | -------------------------------- |
 | `:qa`          | Close all files                  |
 | `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
@@ -43,7 +43,7 @@ Getting started
 #### Words
 
 | Shortcut     | Description               |
-ff| ---          | ---                       |
+| ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
 | `ge` _/_ `e` | Previous/next end of word |
 {: .-shortcuts}
@@ -102,6 +102,7 @@ ff| ---          | ---                       |
 | Shortcut | Description                         |
 | ---      | ---                                 |
 | `a`      | Append                              |
+| `A`      | Append from end of line             |
 | `i`      | Insert                              |
 | `o`      | Next line                           |
 | `O`      | Previous line                       |
@@ -127,15 +128,18 @@ ff| ---          | ---                       |
 
 ### Clipboard
 
-| Shortcut | Description         |
-| ---      | ---                 |
-| `x`      | Delete character    |
-| ---      | ---                 |
-| `dd`     | Delete line _(Cut)_ |
-| `yy`     | Yank line _(Copy)_  |
-| ---      | ---                 |
-| `p`      | Paste               |
-| `P`      | Paste before        |
+| Shortcut        | Description                 |
+| ---             | ---                         |
+| `x`             | Delete character            |
+| ---             | ---                         |
+| `dd`            | Delete line _(Cut)_         |
+| `yy`            | Yank line _(Copy)_          |
+| ---             | ---                         |
+| `p`             | Paste                       |
+| `P`             | Paste before                |
+| ---             | ---                         |
+| `"*p` _/_ `"+p` | Paste from system clipboard |
+| `"*y` _/_ `"+y` | Paste to system clipboard   |
 {: .-shortcuts}
 
 ### Visual mode
@@ -258,7 +262,7 @@ See [Operators](#operators) for other things you can do.
  
 | Shortcut                             | Description                              |
 | ---                                  | ---                                      |
-| `gvimdiff file1 file2 [file3]`       | See differencies between files, in HMI   |
+| `gvimdiff file1 file2 [file3]`       | See differences between files, in HMI    |
  
 
 Misc
@@ -289,6 +293,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut            | Description                |
 | ---                 | ---                        |
+| `%`                 | Nearest/matching `{[()]}`  |
 | `[(` `[{` `[<`      | Previous `(` or `{` or `<` |
 | `])`                | Next                       |
 | ---                 | ---                        |

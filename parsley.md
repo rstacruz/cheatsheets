@@ -1,6 +1,6 @@
 ---
 title: Parsley.js
-updated: 2017-10-19
+updated: 2018-12-06
 weight: -1
 layout: 2017/sheet
 category: JavaScript libraries

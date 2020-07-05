@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2019-10-02
+updated: 2020-07-04
 keywords:
   - Variables
   - Functions
@@ -102,9 +102,11 @@ See: [Unofficial bash strict mode](http://redsymbol.net/articles/unofficial-bash
 echo {A,B}.js
 ```
 
-| `{A,B}` | Same as `A B` |
+| Expression | Description         |
+| ---------- | ------------------- |
+| `{A,B}`    | Same as `A B`       |
 | `{A,B}.js` | Same as `A.js B.js` |
-| `{1..5}` | Same as `1 2 3 4 5` |
+| `{1..5}`   | Same as `1 2 3 4 5` |
 
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
@@ -138,6 +140,7 @@ See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 STR="/path/to/foo.cpp"
 echo ${STR%.cpp}    # /path/to/foo
 echo ${STR%.cpp}.o  # /path/to/foo.o
+echo ${STR%/*}      # /path/to
 
 echo ${STR##*.}     # cpp (extension)
 echo ${STR##*/}     # foo.cpp (basepath)
@@ -162,19 +165,19 @@ DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 
 ### Substitution
 
-| Code | Description |
-| --- | --- |
-| `${FOO%suffix}` | Remove suffix |
-| `${FOO#prefix}` | Remove prefix |
-| --- | --- |
-| `${FOO%%suffix}` | Remove long suffix |
-| `${FOO##prefix}` | Remove long prefix |
-| --- | --- |
-| `${FOO/from/to}` | Replace first match |
-| `${FOO//from/to}` | Replace all |
-| --- | --- |
-| `${FOO/%from/to}` | Replace suffix |
-| `${FOO/#from/to}` | Replace prefix |
+| Code              | Description         |
+| ----------------- | ------------------- |
+| `${FOO%suffix}`   | Remove suffix       |
+| `${FOO#prefix}`   | Remove prefix       |
+| ---               | ---                 |
+| `${FOO%%suffix}`  | Remove long suffix  |
+| `${FOO##prefix}`  | Remove long prefix  |
+| ---               | ---                 |
+| `${FOO/from/to}`  | Replace first match |
+| `${FOO//from/to}` | Replace all         |
+| ---               | ---                 |
+| `${FOO/%from/to}` | Replace suffix      |
+| `${FOO/#from/to}` | Replace prefix      |
 
 ### Comments
 
@@ -192,12 +195,16 @@ comment
 
 ### Substrings
 
-| `${FOO:0:3}`  | Substring _(position, length)_ |
-| `${FOO:-3:3}` | Substring from the right |
+| Expression      | Description                    |
+| --------------- | ------------------------------ |
+| `${FOO:0:3}`    | Substring _(position, length)_ |
+| `${FOO:(-3):3}` | Substring from the right       |
 
 ### Length
 
-| `${#FOO}` | Length of `$FOO` |
+| Expression | Description      |
+| ---------- | ---------------- |
+| `${#FOO}`  | Length of `$FOO` |
 
 ### Manipulation
 
@@ -211,15 +218,16 @@ echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
 echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
 ```
 
-
 ### Default values
 
-| `${FOO:-val}`        | `$FOO`, or `val` if not set |
-| `${FOO:=val}`        | Set `$FOO` to `val` if not set |
-| `${FOO:+val}`        | `val` if `$FOO` is set |
-| `${FOO:?message}`    | Show error message and exit if `$FOO` is not set |
+| Expression        | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| `${FOO:-val}`     | `$FOO`, or `val` if unset (or null)                      |
+| `${FOO:=val}`     | Set `$FOO` to `val` if unset (or null)                   |
+| `${FOO:+val}`     | `val` if `$FOO` is set (and not null)                    |
+| `${FOO:?message}` | Show error message and exit if `$FOO` is unset (or null) |
 
-The `:` is optional (eg, `${FOO=word}` works)
+Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
 
 Loops
 -----
@@ -363,13 +371,15 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
 
-| Condition              | Description              |
-| ---                    | ---                      |
-| `[[ -o noclobber ]]`   | If OPTIONNAME is enabled |
-| ---                    | ---                      |
-| `[[ ! EXPR ]]`         | Not                      |
-| `[[ X ]] && [[ Y ]]`   | And                      |
-| `[[ X ]] || [[ Y ]]`   | Or                       |
+#### More conditions
+
+| Condition            | Description              |
+| -------------------- | ------------------------ |
+| `[[ -o noclobber ]]` | If OPTIONNAME is enabled |
+| ---                  | ---                      |
+| `[[ ! EXPR ]]`       | Not                      |
+| `[[ X && Y ]]`       | And                      |
+| `[[ X || Y ]]`       | Or                       |
 
 ### File conditions
 
@@ -396,12 +406,14 @@ if [[ -z "$string" ]]; then
   echo "String is empty"
 elif [[ -n "$string" ]]; then
   echo "String is not empty"
+else
+  echo "This never happens"
 fi
 ```
 
 ```bash
 # Combinations
-if [[ X ]] && [[ Y ]]; then
+if [[ X && Y ]]; then
   ...
 fi
 ```
@@ -447,11 +459,13 @@ Fruits[2]="Orange"
 
 ```bash
 echo ${Fruits[0]}           # Element #0
+echo ${Fruits[-1]}          # Last element
 echo ${Fruits[@]}           # All elements, space-separated
 echo ${#Fruits[@]}          # Number of elements
 echo ${#Fruits}             # String length of the 1st element
 echo ${#Fruits[3]}          # String length of the Nth element
 echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
+echo ${!Fruits[@]}          # Keys of all elements, space-separated
 ```
 
 ### Operations
@@ -551,34 +565,42 @@ History
 
 ### Commands
 
-| `history` | Show history |
+| Command               | Description                               |
+| --------------------- | ----------------------------------------- |
+| `history`             | Show history                              |
 | `shopt -s histverify` | Don't execute expanded result immediately |
 
 ### Expansions
 
-| `!$` | Expand last parameter of most recent command |
-| `!*` | Expand all parameters of most recent command |
-| `!-n` | Expand `n`th most recent command |
-| `!n` | Expand `n`th command in history |
+| Expression   | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| `!$`         | Expand last parameter of most recent command         |
+| `!*`         | Expand all parameters of most recent command         |
+| `!-n`        | Expand `n`th most recent command                     |
+| `!n`         | Expand `n`th command in history                      |
 | `!<command>` | Expand most recent invocation of command `<command>` |
 
 ### Operations
 
-| `!!` | Execute last command again |         
-| `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
-| `!$:t` | Expand only basename from last parameter of most recent command |
-| `!$:h` | Expand only directory from last parameter of most recent command |
+| Code                 | Description                                                           |
+| -------------------- | --------------------------------------------------------------------- |
+| `!!`                 | Execute last command again                                            |
+| `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
+| `!$:t`               | Expand only basename from last parameter of most recent command       |
+| `!$:h`               | Expand only directory from last parameter of most recent command      |
 
 `!!` and `!$` can be replaced with any valid expansion.
 
 ### Slices
 
-| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
-| `!^` | Expand first argument from most recent command |
-| `!$` | Expand last token from most recent command |
-| `!!:n-m` | Expand range of tokens from most recent command |
-| `!!:n-$` | Expand `n`th token to last from most recent command |
+| Code     | Description                                                                              |
+| -------- | ---------------------------------------------------------------------------------------- |
+| `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^`     | Expand first argument from most recent command                                           |
+| `!$`     | Expand last token from most recent command                                               |
+| `!!:n-m` | Expand range of tokens from most recent command                                          |
+| `!!:n-$` | Expand `n`th token to last from most recent command                                      |
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 
@@ -721,10 +743,12 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| `$?` | Exit status of last task |
-| `$!` | PID of last background task |
-| `$$` | PID of shell |
-| `$0` | Filename of the shell script |
+| Expression | Description                  |
+| ---------- | ---------------------------- |
+| `$?`       | Exit status of last task     |
+| `$!`       | PID of last background task  |
+| `$$`       | PID of shell                 |
+| `$0`       | Filename of the shell script |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

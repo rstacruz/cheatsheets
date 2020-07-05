@@ -1,7 +1,7 @@
 ---
 title: Polyfill.io
 category: JavaScript libraries
-updated: 2017-10-26
+updated: 2020-07-02
 layout: 2017/sheet
 intro: |
   [Polyfill.io](https://polyfill.io) is a service that serves JavaScript polyfills.
@@ -14,7 +14,6 @@ intro: |
 ```html
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 ```
-
 {: .-wrap}
 
 This is the default script for Polyfill.io.

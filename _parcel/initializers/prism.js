@@ -1,0 +1,1 @@
+window.Prism = require('prismjs')

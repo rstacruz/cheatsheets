@@ -1,2 +1,2 @@
-enabled: false
-src: //cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=ricostacruzcom
+enabled: true
+src: https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio

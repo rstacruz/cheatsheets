@@ -1,0 +1,164 @@
+$placeholder-bg-size: 450px;
+
+/*
+ * Base carbon ads style
+ */
+
+@mixin carbon-style {
+  .carbon-img,
+  .carbon-text,
+  .carbon-poweredby {
+    text-decoration: none;
+  }
+
+  // Increase hit area
+  .carbon-text,
+  .carbon-poweredby {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .carbon-img > img {
+    width: 83px; // 13:10 ratio
+    height: 64px;
+    box-shadow: $shadow3;
+    border-radius: 3px;
+    background: rgba($gray-text, 0.2);
+    color: transparent;
+  }
+
+  .carbon-img:hover img {
+    transform: translate3d(0, -1px, 0);
+    box-shadow: $shadow6;
+  }
+
+  .carbon-text,
+  .carbon-text:visited {
+    color: $base-text;
+  }
+
+  // Allow line breaks
+  .carbon-text::after {
+    content: '  ';
+  }
+
+  .carbon-text:hover,
+  .carbon-poweredby:hover {
+    color: $base-b;
+  }
+
+  .carbon-poweredby,
+  .carbon-poweredby:visited {
+    white-space: nowrap;
+    color: $gray-text;
+  }
+}
+
+/*
+ * Carbon ads
+ *
+ *     .HeadlinePub
+ *       div#carbonads
+ *         span
+ *           span.carbon-wrap
+ *             a.carbon-img > img
+ *             a.carbon-text {description}
+ *           a.carbon-poweredby {powered by Carbon}
+ */
+
+.HeadlinePub {
+  @include carbon-style;
+
+  & {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Hide placeholders after carbon has loaded
+  #carbonads ~ .placeholder {
+    display: none;
+  }
+
+  & > .placeholder {
+    background-image: linear-gradient(
+      92deg,
+      rgba($gray-text, 0.1),
+      rgba($gray-text, 0.17) 15%,
+      rgba($gray-text, 0.1) 30%
+    );
+    background-size: $placeholder-bg-size 100%;
+    animation: 2.5s ease-in-out infinite placeholder-swish;
+    border-radius: 3px;
+    position: absolute;
+    display: block;
+  }
+
+  & > .placeholder.-one {
+    left: 0;
+    top: 0;
+    width: 83px;
+    height: 64px;
+  }
+
+  & > .placeholder.-two,
+  & > .placeholder.-three,
+  & > .placeholder.-four {
+    left: 99px;
+    top: 6px;
+    height: 8px;
+    width: 280px;
+  }
+
+  & > .placeholder.-three {
+    top: 28px;
+  }
+
+  & > .placeholder.-four {
+    top: 50px;
+    width: 80px;
+  }
+
+  // Make the ad show up above the placeholder
+  #carbonads {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Carbon wrapper
+  &,
+  & > div > span {
+    display: block;
+    width: 380px;
+    height: 64px;
+    text-align: left;
+  }
+
+  // Clearfix
+  & > div > span::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  .carbon-img {
+    float: left;
+    margin-right: 16px;
+  }
+}
+
+@keyframes placeholder-swish {
+  0% {
+    background-position: ($placeholder-bg-size * -1 / 3) 0%;
+  }
+
+  50% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+
+  100% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+}

@@ -2,7 +2,7 @@
 title: Moment.js
 category: JavaScript libraries
 layout: 2017/sheet
-updated: 2017-10-10
+updated: 2020-02-12
 tags: [Featurable]
 ---
 

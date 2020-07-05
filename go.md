@@ -5,7 +5,7 @@ prism_languages: [go, bash]
 weight: -3
 tags: [Featured]
 category: C-like
-updated: 2017-09-15
+updated: 2020-07-02
 ---
 
 ## Getting started
@@ -135,6 +135,12 @@ func getPointer () (myPointer *int) {
 }
 ```
 {: data-line="3"}
+
+```go
+a := new(int)
+*a = 234
+```
+{: data-line="2"}
 
 Pointers point to a memory location of a variable. Go is fully garbage-collected.
 
@@ -455,7 +461,6 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-
 {: data-line="2,3,4"}
 
 Lambdas are better suited for defer blocks.
@@ -541,7 +546,7 @@ func (v Vertex) Abs() float64 {
 {: data-line="1"}
 
 ```go
-v: = Vertex{1, 2}
+v := Vertex{1, 2}
 v.Abs()
 ```
 

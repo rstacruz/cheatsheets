@@ -2,7 +2,7 @@
 title: HTML meta tags
 category: HTML
 layout: 2017/sheet
-updated: 2017-08-26
+updated: 2020-03-20
 weight: -3
 ---
 
@@ -151,6 +151,6 @@ See: [Icons](https://developers.google.com/web/fundamentals/design-and-ui/browse
 ## Reference
 {: .-one-column}
 
- * <https://dev.twitter.com/docs/cards>
+ * <https://dev.twitter.com/cards>
  * <https://developers.facebook.com/docs/opengraphprotocol/#types>
 {: .-also-see}

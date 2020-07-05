@@ -18,6 +18,14 @@ Getting started
 ---------------
 {: .-three-column}
 
+### Introduction
+{: .-intro}
+
+This is a quick reference to getting started with Bash scripting.
+
+- [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+- [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+
 ### Example
 
 ```bash

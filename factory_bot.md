@@ -3,20 +3,26 @@ title: Factory Bot
 category: Ruby libraries
 layout: 2017/sheet
 weight: -3
-updated: 2020-06-24
+updated: 2020-07-06
 keywords:
   - "FactoryBot.define do"
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
 tags: [Featurable]
-intro: |
-  [Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests.
-  It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
 ---
 
 ## Factories
 {: .-three-column}
+
+### Introduction
+{: .-intro}
+
+[Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests. It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
+
+- [Factory Bot documentation](http://www.rubydoc.info/gems/factory_bot/) _(rubydoc.info)_
+- [Getting started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) _(github.com)_
+- [Source code](https://github.com/thoughtbot/factory_bot) _(github.com)_
 
 ### Defining factories
 

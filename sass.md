@@ -18,6 +18,13 @@ keywords:
 ## Basics
 {: .-three-column}
 
+### Introduction
+{: .-intro}
+
+This is a quick reference to [Sass stylesheets](https://sass-lang.com).
+
+- [Sass documentation](https://sass-lang.com/documentation) _(sass-lang.com)_
+
 ### Variables
 
 ```scss

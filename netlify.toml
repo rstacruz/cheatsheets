@@ -3,109 +3,136 @@
   publish = "_site/"
 
 [[redirects]]
-from = "/flexbox"
-to = "/css-flexbox"
+  force = true
+  from = "/flexbox"
+  to = "/css-flexbox"
 
 [[redirects]]
-from = "/flowtype"
-to = "/flow"
+  force = true
+  from = "/flowtype"
+  to = "/flow"
 
 [[redirects]]
-from = "/gpgconf"
-to = "/gnupg"
+  force = true
+  from = "/gpgconf"
+  to = "/gnupg"
 
 [[redirects]]
-from = "/gpg"
-to = "/gnupg"
+  force = true
+  from = "/gpg"
+  to = "/gnupg"
 
 [[redirects]]
-from = "/gutom"
-to = "/ph-food-delivery"
+  force = true
+  from = "/gutom"
+  to = "/ph-food-delivery"
 
 [[redirects]]
-from = "/handlebars-js"
-to = "/handlebars.js"
+  force = true
+  from = "/handlebars-js"
+  to = "/handlebars.js"
 
 [[redirects]]
-from = "/harvey-js"
-to = "/harvey.js"
+  force = true
+  from = "/harvey-js"
+  to = "/harvey.js"
 
 [[redirects]]
-from = "/immutable-js"
-to = "/immutable.js"
+  force = true
+  from = "/immutable-js"
+  to = "/immutable.js"
 
 [[redirects]]
-from = "/jade"
-to = "/pug"
+  force = true
+  from = "/jade"
+  to = "/pug"
 
 [[redirects]]
-from = "/package"
-to = "/package-json"
+  force = true
+  from = "/package"
+  to = "/package-json"
 
 [[redirects]]
-from = "/package.json"
-to = "/package-json"
+  force = true
+  from = "/package.json"
+  to = "/package-json"
 
 [[redirects]]
-from = "/phoenix-ecto@1.3"
-to = "/phoenix-ecto"
+  force = true
+  from = "/phoenix-ecto@1.3"
+  to = "/phoenix-ecto"
 
 [[redirects]]
-from = "/sh"
-to = "/bash"
+  force = true
+  from = "/sh"
+  to = "/bash"
 
 [[redirects]]
-from = "/commander-js"
-to = "/commander.js"
+  force = true
+  from = "/commander-js"
+  to = "/commander.js"
 
 [[redirects]]
-from = "/es2015"
-to = "/es6"
+  force = true
+  from = "/es2015"
+  to = "/es6"
 
 [[redirects]]
-from = "/es2016"
-to = "/es6"
+  force = true
+  from = "/es2016"
+  to = "/es6"
 
 [[redirects]]
-from = "/es2017"
-to = "/es6"
+  force = true
+  from = "/es2017"
+  to = "/es6"
 
 [[redirects]]
-from = "/es2018"
-to = "/es6"
+  force = true
+  from = "/es2018"
+  to = "/es6"
 
 [[redirects]]
-from = "/expect.js"
-to = "/expectjs"
+  force = true
+  from = "/expect.js"
+  to = "/expectjs"
 
 [[redirects]]
-from = "/factory_girl"
-to = "/factory_bot"
+  force = true
+  from = "/factory_girl"
+  to = "/factory_bot"
 
 [[redirects]]
-from = "/css-animation"
-to = "/css#animation"
+  force = true
+  from = "/css-animation"
+  to = "/css#animation"
 
 [[redirects]]
-from = "/css-background"
-to = "/css#background"
+  force = true
+  from = "/css-background"
+  to = "/css#background"
 
 [[redirects]]
-from = "/css-font"
-to = "/css#fonts"
+  force = true
+  from = "/css-font"
+  to = "/css#fonts"
 
 [[redirects]]
-from = "/css-selectors"
-to = "/css#selectors"
+  force = true
+  from = "/css-selectors"
+  to = "/css#selectors"
 
 [[redirects]]
-from = "/brew"
-to = "/homebrew"
+  force = true
+  from = "/brew"
+  to = "/homebrew"
 
 [[redirects]]
-from = "/date"
-to = "/datetime"
+  force = true
+  from = "/date"
+  to = "/datetime"
 
 [[redirects]]
-from = "/fetch"
-to = "/js-fetch"
+  force = true
+  from = "/fetch"
+  to = "/js-fetch"

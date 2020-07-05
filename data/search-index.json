@@ -42,7 +42,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-03-07"
+  "updated": "2018-03-06"
 },{
   "id": "analytics.js",
   "title": "Google Analytics's analytics.js",
@@ -207,7 +207,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2020-07-03"
+  "updated": "2018-06-14"
 },{
   "id": "awesome-redux",
   "title": "Awesome Redux",
@@ -262,7 +262,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2020-07-04"
+  "updated": "2020-07-05"
 },{
   "id": "blessed",
   "title": "Blessed",
@@ -911,7 +911,7 @@
   "intro_html": "<p>A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2020-07-02"
+  "updated": "2019-11-14"
 },{
   "id": "ets",
   "title": "Erlang ETS",
@@ -1076,7 +1076,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2018-11-07"
+  "updated": "2020-07-05"
 },{
   "id": "flux",
   "title": "Flux architecture",
@@ -1175,7 +1175,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-11-07"
+  "updated": "2017-10-18"
 },{
   "id": "git-log",
   "title": "git log",
@@ -1241,7 +1241,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2020-07-02"
+  "updated": "2020-06-21"
 },{
   "id": "goby",
   "title": "Goby",
@@ -1461,7 +1461,7 @@
   "intro_html": "<p><a href=\"https://httpie.org/\">HTTPie</a> is a command-line HTTP client.</p>",
   "description_html": "<p>$ http POST http://example.com name=”John” Host:example.com — JSON, cookies, files, auth, and other httpie examples.</p>",
   "tags": null,
-  "updated": "2018-11-16"
+  "updated": "2020-07-05"
 },{
   "id": "ie",
   "title": "Internet Explorer",
@@ -2143,7 +2143,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2020-02-12"
+  "updated": "2018-09-15"
 },{
   "id": "mongodb",
   "title": "MongoDB",
@@ -2165,7 +2165,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2020-03-09"
+  "updated": "2020-07-05"
 },{
   "id": "ncftp",
   "title": "ncftp",
@@ -2550,7 +2550,7 @@
   "intro_html": "<p><a href=\"https://polyfill.io\">Polyfill.io</a> is a service that serves JavaScript polyfills.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2020-07-02"
+  "updated": "2018-08-20"
 },{
   "id": "postgresql-json",
   "title": "PostgreSQL JSON",
@@ -2869,7 +2869,7 @@
   "intro_html": "<p><a href=\"https://reactjs.org/\">React</a> is a JavaScript library for building user interfaces. This guide targets React v15 to v16.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2020-07-04"
+  "updated": "2020-07-05"
 },{
   "id": "react@0.14",
   "title": "React.js (v0.14)",
@@ -2935,7 +2935,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2020-06-06"
+  "updated": "2019-07-07"
 },{
   "id": "riot",
   "title": "Riot.js",
@@ -3232,7 +3232,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": null,
-  "updated": "2018-02-20"
+  "updated": "2017-08-30"
 },{
   "id": "slim",
   "title": "Slim",
@@ -3617,7 +3617,7 @@
   "intro_html": "<p><a href=\"http://www.vim.org/\">Vim</a> is a very efficient text editor. This reference was made for Vim 8.0. <br />\nFor shortcut notation, see <code>:help key-notation</code>.</p>",
   "description_html": "",
   "tags": ["Featured"],
-  "updated": "2020-07-03"
+  "updated": "2020-07-05"
 },{
   "id": "vimscript-functions",
   "title": "Vimscript functions",
@@ -3650,7 +3650,7 @@
   "intro_html": "",
   "description_html": "",
   "tags": ["Featurable"],
-  "updated": "2017-10-30"
+  "updated": "2020-07-05"
 },{
   "id": "virtual-dom",
   "title": "Virtual-dom",
@@ -3683,7 +3683,7 @@
   "intro_html": "<p><a href=\"https://code.visualstudio.com/\">Visual Studio Code</a>, or VSCode, is an open-source code editor. This guide targets VSCode v1.19.</p>",
   "description_html": "",
   "tags": null,
-  "updated": "2018-02-12"
+  "updated": "2018-02-01"
 },{
   "id": "vue",
   "title": "Vue.js",

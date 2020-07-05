@@ -262,7 +262,7 @@ See [Operators](#operators) for other things you can do.
  
 | Shortcut                             | Description                              |
 | ---                                  | ---                                      |
-| `gvimdiff file1 file2 [file3]`       | See differencies between files, in HMI   |
+| `gvimdiff file1 file2 [file3]`       | See differences between files, in HMI    |
  
 
 Misc

@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/mysql.jpg?t=20200705105923' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/mysql.jpg?t=20200705105923' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/mysql.jpg?t=20200705110100' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/mysql.jpg?t=20200705110100' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20200705105923'
+'./assets/2017/style.css?t=20200705110100'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20200705105923'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20200705110100'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "MySQL cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/mysql.jpg?t=20200705105923" ],
+  "image": [ "https://assets.devhints.io/previews/mysql.jpg?t=20200705110100" ],
   "description": "The one-page guide to MySQL: usage, examples, links, snippets, and more."
 }
 </script>
@@ -207,60 +207,35 @@ gtag('config','UA-106902774-1');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h3 id="create--open--delete-database">Create / Open / Delete Database</h3>
+    <h3 id="browsing">Browsing</h3>
 
-<pre><code class="language-sql">CREATE DATABASE dbNameYouWant
-CREATE DATABASE dbNameYouWant CHARACTER SET utf8
-USE dbNameYouWant
-DROP DATABASE dbNameYouWant
-ALTER DATABASE dbNameYouWant CHARACTER SET utf8
-</code></pre>
-
-<h3 id="backup-database-to-sql-file">Backup Database to SQL File</h3>
-
-<pre><code class="language-bash">mysqldump -u Username -p dbNameYouWant &gt; databasename_backup.sql
-</code></pre>
-
-<h3 id="restore-from-backup-sql-file">Restore from backup SQL File</h3>
-
-<pre><code class="language-bash">mysql - u Username -p dbNameYouWant &lt; databasename_backup.sql
-</code></pre>
-
-<h3 id="repair-tables-after-unclean-shutdown">Repair Tables After Unclean Shutdown</h3>
-
-<pre><code class="language-bash">mysqlcheck --all-databases
-mysqlcheck --all-databases --fast
-</code></pre>
-
-<h3 id="browsing">Browsing</h3>
-
-<pre><code class="language-sql">SHOW DATABASES
-SHOW TABLES
-SHOW FIELDS FROM table / DESCRIBE table
-SHOW CREATE TABLE table
-SHOW PROCESSLIST
-KILL process_number
+<pre><code class="language-sql">SHOW DATABASES;
+SHOW TABLES;
+SHOW FIELDS FROM table / DESCRIBE table;
+SHOW CREATE TABLE table;
+SHOW PROCESSLIST;
+KILL process_number;
 </code></pre>
 
 <h3 id="select">Select</h3>
 
-<pre><code class="language-sql">SELECT * FROM table
-SELECT * FROM table1, table2, ...
-SELECT field1, field2, ... FROM table1, table2, ...
+<pre><code class="language-sql">SELECT * FROM table;
+SELECT * FROM table1, table2;
+SELECT field1, field2 FROM table1, table2;
 SELECT ... FROM ... WHERE condition
-SELECT ... FROM ... WHERE condition GROUPBY field
-SELECT ... FROM ... WHERE condition GROUPBY field HAVING condition2
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC
-SELECT ... FROM ... WHERE condition LIMIT 10
+SELECT ... FROM ... WHERE condition GROUPBY field;
+SELECT ... FROM ... WHERE condition GROUPBY field HAVING condition2;
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2;
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;
+SELECT ... FROM ... WHERE condition LIMIT 10;
 SELECT DISTINCT field1 FROM ...
 SELECT DISTINCT field1, field2 FROM ...
 </code></pre>
 
 <h3 id="select---join">Select - Join</h3>
 
-<pre><code class="language-sql">SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition
-SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition
+<pre><code class="language-sql">SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
+SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 </code></pre>
 
@@ -277,9 +252,34 @@ condition1 AND condition2
 condition1 OR condition2
 </code></pre>
 
+<h3 id="create--open--delete-database">Create / Open / Delete Database</h3>
+
+<pre><code class="language-sql">CREATE DATABASE DatabaseName;
+CREATE DATABASE DatabaseName CHARACTER SET utf8;
+USE DatabaseName;
+DROP DATABASE DatabaseName;
+ALTER DATABASE DatabaseName CHARACTER SET utf8;
+</code></pre>
+
+<h3 id="backup-database-to-sql-file">Backup Database to SQL File</h3>
+
+<pre><code class="language-bash">mysqldump -u Username -p dbNameYouWant &gt; databasename_backup.sql
+</code></pre>
+
+<h3 id="restore-from-backup-sql-file">Restore from backup SQL File</h3>
+
+<pre><code class="language-bash">mysql - u Username -p dbNameYouWant &lt; databasename_backup.sql;
+</code></pre>
+
+<h3 id="repair-tables-after-unclean-shutdown">Repair Tables After Unclean Shutdown</h3>
+
+<pre><code class="language-bash">mysqlcheck --all-databases;
+mysqlcheck --all-databases --fast;
+</code></pre>
+
 <h3 id="insert">Insert</h3>
 
-<pre><code class="language-sql">INSERT INTO table1 (field1, field2, ...) VALUES (value1, value2, ...)
+<pre><code class="language-sql">INSERT INTO table1 (field1, field2) VALUES (value1, value2);
 </code></pre>
 
 <h3 id="delete">Delete</h3>
@@ -292,20 +292,19 @@ DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
 
 <h3 id="update">Update</h3>
 
-<pre><code class="language-sql">UPDATE table1 SET field1=new_value1 WHERE condition
+<pre><code class="language-sql">UPDATE table1 SET field1=new_value1 WHERE condition;
 UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
-  table1.id1 = table2.id2 AND condition
+  table1.id1 = table2.id2 AND condition;
 </code></pre>
 
 <h3 id="create--delete--modify-table">Create / Delete / Modify Table</h3>
 
 <h4 id="create">Create</h4>
 
-<pre><code class="language-sql">CREATE TABLE table (field1 type1, field2 type2, ...)
-CREATE TABLE table (field1 type1, field2 type2, ..., INDEX (field))
-CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1))
-CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1,
-field2))
+<pre><code class="language-sql">CREATE TABLE table (field1 type1, field2 type2);
+CREATE TABLE table (field1 type1, field2 type2, INDEX (field));
+CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));
+CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));
 </code></pre>
 
 <pre><code class="language-sql">CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,
@@ -317,16 +316,16 @@ field2))
  FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))
 </code></pre>
 
-<pre><code class="language-sql">CREATE TABLE table IF NOT EXISTS (...)
+<pre><code class="language-sql">CREATE TABLE table IF NOT EXISTS;
 </code></pre>
 
-<pre><code class="language-sql">CREATE TEMPORARY TABLE table (...)
+<pre><code class="language-sql">CREATE TEMPORARY TABLE table;
 </code></pre>
 
 <h4 id="drop">Drop</h4>
 
-<pre><code class="language-sql">DROP TABLE table
-DROP TABLE IF EXISTS table
+<pre><code class="language-sql">DROP TABLE table;
+DROP TABLE IF EXISTS table;
 DROP TABLE table1, table2, ...
 </code></pre>
 
@@ -363,18 +362,20 @@ CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2
 
 <h3 id="users-and-privileges">Users and Privileges</h3>
 
-<pre><code class="language-sql">GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+<pre><code class="language-sql">CREATE USER 'user'@'localhost';
+GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
 REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
+FLUSH PRIVILEGES;
 </code></pre>
 
-<pre><code class="language-sql">SET PASSWORD = PASSWORD('new_pass')
-SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass')
-SET PASSWORD = OLD_PASSWORD('new_pass')
+<pre><code class="language-sql">SET PASSWORD = PASSWORD('new_pass');
+SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');
+SET PASSWORD = OLD_PASSWORD('new_pass');
 </code></pre>
 
-<pre><code class="language-sql">DROP USER 'user'@'host'
+<pre><code class="language-sql">DROP USER 'user'@'host';
 </code></pre>
 
 <p>Host ‘%’ indicates any host.</p>
@@ -691,7 +692,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20200705105923'></script>
+<script src='./assets/packed/app.js?t=20200705110100'></script>
 
 
 

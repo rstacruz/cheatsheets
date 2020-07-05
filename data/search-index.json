@@ -3366,17 +3366,6 @@
   "tags": null,
   "updated": "2020-01-01"
 },{
-  "id": "travis-gh-pages",
-  "title": "Deploy gh-pages via Travis",
-  "url": "/travis-gh-pages",
-  "category": "Git",
-  "keywords": null,
-  "content_html": "<p>Taken from https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db</p>\n\n<h3 id=\"create-an-oauth-token-and-encrypt-it\">Create an OAuth token and encrypt it</h3>\n\n<p>Use https://github.com/settings/tokens/new</p>\n\n<pre><code class=\"language-sh\"># via ruby\ngem install travis\ntravis encrypt -r user/repo GITHUB_TOKEN=[the token here]\n</code></pre>\n\n<h3 id=\"make-it-run-the-deploy-script-on-deploy\">Make it run the deploy script on deploy</h3>\n\n<pre><code class=\"language-yaml\"> # .travis.yml\nscript:\n  - bash ./scripts/deploy-to-gh-pages.sh\nenv:\n  global:\n    - GITHUB_REPO: \"user/repo\"\n    - secure: \"nlnXJW/imf/w...\"  # &lt;-- from travis-encrypt\n</code></pre>\n\n<h3 id=\"write-deployer\">Write deployer</h3>\n\n<p>Create the file <code>scripts/deploy-to-gh-pages.sh</code></p>\n\n<pre><code class=\"language-sh\">#!/bin/bash\n# See https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db\nset -o errexit\n\nrm -rf public\nmkdir public\n\n# config\ngit config --global user.email \"nobody@nobody.org\"\ngit config --global user.name \"Travis CI\"\n\n# build (CHANGE THIS)\nmake\n\n# deploy\ncd public\ngit init\ngit add .\ngit commit -m \"Deploy to Github Pages\"\ngit push --force --quiet \"https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git\" master:gh-pages &gt; /dev/null 2&gt;&amp;1\n</code></pre>\n\n<p>From Ractive, this might be useful in certain cases:</p>\n\n<pre><code>if [ \"$TRAVIS_PULL_REQUEST\" != \"false\" -o \"$TRAVIS_BRANCH\" != \"master\" ]; then exit 0; fi\n</code></pre>",
-  "intro_html": "",
-  "description_html": "",
-  "tags": null,
-  "updated": null
-},{
   "id": "travis",
   "title": "Travis.yml",
   "url": "/travis",

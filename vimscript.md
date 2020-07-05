@@ -22,7 +22,7 @@ You can either put this in a script (`script.vim`) and run it (`:source script.v
 ```vim
 function! SuperTab()
   let l:part = strpart(getline('.'),col('.')-2,1)
-  if (l:part=~'^\W\?$')
+  if (l:part =~ '^\W\?$')
       return "\<Tab>"
   else
       return "\<C-n>"
@@ -316,9 +316,12 @@ Checks if it's the same instance object.
 ### Regexp matches
 
 ```vim
-"hello" =~ '/x/'
-"hello" !~ '/x/'
+"hello" =~ 'xx*'
+"hello" !~ 'xx*'
+"hello" =~ '\v<\d+>'
 ```
+
+`\v` enables "extended" regex mode which allows word boundary (`<>`), `+`, and more.
 
 ### Single line
 

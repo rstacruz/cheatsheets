@@ -78,7 +78,9 @@ $placeholder-bg-size: 450px;
 
   // Hide placeholders after carbon has loaded
   #carbonads ~ .placeholder {
-    display: none;
+    opacity: 0;
+    transition: opacity 250ms linear;
+    pointer-events: none;
   }
 
   & > .placeholder {
@@ -135,6 +137,10 @@ $placeholder-bg-size: 450px;
     text-align: left;
   }
 
+  .HighlightPubFirstLine & > div > span:first-line {
+    font-weight: bold;
+  }
+
   // Clearfix
   & > div > span::after {
     content: '';
@@ -149,6 +155,10 @@ $placeholder-bg-size: 450px;
   }
 }
 
+#carbonads {
+  animation: 250ms ease-out pub-text-enter;
+}
+
 @keyframes placeholder-swish {
   0% {
     background-position: ($placeholder-bg-size * -1 / 3) 0%;
@@ -160,5 +170,16 @@ $placeholder-bg-size: 450px;
 
   100% {
     background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+}
+
+@keyframes pub-text-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
   }
 }

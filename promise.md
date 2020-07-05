@@ -1,11 +1,19 @@
 ---
 title: Promises
 category: JavaScript
-intro: A quick reference to the [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+layout: 2017/sheet
 ---
 
 ## Reference
 {:.-three-column}
+
+### Introduction
+{: .-intro}
+
+intro: A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+- [Using Promises guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) _(developer.mozilla.org)_
+- [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) _(developer.mozilla.org)_
 
 ### Creating promises
 

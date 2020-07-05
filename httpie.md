@@ -47,8 +47,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
 
 ### Options
 
-Print options:
-{: .-setup}
+#### Printing options
 
 ```bash
 -v, --verbose            # same as --print=HhBb --all

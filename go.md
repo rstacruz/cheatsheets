@@ -11,6 +11,13 @@ updated: 2020-06-21
 ## Getting started
 {: .-three-column}
 
+### Introduction
+{: .-intro}
+
+- [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
+- [Go repl](https://repl.it/languages/go) _(repl.it)_
+- [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
+
 ### Hello world
 {: .-prime}
 
@@ -576,10 +583,17 @@ See: [Pointer receivers](https://tour.golang.org/methods/4)
 
 ## References
 
+### Official resources
+{: .-intro}
+
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
-- [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_
-- [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
 - [Effective Go](https://golang.org/doc/effective_go.html) _(golang.org)_
+
+### Other links
+{: .-intro}
+
+- [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
+- [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_
 - [JustForFunc Youtube](https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw) _(youtube.com)_
 - [Style Guide](https://github.com/golang/go/wiki/CodeReviewComments) _(github.com)_

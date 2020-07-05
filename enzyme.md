@@ -11,11 +11,15 @@ keywords:
   - wrap.setProps()
   - "wrap.find().simulate('click')"
   - "wrap.contains(<div/>)"
-intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 ---
 
 ## Getting started
+
+### Introduction
+
+[Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+
+- [Enzyme website](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
 
 ### Mounting
 {: .-prime}

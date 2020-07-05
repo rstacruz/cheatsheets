@@ -16,17 +16,12 @@
     font-weight: 200;
     font-family: $body-font;
     margin: 0;
+    text-align: center;
   }
 
   & > h1 > em {
     font-style: normal;
     color: lighten($gray-text, 20%);
-  }
-}
-
-.main-heading.-center {
-  & > h1 {
-    text-align: center;
   }
 
   & > .pubbox {
@@ -38,6 +33,28 @@
     & > .pubbox {
       margin-top: 24px;
       margin-bottom: 24px;
+    }
+  }
+}
+
+.UseCompactHeader .main-heading {
+  @media (min-width: 769px) {
+    & {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 32px;
+    }
+
+    & > h1 {
+      flex: 1 0 auto;
+      text-align: left;
+      padding-right: 32px;
+    }
+
+    & > .pubbox {
+      flex: 0 0 auto;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }

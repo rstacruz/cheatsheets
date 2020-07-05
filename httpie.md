@@ -6,9 +6,16 @@ weight: -3
 updated: 2020-07-05
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
-intro: |
-  [HTTPie](https://httpie.org/) is a command-line HTTP client.
 ---
+
+### Intorduction
+{: .-intro}
+
+[HTTPie](https://httpie.org/) is a command-line HTTP client.
+
+- [HTTPie website](https://httpie.org/) _(httpie.org)_
+- [HTTPie documentation](https://httpie.org/docs) _(httpie.org)_
+- [Try it online](https://httpie.org/run) _(httpie.org)_
 
 ### Parameters
 

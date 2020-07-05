@@ -33,16 +33,16 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/promise.jpg?t=20200705111245' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/promise.jpg?t=20200705111245' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/promise.jpg?t=20200705131421' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/promise.jpg?t=20200705131421' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
 
 
-  <meta content="The one-page guide to Promises: usage, examples, links, snippets, and more." name="description">
-  <meta content="The one-page guide to Promises: usage, examples, links, snippets, and more." property="og:description">
-  <meta content="The one-page guide to Promises: usage, examples, links, snippets, and more." property="twitter:description">
+  <meta content="One-page guide to Promises: usage, examples, and more. A quick reference to the Promise API." name="description">
+  <meta content="One-page guide to Promises: usage, examples, and more. A quick reference to the Promise API." property="og:description">
+  <meta content="One-page guide to Promises: usage, examples, and more. A quick reference to the Promise API." property="twitter:description">
 
 
 <link rel="canonical" href="https://devhints.io/promise">
@@ -90,9 +90,9 @@ gtag('config','UA-106902774-1');
 <!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
 
   <style>html{opacity:0}</style>
-  <link rel="stylesheet" href="./assets/2015/style.css?t=20200705111245">
-  <link href="./assets/style.css?t=20200705111245" rel="stylesheet" />
-  <link href="./assets/print.css?t=20200705111245" rel="stylesheet" media="print" />
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200705131421">
+  <link href="./assets/style.css?t=20200705131421" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200705131421" rel="stylesheet" media="print" />
 </head>
 <body>
 <div class='all'>
@@ -114,8 +114,8 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "Promises cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/promise.jpg?t=20200705111245" ],
-  "description": "The one-page guide to Promises: usage, examples, links, snippets, and more."
+  "image": [ "https://assets.devhints.io/previews/promise.jpg?t=20200705131421" ],
+  "description": "One-page guide to Promises: usage, examples, and more. A quick reference to the Promise API."
 }
 </script>
 <script type='application/ld+json'>
@@ -160,53 +160,67 @@ gtag('config','UA-106902774-1');
     </div>
 
     <div class='post-content -cheatsheet'>
-      <p class="brief-intro center">Based on the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise API reference</a> (mozilla.org).</p>
+      <h2 class="-three-column" id="reference">Reference</h2>
 
 <h3 id="creating-promises">Creating promises</h3>
 
-<pre><code class="language-js">new Promise(function (ok, err) {
-  doStuff(function () {
-    if (success) { ok(); }
-    else { err(); }
-  });
+<pre><code class="language-js">new Promise((resolve, reject) =&gt; {
+  doStuff(() =&gt; {
+    if (success) {
+      resolve('good')
+    } else {
+      reject(new Error('oops'))
+    }
+  })
 })
 </code></pre>
+
+<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor">new Promise</a> to create new promises.</p>
 
 <h3 id="consuming-promises">Consuming promises</h3>
 
 <pre><code class="language-js">promise
-  .then(okFn, errFn)
-  .catch(errFn)
+  .then((result) =&gt; {
+    /* success */
+  })
+  .catch((error) =&gt; {
+    /* failure */
+  })
 </code></pre>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> runs a function when a promise resolves. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch()</a> runs when a promise fails.</p>
 
 <h3 id="multiple-promises">Multiple promises</h3>
 
-<pre><code class="language-js">var promises = [
-  promise1(), promise2(), ...
-]
+<pre><code class="language-js">const promises = [promise1(), promise2() /* ... */]
+</code></pre>
 
-// succeeds when all succeed
-Promise.all(promises)
-  .then(function (results) {
-  });
+<pre><code class="language-js">// Succeeds when all succeed
+Promise.all(promises).then((results) =&gt; {
+  /* ... */
+})
+</code></pre>
 
-// succeeds when one finishes first
-Promise.race(promises)
-  .then(function (result) {
-  });
+<pre><code class="language-js">// Succeeds when one finishes first
+Promise.race(promises).then((result) =&gt; {
+  /* ... */
+})
 </code></pre>
 
 <h3 id="converting-other-promises">Converting other promises</h3>
 
-<pre><code class="language-js">return Promise.resolve("result");
-return Promise.resolve(promise);
-return Promise.resolve(thenable);
+<pre><code class="language-js">return Promise.resolve('result')
+return Promise.resolve(promise)
+return Promise.resolve(thenable)
 
-return Promise.reject("reason");
+return Promise.reject('reason')
 
-Promise.resolve($.get('http://google.com'))
-.then(...)
+Promise.resolve(result).then(() =&gt; {
+  /* ... */
+})
 </code></pre>
+
+<p><code>Promise.resolve(val)</code> will return a promise that resolves to the value given to it.</p>
 
     </div>
 

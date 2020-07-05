@@ -16,6 +16,7 @@ keywords:
 ## Getting started
 
 ### Introduction
+{: .-intro}
 
 [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 

@@ -2,52 +2,55 @@
 title: Atom
 category: Apps
 layout: 2017/sheet
-updated: 2017-09-20
+updated: 2020-07-03
 ---
 
-Shortcuts
----------
+## Shortcuts
 {: .-three-column}
 
 ### Tree
 
-| Shortcut | Description |
-| --- | --- |
-| `⌘\` | Toggle tree |
-| `⌘⇧\` | Reveal current file |
+| Shortcut | Description         |
+| -------- | ------------------- |
+| `⌘\`     | Toggle tree         |
+| `⌘⇧\`    | Reveal current file |
 {: .-shortcuts}
 
 ### Comments
 
-| Shortcut | Description |
-| --- | --- |
-| `⌘/` | Toggle comments |
+| Shortcut | Description     |
+| -------- | --------------- |
+| `⌘/`     | Toggle comments |
 {: .-shortcuts}
 
 ### View
 
-| Shortcut | Description |
-| --- | --- |
+| Shortcut | Description            |
+| -------- | ---------------------- |
 | `⌘k` `←` | Split pane to the left |
-| --- | --- |
-| `⌘⌥=` | Grow pane |
-| `⌘⌥-` | Shrink pane |
-| --- | --- |
-| `^⇧←` | Move tab to left |
+| ---      | ---                    |
+| `⌘⌥=`    | Grow pane              |
+| `⌘⌥-`    | Shrink pane            |
+| ---      | ---                    |
+| `^⇧←`    | Move tab to left       |
 {: .-shortcuts}
 
 ### Bracket matcher
 
-| `^m` | Go to matching bracket |
-| `^]` | Remove brackets from selection |
-| `^⌘m` | Select inside brackets |
-| `⌥⌘.` | Close tag |
+| Shortcut | Description                    |
+| -------- | ------------------------------ |
+| `^m`     | Go to matching bracket         |
+| `^]`     | Remove brackets from selection |
+| `^⌘m`    | Select inside brackets         |
+| `⌥⌘.`    | Close tag                      |
 {: .-shortcuts}
 
 ### Symbols view
 
-| `^⌥↓` | Jump to declaration under cursor |
-| `^⇧r` | Show tags |
+| Shortcut | Description                      |
+| -------- | -------------------------------- |
+| `^⌥↓`    | Jump to declaration under cursor |
+| `^⇧r`    | Show tags                        |
 {: .-shortcuts}
 
 Symbols view enables Ctags support for Atom.
@@ -62,34 +65,34 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 ### Editing
 
-| Shortcut | Description
-| ---      | ---
-| `⌘d`     | Select word
-| `⌘l`     | Select line
-| ---      | ---
-| `⌘↓`     | Move line down
-| `⌘↑`     | Move line up
-| ---      | ---
-| `⌘⏎`     | New line below
-| `⌘⇧⏎`    | New line above
-| ---      | ---
-| `⌘⇧k`    | Delete line
-| `⌘⇧d`    | Duplicate line
+| Shortcut | Description    |
+| -------- | -------------- |
+| `⌘d`     | Select word    |
+| `⌘l`     | Select line    |
+| ---      | ---            |
+| `⌘↓`     | Move line down |
+| `⌘↑`     | Move line up   |
+| ---      | ---            |
+| `⌘⏎`     | New line below |
+| `⌘⇧⏎`    | New line above |
+| ---      | ---            |
+| `⌘⇧k`    | Delete line    |
+| `⌘⇧d`    | Duplicate line |
 {: .-shortcuts}
 
 ### Project
 
-| Shortcut | Description
-| ---      | ---
-| `⌘⇧p`    | Command palette
-| `⌘⇧a`    | Add project folder
-| ---      | ---
-| `⌘n`     | New file
-| `⌘⇧n`    | New window
-| ---      | ---
-| `⌘f`     | Find in file
-| `⌘⇧f`    | Find in project
-| `⌘t`     | Search files in project
+| Shortcut | Description             |
+| -------- | ----------------------- |
+| `⌘⇧p`    | Command palette         |
+| `⌘⇧a`    | Add project folder      |
+| ---      | ---                     |
+| `⌘n`     | New file                |
+| `⌘⇧n`    | New window              |
+| ---      | ---                     |
+| `⌘f`     | Find in file            |
+| `⌘⇧f`    | Find in project         |
+| `⌘t`     | Search files in project |
 {: .-shortcuts}
 
 ## Notes

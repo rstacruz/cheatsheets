@@ -2,7 +2,7 @@
 title: CSS flexbox
 category: CSS
 layout: 2017/sheet
-updated: 2017-08-29
+updated: 2020-06-13
 prism_languages: [css]
 weight: -3
 ---
@@ -53,9 +53,12 @@ weight: -3
 ```
 
 ```css
-  justify-content: flex-start; /* horizontal alignment - default */
-  justify-content: flex-end;
-  justify-content: center;
+  justify-content: flex-start;    /* [xxx        ] */
+  justify-content: center;        /* [    xxx    ] */
+  justify-content: flex-end;      /* [        xxx] */
+  justify-content: space-between; /* [x    x    x] */
+  justify-content: space-around;  /* [ x   x   x ] */
+  justify-content: space-evenly;  /* [  x  x  x  ] */
 ```
 
 ```css

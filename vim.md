@@ -3,7 +3,7 @@ title: Vim
 category: Vim
 layout: 2017/sheet
 tags: [Featured]
-updated: 2018-09-11
+updated: 2020-07-03
 weight: -10
 intro: |
  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
@@ -18,7 +18,7 @@ Getting started
 {: .-prime}
 
 | Shortcut       | Description                      |
-| ---            | ---                              |
+| -------------- | -------------------------------- |
 | `:qa`          | Close all files                  |
 | `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
@@ -45,7 +45,7 @@ Getting started
 | Shortcut     | Description               |
 | ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
-| `e` _/_ `ge` | Previous/next end of word |
+| `ge` _/_ `e` | Previous/next end of word |
 {: .-shortcuts}
 
 #### Line
@@ -78,6 +78,7 @@ Getting started
 | Shortcut | Description              |
 | ---      | ---                      |
 | `zz`     | Center this line         |
+| `zt`     | Top this line            |
 | `H`      | Move to top of screen    |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
@@ -101,6 +102,7 @@ Getting started
 | Shortcut | Description                         |
 | ---      | ---                                 |
 | `a`      | Append                              |
+| `A`      | Append from end of line             |
 | `i`      | Insert                              |
 | `o`      | Next line                           |
 | `O`      | Previous line                       |
@@ -126,15 +128,18 @@ Getting started
 
 ### Clipboard
 
-| Shortcut | Description         |
-| ---      | ---                 |
-| `x`      | Delete character    |
-| ---      | ---                 |
-| `dd`     | Delete line _(Cut)_ |
-| `yy`     | Yank line _(Copy)_  |
-| ---      | ---                 |
-| `p`      | Paste               |
-| `P`      | Paste before        |
+| Shortcut        | Description                 |
+| ---             | ---                         |
+| `x`             | Delete character            |
+| ---             | ---                         |
+| `dd`            | Delete line _(Cut)_         |
+| `yy`            | Yank line _(Copy)_          |
+| ---             | ---                         |
+| `p`             | Paste                       |
+| `P`             | Paste before                |
+| ---             | ---                         |
+| `"*p` _/_ `"+p` | Paste from system clipboard |
+| `"*y` _/_ `"+y` | Paste to system clipboard   |
 {: .-shortcuts}
 
 ### Visual mode
@@ -257,7 +262,7 @@ See [Operators](#operators) for other things you can do.
  
 | Shortcut                             | Description                              |
 | ---                                  | ---                                      |
-| `gvimdiff file1 file2 [file3]`       | See differencies between files, in HMI   |
+| `gvimdiff file1 file2 [file3]`       | See differences between files, in HMI    |
  
 
 Misc
@@ -288,6 +293,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut            | Description                |
 | ---                 | ---                        |
+| `%`                 | Nearest/matching `{[()]}`  |
 | `[(` `[{` `[<`      | Previous `(` or `{` or `<` |
 | `])`                | Next                       |
 | ---                 | ---                        |
@@ -361,10 +367,12 @@ Do these in visual or normal mode.
 
 ### Misc
 
-| Shortcut | Description                               |
-| ---      | ---                                       |
-| `.`      | Repeat last command                       |
-| `]p`     | Paste under the current indentation level |
+| Shortcut   | Description                                       |
+| ---        | ---                                               |
+| `.`        | Repeat last command                               |
+| `]p`       | Paste under the current indentation level         |
+| ---        | ---                                               |
+| `:ff=unix` | Convert Windows line endings to Unix line endings |
 {: .-shortcuts}
 
 ### Command line
@@ -399,15 +407,18 @@ Do this in insert mode.
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
+
 ### Spell checking
 
-| Shortcut                     | Description                                           |
-| ---                          | ---                                                   |
-| `:set spell spelllang=en_us` | Turn on US English spell checking                     |
-| `]s`                         | Move to next misspelled word after the cursor         |
-| `[s`                         | Move to previous misspelled word before the cursor    |
-| `z=`                         | Suggest spellings for the word under/after the cursor |
-| `zg`                         | Add word to spell list                                |
+| Shortcut                     | Description                                             |
+| ---                          | ---                                                     |
+| `:set spell spelllang=en_us` | Turn on US English spell checking                       |
+| `]s`                         | Move to next misspelled word after the cursor           |
+| `[s`                         | Move to previous misspelled word before the cursor      |
+| `z=`                         | Suggest spellings for the word under/after the cursor   |
+| `zg`                         | Add word to spell list                                  |
+| `zw`                         | Mark word as bad/mispelling                             |
+| `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
 
 See `:help spell`

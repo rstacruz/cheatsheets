@@ -4,7 +4,8 @@ layout: 2017/sheet
 prism_languages: [go, bash]
 weight: -3
 tags: [Featured]
-updated: 2017-09-15
+category: C-like
+updated: 2020-07-02
 ---
 
 ## Getting started
@@ -135,6 +136,12 @@ func getPointer () (myPointer *int) {
 ```
 {: data-line="3"}
 
+```go
+a := new(int)
+*a = 234
+```
+{: data-line="2"}
+
 Pointers point to a memory location of a variable. Go is fully garbage-collected.
 
 See: [Pointers](https://tour.golang.org/moretypes/1)
@@ -201,9 +208,9 @@ See: [Switch](https://github.com/golang/go/wiki/Switch)
 ### For loop
 
 ```go
-  for count := 0; count <= 10; count++ {
-		fmt.Println("My counter is at", count)
-	}
+for count := 0; count <= 10; count++ {
+  fmt.Println("My counter is at", count)
+}
 ```
 
 See: [For loops](https://tour.golang.org/flowcontrol/1)
@@ -211,10 +218,10 @@ See: [For loops](https://tour.golang.org/flowcontrol/1)
 ### For-Range loop
 
 ```go
-  entry := []string{"Jack","John","Jones"}
-  for i, val := range entry {
-    fmt.Printf("At position %d, the character %s is present\n", i, val)
-  }
+entry := []string{"Jack","John","Jones"}
+for i, val := range entry {
+  fmt.Printf("At position %d, the character %s is present\n", i, val)
+}
 ```
 
 See: [For-Range loops](https://gobyexample.com/range)
@@ -394,6 +401,39 @@ v, ok := <- ch
 
 See: [Range and close](https://tour.golang.org/concurrency/4)
 
+### WaitGroup
+
+```go
+import "sync"
+
+func main() {
+  var wg sync.WaitGroup
+  
+  for _, item := range itemList {
+    // Increment WaitGroup Counter
+    wg.Add(1)
+    go doOperation(item)
+  }
+  // Wait for goroutines to finish
+  wg.Wait()
+  
+}
+```
+{: data-line="1,4,8,12"}
+
+```go
+func doOperation(item string) {
+  defer wg.Done()
+  // do operation on item
+  // ...
+}
+```
+{: data-line="2"}
+
+A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
+See: [WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
+
+
 ## Error control
 
 ### Defer
@@ -424,6 +464,19 @@ func main() {
 {: data-line="2,3,4"}
 
 Lambdas are better suited for defer blocks.
+
+```go
+func main() {
+  var d = int64(0)
+  defer func(d *int64) {
+    fmt.Printf("& %v Unix Sec\n", *d)
+  }(&d)
+  fmt.Print("Done ")
+  d = time.Now().Unix()
+}
+```
+{: data-line="3,4,5"}
+The defer func uses current value of d, unless we use a pointer to get final value at end of main.
 
 ## Structs
 {: .-three-column}
@@ -493,7 +546,7 @@ func (v Vertex) Abs() float64 {
 {: data-line="1"}
 
 ```go
-v: = Vertex{1, 2}
+v := Vertex{1, 2}
 v.Abs()
 ```
 

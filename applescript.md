@@ -1,6 +1,6 @@
 ---
 title: AppleScript
-updated: 2018-03-17
+updated: 2018-12-06
 layout: 2017/sheet
 category: macOS
 prism_languages: [applescript]
@@ -56,4 +56,11 @@ beep
 ```applescript
 -- beep 10 times
 beep 10
+```
+
+### Delay
+
+```applescript
+-- delay for 5 seconds
+delay 5
 ```

@@ -1,8 +1,6 @@
-@import '../vendor/sanitize.css/sanitize';
 @import './variables';
 @import '../vendor/modularscale/modularscale';
 @import '../vendor/ionicons-inline/ionicons';
-@import './utils/carbon-style';
 @import './utils/font-size';
 @import './utils/gutter';
 @import './utils/heading-style';
@@ -22,16 +20,14 @@
 @import './components/announcements-item';
 @import './components/announcements-list';
 @import './components/back-button';
-@import './components/berry-sponsor';
 @import './components/body-area';
-@import './components/codefund-sponsor';
 @import './components/comments-area';
 @import './components/comments-details';
 @import './components/comments-section';
 @import './components/h2-section';
 @import './components/h3-section';
 @import './components/h3-section-list';
-@import './components/headline-ad';
+@import './components/headline-pub';
 @import './components/hint-mark';
 @import './components/home-button';
 @import './components/intro-content';
@@ -50,7 +46,6 @@
 @import './components/related-post-item';
 @import './components/search-box';
 @import './components/search-footer';
-@import './components/side-ad';
 @import './components/site-header';
 @import './components/top-nav';
 @import './components/top-sheet';

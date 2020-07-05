@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL
+category: Databases
 ---
 
 Replace anything within `<placeholder>` accordingly

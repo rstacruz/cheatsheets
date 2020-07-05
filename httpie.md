@@ -3,7 +3,7 @@ title: httpie
 category: CLI
 layout: 2017/sheet
 weight: -3
-updated: 2017-09-04
+updated: 2018-11-16
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
 intro: |
@@ -30,6 +30,12 @@ $ http POST http://example.com/posts/3 \
 $ http --form POST example.com \
     name="John Smith" \
     cv=@document.txt
+```
+
+### Raw JSON
+
+```bash
+$ echo '{"hello": "world"}' | http POST example.com/post
 ```
 
 ### Options

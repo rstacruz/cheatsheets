@@ -1,0 +1,57 @@
+// base colors
+$text:        #555
+$black:       #151515
+$bg:          #fff
+$wash:        #f4f6f8
+
+// grays
+$gray:        #939aa1
+$lightgray:   #c0d3da
+$hairline:    #eef3fa
+
+// accents
+$accent:      #1ea3ff
+$accent2:     #f53
+
+// metrics
+$page-width:  620px
+
+@import url('//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+@import url('//cdn.jsdelivr.net/hint.css/1.3.2/hint.min.css')
+
+@import 'base/utils'
+@import 'base/typography'
+@import 'base/normalize'
+
+@import 'elements/body'
+@import 'elements/table'
+@import 'elements/code'
+
+@import 'components/about-the-site'
+@import 'components/big-button'
+@import 'components/brief-intro'
+@import 'components/full-image'
+@import 'components/hint'
+@import 'components/hljs'
+@import 'components/next-article'
+@import 'components/post-headline'
+@import 'components/post-icon'
+@import 'components/post-index'
+@import 'components/post-list'
+@import 'components/site-header'
+@import 'components/social-list'
+
+@import 'helpers/general'
+@import 'helpers/margins'
+@import 'helpers/blink'
+
+// Shim for headline-pub
+$base-mute: #678
+$base-b: #333
+$base-b3: #678
+$base-text: #333
+$shadow3: 0 6px 8px rgba($base-mute, 0.03), 0 1px 2px rgba($base-mute, 0.30)
+$shadow6: 0 6px 8px rgba($base-mute, 0.03), 0 1px 2px rgba($base-mute, 0.30), 0 8px 12px rgba($base-b3, 0.1)
+$gray-text: $base-mute
+
+@import '../2017/components/headline-pub.scss'

@@ -2,7 +2,7 @@
 title: Enzyme
 category: React
 layout: 2017/sheet
-updated: 2018-04-27
+updated: 2020-02-12
 tags: [Featured]
 weight: -1
 keywords:
@@ -83,12 +83,12 @@ wrap.setState({ show: true })
 #### Asserting
 
 ```js
-expect(wrap.props('name')).toEqual('Moe')
+expect(wrap.prop('name')).toEqual('Moe')
 expect(wrap.state('show')).toEqual(true)
 ```
 
 ```js
-expect('name' in wrap.props()).toEqual(true)
+expect('name' in wrap.props()).toEqual('Moe')
 expect('show' in wrap.state()).toEqual(true)
 ```
 
@@ -219,8 +219,8 @@ wrap.last()           // → ReactWrapper
 
 ```js
 wrap.get(0)           // → ReactElement
-wrap.getNode()        // → ReactElement
-wrap.getNodes()       // → Array<ReactElement>
+wrap.getElement()     // → ReactElement
+wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 
@@ -248,7 +248,7 @@ wrap.context()       // get full context
 
 ```js
 wrap.state('key')    // → any
-wrap.prop('key')    // → any
+wrap.prop('key')     // → any
 wrap.context('key')  // → any
 ```
 

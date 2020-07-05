@@ -2,7 +2,7 @@
 title: Git log format string
 category: Git
 layout: 2017/sheet
-updated: 2017-10-18
+updated: 2018-11-07
 weight: -1
 keywords:
   - "git log --pretty=format:%H"

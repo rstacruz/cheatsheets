@@ -1,6 +1,10 @@
 ---
 title: SimpleForm
+layout: 2017/sheet
+tags: [WIP]
 ---
+
+### Inputs
 
 ```ruby
 <%= f.input :email, required: false, autofocus: true %>
@@ -9,7 +13,8 @@ title: SimpleForm
 <%= f.button :submit, "Sign in" %>
 ```
 
+### Adding a wrapper
+
 ```ruby
-simple_form_for @x,
-  wrapper: :small
+simple_form_for @x, wrapper: :small
 ```

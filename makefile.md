@@ -1,16 +1,20 @@
 ---
 title: Makefile
-hljs_languages: [makefile]
+prism_languages: [makefile]
 layout: 2017/sheet
+category: CLI
 ---
 
 ## Var assignment
 
 ```makefile
-uglify = $(uglify)        # assignment
-compressor := $(uglify)   # lazy assignment
+uglify = $(uglify)        # lazy assignment
+compressor := $(uglify)   # immediate assignment
 prefix ?= /usr/local      # safe assignment
+hello += world            # append
 ```
+
+`=` expressions are only evaluated when they're being used.
 
 ## Magic variables
 
@@ -33,11 +37,11 @@ also:
 
 ## Command prefixes
 
-| Prefix | Description |
-| ------ | ----------- |
-| `-` | Ignore errors |
-| `@` | Don't print command |
-| `+` | Run even if Make is in 'don't execute' mode |
+| Prefix | Description                                 |
+| ------ | ------------------------------------------- |
+| `-`    | Ignore errors                               |
+| `@`    | Don't print command                         |
+| `+`    | Run even if Make is in 'don't execute' mode |
 
 ```makefile
 build:
@@ -118,4 +122,6 @@ deploy:
 
 ## Further reading
 
- * [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
+- [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
+- [Your Makefiles are wrong](https://tech.davis-hansson.com/p/make/)
+- [Manual](https://www.gnu.org/software/make/manual/html_node/index.html)

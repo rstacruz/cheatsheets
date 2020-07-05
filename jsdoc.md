@@ -2,7 +2,7 @@
 title: Jsdoc
 category: JavaScript
 layout: 2017/sheet
-updated: 2017-10-29
+updated: 2020-06-23
 weight: -1
 ---
 
@@ -20,22 +20,25 @@ weight: -1
  *     foo('hello')
  */
 
-function foo(n) { return n }
+function foo(n) {
+  return n
+}
 ```
 
 See: <http://usejsdoc.org/index.html>
 
 ### Types
 
-| Type                         | Description           |
-| ---                          | ---                   |
-| `@param {string=} n`         | Optional              |
-| `@param {string} [n]`        | Optional              |
-| `@param {(string|number)} n` | Multiple types        |
-| `@param {*} n`               | Any type              |
-| `@param {...string} n`       | Repeatable arguments  |
-| `@param {string} [n="hi"]`   | Optional with default |
-| `@param {string[]} n`        | Array of strings      |
+| Type                            | Description                           |
+| ------------------------------- | ------------------------------------- |
+| `@param {string=} n`            | Optional                              |
+| `@param {string} [n]`           | Optional                              |
+| `@param {(string|number)} n`    | Multiple types                        |
+| `@param {*} n`                  | Any type                              |
+| `@param {...string} n`          | Repeatable arguments                  |
+| `@param {string} [n="hi"]`      | Optional with default                 |
+| `@param {string[]} n`           | Array of strings                      |
+| `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
 See: <http://usejsdoc.org/tags-type.html>
 
@@ -73,11 +76,50 @@ const FOO = 1
  * @param {Song} song - The {@link Song} to be played
  */
 
-function play (song) {
-}
+function play(song) {}
 ```
 
 See: <http://usejsdoc.org/tags-typedef.html>
+
+### Typedef Shorthand
+
+{% raw %}
+
+```js
+/**
+ * A song
+ * @typedef {{title: string, artist: string, year: number}} Song
+ */
+```
+
+{% endraw %}
+
+```js
+/**
+ * Plays a song
+ * @param {Song} song - The {@link Song} to be played
+ */
+
+function play(song) {}
+```
+
+See: <http://usejsdoc.org/tags-typedef.html>
+
+### Importing types
+
+```js
+/**
+ * @typedef {import('./Foo').default} Bar
+ */
+
+/**
+ * @param {Bar} x
+ */
+
+function test(x) {}
+```
+
+This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types).
 
 ### Other keywords
 

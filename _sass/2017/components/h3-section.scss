@@ -3,7 +3,8 @@
  */
 
 .h3-section > .body {
-  & > pre {
+  & > pre,
+  & > .gatsby-highlight > pre {
     margin: 0;
     padding: 16px;
   }
@@ -132,7 +133,7 @@
   /* Description paragraphs */
   & p {
     background: $gray-bg;
-    color: $gray-text;
+    color: $base-text;
 
     /* Links */
     & a,

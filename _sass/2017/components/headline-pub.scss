@@ -1,5 +1,16 @@
 $placeholder-bg-size: 450px;
 
+$image-width: 83px;
+$image-height: 64px;
+$image-margin: 16px;
+
+$image-width: 130px;
+$image-height: 100px;
+$image-margin: 24px;
+
+$ad-width: 380px;
+$ad-height: $image-height;
+
 /*
  * Base carbon ads style
  */
@@ -19,8 +30,8 @@ $placeholder-bg-size: 450px;
   }
 
   .carbon-img > img {
-    width: 83px; // 13:10 ratio
-    height: 64px;
+    width: $image-width;
+    height: $image-height;
     box-shadow: $shadow3;
     border-radius: 3px;
     background: rgba($gray-text, 0.2);
@@ -49,6 +60,8 @@ $placeholder-bg-size: 450px;
 
   .carbon-poweredby,
   .carbon-poweredby:visited {
+    display: block;
+    margin-top: 8px;
     white-space: nowrap;
     color: $gray-text;
   }
@@ -100,17 +113,17 @@ $placeholder-bg-size: 450px;
   & > .placeholder.-one {
     left: 0;
     top: 0;
-    width: 83px;
-    height: 64px;
+    width: $image-width;
+    height: $image-height;
   }
 
   & > .placeholder.-two,
   & > .placeholder.-three,
   & > .placeholder.-four {
-    left: 99px;
+    left: $image-width + $image-margin;
     top: 6px;
     height: 8px;
-    width: 280px;
+    width: $ad-width - $image-width - $image-margin;
   }
 
   & > .placeholder.-three {
@@ -119,7 +132,7 @@ $placeholder-bg-size: 450px;
 
   & > .placeholder.-four {
     top: 50px;
-    width: 80px;
+    width: ($ad-width - $image-width - $image-margin) * 0.28;
   }
 
   // Make the ad show up above the placeholder
@@ -132,8 +145,8 @@ $placeholder-bg-size: 450px;
   &,
   & > div > span {
     display: block;
-    width: 380px;
-    height: 64px;
+    width: $ad-width;
+    height: $ad-height;
     text-align: left;
   }
 
@@ -151,12 +164,12 @@ $placeholder-bg-size: 450px;
 
   .carbon-img {
     float: left;
-    margin-right: 16px;
+    margin-right: $image-margin;
   }
 }
 
 #carbonads {
-  animation: 250ms ease-out pub-text-enter;
+  animation: 500ms ease-out pub-text-enter;
 }
 
 @keyframes placeholder-swish {
@@ -176,7 +189,7 @@ $placeholder-bg-size: 450px;
 @keyframes pub-text-enter {
   0% {
     opacity: 0;
-    transform: scale(0.97);
+    transform: scale(0.9);
   }
 
   100% {

@@ -180,7 +180,7 @@ fastify.route({
 
 By defining a JSON schema, you get validation and improved performance.
 
-See: [Validation and serialize](https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialize.md)
+See: [Validation and serialization](https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialization.md)
 
 Plugins
 -------

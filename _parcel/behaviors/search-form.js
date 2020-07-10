@@ -9,7 +9,12 @@ onmount('[data-js-search-form]', function () {
   on(this, 'submit', (e) => {
     e.preventDefault()
 
-    const link = document.querySelector('a[data-search-index]:visible')
+    const links = document.querySelectorAll('a[data-search-index]')
+
+    const link = [].filter.call(links, function (el) {
+      var style = window.getComputedStyle(el);
+      return (style.display !== 'none')
+    })[0];
     const href = link && link.getAttribute('href')
 
     if (href) window.location = href

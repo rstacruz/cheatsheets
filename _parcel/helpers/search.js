@@ -10,7 +10,8 @@ import qsa from 'dom101/query-selector-all'
 
 export function showAll() {
   qsa('[data-search-index]').forEach((el) => {
-    el.removeAttribute('aria-hidden')
+    el.removeAttribute('hidden')
+    el.style.removeProperty('display')
   })
 }
 
@@ -31,10 +32,12 @@ export function show(val) {
     .join('')
 
   qsa('[data-search-index]').forEach((el) => {
-    el.setAttribute('aria-hidden', true)
+    el.setAttribute('hidden', true)
+    el.style.setProperty('display', "none")
   })
 
   qsa(selectors).forEach((el) => {
-    el.removeAttribute('aria-hidden')
+    el.removeAttribute('hidden')
+    el.style.removeProperty('display')
   })
 }

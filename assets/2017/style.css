@@ -33,9 +33,6 @@ a:visited { color: #15234d; }
 
 a:hover { color: #3ac1cb; }
 
-/* prism.js adds area-hidden which it probably shouldn't */
-[aria-hidden]:not(.line-highlight) { display: none !important; }
-
 @media (max-width: 580px) { .hint--bottom::before, .hint--bottom::after { display: none; } }
 /*
 /* "Preloader": This makes the content semi-transparent before the page ad loads. */

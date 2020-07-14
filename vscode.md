@@ -24,6 +24,18 @@ intro: |
 | `⌘P`  | Show files        |
 {: .-shortcuts}
 
+### File management
+
+| Key   | Description       |
+| ----- | ----------------- |
+| `⌘N`  | New File          |
+| `⌘O`  | Open File         |
+| `⌘S`  | Save              |
+| `⇧⌘S` | Save As...        |
+| `⌘W`  | Close             |
+{: .-shortcuts}
+
+
 ### Sidebars
 
 | Key   | Description    |

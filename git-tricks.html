@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang='en' class='no-js '>
 <head>
-  
+
 
 
 
@@ -185,7 +185,7 @@ HEAD~5      # 5 commits before head
 
 # delete remote branch
   git push origin :$branchname
-  
+
 # go back to previous branch
   git checkout -
 </code></pre>
@@ -194,7 +194,7 @@ HEAD~5      # 5 commits before head
 
 <pre><code># Rebase your changes on top of the remote master
   git pull --rebase upstream master
-  
+
 # Squash multiple commits into one for a cleaner git log
 # (on the following screen change the word pick to either 'f' or 's')
   git rebase -i $commit_ref
@@ -247,7 +247,8 @@ app/b.txt    | 8 ++----
 
 <h3 id="cherry-pick">Cherry pick</h3>
 
-<pre><code>git rebase 76acada^
+<pre><code>git cherry-pick 29cebd92
+  git cherry-pick 76acada^..29cebd92
 </code></pre>
 
 <h3 id="misc-1">Misc</h3>
@@ -316,11 +317,11 @@ git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
 
     </div>
 
-    
+
 <ul class="social-list ">
   <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/git-tricks.html" target="share"><span class="text"></span></a></li>
   <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Git%20tricks.%20https://devhints.io/git-tricks.html" target="share"><span class="text"></span></a></li>
-  
+
 </ul>
 
   </div>
@@ -332,15 +333,15 @@ git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
     <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
       Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
       <i class='fleuron'></i>
-      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>. 
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>.
       Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
     </p>
 
-    
+
     <p class='back'>
       <a class='big-button -back -slim' href='.#toc'></a>
     </p>
-    
+
 
     <p>
     </p>
@@ -358,4 +359,3 @@ git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
 
 </body>
 </html>
-

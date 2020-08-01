@@ -3,7 +3,7 @@ title: Markdown
 category: Markup
 layout: 2017/sheet
 prism_languages: [markdown]
-updated: 2020-06-24
+updated: 2020-07-01
 weight: -1
 ---
 
@@ -16,6 +16,9 @@ weight: -1
 # h1
 ## h2
 ### h3
+#### h4
+##### h5
+###### h6
 ```
 
 ```markdown
@@ -59,6 +62,11 @@ __bold__
 ```markdown
 - [ ] Checkbox off
 - [x] Checkbox on
+```
+
+```markdown
+1. Item 1
+2. Item 2
 ```
 
 ### Links

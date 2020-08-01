@@ -18,7 +18,7 @@ promise
   .spread(okFn, errFn)        // *
   .catch(errFn)
   .catch(TypeError, errFn)    // *
-  .finally(fn)                // *
+  .finally(fn)
   .map(function (e) { ··· })  // *
   .each(function (e) { ··· }) // *
 ```

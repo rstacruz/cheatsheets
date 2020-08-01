@@ -135,6 +135,8 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
  */
 ```
 
+See the full list: <https://jsdoc.app/index.html#block-tags>
+
 ### Renaming
 
 ```js

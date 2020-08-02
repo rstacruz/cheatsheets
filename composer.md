@@ -55,7 +55,7 @@ This command changes only the `composer.lock` file.
 
 This command changes both the `composer.json` and `composer.lock` files.
 
-### Passing Versions to `composer require` & `composer update` commands
+### Passing Versions
 
 | Command                          | Description                                                 |
 | ---                              | ---                                                         |

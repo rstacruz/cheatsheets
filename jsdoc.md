@@ -25,7 +25,7 @@ function foo(n) {
 }
 ```
 
-See: <http://usejsdoc.org/index.html>
+See: <https://jsdoc.app/index.html>
 
 ### Types
 
@@ -40,7 +40,7 @@ See: <http://usejsdoc.org/index.html>
 | `@param {string[]} n`           | Array of strings                      |
 | `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
-See: <http://usejsdoc.org/tags-type.html>
+See: <https://jsdoc.app/tags-type.html>
 
 ### Variables
 
@@ -79,7 +79,7 @@ const FOO = 1
 function play(song) {}
 ```
 
-See: <http://usejsdoc.org/tags-typedef.html>
+See: <https://jsdoc.app/tags-typedef.html>
 
 ### Typedef Shorthand
 
@@ -103,7 +103,7 @@ See: <http://usejsdoc.org/tags-typedef.html>
 function play(song) {}
 ```
 
-See: <http://usejsdoc.org/tags-typedef.html>
+See: <https://jsdoc.app/tags-typedef.html>
 
 ### Importing types
 
@@ -146,4 +146,4 @@ See the full list: <https://jsdoc.app/index.html#block-tags>
  */
 ```
 
-Prefer `alias` over `name`. See: <http://usejsdoc.org/tags-alias.html>
+Prefer `alias` over `name`. See: <https://jsdoc.app/tags-alias.html>

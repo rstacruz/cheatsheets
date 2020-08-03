@@ -55,20 +55,20 @@ This command changes only the `composer.lock` file.
 
 This command changes both the `composer.json` and `composer.lock` files.
 
-### Passing Versions
+### Passing versions
 
-| Command                          | Description                                                 |
-| ---                              | ---                                                         |
-| `composer require vendor/package "1.3.2"`      | Installs exactly `1.3.2` version of the package             |
-| `composer require vendor/package ">=1.3.2"`      | Installs latest version `above or equal to 1.3.2`             |
-| `composer require vendor/package "<1.3.2"`      | Installs latest version `below 1.3.2`             |
-| `composer require vendor/package "1.3.*"`      | Installs latest version between `>=1.3.0 <1.4.0`             |
-| `composer require vendor/package "~1.3.2"`      | Installs latest version between `>=1.3.2 <1.4.0`             |
-| `composer require vendor/package "~1.3"`      | Installs latest version between `>=1.3.0 <2.0.0`             |
-| `composer require vendor/package "^1.3.2"`      | Installs latest version between `>=1.3.2 <2.0.0`             |
-| `composer require vendor/package "^1.3"`      | Installs latest version between `>=1.3.0 <2.0.0`             |
-| `composer require vendor/package "^0.3.2"`      | For `pre-1.0` versions composer acts with safety in mind and treats `^0.3` as `>=0.3.0 <0.4.0`            |
-| `composer require vendor/package "dev-BRANCH_NAME"`      | Replace `BRANCH_NAME` with the branch you're interested in to install it.            |
+| Command                                         | Description                                   |
+| ----------------------------------------------- | --------------------------------------------- |
+| `composer require vendor/pkg "1.3.2"`           | Installs `1.3.2`                              |
+| `composer require vendor/pkg ">=1.3.2"`         | Above or equal to `1.3.2`                     |
+| `composer require vendor/pkg "<1.3.2"`          | Below `1.3.2`                                 |
+| `composer require vendor/pkg "1.3.*"`           | Latest between `>=1.3.0 <1.4.0`               |
+| `composer require vendor/pkg "~1.3.2"`          | Latest between `>=1.3.2 <1.4.0`               |
+| `composer require vendor/pkg "~1.3"`            | Latest between `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^1.3.2"`          | Latest between `>=1.3.2 <2.0.0`               |
+| `composer require vendor/pkg "^1.3"`            | Latest between `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^0.3.2"`          | Latest between `>=0.3.0 <0.4.0` (for pre-1.0) |
+| `composer require vendor/pkg "dev-BRANCH_NAME"` | From the branch `BRANCH_NAME`                 |
 
 ### Removing packages
 

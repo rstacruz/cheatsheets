@@ -623,7 +623,7 @@ $((a + 200))      # Add 200 to $a
 ```
 
 ```bash
-$((RANDOM%=200))  # Random number 0..200
+$(($RANDOM%200))  # Random number 0..199
 ```
 
 ### Subshells

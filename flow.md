@@ -198,7 +198,7 @@ type Items = {
 ```
 {: data-line="2"}
 
-See: [Dynamic object keys](https://flow.org/docs/objects.html#objects-as-maps)
+See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-as-maps)
 
 ## Advanced features
 
@@ -239,7 +239,7 @@ const countries = {
 type Country = $Keys<typeof countries>
 ```
 
-See: [Enums](https://flow.org/docs/utility-types.html#keyst)
+See: [Enums](https://flow.org/en/docs/types/utilities/#toc-keys)
 
 ### Type aliases
 
@@ -255,7 +255,7 @@ type Generic<T> = {
 }
 ```
 
-See: [Type aliases](https://flow.org/docs/quick-reference.html#type-aliases)
+See: [Type aliases](https://flow.org/en/docs/types/aliases/)
 
 ### Generic classes
 
@@ -268,7 +268,7 @@ class GenericClass<T> {
 var n: GenericClass<number> = new GenericClass(0)
 ```
 
-See: [Generic classes](https://flow.org/docs/quick-reference.html#generics)
+See: [Generic classes](https://flow.org/en/docs/types/generics/#toc-classes-with-generics)
 
 ### Interfaces
 
@@ -284,7 +284,7 @@ class Foo {
 (new Foo: Jsonable)
 ```
 
-See: [Interfaces](https://flow.org/docs/quick-reference.html#interfaces)
+See: [Interfaces](https://flow.org/en/docs/types/interfaces/)
 
 ### Functions
 
@@ -301,7 +301,7 @@ function filter<T> (
 }
 ```
 
-See: [Functions](https://flow.org/docs/functions.html)
+See: [Functions](https://flow.org/en/docs/types/functions/)
 
 ### Imports
 

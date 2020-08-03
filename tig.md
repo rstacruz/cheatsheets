@@ -21,7 +21,7 @@ $ sudo apt install tig
 ### Invocation
 
 | Command             | Description                                  |
-| ---                 | ---                                          |
+| ------------------- | -------------------------------------------- |
 | `tig`               |                                              |
 | ---                 | ---                                          |
 | `tig status`        | Status                                       |
@@ -31,6 +31,7 @@ $ sudo apt install tig
 | `tig test..master`  | Show difference between two branches         |
 | `tig FILE`          | Show history of file                         |
 | `tig v0.0.3:README` | Show contents of file in a specific revision |
+| `tig -C /repo/path` | Run in dir `/repo/path` (like `git -C`)      |
 
 You can substitute `git log` → `tig`.
 

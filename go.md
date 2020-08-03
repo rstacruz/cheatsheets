@@ -184,13 +184,13 @@ See: [If](https://tour.golang.org/flowcontrol/5)
 ### Statements in if
 
 ```go
-if _, err := getResult(); err != nil {
+if _, err := doThing(); err != nil {
   fmt.Println("Uh oh")
 }
 ```
 {: data-line="1"}
 
-A condition in an `if` statement can be preceded with a statement before a `;`.
+A condition in an `if` statement can be preceded with a statement before a `;`. Variables declared by the statement are only in scope until the end of the `if`.
 
 See: [If with a short statement](https://tour.golang.org/flowcontrol/6)
 

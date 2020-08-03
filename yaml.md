@@ -24,3 +24,14 @@ child:
   <<: *defaults
   b: 4
 ```
+
+### Reference content
+
+```yaml
+values: &ref
+  - These values
+  - will be reused below
+  
+other_values:
+  <<: *ref
+```

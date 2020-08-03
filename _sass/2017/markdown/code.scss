@@ -86,7 +86,7 @@
   $cB: $base-c;
   $cB-3: adjust-color($cB, $lightness: 8%, $hue: -10deg);
 
-  $cM: #aaa; // Mute
+  $cM: #669; // Mute
 
   &.tag,
   &.keyword {
@@ -111,9 +111,12 @@
     color: $cA-3;
   }
 
-  &.comment,
   &.punctuation,
   &.operator {
     color: $cM;
+  }
+
+  &.comment {
+    color: #569;
   }
 }

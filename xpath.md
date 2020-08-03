@@ -11,14 +11,16 @@ description: |
 ## Testing
 
 ### Xpath test bed
+{: .-intro}
 
-Test queries in the Xpath test bed:<br>
-[Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+Test queries in the Xpath test bed:
+
+- [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
 
 ### Browser console
 
 ```js
-$x('//div')
+$x("//div")
 ```
 
 Works in Firefox and Chrome.

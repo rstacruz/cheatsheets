@@ -35,18 +35,18 @@ re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 
 ### Adding items
 
+#### Immutable
+
+```bash
+list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
+```
+
 #### Mutative
 
 ```bash
 list.push(X)            // list == [_,_,_,_,_,X]
 list.unshift(X)         // list == [X,_,_,_,_,_]
 list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
-```
-
-#### Immutable
-
-```bash
-list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
 ```
 
 ### Inserting

@@ -2,7 +2,7 @@
 title: Stencil
 category: JavaScript libraries
 layout: 2017/sheet
-updated: 2017-10-11
+updated: 2019-05-08
 keywords:
   - "@Component"
   - "@Prop()"
@@ -125,7 +125,7 @@ this.options = { ...this.options, show: true }
 
 Mutable operations such as `push()` won't work. You'll need to assign a new copy.
 
-See: [Updating arrays](https://stenciljs.com/docs/handling-arrays)
+See: [Updating arrays](https://stenciljs.com/docs/reactive-data/#updating-arrays)
 
 ## Slots
 

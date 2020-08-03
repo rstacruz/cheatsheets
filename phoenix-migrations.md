@@ -3,7 +3,7 @@ title: "Phoenix: Ecto migrations"
 category: Elixir
 layout: 2017/sheet
 weight: -1
-updated: 2017-09-04
+updated: 2020-02-23
 ---
 
 ### Creating
@@ -29,6 +29,12 @@ $ mix phoenix.gen.model Message messages user_id:integer content:text
 
 This is only for Phoenix 1.2 or older; models aren't available in Phoenix 1.3+.
 
+### Creating context
+
+```bash
+$ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
+```
+ 
 ## Migration functions
 
 ### Creating tables
@@ -43,8 +49,9 @@ create table(:documents) do
   add :body, :text
   add :age, :integer
   add :price, :float
-  add :price, :float, precision: 10, scale: 2
-  add :published_at, :datetime
+  add :price, :float
+  add :price, :decimal, precision: 10, scale: 2
+  add :published_at, :utc_datetime
   add :group_id, references(:groups)
   add :object, :json
 

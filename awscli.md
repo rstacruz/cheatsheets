@@ -9,6 +9,7 @@ layout: 2017/sheet
 ```
 aws ec2 describe-instances
 aws ec2 start-instances --instance-ids i-12345678c
+aws ec2 terminate-instances --instance-ids i-12345678c
 ```
 
 ### S3
@@ -35,6 +36,13 @@ aws ecs create-service
 ```
 brew install awscli
 aws configure
+```
+
+### Configuration profiles
+
+```
+aws configure --profile project1
+aws configure --profile project2
 ```
 
 ## Elastic Beanstalk

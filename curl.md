@@ -2,7 +2,7 @@
 title: Curl
 category: CLI
 layout: 2017/sheet
-updated: 2017-09-20
+updated: 2020-03-09
 ---
 
 ## Options
@@ -21,6 +21,7 @@ updated: 2017-09-20
 ```
 
 ```bash
+-i           # --include: Include the HTTP-header in the output
 -I           # --head: headers only
 ```
 
@@ -78,4 +79,10 @@ curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
 ```bash
 # multipart file upload
 curl -v -include --form key1=value1 --form upload=@localfilename URL
+```
+
+```bash
+# Use Curl to Check if a remote resource is available
+# details: https://matthewsetter.com/check-if-file-is-available-with-curl/
+curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarball.gz
 ```

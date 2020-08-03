@@ -4,7 +4,7 @@
 {% include 2017/head.html critical='sheet' %}
 {% include 2017/article-schema.html page=page %}
 
-</head><body>
+</head><body class='UseCompactHeader HighlightPubFirstLine'>
 
 {% include 2017/top-nav.html page=page %}
 
@@ -12,17 +12,9 @@
   <header class='main-heading -center' role='banner'>
     <h1 class='h1'>{{ page.title }} <em>{{ site.data.content.sheet.suffix }}</em></h1>
 
-    <div class='adbox' data-js-no-preview>
-      {% if site.data.codefund.enabled %}
-      <div class='ad -codefund' role='complementary'>
-        {% include 2017/codefund.html %}
-      </div>
-      {% endif %}
-
+    <div class='pubbox' data-js-no-preview>
       {% if site.data.carbon.enabled %}
-        <div class='HeadlineAd ad -carbon' role='complementary'>
-          <script async src='{{ site.data.carbon.src }}' id="_carbonads_js"></script>
-        </div>
+        {% include 2017/headline-pub.html %}
       {% endif %}
     </div>
   </header>

@@ -113,6 +113,14 @@ else
 endif
 ```
 
+## Loops 
+
+```makefile
+for filename in src/*; do \
+	echo $${filename}; \
+done
+```
+
 ## Recursive
 
 ```makefile

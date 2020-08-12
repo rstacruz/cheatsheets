@@ -29,6 +29,7 @@ category: CLI
 | `brew cat git`             | Print this formula          |
 | `brew home git`            | Open homepage               |
 | `brew search git`          | Search for formulas         |
+| `brew --version`           | Know the version            |
 
 ### Global commands
 
@@ -39,6 +40,7 @@ category: CLI
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
 | `brew doctor`   | Diagnose brew issues     |
+
 
 ### Brew Cask commands
 

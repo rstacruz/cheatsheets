@@ -5,16 +5,15 @@ layout: 2017/sheet
 updated: 2018-02-01
 weight: -5
 keywords:
-  - '⌘P: Show files'
-  - '⌘B: Toggle sidebar'
-  - '⌘J: Toggle panel'
-  - 'F5: Debug'
+  - "⌘P: Show files"
+  - "⌘B: Toggle sidebar"
+  - "⌘J: Toggle panel"
+  - "F5: Debug"
 intro: |
   [Visual Studio Code](https://code.visualstudio.com/), or VSCode, is an open-source code editor. This guide targets VSCode v1.19.
 ---
 
 ## Shortcuts
-
 {: .-three-column}
 
 ### Command palette
@@ -23,7 +22,6 @@ intro: |
 | ----- | ----------------- |
 | `⇧⌘P` | Show all commands |
 | `⌘P`  | Show files        |
-
 {: .-shortcuts}
 
 ### Sidebars
@@ -37,7 +35,6 @@ intro: |
 | `⇧⌘D` | Debug          |
 | `⇧⌘X` | Extensions     |
 | `⇧^G` | Git (SCM)      |
-
 {: .-shortcuts}
 
 ### Search
@@ -49,7 +46,6 @@ intro: |
 | ----  | ----             |
 | `⇧⌘F` | Find in files    |
 | `⇧⌘H` | Replace in files |
-
 {: .-shortcuts}
 
 ### Panel
@@ -61,8 +57,7 @@ intro: |
 | `⇧⌘M`                      | Problems      |
 | `⇧⌘U`                      | Output        |
 | `⇧⌘Y`                      | Debug console |
-| <code>^`</code> | Terminal |
-
+| <code>^`</code>            | Terminal      |
 {: .-shortcuts}
 
 ### View
@@ -73,28 +68,7 @@ intro: |
 | ----     | ----             |
 | `⌘k` `u` | Close unmodified |
 | `⌘k` `w` | Close all        |
-
 {: .-shortcuts}
-| ⌃⌘F | Toggle full screen
-
-### Display
-
-| Key      | Description                               |
-| -------- | ----------------------------------------- |
-| ⌥⌘0      | Toggle editor layout(horizontal/vertical) |
-| ⌘= / ⇧⌘- | Zoom in/out                               |
-| ⌘B T     | oggle Sidebar visibility                  |
-| ⇧⌘E      | Show Explorer / Toggle focus              |
-| ⇧⌘F      | Show Search                               |
-| ⌃⇧G      | Show Source Control                       |
-| ⇧⌘D      | Show Debug                                |
-| ⇧⌘X      | Show Extensions                           |
-| ⇧⌘H      | Replace in files                          |
-| ⇧⌘J      | Toggle Search details                     |
-| ⇧⌘U      | Show Output panel                         |
-| ⇧⌘V      | Open Markdown preview                     |
-| ⌘K V     | Open Markdown preview to the side         |
-| ⌘K Z     | Zen Mode (Esc Esc to exit)                |
 
 ### Debug
 
@@ -114,11 +88,10 @@ intro: |
 | ----   | ----                    |
 | `⇧⌘D`  | Debug sidebar           |
 | `⇧⌘Y`  | Debug panel             |
-
 {: .-shortcuts}
 
 ## References
 
-- [Keyboard shortcuts (MacOS)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) _(code.visualstudio.com)_
-- [Keyboard shortcuts (Windows)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) _(code.visualstudio.com)_
-- [Keyboard shortcuts (Linux)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf) _(code.visualstudio.com)_
+* [Keyboard shortcuts (MacOS)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) _(code.visualstudio.com)_
+* [Keyboard shortcuts (Windows)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) _(code.visualstudio.com)_
+* [Keyboard shortcuts (Linux)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf) _(code.visualstudio.com)_

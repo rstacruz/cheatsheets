@@ -39,7 +39,6 @@ category: CLI
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
 | `brew doctor`   | Diagnose brew issues     |
-| `brew --version | knowing the version      |
 
 ### Brew Cask commands
 

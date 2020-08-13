@@ -11,9 +11,11 @@ description: |
 ## Testing
 
 ### Xpath test bed
+{: .-intro}
 
-Test queries in the Xpath test bed:<br>
-[Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+Test queries in the Xpath test bed:
+
+- [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
 
 ### Browser console
 
@@ -232,7 +234,7 @@ Order is significant, these two are different.
 ### Nesting predicates
 
 ```
-//section[//h1[@id='hi']]
+//section[.//h1[@id='hi']]
 ```
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.

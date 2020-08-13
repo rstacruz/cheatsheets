@@ -5,18 +5,17 @@
 
 #### Date
 
-| Example              | Output                             |
-| ---                  | ---                                |
-| `YYYY-MM-DD`         | `2014-01-01`                       |
-| `dddd, MMMM Do YYYY` | `Friday, May 16th 2014`            |
-{: .-shortcuts}
+| Example                   | Output                 |
+| ------------------------- | ---------------------- |
+| `YYYY-MM-DD`              | 2014-01-01             |
+| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
+| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
 
 #### Time
 
-| Example              | Output                             |
-| ---                  | ---                                |
-| `hh:mm a`            | `12:30 pm`                         |
-{: .-shortcuts}
+| Example   | Output   |
+| --------- | -------- |
+| `hh:mm a` | 12:30 pm |
 
 Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
 
@@ -86,17 +85,16 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 
 ### Presets
 
-| Example              | Output                             |
-| ---                  | ---                                |
-| `LT`                 | `8:30 PM`                          |
-| `LTS`                | `8:30:25 PM`                       |
-| ---                  | ---                                |
-| `LL`                 | `August 2 1985`                    |
-| `ll`                 | `Aug 2 1985`                       |
-| ---                  | ---                                |
-| `LLL`                | `August 2 1985 08:30 PM`           |
-| `lll`                | `Aug 2 1985 08:30 PM`              |
-| ---                  | ---                                |
-| `LLLL`               | `Thursday, August 2 1985 08:30 PM` |
-| `llll`               | `Thu, Aug 2 1985 08:30 PM`         |
-{: .-shortcuts}
+| Example | Output                           |
+| ------- | -------------------------------- |
+| `LT`    | 8:30 PM                          |
+| `LTS`   | 8:30:25 PM                       |
+| ---     | ---                              |
+| `LL`    | August 2 1985                    |
+| `ll`    | Aug 2 1985                       |
+| ---     | ---                              |
+| `LLL`   | August 2 1985 08:30 PM           |
+| `lll`   | Aug 2 1985 08:30 PM              |
+| ---     | ---                              |
+| `LLLL`  | Thursday, August 2 1985 08:30 PM |
+| `llll`  | Thu, Aug 2 1985 08:30 PM         |

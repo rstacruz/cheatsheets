@@ -1,7 +1,7 @@
 ---
 title: Knex
 layout: 2017/sheet
-updated: 2017-09-23
+updated: 2020-06-03
 category: Databases
 intro: |
   [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
@@ -161,6 +161,7 @@ knex
   .where({ title: 'Hello' })
   .whereIn('id', [1, 2, 3])
   .whereNot(···)
+  .whereNotIn('id', [1, 2, 3])
 ```
 
 #### Where conditions

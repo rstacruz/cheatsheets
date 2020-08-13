@@ -5,7 +5,7 @@ category: Rails
 
 ## Multiple resources (`resources`)
 
-    resources :books
+    resources :photos
 
     # PhotosController:
     # index  =>    GET /photos
@@ -17,9 +17,9 @@ category: Rails
     # delete => DELETE /photos/:id
     #
     # Helpers:
-    # new_book_path
-    # book_path(id)
-    # edit_book_path(id)
+    # new_photo_path
+    # photo_path(id)
+    # edit_photo_path(id)
 
 ### Custom actions
 

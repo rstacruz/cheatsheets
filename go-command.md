@@ -15,7 +15,7 @@ updated: 2020-02-17
 go run main.go
 ```
 
-#### If there are multiple main files with the same package name, then all of the file names need to be added as arguments.
+#### If there are multiple main files within the same package name, then all of the filenames need to be added as arguments
 
 ```bash
 # COMMAND: go run <main-file> <main-file> <main-file> ...
@@ -191,33 +191,11 @@ GIT_TERMINAL_PROMPT=1 go mod tidy
 go mod vendor
 ```
 
-## Dep - Go dependency management tool
-{: .-three-column}
-
-### Initialize dep on a project
+#### Perform run/build command using vendored dependencies via `-mod=vendor` flag
 
 ```bash
-dep init
-```
-
-#### Ensure all dependencies are safely vendored
-
-```bash
-dep ensure
-```
-
-### Download/update dependency
-
-```bash
-# COMMAND: dep ensure -add <DEPENDENCY>
-dep ensure -add github.com/novalagung/gubrak/v2
-
-# update all dependencies
-dep ensure -update
-
-# update certain dependency
-# COMMAND: dep ensure -update <DEPENDENCY>
-dep ensure -update github.com/novalagung/gubrak/v2
+go run -mod=vendor main.go
+go build -mod vendor
 ```
 
 Also see

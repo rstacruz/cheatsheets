@@ -26,25 +26,25 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 
 ### Ranges
 
-| Range    | Description         | Notes              |
-| ---      | ---                 | ---                |
-| `~1.2.3` | is `>=1.2.3 <1.3.0` |                    |
-| ---      | ---                 | ---                |
-| `^1.2.3` | is `>=1.2.3 <2.0.0` |                    |
-| `^0.2.3` | is `>=0.2.3 <0.3.0` | (0.x.x is special) |
-| `^0.0.1` | is  `=0.0.1`        | (0.0.x is special) |
-| ---      | ---                 | ---                |
-| `^1.2`   | is `>=1.2.0 <2.0.0` | (like ^1.2.0)      |
-| `~1.2`   | is `>=1.2.0 <2.0.0` (npm)<br /> is `>=1.2.0 <1.3.0` (composer) | (like ~1.2.0 in npm) <br /> (like ^1.2 in composer)      |
-| ---      | ---                 | ---                |
-| `^1`     | is `>=1.0.0 <2.0.0` |                    |
-| `~1`     | same                |                    |
-| `1.x`    | same                |                    |
-| `1.*`    | same                |                    |
-| `1`      | same                |                    |
-| ---      | ---                 | ---                |
-| `*`      | any version         |                    |
-| `x`      | same                |                    |
+| Range    | Description                                                    | Notes                                                 |
+| ---      | ---                                                            | ---                                                   |
+| `~1.2.3` | is `>=1.2.3 <1.3.0`                                            |                                                       |
+| ---      | ---                                                            | ---                                                   |
+| `^1.2.3` | is `>=1.2.3 <2.0.0`                                            |                                                       |
+| `^0.2.3` | is `>=0.2.3 <0.3.0`                                            | (0.x.x is special)                                    |
+| `^0.0.1` | is  `=0.0.1`                                                   | (0.0.x is special)                                    |
+| ---      | ---                                                            | ---                                                   |
+| `^1.2`   | is `>=1.2.0 <2.0.0`                                            | (like ^1.2.0)                                         |
+| `~1.2`   | is `>=1.2.0 <2.0.0` (npm)<br /> is `>=1.2.0 <1.3.0` (composer) | (like ~1.2.0 in npm) <br /> (like ^1.2.0 in composer) |
+| ---      | ---                                                            | ---                                                   |
+| `^1`     | is `>=1.0.0 <2.0.0`                                            |                                                       |
+| `~1`     | same                                                           |                                                       |
+| `1.x`    | same                                                           |                                                       |
+| `1.*`    | same                                                           |                                                       |
+| `1`      | same                                                           |                                                       |
+| ---      | ---                                                            | ---                                                   |
+| `*`      | any version                                                    |                                                       |
+| `x`      | same                                                           |                                                       |
 {: .-shortcuts}
 
 ### Hyphenated ranges

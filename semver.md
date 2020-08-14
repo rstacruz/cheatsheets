@@ -35,7 +35,7 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 | `^0.0.1` | is  `=0.0.1`                                                   | (0.0.x is special)                                    |
 | ---      | ---                                                            | ---                                                   |
 | `^1.2`   | is `>=1.2.0 <2.0.0`                                            | (like ^1.2.0)                                         |
-| `~1.2`   | is `>=1.2.0 <2.0.0` (npm)<br /> is `>=1.2.0 <1.3.0` (composer) | (like ~1.2.0 in npm) <br /> (like ^1.2.0 in composer) |
+| `~1.2`   | is `>=1.2.0 <1.3.0` (npm)<br /> is `>=1.2.0 <2.0.0` (composer) | (like ~1.2.0 in npm) <br /> (like ^1.2.0 in composer) |
 | ---      | ---                                                            | ---                                                   |
 | `^1`     | is `>=1.0.0 <2.0.0`                                            |                                                       |
 | `~1`     | same                                                           |                                                       |

@@ -1,8 +1,12 @@
 ---
 title: jQuery CDN
 category: JavaScript libraries
+tags: [Archived]
+layout: 2017/sheet
 ---
 
 ### Google jQuery
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+```html
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+```

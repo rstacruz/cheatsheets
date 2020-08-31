@@ -3,7 +3,7 @@ title: Lodash
 category: JavaScript libraries
 layout: 2017/sheet
 weight: -3
-updated: 2017-10-17
+updated: 2020-06-24
 description: |
   This is not a complete list.
 ---
@@ -15,7 +15,7 @@ description: |
 ```js
 _.filter(list, (n) => n % 2)    // → Array
 _.find(list, (n) => n % 2)      // → item
-_.findRight(list, ...)          // → item
+_.findLast(list, ...)           // → item
 ```
 
 Works for both arrays and objects.
@@ -197,10 +197,15 @@ _.camelCase('hello world')    // → 'helloWorld'
 ### Padding
 
 ```js
+_.pad('abc', 3)           // → 'abc'
 _.pad('abc', 8)           // → '   abc  '
-_.padLeft('abc', 8)       // → '     abc'
-_.padLeft('abc', 8, '-')  // → '00000abc'
-_.padRight(...)
+_.pad('abc', 8, '_-')     // → '_-abc_-_'
+_.padStart('abc', 3)      // → 'abc'
+_.padStart('abc', 6)      // → '   abc'
+_.padStart('abc', 6, '_-')// → '_-_abc'
+_.padEnd('abc', 3)        // → 'abc'
+_.padEnd('abc', 6)        // → 'abc   '
+_.padEnd('abc', 6, '_-')  // → 'abc_-_'
 ```
 
 ### Trim

@@ -12,6 +12,7 @@ Manage images
 ```yml
 docker build [options] .
   -t "app/container_name"    # name
+  --build-arg APP_HOME=$APP_HOME    # Set build-time variables
 ```
 
 Create an `image` from a Dockerfile.
@@ -24,6 +25,11 @@ docker run [options] IMAGE
   # see `docker create` for options
 ```
 
+#### Example
+
+```
+$ docker run -it debian:buster /bin/bash
+```
 Run a command in an `image`.
 
 Manage containers
@@ -37,7 +43,7 @@ docker create [options] IMAGE
   -i, --interactive          # attach stdin (interactive)
   -t, --tty                  # pseudo-tty
       --name NAME            # name your image
-  -p, --publish 5000:5000    # port map
+  -p, --publish 5000:5000    # port map (host:container)
       --expose 5432          # expose a port to linked containers
   -P, --publish-all          # publish all ports
       --link container:alias # linking
@@ -97,6 +103,18 @@ $ docker kill $ID
 
 Manage `container`s using ps/kill.
 
+
+### `docker logs`
+
+```
+$ docker logs $ID
+$ docker logs $ID 2>&1 | less
+$ docker logs -f $ID # Follow log output
+```
+
+See what's being logged in an `container`.
+
+
 Images
 ------
 
@@ -122,6 +140,48 @@ docker rmi b750fe78269d
 ```
 
 Deletes `image`s.
+
+## Clean up
+
+### Clean all
+
+```sh
+docker system prune
+```
+
+Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)
+
+```sh
+docker system prune -a
+```
+
+Additionally remove any stopped containers and all unused images (not just dangling images)
+
+### Containers
+
+```sh
+# Stop all running containers
+docker stop $(docker ps -a -q)
+
+# Delete stopped containers
+docker container prune
+```
+
+### Images
+
+```sh
+docker image prune [-a]
+```
+
+Delete all the images
+
+### Volumes
+
+```sh
+docker volume prune
+```
+
+Delete all the volumes
 
 Also see
 --------

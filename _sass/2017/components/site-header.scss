@@ -31,14 +31,14 @@
     margin-top: 32px;
   }
 
-  & > .adbox {
+  & > .pubbox {
     margin: 16px auto;
   }
 
-  @media (max-width: 480px) {
-    & > .adbox {
-      margin-left: -16px;
-      margin-right: -16px;
+  @media (min-width: 481px) {
+    & > .pubbox {
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
   }
 }

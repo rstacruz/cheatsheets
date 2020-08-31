@@ -3,7 +3,8 @@
  */
 
 .h3-section > .body {
-  & > pre {
+  & > pre,
+  & > .gatsby-highlight > pre {
     margin: 0;
     padding: 16px;
   }
@@ -130,12 +131,9 @@
   }
 
   /* Description paragraphs */
-  & > pre ~ p,
-  & > ul ~ p,
-  & > iframe ~ p,
-  & > table ~ p {
+  & p {
     background: $gray-bg;
-    color: $gray-text;
+    color: $base-text;
 
     /* Links */
     & a,
@@ -210,5 +208,57 @@ ul.-also-see.-also-see.-also-see {
   & > li > em {
     @include font-size(-1);
     display: block;
+  }
+}
+
+.h3-section.-intro {
+  & > .body > p {
+    @include font-size(1);
+  }
+
+  & > .body > ul > li {
+    padding-left: 16px;
+    position: relative;
+  }
+
+  & > .body > ul > li::before {
+    display: none;
+  }
+
+  // & > .body > ul > li:hover {
+  //   background: rgba($base-b3, 0.1);
+  // }
+
+  & > .body > ul > li > a {
+    @include font-size(1);
+    display: block;
+    font-weight: bold;
+  }
+
+  // Cover the full card
+  & > .body > ul > li > a::before {
+    content: '';
+    @include ion-md-arrow-forward(24px, $base-a3);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -12px;
+  }
+  & > .body > ul > li:hover > a::before {
+    @include ion-md-arrow-forward(24px, $base-a);
+  }
+
+  & > .body > ul > li > a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  & > .body > ul > li em {
+    color: $base-mute;
   }
 }

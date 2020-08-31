@@ -3,7 +3,7 @@ title: Dockerfile
 category: Devops
 layout: 2017/sheet
 prism_languages: [docker]
-updated: 2018-03-17
+updated: 2019-10-20
 ---
 
 ## Reference
@@ -19,6 +19,11 @@ FROM ruby:2.2.2
 
 ```docker
 ENV APP_HOME /myapp
+RUN mkdir $APP_HOME
+```
+
+```docker
+ARG APP_HOME=""
 RUN mkdir $APP_HOME
 ```
 

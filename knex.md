@@ -1,7 +1,7 @@
 ---
 title: Knex
 layout: 2017/sheet
-updated: 2017-09-23
+updated: 2020-06-03
 category: Databases
 intro: |
   [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
@@ -69,14 +69,26 @@ See: [Update](#update-1)
 
 ### Migrations
 
-```
+```bash
 knex init
 knex migrate:make migration_name
+knex migrate:make migration_name -x ts # Generates a TypeScript migration file
 knex migrate:latest
 knex migrate:rollback
 ```
 
 See: [Migrations](#migrations-1)
+
+### Seeds
+
+```bash
+knex seed:make seed_name
+knex seed:make seed_name -x ts # Generates a TypeScript seed file
+knex seed:run # Runs all seed files
+knex seed:run --specific=seed-filename.js # Runs a specific seed file
+```
+
+See: [Seeds](http://knexjs.org/#Seeds)
 
 ## Connect
 {: .-three-column}
@@ -149,6 +161,7 @@ knex
   .where({ title: 'Hello' })
   .whereIn('id', [1, 2, 3])
   .whereNot(···)
+  .whereNotIn('id', [1, 2, 3])
 ```
 
 #### Where conditions

@@ -1,9 +1,10 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "forceAllTransforms": true
+        "useBuiltIns": "entry",
+        "targets": "> 2%"
       }
     ]
   ]

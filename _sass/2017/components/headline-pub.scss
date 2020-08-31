@@ -1,0 +1,198 @@
+$placeholder-bg-size: 450px;
+
+$image-width: 83px;
+$image-height: 64px;
+$image-margin: 16px;
+
+$image-width: 130px;
+$image-height: 100px;
+$image-margin: 24px;
+
+$ad-width: 380px;
+$ad-height: $image-height;
+
+/*
+ * Base carbon ads style
+ */
+
+@mixin carbon-style {
+  .carbon-img,
+  .carbon-text,
+  .carbon-poweredby {
+    text-decoration: none;
+  }
+
+  // Increase hit area
+  .carbon-text,
+  .carbon-poweredby {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .carbon-img > img {
+    width: $image-width;
+    height: $image-height;
+    box-shadow: $shadow3;
+    border-radius: 3px;
+    background: rgba($gray-text, 0.2);
+    color: transparent;
+  }
+
+  .carbon-img:hover img {
+    transform: translate3d(0, -1px, 0);
+    box-shadow: $shadow6;
+  }
+
+  .carbon-text,
+  .carbon-text:visited {
+    color: $base-text;
+  }
+
+  // Allow line breaks
+  .carbon-text::after {
+    content: '  ';
+  }
+
+  .carbon-text:hover,
+  .carbon-poweredby:hover {
+    color: $base-b;
+  }
+
+  .carbon-poweredby,
+  .carbon-poweredby:visited {
+    display: block;
+    margin-top: 8px;
+    white-space: nowrap;
+    color: $gray-text;
+  }
+}
+
+/*
+ * Carbon ads
+ *
+ *     .HeadlinePub
+ *       div#carbonads
+ *         span
+ *           span.carbon-wrap
+ *             a.carbon-img > img
+ *             a.carbon-text {description}
+ *           a.carbon-poweredby {powered by Carbon}
+ */
+
+.HeadlinePub {
+  @include carbon-style;
+
+  & {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Hide placeholders after carbon has loaded
+  #carbonads ~ .placeholder {
+    opacity: 0;
+    transition: opacity 250ms linear;
+    pointer-events: none;
+  }
+
+  & > .placeholder {
+    background-image: linear-gradient(
+      92deg,
+      rgba($gray-text, 0.1),
+      rgba($gray-text, 0.17) 15%,
+      rgba($gray-text, 0.1) 30%
+    );
+    background-size: $placeholder-bg-size 100%;
+    animation: 2.5s ease-in-out infinite placeholder-swish;
+    border-radius: 3px;
+    position: absolute;
+    display: block;
+  }
+
+  & > .placeholder.-one {
+    left: 0;
+    top: 0;
+    width: $image-width;
+    height: $image-height;
+  }
+
+  & > .placeholder.-two,
+  & > .placeholder.-three,
+  & > .placeholder.-four {
+    left: $image-width + $image-margin;
+    top: 6px;
+    height: 8px;
+    width: $ad-width - $image-width - $image-margin;
+  }
+
+  & > .placeholder.-three {
+    top: 28px;
+  }
+
+  & > .placeholder.-four {
+    top: 50px;
+    width: ($ad-width - $image-width - $image-margin) * 0.28;
+  }
+
+  // Make the ad show up above the placeholder
+  #carbonads {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Carbon wrapper
+  &,
+  & > div > span {
+    display: block;
+    width: $ad-width;
+    height: $ad-height;
+    text-align: left;
+  }
+
+  .HighlightPubFirstLine & > div > span:first-line {
+    font-weight: bold;
+  }
+
+  // Clearfix
+  & > div > span::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  .carbon-img {
+    float: left;
+    margin-right: $image-margin;
+  }
+}
+
+#carbonads {
+  animation: 500ms ease-out pub-text-enter;
+}
+
+@keyframes placeholder-swish {
+  0% {
+    background-position: ($placeholder-bg-size * -1 / 3) 0%;
+  }
+
+  50% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+
+  100% {
+    background-position: ($placeholder-bg-size * 2 / 3) 0%;
+  }
+}
+
+@keyframes pub-text-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,8 +1,8 @@
 ---
 title: GraphQL
 layout: 2017/sheet
-updated: 2017-09-23
-category: Databases
+updated: 2019-07-07
+category: API
 ---
 
 ## Intro

@@ -2,13 +2,13 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <link href='{{ base }}/assets/favicon.png' rel='shortcut icon'>
-<meta content='{{ page.url }}' name='app:pageurl'>
+<meta content='{{ page.url | escape }}' name='app:pageurl'>
 
 {% if meta_title %}
-  <title>{{ meta_title }}</title>
-  <meta content='{{ meta_title }}' property='og:title'>
-  <meta content='{{ meta_title }}' property='twitter:title'>
-  <meta content='{{ page.og_type | default: "article" }}' property='og:type'>
+  <title>{{ meta_title | escape }}</title>
+  <meta content='{{ meta_title | escape }}' property='og:title'>
+  <meta content='{{ meta_title | escape }}' property='twitter:title'>
+  <meta content='{{ page.og_type | default: "article" | escape }}' property='og:type'>
 {% endif %}
 
 {% if meta_image %}
@@ -24,11 +24,11 @@
   <meta content="{{ meta_description | escape }}" property="twitter:description">
 {% endif %}
 
-<link rel="canonical" href="{{ page_url }}">
-<meta name="og:url" content="{{ page_url }}">
+<link rel="canonical" href="{{ page_url | escape }}">
+<meta name="og:url" content="{{ page_url | escape }}">
 {% if page.url == '/' %}
-  <link rel="prefetch" href="{{ site.url }}">
-  <link rel="prerender" href="{{ site.url }}">
+  <link rel="prefetch" href="{{ site.url | escape }}">
+  <link rel="prerender" href="{{ site.url | escape }}">
 {% endif %}
 
 {% if page.author %}
@@ -41,15 +41,15 @@
 {% endif %}
 
 {% if site.title %}
-  <meta content='{{ site.title }}' property='og:site_name'>
+  <meta content='{{ site.title | escape }}' property='og:site_name'>
 {% endif %}
 
 {% if site.facebook.app_id %}
-  <meta content='{{ site.facebook.app_id }}' property='fb:app_id'>
+  <meta content='{{ site.facebook.app_id | escape }}' property='fb:app_id'>
 {% endif %}
 
 {% if site.facebook.admin %}
-  <meta content='{{ site.facebook.admin }}' property='fb:admins'>
+  <meta content='{{ site.facebook.admin | escape }}' property='fb:admins'>
 {% endif %}
 
 {% if page.date %}
@@ -57,12 +57,12 @@
 {% endif %}
 
 {% if page.category %}
-  <meta content='{{ page.category }}' property='article:section'>
+  <meta content='{{ page.category | escape }}' property='article:section'>
 {% endif %}
 
 {% if page.tags %}
 {% for tag in page.tags %}
-  <meta content='{{ tag }}' property='article:tag'>
+  <meta content='{{ tag | escape }}' property='article:tag'>
 {% endfor %}
 {% endif %}
 

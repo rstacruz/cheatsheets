@@ -6,12 +6,12 @@ layout: 2017/sheet
 
 ### Arrays
 
-```bash
+```js
 list = [a,b,c,d,e]
 ```
 {: .-setup}
 
-```bash
+```js
 list[1]                 // → b
 list.indexOf(b)         // → 1
 ```
@@ -20,7 +20,7 @@ list.indexOf(b)         // → 1
 
 #### Immutable
 
-```bash
+```js
 list.slice(0,1)         // → [a        ]
 list.slice(1)           // → [  b,c,d,e]
 list.slice(1,2)         // → [  b      ]
@@ -28,7 +28,7 @@ list.slice(1,2)         // → [  b      ]
 
 #### Mutative
 
-```bash
+```js
 re = list.splice(1)     // re = [b,c,d,e]  list == [a]
 re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 ```
@@ -37,39 +37,76 @@ re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 
 #### Immutable
 
-```bash
+```js
 list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
 ```
-
 #### Mutative
 
-```bash
+```js
 list.push(X)            // list == [_,_,_,_,_,X]
 list.unshift(X)         // list == [X,_,_,_,_,_]
 list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
 ```
 
-### Inserting
+### Using Spread syntax
 
-```bash
-// after -- [_,_,REF,NEW,_,_]
-list.splice(list.indexOf(REF)+1, 0, NEW))
+#### Copy an array
+
+```js
+let arr1 = ['foo','bar']
+let arr2 = [...arr1]      // arr2 == ['foo','bar']
+arr2.push('baz')
+// Result: arr1 == ['foo','bar'], arr2 == ['foo','bar','baz']
+arr1.push('qux')
+// Result: arr1 == ['foo','bar','qux'], arr2 == ['foo','bar','baz']
+
 ```
 
-```bash
+#### Adding items to an array
+
+```js
+// Adding items to the end of an array
+list = [...list, [X,Y]] // → [_,_,_,_,_,X,Y]
+```
+
+```js
+// Adding items to the end of an array
+list = [[X,Y], ...list] // → [X,Y,_,_,_,_,_]
+```
+
+#### Concatenating / merging multiple arrays
+
+```js
+// merging multiple arrays
+let arr1 = ['X','Y','Z']
+let arr2 = ['foo','bar','baz']
+let arr3 = ['all','your','base']
+
+let merged = [...arr2, ...arr1, ...arr3] // → result == ["foo","bar","baz","X","Y","Z","all","your","base"]
+```
+Note: Spread syntax is available after ES6
+
+### Inserting
+
+```js
+// after -- [_,_,REF,NEW,_,_]
+list.splice(list.indexOf(REF)+1, 0, NEW)
+```
+
+```js
 // before -- [_,_,NEW,REF,_,_]
-list.splice(list.indexOf(REF), 0, NEW))
+list.splice(list.indexOf(REF), 0, NEW)
 ```
 
 ### Replace items
 
-```bash
+```js
 list.splice(2, 1, X)    // list == [a,b,X,d,e]
 ```
 
 ### Removing items
 
-```bash
+```js
 list.pop()              // → e    list == [a,b,c,d]
 list.shift()            // → a    list == [b,c,d,e]
 list.splice(2, 1)       // → [c]  list == [a,b,d,e]
@@ -77,21 +114,21 @@ list.splice(2, 1)       // → [c]  list == [a,b,d,e]
 
 ### Iterables
 
-```bash
+```js
 .filter(n => ...) => array
 ```
 
-```bash
+```js
 .find(n => ...)  // es6
 .findIndex(...)  // es6
 ```
 
-```bash
+```js
 .every(n => ...) => Boolean // ie9+
 .some(n => ..) => Boolean   // ie9+
 ```
 
-```bash
+```js
 .map(n => ...)   // ie9+
 .reduce((total, n) => total) // ie9+
 .reduceRight(...)

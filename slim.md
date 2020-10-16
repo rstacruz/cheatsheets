@@ -77,9 +77,18 @@ Depending on your parser, like [Kramdown](https://kramdown.gettalong.org/quickre
 
 ```jade
 javascript:
-  alert('Slim supports embedded javascript!')
+  alert('Slim supports embedded javascript!')  
 ```
 
+You can use text interpolation to access values from ruby on the javascript code.
+
+### Text interpolation
+
+```jade
+div Escaped #{content}
+div Unescaped #{{content}}
+div Not interpolated \#{content}
+```
 
 ### Comments
 

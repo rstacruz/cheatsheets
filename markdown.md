@@ -149,3 +149,14 @@ Column 1 Heading | Column 2 Heading
 --- | ---
 Some content | Other content
 ```
+
+### Definition lists
+
+```markdown
+First Term
+: This is the definition of the first term.
+
+Second Term
+: This is one definition of the second term.
+: This is another definition of the second term.
+```

@@ -52,6 +52,21 @@ world
 Templates and multiline strings.
 See: [Template strings](https://babeljs.io/learn-es2015/#template-strings)
 
+### Arrow functions
+
+
+```js
+// Anonymous Arrow functions and functon call
+
+(() => {
+// some codes
+}) ()
+
+```
+
+
+
+
 ### Binary and octal literals
 
 ```js

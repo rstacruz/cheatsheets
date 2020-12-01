@@ -233,6 +233,18 @@ for i, val := range entry {
 
 See: [For-Range loops](https://gobyexample.com/range)
 
+### While loop
+
+```go
+n := 0
+x := 42
+for n != x {
+  n := guess()
+}
+```
+
+See: [Go's "while"](https://tour.golang.org/flowcontrol/3)
+
 ## Functions
 {: .-three-column}
 

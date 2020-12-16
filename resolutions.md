@@ -15,9 +15,8 @@ weight: -1
 | 320 x 480  | @1x  | 320 x 480         | 163 ppi | 163 ppi    | 3.5" | iPhone 2G/3G/3GS           |
 | 320 x 480  | @2x  | 640 x 960         | 163 ppi | 326 ppi    | 3.5" | iPhone 4/4S                |
 | 320 x 568  | @2x  | 640 x 1136        | 163 ppi | 326 ppi    | 4"   | iPhone 5/5C/5S             |
-| 375 x 667  | @2x  | 750 x 1334        | 163 ppi | 326 ppi    | 4.7" | iPhone 6/6S                |
 | 320 x 568  | @2x  | 640 x 1136        | 163 ppi | 326 ppi    | 4"   | iPhone SE                  |
-| 375 x 667  | @2x  | 750 x 1334        | 163 ppi | 326 ppi    | 4.7" | iPhone 7/8/SE2             |
+| 375 x 667  | @2x  | 750 x 1334        | 163 ppi | 326 ppi    | 4.7" | iPhone 6/6S/7/8/SE2        |
 | 414 x 736  | @3x  | 1242 x 2208       | 133 ppi | 401 ppi    | 5.5" | iPhone 6+/6S+/7+/8+        |
 | 414 x 896  | @2x  | 828 x 1792        | 162 ppi | 326 ppi    | 6.1" | iPhone Xr/11               |
 | 375 x 812  | @3x  | 1125 x 2436       | 152 ppi | 458 ppi    | 5.8" | iPhone X/Xs/11 Pro         |

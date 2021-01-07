@@ -22,6 +22,7 @@ scp <options> source_path destination_path
 -C      # copy files with compression
 -l 800  # limit bandwith with 800
 -p      # preserving the original attributes of the copied files
+-P      # connection port
 -q      # hidden the output
 ```
 

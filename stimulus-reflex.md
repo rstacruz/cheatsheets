@@ -1,11 +1,9 @@
 ---
 title: StimulusReflex
 category: Ruby
+layout: 2017/sheet
+updated: 2021-01-07
 ---
-
-# StimulusReflex Cheatsheet
-
-## Calling Reflexes
 
 ### via Data Attributes
 
@@ -71,7 +69,7 @@ end
 
 ## Morphs
 
-### Selector Morphs
+### Selector morphs
 
 Instead of refreshing the entire page, you can specify a portion of the page to update with `morph(selector, content)`
 
@@ -98,7 +96,7 @@ class ExampleReflex < ApplicationReflex
 end
 ```
 
-### Nothing Morph
+### Nothing morph
 
 Use `morph :nothing` in reflexes that do something on the server without updating the client.
 
@@ -114,7 +112,7 @@ end
 
 ## Lifecycle
 
-### Server-side Callbacks
+### Server-side callbacks
 
 Reflex classes can use the following callbacks. [Full Docs](http://docs.stimulusreflex.com/lifecycle#server-side-reflex-callbacks)
 
@@ -122,7 +120,7 @@ Reflex classes can use the following callbacks. [Full Docs](http://docs.stimulus
 - `around_reflex`
 - `after_reflex`
 
-### Client-side Callbacks (Generic)
+### Client-side callbacks (generic)
 
 StimulusReflex controllers automatically support five generic lifecycle callback methods.
 
@@ -133,7 +131,7 @@ StimulusReflex controllers automatically support five generic lifecycle callback
 - `afterReflex(element, reflex, noop, reflexId)` after both success and error
 - `finalizeReflex(element, reflex, noop, reflexId)` after both success and error
 
-### Client-side Callbacks (Custom)
+### Client-side callbacks (custom)
 
 StimulusReflex controllers can define up to five custom lifecycle callback methods for each Reflex action. These methods use a naming convention based on the name of the Reflex. e.g. for the `add_one` reflex:
 
@@ -144,7 +142,7 @@ StimulusReflex controllers can define up to five custom lifecycle callback metho
 - `afterAddOne(element, reflex, noop, reflexId)`
 - `finalizeAddOne(element, reflex, noop, reflexId)`
 
-### Client-side Events
+### Client-side events
 
 If you need to know when a Reflex method is called, but you're working outside of the Stimulus controller that initiated it, you can subscribe to receive DOM events
 
@@ -161,7 +159,7 @@ There are also events related to the StimulusReflex library setting up and conne
 - `stimulus-reflex:rejected`
 - `stimulus-reflex:ready`
 
-## Helpful Tips and Tricks
+## Helpful tips
 
 ### Forms
 
@@ -200,7 +198,7 @@ class CommentReflex < ApplicationReflex
 end
 ```
 
-### Reflex Root
+### Reflex root
 
 Instead of updating your entire page, you can specify exactly which parts of the DOM will be updated using the `data-reflex-root` attribute. [Full docs](http://docs.stimulusreflex.com/morph-modes#scoping-page-morphs)
 
@@ -220,7 +218,7 @@ Instead of updating your entire page, you can specify exactly which parts of the
   end
 ```
 
-### Permanent Elements
+### Permanent elements
 
 Add data-reflex-permanent to any element in your DOM, and it will be left unchanged by full-page Reflex updates and morph calls that re-render partials.
 
@@ -232,7 +230,7 @@ Add data-reflex-permanent to any element in your DOM, and it will be left unchan
 </div>
 ```
 
-### Aborting a Reflex
+### Aborting a reflex
 
 call `raise :abort` within a reflex method to cancel it.
 

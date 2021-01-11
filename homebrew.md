@@ -45,7 +45,7 @@ category: CLI
 | Command                       | Description                           |
 | ---                           | ---                                   |
 | `brew cask install firefox`   | Install the Firefox browser           |
-| `brew cask list`              | List installed applications           |
+| `brew list --cask`            | List installed applications           |
 
 Cask commands are used for interacting with graphical applications.
 

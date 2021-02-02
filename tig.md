@@ -72,7 +72,7 @@ You can substitute `git log` → `tig`.
 | `C` | Cherry pick a commit        |
 {: .-shortcuts}
 
-### `s` - Stage view
+### `s` - Status view
 
 | `u`     | Stage/unstage file or chunk        |
 | `!`     | Revert file or chunk               |

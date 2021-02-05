@@ -95,6 +95,9 @@ git reset --hard
 ```bash
 git reset --hard $commit_id
 
-# Now push to your branch
+# Now push safely to your branch
+git push --force-with-lease
+
+# Or push brutally to your branch
 git push --force
 ```

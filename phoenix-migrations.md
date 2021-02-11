@@ -42,7 +42,6 @@ This is for Phoenix 1.3+; this replaces models.
 $ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
 ```
 
- 
 ## Migration functions
 
 ### Creating tables

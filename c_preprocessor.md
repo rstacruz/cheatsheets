@@ -61,7 +61,14 @@ $ cpp -P file > outfile
 
 ```
 #define DST(name) name##_s name##_t
-DST(object);   #=> "object_s object_t;"
+DST(object);   #=> object_s object_t;
+```
+
+### Stringification
+
+```
+#define STR(name) #name
+char * a = STR(object);   #=> char * a = "object";
 ```
 
 ### file and line

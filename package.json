@@ -1,8 +1,8 @@
 {
   "name": "cheatsheets",
-  "description": "Devhints.io",
+  "description": "Cheat Sheets by Bruce Bentley",
   "version": "1.0.0",
-  "author": "Rico Sta. Cruz <rstacruz@users.noreply.github.com>",
+  "author": "Bruce Bentley <brucebentley@users.noreply.github.com>",
   "dependencies": {
     "autoprefixer": "^9.8.2",
     "dom101": "^2.2.1",
@@ -28,7 +28,7 @@
     "prettier": "^2.0.5",
     "wait-on": "^5.0.1"
   },
-  "homepage": "https://devhints.io/",
+  "homepage": "https://cheatsheets.brucebentley.dev/",
   "jest": {
     "snapshotSerializers": [
       "<rootDir>/node_modules/jest-html"
@@ -37,7 +37,7 @@
   "license": "MIT",
   "main": "index.js",
   "private": true,
-  "repository": "https://github.com/rstacruz/cheatsheets.git",
+  "repository": "https://github.com/brucebentley/cheatsheets.git",
   "scripts": {
     "build": "run-s -s 'parcel:*:build' jekyll:build",
     "dev": "run-p -sl jekyll:watch 'parcel:*:watch'",

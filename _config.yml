@@ -56,10 +56,10 @@ defaults:
 
 # Site info
 
-url: https://devhints.io
-title: Devhints.io cheatsheets
+url: https://cheatsheets.brucebentley.dev
+title: Cheat Sheets by Bruce Bentley
 
 # GitHub metadata
 # https://help.github.com/articles/repository-metadata-on-github-pages/
 
-repository: rstacruz/cheatsheets
+repository: brucebentley/cheatsheets

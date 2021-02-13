@@ -156,4 +156,4 @@ See: [Mutations](http://absinthe-graphql.org/tutorial/mutations/)
 ## References
 
   - [Absinthe website](http://absinthe-graphql.org/) _(absinthe-graphql.org)_
-  - [GraphQL cheatsheet](./graphql) _(devhints.io)_
+  - [GraphQL cheatsheet](./graphql) _(cheatsheets.brucebentley.dev)_

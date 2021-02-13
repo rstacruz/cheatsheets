@@ -99,7 +99,7 @@ See: [jekyll-mentions](https://github.com/jekyll/jekyll-mentions)
 ### Usage
 
 ```js
-Hey @rstacruz, what do you think of this?
+Hey @brucebentley, what do you think of this?
 ```
 
 Just mention anyone in any page. Their names will be turned into links.

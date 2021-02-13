@@ -4,9 +4,9 @@ layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-26
 intro: |
-  This is a reference of styles that you can use on Devhints cheatsheets. How
+  This is a reference of styles that you can use on Cheat Sheets. How
   meta!
-  You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
+  You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/brucebentley/cheatsheets/).
 ---
 
 Intro
@@ -75,7 +75,7 @@ See: [Lists](#lists-1)
 {: .-two-column}
 ```
 
-Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
+Cheat Sheets uses Kramdown, and supports adding classes via Kramdown's syntax.
 
 H3 sections
 -----------

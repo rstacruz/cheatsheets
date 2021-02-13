@@ -4,18 +4,18 @@
 
 This repository supports contribution using [gitpod](https://gitpod.io) which is online IDE using [Theia](https://github.com/eclipse-theia/theia).
 
-To open-up the environment simple natigate on https://gitpod.io/#https://github.com/rstacruz/cheatsheets
+To open-up the environment simple natigate on [https://gitpod.io/#https://github.com/brucebentley/cheatsheets]
 
 Or using a button:<br>
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rstacruz/cheatsheets)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/brucebentley/cheatsheets)
 
-### Preview built website
+### Preview Built Website
 
 To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.
 
 <img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/>
 
-## Starting a local instance
+## Starting A Local Instance
 
 This starts Jekyll and Parcel. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
 
@@ -33,7 +33,7 @@ env PORT=4001 yarn run dev
 ### Docker
 
 You can also run a local instance using Docker. This is the preferred method, especially for Windows.
-You only need to install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Arch Linux](https://www.archlinux.org/packages/community/x86_64/docker/), [other](https://www.docker.com/community-edition#download)).
+You only need to install Docker _( [macOS](https://docs.docker.com/docker-for-mac/install/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Arch Linux](https://www.archlinux.org/packages/community/x86_64/docker/), [other](https://www.docker.com/community-edition#download) )_.
 
 First time setup:
 
@@ -51,27 +51,27 @@ Starting the server:
 docker-compose up
 ```
 
-## CSS classes
+## CSS Classes
 
-See <https://devhints.io/cheatsheet-styles> for a reference on styling.
+See <https://cheatsheets.brucebentley.dev/cheatsheet-styles> for a reference on styling.
 
 ## JavaScript
 
-When updating JavaScript, be sure Parcel is running (`yarn dev` takes care of this).
+When updating JavaScript, be sure Parcel is running _( `yarn dev` takes care of this )_.
 
 This auto-updates `/assets/packed/` and `_includes/2017/critical/` with sources in `_parcel/`.
 
 Before committing, run `yarn parcel:build` first.
 
-## JavaScript tests
+## JavaScript Tests
 
 There are also automated tests:
 
-```
+```bash
 yarn run test --watch
 ```
 
-## Frontmatter
+## Front Matter
 
 Each sheet supports these metadata:
 
@@ -102,13 +102,13 @@ og_type: website # opengraph type
 
 ```
 
-## Prism languages
+## Prism Languages
 
 For supported prism languages:
 
 - <https://github.com/PrismJS/prism/tree/gh-pages/components>
 
-## Setting up redirects
+## Setting Up Redirects
 
 This example sets up a redirect from `es2015` to `es6`:
 
@@ -135,43 +135,43 @@ So you want to fork this repo? Sure, here's what you need to know to whitelabel 
 - Edit everything in `_data/` - this holds all 'config' for the site: ad IDs, strings, etc.
 - Edit `_config.yml` as well, lots of things may not apply to you.
 
-## CloudFlare purging
+## Cloudflare Purging
 
-The site devhints.io is backed by CloudFlare. Updates will take 2 days to propagate to the website by default. To make sure recent changes will propagate, use this helper script. It will give instructions on how manual selective cache purging can be done.
+The site cheatsheets.brucebentley.dev is backed by CloudFlare. Updates will take 2 days to propagate to the website by default. To make sure recent changes will propagate, use this helper script. It will give instructions on how manual selective cache purging can be done.
 
 ```bash
 ./_support/cf-purge.sh
 ```
 
-## SEO description
+## SEO Description
 
 There are multiple ways to set meta description.
 
-### Keywords (and intro)
+### Keywords ( and Intro )
 
-Set `keywords` (and optionally `intro`). This is the easiest and the preferred
+Set `keywords` _( and optionally `intro` )_. This is the easiest and the preferred
 way for now.
 
-```
-React cheatsheet - devhints.io
+```txt
+React cheatsheet - cheatsheets.brucebentley.dev
 ------------------------------
-https://devhints.io/react ▼
+https://cheatsheets.brucebentley.dev/react ▼
 React.Component · render() · componentDidMount() · props/state · React is a
 JavaScript library for building web...
 ```
 
-### Description (and intro)
+### Description ( and Intro )
 
-Set `description` (and optionally `intro`)
+Set `description` _( and optionally `intro` )_
 
-```
-React cheatsheet - devhints.io
+```txt
+React cheatsheet - cheatsheets.brucebentley.dev
 ------------------------------
-https://devhints.io/react ▼
+https://cheatsheets.brucebentley.dev/react ▼
 One-page reference to React and its API. React is a JavaScript library for
 building web user interfaces...
 ```
 
-### Intro only
+### Intro Only
 
 If you left out `description` or `keywords`, a default description will be added.

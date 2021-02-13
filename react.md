@@ -93,7 +93,7 @@ constructor(props) {
 ```
 
 ```jsx
-this.setState({ username: 'rstacruz' })
+this.setState({ username: 'brucebentley' })
 ```
 
 ```jsx

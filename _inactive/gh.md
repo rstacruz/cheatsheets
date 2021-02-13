@@ -7,7 +7,7 @@ category: JavaScript libraries
 
 | Flag | Description |
 | ---- | ---- |
-| `-u rstacruz -r nprogress` | Repo name |
+| `-u brucebentley -r nprogress` | Repo name |
 | `--browser` | Browser |
 {:.no-head}
 

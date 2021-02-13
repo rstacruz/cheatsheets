@@ -1,10 +1,10 @@
 home:
-  title: "Rico's cheatsheets"
+  title: "Cheat Sheets by Bruce Bentley"
   tagline: |
-    Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.
+    Hey! I'm <a href='https://brucebentley.io'>@brucebentley</a> and this is a modest collection of cheatsheets I've written.
 
 top_nav:
-  title: Devhints.io
+  title: cheatsheets.brucebentley.dev
   edit: Edit
   edit_on_github: Edit this page on GitHub
 
@@ -19,7 +19,7 @@ social_list:
 
 related_posts_callout:
   description: Over SIZE curated cheatsheets, by developers for developers.
-  link: Devhints home
+  link: Cheat Sheets Home
 
 related_posts_group:
   top: Top cheatsheets
@@ -29,7 +29,7 @@ related_posts_group:
 search_form:
   default_placeholder: Search SIZE+ cheatsheets
   home_placeholder: Search...
-  prefix: devhints.io
+  prefix: cheatsheets.brucebentley.dev
 
 comments_area:
   suffix: for this cheatsheet.
@@ -43,8 +43,8 @@ not_found:
 announcement:
   id: 2017-10-26-twitter
   title: |
-    New: We're on Twitter ♥️
+    I'm on Twitter ♥️
   body: |
-    Follow [@devhints](https://twitter.com/devhints) on Twitter for daily "today I learned" snippets!
+    Follow [@bruce_bentley](https://twitter.com/bruce_bentley) on Twitter!
 
-    [![](https://img.shields.io/twitter/follow/devhints.svg?style=social&label=@devhints)](https://twitter.com/devhints)
+    [![](https://img.shields.io/twitter/follow/bruce_bentley.svg?style=social&label=@bruce_bentley)](https://twitter.com/bruce_bentley)

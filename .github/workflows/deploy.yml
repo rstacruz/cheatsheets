@@ -73,7 +73,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          REPOSITORY_NAME: rstacruz/devhints-mirror
+          REPOSITORY_NAME: brucebentley/cheatsheets-mirror
           BRANCH: gh-pages
           FOLDER: _site
 

@@ -110,7 +110,7 @@ markdown(7)
 #### URL links
 
 ```
-[URL link](http://github.com/rstacruz)
+[URL link](http://github.com/brucebentley)
 <http://github.com>
 ```
 
@@ -186,7 +186,7 @@ Place manual files in `man/xxx.1.md`, then in package.json:
 ```json
 "scripts": {
   "prepublish": "npm run build-man",
-  "build-man": "if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\"; fi"
+  "build-man": "if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\"@brucebentley\"; fi"
 },
 "directories": {
   "man": "man"

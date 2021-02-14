@@ -2,7 +2,7 @@ name: Deploy
 on: 
   push:
     branches:
-      master
+      main
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: false
 
-      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      # https://github.com/actions/cache/blob/main/examples.md#node---yarn
       - name: "Cache: Get yarn cache directory path"
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -37,7 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      # https://github.com/actions/cache/blob/master/examples.md#ruby---bundler
+      # https://github.com/actions/cache/blob/main/examples.md#ruby---bundler
       - name: "Cache: Set up bundler cache"
         uses: actions/cache@v2
         with:
@@ -48,7 +48,7 @@ jobs:
 
       - name: Use Node.js
         uses: actions/setup-node@v1
-        with: { node-version: '12.x' }
+        with: { node-version: '15.x' }
 
       - name: Use Ruby
         uses: actions/setup-ruby@v1

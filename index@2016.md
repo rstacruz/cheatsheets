@@ -1,6 +1,6 @@
 ---
-full_title: "Cheat Sheets by Bruce Bentley — for web development and more"
-description: "TL;DR for developer documentation - a ridiculous collection of cheatsheets"
+full_title: "DEV Cheat Sheets"
+description: "TLDR; A ridiculous collection of cheat sheets that I've either written myself or aggregated from around the web."
 layout: home
 type: home
 og_type: website

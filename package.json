@@ -37,10 +37,6 @@
     "test": "jest",
     "test:smoke": "bash _support/smoke_test.sh"
   },
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
   "dependencies": {
     "autoprefixer": "^9.8.2",
     "dom101": "^2.2.1",

@@ -4,7 +4,7 @@ home:
     Hey! I'm <a href='https://brucebentley.io'>@brucebentley</a> and this is a modest collection of cheatsheets I've written.
 
 top_nav:
-  title: cheatsheets.brucebentley.dev
+  title: DEV Cheat Sheets
   edit: Edit
   edit_on_github: Edit this page on GitHub
 
@@ -12,7 +12,7 @@ sheet:
   suffix: cheatsheet
 
 social_list:
-  default_description: "Ridiculous collection of web development cheatsheets"
+  default_description: "A ridiculous collection of cheat sheets that I've either written myself or aggregated from around the web."
   description: "The ultimate cheatsheet for TITLE."
   facebook_share: Share on Facebook
   twitter_share: Share on Twitter
@@ -41,7 +41,7 @@ not_found:
   home: Back to home
 
 announcement:
-  id: 2017-10-26-twitter
+  id: 2021-02-13-social
   title: |
     Follow me social media ♥️
   body: |

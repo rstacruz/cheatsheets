@@ -1,7 +1,7 @@
 ---
 title: Canvas
 category: JavaScript
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 ### Getting the context

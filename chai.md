@@ -1,7 +1,7 @@
 ---
 title: Chai.js
 category: JavaScript libraries
-layout: 2017/sheet
+layout: 2021/sheet
 weight: -3
 updated: 2018-06-25
 version: chai v4.x

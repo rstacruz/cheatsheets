@@ -1,6 +1,6 @@
 ---
 title: Imagemagick
-layout: 2017/sheet
+layout: 2021/sheet
 intro: |
   A quick reference for common [Imagemagick](https://www.imagemagick.org) commands and switches.
 ---

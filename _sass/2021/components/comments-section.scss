@@ -1,0 +1,25 @@
+/*
+ * Disqus
+ */
+
+.comments-section {
+  & {
+    display: flex;
+  }
+
+  // Mobile: full width
+  @media (max-width: 768px) {
+    & > .comments {
+      flex: 1 0 100%;
+      width: 100%;
+    }
+  }
+
+  // Desktop: partial width
+  @media (min-width: 769px) {
+    & > .comments {
+      flex: 0 1 66%;
+      min-width: 300px;
+    }
+  }
+}

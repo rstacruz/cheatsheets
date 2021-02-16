@@ -1,7 +1,7 @@
 ---
 title: adb (Android Debug Bridge)
 category: CLI
-layout: 2017/sheet
+layout: 2021/sheet
 weight: -1
 authors:
   - github: ZackNeyland

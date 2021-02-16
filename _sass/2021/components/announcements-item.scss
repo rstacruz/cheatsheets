@@ -1,0 +1,71 @@
+.announcements-item {
+  & {
+    position: relative;
+    padding: 16px;
+    box-shadow: $shadow6;
+    border-radius: 1px;
+    background: white;
+    padding-right: 48px;
+    animation: announcements-item-flyin 500ms ease-out;
+    transition: opacity 500ms linear, transform 500ms ease-out;
+  }
+
+  &.-hide {
+    display: none;
+  }
+
+  & > .title {
+    @include font-size(1);
+    font-weight: normal;
+    color: $base-a;
+    margin: 0;
+    padding: 0;
+  }
+
+  & > .body > p {
+    margin: 0;
+    padding: 0;
+
+    & + p {
+      margin-top: 1em;
+    }
+  }
+
+  & > .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      color: $base-a;
+    }
+  }
+
+  & > .close::before {
+    // https://stackoverflow.com/a/30421654
+    content: unquote("\"")+str-insert("00D7", "\\", 1)+unquote("\"");
+    font-size: 14px;
+  }
+}
+
+@keyframes announcements-item-flyin {
+  0% {
+    transform: translate3d(0, 32px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

@@ -1,7 +1,7 @@
 ---
 title: DOM Range
 category: JavaScript
-layout: 2017/sheet
+layout: 2021/sheet
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
 ---

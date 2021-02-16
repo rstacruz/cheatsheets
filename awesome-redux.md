@@ -1,7 +1,7 @@
 ---
 title: Awesome Redux
 category: React
-layout: 2017/sheet
+layout: 2021/sheet
 updated: 2017-11-19
 ---
 

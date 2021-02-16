@@ -1,0 +1,10 @@
+{% if site.data.content.announcement %}
+<div class='announcements-list'>
+  <div class='announcements-item item -hide' data-js-dismissable='{"id":"{{ site.data.content.announcement.id }}"}'>
+    <h3 class='title'>{{ site.data.content.announcement.title }}</h3>
+    <div class='body'>{{ site.data.content.announcement.body | markdownify }}</div>
+    <button data-js-dismiss class='close'></button>
+  </div>
+</div>
+{% endif %}
+

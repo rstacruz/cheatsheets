@@ -1,7 +1,7 @@
 ---
 title: Yarn
 category: JavaScript libraries
-layout: 2017/sheet
+layout: 2021/sheet
 weight: -3
 updated: 2019-09-30
 prism_languages: [json, bash]

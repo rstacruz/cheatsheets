@@ -1,7 +1,7 @@
 ---
 title: Yaml
 category: Markup
-layout: 2017/sheet
+layout: 2021/sheet
 prism_languages: [yaml]
 ---
 

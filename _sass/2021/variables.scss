@@ -1,0 +1,86 @@
+/*
+ * Metrics
+ */
+
+$gut-small: 16px; // max 480px width
+$gut: 16px;
+$column: 400px;
+$code-size: 0.96em;
+$code-line-height: 1.5;
+$area-width: $column * 3 + 32px;
+
+/*
+ * Fonts
+ */
+
+$system-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$system-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono', Courier, monospace;
+$body-font: $system-sans;
+$heading-font: $system-sans;
+$monospace-font: cousine, $system-mono;
+
+/*
+ * Base colors
+ */
+
+$base-body: #f1f3f5;
+$base-panel: white;
+$base-head: #111;
+$base-text: #345;
+$base-mute: #556677; // gray
+
+$base-a: adjust-color(#8370bd, $lightness: -5%); // indigo
+$base-b: adjust-color(#2b72a2, $lightness: -5%); // blue
+$base-c: adjust-color(#17c694, $lightness: -5%); // teal
+
+$base-a3: adjust-color($base-a, $lightness: 16%, $hue: -20deg);
+$base-a7: adjust-color($base-a, $lightness: -16%, $hue: 20deg);
+$base-b3: adjust-color($base-b, $lightness: 16%, $hue: -20deg);
+$base-b7: adjust-color($base-b, $lightness: -16%, $hue: 20deg);
+$base-mute7: adjust-color($base-mute, $lightness: -16%);
+$base-mute6: adjust-color($base-mute, $lightness: -8%);
+$base-mute4: adjust-color($base-mute, $lightness: 8%);
+$base-mute3: adjust-color($base-mute, $lightness: 16%);
+
+$body-bg: $base-body;
+$gray-bg: mix($base-body, $base-panel, 50%);
+$gray-text: $base-mute;
+
+$line-color: rgba($base-mute, 0.18);
+$dark-line-color: rgba($base-mute, 0.3);
+
+//
+// Variants
+//
+
+$base-a-gradient: linear-gradient(
+  5deg,
+  $base-a,
+  adjust-color($base-a, $lightness: 2%, $hue: 16deg));
+
+//
+// Shadows
+//
+
+$shadow2:
+  0 1px 1px rgba($base-mute, 0.55);
+
+$shadow3:
+  0 6px 8px rgba($base-mute, 0.03),
+  0 1px 1px rgba($base-mute, 0.40);
+
+$shadow6:
+  0 6px 8px rgba($base-mute, 0.03),
+  0 1px 1px rgba($base-mute, 0.40),
+  0 8px 12px rgba($base-b3, 0.1);
+
+/*
+ * Mod scale
+ */
+
+$modularscale: (
+  base: 14px, ratio: 1.2,
+  480px: (base: 13px, ratio: 1.15),
+  768px: (base: 14px, ratio: 1.16),
+  1280px: (base: 14px, ratio: 1.17)
+);

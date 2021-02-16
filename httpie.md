@@ -1,7 +1,7 @@
 ---
 title: httpie
 category: CLI
-layout: 2017/sheet
+layout: 2021/sheet
 weight: -3
 updated: 2020-07-05
 description: |

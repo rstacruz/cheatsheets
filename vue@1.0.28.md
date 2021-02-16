@@ -1,7 +1,7 @@
 ---
 title: Vue.js v1.0.28
 category: JavaScript
-layout: 2017/sheet
+layout: 2021/sheet
 deprecated: true
 weight: -10
 intro: |

@@ -1,7 +1,7 @@
 ---
 title: Docker CLI
 category: Devops
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 Manage images

@@ -1,0 +1,66 @@
+/*
+ * Base
+ */
+
+html, body {
+  background: $base-body;
+  font-family: $body-font;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $base-text;
+  overflow-x: hidden;
+}
+
+body {
+  @include font-size(0);
+  padding: 0;
+  margin: 0;
+}
+
+/*
+ * Code
+ */
+
+pre, code {
+  font-family: $monospace-font;
+  letter-spacing: -0.03em;
+}
+
+pre {
+  font-size: $code-size;
+}
+
+/*
+ * Antialias
+ */
+
+*:not(pre):not(code) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Links
+ */
+
+a {
+  color: $base-b;
+}
+
+a:visited {
+  color: $base-b7;
+}
+
+a:hover {
+  color: $base-b3;
+}
+
+// No tooltips on mobile
+@media (max-width: 580px) {
+  .hint--bottom {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}

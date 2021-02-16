@@ -1,7 +1,7 @@
 ---
 title: Rails models
 category: Rails
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 Generating

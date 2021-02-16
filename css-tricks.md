@@ -1,7 +1,7 @@
 ---
 title: CSS tricks
 category: CSS
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 ### Heading kerning pairs and ligature

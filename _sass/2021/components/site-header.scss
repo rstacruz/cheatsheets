@@ -1,0 +1,44 @@
+.site-header {
+  margin: 32px 0;
+
+  & > p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: $base-mute;
+  }
+
+  & > p > a {
+    text-decoration: none;
+  }
+
+  & > h1 {
+    @include font-size(8);
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    color: $base-head;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  & > .search {
+    margin-top: 32px;
+  }
+
+  & > .action {
+    margin-top: 32px;
+  }
+
+  & > .pubbox {
+    margin: 16px auto;
+  }
+
+  @media (min-width: 481px) {
+    & > .pubbox {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
+}

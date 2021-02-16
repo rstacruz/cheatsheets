@@ -1,7 +1,7 @@
 ---
 title: Qunit
 category: JavaScript libraries
-layout: 2017/sheet
+layout: 2021/sheet
 intro: |
   A quick reference for the [QUnit](https://yarnpkg.com/package/qunit) testing library in JavaScript.
 ---

@@ -1,0 +1,179 @@
+@mixin table-align-left {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
+  }
+}
+
+/*
+ * Table
+ */
+
+.MarkdownBody table {
+  & {
+    width: 100%;
+  }
+
+  & tr + tr {
+    border-top: solid 1px $line-color;
+  }
+
+  /* Horizontal lines */
+  & tbody + tbody {
+    border-top: solid 1px $dark-line-color;
+  }
+
+  & td,
+  & th {
+    padding: 8px 16px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  & tr th:last-child,
+  & tr td:last-child {
+    text-align: right;
+  }
+
+  & td:first-child {
+    white-space: nowrap;
+  }
+
+  & td > code {
+    font-size: $code-size;
+  }
+
+  & td:first-child > code {
+    color: #35a;
+  }
+
+  & a,
+  & a:visited {
+    color: #35a;
+    text-decoration: none;
+  }
+
+  & td:first-child > code ~ em {
+    @include font-size(-1);
+    font-style: normal;
+    color: $gray-text;
+  }
+
+  & thead {
+    display: none;
+  }
+
+  & thead th {
+    font-weight: normal;
+    color: $base-a;
+  }
+}
+
+@mixin shortcut-span {
+  font-size: 1rem;
+  padding: 5px 6px;
+  padding-left: 8px; // compensation
+  background: $gray-bg;
+  border-radius: 3px;
+  margin-right: 2px;
+  letter-spacing: 0.1em;
+  color: $base-text;
+}
+
+.MarkdownBody table.-shortcuts {
+  td:first-child > code {
+    @include shortcut-span;
+  }
+}
+
+.MarkdownBody table.-shortcuts-right {
+  td:last-child > code {
+    @include shortcut-span;
+  }
+}
+
+.MarkdownBody table.-left-align {
+  @include table-align-left;
+}
+
+.MarkdownBody table.-headers {
+  & thead {
+    display: table-header-group;
+    border-bottom: solid 1px $dark-line-color;
+  }
+}
+
+/*
+ * Key-value pairs (like in css)
+ */
+
+.MarkdownBody table.-key-values {
+  & tbody tr td + td code {
+    display: block;
+    text-align: left;
+  }
+}
+
+.MarkdownBody table.-css-breakdown {
+  @include table-align-left;
+
+  & tr td {
+    @include font-size(1);
+    white-space: nowrap;
+  }
+
+  & tr td:not(:last-child) {
+    padding-right: 4px;
+  }
+
+  & tr td:not(:first-child) {
+    padding-left: 4px;
+  }
+
+  & tr:last-child {
+    background: $gray-bg;
+  }
+
+  & tr:last-child td {
+    @include font-size(-1);
+    color: $base-mute;
+    white-space: auto;
+  }
+}
+
+.MarkdownBody table.-bold-first {
+  & tr > td:first-child {
+    font-weight: bold;
+  }
+}
+
+.MarkdownBody table.-no-wrap {
+  & td,
+  & th {
+    white-space: nowrap;
+  }
+}
+
+.MarkdownBody table.-mute-em {
+  & td,
+  & th {
+    & em {
+      opacity: 0.5;
+    }
+
+    & em > code {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+/* Separators (rehype-table-separators) */
+.MarkdownBody table tr.separator {
+  & > td {
+    padding: 0;
+    height: 4px;
+    background: $line-color;
+    box-shadow: inset 0 1px 0 $dark-line-color, inset 0 2px 4px $line-color;
+  }
+}

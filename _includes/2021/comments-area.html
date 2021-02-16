@@ -1,0 +1,22 @@
+{% assign identifier = include.page.url | remove: '.html' | remove_first: '/' %}
+{% if site.data.disqus.enabled %}
+  <section class='comments-area' id='comments' data-js-no-preview>
+    <div class='container'>
+      <details class='comments-details'>
+        <summary>
+          <strong class='count'>
+            <span class='disqus-comment-count' data-disqus-identifier="{{ identifier }}" data-disqus-url='{{ site.url }}/{{ identifier }}'>0 Comments</span>
+          </strong>
+          <span class='suffix'>{{ site.data.content.comments_area.suffix }}</span>
+          <span class='fauxlink'>{{ site.data.content.comments_area.link }}</span>
+        </summary>
+        <div class='comments-section'>
+          <div class='comments'>
+            <div id='disqus_thread'></div>
+          </div>
+        </div>
+      </details>
+    </div>
+    <noscript data-js-disqus='{"host":"{{ site.data.disqus.host }}","url":"{{ site.url }}/{{ identifier }}","identifier":"{{ identifier }}"}'></noscript>
+  </section>
+{% endif %}

@@ -1,7 +1,7 @@
 ---
 title: Stencil
 category: JavaScript libraries
-layout: 2017/sheet
+layout: 2021/sheet
 updated: 2019-05-08
 keywords:
   - "@Component"

@@ -1,0 +1,17 @@
+@mixin heading-style {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px + 8px;
+  margin-top: 64px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    margin-bottom: 8px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 8px;
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,101 @@
+/*
+ * H3 section list:
+ * The body that is isotoped.
+ */
+
+.h3-section-list {
+  & {
+    @include section-gutter(margin-left, $multiplier: -1);
+    @include section-gutter(margin-right, $multiplier: -1);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  // Clearfix
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  // Each section
+  & > .h3-section {
+    @include section-gutter(padding);
+    float: left;
+    width: 100%;
+  }
+
+  @media (min-width: 769px) {
+    & > .h3-section {
+      padding-top: 0;
+    }
+  }
+}
+
+/*
+ * Two column (default)
+ */
+
+.h3-section-list,
+.h3-section-list.-two-column {
+  @media (min-width: 769px) {
+    & > .h3-section {
+      width: 50%;
+    }
+  }
+}
+
+/*
+ * One column
+ */
+
+.h3-section-list.-one-column {
+  & > .h3-section {
+    width: 100%;
+  }
+
+  & > .h3-section + .h3-section {
+    margin-top: 16px;
+  }
+}
+
+/*
+ * Three column
+ */
+
+.h3-section-list.-three-column {
+  @media (min-width: 769px) {
+    & > .h3-section {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 961px) {
+    & > .h3-section {
+      width: 33.33%;
+    }
+  }
+}
+
+/*
+ * Three column, left reference
+ */
+
+.h3-section-list.-left-reference {
+  @media (min-width: 769px) {
+    & > .h3-section {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 961px) {
+    & > .h3-section {
+      width: 66.67%;
+    }
+
+    & > .h3-section:first-child {
+      width: 33.33%;
+    }
+  }
+}

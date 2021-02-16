@@ -1,0 +1,54 @@
+/*
+ * Comments disclosure triangle
+ */
+
+.comments-details {
+  & {
+    margin-bottom: -16px;
+  }
+
+  &[open] {
+    margin-bottom: 0;
+  }
+
+  & > summary {
+    @include font-size(1);
+    color: $base-a;
+    padding: 24px 0;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  & > summary:hover,
+  & > summary:focus {
+    &,
+    & > .suffix {
+      color: $base-a7;
+    }
+
+    & > .fauxlink {
+      border-bottom: solid 1px $base-a7;
+    }
+  }
+
+  & > summary > .count {
+    font-weight: bold;
+  }
+
+  & > summary > .count::before {
+    @include ion-md-chatboxes(24px, $base-a);
+    content: '';
+    vertical-align: middle;
+    color: $base-a;
+    margin: 0 8px;
+  }
+
+  & > summary > .suffix {
+    color: $base-mute;
+  }
+
+  & > summary > .fauxlink {
+    margin-left: 4px;
+    border-bottom: solid 1px rgba($base-a, 0.25);
+  }
+}

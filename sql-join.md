@@ -1,6 +1,6 @@
 ---
 title: SQL joins
-layout: 2017/sheet
+layout: 2021/sheet
 category: Databases
 updated: 2018-12-06
 weight: -1

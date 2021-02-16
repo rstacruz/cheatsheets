@@ -1,0 +1,34 @@
+/*
+ * Home button inside `search-footer`
+ */
+
+.home-button {
+  & {
+    display: inline-block;
+    box-shadow: inset 0 0 0 1px $dark-line-color;
+    border-radius: 50%;
+  }
+
+  &,
+  &:visited {
+    color: $base-mute;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $base-a;
+    color: white;
+  }
+
+  & > i::before {
+    content: '';
+    @include ion-ios-home-outline(24px, $base-mute);
+    height: 48px;
+    line-height: 48px;
+    width: 48px;
+  }
+
+  &:hover > i::before {
+    background-image: ion-ios-home-image(white);
+  }
+}

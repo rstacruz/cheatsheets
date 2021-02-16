@@ -1,7 +1,7 @@
 ---
 title: Spreadsheet functions
 tags: [WIP]
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 ### If

@@ -1,6 +1,6 @@
 ---
 title: Screen resolutions
-layout: 2017/sheet
+layout: 2021/sheet
 updated: 2020-07-03
 weight: -1
 ---

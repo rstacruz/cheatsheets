@@ -1,6 +1,6 @@
 ---
 title: Mixpanel
-layout: 2017/sheet
+layout: 2021/sheet
 category: Analytics
 ---
 

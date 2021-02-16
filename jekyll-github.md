@@ -1,6 +1,6 @@
 ---
 title: Jekyll for GitHub pages
-layout: 2017/sheet
+layout: 2021/sheet
 category: Jekyll
 tags: [WIP]
 updated: 2017-11-17

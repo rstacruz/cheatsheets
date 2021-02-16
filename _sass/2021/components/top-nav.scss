@@ -1,0 +1,106 @@
+.top-nav {
+  &,
+  & > .container {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    position: relative;
+  }
+
+  // Smaller on mobile
+  @media (max-width: 480px) {
+    & > .container {
+      height: 32px;
+      line-height: 32px;
+      margin-top: 8px;
+    }
+
+    & {
+      height: 32px + 8px + 8px;
+      padding: 8px 0;
+      border-bottom: solid 1px $dark-line-color;
+      margin-bottom: 8px;
+    }
+  }
+
+  & > .container {
+    @include gutter(padding-left);
+    @include gutter(padding-right);
+    max-width: $area-width;
+    margin: 0 auto;
+  }
+}
+
+.top-nav > .container {
+  & {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  & > .left {
+    flex: 0 0 auto;
+    line-height: 32px;
+  }
+
+  & > .brand {
+    flex: 1 1 auto;
+  }
+
+  & > .actions {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
+  & > .brand {
+    @include font-size(-1);
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    &,
+    &:visited {
+      color: $base-text;
+    }
+
+    &:hover {
+      color: $base-a;
+    }
+  }
+
+  // Mobile
+  @media (max-width: 480px) {
+    & > .brand {
+      display: none;
+    }
+
+    & > .actions {
+      margin-left: auto;
+    }
+  }
+
+  // Desktop: absolute the actions
+  @media (min-width: 481px) {
+    & > .actions {
+      position: absolute;
+      @include gutter(right);
+      top: (64px - 32px) / 2;
+    }
+
+    & > .left {
+      position: absolute;
+      @include gutter(left);
+      top: (64px - 32px) / 2;
+    }
+  }
+
+  // Offset so it doesn't look misasligned
+  @media (min-width: $area-width) {
+    & > .left > .home {
+      position: relative;
+      left: -16px;
+    }
+  }
+}

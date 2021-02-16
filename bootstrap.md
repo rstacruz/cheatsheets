@@ -1,6 +1,6 @@
 ---
 title: Bootstrap
-layout: 2017/sheet
+layout: 2021/sheet
 prism_languages: [scss, haml, html]
 weight: -1
 category: CSS

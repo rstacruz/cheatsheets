@@ -1,0 +1,79 @@
+// search-box.scss
+
+.pages-list {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  > .item {
+    flex: 0 0 100%;
+  }
+
+  > .item.article {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 581px) {
+    > .item.top-sheet {
+      flex: 0 0 25%;
+    }
+  }
+}
+
+// Article
+.pages-list > .article {
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  padding: 4px 0;
+
+  &,
+  &:visited {
+    color: $base-mute3;
+  }
+
+  & > .info > .slug {
+    color: $base-head;
+  }
+
+  &:visited > .info > .slug {
+    color: $base-text;
+  }
+
+  & > .info > .title::before {
+    content: '';
+    margin: 0 4px;
+  }
+
+  & > .info > .title {
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    & > .info > .title {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    & {
+      color: $base-mute;
+    }
+
+    & > .info > .title {
+      opacity: 1;
+      color: $base-a;
+    }
+  }
+}
+
+.pages-list > .category {
+  @include font-size(1);
+  border-bottom: solid 1px $dark-line-color;
+  margin: 16px 0;
+  padding: 0 0 16px 0;
+  font-weight: normal;
+  color: $base-a;
+}

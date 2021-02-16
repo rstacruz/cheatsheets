@@ -1,0 +1,12 @@
+<li class='{{ include.class }}'>
+  <a href='{{ base }}{{ include.page.url | remove: '.html' }}'>
+    <strong>{{ include.page.title }}</strong>
+    <span>
+      cheatsheet
+
+      {% if include.page.layout == '2021/sheet' %}
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      {% endif %}
+    </span>
+  </a>
+</li>

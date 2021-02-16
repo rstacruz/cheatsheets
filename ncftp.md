@@ -1,7 +1,7 @@
 ---
 title: ncftp
 category: CLI
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 ### Bookmarking

@@ -1,7 +1,7 @@
 ---
 title: JavaScript lazy shortcuts
 category: JavaScript
-layout: 2017/sheet
+layout: 2021/sheet
 ---
 
 ## Shortcuts

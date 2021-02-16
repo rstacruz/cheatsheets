@@ -1,7 +1,7 @@
 ---
 title: DOM Selection
 category: JavaScript
-layout: 2017/sheet
+layout: 2021/sheet
 intro: |
   Quick introduction to the HTML [DOM selection API](https://devdocs.io/dom/selection).
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Ansible quickstart"
 category: Ansible
-layout: 2017/sheet
+layout: 2021/sheet
 description: |
   A quick guide to getting started with your first Ansible playbook.
 ---

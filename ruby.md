@@ -2,7 +2,7 @@
 title: Ruby
 category: Ruby
 tags: [WIP]
-layout: 2017/sheet
+layout: 2021/sheet
 intro: |
   Quick reference to some features of the Ruby programming language.
 ---

@@ -1,0 +1,34 @@
+%push-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+
+  &,
+  &:visited {
+    background-color: $base-a;
+    background: $base-a-gradient;
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: darken($base-a, 16%);
+    box-shadow: none;
+    color: white;
+  }
+}
+
+%push-button.-dark {
+  &,
+  &:visited {
+    background: darken($base-a, 16%);
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: darken($base-a, 24%);
+    color: white;
+  }
+}

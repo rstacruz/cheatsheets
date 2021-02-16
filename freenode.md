@@ -1,6 +1,6 @@
 ---
 title: Freenode
-layout: 2017/sheet
+layout: 2021/sheet
 tags: [WIP]
 ---
 

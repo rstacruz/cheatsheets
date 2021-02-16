@@ -1,7 +1,7 @@
 ---
 title: Travis.yml
 category: Devops
-layout: 2017/sheet
+layout: 2021/sheet
 prism_languages: [yaml]
 intro: |
   Quick reference for [Travis CI](https://travis-ci.org) yaml configuration. See [official documentation](https://docs.travis-ci.com/user/customizing-the-build/).

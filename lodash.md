@@ -1,7 +1,7 @@
 ---
 title: Lodash
 category: JavaScript libraries
-layout: 2021/sheet
+layout: 2017/sheet
 weight: -3
 updated: 2020-06-24
 description: |

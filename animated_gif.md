@@ -1,7 +1,7 @@
 ---
 title: Animated GIFs
 category: CLI
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ## Animated GIFs

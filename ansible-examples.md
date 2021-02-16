@@ -1,7 +1,7 @@
 ---
 title: Ansible examples
 category: Ansible
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Examples

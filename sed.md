@@ -1,7 +1,7 @@
 ---
 title: sed
 category: CLI
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   Here's some hints on using sed.
 ---

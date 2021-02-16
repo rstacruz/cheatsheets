@@ -1,7 +1,7 @@
 ---
 title: Redux
 category: React
-layout: 2021/sheet
+layout: 2017/sheet
 updated: 2018-01-17
 weight: -3
 ---

@@ -1,7 +1,7 @@
 ---
 title: Meta-tags gem
 category: Ruby libraries
-layout: 2021/sheet
+layout: 2017/sheet
 weight: -1
 updated: 2017-09-08
 ---

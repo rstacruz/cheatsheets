@@ -1,7 +1,7 @@
 ---
 title: Rsync
 category: CLI
-layout: 2021/sheet
+layout: 2017/sheet
 weight: -1
 ---
 

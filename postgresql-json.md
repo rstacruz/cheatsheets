@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL JSON
-layout: 2021/sheet
+layout: 2017/sheet
 prism_languages: [sql]
 updated: 2018-12-06
 category: Databases

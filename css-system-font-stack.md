@@ -1,7 +1,7 @@
 ---
 title: "CSS system fonts"
 category: CSS
-layout: 2021/sheet
+layout: 2017/sheet
 weight: -3
 tags: [Featurable]
 ---

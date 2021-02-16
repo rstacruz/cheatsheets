@@ -1,7 +1,7 @@
 ---
 title: Ansible roles
 category: Ansible
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Structure

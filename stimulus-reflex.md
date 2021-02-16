@@ -1,7 +1,7 @@
 ---
 title: StimulusReflex
 category: Ruby
-layout: 2021/sheet
+layout: 2017/sheet
 updated: 2021-01-07
 ---
 

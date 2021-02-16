@@ -2,7 +2,7 @@
 title: jQuery CDN
 category: JavaScript libraries
 tags: [Archived]
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Google jQuery

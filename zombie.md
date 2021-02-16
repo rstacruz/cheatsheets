@@ -1,7 +1,7 @@
 ---
 title: Zombie
 category: JavaScript libraries
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   [Zombie](http://zombie.js.org/) is a full-stack testing solution for Node.js.
 ---

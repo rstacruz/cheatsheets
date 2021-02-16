@@ -1,7 +1,7 @@
 ---
 title: General fitness notes
 category: Fitness
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Target heart rate

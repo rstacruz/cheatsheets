@@ -2,7 +2,7 @@
 title: Web workers
 category: JavaScript
 updated: 2017-10-30
-layout: 2021/sheet
+layout: 2017/sheet
 weight: -1
 ---
 

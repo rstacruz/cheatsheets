@@ -1,7 +1,7 @@
 ---
 title: PSD.rb
 category: Ruby libraries
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   [PSD.rb](https://github.com/layervault/psd.rb) parses Photoshop documents in Ruby.
 ---

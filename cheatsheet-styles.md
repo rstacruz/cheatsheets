@@ -1,6 +1,6 @@
 ---
 title: Cheatsheet styles
-layout: 2021/sheet
+layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-26
 intro: |

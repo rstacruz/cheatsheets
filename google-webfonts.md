@@ -1,6 +1,6 @@
 ---
 title: Google Webfonts
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   Short snippets on using [Google Webfonts](https://google.com/fonts) in a web page.
 ---

@@ -1,7 +1,7 @@
 ---
 title: HTML emails
 category: HTML
-layout: 2021/sheet
+layout: 2017/sheet
 updated: 2017-08-30
 ---
 

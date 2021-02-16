@@ -1,6 +1,6 @@
 ---
 title: Food delivery (Philippines)
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   Food delivery numbers & sites for top restaurant chains in Metro Manila. For numbers outside Metro Manila, check their websites.
 ---

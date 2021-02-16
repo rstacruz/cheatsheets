@@ -1,7 +1,7 @@
 ---
 title: Makefile
 prism_languages: [makefile]
-layout: 2021/sheet
+layout: 2017/sheet
 category: CLI
 ---
 

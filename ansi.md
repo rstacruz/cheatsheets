@@ -1,7 +1,7 @@
 ---
 title: Ansi codes
 category: CLI
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   Quick reference to ANSI color codes.
 ---

@@ -1,7 +1,7 @@
 ---
 title: AppleScript
 updated: 2018-12-06
-layout: 2021/sheet
+layout: 2017/sheet
 category: macOS
 prism_languages: [applescript]
 ---

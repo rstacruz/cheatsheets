@@ -1,7 +1,7 @@
 ---
 title: Ruby 2.1
 category: Ruby
-layout: 2021/sheet
+layout: 2017/sheet
 tags: [Archived]
 intro: |
   Quick reference to the [new features in Ruby 2.1](https://www.ruby-lang.org/).

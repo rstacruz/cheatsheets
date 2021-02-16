@@ -1,7 +1,7 @@
 ---
 title: Slim
 category: Ruby libraries
-layout: 2021/sheet
+layout: 2017/sheet
 prism_languages: [jade]
 weight: -1
 ---

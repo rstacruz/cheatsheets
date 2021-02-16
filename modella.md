@@ -1,7 +1,7 @@
 ---
 title: Modella
 category: JavaScript libraries
-layout: 2021/sheet
+layout: 2017/sheet
 prism_languages: [coffeescript]
 intro: |
   [Modella](https://www.npmjs.com/package/modella) allows you to create simple models in JavaScript. This is a guide on basic usage of Modella in CoffeeScript.

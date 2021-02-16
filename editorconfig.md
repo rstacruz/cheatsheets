@@ -1,6 +1,6 @@
 ---
 title: editorconfig
-layout: 2021/sheet
+layout: 2017/sheet
 prism_languages: [ini]
 weight: -1
 updated: 2019-09-25

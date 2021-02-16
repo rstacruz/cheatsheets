@@ -1,7 +1,7 @@
 ---
 title: Node.js path API
 category: Node.js
-layout: 2021/sheet
+layout: 2017/sheet
 intro: |
   Quick reference to the [Node.js path API](https://nodejs.org/api/path.html).
 ---

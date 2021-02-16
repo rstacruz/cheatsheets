@@ -1,6 +1,6 @@
 ---
 title: Go
-layout: 2021/sheet
+layout: 2017/sheet
 prism_languages: [go, bash]
 weight: -3
 tags: [Featured]

@@ -1,7 +1,7 @@
 ---
 title: Blessed
 category: JavaScript libraries
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Screen

@@ -1,7 +1,7 @@
 ---
 title: Bash scripting
 category: CLI
-layout: 2021/sheet
+layout: 2017/sheet
 tags: [Featured]
 updated: 2020-07-05
 keywords:

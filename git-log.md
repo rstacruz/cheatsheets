@@ -1,7 +1,7 @@
 ---
 title: git log
 category: Git
-layout: 2021/sheet
+layout: 2017/sheet
 ---
 
 ### Revision ranges

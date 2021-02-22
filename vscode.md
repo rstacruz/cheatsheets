@@ -24,6 +24,12 @@ intro: |
 | `⌘P`  | Show files        |
 {: .-shortcuts}
 
+### Navigation
+| `⌘PP`  | Naviagte to the previous tab |
+| `⌘K ⌘T`| Naviagte to the Color Theme  |
+| `⌘,`   | Naviagte to the Preferences tab  |
+| `⌘⇧X`  | Naviagte to the Extensions tab  |
+
 ### Sidebars
 
 | Key   | Description    |

@@ -65,7 +65,7 @@ fetch('/data.json')
 
 ```js
 function checkStatus (res) {
-  if (res.status >= 200 && res.status < 300) {
+  if (res.ok) {
     return res
   } else {
     let err = new Error(res.statusText)

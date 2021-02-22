@@ -204,11 +204,12 @@ Host ‘%’ indicates any host.
 ### Main Data Types
 
 ```sql
-TINYINT (1o: -217+128)
-SMALLINT (2o: +-65 000)
-MEDIUMINT (3o: +-16 000 000)
-INT (4o: +- 2 000 000 000)
-BIGINT (8o: +-9.10^18)
+TYPE      BYTES   SIGNED                    UNSIGNED
+TINYINT   1       -127 +128                 0 to 255
+SMALLINT  2       -32768 +32767             0 to 65535
+MEDIUMINT 3       -8388608  +8388607        0 to 16777215
+INT       4       -2147483648 +2147483647   0 to 4294967295
+BIGINT    8       -2^63 -2^63-1             0 to 2^64-1
 ```
 
 ```sql

@@ -89,6 +89,12 @@ ul
     li= user
 ```
 
+```jade
+ul
+  each val, index in {1:'one',2:'two',3:'three'}
+    li= index + ': ' + val
+```
+
 ### Layouts
 
 ```jade

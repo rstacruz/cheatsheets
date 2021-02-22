@@ -22,6 +22,8 @@ category: CLI
     $ tmux ls     # List sessions
 
     $ tmux detach
+    
+    $ tmux kill-session -t seesion_name  # Delete a session
 
 #### Windows
 

@@ -80,7 +80,6 @@ javascript:
   alert('Slim supports embedded javascript!')
 ```
 
-
 ### Comments
 
 ```jade
@@ -91,10 +90,12 @@ javascript:
 ### Ruby
 
 ```jade
-== yield
-= t('.hello')
+== will_not_have_html_escaped
+= t('.will_have_html_escaped')
 - 3.times do |i|
-  div
+  div => add_trailing_whitespace
+  div =< add_leading_whitespace
+  div =<> add_both_whitespace
 ```
 
 ### Verbatim text
@@ -103,6 +104,7 @@ javascript:
 div
   | This is text
     it is nice
+  ' This will have a trailing whitespace added
 ```
 
 ### Advanced whitespaces

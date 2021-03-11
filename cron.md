@@ -41,16 +41,16 @@ Min  Hour Day  Mon  Weekday
 
 ### Examples
 
-| Example        | Description           |
-| ---            | ---                   |
-| `0 * * * *`    | every hour            |
-| `*/15 * * * *` | every 15 mins         |
-| `0 */2 * * *`  | every 2 hours         |
-| `0 18 * * 0-6`  | every week from Monday to Saturday at 6 pm |
-|`0 2 * * 6,7`   | every Saturday and Thursday on 2 am |
-| `0 0 * * 0`    | every Sunday midnight |
-| ---            | ---                   |
-| `@reboot`      | every reboot          |
+| Example        | Description                 |
+| ---            | ---                         |
+| `0 * * * *`    | every hour                  |
+| `*/15 * * * *` | every 15 mins               |
+| `0 */2 * * *`  | every 2 hours               |
+| `0 18 * * 0-6` | every week Mon-Sat at 6pm   |
+| `10 2 * * 6,7` | every Sat and Thu on 2:10am |
+| `0 0 * * 0`    | every Sunday midnight       |
+| ---            | ---                         |
+| `@reboot`      | every reboot                |
 
 ### Crontab
 

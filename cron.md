@@ -32,12 +32,12 @@ Min  Hour Day  Mon  Weekday
 
 ### Operators
 
-| Operators        | Description           |
-| ---            | ---                   |
-| `*`    | all values            |
-| `,` | separate individual values         |
-| `-`  | a range of values         |
-| `/`    | divide a value into steps. |
+| Operator | Description                |
+| ---      | ---                        |
+| `*`      | all values                 |
+| `,`      | separate individual values |
+| `-`      | a range of values          |
+| `/`      | divide a value into steps  |
 
 ### Examples
 

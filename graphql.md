@@ -69,7 +69,7 @@ GraphQL queries look the same for both single items or lists of items.
 ```js
 { hero:
     { id: "1000",
-    { name: "Luke Skywalker" } }
+    name: "Luke Skywalker" } }
 ```
 {: .-setup}
 

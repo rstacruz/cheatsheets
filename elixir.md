@@ -429,6 +429,18 @@ Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
 ```
 
+### Constructing from structs
+
+```elixir
+Map.from_struct(%AnyStruct{a: "b"})  # → %{a: "b"}
+```
+
+### Converting to a struct
+
+```elixir
+struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
+```
+
 ## List
 
 ```elixir

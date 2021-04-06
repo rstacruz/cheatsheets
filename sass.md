@@ -252,6 +252,7 @@ to-lower-case(hello)
 str-length(hello world)
 str-slice(hello, 2, 5)      // "ello" - it's 1-based, not 0-based
 str-insert("abcd", "X", 1)  // "Xabcd"
+str-index("Helvetica Neue", "Neue"); // 11
 ```
 
 ### Units

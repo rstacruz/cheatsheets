@@ -79,7 +79,7 @@ http://apidock.com/rails/ActionController/Base
       end
     end
 
-### Default URL optinos
+### Default URL options
 
     class ApplicationController < ActionController::Base
       # The options parameter is the hash passed in to 'url_for'

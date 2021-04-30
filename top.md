@@ -19,5 +19,8 @@ intro: See the processes in your Unix machine.
 | `Shift+r` | reverses sorting      |
 | `Shift+l` | searches for string   |
 | `o`       | adds a filter         |
+| `u`       | filter user           |
 | `=`       | clears filters        |
+| `V`       | Forest view           |
+| `c`       | show full path        |
 {: .-shortcuts}

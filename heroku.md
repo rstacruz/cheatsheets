@@ -6,7 +6,7 @@ updated: 2017-10-11
 description: |
   A one-page reference to common Heroku-CLI commands.
 intro: |
-  [Heroku](http://heroku.com/) is a web hosting platform supporting many languages, and this guide is a reference to Heroku's [command-line interface](http://heroku.com/).
+  [Heroku](https://heroku.com/) is a web hosting platform supporting many languages, and this guide is a reference to Heroku's [command-line interface](https://heroku.com/).
 ---
 
 ### `create` - Create an app

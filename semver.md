@@ -92,5 +92,5 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 ## References
 {: .-one-column}
 
- * <http://semver.org/>
+ * <https://semver.org/>
  * <https://docs.npmjs.com/misc/semver>

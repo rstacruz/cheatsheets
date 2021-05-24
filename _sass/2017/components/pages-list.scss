@@ -70,10 +70,10 @@
 }
 
 .pages-list > .category {
-  @include font-size(1);
+  @include font-size(2);
   border-bottom: solid 1px $dark-line-color;
-  margin: 16px 0;
-  padding: 0 0 16px 0;
+  margin: 24px 0 8px 0;
+  padding: 0 0 8px 0;
   font-weight: normal;
   color: $base-a;
 }

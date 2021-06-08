@@ -24,6 +24,61 @@ All PHP files start with `<?php`.
 
 See: [PHP tags](https://php.net/manual/en/language.basic-syntax.phptags.php)
 
+### Selector Structure
+
+#### IF
+
+``` PHP
+if (condition) {
+  // Command...
+}
+```
+
+#### IF ELSE
+
+```php
+if (condition) {
+  // Command...
+} else {
+  // Command...
+}
+```
+
+#### IF ELSEIF ELSE
+```php
+if (condition) {
+  // Command...
+} elseif (condition2) { 
+  // Command...
+} elseif (condition3) { 
+  // Command...
+} else { 
+  // Command...
+}
+```
+
+#### Ternary Operator
+```php
+var $result;
+
+$result = (condition) ? true : false;
+```
+
+#### Switch
+```php
+switch ($variable) {
+  case 'value1':
+    // code to be executed if $variable == 'value1'
+    break;
+  case 'value2':
+    // code to be executed if $variable == 'value2'
+    break;
+  ...
+  default:
+    // default case it's optional
+}
+```
+
 ### Objects
 
 ```php
@@ -49,7 +104,7 @@ echo $fruitsObject->banana;
 
 ```php
 <?php
-var_dump($object)
+var_dump($object);
 ```
 
 Prints the contents of a variable for inspection.

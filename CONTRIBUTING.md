@@ -17,7 +17,7 @@ To preview the website you need to first build it then you can navigate to file 
 
 ## Starting a local instance
 
-This starts Jekyll and Parcel. This requires recent versions of [Node.js], [Yarn], [Ruby] and [Bundler] installed.
+This starts Jekyll and Parcel. This requires recent versions of [Node.js], [Yarn], [Ruby] 2.x and [Bundler] installed. Ruby 3.x is not supported at the moment.
 
 ```bash
 yarn install

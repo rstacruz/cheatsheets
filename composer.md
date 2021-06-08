@@ -36,6 +36,7 @@ local dependencies to the last committed state. If that file is modified on the 
 | `composer update vendor/package`              | Updates a certain `package` from `vendor`        |
 | `composer update vendor/*`                    | Updates all packages from `vendor` |
 | `composer update --lock`                      | Updates `composer.lock` hash without updating any packages |
+| `php -d memory_limit=-1 eval $(which composer) update` | Update all packages without memory limit |
 
 This command changes only the `composer.lock` file.
 

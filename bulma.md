@@ -4,12 +4,24 @@ category: CSS
 layout: 2017/sheet
 prism_languages: [css, html]
 weight: -1
-updated: 2018-11-19
+updated: 2019-05-23
 authors:
   - github: benolot
+  - github: AmmariJawher
 description: |
   Basic guide on how to use Bulma, the lightweight css flexbox framework.
 ---
+### Getting Started
+
+There are several ways to **get started** with Bulma. You can either:
+#### Use NPM (recommended):
+`npm install bulma`
+#### Use the cdnjs CDN: 
+https://cdnjs.com/libraries/bulma
+
+#### Download from the repository: 
+https://github.com/jgthms/bulma/tree/master/css
+
 
 ### Screen sizes
 
@@ -36,10 +48,68 @@ Wrap as many `.column`'s' as you like in a `.columns` wrapper
 </div>
 ```
 
+### Forms
+
+When combining several controls in a **form**, use the `.field` class as a container.
+```css
+<div class="field">
+  <label class="label">Name</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="e.g Alex Smith">
+  </div>
+</div>
+```
+
+
+#### Form controls 
+
+The following form controls **classes** are supported.
+```css
+.label
+.input
+.textarea
+.select
+.checkbox
+.radio
+.button
+.help
+```
+
+#### Form icons
+
+You can append one of 2 **modifiers** on a control.
+```css
+.has-icons-left
+.has-icons-right
+```
+
+You also need to add a modifier on the **icon**.
+```css
+.icon is-left
+.icon is-right
+```
+example:
+```html
+<div class="field">
+  <div class="control has-icons-left">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  </div>
+</div>
+```
+
+### Progress Bar
+
+Bulma uses Native HTML **progress bars**. 
+ ```html
+<progress class="progress" value="15" max="100">15%</progress>
+```
+
 ### Modifiers
 
 The following CSS classes affect the **colour**.
-
 ```css
 .is-primary
 .is-link
@@ -52,13 +122,23 @@ The following CSS classes affect the **colour**.
 The following classes modify the **size**.
 ```css
 .is-small
+.is-normal
 .is-medium
 .is-large
 ```
 
-The following classes modify the **state**.
+The following classes modify the **style**.
 ```scss
 .is-outlined
+.is-inverted
+.is-rounded
+```
+
+The following classes modify the **state**.
+```scss
+.is-hovered
+.is-focused
+.is-active
 .is-loading
 ```
 

@@ -79,6 +79,11 @@ expect(5).to be_between(1, 10)
 expect(5).to be_within(0.05).of value
 ```
 
+### Logical Or
+```rb
+expect(1).to (be < 2).or be > 5
+```
+
 ### Comparison
 
 ```rb

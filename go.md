@@ -54,6 +54,39 @@ var msg string
 msg = "Hello"
 ```
 
+#### More on variables declaration...
+```package main
+
+import "fmt"
+
+var p, q, r bool;
+
+// note that the type is emitted below since it is implicit
+// This is called Variables with initializers
+var u, v, w = 1, 2, "hello"
+
+
+func main() {
+	var i, j int = 1, 2
+  /* Inside a function, the := short assignment
+   * statement can be used in place of a var 
+   * declaration with implicit type.
+   * Outside a function, every statement begins
+   * with a keyword (var, func, and so on) 
+   * and so the := construct is not available.
+   * This is called short variable declarations.
+   */
+	k := 3
+  
+	c, python, java := true, false, "no!"
+
+	fmt.Println(i, j, k, c, python, java)
+	fmt.Println(p, q, r)
+	fmt.Println(u, v, w)
+}
+```
+
+
 #### Shortcut of above (Infers type)
 
 ```go

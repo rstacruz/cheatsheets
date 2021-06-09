@@ -80,10 +80,10 @@ Non-2xx responses are still successful requests. Use another function to turn th
 ### Using with node.js
 
 ```js
-const fetch = require('isomorphic-fetch')
+const fetch = require('node-fetch')
 ```
 
-See: [isomorphic-fetch](https://npmjs.com/package/isomorphic-fetch) _(npmjs.com)_
+See: [node-fetch](https://npmjs.com/package/node-fetch) _(npmjs.com)_
 
 ## References
 {: .-one-column}

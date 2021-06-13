@@ -51,7 +51,7 @@ $ pass edit twitter.com/rsc
 
 ### Synchronize
 
-```
+``` bash
 $ pass git push
 $ pass git pull
 ```

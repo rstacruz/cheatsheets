@@ -9,7 +9,7 @@ Reference
 
 ### Create
 
-``` bash
+```sh
 $ pass init [-p] <gpg-id>
 $ pass git init
 $ pass git remote add origin <your.git:repository>
@@ -18,14 +18,14 @@ $ pass git push -u --all
 
 ### Store
 
-``` bash
+```sh
 $ pass insert [-m] twitter.com/rsc
 $ pass generate [-n] twitter.com/rsc length
 ```
 
 ### Retrieve
 
-``` bash
+```sh
 $ pass ls twitter.com/
 $ pass show twitter.com/rsc
 $ pass -c twitter.com/rsc
@@ -33,29 +33,29 @@ $ pass -c twitter.com/rsc
 
 ### Search
 
-``` bash
+```sh
 $ pass find twitter.com
 ```
 
 ### Management
 
-``` bash
+```sh
 $ pass mv twitter.com twitter.com/rsc
 $ pass rm [-rf] twitter.com
 $ pass cp twitter.com/rsc twitter.com/ricosc
 ```
 
-``` bash
+```sh
 $ pass edit twitter.com/rsc
 ```
 
 ### Synchronize
 
-``` bash
+```sh
 $ pass git push
 $ pass git pull
 ```
 
 ## References
 
-* <http://passwordstore.org>
+* <https://passwordstore.org>

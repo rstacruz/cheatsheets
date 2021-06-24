@@ -194,4 +194,4 @@ Vertically-center all items.
 {: .-one-column}
 
  * [MDN: Using CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes)
- * [Ultimate flexbox cheatsheet](http://www.sketchingwithcss.com/samplechapter/cheatsheet.html)
+ * [Ultimate flexbox cheatsheet](https://www.sketchingwithcss.com/samplechapter/cheatsheet.html)

@@ -52,4 +52,4 @@ category: Node.js
 
 ### References
 
-- http://nodejs.org/api/fs.html
+- https://nodejs.org/api/fs.html

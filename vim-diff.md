@@ -5,7 +5,7 @@ layout: 2017/sheet
 updated: 2018-12-06
 weight: -10
 intro: |
-  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.
+  [Vim](https://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.
 ---
 
 Getting started
@@ -56,5 +56,5 @@ Also see
 --------
 
 - [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+- [Vim documentation](https://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+- [Interactive Vim tutorial](https://openvim.com/) _(openvim.com)_

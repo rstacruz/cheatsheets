@@ -97,7 +97,7 @@ Define your tasks in any of these formats. One-line format is preferred for shor
     bare: yes
 ```
 
-See: [git module](http://devdocs.io/ansible/git_module)
+See: [git module](https://devdocs.io/ansible/git_module)
 
 ### git_config
 
@@ -108,7 +108,7 @@ See: [git module](http://devdocs.io/ansible/git_module)
     value: hi@example.com
 ```
 
-See: [git_config module](http://devdocs.io/ansible/git_config_module)
+See: [git_config module](https://devdocs.io/ansible/git_config_module)
 
 ### user
 
@@ -122,7 +122,7 @@ See: [git_config module](http://devdocs.io/ansible/git_config_module)
     comment: "Git Version Control"
 ```
 
-See: [user module](http://devdocs.io/ansible/user_module)
+See: [user module](https://devdocs.io/ansible/user_module)
 
 ### service
 
@@ -133,7 +133,7 @@ See: [user module](http://devdocs.io/ansible/user_module)
     enabled: yes     # optional
 ```
 
-See: [service module](http://devdocs.io/ansible/service_module)
+See: [service module](https://devdocs.io/ansible/service_module)
 
 ## Shell
 
@@ -161,7 +161,7 @@ See: [service module](http://devdocs.io/ansible/service_module)
     echo "multiple lines"
 ```
 
-See: [shell module](http://devdocs.io/ansible/shell_module)
+See: [shell module](https://devdocs.io/ansible/shell_module)
 
 ### script
 
@@ -173,7 +173,7 @@ See: [shell module](http://devdocs.io/ansible/shell_module)
     chdir: /path         # cd here before running
 ```
 
-See: [script module](http://devdocs.io/ansible/script_module)
+See: [script module](https://devdocs.io/ansible/script_module)
 
 ## Files
 
@@ -192,7 +192,7 @@ See: [script module](http://devdocs.io/ansible/script_module)
     force: yes    # ln -nfs
 ```
 
-See: [file module](http://devdocs.io/ansible/file_module)
+See: [file module](https://devdocs.io/ansible/file_module)
 
 ### copy
 
@@ -208,7 +208,7 @@ See: [file module](http://devdocs.io/ansible/file_module)
     backup: yes
 ```
 
-See: [copy module](http://devdocs.io/ansible/copy_module)
+See: [copy module](https://devdocs.io/ansible/copy_module)
 
 ### template
 
@@ -224,7 +224,7 @@ See: [copy module](http://devdocs.io/ansible/copy_module)
     backup: yes
 ```
 
-See: [template module](http://devdocs.io/ansible/template_module)
+See: [template module](https://devdocs.io/ansible/template_module)
 
 ## Local actions
 
@@ -242,6 +242,6 @@ See: [template module](http://devdocs.io/ansible/template_module)
     msg: "Hello {{ var }}"
 ```
 
-See: [debug module](http://devdocs.io/ansible/debug_module)
+See: [debug module](https://devdocs.io/ansible/debug_module)
 {% endraw %}
 

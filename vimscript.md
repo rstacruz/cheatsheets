@@ -140,7 +140,7 @@ function! s:Initialize(cmd, args)
   " a: prefix for arguments
   echo "Command: " . a:cmd
 
-  return true
+  return 1
 endfunction
 ```
 

@@ -115,4 +115,17 @@ this
   .goBack()
 ```
 
+### Hooks
+
+```js
+let { slug } = useParams()
+let location = useLocation()
+let history = useHistory()
+let match = useRouteMatch({
+    path: '/BLOG/:slug/',
+    strict: true,
+    sensitive: true
+})
+```
+
 {% endraw %}

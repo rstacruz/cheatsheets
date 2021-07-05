@@ -73,7 +73,7 @@ mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
 ### Restore from backup SQL File
 
 ```bash
-mysql - u Username -p dbNameYouWant < databasename_backup.sql;
+mysql -u Username -p dbNameYouWant < databasename_backup.sql;
 ```
 
 ### Repair Tables After Unclean Shutdown

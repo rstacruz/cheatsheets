@@ -26,25 +26,25 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 
 ### Ranges
 
-| Range    | Description         | Notes              |
-| ---      | ---                 | ---                |
-| `~1.2.3` | is `>=1.2.3 <1.3.0` |                    |
-| ---      | ---                 | ---                |
-| `^1.2.3` | is `>=1.2.3 <2.0.0` |                    |
-| `^0.2.3` | is `>=0.2.3 <0.3.0` | (0.x.x is special) |
-| `^0.0.1` | is  `=0.0.1`        | (0.0.x is special) |
-| ---      | ---                 | ---                |
-| `^1.2`   | is `>=1.2.0 <2.0.0` | (like ^1.2.0)      |
-| `~1.2`   | is `>=1.2.0 <1.3.0` | (like ~1.2.0)      |
-| ---      | ---                 | ---                |
-| `^1`     | is `>=1.0.0 <2.0.0` |                    |
-| `~1`     | same                |                    |
-| `1.x`    | same                |                    |
-| `1.*`    | same                |                    |
-| `1`      | same                |                    |
-| ---      | ---                 | ---                |
-| `*`      | any version         |                    |
-| `x`      | same                |                    |
+| Range    | Description                                                    | Notes                                                 |
+| ---      | ---                                                            | ---                                                   |
+| `~1.2.3` | is `>=1.2.3 <1.3.0`                                            |                                                       |
+| ---      | ---                                                            | ---                                                   |
+| `^1.2.3` | is `>=1.2.3 <2.0.0`                                            |                                                       |
+| `^0.2.3` | is `>=0.2.3 <0.3.0`                                            | (0.x.x is special)                                    |
+| `^0.0.1` | is  `=0.0.1`                                                   | (0.0.x is special)                                    |
+| ---      | ---                                                            | ---                                                   |
+| `^1.2`   | is `>=1.2.0 <2.0.0`                                            | (like ^1.2.0)                                         |
+| `~1.2`   | is `>=1.2.0 <1.3.0` (npm)<br /> is `>=1.2.0 <2.0.0` (composer) | (like ~1.2.0 in npm) <br /> (like ^1.2.0 in composer) |
+| ---      | ---                                                            | ---                                                   |
+| `^1`     | is `>=1.0.0 <2.0.0`                                            |                                                       |
+| `~1`     | same                                                           |                                                       |
+| `1.x`    | same                                                           |                                                       |
+| `1.*`    | same                                                           |                                                       |
+| `1`      | same                                                           |                                                       |
+| ---      | ---                                                            | ---                                                   |
+| `*`      | any version                                                    |                                                       |
+| `x`      | same                                                           |                                                       |
 {: .-shortcuts}
 
 ### Hyphenated ranges
@@ -84,7 +84,7 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 ### Explanation
 
 | `^` | means "compatible with" |
-| `~` | means "reasonably close to" |
+| `~` | means "reasonably close to" (has different meanings in npm and composer) |
 | `0.x.x` | is for "initial development" |
 | `1.x.x` | means public API is defined |
 {: .-shortcuts}
@@ -94,3 +94,4 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 
  * <http://semver.org/>
  * <https://docs.npmjs.com/misc/semver>
+ * <https://getcomposer.org/doc/articles/versions.md#next-significant-release-operators>

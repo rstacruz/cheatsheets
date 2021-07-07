@@ -76,7 +76,7 @@ $ adb pull /sdcard/test.txt pulledTest.txt
 
 | Command                                | Description                                                           |
 | ---                                    | ---                                                                   |
-| `adb shell <command>`                  | Runs the specified command on device (most unix commands work here)   |
+| `adb shell [command]`                  | Runs the specified command on device (most unix commands work here), (interactive shell if no command given)   |
 | `adb shell wm size`                    | Displays the current screen resolution                                |
 | `adb shell wm size WxH`                | Sets the resolution to WxH                                            |
 | `adb shell pm list packages`           | Lists all installed packages                                          |

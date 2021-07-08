@@ -151,14 +151,14 @@ export default {
 #### Terminal
 
 ```bash
-npm install -D rollup-plugin-babel
+npm install -D @rollup/plugin-babel
 ```
 
 #### rollup.config.js
 
 ```js
 import resolve from '@rollup/plugin-node-resolve'
-import babel from 'rollup-plugin-babel'
+import babel from '@rollup/plugin-babel'
 
 export default {
   input: 'src/main.js',

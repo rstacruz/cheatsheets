@@ -58,6 +58,19 @@ $ ledger bal assets   # check if i'm broke
 Format
 ------
 
+### Account Sub-Directives
+
+```
+account Expenses:Food
+      note This account is all about the chicken!
+      alias food
+      payee ^(KFC|Popeyes)$
+      check commodity == "$"
+      assert commodity == "$"
+      eval print("Hello!")
+      default
+```
+
 ### Basic format
 
 ```
@@ -302,4 +315,5 @@ Then, when you receive the payment, you change it to:
 
 * <http://ledger-cli.org/3.0/doc/ledger3.html>
 * <https://gist.github.com/agaviria/3317397>
+* <https://groups.google.com/forum/#!msg/ledger-cli/rz8DWpiHYXo/JhTiRSoO_sIJ;context-place=forum/ledger-cli>
 {: .-also-see}

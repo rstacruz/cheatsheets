@@ -789,6 +789,21 @@ if grep -q 'foo' ~/.bash_history; then
 fi
 ```
 
+### Limit and scroll through stdout
+
+```bash
+sendLotsToStdout() {
+  for i in {1..100}; do
+    echo processing $i ...
+  done
+
+  echo finished
+}
+
+# pipe to the command less
+sendLotsToStdout | less
+```
+
 ## Also see
 {: .-one-column}
 

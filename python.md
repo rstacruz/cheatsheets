@@ -126,7 +126,7 @@ file.close()
 ```py
 print(file.read())  # read the entire file and set the cursor at the end of file
 print file.readline() # Reading one line
-file.seek(0, 0) # place the cursor at the beggining of the file
+file.seek(0, 0) # place the cursor at the beginning of the file
 ```
 
 ### Writing (overwrite)

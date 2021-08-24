@@ -43,9 +43,9 @@ category: Ruby
     proc { ... }.must_raise exception
     proc { ... }.must_throw sym
 
-### Unit::TestCase
+### Test
 
-    class TestHipster < MiniTest::Unit::TestCase
+    class TestHipster < Minitest::Test
       def setup
         @subject = ["silly hats", "skinny jeans"]
       end
@@ -85,7 +85,7 @@ category: Ruby
     assert_silent
     assert_throws
 
-### MiniTest::Mock
+### Minitest::Mock
 
 A simple and clean mock system. There two essential methods at our disposal: expect and verify.
 
@@ -93,7 +93,7 @@ A simple and clean mock system. There two essential methods at our disposal: exp
 
     describe Twipster, "Make every tweet a hipster tweet." do
       before do
-        @twitter  = MiniTest::Mock.new
+        @twitter  = Minitest::Mock.new
         @twipster = Twipster.new(@twitter)
       end
 

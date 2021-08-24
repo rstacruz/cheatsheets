@@ -152,7 +152,7 @@ Functions
     substitute(str, '.', 'x', 'g')
     strpart("abcdef", 3, 2)    " == "de" (substring)
     strpart("abcdef", 3)       " == "def"
-    stridx("abcdef", "e")      " == "e"
+    stridx("abcdef", "e")      " == 4
     strridx()                  " reverse
 
     matchstr('testing','test')  " == 'test' (or '')

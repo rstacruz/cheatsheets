@@ -105,6 +105,19 @@ div
     it is nice
 ```
 
+### Advanced whitespaces
+
+```jade
+div
+  ' This appends a whitespace
+div
+  |  This hackily prepends a whitespace
+div
+  => 'This appends a whitespace'
+div
+  =< 'This prepends a whitespace'
+```
+
 ### Inline HTML
 
 ```jade

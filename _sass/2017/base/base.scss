@@ -55,11 +55,6 @@ a:hover {
   color: $base-b3;
 }
 
-/* prism.js adds area-hidden which it probably shouldn't */
-[aria-hidden]:not(.line-highlight) {
-  display: none !important;
-}
-
 // No tooltips on mobile
 @media (max-width: 580px) {
   .hint--bottom {

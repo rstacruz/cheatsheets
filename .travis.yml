@@ -1,7 +1,0 @@
-language: ruby
-rvm:
-  - 2.5
-script:
-  - make -B _site
-  - if ! make test; then make test-warning; exit 16; fi
-cache: bundler

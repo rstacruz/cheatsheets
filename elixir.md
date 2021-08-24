@@ -3,7 +3,7 @@ title: Elixir
 category: Elixir
 layout: 2017/sheet
 tags: [New]
-updated: 2017-08-26
+updated: 2018-07-04
 weight: -10
 ---
 
@@ -427,6 +427,20 @@ get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
 Map.new([{:b, 1}, {:a, 2}])
 Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
+```
+
+### Working with structs
+
+#### Struct to map
+
+```elixir
+Map.from_struct(%AnyStruct{a: "b"})  # → %{a: "b"}
+```
+
+#### Map to struct
+
+```elixir
+struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
 ```
 
 ## List

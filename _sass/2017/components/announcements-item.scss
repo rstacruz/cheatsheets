@@ -43,6 +43,7 @@
     margin: 0;
     padding: 0;
     cursor: pointer;
+    background: transparent;
 
     &:hover,
     &:focus {
@@ -51,7 +52,8 @@
   }
 
   & > .close::before {
-    content: "\00D7";
+    // https://stackoverflow.com/a/30421654
+    content: unquote("\"")+str-insert("00D7", "\\", 1)+unquote("\"");
     font-size: 14px;
   }
 }

@@ -3,7 +3,7 @@ title: pm2
 category: CLI
 layout: 2017/sheet
 authors: { github: "Dr-Dino" }
-updated: 2018-03-15
+updated: 2020-05-08
 ---
 
 ### Fork mode
@@ -52,6 +52,8 @@ updated: 2018-03-15
 | ---               | ---                                            |
 | `pm2 delete 0`    | Will remove process from pm2 list              |
 | `pm2 delete all`  | Will remove all processes from pm2 list        |
+| ---               | ---                                            |
+| `pm2 save`        | Save processes list to respawn at reboot       |
 
 ### Misc
 

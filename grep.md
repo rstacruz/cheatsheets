@@ -1,8 +1,8 @@
 ---
-title: Grep
+title: GNU grep
 category: CLI
 layout: 2017/sheet
-updated: 2019-10-04
+updated: 2021-08-23
 ---
 
 ### Usage
@@ -26,11 +26,31 @@ grep <options> pattern <file...>
 ### Pattern Options
 
 ```bash
--E, --extended-regexp # extended regular expression
 -F, --fixed-strings   # list of fixed strings
 -G, --basic-regexp    # basic regular expression (default)
+-E, --extended-regexp # extended regular expression
 -P, --perl-regexp     # perl compatible regular expression
 ```
+
+#### Basic Regular Expressions (BRE)
+
+In BRE, these characters have a special meaning unless they are escaped with a backslash:
+
+`^ $ . * [ ] \`
+
+However, these characters do not have any special meaning unless they are escaped with a backslash:
+
+`? + { } | ( )`
+	
+#### Extended Regular Expressions (ERE)
+
+ERE gives all of these characters a special meaning unless they are escaped with a backslash:
+
+`^ $ . * + ? [ ] ( ) | { }`
+
+#### Perl Compatible Regular Expressions (PCRE)
+
+PCRE has even more options such as additional anchors and character classes, lookahead/lookbehind, conditional expressions, comments, and more. See the [regexp cheatsheet](/regexp).
 
 ### Output Options
 
@@ -46,8 +66,8 @@ grep <options> pattern <file...>
 ### Context Options
 
 ```bash
--A NUM, --after-context=NUM   # print NUM lines after a match
 -B NUM, --before-context=NUM  # print NUM lines before a match
+-A NUM, --after-context=NUM   # print NUM lines after a match
 -C NUM, -NUM, --context=NUM   # print NUM lines before and after a match
 ```
 

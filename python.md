@@ -3,12 +3,17 @@ title: Python
 category: Python
 ---
 
-### Lists
+### Tuples (immutable)
+
+    tuple = ()
+
+### Lists (mutable)
 
     list = []
     list[i:j]  # returns list subset
     list[-1]   # returns last element
     list[:-1]  # returns all but the last element
+    *list      # expands all elements in place
     
     list[i] = val
     list[i:j] = otherlist  # replace ith to jth-1 elements with otherlist
@@ -34,12 +39,14 @@ category: Python
 
 ### Dict
 
+    dict = {}
     dict.keys()
     dict.values()
     "key" in dict    # let's say this returns False, then...
     dict["key"]      # ...this raises KeyError
     dict.get("key")  # ...this returns None
     dict.setdefault("key", 1)
+    **dict           # expands all k/v pairs in place
 
 ### Iteration
 
@@ -158,4 +165,3 @@ with open("welcome.txt", "r") as file:
 
 # It closes the file automatically at the end of scope, no need for `file.close()`.
 ```
-

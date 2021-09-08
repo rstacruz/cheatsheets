@@ -70,8 +70,8 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | `⌘d`     | Select word    |
 | `⌘l`     | Select line    |
 | ---      | ---            |
-| `⌘↓`     | Move line down |
-| `⌘↑`     | Move line up   |
+| `^⌘↓`     | Move line down |
+| `^⌘↑`     | Move line up   |
 | ---      | ---            |
 | `⌘⏎`     | New line below |
 | `⌘⇧⏎`    | New line above |

@@ -2,7 +2,7 @@
 title: Atom
 category: Apps
 layout: 2017/sheet
-updated: 2018-06-14
+updated: 2021-09-10
 ---
 
 ## Shortcuts
@@ -25,14 +25,14 @@ updated: 2018-06-14
 
 ### View
 
-| Shortcut | Description            |
-| -------- | ---------------------- |
-| `⌘k` `←` | Split pane to the left |
-| ---      | ---                    |
-| `⌘⌥=`    | Grow pane              |
-| `⌘⌥-`    | Shrink pane            |
-| ---      | ---                    |
-| `^⇧←`    | Move tab to left       |
+| Shortcut             | Description                                     |
+| --------             | ----------------------                          |
+| `⌘k` `←,→,↑,↓`       | Split pane to the left, right, up, or down      |
+| ---                  | ---                                             |
+| `⌘⌥=`                | Grow pane                                       |
+| `⌘⌥-`                | Shrink pane                                     |
+| ---                  | ---                                             |
+| `^⇧←`/`^⇧→`          | Move tab to left/right                          |
 {: .-shortcuts}
 
 ### Bracket matcher
@@ -40,7 +40,7 @@ updated: 2018-06-14
 | Shortcut | Description                    |
 | -------- | ------------------------------ |
 | `^m`     | Go to matching bracket         |
-| `^]`     | Remove brackets from selection |
+| `^⌫`     | Remove brackets from selection |
 | `^⌘m`    | Select inside brackets         |
 | `⌥⌘.`    | Close tag                      |
 {: .-shortcuts}
@@ -49,7 +49,7 @@ updated: 2018-06-14
 
 | Shortcut | Description                      |
 | -------- | -------------------------------- |
-| `^⌥↓`    | Jump to declaration under cursor |
+| `⌥⌘↓`    | Jump to declaration under cursor |
 | `^⇧r`    | Show tags                        |
 {: .-shortcuts}
 
@@ -59,6 +59,8 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 ### Git
 
+| Shortcut | Description                    |
+| -------- | ------------------------------ |
 | `^⇧9` | Show Git pane |
 | `^⇧8` | Show GitHub pane |
 {: .-shortcuts}
@@ -70,13 +72,13 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | `⌘d`     | Select word    |
 | `⌘l`     | Select line    |
 | ---      | ---            |
-| `⌘↓`     | Move line down |
-| `⌘↑`     | Move line up   |
+| `^⌘↑`     | Move line up   |
+| `^⌘↓`     | Move line down |
 | ---      | ---            |
 | `⌘⏎`     | New line below |
 | `⌘⇧⏎`    | New line above |
 | ---      | ---            |
-| `⌘⇧k`    | Delete line    |
+| `^⇧k`    | Delete line    |
 | `⌘⇧d`    | Duplicate line |
 {: .-shortcuts}
 
@@ -85,7 +87,7 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | Shortcut | Description             |
 | -------- | ----------------------- |
 | `⌘⇧p`    | Command palette         |
-| `⌘⇧a`    | Add project folder      |
+| `⌘⇧o`    | Add project folder      |
 | ---      | ---                     |
 | `⌘n`     | New file                |
 | `⌘⇧n`    | New window              |

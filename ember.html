@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/ember.jpg?t=20210804125746' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/ember.jpg?t=20210804125746' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/ember.jpg?t=20210910033710' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/ember.jpg?t=20210910033710' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -90,9 +90,9 @@ gtag('config','UA-106902774-1');
 <!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
 
   <style>html{opacity:0}</style>
-  <link rel="stylesheet" href="./assets/2015/style.css?t=20210804125746">
-  <link href="./assets/style.css?t=20210804125746" rel="stylesheet" />
-  <link href="./assets/print.css?t=20210804125746" rel="stylesheet" media="print" />
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20210910033710">
+  <link href="./assets/style.css?t=20210910033710" rel="stylesheet" />
+  <link href="./assets/print.css?t=20210910033710" rel="stylesheet" media="print" />
 </head>
 <body>
 <div class='all'>
@@ -114,7 +114,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "Ember.js cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/ember.jpg?t=20210804125746" ],
+  "image": [ "https://assets.devhints.io/previews/ember.jpg?t=20210910033710" ],
   "description": "The one-page guide to Ember.js: usage, examples, links, snippets, and more."
 }
 </script>
@@ -163,74 +163,69 @@ gtag('config','UA-106902774-1');
       
 <h3 id="routes">Routes</h3>
 
-<pre><code>App.Router.map(function() {
-  this.resource('trips', function() {
-      this.route('item', { path: '/:trip_id' });
+<pre><code>Router.map(function() {
+  this.route('trips', function() {
+      this.route('item', { path: '/:tripId' });
   });
 
   this.route('upcoming');
-  this.route('about', { path: '/about' });
+  this.route('about', { path: '/aboutus' });
   this.route('schedules');
   this.route('history');
-  this.route('post');
+  this.route('post', { path: '/post/:postId' });
 });
 </code></pre>
 
 <h3 id="a-route">A route</h3>
 
-<pre><code>App.IndexRoute = Ember.Route.extend({
-  setupController: function(controller) {
-    controller.set('title', 'my app');
-    // &lt;h1&gt;{{title}}&lt;/h1&gt;
-  },
+<pre><code>import Route from '@ember/routing/route';
 
-  setupController: function(controller, model) {
-    controller.set("model", model);
-    this.controllerFor('topPost').set('model', model);
-  },
+export default PostRoute extends Route {
+  model({ postId }) {
+    // Post will be accessible as `this.model` in the controller
+    // or `{{@model}}` in the template.
+    return this.store.find('post', postId);
+  }
+}
+</code></pre>
 
-  model: function(params) {
-    return this.store.find('posts');
-    return this.store.find('post', params.post_id);
-  },
+<h3 id="component">Component</h3>
+
+<pre><code>import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+export default PostEditor extends Component {
+  @tracked title;
+ 
+  get fullTitle() {
+    return `Post: ${title}`;
+  }
   
-  serialize: function(model) {
-    // this will make the URL `/posts/foo-post`
-    return { post_slug: model.get('slug') };
+  titleUpdate(event) {
+    this.title = event.target.value;
   }
-});
+}
 </code></pre>
 
-<h3 id="view">View</h3>
+<h3 id="template">Template</h3>
 
-<pre><code>App.InfoView = Ember.View.extend({
-  templateName: 'input',  /* optional */
+<pre><code>&lt;div ...attributes&gt;
+    &lt;label for="title"&gt;Title&lt;/label&gt;
+    &lt;input
+        id="title"
+        value={{@post.title}}
+        {{on 'input' this.updateTitle}}
+    /&gt;
 
-  fooName: "Hello"  /* {{ view.fooName }} */
-
-  click: function(e) {
-    "I was clicked";
-  }
-
-});
+    &lt;p&gt;
+        {{this.fullTitle}}
+    &lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
 
-<h3 id="markup">markup</h3>
+<p>Invoking the component:</p>
 
-<pre><code>&lt;img {{bindAttr src="avatarURL"}}&gt;
-&lt;button {{action follow}}&gt;
-</code></pre>
-
-<p>Value binding:</p>
-
-<pre><code>{{view Ember.TextField class="input block" valuebinding="emailAddresses"}}
-</code></pre>
-
-<p>Actions:</p>
-
-<pre><code>&lt;button {{action invite emailAddresses}}&gt;Invite&gt;&lt;/button&gt;
-
-&lt;a href="#" {{action set "isEditingContacts" true target="view"}} 
+<pre><code>&lt;PostEditor class='my-post' @post={{@model}} /&gt;
 </code></pre>
 
 

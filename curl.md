@@ -17,7 +17,8 @@ updated: 2020-03-09
 ```bash
 -v           # --verbose
 -vv          # Even more verbose
--s           # --silent
+-s           # --silent: don't show progress meter or errors
+-S           # --show-error: when used with --silent (-sS), show errors but no progress meter
 ```
 
 ```bash

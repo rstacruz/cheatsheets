@@ -14,6 +14,7 @@ layout: 2017/sheet
 ```
 
 ### Control structures
+
 ```
 {% for x in range(5) %}
     {% if x % 2 == 0 %}
@@ -37,6 +38,7 @@ enated.
 ```
 
 ### Special blocks
+
 ```
 {% filter e %}{% endraw %}
 { {%- if 0 -%}{%- endif -%} % raw %}
@@ -61,7 +63,9 @@ this is a comment
 
 
 ### Inheritance
-`shared.html`:
+
+#### shared.html
+
 ```
 <html>
   <head>
@@ -74,7 +78,8 @@ this is a comment
 </html>
 ```
 
-`home.html`:
+#### home.html
+
 ```
 {% extends "shared.html" %}
 {% block title %}Welcome to my site{% endblock %}
@@ -84,12 +89,13 @@ This is the body
 ```
 
 ## Library
+
 ### Basic usage
-```
+
+```python
 from jinja2 import Template
 template = Template('Hello {{ name }}!')
 template.render(name='John Doe') == u'Hello John Doe!'
 ```
-
 
 {% endraw %}

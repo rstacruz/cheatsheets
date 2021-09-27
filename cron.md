@@ -47,7 +47,7 @@ Min  Hour Day  Mon  Weekday
 | `*/15 * * * *` | every 15 mins               |
 | `0 */2 * * *`  | every 2 hours               |
 | `0 18 * * 0-6` | every week Mon-Sat at 6pm   |
-| `10 2 * * 6,7` | every Sat and Thu on 2:10am |
+| `10 2 * * 6,7` | every Sat and Sun on 2:10am |
 | `0 0 * * 0`    | every Sunday midnight       |
 | ---            | ---                         |
 | `@reboot`      | every reboot                |

@@ -7,14 +7,14 @@ layout: 2017/sheet
 ### Basic usage
 
 ```
-- variable x has content: ${x}
-- expression: ${x + 1}
-- escaped for HTML: ${x | h}
+Variable x has content: ${x}
+Expression: ${x + 1}
+Escaped for HTML: ${x | h}
 ```
 
 ### Control structures
 
-```
+```html
 % for x in range(5):
     % if x % 2 == 0:
     ${x} is even!
@@ -26,7 +26,7 @@ layout: 2017/sheet
 
 ### Including Python code
 
-```
+```python
 <%
     greeting = "Hello world!"
     # arbitrary python code
@@ -47,7 +47,8 @@ def sign_string(number):
 ```
 
 ### Special blocks
-```
+
+```html
 <%text filter="h">
     This is a raw block where ${nothing is evaluated}
     <%
@@ -64,12 +65,14 @@ ${myfunc(42)}
 
 <%doc>
     this is a comment
-</%doc>    
+</%doc>
 ```
 
 ### Inheritance
-`shared.html`:
-```
+
+#### shared.html
+
+```html
 <html>
   <head>
     <title><%block name="title" /></title>
@@ -81,26 +84,28 @@ ${myfunc(42)}
 </html>
 ```
 
-`home.html`:
-```
+#### home.html
+
+```html
 <%inherit file="shared.html" />
 <%block name="title">Welcome to my site</%block>
 
 This is the body
 ```
 
-`article.html`:
-```
+#### article.html
+
+```html
 <%inherit file="shared.html" />
 <%block name="title">${post.title}</%block>
 
 ${post.content}
 ```
 
-
 ## Library
 
 ### Basic usage
+
 ```python
 from mako.template import Template
 

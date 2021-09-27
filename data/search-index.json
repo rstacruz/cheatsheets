@@ -1936,6 +1936,17 @@
   "tags": null,
   "updated": null
 },{
+  "id": "mako",
+  "title": "mako",
+  "url": "/mako",
+  "category": "python",
+  "keywords": null,
+  "content_html": "<h3 id=\"basic-usage\">Basic usage</h3>\n\n<pre><code>Variable x has content: ${x}\nExpression: ${x + 1}\nEscaped for HTML: ${x | h}\n</code></pre>\n\n<h3 id=\"control-structures\">Control structures</h3>\n\n<pre><code class=\"language-html\">% for x in range(5):\n    % if x % 2 == 0:\n    ${x} is even!\n    % else:\n    ${x} is odd!\n    % endif\n% endfor\n</code></pre>\n\n<h3 id=\"including-python-code\">Including Python code</h3>\n\n<pre><code class=\"language-python\">&lt;%\n    greeting = \"Hello world!\"\n    # arbitrary python code\n%&gt;\n\n&lt;%!\n# arbitrary python code run at toplevel\n# cannot access variables!\n\ndef sign_string(number):\n    if number &gt; 0:\n        return \"positive\"\n    elif number &lt; 0:\n        return \"negative\"\n    else:\n        return \"zero\"\n%&gt;\n</code></pre>\n\n<h3 id=\"special-blocks\">Special blocks</h3>\n\n<pre><code class=\"language-html\">&lt;%text filter=\"h\"&gt;\n    This is a raw block where ${nothing is evaluated}\n    &lt;%\n        not even this\n    %&gt;\n    and &lt;html is escaped&gt; too with \"h\" filter\n&lt;/%text&gt;\n\n&lt;%def name=\"myfunc(x)\"&gt;\n    this is a reusable macro, with arguments: ${x}\n&lt;/%def&gt;\n\n${myfunc(42)}\n\n&lt;%doc&gt;\n    this is a comment\n&lt;/%doc&gt;\n</code></pre>\n\n<h3 id=\"inheritance\">Inheritance</h3>\n\n<h4 id=\"sharedhtml\">shared.html</h4>\n\n<pre><code class=\"language-html\">&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;&lt;%block name=\"title\" /&gt;&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;header&gt;&lt;h1&gt;&lt;%block name=\"title\" /&gt;&lt;/h1&gt;&lt;/header&gt;\n    &lt;main&gt;${self.body()}&lt;/main&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n\n<h4 id=\"homehtml\">home.html</h4>\n\n<pre><code class=\"language-html\">&lt;%inherit file=\"shared.html\" /&gt;\n&lt;%block name=\"title\"&gt;Welcome to my site&lt;/%block&gt;\n\nThis is the body\n</code></pre>\n\n<h4 id=\"articlehtml\">article.html</h4>\n\n<pre><code class=\"language-html\">&lt;%inherit file=\"shared.html\" /&gt;\n&lt;%block name=\"title\"&gt;${post.title}&lt;/%block&gt;\n\n${post.content}\n</code></pre>\n\n<h2 id=\"library\">Library</h2>\n\n<h3 id=\"basic-usage-1\">Basic usage</h3>\n\n<pre><code class=\"language-python\">from mako.template import Template\n\nmytemplate = Template(\"hello, ${name}!\")\nprint(mytemplate.render(name=\"jack\"))\n</code></pre>",
+  "intro_html": "",
+  "description_html": "",
+  "tags": null,
+  "updated": null
+},{
   "id": "man",
   "title": "Man",
   "url": "/man",

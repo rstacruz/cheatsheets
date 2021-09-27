@@ -23,30 +23,30 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <link href='./assets/favicon.png' rel='shortcut icon'>
-<meta content='/css-flexbox.html' name='app:pageurl'>
+<meta content='/grep.html' name='app:pageurl'>
 
 
-  <title>CSS flexbox cheatsheet</title>
-  <meta content='CSS flexbox cheatsheet' property='og:title'>
-  <meta content='CSS flexbox cheatsheet' property='twitter:title'>
+  <title>GNU grep cheatsheet</title>
+  <meta content='GNU grep cheatsheet' property='og:title'>
+  <meta content='GNU grep cheatsheet' property='twitter:title'>
   <meta content='article' property='og:type'>
 
 
 
-  <meta content='https://assets.devhints.io/previews/css-flexbox.jpg?t=20210927011904' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/css-flexbox.jpg?t=20210927011904' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/grep.jpg?t=20210927011904' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/grep.jpg?t=20210927011904' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
 
 
-  <meta content="The one-page guide to CSS flexbox: usage, examples, links, snippets, and more." name="description">
-  <meta content="The one-page guide to CSS flexbox: usage, examples, links, snippets, and more." property="og:description">
-  <meta content="The one-page guide to CSS flexbox: usage, examples, links, snippets, and more." property="twitter:description">
+  <meta content="The one-page guide to GNU grep: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to GNU grep: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to GNU grep: usage, examples, links, snippets, and more." property="twitter:description">
 
 
-<link rel="canonical" href="https://devhints.io/css-flexbox">
-<meta name="og:url" content="https://devhints.io/css-flexbox">
+<link rel="canonical" href="https://devhints.io/grep">
+<meta name="og:url" content="https://devhints.io/grep">
 
 
 
@@ -62,7 +62,7 @@
 
 
 
-  <meta content='CSS' property='article:section'>
+  <meta content='CLI' property='article:section'>
 
 
 
@@ -114,9 +114,9 @@ gtag('config','UA-106902774-1');
     "@type": "WebPage",
     "@id": "https://google.com/article"
   },
-  "headline": "CSS flexbox cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/css-flexbox.jpg?t=20210927011904" ],
-  "description": "The one-page guide to CSS flexbox: usage, examples, links, snippets, and more."
+  "headline": "GNU grep cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/grep.jpg?t=20210927011904" ],
+  "description": "The one-page guide to GNU grep: usage, examples, links, snippets, and more."
 }
 </script>
 <script type='application/ld+json'>
@@ -127,15 +127,15 @@ gtag('config','UA-106902774-1');
     "@type": "ListItem",
     "position": 1,
     "item": {
-      "@id": "https://devhints.io/#css",
-      "name": "CSS"
+      "@id": "https://devhints.io/#cli",
+      "name": "CLI"
     }
   },{
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "https://devhints.io/css-flexbox",
-      "name": "CSS flexbox"
+      "@id": "https://devhints.io/grep",
+      "name": "GNU grep"
     }
   }]
 }
@@ -161,8 +161,8 @@ gtag('config','UA-106902774-1');
       <div class='actions'>
         
 <ul class="social-list social page-actions">
-  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/css-flexbox.html" target="share"><span class="text"></span></a></li>
-  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20CSS%20flexbox.%20https://devhints.io/css-flexbox.html" target="share"><span class="text"></span></a></li>
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/grep.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20GNU%20grep.%20https://devhints.io/grep.html" target="share"><span class="text"></span></a></li>
   
 </ul>
 
@@ -170,7 +170,7 @@ gtag('config','UA-106902774-1');
         
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
-              <a href='https://github.com/rstacruz/cheatsheets/blob/master/css-flexbox.md'>
+              <a href='https://github.com/rstacruz/cheatsheets/blob/master/grep.md'>
                 <span class='text -visible'>Edit</span>
               </a>
             </li>
@@ -184,7 +184,7 @@ gtag('config','UA-106902774-1');
 
 <div class='body-area'>
   <header class='main-heading -center' role='banner'>
-    <h1 class='h1'>CSS flexbox <em>cheatsheet</em></h1>
+    <h1 class='h1'>GNU grep <em>cheatsheet</em></h1>
 
     <div class='pubbox' data-js-no-preview>
       
@@ -207,167 +207,94 @@ gtag('config','UA-106902774-1');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h3 id="simple-example">Simple example</h3>
+    <h3 class="-prime" id="usage">Usage</h3>
 
-<pre><code class="language-css">.container {
-  display: flex;
-}
+<pre><code class="language-bash">grep &lt;options&gt; pattern &lt;file...&gt;
 </code></pre>
 
-<pre><code class="language-css">.container &gt; div {
-  flex: 1 1 auto;
-}
+<h3 id="matching-options">Matching options</h3>
+
+<pre><code class="language-bash">-e, --regexp=PATTERN
+-f, --file=FILE
+-i, --ignore-case
+-v, --invert-match
+-w, --word-regexp
+-x, --line-regexp
 </code></pre>
 
-<h3 id="container">Container</h3>
+<h3 id="pattern-options">Pattern options</h3>
 
-<pre class="-setup"><code class="language-css">.container {
+<pre><code class="language-bash">-F, --fixed-strings   # list of fixed strings
+-G, --basic-regexp    # basic regular expression (default)
+-E, --extended-regexp # extended regular expression
+-P, --perl-regexp     # perl compatible regular expression
 </code></pre>
 
-<pre><code class="language-css">  display: flex;
-  display: inline-flex;
+<h3 id="expressions">Expressions</h3>
+
+<h4 id="basic-regular-expressions-bre">Basic Regular Expressions (BRE)</h4>
+
+<p>In BRE, these characters have a special meaning unless they are escaped with a backslash:</p>
+
+<p><code>^ $ . * [ ] \</code></p>
+
+<p>However, these characters do not have any special meaning unless they are escaped with a backslash:</p>
+
+<p><code>? + { } | ( )</code></p>
+
+<h4 id="extended-regular-expressions-ere">Extended Regular Expressions (ERE)</h4>
+
+<p>ERE gives all of these characters a special meaning unless they are escaped with a backslash:</p>
+
+<p><code>^ $ . * + ? [ ] ( ) | { }</code></p>
+
+<h4 id="perl-compatible-regular-expressions-pcre">Perl Compatible Regular Expressions (PCRE)</h4>
+
+<p>PCRE has even more options such as additional anchors and character classes, lookahead/lookbehind, conditional expressions, comments, and more. See the <a href="/regexp">regexp cheatsheet</a>.</p>
+
+<h3 id="output-options">Output Options</h3>
+
+<pre><code class="language-bash">-c, --count           # print the count of matching lines. suppresses normal output
+    --color[=WHEN]    # applies color to the matches. WHEN is never, always, or auto
+-m, --max-count=NUM   # stop reading after max count is reached
+-o, --only-matching   # only print the matched part of a line
+-q, --quiet, --silent
+-s, --no-messages     # suppress error messages about nonexistent or unreadable files
 </code></pre>
 
-<pre><code class="language-css">  flex-direction: row;            /* ltr - default */
-  flex-direction: row-reverse;    /* rtl */
-  flex-direction: column;         /* top-bottom */
-  flex-direction: column-reverse; /* bottom-top */
+<h3 id="context-options">Context Options</h3>
+
+<pre><code class="language-bash">-B NUM, --before-context=NUM  # print NUM lines before a match
+-A NUM, --after-context=NUM   # print NUM lines after a match
+-C NUM, -NUM, --context=NUM   # print NUM lines before and after a match
 </code></pre>
 
-<pre><code class="language-css">  flex-wrap: nowrap; /* one-line */
-  flex-wrap: wrap;   /* multi-line */
+<h3 id="examples">Examples</h3>
+
+<pre><code class="language-bash"># Case insensitive: match any line in foo.txt
+# that contains "bar"
+grep -i bar foo.txt
+
+#  match any line in bar.txt that contains
+# either "foo" or "oof"
+grep -E "foo|oof" bar.txt
+
+# match anything that resembles a URL in
+# foo.txt and only print out the match
+grep -oE "https?:\/\/((\w+[_-]?)+\.?)+" foo.txt
+
+# can also be used with pipes:
+# match any line that contains "export" in
+# .bash_profile, pipe to another grep that
+# matches any of the first set of matches
+# containing "PATH"
+grep "export" .bash_profile | grep "PATH"
+
+# follow the tail of server.log, pipe to grep
+# and print out any line that contains "error"
+# and include 5 lines of context
+tail -f server.log | grep -iC 5 error
 </code></pre>
-
-<pre><code class="language-css">  align-items: flex-start; /* vertical-align to top */
-  align-items: flex-end;   /* vertical-align to bottom */
-  align-items: center;     /* vertical-align to center */
-  align-items: stretch;    /* same height on all (default) */
-</code></pre>
-
-<pre><code class="language-css">  justify-content: flex-start;    /* [xxx        ] */
-  justify-content: center;        /* [    xxx    ] */
-  justify-content: flex-end;      /* [        xxx] */
-  justify-content: space-between; /* [x    x    x] */
-  justify-content: space-around;  /* [ x   x   x ] */
-  justify-content: space-evenly;  /* [  x  x  x  ] */
-</code></pre>
-
-<pre class="-setup"><code class="language-css">}
-</code></pre>
-
-<h3 id="child">Child</h3>
-
-<pre class="-setup"><code class="language-css">.container &gt; div {
-</code></pre>
-
-<pre><code class="language-css">  /* This: */
-  flex: 1 0 auto;
-
-  /* Is equivalent to this: */
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-</code></pre>
-
-<pre><code class="language-css">  order: 1;
-</code></pre>
-
-<pre><code class="language-css">  align-self: flex-start;  /* left */
-  margin-left: auto;       /* right */
-</code></pre>
-
-<pre class="-setup"><code class="language-css">}
-</code></pre>
-
-<h2 id="tricks">Tricks</h2>
-
-<h3 id="vertical-center">Vertical center</h3>
-
-<pre><code class="language-css">.container {
-  display: flex;
-}
-
-.container &gt; div {
-  width: 100px;
-  height: 100px;
-  margin: auto;
-}
-</code></pre>
-
-<h3 id="vertical-center-2">Vertical center (2)</h3>
-
-<pre><code class="language-css">.container {
-  display: flex;
-  align-items: center;     /* vertical */
-  justify-content: center; /* horizontal */
-}
-</code></pre>
-
-<h3 id="reordering">Reordering</h3>
-
-<pre><code class="language-css">.container &gt; .top {
- order: 1;
-}
-
-.container &gt; .bottom {
- order: 2;
-}
-</code></pre>
-
-<h3 id="mobile-layout">Mobile layout</h3>
-
-<pre><code class="language-css">.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.container &gt; .top {
-  flex: 0 0 100px;
-}
-
-.container &gt; .content {
-  flex: 1 0 auto;
-}
-</code></pre>
-
-<p>A fixed-height top bar and a dynamic-height content area.</p>
-
-<h3 id="table-like">Table-like</h3>
-
-<pre><code class="language-css">.container {
-  display: flex;
-}
-
-/* the 'px' values here are just suggested percentages */
-.container &gt; .checkbox { flex: 1 0 20px; }
-.container &gt; .subject  { flex: 1 0 400px; }
-.container &gt; .date     { flex: 1 0 120px; }
-</code></pre>
-
-<p>This creates columns that have different widths, but size accordingly according
-to the circumstances.</p>
-
-<h3 id="vertical">Vertical</h3>
-
-<pre><code class="language-css">.container {
-  align-items: center;
-}
-</code></pre>
-
-<p>Vertically-center all items.</p>
-
-<h3 id="left-and-right">Left and right</h3>
-
-<pre><code class="language-css">.menu &gt; .left  { align-self: flex-start; }
-.menu &gt; .right { align-self: flex-end; }
-</code></pre>
-
-<h2 class="-one-column" id="references">References</h2>
-
-<ul>
-  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">MDN: Using CSS flexbox</a></li>
-  <li><a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">Ultimate flexbox cheatsheet</a></li>
-</ul>
 
   </main>
 </div>
@@ -381,7 +308,7 @@ to the circumstances.</p>
       <details class='comments-details'>
         <summary>
           <strong class='count'>
-            <span class='disqus-comment-count' data-disqus-identifier="css-flexbox" data-disqus-url='https://devhints.io/css-flexbox'>0 Comments</span>
+            <span class='disqus-comment-count' data-disqus-identifier="grep" data-disqus-url='https://devhints.io/grep'>0 Comments</span>
           </strong>
           <span class='suffix'>for this cheatsheet.</span>
           <span class='fauxlink'>Write yours!</span>
@@ -393,7 +320,7 @@ to the circumstances.</p>
         </div>
       </details>
     </div>
-    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/css-flexbox","identifier":"css-flexbox"}'></noscript>
+    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/grep","identifier":"grep"}'></noscript>
   </section>
 
 
@@ -450,14 +377,14 @@ to the circumstances.</p>
       <div class='group'>
         <div class='related-posts-group'>
           
-            <h3>Other CSS cheatsheets</h3>
+            <h3>Other CLI cheatsheets</h3>
           
 
           <ul class='related-post-list'>
             
               <li class='item related-post-item'>
-  <a href='./sass'>
-    <strong>Sass</strong>
+  <a href='./cron'>
+    <strong>Cron</strong>
     <span>
       cheatsheet
 
@@ -470,8 +397,8 @@ to the circumstances.</p>
 
             
               <li class='item related-post-item'>
-  <a href='./css-system-font-stack'>
-    <strong>CSS system fonts</strong>
+  <a href='./homebrew'>
+    <strong>Homebrew</strong>
     <span>
       cheatsheet
 
@@ -484,8 +411,8 @@ to the circumstances.</p>
 
             
               <li class='item related-post-item'>
-  <a href='./cssnext'>
-    <strong>cssnext</strong>
+  <a href='./httpie'>
+    <strong>httpie</strong>
     <span>
       cheatsheet
 
@@ -498,8 +425,8 @@ to the circumstances.</p>
 
             
               <li class='item related-post-item'>
-  <a href='./stylus'>
-    <strong>Stylus</strong>
+  <a href='./adb'>
+    <strong>adb (Android Debug Bridge)</strong>
     <span>
       cheatsheet
 
@@ -512,8 +439,8 @@ to the circumstances.</p>
 
             
               <li class='item related-post-item'>
-  <a href='./bootstrap'>
-    <strong>Bootstrap</strong>
+  <a href='./composer'>
+    <strong>composer</strong>
     <span>
       cheatsheet
 
@@ -526,8 +453,8 @@ to the circumstances.</p>
 
             
               <li class='item related-post-item'>
-  <a href='./bulma'>
-    <strong>Bulma</strong>
+  <a href='./fish-shell'>
+    <strong>Fish shell</strong>
     <span>
       cheatsheet
 
@@ -656,7 +583,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
 <script src='./assets/packed/app.js?t=20210927011904'></script>
-<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-css.min.js'></script>
+
 
 
 </body>

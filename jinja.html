@@ -23,30 +23,30 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <link href='./assets/favicon.png' rel='shortcut icon'>
-<meta content='/canvas.html' name='app:pageurl'>
+<meta content='/jinja.html' name='app:pageurl'>
 
 
-  <title>Canvas cheatsheet</title>
-  <meta content='Canvas cheatsheet' property='og:title'>
-  <meta content='Canvas cheatsheet' property='twitter:title'>
+  <title>jinja cheatsheet</title>
+  <meta content='jinja cheatsheet' property='og:title'>
+  <meta content='jinja cheatsheet' property='twitter:title'>
   <meta content='article' property='og:type'>
 
 
 
-  <meta content='https://assets.devhints.io/previews/canvas.jpg?t=20210927011721' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/canvas.jpg?t=20210927011721' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/jinja.jpg?t=20210927011721' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/jinja.jpg?t=20210927011721' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
 
 
-  <meta content="The one-page guide to Canvas: usage, examples, links, snippets, and more." name="description">
-  <meta content="The one-page guide to Canvas: usage, examples, links, snippets, and more." property="og:description">
-  <meta content="The one-page guide to Canvas: usage, examples, links, snippets, and more." property="twitter:description">
+  <meta content="The one-page guide to jinja: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to jinja: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to jinja: usage, examples, links, snippets, and more." property="twitter:description">
 
 
-<link rel="canonical" href="https://devhints.io/canvas">
-<meta name="og:url" content="https://devhints.io/canvas">
+<link rel="canonical" href="https://devhints.io/jinja">
+<meta name="og:url" content="https://devhints.io/jinja">
 
 
 
@@ -62,7 +62,7 @@
 
 
 
-  <meta content='JavaScript' property='article:section'>
+  <meta content='python' property='article:section'>
 
 
 
@@ -114,9 +114,9 @@ gtag('config','UA-106902774-1');
     "@type": "WebPage",
     "@id": "https://google.com/article"
   },
-  "headline": "Canvas cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/canvas.jpg?t=20210927011721" ],
-  "description": "The one-page guide to Canvas: usage, examples, links, snippets, and more."
+  "headline": "jinja cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/jinja.jpg?t=20210927011721" ],
+  "description": "The one-page guide to jinja: usage, examples, links, snippets, and more."
 }
 </script>
 <script type='application/ld+json'>
@@ -127,15 +127,15 @@ gtag('config','UA-106902774-1');
     "@type": "ListItem",
     "position": 1,
     "item": {
-      "@id": "https://devhints.io/#javascript",
-      "name": "JavaScript"
+      "@id": "https://devhints.io/#python",
+      "name": "python"
     }
   },{
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "https://devhints.io/canvas",
-      "name": "Canvas"
+      "@id": "https://devhints.io/jinja",
+      "name": "jinja"
     }
   }]
 }
@@ -161,8 +161,8 @@ gtag('config','UA-106902774-1');
       <div class='actions'>
         
 <ul class="social-list social page-actions">
-  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/canvas.html" target="share"><span class="text"></span></a></li>
-  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Canvas.%20https://devhints.io/canvas.html" target="share"><span class="text"></span></a></li>
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/jinja.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20jinja.%20https://devhints.io/jinja.html" target="share"><span class="text"></span></a></li>
   
 </ul>
 
@@ -170,7 +170,7 @@ gtag('config','UA-106902774-1');
         
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
-              <a href='https://github.com/rstacruz/cheatsheets/blob/master/canvas.md'>
+              <a href='https://github.com/rstacruz/cheatsheets/blob/master/jinja.md'>
                 <span class='text -visible'>Edit</span>
               </a>
             </li>
@@ -184,7 +184,7 @@ gtag('config','UA-106902774-1');
 
 <div class='body-area'>
   <header class='main-heading -center' role='banner'>
-    <h1 class='h1'>Canvas <em>cheatsheet</em></h1>
+    <h1 class='h1'>jinja <em>cheatsheet</em></h1>
 
     <div class='pubbox' data-js-no-preview>
       
@@ -207,120 +207,89 @@ gtag('config','UA-106902774-1');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h3 id="getting-the-context">Getting the context</h3>
+    
+<h3 id="basic-usage">Basic usage</h3>
 
-<pre><code class="language-js">var canvas = document.getElementById('c')
-var c = canvas.getContext('2d')
+<pre><code>- variable x has content: {{ x }}
+- expression: {{ x + 1 }}
+- escaped for HTML: {{ x | e }}
 </code></pre>
 
-<h3 id="basic-drawing">Basic drawing</h3>
+<h3 id="control-structures">Control structures</h3>
 
-<pre><code class="language-js">// x = 10, y = 20, width = 200, height = 100
-c.fillStyle = '#ff0000'
-c.strokeStyle = '#ff00ff'
+<pre><code>{% for x in range(5) %}
+    {% if x % 2 == 0 %}
+        {{ x }} is even!
+    {% else %}
+        {{ x }} is odd!
+    {% endif %}
+{% endfor %}
 </code></pre>
 
-<pre><code class="language-js">c.lineWidth = 5
-c.lineCap = 'round'
+<h3 id="whitespace-trimming">Whitespace trimming</h3>
+
+<pre><code>these are
+{{ "three" }}
+lines.
+
+this is conc
+{{- "at" -}}
+enated.
 </code></pre>
 
-<pre><code class="language-js">c.fillRect(10, 20, 200, 100)
+<h3 id="special-blocks">Special blocks</h3>
+
+<pre><code>{% filter e %}
+{% raw %}
+    This is a raw block where {{nothing is evaluated}}
+    {% not even this %}
+    and &lt;html is escaped&gt; too with "e" filter
+{% endraw %}
+{% endfilter %}
+
+{% macro myfunc(x) %}
+    this is a reusable macro, with arguments: {{x}}
+{% endmacro %}
+
+{{ myfunc(42) }}
+
+{#
+this is a comment
+#}
 </code></pre>
 
-<pre><code class="language-js">c.stroke()
-c.fill()
+<h3 id="inheritance">Inheritance</h3>
+
+<h4 id="sharedhtml">shared.html</h4>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{%block title %}{% endblock %}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;&lt;h1&gt;{% block title %}{% endblock %}&lt;/h1&gt;&lt;/header&gt;
+    &lt;main&gt;{% block content %}{% endblock %}&lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<h3 id="saving-and-restoring">Saving and restoring</h3>
+<h4 id="homehtml">home.html</h4>
 
-<pre><code class="language-js">c.save()
+<pre><code>{% extends "shared.html" %}
+{% block title %}Welcome to my site{% endblock %}
+{% block content %}
+This is the body
+{% endblock %}
 </code></pre>
 
-<pre><code class="language-js">c.restore()
+<h2 id="library">Library</h2>
+
+<h3 id="basic-usage-1">Basic usage</h3>
+
+<pre><code class="language-python">from jinja2 import Template
+template = Template('Hello {{ name }}!')
+template.render(name='John Doe') == u'Hello John Doe!'
 </code></pre>
-
-<p>Saves: <code>strokeStyle</code> <code>fillStyle</code> <code>globalAlpha</code> <code>lineWidth</code> <code>lineCap</code> <code>lineJoin</code> <code>miterLimit</code> <code>shadowOffsetX</code> <code>shadowOffsetY</code> <code>shadowBlur</code> <code>shadowColor</code>
-<code>globalCompositeOperation</code>, Transformations (<code>translate</code> <code>rotate</code> <code>scale</code> <code>transform</code> <code>setTransform</code>), Clipping path</p>
-
-<h3 id="animation">Animation</h3>
-
-<pre><code class="language-js">onframe: function() {
-  c.clearRect(0, 0, w, h)
-}
-</code></pre>
-
-<h3 id="transformations">Transformations</h3>
-
-<pre><code class="language-js">c.translate(0, 0)
-c.rotate(Math.PI*2/5)
-c.scale(1.0, 1.0)
-</code></pre>
-
-<p>To rotate along origin:</p>
-
-<pre><code class="language-js">c.translate(ox, oy)
-c.rotate(theta)
-c.translate(-ox, -oy)
-</code></pre>
-
-<p>To scale along origin:</p>
-
-<pre><code class="language-js">c.translate(-ox*x, -oy*y)
-c.scale(x, y)
-c.translate(ox/x, oy/y)
-</code></pre>
-
-<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations">MDN: Transformations</a>.</p>
-
-<h3 id="image-drawing">Image drawing</h3>
-
-<pre><code class="language-js">c.drawImage(image, dx, dy, [dw, dh]);
-/* `image` can be HTML Image/Canvas/Video */
-</code></pre>
-
-<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images">MDN: Images</a>.</p>
-
-<h3 id="colors-styles-shadows">Colors, styles shadows</h3>
-
-<pre><code class="language-js">c.strokeStyle = '#ff00ff';
-c.fillStyle = '#ff00ff';
-</code></pre>
-
-<pre><code class="language-js">c.shadowOffsetX = 0;
-c.shadowOffsetY = 0;
-c.shadowOffsetBlur = 3.0;
-c.shadowColor = 'rgba(0,0,0,0.2)';
-</code></pre>
-
-<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors">MDN: Styles</a></p>
-
-<h3 id="gradients">Gradients</h3>
-
-<pre><code class="language-js">gr = c.createLinearGradient(x0,y0,x1,y1)
-gr = c.createRadialGradient(x0,y0,r0,x1,y1,r1)
-pat = c.createPattern(image, 'repeat-x')
-</code></pre>
-
-<pre><code class="language-js">c.fillStyle = gr
-</code></pre>
-
-<h3 id="drawing">Drawing</h3>
-
-<pre><code class="language-js">c.beginPath()
-c.moveTo(x,y)
-c.lineTo(x,y)
-c.quadraticCurveTo(cpx,cpy,x,y)
-c.bezierCurveTo(cp1x,cp1y,cp2x,cp2y)
-c.arcTo(...)
-c.arc(...)
-c.closePath()
-</code></pre>
-
-<h3 id="more-resources">More resources</h3>
-
-<ul>
-  <li><a href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf">Canvas Cheatsheet PDF</a></li>
-</ul>
 
 
   </main>
@@ -335,7 +304,7 @@ c.closePath()
       <details class='comments-details'>
         <summary>
           <strong class='count'>
-            <span class='disqus-comment-count' data-disqus-identifier="canvas" data-disqus-url='https://devhints.io/canvas'>0 Comments</span>
+            <span class='disqus-comment-count' data-disqus-identifier="jinja" data-disqus-url='https://devhints.io/jinja'>0 Comments</span>
           </strong>
           <span class='suffix'>for this cheatsheet.</span>
           <span class='fauxlink'>Write yours!</span>
@@ -347,7 +316,7 @@ c.closePath()
         </div>
       </details>
     </div>
-    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/canvas","identifier":"canvas"}'></noscript>
+    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/jinja","identifier":"jinja"}'></noscript>
   </section>
 
 
@@ -404,94 +373,10 @@ c.closePath()
       <div class='group'>
         <div class='related-posts-group'>
           
-            <h3>Other JavaScript cheatsheets</h3>
+            <h3>Other python cheatsheets</h3>
           
 
           <ul class='related-post-list'>
-            
-              <li class='item related-post-item'>
-  <a href='./es6'>
-    <strong>ES2015+</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
-            
-              <li class='item related-post-item'>
-  <a href='./vue'>
-    <strong>Vue.js</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
-            
-              <li class='item related-post-item'>
-  <a href='./js-date'>
-    <strong>JavaScript Date</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
-            
-              <li class='item related-post-item'>
-  <a href='./js-fetch'>
-    <strong>fetch()</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
-            
-              <li class='item related-post-item'>
-  <a href='./js-speech'>
-    <strong>JavaScript speech synthesis</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
-            
-              <li class='item related-post-item'>
-  <a href='./jsdoc'>
-    <strong>Jsdoc</strong>
-    <span>
-      cheatsheet
-
-      
-      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
-      
-    </span>
-  </a>
-</li>
-
             
           </ul>
         </div>

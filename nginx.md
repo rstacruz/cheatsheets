@@ -1,6 +1,6 @@
 ---
-title: Nginx
-category: Nginx
+title: nginx
+category: nginx
 layout: default-ad
 ---
 

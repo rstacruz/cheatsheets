@@ -346,8 +346,8 @@ fi
 | Expression | Description                                      |
 | ---        | ---                                              |
 | `$#`       | Number of arguments                              |
-| `$*`       | All postional arguments  (as a single word)     |
-| `$@`       | All postitional arguments (as separate strings)  |
+| `$*`       | All positional arguments  (as a single word)     |
+| `$@`       | All positional arguments (as separate strings)  |
 | `$1`       | First argument                                   |
 | `$_`       | Last argument of the previous command            |
 

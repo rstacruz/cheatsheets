@@ -486,6 +486,7 @@ Fruits=("${Fruits[@]}" "Watermelon")    # Push
 Fruits+=('Watermelon')                  # Also Push
 Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
 unset Fruits[2]                         # Remove one item
+unset Fruits                            # Remove all items
 Fruits=("${Fruits[@]}")                 # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
 lines=(`cat "logfile"`)                 # Read from file
@@ -526,6 +527,7 @@ echo ${sounds[@]}   # All values
 echo ${!sounds[@]}  # All keys
 echo ${#sounds[@]}  # Number of elements
 unset sounds[dog]   # Delete dog
+unset sounds        # Clears dictionary
 ```
 
 ### Iteration

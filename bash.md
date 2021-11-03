@@ -754,12 +754,13 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| Expression | Description                  |
-| ---------- | ---------------------------- |
-| `$?`       | Exit status of last task     |
-| `$!`       | PID of last background task  |
-| `$$`       | PID of shell                 |
-| `$0`       | Filename of the shell script |
+| Expression | Description                            |
+| ---------- | -------------------------------------- |
+| `$?`       | Exit status of last task               |
+| `$!`       | PID of last background task            |
+| `$$`       | PID of shell                           |
+| `$0`       | Filename of the shell script           |
+| `$_`       | Last argrument of the previous command |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

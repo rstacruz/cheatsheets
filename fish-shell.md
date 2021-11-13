@@ -102,14 +102,28 @@ string replace --regex 'Fish' 'fish' 'This is a Fish shell!'
 ### Conditionals
 
 ```fish
-if test -f foo.txt
+if test $my_variable -lt $another_variable
   ···
-else if test -f bar.txt
+else if test $my_variable -eq $another_variable
   ···
 else
   ···
 end
 ```
+
+| Operator            | Meaning                                   |
+| ---                 | ---                                       |
+| `-lt`               | [L]ess [t]han                             |
+| `-eq`               | [Eq]ual                                   |
+| `-gt`               | [G]reater [t]han                          |
+| `-le`               | [L]ess than or [e]qual to                 |
+| `-ge`               | [G]reater than or [e]qual to              |
+| `-f`                | [F]ile exists                             |
+| `-d`                | [D]irectory exists                        |
+| `-r`                | File or directory exists and [r]eadable   |
+| `-w`                | File or directory exists and [w]ritable   |
+| `-x`                | File or directory exists and [e]xecutable |
+{: .-shortcuts}
 
 ## Function
 

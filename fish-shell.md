@@ -32,6 +32,32 @@ weight: -1
 | `Alt L` | List directory on cursor               |
 {: .-shortcuts}
 
+## Variables
+
+### Defining and erasing variables
+
+```fish
+set my_variable value
+```
+
+```fish
+set --erase my_variable
+```
+
+### Changing variables
+
+```fish
+set my_variable (math $my_variable + 1)
+```
+
+### Slicing variables
+
+```fish
+set my_variable $another_variable[1..10]
+set my_variable $another_variable[2..]
+set my_variable $another_variable[..-2]
+```
+
 ## Function
 
 ### Writing functions

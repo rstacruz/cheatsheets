@@ -132,9 +132,9 @@ for i in (seq 1 10)
 end
 ```
 
-## Function
+## Functions
 
-### Writing functions
+### Definind and erasing
 
 ```fish
 function my_function --description "My description"
@@ -142,18 +142,8 @@ function my_function --description "My description"
 end
 ```
 
-### Combining tests
-
 ```fish
-if test -f foo.txt && test -f bar.txt
-```
-
-```fish
-if test -f foo.txt -a -f bar.txt
-```
-
-```fish
-if test \( -f foo.txt \) -a -f \( bar.txt \)
+functions --erase my_function
 ```
 
 ### Events

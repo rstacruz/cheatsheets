@@ -65,6 +65,17 @@ set my_variable $another_variable[..-2]
 math 1 + 2
 ```
 
+| Operator            | Performs                    |
+| ---                 | ---                         |
+| `+`                 | Addition                    |
+| `-`                 | Subtraction                 |
+| `*`                 | Multiplication              |
+| `/`                 | Division                    |
+| `%`                 | Modulo                      |
+| `^`                 | Exponentiation              |
+{: .-shortcuts}
+
+
 ## String manipulation
 
 ```fish

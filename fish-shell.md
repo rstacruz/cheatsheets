@@ -134,7 +134,7 @@ end
 
 ## Functions
 
-### Definind and erasing
+### Defining and erasing
 
 ```fish
 function my_function --description "My description"

@@ -77,25 +77,18 @@ string replace --regex 'Fish' 'fish' 'This is a Fish shell!'
 
 | Pattern             | Matches                     |
 | ---                 | ---                         |
-| `x?`                | Zero or one                 |
-| `x*`                | Any count                   |
-| `x+`                | One or more                 |
-| `x{n}`              | n times                     |
-| `x{n,m}`            | n to m times                |
-| `x{n,}`             | n or more times             |
+| `x?`                | Zero or one `x` chars       |
+| `x*`                | Any count `x` chars         |
+| `x+`                | One or more  `x` chars      |
+| `x{n}`              | n times `x` chars           |
+| `x{n,m}`            | n to m times `x` chars      |
+| `x{n,}`             | n or more times `x` chars   |
+| `x{n,}`             | n or more times `x` chars   |
+| `[xy] `             | `x` or y char               |
+| `[^xy]`             | not `x` or y char           |
 {: .-shortcuts}
 
-## Function
-
-### Writing functions
-
-```fish
-function my_function --description "My description"
-  ···
-end
-```
-
-### Conditional
+### Conditionals
 
 ```fish
 if test -f foo.txt
@@ -103,6 +96,16 @@ if test -f foo.txt
 else if test -f bar.txt
   ···
 else
+  ···
+end
+```
+
+## Function
+
+### Writing functions
+
+```fish
+function my_function --description "My description"
   ···
 end
 ```

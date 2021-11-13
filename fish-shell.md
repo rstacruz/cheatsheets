@@ -59,6 +59,32 @@ set my_variable $another_variable[2..]
 set my_variable $another_variable[..-2]
 ```
 
+## Arithmetic
+
+```fish
+math 1 + 2
+```
+
+## String manipulation
+
+```fish
+string match --regex --entire 'Fish' 'This is a Fish shell!'
+```
+
+```fish
+string replace --regex 'Fish' 'fish' 'This is a Fish shell!'
+```
+
+| Pattern             | Matches                     |
+| ---                 | ---                         |
+| `x?`                | Zero or one                 |
+| `x*`                | Any count                   |
+| `x+`                | One or more                 |
+| `x{n}`              | n times                     |
+| `x{n,m}`            | n to m times                |
+| `x{n,}`             | n or more times             |
+{: .-shortcuts}
+
 ## Function
 
 ### Writing functions

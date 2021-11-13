@@ -34,7 +34,7 @@ weight: -1
 
 ## Variables
 
-### Defining and erasing variables
+### Defining and erasing
 
 ```fish
 set my_variable value
@@ -44,13 +44,14 @@ set my_variable value
 set --erase my_variable
 ```
 
-### Changing variables
+### Incrementing and decrementing
 
 ```fish
 set my_variable (math $my_variable + 1)
+set my_variable (math $my_variable - 1)
 ```
 
-### Slicing variables
+### Slicing
 
 ```fish
 set my_variable $another_variable[1..10]

@@ -122,7 +122,7 @@ end
 | `-d`                | [D]irectory exists                        |
 | `-r`                | File or directory exists and [r]eadable   |
 | `-w`                | File or directory exists and [w]ritable   |
-| `-x`                | File or directory exists and [e]xecutable |
+| `-x`                | File or directory exists and e[x]ecutable |
 {: .-shortcuts}
 
 ## Function

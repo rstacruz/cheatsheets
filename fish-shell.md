@@ -11,6 +11,7 @@ weight: -1
 
 | Shortcut            | Description                 |
 | ---                 | ---                         |
+| `^A ←` _/_ `^E →`   | Move to line beginning/end  |
 | `Alt ←` _/_ `Alt →` | Move word                   |
 | `^U`                | Delete to beginning         |
 | `^W`                | Delete to previous `/`      |

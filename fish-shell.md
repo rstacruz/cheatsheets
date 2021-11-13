@@ -75,7 +75,6 @@ math 1 + 2
 | `^`                 | Exponentiation              |
 {: .-shortcuts}
 
-
 ## String manipulation
 
 ```fish
@@ -124,6 +123,14 @@ end
 | `-w`                | File or directory exists and [w]ritable   |
 | `-x`                | File or directory exists and e[x]ecutable |
 {: .-shortcuts}
+
+## Loops
+
+```fish
+for i in (seq 1 10)
+  ...
+end
+```
 
 ## Function
 

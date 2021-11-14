@@ -160,21 +160,22 @@ end
 functions --erase my_function
 ```
 
-### Events
+### Event handling
 
-#### Emitting
+```fish
+function my_hook --on-event my_event
+  ···
+end
+```
+
+## Events
+
+### Emitting
 
 ```fish
 emit my_event
 ```
 
-#### Listening
-
-```fish
-function myhook --on-event my_event
-  ···
-end
-```
 
 ## Abbreviations
 

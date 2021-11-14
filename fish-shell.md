@@ -209,10 +209,11 @@ complete --command mycommand --erase
 | `--long-option`     | Long option                               |
 | `--no-files`        | Don't suggest files                       |
 | `--force-files`     | Suggest files                             |
+| `--condition`       | Display hint only when condition is true  |
 | `--description`     | Description                               |
 {: .-shortcuts}
 
-### Conditions
+## Useful built-in functions
 
 | Condition | Description
 | --- | ---
@@ -228,43 +229,3 @@ complete --command mycommand --erase
 | `-n __fish_print_packages` | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
 | `-n __fish_use_subcommand` |
 | `-n __fish_seen_subcommand_from init` |
-
-#### Example
-
-```fish
-complete -c ruby -s X -x -a '(__fish_complete_directories (commandline -ct))' --description 'Directory'
-```
-
-### Examples
-
-Start each example with `complete -c cmdname`
-
-```fish
--x
-  # no filename completion
-```
-
-```fish
--s d -x -a "read skip"
-  # -d {read|skip}
-```
-
-```fish
--s d -x
-  # -d <something>
-```
-
-```fish
--s f -r
-  # -f FILE
-```
-
-```fish
--s f -l force
-  # -f, --force
-```
-
-```fish
--a "(cat /etc/passwd | cut -d : -f 1)"
-  # first argument as filename
-```

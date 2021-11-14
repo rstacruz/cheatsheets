@@ -37,7 +37,7 @@ weight: -1
 ### Defining and erasing
 
 ```fish
-set my_variable value
+set my_variable "Hello from Fish!"
 ```
 
 ```fish
@@ -78,11 +78,11 @@ math 1 + 2
 ## String manipulation
 
 ```fish
-string match --regex --entire 'Fish' 'This is a Fish shell!'
+string match --regex --entire 'Fish' 'Hello from Fish!'
 ```
 
 ```fish
-string replace --regex 'Fish' 'fish' 'This is a Fish shell!'
+string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 ```
 
 | Pattern             | Matches                     |

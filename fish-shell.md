@@ -140,6 +140,12 @@ for i in (seq 1 10)
 end
 ```
 
+## Command substitution
+
+```fish
+set my_variable (math $my_variable + 1)
+```
+
 ## Functions
 
 ### Defining and erasing
@@ -169,8 +175,6 @@ function myhook --on-event my_event
   ···
 end
 ```
-
-This lets you hook onto events, such as `fish_prompt`.
 
 ## Completions
 

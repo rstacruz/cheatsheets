@@ -191,38 +191,26 @@ abbr --erase my_abbreviation
 
 ## Completions
 
-### Creating completions
-
-#### ~/.fish/completions/mycommand.fish
+### Defining and erasing
 
 ```fish
-complete -c mycommand ...
-complete -c mycommand ...
-complete -c mycommand ...
+complete --command mycommand --arguments 'install uninstall'
+complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 ```
-
-### Options
 
 ```fish
-complete \
-  -c                         # command
-  -s                         # short option
-  -l                         # long option
-  -r, --require-parameter
-  -f, --no-files
-  -x                         # exclusive (-r -f)
-  -n '__fish_use_subcommand' # condition
-  --description ".."
+complete --command mycommand --erase
 ```
 
-#### Example
-
-```fish
-  complete -c $cmd \
--n '__fish_use_subcommand' \
--x -a hello \
---description 'lol'
-```
+| Option              | Description                               |
+| ---                 | ---                                       |
+| `--arguments`       | Arguments to command itself or option     |
+| `--short-option`    | Short option                              |
+| `--long-option`     | Long option                               |
+| `--no-files`        | Don't suggest files                       |
+| `--force-files`     | Suggest files                             |
+| `--description`     | Description                               |
+{: .-shortcuts}
 
 ### Conditions
 

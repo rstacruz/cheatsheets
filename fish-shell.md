@@ -176,6 +176,18 @@ function myhook --on-event my_event
 end
 ```
 
+## Abbreviations
+
+### Defining and erasing
+
+```fish
+abbr --add my_abbreviation echo "Hello from Fish!"
+```
+
+```fish
+abbr --erase my_abbreviation
+```
+
 ## Completions
 
 ### Creating completions

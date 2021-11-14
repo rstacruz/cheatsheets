@@ -98,6 +98,14 @@ string replace --regex 'Fish' 'fish' 'This is a Fish shell!'
 | `[^xy]`             | not `x` or y char           |
 {: .-shortcuts}
 
+| Class               | Description                 |
+| ---                 | ---                         |
+| `\w`                | Word character              |
+| `\d`                | Digit character             |
+| `\W`                | Not word character          |
+| `\D`                | Not digit character         |
+{: .-shortcuts}
+
 ### Conditionals
 
 ```fish

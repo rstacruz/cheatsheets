@@ -125,6 +125,22 @@ DrawImage(leftX, upY, pathToImage);
 DrawImage(leftX, upY, width, height, pathToImage);
 ```
 
+## Events
+
+```pascal
+OnMouseDown := (mouseX, mouseY, mouseButton) -> begin
+  ...
+end;
+
+OnMouseUp := (mouseX, mouseY, mouseButton) -> begin
+  ...
+end;
+
+OnMouseMove := (mouseX, mouseY, mouseButton) -> begin
+  ...
+end;
+```
+
 
 ## References
 

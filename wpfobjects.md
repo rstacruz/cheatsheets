@@ -7,7 +7,7 @@ category: PascalABC.NET
 
 ### Creating
 
-#### Lines
+#### Segments
 
 ```pascal
 new LineWPF(fromX, fromY, toX, toY);
@@ -52,7 +52,7 @@ new PictureWPF(leftX, upY, width, height, pathToImage);
 ### Removing
 
 ```pascal
-wpfObject.Destroy();
+myObject.Destroy();
 ```
 
 ## Events

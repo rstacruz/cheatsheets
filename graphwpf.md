@@ -81,6 +81,29 @@ Ellipse(centerX, centerY, radiusX, radiusY);
 Ellipse(centerX, centerY, radiusX, radiusY, color);
 ```
 
+### Polygons
+
+#### Stroke
+
+```pascal
+DrawPolygon(arrayOfPoints);
+DrawPolygon(arrayOfPoints, color);
+```
+
+#### Fill
+
+```pascal
+FillPolygon(arrayOfPoints);
+FillPolygon(arrayOfPoints, color);
+```
+
+#### Stroke and fill
+
+```pascal
+Polygon(arrayOfPoints);
+Polygon(arrayOfPoints, color);
+```
+
 ## References
 
 * [PascalABC.NET help](http://pascalabc.net/downloads/pabcnethelp/index.htm)

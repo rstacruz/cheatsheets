@@ -17,22 +17,22 @@ Line(fromX, fromY, toX, toY, color);
 #### Stroke
 
 ```pascal
-DrawRectangle(leftX, upX, width, height);
-DrawRectangle(leftX, upX, width, height, color);
+DrawRectangle(leftX, upY, width, height);
+DrawRectangle(leftX, upY, width, height, color);
 ```
 
 #### Fill
 
 ```pascal
-FillRectangle(leftX, upX, width, height);
-FillRectangle(leftX, upX, width, height, color);
+FillRectangle(leftX, upY, width, height);
+FillRectangle(leftX, upY, width, height, color);
 ```
 
 #### Stroke and fill
 
 ```pascal
-Rectangle(leftX, upX, width, height);
-Rectangle(leftX, upX, width, height, color);
+Rectangle(leftX, upY, width, height);
+Rectangle(leftX, upY, width, height, color);
 ```
 
 ### Circles

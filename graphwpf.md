@@ -5,7 +5,7 @@ category: PascalABC.NET
 
 ## Primitives
 
-### Lines
+### Segments
 
 ```pascal
 Line(fromX, fromY, toX, toY);

@@ -121,5 +121,3 @@ DrawText(leftX, upY, width, height, text, color);
 ## References
 
 * [PascalABC.NET help](http://pascalabc.net/downloads/pabcnethelp/index.htm)
-
-{% endraw %}

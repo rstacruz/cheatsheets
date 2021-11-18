@@ -12,6 +12,13 @@ Line(fromX, fromY, toX, toY);
 Line(fromX, fromY, toX, toY, color);
 ```
 
+### Polylines
+
+```pascal
+PolyLine(arrayOfPoints);
+PolyLine(arrayOfPoints, color);
+```
+
 ### Rectangles
 
 #### Stroke

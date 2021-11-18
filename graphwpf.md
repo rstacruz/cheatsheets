@@ -118,6 +118,14 @@ DrawText(leftX, upY, width, height, text);
 DrawText(leftX, upY, width, height, text, color);
 ```
 
+### Images
+
+```pascal
+DrawImage(leftX, upY, pathToImage);
+DrawImage(leftX, upY, width, height, pathToImage);
+```
+
+
 ## References
 
 * [PascalABC.NET help](http://pascalabc.net/downloads/pabcnethelp/index.htm)

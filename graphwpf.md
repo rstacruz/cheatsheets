@@ -141,6 +141,7 @@ OnMouseMove := (mouseX, mouseY, mouseButton) -> begin
 end;
 ```
 
+`mouseButton` is equal to 1 when LMB is pressed and 2 when RMB is pressed respectively.
 
 ## References
 

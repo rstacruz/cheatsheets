@@ -44,8 +44,8 @@ To buy:
 *bold*
 /italic/
 _underline_
-=code=
-~verbatim~
+=verbatim=
+~code~
 +strike-through+
 ```
 

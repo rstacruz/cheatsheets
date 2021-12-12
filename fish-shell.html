@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/fish-shell.jpg?t=20211119073418' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/fish-shell.jpg?t=20211119073418' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/fish-shell.jpg?t=20211212232550' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/fish-shell.jpg?t=20211212232550' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20211119073418'
+'./assets/2017/style.css?t=20211212232550'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20211119073418'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20211212232550'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "Fish shell cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/fish-shell.jpg?t=20211119073418" ],
+  "image": [ "https://assets.devhints.io/previews/fish-shell.jpg?t=20211212232550" ],
   "description": "The one-page guide to Fish shell: usage, examples, links, snippets, and more."
 }
 </script>
@@ -218,6 +218,10 @@ gtag('config','UA-106902774-1');
   </thead>
   <tbody>
     <tr>
+      <td><code>^A ←</code> <em>/</em> <code>^E →</code></td>
+      <td>Move to line beginning/end</td>
+    </tr>
+    <tr>
       <td><code>Alt ←</code> <em>/</em> <code>Alt →</code></td>
       <td>Move word</td>
     </tr>
@@ -281,86 +285,312 @@ gtag('config','UA-106902774-1');
   </tbody>
 </table>
 
-<h2 id="function">Function</h2>
+<h2 id="variables">Variables</h2>
 
-<h3 id="writing-functions">Writing functions</h3>
+<h3 id="defining-and-erasing">Defining and erasing</h3>
 
-<pre><code class="language-fish">function my_function --description "My description"
-  ···
-end
+<pre><code class="language-fish">set my_variable "Hello from Fish!"
 </code></pre>
 
-<h3 id="conditional">Conditional</h3>
+<pre><code class="language-fish">set --erase my_variable
+</code></pre>
 
-<pre><code class="language-fish">if test -f foo.txt
+<h3 id="incrementing-and-decrementing">Incrementing and decrementing</h3>
+
+<pre><code class="language-fish">set my_variable (math $my_variable + 1)
+set my_variable (math $my_variable - 1)
+</code></pre>
+
+<h3 id="slicing">Slicing</h3>
+
+<pre><code class="language-fish">set my_variable $another_variable[1..10]
+set my_variable $another_variable[2..]
+set my_variable $another_variable[..-2]
+</code></pre>
+
+<h2 id="arithmetic">Arithmetic</h2>
+
+<pre><code class="language-fish">math 1 + 2
+</code></pre>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Performs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>+</code></td>
+      <td>Addition</td>
+    </tr>
+    <tr>
+      <td><code>-</code></td>
+      <td>Subtraction</td>
+    </tr>
+    <tr>
+      <td><code>*</code></td>
+      <td>Multiplication</td>
+    </tr>
+    <tr>
+      <td><code>/</code></td>
+      <td>Division</td>
+    </tr>
+    <tr>
+      <td><code>%</code></td>
+      <td>Modulo</td>
+    </tr>
+    <tr>
+      <td><code>^</code></td>
+      <td>Exponentiation</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="string-manipulation">String manipulation</h2>
+
+<pre><code class="language-fish">string match --regex --entire 'Fish' 'Hello from Fish!'
+</code></pre>
+
+<pre><code class="language-fish">string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+</code></pre>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Matches</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>x?</code></td>
+      <td>Zero or one <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x*</code></td>
+      <td>Any count <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x+</code></td>
+      <td>One or more  <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x{n}</code></td>
+      <td>n times <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x{n,m}</code></td>
+      <td>n to m times <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x{n,}</code></td>
+      <td>n or more times <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>x{n,}</code></td>
+      <td>n or more times <code>x</code> chars</td>
+    </tr>
+    <tr>
+      <td><code>[xy] </code></td>
+      <td><code>x</code> or y char</td>
+    </tr>
+    <tr>
+      <td><code>[^xy]</code></td>
+      <td>not <code>x</code> or y char</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>\w</code></td>
+      <td>Word character</td>
+    </tr>
+    <tr>
+      <td><code>\d</code></td>
+      <td>Digit character</td>
+    </tr>
+    <tr>
+      <td><code>\W</code></td>
+      <td>Not word character</td>
+    </tr>
+    <tr>
+      <td><code>\D</code></td>
+      <td>Not digit character</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code class="language-fish">if test $my_variable -lt $another_variable
   ···
-else if test -f bar.txt
+else if test $my_variable -eq $another_variable
   ···
 else
   ···
 end
 </code></pre>
 
-<h3 id="combining-tests">Combining tests</h3>
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-lt</code></td>
+      <td>[L]ess [t]han</td>
+    </tr>
+    <tr>
+      <td><code>-eq</code></td>
+      <td>[Eq]ual</td>
+    </tr>
+    <tr>
+      <td><code>-gt</code></td>
+      <td>[G]reater [t]han</td>
+    </tr>
+    <tr>
+      <td><code>-le</code></td>
+      <td>[L]ess than or [e]qual to</td>
+    </tr>
+    <tr>
+      <td><code>-ge</code></td>
+      <td>[G]reater than or [e]qual to</td>
+    </tr>
+    <tr>
+      <td><code>-f</code></td>
+      <td>[F]ile exists</td>
+    </tr>
+    <tr>
+      <td><code>-d</code></td>
+      <td>[D]irectory exists</td>
+    </tr>
+    <tr>
+      <td><code>-r</code></td>
+      <td>File or directory exists and [r]eadable</td>
+    </tr>
+    <tr>
+      <td><code>-w</code></td>
+      <td>File or directory exists and [w]ritable</td>
+    </tr>
+    <tr>
+      <td><code>-x</code></td>
+      <td>File or directory exists and e[x]ecutable</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code class="language-fish">if test -f foo.txt &amp;&amp; test -f bar.txt
+<h2 id="loops">Loops</h2>
+
+<pre><code class="language-fish">for i in (seq 1 10)
+  ...
+end
 </code></pre>
 
-<pre><code class="language-fish">if test -f foo.txt -a -f bar.txt
+<h2 id="command-substitution">Command substitution</h2>
+
+<pre><code class="language-fish">set my_variable (math $my_variable + 1)
 </code></pre>
 
-<pre><code class="language-fish">if test \( -f foo.txt \) -a -f \( bar.txt \)
-</code></pre>
+<h2 id="functions">Functions</h2>
 
-<h3 id="events">Events</h3>
+<h3 id="defining-and-erasing-1">Defining and erasing</h3>
 
-<h4 id="emitting">Emitting</h4>
-
-<pre><code class="language-fish">emit my_event
-</code></pre>
-
-<h4 id="listening">Listening</h4>
-
-<pre><code class="language-fish">function myhook --on-event my_event
+<pre><code class="language-fish">function my_function --description "My description"
   ···
 end
 </code></pre>
 
-<p>This lets you hook onto events, such as <code>fish_prompt</code>.</p>
+<pre><code class="language-fish">functions --erase my_function
+</code></pre>
+
+<h3 id="event-handling">Event handling</h3>
+
+<pre><code class="language-fish">function my_hook --on-event my_event
+  ···
+end
+</code></pre>
+
+<h2 id="events">Events</h2>
+
+<h3 id="emitting">Emitting</h3>
+
+<pre><code class="language-fish">emit my_event
+</code></pre>
+
+<h2 id="abbreviations">Abbreviations</h2>
+
+<h3 id="defining-and-erasing-2">Defining and erasing</h3>
+
+<pre><code class="language-fish">abbr --add my_abbreviation echo "Hello from Fish!"
+</code></pre>
+
+<pre><code class="language-fish">abbr --erase my_abbreviation
+</code></pre>
 
 <h2 id="completions">Completions</h2>
 
-<h3 id="creating-completions">Creating completions</h3>
+<h3 id="defining-and-erasing-3">Defining and erasing</h3>
 
-<h4 id="fishcompletionsmycommandfish">~/.fish/completions/mycommand.fish</h4>
-
-<pre><code class="language-fish">complete -c mycommand ...
-complete -c mycommand ...
-complete -c mycommand ...
+<pre><code class="language-fish">complete --command mycommand --arguments 'install uninstall'
+complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 </code></pre>
 
-<h3 id="options">Options</h3>
-
-<pre><code class="language-fish">complete \
-  -c                         # command
-  -s                         # short option
-  -l                         # long option
-  -r, --require-parameter
-  -f, --no-files
-  -x                         # exclusive (-r -f)
-  -n '__fish_use_subcommand' # condition
-  --description ".."
+<pre><code class="language-fish">complete --command mycommand --erase
 </code></pre>
 
-<h4 id="example">Example</h4>
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--arguments</code></td>
+      <td>Arguments to command itself or option</td>
+    </tr>
+    <tr>
+      <td><code>--short-option</code></td>
+      <td>Short option</td>
+    </tr>
+    <tr>
+      <td><code>--long-option</code></td>
+      <td>Long option</td>
+    </tr>
+    <tr>
+      <td><code>--no-files</code></td>
+      <td>Don’t suggest files</td>
+    </tr>
+    <tr>
+      <td><code>--force-files</code></td>
+      <td>Suggest files</td>
+    </tr>
+    <tr>
+      <td><code>--condition</code></td>
+      <td>Display hint only when condition is true</td>
+    </tr>
+    <tr>
+      <td><code>--description</code></td>
+      <td>Description</td>
+    </tr>
+  </tbody>
+</table>
 
-<pre><code class="language-fish">  complete -c $cmd \
--n '__fish_use_subcommand' \
--x -a hello \
---description 'lol'
-</code></pre>
-
-<h3 id="conditions">Conditions</h3>
+<h2 id="useful-built-in-functions">Useful built-in functions</h2>
 
 <table>
   <thead>
@@ -420,39 +650,6 @@ complete -c mycommand ...
     </tr>
   </tbody>
 </table>
-
-<h4 id="example-1">Example</h4>
-
-<pre><code class="language-fish">complete -c ruby -s X -x -a '(__fish_complete_directories (commandline -ct))' --description 'Directory'
-</code></pre>
-
-<h3 id="examples">Examples</h3>
-
-<p>Start each example with <code>complete -c cmdname</code></p>
-
-<pre><code class="language-fish">-x
-  # no filename completion
-</code></pre>
-
-<pre><code class="language-fish">-s d -x -a "read skip"
-  # -d {read|skip}
-</code></pre>
-
-<pre><code class="language-fish">-s d -x
-  # -d &lt;something&gt;
-</code></pre>
-
-<pre><code class="language-fish">-s f -r
-  # -f FILE
-</code></pre>
-
-<pre><code class="language-fish">-s f -l force
-  # -f, --force
-</code></pre>
-
-<pre><code class="language-fish">-a "(cat /etc/passwd | cut -d : -f 1)"
-  # first argument as filename
-</code></pre>
 
   </main>
 </div>
@@ -740,7 +937,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20211119073418'></script>
+<script src='./assets/packed/app.js?t=20211212232550'></script>
 <script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-fish.min.js'></script>
 
 

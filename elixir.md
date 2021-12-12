@@ -142,6 +142,20 @@ cond do
 end
 ```
 
+### With
+
+```elixir
+with {:ok, {int, _asdf}} <- Integer.parse("123asdf"),
+     {:ok, datetime, _utc_offset} <- DateTime.from_iso8601("2021-10-27T12:00:00Z") do
+  DateTime.add(datetime, int, :second)
+  # optional else clause. if not provided and an error occurs, the error is returned
+else
+  :error -> "couldn't parse integer string"
+  {:error, :invalid_format} -> "couldn't parse date string"
+  _ -> "this will never get hit because all errors are handled"
+end
+```
+
 ### Errors
 
 ```elixir

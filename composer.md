@@ -77,3 +77,9 @@ This command changes both the `composer.json` and `composer.lock` files.
 | `composer remove vendor/package` | Removes `vendor/package` from composer.json and uninstalls it      |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Verifying
+
+| Command                      | Description                                                                |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| `composer outdated --direct` | Show only packages that are outdated directly required by the root package |

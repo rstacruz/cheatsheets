@@ -11,6 +11,7 @@ weight: -1
 
 | Shortcut            | Description                 |
 | ---                 | ---                         |
+| `^A ←` _/_ `^E →`   | Move to line beginning/end  |
 | `Alt ←` _/_ `Alt →` | Move word                   |
 | `^U`                | Delete to beginning         |
 | `^W`                | Delete to previous `/`      |
@@ -31,9 +32,123 @@ weight: -1
 | `Alt L` | List directory on cursor               |
 {: .-shortcuts}
 
-## Function
+## Variables
 
-### Writing functions
+### Defining and erasing
+
+```fish
+set my_variable "Hello from Fish!"
+```
+
+```fish
+set --erase my_variable
+```
+
+### Incrementing and decrementing
+
+```fish
+set my_variable (math $my_variable + 1)
+set my_variable (math $my_variable - 1)
+```
+
+### Slicing
+
+```fish
+set my_variable $another_variable[1..10]
+set my_variable $another_variable[2..]
+set my_variable $another_variable[..-2]
+```
+
+## Arithmetic
+
+```fish
+math 1 + 2
+```
+
+| Operator            | Performs                    |
+| ---                 | ---                         |
+| `+`                 | Addition                    |
+| `-`                 | Subtraction                 |
+| `*`                 | Multiplication              |
+| `/`                 | Division                    |
+| `%`                 | Modulo                      |
+| `^`                 | Exponentiation              |
+{: .-shortcuts}
+
+## String manipulation
+
+```fish
+string match --regex --entire 'Fish' 'Hello from Fish!'
+```
+
+```fish
+string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+```
+
+| Pattern             | Matches                     |
+| ---                 | ---                         |
+| `x?`                | Zero or one `x` chars       |
+| `x*`                | Any count `x` chars         |
+| `x+`                | One or more  `x` chars      |
+| `x{n}`              | n times `x` chars           |
+| `x{n,m}`            | n to m times `x` chars      |
+| `x{n,}`             | n or more times `x` chars   |
+| `x{n,}`             | n or more times `x` chars   |
+| `[xy] `             | `x` or y char               |
+| `[^xy]`             | not `x` or y char           |
+{: .-shortcuts}
+
+| Class               | Description                 |
+| ---                 | ---                         |
+| `\w`                | Word character              |
+| `\d`                | Digit character             |
+| `\W`                | Not word character          |
+| `\D`                | Not digit character         |
+{: .-shortcuts}
+
+### Conditionals
+
+```fish
+if test $my_variable -lt $another_variable
+  ···
+else if test $my_variable -eq $another_variable
+  ···
+else
+  ···
+end
+```
+
+| Operator            | Meaning                                   |
+| ---                 | ---                                       |
+| `-lt`               | [L]ess [t]han                             |
+| `-eq`               | [Eq]ual                                   |
+| `-gt`               | [G]reater [t]han                          |
+| `-le`               | [L]ess than or [e]qual to                 |
+| `-ge`               | [G]reater than or [e]qual to              |
+| `-f`                | [F]ile exists                             |
+| `-d`                | [D]irectory exists                        |
+| `-r`                | File or directory exists and [r]eadable   |
+| `-w`                | File or directory exists and [w]ritable   |
+| `-x`                | File or directory exists and e[x]ecutable |
+{: .-shortcuts}
+
+## Loops
+
+```fish
+for i in (seq 1 10)
+  ...
+end
+```
+
+## Command substitution
+
+```fish
+set my_variable (math $my_variable + 1)
+```
+
+## Functions
+
+### Defining and erasing
 
 ```fish
 function my_function --description "My description"
@@ -41,86 +156,64 @@ function my_function --description "My description"
 end
 ```
 
-### Conditional
+```fish
+functions --erase my_function
+```
+
+### Event handling
 
 ```fish
-if test -f foo.txt
-  ···
-else if test -f bar.txt
-  ···
-else
+function my_hook --on-event my_event
   ···
 end
 ```
 
-### Combining tests
+## Events
 
-```fish
-if test -f foo.txt && test -f bar.txt
-```
-
-```fish
-if test -f foo.txt -a -f bar.txt
-```
-
-```fish
-if test \( -f foo.txt \) -a -f \( bar.txt \)
-```
-
-### Events
-
-#### Emitting
+### Emitting
 
 ```fish
 emit my_event
 ```
 
-#### Listening
+
+## Abbreviations
+
+### Defining and erasing
 
 ```fish
-function myhook --on-event my_event
-  ···
-end
+abbr --add my_abbreviation echo "Hello from Fish!"
 ```
 
-This lets you hook onto events, such as `fish_prompt`.
+```fish
+abbr --erase my_abbreviation
+```
 
 ## Completions
 
-### Creating completions
-
-#### ~/.fish/completions/mycommand.fish
+### Defining and erasing
 
 ```fish
-complete -c mycommand ...
-complete -c mycommand ...
-complete -c mycommand ...
+complete --command mycommand --arguments 'install uninstall'
+complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 ```
-
-### Options
 
 ```fish
-complete \
-  -c                         # command
-  -s                         # short option
-  -l                         # long option
-  -r, --require-parameter
-  -f, --no-files
-  -x                         # exclusive (-r -f)
-  -n '__fish_use_subcommand' # condition
-  --description ".."
+complete --command mycommand --erase
 ```
 
-#### Example
+| Option              | Description                               |
+| ---                 | ---                                       |
+| `--arguments`       | Arguments to command itself or option     |
+| `--short-option`    | Short option                              |
+| `--long-option`     | Long option                               |
+| `--no-files`        | Don't suggest files                       |
+| `--force-files`     | Suggest files                             |
+| `--condition`       | Display hint only when condition is true  |
+| `--description`     | Description                               |
+{: .-shortcuts}
 
-```fish
-  complete -c $cmd \
--n '__fish_use_subcommand' \
--x -a hello \
---description 'lol'
-```
-
-### Conditions
+## Useful built-in functions
 
 | Condition | Description
 | --- | ---
@@ -136,43 +229,3 @@ complete \
 | `-n __fish_print_packages` | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
 | `-n __fish_use_subcommand` |
 | `-n __fish_seen_subcommand_from init` |
-
-#### Example
-
-```fish
-complete -c ruby -s X -x -a '(__fish_complete_directories (commandline -ct))' --description 'Directory'
-```
-
-### Examples
-
-Start each example with `complete -c cmdname`
-
-```fish
--x
-  # no filename completion
-```
-
-```fish
--s d -x -a "read skip"
-  # -d {read|skip}
-```
-
-```fish
--s d -x
-  # -d <something>
-```
-
-```fish
--s f -r
-  # -f FILE
-```
-
-```fish
--s f -l force
-  # -f, --force
-```
-
-```fish
--a "(cat /etc/passwd | cut -d : -f 1)"
-  # first argument as filename
-```

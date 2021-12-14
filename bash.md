@@ -649,6 +649,7 @@ python hello.py &>/dev/null    # stdout and stderr to (null)
 
 ```bash
 python hello.py < foo.txt      # feed foo.txt to stdin for python
+diff <(ls -r) <(ls)            # Compare two stdout without files
 ```
 
 ### Inspecting commands

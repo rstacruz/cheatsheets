@@ -9,20 +9,20 @@ weight: -1
 
 ### Keys
 
-| Shortcut            | Description                       |
-| ---                 | ---                               |
-| `^A ←`/`^E →`       | Move to line beginning/end        |
-| `Alt ←`/`Alt →`     | Jump to previous/next word        |
-| `↑`/`↓`             | Switch to previous/next command   |
-| `Alt ↑`/`Alt ↓`     | Switch to previous/next arguments |
-| ---                 | ---                               |
-| `^U`                | Delete to beginning               |
-| `^C`                | Cancel line                       |
+| Shortcut            | Description                           |
+| ---                 | ---                                   |
+| `^A ←`/`^E →`       | Move to the line beginning/end        |
+| `Alt ←`/`Alt →`     | Jump to the previous/next word        |
+| `↑`/`↓`             | Switch to the previous/next command   |
+| `Alt ↑`/`Alt ↓`     | Switch to the previous/next arguments |
+| ---                 | ---                                   |
+| `^U`                | Delete to the beginning               |
+| `^C`                | Cancel the line                       |
 
 ### Help
 
-| `Alt H`             | Show command man page description |
-| `Alt W`             | Show short command description    |
+| `Alt H`             | Show the command man page description |
+| `Alt W`             | Show the short command description    |
 
 ## Variables
 
@@ -189,29 +189,30 @@ complete --command mycommand --short-option 'h' --long-option 'help' --descripti
 complete --command mycommand --erase
 ```
 
-| Option              | Description                              |
-| ---                 | ---                                      |
-| `--arguments`       | Arguments to command itself or option    |
-| `--short-option`    | Short option                             |
-| `--long-option`     | Long option                              |
-| `--no-files`        | Don't suggest files                      |
-| `--force-files`     | Suggest files                            |
-| `--condition`       | Display hint only when condition is true |
-| `--description`     | Description                              |
+| Option              | Description                                          |
+| ---                 | ---                                                  |
+| `--arguments`       | Arguments to the command itself or option            |
+| `--short-option`    | Short option                                         |
+| `--long-option`     | Long option                                          |
+| `--no-files`        | Don't suggest files                                  |
+| `--force-files`     | Suggest files                                        |
+| `--condition`       | Display the hint only when a given condition is true |
+| `--description`     | Description                                          |
 
 ## Useful built-in functions
 
-| Condition                                           | Description
-| ---                                                 | ---
-| `-n __fish_complete_directories STRING DESCRIPTION` | performs path completion on STRING, allowing only directories, and giving them the description DESCRIPTION.
-| `-n __fish_complete_path STRING DESCRIPTION`        | performs path completion on STRING, giving them the description DESCRIPTION.
-| `-n __fish_complete_groups`                         | prints a list of all user groups with the groups members as description.
-| `-n __fish_complete_pids`                           | prints a list of all processes IDs with the command name as description.
-| `-n __fish_complete_suffix SUFFIX`                  | performs file completion allowing only files ending in SUFFIX. The mimetype database is used to find a suitable description.
-| `-n __fish_complete_users`                          | prints a list of all users with their full name as description.
-| `-n __fish_print_filesystems`                       | prints a list of all known file systems. Currently, this is a static list, and not dependent on what file systems the host operating system actually understands.
-| `-n __fish_print_hostnames`                         | prints a list of all known hostnames. This functions searches the fstab for nfs servers, ssh for known hosts and checks the /etc/hosts file.
-| `-n __fish_print_interfaces`                        | prints a list of all known network interfaces.
-| `-n __fish_print_packages`                          | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
-| `-n __fish_use_subcommand`                          | 
-| `-n __fish_seen_subcommand_from init`               | 
+| Function                              | Description                                                   |
+| ---                                   | ---                                                           |
+| `__fish_seen_argument`                | Check whether the specified argument is used                  |
+| `__fish_seen_subcommand_from`         | Check whether the specified subcommand is used                |
+| `__fish_use_subcommand`               | Check whether any subcommand is used                          |
+| ---                                   | ---                                                           |
+| `__fish_complete_directories`         | Complete directories with the specified letters in their name |
+| `__fish_complete_suffix`              | Complete files with the specified suffix                      |
+| ---                                   | ---                                                           |
+| `__fish_complete_users`               | List all users                                                |
+| `__fish_complete_groups`              | List all user groups                                          |
+| `__fish_print_hostnames`              | List all host names                                           |
+| `__fish_complete_pids`                | List all PIDs                                                 |
+| `__fish_print_filesystems`            | List all known filesystems                                    |
+| `__fish_print_interfaces`             | List all network interfaces                                   |

@@ -9,28 +9,20 @@ weight: -1
 
 ### Keys
 
-| Shortcut            | Description                 |
-| ---                 | ---                         |
-| `^A ←` _/_ `^E →`   | Move to line beginning/end  |
-| `Alt ←` _/_ `Alt →` | Move word                   |
-| `^U`                | Delete to beginning         |
-| `^W`                | Delete to previous `/`      |
-| `^D`                | Delete next character       |
-| `Alt D`             | Delete next word            |
-| `^C`                | Cancel line                 |
-| `Alt P`             | Page output                 |
-| ---                 | ---                         |
-| `Alt ↑` _/_ `Alt ↓` | Previous _/_ next arguments |
-| `Alt E` _/_ `Alt V` | Open in external editor     |
-| `^L`                | Repaint screen              |
-{: .-shortcuts}
+| Shortcut            | Description                       |
+| ---                 | ---                               |
+| `^A ←`/`^E →`       | Move to line beginning/end        |
+| `Alt ←`/`Alt →`     | Jump to previous/next word        |
+| `↑`/`↓`             | Switch to previous/next command   |
+| `Alt ↑`/`Alt ↓`     | Switch to previous/next arguments |
+| ---                 | ---                               |
+| `^U`                | Delete to beginning               |
+| `^C`                | Cancel line                       |
 
 ### Help
 
-| `Alt H` | Help on word (man)                     |
-| `Alt W` | Help on word (short descriptions)      |
-| `Alt L` | List directory on cursor               |
-{: .-shortcuts}
+| `Alt H` | Show command man page description |
+| `Alt W` | Show short command description    |
 
 ## Variables
 
@@ -73,7 +65,6 @@ math 1 + 2
 | `/`                 | Division                    |
 | `%`                 | Modulo                      |
 | `^`                 | Exponentiation              |
-{: .-shortcuts}
 
 ## String manipulation
 
@@ -93,10 +84,8 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 | `x{n}`              | n times `x` chars           |
 | `x{n,m}`            | n to m times `x` chars      |
 | `x{n,}`             | n or more times `x` chars   |
-| `x{n,}`             | n or more times `x` chars   |
-| `[xy] `             | `x` or y char               |
+| `[xy]`              | `x` or y char               |
 | `[^xy]`             | not `x` or y char           |
-{: .-shortcuts}
 
 | Class               | Description                 |
 | ---                 | ---                         |
@@ -104,9 +93,8 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 | `\d`                | Digit character             |
 | `\W`                | Not word character          |
 | `\D`                | Not digit character         |
-{: .-shortcuts}
 
-### Conditionals
+## Conditionals
 
 ```fish
 if test $my_variable -lt $another_variable
@@ -125,12 +113,12 @@ end
 | `-gt`               | [G]reater [t]han                          |
 | `-le`               | [L]ess than or [e]qual to                 |
 | `-ge`               | [G]reater than or [e]qual to              |
+| `-ne`               | [N]ot [E]qual                             |
 | `-f`                | [F]ile exists                             |
 | `-d`                | [D]irectory exists                        |
 | `-r`                | File or directory exists and [r]eadable   |
 | `-w`                | File or directory exists and [w]ritable   |
 | `-x`                | File or directory exists and e[x]ecutable |
-{: .-shortcuts}
 
 ## Loops
 
@@ -176,7 +164,6 @@ end
 emit my_event
 ```
 
-
 ## Abbreviations
 
 ### Defining and erasing
@@ -211,21 +198,20 @@ complete --command mycommand --erase
 | `--force-files`     | Suggest files                             |
 | `--condition`       | Display hint only when condition is true  |
 | `--description`     | Description                               |
-{: .-shortcuts}
 
 ## Useful built-in functions
 
-| Condition | Description
-| --- | ---
+| Condition                                           | Description
+| ---                                                 | ---
 | `-n __fish_complete_directories STRING DESCRIPTION` | performs path completion on STRING, allowing only directories, and giving them the description DESCRIPTION.
-| `-n __fish_complete_path STRING DESCRIPTION` | performs path completion on STRING, giving them the description DESCRIPTION.
-| `-n __fish_complete_groups` | prints a list of all user groups with the groups members as description.
-| `-n __fish_complete_pids` | prints a list of all processes IDs with the command name as description.
-| `-n __fish_complete_suffix SUFFIX` | performs file completion allowing only files ending in SUFFIX. The mimetype database is used to find a suitable description.
-| `-n __fish_complete_users` | prints a list of all users with their full name as description.
-| `-n __fish_print_filesystems` | prints a list of all known file systems. Currently, this is a static list, and not dependent on what file systems the host operating system actually understands.
-| `-n __fish_print_hostnames` | prints a list of all known hostnames. This functions searches the fstab for nfs servers, ssh for known hosts and checks the /etc/hosts file.
-| `-n __fish_print_interfaces` | prints a list of all known network interfaces.
-| `-n __fish_print_packages` | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
-| `-n __fish_use_subcommand` |
-| `-n __fish_seen_subcommand_from init` |
+| `-n __fish_complete_path STRING DESCRIPTION`        | performs path completion on STRING, giving them the description DESCRIPTION.
+| `-n __fish_complete_groups`                         | prints a list of all user groups with the groups members as description.
+| `-n __fish_complete_pids`                           | prints a list of all processes IDs with the command name as description.
+| `-n __fish_complete_suffix SUFFIX`                  | performs file completion allowing only files ending in SUFFIX. The mimetype database is used to find a suitable description.
+| `-n __fish_complete_users`                          | prints a list of all users with their full name as description.
+| `-n __fish_print_filesystems`                       | prints a list of all known file systems. Currently, this is a static list, and not dependent on what file systems the host operating system actually understands.
+| `-n __fish_print_hostnames`                         | prints a list of all known hostnames. This functions searches the fstab for nfs servers, ssh for known hosts and checks the /etc/hosts file.
+| `-n __fish_print_interfaces`                        | prints a list of all known network interfaces.
+| `-n __fish_print_packages`                          | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
+| `-n __fish_use_subcommand`                          |
+| `-n __fish_seen_subcommand_from init`               |

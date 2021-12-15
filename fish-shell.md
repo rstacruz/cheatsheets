@@ -21,8 +21,8 @@ weight: -1
 
 ### Help
 
-| `Alt H` | Show command man page description |
-| `Alt W` | Show short command description    |
+| `Alt H`             | Show command man page description |
+| `Alt W`             | Show short command description    |
 
 ## Variables
 
@@ -57,14 +57,14 @@ set my_variable $another_variable[..-2]
 math 1 + 2
 ```
 
-| Operator            | Performs                    |
-| ---                 | ---                         |
-| `+`                 | Addition                    |
-| `-`                 | Subtraction                 |
-| `*`                 | Multiplication              |
-| `/`                 | Division                    |
-| `%`                 | Modulo                      |
-| `^`                 | Exponentiation              |
+| Operator            | Performs       |
+| ---                 | ---            |
+| `+`                 | Addition       |
+| `-`                 | Subtraction    |
+| `*`                 | Multiplication |
+| `/`                 | Division       |
+| `%`                 | Modulo         |
+| `^`                 | Exponentiation |
 
 ## String manipulation
 
@@ -76,23 +76,23 @@ string match --regex --entire 'Fish' 'Hello from Fish!'
 string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 ```
 
-| Pattern             | Matches                     |
-| ---                 | ---                         |
-| `x?`                | Zero or one `x` chars       |
-| `x*`                | Any count `x` chars         |
-| `x+`                | One or more  `x` chars      |
-| `x{n}`              | n times `x` chars           |
-| `x{n,m}`            | n to m times `x` chars      |
-| `x{n,}`             | n or more times `x` chars   |
-| `[xy]`              | `x` or y char               |
-| `[^xy]`             | not `x` or y char           |
+| Pattern             | Matches                   |
+| ---                 | ---                       |
+| `x?`                | Zero or one `x` chars     |
+| `x*`                | Any count `x` chars       |
+| `x+`                | One or more  `x` chars    |
+| `x{n}`              | n times `x` chars         |
+| `x{n,m}`            | n to m times `x` chars    |
+| `x{n,}`             | n or more times `x` chars |
+| `[xy]`              | `x` or y char             |
+| `[^xy]`             | not `x` or y char         |
 
-| Class               | Description                 |
-| ---                 | ---                         |
-| `\w`                | Word character              |
-| `\d`                | Digit character             |
-| `\W`                | Not word character          |
-| `\D`                | Not digit character         |
+| Class               | Description         |
+| ---                 | ---                 |
+| `\w`                | Word character      |
+| `\d`                | Digit character     |
+| `\W`                | Not word character  |
+| `\D`                | Not digit character |
 
 ## Conditionals
 
@@ -189,15 +189,15 @@ complete --command mycommand --short-option 'h' --long-option 'help' --descripti
 complete --command mycommand --erase
 ```
 
-| Option              | Description                               |
-| ---                 | ---                                       |
-| `--arguments`       | Arguments to command itself or option     |
-| `--short-option`    | Short option                              |
-| `--long-option`     | Long option                               |
-| `--no-files`        | Don't suggest files                       |
-| `--force-files`     | Suggest files                             |
-| `--condition`       | Display hint only when condition is true  |
-| `--description`     | Description                               |
+| Option              | Description                              |
+| ---                 | ---                                      |
+| `--arguments`       | Arguments to command itself or option    |
+| `--short-option`    | Short option                             |
+| `--long-option`     | Long option                              |
+| `--no-files`        | Don't suggest files                      |
+| `--force-files`     | Suggest files                            |
+| `--condition`       | Display hint only when condition is true |
+| `--description`     | Description                              |
 
 ## Useful built-in functions
 
@@ -213,5 +213,5 @@ complete --command mycommand --erase
 | `-n __fish_print_hostnames`                         | prints a list of all known hostnames. This functions searches the fstab for nfs servers, ssh for known hosts and checks the /etc/hosts file.
 | `-n __fish_print_interfaces`                        | prints a list of all known network interfaces.
 | `-n __fish_print_packages`                          | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
-| `-n __fish_use_subcommand`                          |
-| `-n __fish_seen_subcommand_from init`               |
+| `-n __fish_use_subcommand`                          | 
+| `-n __fish_seen_subcommand_from init`               | 

@@ -18,9 +18,7 @@ weight: -1
 | ---                 | ---                                   |
 | `^U`                | Delete to the beginning               |
 | `^C`                | Cancel the line                       |
-
-### Help
-
+| ---                 | ---                                   |
 | `Alt H`             | Show the command man page description |
 | `Alt W`             | Show the short command description    |
 

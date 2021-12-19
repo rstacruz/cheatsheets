@@ -75,9 +75,9 @@ set --erase my_variable
 Slice the variable:
 
 ```fish
-set my_variable $another_variable[1..10]
-set my_variable $another_variable[2..]
-set my_variable $another_variable[..-2]
+echo $my_variable[1..10]
+echo $my_variable[2..]
+echo $my_variable[..-2]
 ```
 
 ## Arithmetic
@@ -222,7 +222,7 @@ my_command | another_command
 Replace the command invocation with it's stdout output:
 
 ```fish
-set my_variable (math $my_variable + 1)
+echo (math $my_variable + 1)
 ```
 
 ### Process substitution
@@ -230,7 +230,7 @@ set my_variable (math $my_variable + 1)
 Replace the command invocation with a temporary file name with a command stdout output:
 
 ```bash
-math $my_variable + 1 | psub
+echo (math $my_variable + 1 | psub)
 ```
 
 ## Functions

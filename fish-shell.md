@@ -32,7 +32,7 @@ echo "Hello from Fish!"
 
 ## Comments
 
-Declare a comment:
+Declare the comment:
 
 ```fish
 # my comment
@@ -40,7 +40,7 @@ Declare a comment:
 
 ## I/O commands
 
-Print a string with trailing `\n`:
+Print the string with a trailing `\n`:
 
 ```fish
 echo "Hello from Fish!"
@@ -48,7 +48,7 @@ echo "Hello from Fish!"
 printf "%s\n" "Hello from Fish!"
 ```
 
-Read a string to a variable:
+Read the string to a variable:
 
 ```fish
 read my_variable
@@ -58,19 +58,21 @@ read my_variable
 
 ### Defining and erasing
 
-Declare a global/local variable:
+Declare the global/local variable:
 
 ```fish
 set my_variable "Hello from Fish!"
 ```
 
-Remove a variable:
+Remove the variable:
 
 ```fish
 set --erase my_variable
 ```
 
 ### Slicing
+
+Slice the variable:
 
 ```fish
 set my_variable $another_variable[1..10]
@@ -82,7 +84,7 @@ set my_variable $another_variable[..-2]
 
 ### Incrementing and decrementing
 
-Increment/decrement a variable:
+Increment/decrement the variable:
 
 ```fish
 set my_variable (math $my_variable + 1)
@@ -91,7 +93,7 @@ set my_variable (math $my_variable - 1)
 
 ## Integer/float manipulations
 
-Calculate a number sum:
+Calculate the number sum:
 
 ```fish
 math 1 + 2
@@ -110,7 +112,7 @@ math 1 + 2
 
 ### Matching
 
-Match a string against a regular expresion:
+Match the string against a regular expresion:
 
 ```fish
 string match --regex --entire 'Fish' 'Hello from Fish!'
@@ -138,7 +140,7 @@ string match --regex --entire 'Fish' 'Hello from Fish!'
 
 ### Modifying
 
-Replace a first/all matching pattern:
+Replace the first/all matching pattern:
 
 ```fish
 string replace --regex 'Fish' 'fish' 'Hello from Fish!'
@@ -183,7 +185,7 @@ end
 
 ## Loops
 
-Iterate over a number range:
+Iterate over the number range:
 
 ```fish
 for i in (seq 1 10)
@@ -195,13 +197,13 @@ end
 
 ### Files
 
-Write a string with trailing `\n` to a file:
+Write the string with a trailing `\n` to a file:
 
 ```fish
 echo "Hello from Bash!" > my_file
 ```
 
-Write (append) a string with trailing `\n` to a file:
+Write (append) the string with a trailing `\n` to a file:
 
 ```fish
 echo "Hello from Bash!" >> my_file
@@ -209,7 +211,7 @@ echo "Hello from Bash!" >> my_file
 
 ### Piping
 
-Pass first command stdout output as an input to second command:
+Pass the first command stdout output as an input to a second command:
 
 ```fish
 my_command | another_command 
@@ -217,7 +219,7 @@ my_command | another_command
 
 ### Command substitution
 
-Replace a command invocation with it's stdout output:
+Replace the command invocation with it's stdout output:
 
 ```fish
 set my_variable (math $my_variable + 1)
@@ -225,7 +227,7 @@ set my_variable (math $my_variable + 1)
 
 ### Process substitution
 
-Replace a command invocation with a temporary file name with a command stdout output:
+Replace the command invocation with a temporary file name with a command stdout output:
 
 ```bash
 math $my_variable + 1 | psub
@@ -235,7 +237,7 @@ math $my_variable + 1 | psub
 
 ### Defining and erasing
 
-Declare a function:
+Declare the function:
 
 ```fish
 function my_function --description "My description"
@@ -243,7 +245,7 @@ function my_function --description "My description"
 end
 ```
 
-Remove a function:
+Remove the function:
 
 ```fish
 functions --erase my_function
@@ -251,7 +253,7 @@ functions --erase my_function
 
 ### Event handling
 
-React to an event:
+React to the event:
 
 ```fish
 function my_hook --on-event my_event
@@ -263,7 +265,7 @@ end
 
 ### Emitting
 
-Emit an event:
+Emit the event:
 
 ```fish
 emit my_event
@@ -273,13 +275,13 @@ emit my_event
 
 ### Defining and erasing
 
-Declare an abbreviation:
+Declare the abbreviation:
 
 ```fish
 abbr --add my_abbreviation echo "Hello from Fish!"
 ```
 
-Remove an abbreviation:
+Remove the abbreviation:
 
 ```fish
 abbr --erase my_abbreviation
@@ -289,14 +291,14 @@ abbr --erase my_abbreviation
 
 ### Defining and erasing
 
-Declare a completion directly for command/it's options:
+Declare the completion directly for command/it's options:
 
 ```fish
 complete --command mycommand --arguments 'install uninstall'
 complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 ```
 
-Remove a completion:
+Remove the completion:
 
 ```fish
 complete --command mycommand --erase

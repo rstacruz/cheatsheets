@@ -27,7 +27,7 @@ weight: -1
 ```fish
 #!/usr/bin/env fish
 
-echo "Hello from Fish!"
+echo 'Hello from Fish!'
 ```
 
 ## Comments
@@ -43,9 +43,9 @@ Declare the comment:
 Print the string with a trailing `\n`:
 
 ```fish
-echo "Hello from Fish!"
+echo 'Hello from Fish!'
 # or
-printf "%s\n" "Hello from Fish!"
+printf '%s\n' 'Hello from Fish!'
 ```
 
 Read the string to a variable:
@@ -61,7 +61,7 @@ read my_variable
 Declare the global/local variable:
 
 ```fish
-set my_variable "Hello from Fish!"
+set my_variable 'Hello from Fish!'
 ```
 
 Remove the variable:
@@ -200,13 +200,13 @@ end
 Write the string with a trailing `\n` to a file:
 
 ```fish
-echo "Hello from Bash!" > my_file
+echo 'Hello from Fish!' > my_file
 ```
 
 Write (append) the string with a trailing `\n` to a file:
 
 ```fish
-echo "Hello from Bash!" >> my_file
+echo 'Hello from Fish!' >> my_file
 ```
 
 ### Piping
@@ -229,7 +229,7 @@ echo (math $my_variable + 1)
 
 Replace the command invocation with a temporary file name with a command stdout output:
 
-```bash
+```fish
 echo (math $my_variable + 1 | psub)
 ```
 
@@ -240,7 +240,7 @@ echo (math $my_variable + 1 | psub)
 Declare the function:
 
 ```fish
-function my_function --description "My description"
+function my_function --description 'My description'
   ···
 end
 ```
@@ -278,7 +278,7 @@ emit my_event
 Declare the abbreviation:
 
 ```fish
-abbr --add my_abbreviation echo "Hello from Fish!"
+abbr --add my_abbreviation echo 'Hello from Fish!'
 ```
 
 Remove the abbreviation:

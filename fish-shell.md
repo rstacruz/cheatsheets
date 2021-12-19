@@ -22,23 +22,52 @@ weight: -1
 | `Alt H`             | Show the command man page description |
 | `Alt W`             | Show the short command description    |
 
+## Sample program
+
+```fish
+#!/usr/bin/env fish
+
+echo "Hello from Fish!"
+```
+
+## Comments
+
+Declare a comment:
+
+```fish
+# my comment
+```
+
+## I/O commands
+
+Print a string with trailing `\n`:
+
+```fish
+echo "Hello from Fish!"
+# or
+printf "%s\n" "Hello from Fish!"
+```
+
+Read a string to a variable:
+
+```fish
+read my_variable
+```
+
 ## Variables
 
 ### Defining and erasing
+
+Declare a global/local variable:
 
 ```fish
 set my_variable "Hello from Fish!"
 ```
 
+Remove a variable:
+
 ```fish
 set --erase my_variable
-```
-
-### Incrementing and decrementing
-
-```fish
-set my_variable (math $my_variable + 1)
-set my_variable (math $my_variable - 1)
 ```
 
 ### Slicing
@@ -50,6 +79,19 @@ set my_variable $another_variable[..-2]
 ```
 
 ## Arithmetic
+
+### Incrementing and decrementing
+
+Increment/decrement a variable:
+
+```fish
+set my_variable (math $my_variable + 1)
+set my_variable (math $my_variable - 1)
+```
+
+## Integer/float manipulations
+
+Calculate a number sum:
 
 ```fish
 math 1 + 2
@@ -66,13 +108,15 @@ math 1 + 2
 
 ## String manipulation
 
+### Matching
+
+Match a string against a regular expresion:
+
 ```fish
 string match --regex --entire 'Fish' 'Hello from Fish!'
 ```
 
-```fish
-string replace --regex 'Fish' 'fish' 'Hello from Fish!'
-```
+> Perl compatible regular expressions described.
 
 | Pattern             | Matches                   |
 | ---                 | ---                       |
@@ -92,7 +136,18 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 | `\W`                | Not word character  |
 | `\D`                | Not digit character |
 
+### Modifying
+
+Replace a first/all matching pattern:
+
+```fish
+string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
+```
+
 ## Conditionals
+
+Compare two variables:
 
 ```fish
 if test $my_variable -lt $another_variable
@@ -104,7 +159,7 @@ else
 end
 ```
 
-| Operator            | Meaning                                   |
+| Number operator     | Meaning                                   |
 | ---                 | ---                                       |
 | `-lt`               | [L]ess [t]han                             |
 | `-eq`               | [Eq]ual                                   |
@@ -112,6 +167,14 @@ end
 | `-le`               | [L]ess than or [e]qual to                 |
 | `-ge`               | [G]reater than or [e]qual to              |
 | `-ne`               | [N]ot [E]qual                             |
+
+| String operator     | Meaning                                   |
+| ---                 | ---                                       |
+| `==`                | [Eq]ual                                   |
+| `!=`                | [N]ot [E]qual                             |
+
+| File operator       | Meaning                                   |
+| ---                 | ---                                       |
 | `-f`                | [F]ile exists                             |
 | `-d`                | [D]irectory exists                        |
 | `-r`                | File or directory exists and [r]eadable   |
@@ -120,21 +183,59 @@ end
 
 ## Loops
 
+Iterate over a number range:
+
 ```fish
 for i in (seq 1 10)
   ...
 end
 ```
 
-## Command substitution
+## Process communication
+
+### Files
+
+Write a string with trailing `\n` to a file:
+
+```fish
+echo "Hello from Bash!" > my_file
+```
+
+Write (append) a string with trailing `\n` to a file:
+
+```fish
+echo "Hello from Bash!" >> my_file
+```
+
+### Piping
+
+Pass first command stdout output as an input to second command:
+
+```fish
+my_command | another_command 
+```
+
+### Command substitution
+
+Replace a command invocation with it's stdout output:
 
 ```fish
 set my_variable (math $my_variable + 1)
 ```
 
+### Process substitution
+
+Replace a command invocation with a temporary file name with a command stdout output:
+
+```bash
+math $my_variable + 1 | psub
+```
+
 ## Functions
 
 ### Defining and erasing
+
+Declare a function:
 
 ```fish
 function my_function --description "My description"
@@ -142,11 +243,15 @@ function my_function --description "My description"
 end
 ```
 
+Remove a function:
+
 ```fish
 functions --erase my_function
 ```
 
 ### Event handling
+
+React to an event:
 
 ```fish
 function my_hook --on-event my_event
@@ -158,6 +263,8 @@ end
 
 ### Emitting
 
+Emit an event:
+
 ```fish
 emit my_event
 ```
@@ -166,9 +273,13 @@ emit my_event
 
 ### Defining and erasing
 
+Declare an abbreviation:
+
 ```fish
 abbr --add my_abbreviation echo "Hello from Fish!"
 ```
+
+Remove an abbreviation:
 
 ```fish
 abbr --erase my_abbreviation
@@ -178,10 +289,14 @@ abbr --erase my_abbreviation
 
 ### Defining and erasing
 
+Declare a completion directly for command/it's options:
+
 ```fish
 complete --command mycommand --arguments 'install uninstall'
 complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 ```
+
+Remove a completion:
 
 ```fish
 complete --command mycommand --erase

@@ -761,7 +761,7 @@ read -n 1 ans    # Just one character
 | `$!`       | PID of last background task            |
 | `$$`       | PID of shell                           |
 | `$0`       | Filename of the shell script           |
-| `$_`       | Last argrument of the previous command |
+| `$_`       | Last argument of the previous command  |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

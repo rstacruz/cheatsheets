@@ -22,7 +22,7 @@ weight: -1
 | `Alt H`             | Show the command man page description |
 | `Alt W`             | Show the short command description    |
 
-## Sample program
+### Sample program
 
 ```fish
 #!/usr/bin/env fish
@@ -30,17 +30,13 @@ weight: -1
 echo 'Hello from Fish!'
 ```
 
-## Comments
-
-Declare the comment:
+### Comments
 
 ```fish
 # my comment
 ```
 
-## I/O commands
-
-Print the string with a trailing `\n`:
+### Printing text
 
 ```fish
 echo 'Hello from Fish!'
@@ -48,31 +44,37 @@ echo 'Hello from Fish!'
 printf '%s\n' 'Hello from Fish!'
 ```
 
-Read the string to a variable:
+Print the string with a trailing `\n`.
+
+### Reading from stdin
 
 ```fish
 read my_variable
+```
+
+Reads the string to a variable `my_variable`.
+
+### Loops
+
+```fish
+for i in (seq 1 10)
+  ...
+end
 ```
 
 ## Variables
 
 ### Defining and erasing
 
-Declare the global/local variable:
-
 ```fish
+# Declare the global/local variable:
 set my_variable 'Hello from Fish!'
-```
 
-Remove the variable:
-
-```fish
+i# Remove the variable:
 set --erase my_variable
 ```
 
 ### Slicing
-
-Slice the variable:
 
 ```fish
 echo $my_variable[1..10]
@@ -83,8 +85,6 @@ echo $my_variable[..-2]
 ## Arithmetic
 
 ### Incrementing and decrementing
-
-Increment/decrement the variable:
 
 ```fish
 set my_variable (math $my_variable + 1)
@@ -118,8 +118,6 @@ Match the string against a regular expresion:
 string match --regex --entire 'Fish' 'Hello from Fish!'
 ```
 
-> Perl compatible regular expressions described.
-
 | Pattern             | Matches                   |
 | ---                 | ---                       |
 | `x?`                | Zero or one `x` chars     |
@@ -130,26 +128,28 @@ string match --regex --entire 'Fish' 'Hello from Fish!'
 | `x{n,}`             | n or more times `x` chars |
 | `[xy]`              | `x` or y char             |
 | `[^xy]`             | not `x` or y char         |
-
-| Class               | Description         |
 | ---                 | ---                 |
 | `\w`                | Word character      |
 | `\d`                | Digit character     |
 | `\W`                | Not word character  |
 | `\D`                | Not digit character |
 
-### Modifying
+> Perl compatible regular expressions described.
 
-Replace the first/all matching pattern:
+### Replacing
 
 ```fish
+# Replaces the first match
 string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+
+# Replaces all matches
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```
 
+
 ## Conditionals
 
-Compare two variables:
+### If/else
 
 ```fish
 if test $my_variable -lt $another_variable
@@ -161,6 +161,10 @@ else
 end
 ```
 
+### Comparisons
+
+#### Numbers
+
 | Number operator     | Meaning                                   |
 | ---                 | ---                                       |
 | `-lt`               | [L]ess [t]han                             |
@@ -170,10 +174,14 @@ end
 | `-ge`               | [G]reater than or [e]qual to              |
 | `-ne`               | [N]ot [E]qual                             |
 
+#### Strings
+
 | String operator     | Meaning                                   |
 | ---                 | ---                                       |
 | `==`                | [Eq]ual                                   |
 | `!=`                | [N]ot [E]qual                             |
+
+#### Files
 
 | File operator       | Meaning                                   |
 | ---                 | ---                                       |
@@ -183,77 +191,69 @@ end
 | `-w`                | File or directory exists and [w]ritable   |
 | `-x`                | File or directory exists and e[x]ecutable |
 
-## Loops
-
-Iterate over the number range:
-
-```fish
-for i in (seq 1 10)
-  ...
-end
-```
 
 ## Process communication
 
-### Files
-
-Write the string with a trailing `\n` to a file:
+### Writing to files
 
 ```fish
+# Overwrite file
 echo 'Hello from Fish!' > my_file
-```
 
-Write (append) the string with a trailing `\n` to a file:
-
-```fish
+# Append to file
 echo 'Hello from Fish!' >> my_file
 ```
 
 ### Piping
 
-Pass the first command stdout output as an input to a second command:
-
 ```fish
-my_command | another_command 
+my_command | another_command
 ```
 
-### Command substitution
+Passes the first command stdout output as an input to a second command.
 
-Replace the command invocation with it's stdout output:
+### Command substitution
 
 ```fish
 echo (math $my_variable + 1)
 ```
 
-### Process substitution
+The `(...)` expression is substituted with the output of the command inside it.
 
-Replace the command invocation with a temporary file name with a command stdout output:
+
+### Process substitution
 
 ```fish
 echo (math $my_variable + 1 | psub)
 ```
 
+The `(... | psub)` expression is substituted with a temporary file with the command's output.
+
 ## Functions
 
 ### Defining and erasing
 
-Declare the function:
-
 ```fish
+# Declare the function
 function my_function --description 'My description'
   ···
 end
-```
 
-Remove the function:
-
-```fish
+# Remove the function
 functions --erase my_function
 ```
 
-### Event handling
+## Events
 
-React to the event:
+### Emitting
+
+```fish
+emit my_event
+```
+
+Emits an event that can be picked up by other functions.
+
+### Event handling
 
 ```fish
 function my_hook --on-event my_event
@@ -261,47 +261,30 @@ function my_hook --on-event my_event
 end
 ```
 
-## Events
-
-### Emitting
-
-Emit the event:
-
-```fish
-emit my_event
-```
+Reacts to the `my_event` event.
 
 ## Abbreviations
 
 ### Defining and erasing
 
-Declare the abbreviation:
-
 ```fish
-abbr --add my_abbreviation echo 'Hello from Fish!'
+# Declare the abbreviation
+abbr --add grh "git reset --hard HEAD"
 ```
 
-Remove the abbreviation:
 
 ```fish
-abbr --erase my_abbreviation
+# Remove the abbreviation
+abbr --erase grh
 ```
 
 ## Completions
 
-### Defining and erasing
-
-Declare the completion directly for command/it's options:
+### Defining completions
 
 ```fish
 complete --command mycommand --arguments 'install uninstall'
 complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
-```
-
-Remove the completion:
-
-```fish
-complete --command mycommand --erase
 ```
 
 | Option              | Description                                          |
@@ -313,6 +296,14 @@ complete --command mycommand --erase
 | `--force-files`     | Suggest files                                        |
 | `--condition`       | Display the hint only when a given condition is true |
 | `--description`     | Description                                          |
+
+Declares the completion for a command.
+
+### Removing completions
+
+```fish
+complete --command mycommand --erase
+```
 
 ## Useful built-in functions
 

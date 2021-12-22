@@ -82,7 +82,7 @@ echo $my_variable[2..]
 echo $my_variable[..-2]
 ```
 
-## Arithmetic
+## Numbers
 
 ### Incrementing and decrementing
 
@@ -91,12 +91,10 @@ set my_variable (math $my_variable + 1)
 set my_variable (math $my_variable - 1)
 ```
 
-## Integer/float manipulations
-
-Calculate the number sum:
+### Arithmetic
 
 ```fish
-math 1 + 2
+echo (math 1 + 2)
 ```
 
 | Operator            | Performs       |
@@ -108,7 +106,7 @@ math 1 + 2
 | `%`                 | Modulo         |
 | `^`                 | Exponentiation |
 
-## String manipulation
+## Strings
 
 ### Matching
 
@@ -134,7 +132,7 @@ string match --regex --entire 'Fish' 'Hello from Fish!'
 | `\W`                | Not word character  |
 | `\D`                | Not digit character |
 
-> Perl compatible regular expressions described.
+Perl compatible regular expressions are described here.
 
 ### Replacing
 
@@ -145,7 +143,6 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 # Replaces all matches
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```
-
 
 ## Conditionals
 

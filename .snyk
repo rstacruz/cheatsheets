@@ -1,0 +1,40 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@babel/core > lodash':
+        patched: '2021-10-16T03:05:31.332Z'
+    - wait-on > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > @babel/core > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2021-10-16T03:05:31.332Z'
+    - jest-html > storyboard > storyboard-core > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > babylon-walk > babel-types > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > htmlnano > uncss > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - jest > @jest/core > jest-snapshot > @babel/types > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2021-10-16T03:05:31.332Z'
+    - jest > @jest/core > @jest/transform > @babel/core > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2021-10-16T03:05:31.332Z'
+    - jest > @jest/core > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - parcel-bundler > htmlnano > uncss > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2021-10-16T03:05:31.332Z'
+    - jest > @jest/core > jest-config > jest-environment-jsdom > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2021-10-16T03:05:31.332Z'

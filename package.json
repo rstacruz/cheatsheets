@@ -35,7 +35,9 @@
     "prejekyll:watch": "bundle",
     "prettier:format": "prettier --write '_parcel/**/*.{js,scss}'",
     "test": "jest",
-    "test:smoke": "bash _support/smoke_test.sh"
+    "test:smoke": "bash _support/smoke_test.sh",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "autoprefixer": "^9.8.2",
@@ -48,7 +50,8 @@
     "postcss-modules": "^2.0.0",
     "prismjs": "^1.21.0",
     "sanitize.css": "^11.0.1",
-    "sass": "^1.26.8"
+    "sass": "^1.26.8",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -68,5 +71,6 @@
     ]
   },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "snyk": true
 }

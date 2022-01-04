@@ -46,7 +46,7 @@
     "modularscale-sass": "^3.0.10",
     "onmount": "^1.3.0",
     "postcss-modules": "^2.0.0",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.21.0",
     "sanitize.css": "^11.0.1",
     "sass": "^1.26.8"
   },

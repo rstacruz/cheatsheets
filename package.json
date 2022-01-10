@@ -34,12 +34,14 @@
     "prejekyll:build": "bundle",
     "prejekyll:watch": "bundle",
     "prettier:format": "prettier --write '_parcel/**/*.{js,scss}'",
+    "snyk:prepare": "yarn run snyk:protect",
+    "snyk:protect": "snyk-protect",
     "test": "jest",
-    "test:smoke": "bash _support/smoke_test.sh",
-    "prepare": "yarn run snyk-protect",
-    "snyk-protect": "snyk-protect"
+    "test:smoke": "bash _support/smoke_test.sh"
+
   },
   "dependencies": {
+    "@snyk/protect": "latest",
     "autoprefixer": "^10.0.0",
     "dom101": "^2.2.1",
     "hint.css": "^2.6.0",
@@ -50,15 +52,14 @@
     "postcss-modules": "^4.0.0",
     "prismjs": "^1.25.0",
     "sanitize.css": "^13.0.0",
-    "sass": "^1.26.8",
-    "@snyk/protect": "latest"
+    "sass": "^1.26.8"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@rstacruz/prettier-plugin-markdown-code-fences": "^1.0.0",
-    "jest": "27.4.7",
     "jest-html": "1.5.0",
+    "jest": "27.4.7",
     "netlify-plugin-minify-html": "^0.3.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.5",

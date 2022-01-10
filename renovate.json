@@ -1,15 +1,26 @@
 {
   "extends": ["config:base", ":preserveSemverRanges", "group:all", "schedule:weekly", ":maintainLockFilesWeekly"],
-  "rangeStrategy": "replace",
+  "includePaths": ["package.json"],
+  "semanticCommits": true,
+  "rangeStrategy": "bump",
   "lockFileMaintenance": {
     "enabled": true,
     "extends": "group:all"
   },
+  "rebaseLabel": "rebase",
+  "rebaseWhen": "auto",
   "packageRules": [
     {
-      "automerge": true,
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
       "depTypeList": ["devDependencies"],
-      "updateTypes": ["minor", "patch", "pin", "digest"]
+      "automerge": true
+    },
+    {
+      "packagePatterns": ["eslint"],
+      "groupName": "eslint"
     }
   ],
   "commitMessageAction": "Update",

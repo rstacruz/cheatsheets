@@ -10,7 +10,7 @@ description: |
   Basic guide on how to use Composer, the PHP Package manager.
 ---
 
-All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of plain `composer`.
+All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of global/plain `composer`.
 
 ### Installing dependencies
     
@@ -77,3 +77,9 @@ This command changes both the `composer.json` and `composer.lock` files.
 | `composer remove vendor/package` | Removes `vendor/package` from composer.json and uninstalls it      |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Verifying
+
+| Command                      | Description                                                                |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| `composer outdated --direct` | Show only packages that are outdated directly required by the root package |

@@ -88,7 +88,7 @@ rsync -avz ./src/ /dest
 -t, --times      # preserve times
 -g, --group      # preserve group
 -o, --owner      # preserve owner
--D               # --devices --specials
+-D               # same as --devices --specials
 ```
 
 ```bash

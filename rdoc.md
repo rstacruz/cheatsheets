@@ -21,6 +21,31 @@ layout: 2017/sheet
 # @return [true] if so
 ```
 
+### Hash parameters
+
+```rb
+# @param [Hash] opts the options to create a message with.
+# @option opts [String] :subject The subject
+# @option opts [String] :from ('nobody') From address
+# @option opts [String] :to Recipient email
+# @option opts [String] :body ('') The email's body 
+```
+
+### Parameter types
+
+```rb
+# @param (see User#initialize)
+# @param [OptionParser] opts the option parser object
+# @param [Array<String>] args the arguments passed from input. This
+#   array will be modified.
+# @param [Array<String, Symbol>] list the list of strings and symbols.
+# @param [Hash<Symbol, String>] a hash with symbol keys and string values
+#
+# The options parsed out of the commandline.
+# Default options are:
+#   :format => :dot
+```
+
 ### Inline
 
 ```markdown

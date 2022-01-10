@@ -343,13 +343,16 @@ fi
 
 ### Arguments
 
-| Expression | Description                            |
-| ---        | ---                                    |
-| `$#`       | Number of arguments                    |
-| `$*`       | All arguments                          |
-| `$@`       | All arguments, starting from first     |
-| `$1`       | First argument                         |
-| `$_`       | Last argument of the previous command  |
+| Expression | Description                                      |
+| ---        | ---                                              |
+| `$#`       | Number of arguments                              |
+| `$*`       | All positional arguments  (as a single word)     |
+| `$@`       | All positional arguments (as separate strings)  |
+| `$1`       | First argument                                   |
+| `$_`       | Last argument of the previous command            |
+
+**Note**: `$@` and `$*` must be quoted in order to perform as described.
+Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
@@ -646,6 +649,7 @@ python hello.py &>/dev/null    # stdout and stderr to (null)
 
 ```bash
 python hello.py < foo.txt      # feed foo.txt to stdin for python
+diff <(ls -r) <(ls)            # Compare two stdout without files
 ```
 
 ### Inspecting commands
@@ -751,12 +755,13 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| Expression | Description                  |
-| ---------- | ---------------------------- |
-| `$?`       | Exit status of last task     |
-| `$!`       | PID of last background task  |
-| `$$`       | PID of shell                 |
-| `$0`       | Filename of the shell script |
+| Expression | Description                            |
+| ---------- | -------------------------------------- |
+| `$?`       | Exit status of last task               |
+| `$!`       | PID of last background task            |
+| `$$`       | PID of shell                           |
+| `$0`       | Filename of the shell script           |
+| `$_`       | Last argument of the previous command  |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

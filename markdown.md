@@ -44,6 +44,15 @@ __bold__
 ```
 
 ```markdown
+***bold italic***
+___bold italic___
+```
+
+```markdown
+~~strikethrough~~
+```
+
+```markdown
 `code`
 ```
 

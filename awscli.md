@@ -12,6 +12,41 @@ aws ec2 start-instances --instance-ids i-12345678c
 aws ec2 terminate-instances --instance-ids i-12345678c
 ```
 
+### RDS
+
+```
+aws rds create-db-snapshot --db-instance-identifier mytestdb --db-snapshot-identifier mydbsnapshot
+aws rds restore-db-instance-from-db-snapshot --db-instance-identifier mytestdb-new --db-snapshot-identifier mydbsnapshot
+aws rds delete-db-snapshot --db-snapshot-identifier mydbsnapshot
+aws rds copy-db-snapshot --source-db-snapshot-identifier mydbsnapshot --target-db-snapshot-identifier mydbsnapshot-copy \
+--copy-tags
+```
+
+### Elastic Load Balancer (Application)
+
+```
+aws elbv2 create-load-balancer \
+--name my-load-balancer \
+--subnets subnet-12345678 subnet-23456789 \
+--security-groups sg-12345678
+aws elbv2 create-target-group \
+--name my-targets \
+--protocol HTTP \
+--port 80 \
+--vpc-id vpc-12345678
+aws elbv2 register-targets \
+target-group-arn targetgroup-arn \
+--targets Id=i-12345678 Id=i-23456789
+aws elbv2 create-listener \
+--load-balancer-arn loadbalancer-arn \
+--protocol HTTP \
+--port 80 \
+--default-actions Type=forward,TargetGroupArn=targetgroup-arn
+
+aws elbv2 describe-target-health --target-group-arn targetgroup-arn
+
+```
+
 ### S3
 
 ```

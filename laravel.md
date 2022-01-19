@@ -24,8 +24,7 @@ Artisan is the command line interface included with Laravel. Artisan exists at t
 | `php artisan list [--raw] [--format FORMAT] [--short] [--] [<namespace>]` | List commands |
 | `php artisan migrate [--database [DATABASE]] [--force] [--path [PATH]] [--realpath] [--schema-path [SCHEMA-PATH]] [--pretend] [--seed] [--step]` | Run the database migrations |
 | `php artisan optimize` | Cache the framework bootstrap files |
-| `php artisan serve [--host [HOST]] [--port [PORT]] [--tries [TRIES]] [--no-reload]` | Serve the application on the PHP development server
- |
+| `php artisan serve [--host [HOST]] [--port [PORT]] [--tries [TRIES]] [--no-reload]` | Serve the application on the PHP development server |
 | `php artisan test [--without-tty] [-p --parallel] [--recreate-databases]` | Run the application tests |
 | `php artisan tinker [--execute [EXECUTE]] [--] [<include>...]` | Interact with your application |
 | `php artisan up` | Bring the application out of maintenance mode |
@@ -84,8 +83,7 @@ Artisan is the command line interface included with Laravel. Artisan exists at t
 | `php artisan make:channel <name>` | Create a new channel class |
 | `php artisan make:command [--command [COMMAND]] [--test] [--pest] [--] <name>` | Create a new Artisan command |
 | `php artisan make:component [--force] [--inline] [--] <name>` | Create a new view component class |
-| `php artisan make:controller [--api] [--type TYPE] [--force] [-i --invokable] [-m --model [MODEL]] [-p --parent [PARENT]] [-r --resource] [-R --requests] [--test] [--pest] [--] <name>` | Create a new controller class
- |
+| `php artisan make:controller [--api] [--type TYPE] [--force] [-i --invokable] [-m --model [MODEL]] [-p --parent [PARENT]] [-r --resource] [-R --requests] [--test] [--pest] [--] <name>` | Create a new controller class |
 | `php artisan make:event <name>` | Create a new event class |
 | `php artisan make:exception [--render] [--report] [--] <name>` | Create a new custom exception class |
 | `php artisan make:factory [-m --model [MODEL]] [--] <name>` | Create a new model factory |

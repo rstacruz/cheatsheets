@@ -595,4 +595,4 @@ Callbacks
 - after_commit
 - after_rollback
 
-See: [ActivRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html)
+See: [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html)

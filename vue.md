@@ -350,6 +350,52 @@ See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 
 See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 
+Composition API
+--------
+
+### Long version
+
+```js
+import { ref, computed } from 'vue'
+export default {
+  setup() {
+    const capacity = ref(4);
+    const attending = ref(["Tim", "Bob", "Joe"]);
+    const spacesLeft = computed(() => {
+      return capacity.value - attending.value.length;
+    });
+    function increaseCapacity() {
+      capacity.value++;
+    }
+    return { capacity, attending, spacesLeft, increaseCapacity }
+  }
+}
+```
+{: data-line="3, 8, 16, 21, 28, 34, 39"}
+
+See: [Composition API Basics](https://vuejs.org/api/composition-api-setup.html)
+
+### `<script setup>`
+
+When using single file components, the following syntax is recommended:
+
+```vue
+<script setup>
+import { ref, computed } from 'vue'
+
+const capacity = ref(4);
+const attending = ref(["Tim", "Bob", "Joe"]);
+const spacesLeft = computed(() => {
+  return capacity.value - attending.value.length;
+});
+function increaseCapacity() {
+  capacity.value++;
+}
+</script>
+```
+
+See: [docs](https://vuejs.org/api/sfc-script-setup.html)
+
 Also see
 --------
 

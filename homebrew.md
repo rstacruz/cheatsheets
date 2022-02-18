@@ -10,6 +10,7 @@ category: CLI
 | Command                    | Description                 |
 | ---                        | ---                         |
 | `brew install git`         | Install a package           |
+| `brew uninstall git`       | Remove/Uninstall a package  |
 | `brew upgrade git`         | Upgrade a package           |
 | ---                        | ---                         |
 | `brew unlink git`          | Unlink                      |
@@ -27,21 +28,24 @@ category: CLI
 | `brew edit git`            | Edit this formula           |
 | `brew cat git`             | Print this formula          |
 | `brew home git`            | Open homepage               |
+| `brew search git`          | Search for formulas         |
 
 ### Global commands
 
 | Command         | Description              |
 | ---             | ---                      |
 | `brew update`   | Update brew and cask     |
+| `brew upgrade`  | Upgrade all packages     |
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
+| `brew doctor`   | Diagnose brew issues     |
 
 ### Brew Cask commands
 
 | Command                       | Description                           |
 | ---                           | ---                                   |
-| `brew cask install firefox`   | Install the Firefox browser           |
-| `brew cask list`              | List installed applications           |
+| `brew install --cask firefox` | Install the Firefox browser           |
+| `brew list --cask`            | List installed applications           |
 
 Cask commands are used for interacting with graphical applications.
 
@@ -50,5 +54,4 @@ Cask commands are used for interacting with graphical applications.
 
 * [Homebrew homepage](https://brew.sh/) _brew.sh_
 * [Homebrew docs](https://docs.brew.sh) _docs.brew.sh_
-* [Homebrew Cask](https://caskroom.github.io/) _caskroom.github.io_
 {: .-also-see}

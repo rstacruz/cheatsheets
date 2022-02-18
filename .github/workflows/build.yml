@@ -1,0 +1,50 @@
+name: Build and test
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      - name: "Cache: Get yarn cache directory path"
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: "Cache: Set up yarn cache"
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # https://github.com/actions/cache/blob/master/examples.md#ruby---bundler
+      - name: "Cache: Set up bundler cache"
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with: { node-version: '12.x' }
+
+      - name: Use Ruby
+        uses: actions/setup-ruby@v1
+        with: { ruby-version: '2.7' }
+
+      - name: Setup dependencies
+        run: |
+          yarn --frozen-lockfile
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - run: yarn build
+      - run: yarn test
+      - run: yarn test:smoke

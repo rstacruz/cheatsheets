@@ -16,9 +16,34 @@ layout: 2017/sheet
 #
 # @param [String] param_name The xx and xx.
 #
-# @see http://url.com
+# @see https://example.com/
 #
 # @return [true] if so
+```
+
+### Hash parameters
+
+```rb
+# @param [Hash] opts the options to create a message with.
+# @option opts [String] :subject The subject
+# @option opts [String] :from ('nobody') From address
+# @option opts [String] :to Recipient email
+# @option opts [String] :body ('') The email's body 
+```
+
+### Parameter types
+
+```rb
+# @param (see User#initialize)
+# @param [OptionParser] opts the option parser object
+# @param [Array<String>] args the arguments passed from input. This
+#   array will be modified.
+# @param [Array<String, Symbol>] list the list of strings and symbols.
+# @param [Hash<Symbol, String>] a hash with symbol keys and string values
+#
+# The options parsed out of the commandline.
+# Default options are:
+#   :format => :dot
 ```
 
 ### Inline
@@ -30,9 +55,9 @@ _emphasized_
 ```
 
 ```markdown
-http://www.link.com
+https://www.example.com/
 See Models::User@Examples
-{Google}[http://google.com]
+{Google}[https://google.com/]
 ```
 
 ### Skip
@@ -109,5 +134,5 @@ Place this at the beginning of the file.
 {: .-one-column}
 
 * <http://rdoc.rubyforge.org/RDoc/Markup.html>
-* <http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
+* <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
 {: .-also-see}

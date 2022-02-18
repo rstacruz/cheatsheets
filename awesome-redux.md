@@ -2,7 +2,7 @@
 title: Awesome Redux
 category: React
 layout: 2017/sheet
-updated: 2017-08-30
+updated: 2017-11-19
 ---
 
 ### redux-actions

@@ -247,11 +247,11 @@ Associations
 belongs_to :parent, :foreign_key => 'parent_id' class_name: 'Folder'
 has_many :folders, :foreign_key => 'parent_id', class_name: 'Folder'
 
-has_many :comments,    :order      => "posted_on"
+has_many :comments,                -> { order('posted_on DESC') }
 has_many :comments,    :include    => :author
 has_many :people,      :class_name => "Person"
 has_many :people,      :conditions => "deleted = 0"
-has_many :tracks,      :order      => "position"
+has_many :tracks,                  -> { order(:position) }
 has_many :comments,    :dependent  => :nullify
 has_many :comments,    :dependent  => :destroy
 has_many :tags,        :as         => :taggable

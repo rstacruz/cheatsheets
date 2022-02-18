@@ -11,14 +11,16 @@ description: |
 ## Testing
 
 ### Xpath test bed
+{: .-intro}
 
-Test queries in the Xpath test bed:<br>
-[Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+Test queries in the Xpath test bed:
+
+- [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
 
 ### Browser console
 
 ```js
-$x('//div')
+$x("//div")
 ```
 
 Works in Firefox and Chrome.
@@ -59,12 +61,12 @@ Works in Firefox and Chrome.
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `ul > li:first-child`        | `//ul/li[1]`                                             | [?](#indexing)          |
-| `ul > li:nth-child(2)`       | `//ul/li[2]`                                             |                         |
-| `ul > li:last-child`         | `//ul/li[last()]`                                        |                         |
-| `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
-| `a:first-child`              | `//a[1]`                                                 |                         |
-| `a:last-child`               | `//a[last()]`                                            |                         |
+| `ul > li:first-of-type`      | `//ul/li[1]`                                             | [?](#indexing)          |
+| `ul > li:nth-of-type(2)`     | `//ul/li[2]`                                             |                         |
+| `ul > li:last-of-type`       | `//ul/li[last()]`                                        |                         |
+| `li#id:first-of-type`        | `//li[1][@id="id"]`                                      | [?](#chaining-order)    |
+| `a:first-child`              | `//*[1][name()="a"]`                                     |                         |
+| `a:last-child`               | `//*[last()][name()="a"]`                                |                         |
 {: .xp}
 
 ### Siblings
@@ -215,7 +217,7 @@ You can use nodes inside predicates.
 //a[last()]             # last <a>
 //ol/li[2]              # second <li>
 //ol/li[position()=2]   # same as above
-//ol/li[position()>1]   # :not(:first-child)
+//ol/li[position()>1]   # :not(:first-of-type)
 ```
 
 Use `[]` with a number, or `last()` or `position()`.
@@ -232,7 +234,7 @@ Order is significant, these two are different.
 ### Nesting predicates
 
 ```
-//section[//h1[@id='hi']]
+//section[.//h1[@id='hi']]
 ```
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.

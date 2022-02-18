@@ -3,7 +3,7 @@ title: Emmet
 category: Markup
 layout: 2017/sheet
 prism_languages: [html, css]
-updated: 2018-11-10
+updated: 2020-07-03
 intro: |
   Emmet is a markup language for expanding CSS rules into HTML
 ---
@@ -94,7 +94,7 @@ ul.menu>li.menu__item+li#id_item+li.menu__item#id_2
 ```
 Expands to
 ```html
-<ul>
+<ul class="menu">
   <li class="menu__item"></li>
   <li id="id_item"></li>
   <li class="menu__item" id="id_2"></li>
@@ -130,6 +130,13 @@ Expands to
   <li class="item3"></li>
   <li class="item4"></li>
   <li class="item5"></li>
+</ul>
+<ul>
+  <li class="item3"></li>
+  <li class="item4"></li>
+  <li class="item5"></li>
+  <li class="item6"></li>
+  <li class="item7"></li>
 </ul>
 ```
 

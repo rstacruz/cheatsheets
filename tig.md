@@ -2,7 +2,7 @@
 title: Tig
 category: Git
 layout: 2017/sheet
-updated: 2017-08-29
+updated: 2018-11-16
 weight: -3
 ---
 
@@ -21,7 +21,7 @@ $ sudo apt install tig
 ### Invocation
 
 | Command             | Description                                  |
-| ---                 | ---                                          |
+| ------------------- | -------------------------------------------- |
 | `tig`               |                                              |
 | ---                 | ---                                          |
 | `tig status`        | Status                                       |
@@ -31,6 +31,7 @@ $ sudo apt install tig
 | `tig test..master`  | Show difference between two branches         |
 | `tig FILE`          | Show history of file                         |
 | `tig v0.0.3:README` | Show contents of file in a specific revision |
+| `tig -C /repo/path` | Run in dir `/repo/path` (like `git -C`)      |
 
 You can substitute `git log` → `tig`.
 
@@ -71,7 +72,7 @@ You can substitute `git log` → `tig`.
 | `C` | Cherry pick a commit        |
 {: .-shortcuts}
 
-### `s` - Stage view
+### `s` - Status view
 
 | `u`     | Stage/unstage file or chunk        |
 | `!`     | Revert file or chunk               |

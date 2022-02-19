@@ -589,8 +589,8 @@ Callbacks
 - after_initialize
 - before_validation / after_validation
 - before_save / after_save / around_save
-- before_create / after_create /around_create
-- before_update / after_update /around_update
+- before_create / after_create / around_create
+- before_update / after_update / around_update
 - before_destroy / after_destroy / around_destroy
 - after_commit
 - after_rollback

@@ -205,6 +205,8 @@ Destructuring
 
 ```js
 const [first, last] = ['Nikola', 'Tesla']
+console.log(first) // Nikola
+console.log(last) // Tesla
 ```
 {: data-line="1"}
 
@@ -215,6 +217,9 @@ let {title, author} = {
   title: 'The Silkworm',
   author: 'R. Galbraith'
 }
+
+console.log(title) // The Silkworm
+console.log(author) // R. Galbraith
 ```
 {: data-line="1"}
 

@@ -66,7 +66,7 @@ These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).
 ### Condition flow
 
 ```bash
-\! -name "*.c"     # NOT named "*.c"
+\! -name "*.c" # NOT named "*.c"
 \( x -or y \)
 ```
 

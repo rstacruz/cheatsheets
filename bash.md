@@ -709,6 +709,28 @@ printf "This is how you print a float: %f" 2
 #=> "This is how you print a float: 2.000000"
 ```
 
+### Transform strings
+
+| Command option     | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `-c`               | Operations apply to characters not in the given set |
+| `-d`               | Delete characters                                   |
+| `-s`               | Replaces repeated characters with single occurrence |
+| `-t`               | Truncates                                           |
+| `[:upper:]`        | All upper case letters                              |
+| `[:lower:]`        | All lower case letters                              |
+| `[:digit:]`        | All digits                                          |
+| `[:space:]`        | All whitespace                                      |
+| `[:alpha:]`        | All letters                                         |
+| `[:alnum:]`        | All letters and digits                              |
+
+#### Example
+
+```bash
+echo "Welcome To Devhints" | tr [:lower:] [:upper:]
+WELCOME TO DEVHINTS
+```
+
 ### Directory of script
 
 ```bash

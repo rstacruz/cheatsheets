@@ -711,27 +711,23 @@ printf "This is how you print a float: %f" 2
 
 ### Transform strings
 
-```bash
-tr [OPTION] SET1 [SET2]
-Translate, squeeze, and/or delete characters from standard input, writing to standard output.
-```
+| Command option     | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `-c`               | Operations apply to characters not in the given set |
+| `-d`               | Delete characters                                   |
+| `-s`               | Replaces repeated characters with single occurrence |
+| `-t`               | Truncates                                           |
+| `[:upper:]`        | All upper case letters                              |
+| `[:lower:]`        | All lower case letters                              |
+| `[:digit:]`        | All digits                                          |
+| `[:space:]`        | All whitespace                                      |
+| `[:alpha:]`        | All letters                                         |
+| `[:alnum:]`        | All letters and digits                              |
 
-| Command option     | Description                                                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------------- |
-| `-c`               | Complements the set of characters in string.i.e., operations apply to characters not in the given set |
-| `-d`               | Delete characters in the first set from the output.                                                   |
-| `-s`               | Replaces repeated characters listed in the set1 with single occurrence                                |
-| `-t`               | Truncates set1                                                                                        |
-| `[:upper:]`        | All upper case letters                                                                                |
-| `[:lower:]`        | All lower case letters                                                                                |
-| `[:digit:]`        | All digits                                                                                            |
-| `[:space:]`        | All horizontal or vertical whitespace                                                                 |
-| `[:alpha:]`        | All letters                                                                                           |
-| `[:alnum:]`        | All letters and digits                                                                                |
+#### Example
 
 ```bash
-EXAMPLE:
-echo "Welcome To DevHints" | tr [:lower:] [:upper:]
+echo "Welcome To Devhints" | tr [:lower:] [:upper:]
 WELCOME TO DEVHINTS
 ```
 

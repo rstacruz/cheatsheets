@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220313111038' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220313111038' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220315221941' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220315221941' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20220313111038'
+'./assets/2017/style.css?t=20220315221941'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20220313111038'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20220315221941'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "StimulusReflex cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220313111038" ],
+  "image": [ "https://assets.devhints.io/previews/stimulus-reflex.jpg?t=20220315221941" ],
   "description": "The one-page guide to StimulusReflex: usage, examples, links, snippets, and more."
 }
 </script>
@@ -211,8 +211,9 @@ gtag('config','UA-106902774-1');
 
 <p>Trigger reflexes without writing any javascript with the <code>data-reflex</code> attribute.</p>
 
-<pre><code class="language-erb">&lt;!-- index.html.erb --&gt;
-&lt;a
+<h4 id="indexhtmlerb">index.html.erb</h4>
+
+<pre><code class="language-html">&lt;a
   href="#"
   data-reflex="click-&gt;CounterReflex#increment"
   data-step="1"
@@ -221,8 +222,9 @@ gtag('config','UA-106902774-1');
 &gt;
 </code></pre>
 
-<pre><code class="language-ruby"># counter_reflex.rb
-class CounterReflex &lt; StimulusReflex::Reflex
+<h4 id="counter_reflexrb">counter_reflex.rb</h4>
+
+<pre><code class="language-ruby">class CounterReflex &lt; StimulusReflex::Reflex
   def increment
     @count = element.dataset[:count].to_i + element.dataset[:step].to_i
   end
@@ -233,15 +235,17 @@ end
 
 <p>Stimulus.js controllers registered with StimulusReflex can use the <code>stimulate</code> method to trigger reflexes</p>
 
-<pre><code class="language-erb">&lt;!-- index.html.erb --&gt;
-&lt;a href="#"
+<h4 id="indexhtmlerb-1">index.html.erb</h4>
+
+<pre><code class="language-html">&lt;a href="#"
   data-controller="counter"
   data-action="click-&gt;counter#increment"
 &gt;Increment &lt;%= @count %&gt;&lt;/a&gt;
 </code></pre>
 
-<pre><code class="language-javascript">// counter_controller.js
-import { Controller } from 'stimulus'
+<h4 id="counter_controllerjs">counter_controller.js</h4>
+
+<pre><code class="language-javascript">import { Controller } from 'stimulus'
 import StimulusReflex from 'stimulus_reflex'
 
 export default class extends Controller {
@@ -256,8 +260,9 @@ export default class extends Controller {
 }
 </code></pre>
 
-<pre><code class="language-ruby"># counter_reflex.rb
-class CounterReflex &lt; StimulusReflex::Reflex
+<h4 id="counter_reflexrb-1">counter_reflex.rb</h4>
+
+<pre><code class="language-ruby">class CounterReflex &lt; StimulusReflex::Reflex
   def increment(step = 1)
     session[:count] = session[:count].to_i + step
    end
@@ -270,13 +275,13 @@ end
 
 <p>Instead of refreshing the entire page, you can specify a portion of the page to update with <code>morph(selector, content)</code></p>
 
-<pre><code class="language-erb">&lt;!-- show.html.erb --&gt;
+<pre><code class="language-html">&lt;!-- show.html.erb --&gt;
 &lt;header data-reflex="click-&gt;Example#change"&gt;
   &lt;%= render partial: "path/to/foo", locals: {message: "Am I the medium or the massage?"} %&gt;
 &lt;/header&gt;
 </code></pre>
 
-<pre><code class="language-erb">&lt;!-- _foo.html.erb --&gt;
+<pre><code class="language-html">&lt;!-- _foo.html.erb --&gt;
 &lt;div id="foo"&gt;
   &lt;span class="spa"&gt;&lt;%= message %&gt;&lt;/span&gt;
 &lt;/div&gt;
@@ -381,7 +386,7 @@ end
 
 <p>You can use the <code>data-reflex-dataset="combined"</code> directive to scoop all data attributes up the DOM hierarchy and pass them as part of the Reflex payload.</p>
 
-<pre><code class="language-erb">&lt;!-- new.html.erb --&gt;
+<pre><code class="language-html">&lt;!-- new.html.erb --&gt;
 &lt;div data-post-id="&lt;%= @post.id %&gt;"&gt;
   &lt;div data-category-id="&lt;%= @category.id %&gt;"&gt;
     &lt;button data-reflex="click-&gt;Comment#create" data-reflex-dataset="combined"&gt;Create&lt;/button&gt;
@@ -389,7 +394,7 @@ end
 &lt;/div&gt;
 </code></pre>
 
-<pre><code class="language-ruby"># comment_reflex.rb
+<pre><code class="language-html"># comment_reflex.rb
 class CommentReflex &lt; ApplicationReflex
   def create
     puts element.dataset["post-id"]
@@ -721,7 +726,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20220313111038'></script>
+<script src='./assets/packed/app.js?t=20220315221941'></script>
 
 
 

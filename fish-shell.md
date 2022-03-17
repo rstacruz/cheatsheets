@@ -21,6 +21,8 @@ weight: -1
 | ---                 | ---                                   |
 | `Alt H`             | Show the command man page description |
 | `Alt W`             | Show the short command description    |
+| `^W`                | Delete the previous word              |
+| `Alt D`             | Delete the following word             |
 
 ### Sample program
 

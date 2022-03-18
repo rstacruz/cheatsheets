@@ -18,6 +18,12 @@ heroku create sushi
 ```bash
 git push heroku master
 ```
+## Docker
+```bash
+heroku stack:set container -app <app>
+heroku container:push web -app <app>
+heroku container:release web -app <app>
+```
 
 ### `access` - Collaboration
 

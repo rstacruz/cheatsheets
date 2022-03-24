@@ -107,6 +107,10 @@ ___bold italic___
 
 ### Code
 
+~~~
+`inline code`
+~~~
+
 ```
     4 space indent
     makes a code block

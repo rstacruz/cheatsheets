@@ -18,12 +18,18 @@ heroku create sushi
 ```bash
 git push heroku master
 ```
-## Docker
+
+This will create an application named `sushi`. ([docs](https://devcenter.heroku.com/articles/creating-apps))
+
+### `container` - Docker containers
+
 ```bash
 heroku stack:set container -app <app>
 heroku container:push web -app <app>
 heroku container:release web -app <app>
 ```
+
+Containers can be deployed using the Heroku Container Registry. ([docs](https://devcenter.heroku.com/articles/container-registry-and-runtime))
 
 ### `access` - Collaboration
 

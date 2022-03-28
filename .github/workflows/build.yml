@@ -8,20 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
-      - name: "Cache: Get yarn cache directory path"
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: "Cache: Set up yarn cache"
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -31,7 +17,7 @@ jobs:
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.0'
+          ruby-version: '2.7.5'
           bundler-cache: true
 
       - name: Setup dependencies

@@ -11,7 +11,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '16.14.2'
           cache: yarn
 
       - name: Use Ruby
@@ -19,10 +19,6 @@ jobs:
         with:
           ruby-version: '2.7.5'
           bundler-cache: true
-
-      - name: Setup dependencies
-        run: |
-          yarn --frozen-lockfile
 
       - run: yarn build
       - run: yarn test

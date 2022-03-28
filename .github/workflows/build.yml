@@ -33,11 +33,11 @@ jobs:
 
       - name: Use Node.js
         uses: actions/setup-node@v1
-        with: { node-version: '12.x' }
+        with: { node-version: '16.x' }
 
       - name: Use Ruby
         uses: actions/setup-ruby@v1
-        with: { ruby-version: '2.7' }
+        with: { ruby-version: '3.70' }
 
       - name: Setup dependencies
         run: |

@@ -183,7 +183,79 @@ docker volume prune
 
 Delete all the volumes
 
+Docker Network
+-----------------
+### `network create`
+
+```sh
+docker network create [OPTIONS] NETWORK
+````
+
+* [OPTIONS](https://docs.docker.com/engine/reference/commandline/network_create/#options)
+
+#### Examples
+
+Create Network
+````sh
+docker network create round-robin-bridge 
+````
+Specify Network when running container
+````sh
+docker run -it elasticsearch:2 --network round-robin-bridge
+````
+
+### `network connect`
+
+```sh
+docker network connect round-robin-bridge elasticsearch:2
+````
+
+Connect a container to a network
+
+### `network disconnect`
+
+```sh
+docker network disconnect round-robin-bridge elasticsearch:2
+````
+
+Disconnect a container from a network
+
+### `network inpect`
+
+```sh
+docker network inspect [OPTIONS] NETWORK [NETWORK...]
+```
+
+Display detailed information on one or more networks
+
+
+### `network ls`
+
+```sh
+docker network ls [OPTIONS]
+```
+
+List networks
+
+### `network prune`
+
+```sh
+docker network prune [OPTIONS]
+```
+
+Remove all unused networks
+
+### `network rm`
+
+```sh
+docker network rm [OPTIONS]
+```
+
+Remove one or more networks
+
+
 Also see
 --------
 
  * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
+ * [docker cli docs](https://docs.docker.com/engine/reference/commandline/docker/) _(docker docs)_

@@ -79,10 +79,13 @@ expect(5).to be_between(1, 10)
 expect(5).to be_within(0.05).of value
 ```
 
-### Logical Or
+### Compound expectations
+
 ```rb
 expect(1).to (be < 2).or be > 5
 ```
+
+Use `or`/`and` to string multiple matchers together. See: [Compound expectations](https://relishapp.com/rspec/rspec-expectations/docs/compound-expectations)
 
 ### Comparison
 

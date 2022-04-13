@@ -135,7 +135,7 @@ c.closePath()
 
   * [Canvas Cheatsheet PDF][pdf]
 
-[pdf]: http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf
+[pdf]: http://www.cheat-sheets.org/saved-copy/HTML5_Canvas_Cheat_Sheet.pdf
 [xform]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations
 [styles]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors
 [images]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images

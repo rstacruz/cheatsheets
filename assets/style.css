@@ -55,11 +55,6 @@
   font-weight: bold;
 }
 
-.post-headline.-cheatsheet .prelude span {
-  border-bottom: solid 3px #111;
-  padding: 1.5em 20px;
-}
-
 .post-headline.-cheatsheet .prelude span:before {
   content: 'Cheatsheet for';
 }
@@ -78,9 +73,8 @@
 .post-headline.-cheatsheet h1 {
   color: #111;
   font-size: 3.5em;
-  text-shadow:
-    2px 2px 0 white,
-    3px 3px 0 #ddd;
+  text-shadow: 2px 2px 0 white, 3px 3px 0 #ddd;
+  margin-top: 20px;
 }
 
 /*
@@ -192,90 +186,6 @@
   margin: 0;
 }
 
-/*
- * Carbon: side
- */
-
-.side-ad {
-  position: absolute;
-  top: 80px;
-  right: 20px;
-  width: 130px;
-  display: block;
-  font-size: .8em;
-}
-
-.side-ad a {
-  text-decoration: none;
-  box-shadow: none;
-  background: rgba(255, 255, 255, .01);
-}
-
-.side-ad a:hover {
-  color: #111;
-}
-
-.side-ad .carbon-text {
-  margin-top: 5px;
-  display: block;
-}
-
-.side-ad .carbon-poweredby {
-  display: block;
-  color: #aaa;
-}
-
-@media (max-width: 768px) {
-  .side-ad {
-    display: none;
-  }
-}
-
-/*
- * Cardbon: headline
- */
-
-.headline-ad {
-  width: 300px;
-  min-height: 100px;
-  font-size: .8em;
-  margin: 0 auto 45px auto;
-  line-height: 1.5;
-}
-
-.headline-ad:after {
-  content: '';
-  display: table;
-  clear: both;
-  zoom: 1;
-}
-
-.headline-ad a {
-  text-decoration: none;
-  box-shadow: none;
-  display: block;
-  background: rgba(255, 255, 255, .01);
-}
-
-.headline-ad a:hover {
-  color: #111;
-}
-
-.headline-ad img {
-  float: left;
-  margin-right: 15px;
-  background: #fafafa;
-}
-
-.headline-ad .carbon-text {
-}
-
-.headline-ad .carbon-poweredby {
-  display: block;
-  color: #aaa;
-  margin-top: 5px;
-}
-
 .social-list.-collapse {
   margin-top: 0;
   position: absolute;
@@ -289,4 +199,3 @@
     display: none;
   }
 }
-

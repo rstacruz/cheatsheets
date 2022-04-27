@@ -5,11 +5,18 @@ prism_languages: [go, bash]
 weight: -3
 tags: [Featured]
 category: C-like
-updated: 2017-09-15
+updated: 2020-06-21
 ---
 
 ## Getting started
 {: .-three-column}
+
+### Introduction
+{: .-intro}
+
+- [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
+- [Go repl](https://repl.it/languages/go) _(repl.it)_
+- [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
 
 ### Hello world
 {: .-prime}
@@ -136,6 +143,12 @@ func getPointer () (myPointer *int) {
 ```
 {: data-line="3"}
 
+```go
+a := new(int)
+*a = 234
+```
+{: data-line="2"}
+
 Pointers point to a memory location of a variable. Go is fully garbage-collected.
 
 See: [Pointers](https://tour.golang.org/moretypes/1)
@@ -171,13 +184,13 @@ See: [If](https://tour.golang.org/flowcontrol/5)
 ### Statements in if
 
 ```go
-if _, err := getResult(); err != nil {
+if _, err := doThing(); err != nil {
   fmt.Println("Uh oh")
 }
 ```
 {: data-line="1"}
 
-A condition in an `if` statement can be preceded with a statement before a `;`.
+A condition in an `if` statement can be preceded with a statement before a `;`. Variables declared by the statement are only in scope until the end of the `if`.
 
 See: [If with a short statement](https://tour.golang.org/flowcontrol/6)
 
@@ -219,6 +232,18 @@ for i, val := range entry {
 ```
 
 See: [For-Range loops](https://gobyexample.com/range)
+
+### While loop
+
+```go
+n := 0
+x := 42
+for n != x {
+  n := guess()
+}
+```
+
+See: [Go's "while"](https://tour.golang.org/flowcontrol/3)
 
 ## Functions
 {: .-three-column}
@@ -395,6 +420,39 @@ v, ok := <- ch
 
 See: [Range and close](https://tour.golang.org/concurrency/4)
 
+### WaitGroup
+
+```go
+import "sync"
+
+func main() {
+  var wg sync.WaitGroup
+  
+  for _, item := range itemList {
+    // Increment WaitGroup Counter
+    wg.Add(1)
+    go doOperation(&wg, item)
+  }
+  // Wait for goroutines to finish
+  wg.Wait()
+  
+}
+```
+{: data-line="1,4,8,12"}
+
+```go
+func doOperation(wg *sync.WaitGroup, item string) {
+  defer wg.Done()
+  // do operation on item
+  // ...
+}
+```
+{: data-line="2"}
+
+A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
+See: [WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
+
+
 ## Error control
 
 ### Defer
@@ -422,7 +480,6 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-
 {: data-line="2,3,4"}
 
 Lambdas are better suited for defer blocks.
@@ -508,7 +565,7 @@ func (v Vertex) Abs() float64 {
 {: data-line="1"}
 
 ```go
-v: = Vertex{1, 2}
+v := Vertex{1, 2}
 v.Abs()
 ```
 
@@ -536,12 +593,63 @@ By defining your receiver as a pointer (`*Vertex`), you can do mutations.
 
 See: [Pointer receivers](https://tour.golang.org/methods/4)
 
+## Interfaces
+
+### A basic interface
+
+```go
+type Shape interface {
+  Area() float64
+  Perimeter() float64
+}
+```
+
+### Struct
+
+```go
+type Rectangle struct {
+  Length, Width float64
+}
+```
+
+Struct `Rectangle` implicitly implements interface `Shape` by implementing all of its methods.
+
+### Methods
+
+```go
+func (r Rectangle) Area() float64 {
+  return r.Length * r.Width
+}
+
+func (r Rectangle) Perimeter() float64 {
+  return 2 * (r.Length + r.Width)
+}
+```
+
+The methods defined in `Shape` are implemented in `Rectangle`.
+
+### Interface example
+
+```go
+func main() {
+  var r Shape = Rectangle{Length: 3, Width: 4}
+  fmt.Printf("Type of r: %T, Area: %v, Perimeter: %v.", r, r.Area(), r.Perimeter())
+}
+```
+
 ## References
+
+### Official resources
+{: .-intro}
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
-- [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_
-- [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
 - [Effective Go](https://golang.org/doc/effective_go.html) _(golang.org)_
+
+### Other links
+{: .-intro}
+
+- [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
+- [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_
 - [JustForFunc Youtube](https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw) _(youtube.com)_
 - [Style Guide](https://github.com/golang/go/wiki/CodeReviewComments) _(github.com)_

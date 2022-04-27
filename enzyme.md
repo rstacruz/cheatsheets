@@ -2,7 +2,7 @@
 title: Enzyme
 category: React
 layout: 2017/sheet
-updated: 2018-04-27
+updated: 2020-02-12
 tags: [Featured]
 weight: -1
 keywords:
@@ -11,11 +11,16 @@ keywords:
   - wrap.setProps()
   - "wrap.find().simulate('click')"
   - "wrap.contains(<div/>)"
-intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 ---
 
 ## Getting started
+
+### Introduction
+{: .-intro}
+
+[Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+
+- [Enzyme website](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
 
 ### Mounting
 {: .-prime}
@@ -83,7 +88,7 @@ wrap.setState({ show: true })
 #### Asserting
 
 ```js
-expect(wrap.props('name')).toEqual('Moe')
+expect(wrap.prop('name')).toEqual('Moe')
 expect(wrap.state('show')).toEqual(true)
 ```
 
@@ -219,8 +224,8 @@ wrap.last()           // → ReactWrapper
 
 ```js
 wrap.get(0)           // → ReactElement
-wrap.getNode()        // → ReactElement
-wrap.getNodes()       // → Array<ReactElement>
+wrap.getElement()     // → ReactElement
+wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 

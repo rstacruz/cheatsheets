@@ -586,8 +586,13 @@ See: <http://api.rubyonrails.org/classes/ActiveRecord/Base.html>
 Callbacks
 ---------
 
-- after_create
 - after_initialize
-- after_validation
-- after_save
+- before_validation / after_validation
+- before_save / after_save / around_save
+- before_create / after_create / around_create
+- before_update / after_update / around_update
+- before_destroy / after_destroy / around_destroy
 - after_commit
+- after_rollback
+
+See: [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html)

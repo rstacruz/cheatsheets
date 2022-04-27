@@ -4,7 +4,7 @@ category: Devops
 layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2018-06-26
+updated: 2020-01-01
 ---
 
 ### Basic example
@@ -215,4 +215,18 @@ networks:
   default:
     external:
       name: frontend
+```
+
+### Volume
+
+```yaml
+# Mount host paths or named volumes, specified as sub-options to a service
+  db:
+    image: postgres:latest
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+volumes:
+  dbdata:
 ```

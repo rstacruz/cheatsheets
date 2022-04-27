@@ -15,7 +15,7 @@ category: CLI
     $ tmux new -s session_name
 
     $ tmux attach # Default session
-    $ tmux attach -s session_name
+    $ tmux attach -t session_name
 
     $ tmux switch -t session_name
 
@@ -49,6 +49,7 @@ category: CLI
     C-b hkjl    # navigation
     C-b HJKL    # resize
     C-b o       # next window
+    C-b q       # show pane numbers
     C-b x       # close pane
 
     C-b { or }  # move windows around
@@ -57,6 +58,9 @@ category: CLI
 
     C-b c       # New window
     C-b 1       # Go to window 1
+    C-b n       # Go to next window
+    C-b p       # Go to previous window
+    C-b w       # List all window
 
 ### Detach/attach
 

@@ -1563,9 +1563,9 @@
   "updated": "2020-06-17"
 },{
   "id": "jinja",
-  "title": "jinja",
+  "title": "Jinja",
   "url": "/jinja",
-  "category": "python",
+  "category": "Python",
   "keywords": null,
   "content_html": "<h3 id=\"basic-usage\">Basic usage</h3>\n\n<pre><code>- variable x has content: {{ x }}\n- expression: {{ x + 1 }}\n- escaped for HTML: {{ x | e }}\n</code></pre>\n\n<h3 id=\"control-structures\">Control structures</h3>\n\n<pre><code>{% for x in range(5) %}\n    {% if x % 2 == 0 %}\n        {{ x }} is even!\n    {% else %}\n        {{ x }} is odd!\n    {% endif %}\n{% endfor %}\n</code></pre>\n\n<h3 id=\"whitespace-trimming\">Whitespace trimming</h3>\n\n<pre><code>these are\n{{ \"three\" }}\nlines.\n\nthis is conc\n{{- \"at\" -}}\nenated.\n</code></pre>\n\n<h3 id=\"special-blocks\">Special blocks</h3>\n\n<pre><code>{% filter e %}\n{% raw %}\n    This is a raw block where {{nothing is evaluated}}\n    {% not even this %}\n    and &lt;html is escaped&gt; too with \"e\" filter\n{% endraw %}\n{% endfilter %}\n\n{% macro myfunc(x) %}\n    this is a reusable macro, with arguments: {{x}}\n{% endmacro %}\n\n{{ myfunc(42) }}\n\n{#\nthis is a comment\n#}\n</code></pre>\n\n<h3 id=\"inheritance\">Inheritance</h3>\n\n<h4 id=\"sharedhtml\">shared.html</h4>\n\n<pre><code>&lt;html&gt;\n  &lt;head&gt;\n    &lt;title&gt;{%block title %}{% endblock %}&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;header&gt;&lt;h1&gt;{% block title %}{% endblock %}&lt;/h1&gt;&lt;/header&gt;\n    &lt;main&gt;{% block content %}{% endblock %}&lt;/main&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n\n<h4 id=\"homehtml\">home.html</h4>\n\n<pre><code>{% extends \"shared.html\" %}\n{% block title %}Welcome to my site{% endblock %}\n{% block content %}\nThis is the body\n{% endblock %}\n</code></pre>\n\n<h2 id=\"library\">Library</h2>\n\n<h3 id=\"basic-usage-1\">Basic usage</h3>\n\n<pre><code class=\"language-python\">from jinja2 import Template\ntemplate = Template('Hello {{ name }}!')\ntemplate.render(name='John Doe') == u'Hello John Doe!'\n</code></pre>",
   "intro_html": "",

@@ -220,7 +220,7 @@ networks:
 ### Volume
 
 ```yaml
-# Mount host paths or named volumes, specified as sub-options to a service
+# mount host paths or named volumes, specified as sub-options to a service
   db:
     image: postgres:latest
     volumes:
@@ -229,4 +229,16 @@ networks:
 
 volumes:
   dbdata:
+```
+
+### User
+
+```yaml
+# specifying user
+user: root
+```
+
+```yaml
+# specifying both user and group with ids
+user: 0:0
 ```

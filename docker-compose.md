@@ -148,6 +148,10 @@ web:
     - ./_data:/var/lib/mysql
 ```
 
+```yaml
+  # automatically restart container
+  restart: unless-stopped # always, on-failure, "no" (default)
+```
 ## Advanced features
 {: .-three-column}
 

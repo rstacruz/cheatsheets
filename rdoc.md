@@ -145,7 +145,7 @@ Place this at the beginning of the file.
 ## Also see
 {: .-one-column}
 
-* <http://rdoc.rubyforge.org/RDoc/Markup.html>
-* <https://rubydoc.info/gems/yard/file/docs/GettingStarted.md>
+* <https://docs.ruby-lang.org/en/2.1.0/RDoc/Markup.html>
+* <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
 * <https://rubydoc.info/gems/yard/file/docs/Tags.md>
 {: .-also-see}

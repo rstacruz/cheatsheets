@@ -59,6 +59,8 @@ See: [var_dump](https://php.net/var_dump)
 ### Classes
 
 ```php
+<?php
+
 class Person
 {
     public $name = '';
@@ -73,6 +75,8 @@ echo $person->name;
 ### Getters and setters
 
 ```php
+<?php
+
 class Person 
 {
     private $name = '';
@@ -97,6 +101,7 @@ echo $person->getName();
 
 ### isset vs empty
 ```php
+<?php
 
 $options = [
     'key' => 'value',
@@ -107,4 +112,29 @@ $options = [
 var_dump(isset($options['key']), empty($options['key'])); // true, false
 var_dump(isset($options['blank']), empty($options['blank'])); // true, true
 var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
+```
+
+
+### Shorthand class instantiation
+
+```php
+<?php
+
+class myShortHandClass
+{
+	public function __construct(){}
+    
+	public function foo()
+	{
+		echo "Don't need to assign to a variable :)";
+	}
+    
+}
+
+(new myShortHandClass)->foo();
+
+// Same as
+// $x = new myShortHandClass;
+// $x->foo();
+
 ```

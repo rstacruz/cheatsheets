@@ -51,11 +51,15 @@ COPY --chown=user:group host_file.xyz /path/container_file.xyz
 
 ```docker
 ENV my_var
-SHELL ["/bin/ash", "-euo", "pipefail", "-c"]
-RUN true; false; true # fails build like using &&
+SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
+
+# With strict mode:
+RUN false # fails build like using &&
 RUN echo "$myvar" # will throw error due to typo
-RUN true | false | true # will bail out of pipe
+RUN true | false # will bail out of pipe
 ```
+
+Using `shell` will turn on strict mode for shell commands.
 
 ### Onbuild
 

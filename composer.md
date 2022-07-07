@@ -49,7 +49,7 @@ This command changes only the `composer.lock` file.
 
 | Command                          | Description                                                 |
 | ---                              | ---                                                         |
-| `composer require vendor/package`.      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
+| `composer require vendor/package`      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
 | ---                              | ---                                                         |
 | `composer require vendor/package --dev` | Adds `package` from `vendor` to composer.json's `require-dev` section and installs it.            |
 

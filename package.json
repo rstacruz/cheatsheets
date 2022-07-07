@@ -55,5 +55,9 @@
     "prettier:format": "prettier --write '_parcel/**/*.{js,scss}'",
     "test": "jest",
     "test:smoke": "bash _support/smoke_test.sh"
+  },
+  "volta": {
+    "node": "16.14.2",
+    "yarn": "1.22.18"
   }
 }

@@ -150,8 +150,10 @@ web:
 
 ```yaml
   # automatically restart container
-  restart: unless-stopped # always, on-failure, "no" (default)
+  restart: unless-stopped
+  # always, on-failure, no (default)
 ```
+
 ## Advanced features
 {: .-three-column}
 

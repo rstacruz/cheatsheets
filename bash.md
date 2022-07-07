@@ -778,13 +778,14 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| Expression | Description                            |
-| ---------- | -------------------------------------- |
-| `$?`       | Exit status of last task               |
-| `$!`       | PID of last background task            |
-| `$$`       | PID of shell                           |
-| `$0`       | Filename of the shell script           |
-| `$_`       | Last argument of the previous command  |
+| Expression         | Description                            |
+| ------------------ | -------------------------------------- |
+| `$?`               | Exit status of last task               |
+| `$!`               | PID of last background task            |
+| `$$`               | PID of shell                           |
+| `$0`               | Filename of the shell script           |
+| `$_`               | Last argument of the previous command  |
+| `${PIPESTATUS[n]}` | return value of piped commands (array) |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

@@ -35,6 +35,15 @@ Wrap as many `.column`'s' as you like in a `.columns` wrapper
     <div class="column"></div>
 </div>
 ```
+#### You can use one of the following classes to change the size of a single column.
+```css
+.is-three-quarters
+.is-two-thirds
+.is-half
+.is-one-third
+.is-one-quarter
+.is-full
+```
 
 ### Modifiers
 

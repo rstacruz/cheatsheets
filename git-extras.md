@@ -38,9 +38,11 @@ $ git fresh-branch gh-pages
 ### Inspecting
 
 ```sh
-$ git summary   # repo age, commits, active days, etc
-$ git impact    # impact graph
-$ git effort    # commits per file
+$ git summary         # repo age, commits, active days, etc
+$ git info            # shows information about the repo
+$ git effort          # commits per file
+$ git commits-since   # list commits since date (defaults to last week)
+$ git changelog       # generate a changelog for commits since the last tag
 ```
 
 ### Github
@@ -62,7 +64,8 @@ $ git delete-tag v1.0.0
 ### Conveniences
 
 ```sh
-$ git ignore "*.log"
+$ git ignore "*.log"   # append *.log to .gitignore
+$ git undo             # undo the last local commit
 ```
 
 ### Locking
@@ -82,4 +85,4 @@ $ git obliterate secret.yml   # remove all references to it
 
 ### References
 
-- https://github.com/visionmedia/git-extras
+- https://github.com/tj/git-extras

@@ -260,7 +260,7 @@ type Num = GetReturnType<() => number>; // number
 
 type First<T extends Array<any>> = T extends [infer F, ...infer Rest] ? F : never;
 
-type Str = First<['hello', 1, false]>; // string
+type Str = First<['hello', 1, false]>; // 'hello'
 ```
 
 ## Literal Type

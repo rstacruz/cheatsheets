@@ -1,11 +1,15 @@
 ---
 title: TypeScript
 category: JavaScript libraries
+layout: 2017/sheet
+updated: 2019-07-19
+weight: -1
+prism_languages: [typescript]
+intro: |
+  TypeScript is just like ES6 with type-checking. All ES6 syntax (classes, etc) should work.
 ---
 
-TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
-
-## Basic types
+### Basic types
 
 ```ts
 any
@@ -27,11 +31,22 @@ never  /* unreachable */
 ```
 
 ```ts
-enum Color {Red, Green, Blue = 4}
+enum Color {
+  Red,
+  Green,
+  Blue = 4
+}
 let c: Color = Color.Green
 ```
 
-## Declarations
+#### Literals
+
+```ts
+let str: 'foo'
+type Literals = 'bar' | 0 | true
+```
+
+### Declarations
 
 ```ts
 let isDone: boolean
@@ -47,70 +62,70 @@ function add (a: number, b: number): number {
 function add (a: number, b: number) { ... }
 ```
 
-## Type assertions
+### Type assertions
 
 #### Variables
+
 ```ts
 let len: number = (input as string).length
-let len: number = (<string> input).length  /* not allowed in JSX */
+let len: number = (<string>input).length /* not allowed in JSX */
 ```
 
 #### Functions
+
 ```ts
-function object(this: {a: number, b: number}, a: number, b: number) {
+function object(this: { a: number; b: number }, a: number, b: number) {
   this.a = a;
   this.b = b;
   return this;
 }
 
 // this is used only for type declaration
-let a = object(1,2);
+let a = object(1, 2)
 // a has type {a: number, b: number}
 ```
 
+### Interfaces
 
-## Interfaces
-
-### Inline
+#### Inline
 
 ```ts
-function printLabel (options: { label: string }) {
+function printLabel(options: { label: string }) {
   console.log(options.label)
 }
 
 // Note the semicolon
-function getUser (): { name: string; age?: number } {
-}
+function getUser(): { name: string; age?: number } {}
 ```
 
-### Explicit
+#### Explicit
 
 ```ts
 interface LabelOptions {
-  label: string
+  label: string;
 }
 
 function printLabel(options: LabelOptions) { ... }
 ```
 
-### Optional properties
+#### Optional properties
 
 ```ts
 interface User {
-  name: string,
-  age?: number
+  name: string;
+  age?: number;
 }
 ```
 
-### Read only
+#### Read only
 
 ```ts
 interface User {
-  readonly name: string
+  readonly name: string;
 }
 ```
 
-### Dynamic keys
+#### Dynamic keys
 
 ```ts
 {
@@ -118,13 +133,25 @@ interface User {
 }
 ```
 
-## Type aliases
+#### Inheritance
+
+```ts
+interface User {
+  name: string;
+}
+
+interface Admin extends User {
+  password: string;
+}
+```
+
+### Type aliases
 
 ```ts
 type Name = string | string[]
 ```
 
-## Function types
+### Function types
 
 ```ts
 interface User { ... }
@@ -134,7 +161,7 @@ function getUser(callback: (user: User) => any) { callback({...}) }
 getUser(function (user: User) { ... })
 ```
 
-## Classes
+### Classes
 
 ```ts
 class Point {
@@ -167,12 +194,13 @@ class Point {
   static instances = 0;
   constructor(
     public x: number,
-    public y: number,
-  ){}
+    public y: number
+  ) {}
 }
 ```
 
 #### Fields which do not require initialisation
+
 ```ts
 class Point {
   public someUselessValue!: number;
@@ -180,7 +208,7 @@ class Point {
 }
 ```
 
-## Generics
+### Generics
 
 ```ts
 class Greeter<T> {
@@ -193,21 +221,24 @@ class Greeter<T> {
 let greeter = new Greeter<string>('Hello, world')
 ```
 
-## Modules
+### Modules
 
 ```ts
-export interface User { ... }
+declare module '*.svg' {
+  const svg: string;
+  export default svg;
+}
 ```
 
-## Type extraction
+### Type extraction
 
 ```ts
 interface Building {
   room: {
-    door: string,
-    walls: string[],
+    door: string;
+    walls: string[];
   };
 }
 
-type Walls = Building['room']['walls']; // string[]
+type Walls = Building['room']['walls'] // string[]
 ```

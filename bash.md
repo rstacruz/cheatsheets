@@ -94,6 +94,10 @@ elif [[ -n "$string" ]]; then
 fi
 ```
 
+```bash
+(exit 0) && echo "Process exited 0" || echo "Process exited 1+" 
+```
+
 See: [Conditionals](#conditionals)
 
 ### Strict mode

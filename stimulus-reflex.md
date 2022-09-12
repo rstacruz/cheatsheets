@@ -9,8 +9,9 @@ updated: 2021-01-07
 
 Trigger reflexes without writing any javascript with the `data-reflex` attribute.
 
-```erb
-<!-- index.html.erb -->
+#### index.html.erb
+
+```html
 <a
   href="#"
   data-reflex="click->CounterReflex#increment"
@@ -20,8 +21,9 @@ Trigger reflexes without writing any javascript with the `data-reflex` attribute
 >
 ```
 
+#### counter_reflex.rb
+
 ```ruby
-# counter_reflex.rb
 class CounterReflex < StimulusReflex::Reflex
   def increment
     @count = element.dataset[:count].to_i + element.dataset[:step].to_i
@@ -33,16 +35,18 @@ end
 
 Stimulus.js controllers registered with StimulusReflex can use the `stimulate` method to trigger reflexes
 
-```erb
-<!-- index.html.erb -->
+#### index.html.erb
+
+```html
 <a href="#"
   data-controller="counter"
   data-action="click->counter#increment"
 >Increment <%= @count %></a>
 ```
 
+#### counter_controller.js
+
 ```javascript
-// counter_controller.js
 import { Controller } from 'stimulus'
 import StimulusReflex from 'stimulus_reflex'
 
@@ -58,8 +62,9 @@ export default class extends Controller {
 }
 ```
 
+#### counter_reflex.rb
+
 ```ruby
-# counter_reflex.rb
 class CounterReflex < StimulusReflex::Reflex
   def increment(step = 1)
     session[:count] = session[:count].to_i + step
@@ -73,14 +78,14 @@ end
 
 Instead of refreshing the entire page, you can specify a portion of the page to update with `morph(selector, content)`
 
-```erb
+```html
 <!-- show.html.erb -->
 <header data-reflex="click->Example#change">
   <%= render partial: "path/to/foo", locals: {message: "Am I the medium or the massage?"} %>
 </header>
 ```
 
-```erb
+```html
 <!-- _foo.html.erb -->
 <div id="foo">
   <span class="spa"><%= message %></span>
@@ -179,7 +184,7 @@ this.stimulate('Comments#create')
 
 You can use the `data-reflex-dataset="combined"` directive to scoop all data attributes up the DOM hierarchy and pass them as part of the Reflex payload.
 
-```erb
+```html
 <!-- new.html.erb -->
 <div data-post-id="<%= @post.id %>">
   <div data-category-id="<%= @category.id %>">
@@ -188,7 +193,7 @@ You can use the `data-reflex-dataset="combined"` directive to scoop all data att
 </div>
 ```
 
-```ruby
+```html
 # comment_reflex.rb
 class CommentReflex < ApplicationReflex
   def create

@@ -1,6 +1,6 @@
 ---
 title: mako
-category: python
+category: Python
 layout: 2017/sheet
 ---
 

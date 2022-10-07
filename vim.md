@@ -128,7 +128,7 @@ Getting started
 | ---      | ---                                 |
 | `u`      | Undo changes                        |
 | `<C-R>`  | Redo changes                        |
-| `:n1, n2d`  | Delete multiple lines from n1 to n2 |
+| `:n1,n2d`  | Delete multiple lines from n1 to n2(including n1 and n2) |
 {: .-shortcuts}
 
 ### Exiting insert mode

@@ -31,7 +31,7 @@ updated: 2020-03-09
 ```bash
 -X POST          # --request
 -L               # follow link if page redirects
--F 	             # --form: HTTP POST data for multipart/form-data
+-F               # --form: HTTP POST data for multipart/form-data
 ```
 
 ### Data

@@ -94,7 +94,7 @@ INSERT INTO table1 (field1, field2) VALUES (value1, value2);
 ```sql
 DELETE FROM table1 / TRUNCATE table1
 DELETE FROM table1 WHERE condition
-DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
+DELETE FROM table1, table2 WHERE table1.id1 =
   table2.id2 AND condition
 ```
 

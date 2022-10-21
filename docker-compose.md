@@ -196,6 +196,18 @@ services:
       - project_db_1:mysql
 ```
 
+### Healthcheck
+
+```yaml
+    # declare service healthy when `test` command succeed
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+```
+
 ### Hosts
 
 ```yaml

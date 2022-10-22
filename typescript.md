@@ -268,7 +268,7 @@ type Str = First<['hello', 1, false]>; // 'hello'
 ```ts
 const point = { x: 4, y: 2 }; // { x: number, y: number }
 
-const literalPoint = point as const; // { x: 4, y: 2 };
+const literalPoint = { x: 4, y: 2 } as const; // { readonly x: 4, readonly y: 2 };
 ```
 
 ## Template Literal Types

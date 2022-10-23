@@ -431,7 +431,7 @@ func main() {
   for _, item := range itemList {
     // Increment WaitGroup Counter
     wg.Add(1)
-    go doOperation(item)
+    go doOperation(&wg, item)
   }
   // Wait for goroutines to finish
   wg.Wait()
@@ -441,7 +441,7 @@ func main() {
 {: data-line="1,4,8,12"}
 
 ```go
-func doOperation(item string) {
+func doOperation(wg *sync.WaitGroup, item string) {
   defer wg.Done()
   // do operation on item
   // ...

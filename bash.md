@@ -25,6 +25,7 @@ This is a quick reference to getting started with Bash scripting.
 
 - [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
 - [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+- [Bash Hackers Wiki](https://wiki.bash-hackers.org) _(wiki.bash-hackers.org)_
 
 ### Example
 
@@ -709,6 +710,28 @@ printf "This is how you print a float: %f" 2
 #=> "This is how you print a float: 2.000000"
 ```
 
+### Transform strings
+
+| Command option     | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `-c`               | Operations apply to characters not in the given set |
+| `-d`               | Delete characters                                   |
+| `-s`               | Replaces repeated characters with single occurrence |
+| `-t`               | Truncates                                           |
+| `[:upper:]`        | All upper case letters                              |
+| `[:lower:]`        | All lower case letters                              |
+| `[:digit:]`        | All digits                                          |
+| `[:space:]`        | All whitespace                                      |
+| `[:alpha:]`        | All letters                                         |
+| `[:alnum:]`        | All letters and digits                              |
+
+#### Example
+
+```bash
+echo "Welcome To Devhints" | tr [:lower:] [:upper:]
+WELCOME TO DEVHINTS
+```
+
 ### Directory of script
 
 ```bash
@@ -755,13 +778,14 @@ read -n 1 ans    # Just one character
 
 ### Special variables
 
-| Expression | Description                            |
-| ---------- | -------------------------------------- |
-| `$?`       | Exit status of last task               |
-| `$!`       | PID of last background task            |
-| `$$`       | PID of shell                           |
-| `$0`       | Filename of the shell script           |
-| `$_`       | Last argument of the previous command  |
+| Expression         | Description                            |
+| ------------------ | -------------------------------------- |
+| `$?`               | Exit status of last task               |
+| `$!`               | PID of last background task            |
+| `$$`               | PID of shell                           |
+| `$0`               | Filename of the shell script           |
+| `$_`               | Last argument of the previous command  |
+| `${PIPESTATUS[n]}` | return value of piped commands (array) |
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 

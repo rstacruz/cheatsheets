@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/typescript.jpg?t=20221005022859' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/typescript.jpg?t=20221005022859' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/typescript.jpg?t=20221027022504' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/typescript.jpg?t=20221027022504' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -90,9 +90,9 @@ gtag('config','UA-106902774-1');
 <!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
 
   <style>html{opacity:0}</style>
-  <link rel="stylesheet" href="./assets/2015/style.css?t=20221005022859">
-  <link href="./assets/style.css?t=20221005022859" rel="stylesheet" />
-  <link href="./assets/print.css?t=20221005022859" rel="stylesheet" media="print" />
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20221027022504">
+  <link href="./assets/style.css?t=20221027022504" rel="stylesheet" />
+  <link href="./assets/print.css?t=20221027022504" rel="stylesheet" media="print" />
 </head>
 <body>
 <div class='all'>
@@ -114,7 +114,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "TypeScript cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/typescript.jpg?t=20221005022859" ],
+  "image": [ "https://assets.devhints.io/previews/typescript.jpg?t=20221027022504" ],
   "description": "The one-page guide to TypeScript: usage, examples, links, snippets, and more."
 }
 </script>
@@ -174,15 +174,24 @@ string
 null
 undefined
 
+bigint
+symbol
+
 string[]          /* or Array&lt;string&gt; */
 [string, number]  /* tuple */
 
 string | null | undefined   /* union */
 
 never  /* unreachable */
+unknown
 </code></pre>
 
-<pre><code class="language-ts">enum Color {Red, Green, Blue = 4}
+<pre><code class="language-ts">enum Color {
+  Red,
+  Green,
+  Blue = 4
+};
+
 let c: Color = Color.Green
 </code></pre>
 
@@ -244,8 +253,8 @@ function printLabel(options: LabelOptions) { ... }
 <h3 id="optional-properties">Optional properties</h3>
 
 <pre><code class="language-ts">interface User {
-  name: string,
-  age?: number
+  name: string;
+  age?: number;
 }
 </code></pre>
 
@@ -266,6 +275,15 @@ function printLabel(options: LabelOptions) { ... }
 <h2 id="type-aliases">Type aliases</h2>
 
 <pre><code class="language-ts">type Name = string | string[]
+</code></pre>
+
+<h3 id="intersection">Intersection</h3>
+
+<pre><code class="language-ts">interface Colorful { ... }
+
+interface Circle { ... }
+ 
+type ColorfulCircle = Colorful &amp; Circle;
 </code></pre>
 
 <h2 id="function-types">Function types</h2>
@@ -340,12 +358,58 @@ let greeter = new Greeter&lt;string&gt;('Hello, world')
 
 <pre><code class="language-ts">interface Building {
   room: {
-    door: string,
-    walls: string[],
+    door: string;
+    walls: string[];
   };
 }
 
 type Walls = Building['room']['walls']; // string[]
+</code></pre>
+
+<h2 id="keyof-type-operator">Keyof Type Operator</h2>
+
+<pre><code class="language-ts">type Point = { x: number; y: number };
+
+type P = keyof Point; // x | y
+</code></pre>
+
+<h2 id="conditinal-types">Conditinal Types</h2>
+
+<pre><code class="language-ts">// SomeType extends OtherType ? TrueType : FalseType;
+
+type ToArray&lt;T&gt; = T extends any ? T[] : never;
+
+type StrArrOrNumArr = ToArray&lt;string | number&gt;; // string[] | number[]
+</code></pre>
+
+<h3 id="inferring">Inferring</h3>
+
+<pre><code class="language-ts">type GetReturnType&lt;T&gt; = T extends (...args: unknown[]) =&gt; infer R
+  ? R
+  : never;
+
+type Num = GetReturnType&lt;() =&gt; number&gt;; // number
+</code></pre>
+
+<pre><code class="language-ts">type First&lt;T extends Array&lt;any&gt;&gt; = T extends [infer F, ...infer Rest] ? F : never;
+
+type Str = First&lt;['hello', 1, false]&gt;; // 'hello'
+</code></pre>
+
+<h2 id="literal-type">Literal Type</h2>
+
+<pre><code class="language-ts">const point = { x: 4, y: 2 }; // { x: number, y: number }
+
+const literalPoint = { x: 4, y: 2 } as const; // { readonly x: 4, readonly y: 2 };
+</code></pre>
+
+<h2 id="template-literal-types">Template Literal Types</h2>
+
+<pre><code class="language-ts">type SpaceChar = ' ' | '\n' | '\t';
+
+type TrimLeft&lt;S extends string&gt; = S extends `${SpaceChar}${infer Rest}` ? TrimLeft&lt;Rest&gt; : S;
+
+type Str = TrimLeft&lt;'    hello'&gt;; // 'hello'
 </code></pre>
 
     </div>

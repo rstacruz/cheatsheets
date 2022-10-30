@@ -647,12 +647,13 @@ pwd # still in first directory
 ### Redirection
 
 ```bash
-python hello.py > output.txt   # stdout to (file)
-python hello.py >> output.txt  # stdout to (file), append
-python hello.py 2> error.log   # stderr to (file)
-python hello.py 2>&1           # stderr to stdout
-python hello.py 2>/dev/null    # stderr to (null)
-python hello.py &>/dev/null    # stdout and stderr to (null)
+python hello.py > output.txt      # stdout to (file)
+python hello.py >> output.txt     # stdout to (file), append
+python hello.py 2> error.log      # stderr to (file)
+python hello.py 2>&1              # stderr to stdout
+python hello.py 2>/dev/null       # stderr to (null)
+python hello.py >output.txt 2>&1  # stdout and stderr to (file), equivalent to &>
+python hello.py &>/dev/null       # stdout and stderr to (null)
 ```
 
 ```bash

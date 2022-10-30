@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20221027022504' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20221027022504' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20221030115706' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20221030115706' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -103,11 +103,11 @@ gtag('config','UA-106902774-1');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20221027022504'
+'./assets/2017/style.css?t=20221030115706'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20221027022504'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20221030115706'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -119,7 +119,7 @@ gtag('config','UA-106902774-1');
     "@id": "https://google.com/article"
   },
   "headline": "Bash scripting cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/bash.jpg?t=20221027022504" ],
+  "image": [ "https://assets.devhints.io/previews/bash.jpg?t=20221030115706" ],
   "description": "Variables · Functions · Interpolation · Brace expansions · Loops · Conditional execution · Command substitution · One-page guide to Bash scripting"
 }
 </script>
@@ -227,29 +227,35 @@ gtag('config','UA-106902774-1');
 
 <pre><code class="language-bash">#!/usr/bin/env bash
 
-NAME="John"
-echo "Hello $NAME!"
+name="John"
+echo "Hello $name!"
 </code></pre>
 
 <h3 id="variables">Variables</h3>
 
-<pre><code class="language-bash">NAME="John"
-echo $NAME
-echo "$NAME"
-echo "${NAME}!"
+<pre><code class="language-bash">name="John"
+echo $name  # see below
+echo "$name"
+echo "${name}!"
+</code></pre>
+<p>Generally quote your variables unless they contain wildcards to expand or command fragments.</p>
+
+<pre><code class="language-bash">wildcard="*.txt"
+option="iv"
+cp -$options $wildcard /tmp
 </code></pre>
 
 <h3 id="string-quotes">String quotes</h3>
 
-<pre><code class="language-bash">NAME="John"
-echo "Hi $NAME"  #=&gt; Hi John
-echo 'Hi $NAME'  #=&gt; Hi $NAME
+<pre><code class="language-bash">name="John"
+echo "Hi $name"  #=&gt; Hi John
+echo 'Hi $name'  #=&gt; Hi $name
 </code></pre>
 
 <h3 id="shell-execution">Shell execution</h3>
 
 <pre><code class="language-bash">echo "I'm in $(pwd)"
-echo "I'm in `pwd`"
+echo "I'm in `pwd`"  # obsolescent
 # Same
 </code></pre>
 
@@ -326,44 +332,44 @@ IFS=$'\n\t'
 <h3 id="basics">Basics</h3>
 
 <pre><code class="language-bash">name="John"
-echo ${name}
-echo ${name/J/j}    #=&gt; "john" (substitution)
-echo ${name:0:2}    #=&gt; "Jo" (slicing)
-echo ${name::2}     #=&gt; "Jo" (slicing)
-echo ${name::-1}    #=&gt; "Joh" (slicing)
-echo ${name:(-1)}   #=&gt; "n" (slicing from right)
-echo ${name:(-2):1} #=&gt; "h" (slicing from right)
-echo ${food:-Cake}  #=&gt; $food or "Cake"
+echo "${name}"
+echo "${name/J/j}"    #=&gt; "john" (substitution)
+echo "${name:0:2}"    #=&gt; "Jo" (slicing)
+echo "${name::2}"     #=&gt; "Jo" (slicing)
+echo "${name::-1}"    #=&gt; "Joh" (slicing)
+echo "${name:(-1)}"   #=&gt; "n" (slicing from right)
+echo "${name:(-2):1}" #=&gt; "h" (slicing from right)
+echo "${food:-Cake}"  #=&gt; $food or "Cake"
 </code></pre>
 
 <pre><code class="language-bash">length=2
-echo ${name:0:length}  #=&gt; "Jo"
+echo "${name:0:length}"  #=&gt; "Jo"
 </code></pre>
 
 <p>See: <a href="http://wiki.bash-hackers.org/syntax/pe">Parameter expansion</a></p>
 
-<pre><code class="language-bash">STR="/path/to/foo.cpp"
-echo ${STR%.cpp}    # /path/to/foo
-echo ${STR%.cpp}.o  # /path/to/foo.o
-echo ${STR%/*}      # /path/to
+<pre><code class="language-bash">str="/path/to/foo.cpp"
+echo "${str%.cpp}"    # /path/to/foo
+echo "${str%.cpp}.o"  # /path/to/foo.o
+echo "${str%/*}"      # /path/to
 
-echo ${STR##*.}     # cpp (extension)
-echo ${STR##*/}     # foo.cpp (basepath)
+echo "${str##*.}"     # cpp (extension)
+echo "${str##*/}"     # foo.cpp (basepath)
 
-echo ${STR#*/}      # path/to/foo.cpp
-echo ${STR##*/}     # foo.cpp
+echo "${str#*/}"      # path/to/foo.cpp
+echo "${str##*/}"     # foo.cpp
 
-echo ${STR/foo/bar} # /path/to/bar.cpp
+echo "${str/foo/bar}" # /path/to/bar.cpp
 </code></pre>
 
-<pre><code class="language-bash">STR="Hello world"
-echo ${STR:6:5}   # "world"
-echo ${STR: -5:5}  # "world"
+<pre><code class="language-bash">str="Hello world"
+echo "${str:6:5}"   # "world"
+echo "${str: -5:5}"  # "world"
 </code></pre>
 
-<pre><code class="language-bash">SRC="/path/to/foo.cpp"
-BASE=${SRC##*/}   #=&gt; "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=&gt; "/path/to/" (dirpath)
+<pre><code class="language-bash">src="/path/to/foo.cpp"
+base=${src##*/}   #=&gt; "foo.cpp" (basepath)
+dir=${src%$base}  #=&gt; "/path/to/" (dirpath)
 </code></pre>
 
 <h3 id="substitution">Substitution</h3>
@@ -377,41 +383,41 @@ DIR=${SRC%$BASE}  #=&gt; "/path/to/" (dirpath)
   </thead>
   <tbody>
     <tr>
-      <td><code>${FOO%suffix}</code></td>
+      <td><code>${foo%suffix}</code></td>
       <td>Remove suffix</td>
     </tr>
     <tr>
-      <td><code>${FOO#prefix}</code></td>
+      <td><code>${foo#prefix}</code></td>
       <td>Remove prefix</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><code>${FOO%%suffix}</code></td>
+      <td><code>${foo%%suffix}</code></td>
       <td>Remove long suffix</td>
     </tr>
     <tr>
-      <td><code>${FOO##prefix}</code></td>
+      <td><code>${foo##prefix}</code></td>
       <td>Remove long prefix</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><code>${FOO/from/to}</code></td>
+      <td><code>${foo/from/to}</code></td>
       <td>Replace first match</td>
     </tr>
     <tr>
-      <td><code>${FOO//from/to}</code></td>
+      <td><code>${foo//from/to}</code></td>
       <td>Replace all</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><code>${FOO/%from/to}</code></td>
+      <td><code>${foo/%from/to}</code></td>
       <td>Replace suffix</td>
     </tr>
     <tr>
-      <td><code>${FOO/#from/to}</code></td>
+      <td><code>${foo/#from/to}</code></td>
       <td>Replace prefix</td>
     </tr>
   </tbody>
@@ -440,11 +446,11 @@ comment
   </thead>
   <tbody>
     <tr>
-      <td><code>${FOO:0:3}</code></td>
+      <td><code>${foo:0:3}</code></td>
       <td>Substring <em>(position, length)</em></td>
     </tr>
     <tr>
-      <td><code>${FOO:(-3):3}</code></td>
+      <td><code>${foo:(-3):3}</code></td>
       <td>Substring from the right</td>
     </tr>
   </tbody>
@@ -461,21 +467,21 @@ comment
   </thead>
   <tbody>
     <tr>
-      <td><code>${#FOO}</code></td>
-      <td>Length of <code>$FOO</code></td>
+      <td><code>${#foo}</code></td>
+      <td>Length of <code>$foo</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="manipulation">Manipulation</h3>
 
-<pre><code class="language-bash">STR="HELLO WORLD!"
-echo ${STR,}   #=&gt; "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=&gt; "hello world!" (all lowercase)
+<pre><code class="language-bash">str="HELLO WORLD!"
+echo "${str,}"   #=&gt; "hELLO WORLD!" (lowercase 1st letter)
+echo "${str,,}"  #=&gt; "hello world!" (all lowercase)
 
-STR="hello world!"
-echo ${STR^}   #=&gt; "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=&gt; "HELLO WORLD!" (all uppercase)
+str="hello world!"
+echo "${str^}"   #=&gt; "Hello world!" (uppercase 1st letter)
+echo "${str^^}"  #=&gt; "HELLO WORLD!" (all uppercase)
 </code></pre>
 
 <h3 id="default-values">Default values</h3>
@@ -489,39 +495,39 @@ echo ${STR^^}  #=&gt; "HELLO WORLD!" (all uppercase)
   </thead>
   <tbody>
     <tr>
-      <td><code>${FOO:-val}</code></td>
-      <td><code>$FOO</code>, or <code>val</code> if unset (or null)</td>
+      <td><code>${foo:-val}</code></td>
+      <td><code>$foo</code>, or <code>val</code> if unset (or null)</td>
     </tr>
     <tr>
-      <td><code>${FOO:=val}</code></td>
-      <td>Set <code>$FOO</code> to <code>val</code> if unset (or null)</td>
+      <td><code>${foo:=val}</code></td>
+      <td>Set <code>$foo</code> to <code>val</code> if unset (or null)</td>
     </tr>
     <tr>
-      <td><code>${FOO:+val}</code></td>
-      <td><code>val</code> if <code>$FOO</code> is set (and not null)</td>
+      <td><code>${foo:+val}</code></td>
+      <td><code>val</code> if <code>$foo</code> is set (and not null)</td>
     </tr>
     <tr>
-      <td><code>${FOO:?message}</code></td>
-      <td>Show error message and exit if <code>$FOO</code> is unset (or null)</td>
+      <td><code>${foo:?message}</code></td>
+      <td>Show error message and exit if <code>$foo</code> is unset (or null)</td>
     </tr>
   </tbody>
 </table>
 
-<p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${FOO-val}</code> expands to <code>val</code> if unset otherwise <code>$FOO</code>.</p>
+<p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${foo-val}</code> expands to <code>val</code> if unset otherwise <code>$foo</code>.</p>
 
 <h2 class="-three-column" id="loops">Loops</h2>
 
 <h3 id="basic-for-loop">Basic for loop</h3>
 
 <pre><code class="language-bash">for i in /etc/rc.*; do
-  echo $i
+  echo "$i"
 done
 </code></pre>
 
 <h3 id="c-like-for-loop">C-like for loop</h3>
 
 <pre><code class="language-bash">for ((i = 0 ; i &lt; 100 ; i++)); do
-  echo $i
+  echo "$i"
 done
 </code></pre>
 
@@ -541,9 +547,9 @@ done
 
 <h3 id="reading-lines">Reading lines</h3>
 
-<pre><code class="language-bash">cat file.txt | while read line; do
-  echo $line
-done
+<pre><code class="language-bash">while read -r line; do
+  echo "$line"
+done &lt;file.txt
 </code></pre>
 
 <h3 id="forever">Forever</h3>
@@ -575,11 +581,11 @@ function myfunc() {
 
 <pre><code class="language-bash">myfunc() {
     local myresult='some value'
-    echo $myresult
+    echo "$myresult"
 }
 </code></pre>
 
-<pre><code class="language-bash">result="$(myfunc)"
+<pre><code class="language-bash">result=$(myfunc)
 </code></pre>
 
 <h3 id="raising-errors">Raising errors</h3>
@@ -845,21 +851,21 @@ Fruits[2]="Orange"
 
 <h3 id="working-with-arrays">Working with arrays</h3>
 
-<pre><code class="language-bash">echo ${Fruits[0]}           # Element #0
-echo ${Fruits[-1]}          # Last element
-echo ${Fruits[@]}           # All elements, space-separated
-echo ${#Fruits[@]}          # Number of elements
-echo ${#Fruits}             # String length of the 1st element
-echo ${#Fruits[3]}          # String length of the Nth element
-echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
-echo ${!Fruits[@]}          # Keys of all elements, space-separated
+<pre><code class="language-bash">echo "${Fruits[0]}"           # Element #0
+echo "${Fruits[-1]}"          # Last element
+echo "${Fruits[@]}"           # All elements, space-separated
+echo "${#Fruits[@]}"          # Number of elements
+echo "${#Fruits}"             # String length of the 1st element
+echo "${#Fruits[3]}"          # String length of the Nth element
+echo "${Fruits[@]:3:2}"       # Range (from position 3, length 2)
+echo "${!Fruits[@]}"          # Keys of all elements, space-separated
 </code></pre>
 
 <h3 id="operations">Operations</h3>
 
 <pre><code class="language-bash">Fruits=("${Fruits[@]}" "Watermelon")    # Push
 Fruits+=('Watermelon')                  # Also Push
-Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
+Fruits=( "${Fruits[@]/Ap*/}" )          # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
@@ -869,7 +875,7 @@ lines=(`cat "logfile"`)                 # Read from file
 <h3 id="iteration">Iteration</h3>
 
 <pre><code class="language-bash">for i in "${arrayName[@]}"; do
-  echo $i
+  echo "$i"
 done
 </code></pre>
 
@@ -890,11 +896,11 @@ sounds[wolf]="howl"
 
 <h3 id="working-with-dictionaries">Working with dictionaries</h3>
 
-<pre><code class="language-bash">echo ${sounds[dog]} # Dog's sound
-echo ${sounds[@]}   # All values
-echo ${!sounds[@]}  # All keys
-echo ${#sounds[@]}  # Number of elements
-unset sounds[dog]   # Delete dog
+<pre><code class="language-bash">echo "${sounds[dog]}" # Dog's sound
+echo "${sounds[@]}"   # All values
+echo "${!sounds[@]}"  # All keys
+echo "${#sounds[@]}"  # Number of elements
+unset sounds[dog]     # Delete dog
 </code></pre>
 
 <h3 id="iteration-1">Iteration</h3>
@@ -902,14 +908,14 @@ unset sounds[dog]   # Delete dog
 <h4 id="iterate-over-values">Iterate over values</h4>
 
 <pre><code class="language-bash">for val in "${sounds[@]}"; do
-  echo $val
+  echo "$val"
 done
 </code></pre>
 
 <h4 id="iterate-over-keys">Iterate over keys</h4>
 
 <pre><code class="language-bash">for key in "${!sounds[@]}"; do
-  echo $key
+  echo "$key"
 done
 </code></pre>
 
@@ -1079,12 +1085,14 @@ pwd # still in first directory
 
 <h3 id="redirection">Redirection</h3>
 
-<pre><code class="language-bash">python hello.py &gt; output.txt   # stdout to (file)
-python hello.py &gt;&gt; output.txt  # stdout to (file), append
-python hello.py 2&gt; error.log   # stderr to (file)
-python hello.py 2&gt;&amp;1           # stderr to stdout
-python hello.py 2&gt;/dev/null    # stderr to (null)
-python hello.py &amp;&gt;/dev/null    # stdout and stderr to (null)
+<pre><code class="language-bash">python hello.py &gt; output.txt            # stdout to (file)
+python hello.py &gt;&gt; output.txt           # stdout to (file), append
+python hello.py 2&gt; error.log            # stderr to (file)
+python hello.py 2&gt;&amp;1                    # stderr to stdout
+python hello.py 2&gt;/dev/null             # stderr to (null)
+python hello.py &gt;output.txt 2&gt;&amp;1        # stdout and stderr to (file), equivalent to &amp;&gt;
+python hello.py &amp;&gt;/dev/null             # stdout and stderr to (null)
+echo "$0: warning: too many users" &gt;&amp;2  # print diagnostic message to stderr
 </code></pre>
 
 <pre><code class="language-bash">python hello.py &lt; foo.txt      # feed foo.txt to stdin for python
@@ -1140,6 +1148,10 @@ printf "1 + 1 = %d" 2
 
 printf "This is how you print a float: %f" 2
 #=&gt; "This is how you print a float: 2.000000"
+
+printf '%s\n' '#!/bin/bash' 'echo hello' &gt;file
+# format string is applied to each group of arguments
+printf '%i+%i=%i\n' 1 2 3  4 5 9
 </code></pre>
 
 <h3 id="transform-strings">Transform strings</h3>
@@ -1197,20 +1209,20 @@ printf "This is how you print a float: %f" 2
 
 <h4 id="example-2">Example</h4>
 
-<pre><code class="language-bash">echo "Welcome To Devhints" | tr [:lower:] [:upper:]
+<pre><code class="language-bash">echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
 WELCOME TO DEVHINTS
 </code></pre>
 
 <h3 id="directory-of-script">Directory of script</h3>
 
-<pre><code class="language-bash">DIR="${0%/*}"
+<pre><code class="language-bash">dir=${0%/*}
 </code></pre>
 
 <h3 id="getting-options">Getting options</h3>
 
 <pre><code class="language-bash">while [[ "$1" =~ ^- &amp;&amp; ! "$1" == "--" ]]; do case $1 in
   -V | --version )
-    echo $version
+    echo "$version"
     exit
     ;;
   -s | --string )
@@ -1233,9 +1245,11 @@ END
 <h3 id="reading-input">Reading input</h3>
 
 <pre><code class="language-bash">echo -n "Proceed? [y/n]: "
-read ans
-echo $ans
+read -r ans
+echo "$ans"
 </code></pre>
+
+<p>The <code>-r</code> option disables a peculiar legacy behavior with backslashes.</p>
 
 <pre><code class="language-bash">read -n 1 ans    # Just one character
 </code></pre>
@@ -1598,7 +1612,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20221027022504'></script>
+<script src='./assets/packed/app.js?t=20221030115706'></script>
 
 
 

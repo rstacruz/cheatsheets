@@ -32,25 +32,25 @@ This is a quick reference to getting started with Bash scripting.
 ```bash
 #!/usr/bin/env bash
 
-NAME="John"
-echo "Hello $NAME!"
+name="John"
+echo "Hello $name!"
 ```
 
 ### Variables
 
 ```bash
-NAME="John"
-echo $NAME
-echo "$NAME"
-echo "${NAME}!"
+name="John"
+echo $name
+echo "$name"
+echo "${name}!"
 ```
 
 ### String quotes
 
 ```bash
-NAME="John"
-echo "Hi $NAME"  #=> Hi John
-echo 'Hi $NAME'  #=> Hi $NAME
+name="John"
+echo "Hi $name"  #=> Hi John
+echo 'Hi $name'  #=> Hi $name
 ```
 
 ### Shell execution
@@ -146,47 +146,47 @@ echo ${name:0:length}  #=> "Jo"
 See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 
 ```bash
-STR="/path/to/foo.cpp"
-echo ${STR%.cpp}    # /path/to/foo
-echo ${STR%.cpp}.o  # /path/to/foo.o
-echo ${STR%/*}      # /path/to
+str="/path/to/foo.cpp"
+echo ${str%.cpp}    # /path/to/foo
+echo ${str%.cpp}.o  # /path/to/foo.o
+echo ${str%/*}      # /path/to
 
-echo ${STR##*.}     # cpp (extension)
-echo ${STR##*/}     # foo.cpp (basepath)
+echo ${str##*.}     # cpp (extension)
+echo ${str##*/}     # foo.cpp (basepath)
 
-echo ${STR#*/}      # path/to/foo.cpp
-echo ${STR##*/}     # foo.cpp
+echo ${str#*/}      # path/to/foo.cpp
+echo ${str##*/}     # foo.cpp
 
-echo ${STR/foo/bar} # /path/to/bar.cpp
+echo ${str/foo/bar} # /path/to/bar.cpp
 ```
 
 ```bash
-STR="Hello world"
-echo ${STR:6:5}   # "world"
-echo ${STR: -5:5}  # "world"
+str="Hello world"
+echo ${str:6:5}   # "world"
+echo ${str: -5:5}  # "world"
 ```
 
 ```bash
-SRC="/path/to/foo.cpp"
-BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
+src="/path/to/foo.cpp"
+base=${src##*/}   #=> "foo.cpp" (basepath)
+dir=${src%$base}  #=> "/path/to/" (dirpath)
 ```
 
 ### Substitution
 
 | Code              | Description         |
 | ----------------- | ------------------- |
-| `${FOO%suffix}`   | Remove suffix       |
-| `${FOO#prefix}`   | Remove prefix       |
+| `${foo%suffix}`   | Remove suffix       |
+| `${foo#prefix}`   | Remove prefix       |
 | ---               | ---                 |
-| `${FOO%%suffix}`  | Remove long suffix  |
-| `${FOO##prefix}`  | Remove long prefix  |
+| `${foo%%suffix}`  | Remove long suffix  |
+| `${foo##prefix}`  | Remove long prefix  |
 | ---               | ---                 |
-| `${FOO/from/to}`  | Replace first match |
-| `${FOO//from/to}` | Replace all         |
+| `${foo/from/to}`  | Replace first match |
+| `${foo//from/to}` | Replace all         |
 | ---               | ---                 |
-| `${FOO/%from/to}` | Replace suffix      |
-| `${FOO/#from/to}` | Replace prefix      |
+| `${foo/%from/to}` | Replace suffix      |
+| `${foo/#from/to}` | Replace prefix      |
 
 ### Comments
 
@@ -206,37 +206,37 @@ comment
 
 | Expression      | Description                    |
 | --------------- | ------------------------------ |
-| `${FOO:0:3}`    | Substring _(position, length)_ |
-| `${FOO:(-3):3}` | Substring from the right       |
+| `${foo:0:3}`    | Substring _(position, length)_ |
+| `${foo:(-3):3}` | Substring from the right       |
 
 ### Length
 
 | Expression | Description      |
 | ---------- | ---------------- |
-| `${#FOO}`  | Length of `$FOO` |
+| `${#foo}`  | Length of `$foo` |
 
 ### Manipulation
 
 ```bash
-STR="HELLO WORLD!"
-echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=> "hello world!" (all lowercase)
+str="HELLO WORLD!"
+echo ${str,}   #=> "hELLO WORLD!" (lowercase 1st letter)
+echo ${str,,}  #=> "hello world!" (all lowercase)
 
-STR="hello world!"
-echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+str="hello world!"
+echo ${str^}   #=> "Hello world!" (uppercase 1st letter)
+echo ${str^^}  #=> "HELLO WORLD!" (all uppercase)
 ```
 
 ### Default values
 
 | Expression        | Description                                              |
 | ----------------- | -------------------------------------------------------- |
-| `${FOO:-val}`     | `$FOO`, or `val` if unset (or null)                      |
-| `${FOO:=val}`     | Set `$FOO` to `val` if unset (or null)                   |
-| `${FOO:+val}`     | `val` if `$FOO` is set (and not null)                    |
-| `${FOO:?message}` | Show error message and exit if `$FOO` is unset (or null) |
+| `${foo:-val}`     | `$foo`, or `val` if unset (or null)                      |
+| `${foo:=val}`     | Set `$foo` to `val` if unset (or null)                   |
+| `${foo:+val}`     | `val` if `$foo` is set (and not null)                    |
+| `${foo:?message}` | Show error message and exit if `$foo` is unset (or null) |
 
-Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
+Omitting the `:` removes the (non)nullity checks, e.g. `${foo-val}` expands to `val` if unset otherwise `$foo`.
 
 Loops
 -----
@@ -735,7 +735,7 @@ WELCOME TO DEVHINTS
 ### Directory of script
 
 ```bash
-DIR="${0%/*}"
+dir="${0%/*}"
 ```
 
 ### Getting options

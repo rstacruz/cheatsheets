@@ -40,10 +40,11 @@ echo "Hello $name!"
 
 ```bash
 name="John"
-echo $name
+echo $name  # see below
 echo "$name"
 echo "${name}!"
 ```
+Generally quote your variables unless they contain wildcards to expand or command fragments with quoting.
 
 ### String quotes
 
@@ -128,42 +129,42 @@ Parameter expansions
 
 ```bash
 name="John"
-echo ${name}
-echo ${name/J/j}    #=> "john" (substitution)
-echo ${name:0:2}    #=> "Jo" (slicing)
-echo ${name::2}     #=> "Jo" (slicing)
-echo ${name::-1}    #=> "Joh" (slicing)
-echo ${name:(-1)}   #=> "n" (slicing from right)
-echo ${name:(-2):1} #=> "h" (slicing from right)
-echo ${food:-Cake}  #=> $food or "Cake"
+echo "${name}"
+echo "${name/J/j}"    #=> "john" (substitution)
+echo "${name:0:2}"    #=> "Jo" (slicing)
+echo "${name::2}"     #=> "Jo" (slicing)
+echo "${name::-1}"    #=> "Joh" (slicing)
+echo "${name:(-1)}"   #=> "n" (slicing from right)
+echo "${name:(-2):1}" #=> "h" (slicing from right)
+echo "${food:-Cake}"  #=> $food or "Cake"
 ```
 
 ```bash
 length=2
-echo ${name:0:length}  #=> "Jo"
+echo "${name:0:length}"  #=> "Jo"
 ```
 
 See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
 
 ```bash
 str="/path/to/foo.cpp"
-echo ${str%.cpp}    # /path/to/foo
-echo ${str%.cpp}.o  # /path/to/foo.o
-echo ${str%/*}      # /path/to
+echo "${str%.cpp}"    # /path/to/foo
+echo "${str%.cpp}.o"  # /path/to/foo.o
+echo "${str%/*}"      # /path/to
 
-echo ${str##*.}     # cpp (extension)
-echo ${str##*/}     # foo.cpp (basepath)
+echo "${str##*.}"     # cpp (extension)
+echo "${str##*/}"     # foo.cpp (basepath)
 
-echo ${str#*/}      # path/to/foo.cpp
-echo ${str##*/}     # foo.cpp
+echo "${str#*/}"      # path/to/foo.cpp
+echo "${str##*/}"     # foo.cpp
 
-echo ${str/foo/bar} # /path/to/bar.cpp
+echo "${str/foo/bar}" # /path/to/bar.cpp
 ```
 
 ```bash
 str="Hello world"
-echo ${str:6:5}   # "world"
-echo ${str: -5:5}  # "world"
+echo "${str:6:5}"   # "world"
+echo "${str: -5:5}"  # "world"
 ```
 
 ```bash
@@ -219,12 +220,12 @@ comment
 
 ```bash
 str="HELLO WORLD!"
-echo ${str,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${str,,}  #=> "hello world!" (all lowercase)
+echo "${str,}"   #=> "hELLO WORLD!" (lowercase 1st letter)
+echo "${str,,}"  #=> "hello world!" (all lowercase)
 
 str="hello world!"
-echo ${str^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${str^^}  #=> "HELLO WORLD!" (all uppercase)
+echo "${str^}"   #=> "Hello world!" (uppercase 1st letter)
+echo "${str^^}"  #=> "HELLO WORLD!" (all uppercase)
 ```
 
 ### Default values
@@ -246,7 +247,7 @@ Loops
 
 ```bash
 for i in /etc/rc.*; do
-  echo $i
+  echo "$i"
 done
 ```
 
@@ -254,7 +255,7 @@ done
 
 ```bash
 for ((i = 0 ; i < 100 ; i++)); do
-  echo $i
+  echo "$i"
 done
 ```
 
@@ -278,7 +279,7 @@ done
 
 ```bash
 cat file.txt | while read line; do
-  echo $line
+  echo "$line"
 done
 ```
 
@@ -318,12 +319,12 @@ myfunc "John"
 ```bash
 myfunc() {
     local myresult='some value'
-    echo $myresult
+    echo "$myresult"
 }
 ```
 
 ```bash
-result="$(myfunc)"
+result=$(myfunc)
 ```
 
 ### Raising errors
@@ -470,14 +471,14 @@ Fruits[2]="Orange"
 ### Working with arrays
 
 ```bash
-echo ${Fruits[0]}           # Element #0
-echo ${Fruits[-1]}          # Last element
-echo ${Fruits[@]}           # All elements, space-separated
-echo ${#Fruits[@]}          # Number of elements
-echo ${#Fruits}             # String length of the 1st element
-echo ${#Fruits[3]}          # String length of the Nth element
-echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
-echo ${!Fruits[@]}          # Keys of all elements, space-separated
+echo "${Fruits[0]}"           # Element #0
+echo "${Fruits[-1]}"          # Last element
+echo "${Fruits[@]}"           # All elements, space-separated
+echo "${#Fruits[@]}"          # Number of elements
+echo "${#Fruits}"             # String length of the 1st element
+echo "${#Fruits[3]}"          # String length of the Nth element
+echo "${Fruits[@]:3:2}"       # Range (from position 3, length 2)
+echo "${!Fruits[@]}"          # Keys of all elements, space-separated
 ```
 
 ### Operations
@@ -485,7 +486,7 @@ echo ${!Fruits[@]}          # Keys of all elements, space-separated
 ```bash
 Fruits=("${Fruits[@]}" "Watermelon")    # Push
 Fruits+=('Watermelon')                  # Also Push
-Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
+Fruits=( "${Fruits[@]/Ap*/}" )          # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
@@ -496,7 +497,7 @@ lines=(`cat "logfile"`)                 # Read from file
 
 ```bash
 for i in "${arrayName[@]}"; do
-  echo $i
+  echo "$i"
 done
 ```
 
@@ -522,11 +523,11 @@ Declares `sound` as a Dictionary object (aka associative array).
 ### Working with dictionaries
 
 ```bash
-echo ${sounds[dog]} # Dog's sound
-echo ${sounds[@]}   # All values
-echo ${!sounds[@]}  # All keys
-echo ${#sounds[@]}  # Number of elements
-unset sounds[dog]   # Delete dog
+echo "${sounds[dog]}" # Dog's sound
+echo "${sounds[@]}"   # All values
+echo "${!sounds[@]}"  # All keys
+echo "${#sounds[@]}"  # Number of elements
+unset sounds[dog]     # Delete dog
 ```
 
 ### Iteration
@@ -535,7 +536,7 @@ unset sounds[dog]   # Delete dog
 
 ```bash
 for val in "${sounds[@]}"; do
-  echo $val
+  echo "$val"
 done
 ```
 
@@ -543,7 +544,7 @@ done
 
 ```bash
 for key in "${!sounds[@]}"; do
-  echo $key
+  echo "$key"
 done
 ```
 
@@ -728,14 +729,14 @@ printf "This is how you print a float: %f" 2
 #### Example
 
 ```bash
-echo "Welcome To Devhints" | tr [:lower:] [:upper:]
+echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
 WELCOME TO DEVHINTS
 ```
 
 ### Directory of script
 
 ```bash
-dir="${0%/*}"
+dir=${0%/*}
 ```
 
 ### Getting options
@@ -743,7 +744,7 @@ dir="${0%/*}"
 ```bash
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
   -V | --version )
-    echo $version
+    echo "$version"
     exit
     ;;
   -s | --string )
@@ -769,7 +770,7 @@ END
 ```bash
 echo -n "Proceed? [y/n]: "
 read ans
-echo $ans
+echo "$ans"
 ```
 
 ```bash

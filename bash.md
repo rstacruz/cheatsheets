@@ -284,9 +284,9 @@ done
 ### Reading lines
 
 ```bash
-cat file.txt | while read line; do
+while read -r line; do
   echo "$line"
-done
+done <file.txt
 ```
 
 ### Forever

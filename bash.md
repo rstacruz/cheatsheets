@@ -781,9 +781,11 @@ END
 
 ```bash
 echo -n "Proceed? [y/n]: "
-read ans
+read -r ans
 echo "$ans"
 ```
+
+The `-r` option disables a peculiar legacy behavior with backslashes.
 
 ```bash
 read -n 1 ans    # Just one character

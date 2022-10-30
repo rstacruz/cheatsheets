@@ -64,7 +64,7 @@ echo 'Hi $name'  #=> Hi $name
 
 ```bash
 echo "I'm in $(pwd)"
-echo "I'm in `pwd`"
+echo "I'm in `pwd`"  # obsolescent
 # Same
 ```
 

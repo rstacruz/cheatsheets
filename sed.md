@@ -50,7 +50,7 @@ Print after a given line is found.
 ### Print everything except matching
 
 ```bash
-sed -n '/regex/d;'
+sed -n '/regex/!p'
 ```
 
 Print everything except lines matching regex. Useful for printing files with comments.

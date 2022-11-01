@@ -65,8 +65,7 @@ updated: 2019-12-24
 
 | Command             | Description                        |
 | ---                 | ---                                |
-| `npm rm`.           | Remove package production packages |
-
+| `npm rm lodash`     | Remove package production packages |
 
 ### Misc features
 

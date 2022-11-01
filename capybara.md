@@ -266,7 +266,7 @@ page.status_code == 200
 page.response_headers
 ```
 
-See: <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
+See: <https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session>
 
 ### Poltergeist
 
@@ -333,5 +333,5 @@ page.set_rack_session(foo: 'bar')
 ## See also
 {: .-one-column}
 
-- <http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>
-- <http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers>
+- <https://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>
+- <https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers>

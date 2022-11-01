@@ -7,8 +7,8 @@ layout: 2017/sheet
 ### Author
 
 ``` html
-<span class="entry-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
-  <a href="http://AUTHORPAGE" class="entry-author-link" itemprop="url" rel="author">
+<span class="entry-author" itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person">
+  <a href="https://AUTHORPAGE" class="entry-author-link" itemprop="url" rel="author">
     <span class="entry-author-name" itemprop="name">AUTHORNAME</span>
   </a>
 </span>

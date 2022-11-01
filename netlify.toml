@@ -1,7 +1,7 @@
 [build]
   command = "yarn build"
   publish = "_site/"
-  environment = { NODE_VERSION = "16.17.0", RUBY_VERSION = "2.7.5", PYTHON_VERSION = "3.8" }
+  environment = { NODE_VERSION = "18.12.0", RUBY_VERSION = "2.7.6", PYTHON_VERSION = "3.8" }
 
 [[redirects]]
   force = true

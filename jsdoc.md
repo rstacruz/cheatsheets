@@ -128,6 +128,7 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
 ```js
 /**
  * @throws {FooException}
+ * @async
  * @private
  * @deprecated
  * @see

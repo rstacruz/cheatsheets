@@ -630,7 +630,6 @@ render () {
 #### Fragments
 ```js
 render () {
-  // Fragments don't require keys!
   return (
     <Fragment>
       <li>First item</li>

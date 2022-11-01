@@ -134,7 +134,8 @@ web:
 ```
 
 ```yaml
-  # make sur `db` is healty before starting and db-init completed without failure
+  # make sure `db` is healty before starting
+  # and db-init completed without failure
   depends_on:
     db:
       condition: service_healthy

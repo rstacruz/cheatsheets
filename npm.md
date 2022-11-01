@@ -61,6 +61,12 @@ updated: 2019-12-24
 | `npm update lodash` | Update a package           |
 
 
+### Removing
+
+| Command             | Description                        |
+| ---                 | ---                                |
+| `npm rm lodash`     | Remove package production packages |
+
 ### Misc features
 
 ```bash

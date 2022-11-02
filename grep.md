@@ -86,7 +86,7 @@ grep -E "foo|oof" bar.txt
 
 # match anything that resembles a URL in
 # foo.txt and only print out the match
-grep -oE "https?:\/\/((\w+[_-]?)+\.?)+" foo.txt
+grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
 
 # can also be used with pipes:
 # match any line that contains "export" in

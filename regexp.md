@@ -59,11 +59,12 @@ description: |
 
 ### Groups
 
-| Pattern   | Description                    |
-| --------- | ------------------------------ |
-| `(abc)`   | Capture group                  |
-| `(a|b)`   | Match `a` or `b`               |
-| `(?:abc)` | Match `abc`, but don't capture |
+| Pattern   | Description                                             |
+| --------- | ------------------------------------------------------- |
+| `(abc)`   | Capture group                                           |
+| `(a|b)`   | Match `a` or `b`                                        |
+| `(?:abc)` | Match `abc`, but don't capture                          |
+| `\1`      | Subsituted with text matched of the 1st capturing group |
 
 
 ### Quantifiers

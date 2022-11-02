@@ -186,4 +186,4 @@ Delete all the volumes
 Also see
 --------
 
- * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
+ * [Getting Started](https://www.docker.io/gettingstarted/) _(docker.io)_

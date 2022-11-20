@@ -66,12 +66,14 @@ Getting started
 
 #### Document
 
-| Shortcut | Description    |
-| ---      | ---            |
-| `gg`     | First line     |
-| `G`      | Last line      |
-| `:n`     | Go to line `n` |
-| `nG`     | Go to line `n` |
+| Shortcut | Description       |
+| ---      | ---               |
+| `gg`     | First line        |
+| `G`      | Last line         |
+| `:n`     | Go to line `n`    |
+| `nG`     | Go to line `n`    |
+| `nj`     | Go down `n` lines |
+| `nk`     | Go up `n` lines   |
 {: .-shortcuts}
 
 #### Window

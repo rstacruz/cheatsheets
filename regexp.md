@@ -35,18 +35,18 @@ description: |
 
 ### Anchors
 
-| Pattern | Description             |
-| ------- | ----------------------- |
-| `\G`    | Start of match          |
-| `^`     | Start of string         |
-| `$`     | End of string           |
-| `\A`    | Start of string         |
-| `\Z`    | End of string           |
-| `\z`    | Absolute end of string  |
-| `\b`    | A word boundry          |
-| `\B`    | Non-word boundry        |
-| `^abc`  | Start with `abc`        |
-| `abc$`  | End with `abc`          |
+| Pattern | Description                                             |
+| ------- | ------------------------------------------------------- |
+| `\G`    | Start of match                                          |
+| `^`     | Start of string, or start of line in multi-line pattern |
+| `$`     | End of string, or end of line in multi-line pattern     |
+| `\A`    | Start of string                                         |
+| `\Z`    | End of string                                           |
+| `\z`    | Absolute end of string                                  |
+| `\b`    | A word boundry                                          |
+| `\B`    | Non-word boundry                                        |
+| `^abc`  | Start with `abc`                                        |
+| `abc$`  | End with `abc`                                          |
 
 ### Escaped characters
 

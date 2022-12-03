@@ -341,6 +341,8 @@ See: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
 ### Declaring multiple state variables
 
 ```jsx
+import React, { useState } from 'react';
+
 function ExampleWithManyStates() {
   // Declare multiple state variables!
   const [age, setAge] = useState(42);

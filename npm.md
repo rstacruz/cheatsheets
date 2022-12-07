@@ -43,12 +43,13 @@ updated: 2019-12-24
 
 ### Listing
 
-| Command                 | Description                                                         |
-| ---                     | ---                                                                 |
-| `npm list`              | Lists the installed versions of all dependencies in this software   | 
-| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages     | 
-| `npm view`              | Lists the latest versions of all dependencies in this software      | 
-| `npm outdated`          | Lists only the dependencies in this software which are outdated     |
+| Command            | Description                                                         |
+| ---                | ---                                                                 |
+| `npm list`         | Lists the installed versions of all dependencies in this software   | 
+| `npm list -g`      | Lists the installed versions of all globally installed packages     | 
+| `npm view lodash`  | Lists the latest versions and dependencies of a package             | 
+| `npm outdated`     | Lists only the dependencies in this software which are outdated     |
+| `npm audit`        | List known vulnerabilities of packages in the project               |
 
 ### Updating
 
@@ -92,4 +93,9 @@ npm update [-g] PACKAGE
 ```bash
 # Check for outdated packages
 npm outdated [PACKAGE]
+```
+
+```bash
+# Check the environment and cache
+npm doctor
 ```

@@ -349,6 +349,16 @@ else
 fi
 ```
 
+#### Command directly in `if` statment
+```bash
+if ! ping -c 1 $host > /dev/null; then
+    echo "host $host is unreachable"
+    exit 1
+else 
+    echo "success"
+fi
+```
+
 ### Arguments
 
 | Expression | Description                                      |

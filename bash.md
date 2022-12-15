@@ -637,6 +637,12 @@ $((a + 200))      # Add 200 to $a
 $(($RANDOM%200))  # Random number 0..199
 ```
 
+```bash
+declare -i count  # Declare as type integer 
+count+=1          # Increment
+```
+
+
 ### Subshells
 
 ```bash

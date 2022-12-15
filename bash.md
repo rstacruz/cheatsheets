@@ -642,7 +642,6 @@ declare -i count  # Declare as type integer
 count+=1          # Increment
 ```
 
-
 ### Subshells
 
 ```bash

@@ -2,7 +2,7 @@
 title: Tig
 category: Git
 layout: 2017/sheet
-updated: 2022-12-8
+updated: 2022-12-08
 weight: -3
 ---
 
@@ -22,7 +22,7 @@ $ sudo apt install tig
 
 | Command             | Description                                  |
 | ------------------- | -------------------------------------------- |
-| `tig`               |                                              |
+| `tig`               | Logs                                         |
 | ---                 | ---                                          |
 | `tig status`        | Status                                       |
 | `tig blame FILE`    | Blame                                        |
@@ -40,15 +40,17 @@ You can substitute `git log` → `tig`.
 
 ### Switching views
 
-| `m` | Main view |
-| `d` | Diff |
-| `t` | Tree (files) |
-| `b` | Blame |
-| `s` | Status |
-| `c` | Stage |
-| `y` | Stash |
-| `g` | Grep |
-| `h` | Help |
+| Shortcut | Description  |
+| -------- | ------------ |
+| `m`      | Main view    |
+| `d`      | Diff         |
+| `t`      | Tree (files) |
+| `b`      | Blame        |
+| `s`      | Status       |
+| `c`      | Stage        |
+| `y`      | Stash        |
+| `g`      | Grep         |
+| `h`      | Help         |
 {: .-shortcuts}
 
 ### All views

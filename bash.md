@@ -652,19 +652,26 @@ pwd # still in first directory
 ### Redirection
 
 ```bash
-python hello.py > output.txt            # stdout to (file)
-python hello.py >> output.txt           # stdout to (file), append
-python hello.py 2> error.log            # stderr to (file)
-python hello.py 2>&1                    # stderr to stdout
-python hello.py 2>/dev/null             # stderr to (null)
-python hello.py >output.txt 2>&1        # stdout and stderr to (file), equivalent to &>
-python hello.py &>/dev/null             # stdout and stderr to (null)
+command > output.txt          # stdout to (file)
+command >> output.txt         # stdout to (file), append
+command 2> output.txt         # stderr to (file)
+command 2>&1                  # stderr to stdout
+command 2>/dev/null           # stderr to (null)
+command >output.txt 2>&1      # stdout and stderr to (file), equivalent to &>
+command &>/dev/null           # stdout and stderr to (null)
 echo "$0: warning: too many users" >&2  # print diagnostic message to stderr
 ```
 
 ```bash
-python hello.py < foo.txt      # feed foo.txt to stdin for python
-diff <(ls -r) <(ls)            # Compare two stdout without files
+command | tee output.txt      # stdout to terminal and to (file)
+command | tee -a output.txt   # stdout to terminal and to (file), append
+command |& tee output.txt     # stdout and stderr to terminal and to (file)
+command |& tee -a output.txt  # stdout and stderr to terminal and to (file), append
+```
+
+```bash
+command < foo.txt             # feed foo.txt to stdin for command
+diff <(ls -r) <(ls)           # Compare two stdout without files
 ```
 
 ### Inspecting commands

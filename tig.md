@@ -103,6 +103,7 @@ You can substitute `git log` → `tig`.
 {: .-shortcuts}
 
 ### `s` - Status view
+
 | Shortcut  | Description                        |
 | ---       | ---                                |
 | `u`       | Stage/unstage file or chunk        |

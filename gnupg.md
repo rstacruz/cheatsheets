@@ -103,7 +103,7 @@ gpg --keyserver <URL> ...
 ```bash
 gpg --edit-key <KEY ID>
 # In the interactive prompt:
-gpg> sign
+gpg> trust
 gpg> save
 ```
 

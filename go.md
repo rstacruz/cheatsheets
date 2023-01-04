@@ -51,19 +51,52 @@ Or try it out in the [Go repl](https://repl.it/languages/go), or [A Tour of Go](
 
 ```go
 var msg string
+var msg = "Hello, world!"
+var msg string = "Hello, world!"
+var x, y int
+var x, y int = 1, 2
+var x, msg = 1, "Hello, world!"
 msg = "Hello"
+```
+
+#### Declaration list
+
+``` go
+var (
+  x int
+  y = 20
+  z int = 30
+  d, e = 40, "Hello"
+  f, g string
+)
 ```
 
 #### Shortcut of above (Infers type)
 
 ```go
 msg := "Hello"
+x, msg := 1, "Hello"
 ```
 
 ### Constants
 
 ```go
 const Phi = 1.618
+const Size int64 = 1024
+const x, y = 1, 2
+const (
+  Pi = 3.14
+  E  = 2.718
+)
+const (
+  Sunday = iota
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+)
 ```
 
 Constants can be character, string, boolean, or numeric values.

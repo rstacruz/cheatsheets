@@ -138,6 +138,7 @@ expect(page).to \
 {: .-setup}
 
 ```ruby
+  have_current_path(expected_path)
   have_selector '.blank-state'
   have_selector 'h1#hola', text: 'Welcome'
   have_button 'Save'

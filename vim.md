@@ -19,14 +19,11 @@ Getting started
 
 | Shortcut       | Description                      |
 | -------------- | -------------------------------- |
+| `:q`           | Close file                       |
 | `:qa`          | Close all files                  |
-| `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
 | `:w`           | Save                             |
 | `:wq` _/_ `:x` | Save and close file              |
-| ---            | ---                              |
-| `:q`           | Close file                       |
-| `:q!`          | Close file, abandon changes      |
 | ---            | ---                              |
 | `ZZ`           | Save and quit                    |
 | `ZQ`           | Quit without checking changes    |

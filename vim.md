@@ -176,6 +176,12 @@ Getting started
 
 See [Operators](#operators) for other things you can do.
 
+### Find & Replace
+
+| Shortcut      | Description                            |
+| ---           | ---                                    |
+| :%s/foo/bar/g | Replace foo with bar in whole document |
+
 Operators
 ---------
 {: .-three-column}

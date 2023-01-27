@@ -834,6 +834,16 @@ if grep -q 'foo' ~/.bash_history; then
   echo "You appear to have typed 'foo' in the past"
 fi
 ```
+### System information
+```bash
+hostnamectl                             #system info
+iostat 2 5 -t -m -d                     #continuous iodisks stats
+iostat 2 5 -t -m -c                     #continuous  cpu stats
+tr : '\n' <<<$PATH                      #show path line by line
+pstree -paul                            #proccess tree
+sysctl kernel.ostype kernel.osrelease kernel.version
+ipcs -u                                 #show info on IPC facilities
+```
 
 ## Also see
 {: .-one-column}

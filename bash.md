@@ -187,7 +187,9 @@ dir=${src%$base}  #=> "/path/to/" (dirpath)
 | `${foo#prefix}`   | Remove prefix       |
 | ---               | ---                 |
 | `${foo%%suffix}`  | Remove long suffix  |
+| `${foo/%suffix}`  | Remove long suffix  |
 | `${foo##prefix}`  | Remove long prefix  |
+| `${foo/#prefix}`  | Remove long prefix  |
 | ---               | ---                 |
 | `${foo/from/to}`  | Replace first match |
 | `${foo//from/to}` | Replace all         |

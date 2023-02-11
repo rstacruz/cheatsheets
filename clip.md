@@ -21,7 +21,7 @@ keywords:
 `command argument1 argument2`
 ```
 
-### [Primitive placeholders](https://github.com/emilyseville7cfg-better-tldr/syntax/blob/main/syntax.md#page-examples)
+### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md#page-examples)
 
 ```md
 - Delay in [s]econds:
@@ -29,7 +29,7 @@ keywords:
 `sleep {int seconds: 2}s`
 ```
 
-### [Primitive repeated placeholders](https://github.com/emilyseville7cfg-better-tldr/syntax/blob/main/syntax.md#page-examples)
+### [Primitive repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md#page-examples)
 
 ```md
 - [c]reate an archive and write it to a [f]ile:
@@ -40,6 +40,6 @@ keywords:
 ### Also see
 {: .-one-column}
 
-* [Render](https://github.com/emilyseville7cfg-better-tldr/prototypes/tree/main/clip-view)
-* [Page's repository](https://github.com/emilyseville7cfg-better-tldr/cli-pages)
-* [Syntax](https://github.com/emilyseville7cfg-better-tldr/syntax/blob/main/syntax.md)
+* [Render](https://github.com/command-line-interface-pages/prototypes/tree/main/clip-view)
+* [Page's repository](https://github.com/command-line-interface-pages/cli-pages)
+* [Syntax](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md)

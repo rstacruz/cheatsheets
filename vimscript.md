@@ -447,7 +447,7 @@ map(dict, '<>> " . v:val')
 
 ```vim
 for key in keys(mydict)
-  echo key . ': ' . mydict(key)
+  echo key . ': ' . mydict[key]
 endfor
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Command Line Interface Pages
 category: CLI
-layout: 2023/sheet
+layout: 2017/sheet
 tags: [Featured]
 updated: 2023-02-23
 keywords:
@@ -21,7 +21,7 @@ keywords:
 `command argument1 argument2`
 ```
 
-### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md#page-examples)
+### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#primitive-placeholders)
 
 ```md
 - Delay in [s]econds:
@@ -29,7 +29,7 @@ keywords:
 `sleep {int seconds: 2}s`
 ```
 
-### [Primitive repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md#page-examples)
+### [Primitive repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#repeated-primitive-placeholders)
 
 ```md
 - [c]reate an archive and write it to a [f]ile:
@@ -40,6 +40,6 @@ keywords:
 ### Also see
 {: .-one-column}
 
-* [Render](https://github.com/command-line-interface-pages/prototypes/tree/main/clip-view)
+* [Render](https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view)
 * [Page's repository](https://github.com/command-line-interface-pages/cli-pages)
-* [Syntax](https://github.com/command-line-interface-pages/syntax/blob/main/syntax.md)
+* [Syntax](https://github.com/command-line-interface-pages/syntax/blob/main/base.md)

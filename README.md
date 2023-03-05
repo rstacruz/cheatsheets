@@ -25,3 +25,10 @@ TL;DR for developer documentation - a ridiculous collection of cheatsheets
 See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rstacruz/cheatsheets)
+
+<h2 align='center'>Similar projects</h1>
+
+- [Command Line Interface Pages](https://github.com/command-line-interface-pages)
+- [TlDr](https://github.com/tldr-pages/tldr)
+- [Cheat](https://github.com/cheat/cheat)
+- [Eg](https://github.com/srsudar/eg)

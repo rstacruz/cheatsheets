@@ -29,6 +29,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
 <h2 align='center'>Similar projects</h1>
 
 - [Command Line Interface Pages](https://github.com/command-line-interface-pages)
-- [TlDr](https://github.com/tldr-pages/tldr)
+- [tldr-pages](https://github.com/tldr-pages/tldr)
 - [Cheat](https://github.com/cheat/cheat)
 - [Eg](https://github.com/srsudar/eg)

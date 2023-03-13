@@ -1,7 +1,15 @@
 ---
 title: ReStructuredText
 category: Markup
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+ReStructuredText is a markup language for writing documents.
+
+- <https://en.wikipedia.org/wiki/ReStructuredText>
 
 ### Comments
 

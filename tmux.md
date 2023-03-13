@@ -1,6 +1,7 @@
 ---
 title: tmux
 category: CLI
+layout: 2017/sheet
 ---
 
 ### Commands
@@ -82,6 +83,8 @@ See `message-command-style` in the man page.
 
 ### Attribute/colors
 
+| Key | Description |
+| --- | --- |
 | `#[fg=1]` | standard color |
 | `#[fg=yellow]` | yellow |
 | `#[bold]` | bold |
@@ -103,6 +106,8 @@ See `message-command-style` in the man page.
 
 ### Variables
 
+| Key | Description |
+| --- | --- |
 | `#(date)` | shell command |
 | `#I` | window index |
 | `#S` | session name |

@@ -1,6 +1,9 @@
 ---
 title: Unicode symbols
+layout: 2017/sheet
 ---
+
+### Symbols
 
     ✈   \u2708 airplane
     ❄   \u2744 snowflake

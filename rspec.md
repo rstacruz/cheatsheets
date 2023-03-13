@@ -1,7 +1,15 @@
 ---
 title: RSpec
 category: Ruby
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+RSpec is a Ruby library for testing.
+
+- <https://rspec.info/>
 
 ### Invoking tests
 

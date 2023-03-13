@@ -2,7 +2,7 @@
 title: Superagent
 category: JavaScript libraries
 updated: 2018-04-21
-prism_languages: [javascript]
+layout: 2017/sheet
 tags:
   - WIP
 ---

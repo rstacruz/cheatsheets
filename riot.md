@@ -1,7 +1,7 @@
 ---
 title: Riot.js
 category: JavaScript libraries
-layout: layout.md
+layout: 2017/sheet
 ---
 
 ### About

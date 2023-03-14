@@ -1,9 +1,10 @@
 ---
 title: Elixir metaprogramming
 category: Elixir
+layout: 2017/sheet
 ---
 
-## Kernel
+### Kernel
 
 Most of these magic is defined in [Kernel.SpecialForms](http://devdocs.io/elixir/elixir/kernel.specialforms).
 

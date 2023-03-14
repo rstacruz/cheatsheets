@@ -4,11 +4,6 @@ category: Node.js
 layout: 2017/sheet
 ---
 
-### About
-{: .-intro}
-
-- <https://nodejs.org>
-
 ### Globals
 
     __filename
@@ -34,7 +29,7 @@ layout: 2017/sheet
 
     process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');
 
-## Spawn - passthru the in/out
+### Spawn - passthru the in/out
 
     var spawn = require('child_process').spawn;
     var proc = spawn(bin, argv, { stdio: 'inherit' });

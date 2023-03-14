@@ -1,10 +1,12 @@
 ---
-title: Form helpers
-hljs_languages: [haml]
+title: Rails form helpers
 category: Rails
+layout: 2017/sheet
 ---
 
 ## Form builder
+
+### Form builder
 
 ```haml
 - form_for @post do |f|

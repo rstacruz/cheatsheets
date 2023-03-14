@@ -1,9 +1,12 @@
 ---
 title: Routes
 category: Rails
+layout: 2017/sheet
 ---
 
-## Multiple resources (`resources`)
+## Resources
+
+### Multiple resources (`resources`)
 
     resources :photos
 

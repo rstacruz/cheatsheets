@@ -1,7 +1,10 @@
 ---
 title: Tape
 category: JavaScript libraries
+layout: 2017/sheet
 ---
+
+### Example
 
 ```js
 test('things', (t) => {

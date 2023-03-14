@@ -1,6 +1,7 @@
 ---
-title: Controllers
+title: Rails controllers
 category: Rails
+layout: 2017/sheet
 ---
 
 ### Common stuff

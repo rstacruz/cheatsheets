@@ -3,6 +3,7 @@ title: Angular.js
 category: JavaScript libraries
 tags: [Archived]
 archived: This describes an older version of Angular.
+layout: 2017/sheet
 ---
 
 ### About

@@ -2,7 +2,6 @@
 title: Command Line Interface Pages
 category: CLI
 layout: 2017/sheet
-tags: [Featured]
 updated: 2023-02-23
 keywords:
   - CLI

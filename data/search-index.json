@@ -492,7 +492,7 @@
   "content_html": "<h3 id=\"page-layout\">Page layout</h3>\n\n<pre><code class=\"language-md\"># command\n\n&gt; Some command description\n&gt; More information: https://some/link/to/url\n\n- Some code description:\n\n`command argument1 argument2`\n</code></pre>\n\n<h3 id=\"primitive-placeholders\"><a href=\"https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#primitive-placeholders\">Primitive placeholders</a></h3>\n\n<pre><code class=\"language-md\">- Delay in [s]econds:\n\n`sleep {int seconds: 2}s`\n</code></pre>\n\n<h3 id=\"primitive-repeated-placeholders\"><a href=\"https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#repeated-primitive-placeholders\">Primitive repeated placeholders</a></h3>\n\n<pre><code class=\"language-md\">- [c]reate an archive and write it to a [f]ile:\n\n`tar {option mode: --create, -c} {option: --file, -f} {/?file archive: target.tar} {/?path+ input}`\n</code></pre>\n\n<h3 class=\"-one-column\" id=\"also-see\">Also see</h3>\n\n<ul>\n  <li><a href=\"https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view\">Render</a></li>\n  <li><a href=\"https://github.com/command-line-interface-pages/cli-pages\">Page’s repository</a></li>\n  <li><a href=\"https://github.com/command-line-interface-pages/syntax/blob/main/base.md\">Syntax</a></li>\n</ul>",
   "intro_html": "",
   "description_html": "",
-  "tags": ["Featured"],
+  "tags": null,
   "updated": "2023-02-23"
 },{
   "id": "co",

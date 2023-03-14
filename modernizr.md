@@ -1,6 +1,9 @@
 ---
 title: Modernizr
 category: JavaScript libraries
+layout: 2017/sheet
+tags: [Archived]
+archived: Modernizr is no longer in active development.
 ---
 
 ### Script

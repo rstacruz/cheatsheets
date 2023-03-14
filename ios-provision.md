@@ -1,5 +1,6 @@
 ---
 title: iOS Provisioning Profiles
+layout: 2017/sheet
 ---
 
 ### Types of profiles

@@ -1,7 +1,15 @@
 ---
 title: Pry
 category: Ruby libraries
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+Pry is a runtime development console for Ruby.
+
+- <https://github.com/pry/pry>
 
 ### cd
 

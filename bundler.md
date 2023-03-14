@@ -1,6 +1,7 @@
 ---
 title: Bundler
 category: Ruby
+layout: 2017/sheet
 ---
 
 ### Commands

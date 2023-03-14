@@ -1,8 +1,17 @@
 ---
 title: Divshot
+layout: 2017/sheet
+tags: [Archived]
+archived: Divshot is no longer in operation.
 ---
 
 ## Getting started
+
+### About
+
+Divshot was a static hosting platform.
+
+- <https://divshot.com/>
 
 ### Install divshot-cli
 

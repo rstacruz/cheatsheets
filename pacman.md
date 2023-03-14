@@ -2,12 +2,18 @@
 title: Pacman
 category: Linux
 updated: 2018-07-07
-intro: |
-  Pacman is the package manager for Arch linux and its derivatives.
+layout: 2017/sheet
 ---
 
 ## Commands
 {: .-three-column}
+
+### About
+{: .-intro}
+
+Pacman is the package manager for Arch Linux and its derivatives.
+
+- <https://wiki.archlinux.org/title/pacman>
 
 ### Common commands
 

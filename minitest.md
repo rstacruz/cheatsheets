@@ -1,6 +1,7 @@
 ---
 title: Minitest
 category: Ruby
+layout: 2017/sheet
 ---
 
 ### Usage

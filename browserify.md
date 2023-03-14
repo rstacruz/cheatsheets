@@ -1,7 +1,19 @@
 ---
 title: Browserify
 category: JavaScript libraries
+layout: 2017/sheet
+tags: [Archived]
+archived: Browserify has not been in active development.
 ---
+
+### About
+{: .-intro}
+
+Browserify is a bundler for JavaScript.
+
+- <https://browserify.org/>
+
+### Usage
 
     browserify input.js
       -o output.js

@@ -1,7 +1,16 @@
 ---
 title: Machinist
 category: Ruby libraries
+layout: 2017/sheet
+tags: [Archived]
+archived: Machinist has not been in active development since 2013.
 ---
+
+### About
+
+Machinist is a fixture management library for Ruby.
+
+- <https://github.com/notahat/machinist>
 
 ### Installing
 

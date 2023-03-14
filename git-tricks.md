@@ -1,15 +1,16 @@
 ---
 title: Git tricks
 category: Git
+layout: 2017/sheet
 ---
 
-## Refs
+### Refs
 
     HEAD^       # 1 commit before head
     HEAD^^      # 2 commits before head
     HEAD~5      # 5 commits before head
 
-## Branches
+### Branches
 
     # create a new branch
       git checkout -b $branchname
@@ -31,7 +32,7 @@ category: Git
     # go back to previous branch
       git checkout -
       
-## Collaboration
+### Collaboration
 
     # Rebase your changes on top of the remote master
       git pull --rebase upstream master
@@ -42,6 +43,8 @@ category: Git
 
 Submodules
 ----------
+
+### Submodules
 
     # Import .gitmodules
       git submodule init
@@ -69,6 +72,8 @@ Diff
 
 Log options
 -----------
+
+### Options
 
     --oneline
       e11e9f9 Commit message here
@@ -131,13 +136,13 @@ Misc
 
     git bisect reset  # abort
 
-## Searching
+### Searching
 
     git log --grep="fixes things"  # search in commit messages
     git log -S"window.alert"       # search in code
     git log -G"foo.*"              # search in code (regex)
 
-## GPG Signing
+### GPG signing
 
     git config set user.signingkey <GPG KEY ID>       # Sets GPG key to use for signing
 

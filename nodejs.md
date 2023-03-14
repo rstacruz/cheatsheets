@@ -1,9 +1,15 @@
 ---
 title: Node.js API
 category: Node.js
+layout: 2017/sheet
 ---
 
-## Globals
+### About
+{: .-intro}
+
+- <https://nodejs.org>
+
+### Globals
 
     __filename
     __dirname
@@ -21,7 +27,7 @@ category: Node.js
         }
     });
 
-## Snippets
+### Snippets
 
     info = require('../package.json')
     info.version

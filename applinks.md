@@ -1,8 +1,14 @@
 ---
 title: Applinks
 category: HTML
+layout: 2017/sheet
 ---
 
+### About
+
+- <http://applinks.org/>
+
+### Applinks
 
     <meta property="al:ios:url" content="applinks://docs" />
     <meta property="al:ios:app_store_id" content="12345" />

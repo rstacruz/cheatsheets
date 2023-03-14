@@ -1,7 +1,14 @@
 ---
 title: Q.js
 category: JavaScript libraries
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+* <https://github.com/kriskowal/q>
+* <https://github.com/kriskowal/q/wiki/API-Reference>
 
 ### Creating promises (Q.promise)
 
@@ -69,7 +76,3 @@ category: JavaScript libraries
 
   .catch (e) ->
     console.error "Oh well", e
-
-### Reference
-
- * https://github.com/kriskowal/q/wiki/API-Reference

@@ -1,7 +1,15 @@
 ---
 title: Kramdown
 category: Markup
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+Kramdown is a Markdown parser in Ruby.
+
+- <https://kramdown.gettalong.org/>
 
 ### Configuration
 

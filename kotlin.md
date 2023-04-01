@@ -26,7 +26,7 @@ val inferredString = "Adam"
 val name = "Adam"
 val greeting = "Hello, " + name
 val greetingTemplate = "Hello, $name"
-val interpolated = "Hello, ${name.toUpperCase()}"
+val interpolated = "Hello, ${name.uppercase()}"
 ```
 
 ### Numbers

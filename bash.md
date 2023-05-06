@@ -25,7 +25,6 @@ This is a quick reference to getting started with Bash scripting.
 
 - [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
 - [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-- [Bash Hackers Wiki](https://wiki.bash-hackers.org) _(wiki.bash-hackers.org)_
 
 ### Example
 

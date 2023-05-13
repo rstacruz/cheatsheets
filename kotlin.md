@@ -324,7 +324,7 @@ if (someBoolean) {
 ### For Loops
 
 ```kotlin
-for (i in 0..10) { } // 1 - 10
+for (i in 0..10) { } // 0 - 10
 for (i in 0 until 10) // 1 - 9
 (0..10).forEach { }
 for (i in 0 until 10 step 2) // 0, 2, 4, 6, 8

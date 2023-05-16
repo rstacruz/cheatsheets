@@ -3,7 +3,7 @@ title: Bash scripting
 category: CLI
 layout: 2017/sheet
 tags: [Featured]
-updated: 2020-07-05
+updated: 2023-05-16
 keywords:
   - Variables
   - Functions
@@ -48,7 +48,7 @@ Generally quote your variables unless they contain wildcards to expand or comman
 
 ```bash
 wildcard="*.txt"
-option="iv"
+options="iv"
 cp -$options $wildcard /tmp
 ```
 

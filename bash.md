@@ -25,7 +25,7 @@ This is a quick reference to getting started with Bash scripting.
 
 - [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
 - [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-- [Bash Hackers Wiki](https://wiki.bash-hackers.org) _(wiki.bash-hackers.org)_
+- [Bash Hackers Wiki](https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/) _(wiki.bash-hackers.org)_
 
 ### Example
 
@@ -68,7 +68,7 @@ echo "I'm in `pwd`"  # obsolescent
 # Same
 ```
 
-See [Command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
+See [Command substitution](https://web.archive.org/web/20230326081741/https://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
 
 ### Conditional execution
 
@@ -124,7 +124,7 @@ echo {A,B}.js
 | `{A,B}.js` | Same as `A.js B.js` |
 | `{1..5}`   | Same as `1 2 3 4 5` |
 
-See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
+See: [Brace expansion](https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace)
 
 
 Parameter expansions
@@ -150,7 +150,7 @@ length=2
 echo "${name:0:length}"  #=> "Jo"
 ```
 
-See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
+See: [Parameter expansion](https://web.archive.org/web/20230408142504/https://wiki.bash-hackers.org/syntax/pe)
 
 ```bash
 str="/path/to/foo.cpp"
@@ -364,7 +364,7 @@ fi
 **Note**: `$@` and `$*` must be quoted in order to perform as described.
 Otherwise, they do exactly the same thing (arguments as separate strings).
 
-See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+See [Special parameters](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
 Conditionals
 ------------
@@ -809,7 +809,7 @@ read -n 1 ans    # Just one character
 | `$_`               | Last argument of the previous command  |
 | `${PIPESTATUS[n]}` | return value of piped commands (array) |
 
-See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+See [Special parameters](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
 ### Go to previous directory
 
@@ -840,8 +840,8 @@ fi
 ## Also see
 {: .-one-column}
 
-* [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
-* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
+* [Bash-hackers wiki](https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/) _(bash-hackers.org)_
+* [Shell vars](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
 * [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
 * [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
 * [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_

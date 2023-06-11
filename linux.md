@@ -277,8 +277,8 @@ $ tail -c 10 filename.txt # last 10 bytes of filename.txt
 ```console
 $ ls
 dir  dir2  filename.txt  filename.txt
-$ diff -u filename.txt filename2.txt
-$ diff -ur ./dir ./dir2
+$ diff -u filename.txt filename2.txt # compare files
+$ diff -ur ./dir ./dir2 # compare directories
 ```
 
 [See `diff` command description](http://man.he.net/?topic=diff&section=all) 

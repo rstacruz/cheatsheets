@@ -1,6 +1,7 @@
 ---
 title: Linux
 layout: 2017/sheet
+updated: 2023-06-11
 ---
 
 ### Read/Write/Execute a file

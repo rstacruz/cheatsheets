@@ -2,7 +2,8 @@
 title: Linux
 layout: 2017/sheet
 updated: 2023-06-11
-description: Linux is an open-source operating system that is based on Unix and designed to be customizable and free to use.
+intro: |
+    Linux is an open-source operating system that is based on Unix and designed to be customizable and free to use.
 ---
 
 ### Read/Write/Execute a file

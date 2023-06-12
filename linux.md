@@ -285,3 +285,13 @@ $ diff -ur ./dir ./dir2 # compare directories
 
 [See `diff` command description](http://man.he.net/?topic=diff&section=all) 
 {: .-crosslink}
+
+### Shutdown the machine
+
+```console
+$ shutdown -P # shutdown
+$ shutdown -r # reboot
+```
+
+[See `shutdown` command description](http://man.he.net/?topic=shutdown&section=all) 
+{: .-crosslink}

@@ -5,7 +5,8 @@ category: CLI
 updated: 2023-06-11
 authors:
   - github: sh1shkev1ch
-description: YouTube-dl is a powerful command-line tool for downloading videos from YouTube. It supports downloading videos, playlists, and even extracting audio. 
+intro: |
+    YouTube-dl is a powerful command-line tool for downloading videos from YouTube. It supports downloading videos, playlists, and even extracting audio. 
 ---
 
 {: .-three-column}

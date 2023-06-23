@@ -48,7 +48,7 @@ Generally quote your variables unless they contain wildcards to expand or comman
 
 ```bash
 wildcard="*.txt"
-option="iv"
+options="iv"
 cp -$options $wildcard /tmp
 ```
 

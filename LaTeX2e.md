@@ -1,6 +1,6 @@
 ---
 title: LaTeX2e
-category: LaTeX
+category: LaTeX2e
 layout: 2017/sheet
 tags: [Featured]
 updated: 2023-06-27

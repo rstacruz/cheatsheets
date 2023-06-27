@@ -1,9 +1,9 @@
 ---
-title: Vim
-category: Vim
+title: LaTeX2e
+category: LaTeX
 layout: 2017/sheet
 tags: [Featured]
-updated: 2020-07-05
+updated: 2023-06-27
 weight: -10
 intro: |
  [Latex](https://www.latex-project.org/) LaTeX is a high-quality typesetting system;
@@ -144,4 +144,4 @@ Font sizes can be changed using commands such as:
 
 ## Conclusion
 
-This cheat sheet provides a quick reference for LaTeX commands and syntax. For more detailed information, consult the official LaTeX documentation or visit the [LaTeX Documentation](https://www.latex-project.org/help/documentation/)
+This cheat sheet provides a quick reference for LaTeX commands and syntax. For more detailed information, consult the official LaTeX documentation or visit the [LaTeX Documentation](https://www.latex-project.org/help/documentation/) on devinhints.io.

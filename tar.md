@@ -36,11 +36,11 @@ tar -zu archive.tar.gz -C /target/file
 
 ### Common options
 
-| Option | Description                                                              |
-|--------|--------------------------------------------------------------------------|
-| `z`    | compress with gzip                                                       |
-| `c`    | create an archive                                                        |
+| Option | Description                                                             |
+|--------|-------------------------------------------------------------------------|
+| `z`    | compress with gzip                                                      |
+| `c`    | create an archive                                                       |
 | `u`    | append files which are newer than the corresponding copy in the archive |
-| `f`    | filename of the archive                                                  |
-| `v`    | verbose, display what is inflated or deflated                            |
-| `a`    | unlike of `z`, determine compression based on file extension             |
+| `f`    | filename of the archive                                                 |
+| `v`    | verbose, display what is inflated or deflated                           |
+| `a`    | unlike of `z`, determine compression based on file extension            |

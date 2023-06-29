@@ -40,7 +40,7 @@ tar -zu archive.tar.gz -C /target/file
 |--------|--------------------------------------------------------------------------|
 | `z`    | compress with gzip                                                       |
 | `c`    | create an archive                                                        |
-| `u`    | append files which are newer than the corresponding copy ibn the archive |
+| `u`    | append files which are newer than the corresponding copy in the archive |
 | `f`    | filename of the archive                                                  |
 | `v`    | verbose, display what is inflated or deflated                            |
 | `a`    | unlike of `z`, determine compression based on file extension             |

@@ -146,6 +146,20 @@ endfunction
 
 See: [Functions](http://learnvimscriptthehardway.stevelosh.com/chapters/23.html)
 
+### Overwriting
+```vim
+function f1()
+  echo "f1"
+endfunction
+
+
+function! f1()
+  echo "f1 overridden"
+endfunction
+```
+
+If you define two functions with the same name, Vim will throw an error complaining that the function `f1` already exists. To overwrite the previous function with the same name, add a `!` after the function keyword.
+
 ### Namespacing
 
 ```vim

@@ -10,6 +10,12 @@ layout: 2017/sheet
 aws ec2 describe-instances
 aws ec2 start-instances --instance-ids i-12345678c
 aws ec2 terminate-instances --instance-ids i-12345678c
+
+aws ec2 create-volume --volume-type gp2 --size 80 --availability-zone us-east-1a
+aws ec2 describe-volumes --volumes-ids vol-1234567890abcdef0
+aws ec2 attach-volume --volume-id vol-1234567890abcdef0 --instance-id i-12345678c --device /dev/sdf
+aws ec2 detach-volume --volume-id vol-1234567890abcdef0
+aws ec2 delete-volume --volume-id vol-1234567890abcdef0
 ```
 
 ### S3

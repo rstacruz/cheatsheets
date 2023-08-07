@@ -61,6 +61,11 @@ child:
 ### Reference content
 
 ```yaml
-key1: &ref 42
-key2: *ref
+simple_value: &refv 42
+simple_reuse: *refv
+
+list_value: &refl
+  - will be
+  - reused below
+list_reuse: *refl
 ```

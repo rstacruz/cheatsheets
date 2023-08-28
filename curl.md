@@ -2,7 +2,7 @@
 title: Curl
 category: CLI
 layout: 2017/sheet
-updated: 2020-03-09
+updated: 2023-08-28
 ---
 
 ## Options
@@ -90,4 +90,9 @@ curl -F person=anonymous -F secret=@file.txt http://example.com/submit.cgi
 # Use Curl to Check if a remote resource is available
 # details: https://matthewsetter.com/check-if-file-is-available-with-curl/
 curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarball.gz
+```
+
+```bash
+# Get the HTTP status code returned
+curl -s -o /dev/null -I -w "%{http_code}\n" http://www.example.org/
 ```

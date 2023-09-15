@@ -286,7 +286,7 @@ done
 ### Reading lines
 
 ```bash
-while read -r line; do
+while IFS='' read -r line; do
   echo "$line"
 done <file.txt
 ```

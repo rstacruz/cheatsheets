@@ -1,4 +1,4 @@
----
+[darl[](url)](url)---
 title: Vim
 category: Vim
 layout: 2017/sheet
@@ -34,8 +34,8 @@ Getting started
 | Shortcut            | Description       |
 | ---                 | ---               |
 | `h` `j` `k` `l`     | Arrow keys        |
-| `<C-U>` _/_ `<C-D>` | Half-page up/down |
-| `<C-B>` _/_ `<C-F>` | Page up/down      |
+| `<Ctrl-U>` _/_ `<Ctrl-D>` | Half-page up/down |
+| `<Ctrl-B>` _/_ `<Ctrl-F>` | Page up/down      |
 {: .-shortcuts}
 
 #### Words
@@ -126,15 +126,15 @@ Getting started
 | `R`      | Enter Replace mode                  |
 | ---      | ---                                 |
 | `u`      | Undo changes                        |
-| `<C-R>`  | Redo changes                        |
+| `<Ctrl-R>`  | Redo changes                        |
 {: .-shortcuts}
 
 ### Exiting insert mode
 
 | Shortcut          | Description |
 | ---               | ---         |
-| `Esc` _/_ `<C-[>` | Exit insert mode |
-| `<C-C>`           | Exit insert mode, and abort current command |
+| `Esc` _/_ `<Ctrl-[>` | Exit insert mode |
+| `<Ctrl-C>`           | Exit insert mode, and abort current command |
 {: .-shortcuts}
 
 ### Clipboard
@@ -159,7 +159,7 @@ Getting started
 | ---      | ---                     |
 | `v`      | Enter visual mode       |
 | `V`      | Enter visual line mode  |
-| `<C-V>`  | Enter visual block mode |
+| `<Ctrl-V>`  | Enter visual block mode |
 {: .-shortcuts}
 
 #### In visual mode
@@ -323,8 +323,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description                  |
 | ---      | ---                          |
-| `<C-O>`  | Go back to previous location |
-| `<C-I>`  | Go forward                   |
+| `<Ctrl-O>`  | Go back to previous location |
+| `<Ctrl-I>`  | Go forward                   |
 | ---      | ---                          |
 | `gf`     | Go to file in cursor         |
 {: .-shortcuts}
@@ -333,8 +333,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description      |
 | ---      | ---              |
-| `<C-A>`  | Increment number |
-| `<C-X>`  | Decrement        |
+| `<Ctrl-A>`  | Increment number |
+| `<Ctrl-X>`  | Decrement        |
 {: .-shortcuts}
 
 ### Windows
@@ -347,10 +347,10 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---                   | ---                                             |
 | `:tag Classname`      | Jump to first definition of Classname           |
 | ---                   | ---                                             |
-| `<C-]>`               | Jump to definition                              |
+| `<Ctrl-]>`               | Jump to definition                              |
 | `g]`                  | See all definitions                             |
-| `<C-T>`               | Go back to last tag                             |
-| `<C-O> <C-I>`         | Back/forward                                    |
+| `<Ctrl-T>`               | Go back to last tag                             |
+| `<Ctrl-O> <Ctrl-I>`         | Back/forward                                    |
 | ---                   | ---                                             |
 | `:tselect Classname`  | Find definitions of Classname                   |
 | `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
@@ -413,9 +413,9 @@ Do these in visual or normal mode.
 
 | Shortcut     | Description                               |
 | ---          | ---                                       |
-| `<C-R><C-W>` | Insert current word into the command line |
-| `<C-R>"`     | Paste from " register                     |
-| `<C-X><C-F>` | Auto-completion of path in insert mode    |
+| `<Ctrl-R><Ctrl-W>` | Insert current word into the command line |
+| `<Ctrl-R>"`     | Paste from " register                     |
+| `<Ctrl-X><Ctrl-F>` | Auto-completion of path in insert mode    |
 {: .-shortcuts}
 
 ### Text alignment
@@ -430,7 +430,7 @@ See `:help formatting`
 
 | Shortcut      | Description                               |
 | ---           | ---                                       |
-| `<C-R>=128/2` | Shows the result of the division : '64'   |
+| `<Ctrl-R>=128/2` | Shows the result of the division : '64'   |
 
 Do this in insert mode.
 
@@ -452,7 +452,7 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 | `z=`                         | Suggest spellings for the word under/after the cursor   |
 | `zg`                         | Add word to spell list                                  |
 | `zw`                         | Mark word as bad/mispelling                             |
-| `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
+| `zu` / `Ctrl-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
 
 See `:help spell`

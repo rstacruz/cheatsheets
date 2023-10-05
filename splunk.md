@@ -13,6 +13,7 @@ tags: [WIP]
 | index=* sourcetype='f5' | Search on all indexes that returns events mapped to the f5 sourcetype |
 | \| datamodel Authentication | Search on the Authentication data model |
 | \| tstats count WHERE index=_internal | Accelerated search on the _internal index |
+| index='network_traffic' [search 404 \| return src] | A search utilizing a sub-search |
 
 ### Sorting Results
 
@@ -93,3 +94,25 @@ Note: Stats commands utilize the Mathematical Calculations as seen below
 | per_hour(x) | rate of field 'x' per hour |
 | per_minute(x) | rate of field 'x' per hour |
 | per_second(x) | rate of field 'x' per second |
+| \| timechart span=1m avg(CPU) by host | Charts the average cpu usage by host each minute |
+
+## Field Manipulation
+
+| Command | Results |
+|:---- | ----------:|
+| fields - x, y | Removes fields x and y from the results |
+| fields x y | Keeps only fields x and y |
+| fields err* | Keeps all fields that begin with err |
+| replace 127.0.0.1 with localhost | Changes all field values of 127.0.0.1 with localhost |
+| replace aug with August in start_month end_month | Changes all field values of aug to August in the start_month and end_month fields|
+| eval velocity=distance/time | Sets a velocity field which equals distance divided by time |
+| eval status = if(error == 200, "OK", "Error") | Sets status to ok if 200 otherwise sets status to Error |
+| rex | Allows for Perl Compatible Regular Expressions |
+
+### Lookups
+| Command | Results |
+|:---- | ----------:|
+| \| lookup dnslookup host OUTPUT ip | Adds the ip to corresponding hosts (host) from the dns lookup. Host must match in the lookup and in the events being searched through. |
+| \| inputlookup users.csv | Searches the users.csv lookup table file directly |
+| \| outputlookup usertogroup | Writes to the usertogroup lookup table |
+| \| outputlookup usertogroup append=True | Appends data to the usertogroup lookup table file |

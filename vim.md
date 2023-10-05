@@ -1,4 +1,4 @@
-[darl[](url)](url)---
+---
 title: Vim
 category: Vim
 layout: 2017/sheet

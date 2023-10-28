@@ -123,6 +123,7 @@ echo {A,B}.js
 | `{A,B}`    | Same as `A B`       |
 | `{A,B}.js` | Same as `A.js B.js` |
 | `{1..5}`   | Same as `1 2 3 4 5` |
+| `{{1..3},{5..7},{15..20}}`   | Same as `1 2 3 5 6 7 15 16 17 18 19 20` |
 
 See: [Brace expansion](https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace)
 

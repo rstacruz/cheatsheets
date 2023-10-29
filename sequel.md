@@ -273,8 +273,8 @@ Savepoints can be used if the database supports it:
 
       # Us (left) <=> Them (right)
       many_to_many  :images,
-        left_id:    :deal_id,
-        right_id:   :image_id,
+        left_key:    :deal_id,
+        right_key:   :image_id,
         join_table: :image_links
 
       one_to_many   :files,

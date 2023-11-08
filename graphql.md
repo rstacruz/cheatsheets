@@ -176,7 +176,7 @@ Schema
 ```js
 type Query {
   me: User
-  users(limit: Int): [User]
+  users(limit: Int = 10): [User]
 }
 
 type User {

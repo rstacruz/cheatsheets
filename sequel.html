@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20231213214644' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20231213214644' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20231213214721' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/sequel.jpg?t=20231213214721' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','G-N7TC6B227L');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20231213214644'
+'./assets/2017/style.css?t=20231213214721'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20231213214644'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20231213214721'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','G-N7TC6B227L');
     "@id": "https://google.com/article"
   },
   "headline": "Sequel cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/sequel.jpg?t=20231213214644" ],
+  "image": [ "https://assets.devhints.io/previews/sequel.jpg?t=20231213214721" ],
   "description": "The one-page guide to Sequel: usage, examples, links, snippets, and more."
 }
 </script>
@@ -207,9 +207,9 @@ gtag('config','G-N7TC6B227L');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h3 class="-intro" id="about">About</h3>
+    <h3 id="about">About</h3>
 
-<p>Sequel is a database toolkit for Ruby.</p>
+<p class="-intro">Sequel is a database toolkit for Ruby.</p>
 
 <ul>
   <li><a href="https://github.com/jeremyevans/sequel">https://github.com/jeremyevans/sequel</a></li>
@@ -328,19 +328,19 @@ DB[:items].filter(:name =&gt; /^AL/)
 
 <h4 id="andornot">AND/OR/NOT</h4>
 
-<pre><code>DB[:items].filter{(x &gt; 5) &amp; (y &gt; 10)}.sql 
+<pre><code>DB[:items].filter{(x &gt; 5) &amp; (y &gt; 10)}.sql
 # SELECT * FROM items WHERE ((x &gt; 5) AND (y &gt; 10))
 
-DB[:items].filter({:x =&gt; 1, :y =&gt; 2}.sql_or &amp; ~{:z =&gt; 3}).sql 
+DB[:items].filter({:x =&gt; 1, :y =&gt; 2}.sql_or &amp; ~{:z =&gt; 3}).sql
 # SELECT * FROM items WHERE (((x = 1) OR (y = 2)) AND (z != 3))
 </code></pre>
 
 <h4 id="mathematical-operators">Mathematical operators</h4>
 
-<pre><code>DB[:items].filter((:x + :y) &gt; :z).sql 
+<pre><code>DB[:items].filter((:x + :y) &gt; :z).sql
 # SELECT * FROM items WHERE ((x + y) &gt; z)
 
-DB[:items].filter{price - 100 &lt; avg(price)}.sql 
+DB[:items].filter{price - 100 &lt; avg(price)}.sql
 # SELECT * FROM items WHERE ((price - 100) &lt; avg(price))
 </code></pre>
 
@@ -359,10 +359,10 @@ dataset.limit(30, 10) # LIMIT 30 OFFSET 10
 
 <h3 id="joins">Joins</h3>
 
-<pre><code>DB[:items].left_outer_join(:categories, :id =&gt; :category_id).sql 
+<pre><code>DB[:items].left_outer_join(:categories, :id =&gt; :category_id).sql
 # SELECT * FROM items LEFT OUTER JOIN categories ON categories.id = items.category_id
 
-DB[:items].join(:categories, :id =&gt; :category_id).join(:groups, :id =&gt; :items__group_id) 
+DB[:items].join(:categories, :id =&gt; :category_id).join(:groups, :id =&gt; :items__group_id)
 # SELECT * FROM items INNER JOIN categories ON categories.id = items.category_id INNER JOIN groups ON groups.id = items.group_id
 </code></pre>
 
@@ -395,7 +395,7 @@ dataset.update(:updated_at =&gt; :DateValue.sql_function('1/1/2001'))
   TrueClass :active, :default =&gt; true
   foreign_key :category_id, :categories
   DateTime :created_at
-  
+
   index :created_at
 end
 
@@ -509,8 +509,8 @@ end
 
   # Us (left) &lt;=&gt; Them (right)
   many_to_many  :images,
-    left_key:    :deal_id,
-    right_key:   :image_id,
+    left_key:   :deal_id,
+    right_key:  :image_id,
     join_table: :image_links
 
   one_to_many   :files,
@@ -535,7 +535,7 @@ Deal[1].remove_all_images
 
 <h3 id="validations">Validations</h3>
 
-<pre><code>  def validate
+<pre><code>def validate
     super
     errors.add(:name, 'cannot be empty') if !name || name.empty?
 
@@ -556,7 +556,7 @@ Deal[1].remove_all_images
     validates_min_length 3, :name
     validates_max_length 100, :name
     validates_length_range 3..100, :name
-    
+
     # Setter override
     def filename=(name)
       @values[:filename] = name
@@ -608,7 +608,7 @@ after_destroy
     primary_key :id
     primary_key [:id, :title]
     String :name, primary_key: true
-    
+
     String  :title
     Numeric :price
     DateTime :expires
@@ -922,7 +922,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20231213214644'></script>
+<script src='./assets/packed/app.js?t=20231213214721'></script>
 
 
 

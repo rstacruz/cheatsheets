@@ -1,7 +1,11 @@
 ---
 title: Do gem
 category: Ruby libraries
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
 
  * [DAddYE/do](https://github.com/DAddYE/do)
 

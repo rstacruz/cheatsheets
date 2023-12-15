@@ -1,9 +1,19 @@
 ---
 title: Flux architecture
 category: React
+layout: 2017/sheet
 ---
 
-## Architecture
+## About
+
+### About
+{: .-intro}
+
+Flux is an architecture for building client-side web applications.
+
+* [In-Depth Overview](https://facebook.github.io/flux/docs/in-depth-overview/) _(facebook.github.io)_
+
+### Architecture
 
 * __Dispatchers__ receive *actions* that get dispatched to its listeners.
 

@@ -1,11 +1,13 @@
 ---
 title: Sinon-chai
 category: JavaScript libraries
-layout: default-ad
+layout: 2017/sheet
 ---
 
-  * [Sinon-chai](https://github.com/domenic/sinon-chai)
+### About
+{: .-intro}
 
+  * [Sinon-chai](https://github.com/domenic/sinon-chai)
 
 ### Initialization
 

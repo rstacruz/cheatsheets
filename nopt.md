@@ -1,7 +1,15 @@
 ---
 title: Nopt
 category: JavaScript libraries
+layout: 2017/sheet
 ---
+
+### About
+{: .-intro}
+
+- <https://www.npmjs.org/package/nopt>
+
+### Example
 
 ```js
 var args = require('nopt')({
@@ -46,5 +54,3 @@ if (args.version) {
   process.exit(0);
 }
 ```
-
-https://www.npmjs.org/package/nopt

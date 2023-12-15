@@ -19,14 +19,11 @@ Getting started
 
 | Shortcut       | Description                      |
 | -------------- | -------------------------------- |
+| `:q`           | Close file                       |
 | `:qa`          | Close all files                  |
-| `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
 | `:w`           | Save                             |
 | `:wq` _/_ `:x` | Save and close file              |
-| ---            | ---                              |
-| `:q`           | Close file                       |
-| `:q!`          | Close file, abandon changes      |
 | ---            | ---                              |
 | `ZZ`           | Save and quit                    |
 | `ZQ`           | Quit without checking changes    |
@@ -66,12 +63,14 @@ Getting started
 
 #### Document
 
-| Shortcut | Description    |
-| ---      | ---            |
-| `gg`     | First line     |
-| `G`      | Last line      |
-| `:n`     | Go to line `n` |
-| `nG`     | Go to line `n` |
+| Shortcut    | Description              |
+| ---         | ---                      |
+| `gg`        | First line               |
+| `G`         | Last line                |
+| `:{number}` | Go to line `{number}`    |
+| `{number}G` | Go to line `{number}`    |
+| `{number}j` | Go down `{number}` lines |
+| `{number}k` | Go up `{number}` lines   |
 {: .-shortcuts}
 
 #### Window
@@ -173,6 +172,12 @@ Getting started
 {: .-shortcuts}
 
 See [Operators](#operators) for other things you can do.
+
+### Find & Replace
+
+| Shortcut      | Description                            |
+| ---           | ---                                    |
+| :%s/foo/bar/g | Replace foo with bar in whole document |
 
 Operators
 ---------

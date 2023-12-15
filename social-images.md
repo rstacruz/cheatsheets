@@ -1,5 +1,6 @@
 ---
 title: Social media images
+layout: 2017/sheet
 ---
 
 ### Facebook
@@ -22,4 +23,4 @@ title: Social media images
 
 ### References
 
- * https://developers.facebook.com/docs/plugins/checklist/
+ * <https://developers.facebook.com/docs/plugins/checklist/>

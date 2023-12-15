@@ -1,6 +1,7 @@
 ---
 title: Yargs
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
 ### Basic usage

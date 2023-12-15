@@ -3,6 +3,7 @@ title: Vim Easyalign
 html_class: key-codes
 hljs_languages: [vim]
 category: Vim
+layout: 2017/sheet
 ---
 
 ## Command mode

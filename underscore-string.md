@@ -1,6 +1,7 @@
 ---
 title: Underscore-string
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
 ### Usage

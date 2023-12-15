@@ -1,11 +1,13 @@
 ---
 title: Bookshelf.js
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
 Model
 -----
 
+### Model
 ```js
 Summary = bookshelf.Model.extend({
   tableName: 'summaries',

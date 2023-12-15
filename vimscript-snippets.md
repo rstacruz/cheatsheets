@@ -1,6 +1,7 @@
 ---
 title: Vimscript snippets
 category: Vim
+layout: 2017/sheet
 ---
 
 ### Bind function to key and command

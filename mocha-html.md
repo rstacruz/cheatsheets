@@ -1,9 +1,14 @@
 ---
 title: Mocha HTML
 category: JavaScript libraries
+layout: 2017/sheet
 ---
 
+### About
+
 This is a mocha template that loads js/css from cdn.
+
+### Template
 
 ```html
 <!doctype html>

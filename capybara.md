@@ -122,11 +122,11 @@ In RSpec, you can use `page.should` assertions.
 expect(page).to have_no_button('Save')   # OK
 ```
 ```ruby
-expect(page).not_to have_button('Save')  # Bad
+expect(page).not_to have_button('Save')  # OK
 ```
-
-Use `should have_no_*` versions with RSpec matchers because
-`should_not have_*` doesn't wait for a timeout from the driver.
+```ruby
+!expect(page).to have_button('Save')  # Bad
+```
 
 ## RSpec
 
@@ -138,6 +138,7 @@ expect(page).to \
 {: .-setup}
 
 ```ruby
+  have_current_path(expected_path)
   have_selector '.blank-state'
   have_selector 'h1#hola', text: 'Welcome'
   have_button 'Save'

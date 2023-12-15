@@ -1,11 +1,14 @@
 ---
 title: TypeScript
 category: JavaScript libraries
+layout: 2017/sheet
 ---
+
+### About
 
 TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
 
-## Basic types
+### Basic types
 
 ```ts
 any
@@ -40,7 +43,7 @@ enum Color {
 let c: Color = Color.Green
 ```
 
-## Declarations
+### Declarations
 
 ```ts
 let isDone: boolean
@@ -128,6 +131,8 @@ interface User {
 ```
 
 ## Type aliases
+
+### Type aliases
 
 ```ts
 type Name = string | string[]
@@ -239,7 +244,7 @@ type Point = { x: number; y: number };
 type P = keyof Point; // x | y
 ```
 
-## Conditinal Types
+## Conditional Types
 
 ```ts
 // SomeType extends OtherType ? TrueType : FalseType;

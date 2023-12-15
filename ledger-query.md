@@ -4,6 +4,10 @@ category: Ledger
 layout: 2017/sheet
 ---
 
+### About
+
+- <https://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions>
+
 ### Query characters
 
 | Query           | Description |
@@ -23,8 +27,3 @@ layout: 2017/sheet
 ledger r @taco
 ledger r comment =~ /landline/
 ```
-
-## References
-{: .-one-column}
-
-- <http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions>

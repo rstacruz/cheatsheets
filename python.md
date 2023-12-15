@@ -1,6 +1,7 @@
 ---
 title: Python
 category: Python
+layout: 2017/sheet
 ---
 
 ### Tuples (immutable)

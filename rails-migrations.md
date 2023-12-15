@@ -1,6 +1,7 @@
 ---
-title: Migrations
+title: Rails migrations
 category: Rails
+layout: 2017/sheet
 ---
 
 ### Automatically make migrations

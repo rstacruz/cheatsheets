@@ -2,11 +2,16 @@
 title: Vim-rails
 category: Vim
 html_class: key-codes
+layout: 2017/sheet
 ---
 
 Alternate files
 ---------------
 
+### Alternate files
+
+| Command | Description |
+| --- | --- |
 | `:A` |  alternate file (test)          |
 | `:R` |  related file (controller/view) |
 

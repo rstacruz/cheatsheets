@@ -23,6 +23,8 @@ Getting started
 | `:qa`          | Close all files                  |
 | ---            | ---                              |
 | `:w`           | Save                             |
+| `:q!`          | Force Close file                 |
+| `:qa!`         | Force Close all file             |
 | `:wq` _/_ `:x` | Save and close file              |
 | ---            | ---                              |
 | `ZZ`           | Save and quit                    |
@@ -51,14 +53,16 @@ Getting started
 | Shortcut     | Description                        |
 | ---          | ---                                |
 | `0` _(zero)_ | Start of line                      |
-| `^`          | Start of line _(after whitespace)_ |
+| `_`          | Start of line _(after whitespace)_ |
 | `$`          | End of line                        |
 {: .-shortcuts}
 
 #### Character
 
-| `fc`  | Go forward to character `c`  |
-| `Fc`  | Go backward to character `c` |
+| `fc`  | Go forward on character `c`  |
+| `Fc`  | Go backward on character `c` |
+| `tc`  | Go forward to character `c`  |
+| `Tc`  | Go backward to character `c` |
 {: .-shortcuts}
 
 #### Document
@@ -115,6 +119,7 @@ Getting started
 | `a`      | Append                              |
 | `A`      | Append from end of line             |
 | `i`      | Insert                              |
+| `I`      | Append from Start of line           |
 | `o`      | Next line                           |
 | `O`      | Previous line                       |
 | ---      | ---                                 |
@@ -175,9 +180,11 @@ See [Operators](#operators) for other things you can do.
 
 ### Find & Replace
 
-| Shortcut      | Description                            |
-| ---           | ---                                    |
-| :%s/foo/bar/g | Replace foo with bar in whole document |
+| Shortcut      | Description                                                       |
+| ---           | ---                                                               |
+| :%s/foo/bar | Replace foo with bar in whole document `(first occurrence in line)` |
+| :%s/foo/bar/g | Replace foo with bar in whole document `(all occurrences in line)`|
+| :%s#foo#bar#g | Replace foo with bar in whole document `(all occurrences in line)`|
 
 Operators
 ---------

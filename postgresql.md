@@ -9,21 +9,27 @@ intro: |
   It provides the `psql` command line tool for interacting with its database.
 ---
 
-### Console
+### Create Database
 
 ```shell
-psql # logs in to default database & default user
-sudo -u <rolename:postgres> psql # logs in with a particular user
+createdb <databasename>
 ```
 
-#### Options
+### Query Database
 
 ```shell
 psql --no-align --tuples-only --command="SELECT * FROM <table>" # Useful for scripting
 psql -Atc "SELECT * FROM <table>" # short version of above
 ```
 
-### Commands
+### Login to Database
+
+```shell
+psql # logs in to default database & default user
+sudo -u <rolename:postgres> psql # logs in with a particular user
+```
+
+#### Commands
 
 * Show roles: `\du`
 * Show tables: `\dt`
@@ -31,9 +37,3 @@ psql -Atc "SELECT * FROM <table>" # short version of above
 * Connect to a database: `\c <database>`
 * Show columns of a table: `\d <table>` or `\d+ <table>`
 * Quit: `\q`
-
-### Creating database
-
-```shell
-createdb <databasename>
-```

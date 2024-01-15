@@ -16,7 +16,12 @@ psql # logs in to default database & default user
 sudo -u <rolename:postgres> psql # logs in with a particular user
 ```
 
-Replace anything within `<placeholder>` accordingly
+#### Options
+
+```shell
+psql --no-align --tuples-only --command="SELECT * FROM <table>" # Useful for scripting
+psql -Atc "SELECT * FROM <table>" # short version of above
+```
 
 ### Commands
 

@@ -27,8 +27,6 @@ c(hello).
 hello:greet("world").
 ```
 
-{: .-setup}
-
 ### Variables
 
 ```erlang
@@ -347,7 +345,7 @@ element(2, T).    % like tuple[1] in 0-indexed languages → b
 setelement(1, T, c). % → {c, b}
 ```
 
-### Keyword lists
+###  Proplists
 
 ```erlang
 List = [{name, "John"}, {age, 15}],
@@ -357,6 +355,30 @@ List = [{name, "John"}, {age, 15}],
 ```erlang
 proplists:get_value(name, List).  % → "John"
 ```
+
+### Records
+
+Records are syntactic sugar for tuples, with named fields.
+
+```erlang
+-record(person, {name, age}).
+```
+{: .-setup}
+
+```erlang
+Person = #person{name = "John", age = 15}.
+```
+
+```erlang
+Person#person.name. % → "John"
+Person#person.age.  % → 15
+```
+
+```erlang
+#person{name = Name} = Person.  % pattern matching
+Name.                           % → "John"
+```
+
 ## Functions
 
 ### Lambdas

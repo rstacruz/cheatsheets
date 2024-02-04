@@ -1,15 +1,14 @@
 name: Deploy
 on:
   push:
-    branches:
-      master
+    branches: master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Notes (read me) 📖"
+      - name: 'Notes (read me) 📖'
         run: |
           # About this workflow:
           # This workflow generates GitHub pages, but IT IS NOT USED. It is
@@ -20,28 +19,27 @@ jobs:
           persist-credentials: false
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: yarn
+          node-version: '20.9.0'
 
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.5'
+          ruby-version: '3.3.0'
           bundler-cache: true
 
       - run: yarn install --frozen-lockfile
       - run: yarn build
 
-      - name: "Deploy to gh-pages 🚀"
+      - name: 'Deploy to gh-pages 🚀'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: _site
 
-      - name: "Deploy to mirror 🚀"
+      - name: 'Deploy to mirror 🚀'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -49,7 +47,7 @@ jobs:
           BRANCH: gh-pages
           FOLDER: _site
 
-      - name: "Notify Slack 📢"
+      - name: 'Notify Slack 📢'
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_DEPLOY_WEBHOOK_URL }}

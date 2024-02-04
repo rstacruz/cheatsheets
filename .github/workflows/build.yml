@@ -9,15 +9,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.14.2'
-          cache: yarn
+          node-version: '20.9.0'
 
       - name: Use Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.5'
+          ruby-version: '3.3.0'
           bundler-cache: true
 
       - run: yarn install --frozen-lockfile

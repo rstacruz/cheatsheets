@@ -1,5 +1,11 @@
 # Developer notes
 
+## Runtimes
+
+Requires Node.js, Ruby, Yarn v1.
+
+See `.ruby-version` and `.node-version` for supported versions.
+
 ## Gitpod
 
 This repository supports contribution using [gitpod](https://gitpod.io) which is online IDE using [Theia](https://github.com/eclipse-theia/theia).

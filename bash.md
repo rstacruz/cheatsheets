@@ -173,7 +173,7 @@ echo "${str/foo/bar}" # /path/to/bar.cpp
 
 ```bash
 str="Hello world"
-echo "${str:6:5}"   # "world"
+echo "${str:6:5}"    # "world"
 echo "${str: -5:5}"  # "world"
 ```
 
@@ -181,6 +181,24 @@ echo "${str: -5:5}"  # "world"
 src="/path/to/foo.cpp"
 base=${src##*/}   #=> "foo.cpp" (basepath)
 dir=${src%$base}  #=> "/path/to/" (dirpath)
+```
+
+### Prefix name expansion
+
+```bash
+prefix_a=one
+prefix_b=two
+echo ${!prefix_*}  # all variables names starting with `prefix_`
+prefix_a prefix_b
+```
+
+### Indirection
+
+```bash
+name=joe
+pointer=name
+echo ${!pointer}
+joe
 ```
 
 ### Substitution

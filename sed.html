@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/sed.jpg?t=20240214204338' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/sed.jpg?t=20240214204338' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/sed.jpg?t=20240214204407' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/sed.jpg?t=20240214204407' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','G-N7TC6B227L');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20240214204338'
+'./assets/2017/style.css?t=20240214204407'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20240214204338'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20240214204407'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','G-N7TC6B227L');
     "@id": "https://google.com/article"
   },
   "headline": "sed cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/sed.jpg?t=20240214204338" ],
+  "image": [ "https://assets.devhints.io/previews/sed.jpg?t=20240214204407" ],
   "description": "One-page guide to sed: usage, examples, and more. Here’s some hints on using sed."
 }
 </script>
@@ -212,9 +212,9 @@ gtag('config','G-N7TC6B227L');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h2 id="in-place-replacements">In place replacements</h2>
+    <h3 id="replacements">Replacements</h3>
 
-<h3 id="in-place-replacement-gnu">In-place replacement (GNU)</h3>
+<h4 id="in-place-replacement-gnu">In-place replacement (GNU)</h4>
 
 <pre><code class="language-bash">sed -i -e 's/foo/bar/' example.md
 </code></pre>
@@ -228,9 +228,23 @@ gtag('config','G-N7TC6B227L');
 
 <p>In OSX, <code>-i ''</code> is required.</p>
 
-<h2 class="-three-column" id="file-regions">File regions</h2>
+<h4 id="in-place-multiple-replacements">In-place Multiple replacements</h4>
 
-<h3 id="print-until-a-certain-line-is-met">Print until a certain line is met</h3>
+<pre><code class="language-bash">sed -i 's/match1/replace1/g; s/match2/replace2/g' \
+
+</code></pre>
+
+<p>replace different matchs with different values</p>
+
+<pre><code class="language-bash">sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' \
+
+</code></pre>
+
+<p>replace multiple matchs with the same value</p>
+
+<h2 id="file-regions">File regions</h2>
+
+<h3 class="-three-column" id="print-until-a-certain-line-is-met">Print until a certain line is met</h3>
 
 <pre><code class="language-bash">sed '/begin api/q'
 </code></pre>
@@ -253,6 +267,68 @@ gtag('config','G-N7TC6B227L');
 </code></pre>
 
 <p>Print everything except lines matching regex. Useful for printing files with comments.</p>
+
+<h4 id="printing-regex-ranges">Printing REGEX ranges</h4>
+
+<pre><code class="language-bash">sed -n -e '/^START$/,/^END$/p'
+</code></pre>
+
+<p>suppress output and print REGEX range
+include (^START$,^END$) lines.</p>
+
+<p><strong>OR</strong> without “-n” (same result)</p>
+
+<pre><code class="language-bash">sed -e '/^START$/,/^END$/p;d'
+</code></pre>
+
+<p>print REGEX range and delete other
+output, the [;] character means run another
+expression on the input file which is ‘d’ stands for delete .</p>
+
+<h3 id="append-a-text-after-a-specific-line-number">Append a text after a specific line number</h3>
+
+<pre><code class="language-bash">sed -e "1a ## HEADING 02:" README.md
+</code></pre>
+
+<p>this appends “## HEADING 02:” after the first line in the file README.md
+and print the result to stdout replace -e with -i to write the file .</p>
+
+<h3 id="insert-text-before-a-specific-line-number">Insert text before a specific line number</h3>
+
+<pre><code class="language-bash">sed -e "1i # HEADING 01:" README.md
+</code></pre>
+
+<p>the same as appending but before the first line.</p>
+
+<h3 id="deleting-text">Deleting text</h3>
+
+<h4 id="with-line-number">With line number</h4>
+
+<pre><code class="language-bash">sed -e "1,5d" README.md
+</code></pre>
+
+<p>delete a RANGE (i.e. including lines 1 to 5)</p>
+
+<pre><code class="language-bash">sed -e '1,5!d' README.md
+</code></pre>
+
+<p>delete everything (i.e. excluding lines 1 to 5)
+it is better to quote sed expressions with single quotes
+especially when there is a [!] character.</p>
+
+<h4 id="with-regex-matching">With REGEX matching</h4>
+
+<pre><code class="language-bash">sed -e "/REGEX/Id" README.md
+</code></pre>
+
+<p>delete lines with /REGEX/ matched
+/I is for insensitive search</p>
+
+<pre><code class="language-bash">sed -e '/REGEX/Ip;d' README.md
+</code></pre>
+
+<p>this invert the previous sed command
+delete everything (excluding lines with REGEX)</p>
 
   </main>
 </div>
@@ -540,7 +616,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20240214204338'></script>
+<script src='./assets/packed/app.js?t=20240214204407'></script>
 
 
 

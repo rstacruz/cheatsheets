@@ -3806,6 +3806,17 @@
   "tags": ["Featurable"],
   "updated": "2019-09-30"
 },{
+  "id": "yum",
+  "title": "YUM",
+  "url": "/yum",
+  "category": "CLI",
+  "keywords": null,
+  "content_html": "<h2 id=\"queries\">Queries</h2>\n\n<h3 id=\"help-and-lists\">Help and Lists</h3>\n\n<pre><code class=\"language-bash\">yum help                     # Display yum commands and options\nyum list available           # List all available packages\nyum list installed           # List all installed packages\nyum list kernel              # List installed and available kernel packages\nyum info vsftpd              # List info about vsftpd package\n</code></pre>\n\n<h3 id=\"searching-and-dependencies\">Searching and Dependencies</h3>\n\n<pre><code class=\"language-bash\">yum deplist nfs-utils        # List dependencies for nfs-utils\nyum provides \"*bin/top\"      # Show package containing top command\nyum search samba             # Find packages with samba in name or description\n</code></pre>\n\n<h3 id=\"updating-and-security\">Updating and Security</h3>\n\n<pre><code class=\"language-bash\">yum updateinfo security      # Get info on available security updates\nyum update --security        # Apply security-related package updates\n</code></pre>\n\n<h2 id=\"managing-repositories\">Managing Repositories</h2>\n\n<pre><code class=\"language-bash\">yum repolist                 # Display enabled software repositories\nyum repoinfo rhel-7-server-rpms  # See info on specific repo\nyum repo-pkgs my-rpms list       # List packages from a specific repo\n</code></pre>\n\n<h2 id=\"installation-and-upgrades\">Installation and Upgrades</h2>\n\n<pre><code class=\"language-bash\">yum install vsftpd           # Install the vsftpd package\nyum update                   # Update all packages\nyum downgrade abc            # Downgrade the abc package to an earlier version\nyum autoremove httpd         # Remove httpd and unneeded packages\n</code></pre>\n\n<h2 id=\"package-groups\">Package Groups</h2>\n\n<pre><code class=\"language-bash\">yum groupinstall \"Web server\"    # Install Web Server packages\n</code></pre>\n\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n\n<pre><code class=\"language-bash\">yum history list             # List all yum transactions\nyum clean packages           # Delete packages saved in cache\n</code></pre>\n\n<h2 id=\"popular-options\">Popular Options</h2>\n\n<pre><code class=\"language-bash\">-y                           # Assume yes if prompted\n--disablerepo=epel           # Disable a specific repo for a command\n--downloadonly               # Download package to cache but don't install\n</code></pre>",
+  "intro_html": "",
+  "description_html": "",
+  "tags": null,
+  "updated": "2024-02-07"
+},{
   "id": "znc",
   "title": "ZNC bouncer",
   "url": "/znc",

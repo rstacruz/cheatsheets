@@ -23,30 +23,30 @@
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <link href='./assets/favicon.png' rel='shortcut icon'>
-<meta content='/postgresql-json.html' name='app:pageurl'>
+<meta content='/yum.html' name='app:pageurl'>
 
 
-  <title>PostgreSQL JSON cheatsheet</title>
-  <meta content='PostgreSQL JSON cheatsheet' property='og:title'>
-  <meta content='PostgreSQL JSON cheatsheet' property='twitter:title'>
+  <title>YUM cheatsheet</title>
+  <meta content='YUM cheatsheet' property='og:title'>
+  <meta content='YUM cheatsheet' property='twitter:title'>
   <meta content='article' property='og:type'>
 
 
 
-  <meta content='https://assets.devhints.io/previews/postgresql-json.jpg?t=20240214204235' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/postgresql-json.jpg?t=20240214204235' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/yum.jpg?t=20240214204235' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/yum.jpg?t=20240214204235' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
 
 
-  <meta content="The one-page guide to PostgreSQL JSON: usage, examples, links, snippets, and more." name="description">
-  <meta content="The one-page guide to PostgreSQL JSON: usage, examples, links, snippets, and more." property="og:description">
-  <meta content="The one-page guide to PostgreSQL JSON: usage, examples, links, snippets, and more." property="twitter:description">
+  <meta content="The one-page guide to YUM: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to YUM: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to YUM: usage, examples, links, snippets, and more." property="twitter:description">
 
 
-<link rel="canonical" href="https://devhints.io/postgresql-json">
-<meta name="og:url" content="https://devhints.io/postgresql-json">
+<link rel="canonical" href="https://devhints.io/yum">
+<meta name="og:url" content="https://devhints.io/yum">
 
 
 
@@ -62,7 +62,7 @@
 
 
 
-  <meta content='Databases' property='article:section'>
+  <meta content='CLI' property='article:section'>
 
 
 
@@ -114,9 +114,9 @@ gtag('config','G-N7TC6B227L');
     "@type": "WebPage",
     "@id": "https://google.com/article"
   },
-  "headline": "PostgreSQL JSON cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/postgresql-json.jpg?t=20240214204235" ],
-  "description": "The one-page guide to PostgreSQL JSON: usage, examples, links, snippets, and more."
+  "headline": "YUM cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/yum.jpg?t=20240214204235" ],
+  "description": "The one-page guide to YUM: usage, examples, links, snippets, and more."
 }
 </script>
 <script type='application/ld+json'>
@@ -127,15 +127,15 @@ gtag('config','G-N7TC6B227L');
     "@type": "ListItem",
     "position": 1,
     "item": {
-      "@id": "https://devhints.io/#databases",
-      "name": "Databases"
+      "@id": "https://devhints.io/#cli",
+      "name": "CLI"
     }
   },{
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "https://devhints.io/postgresql-json",
-      "name": "PostgreSQL JSON"
+      "@id": "https://devhints.io/yum",
+      "name": "YUM"
     }
   }]
 }
@@ -161,8 +161,8 @@ gtag('config','G-N7TC6B227L');
       <div class='actions'>
         
 <ul class="social-list social page-actions">
-  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/postgresql-json.html" target="share"><span class="text"></span></a></li>
-  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20PostgreSQL%20JSON.%20https://devhints.io/postgresql-json.html" target="share"><span class="text"></span></a></li>
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/yum.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20YUM.%20https://devhints.io/yum.html" target="share"><span class="text"></span></a></li>
   
 </ul>
 
@@ -170,7 +170,7 @@ gtag('config','G-N7TC6B227L');
         
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='Edit this page on GitHub'>
-              <a href='https://github.com/rstacruz/cheatsheets/blob/master/postgresql-json.md'>
+              <a href='https://github.com/rstacruz/cheatsheets/blob/master/yum.md'>
                 <span class='text -visible'>Edit</span>
               </a>
             </li>
@@ -184,7 +184,7 @@ gtag('config','G-N7TC6B227L');
 
 <div class='body-area'>
   <header class='main-heading -center' role='banner'>
-    <h1 class='h1'>PostgreSQL JSON <em>cheatsheet</em></h1>
+    <h1 class='h1'>YUM <em>cheatsheet</em></h1>
 
     <div class='pubbox' data-js-no-preview>
       
@@ -207,198 +207,62 @@ gtag('config','G-N7TC6B227L');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h2 id="operators">Operators</h2>
+    <h2 id="queries">Queries</h2>
 
-<h3 id="accessors">Accessors</h3>
+<h3 id="help-and-lists">Help and Lists</h3>
 
-<pre class="-setup"><code class="language-sql">SELECT * FROM users WHERE data-&gt;&gt;'name' = 'John';
-SELECT data-&gt;&gt;'name' AS name FROM users;
+<pre><code class="language-bash">yum help                     # Display yum commands and options
+yum list available           # List all available packages
+yum list installed           # List all installed packages
+yum list kernel              # List installed and available kernel packages
+yum info vsftpd              # List info about vsftpd package
 </code></pre>
 
-<table class="-headers -shortcuts">
-  <thead>
-    <tr>
-      <th>Operator</th>
-      <th>Description</th>
-      <th>Example</th>
-      <th>Returns</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>-&gt;</code> <em>int</em></td>
-      <td>Get array element <code>2</code></td>
-      <td><code>data-&gt;2</code></td>
-      <td>JSON</td>
-    </tr>
-    <tr>
-      <td><code>-&gt;</code> <em>text</em></td>
-      <td>Get object key <code>name</code></td>
-      <td><code>data-&gt;'name'</code></td>
-      <td>JSON</td>
-    </tr>
-    <tr>
-      <td><code>#&gt;</code> <em>text[]</em></td>
-      <td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
-      <td><code>data#&gt;'{a,b}'</code></td>
-      <td>JSON</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>-&gt;&gt;</code> <em>int</em></td>
-      <td>Get array element <code>2</code></td>
-      <td><code>data-&gt;&gt;2</code></td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code>-&gt;&gt;</code> <em>text</em></td>
-      <td>Get object key <code>name</code></td>
-      <td><code>data-&gt;&gt;'name'</code></td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code>#&gt;&gt;</code> <em>text[]</em></td>
-      <td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
-      <td><code>data#&gt;&gt;'{a,b}'</code></td>
-      <td>Text</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="searching-and-dependencies">Searching and Dependencies</h3>
 
-<p><code>&gt;</code> returns JSON, <code>&gt;&gt;</code> returns text.</p>
-
-<h3 id="boolean-operators">Boolean operators</h3>
-
-<pre class="-setup"><code class="language-sql">SELECT * FROM users WHERE data-&gt;tags ? 'admin';
-SELECT data-&gt;tags ? 'admin' AS is_admin FROM users;
+<pre><code class="language-bash">yum deplist nfs-utils        # List dependencies for nfs-utils
+yum provides "*bin/top"      # Show package containing top command
+yum search samba             # Find packages with samba in name or description
 </code></pre>
 
-<table class="-headers -shortcuts -left-align">
-  <thead>
-    <tr>
-      <th>Operator</th>
-      <th>Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>?</code> <em>str</em></td>
-      <td>Does <code>data</code> have key <code>name</code>?</td>
-      <td><code>data ? 'name'</code></td>
-    </tr>
-    <tr>
-      <td><code>?|</code> <em>text[]</em></td>
-      <td>Does <code>data</code> have <code>a</code> or <code>b</code>?</td>
-      <td><code>data ?| array['a','b']</code></td>
-    </tr>
-    <tr>
-      <td><code>?&amp;</code> <em>text[]</em></td>
-      <td>Does <code>data</code> have <code>a</code> and <code>b</code>?</td>
-      <td><code>data ?&amp; array['a','b']</code></td>
-    </tr>
-    <tr>
-      <td><code>@&gt;</code> <em>jsonb</em></td>
-      <td>Does <code>left</code> include <code>right</code>?</td>
-      <td><code>data @&gt; '{"b":2}'::jsonb</code></td>
-    </tr>
-    <tr>
-      <td><code>&lt;@</code> <em>jsonb</em></td>
-      <td>Does <code>right</code> include <code>left</code>?</td>
-      <td><code>data &lt;@ '{"a":1,"b":2}'::jsonb</code></td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="updating-and-security">Updating and Security</h3>
 
-<p>When <code>?</code>/<code>?|</code>/<code>?&amp;</code> works on objects, it checks keys; when it works on arrays, it checks for elements.</p>
-
-<h2 id="updating">Updating</h2>
-
-<h3 id="arrays-and-objects">Arrays and objects</h3>
-
-<pre class="-setup"><code class="language-sql">UPDATE users SET tags = tags || array['admin'];
+<pre><code class="language-bash">yum updateinfo security      # Get info on available security updates
+yum update --security        # Apply security-related package updates
 </code></pre>
 
-<table class="-headers -shortcuts">
-  <thead>
-    <tr>
-      <th>Operator</th>
-      <th>Example</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>||</code> <em>json</em></td>
-      <td><code>data || array['a','b']</code></td>
-      <td>Concatenate</td>
-    </tr>
-    <tr>
-      <td><code>-</code> <em>str</em></td>
-      <td><code>data - 'a'</code></td>
-      <td>Delete a key</td>
-    </tr>
-    <tr>
-      <td><code>-</code> <em>int</em></td>
-      <td><code>data - 1</code></td>
-      <td>Delete an array item</td>
-    </tr>
-    <tr>
-      <td><code>#-</code> <em>text[]</em></td>
-      <td><code>data #- '{us,name}'</code></td>
-      <td>Delete a path</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="managing-repositories">Managing Repositories</h2>
 
-<p>Only available in PostgreSQL 9.5+.</p>
-
-<h3 id="jsonb_set">jsonb_set</h3>
-
-<pre><code class="language-sql">UPDATE users SET data = jsonb_set(data, '{name}', '"John"');
+<pre><code class="language-bash">yum repolist                 # Display enabled software repositories
+yum repoinfo rhel-7-server-rpms  # See info on specific repo
+yum repo-pkgs my-rpms list       # List packages from a specific repo
 </code></pre>
 
-<p>Only available in PostgreSQL 9.5+.</p>
+<h2 id="installation-and-upgrades">Installation and Upgrades</h2>
 
-<h2 id="functions">Functions</h2>
-
-<h4 id="fnjson--json">fn(json) → json</h4>
-
-<pre><code class="language-sql">jsonb_set(data, '{path}', value)
-jsonb_strip_nulls(data)
+<pre><code class="language-bash">yum install vsftpd           # Install the vsftpd package
+yum update                   # Update all packages
+yum downgrade abc            # Downgrade the abc package to an earlier version
+yum autoremove httpd         # Remove httpd and unneeded packages
 </code></pre>
 
-<h4 id="fn--json">fn(···) → json</h4>
+<h2 id="package-groups">Package Groups</h2>
 
-<pre><code class="language-sql">to_json("Hello"::text)
-array_to_json('{1,2}'::int[])
+<pre><code class="language-bash">yum groupinstall "Web server"    # Install Web Server packages
 </code></pre>
 
-<h4 id="iteration">Iteration</h4>
+<h2 id="troubleshooting">Troubleshooting</h2>
 
-<pre><code class="language-sql">SELECT * from json_each('{"a":1, "b":2}')
-SELECT * from json_each_text('{"a":1, "b":2}')
--- key | value
+<pre><code class="language-bash">yum history list             # List all yum transactions
+yum clean packages           # Delete packages saved in cache
 </code></pre>
 
-<p>This is an incomplete list, there’s way too many!</p>
+<h2 id="popular-options">Popular Options</h2>
 
-<p>See: <a href="https://www.postgresql.org/docs/9.5/static/functions-json.html">JSON functions</a></p>
-
-<h2 id="more-examples">More examples</h2>
-
-<ul>
-  <li><code>'{"a":1}'::jsonb ? 'a'</code></li>
-  <li><code>'["a"]'::jsonb ? 'a'</code></li>
-</ul>
-
-<h2 id="references">References</h2>
-
-<ul>
-  <li><a href="https://www.postgresql.org/docs/9.5/static/functions-json.html">https://www.postgresql.org/docs/9.5/static/functions-json.html</a></li>
-  <li><a href="https://www.postgresql.org/docs/9.5/static/datatype-json.html">https://www.postgresql.org/docs/9.5/static/datatype-json.html</a></li>
-</ul>
+<pre><code class="language-bash">-y                           # Assume yes if prompted
+--disablerepo=epel           # Disable a specific repo for a command
+--downloadonly               # Download package to cache but don't install
+</code></pre>
 
   </main>
 </div>
@@ -412,7 +276,7 @@ SELECT * from json_each_text('{"a":1, "b":2}')
       <details class='comments-details'>
         <summary>
           <strong class='count'>
-            <span class='disqus-comment-count' data-disqus-identifier="postgresql-json" data-disqus-url='https://devhints.io/postgresql-json'>0 Comments</span>
+            <span class='disqus-comment-count' data-disqus-identifier="yum" data-disqus-url='https://devhints.io/yum'>0 Comments</span>
           </strong>
           <span class='suffix'>for this cheatsheet.</span>
           <span class='fauxlink'>Write yours!</span>
@@ -424,7 +288,7 @@ SELECT * from json_each_text('{"a":1, "b":2}')
         </div>
       </details>
     </div>
-    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/postgresql-json","identifier":"postgresql-json"}'></noscript>
+    <noscript data-js-disqus='{"host":"devhints.disqus.com","url":"https://devhints.io/yum","identifier":"yum"}'></noscript>
   </section>
 
 
@@ -481,14 +345,14 @@ SELECT * from json_each_text('{"a":1, "b":2}')
       <div class='group'>
         <div class='related-posts-group'>
           
-            <h3>Other Databases cheatsheets</h3>
+            <h3>Other CLI cheatsheets</h3>
           
 
           <ul class='related-post-list'>
             
               <li class='item related-post-item'>
-  <a href='./sql-join'>
-    <strong>SQL joins</strong>
+  <a href='./cron'>
+    <strong>Cron</strong>
     <span>
       cheatsheet
 
@@ -501,8 +365,8 @@ SELECT * from json_each_text('{"a":1, "b":2}')
 
             
               <li class='item related-post-item'>
-  <a href='./knex'>
-    <strong>Knex</strong>
+  <a href='./homebrew'>
+    <strong>Homebrew</strong>
     <span>
       cheatsheet
 
@@ -515,8 +379,8 @@ SELECT * from json_each_text('{"a":1, "b":2}')
 
             
               <li class='item related-post-item'>
-  <a href='./mysql'>
-    <strong>MySQL</strong>
+  <a href='./httpie'>
+    <strong>httpie</strong>
     <span>
       cheatsheet
 
@@ -529,8 +393,36 @@ SELECT * from json_each_text('{"a":1, "b":2}')
 
             
               <li class='item related-post-item'>
-  <a href='./postgresql'>
-    <strong>PostgreSQL</strong>
+  <a href='./adb'>
+    <strong>adb (Android Debug Bridge)</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./composer'>
+    <strong>composer</strong>
+    <span>
+      cheatsheet
+
+      
+      <abbr class='attribute-peg -new-layout hint--bottom' data-hint='New layout!'><span></span></abbr>
+      
+    </span>
+  </a>
+</li>
+
+            
+              <li class='item related-post-item'>
+  <a href='./fish-shell'>
+    <strong>Fish shell</strong>
     <span>
       cheatsheet
 
@@ -659,7 +551,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
 <script src='./assets/packed/app.js?t=20240214204235'></script>
-<script src='https://cdn.jsdelivr.net/npm/prismjs@1.6.0/components/prism-sql.min.js'></script>
+
 
 
 </body>

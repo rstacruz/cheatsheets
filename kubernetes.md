@@ -3,11 +3,11 @@ title: Kubernetes CLI Cheatsheet
 category: Devops
 layout: 2017/sheet
 updated: 2024-02-15
+intro: |
+ [Kubernetes](https://kubernetes.io/docs/home/) is an open-source container orchestration system for automating software deployment, scaling, and management. Originally designed by Google, the project is now maintained by the Cloud Native Computing Foundation. But if your only using the CLI I recommend [K9S](https://k9scli.io/)..
 ---
 
 # Kubernetes Cheatsheet
-
-Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management. Originally designed by Google, the project is now maintained by the Cloud Native Computing Foundation. But if your only using the CLI I recommend [K9S](https://k9scli.io/).
 
 ## Cluster Management
 

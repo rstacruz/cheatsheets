@@ -16,7 +16,7 @@ updated: 2020-06-21
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Go repl](https://repl.it/languages/go) _(repl.it)_
-- [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
+- [Golang wiki](https://go.dev/wiki/) _(go.dev)_
 
 ### Hello world
 {: .-prime}

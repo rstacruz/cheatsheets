@@ -96,8 +96,8 @@ Start/stop a `container`.
 ### `docker ps`
 
 ```
-$ docker ps
-$ docker ps -a
+$ docker ps     # list all docker containers in running state.
+$ docker ps -a  # list all docker containers.
 $ docker kill $ID
 ```
 

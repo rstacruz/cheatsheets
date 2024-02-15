@@ -198,6 +198,7 @@ layout: 2017/sheet
     -- Logic (and/or)
     nil and false  --> nil
     false and nil  --> false
+    not true       --> false
     0 and 20       --> 20
     10 and 20      --> 20
 

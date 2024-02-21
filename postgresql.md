@@ -23,3 +23,11 @@ Replace anything within `<placeholder>` accordingly
 ### Creating database
 
      $ createdb databasename
+
+### Altering a table
+#### Remove a column
+```sql
+ALTER TABLE users DROP column columnname
+```
+
+    

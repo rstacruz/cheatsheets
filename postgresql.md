@@ -24,5 +24,10 @@ Replace anything within `<placeholder>` accordingly
 
      $ createdb databasename
 
-### Removing a column
-    $ alter table tablename drop column columnname
+### Altering a table
+#### Remove a column
+```sql
+ALTER TABLE users DROP column columnname
+```
+
+    

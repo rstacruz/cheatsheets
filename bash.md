@@ -335,7 +335,7 @@ myfunc() {
 
 ```bash
 # Same as above (alternate syntax)
-function myfunc() {
+function myfunc {
     echo "hello $1"
 }
 ```

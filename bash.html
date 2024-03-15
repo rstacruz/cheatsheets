@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20240214204407' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20240214204407' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20240315132309' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/bash.jpg?t=20240315132309' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -103,11 +103,11 @@ gtag('config','G-N7TC6B227L');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20240214204407'
+'./assets/2017/style.css?t=20240315132309'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20240214204407'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20240315132309'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -119,7 +119,7 @@ gtag('config','G-N7TC6B227L');
     "@id": "https://google.com/article"
   },
   "headline": "Bash scripting cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/bash.jpg?t=20240214204407" ],
+  "image": [ "https://assets.devhints.io/previews/bash.jpg?t=20240315132309" ],
   "description": "Variables · Functions · Interpolation · Brace expansions · Loops · Conditional execution · Command substitution · One-page guide to Bash scripting"
 }
 </script>
@@ -211,11 +211,11 @@ gtag('config','G-N7TC6B227L');
   
 
   <main class='post-content MarkdownBody' data-js-main-body data-js-anchors role='main'>
-    <h2 id="getting-started">Getting started</h2>
+    <h2 class="-three-column" id="getting-started">Getting started</h2>
 
-<h3 class="-three-column" id="introduction">Introduction</h3>
+<h3 class="-intro" id="introduction">Introduction</h3>
 
-<p class="-intro">This is a quick reference to getting started with Bash scripting.</p>
+<p>This is a quick reference to getting started with Bash scripting.</p>
 
 <ul>
   <li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
@@ -268,9 +268,9 @@ echo "I'm in `pwd`"  # obsolescent
 git commit || echo "Commit failed"
 </code></pre>
 
-<h3 id="functions">Functions</h3>
+<h3 id="functions-example">Functions</h3>
 
-<pre id="functions-example"><code class="language-bash">get_name() {
+<pre><code class="language-bash">get_name() {
   echo "John"
 }
 
@@ -279,9 +279,9 @@ echo "You are $(get_name)"
 
 <p>See: <a href="#functions">Functions</a></p>
 
-<h3 id="conditionals">Conditionals</h3>
+<h3 id="conditionals-example">Conditionals</h3>
 
-<pre id="conditionals-example"><code class="language-bash">if [[ -z "$string" ]]; then
+<pre><code class="language-bash">if [[ -z "$string" ]]; then
   echo "String is empty"
 elif [[ -n "$string" ]]; then
   echo "String is not empty"
@@ -332,9 +332,9 @@ IFS=$'\n\t'
 
 <p>See: <a href="https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace">Brace expansion</a></p>
 
-<h2 id="parameter-expansions">Parameter expansions</h2>
+<h2 class="-three-column" id="parameter-expansions">Parameter expansions</h2>
 
-<h3 class="-three-column" id="basics">Basics</h3>
+<h3 id="basics">Basics</h3>
 
 <pre><code class="language-bash">name="John"
 echo "${name}"
@@ -544,9 +544,9 @@ echo "${str^^}"  #=&gt; "HELLO WORLD!" (all uppercase)
 
 <p>Omitting the <code>:</code> removes the (non)nullity checks, e.g. <code>${foo-val}</code> expands to <code>val</code> if unset otherwise <code>$foo</code>.</p>
 
-<h2 id="loops">Loops</h2>
+<h2 class="-three-column" id="loops">Loops</h2>
 
-<h3 class="-three-column" id="basic-for-loop">Basic for loop</h3>
+<h3 id="basic-for-loop">Basic for loop</h3>
 
 <pre><code class="language-bash">for i in /etc/rc.*; do
   echo "$i"
@@ -588,9 +588,9 @@ done &lt;file.txt
 done
 </code></pre>
 
-<h2 id="functions-1">Functions</h2>
+<h2 class="-three-column" id="functions">Functions</h2>
 
-<h3 class="-three-column" id="defining-functions">Defining functions</h3>
+<h3 id="defining-functions">Defining functions</h3>
 
 <pre><code class="language-bash">myfunc() {
     echo "hello $1"
@@ -669,9 +669,9 @@ Otherwise, they do exactly the same thing (arguments as separate strings).</p>
 
 <p>See <a href="https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">Special parameters</a>.</p>
 
-<h2 id="conditionals-1">Conditionals</h2>
+<h2 class="-three-column" id="conditionals">Conditionals</h2>
 
-<h3 class="-three-column" id="conditions">Conditions</h3>
+<h3 id="conditions">Conditions</h3>
 
 <p>Note that <code>[[</code> is actually a command/program that returns either <code>0</code> (true) or <code>1</code> (false). Any program that obeys the same logic (like all base utils, such as <code>grep(1)</code> or <code>ping(1)</code>) can be used as condition, see examples.</p>
 
@@ -908,9 +908,9 @@ lines=(`cat "logfile"`)                 # Read from file
 done
 </code></pre>
 
-<h2 id="dictionaries">Dictionaries</h2>
+<h2 class="-three-column" id="dictionaries">Dictionaries</h2>
 
-<h3 class="-three-column" id="defining">Defining</h3>
+<h3 id="defining">Defining</h3>
 
 <pre><code class="language-bash">declare -A sounds
 </code></pre>
@@ -1349,9 +1349,9 @@ fi
 fi
 </code></pre>
 
-<h2 id="also-see">Also see</h2>
+<h2 class="-one-column" id="also-see">Also see</h2>
 
-<ul class="-one-column">
+<ul>
   <li><a href="https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>
   <li><a href="https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars">Shell vars</a> <em>(bash-hackers.org)</em></li>
   <li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
@@ -1645,7 +1645,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20240214204407'></script>
+<script src='./assets/packed/app.js?t=20240315132309'></script>
 
 
 

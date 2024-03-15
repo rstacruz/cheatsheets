@@ -177,7 +177,7 @@ end
 
 | String operator     | Meaning                                   |
 | ---                 | ---                                       |
-| `==`                | [Eq]ual                                   |
+| `=`                 | [Eq]ual                                   |
 | `!=`                | [N]ot [E]qual                             |
 
 #### Files

@@ -33,8 +33,8 @@
 
 
 
-  <meta content='https://assets.devhints.io/previews/cron.jpg?t=20240315132423' property='og:image'>
-  <meta content='https://assets.devhints.io/previews/cron.jpg?t=20240315132423' property='twitter:image'>
+  <meta content='https://assets.devhints.io/previews/cron.jpg?t=20240315132551' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/cron.jpg?t=20240315132551' property='twitter:image'>
   <meta content='900' property='og:image:width'>
   <meta content='471' property='og:image:height'>
 
@@ -99,11 +99,11 @@ gtag('config','G-N7TC6B227L');
 <!-- deferred css -->
 <script id='deferred-css'>;(function(links){(requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame||(function(fn){window.addEventListener('load',fn)}))(function(){var h=document.getElementsByTagName('head')[0],l,i;for (i=0;i<links.length;i++){l=document.createElement('link');l.rel='stylesheet';l.href=links[i];h.appendChild(l);}})})([
 'https://fonts.googleapis.com/css?family=Cousine',
-'./assets/2017/style.css?t=20240315132423'
+'./assets/2017/style.css?t=20240315132551'
 ])</script>
 <noscript id='deferred-css-fallback'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cousine'>
-<link rel='stylesheet' href='./assets/2017/style.css?t=20240315132423'>
+<link rel='stylesheet' href='./assets/2017/style.css?t=20240315132551'>
 </noscript>
 
 <script type='application/ld+json'>
@@ -115,7 +115,7 @@ gtag('config','G-N7TC6B227L');
     "@id": "https://google.com/article"
   },
   "headline": "Cron cheatsheet",
-  "image": [ "https://assets.devhints.io/previews/cron.jpg?t=20240315132423" ],
+  "image": [ "https://assets.devhints.io/previews/cron.jpg?t=20240315132551" ],
   "description": "The one-page guide to Cron: usage, examples, links, snippets, and more."
 }
 </script>
@@ -254,6 +254,47 @@ gtag('config','G-N7TC6B227L');
   </tbody>
 </table>
 
+<h3 id="special-strings">Special strings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@reboot</code></td>
+      <td>every rebot</td>
+    </tr>
+    <tr>
+      <td><code>@hourly</code></td>
+      <td>once every hour - same as <code>0 * * * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@daily</code></td>
+      <td>once every day - same as <code>0 0 * * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@midnight</code></td>
+      <td>once every midnight - same as <code>@daily</code></td>
+    </tr>
+    <tr>
+      <td><code>@weekly</code></td>
+      <td>once every week - same as <code>0 0 * * 0</code></td>
+    </tr>
+    <tr>
+      <td><code>@monthly</code></td>
+      <td>once every month - same as <code>0 0 1 * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@yearly</code></td>
+      <td>once every year - same as <code>0 0 1 1 *</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="examples">Examples</h3>
 
 <table>
@@ -289,26 +330,21 @@ gtag('config','G-N7TC6B227L');
       <td>every Sunday midnight</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td><code>@reboot</code></td>
-      <td>every reboot</td>
-    </tr>
-  </tbody>
 </table>
 
 <h3 id="crontab">Crontab</h3>
 
 <pre><code class="language-bash"># Adding tasks easily
 echo "@reboot echo hi" | crontab
-</code></pre>
 
-<pre><code class="language-bash"># Open in editor
-crontab -e
-</code></pre>
+# Open in editor - optional for another user
+crontab -e [-u user]
 
-<pre><code class="language-bash"># List tasks
+# List tasks - optional for another user
 crontab -l [-u user]
+
+# Delete crontab file - optional for another user
+crontab -r [-u user]
 </code></pre>
 
   </main>
@@ -597,7 +633,7 @@ function n(n,t,e){n.addEventListener?n.addEventListener(t,e):n.attachEvent("on"+
 },{}],"eoMl":[function(require,module,exports) {
 "use strict";var e=u(require("./wrapify")),d=u(require("dom101/add-class")),t=u(require("dom101/on"));function u(e){return e&&e.__esModule?e:{default:e}}var a,o=document.querySelector("[data-js-main-body]");function r(){a||((0,d.default)(document.documentElement,"LoadDone"),a=!0)}o&&((0,e.default)(o),(0,d.default)(o,"-wrapified")),(0,t.default)(window,"load",r),setTimeout(r,5e3);
 },{"./wrapify":"hE9p","dom101/add-class":"G20n","dom101/on":"DJ2P"}]},{},["eoMl"], null)</script>
-<script src='./assets/packed/app.js?t=20240315132423'></script>
+<script src='./assets/packed/app.js?t=20240315132551'></script>
 
 
 

@@ -15,11 +15,9 @@ keywords:
 ---
 
 ## Getting started
-
 {: .-three-column}
 
 ### Introduction
-
 {: .-intro}
 
 This is a quick reference to getting started with Bash scripting.
@@ -80,7 +78,6 @@ git commit || echo "Commit failed"
 ```
 
 ### Functions
-
 {: id='functions-example'}
 
 ```bash
@@ -94,7 +91,6 @@ echo "You are $(get_name)"
 See: [Functions](#functions)
 
 ### Conditionals
-
 {: id='conditionals-example'}
 
 ```bash
@@ -132,7 +128,6 @@ echo {A,B}.js
 See: [Brace expansion](https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace)
 
 ## Parameter expansions
-
 {: .-three-column}
 
 ### Basics
@@ -270,7 +265,6 @@ echo "${str^^}"  #=> "HELLO WORLD!" (all uppercase)
 Omitting the `:` removes the (non)nullity checks, e.g. `${foo-val}` expands to `val` if unset otherwise `$foo`.
 
 ## Loops
-
 {: .-three-column}
 
 ### Basic for loop
@@ -322,7 +316,6 @@ done
 ```
 
 ## Functions
-
 {: .-three-column}
 
 ### Defining functions
@@ -389,7 +382,6 @@ Otherwise, they do exactly the same thing (arguments as separate strings).
 See [Special parameters](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
 ## Conditionals
-
 {: .-three-column}
 
 ### Conditions
@@ -531,7 +523,6 @@ done
 ```
 
 ## Dictionaries
-
 {: .-three-column}
 
 ### Defining
@@ -855,7 +846,6 @@ fi
 ```
 
 ## Also see
-
 {: .-one-column}
 
 - [Bash-hackers wiki](https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/) _(bash-hackers.org)_

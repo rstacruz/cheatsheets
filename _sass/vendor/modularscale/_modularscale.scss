@@ -113,7 +113,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
   @return ($val / ($val - $val + 1));
 }// Basic list sorting
 // Would like to replace with http://sassmeister.com/gist/30e4863bd03ce0e1617c
-// Unfortunately libsass has a bug with passing arguments into the min() funciton.
+// Unfortunately libsass has a bug with passing arguments into the min() function.
 
 @function ms-sort($l) {
 
@@ -304,7 +304,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
     }
   }
 }// To attempt to avoid conflicts with other libraries
-// all funcitons are namespaced with `ms-`.
+// all functions are namespaced with `ms-`.
 // However, to increase usability, a shorthand function is included here.
 
 @function ms($v: 0, $base: false, $ratio: false, $thread: false, $settings: $modularscale) {

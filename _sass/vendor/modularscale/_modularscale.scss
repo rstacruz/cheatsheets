@@ -62,7 +62,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
   @return $base $ratio;
 }// Sass does not have native pow() support so this needs to be added.
 // Compass and other libs implement this more extensively.
-// In order to keep this simple, use those when they are avalible.
+// In order to keep this simple, use those when they are available.
 // Issue for pow() support in Sass: https://github.com/sass/sass/issues/684
 
 @function ms-pow($b,$e) {

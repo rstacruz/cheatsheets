@@ -955,7 +955,7 @@ Using `/ /` is to be implemented.
 #» { 0: "abc", first: "b", second: "c" }
 ```
 
-The number keys in the captures are actually `String` class.The key `0` is the mached string.
+The number keys in the captures are actually `String` class.The key `0` is the matched string.
 
 * **`MatchData.methods`**: the same as `Class.methods`
 * **`'abcd'.match(Regexp.new('(b.)')).methods`**: `captures`, `length`, `new`, `to_a`, `to_h`

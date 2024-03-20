@@ -188,7 +188,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
 @function ms-target($t,$b) {
   // Convert to string
   $t: $t + '';
-  // Remove base units to calulate ratio
+  // Remove base units to calculate ratio
   $b: ms-unitless(nth($b,1));
   // Find where 'at' is in the string
   $at: str-index($t,'at');

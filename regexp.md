@@ -43,8 +43,8 @@ description: |
 | `\A`    | Start of string        |
 | `\Z`    | End of string          |
 | `\z`    | Absolute end of string |
-| `\b`    | A word boundry         |
-| `\B`    | Non-word boundry       |
+| `\b`    | A word boundary        |
+| `\B`    | Non-word boundary      |
 | `^abc`  | Start with `abc`       |
 | `abc$`  | End with `abc`         |
 

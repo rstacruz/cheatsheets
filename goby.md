@@ -750,7 +750,7 @@ foo do
 end
 ```
 
-`get_block` is not a method but a **keyword** to retrive a given block argument as a block object. By this, you can pass around or `call` the given block arguments as block objects. 
+`get_block` is not a method but a **keyword** to retrieve a given block argument as a block object. By this, you can pass around or `call` the given block arguments as block objects. 
 
 ### Closure
 

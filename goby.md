@@ -539,7 +539,7 @@ Any objects except `nil` and `false` will be treated as `true` on conditionals.
 ### Other operators
 
 ```ruby
-()          # chaning priority of interpretation
+()          # changing priority of interpretation
 []          # array literal
 *           # multiple assignment
 ..          # range

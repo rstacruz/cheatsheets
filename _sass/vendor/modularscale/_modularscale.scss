@@ -62,7 +62,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
   @return $base $ratio;
 }// Sass does not have native pow() support so this needs to be added.
 // Compass and other libs implement this more extensively.
-// In order to keep this simple, use those when they are avalible.
+// In order to keep this simple, use those when they are available.
 // Issue for pow() support in Sass: https://github.com/sass/sass/issues/684
 
 @function ms-pow($b,$e) {
@@ -113,7 +113,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
   @return ($val / ($val - $val + 1));
 }// Basic list sorting
 // Would like to replace with http://sassmeister.com/gist/30e4863bd03ce0e1617c
-// Unfortunately libsass has a bug with passing arguments into the min() funciton.
+// Unfortunately libsass has a bug with passing arguments into the min() function.
 
 @function ms-sort($l) {
 
@@ -188,7 +188,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
 @function ms-target($t,$b) {
   // Convert to string
   $t: $t + '';
-  // Remove base units to calulate ratio
+  // Remove base units to calculate ratio
   $b: ms-unitless(nth($b,1));
   // Find where 'at' is in the string
   $at: str-index($t,'at');
@@ -304,7 +304,7 @@ $modularscale     : ()        !default;// Parse settings starting with defaults.
     }
   }
 }// To attempt to avoid conflicts with other libraries
-// all funcitons are namespaced with `ms-`.
+// all functions are namespaced with `ms-`.
 // However, to increase usability, a shorthand function is included here.
 
 @function ms($v: 0, $base: false, $ratio: false, $thread: false, $settings: $modularscale) {

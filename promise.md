@@ -29,7 +29,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor) to create new promises.
+Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Constructor) to create new promises.
 
 ### Consuming promises
 

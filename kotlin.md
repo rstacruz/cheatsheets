@@ -224,7 +224,7 @@ val four = 2.timesTwo()
 ### Default Parameters
 
 ```kotlin
-fun getGreeting(person: Person, intro: String = "Hello,") {
+fun getGreeting(person: Person, intro: String = "Hello,"): String {
     return "$intro ${person.name}"
 }
 

@@ -57,7 +57,8 @@
     "test:smoke": "bash _support/smoke_test.sh"
   },
   "volta": {
-    "node": "16.14.2",
-    "yarn": "1.22.18"
-  }
+    "node": "18.19.1",
+    "yarn": "1.22.22"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

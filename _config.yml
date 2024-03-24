@@ -44,14 +44,14 @@ kramdown:
 
 defaults:
   - scope:
-      path: ""
+      path: ''
       type: pages
     values:
-      layout: "default"
+      layout: 'default'
       og_type: article
       type: article
-      category: "Others"
-      excerpt_separator: "<!--more-->"
+      category: 'Others'
+      excerpt_separator: '<!--more-->'
       prism_languages: []
 
 # Site info
@@ -63,3 +63,5 @@ title: Devhints.io cheatsheets
 # https://help.github.com/articles/repository-metadata-on-github-pages/
 
 repository: rstacruz/cheatsheets
+include:
+  - _redirects

@@ -12,10 +12,6 @@ export const disqus = {
   host: 'devhints.disqus.com'
 } as const
 
-export const cloudflareAnalytics = {
-  token: '93ebff376c05423d8e6c1dfbe406a172'
-} as const
-
 export const googleAnalytics = {
   measurementId: 'G-N7TC6B227L'
 } as const

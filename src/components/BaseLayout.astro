@@ -3,8 +3,7 @@ import '../sass/full.scss'
 import '@fontsource/cousine/400.css'
 import '@fontsource/cousine/700.css'
 import GoogleAnalytics from '~/analytics/GoogleAnalytics.astro'
-import CloudflareAnalytics from '~/analytics/CloudflareAnalytics.astro'
-import { cloudflareAnalytics, googleAnalytics } from '~/config'
+import { googleAnalytics } from '~/config'
 
 export type Props = {
   title?: string
@@ -27,11 +26,6 @@ const analyticsEnabled = import.meta.env.PROD || true
     {
       analyticsEnabled && googleAnalytics.measurementId ? (
         <GoogleAnalytics measurementId={googleAnalytics.measurementId} />
-      ) : null
-    }
-    {
-      analyticsEnabled && cloudflareAnalytics.token ? (
-        <CloudflareAnalytics token={cloudflareAnalytics.token} />
       ) : null
     }
     <slot name="head" />

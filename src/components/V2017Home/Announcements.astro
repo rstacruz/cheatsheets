@@ -1,0 +1,34 @@
+---
+import { announcement } from '~/config'
+import snarkdown from 'snarkdown'
+
+const body = snarkdown(announcement.body)
+  .split('<br />')
+  .map((text) => `<p>${text}</p>`)
+  .join('')
+---
+
+<div class="announcements-list">
+  <div
+    class="announcements-item item -hide"
+    data-js-dismissable={`{"id":"${announcement.id}"}`}
+  >
+    <h3 class="title">{announcement.title}</h3>
+    <div class="body" set:html={body} />
+    <button data-js-dismiss class="close"></button>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/announcements-item';
+  @import '../../sass/2017/components/announcements-list';
+</style>
+
+<script>
+  import { setupDismiss } from '~/scripts/v2017/behaviors_2/dismiss'
+  import { setupDismissable } from '~/scripts/v2017/behaviors_2/dismissable'
+
+  setupDismiss()
+  setupDismissable()
+</script>

@@ -19,7 +19,7 @@ Or using a button:<br>
 
 To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.
 
-<img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/>
+<img src='.github/images/gitpod_preview_tut.png' width=828 height=459/>
 
 ## Starting a local instance
 

@@ -1,0 +1,60 @@
+---
+import { disqus, site } from '../../config'
+
+const t = {
+  suffix: 'for this cheatsheet.',
+  link: 'Write yours!'
+}
+
+export type Props = {
+  identifier: string
+}
+
+const props = Astro.props as Props
+const url = `${site.url}/${props.identifier}`
+const { identifier } = props
+---
+
+<section class="comments-area" id="comments" data-js-no-preview>
+  <div class="container">
+    <details class="comments-details">
+      <summary>
+        <strong class="count">
+          <span
+            class="disqus-comment-count"
+            data-disqus-identifier={identifier}
+            data-disqus-url={url}>0 Comments</span
+          >
+        </strong>
+        {' '}
+        <span class="suffix">{t.suffix}</span>
+        {' '}
+        <span class="fauxlink">{t.link}</span>
+      </summary>
+      <div class="comments-section">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+        </div>
+      </div>
+    </details>
+  </div>
+  <noscript
+    data-js-disqus={JSON.stringify({
+      host: disqus.host,
+      url,
+      identifier
+    })}></noscript>
+</section>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/comments-area';
+  @import '../../sass/2017/components/comments-details';
+  @import '../../sass/2017/components/comments-section';
+</style>
+
+<script>
+  import { setupDisqus } from '~/scripts/v2017/behaviors_2/disqus'
+
+  setupDisqus()
+</script>

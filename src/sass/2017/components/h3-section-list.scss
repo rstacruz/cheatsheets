@@ -1,0 +1,84 @@
+/*
+ * H3 section list:
+ * The body that is isotoped.
+ */
+
+.h3-section-list {
+  & {
+    @include section-gutter(margin-left, $multiplier: -1);
+    @include section-gutter(margin-right, $multiplier: -1);
+    margin-top: 0;
+    margin-bottom: 0;
+    column-gap: 0;
+  }
+
+  // Clearfix
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  // Each section
+  & > .h3-section {
+    @include section-gutter(padding);
+    width: 100%;
+    break-inside: avoid;
+  }
+
+  @media (min-width: 769px) {
+    & > .h3-section {
+      padding-top: 0;
+    }
+  }
+}
+
+/*
+ * Two column (default)
+ */
+
+.h3-section-list,
+.h3-section-list.-two-column {
+  @media (min-width: 769px) {
+    columns: 2;
+  }
+}
+
+/*
+ * One column
+ */
+
+.h3-section-list.-one-column {
+  @media (min-width: 769px) {
+    columns: 1;
+  }
+
+  & > .h3-section + .h3-section {
+    margin-top: 16px;
+  }
+}
+
+/*
+ * Three column
+ */
+
+.h3-section-list.-three-column {
+  @media (min-width: 769px) {
+    columns: 2;
+  }
+
+  @media (min-width: 961px) {
+    columns: 3;
+  }
+}
+
+.h3-section-list.-left-reference {
+  @media (min-width: 769px) {
+    columns: 3;
+  }
+
+  & > .h3-section + .h3-section {
+    width: 200%;
+  }
+}

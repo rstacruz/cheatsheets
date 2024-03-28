@@ -7,7 +7,8 @@ import partytown from '@astrojs/partytown'
 export default defineConfig({
   site: 'https://devhints.io',
   build: {
-    format: 'file' /* generate /my-post.html instead of /my-post/index.html */
+    format: 'file' /* generate /my-post.html instead of /my-post/index.html */,
+    inlineStylesheets: 'always'
   },
   prefetch: {
     prefetchAll: true

@@ -1,5 +1,4 @@
-source 'https://rubygems.org'
-gem 'webrick'
-gem 'github-pages', group: :jekyll_plugins
-gem 'json'
-gem 'csv'
+source "https://rubygems.org"
+gem "minitest"
+gem "kramdown"
+gem "kramdown-parser-gfm"

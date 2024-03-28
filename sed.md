@@ -31,17 +31,16 @@ sed -i 's/match1/replace1/g; s/match2/replace2/g' \
 
 ```
 
-replace different matchs with different values
+replace different matches with different values
 
 ```bash
 sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' \
 
 ```
 
-replace multiple matchs with the same value
+replace multiple matches with the same value
 
 ## File regions
-
 {:.-three-column}
 
 ### Print until a certain line is met

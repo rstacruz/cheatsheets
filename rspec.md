@@ -49,11 +49,11 @@ before :each do
   # before all tests
 end
 
-before do
+before :all do
   # before this suite
 end
 
-after do
+after : all do
   # after this suite
 end
 ```

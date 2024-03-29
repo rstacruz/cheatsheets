@@ -143,7 +143,7 @@ See the full list: <https://jsdoc.app/index.html#block-tags>
 ### Renaming
 
 ```js
-/*
+/**
  * @alias Foo.bar
  * @name Foo.bar
  */

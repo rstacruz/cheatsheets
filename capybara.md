@@ -119,14 +119,14 @@ In RSpec, you can use `page.should` assertions.
 ### About negatives
 
 ```ruby
-expect(page).to have_no_button('Save')   # OK
+expect(page).to have_no_button('Save')
 ```
+
 ```ruby
-expect(page).not_to have_button('Save')  # OK
+expect(page).not_to have_button('Save')
 ```
-```ruby
-!expect(page).to have_button('Save')  # Bad
-```
+
+The two above statements are functionally equivalent.
 
 ## RSpec
 

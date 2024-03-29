@@ -1,0 +1,16 @@
+---
+export type Props = {
+  class?: string
+}
+const props = Astro.props as Props
+---
+
+<div class={`push-button ${props.class ?? ''}`}>
+  <slot />
+</div>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/placeholders/push-button';
+  @import '../../sass/2017/components/push-button';
+</style>

@@ -451,7 +451,7 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 | `[s`                         | Move to previous misspelled word before the cursor      |
 | `z=`                         | Suggest spellings for the word under/after the cursor   |
 | `zg`                         | Add word to spell list                                  |
-| `zw`                         | Mark word as bad/mispelling                             |
+| `zw`                         | Mark word as bad/misspelling                            |
 | `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
 

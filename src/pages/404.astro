@@ -1,0 +1,33 @@
+---
+import BaseLayout from '~/components/BaseLayout.astro'
+import TopNav from '~/components/TopNav.astro'
+import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
+
+const t = {
+  title: 'Not found',
+  description: "Sorry, we don't have a cheatsheet for this yet. Try searching!",
+  goHome: 'Back to home'
+}
+---
+
+<BaseLayout title="Not found">
+  <TopNav noEdit noBack />
+  <div class="body-area -slim">
+    <div class="site-header">
+      <h1>{t.title}</h1>
+      <p>{t.description}</p>
+      <SearchForm isLive />
+      <p class="action">
+        <a class="push-button" href="/">{t.goHome}</a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  @import '../sass/2017/utils';
+  @import '../sass/2017/placeholders/push-button';
+  @import '../sass/2017/components/body-area';
+  @import '../sass/2017/components/push-button';
+  @import '../sass/2017/components/site-header';
+</style>

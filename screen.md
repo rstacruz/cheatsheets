@@ -2,7 +2,7 @@
 title: Screen
 category: CLI
 layout: 2017/sheet
-updated: 2020-12-05
+updated: 2024-02-03
 keywords:
   - Screen
   - Linux
@@ -18,13 +18,14 @@ intro: |
 ## Basics
 {: .-three-column}
 
-### CLI Options
+### Basics
 
-| Options           | Description                               |
-| ----------------- | ----------------------------------------- |
-| `-S`              | Starts a named session                    |
-| `-r [name]`       | Reattach to a screen (optionally by name) |
-| `-ls` or `--list` | Returns a list of session ids             |
+| Options/Keybind           | Description                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| `screen -S [name]`        | Start a named session                                                                    |
+| `ctrl+a ctrl+d`           | Detach the current screen and go back to the terminal (screen session will stay running) |
+| `screen -ls` or `-list`   | List all sessions                                                                        |
+| `screen -r [name]`        | Reattach to a screen (optionally by name)                                                |
 
 ### Screens
 
@@ -35,7 +36,6 @@ intro: |
 | `ctrl+a n`      | Go to the next screen tab                                                                |
 | `ctrl+a p`      | Go to the previous screen tab                                                            |
 | `ctrl+a k`      | Kill current screen tab                                                                  |
-| `ctrl+a ctrl+d` | Detach the current screen and go back to the terminal (screen windows will stay running) |
 
 ### Visual pleasure
 

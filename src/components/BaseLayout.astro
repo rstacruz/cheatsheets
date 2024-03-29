@@ -1,0 +1,36 @@
+---
+import '../sass/full.scss'
+import '@fontsource/cousine/400.css'
+import '@fontsource/cousine/700.css'
+import GoogleAnalytics from '~/analytics/GoogleAnalytics.astro'
+import { googleAnalytics } from '~/config'
+
+export type Props = {
+  title?: string
+  bodyClass?: string
+}
+
+const props = Astro.props as Props
+const analyticsEnabled = import.meta.env.PROD || true
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+    {/* Title */}
+    {props.title ? <title>{props.title}</title> : null}
+    {/* Google tag */}
+    {
+      analyticsEnabled && googleAnalytics.measurementId ? (
+        <GoogleAnalytics measurementId={googleAnalytics.measurementId} />
+      ) : null
+    }
+    <slot name="head" />
+  </head>
+  <body class={props.bodyClass ?? ''}>
+    <slot />
+  </body>
+</html>

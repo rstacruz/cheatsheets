@@ -112,7 +112,7 @@ echo (math 1 + 2)
 
 ### Matching
 
-Match the string against a regular expresion:
+Match the string against a regular expression:
 
 ```fish
 string match --regex --entire 'Fish' 'Hello from Fish!'
@@ -177,7 +177,7 @@ end
 
 | String operator     | Meaning                                   |
 | ---                 | ---                                       |
-| `==`                | [Eq]ual                                   |
+| `=`                 | [Eq]ual                                   |
 | `!=`                | [N]ot [E]qual                             |
 
 #### Files

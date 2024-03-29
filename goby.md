@@ -539,7 +539,7 @@ Any objects except `nil` and `false` will be treated as `true` on conditionals.
 ### Other operators
 
 ```ruby
-()          # chaning priority of interpretation
+()          # changing priority of interpretation
 []          # array literal
 *           # multiple assignment
 ..          # range
@@ -750,7 +750,7 @@ foo do
 end
 ```
 
-`get_block` is not a method but a **keyword** to retrive a given block argument as a block object. By this, you can pass around or `call` the given block arguments as block objects. 
+`get_block` is not a method but a **keyword** to retrieve a given block argument as a block object. By this, you can pass around or `call` the given block arguments as block objects. 
 
 ### Closure
 
@@ -955,7 +955,7 @@ Using `/ /` is to be implemented.
 #» { 0: "abc", first: "b", second: "c" }
 ```
 
-The number keys in the captures are actually `String` class.The key `0` is the mached string.
+The number keys in the captures are actually `String` class.The key `0` is the matched string.
 
 * **`MatchData.methods`**: the same as `Class.methods`
 * **`'abcd'.match(Regexp.new('(b.)')).methods`**: `captures`, `length`, `new`, `to_a`, `to_h`

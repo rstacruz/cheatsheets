@@ -64,3 +64,13 @@ beep 10
 -- delay for 5 seconds
 delay 5
 ```
+
+### Handlers
+
+```applescript
+on doubleNumber(n)
+	return n * 2
+end doubleNumber
+
+set doubledValue to my doubleNumber(2)
+```

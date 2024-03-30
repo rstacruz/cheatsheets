@@ -1,5 +1,9 @@
 name: Run tests
-on: [push, pull_request]
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 jobs:
   build:
     runs-on: ubuntu-latest

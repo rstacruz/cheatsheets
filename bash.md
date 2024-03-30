@@ -99,6 +99,8 @@ if [[ -z "$string" ]]; then
 elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
+[[ -z ${string} ]] && echo "String is empty" # one line if condition
+[[ $? -eq 0 ]] || echo "Instruction failed"  # one line else condition
 ```
 
 See: [Conditionals](#conditionals)

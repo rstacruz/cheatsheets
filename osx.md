@@ -1,6 +1,5 @@
 ---
 title: OS X
-layout: 2017/sheet
 category: macOS
 ---
 

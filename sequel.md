@@ -1,7 +1,6 @@
 ---
 title: Sequel
 category: Ruby libraries
-layout: 2017/sheet
 ---
 
 ### About

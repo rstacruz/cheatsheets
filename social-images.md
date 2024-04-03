@@ -1,6 +1,5 @@
 ---
 title: Social media images
-layout: 2017/sheet
 ---
 
 ### Facebook

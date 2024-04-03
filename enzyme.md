@@ -1,7 +1,6 @@
 ---
 title: Enzyme
 category: React
-layout: 2017/sheet
 updated: 2020-02-12
 tags: [Featured]
 weight: -1

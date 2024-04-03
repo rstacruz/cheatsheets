@@ -1,7 +1,6 @@
 ---
 title: Ronn
 category: Ruby libraries
-layout: 2017/sheet
 updated: 2017-10-15
 weight: -1
 prism_languages: [bash, ruby, json, markdown]

@@ -1,7 +1,6 @@
 ---
 title: fs
 category: Node.js
-layout: 2017/sheet
 ---
 
 ### Reading

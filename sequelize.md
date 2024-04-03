@@ -1,7 +1,6 @@
 ---
 title: Sequelize
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### About

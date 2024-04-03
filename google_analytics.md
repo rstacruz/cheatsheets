@@ -1,6 +1,5 @@
 ---
 title: Google Analytics
-layout: 2017/sheet
 tags: [Archived]
 archived: This sheet describes an older version of Google Analytics (UA).
 ---

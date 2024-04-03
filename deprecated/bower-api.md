@@ -1,7 +1,6 @@
 ---
 title: Bower API
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ```js

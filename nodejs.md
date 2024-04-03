@@ -1,7 +1,6 @@
 ---
 title: Node.js API
 category: Node.js
-layout: 2017/sheet
 ---
 
 ### Globals

@@ -1,7 +1,6 @@
 ---
 title: applicationCache
 category: JavaScript
-layout: 2017/sheet
 ---
 
 ## Reference

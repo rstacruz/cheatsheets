@@ -1,7 +1,6 @@
 ---
 title: Gulp
 category: JavaScript libraries
-layout: 2017/sheet
 tags: [Archived]
 archived: The information on this sheet may possibly be outdated.
 ---

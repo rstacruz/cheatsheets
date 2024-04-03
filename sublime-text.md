@@ -1,7 +1,6 @@
 ---
 title: Sublime Text
 category: Apps
-layout: 2017/sheet
 ---
 
 ### Select & Expand

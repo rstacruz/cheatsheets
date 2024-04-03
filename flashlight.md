@@ -1,7 +1,6 @@
 ---
 title: Flashlight
 category: Apps
-layout: 2017/sheet
 ---
 
 ## Commands

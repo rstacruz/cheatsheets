@@ -1,7 +1,6 @@
 ---
 title: docker-compose
 category: Devops
-layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
 updated: 2024-04-03 

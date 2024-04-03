@@ -1,6 +1,5 @@
 ---
 title: Watchexec
-layout: 2017/sheet
 updated: 2017-10-18
 category: CLI
 weight: -1

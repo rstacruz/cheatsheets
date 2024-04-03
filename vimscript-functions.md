@@ -1,7 +1,6 @@
 ---
 title: Vimscript functions
 category: Vim
-layout: 2017/sheet
 ---
 
 ## Dictionaries and lists

@@ -1,7 +1,6 @@
 ---
 title: Screen
 category: CLI
-layout: 2017/sheet
 updated: 2024-02-03
 keywords:
   - Screen

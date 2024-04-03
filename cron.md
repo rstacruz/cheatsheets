@@ -1,7 +1,6 @@
 ---
 title: Cron
 category: CLI
-layout: 2017/sheet
 updated: 2024-03-17
 weight: -3
 ---

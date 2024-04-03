@@ -1,7 +1,6 @@
 ---
 title: Arel
 category: Rails
-layout: 2017/sheet
 ---
 
 ### About

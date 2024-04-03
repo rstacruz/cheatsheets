@@ -1,6 +1,5 @@
 ---
 title: Make for assets
-layout: 2017/sheet
 tags: [Archived]
 archived: This sheet may be listing practices that are outdated.
 ---

@@ -1,6 +1,5 @@
 ---
 title: Vainglory
-layout: 2017/sheet
 ---
 
 ## T3 items by use

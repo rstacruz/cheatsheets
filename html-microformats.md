@@ -1,7 +1,6 @@
 ---
 title: Microformats
 category: HTML
-layout: 2017/sheet
 ---
 
 ### Author

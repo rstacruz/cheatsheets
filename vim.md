@@ -1,7 +1,6 @@
 ---
 title: Vim
 category: Vim
-layout: 2017/sheet
 tags: [Featured]
 updated: 2020-07-05
 weight: -10

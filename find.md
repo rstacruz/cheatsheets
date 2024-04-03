@@ -1,7 +1,6 @@
 ---
 title: Find
 category: CLI
-layout: 2017/sheet
 updated: 2019-11-17
 ---
 

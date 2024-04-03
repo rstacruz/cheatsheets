@@ -1,7 +1,6 @@
 ---
 title: Rails tricks
 category: Rails
-layout: 2017/sheet
 tags: [Archived]
 archived: This sheet may describe practices that might be outdated.
 ---

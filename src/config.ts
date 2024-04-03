@@ -1,3 +1,5 @@
+const isProd = Boolean(import.meta.env.PROD)
+
 export const site = {
   url: 'https://devhints.io',
   title: 'Devhints.io cheatsheets'
@@ -13,6 +15,7 @@ export const disqus = {
 } as const
 
 export const googleAnalytics = {
+  enabled: isProd,
   measurementId: 'G-N7TC6B227L'
 } as const
 
@@ -26,6 +29,7 @@ export const urls = {
 } as const
 
 export const carbon = {
+  enabled: isProd,
   // src: 'https://cdn.carbonads.com/carbon.js?serve=CE7IK5QM&placement=devhintsio'
   src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
 } as const

@@ -2,73 +2,24 @@
  * H3 section
  */
 
-.h3-section > .body {
-  & > pre,
-  & > .gatsby-highlight > pre {
-    margin: 0;
-    padding: 16px;
-  }
-
-  @media (max-width: 768px) {
-    overflow-x: auto;
-  }
-
-  & {
-    background: white;
-    box-shadow: $shadow3;
-  }
-
-  /* Collapse/flush */
-  @media (max-width: 480px) {
-    margin: 0 -16px;
-    box-shadow: $shadow2;
-  }
-
-  /* Border radius */
-  @media (min-width: 481px) {
-    & {
-      border-radius: 2px;
-    }
-
-    & > :first-child {
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-    }
-
-    & > :last-child {
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-    }
-  }
-}
-
 /*
  * Heading
  */
 
+.h3-section > .body {
+  @apply bg-white shadow-md-cool;
+  @apply overflow-x-auto;
+  @apply rounded-md [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md;
+  @apply [&>pre]:m-0 [&>pre]:p-4;
+}
+
 .h3-section > h3 {
-  & {
-    margin-top: 8px;
-    margin-bottom: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  // Mobile: the padding below h3-section is enough
-  @media (max-width: 768px) {
-    margin-top: 0;
-  }
-
-  // Horizontal line
-  &::after {
-    margin-left: 24px;
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, rgba($base-a, 0.2), transparent 80%);
-  }
+  @apply border-t-mildindigo-500 border-t-2;
+  @apply text-mildindigo-800;
+  @apply text-xl;
+  @apply pt-4;
+  @apply font-manrope font-extrabold tracking-[-0.02em];
+  @apply mt-0 mb-4 whitespace-nowrap overflow-hidden;
 }
 
 /*
@@ -163,17 +114,6 @@
 }
 
 /*
- * Variant: Prime
- */
-
-.h3-section.-prime > .body {
-  @media (min-width: 481px) {
-    border-radius: 2px;
-    box-shadow: $shadow6;
-  }
-}
-
-/*
  * Variant: Also see :\
  */
 
@@ -225,10 +165,6 @@ ul.-also-see.-also-see.-also-see {
   & > .body > ul > li::before {
     display: none;
   }
-
-  // & > .body > ul > li:hover {
-  //   background: rgba($base-b3, 0.1);
-  // }
 
   & > .body > ul > li > a {
     @include font-size(1);

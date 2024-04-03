@@ -58,12 +58,14 @@ test('date pages', async ({ page }) => {
   await page.goto('/moment')
   await page.getByRole('heading', { name: 'Moment.js cheatsheet' }).focus()
   await page.getByRole('heading', { name: 'Parsing' }).focus()
-  await page.getByRole('heading', { name: 'Formatting', exact: true }).focus()
+  await page
+    .getByRole('heading', { name: 'Internationalization', exact: true })
+    .focus()
   await page.getByRole('heading', { name: 'Add' }).focus()
 
   await page.goto('/datetime')
-  await page.getByRole('heading', { name: '#strftime format' }).focus()
-  await page.getByRole('heading', { name: '#Moment.js format' }).focus()
+  await page.getByRole('heading', { name: 'strftime format' }).focus()
+  await page.getByRole('heading', { name: 'Moment.js format' }).focus()
 })
 
 test('/knex', async ({ page }) => {

@@ -6,6 +6,8 @@ layout: 2017/sheet
 ## T3 items by use
 {: .-one-column}
 
+### Items by use
+
 | Use                    | CP                                | WP                           | Util                                                                           |
 | ---                    | ---                               | ---                          | ---                                                                            |
 | __Anti-armor/shield__  | [Myth][BM]                        | [Bonesaw][BS], [Tension][TB] |                                                                                |
@@ -122,6 +124,8 @@ layout: 2017/sheet
 [SS]: http://www.vaingloryfire.com/vainglory/wiki/items/shiversteel
 
 ## Skill tier names
+
+### Skill tier names
 
 | Just Beginning | 1 |
 | Getting There | 2 |

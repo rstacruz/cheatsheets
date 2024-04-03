@@ -25,7 +25,7 @@ $monospace-font: cousine, $system-mono;
  * Base colors
  */
 
-$base-body: #f1f3f5;
+$base-body: #fafafc;
 $base-panel: white;
 $base-head: #111;
 $base-text: #345;
@@ -45,7 +45,7 @@ $base-mute4: adjust-color($base-mute, $lightness: 8%);
 $base-mute3: adjust-color($base-mute, $lightness: 16%);
 
 $body-bg: $base-body;
-$gray-bg: mix($base-body, $base-panel, 50%);
+$gray-bg: #f3f5fc;
 $gray-text: $base-mute;
 
 $line-color: rgba($base-mute, 0.18);

@@ -1,7 +1,11 @@
 ---
-import '../sass/full.scss'
+import 'hint.css'
+import '~/sass/full.scss'
+import '~/sass/2017/base/prism_line_highlight.scss'
+
 import '@fontsource/cousine/400.css'
 import '@fontsource/cousine/700.css'
+import '@fontsource/manrope/800.css'
 import GoogleAnalytics from '~/analytics/GoogleAnalytics.astro'
 import { googleAnalytics } from '~/config'
 
@@ -11,7 +15,7 @@ export type Props = {
 }
 
 const props = Astro.props as Props
-const analyticsEnabled = import.meta.env.PROD || true
+const analyticsEnabled = googleAnalytics.enabled
 ---
 
 <html lang="en">

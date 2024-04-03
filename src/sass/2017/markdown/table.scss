@@ -31,10 +31,10 @@
     text-align: left;
   }
 
-  & tr th:last-child,
-  & tr td:last-child {
-    text-align: right;
-  }
+  // & tr th:last-child,
+  // & tr td:last-child {
+  //   text-align: right;
+  // }
 
   & td:first-child {
     white-space: nowrap;
@@ -77,7 +77,6 @@
   background: $gray-bg;
   border-radius: 3px;
   margin-right: 2px;
-  letter-spacing: 0.1em;
   color: $base-text;
 }
 

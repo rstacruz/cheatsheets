@@ -6,7 +6,7 @@ const DEFAULTS = {
   // text of anchor
   text: '#',
   // append before or after innerText?
-  shouldAppend: false
+  shouldAppend: true
 }
 
 /*
@@ -32,6 +32,7 @@ export function setupAnchors() {
         const anchor = document.createElement('a')
         anchor.setAttribute('href', `#${id}`)
         anchor.setAttribute('class', className)
+        anchor.setAttribute('aria-hidden', 'true')
         anchor.innerText = String(text || DEFAULTS.text)
 
         if (shouldAppend) {

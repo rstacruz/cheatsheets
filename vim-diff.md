@@ -1,7 +1,6 @@
 ---
 title: Vimdiff
 category: Vim
-layout: 2017/sheet
 updated: 2018-12-06
 weight: -10
 intro: |

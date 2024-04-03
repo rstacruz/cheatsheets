@@ -1,7 +1,6 @@
 ---
 title: Git extras
 category: Git
-layout: 2017/sheet
 intro: |
   Quick reference to some utilities in the [git-extras](https://github.com/tj/git-extras) utilities.
 ---

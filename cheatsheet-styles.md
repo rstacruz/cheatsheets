@@ -1,6 +1,5 @@
 ---
 title: Cheatsheet styles
-layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-26
 intro: |
@@ -22,7 +21,6 @@ Variants
 | `-two-column` | _(default)_|
 | `-three-column` | |
 | `-left-reference` | 3 columns<br>_(short first column)_ |
-| `-no-hide` | Don't hide H2 |
 
 See: [H2 sections](#two-columns)
 

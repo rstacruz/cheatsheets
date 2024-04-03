@@ -1,6 +1,5 @@
 ---
 title: Org Mode
-layout: 2017/sheet
 tags: [WIP]
 category: Apps
 updated: 2018-02-19

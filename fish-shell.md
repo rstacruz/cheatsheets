@@ -1,7 +1,6 @@
 ---
 title: Fish shell
 category: CLI
-layout: 2017/sheet
 prism_languages: [fish]
 updated: 2018-01-31
 weight: -1

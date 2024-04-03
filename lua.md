@@ -1,6 +1,5 @@
 ---
 title: Lua
-layout: 2017/sheet
 ---
 
 ## Basic examples

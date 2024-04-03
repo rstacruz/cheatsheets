@@ -1,6 +1,5 @@
 ---
 title: "Basic test"
-layout: 2017/sheet
 category: Hidden
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Ledger examples
 category: Ledger
-layout: 2017/sheet
 ---
 
 ### Inspecting transactions

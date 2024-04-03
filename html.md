@@ -1,7 +1,6 @@
 ---
 title: HTML
 category: HTML
-layout: 2017/sheet
 ---
 
 ### Head stuff

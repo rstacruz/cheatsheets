@@ -1,7 +1,6 @@
 ---
 title: Erlang ETS
 category: Elixir
-layout: 2017/sheet
 weight: -1
 ---
 

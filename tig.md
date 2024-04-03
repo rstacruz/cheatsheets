@@ -1,7 +1,6 @@
 ---
 title: Tig
 category: Git
-layout: 2017/sheet
 updated: 2022-12-08
 weight: -3
 ---

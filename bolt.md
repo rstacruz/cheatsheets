@@ -1,7 +1,6 @@
 ---
 title: Bolt Quickstart
 category: Bolt
-layout: 2017/sheet
 updated: 2018-12-25
 authors:
   - github: lucywyman

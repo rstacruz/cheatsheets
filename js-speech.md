@@ -1,7 +1,6 @@
 ---
 title: JavaScript speech synthesis
 category: JavaScript
-layout: 2017/sheet
 weight: -1
 ---
 

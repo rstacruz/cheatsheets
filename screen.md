@@ -1,7 +1,6 @@
 ---
 title: Screen
 category: CLI
-layout: 2017/sheet
 updated: 2024-02-03
 keywords:
   - Screen
@@ -24,7 +23,7 @@ intro: |
 | ------------------------- | ---------------------------------------------------------------------------------------- |
 | `screen -S [name]`        | Start a named session                                                                    |
 | `ctrl+a ctrl+d`           | Detach the current screen and go back to the terminal (screen session will stay running) |
-| `screen -ls` or `-list`   | List all sessions                                                                        |
+| `screen -ls` _or_ <br /> `screen -list`   | List all sessions                                                                        |
 | `screen -r [name]`        | Reattach to a screen (optionally by name)                                                |
 
 ### Screens
@@ -43,7 +42,7 @@ intro: |
 | ------------------------------- | ---------------------------- |
 | `ctrl+a S`                      | Split a screen horizontally  |
 | `ctrl+a |`                      | Split a screen vertically    |
-| `ctrl+a ctrl+I` or `ctrl+a tab` | Change screen split          |
+| `ctrl+a ctrl+I` _or_ <br /> `ctrl+a tab` | Change screen split          |
 | `ctrl+a Q`                      | Remove all screen splits     |
 | `ctrl+a C`                      | Clear the current screen tab |
 

@@ -2,7 +2,6 @@
 title: "Phoenix: Ecto models"
 category: Elixir
 deprecated: true
-layout: 2017/sheet
 tags: [Archived]
 archived: This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoenix-ecto@1.3).
 ---

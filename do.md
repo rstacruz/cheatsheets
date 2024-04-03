@@ -1,7 +1,6 @@
 ---
 title: Do gem
 category: Ruby libraries
-layout: 2017/sheet
 ---
 
 ### About

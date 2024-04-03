@@ -1,7 +1,6 @@
 ---
 title: GitHub pages
 category: Jekyll
-layout: 2017/sheet
 ---
 
 ## Custom domains

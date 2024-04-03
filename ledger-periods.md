@@ -1,7 +1,6 @@
 ---
 title: Ledger periods
 category: Ledger
-layout: 2017/sheet
 ---
 
 ### About

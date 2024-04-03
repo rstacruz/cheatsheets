@@ -1,7 +1,6 @@
 ---
 title: RSpec
 category: Ruby
-layout: 2017/sheet
 ---
 
 ### About

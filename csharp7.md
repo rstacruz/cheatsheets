@@ -2,7 +2,6 @@
 title: C# 7
 category: C-like
 updated: 2018-12-06
-layout: 2017/sheet
 prism_languages: [csharp]
 description: |
   A quick overview of C# 7

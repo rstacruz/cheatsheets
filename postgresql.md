@@ -1,7 +1,6 @@
 ---
 title: PostgreSQL
 category: Databases
-layout: 2017/sheet
 ---
 
 ### Console

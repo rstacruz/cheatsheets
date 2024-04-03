@@ -1,7 +1,6 @@
 ---
 title: Capybara
 category: Ruby libraries
-layout: 2017/sheet
 weight: -5
 updated: 2020-06-13
 tags: [Featurable]

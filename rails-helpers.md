@@ -1,7 +1,6 @@
 ---
 title: Rails helpers
 category: Rails
-layout: 2017/sheet
 ---
 
 ### Date

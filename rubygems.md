@@ -1,7 +1,6 @@
 ---
 title: Rubygems
 category: Ruby
-layout: 2017/sheet
 intro: |
   A quick reference to common [rubygems](https://rubygems.org) CLI commands.
 ---

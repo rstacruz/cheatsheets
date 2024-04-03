@@ -1,7 +1,6 @@
 ---
 title: Browserify
 category: JavaScript libraries
-layout: 2017/sheet
 tags: [Archived]
 archived: Browserify has not been in active development.
 ---

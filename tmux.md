@@ -1,7 +1,6 @@
 ---
 title: tmux
 category: CLI
-layout: 2017/sheet
 ---
 
 ### Commands

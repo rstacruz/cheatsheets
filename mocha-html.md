@@ -1,7 +1,6 @@
 ---
 title: Mocha HTML
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### About

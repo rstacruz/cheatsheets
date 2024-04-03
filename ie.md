@@ -1,7 +1,6 @@
 ---
 title: Internet Explorer
 category: HTML
-layout: 2017/sheet
 updated: 2018-03-06
 ---
 

@@ -1,11 +1,9 @@
 ---
 title: Sequel
 category: Ruby libraries
-layout: 2017/sheet
 ---
 
 ### About
-
 {: .-intro}
 
 Sequel is a database toolkit for Ruby.

@@ -1,7 +1,6 @@
 ---
 title: Chef
 category: Devops
-layout: 2017/sheet
 ---
 
 ### Install

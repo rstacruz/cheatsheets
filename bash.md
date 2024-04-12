@@ -1,7 +1,6 @@
 ---
 title: Bash scripting
 category: CLI
-layout: 2017/sheet
 tags: [Featured]
 updated: 2020-07-05
 keywords:
@@ -15,11 +14,9 @@ keywords:
 ---
 
 ## Getting started
-
 {: .-three-column}
 
 ### Introduction
-
 {: .-intro}
 
 This is a quick reference to getting started with Bash scripting.
@@ -80,7 +77,6 @@ git commit || echo "Commit failed"
 ```
 
 ### Functions
-
 {: id='functions-example'}
 
 ```bash
@@ -94,7 +90,6 @@ echo "You are $(get_name)"
 See: [Functions](#functions)
 
 ### Conditionals
-
 {: id='conditionals-example'}
 
 ```bash
@@ -132,7 +127,6 @@ echo {A,B}.js
 See: [Brace expansion](https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace)
 
 ## Parameter expansions
-
 {: .-three-column}
 
 ### Basics
@@ -173,7 +167,7 @@ echo "${str/foo/bar}" # /path/to/bar.cpp
 
 ```bash
 str="Hello world"
-echo "${str:6:5}"   # "world"
+echo "${str:6:5}"    # "world"
 echo "${str: -5:5}"  # "world"
 ```
 
@@ -181,6 +175,24 @@ echo "${str: -5:5}"  # "world"
 src="/path/to/foo.cpp"
 base=${src##*/}   #=> "foo.cpp" (basepath)
 dir=${src%$base}  #=> "/path/to/" (dirpath)
+```
+
+### Prefix name expansion
+
+```bash
+prefix_a=one
+prefix_b=two
+echo ${!prefix_*}  # all variables names starting with `prefix_`
+prefix_a prefix_b
+```
+
+### Indirection
+
+```bash
+name=joe
+pointer=name
+echo ${!pointer}
+joe
 ```
 
 ### Substitution
@@ -252,7 +264,6 @@ echo "${str^^}"  #=> "HELLO WORLD!" (all uppercase)
 Omitting the `:` removes the (non)nullity checks, e.g. `${foo-val}` expands to `val` if unset otherwise `$foo`.
 
 ## Loops
-
 {: .-three-column}
 
 ### Basic for loop
@@ -304,7 +315,6 @@ done
 ```
 
 ## Functions
-
 {: .-three-column}
 
 ### Defining functions
@@ -317,7 +327,7 @@ myfunc() {
 
 ```bash
 # Same as above (alternate syntax)
-function myfunc() {
+function myfunc {
     echo "hello $1"
 }
 ```
@@ -371,7 +381,6 @@ Otherwise, they do exactly the same thing (arguments as separate strings).
 See [Special parameters](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
 ## Conditionals
-
 {: .-three-column}
 
 ### Conditions
@@ -513,7 +522,6 @@ done
 ```
 
 ## Dictionaries
-
 {: .-three-column}
 
 ### Defining
@@ -837,7 +845,6 @@ fi
 ```
 
 ## Also see
-
 {: .-one-column}
 
 - [Bash-hackers wiki](https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/) _(bash-hackers.org)_

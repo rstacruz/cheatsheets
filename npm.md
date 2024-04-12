@@ -1,7 +1,6 @@
 ---
 title: npm
 category: JavaScript
-layout: 2017/sheet
 weight: -1
 updated: 2019-12-24
 ---
@@ -13,38 +12,14 @@ updated: 2019-12-24
 | `npm i`                           | Alias for `npm install`                                   |
 | `npm install`                     | Install everything in package.json                        |
 | `npm install --production`        | Install everything in package.json, except devDependecies |
+
+### Adding packages
+
+| Command                           | Description                                               |
 | ---                               | ---                                                       |  
 | `npm install lodash`              | Install a package                                         |
 | `npm install --save-dev lodash`   | Install as devDependency                                  |
 | `npm install --save-exact lodash` | Install with exact                                        |
-| ---                               | ---                                                       |
-| `npm version 1.2.3`               | Bump the package version to 1.2.3                         |
-| `npm version major`               | Bump the major package version by 1 (1.2.3 → 2.0.0)       |
-| `npm version minor`               | Bump the minor package version by 1 (1.2.3 → 1.3.0)       |
-| `npm version patch`               | Bump the patch package version by 1 (1.2.3 → 1.2.4)       |
-
-
-`--save` is the default as of npm@5. Previously, using `npm install` without `--save` doesn't update package.json.
-
-### Install names
-
-| Command                              | Description             |
-| ---                                  | ---                     |
-| `npm i sax`                          | NPM package             |
-| `npm i sax@latest`                   | Specify tag `latest`    |
-| `npm i sax@3.0.0`                    | Specify version `3.0.0` |
-| `npm i sax@">=1 <2.0"`               | Specify version range   |
-| ---                                  | ---                     |
-| `npm i @org/sax`                     | Scoped NPM package      |
-| ---                                  | ---                     |
-| `npm i user/repo`                    | GitHub                  |
-| `npm i user/repo#master`             | GitHub                  |
-| `npm i github:user/repo`             | GitHub                  |
-| `npm i gitlab:user/repo`             | GitLab                  |
-| ---                                  | ---                     |
-| `npm i /path/to/repo`                | Absolute path           |
-| `npm i ./archive.tgz`                | Tarball                 |
-| `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
 
 ### Listing
 
@@ -71,6 +46,37 @@ updated: 2019-12-24
 | Command             | Description                        |
 | ---                 | ---                                |
 | `npm rm lodash`     | Remove package production packages |
+
+## More features
+
+### Install names
+
+| Command                              | Description             |
+| ---                                  | ---                     |
+| `npm i sax`                          | NPM package             |
+| `npm i sax@latest`                   | Specify tag `latest`    |
+| `npm i sax@3.0.0`                    | Specify version `3.0.0` |
+| `npm i sax@">=1 <2.0"`               | Specify version range   |
+| ---                                  | ---                     |
+| `npm i @org/sax`                     | Scoped NPM package      |
+| ---                                  | ---                     |
+| `npm i user/repo`                    | GitHub                  |
+| `npm i user/repo#master`             | GitHub                  |
+| `npm i github:user/repo`             | GitHub                  |
+| `npm i gitlab:user/repo`             | GitLab                  |
+| ---                                  | ---                     |
+| `npm i /path/to/repo`                | Absolute path           |
+| `npm i ./archive.tgz`                | Tarball                 |
+| `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
+
+### Bumping versions
+
+| Command                           | Description                                               |
+| ---                               | ---                                                       |
+| `npm version 1.2.3`               | Bump the package version to 1.2.3                         |
+| `npm version major`               | Bump the major package version by 1 (1.2.3 → 2.0.0)       |
+| `npm version minor`               | Bump the minor package version by 1 (1.2.3 → 1.3.0)       |
+| `npm version patch`               | Bump the patch package version by 1 (1.2.3 → 1.2.4)       |
 
 ### Misc features
 

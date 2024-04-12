@@ -1,7 +1,6 @@
 ---
 title: Vim digraphs
 category: Vim
-layout: 2017/sheet
 ---
 
 ### Typing digraphs in insert mode

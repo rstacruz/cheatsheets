@@ -1,0 +1,154 @@
+---
+// import "../sass/critical-sheet.scss";
+import cx from 'clsx'
+import snarkdown from 'snarkdown'
+import { render } from '../lib/render'
+import type { SheetPage } from '../lib/page'
+import BaseLayout from './BaseLayout.astro'
+import TopNav from './TopNav.astro'
+import CommentsArea from './V2017Sheet/CommentsArea.astro'
+import SearchFooter from './V2017Sheet/SearchFooter.astro'
+import RelatedPosts from './V2017Sheet/RelatedPosts.astro'
+import CarbonBox from './V2017/CarbonBox.astro'
+import { getSEOPropsForPage } from '~/lib/seo/seo'
+import { getJSONLDsForPage } from '~/lib/seo/jsonLd'
+import SEO from '~/components/SEO/SEO.astro'
+import NoticeBox from './V2017Sheet/NoticeBox.astro'
+import { getEditLink } from '~/lib/links'
+import { typeStyles } from '~/styles/CommonStyles'
+
+export type Props = {
+  page: SheetPage
+}
+
+const props = Astro.props as Props
+const page = props.page
+const mkdn = await render(page.markdown)
+const seoProps = getSEOPropsForPage(page)
+const jsonLdSchemas = getJSONLDsForPage(page)
+const tags = page.frontmatter.tags ?? []
+const deprecatedBy = page.frontmatter.deprecated_by
+const title: string = page.frontmatter.title ?? page.slug
+const editUrl = getEditLink(page)
+const intro: string | null = page.frontmatter.intro
+  ? `<p>${snarkdown(page.frontmatter.intro)}</p>`
+  : null
+
+const styles = {
+  body: cx('V2017Sheet__body max-w-content p-6 md:px-8 mx-auto')
+}
+
+const headingStyles = {
+  root: cx(
+    'MainHeading__root',
+    'mt-4 md:pt-8 w-full',
+    'flex flex-col md:flex-row gap-12',
+    'items-center md:items-end'
+  ),
+  spacer: cx('MainHeading__spacer', 'mt-12'),
+  h1: cx(
+    'MainHeading__h1',
+    typeStyles.manrope,
+    'text-5xl leading-[1.2] text-zinc-950',
+    'text-center md:text-left',
+    'flex-1'
+  ),
+  title: cx('MainHeading__title'),
+  pubbox: cx('MainHeading__pubbox')
+}
+---
+
+<BaseLayout bodyClass="HighlightPubFirstLine">
+  <Fragment slot="head">
+    <SEO {...seoProps} />
+    {
+      jsonLdSchemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+  </Fragment>
+
+  <TopNav page={page} />
+  <div class={styles.body}>
+    <header class={headingStyles.root} role="banner">
+      <h1 class={headingStyles.h1}>
+        <span class={headingStyles.title}>{title}</span>
+        <span class={headingStyles.suffix}> cheatsheet</span>
+      </h1>
+
+      {/* Publicite */}
+      <div class={headingStyles.pubbox} data-js-no-preview><CarbonBox /></div>
+    </header>
+
+    <div class={headingStyles.spacer}></div>
+
+    {/* WIP */}
+    {
+      tags.includes('WIP') ? (
+        <NoticeBox>
+          This page is a work in progress. You can help by{' '}
+          <a href={editUrl}>suggesting edits</a>!
+        </NoticeBox>
+      ) : null
+    }
+
+    {/* Deprecated */}
+    {
+      deprecatedBy ? (
+        <NoticeBox>
+          <strong>Deprecated:</strong> This guide covers an older version.
+          <a href={deprecatedBy}>A newer version is available here.</a>
+        </NoticeBox>
+      ) : null
+    }
+
+    {
+      intro ? (
+        <div class="intro-content text-xl MarkdownBody">
+          <Fragment set:html={intro} />
+        </div>
+      ) : null
+    }
+
+    <div class={headingStyles.spacer}></div>
+
+    <main
+      class="post-content MarkdownBody"
+      data-js-main-body
+      data-js-anchors
+      role="main"
+    >
+      <Fragment set:html={mkdn.html} />
+    </main>
+  </div>
+
+  <div class="pre-footer" data-js-no-preview><i class="icon"></i></div>
+  <CommentsArea identifier={page.slug} />
+  <SearchFooter />
+  <RelatedPosts page={page} />
+</BaseLayout>
+
+<style lang="scss" is:global>
+  @import '../sass/2017/utils';
+  @import '../sass/2017/markdown/a-em';
+  @import '../sass/2017/markdown/code';
+  @import '../sass/2017/markdown/headings';
+  @import '../sass/2017/markdown/p';
+  @import '../sass/2017/markdown/table';
+  @import '../sass/2017/markdown/ul';
+  @import '../sass/2017/components/h2-section';
+  @import '../sass/2017/components/h3-section';
+  @import '../sass/2017/components/h3-section-list';
+  @import '../sass/2017/components/hint-mark';
+  @import '../sass/2017/components/intro-content';
+  @import '../sass/2017/components/main-heading';
+  @import '../sass/2017/components/pre-footer';
+</style>
+
+<script>
+  import { setupNoPreview } from '~/scripts/v2017/behaviors_2/no-preview'
+  import { setupAnchors } from '~/scripts/v2017/behaviors_2/anchors'
+
+  setupNoPreview()
+  setupAnchors()
+</script>

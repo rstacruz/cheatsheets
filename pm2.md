@@ -1,7 +1,6 @@
 ---
 title: pm2
 category: CLI
-layout: 2017/sheet
 authors: { github: "Dr-Dino" }
 updated: 2020-05-08
 ---
@@ -54,6 +53,9 @@ updated: 2020-05-08
 | `pm2 delete all`  | Will remove all processes from pm2 list        |
 | ---               | ---                                            |
 | `pm2 save`        | Save processes list to respawn at reboot       |
+| ---               | ---                                            |
+| `pm2 reset`       | reset the restart counter                      |
+| `pm2 reset all`   | reset all restart counters                     |
 
 ### Misc
 

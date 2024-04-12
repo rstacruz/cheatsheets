@@ -1,7 +1,6 @@
 ---
 title: Perl-pie
 category: Development
-layout: 2017/sheet
 ---
 
 ### About

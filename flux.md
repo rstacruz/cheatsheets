@@ -1,7 +1,6 @@
 ---
 title: Flux architecture
 category: React
-layout: 2017/sheet
 ---
 
 ## About

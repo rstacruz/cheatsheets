@@ -1,5 +1,11 @@
 # Developer notes
 
+## Runtimes
+
+Requires Node.js, Ruby, Yarn v1.
+
+See `.ruby-version` and `.node-version` for supported versions.
+
 ## Gitpod
 
 This repository supports contribution using [gitpod](https://gitpod.io) which is online IDE using [Theia](https://github.com/eclipse-theia/theia).
@@ -13,7 +19,7 @@ Or using a button:<br>
 
 To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.
 
-<img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/>
+<img src='.github/images/gitpod_preview_tut.png' width=828 height=459/>
 
 ## Starting a local instance
 
@@ -78,8 +84,6 @@ Each sheet supports these metadata:
 ```yml
 ---
 title: React.js
-layout: 2017/sheet # 'default' | '2017/sheet'
-
 # Optional:
 category: React
 updated: 2020-06-14

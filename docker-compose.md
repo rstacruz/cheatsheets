@@ -1,10 +1,9 @@
 ---
 title: docker-compose
 category: Devops
-layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2020-01-01
+updated: 2024-04-03 
 ---
 
 ### Basic example
@@ -27,22 +26,54 @@ services:
     image: redis
 ```
 
+
+### Version 1 to 2
+
+Docker compose is now integrated into the official Docker installation. The functionality only improved over that change, and the simple syntax change is : V1 : `docker-compose ARG` to V2 `docker compose ARG`
+More on that here : [Docker Compose](https://docs.docker.com/compose/) [Migrate to V2](https://docs.docker.com/compose/migrate/)
+
 ### Commands
 
+
 ```sh
-docker-compose start
-docker-compose stop
+docker compose version 
+docker compose config    
 ```
 
 ```sh
-docker-compose pause
-docker-compose unpause
+docker compose start
+docker compose stop
+docker compose restart
+docker compose run    
 ```
 
 ```sh
-docker-compose ps
-docker-compose up
-docker-compose down
+docker compose create  
+docker compose attach      
+docker compose pause
+docker compose unpause
+```
+
+```sh
+docker compose wait   
+docker compose up
+docker compose down
+```
+
+```sh 
+docker compose ps
+docker compose top 
+docker compose events   
+docker compose logs
+```
+
+
+```sh
+docker compose images
+docker compose build      
+docker compose push  
+docker compose cp       
+docker compose exec 
 ```
 
 ## Reference

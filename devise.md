@@ -1,6 +1,5 @@
 ---
 title: Devise
-layout: 2017/sheet
 ---
 
 ### About

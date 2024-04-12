@@ -1,6 +1,5 @@
 ---
 title: Divshot
-layout: 2017/sheet
 tags: [Archived]
 archived: Divshot is no longer in operation.
 ---

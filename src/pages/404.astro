@@ -1,0 +1,45 @@
+---
+import cx from 'clsx'
+import BaseLayout from '~/components/BaseLayout.astro'
+import TopNav from '~/components/TopNav.astro'
+import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
+
+const t = {
+  title: '404',
+  description: "Sorry, we don't have a cheatsheet for this yet. Try searching!",
+  goHome: 'Back to home'
+}
+
+const styles = {
+  body: 'V2017Sheet__body max-w-slim p-6 md:px-8 mx-auto'
+}
+
+const headingStyles = {
+  root: cx('SiteHeading404__root', 'my-12 mt-[30svh] text-center'),
+  h1: cx('SiteHeading404__h1', `text-5xl font-bold`),
+  tagline: cx('SiteHeading404__tagline', 'mt-4', 'text-2xl')
+}
+---
+
+<BaseLayout title="Not found">
+  <TopNav noEdit noBack />
+  <div class={styles.body}>
+    <div class={headingStyles.root}>
+      <h1 class={headingStyles.h1}>{t.title}</h1>
+      <p class={headingStyles.tagline}>{t.description}</p>
+    </div>
+    <div>
+      <SearchForm isLive />
+      <div class="mt-8"></div>
+      <p class="text-center">
+        <a class="push-button" href="/">{t.goHome}</a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  @import '../sass/2017/utils';
+  @import '../sass/2017/placeholders/push-button';
+  @import '../sass/2017/components/push-button';
+</style>

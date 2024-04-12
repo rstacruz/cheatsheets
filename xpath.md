@@ -1,7 +1,6 @@
 ---
 title: Xpath
 category: HTML
-layout: 2017/sheet
 tags: [Featured]
 weight: -5
 description: |

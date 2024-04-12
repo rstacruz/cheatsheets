@@ -2,7 +2,6 @@
 title: Pacman
 category: Linux
 updated: 2018-07-07
-layout: 2017/sheet
 ---
 
 ## Commands

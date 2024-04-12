@@ -1,7 +1,6 @@
 ---
 title: Node.js streams
 category: Node.js
-layout: 2017/sheet
 weight: -1
 updated: 2017-08-30
 ---

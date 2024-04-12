@@ -1,0 +1,17 @@
+---
+import { carbon } from '~/config'
+const useCarbon = carbon.enabled
+---
+
+<div class="HeadlinePub" role="complementary">
+  {useCarbon ? <script async src={carbon.src} id="_carbonads_js" /> : null}
+  <span class="placeholder -one"></span>
+  <span class="placeholder -two"></span>
+  <span class="placeholder -three"></span>
+  <span class="placeholder -four"></span>
+</div>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/headline-pub';
+</style>

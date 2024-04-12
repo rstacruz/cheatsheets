@@ -1,6 +1,5 @@
 ---
 title: PlantUML
-layout: 2017/sheet
 ---
 
 ### About

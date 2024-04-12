@@ -1,7 +1,6 @@
 ---
 title: Tomdoc
 category: Markup
-layout: 2017/sheet
 ---
 
 ### Tomdoc

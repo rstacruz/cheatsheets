@@ -1,7 +1,6 @@
 ---
 title: Git tricks
 category: Git
-layout: 2017/sheet
 ---
 
 ### Refs

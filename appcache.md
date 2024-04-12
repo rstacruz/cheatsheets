@@ -1,7 +1,6 @@
 ---
 title: Appcache
 category: HTML
-layout: 2017/sheet
 ---
 
 ### Format

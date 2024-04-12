@@ -1,7 +1,6 @@
 ---
 title: React-router
 category: React
-layout: 2017/sheet
 ---
 
 ### About

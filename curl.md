@@ -1,7 +1,6 @@
 ---
 title: Curl
 category: CLI
-layout: 2017/sheet
 updated: 2020-03-09
 ---
 

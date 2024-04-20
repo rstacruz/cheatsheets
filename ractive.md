@@ -1,7 +1,6 @@
 ---
 title: Ractive.js
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 {% raw %}

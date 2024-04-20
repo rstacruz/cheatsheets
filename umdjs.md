@@ -1,7 +1,6 @@
 ---
 title: Universal JS module loader
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### Reference

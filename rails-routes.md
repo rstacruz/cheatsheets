@@ -1,7 +1,6 @@
 ---
 title: Routes
 category: Rails
-layout: 2017/sheet
 ---
 
 ## Resources

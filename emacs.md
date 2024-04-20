@@ -1,7 +1,6 @@
 ---
 title: Emacs
 category: CLI
-layout: 2017/sheet
 ---
 
 ### Movements

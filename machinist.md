@@ -1,7 +1,6 @@
 ---
 title: Machinist
 category: Ruby libraries
-layout: 2017/sheet
 tags: [Archived]
 archived: Machinist has not been in active development since 2013.
 ---

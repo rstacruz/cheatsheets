@@ -1,6 +1,5 @@
 ---
 title: Linux
-layout: 2017/sheet
 ---
 
 ### Read/Write/Execute a file

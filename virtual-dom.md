@@ -1,7 +1,6 @@
 ---
 title: Virtual-dom
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### About

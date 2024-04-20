@@ -1,7 +1,6 @@
 ---
 title: tar
 category: CLI
-layout: 2017/sheet
 updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files
 ---

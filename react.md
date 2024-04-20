@@ -1,7 +1,6 @@
 ---
 title: React.js
 category: React
-layout: 2017/sheet
 ads: true
 tags: [Featured]
 updated: 2020-07-05
@@ -154,7 +153,6 @@ class Info extends Component {
   }
 }
 ```
-
 {: data-line="5,6,7,8,9,10"}
 
 Nest components to separate concerns.

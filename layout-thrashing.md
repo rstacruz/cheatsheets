@@ -1,7 +1,6 @@
 ---
 title: Layout thrashing
 category: HTML
-layout: 2017/sheet
 description: ""
 updated: 2017-10-19
 weight: -1

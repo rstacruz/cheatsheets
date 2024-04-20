@@ -1,6 +1,5 @@
 ---
 title: Unicode symbols
-layout: 2017/sheet
 ---
 
 ### Symbols

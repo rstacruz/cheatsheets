@@ -1,7 +1,6 @@
 ---
 title: Rails models
 category: Rails
-layout: 2017/sheet
 ---
 
 Generating

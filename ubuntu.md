@@ -1,6 +1,5 @@
 ---
 title: Ubuntu
-layout: 2017/sheet
 ---
 
 ### Aptitude stuff

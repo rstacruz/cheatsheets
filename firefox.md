@@ -1,6 +1,5 @@
 ---
 title: Firefox
-layout: 2017/sheet
 tags: [Archived]
 archived: This sheet has not been updated with newer Firefox releases.
 ---

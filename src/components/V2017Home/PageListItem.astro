@@ -1,0 +1,20 @@
+---
+import type { SheetPage } from '../../lib/page'
+
+export type Props = {
+  page: SheetPage
+  class?: string
+}
+const props = Astro.props as Props
+const page = props.page
+const url = `/${page.slug}`
+---
+
+<a href={url} class={`article item -item-${page.slug} ${props.class ?? ''}`}>
+  <span class="info">
+    <code class="slug">{page.slug}</code>
+    <span class="title">
+      {page.frontmatter.title ?? page.slug}
+    </span>
+  </span>
+</a>

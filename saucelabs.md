@@ -1,6 +1,5 @@
 ---
 title: Saucelabs
-layout: 2017/sheet
 ---
 
 ### Getting started

@@ -1,7 +1,6 @@
 ---
 title: Mobx
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2018-05-14
 ---
 

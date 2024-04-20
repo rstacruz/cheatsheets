@@ -1,7 +1,6 @@
 ---
 title: Absinthe
 category: Hidden
-layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-10
 intro: |

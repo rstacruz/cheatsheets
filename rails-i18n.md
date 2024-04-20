@@ -1,7 +1,6 @@
 ---
 title: Rails i18n
 category: Rails
-layout: 2017/sheet
 ---
 
 ### References

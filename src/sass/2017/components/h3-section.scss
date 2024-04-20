@@ -1,0 +1,201 @@
+/*
+ * H3 section
+ */
+
+/*
+ * Heading
+ */
+
+.h3-section > .body {
+  @apply bg-white shadow-md-cool;
+  @apply overflow-x-auto;
+  @apply rounded-md [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md;
+  @apply [&>pre]:m-0 [&>pre]:p-4;
+}
+
+.h3-section > h3 {
+  @apply border-t-mildindigo-500 border-t-2;
+  @apply text-mildindigo-800;
+  @apply text-xl;
+  @apply pt-4;
+  @apply font-manrope font-extrabold tracking-[-0.02em];
+  @apply mt-0 mb-4 whitespace-nowrap overflow-hidden;
+}
+
+/*
+ * Children
+ */
+
+.h3-section > .body {
+  /* Lists */
+  & > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  & > ul > li {
+    padding: 8px;
+    padding-left: 32px + 4px;
+    position: relative;
+  }
+
+  & > ul > li > p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & > ul > li::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: $gray-text;
+    border-radius: 50%;
+    left: 16px;
+    top: 16px + 2px;
+  }
+
+  & > ul > li + li {
+    border-top: solid 1px $line-color;
+  }
+
+  /* Paragraphs */
+  & > p {
+    padding: 16px;
+    margin: 0;
+  }
+
+  /* Headings in between bodies */
+  & > h4 {
+    @include font-size(-1);
+    margin: 0;
+    padding: 4px 16px;
+    font-weight: normal;
+    background: $gray-bg;
+    color: $gray-text;
+
+    & + * {
+      border-top: solid 1px $line-color;
+    }
+  }
+
+  /* Description paragraphs */
+  & > p,
+  & :not(li) > p {
+    background: $gray-bg;
+    color: $base-text;
+
+    /* Links */
+    & a,
+    & a:visited {
+      color: $base-text;
+      text-decoration: none;
+      border-bottom: solid 1px $line-color;
+    }
+
+    & a:hover {
+      color: $base-b;
+    }
+  }
+
+  // Line divisions
+  & > *:not(:first-child) {
+    border-top: solid 1px $line-color;
+  }
+
+  // Collapse paragraphs together
+  & > p + p,
+  & > p + p:not(:first-child) {
+    margin-top: -1.5em;
+    border-top: 0;
+  }
+}
+
+/*
+ * Variant: Also see :\
+ */
+
+ul.-also-see.-also-see.-also-see {
+  display: flex;
+  flex-wrap: wrap;
+  background: $gray-bg;
+
+  & > li {
+    flex: 1 0 20%;
+    padding: 24px;
+    border-top: solid 1px $dark-line-color;
+
+    & + li {
+      border-left: solid 1px $dark-line-color;
+    }
+  }
+
+  &,
+  & > li {
+    list-style-type: none;
+  }
+
+  & > li::before {
+    display: none;
+  }
+
+  & > li > a {
+    @include font-size(1);
+    display: block;
+  }
+
+  & > li > em {
+    @include font-size(-1);
+    display: block;
+  }
+}
+
+.h3-section.-intro {
+  & > .body > p {
+    @include font-size(1);
+  }
+
+  & > .body > ul > li {
+    padding-left: 16px;
+    position: relative;
+  }
+
+  & > .body > ul > li::before {
+    display: none;
+  }
+
+  & > .body > ul > li > a {
+    @include font-size(1);
+    display: block;
+    font-weight: bold;
+  }
+
+  // Cover the full card
+  & > .body > ul > li > a::before {
+    content: '';
+    @include ion-md-arrow-forward(24px, $base-a3);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -12px;
+  }
+  & > .body > ul > li:hover > a::before {
+    @include ion-md-arrow-forward(24px, $base-a);
+  }
+
+  & > .body > ul > li > a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  & > .body > ul > li em {
+    color: $base-mute;
+  }
+}

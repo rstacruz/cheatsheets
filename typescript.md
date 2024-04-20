@@ -1,7 +1,6 @@
 ---
 title: TypeScript
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### About
@@ -244,7 +243,7 @@ type Point = { x: number; y: number };
 type P = keyof Point; // x | y
 ```
 
-## Conditinal Types
+## Conditional Types
 
 ```ts
 // SomeType extends OtherType ? TrueType : FalseType;

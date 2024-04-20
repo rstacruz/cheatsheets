@@ -1,0 +1,93 @@
+---
+import { getPages, type SheetPage } from '~/lib/page'
+import { getTopPages, getRelatedPages } from '~/lib/page/queries'
+import { etc } from '~/config'
+import RelatedPostItem from '~/components/V2017Sheet/RelatedPostItem.astro'
+import PushButton from '~/components/V2017/PushButton.astro'
+
+export type Props = {
+  page: SheetPage
+}
+
+const props = Astro.props as Props
+const page = props.page
+
+const t = {
+  callout: {
+    description:
+      'Over {size} curated cheatsheets, by developers for developers.',
+    link: 'Devhints home'
+  },
+
+  group: {
+    top: 'Top cheatsheets',
+    other: 'Other cheatsheets',
+    category: 'Other {category} cheatsheets'
+  }
+}
+
+const calloutDescription = t.callout.description.replace(
+  '{size}',
+  etc.advertisedSheetCount.toString()
+)
+
+const category = page.frontmatter.category
+
+const categoryHeading = category
+  ? t.group.category.replace('{category}', category)
+  : t.group.other
+
+const pages = await getPages()
+const relatedPages = getRelatedPages(pages, page, { maxCount: 6 })
+const topPages = getTopPages(pages, page, { maxCount: 6 })
+---
+
+<footer class="related-posts-area" id="related" data-js-no-preview>
+  <div class="container">
+    <div class="related-posts-section">
+      {/* Callout */}
+      <div class="callout">
+        <a class="related-posts-callout" href="/">
+          <div class="text">
+            <i class="icon"></i>
+            <span class="description">{calloutDescription}</span>
+            <PushButton class="-dark">{t.callout.link}</PushButton>
+          </div>
+        </a>
+      </div>
+
+      {/* Posts in the same category */}
+      <div class="group">
+        <div class="related-posts-group">
+          <h3>{categoryHeading}</h3>
+        </div>
+        <ul class="related-post-list">
+          {
+            relatedPages.map((page) => (
+              <RelatedPostItem page={page} class="item" />
+            ))
+          }
+        </ul>
+      </div>
+
+      {/* Top pages */}
+      <div class="group">
+        <div class="related-posts-group">
+          <h3>{t.group.top}</h3>
+        </div>
+        <ul class="related-post-list">
+          {topPages.map((page) => <RelatedPostItem page={page} class="item" />)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/related-posts-area';
+  @import '../../sass/2017/components/related-posts-callout';
+  @import '../../sass/2017/components/related-posts-group';
+  @import '../../sass/2017/components/related-posts-section';
+  @import '../../sass/2017/components/related-post-list';
+</style>

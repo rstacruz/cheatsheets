@@ -1,0 +1,8 @@
+{
+  "Test snip": {
+    "prefix": ["about"],
+    "body": "Copyright. Foo Corp 2028",
+    "description": "Adds copyright...",
+    "scope": "markdown"
+  }
+}

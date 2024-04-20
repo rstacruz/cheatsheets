@@ -1,6 +1,5 @@
 ---
 title: Command line stuff
-layout: 2017/sheet
 ---
 
 ## List (ls)

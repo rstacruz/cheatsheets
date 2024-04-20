@@ -1,7 +1,6 @@
 ---
-title: mako
+title: Mako
 category: Python
-layout: 2017/sheet
 ---
 
 ### Basic usage
@@ -14,7 +13,7 @@ Escaped for HTML: ${x | h}
 
 ### Control structures
 
-```html
+```
 % for x in range(5):
     % if x % 2 == 0:
     ${x} is even!

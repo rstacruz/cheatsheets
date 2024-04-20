@@ -1,7 +1,6 @@
 ---
 title: Jest
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2020-06-17
 weight: -3
 tags: [Featurable]

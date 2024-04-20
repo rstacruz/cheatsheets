@@ -1,7 +1,6 @@
 ---
 title: Rspec-rails
 category: Ruby
-layout: 2017/sheet
 ---
 
 ### About

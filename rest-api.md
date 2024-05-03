@@ -1,7 +1,6 @@
 ---
 title: RESTful API
-updated: 2018-12-25
-layout: 2017/sheet
+updated: 2019-07-07
 category: API
 ---
 
@@ -48,7 +47,7 @@ You can pass a `version=x` to the Accept request header. [Info here](https://git
 ### Authentication
 
 ```
-curl -is https://$TOKEN@api.service.com/
+curl -is https://$TOKEN@api.example.com/
 ```
 
 ### Methods

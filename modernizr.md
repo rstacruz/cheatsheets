@@ -1,6 +1,8 @@
 ---
 title: Modernizr
 category: JavaScript libraries
+tags: [Archived]
+archived: Modernizr is no longer in active development.
 ---
 
 ### Script

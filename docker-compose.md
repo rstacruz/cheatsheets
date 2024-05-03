@@ -1,10 +1,9 @@
 ---
 title: docker-compose
 category: Devops
-layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2018-06-26
+updated: 2024-04-03 
 ---
 
 ### Basic example
@@ -15,10 +14,10 @@ version: '2'
 
 services:
   web:
-    build: .
+    build:
     # build from Dockerfile
-    context: ./Path
-    dockerfile: Dockerfile
+      context: ./Path
+      dockerfile: Dockerfile
     ports:
      - "5000:5000"
     volumes:
@@ -27,22 +26,54 @@ services:
     image: redis
 ```
 
+
+### Version 1 to 2
+
+Docker compose is now integrated into the official Docker installation. The functionality only improved over that change, and the simple syntax change is : V1 : `docker-compose ARG` to V2 `docker compose ARG`
+More on that here : [Docker Compose](https://docs.docker.com/compose/) [Migrate to V2](https://docs.docker.com/compose/migrate/)
+
 ### Commands
 
+
 ```sh
-docker-compose start
-docker-compose stop
+docker compose version 
+docker compose config    
 ```
 
 ```sh
-docker-compose pause
-docker-compose unpause
+docker compose start
+docker compose stop
+docker compose restart
+docker compose run    
 ```
 
 ```sh
-docker-compose ps
-docker-compose up
-docker-compose down
+docker compose create  
+docker compose attach      
+docker compose pause
+docker compose unpause
+```
+
+```sh
+docker compose wait   
+docker compose up
+docker compose down
+```
+
+```sh 
+docker compose ps
+docker compose top 
+docker compose events   
+docker compose logs
+```
+
+
+```sh
+docker compose images
+docker compose build      
+docker compose push  
+docker compose cp       
+docker compose exec 
 ```
 
 ## Reference
@@ -133,6 +164,16 @@ web:
     - db
 ```
 
+```yaml
+  # make sure `db` is healty before starting
+  # and db-init completed without failure
+  depends_on:
+    db:
+      condition: service_healthy
+    db-init:
+      condition: service_completed_successfully
+```
+
 ### Other options
 
 ```yaml
@@ -146,6 +187,12 @@ web:
   volumes:
     - /var/lib/mysql
     - ./_data:/var/lib/mysql
+```
+
+```yaml
+  # automatically restart container
+  restart: unless-stopped
+  # always, on-failure, no (default)
 ```
 
 ## Advanced features
@@ -190,6 +237,18 @@ services:
       - project_db_1:mysql
 ```
 
+### Healthcheck
+
+```yaml
+    # declare service healthy when `test` command succeed
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+```
+
 ### Hosts
 
 ```yaml
@@ -220,7 +279,7 @@ networks:
 ### Volume
 
 ```yaml
-# Mount host paths or named volumes, specified as sub-options to a service
+# mount host paths or named volumes, specified as sub-options to a service
   db:
     image: postgres:latest
     volumes:
@@ -229,4 +288,16 @@ networks:
 
 volumes:
   dbdata:
+```
+
+### User
+
+```yaml
+# specifying user
+user: root
+```
+
+```yaml
+# specifying both user and group with ids
+user: 0:0
 ```

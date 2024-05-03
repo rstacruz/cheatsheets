@@ -3,8 +3,9 @@ title: Vimscript functions
 category: Vim
 ---
 
-Dictionaries
-------------
+## Dictionaries and lists
+
+### Dictionaries
 
 ```vim
 let colors = {
@@ -39,8 +40,7 @@ for key in keys(mydict)
 endfor
 ```
 
-Lists
------
+### Lists
 
 ```vim
 let mylist = [1, two, 3, "four"]
@@ -152,7 +152,7 @@ Functions
     substitute(str, '.', 'x', 'g')
     strpart("abcdef", 3, 2)    " == "de" (substring)
     strpart("abcdef", 3)       " == "def"
-    stridx("abcdef", "e")      " == "e"
+    stridx("abcdef", "e")      " == 4
     strridx()                  " reverse
 
     matchstr('testing','test')  " == 'test' (or '')

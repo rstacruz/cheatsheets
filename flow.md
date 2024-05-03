@@ -1,8 +1,7 @@
 ---
 title: Flow
-layout: 2017/sheet
 category: JavaScript libraries
-updated: 2017-09-20
+updated: 2020-07-05
 weight: -3
 tags: [Featurable]
 ---
@@ -144,7 +143,7 @@ See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-option
 ## Objects
 {: .-three-column}
 
-### Extra object fields
+### Width subtyping
 
 ```js
 type Artist = {
@@ -156,14 +155,13 @@ type Artist = {
 ```js
 const a: Artist = {
   name: 'Miguel Migs',
-  label: 'Naked Music'
+  label: 'Naked Music',
+  genre: 'House' // ✓ OK
 }
-
-a.genre = 'House' // ✓ OK
 ```
 {: data-line="6"}
 
-You can add more fields to an object.
+A type with more properties is "wider" and is a subtype of a "narrower" type.
 
 See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
 
@@ -178,10 +176,13 @@ type Artist = {|
 {: data-line="1,4"}
 
 ```js
-const a: Artist = { ··· }
-a.genre = 'House' // ✗ Error
+const a: Artist = {
+  name: 'Miguel Migs',
+  label: 'Naked Music',
+  genre: 'House' // ✗ Error
+}
 ```
-{: data-line="2"}
+{: data-line="4"}
 
 Exact object types prevent extra properties from being added to an object.
 
@@ -196,7 +197,7 @@ type Items = {
 ```
 {: data-line="2"}
 
-See: [Dynamic object keys](https://flow.org/docs/objects.html#objects-as-maps)
+See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-as-maps)
 
 ## Advanced features
 
@@ -237,7 +238,7 @@ const countries = {
 type Country = $Keys<typeof countries>
 ```
 
-See: [Enums](https://flow.org/docs/utility-types.html#keyst)
+See: [Enums](https://flow.org/en/docs/types/utilities/#toc-keys)
 
 ### Type aliases
 
@@ -253,7 +254,7 @@ type Generic<T> = {
 }
 ```
 
-See: [Type aliases](https://flow.org/docs/quick-reference.html#type-aliases)
+See: [Type aliases](https://flow.org/en/docs/types/aliases/)
 
 ### Generic classes
 
@@ -266,7 +267,7 @@ class GenericClass<T> {
 var n: GenericClass<number> = new GenericClass(0)
 ```
 
-See: [Generic classes](https://flow.org/docs/quick-reference.html#generics)
+See: [Generic classes](https://flow.org/en/docs/types/generics/#toc-classes-with-generics)
 
 ### Interfaces
 
@@ -282,7 +283,7 @@ class Foo {
 (new Foo: Jsonable)
 ```
 
-See: [Interfaces](https://flow.org/docs/quick-reference.html#interfaces)
+See: [Interfaces](https://flow.org/en/docs/types/interfaces/)
 
 ### Functions
 
@@ -299,7 +300,7 @@ function filter<T> (
 }
 ```
 
-See: [Functions](https://flow.org/docs/functions.html)
+See: [Functions](https://flow.org/en/docs/types/functions/)
 
 ### Imports
 

@@ -1,5 +1,7 @@
 ---
 title: Google Analytics
+tags: [Archived]
+archived: This sheet describes an older version of Google Analytics (UA).
 ---
 
 ### Pageview
@@ -27,5 +29,7 @@ title: Google Analytics
 
     // Scope = 1 (visitor), 2 (session), 3 (page, default)
 
-https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables
-https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
+### References
+
+- <https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables>
+- <https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide>

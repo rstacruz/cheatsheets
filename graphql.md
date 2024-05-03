@@ -1,7 +1,6 @@
 ---
 title: GraphQL
-layout: 2017/sheet
-updated: 2017-09-23
+updated: 2019-07-07
 category: API
 ---
 
@@ -218,7 +217,7 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 ```js
 type Mutation {
-  users(params: ListUsersInput) [User]!
+  users(params: ListUsersInput): [User]!
 }
 ```
 
@@ -258,7 +257,7 @@ type Album { ··· }
 union Result = Artist | Album
 
 type Query {
-  search(q: String) [Result]
+  search(q: String): [Result]
 }
 ```
 {: data-line="4"}

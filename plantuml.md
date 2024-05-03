@@ -2,6 +2,13 @@
 title: PlantUML
 ---
 
+### About
+{: .-intro}
+
+PlantUML is a markup language for creating diagrams.
+
+- <https://plantuml.com/>
+
 ### Format
 
     @startuml

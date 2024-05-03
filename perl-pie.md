@@ -3,6 +3,11 @@ title: Perl-pie
 category: Development
 ---
 
+### About
+{: .-intro}
+
+Use `perl` to search and replace across many files.
+
 ### Search and replace
 
 ```sh

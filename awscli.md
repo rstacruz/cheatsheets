@@ -1,7 +1,6 @@
 ---
 title: AWS CLI
 category: Devops
-layout: 2017/sheet
 ---
 
 ### EC2
@@ -56,15 +55,15 @@ aws configure --profile project2
 eb config
 ```
 
-See: <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>
+See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>
 
 ## ebextensions
 
-* <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
-* <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
+* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
+* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
 
 ## Also see
 
 * [AWS CLI](https://aws.amazon.com/cli/)
-* [Documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
-* [All commands](http://docs.aws.amazon.com/cli/latest/reference/#available-services)
+* [Documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+* [All commands](https://docs.aws.amazon.com/cli/latest/reference/#available-services)

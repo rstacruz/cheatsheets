@@ -1,25 +1,33 @@
 ---
-title: Cordova
+title: Apache Cordova
+intro: |
+  A quick reference to common [Apache Cordova](https://cordova.apache.org/) commands.
 ---
 
-    cordova plugin ls
-    cordova plugin search facebook
-    cordova plugin add com.phonegap.plugins.facebookconnect
+### Common commands
 
-    cordova platform add ios
-    cordova platform ls
-    cordova platform update ios
-    cordova platform check
+```
+cordova plugin ls
+cordova plugin search facebook
+cordova plugin add com.phonegap.plugins.facebookconnect
+```
 
-### Some plugins
+```
+cordova platform add ios
+cordova platform ls
+cordova platform update ios
+cordova platform check
+```
 
-You'll likely need these:
+### Common plugins
 
- * [org.apache.cordova.console](https://github.com/apache/cordova-plugin-console)
- * [org.apache.cordova.inappbrowser](https://github.com/apache/cordova-plugin-inappbrowser)
- * [org.apache.cordova.statusbar](https://github.com/apache/cordova-plugin-statusbar)
- * org.apache.cordova.splashscreen
+Some commonly-used plugins:
+
+- [org.apache.cordova.console](https://github.com/apache/cordova-plugin-console)
+- [org.apache.cordova.inappbrowser](https://github.com/apache/cordova-plugin-inappbrowser)
+- [org.apache.cordova.statusbar](https://github.com/apache/cordova-plugin-statusbar)
+- org.apache.cordova.splashscreen
 
 Also:
 
- * com.phonegap.plugins.facebookconnect
+- com.phonegap.plugins.facebookconnect

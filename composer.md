@@ -1,16 +1,15 @@
 ---
 title: composer
 category: CLI
-layout: 2017/sheet
 weight: -1
 authors:
   - github: benolot
-updated: 2018-03-06
+updated: 2020-02-23
 description: |
   Basic guide on how to use Composer, the PHP Package manager.
 ---
 
-All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of plain `composer`.
+All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of global/plain `composer`.
 
 ### Installing dependencies
     
@@ -39,15 +38,36 @@ local dependencies to the last committed state. If that file is modified on the 
 
 This command changes only the `composer.lock` file.
 
+### Updating autoloader
+
+| Command                    | Description                        |
+| ---                        | ---                                |
+| `composer dumpautoload -o` | Generates optimized autoload files |
+
 ### Adding packages
 
 | Command                          | Description                                                 |
 | ---                              | ---                                                         |
-| `composer require vendor/package`.      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
+| `composer require vendor/package`      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
 | ---                              | ---                                                         |
 | `composer require vendor/package --dev` | Adds `package` from `vendor` to composer.json's `require-dev` section and installs it.            |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Passing versions
+
+| Command                                         | Description                              |
+| ----------------------------------------------- | ---------------------------------------- |
+| `composer require vendor/pkg "1.3.2"`           | Installs `1.3.2`                         |
+| `composer require vendor/pkg ">=1.3.2"`         | Above or equal `1.3.2`                   |
+| `composer require vendor/pkg "<1.3.2"`          | Below `1.3.2`                            |
+| `composer require vendor/pkg "1.3.*"`           | Latest of `>=1.3.0 <1.4.0`               |
+| `composer require vendor/pkg "~1.3.2"`          | Latest of `>=1.3.2 <1.4.0`               |
+| `composer require vendor/pkg "~1.3"`            | Latest of `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^1.3.2"`          | Latest of `>=1.3.2 <2.0.0`               |
+| `composer require vendor/pkg "^1.3"`            | Latest of `>=1.3.0 <2.0.0`               |
+| `composer require vendor/pkg "^0.3.2"`          | Latest of `>=0.3.0 <0.4.0` (for pre-1.0) |
+| `composer require vendor/pkg "dev-BRANCH_NAME"` | From the branch `BRANCH_NAME`            |
 
 ### Removing packages
 
@@ -56,3 +76,9 @@ This command changes both the `composer.json` and `composer.lock` files.
 | `composer remove vendor/package` | Removes `vendor/package` from composer.json and uninstalls it      |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Verifying
+
+| Command                      | Description                                                                |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| `composer outdated --direct` | Show only packages that are outdated directly required by the root package |

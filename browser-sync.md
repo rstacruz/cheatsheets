@@ -3,10 +3,12 @@ title: Browsersync
 category: JavaScript libraries
 ---
 
-```
-npm i -g browser-sync
-```
-{:.terminal}
+### About
+{: .-intro}
+
+`npm i -g browser-sync`
+
+* [browsersync.io](https://browsersync.io)
 
 ### Start a server
 
@@ -20,7 +22,3 @@ browser-sync start --server <path> --files='**/*.html, **/*.css'
   --port=N
   --proxy="http://127.0.0.1:3000"
 ```
-
-### Reference
-
-* [browsersync.io](http://browsersync.io)

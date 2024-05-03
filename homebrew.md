@@ -1,6 +1,5 @@
 ---
 title: Homebrew
-layout: 2017/sheet
 weight: -3
 category: CLI
 ---
@@ -35,6 +34,7 @@ category: CLI
 | Command         | Description              |
 | ---             | ---                      |
 | `brew update`   | Update brew and cask     |
+| `brew upgrade`  | Upgrade all packages     |
 | `brew list`     | List installed           |
 | `brew outdated` | What's due for upgrades? |
 | `brew doctor`   | Diagnose brew issues     |
@@ -43,8 +43,8 @@ category: CLI
 
 | Command                       | Description                           |
 | ---                           | ---                                   |
-| `brew cask install firefox`   | Install the Firefox browser           |
-| `brew cask list`              | List installed applications           |
+| `brew install --cask firefox` | Install the Firefox browser           |
+| `brew list --cask`            | List installed applications           |
 
 Cask commands are used for interacting with graphical applications.
 

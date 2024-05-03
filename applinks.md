@@ -3,6 +3,11 @@ title: Applinks
 category: HTML
 ---
 
+### About
+
+- <http://applinks.org/>
+
+### Applinks
 
     <meta property="al:ios:url" content="applinks://docs" />
     <meta property="al:ios:app_store_id" content="12345" />

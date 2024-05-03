@@ -1,5 +1,5 @@
 ---
-title: Migrations
+title: Rails migrations
 category: Rails
 ---
 
@@ -46,7 +46,6 @@ category: Rails
     add_column    :users, :first_name, :string
     remove_column :users, :first_name, :string
 
-    change_column :users, :first_name, :text
     change_column :users, :first_name, :text
 
     change_column_default :users, :admin, nil
@@ -120,4 +119,4 @@ Use `ActiveRecord::Migration`.
 
 ### References
 
- * http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
+ * https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index

@@ -1,8 +1,7 @@
 ---
 title: Visual Studio Code
 category: Apps
-layout: 2017/sheet
-updated: 2018-02-03
+updated: 2018-02-01
 weight: -5
 keywords:
   - "⌘P: Show files"

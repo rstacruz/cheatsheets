@@ -1,9 +1,8 @@
 ---
 title: npm
 category: JavaScript
-layout: 2017/sheet
 weight: -1
-updated: 2017-10-27
+updated: 2019-12-24
 ---
 
 ### Package management
@@ -13,13 +12,42 @@ updated: 2017-10-27
 | `npm i`                           | Alias for `npm install`                                   |
 | `npm install`                     | Install everything in package.json                        |
 | `npm install --production`        | Install everything in package.json, except devDependecies |
+
+### Adding packages
+
+| Command                           | Description                                               |
 | ---                               | ---                                                       |  
 | `npm install lodash`              | Install a package                                         |
 | `npm install --save-dev lodash`   | Install as devDependency                                  |
 | `npm install --save-exact lodash` | Install with exact                                        |
 
+### Listing
 
-`--save` is the default as of npm@5. Previously, using `npm install` without `--save` doesn't update package.json.
+| Command                 | Description                                                         |
+| ---                     | ---                                                                 |
+| `npm list`              | Lists the installed versions of all dependencies in this software   | 
+| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages     | 
+| `npm view`              | Lists the latest versions of all dependencies in this software      | 
+| `npm outdated`          | Lists only the dependencies in this software which are outdated     |
+
+### Updating
+
+| Command             | Description                |
+| ---                 | ---                        |
+| `npm update`        | Update production packages |
+| `npm update --dev`  | Update dev packages        |
+| `npm update -g`     | Update global packages     |
+| ---                 | ---                        |
+| `npm update lodash` | Update a package           |
+
+
+### Removing
+
+| Command             | Description                        |
+| ---                 | ---                                |
+| `npm rm lodash`     | Remove package production packages |
+
+## More features
 
 ### Install names
 
@@ -41,25 +69,14 @@ updated: 2017-10-27
 | `npm i ./archive.tgz`                | Tarball                 |
 | `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
 
-### Listing
+### Bumping versions
 
-| Command                 | Description                                                         |
-| ---                     | ---                                                                 |
-| `npm list`              | Lists the installed versions of all dependencies in this software   | 
-| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages     | 
-| `npm view`              | Lists the latest versions of all dependencies in this software      | 
-| `npm outdated`          | Lists only the dependencies in this software which are outdated     |
-
-### Updating
-
-| Command             | Description                |
-| ---                 | ---                        |
-| `npm update`        | Update production packages |
-| `npm update --dev`  | Update dev packages        |
-| `npm update -g`     | Update global packages     |
-| ---                 | ---                        |
-| `npm update lodash` | Update a package           |
-
+| Command                           | Description                                               |
+| ---                               | ---                                                       |
+| `npm version 1.2.3`               | Bump the package version to 1.2.3                         |
+| `npm version major`               | Bump the major package version by 1 (1.2.3 → 2.0.0)       |
+| `npm version minor`               | Bump the minor package version by 1 (1.2.3 → 1.3.0)       |
+| `npm version patch`               | Bump the patch package version by 1 (1.2.3 → 1.2.4)       |
 
 ### Misc features
 

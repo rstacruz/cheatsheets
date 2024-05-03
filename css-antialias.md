@@ -1,8 +1,7 @@
 ---
 title: CSS antialiasing
 category: CSS
-layout: 2017/sheet
-updated: 2017-08-26
+updated: 2017-10-13
 intro: |
   Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
 ---

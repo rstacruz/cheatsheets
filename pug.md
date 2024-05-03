@@ -1,9 +1,8 @@
 ---
 title: Pug
 category: JavaScript libraries
-layout: 2017/sheet
 prism_languages: [jade]
-updated: 2017-08-31
+updated: 2017-10-30
 weight: -3
 tags: [Featurable]
 ---

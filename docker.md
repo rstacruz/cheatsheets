@@ -1,7 +1,6 @@
 ---
 title: Docker CLI
 category: Devops
-layout: 2017/sheet
 ---
 
 Manage images
@@ -43,7 +42,7 @@ docker create [options] IMAGE
   -i, --interactive          # attach stdin (interactive)
   -t, --tty                  # pseudo-tty
       --name NAME            # name your image
-  -p, --publish 5000:5000    # port map
+  -p, --publish 5000:5000    # port map (host:container)
       --expose 5432          # expose a port to linked containers
   -P, --publish-all          # publish all ports
       --link container:alias # linking
@@ -183,7 +182,29 @@ docker volume prune
 
 Delete all the volumes
 
+### Systems
+
+```sh
+docker system df
+```
+
+Show docker disk usage
+
+```sh
+docker system events
+```
+
+Get real time events from the server
+
+```sh
+docker system info
+```
+
+Display system-wide information
+
+
+
 Also see
 --------
 
- * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
+ * [Getting Started](https://www.docker.io/gettingstarted/) _(docker.io)_

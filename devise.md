@@ -2,11 +2,15 @@
 title: Devise
 ---
 
+### About
+{: .-intro}
+
 [Devise](https://github.com/plataformatec/devise) is a flexible authentication 
 gem.
 
-Installation
-------------
+- <https://github.com/plataformatec/devise>
+
+### Installation
 
 Rails 3: Add the following to your Gemfile
 
@@ -27,8 +31,7 @@ Generate devise for your model
 
     $ rails generate devise:views
 
-Helpers
--------
+### Helpers
 
     user_signed_in?
     current_user
@@ -38,8 +41,7 @@ Helpers
     edit_user_registration_path (Edit registration)
     new_user_registration_path (Register new user)
 
-Controller stuff
-----------------
+### Controller stuff
 
     before_filter :authenticate_user!
 
@@ -123,8 +125,11 @@ Routing
 Test helpers
 ------------
 
+### Test helpers
+
     include Devise::TestHelpers
-    https://github.com/plataformatec/devise/blob/1094ba65aac1d37713f2cba71f9edad76b5ca274/lib/devise/test_helpers.rb
 
     sign_in @user
     sign_out @user
+
+See: <https://github.com/plataformatec/devise/blob/1094ba65aac1d37713f2cba71f9edad76b5ca274/lib/devise/test_helpers.rb>

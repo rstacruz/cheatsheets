@@ -1,31 +1,42 @@
 ---
 title: Imagemagick
+intro: |
+  A quick reference for common [Imagemagick](https://www.imagemagick.org) commands and switches.
 ---
 
-### Stuff
+### Common options
 
-    -resize 100x40
-    -crop 40x30+10+10   # (width)x(height)+(x)+y
-    -crop 40x30-10-10   # (width)x(height)+(x)+y
-    -flip               # vertical
-    -flop               # horizontal
-    -transpose          # flip vertical + rotate 90deg
-    -transverse         # flip horizontal + rotate 270deg
-    -trim               # trim image edges
-    -rotate 90
+| Option              | Description                     |
+| ------------------- | ------------------------------- |
+| `-resize 100x40`    | Resize to a dimension           |
+| `-crop 40x30+10+10` | (width)x(height)+(x)+y          |
+| `-crop 40x30-10-10` | (width)x(height)+(x)+y          |
+| `-flip`             | Vertical                        |
+| `-flop`             | Horizontal                      |
+| `-transpose`        | Flip vertical + rotate 90deg    |
+| `-transverse`       | Flip horizontal + rotate 270deg |
+| `-trim`             | Trim image edges                |
+| `-rotate 90`        | Rotate 90 degrees               |
 
 ### Resize to fit
 
-    convert input.jpg -resize 80x80^ -gravity center -extent 80x80 icon.png
+```sh
+convert input.jpg -resize 80x80^ -gravity center -extent 80x80 icon.png
+```
 
 ### Convert all images to another format
 
-    mogrify -format jpg -quality 85 *.png
+```sh
+mogrify -format jpg -quality 85 *.png
+```
 
 ### Make a pdf
 
-    convert *.jpg hello.pdf
+```sh
+convert *.jpg hello.pdf
+```
 
 ### References
 
-  * http://www.noah.org/wiki/ImageMagick
+- <http://www.noah.org/wiki/ImageMagick>
+- <https://www.imagemagick.org/>

@@ -1,8 +1,7 @@
 ---
 title: Jsdoc
 category: JavaScript
-layout: 2017/sheet
-updated: 2019-01-10
+updated: 2020-06-23
 weight: -1
 ---
 
@@ -13,6 +12,8 @@ weight: -1
  * This is a function.
  *
  * @param {string} n - A string param
+ * @param {string} [o] - A optional string param
+ * @param {string} [d=DefaultValue] - A optional string param
  * @return {string} A good string
  *
  * @example
@@ -20,25 +21,27 @@ weight: -1
  *     foo('hello')
  */
 
-function foo(n) { return n }
+function foo(n, o, d) {
+  return n
+}
 ```
 
-See: <http://usejsdoc.org/index.html>
+See: <https://jsdoc.app/index.html>
 
 ### Types
 
-| Type                         | Description           |
-| ---                          | ---                   |
-| `@param {string=} n`         | Optional              |
-| `@param {string} [n]`        | Optional              |
-| `@param {(string|number)} n` | Multiple types        |
-| `@param {*} n`               | Any type              |
-| `@param {...string} n`       | Repeatable arguments  |
-| `@param {string} [n="hi"]`   | Optional with default |
-| `@param {string[]} n`        | Array of strings      |
+| Type                            | Description                           |
+| ------------------------------- | ------------------------------------- |
+| `@param {string=} n`            | Optional                              |
+| `@param {string} [n]`           | Optional                              |
+| `@param {(string|number)} n`    | Multiple types                        |
+| `@param {*} n`                  | Any type                              |
+| `@param {...string} n`          | Repeatable arguments                  |
+| `@param {string} [n="hi"]`      | Optional with default                 |
+| `@param {string[]} n`           | Array of strings                      |
 | `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
-See: <http://usejsdoc.org/tags-type.html>
+See: <https://jsdoc.app/tags-type.html>
 
 ### Variables
 
@@ -74,13 +77,14 @@ const FOO = 1
  * @param {Song} song - The {@link Song} to be played
  */
 
-function play (song) {
-}
+function play(song) {}
 ```
 
-See: <http://usejsdoc.org/tags-typedef.html>
+See: <https://jsdoc.app/tags-typedef.html>
 
 ### Typedef Shorthand
+
+{% raw %}
 
 ```js
 /**
@@ -89,17 +93,18 @@ See: <http://usejsdoc.org/tags-typedef.html>
  */
 ```
 
+{% endraw %}
+
 ```js
 /**
  * Plays a song
  * @param {Song} song - The {@link Song} to be played
  */
 
-function play (song) {
-}
+function play(song) {}
 ```
 
-See: <http://usejsdoc.org/tags-typedef.html>
+See: <https://jsdoc.app/tags-typedef.html>
 
 ### Importing types
 
@@ -112,7 +117,7 @@ See: <http://usejsdoc.org/tags-typedef.html>
  * @param {Bar} x
  */
 
-function test(x) { }
+function test(x) {}
 ```
 
 This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types).
@@ -122,6 +127,7 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
 ```js
 /**
  * @throws {FooException}
+ * @async
  * @private
  * @deprecated
  * @see
@@ -131,13 +137,15 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
  */
 ```
 
+See the full list: <https://jsdoc.app/index.html#block-tags>
+
 ### Renaming
 
 ```js
-/*
+/**
  * @alias Foo.bar
  * @name Foo.bar
  */
 ```
 
-Prefer `alias` over `name`. See: <http://usejsdoc.org/tags-alias.html>
+Prefer `alias` over `name`. See: <https://jsdoc.app/tags-alias.html>

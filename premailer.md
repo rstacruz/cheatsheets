@@ -1,13 +1,27 @@
 ---
 title: Premailer
+tags: [WIP]
+intro: |
+  [Premailer](https://github.com/premailer/premailer/) is a Ruby library that inlines CSS into HTML.
 ---
 
+### Custom CSS properties
 
-    -premailer-width
-      Available on table, th and td elements
-    -premailer-height
-      Available on table, tr, th and td elements
-    -premailer-cellpadding
-      Available on table elements
-    -premailer-cellspacing
-      Available on table elements
+<!-- prettier-ignore -->
+```css
+table, th, td {
+  /* Available on table, th and td elements */
+  -premailer-width: 32px;
+}
+
+table, tr, th, td {
+  /* Available on table, tr, th and td elements */
+  -premailer-height: 32px;
+}
+
+table {
+  /* Available on table elements */
+  -premailer-cellpadding: 32px;
+  -premailer-cellspacing: 32px;
+}
+```

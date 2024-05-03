@@ -1,32 +1,37 @@
 ---
 title: Factory Bot
 category: Ruby libraries
-layout: 2017/sheet
 weight: -3
-updated: 2017-10-31
+updated: 2020-07-06
 keywords:
   - "FactoryBot.define do"
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
 tags: [Featurable]
-intro: |
-  [Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests.
-  It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
 ---
 
 ## Factories
 {: .-three-column}
+
+### Introduction
+{: .-intro}
+
+[Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests. It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
+
+- [Factory Bot documentation](http://www.rubydoc.info/gems/factory_bot/) _(rubydoc.info)_
+- [Getting started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) _(github.com)_
+- [Source code](https://github.com/thoughtbot/factory_bot) _(github.com)_
 
 ### Defining factories
 
 ```ruby
 FactoryBot.define do
   factory :user do
-    first_name 'John'
-    last_name  'Doe'
+    first_name { 'John' }
+    last_name  { 'Doe' }
     birthdate  { 21.years.ago }
-    admin false
+    admin { false }
 
     sequence(:username) { |n| "user#{n}" }
   end
@@ -124,7 +129,7 @@ end
 ```ruby
 factory :user do
   trait :admin do
-    admin true
+    admin { true }
   end
 end
 ```
@@ -141,7 +146,7 @@ See: [Traits](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#T
 
 ```ruby
 factory :user do
-  first_name 'John'
+  first_name { 'John' }
 
   factory :sample_user do
     first_name { FFaker::Name.first_name }
@@ -182,7 +187,7 @@ Works the same as nested factories.
 ```ruby
 factory :user do
   transient do
-    upcased true
+    upcased { true }
   end
 
   after :create do |user, options|

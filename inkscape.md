@@ -1,4 +1,8 @@
-General
+---
+title: Inkscape
+category: Apps
+tags: [WIP]
+---
 
 ### Tools
 | F1                   | Object tool

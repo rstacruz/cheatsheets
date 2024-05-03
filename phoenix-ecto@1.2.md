@@ -2,18 +2,22 @@
 title: "Phoenix: Ecto models"
 category: Elixir
 deprecated: true
+tags: [Archived]
+archived: This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoenix-ecto@1.3).
 ---
 
-This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](phoenix-ecto@1.3.html).
+### About
 
-## Generating
+This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoenix-ecto@1.3).
+
+### Generating
 
 ```
 $ mix phoenix.gen.html Profile profiles email:string age:integer
 $ mix phoenix.gen.html User users email:string hashed_password:string
 ```
 
-## Schema
+### Schema
 
 ```elixir
 defmodule User do
@@ -30,7 +34,7 @@ defmodule User do
 end
 ```
 
-## Changesets
+### Changesets
 
 ```elixir
 def changeset(user, params \\ :empty) do

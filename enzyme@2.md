@@ -1,16 +1,18 @@
 ---
 title: Enzyme v2
 category: React
-layout: 2017/sheet
-updated: 2017-09-14
+updated: 2017-10-12
 weight: -1
 deprecated_by: /enzyme
-intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 2.x.
 ---
 
 ## Getting started
 {: .-three-column}
+
+### Introduction
+{: .-intro}
+
+**(Deprecated)** [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers a previous version (v2.x).
 
 ### Mounting
 {: .-prime}

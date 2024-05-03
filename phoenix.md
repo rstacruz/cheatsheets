@@ -1,9 +1,8 @@
 ---
 title: Phoenix
 category: Elixir
-layout: 2017/sheet
 weight: -1
-updated: 2018-01-15
+updated: 2018-03-06
 ---
 
 ### Quick start

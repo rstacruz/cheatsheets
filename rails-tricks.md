@@ -1,7 +1,11 @@
 ---
 title: Rails tricks
 category: Rails
+tags: [Archived]
+archived: This sheet may describe practices that might be outdated.
 ---
+
+### Sass source maps
 
 in config/environments/development.rb:
 
@@ -12,7 +16,7 @@ in config/environments/development.rb:
     # Don't break apart
     config.assets.debug = false
 
-Partial locals
+### Partial locals
 
     <%= render 'article', full: true %>
     <%= render 'article' %>
@@ -21,12 +25,12 @@ Partial locals
       ...
     <% end %>
 
-HTML in i18n
+### HTML in i18n
 
     en:
       read_more_html: "read <b>more</b>..."
 
-Exception handling:
+### Exception handling
 
     # config/application.rb
     config.exceptions_app = self.routes
@@ -40,25 +44,25 @@ Exception handling:
       end
      end
 
-Rails updating:
+### Rails updating
 
     rake rails:update
 
-Distinct pluck:
+### Distinct pluck
 
     Article.distinct.pluck('author')
 
-Relation#merge
+### Relation#merge
 
     scope :with_drafts, -> {
       uniq.joins(:articles).merge(Article.draft)
     }
 
-Order
+### Order
 
     scope :recent, -> { order created_at: :desc }
 
-Group by month
+### Group by month
 
     .group("to_char(created_at, 'YYYY-MM')")
     .group("to_char(created_at, 'YYYY-MM')").count

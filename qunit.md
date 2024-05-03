@@ -1,32 +1,46 @@
 ---
 title: Qunit
 category: JavaScript libraries
+intro: |
+  A quick reference for the [QUnit](https://yarnpkg.com/package/qunit) testing library in JavaScript.
 ---
 
-    QUnit.module('a');
-    QUnit.test('ok', function (t) { ... });
+```js
+QUnit.module('a')
+QUnit.test('ok', function (t) {
+  /* ... */
+})
+```
 
 ### Hooks
 
-    // each test
-    QUnit.testStart(function)
-    QUnit.testEnd(function)
+#### Each test
 
-    // each module
-    QUnit.moduleStart(function)
-    QUnit.moduleEnd(function)
+```js
+// each test
+QUnit.testStart(function)
+QUnit.testEnd(function)
+```
 
-    // all
-    QUnit.begin(function)
-    QUnit.done(function)
+```js
+// each module
+QUnit.moduleStart(function)
+QUnit.moduleEnd(function)
+```
+
+```js
+// all
+QUnit.begin(function)
+QUnit.done(function)
+```
 
 ### Assertions
 
-    t.equal(actual, expected)
-    t.deepEqual(actual, expected)
-    t.strictEqual(actual, expected)
-    t.propEqual(actual, expected)
-
-    t.notEqual
-
-    t.expect(amount)
+```js
+t.equal(actual, expected)
+t.deepEqual(actual, expected)
+t.strictEqual(actual, expected)
+t.propEqual(actual, expected)
+t.notEqual(actual, expected)
+t.expect(amount)
+```

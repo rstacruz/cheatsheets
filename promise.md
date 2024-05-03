@@ -3,57 +3,79 @@ title: Promises
 category: JavaScript
 ---
 
-Based on the [Promise API reference][promise] (mozilla.org).
-{:.brief-intro.center}
+## Reference
+{:.-three-column}
 
-[promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+### Introduction
+{: .-intro}
+
+intro: A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+- [Using Promises guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) _(developer.mozilla.org)_
+- [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) _(developer.mozilla.org)_
 
 ### Creating promises
 
 ```js
-new Promise(function (ok, err) {
-  doStuff(function () {
-    if (success) { ok(); }
-    else { err(); }
-  });
+new Promise((resolve, reject) => {
+  doStuff(() => {
+    if (success) {
+      resolve('good')
+    } else {
+      reject(new Error('oops'))
+    }
+  })
 })
 ```
+
+Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Constructor) to create new promises.
 
 ### Consuming promises
 
 ```js
 promise
-  .then(okFn, errFn)
-  .catch(errFn)
+  .then((result) => {
+    /* success */
+  })
+  .catch((error) => {
+    /* failure */
+  })
 ```
+
+[then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) runs a function when a promise resolves. [catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) runs when a promise fails.
 
 ### Multiple promises
 
 ```js
-var promises = [
-  promise1(), promise2(), ...
-]
+const promises = [promise1(), promise2() /* ... */]
+```
 
-// succeeds when all succeed
-Promise.all(promises)
-  .then(function (results) {
-  });
+```js
+// Succeeds when all succeed
+Promise.all(promises).then((results) => {
+  /* ... */
+})
+```
 
-// succeeds when one finishes first
-Promise.race(promises)
-  .then(function (result) {
-  });
+```js
+// Succeeds when one finishes first
+Promise.race(promises).then((result) => {
+  /* ... */
+})
 ```
 
 ### Converting other promises
 
 ```js
-return Promise.resolve("result");
-return Promise.resolve(promise);
-return Promise.resolve(thenable);
+return Promise.resolve('result')
+return Promise.resolve(promise)
+return Promise.resolve(thenable)
 
-return Promise.reject("reason");
+return Promise.reject('reason')
 
-Promise.resolve($.get('http://google.com'))
-.then(...)
+Promise.resolve(result).then(() => {
+  /* ... */
+})
 ```
+
+`Promise.resolve(val)` will return a promise that resolves to the value given to it.

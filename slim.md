@@ -1,7 +1,6 @@
 ---
 title: Slim
 category: Ruby libraries
-layout: 2017/sheet
 prism_languages: [jade]
 weight: -1
 ---
@@ -103,6 +102,19 @@ javascript:
 div
   | This is text
     it is nice
+```
+
+### Advanced whitespaces
+
+```jade
+div
+  ' This appends a whitespace
+div
+  |  This hackily prepends a whitespace
+div
+  => 'This appends a whitespace'
+div
+  =< 'This prepends a whitespace'
 ```
 
 ### Inline HTML

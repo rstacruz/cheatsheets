@@ -1,8 +1,7 @@
 ---
 title: Cheatsheet styles
-layout: 2017/sheet
 tags: [WIP]
-updated: 2017-09-22
+updated: 2017-10-26
 intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How
   meta!
@@ -22,7 +21,6 @@ Variants
 | `-two-column` | _(default)_|
 | `-three-column` | |
 | `-left-reference` | 3 columns<br>_(short first column)_ |
-| `-no-hide` | Don't hide H2 |
 
 See: [H2 sections](#two-columns)
 

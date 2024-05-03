@@ -3,9 +3,11 @@ title: TypeScript
 category: JavaScript libraries
 ---
 
+### About
+
 TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
 
-## Basic types
+### Basic types
 
 ```ts
 any
@@ -18,20 +20,29 @@ string
 null
 undefined
 
+bigint
+symbol
+
 string[]          /* or Array<string> */
 [string, number]  /* tuple */
 
 string | null | undefined   /* union */
 
 never  /* unreachable */
+unknown
 ```
 
 ```ts
-enum Color {Red, Green, Blue = 4}
+enum Color {
+  Red,
+  Green,
+  Blue = 4
+};
+
 let c: Color = Color.Green
 ```
 
-## Declarations
+### Declarations
 
 ```ts
 let isDone: boolean
@@ -97,8 +108,8 @@ function printLabel(options: LabelOptions) { ... }
 
 ```ts
 interface User {
-  name: string,
-  age?: number
+  name: string;
+  age?: number;
 }
 ```
 
@@ -120,8 +131,20 @@ interface User {
 
 ## Type aliases
 
+### Type aliases
+
 ```ts
 type Name = string | string[]
+```
+
+### Intersection
+
+```ts
+interface Colorful { ... }
+
+interface Circle { ... }
+ 
+type ColorfulCircle = Colorful & Circle;
 ```
 
 ## Function types
@@ -204,10 +227,62 @@ export interface User { ... }
 ```ts
 interface Building {
   room: {
-    door: string,
-    walls: string[],
+    door: string;
+    walls: string[];
   };
 }
 
 type Walls = Building['room']['walls']; // string[]
+```
+
+## Keyof Type Operator
+
+```ts
+type Point = { x: number; y: number };
+
+type P = keyof Point; // x | y
+```
+
+## Conditional Types
+
+```ts
+// SomeType extends OtherType ? TrueType : FalseType;
+
+type ToArray<T> = T extends any ? T[] : never;
+
+type StrArrOrNumArr = ToArray<string | number>; // string[] | number[]
+```
+
+### Inferring
+
+```ts
+type GetReturnType<T> = T extends (...args: unknown[]) => infer R
+  ? R
+  : never;
+
+type Num = GetReturnType<() => number>; // number
+```
+
+```ts
+type First<T extends Array<any>> = T extends [infer F, ...infer Rest] ? F : never;
+
+type Str = First<['hello', 1, false]>; // 'hello'
+```
+
+## Literal Type
+
+```ts
+const point = { x: 4, y: 2 }; // { x: number, y: number }
+
+const literalPoint = { x: 4, y: 2 } as const; // { readonly x: 4, readonly y: 2 };
+```
+
+## Template Literal Types
+
+```ts
+type SpaceChar = ' ' | '\n' | '\t';
+
+type TrimLeft<S extends string> = S extends `${SpaceChar}${infer Rest}` ? TrimLeft<Rest> : S;
+
+type Str = TrimLeft<'    hello'>; // 'hello'
 ```

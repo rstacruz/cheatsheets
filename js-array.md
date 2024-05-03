@@ -1,7 +1,6 @@
 ---
 title: JavaScript Arrays
 category: JavaScript
-layout: 2017/sheet
 ---
 
 ### Arrays
@@ -14,6 +13,8 @@ list = [a,b,c,d,e]
 ```bash
 list[1]                 // → b
 list.indexOf(b)         // → 1
+list.lastIndexOf(b)     // → 1
+list.includes(b)        // → true
 ```
 
 ### Subsets
@@ -35,18 +36,18 @@ re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 
 ### Adding items
 
+#### Immutable
+
+```bash
+list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
+```
+
 #### Mutative
 
 ```bash
 list.push(X)            // list == [_,_,_,_,_,X]
 list.unshift(X)         // list == [X,_,_,_,_,_]
 list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
-```
-
-#### Immutable
-
-```bash
-list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
 ```
 
 ### Inserting
@@ -79,6 +80,10 @@ list.splice(2, 1)       // → [c]  list == [a,b,d,e]
 
 ```bash
 .filter(n => ...) => array
+```
+
+```bash
+.forEach(n => ...)
 ```
 
 ```bash

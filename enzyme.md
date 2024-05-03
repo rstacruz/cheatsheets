@@ -1,8 +1,7 @@
 ---
 title: Enzyme
 category: React
-layout: 2017/sheet
-updated: 2018-04-27
+updated: 2020-02-12
 tags: [Featured]
 weight: -1
 keywords:
@@ -11,11 +10,16 @@ keywords:
   - wrap.setProps()
   - "wrap.find().simulate('click')"
   - "wrap.contains(<div/>)"
-intro: |
-  [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
 ---
 
 ## Getting started
+
+### Introduction
+{: .-intro}
+
+[Enzyme](https://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+
+- [Enzyme website](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
 
 ### Mounting
 {: .-prime}
@@ -36,8 +40,8 @@ wrap = mount(<MyComponent />)
 Shallow wrapping doesn't descend down to sub-components.
 A full mount also mounts sub-components.
 
-See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
-[Full rendering](http://airbnb.io/enzyme/docs/api/mount.html)
+See: [Shallow rendering](https://airbnb.io/enzyme/docs/api/shallow.html),
+[Full rendering](https://airbnb.io/enzyme/docs/api/mount.html)
 
 ### Debugging
 
@@ -47,7 +51,7 @@ console.log(wrap.debug())
 
 Shows HTML for debugging purposes.
 
-See: [debug()](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+See: [debug()](https://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## Examples
 {: .-three-column}
@@ -168,7 +172,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's installation instructions.
 
-See: [Installation](http://airbnb.io/enzyme/#installation)
+See: [Installation](https://airbnb.io/enzyme/#installation)
 
 ### Jest snapshots
 
@@ -224,7 +228,7 @@ wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 
-See: [Full rendering API](http://airbnb.io/enzyme/docs/api/mount.html)
+See: [Full rendering API](https://airbnb.io/enzyme/docs/api/mount.html)
 
 ### Actions
 

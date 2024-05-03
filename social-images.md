@@ -22,4 +22,4 @@ title: Social media images
 
 ### References
 
- * https://developers.facebook.com/docs/plugins/checklist/
+ * <https://developers.facebook.com/docs/plugins/checklist/>

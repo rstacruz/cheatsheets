@@ -1,10 +1,16 @@
 ---
 title: Riot.js
 category: JavaScript libraries
-layout: default-ad
 ---
 
-## Tags
+### About
+{: .-intro}
+
+Riot is a UI library for JavaScript.
+
+- <https://riot.js.org/>
+
+### Tags
 
 ```js
 /* tag-name.tag */
@@ -25,7 +31,7 @@ layout: default-ad
 <script>riot.mount('tag-name', { title: 'my app', ... })</script>
 ```
 
-## Expressions
+### Expressions
 
 ```
 {value}
@@ -70,6 +76,8 @@ riot.update() // update all
 
 ## Nesting
 
+### Nesting
+
 ```
 <my-tag>
   <child></child>
@@ -87,6 +95,8 @@ riot.update() // update all
 ```
 
 ## Nested HTML
+
+### Yield
 
 ```js
 <yield/>

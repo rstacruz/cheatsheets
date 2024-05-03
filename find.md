@@ -1,8 +1,7 @@
 ---
 title: Find
 category: CLI
-layout: 2017/sheet
-updated: 2019-10-01
+updated: 2019-11-17
 ---
 
 ### Usage
@@ -66,7 +65,7 @@ These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).
 ### Condition flow
 
 ```bash
-\! -name "*.c"
+\! -name "*.c" # NOT named "*.c"
 \( x -or y \)
 ```
 
@@ -91,4 +90,5 @@ find . -newerBt "24 hours ago"
 
 ```bash
 find . -type f -mtime +29 # find files modified more than 30 days ago
+find . -type f -newermt 2016-08-07 \! -newermt 2016-08-08 # find in date range
 ```

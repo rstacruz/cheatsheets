@@ -1,8 +1,7 @@
 ---
 title: Git branches
 category: Git
-layout: 2017/sheet
-updated: 2017-09-20
+updated: 2020-02-13
 ---
 
 ## Working with branches
@@ -95,6 +94,9 @@ git reset --hard
 ```bash
 git reset --hard $commit_id
 
-# Now push to your branch
+# Now push safely to your branch
+git push --force-with-lease
+
+# Or push brutally to your branch
 git push --force
 ```

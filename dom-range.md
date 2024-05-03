@@ -1,17 +1,22 @@
 ---
 title: DOM Range
 category: JavaScript
+intro: |
+  Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
 ---
 
+## Reference
+{:.-three-column}
+
 ### Creating ranges
-See <http://devdocs.io/dom/document/createrange>
 
 ```js
 var range = document.createRange()
 ```
 
+See: <https://devdocs.io/dom/document/createrange>
+
 ## Methods
-See <http://devdocs.io/dom/range>
 
 ```js
 range
@@ -27,41 +32,41 @@ range
   .selectNodeContents(node)
 ```
 
+See: <https://devdocs.io/dom/range>
+
 ### Collapsing
 
 ```js
-range
-  .collapse()     // to end (a single point)
-  .collapse(true) // to start (a single point)
-  .collapsed      // true | false
+range.collapse() // to end (a single point)
+range.collapse(true) // to start (a single point)
+range.collapsed // true | false
 ```
 
 ### Operations
 
 ```js
-range
-  .cloneContents()   // copy => DocumentFragment
-  .extractContents() // cut  => DocumentFragment
-  .deleteContents()  // delete
-
-  .insertNode(node)
+range.cloneContents() // copy => DocumentFragment
+range.extractContents() // cut  => DocumentFragment
+range.deleteContents() // delete
 ```
 
-### Etc
+```js
+range.insertNode(node)
+```
+
+### String
 
 ```js
-range
-  .toString()
+range.toString()
 ```
 
 ### Read-only attributes
 
 ```js
-range
-  .collapsed         // true/false
-  .startContainer    // Node
-  .startOffset
-  .endContainer      // Node
-  .endOffset
-  .commonAncestorContainer // closest of start and end containers
+range.collapsed //       => true/false
+range.startContainer //  => Node
+range.startOffset
+range.endContainer //    => Node
+range.endOffset
+range.commonAncestorContainer // closest of start and end containers
 ```

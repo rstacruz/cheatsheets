@@ -1,8 +1,7 @@
 ---
 title: Input tag
 category: HTML
-layout: 2017/sheet
-updated: 2017-10-29
+updated: 2017-10-30
 weight: -3
 ---
 

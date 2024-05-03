@@ -1,14 +1,20 @@
 ---
 title: httpie
 category: CLI
-layout: 2017/sheet
 weight: -3
-updated: 2017-09-04
+updated: 2020-07-05
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
-intro: |
-  [HTTPie](https://httpie.org/) is a command-line HTTP client.
 ---
+
+### Introduction
+{: .-intro}
+
+[HTTPie](https://httpie.org/) is a command-line HTTP client.
+
+- [HTTPie website](https://httpie.org/) _(httpie.org)_
+- [HTTPie documentation](https://httpie.org/docs) _(httpie.org)_
+- [Try it online](https://httpie.org/run) _(httpie.org)_
 
 ### Parameters
 
@@ -32,10 +38,15 @@ $ http --form POST example.com \
     cv=@document.txt
 ```
 
+### Raw JSON
+
+```bash
+$ echo '{"hello": "world"}' | http POST example.com/post
+```
+
 ### Options
 
-Print options:
-{: .-setup}
+#### Printing options
 
 ```bash
 -v, --verbose            # same as --print=HhBb --all

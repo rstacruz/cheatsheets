@@ -1,36 +1,46 @@
 ---
 title: Deku v1
 category: JavaScript libraries
+intro: |
+  Quick reference for [Deku](https://www.npmjs.com/package/deku), a minimal virtual DOM library. **Deprecated:** This is for Deku v1. See [deku](./deku) for a more updated cheatsheet.
 ---
 
-This is for Deku v1. See [deku](./deku) for a more updated cheatsheet.
+### Example
 
 ```js
 /** @jsx element */
-import element from 'virtual-element'  // replacement for React.createElement
-import {render, tree} from 'deku'
+import element from 'virtual-element' // replacement for React.createElement
+import { render, tree } from 'deku'
 
 var app = <div class='my-app'>Hello World!</div>
 
 render(tree(app), document.body)
 ```
 
-## Components
+### Components
 
 ```js
 Button = {
-  render () { return <button>Submit</button> }
+  render() {
+    return <button>Submit</button>
+  }
 }
 
 App = {
-  render () { return <div><Button /></div> }
+  render() {
+    return (
+      <div>
+        <Button />
+      </div>
+    )
+  }
 }
 
 render(tree(<App />), document.body)
 render(tree(element(App)), document.body)
 ```
 
-## Component props/state
+### Component props/state
 
 ```js
 App = {
@@ -50,13 +60,14 @@ App = {
 render(tree(<App />), document.body)
 ```
 
-## Events
+### Events
 
 ```js
 <a onClick={onClick}>{props.text}</a>
 ```
 
-## Magic virtual element
+### Magic virtual element
+
 Use [magic-virtual-element](https://github.com/dekujs/magic-virtual-element) to enable nice classnames.
 
 ```
@@ -64,7 +75,7 @@ import element from 'magic-virtual-element'
 <div style={style} class={[ 'button', '-active' ]}>
 ```
 
-## Reference
+### Reference
 
 ```
 name = 'MyComponent'

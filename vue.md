@@ -1,7 +1,6 @@
 ---
 title: Vue.js
 category: JavaScript
-layout: 2017/sheet
 updated: 2019-12-26
 weight: -10
 intro: |
@@ -101,7 +100,6 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 #### Arguments can be passed
 ```html
 <button @click="addToCart(product)">...
-}
 ```
 
 #### To prevent default behavior (e.g. page reload)

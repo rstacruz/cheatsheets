@@ -1,178 +1,322 @@
 ---
 title: Fish shell
 category: CLI
-layout: 2017/sheet
 prism_languages: [fish]
-updated: 2017-10-16
+updated: 2018-01-31
 weight: -1
 ---
 
 ### Keys
 
-| Shortcut            | Description                 |
-| ---                 | ---                         |
-| `Alt ←` _/_ `Alt →` | Move word                   |
-| `^U`                | Delete to beginning         |
-| `^W`                | Delete to previous `/`      |
-| `^D`                | Delete next character       |
-| `Alt D`             | Delete next word            |
-| `^C`                | Cancel line                 |
-| `Alt P`             | Page output                 |
-| ---                 | ---                         |
-| `Alt ↑` _/_ `Alt ↓` | Previous _/_ next arguments |
-| `Alt E` _/_ `Alt V` | Open in external editor     |
-| `^L`                | Repaint screen              |
-{: .-shortcuts}
+| Shortcut            | Description                           |
+| ---                 | ---                                   |
+| `^A ←`/`^E →`       | Move to the line beginning/end        |
+| `Alt ←`/`Alt →`     | Jump to the previous/next word        |
+| `↑`/`↓`             | Switch to the previous/next command   |
+| `Alt ↑`/`Alt ↓`     | Switch to the previous/next arguments |
+| ---                 | ---                                   |
+| `^U`                | Delete to the beginning               |
+| `^C`                | Cancel the line                       |
+| ---                 | ---                                   |
+| `Alt H`             | Show the command man page description |
+| `Alt W`             | Show the short command description    |
+| ---                 | ---                                   |
+| `Alt .`             | Repeat last argument                  |
 
-### Help
-
-| `Alt H` | Help on word (man)                     |
-| `Alt W` | Help on word (short descriptions)      |
-| `Alt L` | List directory on cursor               |
-{: .-shortcuts}
-
-## Function
-
-### Writing functions
+### Sample program
 
 ```fish
-function my_function --description "My description"
-  ···
+#!/usr/bin/env fish
+
+echo 'Hello from Fish!'
+```
+
+### Comments
+
+```fish
+# my comment
+```
+
+### Printing text
+
+```fish
+echo 'Hello from Fish!'
+# or
+printf '%s\n' 'Hello from Fish!'
+```
+
+Print the string with a trailing `\n`.
+
+### Reading from stdin
+
+```fish
+read my_variable
+```
+
+Reads the string to a variable `my_variable`.
+
+### Loops
+
+```fish
+for i in (seq 1 10)
+  ...
 end
 ```
 
-### Conditional
+## Variables
+
+### Defining and erasing
 
 ```fish
-if test -f foo.txt
+# Declare the global/local variable:
+set my_variable 'Hello from Fish!'
+
+i# Remove the variable:
+set --erase my_variable
+```
+
+### Slicing
+
+```fish
+echo $my_variable[1..10]
+echo $my_variable[2..]
+echo $my_variable[..-2]
+```
+
+## Numbers
+
+### Incrementing and decrementing
+
+```fish
+set my_variable (math $my_variable + 1)
+set my_variable (math $my_variable - 1)
+```
+
+### Arithmetic
+
+```fish
+echo (math 1 + 2)
+```
+
+| Operator            | Performs       |
+| ---                 | ---            |
+| `+`                 | Addition       |
+| `-`                 | Subtraction    |
+| `*`                 | Multiplication |
+| `/`                 | Division       |
+| `%`                 | Modulo         |
+| `^`                 | Exponentiation |
+
+## Strings
+
+### Matching
+
+Match the string against a regular expression:
+
+```fish
+string match --regex --entire 'Fish' 'Hello from Fish!'
+```
+
+| Pattern             | Matches                   |
+| ---                 | ---                       |
+| `x?`                | Zero or one `x` chars     |
+| `x*`                | Any count `x` chars       |
+| `x+`                | One or more  `x` chars    |
+| `x{n}`              | n times `x` chars         |
+| `x{n,m}`            | n to m times `x` chars    |
+| `x{n,}`             | n or more times `x` chars |
+| `[xy]`              | `x` or y char             |
+| `[^xy]`             | not `x` or y char         |
+| ---                 | ---                 |
+| `\w`                | Word character      |
+| `\d`                | Digit character     |
+| `\W`                | Not word character  |
+| `\D`                | Not digit character |
+
+Perl compatible regular expressions are described here.
+
+### Replacing
+
+```fish
+# Replaces the first match
+string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+
+# Replaces all matches
+string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
+```
+
+## Conditionals
+
+### If/else
+
+```fish
+if test $my_variable -lt $another_variable
   ···
-else if test -f bar.txt
+else if test $my_variable -eq $another_variable
   ···
 else
   ···
 end
 ```
 
-### Combining tests
+### Comparisons
+
+#### Numbers
+
+| Number operator     | Meaning                                   |
+| ---                 | ---                                       |
+| `-lt`               | [L]ess [t]han                             |
+| `-eq`               | [Eq]ual                                   |
+| `-gt`               | [G]reater [t]han                          |
+| `-le`               | [L]ess than or [e]qual to                 |
+| `-ge`               | [G]reater than or [e]qual to              |
+| `-ne`               | [N]ot [E]qual                             |
+
+#### Strings
+
+| String operator     | Meaning                                   |
+| ---                 | ---                                       |
+| `=`                 | [Eq]ual                                   |
+| `!=`                | [N]ot [E]qual                             |
+
+#### Files
+
+| File operator       | Meaning                                   |
+| ---                 | ---                                       |
+| `-f`                | [F]ile exists                             |
+| `-d`                | [D]irectory exists                        |
+| `-r`                | File or directory exists and [r]eadable   |
+| `-w`                | File or directory exists and [w]ritable   |
+| `-x`                | File or directory exists and e[x]ecutable |
+
+
+## Process communication
+
+### Writing to files
 
 ```fish
-if test -f foo.txt && test -f bar.txt
+# Overwrite file
+echo 'Hello from Fish!' > my_file
+
+# Append to file
+echo 'Hello from Fish!' >> my_file
 ```
+
+### Piping
 
 ```fish
-if test -f foo.txt -a -f bar.txt
+my_command | another_command
 ```
+
+Passes the first command stdout output as an input to a second command.
+
+### Command substitution
 
 ```fish
-if test \( -f foo.txt \) -a -f \( bar.txt \)
+echo (math $my_variable + 1)
 ```
 
-### Events
+The `(...)` expression is substituted with the output of the command inside it.
 
-#### Emitting
+
+### Process substitution
+
+```fish
+echo (math $my_variable + 1 | psub)
+```
+
+The `(... | psub)` expression is substituted with a temporary file with the command's output.
+
+## Functions
+
+### Defining and erasing
+
+```fish
+# Declare the function
+function my_function --description 'My description'
+  ···
+end
+
+# Remove the function
+functions --erase my_function
+```
+
+## Events
+
+### Emitting
 
 ```fish
 emit my_event
 ```
 
-#### Listening
+Emits an event that can be picked up by other functions.
+
+### Event handling
 
 ```fish
-function myhook --on-event my_event
+function my_hook --on-event my_event
   ···
 end
 ```
 
-This lets you hook onto events, such as `fish_prompt`.
+Reacts to the `my_event` event.
+
+## Abbreviations
+
+### Defining and erasing
+
+```fish
+# Declare the abbreviation
+abbr --add grh "git reset --hard HEAD"
+```
+
+
+```fish
+# Remove the abbreviation
+abbr --erase grh
+```
 
 ## Completions
 
-### Creating completions
-
-#### ~/.fish/completions/mycommand.fish
+### Defining completions
 
 ```fish
-complete -c mycommand ...
-complete -c mycommand ...
-complete -c mycommand ...
+complete --command mycommand --arguments 'install uninstall'
+complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
 ```
 
-### Options
+| Option              | Description                                          |
+| ---                 | ---                                                  |
+| `--arguments`       | Arguments to the command itself or option            |
+| `--short-option`    | Short option                                         |
+| `--long-option`     | Long option                                          |
+| `--no-files`        | Don't suggest files                                  |
+| `--force-files`     | Suggest files                                        |
+| `--condition`       | Display the hint only when a given condition is true |
+| `--description`     | Description                                          |
+
+Declares the completion for a command.
+
+### Removing completions
 
 ```fish
-complete \
-  -c                         # command
-  -s                         # short option
-  -l                         # long option
-  -r, --require-parameter
-  -f, --no-files
-  -x                         # exclusive (-r -f)
-  -n '__fish_use_subcommand' # condition
-  --description ".."
+complete --command mycommand --erase
 ```
 
-#### Example
+## Useful built-in functions
 
-```fish
-  complete -c $cmd \
--n '__fish_use_subcommand' \
--x -a hello \
---description 'lol'
-```
-
-### Conditions
-
-| Condition | Description
-| --- | ---
-| `-n __fish_complete_directories STRING DESCRIPTION` | performs path completion on STRING, allowing only directories, and giving them the description DESCRIPTION.
-| `-n __fish_complete_path STRING DESCRIPTION` | performs path completion on STRING, giving them the description DESCRIPTION.
-| `-n __fish_complete_groups` | prints a list of all user groups with the groups members as description.
-| `-n __fish_complete_pids` | prints a list of all processes IDs with the command name as description.
-| `-n __fish_complete_suffix SUFFIX` | performs file completion allowing only files ending in SUFFIX. The mimetype database is used to find a suitable description.
-| `-n __fish_complete_users` | prints a list of all users with their full name as description.
-| `-n __fish_print_filesystems` | prints a list of all known file systems. Currently, this is a static list, and not dependent on what file systems the host operating system actually understands.
-| `-n __fish_print_hostnames` | prints a list of all known hostnames. This functions searches the fstab for nfs servers, ssh for known hosts and checks the /etc/hosts file.
-| `-n __fish_print_interfaces` | prints a list of all known network interfaces.
-| `-n __fish_print_packages` | prints a list of all installed packages. This function currently handles Debian, rpm and Gentoo packages.
-| `-n __fish_use_subcommand` |
-| `-n __fish_seen_subcommand_from init` |
-
-#### Example
-
-```fish
-complete -c ruby -s X -x -a '(__fish_complete_directories (commandline -ct))' --description 'Directory'
-```
-
-### Examples
-
-Start each example with `complete -c cmdname`
-
-```fish
--x
-  # no filename completion
-```
-
-```fish
--s d -x -a "read skip"
-  # -d {read|skip}
-```
-
-```fish
--s d -x
-  # -d <something>
-```
-
-```fish
--s f -r
-  # -f FILE
-```
-
-```fish
--s f -l force
-  # -f, --force
-```
-
-```fish
--a "(cat /etc/passwd | cut -d : -f 1)"
-  # first argument as filename
-```
+| Function                              | Description                                                   |
+| ---                                   | ---                                                           |
+| `__fish_seen_argument`                | Check whether the specified argument is used                  |
+| `__fish_seen_subcommand_from`         | Check whether the specified subcommand is used                |
+| `__fish_use_subcommand`               | Check whether any subcommand is used                          |
+| ---                                   | ---                                                           |
+| `__fish_complete_directories`         | Complete directories with the specified letters in their name |
+| `__fish_complete_suffix`              | Complete files with the specified suffix                      |
+| ---                                   | ---                                                           |
+| `__fish_complete_users`               | List all users                                                |
+| `__fish_complete_groups`              | List all user groups                                          |
+| `__fish_print_hostnames`              | List all host names                                           |
+| `__fish_complete_pids`                | List all PIDs                                                 |
+| `__fish_print_filesystems`            | List all known filesystems                                    |
+| `__fish_print_interfaces`             | List all network interfaces                                   |

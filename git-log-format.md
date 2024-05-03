@@ -1,7 +1,6 @@
 ---
 title: Git log format string
 category: Git
-layout: 2017/sheet
 updated: 2017-10-18
 weight: -1
 keywords:
@@ -104,7 +103,7 @@ See the next tables on format variables.
 
 | Variable | Description |
 | --- | --- |
-| `%cD` | committer date (rfc2882) |
+| `%cD` | committer date (rfc2822) |
 | `%cr` | committer date (relative) |
 | `%ct` | committer date (unix timestamp) |
 | `%ci` | committer date (iso8601) |

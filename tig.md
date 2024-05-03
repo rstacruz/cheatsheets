@@ -1,8 +1,7 @@
 ---
 title: Tig
 category: Git
-layout: 2017/sheet
-updated: 2017-08-29
+updated: 2022-12-08
 weight: -3
 ---
 
@@ -21,8 +20,8 @@ $ sudo apt install tig
 ### Invocation
 
 | Command             | Description                                  |
-| ---                 | ---                                          |
-| `tig`               |                                              |
+| ------------------- | -------------------------------------------- |
+| `tig`               | Logs                                         |
 | ---                 | ---                                          |
 | `tig status`        | Status                                       |
 | `tig blame FILE`    | Blame                                        |
@@ -31,6 +30,7 @@ $ sudo apt install tig
 | `tig test..master`  | Show difference between two branches         |
 | `tig FILE`          | Show history of file                         |
 | `tig v0.0.3:README` | Show contents of file in a specific revision |
+| `tig -C /repo/path` | Run in dir `/repo/path` (like `git -C`)      |
 
 You can substitute `git log` → `tig`.
 
@@ -39,54 +39,101 @@ You can substitute `git log` → `tig`.
 
 ### Switching views
 
-| `m` | Main view |
-| `s` | Status |
-| `t` | Tree (files) |
-| `y` | Stash view |
-| `g` | Grep |
-| `h` | Help |
+| Shortcut | Description  |
+| -------- | ------------ |
+| `m`      | Main view    |
+| `d`      | Diff         |
+| `t`      | Tree (files) |
+| `b`      | Blame        |
+| `s`      | Status       |
+| `c`      | Stage        |
+| `y`      | Stash        |
+| `g`      | Grep         |
+| `h`      | Help         |
 {: .-shortcuts}
 
 ### All views
 
-| Shortcut | Description             |
-| ---      | ---                     |
-| `j`  `k` | Up/down                 |
-| `J`  `K` | Next/previous           |
-| ---      | ---                     |
-| `<`      | Back                    |
-| `R`      | Refresh                 |
-| `q`      | Close                   |
-| `Q`      | Close all               |
-| ---      | ---                     |
-| `^N`     | Next on parent view     |
-| `^P`     | Previous on parent view |
+| Shortcut  | Description                  |
+| ---       | ---                          |
+| `<enter>` | Enter and open selected line |
+| `<`       | Back to previous view state  |
+| `<tab>`   | Move focus to next view      |
+| `R`       | Refresh                      |
+| `q`       | Close view                   |
+| `Q`       | Close all (quit)             |
+| `,`       | Parent commit                |
+{: .-shortcuts}
+
+### Cursor navigation
+
+| Shortcut  | Description                  |
+| ---       | ---                          |
+| `/`       | Search                       |
+| `?`       | Search backwards             |
+| `j`  `k`  | Up/down                      |
+| `J`  `K`  | Next/previous                |
+| `<space>` | Page down                    |
+| `-`       | Page up                      |
+| `^D`      | Half page down               |
+| `^U`      | Half page up                 |
+{: .-shortcuts}
+
+### Option toggles
+
+| Shortcut  | Description                  |
+| ---       | ---                          |
+| `I`       | Toggle sort order modes      |
+| `i`       | Change sort header           |
+| `D`       | Toggle date display modes    |
+| `A`       | Toggle author display modes  |
+| `#`       | Toggle line numbers          |
+| `~`       | Toggle line graphics         |
+| `F`       | Toggle file names            |
+| `W`       | Toggle ignore space          |
 {: .-shortcuts}
 
 ### `m` - Main view
 
-| `D` | Toggle date display modes   |
-| `A` | Toggle author display modes |
-| `X` | Toggle commit sha           |
-| `C` | Cherry pick a commit        |
+| Shortcut  | Description                  |
+| ---       | ---                          |
+| `X`       | Toggle commit sha            |
+| `C`       | Cherry pick a commit         |
 {: .-shortcuts}
 
-### `s` - Stage view
+### `s` - Status view
 
-| `u`     | Stage/unstage file or chunk        |
-| `!`     | Revert file or chunk               |
-| `C`     | Commit                             |
-| `M`     | Merge                              |
-| `1`     | Stage line                         |
-| `[` `]` | Increase/decrease the diff context |
+| Shortcut  | Description                        |
+| ---       | ---                                |
+| `u`       | Stage/unstage file or chunk        |
+| `!`       | Revert file or chunk               |
+| `C`       | Commit                             |
+| `M`       | Merge with external tool           |
 {: .-shortcuts}
 
-### `h` - Branch view
+### `c` - Stage view
 
-| `i` | Change sort header |
+| Shortcut  | Description                        |
+| ---       | ---                                |
+| `u`       | Stage/unstage file or chunk        |
+| `!`       | Revert file or chunk               |
+| `1`       | Stage line                         |
+| `\`       | Split current diff hunk            |
+| `[` `]`   | Increase/decrease the diff context |
 {: .-shortcuts}
 
-### `h` - Blame view
+### `d` - Diff view
 
-| `,` | Parent commit |
+| Shortcut  | Description                        |
+| ---       | ---                                |
+| `[` `]`   | Increase/decrease the diff context |
+{: .-shortcuts}
+
+### `y` - Stash view
+
+| Shortcut  | Description                        |
+| ---       | ---                                |
+| `A`       | Apply selected stash               |
+| `P`       | Pop selected stash                 |
+| `!`       | Drop selected stash                |
 {: .-shortcuts}

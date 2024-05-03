@@ -1,7 +1,6 @@
 ---
 title: Rsync
 category: CLI
-layout: 2017/sheet
 weight: -1
 ---
 
@@ -71,6 +70,10 @@ rsync -avz ./src/ /dest
 --files-from=FILE    # read list of filenames from FILE
 ```
 
+```bash
+-C, --cvs-exclude    # exclude from local/global .cvsignore
+```
+
 ### Archive options
 
 ```bash
@@ -84,7 +87,7 @@ rsync -avz ./src/ /dest
 -t, --times      # preserve times
 -g, --group      # preserve group
 -o, --owner      # preserve owner
--D               # --devices --specials
+-D               # same as --devices --specials
 ```
 
 ```bash

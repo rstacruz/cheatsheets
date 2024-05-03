@@ -1,9 +1,8 @@
 ---
 title: bluebird.js
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -1
-updated: 2017-09-04
+updated: 2017-09-08
 ---
 
 ### Also see
@@ -18,7 +17,7 @@ promise
   .spread(okFn, errFn)        // *
   .catch(errFn)
   .catch(TypeError, errFn)    // *
-  .finally(fn)                // *
+  .finally(fn)
   .map(function (e) { ··· })  // *
   .each(function (e) { ··· }) // *
 ```

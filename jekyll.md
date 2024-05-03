@@ -1,10 +1,9 @@
 ---
 title: Jekyll
 jekyll_escape: true
-layout: 2017/sheet
 prism_languages: [bash, yaml, ruby]
 category: Jekyll
-updated: 2017-09-01
+updated: 2018-08-25
 ---
 
 {% raw %}
@@ -35,7 +34,7 @@ END
 bundle exec jekyll serve
 ```
 
-See: [Jekyll quickstart](http://jekyllrb.com/docs/quickstart/)<br>
+See: [Jekyll quickstart](https://jekyllrb.com/docs/quickstart/)<br>
 See: [github/pages-gem](https://github.com/github/pages-gem)
 
 ### Directories
@@ -81,7 +80,7 @@ Hello! this is my post.
 {: data-line="1,2,3,4"}
 
 Attach metadata to a page by adding them on top of the page, delimited by `---`.
-See: [Front-matter](http://jekyllrb.com/docs/frontmatter/)
+See: [Front-matter](https://jekyllrb.com/docs/frontmatter/)
 
 ### Other frontmatter stuff
 
@@ -108,7 +107,7 @@ include: ['.htaccess']
 ```
 
 All config keys are optional.
-See: [Configuration](http://jekyllrb.com/docs/configuration/)
+See: [Configuration](https://jekyllrb.com/docs/configuration/)
 
 Markup
 ------
@@ -216,7 +215,7 @@ Markup
 | `{{ content }}` | HTML content (use in layouts) |
 | `{{ paginator }}` | Paginator |
 
-See: [Variables](http://jekyllrb.com/docs/variables/)
+See: [Variables](https://jekyllrb.com/docs/variables/)
 
 ### Site
 
@@ -358,7 +357,7 @@ Filters
 | ---                                | ---         |
 | `slice:` _-3, 3_                   |             |
 
-See: [String filters](http://docs.shopify.com/themes/liquid-documentation/filters)
+See: [String filters](https://docs.shopify.com/themes/liquid-documentation/filters)
 
 ### String filters (Jekyll-only)
 
@@ -407,7 +406,7 @@ paginate: 5
 paginate_path: "blog/:num"
 ```
 
-See: [Paginator](http://jekyllrb.com/docs/pagination/)
+See: [Paginator](https://jekyllrb.com/docs/pagination/)
 
 ### Numbers
 
@@ -446,13 +445,13 @@ See: [Paginator](http://jekyllrb.com/docs/pagination/)
 
     _posts/YEAR-MONTH-DAY-title.md
 
-See: [Blogging](http://jekyllrb.com/docs/posts/)
+See: [Blogging](https://jekyllrb.com/docs/posts/)
 
 ### Image paths
 
     ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
 
-See: [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resources)
+See: [Image paths](https://jekyllrb.com/docs/posts/#including-images-and-resources)
 
 ### Drafts
 
@@ -460,7 +459,7 @@ See: [Image paths](http://jekyllrb.com/docs/posts/#including-images-and-resource
     jekyll build --drafts
 
 Posts in `_drafts` only show up in development, but not production.
-See: [Drafts](http://jekyllrb.com/docs/drafts/)
+See: [Drafts](https://jekyllrb.com/docs/drafts/)
 
 ### Defining excerpts
 
@@ -474,7 +473,7 @@ Hello, let's talk about cats. (···)
 ```
 
 Put a key `excerpt` in the frontmatter.
-See: [Excerpts](http://jekyllrb.com/docs/posts/#post-excerpts)
+See: [Excerpts](https://jekyllrb.com/docs/posts/#post-excerpts)
 
 ### Displaying excerpts
 
@@ -509,7 +508,7 @@ Alternatively, you can put excerpts inline in your post by defining `excerpt_sep
     permalink: none   # /:categories/:title.html
     permalink: "/:title"
 
-See: [Permalinks](http://jekyllrb.com/docs/permalinks/)
+See: [Permalinks](https://jekyllrb.com/docs/permalinks/)
 
 ## More features
 
@@ -526,7 +525,7 @@ _data/members.yml
 {% endfor %}
 ```
 
-See: [Data](http://jekyllrb.com/docs/datafiles/)
+See: [Data](https://jekyllrb.com/docs/datafiles/)
 
 ### Collections
 
@@ -549,7 +548,7 @@ real_name: Anne Rice
 {% for author in site.authors %}
 ```
 
-See: [Collections](http://jekyllrb.com/docs/collections/)
+See: [Collections](https://jekyllrb.com/docs/collections/)
 
 ### Code highlighter
 
@@ -583,12 +582,12 @@ Also see
 --------
 {: .-one-column}
 
-* [Jekyll docs](http://jekyllrb.com/docs/home/) _jekyllrb.com_
+* [Jekyll docs](https://jekyllrb.com/docs/home/) _jekyllrb.com_
 * [CloudCannon Jekyll cheatsheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/) _cloudcannon.com_
-* [Jekyll: templates](http://jekyllrb.com/docs/templates/) _jekyllrb.com_
-* [Liquid: output](http://docs.shopify.com/themes/liquid-basics/output) _shopify.com_
-* [Liquid: logic](http://docs.shopify.com/themes/liquid-basics/logic) _shopify.com_
-* [Liquid: filters](http://docs.shopify.com/themes/liquid-documentation/filters) _shopify.com_
+* [Jekyll: templates](https://jekyllrb.com/docs/templates/) _jekyllrb.com_
+* [Liquid: output](https://docs.shopify.com/themes/liquid-basics/output) _shopify.com_
+* [Liquid: logic](https://docs.shopify.com/themes/liquid-basics/logic) _shopify.com_
+* [Liquid: filters](https://docs.shopify.com/themes/liquid-documentation/filters) _shopify.com_
 * [Liquid for designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) _github.com/Shopify_
 {: .-also-see}
 

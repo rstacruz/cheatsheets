@@ -1,16 +1,48 @@
 ---
 title: Yaml
 category: Markup
-layout: 2017/sheet
 prism_languages: [yaml]
 ---
+
+### Dictionaries and lists
+
+```yaml
+# comments start with "#"
+# dictionary are written like "key: value"
+name: Martin D'vloper
+languages:
+  perl: Elite
+  python: Elite
+  pascal: Lame
+
+# list items beginn with a "- "
+foods:
+  - Apple
+  - Orange
+  - Strawberry
+  - Mango
+
+# booleans are lower case
+employed: true
+```
+
 
 ### Multiline strings
 
 ```yaml
+# Literal Block Scalar
 Multiline: |
-  hello
-  world
+  exactly as you see
+  will appear these three
+  lines of poetry
+```
+
+```yaml
+# Folded Block Scalar
+Multiline: <
+  this is really a
+  single line of text
+  despite appearances
 ```
 
 ### Inheritance
@@ -23,4 +55,15 @@ parent: &defaults
 child:
   <<: *defaults
   b: 4
+```
+
+### Reference content
+
+```yaml
+values: &ref
+  - These values
+  - will be reused below
+  
+other_values:
+  <<: *ref
 ```

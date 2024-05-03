@@ -1,9 +1,8 @@
 ---
 title: Elixir
 category: Elixir
-layout: 2017/sheet
 tags: [New]
-updated: 2017-08-26
+updated: 2018-07-04
 weight: -10
 ---
 
@@ -139,6 +138,20 @@ cond do
     "Me neither"
   true ->
     "But I will (this is essentially an else)"
+end
+```
+
+### With
+
+```elixir
+with {:ok, {int, _asdf}} <- Integer.parse("123asdf"),
+     {:ok, datetime, _utc_offset} <- DateTime.from_iso8601("2021-10-27T12:00:00Z") do
+  DateTime.add(datetime, int, :second)
+  # optional else clause. if not provided and an error occurs, the error is returned
+else
+  :error -> "couldn't parse integer string"
+  {:error, :invalid_format} -> "couldn't parse date string"
+  _ -> "this will never get hit because all errors are handled"
 end
 ```
 
@@ -427,6 +440,20 @@ get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
 Map.new([{:b, 1}, {:a, 2}])
 Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
+```
+
+### Working with structs
+
+#### Struct to map
+
+```elixir
+Map.from_struct(%AnyStruct{a: "b"})  # → %{a: "b"}
+```
+
+#### Map to struct
+
+```elixir
+struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
 ```
 
 ## List

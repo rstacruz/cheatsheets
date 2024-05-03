@@ -3,14 +3,22 @@ title: assert
 category: Node.js
 ---
 
-    assert(val)
-    assert.equal(actual, expected)
-    assert.notEqual(a, e)
+### Assertions
 
-    assert.deepEqual(a, e)
-    assert.notDeepEqual(a, e)
+```js
+assert(val)
+assert.equal(actual, expected)
+assert.notEqual(a, e)
+```
 
-    assert.throws(fn)
+```js
+assert.deepEqual(a, e)
+assert.notDeepEqual(a, e)
+```
+
+```js
+assert.throws(fn)
+```
 
 ### References
 

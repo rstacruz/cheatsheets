@@ -1,10 +1,9 @@
 ---
 title: Stylus
 category: CSS
-layout: 2017/sheet
 prism_languages: [stylus]
 weight: -3
-updated: 2017-09-20
+updated: 2017-10-30
 tags: [Featurable]
 ---
 
@@ -227,7 +226,7 @@ div
 
 `?=` will only set a variable if it's previously unset.
 
-See: [Conditional assignment](http://stylus-lang.com/docs/operators.html#conditional-assignment--)
+See: [Conditional assignment](https://stylus-lang.com/docs/operators.html#conditional-assignment--)
 
 ### Property lookup
 
@@ -235,10 +234,13 @@ See: [Conditional assignment](http://stylus-lang.com/docs/operators.html#conditi
 .logo
   width: w = 150
   margin-left: -(w / 2)
+  // or
+  height: 80px
+  margin-top: -(@height / 2)
 ```
 {: data-line="2,3"}
 
-See: [Property lookup](http://stylus-lang.com/docs/variables.html#property-lookup)
+See: [Property lookup](https://stylus-lang.com/docs/variables.html#property-lookup)
 
 ### Interpolation
 
@@ -246,7 +248,7 @@ See: [Property lookup](http://stylus-lang.com/docs/variables.html#property-looku
 -{prefix}-border-radius: 2px
 ```
 
-See: [Interpolation](http://stylus-lang.com/docs/interpolation.html)
+See: [Interpolation](https://stylus-lang.com/docs/interpolation.html)
 
 ### Color operators
 
@@ -277,7 +279,7 @@ lookup('light-' + name)
 ```
 {: data-line="3"}
 
-See: [lookup](http://stylus-lang.com/docs/bifs.html#lookupname)
+See: [lookup](https://stylus-lang.com/docs/bifs.html#lookupname)
 
 Advanced features
 -----------------
@@ -303,7 +305,7 @@ Aliases:
 | `!=` | `is not` |
 | `!=` | `isnt` |
 
-See: [Conditionals](http://stylus-lang.com/docs/functions.html#conditionals)
+See: [Conditionals](https://stylus-lang.com/docs/functions.html#conditionals)
 
 ### For loops
 
@@ -326,7 +328,7 @@ if ohnoes is defined
 ```
 {: data-line="1"}
 
-See: [is defined](http://stylus-lang.com/docs/operators.html#variable-definition-is-defined)
+See: [is defined](https://stylus-lang.com/docs/operators.html#variable-definition-is-defined)
 
 ### False values
 
@@ -345,7 +347,7 @@ if val is a 'ident'
 if #fff is a 'rgba'    // → true
 ```
 
-See: [Instance check](http://stylus-lang.com/docs/operators.html#instance-check-is-a)
+See: [Instance check](https://stylus-lang.com/docs/operators.html#instance-check-is-a)
 
 Built-in functions
 ------------------

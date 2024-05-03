@@ -1,7 +1,6 @@
 ---
 title: AppleScript
-updated: 2018-03-17
-layout: 2017/sheet
+updated: 2018-12-06
 category: macOS
 prism_languages: [applescript]
 ---
@@ -63,4 +62,14 @@ beep 10
 ```applescript
 -- delay for 5 seconds
 delay 5
+```
+
+### Handlers
+
+```applescript
+on doubleNumber(n)
+	return n * 2
+end doubleNumber
+
+set doubledValue to my doubleNumber(2)
 ```

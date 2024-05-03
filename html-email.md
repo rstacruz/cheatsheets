@@ -1,8 +1,7 @@
 ---
 title: HTML emails
 category: HTML
-layout: 2017/sheet
-updated: 2017-08-29
+updated: 2017-08-30
 ---
 
 ### Properties to avoid
@@ -39,7 +38,7 @@ Inline your CSS as much as possible.
 ### Basic layout
 
 ```html
-<table cellpadding="0" cellspacing="0">
+<table cellpadding="0" cellspacing="0" role="presentation">
   <tr>
     <td width="auto"></td>
     <td width="600" background="#ffffff">

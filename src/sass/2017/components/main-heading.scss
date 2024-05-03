@@ -1,0 +1,68 @@
+/*
+ * The top-level heading
+ */
+
+.main-heading {
+  @include heading-style;
+
+  & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  & > h1 {
+    @include font-size(8);
+    line-height: 1.2;
+    font-weight: 200;
+    font-family: $body-font;
+    margin: 0;
+    text-align: center;
+  }
+
+  & > h1 > em {
+    font-style: normal;
+    color: lighten($gray-text, 20%);
+  }
+
+  & > .pubbox {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  @media (min-width: 769px) {
+    & > .pubbox {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.UseCompactHeader .main-heading {
+  @media (min-width: 769px) {
+    & {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 32px;
+    }
+
+    & > h1 {
+      flex: 1 0 auto;
+      text-align: left;
+      padding-right: 32px;
+    }
+
+    & > .pubbox {
+      flex: 0 0 auto;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/**
+ * Add some space in preview mode
+ */
+
+.PreviewMode .main-heading {
+  margin-top: 16px;
+}

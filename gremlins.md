@@ -1,8 +1,7 @@
 ---
 title: Gremlins.js
 category: JavaScript libraries
-layout: 2017/sheet
-updated: 2017-10-11
+updated: 2017-10-22
 weight: -1
 intro: |
   [Gremlins](https://github.com/marmelab/gremlins.js) is a JavaScript library to do "monkey-testing" by providing random user input (clicks, scrolls, and so on).

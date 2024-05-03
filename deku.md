@@ -1,9 +1,11 @@
 ---
 title: Deku v2
 category: JavaScript libraries
+intro: |
+  Quick reference for [Deku](https://www.npmjs.com/package/deku), a minimal virtual DOM library.
 ---
 
-## Components
+### Components
 
 ```js
 /** @jsx element */
@@ -29,7 +31,7 @@ function onRemove ({ props, dispatch, path }) { ... }
 export default { render, onCreate, onRemove }
 ```
 
-## Rendering
+### Rendering
 
 ```js
 import { createStore } from 'redux'
@@ -42,8 +44,5 @@ let store = createStore(reducer)
 let render = createRenderer(document.body, store.dispatch)
 
 // Update the page and add redux state to the context
-render(
-  <MyButton>Hello World!</MyButton>,
-  store.getState()
-  )
+render(<MyButton>Hello World!</MyButton>, store.getState())
 ```

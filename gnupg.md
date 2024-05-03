@@ -1,9 +1,8 @@
 ---
 title: GnuPG
 category: CLI
-layout: 2017/sheet
 tags: []
-updated: 2017-10-18
+updated: 2017-10-22
 weight: 0
 intro: |
   [GnuPG](https://gnupg.org/) is a complete and free implementation of the OpenPGP standard.
@@ -36,7 +35,7 @@ gpg --import key.asc
 Only merge updates for keys already in key-ring:
 
 ```bash
-gpg --import key.asc --merge-options merge-only
+gpg --import key.asc --import-options merge-only
 ```
 
 ### Managing your keyring
@@ -103,7 +102,7 @@ gpg --keyserver <URL> ...
 ```bash
 gpg --edit-key <KEY ID>
 # In the interactive prompt:
-gpg> sign
+gpg> trust
 gpg> save
 ```
 

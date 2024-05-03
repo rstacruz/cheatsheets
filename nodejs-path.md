@@ -1,18 +1,32 @@
 ---
-title: path
+title: Node.js path API
 category: Node.js
+intro: |
+  Quick reference to the [Node.js path API](https://nodejs.org/api/path.html).
 ---
 
-    fs.realpath('/etc/passwd', function(err, path) { /* "/private/etc/passwd" */ 
-    });
+### Functions
 
-    dir = path.join('etc', 'passwd');
-    dir = path.resolve('/etc', 'passwd', '..', 'var');
+```js
+const fs = require('fs')
 
-    path.dirname('/etc/passwd')       //=> "/etc"
-    path.basename('/etc/passwd')      //=> "passwd"
-    path.basename('/etc/rc.d', '.d')  //=> "rc"
+fs.realpath('/etc/passwd', function (err, path) {
+  path // => "/private/etc/passwd"
+})
+```
+
+```js
+const path = require('path')
+dir = path.join('etc', 'passwd')
+dir = path.resolve('/etc', 'passwd', '..', 'var')
+```
+
+```js
+path.dirname('/etc/passwd') //      => "/etc"
+path.basename('/etc/passwd') //     => "passwd"
+path.basename('/etc/rc.d', '.d') // => "rc"
+```
 
 ### References
 
-- http://nodejs.org/api/path.html
+- https://nodejs.org/api/path.html

@@ -1,13 +1,18 @@
 ---
 title: Fastify
 category: JavaScript libraries
-layout: 2017/sheet
-updated: 2017-09-21
-intro: |
-  [Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
+updated: 2017-09-23
 ---
 
 ## Getting started
+
+### Introduction
+{: .-intro}
+
+[Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
+
+- [Fastify source code](https://github.com/fastify/fastify) _(github.com)_
+- [Documentation](https://github.com/fastify/fastify#documentation) _(github.com)_
 
 ### Hello world
 {: .-prime}
@@ -174,7 +179,7 @@ fastify.route({
 
 By defining a JSON schema, you get validation and improved performance.
 
-See: [Validation and serialize](https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialize.md)
+See: [Validation and serialization](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md)
 
 Plugins
 -------
@@ -271,7 +276,7 @@ fastify.use(require('x-xss-protection')())
 
 Compatible with Express and Restify middlewares. (Don't use these middleware, these are covered by [fastify-helmet](https://github.com/fastify/fastify-helmet).)
 
-See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middlewares.md)
+See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middleware.md)
 
 Template rendering
 ------------------

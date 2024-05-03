@@ -3,7 +3,11 @@ title: Virtual-dom
 category: JavaScript libraries
 ---
 
+### About
+
 See <https://www.npmjs.com/package/virtual-dom>
+
+### Example
 
 ```js
 var h = require('virtual-dom/h')

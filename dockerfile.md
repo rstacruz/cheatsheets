@@ -1,9 +1,8 @@
 ---
 title: Dockerfile
 category: Devops
-layout: 2017/sheet
 prism_languages: [docker]
-updated: 2018-03-17
+updated: 2019-10-20
 ---
 
 ## Reference
@@ -46,6 +45,20 @@ VOLUME ["/data"]
 ADD file.xyz /file.xyz
 COPY --chown=user:group host_file.xyz /path/container_file.xyz
 ```
+
+### Run commands in strict shell
+
+```docker
+ENV my_var
+SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
+
+# With strict mode:
+RUN false # fails build like using &&
+RUN echo "$myvar" # will throw error due to typo
+RUN true | false # will bail out of pipe
+```
+
+Using `shell` will turn on strict mode for shell commands.
 
 ### Onbuild
 

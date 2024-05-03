@@ -1,7 +1,6 @@
 ---
 title: JavaScript Date
 category: JavaScript
-layout: 2017/sheet
 weight: -3
 ---
 
@@ -17,17 +16,17 @@ new Date()
 
 ```js
 // ms since epoch
-new Date(1419785527580)
+new Date(1393678859000)
 ```
 
 ```js
 // Date format
-new Date("May 17, 1995 03:24:00")
+new Date("March 1, 2014 13:00:59")
 ```
 
 ```js
 // ISO date format
-new Date("2013-03-01T01:10:00")
+new Date("2014-03-01T13:00:59")
 ```
 
 ```js
@@ -46,16 +45,16 @@ Months are zero-indexed (eg, January is `0`).
 
 | Method                   | Result                                      |
 | ---                      | ---                                         |
-| `d.toString()`           | `"Mon Dec 29 2014 00:58:28 GMT+0800 (PHT)"` |
-| `d.toTimeString()`       | `"00:58:46 GMT+0800 (PHT)"`                 |
-| `d.toUTCString()`        | `"Sun, 28 Dec 2014 16:58:59 GMT"`           |
+| `d.toString()`           | `"Sat Mar 01 2014 13:00:59 GMT+0000 (GMT)"` |
+| `d.toTimeString()`       | `"13:00:59 GMT+0000 (GMT)"`                 |
+| `d.toUTCString()`        | `"Sat, 01 Mar 2014 13:00:59 GMT"`           |
 | ---                      | ---                                         |
-| `d.toDateString()`       | `"Thu Jan 10 2013"`                         |
-| `d.toISOString()`        | `"2013-01-09T16:00:00.000Z"`                |
-| `d.toLocaleString()`     | `"12/29/2014, 12:57:31 AM"`                 |
-| `d.toLocaleTimeString()` | `"12:57:31 AM"`                             |
+| `d.toDateString()`       | `"Sat Mar 01 2014"`                         |
+| `d.toISOString()`        | `"2014-03-01T13:00:59.000Z"`                |
+| `d.toLocaleString()`     | `"3/1/2014, 1:00:59 PM"`                    |
+| `d.toLocaleTimeString()` | `"1:00:59 PM"`                              |
 | ---                      | ---                                         |
-| `d.getTime()`            | `1419785527580`                             |
+| `d.getTime()`            | `1393678859000`                             |
 
 Accessing
 ---------

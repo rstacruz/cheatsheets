@@ -3,6 +3,9 @@ title: Do gem
 category: Ruby libraries
 ---
 
+### About
+{: .-intro}
+
  * [DAddYE/do](https://github.com/DAddYE/do)
 
 ### Connection

@@ -1,7 +1,6 @@
 ---
 title: package.json
 category: Node.js
-layout: 2017/sheet
 prism_languages: [json]
 updated: 2020-06-23
 weight: -3

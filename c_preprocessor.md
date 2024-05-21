@@ -1,7 +1,6 @@
 ---
 title: C Preprocessor
 category: C-like
-layout: 2017/sheet
 intro: |
   Quick reference for the [C macro preprocessor](https://en.m.wikipedia.org/wiki/C_preprocessor), which can be used independent of C/C++.
 ---
@@ -61,7 +60,14 @@ $ cpp -P file > outfile
 
 ```
 #define DST(name) name##_s name##_t
-DST(object);   #=> "object_s object_t;"
+DST(object);   #=> object_s object_t;
+```
+
+### Stringification
+
+```
+#define STR(name) #name
+char * a = STR(object);   #=> char * a = "object";
 ```
 
 ### file and line

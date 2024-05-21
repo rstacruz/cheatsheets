@@ -1,7 +1,6 @@
 ---
 title: Jsdoc
 category: JavaScript
-layout: 2017/sheet
 updated: 2020-06-23
 weight: -1
 ---
@@ -13,6 +12,8 @@ weight: -1
  * This is a function.
  *
  * @param {string} n - A string param
+ * @param {string} [o] - A optional string param
+ * @param {string} [d=DefaultValue] - A optional string param
  * @return {string} A good string
  *
  * @example
@@ -20,7 +21,7 @@ weight: -1
  *     foo('hello')
  */
 
-function foo(n) {
+function foo(n, o, d) {
   return n
 }
 ```
@@ -126,6 +127,7 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
 ```js
 /**
  * @throws {FooException}
+ * @async
  * @private
  * @deprecated
  * @see
@@ -140,7 +142,7 @@ See the full list: <https://jsdoc.app/index.html#block-tags>
 ### Renaming
 
 ```js
-/*
+/**
  * @alias Foo.bar
  * @name Foo.bar
  */

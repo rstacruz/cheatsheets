@@ -1,14 +1,13 @@
 ---
 title: httpie
 category: CLI
-layout: 2017/sheet
 weight: -3
 updated: 2020-07-05
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
 ---
 
-### Intorduction
+### Introduction
 {: .-intro}
 
 [HTTPie](https://httpie.org/) is a command-line HTTP client.

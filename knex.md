@@ -1,6 +1,5 @@
 ---
 title: Knex
-layout: 2017/sheet
 updated: 2020-06-03
 category: Databases
 intro: |

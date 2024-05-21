@@ -3,9 +3,16 @@ title: Ledger periods
 category: Ledger
 ---
 
+### About
+{: .-intro}
+
+- <https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions>
+
+### Usage
+
     [INTERVAL] [BEGIN] [END]
 
-Interval:
+#### Intervals
 
     every day
     every week
@@ -25,17 +32,17 @@ Interval:
     quarterly
     yearly
 
-Begin:
+#### Begin
 
     from <SPEC>
     since <SPEC>
 
-The end time can be either of:
+#### End
 
     to <SPEC>
     until <SPEC>
 
-Spec:
+### Spec
 
     2004
     2004/10
@@ -47,8 +54,6 @@ Spec:
     next week
     last week
 
-Examples:
+### Examples
 
     $ ledger r -p "since last month"
-
-See: http://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions

@@ -1,7 +1,6 @@
 ---
 title: Rsync
 category: CLI
-layout: 2017/sheet
 weight: -1
 ---
 
@@ -88,7 +87,7 @@ rsync -avz ./src/ /dest
 -t, --times      # preserve times
 -g, --group      # preserve group
 -o, --owner      # preserve owner
--D               # --devices --specials
+-D               # same as --devices --specials
 ```
 
 ```bash

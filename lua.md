@@ -2,13 +2,20 @@
 title: Lua
 ---
 
-## Comments
+## Basic examples
+
+### References
+
+- <https://www.lua.org/pil/13.html>
+- <http://lua-users.org/wiki/ObjectOrientedProgramming>
+
+### Comments
 
     -- comment
     --[[ Multiline
          comment ]]
 
-## Invoking functions
+### Invoking functions
 
     print()
     print("Hi")
@@ -21,7 +28,7 @@ title: Lua
     f{x=10, y=20}           <-->     f({x=10, y=20})
     type{}                  <-->     type({})
 
-## Tables / arrays
+### Tables / arrays
 
     t = {}
     t = { a = 1, b = 2 }
@@ -35,7 +42,7 @@ title: Lua
     print(array[2])       -- "b" (one-indexed)
     print(#array)         -- 4 (length)
 
-## Loops
+### Loops
 
     while condition do
     end
@@ -57,7 +64,7 @@ title: Lua
       if condition then break end
     end
 
-## Conditionals
+### Conditionals
 
     if condition then
       print("yes")
@@ -67,12 +74,12 @@ title: Lua
       print("no")
     end
 
-## Variables
+### Variables
 
     local x = 2
     two, four = 2, 4
 
-## Functions
+### Functions
 
     function myFunction()
       return 1
@@ -100,7 +107,7 @@ title: Lua
 
     doAction('write', "Shirley", "Abed")
 
-## Lookups
+### Lookups
 
     mytable = { x = 2, y = function() .. end }
 
@@ -118,8 +125,9 @@ title: Lua
     function X:y(z) .. end
     function X.y(self, z) .. end
 
-## Metatables
+## More concepts
 
+### Metatables
 
     mt = {}
 
@@ -136,7 +144,7 @@ title: Lua
 
     print(myobject)
 
-## Classes
+### Classes
 
     Account = {}
 
@@ -161,13 +169,15 @@ title: Lua
     a = Account:new(9000)
     a:withdraw(200)    -- method call
 
-## Constants
+### Constants
 
     nil
     false
     true
 
 ## Operators (and their metatable names)
+
+### Relational
 
     -- Relational (binary)
     -- __eq  __lt  __gt  __le  __ge
@@ -182,12 +192,16 @@ title: Lua
     -- __unm (unary minus)
        -
 
+### Logic
+
     -- Logic (and/or)
     nil and false  --> nil
     false and nil  --> false
+    not true       --> false
     0 and 20       --> 20
     10 and 20      --> 20
 
+### Tables
 
     -- Length
     -- __len(array)
@@ -209,8 +223,9 @@ title: Lua
     -- Call
     -- __call(func, ...)
 
+## API
 
-## API: Global functions  [(ref)](http://lua.gts-stolberg.de/en/Basis.php)
+### API: Global Functions
 
     dofile("hello.lua")
     loadfile("hello.lua")
@@ -233,7 +248,7 @@ title: Lua
     tonumber("34")
     tonumber("8f", 16)
 
-## API: Strings
+### API: Strings
 
     'string'..'concatenation'
 
@@ -258,7 +273,7 @@ title: Lua
     s:byte()
     s:format()
 
-## API: Tables
+### API: Tables
 
     table.foreach(t, function(row) ... end)
     table.setn
@@ -269,7 +284,7 @@ title: Lua
     table.sort
     table.remove(t, 4)
 
-## API: Math [(ref)](http://lua-users.org/wiki/MathLibraryTutorial)
+### API: Math
 
     math.abs     math.acos    math.asin       math.atan    math.atan2
     math.ceil    math.cos     math.cosh       math.deg     math.exp
@@ -281,7 +296,7 @@ title: Lua
     math.sqrt(144)
     math
 
-## API: Misc
+### API: Misc
 
     io.output(io.open("file.txt", "w"))
     io.write(x)
@@ -293,8 +308,3 @@ title: Lua
     file:read()
     file:lines()
     file:close()
-
-## Reference
-
-  http://www.lua.org/pil/13.html
-  http://lua-users.org/wiki/ObjectOrientedProgramming

@@ -1,7 +1,6 @@
 ---
 title: Markdown
 category: Markup
-layout: 2017/sheet
 prism_languages: [markdown]
 updated: 2020-07-01
 weight: -1
@@ -44,6 +43,15 @@ __bold__
 ```
 
 ```markdown
+***bold italic***
+___bold italic___
+```
+
+```markdown
+~~strikethrough~~
+```
+
+```markdown
 `code`
 ```
 
@@ -51,11 +59,13 @@ __bold__
 
 ```markdown
 * Item 1
+  * Nested Item 1
 * Item 2
 ```
 
 ```markdown
 - Item 1
+  - Nested Item 1
 - Item 2
 ```
 
@@ -89,14 +99,18 @@ __bold__
 ```markdown
 ![Image alt text](/path/to/img.jpg)
 ![Image alt text](/path/to/img.jpg "title")
-![Image alt text][img]
 ```
 
 ```markdown
+![Image alt text][img]
 [img]: http://foo.com/img.jpg
 ```
 
 ### Code
+
+```markdown
+`inline code`
+```
 
 ```
     4 space indent

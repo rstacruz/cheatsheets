@@ -1,7 +1,11 @@
 ---
 title: Gulp
 category: JavaScript libraries
+tags: [Archived]
+archived: The information on this sheet may possibly be outdated.
 ---
+
+### Available plugins
 
  * gulp-ruby-sass
  * gulp-autoprefixer

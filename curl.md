@@ -1,7 +1,6 @@
 ---
 title: Curl
 category: CLI
-layout: 2017/sheet
 updated: 2020-03-09
 ---
 
@@ -17,7 +16,8 @@ updated: 2020-03-09
 ```bash
 -v           # --verbose
 -vv          # Even more verbose
--s           # --silent
+-s           # --silent: don't show progress meter or errors
+-S           # --show-error: when used with --silent (-sS), show errors but no progress meter
 ```
 
 ```bash
@@ -29,7 +29,8 @@ updated: 2020-03-09
 
 ```bash
 -X POST          # --request
--L               # follow link if page redirects 
+-L               # follow link if page redirects
+-F               # --form: HTTP POST data for multipart/form-data
 ```
 
 ### Data
@@ -78,7 +79,10 @@ curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
 
 ```bash
 # multipart file upload
-curl -v -include --form key1=value1 --form upload=@localfilename URL
+curl -v --include --form key1=value1 --form upload=@localfilename URL
+
+# multipart form: send data from text field and upload file
+curl -F person=anonymous -F secret=@file.txt http://example.com/submit.cgi
 ```
 
 ```bash

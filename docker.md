@@ -1,7 +1,6 @@
 ---
 title: Docker CLI
 category: Devops
-layout: 2017/sheet
 ---
 
 Manage images
@@ -183,7 +182,29 @@ docker volume prune
 
 Delete all the volumes
 
+### Systems
+
+```sh
+docker system df
+```
+
+Show docker disk usage
+
+```sh
+docker system events
+```
+
+Get real time events from the server
+
+```sh
+docker system info
+```
+
+Display system-wide information
+
+
+
 Also see
 --------
 
- * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
+ * [Getting Started](https://www.docker.io/gettingstarted/) _(docker.io)_

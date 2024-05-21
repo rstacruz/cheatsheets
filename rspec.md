@@ -3,6 +3,13 @@ title: RSpec
 category: Ruby
 ---
 
+### About
+{: .-intro}
+
+RSpec is a Ruby library for testing.
+
+- <https://rspec.info/>
+
 ### Invoking tests
 
 ```sh
@@ -41,11 +48,11 @@ before :each do
   # before all tests
 end
 
-before do
+before :all do
   # before this suite
 end
 
-after do
+after : all do
   # after this suite
 end
 ```
@@ -78,6 +85,14 @@ expect(5).to equal value
 expect(5).to be_between(1, 10)
 expect(5).to be_within(0.05).of value
 ```
+
+### Compound expectations
+
+```rb
+expect(1).to (be < 2).or be > 5
+```
+
+Use `or`/`and` to string multiple matchers together. See: [Compound expectations](https://relishapp.com/rspec/rspec-expectations/docs/compound-expectations)
 
 ### Comparison
 
@@ -121,6 +136,9 @@ expect(list).to have_at_least(2).things
 expect(list).to have_at_most(3).things
 
 expect(list).to have(2).errors_on(:field)
+
+expect(list).to contain_exactly(1, 2)
+expect(list).to match_array([1, 2])
 ```
 
 ### Change

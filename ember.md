@@ -1,74 +1,73 @@
 ---
 title: Ember.js
 category: JavaScript libraries
+tags: [Archived]
+archived: This sheet describes an older version of Ember.
 ---
 
 {% raw %}
 
 ### Routes
 
-    App.Router.map(function() {
-      this.resource('trips', function() {
-          this.route('item', { path: '/:trip_id' });
+    Router.map(function() {
+      this.route('trips', function() {
+          this.route('item', { path: '/:tripId' });
       });
 
       this.route('upcoming');
-      this.route('about', { path: '/about' });
+      this.route('about', { path: '/aboutus' });
       this.route('schedules');
       this.route('history');
-      this.route('post');
+      this.route('post', { path: '/post/:postId' });
     });
 
 ### A route
 
-    App.IndexRoute = Ember.Route.extend({
-      setupController: function(controller) {
-        controller.set('title', 'my app');
-        // <h1>{{title}}</h1>
-      },
+    import Route from '@ember/routing/route';
+    
+    export default PostRoute extends Route {
+      model({ postId }) {
+        // Post will be accessible as `this.model` in the controller
+        // or `{{@model}}` in the template.
+        return this.store.find('post', postId);
+      }
+    }
 
-      setupController: function(controller, model) {
-        controller.set("model", model);
-        this.controllerFor('topPost').set('model', model);
-      },
-
-      model: function(params) {
-        return this.store.find('posts');
-        return this.store.find('post', params.post_id);
-      },
+### Component
+    
+    import Component from '@glimmer/component';
+    import { tracked } from '@glimmer/tracking';
+    
+    export default PostEditor extends Component {
+      @tracked title;
+     
+      get fullTitle() {
+        return `Post: ${title}`;
+      }
       
-      serialize: function(model) {
-        // this will make the URL `/posts/foo-post`
-        return { post_slug: model.get('slug') };
+      titleUpdate(event) {
+        this.title = event.target.value;
       }
-    });
+    }
 
-### View
+### Template
 
-    App.InfoView = Ember.View.extend({
-      templateName: 'input',  /* optional */
+    <div ...attributes>
+        <label for="title">Title</label>
+        <input
+            id="title"
+            value={{@post.title}}
+            {{on 'input' this.updateTitle}}
+        />
 
-      fooName: "Hello"  /* {{ view.fooName }} */
+        <p>
+            {{this.fullTitle}}
+        </p>
+    </div>
 
-      click: function(e) {
-        "I was clicked";
-      }
+Invoking the component:
 
-    });
+    <PostEditor class='my-post' @post={{@model}} />
 
-### markup
-
-    <img {{bindAttr src="avatarURL"}}>
-    <button {{action follow}}>
-
-Value binding:
-
-    {{view Ember.TextField class="input block" valuebinding="emailAddresses"}}
-
-Actions:
-
-    <button {{action invite emailAddresses}}>Invite></button>
-
-    <a href="#" {{action set "isEditingContacts" true target="view"}} 
 
 {% endraw %}

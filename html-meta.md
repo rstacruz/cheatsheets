@@ -1,7 +1,6 @@
 ---
 title: HTML meta tags
 category: HTML
-layout: 2017/sheet
 updated: 2020-03-20
 weight: -3
 ---

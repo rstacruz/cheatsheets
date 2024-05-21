@@ -3,6 +3,7 @@ title: Ledger format
 category: Ledger
 ---
 
+### Example
 ```
 2015/01/01 Pay rent
   Assets:Savings     -$300
@@ -32,6 +33,9 @@ Flags:
 ```
 
 ## Accounts
+
+### Accounts
+
 Only relevant with `--strict` or `--pedantic`
 
 ```
@@ -46,6 +50,8 @@ account Expenses:Food
 ```
 
 ## Others
+
+### Others
 
 ```
 D $1,000.00     ; set default commodity

@@ -3,8 +3,7 @@ title: Rails plugins
 category: Rails
 ---
 
-Generate a plugin
------------------
+### Generate a plugin
 
 Generate a Rails Engine plugin:
 
@@ -13,9 +12,13 @@ Generate a Rails Engine plugin:
 Initializers
 ------------
 
+### Initializers
+
 * [Rails::Railtie](http://edgeapi.rubyonrails.org/classes/Rails/Railtie.html)
 * [EngineYard blog 
   post](http://www.engineyard.com/blog/2010/extending-rails-3-with-railties/)
+
+### Initializer method
 
 Subclass Railtie and provide an `initializer` method.
 
@@ -36,7 +39,11 @@ Subclass Railtie and provide an `initializer` method.
 Custom routes
 -------------
 
+### Custom routes
+
 * [ActionDispatch::Routing::Mapper](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
+
+### Creating routes
 
 To create custom `routes.rb` keywords:
 
@@ -64,6 +71,8 @@ Example with a block:
 
 Custom generators
 -----------------
+
+### Custom generators
 
 * [Guide: generators](http://guides.rubyonrails.org/generators.html)
 * [ActiveRecord::Generators::Base](http://api.rubyonrails.org/classes/ActiveRecord/Generators/Base.html)
@@ -117,6 +126,8 @@ When invoking `rails g XXX:YYY`:
 
 ActiveModel 'acts as'
 ---------------------
+
+### acts as
 
     # yaffle/lib/yaffle/acts_as_yaffle.rb
     module Yaffle

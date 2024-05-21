@@ -1,6 +1,5 @@
 ---
 title: Homebrew
-layout: 2017/sheet
 weight: -3
 category: CLI
 ---
@@ -44,7 +43,7 @@ category: CLI
 
 | Command                       | Description                           |
 | ---                           | ---                                   |
-| `brew cask install firefox`   | Install the Firefox browser           |
+| `brew install --cask firefox` | Install the Firefox browser           |
 | `brew list --cask`            | List installed applications           |
 
 Cask commands are used for interacting with graphical applications.

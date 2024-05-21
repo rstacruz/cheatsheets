@@ -1,7 +1,11 @@
 ---
 title: Middleman 3
 category: JavaScript libraries
+tags: [Archived]
+archived: This guide is for Middleman v3.
 ---
+
+### About
 
 **NB:** This is for Middleman 3, not Middleman 4+.
 

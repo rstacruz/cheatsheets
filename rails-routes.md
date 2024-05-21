@@ -3,7 +3,9 @@ title: Routes
 category: Rails
 ---
 
-## Multiple resources (`resources`)
+## Resources
+
+### Multiple resources (`resources`)
 
     resources :photos
 

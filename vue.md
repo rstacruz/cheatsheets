@@ -1,7 +1,6 @@
 ---
 title: Vue.js
 category: JavaScript
-layout: 2017/sheet
 updated: 2019-12-26
 weight: -10
 intro: |

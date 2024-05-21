@@ -1,7 +1,6 @@
 ---
 title: Sublime Text
 category: Apps
-layout: 2017/sheet
 ---
 
 ### Select & Expand
@@ -30,6 +29,9 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 | `⌘ ⇧ D` | duplicate current line/selection |
 | `⌘ ⇧ K` | delete current line/selection |
+| `⇧ del` | delete current line/selection |
+| `⌘ ⇧ ↑` | move line up   |
+| `⌘ ⇧ ↓` | move line down |
 {: .-shortcuts}
 
 ### Goto

@@ -1,7 +1,6 @@
 ---
 title: composer
 category: CLI
-layout: 2017/sheet
 weight: -1
 authors:
   - github: benolot
@@ -10,7 +9,7 @@ description: |
   Basic guide on how to use Composer, the PHP Package manager.
 ---
 
-All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of plain `composer`.
+All composer commands, depending on your install, may need to use `php composer.phar` in the install folder for composer, instead of global/plain `composer`.
 
 ### Installing dependencies
     
@@ -49,7 +48,7 @@ This command changes only the `composer.lock` file.
 
 | Command                          | Description                                                 |
 | ---                              | ---                                                         |
-| `composer require vendor/package`.      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
+| `composer require vendor/package`      | Adds `package` from `vendor` to composer.json's `require` section and installs it             |
 | ---                              | ---                                                         |
 | `composer require vendor/package --dev` | Adds `package` from `vendor` to composer.json's `require-dev` section and installs it.            |
 
@@ -77,3 +76,9 @@ This command changes both the `composer.json` and `composer.lock` files.
 | `composer remove vendor/package` | Removes `vendor/package` from composer.json and uninstalls it      |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+### Verifying
+
+| Command                      | Description                                                                |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| `composer outdated --direct` | Show only packages that are outdated directly required by the root package |

@@ -1,7 +1,6 @@
 ---
 title: Deis
 category: Devops
-layout: 2017/sheet
 ---
 
 ### Deploy

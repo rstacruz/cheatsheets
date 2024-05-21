@@ -1,5 +1,5 @@
 ---
-title: Helpers
+title: Rails helpers
 category: Rails
 ---
 

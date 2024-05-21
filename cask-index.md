@@ -1,9 +1,9 @@
 ---
 title: Caskroom index
+tags: [Archived]
+archived: This sheet may have outdated information.
 ---
 
-
-# Caskroom
 
 
 #### A

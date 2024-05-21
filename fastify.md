@@ -1,7 +1,6 @@
 ---
 title: Fastify
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-09-23
 ---
 
@@ -180,7 +179,7 @@ fastify.route({
 
 By defining a JSON schema, you get validation and improved performance.
 
-See: [Validation and serialization](https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialization.md)
+See: [Validation and serialization](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md)
 
 Plugins
 -------
@@ -277,7 +276,7 @@ fastify.use(require('x-xss-protection')())
 
 Compatible with Express and Restify middlewares. (Don't use these middleware, these are covered by [fastify-helmet](https://github.com/fastify/fastify-helmet).)
 
-See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middlewares.md)
+See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middleware.md)
 
 Template rendering
 ------------------

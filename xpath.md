@@ -1,7 +1,6 @@
 ---
 title: Xpath
 category: HTML
-layout: 2017/sheet
 tags: [Featured]
 weight: -5
 description: |
@@ -61,12 +60,12 @@ Works in Firefox and Chrome.
 
 | CSS                          | Xpath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `ul > li:first-child`        | `//ul/li[1]`                                             | [?](#indexing)          |
-| `ul > li:nth-child(2)`       | `//ul/li[2]`                                             |                         |
-| `ul > li:last-child`         | `//ul/li[last()]`                                        |                         |
-| `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
-| `a:first-child`              | `//a[1]`                                                 |                         |
-| `a:last-child`               | `//a[last()]`                                            |                         |
+| `ul > li:first-of-type`      | `//ul/li[1]`                                             | [?](#indexing)          |
+| `ul > li:nth-of-type(2)`     | `//ul/li[2]`                                             |                         |
+| `ul > li:last-of-type`       | `//ul/li[last()]`                                        |                         |
+| `li#id:first-of-type`        | `//li[1][@id="id"]`                                      | [?](#chaining-order)    |
+| `a:first-child`              | `//*[1][name()="a"]`                                     |                         |
+| `a:last-child`               | `//*[last()][name()="a"]`                                |                         |
 {: .xp}
 
 ### Siblings
@@ -217,7 +216,7 @@ You can use nodes inside predicates.
 //a[last()]             # last <a>
 //ol/li[2]              # second <li>
 //ol/li[position()=2]   # same as above
-//ol/li[position()>1]   # :not(:first-child)
+//ol/li[position()>1]   # :not(:first-of-type)
 ```
 
 Use `[]` with a number, or `last()` or `position()`.

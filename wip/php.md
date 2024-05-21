@@ -1,7 +1,6 @@
 ---
 title: PHP
 category: PHP
-layout: 2017/sheet
 prism_languages: [php]
 ---
 
@@ -11,8 +10,9 @@ prism_languages: [php]
 
 ```php
 <?php
-function greetMe($name) {
-  return "Hello, " . $name . "!";
+function greetMe($name): string
+{
+    return "Hello, " . $name . "!";
 }
 
 $message = greetMe($name);
@@ -21,7 +21,7 @@ echo $message;
 
 All PHP files start with `<?php`.
 
-See: [PHP tags](http://php.net/manual/en/language.basic-syntax.phptags.php)
+See: [PHP tags](https://php.net/manual/en/language.basic-syntax.phptags.php)
 
 ### Objects
 
@@ -29,8 +29,8 @@ See: [PHP tags](http://php.net/manual/en/language.basic-syntax.phptags.php)
 <?php
 
 $fruitsArray = array(
-  "apple" => 20,
-  "banana" => 30
+    "apple" => 20,
+    "banana" => 30
 );
 echo $fruitsArray['banana'];
 ```
@@ -53,12 +53,13 @@ var_dump($object)
 
 Prints the contents of a variable for inspection.
 
-See: [var_dump](http://php.net/var_dump)
+See: [var_dump](https://php.net/var_dump)
 
 ### Classes
 
 ```php
-class Person {
+class Person
+{
     public $name = '';
 }
 
@@ -73,14 +74,14 @@ echo $person->name;
 ```php
 class Person 
 {
-    public $name = '';
+    private $name = '';
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
         return $this;
@@ -97,13 +98,12 @@ echo $person->getName();
 ```php
 
 $options = [
-  'key' => 'value',
-  'blank' => '',
-  'nothing' => null,
+    'key' => 'value',
+    'blank' => '',
+    'nothing' => null,
 ];
 
 var_dump(isset($options['key']), empty($options['key'])); // true, false
 var_dump(isset($options['blank']), empty($options['blank'])); // true, true
 var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
-
 ```

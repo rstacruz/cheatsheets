@@ -1,12 +1,11 @@
 ---
 title: Ronn
 category: Ruby libraries
-layout: 2017/sheet
 updated: 2017-10-15
 weight: -1
 prism_languages: [bash, ruby, json, markdown]
 intro: |
-  Ronn generates Man pages. See [ronn(1)](http://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](http://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](https://github.com/rtomayko/ronn).
+  Ronn generates Man pages. See [ronn(1)](https://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](https://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](httpss://github.com/rtomayko/ronn).
 ---
 
 ## Getting started
@@ -110,8 +109,8 @@ markdown(7)
 #### URL links
 
 ```
-[URL link](http://github.com/rstacruz)
-<http://github.com>
+[URL link](https://github.com/rstacruz)
+<https://github.com>
 ```
 
 ## Frequently-used sections
@@ -174,7 +173,7 @@ markdown(7)
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |
 
-See [Man page sections](http://www.december.com/unix/ref/mansec.html) (december.com).
+See [Man page sections](https://www.december.com/unix/ref/mansec.html) (december.com).
 
 ## Using with npm
 

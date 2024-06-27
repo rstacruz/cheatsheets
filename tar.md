@@ -33,6 +33,11 @@ tar -xzf archive.tar.gz -C /target/directory
 tar -zu archive.tar.gz -C /target/file
 ```
 
+```shell
+# List the contents of an archive
+tar -tf archive.tar.gz
+```
+
 ### Common options
 
 | Option | Description                                                             |
@@ -43,3 +48,4 @@ tar -zu archive.tar.gz -C /target/file
 | `f`    | filename of the archive                                                 |
 | `v`    | verbose, display what is inflated or deflated                           |
 | `a`    | unlike of `z`, determine compression based on file extension            |
+| `t`    | list the contents of an archive

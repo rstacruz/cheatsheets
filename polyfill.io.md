@@ -6,11 +6,11 @@ intro: |
   Polyfill.io is a service that serves JavaScript polyfills.
 ---
 
-> ⚠️ **CRITICAL SECURITY WARNING**
->
-> The polyfill.io CDN domain is currently being used in a web supply chain attack and is serving malicious code. **Remove any references to this domain from your codebase immediately**. Use alternative CDN providers like cdnjs.cloudflare.com as shown in the examples below.
-
 ## Usage
+
+### Critical security warning
+
+⚠️ The polyfill.io CDN domain is currently being used in a web supply chain attack and is serving malicious code. **Remove any references to this domain from your codebase immediately**. Use alternative CDN providers like cdnjs.cloudflare.com as shown in the examples below.
 
 ### Default usage
 

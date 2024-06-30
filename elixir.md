@@ -672,6 +672,12 @@ for n <- 1..10, rem(n, 2) == 0, do: n
 # → [2, 4, 6, 8, 10]
 ```
 
+### Multiple Conditions
+```elixir
+for n <- 1..20, rem(n, 2) == 0, n > 10, do: n
+# → [12, 14, 16, 18, 20]
+```
+
 ### Complex
 
 ```elixir

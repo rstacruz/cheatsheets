@@ -5,8 +5,7 @@ updated: 2024-07-05
 intro: Packs are a specification for an extensible packaging system to help modularize Ruby applications.
 ---
 
-Manage packs
-------------
+## Manage packs
 
 ### Create pack
 
@@ -17,7 +16,7 @@ $ bin/packs create packs/pack_name
 #### Example
 
 ```bash
-$ bin/packs make_public packs/profiles
+$ bin/packs create packs/profiles
 ```
 
 Create new pack named `profiles`.
@@ -68,8 +67,7 @@ Set `packs/child_pack` as a child of `packs/parent_pack`.
 $ bin/packs add_dependency packs/from_pack packs/to_pack
 ```
 
-Packs validity
---------------
+## Packs validity
 
 ### All packs are valid?
 
@@ -95,7 +93,7 @@ $ bin/packs update
 
 Runs `bin/packwerk update-todo` under the hood.
 
-# Lints
+## Lints
 
 ```bash
 $ bin/packs lint_package_todo_yml_files
@@ -115,7 +113,6 @@ $ bin/packs list_top_violations type [ packs/your_pack ]
 
 List the top violations of a specific type for `packs/your_pack`.
 
-Also see
---------
+## Also see
 
- * [Documentation](https://github.com/rubyatscale/packs) _(`packs` github repository)_
+- [Documentation](https://github.com/rubyatscale/packs) _(`packs` github repository)_

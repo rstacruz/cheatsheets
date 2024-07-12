@@ -66,10 +66,10 @@ category: Python
     ",".join(list)
     "hi {0}".format('j')
     f"hi {name}" # same as "hi {}".format('name')
-    str.find(",")
+    str.find(",")    # The find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1. 
     str.index(",")   # same, but raises IndexError
-    str.count(",")
-    str.split(",")
+    str.count(",")   # The string count() method returns the number of occurrences of a substring in the given string.
+    str.split(",")   # split() method returns a list of strings after breaking the given string by the specified separator.
 
     str.lower()
     str.upper()

@@ -6,9 +6,11 @@ authors:
   - github: vastpeng
 ---
 
+
 ### Usage
 {: .-prime}
 
+scp is a program for copying files between computers. It uses the SSH protocol. It is included by default in most Linux and Unix distributions.
 ```bash
 scp <options> source_path destination_path
 ```

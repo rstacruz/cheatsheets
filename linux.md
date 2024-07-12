@@ -67,7 +67,9 @@ df -a   # all filesystems
 
 ```sh
 du
+du -hs  /your_dir_path  # size of the directory
 du -hsx * | sort -rh | head -10    # largest 10 folders
+
 ```
 
 ### Answer yes in a bash script

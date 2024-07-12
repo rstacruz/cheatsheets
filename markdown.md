@@ -103,7 +103,7 @@ ___bold italic___
 
 ```markdown
 ![Image alt text][img]
-[img]: http://foo.com/img.jpg
+![img](https://foo.com/img.jpg)
 ```
 
 ### Code

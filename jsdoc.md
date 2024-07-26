@@ -113,6 +113,10 @@ See: <https://jsdoc.app/tags-typedef.html>
  * @typedef {import('./Foo').default} Bar
  */
 
+// or
+
+/** @import { Bar } from "./Foo.js" */
+
 /**
  * @param {Bar} x
  */

@@ -46,13 +46,26 @@ sorted(list)       # returns sorted copy of list
 
 ```py
 dict = {}
+dict = {'a': 1, 'b': 2}
+dict['c'] = 3
+del dict['a']    # Remove key-value pair with key 'c'
 dict.keys()
 dict.values()
 "key" in dict    # let's say this returns False, then...
-dict["key"]      # ...this raises KeyError
-dict.get("key")  # ...this returns None
+dict["key"]      # if "key" not in dict raises KeyError
+dict.get("key")  # if "key" not in dict returns None
+dict.get("key", "optional return value if no key")
 dict.setdefault("key", 1)
 **dict           # expands all k/v pairs in place
+```
+
+### Set
+
+```py
+set = set()
+set = {1, 2, 3}
+set.add(4)
+set.remove(2) 
 ```
 
 ### Iteration

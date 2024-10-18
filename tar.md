@@ -33,6 +33,12 @@ tar -xzf archive.tar.gz -C /target/directory
 tar -zu archive.tar.gz -C /target/file
 ```
 
+```shell
+# List files in archive
+# Add -v for additional details
+tar -tzf archive.tar.gz
+```
+
 ### Common options
 
 | Option | Description                                                             |

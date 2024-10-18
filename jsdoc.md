@@ -1,7 +1,7 @@
 ---
 title: Jsdoc
 category: JavaScript
-updated: 2020-06-23
+updated: 2024-07-26
 weight: -1
 ---
 
@@ -112,6 +112,10 @@ See: <https://jsdoc.app/tags-typedef.html>
 /**
  * @typedef {import('./Foo').default} Bar
  */
+
+// or
+
+/** @import { Bar } from "./Foo.js" */
 
 /**
  * @param {Bar} x

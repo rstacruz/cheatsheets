@@ -365,6 +365,40 @@ else
 fi
 ```
 
+#### Command directly in `if` statment
+
+```bash
+if ! ping -c 1 $host > /dev/null; then
+    echo "host $host is unreachable"
+    exit 1
+else 
+    echo "success"
+fi
+```
+
+#### Checking for error in a pipe (`|`)
+
+```bash
+curl -L -k https://$host_ip | grep "hello" 
+if  [[  ${PIPESTATUS[0]} != 0 ]]; then
+  echo "bad response $code"
+  exit $code 
+fi
+```
+#### Checking for error in a pipe (`|`), in a Command substitution
+
+If Command substitution (`$([do something])`) is used, the result of the last command is used. 
+To overwrite this use `exit ${PIPESTATUS[0]}` (example with the first command in the pipe) after the pipe.
+
+```bash
+var=$(curl -L -k https://$host_ip | grep "hello" ; exit ${PIPESTATUS[0]})
+exitcode=$?
+if  [[  ${exitcode} != 0 ]]; then
+  exit ${exitcode}
+fi
+```
+
+
 ### Arguments
 
 | Expression | Description                                    |

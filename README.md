@@ -20,6 +20,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rstacruz/cheatsheets)
 
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/rstacruz/cheatsheets)
+
 <h2 align='center'>Similar projects</h1>
 
 - [Command Line Interface Pages](https://github.com/command-line-interface-pages)

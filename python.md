@@ -67,9 +67,9 @@ for key, value in d.items():  # Iterate over key-value pairs
     print(key, value)
 
 # Useful methods
-d.keys()  # List of keys
-d.values()  # List of values
-d.items()  # List of key-value pairs
+list(d.keys() ) # List of keys
+list(d.values())  # List of values
+list(d.items())  # List of key-value pairs
 
 
 # Error cases:

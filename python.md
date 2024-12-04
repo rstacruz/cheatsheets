@@ -183,7 +183,7 @@ from collections import deque
 queue = deque()  # Initialize
 queue.append(1)  # Enqueue
 print(queue.popleft())  # Dequeue (FIFO)
-print(queue.popright())  # LIFO: Remove and return last sampe as pop()
+print(queue.pop())  # LIFO: Remove and return last element
 ```
 
 #### Using queue.Queue (Thread-Safe):

@@ -205,14 +205,6 @@ pq = PriorityQueue()
 pq.put((2, "B"))  # Insert with priority 2
 pq.put((1, "A"))  # Insert with priority 1
 print(pq.get())  # Dequeue (Lowest priority first): (1, "A")
-
-# Using heapq for Min-Heaps:
-import heapq
-
-min_heap =[]
-heapq.heappush(min_heap, 10)
-heapq.heappush(min_heap, 5)
-print(heapq.heappop(min_heap))  # Removes and returns smallest: 5
 ```
 
 ### Heap

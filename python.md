@@ -33,10 +33,11 @@ lst[:-1]  # All but the last element
 lst[i] = value  # Set an element
 lst.append(value)  # Add to the end
 lst.insert(i, value)  # Insert at position i
-lst.extend(other)  # Add multiple elements
-lst.pop(i=-1)  # Remove and return element (default: last)
-lst.remove(value)  # Remove first occurrence
-del lst[i:j]  # Delete slice
+```suggestion
+lst.extend([1,2,3])  # Extends list with another list
+lst.pop()  # Remove and return element. Can also accept an index.
+lst.remove(value)  # Remove first occurrence of value
+del lst[i:j]  # Delete slice between i and j-1
 list1 + list2  # combine two list
 
 # Useful methods

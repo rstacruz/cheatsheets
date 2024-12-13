@@ -166,8 +166,7 @@ unique = {x for x in lst if x > 0}
 filtered = [x for x in lst if x > 0]
 transformed = list(map(str, lst))
 
-[fn(i)
-for i in list]  # .map
+[fn(i) for i in list]  # .map
 map(fn, list)  # .map, returns iterator
 
 filter(fn, list)  # .filter, returns iterator

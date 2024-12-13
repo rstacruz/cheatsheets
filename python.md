@@ -59,7 +59,7 @@ d = {"a": 1, "b": 2}  # Initialize with values
 d["key"]  # Access value
 d.get("key", "default")  # Safe access with default
 d["key"] = value  # Add or update
-d.setdefault("key", "default)   # If no key, insert with the specified value
+d.setdefault("key", "default")   # If no key, insert with the specified value
 del d["key"]  # Delete key-value pair
 "key" in d  # Checks if key in dict
 

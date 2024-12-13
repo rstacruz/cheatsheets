@@ -234,15 +234,6 @@ expr.sub(...)
 
 ## Tips & Tricks
 
-## Type Conversion
-
-```py
-int("42")  # String to int
-float("3.14")  # String to float
-str(42)  # Int to string
-list("abc")  # String to list
-```
-
 ## Sorting
 
 ```py

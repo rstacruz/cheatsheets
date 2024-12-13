@@ -285,7 +285,7 @@ file.close()
 # Alternative
 with open("file.txt", "w") as f:
     f.write("Hello, world!")  # Overwrite file
-f.writelines(["Line1\n", "Line2\n"])  # Write multiple lines
+    f.writelines(["Line1\n", "Line2\n"])  # Write multiple lines
 ```
 
 ### Writing (append)

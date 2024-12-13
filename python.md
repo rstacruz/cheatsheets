@@ -33,7 +33,6 @@ lst[:-1]  # All but the last element
 lst[i] = value  # Set an element
 lst.append(value)  # Add to the end
 lst.insert(i, value)  # Insert at position i
-```suggestion
 lst.extend([1,2,3])  # Extends list with another list
 lst.pop()  # Remove and return element. Can also accept an index.
 lst.remove(value)  # Remove first occurrence of value

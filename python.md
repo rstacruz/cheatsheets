@@ -85,7 +85,7 @@ d.get("key")  # if "key" not in dict returns None
 ```py
 s = set()  # Empty set
 s = {1, 2, 3}  # Set with values
-s = set([1, 2, 3, 3]  # Convert List into Set
+s = set([1, 2, 3, 3])  # Convert List into Set
 
 # Modifications
 s.add(4)  # Add element

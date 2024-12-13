@@ -300,7 +300,7 @@ file.close()
 
 ```py
 with open("welcome.txt", "r") as file:
-# 'file' refers directly to "welcome.txt"
+    # 'file' refers directly to "welcome.txt"
     data = file.read()
 
 # It closes the file automatically at the end of scope, no need for `file.close()`.

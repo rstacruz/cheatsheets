@@ -263,7 +263,7 @@ file.close()
 # Alternative
 with open("file.txt", "r") as f:
     content = f.read()  # Read entire file
-lines = f.readlines()  # Read all lines as a list
+    lines = f.readlines()  # Read all lines as a list
 ```
 
 ```py

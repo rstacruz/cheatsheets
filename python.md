@@ -258,6 +258,8 @@ any(lst)  # True if any element is true
 
 ```py
 file = open("hello.txt", "r")  # open in read mode 'r'
+content = f.read()  # Read entire file
+lines = f.readlines()  # Read all lines as a list
 file.close()
 
 # Alternative

@@ -44,6 +44,7 @@ list1 + list2  # combine two list
 lst.sort()  # In-place sort
 sorted(lst)  # Sorted copy
 lst.reverse()  # In-place reverse
+reversed(lst) # Reversed copy
 list.count(value)  # Counts number of elements with the specified value
 ",".join(lst)  # Join elements into a string if all elements are strings
 ",".join(map(str, lst))  # Join elements into a string

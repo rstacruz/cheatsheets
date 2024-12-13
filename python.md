@@ -102,14 +102,11 @@ s1 ^ s2  # Symmetric difference
 
 ```py
 for i in range(4):  # 0 to 3
-    for
-i in range(4, 8):  # 4 to 7
-for i in range(1, 9, 2):  # 1, 3, 5, 7 from 1 to 9-1 step by 2
-    for
-item in lst:  # List
-for key, value in d.items():  # Dict
-    for
-i, value in enumerate(lst):  # With index
+for i in range(4, 8):  # 4 to 7
+for i in range(1, 9, 2):  # 1, 3, 5, 7 from 1 to 8 step by 2
+for item in lst:
+for key, value in dict.items(): 
+for index, value in enumerate(lst):
 ```
 
 ### [String Manipulation](https://docs.python.org/2/library/stdtypes.html#string-methods)

@@ -1,0 +1,8 @@
+services:
+  cheatsheet:
+    image: cheatsheet
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "4321:4321"

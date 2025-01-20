@@ -106,6 +106,11 @@ ___bold italic___
 [img]: http://foo.com/img.jpg
 ```
 
+```markdown
+![Image alt text][img_base64]
+[img_base64]: <data:image/png;base64,...>
+```
+
 ### Code
 
 ```markdown

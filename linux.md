@@ -4,56 +4,79 @@ title: Linux
 
 ### Read/Write/Execute a file
 
-    $ chmod +rwx App
-    $ ./App
+```sh
+chmod +rwx App
+./App
+```
 
 ### Remove
 
-    $ rm namefile
-    $ rm -d Directory
-    $ rm -rf Directory_with_files
+```sh
+rm namefile
+rm -d Directory
+rm -rf Directory_with_files
+```
 
 ### Copy file to a folder
 
-    $ cp namefile Downloads
-    $ ls
-    namefile  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-    $ cd Downloads
-    ~/Downloads$ ls
-    namefile
-
+```sh
+cp namefile Downloads
+ls
+# Output:
+# namefile  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+cd Downloads
+ls
+# Output:
+# namefile
+```
 
 ### Create empty file
 
-    $ touch namefile
-    $ touch --help
+```sh
+touch namefile
+touch --help
+```
 
-### Show in the terminal the file
+### Show the file content in the terminal
 
-    $ cat namefile
-    $ cat --help
+```sh
+cat namefile
+cat --help
+```
 
+### Create a new directory
 
-### Create new directory
+```sh
+mkdir name
+mkdir --help
+```
 
-    $ mkdir name
-    $ mkdir --help
+### List files from a directory
 
-### list files from directory
+```sh
+ls
+# Output:
+# Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+ls --help
+```
 
-    $ ls
-    Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-    $ ls --help
+### Mount a RAM drive
 
-### Mounting a RAM drive
-
-    $ mount -t tmpfs -o size=5G,nr_inodes=5k,mode=700 tmpfs /tmp
+```sh
+mount -t tmpfs -o size=5G,nr_inodes=5k,mode=700 tmpfs /tmp
+```
 
 ### Visudo
 
-    sudo visudo
+```sh
+sudo visudo
+```
 
-    username ALL=(ALL) NOPASSWD:/sbin/restart whatever
+Add the following line in the editor:
+
+```
+username ALL=(ALL) NOPASSWD:/sbin/restart whatever
+```
 
 ### Display the amount of available disk space
 
@@ -70,8 +93,8 @@ du
 du -hsx * | sort -rh | head -10    # largest 10 folders
 ```
 
-### Answer yes in a bash script
+### Answer "yes" in a bash script
 
-```bash
+```sh
 yes | /your/command
 ```

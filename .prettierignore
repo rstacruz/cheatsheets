@@ -1,6 +1,0 @@
-src/sass/vendor
-vendor
-.cache
-dist
-*.md
-pnpm-lock.yaml

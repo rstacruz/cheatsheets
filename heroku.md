@@ -1,12 +1,11 @@
 ---
 title: Heroku
 category: Devops
-layout: 2017/sheet
 updated: 2017-10-11
 description: |
   A one-page reference to common Heroku-CLI commands.
 intro: |
-  [Heroku](http://heroku.com/) is a web hosting platform supporting many languages, and this guide is a reference to Heroku's [command-line interface](http://heroku.com/).
+  [Heroku](https://heroku.com/) is a web hosting platform supporting many languages, and this guide is a reference to Heroku's [command-line interface](https://heroku.com/).
 ---
 
 ### `create` - Create an app
@@ -18,6 +17,18 @@ heroku create sushi
 ```bash
 git push heroku master
 ```
+
+This will create an application named `sushi`. ([docs](https://devcenter.heroku.com/articles/creating-apps))
+
+### `container` - Docker containers
+
+```bash
+heroku stack:set container -app <app>
+heroku container:push web -app <app>
+heroku container:release web -app <app>
+```
+
+Containers can be deployed using the Heroku Container Registry. ([docs](https://devcenter.heroku.com/articles/container-registry-and-runtime))
 
 ### `access` - Collaboration
 

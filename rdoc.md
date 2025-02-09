@@ -1,7 +1,6 @@
 ---
 title: Rdoc
 category: Markup
-layout: 2017/sheet
 ---
 
 ### Basic RDoc format
@@ -28,7 +27,7 @@ layout: 2017/sheet
 # @option opts [String] :subject The subject
 # @option opts [String] :from ('nobody') From address
 # @option opts [String] :to Recipient email
-# @option opts [String] :body ('') The email's body 
+# @option opts [String] :body ('') The email's body
 ```
 
 ### Parameter types
@@ -46,12 +45,24 @@ layout: 2017/sheet
 #   :format => :dot
 ```
 
+### Exceptions
+```rb
+# @raise [AccountBalanceError] if the account does not have
+#   sufficient funds to perform the transaction
+```
+
 ### Inline
 
 ```markdown
 *bold*
 _emphasized_
 +code+
+```
+
+```markdown
+{ObjectName#method optional title}
+{Class::CONSTANT My constant's title}
+{#method_inside_current_namespace}
 ```
 
 ```markdown
@@ -133,6 +144,7 @@ Place this at the beginning of the file.
 ## Also see
 {: .-one-column}
 
-* <http://rdoc.rubyforge.org/RDoc/Markup.html>
+* <https://docs.ruby-lang.org/en/2.1.0/RDoc/Markup.html>
 * <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
+* <https://rubydoc.info/gems/yard/file/docs/Tags.md>
 {: .-also-see}

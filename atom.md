@@ -1,7 +1,6 @@
 ---
 title: Atom
 category: Apps
-layout: 2017/sheet
 updated: 2021-09-10
 ---
 

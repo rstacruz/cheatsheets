@@ -1,0 +1,27 @@
+/*
+ * h2 section
+ */
+
+.h2-section {
+  // Hide first h2 heading
+  @apply [&:first-child>h2]:hidden;
+
+  // Space between
+  @apply md:mt-16 md:first-of-type:mt-0;
+}
+
+.h2-section h2 {
+  @apply font-manrope font-extrabold tracking-[-0.02em];
+  @apply text-3xl text-zinc-950 target:text-mildindigo-600;
+  @apply scroll-mt-6;
+}
+
+a.local-anchor {
+  @apply text-2xl ml-2 text-mildindigo-500 opacity-0;
+  @apply hover:opacity-100 focus:opacity-100;
+  @apply hover:no-underline;
+}
+
+.h2-section h2:hover a.local-anchor {
+  @apply opacity-100;
+}

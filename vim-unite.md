@@ -1,7 +1,6 @@
 ---
 title: Vim-Unite
 category: Vim
-layout: 2017/sheet
 ---
 
 ### Usage

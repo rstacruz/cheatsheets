@@ -1,7 +1,6 @@
 ---
 title: MySQL
 updated: 2020-07-05
-layout: 2017/sheet
 category: Databases
 ---
 
@@ -73,7 +72,7 @@ mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
 ### Restore from backup SQL File
 
 ```bash
-mysql - u Username -p dbNameYouWant < databasename_backup.sql;
+mysql -u Username -p dbNameYouWant < databasename_backup.sql;
 ```
 
 ### Repair Tables After Unclean Shutdown
@@ -94,7 +93,7 @@ INSERT INTO table1 (field1, field2) VALUES (value1, value2);
 ```sql
 DELETE FROM table1 / TRUNCATE table1
 DELETE FROM table1 WHERE condition
-DELETE FROM table1, table2 FROM table1, table2 WHERE table1.id1 =
+DELETE FROM table1, table2 WHERE table1.id1 =
   table2.id2 AND condition
 ```
 

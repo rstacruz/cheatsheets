@@ -1,6 +1,7 @@
 ---
 title: tmux
 category: CLI
+updated: 2024-04-08
 ---
 
 ### Commands
@@ -33,13 +34,13 @@ category: CLI
 
 ### Scrolling
 
-    C-b [       # Enter scroll mode then press up and down
+    C-b [       # Enter scroll mode then press up and down, you can also scroll with mouse support enabled (`set -g mouse on` in `~/.tmux.conf`)
 
 ### Copy/paste
 
-    C-b [       # 1. Enter scroll mode first.
-    Space       # 2. Start selecting and move around.
-    Enter       # 3. Press enter to copy.
+    C-b [       # 1. Enter scroll mode first
+    Space       # 2. Start selecting and move around
+    Enter       # 3. Press enter to copy
     C-b ]       # Paste
 
 ### Panes
@@ -68,9 +69,16 @@ category: CLI
     C-b ( )     # Switch through sessions
     $ tmux attach
 
+### Search in buffer
+
+    C-b [       # 1. Enter scroll mode first, you can also scroll with mouse support enabled
+    C-s         # 2. Enter search mode, type pattern then press Enter to start search
+    n or N      # 3. Go to the previous or next match
+    C-c         # 4. Exit search and scroll mode
+
 ### Niceties
 
-    C-b t    # Time
+    C-b t       # Display a clock, press any key to quit
 
 ## Status formats
 
@@ -82,6 +90,8 @@ See `message-command-style` in the man page.
 
 ### Attribute/colors
 
+| Key | Description |
+| --- | --- |
 | `#[fg=1]` | standard color |
 | `#[fg=yellow]` | yellow |
 | `#[bold]` | bold |
@@ -103,6 +113,8 @@ See `message-command-style` in the man page.
 
 ### Variables
 
+| Key | Description |
+| --- | --- |
 | `#(date)` | shell command |
 | `#I` | window index |
 | `#S` | session name |

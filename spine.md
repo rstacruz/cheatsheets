@@ -1,10 +1,19 @@
 ---
 title: Spine
 category: JavaScript libraries
-vim: ft=python
+tags: [Outdated]
 ---
 
 ## Models
+
+### About
+{: .-intro}
+
+Spine is an MVC framework for JavaScript.
+
+- <https://spine.github.io/>
+
+### Models
 
     class User extends Spine.Model
       @configure "User", "name", "address"
@@ -128,6 +137,8 @@ vim: ft=python
 
 ## Ajax
 
+### Ajax
+
     class User extends Spine.Model
       @extend Spine.Model.Ajax
 
@@ -173,11 +184,3 @@ vim: ft=python
     photo = Photo.create(album: album)
     photo.album()
     photo.album_id
-
-
-### See
-
- * http://spinejs.com/api/index
- * http://spinejs.com/api/models
- * http://spinejs.com/docs/ajax
-* http://spinejs.com/docs/relations

@@ -7,6 +7,11 @@ category: Ansible
 
 ## Getting started
 
+### About
+{: .-intro}
+
+- <https://www.ansible.com/>
+
 ### Hosts
 
     $ sudo mkdir /etc/ansible
@@ -20,7 +25,9 @@ category: Ansible
 
     $ ansible-playbook playbook.yml
 
-## Tasks
+## Playbook files
+
+### Tasks
 
     - hosts: all
       user: root
@@ -39,7 +46,7 @@ category: Ansible
     handlers:
       - include: db.yml user=timmy
 
-## Handlers
+### Handlers
 
     handlers:
       - name: start apache2
@@ -51,7 +58,7 @@ category: Ansible
         notify:
           - start apache2
 
-## Vars
+### Vars
 
     - host: lol
       vars_files:
@@ -63,7 +70,7 @@ category: Ansible
           file: state=directory path=${project_root}/home/.ssh/
           only_if: "$vm == 0"
 
-## Roles
+### Roles
 
     - host: xxx
       roles:
@@ -90,10 +97,5 @@ category: Ansible
 
     vars:
       local_home: "{{ lookup('env','HOME') }}"
-
-## References
-
-  * [Intro](http://www.ansibleworks.com/docs/intro_configuration.html)
-  * [Modules](http://www.ansibleworks.com/docs/modules.html)
 
 {% endraw %}

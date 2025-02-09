@@ -1,6 +1,8 @@
 ---
 title: Ember.js
 category: JavaScript libraries
+tags: [Archived]
+archived: This sheet describes an older version of Ember.
 ---
 
 {% raw %}

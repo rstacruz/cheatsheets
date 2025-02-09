@@ -2,6 +2,8 @@
 title: Unicode symbols
 ---
 
+### Symbols
+
     ✈   \u2708 airplane
     ❄   \u2744 snowflake
     ⚑   \u2691 flag

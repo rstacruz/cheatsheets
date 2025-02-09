@@ -1,7 +1,6 @@
 ---
 title: React.js
 category: React
-layout: 2017/sheet
 ads: true
 tags: [Featured]
 updated: 2020-07-05
@@ -154,7 +153,6 @@ class Info extends Component {
   }
 }
 ```
-
 {: data-line="5,6,7,8,9,10"}
 
 Nest components to separate concerns.
@@ -341,6 +339,8 @@ See: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
 ### Declaring multiple state variables
 
 ```jsx
+import React, { useState } from 'react';
+
 function ExampleWithManyStates() {
   // Declare multiple state variables!
   const [age, setAge] = useState(42);
@@ -630,7 +630,6 @@ render () {
 #### Fragments
 ```js
 render () {
-  // Fragments don't require keys!
   return (
     <Fragment>
       <li>First item</li>

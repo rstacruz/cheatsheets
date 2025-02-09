@@ -3,6 +3,13 @@ title: Pry
 category: Ruby libraries
 ---
 
+### About
+{: .-intro}
+
+Pry is a runtime development console for Ruby.
+
+- <https://github.com/pry/pry>
+
 ### cd
 
 ```
@@ -87,7 +94,7 @@ Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
     > ls -i      # Instance vars
 
-    > ls -G xx   # Grey by regex
+    > ls -G xx   # Grep by regex
 
 ## Shell integration
 

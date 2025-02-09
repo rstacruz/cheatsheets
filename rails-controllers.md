@@ -1,5 +1,5 @@
 ---
-title: Controllers
+title: Rails controllers
 category: Rails
 ---
 

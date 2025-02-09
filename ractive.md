@@ -1,10 +1,18 @@
 ---
 title: Ractive.js
 category: JavaScript libraries
-vim: ft=javascript
 ---
 
 {% raw %}
+
+### About
+{: .-intro}
+
+Ractive is a UI library for JavaScript.
+
+- <https://ractive.js.org/>
+- <https://ractivejs.org/>
+
 ### [Initialization](http://docs.ractivejs.org/latest/options)
 
     new Ractive({

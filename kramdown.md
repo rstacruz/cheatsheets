@@ -3,6 +3,13 @@ title: Kramdown
 category: Markup
 ---
 
+### About
+{: .-intro}
+
+Kramdown is a Markdown parser in Ruby.
+
+- <https://kramdown.gettalong.org/>
+
 ### Configuration
 
  * `parse_block_html` - process kramdown syntax inside blocks

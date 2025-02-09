@@ -2,7 +2,6 @@
 title: Vim scripting
 category: Vim
 prism_languages: [vim]
-layout: 2017/sheet
 updated: 2020-07-05
 weight: -10
 tags: [Featurable]
@@ -145,6 +144,20 @@ endfunction
 ```
 
 See: [Functions](http://learnvimscriptthehardway.stevelosh.com/chapters/23.html)
+
+### Overwriting
+```vim
+function f1()
+  echo "f1"
+endfunction
+
+
+function! f1()
+  echo "f1 overridden"
+endfunction
+```
+
+If you define two functions with the same name, Vim will throw an error complaining that the function `f1` already exists. To overwrite the previous function with the same name, add a `!` after the function keyword.
 
 ### Namespacing
 
@@ -447,7 +460,7 @@ map(dict, '<>> " . v:val')
 
 ```vim
 for key in keys(mydict)
-  echo key . ': ' . mydict(key)
+  echo key . ': ' . mydict[key]
 endfor
 ```
 

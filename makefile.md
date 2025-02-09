@@ -1,11 +1,10 @@
 ---
 title: Makefile
 prism_languages: [makefile]
-layout: 2017/sheet
 category: CLI
 ---
 
-## Var assignment
+### Var assignment
 
 ```makefile
 foo  = "bar"
@@ -19,7 +18,7 @@ foo != echo fooo   # exec shell command and assign to foo
 
 `=` expressions are only evaluated when they're being used.
 
-## Magic variables
+### Magic variables
 
 ```makefile
 out.o: src.c src.h
@@ -38,7 +37,7 @@ also:
   $(@D) # target directory
 ```
 
-## Command prefixes
+### Command prefixes
 
 | Prefix | Description                                 |
 | ------ | ------------------------------------------- |
@@ -54,14 +53,14 @@ build:
 -include .depend
 ```
 
-## Find files
+### Find files
 
 ```makefile
 js_files  := $(wildcard test/*.js)
 all_files := $(shell find images -name "*")
 ```
 
-## Substitutions
+### Substitutions
 
 ```makefile
 file     = $(SOURCE:.cpp=.o)   # foo.cpp => foo.o
@@ -71,7 +70,7 @@ outputs  = $(patsubst %.c, %.o, $(wildcard *.c))
 assets   = $(patsubst images/%, assets/%, $(wildcard images/*))
 ```
 
-## More functions
+### More functions
 
 ```makefile
 $(strip $(string_var))
@@ -80,7 +79,7 @@ $(filter %.less, $(files))
 $(filter-out %.less, $(files))
 ```
 
-## Building files
+### Building files
 
 ```makefile
 %.o: %.c
@@ -88,13 +87,13 @@ $(filter-out %.less, $(files))
   foo $^
 ```
 
-## Includes
+### Includes
 
 ```makefile
 -include foo.make
 ```
 
-## Options
+### Options
 
 ```sh
 make
@@ -104,7 +103,7 @@ make
   -j, --jobs=N   # parallel processing
 ```
 
-## Conditionals
+### Conditionals
 
 ```makefile
 foo: $(objects)
@@ -115,14 +114,14 @@ else
 endif
 ```
 
-## Recursive
+### Recursive
 
 ```makefile
 deploy:
   $(MAKE) deploy2
 ```
 
-## Further reading
+### Further reading
 
 - [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
 - [Your Makefiles are wrong](https://tech.davis-hansson.com/p/make/)

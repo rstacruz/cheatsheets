@@ -1,7 +1,18 @@
 ---
 title: Angular.js
 category: JavaScript libraries
+tags: [Archived]
+archived: This describes an older version of Angular.
 ---
+
+### About
+{: .-intro}
+
+ * <https://github.com/angular/angular-seed>
+ * <https://angularjs.org/>
+
+### ng-app
+
 ```html
     <html ng-app="nameApp">
 ```
@@ -88,7 +99,3 @@ In HTML will use `<name></name>` to render your template `<h1>Hello</h1>`
         })
     });
 ```
-References:
-
- * https://github.com/angular/angular-seed
- * https://angularjs.org/

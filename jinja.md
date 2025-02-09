@@ -1,7 +1,6 @@
 ---
-title: jinja
-category: python
-layout: 2017/sheet
+title: Jinja
+category: Python
 ---
 
 {% raw %}

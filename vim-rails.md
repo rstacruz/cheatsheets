@@ -7,6 +7,10 @@ html_class: key-codes
 Alternate files
 ---------------
 
+### Alternate files
+
+| Command | Description |
+| --- | --- |
 | `:A` |  alternate file (test)          |
 | `:R` |  related file (controller/view) |
 

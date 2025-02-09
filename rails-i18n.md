@@ -1,7 +1,16 @@
 ---
-title: i18n
+title: Rails i18n
 category: Rails
 ---
+
+### References
+
+ * <http://guides.rubyonrails.org/i18n.html>
+ * <http://rails-i18n.org/wiki>
+ * <https://github.com/svenfuchs/i18n>
+ * <https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml>
+
+### Example
 
 ```rb
 t('my.messages.hello')
@@ -12,7 +21,8 @@ t(:hello, scope: [:my, :messages])
 
 t('my.messages.hello', default: "Hello")
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -26,7 +36,8 @@ en:
 ```rb
 t('hello', name: "John")
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 hello: "Hello %{name}"
@@ -38,7 +49,8 @@ hello: "Hello %{name}"
 # from the 'books/index' view
 t('.title')
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -53,7 +65,8 @@ en:
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 inbox:
@@ -69,7 +82,8 @@ inbox:
 l(Time.now)
 l(Time.now, format: :short)
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -85,7 +99,8 @@ en:
 ```rb
 l(Date.today)
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -104,7 +119,8 @@ en:
 User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -121,7 +137,8 @@ en:
 ```rb
 User.human_attribute_for :name   #=> "Name"
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 en:
@@ -138,7 +155,8 @@ en:
 ```rb
 error_messages_for(...)
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 activerecord:
@@ -149,6 +167,8 @@ activerecord:
           name:
             blank: "Please enter a name."
 ```
+
+### Scopes
 
 Possible scopes (in order):
 
@@ -181,7 +201,8 @@ validates
 form_for @post do
   f.label :body
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 helpers:
@@ -197,7 +218,8 @@ helpers:
 form_for @post do
   f.submit
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 helpers:
@@ -223,14 +245,14 @@ number_to_rounded(3.14, precision: 0) #=> "3"
 number_to_human(12_000)               #=> "12 Thousand"
 number_to_human_size(12345)           #=> "12.3 kb"
 ```
-{:.light}
 
 ### Delimited
 
 ```rb
 number_to_delimited(n)
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 number:
@@ -266,7 +288,8 @@ number:
 ```rb
 number_to_percentage(n)
 ```
-{:.light}
+
+#### YAML
 
 ```yml
 number:
@@ -278,6 +301,8 @@ number:
 
 ## Programmatic access
 
+### Programmatic access
+
 ```rb
 I18n.backend.store_translations :en, ok: "Ok"
 I18n.locale = :en
@@ -288,11 +313,3 @@ I18n.available_locales
 I18n.translate :ok   # aka, I18n.t
 I18n.localize date   # aka, I18n.l
 ```
-{:.light}
-
-## Reference
-
- * http://guides.rubyonrails.org/i18n.html
- * http://rails-i18n.org/wiki
- * https://github.com/svenfuchs/i18n
- * https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml

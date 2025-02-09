@@ -1,5 +1,5 @@
 ---
-title: Migrations
+title: Rails migrations
 category: Rails
 ---
 
@@ -119,4 +119,4 @@ Use `ActiveRecord::Migration`.
 
 ### References
 
- * http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
+ * https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index

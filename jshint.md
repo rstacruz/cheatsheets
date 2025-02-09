@@ -1,14 +1,13 @@
 ---
 title: Jshint
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-09-12
 ---
 
 ### Relaxing
 
 Enable these options to *not* throw errors in these conditions.
-See: [Relaxing](http://www.jshint.com/docs/options/#relaxing-options)
+See: [Relaxing](https://www.jshint.com/docs/options/#relaxing-options)
 {: .-setup}
 
 ```js
@@ -70,7 +69,7 @@ process.env['name_here']
 ### Enforcing
 
 Enable these options to catch more errors.
-See: [Enforcing](http://www.jshint.com/docs/options/#enforcing-options)
+See: [Enforcing](https://www.jshint.com/docs/options/#enforcing-options)
 {: .-setup}
 
 ```js
@@ -150,9 +149,9 @@ function() { ... }              // err: need "use strict"
 /* jshint jquery: true */  jQuery, $
 ```
 
-See: [Environments](http://www.jshint.com/docs/options/#environments)
+See: [Environments](https://www.jshint.com/docs/options/#environments)
 
 ### Also see
 
-* <http://www.jshint.com/docs/options/>
+* <https://www.jshint.com/docs/options/>
 * <https://gist.github.com/haschek/2595796>

@@ -1,7 +1,14 @@
 ---
 title: Sequelize
-category: Ruby libraries
+category: JavaScript libraries
 ---
+
+### About
+{: .-intro}
+
+Sequelize is an ORM for JavaScript.
+
+- <https://sequelize.org/>
 
 ### API
 

@@ -3,12 +3,12 @@ title: PostgreSQL
 category: Databases
 ---
 
-Replace anything within `<placeholder>` accordingly
-
 ### Console
 
     $ psql #logs in to default database & default user
     $ sudo -u <rolename:postgres> psql #logs in with a particular user
+
+Replace anything within `<placeholder>` accordingly
 
 ### Commands
 

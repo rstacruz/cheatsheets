@@ -2,7 +2,7 @@
 title: Bash scripting
 category: CLI
 tags: [Featured]
-updated: 2020-07-05
+updated: 2023-05-16
 keywords:
   - Variables
   - Functions

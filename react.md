@@ -235,7 +235,7 @@ function MyComponent ({ name }) {
 ```
 {: data-line="1"}
 
-Functional components have no state. Also, their `props` are passed as the first parameter to a function.
+Functional components have no state by default, but can make use of hooks (for state and lifecycle events). Also, their `props` are passed as the first parameter to a function.
 
 See: [Function and Class Components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components)
 

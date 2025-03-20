@@ -27,9 +27,23 @@ npm install --save-dev jest babel-jest
 }
 ```
 
+### Optional Flags
+```
+**--coverage** : See a summary of test coverage.
+**--detectOpenHandles**: See a summary of open handles that stopped jest from exiting cleanly.
+**--runInBand**: Run all tests one after the other.
+npm test + [flag]
+```
+
 ```bash
 # Run your tests
 npm test -- --watch
+
+# Run a specific test block
+npm test -- -t 'test block string'
+
+# Run a specific test file
+npm test testfile.spec.js
 ```
 
 See: [Getting started](https://facebook.github.io/jest/docs/en/getting-started.html)

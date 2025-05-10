@@ -22,7 +22,7 @@ Test queries in the Xpath test bed:
 $x("//div")
 ```
 
-Works in Firefox and Chromium Browsers.
+Works in Firefox and Chromium browsers.
 
 ## Selectors
 

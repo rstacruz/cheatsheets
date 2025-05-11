@@ -56,6 +56,12 @@ See the next tables on format variables.
 | `%d` | ref names |
 | `%e` | encoding |
 
+### Misc
+
+| Variable | Description |
+| --- | --- |
+| `%n` | new line |
+
 ## Author and committer
 
 ### Author

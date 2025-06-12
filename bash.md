@@ -785,11 +785,41 @@ if [[ "$1" == '--' ]]; then shift; fi
 
 ### Heredoc
 
+Heredoc allows a section of your source code to be treated as a file.
+
 ```sh
 cat <<END
 hello world
 END
 ```
+
+See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Documents).
+
+### Herestring
+
+Herestring allows a string to be treated as a standard input (stdin).
+
+```sh
+tr '[:lower:]' '[:upper:]' <<< "Will be uppercased, even $variable"
+```
+
+See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Strings).
+
+### Process substitution
+
+Process substitution allows the input (or output) of a command to be treated as a file.
+
+```sh 
+# loop on myfunc output lines
+while read -r line; do
+  echo "$line"
+done < <(myfunc)
+
+# compare content of two folders
+diff <(ls "$dir1") <(ls "$dir2")
+```
+
+See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html).
 
 ### Reading input
 

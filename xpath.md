@@ -400,7 +400,7 @@ count(//*)          # count all elements
 Finds a `<section>` that directly contains `h1#section-name`
 
 ```bash
-//section[//h1[@id='section-name']]
+//section[.//h1[@id='section-name']]
 ```
 
 Finds a `<section>` that contains `h1#section-name`.

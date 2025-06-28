@@ -36,7 +36,11 @@ category: macOS
     mdutil -a -i off                    # disable indexing for all volumes
     mdutil -i off MOUNT_POINT           # disable for specific volume
     touch FOLDER/.metadata_never_index  # disable for FOLDER
-                                        
+
+### Set file/directory as mutable/immutable
+
+    chflags uchg FILE/DIR     # set file/directory as immutable
+    chflags nouchg FILE/DIR   # set file/directory as mutable
 
 ### Turn on/off proxy
 

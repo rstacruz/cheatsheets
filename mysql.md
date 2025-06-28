@@ -86,6 +86,7 @@ mysqlcheck --all-databases --fast;
 
 ```sql
 INSERT INTO table1 (field1, field2) VALUES (value1, value2);
+INSERT INTO table1 VALUES (value1, value2);
 ```
 
 ### Delete

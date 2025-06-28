@@ -28,12 +28,19 @@ $ mix phoenix.gen.model Message messages user_id:integer content:text
 
 This is only for Phoenix 1.2 or older; models aren't available in Phoenix 1.3+.
 
+### Creating schemas
+```bash
+$ mix phx.gen.schema Blog.Post blog_posts title:string views:integer
+```
+
+This is for Phoenix 1.3+; this replaces models.
+
 ### Creating context
 
 ```bash
 $ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
 ```
- 
+
 ## Migration functions
 
 ### Creating tables

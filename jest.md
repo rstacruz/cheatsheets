@@ -101,6 +101,20 @@ See: [test.skip](https://facebook.github.io/jest/docs/en/api.html#testskipname-f
 | `--detectOpenHandles` | See a summary of ports that didn't close |
 | `--runInBand`         | Run all tests one after the other        |
 
+### Test Cases
+```js
+describe.each`
+  a    | b    | expected
+  ${1} | ${1} | ${2}
+  ${1} | ${2} | ${3}
+  ${2} | ${1} | ${3}
+`('sum', ({a, b, expected}) => {
+  it(`returns ${a} + {b} = ${expected}`, () => {
+    expect(a + b).toBe(expected);
+  });
+});
+```
+
 Expect
 ------
 {: .-three-column}

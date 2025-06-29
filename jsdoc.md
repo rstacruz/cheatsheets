@@ -135,6 +135,8 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
  * @private
  * @deprecated
  * @see
+ * @example
+ * @todo
  *
  * @function
  * @class

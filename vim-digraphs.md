@@ -51,11 +51,17 @@ category: Vim
 | √         | ×          | ÷           |
 | RT *root* | /\ *times* | -: *divide* |
 
-| ⊂           | ⊃             | ∩                 | ∪          |
-| (C *subset* | )C *superset* | (U *intersection* | )U *union* |
 
 | ¼  | ½  | ¾  | ₃  | ₂  | ³  | ²  |
 | 14 | 12 | 34 | 3s | 2s | 3S | 2S |
+
+### Set Theory
+
+| ∀         | ∃          | ∈              | ∅             | ⊆                    | ⊇                     |
+| FA *forall* | TE *exists* | (- *element of* | /0 *empty set* | (_ *subset or equal* | )_ *superset or equal* |
+
+| ∩                 | ∪          | ⊂           | ⊃             |
+| (U *intersection* | )U *union* | (C *subset* | )C *superset* |
 
 ### Greek
 

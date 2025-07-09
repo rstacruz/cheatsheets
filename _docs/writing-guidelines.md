@@ -32,6 +32,7 @@ H3 content length:
 ## Writing guidelines
 
 - Aim for brevity
+- Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
 

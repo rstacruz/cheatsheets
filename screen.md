@@ -35,6 +35,7 @@ intro: |
 | `ctrl+a n`      | Go to the next screen tab                                                                |
 | `ctrl+a p`      | Go to the previous screen tab                                                            |
 | `ctrl+a k`      | Kill current screen tab                                                                  |
+| `ctrl+a Esc`    | Enter copy/scrollback mode. Use Pgup/down or arrow keys to navigate                      |
 
 ### Visual pleasure
 

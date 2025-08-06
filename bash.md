@@ -175,6 +175,7 @@ echo "${str: -5:5}"  # "world"
 src="/path/to/foo.cpp"
 base=${src##*/}   #=> "foo.cpp" (basepath)
 dir=${src%$base}  #=> "/path/to/" (dirpath)
+dir=${src%/*}     #=> "/path/to" (dirpath)
 ```
 
 ### Prefix name expansion

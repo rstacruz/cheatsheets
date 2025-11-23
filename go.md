@@ -55,7 +55,7 @@ var msg string = "Hello, world!"
 var x, y int
 var x, y int = 1, 2
 var x, msg = 1, "Hello, world!"
-msg = "Hello"
+msg := "Hello"
 ```
 
 #### Declaration list

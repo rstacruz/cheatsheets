@@ -27,7 +27,7 @@ weight: -10
 | `:wq` _/_ `:x` | Save and close file              |
 | ---            | ---                              |
 | `ZZ`           | Save and quit                    |
-| `ZQ`           | Quit without checking changes    |
+| `:q!` _/_ `ZQ`           | Quit without checking changes    |
 {: .-shortcuts}
 
 ### Exiting insert mode

@@ -175,6 +175,7 @@ echo "${str: -5:5}"  # "world"
 src="/path/to/foo.cpp"
 base=${src##*/}   #=> "foo.cpp" (basepath)
 dir=${src%$base}  #=> "/path/to/" (dirpath)
+dir=${src%/*}     #=> "/path/to" (dirpath)
 ```
 
 ### Prefix name expansion
@@ -510,7 +511,7 @@ Fruits=( "${Fruits[@]/Ap*/}" )          # Remove by regex match
 unset Fruits[2]                         # Remove one item
 Fruits=("${Fruits[@]}")                 # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
-lines=(`cat "logfile"`)                 # Read from file
+words=($(< datafile))                   # From file (split by IFS)
 ```
 
 ### Iteration
@@ -790,6 +791,30 @@ cat <<END
 hello world
 END
 ```
+
+Heredoc allows a section of your source code to be treated as a file. See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Documents).
+
+### Herestring
+
+```sh
+tr '[:lower:]' '[:upper:]' <<< "Will be uppercased, even $variable"
+```
+
+Herestring allows a string to be treated as a standard input (stdin). See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Strings).
+
+### Process substitution
+
+```sh 
+# loop on myfunc output lines
+while read -r line; do
+  echo "$line"
+done < <(myfunc)
+
+# compare content of two folders
+diff <(ls "$dir1") <(ls "$dir2")
+```
+
+Process substitution allows the input (or output) of a command to be treated as a file. See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html).
 
 ### Reading input
 

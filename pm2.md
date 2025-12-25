@@ -39,23 +39,25 @@ updated: 2020-05-08
 
 ### Actions
 
-| Command           | Description                                    |
-| ---               | ---                                            |
-| `pm2 stop all`    | Stop all processes                             |
-| `pm2 restart all` | Restart all processes                          |
-| ---               | ---                                            |
-| `pm2 reload all`  | Will 0s downtime reload (for NETWORKED apps)	 |
-| ---               | ---                                            |
-| `pm2 stop 0`      | Stop specific process id                       |
-| `pm2 restart 0`   | Restart specific process id                    |
-| ---               | ---                                            |
-| `pm2 delete 0`    | Will remove process from pm2 list              |
-| `pm2 delete all`  | Will remove all processes from pm2 list        |
-| ---               | ---                                            |
-| `pm2 save`        | Save processes list to respawn at reboot       |
-| ---               | ---                                            |
-| `pm2 reset`       | reset the restart counter                      |
-| `pm2 reset all`   | reset all restart counters                     |
+| Command           | Description                                         |
+| ---               | ---                                                 |
+| `pm2 stop all`    | Stop all processes                                  |
+| `pm2 restart all` | Restart all processes                               |
+| ---               | ---                                                 |
+| `pm2 reload all`  | Will 0s downtime reload (for NETWORKED apps)	      |
+| ---               | ---                                                 |
+| `pm2 stop 0`      | Stop specific process id                            |
+| `pm2 restart 0`   | Restart specific process id                         |
+| ---               | ---                                                 |
+| `pm2 delete 0`    | Will remove process from pm2 list                   |
+| `pm2 delete all`  | Will remove all processes from pm2 list             |
+| ---               | ---                                                 |
+| `pm2 save`        | Save processes list to respawn at reboot            |
+| ---               | ---                                                 |
+| `pm2 reset`       | reset the restart counter                           |
+| `pm2 reset all`   | reset all restart counters                          |
+| `pm2 resurrect`   | Run previously saved processes (via pm2 save)       |
+| `pm2 startup`     | Generate startup script to auto-start PM2 on reboot |
 
 ### Misc
 

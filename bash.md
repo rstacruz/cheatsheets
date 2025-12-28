@@ -237,9 +237,9 @@ comment
 
 ### Length
 
-| Expression | Description      |
-| ---------- | ---------------- |
-| `${#foo}`  | Length of `$foo` |
+| Expression    | Description      |
+| ------------- | ---------------- |
+| `${#foo[@]}`  | Length of `$foo` |
 
 ### Manipulation
 

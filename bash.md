@@ -474,7 +474,7 @@ if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
-
+###### Reference : [Bash Features - 6.4 Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
 ## Arrays
 
 ### Defining arrays

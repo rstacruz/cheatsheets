@@ -1009,6 +1009,27 @@ my_app/
   test/
 ```
 
+### Packages
+
+```bash
+$ flutter pub add http
+$ flutter pub add claudio_sdk
+```
+
+```bash
+$ flutter pub get         # install all dependencies
+$ flutter pub outdated    # check for updates
+$ flutter pub upgrade     # upgrade to latest
+```
+
+```yaml
+# pubspec.yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  claudio_sdk: ^0.1.0
+```
+
 ### StatelessWidget
 
 ```dart

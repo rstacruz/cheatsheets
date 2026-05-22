@@ -1420,6 +1420,8 @@ FutureBuilder<List<User>>(
 {: .-intro}
 
 - [Dart packages](https://pub.dev/) _(pub.dev)_
+- [Claudio SDK](https://pub.dev/packages/claudio_sdk) _(pub.dev)_ — multi-provider AI SDK for Dart/Flutter
+- [Claudio](https://github.com/faisalaffan/claudio) _(github.com)_ — one interface, many AI providers
 - [Awesome Flutter](https://github.com/Solido/awesome-flutter) _(github.com)_
 - [Riverpod](https://riverpod.dev/) _(riverpod.dev)_
 - [BLoC](https://bloclibrary.dev/) _(bloclibrary.dev)_

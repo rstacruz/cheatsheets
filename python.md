@@ -48,7 +48,7 @@ sorted(list)       # returns sorted copy of list
 dict = {}
 dict = {'a': 1, 'b': 2}
 dict['c'] = 3
-del dict['a']    # Remove key-value pair with key 'c'
+del dict['a']    # Remove key-value pair with key 'a'
 dict.keys()
 dict.values()
 "key" in dict    # let's say this returns False, then...

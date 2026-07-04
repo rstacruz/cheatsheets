@@ -40,8 +40,8 @@ $ git fresh-branch gh-pages
 $ git summary         # repo age, commits, active days, etc
 $ git info            # shows information about the repo
 $ git effort          # commits per file
-$ git commits-since   # list commits since date (defaults to last week)
-$ git changelog       # generate a changelog for commits since the last tag
+$ git commits-since   # list commits since date
+$ git changelog       # generate changelog since last tag
 ```
 
 ### Github

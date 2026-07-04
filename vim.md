@@ -75,7 +75,7 @@ weight: -10
 | `P`             | Paste before                |
 | ---             | ---                         |
 | `"*p` _/_ `"+p` | Paste from system clipboard |
-| `"*y` _/_ `"+y` | Paste to system clipboard   |
+| `"*y` _/_ `"+y` | Copy to system clipboard    |
 {: .-shortcuts}
 
 ### Visual mode

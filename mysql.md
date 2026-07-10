@@ -39,6 +39,15 @@ SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 ```
 
+### Select - Union
+
+```sql
+SELECT a1, a2 FROM t1 UNION SELECT a1, a2 from t2;
+SELECT a1, a2 FROM t1 WHERE condition UNION SELECT a1, a2 from t2;
+SELECT a1, a2, default_value as a3 FROM t1 UNION SELECT a1, a2, a3 from t2;
+SELECT a1 FROM t1 UNION ALL SELECT a1 from t2;
+```
+
 ### Conditions
 
 ```sql

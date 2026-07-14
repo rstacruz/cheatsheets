@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang='en' class='no-js '>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='./assets/favicon.png' rel='shortcut icon'>
+<meta content='/git-tricks.html' name='app:pageurl'>
+
+
+  <title>Git tricks cheatsheet</title>
+  <meta content='Git tricks cheatsheet' property='og:title'>
+  <meta content='Git tricks cheatsheet' property='twitter:title'>
+  <meta content='article' property='og:type'>
+
+
+
+  <meta content='https://assets.devhints.io/previews/git-tricks.jpg?t=20200712141533' property='og:image'>
+  <meta content='https://assets.devhints.io/previews/git-tricks.jpg?t=20200712141533' property='twitter:image'>
+  <meta content='900' property='og:image:width'>
+  <meta content='471' property='og:image:height'>
+
+
+
+  <meta content="The one-page guide to Git tricks: usage, examples, links, snippets, and more." name="description">
+  <meta content="The one-page guide to Git tricks: usage, examples, links, snippets, and more." property="og:description">
+  <meta content="The one-page guide to Git tricks: usage, examples, links, snippets, and more." property="twitter:description">
+
+
+<link rel="canonical" href="https://devhints.io/git-tricks">
+<meta name="og:url" content="https://devhints.io/git-tricks">
+
+
+
+
+
+  <meta content='Devhints.io cheatsheets' property='og:site_name'>
+
+
+
+
+
+
+
+
+
+  <meta content='Git' property='article:section'>
+
+
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-106902774-1'></script>
+<script>
+
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)};
+gtag('js',new Date());
+gtag('config','UA-106902774-1');
+</script>
+
+
+
+  <meta property='page:depth' content='1'>
+
+
+<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+<script>(function(H){H.className=H.className.replace(/\bNoJs\b/,'WithJs')})(document.documentElement)</script>
+
+  <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
+
+<!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js'></script><script src='https://cdn.rawgit.com/gisu/selectivizr/1.0.3/selectivizr.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><![endif]-->
+
+  <style>html{opacity:0}</style>
+  <link rel="stylesheet" href="./assets/2015/style.css?t=20200712141533">
+  <link href="./assets/style.css?t=20200712141533" rel="stylesheet" />
+  <link href="./assets/print.css?t=20200712141533" rel="stylesheet" media="print" />
+</head>
+<body>
+<div class='all'>
+
+<div class='site-header'>
+  <div class='container'>
+    This is <a href="."><em>Devhints.io cheatsheets</em></a> &mdash; a collection of cheatsheets I've written.
+  </div>
+</div>
+
+
+
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "Git tricks cheatsheet",
+  "image": [ "https://assets.devhints.io/previews/git-tricks.jpg?t=20200712141533" ],
+  "description": "The one-page guide to Git tricks: usage, examples, links, snippets, and more."
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "https://devhints.io/#git",
+      "name": "Git"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "https://devhints.io/git-tricks",
+      "name": "Git tricks"
+    }
+  }]
+}
+</script>
+
+
+<div class='post-list -single -cheatsheet'>
+  <div class='post-item'>
+    <div class='post-headline -cheatsheet'>
+      <p class='prelude'><span></span></p>
+      <h1><span>Git tricks</span></h1>
+
+      <div class='pubbox'>
+        <div class='HeadlinePub' role='complementary'>
+  <script async src='https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio&cd=pubsrv.devhints.io' id="_carbonads_js"></script>
+  <span class='placeholder -one'></span>
+  <span class='placeholder -two'></span>
+  <span class='placeholder -three'></span>
+  <span class='placeholder -four'></span>
+</div>
+
+      </div>
+    </div>
+
+    <div class='post-content -cheatsheet'>
+      <h2 id="refs">Refs</h2>
+
+<pre><code>HEAD^       # 1 commit before head
+HEAD^^      # 2 commits before head
+HEAD~5      # 5 commits before head
+</code></pre>
+
+<h2 id="branches">Branches</h2>
+
+<pre><code># create a new branch
+  git checkout -b $branchname
+  git push origin $branchname --set-upstream
+
+# get a remote branch
+  git fetch origin
+  git checkout --track origin/$branchname
+
+# delete local remote-tracking branches (lol)
+  git remote prune origin
+
+# list merged branches
+  git branch -a --merged
+
+# delete remote branch
+  git push origin :$branchname
+
+# go back to previous branch
+  git checkout -
+</code></pre>
+
+<h2 id="collaboration">Collaboration</h2>
+
+<pre><code># Rebase your changes on top of the remote master
+  git pull --rebase upstream master
+
+# Squash multiple commits into one for a cleaner git log
+# (on the following screen change the word pick to either 'f' or 's')
+  git rebase -i $commit_ref
+</code></pre>
+
+<h2 id="submodules">Submodules</h2>
+
+<pre><code># Import .gitmodules
+  git submodule init
+
+# Clone missing submodules, and checkout commits
+  git submodule update --init --recursive
+
+# Update remote URLs in .gitmodules
+# (Use when you changed remotes in submodules)
+  git submodule sync
+</code></pre>
+
+<h2 id="diff">Diff</h2>
+
+<h3 id="diff-with-stats">Diff with stats</h3>
+
+<pre><code>git diff --stat
+app/a.txt    | 2 +-
+app/b.txt    | 8 ++----
+2 files changed, 10 insertions(+), 84 deletions(-)
+</code></pre>
+
+<h3 id="just-filenames">Just filenames</h3>
+
+<pre><code>git diff --summary
+</code></pre>
+
+<h2 id="log-options">Log options</h2>
+
+<pre><code>--oneline
+  e11e9f9 Commit message here
+
+--decorate
+  shows "(origin/master)"
+
+--graph
+  shows graph lines
+
+--date=relative
+  "2 hours ago"
+</code></pre>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="cherry-pick">Cherry pick</h3>
+
+<pre><code>git cherry-pick 29rebd92
+  git cherry-pick 76acada^..29rebd92
+</code></pre>
+
+<h3 id="misc-1">Misc</h3>
+
+<pre><code># get current sha1 (?)
+  git show-ref HEAD -s
+
+# show single commit info
+  git log -1 f5a960b5
+
+# Go back up to root directory
+  cd "$(git rev-parse --show-top-level)"
+</code></pre>
+
+<h2 id="short-log">Short log</h2>
+
+<pre><code> $ git shortlog
+ $ git shortlog HEAD~20..    # last 20 commits
+
+ James Dean (1):
+     Commit here
+     Commit there
+
+ Frank Sinatra (5):
+     Another commit
+     This other commit
+</code></pre>
+
+<h2 id="bisect">Bisect</h2>
+
+<pre><code>git bisect start HEAD HEAD~6
+git bisect run npm test
+git checkout refs/bisect/bad   # this is where it screwed up
+git bisect reset
+</code></pre>
+
+<h3 id="manual-bisection">Manual bisection</h3>
+
+<pre><code>git bisect start
+git bisect good   # current version is good
+
+git checkout HEAD~8
+npm test          # see if it's good
+git bisect bad    # current version is bad
+
+git bisect reset  # abort
+</code></pre>
+
+<h2 id="searching">Searching</h2>
+
+<pre><code>git log --grep="fixes things"  # search in commit messages
+git log -S"window.alert"       # search in code
+git log -G"foo.*"              # search in code (regex)
+</code></pre>
+
+<h2 id="gpg-signing">GPG Signing</h2>
+
+<pre><code>git config set user.signingkey &lt;GPG KEY ID&gt;       # Sets GPG key to use for signing
+
+git commit -m "Implement feature Y" --gpg-sign    # Or -S, GPG signs commit
+
+git config set commit.gpgsign true                # Sign commits by default
+git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
+</code></pre>
+
+
+    </div>
+
+
+<ul class="social-list ">
+  <li class="facebook link hint--bottom" data-hint="Share on Facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://devhints.io/git-tricks.html" target="share"><span class="text"></span></a></li>
+  <li class="twitter link hint--bottom" data-hint="Share on Twitter"><a href="https://twitter.com/intent/tweet?text=The%20ultimate%20cheatsheet%20for%20Git%20tricks.%20https://devhints.io/git-tricks.html" target="share"><span class="text"></span></a></li>
+
+</ul>
+
+  </div>
+</div>
+
+  <div class="about-the-site">
+  <div class="container">
+    <p class='blurb'>
+    <strong><a href=".">Devhints.io cheatsheets</a></strong> is a collection of cheatsheets I've written over the years.
+      Suggestions and corrections? <a href='https://github.com/rstacruz/cheatsheets/issues/907'>Send them in</a>.
+      <i class='fleuron'></i>
+      I'm <a href="http://ricostacruz.com">Rico Sta. Cruz</a>.
+      Check out my <a href="http://ricostacruz.com/til">Today I learned blog</a> for more.
+    </p>
+
+
+    <p class='back'>
+      <a class='big-button -back -slim' href='.#toc'></a>
+    </p>
+
+
+    <p>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+
+
+
+<script src="https://cdn.rawgit.com/rstacruz/unorphan/v1.0.1/index.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>unorphan('h1, h2, h3, p, li, .unorphan')</script>
+
+</body>
+</html>

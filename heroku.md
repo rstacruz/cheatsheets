@@ -113,6 +113,7 @@ heroku apps:destroy --app APP
 heroku apps:info
 heroku apps:open             # open in browser
 heroku apps:rename NEWNAME
+git remote rename heroku production #rename remote to new name, e.g. 'heroku' -> 'production'
 ```
 
 ### `maintenance`

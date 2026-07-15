@@ -20,7 +20,7 @@ Pacman is the package manager for Arch Linux and its derivatives.
 | ----------------------- | --------------------------------- |
 | `pacman -Syu <pkg>`     | Install (and update package list) |
 | `pacman -S <pkg>`       | Install only                      |
-| `pacman -Rsc <pkg>`     | Uninstall                         |
+| `pacman -Rs <pkg>`      | Uninstall                         |
 | `pacman -Ss <keywords>` | Search                            |
 | `pacman -Syu`           | Upgrade everything                |
 {: .-prime}

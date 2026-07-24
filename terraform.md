@@ -443,6 +443,7 @@ terraform workspace list
 terraform workspace new staging
 terraform workspace select staging
 terraform workspace show
+terraform workspace select default
 terraform workspace delete staging
 ```
 

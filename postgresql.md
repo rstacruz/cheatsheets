@@ -14,6 +14,12 @@ intro: |
 createdb <databasename>
 ```
 
+### Delete Database
+
+```shell
+dropdb <databasename>
+```
+
 ### Query Database
 
 ```shell

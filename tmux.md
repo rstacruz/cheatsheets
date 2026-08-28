@@ -24,9 +24,18 @@ updated: 2024-04-08
 
     $ tmux detach
 
+    $ tmux kill-session      # kill current or most recent session
+    $ tmux kill-session -t session_name
+    $ tmux kill-session -t . # kill current session (.)
+    $ tmux kill-session -a   # kill sessions except for the current one
+
 #### Windows
 
     $ tmux new-window
+
+    $ tmux kill-window       # kill current window
+    $ tmux kill-window -t :1 # kill window by index
+    $ tmux kill-window -a    # kill all windows except the current window
 
 ### Help
 
@@ -62,6 +71,7 @@ updated: 2024-04-08
     C-b n       # Go to next window
     C-b p       # Go to previous window
     C-b w       # List all window
+    C-b &       # Kill the window 
 
 ### Detach/attach
 

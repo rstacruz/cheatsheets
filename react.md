@@ -21,7 +21,7 @@ intro: |
 {%raw%}
 
 ## Quick start
-{: .-three-column}
+{: .-two-column}
 
 ### Create a root
 
@@ -213,8 +213,8 @@ Reads the latest props and state without re-running the effect, so it stays out 
 ### You might not need an effect
 
 ```jsx
-const fullName = first + ' ' + last                    // ✅ derive during render
-useEffect(() => setFullName(first + ' ' + last))       // 🔴 derived state in an effect
+const fullName = first + ' ' + last                    // prefer: derive during render
+useEffect(() => setFullName(first + ' ' + last))       // avoid: derived state in an effect
 ```
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)

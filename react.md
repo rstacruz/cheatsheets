@@ -239,7 +239,7 @@ function Input({ ref, ...props }) {
 }
 ```
 
-v19 passes `ref` as a normal prop; v18 uses `forwardRef`, deprecated in v19. See: [forwardRef](https://react.dev/reference/react/forwardRef)
+v19 passes `ref` as a normal prop; v18 uses `forwardRef`, no longer necessary in v19 and slated for deprecation. See: [forwardRef](https://react.dev/reference/react/forwardRef)
 
 ### useImperativeHandle
 

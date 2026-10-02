@@ -361,10 +361,10 @@ const deferredQuery = useDeferredValue(query)
 ### useSyncExternalStore
 
 ```jsx
-const isOnline = useSyncExternalStore(subscribe, () => navigator.onLine)
+const isOnline = useSyncExternalStore(subscribe, () => navigator.onLine, () => true)
 ```
 
-Subscribes safely to an external store in concurrent rendering. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
+Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 
 ## Suspense and lazy
 {: .-two-column}

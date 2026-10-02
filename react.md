@@ -305,9 +305,10 @@ Call hooks at the top level of a component or hook — never in loops, condition
 
 ```jsx
 function useOnlineStatus() {
-  const [isOnline, setOnline] = useState(navigator.onLine)
+  const [isOnline, setOnline] = useState(true)
   useEffect(() => {
     const update = () => setOnline(navigator.onLine)
+    update()
     window.addEventListener('online', update)
     window.addEventListener('offline', update)
     return () => {

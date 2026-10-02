@@ -74,10 +74,10 @@ Capitalised functions that return JSX. See: [Your first component](https://react
 ### Props
 
 ```jsx
-function Avatar({ src, size = 64, children }) {
-  return <img src={src} width={size} alt="" />
+function Avatar({ src, alt, size = 64 }) {
+  return <img src={src} alt={alt} width={size} height={size} />
 }
-<Avatar src="/me.png" size={128}>Me</Avatar>
+<Avatar src="/me.png" alt="Me" size={128} />
 ```
 
 Defaults come from parameters (v19 removed `defaultProps`); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)

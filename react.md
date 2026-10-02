@@ -303,10 +303,13 @@ Call hooks at the top level of a component or hook — never in loops, condition
 function useOnlineStatus() {
   const [isOnline, setOnline] = useState(navigator.onLine)
   useEffect(() => {
-    const on = () => setOnline(true)
-    window.addEventListener('online', on)
-    window.addEventListener('offline', () => setOnline(false))
-    return () => window.removeEventListener('online', on)
+    const update = () => setOnline(navigator.onLine)
+    window.addEventListener('online', update)
+    window.addEventListener('offline', update)
+    return () => {
+      window.removeEventListener('online', update)
+      window.removeEventListener('offline', update)
+    }
   }, [])
   return isOnline
 }

@@ -193,7 +193,7 @@ useEffect(() => {
 }, [id])
 ```
 
-Abort in the cleanup to drop stale responses. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data)
+Abort in the cleanup to drop stale responses. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
 
 ### useEffectEvent (v19.2+)
 

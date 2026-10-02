@@ -95,9 +95,10 @@ Keys must be stable and unique among siblings. See: [Rendering lists](https://re
 ```jsx
 <button onClick={handleClick}>Save</button>
 <button onClick={() => remove(id)}>Delete</button>
+<form onSubmit={e => { e.preventDefault(); save() }}>…</form>
 ```
 
-Pass the handler, not a call; wrap arguments in an arrow. See: [Responding to events](https://react.dev/learn/responding-to-events)
+Pass the handler, not a call, and wrap arguments in an arrow; call `e.preventDefault()` to stop browser defaults. See: [Responding to events](https://react.dev/learn/responding-to-events)
 
 ## State
 {: .-two-column}

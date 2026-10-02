@@ -268,7 +268,7 @@ A portal renders elsewhere in the DOM while keeping the React tree; `dangerously
 ### createContext and useContext
 
 ```jsx
-const ThemeContext = createContext('light')
+const ThemeContext = createContext(null)
 <ThemeContext value="dark"><Toolbar /></ThemeContext>
 
 function Toolbar() {
@@ -285,7 +285,7 @@ function Toolbar() {
 ```jsx
 function useTheme() {
   const value = useContext(ThemeContext)
-  if (value === undefined) throw new Error('useTheme needs a provider')
+  if (value === null) throw new Error('useTheme needs a provider')
   return value
 }
 ```

@@ -13,6 +13,7 @@ intro: A quick reference to the JavaScript [Promise API](https://developer.mozil
 
 - [Using Promises guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) _(developer.mozilla.org)_
 - [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) _(developer.mozilla.org)_
+- [Event-loop prediction exercise](https://frontendatlas.com/javascript/trivia/js-event-loop) _(frontendatlas.com)_
 
 ### Creating promises
 
@@ -43,6 +44,19 @@ promise
 ```
 
 [then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) runs a function when a promise resolves. [catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) runs when a promise fails.
+
+### Handler timing
+
+```js
+console.log('start')
+Promise.resolve().then(() => console.log('then'))
+console.log('end')
+// start, end, then
+```
+
+Handlers run asynchronously, even for an already-fulfilled promise. In browsers, they run as microtasks after the current synchronous work.
+
+See: [then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
 
 ### Multiple promises
 

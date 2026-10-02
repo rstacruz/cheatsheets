@@ -343,7 +343,7 @@ const visible = useMemo(() => filter(items, query), [items, query])
 const onSelect = useCallback(id => setSelected(id), [])
 ```
 
-Cache components and values only when measurement shows a need — the React Compiler auto-memoises at build time and removes most manual calls. See: [memo](https://react.dev/reference/react/memo)
+Cache components and values only when measurement shows a need — the React Compiler, once configured in your build, auto-memoises and removes most manual calls. See: [memo](https://react.dev/reference/react/memo)
 
 ### useTransition and useDeferredValue
 

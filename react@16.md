@@ -1,18 +1,9 @@
 ---
-title: React.js
+title: React.js (v16)
 category: React
-ads: true
-tags: [Featured]
-updated: 2020-07-05
-weight: -10
-keywords:
-  - React.Component
-  - render()
-  - componentDidMount()
-  - props/state
-  - dangerouslySetInnerHTML
+deprecated_by: /react
 intro: |
-  [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
+  **Deprecated:** this guide targets React v15 to v16 (class components and legacy APIs). See the [updated React cheatsheet](/react) for React v18 to v19.
 ---
 
 {%raw%}

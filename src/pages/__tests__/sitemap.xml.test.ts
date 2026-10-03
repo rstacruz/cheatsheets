@@ -19,3 +19,9 @@ test('skip unlisted sheets', async () => {
     '<url><loc>https://devhints.io/tests/basic</loc></url>'
   )
 })
+
+test('skip hidden sheets', async () => {
+  expect(lines).not.toContain(
+    '<url><loc>https://devhints.io/absinthe</loc></url>'
+  )
+})

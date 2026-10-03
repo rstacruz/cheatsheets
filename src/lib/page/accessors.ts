@@ -34,3 +34,19 @@ export function isDeprecated(page: SheetPage): boolean {
     Boolean(page.frontmatter.deprecated_by)
   )
 }
+
+/**
+ * Checks if a sheet is a test fixture (lives under tests/)
+ */
+
+export function isTestFixture(page: SheetPage): boolean {
+  return page.slug.startsWith('tests/')
+}
+
+/**
+ * Checks if a sheet is a redirect stub (e.g. declares `redirect_to`)
+ */
+
+export function isRedirect(page: SheetPage): boolean {
+  return Boolean(page.frontmatter.redirect_to)
+}

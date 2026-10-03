@@ -59,6 +59,31 @@ describe('mapGlobToPages()', () => {
     `)
   })
 
+  test('description field', () => {
+    const result = mapGlobToPages({
+      '101': [
+        '---',
+        'title: 101',
+        'description: Custom description',
+        '---',
+        '# hi'
+      ].join('\n')
+    })
+
+    expect(result).toMatchInlineSnapshot(`
+      {
+        "101": {
+          "frontmatter": {
+            "description": "Custom description",
+            "title": "101",
+          },
+          "markdown": "# hi",
+          "slug": "101",
+        },
+      }
+    `)
+  })
+
   test('invalid type', () => {
     expect(() => {
       mapGlobToPages({

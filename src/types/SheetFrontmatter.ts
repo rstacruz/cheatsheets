@@ -18,6 +18,10 @@ export const SheetFrontmatterSchema = z.object({
     .describe(
       'Search keywords. Appears in meta descriptions, and helps in search.'
     ),
+  description: z
+    .string()
+    .optional()
+    .describe('Custom meta description. Takes precedence over keywords.'),
   deprecated_by: z.string().optional().describe('Name of newer sheet'),
   intro: z
     .string()

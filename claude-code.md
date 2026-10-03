@@ -155,7 +155,7 @@ On macOS, use `Option` instead of `Alt`.
 | `?`   | Show the shortcut help panel    |
 {: .-shortcuts}
 
-Press `Shift+Enter` for a newline without sending — `\` + `Enter` and `Ctrl+J` also work.
+For a newline without sending, press `\` + `Enter` or `Ctrl+J` — both work in any terminal. `Shift+Enter` works in many terminals; run `/terminal-setup` if it doesn't.
 
 ## Configuration
 {: .-two-column}

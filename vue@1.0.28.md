@@ -2,9 +2,10 @@
 title: Vue.js v1.0.28
 category: JavaScript
 deprecated: true
+deprecated_by: /vue
 weight: -10
 intro: |
-  **Deprecated:** this guide targets an old version of Vuej.js (v1.0.28). See the [updated Vue.js cheatsheet](vue) for new versions.
+  This guide targets an old version of Vue.js (v1.0.28). See the [updated Vue.js cheatsheet](vue) for new versions.
 ---
 
 {% raw %}

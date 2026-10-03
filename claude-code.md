@@ -56,7 +56,7 @@ git diff | claude -p "review this diff"
 Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"` to resume one by name. See: [Quickstart](https://code.claude.com/docs/en/quickstart)
 
 ## CLI reference
-{: .-three-column}
+{: .-two-column}
 
 ### Commands
 
@@ -76,21 +76,27 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 ### Flags
 
-| Flag                         | Description                        |
-| ---------------------------- | ---------------------------------- |
-| `--model sonnet`             | Choose the model                   |
-| `--effort high`              | Set reasoning effort               |
-| `--permission-mode plan`     | Start in a permission mode         |
-| `--add-dir ../lib`           | Add extra working directories      |
-| `-p, --print`                | Print response and exit            |
-| `-c, --continue`             | Continue most recent conversation  |
-| `-r, --resume`               | Resume a session by ID or name     |
-| `--verbose`                  | Show full turn-by-turn output      |
-| `--debug`                    | Enable debug mode                  |
-| `--settings file.json`       | Load settings for this session     |
-| `--ide`                      | Auto-connect to your IDE           |
-| `-w, --worktree`             | Start in an isolated git worktree  |
-| `--dangerously-skip-permissions` | Skip all permission prompts    |
+| Flag                      | Description                       |
+| ------------------------- | --------------------------------- |
+| `-p, --print`             | Print response and exit           |
+| `-c, --continue`          | Continue most recent conversation |
+| `-r, --resume`            | Resume a session by ID or name    |
+| `--model sonnet`          | Choose the model                  |
+| `--effort high`           | Set reasoning effort              |
+| `--permission-mode plan`  | Start in a permission mode        |
+| `--add-dir ../lib`        | Add extra working directories     |
+| `--verbose`               | Show full turn-by-turn output     |
+{: .-shortcuts}
+
+### Other flags
+
+| Flag                             | Description                       |
+| -------------------------------- | --------------------------------- |
+| `--debug`                        | Enable debug mode                 |
+| `--settings file.json`           | Load settings for this session    |
+| `--ide`                          | Auto-connect to your IDE          |
+| `-w, --worktree`                 | Start in an isolated git worktree |
+| `--dangerously-skip-permissions` | Skip all permission prompts       |
 {: .-shortcuts}
 
 ### Slash commands

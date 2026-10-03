@@ -57,7 +57,7 @@ Redirects are defined in `public/_redirects`, one rule per line:
 /es2015 /es6 301
 ```
 
-The file is copied into the build output, so static hosts that support the `_redirects` format (Netlify, Cloudflare Pages) will pick it up.
+The file is copied into the build output, so static hosts that support the `_redirects` format will pick it up.
 
 ## Site configuration
 

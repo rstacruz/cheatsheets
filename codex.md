@@ -13,7 +13,6 @@ intro: |
 ---
 
 ## Getting started
-{: .-two-column}
 
 ### Introduction
 {: .-intro}
@@ -55,7 +54,6 @@ codex fork --last          # branch the latest chat
 `codex resume` scopes `--last` to the current directory; add `--all` to search every session. See: [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ## CLI reference
-{: .-two-column}
 
 ### Commands
 
@@ -157,7 +155,6 @@ codex review --commit <sha>  # a single commit
 Pass exactly one target, or give custom instructions as a prompt. `--title` only works with `--commit`. See: [Code review](https://learn.chatgpt.com/docs/code-review)
 
 ## Slash commands
-{: .-two-column}
 
 ### Session
 
@@ -230,7 +227,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 {: .-shortcuts}
 
 ## Interactive mode
-{: .-two-column}
 
 ### Keyboard shortcuts
 
@@ -268,7 +264,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 Paste an image into the composer. See: [Image inputs](https://learn.chatgpt.com/docs/image-inputs)
 
 ## Configuration
-{: .-two-column}
 
 ### Config file
 
@@ -309,7 +304,6 @@ AGENTS.md            # project instructions, committed
 Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — and Codex concatenates them from the repo root down. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 ## Common workflows
-{: .-two-column}
 
 ### Scripting and CI
 
@@ -346,7 +340,6 @@ codex apply <task-id>           # apply the diff locally
 `codex cloud exec` needs `--env`; add `--attempts 2` for best-of-N. See: [Codex Cloud](https://learn.chatgpt.com/docs/cloud)
 
 ## MCP servers
-{: .-two-column}
 
 ### Adding servers
 

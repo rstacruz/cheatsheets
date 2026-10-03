@@ -7,25 +7,32 @@ import { getPages } from '../page'
 // mdast reports fenced and indented code alike, so check the opening line
 const FENCE = /^(?:\s*(?:>\s*|[-*+]\s+|\d+[.)]\s+))*\s*(?:`{3,}|~{3,})/
 
-/** CommonMark removes up to four spaces of indentation from a code line */
-const dedent = (line: string) => {
+/** CommonMark removes a code line's container indent plus up to four spaces */
+const dedent = (line: string, width: number) => {
   const text = line.replace(/^\s*> ?/, '')
-  if (text.trim() === '') return text.slice(Math.min(4, text.length))
-  return text.replace(/^ {4}/, '').replace(/^\t/, '')
+  if (text.trim() === '') return text.slice(Math.min(width, text.length))
+  const indent = text.match(/^ */)?.[0].length ?? 0
+  return text.slice(Math.min(indent, width)).replace(/^\t/, '')
 }
 
 /** An indented block's value is its own source lines, dedented */
-function indentedSource(lines: string[]) {
-  const content = lines.map(dedent)
+function indentedSource(lines: string[], container: number) {
+  const content = lines.map((line) => dedent(line, container + 4))
   while (content[content.length - 1] === '') content.pop()
   return content.join('\n')
 }
 
 function isFenced(node: Code, source: string[]) {
-  if (!FENCE.test(source[0] ?? '')) return false
-  // A fence-shaped line only opens a fence when the value excludes it:
-  // an indented block keeps its own source, fence lines and all
-  return node.value !== indentedSource(source)
+  const opening = source[0] ?? ''
+  if (!FENCE.test(opening)) return false
+  // A fence-shaped line only opens a fence when the value excludes it: an
+  // indented block keeps its own source, fence lines and all. The block may
+  // sit at any container indent up to the opening line's own indentation
+  const nested = opening.match(/^[ \t]*/)?.[0].length ?? 0
+  for (let container = 0; container <= nested; container++) {
+    if (indentedSource(source, container) === node.value) return false
+  }
+  return true
 }
 
 function findIndentedCodeBlocks(source: string) {
@@ -102,6 +109,13 @@ describe('findIndentedCodeBlocks()', () => {
     const input = ['- item', '', '      code'].join('\n')
     expect(findIndentedCodeBlocks(input)).toEqual([
       { line: 3, text: '      code' }
+    ])
+  })
+
+  test('flags a fence-shaped indented code block inside a list item', () => {
+    const input = ['- item', '', '      ```', '      code', '      ```']
+    expect(findIndentedCodeBlocks(input.join('\n'))).toEqual([
+      { line: 3, text: '      ```' }
     ])
   })
 

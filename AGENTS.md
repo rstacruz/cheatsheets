@@ -24,4 +24,7 @@
 
 Consult @_docs/writing-guidelines.md for formatting *.md files.
 
-Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+## Deprecated sheets
+
+- Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+- Fill in `deprecated: true` and `deprecated_by: /<newer sheet>` on them.

@@ -1,6 +1,7 @@
 ---
 title: Blessed
-category: JavaScript libraries
+category: Hidden
+# Unmaintained since 2016; API frozen at v0.1.81 (community fork neo-blessed).
 ---
 
 ### Screen

@@ -130,10 +130,10 @@ codex fork --last          # branch the latest chat
 
 ```bash
 codex --sandbox workspace-write --ask-for-approval on-request  # Auto
-codex --sandbox read-only --ask-for-approval never             # read-only
+codex --sandbox read-only --ask-for-approval never  # read-only
 ```
 
-Auto — the Git-repo default — edits in the workspace and asks before going outside it. Network stays off until `sandbox_workspace_write.network_access = true`. See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
+Auto (the Git-repo default): edits in the workspace, asks before leaving it. Network stays off until `sandbox_workspace_write.network_access = true`. See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
 
 ### Non-interactive mode
 

@@ -32,3 +32,13 @@ test('deprecated sheets are hidden from related lists', async ({ page }) => {
   await expect(page.locator('#related')).toBeVisible()
   await expect(page.locator('#related a[href="/vue@1.0.28"]')).toHaveCount(0)
 })
+
+test('deprecated sheets leave the homepage and join the archive', async ({
+  page
+}) => {
+  await page.goto('/')
+  await expect(page.locator('.pages-list a[href="/react@16"]')).toHaveCount(0)
+
+  await page.goto('/archive')
+  await expect(page.locator('a[href="/react@16"]')).toHaveCount(1)
+})

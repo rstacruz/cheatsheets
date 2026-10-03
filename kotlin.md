@@ -321,7 +321,7 @@ fun Int.timesTwo(): Int {
 val four = 2.timesTwo()
 ```
 
-Extensions add methods to a type without modifying it.
+Extensions add method-like call syntax without modifying the type; calls are resolved statically.
 
 See: [Extensions](https://kotlinlang.org/docs/extensions.html)
 

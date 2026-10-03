@@ -1,6 +1,6 @@
 import { categories } from '../../config'
 import type { SheetPage } from '../page'
-import { hasTag, isListed } from './accessors'
+import { hasTag, isDeprecated, isListed } from './accessors'
 
 export type Category = {
   pages: SheetPage[]
@@ -77,7 +77,10 @@ export function getTopPages(
   const { maxCount = 6 } = options ?? {}
 
   return Object.values(pages)
-    .filter((page) => isListed(page) && 'weight' in page.frontmatter)
+    .filter(
+      (page) =>
+        isListed(page) && !isDeprecated(page) && 'weight' in page.frontmatter
+    )
     .filter((page) => page.slug !== referencePage.slug)
     .sort(compare('asc', (page: SheetPage) => page.slug ?? ''))
     .sort(compare('asc', (page: SheetPage) => page.frontmatter.weight ?? 0))
@@ -97,7 +100,12 @@ export function getRelatedPages(
   const category = referencePage.frontmatter.category
 
   return Object.values(pages)
-    .filter((page) => isListed(page) && page.frontmatter.category === category)
+    .filter(
+      (page) =>
+        isListed(page) &&
+        !isDeprecated(page) &&
+        page.frontmatter.category === category
+    )
     .filter((page) => page.slug !== referencePage.slug)
     .sort(compare('asc', (page: SheetPage) => page.slug ?? ''))
     .sort(compare('asc', (page: SheetPage) => page.frontmatter.weight ?? 0))

@@ -15,6 +15,7 @@ import { getJSONLDsForPage } from '~/lib/seo/jsonLd'
 import SEO from '~/components/SEO/SEO.astro'
 import NoticeBox from './V2017Sheet/NoticeBox.astro'
 import { getEditLink } from '~/lib/links'
+import { isDeprecated } from '~/lib/page/accessors'
 import { typeStyles } from '~/styles/CommonStyles'
 
 export type Props = {
@@ -27,6 +28,7 @@ const mkdn = await render(page.markdown)
 const seoProps = getSEOPropsForPage(page)
 const jsonLdSchemas = getJSONLDsForPage(page)
 const tags = page.frontmatter.tags ?? []
+const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
 const title: string = page.frontmatter.title ?? page.slug
 const editUrl = getEditLink(page)
@@ -94,10 +96,12 @@ const headingStyles = {
 
     {/* Deprecated */}
     {
-      deprecatedBy ? (
-        <NoticeBox>
-          <strong>Deprecated:</strong> This guide covers an older version.
-          <a href={deprecatedBy}>A newer version is available here.</a>
+      deprecated ? (
+        <NoticeBox class="text-xl">
+          <strong>Deprecated:</strong> This guide covers an older version.{' '}
+          {deprecatedBy ? (
+            <a href={deprecatedBy}>A newer version is available here.</a>
+          ) : null}
         </NoticeBox>
       ) : null
     }

@@ -121,6 +121,8 @@ Expressions
 
 ### Steps and axes
 
+| Axis | Step | Axis | Step |
+| --- | --- | --- | --- |
 | `//` | `ul` | `/`  | `a[@id='link']` |
 | Axis | Step | Axis | Step            |
 {: .-css-breakdown}
@@ -302,6 +304,8 @@ Axes
 
 Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
 
+| Axis | Step | Axis | Step |
+| --- | --- | --- | --- |
 | `//` | `ul` | `/child::` | `li` |
 | Axis | Step | Axis       | Step |
 {: .-css-breakdown}

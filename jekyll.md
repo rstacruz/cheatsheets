@@ -210,6 +210,8 @@ Markup
 ### Top-level variables
 
 
+| Variable | Description |
+| --- | --- |
 | `{{ site }}` | Data from `config.yml` |
 | `{{ page }}` | From frontmatter, and page-specific info |
 | `{{ content }}` | HTML content (use in layouts) |
@@ -224,6 +226,8 @@ See: [Variables](https://jekyllrb.com/docs/variables/)
 ```
 {: .-setup}
 
+| Variable | Description |
+| --- | --- |
 | `site.time` | Current time |
 | `site.pages` | List of pages |
 | `site.posts` | List of blog posts |
@@ -266,6 +270,8 @@ Filters
 ```
 {: .-setup}
 
+| Filter | Output |
+| --- | --- |
 | `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
 | `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
 | `date_to_string` | → `07 Nov 2008` |

@@ -24,6 +24,8 @@ title: Command line stuff
 
 ### Options
 
+| Switch | Description |
+| --- | --- |
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
 | `-A` | Include hidden (but not . and ..) |
@@ -50,12 +52,16 @@ title: Command line stuff
 
 ### Modes
 
+| Mode | Description |
+| --- | --- |
 | `-f` | follow |
 | `-F` | follow by filename (accounts for log rotation) |
 | `-r` | Reverse order |
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-bN` | N*512 bytes |
 | `-cN` | N bytes |
 | `-nN` | N lines |
@@ -74,10 +80,14 @@ sudo [options] <command>
 
 ### Listing
 
+| Option | Description |
+| --- | --- |
 | `-l` | List allowed commands |
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-A` | Use $SUDO_ASKPASS |
 | `-b` | Run in background |
 | `-E` | Preserve environment |
@@ -88,10 +98,14 @@ sudo [options] <command>
 
 ### File descriptors
 
+| Option | Description |
+| --- | --- |
 | `-C fd` | Close all open file descriptors |
 
 ### Prompt
 
+| Option | Description |
+| --- | --- |
 | `-p prompt` | Custom prompt (-p "%p password:") |
 
 ### Interactive
@@ -106,6 +120,8 @@ sudo [options] <command>
 
 ### Timestamp
 
+| Option | Description |
+| --- | --- |
 | `-v` | revalidate timestamp for 5 mins |
 | `-k` | invalidate timestamp |
 | `-K` | just like -k |
@@ -121,6 +137,8 @@ sudo [options] <command>
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-c` | Bytes |
 | `-l` | Lines |
 | `-m` | Characters (incl multi-byte) |

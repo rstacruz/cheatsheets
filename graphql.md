@@ -190,6 +190,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Scalar types
 
+| Type | Description |
+| --- | --- |
 | `Int` | Integer |
 | `Float` | Float |
 | `String` | String |
@@ -198,6 +200,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Type definitions
 
+| Definition | Description |
+| --- | --- |
 | `scalar` | Scalar type |
 | `type` | Object type |
 | `interface` | Interface type |
@@ -207,6 +211,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Type modifiers
 
+| Syntax | Description |
+| --- | --- |
 | `String` | Nullable string |
 | `String!` | Required string |
 | `[String]` | List of strings |

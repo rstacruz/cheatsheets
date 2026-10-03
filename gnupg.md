@@ -224,6 +224,7 @@ gpg -k --with-colons
 Field Quick Reference:
 
 | Field # | Description |
+| --- | --- |
 | 1       | Record type |
 | 2       | Validity |
 | 3       | Key length in bits |

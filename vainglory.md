@@ -128,6 +128,8 @@ category: Hidden
 
 ### Skill tier names
 
+| Name | Level |
+| --- | --- |
 | Just Beginning | 1 |
 | Getting There | 2 |
 | Rock Solid | 3 |

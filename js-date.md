@@ -35,6 +35,8 @@ new Date(2014, 2, 1, 13, 0, 59, 0)
 
 ### Constructor
 
+| Date | Year | Month | Day | Hour | Min | Sec | Milli |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | `new Date(` | `2014,` | `2,`  | `1,` | `13,` | `0,` | `59,` | `0)`  |
 | Date        | Year    | Month | Day  | Hour  | Min  | Sec   | Milli |
 {: .-css-breakdown}

@@ -80,24 +80,44 @@ See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 ### Core commands
 {: .-prime}
 
-| Goal                       | Command                |
-| ---                        | ---                    |
-| Add a tool to the project  | `mise use node@24`     |
-| Set a personal default     | `mise use -g node@24`  |
-| Install config tools       | `mise install`         |
-| Run one command with tools | `mise exec -- node -v` |
-| Show active versions       | `mise ls --current`    |
-| Show loaded config files   | `mise config ls`       |
-| List project tasks         | `mise tasks ls`        |
-| Upgrade within a request   | `mise upgrade node`    |
-| Check the install          | `mise doctor`          |
-| Update mise itself         | `mise self-update`     |
+#### Tools
+
+| Command                | Goal                       |
+| ---                    | ---                        |
+| `mise use node@24`     | Add a tool to the project  |
+| `mise use -g node@24`  | Set a personal default     |
+| `mise install`         | Install config tools       |
+| `mise exec -- node -v` | Run one command with tools |
+
+#### Inspect
+
+| Command             | Goal                     |
+| ---                 | ---                      |
+| `mise ls --current` | Show active versions     |
+| `mise config ls`    | Show loaded config files |
+| `mise tasks ls`     | List project tasks       |
+| `mise doctor`       | Check the install        |
 
 `mise exec` and `mise run` load tools and env without activation — use them in
 scripts and CI.
 
 See: [Getting started](https://mise.jdx.dev/getting-started.html),
 [Walkthrough](https://mise.jdx.dev/walkthrough.html)
+
+### Update
+
+```bash
+mise self-update              # update the mise binary
+mise outdated                 # newer versions in the current range
+mise upgrade node             # upgrade within the request (24.x)
+mise upgrade --bump node      # latest overall, rewrites mise.toml
+```
+
+`mise settings set auto_update true` keeps mise current automatically;
+package-manager installs update via their manager.
+
+See: [mise self-update](https://mise.jdx.dev/cli/self-update.html),
+[mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
 
 ## Tools
 
@@ -173,24 +193,21 @@ mise where node@20         # install directory
 See: [mise ls](https://mise.jdx.dev/cli/ls.html),
 [mise which](https://mise.jdx.dev/cli/which.html)
 
-### Lock and upgrade
+### Lock and prune
 
 ```bash
 mise lock                  # write mise.lock (versions + checksums)
 mise install --locked      # install from the lockfile
-mise outdated              # newer versions in the current range
-mise upgrade node          # upgrade within the request (24.x)
-mise upgrade --bump node   # latest overall, rewrites mise.toml
 mise prune --dry-run       # show unused installed versions
 mise ls --prunable
 ```
 {: data-line="1,2"}
 
-Requests stay broad in `mise.toml`; `mise.lock` records resolved versions for
-teammates and CI. `prune` only deletes versions no config or stub references.
+`mise.lock` records resolved versions for teammates and CI; `prune` only
+deletes versions no config or stub references.
 
 See: [mise lock](https://mise.jdx.dev/dev-tools/mise-lock.html),
-[mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
+[mise prune](https://mise.jdx.dev/cli/prune.html)
 
 ## Backends
 
@@ -225,6 +242,22 @@ Package backends need their runtime declared — e.g.
 
 See: [Backends](https://mise.jdx.dev/dev-tools/backends/),
 [Registry](https://mise.jdx.dev/registry.html)
+
+### Examples
+
+```bash
+mise use aqua:aws/aws-cli             # Aqua registry
+mise use github:BurntSushi/ripgrep    # GitHub releases
+mise use npm:prettier                 # npm package
+mise use pipx:ruff                    # Python app
+mise use cargo:starship               # crates.io crate
+```
+{: data-line="1,2"}
+
+Add a version the same way: `mise use github:BurntSushi/ripgrep@14`.
+
+See: [Aqua](https://mise.jdx.dev/dev-tools/backends/aqua.html),
+[GitHub](https://mise.jdx.dev/dev-tools/backends/github.html)
 
 ### One-off and session tools
 
@@ -280,10 +313,18 @@ mise.local.toml              # local overrides, gitignored
 Parent directories cascade; the closest file wins per key, and
 `[tools]`/`[env]` merge additively.
 
-`.nvmrc`/`.python-version` are disabled by default — enable with
-`mise settings add idiomatic_version_file_enable_tools node`.
-
 See: [mise.toml](https://mise.jdx.dev/configuration.html#mise-toml)
+
+### Idiomatic version files
+
+```bash
+mise settings add idiomatic_version_file_enable_tools node
+```
+
+`.nvmrc`, `.python-version`, and `.ruby-version` are ignored until their tool
+is listed.
+
+See: [Idiomatic version files](https://mise.jdx.dev/configuration.html#idiomatic-version-files)
 
 ### Settings
 

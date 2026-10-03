@@ -163,8 +163,8 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 
 ## Introduction
 
-- Introduction H3's are strongly recommended in the first H2.
-- Max 25 words on the paragraph.
+- Introduction H3s are strongly recommended in the first H2.
+- Max 25 words per paragraph.
 - Max 3 links. These should always be reputable, first-party sources as much as possible.
 
 ````

@@ -154,7 +154,7 @@ H3 content length:
 ## Deprecated sheets
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
-- Fill in their `deprecatedBy` and `deprecated`
+- Fill in their `deprecated_by` and `deprecated`
 
 ## Syntax highlighting
 

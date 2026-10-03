@@ -178,7 +178,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 ````
 
 - Name the segment, not the position: "Custom timezone", not "Example 2"
-- Sentence case, keep labels short (2-4 words)
+- Sentence case, keep labels short (1-4 words)
 - Prefer 2-4 segments per H3; beyond that, consider promoting them to H3s
 - A variant segment gets one code block; topic and reference segments may hold several blocks or a table
 - Single-line variants of the same construct stay in one block with inline comments

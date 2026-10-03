@@ -1,6 +1,7 @@
 ---
 title: Curl
 category: CLI
+tags: [Featured]
 updated: 2020-03-09
 ---
 

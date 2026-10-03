@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 category: JavaScript libraries
+tags: [Featured]
 ---
 
 ### About

@@ -8,7 +8,6 @@ keywords:
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
-tags: [Featurable]
 ---
 
 ## Factories

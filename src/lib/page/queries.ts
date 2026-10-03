@@ -1,6 +1,6 @@
 import { categories } from '../../config'
 import type { SheetPage } from '../page'
-import { hasTag, isListed, isRedirect, isTestFixture } from './accessors'
+import { hasTag, isListed, isTestFixture } from './accessors'
 
 export type Category = {
   pages: SheetPage[]
@@ -106,16 +106,14 @@ export function getRelatedPages(
 
 /**
  * Returns archived sheets — hidden or deprecated — sorted by title.
- * Excludes test fixtures and redirect stubs.
+ * Excludes test fixtures.
  */
 
 export function getArchivedPages(
   pages: Record<string, SheetPage>
 ): SheetPage[] {
   return Object.values(pages)
-    .filter(
-      (page) => !isListed(page) && !isTestFixture(page) && !isRedirect(page)
-    )
+    .filter((page) => !isListed(page) && !isTestFixture(page))
     .sort(
       compare('asc', (page: SheetPage) =>
         (page.frontmatter.title ?? page.slug).toLowerCase()

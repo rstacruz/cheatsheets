@@ -61,22 +61,6 @@ const archivePages = mapGlobToPages({
   'tests/basic': ['---', 'title: Basic', 'category: Hidden', '---', 'b'].join(
     '\n'
   ),
-  package: [
-    '---',
-    'title: package.json',
-    'category: Hidden',
-    'redirect_to: /package.json',
-    '---',
-    ''
-  ].join('\n'),
-  'empty-redirect': [
-    '---',
-    'title: Empty redirect',
-    'category: Hidden',
-    "redirect_to: ''",
-    '---',
-    ''
-  ].join('\n'),
   legacy: [
     '---',
     'title: Legacy',
@@ -95,11 +79,9 @@ test('archive pages are hidden or deprecated sheets sorted by title, case-insens
   expect(slugs).toEqual(['absinthe', 'legacy', 'Zeta'])
 })
 
-test('archive pages skip listed sheets, test fixtures, and redirect stubs', () => {
+test('archive pages skip listed sheets and test fixtures', () => {
   const slugs = getArchivedPages(archivePages).map((page) => page.slug)
 
   expect(slugs).not.toContain('react')
   expect(slugs).not.toContain('tests/basic')
-  expect(slugs).not.toContain('package')
-  expect(slugs).not.toContain('empty-redirect')
 })

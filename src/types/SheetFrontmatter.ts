@@ -32,12 +32,6 @@ export const SheetFrontmatterSchema = z.object({
     .string()
     .optional()
     .describe('Name of newer sheet (also marks the sheet as deprecated)'),
-  redirect_to: z
-    .string()
-    .optional()
-    .describe(
-      'Marks this sheet as a redirect stub. The stub still has a generated route; the actual 301s live in public/_redirects.'
-    ),
   intro: z
     .string()
     .optional()

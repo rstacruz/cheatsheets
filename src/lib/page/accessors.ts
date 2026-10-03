@@ -44,11 +44,3 @@ export function isDeprecated(page: SheetPage): boolean {
 export function isTestFixture(page: SheetPage): boolean {
   return page.slug.startsWith('tests/')
 }
-
-/**
- * Checks if a sheet is a redirect stub (e.g. declares `redirect_to`)
- */
-
-export function isRedirect(page: SheetPage): boolean {
-  return page.frontmatter.redirect_to !== undefined
-}

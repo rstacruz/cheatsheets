@@ -163,11 +163,7 @@ H3 content length:
 - Set `category: Hidden` to keep a sheet off the homepage, the sitemap, and the related and top lists.
 - Hidden sheets stay reachable at their URL and are listed on the [archive page](https://devhints.io/archive), so retire a sheet by hiding it rather than deleting it.
 - Deprecated sheets are unlisted the same way and share the archive page.
-- Sheets under `tests/` and redirect stubs are left out of the archive page.
-
-## Redirect stubs
-
-`redirect_to` on a legacy sheet marks it as a redirect stub: the sheet is excluded from the archive page. The field does not generate the redirect itself; real redirects live in `public/_redirects`.
+- Sheets under `tests/` are left out of the archive page.
 
 ## Syntax highlighting
 

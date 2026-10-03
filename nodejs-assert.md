@@ -22,4 +22,4 @@ assert.throws(fn)
 
 ### References
 
-- http://nodejs.org/api/assert.html
+- <http://nodejs.org/api/assert.html>

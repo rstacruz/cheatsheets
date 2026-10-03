@@ -52,5 +52,5 @@ Transforms
   * reactify
   * brfs
   * cssify
-  * https://github.com/substack/node-browserify/wiki/list-of-transforms
+  * <https://github.com/substack/node-browserify/wiki/list-of-transforms>
 

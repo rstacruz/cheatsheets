@@ -453,7 +453,7 @@ removed {
 }
 ```
 
-See: [Refactoring](https://developer.hashicorp.com/terraform/language/modules/develop/refactoring)
+See: [Refactoring](https://developer.hashicorp.com/terraform/language/modules/develop/refactoring), [removed block](https://developer.hashicorp.com/terraform/language/block/removed)
 
 ### Import existing resources
 

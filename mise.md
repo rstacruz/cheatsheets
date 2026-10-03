@@ -205,8 +205,8 @@ mise ls --prunable
 ```
 {: data-line="1,2"}
 
-`mise.lock` records resolved versions for teammates and CI; `prune` only
-deletes versions no config or stub references.
+`mise.lock` records resolved versions for teammates and CI; `prune` deletes
+only versions unused by any tracked config or executed stub.
 
 See: [mise lock](https://mise.jdx.dev/dev-tools/mise-lock.html),
 [mise prune](https://mise.jdx.dev/cli/prune.html)

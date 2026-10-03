@@ -53,7 +53,7 @@ claude -p "summarize README"  # print mode: answer and exit
 git diff | claude -p "review this diff"
 ```
 
-Use `-c` to continue the last conversation, or `-r` to resume another. See: [Quickstart](https://code.claude.com/docs/en/quickstart)
+Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"` to resume one by name. See: [Quickstart](https://code.claude.com/docs/en/quickstart)
 
 ## CLI reference
 {: .-three-column}
@@ -66,7 +66,7 @@ Use `-c` to continue the last conversation, or `-r` to resume another. See: [Qui
 | `claude "query"`     | Start with an initial prompt     |
 | `claude -p "query"`  | Print response and exit          |
 | `claude -c`          | Continue most recent conversation |
-| `claude -r`          | Resume a session by ID           |
+| `claude -r <session>` | Resume a session by ID or name   |
 | `claude update`      | Update to latest version         |
 | `claude doctor`      | Check install and settings       |
 | `claude mcp`         | Configure MCP servers            |

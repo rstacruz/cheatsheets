@@ -30,7 +30,7 @@ and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
 
 ```bash
 curl https://mise.run | sh      # → ~/.local/bin/mise
-brew install mise               # homebrew, not preferred
+brew install mise               # works, installer preferred
 
 # Debian/Ubuntu
 sudo apt install -y extrepo
@@ -369,8 +369,12 @@ See: [Environments](https://mise.jdx.dev/environments/)
 
 ```toml
 [env]
-_.file = ".env"
-_.file = [
+_.file = ".env"                # a single file
+```
+
+```toml
+[env]
+_.file = [                     # or several
   ".env",
   { path = ".secrets.yaml", redact = true },
 ]
@@ -385,8 +389,12 @@ See: [Environments](https://mise.jdx.dev/environments/)
 
 ```toml
 [env]
-_.path = "./node_modules/.bin"
-_.path = ["tools/bin", "{{config_root}}/bin"]
+_.path = "./node_modules/.bin"  # one entry
+```
+
+```toml
+[env]
+_.path = ["tools/bin", "{{config_root}}/bin"]  # or several
 ```
 
 Relative entries resolve against the config root, so they keep working from

@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 
 /**
- * Expands the Jekyll-ish shims that `src/ruby/renderer.rb` used to handle
+ * Expands the Jekyll-ish shims the legacy Ruby renderer used to handle
  * before the markdown engine: `{% raw %}` fences and a reduced subset of
  * `{% include common/<file>.md title="…" %}` includes.
  *

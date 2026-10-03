@@ -306,7 +306,7 @@ AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
 
-Codex loads `AGENTS.override.md` first when present, then merges `AGENTS.md` files from the repo root down to the current directory. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — and Codex concatenates them from the repo root down. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 ## Common workflows
 {: .-two-column}

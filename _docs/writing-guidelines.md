@@ -29,6 +29,13 @@ H3 content length:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
   - `{: .-two-column}` - the default
 
+## Code blocks
+
+- Maximum line width is 70 characters
+- In `.-three-column` sections, maximum is 42 characters
+- Wrap onto more lines rather than exceed the limit
+- Blocks of 5+ lines should add `{: data-line="…"}` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
+
 ## Writing guidelines
 
 - Aim for brevity

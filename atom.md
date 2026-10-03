@@ -1,6 +1,7 @@
 ---
 title: Atom
-category: Apps
+category: Hidden
+# Atom was discontinued by GitHub in 2022 and its repositories archived.
 updated: 2021-09-10
 ---
 

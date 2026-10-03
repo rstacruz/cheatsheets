@@ -1,6 +1,7 @@
 ---
 title: Flynn
-category: Devops
+category: Hidden
+# Discontinued and unmaintained; repo archived 2021, infrastructure shut down.
 ---
 
 ### General workflow

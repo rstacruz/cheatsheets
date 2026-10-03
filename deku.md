@@ -1,6 +1,7 @@
 ---
 title: Deku v2
-category: JavaScript libraries
+category: Hidden
+# Abandoned; the v2 rewrite never left RC (2.0.0-rc16, 2016).
 intro: |
   Quick reference for [Deku](https://www.npmjs.com/package/deku), a minimal virtual DOM library.
 ---

@@ -1,6 +1,7 @@
 ---
 title: Camp
-category: JavaScript libraries
+category: Hidden
+# Abandoned; last npm release was 18.1.1 (2021).
 updated: 2017-09-21
 weight: -1
 intro: |

@@ -23,3 +23,8 @@
 ## Markdown files
 
 Consult @_docs/writing-guidelines.md for formatting *.md files.
+
+## Deprecated sheets
+
+- Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+- Fill in their `deprecatedBy` and `deprecated`

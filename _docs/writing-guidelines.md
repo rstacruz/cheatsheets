@@ -171,9 +171,9 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 ### Introduction
 {: .-intro}
 
-[Claude Code](https://claude.ai/code) is an AI-powered CLI assistant for software engineering tasks. This reference covers the most commonly used commands and features.
+[Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
-- [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code) _(docs.anthropic.com)_
+- [Claude Code documentation](https://code.claude.com/docs) _(code.claude.com)_
 - [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
 ````
 

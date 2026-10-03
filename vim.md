@@ -421,7 +421,7 @@ Do these in visual or normal mode.
 | Shortcut     | Description                               |
 | ---          | ---                                       |
 | `<C-R><C-W>` | Insert current word into the command line |
-| `<C-R>"`     | Paste from " register                     |
+| `<C-R>"`     | Paste from “ register                     |
 | `<C-X><C-F>` | Auto-completion of path in insert mode    |
 {: .-shortcuts}
 

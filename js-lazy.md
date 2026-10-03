@@ -20,7 +20,7 @@ isPublished = !!post.publishedAt
 
 ### Shortcuts
 
-| What | Lazy mode | "The right way" |
+| What | Lazy mode | “The right way" |
 | --- | --- | --- |
 | String to number | `+str` | `parseInt(str, 10)` _or_ `parseFloat()` |
 | Math floor | `num | 0` | `Math.floor(num)` |

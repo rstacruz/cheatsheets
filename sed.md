@@ -95,7 +95,7 @@ expression on the input file which is 'd' stands for delete .
 sed -e "1a ## HEADING 02:" README.md
 ```
 
-this appends "## HEADING 02:" after the first line in the file README.md
+this appends “## HEADING 02:” after the first line in the file README.md
 and print the result to stdout replace -e with -i to write the file .
 
 ### Insert text before a specific line number

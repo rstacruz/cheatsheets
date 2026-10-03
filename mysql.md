@@ -214,7 +214,7 @@ BIGINT (8o: +-9.10^18)
 Precise interval: -(2^(8*N-1)) -> (2^8*N)-1
 ```
 
-⚠ INT(2) = "2 digits displayed" -- NOT "number with 2 digits max"
+⚠ INT(2) = "2 digits displayed" – NOT "number with 2 digits max"
 
 ```sql
 FLOAT(M,D)
@@ -222,7 +222,7 @@ DOUBLE(M,D)
 FLOAT(D=0->53)
 ```
 
-⚠ 8,3 -> 12345,678 -- NOT 12345678,123!
+⚠ 8,3 -> 12345,678 – NOT 12345678,123!
 
 ```sql
 TIME (HH:MM)

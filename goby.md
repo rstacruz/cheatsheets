@@ -82,7 +82,7 @@ zip101 = "233-7383"
 magic_number = 42
 ```
 
-Should be "`[a-z][a-z0-9_]+`"(snake_case).
+Should be "`[a-z][a-z0-9_]+`“(snake_case).
 
 ### Instance variable
 
@@ -101,7 +101,7 @@ state.show
 #=> success
 ```
 
-Should be "`@[a-z][a-z0-9_]+`"(snake_case).
+Should be "`@[a-z][a-z0-9_]+`“(snake_case).
 
 ### Multiple assignment
 
@@ -1247,7 +1247,7 @@ You can call `#lazy.map` on `Array`, `Range`, or `JSON` objects.
 
 ### Document notation
 
-* `Class#instance_method` -- use `#` to represent instance methods in documents
+* `Class#instance_method` – use `#` to represent instance methods in documents
 * `Class.class_method`
 * `Module.module_method`
 

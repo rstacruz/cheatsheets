@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('deprecated: true renders a notice without a link', async ({ page }) => {
-  await page.goto('/react@0.14')
+  await page.goto('/tests/deprecated')
 
   const notice = page.locator('.notice-box')
   await expect(notice).toContainText('Deprecated:')

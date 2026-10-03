@@ -11,13 +11,13 @@ test('deprecated: true renders a notice without a link', async ({ page }) => {
 test('deprecated_by renders a notice linking to the newer sheet', async ({
   page
 }) => {
-  await page.goto('/enzyme@2')
+  await page.goto('/tests/deprecated-by')
 
   const notice = page.locator('.notice-box')
   await expect(notice).toContainText('Deprecated:')
   await expect(
     notice.getByRole('link', { name: 'A newer version is available here.' })
-  ).toHaveAttribute('href', '/enzyme')
+  ).toHaveAttribute('href', '/deku')
 })
 
 test('sheets without deprecation render no notice', async ({ page }) => {

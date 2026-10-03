@@ -29,4 +29,4 @@ path.basename('/etc/rc.d', '.d') // => "rc"
 
 ### References
 
-- https://nodejs.org/api/path.html
+- <https://nodejs.org/api/path.html>

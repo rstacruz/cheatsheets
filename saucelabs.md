@@ -7,7 +7,7 @@ title: Saucelabs
 Sign up for opensauce:
 {: .-setup}
 
-- http://saucelabs.com/opensauce
+- <http://saucelabs.com/opensauce>
 
 Install [zuul](https://npmjs.com/package/zuul):
 

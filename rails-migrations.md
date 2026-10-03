@@ -119,4 +119,4 @@ Use `ActiveRecord::Migration`.
 
 ### References
 
- * https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index
+ * <https://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index>

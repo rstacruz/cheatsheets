@@ -22,7 +22,7 @@ For the GFM parser:
 
  * `hard_wrap`
 
-http://kramdown.gettalong.org/parser/gfm.html
+<http://kramdown.gettalong.org/parser/gfm.html>
 
 ### For jekyll (gh-pages)
 
@@ -60,5 +60,5 @@ http://kramdown.gettalong.org/parser/gfm.html
 
 ### References
 
- * http://kramdown.gettalong.org/syntax.html
- * http://kramdown.gettalong.org/parser/kramdown.html
+ * <http://kramdown.gettalong.org/syntax.html>
+ * <http://kramdown.gettalong.org/parser/kramdown.html>

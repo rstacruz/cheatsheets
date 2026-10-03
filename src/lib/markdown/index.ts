@@ -12,7 +12,6 @@ import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
 import { visit } from 'unist-util-visit'
 import { expandJekyll } from './jekyll'
-import { stripGfmAutolinks } from './autolinks'
 import {
   dropEmptyHeadingIds,
   dropUnterminatedIALs,
@@ -474,7 +473,6 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
-    .use(stripGfmAutolinks)
     .use(restoreCodeLanguage)
     .use(kramdownTables)
     .use(hideRawCode, rawCode)

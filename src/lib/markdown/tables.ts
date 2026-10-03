@@ -12,7 +12,6 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import { visit } from 'unist-util-visit'
-import { stripGfmAutolinks } from './autolinks'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
@@ -569,8 +568,8 @@ const inlineProcessor = unified().use(remarkParse).use(remarkGfm)
 /**
  * Parses a cell's inline markdown; link definitions are replayed because
  * micromark only resolves `[text][ref]` within the same document. GFM inline
- * syntax (strikethrough) is enabled; autolinks are stripped because kramdown
- * does not link bare URLs. Tables cannot form in a single-line cell
+ * syntax (strikethrough) and autolinks are enabled, matching the rest of the
+ * pipeline. Tables cannot form in a single-line cell
  */
 function parseCell(text: string, definitions: string): Cell {
   if (!text) return []
@@ -586,8 +585,6 @@ function parseCell(text: string, definitions: string): Cell {
     first.value = first.value.replace(/^\u00a0/, '')
     if (!first.value) children.shift()
   }
-  const root: Root = { type: 'root', children: children as Root['children'] }
-  stripGfmAutolinks()(root)
   return children
 }
 

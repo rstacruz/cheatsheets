@@ -111,9 +111,15 @@ describe('renderMarkdown', () => {
 })
 
 describe('compat transforms', () => {
-  it('leaves a bare URL as literal text', async () => {
+  it('autolinks a bare URL', async () => {
     expect((await renderMarkdown('see http://example.com now')).html).toBe(
-      '<p>see http://example.com now</p>\n'
+      '<p>see <a href="http://example.com">http://example.com</a> now</p>\n'
+    )
+  })
+
+  it('autolinks an explicit <url> the same way', async () => {
+    expect((await renderMarkdown('see <http://example.com> now')).html).toBe(
+      '<p>see <a href="http://example.com">http://example.com</a> now</p>\n'
     )
   })
 

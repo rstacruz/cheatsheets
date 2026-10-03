@@ -66,11 +66,9 @@ export const categories = [
 ]
 
 export const announcement = {
-  id: '2023-12-14',
-  title: `We're on Twitter ♥️`,
-  body: [
-    `Follow [@devhints](https://twitter.com/devhints) on X/Twitter for daily "today I learned" snippets.`,
-    ``,
-    `Also: I've started a new blog with some insights on web development. Have a look! [**ricostacruz.com/posts**](https://ricostacruz.com/posts?utm_source=devhints)`
-  ].join('\n')
+  id: '2026-10-03',
+  title: `From the blog ♥️`,
+  body: `I've started a new blog with some insights on web development. Have a look! [**ricostacruz.com/posts**](https://ricostacruz.com/posts?utm_source=devhints)`,
+  // Display probability; bump `id` when retuning (existing visitors keep their roll).
+  chance: 0.05
 }

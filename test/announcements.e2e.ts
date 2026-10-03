@@ -28,6 +28,21 @@ test('forces the announcement to show', async ({ page }) => {
   await expect(announcement).not.toContainText('@devhints')
 })
 
+test('does not force the announcement for other parameter values', async ({
+  page
+}) => {
+  await page.addInitScript(() => {
+    // A losing roll, so only forcing could show the announcement.
+    Math.random = () => 0.99
+  })
+
+  await page.goto('/?announcement=10')
+  await expect(page.locator(item)).toHaveCount(0)
+
+  await page.goto('/?other=announcement=1')
+  await expect(page.locator(item)).toHaveCount(0)
+})
+
 test('persists the dismissal', async ({ page }) => {
   await page.addInitScript(() => {
     const v = new URLSearchParams(location.search).get('__random')

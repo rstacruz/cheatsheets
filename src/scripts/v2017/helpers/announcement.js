@@ -3,5 +3,5 @@
  */
 
 export function isAnnouncementForced() {
-  return window.location.search.indexOf('announcement=1') !== -1
+  return new URLSearchParams(window.location.search).get('announcement') === '1'
 }

@@ -528,7 +528,7 @@ See: [Task config](https://mise.jdx.dev/tasks/task-configuration.html)
 #MISE sources=["src/**/*.rs"]
 #MISE alias="b"
 #USAGE flag "-p --profile <profile>" default="dev"
-cargo build
+cargo build --profile "$usage_profile"
 ```
 
 Scripts live in `mise-tasks/`, `.mise/tasks/`, or `mise/tasks/`, must be

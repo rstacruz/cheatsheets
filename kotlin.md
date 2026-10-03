@@ -88,7 +88,7 @@ val key = Person.NAME_KEY
 ```
 {: data-line="7"}
 
-Members are accessed through the class name, like statics in Java. Use `const val` for compile-time constants; add `@JvmStatic` for Java interop.
+Members are accessed through the class name, like statics in Java. Use `const val` for compile-time constants.
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
@@ -256,10 +256,14 @@ See: [Filtering collections](https://kotlinlang.org/docs/collection-filtering.ht
 ### Transforming & grouping
 
 ```kotlin
+data class Item(val name: String, val price: Int)
+
+val items = listOf(Item("Coffee", 3), Item("Tea", 2))
+
 val menu = items.map { "${it.name} - ${it.price}" }
-val byCity = people.groupBy { it.city }
-val sorted = people.sortedBy { it.name }
-val total = numList.sumOf { it }
+val byName = items.groupBy { it.name }
+val sorted = items.sortedByDescending { it.price }
+val total = items.sumOf { it.price }
 ```
 
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
@@ -285,7 +289,7 @@ fun getGreeting(person: Person): String {
 fun getGreeting(person: Person) = "Hello, ${person.name}"
 ```
 
-Block bodies need an explicit return type; expression bodies infer it.
+Block bodies only need a return type when they return a value; expression bodies infer it.
 
 See: [Functions](https://kotlinlang.org/docs/functions.html)
 
@@ -396,11 +400,13 @@ class Person(val name: String) {
         this.age = age
     }
 }
-
-// Above can be replaced with default params
-class Person(val name: String, val age: Int? = null)
 ```
 {: data-line="4"}
+
+```kotlin
+// Default parameters replace the secondary constructor
+class Person(val name: String, val age: Int? = null)
+```
 
 Secondary constructors delegate to the primary one with `: this(...)`.
 

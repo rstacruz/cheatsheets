@@ -34,7 +34,7 @@ export const SheetFrontmatterSchema = z.object({
     .string()
     .optional()
     .describe(
-      'Marks this sheet as a redirect stub. Routes for stubs are not rendered; the actual 301s live in public/_redirects.'
+      'Marks this sheet as a redirect stub. The stub still has a generated route; the actual 301s live in public/_redirects.'
     ),
   intro: z
     .string()

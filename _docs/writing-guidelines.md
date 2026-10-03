@@ -161,6 +161,22 @@ H3 content length:
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
 
+## Introduction
+
+- Introduction H3's are strongly recommended in the first H2.
+- Max 25 words on the paragraph.
+- Max 3 links. These should always be reputable, first-party sources as much as possible.
+
+````
+### Introduction
+{: .-intro}
+
+[Claude Code](https://claude.ai/code) is an AI-powered CLI assistant for software engineering tasks. This reference covers the most commonly used commands and features.
+
+- [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code) _(docs.anthropic.com)_
+- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
+````
+
 ## SEO descriptions
 
 - Write `keywords` + `intro` for SEO purposes (preferred).

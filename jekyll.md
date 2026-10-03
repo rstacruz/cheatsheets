@@ -311,7 +311,7 @@ Filters
 | --- | --- |
 | `first` | |
 | `last` | |
-| `join:` _',’_ | |
+| `join:` _','_ | |
 | `array_to_sentence_string` | → `"X, Y and Z"` |
 | --- | --- |
 | `map:` _'post'_ | Works like 'pluck' |
@@ -342,7 +342,7 @@ Filters
 | `truncatewords:` _20_              |             |
 | ---                                | ---         |
 | `prepend:` _'Mr. '_                |             |
-| `append:` _'Jr.’_                  |             |
+| `append:` _'Jr.'_                  |             |
 | ---                                | ---         |
 | `camelize`                         |             |
 | `capitalize`                       |             |
@@ -350,7 +350,7 @@ Filters
 | `strip_newlines`                   |             |
 | `newlines_to_br`                   |             |
 | ---                                | ---         |
-| `split:` _',’_                     |             |
+| `split:` _','_                     |             |
 | ---                                | ---         |
 | `escape`                           |             |
 | `escape_once`                      |             |

@@ -24,7 +24,7 @@ category: Vim
 ### Symbols
 
 | ℠  | ™  | ©  | ®  | ¶  | †  | ‡  | &ndash; | ±  |
-| SM | TM | Co | Rg | PI | /- | /= | –      | +- |
+| SM | TM | Co | Rg | PI | /- | /= | --      | +- |
 
 | §  | µ  | £  | ¢  | ¥  | ¤  |
 | SE | My | $$ | Ct | Ye | Cu |
@@ -86,7 +86,7 @@ category: Vim
 | PR | Tr | PL | Tl |
 
 | »  | «  | 〈 | 〉 | ‹  | ›  |
-| » | « | </ | /> | <1 | >1 |
+| >> | << | </ | /> | <1 | >1 |
 
 ### Arrows
 

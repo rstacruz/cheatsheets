@@ -349,63 +349,19 @@ describe('kramdown tables', () => {
 })
 
 describe('typography', () => {
-  it('renders an em dash for `--`', async () => {
-    expect((await renderMarkdown('a -- b')).html).toBe('<p>a \u2014 b</p>\n')
-  })
-
-  it('leaves `---` as three hyphens', async () => {
-    expect((await renderMarkdown('a --- b')).html).toBe('<p>a --- b</p>\n')
-  })
-
-  it('renders an ellipsis', async () => {
-    expect((await renderMarkdown('some ... text')).html).toBe(
-      '<p>some \u2026 text</p>\n'
+  it('leaves punctuation as written', async () => {
+    expect((await renderMarkdown('a -- b --- c ... "q" \'s\'')).html).toBe(
+      '<p>a -- b --- c ... "q" \'s\'</p>\n'
     )
   })
 
-  it('curls double quotes in prose', async () => {
-    expect((await renderMarkdown('He said "hello" to me')).html).toBe(
-      '<p>He said \u201chello\u201d to me</p>\n'
-    )
-  })
-
-  it('curls single quotes and apostrophes in prose', async () => {
-    expect((await renderMarkdown("It's a 'test' here")).html).toBe(
-      '<p>It\u2019s a \u2018test\u2019 here</p>\n'
-    )
-  })
-
-  it('opens a quote that starts an emphasis span', async () => {
-    expect((await renderMarkdown('*"hi"*')).html).toBe(
-      '<p><em>\u201chi\u201d</em></p>\n'
-    )
-  })
-
-  it('curls quotes that wrap an emphasis span', async () => {
-    expect((await renderMarkdown('"**hello**"')).html).toBe(
-      '<p>\u201c<strong>hello</strong>\u201d</p>\n'
-    )
-  })
-
-  it('curls quotes that wrap an inline code span', async () => {
-    expect((await renderMarkdown('"`code`"')).html).toBe(
-      '<p>\u201c<code>code</code>\u201d</p>\n'
-    )
-  })
-
-  it('leaves code spans alone', async () => {
+  it('leaves code spans, fences and raw <code> alone', async () => {
     expect((await renderMarkdown('`x -- y "q"`')).html).toBe(
       '<p><code>x -- y "q"</code></p>\n'
     )
-  })
-
-  it('leaves fenced code alone', async () => {
     expect((await renderMarkdown('```\nx -- y "q"\n```')).html).toBe(
       '<pre><code>x -- y "q"\n</code></pre>\n'
     )
-  })
-
-  it('leaves raw <code> content alone', async () => {
     expect((await renderMarkdown('<code>x -- y "q"</code>')).html).toBe(
       '<p><code>x -- y "q"</code></p>\n'
     )

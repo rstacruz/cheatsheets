@@ -69,8 +69,8 @@ intro: |
   - $.fn.position
   - $.fn.scrollLeft
   - $.fn.scrollTop
-  - $.fn.css(‘...’)
-  - $.fn.text(‘...’)
+  - $.fn.css('...')
+  - $.fn.text('...')
   - $(':hidden')
   - $(':contains')
 {: .-six-column}

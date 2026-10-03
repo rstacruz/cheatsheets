@@ -141,22 +141,22 @@ grep [options] [pattern] [file ...]
 |---|---|
 | `-A num` | Print `num` lines of training context |
 |----
-| `-G` | –basic-regexp (default) |
-| `-E` | –extended-regexp |
-| `-P` | –perl-regexp |
+| `-G` | --basic-regexp (default) |
+| `-E` | --extended-regexp |
+| `-P` | --perl-regexp |
 |----
-| `-f file` | –file (Get patterns for file) |
-| `-F` | –fixed-strings |
+| `-f file` | --file (Get patterns for file) |
+| `-F` | --fixed-strings |
 |----
-| `-h` | –no-filename |
-| `-H` | –with-filename |
+| `-h` | --no-filename |
+| `-H` | --with-filename |
 |----
-| `-l` | –files-with-matches (just print filenames) |
-| `-L` | –files-without-match |
+| `-l` | --files-with-matches (just print filenames) |
+| `-L` | --files-without-match |
 |----
-| `-r, -R` | –recursive |
-| `-v` | –invert-match |
-| `-i` | –ignore-case |
+| `-r, -R` | --recursive |
+| `-v` | --invert-match |
+| `-i` | --ignore-case |
 
 ### Synonyms
 

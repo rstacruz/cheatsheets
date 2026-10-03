@@ -108,9 +108,9 @@ title : My picture
 
 #### Explanation
 
-- `r1` – Right align with 1 space
-- `c1` – Center align the comma with 1 space
-- `l0` – Left align with 0 spaces
+- `r1` -- Right align with 1 space
+- `c1` -- Center align the comma with 1 space
+- `l0` -- Left align with 0 spaces
 
 ### Regexp
 

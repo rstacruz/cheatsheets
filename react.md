@@ -23,11 +23,15 @@ intro: |
 ## Quick start
 {: .-two-column}
 
-### Create a root
+### Installing React
 
 ```sh
-npm install react react-dom   # add @types/react, @types/react-dom for TypeScript
+npm install react react-dom
 ```
+
+TypeScript projects also need `@types/react` and `@types/react-dom`.
+
+### Create a root
 
 ```jsx
 import { createRoot } from 'react-dom/client'
@@ -52,9 +56,14 @@ Double-invokes renders and effects in development to surface impure logic; no ef
 
 ```jsx
 function Hello({ name }) {
-  return <h1 className="greeting">Hello {name}</h1>
+  return (
+    <h1 className="greeting">
+      Hello {name}
+    </h1>
+  )
 }
 ```
+{: data-line="3,4,5"}
 
 Capitalised functions that return JSX. See: [Your first component](https://react.dev/learn/your-first-component)
 
@@ -64,10 +73,17 @@ Capitalised functions that return JSX. See: [Your first component](https://react
 <label htmlFor="name">Name</label>
 <p style={{ color: 'red' }}>{2 + 2}</p>
 <>
-  {isLoggedIn ? <AdminPanel /> : <LoginButton />}
-  {unread > 0 && <Badge count={unread} />}
+  {isLoggedIn ? (
+    <AdminPanel />
+  ) : (
+    <LoginButton />
+  )}
+  {unread > 0 && (
+    <Badge count={unread} />
+  )}
 </>
 ```
+{: data-line="4,5,6,7,8"}
 
 `{}` embeds expressions, attributes are camelCase and `<>…</>` is a fragment; `null` and booleans render nothing. See: [Writing markup with JSX](https://react.dev/learn/writing-markup-with-jsx)
 
@@ -75,17 +91,31 @@ Capitalised functions that return JSX. See: [Your first component](https://react
 
 ```jsx
 function Avatar({ src, alt, size = 64 }) {
-  return <img src={src} alt={alt} width={size} height={size} />
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+    />
+  )
 }
-<Avatar src="/me.png" alt="Me" size={128} />
+<Avatar
+  src="/me.png"
+  alt="Me"
+  size={128}
+/>
 ```
+{: data-line="1"}
 
 Defaults come from parameters (v19 removed `defaultProps`); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)
 
 ### Lists and keys
 
 ```jsx
-{items.map(item => <li key={item.id}>{item.name}</li>)}
+{items.map(item => (
+  <li key={item.id}>{item.name}</li>
+))}
 ```
 
 Keys must be stable and unique among siblings. See: [Rendering lists](https://react.dev/learn/rendering-lists)
@@ -93,10 +123,22 @@ Keys must be stable and unique among siblings. See: [Rendering lists](https://re
 ### Events
 
 ```jsx
-<button onClick={handleClick}>Save</button>
-<button onClick={() => remove(id)}>Delete</button>
-<form onSubmit={e => { e.preventDefault(); save() }}>…</form>
+<button onClick={handleClick}>
+  Save
+</button>
+<button onClick={() => remove(id)}>
+  Delete
+</button>
+<form
+  onSubmit={e => {
+    e.preventDefault()
+    save()
+  }}
+>
+  …
+</form>
 ```
+{: data-line="4,9"}
 
 Pass the handler, not a call, and wrap arguments in an arrow; call `e.preventDefault()` to stop browser defaults. See: [Responding to events](https://react.dev/learn/responding-to-events)
 
@@ -143,22 +185,31 @@ Move shared state to the closest common parent and pass value + setter down. See
 
 ```jsx
 function reducer(state, action) {
-  return action.type === 'increment' ? { count: state.count + 1 } : state
+  if (action.type === 'increment') {
+    return { count: state.count + 1 }
+  }
+  return state
 }
 const [state, dispatch] = useReducer(reducer, { count: 0 })
 dispatch({ type: 'increment' })
 ```
+{: data-line="7"}
 
 Prefer a reducer when updates are complex or depend on several values. See: [useReducer](https://react.dev/reference/react/useReducer)
 
 ### Actions (v19)
 
 ```jsx
-const [error, submitAction, isPending] = useActionState(async (prev, formData) => {
-  return (await updateName(formData.get('name'))) ?? null
-}, null)
-<form action={submitAction}><input name="name" /><button disabled={isPending}>Update</button></form>
+const [error, submitAction, isPending] =
+  useActionState(async (prev, formData) => {
+    return (await updateName(formData.get('name'))) ?? null
+  }, null)
+<form action={submitAction}>
+  <input name="name" />
+  <button disabled={isPending}>Update</button>
+</form>
 ```
+{: data-line="1,2,3,4"}
 
 Actions are async functions in `action` props; `useOptimistic` shows an immediate value while the request runs. See: [useActionState](https://react.dev/reference/react/useActionState)
 
@@ -171,9 +222,10 @@ Actions are async functions in `action` props; `useOptimistic` shows an immediat
 useEffect(() => {
   const connection = createConnection(roomId)
   connection.connect()
-  return () => connection.disconnect()   // cleanup
-}, [roomId])                             // re-runs when roomId changes
+  return () => connection.disconnect()  // cleanup
+}, [roomId])  // re-runs when roomId changes
 ```
+{: data-line="4"}
 
 ```jsx
 useEffect(() => {
@@ -196,13 +248,16 @@ useEffect(() => {
   return () => controller.abort()
 }, [id])
 ```
+{: data-line="7"}
 
 Abort in the cleanup to drop stale responses, ignoring the expected `AbortError`. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
 
 ### useEffectEvent (v19.2+)
 
 ```jsx
-const onConnected = useEffectEvent(() => showNotification('Connected!', theme))
+const onConnected = useEffectEvent(() => {
+  showNotification('Connected!', theme)
+})
 useEffect(() => {
   const connection = createConnection(roomId)
   connection.on('connected', onConnected)
@@ -210,15 +265,22 @@ useEffect(() => {
   return () => connection.disconnect()
 }, [roomId])
 ```
+{: data-line="1,2,3"}
 
 Reads the latest props and state without re-running the effect, so it stays out of the deps. See: [useEffectEvent](https://react.dev/reference/react/useEffectEvent)
 
 ### You might not need an effect
 
 ```jsx
-const fullName = first + ' ' + last                    // prefer: derive during render
-useEffect(() => setFullName(first + ' ' + last))       // avoid: derived state in an effect
+// prefer: derive during render
+const fullName = first + ' ' + last
+
+// avoid: derived state in an effect
+useEffect(() => {
+  setFullName(first + ' ' + last)
+})
 ```
+{: data-line="5,6,7"}
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
@@ -248,7 +310,9 @@ v19 passes `ref` as a normal prop; v18 uses `forwardRef`, no longer necessary in
 ### useImperativeHandle
 
 ```jsx
-useImperativeHandle(ref, () => ({ play: () => videoRef.current.play() }), [])
+useImperativeHandle(ref, () => ({
+  play: () => videoRef.current.play()
+}), [])
 ```
 
 Exposes a custom imperative API instead of the DOM node; rarely needed. See: [useImperativeHandle](https://react.dev/reference/react/useImperativeHandle)
@@ -280,6 +344,7 @@ function Toolbar() {
   return <button className={theme}>Hi</button>
 }
 ```
+{: data-line="5"}
 
 ```jsx
 <ThemeContext value="dark">…</ThemeContext>                     // v19
@@ -293,6 +358,7 @@ function useTheme() {
   return value
 }
 ```
+{: data-line="3"}
 
 Context passes data down without prop drilling and v19 renders `<Context>` itself as the provider; wrapping `useContext` names the value and fails loudly outside a provider. See: [useContext](https://react.dev/reference/react/useContext) · [createContext](https://react.dev/reference/react/createContext)
 
@@ -319,6 +385,7 @@ function useOnlineStatus() {
   return isOnline
 }
 ```
+{: data-line="8,9,10,11"}
 
 A custom hook is just a function that calls other hooks. See: [Custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks)
 
@@ -338,10 +405,13 @@ const id = useId()
 ### memo, useMemo and useCallback
 
 ```jsx
-const Row = memo(function Row({ item }) { return <li>{item.name}</li> })
+const Row = memo(function Row({ item }) {
+  return <li>{item.name}</li>
+})
 const visible = useMemo(() => filter(items, query), [items, query])
 const onSelect = useCallback(id => setSelected(id), [])
 ```
+{: data-line="1,4"}
 
 Cache components and values only when measurement shows a need — the React Compiler, once configured in your build, auto-memoises and removes most manual calls. See: [memo](https://react.dev/reference/react/memo)
 
@@ -361,8 +431,13 @@ const deferredQuery = useDeferredValue(query)
 ### useSyncExternalStore
 
 ```jsx
-const isOnline = useSyncExternalStore(subscribe, () => navigator.onLine, () => true)
+const isOnline = useSyncExternalStore(
+  subscribe,
+  () => navigator.onLine,
+  () => true
+)
 ```
+{: data-line="4"}
 
 Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 
@@ -395,9 +470,17 @@ Reads a promise or context during render and suspends; unlike hooks it may be co
 ### Client rendering
 
 ```jsx
-createRoot(document.getElementById('root')).render(<App />)   // fresh DOM
-hydrateRoot(document.getElementById('root'), <App />)         // server HTML
+// fresh DOM
+createRoot(document.getElementById('root'))
+  .render(<App />)
+
+// server HTML
+hydrateRoot(
+  document.getElementById('root'),
+  <App />
+)
 ```
+{: data-line="6,7,8,9"}
 
 Hydration markup must match the client render. See: [Client APIs](https://react.dev/reference/react-dom/client)
 
@@ -418,18 +501,31 @@ const html = renderToString(<App />)  // synchronous, blocks
 ```jsx
 class ErrorBoundary extends Component {
   state = { error: null }
-  static getDerivedStateFromError(error) { return { error } }
-  componentDidCatch(error, info) { logError(error, info) }
-  render() { return this.state.error ? <h1>Something went wrong.</h1> : this.props.children }
+
+  static getDerivedStateFromError(error) {
+    return { error }
+  }
+
+  componentDidCatch(error, info) {
+    logError(error, info)
+  }
+
+  render() {
+    if (this.state.error) {
+      return <h1>Something went wrong.</h1>
+    }
+    return this.props.children
+  }
 }
 ```
+{: data-line="4,5,6"}
 
 Still the only built-in way to catch render errors, and still a class; [react-error-boundary](https://github.com/bvaughn/react-error-boundary) wraps it with a hooks-friendly API. See: [Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 
 ## Legacy APIs
 {: .-two-column}
 
-### Migration table
+### Rendering and lifecycle
 
 | Legacy | Modern |
 | --- | --- |
@@ -437,14 +533,26 @@ Still the only built-in way to catch render errors, and still a class; [react-er
 | `ReactDOM.hydrate(el, node)` | `hydrateRoot(node, el)` |
 | `componentDidMount` / `componentDidUpdate` | `useEffect` |
 | `componentWillUnmount` | effect cleanup |
-| String refs `ref="input"` | ref callback or `useRef` |
+| Class components | function components |
+
+### Components and props
+
+| Legacy | Modern |
+| --- | --- |
 | `defaultProps` (function components) | default parameter values |
 | `propTypes` | TypeScript |
-| `forwardRef` (v18) | `ref` as a prop (v19) |
-| `<Context.Provider value>` (v18) | `<Context value>` (v19) |
-| Legacy context (`getChildContext`) | `createContext` |
-| Class components | function components |
 | `React.createElement` | JSX |
+
+### Refs and context
+
+| Legacy | Modern |
+| --- | --- |
+| String refs `ref="input"` | ref callback or `useRef` |
+| `forwardRef` (v18) | `ref` as a prop (v19) |
+| Legacy context (`getChildContext`) | `createContext` |
+| `<Context.Provider value>` (v18) | `<Context value>` (v19) |
+
+### Further reading
 
 See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work and are required only for error boundaries; see the [React v16 cheatsheet](react@16) for the class-era API.
 

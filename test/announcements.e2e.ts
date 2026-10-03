@@ -29,13 +29,20 @@ test('forces the announcement to show', async ({ page }) => {
 })
 
 test('persists the dismissal', async ({ page }) => {
+  await page.addInitScript(() => {
+    const v = new URLSearchParams(location.search).get('__random')
+    if (v !== null) Math.random = () => Number(v)
+  })
+
   await page.goto('/?announcement=1')
   await expect(page.locator(item)).toHaveCount(1)
 
   await page.locator('[data-js-dismiss]').click()
   await expect(page.locator(item)).toHaveCount(0)
+  expect(await storedDecision(page)).toBe(true)
 
-  await page.goto('/')
+  // `__random=0` would roll it in if the dismissal weren't stored
+  await page.goto('/?__random=0')
   await expect(page.locator(item)).toHaveCount(0)
 })
 

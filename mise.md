@@ -319,6 +319,8 @@ See: [mise.toml](https://mise.jdx.dev/configuration.html#mise-toml)
 
 ```bash
 mise settings add idiomatic_version_file_enable_tools node
+mise settings add idiomatic_version_file_enable_tools python
+mise settings add idiomatic_version_file_enable_tools ruby
 ```
 
 `.nvmrc`, `.python-version`, and `.ruby-version` are ignored until their tool

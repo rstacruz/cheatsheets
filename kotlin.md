@@ -25,7 +25,7 @@ val inferredString = "Adam"
 val name = "Adam"
 val greeting = "Hello, " + name
 val greetingTemplate = "Hello, $name"
-val interpolated = "Hello, ${name.toUpperCase()}"
+val interpolated = "Hello, ${name.uppercase()}"
 ```
 
 ### Numbers
@@ -323,8 +323,8 @@ if (someBoolean) {
 ### For Loops
 
 ```kotlin
-for (i in 0..10) { } // 1 - 10
-for (i in 0 until 10) // 1 - 9
+for (i in 0..10) { } // 0 - 10
+for (i in 0 until 10) // 0 - 9
 (0..10).forEach { }
 for (i in 0 until 10 step 2) // 0, 2, 4, 6, 8
 ```

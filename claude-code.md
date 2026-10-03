@@ -16,6 +16,14 @@ intro: |
 ## Getting started
 {: .-two-column}
 
+### Introduction
+{: .-intro}
+
+[Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+
+- [Claude Code documentation](https://code.claude.com/docs) _(code.claude.com)_
+- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
+
 ### Install
 
 ```bash
@@ -212,8 +220,7 @@ cat build.log | claude -p "explain this failure"
 ## Also see
 {: .-one-column}
 
-- [Claude Code documentation](https://code.claude.com/docs) _(code.claude.com)_
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_
 - [Interactive mode](https://code.claude.com/docs/en/interactive-mode) _(code.claude.com)_
-- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
+- [Changelog](https://code.claude.com/docs/en/changelog) _(code.claude.com)_

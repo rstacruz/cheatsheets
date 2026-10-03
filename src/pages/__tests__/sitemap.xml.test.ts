@@ -25,3 +25,9 @@ test('skip hidden sheets', async () => {
     '<url><loc>https://devhints.io/absinthe</loc></url>'
   )
 })
+
+test('skip deprecated sheets', async () => {
+  expect(lines).not.toContain(
+    '<url><loc>https://devhints.io/react@16</loc></url>'
+  )
+})

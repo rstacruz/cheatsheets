@@ -1,5 +1,10 @@
 import { mapGlobToPages } from '../page'
-import { getArchivedPages, getRelatedPages, getTopPages } from './queries'
+import {
+  getArchivedPages,
+  getPagesByCategory,
+  getRelatedPages,
+  getTopPages
+} from './queries'
 
 const pages = mapGlobToPages({
   alpha: ['---', 'category: Test', 'weight: -1', '---', 'a'].join('\n'),
@@ -38,6 +43,16 @@ test('top pages skip deprecated sheets', () => {
   expect(slugs).not.toContain('gamma')
 })
 
+test('category listings skip deprecated sheets', () => {
+  const slugs = getPagesByCategory(pages)['Others'].pages.map(
+    (page) => page.slug
+  )
+
+  expect(slugs).toContain('alpha')
+  expect(slugs).not.toContain('beta')
+  expect(slugs).not.toContain('gamma')
+})
+
 const archivePages = mapGlobToPages({
   absinthe: ['---', 'title: absinthe', 'category: Hidden', '---', 'a'].join(
     '\n'
@@ -62,14 +77,22 @@ const archivePages = mapGlobToPages({
     '---',
     ''
   ].join('\n'),
+  legacy: [
+    '---',
+    'title: Legacy',
+    'category: JavaScript',
+    'deprecated: true',
+    '---',
+    'l'
+  ].join('\n'),
   react: ['---', 'title: React', 'category: JavaScript', '---', 'r'].join('\n')
 })
 
-test('archive pages are hidden sheets sorted by title, case-insensitively', () => {
+test('archive pages are hidden or deprecated sheets sorted by title, case-insensitively', () => {
   const slugs = getArchivedPages(archivePages).map((page) => page.slug)
 
   // naive sort would put 'Zeta' first (Z < a); lowercased sort puts absinthe first.
-  expect(slugs).toEqual(['absinthe', 'Zeta'])
+  expect(slugs).toEqual(['absinthe', 'legacy', 'Zeta'])
 })
 
 test('archive pages skip listed sheets, test fixtures, and redirect stubs', () => {

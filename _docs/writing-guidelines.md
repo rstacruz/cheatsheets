@@ -155,13 +155,14 @@ H3 content length:
 ## Deprecated sheets
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
-- Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
+- Set `deprecated: true` to show a deprecation notice and unlist the sheet, exactly like `category: Hidden`.
 - Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
 
 ## Hidden sheets
 
 - Set `category: Hidden` to keep a sheet off the homepage, the sitemap, and the related and top lists.
 - Hidden sheets stay reachable at their URL and are listed on the [archive page](https://devhints.io/archive), so retire a sheet by hiding it rather than deleting it.
+- Deprecated sheets are unlisted the same way and share the archive page.
 - Sheets under `tests/` and redirect stubs are left out of the archive page.
 
 ## Redirect stubs

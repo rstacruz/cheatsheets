@@ -16,11 +16,13 @@ export function hasTag(page: SheetPage, tagName: string): boolean {
 }
 
 /**
- * Checks if something should appear on the homepage
+ * Checks if something should appear in listings: the homepage, the sitemap,
+ * and the related and top lists. Hidden and deprecated sheets are not listed;
+ * the archive page carries them instead.
  */
 
 export function isListed(page: SheetPage): boolean {
-  return page.frontmatter.category !== 'Hidden'
+  return page.frontmatter.category !== 'Hidden' && !isDeprecated(page)
 }
 
 /**

@@ -1,12 +1,6 @@
 import { categories } from '../../config'
 import type { SheetPage } from '../page'
-import {
-  hasTag,
-  isDeprecated,
-  isListed,
-  isRedirect,
-  isTestFixture
-} from './accessors'
+import { hasTag, isListed, isRedirect, isTestFixture } from './accessors'
 
 export type Category = {
   pages: SheetPage[]
@@ -83,10 +77,7 @@ export function getTopPages(
   const { maxCount = 6 } = options ?? {}
 
   return Object.values(pages)
-    .filter(
-      (page) =>
-        isListed(page) && !isDeprecated(page) && 'weight' in page.frontmatter
-    )
+    .filter((page) => isListed(page) && 'weight' in page.frontmatter)
     .filter((page) => page.slug !== referencePage.slug)
     .sort(compare('asc', (page: SheetPage) => page.slug ?? ''))
     .sort(compare('asc', (page: SheetPage) => page.frontmatter.weight ?? 0))
@@ -106,12 +97,7 @@ export function getRelatedPages(
   const category = referencePage.frontmatter.category
 
   return Object.values(pages)
-    .filter(
-      (page) =>
-        isListed(page) &&
-        !isDeprecated(page) &&
-        page.frontmatter.category === category
-    )
+    .filter((page) => isListed(page) && page.frontmatter.category === category)
     .filter((page) => page.slug !== referencePage.slug)
     .sort(compare('asc', (page: SheetPage) => page.slug ?? ''))
     .sort(compare('asc', (page: SheetPage) => page.frontmatter.weight ?? 0))
@@ -119,7 +105,7 @@ export function getRelatedPages(
 }
 
 /**
- * Returns hidden sheets for the archive page, sorted by title.
+ * Returns archived sheets — hidden or deprecated — sorted by title.
  * Excludes test fixtures and redirect stubs.
  */
 

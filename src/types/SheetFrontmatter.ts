@@ -25,7 +25,9 @@ export const SheetFrontmatterSchema = z.object({
   deprecated: z
     .boolean()
     .optional()
-    .describe('Show a deprecation notice and hide from related posts'),
+    .describe(
+      'Show a deprecation notice and unlist the sheet, like `category: Hidden`'
+    ),
   deprecated_by: z
     .string()
     .optional()

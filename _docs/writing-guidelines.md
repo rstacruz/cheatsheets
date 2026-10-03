@@ -159,7 +159,7 @@ H3 content length:
 
 ## Syntax highlighting
 
-Ensure syntax highlighting language are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
+Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
 
 ## SEO descriptions
 

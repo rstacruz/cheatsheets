@@ -158,6 +158,16 @@ H3 content length:
 - Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
 - Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
 
+## Hidden sheets
+
+- Set `category: Hidden` to keep a sheet off the homepage, the sitemap, and the related and top lists.
+- Hidden sheets stay reachable at their URL and are listed on the [archive page](/archive), so retire a sheet by hiding it rather than deleting it.
+- Sheets under `tests/` and redirect stubs are left out of the archive page.
+
+## Redirect stubs
+
+`redirect_to` on a legacy sheet is only a stub marker; it does nothing at build time. Real redirects live in `public/_redirects`.
+
 ## Syntax highlighting
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).

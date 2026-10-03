@@ -4,7 +4,6 @@ category: Vim
 prism_languages: [vim]
 updated: 2020-07-05
 weight: -10
-tags: [Featurable]
 ---
 
 ### Start hacking

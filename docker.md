@@ -1,6 +1,7 @@
 ---
 title: Docker CLI
 category: Devops
+tags: [Featured]
 ---
 
 Manage images

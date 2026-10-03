@@ -2,7 +2,6 @@
 title: Enzyme
 category: React
 updated: 2020-02-12
-tags: [Featured]
 weight: -1
 keywords:
   - shallow()

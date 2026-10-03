@@ -4,7 +4,6 @@ category: CSS
 prism_languages: [stylus]
 weight: -3
 updated: 2017-10-30
-tags: [Featurable]
 ---
 
 Getting started

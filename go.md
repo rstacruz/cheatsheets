@@ -2,7 +2,6 @@
 title: Go
 prism_languages: [go, bash]
 weight: -3
-tags: [Featured]
 category: C-like
 updated: 2020-06-21
 ---

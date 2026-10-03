@@ -231,6 +231,8 @@ true                       # bool
 null                       # absence of a value
 ```
 
+See: [Types and values](https://developer.hashicorp.com/terraform/language/expressions/types)
+
 ### String templates
 
 ```hcl
@@ -244,6 +246,8 @@ EOT
 message = "Enabled: %{if var.enabled}yes%{else}no%{endif}"
 ```
 
+See: [Strings and templates](https://developer.hashicorp.com/terraform/language/expressions/strings)
+
 ### Conditionals
 
 ```hcl
@@ -251,6 +255,8 @@ instance_type = var.environment == "prod" ? "t3.large" : "t3.micro"
 ```
 
 Both result values must have compatible types.
+
+See: [Conditional expressions](https://developer.hashicorp.com/terraform/language/expressions/conditionals)
 
 ### For expressions
 
@@ -264,6 +270,8 @@ Both result values must have compatible types.
 }
 ```
 
+See: [For expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
+
 ### Splat expressions
 
 ```hcl
@@ -272,6 +280,8 @@ aws_instance.web[*].private_ip
 ```
 
 Splat syntax works with lists, sets, and tuples.
+
+See: [Splat expressions](https://developer.hashicorp.com/terraform/language/expressions/splat)
 
 ### Common functions
 
@@ -306,6 +316,8 @@ resource "aws_instance" "web" {
 
 Use `count` for nearly identical instances indexed by number.
 
+See: [count meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/count)
+
 ### `for_each`
 
 ```hcl
@@ -320,6 +332,8 @@ resource "aws_s3_bucket" "logs" {
 
 Use `for_each` when instances need stable keys.
 
+See: [for_each meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
 ### Explicit dependencies
 
 ```hcl
@@ -330,6 +344,8 @@ resource "aws_instance" "app" {
 ```
 
 Use `depends_on` only for dependencies Terraform cannot infer.
+
+See: [depends_on meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
 
 ### Lifecycle rules
 
@@ -364,6 +380,8 @@ module "network" {
 # Reference: module.network.vpc_id
 ```
 
+See: [Module blocks](https://developer.hashicorp.com/terraform/language/block/module)
+
 ### Registry module
 
 ```hcl
@@ -377,6 +395,8 @@ module "vpc" {
 ```
 
 Pin registry module versions and run `terraform init` after changing sources.
+
+See: [Using modules](https://developer.hashicorp.com/terraform/registry/modules/use)
 
 ### Module structure
 
@@ -410,6 +430,8 @@ terraform output
 
 State can contain secrets; store remote state securely and restrict access.
 
+See: [state list](https://developer.hashicorp.com/terraform/cli/commands/state/list)
+
 ### Move or remove addresses
 
 ```bash
@@ -431,6 +453,8 @@ removed {
 }
 ```
 
+See: [Refactoring](https://developer.hashicorp.com/terraform/language/modules/develop/refactoring)
+
 ### Import existing resources
 
 ```hcl
@@ -449,6 +473,8 @@ terraform import aws_instance.web i-0123456789abcdef0
 ```
 
 Import associates an existing object with one Terraform resource address.
+
+See: [Import](https://developer.hashicorp.com/terraform/language/import)
 
 ### Workspaces
 
@@ -476,6 +502,8 @@ terraform console
 "10.0.2.0/24"
 ```
 
+See: [terraform console](https://developer.hashicorp.com/terraform/cli/commands/console)
+
 ### Logging
 
 ```bash
@@ -484,6 +512,8 @@ TF_LOG=TRACE TF_LOG_PATH=terraform.log terraform apply
 ```
 
 Logs may contain sensitive values.
+
+See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging)
 
 ### CI checks
 
@@ -494,6 +524,8 @@ terraform validate
 terraform plan -input=false -no-color -detailed-exitcode
 ```
 
+See: [Automation](https://developer.hashicorp.com/terraform/tutorials/automation)
+
 ### Targeting
 
 ```bash
@@ -503,7 +535,7 @@ terraform apply -replace=aws_instance.web
 
 Use `-target` only for exceptional recovery, not routine workflows.
 
-See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging), [Automation](https://developer.hashicorp.com/terraform/cli/automation)
+See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging), [Automation](https://developer.hashicorp.com/terraform/tutorials/automation)
 
 ## Also see
 

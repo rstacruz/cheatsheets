@@ -154,10 +154,7 @@ H3 content length:
 
 ## H4 sub-headings
 
-Use H4s to split an H3 into labelled segments.
-
-- **Segment labels** — variants of a concept ("As UTC time"), topics ("Sessions"), or reference groups ("All options")
-- **Filename markers** — one block per file (see H3 writing guidelines)
+Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options"). For filenames, see H3 writing guidelines.
 
 Example:
 
@@ -177,14 +174,13 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 ```
 ````
 
-- Name the segment, not the position: "Custom timezone", not "Example 2"
-- Sentence case, keep labels short (1-4 words)
-- Prefer 2-4 segments per H3; beyond that, consider promoting them to H3s
-- A variant segment gets one code block; topic and reference segments may hold several blocks or a table
+- Keep labels short (1-4 words)
+- Prefer 2-4 segments per H3; more suggests H3s
+- Variant segments get one code block; topic and reference segments may hold several blocks or a table
 - Single-line variants of the same construct stay in one block with inline comments
-- If the segments share context (sample data, locale), add one lead-in sentence after the H3
-- Doc links stay at the end of the H3, after the last segment; give a segment its own `See:` only when it has a different doc page
-- H4s are scan aids inside the H3, not sections: page layout and navigation only account for H2s and H3s
+- If segments share context (sample data, locale), add one lead-in sentence after the H3
+- A segment gets its own `See:` only when it has a different doc page
+- H4s are scan aids, not sections: layout and navigation only account for H2s and H3s
 
 ## Deprecated sheets
 

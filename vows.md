@@ -1,6 +1,7 @@
 ---
 title: Vows
-category: JavaScript libraries
+category: Hidden
+# Unmaintained; final release 0.8.3 (2019).
 ---
 
 ### About vows

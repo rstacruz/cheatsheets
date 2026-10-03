@@ -1,6 +1,7 @@
 ---
 title: Spine
-category: JavaScript libraries
+category: Hidden
+# No longer maintained; last release around 2014.
 tags: [Outdated]
 ---
 

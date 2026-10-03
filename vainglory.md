@@ -1,5 +1,7 @@
 ---
 title: Vainglory
+category: Hidden
+# Live service shut down in 2020; Community Edition development halted in 2020.
 ---
 
 ## T3 items by use

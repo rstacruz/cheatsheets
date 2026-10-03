@@ -1,6 +1,7 @@
 ---
 title: Q.js
-category: JavaScript libraries
+category: Hidden
+# Archived and deprecated in favour of native JavaScript Promises.
 ---
 
 ### About

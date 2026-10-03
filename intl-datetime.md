@@ -30,6 +30,8 @@ Note that JavaScript doesn't "store" timezones in a date object. All these date 
 
 ### Formatting dates
 
+The examples below use the UTC `date` from above, with the browser in America/Los_Angeles.
+
 #### Default formatting
 
 ```js
@@ -50,7 +52,7 @@ console.log(new Intl.DateTimeFormat('en-GB').format(date))
 console.log(new Intl.DateTimeFormat('en-AU', {
   timeZone: 'Australia/Sydney'
 }).format(date))
-// → '19/12/2012'
+// → '20/12/2012'
 ```
 
 ### Custom formats
@@ -63,7 +65,7 @@ console.log(new Intl.DateTimeFormat('default', {
   minute: 'numeric',
   second: 'numeric'
 }).format(date))
-// → '2:00:00 pm'
+// → '7:00:00 PM'
 ```
 
 #### Date

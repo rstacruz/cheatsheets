@@ -28,7 +28,8 @@ intro: |
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash  # native install
-brew install --cask claude-code                 # Homebrew (macOS, Linux)
+brew install --cask claude-code                 # Homebrew (macOS)
+mise use -g claude                              # mise.jdx.dev
 npm install -g @anthropic-ai/claude-code        # npm (deprecated)
 ```
 

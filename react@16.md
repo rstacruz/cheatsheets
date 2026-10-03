@@ -4,7 +4,7 @@ category: React
 deprecated: true
 deprecated_by: /react
 intro: |
-  **Deprecated:** this guide targets React v15 to v16 (class components and legacy APIs). See the [updated React cheatsheet](/react) for React v18 to v19.
+  This guide targets React v15 to v16 (class components and legacy APIs). See the [updated React cheatsheet](/react) for React v18 to v19.
 ---
 
 {%raw%}

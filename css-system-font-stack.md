@@ -2,7 +2,6 @@
 title: "CSS system fonts"
 category: CSS
 weight: -3
-tags: [Featurable]
 ---
 
 ### System fonts

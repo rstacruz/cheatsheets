@@ -3,7 +3,6 @@ title: Flow
 category: JavaScript libraries
 updated: 2020-07-05
 weight: -3
-tags: [Featurable]
 ---
 
 ## Getting started

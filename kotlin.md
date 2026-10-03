@@ -370,7 +370,7 @@ class Logger(val tag: String) {
 val log = Logger.create("app")
 ```
 
-`Logger.create()` is called on the class, like a static factory method in Java. Add `@JvmStatic` so Java can call it as `Logger.create()`.
+`Logger.create()` is called on the class, like a static factory method in Java. Add `@JvmStatic` so Java can call it as `Logger.create("app")`.
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 

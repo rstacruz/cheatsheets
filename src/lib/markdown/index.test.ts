@@ -375,6 +375,18 @@ describe('typography', () => {
     )
   })
 
+  it('curls quotes that wrap an emphasis span', async () => {
+    expect((await renderMarkdown('"**hello**"')).html).toBe(
+      '<p>\u201c<strong>hello</strong>\u201d</p>\n'
+    )
+  })
+
+  it('curls quotes that wrap an inline code span', async () => {
+    expect((await renderMarkdown('"`code`"')).html).toBe(
+      '<p>\u201c<code>code</code>\u201d</p>\n'
+    )
+  })
+
   it('leaves code spans alone', async () => {
     expect((await renderMarkdown('`x -- y "q"`')).html).toBe(
       '<p><code>x -- y "q"</code></p>\n'
@@ -399,6 +411,11 @@ describe('IAL shims', () => {
     expect(dropUnterminatedIALs('```\nx\n```\n{: .-shortcuts')).toBe(
       '```\nx\n```\n\\{: .-shortcuts'
     )
+  })
+
+  it('keeps a shorter inner fence inside a longer code fence', () => {
+    const input = ['````', '```', '{: .-shortcuts', '````'].join('\n')
+    expect(dropUnterminatedIALs(input)).toBe(input)
   })
 
   it('keeps ids and key-value attrs when swallowing (kramdown quirk)', () => {

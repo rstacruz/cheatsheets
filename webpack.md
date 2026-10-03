@@ -27,6 +27,8 @@ module.exports = {
 npm install --save-dev webpack
 ```
 
+| Command | Description |
+| --- | --- |
 | `webpack` | build
 | `webpack -- -p` | build production
 | `webpack -- --watch` | compile continuously

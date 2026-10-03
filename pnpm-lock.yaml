@@ -32,6 +32,9 @@ dependencies:
   '@types/mapbox__rehype-prism':
     specifier: ^0.8.1
     version: 0.8.3
+  '@types/mdast':
+    specifier: ^4.0.4
+    version: 4.0.4
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.2.0
     version: 7.2.0(@typescript-eslint/parser@7.2.0)(eslint@8.57.0)(typescript@5.8.3)
@@ -145,9 +148,6 @@ devDependencies:
   '@types/hast':
     specifier: ^3.0.4
     version: 3.0.4
-  '@types/mdast':
-    specifier: ^4.0.4
-    version: 4.0.4
   '@types/unist':
     specifier: ^3.0.3
     version: 3.0.3

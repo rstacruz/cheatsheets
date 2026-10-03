@@ -28,6 +28,7 @@
     "@playwright/test": "^1.53.1",
     "@rstacruz/rehype-sectionize": "^0.7.0",
     "@types/mapbox__rehype-prism": "^0.8.1",
+    "@types/mdast": "^4.0.4",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "astro": "^4.0.3",

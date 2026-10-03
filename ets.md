@@ -31,6 +31,8 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 ```
 {: .-setup}
 
+| Flag | Description |
+| --- | --- |
 | `:set` | no duplicate keys (or: `:ordered_set`, `:bag`, `:duplicate_bag`) |
 | `:protected` | only this process can use it (or: `:public`, `:private`) |
 

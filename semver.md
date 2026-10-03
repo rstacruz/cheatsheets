@@ -9,6 +9,8 @@ weight: -3
 Given a version number `MAJOR.MINOR.PATCH`:
 {: .-setup}
 
+| Part | Description |
+| --- | --- |
 | `MAJOR` | incompatible API changes                 |
 | `MINOR` | add functionality (backwards-compatible) |
 | `PATCH` | bug fixes (backwards-compatible)         |
@@ -82,6 +84,8 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 
 ### Explanation
 
+| Range | Meaning |
+| --- | --- |
 | `^` | means "compatible with" |
 | `~` | means "reasonably close to" |
 | `0.x.x` | is for "initial development" |

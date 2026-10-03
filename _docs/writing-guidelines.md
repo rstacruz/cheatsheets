@@ -27,7 +27,7 @@ H3 content length:
   - `{: .-setup}` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
-  - `{: .-two-column}` - the default
+  - `{: .-two-column}` - the default (don't add this since it's the default)
 
 ## Code blocks
 
@@ -39,6 +39,7 @@ H3 content length:
 ## Writing guidelines
 
 - Aim for brevity
+- Paragraphs that follow a code block: 25 words max
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious

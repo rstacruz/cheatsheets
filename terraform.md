@@ -11,6 +11,14 @@ intro: |
 
 ## Getting started
 
+### Introduction
+{: .-intro}
+
+[Terraform](https://developer.hashicorp.com/terraform) is an infrastructure-as-code tool for building, changing, and versioning infrastructure safely and efficiently. This reference covers the CLI, configuration, state, and modules.
+
+- [Terraform documentation](https://developer.hashicorp.com/terraform/docs) _(developer.hashicorp.com)_
+- [Terraform Registry](https://registry.terraform.io/) _(registry.terraform.io)_
+
 ### Install
 
 ```bash

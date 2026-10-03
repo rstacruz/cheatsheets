@@ -207,6 +207,7 @@ const [error, submitAction, isPending] =
 <form action={submitAction}>
   <input name="name" />
   <button disabled={isPending}>Update</button>
+  {error && <p>{error}</p>}
 </form>
 ```
 {: data-line="1,2,3,4"}

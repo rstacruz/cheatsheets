@@ -1,6 +1,7 @@
 ---
 title: jscoverage
 category: Hidden
+# Discontinued after 0.6.0 (2015); replaced by istanbul/nyc.
 intro: |
   A small guide into installing [jscoverage](https://npmjs.com/package./jscoverage). Also see [mocha-blanket](./mocha-blanket).
 ---

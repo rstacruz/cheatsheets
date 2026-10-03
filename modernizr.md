@@ -1,6 +1,7 @@
 ---
 title: Modernizr
 category: Hidden
+# No longer in active development; the repo was archived in 2024.
 tags: [Archived]
 archived: Modernizr is no longer in active development.
 ---

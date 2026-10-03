@@ -1,6 +1,7 @@
 ---
 title: Underscore-string
 category: Hidden
+# Archived/unmaintained (last release 3.3.6, 2022); prefer native String methods.
 ---
 
 ### Usage

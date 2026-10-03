@@ -1,6 +1,7 @@
 ---
 title: js-model
 category: Hidden
+# Last shipped 0.11.0 (~2012); unmaintained for a decade.
 ---
 
 ### Example

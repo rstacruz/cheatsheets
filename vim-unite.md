@@ -1,6 +1,7 @@
 ---
 title: Vim-Unite
 category: Hidden
+# Deprecated by its author; superseded by denite.nvim and later ddu.vim.
 ---
 
 ### Usage

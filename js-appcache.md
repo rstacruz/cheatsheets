@@ -1,6 +1,7 @@
 ---
 title: applicationCache
 category: Hidden
+# window.applicationCache was removed from browsers; use Service Workers.
 ---
 
 ## Reference

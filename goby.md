@@ -4,6 +4,7 @@ prism_languages: [ruby]
 weight: -3
 updated: 2018-12-06
 category: Hidden
+# Development stopped; the goby-lang/goby repository was archived in July 2025.
 intro: |
   Goby's language design is based on Ruby language's, slim and shaped up. Differences in syntax between them is very small.
 ---

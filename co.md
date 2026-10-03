@@ -1,6 +1,7 @@
 ---
 title: co
 category: Hidden
+# Superseded by native async/await; last release 4.6.0 (2015).
 updated: 2017-10-27
 weight: -1
 intro: |

@@ -1,6 +1,7 @@
 ---
 title: Q.js
 category: Hidden
+# Archived and deprecated in favour of native JavaScript Promises.
 ---
 
 ### About

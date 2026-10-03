@@ -1,6 +1,7 @@
 ---
 title: Do gem
 category: Hidden
+# The Do gem was last released around 2012 and is unmaintained.
 ---
 
 ### About

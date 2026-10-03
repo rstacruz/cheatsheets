@@ -1,6 +1,7 @@
 ---
 title: Divshot
 category: Hidden
+# Divshot shut down in 2015.
 tags: [Archived]
 archived: Divshot is no longer in operation.
 ---

@@ -1,6 +1,7 @@
 ---
 title: Polyfill.io
 category: Hidden
+# The domain was hijacked and shut down in the June 2024 supply-chain attack.
 updated: 2024-06-26
 intro: |
   Polyfill.io is a service that serves JavaScript polyfills.

@@ -1,6 +1,7 @@
 ---
 title: Appcache
 category: Hidden
+# Application Cache was removed from browsers (Firefox 84 / Chrome 95).
 ---
 
 ### Format

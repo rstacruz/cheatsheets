@@ -1,6 +1,7 @@
 ---
 title: Browserify
 category: Hidden
+# No longer in active development; legacy transforms; superseded by modern bundlers.
 tags: [Archived]
 archived: Browserify has not been in active development.
 ---

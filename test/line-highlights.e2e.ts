@@ -30,7 +30,7 @@ test('line highlights align with the referenced lines', async ({ page }) => {
         (highlight) => {
           const box = highlight.getBoundingClientRect()
           return {
-            start: Number(highlight.dataset.start),
+            start: Number(highlight.getAttribute('data-start')),
             top: box.top - preBox.top,
             height: box.height
           }

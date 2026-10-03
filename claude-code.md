@@ -99,32 +99,47 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 {: .-shortcuts}
 
-### Slash commands
+## Slash commands
+{: .-two-column}
 
-| Command            | Description                        |
-| ------------------ | ---------------------------------- |
-| `/help`            | Show available commands            |
-| `/clear`           | Start a new conversation           |
-| `/compact`         | Summarize to free up context       |
-| `/context`         | Show context window usage          |
-| `/resume`          | Resume a previous conversation     |
-| `/rewind`          | Restore code and conversation      |
-| `/diff`            | Review working-tree changes        |
-| `/export`          | Export the conversation as text    |
-| `/status`          | Show version, model, and account   |
-| `/usage`           | Show cost and plan limits          |
-| `/init`            | Generate a starter CLAUDE.md       |
-| `/config`          | Open settings or set a value       |
-| `/model`           | Switch the AI model                |
-| `/effort`          | Set reasoning effort               |
-| `/permissions`     | Manage permission rules            |
-| `/memory`          | Edit memory files                  |
-| `/mcp`             | Manage MCP connections             |
-| `/login`           | Sign in to your account            |
-| `/logout`          | Sign out                           |
-| `/review`          | Review changes or a pull request   |
-| `/security-review` | Scan changes for vulnerabilities   |
-| `/doctor`          | Run a setup checkup                |
+### Session
+
+| Command      | Description                       |
+| ------------ | --------------------------------- |
+| `/help`      | Show available commands           |
+| `/clear`     | Start a new conversation          |
+| `/compact`   | Summarize to free up context      |
+| `/context`   | Show context window usage         |
+| `/resume`    | Resume a previous conversation    |
+| `/rewind`    | Restore code and conversation     |
+| `/export`    | Export the conversation as text   |
+| `/status`    | Show version, model, and account  |
+| `/usage`     | Show cost and plan limits         |
+{: .-shortcuts}
+
+### Setup
+
+| Command        | Description                       |
+| -------------- | --------------------------------- |
+| `/init`        | Generate a starter CLAUDE.md      |
+| `/config`      | Open settings or set a value      |
+| `/model`       | Switch the AI model               |
+| `/effort`      | Set reasoning effort              |
+| `/permissions` | Manage permission rules           |
+| `/memory`      | Edit memory files                 |
+| `/mcp`         | Manage MCP connections            |
+| `/login`       | Sign in to your account           |
+| `/logout`      | Sign out                          |
+| `/doctor`      | Run a setup checkup               |
+{: .-shortcuts}
+
+### Review
+
+| Command            | Description                       |
+| ------------------ | --------------------------------- |
+| `/diff`            | Review working-tree changes       |
+| `/review`          | Review changes or a pull request  |
+| `/security-review` | Scan changes for vulnerabilities  |
 {: .-shortcuts}
 
 ## Interactive mode

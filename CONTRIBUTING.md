@@ -6,7 +6,7 @@ Requires Node.js and pnpm.
 
 See `.node-version` for the supported Node.js version, and the `packageManager` field in `package.json` for the pnpm version.
 
-The site is built with [Astro](https://astro.build). Markdown is rendered in-process by a [unified](https://unifiedjs.com)/[remark](https://remark.js.org) pipeline (`src/lib/markdown.ts`), so no other runtime is needed.
+The site is built with [Astro](https://astro.build). Markdown is rendered in-process by a [unified](https://unifiedjs.com)/[remark](https://remark.js.org) pipeline (`src/lib/markdown/index.ts`), so no other runtime is needed.
 
 ## Starting a local instance
 

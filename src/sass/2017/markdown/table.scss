@@ -80,7 +80,17 @@
   color: $base-text;
 }
 
-.MarkdownBody table.-shortcuts {
+// -shortcuts-right tables keep content-sized columns (chips sit in the last column)
+.MarkdownBody table.-shortcuts:not(.-shortcuts-right) {
+  table-layout: fixed;
+
+  & td:first-child,
+  & th:first-child {
+    width: 35%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
   td:first-child > code {
     @include shortcut-span;
   }

@@ -49,14 +49,14 @@ See: [Installing mise](https://mise.jdx.dev/installing-mise.html)
 ### Activate
 
 ```bash
-# ~/.zshrc (bash: ~/.bashrc, fish: config.fish)
-eval "$(mise activate zsh)"
-eval "$(~/.local/bin/mise activate zsh)"   # if not on PATH
+eval "$(mise activate zsh)"                # ~/.zshrc
+eval "$(mise activate bash)"               # ~/.bashrc
+eval "$(~/.local/bin/mise activate bash)"  # if mise is not on PATH
 
 # fish
 mise activate fish | source
 ```
-{: data-line="2"}
+{: data-line="1,2"}
 
 Activation re-exports `PATH` and project env on every prompt.
 Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` —

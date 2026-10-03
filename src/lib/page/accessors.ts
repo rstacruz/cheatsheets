@@ -48,5 +48,5 @@ export function isTestFixture(page: SheetPage): boolean {
  */
 
 export function isRedirect(page: SheetPage): boolean {
-  return Boolean(page.frontmatter.redirect_to)
+  return page.frontmatter.redirect_to !== undefined
 }

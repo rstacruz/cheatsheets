@@ -54,6 +54,14 @@ const archivePages = mapGlobToPages({
     '---',
     ''
   ].join('\n'),
+  'empty-redirect': [
+    '---',
+    'title: Empty redirect',
+    'category: Hidden',
+    "redirect_to: ''",
+    '---',
+    ''
+  ].join('\n'),
   react: ['---', 'title: React', 'category: JavaScript', '---', 'r'].join('\n')
 })
 
@@ -70,4 +78,5 @@ test('archive pages skip listed sheets, test fixtures, and redirect stubs', () =
   expect(slugs).not.toContain('react')
   expect(slugs).not.toContain('tests/basic')
   expect(slugs).not.toContain('package')
+  expect(slugs).not.toContain('empty-redirect')
 })

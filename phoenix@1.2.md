@@ -3,6 +3,8 @@ title: Phoenix 1.2
 category: Elixir
 weight: -1
 updated: 2018-03-06
+deprecated: true
+deprecated_by: /phoenix
 ---
 
 See [Phoenix](./phoenix) for a more updated cheatsheet.

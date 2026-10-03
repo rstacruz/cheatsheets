@@ -22,6 +22,22 @@ test('frontmatter', () => {
   expect(typeof page.frontmatter.keywords).toEqual('object')
 })
 
+test('deprecated frontmatter', () => {
+  const result = mapGlobToPages({
+    old: [
+      '---',
+      'title: Old',
+      'deprecated: true',
+      'deprecated_by: /new',
+      '---',
+      '# hi'
+    ].join('\n')
+  })
+
+  expect(result.old.frontmatter.deprecated).toBe(true)
+  expect(result.old.frontmatter.deprecated_by).toBe('/new')
+})
+
 describe('mapGlobToPages()', () => {
   test('basic scenario', () => {
     const result = mapGlobToPages({

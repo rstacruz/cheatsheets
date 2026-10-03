@@ -1,8 +1,14 @@
 ---
+import cx from 'clsx'
 
+type Props = {
+  class?: string
+}
+
+const { class: className } = Astro.props
 ---
 
-<aside class="notice-box MarkdownBody">
+<aside class={cx('notice-box MarkdownBody', className)}>
   <slot />
 </aside>
 

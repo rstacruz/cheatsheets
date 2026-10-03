@@ -156,7 +156,7 @@ H3 content length:
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
 - Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
-- Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet.
+- Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
 
 ## Syntax highlighting
 

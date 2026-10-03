@@ -1,6 +1,6 @@
 ---
 title: Blessed
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### Screen

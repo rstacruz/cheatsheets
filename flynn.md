@@ -1,6 +1,6 @@
 ---
 title: Flynn
-category: Devops
+category: Hidden
 ---
 
 ### General workflow

@@ -1,6 +1,6 @@
 ---
 title: Flux architecture
-category: React
+category: Hidden
 ---
 
 ## About

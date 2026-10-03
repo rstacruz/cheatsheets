@@ -1,6 +1,6 @@
 ---
 title: Vows
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### About vows

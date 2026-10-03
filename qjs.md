@@ -1,6 +1,6 @@
 ---
 title: Q.js
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### About

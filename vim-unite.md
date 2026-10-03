@@ -1,6 +1,6 @@
 ---
 title: Vim-Unite
-category: Vim
+category: Hidden
 ---
 
 ### Usage

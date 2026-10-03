@@ -1,6 +1,6 @@
 ---
 title: Camp
-category: JavaScript libraries
+category: Hidden
 updated: 2017-09-21
 weight: -1
 intro: |

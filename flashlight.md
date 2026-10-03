@@ -1,6 +1,6 @@
 ---
 title: Flashlight
-category: Apps
+category: Hidden
 ---
 
 ## Commands

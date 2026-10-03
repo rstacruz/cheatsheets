@@ -1,6 +1,6 @@
 ---
 title: cssnext
-category: CSS
+category: Hidden
 updated: 2017-10-30
 weight: -3
 ---

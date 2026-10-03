@@ -1,6 +1,6 @@
 ---
 title: Weinre
-category: JavaScript libraries
+category: Hidden
 tags: [Archived]
 intro: |
   [weinre](https://www.npmjs.com/package/weinre) is a remote Web inspector. Note that it has been deprecated since 2016.

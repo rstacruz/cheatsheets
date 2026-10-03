@@ -1,6 +1,6 @@
 ---
 title: jscoverage
-category: JavaScript libraries
+category: Hidden
 intro: |
   A small guide into installing [jscoverage](https://npmjs.com/package./jscoverage). Also see [mocha-blanket](./mocha-blanket).
 ---

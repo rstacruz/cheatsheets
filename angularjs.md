@@ -1,6 +1,6 @@
 ---
 title: Angular.js
-category: JavaScript libraries
+category: Hidden
 tags: [Archived]
 archived: This describes an older version of Angular.
 ---

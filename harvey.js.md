@@ -1,6 +1,6 @@
 ---
 title: Harvey.js
-category: JavaScript libraries
+category: Hidden
 intro: |
   [Harvey.js](http://harvesthq.github.io/harvey/) helps you build responsive interfaces.
 ---

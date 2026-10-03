@@ -1,5 +1,6 @@
 ---
 title: Divshot
+category: Hidden
 tags: [Archived]
 archived: Divshot is no longer in operation.
 ---

@@ -1,6 +1,6 @@
 ---
 title: Appcache
-category: HTML
+category: Hidden
 ---
 
 ### Format

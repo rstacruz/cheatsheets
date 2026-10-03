@@ -1,6 +1,6 @@
 ---
 title: Zombie
-category: JavaScript libraries
+category: Hidden
 intro: |
   [Zombie](http://zombie.js.org/) is a full-stack testing solution for Node.js.
 ---

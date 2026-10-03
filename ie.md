@@ -1,6 +1,6 @@
 ---
 title: Internet Explorer
-category: HTML
+category: Hidden
 updated: 2018-03-06
 ---
 

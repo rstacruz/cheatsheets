@@ -1,6 +1,6 @@
 ---
 title: Spine
-category: JavaScript libraries
+category: Hidden
 tags: [Outdated]
 ---
 

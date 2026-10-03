@@ -1,6 +1,6 @@
 ---
 title: Virtual-dom
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### About

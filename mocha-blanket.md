@@ -1,6 +1,6 @@
 ---
 title: Mocha blanket
-category: JavaScript libraries
+category: Hidden
 intro: |
   Use [blanket](https://npmjs.com/package/blanket) for easy coverage reporting for Mocha JavaScript tests.
 ---

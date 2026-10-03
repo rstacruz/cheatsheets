@@ -1,6 +1,6 @@
 ---
 title: applicationCache
-category: JavaScript
+category: Hidden
 ---
 
 ## Reference

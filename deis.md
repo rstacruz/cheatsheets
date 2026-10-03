@@ -1,6 +1,6 @@
 ---
 title: Deis
-category: Devops
+category: Hidden
 ---
 
 ### Deploy

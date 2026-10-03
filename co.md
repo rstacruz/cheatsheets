@@ -1,6 +1,6 @@
 ---
 title: co
-category: JavaScript libraries
+category: Hidden
 updated: 2017-10-27
 weight: -1
 intro: |

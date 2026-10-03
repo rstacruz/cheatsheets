@@ -1,5 +1,6 @@
 ---
 title: Vainglory
+category: Hidden
 ---
 
 ## T3 items by use

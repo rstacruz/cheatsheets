@@ -1,6 +1,6 @@
 ---
 title: Do gem
-category: Ruby libraries
+category: Hidden
 ---
 
 ### About

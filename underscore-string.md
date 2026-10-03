@@ -1,6 +1,6 @@
 ---
 title: Underscore-string
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### Usage

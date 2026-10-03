@@ -1,5 +1,6 @@
 ---
 title: Freenode
+category: Hidden
 tags: [WIP]
 ---
 

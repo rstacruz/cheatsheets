@@ -1,6 +1,6 @@
 ---
 title: js-model
-category: JavaScript libraries
+category: Hidden
 ---
 
 ### Example

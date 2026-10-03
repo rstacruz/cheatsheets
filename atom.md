@@ -1,6 +1,6 @@
 ---
 title: Atom
-category: Apps
+category: Hidden
 updated: 2021-09-10
 ---
 

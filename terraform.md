@@ -181,8 +181,8 @@ export TF_VAR_environment=prod
 environment = "prod"
 ```
 
-Precedence increases from environment variables, `.tfvars` files, auto-loaded
-files, to command-line options.
+Precedence increases from environment variables, `terraform.tfvars`,
+`*.auto.tfvars`, to command-line options (`-var`, `-var-file`).
 
 See: [Assign variable values](https://developer.hashicorp.com/terraform/language/parameterize)
 

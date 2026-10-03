@@ -27,6 +27,8 @@ updated: 2017-08-30
 
 ### Selectors to avoid
 
+| Selector | Where |
+| --- | --- |
 | `E[attr]`                  | (Outlook, Gmail)        |
 | `E:nth-child(n)`           | (Outlook, Gmail)        |
 | `::before` _and_ `::after` | (Outlook, Yahoo, Gmail) |

@@ -5,6 +5,8 @@ category: CLI
 
 ### Man paths
 
+| Section | Description |
+| --- | --- |
 | `1` | General User Commands |
 | `2` | System Calls |
 | `3` | Library Routines |

@@ -135,6 +135,8 @@ See [Operators](#operators) for other things you can do.
 
 ### Character
 
+| Shortcut | Description |
+| --- | --- |
 | `fc`  | Go forward to character `c`  |
 | `Fc`  | Go backward to character `c` |
 {: .-shortcuts}
@@ -183,6 +185,8 @@ Operators
 Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 {: .-setup}
 
+| Operator | Motion |
+| --- | --- |
 | `d`      | `w`    |
 | Operator | Motion |
 {: .-css-breakdown}
@@ -234,6 +238,8 @@ Text objects
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
 {: .-setup}
 
+| Operator | [i]nside or [a]round | Text object |
+| --- | --- | --- |
 | `v`      | `i`                  | `p`         |
 | Operator | [i]nside or [a]round | Text object |
 {: .-css-breakdown}
@@ -346,6 +352,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 ### Windows
 
+| Shortcut | Description |
+| --- | --- |
 | `z{height}<Cr>` | Resize pane to `{height}` lines tall |
 
 ### Tags

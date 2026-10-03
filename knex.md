@@ -94,6 +94,8 @@ See: [Seeds](http://knexjs.org/#Seeds)
 
 ### Libraries
 
+| Driver | Database |
+| --- | --- |
 | `pg` | PostgreSQL |
 | `mysql` | MySQL or MariaDB |
 | `sqlite3` | Sqlite3 |

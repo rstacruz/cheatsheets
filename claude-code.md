@@ -60,18 +60,26 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 ### Commands
 
-| Command              | Description                      |
-| -------------------- | -------------------------------- |
-| `claude`             | Start interactive session        |
-| `claude "query"`     | Start with an initial prompt     |
-| `claude -p "query"`  | Print response and exit          |
-| `claude -c`          | Continue most recent conversation |
-| `claude -r <session>` | Resume a session by ID or name   |
-| `claude update`      | Update to latest version         |
-| `claude doctor`      | Check install and settings       |
-| `claude mcp`         | Configure MCP servers            |
-| `claude auth status` | Show authentication status       |
-| `claude setup-token` | Generate a token for CI          |
+#### Sessions
+
+| Command               | Description                       |
+| --------------------- | --------------------------------- |
+| `claude`              | Start interactive session         |
+| `claude "query"`      | Start with an initial prompt      |
+| `claude -p "query"`   | Print response and exit           |
+| `claude -c`           | Continue most recent conversation |
+| `claude -r <session>` | Resume a session by ID or name    |
+{: .-shortcuts}
+
+#### Setup
+
+| Command              | Description                |
+| -------------------- | -------------------------- |
+| `claude update`      | Update to latest version   |
+| `claude doctor`      | Check install and settings |
+| `claude mcp`         | Configure MCP servers      |
+| `claude auth status` | Show authentication status |
+| `claude setup-token` | Generate a token for CI    |
 {: .-shortcuts}
 
 ### Flags

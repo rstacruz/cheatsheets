@@ -181,7 +181,7 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 
 Separating tables is preferred when a table grows to 8 or more rows.
 
-### Option A: H4's and multiple tables
+### Option A: H4s and multiple tables
 
 ````markdown
 ### Examples

@@ -37,7 +37,9 @@ sudo apt install -y extrepo
 sudo extrepo enable mise && sudo apt update
 sudo apt install -y mise
 
-mise --version                  # installer: ~/.local/bin/mise
+# installer only: not on PATH until activation
+export PATH="$HOME/.local/bin:$PATH"
+mise --version
 mise doctor                     # diagnose shell/shim problems
 ```
 {: data-line="1"}

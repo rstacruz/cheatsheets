@@ -389,6 +389,7 @@ count(//*)          # count all elements
 //li[span]          # find a <li> with an <span> inside it
                     # ...expands to //li[child::span]
 //ul/li/..          # use .. to select a parent
+//*[not(*)]         # any element that doesn't have a child element
 ```
 
 ### Find a parent
@@ -426,3 +427,4 @@ References
 {: .-one-column}
 
 * [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+* [How to select all leaf nodes](https://stackoverflow.com/a/3926682/747872) _(stackoverflow.com)_

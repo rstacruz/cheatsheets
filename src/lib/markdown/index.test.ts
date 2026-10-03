@@ -129,13 +129,6 @@ describe('compat transforms', () => {
     )
   })
 
-  it('drops a {::options ... /} block extension', async () => {
-    expect(
-      (await renderMarkdown('{::options parse_block_html="true" /}\n\n# Hi'))
-        .html
-    ).toBe('<h1 id="hi">Hi</h1>\n')
-  })
-
   it('trims whitespace-only lines from an indented code block', async () => {
     expect((await renderMarkdown('    code\n    \n\nafter')).html).toBe(
       '<pre><code>code\n</code></pre>\n<p>after</p>\n'

@@ -113,15 +113,6 @@ const isPrevBlockStart = (line: string) =>
   LINK_DEFINITION.test(line) ||
   HTML_BLOCK.test(line)
 
-/** Drops `{::options ... /}`; measured no-op for kramdown.md's one use */
-export function dropBlockExtensions(md: string): string {
-  const lines = md.split('\n')
-  const fenced = fenceFlags(lines)
-  return lines
-    .filter((line, index) => fenced[index] || !/^\s*\{::.*\/\}\s*$/.test(line))
-    .join('\n')
-}
-
 export function preserveWhitespace(md: string): string {
   // Escape existing private-use chars first: the marker must be unambiguous
   md = md
@@ -376,9 +367,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     refloatIALs(
       dropUnterminatedIALs(
         preserveWhitespace(
-          escapeWhitespaceCodeSpans(
-            trimIndentedCodeBlocks(dropBlockExtensions(expandJekyll(input)))
-          )
+          escapeWhitespaceCodeSpans(trimIndentedCodeBlocks(expandJekyll(input)))
         )
       )
     )

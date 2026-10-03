@@ -18,7 +18,6 @@ archived: The information on this sheet may possibly be outdated.
  * gulp-clean
  * gulp-cache
  * gulp-notify
-
  * gulp-header (headers in files)
  * gulp-mocha
  * gulp-stylus

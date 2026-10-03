@@ -16,8 +16,6 @@ Kramdown is a Markdown parser in Ruby.
  * `parse_span_html` - process kramdown syntax inside inlines
  * `html_to_native` - convert html elements to native elements
 
-    {::options parse_block_html="true" /}
-
 For the GFM parser:
 
  * `hard_wrap`

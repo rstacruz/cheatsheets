@@ -520,11 +520,11 @@ See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging)
 ```bash
 # Validate without initializing the backend:
 terraform fmt -check -recursive
-terraform init -backend=false
+terraform init -backend=false -input=false
 terraform validate
 
 # Initialize the backend before planning:
-terraform init
+terraform init -input=false
 terraform plan -input=false -no-color -detailed-exitcode
 ```
 

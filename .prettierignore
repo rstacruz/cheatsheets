@@ -1,6 +1,6 @@
 src/sass/vendor
 vendor
-.cache
+test/fixtures/kramdown-golden
 dist
 *.md
 pnpm-lock.yaml

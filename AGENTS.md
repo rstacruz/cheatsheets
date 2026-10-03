@@ -2,7 +2,7 @@
 
 ## Commands
 
-- **Dev server**: `pnpm dev` (requires Ruby for markdown caching)
+- **Dev server**: `pnpm dev`
 - **Build**: `pnpm build`
 - **Test**: `pnpm test` (runs Vitest in watch mode)
 - **Run single test**: `pnpm vitest run <file-path>` or `pnpm vitest <file-path>` (watch mode)

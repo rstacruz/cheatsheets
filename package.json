@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "concurrently -m 1 \"npm:cache_markdown\" \"astro build --silent\"",
-    "cache_markdown": "bundle exec ruby src/ruby/cache_kramdown.rb *.md */*.md",
+    "build": "astro build --silent",
     "ci": "concurrently -g \"npm:*:check\" \"vitest run\" \"npm:test:*\" \"npm:build\"",
     "dev": "astro dev",
     "eslint:check": "eslint .",
@@ -17,8 +16,7 @@
     "preview": "astro preview",
     "start": "astro dev",
     "test": "vitest",
-    "test:playwright": "playwright test",
-    "test:ruby": "bundle exec ruby src/ruby/*.test.rb"
+    "test:playwright": "playwright test"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.0.2",
@@ -51,14 +49,28 @@
     "prettier-plugin-organize-imports": "^3.2.3",
     "prismjs": "1.29.0",
     "rehype-parse": "^9.0.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
     "rehype-stringify": "^10.0.0",
+    "remark-attribute-list": ">=0.4.0 <1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "sass": "^1.69.1",
     "snarkdown": "^2.0.0",
     "tailwindcss": "^3.4.3",
     "tsx": "^4.7.1",
     "unified": "^11.0.3",
+    "unist-util-visit": "^5.1.0",
     "vitest": "^1.4.0",
     "zod": "^3.22.4"
   },
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2"
+  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2",
+  "devDependencies": {
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4",
+    "@types/unist": "^3.0.3",
+    "entities": "^4.5.0",
+    "mdast-util-to-hast": "^13.2.0"
+  }
 }

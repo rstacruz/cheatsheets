@@ -1,6 +1,5 @@
 src/sass/vendor
 vendor
-.cache
 dist
 artefacts
 *.md

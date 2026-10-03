@@ -195,7 +195,7 @@ expect(die).to receive(:roll)
   .at_most(n).times
 ```
 
-https://relishapp.com/rspec/rspec-mocks/docs
+<https://relishapp.com/rspec/rspec-mocks/docs>
 
 ## Spec helpers
 

@@ -118,7 +118,7 @@ archived: The information on this sheet may possibly be outdated.
 
 ### References
 
-https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
+<https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started>
 
 ### Livereload
 

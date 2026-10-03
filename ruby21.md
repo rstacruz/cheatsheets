@@ -32,5 +32,5 @@ prepend(
 
 ### References
 
-- http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail
-- http://globaldev.co.uk/2014/05/ruby-2-1-in-detail
+- <http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail>
+- <http://globaldev.co.uk/2014/05/ruby-2-1-in-detail>

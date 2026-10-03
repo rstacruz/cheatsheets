@@ -84,4 +84,4 @@ category: JavaScript libraries
 
 ### References
 
-* https://github.com/epeli/underscore.string
+* <https://github.com/epeli/underscore.string>

@@ -24,9 +24,13 @@ export function isListed(page: SheetPage): boolean {
 }
 
 /**
- * Checks if a sheet is marked as deprecated
+ * Checks if a sheet is deprecated: either explicitly via `deprecated: true`,
+ * or by pointing to a newer sheet via `deprecated_by`
  */
 
 export function isDeprecated(page: SheetPage): boolean {
-  return page.frontmatter.deprecated === true
+  return (
+    page.frontmatter.deprecated === true ||
+    Boolean(page.frontmatter.deprecated_by)
+  )
 }

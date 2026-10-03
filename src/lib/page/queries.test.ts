@@ -18,19 +18,22 @@ const pages = mapGlobToPages({
     'deprecated_by: /alpha',
     '---',
     'c'
-  ].join('\n')
+  ].join('\n'),
+  delta: ['---', 'category: Test', 'weight: 1', '---', 'd'].join('\n')
 })
 
 test('related pages skip deprecated sheets', () => {
   const slugs = getRelatedPages(pages, pages.alpha).map((page) => page.slug)
 
-  expect(slugs).toContain('gamma')
+  expect(slugs).toContain('delta')
   expect(slugs).not.toContain('beta')
+  expect(slugs).not.toContain('gamma')
 })
 
 test('top pages skip deprecated sheets', () => {
   const slugs = getTopPages(pages, pages.alpha).map((page) => page.slug)
 
-  expect(slugs).toContain('gamma')
+  expect(slugs).toContain('delta')
   expect(slugs).not.toContain('beta')
+  expect(slugs).not.toContain('gamma')
 })

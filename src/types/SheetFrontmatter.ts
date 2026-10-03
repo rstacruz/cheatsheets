@@ -22,7 +22,10 @@ export const SheetFrontmatterSchema = z.object({
     .boolean()
     .optional()
     .describe('Show a deprecation notice and hide from related posts'),
-  deprecated_by: z.string().optional().describe('Name of newer sheet'),
+  deprecated_by: z
+    .string()
+    .optional()
+    .describe('Name of newer sheet (also marks the sheet as deprecated)'),
   intro: z
     .string()
     .optional()

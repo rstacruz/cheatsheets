@@ -90,7 +90,7 @@ updated: 2020-06-14
 ads: false # Add this to disable ads
 weight: -5 # lower number = higher in related posts list
 deprecated: true # Show a deprecation notice; hide from related posts
-deprecated_by: /enzyme # Deprecation notice links to the newest version
+deprecated_by: /enzyme # Newer sheet to link to; also marks it deprecated
 prism_languages: [vim] # Extra syntax highlighting
 intro: |
   This is some *Markdown* at the beginning of the article.

@@ -242,13 +242,16 @@ Synchronises a component with an external system and cleans up timers, subscript
 useEffect(() => {
   const controller = new AbortController()
   fetch(`/api/users/${id}`, { signal: controller.signal })
-    .then(r => r.json())
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      return r.json()
+    })
     .then(setUser)
     .catch(err => { if (err.name !== 'AbortError') setError(err) })
   return () => controller.abort()
 }, [id])
 ```
-{: data-line="7"}
+{: data-line="10"}
 
 Abort in the cleanup to drop stale responses, ignoring the expected `AbortError`. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
 

@@ -166,7 +166,7 @@ H3 content length:
 
 ## Redirect stubs
 
-`redirect_to` on a legacy sheet is only a stub marker; it does nothing at build time. Real redirects live in `public/_redirects`.
+`redirect_to` on a legacy sheet marks it as a redirect stub: the sheet is excluded from the archive page. The field does not generate the redirect itself; real redirects live in `public/_redirects`.
 
 ## Syntax highlighting
 

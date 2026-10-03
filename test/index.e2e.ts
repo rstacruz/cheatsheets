@@ -33,9 +33,19 @@ test('homepage', async ({ page }) => {
 })
 
 test('search', async ({ page }) => {
-  await page.goto('/')
-  await page.getByPlaceholder('Search...').click()
-  await page.getByPlaceholder('Search...').fill('es6')
+  test.setTimeout(120_000)
+
+  const input = page.getByPlaceholder('Search...')
+
+  // The search widget attaches asynchronously (after an IntersectionObserver
+  // and a dynamic import), and marks the input as a combobox when ready.
+  // If the dev server is slow to serve the module, navigate afresh and retry.
+  await expect(async () => {
+    await page.goto('/')
+    await expect(input).toHaveAttribute('role', 'combobox', { timeout: 10_000 })
+  }).toPass({ timeout: 90_000 })
+
+  await input.fill('es6')
 
   // Pick the first
   await page.getByRole('option', { name: 'ES2015+' }).click()

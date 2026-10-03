@@ -181,6 +181,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 - Sentence case, keep labels short (2-4 words)
 - Prefer 2-4 variants per H3; beyond that, consider promoting them to H3s
 - One code block per variant; single-line variants of the same construct stay in one block with inline comments
+- If the variants share context (sample data, locale), add one lead-in sentence after the H3
 - Doc links stay at the end of the H3, after the last variant; give a variant its own `See:` only when it has a different doc page
 - H4s are scan aids inside the H3, not sections: page layout and navigation only account for H2s and H3s
 

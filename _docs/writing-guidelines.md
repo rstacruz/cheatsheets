@@ -152,6 +152,38 @@ H3 content length:
   ```
   ````
 
+## H4 sub-headings
+
+Use H4s to split an H3 into labelled variants, each with its own code block.
+
+- **Variant labels** — different ways to do the same thing, eg "As UTC time"
+- **Filename markers** — one block per file (see H3 writing guidelines)
+
+Example:
+
+````markdown
+### Parsing
+
+#### As local time
+
+```js
+const date = new Date(2012, 11, 20, 3, 0, 0)
+```
+
+#### As UTC time
+
+```js
+const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+```
+````
+
+- Name the variant, not the position: "Custom timezone", not "Example 2"
+- Sentence case, keep labels short (2-4 words)
+- Prefer 2-4 variants per H3; beyond that, consider promoting them to H3s
+- One code block per variant; single-line variants of the same construct stay in one block with inline comments
+- Doc links stay at the end of the H3, after the last variant; give a variant its own `See:` only when it has a different doc page
+- H4s are scan aids inside the H3, not sections: page layout and navigation only account for H2s and H3s
+
 ## Deprecated sheets
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).

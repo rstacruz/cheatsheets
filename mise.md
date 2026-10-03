@@ -37,7 +37,7 @@ sudo apt install -y extrepo
 sudo extrepo enable mise && sudo apt update
 sudo apt install -y mise
 
-mise --version
+mise --version                  # installer: ~/.local/bin/mise
 mise doctor                     # diagnose shell/shim problems
 ```
 {: data-line="1"}

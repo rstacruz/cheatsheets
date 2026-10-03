@@ -1,0 +1,47 @@
+<h3 id="example">Example</h3>
+
+<pre class="-wrap"><code>SELECT * FROM order_items \
+  LEFT OUTER JOIN orders \
+  ON order_items.order_id = orders.id
+</code></pre>
+
+<p>Joins are typically added to <code>SELECT</code> statements to add more columns and records.</p>
+
+<h3 id="diagram">Diagram</h3>
+
+<pre class="-setup"><code>SELECT * FROM `A` INNER JOIN `B`
+</code></pre>
+
+<pre class="-box-chars -setup"><code>┌────────┐
+│ A  ┌───┼────┐
+│    │ ∩ │    │
+└────┼───┘  B │
+     └────────┘
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>Join</th>
+      <th>What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inner join</td>
+      <td><code>∩</code></td>
+    </tr>
+    <tr>
+      <td>Left outer join</td>
+      <td><code>A</code> + <code>∩</code></td>
+    </tr>
+    <tr>
+      <td>Right outer join</td>
+      <td><code>∩</code> + <code>B</code></td>
+    </tr>
+    <tr>
+      <td>Full outer join</td>
+      <td><code>A</code> + <code>∩</code> + <code>B</code></td>
+    </tr>
+  </tbody>
+</table>

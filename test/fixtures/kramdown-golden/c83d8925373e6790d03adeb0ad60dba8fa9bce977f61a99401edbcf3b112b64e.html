@@ -1,0 +1,469 @@
+<h3 id="block-scoping">Block scoping</h3>
+
+<h4 id="let">Let</h4>
+
+<pre data-line="2,4"><code class="language-js">function fn () {
+  let x = 0
+  if (true) {
+    let x = 1 // only inside this `if`
+  }
+}
+</code></pre>
+
+<h4 id="const">Const</h4>
+
+<pre><code class="language-js">const a = 1
+</code></pre>
+
+<p><code>let</code> is the new <code>var</code>. Constants work just like <code>let</code>, but can’t be reassigned.
+See: <a href="https://babeljs.io/learn-es2015/#let--const">Let and const</a></p>
+
+<h3 id="backtick-strings">Backtick strings</h3>
+
+<h4 id="interpolation">Interpolation</h4>
+
+<pre><code class="language-js">const message = `Hello ${name}`
+</code></pre>
+
+<h4 id="multiline-strings">Multiline strings</h4>
+
+<pre><code class="language-js">const str = `
+hello
+world
+`
+</code></pre>
+
+<p>Templates and multiline strings.
+See: <a href="https://babeljs.io/learn-es2015/#template-strings">Template strings</a></p>
+
+<h3 id="binary-and-octal-literals">Binary and octal literals</h3>
+
+<pre><code class="language-js">let bin = 0b1010010
+let oct = 0o755
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#binary-and-octal-literals">Binary and octal literals</a></p>
+
+<h3 id="new-methods">New methods</h3>
+
+<h4 id="new-string-methods">New string methods</h4>
+
+<pre><code class="language-js">"hello".repeat(3)
+"hello".includes("ll")
+"hello".startsWith("he")
+"hello".padStart(8) // "   hello"
+"hello".padEnd(8) // "hello   " 
+"hello".padEnd(8, '!') // hello!!!
+"\u1E9B\u0323".normalize("NFC")
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#math--number--string--object-apis">New methods</a></p>
+
+<h3 id="classes">Classes</h3>
+
+<pre><code class="language-js">class Circle extends Shape {
+</code></pre>
+
+<h4 id="constructor">Constructor</h4>
+
+<pre data-line="1"><code class="language-js">  constructor (radius) {
+    this.radius = radius
+  }
+</code></pre>
+
+<h4 id="methods">Methods</h4>
+
+<pre data-line="1"><code class="language-js">  getArea () {
+    return Math.PI * 2 * this.radius
+  }
+</code></pre>
+
+<h4 id="calling-superclass-methods">Calling superclass methods</h4>
+
+<pre data-line="2"><code class="language-js">  expand (n) {
+    return super.expand(n) * Math.PI
+  }
+</code></pre>
+
+<h4 id="static-methods">Static methods</h4>
+
+<pre data-line="1"><code class="language-js">  static createFromDiameter(diameter) {
+    return new Circle(diameter / 2)
+  }
+}
+</code></pre>
+
+<p>Syntactic sugar for prototypes.
+See: <a href="https://babeljs.io/learn-es2015/#classes">Classes</a></p>
+
+<h3 id="exponent-operator">Exponent operator</h3>
+
+<pre data-line="1"><code class="language-js">const byte = 2 ** 8
+// Same as: Math.pow(2, 8)
+</code></pre>
+
+<h2 class="-three-column" id="promises">Promises</h2>
+
+<h3 id="making-promises">Making promises</h3>
+
+<pre data-line="1"><code class="language-js">new Promise((resolve, reject) =&gt; {
+  if (ok) { resolve(result) }
+  else { reject(error) }
+})
+</code></pre>
+
+<p>For asynchronous programming.
+See: <a href="https://babeljs.io/learn-es2015/#promises">Promises</a></p>
+
+<h3 id="using-promises">Using promises</h3>
+
+<pre data-line="2,3"><code class="language-js">promise
+  .then((result) =&gt; { ··· })
+  .catch((error) =&gt; { ··· })
+</code></pre>
+
+<h3 id="using-promises-with-finally">Using promises with finally</h3>
+
+<pre data-line="4"><code class="language-js">promise
+  .then((result) =&gt; { ··· })
+  .catch((error) =&gt; { ··· })
+  .finally(() =&gt; { // logic independent of success/error })
+</code></pre>
+
+<p>The handler is called when the promise is fulfilled or rejected.</p>
+
+<h3 id="promise-functions">Promise functions</h3>
+
+<pre><code class="language-js">Promise.all(···)
+Promise.race(···)
+Promise.reject(···)
+Promise.resolve(···)
+</code></pre>
+
+<h3 id="async-await">Async-await</h3>
+
+<pre data-line="2,3"><code class="language-js">async function run () {
+  const user = await getUser()
+  const tweets = await getTweets(user)
+  return [user, tweets]
+}
+</code></pre>
+
+<p><code>async</code> functions are another way of using functions.</p>
+
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async function</a></p>
+
+<h2 class="-three-column" id="destructuring">Destructuring</h2>
+
+<h3 id="destructuring-assignment">Destructuring assignment</h3>
+
+<h4 id="arrays">Arrays</h4>
+
+<pre data-line="1"><code class="language-js">const [first, last] = ['Nikola', 'Tesla']
+</code></pre>
+
+<h4 id="objects">Objects</h4>
+
+<pre data-line="1"><code class="language-js">let {title, author} = {
+  title: 'The Silkworm',
+  author: 'R. Galbraith'
+}
+</code></pre>
+
+<p>Supports for matching arrays and objects.
+See: <a href="https://babeljs.io/learn-es2015/#destructuring">Destructuring</a></p>
+
+<h3 id="default-values">Default values</h3>
+
+<pre><code class="language-js">const scores = [22, 33]
+const [math = 50, sci = 50, arts = 50] = scores
+</code></pre>
+
+<pre><code class="language-js">// Result:
+// math === 22, sci === 33, arts === 50
+</code></pre>
+
+<p>Default values can be assigned while destructuring arrays or objects.</p>
+
+<h3 id="function-arguments">Function arguments</h3>
+
+<pre data-line="1"><code class="language-js">function greet({ name, greeting }) {
+  console.log(`${greeting}, ${name}!`)
+}
+</code></pre>
+
+<pre><code class="language-js">greet({ name: 'Larry', greeting: 'Ahoy' })
+</code></pre>
+
+<p>Destructuring of objects and arrays can also be done in function arguments.</p>
+
+<h3 id="default-values-1">Default values</h3>
+
+<pre data-line="1"><code class="language-js">function greet({ name = 'Rauno' } = {}) {
+  console.log(`Hi ${name}!`);
+}
+</code></pre>
+
+<pre><code class="language-js">greet() // Hi Rauno!
+greet({ name: 'Larry' }) // Hi Larry!
+</code></pre>
+
+<h3 id="reassigning-keys">Reassigning keys</h3>
+
+<pre data-line="1"><code class="language-js">function printCoordinates({ left: x, top: y }) {
+  console.log(`x: ${x}, y: ${y}`)
+}
+</code></pre>
+
+<pre><code class="language-js">printCoordinates({ left: 25, top: 90 })
+</code></pre>
+
+<p>This example assigns <code>x</code> to the value of the <code>left</code> key.</p>
+
+<h3 id="loops">Loops</h3>
+
+<pre data-line="1"><code class="language-js">for (let {title, artist} of songs) {
+  ···
+}
+</code></pre>
+
+<p>The assignment expressions work in loops, too.</p>
+
+<h3 id="object-destructuring">Object destructuring</h3>
+
+<pre data-line="1"><code class="language-js">const { id, ...detail } = song;
+</code></pre>
+
+<p>Extract some keys individually and remaining keys in the object using rest (…) operator</p>
+
+<h2 id="spread">Spread</h2>
+
+<h3 id="object-spread">Object spread</h3>
+
+<h4 id="with-object-spread">with Object spread</h4>
+
+<pre data-line="2"><code class="language-js">const options = {
+  ...defaults,
+  visible: true
+}
+</code></pre>
+
+<h4 id="without-object-spread">without Object spread</h4>
+
+<pre><code class="language-js">const options = Object.assign(
+  {}, defaults,
+  { visible: true })
+</code></pre>
+
+<p>The Object spread operator lets you build new objects from other objects.</p>
+
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">Object spread</a></p>
+
+<h3 id="array-spread">Array spread</h3>
+
+<h4 id="with-array-spread">with Array spread</h4>
+
+<pre data-line="2,3"><code class="language-js">const users = [
+  ...admins,
+  ...editors,
+  'rstacruz'
+]
+</code></pre>
+
+<h4 id="without-array-spread">without Array spread</h4>
+
+<pre><code class="language-js">const users = admins
+  .concat(editors)
+  .concat([ 'rstacruz' ])
+</code></pre>
+
+<p>The spread operator lets you build new arrays in the same way.</p>
+
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">Spread operator</a></p>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="function-arguments-1">Function arguments</h3>
+
+<h4 id="default-arguments">Default arguments</h4>
+
+<pre data-line="1"><code class="language-js">function greet (name = 'Jerry') {
+  return `Hello ${name}`
+}
+</code></pre>
+
+<h4 id="rest-arguments">Rest arguments</h4>
+
+<pre data-line="1"><code class="language-js">function fn(x, ...y) {
+  // y is an Array
+  return x * y.length
+}
+</code></pre>
+
+<h4 id="spread-1">Spread</h4>
+
+<pre data-line="1"><code class="language-js">fn(...[1, 2, 3])
+// same as fn(1, 2, 3)
+</code></pre>
+
+<p>Default, rest, spread.
+See: <a href="https://babeljs.io/learn-es2015/#default--rest--spread">Function arguments</a></p>
+
+<h3 id="fat-arrows">Fat arrows</h3>
+
+<h4 id="fat-arrows-1">Fat arrows</h4>
+
+<pre data-line="1"><code class="language-js">setTimeout(() =&gt; {
+  ···
+})
+</code></pre>
+
+<h4 id="with-arguments">With arguments</h4>
+
+<pre data-line="1"><code class="language-js">readFile('text.txt', (err, data) =&gt; {
+  ...
+})
+</code></pre>
+
+<h4 id="implicit-return">Implicit return</h4>
+<pre data-line="1,4,5,6"><code class="language-js">numbers.map(n =&gt; n * 2)
+// No curly braces = implicit return
+// Same as: numbers.map(function (n) { return n * 2 })
+numbers.map(n =&gt; ({
+  result: n * 2
+}))
+// Implicitly returning objects requires parentheses around the object
+</code></pre>
+
+<p>Like functions but with <code>this</code> preserved.
+See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Fat arrows</a></p>
+
+<h2 id="objects-1">Objects</h2>
+
+<h3 id="shorthand-syntax">Shorthand syntax</h3>
+
+<pre><code class="language-js">module.exports = { hello, bye }
+// Same as: module.exports = { hello: hello, bye: bye }
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
+
+<h3 id="methods-1">Methods</h3>
+
+<pre data-line="2"><code class="language-js">const App = {
+  start () {
+    console.log('running')
+  }
+}
+// Same as: App = { start: function () {···} }
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
+
+<h3 id="getters-and-setters">Getters and setters</h3>
+
+<pre data-line="2,5"><code class="language-js">const App = {
+  get closed () {
+    return this.status === 'closed'
+  },
+  set closed (value) {
+    this.status = value ? 'closed' : 'open'
+  }
+}
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
+
+<h3 id="computed-property-names">Computed property names</h3>
+
+<pre data-line="3"><code class="language-js">let event = 'click'
+let handlers = {
+  [`on${event}`]: true
+}
+// Same as: handlers = { 'onclick': true }
+</code></pre>
+
+<p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
+
+<h3 id="extract-values">Extract values</h3>
+
+<pre data-line="3,5"><code class="language-js">const fatherJS = { age: 57, name: "Brendan Eich" }
+
+Object.values(fatherJS)
+// [57, "Brendan Eich"]
+Object.entries(fatherJS)
+// [["age", 57], ["name", "Brendan Eich"]]
+</code></pre>
+
+<h2 id="modules">Modules</h2>
+
+<h3 id="imports">Imports</h3>
+
+<pre><code class="language-js">import 'helpers'
+// aka: require('···')
+</code></pre>
+
+<pre><code class="language-js">import Express from 'express'
+// aka: const Express = require('···').default || require('···')
+</code></pre>
+
+<pre><code class="language-js">import { indent } from 'helpers'
+// aka: const indent = require('···').indent
+</code></pre>
+
+<pre><code class="language-js">import * as Helpers from 'helpers'
+// aka: const Helpers = require('···')
+</code></pre>
+
+<pre><code class="language-js">import { indentSpaces as indent } from 'helpers'
+// aka: const indent = require('···').indentSpaces
+</code></pre>
+
+<p><code>import</code> is the new <code>require()</code>.
+See: <a href="https://babeljs.io/learn-es2015/#modules">Module imports</a></p>
+
+<h3 id="exports">Exports</h3>
+
+<pre><code class="language-js">export default function () { ··· }
+// aka: module.exports.default = ···
+</code></pre>
+
+<pre><code class="language-js">export function mymethod () { ··· }
+// aka: module.exports.mymethod = ···
+</code></pre>
+
+<pre><code class="language-js">export const pi = 3.14159
+// aka: module.exports.pi = ···
+</code></pre>
+
+<p><code>export</code> is the new <code>module.exports</code>.
+See: <a href="https://babeljs.io/learn-es2015/#modules">Module exports</a></p>
+
+<h2 id="generators">Generators</h2>
+
+<h3 id="generators-1">Generators</h3>
+
+<pre><code class="language-js">function* idMaker () {
+  let id = 0
+  while (true) { yield id++ }
+}
+</code></pre>
+
+<pre><code class="language-js">let gen = idMaker()
+gen.next().value  // → 0
+gen.next().value  // → 1
+gen.next().value  // → 2
+</code></pre>
+
+<p>It’s complicated.
+See: <a href="https://babeljs.io/learn-es2015/#generators">Generators</a></p>
+
+<h3 id="forof-iteration">For..of iteration</h3>
+
+<pre><code class="language-js">for (let i of iterable) {
+  ···
+}
+</code></pre>
+
+<p>For iterating through generators and arrays.
+See: <a href="https://babeljs.io/learn-es2015/#iterators--forof">For..of iteration</a></p>

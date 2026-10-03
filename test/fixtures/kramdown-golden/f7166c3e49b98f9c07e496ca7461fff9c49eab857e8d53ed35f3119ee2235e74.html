@@ -1,0 +1,51 @@
+<h3 id="installation">Installation</h3>
+
+<pre><code class="language-bash">brew install rename
+</code></pre>
+
+<p>See: <a href="http://plasmasturm.org/code/rename/">http://plasmasturm.org/code/rename/</a></p>
+
+<h3 id="regex-substitution">Regex substitution</h3>
+
+<pre><code class="language-bash">rename 's/hello/world/' *.txt
+</code></pre>
+
+<p>Rename <code>hello.txt</code> to <code>world.txt</code> and so on in <code>*.txt</code>.</p>
+
+<h3 id="replace-extension">Replace extension</h3>
+
+<pre><code class="language-bash">rename -s .png .jpg.png *.png
+</code></pre>
+
+<p>Replace <code>.png</code> with <code>.jpg.png</code> in <code>*.png</code>.</p>
+
+<h3 id="options">Options</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-n</code></td>
+      <td>Simulation</td>
+    </tr>
+    <tr>
+      <td><code>-l</code></td>
+      <td>Symlink instead of rename</td>
+    </tr>
+    <tr>
+      <td><code>-i</code></td>
+      <td>Interactive</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="http://plasmasturm.org/code/rename/">Rename website</a> <em>(plasmasturm.org)</em></li>
+</ul>

@@ -1,0 +1,53 @@
+<h3 id="about-vows">About vows</h3>
+
+<ul>
+  <li><a href="http://vowsjs.org/">Vowsjs.org</a></li>
+</ul>
+
+<h3 id="coffeescript-usage">CoffeeScript usage</h3>
+
+<pre><code>vows = require "vows"
+assert = require "assert"
+
+vows
+  .describe('My tests')
+  .addBatch
+    'context':
+      topic: -&gt;
+        100
+      'should work': (number) -&gt;
+        assert.equal number, 100
+
+  .export(module)
+</code></pre>
+
+<h3 id="running">Running</h3>
+
+<pre><code>vows test/*-test.* --spec
+</code></pre>
+
+<h3 id="assertions">Assertions</h3>
+
+<pre><code>assert.equal a, b
+assert.notEqual a, b
+assert.strictEqual a, b
+
+assert.isNaN(number)
+assert.instanceOf(object, klass)
+assert.isUndefined(object)
+assert.isFunction(func)
+assert.isNull(object)
+assert.isNotZero(object)
+assert.isObject(object)
+assert.isString(object)
+</code></pre>
+
+<h3 id="async">Async</h3>
+
+<pre><code>.addBatch
+  topic: -&gt;
+    doStuff()
+    @callback 2
+  'check things': (n) -&gt;
+    assert.equal 2, n
+</code></pre>

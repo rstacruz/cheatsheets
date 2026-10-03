@@ -1,0 +1,209 @@
+<h3 id="fork-mode">Fork mode</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 start app.js --name my-api</code></td>
+      <td>Start and name a process</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cluster-mode">Cluster mode</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 start app.js -i 0</code></td>
+      <td>Will start maximum processes with LB depending on available CPUs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="listing">Listing</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 list</code></td>
+      <td>Display all processes status</td>
+    </tr>
+    <tr>
+      <td><code>pm2 jlist</code></td>
+      <td>Print process list in raw JSON</td>
+    </tr>
+    <tr>
+      <td><code>pm2 prettylist</code></td>
+      <td>Print process list in beautified JSON</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 describe 0</code></td>
+      <td>Display all information about a specific process</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 monit</code></td>
+      <td>Monitor all processes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="logs">Logs</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 logs [--raw]</code></td>
+      <td>Display all processes logs in streaming</td>
+    </tr>
+    <tr>
+      <td><code>pm2 flush</code></td>
+      <td>Empty all log files</td>
+    </tr>
+    <tr>
+      <td><code>pm2 reloadLogs</code></td>
+      <td>Reload all logs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="actions">Actions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 stop all</code></td>
+      <td>Stop all processes</td>
+    </tr>
+    <tr>
+      <td><code>pm2 restart all</code></td>
+      <td>Restart all processes</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 reload all</code></td>
+      <td>Will 0s downtime reload (for NETWORKED apps)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 stop 0</code></td>
+      <td>Stop specific process id</td>
+    </tr>
+    <tr>
+      <td><code>pm2 restart 0</code></td>
+      <td>Restart specific process id</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 delete 0</code></td>
+      <td>Will remove process from pm2 list</td>
+    </tr>
+    <tr>
+      <td><code>pm2 delete all</code></td>
+      <td>Will remove all processes from pm2 list</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 save</code></td>
+      <td>Save processes list to respawn at reboot</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 reset</code></td>
+      <td>reset the restart counter</td>
+    </tr>
+    <tr>
+      <td><code>pm2 reset all</code></td>
+      <td>reset all restart counters</td>
+    </tr>
+    <tr>
+      <td><code>pm2 resurrect</code></td>
+      <td>Run previously saved processes (via pm2 save)</td>
+    </tr>
+    <tr>
+      <td><code>pm2 startup</code></td>
+      <td>Generate startup script to auto-start PM2 on reboot</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="misc">Misc</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pm2 reset &lt;process&gt;</code></td>
+      <td>Reset meta data (restarted time…)</td>
+    </tr>
+    <tr>
+      <td><code>pm2 updatePM2</code></td>
+      <td>Update in memory pm2</td>
+    </tr>
+    <tr>
+      <td><code>pm2 ping</code></td>
+      <td>Ensure pm2 daemon has been launched</td>
+    </tr>
+    <tr>
+      <td><code>pm2 sendSignal SIGUSR2 my-app</code></td>
+      <td>Send system signal to script</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>pm2 start app.js --no-daemon</code></td>
+      <td>Run pm2 daemon in the foreground if it doesn’t exist already</td>
+    </tr>
+    <tr>
+      <td><code>pm2 start app.js --no-vizion</code></td>
+      <td>Skip vizion features (versioning control)</td>
+    </tr>
+    <tr>
+      <td><code>pm2 start app.js --no-autorestart</code></td>
+      <td>Do not automatically restart app</td>
+    </tr>
+  </tbody>
+</table>

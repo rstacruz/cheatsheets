@@ -1,0 +1,187 @@
+<h2 class="-left-reference" id="writing-help-files">Writing help files</h2>
+
+<h3 id="creating-a-document">Creating a document</h3>
+
+<pre><code class="language-nohighlight">:e doc/potion.txt
+:set ft=help
+:set ft=text
+</code></pre>
+
+<p>Use <code>ft=help</code> to preview it, and <code>ft=text</code> to edit it.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code class="language-nohighlight">*ack.txt*   Plugin that integrates ack with Vim
+
+==============================================================================
+USAGE INSTRUCTIONS                                                 *ack-usage*
+
+:Ack[!] {pattern}                                                       *:Ack*
+
+    Search recursively for {pattern}. See |:AckAdd|.
+    Also see http://beyondgrep.com for more information.
+
+vim:tw=78:ts=8:ft=help:norl:
+</code></pre>
+
+<p>This is a cheatsheet for writing Vim help files. See: <code>:help help-writing</code></p>
+
+<h2 id="syntax">Syntax</h2>
+
+<h3 id="reference">Reference</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Inline items</em></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>*tags*</code></td>
+      <td>Tags</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>|link-to-tags|</code></td>
+      <td>Links to tags</td>
+      <td><code>|:command|</code></td>
+    </tr>
+    <tr>
+      <td><code>'vimoption'</code></td>
+      <td>Vim option</td>
+      <td><code>'textwidth'</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>{code-text}</code></td>
+      <td>Code text</td>
+      <td><code>{Visual}gf</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;code-text&gt;</code></td>
+      <td>Code text</td>
+      <td><code>&lt;PageDown&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>`code-text`</code></td>
+      <td>Code text</td>
+      <td><code>`set fo=want`</code></td>
+    </tr>
+    <tr>
+      <td><code>CTRL-X</code></td>
+      <td>Code text</td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><em>Block items</em></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>INTRODUCTION *tag*</code></td>
+      <td>Section header</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Column heading~</code></td>
+      <td>Highlighting</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>www.url.com</code></td>
+      <td>Web URL</td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>=====</code></td>
+      <td>Separator</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-----</code></td>
+      <td>Separator</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tags">Tags</h3>
+
+<ul>
+  <li>Tags are created with asterisks, eg, <code>*potion-usage*</code></li>
+  <li>Links to tags are <code>|potion-usage|</code></li>
+  <li>Press <code>^]</code> to jump to a tag</li>
+</ul>
+
+<h3 id="code-blocks">Code blocks</h3>
+
+<pre><code>Example: &gt;
+ xyz
+&lt;
+</code></pre>
+
+<p>Surround with <code>&gt;</code> and <code>&lt;</code> characters</p>
+
+<h3 id="file-header">File header</h3>
+
+<pre><code>*potion.txt*  functionality for the potion programming language
+</code></pre>
+
+<p>It’s customary to start a file with a tag of the filename, plus a description.</p>
+
+<h3 id="heading">Heading</h3>
+
+<pre><code>==============================================================================
+CONTENTS                                                     *potion-contents*
+</code></pre>
+
+<p>Starts with <code>ALL CAPS</code>, ends with <code>*a-tag*</code></p>
+
+<h3 id="notes">Notes</h3>
+<p>Using <code>*Todo</code> and <code>*Error</code> will highlight your notes.</p>
+
+<pre><code>	*Todo something to do
+	*Error something wrong
+</code></pre>
+
+<h3 id="final-modeline">Final modeline</h3>
+
+<pre><code class="language-nohighlight">vim:tw=78:ts=8:ft=help:norl:
+</code></pre>
+
+<h2 id="conventions">Conventions</h2>
+
+<h3 id="table-of-contents">Table of contents</h3>
+
+<pre><code class="language-nohighlight">|rails-introduction|            Introduction and Feature Summary
+|rails-commands|                General Commands
+|rails-navigation|              Navigation
+</code></pre>
+
+<pre><code class="language-nohighlight">    1.Intro...................................|ergonomic|
+    2.Note to use..............................|CAPSLOCK|
+    3.Insert Mode Remappings............|ergonomicInsert|
+</code></pre>
+
+<h3 id="author-lines">Author lines</h3>
+
+<pre><code class="language-nohighlight">Author:  Jack Hackness &lt;captain@time.com&gt;         *xyz-author*
+License: Same terms as Vim itself (see |license|)
+</code></pre>

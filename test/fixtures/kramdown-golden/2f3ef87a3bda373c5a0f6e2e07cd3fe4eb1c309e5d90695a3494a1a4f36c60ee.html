@@ -1,0 +1,24 @@
+<h3 id="kernel">Kernel</h3>
+
+<p>Most of these magic is defined in <a href="http://devdocs.io/elixir/elixir/kernel.specialforms">Kernel.SpecialForms</a>.</p>
+
+<h3 id="pseudo-variables">Pseudo-variables</h3>
+
+<pre><code class="language-elixir">__DIR__     # current dir
+__MODULE__  # current module
+__CALLER__  # caller of the function
+</code></pre>
+
+<h3 id="__env__"><a href="http://devdocs.io/elixir/elixir/kernel.specialforms#__ENV__/0"><code>__ENV__</code></a></h3>
+
+<pre><code class="language-elixir">Map.keys(__ENV__)
+[:__struct__, :aliases, :context, :context_modules, :export_vars, :file,
+ :function, :functions, :lexical_tracker, :line, :macro_aliases, :macros,
+ :module, :requires, :vars]
+</code></pre>
+
+<pre><code class="language-elixir">__CALLER__.module |&gt; Module.definitions_in |&gt; IO.inspect
+</code></pre>
+
+<pre><code class="language-elixir">apply(Enum, :reverse, [[1, 2, 3]])
+</code></pre>

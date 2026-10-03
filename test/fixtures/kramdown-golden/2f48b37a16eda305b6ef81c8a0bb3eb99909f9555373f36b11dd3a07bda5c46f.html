@@ -1,0 +1,80 @@
+<h3 id="basic">Basic</h3>
+
+<pre data-line="2,3,4,5"><code class="language-json">{
+  "name": "expo",
+  "description": "My package",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": ["http", "server"],
+  "author": "Rico Sta. Cruz &lt;rstacruz@users.noreply.github.com&gt;",
+  "engines": {
+    "node": "&gt;=0.8.0"
+  },
+  "main": "index",
+  "bin": {
+    "command": "./bin/command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rstacruz/___.git"
+  },
+}
+</code></pre>
+
+<p>Highlighted lines are required.</p>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<pre><code class="language-json">"dependencies": {
+  "colors":   "*",
+  "flatiron": "0.1.x",
+  "flatiron": "~0.1.0",
+  "plates":   "https://github.com/user/project/tarball/branch",
+  "stuff":    "git://github.com/user/project.git#commit-ish"
+},
+</code></pre>
+
+<pre><code class="language-json">"devDependencies": { ··· },
+"peerDependencies": { ··· },
+"optionalDependencies": { ··· },
+</code></pre>
+
+<p>See <a href="./semver">Semver cheatsheet</a> for explanation of version ranges.</p>
+
+<h3 id="scripts">Scripts</h3>
+
+<pre><code class="language-json">"scripts": {
+  "start": "node ./bin/xxx",       /* npm start */
+  "test": "vows --spec --isolate", /* npm test */
+  "postinstall": "...",
+  "prepublish": "grunt build",     /* after 'npm install' and before 'npm 
+                                      publish' */
+}
+</code></pre>
+
+<h3 id="misc">Misc</h3>
+
+<pre><code class="language-json">"private": true,
+"preferGlobal": true
+</code></pre>
+
+<h3 id="config">Config</h3>
+
+<pre><code class="language-json">{
+  "config": {
+    "foobar": "hello"
+  },
+  "scripts": {
+    "run": "echo $npm_package_config_foobar"
+  }
+}
+</code></pre>
+
+<p>Keys in <code>config</code> are exposed as env vars to scripts.</p>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul class="-also-see">
+  <li><a href="http://package.json.nodejitsu.com/">http://package.json.nodejitsu.com/</a></li>
+  <li><code>npm help package.json</code></li>
+</ul>

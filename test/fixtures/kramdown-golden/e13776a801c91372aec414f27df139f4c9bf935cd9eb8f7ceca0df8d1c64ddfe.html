@@ -1,0 +1,71 @@
+<h3 id="authenticating">Authenticating</h3>
+
+<pre><code class="language-js">FB = new Firebase('https://xxx.firebase.io')
+FB.auth(TOKEN, (err, result) =&gt; { ···})
+</code></pre>
+
+<pre><code class="language-js">FB.authAnonymously(···)
+FB.authWithPassword(···)
+FB.authWithOAuthPopup(···)
+FB.authWithOAuthToken(···)
+</code></pre>
+
+<h3 id="using">Using</h3>
+
+<pre><code class="language-js">Users = FB.child('users')
+</code></pre>
+
+<pre><code class="language-js">// Create
+user = Users.push(first: "Frank", last: "Sinatra")
+</code></pre>
+
+<pre><code class="language-js">// Retrieve
+user = Users.child('alan')  // gets `users/alan`
+</code></pre>
+
+<pre><code class="language-js">// Update
+user.set(first: "Miles", last: "Davis")
+user.update(first: "Miles")
+user.setWithPriority({ ··· }, priority)
+</code></pre>
+
+<pre><code class="language-js">// Destroy
+user.remove()
+</code></pre>
+
+<pre><code class="language-js">// Getting
+user.name()  // primary id
+
+user.once('value', (snap) =&gt; {
+  snap.name()  // primary id
+  snap.val()   // value
+}, (err) =&gt; {
+  ···
+})
+</code></pre>
+
+<pre><code class="language-js">// traversal
+user.parent()
+</code></pre>
+
+<h3 id="querying">Querying</h3>
+
+<pre><code class="language-coffeescript">Users = FB.child('users')
+Users
+  .startAt(1000)
+  .limit(50)
+  .equalTo(priority, [name])
+  .on 'child_added', (snap) -&gt; ···
+</code></pre>
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-coffeescript">Posts = FB.child('posts')
+post = Posts.push({ title: "How to do things", author: "alan" })
+</code></pre>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="https://www.firebase.com/docs/web/api/">https://www.firebase.com/docs/web/api/</a></li>
+  <li><a href="https://www.firebase.com/docs/web/recipes.html">https://www.firebase.com/docs/web/recipes.html</a></li>
+</ul>

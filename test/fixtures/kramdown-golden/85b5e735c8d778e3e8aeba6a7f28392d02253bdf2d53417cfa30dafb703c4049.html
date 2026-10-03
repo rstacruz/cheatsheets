@@ -1,0 +1,93 @@
+<h3 class="-intro" id="about">About</h3>
+
+<p>Koa is a web framework for Node.js.</p>
+
+<ul>
+  <li><a href="https://koajs.com/">https://koajs.com/</a></li>
+</ul>
+
+<h3 id="reference">Reference</h3>
+
+<pre><code class="language-js">app.use(function * (next) {
+  var ctx = this
+
+  ctx.request
+  ctx.response
+
+  ctx.body = 'hello'
+
+  ctx.state.user = yield User.find(id).fetch()
+
+  ctx.cookies.set('foo', 'hello', { signed: true })
+  ctx.cookies.get('foo')
+
+  ctx.throw(403)
+</code></pre>
+
+<h3 id="request">Request</h3>
+
+<pre><code class="language-js">  ctx.header        // ctx.headers
+  ctx.method        // and =
+  ctx.url           // and =
+  ctx.originalUrl
+  ctx.origin        // =&gt; 'http://example.com'
+  ctx.href          // =&gt; 'http://example.com/foo?q=hello'
+  ctx.path          // and =
+  ctx.query         // { q: 'hello' }
+  ctx.query         // and =
+  ctx.querystring
+  ctx.querystring   // and =
+  ctx.host
+  ctx.hostname
+  ctx.fresh
+  ctx.stale
+  ctx.socket
+  ctx.protocol
+  ctx.secure
+  ctx.ip
+  ctx.ips
+  ctx.subdomains
+  ctx.is()                  // .is('html') .is('text/html')
+  ctx.accepts()             // .accepts('html') .accepts('html', 'json')
+  ctx.acceptsEncodings()    // .acceptsEncodings('gzip')
+  ctx.acceptsCharsets()
+  ctx.acceptsLanguages()
+  ctx.get()
+
+  ctx.request.type          // =&gt; 'image/jpg'
+  ctx.request.charset       // =&gt; 'utf-8'
+  ctx.request.protocol      // =&gt; 'https'
+  ctx.request.secure        // =&gt; true
+  ctx.request.ip            // (supports X-Forwarded-For if app.proxy)
+  ctx.request.ips
+  ctx.request.subdomains
+
+  ctx.request.fresh
+  ctx.request.stale
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js">  ctx.body = 'hello'
+
+  ctx.throw(403)
+  ctx.throw('name required', 403)
+  ctx.throw(403, 'name required')
+  ctx.throw('oops')
+  ctx.assert(ctx.state.user, 401, 'You must log in')
+</code></pre>
+
+<h3 id="middlewares">Middlewares</h3>
+
+<pre><code class="language-js">exports.conditionalGet = require('koa-conditional-get');
+exports.responseTime = require('koa-response-time');
+exports.ratelimit = require('koa-ratelimit');
+exports.compress = require('koa-compress');
+exports.rewrite = require('koa-rewrite');
+exports.favicon = require('koa-favicon');
+exports.session = require('koa-session');
+exports.static = require('koa-static');
+exports.logger = require('koa-logger');
+exports.mount = require('koa-mount');
+exports.etag = require('koa-etag');
+</code></pre>

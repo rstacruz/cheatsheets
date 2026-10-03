@@ -1,0 +1,49 @@
+<h3 id="quickstart-guide">Quickstart guide</h3>
+
+<p class="-setup">Install blanket:</p>
+
+<pre><code class="language-bash">npm i --save-dev blanket
+</code></pre>
+
+<p>In your test helpers, use Blanket before <code>require</code>ing:</p>
+
+<pre><code class="language-js">if (process.env.COVERAGE) {
+  require('blanket')({
+    pattern: require('path').resolve('./index.js')
+  });
+}
+thing = require('../index');
+</code></pre>
+
+<p>Add to <code>package.json</code>:</p>
+
+<pre><code class="language-json">"scripts": {
+  "coverage": "env COVERAGE=1 mocha -R html-cov &gt; coverage.html &amp;&amp; open coverage.html"
+}
+</code></pre>
+
+<p>Be sure to ignore it:</p>
+
+<pre><code class="language-bash">echo "coverage.html" &gt;&gt; .gitignore
+</code></pre>
+
+<p>Then run:</p>
+
+<pre><code class="language-bash">npm run coverage
+</code></pre>
+
+<h3 id="travis--coverallsio-support">Travis + coveralls.io support</h3>
+
+<p class="-setup">Visit <a href="http://coveralls.io">coveralls.io</a> then activate your repo. Then install the appropriate packages:</p>
+
+<pre><code class="language-bash">npm i --save-dev mocha-lcov-reporter coveralls
+</code></pre>
+
+<p>Add this to <code>.travis.yml</code>:</p>
+
+<pre><code class="language-yml">after_success:
+  - ./node_modules/.bin/mocha -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+</code></pre>
+
+<p>Commit, push, wait for Travis to finish.</p>
+

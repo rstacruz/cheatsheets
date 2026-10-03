@@ -1,0 +1,68 @@
+<h3 class="-intro" id="about">About</h3>
+
+<p>Sequelize is an ORM for JavaScript.</p>
+
+<ul>
+  <li><a href="https://sequelize.org/">https://sequelize.org/</a></li>
+</ul>
+
+<h3 id="api">API</h3>
+
+<pre><code>sequelize.sync().done -&gt; ...
+</code></pre>
+
+<h3 id="models">Models</h3>
+
+<pre><code>Project = sequelize.define('Project', {
+  title: Sequelize.STRING,
+  description: Sequelize.TEXT,
+  myDate: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+  title: { type: Sequelize.STRING, allowNull: false },
+  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+}, {
+  classMethods: { ... },
+  instanceMethods: { ... }
+});
+
+Project.hasMany(Task)
+</code></pre>
+
+<h3 id="finders">Finders</h3>
+
+<pre><code>Project.find(123).success (project) -&gt;
+
+Project.find({ where: {title: 'Hello'} })
+Project.find({ where: {id: [1,3,4]} })
+Project.find({ where: ["id &gt; ?", 25] })
+
+Project.find(
+  where: {title: 'a'}
+  attributes: ['id', ['name', 'title']]
+)
+
+.findOrCreate(...)
+
+.findAll
+.findAll({ where: ... })
+.findAll({ order: 'title DESC' })
+.findAll({ limit: 10 })
+.findAll({ offset: 10, limit: 2 })
+
+.count()
+</code></pre>
+
+<h3 id="build">Build</h3>
+
+<pre><code>item = Project.build({ ... })
+
+item.title = '...'
+
+item.save().success (item) -&gt;
+
+item.updateAttributes({ title: '...' })
+
+item.destroy().success -&gt;
+
+item.values
+</code></pre>
+

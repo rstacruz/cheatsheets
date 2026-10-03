@@ -1,0 +1,25 @@
+<h3 id="usage">Usage</h3>
+
+<h4 id="install">Install:</h4>
+
+<pre><code>$ npm install -g weinre
+</code></pre>
+
+<h4 id="start-the-server">Start the server:</h4>
+
+<pre><code>$ weinre --boundHost 0.0.0.0
+$ open http://localhost:8080
+</code></pre>
+
+<h3 id="html-to-inject">HTML to inject</h3>
+
+<!--prettier-ignore -->
+<pre><code class="language-html">&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=1;js.src='http://'+location.hostname+':8080/target/target-script-min.js#anonymous';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weinre');&lt;/script&gt;
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://people.apache.org/~pmuellr/weinre/">Weinre</a></li>
+</ul>
+

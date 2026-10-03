@@ -1,0 +1,333 @@
+<h3 id="navigating">Navigating</h3>
+
+<pre><code>visit articles_path
+</code></pre>
+
+<h3 id="clicking-links-and-buttons">Clicking links and buttons</h3>
+
+<pre><code class="language-ruby">click_on 'Link Text'
+click_button
+click_link
+</code></pre>
+
+<h3 id="interacting-with-forms">Interacting with forms</h3>
+
+<pre><code class="language-ruby">attach_file 'Image', '/path/to/image.jpg'
+fill_in 'First Name', with: 'John'
+</code></pre>
+
+<pre><code class="language-ruby">check 'A checkbox'
+uncheck 'A checkbox'
+</code></pre>
+
+<pre><code class="language-ruby">choose 'A radio button'
+</code></pre>
+
+<pre><code class="language-ruby">select 'Option', from: 'Select box'
+unselect
+</code></pre>
+
+<h3 id="limiting">Limiting</h3>
+
+<pre><code class="language-ruby">within '.classname' do
+  click '...'
+end
+</code></pre>
+
+<pre><code class="language-ruby">within_fieldset :id do
+  ...
+end
+</code></pre>
+
+<h2 id="querying">Querying</h2>
+
+<h3 id="predicates">Predicates</h3>
+
+<pre class="-setup"><code class="language-ruby">page.has_css?('.button')
+expect(page).to have_css('.button')
+page.should have_css('.button')
+</code></pre>
+
+<table class="-headers -left-align">
+  <thead>
+    <tr>
+      <th>Positive</th>
+      <th>Negative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>has_content?</code></td>
+      <td><code>has_no_content?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_css?</code> <em>(selector)</em></td>
+      <td><code>has_no_css?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_xpath?</code> <em>(path)</em></td>
+      <td><code>has_no_xpath?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_link?</code> <em>(selector)</em></td>
+      <td><code>has_no_link?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_button?</code> <em>(selector)</em></td>
+      <td><code>has_no_button?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_field?</code> <em>(selector)</em></td>
+      <td><code>has_no_field?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_checked_field?</code> <em>(selector)</em></td>
+      <td><code>has_unchecked_field?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_table?</code> <em>(selector)</em></td>
+      <td><code>has_no_table?</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>has_select?</code> <em>(selector)</em></td>
+      <td><code>has_no_select?</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In Rspec, these also map to matchers like <code>page.should have_content</code>.</p>
+
+<h3 id="selectors">Selectors</h3>
+
+<pre><code class="language-ruby">expect(page).to have_button('Save')
+</code></pre>
+
+<pre><code class="language-ruby">expect(page).to have_button('#submit')
+</code></pre>
+
+<pre><code class="language-ruby">expect(page).to have_button('//[@id="submit"]')
+</code></pre>
+
+<p>The <code>selector</code> arguments can be text, CSS selector, or XPath expression.</p>
+
+<h3 id="rspec-assertions">RSpec assertions</h3>
+
+<pre><code class="language-ruby">page.has_button?('Save')
+</code></pre>
+
+<pre><code class="language-ruby">expect(page).to have_no_button('Save')
+</code></pre>
+
+<p>In RSpec, you can use <code>page.should</code> assertions.</p>
+
+<h3 id="about-negatives">About negatives</h3>
+
+<pre><code class="language-ruby">expect(page).to have_no_button('Save')
+</code></pre>
+
+<pre><code class="language-ruby">expect(page).not_to have_button('Save')
+</code></pre>
+
+<p>The two above statements are functionally equivalent.</p>
+
+<h2 id="rspec">RSpec</h2>
+
+<h3 id="matchers">Matchers</h3>
+
+<pre class="-setup"><code class="language-ruby">expect(page).to \
+</code></pre>
+
+<pre><code class="language-ruby">  have_current_path(expected_path)
+  have_selector '.blank-state'
+  have_selector 'h1#hola', text: 'Welcome'
+  have_button 'Save'
+  have_checked_field '#field'
+  have_unchecked_field
+  have_css '.class'
+  have_field '#field'
+  have_table '#table'
+  have_xpath '//div'
+</code></pre>
+
+<pre><code class="language-ruby">  have_link 'Logout', href: logout_path
+</code></pre>
+
+<pre><code class="language-ruby">  have_select 'Language',
+    selected: 'German'
+    options: ['Engish', 'German']
+    with_options: ['Engish', 'German'] # partial match
+</code></pre>
+
+<pre><code class="language-ruby">  have_text 'Hello',
+    type: :visible # or :all
+    # alias: have_content
+</code></pre>
+
+<h3 id="common-options">Common options</h3>
+
+<p class="-setup">All matchers have these options:</p>
+
+<pre><code class="language-ruby">  text: 'welcome'
+  text: /Hello/
+  visible: true
+  count: 4
+  between: 2..5
+  minimum: 2
+  maximum: 5
+  wait: 10
+</code></pre>
+
+<h2 id="other-features">Other features</h2>
+
+<h3 id="finding">Finding</h3>
+
+<pre><code class="language-ruby">find(selector)
+find_button(selector)
+find_by_id(id)
+find_field(selector)
+find_link(selector)
+locate
+</code></pre>
+
+<h3 id="scoping">Scoping</h3>
+
+<pre><code class="language-ruby">within '#delivery' do
+  fill_in 'Street', with: 'Hello'
+end
+</code></pre>
+
+<pre><code class="language-ruby">within :xpath, '//article'
+within_fieldset
+within_table
+within_frame
+scope_to
+</code></pre>
+
+<pre><code class="language-ruby">find('#x').fill_in('Street', with: 'Hello')
+# same as within
+</code></pre>
+
+<h3 id="scripting">Scripting</h3>
+
+<pre><code class="language-ruby">execute_script('$("input").trigger("change")')
+evaluate_script('window.ga')
+</code></pre>
+
+<p>Executes JavaScript.</p>
+
+<h3 id="debugging">Debugging</h3>
+
+<pre><code class="language-ruby">save_and_open_page
+</code></pre>
+
+<p>Opens the webpage in your browser.</p>
+
+<h3 id="page">Page</h3>
+
+<pre><code class="language-ruby">page
+  .all('h3')
+  .body
+  .html
+  .source
+  .current_host
+  .current_path
+  .current_url
+</code></pre>
+
+<h3 id="ajax">AJAX</h3>
+
+<pre><code class="language-ruby">using_wait_time 10 do
+  ...
+end
+</code></pre>
+
+<h3 id="misc">Misc</h3>
+
+<pre><code>drag
+field_labeled
+</code></pre>
+
+<h3 id="page-object">Page object</h3>
+
+<pre><code class="language-ruby">page.status_code == 200
+page.response_headers
+</code></pre>
+
+<p>See: <a href="https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session">https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Session</a></p>
+
+<h3 id="poltergeist">Poltergeist</h3>
+
+<pre><code class="language-ruby">Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, :inspector =&gt; true)
+end
+Capybara.javascript_driver = :poltergeist
+</code></pre>
+
+<p>Use <a href="https://github.com/teampoltergeist/poltergeist">poltergeist</a> to integrate PhantomJS.</p>
+
+<h3 id="blacklist">Blacklist</h3>
+
+<pre><code class="language-ruby">config.before :each, :js do
+  page.driver.browser.url_blacklist = [
+    'fonts.googleapis.com',
+    'use.typekit.net',
+    'f.vimeocdn.com',
+    'player.vimeo.com',
+    'www.googletagmanager.com'
+  ].flat_map { |domain| [ "http://#{domain}", "https://#{domain}" ] }
+end
+</code></pre>
+
+<h3 id="debugging-1">Debugging</h3>
+
+<p class="-setup">Enable <code>inspector: true</code> and then:</p>
+
+<pre><code class="language-ruby">page.driver.debug
+</code></pre>
+
+<p>To pause execution for a while:</p>
+
+<pre><code class="language-ruby">page.driver.pause
+</code></pre>
+
+<h2 id="selenium">Selenium</h2>
+
+<h3 id="accepting-confirm-and-alert">Accepting confirm() and alert()</h3>
+
+<pre><code class="language-ruby">accept_alert { ... }
+dismiss_confirm { ... }
+accept_prompt(with: 'hi') { ... }
+</code></pre>
+
+<p>Alternatively:</p>
+
+<pre><code class="language-ruby">page.driver.browser.switch_to.alert.accept
+</code></pre>
+
+<h3 id="updating-session">Updating session</h3>
+
+<pre><code class="language-ruby">page.set_rack_session(foo: 'bar')
+</code></pre>
+
+<h2 class="-one-column" id="see-also">See also</h2>
+
+<ul>
+  <li><a href="https://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers">https://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers</a></li>
+  <li><a href="https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers">https://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers</a></li>
+</ul>

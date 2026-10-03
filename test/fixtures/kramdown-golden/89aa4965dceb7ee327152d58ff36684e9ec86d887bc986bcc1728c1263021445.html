@@ -1,0 +1,186 @@
+<h3 id="basic-config">Basic config</h3>
+
+<h4 id="webpackconfigjs">webpack.config.js</h4>
+
+<pre><code class="language-js">module.exports = {
+  context: __dirname,
+  entry: 'src/app.js',
+  output: {
+    path: __dirname + '/public',
+    filename: 'app.js'
+  }
+}
+</code></pre>
+
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="language-bash">npm install --save-dev webpack
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>webpack</code></td>
+      <td>build</td>
+    </tr>
+    <tr>
+      <td><code>webpack -- -p</code></td>
+      <td>build production</td>
+    </tr>
+    <tr>
+      <td><code>webpack -- --watch</code></td>
+      <td>compile continuously</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This compiles <code>src/app.js</code> into <code>public/app.js</code>. (Note: you may need to use <code>./node_modules/.bin/webpack</code> as a command if you’re not invoking Webpack via npm scripts.)</p>
+
+<h3 id="multiple-files">Multiple files</h3>
+
+<h4 id="webpackconfigjs-1">webpack.config.js</h4>
+
+<pre data-line="2,3,4,8"><code class="language-js">module.exports = {
+  entry: {
+    app: 'src/app.js',
+    vendor: 'src/vendor.js'
+  },
+  output: {
+    path: __dirname + '/public',
+    filename: '[name].js'
+  }
+}
+</code></pre>
+
+<p>This creates <code>app.js</code> and <code>vendor.js</code>.</p>
+
+<h2 id="loaders">Loaders</h2>
+
+<h3 id="babel">Babel</h3>
+
+<h4 id="terminal-1">Terminal</h4>
+
+<pre><code class="language-bash">npm install --save-dev \
+  babel-loader \
+  babel-preset-env \
+  babel-preset-react
+</code></pre>
+
+<h4 id="webpackconfigjs-2">webpack.config.js</h4>
+
+<pre data-line="3,4,5,6,7,8"><code class="language-js">module.exports = {
+  ···
+  module: {
+    rules: [
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h4 id="babelrc">.babelrc</h4>
+
+<pre><code class="language-js">{
+  "presets": [ "env", "react" ]
+}
+</code></pre>
+
+<p>Adds support for <a href="http://babeljs.io">Babel</a>.</p>
+
+<h3 id="css">CSS</h3>
+
+<h4 id="terminal-2">Terminal</h4>
+
+<pre><code class="language-bash">npm install --save-dev \
+  css-loader \
+  style-loader
+</code></pre>
+
+<h4 id="webpackconfigjs-3">webpack.config.js</h4>
+
+<pre data-line="3,4,5,6,7,8,9"><code class="language-js">module.exports = {
+  ···
+  module: {
+    rules: [
+     { test: /\.css$/,
+       exclude: /node_modules/,
+       use: [
+         { loader: 'style-loader' },
+         { loader: 'css-loader' }
+       ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h4 id="your-javascript">Your JavaScript</h4>
+
+<pre><code class="language-js">import './styles.css'
+// or:
+require('./styles.css')
+</code></pre>
+
+<p>This allows you to use CSS inside your JavaScript. This packages your CSS inside your JavaScript bundle.</p>
+
+<h3 id="postcss">PostCSS</h3>
+
+<h4 id="terminal-3">Terminal</h4>
+
+<pre><code>npm install --save-dev \
+  postcss-loader \
+  postcss-cssnext
+</code></pre>
+
+<h4 id="webpackconfigjs-4">webpack.config.js</h4>
+
+<pre data-line="8"><code class="language-js">···
+// Inside module.rules[]:
+{ test: /\.css$/,
+  exclude: /node_modules/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' },
+    { loader: 'postcss-loader' }
+···
+</code></pre>
+
+<h4 id="postcssconfigjs">postcss.config.js</h4>
+
+<pre data-line="3"><code class="language-js">module.exports = {
+  plugins: [
+    require('postcss-cssnext')()
+  ]
+}
+</code></pre>
+
+<p>This example adds <a href="https://www.npmjs.com/package/postcss-cssnext">postcss-cssnext</a> support to your CSS files.</p>
+
+<h2 id="other-features">Other features</h2>
+
+<h3 id="dev-server">Dev server</h3>
+
+<h4 id="packagejson">package.json</h4>
+
+<pre data-line="3"><code class="language-json">{ ···
+  "scripts": {
+    "dev": "webpack-dev-server"
+  }
+}
+</code></pre>
+
+<h4 id="terminal-4">Terminal</h4>
+
+<pre><code class="language-bash">npm install --save-dev \
+  webpack-dev-server
+</code></pre>
+
+<pre><code class="language-bash">npm run dev
+</code></pre>
+
+<p>This starts an HTTP server for development (port 8080 by default).</p>

@@ -1,0 +1,87 @@
+<h3 id="using">Using</h3>
+
+<pre class="-setup"><code>npm install --save-dev expect
+</code></pre>
+
+<pre><code class="language-js">// using ES6 modules
+import expect, { createSpy, spyOn, isSpy } from 'expect'
+</code></pre>
+
+<pre><code class="language-js">// using CommonJS modules
+var expect = require('expect')
+var createSpy = expect.createSpy
+var spyOn = expect.spyOn
+var isSpy = expect.isSpy
+</code></pre>
+
+<p>Expect is a library for assertions in tests.
+See: <a href="https://github.com/mjackson/expect">mjackson/expect</a></p>
+
+<h3 id="assertions">Assertions</h3>
+
+<pre><code class="language-js">expect(x).toBe(y)
+  .toBe(val)
+  .toEqual(val)
+  .toThrow(err)
+  .toExist()          // aka: toBeTruthy()
+  .toNotExist()       // aka: toBeFalsy()
+  .toBeA(constructor)
+  .toBeA('string')
+  .toMatch(/expr/)
+  .toBeLessThan(n)
+  .toBeGreaterThan(n)
+  .toBeLessThanOrEqualTo(n)
+  .toBeGreaterThanOrEqualTo(n)
+  .toInclude(val)     // aka: toContain(val)
+  .toExclude(val)
+  .toIncludeKey(key)
+  .toExcludeKey(key)
+</code></pre>
+
+<p>Also: <code>toNotBe</code>, <code>toNotEqual</code>, etc for negatives.</p>
+
+<h3 id="chaining-assertions">Chaining assertions</h3>
+
+<pre><code class="language-js">expect(3.14)
+  .toExist()
+  .toBeLessThan(4)
+  .toBeGreaterThan(3)
+</code></pre>
+
+<p>Assertions can be chained.</p>
+
+<h3 id="spies">Spies</h3>
+
+<pre class="-setup"><code class="language-js">const video = {
+  play: function () { ··· }
+}
+</code></pre>
+
+<pre><code class="language-js">spy = expect.spyOn(video, 'play')
+</code></pre>
+
+<pre><code class="language-js">spy = expect.spyOn(···)
+  .andCallThrough()      // pass through
+  .andCall(fn)
+  .andThrow(exception)
+  .andReturn(value)
+</code></pre>
+
+<h3 id="assertions-on-spies">Assertions on spies</h3>
+
+<pre><code class="language-js">expect(spy.calls.length).toEqual(1)
+expect(spy.calls[0].context).toBe(video)
+expect(spy.calls[0].arguments).toEqual([ 'some', 'args' ])
+expect(spy.getLastCall().arguments).toEqual(...)
+</code></pre>
+
+<pre><code class="language-js">expect(spy).toHaveBeenCalled()
+expect(spy).toHaveBeenCalledWith('some', 'args')
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/expect">https://www.npmjs.com/package/expect</a></li>
+  <li><a href="https://github.com/mjackson/expect">https://github.com/mjackson/expect</a></li>
+</ul>

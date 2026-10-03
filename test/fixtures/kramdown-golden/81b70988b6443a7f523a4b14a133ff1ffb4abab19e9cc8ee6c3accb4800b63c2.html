@@ -1,0 +1,59 @@
+<h3 id="reading">Reading</h3>
+
+<pre><code>fs.readFile('file.txt', function(err, data) { .. });
+fs.readFile('file.txt', {encoding: 'utf-8'}, function(err, data) { .. });
+</code></pre>
+
+<h3 id="writing">Writing</h3>
+
+<pre><code>fs.writeFile('output.txt', function(err) { .. });
+fs.appendFile('output.txt', function(err) { .. });
+</code></pre>
+
+<h3 id="watch">Watch</h3>
+
+<pre><code>fs.watch('dir OR file.txt', { persistent: true }, function(event, file) {
+  event; /* rename | change */
+});
+</code></pre>
+
+<h3 id="getting-info">Getting info</h3>
+
+<pre><code>fs.exists('file.txt', function(exists /*bool*/) { ... });
+
+fs.stat('file.txt', function(stats) {
+  stats.isFile();
+  stats.isDirectory();
+  stats.isSymbolicLink();
+});
+</code></pre>
+
+<h3 id="file-operations">File operations</h3>
+
+<pre><code>fs.rename('old.txt', 'new.txt', function(){});
+fs.chown('file.txt', uid, gid, function(){});
+fs.symlink('src', 'dest', function(){});
+fs.unlink('path', function(){});
+fs.rmdir('path', function(){});
+
+fs.readdir('path', function(err, files) { .. }); /* `files` = array of names */
+</code></pre>
+
+<h3 id="path">Path</h3>
+
+<pre><code>fs.realpath('/etc/passwd', function(err, path) { /* "/private/etc/passwd" */ });
+</code></pre>
+
+<h3 id="sync">Sync</h3>
+
+<pre><code>data = fs.readFileSync('input.txt');
+fs.writeFileSync('output.txt', data);
+fs.appendFileSync('output.txt', data);
+fs.existsSync('file.txt');
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>https://nodejs.org/api/fs.html</li>
+</ul>

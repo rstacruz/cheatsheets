@@ -1,0 +1,266 @@
+<h2 id="basics">Basics</h2>
+
+<h3 id="exporting-keys">Exporting keys</h3>
+
+<pre><code class="language-bash">gpg -o key.gpg --export &lt;KEY ID&gt;
+</code></pre>
+
+<p><strong>Export key in ASCII:</strong></p>
+
+<pre><code class="language-bash">gpg -o key.asc --armor --export &lt;KEY ID&gt;
+</code></pre>
+
+<p><strong>Note:</strong> Omitting the <code>-o|--output</code> option will print the key to <code>stdout</code>.</p>
+
+<h3 id="importing-keys">Importing keys</h3>
+
+<pre><code class="language-bash">gpg --import key.gpg
+gpg --import key.asc
+</code></pre>
+
+<p>Only merge updates for keys already in key-ring:</p>
+
+<pre><code class="language-bash">gpg --import key.asc --import-options merge-only
+</code></pre>
+
+<h3 id="managing-your-keyring">Managing your keyring</h3>
+
+<p class="-setup">Generate a new key:</p>
+
+<pre><code class="language-bash">gpg --gen-key
+# or, generate a new key with dialogs for all options
+gpg --full-gen-key
+</code></pre>
+
+<p>List public keys:</p>
+
+<pre><code class="language-bash">gpg -k
+gpg --list-keys
+</code></pre>
+
+<p>List secret keys:</p>
+
+<pre><code class="language-bash">gpg -K
+gpg --list-secret-keys
+</code></pre>
+
+<h3 id="using-a-keyserver">Using a keyserver</h3>
+
+<p class="-setup">Import keys from keyserver:</p>
+
+<pre><code class="language-bash">gpg --receive-keys &lt;KEY IDS&gt;
+</code></pre>
+
+<p>Upload keys to keyserver:</p>
+
+<pre><code class="language-bash">gpg --send-keys &lt;KEY IDS&gt;
+</code></pre>
+
+<p>Request updates from keyserver for keys already in your keyring:</p>
+
+<pre><code class="language-bash">gpg --refresh-keys
+</code></pre>
+
+<p>Search keys from keyserver:</p>
+
+<pre><code class="language-bash">gpg --search-keys "&lt;SEARCH STRING&gt;"
+</code></pre>
+
+<p>Override keyserver from <code>~/.gnupg/gpg.conf</code></p>
+
+<pre><code class="language-bash">gpg --keyserver &lt;URL&gt; ...
+</code></pre>
+
+<h3 id="trusting-a-key">Trusting a key</h3>
+
+<pre><code class="language-bash">gpg --edit-key &lt;KEY ID&gt;
+# In the interactive prompt:
+gpg&gt; trust
+gpg&gt; save
+</code></pre>
+
+<p><strong>NOTE:</strong> You can use the owner’s email or name (or part thereof) instead of the key ID for <code>--edit-key</code></p>
+
+<h2 class="-two-column" id="encrypting">Encrypting</h2>
+
+<h3 id="public-key-encryption">Public key encryption</h3>
+<p>This will produce an encrypted file, <code>secret.txt.gpg</code>, that can only be decrypted by the recipient:</p>
+
+<pre><code class="language-bash">gpg -e -o secret.txt.gpg -r &lt;RECIPIENT&gt; secret.txt
+</code></pre>
+
+<p>For <code>&lt;RECIPIENT&gt;</code> you can use their key ID, their email, or their name (or part thereof).</p>
+
+<pre><code class="language-bash">gpg -e -r &lt;KEY ID&gt; ...
+gpg -e -r "Bez" ...
+gpg -e -r "bezalelhermoso@gmail.com" ...
+</code></pre>
+
+<p>Specifying multiple recipients</p>
+
+<pre><code class="language-bash">gpg -e -r &lt;RECIPIENT&gt; -r &lt;ANOTHER RECIPIENT&gt; ... secret.txt
+</code></pre>
+
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will produce an encrypted file named <code>&lt;ORIGINAL FILENAME&gt;.gpg</code> by default.</p>
+
+<h3 id="symmetric-encryption">Symmetric encryption</h3>
+
+<p>Encrypt file using a shared key. You will be prompted for a passphrase.</p>
+
+<pre><code class="language-bash">gpg --symmetric secret.txt
+# or
+gpg -c secret.txt
+</code></pre>
+
+<h2 class="-one-column" id="decrypting">Decrypting</h2>
+
+<h3 id="decrypting-a-file">Decrypting a file</h3>
+
+<pre><code class="language-bash">gpg -d -o secret.txt secret.txt.gpg
+</code></pre>
+
+<p>If the file is encrypted via symmetric encryption, you will be prompted for the passphrase.</p>
+
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will print the unencrypted contents to <code>stdout</code></p>
+
+<h2 class="-two-column" id="signing--verifying">Signing &amp; Verifying</h2>
+
+<h3 id="signing">Signing</h3>
+
+<pre><code class="language-bash">gpg -o signed-file.txt.gpg -s file.txt
+</code></pre>
+
+<p>This can be used during encryption to also sign encrypted files:</p>
+
+<pre><code class="language-bash">gpg -s -o secret.txt.gpg \
+  -r &lt;RECIPIENT&gt; secret.txt
+</code></pre>
+
+<h3 id="verifying-a-signature">Verifying a signature</h3>
+
+<pre><code class="language-bash">gpg --verify file.txt.gpg
+</code></pre>
+
+<h3 id="viewing-content-of-signed-file">Viewing content of signed file</h3>
+
+<pre><code class="language-bash">gpg -d signed-file.txt.gpg
+</code></pre>
+
+<h2 class="-two-column" id="miscellaneous">Miscellaneous</h2>
+
+<h3 id="components">Components</h3>
+
+<p class="-setup">List all components:</p>
+
+<pre><code class="language-bash">gpgconf --list-components
+</code></pre>
+
+<p>Kill a component:</p>
+
+<pre><code class="language-bash">gpgconf --kill &lt;COMPONENT&gt; # i.e. gpgconf --kill dirmngr
+</code></pre>
+
+<p>Kill all components:</p>
+<pre><code class="language-bash">gpgconf --kill all
+</code></pre>
+
+<h3 id="parsing-keyring-data">Parsing keyring data</h3>
+
+<p>Use <code>--with-colons</code> to produce an output that can easily be parsed i.e. with <code>awk</code>, <code>grep</code>. Fields are colon-separated.</p>
+
+<pre><code class="language-bash">gpg -k --with-colons
+</code></pre>
+
+<p>Field Quick Reference:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Field #</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Record type</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Validity</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Key length in bits</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Public key algorithm</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Key ID</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Creation date</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Expiry date</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Certificate S/N, UID hash, trust signature info</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Ownertrust</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>User ID</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Signature class</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Key capabilities</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Issuer fingerprint</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Flag field</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>S/N of token</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Hash algorithm</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Curve name</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Compliance flags</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Last update timestamp</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Origin</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See <a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS">GnuPG Details</a> for more details.</p>
+

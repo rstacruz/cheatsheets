@@ -1,0 +1,59 @@
+<h3 id="basic-configuration">Basic configuration</h3>
+
+<pre><code class="language-bash">rclone config       # Start the interactive configuration wizard to add new remotes
+rclone config show  # Display the current configuration
+rclone listremotes  # List the names of all configured remotes
+</code></pre>
+
+<h3 id="listing-files--directories">Listing files &amp; directories</h3>
+
+<pre><code class="language-bash">rclone ls &lt;remote&gt;:&lt;path&gt;    # List files and file sizes
+rclone lsl &lt;remote&gt;:&lt;path&gt;   # List files, sizes, and modification times
+rclone lsd &lt;remote&gt;:&lt;path&gt;   # List directories only
+rclone tree &lt;remote&gt;:&lt;path&gt;  # List contents in a tree-like structure
+</code></pre>
+
+<h3 id="copying--syncing">Copying &amp; syncing</h3>
+
+<h4 id="copy">Copy</h4>
+
+<pre><code class="language-bash">rclone copy &lt;source&gt; &lt;dest&gt;            # Copy new/changed files
+rclone copy &lt;source&gt; &lt;dest&gt; --dry-run  # Test the copy operation without making changes
+</code></pre>
+
+<h4 id="sync">Sync</h4>
+
+<pre><code class="language-bash">rclone sync &lt;source&gt; &lt;dest&gt;            # Sync source to destination
+rclone sync &lt;source&gt; &lt;dest&gt; --dry-run  # Test the sync operation (recommended before actual sync)
+</code></pre>
+
+<h3 id="deleting--moving">Deleting &amp; moving</h3>
+
+<pre><code class="language-bash">rclone move &lt;source&gt; &lt;dest&gt;    # Move files (copy and then delete the source)
+rclone delete &lt;remote&gt;:&lt;path&gt;  # Delete the files in the path
+rclone purge &lt;remote&gt;:&lt;path&gt;   # Delete the path and all of its contents (Irrecoverable!)
+rclone rmdir &lt;remote&gt;:&lt;path&gt;   # Remove an empty directory
+</code></pre>
+
+<h3 id="file-manipulation">File manipulation</h3>
+
+<pre><code class="language-bash">rclone mkdir &lt;remote&gt;:&lt;path&gt;           # Create a new directory
+rclone touch &lt;remote&gt;:&lt;path&gt;/file.txt  # Create a new file with the current time
+rclone cat &lt;remote&gt;:&lt;path&gt;/file.txt    # Output the file content to standard output
+rclone check &lt;source&gt; &lt;dest&gt;           # Check if the files in source and dest are identical
+</code></pre>
+
+<h3 id="important-flags-general">Important flags (general)</h3>
+
+<pre><code class="language-bash">--dry-run                     # Show what would be transferred without doing it
+-P or --progress              # Show progress during transfer
+--transfers=N                 # Set number of file transfers to run in parallel (default 4)
+--checkers=N                  # Set number of checkers to run in parallel (default 8)
+--max-age &lt;time&gt;              # Don't transfer files older than &lt;time&gt;
+--min-age &lt;time&gt;              # Don't transfer files newer than &lt;time&gt;
+--include &lt;filter&gt;            # Include files matching this pattern
+--exclude &lt;filter&gt;            # Exclude files matching this pattern
+--fast-list                   # Use recursive listing to speed up checks (may use more memory)
+--multi-thread-cutoff &lt;size&gt;  # Use multiple threads for files bigger than &lt;size&gt;
+--multi-thread-streams &lt;N&gt;    # Number of streams to use for multi-thread transfers
+</code></pre>

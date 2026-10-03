@@ -1,0 +1,197 @@
+<h3 class="-intro" id="about">About</h3>
+
+<p>RSpec is a Ruby library for testing.</p>
+
+<ul>
+  <li><a href="https://rspec.info/">https://rspec.info/</a></li>
+</ul>
+
+<h3 id="invoking-tests">Invoking tests</h3>
+
+<pre><code class="language-sh">rake -T spec      # List spec tasks
+
+rake spec         # Run all
+
+rake spec/models/mymodel_spec.rb
+rake spec/models/mymodel_spec.rb:27
+</code></pre>
+
+<h2 id="writing-tests">Writing tests</h2>
+
+<pre><code class="language-rb">describe "A User (in general)" do
+  include UserSpecHelper
+
+  subject { Person.new }
+
+  let(:admin) { Person.new(role: :admin) }
+
+  context "setter methods" do
+    it "should do this" do
+      pending "some other thing"
+
+      expect(subject.name).to eq 'x'
+    end
+  end
+end
+</code></pre>
+
+<h3 id="beforeafter">Before/after</h3>
+
+<pre><code class="language-rb">before :each do
+  # before all tests
+end
+
+before :all do
+  # before this suite
+end
+
+after : all do
+  # after this suite
+end
+</code></pre>
+
+<h3 id="subjects">Subjects</h3>
+
+<pre><code class="language-rb">subject { CheckingAccount.new }
+it { is_expected.to be_empty }
+
+# also names: subject(:account) { ... }
+</code></pre>
+
+<h2 id="expectations">Expectations</h2>
+
+<pre><code class="language-rb">target.should eq 1
+target.should_not eq 1
+
+expect(target).to eq 1
+expect(target).not_to eq 1
+</code></pre>
+
+<h3 id="numeric">Numeric</h3>
+
+<pre><code class="language-rb">expect(5).to be &lt; 6
+expect(5).to == 5
+expect(5).to equal value
+expect(5).to be_between(1, 10)
+expect(5).to be_within(0.05).of value
+</code></pre>
+
+<h3 id="compound-expectations">Compound expectations</h3>
+
+<pre><code class="language-rb">expect(1).to (be &lt; 2).or be &gt; 5
+</code></pre>
+
+<p>Use <code>or</code>/<code>and</code> to string multiple matchers together. See: <a href="https://relishapp.com/rspec/rspec-expectations/docs/compound-expectations">Compound expectations</a></p>
+
+<h3 id="comparison">Comparison</h3>
+
+<pre><code class="language-rb">expect(x).to be value
+expect(x).to satisfy { |arg| ... }
+expect(x).to match /regexp/
+</code></pre>
+
+<h3 id="predicate">Predicate</h3>
+
+<pre><code class="language-rb">expect(x).to be_zero    # FixNum#zero?
+expect(x).to be_empty   # Array#empty?
+expect(x).to have_key   # Hash#has_key?
+</code></pre>
+
+<h3 id="objects">Objects</h3>
+
+<pre><code class="language-rb">expect(obj).to be_an_instance_of MyClass
+expect(obj).to be_a_kind_of MyClass
+expect(obj).to respond_to :save!
+</code></pre>
+
+<h3 id="control-flow">Control flow</h3>
+
+<pre><code class="language-rb">expect { user.save! }.to raise_error
+expect { user.save! }.to raise_error(ExceptionName, /msg/)
+expect { user.save! }.to throw :symbol
+</code></pre>
+
+<h3 id="enumerablesarrays">Enumerables/arrays</h3>
+
+<pre><code class="language-rb">expect(list).to include(&lt;object&gt;)
+
+expect(list).to have(1).things
+expect(list).to have_at_least(2).things
+expect(list).to have_at_most(3).things
+
+expect(list).to have(2).errors_on(:field)
+
+expect(list).to contain_exactly(1, 2)
+expect(list).to match_array([1, 2])
+</code></pre>
+
+<h3 id="change">Change</h3>
+
+<pre><code class="language-rb">expect { thing.approve! }.to \
+  change(thing, :status)
+  .from(Status::AWAITING_APPROVAL)
+  .to(Status::APPROVED)
+
+expect { thing.destroy }.to \
+  change(Thing, :count)
+  .by(-1)
+</code></pre>
+
+<h2 id="doubles">Doubles</h2>
+
+<pre><code class="language-rb">book = double('book')
+book = instance_double('Book', pages: 250)
+</code></pre>
+
+<h3 id="method-stubs">Method stubs</h3>
+
+<pre><code class="language-rb">allow(die).to receive(:roll)
+allow(die).to receive(:roll) { 3 }
+allow_any_instance_of(Die).to receive(:roll)
+
+expect(die).to receive(:roll)
+  .with(1)
+  .with(1, true)
+  .with(boolean)
+  .with(anything)
+  .with(any_args)
+  .with(1, any_args)
+  .with(no_args)
+  .with(hash_including(a: 1))
+  .with(hash_excluding(a: 1))
+  .with(array_including(:a, :b))
+  .with(array_excluding(:a, :b))
+  .with(instance_of(Fixnum))
+  .with(kind_of(Numeric))
+  .with(&lt;matcher&gt;)
+
+  .once
+  .twice
+  .exactly(n).times
+  .at_least(:once)
+  .at_least(:twice)
+  .at_least(n).times
+  .at_most(:once)
+  .at_most(:twice)
+  .at_most(n).times
+</code></pre>
+
+<p>https://relishapp.com/rspec/rspec-mocks/docs</p>
+
+<h2 id="spec-helpers">Spec helpers</h2>
+
+<pre><code class="language-rb">module UserSpecHelper
+  def valid_user_attributes
+    { :email =&gt; "joe@bloggs.com",
+      :username =&gt; "joebloggs",
+      :password =&gt; "abcdefg"}
+  end
+end
+</code></pre>
+
+<pre><code class="language-rb">describe User do
+  include UserSpecHelper
+
+  ...
+end
+</code></pre>

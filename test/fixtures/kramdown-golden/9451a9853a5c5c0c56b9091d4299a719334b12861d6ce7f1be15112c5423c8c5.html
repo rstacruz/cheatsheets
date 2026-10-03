@@ -1,0 +1,262 @@
+<h2 class="-three-column" id="log-format">Log format</h2>
+
+<h3 class="-prime" id="pretty-format">Pretty format</h3>
+
+<pre><code class="language-bash">git log --pretty="format:%H"
+</code></pre>
+
+<p>See the next tables on format variables.</p>
+
+<h3 id="hash">Hash</h3>
+
+<h4 id="commit">Commit</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%H</code></td>
+      <td>commit hash</td>
+    </tr>
+    <tr>
+      <td><code>%h</code></td>
+      <td>(abbrev) commit hash</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tree">Tree</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%T</code></td>
+      <td>tree hash</td>
+    </tr>
+    <tr>
+      <td><code>%t</code></td>
+      <td>(abbrev) tree hash</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="parent">Parent</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%P</code></td>
+      <td>parent hash</td>
+    </tr>
+    <tr>
+      <td><code>%p</code></td>
+      <td>(abbrev) parent hash</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="commit-1">Commit</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%s</code></td>
+      <td>commit subject</td>
+    </tr>
+    <tr>
+      <td><code>%f</code></td>
+      <td>commit subject, filename style</td>
+    </tr>
+    <tr>
+      <td><code>%b</code></td>
+      <td>commit body</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>%d</code></td>
+      <td>ref names</td>
+    </tr>
+    <tr>
+      <td><code>%e</code></td>
+      <td>encoding</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="author-and-committer">Author and committer</h2>
+
+<h3 id="author">Author</h3>
+
+<h4 id="name">Name</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%an</code></td>
+      <td>author</td>
+    </tr>
+    <tr>
+      <td><code>%aN</code></td>
+      <td>author, respecting mailmap</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="email">Email</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%ae</code></td>
+      <td>author email</td>
+    </tr>
+    <tr>
+      <td><code>%aE</code></td>
+      <td>author email, respecting mailmap</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="date">Date</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%aD</code></td>
+      <td>author date (rfc2882)</td>
+    </tr>
+    <tr>
+      <td><code>%ar</code></td>
+      <td>author date (relative)</td>
+    </tr>
+    <tr>
+      <td><code>%at</code></td>
+      <td>author date (unix timestamp)</td>
+    </tr>
+    <tr>
+      <td><code>%ai</code></td>
+      <td>author date (iso8601)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="committer">Committer</h3>
+
+<h4 id="name-1">Name</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%cn</code></td>
+      <td>committer name</td>
+    </tr>
+    <tr>
+      <td><code>%cN</code></td>
+      <td>committer name, respecting mailmap</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="email-1">Email</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%ce</code></td>
+      <td>committer email</td>
+    </tr>
+    <tr>
+      <td><code>%cE</code></td>
+      <td>committer email, respecting mailmap</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="date-1">Date</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%cD</code></td>
+      <td>committer date (rfc2822)</td>
+    </tr>
+    <tr>
+      <td><code>%cr</code></td>
+      <td>committer date (relative)</td>
+    </tr>
+    <tr>
+      <td><code>%ct</code></td>
+      <td>committer date (unix timestamp)</td>
+    </tr>
+    <tr>
+      <td><code>%ci</code></td>
+      <td>committer date (iso8601)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="./git-log">Git log cheatsheet</a></li>
+</ul>

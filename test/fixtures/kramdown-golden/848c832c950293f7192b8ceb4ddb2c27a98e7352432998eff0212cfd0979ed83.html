@@ -1,0 +1,71 @@
+<h3 id="example">Example</h3>
+
+<pre><code class="language-bash">Project = Model "project", -&gt;
+  @extend
+    findByTitle: (title) -&gt; ...
+
+  @include
+    markAsDone: -&gt; ...
+
+  # ActiveRecord::Base.include_root_in_json = false
+</code></pre>
+
+<pre><code class="language-bash">project = Project.find(1)
+project = Project.findByTitle("hello")
+
+project.markAsDone()
+</code></pre>
+
+<h3 id="persistence">Persistence</h3>
+
+<pre><code class="language-bash">Project "hi", -&gt;
+  @persistence Model.REST, "/projects"
+  @persistence Model.localStorage
+</code></pre>
+
+<pre><code class="language-bash">Project.load -&gt;
+  # loaded
+</code></pre>
+
+<h3 id="attrs">Attrs</h3>
+
+<pre><code class="language-bash">project = new Project(name: "Hello")
+
+project.attr('name', "Hey")
+project.attr('name')
+
+project.save()
+project.destroy()
+</code></pre>
+
+<h3 id="collection">Collection</h3>
+
+<pre><code class="language-bash">Food.add(egg)
+Food.all()
+Food.select (food) -&gt; ...
+Food.first()
+</code></pre>
+
+<pre><code class="language-bash">Food.find(id)
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-bash"># Classes
+Project.bind "add", (obj) -&gt;
+Project.bind "remove", (obj) -&gt;
+</code></pre>
+
+<pre><code class="language-bash"># Instances
+project.bind "update", -&gt;
+project.bind "destroy", -&gt;
+</code></pre>
+
+<pre><code class="language-bash">project.trigger "turn_blue"
+</code></pre>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="http://benpickles.github.io/js-model/">http://benpickles.github.io/js-model/</a></li>
+</ul>

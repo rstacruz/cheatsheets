@@ -1,0 +1,216 @@
+<h2 class="-left-reference" id="getting-started">Getting started</h2>
+
+<h3 id="installation">Installation</h3>
+
+<h4 id="installation-1">Installation</h4>
+
+<pre><code class="language-bash">gem install ronn
+</code></pre>
+
+<h4 id="usage">Usage</h4>
+
+<pre><code class="language-bash">ronn foo.1.md        # creates foo.1.html
+ronn -r foo.1.md     # creates foo.1 (--roff)
+ronn -r -h foo.1.md  # builds --roff and --html
+ronn -m foo.1.md     # view as manpage
+</code></pre>
+
+<p>Ronn is a Ruby gem.</p>
+
+<h3 id="basic-template">Basic template</h3>
+
+<pre><code class="language-markdown">name(1) -- short, single-sentence description
+=============================================
+
+## SYNOPSIS
+
+`name` [&lt;optional&gt;...] &lt;flags&gt;
+
+## DESCRIPTION
+
+A normal paragraph. This can span multiple lines and is terminated with two
+or more line endings just like Markdown.
+
+## OPTIONS
+
+ * `-h`, `--help` :
+   Displays the help screen.
+
+ * `--version` : 
+   Displays version information.
+
+## EXAMPLES
+
+Indent examples with 4 spaces.
+
+    $ ls
+    $ ls -la
+
+## COPYRIGHT
+
+**PROJECTNAME** is copyright (c) 2015, Rico Sta. Cruz. Released under the MIT
+license.
+
+## SEE ALSO
+
+ronn-format(7), ronn(1)
+</code></pre>
+
+<h2 id="formatting-tags">Formatting tags</h2>
+
+<h3 id="inline">Inline</h3>
+
+<h4 id="bold">Bold</h4>
+
+<pre><code>`code`
+**strong**
+</code></pre>
+
+<h4 id="underline">Underline</h4>
+
+<pre><code>&lt;variable&gt;
+_emphasis_
+*emphasis*
+</code></pre>
+
+<h3 id="linking">Linking</h3>
+
+<h4 id="manual-references">Manual references</h4>
+
+<pre><code>sh(1)
+markdown(7)
+</code></pre>
+
+<h4 id="sections">Sections</h4>
+
+<pre><code>[STANDARDS][]
+[SEE ALSO][]
+[DIFFERENT TEXT][#SEE-ALSO]
+</code></pre>
+
+<h4 id="url-links">URL links</h4>
+
+<pre><code>[URL link](https://github.com/rstacruz)
+&lt;https://github.com&gt;
+</code></pre>
+
+<h2 class="-one-column" id="frequently-used-sections">Frequently-used sections</h2>
+
+<h3 id="sections-1">Sections</h3>
+
+<ul class="-four-column">
+  <li><code>## SYNOPSIS</code></li>
+  <li><code>## DESCRIPTION</code></li>
+  <li><code>## OPTIONS</code></li>
+  <li><code>## SYNTAX</code></li>
+  <li><code>## ENVIRONMENT</code></li>
+  <li><code>## RETURN VALUES</code></li>
+  <li><code>## STANDARDS</code></li>
+  <li><code>## SECURITY CONSIDERATIONS</code></li>
+  <li><code>## BUGS</code></li>
+  <li><code>## HISTORY</code></li>
+  <li><code>## AUTHOR</code></li>
+  <li><code>## COPYRIGHT</code></li>
+  <li><code>## SEE ALSO</code></li>
+</ul>
+
+<h2 id="other-cli-options">Other CLI options</h2>
+
+<h3 id="options">Options</h3>
+
+<pre><code class="language-bash">--pipe                       # write to stdout
+--server, -S                 # serve in http://localhost:1207
+</code></pre>
+
+<pre><code class="language-bash">--html, -5                   # default
+--fragment, -f               # html without header/title/footer
+</code></pre>
+
+<pre><code class="language-bash">--style=toc,80c              # toc (table of contents)
+                             # 80c (use 80c instead of 100c)
+                             # print (include print stylesheet)
+                             # dark
+</code></pre>
+
+<pre><code class="language-bash">--manual="MY MANUAL"         # shown on top-center
+--organization="RONN 0.7.0"  # shown on bottom-left
+--date="YYYY-MM-DD"          # shown on bottom-center
+</code></pre>
+
+<h2 id="sections-2">Sections</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>1</code></td>
+      <td>General commands</td>
+    </tr>
+    <tr>
+      <td><code>2</code></td>
+      <td>System calls</td>
+    </tr>
+    <tr>
+      <td><code>3</code></td>
+      <td>C standard lib</td>
+    </tr>
+    <tr>
+      <td><code>4</code></td>
+      <td>Special files (/dev) and drivers</td>
+    </tr>
+    <tr>
+      <td><code>5</code></td>
+      <td>File formats</td>
+    </tr>
+    <tr>
+      <td><code>6</code></td>
+      <td>Games</td>
+    </tr>
+    <tr>
+      <td><code>7</code></td>
+      <td>Misc</td>
+    </tr>
+    <tr>
+      <td><code>8</code></td>
+      <td>System administration commands and procedures</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See <a href="https://www.december.com/unix/ref/mansec.html">Man page sections</a> (december.com).</p>
+
+<h2 id="using-with-npm">Using with npm</h2>
+
+<h3 id="npm-scripts">npm scripts</h3>
+
+<p class="-setup">Place manual files in <code>man/xxx.1.md</code>, then in package.json:</p>
+
+<pre><code class="language-json">"scripts": {
+  "prepublish": "npm run build-man",
+  "build-man": "if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\"@rstacruz\"; fi"
+},
+"directories": {
+  "man": "man"
+}
+</code></pre>
+
+<h3 id="marked-man">marked-man</h3>
+
+<pre><code>npm install -g marked-man
+marked-man foo.1.md &gt; foo.1
+</code></pre>
+
+<h4 id="differences">Differences</h4>
+
+<ul>
+  <li>No definition lists</li>
+  <li>Can’t use <code>&lt;br&gt;</code></li>
+</ul>
+
+<p>See <a href="https://github.com/kapouer/marked-man">marked-man</a>.</p>
+

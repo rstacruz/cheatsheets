@@ -1,0 +1,158 @@
+<h2 class="-three-column" id="pug">Pug</h2>
+
+<h3 class="-prime" id="basic-document">Basic document</h3>
+
+<pre><code class="language-jade">doctype html
+html(lang='en')
+  h1.class#id(name='hi')
+    | This is some text, hello there,
+    = name
+
+  - javascript()
+</code></pre>
+
+<h3 id="elements">Elements</h3>
+
+<pre><code class="language-jade">div
+  | Just a div
+</code></pre>
+
+<pre><code class="language-jade">.search
+  | A div, with class 'search'
+</code></pre>
+
+<pre><code class="language-jade">h1 A heading with text
+</code></pre>
+
+<pre><code class="language-jade">h1= page.title
+</code></pre>
+
+<pre><code class="language-jade">div.class
+div.class1.class2
+h1.header
+</code></pre>
+
+<h3 id="attributes">Attributes</h3>
+
+<pre><code class="language-jade">input(type='text' name='q' autofocus)
+</code></pre>
+
+<pre><code class="language-jade">- var authenticated = true
+body(class=authenticated ? 'authed' : 'anon')
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/attributes.html">Attributes</a></p>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code class="language-jade">// This comment will appear in the HTML
+</code></pre>
+
+<pre><code class="language-jade">//- This is a silent comment
+</code></pre>
+
+<pre><code class="language-jade">//-
+  Nesting inside a comment creates
+  a comment block
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/attributes.html">Comments</a></p>
+
+<h3 id="iteration">Iteration</h3>
+
+<pre><code class="language-jade">ul
+  each user in users
+    li= user
+</code></pre>
+
+<h3 id="layouts">Layouts</h3>
+
+<pre><code class="language-jade">//- page.pug
+extends layout.pug
+
+block title
+  | hello
+
+block content
+  | hello
+</code></pre>
+
+<pre><code class="language-jade">//- layout.pug
+title
+  block title
+body
+  block content
+</code></pre>
+
+<h3 id="includes-partials">Includes (partials)</h3>
+
+<pre><code class="language-jade">include ./includes/head.pug
+</code></pre>
+
+<pre><code class="language-jade">include:markdown article.md
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/includes.html">Includes</a></p>
+
+<h3 id="multiline-text">Multiline text</h3>
+
+<pre data-line="1"><code class="language-jade">p.
+  This is text that doesn't need to
+  be prefixed by pipes.
+</code></pre>
+
+<pre data-line="1"><code class="language-jade">script.
+  // It's great for raw
+  // JavaScript and stuff
+  alert('hello')
+</code></pre>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre data-line="1,3"><code class="language-jade">if authenticated
+  a(href='/logout') Sign out
+else
+  a(href='/login') Sign in
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/conditionals.html">Conditionals</a></p>
+
+<h2 class="-three-column" id="mixins">Mixins</h2>
+
+<h3 id="mixins-1">Mixins</h3>
+
+<pre data-line="1"><code class="language-jade">mixin list
+  ul
+    ···
+</code></pre>
+
+<pre><code class="language-jade">+list
+</code></pre>
+
+<p>Mixins allow you to create reusable code blocks.
+See: <a href="https://pugjs.org/language/mixins.html">Mixins</a></p>
+
+<h3 id="mixin-attributes">Mixin attributes</h3>
+
+<pre data-line="1"><code class="language-jade">mixin pet(name)
+  span.pet= name
+</code></pre>
+
+<pre><code class="language-jade">+pet('cat')
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/mixins.html#mixin-attributes">Mixin attributes</a></p>
+
+<h3 id="mixin-blocks">Mixin blocks</h3>
+
+<pre data-line="1,4"><code class="language-jade">mixin article(title)
+  article
+    h2.title= title
+    block
+</code></pre>
+
+<pre><code class="language-jade">+article('hello there')
+  p Content goes here
+</code></pre>
+
+<p>See: <a href="https://pugjs.org/language/mixins.html#mixin-blocks">Mixin blocks</a></p>

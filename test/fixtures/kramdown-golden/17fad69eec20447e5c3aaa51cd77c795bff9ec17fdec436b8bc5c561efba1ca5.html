@@ -1,0 +1,925 @@
+
+<h2 class="-three-column" id="components">Components</h2>
+
+<h3 class="-prime" id="components-1">Components</h3>
+
+<pre class="-setup"><code class="language-jsx">import React from 'react'
+import ReactDOM from 'react-dom'
+</code></pre>
+
+<pre><code class="language-jsx">class Hello extends React.Component {
+  render () {
+    return &lt;div className='message-box'&gt;
+      Hello {this.props.name}
+    &lt;/div&gt;
+  }
+}
+</code></pre>
+
+<pre><code class="language-jsx">const el = document.body
+ReactDOM.render(&lt;Hello name='John' /&gt;, el)
+</code></pre>
+
+<p>Use the <a href="http://jsfiddle.net/reactjs/69z2wepo/">React.js jsfiddle</a> to start hacking. (or the unofficial <a href="http://jsbin.com/yafixat/edit?js,output">jsbin</a>)</p>
+
+<h3 class="-prime" id="import-multiple-exports">Import multiple exports</h3>
+
+<pre class="-setup"><code class="language-jsx">import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+</code></pre>
+
+<pre><code class="language-jsx">class Hello extends Component {
+  ...
+}
+</code></pre>
+
+<h3 id="properties">Properties</h3>
+
+<pre class="-setup"><code class="language-html">&lt;Video fullscreen={true} autoplay={false} /&gt;
+</code></pre>
+
+<pre data-line="2,3"><code class="language-jsx">render () {
+  this.props.fullscreen
+  const { fullscreen, autoplay } = this.props
+  ···
+}
+</code></pre>
+
+<p>Use <code>this.props</code> to access properties passed to the component.</p>
+
+<p>See: <a href="https://reactjs.org/docs/tutorial.html#using-props">Properties</a></p>
+
+<h3 id="states">States</h3>
+
+<pre><code class="language-jsx">constructor(props) {
+  super(props)
+  this.state = { username: undefined }
+}
+</code></pre>
+
+<pre><code class="language-jsx">this.setState({ username: 'rstacruz' })
+</code></pre>
+
+<pre data-line="2,3"><code class="language-jsx">render () {
+  this.state.username
+  const { username } = this.state
+  ···
+}
+</code></pre>
+
+<p>Use states (<code>this.state</code>) to manage dynamic data.</p>
+
+<p>With <a href="https://babeljs.io/">Babel</a> you can use <a href="https://github.com/tc39/proposal-class-fields">proposal-class-fields</a> and get rid of constructor</p>
+
+<pre><code class="language-jsx">class Hello extends Component {
+  state = { username: undefined };
+  ...
+}
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/docs/tutorial.html#reactive-state">States</a></p>
+
+<h3 id="nesting">Nesting</h3>
+
+<pre><code class="language-jsx">class Info extends Component {
+  render () {
+    const { avatar, username } = this.props
+
+    return &lt;div&gt;
+      &lt;UserAvatar src={avatar} /&gt;
+      &lt;UserProfile username={username} /&gt;
+    &lt;/div&gt;
+  }
+}
+</code></pre>
+<p>As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.</p>
+
+<pre data-line="5,6,7,8,9,10"><code class="language-jsx">import React, {
+  Component,
+  Fragment
+} from 'react'
+
+class Info extends Component {
+  render () {
+    const { avatar, username } = this.props
+
+    return (
+      &lt;Fragment&gt;
+        &lt;UserAvatar src={avatar} /&gt;
+        &lt;UserProfile username={username} /&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>Nest components to separate concerns.</p>
+
+<p>See: <a href="https://reactjs.org/docs/components-and-props.html#composing-components">Composing Components</a></p>
+
+<h3 id="children">Children</h3>
+
+<pre data-line="2"><code class="language-jsx">&lt;AlertBox&gt;
+  &lt;h1&gt;You have pending notifications&lt;/h1&gt;
+&lt;/AlertBox&gt;
+</code></pre>
+
+<pre data-line="4"><code class="language-jsx">class AlertBox extends Component {
+  render () {
+    return &lt;div className='alert-box'&gt;
+      {this.props.children}
+    &lt;/div&gt;
+  }
+}
+</code></pre>
+
+<p>Children are passed as the <code>children</code> property.</p>
+
+<h2 id="defaults">Defaults</h2>
+
+<h3 id="setting-default-props">Setting default props</h3>
+
+<pre data-line="1"><code class="language-jsx">Hello.defaultProps = {
+  color: 'blue'
+}
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/docs/react-component.html#defaultprops">defaultProps</a></p>
+
+<h3 id="setting-default-state">Setting default state</h3>
+
+<pre data-line="4"><code class="language-jsx">class Hello extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { visible: true }
+  }
+}
+</code></pre>
+
+<p>Set the default state in the <code>constructor()</code>.</p>
+
+<p>And without constructor using <a href="https://babeljs.io/">Babel</a> with <a href="https://github.com/tc39/proposal-class-fields">proposal-class-fields</a>.</p>
+
+<pre data-line="2"><code class="language-jsx">class Hello extends Component {
+  state = { visible: true }
+}
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state">Setting the default state</a></p>
+
+<h2 class="-three-column" id="other-components">Other components</h2>
+
+<h3 id="functional-components">Functional components</h3>
+
+<pre data-line="1"><code class="language-jsx">function MyComponent ({ name }) {
+  return &lt;div className='message-box'&gt;
+    Hello {name}
+  &lt;/div&gt;
+}
+</code></pre>
+
+<p>Functional components have no state. Also, their <code>props</code> are passed as the first parameter to a function.</p>
+
+<p>See: <a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">Function and Class Components</a></p>
+
+<h3 id="pure-components">Pure components</h3>
+
+<pre data-line="3"><code class="language-jsx">import React, {PureComponent} from 'react'
+
+class MessageBox extends PureComponent {
+  ···
+}
+</code></pre>
+
+<p>Performance-optimized version of <code>React.Component</code>. Doesn’t rerender if props/state hasn’t changed.</p>
+
+<p>See: <a href="https://reactjs.org/docs/react-api.html#react.purecomponent">Pure components</a></p>
+
+<h3 id="component-api">Component API</h3>
+
+<pre><code class="language-jsx">this.forceUpdate()
+</code></pre>
+
+<pre><code class="language-jsx">this.setState({ ... })
+this.setState(state =&gt; { ... })
+</code></pre>
+
+<pre><code class="language-jsx">this.state
+this.props
+</code></pre>
+
+<p>These methods and properties are available for <code>Component</code> instances.</p>
+
+<p>See: <a href="http://facebook.github.io/react/docs/component-api.html">Component API</a></p>
+
+<h2 class="-two-column" id="lifecycle">Lifecycle</h2>
+
+<h3 id="mounting">Mounting</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>constructor</code> <em>(props)</em></td>
+      <td>Before rendering <a href="https://reactjs.org/docs/react-component.html#constructor">#</a></td>
+    </tr>
+    <tr>
+      <td><code>componentWillMount()</code></td>
+      <td><em>Don’t use this</em> <a href="https://reactjs.org/docs/react-component.html#componentwillmount">#</a></td>
+    </tr>
+    <tr>
+      <td><code>render()</code></td>
+      <td>Render <a href="https://reactjs.org/docs/react-component.html#render">#</a></td>
+    </tr>
+    <tr>
+      <td><code>componentDidMount()</code></td>
+      <td>After rendering (DOM available) <a href="https://reactjs.org/docs/react-component.html#componentdidmount">#</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>componentWillUnmount()</code></td>
+      <td>Before DOM removal <a href="https://reactjs.org/docs/react-component.html#componentwillunmount">#</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>componentDidCatch()</code></td>
+      <td>Catch errors (16+) <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">#</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Set initial the state on <code>constructor()</code>.
+Add DOM event handlers, timers (etc) on <code>componentDidMount()</code>, then remove them on <code>componentWillUnmount()</code>.</p>
+
+<h3 id="updating">Updating</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>componentDidUpdate</code> <em>(prevProps, prevState, snapshot)</em></td>
+      <td>Use <code>setState()</code> here, but remember to compare props</td>
+    </tr>
+    <tr>
+      <td><code>shouldComponentUpdate</code> <em>(newProps, newState)</em></td>
+      <td>Skips <code>render()</code> if returns false</td>
+    </tr>
+    <tr>
+      <td><code>render()</code></td>
+      <td>Render</td>
+    </tr>
+    <tr>
+      <td><code>componentDidUpdate</code> <em>(prevProps, prevState)</em></td>
+      <td>Operate on the DOM here</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Called when parents change properties and <code>.setState()</code>. These are not called for initial renders.</p>
+
+<p>See: <a href="http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops">Component specs</a></p>
+
+<h2 class="-two-column" id="hooks-new">Hooks (New)</h2>
+
+<h3 id="state-hook">State Hook</h3>
+
+<pre data-line="5,10"><code class="language-jsx">import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>Hooks are a new addition in React 16.8.</p>
+
+<p>See: <a href="https://reactjs.org/docs/hooks-overview.html">Hooks at a Glance</a></p>
+
+<h3 id="declaring-multiple-state-variables">Declaring multiple state variables</h3>
+
+<pre><code class="language-jsx">import React, { useState } from 'react';
+
+function ExampleWithManyStates() {
+  // Declare multiple state variables!
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  // ...
+}
+</code></pre>
+
+<h3 id="effect-hook">Effect hook</h3>
+
+<pre data-line="6,7,8,9,10"><code class="language-jsx">import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() =&gt; {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>If you’re familiar with React class lifecycle methods, you can think of <code>useEffect</code> Hook as <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> combined.</p>
+
+<p>By default, React runs the effects after every render — including the first render.</p>
+
+<h3 id="building-your-own-hooks">Building your own hooks</h3>
+
+<h4 id="define-friendstatus">Define FriendStatus</h4>
+<pre data-line="11,12,13,14"><code class="language-jsx">import React, { useState, useEffect } from 'react';
+
+function FriendStatus(props) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  useEffect(() =&gt; {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    return () =&gt; {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  }, [props.friend.id]);
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+</code></pre>
+
+<p>Effects may also optionally specify how to “clean up” after them by returning a function.</p>
+
+<h4 id="use-friendstatus">Use FriendStatus</h4>
+
+<pre data-line="2"><code class="language-jsx">function FriendStatus(props) {
+  const isOnline = useFriendStatus(props.friend.id);
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/docs/hooks-custom.html">Building Your Own Hooks</a></p>
+
+<h3 id="hooks-api-reference">Hooks API Reference</h3>
+
+<p>Also see: <a href="https://reactjs.org/docs/hooks-faq.html">Hooks FAQ</a></p>
+
+<h4 id="basic-hooks">Basic Hooks</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>useState</code><em>(initialState)</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useEffect</code><em>(() =&gt; { … })</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useContext</code><em>(MyContext)</em></td>
+      <td>value returned from <code>React.createContext</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full details: <a href="https://reactjs.org/docs/hooks-reference.html#basic-hooks">Basic Hooks</a></p>
+
+<h4 id="additional-hooks">Additional Hooks</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>useReducer</code><em>(reducer, initialArg, init)</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useCallback</code><em>(() =&gt; { … })</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useMemo</code><em>(() =&gt; { … })</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useRef</code><em>(initialValue)</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useImperativeHandle</code><em>(ref, () =&gt; { … })</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>useLayoutEffect</code></td>
+      <td>identical to <code>useEffect</code>, but it fires synchronously after all DOM mutations</td>
+    </tr>
+    <tr>
+      <td><code>useDebugValue</code><em>(value)</em></td>
+      <td>display a label for custom hooks in React DevTools</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full details: <a href="https://reactjs.org/docs/hooks-reference.html#additional-hooks">Additional Hooks</a></p>
+
+<h2 class="-two-column" id="dom-nodes">DOM nodes</h2>
+
+<h3 id="references">References</h3>
+
+<pre data-line="4,9"><code class="language-jsx">class MyComponent extends Component {
+  render () {
+    return &lt;div&gt;
+      &lt;input ref={el =&gt; this.input = el} /&gt;
+    &lt;/div&gt;
+  }
+
+  componentDidMount () {
+    this.input.focus()
+  }
+}
+</code></pre>
+
+<p>Allows access to DOM nodes.</p>
+
+<p>See: <a href="https://reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a></p>
+
+<h3 id="dom-events">DOM Events</h3>
+
+<pre data-line="5,9"><code class="language-jsx">class MyComponent extends Component {
+  render () {
+    &lt;input type="text"
+        value={this.state.value}
+        onChange={event =&gt; this.onChange(event)} /&gt;
+  }
+
+  onChange (event) {
+    this.setState({ value: event.target.value })
+  }
+}
+</code></pre>
+
+<p>Pass functions to attributes like <code>onChange</code>.</p>
+
+<p>See: <a href="https://reactjs.org/docs/events.html">Events</a></p>
+
+<h2 id="other-features">Other features</h2>
+
+<h3 id="transferring-props">Transferring props</h3>
+
+<pre class="-setup"><code class="language-html">&lt;VideoPlayer src="video.mp4" /&gt;
+</code></pre>
+
+<pre data-line="3"><code class="language-jsx">class VideoPlayer extends Component {
+  render () {
+    return &lt;VideoEmbed {...this.props} /&gt;
+  }
+}
+</code></pre>
+
+<p>Propagates <code>src="..."</code> down to the sub-component.</p>
+
+<p>See <a href="http://facebook.github.io/react/docs/transferring-props.html">Transferring props</a></p>
+
+<h3 id="top-level-api">Top-level API</h3>
+
+<pre><code class="language-jsx">React.createClass({ ... })
+React.isValidElement(c)
+</code></pre>
+
+<pre><code class="language-jsx">ReactDOM.render(&lt;Component /&gt;, domnode, [callback])
+ReactDOM.unmountComponentAtNode(domnode)
+</code></pre>
+
+<pre><code class="language-jsx">ReactDOMServer.renderToString(&lt;Component /&gt;)
+ReactDOMServer.renderToStaticMarkup(&lt;Component /&gt;)
+</code></pre>
+
+<p>There are more, but these are most common.</p>
+
+<p>See: <a href="https://reactjs.org/docs/react-api.html">React top-level API</a></p>
+
+<h2 class="-two-column" id="jsx-patterns">JSX patterns</h2>
+
+<h3 id="style-shorthand">Style shorthand</h3>
+
+<pre><code class="language-jsx">const style = { height: 10 }
+return &lt;div style={style}&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-jsx">return &lt;div style={{ margin: 0, padding: 0 }}&gt;&lt;/div&gt;
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/tips/inline-styles.html">Inline styles</a></p>
+
+<h3 id="inner-html">Inner HTML</h3>
+
+<pre><code class="language-jsx">function markdownify() { return "&lt;p&gt;...&lt;/p&gt;"; }
+&lt;div dangerouslySetInnerHTML={{__html: markdownify()}} /&gt;
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/tips/dangerously-set-inner-html.html">Dangerously set innerHTML</a></p>
+
+<h3 id="lists">Lists</h3>
+
+<pre data-line="6,7"><code class="language-jsx">class TodoList extends Component {
+  render () {
+    const { items } = this.props
+
+    return &lt;ul&gt;
+      {items.map(item =&gt;
+        &lt;TodoItem item={item} key={item.key} /&gt;)}
+    &lt;/ul&gt;
+  }
+}
+</code></pre>
+
+<p>Always supply a <code>key</code> property.</p>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code class="language-jsx">&lt;Fragment&gt;
+  {showMyComponent
+    ? &lt;MyComponent /&gt;
+    : &lt;OtherComponent /&gt;}
+&lt;/Fragment&gt;
+</code></pre>
+
+<h3 id="short-circuit-evaluation">Short-circuit evaluation</h3>
+
+<pre><code class="language-jsx">&lt;Fragment&gt;
+  {showPopup &amp;&amp; &lt;Popup /&gt;}
+  ...
+&lt;/Fragment&gt;
+</code></pre>
+
+<h2 class="-three-column" id="new-features">New features</h2>
+
+<h3 id="returning-multiple-elements">Returning multiple elements</h3>
+
+<p>You can return multiple elements as arrays or fragments.</p>
+
+<h4 id="arrays">Arrays</h4>
+
+<pre data-line="3,4,5,6"><code class="language-js">render () {
+  // Don't forget the keys!
+  return [
+    &lt;li key="A"&gt;First item&lt;/li&gt;,
+    &lt;li key="B"&gt;Second item&lt;/li&gt;
+  ]
+}
+</code></pre>
+
+<h4 id="fragments">Fragments</h4>
+<pre data-line="3,4,5,6,7,8"><code class="language-js">render () {
+  return (
+    &lt;Fragment&gt;
+      &lt;li&gt;First item&lt;/li&gt;
+      &lt;li&gt;Second item&lt;/li&gt;
+    &lt;/Fragment&gt;
+  )
+}
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings">Fragments and strings</a></p>
+
+<h3 id="returning-strings">Returning strings</h3>
+
+<pre data-line="2"><code class="language-js">render() {
+  return 'Look ma, no spans!';
+}
+</code></pre>
+
+<p>You can return just a string.</p>
+
+<p>See: <a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings">Fragments and strings</a></p>
+
+<h3 id="errors">Errors</h3>
+
+<pre data-line="3,4,5"><code class="language-js">class MyComponent extends Component {
+  ···
+  componentDidCatch (error, info) {
+    this.setState({ error })
+  }
+}
+</code></pre>
+
+<p>Catch errors via <code>componentDidCatch</code>. (React 16+)</p>
+
+<p>See: <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">Error handling in React 16</a></p>
+
+<h3 id="portals">Portals</h3>
+
+<pre data-line="2,3,4,5"><code class="language-js">render () {
+  return React.createPortal(
+    this.props.children,
+    document.getElementById('menu')
+  )
+}
+</code></pre>
+
+<p>This renders <code>this.props.children</code> into any location in the DOM.</p>
+
+<p>See: <a href="https://reactjs.org/docs/portals.html">Portals</a></p>
+
+<h3 id="hydration">Hydration</h3>
+
+<pre data-line="2"><code class="language-js">const el = document.getElementById('app')
+ReactDOM.hydrate(&lt;App /&gt;, el)
+</code></pre>
+
+<p>Use <code>ReactDOM.hydrate</code> instead of using <code>ReactDOM.render</code> if you’re rendering over the output of <a href="https://reactjs.org/docs/react-dom-server.html">ReactDOMServer</a>.</p>
+
+<p>See: <a href="https://reactjs.org/docs/react-dom.html#hydrate">Hydrate</a></p>
+
+<h2 class="-three-column" id="property-validation">Property validation</h2>
+
+<h3 id="proptypes">PropTypes</h3>
+
+<pre class="-setup"><code class="language-js">import PropTypes from 'prop-types'
+</code></pre>
+
+<p>See: <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">Typechecking with PropTypes</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>any</code></td>
+      <td>Anything</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="basic">Basic</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>string</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>number</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>func</code></td>
+      <td>Function</td>
+    </tr>
+    <tr>
+      <td><code>bool</code></td>
+      <td>True or false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="enum">Enum</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>oneOf</code><em>(any)</em></td>
+      <td>Enum types</td>
+    </tr>
+    <tr>
+      <td><code>oneOfType</code><em>(type array)</em></td>
+      <td>Union</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="array">Array</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>array</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>arrayOf</code><em>(…)</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="object">Object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>object</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>objectOf</code><em>(…)</em></td>
+      <td>Object with values of a certain type</td>
+    </tr>
+    <tr>
+      <td><code>instanceOf</code><em>(…)</em></td>
+      <td>Instance of a class</td>
+    </tr>
+    <tr>
+      <td><code>shape</code><em>(…)</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="elements">Elements</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>element</code></td>
+      <td>React element</td>
+    </tr>
+    <tr>
+      <td><code>node</code></td>
+      <td>DOM node</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="required">Required</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>(···).isRequired</code></td>
+      <td>Required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="basic-types">Basic types</h3>
+
+<pre><code class="language-jsx">MyComponent.propTypes = {
+  email:      PropTypes.string,
+  seats:      PropTypes.number,
+  callback:   PropTypes.func,
+  isClosed:   PropTypes.bool,
+  any:        PropTypes.any
+}
+</code></pre>
+
+<h3 id="required-types">Required types</h3>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  name:  PropTypes.string.isRequired
+}
+</code></pre>
+
+<h3 id="elements-1">Elements</h3>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  // React element
+  element: PropTypes.element,
+
+  // num, string, element, or an array of those
+  node: PropTypes.node
+}
+</code></pre>
+
+<h3 id="enumerables-oneof">Enumerables (oneOf)</h3>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  direction: PropTypes.oneOf([
+    'left', 'right'
+  ])
+}
+</code></pre>
+
+<h3 id="arrays-and-objects">Arrays and objects</h3>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  list: PropTypes.array,
+  ages: PropTypes.arrayOf(PropTypes.number),
+  user: PropTypes.object,
+  user: PropTypes.objectOf(PropTypes.number),
+  message: PropTypes.instanceOf(Message)
+}
+</code></pre>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    age:  PropTypes.number
+  })
+}
+</code></pre>
+
+<p>Use <code>.array[Of]</code>, <code>.object[Of]</code>, <code>.instanceOf</code>, <code>.shape</code>.</p>
+
+<h3 id="custom-validation">Custom validation</h3>
+
+<pre><code class="language-jsx">MyCo.propTypes = {
+  customProp: (props, key, componentName) =&gt; {
+    if (!/matchme/.test(props[key])) {
+      return new Error('Validation failed!')
+    }
+  }
+}
+</code></pre>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://reactjs.org">React website</a> <em>(reactjs.org)</em></li>
+  <li><a href="https://reactcheatsheet.com/">React cheatsheet</a> <em>(reactcheatsheet.com)</em></li>
+  <li><a href="https://github.com/enaqx/awesome-react">Awesome React</a> <em>(github.com)</em></li>
+  <li><a href="react@0.14">React v0.14 cheatsheet</a> <em>Legacy version</em></li>
+</ul>
+

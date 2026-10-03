@@ -1,0 +1,91 @@
+<h3 id="test-cases">Test cases</h3>
+
+<pre><code class="language-elixir">defmodule MyTest do
+  use ExUnit.Case
+  use ExUnit.Case, async: true  # for async
+
+  test "the truth" do
+    assert 1 + 1 == 2
+  end
+end
+</code></pre>
+
+<h3 id="capture-io">Capture IO</h3>
+
+<pre><code class="language-elixir">import ExUnit.CaptureIO
+
+test "capture io" do
+  result = capture_io(fn -&gt;
+    IO.puts "sup"
+  end)
+
+  assert result == "sup\n"
+end
+</code></pre>
+
+<h3 id="capture-logs">Capture logs</h3>
+
+<pre><code class="language-elixir">config :ex_unit, capture_logs: true
+</code></pre>
+
+<h3 id="async">Async</h3>
+
+<pre><code class="language-elixir">defmodule AssertionTest do
+  # run concurrently with other test cases
+  use ExUnit.Case, async: true
+end
+</code></pre>
+
+<h3 id="assertions">Assertions</h3>
+
+<pre><code class="language-elixir">assert x == y
+refute x == y
+
+assert_raise ArithmeticError, fn -&gt;
+  1 + "test"
+end
+
+assert_raise ArithmeticError, "message", fn -&gt; ...
+assert_raise ArithmeticError, ~r/message/, fn -&gt; ...
+
+flunk "This should've been an error"
+</code></pre>
+
+<p>See: <a href="http://devdocs.io/elixir/ex_unit/exunit.assertions">Assertions</a></p>
+
+<h2 id="setup">Setup</h2>
+
+<h3 id="pattern-matching">Pattern matching</h3>
+
+<pre><code class="language-elixir">setup do
+  {:ok, name: "John"}
+end
+</code></pre>
+
+<pre><code class="language-elixir">test "it works", %{name: name} do
+  assert name == "John"
+end
+</code></pre>
+
+<h3 id="setup-1">Setup</h3>
+
+<pre><code class="language-elixir">defp my_hook(_context) do
+  # Invoked in every block in "a block"
+  {:ok, name: "John", age: 54}
+end
+
+describe "a block" do
+  setup [:my_hook]
+  
+  test "John's age", context do
+    assert context[:name] == "John"
+    assert context[:age] == 54
+  end
+end
+</code></pre>
+
+<h2 class="-one-column" id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="http://devdocs.io/elixir/ex_unit/exunit#configure/1">ExUnit Docs</a></li>
+</ul>

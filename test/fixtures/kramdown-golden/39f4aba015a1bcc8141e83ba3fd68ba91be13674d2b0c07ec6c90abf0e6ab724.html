@@ -1,0 +1,49 @@
+<h3 class="-intro" id="about">About</h3>
+
+<ul>
+  <li><a href="https://www.npmjs.org/package/nopt">https://www.npmjs.org/package/nopt</a></li>
+</ul>
+
+<h3 id="example">Example</h3>
+
+<pre><code class="language-js">var args = require('nopt')({
+  foo: [String, null],
+  size: ['big', 'medium', 'small'],
+  many: [String, Array],
+  debug: Boolean,
+  version: Boolean,
+  help: Boolean
+}, {
+  h: '--help',
+  v: '--version'
+}, process.argv);
+
+args == {
+  debug: true,
+  version: true,
+  size: 'big',
+  argv: {
+    remain: ['...', '...'],
+    cooked: ...,
+    original: ...
+  }
+}
+</code></pre>
+
+<pre><code class="language-js">if (args.help) {
+  console.log([
+      'Usage:',
+      '  hicat [options] [file]',
+      '',
+      'Options:',
+      '  -h, --help         print usage information',
+      '  -v, --version      show version info and exit',
+  ].join('\n'));
+  process.exit(0);
+}
+
+if (args.version) {
+  console.log(require('../package.json').version);
+  process.exit(0);
+}
+</code></pre>

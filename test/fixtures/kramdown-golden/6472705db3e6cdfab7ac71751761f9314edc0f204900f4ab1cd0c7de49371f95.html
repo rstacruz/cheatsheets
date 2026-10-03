@@ -1,0 +1,233 @@
+<h3 id="semver">Semver</h3>
+
+<p class="-setup">Given a version number <code>MAJOR.MINOR.PATCH</code>:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>MAJOR</code></td>
+      <td>incompatible API changes</td>
+    </tr>
+    <tr>
+      <td><code>MINOR</code></td>
+      <td>add functionality (backwards-compatible)</td>
+    </tr>
+    <tr>
+      <td><code>PATCH</code></td>
+      <td>bug fixes (backwards-compatible)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="simple-ranges">Simple ranges</h3>
+
+<pre><code>  1.2.3
+ =1.2.3
+ &gt;1.2.3
+ &lt;1.2.3
+&gt;=1.2.3
+</code></pre>
+
+<p>Note that suffixed versions (<code>1.2.3-rc1</code>) are not matched.</p>
+
+<h3 id="ranges">Ranges</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>~1.2.3</code></td>
+      <td>is <code>&gt;=1.2.3 &lt;1.3.0</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>^1.2.3</code></td>
+      <td>is <code>&gt;=1.2.3 &lt;2.0.0</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>^0.2.3</code></td>
+      <td>is <code>&gt;=0.2.3 &lt;0.3.0</code></td>
+      <td>(0.x.x is special)</td>
+    </tr>
+    <tr>
+      <td><code>^0.0.1</code></td>
+      <td>is  <code>=0.0.1</code></td>
+      <td>(0.0.x is special)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>^1.2</code></td>
+      <td>is <code>&gt;=1.2.0 &lt;2.0.0</code></td>
+      <td>(like ^1.2.0)</td>
+    </tr>
+    <tr>
+      <td><code>~1.2</code></td>
+      <td>is <code>&gt;=1.2.0 &lt;1.3.0</code></td>
+      <td>(like ~1.2.0)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>^1</code></td>
+      <td>is <code>&gt;=1.0.0 &lt;2.0.0</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>~1</code></td>
+      <td>same</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>1.x</code></td>
+      <td>same</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>1.*</code></td>
+      <td>same</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>1</code></td>
+      <td>same</td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>*</code></td>
+      <td>any version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>x</code></td>
+      <td>same</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hyphenated-ranges">Hyphenated ranges</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>1.2.3 - 2.3.4</code></td>
+      <td>is <code>&gt;=1.2.3 &lt;=2.3.4</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="partial-right">Partial right</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>1.2.3 - 2.3</code></td>
+      <td>is <code>&gt;=1.2.3 &lt;2.4.0</code></td>
+    </tr>
+    <tr>
+      <td><code>1.2.3 - 2</code></td>
+      <td>is <code>&gt;=1.2.3 &lt;3.0.0</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="partial-left">Partial left</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>1.2 - 2.3.0</code></td>
+      <td>is <code>1.2.0 - 2.3.0</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When the right is partial (eg, <code>2.3</code>), missing pieces are assumed to be <code>x</code> (eg, <code>2.3.x</code>).</p>
+
+<p>When the left is partial (eg, <code>1.2</code>), missing pieces are assumed to be <code>0</code> (eg, <code>1.2.0</code>).</p>
+
+<h3 id="combining-ranges">Combining ranges</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&gt;=0.14 &lt;16</code></td>
+      <td>And (space-separated)</td>
+    </tr>
+    <tr>
+      <td><code>0.14.x || 15.x.x</code></td>
+      <td>Or (pipe-separated)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="pre-releases">Pre-releases</h3>
+
+<pre><code>1.2.3-prerelease+build
+</code></pre>
+
+<h3 id="explanation">Explanation</h3>
+
+<table class="-shortcuts">
+  <tbody>
+    <tr>
+      <td><code>^</code></td>
+      <td>means “compatible with”</td>
+    </tr>
+    <tr>
+      <td><code>~</code></td>
+      <td>means “reasonably close to”</td>
+    </tr>
+    <tr>
+      <td><code>0.x.x</code></td>
+      <td>is for “initial development”</td>
+    </tr>
+    <tr>
+      <td><code>1.x.x</code></td>
+      <td>means public API is defined</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="https://semver.org/">https://semver.org/</a></li>
+  <li><a href="https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>

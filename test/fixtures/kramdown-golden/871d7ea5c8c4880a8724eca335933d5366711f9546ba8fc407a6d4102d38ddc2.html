@@ -1,0 +1,35 @@
+<h3 id="maps">Maps</h3>
+
+<pre><code class="language-js">var map = Immutable.Map({ a: 1, b: 2, c: 3 })
+</code></pre>
+
+<pre><code class="language-js">map
+  .set('b', 50)
+  .get('b') // 50
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-js">var list = Immutable.List.of(1, 2)
+
+list
+  .push(3, 4, 5)
+  .unshift(0)
+  .concat(list2, list3)
+  .get(0)
+  .size
+</code></pre>
+
+<h3 id="nested-maps">Nested maps</h3>
+
+<pre><code class="language-js">var nested = Immutable.fromJS({ user: { profile: { name: 'John' } } })
+
+nested
+  // Update
+  .mergeDeep({ user: { profile: { age: 90 } } })
+  .setIn([ 'user', 'profile', 'name' ], 'Jack')
+  .updateIn([ 'user', 'profile', 'name' ], (s) =&gt; s.toUpperCase())
+
+  // Get
+  .getIn(['user', 'profile', 'name']) // 'JACK'
+</code></pre>

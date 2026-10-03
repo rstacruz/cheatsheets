@@ -1,0 +1,77 @@
+<h3 class="-intro" id="about">About</h3>
+
+<ul>
+  <li><a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a></li>
+  <li><a href="https://github.com/kriskowal/q/wiki/API-Reference">https://github.com/kriskowal/q/wiki/API-Reference</a></li>
+</ul>
+
+<h3 id="creating-promises-qpromise">Creating promises (Q.promise)</h3>
+
+<pre><code>Q.promise (ok, fail) =&gt;
+  asyncFunction -&gt;
+    if error
+      fail new Error("Failure")
+    else
+      ok(data)
+</code></pre>
+
+<h3 id="for-arrays">For arrays</h3>
+
+<pre><code>promises = [saveDisk(), saveCloud()]
+
+# When all succeeds, or *at least one* error
+Q.all(promises).done -&gt;
+  alert "Saved"
+
+# Same, but get the values
+Q.all(promises).spread (a, b) -&gt;
+  alert "Result A:" + a
+  alert "Result B:" + b
+
+# When all either succeeds or errors
+Q.allSettled(promises).done -&gt; ...
+</code></pre>
+
+<h3 id="creating-promises-from-node">Creating promises from Node</h3>
+
+<pre><code># Works like .call() or .apply()
+
+Q.nfcall(FS.readFile, 'foo.txt', 'utf-8')
+.then -&gt; ...
+
+Q.nfapply(FS.readFile, ['foo.txt', 'utf-8'])
+.then -&gt; ...
+
+Q.npost(FS, 'readFile', ['foo.txt, 'utf-8'])
+.then -&gt; ...
+
+Q.npost(FS, 'readFile', 'foo.txt, 'utf-8')
+.then -&gt; ...
+
+readFile = Q.denodeify(FS.readFile)
+readFile('foo.txt').then -&gt; ...
+</code></pre>
+
+<h3 id="promises-to-node-async">Promises to Node async</h3>
+
+<pre><code>createUser = (next) -&gt;
+  promiseMaker()
+  .nodeify(next)
+</code></pre>
+
+<h3 id="promise-sugars">Promise sugars</h3>
+
+<pre><code># Shortcut for .then(ok, fail, progress)
+promise
+.then (data) -&gt;
+.catch (err) -&gt;
+.progress (percent) -&gt;
+</code></pre>
+
+<h3 id="try">Try</h3>
+
+<p>Q.try -&gt;
+    promise()</p>
+
+<p>.catch (e) -&gt;
+    console.error “Oh well”, e</p>

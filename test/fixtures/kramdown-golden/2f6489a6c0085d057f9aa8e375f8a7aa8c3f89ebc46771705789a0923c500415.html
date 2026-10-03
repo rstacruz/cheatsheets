@@ -1,0 +1,89 @@
+<h2 class="-three-column" id="reference">Reference</h2>
+
+<h3 id="inheritance">Inheritance</h3>
+
+<pre><code class="language-docker">FROM ruby:2.2.2
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code class="language-docker">ENV APP_HOME /myapp
+RUN mkdir $APP_HOME
+</code></pre>
+
+<pre><code class="language-docker">ARG APP_HOME=""
+RUN mkdir $APP_HOME
+</code></pre>
+
+<h3 id="initialization">Initialization</h3>
+
+<pre><code class="language-docker">RUN bundle install
+</code></pre>
+
+<pre><code class="language-docker">WORKDIR /myapp
+</code></pre>
+
+<pre><code class="language-docker">VOLUME ["/data"]
+# Specification for mount point
+</code></pre>
+
+<pre><code class="language-docker">ADD file.xyz /file.xyz
+COPY --chown=user:group host_file.xyz /path/container_file.xyz
+</code></pre>
+
+<h3 id="run-commands-in-strict-shell">Run commands in strict shell</h3>
+
+<pre><code class="language-docker">ENV my_var
+SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
+
+# With strict mode:
+RUN false # fails build like using &amp;&amp;
+RUN echo "$myvar" # will throw error due to typo
+RUN true | false # will bail out of pipe
+</code></pre>
+
+<p>Using <code>shell</code> will turn on strict mode for shell commands.</p>
+
+<h3 id="onbuild">Onbuild</h3>
+
+<pre><code class="language-docker">ONBUILD RUN bundle install
+# when used with another file
+</code></pre>
+
+<h3 id="commands">Commands</h3>
+
+<pre><code class="language-docker">EXPOSE 5900
+CMD    ["bundle", "exec", "rails", "server"]
+</code></pre>
+
+<h3 id="entrypoint">Entrypoint</h3>
+
+<pre><code class="language-docker">ENTRYPOINT ["executable", "param1", "param2"]
+ENTRYPOINT command param1 param2
+</code></pre>
+
+<p>Configures a container that will run as an executable.</p>
+
+<pre><code class="language-docker">ENTRYPOINT exec top -b
+</code></pre>
+
+<p>This will use shell processing to substitute shell variables, and will ignore any <code>CMD</code> or <code>docker run</code> command line arguments.</p>
+
+<h3 id="metadata">Metadata</h3>
+
+<pre><code class="language-docker">LABEL version="1.0"
+</code></pre>
+
+<pre><code class="language-docker">LABEL "com.example.vendor"="ACME Incorporated"
+LABEL com.example.label-with-value="foo"
+</code></pre>
+
+<pre><code class="language-docker">LABEL description="This text illustrates \
+that label-values can span multiple lines."
+</code></pre>
+
+<h2 class="-one-column" id="see-also">See also</h2>
+
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></li>
+</ul>

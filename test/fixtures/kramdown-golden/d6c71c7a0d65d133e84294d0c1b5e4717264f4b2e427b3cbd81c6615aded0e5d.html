@@ -1,0 +1,709 @@
+<h2 id="testing">Testing</h2>
+
+<h3 class="-intro" id="xpath-test-bed">Xpath test bed</h3>
+
+<p>Test queries in the Xpath test bed:</p>
+
+<ul>
+  <li><a href="http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm">Xpath test bed</a> <em>(whitebeam.org)</em></li>
+</ul>
+
+<h3 id="browser-console">Browser console</h3>
+
+<pre><code class="language-js">$x("//div")
+</code></pre>
+
+<p>Works in Firefox and Chromium browsers.</p>
+
+<h2 id="selectors">Selectors</h2>
+
+<h3 id="descendant-selectors">Descendant selectors</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>h1</code></td>
+      <td><code>//h1</code></td>
+      <td><a href="#prefixes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>div p</code></td>
+      <td><code>//div//p</code></td>
+      <td><a href="#axes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>ul &gt; li</code></td>
+      <td><code>//ul/li</code></td>
+      <td><a href="#axes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>ul &gt; li &gt; a</code></td>
+      <td><code>//ul/li/a</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>div &gt; *</code></td>
+      <td><code>//div/*</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>:root</code></td>
+      <td><code>/</code></td>
+      <td><a href="#prefixes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>:root &gt; body</code></td>
+      <td><code>/body</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="attribute-selectors">Attribute selectors</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>#id</code></td>
+      <td><code>//*[@id="id"]</code></td>
+      <td><a href="#predicates">?</a></td>
+    </tr>
+    <tr>
+      <td><code>.class</code></td>
+      <td><code>//*[@class="class"]</code> <em>…<a href="#class-check">kinda</a></em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>input[type="submit"]</code></td>
+      <td><code>//input[@type="submit"]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>a#abc[for="xyz"]</code></td>
+      <td><code>//a[@id="abc"][@for="xyz"]</code></td>
+      <td><a href="#chaining-order">?</a></td>
+    </tr>
+    <tr>
+      <td><code>a[rel]</code></td>
+      <td><code>//a[@rel]</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>a[href^='/']</code></td>
+      <td><code>//a[starts-with(@href, '/')]</code></td>
+      <td><a href="#string-functions">?</a></td>
+    </tr>
+    <tr>
+      <td><code>a[href$='pdf']</code></td>
+      <td><code>//a[ends-with(@href, '.pdf')]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>a[href*='://']</code></td>
+      <td><code>//a[contains(@href, '://')]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>a[rel~='help']</code></td>
+      <td><code>//a[contains(@rel, 'help')]</code> <em>…<a href="#class-check">kinda</a></em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="order-selectors">Order selectors</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ul &gt; li:first-of-type</code></td>
+      <td><code>//ul/li[1]</code></td>
+      <td><a href="#indexing">?</a></td>
+    </tr>
+    <tr>
+      <td><code>ul &gt; li:nth-of-type(2)</code></td>
+      <td><code>//ul/li[2]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>ul &gt; li:last-of-type</code></td>
+      <td><code>//ul/li[last()]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>li#id:first-of-type</code></td>
+      <td><code>//li[1][@id="id"]</code></td>
+      <td><a href="#chaining-order">?</a></td>
+    </tr>
+    <tr>
+      <td><code>a:first-child</code></td>
+      <td><code>//*[1][name()="a"]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>a:last-child</code></td>
+      <td><code>//*[last()][name()="a"]</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="siblings">Siblings</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>h1 ~ ul</code></td>
+      <td><code>//h1/following-sibling::ul</code></td>
+      <td><a href="#using-axes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>h1 + ul</code></td>
+      <td><code>//h1/following-sibling::ul[1]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>h1 ~ #id</code></td>
+      <td><code>//h1/following-sibling::[@id="id"]</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="jquery">jQuery</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>$('ul &gt; li').parent()</code></td>
+      <td><code>//ul/li/..</code></td>
+      <td><a href="#other-axes">?</a></td>
+    </tr>
+    <tr>
+      <td><code>$('li').closest('section')</code></td>
+      <td><code>//li/ancestor-or-self::section</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>$('a').attr('href')</code></td>
+      <td><code>//a/@href</code></td>
+      <td><a href="#steps">?</a></td>
+    </tr>
+    <tr>
+      <td><code>$('span').text()</code></td>
+      <td><code>//span/text()</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="other-things">Other things</h3>
+
+<table class="xp">
+  <thead>
+    <tr>
+      <th>CSS</th>
+      <th>Xpath</th>
+      <th>?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>h1:not([id])</code></td>
+      <td><code>//h1[not(@id)]</code></td>
+      <td><a href="#boolean-functions">?</a></td>
+    </tr>
+    <tr>
+      <td>Text match</td>
+      <td><code>//button[text()="Submit"]</code></td>
+      <td><a href="#operators">?</a></td>
+    </tr>
+    <tr>
+      <td>Text match (substring)</td>
+      <td><code>//button[contains(text(),"Go")]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Arithmetic</td>
+      <td><code>//product[@price &gt; 2.50]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Has children</td>
+      <td><code>//ul[*]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Has children (specific)</td>
+      <td><code>//ul[li]</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Or logic</td>
+      <td><code>//a[@name or @href]</code></td>
+      <td><a href="#operators">?</a></td>
+    </tr>
+    <tr>
+      <td>Union (joins results)</td>
+      <td><code>//a | //div</code></td>
+      <td><a href="#unions">?</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+/* ensure tables align */
+table.xp {table-layout: fixed;}
+table.xp tr>:nth-child(1) {width: 35%;}
+table.xp tr>:nth-child(2) {width: auto;}
+table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
+</style>
+
+<h3 id="class-check">Class check</h3>
+
+<pre><code class="language-bash">//div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
+</code></pre>
+
+<p>Xpath doesn’t have the “check if part of space-separated list” operator, so this is the workaround (<a href="http://pivotallabs.com/xpath-css-class-matching/">source</a>).</p>
+
+<h2 id="expressions">Expressions</h2>
+
+<h3 id="steps-and-axes">Steps and axes</h3>
+
+<table class="-css-breakdown">
+  <tbody>
+    <tr>
+      <td><code>//</code></td>
+      <td><code>ul</code></td>
+      <td><code>/</code></td>
+      <td><code>a[@id='link']</code></td>
+    </tr>
+    <tr>
+      <td>Axis</td>
+      <td>Step</td>
+      <td>Axis</td>
+      <td>Step</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="prefixes">Prefixes</h3>
+
+<table class="-headers">
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th>Example</th>
+      <th>What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>//</code></td>
+      <td><code>//hr[@class='edge']</code></td>
+      <td>Anywhere</td>
+    </tr>
+    <tr>
+      <td><code>./</code></td>
+      <td><code>./a</code></td>
+      <td>Relative</td>
+    </tr>
+    <tr>
+      <td><code>/</code></td>
+      <td><code>/html/body/div</code></td>
+      <td>Root</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Begin your expression with any of these.</p>
+
+<h3 id="axes">Axes</h3>
+
+<table class="-headers">
+  <thead>
+    <tr>
+      <th>Axis</th>
+      <th>Example</th>
+      <th>What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/</code></td>
+      <td><code>//ul/li/a</code></td>
+      <td>Child</td>
+    </tr>
+    <tr>
+      <td><code>//</code></td>
+      <td><code>//[@id="list"]//a</code></td>
+      <td>Descendant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Separate your steps with <code>/</code>. Use two (<code>//</code>) if you don’t want to select direct children.</p>
+
+<h3 id="steps">Steps</h3>
+
+<pre><code class="language-bash">//div
+//div[@name='box']
+//[@id='link']
+</code></pre>
+
+<p>A step may have an element name (<code>div</code>) and <a href="#predicate">predicates</a> (<code>[...]</code>). Both are optional.
+They can also be these other things:</p>
+
+<pre><code class="language-bash">//a/text()     #=&gt; "Go home"
+//a/@href      #=&gt; "index.html"
+//a/*          #=&gt; All a's child elements
+</code></pre>
+
+<h2 id="predicates">Predicates</h2>
+
+<h3 id="predicates-1">Predicates</h3>
+
+<pre><code class="language-bash">//div[true()]
+//div[@class="head"]
+//div[@class="head"][@id="top"]
+</code></pre>
+
+<p>Restricts a nodeset only if some condition is true. They can be chained.</p>
+
+<h3 id="operators">Operators</h3>
+
+<pre><code class="language-bash"># Comparison
+//a[@id = "xyz"]
+//a[@id != "xyz"]
+//a[@price &gt; 25]
+</code></pre>
+
+<pre><code class="language-bash"># Logic (and/or)
+//div[@id="head" and position()=2]
+//div[(x and y) or not(z)]
+</code></pre>
+
+<p>Use comparison and logic operators to make conditionals.</p>
+
+<h3 id="using-nodes">Using nodes</h3>
+
+<pre><code class="language-bash"># Use them inside functions
+//ul[count(li) &gt; 2]
+//ul[count(li[@class='hide']) &gt; 0]
+</code></pre>
+
+<pre><code class="language-bash"># This returns `&lt;ul&gt;` that has a `&lt;li&gt;` child
+//ul[li]
+</code></pre>
+
+<p>You can use nodes inside predicates.</p>
+
+<h3 id="indexing">Indexing</h3>
+
+<pre><code class="language-bash">//a[1]                  # first &lt;a&gt;
+//a[last()]             # last &lt;a&gt;
+//ol/li[2]              # second &lt;li&gt;
+//ol/li[position()=2]   # same as above
+//ol/li[position()&gt;1]   # :not(:first-of-type)
+</code></pre>
+
+<p>Use <code>[]</code> with a number, or <code>last()</code> or <code>position()</code>.</p>
+
+<h3 id="chaining-order">Chaining order</h3>
+
+<pre><code class="language-bash">a[1][@href='/']
+a[@href='/'][1]
+</code></pre>
+
+<p>Order is significant, these two are different.</p>
+
+<h3 id="nesting-predicates">Nesting predicates</h3>
+
+<pre><code>//section[.//h1[@id='hi']]
+</code></pre>
+
+<p>This returns <code>&lt;section&gt;</code> if it has an <code>&lt;h1&gt;</code> descendant with <code>id='hi'</code>.</p>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="node-functions">Node functions</h3>
+
+<pre><code class="language-bash">name()                     # //[starts-with(name(), 'h')]
+text()                     # //button[text()="Submit"]
+                           # //button/text()
+lang(str)
+namespace-uri()
+</code></pre>
+
+<pre><code class="language-bash">count()                    # //table[count(tr)=1]
+position()                 # //ol/li[position()=2]
+</code></pre>
+
+<h3 id="boolean-functions">Boolean functions</h3>
+
+<pre><code class="language-bash">not(expr)                  # button[not(starts-with(text(),"Submit"))]
+</code></pre>
+
+<h3 id="string-functions">String functions</h3>
+
+<pre><code class="language-bash">contains()                 # font[contains(@class,"head")]
+starts-with()              # font[starts-with(@class,"head")]
+ends-with()                # font[ends-with(@class,"head")]
+</code></pre>
+
+<pre><code class="language-bash">concat(x,y)
+substring(str, start, len)
+substring-before("01/02", "/")  #=&gt; 01
+substring-after("01/02", "/")   #=&gt; 02
+translate()
+normalize-space()
+string-length()
+</code></pre>
+
+<h3 id="type-conversion">Type conversion</h3>
+
+<pre><code class="language-bash">string()
+number()
+boolean()
+</code></pre>
+
+<h2 id="axes-1">Axes</h2>
+
+<h3 id="using-axes">Using axes</h3>
+
+<pre><code class="language-bash">//ul/li                       # ul &gt; li
+//ul/child::li                # ul &gt; li (same)
+//ul/following-sibling::li    # ul ~ li
+//ul/descendant-or-self::li   # ul li
+//ul/ancestor-or-self::li     # $('ul').closest('li')
+</code></pre>
+
+<p>Steps of an expression are separated by <code>/</code>, usually used to pick child nodes. That’s not always true: you can specify a different “axis” with <code>::</code>.</p>
+
+<table class="-css-breakdown">
+  <tbody>
+    <tr>
+      <td><code>//</code></td>
+      <td><code>ul</code></td>
+      <td><code>/child::</code></td>
+      <td><code>li</code></td>
+    </tr>
+    <tr>
+      <td>Axis</td>
+      <td>Step</td>
+      <td>Axis</td>
+      <td>Step</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="child-axis">Child axis</h3>
+
+<pre><code class="language-bash"># both the same
+//ul/li/a
+//child::ul/child::li/child::a
+</code></pre>
+
+<p><code>child::</code> is the default axis. This makes <code>//a/b/c</code> work.</p>
+
+<pre><code class="language-bash"># both the same
+# this works because `child::li` is truthy, so the predicate succeeds
+//ul[li]
+//ul[child::li]
+</code></pre>
+
+<pre><code class="language-bash"># both the same
+//ul[count(li) &gt; 2]
+//ul[count(child::li) &gt; 2]
+</code></pre>
+
+<h3 id="descendant-or-self-axis">Descendant-or-self axis</h3>
+
+<pre><code class="language-bash"># both the same
+//div//h4
+//div/descendant-or-self::h4
+</code></pre>
+
+<p><code>//</code> is short for the <code>descendant-or-self::</code> axis.</p>
+
+<pre><code class="language-bash"># both the same
+//ul//[last()]
+//ul/descendant-or-self::[last()]
+</code></pre>
+
+<h3 id="other-axes">Other axes</h3>
+
+<table class="-headers">
+  <thead>
+    <tr>
+      <th>Axis</th>
+      <th>Abbrev</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ancestor</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>ancestor-or-self</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>attribute</code></td>
+      <td><code>@</code></td>
+      <td><code>@href</code> is short for <code>attribute::href</code></td>
+    </tr>
+    <tr>
+      <td><code>child</code></td>
+      <td> </td>
+      <td><code>div</code> is short for <code>child::div</code></td>
+    </tr>
+    <tr>
+      <td><code>descendant</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>descendant-or-self</code></td>
+      <td><code>//</code></td>
+      <td><code>//</code> is short for <code>/descendant-or-self::node()/</code></td>
+    </tr>
+    <tr>
+      <td><code>namespace</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>self</code></td>
+      <td><code>.</code></td>
+      <td><code>.</code> is short for <code>self::node()</code></td>
+    </tr>
+    <tr>
+      <td><code>parent</code></td>
+      <td><code>..</code></td>
+      <td><code>..</code> is short for <code>parent::node()</code></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>following</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>following-sibling</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>preceding</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>preceding-sibling</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There are other axes you can use.</p>
+
+<h3 id="unions">Unions</h3>
+
+<pre><code class="language-bash">//a | //span
+</code></pre>
+
+<p>Use <code>|</code> to join two expressions.</p>
+
+<h2 id="more-examples">More examples</h2>
+
+<h3 id="examples">Examples</h3>
+
+<pre><code class="language-bash">//*                 # all elements
+count(//*)          # count all elements
+(//h1)[1]/text()    # text of the first h1 heading
+//li[span]          # find a &lt;li&gt; with an &lt;span&gt; inside it
+                    # ...expands to //li[child::span]
+//ul/li/..          # use .. to select a parent
+</code></pre>
+
+<h3 id="find-a-parent">Find a parent</h3>
+
+<pre><code class="language-bash">//section[h1[@id='section-name']]
+</code></pre>
+<p>Finds a <code>&lt;section&gt;</code> that directly contains <code>h1#section-name</code></p>
+
+<pre><code class="language-bash">//section[//h1[@id='section-name']]
+</code></pre>
+
+<p>Finds a <code>&lt;section&gt;</code> that contains <code>h1#section-name</code>.
+(Same as above, but uses descendant-or-self instead of child)</p>
+
+<h3 id="closest">Closest</h3>
+
+<pre><code class="language-bash">./ancestor-or-self::[@class="box"]
+</code></pre>
+
+<p>Works like jQuery’s <code>$().closest('.box')</code>.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<pre><code class="language-bash">//item[@price &gt; 2*@discount]
+</code></pre>
+
+<p>Finds <code>&lt;item&gt;</code> and check its attributes</p>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm">Xpath test bed</a> <em>(whitebeam.org)</em></li>
+</ul>

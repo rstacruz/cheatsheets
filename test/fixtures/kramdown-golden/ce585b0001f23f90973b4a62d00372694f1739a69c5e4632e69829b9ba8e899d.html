@@ -1,0 +1,216 @@
+
+<h2 id="format">Format</h2>
+
+<h3 id="basic-file">Basic file</h3>
+
+<pre><code class="language-yaml">---
+- hosts: production
+  remote_user: root
+  tasks:
+  - ···
+</code></pre>
+
+<p>Place your modules inside <code>tasks</code>.</p>
+
+<h3 id="task-formats">Task formats</h3>
+
+<h4 id="one-line">One-line</h4>
+
+<pre><code class="language-yaml">- apt: pkg=vim state=present
+</code></pre>
+
+<h4 id="map">Map</h4>
+
+<pre><code class="language-yaml">- apt:
+    pkg: vim
+    state: present
+</code></pre>
+
+<h4 id="foldable-scalar">Foldable scalar</h4>
+
+<pre><code class="language-yaml">- apt: &gt;
+    pkg=vim
+    state=present
+</code></pre>
+
+<p>Define your tasks in any of these formats. One-line format is preferred for short declarations, while maps are preferred for longer.</p>
+
+<h2 id="modules">Modules</h2>
+
+<h3 id="aptitude">Aptitude</h3>
+
+<h4 id="packages">Packages</h4>
+
+<pre><code class="language-yaml">- apt:
+    pkg: nodejs
+    state: present # absent | latest
+    update_cache: yes
+    force: no
+</code></pre>
+
+<h4 id="deb-files">Deb files</h4>
+
+<pre><code class="language-yaml">- apt:
+    deb: "https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb"
+</code></pre>
+
+<h4 id="repositories">Repositories</h4>
+
+<pre><code class="language-yaml">- apt_repository:
+    repo: "deb https://··· raring main"
+    state: present
+</code></pre>
+
+<h4 id="repository-keys">Repository keys</h4>
+
+<pre><code class="language-yaml">- apt_key:
+    id: AC40B2F7
+    url: "http://···"
+    state: present
+</code></pre>
+
+<h3 id="git">git</h3>
+
+<pre><code class="language-yaml">- git:
+    repo: git://github.com/
+    dest: /srv/checkout
+    version: master
+    depth: 10
+    bare: yes
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/git_module">git module</a></p>
+
+<h3 id="git_config">git_config</h3>
+
+<pre><code class="language-yaml">- git_config:
+    name: user.email
+    scope: global # local | system
+    value: hi@example.com
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/git_config_module">git_config module</a></p>
+
+<h3 id="user">user</h3>
+
+<pre><code class="language-yaml">- user:
+    state: present
+    name: git
+    system: yes
+    shell: /bin/sh
+    groups: admin
+    comment: "Git Version Control"
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/user_module">user module</a></p>
+
+<h3 id="service">service</h3>
+
+<pre><code class="language-yaml">- service:
+    name: nginx
+    state: started
+    enabled: yes     # optional
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/service_module">service module</a></p>
+
+<h2 id="shell">Shell</h2>
+
+<h3 id="shell-1">shell</h3>
+
+<pre><code class="language-yaml">- shell: apt-get install nginx -y
+</code></pre>
+
+<h4 id="extra-options">Extra options</h4>
+
+<pre><code class="language-yaml">- shell: echo hello
+  args:
+    creates: /path/file  # skip if this exists
+    removes: /path/file  # skip if this is missing
+    chdir: /path         # cd here before running
+</code></pre>
+
+<h4 id="multiline-example">Multiline example</h4>
+
+<pre><code class="language-yaml">- shell: |
+    echo "hello there"
+    echo "multiple lines"
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/shell_module">shell module</a></p>
+
+<h3 id="script">script</h3>
+
+<pre><code class="language-yaml">- script: /x/y/script.sh
+  args:
+    creates: /path/file  # skip if this exists
+    removes: /path/file  # skip if this is missing
+    chdir: /path         # cd here before running
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/script_module">script module</a></p>
+
+<h2 id="files">Files</h2>
+
+<h3 id="file">file</h3>
+
+<pre><code class="language-yaml">- file:
+    path: /etc/dir
+    state: directory # file | link | hard | touch | absent
+
+    # Optional:
+    owner: bin
+    group: wheel
+    mode: 0644
+    recurse: yes  # mkdir -p
+    force: yes    # ln -nfs
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/file_module">file module</a></p>
+
+<h3 id="copy">copy</h3>
+
+<pre><code class="language-yaml">- copy:
+    src: /app/config/nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+    # Optional:
+    owner: user
+    group: user
+    mode: 0644
+    backup: yes
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/copy_module">copy module</a></p>
+
+<h3 id="template">template</h3>
+
+<pre><code class="language-yaml">- template:
+    src: config/redis.j2
+    dest: /etc/redis.conf
+
+    # Optional:
+    owner: user
+    group: user
+    mode: 0644
+    backup: yes
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/template_module">template module</a></p>
+
+<h2 id="local-actions">Local actions</h2>
+
+<h3 id="local_action">local_action</h3>
+
+<pre><code class="language-yaml">- name: do something locally
+  local_action: shell echo hello
+</code></pre>
+
+<h3 id="debug">debug</h3>
+
+<pre><code class="language-yaml">- debug:
+    msg: "Hello {{ var }}"
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/ansible/debug_module">debug module</a></p>
+

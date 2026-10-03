@@ -1,0 +1,139 @@
+<h2 class="-two-column" id="format">Format</h2>
+
+<h3 id="format-1">Format</h3>
+
+<pre class="-setup"><code>Min  Hour Day  Mon  Weekday
+</code></pre>
+
+<pre><code>*    *    *    *    *  command to be executed
+</code></pre>
+
+<pre class="-setup -box-chars"><code>┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)
+</code></pre>
+
+<h3 id="operators">Operators</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>*</code></td>
+      <td>all values</td>
+    </tr>
+    <tr>
+      <td><code>,</code></td>
+      <td>separate individual values</td>
+    </tr>
+    <tr>
+      <td><code>-</code></td>
+      <td>a range of values</td>
+    </tr>
+    <tr>
+      <td><code>/</code></td>
+      <td>divide a value into steps</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="special-strings">Special strings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@reboot</code></td>
+      <td>every rebot</td>
+    </tr>
+    <tr>
+      <td><code>@hourly</code></td>
+      <td>once every hour - same as <code>0 * * * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@daily</code></td>
+      <td>once every day - same as <code>0 0 * * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@midnight</code></td>
+      <td>once every midnight - same as <code>@daily</code></td>
+    </tr>
+    <tr>
+      <td><code>@weekly</code></td>
+      <td>once every week - same as <code>0 0 * * 0</code></td>
+    </tr>
+    <tr>
+      <td><code>@monthly</code></td>
+      <td>once every month - same as <code>0 0 1 * *</code></td>
+    </tr>
+    <tr>
+      <td><code>@yearly</code></td>
+      <td>once every year - same as <code>0 0 1 1 *</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>0 * * * *</code></td>
+      <td>every hour</td>
+    </tr>
+    <tr>
+      <td><code>*/15 * * * *</code></td>
+      <td>every 15 mins</td>
+    </tr>
+    <tr>
+      <td><code>0 */2 * * *</code></td>
+      <td>every 2 hours</td>
+    </tr>
+    <tr>
+      <td><code>0 18 * * 0-6</code></td>
+      <td>every week Mon-Sat at 6pm</td>
+    </tr>
+    <tr>
+      <td><code>10 2 * * 6,7</code></td>
+      <td>every Sat and Sun on 2:10am</td>
+    </tr>
+    <tr>
+      <td><code>0 0 * * 0</code></td>
+      <td>every Sunday midnight</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="crontab">Crontab</h3>
+
+<pre><code class="language-bash"># Adding tasks easily
+echo "@reboot echo hi" | crontab
+
+# Open in editor - optional for another user
+crontab -e [-u user]
+
+# List tasks - optional for another user
+crontab -l [-u user]
+
+# Delete crontab file - optional for another user
+crontab -r [-u user]
+</code></pre>

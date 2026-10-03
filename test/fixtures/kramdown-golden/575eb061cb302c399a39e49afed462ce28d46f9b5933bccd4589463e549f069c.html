@@ -1,0 +1,254 @@
+<h2 id="alternate-files">Alternate files</h2>
+
+<h3 id="alternate-files-1">Alternate files</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:A</code></td>
+      <td>alternate file (test)</td>
+    </tr>
+    <tr>
+      <td><code>:R</code></td>
+      <td>related file (controller/view)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="what-it-does">What it does</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>.</th>
+      <th>:A</th>
+      <th>:R</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Model</strong></td>
+      <td>test/models/</td>
+      <td>db/schema.rb</td>
+    </tr>
+    <tr>
+      <td><strong>Controller method</strong></td>
+      <td>test/controllers/</td>
+      <td>app/views/</td>
+    </tr>
+    <tr>
+      <td><strong>View template</strong></td>
+      <td>test/views/</td>
+      <td>app/controllers</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="abbreviations">Abbreviations</h2>
+
+<p>Type <code>:Rabbrev</code> for a full list.</p>
+
+<table class="no-head greycode">
+  <thead>
+    <tr>
+      <th>Abbrev</th>
+      <th>Expansion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AC::</code></td>
+      <td>ActionController</td>
+    </tr>
+    <tr>
+      <td><code>AR::</code></td>
+      <td>ActiveRecord</td>
+    </tr>
+    <tr>
+      <td><code>AV::</code></td>
+      <td>ActionView</td>
+    </tr>
+    <tr>
+      <td><code>...</code></td>
+      <td>…</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>logd(</code></td>
+      <td>logger.debug</td>
+    </tr>
+    <tr>
+      <td><code>logi(</code></td>
+      <td>logger.info</td>
+    </tr>
+    <tr>
+      <td><code>...</code></td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="model">Model</h3>
+
+<table class="no-head greycode">
+  <thead>
+    <tr>
+      <th>Abbrev</th>
+      <th>Expansion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>bt(</code></td>
+      <td><code>belongs_to</code></td>
+    </tr>
+    <tr>
+      <td><code>hm(</code></td>
+      <td><code>has_many</code></td>
+    </tr>
+    <tr>
+      <td><code>ho(</code></td>
+      <td><code>has_one</code></td>
+    </tr>
+    <tr>
+      <td><code>habtm(</code></td>
+      <td><code>has_and_belongs_to_many</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="controllers">Controllers</h3>
+
+<table class="no-head greycode">
+  <thead>
+    <tr>
+      <th>Abbrev</th>
+      <th>Expansion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pa[</code></td>
+      <td>params</td>
+    </tr>
+    <tr>
+      <td><code>re(</code></td>
+      <td>redirect_to</td>
+    </tr>
+    <tr>
+      <td><code>rp(</code></td>
+      <td>render partial:</td>
+    </tr>
+    <tr>
+      <td><code>rst(</code></td>
+      <td>respond_to</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="views">Views</h3>
+
+<table class="no-head greycode">
+  <thead>
+    <tr>
+      <th>Abbrev</th>
+      <th>Expansion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dotiw</code></td>
+      <td><code>distance_of_time_in_words</code></td>
+    </tr>
+    <tr>
+      <td><code>taiw</code></td>
+      <td><code>time_ago_in_words</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="extracting-partials">Extracting partials</h2>
+
+<pre><code class="language-rb"># from view =&gt; app/views/home/_foo_partial.haml
+  :Rextract home/foo_partial
+
+# from model =&gt; app/models/concerns/foo_concern.rb
+  :Rextract FooConcern
+</code></pre>
+
+<h2 id="loading-files">Loading files</h2>
+
+<h3 id="app">App</h3>
+
+<pre><code>:Econtroller &lt;file&gt;     # app/controllers/*_controller.rb
+:Ehelper                # app/helpers/*_helper.rb
+:Emodel &lt;file&gt;          # app/models/*.rb
+:Ejob &lt;file&gt;            # app/jobs/*_job.rb
+:Emailer &lt;file&gt;         # app/mailers/*.rb
+</code></pre>
+
+<h3 id="db">DB</h3>
+
+<pre><code>:Emigration &lt;file&gt;     # db/migrations/*.rb
+:Eschema               # db/schema.rb
+</code></pre>
+
+<h3 id="lib">Lib</h3>
+
+<pre><code>:Elib &lt;file&gt;      # lib/*.rb
+:Elib             # Gemfile
+:Etask &lt;file&gt;     # lib/tasks/*.rake
+</code></pre>
+
+<h3 id="assets">Assets</h3>
+
+<pre><code>:Estylesheet
+:Ejavascript
+</code></pre>
+
+<h3 id="views-1">Views</h3>
+
+<pre><code>:Eview
+:Elayout
+</code></pre>
+
+<h3 id="test">Test</h3>
+
+<pre><code>:Espec
+:Eunittest
+  # test/{unit,models,helpers}/*_test.rb
+  # spec/{unit,models,helpers}/*_spec.rb
+
+:Efunctionaltest
+  # test/{functional,controllers,mailers}/*_test.rb
+  # spec/{functional,controllers,mailers}/*_spec.rb
+
+:Eintegrationtest
+  # test/integration/*_test.rb
+  # spec/{features,requests,integration}/*_spec.rb
+  # features/*.feature
+
+:Efixtures
+:Efunctionaltest
+</code></pre>
+
+<h3 id="config">Config</h3>
+
+<pre><code>:Einitializer &lt;file&gt;          # config/initializers/*.rb
+:Elocale                      # config/locales/*.yml
+:Eenvironment                 # application.rb
+:Eenvironment development     # config/environments/*.rb
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li><a href="https://github.com/tpope/vim-rails">vim-rails</a></li>
+</ul>

@@ -1,0 +1,377 @@
+<h2 class="-three-column" id="getting-started">Getting started</h2>
+
+<h3 class="-prime" id="simple-example">Simple example</h3>
+
+<pre data-line="1,2"><code class="language-js">/* @flow */
+function square (n: number) {
+  return n * n
+}
+
+const four = square(2)
+</code></pre>
+
+<p>Most of what you need to do is to simply add annotations to function arguments!</p>
+
+<p>See: <a href="https://flow.org/en/docs/">flow.org docs</a></p>
+
+<h3 id="type-inference">Type inference</h3>
+
+<pre data-line="2"><code class="language-js">function square (n: number) {
+  const result = n * n
+}
+</code></pre>
+
+<p><code>result</code> is inferred to be a number because <code>number * number</code> will result in a number. There’s no need to give it annotations.</p>
+
+<h3 id="type-aliases">Type aliases</h3>
+
+<pre data-line="1,2,3,4,5,6"><code class="language-js">type Person = {
+  name: string,
+  age: number,
+  isAdmin: boolean,
+  likes: Array&lt;string&gt;
+}
+</code></pre>
+
+<pre data-line="1"><code class="language-js">function greet(user: Person) {
+  console.log('hello', user.name)
+}
+</code></pre>
+
+<pre><code class="language-js">greet({ name: 'Miles Davis', ··· })
+</code></pre>
+
+<p>This is the typical way to define the shape of complex objects.</p>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code class="language-js">const count: number = 200
+</code></pre>
+
+<p>You typically don’t need to do this, function args are often enough.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/variables/">Variable types</a></p>
+
+<h3 id="importing-and-exporting">Importing and exporting</h3>
+
+<pre><code class="language-js">import type { Person } from './types'
+</code></pre>
+
+<pre><code class="language-js">export type Person = {
+  ···
+}
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/modules">Module types</a></p>
+
+<h3 id="union-types">Union types</h3>
+
+<pre><code class="language-js">type Action = number | string
+</code></pre>
+
+<pre><code class="language-js">type Direction = 'left' | 'right'
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/unions/">Unions</a></p>
+
+<h2 id="optionals">Optionals</h2>
+
+<h3 id="maybe-types">Maybe types</h3>
+
+<pre data-line="2"><code class="language-js">type Album = {
+  name: ?string
+}
+</code></pre>
+
+<pre><code class="language-js">const a: Album = { }                 // ✗ Error
+const a: Album = { name: 'Blue' }    // ✓ OK
+const a: Album = { name: null }      // ✓ OK
+const a: Album = { name: undefined } // ✓ OK
+</code></pre>
+
+<p>This makes <code>name</code> either a string or null.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/primitives/#toc-maybe-types">Maybe types</a></p>
+
+<h3 id="optional-properties">Optional properties</h3>
+
+<pre data-line="2"><code class="language-js">type Album = {
+  name?: string
+}
+</code></pre>
+
+<pre><code class="language-js">const a: Album = { } // ✓ OK
+a.name = 'Blue'      // ✓ OK
+a.name = null        // ✗ Error
+a.name = undefined   // ✓ OK
+</code></pre>
+
+<p>This makes an <code>Album</code> valid even if <code>name</code> is not part of the keys. This is different from “maybe” types.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/primitives/#toc-optional-object-properties">Optional properties</a></p>
+
+<h2 class="-three-column" id="objects">Objects</h2>
+
+<h3 id="width-subtyping">Width subtyping</h3>
+
+<pre><code class="language-js">type Artist = {
+  name: string,
+  label: string
+}
+</code></pre>
+
+<pre data-line="6"><code class="language-js">const a: Artist = {
+  name: 'Miguel Migs',
+  label: 'Naked Music',
+  genre: 'House' // ✓ OK
+}
+</code></pre>
+
+<p>A type with more properties is “wider” and is a subtype of a “narrower” type.</p>
+
+<p>See: <a href="https://flow.org/en/docs/lang/width-subtyping/">Width subtyping</a></p>
+
+<h3 id="exact-object-types">Exact object types</h3>
+
+<pre data-line="1,4"><code class="language-js">type Artist = {|
+  name: string,
+  label: string
+|}
+</code></pre>
+
+<pre data-line="4"><code class="language-js">const a: Artist = {
+  name: 'Miguel Migs',
+  label: 'Naked Music',
+  genre: 'House' // ✗ Error
+}
+</code></pre>
+
+<p>Exact object types prevent extra properties from being added to an object.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/objects/#toc-exact-object-types">Exact object types</a></p>
+
+<h3 id="dynamic-keys">Dynamic keys</h3>
+
+<pre data-line="2"><code class="language-js">type Items = {
+  [key: string]: Item
+}
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/objects/#toc-objects-as-maps">Dynamic object keys</a></p>
+
+<h2 id="advanced-features">Advanced features</h2>
+
+<h3 id="primitives">Primitives</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>any</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>boolean</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>mixed</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>number</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>string</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>void</code></td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td><code>null</code></td>
+      <td>null (but not undefined)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>{a: Number}</code></td>
+      <td>Object with a shape</td>
+    </tr>
+    <tr>
+      <td><code>[any, number]</code></td>
+      <td>Tuples (fixed-length arrays)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>Array&lt;T&gt;</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Class&lt;T&gt;</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Function</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Object</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>?number</code></td>
+      <td>Maybe (number, void, null)</td>
+    </tr>
+    <tr>
+      <td><code>a | b</code></td>
+      <td>Union types</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enums">Enums</h3>
+
+<pre><code class="language-js">type Suit = "Diamonds" | "Clubs" | "Hearts" | "Spades"
+
+const countries = {
+  US: "United States",
+  IT: "Italy",
+  FR: "France"
+}
+
+type Country = $Keys&lt;typeof countries&gt;
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/utilities/#toc-keys">Enums</a></p>
+
+<h3 id="type-aliases-1">Type aliases</h3>
+
+<pre><code class="language-js">type Tree = {
+  foo: string,
+  bar: number,
+  qux: (foo: string, bar: number) =&gt; boolean
+}
+
+type Generic&lt;T&gt; = {
+  foo: T
+}
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/aliases/">Type aliases</a></p>
+
+<h3 id="generic-classes">Generic classes</h3>
+
+<pre><code class="language-js">class GenericClass&lt;T&gt; {
+  x: T
+  constructor (x: T) { ... }
+}
+
+var n: GenericClass&lt;number&gt; = new GenericClass(0)
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/generics/#toc-classes-with-generics">Generic classes</a></p>
+
+<h3 id="interfaces">Interfaces</h3>
+
+<pre><code class="language-js">interface Jsonable {
+  toJSON(): string
+}
+
+class Foo {
+  toJSON() { return '{}' }
+}
+
+(new Foo: Jsonable)
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/interfaces/">Interfaces</a></p>
+
+<h3 id="functions">Functions</h3>
+
+<pre><code class="language-js">const callback: () =&gt; void = function () {}
+</code></pre>
+
+<pre><code class="language-js">function filter&lt;T&gt; (
+  list: Array&lt;T&gt;,
+  callback: (item: T) =&gt; boolean
+): Array&lt;T&gt; {
+  ···
+}
+</code></pre>
+
+<p>See: <a href="https://flow.org/en/docs/types/functions/">Functions</a></p>
+
+<h3 id="imports">Imports</h3>
+
+<pre><code class="language-js">import type { Person } from '../person'
+import typeof Config from '../config'
+</code></pre>
+
+<pre><code class="language-js">export type Person = { id: string }
+</code></pre>
+
+<h3 id="comment-syntax">Comment syntax</h3>
+
+<pre><code class="language-js">/*::
+  export type Foo = { ... }
+*/
+
+function add(n /*: number */) { ... }
+</code></pre>
+
+<h3 id="react">React</h3>
+
+<pre><code class="language-js">type Props = {
+  bar: number,
+}
+
+type State = {
+  open: boolean,
+}
+
+class Foo extends React.Component&lt;Props, State&gt; {
+  // Component code
+}
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="examples-1">Examples</h3>
+
+<pre><code class="language-js">var myNumbers: Array&lt;number&gt; = [42]
+function foo(): any { return 42 }
+var b: boolean = false
+var b: ?boolean = false  /* maybe */
+var b: string | boolean = false
+
+var a: Class&lt;MyClass&gt; = MyClass
+var b: MyClass = new a()
+</code></pre>
+
+<h3 id="function-signature">Function signature</h3>
+
+<pre><code class="language-js">type Callback = (?Error, string) =&gt; any
+
+function fetch (callback: Callback) {
+  ···
+}
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://www.saltycrane.com/flow-type-cheat-sheet/latest/">Flow website</a> <em>(flow.org)</em></li>
+  <li><a href="https://flow.org/en/docs/getting-started/">Getting started with Flow</a> <em>(flow.org)</em></li>
+  <li><a href="https://www.saltycrane.com/flow-type-cheat-sheet/latest/">Flow type cheatsheet</a> <em>(saltycrane.com)</em></li>
+</ul>

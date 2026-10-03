@@ -1,0 +1,220 @@
+<h3 id="commands">Commands</h3>
+
+<pre><code>$ tmux
+  -u        # UTF8 mode
+  -S ~/.tmux.socket
+</code></pre>
+
+<h4 id="sessions">Sessions</h4>
+
+<pre><code>$ tmux new
+$ tmux new -s session_name
+
+$ tmux attach # Default session
+$ tmux attach -t session_name
+
+$ tmux switch -t session_name
+
+$ tmux ls     # List sessions
+
+$ tmux detach
+</code></pre>
+
+<h4 id="windows">Windows</h4>
+
+<pre><code>$ tmux new-window
+</code></pre>
+
+<h3 id="help">Help</h3>
+
+<pre><code>C-b ?
+</code></pre>
+
+<h3 id="scrolling">Scrolling</h3>
+
+<pre><code>C-b [       # Enter scroll mode then press up and down, you can also scroll with mouse support enabled (`set -g mouse on` in `~/.tmux.conf`)
+</code></pre>
+
+<h3 id="copypaste">Copy/paste</h3>
+
+<pre><code>C-b [       # 1. Enter scroll mode first
+Space       # 2. Start selecting and move around
+Enter       # 3. Press enter to copy
+C-b ]       # Paste
+</code></pre>
+
+<h3 id="panes">Panes</h3>
+
+<pre><code>C-b %       # vert
+C-b "       # horiz
+C-b hkjl    # navigation
+C-b HJKL    # resize
+C-b o       # next window
+C-b q       # show pane numbers
+C-b x       # close pane
+
+C-b { or }  # move windows around
+</code></pre>
+
+<h3 id="windows-1">Windows</h3>
+
+<pre><code>C-b c       # New window
+C-b 1       # Go to window 1
+C-b n       # Go to next window
+C-b p       # Go to previous window
+C-b w       # List all window
+</code></pre>
+
+<h3 id="detachattach">Detach/attach</h3>
+
+<pre><code>C-b d       # Detach
+C-b ( )     # Switch through sessions
+$ tmux attach
+</code></pre>
+
+<h3 id="search-in-buffer">Search in buffer</h3>
+
+<pre><code>C-b [       # 1. Enter scroll mode first, you can also scroll with mouse support enabled
+C-s         # 2. Enter search mode, type pattern then press Enter to start search
+n or N      # 3. Go to the previous or next match
+C-c         # 4. Exit search and scroll mode
+</code></pre>
+
+<h3 id="niceties">Niceties</h3>
+
+<pre><code>C-b t       # Display a clock, press any key to quit
+</code></pre>
+
+<h2 id="status-formats">Status formats</h2>
+
+<pre><code>setw -g window-status-format `#[fg=8,bg=default]#I`
+</code></pre>
+
+<p>See <code>message-command-style</code> in the man page.</p>
+
+<h3 id="attributecolors">Attribute/colors</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>#[fg=1]</code></td>
+      <td>standard color</td>
+    </tr>
+    <tr>
+      <td><code>#[fg=yellow]</code></td>
+      <td>yellow</td>
+    </tr>
+    <tr>
+      <td><code>#[bold]</code></td>
+      <td>bold</td>
+    </tr>
+    <tr>
+      <td><code>#[fg=colour240]</code></td>
+      <td>256 color</td>
+    </tr>
+    <tr>
+      <td><code>#[fg=default]</code></td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td><code>#[fg=1,bg=2]</code></td>
+      <td>combinations</td>
+    </tr>
+    <tr>
+      <td><code>#[default]</code></td>
+      <td>reset</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="colors">Colors</h3>
+
+<ul>
+  <li><code>black</code> <code>red</code> <code>green</code> <code>yellow</code> <code>blue</code> <code>magenta</code> <code>cyan</code> <code>white</code></li>
+  <li><code>brightred</code> (and so on)</li>
+  <li><code>colour0</code> … <code>colour255</code></li>
+  <li><code>#333</code> (rgb hex)</li>
+</ul>
+
+<h3 id="attributes">Attributes</h3>
+
+<ul>
+  <li><code>bold</code> <code>underscore</code> <code>blink</code> <code>noreverse</code> <code>hidden</code> <code>dim</code> <code>italics</code></li>
+</ul>
+
+<h3 id="variables">Variables</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>#(date)</code></td>
+      <td>shell command</td>
+    </tr>
+    <tr>
+      <td><code>#I</code></td>
+      <td>window index</td>
+    </tr>
+    <tr>
+      <td><code>#S</code></td>
+      <td>session name</td>
+    </tr>
+    <tr>
+      <td><code>#W</code></td>
+      <td>window name</td>
+    </tr>
+    <tr>
+      <td><code>#F</code></td>
+      <td>window flags</td>
+    </tr>
+    <tr>
+      <td><code>#H</code></td>
+      <td>Hostname</td>
+    </tr>
+    <tr>
+      <td><code>#h</code></td>
+      <td>Hostname, short</td>
+    </tr>
+    <tr>
+      <td><code>#D</code></td>
+      <td>pane id</td>
+    </tr>
+    <tr>
+      <td><code>#P</code></td>
+      <td>pane index</td>
+    </tr>
+    <tr>
+      <td><code>#T</code></td>
+      <td>pane title</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="options">Options</h2>
+
+<pre><code>set -g status-justify [left|centre|right]
+set -g status-left '...'
+
+setw -g window-status-style
+setw -g window-status-activity-style
+setw -g window-status-bell-style
+setw -g window-status-content-style
+setw -g window-status-current-style
+setw -g window-status-last-style
+
+setw -g window-status-format
+setw -g window-status-current-format
+
+setw -g window-status-separator
+</code></pre>

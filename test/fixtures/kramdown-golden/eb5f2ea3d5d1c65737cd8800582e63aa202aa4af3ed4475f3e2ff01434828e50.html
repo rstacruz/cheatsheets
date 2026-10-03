@@ -1,0 +1,289 @@
+<h2 id="intro">Intro</h2>
+
+<h2 class="-three-column" id="queries">Queries</h2>
+
+<h3 id="basic-query">Basic query</h3>
+
+<pre><code class="language-js">{ status }
+</code></pre>
+
+<h4>↓</h4>
+
+<pre class="-setup"><code class="language-js">{ status: 'available' }
+</code></pre>
+
+<h3 id="nesting">Nesting</h3>
+
+<pre><code class="language-js">{ hero { name height } }
+</code></pre>
+
+<h4 id="-1">↓</h4>
+
+<pre class="-setup"><code class="language-js">{ hero:
+    { name: "Luke Skywalker",
+      height: 1.74 } }
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-js">{ friends { name } }
+</code></pre>
+
+<h4 id="-2">↓</h4>
+
+<pre class="-setup"><code class="language-js">{ friends:
+    [ { name: "Luke Skywalker" },
+      { name: "Han Solo" },
+      { name: "R2D2" } ] }
+</code></pre>
+
+<p>GraphQL queries look the same for both single items or lists of items.</p>
+
+<h3 id="lookups">Lookups</h3>
+
+<pre><code class="language-js">{
+  hero(id: "1000") { id name }
+}
+</code></pre>
+
+<h4 id="-3">↓</h4>
+
+<pre class="-setup"><code class="language-js">{ hero:
+    { id: "1000",
+    { name: "Luke Skywalker" } }
+</code></pre>
+
+<h3 id="aliases">Aliases</h3>
+
+<pre><code class="language-js">{
+  luke: hero(id: "1000") { name }
+  han: hero(id: "1001") { name }
+}
+</code></pre>
+
+<h4 id="-4">↓</h4>
+
+<pre class="-setup"><code class="language-js">{ luke:
+    { name: "Luke Skywalker" },
+    han:
+    { name: "Han Solo" } }
+</code></pre>
+
+<h3 id="operation-names-and-variables">Operation names and variables</h3>
+
+<h4 id="query">Query</h4>
+<pre><code class="language-js">query FindHero($id: String!) {
+  hero(id: $id) { name }
+}
+</code></pre>
+
+<p>Just to make things less ambiguous. Also, to use variables, you need an operation name.</p>
+
+<h4 id="variables">Variables</h4>
+
+<pre><code class="language-js">{ id: '1000' }
+</code></pre>
+
+<h3 id="mutations">Mutations</h3>
+
+<h4 id="query-1">Query</h4>
+
+<pre><code class="language-js">{ createReview($review) { id } }
+</code></pre>
+
+<h4 id="variables-1">Variables</h4>
+
+<pre><code class="language-js">{ review: { stars: 5 } }
+</code></pre>
+
+<h4 id="-5">↓</h4>
+
+<pre><code class="language-js">{ createReview: { id: 5291 } }
+</code></pre>
+
+<p>Mutations are just fields that do something when queried.</p>
+
+<h3 id="multiple-types">Multiple types</h3>
+
+<pre><code class="language-js">{
+  search(q: "john") {
+    id
+    ... on User { name }
+    ... on Comment { body author { name } }
+  }
+}
+</code></pre>
+
+<p>Great for searching.</p>
+
+<h2 id="over-http">Over HTTP</h2>
+
+<h4 id="get">GET</h4>
+
+<pre><code class="language-js">fetch('http://myapi/graphql?query={ me { name } }')
+</code></pre>
+
+<h4 id="post">POST</h4>
+
+<pre><code class="language-js">fetch('http://myapi/graphql', {
+  body: JSON.stringify({
+    query: '...',
+    operationName: '...',
+    variables: { ... }
+  })
+})
+</code></pre>
+
+<h2 class="-three-column" id="schema">Schema</h2>
+
+<h3 id="basic-schemas">Basic schemas</h3>
+
+<pre><code class="language-js">type Query {
+  me: User
+  users(limit: Int): [User]
+}
+
+type User {
+  id: ID!
+  name: String
+}
+</code></pre>
+
+<p>See: <a href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">sogko/graphql-shorthand-notation-cheat-sheet</a></p>
+
+<h3 id="built-in-types">Built in types</h3>
+
+<h4 id="scalar-types">Scalar types</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>Int</code></td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td><code>Float</code></td>
+      <td>Float</td>
+    </tr>
+    <tr>
+      <td><code>String</code></td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code>Boolean</code></td>
+      <td>Boolean</td>
+    </tr>
+    <tr>
+      <td><code>ID</code></td>
+      <td>ID</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="type-definitions">Type definitions</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>scalar</code></td>
+      <td>Scalar type</td>
+    </tr>
+    <tr>
+      <td><code>type</code></td>
+      <td>Object type</td>
+    </tr>
+    <tr>
+      <td><code>interface</code></td>
+      <td>Interface type</td>
+    </tr>
+    <tr>
+      <td><code>union</code></td>
+      <td>Union type</td>
+    </tr>
+    <tr>
+      <td><code>enum</code></td>
+      <td>Enumerable type</td>
+    </tr>
+    <tr>
+      <td><code>input</code></td>
+      <td>Input object type</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="type-modifiers">Type modifiers</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>String</code></td>
+      <td>Nullable string</td>
+    </tr>
+    <tr>
+      <td><code>String!</code></td>
+      <td>Required string</td>
+    </tr>
+    <tr>
+      <td><code>[String]</code></td>
+      <td>List of strings</td>
+    </tr>
+    <tr>
+      <td><code>[String]!</code></td>
+      <td>Required list of strings</td>
+    </tr>
+    <tr>
+      <td><code>[String!]!</code></td>
+      <td>Required list of required strings</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mutations-1">Mutations</h3>
+
+<pre><code class="language-js">type Mutation {
+  users(params: ListUsersInput): [User]!
+}
+</code></pre>
+
+<h3 id="interfaces">Interfaces</h3>
+
+<pre><code class="language-js">interface Entity {
+  id: ID!
+}
+
+type User implements Entity {
+  id: ID!
+  name: String
+}
+</code></pre>
+
+<h3 id="enums">Enums</h3>
+
+<pre data-line="1,2,3,4"><code class="language-js">enum DIRECTION {
+  LEFT
+  RIGHT
+}
+
+type Root {
+  direction: DIRECTION!
+}
+</code></pre>
+
+<h3 id="unions">Unions</h3>
+
+<pre data-line="4"><code class="language-js">type Artist { ··· }
+type Album { ··· }
+
+union Result = Artist | Album
+
+type Query {
+  search(q: String): [Result]
+}
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="http://graphql.org/learn/queries/">http://graphql.org/learn/queries/</a></li>
+  <li><a href="http://graphql.org/learn/serving-over-http/">http://graphql.org/learn/serving-over-http/</a></li>
+</ul>

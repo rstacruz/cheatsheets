@@ -1,0 +1,257 @@
+
+<h3 class="-intro" id="about">About</h3>
+
+<p>Ractive is a UI library for JavaScript.</p>
+
+<ul>
+  <li><a href="https://ractive.js.org/">https://ractive.js.org/</a></li>
+  <li><a href="https://ractivejs.org/">https://ractivejs.org/</a></li>
+</ul>
+
+<h3 id="initialization"><a href="http://docs.ractivejs.org/latest/options">Initialization</a></h3>
+
+<pre><code>new Ractive({
+  el: $('..'),
+  el: '#box',
+  template: '...', // required
+
+  // callbacks
+  init: function() {},    // on instantiate
+  complete: function() {}, // on finish animations
+
+  // objs
+  data: { ... },
+  partials: { ... },    // global: Ractive.partials
+  transitions: { ... }, // global: Ractive.transitions
+  components: { ... },
+  adaptors: [ ... ],
+
+  // options
+  magic: false
+  modifyArrays: true
+  twoway: true
+  noIntro: true // true = disable transition on initial render
+  lazy: false   // false = use keyevents, true = use change/blur
+  append: false // false = overwrite element, true = append
+  debug: false
+  sanitize: false
+})
+</code></pre>
+
+<h2 id="instance-methods">Instance methods</h2>
+
+<h3 id="updating-values">Updating values</h3>
+
+<pre><code>view.add('count', 1)       //=&gt; promise
+view.subtract('count', 1)  //=&gt; promise
+view.toggle('shown')       //=&gt; promise
+
+view.set('a', true)
+view.set({ a: true })
+view.reset({ a: true })
+view.merge('list', [a,b,c])
+
+view.get('a')
+view.data.a
+</code></pre>
+
+<h3 id="nodes-and-components">Nodes and components</h3>
+
+<pre><code>view.find('.klass')
+view.findAll('.klass')
+view.nodes
+view.nodes['hello']   // .find('#hello')
+
+view.findComponent('photo')
+view.findAllComponents('photo')
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code>view.on('event', function() { ... })
+view.off('event', fn)
+view.fire('event')
+</code></pre>
+
+<h3 id="others">Others</h3>
+
+<pre><code>view.update()
+view.updateModel()
+
+view.insert('.node .path')
+
+view.observe({ 'name': function() { ... } })
+
+view.toHTML()  //=&gt; String
+view.render()
+</code></pre>
+
+<h2 id="extend">Extend</h2>
+
+<pre><code>View = Ractive.extend({
+  ...
+})
+new View()
+</code></pre>
+
+<h2 id="components"><a href="https://github.com/RactiveJS/Ractive/wiki/Components">Components</a></h2>
+
+<p class="center">See: https://github.com/RactiveJS/Ractive/issues/74</p>
+
+<pre><code>Widget = Ractive.extend({ ... })
+
+ractive = new Ractive({
+  el: 'main',
+  template: '&lt;widget foo="bar"/&gt;',
+  components: {
+    widget: Widget
+  }
+});
+</code></pre>
+
+<h2 id="partials">Partials</h2>
+
+<pre><code>// Global partials
+Ractive.partials.x = "&lt;..&gt;"
+</code></pre>
+
+<h2 id="events-1">Events</h2>
+
+<pre><code>view.on('teardown')
+</code></pre>
+
+<h3 id="dom-events">DOM Events</h3>
+
+<pre><code>&lt;button on-click='activate'&gt;Activate!&lt;/button&gt;
+
+view.on({
+  activate: function () { ... }
+});
+
+&lt;button on-click='sort:name'&gt;Sort by name&lt;/button&gt;
+view.on('sort', function (e, column) {
+  console.log('sorting by #{column}');
+});
+</code></pre>
+
+<h3 id="observing">Observing</h3>
+
+<pre><code> view.observe("name", function (name) {
+   console.log("Changed name to", name);
+ }, { init: false });
+</code></pre>
+
+<h2 id="markup">Markup</h2>
+
+<pre><code>Hello, {{name}}
+Body: {{{unescaped}}}
+
+&lt;!-- each --&gt;
+{{#mylist:i}}
+  &lt;li&gt;{{this.name}}&lt;/li&gt;
+  &lt;li&gt;{{name}}&lt;/li&gt;
+  &lt;li&gt;{{.}}&lt;/li&gt; &lt;!-- same as 'this' --&gt;
+{{/mylist}}
+
+{{^user}}Not logged in{{/user}} &lt;!-- if false --&gt;
+{{#user}}Welcome, sire{{/user}} &lt;!-- if true --&gt;
+
+{{&gt;partialName}}
+&lt;component&gt;
+
+{{#statusDogs[selected]}}
+</code></pre>
+
+<h2 id="transformed-attributes">Transformed attributes</h2>
+
+<p>This transforms the <code>list</code> attribute via a helper function called <code>sort()</code>.</p>
+
+<pre><code>{{# sort(list, "name") :num }}
+  &lt;li&gt;{{num}} - {{name}}&lt;/li&gt;
+{{/ end. any text goes here }}
+
+data: {
+  sort: function(array, column) { return array.whatever(); }
+}
+</code></pre>
+
+<h2 id="transitions">Transitions</h2>
+
+<pre><code>&lt;div intro="fade"&gt;
+&lt;div intro="bump"&gt;
+&lt;div intro="bump:{duration:400}"&gt;
+
+Ractive.transitions.bump = function(t, params) {
+   params = t.processParams( params, {
+     duration: 400,
+     color: t.isIntro ? 'rgb(0,255,0)' : 'rgb(255,0,0)'
+   });
+
+  if (t.isIntro) {
+    /* enter */
+  } else {
+    /* exit */
+  }
+
+  t.complete();
+};
+</code></pre>
+
+<h2 id="decorators"><a href="http://docs.ractivejs.org/latest/decorators">Decorators</a></h2>
+
+<pre><code>&lt;span decorator="tooltip:hello there"&gt;Hover me&lt;/span&gt;
+
+decorators: {
+  tooltip: function (node, content) {
+    // setup code here
+    return {
+      teardown: function () {
+        // cleanup code here
+      }
+    }
+  }
+}
+
+&lt;span decorator="tooltip:'a','b',2,'c'"&gt;Hover me&lt;/span&gt;
+
+tooltip: function (node, a, b, two, c) { ... }
+</code></pre>
+
+<h2 id="adaptors"><a href="http://docs.ractivejs.org/latest/adaptors">Adaptors</a></h2>
+
+<pre><code>myAdaptor = {
+  filter: function (object, keypath, ractive) {
+    // return `true` if a particular object is of the type we want to adapt
+  },
+  wrap: function (ractive, object, keypath, prefixer) {
+    // set up event bindings here
+    object.on('change', function () { ractive.set(prefixer({...})); });
+    // then return a wrapper:
+    return {
+      teardown: function () { .. },
+      // json representation
+      get: function () { return { a:2, b:3, c:4, ... }; },
+      // called on ractive.set
+      set: function (key, val) { },
+      // called on ractive.set on root (return false = die)
+      reset: function (data) { return false; }
+    };
+  }
+};
+</code></pre>
+
+<h2 id="computed-properties"><a href="http://docs.ractivejs.org/latest/computed-properties">Computed properties</a></h2>
+
+<pre><code>new Ractive({
+  template: '{{area}}',
+  computed: {
+    area: function () { return this.get('width') * this.get('height'); }
+    area: '${width} * ${height}'
+    fullname: {
+      get: '${first} + " " + ${last}"
+      set: function (name) { ... }
+    }
+  }
+});
+</code></pre>
+

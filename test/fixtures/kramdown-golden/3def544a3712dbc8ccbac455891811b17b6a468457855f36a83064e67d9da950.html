@@ -1,0 +1,192 @@
+<h2 id="models">Models</h2>
+
+<h3 class="-intro" id="about">About</h3>
+
+<p>Spine is an MVC framework for JavaScript.</p>
+
+<ul>
+  <li><a href="https://spine.github.io/">https://spine.github.io/</a></li>
+</ul>
+
+<h3 id="models-1">Models</h3>
+
+<pre><code>class User extends Spine.Model
+  @configure "User", "name", "address"
+
+  fullName: -&gt;
+    [@first, @last].join ' '
+</code></pre>
+
+<h3 id="javascript">JavaScript</h3>
+
+<pre><code>// Subclassing
+User = Spine.Model.sub()
+</code></pre>
+
+<h3 id="class-methods">Class methods</h3>
+
+<pre><code>.configure 'modelname', attributes...
+
+# Inheritance
+.include(Module)
+.extend(Module)
+
+.create(name: "John")
+
+.count()
+
+# Events
+.on 'refresh change', (user) -&gt; ...
+.trigger 'event'
+
+.change (user) -&gt; ...  # same as on('change')
+.fetch (user) -&gt; ...   # same as on('fetch')
+
+# JSON
+.toJSON()         # all records
+.fromJSON(json)   # from json string
+.fromForm(el)
+
+# Data
+.records     # Hash of instances
+.attributes  # array of attributes (from .configure)
+
+# Convenience
+.toString()  #=&gt; "User"
+
+# Find by ID
+.exists(1)
+.find(1)     # throws error
+
+# Find by something
+.select (u) u.name == 'bob'
+.findByAttribute 'name', 'bob'
+.findAllByAttribute 'name', 'bob'
+
+.all()
+.slice(6, 13)  # cloned copies of instances
+
+# Iterating
+.each (user) -&gt;
+
+# Ends
+.first()
+.last()
+
+# Deleting
+.deleteAll()
+.destroyAll()
+.destroyAll({ ..options.. })
+.destroy(2)
+</code></pre>
+
+<h3 id="instance-methods">Instance methods</h3>
+
+<pre><code>user = new User();
+
+user
+.isNew()
+.exists()
+
+# Validation
+.isValid()
+.validate()    # validate = (-&gt; "Name required" unless @name)
+
+.attributes()  # hash of attr values
+.eql(other)    # equality check
+
+# Update
+.load(attrs)
+.reload()
+.fromForm(form)
+.updateAttribute("name", "john")
+.updateAttributes(name: "John")
+
+# Event
+.on 'event', -&gt; ...
+.trigger 'event'
+
+# Retrieve
+.toJSON()
+
+# Persistence
+.save()
+
+.destroy()
+.dup()         # clone as unsaved
+</code></pre>
+
+<h3 id="mixins">Mixins</h3>
+
+<pre><code>class User extends Spine.Model
+  @include MyModule
+  @extend MyModule
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code>.on 'create'
+.on 'update'
+.on 'destroy'
+
+.on 'save'    # create / update
+.on 'change'  # create / update / destroy
+
+.on 'refresh'
+.on 'error'    # validation error
+</code></pre>
+
+<h2 id="ajax">Ajax</h2>
+
+<h3 id="ajax-1">Ajax</h3>
+
+<pre><code>class User extends Spine.Model
+  @extend Spine.Model.Ajax
+
+  @url: '/users'
+  @url: -&gt; '/users'
+  scope: '2013'
+</code></pre>
+
+<h3 id="using">Using</h3>
+
+<pre><code>User.fetch()
+user = new User()
+
+user.url()            #=&gt; "/users"
+user.url('bands')     #=&gt; "/users/bands"
+
+user.scope = 'admin'
+user.url()            #=&gt; "/admin/users"
+</code></pre>
+
+<h3 id="host">Host</h3>
+
+<pre><code>Spine.Model.host = 'http://endpoint'
+</code></pre>
+
+<h3 id="ajax-mapping">Ajax mapping</h3>
+
+<pre><code>read    → GET    /collection
+create  → POST   /collection (201 created)
+update  → PUT    /collection/id
+destroy → DELETE /collection/id
+</code></pre>
+
+<h3 id="associations">Associations</h3>
+
+<pre><code>class Photo extends Spine.Model
+  @belongsTo 'album', 'Album'          # window['Album']
+  @belongsTo 'album', 'models/album'   # via require.js
+
+class Album
+  @hasMany 'photos', 'models/photo'
+
+album.photos().all()
+album.photos().create(name: "Vacation")
+album.photos().find(id)
+
+photo = Photo.create(album: album)
+photo.album()
+photo.album_id
+</code></pre>

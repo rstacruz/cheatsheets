@@ -1,0 +1,367 @@
+<h3 id="installing">Installing</h3>
+
+<pre><code class="language-bash"># MacOS + Homebrew
+$ brew install tig --HEAD
+</code></pre>
+
+<pre><code class="language-bash"># Ubuntu
+$ sudo apt install tig
+</code></pre>
+
+<h3 id="invocation">Invocation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>tig</code></td>
+      <td>Logs</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>tig status</code></td>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <td><code>tig blame FILE</code></td>
+      <td>Blame</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>tig master</code></td>
+      <td>Show a branch</td>
+    </tr>
+    <tr>
+      <td><code>tig test..master</code></td>
+      <td>Show difference between two branches</td>
+    </tr>
+    <tr>
+      <td><code>tig FILE</code></td>
+      <td>Show history of file</td>
+    </tr>
+    <tr>
+      <td><code>tig v0.0.3:README</code></td>
+      <td>Show contents of file in a specific revision</td>
+    </tr>
+    <tr>
+      <td><code>tig -C /repo/path</code></td>
+      <td>Run in dir <code>/repo/path</code> (like <code>git -C</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can substitute <code>git log</code> → <code>tig</code>.</p>
+
+<h2 class="-three-column" id="shortcut-keys">Shortcut keys</h2>
+
+<h3 id="switching-views">Switching views</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>m</code></td>
+      <td>Main view</td>
+    </tr>
+    <tr>
+      <td><code>d</code></td>
+      <td>Diff</td>
+    </tr>
+    <tr>
+      <td><code>t</code></td>
+      <td>Tree (files)</td>
+    </tr>
+    <tr>
+      <td><code>b</code></td>
+      <td>Blame</td>
+    </tr>
+    <tr>
+      <td><code>s</code></td>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <td><code>c</code></td>
+      <td>Stage</td>
+    </tr>
+    <tr>
+      <td><code>y</code></td>
+      <td>Stash</td>
+    </tr>
+    <tr>
+      <td><code>g</code></td>
+      <td>Grep</td>
+    </tr>
+    <tr>
+      <td><code>h</code></td>
+      <td>Help</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="all-views">All views</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&lt;enter&gt;</code></td>
+      <td>Enter and open selected line</td>
+    </tr>
+    <tr>
+      <td><code>&lt;</code></td>
+      <td>Back to previous view state</td>
+    </tr>
+    <tr>
+      <td><code>&lt;tab&gt;</code></td>
+      <td>Move focus to next view</td>
+    </tr>
+    <tr>
+      <td><code>R</code></td>
+      <td>Refresh</td>
+    </tr>
+    <tr>
+      <td><code>q</code></td>
+      <td>Close view</td>
+    </tr>
+    <tr>
+      <td><code>Q</code></td>
+      <td>Close all (quit)</td>
+    </tr>
+    <tr>
+      <td><code>,</code></td>
+      <td>Parent commit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cursor-navigation">Cursor navigation</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/</code></td>
+      <td>Search</td>
+    </tr>
+    <tr>
+      <td><code>?</code></td>
+      <td>Search backwards</td>
+    </tr>
+    <tr>
+      <td><code>j</code>  <code>k</code></td>
+      <td>Up/down</td>
+    </tr>
+    <tr>
+      <td><code>J</code>  <code>K</code></td>
+      <td>Next/previous</td>
+    </tr>
+    <tr>
+      <td><code>&lt;space&gt;</code></td>
+      <td>Page down</td>
+    </tr>
+    <tr>
+      <td><code>-</code></td>
+      <td>Page up</td>
+    </tr>
+    <tr>
+      <td><code>^D</code></td>
+      <td>Half page down</td>
+    </tr>
+    <tr>
+      <td><code>^U</code></td>
+      <td>Half page up</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="option-toggles">Option toggles</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>I</code></td>
+      <td>Toggle sort order modes</td>
+    </tr>
+    <tr>
+      <td><code>i</code></td>
+      <td>Change sort header</td>
+    </tr>
+    <tr>
+      <td><code>D</code></td>
+      <td>Toggle date display modes</td>
+    </tr>
+    <tr>
+      <td><code>A</code></td>
+      <td>Toggle author display modes</td>
+    </tr>
+    <tr>
+      <td><code>#</code></td>
+      <td>Toggle line numbers</td>
+    </tr>
+    <tr>
+      <td><code>~</code></td>
+      <td>Toggle line graphics</td>
+    </tr>
+    <tr>
+      <td><code>F</code></td>
+      <td>Toggle file names</td>
+    </tr>
+    <tr>
+      <td><code>W</code></td>
+      <td>Toggle ignore space</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="m---main-view"><code>m</code> - Main view</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>X</code></td>
+      <td>Toggle commit sha</td>
+    </tr>
+    <tr>
+      <td><code>C</code></td>
+      <td>Cherry pick a commit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="s---status-view"><code>s</code> - Status view</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>u</code></td>
+      <td>Stage/unstage file or chunk</td>
+    </tr>
+    <tr>
+      <td><code>!</code></td>
+      <td>Revert file or chunk</td>
+    </tr>
+    <tr>
+      <td><code>C</code></td>
+      <td>Commit</td>
+    </tr>
+    <tr>
+      <td><code>M</code></td>
+      <td>Merge with external tool</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="c---stage-view"><code>c</code> - Stage view</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>u</code></td>
+      <td>Stage/unstage file or chunk</td>
+    </tr>
+    <tr>
+      <td><code>!</code></td>
+      <td>Revert file or chunk</td>
+    </tr>
+    <tr>
+      <td><code>1</code></td>
+      <td>Stage line</td>
+    </tr>
+    <tr>
+      <td><code>\</code></td>
+      <td>Split current diff hunk</td>
+    </tr>
+    <tr>
+      <td><code>[</code> <code>]</code></td>
+      <td>Increase/decrease the diff context</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="d---diff-view"><code>d</code> - Diff view</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>[</code> <code>]</code></td>
+      <td>Increase/decrease the diff context</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="y---stash-view"><code>y</code> - Stash view</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>A</code></td>
+      <td>Apply selected stash</td>
+    </tr>
+    <tr>
+      <td><code>P</code></td>
+      <td>Pop selected stash</td>
+    </tr>
+    <tr>
+      <td><code>!</code></td>
+      <td>Drop selected stash</td>
+    </tr>
+  </tbody>
+</table>

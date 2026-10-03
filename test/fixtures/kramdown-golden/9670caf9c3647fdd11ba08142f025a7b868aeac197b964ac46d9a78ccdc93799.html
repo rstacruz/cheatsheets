@@ -1,0 +1,119 @@
+<h3 id="example">Example</h3>
+
+<pre><code class="language-js">var shell = require('shelljs')
+</code></pre>
+
+<pre><code class="language-js">if (!shell.which('git')) {
+  shell.echo('Sorry, this script requires git')
+  shell.exit(1)
+}
+</code></pre>
+
+<pre><code class="language-js">// Copy files to release dir
+shell.rm('-rf', 'out/Release')
+shell.cp('-R', 'stuff/', 'out/Release')
+</code></pre>
+
+<pre><code class="language-js">// Replace macros in each .js file
+shell.cd('lib')
+shell.ls('*.js').forEach(function (file) {
+  shell.sed('-i', 'BUILD_VERSION', 'v0.1.2', file)
+  shell.sed('-i', /^.*REMOVE_THIS_LINE.*$/, '', file)
+  shell.sed('-i', /.*REPLACE_LINE_WITH_MACRO.*\n/, shell.cat('macro.js'), file)
+})
+shell.cd('..')
+</code></pre>
+
+<pre><code class="language-js">// Run external tool synchronously
+if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
+  shell.echo('Error: Git commit failed')
+  shell.exit(1)
+}
+</code></pre>
+
+<p>Taken from the <a href="https://github.com/shelljs/shelljs">Readme</a>.</p>
+
+<h3 id="require">Require</h3>
+
+<pre><code class="language-js">const sh = require('shelljs')
+</code></pre>
+
+<h3 id="paths">Paths</h3>
+
+<pre><code class="language-js">sh.cd('dir')
+</code></pre>
+
+<pre><code class="language-js">sh.mkdir('dir')
+sh.mkdir('-p', 'dir')
+</code></pre>
+
+<h3 id="file-manipulation">File manipulation</h3>
+
+<pre><code class="language-js">sh.cp('src', 'dest')
+sh.cp('-rf', 'src', 'dest')
+</code></pre>
+
+<pre><code class="language-js">sh.rm('file')
+sh.rm('-rf', 'file')
+</code></pre>
+
+<pre><code class="language-js">sh.mv('src', 'dest')
+sh.mv(['src1','src2'], 'dest')
+</code></pre>
+
+<pre><code class="language-js">sh.chmod('644', 'file')
+sh.chmod(755, 'file')
+sh.chmod('u+x', 'file')
+</code></pre>
+
+<h3 id="tests">Tests</h3>
+
+<pre><code class="language-js">sh.test('-b', 'path')  // block device
+sh.test('-d', 'path')  // dir
+sh.test('-e', 'path')  // exists
+sh.test('-f', 'path')  // file
+sh.test('-L', 'path')  // symlink
+</code></pre>
+
+<h3 id="cat-and-output">Cat and output</h3>
+
+<pre><code class="language-js">src = sh.cat('file*.txt')
+</code></pre>
+
+<pre><code class="language-js">'hello'.to('output.txt')
+'hello'.toEnd('append.txt')
+</code></pre>
+
+<pre><code class="language-js">sh.cat('input.txt').to('output.txt')
+</code></pre>
+
+<h3 id="utils">Utils</h3>
+
+<pre><code class="language-js">sh.which('x')
+sh.pwd()
+</code></pre>
+
+<pre><code class="language-js">sh.echo('hi')
+</code></pre>
+
+<pre><code class="language-js">sh.exec('node --version').code
+sh.exec('node --version').output
+sh.exec('node --version', { silent: true }).output
+</code></pre>
+
+<pre><code class="language-js">sh.exec('node --version', (code, output) =&gt; {
+  sh.echo(`exit code ${code}`)
+})
+</code></pre>
+
+<pre><code class="language-js">sh.tempdir()
+</code></pre>
+
+<pre><code class="language-js">sh.error()  // null if no error
+</code></pre>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://github.com/shelljs/shelljs">https://github.com/shelljs/shelljs</a></li>
+</ul>

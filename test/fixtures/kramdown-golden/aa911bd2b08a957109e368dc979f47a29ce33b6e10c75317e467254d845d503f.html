@@ -1,0 +1,198 @@
+<p>All composer commands, depending on your install, may need to use <code>php composer.phar</code> in the install folder for composer, instead of global/plain <code>composer</code>.</p>
+
+<h3 id="installing-dependencies">Installing dependencies</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer install</code></td>
+      <td>Downloads and installs all the libraries and dependencies outlined in the <code>composer.lock</code> file. If the file does not exist it will look for composer.json and do the same, creating a <code>composer.lock</code> file.</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>composer install --dry-run</code></td>
+      <td>Simulates the install without installing anything</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This command doesn’t change any file. If <code>composer.lock</code> is not present, it will create it.</p>
+
+<p><code>composer.lock</code> <strong>should always</strong> be committed to the repository. It has all the information needed to bring the 
+local dependencies to the last committed state. If that file is modified on the repository, you will need to run 
+<code>composer install</code> again after fetching the changes to update your local dependencies to those on that file.</p>
+
+<h3 id="updating-packages">Updating packages</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer update</code></td>
+      <td>Updates all packages</td>
+    </tr>
+    <tr>
+      <td><code>composer update --with-dependencies</code></td>
+      <td>Updates all packages and its dependencies</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>composer update vendor/package</code></td>
+      <td>Updates a certain <code>package</code> from <code>vendor</code></td>
+    </tr>
+    <tr>
+      <td><code>composer update vendor/*</code></td>
+      <td>Updates all packages from <code>vendor</code></td>
+    </tr>
+    <tr>
+      <td><code>composer update --lock</code></td>
+      <td>Updates <code>composer.lock</code> hash without updating any packages</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This command changes only the <code>composer.lock</code> file.</p>
+
+<h3 id="updating-autoloader">Updating autoloader</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer dumpautoload -o</code></td>
+      <td>Generates optimized autoload files</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="adding-packages">Adding packages</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer require vendor/package</code></td>
+      <td>Adds <code>package</code> from <code>vendor</code> to composer.json’s <code>require</code> section and installs it</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>composer require vendor/package --dev</code></td>
+      <td>Adds <code>package</code> from <code>vendor</code> to composer.json’s <code>require-dev</code> section and installs it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This command changes both the <code>composer.json</code> and <code>composer.lock</code> files.</p>
+
+<h3 id="passing-versions">Passing versions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer require vendor/pkg "1.3.2"</code></td>
+      <td>Installs <code>1.3.2</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "&gt;=1.3.2"</code></td>
+      <td>Above or equal <code>1.3.2</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "&lt;1.3.2"</code></td>
+      <td>Below <code>1.3.2</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "1.3.*"</code></td>
+      <td>Latest of <code>&gt;=1.3.0 &lt;1.4.0</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "~1.3.2"</code></td>
+      <td>Latest of <code>&gt;=1.3.2 &lt;1.4.0</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "~1.3"</code></td>
+      <td>Latest of <code>&gt;=1.3.0 &lt;2.0.0</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "^1.3.2"</code></td>
+      <td>Latest of <code>&gt;=1.3.2 &lt;2.0.0</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "^1.3"</code></td>
+      <td>Latest of <code>&gt;=1.3.0 &lt;2.0.0</code></td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "^0.3.2"</code></td>
+      <td>Latest of <code>&gt;=0.3.0 &lt;0.4.0</code> (for pre-1.0)</td>
+    </tr>
+    <tr>
+      <td><code>composer require vendor/pkg "dev-BRANCH_NAME"</code></td>
+      <td>From the branch <code>BRANCH_NAME</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="removing-packages">Removing packages</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer remove vendor/package</code></td>
+      <td>Removes <code>vendor/package</code> from composer.json and uninstalls it</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This command changes both the <code>composer.json</code> and <code>composer.lock</code> files.</p>
+
+<h3 id="verifying">Verifying</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>composer outdated --direct</code></td>
+      <td>Show only packages that are outdated directly required by the root package</td>
+    </tr>
+  </tbody>
+</table>

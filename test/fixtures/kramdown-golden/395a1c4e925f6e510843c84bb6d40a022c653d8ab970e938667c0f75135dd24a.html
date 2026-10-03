@@ -1,0 +1,43 @@
+<h3 id="traversing">Traversing</h3>
+
+<pre><code class="language-js">$('.box')
+  .children()
+  .closest('div')
+  .filter(':selected')
+  .find('div')
+  .has('div')
+  .first()
+  .next('div')
+  .nextUntil('div')
+</code></pre>
+
+<h2 id="advanced-features">Advanced features</h2>
+
+<h3 id="extending-selectors">Extending selectors</h3>
+
+<pre><code class="language-js">$.expr[':'].inline = function (el) {
+  return $(el).css('display') === 'inline'
+}
+</code></pre>
+
+<p>Enables <code>$(':inline')</code></p>
+
+<h3 id="extend-css-properties">Extend CSS properties</h3>
+
+<pre><code class="language-js">$.cssHooks.someCSSProp = {
+  get: function (elem, computed, extra) {
+  },
+  set: function (elem, value) {
+  }
+}
+
+// Disable "px"
+$.cssNumber["someCSSProp"] = true
+</code></pre>
+
+<h3 id="fnanimate-hooks">fn.animate() hooks</h3>
+
+<pre><code class="language-js">$.fn.step.someWhatever = function(fx) {
+  // ...
+}
+</code></pre>

@@ -1,0 +1,28 @@
+<h3 id="page-view">Page view</h3>
+
+<pre><code class="language-js">ga('create', 'UA-XXXX-Y', 'auto')
+ga('create', 'UA-XXXX-Y', { userId: 'USER_ID' })
+</code></pre>
+
+<pre><code class="language-js">ga('send', 'pageview')
+ga('send', 'pageview', { 'dimension15': 'My custom dimension' })
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-js">ga('send', 'event', 'button',  'click', {color: 'red'});
+</code></pre>
+
+<pre><code class="language-js">ga('send', 'event', 'button',  'click', 'nav buttons',  4);
+/*                  ^category  ^action  ^label          ^value */
+</code></pre>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<pre><code class="language-js">ga('send', 'exception', {
+  exDescription: 'DatabaseError',
+  exFatal: false,
+  appName: 'myapp',
+  appVersion: '0.1.2'
+})
+</code></pre>

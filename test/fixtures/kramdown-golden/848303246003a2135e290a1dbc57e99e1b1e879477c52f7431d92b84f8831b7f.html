@@ -1,0 +1,85 @@
+<h3 id="example">Example</h3>
+
+<pre><code class="language-js">/** @jsx element */
+import element from 'virtual-element' // replacement for React.createElement
+import { render, tree } from 'deku'
+
+var app = &lt;div class='my-app'&gt;Hello World!&lt;/div&gt;
+
+render(tree(app), document.body)
+</code></pre>
+
+<h3 id="components">Components</h3>
+
+<pre><code class="language-js">Button = {
+  render() {
+    return &lt;button&gt;Submit&lt;/button&gt;
+  }
+}
+
+App = {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Button /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+render(tree(&lt;App /&gt;), document.body)
+render(tree(element(App)), document.body)
+</code></pre>
+
+<h3 id="component-propsstate">Component props/state</h3>
+
+<pre><code class="language-js">App = {
+  render ({ props, state }) {
+    return &lt;div&gt;{ /*...use state.store here*/ }&lt;/div&gt;
+  }
+
+  initialState (props) {
+    return { store: store.getState() }
+  },
+
+  afterMount (comp, el, setState) {
+    store.subscribe(() =&gt; setState({ store: store.getState() }))
+  }
+}
+
+render(tree(&lt;App /&gt;), document.body)
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-js">&lt;a onClick={onClick}&gt;{props.text}&lt;/a&gt;
+</code></pre>
+
+<h3 id="magic-virtual-element">Magic virtual element</h3>
+
+<p>Use <a href="https://github.com/dekujs/magic-virtual-element">magic-virtual-element</a> to enable nice classnames.</p>
+
+<pre><code>import element from 'magic-virtual-element'
+&lt;div style={style} class={[ 'button', '-active' ]}&gt;
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<pre><code>name = 'MyComponent'
+
+// Defaults
+initialState (props) {...} // return initial state
+defaultProps = { hi: 'hello' }
+
+// Render
+render ({props, state}, setState) {...}
+
+// Lifecycle
+beforeUpdate  ({props, state, id}, nextProps, nextState) {}
+afterRender   ({props, state, id}, el) {}
+afterUpdate   ({props, state, id}, prevProps, prevState, setState) {}
+afterMount    ({props, state, id}, el, setState) {}
+beforeUnmount ({props, state, id}, el) {}
+</code></pre>
+
+<p>See: <a href="https://www.npmjs.com/package/deku">https://www.npmjs.com/package/deku</a></p>

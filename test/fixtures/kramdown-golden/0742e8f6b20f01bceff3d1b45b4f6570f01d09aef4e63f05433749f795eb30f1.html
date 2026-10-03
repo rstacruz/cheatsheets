@@ -1,0 +1,70 @@
+<h3 id="usage">Usage</h3>
+
+<pre class="-setup"><code class="language-js">var minimist = require('minimist')
+</code></pre>
+
+<pre><code class="language-js">var args = minimist(process.argv.slice(2), {
+  string: 'lang',           // --lang xml
+  boolean: ['version'],     // --version
+  alias: { v: 'version' }
+})
+</code></pre>
+
+<pre><code class="language-js">console.log(args)
+</code></pre>
+
+<p>All options are optional, but it’s recommended you set <code>string</code> and <code>boolean</code> at least.</p>
+
+<h3 id="all-options">All options</h3>
+
+<pre><code class="language-js">var args = minimist(process.argv.slice(2), {
+  string: [ 'lang' ],
+  boolean: [ 'pager' ],
+  alias: { h: 'help', v: 'version' },
+  default: { lang: 'en' },
+  '--': true,
+  stopEarly: true, /* populate _ with first non-option */
+  unknown: function () { ... } /* invoked on unknown param */
+})
+</code></pre>
+
+<p>All options are optional.</p>
+
+<h3 id="result">Result</h3>
+
+<p class="-setup">With <code>--lang xml --no-pager -h index.js package.json</code>, you get:</p>
+
+<pre><code>args == {
+  lang: 'xml',
+  version: false,
+  h: true,
+  help: true,
+  _: [ 'index.js', 'package.json' ]
+}
+</code></pre>
+
+<h2 id="meow">Meow</h2>
+
+<h3 id="help-and-version">Help and version</h3>
+
+<p class="-setup">Use <a href="https://www.npmjs.com/package/meow">meow</a> to automatically add support for <code>--help</code>, <code>--version</code> and more.</p>
+
+<pre><code class="language-js">meow(`
+    Usage:
+        $0 FILES [options]
+
+    Options:
+        -h, --help         print usage information
+        -v, --version      show version info and exit
+`, {
+  alias: { h: 'help', v: 'version' }
+  /* minimist options */
+})
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://www.npmjs.org/package/minimist">https://www.npmjs.org/package/minimist</a></li>
+  <li><a href="https://github.com/substack/minimist">https://github.com/substack/minimist</a></li>
+</ul>

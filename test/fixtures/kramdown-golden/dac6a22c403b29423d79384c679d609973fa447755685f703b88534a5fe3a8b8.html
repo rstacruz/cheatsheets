@@ -1,0 +1,543 @@
+
+<h2 class="-two-column" id="quick-start">Quick start</h2>
+
+<h3 id="installing-react">Installing React</h3>
+
+<pre><code class="language-sh">npm install react react-dom
+</code></pre>
+
+<p>TypeScript projects also need <code>@types/react</code> and <code>@types/react-dom</code>.</p>
+
+<h3 id="create-a-root">Create a root</h3>
+
+<pre><code class="language-jsx">import { createRoot } from 'react-dom/client'
+createRoot(document.getElementById('root')).render(&lt;App /&gt;)
+</code></pre>
+
+<p>The automatic JSX runtime (v17+) means no <code>import React</code>. See: <a href="https://react.dev/reference/react-dom/client/createRoot">createRoot</a></p>
+
+<h3 id="strictmode">StrictMode</h3>
+
+<pre><code class="language-jsx">&lt;StrictMode&gt;&lt;App /&gt;&lt;/StrictMode&gt;
+</code></pre>
+
+<p>Double-invokes renders and effects in development to surface impure logic; no effect in production. See: <a href="https://react.dev/reference/react/StrictMode">StrictMode</a></p>
+
+<h2 class="-three-column" id="components">Components</h2>
+
+<h3 class="-prime" id="function-components">Function components</h3>
+
+<pre data-line="3,4,5"><code class="language-jsx">function Hello({ name }) {
+  return (
+    &lt;h1 className="greeting"&gt;
+      Hello {name}
+    &lt;/h1&gt;
+  )
+}
+</code></pre>
+
+<p>Capitalised functions that return JSX. See: <a href="https://react.dev/learn/your-first-component">Your first component</a></p>
+
+<h3 id="jsx-and-conditionals">JSX and conditionals</h3>
+
+<pre data-line="4,5,6,7,8"><code class="language-jsx">&lt;label htmlFor="name"&gt;Name&lt;/label&gt;
+&lt;p style={{ color: 'red' }}&gt;{2 + 2}&lt;/p&gt;
+&lt;&gt;
+  {isLoggedIn ? (
+    &lt;AdminPanel /&gt;
+  ) : (
+    &lt;LoginButton /&gt;
+  )}
+  {unread &gt; 0 &amp;&amp; (
+    &lt;Badge count={unread} /&gt;
+  )}
+&lt;/&gt;
+</code></pre>
+
+<p><code>{}</code> embeds expressions, attributes are camelCase and <code>&lt;&gt;…&lt;/&gt;</code> is a fragment; <code>null</code> and booleans render nothing. See: <a href="https://react.dev/learn/writing-markup-with-jsx">Writing markup with JSX</a></p>
+
+<h3 id="props">Props</h3>
+
+<pre data-line="1"><code class="language-jsx">function Avatar({ src, alt, size = 64 }) {
+  return (
+    &lt;img
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+    /&gt;
+  )
+}
+&lt;Avatar
+  src="/me.png"
+  alt="Me"
+  size={128}
+/&gt;
+</code></pre>
+
+<p>Defaults come from parameters (v19 removed <code>defaultProps</code>); spread extras with <code>{...props}</code>. See: <a href="https://react.dev/learn/passing-props-to-a-component">Passing props</a></p>
+
+<h3 id="lists-and-keys">Lists and keys</h3>
+
+<pre><code class="language-jsx">{items.map(item =&gt; (
+  &lt;li key={item.id}&gt;{item.name}&lt;/li&gt;
+))}
+</code></pre>
+
+<p>Keys must be stable and unique among siblings. See: <a href="https://react.dev/learn/rendering-lists">Rendering lists</a></p>
+
+<h3 id="events">Events</h3>
+
+<pre data-line="4,9"><code class="language-jsx">&lt;button onClick={handleClick}&gt;
+  Save
+&lt;/button&gt;
+&lt;button onClick={() =&gt; remove(id)}&gt;
+  Delete
+&lt;/button&gt;
+&lt;form
+  onSubmit={e =&gt; {
+    e.preventDefault()
+    save()
+  }}
+&gt;
+  …
+&lt;/form&gt;
+</code></pre>
+
+<p>Pass the handler, not a call, and wrap arguments in an arrow; call <code>e.preventDefault()</code> to stop browser defaults. See: <a href="https://react.dev/learn/responding-to-events">Responding to events</a></p>
+
+<h2 class="-two-column" id="state">State</h2>
+
+<h3 id="usestate">useState</h3>
+
+<pre><code class="language-jsx">const [count, setCount] = useState(0)
+setCount(count + 1)
+setCount(c =&gt; c + 1)  // when the next value depends on the previous
+</code></pre>
+
+<pre><code class="language-jsx">setUser({ ...user, name: 'Ana' })
+setItems(items =&gt; [...items, item])
+setItems(items =&gt; items.filter(i =&gt; i.id !== id))
+</code></pre>
+
+<p>State is a per-render snapshot and is immutable — replace it, never mutate in place. See: <a href="https://react.dev/reference/react/useState">useState</a></p>
+
+<h3 id="controlled-inputs">Controlled inputs</h3>
+
+<pre><code class="language-jsx">const [name, setName] = useState('')
+&lt;input value={name} onChange={e =&gt; setName(e.target.value)} /&gt;
+</code></pre>
+
+<p>React owns the value, so the input always reflects state. See: <a href="https://react.dev/reference/react-dom/components/input">input</a></p>
+
+<h3 id="lifting-state-up">Lifting state up</h3>
+
+<pre><code class="language-jsx">function Parent() {
+  const [query, setQuery] = useState('')
+  return &lt;Search value={query} onChange={setQuery} /&gt;
+}
+</code></pre>
+
+<p>Move shared state to the closest common parent and pass value + setter down. See: <a href="https://react.dev/learn/sharing-state-between-components">Sharing state</a></p>
+
+<h3 id="usereducer">useReducer</h3>
+
+<pre data-line="7"><code class="language-jsx">function reducer(state, action) {
+  if (action.type === 'increment') {
+    return { count: state.count + 1 }
+  }
+  return state
+}
+const [state, dispatch] = useReducer(reducer, { count: 0 })
+dispatch({ type: 'increment' })
+</code></pre>
+
+<p>Prefer a reducer when updates are complex or depend on several values. See: <a href="https://react.dev/reference/react/useReducer">useReducer</a></p>
+
+<h3 id="actions-v19">Actions (v19)</h3>
+
+<pre data-line="1,2,3,4"><code class="language-jsx">const [error, submitAction, isPending] =
+  useActionState(async (prev, formData) =&gt; {
+    return (await updateName(formData.get('name'))) ?? null
+  }, null)
+&lt;form action={submitAction}&gt;
+  &lt;input name="name" /&gt;
+  &lt;button disabled={isPending}&gt;Update&lt;/button&gt;
+  {error &amp;&amp; &lt;p&gt;{error}&lt;/p&gt;}
+&lt;/form&gt;
+</code></pre>
+
+<p>Actions are async functions in <code>action</code> props; <code>useOptimistic</code> shows an immediate value while the request runs. See: <a href="https://react.dev/reference/react/useActionState">useActionState</a></p>
+
+<h2 class="-two-column" id="effects">Effects</h2>
+
+<h3 id="useeffect">useEffect</h3>
+
+<pre data-line="4"><code class="language-jsx">useEffect(() =&gt; {
+  const connection = createConnection(roomId)
+  connection.connect()
+  return () =&gt; connection.disconnect()  // cleanup
+}, [roomId])  // re-runs when roomId changes
+</code></pre>
+
+<pre><code class="language-jsx">useEffect(() =&gt; {
+  const id = setInterval(tick, 1000)
+  return () =&gt; clearInterval(id)
+}, [])  // once on mount; twice in StrictMode dev
+</code></pre>
+
+<p>Synchronises a component with an external system and cleans up timers, subscriptions and listeners. See: <a href="https://react.dev/reference/react/useEffect">useEffect</a></p>
+
+<h3 id="fetching-data">Fetching data</h3>
+
+<pre data-line="10"><code class="language-jsx">useEffect(() =&gt; {
+  const controller = new AbortController()
+  fetch(`/api/users/${id}`, { signal: controller.signal })
+    .then(r =&gt; {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      return r.json()
+    })
+    .then(setUser)
+    .catch(err =&gt; { if (err.name !== 'AbortError') setError(err) })
+  return () =&gt; controller.abort()
+}, [id])
+</code></pre>
+
+<p>Abort in the cleanup to drop stale responses, ignoring the expected <code>AbortError</code>. See: <a href="https://react.dev/reference/react/useEffect#fetching-data-with-effects">Fetching data</a></p>
+
+<h3 id="useeffectevent-v192">useEffectEvent (v19.2+)</h3>
+
+<pre data-line="1,2,3"><code class="language-jsx">const onConnected = useEffectEvent(() =&gt; {
+  showNotification('Connected!', theme)
+})
+useEffect(() =&gt; {
+  const connection = createConnection(roomId)
+  connection.on('connected', onConnected)
+  connection.connect()
+  return () =&gt; connection.disconnect()
+}, [roomId])
+</code></pre>
+
+<p>Reads the latest props and state without re-running the effect, so it stays out of the deps. See: <a href="https://react.dev/reference/react/useEffectEvent">useEffectEvent</a></p>
+
+<h3 id="you-might-not-need-an-effect">You might not need an effect</h3>
+
+<pre data-line="5,6,7"><code class="language-jsx">// prefer: derive during render
+const fullName = first + ' ' + last
+
+// avoid: derived state in an effect
+useEffect(() =&gt; {
+  setFullName(first + ' ' + last)
+})
+</code></pre>
+
+<p>Don’t use effects to transform data or to react to events. See: <a href="https://react.dev/learn/you-might-not-need-an-effect">You might not need an effect</a></p>
+
+<h2 class="-two-column" id="refs">Refs</h2>
+
+<h3 id="useref">useRef</h3>
+
+<pre><code class="language-jsx">const inputRef = useRef(null)
+useEffect(() =&gt; inputRef.current.focus(), [])
+return &lt;input ref={inputRef} /&gt;
+</code></pre>
+
+<p>A mutable <code>.current</code> box that persists without re-rendering. See: <a href="https://react.dev/reference/react/useRef">useRef</a></p>
+
+<h3 id="ref-as-a-prop-v19">Ref as a prop (v19)</h3>
+
+<pre><code class="language-jsx">function Input({ ref, ...props }) {
+  return &lt;input ref={ref} {...props} /&gt;
+}
+</code></pre>
+
+<p>v19 passes <code>ref</code> as a normal prop; v18 uses <code>forwardRef</code>, no longer necessary in v19 and slated for deprecation. See: <a href="https://react.dev/reference/react/forwardRef">forwardRef</a></p>
+
+<h3 id="useimperativehandle">useImperativeHandle</h3>
+
+<pre><code class="language-jsx">useImperativeHandle(ref, () =&gt; ({
+  play: () =&gt; videoRef.current.play()
+}), [])
+</code></pre>
+
+<p>Exposes a custom imperative API instead of the DOM node; rarely needed. See: <a href="https://react.dev/reference/react/useImperativeHandle">useImperativeHandle</a></p>
+
+<h3 id="portals-and-inner-html">Portals and inner HTML</h3>
+
+<pre><code class="language-jsx">import { createPortal } from 'react-dom'
+createPortal(&lt;Modal /&gt;, document.getElementById('modal-root'))
+</code></pre>
+
+<pre><code class="language-jsx">&lt;div dangerouslySetInnerHTML={{ __html: trustedHtml }} /&gt;
+</code></pre>
+
+<p>A portal renders elsewhere in the DOM while keeping the React tree; <code>dangerouslySetInnerHTML</code> injects raw HTML, so never pass untrusted input. See: <a href="https://react.dev/reference/react-dom/createPortal">createPortal</a></p>
+
+<h2 class="-two-column" id="context">Context</h2>
+
+<h3 id="createcontext-and-usecontext">createContext and useContext</h3>
+
+<pre data-line="5"><code class="language-jsx">const ThemeContext = createContext(null)
+&lt;ThemeContext value="dark"&gt;&lt;Toolbar /&gt;&lt;/ThemeContext&gt;
+
+function Toolbar() {
+  const theme = useContext(ThemeContext)
+  return &lt;button className={theme}&gt;Hi&lt;/button&gt;
+}
+</code></pre>
+
+<pre><code class="language-jsx">&lt;ThemeContext value="dark"&gt;…&lt;/ThemeContext&gt;                     // v19
+&lt;ThemeContext.Provider value="dark"&gt;…&lt;/ThemeContext.Provider&gt;   // v18
+</code></pre>
+
+<pre data-line="3"><code class="language-jsx">function useTheme() {
+  const value = useContext(ThemeContext)
+  if (value === null) throw new Error('useTheme needs a provider')
+  return value
+}
+</code></pre>
+
+<p>Context passes data down without prop drilling and v19 renders <code>&lt;Context&gt;</code> itself as the provider; wrapping <code>useContext</code> names the value and fails loudly outside a provider. See: <a href="https://react.dev/reference/react/useContext">useContext</a> · <a href="https://react.dev/reference/react/createContext">createContext</a></p>
+
+<h2 class="-two-column" id="custom-hooks">Custom hooks</h2>
+
+<p>Call hooks at the top level of a component or hook — never in loops, conditions or nested functions. See: <a href="https://react.dev/reference/rules/rules-of-hooks">Rules of hooks</a></p>
+
+<h3 id="useonlinestatus">useOnlineStatus</h3>
+
+<pre data-line="8,9,10,11"><code class="language-jsx">function useOnlineStatus() {
+  const [isOnline, setOnline] = useState(true)
+  useEffect(() =&gt; {
+    const update = () =&gt; setOnline(navigator.onLine)
+    update()
+    window.addEventListener('online', update)
+    window.addEventListener('offline', update)
+    return () =&gt; {
+      window.removeEventListener('online', update)
+      window.removeEventListener('offline', update)
+    }
+  }, [])
+  return isOnline
+}
+</code></pre>
+
+<p>A custom hook is just a function that calls other hooks. See: <a href="https://react.dev/learn/reusing-logic-with-custom-hooks">Custom hooks</a></p>
+
+<h3 id="useid-and-usedebugvalue">useId and useDebugValue</h3>
+
+<pre><code class="language-jsx">const id = useId()
+&lt;label htmlFor={id}&gt;Name&lt;/label&gt;
+&lt;input id={id} /&gt;
+</code></pre>
+
+<p><code>useId</code> gives SSR-safe ids for accessibility; <code>useDebugValue(label)</code> labels a hook in DevTools. See: <a href="https://react.dev/reference/react/useId">useId</a></p>
+
+<h2 class="-two-column" id="performance">Performance</h2>
+
+<h3 id="memo-usememo-and-usecallback">memo, useMemo and useCallback</h3>
+
+<pre data-line="1,4"><code class="language-jsx">const Row = memo(function Row({ item }) {
+  return &lt;li&gt;{item.name}&lt;/li&gt;
+})
+const visible = useMemo(() =&gt; filter(items, query), [items, query])
+const onSelect = useCallback(id =&gt; setSelected(id), [])
+</code></pre>
+
+<p>Cache components and values only when measurement shows a need — the React Compiler, once configured in your build, auto-memoises and removes most manual calls. See: <a href="https://react.dev/reference/react/memo">memo</a></p>
+
+<h3 id="usetransition-and-usedeferredvalue">useTransition and useDeferredValue</h3>
+
+<pre><code class="language-jsx">const [isPending, startTransition] = useTransition()
+startTransition(() =&gt; setQuery(input))
+</code></pre>
+
+<pre><code class="language-jsx">const deferredQuery = useDeferredValue(query)
+</code></pre>
+
+<p><code>useTransition</code> marks an update non-blocking so urgent ones (typing) stay responsive; <code>useDeferredValue</code> renders a stale value first, then catches up. See: <a href="https://react.dev/reference/react/useTransition">useTransition</a> · <a href="https://react.dev/reference/react/useDeferredValue">useDeferredValue</a></p>
+
+<h3 id="usesyncexternalstore">useSyncExternalStore</h3>
+
+<pre data-line="4"><code class="language-jsx">const isOnline = useSyncExternalStore(
+  subscribe,
+  () =&gt; navigator.onLine,
+  () =&gt; true
+)
+</code></pre>
+
+<p>Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: <a href="https://react.dev/reference/react/useSyncExternalStore">useSyncExternalStore</a></p>
+
+<h2 class="-two-column" id="suspense-and-lazy">Suspense and lazy</h2>
+
+<h3 id="lazy-and-suspense">lazy and Suspense</h3>
+
+<pre><code class="language-jsx">const Chart = lazy(() =&gt; import('./Chart'))
+&lt;Suspense fallback={&lt;Spinner /&gt;}&gt;&lt;Chart /&gt;&lt;/Suspense&gt;
+</code></pre>
+
+<p>Code-splits a component; the fallback shows while it loads. See: <a href="https://react.dev/reference/react/Suspense">Suspense</a></p>
+
+<h3 id="usepromise-v19">use(promise) (v19)</h3>
+
+<pre><code class="language-jsx">function Comments({ commentsPromise }) {
+  const comments = use(commentsPromise)
+  return comments.map(c =&gt; &lt;p key={c.id}&gt;{c.text}&lt;/p&gt;)
+}
+</code></pre>
+
+<p>Reads a promise or context during render and suspends; unlike hooks it may be conditional. See: <a href="https://react.dev/reference/react/use">use</a></p>
+
+<h2 class="-two-column" id="rendering-and-ssr">Rendering and SSR</h2>
+
+<h3 id="client-rendering">Client rendering</h3>
+
+<pre data-line="6,7,8,9"><code class="language-jsx">// fresh DOM
+createRoot(document.getElementById('root'))
+  .render(&lt;App /&gt;)
+
+// server HTML
+hydrateRoot(
+  document.getElementById('root'),
+  &lt;App /&gt;
+)
+</code></pre>
+
+<p>Hydration markup must match the client render. See: <a href="https://react.dev/reference/react-dom/client">Client APIs</a></p>
+
+<h3 id="server-rendering">Server rendering</h3>
+
+<pre><code class="language-jsx">import { renderToString } from 'react-dom/server'
+const html = renderToString(&lt;App /&gt;)  // synchronous, blocks
+</code></pre>
+
+<p><code>renderToPipeableStream</code> (Node) and <code>renderToReadableStream</code> (web) stream with Suspense; v19 adds <code>prerender</code>. See: <a href="https://react.dev/reference/react-dom/server">Server APIs</a></p>
+
+<h2 class="-two-column" id="error-handling">Error handling</h2>
+
+<h3 id="error-boundaries">Error boundaries</h3>
+
+<pre data-line="4,5,6"><code class="language-jsx">class ErrorBoundary extends Component {
+  state = { error: null }
+
+  static getDerivedStateFromError(error) {
+    return { error }
+  }
+
+  componentDidCatch(error, info) {
+    logError(error, info)
+  }
+
+  render() {
+    if (this.state.error) {
+      return &lt;h1&gt;Something went wrong.&lt;/h1&gt;
+    }
+    return this.props.children
+  }
+}
+</code></pre>
+
+<p>Still the only built-in way to catch render errors, and still a class; <a href="https://github.com/bvaughn/react-error-boundary">react-error-boundary</a> wraps it with a hooks-friendly API. See: <a href="https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary">Error boundaries</a></p>
+
+<h2 class="-two-column" id="legacy-apis">Legacy APIs</h2>
+
+<h3 id="rendering-and-lifecycle">Rendering and lifecycle</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Legacy</th>
+      <th>Modern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ReactDOM.render(el, node)</code></td>
+      <td><code>createRoot(node).render(el)</code></td>
+    </tr>
+    <tr>
+      <td><code>ReactDOM.hydrate(el, node)</code></td>
+      <td><code>hydrateRoot(node, el)</code></td>
+    </tr>
+    <tr>
+      <td><code>componentDidMount</code> / <code>componentDidUpdate</code></td>
+      <td><code>useEffect</code></td>
+    </tr>
+    <tr>
+      <td><code>componentWillUnmount</code></td>
+      <td>effect cleanup</td>
+    </tr>
+    <tr>
+      <td>Class components</td>
+      <td>function components</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="components-and-props">Components and props</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Legacy</th>
+      <th>Modern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>defaultProps</code> (function components)</td>
+      <td>default parameter values</td>
+    </tr>
+    <tr>
+      <td><code>propTypes</code></td>
+      <td>TypeScript</td>
+    </tr>
+    <tr>
+      <td><code>React.createElement</code></td>
+      <td>JSX</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="refs-and-context">Refs and context</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Legacy</th>
+      <th>Modern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String refs <code>ref="input"</code></td>
+      <td>ref callback or <code>useRef</code></td>
+    </tr>
+    <tr>
+      <td><code>forwardRef</code> (v18)</td>
+      <td><code>ref</code> as a prop (v19)</td>
+    </tr>
+    <tr>
+      <td>Legacy context (<code>getChildContext</code>)</td>
+      <td><code>createContext</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;Context.Provider value&gt;</code> (v18)</td>
+      <td><code>&lt;Context value&gt;</code> (v19)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="further-reading">Further reading</h3>
+
+<p>See: <a href="https://react.dev/reference/react/legacy">Legacy APIs</a>. Classes still work and are required only for error boundaries; see the <a href="react@16">React v16 cheatsheet</a> for the class-era API.</p>
+
+<h2 class="-two-column" id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://react.dev/">React documentation</a> <em>(react.dev)</em></li>
+  <li><a href="https://react.dev/reference/react">React API reference</a> <em>(react.dev)</em></li>
+  <li><a href="typescript">TypeScript cheatsheet</a> — typed props and hooks</li>
+  <li><a href="react@16">React v16 cheatsheet</a> — class components and legacy APIs</li>
+  <li><a href="react@0.14">React v0.14 cheatsheet</a> — <code>React.createClass</code> era</li>
+</ul>
+

@@ -1,0 +1,119 @@
+<h3 id="quick-start">Quick start</h3>
+
+<pre><code class="language-bash"># Install Phoenix
+mix local.hex
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+</code></pre>
+
+<pre><code class="language-bash"># Create a new project
+mix phx.new hello
+</code></pre>
+
+<pre><code class="language-bash"># Start the application
+mix phx.server
+</code></pre>
+
+<p>Install Erlang, Elixir, Node.js, PostgreSQL first.
+See: <a href="https://hexdocs.pm/phoenix/installation.html">Installation</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="directory-structure">Directory structure</h3>
+
+<pre class="-box-chars"><code>./
+├── _build
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── static/
+│   └── node_modules/
+├── config/
+├── deps/
+├── lib/
+│   ├── hello/
+│   ├── hello.ex
+│   ├── hello_web/
+│   │   ├── channels/
+│   │   ├── controllers/
+│   │   ├── templates/
+│   │   ├── views/
+│   │   ├── router.ex
+│   │   └── gettext.ex
+│   └── hello_web.ex
+├── priv/
+└── test/
+</code></pre>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/adding_pages.html">Adding pages</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="migrations">Migrations</h3>
+
+<pre><code class="language-bash">$ mix ecto.gen.migration update_posts_table
+  creating priv/repo/migrations/20160602085927_update_posts_table.exs
+  ···
+</code></pre>
+
+<pre><code class="language-elixir">create table(:documents) do
+  add :title, :string
+  add :title, :string, default: "Hello"
+  add :body, :text
+  add :age, :integer
+  add :price, :float, precision: 10, scale: 2
+  timestamps
+end
+</code></pre>
+
+<p class="-crosslink"><a href="./phoenix-migrations">Ecto migrations cheatsheet</a></p>
+
+<h3 id="routing">Routing</h3>
+
+<pre><code class="language-elixir">get "/", PageController, :index
+
+resources "/users", UserController do
+  resources "/posts", PostController
+end
+</code></pre>
+
+<pre><code class="language-elixir">user_post_path(conn, :index, 17)     # → /users/17/posts
+user_post_path(conn, :show, 17, 12)  # → /users/17/posts/12
+</code></pre>
+
+<p class="-crosslink"><a href="./phoenix-routing">Phoenix routing cheatsheet</a></p>
+
+<h3 id="conn">Conn</h3>
+
+<pre><code class="language-elixir">conn.host          # → "example.com"
+conn.method        # → "GET"
+conn.path_info     # → ["posts", "1"]
+conn.request_path  # → "/posts/1"
+</code></pre>
+
+<pre><code class="language-elixir">conn
+|&gt; put_status(202)
+|&gt; html("&lt;html&gt;&lt;head&gt;···")
+|&gt; json(%{ message: "Hello" })
+|&gt; text("Hello")
+|&gt; redirect(to: "/foo")
+|&gt; render("index.html")
+|&gt; render("index.html", hello: "world")
+|&gt; render(MyApp.ErrorView, "404.html")
+</code></pre>
+
+<p class="-crosslink"><a href="./phoenix-conn">Phoenix conn cheatsheet</a></p>
+
+<h3 id="ecto">Ecto</h3>
+
+<pre><code class="language-bash">$ mix phx.gen.html \
+    Accounts \       # domain
+    Profile \        # schema
+    profiles \       # table name
+    email:string \
+    age:integer
+</code></pre>
+
+<p class="-crosslink"><a href="./phoenix-ecto">Ecto cheatsheet</a></p>
+
+<h3 id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="http://phoenixframework.org/">Phoenix framework site</a> <em>(phoenixframework.org)</em></li>
+  <li><a href="https://hexdocs.pm/phoenix/overview.html">Phoenix: getting started</a> <em>(hexdocs.pm)</em></li>
+</ul>

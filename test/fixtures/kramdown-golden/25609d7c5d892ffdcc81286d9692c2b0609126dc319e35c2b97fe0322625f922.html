@@ -1,0 +1,217 @@
+<h2 id="dictionaries-and-lists">Dictionaries and lists</h2>
+
+<h3 id="dictionaries">Dictionaries</h3>
+
+<pre><code class="language-vim">let colors = {
+  \ "apple": "red",
+  \ "banana": "yellow"
+}
+
+echo colors["a"]
+echo get(colors, "apple")   " suppress error
+
+remove(colors, "apple")
+
+" :help E715
+if has_key(dict, 'foo')
+if empty(dict)
+keys(dict)
+len(dict)
+
+max(dict)
+min(dict)
+
+count(dict, 'x')
+string(dict)
+
+map(dict, '&lt;&gt;&gt; " . v:val')
+extend(s:fruits, { ... })
+</code></pre>
+
+<pre><code class="language-vim">for key in keys(mydict)
+  echo key . ': ' . mydict(key)
+endfor
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-vim">let mylist = [1, two, 3, "four"]
+
+let first = mylist[0]
+let last  = mylist[-1]
+
+" Suppresses errors
+let second = get(mylist, 1)
+let second = get(mylist, 1, "NONE")
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="buffer">Buffer</h3>
+
+<pre><code>line('.')             " current line number
+col('.')
+col('$')
+
+getline('.')          " current line as a string
+getline(1)            " get line 1
+getline(1, 5)         " get lines 1-5
+search('^$')          " next blank line, returns line number
+search('^$','n')      " but don't move cursor
+
+getcurpos()           " [bufnum, lnum, col, off, curswant]
+getpos('.')           " [bufnum, lnum, col, off]
+
+nextnonblank(1)       " next non-blank line after line1
+prevnonblank()
+</code></pre>
+
+<h3 id="marks">Marks</h3>
+
+<pre><code>getpos("'a")          " position of a mark
+setpos("'a",...)
+
+getpos("'&lt;")          " position of selection start
+</code></pre>
+
+<h3 id="cursor">Cursor</h3>
+
+<pre><code>cursor(line,col)      " moves cursor
+cursor(line,col,off,curswant)
+
+getcurpos()           " returns [bufnum,line,col,off,curswant]
+</code></pre>
+
+<h3 id="expand">Expand</h3>
+
+<pre><code>expand('&lt;cword&gt;')      " word under cursor
+expand('%')            " current file
+
+" &lt;cword&gt;  current word on cursor
+" :p    full path
+" :h    head
+" :p:h  dirname   (/Users/rsc/project)
+" :t    tail      (file.txt)
+" :r    root      (file)
+" :e    extension (.txt)
+" see :h cmdline-special
+</code></pre>
+
+<h3 id="files">Files</h3>
+
+<pre><code>fnameescape('string')
+fnamemodify('main.c', ':p:h')
+fnamemodify(fname, ':e')   " current file extension - see expand()
+filereadable(fname)
+getfsize('file.txt')
+getcwd()
+
+globpath(&amp;rtp, "plugin/commentary.vim")
+</code></pre>
+
+<h3 id="math">Math</h3>
+
+<pre><code>fmod(9, 2)  " modulus
+abs(-0.5)
+sqrt(9)
+
+trunc(1.84)
+floor(1.84)
+ceil(1.84)
+float2nr(3.14)
+</code></pre>
+
+<h3 id="casting">Casting</h3>
+
+<pre><code>str2float('0.2')
+str2nr('240')
+str2nr('ff', '16')
+
+string(0.3)
+</code></pre>
+
+<h3 id="type-checking">Type checking</h3>
+
+<pre><code>type(var) == type(0)
+type(var) == type("")
+type(var) == type(function("tr"))
+type(var) == type([])
+type(var) == type({})
+type(var) == type(0.0)
+</code></pre>
+
+<h3 id="datetime">Date/time</h3>
+
+<pre><code>strftime('%c')
+strftime('%c',getftime('file.c'))
+</code></pre>
+
+<h3 id="strings">Strings</h3>
+
+<pre><code>if a =~ '\s*'
+substitute(str, '.', 'x', 'g')
+strpart("abcdef", 3, 2)    " == "de" (substring)
+strpart("abcdef", 3)       " == "def"
+stridx("abcdef", "e")      " == 4
+strridx()                  " reverse
+
+matchstr('testing','test')  " == 'test' (or '')
+match('testing','test')     " == 0
+matchend('testing','test')  " == 4
+match('testing','\ctest')   " ignore case
+
+split(str, '\zs')           " split into characters
+
+strlen(str)
+strchars()                  " accounts for composing chars
+strwidth()                  " accounts for ambig characters
+strdisplaywidth()           " accounts for tab stops
+
+toupper(str)
+tolower(str)
+tr('foo', '_-', '  ')
+</code></pre>
+
+<h3 id="syntax">Syntax</h3>
+
+<pre><code>synstack(line('.'),col('.'))   " returns many
+synID(line('.'),col('.'),1)    " only one
+
+synIDattr(id,"bg")
+synIDattr(id,"name")
+synIDtrans()
+
+" syntax stack
+map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+</code></pre>
+
+<h3 id="shell">Shell</h3>
+
+<pre><code>system('ls '.shellescape(expand('%:h')))
+</code></pre>
+
+<h3 id="registers">Registers</h3>
+
+<pre><code>getreg('*')
+getregtype('*')     " v(char), V(line) &lt;ctrl-v&gt;(block)
+</code></pre>
+
+<h2 id="comparisons">Comparisons</h2>
+
+<pre><code>if name ==# 'John'     " case-sensitive
+if name ==? 'John'     " case-insensitive
+if name == 'John'      " depends on :set ignorecase
+" also: is#, is?, &gt;=#, &gt;=?, and so on
+
+if "hello" =~ '.*'
+if "hello" !~ '.*'
+</code></pre>
+
+<h2 id="executing">Executing</h2>
+
+<h3 id="running-commands">Running commands</h3>
+
+<pre><code>normal 'ddahello'
+exe 'normal ^C'  " with expansions
+wincmd J
+</code></pre>

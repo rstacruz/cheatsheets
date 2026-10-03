@@ -1,0 +1,70 @@
+<h2 class="-three-column" id="reference">Reference</h2>
+
+<h3 class="-intro" id="introduction">Introduction</h3>
+
+<p>intro: A quick reference to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise API</a>.</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using Promises guide</a> <em>(developer.mozilla.org)</em></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise documentation</a> <em>(developer.mozilla.org)</em></li>
+</ul>
+
+<h3 id="creating-promises">Creating promises</h3>
+
+<pre><code class="language-js">new Promise((resolve, reject) =&gt; {
+  doStuff(() =&gt; {
+    if (success) {
+      resolve('good')
+    } else {
+      reject(new Error('oops'))
+    }
+  })
+})
+</code></pre>
+
+<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Constructor">new Promise</a> to create new promises.</p>
+
+<h3 id="consuming-promises">Consuming promises</h3>
+
+<pre><code class="language-js">promise
+  .then((result) =&gt; {
+    /* success */
+  })
+  .catch((error) =&gt; {
+    /* failure */
+  })
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> runs a function when a promise resolves. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch()</a> runs when a promise fails.</p>
+
+<h3 id="multiple-promises">Multiple promises</h3>
+
+<pre><code class="language-js">const promises = [promise1(), promise2() /* ... */]
+</code></pre>
+
+<pre><code class="language-js">// Succeeds when all succeed
+Promise.all(promises).then((results) =&gt; {
+  /* ... */
+})
+</code></pre>
+
+<pre><code class="language-js">// Succeeds when one finishes first
+Promise.race(promises).then((result) =&gt; {
+  /* ... */
+})
+</code></pre>
+
+<h3 id="converting-other-promises">Converting other promises</h3>
+
+<pre><code class="language-js">return Promise.resolve('result')
+return Promise.resolve(promise)
+return Promise.resolve(thenable)
+
+return Promise.reject('reason')
+
+Promise.resolve(result).then(() =&gt; {
+  /* ... */
+})
+</code></pre>
+
+<p><code>Promise.resolve(val)</code> will return a promise that resolves to the value given to it.</p>

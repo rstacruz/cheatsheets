@@ -1,0 +1,161 @@
+<h3 id="simple-example">Simple example</h3>
+
+<pre><code class="language-css">.container {
+  display: flex;
+}
+</code></pre>
+
+<pre><code class="language-css">.container &gt; div {
+  flex: 1 1 auto;
+}
+</code></pre>
+
+<h3 id="container">Container</h3>
+
+<pre class="-setup"><code class="language-css">.container {
+</code></pre>
+
+<pre><code class="language-css">  display: flex;
+  display: inline-flex;
+</code></pre>
+
+<pre><code class="language-css">  flex-direction: row;            /* ltr - default */
+  flex-direction: row-reverse;    /* rtl */
+  flex-direction: column;         /* top-bottom */
+  flex-direction: column-reverse; /* bottom-top */
+</code></pre>
+
+<pre><code class="language-css">  flex-wrap: nowrap; /* one-line */
+  flex-wrap: wrap;   /* multi-line */
+</code></pre>
+
+<pre><code class="language-css">  align-items: flex-start; /* vertical-align to top */
+  align-items: flex-end;   /* vertical-align to bottom */
+  align-items: center;     /* vertical-align to center */
+  align-items: stretch;    /* same height on all (default) */
+</code></pre>
+
+<pre><code class="language-css">  justify-content: flex-start;    /* [xxx        ] */
+  justify-content: center;        /* [    xxx    ] */
+  justify-content: flex-end;      /* [        xxx] */
+  justify-content: space-between; /* [x    x    x] */
+  justify-content: space-around;  /* [ x   x   x ] */
+  justify-content: space-evenly;  /* [  x  x  x  ] */
+</code></pre>
+
+<pre class="-setup"><code class="language-css">}
+</code></pre>
+
+<h3 id="child">Child</h3>
+
+<pre class="-setup"><code class="language-css">.container &gt; div {
+</code></pre>
+
+<pre><code class="language-css">  /* This: */
+  flex: 1 0 auto;
+
+  /* Is equivalent to this: */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+</code></pre>
+
+<pre><code class="language-css">  order: 1;
+</code></pre>
+
+<pre><code class="language-css">  align-self: flex-start;  /* left */
+  margin-left: auto;       /* right */
+</code></pre>
+
+<pre class="-setup"><code class="language-css">}
+</code></pre>
+
+<h2 id="tricks">Tricks</h2>
+
+<h3 id="vertical-center">Vertical center</h3>
+
+<pre><code class="language-css">.container {
+  display: flex;
+}
+
+.container &gt; div {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+</code></pre>
+
+<h3 id="vertical-center-2">Vertical center (2)</h3>
+
+<pre><code class="language-css">.container {
+  display: flex;
+  align-items: center;     /* vertical */
+  justify-content: center; /* horizontal */
+}
+</code></pre>
+
+<h3 id="reordering">Reordering</h3>
+
+<pre><code class="language-css">.container &gt; .top {
+ order: 1;
+}
+
+.container &gt; .bottom {
+ order: 2;
+}
+</code></pre>
+
+<h3 id="mobile-layout">Mobile layout</h3>
+
+<pre><code class="language-css">.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container &gt; .top {
+  flex: 0 0 100px;
+}
+
+.container &gt; .content {
+  flex: 1 0 auto;
+}
+</code></pre>
+
+<p>A fixed-height top bar and a dynamic-height content area.</p>
+
+<h3 id="table-like">Table-like</h3>
+
+<pre><code class="language-css">.container {
+  display: flex;
+}
+
+/* the 'px' values here are just suggested percentages */
+.container &gt; .checkbox { flex: 1 0 20px; }
+.container &gt; .subject  { flex: 1 0 400px; }
+.container &gt; .date     { flex: 1 0 120px; }
+</code></pre>
+
+<p>This creates columns that have different widths, but size accordingly according
+to the circumstances.</p>
+
+<h3 id="vertical">Vertical</h3>
+
+<pre><code class="language-css">.container {
+  align-items: center;
+}
+</code></pre>
+
+<p>Vertically-center all items.</p>
+
+<h3 id="left-and-right">Left and right</h3>
+
+<pre><code class="language-css">.menu &gt; .left  { align-self: flex-start; }
+.menu &gt; .right { align-self: flex-end; }
+</code></pre>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">MDN: Using CSS flexbox</a></li>
+  <li><a href="https://www.sketchingwithcss.com/samplechapter/cheatsheet.html">Ultimate flexbox cheatsheet</a></li>
+</ul>

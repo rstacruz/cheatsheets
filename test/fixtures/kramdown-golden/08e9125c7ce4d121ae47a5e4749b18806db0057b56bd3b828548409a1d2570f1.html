@@ -1,0 +1,41 @@
+<h3 id="doctype">Doctype</h3>
+
+<pre><code class="language-haml">!!! 5
+</code></pre>
+
+<h3 id="tags">Tags</h3>
+
+<pre><code class="language-haml">%html
+  %head
+    %title
+  %body
+    %h1 Hello World
+    %br/
+</code></pre>
+
+<h3 id="classes-and-ids">Classes and ID’s</h3>
+
+<pre><code class="language-haml">%p.class-example
+.no-tag-defaults-to-div
+%div#butItCanBeIncluded
+</code></pre>
+
+<h3 id="inline-attributes">Inline Attributes</h3>
+
+<p>Either hash syntax works</p>
+
+<pre><code class="language-haml">%meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+%input{ :type =&gt; "text", :required =&gt; true }
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="language-haml">-# This is a comment
+-# Anything starting with a hyphen signals to Haml that Ruby is coming
+- @arr = [1, 2, 3]
+- @str = "test"
+-# Equal signals output
+= render partial: "shared/header"
+= yield
+= link_to page_url
+</code></pre>

@@ -1,0 +1,64 @@
+<h3 id="ec2">EC2</h3>
+
+<pre><code>aws ec2 describe-instances
+aws ec2 start-instances --instance-ids i-12345678c
+aws ec2 terminate-instances --instance-ids i-12345678c
+</code></pre>
+
+<h3 id="s3">S3</h3>
+
+<pre><code>aws s3 ls s3://mybucket
+aws s3 rm s3://mybucket/folder --recursive
+aws s3 cp myfolder s3://mybucket/folder --recursive
+aws s3 sync myfolder s3://mybucket/folder --exclude *.tmp
+</code></pre>
+
+<h3 id="ecs">ECS</h3>
+
+<pre><code>aws ecs create-cluster
+  --cluster-name=NAME
+  --generate-cli-skeleton
+
+aws ecs create-service
+</code></pre>
+
+<h3 id="homebrew">Homebrew</h3>
+
+<pre><code>brew install awscli
+aws configure
+</code></pre>
+
+<h3 id="configuration-profiles">Configuration profiles</h3>
+
+<pre><code>aws configure --profile project1
+aws configure --profile project2
+</code></pre>
+
+<h2 id="elastic-beanstalk">Elastic Beanstalk</h2>
+
+<h3 id="configuration">Configuration</h3>
+
+<ul>
+  <li>.elasticbeanstalk/config.yml - application config</li>
+  <li>.elasticbeanstalk/dev-env.env.yml - environment config</li>
+</ul>
+
+<pre><code>eb config
+</code></pre>
+
+<p>See: <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html</a></p>
+
+<h2 id="ebextensions">ebextensions</h2>
+
+<ul>
+  <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html">https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html</a></li>
+  <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html">https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html</a></li>
+</ul>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://aws.amazon.com/cli/">AWS CLI</a></li>
+  <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Documentation</a></li>
+  <li><a href="https://docs.aws.amazon.com/cli/latest/reference/#available-services">All commands</a></li>
+</ul>

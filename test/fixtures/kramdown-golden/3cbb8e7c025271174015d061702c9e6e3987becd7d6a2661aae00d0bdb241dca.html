@@ -1,0 +1,34 @@
+<h3 id="pageview">Pageview</h3>
+
+<pre><code>// Analytics.js
+ga('create', 'UA-XXXX-Y', 'auto');
+ga('send', 'pageview');
+</code></pre>
+
+<h3 id="track-events">Track events</h3>
+
+<pre><code>// ga.js
+// [..., category, action, label, value (int), noninteraction (bool)]
+_gaq.push(['_trackEvent', 'Videos', 'Play', 'Birthday video', true])
+_gaq.push(['_trackEvent', 'Projects', 'Donate', 'Project name'])
+_gaq.push(['_trackEvent', 'Accounts', 'Login'])
+
+// Analytics.js
+//       ,        ,  category,  action,  label,         value (int)
+ga('send', 'event', 'button',   'click', 'nav buttons', 4);
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code>// [..., index, name, value, scope (optional)]
+_gaq.push(['_setCustomVar', 1, 'Logged in', 'Yes', 2]);
+
+// Scope = 1 (visitor), 2 (session), 3 (page, default)
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables</a></li>
+  <li><a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide</a></li>
+</ul>

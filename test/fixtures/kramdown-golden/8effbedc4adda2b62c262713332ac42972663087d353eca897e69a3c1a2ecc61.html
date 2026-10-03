@@ -1,0 +1,57 @@
+<h2 class="-left-reference" id="shortcuts">Shortcuts</h2>
+
+<h3 id="examples">Examples</h3>
+
+<pre><code class="language-js">n = +'4096'    // n === 4096
+s = '' + 200   // s === '200'
+</code></pre>
+
+<pre><code class="language-js">now = +new Date()
+isPublished = !!post.publishedAt
+</code></pre>
+
+<h3 id="shortcuts-1">Shortcuts</h3>
+
+<table class="-left-align -headers">
+  <thead>
+    <tr>
+      <th>What</th>
+      <th>Lazy mode</th>
+      <th>“The right way”</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String to number</td>
+      <td><code>+str</code></td>
+      <td><code>parseInt(str, 10)</code> <em>or</em> <code>parseFloat()</code></td>
+    </tr>
+    <tr>
+      <td>Math floor</td>
+      <td><code>num | 0</code></td>
+      <td><code>Math.floor(num)</code></td>
+    </tr>
+    <tr>
+      <td>Number to string</td>
+      <td><code>'' + num</code></td>
+      <td><code>num.toString()</code></td>
+    </tr>
+    <tr>
+      <td>Date to UNIX timestamp</td>
+      <td><code>+new Date()</code></td>
+      <td><code>new Date().getTime()</code></td>
+    </tr>
+    <tr>
+      <td>Any to boolean</td>
+      <td><code>!!value</code></td>
+      <td><code>Boolean(value)</code></td>
+    </tr>
+    <tr>
+      <td>Check array contents</td>
+      <td><code>if (~arr.indexOf(v))</code></td>
+      <td><code>if (arr.includes(v))</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>.includes</code> is ES6-only, otherwise use <code>.indexOf(val) !== -1</code> if you don’t polyfill.</p>

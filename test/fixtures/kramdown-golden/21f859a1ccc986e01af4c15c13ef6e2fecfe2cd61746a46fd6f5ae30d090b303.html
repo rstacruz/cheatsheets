@@ -1,0 +1,126 @@
+<h3 class="-prime" id="basic-comment">Basic comment</h3>
+
+<pre><code class="language-ruby"># Adds two numbers.
+#
+# Returns the sum.
+def add(left, right)
+  left + right
+end
+</code></pre>
+
+<p>RDoc associates a comment with the Ruby object immediately below it.</p>
+
+<h3 id="inline-markup">Inline markup</h3>
+
+<pre><code class="language-text">*bold*
+_emphasized_
++code+
+</code></pre>
+
+<h3 id="links-and-references">Links and references</h3>
+
+<pre><code class="language-text">https://www.example.com/
+RDoc::Markup
+RDoc::Markup#convert
+{Ruby documentation}[https://docs.ruby-lang.org/]
+</code></pre>
+
+<h2 id="structure">Structure</h2>
+
+<h3 id="headings">Headings</h3>
+
+<pre><code class="language-text">= Page title
+== Section
+=== Subsection
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-text">* First item
+* Second item
+
+1. First step
+2. Second step
+</code></pre>
+
+<h3 id="definition-lists">Definition lists</h3>
+
+<pre><code class="language-text">name:: description
++option+:: option description
+</code></pre>
+
+<pre><code class="language-text">[name] description
+[other] another description
+</code></pre>
+
+<h2 id="directives">Directives</h2>
+
+<h3 id="hide-documentation">Hide documentation</h3>
+
+<pre><code class="language-ruby">def internal_method # :nodoc:
+end
+
+module InternalNamespace # :nodoc: all
+end
+</code></pre>
+
+<pre><code class="language-ruby"># :stopdoc:
+def hidden_method
+end
+# :startdoc:
+</code></pre>
+
+<h3 id="calling-sequence">Calling sequence</h3>
+
+<pre><code class="language-ruby"># :call-seq:
+#   readlines(sep = $/)        -&gt; array
+#   readlines(limit)           -&gt; array
+#   readlines(sep, limit)      -&gt; array
+</code></pre>
+
+<p>Use <code>:call-seq:</code> when the generated signature needs to show multiple forms or a return value.</p>
+
+<h3 id="arguments-and-yields">Arguments and yields</h3>
+
+<pre><code class="language-ruby"># :args: source, destination = nil
+# :yields: value
+</code></pre>
+
+<p>These directives override the arguments or yielded values reported by RDoc.</p>
+
+<h3 id="category">Category</h3>
+
+<pre><code class="language-ruby"># :category: Utilities
+#
+# Escapes HTML characters.
+def escape_html(text)
+end
+</code></pre>
+
+<p><code>:category:</code> applies only to the next documented item.</p>
+
+<h3 id="section">Section</h3>
+
+<pre><code class="language-ruby"># :section: Expiry methods
+# Methods for expiring records.
+
+# Expires the record.
+def expire!
+end
+</code></pre>
+
+<p><code>:section:</code> remains active until another section directive changes it.</p>
+
+<h3 id="markup-format">Markup format</h3>
+
+<pre><code class="language-ruby"># :markup: TomDoc
+</code></pre>
+
+<p>Place the directive at the beginning of the file to select a supported input format.</p>
+
+<h2 class="-one-column" id="also-see">Also see</h2>
+
+<ul class="-also-see">
+  <li><a href="https://ruby-doc.org/3.4/RDoc/MarkupReference.html">https://ruby-doc.org/3.4/RDoc/MarkupReference.html</a></li>
+  <li><a href="https://ruby-doc.org/3.4/contributing/documentation_guide_md.html">https://ruby-doc.org/3.4/contributing/documentation_guide_md.html</a></li>
+</ul>

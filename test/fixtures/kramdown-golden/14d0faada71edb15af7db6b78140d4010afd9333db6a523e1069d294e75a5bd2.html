@@ -1,0 +1,86 @@
+<h3 class="-intro" id="about">About</h3>
+
+<ul>
+  <li><a href="https://github.com/angular/angular-seed">https://github.com/angular/angular-seed</a></li>
+  <li><a href="https://angularjs.org/">https://angularjs.org/</a></li>
+</ul>
+
+<h3 id="ng-app">ng-app</h3>
+
+<pre><code class="language-html">    &lt;html ng-app="nameApp"&gt;
+</code></pre>
+
+<h3 id="lists-ng-repeat">Lists (ng-repeat)</h3>
+<pre><code class="language-html">    &lt;ul ng-controller="MyListCtrl"&gt;
+      &lt;li ng-repeat="phone in phones"&gt;
+        {{phone.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre>
+
+<h3 id="model-ng-model">Model (ng-model)</h3>
+
+<pre><code class="language-html">    &lt;select ng-model="orderProp"&gt;
+      &lt;option value="name"&gt;Alphabetical&lt;/option&gt;
+      &lt;option value="age"&gt;Newest&lt;/option&gt;
+    &lt;/select&gt;
+</code></pre>
+
+<h3 id="defining-a-module">Defining a module</h3>
+<pre><code class="language-js">    App = angular.module('myApp', []);
+
+    App.controller('MyListCtrl', function ($scope) {
+      $scope.phones = [ ... ];
+    });
+</code></pre>
+
+<h3 id="controller-with-protection-from-minification">Controller with protection from minification</h3>
+<pre><code class="language-js">    App.controller('Name', [
+      '$scope',
+      '$http',
+      function ($scope, $http) {
+      }
+    ]);
+
+    a.c 'name', [
+      '$scope'
+      '$http'
+      ($scope, $http) -&gt;
+    ]
+</code></pre>
+
+<h3 id="service">Service</h3>
+<pre><code class="language-js">    App.service('NameService', function($http){
+      return {
+        get: function(){
+          return $http.get(url);
+        }
+      }
+    });
+</code></pre>
+<p>In controller you call with parameter and will use promises to return data from server.</p>
+
+<pre><code class="language-js">    App.controller('controllerName',
+    function(NameService){
+      NameService.get()
+      .then(function(){})
+    })
+</code></pre>
+
+<h3 id="directive">Directive</h3>
+<pre><code class="language-js">    App.directive('name', function(){
+      return {
+        template: '&lt;h1&gt;Hello&lt;/h1&gt;'
+      }
+    });
+</code></pre>
+
+<p>In HTML will use <code>&lt;name&gt;&lt;/name&gt;</code> to render your template <code>&lt;h1&gt;Hello&lt;/h1&gt;</code></p>
+
+<h3 id="http">HTTP</h3>
+<pre><code class="language-js">    App.controller('PhoneListCtrl', function ($scope, $http) {
+        $http.get('/data.json').success(function (data) {
+            $scope.phones = data;
+        })
+    });
+</code></pre>

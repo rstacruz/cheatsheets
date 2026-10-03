@@ -1,0 +1,47 @@
+<h3 id="basic-usage">Basic usage</h3>
+<pre><code class="language-js">const P = require('parsimmon')
+
+P.regexp(/[a-z]+/)
+.parse('hello')
+//=&gt; { status: true, value: ['hello'] }
+</code></pre>
+
+<h3 id="atoms">Atoms</h3>
+
+<pre><code class="language-js">P.regexp(/[a-z]+/)
+P.string('hello')
+P.oneOf('abc')             // like P.regexp(/[abc]/)
+
+P.whitespace
+P.optWhitespace
+P.eof
+</code></pre>
+
+<h3 id="combinators">Combinators</h3>
+
+<pre><code class="language-js">P.seq(a, b, c)             // sequence of these
+P.alt(a, b)                // any of these
+P.sepBy(a, P.string(','))  // sequence of `a`, separated by ','
+P.sepBy1(a, P.string(',')) // same, at least once
+
+a.or(b)                    // like P.alt(a, b)
+a.skip(b)                  // parses `b` but discards it
+
+a.many()
+a.times(3)
+a.times(1, 4)              // 1 &lt;= x &lt;= 4
+a.atMost(10)
+a.atLeast(10)
+</code></pre>
+
+<h3 id="formatting">Formatting</h3>
+
+<pre><code class="language-js">P.seq(P.number, P.oneOf('+-*/'), P.number)
+.map(([left, oper, right]) =&gt; ({ oper, left, right }))
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://github.com/jneen/parsimmon/blob/master/API.md">https://github.com/jneen/parsimmon/blob/master/API.md</a></li>
+</ul>

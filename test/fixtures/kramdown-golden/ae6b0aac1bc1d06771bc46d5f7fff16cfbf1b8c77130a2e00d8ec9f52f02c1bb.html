@@ -1,0 +1,172 @@
+<h3 id="create---create-an-app"><code>create</code> - Create an app</h3>
+
+<pre><code class="language-bash">heroku create sushi
+</code></pre>
+
+<pre><code class="language-bash">git push heroku master
+</code></pre>
+
+<p>This will create an application named <code>sushi</code>. (<a href="https://devcenter.heroku.com/articles/creating-apps">docs</a>)</p>
+
+<h3 id="container---docker-containers"><code>container</code> - Docker containers</h3>
+
+<pre><code class="language-bash">heroku stack:set container -app &lt;app&gt;
+heroku container:push web -app &lt;app&gt;
+heroku container:release web -app &lt;app&gt;
+</code></pre>
+
+<p>Containers can be deployed using the Heroku Container Registry. (<a href="https://devcenter.heroku.com/articles/container-registry-and-runtime">docs</a>)</p>
+
+<h3 id="access---collaboration"><code>access</code> - Collaboration</h3>
+
+<h4 id="manage-collaborators">Manage collaborators</h4>
+
+<pre><code class="language-bash">heroku access                     # List
+heroku access:add me@xy.com
+heroku access:remove me@xy.com
+</code></pre>
+
+<h4 id="transfer-to-another-owner">Transfer to another owner</h4>
+
+<pre><code class="language-bash">heroku apps:transfer new@owner.com
+</code></pre>
+
+<h3 id="logs---show-logs"><code>logs</code> - Show logs</h3>
+
+<pre><code class="language-bash">heroku logs
+heroku logs -t      # --tail (stream)
+heroku logs -s app  # --source (only on app logs)
+</code></pre>
+
+<h3 id="releases"><code>releases</code></h3>
+
+<pre><code class="language-bash">heroku releases
+heroku releases:info v25
+heroku rollback
+</code></pre>
+
+<h3 id="pg---postgresql"><code>pg</code> - PostgreSQL</h3>
+
+<h4 id="start-a-database">Start a database</h4>
+
+<pre><code class="language-bash">heroku addons:add heroku-postgresql
+</code></pre>
+
+<h4 id="enable-backups">Enable backups</h4>
+
+<pre><code class="language-bash">heroku addons:add pgbackups:auto-month
+</code></pre>
+
+<p>See: <a href="https://devcenter.heroku.com/articles/heroku-postgresql">Heroku PostgreSQL</a> <em>(devcenter.heroku.com)</em></p>
+
+<h3 id="config---environment-var-configuration"><code>config</code> - Environment var configuration</h3>
+
+<h4 id="listing">Listing</h4>
+
+<pre><code class="language-bash">heroku config        # List
+heroku config -s     # List in shell format
+</code></pre>
+
+<h4 id="getting">Getting</h4>
+
+<pre><code class="language-bash">heroku config:get KEY
+</code></pre>
+
+<h4 id="setting">Setting</h4>
+
+<pre><code class="language-bash">heroku config:set KEY=val
+heroku config:set KEY1=val KEY2=val ...
+</code></pre>
+
+<pre><code class="language-bash">heroku config:unset KEY1
+</code></pre>
+
+<h3 id="apps---applications"><code>apps</code> - Applications</h3>
+
+<pre><code class="language-bash">heroku apps                  # list
+heroku apps:create [NAME]
+heroku apps:destroy --app APP
+heroku apps:info
+heroku apps:open             # open in browser
+heroku apps:rename NEWNAME
+</code></pre>
+
+<h3 id="maintenance"><code>maintenance</code></h3>
+
+<pre><code class="language-bash">heroku maintenance:on
+</code></pre>
+
+<pre><code class="language-bash">heroku maintenance:off
+</code></pre>
+
+<h2 id="processes">Processes</h2>
+
+<h3 id="ps---managing-processes"><code>ps</code> - Managing processes</h3>
+
+<pre><code class="language-bash">heroku ps              # list
+heroku ps:scale web=1  # spawn more dynos
+</code></pre>
+
+<h3 id="restart"><code>restart</code></h3>
+
+<pre><code class="language-bash">heroku restart
+</code></pre>
+
+<h3 id="run---running-tasks"><code>run</code> - Running tasks</h3>
+
+<pre><code class="language-bash">heroku run bash
+heroku run console                  # Rails console
+heroku run rake assets:precompile
+</code></pre>
+
+<h2 id="domains">Domains</h2>
+
+<h3 id="domains---custom-domains"><code>domains</code> - Custom domains</h3>
+
+<h4 id="add-both">Add both!</h4>
+
+<pre><code class="language-bash">heroku domains:add example.com
+heroku domains:add www.example.com
+</code></pre>
+
+<h4 id="removing">Removing</h4>
+
+<pre><code class="language-bash">heroku domains:clear
+heroku domains:remove example.com
+</code></pre>
+
+<p>See: <a href="https://devcenter.heroku.com/articles/custom-domains">Custom domains</a> <em>(devcenter.heroku.com)</em></p>
+
+<h3 id="wildcard-domains">Wildcard domains</h3>
+
+<pre><code class="language-bash">heroku addons:add wildcard_domains
+</code></pre>
+
+<pre><code class="language-bash">*.yourdomain.com =&gt; heroku.com
+</code></pre>
+
+<h2 id="other-tricks">Other tricks</h2>
+
+<h3 id="htpasswd-for-php-apps">htpasswd (for PHP apps)</h3>
+
+<p>Create an <code>.htaccess</code> file in the webroot:</p>
+
+<pre><code class="language-bash">AuthUserFile /app/www/.htpasswd
+AuthType Basic
+AuthName "Restricted Access"
+Require valid-user
+</code></pre>
+
+<p>Create a <code>.htpasswd</code> file:</p>
+
+<pre><code class="language-bash">$ htpasswd -c .htpasswd [username]
+</code></pre>
+
+<p>See: <a href="https://gist.github.com/3316425">gist.github.com</a></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://addons.heroku.com/">https://addons.heroku.com/</a></li>
+  <li><a href="https://devcenter.heroku.com/">https://devcenter.heroku.com/</a></li>
+</ul>

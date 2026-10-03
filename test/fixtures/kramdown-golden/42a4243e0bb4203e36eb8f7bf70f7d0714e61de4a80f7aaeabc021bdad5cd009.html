@@ -1,0 +1,25 @@
+<h3 id="about">About</h3>
+
+<p>See <a href="https://www.npmjs.com/package/virtual-dom">https://www.npmjs.com/package/virtual-dom</a></p>
+
+<h3 id="example">Example</h3>
+
+<pre><code class="language-js">var h = require('virtual-dom/h')
+var diff = require('virtual-dom/diff')
+var patch = require('virtual-dom/patch')
+var createElement = require('virtual-dom/create-element')
+</code></pre>
+
+<h3 id="rendering">Rendering</h3>
+
+<pre><code class="language-js">tree = h('div', { style: { color: 'blue' } }, [ 'hello' ])
+el = createElement(tree)
+document.body.appendChild(root)
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<pre><code class="language-js">tree2 = h('div', { style: { color: 'blue' } }, [ 'hello world' ])
+delta = diff(tree, tree2)
+el = patch(el, delta) // patch() modifies el
+</code></pre>

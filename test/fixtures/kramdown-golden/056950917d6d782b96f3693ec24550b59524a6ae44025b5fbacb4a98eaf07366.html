@@ -1,0 +1,33 @@
+<h3 id="page-layout">Page layout</h3>
+
+<pre><code class="language-md"># command
+
+&gt; Some command description
+&gt; More information: https://some/link/to/url
+
+- Some code description:
+
+`command argument1 argument2`
+</code></pre>
+
+<h3 id="primitive-placeholders"><a href="https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#primitive-placeholders">Primitive placeholders</a></h3>
+
+<pre><code class="language-md">- Delay in [s]econds:
+
+`sleep {int seconds: 2}s`
+</code></pre>
+
+<h3 id="primitive-repeated-placeholders"><a href="https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#repeated-primitive-placeholders">Primitive repeated placeholders</a></h3>
+
+<pre><code class="language-md">- [c]reate an archive and write it to a [f]ile:
+
+`tar {option mode: --create, -c} {option: --file, -f} {/?file archive: target.tar} {/?path+ input}`
+</code></pre>
+
+<h3 class="-one-column" id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view">Render</a></li>
+  <li><a href="https://github.com/command-line-interface-pages/cli-pages">Page’s repository</a></li>
+  <li><a href="https://github.com/command-line-interface-pages/syntax/blob/main/base.md">Syntax</a></li>
+</ul>

@@ -1,0 +1,249 @@
+<h2 id="getting-started">Getting started</h2>
+
+<h3 class="-intro" id="introduction">Introduction</h3>
+
+<p><a href="https://airbnb.io/enzyme">Enzyme</a> lets you write unit tests for React components. This guide covers Enzyme 3.x.</p>
+
+<ul>
+  <li><a href="https://enzymejs.github.io/enzyme/">Enzyme website</a> <em>(enzymejs.github.io)</em></li>
+</ul>
+
+<h3 class="-prime" id="mounting">Mounting</h3>
+
+<pre class="-setup"><code class="language-js">import {shallow, mount} from 'enzyme'
+</code></pre>
+
+<pre><code class="language-js">wrap = shallow(&lt;MyComponent /&gt;)
+</code></pre>
+
+<pre><code class="language-js">wrap = mount(&lt;MyComponent /&gt;)
+</code></pre>
+
+<p>Shallow wrapping doesn’t descend down to sub-components.
+A full mount also mounts sub-components.</p>
+
+<p>See: <a href="https://airbnb.io/enzyme/docs/api/shallow.html">Shallow rendering</a>,
+<a href="https://airbnb.io/enzyme/docs/api/mount.html">Full rendering</a></p>
+
+<h3 id="debugging">Debugging</h3>
+
+<pre><code class="language-js">console.log(wrap.debug())
+</code></pre>
+
+<p>Shows HTML for debugging purposes.</p>
+
+<p>See: <a href="https://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html">debug()</a></p>
+
+<h2 class="-three-column" id="examples">Examples</h2>
+
+<h3 class="-prime" id="basic-example">Basic example</h3>
+
+<pre class="-setup"><code class="language-js">import { shallow } from 'enzyme'
+import MyComponent from '../MyComponent'
+</code></pre>
+
+<pre><code class="language-js">it('works', () =&gt; {
+  const wrap = shallow(
+    &lt;MyComponent name='Groot' /&gt;
+  )
+
+  expect(wrap.text()).toEqual('I am Groot')
+})
+</code></pre>
+
+<h3 id="props-and-state">Props and state</h3>
+
+<h4 id="setting">Setting</h4>
+
+<pre><code class="language-js">wrap.setProps({ name: 'Moe' })
+wrap.setState({ show: true })
+</code></pre>
+
+<h4 id="asserting">Asserting</h4>
+
+<pre><code class="language-js">expect(wrap.prop('name')).toEqual('Moe')
+expect(wrap.state('show')).toEqual(true)
+</code></pre>
+
+<pre><code class="language-js">expect('name' in wrap.props()).toEqual('Moe')
+expect('show' in wrap.state()).toEqual(true)
+</code></pre>
+
+<h3 id="matching-elements">Matching elements</h3>
+
+<pre><code class="language-js">expect(
+  wrap.containsMatchingElement(
+    &lt;span&gt;I am groot&lt;/span&gt;
+  )
+).toBeTruthy()
+</code></pre>
+
+<p><code>containsMatchingElement()</code> is probably the most useful assertion in Jest.</p>
+
+<h3 id="snapshots">Snapshots</h3>
+
+<pre><code class="language-js">expect(wrap).toMatchSnapshot()
+</code></pre>
+
+<p>Be sure you’ve set up enzyme-to-json for snapshots (see <a href="#installing">Installing</a> below).</p>
+
+<h3 id="traversions">Traversions</h3>
+
+<pre><code class="language-js">expect(
+  wrap.find('button').text()
+).toEqual('Submit')
+</code></pre>
+
+<p>Use <code>.find()</code> to traverse down to nodes. It will return wrapper objects, too.</p>
+
+<h3 id="simulating-events">Simulating events</h3>
+
+<pre><code class="language-js">wrap.find('input').simulate('click')
+</code></pre>
+
+<h4 id="with-event-object-props">With event object props</h4>
+
+<pre><code class="language-js">wrap.find('input').simulate('change', {
+  target: { value: 'hello' }
+})
+</code></pre>
+
+<h2 id="installing">Installing</h2>
+
+<h3 id="initial-setup">Initial setup</h3>
+
+<pre class="-setup"><code>npm install --save-dev enzyme \
+  enzyme-adapter-react-16 \
+  react-test-renderer
+</code></pre>
+
+<h4 id="testsetupjs">test/setup.js</h4>
+
+<pre><code class="language-js">import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+Enzyme.configure({ adapter: new Adapter() })
+</code></pre>
+
+<h4 id="packagejson">package.json</h4>
+
+<pre><code class="language-js">"jest": {
+  "setupFiles": [
+    "test/setup.js"
+  ]
+}
+</code></pre>
+
+<p>This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme’s installation instructions.</p>
+
+<p>See: <a href="https://airbnb.io/enzyme/#installation">Installation</a></p>
+
+<h3 id="jest-snapshots">Jest snapshots</h3>
+
+<pre class="-setup"><code>npm install --save-dev enzyme-to-json
+</code></pre>
+
+<h4 id="packagejson-1">package.json</h4>
+
+<pre><code class="language-js">"jest": {
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+}
+</code></pre>
+
+<h4 id="test">Test</h4>
+
+<pre><code class="language-js">it('works', () =&gt; {
+  wrap = mount(&lt;MyComponent /&gt;)
+  expect(wrap).toMatchSnapshot()
+})
+</code></pre>
+
+<p>Optional, but recommended: This allows you to use Enzyme wrappers with Jest snapshots.</p>
+
+<p>See: <a href="https://www.npmjs.com/package/enzyme-to-json">enzyme-to-json</a></p>
+
+<h2 id="reactwrapper">ReactWrapper</h2>
+
+<h3 id="traversing">Traversing</h3>
+
+<pre><code class="language-js">wrap.find('button')   // → ReactWrapper
+wrap.filter('button') // → ReactWrapper
+wrap.not('span')      // → ReactWrapper (inverse of filter())
+wrap.children()       // → ReactWrapper
+wrap.parent()         // → ReactWrapper
+wrap.closest('div')   // → ReactWrapper
+wrap.childAt(0)       // → ReactWrapper
+wrap.at(0)            // → ReactWrapper
+wrap.first()          // → ReactWrapper
+wrap.last()           // → ReactWrapper
+</code></pre>
+
+<pre><code class="language-js">wrap.get(0)           // → ReactElement
+wrap.getElement()     // → ReactElement
+wrap.getElements()    // → Array&lt;ReactElement&gt;
+wrap.getDOMNode()     // → DOMComponent
+</code></pre>
+
+<p>See: <a href="https://airbnb.io/enzyme/docs/api/mount.html">Full rendering API</a></p>
+
+<h3 id="actions">Actions</h3>
+
+<pre><code class="language-js">wrap.simulate('click')
+</code></pre>
+
+<h3 id="react-components">React components</h3>
+
+<pre><code class="language-js">wrap.setState({ ··· })
+wrap.setProps({ ··· })
+wrap.setContext({ ··· })
+</code></pre>
+
+<pre><code class="language-js">wrap.state()         // get full state
+wrap.props()         // get full props
+wrap.context()       // get full context
+</code></pre>
+
+<pre><code class="language-js">wrap.state('key')    // → any
+wrap.prop('key')     // → any
+wrap.context('key')  // → any
+</code></pre>
+
+<pre><code class="language-js">wrap.instance()      // → ReactComponent
+</code></pre>
+
+<h3 id="mount">Mount</h3>
+
+<pre><code class="language-js">wrap.mount()
+wrap.unmount()
+wrap.update()      // calls forceUpdate()
+</code></pre>
+
+<h3 id="tests">Tests</h3>
+
+<pre><code class="language-js">wrap.debug()               // → string
+wrap.html()                // → string
+wrap.text()                // → string
+wrap.type()                // → string | function
+wrap.name()                // → string
+wrap.is('.classname')      // → boolean
+wrap.hasClass('class')     // → boolean
+wrap.exists()              // → boolean
+wrap.contains(&lt;div /&gt;)     // → boolean
+wrap.contains([ &lt;div /&gt; ]) // → boolean
+wrap.some('.child')        // → boolean
+
+wrap.someWhere(n =&gt; n.hasClass('foo'))
+
+wrap.containsMatchingElement(&lt;div /&gt;)         // → boolean
+wrap.containsAllMatchingElements([ &lt;div /&gt; ]) // → boolean
+wrap.containsAnyMatchingElements([ &lt;div /&gt; ]) // → boolean
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://airbnb.io/enzyme">Enzyme website</a> <em>(airbnb.io)</em></li>
+  <li><a href="./enzyme@2">Enzyme v2 cheatsheet</a> <em>(devhints.io)</em> (old version)</li>
+</ul>

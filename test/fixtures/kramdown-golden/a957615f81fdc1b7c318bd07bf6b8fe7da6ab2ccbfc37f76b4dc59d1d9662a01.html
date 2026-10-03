@@ -1,0 +1,56 @@
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://github.com/umdjs/umd">https://github.com/umdjs/umd</a></li>
+</ul>
+
+<h3 id="with-dependency"><a href="https://github.com/umdjs/umd/blob/master/amdWebGlobal.js">With dependency</a></h3>
+
+<pre><code class="language-js">;(function (root, factory) {
+
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('jquery'));
+  } else {
+    root.YourModule = factory(root.jQuery);
+  }
+
+}(this, function (jquery) {
+  return {};
+}));
+</code></pre>
+
+<h3 id="no-dependencies">No dependencies</h3>
+
+<pre><code class="language-js">;(function (root, factory) {
+
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.YourModule = factory();
+  }
+
+}(this, function () {
+  return {};
+}));
+</code></pre>
+
+<h3 id="supports-circular-references"><a href="https://github.com/umdjs/umd/blob/master/commonjsStrict.js">Supports circular references</a></h3>
+
+<pre><code class="language-js">(function (root, factory) {
+
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    define(['exports', 'jquery'], factory);
+  } else if (typeof exports === 'object') {
+    factory(exports, require('jquery'));
+  } else {
+    factory((root.YourModule = {}), root.jQuery);
+  }
+
+}(this, function (exports, jQuery) {
+  exports.action = function () {};
+}));
+</code></pre>

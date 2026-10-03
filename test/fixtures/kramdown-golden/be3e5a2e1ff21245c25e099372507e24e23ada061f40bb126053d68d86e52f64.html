@@ -1,0 +1,172 @@
+<h3 id="device-basics">Device Basics</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>adb devices</code></td>
+      <td>Lists connected devices</td>
+    </tr>
+    <tr>
+      <td><code>adb devices -l</code></td>
+      <td>Lists connected devices and kind</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>adb root</code></td>
+      <td>Restarts adbd with root permissions</td>
+    </tr>
+    <tr>
+      <td><code>adb start-server</code></td>
+      <td>Starts the adb server</td>
+    </tr>
+    <tr>
+      <td><code>adb kill-server</code></td>
+      <td>Kills the adb server</td>
+    </tr>
+    <tr>
+      <td><code>adb remount</code></td>
+      <td>Remounts file system with read/write access</td>
+    </tr>
+    <tr>
+      <td><code>adb reboot</code></td>
+      <td>Reboots the device</td>
+    </tr>
+    <tr>
+      <td><code>adb reboot bootloader</code></td>
+      <td>Reboots the device into fastboot</td>
+    </tr>
+    <tr>
+      <td><code>adb disable-verity</code></td>
+      <td>Reboots the device into fastboot</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>wait-for-device</code> can be specified after <code>adb</code> to ensure that the command will run once the device is connected.</p>
+
+<p><code>-s</code> can be used to send the commands to a specific device when multiple are connected.</p>
+
+<h4 id="examples">Examples</h4>
+
+<pre><code>$ adb wait-for-device devices
+ List of devices attached
+ somedevice-1234 device
+ someotherdevice-1234 device
+</code></pre>
+
+<pre><code>$ adb -s somedevice-1234 root
+</code></pre>
+
+<h3 id="logcat">Logcat</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>adb logcat</code></td>
+      <td>Starts printing log messages to stdout</td>
+    </tr>
+    <tr>
+      <td><code>adb logcat -g</code></td>
+      <td>Displays current log buffer sizes</td>
+    </tr>
+    <tr>
+      <td><code>adb logcat -G &lt;size&gt;</code></td>
+      <td>Sets the buffer size (K or M)</td>
+    </tr>
+    <tr>
+      <td><code>adb logcat -c</code></td>
+      <td>Clears the log buffers</td>
+    </tr>
+    <tr>
+      <td><code>adb logcat *:V</code></td>
+      <td>Enables ALL log messages (verbose)</td>
+    </tr>
+    <tr>
+      <td><code>adb logcat -f &lt;filename&gt;</code></td>
+      <td>Dumps to specified file</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="examples-1">Examples</h4>
+<pre><code>$ adb logcat -G 16M
+$ adb logcat *:V &gt; output.log
+</code></pre>
+
+<h3 id="file-management">File Management</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>adb push &lt;local&gt; &lt;remote&gt;</code></td>
+      <td>Copies the local to the device at remote</td>
+    </tr>
+    <tr>
+      <td><code>adb pull &lt;remote&gt; &lt;local&gt;</code></td>
+      <td>Copies the remote from the device to local</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="examples-2">Examples</h4>
+
+<pre><code>$ echo "This is a test" &gt; test.txt
+$ adb push  test.txt /sdcard/test.txt
+$ adb pull /sdcard/test.txt pulledTest.txt
+</code></pre>
+
+<h3 id="remote-shell">Remote Shell</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>adb shell &lt;command&gt;</code></td>
+      <td>Runs the specified command on device (most unix commands work here)</td>
+    </tr>
+    <tr>
+      <td><code>adb shell wm size</code></td>
+      <td>Displays the current screen resolution</td>
+    </tr>
+    <tr>
+      <td><code>adb shell wm size WxH</code></td>
+      <td>Sets the resolution to WxH</td>
+    </tr>
+    <tr>
+      <td><code>adb shell pm list packages</code></td>
+      <td>Lists all installed packages</td>
+    </tr>
+    <tr>
+      <td><code>adb shell pm list packages -3</code></td>
+      <td>Lists all installed 3rd-party packages</td>
+    </tr>
+    <tr>
+      <td><code>adb shell monkey -p app.package.name</code></td>
+      <td>Starts the specified package</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<h2 id="acceleration">Acceleration</h2>
+
+<h3 id="disabling">Disabling</h3>
+
+<pre><code class="language-bash">defaults write .GlobalPreferences com.apple.mouse.scaling -1
+</code></pre>
+
+<p>Note: Log out to take effect. If you change <em>Tracking Speed</em> under System Preferences, it will undo this fix. Only affects the mouse, not the trackpad.</p>
+
+<h3 id="re-enabling">Re-enabling</h3>
+
+<p>Under <em>System Preferences</em> → <em>Mouse</em>, change <em>Tracking Speed</em>.</p>
+
+<h3 id="trackpad-acceleration">Trackpad acceleration</h3>
+
+<pre><code class="language-bash">defaults write .GlobalPreferences com.apple.trackpad.scaling -1
+</code></pre>
+
+<p>Works the same way, but only affects trackpads.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/5782884/disabling-mouse-acceleration-in-mac-os-x">Disabling mouse acceleration</a> <em>(stackoverflow.com)</em></li>
+</ul>

@@ -1,0 +1,57 @@
+<h3 id="running">Running</h3>
+
+<pre><code class="language-applescript">osascript -e "..."
+</code></pre>
+
+<pre><code class="language-applescript">display notification "X" with title "Y"
+</code></pre>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code class="language-applescript">-- This is a single line comment
+</code></pre>
+
+<pre><code class="language-applescript"># This is another single line comment
+</code></pre>
+
+<pre><code class="language-applescript">(*
+This is
+a multi
+line comment
+*)
+</code></pre>
+
+<h3 id="say">Say</h3>
+
+<pre><code class="language-applescript">-- default voice
+say "Hi I am a Mac"
+</code></pre>
+
+<pre><code class="language-applescript">-- specified voice
+say "Hi I am a Mac" using "Zarvox"
+</code></pre>
+
+<h3 id="beep">Beep</h3>
+
+<pre><code class="language-applescript">-- beep once
+beep
+</code></pre>
+
+<pre><code class="language-applescript">-- beep 10 times
+beep 10
+</code></pre>
+
+<h3 id="delay">Delay</h3>
+
+<pre><code class="language-applescript">-- delay for 5 seconds
+delay 5
+</code></pre>
+
+<h3 id="handlers">Handlers</h3>
+
+<pre><code class="language-applescript">on doubleNumber(n)
+	return n * 2
+end doubleNumber
+
+set doubledValue to my doubleNumber(2)
+</code></pre>

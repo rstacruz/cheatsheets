@@ -1,0 +1,56 @@
+<h2 id="commands">Commands</h2>
+
+<h3 id="help-and-lists">Help and lists</h3>
+
+<pre><code class="language-bash">yum help                     # Display yum commands and options
+yum list available           # List all available packages
+yum list installed           # List all installed packages
+yum list kernel              # List installed and available kernel packages
+yum info vsftpd              # List info about vsftpd package
+</code></pre>
+
+<h3 id="searching-and-dependencies">Searching and dependencies</h3>
+
+<pre><code class="language-bash">yum deplist nfs-utils        # List dependencies for nfs-utils
+yum provides "*bin/top"      # Show package containing top command
+yum search samba             # Find packages with samba in name or description
+</code></pre>
+
+<h3 id="updating-and-security">Updating and security</h3>
+
+<pre><code class="language-bash">yum updateinfo security      # Get info on available security updates
+yum update --security        # Apply security-related package updates
+</code></pre>
+
+<h3 id="managing-repositories">Managing repositories</h3>
+
+<pre><code class="language-bash">yum repolist                     # Display enabled software repositories
+yum repoinfo rhel-7-server-rpms  # See info on specific repo
+yum repo-pkgs my-rpms list       # List packages from a specific repo
+</code></pre>
+
+<h3 id="installation-and-upgrades">Installation and upgrades</h3>
+
+<pre><code class="language-bash">yum install vsftpd           # Install the vsftpd package
+yum update                   # Update all packages
+yum downgrade abc            # Downgrade the abc package to an earlier version
+yum autoremove httpd         # Remove httpd and unneeded packages
+</code></pre>
+
+<h3 id="package-groups">Package groups</h3>
+
+<pre><code class="language-bash">yum groupinstall "Web server"    # Install Web Server packages
+</code></pre>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<pre><code class="language-bash">yum history list             # List all yum transactions
+yum clean packages           # Delete packages saved in cache
+</code></pre>
+
+<h3 id="popular-options">Popular options</h3>
+
+<pre><code class="language-bash">-y                           # Assume yes if prompted
+--disablerepo=epel           # Disable a specific repo for a command
+--downloadonly               # Download package to cache but don't install
+</code></pre>

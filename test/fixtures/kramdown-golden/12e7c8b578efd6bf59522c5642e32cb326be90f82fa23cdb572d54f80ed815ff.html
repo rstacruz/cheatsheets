@@ -1,0 +1,57 @@
+<h3 id="dictionaries-and-lists">Dictionaries and lists</h3>
+
+<pre><code class="language-yaml"># comments start with "#"
+# dictionary are written like "key: value"
+name: Martin D'vloper
+languages:
+  perl: Elite
+  python: Elite
+  pascal: Lame
+
+# list items beginn with a "- "
+foods:
+  - Apple
+  - Orange
+  - Strawberry
+  - Mango
+
+# booleans are lower case
+employed: true
+</code></pre>
+
+<h3 id="multiline-strings">Multiline strings</h3>
+
+<pre><code class="language-yaml"># Literal Block Scalar
+Multiline: |
+  exactly as you see
+  will appear these three
+  lines of poetry
+</code></pre>
+
+<pre><code class="language-yaml"># Folded Block Scalar
+Multiline: &lt;
+  this is really a
+  single line of text
+  despite appearances
+</code></pre>
+
+<h3 id="inheritance">Inheritance</h3>
+
+<pre><code class="language-yaml">parent: &amp;defaults
+  a: 2
+  b: 3
+
+child:
+  &lt;&lt;: *defaults
+  b: 4
+</code></pre>
+
+<h3 id="reference-content">Reference content</h3>
+
+<pre><code class="language-yaml">values: &amp;ref
+  - These values
+  - will be reused below
+  
+other_values:
+  &lt;&lt;: *ref
+</code></pre>

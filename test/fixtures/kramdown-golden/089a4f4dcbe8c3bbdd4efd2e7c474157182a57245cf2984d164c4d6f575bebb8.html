@@ -1,0 +1,101 @@
+<h3 class="-intro" id="about">About</h3>
+
+<ul>
+  <li><a href="https://github.com/DAddYE/do">DAddYE/do</a></li>
+</ul>
+
+<h3 id="connection">Connection</h3>
+
+<pre><code>server = DO::Server.new('srv1', 'srv1.domain.local', 'root', :key =&gt; 
+    %w[srv1.pem]
+</code></pre>
+
+<h3 id="run">Run</h3>
+<pre><code>server.run 'uname'
+# root@srv1 ~ # uname
+# Linux
+
+server.run 'uname', '-a'
+# root@srv1 ~ # uname -a
+# Linux srv1.lipsiasoft.net 2.6.18-194.32.1.el5  x86_64 x86_64 x86_64 GNU/Linux
+
+server.run 'mysqladmin -u root -p password "oldone"', 'newpassword'
+# root@srv1 ~ # mysqladmin -u root -p password 'oldone'
+# Enter password: oldone
+# mysqladmin: connect to server at 'localhost' failed
+# error: 'Access denied for user 'root'@'localhost' (using password: YES)'
+</code></pre>
+
+<h3 id="files">Files</h3>
+
+<pre><code>server.exist?('~/.ssh')
+# root@srv1 ~ # test -e ~/.ssh &amp;&amp; echo True
+# =&gt; true
+
+server.read('/etc/redhat-release')
+# root@srv1 ~ # cat /etc/redhat-release
+# =&gt; "CentOS release 5.5 (Final)"
+</code></pre>
+
+<h3 id="uploaddownload">Upload/download</h3>
+
+<pre><code>server.upload '/tmp/file', '/tmp/foo'
+# root@srv1 ~ # upload from '/tmp/file' to '/tmp/foo'
+
+server.download '/tmp/foo', '/tmp/file2'
+# root@srv1 ~ # download from '/tmp/foo' to '/tmp/file2'
+</code></pre>
+
+<h3 id="replace">Replace</h3>
+
+<pre><code>server.replace :all, 'new content', '/tmp/file'
+# root@srv1 ~ # replace all in '/tmp/foo'
+
+server.read('/tmp/foo')
+# root@srv1 ~ # cat /tmp/foo
+# =&gt; "new content"
+</code></pre>
+
+<h3 id="replace-via-regex">Replace via regex</h3>
+
+<pre><code>server.replace /content$/, 'changed content', '/tmp/foo'
+# root@srv1 ~ # replace /content$/ in '/tmp/foo'
+
+server.read('/tmp/foo')
+# root@srv1 ~ # cat /tmp/foo
+# =&gt; "new changed content"
+</code></pre>
+
+<h3 id="append">Append</h3>
+
+<pre><code>server.append('appended', '/tmp/foo')
+# root@srv1 ~ # append to 'bottom' in '/tmp/foo'
+
+server.read('/tmp/foo')
+# root@srv1 ~ # cat /tmp/foo
+# =&gt; "new changed contentappended"
+</code></pre>
+
+<h3 id="append-to-top">Append to top</h3>
+
+<pre><code>server.append('---', '/tmp/foo', :top)
+# root@srv1 ~ # append to 'top' in '/tmp/foo'
+
+server.read('/tmp/foo')
+# root@srv1 ~ # cat /tmp/foo
+# =&gt; "---new changed contentappended"
+</code></pre>
+
+<h3 id="prompt">Prompt</h3>
+
+<pre><code>server.ask "Please choose"
+# root@srv1 ~ # Please choose: foo
+# =&gt; "foo"
+
+server.yes? "Do you want to proceed"
+# root@srv1 ~ # Do you want to proceed? (y/n): y
+# =&gt; 0
+
+server.wait
+# Press ENTER to continue...
+</code></pre>

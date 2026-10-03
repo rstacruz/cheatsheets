@@ -1,0 +1,16 @@
+<h3 class="-intro" id="about">About</h3>
+
+<p>Use <code>perl</code> to search and replace across many files.</p>
+
+<h3 id="search-and-replace">Search and replace</h3>
+
+<pre><code class="language-sh">perl -p -i -e 's/hello/hola/g' *.txt
+</code></pre>
+
+<h3 id="back-referencing">Back-referencing</h3>
+
+<p>Use <code>\1</code> et al.</p>
+
+<pre><code class="language-sh"># '@include align-items(center);' =&gt; 'align-items: center;'
+perl -p -i -e "s/\@include (align-items)\((.*)\);/\1: \2;/g"
+</code></pre>

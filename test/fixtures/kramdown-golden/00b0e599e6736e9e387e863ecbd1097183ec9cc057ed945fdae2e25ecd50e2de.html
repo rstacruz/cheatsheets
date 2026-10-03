@@ -1,0 +1,74 @@
+<h3 class="-prime" id="usage">Usage</h3>
+
+<pre><code class="language-bash">find &lt;path&gt; &lt;conditions&gt; &lt;actions&gt;
+</code></pre>
+
+<h3 id="conditions">Conditions</h3>
+
+<pre><code class="language-bash">-name "*.c"
+</code></pre>
+
+<pre><code class="language-bash">-user jonathan
+-nouser
+</code></pre>
+
+<pre><code class="language-bash">-type f            # File
+-type d            # Directory
+-type l            # Symlink
+</code></pre>
+
+<pre><code class="language-bash">-depth 2           # At least 3 levels deep
+-regex PATTERN
+</code></pre>
+
+<pre><code class="language-bash">-size 8            # Exactly 8 512-bit blocks 
+-size -128c        # Smaller than 128 bytes
+-size 1440k        # Exactly 1440KiB
+-size +10M         # Larger than 10MiB
+-size +2G          # Larger than 2GiB
+</code></pre>
+
+<pre><code class="language-bash">-newer   file.txt
+-newerm  file.txt        # modified newer than file.txt
+-newerX  file.txt        # [c]hange, [m]odified, [B]create
+-newerXt "1 hour ago"    # [t]imestamp
+</code></pre>
+
+<h3 id="access-time-conditions">Access time conditions</h3>
+
+<pre><code class="language-bash">-atime 0           # Last accessed between now and 24 hours ago
+-atime +0          # Accessed more than 24 hours ago
+-atime 1           # Accessed between 24 and 48 hours ago
+-atime +1          # Accessed more than 48 hours ago
+-atime -1          # Accessed less than 24 hours ago (same a 0)
+-ctime -6h30m      # File status changed within the last 6 hours and 30 minutes
+-mtime +1w         # Last modified more than 1 week ago
+</code></pre>
+
+<p>These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).</p>
+
+<h3 id="condition-flow">Condition flow</h3>
+
+<pre><code class="language-bash">\! -name "*.c" # NOT named "*.c"
+\( x -or y \)
+</code></pre>
+
+<h3 id="actions">Actions</h3>
+
+<pre><code class="language-bash">-exec rm {} \;
+-print
+-delete
+</code></pre>
+
+<h3 id="examples">Examples</h3>
+
+<pre><code class="language-bash">find . -name '*.jpg'
+find . -name '*.jpg' -exec rm {} \;
+</code></pre>
+
+<pre><code class="language-bash">find . -newerBt "24 hours ago"
+</code></pre>
+
+<pre><code class="language-bash">find . -type f -mtime +29 # find files modified more than 30 days ago
+find . -type f -newermt 2016-08-07 \! -newermt 2016-08-08 # find in date range
+</code></pre>

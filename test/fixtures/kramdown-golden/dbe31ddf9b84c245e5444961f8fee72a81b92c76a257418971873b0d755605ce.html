@@ -1,0 +1,251 @@
+<h2 class="-three-column" id="parsley">Parsley</h2>
+
+<h3 id="installing-via-npm">Installing via NPM</h3>
+
+<pre><code>npm install --save parsleyjs
+</code></pre>
+
+<p><a href="https://www.npmjs.com/package/parsleyjs">parsleyjs</a> is the Parsley form validator. (‘parsley’ is a different package)</p>
+
+<h3 id="enabling">Enabling</h3>
+
+<h4 id="via-html">via HTML</h4>
+
+<pre><code class="language-html">&lt;form data-parsley-validate&gt;
+&lt;!-- ✗ not preferred --&gt;
+</code></pre>
+
+<h4 id="via-javascript">via JavaScript</h4>
+
+<pre><code class="language-js">$('#form').parsley(/* options */)
+</code></pre>
+
+<p>It’s preferable to explicitly call <code>$.fn.parsley()</code>.</p>
+
+<h3 id="api">API</h3>
+
+<h4 id="form">Form</h4>
+
+<pre><code class="language-js">$('#myform').parsley()
+  .isValid()  // → true | null
+  .validate()
+  .reset()
+  .destroy()
+</code></pre>
+
+<h4 id="input">Input</h4>
+
+<pre><code class="language-js">$('#myform input').parsley()
+  .isValid()
+  .validate() // returns errors
+</code></pre>
+
+<h3 id="validators">Validators</h3>
+
+<pre><code class="language-html">&lt;input ...&gt;
+</code></pre>
+
+<h4 id="required">Required</h4>
+
+<pre><code class="language-html">  required
+</code></pre>
+
+<h4 id="types">Types</h4>
+
+<pre><code class="language-html">  type='email'
+</code></pre>
+
+<pre><code class="language-html">  type='url'
+  data-parsley-type='url'
+</code></pre>
+
+<h4 id="length">Length</h4>
+
+<pre><code class="language-html">  maxlength='6'
+  data-parsley-maxlength='6'
+  minlength='10'
+  data-parsley-minlength='10'
+</code></pre>
+
+<h4 id="numeric">Numeric</h4>
+
+<pre><code class="language-html">  pattern='\d+'
+  data-parsley-pattern='\d+'
+</code></pre>
+
+<pre><code class="language-html">  type='number'
+  data-parsley-type='number'
+  data-parsley-type='integer'
+  data-parsley-type='digits'
+  data-parsley-type='alphanum'
+</code></pre>
+
+<h4 id="range">Range</h4>
+
+<pre><code class="language-html">  type='range'
+  data-parsley=range='[6, 10]'
+</code></pre>
+
+<pre><code class="language-html">  max='10'
+  data-parsley-max='10'
+  min='6'
+  data-parsley-min='6'
+</code></pre>
+
+<h4 id="checkboxes">Checkboxes</h4>
+
+<pre><code class="language-html">  data-parsley-mincheck='1'
+  data-parsley-maxcheck='3'
+  data-parsley-check='[1, 3]'
+</code></pre>
+
+<h4 id="confirmation">Confirmation</h4>
+
+<pre><code class="language-html">  data-parsley-equalto='#confirm'
+</code></pre>
+
+<h2 id="options">Options</h2>
+
+<h3 id="form-options">Form options</h3>
+
+<pre><code class="language-js">// Supported &amp; excluded inputs by default
+  inputs: 'input, textarea, select'
+  excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden]'
+</code></pre>
+
+<pre><code class="language-js">// Stop validating field on highest priority failing constraint
+  priorityEnabled: true
+</code></pre>
+
+<p>See: <a href="http://parsleyjs.org/doc/annotated-source/defaults.html">Options</a></p>
+
+<h3 id="field-options">Field options</h3>
+
+<pre><code class="language-js">// identifier used to group together inputs
+// (e.g. radio buttons…)
+  multiple: null
+</code></pre>
+
+<pre><code class="language-js">// identifier (or array of identifiers) used to
+// validate only a select group of inputs
+  group: null
+</code></pre>
+
+<p>These options are only available for fields.</p>
+
+<h3 id="ui-options">UI Options</h3>
+
+<pre><code class="language-js">// Enable/disable error messages
+  uiEnabled: true
+</code></pre>
+
+<pre><code class="language-js">// Key events threshold before validation
+  validationThreshold: 3
+</code></pre>
+
+<pre><code class="language-js">// Focused field on form validation error. ‘first’|’last’|’none’
+  focus: 'first'
+</code></pre>
+
+<pre><code class="language-js">// $.Event() that will trigger validation. eg: keyup, change…
+  trigger: false
+</code></pre>
+
+<pre><code class="language-js">// Class that would be added on every failing validation
+// Parsley field
+  errorClass: 'parsley-error'
+  successClass: 'parsley-success'
+</code></pre>
+
+<pre><code class="language-js">// Return the $element that will receive these above
+// success or error classes. Could also be (and given
+// directly from DOM) a valid selector like '#div'
+  classHandler: function (ParsleyField) {}
+</code></pre>
+
+<pre><code class="language-js">// Return the $element where errors will be appended.
+// Could also be (and given directly from DOM) a valid
+// selector like '#div'
+  errorsContainer: function (ParsleyField) {}
+</code></pre>
+
+<pre><code class="language-js">// ul elem that would receive errors’ list
+  errorsWrapper: '&lt;ul class="parsley-errors-list"&gt;&lt;/ul&gt;'
+</code></pre>
+
+<pre><code class="language-js">// li elem that would receive error message
+  errorTemplate: '&lt;li&gt;&lt;/li&gt;'
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="custom-container">Custom container</h3>
+
+<pre><code class="language-js">$('[data-parsley]').parsley({
+  errorsContainer (field) {
+    return field.$element.closest('.block, .control')
+  }
+})
+</code></pre>
+
+<p>Appends the error to the closest <code>.block</code> or <code>.control</code>.</p>
+
+<h3 id="custom-markup">Custom markup</h3>
+
+<pre><code class="language-js">$('[data-parsley]').parsley({
+  errorClass: '-error',
+  successClass: '-success',
+
+  errorsWrapper: '&lt;ul class="parsley-error-list"&gt;&lt;/ul&gt;',
+  errorTemplate: '&lt;li class="parsley-error"&gt;&lt;/li&gt;'
+})
+</code></pre>
+
+<p>Uses custom markup.</p>
+
+<h3 id="custom-fields">Custom fields</h3>
+
+<pre><code class="language-js">$('[data-parsley]').parsley({
+  classHandler (field) {
+    const $parent = field.$element.closest('.input-group')
+    if ($parent.length) return $parent
+
+    return field.$element
+  }
+})
+</code></pre>
+
+<p>Applies the <code>errorClass</code> and <code>successClass</code> to the closest <code>.input-group</code>, if available.</p>
+
+<h3 id="custom-validator">Custom validator</h3>
+
+<h4 id="html">HTML</h4>
+
+<pre><code class="language-html">&lt;input type='text' data-parsley-multiple-of='3' /&gt;
+</code></pre>
+
+<h4 id="javascript">JavaScript</h4>
+
+<pre><code class="language-js">window.Parsley
+  .addValidator('multipleOf', {
+    // string | number | integer | date | regexp | boolean
+    requirementType: 'integer',
+
+    // validateString | validateDate | validateMultiple
+    validateNumber (value, requirement) {
+      return 0 === value % requirement
+    },
+
+    messages: {
+      en: 'This value should be a multiple of %s'
+    }
+  })
+</code></pre>
+
+<p>See: <a href="http://parsleyjs.org/doc/index.html#custom">Custom validators</a></p>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="http://parsleyjs.org/doc/">Parsley documentation</a> <em>(parsleyjs.org)</em></li>
+</ul>

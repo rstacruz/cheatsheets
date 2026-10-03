@@ -1,0 +1,129 @@
+<h3 id="relaxing">Relaxing</h3>
+
+<p class="-setup">Enable these options to <em>not</em> throw errors in these conditions.
+See: <a href="https://www.jshint.com/docs/options/#relaxing-options">Relaxing</a></p>
+
+<pre><code class="language-js">/* jshint asi: true */
+allow()
+missing_semicolons()
+</code></pre>
+
+<pre><code class="language-js">/* jshint boss: true */
+if (m = str.match(/.../))
+</code></pre>
+
+<pre><code class="language-js">/* jshint debug: true */
+debugger;
+</code></pre>
+
+<pre><code class="language-js">/* jshint eqnull: true */
+if (x == null)
+</code></pre>
+
+<pre><code class="language-js">/* jshint evil: true */
+eval('...')
+</code></pre>
+
+<pre><code class="language-js">/* jshint expr: true */
+production &amp;&amp; minify = true;
+div.innerWidth;
+expect(x).be.true;
+</code></pre>
+
+<pre><code class="language-js">/* jshint laxcomma: true */
+var one = 1
+  , two = 2;
+</code></pre>
+
+<pre><code class="language-js">/* jshint loopfunc: true */
+for (i=0; i&lt;10; x++) {
+  (function(i) { ... })(i);
+}
+</code></pre>
+
+<pre><code class="language-js">/* jshint sub: true */
+process.env['name_here']
+</code></pre>
+
+<pre><code class="language-js">/* jshint strict: "global" */
+"use strict";
+</code></pre>
+
+<h3 id="enforcing">Enforcing</h3>
+
+<p class="-setup">Enable these options to catch more errors.
+See: <a href="https://www.jshint.com/docs/options/#enforcing-options">Enforcing</a></p>
+
+<pre><code class="language-js">/* jshint curly: true */
+while (day)                     // err: use { }'s
+  shuffle();
+</code></pre>
+
+<pre><code class="language-js">/* jshint eqeqeq: true */
+if (a == null)                  // err: use ===
+</code></pre>
+
+<pre><code class="language-js">/* jshint es3: true */
+// ...for legacy IE compatibility
+a.default = function() { ... }; // err: reserved word
+array = [ 1, 2, 3, ];           // err: extra comma
+</code></pre>
+
+<pre><code class="language-js">/* jshint forin: true */
+for (key in obj) { ... }        // err: check obj.hasOwnProperty(key)
+</code></pre>
+
+<pre><code class="language-js">/* jshint freeze: true */
+Array.prototype.count = ...;    // err: don't modify native prototypes
+</code></pre>
+
+<pre><code class="language-js">/* jshint indent: 4 */
+if (x) {                        // err: expected indent of 4, found 2
+  ...;
+}
+</code></pre>
+
+<pre><code class="language-js">/* jshint quotmark: single */
+/* jshint quotmark: double */
+alert("hi");                    // err: only single allowed
+</code></pre>
+
+<pre><code class="language-js">/* jshint strict: true */
+function() { ... }              // err: need "use strict"
+</code></pre>
+
+<pre><code class="language-js">/* jshint white: true, indent: 4 */
+/* jshint maxdepth: 2 */
+/* jshint maxparams: 3 */
+/* jshint maxstatements: 4 */
+/* jshint maxcomplexity: 5 */
+/* jshint maxlen: 80 */
+</code></pre>
+
+<h3 id="ignore">Ignore</h3>
+
+<pre><code class="language-js">/* jshint ignore:start */
+/* jshint ignore:end */
+</code></pre>
+
+<h3 id="globals-and-environments">Globals and Environments</h3>
+
+<pre><code class="language-js">/* jshint undef: true */
+/* global jQuery */
+/* global -BAD_LIB */
+</code></pre>
+
+<pre><code class="language-js">/* jshint devel: true */   console, alert, ...
+/* jshint browser: true */ window, document, location, ...
+/* jshint node: true */    module, exports, console, process, ...
+/* jshint jquery: true */  jQuery, $
+</code></pre>
+
+<p>See: <a href="https://www.jshint.com/docs/options/#environments">Environments</a></p>
+
+<h3 id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="https://www.jshint.com/docs/options/">https://www.jshint.com/docs/options/</a></li>
+  <li><a href="https://gist.github.com/haschek/2595796">https://gist.github.com/haschek/2595796</a></li>
+</ul>

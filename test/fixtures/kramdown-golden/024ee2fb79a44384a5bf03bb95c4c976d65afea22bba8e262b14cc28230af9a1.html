@@ -1,0 +1,144 @@
+<h3 class="-intro" id="about">About</h3>
+
+<p>Riot is a UI library for JavaScript.</p>
+
+<ul>
+  <li><a href="https://riot.js.org/">https://riot.js.org/</a></li>
+</ul>
+
+<h3 id="tags">Tags</h3>
+
+<pre><code class="language-js">/* tag-name.tag */
+&lt;tag-name&gt;
+  &lt;div&gt;
+    hello {name}
+  &lt;/div&gt;
+
+  this.name = opts.name
+&lt;/tag-name&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- in html --&gt;
+&lt;tag-name&gt;
+&lt;script&gt;riot.mount('*')&lt;/script&gt;
+&lt;script&gt;riot.mount('tag-name')&lt;/script&gt;
+&lt;script&gt;riot.mount('tag-name', { title: 'my app', ... })&lt;/script&gt;
+</code></pre>
+
+<h3 id="expressions">Expressions</h3>
+
+<pre><code>{value}
+{value || 'its a js expression'}
+
+&lt;input checked={null}&gt;   /* null values ignore the tag */
+&lt;p class={ selected: true }&gt;
+</code></pre>
+
+<h3 id="loops">Loops</h3>
+
+<pre><code>&lt;li each={movies}&gt;{title}&lt;/li&gt;
+</code></pre>
+
+<h3 id="conditional">Conditional</h3>
+<pre><code>&lt;div if={error}&gt;
+&lt;div show={error}&gt; /* show using display: '' */
+&lt;div hide={error}&gt; /* hide using display: none */
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-js">&lt;button onclick={go}&gt;
+
+this.go = function (e) { ... }
+</code></pre>
+
+<h2 id="api">API</h2>
+
+<pre><code class="language-js">this.update()
+this.update({ data: 'hi' }
+
+this.unmount()
+this.unmount(true) // keep parent tag
+
+riot.update() // update all
+</code></pre>
+
+<h2 id="nesting">Nesting</h2>
+
+<h3 id="nesting-1">Nesting</h3>
+
+<pre><code>&lt;my-tag&gt;
+  &lt;child&gt;&lt;/child&gt;
+  var child = this.tags.child
+&lt;/my-tag&gt;
+</code></pre>
+
+<h3 id="names">Names</h3>
+
+<pre><code>&lt;my-tag&gt;
+  &lt;child name='xyz'&gt;&lt;/child&gt;
+  var child = this.tags.xyz
+&lt;/my-tag&gt;
+</code></pre>
+
+<h2 id="nested-html">Nested HTML</h2>
+
+<h3 id="yield">Yield</h3>
+
+<pre><code class="language-js">&lt;yield/&gt;
+</code></pre>
+
+<h3 id="yield-tofrom">Yield to/from</h3>
+
+<pre><code class="language-js">&lt;post&gt;
+  &lt;yield to='title'&gt;Hello&lt;/yield&gt;
+  &lt;yield to='body'&gt;Hey there world&lt;/yield&gt;
+&lt;/post&gt;
+</code></pre>
+
+<pre><code class="language-js">&lt;post&gt;
+  &lt;yield from='title'/&gt;
+  &lt;yield from='body'/&gt;
+&lt;/post&gt;
+</code></pre>
+
+<h2 id="router">Router</h2>
+
+<pre><code class="language-js">riot.route('customers/*/edit', (id) =&gt; {
+})
+riot.route('customers/234/edit')
+riot.route.start()
+riot.route.start(true) // exec the current url
+</code></pre>
+
+<h2 id="lifecycle">Lifecycle</h2>
+
+<pre><code class="language-js">this.on('before-mount', function() {
+// before the tag is mounted
+})
+
+this.on('mount', function() {
+// right after the tag is mounted on the page
+})
+
+this.on('update', function() {
+// allows recalculation of context data before the update
+})
+
+this.on('updated', function() {
+// right after the tag template is updated
+})
+
+this.on('before-unmount', function() {
+// before the tag is removed
+})
+
+this.on('unmount', function() {
+// when the tag is removed from the page
+})
+
+// curious about all events ?
+this.on('all', function(eventName) {
+console.info(eventName)
+})
+</code></pre>

@@ -1,0 +1,119 @@
+<h3 id="example">Example</h3>
+
+<pre><code class="language-jade">doctype html
+html
+  head
+    title Slim Examples
+    meta[charset='utf-8']
+    meta(name="keywords" content="template language")
+    meta name="author" content=author
+    meta property='og:image' content=asset_url('foo.png')
+    meta property='og:image' content=(path_to_user user)
+    meta(
+      property='description'
+      content='this is the song that never ends')
+</code></pre>
+
+<h3 id="attributes">Attributes</h3>
+
+<pre><code class="language-jade">meta[charset='utf-8']
+meta(name="keywords" content="template language")
+meta name="author" content=author
+</code></pre>
+
+<p>You can use parentheses, brackets, or none at all.</p>
+
+<h3 id="ruby-attributes">Ruby attributes</h3>
+
+<pre><code class="language-jade">a class=[:menu,:highlight]
+</code></pre>
+
+<p>You can use Ruby expressions in attributes.</p>
+
+<h3 id="hash-attributes">Hash attributes</h3>
+
+<pre><code class="language-jade">.card *{'data-url' =&gt; place_path(place)}
+</code></pre>
+
+<p>You can destructure Ruby hashes as attributes.</p>
+
+<h3 id="inline-ruby">Inline Ruby</h3>
+
+<pre><code class="language-jade">ruby:
+  def foobar
+    "hello"
+  end
+
+div= foobar
+</code></pre>
+
+<h3 id="inline-markdown">Inline Markdown</h3>
+
+<pre><code class="language-jade">markdown:
+  ### On Markdown
+
+  I am *Markdown* _text_!
+  {: .classname}
+</code></pre>
+
+<p>Slim can handle your <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> content for longer content blocks or <code>code</code>.
+Depending on your parser, like <a href="https://kramdown.gettalong.org/quickref.html">Kramdown</a>, other features might work, like assigning attributes or classes.</p>
+
+<h3 id="embedded-javascript">Embedded JavaScript</h3>
+
+<pre><code class="language-jade">javascript:
+  alert('Slim supports embedded javascript!')
+</code></pre>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code class="language-jade">/ Comment
+/! HTML comment
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="language-jade">== yield
+= t('.hello')
+- 3.times do |i|
+  div
+</code></pre>
+
+<h3 id="verbatim-text">Verbatim text</h3>
+
+<pre><code class="language-jade">div
+  | This is text
+    it is nice
+</code></pre>
+
+<h3 id="advanced-whitespaces">Advanced whitespaces</h3>
+
+<pre><code class="language-jade">div
+  ' This appends a whitespace
+div
+  |  This hackily prepends a whitespace
+div
+  =&gt; 'This appends a whitespace'
+div
+  =&lt; 'This prepends a whitespace'
+</code></pre>
+
+<h3 id="inline-html">Inline HTML</h3>
+
+<pre><code class="language-jade">&lt;div class='foo'&gt;
+  - if articles.empty?
+    | Nothing here
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="inline-tags">Inline tags</h3>
+
+<pre><code class="language-jade">ul
+  li: a(href='/') Home
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://slim-lang.com/">http://slim-lang.com/</a></li>
+</ul>

@@ -1,0 +1,128 @@
+<h3 id="screen-sizes">Screen sizes</h3>
+
+<pre><code>         768          992                1200
+'     '     '     '     '     '     '     '     '
+&lt;---------^------------^------------------^---------&gt;
+     xs         sm              md             lg
+   (phone)   (tablet)        (laptop)       (desktop)
+</code></pre>
+
+<p>Min:</p>
+
+<pre><code class="language-scss">@media (min-width: @screen-sm-min) // &gt;= 768px (small tablet)
+@media (min-width: @screen-md-min) // &gt;= 992px (medium laptop)
+@media (min-width: @screen-lg-min) // &gt;= 1200px (large desktop)
+</code></pre>
+
+<p>Max:</p>
+
+<pre><code class="language-scss">@media (max-width: @screen-xs-max) { // &lt; 768px (xsmall phone)
+@media (max-width: @screen-sm-max) { // &lt; 992px (small tablet)
+@media (max-width: @screen-md-max) { // &lt; 1200px (medium laptop)
+</code></pre>
+
+<h3 id="columns">Columns</h3>
+
+<pre><code class="language-scss">.container
+.container-fluid
+</code></pre>
+
+<pre><code class="language-scss">.col-xs-1
+.col-sm-1
+.col-md-1
+.col-lg-1
+.col-md-offset-1
+</code></pre>
+
+<p>Mixins:</p>
+
+<pre><code class="language-scss">@include make-xs-column(12);
+@include make-sm-column(6);
+@include make-md-column(3);
+@include make-lg-column(3);
+</code></pre>
+
+<pre><code class="language-scss">@include make-sm-column-offset(1);
+@include make-sm-column-push(1);
+@include make-sm-column-pull(1);
+</code></pre>
+
+<h3 id="utilities">Utilities</h3>
+
+<pre><code class="language-scss">.pull-left
+.pull-right
+</code></pre>
+
+<pre><code class="language-scss">.hidden-{xs,sm,md,lg}
+.visible-{xs,sm,md,lg}
+.visible-{xs,sm,md,lg,print}-{block,inline,inline-block}
+</code></pre>
+
+<pre><code class="language-scss">.center-block  /* margin: auto */
+.clearfix
+.text-{center,left,right,justify,nowrap}
+.text-{lowercase,uppercase,capitalize}
+</code></pre>
+
+<pre><code class="language-scss">.show
+.hidden
+</code></pre>
+
+<h3 id="modal">Modal</h3>
+
+<pre><code class="language-html">&lt;a data-toggle='modal' data-target='#new'&gt;
+</code></pre>
+
+<pre><code class="language-haml">#new.modal.fade(role='dialog')
+  .modal-dialog // .modal-lg, .modal-sm
+    .modal-content
+      .modal-header
+        %h4.modal-title hello
+        %button.close{type: 'button', data: { dismiss: 'modal' }}
+          %span{'aria-hidden' =&gt; true}!= "&amp;times;"
+          %span.sr-only Close
+      .modal-body
+        ...
+      .modal-footer
+        ...
+</code></pre>
+
+<h3 id="modal-via-ajax-rails">Modal via ajax (Rails)</h3>
+
+<pre><code class="language-haml">%button.btn{data: { |
+  toggle: 'modal', |
+  target: '#chooseTheme', |
+  remote: '/path/to/remote'}
+  Change Theme
+</code></pre>
+
+<pre><code class="language-haml">.modal.fade#chooseTheme
+  .modal-dialog.modal-xl
+    .modal-content
+      .modal-header
+        %h4.modal-title Choose a theme
+
+      .modal-body
+        .spinner-panel.-lg
+          %i
+</code></pre>
+
+<h3 id="tooltip">Tooltip</h3>
+
+<pre><code class="language-html">&lt;span
+  data-toggle='tooltip'
+  title='tooltip'
+  data-placement='left|top|bottom|right'&gt;
+</code></pre>
+
+<pre><code class="language-js">$(function () {
+  $('[data-toogle~="tooltip"]').tooltip()
+})
+</code></pre>
+
+<h3 id="input-groups">Input groups</h3>
+
+<pre><code class="language-haml">.input-group
+    input.form-control(type='text')
+    .input-group-addon years
+</code></pre>

@@ -1,0 +1,95 @@
+<h3 id="install-ansible">Install Ansible</h3>
+
+<pre><code class="language-bash">$ brew install ansible            # OSX
+$ [sudo] apt install ansible      # elsewhere
+</code></pre>
+
+<p>Ansible is available as a package in most OS’s.</p>
+
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_installation.html">Installation</a></p>
+
+<h3 id="start-your-project">Start your project</h3>
+
+<pre><code class="language-bash">~$ mkdir setup
+~$ cd setup
+</code></pre>
+
+<p>Make a folder for your Ansible files.</p>
+
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_getting_started.html">Getting started</a></p>
+
+<h2 id="creating-your-files">Creating your files</h2>
+
+<h3 id="inventory-file">Inventory file</h3>
+
+<h4 id="setuphosts">~/setup/hosts</h4>
+
+<pre><code class="language-dosini">[sites]
+127.0.0.1
+192.168.0.1
+192.168.0.2
+192.168.0.3
+</code></pre>
+
+<p>This is a list of hosts you want to manage, grouped into groups. (Hint: try
+using <code>localhost ansible_connection=local</code> to deploy to your local machine.)</p>
+
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_inventory.html">Intro to Inventory</a></p>
+
+<h3 id="playbook">Playbook</h3>
+
+<h4 id="setupplaybookyml">~/setup/playbook.yml</h4>
+
+<pre><code class="language-yaml">- hosts: 127.0.0.1
+  user: root
+  tasks:
+    - name: install nginx
+      apt: pkg=nginx state=present
+
+    - name: start nginx every bootup
+      service: name=nginx state=started enabled=yes
+
+    - name: do something in the shell
+      shell: echo hello &gt; /tmp/abc.txt
+
+    - name: install bundler
+      gem: name=bundler state=latest
+</code></pre>
+
+<p>See: <a href="http://docs.ansible.com/ansible/latest/playbooks_intro.html">Intro to Playbooks</a></p>
+
+<h2 id="running">Running</h2>
+
+<h3 id="running-ansible-playbook">Running ansible-playbook</h3>
+
+<pre><code>~/setup$ ls
+hosts
+playbook.yml
+</code></pre>
+
+<h4 id="running-the-playbook">Running the playbook</h4>
+
+<pre><code>~/setup$ ansible-playbook -i hosts playbook.yml
+PLAY [all] ********************************************************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [install nginx] *********************************************************
+ok: [127.0.0.1]
+
+TASK: start nginx every bootup] ***********************************************
+ok: [127.0.0.1]
+...
+</code></pre>
+
+<h2 id="read-more">Read more</h2>
+
+<ul>
+  <li><a href="http://lowendbox.com/blog/getting-started-with-ansible/">Getting started with Ansible</a> <em>(lowendbox.com)</em></li>
+  <li><a href="http://docs.ansible.com/ansible/latest/intro_getting_started.html">Getting started</a> <em>(docs.ansible.com)</em></li>
+  <li><a href="http://docs.ansible.com/ansible/latest/intro_inventory.html">Intro to Inventory</a> <em>(docs.ansible.com)</em></li>
+  <li><a href="http://docs.ansible.com/ansible/latest/playbooks_intro.html">Intro to Playbooks</a> <em>(docs.ansible.com)</em></li>
+  <li><a href="https://spacelift.io/blog/ansible-tutorial">Ansible Tutorial for Beginners: Playbook &amp; Examples</a> <em>(spacelift.io)</em></li>
+  <li><a href="https://spacelift.io/blog/ansible-playbooks">Working with Ansible Playbooks – Tips &amp; Tricks with Examples</a> <em>(spacelift.io)</em></li>
+</ul>

@@ -1,0 +1,79 @@
+<h3 id="usage">Usage</h3>
+
+<pre><code class="language-vim">:Unite file
+:Unite file_rec/async:!
+:Unite tag
+:Unite buffer
+</code></pre>
+
+<h3 id="sources">Sources</h3>
+
+<ul>
+  <li><code>file/new</code></li>
+  <li><code>file/async</code></li>
+  <li><code>file_rec/async</code></li>
+  <li><code>file_rec/git</code></li>
+  <li><code>buffer</code></li>
+  <li><code>buffer_tab</code> (current tab only)</li>
+  <li><code>tab</code></li>
+  <li><code>register</code></li>
+  <li><code>bookmark</code></li>
+  <li><code>source</code></li>
+</ul>
+
+<h3 id="options">Options</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-start-insert</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-no-quit</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-winheight=10</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-quick-match</code></td>
+      <td>select by pressing asdf keys</td>
+    </tr>
+    <tr>
+      <td><code>-winwidth=40</code></td>
+      <td>use with vertical</td>
+    </tr>
+    <tr>
+      <td><code>-no-split</code></td>
+      <td>open in current buffer</td>
+    </tr>
+    <tr>
+      <td><code>-auto-preview</code></td>
+      <td>great for outline</td>
+    </tr>
+    <tr>
+      <td><code>-vertical</code></td>
+      <td>open as sidebar</td>
+    </tr>
+    <tr>
+      <td><code>-buffer-name=xxx -resume</code></td>
+      <td>resume the next time it’s called (faster)</td>
+    </tr>
+    <tr>
+      <td><code>-input=</code></td>
+      <td>reset input (use with -resume)</td>
+    </tr>
+    <tr>
+      <td><code>-unique</code></td>
+      <td>remove duplicates (eg, if using <code>file_rec</code> with <code>file_mru</code>)</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,194 @@
+<h2 class="-three-column" id="quick-start-guide">Quick-start guide</h2>
+
+<h3 class="-prime" id="getting-started">Getting started</h3>
+
+<h4 id="javascript">JavaScript</h4>
+
+<pre><code class="language-js">import { Component, Prop, State } from '@stencil/core'
+
+@Component({
+  tag: 'my-component',
+  styleUrl: 'my-component.scss'
+})
+export class MyComponent {
+  @Prop() name: string
+  @State() isVisible: boolean = true
+
+  render () {
+    return &lt;p&gt;I am {this.name}!&lt;/p&gt;
+    )
+  }
+}
+</code></pre>
+
+<h4 id="html">HTML</h4>
+
+<pre><code class="language-html">&lt;my-component name='Groot' /&gt;
+</code></pre>
+
+<p>That’s the same example in the <a href="https://github.com/ionic-team/stencil">Readme</a>, that’s as simple as you can get! Just use <code>&lt;my-component&gt;</code> like you would use any other HTML tag.</p>
+
+<h3 id="dom-events">DOM events</h3>
+
+<pre data-line="5,10,11"><code class="language-js">export class MyComponent {
+  render () {
+    return (
+      &lt;input
+        onChange={(event: UIEvent) =&gt; this.inputChanged(event)}
+      /&gt;
+    )
+  }
+
+  inputChanged (event) {
+    console.log('input changed:', event.target.value)
+  }
+}
+</code></pre>
+
+<p>Stencil uses DOM events.</p>
+
+<p>See: <a href="https://stenciljs.com/docs/templating/#handling-user-input">Handling user input</a></p>
+
+<h3 id="multiple-children">Multiple children</h3>
+
+<pre data-line="3,4"><code class="language-js">render () {
+  return [
+    &lt;h1&gt;Hello there&lt;/h1&gt;,
+    &lt;p&gt;This component returns multiple nodes&lt;/p&gt;
+  ]
+}
+</code></pre>
+
+<p><code>render()</code> can return an array of elements.</p>
+
+<p>See: <a href="https://stenciljs.com/docs/templating#complex-template-content">Complex template content</a></p>
+
+<h2 id="state">State</h2>
+
+<h3 id="managing-state">Managing state</h3>
+
+<pre data-line="4,5"><code class="language-js">export class MyComponent {
+  @State() isVisible: boolean
+
+  show () {
+    this.isVisible = true
+  }
+}
+</code></pre>
+
+<p>Just do assignments. You can’t do mutations though, see next section.</p>
+
+<p>See: <a href="https://stenciljs.com/docs/decorators#managing-component-state">Managing component state</a></p>
+
+<h3 id="updating-arrays-and-objects">Updating arrays and objects</h3>
+
+<h4 id="-bad">✗ Bad</h4>
+<pre><code class="language-js">this.names.push('Larry')  // ⚠️
+this.options.show = true  // ⚠️
+</code></pre>
+
+<h4 id="-ok">✓ OK</h4>
+
+<pre><code class="language-js">this.names = [ ...this.names, 'Larry' ]
+this.options = { ...this.options, show: true }
+</code></pre>
+
+<p>Mutable operations such as <code>push()</code> won’t work. You’ll need to assign a new copy.</p>
+
+<p>See: <a href="https://stenciljs.com/docs/reactive-data/#updating-arrays">Updating arrays</a></p>
+
+<h2 id="slots">Slots</h2>
+
+<h3 id="using-slot">Using slot</h3>
+
+<pre data-line="2"><code class="language-html">&lt;my-component&gt;
+  &lt;span&gt;Hello, friends&lt;/span&gt;
+&lt;/my-component&gt;
+</code></pre>
+
+<h4 id="component">Component</h4>
+
+<pre data-line="2"><code class="language-js">render() {
+  return &lt;h1&gt;&lt;slot /&gt;&lt;/h1&gt;
+}
+</code></pre>
+
+<p>You can pass JSX/HTML as child elements. Use the <code>slot</code> tag to use them inside your component.</p>
+
+<p>See: <a href="https://stenciljs.com/docs/templating#slots">Slots</a></p>
+
+<h3 id="multiple-slots">Multiple slots</h3>
+
+<pre data-line="2,3"><code class="language-html">&lt;my-component&gt;
+  &lt;p slot='my-header'&gt;Hello&lt;/p&gt;
+  &lt;p slot='my-footer'&gt;Thanks&lt;/p&gt;
+&lt;/my-component&gt;
+</code></pre>
+
+<h4 id="component-1">Component</h4>
+
+<pre data-line="3,4"><code class="language-js">render () {
+  return &lt;div&gt;
+    &lt;header&gt;&lt;slot name='my-header' /&gt;&lt;/header&gt;
+    &lt;footer&gt;&lt;slot name='my-footer' /&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+}
+</code></pre>
+
+<p>See: <a href="https://stenciljs.com/docs/templating#slots">Slots</a></p>
+
+<h2 id="lifecycle">Lifecycle</h2>
+
+<h3 id="lifecycle-hooks">Lifecycle hooks</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>componentWillLoad()</code></td>
+      <td>Before rendering</td>
+    </tr>
+    <tr>
+      <td><code>componentDidLoad()</code></td>
+      <td>After rendering</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>componentWillUpdate()</code></td>
+      <td>Before updating</td>
+    </tr>
+    <tr>
+      <td><code>componentDidUpdate()</code></td>
+      <td>After updating</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>componentDidUnload()</code></td>
+      <td>After unmounting</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="https://stenciljs.com/docs/component-lifecycle">Component lifecycle</a></p>
+
+<h3 id="example">Example</h3>
+
+<pre><code class="language-js">export class MyComponent {
+  componentWillUpdate () {
+    console.log('updating')
+  }
+}
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://stenciljs.com/docs/">Stencil docs</a> <em>(stenciljs.com)</em></li>
+</ul>

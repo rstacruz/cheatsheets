@@ -1,0 +1,122 @@
+<h3 id="showing-routes">Showing routes</h3>
+
+<pre><code class="language-sh">mix phx.routes        # 1.3+
+mix phoenix.routes    # 1.2 and below
+</code></pre>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/Mix.Tasks.Phoenix.Routes.html">Mix.Tasks.Phoenix.Routes</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="single-routes">Single routes</h3>
+
+<pre><code class="language-elixir">get "/", PageController, :index
+</code></pre>
+
+<p>Also: <code>put</code> <code>post</code> <code>patch</code> <code>options</code> <code>delete</code> <code>head</code></p>
+
+<h3 id="resources">Resources</h3>
+
+<pre><code class="language-elixir">resources "/users", UserController
+resources "/users", UserController, only: [:index, :show]
+resources "/users", UserController, except: [:delete]
+</code></pre>
+
+<pre><code class="language-elixir">resources "/users", UserController,
+  as: :person    # helper name (person_path)
+  name: :person  # ...?
+  param: :id     # name of parameter for this resource
+</code></pre>
+
+<p>Generates these routes:</p>
+
+<table class="-left-align">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Path</th>
+      <th>Helper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td><code>/users</code></td>
+      <td><code>user_path(:index)</code></td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td><code>/users/new</code></td>
+      <td><code>user_path(:new)</code></td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td><code>/users/:id</code></td>
+      <td><code>user_path(:show, user)</code></td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td><code>/users/:id/edit</code></td>
+      <td><code>user_path(:edit, user)</code></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><code>/users</code></td>
+      <td><code>user_path(:create, user)</code></td>
+    </tr>
+    <tr>
+      <td>PATCH/PUT</td>
+      <td><code>/users/:id</code></td>
+      <td><code>user_path(:update, user)</code></td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td><code>/users/:id</code></td>
+      <td><code>user_path(:delete, user)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html#resources/4">resources/4</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="path-helpers">Path helpers</h3>
+
+<pre><code class="language-elixir">user_path(conn, :index)                 # → /users
+user_path(conn, :show, 17)              # → /users/17
+user_path(conn, :show, %User{id: 17})   # → /users/17
+user_path(conn, :show, 17, admin: true) # → /users/17?admin=true
+</code></pre>
+
+<pre><code class="language-elixir">user_url(conn, :index) # → "http://localhost:4000/users"
+</code></pre>
+
+<pre><code class="language-elixir">MyApp.Router.Helpers.user_path(MyApp.Endpoint, :index)
+</code></pre>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html#module-helpers">Helpers</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="nested-resources">Nested resources</h3>
+
+<pre><code class="language-elixir">resources "/users", UserController do
+  resources "/posts", PostController
+end
+</code></pre>
+
+<pre><code class="language-elixir">user_post_path(:index, 17)     # → /users/17/posts
+user_post_path(:show, 17, 12)  # → /users/17/posts/12
+</code></pre>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html#module-scopes-and-resources">Scopes and resources</a> <em>(hexdocs.pm)</em></p>
+
+<h3 id="scoped-routes">Scoped routes</h3>
+
+<pre><code class="language-elixir">scope "/admin" do
+  pipe_through :browser
+  resources "/reviews", MyApp.Admin.ReviewController
+end
+# reviews_path() -&gt; /admin/reviews
+</code></pre>
+
+<pre><code class="language-elixir">scope "/admin", as: :admin do: ... end
+# admin_reviews_path() -&gt; /admin/reviews
+</code></pre>
+
+<p>See: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html#scope/2">scope/2</a> <em>(hexdocs.pm)</em></p>

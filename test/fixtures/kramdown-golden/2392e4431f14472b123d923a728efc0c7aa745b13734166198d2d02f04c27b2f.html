@@ -1,0 +1,404 @@
+<h3 id="parsing">Parsing</h3>
+
+<pre><code class="language-js">m = moment('2013-03-01', 'YYYY-MM-DD')
+</code></pre>
+
+<p>This parses the given date using the given format. Returns a moment object.</p>
+
+<h3 id="formatting">Formatting</h3>
+
+<pre><code class="language-js">m.format()            // "2013-03-01T00:00:00+01:00"
+m.format('dddd')      // "Friday"
+m.format('MMM Do YY') // "Mar 1st 13"
+m.fromNow()           // "7 years ago"
+m.calendar()          // "03/01/2013"
+</code></pre>
+
+<h3 id="add">Add</h3>
+
+<pre><code class="language-js">m.add(1, 'day')
+m.subtract(2, 'days')
+</code></pre>
+
+<pre><code class="language-js">m.startOf('day')
+m.endOf('day')
+m.startOf('hour')
+</code></pre>
+
+<h3 id="internationalization">Internationalization</h3>
+
+<pre><code class="language-js">.format('L')      // 06/09/2014
+.format('l')      // 6/9/2014
+.format('LL')     // June 9 2014
+.format('ll')     // Jun 9 2014
+.format('LLL')    // June 9 2014 9:32 PM
+.format('lll')    // Jun 9 2014 9:32 PM
+.format('LLLL')   // Monday, June 9 2014 9:32 PM
+.format('llll')   // Mon, Jun 9 2014 9:32 PM
+</code></pre>
+
+<p>See <a href="./datetime">datetime</a> for more.</p>
+
+<h2 class="-three-column" id="formatting-1">Formatting</h2>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="date">Date</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>YYYY-MM-DD</code></td>
+      <td>2014-01-01</td>
+    </tr>
+    <tr>
+      <td><code>dddd, MMMM Do YYYY</code></td>
+      <td>Friday, May 16th 2014</td>
+    </tr>
+    <tr>
+      <td><code>dddd [the] Do [of] MMMM</code></td>
+      <td>Friday the 16th of May</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="time">Time</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>hh:mm a</code></td>
+      <td>12:30 pm</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Used by <a href="http://momentjs.com/docs/#/displaying/">Moment.js</a> and <a href="https://date-fns.org/v1.28.5/docs/format">date-fns/format</a>. Similar to Java <a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
+
+<h3 id="date-1">Date</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Example</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>d</code></td>
+      <td><code>0</code>..<code>6</code></td>
+      <td><strong>Weekday</strong></td>
+    </tr>
+    <tr>
+      <td><code>dd</code></td>
+      <td><code>Su</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>ddd</code></td>
+      <td><code>Sun</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>dddd</code></td>
+      <td><code>Sunday</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>YY</code></td>
+      <td><code>13</code></td>
+      <td><strong>Year</strong></td>
+    </tr>
+    <tr>
+      <td><code>YYYY</code></td>
+      <td><code>2013</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>M</code></td>
+      <td><code>1</code>..<code>12</code> <em>(Jan is 1)</em></td>
+      <td><strong>Month</strong></td>
+    </tr>
+    <tr>
+      <td><code>Mo</code></td>
+      <td><code>1st</code>..<code>12th</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>MM</code></td>
+      <td><code>01</code>..<code>12</code> <em>(Jan is 1)</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>MMM</code></td>
+      <td><code>Jan</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>MMMM</code></td>
+      <td><code>January</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>Q</code></td>
+      <td><code>1</code>..<code>4</code></td>
+      <td><strong>Quarter</strong></td>
+    </tr>
+    <tr>
+      <td><code>Qo</code></td>
+      <td><code>1st</code>..<code>4th</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>D</code></td>
+      <td><code>1</code>..<code>31</code></td>
+      <td><strong>Day</strong></td>
+    </tr>
+    <tr>
+      <td><code>Do</code></td>
+      <td><code>1st</code>..<code>31st</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>DD</code></td>
+      <td><code>01</code>..<code>31</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>DDD</code></td>
+      <td><code>1</code>..<code>365</code></td>
+      <td><strong>Day of year</strong></td>
+    </tr>
+    <tr>
+      <td><code>DDDo</code></td>
+      <td><code>1st</code>..<code>365th</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>DDDD</code></td>
+      <td><code>001</code>..<code>365</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>w</code></td>
+      <td><code>1</code>..<code>53</code></td>
+      <td><strong>Week of year</strong></td>
+    </tr>
+    <tr>
+      <td><code>wo</code></td>
+      <td><code>1st</code>..<code>53rd</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>ww</code></td>
+      <td><code>01</code>..<code>53</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="time-1">Time</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Example</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>H</code></td>
+      <td><code>0</code>..<code>23</code></td>
+      <td><strong>24h hour</strong></td>
+    </tr>
+    <tr>
+      <td><code>HH</code></td>
+      <td><code>00</code>..<code>23</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>h</code></td>
+      <td><code>1</code>..<code>12</code></td>
+      <td><strong>12h hour</strong></td>
+    </tr>
+    <tr>
+      <td><code>hh</code></td>
+      <td><code>01</code>..<code>12</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>m</code></td>
+      <td><code>0</code>..<code>59</code></td>
+      <td><strong>Minutes</strong></td>
+    </tr>
+    <tr>
+      <td><code>mm</code></td>
+      <td><code>00</code>..<code>59</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>s</code></td>
+      <td><code>0</code>..<code>59</code></td>
+      <td><strong>Seconds</strong></td>
+    </tr>
+    <tr>
+      <td><code>ss</code></td>
+      <td><code>00</code>..<code>59</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>a</code></td>
+      <td><code>am</code></td>
+      <td><strong>AM/PM</strong></td>
+    </tr>
+    <tr>
+      <td><code>A</code></td>
+      <td><code>AM</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>Z</code></td>
+      <td><code>+07:00</code></td>
+      <td><strong>Timezone offset</strong></td>
+    </tr>
+    <tr>
+      <td><code>ZZ</code></td>
+      <td><code>+0730</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>S</code></td>
+      <td><code>0</code>..<code>9</code></td>
+      <td>Deciseconds</td>
+    </tr>
+    <tr>
+      <td><code>SS</code></td>
+      <td><code>00</code>..<code>99</code></td>
+      <td>Centiseconds</td>
+    </tr>
+    <tr>
+      <td><code>SSS</code></td>
+      <td><code>000</code>..<code>999</code></td>
+      <td>Milliseconds</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>X</code></td>
+      <td> </td>
+      <td>Unix timestamp</td>
+    </tr>
+    <tr>
+      <td><code>x</code></td>
+      <td> </td>
+      <td>Millisecond Unix timestamp</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="presets">Presets</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>LT</code></td>
+      <td>8:30 PM</td>
+    </tr>
+    <tr>
+      <td><code>LTS</code></td>
+      <td>8:30:25 PM</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>LL</code></td>
+      <td>August 2 1985</td>
+    </tr>
+    <tr>
+      <td><code>ll</code></td>
+      <td>Aug 2 1985</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>LLL</code></td>
+      <td>August 2 1985 08:30 PM</td>
+    </tr>
+    <tr>
+      <td><code>lll</code></td>
+      <td>Aug 2 1985 08:30 PM</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>LLLL</code></td>
+      <td>Thursday, August 2 1985 08:30 PM</td>
+    </tr>
+    <tr>
+      <td><code>llll</code></td>
+      <td>Thu, Aug 2 1985 08:30 PM</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="references">References</h2>
+
+<h3 id="alternatives">Alternatives</h3>
+
+<ul>
+  <li><a href="https://github.com/you-dont-need/You-Dont-Need-Momentjs">You don’t need Moment.js</a> <em>(github.com)</em></li>
+</ul>
+
+<h3 id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="./datetime">Datetime cheatsheet</a> <em>(devhints.io)</em></li>
+  <li><a href="http://momentjs.com/">Moment website</a> <em>(momentjs.com)</em></li>
+  <li><a href="http://momentjs.com/docs/">Moment docs</a> <em>(momentjs.com)</em></li>
+</ul>

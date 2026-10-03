@@ -1,0 +1,57 @@
+<h2 class="-three-column" id="reference">Reference</h2>
+
+<h3 id="creating-ranges">Creating ranges</h3>
+
+<pre><code class="language-js">var range = document.createRange()
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/dom/document/createrange">https://devdocs.io/dom/document/createrange</a></p>
+
+<h2 id="methods">Methods</h2>
+
+<pre><code class="language-js">range
+  .setStart(startNode, startOffset)
+  .setEnd(endNode, endOffset)
+
+  .setStartBefore(node)
+  .setStartAfter(node)
+  .setEndBefore(node)
+  .setEndAfter(node)
+
+  .selectNode(node)
+  .selectNodeContents(node)
+</code></pre>
+
+<p>See: <a href="https://devdocs.io/dom/range">https://devdocs.io/dom/range</a></p>
+
+<h3 id="collapsing">Collapsing</h3>
+
+<pre><code class="language-js">range.collapse() // to end (a single point)
+range.collapse(true) // to start (a single point)
+range.collapsed // true | false
+</code></pre>
+
+<h3 id="operations">Operations</h3>
+
+<pre><code class="language-js">range.cloneContents() // copy =&gt; DocumentFragment
+range.extractContents() // cut  =&gt; DocumentFragment
+range.deleteContents() // delete
+</code></pre>
+
+<pre><code class="language-js">range.insertNode(node)
+</code></pre>
+
+<h3 id="string">String</h3>
+
+<pre><code class="language-js">range.toString()
+</code></pre>
+
+<h3 id="read-only-attributes">Read-only attributes</h3>
+
+<pre><code class="language-js">range.collapsed //       =&gt; true/false
+range.startContainer //  =&gt; Node
+range.startOffset
+range.endContainer //    =&gt; Node
+range.endOffset
+range.commonAncestorContainer // closest of start and end containers
+</code></pre>

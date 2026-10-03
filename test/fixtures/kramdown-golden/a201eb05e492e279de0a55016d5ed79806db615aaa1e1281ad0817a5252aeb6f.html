@@ -1,0 +1,101 @@
+<h3 id="defining-models">Defining models</h3>
+
+<pre><code class="language-coffeescript">User = Modella('User')
+</code></pre>
+
+<pre><code class="language-coffeescript">  .attr('name')
+  .attr('email', { required: true })
+  .use(require('modella-validators'))
+</code></pre>
+
+<pre><code class="language-coffeescript">  .validator (u) -&gt;
+    u.error('username', 'is required')  unless u.has('username')
+</code></pre>
+
+<h3 id="instances">Instances</h3>
+
+<pre><code class="language-coffeescript">user
+  .name()
+  .name('John')
+  .set(name: 'John')
+</code></pre>
+
+<pre><code class="language-coffeescript">  .has('name')   # → true
+  .isNew()
+  .isValid()
+</code></pre>
+
+<pre><code class="language-coffeescript">  .save (err) -&gt;
+  .remove (err) -&gt;
+  .removed
+  .model         # === User
+</code></pre>
+
+<h2 id="events">Events</h2>
+
+<h3 id="emitting">Emitting</h3>
+
+<pre><code class="language-coffeescript">Model.emit('event', [data...])
+</code></pre>
+
+<pre><code class="language-coffeescript">record.emit('event', [data...])
+</code></pre>
+
+<h3 id="list-of-events">List of events</h3>
+
+<pre><code class="language-coffeescript">user
+  .on 'save', -&gt;
+  .on 'create', -&gt;
+  .on 'saving', (data, done) -&gt; done()
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'remove', -&gt;
+  .on 'removing', (data, done) -&gt; done()
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'valid', -&gt;
+  .on 'invalid', -&gt;
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'change', -&gt;
+  .on 'change email', -&gt;
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'initializing', (instance, attrs) -&gt;
+  .on 'initialize', -&gt;
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'error', -&gt; failed to save model
+</code></pre>
+
+<pre><code class="language-coffeescript">  .on 'setting', (instance, attrs) -&gt;  # on Model#set()
+  .on 'attr', -&gt; # new attr via Model.attr()
+</code></pre>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="plugins">Plugins</h3>
+
+<pre><code class="language-coffeescript">MyPlugin = -&gt;
+  return (Model) -&gt;
+
+    Model.method = ...
+    Model.prototype.method = ...
+    Model.attr(...)
+
+    Model
+</code></pre>
+
+<p>A plugin is a function that returns a model decorator (ie, a function that takes in a model and returns a model).</p>
+
+<h3 id="memory">Memory</h3>
+
+<pre><code class="language-coffeescript">User
+  .all (err, users) -&gt;
+  .find id, (err, user) -&gt;
+</code></pre>
+
+<pre><code class="language-coffeescript">  .remove -&gt;
+  .save -&gt;
+  .update -&gt;
+</code></pre>

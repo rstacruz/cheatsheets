@@ -1,0 +1,163 @@
+<h3 class="-intro" id="about">About</h3>
+
+<ul>
+  <li><a href="https://hledger.org">https://hledger.org</a></li>
+  <li><a href="https://hledger.org/quickstart.html">https://hledger.org/quickstart.html</a></li>
+</ul>
+
+<h3 id="reporting">Reporting</h3>
+
+<pre><code>hledger bal {query}
+hledger reg {query}
+</code></pre>
+
+<h2 id="query">Query</h2>
+
+<h3 id="queries">Queries</h3>
+
+<p>Queries are used on all commands (<code>bal</code>, <code>reg</code>, etc). <a href="http://hledger.org/manual.html#queries">(docs)</a></p>
+
+<pre><code>Assets           # An account (regex)
+acct:Assets      # same
+^Assets          # Starting with Assets (eg, not 'Expenses:Assets')
+
+acctonly:A       # no subaccounts
+
+amt:2000         # amount (in absolute value)
+amt:&lt;200         # amount comparison (in absolute value)
+amt:&lt;+200        # amount comparison
+                 # also: &lt;=, &gt;, &gt;=
+
+desc:REGEX      # description
+code:REGEX      # transaction code (check number?)
+tag:REGEX
+cur:'\$'
+
+real:            # real posts
+real:0           # virtual posts
+
+depth:N          # --depth 2
+not:...          # eg, not:status:!
+</code></pre>
+
+<h3 id="filter-by-statustype">Filter by status/type</h3>
+
+<pre><code>real:1           # -R, --real, no virtuals
+status:!         #     --pending
+status:*         # -C, --cleared
+status:          #     --uncleared
+</code></pre>
+
+<h3 id="periods">Periods</h3>
+<p>For dates and intervals (see above).</p>
+
+<pre><code>date:2015/01/01
+date:2015/01/01-    # -b, --begin
+date:-2015/01/01    # -e, --end
+date2:PERIODEXPR
+</code></pre>
+
+<pre><code>-p, --period=...
+  -p "2009/01/01"
+  -p "2009/01/01 to 2009/12/31"
+  -p "2009/01/01to2009/12/31"      # spaces optional
+  -p "1/1 to 12/31"
+  -p "to 2009"
+  -p "weekly"                      # -W, --weekly
+  -p "weekly 2009/01/01 to 2009/12/31"
+</code></pre>
+
+<h3 id="intervals">Intervals</h3>
+<p>Used on all commands (<code>bal</code>, <code>reg</code>, etc). Displays in multi-column mode. In <code>ledger-cli</code>, only <code>reg</code> is supported. Can also specified via <code>-p</code> (period).</p>
+
+<pre><code>-D, --daily
+-W, --weekly
+-M, --monthly
+-Q, --quarterly
+-Y, --yearly
+</code></pre>
+
+<h3 id="smart-dates">Smart dates</h3>
+<p>Used for <code>--period</code>, <code>--begin</code> and <code>--end</code> (<code>-p</code> <code>-b</code> <code>-e</code>).</p>
+
+<pre><code>-p 2015/01/01
+-p 2015/01
+-p 2015
+-p january
+-p jan
+-p 05/25
+</code></pre>
+
+<pre><code>-b today
+-b yesterday
+-e tomorrow
+</code></pre>
+
+<pre><code>-p this week
+-p last month
+-p this year
+</code></pre>
+
+<h2 id="display-formats">Display formats</h2>
+
+<pre><code>    --tree          # only in bal
+    --flat
+
+    --depth 2       # collapse those under this depth
+    --drop 1        # drop top-level accounts
+-B, --cost          # convert to default currency
+-E, --empty         # don't strip out $0 accounts
+    --date2         # use date2 when available
+</code></pre>
+
+<h2 id="multi-column-mode">Multi-column mode</h2>
+<p>When used with intervals (like <code>--weekly</code>):</p>
+
+<pre><code>-T, --row-total
+-N, --no-total
+</code></pre>
+
+<p>Also: (only in <code>bal</code>)</p>
+
+<pre><code>    --cumulative    # show ending balance per period
+-I, --historical    # like --cumulative but only for --begin
+-A, --average
+</code></pre>
+
+<h2 id="accounts">Accounts</h2>
+
+<pre><code>hledger accounts [--tree]
+</code></pre>
+
+<h2 id="other-commands">Other commands</h2>
+
+<pre><code>hledger balancesheet       # bs
+hledger incomestatement    # is
+hledger cashflow           # cf
+hledger print
+hledger activity
+hledger stats
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<pre><code># Current balance
+  hledger bal Assets
+  hledger balancesheet
+
+  hledger balancesheet Assets [--cleared --cost --empty -e tomorrow]
+  # ...discard future stuff; convert foreign currencies
+
+# Monthly changes in assets
+  hledger bal Assets Liabilities --monthly --tree --historical [--cleared --cost --empty -e tomorrow]
+
+# Weekly expenses
+  hledger bal Expenses --weekly --average --tree -b 'last month' [--cleared --cost --empty -e tomorrow]
+</code></pre>
+
+<h2 id="see-also">See also</h2>
+
+<ul>
+  <li><a href="http://hledger.org/manual.html">http://hledger.org/manual.html</a></li>
+  <li><a href="http://ledger-cli.org/3.0/doc/ledger3.html">http://ledger-cli.org/3.0/doc/ledger3.html</a></li>
+</ul>

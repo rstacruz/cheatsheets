@@ -1,0 +1,27 @@
+<h3 id="basic-syntax">Basic syntax</h3>
+
+<pre><code class="language-rb">namespace :foo do
+  desc "Description"
+  task :bar do
+    ...
+  end
+
+  task :baz =&gt; :dependency do
+  end
+
+  task :baz =&gt; [:dep1, :dep2, :dep3] do
+  end
+end
+
+# rake foo:bar
+</code></pre>
+
+<h3 id="rake-task-with-arguments">Rake task with arguments</h3>
+
+<pre><code class="language-rb">desc "Do something"
+task :workit, [:id] =&gt; :environment do |_, args|
+  id = args[:id]
+end
+
+# rake workit[234]
+</code></pre>

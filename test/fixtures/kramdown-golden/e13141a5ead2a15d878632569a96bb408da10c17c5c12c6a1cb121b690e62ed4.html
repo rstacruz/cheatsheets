@@ -1,0 +1,14 @@
+<h2 class="-one-column" id="speechsynthesisutterance">SpeechSynthesisUtterance</h2>
+
+<pre><code class="language-js">function speak (message) {
+  var msg = new SpeechSynthesisUtterance(message)
+  var voices = window.speechSynthesis.getVoices()
+  msg.voice = voices[0]
+  window.speechSynthesis.speak(msg)
+}
+</code></pre>
+
+<pre><code class="language-js">speak('Hello, world')
+</code></pre>
+
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance">SpeechSynthesisUtterance</a> <em>(developer.mozilla.org)</em></p>

@@ -1,0 +1,24 @@
+<h3 id="install-bolt">Install Bolt</h3>
+
+<pre><code class="language-bash"># On MacOS
+brew cask install puppetlabs/puppet/puppet-bolt
+# On Windows
+choco install puppet-bolt
+</code></pre>
+
+<p>Bolt is available as a package for most platforms. See <a href="https://puppet.com/docs/bolt/latest/bolt_installing.html">installing bolt</a></p>
+
+<h3 id="create-a-module-with-a-task">Create a module with a task</h3>
+
+<pre><code class="language-bash">mkdir -p ~/.puppetlabs/bolt/modules/mymodule/tasks
+cp myscript.sh ~/.puppetlabs/bolt/modules/mymodule/tasks/
+</code></pre>
+
+<p>Tasks can be written in any language your targets can run. See <a href="https://puppet.com/docs/bolt/latest/writing_tasks.html">writing tasks</a> for more details.</p>
+
+<h3 id="run-bolt">Run Bolt</h3>
+
+<pre><code class="language-bash">bolt task run mymodule::myscript -n node1.example.com,node2.example.com --private-key ~/.ssh/id_rsa-private
+</code></pre>
+
+<p>See <code>bolt task run --help</code> for more information and command line options.</p>

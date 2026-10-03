@@ -1,0 +1,189 @@
+<h2 id="about">About</h2>
+
+<h3 class="-intro" id="about-1">About</h3>
+
+<p>Flux is an architecture for building client-side web applications.</p>
+
+<ul>
+  <li><a href="https://facebook.github.io/flux/docs/in-depth-overview/">In-Depth Overview</a> <em>(facebook.github.io)</em></li>
+</ul>
+
+<h3 id="architecture">Architecture</h3>
+
+<ul>
+  <li>
+    <p><strong>Dispatchers</strong> receive <em>actions</em> that get dispatched to its listeners.</p>
+  </li>
+  <li>
+    <p><strong>Stores</strong> are objects that store data, usually changed from a dispatcher listener.</p>
+  </li>
+  <li>
+    <p><strong>Views</strong> are React components that listen to Store changes, or emit <em>actions</em> to the dispatcher.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="dispatcher">Dispatcher</h2>
+
+<h3 id="pub-sub">Pub-sub</h3>
+<p><a href="http://facebook.github.io/flux/docs/dispatcher.html">A dispatcher</a> emits events (<code>.dispatch()</code>) to its listeners (<code>.register(fn)</code>).</p>
+
+<pre><code class="language-js">var Dispatcher = require('flux').Dispatcher;
+
+d = new Dispatcher();
+
+// send
+d.dispatch({ action: 'edit', ... };
+
+// receive
+token = d.register(function (payload) {
+  payload.action === 'edit'
+})
+</code></pre>
+
+<h3 id="ensuring-proper-order">Ensuring proper order</h3>
+
+<p>With multiple listeners, you can ensure one is fired after another using <code>.waitFor()</code>.</p>
+
+<pre><code class="language-js">token1 = d.register(...);
+
+token2 = d.register(function (payload) {
+
+  // ensure receiver 1 is fired before this
+  d.waitFor([ token1 ]);
+  
+  // process here
+})
+</code></pre>
+
+<h3 id="subclassing">Subclassing</h3>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> is the preferred way to subclass Dispatcher (think <code>$.extend</code>).<br />
+You can also make <em>action creators</em>, which are shortcuts for <code>dispatch()</code>.</p>
+
+<pre><code class="language-js">var Dispatcher = require('flux').Dispatcher;
+var assign = require('object-assign');
+
+var AppDispatcher = assign({}, Dispatcher.prototype, {
+
+  // action creator
+  handleViewAction(action) {
+    this.dispatch({
+      source: 'VIEW_ACTION',
+      action: action
+    })
+  } 
+
+})
+</code></pre>
+
+<hr />
+
+<h2 id="stores">Stores</h2>
+
+<h3 id="plain-objects">Plain objects</h3>
+<p>Stores are just like objects.</p>
+
+<pre><code class="language-js">var TodoStore = { list: [] };
+</code></pre>
+
+<h3 id="events">Events</h3>
+<p>Sometimes they’re eventemitters, too. Usually it’s used to emit <code>change</code> events for views to pick up.</p>
+
+<pre><code class="language-js">var TodoStore = assign({}, EventEmitter.prototype, {
+  ...
+});
+
+TodoStore.emit('change');
+TodoStore.on('change', function () { ... });
+</code></pre>
+
+<h3 id="model-logic">Model logic</h3>
+<p>Logic can sometimes belong in stores.</p>
+
+<pre><code class="language-js">{
+  isAllActive() {
+    return this.list.every(item =&gt; item.active);
+  }
+}
+</code></pre>
+
+<hr />
+
+<h2 id="stores-and-dispatchers">Stores and dispatchers</h2>
+
+<h3 id="instantiate">Instantiate</h3>
+<p>Make a Dispatcher and Stores.</p>
+
+<pre><code class="language-js">d = new Dispatcher();
+TabStore = { tab: 'home' };
+</code></pre>
+
+<h3 id="updating-data">Updating data</h3>
+<p>Dispatch events to alter the store.</p>
+
+<pre><code class="language-js">d.dispatch({ action: 'tab.change', tab: 'timeline' });
+
+d.register(function (data) {
+  if (data.action === 'tab.change') {
+    TabStore.tab = data.tab;
+  }
+});
+</code></pre>
+
+<hr />
+
+<h2 id="with-views">With Views</h2>
+
+<h3 id="listen-to-dispatchers">Listen to dispatchers</h3>
+<p>Views (React Components) can listen to Dispatchers.</p>
+
+<pre><code class="language-js">var TodoApp = React.createClass({
+
+  componentDidMount() {
+    this.token = AppDispatcher.register((payload) =&gt; {
+      switch (payload.action) {
+        case 'tab.change':
+          this.render();
+          // ...
+      }
+    });
+  },
+  
+  componentDidUnmount() {
+    AppDispatcher.unregister(this.token);
+  }
+  
+});
+</code></pre>
+
+<h3 id="listen-to-stores">Listen to Stores</h3>
+<p>Or to Stores’s <code>change</code> events.</p>
+
+<pre><code class="language-js">{
+  componentDidMount() {
+    TodoStore.on('change', this.onChange);
+  },
+  
+  componentDidUnmount() {
+    TodoState.removeListener('change', this.onChange);
+  },
+  
+  onChange(data) {
+    // ...
+  }
+}
+</code></pre>
+
+<hr />
+
+<h3 id="also-see">Also see</h3>
+
+<ul>
+  <li><a href="http://facebook.github.io/flux/docs/dispatcher.html">Dispatcher API</a></li>
+  <li><a href="react.html">React cheatsheet</a></li>
+  <li><a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js">Dispatcher.js source</a></li>
+  <li><a href="https://github.com/facebook/flux/tree/master/examples/flux-todomvc">Flux-todomvc explanation</a></li>
+</ul>
+

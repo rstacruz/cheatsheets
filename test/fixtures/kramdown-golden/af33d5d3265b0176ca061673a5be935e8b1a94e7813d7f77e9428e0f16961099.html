@@ -1,0 +1,75 @@
+<h3 id="installation">Installation</h3>
+
+<h4 id="osx">OSX</h4>
+
+<pre><code class="language-bash">brew install watchexec
+</code></pre>
+
+<h4 id="rust">Rust</h4>
+
+<pre><code class="language-bash">cargo install watchexec
+</code></pre>
+
+<p>For Linux and Windows, get it from <a href="https://github.com/mattgreen/watchexec">GitHub releases</a>.</p>
+
+<h3 id="getting-started">Getting started</h3>
+
+<pre><code class="language-bash">watchexec --exts js,jsx -- npm test
+</code></pre>
+
+<p>Runs <code>npm test</code> when <code>js,jsx</code> files change.</p>
+
+<pre><code class="language-bash">watchman -w lib -w test -- npm test
+</code></pre>
+
+<p>Runs <code>npm test</code> when <code>lib/</code> and <code>test/</code> files change.</p>
+
+<h3 id="other-options">Other options</h3>
+
+<h4 id="flags">Flags</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-c</code> <code>--clear</code></td>
+      <td>Clear screen</td>
+    </tr>
+    <tr>
+      <td><code>-r</code> <code>--restart</code></td>
+      <td>Restart process if its still running</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="options">Options</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-s</code> <code>--signal SIGKILL</code></td>
+      <td>Kill signal to use</td>
+    </tr>
+    <tr>
+      <td><code>-d</code> <code>--debounce MS</code></td>
+      <td>Debounce by <code>MS</code> milliseconds</td>
+    </tr>
+    <tr>
+      <td><code>-e</code> <code>--exts EXTS</code></td>
+      <td>Extensions</td>
+    </tr>
+    <tr>
+      <td><code>-i</code> <code>--ignore PATTERN</code></td>
+      <td>Ignore these files</td>
+    </tr>
+    <tr>
+      <td><code>-w</code> <code>--watch PATH</code></td>
+      <td>Watch these directories</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://github.com/mattgreen/watchexec">mattgreen/watchexec</a> <em>(github.com)</em></li>
+</ul>

@@ -1,0 +1,83 @@
+<h3 id="titles">Titles</h3>
+
+<pre><code class="language-ruby">set_meta_tags title: 'Member Login'
+# &lt;title&gt;Some Page Title&lt;/title&gt;
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags site: 'Site Title', title: 'Member Login'
+# &lt;title&gt;Site Title | Page Title&lt;/title&gt;
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags(
+  site: 'Site Title',
+  title: 'Member Login',
+  reverse: true,
+  separator: '&amp;middot;'.html_safe
+)
+# &lt;title&gt;Page Title · Site Title&lt;/title&gt;
+</code></pre>
+
+<p>Works in a controller or a view.</p>
+
+<h3 id="setting-defaults">Setting defaults</h3>
+
+<pre><code>rails generate meta_tags:install
+</code></pre>
+
+<p>This creates <code>config/initializers/meta_tags.rb</code> that you can edit.</p>
+
+<h3 id="others">Others</h3>
+
+<pre><code class="language-ruby">set_meta_tags site: 'Site name'
+set_meta_tags title: 'Title'
+set_meta_tags description: "All text about keywords"
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags keywords: %w[abc def ghi]
+set_meta_tags canonical: 'http://...'
+set_meta_tags icon: 'favicon.ico'
+set_meta_tags author: 'http://...'
+set_meta_tags alternate: { 'fr' =&gt; 'http://...' }
+set_meta_tags prev: 'http://...'
+set_meta_tags next: 'http://...'
+set_meta_tags image_src: 'http://...'
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags noindex: true
+set_meta_tags nofollow: true
+set_meta_tags follow: true
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags og: { image: ['...'] }
+set_meta_tags twitter: { description: '...' }
+</code></pre>
+<pre><code class="language-ruby">set_meta_tags separator: '·'   # Site · Page title
+set_meta_tags prefix: ' '      # Around the separator
+set_meta_tags suffix: ' '
+</code></pre>
+
+<pre><code class="language-ruby">set_meta_tags lowercase: true  # Lowercase page title
+set_meta_tags reverse: true    # Site name last
+</code></pre>
+
+<h3 id="in-views">In views</h3>
+
+<pre><code class="language-ruby"># Displaying tags
+&lt;%= display_meta_tags %&gt;
+</code></pre>
+
+<pre><code class="language-ruby"># Displaying tags individually
+&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+</code></pre>
+
+<pre><code class="language-ruby"># Setting tags
+&lt;% title 'Member Login' %&gt;
+&lt;% description 'My page' %&gt;
+&lt;% keywords '..' %&gt;
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li>Accurate as of 2.1.0. See: <a href="https://github.com/kpumuk/meta-tags">https://github.com/kpumuk/meta-tags</a></li>
+</ul>

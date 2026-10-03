@@ -1,0 +1,412 @@
+<h2 class="-three-column" id="list-ls">List (ls)</h2>
+
+<h3 id="usage">Usage</h3>
+
+<pre><code>ls [options] [paths]
+</code></pre>
+
+<h3 id="format">Format</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Switch</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-1</code></td>
+      <td>One entry per line</td>
+    </tr>
+    <tr>
+      <td><code>-l</code></td>
+      <td>Long view</td>
+    </tr>
+    <tr>
+      <td><code>-o</code></td>
+      <td>Long view (without groups)</td>
+    </tr>
+    <tr>
+      <td><code>-C</code></td>
+      <td>Multicolumn (sorted horizontally)</td>
+    </tr>
+    <tr>
+      <td><code>-x</code></td>
+      <td>Multicolumn (sorted vertically)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-F</code></td>
+      <td>Add / after directories</td>
+    </tr>
+    <tr>
+      <td><code>-G</code></td>
+      <td>Color</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="options">Options</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-R</code></td>
+      <td>Recurse</td>
+    </tr>
+    <tr>
+      <td><code>-a</code></td>
+      <td>Include hidden (dotfiles)</td>
+    </tr>
+    <tr>
+      <td><code>-A</code></td>
+      <td>Include hidden (but not . and ..)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sorting">Sorting</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Switch</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-r</code></td>
+      <td>reverse order</td>
+    </tr>
+    <tr>
+      <td><code>-S</code></td>
+      <td>sort by size</td>
+    </tr>
+    <tr>
+      <td><code>-t</code></td>
+      <td>sort by time modified</td>
+    </tr>
+    <tr>
+      <td><code>-u</code></td>
+      <td>sort by time accessed</td>
+    </tr>
+    <tr>
+      <td><code>-U</code></td>
+      <td>sort by time created</td>
+    </tr>
+    <tr>
+      <td><code>-c</code></td>
+      <td>sort by time status was changed</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-h</code></td>
+      <td>Human-readable size (3k)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-three-column" id="tail">Tail</h2>
+
+<h3 id="usage-1">Usage</h3>
+
+<pre><code>tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+</code></pre>
+
+<h3 id="modes">Modes</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-f</code></td>
+      <td>follow</td>
+    </tr>
+    <tr>
+      <td><code>-F</code></td>
+      <td>follow by filename (accounts for log rotation)</td>
+    </tr>
+    <tr>
+      <td><code>-r</code></td>
+      <td>Reverse order</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="options-1">Options</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-bN</code></td>
+      <td>N*512 bytes</td>
+    </tr>
+    <tr>
+      <td><code>-cN</code></td>
+      <td>N bytes</td>
+    </tr>
+    <tr>
+      <td><code>-nN</code></td>
+      <td>N lines</td>
+    </tr>
+    <tr>
+      <td><code>+N</code></td>
+      <td>Start from line N</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 class="-three-column" id="sudo">Sudo</h2>
+
+<h3 id="usage-2">Usage</h3>
+
+<pre><code>sudo [options] &lt;command&gt;
+</code></pre>
+
+<h3 id="listing">Listing</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-l</code></td>
+      <td>List allowed commands</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="options-2">Options</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-A</code></td>
+      <td>Use $SUDO_ASKPASS</td>
+    </tr>
+    <tr>
+      <td><code>-b</code></td>
+      <td>Run in background</td>
+    </tr>
+    <tr>
+      <td><code>-E</code></td>
+      <td>Preserve environment</td>
+    </tr>
+    <tr>
+      <td><code>-H</code></td>
+      <td>use target’s $HOME</td>
+    </tr>
+    <tr>
+      <td><code>-n</code></td>
+      <td>Don’t prompt for password</td>
+    </tr>
+    <tr>
+      <td><code>-P</code></td>
+      <td>Preserve group vector</td>
+    </tr>
+    <tr>
+      <td><code>-S</code></td>
+      <td>Read password from stdin</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-descriptors">File descriptors</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-C fd</code></td>
+      <td>Close all open file descriptors</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="prompt">Prompt</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-p prompt</code></td>
+      <td>Custom prompt (-p “%p password:”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="interactive">Interactive</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Switch</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-i [cmd]</code></td>
+      <td>Interactive shell without variables</td>
+    </tr>
+    <tr>
+      <td><code>-s [cmd]</code></td>
+      <td>Interactive shell</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-u user</code></td>
+      <td>run as this user</td>
+    </tr>
+    <tr>
+      <td><code>-g group</code></td>
+      <td>run as this group</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="timestamp">Timestamp</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-v</code></td>
+      <td>revalidate timestamp for 5 mins</td>
+    </tr>
+    <tr>
+      <td><code>-k</code></td>
+      <td>invalidate timestamp</td>
+    </tr>
+    <tr>
+      <td><code>-K</code></td>
+      <td>just like -k</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-three-column" id="wc-word-count">wc (Word count)</h2>
+
+<h3 id="wc">wc</h3>
+
+<pre><code>... | wc [options]
+</code></pre>
+
+<h3 id="options-3">Options</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-c</code></td>
+      <td>Bytes</td>
+    </tr>
+    <tr>
+      <td><code>-l</code></td>
+      <td>Lines</td>
+    </tr>
+    <tr>
+      <td><code>-m</code></td>
+      <td>Characters (incl multi-byte)</td>
+    </tr>
+    <tr>
+      <td><code>-w</code></td>
+      <td>Words</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-three-column" id="grep">Grep</h2>
+
+<h3 id="usage-3">Usage</h3>
+
+<pre><code>grep [options] [pattern] [file ...]
+</code></pre>
+
+<h3 id="options-4">Options</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Switch</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-A num</code></td>
+      <td>Print <code>num</code> lines of training context</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-G</code></td>
+      <td>–basic-regexp (default)</td>
+    </tr>
+    <tr>
+      <td><code>-E</code></td>
+      <td>–extended-regexp</td>
+    </tr>
+    <tr>
+      <td><code>-P</code></td>
+      <td>–perl-regexp</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-f file</code></td>
+      <td>–file (Get patterns for file)</td>
+    </tr>
+    <tr>
+      <td><code>-F</code></td>
+      <td>–fixed-strings</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-h</code></td>
+      <td>–no-filename</td>
+    </tr>
+    <tr>
+      <td><code>-H</code></td>
+      <td>–with-filename</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-l</code></td>
+      <td>–files-with-matches (just print filenames)</td>
+    </tr>
+    <tr>
+      <td><code>-L</code></td>
+      <td>–files-without-match</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-r, -R</code></td>
+      <td>–recursive</td>
+    </tr>
+    <tr>
+      <td><code>-v</code></td>
+      <td>–invert-match</td>
+    </tr>
+    <tr>
+      <td><code>-i</code></td>
+      <td>–ignore-case</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="synonyms">Synonyms</h3>
+
+<pre><code>egrep  =&gt;  grep -E
+fgrep  =&gt;  grep -F
+</code></pre>
+
+<h2 class="-three-column" id="other-recipes">Other recipes</h2>
+
+<h3 id="search-and-replace-in-all-files">Search-and-replace in all files</h3>
+
+<pre><code>perl -p -i -e 's/hello/HELLO/g' **/*
+</code></pre>

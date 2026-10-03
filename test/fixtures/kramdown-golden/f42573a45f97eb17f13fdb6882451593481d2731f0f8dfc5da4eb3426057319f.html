@@ -1,0 +1,356 @@
+<h2 class="-three-column" id="basics">Basics</h2>
+
+<h3 class="-intro" id="introduction">Introduction</h3>
+
+<p>This is a quick reference to <a href="https://sass-lang.com">Sass stylesheets</a>.</p>
+
+<ul>
+  <li><a href="https://sass-lang.com/documentation">Sass documentation</a> <em>(sass-lang.com)</em></li>
+</ul>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code class="language-scss">$red: #833;
+</code></pre>
+
+<pre><code class="language-scss">body {
+  color: $red;
+}
+</code></pre>
+
+<h3 id="nesting">Nesting</h3>
+
+<pre><code class="language-scss">.markdown-body {
+  a {
+    color: blue;
+    &amp;:hover {
+      color: red;
+    }
+  }
+}
+</code></pre>
+
+<h4 id="to-properties">to properties</h4>
+<pre><code class="language-scss">text: {
+  align: center;          // like text-align: center
+  transform: uppercase;   // like text-transform: uppercase
+}
+</code></pre>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code class="language-scss">/* Block comments */
+// Line comments
+</code></pre>
+
+<h3 id="mixins">Mixins</h3>
+
+<pre><code class="language-scss">@mixin heading-font {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+</code></pre>
+
+<pre><code class="language-scss">h1 {
+  @include heading-font;
+}
+</code></pre>
+
+<h4 id="with-parameters">with parameters</h4>
+
+<pre><code class="language-scss">@mixin font-size($n) {
+  font-size: $n * 1.2em;
+}
+</code></pre>
+
+<pre><code class="language-scss">body {
+  @include font-size(2);
+}
+</code></pre>
+
+<h4 id="with-default-values">with default values</h4>
+
+<pre><code class="language-scss">@mixin pad($n: 10px) {
+  padding: $n;
+}
+</code></pre>
+
+<pre><code class="language-scss">body {
+  @include pad(15px);
+}
+</code></pre>
+
+<h4 id="with-a-default-variable">with a default variable</h4>
+
+<pre><code class="language-scss">// Set a default value
+$default-padding: 10px;
+</code></pre>
+
+<pre><code class="language-scss">@mixin pad($n: $default-padding) {
+  padding: $n;
+}
+</code></pre>
+
+<pre><code class="language-scss">body {
+  @include pad(15px);
+}
+</code></pre>
+
+<h3 id="extend">Extend</h3>
+
+<pre><code class="language-scss">.button {
+  ···
+}
+</code></pre>
+
+<pre><code class="language-scss">.push-button {
+  @extend .button;
+}
+</code></pre>
+
+<h3 id="composing">Composing</h3>
+
+<pre><code class="language-scss">@import './other_sass_file';
+@use './other_sass_file';
+</code></pre>
+
+<p>The <code>@import</code> rule is discouraged because will get eventually <a href="https://sass-lang.com/documentation/at-rules/import">removed from the language</a>.<br />
+Instead, we should use the <a href="https://sass-lang.com/documentation/at-rules/use"><code>@use</code> rule</a>.<br />
+The <code>.scss</code> or <code>.sass</code> extension is optional.</p>
+
+<h2 id="color-functions">Color functions</h2>
+
+<h3 id="rgba">rgba</h3>
+
+<pre><code class="language-scss">rgb(100, 120, 140)
+rgba(100, 120, 140, .5)
+rgba($color, .5)
+</code></pre>
+
+<h3 id="mixing">Mixing</h3>
+
+<pre><code class="language-scss">mix($a, $b, 10%)   // 10% a, 90% b
+</code></pre>
+
+<h3 id="modifying-hsla">Modifying HSLA</h3>
+
+<pre><code class="language-scss">darken($color, 5%)
+lighten($color, 5%)
+</code></pre>
+
+<pre><code class="language-scss">saturate($color, 5%)
+desaturate($color, 5%)
+grayscale($color)
+</code></pre>
+
+<pre><code class="language-scss">adjust-hue($color, 15deg)
+complement($color)    // like adjust-hue(_, 180deg)
+invert($color)
+</code></pre>
+
+<pre><code class="language-scss">fade-in($color, .5)   // aka opacify()
+fade-out($color, .5)  // aka transparentize() - halves the opacity
+rgba($color, .5)      // sets alpha to .5
+</code></pre>
+
+<h3 id="getting-individual-values">Getting individual values</h3>
+
+<h4 id="hsla">HSLA</h4>
+
+<pre><code class="language-scss">hue($color)         // → 0deg..360deg
+saturation($color)  // → 0%..100%
+lightness($color)   // → 0%..100%
+alpha($color)       // → 0..1 (aka opacity())
+</code></pre>
+
+<h4 id="rgb">RGB</h4>
+
+<pre><code class="language-scss">red($color)         // → 0..255
+green($color)
+blue($color)
+</code></pre>
+
+<p>See: <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#hue-instance_method">hue()</a>, <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#red-instance_method">red()</a></p>
+
+<h3 id="adjustments">Adjustments</h3>
+
+<pre><code class="language-scss">// Changes by fixed amounts
+adjust-color($color, $blue: 5)
+adjust-color($color, $lightness: -30%)   // like darken(_, 30%)
+adjust-color($color, $alpha: -0.4)       // like fade-out(_, .4)
+adjust-color($color, $hue: 30deg)        // like adjust-hue(_, 15deg)
+</code></pre>
+
+<pre><code class="language-scss">// Changes via percentage
+scale-color($color, $lightness: 50%)
+</code></pre>
+
+<pre><code class="language-scss">// Changes one property completely
+change-color($color, $hue: 180deg)
+change-color($color, $blue: 250)
+</code></pre>
+
+<p>Supported: <code>$red</code> <code>$green</code> <code>$blue</code> <code>$hue</code> <code>$saturation</code> <code>$lightness</code> <code>$alpha</code></p>
+
+<h2 id="other-functions">Other functions</h2>
+
+<h3 id="strings">Strings</h3>
+
+<pre><code class="language-scss">unquote('hello')
+quote(hello)
+</code></pre>
+
+<pre><code class="language-scss">to-upper-case(hello)
+to-lower-case(hello)
+</code></pre>
+
+<pre><code class="language-scss">str-length(hello world)
+str-slice(hello, 2, 5)      // "ello" - it's 1-based, not 0-based
+str-insert("abcd", "X", 1)  // "Xabcd"
+</code></pre>
+
+<h3 id="units">Units</h3>
+
+<pre><code class="language-scss">unit(3em)        // 'em'
+unitless(100px)  // false
+</code></pre>
+
+<h3 id="numbers">Numbers</h3>
+
+<pre><code class="language-scss">floor(3.5)
+ceil(3.5)
+round(3.5)
+abs(3.5)
+</code></pre>
+
+<pre><code class="language-scss">min(1, 2, 3)
+max(1, 2, 3)
+</code></pre>
+
+<pre><code class="language-scss">percentage(.5)   // 50%
+random(3)        // 0..3
+</code></pre>
+
+<h3 id="misc">Misc</h3>
+
+<pre><code class="language-scss">variable-exists(red)    // checks for $red
+mixin-exists(red-text)  // checks for @mixin red-text
+function-exists(redify)
+</code></pre>
+
+<pre><code class="language-scss">global-variable-exists(red)
+</code></pre>
+
+<pre><code class="language-scss">selector-append('.menu', 'li', 'a')   // .menu li a
+selector-nest('.menu', '&amp;:hover li')  // .menu:hover li
+selector-extend(...)
+selector-parse(...)
+selector-replace(...)
+selector-unify(...)
+</code></pre>
+
+<h2 id="feature-checks">Feature checks</h2>
+
+<h3 id="feature-check">Feature check</h3>
+
+<pre><code class="language-scss">feature-exists(global-variable-shadowing)
+</code></pre>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>global-variable-shadowing</li>
+  <li>extend-selector-pseudoclass</li>
+  <li>units-level-3</li>
+  <li>at-error</li>
+</ul>
+
+<h2 id="loops">Loops</h2>
+
+<h3 id="for-loops">For loops</h3>
+
+<pre><code class="language-scss">@for $i from 1 through 4 {
+  .item-#{$i} { left: 20px * $i; }
+}
+</code></pre>
+
+<h3 id="each-loops-simple">Each loops (simple)</h3>
+
+<pre><code class="language-scss">$menu-items: home about services contact;
+
+@each $item in $menu-items {
+  .photo-#{$item} {
+    background: url('images/#{$item}.jpg');
+  }
+}
+</code></pre>
+
+<h3 id="each-loops-nested">Each loops (nested)</h3>
+<pre><code class="language-scss">$backgrounds: (home, 'home.jpg'), (about, 'about.jpg');
+
+@each $id, $image in $backgrounds {
+  .photo-#{$id} {
+    background: url($image);
+  }
+}
+</code></pre>
+
+<h3 id="while-loops">While loops</h3>
+
+<pre><code class="language-scss">$i: 6;
+@while $i &gt; 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+</code></pre>
+
+<h2 id="other-features">Other features</h2>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code class="language-scss">@if $position == 'left' {
+   position: absolute;
+   left: 0;
+}
+@else if $position == 'right' {
+   position: absolute;
+   right: 0;
+}
+@else {
+   position: static;
+}
+</code></pre>
+
+<h3 id="interpolation">Interpolation</h3>
+
+<pre><code class="language-scss">.#{$klass} { ... }      // Class
+call($function-name)    // Functions
+
+@media #{$tablet}
+font: #{$size}/#{$line-height}
+url("#{$background}.jpg")
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-scss">$list: (a b c);
+
+nth($list, 1)  // starts with 1
+length($list)
+
+@each $item in $list { ... }
+</code></pre>
+
+<h3 id="maps">Maps</h3>
+
+<pre><code class="language-scss">$map: (key1: value1, key2: value2, key3: value3);
+
+map-get($map, key1)
+</code></pre>
+
+<h2 class="-one-column" id="see-also">See also</h2>
+
+<ul>
+  <li><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">http://sass-lang.com/documentation/Sass/Script/Functions.html</a></li>
+  <li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript">http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript</a></li>
+</ul>

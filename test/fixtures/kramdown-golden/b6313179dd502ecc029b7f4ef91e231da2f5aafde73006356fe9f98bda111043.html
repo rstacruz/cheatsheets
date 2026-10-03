@@ -1,0 +1,94 @@
+<h3 id="parsing">Parsing</h3>
+
+<h4 id="as-local-time">As local time</h4>
+
+<pre><code class="language-js">const date = new Date(2012, 11, 20, 3, 0, 0)
+</code></pre>
+
+<h4 id="as-utc-time">As UTC time</h4>
+
+<pre><code class="language-js">const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+</code></pre>
+
+<h4 id="from-iso-strings">From ISO strings</h4>
+
+<pre><code class="language-js">const date = new Date('2018-04-20T12:00:00Z')
+</code></pre>
+
+<p>Note that JavaScript doesn’t “store” timezones in a date object. All these date objects, when expressed via <code>.toString()</code> or similar, will show the local timezone of the browser, regardless if you parsed UTC dates.</p>
+
+<h3 id="formatting-dates">Formatting dates</h3>
+
+<h4 id="default-formatting">Default formatting</h4>
+
+<pre><code class="language-js">console.log(new Intl.DateTimeFormat().format(date))
+// → '12/19/2012' (assuming America/Los_Angeles)
+</code></pre>
+
+<h4 id="custom-locale">Custom locale</h4>
+
+<pre><code class="language-js">console.log(new Intl.DateTimeFormat('en-GB').format(date))
+// → '19/12/2012' (date-first)
+</code></pre>
+
+<h4 id="custom-timezone">Custom timezone</h4>
+
+<pre><code class="language-js">console.log(new Intl.DateTimeFormat('en-AU', {
+  timeZone: 'Australia/Sydney'
+}).format(date))
+// → '19/12/2012'
+</code></pre>
+
+<h3 id="custom-formats">Custom formats</h3>
+
+<h4 id="time">Time</h4>
+
+<pre><code class="language-js">console.log(new Intl.DateTimeFormat('default', {
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+}).format(date))
+// → '2:00:00 pm'
+</code></pre>
+
+<h4 id="date">Date</h4>
+
+<pre><code class="language-js">console.log(new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+}).format(date))
+// → '12/19/2012'
+</code></pre>
+
+<p>To specify options without a locale, use <code>'default'</code> as a locale.</p>
+
+<h3 id="all-options">All options</h3>
+
+<pre><code class="language-js">{
+  weekday: 'narrow' | 'short' | 'long',
+  era: 'narrow' | 'short' | 'long',
+  year: 'numeric' | '2-digit',
+  month: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long',
+  day: 'numeric' | '2-digit',
+  hour: 'numeric' | '2-digit',
+  minute: 'numeric' | '2-digit',
+  second: 'numeric' | '2-digit',
+  timeZoneName: 'short' | 'long',
+
+  // Time zone to express it in
+  timeZone: 'Asia/Shanghai',
+  // Force 12-hour or 24-hour
+  hour12: true | false,
+
+  // Rarely-used options
+  hourCycle: 'h11' | 'h12' | 'h23' | 'h24',
+  formatMatcher: 'basic' | 'best fit'
+}
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat</a></li>
+</ul>

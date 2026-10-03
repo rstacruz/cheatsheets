@@ -1,0 +1,77 @@
+<h3 id="readwriteexecute-a-file">Read/Write/Execute a file</h3>
+
+<pre><code>$ chmod +rwx App
+$ ./App
+</code></pre>
+
+<h3 id="remove">Remove</h3>
+
+<pre><code>$ rm namefile
+$ rm -d Directory
+$ rm -rf Directory_with_files
+</code></pre>
+
+<h3 id="copy-file-to-a-folder">Copy file to a folder</h3>
+
+<pre><code>$ cp namefile Downloads
+$ ls
+namefile  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+$ cd Downloads
+~/Downloads$ ls
+namefile
+</code></pre>
+
+<h3 id="create-empty-file">Create empty file</h3>
+
+<pre><code>$ touch namefile
+$ touch --help
+</code></pre>
+
+<h3 id="show-in-the-terminal-the-file">Show in the terminal the file</h3>
+
+<pre><code>$ cat namefile
+$ cat --help
+</code></pre>
+
+<h3 id="create-new-directory">Create new directory</h3>
+
+<pre><code>$ mkdir name
+$ mkdir --help
+</code></pre>
+
+<h3 id="list-files-from-directory">list files from directory</h3>
+
+<pre><code>$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+$ ls --help
+</code></pre>
+
+<h3 id="mounting-a-ram-drive">Mounting a RAM drive</h3>
+
+<pre><code>$ mount -t tmpfs -o size=5G,nr_inodes=5k,mode=700 tmpfs /tmp
+</code></pre>
+
+<h3 id="visudo">Visudo</h3>
+
+<pre><code>sudo visudo
+
+username ALL=(ALL) NOPASSWD:/sbin/restart whatever
+</code></pre>
+
+<h3 id="display-the-amount-of-available-disk-space">Display the amount of available disk space</h3>
+
+<pre><code class="language-sh">df
+df -h   # human-readable format
+df -a   # all filesystems
+</code></pre>
+
+<h3 id="display-disk-usage">Display disk usage</h3>
+
+<pre><code class="language-sh">du
+du -hsx * | sort -rh | head -10    # largest 10 folders
+</code></pre>
+
+<h3 id="answer-yes-in-a-bash-script">Answer yes in a bash script</h3>
+
+<pre><code class="language-bash">yes | /your/command
+</code></pre>

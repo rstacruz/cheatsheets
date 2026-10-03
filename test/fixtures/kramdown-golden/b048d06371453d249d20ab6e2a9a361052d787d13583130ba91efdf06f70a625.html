@@ -1,0 +1,115 @@
+<h2 id="command-mode">Command mode</h2>
+
+<h3 id="align-by-delimiters">Align by delimiters</h3>
+
+<pre><code class="language-vim">:EasyAlign :       " preset characters (\=:.,&amp;#|)
+:EasyAlign |
+:EasyAlign \       " \ means space
+</code></pre>
+
+<h3 id="align-by-regexp">Align by regexp</h3>
+
+<pre><code class="language-vim">:EasyAlign /[:;]+/
+</code></pre>
+
+<h3 id="specify-which">Specify which</h3>
+
+<pre><code class="language-vim">:EasyAlign |       " align by 1st `|`
+:EasyAlign 3 |     " align by 3rd `|`
+:EasyAlign * |     " align by all `|`s
+</code></pre>
+
+<h3 id="add-options">Add options</h3>
+
+<pre><code class="language-vim">:EasyAlign * | l4r1
+
+  l4     " lN - left_margin
+  r1     " rN - right_margin
+         "    spaces to the left/right of `|`
+  ar     " a[lrc] - align
+         "    align left/right/center
+  dr     " d[lrc] - delimiter_align
+         "    alignment of the delimiter itself
+</code></pre>
+
+<h3 id="spaces-are-optional">Spaces are optional</h3>
+
+<pre><code class="language-vim">:EasyAlign * /[;:]+/ l3
+:EasyAlign*/[;:]+/l3
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="easyalign--dr-delimiter_align-right"><code>:EasyAlign = dr</code> (delimiter_align right)</h3>
+
+<pre><code>apple    = 1
+banana  += apple
+cake   ||= banana
+</code></pre>
+
+<h3 id="easyalign--for-json-or-yaml"><code>:EasyAlign :</code> (for json or yaml)</h3>
+
+<pre><code>url:      jdbc:mysql://localhost/test
+database: test
+</code></pre>
+
+<h3 id="easyalign--markdown-tables"><code>:EasyAlign *|</code> (markdown tables)</h3>
+
+<pre><code class="language-nohighlight">| `&lt;Enter&gt;` | right align                   |
+| `1`       | on 1st occurrence             |
+| `2`       | on 2nd occurrence (and so on) |
+</code></pre>
+
+<h2 id="interactive-mode">Interactive mode</h2>
+
+<table class="greycode">
+  <tbody>
+    <tr>
+      <td><code>{Visual}</code> <code>⏎</code></td>
+      <td>activate for selection</td>
+    </tr>
+    <tr>
+      <td><code>ga</code> <code>{motion}</code></td>
+      <td>activate for motion/text object</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Then press options (if available), then a delimiter.</p>
+
+<h3 id="interactive-mode-options">Interactive mode options</h3>
+
+<table class="greycode">
+  <tbody>
+    <tr>
+      <td><code>⏎</code></td>
+      <td>Set <code>alignment</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;ctrl-l&gt;</code> <code>4 ⏎</code></td>
+      <td>Set <code>left_margin</code> (to the left of the delimiter)</td>
+    </tr>
+    <tr>
+      <td><code>&lt;ctrl-r&gt;</code> <code>4 ⏎</code></td>
+      <td>Set <code>right_margin</code></td>
+    </tr>
+    <tr>
+      <td><code>↓</code></td>
+      <td>no margin</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li><code>gaip</code> <code>&lt;ctrl-l&gt;</code> <code>8⏎</code> <code>=</code> - puts 8 spaces before the equal sign</li>
+</ul>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></li>
+  <li><a href="https://github.com/junegunn/vim-easy-align#examples">Examples</a></li>
+  <li><a href="https://github.com/junegunn/vim-easy-align#alignment-options">Alignment options</a></li>
+</ul>

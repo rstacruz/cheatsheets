@@ -1,0 +1,89 @@
+<h3 id="general-workflow">General workflow</h3>
+
+<ul>
+  <li>Start a flynn cluster (on amazon or vagrant)</li>
+  <li><code>flynn cluster add</code> to add that cluster</li>
+  <li><code>flynn create NAME</code> in your app</li>
+  <li><code>git push flynn master</code> to deploy</li>
+</ul>
+
+<h3 id="creating-a-cluster-aws">Creating a cluster (AWS)</h3>
+
+<pre><code class="language-bash">flynn install  # (provisions AWS EC2 stuff)
+flynn key add  # (adds your pubkey to AWS)
+</code></pre>
+
+<h4 id="what-it-does">What it does</h4>
+
+<ul>
+  <li>This creates <code>XXXX.flynnhub.com</code></li>
+  <li>Dashboard in <code>dashboard.XXXX.flynnhub.com</code></li>
+  <li>Use <code>flynn -a dashboard env get LOGIN_TOKEN</code> to get login token</li>
+  <li>Apps live in <code>APP.XXXX.flynnhub.com</code></li>
+</ul>
+
+<h3 id="using-a-flynn-cluster">Using a flynn cluster</h3>
+
+<p class="-setup">Managed in <code>~/.flynnrc</code>:</p>
+
+<pre><code class="language-bash">flynn cluster
+flynn cluster add [-g githost] [-p pin] NAME URL KEY
+flynn cluster remove NAME
+flynn cluster default NAME # use this current
+</code></pre>
+
+<h3 id="setting-up-a-new-app">Setting up a new app</h3>
+
+<pre><code class="language-bash">cd ~/project
+flynn create example # adds the `flynn` remote
+flynn route # prints http routes
+git push flynn master
+</code></pre>
+
+<h2 id="commands">Commands</h2>
+
+<h3 id="environment-vars">Environment vars</h3>
+
+<pre><code class="language-bash">flynn env
+flynn env set FOO=bar BAZ=foobar
+flynn env unset FOO
+</code></pre>
+
+<h3 id="scale">Scale</h3>
+
+<pre><code class="language-bash">flynn ps
+flynn scale web=3
+</code></pre>
+
+<h3 id="logs">Logs</h3>
+
+<pre><code class="language-bash">flynn log
+flynn log flynn-d55c7a...
+</code></pre>
+
+<h3 id="running-commands">Running commands</h3>
+
+<pre><code class="language-bash">flynn run rake db:migrate
+</code></pre>
+
+<h3 id="manage-routes">Manage routes</h3>
+
+<pre><code class="language-bash">flynn route
+flynn route add http example.com
+# then make a CNAME from example.com to myapp.xxxx.flynnhub.com
+</code></pre>
+
+<h3 id="more">More</h3>
+
+<pre><code class="language-bash">flynn ps
+flynn kill &lt;job&gt;
+
+flynn meta
+flynn meta set foo=baz
+</code></pre>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://flynn.io/">Flynn website</a> <em>(flynn.io)</em></li>
+</ul>

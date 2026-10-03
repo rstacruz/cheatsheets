@@ -1,0 +1,192 @@
+<h2 id="operators">Operators</h2>
+
+<h3 id="accessors">Accessors</h3>
+
+<pre class="-setup"><code class="language-sql">SELECT * FROM users WHERE data-&gt;&gt;'name' = 'John';
+SELECT data-&gt;&gt;'name' AS name FROM users;
+</code></pre>
+
+<table class="-headers -shortcuts">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Returns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-&gt;</code> <em>int</em></td>
+      <td>Get array element <code>2</code></td>
+      <td><code>data-&gt;2</code></td>
+      <td>JSON</td>
+    </tr>
+    <tr>
+      <td><code>-&gt;</code> <em>text</em></td>
+      <td>Get object key <code>name</code></td>
+      <td><code>data-&gt;'name'</code></td>
+      <td>JSON</td>
+    </tr>
+    <tr>
+      <td><code>#&gt;</code> <em>text[]</em></td>
+      <td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
+      <td><code>data#&gt;'{a,b}'</code></td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>-&gt;&gt;</code> <em>int</em></td>
+      <td>Get array element <code>2</code></td>
+      <td><code>data-&gt;&gt;2</code></td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code>-&gt;&gt;</code> <em>text</em></td>
+      <td>Get object key <code>name</code></td>
+      <td><code>data-&gt;&gt;'name'</code></td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code>#&gt;&gt;</code> <em>text[]</em></td>
+      <td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
+      <td><code>data#&gt;&gt;'{a,b}'</code></td>
+      <td>Text</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>&gt;</code> returns JSON, <code>&gt;&gt;</code> returns text.</p>
+
+<h3 id="boolean-operators">Boolean operators</h3>
+
+<pre class="-setup"><code class="language-sql">SELECT * FROM users WHERE data-&gt;tags ? 'admin';
+SELECT data-&gt;tags ? 'admin' AS is_admin FROM users;
+</code></pre>
+
+<table class="-headers -shortcuts -left-align">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>?</code> <em>str</em></td>
+      <td>Does <code>data</code> have key <code>name</code>?</td>
+      <td><code>data ? 'name'</code></td>
+    </tr>
+    <tr>
+      <td><code>?|</code> <em>text[]</em></td>
+      <td>Does <code>data</code> have <code>a</code> or <code>b</code>?</td>
+      <td><code>data ?| array['a','b']</code></td>
+    </tr>
+    <tr>
+      <td><code>?&amp;</code> <em>text[]</em></td>
+      <td>Does <code>data</code> have <code>a</code> and <code>b</code>?</td>
+      <td><code>data ?&amp; array['a','b']</code></td>
+    </tr>
+    <tr>
+      <td><code>@&gt;</code> <em>jsonb</em></td>
+      <td>Does <code>left</code> include <code>right</code>?</td>
+      <td><code>data @&gt; '{"b":2}'::jsonb</code></td>
+    </tr>
+    <tr>
+      <td><code>&lt;@</code> <em>jsonb</em></td>
+      <td>Does <code>right</code> include <code>left</code>?</td>
+      <td><code>data &lt;@ '{"a":1,"b":2}'::jsonb</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When <code>?</code>/<code>?|</code>/<code>?&amp;</code> works on objects, it checks keys; when it works on arrays, it checks for elements.</p>
+
+<h2 id="updating">Updating</h2>
+
+<h3 id="arrays-and-objects">Arrays and objects</h3>
+
+<pre class="-setup"><code class="language-sql">UPDATE users SET tags = tags || array['admin'];
+</code></pre>
+
+<table class="-headers -shortcuts">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>||</code> <em>json</em></td>
+      <td><code>data || array['a','b']</code></td>
+      <td>Concatenate</td>
+    </tr>
+    <tr>
+      <td><code>-</code> <em>str</em></td>
+      <td><code>data - 'a'</code></td>
+      <td>Delete a key</td>
+    </tr>
+    <tr>
+      <td><code>-</code> <em>int</em></td>
+      <td><code>data - 1</code></td>
+      <td>Delete an array item</td>
+    </tr>
+    <tr>
+      <td><code>#-</code> <em>text[]</em></td>
+      <td><code>data #- '{us,name}'</code></td>
+      <td>Delete a path</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Only available in PostgreSQL 9.5+.</p>
+
+<h3 id="jsonb_set">jsonb_set</h3>
+
+<pre><code class="language-sql">UPDATE users SET data = jsonb_set(data, '{name}', '"John"');
+</code></pre>
+
+<p>Only available in PostgreSQL 9.5+.</p>
+
+<h2 id="functions">Functions</h2>
+
+<h4 id="fnjson--json">fn(json) → json</h4>
+
+<pre><code class="language-sql">jsonb_set(data, '{path}', value)
+jsonb_strip_nulls(data)
+</code></pre>
+
+<h4 id="fn--json">fn(···) → json</h4>
+
+<pre><code class="language-sql">to_json("Hello"::text)
+array_to_json('{1,2}'::int[])
+</code></pre>
+
+<h4 id="iteration">Iteration</h4>
+
+<pre><code class="language-sql">SELECT * from json_each('{"a":1, "b":2}')
+SELECT * from json_each_text('{"a":1, "b":2}')
+-- key | value
+</code></pre>
+
+<p>This is an incomplete list, there’s way too many!</p>
+
+<p>See: <a href="https://www.postgresql.org/docs/9.5/static/functions-json.html">JSON functions</a></p>
+
+<h2 id="more-examples">More examples</h2>
+
+<ul>
+  <li><code>'{"a":1}'::jsonb ? 'a'</code></li>
+  <li><code>'["a"]'::jsonb ? 'a'</code></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://www.postgresql.org/docs/9.5/static/functions-json.html">https://www.postgresql.org/docs/9.5/static/functions-json.html</a></li>
+  <li><a href="https://www.postgresql.org/docs/9.5/static/datatype-json.html">https://www.postgresql.org/docs/9.5/static/datatype-json.html</a></li>
+</ul>

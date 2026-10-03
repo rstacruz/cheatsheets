@@ -1,0 +1,327 @@
+<h2 id="basic-examples">Basic examples</h2>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://www.lua.org/pil/13.html">https://www.lua.org/pil/13.html</a></li>
+  <li><a href="http://lua-users.org/wiki/ObjectOrientedProgramming">http://lua-users.org/wiki/ObjectOrientedProgramming</a></li>
+</ul>
+
+<h3 id="comments">Comments</h3>
+
+<pre><code>-- comment
+--[[ Multiline
+     comment ]]
+</code></pre>
+
+<h3 id="invoking-functions">Invoking functions</h3>
+
+<pre><code>print()
+print("Hi")
+
+-- You can omit parentheses if the argument is one string or table literal
+print "Hello World"     &lt;--&gt;     print("Hello World")
+dofile 'a.lua'          &lt;--&gt;     dofile ('a.lua')
+print [[a multi-line    &lt;--&gt;     print([[a multi-line
+ message]]                        message]])
+f{x=10, y=20}           &lt;--&gt;     f({x=10, y=20})
+type{}                  &lt;--&gt;     type({})
+</code></pre>
+
+<h3 id="tables--arrays">Tables / arrays</h3>
+
+<pre><code>t = {}
+t = { a = 1, b = 2 }
+t.a = function() ... end
+
+t = { ["hello"] = 200 }
+t.hello
+
+-- Remember, arrays are also tables
+array = { "a", "b", "c", "d" }
+print(array[2])       -- "b" (one-indexed)
+print(#array)         -- 4 (length)
+</code></pre>
+
+<h3 id="loops">Loops</h3>
+
+<pre><code>while condition do
+end
+
+for i = 1,5 do
+end
+
+for i = start,finish,delta do
+end
+
+for k,v in pairs(tab) do
+end
+
+repeat
+until condition
+
+-- Breaking out:
+while x do
+  if condition then break end
+end
+</code></pre>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code>if condition then
+  print("yes")
+elseif condition then
+  print("maybe")
+else
+  print("no")
+end
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code>local x = 2
+two, four = 2, 4
+</code></pre>
+
+<h3 id="functions">Functions</h3>
+
+<pre><code>function myFunction()
+  return 1
+end
+
+function myFunctionWithArgs(a, b)
+  -- ...
+end
+
+myFunction()
+
+anonymousFunctions(function()
+  -- ...
+end)
+
+-- Not exported in the module
+local function myPrivateFunction()
+end
+
+-- Splats
+function doAction(action, ...)
+  print("Doing '"..action.."' to", ...)
+  --&gt; print("Doing 'write' to", "Shirley", "Abed")
+end
+
+doAction('write', "Shirley", "Abed")
+</code></pre>
+
+<h3 id="lookups">Lookups</h3>
+
+<pre><code>mytable = { x = 2, y = function() .. end }
+
+-- The same:
+mytable.x
+mytable['x']
+
+-- Syntactic sugar, these are equivalent:
+mytable.y(mytable)
+mytable:y()
+
+mytable.y(mytable, a, b)
+mytable:y(a, b)
+
+function X:y(z) .. end
+function X.y(self, z) .. end
+</code></pre>
+
+<h2 id="more-concepts">More concepts</h2>
+
+<h3 id="metatables">Metatables</h3>
+
+<pre><code>mt = {}
+
+-- A metatable is simply a table with functions in it.
+mt.__tostring = function() return "lol" end
+mt.__add      = function(b) ... end       -- a + b
+mt.__mul      = function(b) ... end       -- a * b
+mt.__index    = function(k) ... end       -- Lookups (a[k] or a.k)
+mt.__newindex = function(k, v) ... end    -- Setters (a[k] = v)
+
+-- Metatables allow you to override behavior of another table.
+mytable = {}
+setmetatable(mytable, mt)
+
+print(myobject)
+</code></pre>
+
+<h3 id="classes">Classes</h3>
+
+<pre><code>Account = {}
+
+function Account:new(balance)
+  local t = setmetatable({}, { __index = Account })
+
+  -- Your constructor stuff
+  t.balance = (balance or 0)
+  return t
+end
+
+function Account:withdraw(amount)
+  print("Withdrawing "..amount.."...")
+  self.balance = self.balance - amount
+  self:report()
+end
+
+function Account:report()
+  print("Your current balance is: "..self.balance)
+end
+
+a = Account:new(9000)
+a:withdraw(200)    -- method call
+</code></pre>
+
+<h3 id="constants">Constants</h3>
+
+<pre><code>nil
+false
+true
+</code></pre>
+
+<h2 id="operators-and-their-metatable-names">Operators (and their metatable names)</h2>
+
+<h3 id="relational">Relational</h3>
+
+<pre><code>-- Relational (binary)
+-- __eq  __lt  __gt  __le  __ge
+   ==    &lt;     &gt;     &lt;=    &gt;=
+~=   -- Not equal, just like !=
+
+-- Arithmetic (binary)
+-- __add  __sub  __muv  __div  __mod  __pow
+   +      -      *      /      %      ^
+
+-- Arithmetic (unary)
+-- __unm (unary minus)
+   -
+</code></pre>
+
+<h3 id="logic">Logic</h3>
+
+<pre><code>-- Logic (and/or)
+nil and false  --&gt; nil
+false and nil  --&gt; false
+not true       --&gt; false
+0 and 20       --&gt; 20
+10 and 20      --&gt; 20
+</code></pre>
+
+<h3 id="tables">Tables</h3>
+
+<pre><code>-- Length
+-- __len(array)
+#array
+
+
+-- Indexing
+-- __index(table, key)
+t[key]
+t.key
+
+-- __newindex(table, key, value)
+t[key]=value
+
+-- String concat
+-- __concat(left, right)
+"hello, "..name
+
+-- Call
+-- __call(func, ...)
+</code></pre>
+
+<h2 id="api">API</h2>
+
+<h3 id="api-global-functions">API: Global Functions</h3>
+
+<pre><code>dofile("hello.lua")
+loadfile("hello.lua")
+
+assert(x)    -- x or (raise an error)
+assert(x, "failed")
+
+type(var)   -- "nil" | "number" | "string" | "boolean" | "table" | "function" | "thread" | "userdata"
+
+-- Does /not/ invoke meta methods (__index and __newindex)
+rawset(t, index, value)    -- Like t[index] = value
+rawget(t, index)           -- Like t[index]
+
+_G  -- Global context
+setfenv(1, {})  -- 1: current function, 2: caller, and so on -- {}: the new _G
+
+pairs(t)     -- iterable list of {key, value}
+ipairs(t)    -- iterable list of {index, value}
+
+tonumber("34")
+tonumber("8f", 16)
+</code></pre>
+
+<h3 id="api-strings">API: Strings</h3>
+
+<pre><code>'string'..'concatenation'
+
+s = "Hello"
+s:upper()
+s:lower()
+s:len()    -- Just like #s
+
+s:find()
+s:gfind()
+
+s:match()
+s:gmatch()
+
+s:sub()
+s:gsub()
+
+s:rep()
+s:char()
+s:dump()
+s:reverse()
+s:byte()
+s:format()
+</code></pre>
+
+<h3 id="api-tables">API: Tables</h3>
+
+<pre><code>table.foreach(t, function(row) ... end)
+table.setn
+table.insert(t, 21)          -- append (--&gt; t[#t+1] = 21)
+table.insert(t, 4, 99)
+table.getn
+table.concat
+table.sort
+table.remove(t, 4)
+</code></pre>
+
+<h3 id="api-math">API: Math</h3>
+
+<pre><code>math.abs     math.acos    math.asin       math.atan    math.atan2
+math.ceil    math.cos     math.cosh       math.deg     math.exp
+math.floor   math.fmod    math.frexp      math.ldexp   math.log
+math.log10   math.max     math.min        math.modf    math.pow
+math.rad     math.random  math.randomseed math.sin     math.sinh
+math.sqrt    math.tan     math.tanh
+
+math.sqrt(144)
+math
+</code></pre>
+
+<h3 id="api-misc">API: Misc</h3>
+
+<pre><code>io.output(io.open("file.txt", "w"))
+io.write(x)
+io.close()
+
+for line in io.lines("file.txt")
+
+file = assert(io.open("file.txt", "r"))
+file:read()
+file:lines()
+file:close()
+</code></pre>

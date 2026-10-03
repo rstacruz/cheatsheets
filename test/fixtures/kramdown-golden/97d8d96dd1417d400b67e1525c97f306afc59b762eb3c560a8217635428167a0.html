@@ -1,0 +1,64 @@
+<h2 class="-two-column" id="reference">Reference</h2>
+
+<h3 id="deflate--inflate--concatenate">Deflate / Inflate / Concatenate</h3>
+<pre><code class="language-shell"># Deflate / Compress
+tar -czf archive.tar.gz /path/files
+</code></pre>
+
+<pre><code class="language-shell"># Inflate / Uncompress
+tar -xzf archive.tar.gz
+</code></pre>
+
+<pre><code class="language-shell"># Concatenate files into a single tar
+tar -cf archive.tar /path/files
+</code></pre>
+
+<pre><code class="language-shell"># Extract file to a defined directory
+tar -xzf archive.tar.gz -C /target/directory
+</code></pre>
+
+<pre><code class="language-shell"># Append a file to an existing archive
+tar -zu archive.tar.gz -C /target/file
+</code></pre>
+
+<pre><code class="language-shell"># List files in archive
+# Add -v for additional details
+tar -tzf archive.tar.gz
+</code></pre>
+
+<h3 id="common-options">Common options</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>z</code></td>
+      <td>compress with gzip</td>
+    </tr>
+    <tr>
+      <td><code>c</code></td>
+      <td>create an archive</td>
+    </tr>
+    <tr>
+      <td><code>u</code></td>
+      <td>append files which are newer than the corresponding copy in the archive</td>
+    </tr>
+    <tr>
+      <td><code>f</code></td>
+      <td>filename of the archive</td>
+    </tr>
+    <tr>
+      <td><code>v</code></td>
+      <td>verbose, display what is inflated or deflated</td>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>unlike of <code>z</code>, determine compression based on file extension</td>
+    </tr>
+  </tbody>
+</table>

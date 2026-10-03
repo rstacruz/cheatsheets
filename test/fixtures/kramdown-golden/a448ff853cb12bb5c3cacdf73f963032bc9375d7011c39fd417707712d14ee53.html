@@ -1,0 +1,129 @@
+<h3 id="meta-tags">Meta tags</h3>
+
+<pre><code class="language-html">&lt;meta charset='utf-8'&gt;
+</code></pre>
+
+<pre data-line="2"><code class="language-html">&lt;!-- title --&gt;
+&lt;title&gt;···&lt;/title&gt;
+&lt;meta property='og:title'  content='···'&gt;
+&lt;meta name='twitter:title' content='···'&gt;
+</code></pre>
+
+<pre data-line="2"><code class="language-html">&lt;!-- url --&gt;
+&lt;link rel='canonical'       href='http://···'&gt;
+&lt;meta property='og:url'  content='http://···'&gt;
+&lt;meta name='twitter:url' content='http://···'&gt;
+</code></pre>
+
+<pre data-line="2"><code class="language-html">&lt;!-- description --&gt;
+&lt;meta name='description'         content='···'&gt;
+&lt;meta property='og:description'  content='···'&gt;
+&lt;meta name='twitter:description' content='···'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- image --&gt;
+&lt;meta property="og:image"  content="http://···"&gt;
+&lt;meta name="twitter:image" content="http://···"&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- ua --&gt;
+&lt;meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- viewport --&gt;
+&lt;meta name='viewport' content='width=device-width'&gt;
+&lt;meta name='viewport' content='width=1024'&gt;
+</code></pre>
+
+<h3 id="more-opengraph">More opengraph</h3>
+
+<pre><code class="language-html">&lt;meta property='og:site_name' content='···'&gt;
+&lt;meta property='og:type' content='website'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;meta property='fb:app_id' content='···'&gt;
+&lt;meta property='fb:admins' content='UID1,UID2'&gt;
+&lt;!-- ···unless there's app_id --&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;meta property='og:audio' content='http://···/theme.mp3'&gt;
+&lt;meta property='og:video' content='http://···/trailer.swf'&gt;
+</code></pre>
+
+<p>See: <a href="https://developers.facebook.com/docs/opengraphprotocol/">OpenGraph protocol</a> <em>(developers.facebook.com)</em></p>
+
+<h3 id="opengraph-for-articles">Opengraph for articles</h3>
+
+<ul>
+  <li><code>article:published_time</code></li>
+  <li><code>article:modified_time</code></li>
+  <li><code>article:expiration_time</code></li>
+  <li><code>article:author</code></li>
+  <li><code>article:section</code></li>
+  <li><code>article:tag</code></li>
+</ul>
+
+<h3 id="apple-only">Apple-only</h3>
+
+<pre><code class="language-html">&lt;meta name='format-detection' content='telephone=no'&gt;
+</code></pre>
+
+<h2 id="progressive-web-apps">Progressive web apps</h2>
+
+<h3 id="add-to-homescreen">Add to homescreen</h3>
+
+<pre><code class="language-html">&lt;meta name='mobile-web-app-capable' content='yes'&gt;
+&lt;meta name='apple-mobile-web-app-capable' content='yes'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;meta name='apple-mobile-web-app-status-bar-style' content='black'&gt;
+&lt;!-- black | black-translucent | default --&gt;
+</code></pre>
+
+<h3 id="theme-color">Theme color</h3>
+
+<pre><code class="language-html">&lt;meta name='theme-color' content='#ff00ff'&gt;
+</code></pre>
+
+<p>Android-only.
+See: <a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android">Theme color</a></p>
+
+<h3 id="manifest">Manifest</h3>
+
+<pre><code class="language-html">&lt;link rel='manifest' href='/manifest.json'&gt;
+</code></pre>
+
+<p>Android-only.
+See: <a href="https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/">Manifest</a></p>
+
+<h3 id="icons">Icons</h3>
+
+<pre><code class="language-html">&lt;!-- Minimal --&gt;
+&lt;link rel='icon' type='image/png' href='favicon@32.png'&gt;
+&lt;link rel='icon' sizes='192x192' href='icon@192.png'&gt;
+&lt;link rel='apple-touch-icon' href='icon@152.png'&gt;
+&lt;meta name='msapplication-square310x310logo' content='icon@310.png'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- Apple --&gt;
+&lt;link rel='apple-touch-icon' href='touch-icon-iphone.png'&gt;
+&lt;link rel='apple-touch-icon' sizes='76x76' href='touch-icon-ipad.png'&gt;
+&lt;link rel='apple-touch-icon' sizes='120x120' href='touch-icon-iphone-retina.png'&gt;
+&lt;link rel='apple-touch-icon' sizes='152x152' href='touch-icon-ipad-retina.png'&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- Microsoft --&gt;
+&lt;meta name='msapplication-square70x70logo' content='icon_smalltile.png'&gt;
+&lt;meta name='msapplication-square150x150logo' content='icon_mediumtile.png'&gt;
+&lt;meta name='msapplication-wide310x150logo' content='icon_widetile.png'&gt;
+</code></pre>
+
+<p>Chrome on Android recommends <a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android">192x192</a>.
+See: <a href="https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/">Icons</a></p>
+
+<h2 class="-one-column" id="reference">Reference</h2>
+
+<ul class="-also-see">
+  <li><a href="https://dev.twitter.com/cards">https://dev.twitter.com/cards</a></li>
+  <li><a href="https://developers.facebook.com/docs/opengraphprotocol/#types">https://developers.facebook.com/docs/opengraphprotocol/#types</a></li>
+</ul>

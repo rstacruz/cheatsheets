@@ -1,0 +1,478 @@
+<h2 class="-one-column" id="ffaker">FFaker</h2>
+
+<h3 id="installing">Installing</h3>
+
+<pre><code class="language-ruby"># gem install ffaker
+require 'ffaker'
+</code></pre>
+
+<h2 class="-one-column" id="fakeraddress">Faker::Address</h2>
+
+<pre><code class="language-ruby">Faker::Address.city                     #=&gt; "Autumnside"
+                                        #=&gt; "South Brielleberg"
+                                        #=&gt; "West Alvera"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Address.street_name              #=&gt; "Greyson Rapid"
+                                        #=&gt; "Hoppe Grove"
+                                        #=&gt; "Reichert Lights"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Address.street_address           #=&gt; "98786 Neal Motorway"
+                                        #=&gt; "6619 Yvonne Dale"
+                                        #=&gt; "6143 Bailey Plaza"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Address.secondary_address        #=&gt; "Suite 560"
+                                        #=&gt; "Apt. 332"
+                                        #=&gt; "Apt. 411"
+</code></pre>
+
+<h2 class="-one-column" id="fakercompany">Faker::Company</h2>
+
+<pre><code class="language-ruby">Faker::Company.name                     #=&gt; "Pouros-Ondricka"
+                                        #=&gt; "Ward Group"
+                                        #=&gt; "Walter-Romaguera"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Company.suffix                   #=&gt; "and Sons"
+                                        #=&gt; "LLC"
+                                        #=&gt; "and Sons"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Company.catch_phrase             #=&gt; "Versatile mobile help-desk"
+                                        #=&gt; "Extended fresh-thinking utilisation"
+                                        #=&gt; "Reactive coherent flexibility"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Company.bs                       #=&gt; "extend one-to-one convergence"
+                                        #=&gt; "architect 24/7 interfaces"
+                                        #=&gt; "revolutionize viral vortals"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Company.position                 #=&gt; "General Corporate President"
+                                        #=&gt; "Executive Department Consultant"
+                                        #=&gt; "Associate Director"
+</code></pre>
+
+<h2 class="-one-column" id="fakereducation">Faker::Education</h2>
+
+<pre><code class="language-ruby">Faker::Education.school                 #=&gt; "Larkwood Institution"
+                                        #=&gt; "Whiteshire School"
+                                        #=&gt; "California International College"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Education.degree                 #=&gt; "Bachelor of Science in Political Administration"
+                                        #=&gt; "Doctor of Medicine in Marketing Economics"
+                                        #=&gt; "Bachelor of Music in Marketing Development"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Education.degree_short           #=&gt; "MD in Industrial Arts"
+                                        #=&gt; "DPhil in Social Management"
+                                        #=&gt; "AB in Political Science"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Education.major                  #=&gt; "Financial Philosophy"
+                                        #=&gt; "Social Arts"
+                                        #=&gt; "Business Accountancy"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Education.school_name            #=&gt; "Larkfield"
+                                        #=&gt; "Northshire"
+                                        #=&gt; "Lakepoint"
+</code></pre>
+
+<h2 class="-one-column" id="fakergeolocation">Faker::Geolocation</h2>
+
+<pre><code class="language-ruby">Faker::Geolocation.lat                  #=&gt; 40.89505
+                                        #=&gt; 41.77117
+                                        #=&gt; 41.022921
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Geolocation.lng                  #=&gt; -115.120716573
+                                        #=&gt; -118.427610513239
+                                        #=&gt; -72.204989
+</code></pre>
+
+<h2 class="-one-column" id="fakerinternet">Faker::Internet</h2>
+
+<pre><code class="language-ruby">Faker::Internet.email                   #=&gt; "dayna@auer.name"
+                                        #=&gt; "joy@nienowbradtke.info"
+                                        #=&gt; "bernhard@wyman.ca"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.user_name               #=&gt; "emory"
+                                        #=&gt; "janelle_schamberger"
+                                        #=&gt; "brigitte.dooley"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.domain_name             #=&gt; "langworth.biz"
+                                        #=&gt; "corkery.info"
+                                        #=&gt; "schroeder.uk"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.disposable_email        #=&gt; "barrett_schroeder@spamherelots.com"
+                                        #=&gt; "nicholaus@suremail.info"
+                                        #=&gt; "gladys@safetymail.info"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.free_email              #=&gt; "lemuel@yahoo.com"
+                                        #=&gt; "nickolas.gulgowski@gmail.com"
+                                        #=&gt; "isaac_ankunding@gmail.com"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.domain_word             #=&gt; "purdykutch"
+                                        #=&gt; "sauer"
+                                        #=&gt; "trantowmaggio"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Internet.domain_suffix           #=&gt; "us"
+                                        #=&gt; "info"
+                                        #=&gt; "biz"
+</code></pre>
+
+<h2 class="-one-column" id="fakerjob">Faker::Job</h2>
+
+<pre><code class="language-ruby">Faker::Job.title                        #=&gt; "Future Data Assistant"
+                                        #=&gt; "Product Division Technician"
+                                        #=&gt; "Product Research Developer"
+</code></pre>
+
+<h2 class="-one-column" id="fakerlorem">Faker::Lorem</h2>
+
+<pre><code class="language-ruby">Faker::Lorem.word                       #=&gt; "sint"
+                                        #=&gt; "sit"
+                                        #=&gt; "omnis"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.sentence                   #=&gt; "Expedita et aspernatur eum sit ipsam culpa."
+                                        #=&gt; "Rem sunt voluptatem laborum dolores."
+                                        #=&gt; "Ad explicabo atque culpa."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.paragraph                  #=&gt; "Quidem deserunt qui atque labore sunt quis laborum. Et iste
+                                        #    laudantium nobis adipisci delectus. Quod vero repudiandae m
+                                        #    agni repellat totam. Id ullam a aperiam et laboriosam. Volup
+                                        #    tas aut perspiciatis o..."
+                                        #=&gt; "Dolor et quae quisquam placeat. Accusantium quidem totam no
+                                        #    n et deleniti accusamus hic. Iure quidem inventore molestiae
+                                        #    harum magni dolor. Deleniti ex a voluptas nihil temporibus.
+                                        #    "
+                                        #=&gt; "Fugiat sapiente vero voluptatum natus assumenda quam beatae
+                                        #    in. Nemo velit incidunt dolor perspiciatis. Ipsum minima oc
+                                        #    caecati est laudantium ducimus libero. Et fugit et adipisci
+                                        #    molestias. Cupiditate ..."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.words(4)                   #=&gt; ["repellat", "quos", "amet", "voluptatem"]
+                                        #=&gt; ["porro", "molestias", "ut", "qui"]
+                                        #=&gt; ["blanditiis", "soluta", "enim", "fugit"]
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.sentence(5)                #=&gt; "Laborum sint voluptate voluptatem rem doloremque et incidun
+                                        #    t itaque."
+                                        #=&gt; "Autem atque eum laborum alias perspiciatis debitis suscipit
+                                        #    deserunt sint."
+                                        #=&gt; "Quaerat nam consectetur eum dolor deleniti tempore doloremq
+                                        #    ue et aspernatur."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.sentences(3)               #=&gt; ["Culpa debitis architecto est.", "Quo et voluptatem distinc
+                                        #    tio repellendus qui cupiditate.", "Quo repellendus ut eius."
+                                        #    ]
+                                        #=&gt; ["Quos nihil dolorem quidem maxime.", "Expedita ab veniam do
+                                        #    lorum at et placeat iure.", "In perspiciatis cupiditate amet
+                                        #    non saepe consequatur molestias minus."]
+                                        #=&gt; ["Quasi velit et voluptas est.", "Dolores ut dolor aut repel
+                                        #    lat fuga minima sed quia.", "Eum id minus atque ex modi."]
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Lorem.paragraphs(3)              #=&gt; ["Iusto mollitia sequi nam perspiciatis fuga aut. Modi moles
+                                        #    tiae consectetur architecto et dolorem aut perferendis. Cumq
+                                        #    ue rerum aliquam sapiente. Dolorum quo reiciendis nemo vero.
+                                        #    Quo earum explicabo pariatur.", "Possimus omnis accusamus f
+                                        #    uga. Harum sint facere sed dolor itaque quia. Ullam optio at
+                                        #    que vel nihil facilis quidem accusantium sint.", "Itaque per
+                                        #    ferendis saepe pariatur maxime expedita laborum qui. Ea nemo
+                                        #    dolor aut. In sed sit minus itaque sit."]
+                                        #=&gt; ["Ducimus non quo qui doloremque aperiam aspernatur. Consequ
+                                        #    atur id qui sit occaecati. Incidunt tempora quia et. Esse vo
+                                        #    luptatem debitis similique ab totam sit. Illo neque vel face
+                                        #    re maxime voluptatum non voluptatem.", "Aut eveniet consequa
+                                        #    tur laudantium veniam qui dolores. Provident pariatur perspi
+                                        #    ciatis id. Eum iste id quasi. Esse nihil quis rerum laudanti
+                                        #    um aliquam molestiae eum tempora.", "Quia porro sint numquam
+                                        #    qui. Ut sint reiciendis quis pariatur veniam nesciunt optio
+                                        #    . Officia unde fugit distinctio dolorem voluptatem incidunt.
+                                        #    Ex omnis sit et non aut."]
+                                        #=&gt; ["Dicta consequatur sapiente saepe fugiat ut. Necessitatibus
+                                        #    enim explicabo qui fugiat occaecati expedita quis. Quo iust
+                                        #    o magnam facere nihil earum.", "In deleniti explicabo veniam
+                                        #    dolorem temporibus enim. Delectus exercitationem ipsum dolo
+                                        #    r modi. Aut quia voluptas velit sint aperiam sed eveniet.",
+                                        #    "Quo doloribus explicabo ut magnam quasi. Voluptatem debitis
+                                        #    quaerat aperiam. Accusantium quis voluptatem dolorem."]
+</code></pre>
+
+<h2 class="-one-column" id="fakerhipsteripsum">Faker::HipsterIpsum</h2>
+
+<pre><code class="language-ruby">Faker::HipsterIpsum.paragraph           #=&gt; "Wayfarers mustache thundercats pitchfork messenger bag high
+                                        #    life. Beard messenger bag wayfarers squid vinyl letterpress
+                                        #    party iphone jean shorts. Lomo irony before they sold out e
+                                        #    thical wayfarers scene..."
+                                        #=&gt; "Tofu stumptown cliche sartorial vhs letterpress keffiyeh wi
+                                        #    lliamsburg. Whatever jean shorts williamsburg lomo salvia fo
+                                        #    od truck 8-bit. Cosby sweater portland artisan wayfarers vhs
+                                        #    photo booth."
+                                        #=&gt; "Skateboard fanny pack wes anderson sartorial cred gluten-fr
+                                        #    ee vinyl marfa locavore. Messenger bag master cleanse mlkshk
+                                        #    vegan thundercats beard wes anderson brunch. Helvetica mess
+                                        #    enger bag lo-fi four l..."
+</code></pre>
+
+<h2 class="-one-column" id="fakerhtmlipsum">Faker::HTMLIpsum</h2>
+
+<pre><code class="language-ruby">Faker::HTMLIpsum.body                   #=&gt; "&lt;h1&gt;Exercitationem et&lt;/h1&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Eligendi&lt;/t
+                                        #    h&gt;&lt;th&gt;Vel&lt;/th&gt;&lt;th&gt;Sed&lt;/th&gt;&lt;th&gt;At&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr
+                                        #    &gt;&lt;..."
+                                        #=&gt; "&lt;h1&gt;Excepturi sequi&lt;/h1&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Quam&lt;/th&gt;&lt;th&gt;
+                                        #    Eius&lt;/th&gt;&lt;th&gt;Quibusdam&lt;/th&gt;&lt;th&gt;Totam&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody
+                                        #    &gt;&lt;tr&gt;..."
+                                        #=&gt; "&lt;h1&gt;Iusto voluptatem&lt;/h1&gt;&lt;p&gt;Laborum velit ducimus eius. Mol
+                                        #    estiae id vel ipsam a accusantium et ut. Sunt et fugiat qui
+                                        #    sint ab quia. Eum ut molestiae cumque molestiae error volupt
+                                        #    ates. Ipsum molestiae ..."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::HTMLIpsum.table                  #=&gt; "&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Voluptatem&lt;/th&gt;&lt;th&gt;Porro&lt;/th&gt;&lt;th&gt;Tene
+                                        #    tur&lt;/th&gt;&lt;th&gt;Facilis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Numquam&lt;
+                                        #    /t..."
+                                        #=&gt; "&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Impedit&lt;/th&gt;&lt;th&gt;Voluptatem&lt;/th&gt;&lt;th&gt;Qu
+                                        #    i&lt;/th&gt;&lt;th&gt;Est&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Nihil&lt;/td&gt;..."
+                                        #=&gt; "&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Iste&lt;/th&gt;&lt;th&gt;Et&lt;/th&gt;&lt;th&gt;Sequi&lt;/th&gt;&lt;th
+                                        #    &gt;Et&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Blanditiis&lt;/td&gt;..."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::HTMLIpsum.fancy_string           #=&gt; "&lt;a href=\"#distinctio\" title=\"Tenetur explicabo\"&gt;Velit e
+                                        #    st&lt;/a&gt; &lt;code&gt;aperiam reiciendis&lt;/code&gt; Consectetur aut hic e
+                                        #    um quisquam. Dolore aut rerum dolor accusantium ab repellend
+                                        #    us magni. Deserunt optio o..."
+                                        #=&gt; "Et vel similique ullam accusantium laboriosam. Sit ut ea to
+                                        #    tam. Iusto praesentium ut molestiae. Voluptatem laudantium a
+                                        #    ut qui adipisci. Est saepe repellendus qui blanditiis volupt
+                                        #    ates sed odit ullam. &lt;..."
+                                        #=&gt; "Neque et omnis ipsam ad culpa maiores inventore. Laborum cu
+                                        #    m est fugit libero repellendus vero. Modi pariatur sunt tene
+                                        #    tur soluta inventore ratione. Iste consequuntur quia omnis n
+                                        #    umquam excepturi quod ..."
+</code></pre>
+
+<h2 class="-one-column" id="fakername">Faker::Name</h2>
+
+<pre><code class="language-ruby">Faker::Name.name                        #=&gt; "Trevion Herman V"
+                                        #=&gt; "Aracely Balistreri"
+                                        #=&gt; "Daphnee Terry Sr."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Name.first_name                  #=&gt; "Aliza"
+                                        #=&gt; "Joseph"
+                                        #=&gt; "Orland"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Name.last_name                   #=&gt; "Hand"
+                                        #=&gt; "Macejkovic"
+                                        #=&gt; "Heller"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Name.prefix                      #=&gt; "Dr."
+                                        #=&gt; "Ms."
+                                        #=&gt; "Mr."
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Name.suffix                      #=&gt; "I"
+                                        #=&gt; "III"
+                                        #=&gt; "DDS"
+</code></pre>
+
+<h2 class="-one-column" id="fakerphonenumber">Faker::PhoneNumber</h2>
+
+<pre><code class="language-ruby">Faker::PhoneNumber.phone_number         #=&gt; "335-364-4549 x430"
+                                        #=&gt; "040-278-4021 x753"
+                                        #=&gt; "420.645.4382"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::PhoneNumber.short_phone_number   #=&gt; "473-412-3192"
+                                        #=&gt; "353-084-1297"
+                                        #=&gt; "080-546-2356"
+</code></pre>
+
+<h2 class="-one-column" id="fakerproduct">Faker::Product</h2>
+
+<pre><code class="language-ruby">Faker::Product.brand                    #=&gt; "Trouffeforge"
+                                        #=&gt; "VIG"
+                                        #=&gt; "NDZ"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Product.product_name             #=&gt; "Air HD Viewer"
+                                        #=&gt; "HD Kit"
+                                        #=&gt; "Air HD Bridge"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Product.product                  #=&gt; "Amnix Air HD Tuner"
+                                        #=&gt; "Panapod Audible Filter"
+                                        #=&gt; "Phuffe Disc Receiver"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::Product.model                    #=&gt; "I-422"
+                                        #=&gt; "J89"
+                                        #=&gt; "L6"
+</code></pre>
+
+<h2 class="-one-column" id="fakernamecn">Faker::NameCN</h2>
+
+<pre><code class="language-ruby">Faker::NameCN.name                      #=&gt; "姵书虞"
+                                        #=&gt; "修男嵇"
+                                        #=&gt; "瑜人军"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameCN.last_first                #=&gt; "向坚舜"
+                                        #=&gt; "疏骏哲"
+                                        #=&gt; "秘合雪"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameCN.first_name                #=&gt; "佑淑"
+                                        #=&gt; "燕谦"
+                                        #=&gt; "重生"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameCN.last_name                 #=&gt; "释"
+                                        #=&gt; "巩"
+                                        #=&gt; "麻"
+</code></pre>
+
+<h2 class="-one-column" id="fakernamede">Faker::NameDE</h2>
+
+<pre><code class="language-ruby">Faker::NameDE.name                      #=&gt; "Noelle Schuster"
+                                        #=&gt; "Bendix Schmid"
+                                        #=&gt; "Azra Neumann"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameDE.first_name                #=&gt; "Victoria"
+                                        #=&gt; "Lotta"
+                                        #=&gt; "Mads"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameDE.last_name                 #=&gt; "Martin"
+                                        #=&gt; "Klein"
+                                        #=&gt; "Walter"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameDE.prefix                    #=&gt; "Frau"
+                                        #=&gt; "Prof."
+                                        #=&gt; "Prof."
+</code></pre>
+
+<h2 class="-one-column" id="fakernameja">Faker::NameJA</h2>
+
+<pre><code class="language-ruby">Faker::NameJA.name                      #=&gt; "飛鳥田部"
+                                        #=&gt; "未杉浦"
+                                        #=&gt; "功本間"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameJA.last_first                #=&gt; "青木杏子"
+                                        #=&gt; "棚原大貴"
+                                        #=&gt; "知名翔"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameJA.first_name                #=&gt; "巴"
+                                        #=&gt; "浩子"
+                                        #=&gt; "沙耶"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameJA.last_name                 #=&gt; "小栗"
+                                        #=&gt; "高江洲"
+                                        #=&gt; "友寄"
+</code></pre>
+
+<h2 class="-one-column" id="fakernameru">Faker::NameRU</h2>
+
+<pre><code class="language-ruby">Faker::NameRU.name                      #=&gt; "Стелла Карнилина"
+                                        #=&gt; "Евгения Мазовская"
+                                        #=&gt; "Кузьма Ваиренко"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameRU.last_name                 #=&gt; "Манишева"
+                                        #=&gt; "Тюлева"
+                                        #=&gt; "Понченко"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameRU.first_name                #=&gt; "Артур"
+                                        #=&gt; "Руслана"
+                                        #=&gt; "Зинаида"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameRU.patronymic                #=&gt; "Мечеславович"
+                                        #=&gt; "Ионович"
+                                        #=&gt; "Исаевич"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameRU.name(:male)               #=&gt; "Слежиков Роман Всеволодович"
+                                        #=&gt; "Осип Мугрузин"
+                                        #=&gt; "Джиджаев Гавриил Леванович"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameRU.name(:female)             #=&gt; "Зиядтдинова Полина Людвиговна"
+                                        #=&gt; "Андреева Тереза Арсеновна"
+                                        #=&gt; "Дарина Минхазова"
+</code></pre>
+
+<h2 class="-one-column" id="fakernamesn">Faker::NameSN</h2>
+
+<pre><code class="language-ruby">Faker::NameSN.name_sn                   #=&gt; "mame Djaly Mbodj"
+                                        #=&gt; "Hatab Samy"
+                                        #=&gt; "Niouma Dramé"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.name_male                 #=&gt; "serigne Yakou Diagne"
+                                        #=&gt; "serigne Sécouba Diagne"
+                                        #=&gt; "Sihalébé Badji"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.name_female               #=&gt; "Thiomba Niang"
+                                        #=&gt; "adjaratou Kiné Panduppy"
+                                        #=&gt; "Nini Gakou"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.first_name_male           #=&gt; "Khoudia"
+                                        #=&gt; "Sanokho"
+                                        #=&gt; "Diomaye"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.first_name_female         #=&gt; "Assa"
+                                        #=&gt; "Sahaba"
+                                        #=&gt; "Manthita"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.prefix_male               #=&gt; "eladji"
+                                        #=&gt; "eladji"
+                                        #=&gt; "serigne"
+</code></pre>
+
+<pre><code class="language-ruby">Faker::NameSN.prefix_female             #=&gt; "adjaratou"
+                                        #=&gt; "adja"
+                                        #=&gt; "adja"
+</code></pre>
+
+<h2 class="-one-column" id="fakerphonenumberau">Faker::PhoneNumberAU</h2>
+
+<pre><code class="language-ruby">Faker::PhoneNumberAU.phone_number       #=&gt; "0495 539 191"
+                                        #=&gt; "(05) 6838 2406"
+                                        #=&gt; "0496 013 652"
+</code></pre>
+
+<h2 class="-one-column" id="fakerphonenumbersn">Faker::PhoneNumberSN</h2>
+
+<pre><code class="language-ruby">Faker::PhoneNumberSN.phone_number       #=&gt; "77-356-93-09"
+                                        #=&gt; "33-891-67-75"
+                                        #=&gt; "33-886-02-02"
+</code></pre>

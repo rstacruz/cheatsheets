@@ -1,0 +1,40 @@
+<h3 id="functions">Functions</h3>
+
+<pre><code>unit(30px / 5px)  #=&gt; 6
+unit(5, px)       #=&gt; 5px
+
+e("ms:stuff()")   #=&gt; ms:stuff() (unquote)
+
+%("count: %d", 1+2) #=&gt; "count: 3"
+
+iscolor(@x)
+isstring(@x)
+isnumber(@x)
+iskeyword(@x)
+isurl(url(...))
+ispixel()
+isem()
+ispercentage()
+isunit()
+
+hue(@color)
+saturation(@color)
+lightness(@color)
+luma(@color)
+luminance(@color)
+
+fade(@color, amount)
+fadein(@color, amount)
+fadeout(@color, amount)
+spin(@color, degrees)
+mix(@a, @b, amount)
+</code></pre>
+
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code>.image when (luma(@color) &gt; 50%) { }
+.image when (not(...)) { }
+.image when (default()) {}
+.image when (e(@shape) = 'circle') { }
+</code></pre>
+

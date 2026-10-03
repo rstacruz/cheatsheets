@@ -1,0 +1,34 @@
+<pre><code class="language-js">QUnit.module('a')
+QUnit.test('ok', function (t) {
+  /* ... */
+})
+</code></pre>
+
+<h3 id="hooks">Hooks</h3>
+
+<h4 id="each-test">Each test</h4>
+
+<pre><code class="language-js">// each test
+QUnit.testStart(function)
+QUnit.testEnd(function)
+</code></pre>
+
+<pre><code class="language-js">// each module
+QUnit.moduleStart(function)
+QUnit.moduleEnd(function)
+</code></pre>
+
+<pre><code class="language-js">// all
+QUnit.begin(function)
+QUnit.done(function)
+</code></pre>
+
+<h3 id="assertions">Assertions</h3>
+
+<pre><code class="language-js">t.equal(actual, expected)
+t.deepEqual(actual, expected)
+t.strictEqual(actual, expected)
+t.propEqual(actual, expected)
+t.notEqual(actual, expected)
+t.expect(amount)
+</code></pre>

@@ -1,0 +1,96 @@
+<h3 id="hello-world">Hello world</h3>
+
+<h4 id="hellophp">hello.php</h4>
+
+<pre><code class="language-php">&lt;?php
+function greetMe($name): string
+{
+    return "Hello, " . $name . "!";
+}
+
+$message = greetMe($name);
+echo $message;
+</code></pre>
+
+<p>All PHP files start with <code>&lt;?php</code>.</p>
+
+<p>See: <a href="https://php.net/manual/en/language.basic-syntax.phptags.php">PHP tags</a></p>
+
+<h3 id="objects">Objects</h3>
+
+<pre><code class="language-php">&lt;?php
+
+$fruitsArray = array(
+    "apple" =&gt; 20,
+    "banana" =&gt; 30
+);
+echo $fruitsArray['banana'];
+</code></pre>
+
+<p>Or cast as object</p>
+
+<pre><code class="language-php">&lt;?php
+
+$fruitsObject = (object) $fruits;
+echo $fruitsObject-&gt;banana;
+</code></pre>
+
+<h3 id="inspecting-objects">Inspecting objects</h3>
+
+<pre><code class="language-php">&lt;?php
+var_dump($object)
+</code></pre>
+
+<p>Prints the contents of a variable for inspection.</p>
+
+<p>See: <a href="https://php.net/var_dump">var_dump</a></p>
+
+<h3 id="classes">Classes</h3>
+
+<pre><code class="language-php">class Person
+{
+    public $name = '';
+}
+
+$person = new Person();
+$person-&gt;name = 'bob';
+
+echo $person-&gt;name;
+</code></pre>
+
+<h3 id="getters-and-setters">Getters and setters</h3>
+
+<pre><code class="language-php">class Person 
+{
+    private $name = '';
+
+    public function getName(): string
+    {
+        return $this-&gt;name;
+    }
+
+    public function setName(string $name)
+    {
+        $this-&gt;name = $name;
+        return $this;
+    }
+}
+
+$person = new Person();
+$person-&gt;setName('bob');
+
+echo $person-&gt;getName();
+</code></pre>
+
+<h3 id="isset-vs-empty">isset vs empty</h3>
+<pre><code class="language-php">
+$options = [
+    'key' =&gt; 'value',
+    'blank' =&gt; '',
+    'nothing' =&gt; null,
+];
+
+var_dump(isset($options['key']), empty($options['key'])); // true, false
+var_dump(isset($options['blank']), empty($options['blank'])); // true, true
+var_dump(isset($options['nothing']), empty($options['nothing'])); // false, true
+</code></pre>

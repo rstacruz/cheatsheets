@@ -1,0 +1,131 @@
+<h2 class="-three-column" id="common-usage">Common usage</h2>
+
+<h3 id="tables">Tables</h3>
+
+<pre class="-setup"><code>:Tab /|
+</code></pre>
+
+<pre><code>| Fruit  | Color  |
+| -----  | -----  |
+| Apple  | Red    |
+| Banana | Yellow |
+| Kiwi   | Green  |
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<pre class="-setup"><code>:Tab /=
+</code></pre>
+
+<pre><code>title = "Hello"
+src   = "image.jpg"
+width = 640
+</code></pre>
+
+<h3 id="colons">Colons</h3>
+
+<pre class="-setup"><code>:Tab /:\zs/l0l1
+</code></pre>
+
+<pre><code>title:       "Hello world"
+description: "This is a description"
+src:         "image.jpg"
+height:      320
+width:       640
+</code></pre>
+
+<h2 class="-three-column" id="tab-command">Tab command</h2>
+
+<h3 id="basic-example">Basic example</h3>
+
+<pre class="-setup"><code>:Tab /:
+</code></pre>
+
+<pre><code class="language-bash">title : My picture
+src   : img.jpg
+</code></pre>
+
+<h3 id="right-align">Right align</h3>
+
+<pre class="-setup"><code>:Tab /:/r0
+</code></pre>
+
+<pre><code class="language-bash">title:My picture
+  src:   img.jpg
+</code></pre>
+
+<h3 id="the-zs-atom">The \zs atom</h3>
+
+<pre class="-setup"><code>:Tab /:\zs
+</code></pre>
+
+<pre><code>title:  My picture
+src:    img.jpg
+</code></pre>
+
+<p>The <code>\zs</code> atom will exclude the <code>:</code> from the search match.</p>
+
+<h3 id="specifier">Specifier</h3>
+
+<pre class="-setup"><code>:Tab /:/r1c1l0
+</code></pre>
+
+<pre><code class="language-bash">title : My picture
+  src : img.jpg
+</code></pre>
+
+<h4 id="explanation">Explanation</h4>
+
+<ul>
+  <li><code>r1</code> – Right align with 1 space</li>
+  <li><code>c1</code> – Center align the comma with 1 space</li>
+  <li><code>l0</code> – Left align with 0 spaces</li>
+</ul>
+
+<h3 id="regexp">Regexp</h3>
+
+<pre class="-setup"><code>:Tab /^[^,]*\zs,/r0
+</code></pre>
+
+<pre><code class="language-bash">abc,hello
+  c,hi there
+  a,yo
+</code></pre>
+
+<h3 id="specifiers">Specifiers</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Specifier</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>r1c1l0</code></td>
+      <td>multiple specifiers, one per column<br />(the separator counts as a column)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>lN</code></td>
+      <td>Left-align (with N spaces padding)</td>
+    </tr>
+    <tr>
+      <td><code>rN</code></td>
+      <td>Right-align (with N spaces padding)</td>
+    </tr>
+    <tr>
+      <td><code>cN</code></td>
+      <td>Center-align (with N spaces padding)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://github.com/godlygeek/tabular">godlygeek/tabular</a> <em>(github.com)</em></li>
+  <li><a href="http://vimcasts.org/episodes/aligning-text-with-tabular-vim/">Aligning text with Tabular.vim</a> <em>(vimcasts.org)</em></li>
+</ul>

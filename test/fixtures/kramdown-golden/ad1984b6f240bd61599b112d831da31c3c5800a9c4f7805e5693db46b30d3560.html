@@ -1,0 +1,154 @@
+<h3 id="child-">Child: &gt;</h3>
+
+<pre><code class="language-css">nav&gt;ul&gt;li
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<h3 id="sibling-">Sibling: +</h3>
+
+<pre><code class="language-css">section&gt;p+p+p
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h3 id="climb-up-">Climb Up: ^</h3>
+
+<pre><code class="language-css">section&gt;header&gt;h1^footer
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;footer&gt;&lt;/footer&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h3 id="grouping-">Grouping: ()</h3>
+
+<pre><code class="language-css">section&gt;(header&gt;nav&gt;ul&gt;li)+footer&gt;p
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;footer&gt;
+    &lt;p&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h3 id="multiplication-">Multiplication: *</h3>
+
+<pre><code class="language-css">ul&gt;li*3
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h3 id="ids-and-classes-">IDs and Classes: .</h3>
+
+<pre><code class="language-css">ul.menu&gt;li.menu__item+li#id_item+li.menu__item#id_2
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;ul class="menu"&gt;
+  &lt;li class="menu__item"&gt;&lt;/li&gt;
+  &lt;li id="id_item"&gt;&lt;/li&gt;
+  &lt;li class="menu__item" id="id_2"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h3 id="numbering-">Numbering: $</h3>
+
+<pre><code class="language-css">ul&gt;li.item$*3
+ul&gt;li.item$$*3
+ul&gt;li.item$@-*3
+ul&gt;li.item$@3*5
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li class="item1"&gt;&lt;/li&gt;
+  &lt;li class="item2"&gt;&lt;/li&gt;
+  &lt;li class="item3"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+  &lt;li class="item01"&gt;&lt;/li&gt;
+  &lt;li class="item02"&gt;&lt;/li&gt;
+  &lt;li class="item03"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+  &lt;li class="item3"&gt;&lt;/li&gt;
+  &lt;li class="item2"&gt;&lt;/li&gt;
+  &lt;li class="item1"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+  &lt;li class="item3"&gt;&lt;/li&gt;
+  &lt;li class="item4"&gt;&lt;/li&gt;
+  &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+  &lt;li class="item3"&gt;&lt;/li&gt;
+  &lt;li class="item4"&gt;&lt;/li&gt;
+  &lt;li class="item5"&gt;&lt;/li&gt;
+  &lt;li class="item6"&gt;&lt;/li&gt;
+  &lt;li class="item7"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h3 id="attributes-">Attributes: []</h3>
+
+<pre><code class="language-css">input[type="text"]
+div[data-attr="test"]
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;input type="text" /&gt;
+&lt;div data-attr="test"&gt;&lt;/div&gt;
+</code></pre>
+
+<h3 id="text-">Text: {}</h3>
+
+<pre><code class="language-css">p{Lorem ipsum}
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;p&gt;Lorem ipsum&lt;/p&gt;
+</code></pre>
+
+<h3 id="implicit-tags">Implicit tags</h3>
+
+<pre><code class="language-css">.default-block
+em&gt;.default-inline
+ul&gt;.default-list
+table&gt;.default-table-row&gt;.default-table-column
+</code></pre>
+<p>Expands to</p>
+<pre><code class="language-html">&lt;div class="default-block"&gt;&lt;/div&gt;
+&lt;em&gt;&lt;span class="default-inline"&gt;&lt;/span&gt;&lt;/em&gt;
+&lt;ul&gt;
+  &lt;li class="default-list"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;tr class="default-table-row"&gt;
+    &lt;td class="default-table-column"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>

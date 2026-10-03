@@ -1,0 +1,92 @@
+<h3 id="opening">Opening</h3>
+
+<pre><code class="language-ruby">psd = PSD.new(file, parse_layer_images: true)
+psd.parse!
+</code></pre>
+
+<h3 id="traversing">Traversing</h3>
+
+<pre><code class="language-ruby"># Gets the root node.
+# A #&lt;Node&gt; can be a Group or a Layer.
+node = psd.tree
+</code></pre>
+
+<pre><code class="language-ruby">node.root
+node.descendants
+node.ancestors
+node.siblings
+node.subtree
+</code></pre>
+
+<pre><code class="language-ruby">node.descendant_groups
+node.descendant_layers
+</code></pre>
+
+<h3 id="layer-info">Layer info</h3>
+
+<pre><code class="language-ruby">node.name   #=&gt; "Layer 2"
+</code></pre>
+
+<pre><code class="language-ruby">node.top    #=&gt; 3
+node.left   #=&gt; 3
+node.bottom
+node.right
+</code></pre>
+
+<pre><code class="language-ruby"># Note: these are interchanged (?)
+node.width
+node.height
+</code></pre>
+
+<pre><code class="language-ruby">node.visible?
+node.hidden?
+</code></pre>
+
+<pre><code class="language-ruby">node.layer?
+node.group?
+</code></pre>
+
+<pre><code class="language-ruby">node.blending_mode  #=&gt; "normal"
+node.opacity        #=&gt; 0..255
+node.fill_opacity   #=&gt; 0..255
+</code></pre>
+
+<h3 id="layer-text">Layer text</h3>
+
+<pre><code class="language-ruby">node.text                  #=&gt; (Hash)
+node.text[:value]          #=&gt; "Text here"
+node.text[:font][:name]    #=&gt; "Arial"
+node.text[:font][:sizes]   #=&gt; [6.9]
+node.text[:font][:colors]  #=&gt; [[255,255,255,255]]
+node.text[:font][:css]     #=&gt; "font-family: ...;"
+node.text[:left]           #=&gt; 3
+node.text[:top]
+node.text[:right]
+node.text[:bottom]
+node.text[:transform]      #=&gt; (Hash)
+</code></pre>
+
+<h3 id="layer-effects">Layer effects</h3>
+
+<pre><code class="language-ruby">fx = node.info[:object_effects]
+</code></pre>
+
+<pre><code class="language-ruby">fx.data['Scl ']   # ?
+fx.data['GrFl']   # Gradient fill
+</code></pre>
+
+<h3 id="layer-mask">Layer mask</h3>
+
+<pre><code class="language-ruby">node.mask["mask_size"] == 0    # No mask
+node.mask["mask_size"] == 20   # Has mask
+node.mask["top"]
+node.mask["left"]
+node.mask["bottom"]
+node.mask["right"]
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://github.com/layervault/psd.rb">layervault/psd.rb</a> <em>(github.com)</em></li>
+</ul>

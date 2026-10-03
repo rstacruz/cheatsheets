@@ -1,0 +1,207 @@
+<h3 id="usage">Usage</h3>
+
+<pre><code class="language-js">const isObject = require('101/isObject')
+isObject({}) // → true
+</code></pre>
+
+<p>Every function is exposed as a module.</p>
+
+<p>See: <a href="https://github.com/tjmehta/101">101</a></p>
+
+<h3 id="type-checking">Type checking</h3>
+
+<pre><code class="language-js">isObject({})
+isString('str')
+isRegExp(/regexp/)
+isBoolean(true)
+isEmpty({})
+isfunction(x =&gt; x)
+isInteger(10)
+isNumber(10.1)
+instanceOf(obj, 'string')
+</code></pre>
+
+<h2 class="-three-column" id="objects">Objects</h2>
+
+<h3 class="-prime" id="example">Example</h3>
+
+<pre><code class="language-js">let obj = {}
+</code></pre>
+
+<h4 id="update">Update</h4>
+
+<pre><code class="language-js">obj = put(obj, 'user.name', 'John')
+// → { user: { name: 'John' } }
+</code></pre>
+
+<h4 id="read">Read</h4>
+
+<pre><code class="language-js">pluck(name, 'user.name')
+// → 'John'
+</code></pre>
+
+<h4 id="delete">Delete</h4>
+
+<pre><code class="language-js">obj = del(obj, 'user')
+// → { }
+</code></pre>
+
+<h3 id="getting">Getting</h3>
+
+<pre><code class="language-js">pluck(state, 'user.profile.name')
+</code></pre>
+
+<pre><code class="language-js">pick(state, ['user', 'ui'])
+pick(state, /^_/)
+</code></pre>
+
+<p><code>pluck</code> returns values, <code>pick</code> returns subsets of objects.</p>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#pluck">pluck</a>,
+<a href="https://github.com/tjmehta/101#pick">pick</a></p>
+
+<h3 id="setting">Setting</h3>
+
+<pre><code class="language-js">put(state, 'user.profile.name', 'john')
+</code></pre>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#put">put</a></p>
+
+<h3 id="deleting">Deleting</h3>
+
+<pre><code class="language-js">del(state, 'user.profile')
+omit(state, ['user', 'data'])
+</code></pre>
+
+<p><code>omit</code> is like <code>del</code>, but supports multiple keys to be deleted.</p>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#omit">omit</a>,
+<a href="https://github.com/tjmehta/101#del">del</a></p>
+
+<h3 id="keypath-check">Keypath check</h3>
+
+<pre><code class="language-js">hasKeypaths(state, ['user'])
+hasKeypaths(state, { 'user.profile.name': 'john' })
+</code></pre>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#haskeypaths">hasKeypaths</a></p>
+
+<h3 id="get-values">Get values</h3>
+
+<pre><code class="language-js">values(state)
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="simple-functions">Simple functions</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>and(x, y)</code></td>
+      <td><code>x &amp;&amp; y</code></td>
+    </tr>
+    <tr>
+      <td><code>or(x, y)</code></td>
+      <td><code>x || y</code></td>
+    </tr>
+    <tr>
+      <td><code>xor(x, y)</code></td>
+      <td><code>!(!x &amp;&amp; !y) &amp;&amp; !(x &amp;&amp; y)</code></td>
+    </tr>
+    <tr>
+      <td><code>equals(x, y)</code></td>
+      <td><code>x === y</code></td>
+    </tr>
+    <tr>
+      <td><code>exists(x)</code></td>
+      <td><code>!!x</code></td>
+    </tr>
+    <tr>
+      <td><code>not(x)</code></td>
+      <td><code>!x</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Useful for function composition.</p>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#and">and</a>,
+<a href="https://github.com/tjmehta/101#equals">equals</a>,
+<a href="https://github.com/tjmehta/101#exists">exists</a></p>
+
+<h3 id="composition">Composition</h3>
+
+<pre><code class="language-js">compose(f, g)       // x =&gt; f(g(x))
+curry(f)            // x =&gt; y =&gt; f(x, y)
+flip(f)             // f(x, y) --&gt; f(y, x)
+</code></pre>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#compose">compose</a>,
+<a href="https://github.com/tjmehta/101#curry">curry</a>,
+<a href="https://github.com/tjmehta/101#flip">flip</a></p>
+
+<h3 id="andor">And/or</h3>
+
+<pre><code class="language-js">passAll(f, g)       // x =&gt; f(x) &amp;&amp; g(x)
+passAny(f, g)       // x =&gt; f(x) || g(x)
+</code></pre>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#passall">passAll</a>,
+<a href="https://github.com/tjmehta/101#passany">passAny</a></p>
+
+<h3 id="converge">Converge</h3>
+
+<pre><code class="language-js">converge(and, [pluck('a'), pluck('b')])(x)
+</code></pre>
+
+<pre><code class="language-js">// → and(pluck(x, 'a'), pluck(x, 'b'))
+</code></pre>
+
+<p>See:
+<a href="https://github.com/tjmehta/101#converge">converge</a></p>
+
+<h2 id="arrays">Arrays</h2>
+
+<h3 id="finding">Finding</h3>
+
+<pre><code class="language-js">find(list, x =&gt; x.y === 2)
+findIndex(list, x =&gt; ...)
+includes(list, 'item')
+last(list)
+</code></pre>
+
+<pre><code class="language-js">find(list, hasProps('id'))
+</code></pre>
+
+<h3 id="grouping">Grouping</h3>
+
+<pre><code class="language-js">groupBy(list, 'id')
+indexBy(list, 'id')
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="function-composition">Function composition</h3>
+
+<pre><code class="language-js">isFloat = passAll(isNumber, compose(isInteger, not))
+// n =&gt; isNumber(n) &amp;&amp; not(isInteger(n))
+</code></pre>
+
+<pre><code class="language-js">function doStuff (object, options) { ... }
+
+doStuffForce = curry(flip(doStuff))({ force: true })
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li><a href="https://github.com/tjmehta/101">https://github.com/tjmehta/101</a></li>
+</ul>

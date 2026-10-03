@@ -1,0 +1,40 @@
+<h3 id="streams">Streams</h3>
+
+<pre><code>process.stdout.write('...');
+process.stderr.write('...');
+
+function stdin(fn) {
+  var data = '';
+
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('readable', function() {
+    var chunk = process.stdin.read();
+    if (chunk !== null) data += chunk;
+  });
+
+  process.stdin.on('end', function() {
+    fn(null, data);
+  });
+}
+</code></pre>
+
+<h3 id="stuff">stuff</h3>
+
+<pre><code>process.argv; //=&gt; ['node', 'file.js', 'one', 'two']
+process.env; //=&gt; {TERM: 'screen-256color', SHELL: '/bin/bash', ...}
+
+process.exit();
+process.exit(1);
+</code></pre>
+
+<h3 id="directories">Directories</h3>
+
+<pre><code>process.cwd(); //=&gt; "/tmp"
+process.chdir('dir');
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>http://nodejs.org/api/process.html</li>
+</ul>

@@ -1,0 +1,38 @@
+<h3 id="getting-started">Getting started</h3>
+
+<p class="-setup">Sign up for opensauce:</p>
+
+<ul>
+  <li>http://saucelabs.com/opensauce</li>
+</ul>
+
+<p>Install <a href="https://npmjs.com/package/zuul">zuul</a>:</p>
+
+<pre><code>npm i -g zuul
+</code></pre>
+
+<p>Configure zuul:</p>
+
+<pre><code class="language-yml"># ~/.zuulrc
+sauce_username: me
+sauce_key: abc12348-e3e2-...
+</code></pre>
+
+<p>Add <code>.zuul.yml</code> to your project:</p>
+
+<pre><code class="language-yml"># .zuul.yml
+ui: mocha-bdd
+browsers:
+  - name: chrome
+    version: latest
+  - name: ie
+    version: 6..latest
+  - name: firefox
+    version: latest
+</code></pre>
+
+<p>Try to run tests:</p>
+
+<pre><code>zuul test/test.js
+zuul --local test/test.js
+</code></pre>

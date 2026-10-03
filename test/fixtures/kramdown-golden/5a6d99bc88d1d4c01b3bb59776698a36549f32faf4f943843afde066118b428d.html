@@ -1,0 +1,532 @@
+<h2 id="intro">Intro</h2>
+
+<h2 class="-three-column" id="variants">Variants</h2>
+
+<h3 id="h2-sections">H2 sections</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-one-column</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-two-column</code></td>
+      <td><em>(default)</em></td>
+    </tr>
+    <tr>
+      <td><code>-three-column</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-left-reference</code></td>
+      <td>3 columns<br /><em>(short first column)</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#two-columns">H2 sections</a></p>
+
+<h3 id="h3-sections">H3 sections</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-prime</code></td>
+      <td>Highlight</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#h3-sections-1">H3 sections</a></p>
+
+<h3 id="tables">Tables</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-bold-first</code></td>
+      <td>Bold first column</td>
+    </tr>
+    <tr>
+      <td><code>-headers</code></td>
+      <td>Show headers</td>
+    </tr>
+    <tr>
+      <td><code>-left-align</code></td>
+      <td>Don’t right align last column</td>
+    </tr>
+    <tr>
+      <td><code>-mute-em</code></td>
+      <td>Lower opacity for italics</td>
+    </tr>
+    <tr>
+      <td><code>-no-wrap</code></td>
+      <td>Don’t wrap text</td>
+    </tr>
+    <tr>
+      <td><code>-shortcuts</code></td>
+      <td>Shortcut keys</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#tables-1">Tables</a></p>
+
+<h3 id="code">Code</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-box-chars</code></td>
+      <td>Less line height<br /><em>for box drawing chars</em></td>
+    </tr>
+    <tr>
+      <td><code>-setup</code></td>
+      <td>Gray background</td>
+    </tr>
+    <tr>
+      <td><code>-wrap</code></td>
+      <td>Enables line-wrapping</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#code-1">Code</a></p>
+
+<h3 id="paragraphs">Paragraphs</h3>
+
+<table class="-gray">
+  <tbody>
+    <tr>
+      <td><code>-setup</code></td>
+      <td>Gray background</td>
+    </tr>
+    <tr>
+      <td><code>-crosslink</code></td>
+      <td>Has arrow on the link</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#paragraphs-1">Paragraphs</a></p>
+
+<h3 id="lists">Lists</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>-also-see</code></td>
+      <td>Lighter background</td>
+    </tr>
+    <tr>
+      <td><code>-four-column</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>-six-column</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="#lists-1">Lists</a></p>
+
+<h3 class="-prime" id="adding-variants">Adding variants</h3>
+
+<pre><code>## Section
+{: .-two-column}
+</code></pre>
+
+<p>Devhints uses Kramdown, and supports adding classes via Kramdown’s syntax.</p>
+
+<h2 class="-three-column" id="h3-sections-1">H3 sections</h2>
+
+<h3 id="supported">Supported</h3>
+
+<p>Each section can have the following children:</p>
+
+<h4 id="white">White</h4>
+
+<ul>
+  <li><code>pre</code></li>
+  <li><code>ul</code></li>
+  <li><code>table</code></li>
+</ul>
+
+<h4 id="gray">Gray</h4>
+
+<ul>
+  <li><code>p</code></li>
+  <li><code>h4</code></li>
+</ul>
+
+<h3 class="-prime" id="prime-section">Prime section</h3>
+
+<p>This is a section with <code>{: .-prime}</code>. Notice the fancy highlight! Great for “getting started” kind of snippets.</p>
+
+<h3 id="h3-section">H3 section</h3>
+
+<p>Every box is an H3 section. The box will encompass everything inside the body of the H3.</p>
+
+<p>This is a basic section with paragraphs in it.</p>
+
+<h2 class="-three-column" id="code-1">Code</h2>
+
+<h3 id="basic-code">Basic code</h3>
+
+<pre><code class="language-js">here.is(() =&gt; {
+  some.code()
+})
+</code></pre>
+
+<pre><code class="language-js">here.is.some.more()
+</code></pre>
+
+<p>Code blocks can be placed one after the other.</p>
+
+<p>See: <a href="/">Cheatsheets</a></p>
+
+<h3 id="code-with-headings">Code with headings</h3>
+
+<h4 class="-file" id="indexjs">index.js</h4>
+
+<pre><code class="language-js">here.is(() =&gt; {
+  some.code()
+})
+</code></pre>
+
+<h4 class="-file" id="otherjs">other.js</h4>
+
+<pre><code class="language-js">here.is.some.more()
+</code></pre>
+
+<p>Code blocks can have headings.</p>
+
+<h3 id="highlighted-lines">Highlighted lines</h3>
+
+<pre data-line="3"><code class="language-js">app.start(() =&gt; {
+  const port = app.server.port
+  console.log(`Started at ${port}`)
+})
+</code></pre>
+
+<p>Add <code>{: data-line="3"}</code> to add line highlights.</p>
+
+<h3 id="multiple-highlights">Multiple highlights</h3>
+
+<pre data-line="2,3"><code class="language-js">app.start(() =&gt; {
+  const port = app.server.port
+  console.log(`Started at ${port}`)
+})
+</code></pre>
+
+<p>Add <code>{: data-line="2,3"}</code> to add multiple line highlights.</p>
+
+<h3 id="setup-blocks">Setup blocks</h3>
+
+<pre class="-setup"><code class="language-js">import React from 'react'
+</code></pre>
+
+<pre><code class="language-js">class Hello extends React.Component {
+  render () {
+    return &lt;span&gt;Hello&lt;/span&gt;
+  }
+}
+</code></pre>
+
+<p>Add <code>{: .-setup}</code> to a <code>pre</code> or <code>table</code> or <code>ul</code>.</p>
+
+<h3 id="long-lines">Long lines</h3>
+
+<pre><code class="language-js">function createNode(nodeName: string, options: { key: string }) {
+  return true
+}
+</code></pre>
+
+<p>Long lines will have scrollbars.</p>
+
+<h3 id="line-wrapping">Line wrapping</h3>
+
+<pre class="-wrap"><code class="language-js">&lt;script&gt;(function(d,s){if(window.Promise&amp;&amp;[].includes&amp;&amp;Object.assign&amp;&amp;window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))&lt;/script&gt;
+</code></pre>
+
+<p>Add <code>-wrap</code> to wrap long lines.</p>
+
+<h2 class="-three-column" id="lists-1">Lists</h2>
+
+<h3 id="lists-2">Lists</h3>
+
+<ul>
+  <li>This is</li>
+  <li>a list</li>
+  <li>with a few items</li>
+</ul>
+
+<p>Here’s an extra paragraph after the list.</p>
+
+<h3 id="lists-with-headings">Lists with headings</h3>
+
+<h4 id="part-1">Part 1</h4>
+
+<ul>
+  <li><code>createElement()</code></li>
+  <li><code>componentDidMount()</code></li>
+  <li><code>componentWillUnmount()</code></li>
+</ul>
+
+<h4 id="part-2">Part 2</h4>
+
+<ul>
+  <li><code>shouldComponentUpdate()</code></li>
+  <li><code>componentWillReceiveProps()</code></li>
+</ul>
+
+<p>Here’s an extra paragraph after the list.</p>
+
+<h2 class="-one-column" id="list-columns">List columns</h2>
+
+<h3 id="six-columns">Six columns</h3>
+
+<ul class="-six-column">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+  <li>Five</li>
+  <li>Six</li>
+  <li>Seven</li>
+  <li>Eight</li>
+  <li>Nine</li>
+  <li>Ten</li>
+  <li>Eleven</li>
+</ul>
+
+<p>Add <code>{: .-six-column}</code> to make large lists.</p>
+
+<h3 id="four-columns">Four columns</h3>
+
+<ul class="-four-column">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+  <li>Five</li>
+  <li>Six</li>
+  <li>Seven</li>
+  <li>Eight</li>
+  <li>Nine</li>
+  <li>Ten</li>
+  <li>Eleven</li>
+</ul>
+
+<p>Add <code>{: .-four-column}</code> to make large lists.</p>
+
+<h3 id="also-see">Also see</h3>
+
+<ul class="-also-see">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+  <li>Five</li>
+  <li>Six</li>
+  <li>Seven</li>
+  <li>Eight</li>
+  <li>Nine</li>
+  <li>Ten</li>
+</ul>
+
+<p>Add <code>{: .-also-see}</code>.</p>
+
+<h2 class="-three-column" id="paragraphs-1">Paragraphs</h2>
+
+<h3 id="basic-paragraphs">Basic paragraphs</h3>
+
+<p>This is a basic section with paragraphs in it. When paragraphs are the first elements in an H3 section’s body, they appear as white.</p>
+
+<h3 id="basic-paragraphs-1">Basic paragraphs</h3>
+
+<pre><code>···
+</code></pre>
+
+<p>When paragraphs appear after <code>pre</code>/<code>table</code>/<code>ul</code>, they appear with a gray background.</p>
+
+<h3 id="preludes">Preludes</h3>
+
+<p class="-setup">Here’s a prelude paragraph. Add <code>{: .-setup}</code> to make paragraphs appear with a gray background.</p>
+
+<pre><code>···
+</code></pre>
+
+<h3 id="crosslink">Crosslink</h3>
+
+<p>Add <code>{: .-crosslink}</code> to make big loud external links:</p>
+
+<pre><code>···
+</code></pre>
+
+<p class="-crosslink"><a href="/">Home</a></p>
+
+<h2 class="-three-column" id="tables-1">Tables</h2>
+
+<h3 id="basic-table">Basic table</h3>
+
+<h4 id="date">Date</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%m/%d/%Y</code></td>
+      <td><code>06/05/2013</code></td>
+    </tr>
+    <tr>
+      <td><code>%A, %B %e, %Y</code></td>
+      <td><code>Sunday, June 5, 2013</code></td>
+    </tr>
+    <tr>
+      <td><code>%b %e %a</code></td>
+      <td><code>Jun 5 Sun</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="time">Time</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>%H:%M</code></td>
+      <td><code>23:05</code></td>
+    </tr>
+    <tr>
+      <td><code>%I:%M %p</code></td>
+      <td><code>11:05 PM</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is a basic table with h4’s.</p>
+
+<h3 id="shortcuts">Shortcuts</h3>
+
+<table class="-shortcuts">
+  <tbody>
+    <tr>
+      <td><code>V</code></td>
+      <td>Vector</td>
+    </tr>
+    <tr>
+      <td><code>P</code></td>
+      <td>Pencil</td>
+    </tr>
+    <tr>
+      <td><code>T</code></td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code>L</code></td>
+      <td>Line</td>
+    </tr>
+    <tr>
+      <td><code>R</code></td>
+      <td>Rectangle</td>
+    </tr>
+    <tr>
+      <td><code>O</code></td>
+      <td>Oval</td>
+    </tr>
+    <tr>
+      <td><code>U</code></td>
+      <td>Rounded</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Add <code>{: .-shortcuts}</code> to tables.</p>
+
+<h3 id="with-headers">With headers</h3>
+
+<table class="-headers">
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th>Example</th>
+      <th>What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>//</code></td>
+      <td><code>//hr[@class='edge']</code></td>
+      <td>Anywhere</td>
+    </tr>
+    <tr>
+      <td><code>./</code></td>
+      <td><code>./a</code></td>
+      <td>Relative</td>
+    </tr>
+    <tr>
+      <td><code>/</code></td>
+      <td><code>/html/body/div</code></td>
+      <td>Root</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Add <code>{: .-headers}</code> to add headers.</p>
+
+<h2 id="two-columns">Two columns</h2>
+
+<h3 id="one">One</h3>
+
+<pre><code>···
+</code></pre>
+
+<h3 id="two">Two</h3>
+
+<pre><code>···
+</code></pre>
+
+<h2 class="-left-reference" id="left-reference">Left reference</h2>
+
+<h3 id="one-1">One</h3>
+
+<pre><code>···
+···
+···
+···
+···
+···
+···
+···
+</code></pre>
+
+<h3 id="two-1">Two</h3>
+
+<pre><code>···
+</code></pre>
+
+<h3 id="three">Three</h3>
+
+<pre><code>···
+</code></pre>
+
+<h2 class="-one-column" id="one-column">One column</h2>
+
+<h3 id="one-2">One</h3>
+
+<pre><code>···
+</code></pre>

@@ -1,0 +1,55 @@
+
+<h3 id="running-generators">Running generators</h3>
+
+<pre><code class="language-js">co(function * () {
+  yield Promise.resolve(true)
+}).then(...)
+</code></pre>
+
+<p>A generator can <code>yield</code> a thunk or promise. Using <code>co()</code> will immediately invoke the block inside it.</p>
+
+<h3 id="generator--promise">Generator → Promise</h3>
+
+<pre><code class="language-js">var fn = co.wrap(function * (val) {
+  return yield Promise.resolve(val)
+})
+
+fn().then(...)
+</code></pre>
+
+<p>Use <code>co.wrap()</code>. Most of the time, you’ll be using co.wrap.</p>
+
+<h3 id="generator--node-callback">Generator → Node callback</h3>
+
+<pre><code class="language-js">var get = unyield(function * () {
+})
+
+get(function (err, res) { ... })
+</code></pre>
+
+<p>Use <a href="https://github.com/MatthewMueller/unyield">unyield</a>. (You can <a href="https://github.com/visionmedia/node-thunkify">thunkify</a> this later)</p>
+
+<h3 id="node-callback--thunk">Node callback → Thunk</h3>
+
+<pre><code class="language-js">var readFile = thunkify(fs.readFile)
+
+co(function * () {
+  var data = yield readFile('index.txt', 'utf-8')
+})
+</code></pre>
+
+<p>Use <a href="https://github.com/visionmedia/node-thunkify">thunkify</a>. You can yield this. You can also use <a href="https://www.npmjs.com/package/thenify">thenify</a> too.</p>
+
+<h3 id="using-nodejs-api">Using Node.js API</h3>
+
+<pre><code class="language-js">var readFile = require('mz/fs').readFile
+
+var getLines = co.wrap(function * (filename) {
+  var data = yield readFile(filename, 'utf-8')
+  return data.split('\n')
+})
+
+getLines('file.txt').then((lines) =&gt; { ... })
+</code></pre>
+
+<p>Use <a href="https://www.npmjs.com/package/mz">mz</a> for async Node.js API. You can also either <a href="https://github.com/visionmedia/node-thunkify">thunkify</a> or <a href="https://www.npmjs.com/package/thenify">thenify</a> them instead.</p>

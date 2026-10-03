@@ -1,0 +1,139 @@
+<h3 id="types">Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stream</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Readable</code></td>
+      <td>Data emitter</td>
+    </tr>
+    <tr>
+      <td><code>Writable</code></td>
+      <td>Data receiver</td>
+    </tr>
+    <tr>
+      <td><code>Transform</code></td>
+      <td>Emitter and receiver</td>
+    </tr>
+    <tr>
+      <td><code>Duplex</code></td>
+      <td>Emitter and receiver (independent)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See: <a href="https://nodejs.org/api/stream.html#stream_stream">Stream</a> <em>(nodejs.org)</em></p>
+
+<h3 id="streams">Streams</h3>
+
+<pre><code class="language-js">const Readable = require('stream').Readable
+const Writable = require('stream').Writable
+const Transform = require('stream').Transform
+</code></pre>
+
+<h3 id="piping">Piping</h3>
+
+<pre><code class="language-js">clock()              // Readable stream
+  .pipe(xformer())   // Transform stream
+  .pipe(renderer())  // Writable stream
+</code></pre>
+
+<h3 id="methods">Methods</h3>
+
+<pre><code class="language-js">stream.push(/*...*/)         // Emit a chunk
+stream.emit('error', error)  // Raise an error
+stream.push(null)            // Close a stream
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-js">const st = source()
+st.on('data', (data) =&gt; { console.log('&lt;-', data) })
+st.on('error', (err) =&gt; { console.log('!', err.message) })
+st.on('close', () =&gt; { console.log('** bye') })
+st.on('finish', () =&gt; { console.log('** bye') })
+</code></pre>
+
+<p>Assuming <code>source()</code> is a readable stream.</p>
+
+<h3 id="flowing-mode">Flowing mode</h3>
+
+<pre><code class="language-js">// Toggle flowing mode
+st.resume()
+st.pause()
+</code></pre>
+
+<pre><code class="language-js">// Automatically turns on flowing mode
+st.on('data', /*...*/)
+</code></pre>
+
+<h2 class="-three-column" id="stream-types">Stream types</h2>
+
+<h3 id="readable">Readable</h3>
+
+<pre><code class="language-js">function clock () {
+  const stream = new Readable({
+    objectMode: true,
+    read() {}
+  })
+
+  setInterval(() =&gt; {
+    stream.push({ time: new Date() })
+  }, 1000)
+
+  return stream
+}
+
+// Implement read() if you
+// need on-demand reading.
+</code></pre>
+
+<p>Readable streams are generators of data. Write data using <code>stream.push()</code>.</p>
+
+<h3 id="transform">Transform</h3>
+
+<pre><code class="language-js">function xformer () {
+  let count = 0
+
+  return new Transform({
+    objectMode: true,
+    transform: (data, _, done) =&gt; {
+      done(null, { ...data, index: count++ })
+    }
+  })
+}
+</code></pre>
+
+<p>Pass the updated chunk to <code>done(null, chunk)</code>.</p>
+
+<h3 id="writable">Writable</h3>
+
+<pre><code class="language-js">function renderer () {
+  return new Writable({
+    objectMode: true,
+    write: (data, _, done) =&gt; {
+      console.log('&lt;-', data)
+      done()
+    }
+  })
+}
+</code></pre>
+
+<h3 id="all-together-now">All together now</h3>
+
+<pre><code class="language-js">clock()              // Readable stream
+  .pipe(xformer())   // Transform stream
+  .pipe(renderer())  // Writable stream
+</code></pre>
+
+<h2 class="-one-column" id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://nodejs.org/api/stream.html">https://nodejs.org/api/stream.html</a></li>
+  <li><a href="https://github.com/substack/stream-handbook">https://github.com/substack/stream-handbook</a></li>
+</ul>

@@ -1,0 +1,700 @@
+<h2 class="-three-column" id="getting-started">Getting started</h2>
+
+<h3 class="-prime" id="hello-world">Hello world</h3>
+
+<pre><code class="language-elixir"># hello.exs
+defmodule Greeter do
+  def greet(name) do
+    message = "Hello, " &lt;&gt; name &lt;&gt; "!"
+    IO.puts message
+  end
+end
+
+Greeter.greet("world")
+</code></pre>
+
+<pre class="-setup"><code class="language-bash">elixir hello.exs
+# Hello, world!
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+
+<pre><code class="language-elixir">age = 23
+</code></pre>
+
+<h3 id="maps">Maps</h3>
+
+<pre><code class="language-elixir">user = %{
+  name: "John",
+  city: "Melbourne"
+}
+</code></pre>
+
+<pre class="-setup"><code class="language-elixir">IO.puts "Hello, " &lt;&gt; user.name
+</code></pre>
+
+<h3 id="lists">Lists</h3>
+
+<pre data-line="1"><code class="language-elixir">users = [ "Tom", "Dick", "Harry" ]
+</code></pre>
+
+<pre><code class="language-elixir">Enum.map(users, fn user -&gt;
+  IO.puts "Hello " &lt;&gt; user
+end)
+</code></pre>
+
+<h3 id="piping">Piping</h3>
+
+<pre data-line="2,3"><code class="language-elixir">source
+|&gt; transform(:hello)
+|&gt; print()
+</code></pre>
+
+<pre><code class="language-elixir"># Same as:
+print(transform(source, :hello))
+</code></pre>
+
+<p>These two are equivalent.</p>
+
+<h3 id="pattern-matching">Pattern matching</h3>
+
+<pre data-line="2"><code class="language-elixir">user = %{name: "Tom", age: 23}
+%{name: username} = user
+</code></pre>
+
+<p>This sets <code>username</code> to <code>"Tom"</code>.</p>
+
+<h3 id="pattern-matching-in-functions">Pattern matching in functions</h3>
+
+<pre data-line="1"><code class="language-elixir">def greet(%{name: username}) do
+  IO.puts "Hello, " &lt;&gt; username
+end
+
+user = %{name: "Tom", age: 23}
+</code></pre>
+
+<p>Pattern matching works in function parameters too.</p>
+
+<h2 class="-three-column" id="control-flow">Control flow</h2>
+
+<h3 id="if">If</h3>
+
+<pre><code class="language-elixir">if false do
+  "This will never be seen"
+else
+  "This will"
+end
+</code></pre>
+<h3 id="case">Case</h3>
+
+<pre><code class="language-elixir">case {1, 2, 3} do
+  {4, 5, 6} -&gt;
+    "This clause won't match"
+  {1, x, 3} -&gt;
+    "This will match and bind x to 2"
+  _ -&gt;
+   "This will match any value"
+end
+</code></pre>
+
+<h3 id="cond">Cond</h3>
+
+<pre><code class="language-elixir">cond do
+  1 + 1 == 3 -&gt;
+    "I will never be seen"
+  2 * 5 == 12 -&gt;
+    "Me neither"
+  true -&gt;
+    "But I will (this is essentially an else)"
+end
+</code></pre>
+
+<h3 id="with">With</h3>
+
+<pre><code class="language-elixir">with {:ok, {int, _asdf}} &lt;- Integer.parse("123asdf"),
+     {:ok, datetime, _utc_offset} &lt;- DateTime.from_iso8601("2021-10-27T12:00:00Z") do
+  DateTime.add(datetime, int, :second)
+  # optional else clause. if not provided and an error occurs, the error is returned
+else
+  :error -&gt; "couldn't parse integer string"
+  {:error, :invalid_format} -&gt; "couldn't parse date string"
+  _ -&gt; "this will never get hit because all errors are handled"
+end
+</code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<pre><code class="language-elixir">try do
+  throw(:hello)
+catch
+  message -&gt; "Got #{message}."
+after
+  IO.puts("I'm the after clause.")
+end
+</code></pre>
+
+<h2 id="types">Types</h2>
+
+<h3 id="primitives">Primitives</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sample</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>nil</code></td>
+      <td>Nil/null</td>
+    </tr>
+    <tr>
+      <td><code>true</code> <em>/</em> <code>false</code></td>
+      <td>Boolean</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>?a</code></td>
+      <td>Integer (ASCII)</td>
+    </tr>
+    <tr>
+      <td><code>23</code></td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td><code>3.14</code></td>
+      <td>Float</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>'hello'</code></td>
+      <td>Charlist</td>
+    </tr>
+    <tr>
+      <td><code>&lt;&lt;2, 3&gt;&gt;</code></td>
+      <td>Binary</td>
+    </tr>
+    <tr>
+      <td><code>"hello"</code></td>
+      <td>Binary string</td>
+    </tr>
+    <tr>
+      <td><code>:hello</code></td>
+      <td>Atom</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>[a, b]</code></td>
+      <td>List</td>
+    </tr>
+    <tr>
+      <td><code>{a, b}</code></td>
+      <td>Tuple</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>%{a: "hello"}</code></td>
+      <td>Map</td>
+    </tr>
+    <tr>
+      <td><code>%MyStruct{a: "hello"}</code></td>
+      <td>Struct</td>
+    </tr>
+    <tr>
+      <td><code>fn -&gt; ... end</code></td>
+      <td>Function</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="type-checks">Type checks</h3>
+
+<pre><code class="language-elixir">is_atom/1
+is_bitstring/1
+is_boolean/1
+is_function/1
+is_function/2
+is_integer/1
+is_float/1
+</code></pre>
+
+<pre><code class="language-elixir">is_binary/1
+is_list/1
+is_map/1
+is_tuple/1
+</code></pre>
+
+<pre><code class="language-elixir">is_nil/1
+is_number/1
+is_pid/1
+is_port/1
+is_reference/1
+</code></pre>
+
+<h3 id="operators">Operators</h3>
+
+<pre><code class="language-elixir">left != right   # equal
+left !== right  # match
+left ++ right   # concat lists
+left &lt;&gt; right   # concat string/binary
+left =~ right   # regexp
+</code></pre>
+
+<h2 id="modules">Modules</h2>
+
+<h3 id="importing">Importing</h3>
+
+<pre><code class="language-elixir">require Redux   # compiles a module
+import Redux    # compiles, and you can use without the `Redux.` prefix
+
+use Redux       # compiles, and runs Redux.__using__/1
+use Redux, async: true
+
+import Redux, only: [duplicate: 2]
+import Redux, only: :functions
+import Redux, only: :macros
+
+import Foo.{Bar, Baz}
+</code></pre>
+
+<h3 id="aliases">Aliases</h3>
+
+<pre><code class="language-elixir">alias Foo.Bar, as: Bar
+alias Foo.Bar   # same as above
+
+alias Foo.{Bar, Baz}
+</code></pre>
+
+<h2 id="string">String</h2>
+
+<h3 id="functions">Functions</h3>
+
+<pre class="-setup"><code class="language-elixir">import String
+</code></pre>
+
+<pre><code class="language-elixir">str = "hello"
+str |&gt; length()        # → 5
+str |&gt; codepoints()    # → ["h", "e", "l", "l", "o"]
+str |&gt; slice(2..-1)    # → "llo"
+str |&gt; split(" ")      # → ["hello"]
+str |&gt; capitalize()    # → "Hello"
+str |&gt; match(regex)
+</code></pre>
+
+<h3 id="inspecting-objects">Inspecting objects</h3>
+
+<pre><code class="language-elixir">inspect(object, opts \\ [])
+</code></pre>
+<pre><code class="language-elixir">value |&gt; IO.inspect()
+</code></pre>
+<pre><code class="language-elixir">value |&gt; IO.inspect(label: "value")
+</code></pre>
+
+<h2 id="numbers">Numbers</h2>
+
+<h3 id="operations">Operations</h3>
+
+<pre><code class="language-elixir">abs(n)
+round(n)
+rem(a, b)   # remainder (modulo)
+div(a, b)   # integer division
+</code></pre>
+
+<h3 id="float">Float</h3>
+
+<pre class="-setup"><code class="language-elixir">import Float
+</code></pre>
+
+<pre class="-setup"><code class="language-elixir">n = 10.3
+</code></pre>
+
+<pre><code class="language-elixir">n |&gt; ceil()            # → 11.0
+n |&gt; ceil(2)           # → 11.30
+n |&gt; to_string()       # → "1.030000+e01"
+n |&gt; to_string([decimals: 2, compact: true])
+</code></pre>
+
+<pre><code class="language-elixir">Float.parse("34")  # → { 34.0, "" }
+</code></pre>
+
+<h3 id="integer">Integer</h3>
+
+<pre class="-setup"><code class="language-elixir">import Integer
+</code></pre>
+
+<pre class="-setup"><code class="language-elixir">n = 12
+</code></pre>
+
+<pre><code class="language-elixir">n |&gt; digits()         # → [1, 2]
+n |&gt; to_charlist()    # → '12'
+n |&gt; to_string()      # → "12"
+n |&gt; is_even()
+n |&gt; is_odd()
+</code></pre>
+
+<pre><code class="language-elixir"># Different base:
+n |&gt; digits(2)        # → [1, 1, 0, 0]
+n |&gt; to_charlist(2)   # → '1100'
+n |&gt; to_string(2)     # → "1100"
+</code></pre>
+
+<pre><code class="language-elixir">parse("12")           # → {12, ""}
+undigits([1, 2])      # → 12
+</code></pre>
+
+<h3 id="type-casting">Type casting</h3>
+
+<pre><code class="language-elixir">Float.parse("34.1")    # → {34.1, ""}
+Integer.parse("34")    # → {34, ""}
+</code></pre>
+
+<pre><code class="language-elixir">Float.to_string(34.1)  # → "3.4100e+01"
+Float.to_string(34.1, [decimals: 2, compact: true])  # → "34.1"
+</code></pre>
+
+<h2 id="map">Map</h2>
+
+<h3 id="defining">Defining</h3>
+
+<pre><code class="language-elixir">m = %{name: "hi"}       # atom keys (:name)
+m = %{"name" =&gt; "hi"}   # string keys ("name")
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<pre class="-setup"><code class="language-elixir">import Map
+</code></pre>
+
+<pre><code class="language-elixir">m = %{m | name: "yo"}  # key must exist
+</code></pre>
+
+<pre><code class="language-elixir">m |&gt; put(:id, 2)      # → %{id: 2, name: "hi"}
+m |&gt; put_new(:id, 2)  # only if `id` doesn't exist (`||=`)
+</code></pre>
+
+<pre><code class="language-elixir">m |&gt; put(:b, "Banana")
+m |&gt; merge(%{b: "Banana"})
+m |&gt; update(:a, &amp;(&amp;1 + 1))
+m |&gt; update(:a, fun a -&gt; a + 1 end)
+</code></pre>
+
+<pre><code class="language-elixir">m |&gt; get_and_update(:a, &amp;(&amp;1 || "default"))
+# → {old, new}
+</code></pre>
+
+<h3 id="deleting">Deleting</h3>
+
+<pre><code class="language-elixir">m |&gt; delete(:name)  # → %{}
+m |&gt; pop(:name)     # → {"John", %{}}
+</code></pre>
+
+<h3 id="reading">Reading</h3>
+
+<pre><code class="language-elixir">m |&gt; get(:id)       # → 1
+m |&gt; keys()         # → [:id, :name]
+m |&gt; values()       # → [1, "hi"]
+</code></pre>
+
+<pre><code class="language-elixir">m |&gt; to_list()      # → [id: 1, name: "hi"]
+                    # → [{:id, 1}, {:name, "hi"}]
+</code></pre>
+
+<h3 id="deep">Deep</h3>
+
+<pre><code class="language-elixir">put_in(map, [:b, :c], "Banana")
+put_in(map[:b][:c], "Banana")    # via macros
+</code></pre>
+
+<pre><code class="language-elixir">get_and_update_in(users, ["john", :age], &amp;{&amp;1, &amp;1 + 1})
+</code></pre>
+
+<h3 id="constructing-from-lists">Constructing from lists</h3>
+
+<pre><code class="language-elixir">Map.new([{:b, 1}, {:a, 2}])
+Map.new([a: 1, b: 2])
+Map.new([:a, :b], fn x -&gt; {x, x} end)  # → %{a: :a, b: :b}
+</code></pre>
+
+<h3 id="working-with-structs">Working with structs</h3>
+
+<h4 id="struct-to-map">Struct to map</h4>
+
+<pre><code class="language-elixir">Map.from_struct(%AnyStruct{a: "b"})  # → %{a: "b"}
+</code></pre>
+
+<h4 id="map-to-struct">Map to struct</h4>
+
+<pre><code class="language-elixir">struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
+</code></pre>
+
+<h2 id="list">List</h2>
+
+<pre class="-setup"><code class="language-elixir">import List
+</code></pre>
+
+<pre class="-setup"><code class="language-elixir">l = [ 1, 2, 3, 4 ]
+</code></pre>
+
+<pre><code class="language-elixir">l = l ++ [5]         # push (append)
+l = [ 0 | list ]     # unshift (prepend)
+</code></pre>
+
+<pre><code class="language-elixir">l |&gt; first()
+l |&gt; last()
+</code></pre>
+
+<pre><code class="language-elixir">l |&gt; flatten()
+l |&gt; flatten(tail)
+</code></pre>
+
+<p>Also see <a href="#enum">Enum</a>.</p>
+
+<h2 id="enum">Enum</h2>
+
+<h3 id="usage">Usage</h3>
+
+<pre class="-setup"><code class="language-elixir">import Enum
+</code></pre>
+
+<pre class="-setup"><code class="language-elixir">list = [:a, :b, :c]
+</code></pre>
+
+<pre><code class="language-elixir">list |&gt; at(0)         # → :a
+list |&gt; count()       # → 3
+list |&gt; empty?()      # → false
+list |&gt; any?()        # → true
+</code></pre>
+
+<pre><code class="language-elixir">list |&gt; concat([:d])  # → [:a, :b, :c, :d]
+</code></pre>
+
+<p>Also, consider streams instead.</p>
+
+<h3 id="mapreduce">Map/reduce</h3>
+
+<pre><code class="language-elixir">list |&gt; reduce(fn)
+list |&gt; reduce(acc, fn)
+list |&gt; map(fn)
+list |&gt; reject(fn)
+list |&gt; any?(fn)
+list |&gt; empty?(fn)
+</code></pre>
+
+<pre><code class="language-elixir">[1, 2, 3, 4]
+|&gt; Enum.reduce(0, fn(x, acc) -&gt; x + acc end)
+</code></pre>
+
+<h2 id="tuple">Tuple</h2>
+
+<h3 id="tuples">Tuples</h3>
+
+<pre class="-setup"><code class="language-elixir">import Tuple
+</code></pre>
+
+<pre><code class="language-elixir">t = { :a, :b }
+</code></pre>
+
+<pre><code class="language-elixir">t |&gt; elem(1)    # like tuple[1]
+t |&gt; put_elem(index, value)
+t |&gt; tuple_size()
+</code></pre>
+
+<h3 id="keyword-lists">Keyword lists</h3>
+
+<pre><code class="language-elixir">list = [{ :name, "John" }, { :age, 15 }]
+list[:name]
+</code></pre>
+
+<pre><code class="language-elixir"># For string-keyed keyword lists
+list = [{"size", 2}, {"type", "shoe"}]
+List.keyfind(list, "size", 0)  # → {"size", 2}
+</code></pre>
+
+<h2 id="functions-1">Functions</h2>
+
+<h3 id="lambdas">Lambdas</h3>
+
+<pre><code class="language-elixir">square = fn n -&gt; n*n end
+square.(20)
+</code></pre>
+
+<h3 id="-syntax">&amp; syntax</h3>
+
+<pre><code class="language-elixir">square = &amp;(&amp;1 * &amp;1)
+square.(20)
+
+square = &amp;Math.square/1
+</code></pre>
+
+<h3 id="running">Running</h3>
+
+<pre><code class="language-elixir">fun.(args)
+apply(fun, args)
+apply(module, fun, args)
+</code></pre>
+
+<h3 id="function-heads">Function heads</h3>
+
+<pre><code class="language-elixir">def join(a, b \\ nil)
+def join(a, b) when is_nil(b) do: a
+def join(a, b) do: a &lt;&gt; b
+</code></pre>
+
+<h2 id="structs">Structs</h2>
+
+<h3 id="structs-1">Structs</h3>
+
+<pre><code class="language-elixir">defmodule User do
+  defstruct name: "", age: nil
+end
+
+%User{name: "John", age: 20}
+
+%User{}.struct  # → User
+</code></pre>
+
+<p>See: <a href="http://elixir-lang.org/getting-started/structs.html">Structs</a></p>
+
+<h2 id="protocols">Protocols</h2>
+
+<h3 id="defining-protocols">Defining protocols</h3>
+
+<pre><code class="language-elixir">defprotocol Blank do
+  @doc "Returns true if data is considered blank/empty"
+  def blank?(data)
+end
+</code></pre>
+
+<pre><code class="language-elixir">defimpl Blank, for: List do
+  def blank?([]), do: true
+  def blank?(_), do: false
+end
+
+Blank.blank?([])  # → true
+</code></pre>
+
+<h3 id="any">Any</h3>
+
+<pre><code class="language-elixir">defimpl Blank, for: Any do ... end
+
+defmodule User do
+  @derive Blank     # Falls back to Any
+  defstruct name: ""
+end
+</code></pre>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+  <li><code>Enumerable</code> and <code>Enum.map()</code></li>
+  <li><code>Inspect</code> and <code>inspect()</code></li>
+</ul>
+
+<h2 id="comprehensions">Comprehensions</h2>
+
+<h3 id="for">For</h3>
+
+<pre><code class="language-elixir">for n &lt;- [1, 2, 3, 4], do: n * n
+for n &lt;- 1..4, do: n * n
+</code></pre>
+
+<pre><code class="language-elixir">for {key, val} &lt;- %{a: 10, b: 20}, do: val
+# → [10, 20]
+</code></pre>
+
+<pre><code class="language-elixir">for {key, val} &lt;- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
+</code></pre>
+
+<h3 id="conditions">Conditions</h3>
+
+<pre><code class="language-elixir">for n &lt;- 1..10, rem(n, 2) == 0, do: n
+# → [2, 4, 6, 8, 10]
+</code></pre>
+
+<h3 id="complex">Complex</h3>
+
+<pre><code class="language-elixir">for dir &lt;- dirs,
+    file &lt;- File.ls!(dir),          # nested comprehension
+    path = Path.join(dir, file),    # invoked
+    File.regular?(path) do          # condition
+  IO.puts(file)
+end
+</code></pre>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="metaprogramming">Metaprogramming</h3>
+
+<pre><code class="language-elixir">__MODULE__
+__MODULE__.__info__
+
+@after_compile __MODULE__
+def __before_compile__(env)
+def __after_compile__(env, _bytecode)
+def __using__(opts)    # invoked on `use`
+
+@on_definition {__MODULE__, :on_def}
+def on_def(_env, kind, name, args, guards, body)
+
+@on_load :load_check
+def load_check
+</code></pre>
+
+<h3 id="regexp">Regexp</h3>
+
+<pre><code class="language-elixir">exp = ~r/hello/
+exp = ~r/hello/i
+"hello world" =~ exp
+</code></pre>
+
+<h3 id="sigils">Sigils</h3>
+
+<pre><code class="language-elixir">~r/regexp/
+~w(list of strings)
+~s|strings with #{interpolation} and \x20 escape codes|
+~S|no interpolation and no escapes|
+~c(charlist)
+</code></pre>
+
+<p>Allowed chars: <code>/</code> <code>|</code> <code>"</code> <code>'</code> <code>(</code> <code>[</code> <code>{</code> <code>&lt;</code> <code>"""</code>.
+See: <a href="http://elixir-lang.org/getting-started/sigils.html">Sigils</a></p>
+
+<h3 id="type-specs">Type specs</h3>
+
+<pre><code class="language-elixir">@spec round(number) :: integer
+
+@type number_with_remark :: {number, String.t}
+@spec add(number, number) :: number_with_remark
+</code></pre>
+
+<p>Useful for <a href="http://www.erlang.org/doc/man/dialyzer.html">dialyzer</a>.
+See: <a href="http://elixir-lang.org/getting-started/typespecs-and-behaviours.html">Typespecs</a></p>
+
+<h3 id="behaviours">Behaviours</h3>
+
+<pre><code class="language-elixir">defmodule Parser do
+  @callback parse(String.t) :: any
+  @callback extensions() :: [String.t]
+end
+</code></pre>
+
+<pre><code class="language-elixir">defmodule JSONParser do
+  @behaviour Parser
+
+  def parse(str), do: # ... parse JSON
+  def extensions, do: ["json"]
+end
+</code></pre>
+
+<p>See: <a href="http://elixir-lang.org/docs/stable/elixir/Module.html">Module</a></p>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="https://learnxinyminutes.com/docs/elixir/">Learn Elixir in Y minutes</a></li>
+</ul>

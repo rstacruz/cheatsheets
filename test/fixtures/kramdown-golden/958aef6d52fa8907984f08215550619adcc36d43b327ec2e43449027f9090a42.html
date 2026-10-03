@@ -1,0 +1,157 @@
+<h3 id="refs">Refs</h3>
+
+<pre><code>HEAD^       # 1 commit before head
+HEAD^^      # 2 commits before head
+HEAD~5      # 5 commits before head
+</code></pre>
+
+<h3 id="branches">Branches</h3>
+
+<pre><code># create a new branch
+  git checkout -b $branchname
+  git push origin $branchname --set-upstream
+
+# get a remote branch
+  git fetch origin
+  git checkout --track origin/$branchname
+
+# delete local remote-tracking branches (lol)
+  git remote prune origin
+
+# list merged branches
+  git branch -a --merged
+
+# delete remote branch
+  git push origin :$branchname
+  
+# go back to previous branch
+  git checkout -
+</code></pre>
+
+<h3 id="collaboration">Collaboration</h3>
+
+<pre><code># Rebase your changes on top of the remote master
+  git pull --rebase upstream master
+  
+# Squash multiple commits into one for a cleaner git log
+# (on the following screen change the word pick to either 'f' or 's')
+  git rebase -i $commit_ref
+</code></pre>
+
+<h2 id="submodules">Submodules</h2>
+
+<h3 id="submodules-1">Submodules</h3>
+
+<pre><code># Import .gitmodules
+  git submodule init
+
+# Clone missing submodules, and checkout commits
+  git submodule update --init --recursive
+
+# Update remote URLs in .gitmodules
+# (Use when you changed remotes in submodules)
+  git submodule sync
+</code></pre>
+
+<h2 id="diff">Diff</h2>
+
+<h3 id="diff-with-stats">Diff with stats</h3>
+
+<pre><code>git diff --stat
+app/a.txt    | 2 +-
+app/b.txt    | 8 ++----
+2 files changed, 10 insertions(+), 84 deletions(-)
+</code></pre>
+
+<h3 id="just-filenames">Just filenames</h3>
+
+<pre><code>git diff --summary
+</code></pre>
+
+<h2 id="log-options">Log options</h2>
+
+<h3 id="options">Options</h3>
+
+<pre><code>--oneline
+  e11e9f9 Commit message here
+
+--decorate
+  shows "(origin/master)"
+
+--graph
+  shows graph lines
+
+--date=relative
+  "2 hours ago"
+</code></pre>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="cherry-pick">Cherry pick</h3>
+
+<pre><code>git rebase 76acada^
+</code></pre>
+
+<h3 id="misc-1">Misc</h3>
+
+<pre><code># get current sha1 (?)
+  git show-ref HEAD -s
+
+# show single commit info
+  git log -1 f5a960b5
+
+# Go back up to root directory
+  cd "$(git rev-parse --show-top-level)"
+</code></pre>
+
+<h2 id="short-log">Short log</h2>
+
+<pre><code> $ git shortlog
+ $ git shortlog HEAD~20..    # last 20 commits
+
+ James Dean (1):
+     Commit here
+     Commit there
+
+ Frank Sinatra (5):
+     Another commit
+     This other commit
+</code></pre>
+
+<h2 id="bisect">Bisect</h2>
+
+<pre><code>git bisect start HEAD HEAD~6
+git bisect run npm test
+git checkout refs/bisect/bad   # this is where it screwed up
+git bisect reset
+</code></pre>
+
+<h3 id="manual-bisection">Manual bisection</h3>
+
+<pre><code>git bisect start
+git bisect good   # current version is good
+
+git checkout HEAD~8
+npm test          # see if it's good
+git bisect bad    # current version is bad
+
+git bisect reset  # abort
+</code></pre>
+
+<h3 id="searching">Searching</h3>
+
+<pre><code>git log --grep="fixes things"  # search in commit messages
+git log -S"window.alert"       # search in code
+git log -G"foo.*"              # search in code (regex)
+</code></pre>
+
+<h3 id="gpg-signing">GPG signing</h3>
+
+<pre><code>git config set user.signingkey &lt;GPG KEY ID&gt;       # Sets GPG key to use for signing
+
+git commit -m "Implement feature Y" --gpg-sign    # Or -S, GPG signs commit
+
+git config set commit.gpgsign true                # Sign commits by default
+git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
+</code></pre>
+

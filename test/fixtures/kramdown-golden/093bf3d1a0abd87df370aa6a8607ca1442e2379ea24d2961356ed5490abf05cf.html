@@ -1,0 +1,27 @@
+<h3 id="named-arguments-with-defaults">Named arguments with defaults</h3>
+
+<pre><code class="language-ruby"># length is required
+def pad(num, length:, char: "0")
+  num.to_s.rjust(length, char)
+end
+</code></pre>
+
+<pre><code class="language-ruby">pad(42, length: 6) #=&gt; "000042"
+pad(42) #=&gt; #&lt;ArgumentError: missing keyword: length&gt;
+</code></pre>
+
+<h3 id="moduleprepend">Module.prepend</h3>
+
+<pre><code class="language-ruby">prepend(
+  Module.new do
+    define_method ...
+  end
+)
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>http://globaldev.co.uk/2013/03/ruby-2-0-0-in-detail</li>
+  <li>http://globaldev.co.uk/2014/05/ruby-2-1-in-detail</li>
+</ul>

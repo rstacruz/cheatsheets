@@ -1,0 +1,167 @@
+<h3 id="out-variables">Out Variables</h3>
+
+<pre><code class="language-csharp">public void PrintCoordinates(Point p)
+{
+    p.GetCoordinates(out int x, out int y);
+    WriteLine($"({x}, {y})");
+}
+</code></pre>
+
+<p><code>out</code> is used to declare a variable at the point where it is passed as an argument.</p>
+
+<h3 id="pattern-matching">Pattern Matching</h3>
+
+<h4 id="is-expressions-with-patterns">Is-expressions with patterns</h4>
+
+<pre><code class="language-csharp">public void PrintStars(object o)
+{
+    if (o is null) return;     // constant pattern "null"
+    if (!(o is int i)) return; // type pattern "int i"
+    WriteLine(new string('*', i));
+}
+</code></pre>
+
+<h4 id="switch-statements-with-patterns">Switch statements with patterns</h4>
+
+<pre><code class="language-csharp">switch(shape)
+{
+    case Circle c:
+        WriteLine($"circle with radius {c.Radius}");
+        break;
+    case Rectangle s when (s.Length == s.Height):
+        WriteLine($"{s.Length} x {s.Height} square");
+        break;
+    case Rectangle r:
+        WriteLine($"{r.Length} x {r.Height} rectangle");
+        break;
+    default:
+        WriteLine("&lt;unknown shape&gt;");
+        break;
+    case null:
+        throw new ArgumentNullException(nameof(shape));
+}
+</code></pre>
+
+<h3 id="tuples">Tuples</h3>
+
+<h4 id="tuple-type">Tuple type</h4>
+
+<pre><code class="language-csharp">(string, string, string) LookupName(long id) // tuple return type
+{
+    ... // retrieve first, middle and last from data storage
+    return (first, middle, last); // tuple literal
+}
+</code></pre>
+
+<pre><code class="language-csharp">var names = LookupName(id);
+WriteLine($"found {names.Item1} {names.Item3}.");
+</code></pre>
+
+<h4 id="tuple-elements-with-name">Tuple elements with name</h4>
+
+<pre><code class="language-csharp">(string first, string middle, string last) LookupName(long id) // tuple elements have names
+</code></pre>
+
+<pre><code class="language-csharp">var names = LookupName(id);
+WriteLine($"found {names.first} {names.last}.");
+</code></pre>
+
+<h4 id="tuple-literals">Tuple Literals</h4>
+
+<pre><code class="language-csharp">   return (first: first, middle: middle, last: last); // named tuple elements in a literal
+</code></pre>
+
+<h4 id="tuple-deconstruction">Tuple Deconstruction</h4>
+
+<pre><code class="language-csharp">(var first, var middle, var last) = LookupName(id1);
+WriteLine($"found {first} {last}.");
+</code></pre>
+<p>or</p>
+<pre><code class="language-csharp">var (first, middle, last) = LookupName(id1); // var outside
+</code></pre>
+<p>or</p>
+<pre><code class="language-csharp">(first, middle, last) = LookupName(id2); // assign onto existing variables
+</code></pre>
+
+<h3 id="local-functions">Local Functions</h3>
+
+<pre><code class="language-csharp">public int Fibonacci(int x)
+{
+    if (x &lt; 0) throw new ArgumentException("Less negativity please!", nameof(x));
+    return Fib(x).current;
+
+    (int current, int previous) Fib(int i)
+    {
+        if (i == 0) return (1, 0);
+        var (p, pp) = Fib(i - 1);
+        return (p + pp, p);
+    }
+}
+</code></pre>
+
+<h3 id="literal-improvements">Literal Improvements</h3>
+
+<h4 id="digit-separator-inside-numbers-literals">Digit Separator inside numbers literals</h4>
+
+<pre><code class="language-csharp">var d = 123_456;
+var x = 0xAB_CD_EF;
+</code></pre>
+
+<h4 id="binary-literals">Binary Literals</h4>
+
+<pre><code class="language-csharp">var b = 0b1010_1011_1100_1101_1110_1111;
+</code></pre>
+
+<h3 id="ref-returns-and-locals">Ref Returns and Locals</h3>
+
+<pre><code class="language-csharp">public ref int Find(int number, int[] numbers)
+{
+    for (int i = 0; i &lt; numbers.Length; i++)
+    {
+        if (numbers[i] == number) 
+        {
+            return ref numbers[i]; // return the storage location, not the value
+        }
+    }
+    throw new IndexOutOfRangeException($"{nameof(number)} not found");
+}
+
+int[] array = { 1, 15, -39, 0, 7, 14, -12 };
+ref int place = ref Find(7, array); // aliases 7's place in the array
+place = 9; // replaces 7 with 9 in the array
+WriteLine(array[4]); // prints 9
+</code></pre>
+
+<h3 id="more-expression-bodied-members">More Expression Bodied Members</h3>
+
+<p>C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:</p>
+
+<pre><code class="language-csharp">class Person
+{
+    private static ConcurrentDictionary&lt;int, string&gt; names = new ConcurrentDictionary&lt;int, string&gt;();
+    private int id = GetId();
+
+    public Person(string name) =&gt; names.TryAdd(id, name); // constructors
+    ~Person() =&gt; names.TryRemove(id, out *);              // destructors
+    public string Name
+    {
+        get =&gt; names[id];                                 // getters
+        set =&gt; names[id] = value;                         // setters
+    }
+}
+</code></pre>
+
+<h3 id="throw-expressions">Throw Expressions</h3>
+
+<pre><code class="language-csharp">class Person
+{
+    public string Name { get; }
+    public Person(string name) =&gt; Name = name ?? throw new ArgumentNullException(name);
+    public string GetFirstName()
+    {
+        var parts = Name.Split(" ");
+        return (parts.Length &gt; 0) ? parts[0] : throw new InvalidOperationException("No name!");
+    }
+    public string GetLastName() =&gt; throw new NotImplementedException();
+}
+</code></pre>

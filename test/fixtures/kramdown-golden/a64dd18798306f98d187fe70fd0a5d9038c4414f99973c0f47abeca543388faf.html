@@ -1,0 +1,98 @@
+
+<h3 id="lists">Lists</h3>
+
+<pre><code class="language-html">&lt;li v-for="todo in todos"&gt;
+  {{ todo.text }}
+  {{ $index }}
+&lt;/li&gt;
+</code></pre>
+
+<h3 id="events">Events</h3>
+
+<pre><code class="language-html">&lt;button v-on:click='submit'&gt;Go&lt;/button&gt;
+</code></pre>
+
+<h3 id="components">Components</h3>
+
+<pre><code class="language-js">new Vue({
+  components: { app: App }
+})
+</code></pre>
+
+<h2 id="api">API</h2>
+
+<pre><code class="language-js">Vue.extend({ ... })        // creating components
+Vue.nextTick(() =&gt; {...})
+
+Vue.set(object, key, val)  // reactive
+Vue.delete(object, key)
+
+Vue.directive('my-dir', { bind, update, unbind })
+// &lt;div v-my-dir='...'&gt;&lt;/div&gt;
+
+Vue.elementDirective('my-dir', { bind, update, unbind })
+// &lt;my-dir&gt;...&lt;/my-dir&gt;
+
+Vue.component('my-component', Vue.extend({ .. }))
+
+Vue.partial('my-partial', '&lt;div&gt;hi {{msg}}&lt;/div&gt;')
+// &lt;partial name='my-partial'&gt;&lt;/partial&gt;
+</code></pre>
+
+<pre><code class="language-js">new Vue({
+  data: { ... }
+  props: ['size'],
+  props: { size: Number },
+  computed: { fullname() { return this.name + ' ' + this.lastName } },
+  methods: { go() { ... } },
+  watch: { a (val, oldVal) { ... } },
+  el: '#foo',
+  template: '...',
+  replace: true, // replace element (default true)
+
+  // lifecycle
+  created () {},
+  beforeCompile () {},
+  compiled () {},
+  ready () {}, // $el is inserted for the first time
+  attached () {},
+  detached () {},
+  beforeDestroy () {},
+  destroyed () {},
+
+  // options
+  directives: {},
+  elementDirectives: {},
+  filters: {},
+  components: {},
+  transitions: {},
+  partials: {}
+})
+</code></pre>
+
+<h2 id="vue-templates">Vue templates</h2>
+<p>Via <a href="https://www.npmjs.com/package/vueify">vueify</a></p>
+
+<pre><code class="language-js">// app.vue
+&lt;template&gt;
+  &lt;h1 class="red"&gt;{{msg}}&lt;/h1&gt;
+&lt;/template&gt;
+ 
+&lt;script&gt;
+  module.exports = {
+    data () {
+      return {
+        msg: 'Hello world!'
+      }
+    }
+  }
+&lt;/script&gt; 
+</code></pre>
+
+<p>Also</p>
+
+<pre><code class="language-html">&lt;template lang='jade'&gt;
+h1(class='red') {{msg}}
+&lt;/template&gt;
+</code></pre>
+

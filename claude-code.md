@@ -193,20 +193,34 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 ### Keyboard shortcuts
 
-| Shortcut   | Description                       |
-| ---------- | --------------------------------- |
-| `Ctrl+C`   | Interrupt, or clear the input     |
-| `Ctrl+D`   | Exit Claude Code                  |
-| `Esc`      | Interrupt Claude, or close dialogs |
-| `Esc` `Esc` | Clear the draft, or rewind       |
-| `Shift+Tab` | Cycle permission modes           |
-| `Ctrl+L`   | Redraw the screen                 |
-| `Ctrl+R`   | Search prompt history             |
-| `Ctrl+B`   | Background running tasks          |
-| `Ctrl+O`   | Toggle the transcript viewer      |
-| `Alt+P`    | Switch model                      |
-| `Alt+T`    | Toggle extended thinking          |
-| `Ctrl+V`   | Paste an image from the clipboard |
+#### Session
+
+| Shortcut    | Description                       |
+| ----------- | --------------------------------- |
+| `Ctrl+C`    | Interrupt, or clear the input     |
+| `Ctrl+D`    | Exit Claude Code                  |
+| `Esc`       | Interrupt Claude, or close dialogs |
+| `Esc` `Esc` | Clear the draft, or rewind        |
+| `Ctrl+B`    | Background running tasks          |
+{: .-shortcuts}
+
+#### Prompt
+
+| Shortcut    | Description                       |
+| ----------- | --------------------------------- |
+| `Shift+Tab` | Cycle permission modes            |
+| `Alt+P`     | Switch model                      |
+| `Alt+T`     | Toggle extended thinking          |
+| `Ctrl+V`    | Paste an image from the clipboard |
+{: .-shortcuts}
+
+#### Display
+
+| Shortcut | Description                  |
+| -------- | ---------------------------- |
+| `Ctrl+L` | Redraw the screen            |
+| `Ctrl+R` | Search prompt history        |
+| `Ctrl+O` | Toggle the transcript viewer |
 {: .-shortcuts}
 
 On macOS, use `Option` instead of `Alt`.

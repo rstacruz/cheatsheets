@@ -154,7 +154,7 @@ H3 content length:
 
 ## H4 sub-headings
 
-Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options"). For filenames, see H3 writing guidelines.
+Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options").
 
 Example:
 
@@ -176,6 +176,10 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 
 - Keep labels short (1-4 words)
 - Prefer 2-4 segments per H3
+
+### Filename markers
+
+When an example spans multiple files, use each filename as its H4, one code block per file (see the example under H3 writing guidelines).
 
 ## Deprecated sheets
 

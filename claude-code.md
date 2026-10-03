@@ -89,8 +89,10 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `-p, --print`             | Print response and exit           |
 | `-c, --continue`          | Continue most recent conversation |
 | `-r, --resume`            | Resume a session by ID or name    |
+| ------------------------- | --------------------------------- |
 | `--model sonnet`          | Choose the model                  |
 | `--effort high`           | Set reasoning effort              |
+| ------------------------- | --------------------------------- |
 | `--permission-mode plan`  | Start in a permission mode        |
 | `--add-dir ../lib`        | Add extra working directories     |
 | `--verbose`               | Show full turn-by-turn output     |

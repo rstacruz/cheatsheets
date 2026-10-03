@@ -168,7 +168,7 @@ python = "3.13.1"       # exact
 ruby = "latest"
 erlang = "ref:master"   # build a git ref
 go = "prefix:1.19"      # latest 1.19.x
-shfmt = "path:./shfmt"  # prebuilt binary at a path
+shfmt = "path:./shfmt"  # custom install dir
 ```
 {: data-line="5,6,7"}
 

@@ -175,12 +175,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 ````
 
 - Keep labels short (1-4 words)
-- Prefer 2-4 segments per H3; more suggests H3s
-- Variant segments get one code block; topic and reference segments may hold several blocks or a table
-- Single-line variants of the same construct stay in one block with inline comments
-- If segments share context (sample data, locale), add one lead-in sentence after the H3
-- A segment gets its own `See:` only when it has a different doc page
-- H4s are scan aids, not sections: section wrappers are generated for H2s and H3s, and local anchors only for H2s
+- Prefer 2-4 segments per H3
 
 ## Deprecated sheets
 

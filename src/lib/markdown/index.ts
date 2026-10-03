@@ -1,4 +1,4 @@
-import type { Link, Root } from 'mdast'
+import type { Link, Root, Text } from 'mdast'
 import type { Element, Root as HastRoot } from 'hast'
 import type { Handlers } from 'mdast-util-to-hast'
 import { unified } from 'unified'
@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkAttributeList from 'remark-attribute-list'
 import remarkRehype from 'remark-rehype'
+import remarkSmartypants from 'remark-smartypants'
 import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
@@ -20,7 +21,6 @@ import {
   refloatIALs,
   restoreCodeLanguage
 } from './ial'
-import { kramdownSmartQuotes, kramdownTypographicSymbols } from './smartquotes'
 import {
   encodeKramdownTables,
   kramdownTableHandler,
@@ -383,6 +383,45 @@ export function unwrapTransparentParagraphs() {
   }
 }
 
+/**
+ * kramdown leaves the content of raw `<code>` HTML unparsed, so it is never
+ * typographically transformed; remark exposes that content as ordinary text
+ * nodes. Hide them across `remarkSmartypants` and restore the originals after
+ */
+type RawCodeStash = Array<[Text, string]>
+
+function insideRawCode(children: unknown[], index: number): boolean {
+  let depth = 0
+  for (let i = 0; i < index; i++) {
+    const child = children[i] as { type?: string; value?: string }
+    if (child?.type !== 'html' || typeof child.value !== 'string') continue
+    depth += (child.value.match(/<code\b/gi) ?? []).length
+    depth -= (child.value.match(/<\/code>/gi) ?? []).length
+  }
+  return depth > 0
+}
+
+export function hideRawCode(stash: RawCodeStash) {
+  return (tree: Root) => {
+    visit(tree, 'text', (node: Text, index, parent) => {
+      if (
+        parent &&
+        index !== undefined &&
+        insideRawCode(parent.children, index)
+      ) {
+        stash.push([node, node.value])
+        node.value = ''
+      }
+    })
+  }
+}
+
+export function restoreRawCode(stash: RawCodeStash) {
+  return () => {
+    for (const [node, value] of stash) node.value = value
+  }
+}
+
 export async function renderMarkdown(input: string): Promise<{ html: string }> {
   const md = encodeKramdownTables(
     refloatIALs(
@@ -396,6 +435,8 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     )
   )
 
+  const rawCode: RawCodeStash = []
+
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -403,8 +444,9 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(stripGfmAutolinks)
     .use(restoreCodeLanguage)
     .use(kramdownTables)
-    .use(kramdownTypographicSymbols)
-    .use(kramdownSmartQuotes)
+    .use(hideRawCode, rawCode)
+    .use(remarkSmartypants)
+    .use(restoreRawCode, rawCode)
     .use(tightenListItems)
     .use(remarkRehype, {
       allowDangerousHtml: true,

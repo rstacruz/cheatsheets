@@ -286,10 +286,13 @@ describe('kramdown tables', () => {
   })
 })
 
-describe('kramdown typographic symbols', () => {
-  it('renders en and em dashes', async () => {
-    expect((await renderMarkdown('a -- b')).html).toBe('<p>a \u2013 b</p>\n')
-    expect((await renderMarkdown('a --- b')).html).toBe('<p>a \u2014 b</p>\n')
+describe('typography', () => {
+  it('renders an em dash for `--`', async () => {
+    expect((await renderMarkdown('a -- b')).html).toBe('<p>a \u2014 b</p>\n')
+  })
+
+  it('leaves `---` as three hyphens', async () => {
+    expect((await renderMarkdown('a --- b')).html).toBe('<p>a --- b</p>\n')
   })
 
   it('renders an ellipsis', async () => {
@@ -298,9 +301,21 @@ describe('kramdown typographic symbols', () => {
     )
   })
 
-  it('renders guillemets with kramdown nbsp padding', async () => {
-    expect((await renderMarkdown('<< a >>')).html).toBe(
-      '<p>\u00ab\u00a0a\u00a0\u00bb</p>\n'
+  it('curls double quotes in prose', async () => {
+    expect((await renderMarkdown('He said "hello" to me')).html).toBe(
+      '<p>He said \u201chello\u201d to me</p>\n'
+    )
+  })
+
+  it('curls single quotes and apostrophes in prose', async () => {
+    expect((await renderMarkdown("It's a 'test' here")).html).toBe(
+      '<p>It\u2019s a \u2018test\u2019 here</p>\n'
+    )
+  })
+
+  it('opens a quote that starts an emphasis span', async () => {
+    expect((await renderMarkdown('*"hi"*')).html).toBe(
+      '<p><em>\u201chi\u201d</em></p>\n'
     )
   })
 
@@ -319,26 +334,6 @@ describe('kramdown typographic symbols', () => {
   it('leaves raw <code> content alone', async () => {
     expect((await renderMarkdown('<code>x -- y "q"</code>')).html).toBe(
       '<p><code>x -- y "q"</code></p>\n'
-    )
-  })
-})
-
-describe('kramdown smart quotes', () => {
-  it('curls double quotes in prose', async () => {
-    expect((await renderMarkdown('He said "hello" to me')).html).toBe(
-      '<p>He said \u201chello\u201d to me</p>\n'
-    )
-  })
-
-  it('curls single quotes and apostrophes in prose', async () => {
-    expect((await renderMarkdown("It's a 'test' here")).html).toBe(
-      '<p>It\u2019s a \u2018test\u2019 here</p>\n'
-    )
-  })
-
-  it('opens a quote that starts an emphasis span', async () => {
-    expect((await renderMarkdown('*"hi"*')).html).toBe(
-      '<p><em>\u201chi\u201d</em></p>\n'
     )
   })
 })

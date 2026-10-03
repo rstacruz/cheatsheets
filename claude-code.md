@@ -28,8 +28,8 @@ intro: |
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash  # native install
-brew install --cask claude-code                 # macOS
-npm install -g @anthropic-ai/claude-code        # npm
+brew install --cask claude-code                 # Homebrew (macOS, Linux)
+npm install -g @anthropic-ai/claude-code        # npm (deprecated)
 ```
 
 On Windows: `irm https://claude.ai/install.ps1 | iex` in PowerShell, or `winget install Anthropic.ClaudeCode`.

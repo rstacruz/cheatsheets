@@ -3,6 +3,10 @@ title: Terraform
 category: Devops
 description: |
   A practical reference for Terraform configuration and CLI workflows.
+intro: |
+  [Terraform](https://developer.hashicorp.com/terraform) is an
+  infrastructure-as-code tool for building, changing, and versioning
+  infrastructure safely and efficiently.
 ---
 
 ## Getting started
@@ -139,7 +143,10 @@ variable "environment" {
   default     = "dev"
 
   validation {
-    condition     = contains(["dev", "staging", "prod"], var.environment)
+    condition = contains(
+      ["dev", "staging", "prod"],
+      var.environment
+    )
     error_message = "Use dev, staging, or prod."
   }
 }
@@ -204,7 +211,6 @@ The `-raw` and `-json` options expose sensitive outputs in plain text.
 See: [Local values](https://developer.hashicorp.com/terraform/language/values/locals), [Output values](https://developer.hashicorp.com/terraform/language/values/outputs)
 
 ## Expressions
-{: .-three-column}
 
 ### Value types
 
@@ -212,7 +218,7 @@ See: [Local values](https://developer.hashicorp.com/terraform/language/values/lo
 "hello"                    # string
 true                       # bool
 42                         # number
-["a", "b"]               # tuple/list
+["a", "b"]                 # tuple/list
 { name = "web", port = 80 } # object/map
 null                       # absence of a value
 ```

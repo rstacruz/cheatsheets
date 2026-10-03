@@ -2,5 +2,6 @@ src/sass/vendor
 vendor
 .cache
 dist
+artefacts
 *.md
 pnpm-lock.yaml

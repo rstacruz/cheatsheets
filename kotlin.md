@@ -274,6 +274,8 @@ Functions
 
 ### Parameters & return types
 
+#### Block body
+
 ```kotlin
 fun printName(name: String) {
     print(name)
@@ -284,8 +286,9 @@ fun getGreeting(person: Person): String {
 }
 ```
 
+#### Expression body
+
 ```kotlin
-// Equivalent expression-body form
 fun getGreeting(person: Person) = "Hello, ${person.name}"
 ```
 
@@ -392,6 +395,8 @@ See: [Primary constructor](https://kotlinlang.org/docs/classes.html#primary-cons
 
 ### Secondary constructors
 
+#### Delegating constructor
+
 ```kotlin
 class Person(val name: String) {
     private var age: Int? = null
@@ -403,12 +408,13 @@ class Person(val name: String) {
 ```
 {: data-line="4"}
 
+#### Default parameters
+
 ```kotlin
-// Default parameters replace the secondary constructor
 class Person(val name: String, val age: Int? = null)
 ```
 
-Secondary constructors delegate to the primary one with `: this(...)`.
+Secondary constructors delegate to the primary one with `: this(...)`; default parameters often replace them.
 
 See: [Secondary constructors](https://kotlinlang.org/docs/classes.html#secondary-constructors)
 
@@ -468,6 +474,8 @@ See: [For loops](https://kotlinlang.org/docs/control-flow.html#for-loops)
 
 ### When statements
 
+#### With a subject
+
 ```kotlin
 enum class Direction { NORTH, SOUTH, EAST, WEST }
 
@@ -478,6 +486,8 @@ when (direction) {
     else -> print("Invalid direction")
 }
 ```
+
+#### Without a subject
 
 ```kotlin
 when {
@@ -511,25 +521,35 @@ Destructuring declarations
 
 ### Objects & lists
 
+Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and maps.
+
+#### Data classes
+
 ```kotlin
 data class Person(val name: String, val age: Int)
 
 val person = Person("Adam", 100)
 val (name, age) = person
+```
 
+#### Pairs & arrays
+
+```kotlin
 val pair = Pair(1, 2)
 val (first, second) = pair
 
 val coordinates = arrayOf(1, 2, 3)
 val (x, y, z) = coordinates
+```
 
+#### Maps
+
+```kotlin
 val scores = mapOf("Adam" to 100)
 for ((key, value) in scores) {
     print("$key = $value")
 }
 ```
-
-Destructuring reads `componentN()` functions, so it works with data classes, pairs, maps, and lists.
 
 See: [Destructuring declarations](https://kotlinlang.org/docs/destructuring-declarations.html)
 

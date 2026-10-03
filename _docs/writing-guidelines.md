@@ -177,6 +177,50 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 - [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
 ````
 
+## Tables: separating
+
+Separating tables is preferred when a table grows to 8 or more rows.
+
+### Option A: H4's and multiple tables
+
+````markdown
+### Examples
+
+#### Date
+
+| Example                   | Output                 |
+| ------------------------- | ---------------------- |
+| `YYYY-MM-DD`              | 2014-01-01             |
+| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
+| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
+
+#### Time
+
+| Example   | Output   |
+| --------- | -------- |
+| `hh:mm a` | 12:30 pm |
+
+Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+````
+
+### Option B: horizontal lines
+
+````markdown
+| Example | Output                           |
+| ------- | -------------------------------- |
+| `LT`    | 8:30 PM                          |
+| `LTS`   | 8:30:25 PM                       |
+| ---     | ---                              |
+| `LL`    | August 2 1985                    |
+| `ll`    | Aug 2 1985                       |
+| ---     | ---                              |
+| `LLL`   | August 2 1985 08:30 PM           |
+| `lll`   | Aug 2 1985 08:30 PM              |
+| ---     | ---                              |
+| `LLLL`  | Thursday, August 2 1985 08:30 PM |
+| `llll`  | Thu, Aug 2 1985 08:30 PM         |
+````
+
 ## SEO descriptions
 
 - Write `keywords` + `intro` for SEO purposes (preferred).

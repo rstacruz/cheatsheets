@@ -301,3 +301,16 @@ user: root
 # specifying both user and group with ids
 user: 0:0
 ```
+### Secrets
+
+```yaml
+# in the container, /run/secrets/my_secret is set to the contents of the file ./my_secret.txt
+services:
+  myapp:
+    image: myapp:latest
+    secrets:
+      - my_secret
+secrets:
+  my_secret:
+    file: ./my_secret.txt
+```

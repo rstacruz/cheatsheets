@@ -1,3 +1,4 @@
+
 <h3 id="parsing">Parsing</h3>
 
 <h4 id="as-local-time">As local time</h4>
@@ -19,6 +20,8 @@
 
 <h3 id="formatting-dates">Formatting dates</h3>
 
+<p>The examples below use the UTC <code>date</code> from above, with the browser in America/Los_Angeles and the <code>en-US</code> locale.</p>
+
 <h4 id="default-formatting">Default formatting</h4>
 
 <pre><code class="language-js">console.log(new Intl.DateTimeFormat().format(date))
@@ -36,7 +39,7 @@
 <pre><code class="language-js">console.log(new Intl.DateTimeFormat('en-AU', {
   timeZone: 'Australia/Sydney'
 }).format(date))
-// → '19/12/2012'
+// → '20/12/2012'
 </code></pre>
 
 <h3 id="custom-formats">Custom formats</h3>
@@ -48,7 +51,7 @@
   minute: 'numeric',
   second: 'numeric'
 }).format(date))
-// → '2:00:00 pm'
+// → '7:00:00 PM'
 </code></pre>
 
 <h4 id="date">Date</h4>

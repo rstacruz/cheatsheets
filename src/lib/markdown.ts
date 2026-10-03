@@ -14,6 +14,7 @@ import { expandJekyll } from './jekyll'
 import {
   dropEmptyHeadingIds,
   dropUnterminatedIALs,
+  escapeWhitespaceCodeSpans,
   fenceFlags,
   hoistCodeAttrs,
   refloatIALs,
@@ -417,7 +418,9 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     refloatIALs(
       dropUnterminatedIALs(
         preserveWhitespace(
-          trimIndentedCodeBlocks(dropBlockExtensions(expandJekyll(input)))
+          escapeWhitespaceCodeSpans(
+            trimIndentedCodeBlocks(dropBlockExtensions(expandJekyll(input)))
+          )
         )
       )
     )

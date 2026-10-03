@@ -1,0 +1,697 @@
+
+<h2 id="getting-started">Getting started</h2>
+
+<h3 class="-intro" id="introduction">Introduction</h3>
+
+<p><a href="https://learn.chatgpt.com/docs/codex/cli">Codex</a> is OpenAI’s coding agent for the terminal. This reference covers the most commonly used commands, flags, and settings.</p>
+
+<ul>
+  <li><a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI documentation</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://github.com/openai/codex">GitHub repository</a> <em>(github.com)</em></li>
+</ul>
+
+<h3 id="install">Install</h3>
+
+<pre><code class="language-bash">curl -fsSL https://chatgpt.com/codex/install.sh | sh   # macOS/Linux
+npm install -g @openai/codex                           # npm
+brew install --cask codex                              # macOS
+</code></pre>
+
+<p>On Windows, run <code>irm https://chatgpt.com/codex/install.ps1 | iex</code> in PowerShell. See: <a href="https://learn.chatgpt.com/docs/codex/cli#getting-started">Getting started</a></p>
+
+<h3 id="sign-in">Sign in</h3>
+
+<pre><code class="language-bash">codex                 # first run opens a browser login
+codex login           # sign in again
+codex login status    # show the current account
+</code></pre>
+
+<p>Codex works with a ChatGPT plan or an API key. For scripts, pipe a key in: <code>printenv OPENAI_API_KEY | codex login --with-api-key</code>. See: <a href="https://learn.chatgpt.com/docs/auth">Authentication</a></p>
+
+<h3 id="sessions">Sessions</h3>
+
+<pre><code class="language-bash">codex                      # start the interactive TUI
+codex "explain this repo"  # start with a prompt
+codex resume --last        # reopen the latest chat
+codex fork --last          # branch the latest chat
+</code></pre>
+
+<p><code>codex resume</code> scopes <code>--last</code> to the current directory; add <code>--all</code> to search every session. See: <a href="https://learn.chatgpt.com/docs/developer-commands?surface=cli">CLI reference</a></p>
+
+<h2 id="cli-reference">CLI reference</h2>
+
+<h3 id="commands">Commands</h3>
+
+<h4 id="sessions-1">Sessions</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>codex</code></td>
+      <td>Start the interactive TUI</td>
+    </tr>
+    <tr>
+      <td><code>codex resume</code></td>
+      <td>Reopen a saved chat</td>
+    </tr>
+    <tr>
+      <td><code>codex fork</code></td>
+      <td>Branch a saved chat into a new one</td>
+    </tr>
+    <tr>
+      <td><code>codex archive &lt;chat&gt;</code></td>
+      <td>Hide a chat from the picker</td>
+    </tr>
+    <tr>
+      <td><code>codex delete &lt;chat&gt;</code></td>
+      <td>Delete a chat and its transcript</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="setup">Setup</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>codex login</code></td>
+      <td>Sign in with ChatGPT</td>
+    </tr>
+    <tr>
+      <td><code>codex logout</code></td>
+      <td>Remove stored credentials</td>
+    </tr>
+    <tr>
+      <td><code>codex update</code></td>
+      <td>Update to the latest version</td>
+    </tr>
+    <tr>
+      <td><code>codex doctor</code></td>
+      <td>Diagnose install and config</td>
+    </tr>
+    <tr>
+      <td><code>codex completion zsh</code></td>
+      <td>Generate shell completions</td>
+    </tr>
+    <tr>
+      <td><code>codex mcp</code></td>
+      <td>Manage MCP servers</td>
+    </tr>
+    <tr>
+      <td><code>codex plugin</code></td>
+      <td>Install and remove plugins</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="automation">Automation</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>codex exec "task"</code></td>
+      <td>Run non-interactively</td>
+    </tr>
+    <tr>
+      <td><code>codex review</code></td>
+      <td>Review changes non-interactively</td>
+    </tr>
+    <tr>
+      <td><code>codex cloud</code></td>
+      <td>Browse and run cloud chats</td>
+    </tr>
+    <tr>
+      <td><code>codex apply &lt;task&gt;</code></td>
+      <td>Apply a cloud diff locally</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="flags">Flags</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-m, --model &lt;model&gt;</code></td>
+      <td>Choose the model</td>
+    </tr>
+    <tr>
+      <td><code>-p, --profile &lt;name&gt;</code></td>
+      <td>Layer a profile over config</td>
+    </tr>
+    <tr>
+      <td><code>-s, --sandbox &lt;mode&gt;</code></td>
+      <td>Set the sandbox policy</td>
+    </tr>
+    <tr>
+      <td><code>-a, --ask-for-approval &lt;policy&gt;</code></td>
+      <td>Control approval prompts</td>
+    </tr>
+    <tr>
+      <td><code>-C, --cd &lt;dir&gt;</code></td>
+      <td>Set the working directory</td>
+    </tr>
+    <tr>
+      <td><code>--add-dir &lt;dir&gt;</code></td>
+      <td>Grant another writable folder</td>
+    </tr>
+    <tr>
+      <td><code>--search</code></td>
+      <td>Enable live web search</td>
+    </tr>
+    <tr>
+      <td><code>-i, --image &lt;file&gt;</code></td>
+      <td>Attach images to the prompt</td>
+    </tr>
+    <tr>
+      <td><code>-c key=value</code></td>
+      <td>Override any config value</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="other-flags">Other flags</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--oss</code></td>
+      <td>Use a local open-source model</td>
+    </tr>
+    <tr>
+      <td><code>--no-alt-screen</code></td>
+      <td>Keep output in terminal scrollback</td>
+    </tr>
+    <tr>
+      <td><code>--enable &lt;feature&gt;</code></td>
+      <td>Enable optional features</td>
+    </tr>
+    <tr>
+      <td><code>--dangerously-bypass-approvals-and-sandbox</code></td>
+      <td>Skip approvals and sandboxing</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="-prime" id="sandbox-and-approvals">Sandbox and approvals</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Mode</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>read-only</code></td>
+      <td>Read files; no edits or network</td>
+    </tr>
+    <tr>
+      <td><code>workspace-write</code></td>
+      <td>Edit the workspace; network off</td>
+    </tr>
+    <tr>
+      <td><code>danger-full-access</code></td>
+      <td>No sandbox at all</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-bash">codex --sandbox workspace-write --ask-for-approval on-request  # Auto
+codex --sandbox read-only --ask-for-approval never  # read-only
+</code></pre>
+
+<p>Auto (the Git-repo default): edits in the workspace, asks before leaving it. Network stays off until <code>sandbox_workspace_write.network_access = true</code>. See: <a href="https://learn.chatgpt.com/docs/agent-approvals-security">Approvals &amp; security</a></p>
+
+<h3 id="non-interactive-mode">Non-interactive mode</h3>
+
+<pre><code class="language-bash">codex exec "summarize this repo"        # final message to stdout
+git diff | codex exec "review this"     # pipe context in
+codex exec --json "list failing tests"  # JSONL events
+codex exec resume --last "fix them"     # continue the last run
+</code></pre>
+
+<p><code>codex exec</code> runs read-only by default; add <code>--sandbox workspace-write</code> to allow edits. <code>-o file</code> writes the final message to a file. See: <a href="https://learn.chatgpt.com/docs/non-interactive-mode">Non-interactive mode</a></p>
+
+<h3 id="code-review">Code review</h3>
+
+<pre><code class="language-bash">codex review --uncommitted   # staged, unstaged, and untracked
+codex review --base main     # changes against a base branch
+codex review --commit &lt;sha&gt;  # a single commit
+</code></pre>
+
+<p>Pass exactly one target, or give custom instructions as a prompt. <code>--title</code> only works with <code>--commit</code>. See: <a href="https://learn.chatgpt.com/docs/code-review">Code review</a></p>
+
+<h2 id="slash-commands">Slash commands</h2>
+
+<h3 id="session">Session</h3>
+
+<h4 id="chat">Chat</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/new</code></td>
+      <td>Start a fresh chat</td>
+    </tr>
+    <tr>
+      <td><code>/clear</code></td>
+      <td>Clear the terminal and start fresh</td>
+    </tr>
+    <tr>
+      <td><code>/resume</code></td>
+      <td>Reopen a saved chat</td>
+    </tr>
+    <tr>
+      <td><code>/fork</code></td>
+      <td>Branch the current chat</td>
+    </tr>
+    <tr>
+      <td><code>/compact</code></td>
+      <td>Summarize to free up context</td>
+    </tr>
+    <tr>
+      <td><code>/rename &lt;name&gt;</code></td>
+      <td>Rename the current chat</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="control">Control</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/plan</code></td>
+      <td>Switch to plan mode</td>
+    </tr>
+    <tr>
+      <td><code>/goal &lt;objective&gt;</code></td>
+      <td>Set a persistent task goal</td>
+    </tr>
+    <tr>
+      <td><code>/permissions</code></td>
+      <td>Change what Codex may do</td>
+    </tr>
+    <tr>
+      <td><code>/approve</code></td>
+      <td>Retry an auto-denied action</td>
+    </tr>
+    <tr>
+      <td><code>/model</code></td>
+      <td>Choose the active model</td>
+    </tr>
+    <tr>
+      <td><code>/fast</code></td>
+      <td>Toggle the Fast service tier</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="inspect">Inspect</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/diff</code></td>
+      <td>Show the Git diff</td>
+    </tr>
+    <tr>
+      <td><code>/review</code></td>
+      <td>Review the working tree</td>
+    </tr>
+    <tr>
+      <td><code>/status</code></td>
+      <td>Show model, policy, and tokens</td>
+    </tr>
+    <tr>
+      <td><code>/usage</code></td>
+      <td>Show account token usage</td>
+    </tr>
+    <tr>
+      <td><code>/copy</code></td>
+      <td>Copy the latest response</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="setup-1">Setup</h3>
+
+<h4 id="config">Config</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/init</code></td>
+      <td>Generate an AGENTS.md scaffold</td>
+    </tr>
+    <tr>
+      <td><code>/skills</code></td>
+      <td>Browse and apply skills</td>
+    </tr>
+    <tr>
+      <td><code>/plugins</code></td>
+      <td>Browse installed plugins</td>
+    </tr>
+    <tr>
+      <td><code>/mcp</code></td>
+      <td>List configured MCP tools</td>
+    </tr>
+    <tr>
+      <td><code>/hooks</code></td>
+      <td>Manage lifecycle hooks</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="interface">Interface</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/theme</code></td>
+      <td>Choose a syntax theme</td>
+    </tr>
+    <tr>
+      <td><code>/statusline</code></td>
+      <td>Configure footer items</td>
+    </tr>
+    <tr>
+      <td><code>/vim</code></td>
+      <td>Toggle Vim composer mode</td>
+    </tr>
+    <tr>
+      <td><code>/keymap</code></td>
+      <td>Remap TUI shortcuts</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="account">Account</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/import</code></td>
+      <td>Import Claude Code or Cursor setup</td>
+    </tr>
+    <tr>
+      <td><code>/feedback</code></td>
+      <td>Send logs to the maintainers</td>
+    </tr>
+    <tr>
+      <td><code>/logout</code></td>
+      <td>Sign out</td>
+    </tr>
+    <tr>
+      <td><code>/quit</code></td>
+      <td>Exit the CLI (also <code>/exit</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="interactive-mode">Interactive mode</h2>
+
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+
+<h4 id="session-1">Session</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ctrl+C</code></td>
+      <td>Close the session</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+R</code></td>
+      <td>Search prompt history</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+O</code></td>
+      <td>Copy the latest response</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+L</code></td>
+      <td>Clear the terminal view</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+G</code></td>
+      <td>Edit the prompt in <code>$VISUAL</code>/<code>$EDITOR</code></td>
+    </tr>
+    <tr>
+      <td><code>Esc</code> <code>Esc</code></td>
+      <td>Edit the previous message and fork</td>
+    </tr>
+    <tr>
+      <td><code>Alt+R</code></td>
+      <td>Toggle raw scrollback</td>
+    </tr>
+    <tr>
+      <td><code>Up</code> <code>Down</code></td>
+      <td>Restore draft history</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="while-running">While running</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Enter</code></td>
+      <td>Inject instructions into the turn</td>
+    </tr>
+    <tr>
+      <td><code>Tab</code></td>
+      <td>Queue a follow-up for the next turn</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="input-modes">Input modes</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/</code></td>
+      <td>Slash commands</td>
+    </tr>
+    <tr>
+      <td><code>@</code></td>
+      <td>Search files and add paths</td>
+    </tr>
+    <tr>
+      <td><code>!</code></td>
+      <td>Run a shell command directly</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Paste an image into the composer. See: <a href="https://learn.chatgpt.com/docs/image-inputs">Image inputs</a></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="config-file">Config file</h3>
+
+<pre><code class="language-bash">~/.codex/config.toml            # user settings
+.codex/config.toml              # project settings (trusted projects)
+$CODEX_HOME/&lt;name&gt;.config.toml  # profile, selected with --profile
+/etc/codex/config.toml          # system defaults (Unix)
+</code></pre>
+
+<pre><code class="language-toml">model = "gpt-6.1-sol"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+model_reasoning_effort = "medium"
+</code></pre>
+
+<p>Project files merge from the repo root down to the current directory; CLI flags and <code>-c key=value</code> overrides win. See: <a href="https://learn.chatgpt.com/docs/config-file/config-basic">Config basics</a></p>
+
+<h3 id="environment-variables">Environment variables</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>CODEX_HOME</code></td>
+      <td>State directory (default <code>~/.codex</code>)</td>
+    </tr>
+    <tr>
+      <td><code>CODEX_API_KEY</code></td>
+      <td>API key for non-interactive runs</td>
+    </tr>
+    <tr>
+      <td><code>CODEX_ACCESS_TOKEN</code></td>
+      <td>Access token for trusted automation</td>
+    </tr>
+    <tr>
+      <td><code>CODEX_CA_CERTIFICATE</code></td>
+      <td>PEM CA bundle for corporate TLS</td>
+    </tr>
+    <tr>
+      <td><code>RUST_LOG</code></td>
+      <td>Log verbosity for debugging</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="agentsmd">AGENTS.md</h3>
+
+<pre><code class="language-md">AGENTS.md            # project instructions, committed
+~/.codex/AGENTS.md   # global defaults for every repo
+</code></pre>
+
+<p>Each directory contributes one file — <code>AGENTS.override.md</code> if present, else <code>AGENTS.md</code> — and Codex concatenates them from the repo root down. See: <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md</a></p>
+
+<h2 id="common-workflows">Common workflows</h2>
+
+<h3 id="scripting-and-ci">Scripting and CI</h3>
+
+<pre data-line="2,5,8"><code class="language-bash"># Machine-readable events for scripts
+codex exec --json "list the failing tests" | jq
+
+# Capture the final message in a file
+codex exec -o summary.md "summarize this repo"
+
+# Use an API key inline in CI
+CODEX_API_KEY=$KEY codex exec "triage open bugs"
+</code></pre>
+
+<h3 id="reviewing-code">Reviewing code</h3>
+
+<pre><code class="language-bash">codex review --uncommitted
+codex review --base main
+git diff | codex exec "review this diff for bugs"
+</code></pre>
+
+<p>Inside a session, <code>/review</code> reviews the working tree and <code>/diff</code> shows the changes.</p>
+
+<h3 id="cloud-tasks">Cloud tasks</h3>
+
+<pre><code class="language-bash">codex cloud list                # recent cloud chats
+codex cloud exec --env &lt;id&gt; "fix the flaky test"
+codex apply &lt;task-id&gt;           # apply the diff locally
+</code></pre>
+
+<p><code>codex cloud exec</code> needs <code>--env</code>; add <code>--attempts 2</code> for best-of-N. See: <a href="https://learn.chatgpt.com/docs/cloud">Codex Cloud</a></p>
+
+<h2 id="mcp-servers">MCP servers</h2>
+
+<h3 id="adding-servers">Adding servers</h3>
+
+<pre><code class="language-bash">codex mcp add my-server -- npx my-mcp-server        # stdio
+codex mcp add remote --url https://example.com/mcp  # HTTP
+codex mcp list
+</code></pre>
+
+<p>Add <code>--env KEY=VALUE</code> for stdio servers, or <code>--bearer-token-env-var VAR</code> for HTTP.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<pre><code class="language-bash">codex mcp login my-server             # OAuth, opens a browser
+codex mcp login my-server --scopes read:docs
+codex mcp logout my-server
+</code></pre>
+
+<p>OAuth works with streamable HTTP servers that support it. Stored credentials live in the store set by <code>mcp_oauth_credentials_store</code> (auto, file, or keyring). See: <a href="https://learn.chatgpt.com/docs/extend/mcp">MCP</a></p>
+
+<h2 class="-one-column" id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://learn.chatgpt.com/docs/developer-commands?surface=cli">CLI reference</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://learn.chatgpt.com/docs/config-file/config-basic">Configuration</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://learn.chatgpt.com/docs/agent-approvals-security">Approvals &amp; security</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://learn.chatgpt.com/docs/non-interactive-mode">Non-interactive mode</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md</a> <em>(learn.chatgpt.com)</em></li>
+  <li><a href="https://learn.chatgpt.com/guides/best-practices">Best practices</a> <em>(learn.chatgpt.com)</em></li>
+</ul>

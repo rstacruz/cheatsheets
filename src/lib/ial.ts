@@ -63,15 +63,102 @@ function isTerminatedIAL(line: string): boolean {
 /**
  * Deletes own-line IALs that never terminate. kramdown ignores them entirely
  * (neither attributes nor literal text reach the output); the plugin throws.
+ *
+ * kramdown's IAL regex is not line-bounded: `\{:(?!:|\/)([^\}]+)\}` will span
+ * newlines, so an own-line `{: .-shortcuts` with no closing brace on its own
+ * line swallows everything up to the next `}` *anywhere in the document*, and
+ * the classes found in that span are applied to the preceding block. That is
+ * measured behaviour (spacemacs.md: the heading and table between the two
+ * braces disappear, and the Toggle table gains both classes), so reproduce it.
  */
 export function dropUnterminatedIALs(md: string): string {
   const lines = md.split('\n')
   const fenced = fenceFlags(lines)
+  const out: string[] = []
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index]
+    if (fenced[index] || !IAL_LINE.test(line) || isTerminatedIAL(line)) {
+      out.push(line)
+      continue
+    }
+
+    // A `}` on the same line means kramdown consumed just this line (and
+    // found no usable attributes, e.g. an unterminated quoted value).
+    if (line.includes('}')) continue
+
+    let close = -1
+    for (let scan = index + 1; scan < lines.length; scan++) {
+      if (lines[scan].includes('}')) {
+        close = scan
+        break
+      }
+    }
+    if (close === -1) continue // no closing brace anywhere: drop the line
+
+    const span = lines.slice(index, close + 1).join('\n')
+    const classes = [...new Set(span.match(/\.-?[A-Za-z0-9_-]+/g) ?? [])]
+    if (classes.length > 0) out.push(`{: ${classes.join(' ')} }`)
+    index = close
+  }
+
+  return out.join('\n')
+}
+
+/**
+ * kramdown does not parse a single-backtick code span when the backtick is
+ * preceded by whitespace (or starts the span) and followed by whitespace:
+ * `` `  ` `` and `` ` x` `` stay literal backticks, while `` `x ` `` is a code
+ * span. Escape those backticks so remark leaves them literal too.
+ */
+export function escapeWhitespaceCodeSpans(md: string): string {
+  const lines = md.split('\n')
+  const fenced = fenceFlags(lines)
 
   return lines
-    .filter((line, index) => {
-      if (fenced[index] || !IAL_LINE.test(line)) return true
-      return isTerminatedIAL(line)
+    .map((line, index) => {
+      if (fenced[index] || !line.includes('`')) return line
+      let out = ''
+      let i = 0
+      while (i < line.length) {
+        if (line[i] !== '`') {
+          out += line[i]
+          i++
+          continue
+        }
+
+        let run = 0
+        while (line[i + run] === '`') run++
+        if (run > 1) {
+          out += '`'.repeat(run)
+          i += run
+          continue
+        }
+
+        const previous = i === 0 ? '' : line[i - 1]
+        if (
+          (previous === '' || /\s/.test(previous)) &&
+          /\s/.test(line[i + 1] ?? '')
+        ) {
+          // kramdown treats this backtick as literal text.
+          out += '\\`'
+          i++
+          continue
+        }
+
+        // Otherwise it opens a code span: skip to its closing backtick so it
+        // is not escaped as well.
+        let close = i + 1
+        while (close < line.length && line[close] !== '`') close++
+        if (close < line.length) {
+          out += line.slice(i, close + 1)
+          i = close + 1
+        } else {
+          out += line[i]
+          i++
+        }
+      }
+      return out
     })
     .join('\n')
 }

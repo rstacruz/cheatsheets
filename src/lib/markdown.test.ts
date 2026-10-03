@@ -1,7 +1,11 @@
 import { readFileSync } from 'node:fs'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
-import { dropUnterminatedIALs, refloatIALs } from './ial'
+import {
+  dropUnterminatedIALs,
+  escapeWhitespaceCodeSpans,
+  refloatIALs
+} from './ial'
 import { renderMarkdown } from './markdown'
 
 // kramdown emits a newline after every block and a blank line where the
@@ -204,6 +208,48 @@ describe('IAL shims', () => {
   it('keeps an unterminated IAL that sits inside a fence', () => {
     const input = '```\n{: .-shortcuts\n```'
     expect(dropUnterminatedIALs(input)).toBe(input)
+  })
+
+  it('swallows up to the next `}` and re-emits the classes (kramdown quirk)', () => {
+    const input = [
+      '| a | b |',
+      '| --- | --- |',
+      '| c | d |',
+      '{: .-shortcuts',
+      '',
+      '### Swallowed',
+      '',
+      '| e | f |',
+      '| --- | --- |',
+      '| g | h |',
+      '{: .-shortcuts-right}'
+    ].join('\n')
+    expect(dropUnterminatedIALs(input)).toBe(
+      [
+        '| a | b |',
+        '| --- | --- |',
+        '| c | d |',
+        '{: .-shortcuts .-shortcuts-right }'
+      ].join('\n')
+    )
+  })
+
+  it('drops a same-line IAL whose quoted value never closes', () => {
+    expect(dropUnterminatedIALs('```\nx\n```\n{: data-line="1,3,5,7 }')).toBe(
+      '```\nx\n```'
+    )
+  })
+
+  it('escapes single-backtick spans whose content starts with whitespace', () => {
+    expect(escapeWhitespaceCodeSpans('a `  ` b')).toBe('a \\`  \\` b')
+    expect(escapeWhitespaceCodeSpans('a ` x` b')).toBe('a \\` x` b')
+    expect(escapeWhitespaceCodeSpans('a `  x  ` b')).toBe('a \\`  x  \\` b')
+  })
+
+  it('leaves parsed code spans alone', () => {
+    expect(escapeWhitespaceCodeSpans('a `x ` b')).toBe('a `x ` b')
+    expect(escapeWhitespaceCodeSpans('a `a b` b')).toBe('a `a b` b')
+    expect(escapeWhitespaceCodeSpans('a ``  `` b')).toBe('a ``  `` b')
   })
 
   it('refloats an IAL that follows a blank line to the next block', () => {

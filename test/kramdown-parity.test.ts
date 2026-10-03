@@ -36,25 +36,24 @@ const normalize = (html: string) =>
   decodeHTML(html).replace(/>\s+</g, '><').trim()
 
 /**
- * Sheets whose output still differs, with the reason. Every entry is a
- * cosmetic whitespace or malformed-input quirk of kramdown's parser; none
- * change what a reader sees. Must stay in sync with the actual residuals.
+ * Sheets whose output still differs, with the measured difference. All six
+ * are whitespace-only or `<p>`-wrapping differences that render identically
+ * in a browser; none change visible content. Must stay in sync with the
+ * actual residuals (the assertion below fails if it does not).
  */
 const EXPECTED_DIFFS: Record<string, string> = {
   'backbone.md':
-    'kramdown keeps a nested list’s indentation as text before <ul>; CommonMark strips it (invisible)',
+    'nested-list indentation: kramdown emits `Collection:\\n    <ul>`, we emit `Collection:\\n<ul>` (whitespace-only)',
   'goby.md':
-    'kramdown keeps a nested list’s indentation as text before <ul>; CommonMark strips it (invisible)',
+    'nested-list indentation: kramdown emits `<code>fmt</code>,\\n    <ul>`, we emit `<code>fmt</code>,\\n<ul>` (whitespace-only)',
   'ios-provision.md':
-    'kramdown keeps a nested list’s indentation as text before <ul>; CommonMark strips it (invisible)',
+    'nested-list indentation: kramdown emits `section\\n    <ul>`, we emit `section\\n<ul>` (whitespace-only)',
   'kramdown.md':
-    'the sheet’s `{::options}` extension makes kramdown treat the preceding list item as loose; we consume the extension',
+    'the indented `{::options …}` line makes kramdown treat the list item as loose (`<li><p>html_to_native…</p></li>`); we consume the extension so the item stays tight (no visual difference)',
   'rails-plugins.md':
-    'kramdown strips leading whitespace on a link label’s continuation line; we keep it (invisible)',
+    'link-label continuation: kramdown emits `blog \\npost`, we emit `blog \\n  post` (whitespace-only)',
   'rails-routes.md':
-    'kramdown strips leading whitespace on a list item’s continuation line; we keep it (invisible)',
-  'spacemacs.md':
-    'kramdown’s IAL regex spans newlines, so the malformed `{: .-shortcuts` swallows the following heading and table; we ignore the malformed IAL'
+    'list-item continuation: kramdown emits `\\n (See included modules)`, we emit `\\n    (See included modules)` (whitespace-only)'
 }
 
 /** Files matched by the sheet glob that are documentation, not cheatsheets. */

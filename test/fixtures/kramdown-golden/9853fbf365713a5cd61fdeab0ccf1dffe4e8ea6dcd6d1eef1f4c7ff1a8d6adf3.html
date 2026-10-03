@@ -1,0 +1,610 @@
+
+<h2 class="-two-column" id="getting-started">Getting started</h2>
+
+<h3 class="-intro" id="introduction">Introduction</h3>
+
+<p><a href="https://code.claude.com/docs">Claude Code</a> is Anthropic’s AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.</p>
+
+<ul>
+  <li><a href="https://code.claude.com/docs">Claude Code documentation</a> <em>(code.claude.com)</em></li>
+  <li><a href="https://github.com/anthropics/claude-code">GitHub repository</a> <em>(github.com)</em></li>
+</ul>
+
+<h3 id="install">Install</h3>
+
+<pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash  # native install
+brew install --cask claude-code                 # Homebrew (macOS, Linux)
+npm install -g @anthropic-ai/claude-code        # npm (deprecated)
+</code></pre>
+
+<p>On Windows: <code>irm https://claude.ai/install.ps1 | iex</code> in PowerShell, or <code>winget install Anthropic.ClaudeCode</code>.</p>
+
+<h3 id="sign-in">Sign in</h3>
+
+<pre><code class="language-bash">claude              # first run opens a browser login
+claude auth login   # sign in again
+claude auth status  # show the current account
+</code></pre>
+
+<p>Claude Code needs a Pro, Max, Team, or Enterprise plan, a Console account, or a cloud provider (Amazon Bedrock, Google Cloud, or Microsoft Foundry). <code>ANTHROPIC_API_KEY</code> also works.</p>
+
+<h3 id="sessions">Sessions</h3>
+
+<pre><code class="language-bash">claude                        # start interactive session
+claude "explain this repo"    # start with a prompt
+claude -p "summarize README"  # print mode: answer and exit
+git diff | claude -p "review this diff"
+</code></pre>
+
+<p>Use <code>claude -c</code> to continue the last conversation, or <code>claude -r "auth-refactor"</code> to resume one by name. See: <a href="https://code.claude.com/docs/en/quickstart">Quickstart</a></p>
+
+<h2 class="-two-column" id="cli-reference">CLI reference</h2>
+
+<h3 id="commands">Commands</h3>
+
+<h4 id="sessions-1">Sessions</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>claude</code></td>
+      <td>Start interactive session</td>
+    </tr>
+    <tr>
+      <td><code>claude "query"</code></td>
+      <td>Start with an initial prompt</td>
+    </tr>
+    <tr>
+      <td><code>claude -p "query"</code></td>
+      <td>Print response and exit</td>
+    </tr>
+    <tr>
+      <td><code>claude -c</code></td>
+      <td>Continue most recent conversation</td>
+    </tr>
+    <tr>
+      <td><code>claude -r &lt;session&gt;</code></td>
+      <td>Resume a session by ID or name</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="setup">Setup</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>claude update</code></td>
+      <td>Update to latest version</td>
+    </tr>
+    <tr>
+      <td><code>claude doctor</code></td>
+      <td>Check install and settings</td>
+    </tr>
+    <tr>
+      <td><code>claude mcp</code></td>
+      <td>Configure MCP servers</td>
+    </tr>
+    <tr>
+      <td><code>claude auth status</code></td>
+      <td>Show authentication status</td>
+    </tr>
+    <tr>
+      <td><code>claude setup-token</code></td>
+      <td>Generate a token for CI</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="flags">Flags</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>-p, --print</code></td>
+      <td>Print response and exit</td>
+    </tr>
+    <tr>
+      <td><code>-c, --continue</code></td>
+      <td>Continue most recent conversation</td>
+    </tr>
+    <tr>
+      <td><code>-r, --resume</code></td>
+      <td>Resume a session by ID or name</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>--model sonnet</code></td>
+      <td>Choose the model</td>
+    </tr>
+    <tr>
+      <td><code>--effort high</code></td>
+      <td>Set reasoning effort</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>--permission-mode plan</code></td>
+      <td>Start in a permission mode</td>
+    </tr>
+    <tr>
+      <td><code>--add-dir ../lib</code></td>
+      <td>Add extra working directories</td>
+    </tr>
+    <tr>
+      <td><code>--verbose</code></td>
+      <td>Show full turn-by-turn output</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="other-flags">Other flags</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--debug</code></td>
+      <td>Enable debug mode</td>
+    </tr>
+    <tr>
+      <td><code>--settings file.json</code></td>
+      <td>Load settings for this session</td>
+    </tr>
+    <tr>
+      <td><code>--ide</code></td>
+      <td>Auto-connect to your IDE</td>
+    </tr>
+    <tr>
+      <td><code>-w, --worktree</code></td>
+      <td>Start in an isolated git worktree</td>
+    </tr>
+    <tr>
+      <td><code>--dangerously-skip-permissions</code></td>
+      <td>Skip all permission prompts</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-two-column" id="slash-commands">Slash commands</h2>
+
+<h3 id="session">Session</h3>
+
+<h4 id="conversation">Conversation</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/help</code></td>
+      <td>Show available commands</td>
+    </tr>
+    <tr>
+      <td><code>/clear</code></td>
+      <td>Start a new conversation</td>
+    </tr>
+    <tr>
+      <td><code>/compact</code></td>
+      <td>Summarize to free up context</td>
+    </tr>
+    <tr>
+      <td><code>/context</code></td>
+      <td>Show context window usage</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="history">History</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/resume</code></td>
+      <td>Resume a previous conversation</td>
+    </tr>
+    <tr>
+      <td><code>/rewind</code></td>
+      <td>Restore code and conversation</td>
+    </tr>
+    <tr>
+      <td><code>/export</code></td>
+      <td>Export the conversation as text</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="usage">Usage</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/status</code></td>
+      <td>Show version, model, and account</td>
+    </tr>
+    <tr>
+      <td><code>/usage</code></td>
+      <td>Show cost and plan limits</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="setup-1">Setup</h3>
+
+<h4 id="settings">Settings</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/config</code></td>
+      <td>Open settings or set a value</td>
+    </tr>
+    <tr>
+      <td><code>/model</code></td>
+      <td>Switch the AI model</td>
+    </tr>
+    <tr>
+      <td><code>/effort</code></td>
+      <td>Set reasoning effort</td>
+    </tr>
+    <tr>
+      <td><code>/memory</code></td>
+      <td>Edit memory files</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="project">Project</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/init</code></td>
+      <td>Generate a starter CLAUDE.md</td>
+    </tr>
+    <tr>
+      <td><code>/permissions</code></td>
+      <td>Manage permission rules</td>
+    </tr>
+    <tr>
+      <td><code>/mcp</code></td>
+      <td>Manage MCP connections</td>
+    </tr>
+    <tr>
+      <td><code>/doctor</code></td>
+      <td>Run a setup checkup</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="account">Account</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/login</code></td>
+      <td>Sign in to your account</td>
+    </tr>
+    <tr>
+      <td><code>/logout</code></td>
+      <td>Sign out</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="review">Review</h3>
+
+<h4 id="changes">Changes</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/diff</code></td>
+      <td>Review working-tree changes</td>
+    </tr>
+    <tr>
+      <td><code>/review</code></td>
+      <td>Review changes or a pull request</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="security">Security</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/security-review</code></td>
+      <td>Scan changes for vulnerabilities</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="-two-column" id="interactive-mode">Interactive mode</h2>
+
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+
+<h4 id="session-1">Session</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ctrl+C</code></td>
+      <td>Interrupt, or clear the input</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+D</code></td>
+      <td>Exit Claude Code</td>
+    </tr>
+    <tr>
+      <td><code>Esc</code></td>
+      <td>Interrupt Claude, or close dialogs</td>
+    </tr>
+    <tr>
+      <td><code>Esc</code> <code>Esc</code></td>
+      <td>Clear the draft, or rewind</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+B</code></td>
+      <td>Background running tasks</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="prompt">Prompt</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Shift+Tab</code></td>
+      <td>Cycle permission modes</td>
+    </tr>
+    <tr>
+      <td><code>Alt+P</code></td>
+      <td>Switch model</td>
+    </tr>
+    <tr>
+      <td><code>Alt+T</code></td>
+      <td>Toggle extended thinking</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+V</code></td>
+      <td>Paste an image from the clipboard</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="display">Display</h4>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ctrl+L</code></td>
+      <td>Redraw the screen</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+R</code></td>
+      <td>Search prompt history</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl+O</code></td>
+      <td>Toggle the transcript viewer</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>On macOS, use <code>Option</code> instead of <code>Alt</code>.</p>
+
+<h3 id="input-modes">Input modes</h3>
+
+<table class="-shortcuts">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/</code></td>
+      <td>Slash commands and skills</td>
+    </tr>
+    <tr>
+      <td><code>!</code></td>
+      <td>Run a shell command directly</td>
+    </tr>
+    <tr>
+      <td><code>@</code></td>
+      <td>Mention a file path</td>
+    </tr>
+    <tr>
+      <td><code>:</code></td>
+      <td>Insert an emoji by shortcode</td>
+    </tr>
+    <tr>
+      <td><code>?</code></td>
+      <td>Show the shortcut help panel</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For a newline without sending, press <code>\</code> + <code>Enter</code> or <code>Ctrl+J</code> — both work in any terminal. <code>Shift+Enter</code> works in many terminals; run <code>/terminal-setup</code> if it doesn’t.</p>
+
+<h2 class="-two-column" id="configuration">Configuration</h2>
+
+<h3 id="settings-files">Settings files</h3>
+
+<pre><code class="language-bash">~/.claude/settings.json      # user settings
+.claude/settings.json        # project settings, committed
+.claude/settings.local.json  # personal project settings
+</code></pre>
+
+<p>Run <code>/config</code> to edit settings, or pass <code>--settings file.json</code> for one session. See: <a href="https://code.claude.com/docs/en/settings">Settings</a></p>
+
+<h3 id="environment-variables">Environment variables</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ANTHROPIC_API_KEY</code></td>
+      <td>API key used instead of a subscription</td>
+    </tr>
+    <tr>
+      <td><code>ANTHROPIC_MODEL</code></td>
+      <td>Default model name</td>
+    </tr>
+    <tr>
+      <td><code>ANTHROPIC_BASE_URL</code></td>
+      <td>Route requests through a gateway</td>
+    </tr>
+    <tr>
+      <td><code>API_TIMEOUT_MS</code></td>
+      <td>API timeout (default 600000)</td>
+    </tr>
+    <tr>
+      <td><code>BASH_DEFAULT_TIMEOUT_MS</code></td>
+      <td>Bash tool timeout (default 120000)</td>
+    </tr>
+    <tr>
+      <td><code>CLAUDE_CODE_DISABLE_AUTO_MEMORY</code></td>
+      <td>Turn auto memory off</td>
+    </tr>
+    <tr>
+      <td><code>DISABLE_AUTOUPDATER</code></td>
+      <td>Turn background updates off</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Settings files can also set env vars under an <code>env</code> key. See: <a href="https://code.claude.com/docs/en/env-vars">Environment variables</a></p>
+
+<h3 id="memory">Memory</h3>
+
+<pre><code class="language-bash">CLAUDE.md             # project instructions, committed
+CLAUDE.local.md       # personal project notes, not committed
+~/.claude/CLAUDE.md   # instructions for all your projects
+</code></pre>
+
+<p><code>/init</code> generates a project CLAUDE.md; <code>/memory</code> edits memory files and auto memory. Import files with <code>@path/to/file.md</code>. See: <a href="https://code.claude.com/docs/en/memory">Memory</a></p>
+
+<h2 class="-two-column" id="common-workflows">Common workflows</h2>
+
+<h3 id="reviewing-code">Reviewing code</h3>
+
+<pre><code class="language-bash">git diff | claude -p "review this diff for bugs"
+claude -p "check src/ for security issues"
+</code></pre>
+
+<p>Inside a session, <code>/review</code> reviews the current diff and <code>/security-review</code> scans it for vulnerabilities.</p>
+
+<h3 id="scripting">Scripting</h3>
+
+<pre data-line="2,5"><code class="language-bash"># One-shot JSON output for scripts
+claude -p "list the failing tests" --output-format json
+
+# Pipe logs in
+cat build.log | claude -p "explain this failure"
+</code></pre>
+
+<h2 class="-one-column" id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://code.claude.com/docs/en/cli-reference">CLI reference</a> <em>(code.claude.com)</em></li>
+  <li><a href="https://code.claude.com/docs/en/commands">Commands</a> <em>(code.claude.com)</em></li>
+  <li><a href="https://code.claude.com/docs/en/interactive-mode">Interactive mode</a> <em>(code.claude.com)</em></li>
+  <li><a href="https://code.claude.com/docs/en/changelog">Changelog</a> <em>(code.claude.com)</em></li>
+</ul>

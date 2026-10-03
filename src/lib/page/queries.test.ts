@@ -75,7 +75,8 @@ const archivePages = mapGlobToPages({
 test('archive pages are hidden or deprecated sheets sorted by title, case-insensitively', () => {
   const slugs = getArchivedPages(archivePages).map((page) => page.slug)
 
-  // naive sort would put 'Zeta' first (Z < a); lowercased sort puts absinthe first.
+  // case-sensitive sort puts 'Legacy' and 'Zeta' first (uppercase < lowercase);
+  // the lowercased sort puts absinthe first.
   expect(slugs).toEqual(['absinthe', 'legacy', 'Zeta'])
 })
 

@@ -66,9 +66,24 @@ function highlightLines(pre, code) {
 }
 
 export function setupLineHighlights() {
+  renderLineHighlights()
+
+  // Line heights track the theme's fluid body font-size, so re-measure on resize
+  let timer
+  window.addEventListener('resize', () => {
+    clearTimeout(timer)
+    timer = setTimeout(renderLineHighlights, 150)
+  })
+}
+
+function renderLineHighlights() {
   document.querySelectorAll('pre[data-line]').forEach((pre) => {
+    pre.querySelectorAll(':scope > .line-highlight').forEach((el) => {
+      el.remove()
+    })
+
     const code = pre.querySelector('code')
-    if (!code || pre.querySelector('.line-highlight')) return
+    if (!code) return
 
     if (getComputedStyle(pre).position === 'static') {
       pre.style.position = 'relative'

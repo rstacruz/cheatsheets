@@ -7,6 +7,7 @@ import {
   refloatIALs
 } from './ial'
 import { renderMarkdown } from './index'
+import { TABLE_SENTINEL_LANG } from './tables'
 
 // kramdown emits a newline per block, plus one per blank line
 describe('renderMarkdown', () => {
@@ -331,6 +332,13 @@ describe('kramdown tables', () => {
     expect((await renderMarkdown(input)).html).toContain(
       '<td><del>x</del></td><td>c</td>'
     )
+  })
+
+  it('leaves table-like rows inside a longer code fence untouched', async () => {
+    const input = ['````', '```', '', '| a | b |', '````'].join('\n')
+    const { html } = await renderMarkdown(input)
+    expect(html).not.toContain(TABLE_SENTINEL_LANG)
+    expect(html).toBe('<pre><code>```\n\n| a | b |\n</code></pre>\n')
   })
 })
 

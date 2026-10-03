@@ -487,11 +487,17 @@ export function encodeKramdownTables(md: string): string {
     const fenceMatch = FENCE_LINE.exec(line)
 
     if (fenceMatch) {
-      const char = fenceMatch[2][0]
       if (fence) {
-        if (char === fence && fenceMatch[3].trim() === '') fence = null
-      } else if (char === '~' || !fenceMatch[3].includes('`')) {
-        fence = char
+        // A closing fence needs at least as many characters as the opener
+        if (
+          fenceMatch[2][0] === fence[0] &&
+          fenceMatch[2].length >= fence.length &&
+          fenceMatch[3].trim() === ''
+        ) {
+          fence = null
+        }
+      } else if (fenceMatch[2][0] === '~' || !fenceMatch[3].includes('`')) {
+        fence = fenceMatch[2]
       }
       out.push(line)
       continue

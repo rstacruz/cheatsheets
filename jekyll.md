@@ -449,20 +449,26 @@ See: [Paginator](https://jekyllrb.com/docs/pagination/)
 
 ### Paths
 
-    _posts/YEAR-MONTH-DAY-title.md
+```
+_posts/YEAR-MONTH-DAY-title.md
+```
 
 See: [Blogging](https://jekyllrb.com/docs/posts/)
 
 ### Image paths
 
-    ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+```
+![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+```
 
 See: [Image paths](https://jekyllrb.com/docs/posts/#including-images-and-resources)
 
 ### Drafts
 
-    vi _drafts/a-draft-post.md
-    jekyll build --drafts
+```
+vi _drafts/a-draft-post.md
+jekyll build --drafts
+```
 
 Posts in `_drafts` only show up in development, but not production.
 See: [Drafts](https://jekyllrb.com/docs/drafts/)
@@ -508,11 +514,13 @@ Alternatively, you can put excerpts inline in your post by defining `excerpt_sep
 
 ### Permalinks
 
-    # _config.yml
-    permalink: date   # /:categories/:year/:month/:day/:title.html
-    permalink: pretty # /:categories/:year/:month/:day/:title/
-    permalink: none   # /:categories/:title.html
-    permalink: "/:title"
+```
+# _config.yml
+permalink: date   # /:categories/:year/:month/:day/:title.html
+permalink: pretty # /:categories/:year/:month/:day/:title/
+permalink: none   # /:categories/:title.html
+permalink: "/:title"
+```
 
 See: [Permalinks](https://jekyllrb.com/docs/permalinks/)
 

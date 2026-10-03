@@ -8,7 +8,9 @@ Generating
 
 ### Generating
 
-    $ rails g model User
+```
+$ rails g model User
+```
 
 Using models
 ------------

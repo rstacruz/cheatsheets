@@ -17,11 +17,13 @@ Given a version number `MAJOR.MINOR.PATCH`:
 
 ### Simple ranges
 
-      1.2.3
-     =1.2.3
-     >1.2.3
-     <1.2.3
-    >=1.2.3
+```
+  1.2.3
+ =1.2.3
+ >1.2.3
+ <1.2.3
+>=1.2.3
+```
 
 Note that suffixed versions (`1.2.3-rc1`) are not matched.
 
@@ -80,7 +82,9 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 
 ### Pre-releases
 
-    1.2.3-prerelease+build
+```
+1.2.3-prerelease+build
+```
 
 ### Explanation
 

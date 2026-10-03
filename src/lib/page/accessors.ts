@@ -22,3 +22,11 @@ export function hasTag(page: SheetPage, tagName: string): boolean {
 export function isListed(page: SheetPage): boolean {
   return page.frontmatter.category !== 'Hidden'
 }
+
+/**
+ * Checks if a sheet is marked as deprecated
+ */
+
+export function isDeprecated(page: SheetPage): boolean {
+  return page.frontmatter.deprecated === true
+}

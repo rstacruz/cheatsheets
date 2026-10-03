@@ -12,24 +12,49 @@ import { TABLE_SENTINEL_LANG } from './tables'
 
 const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 const IAL_LINE = /^ {0,3}\{:[ \t]/
+// An own-line IAL inside a blockquote or list item; kramdown renders these
+// literally when unterminated rather than swallowing to the next `}`
+const CONTAINER_IAL_LINE =
+  /^\s*(?:(?:>[ \t]*)|(?:[-*+]|\d+[.)])[ \t]+)+\{:[ \t]/
+// kramdown's `ALD_TYPE_ANY`, minus bare-word ALD references (unsupported here)
+const ALD_TOKEN =
+  /(?<=^|\s)(?:\w[\w-]*=(?:"[^"]*"|'[^']*')|(?:#[A-Za-z][\w:-]*|\.[^\s.#]+)+)(?=\s|$)/gm
 
 /** Marks lines inside or opening/closing a fenced code block */
-export function fenceFlags(lines: string[]): boolean[] {
-  const flags = new Array<boolean>(lines.length).fill(false)
+export function scanFences(lines: string[]) {
+  const fenced = new Array<boolean>(lines.length).fill(false)
+  // Opening fence indentation, for lines inside the block
+  const indent = new Array<number>(lines.length).fill(0)
   let fence: string | null = null
+  let opener = 0
 
   lines.forEach((line, index) => {
     const match = FENCE_LINE.exec(line)
     if (fence) {
-      flags[index] = true
-      if (match && match[2][0] === fence && match[3].trim() === '') fence = null
+      fenced[index] = true
+      indent[index] = opener
+      // A closing fence needs at least as many characters as the opener
+      if (
+        match &&
+        match[2][0] === fence[0] &&
+        match[2].length >= fence.length &&
+        match[3].trim() === ''
+      ) {
+        fence = null
+      }
     } else if (match && (match[2][0] === '~' || !match[3].includes('`'))) {
-      fence = match[2][0]
-      flags[index] = true
+      fence = match[2]
+      opener = match[1].length
+      fenced[index] = true
+      indent[index] = opener
     }
   })
 
-  return flags
+  return { fenced, indent }
+}
+
+export function fenceFlags(lines: string[]): boolean[] {
+  return scanFences(lines).fenced
 }
 
 /** True when `}` closes the IAL outside a quoted value */
@@ -65,8 +90,19 @@ export function dropUnterminatedIALs(md: string): string {
 
   for (let index = 0; index < lines.length; index++) {
     const line = lines[index]
-    if (fenced[index] || !IAL_LINE.test(line) || isTerminatedIAL(line)) {
+    const container = CONTAINER_IAL_LINE.test(line)
+    if (fenced[index] || (!container && !IAL_LINE.test(line))) {
       out.push(line)
+      continue
+    }
+    if (isTerminatedIAL(line)) {
+      out.push(line)
+      continue
+    }
+
+    // Inside a container kramdown never swallows: the token stays literal text
+    if (container) {
+      out.push(neutralizeIAL(line))
       continue
     }
 
@@ -80,15 +116,28 @@ export function dropUnterminatedIALs(md: string): string {
         break
       }
     }
-    if (close === -1) continue // no closing brace anywhere: drop the line
+    if (close === -1) {
+      // No closing brace anywhere: kramdown renders the token as literal text
+      out.push(neutralizeIAL(line))
+      continue
+    }
 
-    const span = lines.slice(index, close + 1).join('\n')
-    const classes = [...new Set(span.match(/\.-?[A-Za-z0-9_-]+/g) ?? [])]
-    if (classes.length > 0) out.push(`{: ${classes.join(' ')} }`)
+    // kramdown scans the swallowed text (up to the closing `}`) for
+    // class/id/key-value tokens and applies them to the preceding block
+    const region = lines.slice(index, close + 1).join('\n')
+    const span = region.slice(region.indexOf('{:') + 2, region.indexOf('}'))
+    const tokens = span.match(ALD_TOKEN) ?? []
+    if (tokens.length > 0) out.push(`{: ${tokens.join(' ')} }`)
     index = close
   }
 
   return out.join('\n')
+}
+
+/** Escapes the `{` of an IAL so remark leaves it as literal text */
+function neutralizeIAL(line: string): string {
+  const at = line.indexOf('{:')
+  return at < 0 ? line : `${line.slice(0, at)}\\${line.slice(at)}`
 }
 
 /**

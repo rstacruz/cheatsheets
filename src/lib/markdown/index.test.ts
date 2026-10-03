@@ -284,6 +284,54 @@ describe('kramdown tables', () => {
       '<td><code>a\\|b</code></td><td>c</td>'
     )
   })
+
+  it('does not table-ify pipes inside span-level HTML', async () => {
+    expect((await renderMarkdown('<span>a | b</span>')).html).toBe(
+      '<p><span>a | b</span></p>\n'
+    )
+    expect((await renderMarkdown('<img src="a|b.png">')).html).toBe(
+      '<p><img src="a|b.png" /></p>\n'
+    )
+    expect((await renderMarkdown('<!-- a | b -->')).html).toBe(
+      '<!-- a | b -->\n'
+    )
+  })
+
+  it('still tables a bare pipe beside inline HTML', async () => {
+    expect((await renderMarkdown('x<br> | y')).html).toBe(
+      '<table><tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>\n'
+    )
+  })
+
+  it('keeps a blockquote-prefixed table inside the blockquote', async () => {
+    expect((await renderMarkdown('> | a | b |')).html).toBe(
+      '<blockquote>\n<table><tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n' +
+        '</blockquote>\n'
+    )
+  })
+
+  it('keeps a list-prefixed table inside the list item', async () => {
+    expect((await renderMarkdown('- | a | b |')).html).toBe(
+      '<ul>\n<li>\n<table><tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n' +
+        '</li>\n</ul>\n'
+    )
+  })
+
+  it('renders GFM tables kramdown would reject as paragraphs', async () => {
+    expect(
+      (await renderMarkdown('text\n| a | b |\n| --- | --- |\n| c | d |')).html
+    ).toBe('<p>text\n| a | b |\n| --- | --- |\n| c | d |</p>\n')
+    expect((await renderMarkdown('| a | b |\n| --- | --- |')).html).toBe(
+      '<p>| a | b |\n| --- | --- |</p>\n'
+    )
+  })
+
+  it('parses GFM inline syntax inside table cells', async () => {
+    const input = ['| a | b |', '| --- | --- |', '| ~~x~~ | c |'].join('\n')
+    expect((await renderMarkdown(input)).html).toContain(
+      '<td><del>x</del></td><td>c</td>'
+    )
+  })
 })
 
 describe('typography', () => {
@@ -339,9 +387,41 @@ describe('typography', () => {
 })
 
 describe('IAL shims', () => {
-  it('drops an unterminated IAL with no closing brace', () => {
+  it('leaves an unterminated IAL with no closing brace as literal text', () => {
     expect(dropUnterminatedIALs('```\nx\n```\n{: .-shortcuts')).toBe(
-      '```\nx\n```'
+      '```\nx\n```\n\\{: .-shortcuts'
+    )
+  })
+
+  it('keeps ids and key-value attrs when swallowing (kramdown quirk)', () => {
+    const input = [
+      'x',
+      '',
+      '{: .a #myid data-line="1"',
+      '',
+      'y',
+      '',
+      '{: .b}'
+    ].join('\n')
+    expect(dropUnterminatedIALs(input)).toBe(
+      ['x', '', '{: .a #myid data-line="1" .b }'].join('\n')
+    )
+  })
+
+  it('renders an unterminated IAL inside a container literally', async () => {
+    expect((await renderMarkdown('> {: .a')).html).toBe(
+      '<blockquote>\n<p>{: .a</p>\n</blockquote>\n'
+    )
+    expect((await renderMarkdown('- {: .a')).html).toBe(
+      '<ul>\n<li>{: .a</li>\n</ul>\n'
+    )
+  })
+
+  it('does not swallow a container IAL to a later brace', async () => {
+    const input = '> {: .-shortcuts\n\n### Swallowed\n\n{: .right}'
+    expect((await renderMarkdown(input)).html).toBe(
+      '<blockquote>\n<p>{: .-shortcuts</p>\n</blockquote>\n\n' +
+        '<h3 id="swallowed">Swallowed</h3>\n'
     )
   })
 
@@ -425,5 +505,31 @@ describe('list tightness', () => {
     const { html } = await renderMarkdown('* a\n\n* b')
     expect(html).toMatch(/<li>\s*<p>a<\/p>/)
     expect(html).toMatch(/<li>\s*<p>b<\/p>/)
+  })
+
+  it('wraps a paragraph separated from a following block by a blank line', async () => {
+    const { html } = await renderMarkdown('- a\n\n  ```\n  x\n  ```\n- b')
+    expect(html).toBe(
+      '<ul>\n<li>\n<p>a</p>\n<pre><code>x\n</code></pre>\n</li>\n' +
+        '<li>\n<p>b</p>\n</li>\n</ul>\n'
+    )
+  })
+})
+
+describe('whitespace marker', () => {
+  it('preserves a literal private-use marker character', async () => {
+    expect((await renderMarkdown('a\uE000b')).html).toBe('<p>a\uE000b</p>\n')
+    expect((await renderMarkdown('a\uE001b')).html).toBe('<p>a\uE001b</p>\n')
+  })
+
+  it('preserves the marker inside fenced code', async () => {
+    expect((await renderMarkdown('```\n\uE000\n```')).html).toBe(
+      '<pre><code>\uE000\n</code></pre>\n'
+    )
+  })
+
+  it('keeps whitespace-only lines inside an indented fence', async () => {
+    const { html } = await renderMarkdown('- x\n\n  ```\n  a\n  \n  b\n  ```\n')
+    expect(html).toContain('<pre><code>a\n  \nb\n</code></pre>')
   })
 })

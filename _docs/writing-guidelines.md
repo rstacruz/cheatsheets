@@ -29,6 +29,13 @@ H3 content length:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
   - `{: .-two-column}` - the default
 
+## Code blocks
+
+- Maximum line width is 70 characters
+- In `.-three-column` sections, maximum is 42 characters
+- Wrap onto more lines rather than exceed the limit
+- Blocks of 5+ lines should add `{: data-line="…"}` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
+
 ## Writing guidelines
 
 - Aim for brevity
@@ -144,4 +151,46 @@ H3 content length:
   ```
   ````
 
+## Deprecated sheets
+
+- Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+- Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
+- Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
+
+## Syntax highlighting
+
+Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
+
+## SEO descriptions
+
+- Write `keywords` + `intro` for SEO purposes (preferred).
+- `description` + `intro` is also supported.
+
+### Option A: Keywords (and intro)
+
+Set `keywords` (and optionally `intro`). This is the easiest and the preferred
+way for now.
+
 ```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+React.Component · render() · componentDidMount() · props/state · React is a
+JavaScript library for building web...
+```
+
+### Option B: Description (and intro)
+
+Set `description` (and optionally `intro`)
+
+```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+One-page reference to React and its API. React is a JavaScript library for
+building web user interfaces...
+```
+
+### Option C: Intro only
+
+If you left out `description` or `keywords`, a default description will be added.

@@ -1,4 +1,4 @@
-import type { Link, Root, Text } from 'mdast'
+import type { Root, Text } from 'mdast'
 import type { Element, Root as HastRoot } from 'hast'
 import type { Handlers } from 'mdast-util-to-hast'
 import { unified } from 'unified'
@@ -12,17 +12,20 @@ import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
 import { visit } from 'unist-util-visit'
 import { expandJekyll } from './jekyll'
+import { stripGfmAutolinks } from './autolinks'
 import {
   dropEmptyHeadingIds,
   dropUnterminatedIALs,
   escapeWhitespaceCodeSpans,
   fenceFlags,
+  scanFences,
   hoistCodeAttrs,
   refloatIALs,
   restoreCodeLanguage
 } from './ial'
 import {
   encodeKramdownTables,
+  HTML_SPAN_ELEMENTS,
   kramdownTableHandler,
   kramdownTables
 } from './tables'
@@ -90,6 +93,8 @@ function createHandlers(md: string): Handlers {
  * tree is built
  */
 const WHITESPACE_MARK = '\uE000'
+/** Escapes pre-existing marker/escape characters so none are lost */
+const WHITESPACE_ESCAPE = '\uE001'
 
 const BLOCK_START =
   /^(?:[#>|{}]|[-*+](\s|$)|\d+[.)](\s|$)|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
@@ -120,9 +125,12 @@ export function dropBlockExtensions(md: string): string {
 }
 
 export function preserveWhitespace(md: string): string {
+  // Escape existing private-use chars first: the marker must be unambiguous
+  md = md
+    .replaceAll(WHITESPACE_ESCAPE, WHITESPACE_ESCAPE + WHITESPACE_ESCAPE)
+    .replaceAll(WHITESPACE_MARK, WHITESPACE_ESCAPE + WHITESPACE_MARK)
   const lines = md.split('\n')
-  const fenced = fenceFlags(lines)
-
+  const { fenced, indent } = scanFences(lines)
   // Next line continues this paragraph, so a trailing space is kept
   const continues = (index: number) =>
     index >= 0 &&
@@ -133,7 +141,15 @@ export function preserveWhitespace(md: string): string {
 
   return lines
     .map((line, index) => {
-      if (fenced[index] || /^ {0,3}\{:[ \t]/.test(line)) return line
+      // kramdown keeps the indentation of whitespace-only lines inside a
+      // fenced block, which CommonMark strips along with the fence indent
+      if (fenced[index]) {
+        if (!/^ +$/.test(line)) return line
+        return (
+          line + WHITESPACE_MARK.repeat(Math.min(indent[index], line.length))
+        )
+      }
+      if (/^ {0,3}\{:[ \t]/.test(line)) return line
       let out = line
       if (line.trim() !== '' && continues(index + 1)) {
         out = out.replace(/(?<![ \t]) $/, WHITESPACE_MARK)
@@ -160,18 +176,43 @@ export function preserveWhitespace(md: string): string {
 export function restoreWhitespace() {
   return (tree: HastRoot) => {
     visit(tree, 'text', (node) => {
-      if (node.value.includes(WHITESPACE_MARK)) {
-        node.value = node.value.replaceAll(WHITESPACE_MARK, ' ')
+      const value = node.value
+      if (
+        !value.includes(WHITESPACE_MARK) &&
+        !value.includes(WHITESPACE_ESCAPE)
+      ) {
+        return
       }
+      let out = ''
+      for (let i = 0; i < value.length; i++) {
+        const char = value[i]
+        if (char === WHITESPACE_ESCAPE) {
+          const next = value[i + 1]
+          if (next === WHITESPACE_ESCAPE || next === WHITESPACE_MARK) {
+            out += next
+            i++
+          } else {
+            out += char
+          }
+        } else if (char === WHITESPACE_MARK) {
+          out += ' '
+        } else {
+          out += char
+        }
+      }
+      node.value = out
     })
   }
 }
 
-/** kramdown wraps a lone `<br />` in a paragraph; CommonMark does not */
-export function wrapLoneBreaks() {
+/**
+ * kramdown renders a line that is a lone span-level HTML tag as a paragraph;
+ * CommonMark treats it as a raw HTML block. Wrap those root elements in `<p>`
+ */
+export function wrapLoneInlineHtml() {
   return (tree: HastRoot) => {
     tree.children = tree.children.map((child) =>
-      child.type === 'element' && child.tagName === 'br'
+      child.type === 'element' && HTML_SPAN_ELEMENTS[child.tagName]
         ? {
             type: 'element' as const,
             tagName: 'p',
@@ -215,32 +256,6 @@ export function trimIndentedCodeBlocks(md: string): string {
   }
 
   return lines.filter((_, i) => !drop.has(i)).join('\n')
-}
-
-/**
- * remark-gfm autolinks bare URLs (`http://x.com`, `me@x.com`), kramdown does
- * not. An autolinked literal's only child spans the same source range as the
- * link; angle autolinks (`<http://x>`) and `[text](url)` keep their brackets
- * and are left alone
- */
-export function stripGfmAutolinks() {
-  return (tree: Root) => {
-    visit(tree, 'link', (node: Link, index, parent) => {
-      const child = node.children[0]
-      if (index === undefined || !parent) return
-      if (node.children.length !== 1 || child.type !== 'text') return
-      const position = node.position
-      const childPosition = child.position
-      if (!position || !childPosition) return
-      if (
-        position.start.offset !== childPosition.start.offset ||
-        position.end.offset !== childPosition.end.offset
-      ) {
-        return
-      }
-      parent.children[index] = child
-    })
-  }
 }
 
 /**
@@ -298,29 +313,47 @@ export function tightenListItems() {
     visit(tree, 'list', (list) => {
       const items = list.children
       const transparent: boolean[] = []
+      const notParagraph: boolean[] = []
 
       items.forEach((item, index) => {
         const first = item.children[0]
+        notParagraph.push(!first || first.type !== 'paragraph')
         if (!first || first.type !== 'paragraph') {
           transparent.push(false)
           return
         }
 
-        // A blank line before the next item makes kramdown wrap this paragraph
-        const multiple = item.children.length >= 2
+        const second = item.children[1]
+        // A blank line between the first paragraph and the next child makes
+        // kramdown wrap this paragraph (`- a\n\n  ```
+        const blankBeforeSecond =
+          second != null &&
+          first.position != null &&
+          second.position != null &&
+          second.position.start.line > first.position.end.line + 1
+
+        // A trailing blank line before the next item does the same for a
+        // single-block item (`* a\n\n* b` wraps both)
         const next = items[index + 1]
         const endLine = item.position?.end.line
         const nextLine = next?.position?.start.line ?? list.position?.end.line
         const blankTerminated =
-          !multiple &&
-          endLine != null &&
-          nextLine != null &&
-          nextLine > endLine + 1
+          endLine != null && nextLine != null && nextLine > endLine + 1
 
-        if (blankTerminated) transparent.push(false)
-        else if (index === items.length - 1)
-          transparent.push(transparent.some(Boolean))
-        else transparent.push(true)
+        const multi = item.children.length >= 2
+        const unwrapped = multi
+          ? !blankBeforeSecond
+          : !blankTerminated || index === items.length - 1
+
+        const last = index === items.length - 1
+        const anchorsList =
+          !last ||
+          items.length === 1 ||
+          items
+            .slice(0, index)
+            .some((_, earlier) => notParagraph[earlier] || transparent[earlier])
+
+        transparent.push(unwrapped && anchorsList)
       })
 
       items.forEach((item, index) => {
@@ -455,7 +488,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(rehypeRaw)
     .use(unwrapTransparentParagraphs)
     .use(restoreWhitespace)
-    .use(wrapLoneBreaks)
+    .use(wrapLoneInlineHtml)
     .use(hoistCodeAttrs)
     .use(normalizeTaskLists)
     .use(rehypeSlug)

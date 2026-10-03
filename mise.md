@@ -371,7 +371,7 @@ See: [Environment variables](https://mise.jdx.dev/configuration.html#environment
 ```bash
 mise trust --show            # trust status of nearby configs
 mise trust                   # trust the local config
-mise trust --all             # trust this tree
+mise trust --all             # trust this tree + parents
 mise untrust mise.toml
 mise trust --ignore
 ```

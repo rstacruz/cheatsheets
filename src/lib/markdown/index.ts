@@ -1,6 +1,6 @@
 import type { Root, Text } from 'mdast'
 import type { Element, Root as HastRoot } from 'hast'
-import type { Handlers } from 'mdast-util-to-hast'
+import type { Handler, Handlers } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'

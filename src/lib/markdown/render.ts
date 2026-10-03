@@ -2,7 +2,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
-import { renderMarkdown } from './markdown'
+import { renderMarkdown } from './index'
 import { plugin as rehypeSectionize } from '@rstacruz/rehype-sectionize'
 
 const PRISM_CONFIG = {

@@ -6,7 +6,7 @@ import {
   escapeWhitespaceCodeSpans,
   refloatIALs
 } from './ial'
-import { renderMarkdown } from './markdown'
+import { renderMarkdown } from './index'
 
 // kramdown emits a newline per block, plus one per blank line
 describe('renderMarkdown', () => {

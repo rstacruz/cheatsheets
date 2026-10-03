@@ -4,8 +4,7 @@ import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { getPages } from '../page'
 
-// A code node is fenced when its opening line starts with ``` or ~~~, after
-// any container prefixes (blockquote markers, list markers)
+// mdast reports fenced and indented code alike, so check the opening line
 const FENCE = /^(?:\s*(?:>\s*|[-*+]\s+|\d+[.)]\s+))*\s*(?:`{3,}|~{3,})/
 
 function findIndentedCodeBlocks(source: string) {

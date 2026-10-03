@@ -42,7 +42,7 @@ claude auth login   # sign in again
 claude auth status  # show the current account
 ```
 
-Claude Code needs a Pro, Max, Team, or Enterprise plan, or a Console account. `ANTHROPIC_API_KEY` also works.
+Claude Code needs a Pro, Max, Team, or Enterprise plan, a Console account, or a cloud provider (Amazon Bedrock, Google Cloud, or Microsoft Foundry). `ANTHROPIC_API_KEY` also works.
 
 ### Sessions
 
@@ -255,7 +255,7 @@ Run `/config` to edit settings, or pass `--settings file.json` for one session. 
 
 | Variable                       | Purpose                            |
 | ------------------------------ | ---------------------------------- |
-| `ANTHROPIC_API_KEY`            | API key for headless use           |
+| `ANTHROPIC_API_KEY`            | API key used instead of a subscription |
 | `ANTHROPIC_MODEL`              | Default model name                 |
 | `ANTHROPIC_BASE_URL`           | Route requests through a gateway   |
 | `API_TIMEOUT_MS`               | API timeout (default 600000)       |

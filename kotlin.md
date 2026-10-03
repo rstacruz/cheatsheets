@@ -16,8 +16,7 @@ intro: |
   covers variables, null safety, collections, functions, and classes.
 ---
 
-Variables
----------
+## Variables
 {: .-three-column}
 
 ### Introduction
@@ -92,8 +91,7 @@ Members are accessed through the class name, like statics in Java. Use `const va
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
-Null safety
------------
+## Null safety
 {: .-two-column}
 
 ### Nullable types
@@ -166,8 +164,7 @@ val car: Car? = input as? Car
 
 See: [Safe casts](https://kotlinlang.org/docs/null-safety.html#safe-casts)
 
-Collections
------------
+## Collections
 {: .-two-column}
 
 ### Creation
@@ -268,8 +265,7 @@ val total = items.sumOf { it.price }
 
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
 
-Functions
----------
+## Functions
 {: .-two-column}
 
 ### Parameters & return types
@@ -377,8 +373,7 @@ val log = Logger.create("app")
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
-Classes
--------
+## Classes
 {: .-two-column}
 
 ### Primary constructor
@@ -440,8 +435,7 @@ Classes are final by default; mark them `open` to allow subclassing. Interfaces 
 
 See: [Inheritance](https://kotlinlang.org/docs/inheritance.html), [Interfaces](https://kotlinlang.org/docs/interfaces.html)
 
-Control flow
-------------
+## Control flow
 {: .-two-column}
 
 ### If statements
@@ -515,8 +509,7 @@ do {
 
 See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
-Destructuring declarations
---------------------------
+## Destructuring declarations
 {: .-two-column}
 
 ### Objects & lists
@@ -571,8 +564,7 @@ Declare `operator fun componentN()` to make a class destructurable. `data class`
 
 See: [Destructuring declarations](https://kotlinlang.org/docs/destructuring-declarations.html)
 
-Also see
---------
+## Also see
 {: .-one-column}
 
 - [Kotlin documentation](https://kotlinlang.org/docs/home.html) _(kotlinlang.org)_

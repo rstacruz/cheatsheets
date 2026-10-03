@@ -36,6 +36,8 @@ category: Apps
 
 ### Search
 
+| Shortcut | Description |
+| --- | --- |
 | `^r`              | Search      |
 | `Enter` `^j` `^m` | Stop search |
 {: .-shortcuts}

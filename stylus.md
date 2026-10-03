@@ -300,6 +300,8 @@ else
 Aliases:
 
 
+| Operator | Alias |
+| --- | --- |
 | `==` | `is` |
 | `!=` | `is not` |
 | `!=` | `isnt` |

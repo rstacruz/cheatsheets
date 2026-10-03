@@ -30,7 +30,7 @@ Note that JavaScript doesn't "store" timezones in a date object. All these date 
 
 ### Formatting dates
 
-The examples below use the UTC `date` from above, with the browser in America/Los_Angeles.
+The examples below use the UTC `date` from above, with the browser in America/Los_Angeles and the `en-US` locale.
 
 #### Default formatting
 

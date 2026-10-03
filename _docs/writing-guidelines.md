@@ -237,7 +237,6 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | --------- | -------- |
 | `hh:mm a` | 12:30 pm |
 
-Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
 ````
 
 ### Option B: horizontal lines

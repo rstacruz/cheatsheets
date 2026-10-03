@@ -104,42 +104,78 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 ### Session
 
-| Command      | Description                       |
-| ------------ | --------------------------------- |
-| `/help`      | Show available commands           |
-| `/clear`     | Start a new conversation          |
-| `/compact`   | Summarize to free up context      |
-| `/context`   | Show context window usage         |
-| `/resume`    | Resume a previous conversation    |
-| `/rewind`    | Restore code and conversation     |
-| `/export`    | Export the conversation as text   |
-| `/status`    | Show version, model, and account  |
-| `/usage`     | Show cost and plan limits         |
+#### Conversation
+
+| Command    | Description                  |
+| ---------- | ---------------------------- |
+| `/help`    | Show available commands      |
+| `/clear`   | Start a new conversation     |
+| `/compact` | Summarize to free up context |
+| `/context` | Show context window usage    |
+{: .-shortcuts}
+
+#### History
+
+| Command   | Description                     |
+| --------- | ------------------------------- |
+| `/resume` | Resume a previous conversation  |
+| `/rewind` | Restore code and conversation   |
+| `/export` | Export the conversation as text |
+{: .-shortcuts}
+
+#### Usage
+
+| Command   | Description                      |
+| --------- | -------------------------------- |
+| `/status` | Show version, model, and account |
+| `/usage`  | Show cost and plan limits        |
 {: .-shortcuts}
 
 ### Setup
 
-| Command        | Description                       |
-| -------------- | --------------------------------- |
-| `/init`        | Generate a starter CLAUDE.md      |
-| `/config`      | Open settings or set a value      |
-| `/model`       | Switch the AI model               |
-| `/effort`      | Set reasoning effort              |
-| `/permissions` | Manage permission rules           |
-| `/memory`      | Edit memory files                 |
-| `/mcp`         | Manage MCP connections            |
-| `/login`       | Sign in to your account           |
-| `/logout`      | Sign out                          |
-| `/doctor`      | Run a setup checkup               |
+#### Settings
+
+| Command   | Description                  |
+| --------- | ---------------------------- |
+| `/config` | Open settings or set a value |
+| `/model`  | Switch the AI model          |
+| `/effort` | Set reasoning effort         |
+| `/memory` | Edit memory files            |
+{: .-shortcuts}
+
+#### Project
+
+| Command        | Description                  |
+| -------------- | ---------------------------- |
+| `/init`        | Generate a starter CLAUDE.md |
+| `/permissions` | Manage permission rules      |
+| `/mcp`         | Manage MCP connections       |
+| `/doctor`      | Run a setup checkup          |
+{: .-shortcuts}
+
+#### Account
+
+| Command   | Description             |
+| --------- | ----------------------- |
+| `/login`  | Sign in to your account |
+| `/logout` | Sign out                |
 {: .-shortcuts}
 
 ### Review
 
-| Command            | Description                       |
-| ------------------ | --------------------------------- |
-| `/diff`            | Review working-tree changes       |
-| `/review`          | Review changes or a pull request  |
-| `/security-review` | Scan changes for vulnerabilities  |
+#### Changes
+
+| Command   | Description                      |
+| --------- | -------------------------------- |
+| `/diff`   | Review working-tree changes      |
+| `/review` | Review changes or a pull request |
+{: .-shortcuts}
+
+#### Security
+
+| Command            | Description                      |
+| ------------------ | -------------------------------- |
+| `/security-review` | Scan changes for vulnerabilities |
 {: .-shortcuts}
 
 ## Interactive mode

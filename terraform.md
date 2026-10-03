@@ -518,9 +518,13 @@ See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging)
 ### CI checks
 
 ```bash
+# Validate without initializing the backend:
 terraform fmt -check -recursive
 terraform init -backend=false
 terraform validate
+
+# Initialize the backend before planning:
+terraform init
 terraform plan -input=false -no-color -detailed-exitcode
 ```
 

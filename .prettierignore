@@ -2,5 +2,6 @@ src/sass/vendor
 vendor
 test/fixtures/kramdown-golden
 dist
+artefacts
 *.md
 pnpm-lock.yaml

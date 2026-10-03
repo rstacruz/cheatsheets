@@ -27,7 +27,7 @@ H3 content length:
   - `{: .-setup}` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
-  - `{: .-two-column}` - the default (don't add this sice its default)
+  - `{: .-two-column}` - the default (don't add this since it's the default)
 
 ## Code blocks
 

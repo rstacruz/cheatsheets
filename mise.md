@@ -448,10 +448,11 @@ See: [Environments](https://mise.jdx.dev/environments/)
 ### Secrets and validation
 
 ```toml
+redactions = ["SECRET_*", "*_TOKEN"]
+
 [env]
 DATABASE_URL = { required = true }
 API_KEY = { value = "sk-...", redact = true }
-redactions = ["SECRET_*", "*_TOKEN"]
 ```
 
 `required` fails `mise env` when unset; `redact` masks the value in task

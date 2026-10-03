@@ -18,12 +18,6 @@ H3 content length:
 - Consistent: Similar depth within each H2
 - Self-contained: Each H3 should be understandable independently
 
-Code block content length:
-
-- 42 characters max width for `three-column`
-- 75 characters max width for `two-column`
-- These ensure code blocks are readable without scrolling
-
 ## Format
 
 - Documentation is in the format of Markdown with Kramdown class extensions

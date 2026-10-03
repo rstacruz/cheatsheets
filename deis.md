@@ -1,6 +1,7 @@
 ---
 title: Deis
-category: Devops
+category: Hidden
+# Discontinued (final release 2017); repo archived 2021.
 ---
 
 ### Deploy

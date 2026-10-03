@@ -1,6 +1,7 @@
 ---
 title: Virtual-dom
-category: JavaScript libraries
+category: Hidden
+# No release since 2.1.1 (2015); unmaintained.
 ---
 
 ### About

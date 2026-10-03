@@ -152,11 +152,47 @@ H3 content length:
   ```
   ````
 
+## H4 sub-headings
+
+Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options").
+
+Example:
+
+````markdown
+### Parsing
+
+#### As local time
+
+```js
+const date = new Date(2012, 11, 20, 3, 0, 0)
+```
+
+#### As UTC time
+
+```js
+const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+```
+````
+
+- Keep labels short (1-4 words)
+- Prefer 2-4 segments per H3
+
+### Filename markers
+
+When an example spans multiple files, use each filename as its H4, one code block per file (see the example under H3 writing guidelines).
+
 ## Deprecated sheets
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
-- Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
+- Set `deprecated: true` to show a deprecation notice and unlist the sheet, exactly like `category: Hidden`.
 - Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
+
+## Hidden sheets
+
+- Set `category: Hidden` to keep a sheet off the homepage, the sitemap, and the related and top lists.
+- Hidden sheets stay reachable at their URL and are listed on the [archive page](https://devhints.io/archive), so retire a sheet by hiding it rather than deleting it.
+- Deprecated sheets are unlisted the same way and share the archive page.
+- Sheets under `tests/` are left out of the archive page.
 
 ## Syntax highlighting
 
@@ -201,7 +237,6 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | --------- | -------- |
 | `hh:mm a` | 12:30 pm |
 
-Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
 ````
 
 ### Option B: horizontal lines

@@ -8,7 +8,7 @@ archived: This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoe
 
 ### About
 
-This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoenix-ecto@1.3).
+This is for Phoenix 1.2 and below. [Phoenix 1.3 has a new API.](./phoenix-ecto).
 
 ### Generating
 

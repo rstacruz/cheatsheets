@@ -232,7 +232,7 @@ useEffect(() => {
 useEffect(() => {
   const id = setInterval(tick, 1000)
   return () => clearInterval(id)
-}, [])  // [] runs once on mount
+}, [])  // once on mount; twice in StrictMode dev
 ```
 
 Synchronises a component with an external system and cleans up timers, subscriptions and listeners. See: [useEffect](https://react.dev/reference/react/useEffect)

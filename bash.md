@@ -787,12 +787,12 @@ if [[ "$1" == '--' ]]; then shift; fi
 ### Heredoc
 
 ```sh
-cat <<END
+cat <<EOF
 hello world
-END
+EOF
 ```
 
-Heredoc allows a section of your source code to be treated as a file. See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Documents).
+Heredoc allows multiple lines to be used as stdin of the preceding command. A normal heredoc acts like a double-quoted `"string"` (e.g., variables are expanded). Quoting the begin and end marker, e.g. `'EOF'`, acts like a single-quoted `'string'`. See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Documents).
 
 ### Herestring
 

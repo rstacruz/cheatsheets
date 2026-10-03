@@ -4,7 +4,6 @@ category: JavaScript libraries
 weight: -3
 updated: 2019-09-30
 prism_languages: [json, bash]
-tags: [Featurable]
 ---
 
 ### npm equivalents

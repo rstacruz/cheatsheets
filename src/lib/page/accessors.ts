@@ -22,3 +22,15 @@ export function hasTag(page: SheetPage, tagName: string): boolean {
 export function isListed(page: SheetPage): boolean {
   return page.frontmatter.category !== 'Hidden'
 }
+
+/**
+ * Checks if a sheet is deprecated: either explicitly via `deprecated: true`,
+ * or by pointing to a newer sheet via `deprecated_by`
+ */
+
+export function isDeprecated(page: SheetPage): boolean {
+  return (
+    page.frontmatter.deprecated === true ||
+    Boolean(page.frontmatter.deprecated_by)
+  )
+}

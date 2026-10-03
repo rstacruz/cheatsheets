@@ -1,150 +1,148 @@
 ---
-title: Rdoc
+title: RDoc
 category: Markup
+intro: |
+  Quick reference for RDoc markup and directives. For YARD tags such as `@param`, see the YARD cheatsheet.
 ---
 
-### Basic RDoc format
+### Basic comment
+{: .-prime}
 
-```rb
-# Foo.
+```ruby
+# Adds two numbers.
 #
-# @example
-#
-#   y
-#   g
-#
-# @param [String] param_name The xx and xx.
-#
-# @see https://example.com/
-#
-# @return [true] if so
+# Returns the sum.
+def add(left, right)
+  left + right
+end
 ```
 
-### Hash parameters
+RDoc associates a comment with the Ruby object immediately below it.
 
-```rb
-# @param [Hash] opts the options to create a message with.
-# @option opts [String] :subject The subject
-# @option opts [String] :from ('nobody') From address
-# @option opts [String] :to Recipient email
-# @option opts [String] :body ('') The email's body
-```
+### Inline markup
 
-### Parameter types
-
-```rb
-# @param (see User#initialize)
-# @param [OptionParser] opts the option parser object
-# @param [Array<String>] args the arguments passed from input. This
-#   array will be modified.
-# @param [Array<String, Symbol>] list the list of strings and symbols.
-# @param [Hash<Symbol, String>] a hash with symbol keys and string values
-#
-# The options parsed out of the commandline.
-# Default options are:
-#   :format => :dot
-```
-
-### Exceptions
-```rb
-# @raise [AccountBalanceError] if the account does not have
-#   sufficient funds to perform the transaction
-```
-
-### Inline
-
-```markdown
+```text
 *bold*
 _emphasized_
 +code+
 ```
 
-```markdown
-{ObjectName#method optional title}
-{Class::CONSTANT My constant's title}
-{#method_inside_current_namespace}
-```
+### Links and references
 
-```markdown
+```text
 https://www.example.com/
-See Models::User@Examples
-{Google}[https://google.com/]
+RDoc::Markup
+RDoc::Markup#convert
+{Ruby documentation}[https://docs.ruby-lang.org/]
 ```
 
-### Skip
+## Structure
 
-```rb
-def input # :nodoc:
+### Headings
+
+```text
+= Page title
+== Section
+=== Subsection
 ```
 
-```rb
-module MyModule # :nodoc: all
+### Lists
+
+```text
+* First item
+* Second item
+
+1. First step
+2. Second step
 ```
 
 ### Definition lists
 
-```rb
-# == Definition lists
-#
-# list::  hi.
-# +foo+:: parameterized
+```text
+name:: description
++option+:: option description
 ```
 
-```rb
-# == Definition lists
-# [foo]   also
-# [bar]   like this
+```text
+[name] description
+[other] another description
 ```
 
-### Return types
+## Directives
 
-```rb
-# @return [String]
-# @return [String, nil] the name
+### Hide documentation
+
+```ruby
+def internal_method # :nodoc:
+end
+
+module InternalNamespace # :nodoc: all
+end
 ```
 
-### Callseq
+```ruby
+# :stopdoc:
+def hidden_method
+end
+# :startdoc:
+```
 
-```rb
+### Calling sequence
+
+```ruby
 # :call-seq:
-#   ARGF.readlines(sep=$/)     -> array
-#   ARGF.readlines(limit)      -> array
-#   ARGF.readlines(sep, limit) -> array
-#
-#   ARGF.to_a(sep=$/)     -> array
-#   ARGF.to_a(limit)      -> array
-#   ARGF.to_a(sep, limit) -> array
+#   readlines(sep = $/)        -> array
+#   readlines(limit)           -> array
+#   readlines(sep, limit)      -> array
 ```
+
+Use `:call-seq:` when the generated signature needs to show multiple forms or a return value.
+
+### Arguments and yields
+
+```ruby
+# :args: source, destination = nil
+# :yields: value
+```
+
+These directives override the arguments or yielded values reported by RDoc.
 
 ### Category
 
-```rb
+```ruby
 # :category: Utilities
+#
+# Escapes HTML characters.
+def escape_html(text)
+end
 ```
 
-### Sections
+`:category:` applies only to the next documented item.
 
-```rb
+### Section
+
+```ruby
 # :section: Expiry methods
-# methods relating to expiring
+# Methods for expiring records.
 
+# Expires the record.
 def expire!
-def expired?
-...
+end
 ```
 
-### Using tomdoc
+`:section:` remains active until another section directive changes it.
 
-```rb
+### Markup format
+
+```ruby
 # :markup: TomDoc
 ```
 
-Place this at the beginning of the file.
+Place the directive at the beginning of the file to select a supported input format.
 
 ## Also see
 {: .-one-column}
 
-* <https://docs.ruby-lang.org/en/2.1.0/RDoc/Markup.html>
-* <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
-* <https://rubydoc.info/gems/yard/file/docs/Tags.md>
+- <https://ruby-doc.org/3.4/RDoc/MarkupReference.html>
+- <https://ruby-doc.org/3.4/contributing/documentation_guide_md.html>
 {: .-also-see}

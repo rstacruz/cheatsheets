@@ -1,5 +1,6 @@
-# Note: Please don't edit redirects by hand.
-# redirects are managed via src/redirects.ts.
+# NOTE: This file is likely unused. It's a leftover from a pre-Astro Netlify
+# setup (it publishes `_site/`, but the site now builds with Astro to `dist/`).
+# The redirects below are duplicated in `public/_redirects`.
 [[redirects]]
 force = true
 from = "/brew"

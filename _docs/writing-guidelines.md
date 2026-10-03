@@ -27,11 +27,19 @@ H3 content length:
   - `{: .-setup}` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
-  - `{: .-two-column}` - the default
+  - `{: .-two-column}` - the default (don't add this since it's the default)
+
+## Code blocks
+
+- Maximum line width is 70 characters
+- In `.-three-column` sections, maximum is 42 characters
+- Wrap onto more lines rather than exceed the limit
+- Blocks of 5+ lines should add `{: data-line="…"}` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
 
 ## Writing guidelines
 
 - Aim for brevity
+- Paragraphs that follow a code block: 25 words max
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
@@ -144,4 +152,106 @@ H3 content length:
   ```
   ````
 
+## Deprecated sheets
+
+- Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+- Set `deprecated: true` to show a deprecation notice and hide the sheet from related and top lists.
+- Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
+
+## Syntax highlighting
+
+Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
+
+## Introduction
+
+- Introduction H3s are strongly recommended in the first H2.
+- Max 25 words per paragraph.
+- Max 3 links. These should always be reputable, first-party sources as much as possible.
+
+````
+### Introduction
+{: .-intro}
+
+[Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+
+- [Claude Code documentation](https://code.claude.com/docs) _(code.claude.com)_
+- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
+````
+
+## Tables: separating
+
+Separating tables is preferred when a table grows to 8 or more rows.
+
+### Option A: H4s and multiple tables
+
+````markdown
+### Examples
+
+#### Date
+
+| Example                   | Output                 |
+| ------------------------- | ---------------------- |
+| `YYYY-MM-DD`              | 2014-01-01             |
+| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
+| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
+
+#### Time
+
+| Example   | Output   |
+| --------- | -------- |
+| `hh:mm a` | 12:30 pm |
+
+Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+````
+
+### Option B: horizontal lines
+
+````markdown
+| Example | Output                           |
+| ------- | -------------------------------- |
+| `LT`    | 8:30 PM                          |
+| `LTS`   | 8:30:25 PM                       |
+| ---     | ---                              |
+| `LL`    | August 2 1985                    |
+| `ll`    | Aug 2 1985                       |
+| ---     | ---                              |
+| `LLL`   | August 2 1985 08:30 PM           |
+| `lll`   | Aug 2 1985 08:30 PM              |
+| ---     | ---                              |
+| `LLLL`  | Thursday, August 2 1985 08:30 PM |
+| `llll`  | Thu, Aug 2 1985 08:30 PM         |
+````
+
+## SEO descriptions
+
+- Write `keywords` + `intro` for SEO purposes (preferred).
+- `description` + `intro` is also supported.
+
+### Option A: Keywords (and intro)
+
+Set `keywords` (and optionally `intro`). This is the easiest and the preferred
+way for now.
+
 ```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+React.Component · render() · componentDidMount() · props/state · React is a
+JavaScript library for building web...
+```
+
+### Option B: Description (and intro)
+
+Set `description` (and optionally `intro`)
+
+```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+One-page reference to React and its API. React is a JavaScript library for
+building web user interfaces...
+```
+
+### Option C: Intro only
+
+If you left out `description` or `keywords`, a default description will be added.

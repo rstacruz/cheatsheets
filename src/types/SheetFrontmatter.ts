@@ -18,7 +18,18 @@ export const SheetFrontmatterSchema = z.object({
     .describe(
       'Search keywords. Appears in meta descriptions, and helps in search.'
     ),
-  deprecated_by: z.string().optional().describe('Name of newer sheet'),
+  description: z
+    .string()
+    .optional()
+    .describe('Custom meta description. Takes precedence over keywords.'),
+  deprecated: z
+    .boolean()
+    .optional()
+    .describe('Show a deprecation notice and hide from related posts'),
+  deprecated_by: z
+    .string()
+    .optional()
+    .describe('Name of newer sheet (also marks the sheet as deprecated)'),
   intro: z
     .string()
     .optional()

@@ -123,17 +123,6 @@ describe('compat transforms', () => {
     )
   })
 
-  it('rewrites remark-gfm task lists into kramdown markup', async () => {
-    expect((await renderMarkdown('- [ ] todo\n- [x] done')).html).toBe(
-      '<ul class="task-list">\n' +
-        '<li class="task-list-item">' +
-        '<input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /> todo</li>\n' +
-        '<li class="task-list-item">' +
-        '<input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /> done</li>\n' +
-        '</ul>\n'
-    )
-  })
-
   it('wraps a lone <br /> block in a paragraph', async () => {
     expect((await renderMarkdown('a\n\n<br />\n\nb')).html).toBe(
       '<p>a</p>\n\n<p><br /></p>\n\n<p>b</p>\n'
@@ -161,12 +150,6 @@ describe('compat transforms', () => {
 })
 
 describe('kramdown tables', () => {
-  it('renders a headerless table', async () => {
-    expect((await renderMarkdown('| a | b |\n| c | d |')).html).toBe(
-      '<table><tbody><tr><td>a</td><td>b</td></tr><tr><td>c</td><td>d</td></tr></tbody></table>\n'
-    )
-  })
-
   it('splits a new <tbody> on every extra separator row', async () => {
     const input = [
       '| H1 | H2 |',
@@ -305,22 +288,26 @@ describe('kramdown tables', () => {
   })
 
   it('still tables a bare pipe beside inline HTML', async () => {
-    expect((await renderMarkdown('x<br> | y')).html).toBe(
-      '<table><tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>\n'
+    const input = ['| H1 | H2 |', '| --- | --- |', 'x<br> | y'].join('\n')
+    expect((await renderMarkdown(input)).html).toBe(
+      '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
+        '<tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>\n'
     )
   })
 
   it('keeps a blockquote-prefixed table inside the blockquote', async () => {
-    expect((await renderMarkdown('> | a | b |')).html).toBe(
-      '<blockquote>\n<table><tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n' +
-        '</blockquote>\n'
+    const input = ['> | H1 | H2 |', '> | --- | --- |', '> | a | b |'].join('\n')
+    expect((await renderMarkdown(input)).html).toBe(
+      '<blockquote>\n<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
+        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n</blockquote>\n'
     )
   })
 
   it('keeps a list-prefixed table inside the list item', async () => {
-    expect((await renderMarkdown('- | a | b |')).html).toBe(
-      '<ul>\n<li>\n<table><tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n' +
-        '</li>\n</ul>\n'
+    const input = ['- | H1 | H2 |', '  | --- | --- |', '  | a | b |'].join('\n')
+    expect((await renderMarkdown(input)).html).toBe(
+      '<ul>\n<li>\n<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
+        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n</li>\n</ul>\n'
     )
   })
 

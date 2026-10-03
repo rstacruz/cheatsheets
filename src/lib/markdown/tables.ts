@@ -15,7 +15,7 @@ import { visit } from 'unist-util-visit'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
- * in headerless tables, separator-row bodies, tfoot, alignment styles and
+ * in separator-row bodies, tfoot, alignment styles and
  * ragged-row padding
  *
  * Tables are lifted out before parsing so attribute-list can attach IALs, then
@@ -422,6 +422,8 @@ export function parseKramdownTable(
 
   if (rows.length > 0) addContainer(hasFooter ? 'tfoot' : 'tbody')
 
+  // a header separator row is required; headerless pipe blocks are not tables
+  if (align.length === 0) return undefined
   const hasBody = containers.some((container) => container.type === 'tbody')
   if (!hasBody) return undefined
   if (!hasBarePipe(lines.slice(start, index))) return undefined

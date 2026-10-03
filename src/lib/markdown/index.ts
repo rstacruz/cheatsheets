@@ -257,49 +257,6 @@ export function trimIndentedCodeBlocks(md: string): string {
 }
 
 /**
- * Rewrites remark-gfm's task-list markup to kramdown's classes and
- * `disabled="disabled"`/`checked="checked"`; the checkbox is raw HTML because
- * hast-util-to-html collapses boolean attributes to bare names
- */
-export function normalizeTaskLists() {
-  return (tree: HastRoot) => {
-    visit(tree, 'element', (node: Element) => {
-      if (node.tagName !== 'li') return
-      const input = node.children.find(
-        (child): child is Element =>
-          child.type === 'element' &&
-          child.tagName === 'input' &&
-          child.properties?.type === 'checkbox'
-      )
-      if (!input) return
-
-      const checked =
-        input.properties.checked === true || input.properties.checked === ''
-      node.children[node.children.indexOf(input)] = {
-        type: 'raw',
-        value: `<input type="checkbox" class="task-list-item-checkbox" disabled="disabled"${
-          checked ? ' checked="checked"' : ''
-        } />`
-      } as unknown as Element
-      node.properties = { ...node.properties, className: ['task-list-item'] }
-    })
-
-    visit(tree, 'element', (node: Element) => {
-      if (node.tagName !== 'ul') return
-      const hasTask = node.children.some(
-        (child) =>
-          child.type === 'element' &&
-          child.tagName === 'li' &&
-          Array.isArray(child.properties?.className) &&
-          child.properties.className.includes('task-list-item')
-      )
-      if (hasTask)
-        node.properties = { ...node.properties, className: ['task-list'] }
-    })
-  }
-}
-
-/**
  * kramdown omits `<p>` around a list item's first paragraph unless the item
  * ends with a blank line (`* a\n\n* b` wraps both); CommonMark wraps every item
  * in a loose list. Tags what `unwrapTransparentParagraphs` removes
@@ -443,7 +400,6 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(restoreWhitespace)
     .use(wrapLoneInlineHtml)
     .use(hoistCodeAttrs)
-    .use(normalizeTaskLists)
     .use(rehypeSlug)
     .use(dropEmptyHeadingIds)
     .use(rehypeStringify, { allowDangerousHtml: true, closeSelfClosing: true })

@@ -74,6 +74,39 @@ test('decides the roll once per browser', async ({ page }) => {
   await expect(page.locator(item)).toHaveCount(1)
 })
 
+test('applies a winning roll when localStorage is full', async ({ page }) => {
+  await page.addInitScript(() => {
+    Math.random = () => 0
+
+    // A storage whose writes fail, like a full or blocked localStorage.
+    const values = new Map<string, string>()
+    const storage = {
+      getItem: (key: string) => values.get(key) ?? null,
+      setItem: (key: string, value: string) => values.set(key, value),
+      removeItem: (key: string) => values.delete(key),
+      clear: () => values.clear()
+    }
+    // The app writes through `localStorage[key] = ...`; fail those writes.
+    Object.defineProperty(storage, 'dismissed', {
+      set() {
+        throw new DOMException('quota', 'QuotaExceededError')
+      }
+    })
+
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      value: storage
+    })
+  })
+
+  await page.goto('/')
+  await expect(page.locator(item)).toHaveCount(1)
+  await expect(page.locator(item)).toBeVisible()
+
+  // The roll couldn't be persisted, but it was still applied.
+  expect(await storedDecision(page)).toBeUndefined()
+})
+
 test('preview still removes the announcement', async ({ page }) => {
   await page.goto('/?preview=1')
   await expect(page.locator(item)).toHaveCount(0)

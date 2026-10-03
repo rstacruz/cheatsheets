@@ -22,6 +22,12 @@ function shouldHide(id, chance) {
   if (typeof chance !== 'number') return false
 
   const hide = Math.random() >= chance
-  setDismissed(id, hide)
+  try {
+    setDismissed(id, hide)
+  } catch (err) {
+    // Persistence is best-effort: a full or blocked localStorage must not
+    // stop us from applying the roll. The next visit re-rolls instead.
+    if (err.name !== 'QuotaExceededError') throw err
+  }
   return hide
 }

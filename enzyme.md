@@ -139,6 +139,12 @@ wrap.find('input').simulate('change', {
 })
 ```
 
+#### Alternate way of triggering events
+
+```js
+wrap.find('input').prop('onChange')();
+```
+
 ## Installing
 
 ### Initial setup

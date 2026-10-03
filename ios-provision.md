@@ -39,7 +39,7 @@ Needed for Adhoc & Appstore builds.
 
 Needed for Dev and Adhoc builds.
 
- * via iTunes: http://whatsmyudid.com
+ * via iTunes: <http://whatsmyudid.com>
  * via XCode: cmd+shift+2 (Organizer), Devices
 
 For developers

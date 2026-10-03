@@ -20,7 +20,7 @@ PlantUML is a markup language for creating diagrams.
 
 ## Classes
 
- * http://plantuml.sourceforge.net/classes.html
+ * <http://plantuml.sourceforge.net/classes.html>
 
 ### Methods
 

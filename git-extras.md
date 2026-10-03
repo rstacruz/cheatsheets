@@ -84,4 +84,4 @@ $ git obliterate secret.yml   # remove all references to it
 
 ### References
 
-- https://github.com/tj/git-extras
+- <https://github.com/tj/git-extras>

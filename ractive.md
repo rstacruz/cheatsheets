@@ -95,7 +95,7 @@ Ractive is a UI library for JavaScript.
 
 ## [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
 
-See: https://github.com/RactiveJS/Ractive/issues/74
+See: <https://github.com/RactiveJS/Ractive/issues/74>
 {:.center}
 
     Widget = Ractive.extend({ ... })

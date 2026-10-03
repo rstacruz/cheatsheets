@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-// Absorbs the theme's 2px overlay offset and subpixel line-height rounding
-const TOLERANCE = 5
+// Allows for subpixel line-height rounding, but not for a stale fixed offset
+const TOLERANCE = 1
 
 test('line highlights align with the referenced lines', async ({ page }) => {
   await page.goto('/absinthe')
@@ -10,7 +10,7 @@ test('line highlights align with the referenced lines', async ({ page }) => {
   await expect(pre).toBeVisible()
 
   const geometry = await pre.evaluate((el) => {
-    const { lineHeight, paddingTop } = getComputedStyle(el)
+    const { lineHeight, paddingTop, borderTopWidth } = getComputedStyle(el)
     const ranges = (el.getAttribute('data-line') || '')
       .replace(/\s+/g, '')
       .split(',')
@@ -24,6 +24,7 @@ test('line highlights align with the referenced lines', async ({ page }) => {
     return {
       lineHeight: parseFloat(lineHeight),
       paddingTop: parseFloat(paddingTop),
+      borderTopWidth: parseFloat(borderTopWidth),
       ranges,
       highlights: [...el.querySelectorAll(':scope > .line-highlight')].map(
         (highlight) => {
@@ -41,7 +42,10 @@ test('line highlights align with the referenced lines', async ({ page }) => {
   expect(geometry.highlights).toHaveLength(geometry.ranges.length)
   geometry.ranges.forEach(({ start, end }, index) => {
     const highlight = geometry.highlights[index]
-    const expectedTop = geometry.paddingTop + (start - 1) * geometry.lineHeight
+    const expectedTop =
+      geometry.borderTopWidth +
+      geometry.paddingTop +
+      (start - 1) * geometry.lineHeight
     const expectedHeight = (end - start + 1) * geometry.lineHeight
     expect(highlight.start).toBe(start)
     expect(Math.abs(highlight.top - expectedTop)).toBeLessThanOrEqual(TOLERANCE)

@@ -77,41 +77,6 @@ There are also automated tests:
 yarn run test --watch
 ```
 
-## Frontmatter
-
-Each sheet supports these metadata:
-
-```yml
----
-title: React.js
-# Optional:
-category: React
-updated: 2020-06-14
-ads: false # Add this to disable ads
-weight: -5 # lower number = higher in related posts list
-deprecated: true # Don't show in related posts
-deprecated_by: /enzyme # Point to latest version
-prism_languages: [vim] # Extra syntax highlighting
-intro: |
-  This is some *Markdown* at the beginning of the article.
-tags:
-  - WIP
-  - Featured
-
-# Special pages:
-# (don't set these for cheatsheets)
-type: home # home | article | error
-og_type: website # opengraph type
----
-
-```
-
-## Prism languages
-
-For supported prism languages:
-
-- <https://github.com/PrismJS/prism/tree/gh-pages/components>
-
 ## Setting up redirects
 
 This example sets up a redirect from `es2015` to `es6`:

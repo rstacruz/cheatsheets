@@ -18,6 +18,12 @@ H3 content length:
 - Consistent: Similar depth within each H2
 - Self-contained: Each H3 should be understandable independently
 
+Code block content length:
+
+- 42 characters max width for `three-column`
+- 75 characters max width for `two-column`
+- These ensure code blocks are readable without scrolling
+
 ## Format
 
 - Documentation is in the format of Markdown with Kramdown class extensions
@@ -144,4 +150,45 @@ H3 content length:
   ```
   ````
 
+## Deprecated sheets
+
+- Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
+- Fill in their `deprecatedBy` and `deprecated`
+
+## Syntax highlighting
+
+Ensure syntax highlighting language are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v2/src/languages).
+
+## SEO descriptions
+
+- Write `keywords` + `intro` for SEO purposes (preferred).
+- `description` + `intro` is also supported.
+
+### Option A: Keywords (and intro)
+
+Set `keywords` (and optionally `intro`). This is the easiest and the preferred
+way for now.
+
 ```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+React.Component · render() · componentDidMount() · props/state · React is a
+JavaScript library for building web...
+```
+
+### Option B: Description (and intro)
+
+Set `description` (and optionally `intro`)
+
+```
+React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+One-page reference to React and its API. React is a JavaScript library for
+building web user interfaces...
+```
+
+### Option C: Intro only
+
+If you left out `description` or `keywords`, a default description will be added.

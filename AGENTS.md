@@ -22,7 +22,7 @@
 
 ## Markdown files
 
-Consult @_docs/writing-guidelines.md for formatting *.md files.
+Ensure *.md files conform to @_docs/writing-guidelines.md guidelines.
 
 ## Deprecated sheets
 

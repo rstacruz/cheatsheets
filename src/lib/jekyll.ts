@@ -2,13 +2,9 @@ import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 
 /**
- * Expands the Jekyll-ish shims the legacy Ruby renderer used to handle
- * before the markdown engine: `{% raw %}` fences and a reduced subset of
- * `{% include common/<file>.md title="…" %}` includes.
- *
- * Ported line-for-line from the Ruby pre-pass so the rendered output stays
- * identical. Anything else (`{% include header.html %}`, `{% if %}`) is left
- * as literal text, exactly as before.
+ * The Ruby pre-pass' Jekyll shims: `{% raw %}` fences and
+ * `{% include common/<file>.md title="..." %}`. Anything else (`{% if %}`,
+ * non-common includes) stays literal text
  */
 
 export function expandJekyll(input: string): string {
@@ -19,7 +15,6 @@ export function expandJekyll(input: string): string {
   out = out.replace(
     /{% include (common\/[^ ]+) title="([^"]+)" %}/g,
     (_, file: string, title: string) => {
-      // a reduced subset of Jekyll includes
       const filepath = path.posix.normalize(`_includes/${file}`)
 
       if (filepath.startsWith('/') || filepath.startsWith('.')) {

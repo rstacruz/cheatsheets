@@ -13,19 +13,12 @@ import remarkParse from 'remark-parse'
 import { visit } from 'unist-util-visit'
 
 /**
- * kramdown's table dialect, ported from
- * `parser/kramdown/table.rb` (REL_2_4_0) and verified against the live engine.
+ * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
+ * in headerless tables, separator-row bodies, tfoot, alignment styles and
+ * ragged-row padding
  *
- * GFM's tables differ in ways that matter for 60+ sheets: kramdown allows
- * headerless tables, turns every extra `| --- |` row into a new `<tbody>`
- * boundary, uses `=` separator rows for `<tfoot>`, emits `style="text-align:
- * …"` for alignment, keeps ragged rows at the widest row's column count, and
- * only treats a block as a table when at least one line has an unescaped pipe
- * outside code spans.
- *
- * Tables are lifted out of the source before parsing (so the attribute-list
- * plugin can still attach `{: .-shortcuts}` to them) and re-expanded into a
- * custom node that `kramdownTableHandler` renders.
+ * Tables are lifted out before parsing so attribute-list can attach IALs, then
+ * re-expanded into a custom node by `kramdownTables`
  */
 
 export const TABLE_SENTINEL_LANG = 'kramdown-table'
@@ -66,8 +59,8 @@ const HSEP_ALIGN = /[ \t]?(:?)-+(:?)[ \t]?/g
 const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 
 /**
- * Ranges of code spans (backtick runs of equal length) and `<code>` HTML
- * spans, which protect pipes from splitting cells.
+ * Ranges of code spans and `<code>` HTML, which protect pipes from splitting
+ * cells
  */
 function protectedRanges(line: string): Array<[number, number]> {
   const ranges: Array<[number, number]> = []
@@ -112,15 +105,12 @@ function protectedRanges(line: string): Array<[number, number]> {
   return ranges
 }
 
-/** `TABLE_LINE` from table.rb: the line starts with, or contains, a pipe. */
+/** `TABLE_LINE` from table.rb: line starts with or contains a pipe */
 function hasPipe(line: string): boolean {
   return line.startsWith('|') || /[^\\]\|/.test(line)
 }
 
-/**
- * kramdown's final `pipe_on_line` check: the block is only a table when at
- * least one line has an unescaped pipe outside code spans / `<code>` HTML.
- */
+/** `pipe_on_line`: a table needs an unescaped pipe outside code spans / `<code>` */
 function hasBarePipe(lines: string[]): boolean {
   return lines.some((line) => {
     const ranges = protectedRanges(line)
@@ -153,10 +143,7 @@ function parseAlign(separator: string): Align[] {
   return align
 }
 
-/**
- * Splits a row into cells. Pipes inside backtick code spans and `<code>`
- * elements do not break cells; `\|` is an escaped pipe.
- */
+/** Splits a row into cells; code spans and `<code>` protect pipes, `\|` escapes */
 function splitCells(line: string): string[] {
   const cells: string[] = []
   let buffer = ''
@@ -190,11 +177,7 @@ function rowCells(line: string, leadingPipe: boolean): string[] {
   return cells.map((cell) => cell.trim())
 }
 
-/**
- * Parses one kramdown table starting at `lines[start]`. Returns the parsed
- * table and the index just past its last line, or `undefined` when kramdown
- * would not treat the block as a table.
- */
+/** Parses the table at `lines[start]`; `undefined` when kramdown would not */
 export function parseKramdownTable(
   lines: string[],
   start: number
@@ -216,7 +199,7 @@ export function parseKramdownTable(
   }
 
   let index = start
-  // kramdown consumes a leading separator line before the loop, with no rows.
+  // kramdown consumes a leading separator line with no rows
   if (SEP_LINE.test(lines[index])) index++
 
   while (index < lines.length && hasPipe(lines[index])) {
@@ -225,7 +208,7 @@ export function parseKramdownTable(
 
     if (separator) {
       if (rows.length === 0) {
-        // Nothing to do; multiple consecutive separator lines are ignored.
+        // Consecutive separator lines are ignored
       } else if (align.length === 0 && !hasFooter) {
         addContainer('thead')
         align.push(...parseAlign(separator[1]))
@@ -264,11 +247,7 @@ function encodeTable(table: KramdownTable): string {
   return Buffer.from(JSON.stringify(table), 'utf8').toString('base64')
 }
 
-/**
- * Replaces every kramdown table in the source with a fenced sentinel block
- * carrying the parsed structure, so parsing (and attribute-list) see a normal
- * block and `kramdownTables` can expand it back into the kramdown dialect.
- */
+/** Replaces each table with a fenced sentinel so attribute-list sees a normal block */
 export function encodeKramdownTables(md: string): string {
   const lines = md.split('\n')
   const out: string[] = []
@@ -321,14 +300,12 @@ export function encodeKramdownTables(md: string): string {
 const inlineProcessor = unified().use(remarkParse)
 
 /**
- * Parses a cell's inline markdown, forcing inline-only parsing. Link
- * reference definitions are replayed into the snippet because micromark only
- * recognizes `[text][ref]` when the definition is in the same document.
+ * Parses a cell's inline markdown; link definitions are replayed because
+ * micromark only resolves `[text][ref]` within the same document
  */
 function parseCell(text: string, definitions: string): Cell {
   if (!text) return []
-  // The nbsp prefix keeps block constructs (`#`, `-`, `>`) from starting at
-  // the beginning of the line, so cells always parse as inline content.
+  // nbsp prefix stops `#`/`-`/`>` from starting a block in the cell
   const tree = inlineProcessor.parse(`${definitions}\u00a0${text}`)
   const paragraph = tree.children[tree.children.length - 1]
   if (!paragraph || paragraph.type !== 'paragraph')
@@ -343,7 +320,7 @@ function parseCell(text: string, definitions: string): Cell {
   return children
 }
 
-/** Expands the sentinel blocks left by `encodeKramdownTables`. */
+/** Expands the sentinels from `encodeKramdownTables` */
 export function kramdownTables() {
   return (tree: Root) => {
     const definitions: string[] = []
@@ -388,7 +365,7 @@ export function kramdownTables() {
   }
 }
 
-/** Renders a `kramdownTable` node into kramdown's table HTML. */
+/** Renders a `kramdownTable` node to kramdown's table HTML */
 export function kramdownTableHandler(
   state: State,
   node: KramdownTableNode

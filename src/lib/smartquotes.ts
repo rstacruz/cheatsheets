@@ -2,16 +2,10 @@ import type { Root, Text } from 'mdast'
 import { visit } from 'unist-util-visit'
 
 /**
- * kramdown's typographic-symbol substitutions, measured directly from the
- * engine (`TYPOGRAPHIC_SYMS` in `parser/kramdown/typographic_symbol.rb`):
- *
- *   `---` → em dash, `--` → en dash, `...` → ellipsis,
- *   `<< ` → `«\u00a0`, ` >>` → `\u00a0»`, `<<` → `«`, `>>` → `»`
- *
- * Applied to text nodes only — code spans, code blocks and raw HTML are left
- * alone, matching kramdown. Quotes are handled separately by
- * `remark-smartypants` (`{ dashes: 'oldschool' }`), since the dash forms above
- * already consume every `-`.
+ * kramdown's `TYPOGRAPHIC_SYMS` (parser/kramdown/typographic_symbol.rb),
+ * measured: `---` and `--` become em/en dashes, `...` an ellipsis, `<< `/` >>`
+ * a guillemet plus nbsp. Text nodes only, as in kramdown; `kramdownSmartQuotes`
+ * below handles quotes
  */
 
 const SYMBOLS = /---|--|\.\.\.|<< | >>|<<|>>/g
@@ -44,9 +38,8 @@ export function kramdownTypographicSymbols() {
 }
 
 /**
- * kramdown leaves raw `<code>` element content alone (unlike `<span>`, where
- * it still parses markdown): `<code>x -- y "q"</code>` keeps the dashes and
- * straight quotes.
+ * kramdown leaves raw `<code>` content alone (unlike `<span>`, where it still
+ * parses markdown): `<code>x -- y "q"</code>` keeps the dashes and quotes
  */
 function insideRawCode(children: unknown[], index: number): boolean {
   let depth = 0
@@ -60,11 +53,9 @@ function insideRawCode(children: unknown[], index: number): boolean {
 }
 
 /**
- * kramdown's smart-quote rules (`SQ_RULES` in
- * `parser/kramdown/smart_quotes.rb`), ported so quote *direction* matches the
- * engine. `remark-smartypants` decides directions over the whole concatenated
- * document, which flips opening quotes at the start of a paragraph, table
- * cell or emphasis span.
+ * kramdown's `SQ_RULES` (parser/kramdown/smart_quotes.rb), ported for quote
+ * direction: a whole-document pass flips opening quotes at the start of a
+ * paragraph, table cell or emphasis span
  */
 
 const SQ_PUNCT = '[!"#$%\'()*+,\\-./:;<=>?@\\[\\\\\\]^_`{|}~]'

@@ -4,23 +4,16 @@ import { visit } from 'unist-util-visit'
 import { TABLE_SENTINEL_LANG } from './tables'
 
 /**
- * IAL (kramdown `{: …}`) compatibility shims.
- *
- * `remark-attribute-list` covers almost all of the corpus' own-line IALs, but
- * kramdown is more forgiving in two measured spots:
- *
- * 1. Unterminated IALs (`{: .-shortcuts`) are silently ignored by kramdown,
- *    while the plugin throws while building the document.
- * 2. An IAL preceded by a blank line attaches to the *next* block in kramdown,
- *    while the plugin only looks backwards.
- *
- * Both are handled before parsing, where kramdown decides them too.
+ * IAL (kramdown `{: ...}`) shims for two measured gaps in
+ * `remark-attribute-list`: unterminated IALs swallow text to the next `}`, and
+ * a blank-line IAL attaches to the next block. Both run pre-parse, where
+ * kramdown decides them
  */
 
 const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 const IAL_LINE = /^ {0,3}\{:[ \t]/
 
-/** Marks every line that sits inside (or opens/closes) a fenced code block. */
+/** Marks lines inside or opening/closing a fenced code block */
 export function fenceFlags(lines: string[]): boolean[] {
   const flags = new Array<boolean>(lines.length).fill(false)
   let fence: string | null = null
@@ -39,11 +32,7 @@ export function fenceFlags(lines: string[]): boolean[] {
   return flags
 }
 
-/**
- * An own-line IAL is terminated when a `}` closes it outside a quoted value.
- * kramdown ignores `{: .-shortcuts` (no `}`) and `{: data-line="1,3,5,7 }`
- * (unterminated quote); the plugin throws on both.
- */
+/** True when `}` closes the IAL outside a quoted value */
 function isTerminatedIAL(line: string): boolean {
   const body = line.slice(line.indexOf('{:') + 2)
   let inQuote = false
@@ -61,15 +50,13 @@ function isTerminatedIAL(line: string): boolean {
 }
 
 /**
- * Deletes own-line IALs that never terminate. kramdown ignores them entirely
- * (neither attributes nor literal text reach the output); the plugin throws.
+ * Deletes unterminated own-line IALs, which make the plugin throw
  *
- * kramdown's IAL regex is not line-bounded: `\{:(?!:|\/)([^\}]+)\}` will span
- * newlines, so an own-line `{: .-shortcuts` with no closing brace on its own
- * line swallows everything up to the next `}` *anywhere in the document*, and
- * the classes found in that span are applied to the preceding block. That is
- * measured behaviour (spacemacs.md: the heading and table between the two
- * braces disappear, and the Toggle table gains both classes), so reproduce it.
+ * kramdown's IAL regex is not line-bounded, so `{: .-shortcuts` with no `}`
+ * swallows everything to the next `}` anywhere in the document, and the
+ * classes in that span apply to the preceding block. Measured on spacemacs.md:
+ * the heading and table between the braces vanish, and the Toggle table gains
+ * both classes
  */
 export function dropUnterminatedIALs(md: string): string {
   const lines = md.split('\n')
@@ -83,8 +70,7 @@ export function dropUnterminatedIALs(md: string): string {
       continue
     }
 
-    // A `}` on the same line means kramdown consumed just this line (and
-    // found no usable attributes, e.g. an unterminated quoted value).
+    // A `}` on this line only: kramdown found no usable attributes
     if (line.includes('}')) continue
 
     let close = -1
@@ -106,10 +92,9 @@ export function dropUnterminatedIALs(md: string): string {
 }
 
 /**
- * kramdown does not parse a single-backtick code span when the backtick is
- * preceded by whitespace (or starts the span) and followed by whitespace:
- * `` `  ` `` and `` ` x` `` stay literal backticks, while `` `x ` `` is a code
- * span. Escape those backticks so remark leaves them literal too.
+ * kramdown leaves a single backtick literal when whitespace precedes and
+ * follows it: `` `  ` `` and `` ` x` `` are text, while `` `x ` `` is a code
+ * span. Escape the literal ones so remark agrees
  */
 export function escapeWhitespaceCodeSpans(md: string): string {
   const lines = md.split('\n')
@@ -140,14 +125,13 @@ export function escapeWhitespaceCodeSpans(md: string): string {
           (previous === '' || /\s/.test(previous)) &&
           /\s/.test(line[i + 1] ?? '')
         ) {
-          // kramdown treats this backtick as literal text.
+          // kramdown leaves this backtick literal
           out += '\\`'
           i++
           continue
         }
 
-        // Otherwise it opens a code span: skip to its closing backtick so it
-        // is not escaped as well.
+        // Opens a code span: skip past the closing backtick
         let close = i + 1
         while (close < line.length && line[close] !== '`') close++
         if (close < line.length) {
@@ -163,10 +147,7 @@ export function escapeWhitespaceCodeSpans(md: string): string {
     .join('\n')
 }
 
-/**
- * Moves an own-line IAL that follows a blank line down to the end of the next
- * block, so the plugin attaches it to that block — kramdown's behaviour.
- */
+/** Moves a blank-line IAL to the end of the next block */
 export function refloatIALs(md: string): string {
   const lines = md.split('\n')
   const fenced = fenceFlags(lines)
@@ -178,8 +159,7 @@ export function refloatIALs(md: string): string {
       continue
     if (!isBlank(lines[i - 1])) continue
 
-    // Skip blank lines to the block the IAL floats over, then walk to the end
-    // of that block (ignoring blank lines inside a fenced code block).
+    // Walk to the end of the block the IAL floats over
     let start = i + 1
     while (start < lines.length && isBlank(lines[start]) && !fenced[start])
       start++
@@ -202,9 +182,8 @@ export function refloatIALs(md: string): string {
 }
 
 /**
- * `mdast-util-to-hast` overwrites `className` on `<code>` with the IAL's
- * classes, dropping `language-*`. Restore it here, before the tree is
- * converted, so Prism keeps highlighting fenced code with an IAL.
+ * mdast-util-to-hast overwrites `<code>` className with the IAL's classes,
+ * dropping `language-*`; re-add it before conversion so Prism still highlights
  */
 export function restoreCodeLanguage() {
   return (tree: Root) => {
@@ -220,9 +199,8 @@ export function restoreCodeLanguage() {
 }
 
 /**
- * Moves non-language attributes from `<code>` to its `<pre>`, matching
- * kramdown's output (`<pre class="-setup" data-line="1"><code
- * class="language-ruby">`). `language-*` stays behind on `<code>`.
+ * Moves non-`language-*` attributes from `<code>` to `<pre>`, matching
+ * kramdown: `<pre class="-setup" data-line="1"><code class="language-ruby">`
  */
 export function hoistCodeAttrs() {
   return (tree: HastRoot) => {
@@ -263,10 +241,7 @@ export function hoistCodeAttrs() {
   }
 }
 
-/**
- * kramdown emits no `id` at all for headings whose slug is empty (`### ⌘`);
- * `rehype-slug` emits `id=""`. Run after `rehype-slug`.
- */
+/** kramdown drops `id=""` for an empty slug; run after rehype-slug */
 export function dropEmptyHeadingIds() {
   return (tree: HastRoot) => {
     visit(tree, 'element', (node: Element) => {

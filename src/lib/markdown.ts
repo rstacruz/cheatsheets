@@ -28,27 +28,15 @@ import {
 } from './tables'
 
 /**
- * Replaces `renderKramdown()` (Ruby kramdown + a `.cache/` of prebuilt HTML)
- * with an in-process unified/remark pipeline.
- *
- * The ordering below encodes measured constraints:
- *
- * - `expandJekyll` and the IAL pre-passes run on the raw source, since
- *   includes contain IALs and kramdown tolerates shapes the plugin does not.
- * - `restoreCodeLanguage` must run before `remark-rehype`:
- *   `mdast-util-to-hast` overwrites `className` on `<code>` with the IAL's
- *   classes, so `language-*` has to be merged back at the mdast level.
- * - `kramdownTables` replaces GFM's table dialect with kramdown's.
- * - Typographic symbols run before `remark-smartypants`, which then only has
- *   to deal with quotes.
- * - `dropEmptyHeadingIds` runs after `rehype-slug` (which is what emits
- *   `id=""`).
+ * In-process remark pipeline replacing Ruby kramdown. Ordering constraints:
+ * the IAL pre-passes need raw source (includes contain IALs);
+ * `restoreCodeLanguage` must precede remark-rehype, which overwrites `<code>`
+ * className; `dropEmptyHeadingIds` follows `rehype-slug`, which emits `id=""`
  */
 
 /**
- * kramdown emits a newline after every block, and one more for each blank
- * line between blocks in the source. `render.ts`'s sectionizer preserves that
- * whitespace, and the existing inline snapshots assert it.
+ * kramdown emits a newline per block plus one per blank line in the source;
+ * render.ts's sectionizer relies on that whitespace
  */
 function createHandlers(md: string): Handlers {
   const lines = md.split('\n')
@@ -97,26 +85,24 @@ function createHandlers(md: string): Handlers {
 }
 
 /**
- * Placeholder for whitespace that kramdown preserves but CommonMark strips:
- * a single trailing space before a line break, and the indentation of a
- * paragraph's continuation lines. Restored by `restoreWhitespace()` after the
- * tree is built. Invisible in HTML, but part of the rendered contract.
+ * Private-use placeholder for whitespace kramdown keeps and CommonMark strips:
+ * a trailing soft-break space and continuation indentation. Restored after the
+ * tree is built
  */
 const WHITESPACE_MARK = '\uE000'
 
 const BLOCK_START =
   /^(?:[#>|{}]|[-*+](\s|$)|\d+[.)](\s|$)|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
 const LINK_DEFINITION = /^\[[^\]]*\]:/
-// CommonMark HTML block start conditions (types 1-6); inline HTML like
-// `<code>` does not interrupt a paragraph.
+// CommonMark HTML block starts (types 1-6)
 const HTML_BLOCK =
   /^<(?:!--|\?|!\[CDATA\[|!DOCTYPE|\/?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\s|\/?>))/i
 
 const isBlockStart = (line: string) =>
   BLOCK_START.test(line) || LINK_DEFINITION.test(line) || HTML_BLOCK.test(line)
 
-// For the line *before* a continuation, a list marker does not end the
-// paragraph (`* item\n  continued`), so it is not treated as a block start.
+// A list marker before a continuation does not end the paragraph
+// (`* item\n  continued`), so it is not a block start here
 const PREV_BLOCK_START = /^(?:[#>|{}]|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
 
 const isPrevBlockStart = (line: string) =>
@@ -124,11 +110,7 @@ const isPrevBlockStart = (line: string) =>
   LINK_DEFINITION.test(line) ||
   HTML_BLOCK.test(line)
 
-/**
- * kramdown consumes `{::options … /}` block extensions without emitting
- * anything. Only `kramdown.md` uses one, and its effect (`parse_block_html`)
- * does not change that sheet's output.
- */
+/** Drops `{::options ... /}`; measured no-op for kramdown.md's one use */
 export function dropBlockExtensions(md: string): string {
   const lines = md.split('\n')
   const fenced = fenceFlags(lines)
@@ -141,8 +123,7 @@ export function preserveWhitespace(md: string): string {
   const lines = md.split('\n')
   const fenced = fenceFlags(lines)
 
-  // The next line continues the same paragraph (so a trailing space is a
-  // soft-break space, which kramdown keeps) rather than ending the block.
+  // Next line continues this paragraph, so a trailing space is kept
   const continues = (index: number) =>
     index >= 0 &&
     index < lines.length &&
@@ -157,9 +138,8 @@ export function preserveWhitespace(md: string): string {
       if (line.trim() !== '' && continues(index + 1)) {
         out = out.replace(/(?<![ \t]) $/, WHITESPACE_MARK)
       }
-      // Indentation of a paragraph's continuation line. A code block's lines
-      // are either preceded by a blank line or by another indented line, so
-      // requiring a shallow previous line keeps them intact.
+      // Continuation indentation; a shallow previous line keeps code blocks
+      // intact
       if (
         index > 0 &&
         !fenced[index - 1] &&
@@ -187,7 +167,7 @@ export function restoreWhitespace() {
   }
 }
 
-/** kramdown wraps a lone `<br />` block in a paragraph; CommonMark does not. */
+/** kramdown wraps a lone `<br />` in a paragraph; CommonMark does not */
 export function wrapLoneBreaks() {
   return (tree: HastRoot) => {
     tree.children = tree.children.map((child) =>
@@ -203,11 +183,7 @@ export function wrapLoneBreaks() {
   }
 }
 
-/**
- * kramdown's indented code blocks end before trailing whitespace-only lines
- * (CommonMark keeps them in the block). Dropping them keeps the rendered
- * `<pre>` identical.
- */
+/** kramdown ends indented code before trailing blank lines; CommonMark keeps them */
 export function trimIndentedCodeBlocks(md: string): string {
   const lines = md.split('\n')
   const fenced = fenceFlags(lines)
@@ -242,11 +218,10 @@ export function trimIndentedCodeBlocks(md: string): string {
 }
 
 /**
- * kramdown does not autolink bare URLs (`www.x.com`, `http://x.com`,
- * `me@x.com`), while `remark-gfm` does. Autolinked literals are exactly the
- * links whose only child spans the same source range as the link itself;
- * angle autolinks (`<http://x>`) and `[text](url)` links keep their brackets
- * in the range and are left alone.
+ * remark-gfm autolinks bare URLs (`http://x.com`, `me@x.com`), kramdown does
+ * not. An autolinked literal's only child spans the same source range as the
+ * link; angle autolinks (`<http://x>`) and `[text](url)` keep their brackets
+ * and are left alone
  */
 export function stripGfmAutolinks() {
   return (tree: Root) => {
@@ -269,11 +244,9 @@ export function stripGfmAutolinks() {
 }
 
 /**
- * Rewrites `remark-gfm`'s task-list HTML into kramdown's
- * (`class="task-list"`, `class="task-list-item"`,
- * `class="task-list-item-checkbox"`, `disabled="disabled"`,
- * `checked="checked"`). The checkbox is emitted as raw HTML because
- * `hast-util-to-html` collapses boolean attributes to bare names.
+ * Rewrites remark-gfm's task-list markup to kramdown's classes and
+ * `disabled="disabled"`/`checked="checked"`; the checkbox is raw HTML because
+ * hast-util-to-html collapses boolean attributes to bare names
  */
 export function normalizeTaskLists() {
   return (tree: HastRoot) => {
@@ -314,11 +287,9 @@ export function normalizeTaskLists() {
 }
 
 /**
- * kramdown renders a list item's first paragraph without `<p>` unless the
- * item's value ends with a blank line (`* a\n\n* b` → both wrapped), and the
- * last item follows whatever the earlier items did. CommonMark marks the
- * whole list loose instead, wrapping every item. Mark the paragraphs kramdown
- * would unwrap; `unwrapTransparentParagraphs()` removes the wrapper.
+ * kramdown omits `<p>` around a list item's first paragraph unless the item
+ * ends with a blank line (`* a\n\n* b` wraps both); CommonMark wraps every item
+ * in a loose list. Tags what `unwrapTransparentParagraphs` removes
  */
 const TRANSPARENT = '__kramdown-transparent'
 
@@ -335,8 +306,7 @@ export function tightenListItems() {
           return
         }
 
-        // A blank line between this item and the next one is part of the
-        // item's value in kramdown, which then wraps its paragraph in `<p>`.
+        // A blank line before the next item makes kramdown wrap this paragraph
         const multiple = item.children.length >= 2
         const next = items[index + 1]
         const endLine = item.position?.end.line
@@ -373,8 +343,8 @@ export function tightenListItems() {
 }
 
 /**
- * Removes the `<p>` wrappers marked by `tightenListItems()`, along with the
- * newline `mdast-util-to-hast` inserts before a loose list item's paragraph.
+ * Removes the `<p>` wrappers tagged by `tightenListItems` plus the newline
+ * mdast-util-to-hast inserts before them
  */
 export function unwrapTransparentParagraphs() {
   return (tree: HastRoot) => {

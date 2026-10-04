@@ -8,9 +8,6 @@ intro: |
   You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
 ---
 
-Intro
------
-
 Variants
 --------
 {: .-three-column}

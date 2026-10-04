@@ -79,8 +79,10 @@ const { name, ...rest } = user   // rest → { age: 36 }
 
 ```js
 const seen = new Set([1, 2, 2])  // → Set {1, 2}
+seen.add(3)                      // → Set {1, 2, 3}
 seen.has(2)                      // → true
-[...seen]                        // → [1, 2]
+seen.size                        // → 3
+[...seen]                        // → [1, 2, 3]
 ```
 
 ```js

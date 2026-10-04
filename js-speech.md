@@ -9,7 +9,6 @@ intro: |
 ---
 
 ## Speech synthesis
-{: .-one-column}
 
 ### Introduction
 {: .-intro}

@@ -8,7 +8,6 @@ intro: |
 ---
 
 ## Shortcuts
-{: .-left-reference}
 
 ### Introduction
 {: .-intro}

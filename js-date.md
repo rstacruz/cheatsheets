@@ -9,7 +9,6 @@ intro: |
 ---
 
 ## Date
-{: .-left-reference}
 
 ### Introduction
 {: .-intro}

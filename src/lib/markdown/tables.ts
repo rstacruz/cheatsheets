@@ -15,7 +15,7 @@ import { scanFences } from '~/lib/sheetValidation/utils'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
- * in separator-row bodies, alignment styles and ragged-row padding
+ * in separator-row bodies and ragged-row padding
  *
  * Tables are lifted out before parsing so attribute-list can attach IALs, then
  * re-expanded into a custom node by `kramdownTables`
@@ -23,18 +23,15 @@ import { scanFences } from '~/lib/sheetValidation/utils'
 
 export const TABLE_SENTINEL_LANG = 'kramdown-table'
 
-type Align = 'left' | 'right' | 'center' | null
 type Cell = PhrasingContent[]
 
 export type KramdownTable = {
   columns: number
-  align: Align[]
   containers: Array<{ type: 'thead' | 'tbody'; rows: string[][] }>
 }
 
 export type KramdownTableNode = {
   type: 'kramdownTable'
-  align: Align[]
   children: KramdownSection[]
   data?: Data
   position?: Position
@@ -54,7 +51,6 @@ export type KramdownCell = {
 }
 
 const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
-const HSEP_ALIGN = /[ \t]?(:?)-+(:?)[ \t]?/g
 
 // kramdown's element categories (parser/html.rb): a line opening a non-span
 // tag is an HTML block, and a span-level element hides its body from the
@@ -316,24 +312,6 @@ function hasBarePipe(lines: string[]): boolean {
   return barePipeInRegion(lines.join('\n'))
 }
 
-function parseAlign(separator: string): Align[] {
-  const align: Align[] = []
-  const re = new RegExp(HSEP_ALIGN.source, 'g')
-  let match: RegExpExecArray | null
-  while ((match = re.exec(separator)) !== null) {
-    if (match[0].length === 0) {
-      re.lastIndex++
-      continue
-    }
-    const left = match[1] === ':'
-    const right = match[2] === ':'
-    align.push(
-      left && right ? 'center' : right ? 'right' : left ? 'left' : null
-    )
-  }
-  return align
-}
-
 /** Splits a row into cells; code spans and `<code>` protect pipes, `\|` escapes */
 function splitCells(line: string): string[] {
   const cells: string[] = []
@@ -376,10 +354,10 @@ export function parseKramdownTable(
   if (!hasPipe(lines[start])) return undefined
 
   const leadingPipe = /^\s*\|/.test(lines[start])
-  const align: Align[] = []
   const containers: KramdownTable['containers'] = []
   let rows: string[][] = []
   let columns = 0
+  let hasHeader = false
 
   const addContainer = (type: 'thead' | 'tbody') => {
     containers.push({ type, rows })
@@ -397,9 +375,9 @@ export function parseKramdownTable(
     if (separator) {
       if (rows.length === 0) {
         // Consecutive separator lines are ignored
-      } else if (align.length === 0) {
+      } else if (!hasHeader) {
         addContainer('thead')
-        align.push(...parseAlign(separator[1]))
+        hasHeader = true
       } else {
         addContainer('tbody')
       }
@@ -414,7 +392,7 @@ export function parseKramdownTable(
   if (rows.length > 0) addContainer('tbody')
 
   // a header separator row is required; headerless pipe blocks are not tables
-  if (align.length === 0) return undefined
+  if (!hasHeader) return undefined
   const hasBody = containers.some((container) => container.type === 'tbody')
   if (!hasBody) return undefined
   if (!hasBarePipe(lines.slice(start, index))) return undefined
@@ -424,10 +402,7 @@ export function parseKramdownTable(
       while (row.length < columns) row.push('')
     }
   }
-  if (align.length > columns) align.length = columns
-  while (align.length < columns) align.push(null)
-
-  return { table: { columns, align, containers }, end: index }
+  return { table: { columns, containers }, end: index }
 }
 
 function encodeTable(table: KramdownTable): string {
@@ -521,7 +496,6 @@ export function kramdownTables() {
 
       const table: KramdownTableNode = {
         type: 'kramdownTable',
-        align: parsed.align,
         children: parsed.containers.map((container) => ({
           type: 'kramdownTableSection',
           name: container.type,
@@ -548,13 +522,8 @@ export function kramdownTableHandler(
   state: State,
   node: KramdownTableNode
 ): Element {
-  const cellElement = (
-    cell: KramdownCell,
-    align: Align,
-    tagName: 'th' | 'td'
-  ): Element => {
+  const cellElement = (cell: KramdownCell, tagName: 'th' | 'td'): Element => {
     const properties: Properties = {}
-    if (align) properties.style = `text-align: ${align}`
     const children: HastElementContent[] = state.all(
       cell as unknown as MdastNodes
     )
@@ -575,12 +544,8 @@ export function kramdownTableHandler(
       type: 'element',
       tagName: 'tr',
       properties: {},
-      children: row.children.map((cell, column) =>
-        cellElement(
-          cell,
-          node.align[column] ?? null,
-          section.name === 'thead' ? 'th' : 'td'
-        )
+      children: row.children.map((cell) =>
+        cellElement(cell, section.name === 'thead' ? 'th' : 'td')
       )
     }))
   }))

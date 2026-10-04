@@ -137,22 +137,6 @@ describe('kramdown tables', () => {
     )
   })
 
-  it('renders alignment as inline styles', async () => {
-    const input = [
-      '| H1 | H2 | H3 | H4 |',
-      '|:---|:---:|---:|---|',
-      '| a | b | c | d |'
-    ].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<table><thead><tr><th style="text-align: left">H1</th>' +
-        '<th style="text-align: center">H2</th>' +
-        '<th style="text-align: right">H3</th><th>H4</th></tr></thead>' +
-        '<tbody><tr><td style="text-align: left">a</td>' +
-        '<td style="text-align: center">b</td>' +
-        '<td style="text-align: right">c</td><td>d</td></tr></tbody></table>\n'
-    )
-  })
-
   it('unescapes \\| without splitting the cell', async () => {
     const input = ['| H1 | H2 |', '| --- | --- |', '| a \\| b | c |'].join('\n')
     expect((await renderMarkdown(input)).html).toContain('<td>a | b</td>')

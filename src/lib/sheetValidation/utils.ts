@@ -22,6 +22,7 @@ export const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 /** Fence membership and opening indent, following CommonMark's fence rules */
 export function scanFences(lines: string[]) {
   const fenced = new Array<boolean>(lines.length).fill(false)
+  // Opening fence indentation, for lines inside the block
   const indent = new Array<number>(lines.length).fill(0)
   let fence: string | null = null
   let opener = 0

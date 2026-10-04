@@ -141,7 +141,9 @@ const legacy = require('./legacy.cjs')
 ```
 
 In ESM use `import`, not `require`. `createRequire()` builds a `require()` for
-CommonJS packages; a CJS `module.exports` becomes the default export when
-imported. Node 22.12+ can `require()` ESM that avoids top-level await.
+CommonJS packages.
+
+A CJS `module.exports` becomes the default export when imported. Node 22.12+
+can `require()` ESM that avoids top-level await.
 
 See: [createRequire()](https://nodejs.org/api/module.html#modulecreaterequirefilename) _(nodejs.org)_

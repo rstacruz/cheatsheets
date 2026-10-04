@@ -2,7 +2,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
-import { renderKramdown } from './kramdown'
+import { renderMarkdown } from './index'
 import { plugin as rehypeSectionize } from '@rstacruz/rehype-sectionize'
 
 const PRISM_CONFIG = {
@@ -62,11 +62,11 @@ const REHYPE_SECTIONIZE_CONFIG = [
 ]
 
 /**
- * Renders Markdown to HTML via Kramdown and applies some post-processing.
+ * Renders Markdown to HTML and applies some post-processing.
  */
 
 export async function render(input: string): Promise<{ html: string }> {
-  let { html } = await renderKramdown(input)
+  let { html } = await renderMarkdown(input)
   html = addInitialH2(html)
   html = addH3s(html)
   html = await processRehype(html)

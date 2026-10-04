@@ -7,9 +7,9 @@ import {
   scanFences
 } from './utils'
 
-// The remark pipeline marked these whitespace shapes so kramdown's output
-// could be reproduced (see preserveWhitespace in src/lib/markdown/index.ts).
-// Sheets keep them out so that pass can stay deleted.
+// The remark pipeline once marked these whitespace shapes so kramdown's output
+// could be reproduced (the removed `preserveWhitespace` pass). Sheets keep them
+// out so that pass can stay deleted.
 
 type WhitespaceIssue = {
   line: number

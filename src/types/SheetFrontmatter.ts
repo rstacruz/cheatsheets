@@ -5,12 +5,20 @@ export const SheetFrontmatterSchema = z.object({
     .union([z.string(), z.number()])
     .transform((x) => x.toString())
     .pipe(z.string())
-    .optional(),
+    .optional()
+    .describe('Sheet name. Falls back to the filename.'),
 
-  category: z.string().optional(),
-  weight: z.number().optional(),
-  tags: z.string().array().optional(),
-  updated: z.date().optional(),
+  category: z
+    .string()
+    .optional()
+    .describe('Nav group. `Hidden` unlists the sheet.'),
+  weight: z.number().optional().describe('Sorts higher in the "top" lists.'),
+  tags: z
+    .string()
+    .array()
+    .optional()
+    .describe('`Featured` puts the sheet on the home page.'),
+  updated: z.date().optional().describe('"Last updated" and recent lists.'),
   keywords: z
     .string()
     .array()

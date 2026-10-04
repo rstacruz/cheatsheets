@@ -1,5 +1,18 @@
 # Cheatsheet guidelines
 
+## Frontmatter
+
+Fields and their meanings live in [`src/types/SheetFrontmatter.ts`](https://github.com/rstacruz/cheatsheets/blob/master/src/types/SheetFrontmatter.ts), a Zod schema.
+
+```yaml
+---
+title: React
+category: JavaScript libraries
+tags: [Featured]
+updated: 2024-01-01
+---
+```
+
 ## Content organisation
 
 - **Progressive complexity:** Start with basics, move to advanced
@@ -20,7 +33,7 @@ H3 content length:
 
 ## Format
 
-- Documentation is in the format of Markdown with Kramdown class extensions
+- Documentation is in the format of Markdown with Kramdown class extensions (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
   - `{: .-prime}` - Visually highlighted section. Only use once per document at most.
 - PRE elements can have:

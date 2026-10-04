@@ -110,7 +110,7 @@ new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 
 ## Async and modules
 
-### Async and promises
+### Async
 
 ```js
 const res = await fetch('/data.json')
@@ -126,6 +126,35 @@ await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ```
 
 [JavaScript Async cheatsheet](./js-async)
+{: .-crosslink}
+
+### Promises
+
+```js
+new Promise((resolve, reject) => { ... })
+promise.then(v => ...).catch(err => ...)
+await Promise.all([a(), b()])         // → all results, fails fast
+await Promise.allSettled([a(), b()])  // → every result, never rejects
+await Promise.race([a(), b()])        // → first settled
+```
+
+[Promises cheatsheet](./promise)
+{: .-crosslink}
+
+### fetch()
+
+```js
+const res = await fetch('/data.json')
+res.status                        // → 200
+res.ok                            // → true
+await res.json()                  // → parsed JSON body
+await fetch('/save', {
+  method: 'POST',
+  body: JSON.stringify(data)
+})
+```
+
+[fetch() cheatsheet](./js-fetch)
 {: .-crosslink}
 
 ### Modules
@@ -156,7 +185,5 @@ for (const item of items) { ... }
 
 ## Also see
 
-- [Promises cheatsheet](./promise)
-- [fetch() cheatsheet](./js-fetch)
 - [JavaScript lazy shortcuts](./js-lazy)
 {: .-also-see}

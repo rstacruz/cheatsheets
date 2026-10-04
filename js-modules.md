@@ -20,17 +20,17 @@ ES modules (ESM) use `import` and `export`; each module is its own file.
 ### Exporting
 
 ```js
-export const x = 1              // → named export
-export function fn() {}         // → named export
-export { a, b }                 // → named exports
-export { x as y }               // → renamed export
-export default function () {}   // → default export (one per module)
+export const x = 1              // named export
+export function fn() {}         // named export
+export { a, b }                 // named exports
+export { x as y }               // renamed export
+export default function () {}   // default export (one per module)
 ```
 {: data-line="5"}
 
 ```js
-export { x } from './x.js'      // → re-export named
-export * from './x.js'          // → re-export all named
+export { x } from './x.js'      // re-export named
+export * from './x.js'          // re-export all named
 ```
 
 A module has many named exports but only one default.
@@ -40,11 +40,11 @@ See: [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 ### Importing
 
 ```js
-import def from './mod.js'            // → default export
-import { a, b as c } from './mod.js'  // → named exports
-import * as ns from './mod.js'        // → namespace object
-import './setup.js'                   // → side effects only
-import def, { a } from './mod.js'     // → default + named
+import def from './mod.js'            // default export
+import { a, b as c } from './mod.js'  // named exports
+import * as ns from './mod.js'        // namespace object
+import './setup.js'                   // side effects only
+import def, { a } from './mod.js'     // default + named
 ```
 {: data-line="3"}
 
@@ -57,7 +57,7 @@ See: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 
 ```js
 const mod = await import('./mod.js')
-mod.default                        // → default export
+mod.default                        // the default export
 ```
 
 ```js

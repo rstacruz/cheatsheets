@@ -45,7 +45,7 @@ for (const [key, value] of map) console.log(key, value)
 [...map.keys()]     // → ['a', 'b']
 [...map.values()]   // → [1, 2]
 [...map.entries()]  // → [['a', 1], ['b', 2]]
-[...map]            // → same as entries
+[...map]            // same as entries
 map.forEach((value, key) => ...)
 ```
 {: data-line="2"}
@@ -72,7 +72,7 @@ set.clear()
 const set = new Set(['a', 'b'])
 for (const value of set) console.log(value)
 [...set]                     // → ['a', 'b']
-[...set.keys()]              // → same as values
+[...set.keys()]              // same as values
 ```
 {: data-line="1"}
 
@@ -84,10 +84,10 @@ See: [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Glo
 ### Conversions
 
 ```js
-Object.fromEntries(map)       // Map → plain object
-new Map(Object.entries(obj))  // plain object → Map
+Object.fromEntries(map)       // map to plain object
+new Map(Object.entries(obj))  // plain object to a Map
 [...map]                      // → array of [key, value]
-Array.from(set)               // Set → array
+Array.from(set)               // set to array
 [...set]                      // → array
 ```
 {: data-line="1"}

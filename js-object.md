@@ -24,8 +24,8 @@ const defaults = { color: 'red', size: 'md' }
 const name = 'Ada'
 
 const user = {
-  name,                      // → name: 'Ada'
-  ['role' + 'Id']: 7,        // computed → roleId: 7
+  name,                      // same as name: 'Ada'
+  ['role' + 'Id']: 7,        // computed key: roleId
   greet() { return 'hi' },   // method shorthand
 }
 ```
@@ -46,8 +46,8 @@ See: [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 user.name                // → 'Ada'  (dot)
 user['name']             // → 'Ada'  (bracket)
 user[key]                // dynamic key from a variable
-user.address?.city       // → undefined if no address
-user.nickname ?? 'anon'  // → 'anon' when null/undefined
+user.address?.city       // → undefined (no address)
+user.nickname ?? 'anon'  // → 'anon' (nullish fallback)
 ```
 {: data-line="4-5"}
 

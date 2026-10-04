@@ -25,7 +25,7 @@ that reads like synchronous code.
 ```js
 async function load() {
   const res = await fetch('/data.json')
-  return res.json()        // → resolved value
+  return res.json()
 }
 
 load()                     // → Promise
@@ -36,7 +36,7 @@ load()                     // → Promise
 try {
   const data = await load()
 } catch (err) {
-  console.error(err)       // → rejection lands here
+  console.error(err)       // rejection lands here
 }
 ```
 {: data-line="2"}
@@ -75,28 +75,34 @@ See: [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### Timers
 
+#### setTimeout()
+
 ```js
 const id = setTimeout(() => {
   console.log('later')
-}, 1000)                   // → after 1000 ms
+}, 1000)
 
-clearTimeout(id)           // → cancel it
+clearTimeout(id)
 ```
 {: data-line="5"}
+
+#### setInterval()
 
 ```js
 const id = setInterval(() => {
   console.log('tick')
-}, 1000)                   // → every 1000 ms
+}, 1000)
 
-clearInterval(id)          // → stop it
+clearInterval(id)
 ```
 {: data-line="5"}
+
+#### sleep()
 
 ```js
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-await sleep(1000)          // → wait one second
+await sleep(1000)
 ```
 
 `setTimeout()` runs once; `setInterval()` repeats until cleared. `sleep()`
@@ -112,7 +118,7 @@ const controller = new AbortController()
 fetch('/data.json', { signal: controller.signal })
   .catch(err => console.error(err.name))
 
-controller.abort()         // → cancels the request
+controller.abort()
 ```
 {: data-line="6"}
 
@@ -136,13 +142,13 @@ load()                     // floating promise, unhandled
 
 ```js
 items.forEach(async item => {
-  await save(item)         // → forEach ignores this
+  await save(item)         // forEach ignores this
 })
 ```
 
 ```js
 for (const item of items) {
-  await save(item)         // → sequential, one at a time
+  await save(item)         // sequential, one at a time
 }
 ```
 

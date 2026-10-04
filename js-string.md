@@ -50,7 +50,7 @@ See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ```js
 for (const ch of 'hi') {
-  console.log(ch)    // → "h", then "i"
+  console.log(ch)    // logs "h", then "i"
 }
 ```
 

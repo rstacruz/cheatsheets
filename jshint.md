@@ -9,8 +9,6 @@ intro: |
 ### Introduction
 {: .-intro}
 
-JSHint is configured with inline `/* jshint ... */` directives.
-
 - [JSHint options](https://jshint.com/docs/options/) _(jshint.com)_
 
 ### Relaxing

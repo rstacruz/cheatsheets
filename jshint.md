@@ -142,7 +142,7 @@ See: [Enforcing options](https://jshint.com/docs/options/#enforcing-options) _(j
 /* jshint ignore:end */
 ```
 
-See: [JSHint options](https://jshint.com/docs/options/) _(jshint.com)_
+See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jshint.com)_
 
 ### Globals and Environments
 

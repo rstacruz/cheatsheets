@@ -67,8 +67,6 @@ title: Command line stuff
 | `-nN` | N lines |
 | `+N`  | Start from line N |
 
-<br>
-
 ## Sudo
 {: .-three-column}
 

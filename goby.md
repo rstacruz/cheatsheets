@@ -1242,7 +1242,7 @@ You can call `#lazy.map` on `Array`, `Range`, or `JSON` objects.
 ### Quick style guide
 
 * UTF-8 should be used.
-* Only two spaces `  ` should be used for one indentation.
+* Only two spaces should be used for one indentation.
     * Tab cannot be used for indentation.
 * For more, follow [RuboCop's style guide](https://github.com/bbatsov/ruby-style-guide) in principle.
 

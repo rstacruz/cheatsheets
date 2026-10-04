@@ -2,7 +2,7 @@ import type { Code, RootContent } from 'mdast'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
-import { getPages } from '../page'
+import { collectSheetFindings } from './utils'
 
 // mdast reports fenced and indented code alike, so check the opening line
 const FENCE = /^(?:\s*(?:>\s*|[-*+]\s+|\d+[.)]\s+))*\s*(?:`{3,}|~{3,})/
@@ -131,26 +131,5 @@ describe('findIndentedCodeBlocks()', () => {
 })
 
 test('every sheet uses fenced code blocks', async () => {
-  const pages = await getPages()
-  const includes = import.meta.glob('../../../_includes/**/*.md', {
-    eager: true,
-    query: '?raw',
-    import: 'default'
-  }) as Record<string, string>
-
-  const findings: string[] = []
-  const collect = (slug: string, source: string) => {
-    for (const { line, text } of findIndentedCodeBlocks(source)) {
-      findings.push(`${slug}:${line}: ${text}`)
-    }
-  }
-
-  for (const page of Object.values(pages)) {
-    collect(page.slug, page.markdown)
-  }
-  for (const [filePath, source] of Object.entries(includes)) {
-    collect(filePath, source)
-  }
-
-  expect(findings).toEqual([])
+  expect(await collectSheetFindings(findIndentedCodeBlocks)).toEqual([])
 })

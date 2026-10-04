@@ -1,4 +1,4 @@
-import { getPages } from '../page'
+import { collectSheetFindings } from './utils'
 
 // The remark pipeline marked these whitespace shapes so kramdown's output
 // could be reproduced (see preserveWhitespace in src/lib/markdown/index.ts).
@@ -44,13 +44,13 @@ function scanFences(lines: string[]) {
   return { fenced, indent }
 }
 
-export type WhitespaceIssue = {
+type WhitespaceIssue = {
   line: number
   text: string
   reason: 'trailing-space' | 'continuation-indent' | 'fence-whitespace'
 }
 
-export function findShimWhitespace(source: string): WhitespaceIssue[] {
+function findShimWhitespace(source: string): WhitespaceIssue[] {
   const lines = source.split('\n')
   const { fenced, indent } = scanFences(lines)
   const issues: WhitespaceIssue[] = []
@@ -136,26 +136,12 @@ describe('findShimWhitespace()', () => {
 })
 
 test('every sheet avoids shim-only whitespace', async () => {
-  const pages = await getPages()
-  const includes = import.meta.glob('../../../_includes/**/*.md', {
-    eager: true,
-    query: '?raw',
-    import: 'default'
-  }) as Record<string, string>
-
-  const findings: string[] = []
-  const collect = (slug: string, source: string) => {
-    for (const issue of findShimWhitespace(source)) {
-      findings.push(
-        `${slug}:${issue.line}: [${issue.reason}] ${JSON.stringify(issue.text)}`
-      )
-    }
-  }
-
-  for (const page of Object.values(pages)) collect(page.slug, page.markdown)
-  for (const [filePath, source] of Object.entries(includes)) {
-    collect(filePath, source)
-  }
+  const findings = await collectSheetFindings((source) =>
+    findShimWhitespace(source).map(({ line, text, reason }) => ({
+      line,
+      text: `${JSON.stringify(text)} [${reason}]`
+    }))
+  )
 
   expect(findings).toEqual([])
 })

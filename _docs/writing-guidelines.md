@@ -61,6 +61,11 @@ links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the
 `phoenix-*` sheets. Name the index after the subject (eg `javascript.md` for the
 JavaScript category) so the family has a canonical landing page.
 
+Index sheets should stand on their own as quick references: give each section a
+substantial example (at least five use cases per code block) rather than a
+sparse two-line snippet. The Arrays section in [javascript.md](/javascript)
+shows the shape.
+
 ## Code blocks
 
 - Maximum line width is 70 characters

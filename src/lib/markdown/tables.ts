@@ -11,6 +11,7 @@ import type { State } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import { visit } from 'unist-util-visit'
+import { scanFences } from '~/lib/sheetValidation/utils'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
@@ -54,7 +55,6 @@ export type KramdownCell = {
 
 const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
 const HSEP_ALIGN = /[ \t]?(:?)-+(:?)[ \t]?/g
-const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 
 // kramdown's element categories (parser/html.rb): a line opening a non-span
 // tag is an HTML block, and a span-level element hides its body from the
@@ -440,30 +440,13 @@ function encodeTable(table: KramdownTable): string {
  */
 export function encodeKramdownTables(md: string): string {
   const lines = md.split('\n')
+  const { fenced } = scanFences(lines)
   const out: string[] = []
-  let fence: string | null = null
 
   for (let index = 0; index < lines.length; index++) {
     const line = lines[index]
-    const fenceMatch = FENCE_LINE.exec(line)
 
-    if (fenceMatch) {
-      if (fence) {
-        // A closing fence needs at least as many characters as the opener
-        if (
-          fenceMatch[2][0] === fence[0] &&
-          fenceMatch[2].length >= fence.length &&
-          fenceMatch[3].trim() === ''
-        ) {
-          fence = null
-        }
-      } else if (fenceMatch[2][0] === '~' || !fenceMatch[3].includes('`')) {
-        fence = fenceMatch[2]
-      }
-      out.push(line)
-      continue
-    }
-    if (fence) {
+    if (fenced[index]) {
       out.push(line)
       continue
     }

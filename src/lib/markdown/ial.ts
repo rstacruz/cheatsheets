@@ -4,49 +4,10 @@ import { visit } from 'unist-util-visit'
 import { TABLE_SENTINEL_LANG } from './tables'
 
 /**
- * Fence scanning plus two post-parse shims: `restoreCodeLanguage` keeps Prism
- * classes when an IAL sets `<code>` attributes, and `hoistCodeAttrs` moves
- * non-`language-*` attributes to `<pre>` like kramdown
+ * Two post-parse shims: `restoreCodeLanguage` keeps Prism classes when an IAL
+ * sets `<code>` attributes, and `hoistCodeAttrs` moves non-`language-*`
+ * attributes to `<pre>` like kramdown
  */
-
-const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
-
-/** Marks lines inside or opening/closing a fenced code block */
-export function scanFences(lines: string[]) {
-  const fenced = new Array<boolean>(lines.length).fill(false)
-  // Opening fence indentation, for lines inside the block
-  const indent = new Array<number>(lines.length).fill(0)
-  let fence: string | null = null
-  let opener = 0
-
-  lines.forEach((line, index) => {
-    const match = FENCE_LINE.exec(line)
-    if (fence) {
-      fenced[index] = true
-      indent[index] = opener
-      // A closing fence needs at least as many characters as the opener
-      if (
-        match &&
-        match[2][0] === fence[0] &&
-        match[2].length >= fence.length &&
-        match[3].trim() === ''
-      ) {
-        fence = null
-      }
-    } else if (match && (match[2][0] === '~' || !match[3].includes('`'))) {
-      fence = match[2]
-      opener = match[1].length
-      fenced[index] = true
-      indent[index] = opener
-    }
-  })
-
-  return { fenced, indent }
-}
-
-export function fenceFlags(lines: string[]): boolean[] {
-  return scanFences(lines).fenced
-}
 
 /**
  * mdast-util-to-hast overwrites `<code>` className with the IAL's classes,

@@ -10,12 +10,19 @@ import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
 import { visit } from 'unist-util-visit'
 import { expandJekyll } from './jekyll'
-import { scanFences, hoistCodeAttrs, restoreCodeLanguage } from './ial'
+import { hoistCodeAttrs, restoreCodeLanguage } from './ial'
 import {
   encodeKramdownTables,
   kramdownTableHandler,
   kramdownTables
 } from './tables'
+import {
+  BLOCK_START,
+  HTML_BLOCK,
+  LINK_DEFINITION,
+  PREV_BLOCK_START,
+  scanFences
+} from '~/lib/sheetValidation/utils'
 
 /**
  * In-process remark pipeline replacing Ruby kramdown. Ordering constraint:
@@ -82,19 +89,8 @@ const WHITESPACE_MARK = '\uE000'
 /** Escapes pre-existing marker/escape characters so none are lost */
 const WHITESPACE_ESCAPE = '\uE001'
 
-const BLOCK_START =
-  /^(?:[#>|{}]|[-*+](\s|$)|\d+[.)](\s|$)|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
-const LINK_DEFINITION = /^\[[^\]]*\]:/
-// CommonMark HTML block starts (types 1-6)
-const HTML_BLOCK =
-  /^<(?:!--|\?|!\[CDATA\[|!DOCTYPE|\/?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\s|\/?>))/i
-
 const isBlockStart = (line: string) =>
   BLOCK_START.test(line) || LINK_DEFINITION.test(line) || HTML_BLOCK.test(line)
-
-// A list marker before a continuation does not end the paragraph
-// (`* item\n  continued`), so it is not a block start here
-const PREV_BLOCK_START = /^(?:[#>|{}]|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
 
 const isPrevBlockStart = (line: string) =>
   PREV_BLOCK_START.test(line) ||

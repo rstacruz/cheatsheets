@@ -21,8 +21,8 @@ All composer commands, depending on your install, may need to use `php composer.
 
 This command doesn't change any file. If `composer.lock` is not present, it will create it.
 
-`composer.lock` **should always** be committed to the repository. It has all the information needed to bring the 
-local dependencies to the last committed state. If that file is modified on the repository, you will need to run 
+`composer.lock` **should always** be committed to the repository. It has all the information needed to bring the
+local dependencies to the last committed state. If that file is modified on the repository, you will need to run
 `composer install` again after fetching the changes to update your local dependencies to those on that file.
 
 ### Updating packages

@@ -113,28 +113,6 @@ Tables use kramdown's dialect, not GFM's.
 {: .-also-see}
 ````
 
-## Whitespace
-
-CI rejects three shapes that only kramdown used to render:
-
-| Shape | Fix |
-| --- | --- |
-| A single trailing space on a wrapped line | Delete the space |
-| An indented continuation line (`  continued`) | Dedent to column 0 |
-| A whitespace-only line inside an indented fence | Make the line empty |
-
-````md
-# rejected; · is a trailing space
-Bring the·
-  local dependencies
-
-# accepted
-Bring the
-local dependencies
-````
-
-Punctuation renders as written: `--`, `...`, `<<` and straight quotes stay as typed.
-
 ## Jekyll tags
 
 Liquid is gone, but two legacy tags still expand:

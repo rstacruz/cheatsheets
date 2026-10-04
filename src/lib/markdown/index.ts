@@ -1,5 +1,3 @@
-import type { Root as HastRoot } from 'hast'
-import type { Handler, Handlers } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
@@ -22,56 +20,6 @@ import {
  * className
  */
 
-/**
- * kramdown emits a newline per block plus one per blank line in the source;
- * render.ts's sectionizer relies on that whitespace
- */
-function createHandlers(md: string): Handlers {
-  const lines = md.split('\n')
-
-  const blankBetween = (endLine?: number, startLine?: number) => {
-    if (endLine == null || startLine == null) return false
-    for (let i = endLine; i < startLine - 1; i++) {
-      if ((lines[i] ?? '').trim() === '') return true
-    }
-    return false
-  }
-
-  const root: Handler = (state, node) => {
-    const children: HastRoot['children'] = []
-
-    node.children.forEach((child, index) => {
-      const rendered = state.one(child, node)
-      const nodes = Array.isArray(rendered)
-        ? rendered
-        : rendered
-          ? [rendered]
-          : []
-      if (index > 0) {
-        const previous = node.children[index - 1]
-        children.push({
-          type: 'text',
-          value: blankBetween(
-            previous.position?.end.line,
-            child.position?.start.line
-          )
-            ? '\n\n'
-            : '\n'
-        })
-      }
-      children.push(...nodes)
-    })
-
-    if (children.length > 0) children.push({ type: 'text', value: '\n' })
-
-    const result: HastRoot = { type: 'root', children }
-    state.patch(node, result)
-    return state.applyData(node, result) as HastRoot
-  }
-
-  return { kramdownTable: kramdownTableHandler, root } as unknown as Handlers
-}
-
 export async function renderMarkdown(input: string): Promise<{ html: string }> {
   const md = encodeKramdownTables(expandJekyll(input))
 
@@ -83,7 +31,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(kramdownTables)
     .use(remarkRehype, {
       allowDangerousHtml: true,
-      handlers: createHandlers(md)
+      handlers: { kramdownTable: kramdownTableHandler }
     })
     .use(rehypeRaw)
     .use(hoistCodeAttrs)

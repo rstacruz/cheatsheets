@@ -4,44 +4,37 @@ import { describe, expect, it } from 'vitest'
 import { renderMarkdown } from './index'
 import { TABLE_SENTINEL_LANG } from './tables'
 
-// kramdown emits a newline per block, plus one per blank line
 describe('renderMarkdown', () => {
   it('renders a paragraph', async () => {
-    expect((await renderMarkdown('hola mundo')).html).toBe(
-      '<p>hola mundo</p>\n'
-    )
+    expect((await renderMarkdown('hola mundo')).html).toBe('<p>hola mundo</p>')
   })
 
   it('renders an H1 with a slug id', async () => {
     expect((await renderMarkdown('# hola mundo')).html).toBe(
-      '<h1 id="hola-mundo">hola mundo</h1>\n'
+      '<h1 id="hola-mundo">hola mundo</h1>'
     )
   })
 
   it('applies an own-line IAL to the previous heading', async () => {
     expect((await renderMarkdown('# hola mundo\n{: .heading}')).html).toBe(
-      '<h1 class="heading" id="hola-mundo">hola mundo</h1>\n'
+      '<h1 class="heading" id="hola-mundo">hola mundo</h1>'
     )
   })
 
   it('splits a multi-class IAL written without spaces', async () => {
     expect((await renderMarkdown('# hola\n{: .a.b}')).html).toBe(
-      '<h1 class="a b" id="hola">hola</h1>\n'
+      '<h1 class="a b" id="hola">hola</h1>'
     )
   })
 
   it('strips {% raw %} tags', async () => {
     const input = ['{% raw %}', 'This is some text', '{% endraw %}'].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<p>This is some text</p>\n'
-    )
+    expect((await renderMarkdown(input)).html).toBe('<p>This is some text</p>')
   })
 
   it('strips {%raw%} tags without spaces', async () => {
     const input = ['{%raw%}', 'This is some text', '{%endraw%}'].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<p>This is some text</p>\n'
-    )
+    expect((await renderMarkdown(input)).html).toBe('<p>This is some text</p>')
   })
 
   it('keeps following lines inside the paragraph after {% raw %}', async () => {
@@ -52,7 +45,7 @@ describe('renderMarkdown', () => {
       'next line'
     ].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
-      '<p>This is some text\nnext line</p>\n'
+      '<p>This is some text\nnext line</p>'
     )
   })
 
@@ -65,7 +58,7 @@ describe('renderMarkdown', () => {
       'next paragraph'
     ].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
-      '<p>This is some text</p>\n\n<p>next paragraph</p>\n'
+      '<p>This is some text</p>\n<p>next paragraph</p>'
     )
   })
 
@@ -90,13 +83,13 @@ describe('renderMarkdown', () => {
     expect(
       (await renderMarkdown('```ruby\nx\n```\n{: .-setup data-line="1"}')).html
     ).toBe(
-      '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>\n'
+      '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
     )
   })
 
   it('moves IAL classes to <pre> for a fence without a language', async () => {
     expect((await renderMarkdown('```\nx\n```\n{: .-setup}')).html).toBe(
-      '<pre class="-setup"><code>x\n</code></pre>\n'
+      '<pre class="-setup"><code>x\n</code></pre>'
     )
   })
 })
@@ -104,13 +97,13 @@ describe('renderMarkdown', () => {
 describe('compat transforms', () => {
   it('autolinks a bare URL', async () => {
     expect((await renderMarkdown('see http://example.com now')).html).toBe(
-      '<p>see <a href="http://example.com">http://example.com</a> now</p>\n'
+      '<p>see <a href="http://example.com">http://example.com</a> now</p>'
     )
   })
 
   it('autolinks an explicit <url> the same way', async () => {
     expect((await renderMarkdown('see <http://example.com> now')).html).toBe(
-      '<p>see <a href="http://example.com">http://example.com</a> now</p>\n'
+      '<p>see <a href="http://example.com">http://example.com</a> now</p>'
     )
   })
 
@@ -133,7 +126,7 @@ describe('kramdown tables', () => {
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
         '<tbody><tr><td>a</td><td>b</td></tr></tbody>' +
-        '<tbody><tr><td>c</td><td>d</td></tr></tbody></table>\n'
+        '<tbody><tr><td>c</td><td>d</td></tr></tbody></table>'
     )
   })
 
@@ -163,7 +156,7 @@ describe('kramdown tables', () => {
 
   it('does not treat a line whose only pipe is in a code span as a table', async () => {
     expect((await renderMarkdown('foo `a|b` bar')).html).toBe(
-      '<p>foo <code>a|b</code> bar</p>\n'
+      '<p>foo <code>a|b</code> bar</p>'
     )
   })
 
@@ -173,7 +166,7 @@ describe('kramdown tables', () => {
     )
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th><th>H3</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td><td>\u00a0</td></tr></tbody></table>\n'
+        '<tbody><tr><td>a</td><td>b</td><td>\u00a0</td></tr></tbody></table>'
     )
   })
 
@@ -181,7 +174,7 @@ describe('kramdown tables', () => {
     const input = ['| H1 | H2 |', '| --- | --- |', '| a | b | c |'].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th><th>\u00a0</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td><td>c</td></tr></tbody></table>\n'
+        '<tbody><tr><td>a</td><td>b</td><td>c</td></tr></tbody></table>'
     )
   })
 
@@ -189,7 +182,7 @@ describe('kramdown tables', () => {
     const input = ['| H1 | H2 |', '| --- | --- |', '| a |  |'].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>\u00a0</td></tr></tbody></table>\n'
+        '<tbody><tr><td>a</td><td>\u00a0</td></tr></tbody></table>'
     )
   })
 
@@ -197,7 +190,7 @@ describe('kramdown tables', () => {
     const input = ['H1 | H2', '--- | ---', 'a | b'].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n'
+        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>'
     )
   })
 
@@ -210,21 +203,19 @@ describe('kramdown tables', () => {
 
   it('does not table-ify pipes inside span-level HTML', async () => {
     expect((await renderMarkdown('<span>a | b</span>')).html).toBe(
-      '<p><span>a | b</span></p>\n'
+      '<p><span>a | b</span></p>'
     )
     expect((await renderMarkdown('<img src="a|b.png">')).html).toBe(
-      '<img src="a|b.png" />\n'
+      '<img src="a|b.png" />'
     )
-    expect((await renderMarkdown('<!-- a | b -->')).html).toBe(
-      '<!-- a | b -->\n'
-    )
+    expect((await renderMarkdown('<!-- a | b -->')).html).toBe('<!-- a | b -->')
   })
 
   it('still tables a bare pipe beside inline HTML', async () => {
     const input = ['| H1 | H2 |', '| --- | --- |', 'x<br> | y'].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>\n'
+        '<tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>'
     )
   })
 
@@ -232,26 +223,26 @@ describe('kramdown tables', () => {
     const input = ['````', '```', '', '| a | b |', '````'].join('\n')
     const { html } = await renderMarkdown(input)
     expect(html).not.toContain(TABLE_SENTINEL_LANG)
-    expect(html).toBe('<pre><code>```\n\n| a | b |\n</code></pre>\n')
+    expect(html).toBe('<pre><code>```\n\n| a | b |\n</code></pre>')
   })
 })
 
 describe('typography', () => {
   it('leaves punctuation as written', async () => {
     expect((await renderMarkdown('a -- b --- c ... "q" \'s\'')).html).toBe(
-      '<p>a -- b --- c ... "q" \'s\'</p>\n'
+      '<p>a -- b --- c ... "q" \'s\'</p>'
     )
   })
 
   it('leaves code spans, fences and raw <code> alone', async () => {
     expect((await renderMarkdown('`x -- y "q"`')).html).toBe(
-      '<p><code>x -- y "q"</code></p>\n'
+      '<p><code>x -- y "q"</code></p>'
     )
     expect((await renderMarkdown('```\nx -- y "q"\n```')).html).toBe(
-      '<pre><code>x -- y "q"\n</code></pre>\n'
+      '<pre><code>x -- y "q"\n</code></pre>'
     )
     expect((await renderMarkdown('<code>x -- y "q"</code>')).html).toBe(
-      '<p><code>x -- y "q"</code></p>\n'
+      '<p><code>x -- y "q"</code></p>'
     )
   })
 })
@@ -267,7 +258,7 @@ describe('list tightness', () => {
     const { html } = await renderMarkdown('- a\n\n  ```\n  x\n  ```\n- b')
     expect(html).toBe(
       '<ul>\n<li>\n<p>a</p>\n<pre><code>x\n</code></pre>\n</li>\n' +
-        '<li>\n<p>b</p>\n</li>\n</ul>\n'
+        '<li>\n<p>b</p>\n</li>\n</ul>'
     )
   })
 })

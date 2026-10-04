@@ -7,6 +7,8 @@ intro: |
   Creating, reading, and transforming plain JavaScript objects.
 ---
 
+## Basics
+
 ### Introduction
 {: .-intro}
 
@@ -85,6 +87,8 @@ Assigning a computed key adds or overwrites a property; `delete` removes one.
 
 See: [delete operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete) _(developer.mozilla.org)_
 
+## Operations
+
 ### Static methods
 
 | Call                    | Returns                    |
@@ -106,12 +110,6 @@ See: [Object.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 ### Iterating
 
 ```js
-for (const key in user) {      // own and inherited keys
-  console.log(key)
-}
-```
-
-```js
 for (const [key, value] of Object.entries(user)) {
   console.log(key, value)
 }
@@ -121,9 +119,9 @@ Object.entries(user).forEach(([key, value]) => {
 })
 ```
 
-`for...in` visits inherited enumerable keys too; `Object.entries()` with `for...of` visits own keys only.
+`Object.entries()` with `for...of` visits own enumerable keys only. Prefer it over `for...in`, which also walks inherited keys.
 
-See: [for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in), [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) _(developer.mozilla.org)_
+See: [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries), [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) _(developer.mozilla.org)_
 
 ### Copying
 

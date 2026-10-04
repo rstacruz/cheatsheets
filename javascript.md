@@ -8,6 +8,8 @@ intro: |
   collections, dates, async, and modules.
 ---
 
+## Built-in types
+
 ### Introduction
 {: .-intro}
 
@@ -82,6 +84,8 @@ now.toISOString()        // → "2026-10-04T00:00:00.000Z"
 [JavaScript Date cheatsheet](./js-date)
 {: .-crosslink}
 
+## Async and modules
+
 ### Async and promises
 
 ```js
@@ -112,7 +116,7 @@ const { title } = book
 [ES2015+ cheatsheet](./es6)
 {: .-crosslink}
 
-### Also see
+## Also see
 
 - [Promises cheatsheet](./promise)
 - [fetch() cheatsheet](./js-fetch)

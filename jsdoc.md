@@ -94,7 +94,7 @@ function play(song) {}
 
 See: [@typedef](https://jsdoc.app/tags-typedef) _(jsdoc.app)_
 
-### Typedef Shorthand
+### Typedef shorthand
 
 ```js
 /**

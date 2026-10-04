@@ -142,7 +142,7 @@ See: [Enforcing options](https://jshint.com/docs/options/#enforcing-options) _(j
 
 See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jshint.com)_
 
-### Globals and Environments
+### Globals and environments
 
 ```js
 /* jshint undef: true */

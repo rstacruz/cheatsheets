@@ -2,7 +2,7 @@ import type { RootContent } from 'mdast'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
-import { collectSheetFindings } from './utils'
+import { collectSheetFindings } from './sheets'
 
 function findUncoveredPipeLines(source: string) {
   const tree = unified().use(remarkParse).use(remarkGfm).parse(source)

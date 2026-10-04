@@ -1,48 +1,15 @@
-import { collectSheetFindings } from './utils'
+import { collectSheetFindings } from './sheets'
+import {
+  BLOCK_START,
+  HTML_BLOCK,
+  LINK_DEFINITION,
+  PREV_BLOCK_START,
+  scanFences
+} from './utils'
 
 // The remark pipeline marked these whitespace shapes so kramdown's output
 // could be reproduced (see preserveWhitespace in src/lib/markdown/index.ts).
 // Sheets keep them out so that pass can stay deleted.
-
-const BLOCK_START =
-  /^(?:[#>|{}]|[-*+](\s|$)|\d+[.)](\s|$)|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
-const LINK_DEFINITION = /^\[[^\]]*\]:/
-const HTML_BLOCK =
-  /^<(?:!--|\?|!\[CDATA\[|!DOCTYPE|\/?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\s|\/?>))/i
-// A list marker does not end a paragraph, so `- item` is not a block start
-const PREV_BLOCK_START = /^(?:[#>|{}]|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
-const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
-
-/** Fence membership and opening indent, following CommonMark's fence rules */
-function scanFences(lines: string[]) {
-  const fenced = new Array<boolean>(lines.length).fill(false)
-  const indent = new Array<number>(lines.length).fill(0)
-  let fence: string | null = null
-  let opener = 0
-
-  lines.forEach((line, index) => {
-    const match = FENCE_LINE.exec(line)
-    if (fence) {
-      fenced[index] = true
-      indent[index] = opener
-      if (
-        match &&
-        match[2][0] === fence[0] &&
-        match[2].length >= fence.length &&
-        match[3].trim() === ''
-      ) {
-        fence = null
-      }
-    } else if (match && (match[2][0] === '~' || !match[3].includes('`'))) {
-      fence = match[2]
-      opener = match[1].length
-      fenced[index] = true
-      indent[index] = opener
-    }
-  })
-
-  return { fenced, indent }
-}
 
 type WhitespaceIssue = {
   line: number

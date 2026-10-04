@@ -2,7 +2,7 @@ import type { Code, RootContent } from 'mdast'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
-import { collectSheetFindings } from './utils'
+import { collectSheetFindings } from './sheets'
 
 // mdast reports fenced and indented code alike, so check the opening line
 const FENCE = /^(?:\s*(?:>\s*|[-*+]\s+|\d+[.)]\s+))*\s*(?:`{3,}|~{3,})/

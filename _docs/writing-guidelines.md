@@ -54,7 +54,7 @@ block with an arrow:
 
 - Put the link on its own paragraph, with the IAL on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
-- Link with a root-relative slug, eg `./js-string`.
+- Link with a page-relative path, eg `./js-string`.
 
 A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
 links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the

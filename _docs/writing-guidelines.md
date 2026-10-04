@@ -1,5 +1,30 @@
 # Cheatsheet guidelines
 
+## Frontmatter
+
+| Field | Type | Effect |
+| --- | --- | --- |
+| `title` | string | Sheet name; falls back to the filename |
+| `category` | string | Nav group; `Hidden` unlists the sheet |
+| `weight` | number | Sorts higher in the "top" lists |
+| `tags` | string[] | `Featured` puts the sheet on the home page |
+| `updated` | date | "Last updated" and recent lists |
+| --- | --- | --- |
+| `intro` | string | Text above the fold; also the meta description |
+| `keywords` | string[] | Search terms; meta description fallback |
+| `description` | string | Custom meta description (beats `keywords`) |
+| `deprecated` | boolean | Notice + unlist; the archive page keeps it |
+| `deprecated_by` | string | Path of the newer sheet; also deprecates |
+
+```yaml
+---
+title: React
+category: JavaScript libraries
+tags: [Featured]
+updated: 2024-01-01
+---
+```
+
 ## Content organisation
 
 - **Progressive complexity:** Start with basics, move to advanced

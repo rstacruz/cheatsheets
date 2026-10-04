@@ -6,26 +6,23 @@ category: Hidden
 ### About
 {: .-intro}
 
-Sheets are Markdown with a small kramdown-style dialect: own-line attribute lists, kramdown tables, and fenced code. The renderer is `src/lib/markdown/`, and `src/lib/sheetValidation/` fails CI when a sheet breaks the rules below.
+Sheets are CommonMark plus GFM, with a small kramdown-style layer on top. This page covers that layer, the CI rules, and where the result differs from plain CommonMark.
 
 - [Cheatsheet styles](/cheatsheet-styles) _(class catalogue)_
-- [Writing guidelines](/_docs/writing-guidelines) _(prose and layout)_
+- [Writing guidelines](/_docs/writing-guidelines) _(prose, layout, frontmatter)_
 
-## Frontmatter
+## Differences from CommonMark
 
-| Field | Type | Effect |
+| Area | Plain CommonMark | Here |
 | --- | --- | --- |
-| `title` | string | Sheet name; falls back to the filename |
-| `category` | string | Nav group; `Hidden` unlists the sheet |
-| `weight` | number | Sorts higher in the "top" lists |
-| `tags` | string[] | `Featured` puts the sheet on the home page |
-| `updated` | date | "Last updated" and recent lists |
-| --- | --- | --- |
-| `intro` | string | Text above the fold; also the meta description |
-| `keywords` | string[] | Search terms; meta description fallback |
-| `description` | string | Custom meta description (beats `keywords`) |
-| `deprecated` | boolean | Notice + unlist; the archive page keeps it |
-| `deprecated_by` | string | Path of the newer sheet; also deprecates |
+| Attribute lists | none | own-line `{: … }` applies to the block above |
+| Tables | GFM tables only | extra `| --- |` rows split `<tbody>`; short rows padded with `&nbsp;` |
+| Table alignment | GFM's `:---` markers | markers are ignored; use `.-left-align` |
+| Code | indented code allowed | fences only, enforced by CI |
+| Headerless tables | GFM rejects them | rejected by CI too |
+| Jekyll tags | literal text | `raw` pairs strip; `common/` includes inline |
+| Headings | no ids | slugs are added as `id` attributes |
+| GFM extras | none | strikethrough, bare-URL autolinks |
 
 ## Sections
 
@@ -86,20 +83,35 @@ Tables use kramdown's dialect, not GFM's.
 
 - A header row plus a `| --- |` separator row is required; headerless tables are rejected by CI.
 - Extra `| --- |` rows split the table into more `<tbody>` sections.
-- Alignment: `:---` left, `:---:` center, `---:` right.
-- Short rows are padded out to the widest row.
+- Short rows are padded out to the widest row with `&nbsp;`.
+- Alignment markers (`:---`, `:---:`, `---:`) are accepted but ignored.
 - Classes: `.-shortcuts` / `.-shortcuts-right` (key columns), `.-key-values`, `.-css-breakdown`, `.-left-align`, `.-headers`, `.-no-wrap`.
+
+````md
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Dev server |
+| --- | --- |
+| `pnpm build` | Production build |
+````
 
 | Command | Description |
 | --- | --- |
 | `pnpm dev` | Dev server |
+| --- | --- |
 | `pnpm build` | Production build |
 
 ## Lists
 
-- Tight and loose lists follow CommonMark; keep items tight unless a blank line is intended.
+- Tight and loose lists follow CommonMark; a blank line between items makes the list loose and wraps items in `<p>`.
 - Don't indent wrapped item text; continuation lines start at column 0.
 - `.-also-see` lays a link list out as a row; `.-six-column` and `.-four-column` lay items out in columns.
+
+````md
+* [Alpha](/alpha)
+* [Beta](/beta)
+{: .-also-see}
+````
 
 ## Whitespace
 
@@ -111,6 +123,16 @@ CI rejects three shapes that only kramdown used to render:
 | An indented continuation line (`  continued`) | Dedent to column 0 |
 | A whitespace-only line inside an indented fence | Make the line empty |
 
+````md
+# rejected; · is a trailing space
+Bring the·
+  local dependencies
+
+# accepted
+Bring the
+local dependencies
+````
+
 Punctuation renders as written: `--`, `...`, `<<` and straight quotes stay as typed.
 
 ## Jekyll tags
@@ -120,12 +142,13 @@ Liquid is gone, but two legacy tags still expand:
 - a `raw` / `endraw` pair strips itself;
 - an include tag with a `common/<file>.md` path inlines `_includes/common/<file>.md`, substituting the tag's `title` into the file's `include.title` placeholder.
 
-Everything else (`if`, `{{ … }}`) stays literal text.
+They can't be shown here, since writing them literally expands them. Everything else (`if`, `{{ … }}`) stays literal text.
 
 ## Not supported
 
 - `{::options … /}` — renders as literal text.
 - Indented code blocks and headerless tables — rejected by CI.
+- Alignment markers (`:---`) — ignored; see [Tables](#tables).
 - `=` (tfoot) and `+` separator rows — no longer special; they become ordinary rows.
 - Inline IALs (`* {:.cls} item`) — not applied; use an own-line IAL.
 - Tables inside blockquotes or lists — fall back to GFM's table HTML.

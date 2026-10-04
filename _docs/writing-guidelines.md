@@ -45,7 +45,7 @@ H3 content length:
 
 ## Format
 
-- Documentation is in the format of Markdown with Kramdown class extensions
+- Documentation is in the format of Markdown with Kramdown class extensions (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
   - `{: .-prime}` - Visually highlighted section. Only use once per document at most.
 - PRE elements can have:

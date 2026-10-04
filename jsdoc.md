@@ -132,7 +132,7 @@ See: [@typedef](https://jsdoc.app/tags-typedef) _(jsdoc.app)_
 function test(x) {}
 ```
 
-This syntax is [TypeScript-specific](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
+This syntax is TypeScript-specific.
 
 See: [JSDoc-supported types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) _(typescriptlang.org)_
 

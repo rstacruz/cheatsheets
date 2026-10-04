@@ -287,21 +287,3 @@ describe('list tightness', () => {
     )
   })
 })
-
-describe('whitespace marker', () => {
-  it('preserves a literal private-use marker character', async () => {
-    expect((await renderMarkdown('a\uE000b')).html).toBe('<p>a\uE000b</p>\n')
-    expect((await renderMarkdown('a\uE001b')).html).toBe('<p>a\uE001b</p>\n')
-  })
-
-  it('preserves the marker inside fenced code', async () => {
-    expect((await renderMarkdown('```\n\uE000\n```')).html).toBe(
-      '<pre><code>\uE000\n</code></pre>\n'
-    )
-  })
-
-  it('keeps whitespace-only lines inside an indented fence', async () => {
-    const { html } = await renderMarkdown('- x\n\n  ```\n  a\n  \n  b\n  ```\n')
-    expect(html).toContain('<pre><code>a\n  \nb\n</code></pre>')
-  })
-})

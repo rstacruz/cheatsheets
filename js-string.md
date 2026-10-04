@@ -38,13 +38,13 @@ See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Basics
 
-| Expression             | Result  |
-| ---                    | ---     |
-| `'hello'.length`       | `5`     |
-| `'hello'[1]`           | `'e'`   |
-| `'hello'.at(-1)`       | `'o'`   |
-| `'hello'.charAt(1)`    | `'e'`   |
-| `'hello'.charCodeAt(1)`| `101`   |
+```js
+'hello'.length         // → 5
+'hello'[1]             // → 'e'
+'hello'.at(-1)         // → 'o'
+'hello'.charAt(1)      // → 'e'
+'hello'.charCodeAt(1)  // → 101
+```
 
 ```js
 for (const ch of 'hi') {

@@ -10,8 +10,6 @@ intro: |
 ### Introduction
 {: .-intro}
 
-JSDoc annotates JavaScript with `/** */` doc comments.
-
 - [JSDoc documentation](https://jsdoc.app/) _(jsdoc.app)_
 - [Block tags](https://jsdoc.app/#block-tags) _(jsdoc.app)_
 

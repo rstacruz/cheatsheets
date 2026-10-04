@@ -544,8 +544,8 @@ user = User.create(
 )
 ```
 
-You can also specify a class option as the second parameter that’ll raise an 
-exception if a serialized object is retrieved as a descendant of a class not in 
+You can also specify a class option as the second parameter that’ll raise an
+exception if a serialized object is retrieved as a descendant of a class not in
 the hierarchy.
 
 ```ruby

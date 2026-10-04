@@ -230,5 +230,5 @@ match ':controller(/:action(/:id(.:format)))'
  * [Guides/Routing](http://guides.rubyonrails.org/routing.html)
 
  * [ActionDispatch::Routing::Mapper](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
-    (See included modules)
+(See included modules)
 

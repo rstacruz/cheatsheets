@@ -59,15 +59,15 @@ H3 content length:
 
   ````markdown
   ### Setting default props
-  
+
   ```jsx
   Hello.defaultProps = {
     color: 'blue'
   }
   ```
-  
+
   Default properties are used if no properties are given.
-  
+
   See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
   ````
 
@@ -75,9 +75,9 @@ H3 content length:
 
   ````markdown
   ### via Data Attributes
-  
+
   #### index.html.erb
-  
+
   ```html
   <a
     href="#"
@@ -87,9 +87,9 @@ H3 content length:
     >Increment <%= @count.to_i %></a
   >
   ```
-  
+
   #### counter_reflex.rb
-  
+
   ```ruby
   class CounterReflex < StimulusReflex::Reflex
     def increment
@@ -97,9 +97,9 @@ H3 content length:
     end
   end
   ```
-  
+
   Trigger reflexes without writing any javascript with the `data-reflex` attribute.
-  
+
   ````
 
 - When showing reference information, use tables for quick scanning. Example:

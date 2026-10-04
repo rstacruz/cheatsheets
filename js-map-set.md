@@ -115,7 +115,7 @@ seen.has(element)    // → true
 seen.delete(element)
 ```
 
-Keys must be objects, entries are not enumerable, and they are garbage
-collected with the key. There is no `.size` or `.clear()`.
+Keys must be objects or non-registered symbols, entries are not enumerable,
+and they are garbage collected with the key. There is no `.size` or `.clear()`.
 
 See: [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) _(developer.mozilla.org)_

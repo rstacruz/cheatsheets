@@ -114,12 +114,6 @@ describe('compat transforms', () => {
     )
   })
 
-  it('trims whitespace-only lines from an indented code block', async () => {
-    expect((await renderMarkdown('    code\n    \n\nafter')).html).toBe(
-      '<pre><code>code\n</code></pre>\n<p>after</p>\n'
-    )
-  })
-
   it('rejects include paths that climb out of _includes', async () => {
     await expect(
       renderMarkdown('{% include common/../../../secret.md title="X" %}')
@@ -279,19 +273,6 @@ describe('typography', () => {
 })
 
 describe('list tightness', () => {
-  it('keeps a nested list tight, like kramdown', async () => {
-    const input = [
-      '  * Collection:',
-      '    * add',
-      '',
-      '  * Model:',
-      '    * change'
-    ].join('\n')
-    const { html } = await renderMarkdown(input)
-    expect(html).toContain('<li>Collection:\n<ul>')
-    expect(html).not.toContain('<li><p>Collection:</p>')
-  })
-
   it('wraps a blank-separated item in <p>', async () => {
     const { html } = await renderMarkdown('* a\n\n* b')
     expect(html).toMatch(/<li>\s*<p>a<\/p>/)

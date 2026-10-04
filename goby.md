@@ -811,9 +811,9 @@ puts "Hello" + ' ' + 'world'  #=> Hello world
 Fixed to **UTF-8** with mb4 support.
 
 * **`String.methods`**: `fmt`,
-    * the rest: `Class.methods`
+  * the rest: `Class.methods`
 * **`"a".methods`**:  `!=`, `*`, `+`, `<`, `<=>`, `==`, `=~`, `>`, `[]`, `[]=`, `capitalize`, `chop`, `concat`, `count`, `delete`, `downcase`, `each_byte`, `each_char`, `each_line`, `empty?`, `end_with?`, `eql?`, `fmt`, `include?`, `insert`, `length`, `ljust`, `match`, `new`, `replace`, `replace_once`, `reverse`, `rjust`, `size`, `slice`, `split`, `start_with`, `strip`, `to_a`, `to_bytes`, `to_d`, `to_f`, `to_i`, `to_s`, `upcase`,
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Integer`
 
@@ -823,7 +823,7 @@ Fixed to **UTF-8** with mb4 support.
 
 * **`Integer.methods`**: the same as `Class.methods`
 * **`1.methods`**: `!=`, `%`, `*`, `**`, `+`, `-`, `/`, `<`, `<=`, `<=>`, `==`, `>`, `>=`, `even?`, `new`, `next`, `odd?`, `pred`, `ptr`, `times`, `to_f`, `to_float32`, `to_float64`, `to_i`, `to_int`, `to_int16`, `to_int32`, `to_int64`, `to_int8`, `to_s`, `to_uint`, `to_uint16`, `to_uint32`, `to_uint64`, `to_uint8`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Array`
 
@@ -833,7 +833,7 @@ Fixed to **UTF-8** with mb4 support.
 
 * **`Array.methods`**: the same as `Class.methods`
 * **`[1].methods`**: `*`, `+`, `[]`, `[]=`, `any?`, `at`, `clear`, `concat`, `count`, `delete_at`, `dig`, `each`, `each_index`, `empty?`, `first`, `flatten`, `include?`, `join`, `last`, `lazy`, `length`, `map`, `new`, `pop`, `push`, `reduce`, `reverse`, `reverse_each`, `rotate`, `select`, `shift`, `to_enum`, `unshift`, `values_at`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Hash`
 
@@ -849,7 +849,7 @@ Keys in hash literals should be **symbol literals**, while Hash index can be eit
 
 * **`Hash.methods`**: the same as `Class.methods`
 * **`{ key: "value" }.methods`**: `[]`, `[]=`, `any?`, `clear`, `default`, `default=`, `delete`, `delete_if`, `dig`, `each`, `each_key`, `each_value`, `empty?`, `eql?`, `fetch`, `fetch_values`, `has_key?`, `has_value?`, `keys`, `length`, `map_values`, `merge`, `new`, `select`, `sorted_keys`, `to_a`, `to_json`, `to_s`, `transform_values`, `values`, `values_at`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Range`
 
@@ -861,7 +861,7 @@ end
 
 * **`Range.methods`**: the same as `Class.methods`
 * **`(1..10).methods`**: `!=`, `==`, `bsearch`, `each`, `first`, `include?`, `last`, `lazy`, `map`, `new`, `size`, `step`, `to_a`, `to_enum`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Block`
 
@@ -875,7 +875,7 @@ b.call  #=> 100
 
 * **`Block.methods`**: the same as `Class.methods`
 * **`(Block.new do end).methods`**: `call`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ## Native class (secondary)
 {: .-three-column}
@@ -891,7 +891,7 @@ Float literals like `3.14` or `-273.15`. `Float` class is based on Golang's `flo
 
 * **`Float.methods`**: the same as `Class.methods`
 * **`3.14.methods`**: `!=`, `%`, `*`, `**`, `+`, `-`, `/`, `<`, `<=`, `<=>`, `==`, `>`, `>=`, `new`, `ptr`, `to_d`, `to_i`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Decimal`
 
@@ -915,7 +915,7 @@ Experimental: the size is arbitrary and internally a fraction from Golang's `big
 
 * **`Decimal.methods`**: the same as `Class.methods`
 * **`(1.1).to_d.methods`**: `!=`, `*`, `**`, `+`, `-`, `/`, `<`, `<=`, `<=>`, `==`, `>`, `>=`, `denominator`, `fraction`, `inverse`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Regexp`
 
@@ -937,7 +937,7 @@ Using `/ /` is to be implemented.
 
 * **`Regexp.methods`**: the same as `Class.methods`
 * **`Regexp.new("^aa$").methods`**: `==`, `match?`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `MatchData`
 
@@ -959,7 +959,7 @@ The number keys in the captures are actually `String` class.The key `0` is the m
 
 * **`MatchData.methods`**: the same as `Class.methods`
 * **`'abcd'.match(Regexp.new('(b.)')).methods`**: `captures`, `length`, `new`, `to_a`, `to_h`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `File`
 
@@ -969,9 +969,9 @@ f.name  #=> "../test_fixtures/file_test/size.gb"
 ```
 
 * **`File.methods`**: `basename`, `chmod`, `delete`, `exist?`, `extname`, `join`
-    * the rest: `Class.methods`
+  * the rest: `Class.methods`
 * **`File.new.methods`**: `basename`, `chmod`, `close`, `delete`, `exist?`, `extname`, `join`, `name`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ## Native class (Golang-oriented)
 {: .-three-column}
@@ -987,7 +987,7 @@ h2[:foo]   #=> "bar"
 
 * **`GoMap.methods`**: the same as `Class.methods`
 * **`GoMap.new.methods`**: `get`, `set`, `to_hash`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `Channel`
 
@@ -1012,7 +1012,7 @@ r #=> 500500
 
 * **`Channel.methods`**: the same as `Class.methods`
 * **`Channel.new.methods`**: `close`, `deliver`, `new`, `receive`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ## Enumerator & lazy
 
@@ -1038,7 +1038,7 @@ A shorthand `#lazy` method is also provided in `Array` and `Range` by now. See "
 
 * **`LazyEnumerator.methods`**: the same as `Class.methods`
 * **`[1, 2].lazy`**: `each`, `first`, `has_next?`, `initialize`, `map`, `next`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `ArrayEnumerator`
 
@@ -1056,7 +1056,7 @@ iterated_values   #=> [1, 2, 4]
 
 * **`ArrayEnumerator.methods`**: the same as `Class.methods`
 * **`ArrayEnumerator.new([1, 2, 3]).methods`**: `has_next?`, `initialize`, `next`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ### `RangeEnumerator`
 
@@ -1074,7 +1074,7 @@ iterated_values   #=> [1, 2, 3, 4]
 
 * **`RangeEnumerator.methods`**: the same as `Class.methods`
 * **`RangeEnumerator.new(1..2).methods`**: `has_next?`, `initialize`, `next`
-    * the rest: `Object.new.methods`
+  * the rest: `Object.new.methods`
 
 ## Special class
 
@@ -1124,9 +1124,9 @@ Spec.run
 ```
 
 * **`Spec.methods`**: `describe`, `describes`, `instance`, `run`
-    * the rest: `Object.methods`
+  * the rest: `Object.methods`
 * **`Spec.new.methods`**: `describes`, `initialize`, `run`, `session_successful`, `session_successful=`
-    * the rest: `Hash.new.methods`
+  * the rest: `Hash.new.methods`
 
 ## Tips & tricks
 
@@ -1243,7 +1243,7 @@ You can call `#lazy.map` on `Array`, `Range`, or `JSON` objects.
 
 * UTF-8 should be used.
 * Only two spaces should be used for one indentation.
-    * Tab cannot be used for indentation.
+  * Tab cannot be used for indentation.
 * For more, follow [RuboCop's style guide](https://github.com/bbatsov/ruby-style-guide) in principle.
 
 ### Document notation

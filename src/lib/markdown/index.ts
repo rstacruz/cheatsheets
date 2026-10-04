@@ -10,12 +10,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
 import { visit } from 'unist-util-visit'
 import { expandJekyll } from './jekyll'
-import {
-  fenceFlags,
-  scanFences,
-  hoistCodeAttrs,
-  restoreCodeLanguage
-} from './ial'
+import { scanFences, hoistCodeAttrs, restoreCodeLanguage } from './ial'
 import {
   encodeKramdownTables,
   kramdownTableHandler,
@@ -187,44 +182,8 @@ export function restoreWhitespace() {
   }
 }
 
-/** kramdown ends indented code before trailing blank lines; CommonMark keeps them */
-export function trimIndentedCodeBlocks(md: string): string {
-  const lines = md.split('\n')
-  const fenced = fenceFlags(lines)
-  const drop = new Set<number>()
-
-  let index = 0
-  while (index < lines.length) {
-    const atBoundary =
-      index === 0 ||
-      lines[index - 1].trim() === '' ||
-      isBlockStart(lines[index - 1].trimStart())
-    if (fenced[index] || !atBoundary || !/^ {4,}\S/.test(lines[index])) {
-      index++
-      continue
-    }
-
-    let end = index
-    let lastCode = index
-    while (
-      end < lines.length &&
-      !fenced[end] &&
-      (lines[end].trim() === '' || /^ {4,}/.test(lines[end]))
-    ) {
-      if (lines[end].trim() !== '') lastCode = end
-      end++
-    }
-    for (let i = lastCode + 1; i < end; i++) drop.add(i)
-    index = end
-  }
-
-  return lines.filter((_, i) => !drop.has(i)).join('\n')
-}
-
 export async function renderMarkdown(input: string): Promise<{ html: string }> {
-  const md = encodeKramdownTables(
-    preserveWhitespace(trimIndentedCodeBlocks(expandJekyll(input)))
-  )
+  const md = encodeKramdownTables(preserveWhitespace(expandJekyll(input)))
 
   const result = await unified()
     .use(remarkParse)

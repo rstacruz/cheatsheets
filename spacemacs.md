@@ -130,7 +130,7 @@ Shortcuts
 | Description  | Shortcut |
 | ---          | ---      |
 | Line numbers | `n`      |
-{: .-shortcuts
+{: .-shortcuts}
 
 ### `SPC` `j` - Jump
 

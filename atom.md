@@ -99,12 +99,12 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 ## Notes
 
-### ⌘
+### ⌘ Command
 
 - For Windows and Linux, `⌘` is the `Control` key.
 - For macOS, it's the `Command` key.
 
-### ⌥
+### ⌥ Option
 
 - For Windows and Linux, `⌥` is the `Alt` key.
 - For macOS, it's the `Option` key.

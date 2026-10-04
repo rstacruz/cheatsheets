@@ -10,8 +10,6 @@ intro: |
 ### Introduction
 {: .-intro}
 
-`list` below stands for an array such as `[a, b, c, d, e]`; comments show results.
-
 - [MDN Array reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) _(developer.mozilla.org)_
 
 ### Accessing

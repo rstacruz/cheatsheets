@@ -114,7 +114,8 @@ See: [toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 'm-d'.replace(/(\w+)/, '[$1]') // → "[m]-d"
 ```
 
-`replace()` changes the first match only; `replaceAll()` needs a global regex.
+`replace()` changes the first match only; a regex given to `replaceAll()` must
+have the `g` flag.
 
 See: [replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace), [replaceAll()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) _(developer.mozilla.org)_
 

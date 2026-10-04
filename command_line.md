@@ -7,7 +7,9 @@ title: Command line stuff
 
 ### Usage
 
-    ls [options] [paths]
+```
+ls [options] [paths]
+```
 
 ### Format
 
@@ -48,7 +50,9 @@ title: Command line stuff
 
 ### Usage
 
-    tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+```
+tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+```
 
 ### Modes
 
@@ -176,12 +180,16 @@ grep [options] [pattern] [file ...]
 
 ### Synonyms
 
-    egrep  =>  grep -E
-    fgrep  =>  grep -F
+```
+egrep  =>  grep -E
+fgrep  =>  grep -F
+```
 
 ## Other recipes
 {: .-three-column}
 
 ### Search-and-replace in all files
 
-    perl -p -i -e 's/hello/HELLO/g' **/*
+```
+perl -p -i -e 's/hello/HELLO/g' **/*
+```

@@ -8,7 +8,9 @@ archived: Modernizr is no longer in active development.
 
 ### Script
 
-    <script src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'></script>
+```
+<script src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'></script>
+```
 
 ### Detections
 

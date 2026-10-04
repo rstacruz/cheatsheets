@@ -7,7 +7,9 @@ updated: 2020-06-13
 
 ### Navigating
 
-    visit articles_path
+```
+visit articles_path
+```
 
 ### Clicking links and buttons
 
@@ -255,8 +257,10 @@ end
 
 ### Misc
 
-    drag
-    field_labeled
+```
+drag
+field_labeled
+```
 
 ### Page object
 

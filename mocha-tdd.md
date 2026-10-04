@@ -5,37 +5,43 @@ category: JavaScript libraries
 
 ### TDD
 
-    mocha.setup('tdd');
+```
+mocha.setup('tdd');
 
-    suite('something', function() {
-      setup(function() {
-      });
+suite('something', function() {
+  setup(function() {
+  });
 
-      test('should work', function() {
-      });
+  test('should work', function() {
+  });
 
-      teardown(function() {
-      });
-    });
+  teardown(function() {
+  });
+});
+```
 
 ### Async
 
-    test('should save', function(done) {
-      var user = new User();
-      user.save(function(err) {
-        if (err) throw err;
-        done();
-      });
-    });
+```
+test('should save', function(done) {
+  var user = new User();
+  user.save(function(err) {
+    if (err) throw err;
+    done();
+  });
+});
+```
 
 ### Chai: Expect
 
-    var expect = chai.expect;
+```
+var expect = chai.expect;
 
-    expect(foo).to.be.a('string');
-    expect(foo).to.equal('bar');
-    expect(foo).to.have.length(3);
-    expect(tea).to.have.property('flavors').with.length(3);
+expect(foo).to.be.a('string');
+expect(foo).to.equal('bar');
+expect(foo).to.have.length(3);
+expect(tea).to.have.property('flavors').with.length(3);
+```
 
 ### See also
 

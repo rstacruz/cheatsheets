@@ -126,7 +126,9 @@ See: [BDD](http://chaijs.com/api/bdd/) _(chaijs.com)_
 
 ### Should: chains
 
-    .to .be .been .is .that .and .have .with .at .of .same
+```
+.to .be .been .is .that .and .have .with .at .of .same
+```
 
 These don't do anything and can be chained.
 

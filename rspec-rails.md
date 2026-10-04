@@ -13,14 +13,16 @@ RSpec is a Ruby library for testing. [rspec-rails](https://github.com/rspec/rspe
 
 ### Spec tasks
 
-    rake spec:controllers
-    rake spec:helpers
-    rake spec:lib
-    rake spec:mailers
-    rake spec:models
-    rake spec:requests
-    rake spec:routing
-    rake spec:views
+```
+rake spec:controllers
+rake spec:helpers
+rake spec:lib
+rake spec:mailers
+rake spec:models
+rake spec:requests
+rake spec:routing
+rake spec:views
+```
 
 ### Models
 

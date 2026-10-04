@@ -435,9 +435,11 @@ Do these in visual or normal mode.
 
 ### Text alignment
 
-    :center [width]
-    :right [width]
-    :left
+```
+:center [width]
+:right [width]
+:left
+```
 
 See `:help formatting`
 
@@ -451,8 +453,10 @@ Do this in insert mode.
 
 ### Exiting with an error
 
-    :cq
-    :cquit
+```
+:cq
+:cquit
+```
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 

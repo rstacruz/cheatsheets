@@ -109,8 +109,6 @@ archived: This sheet has not been updated with newer Firefox releases.
  * CSS improved `text-overflow`
  * JS `navigator.doNotTrack`
 
-### Firefox 8 (Nov 2011)
-
 ### Firefox 7 (Sep 2011)
 
   * CSS `text-overflow: ellipsis`

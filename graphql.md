@@ -4,8 +4,6 @@ updated: 2019-07-07
 category: API
 ---
 
-## Intro
-
 ## Queries
 {: .-three-column}
 

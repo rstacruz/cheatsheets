@@ -257,8 +257,6 @@ Allows you to limit Fastify versions via semver, and allows you not make a new F
 
 See: [fastify-plugin](https://github.com/fastify/fastify-plugin)
 
-### Decorators
-
 Middleware
 ----------
 

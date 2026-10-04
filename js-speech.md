@@ -42,7 +42,6 @@ list again once the `voiceschanged` event fires.
 ```js
 let voices = speechSynthesis.getVoices()
 
-// In some browsers, voices are not ready on page load
 if (voices.length === 0) {
   speechSynthesis.onvoiceschanged = () => {
     voices = speechSynthesis.getVoices()

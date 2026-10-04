@@ -15,7 +15,7 @@ category: API
 { status }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { status: 'available' }
@@ -28,7 +28,7 @@ category: API
 { hero { name height } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { hero:
@@ -43,7 +43,7 @@ category: API
 { friends { name } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { friends:
@@ -63,7 +63,7 @@ GraphQL queries look the same for both single items or lists of items.
 }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { hero:
@@ -81,7 +81,7 @@ GraphQL queries look the same for both single items or lists of items.
 }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { luke:
@@ -122,7 +122,7 @@ Just to make things less ambiguous. Also, to use variables, you need an operatio
 { review: { stars: 5 } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { createReview: { id: 5291 } }

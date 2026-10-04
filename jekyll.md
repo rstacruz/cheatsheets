@@ -161,7 +161,7 @@ Markup
   ...
 {% endif %}
 ```
-{: data-line="1,3,5,7 }
+{: data-line="1,3,5,7"}
 
 ```html
 {% if page.category == 'React' %}

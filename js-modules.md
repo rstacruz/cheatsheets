@@ -75,7 +75,9 @@ is the module's own URL.
 
 See: [import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import), [import.meta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta) _(developer.mozilla.org)_
 
-### Browser
+## Browser
+
+### Importing
 
 #### index.html
 
@@ -83,16 +85,24 @@ See: [import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 <script type="module" src="main.js"></script>
 ```
 
+Browser modules are deferred by default, and relative specifiers need the file
+extension.
+
+See: [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) _(developer.mozilla.org)_
+
+### Import maps
+
+#### index.html
+
 ```html
 <script type="importmap">
 { "imports": { "lodash": "/vendor/lodash.js" } }
 </script>
 ```
 
-Modules are deferred by default. Relative specifiers need file extensions;
-bare specifiers need an import map.
+Bare specifiers (eg `import 'lodash'`) need an import map.
 
-See: [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) _(developer.mozilla.org)_
+See: [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) _(developer.mozilla.org)_
 
 ## Node.js
 

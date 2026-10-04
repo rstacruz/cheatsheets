@@ -42,6 +42,25 @@ H3 content length:
   - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
   - `{: .-two-column}` - the default (don't add this since it's the default)
 
+## Cross-linking sheets
+
+Sheets can link to related sheets with `.-crosslink`, which renders as a large
+block with an arrow:
+
+````md
+[JavaScript Strings cheatsheet](./js-string)
+{: .-crosslink}
+````
+
+- Put the link on its own paragraph, with the IAL on the next line.
+- Link text: the target sheet's title plus "cheatsheet".
+- Link with a root-relative slug, eg `./js-string`.
+
+A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
+links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the
+`phoenix-*` sheets. Name the index after the subject (eg `javascript.md` for the
+JavaScript category) so the family has a canonical landing page.
+
 ## Code blocks
 
 - Maximum line width is 70 characters

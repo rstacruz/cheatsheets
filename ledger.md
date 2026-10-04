@@ -166,11 +166,13 @@ ledger bal --unbudgeted Expenses
 
 ### Comments
 
-    ; line comment
-    # also line comment
-    % also line comment
-    | also line comment
-    * also line comment
+```
+; line comment
+# also line comment
+% also line comment
+| also line comment
+* also line comment
+```
 
 Querying
 --------
@@ -251,21 +253,25 @@ $ ledger reg
 
 ### Queries
 
-    ^regex$
-    @payee
-    %tag
-    %tag=value
-    =note
-    #code
-    term and term
-    term or term
-    not term
-    \( term \)
+```
+^regex$
+@payee
+%tag
+%tag=value
+=note
+#code
+term and term
+term or term
+not term
+\( term \)
+```
 
 Example:
 
-    ledger r ^expenses and @Denny's
-    ledger r food and @Starbucks and not dining
+```
+ledger r ^expenses and @Denny's
+ledger r food and @Starbucks and not dining
+```
 
 ### Display
 

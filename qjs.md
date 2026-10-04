@@ -81,8 +81,10 @@ promise
 
 ### Try
 
-  Q.try ->
-    promise()
+```
+Q.try ->
+  promise()
 
-  .catch (e) ->
-    console.error "Oh well", e
+.catch (e) ->
+  console.error "Oh well", e
+```

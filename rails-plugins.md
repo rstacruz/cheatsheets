@@ -17,8 +17,8 @@ Initializers
 ### Initializers
 
 * [Rails::Railtie](http://edgeapi.rubyonrails.org/classes/Rails/Railtie.html)
-* [EngineYard blog 
-  post](http://www.engineyard.com/blog/2010/extending-rails-3-with-railties/)
+* [EngineYard blog
+post](http://www.engineyard.com/blog/2010/extending-rails-3-with-railties/)
 
 ### Initializer method
 
@@ -108,7 +108,7 @@ $ rails generate generator initializer
 
 ### NamedBase
 
-Use `NamedBase` instead if you want to take an argument. It will be available as 
+Use `NamedBase` instead if you want to take an argument. It will be available as
 `file_name`.
 
 ```

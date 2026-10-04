@@ -49,5 +49,5 @@ open coverage.html
 
 ### Caveats
 
-If you're using jsdom, be sure to expose the `window._$jscoverage` variable into 
+If you're using jsdom, be sure to expose the `window._$jscoverage` variable into
 the `global` scope.

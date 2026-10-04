@@ -13,8 +13,6 @@ intro: |
 ### Introduction
 {: .-intro}
 
-Common idioms for coercing values, compared with the explicit calls they replace.
-
 - [Operator reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators) _(developer.mozilla.org)_
 
 ### Examples

@@ -43,6 +43,6 @@ See: [Unary plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 | Check array contents | `if (~arr.indexOf(v))` | `if (arr.includes(v))` |
 {: .-left-align.-headers}
 
-`.includes` is ES6-only, otherwise use `.indexOf(val) !== -1` if you don't polyfill. `num | 0` rounds toward zero and wraps at 32 bits, unlike `Math.floor()`.
+`.includes` is ES2016-only, otherwise use `.indexOf(val) !== -1` if you don't polyfill. `num | 0` rounds toward zero and wraps at 32 bits, unlike `Math.floor()`.
 
 See: [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt), [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), [Boolean()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean) _(developer.mozilla.org)_

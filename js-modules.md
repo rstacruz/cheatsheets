@@ -81,6 +81,8 @@ See: [import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 | `.cjs`    | Always CommonJS               |
 | `.js`     | From `"type"` in package.json |
 
+#### package.json
+
 ```json
 { "type": "module" }
 ```
@@ -97,6 +99,8 @@ export. Node 22.12+ can `require()` ESM that avoids top-level await.
 See: [Node.js modules](https://nodejs.org/api/modules.html) _(nodejs.org)_
 
 ### Browser
+
+#### index.html
 
 ```html
 <script type="module" src="main.js"></script>

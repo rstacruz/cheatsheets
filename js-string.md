@@ -8,6 +8,8 @@ intro: |
   splitting text.
 ---
 
+## Basics
+
 ### Introduction
 {: .-intro}
 
@@ -36,7 +38,7 @@ String(null)   // → "null"
 
 See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), [String()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String) _(developer.mozilla.org)_
 
-### Basics
+### Accessing characters
 
 ```js
 'hello'.length         // → 5
@@ -84,6 +86,8 @@ See: [includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 `slice()` takes negative indexes; `substring()` clamps them to `0`.
 
 See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice), [substring()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring), [substr()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr) _(developer.mozilla.org)_
+
+## Operations
 
 ### Transforming
 

@@ -8,6 +8,8 @@ intro: |
   operations.
 ---
 
+## Basics
+
 ### Introduction
 {: .-intro}
 
@@ -75,6 +77,8 @@ The global `isNaN('x')` coerces its argument and returns `true`;
 `Number.isNaN('x')` is `false`.
 
 See: [Number.isInteger()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger), [Number.isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN), [Number.isSafeInteger()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger) _(developer.mozilla.org)_
+
+## Operations
 
 ### Rounding
 

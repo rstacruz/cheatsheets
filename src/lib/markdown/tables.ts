@@ -10,13 +10,11 @@ import type { Element, HastElementContent, Properties } from 'hast'
 import type { State } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
 import { visit } from 'unist-util-visit'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
- * in separator-row bodies, tfoot, alignment styles and
- * ragged-row padding
+ * in separator-row bodies, alignment styles and ragged-row padding
  *
  * Tables are lifted out before parsing so attribute-list can attach IALs, then
  * re-expanded into a custom node by `kramdownTables`
@@ -30,7 +28,7 @@ type Cell = PhrasingContent[]
 export type KramdownTable = {
   columns: number
   align: Align[]
-  containers: Array<{ type: 'thead' | 'tbody' | 'tfoot'; rows: string[][] }>
+  containers: Array<{ type: 'thead' | 'tbody'; rows: string[][] }>
 }
 
 export type KramdownTableNode = {
@@ -43,7 +41,7 @@ export type KramdownTableNode = {
 
 export type KramdownSection = {
   type: 'kramdownTableSection'
-  name: 'thead' | 'tbody' | 'tfoot'
+  name: 'thead' | 'tbody'
   children: KramdownRow[]
 }
 
@@ -54,8 +52,7 @@ export type KramdownCell = {
   children: PhrasingContent[]
 }
 
-const SEP_LINE = /^([+|: \t-]*?-[+|: \t-]*?)[ \t]*$/
-const FSEP_LINE = /^[+|: \t=]*?=[+|: \t=]*?[ \t]*$/
+const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
 const HSEP_ALIGN = /[ \t]?(:?)-+(:?)[ \t]?/g
 const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 
@@ -382,14 +379,11 @@ export function parseKramdownTable(
   const align: Align[] = []
   const containers: KramdownTable['containers'] = []
   let rows: string[][] = []
-  let hasFooter = false
   let columns = 0
 
-  const addContainer = (type: 'thead' | 'tbody' | 'tfoot', force = false) => {
-    if (!hasFooter || type !== 'tbody' || force) {
-      containers.push({ type, rows })
-      rows = []
-    }
+  const addContainer = (type: 'thead' | 'tbody') => {
+    containers.push({ type, rows })
+    rows = []
   }
 
   let index = start
@@ -403,15 +397,12 @@ export function parseKramdownTable(
     if (separator) {
       if (rows.length === 0) {
         // Consecutive separator lines are ignored
-      } else if (align.length === 0 && !hasFooter) {
+      } else if (align.length === 0) {
         addContainer('thead')
         align.push(...parseAlign(separator[1]))
       } else {
         addContainer('tbody')
       }
-    } else if (FSEP_LINE.test(line)) {
-      if (rows.length > 0) addContainer('tbody', true)
-      hasFooter = true
     } else {
       rows.push(rowCells(line, leadingPipe))
       columns = Math.max(columns, rows[rows.length - 1].length)
@@ -420,7 +411,7 @@ export function parseKramdownTable(
     index++
   }
 
-  if (rows.length > 0) addContainer(hasFooter ? 'tfoot' : 'tbody')
+  if (rows.length > 0) addContainer('tbody')
 
   // a header separator row is required; headerless pipe blocks are not tables
   if (align.length === 0) return undefined
@@ -443,40 +434,9 @@ function encodeTable(table: KramdownTable): string {
   return Buffer.from(JSON.stringify(table), 'utf8').toString('base64')
 }
 
-/** Container markup (blockquote/list) wrapping a table, re-applied to the sentinel */
-type Container = { kind: 'quote' | 'list'; prefix: string; indent: number }
-
-function containerPrefix(line: string): Container | null {
-  const quote = /^(\s*)((?:>[ \t]?)+)/.exec(line)
-  if (quote) return { kind: 'quote', prefix: quote[1] + quote[2], indent: 0 }
-  const list = /^(\s*)(?:[-*+]|\d+[.)])[ \t]+/.exec(line)
-  if (list) return { kind: 'list', prefix: list[0], indent: list[0].length }
-  return null
-}
-
-function stripContainer(line: string, container: Container): string | null {
-  if (container.kind === 'quote') {
-    const match = /^\s*(?:>[ \t]?)+/.exec(line)
-    return match ? line.slice(match[0].length) : null
-  }
-  const lead = /^ */.exec(line)?.[0].length ?? 0
-  return lead < container.indent ? null : line.slice(container.indent)
-}
-
-/** Escapes the pipes of a GFM delimiter row so remark-gfm can't table-ify it */
-function escapeGfmDelimiter(line: string): string {
-  if (/^ {4,}/.test(line) || line.startsWith('\t')) return line
-  const match = /^(\s*(?:>[ \t]*)*)([|: \t-]+)$/.exec(line)
-  if (!match) return line
-  return match[2].includes('|') && match[2].includes('-')
-    ? match[1] + match[2].replaceAll('|', '\\|')
-    : line
-}
-
 /**
  * Replaces each kramdown table with a fenced sentinel so attribute-list sees a
- * normal block. Tables inside blockquotes/lists are stripped of their markers
- * and re-emitted inside a sentinel that keeps them in the container
+ * normal block
  */
 export function encodeKramdownTables(md: string): string {
   const lines = md.split('\n')
@@ -513,48 +473,14 @@ export function encodeKramdownTables(md: string): string {
     const liftable =
       afterBlank && /^ {0,3}\S/.test(line) && hasPipe(line) && !setextNext
 
-    const container = liftable ? containerPrefix(line) : null
-    if (container) {
-      const logical: string[] = []
-      for (
-        let cursor = index;
-        cursor < lines.length &&
-        !(cursor > index && FENCE_LINE.test(lines[cursor]));
-        cursor++
-      ) {
-        const stripped =
-          cursor === index
-            ? lines[cursor].slice(container.prefix.length)
-            : stripContainer(lines[cursor], container)
-        if (stripped == null || !hasPipe(stripped)) break
-        logical.push(stripped)
-      }
-      const parsed =
-        logical.length > 0 ? parseKramdownTable(logical, 0) : undefined
-      if (parsed) {
-        const body = encodeTable(parsed.table)
-        const pad =
-          container.kind === 'list'
-            ? ' '.repeat(container.indent)
-            : container.prefix
-        out.push(
-          `${container.prefix}\`\`\`${TABLE_SENTINEL_LANG}`,
-          `${pad}${body}`,
-          `${pad}\`\`\``
-        )
-        index = index + parsed.end - 1
-        continue
-      }
-    }
-
     if (!liftable || startsHtmlBlock(line)) {
-      out.push(escapeGfmDelimiter(line))
+      out.push(line)
       continue
     }
 
     const parsed = parseKramdownTable(lines, index)
     if (!parsed) {
-      out.push(escapeGfmDelimiter(line))
+      out.push(line)
       continue
     }
 
@@ -565,13 +491,12 @@ export function encodeKramdownTables(md: string): string {
   return out.join('\n')
 }
 
-const inlineProcessor = unified().use(remarkParse).use(remarkGfm)
+const inlineProcessor = unified().use(remarkParse)
 
 /**
  * Parses a cell's inline markdown; link definitions are replayed because
- * micromark only resolves `[text][ref]` within the same document. GFM inline
- * syntax (strikethrough) and autolinks are enabled, matching the rest of the
- * pipeline. Tables cannot form in a single-line cell
+ * micromark only resolves `[text][ref]` within the same document. Tables
+ * cannot form in a single-line cell
  */
 function parseCell(text: string, definitions: string): Cell {
   if (!text) return []

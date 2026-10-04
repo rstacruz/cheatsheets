@@ -1,11 +1,6 @@
 import { readFileSync } from 'node:fs'
 import matter from 'gray-matter'
 import { describe, expect, it } from 'vitest'
-import {
-  dropUnterminatedIALs,
-  escapeWhitespaceCodeSpans,
-  refloatIALs
-} from './ial'
 import { renderMarkdown } from './index'
 import { TABLE_SENTINEL_LANG } from './tables'
 
@@ -104,10 +99,6 @@ describe('renderMarkdown', () => {
       '<pre class="-setup"><code>x\n</code></pre>\n'
     )
   })
-
-  it('emits no id for headings with an empty slug', async () => {
-    expect((await renderMarkdown('### ⌘')).html).toBe('<h3>⌘</h3>\n')
-  })
 })
 
 describe('compat transforms', () => {
@@ -120,12 +111,6 @@ describe('compat transforms', () => {
   it('autolinks an explicit <url> the same way', async () => {
     expect((await renderMarkdown('see <http://example.com> now')).html).toBe(
       '<p>see <a href="http://example.com">http://example.com</a> now</p>\n'
-    )
-  })
-
-  it('wraps a lone <br /> block in a paragraph', async () => {
-    expect((await renderMarkdown('a\n\n<br />\n\nb')).html).toBe(
-      '<p>a</p>\n\n<p><br /></p>\n\n<p>b</p>\n'
     )
   })
 
@@ -155,21 +140,6 @@ describe('kramdown tables', () => {
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
         '<tbody><tr><td>a</td><td>b</td></tr></tbody>' +
         '<tbody><tr><td>c</td><td>d</td></tr></tbody></table>\n'
-    )
-  })
-
-  it('renders a <tfoot> for an `=` separator row', async () => {
-    const input = [
-      '| H1 | H2 |',
-      '| --- | --- |',
-      '| a | b |',
-      '| === | === |',
-      '| f | g |'
-    ].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td></tr></tbody>' +
-        '<tfoot><tr><td>f</td><td>g</td></tr></tfoot></table>\n'
     )
   })
 
@@ -245,14 +215,6 @@ describe('kramdown tables', () => {
     )
   })
 
-  it('accepts `+` in a header separator row', async () => {
-    const input = ['| a | b |', '|+---+---+', '| c | d |'].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<table><thead><tr><th>a</th><th>b</th></tr></thead>' +
-        '<tbody><tr><td>c</td><td>d</td></tr></tbody></table>\n'
-    )
-  })
-
   it('does not require leading or trailing pipes', async () => {
     const input = ['H1 | H2', '--- | ---', 'a | b'].join('\n')
     expect((await renderMarkdown(input)).html).toBe(
@@ -273,7 +235,7 @@ describe('kramdown tables', () => {
       '<p><span>a | b</span></p>\n'
     )
     expect((await renderMarkdown('<img src="a|b.png">')).html).toBe(
-      '<p><img src="a|b.png" /></p>\n'
+      '<img src="a|b.png" />\n'
     )
     expect((await renderMarkdown('<!-- a | b -->')).html).toBe(
       '<!-- a | b -->\n'
@@ -285,38 +247,6 @@ describe('kramdown tables', () => {
     expect((await renderMarkdown(input)).html).toBe(
       '<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
         '<tbody><tr><td>x<br /></td><td>y</td></tr></tbody></table>\n'
-    )
-  })
-
-  it('keeps a blockquote-prefixed table inside the blockquote', async () => {
-    const input = ['> | H1 | H2 |', '> | --- | --- |', '> | a | b |'].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<blockquote>\n<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n</blockquote>\n'
-    )
-  })
-
-  it('keeps a list-prefixed table inside the list item', async () => {
-    const input = ['- | H1 | H2 |', '  | --- | --- |', '  | a | b |'].join('\n')
-    expect((await renderMarkdown(input)).html).toBe(
-      '<ul>\n<li>\n<table><thead><tr><th>H1</th><th>H2</th></tr></thead>' +
-        '<tbody><tr><td>a</td><td>b</td></tr></tbody></table>\n</li>\n</ul>\n'
-    )
-  })
-
-  it('renders GFM tables kramdown would reject as paragraphs', async () => {
-    expect(
-      (await renderMarkdown('text\n| a | b |\n| --- | --- |\n| c | d |')).html
-    ).toBe('<p>text\n| a | b |\n| --- | --- |\n| c | d |</p>\n')
-    expect((await renderMarkdown('| a | b |\n| --- | --- |')).html).toBe(
-      '<p>| a | b |\n| --- | --- |</p>\n'
-    )
-  })
-
-  it('parses GFM inline syntax inside table cells', async () => {
-    const input = ['| a | b |', '| --- | --- |', '| ~~x~~ | c |'].join('\n')
-    expect((await renderMarkdown(input)).html).toContain(
-      '<td><del>x</del></td><td>c</td>'
     )
   })
 
@@ -345,112 +275,6 @@ describe('typography', () => {
     expect((await renderMarkdown('<code>x -- y "q"</code>')).html).toBe(
       '<p><code>x -- y "q"</code></p>\n'
     )
-  })
-})
-
-describe('IAL shims', () => {
-  it('leaves an unterminated IAL with no closing brace as literal text', () => {
-    expect(dropUnterminatedIALs('```\nx\n```\n{: .-shortcuts')).toBe(
-      '```\nx\n```\n\\{: .-shortcuts'
-    )
-  })
-
-  it('keeps a shorter inner fence inside a longer code fence', () => {
-    const input = ['````', '```', '{: .-shortcuts', '````'].join('\n')
-    expect(dropUnterminatedIALs(input)).toBe(input)
-  })
-
-  it('keeps ids and key-value attrs when swallowing (kramdown quirk)', () => {
-    const input = [
-      'x',
-      '',
-      '{: .a #myid data-line="1"',
-      '',
-      'y',
-      '',
-      '{: .b}'
-    ].join('\n')
-    expect(dropUnterminatedIALs(input)).toBe(
-      ['x', '', '{: .a #myid data-line="1" .b }'].join('\n')
-    )
-  })
-
-  it('renders an unterminated IAL inside a container literally', async () => {
-    expect((await renderMarkdown('> {: .a')).html).toBe(
-      '<blockquote>\n<p>{: .a</p>\n</blockquote>\n'
-    )
-    expect((await renderMarkdown('- {: .a')).html).toBe(
-      '<ul>\n<li>{: .a</li>\n</ul>\n'
-    )
-  })
-
-  it('does not swallow a container IAL to a later brace', async () => {
-    const input = '> {: .-shortcuts\n\n### Swallowed\n\n{: .right}'
-    expect((await renderMarkdown(input)).html).toBe(
-      '<blockquote>\n<p>{: .-shortcuts</p>\n</blockquote>\n\n' +
-        '<h3 id="swallowed">Swallowed</h3>\n'
-    )
-  })
-
-  it('drops a same-line IAL whose quoted value never closes', () => {
-    expect(dropUnterminatedIALs('```\nx\n```\n{: data-line="1,3,5,7 }')).toBe(
-      '```\nx\n```'
-    )
-  })
-
-  it('keeps a well-formed IAL', () => {
-    expect(dropUnterminatedIALs('# h\n{: .heading}')).toBe('# h\n{: .heading}')
-  })
-
-  it('keeps an unterminated IAL that sits inside a fence', () => {
-    const input = '```\n{: .-shortcuts\n```'
-    expect(dropUnterminatedIALs(input)).toBe(input)
-  })
-
-  it('swallows up to the next `}` and re-emits the classes (kramdown quirk)', () => {
-    const input = [
-      '| a | b |',
-      '| --- | --- |',
-      '| c | d |',
-      '{: .-shortcuts',
-      '',
-      '### Swallowed',
-      '',
-      '| e | f |',
-      '| --- | --- |',
-      '| g | h |',
-      '{: .-shortcuts-right}'
-    ].join('\n')
-    expect(dropUnterminatedIALs(input)).toBe(
-      [
-        '| a | b |',
-        '| --- | --- |',
-        '| c | d |',
-        '{: .-shortcuts .-shortcuts-right }'
-      ].join('\n')
-    )
-  })
-
-  it('escapes single-backtick spans whose content starts with whitespace', () => {
-    expect(escapeWhitespaceCodeSpans('a `  ` b')).toBe('a \\`  \\` b')
-    expect(escapeWhitespaceCodeSpans('a ` x` b')).toBe('a \\` x` b')
-    expect(escapeWhitespaceCodeSpans('a `  x  ` b')).toBe('a \\`  x  \\` b')
-  })
-
-  it('leaves parsed code spans alone', () => {
-    expect(escapeWhitespaceCodeSpans('a `x ` b')).toBe('a `x ` b')
-    expect(escapeWhitespaceCodeSpans('a `a b` b')).toBe('a `a b` b')
-    expect(escapeWhitespaceCodeSpans('a ``  `` b')).toBe('a ``  `` b')
-  })
-
-  it('refloats an IAL that follows a blank line to the next block', () => {
-    expect(refloatIALs('```\nx\n```\n\n{: .-wrap}\n\nhello')).toBe(
-      '```\nx\n```\n\n\nhello\n{: .-wrap}'
-    )
-  })
-
-  it('leaves a trailing IAL in place', () => {
-    expect(refloatIALs('# h\n{: .heading}')).toBe('# h\n{: .heading}')
   })
 })
 

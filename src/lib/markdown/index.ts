@@ -1,5 +1,4 @@
-import type { Root } from 'mdast'
-import type { Element, Root as HastRoot } from 'hast'
+import type { Root as HastRoot } from 'hast'
 import type { Handler, Handlers } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -12,27 +11,21 @@ import rehypeStringify from 'rehype-stringify'
 import { visit } from 'unist-util-visit'
 import { expandJekyll } from './jekyll'
 import {
-  dropEmptyHeadingIds,
-  dropUnterminatedIALs,
-  escapeWhitespaceCodeSpans,
   fenceFlags,
   scanFences,
   hoistCodeAttrs,
-  refloatIALs,
   restoreCodeLanguage
 } from './ial'
 import {
   encodeKramdownTables,
-  HTML_SPAN_ELEMENTS,
   kramdownTableHandler,
   kramdownTables
 } from './tables'
 
 /**
- * In-process remark pipeline replacing Ruby kramdown. Ordering constraints:
- * the IAL pre-passes need raw source (includes contain IALs);
+ * In-process remark pipeline replacing Ruby kramdown. Ordering constraint:
  * `restoreCodeLanguage` must precede remark-rehype, which overwrites `<code>`
- * className; `dropEmptyHeadingIds` follows `rehype-slug`, which emits `id=""`
+ * className
  */
 
 /**
@@ -194,25 +187,6 @@ export function restoreWhitespace() {
   }
 }
 
-/**
- * kramdown renders a line that is a lone span-level HTML tag as a paragraph;
- * CommonMark treats it as a raw HTML block. Wrap those root elements in `<p>`
- */
-export function wrapLoneInlineHtml() {
-  return (tree: HastRoot) => {
-    tree.children = tree.children.map((child) =>
-      child.type === 'element' && HTML_SPAN_ELEMENTS[child.tagName]
-        ? {
-            type: 'element' as const,
-            tagName: 'p',
-            properties: {},
-            children: [child]
-          }
-        : child
-    )
-  }
-}
-
 /** kramdown ends indented code before trailing blank lines; CommonMark keeps them */
 export function trimIndentedCodeBlocks(md: string): string {
   const lines = md.split('\n')
@@ -247,130 +221,9 @@ export function trimIndentedCodeBlocks(md: string): string {
   return lines.filter((_, i) => !drop.has(i)).join('\n')
 }
 
-/**
- * kramdown omits `<p>` around a list item's first paragraph unless the item
- * ends with a blank line (`* a\n\n* b` wraps both); CommonMark wraps every item
- * in a loose list. Tags what `unwrapTransparentParagraphs` removes
- */
-const TRANSPARENT = '__kramdown-transparent'
-
-export function tightenListItems() {
-  return (tree: Root) => {
-    visit(tree, 'list', (list) => {
-      const items = list.children
-      const transparent: boolean[] = []
-      const notParagraph: boolean[] = []
-
-      items.forEach((item, index) => {
-        const first = item.children[0]
-        notParagraph.push(!first || first.type !== 'paragraph')
-        if (!first || first.type !== 'paragraph') {
-          transparent.push(false)
-          return
-        }
-
-        const second = item.children[1]
-        // A blank line between the first paragraph and the next child makes
-        // kramdown wrap this paragraph (`- a\n\n  ```
-        const blankBeforeSecond =
-          second != null &&
-          first.position != null &&
-          second.position != null &&
-          second.position.start.line > first.position.end.line + 1
-
-        // A trailing blank line before the next item does the same for a
-        // single-block item (`* a\n\n* b` wraps both)
-        const next = items[index + 1]
-        const endLine = item.position?.end.line
-        const nextLine = next?.position?.start.line ?? list.position?.end.line
-        const blankTerminated =
-          endLine != null && nextLine != null && nextLine > endLine + 1
-
-        const multi = item.children.length >= 2
-        const unwrapped = multi
-          ? !blankBeforeSecond
-          : !blankTerminated || index === items.length - 1
-
-        const last = index === items.length - 1
-        const anchorsList =
-          !last ||
-          items.length === 1 ||
-          items
-            .slice(0, index)
-            .some((_, earlier) => notParagraph[earlier] || transparent[earlier])
-
-        transparent.push(unwrapped && anchorsList)
-      })
-
-      items.forEach((item, index) => {
-        const first = item.children[0]
-        if (!transparent[index] || !first || first.type !== 'paragraph') return
-        first.data ??= {}
-        const properties = (first.data.hProperties ??= {}) as Record<
-          string,
-          unknown
-        >
-        const className = properties.className
-        properties.className = Array.isArray(className)
-          ? [...className.map(String), TRANSPARENT]
-          : className
-            ? `${String(className)} ${TRANSPARENT}`
-            : TRANSPARENT
-      })
-    })
-  }
-}
-
-/**
- * Removes the `<p>` wrappers tagged by `tightenListItems` plus the newline
- * mdast-util-to-hast inserts before them
- */
-export function unwrapTransparentParagraphs() {
-  return (tree: HastRoot) => {
-    visit(tree, 'element', (node: Element, index, parent) => {
-      if (node.tagName !== 'p' || index === undefined || !parent) return
-      const className = node.properties?.className
-      const list = Array.isArray(className)
-        ? className.map(String)
-        : typeof className === 'string'
-          ? className.split(/\s+/).filter(Boolean)
-          : []
-      if (!list.includes(TRANSPARENT)) return
-
-      const keep = list.filter((name) => name !== TRANSPARENT)
-      if (keep.length) node.properties.className = keep
-      else delete node.properties.className
-
-      const children = parent.children
-      let at = index
-      const before = children[at - 1]
-      if (before?.type === 'text' && before.value === '\n') {
-        children.splice(at - 1, 1)
-        at--
-      }
-      children.splice(at, 1, ...node.children)
-
-      const after = children[at + node.children.length]
-      if (
-        after?.type === 'text' &&
-        after.value === '\n' &&
-        at + node.children.length === children.length - 1
-      ) {
-        children.splice(at + node.children.length, 1)
-      }
-    })
-  }
-}
-
 export async function renderMarkdown(input: string): Promise<{ html: string }> {
   const md = encodeKramdownTables(
-    refloatIALs(
-      dropUnterminatedIALs(
-        preserveWhitespace(
-          escapeWhitespaceCodeSpans(trimIndentedCodeBlocks(expandJekyll(input)))
-        )
-      )
-    )
+    preserveWhitespace(trimIndentedCodeBlocks(expandJekyll(input)))
   )
 
   const result = await unified()
@@ -379,18 +232,14 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
     .use(restoreCodeLanguage)
     .use(kramdownTables)
-    .use(tightenListItems)
     .use(remarkRehype, {
       allowDangerousHtml: true,
       handlers: createHandlers(md)
     })
     .use(rehypeRaw)
-    .use(unwrapTransparentParagraphs)
     .use(restoreWhitespace)
-    .use(wrapLoneInlineHtml)
     .use(hoistCodeAttrs)
     .use(rehypeSlug)
-    .use(dropEmptyHeadingIds)
     .use(rehypeStringify, { allowDangerousHtml: true, closeSelfClosing: true })
     .process(md)
 

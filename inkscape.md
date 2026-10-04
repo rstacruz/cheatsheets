@@ -34,5 +34,3 @@ tags: [WIP]
 | `Ctrl` | snap to 15 degrees
 | `Alt` | ?
 {: .-shortcuts}
-
-### Bezier (Shift F6)

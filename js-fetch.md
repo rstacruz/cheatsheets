@@ -98,13 +98,13 @@ See: [Response.ok](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok)
 
 ### Node.js
 
-Node 18+ has a global `fetch` (stable in Node 21). On older versions, use
-[undici](https://undici.nodejs.org/) or
-[node-fetch](https://www.npmjs.com/package/node-fetch).
-
 ```js
 const res = await fetch('https://example.com/data.json')
 ```
+
+Node 18+ has a global `fetch` (stable in Node 21). On older versions, use
+[undici](https://undici.nodejs.org/) or
+[node-fetch](https://www.npmjs.com/package/node-fetch).
 
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 

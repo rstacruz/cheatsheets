@@ -2,10 +2,21 @@
 title: JavaScript Date
 category: JavaScript
 weight: -3
+updated: 2026-10-04
+intro: |
+  Constructing and reading JavaScript dates, and converting them to strings
+  and timestamps.
 ---
 
 ## Date
 {: .-left-reference}
+
+### Introduction
+{: .-intro}
+
+JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
+
+- [Date reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) _(developer.mozilla.org)_
 
 ### Constructor
 
@@ -33,7 +44,9 @@ new Date("2014-03-01T13:00:59")
 new Date(2014, 2, 1, 13, 0, 59, 0)
 ```
 
-### Constructor
+See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
+
+### Arguments
 
 | Date | Year | Month | Day | Hour | Min | Sec | Milli |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -42,6 +55,8 @@ new Date(2014, 2, 1, 13, 0, 59, 0)
 {: .-css-breakdown}
 
 Months are zero-indexed (eg, January is `0`).
+
+See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
 
 ### Conversion
 
@@ -58,8 +73,11 @@ Months are zero-indexed (eg, January is `0`).
 | ---                      | ---                                         |
 | `d.getTime()`            | `1393678859000`                             |
 
-Accessing
----------
+String results depend on the timezone and locale.
+
+See: [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString), [toUTCString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString), [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) _(developer.mozilla.org)_
+
+## Accessing
 
 ### Getters
 
@@ -70,31 +88,31 @@ Accessing
 | `.getFullYear()`       | `2014`            |
 | `.getMonth()`          | `0..11`           |
 | ---                    | ---               |
-| `.getHours()`          |                   |
-| `.getMinutes()`        |                   |
-| `.getSeconds()`        |                   |
-| `.getMilliseconds()`   |                   |
+| `.getHours()`          | `0..23`           |
+| `.getMinutes()`        | `0..59`           |
+| `.getSeconds()`        | `0..59`           |
+| `.getMilliseconds()`   | `0..999`          |
 | ---                    | ---               |
 | `.getTime()`           | ms since epoch    |
-| `.getTimezoneOffset()` |                   |
+| `.getTimezoneOffset()` | minutes           |
 
-UTC versions are also available (eg, `.getUTCDate()`, `.getUTCDay()`, etc).
+See: [getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime), [getTimezoneOffset()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset) _(developer.mozilla.org)_
 
 ### Setters
 
-| Method                       | Result |
-| ---                          | ---    |
-| `.setDate` _(val)_           |        |
-| `.setDay` _(val)_            |        |
-| `.setFullYear` _(val)_       |        |
-| `.setMonth` _(val)_          |        |
-| ---                          | ---    |
-| `.setHours` _(val)_          |        |
-| `.setMinutes` _(val)_        |        |
-| `.setSeconds` _(val)_        |        |
-| `.setMilliseconds` _(val)_   |        |
-| ---                          | ---    |
-| `.setTime` _(val)_           |        |
-| `.setTimezoneOffset` _(val)_ |        |
+| Method                     | Result         |
+| ---                        | ---            |
+| `.setDate` _(val)_         | ms since epoch |
+| `.setFullYear` _(val)_     | ms since epoch |
+| `.setMonth` _(val)_        | ms since epoch |
+| ---                        | ---            |
+| `.setHours` _(val)_        | ms since epoch |
+| `.setMinutes` _(val)_      | ms since epoch |
+| `.setSeconds` _(val)_      | ms since epoch |
+| `.setMilliseconds` _(val)_ | ms since epoch |
+| ---                        | ---            |
+| `.setTime` _(val)_         | ms since epoch |
 
-See the getters list.
+UTC versions are also available (eg, `.getUTCDate()`, `.setUTCDate()`, etc).
+
+See: [setTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime) _(developer.mozilla.org)_

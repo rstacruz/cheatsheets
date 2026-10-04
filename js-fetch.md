@@ -2,7 +2,19 @@
 title: fetch()
 category: JavaScript
 weight: -3
+updated: 2026-10-04
+intro: |
+  Fetch data over HTTP in the browser: responses, request options, and error
+  handling.
 ---
+
+### Introduction
+{: .-intro}
+
+`fetch()` requests a resource over HTTP and returns a promise for the response.
+
+- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) _(developer.mozilla.org)_
+- [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ### Fetch
 {: .-prime}
@@ -16,6 +28,8 @@ fetch('/data.json')
   .catch(err => ...)
 ```
 {: data-line="4"}
+
+See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ### Response
 
@@ -37,6 +51,8 @@ fetch('/data.json')
 })
 ```
 
+See: [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response), [Response.type](https://developer.mozilla.org/en-US/docs/Web/API/Response/type) _(developer.mozilla.org)_
+
 ### Request options
 
 ```js
@@ -51,9 +67,11 @@ fetch('/data.json', {
 
   credentials: 'same-origin', // send cookies
   credentials: 'include',     // send cookies, even in CORS
-
+  credentials: 'omit',        // never send cookies
 })
 ```
+
+See: [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request), [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) _(developer.mozilla.org)_
 
 ### Catching errors
 
@@ -74,15 +92,21 @@ function checkStatus (res) {
 }
 ```
 
-Non-2xx responses are still successful requests. Use another function to turn them to errors.
+`fetch()` rejects only on network errors; check `res.ok` yourself.
 
-### Using with node.js
+See: [Response.ok](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok) _(developer.mozilla.org)_
+
+### Node.js
+
+Node 18+ has a global `fetch` (stable in Node 21). On older versions, use
+[undici](https://undici.nodejs.org/) or
+[node-fetch](https://www.npmjs.com/package/node-fetch).
 
 ```js
-const fetch = require('isomorphic-fetch')
+const res = await fetch('https://example.com/data.json')
 ```
 
-See: [isomorphic-fetch](https://npmjs.com/package/isomorphic-fetch) _(npmjs.com)_
+See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ## References
 {: .-one-column}

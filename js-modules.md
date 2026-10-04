@@ -8,6 +8,8 @@ intro: |
   interop.
 ---
 
+## ES modules
+
 ### Introduction
 {: .-intro}
 
@@ -73,31 +75,6 @@ is the module's own URL.
 
 See: [import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import), [import.meta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta) _(developer.mozilla.org)_
 
-### Node.js
-
-| Extension | Module system                 |
-| ---       | ---                           |
-| `.mjs`    | Always ESM                    |
-| `.cjs`    | Always CommonJS               |
-| `.js`     | From `"type"` in package.json |
-
-#### package.json
-
-```json
-{ "type": "module" }
-```
-
-```js
-import { createRequire } from 'node:module'
-const require = createRequire(import.meta.url)
-const legacy = require('./legacy.cjs')
-```
-
-In ESM use `import`, not `require`; a CJS `module.exports` is the default
-export. Node 22.12+ can `require()` ESM that avoids top-level await.
-
-See: [Node.js modules](https://nodejs.org/api/modules.html) _(nodejs.org)_
-
 ### Browser
 
 #### index.html
@@ -116,3 +93,45 @@ Modules are deferred by default. Relative specifiers need file extensions;
 bare specifiers need an import map.
 
 See: [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) _(developer.mozilla.org)_
+
+## Node.js
+
+### Module formats
+
+| Extension | Module system                 |
+| ---       | ---                           |
+| `.mjs`    | Always ESM                    |
+| `.cjs`    | Always CommonJS               |
+| `.js`     | From `"type"` in package.json |
+
+`.mjs` and `.cjs` set the format by extension; `.js` follows the nearest
+package.json.
+
+See: [Node.js: determining module system](https://nodejs.org/api/packages.html#determining-module-system) _(nodejs.org)_
+
+### "type": "module"
+
+#### package.json
+
+```json
+{ "type": "module" }
+```
+
+With `"type": "module"`, `.js` files load as ES modules. Without it, they
+default to CommonJS.
+
+See: [Node.js: "type"](https://nodejs.org/api/packages.html#type) _(nodejs.org)_
+
+### createRequire()
+
+```js
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const legacy = require('./legacy.cjs')
+```
+
+In ESM use `import`, not `require`. `createRequire()` builds a `require()` for
+CommonJS packages; a CJS `module.exports` becomes the default export when
+imported. Node 22.12+ can `require()` ESM that avoids top-level await.
+
+See: [createRequire()](https://nodejs.org/api/module.html#modulecreaterequirefilename) _(nodejs.org)_

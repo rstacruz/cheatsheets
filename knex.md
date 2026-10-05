@@ -1,6 +1,5 @@
 ---
 title: Knex
-layout: 2017/sheet
 updated: 2020-06-03
 category: Databases
 intro: |
@@ -95,6 +94,8 @@ See: [Seeds](http://knexjs.org/#Seeds)
 
 ### Libraries
 
+| Driver | Database |
+| --- | --- |
 | `pg` | PostgreSQL |
 | `mysql` | MySQL or MariaDB |
 | `sqlite3` | Sqlite3 |

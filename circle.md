@@ -3,7 +3,12 @@ title: CircleCI
 category: Devops
 ---
 
-## circle.yml
+### About
+{: .-intro}
+
+- <https://circleci.com/docs/config-sample>
+
+### circle.yml
 
 * __machine__: adjusting the VM to your preferences and requirements
 * __checkout__: checking out and cloning your git repo
@@ -14,7 +19,7 @@ category: Devops
 
 See: <https://circleci.com/docs/configuration>
 
-## Sample
+### Sample
 
 ```yml
 ## Customize the test machine
@@ -91,5 +96,3 @@ notify:
     # A list of hashes representing hooks. Only the url field is supported.
     - url: https://someurl.com/hooks/circle
 ```
-
-See: <https://circleci.com/docs/config-sample>

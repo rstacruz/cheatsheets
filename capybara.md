@@ -1,15 +1,15 @@
 ---
 title: Capybara
 category: Ruby libraries
-layout: 2017/sheet
 weight: -5
 updated: 2020-06-13
-tags: [Featurable]
 ---
 
 ### Navigating
 
-    visit articles_path
+```
+visit articles_path
+```
 
 ### Clicking links and buttons
 
@@ -119,14 +119,14 @@ In RSpec, you can use `page.should` assertions.
 ### About negatives
 
 ```ruby
-expect(page).to have_no_button('Save')   # OK
-```
-```ruby
-expect(page).not_to have_button('Save')  # Bad
+expect(page).to have_no_button('Save')
 ```
 
-Use `should have_no_*` versions with RSpec matchers because
-`should_not have_*` doesn't wait for a timeout from the driver.
+```ruby
+expect(page).not_to have_button('Save')
+```
+
+The two above statements are functionally equivalent.
 
 ## RSpec
 
@@ -138,6 +138,7 @@ expect(page).to \
 {: .-setup}
 
 ```ruby
+  have_current_path(expected_path)
   have_selector '.blank-state'
   have_selector 'h1#hola', text: 'Welcome'
   have_button 'Save'
@@ -256,8 +257,10 @@ end
 
 ### Misc
 
-    drag
-    field_labeled
+```
+drag
+field_labeled
+```
 
 ### Page object
 

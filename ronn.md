@@ -1,7 +1,7 @@
 ---
 title: Ronn
-category: Ruby libraries
-layout: 2017/sheet
+category: Hidden
+# The original gem is defunct (0.7.3, 2010); use the ronn-ng fork.
 updated: 2017-10-15
 weight: -1
 prism_languages: [bash, ruby, json, markdown]

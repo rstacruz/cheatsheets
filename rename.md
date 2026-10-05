@@ -1,7 +1,6 @@
 ---
 title: rename
 category: CLI
-layout: 2017/sheet
 ---
 
 ### Installation

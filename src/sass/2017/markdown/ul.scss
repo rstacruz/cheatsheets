@@ -1,0 +1,39 @@
+@use 'sass:math';
+
+.MarkdownBody ul.-six-column {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  & > li {
+    flex: 0 0 math.div(100%, 6);
+
+    @media (max-width: 480px) {
+      flex: 0 0 (100% * 0.5);
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 0 (100% * 0.25);
+    }
+  }
+}
+
+.MarkdownBody ul.-four-column {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  & > li {
+    flex: 0 0 (100% * 0.25);
+
+    @media (max-width: 480px) {
+      flex: 0 0 (100% * 0.5);
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 0 math.div(100%, 3);
+    }
+  }
+}

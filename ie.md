@@ -1,7 +1,7 @@
 ---
 title: Internet Explorer
-category: HTML
-layout: 2017/sheet
+category: Hidden
+# Internet Explorer was retired on 2022-06-15.
 updated: 2018-03-06
 ---
 

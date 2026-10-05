@@ -1,0 +1,63 @@
+/*
+ * H3 section list:
+ * The body that is isotoped.
+ */
+
+.h3-section-list {
+  @apply px-0 gap-6 lg:gap-8 my-0;
+  // @apply grid grid-cols-3;
+}
+
+.h3-section {
+  @apply w-full break-inside-avoid;
+  @apply pb-12 pt-0;
+}
+
+/*
+ * Two column (default)
+ */
+
+.h3-section-list,
+.h3-section-list.-two-column {
+  @media (min-width: 769px) {
+    columns: 2;
+  }
+}
+
+/*
+ * One column
+ */
+
+.h3-section-list.-one-column {
+  @media (min-width: 769px) {
+    columns: 1;
+  }
+
+  & > .h3-section + .h3-section {
+    margin-top: 16px;
+  }
+}
+
+/*
+ * Three column
+ */
+
+.h3-section-list.-three-column {
+  @media (min-width: 769px) {
+    columns: 2;
+  }
+
+  @media (min-width: 961px) {
+    columns: 3;
+  }
+}
+
+.h3-section-list.-left-reference {
+  @media (min-width: 769px) {
+    columns: 3;
+  }
+
+  & > .h3-section + .h3-section {
+    width: 200%;
+  }
+}

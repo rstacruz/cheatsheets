@@ -3,7 +3,7 @@ title: Elixir metaprogramming
 category: Elixir
 ---
 
-## Kernel
+### Kernel
 
 Most of these magic is defined in [Kernel.SpecialForms](http://devdocs.io/elixir/elixir/kernel.specialforms).
 

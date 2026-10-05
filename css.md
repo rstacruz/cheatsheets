@@ -1,7 +1,6 @@
 ---
 title: CSS
 category: CSS
-layout: 2017/sheet
 weight: -1
 keywords:
   - "margin, padding, border"
@@ -60,7 +59,6 @@ keywords:
 | -------------------- | ------------------------------------------ |
 | `:target`            | eg, `h2#foo:target`                        |
 | ---                  | ---                                        |
-| `:disabled`          |                                            |
 | `:focus`             |                                            |
 | `:active`            |                                            |
 | ---                  | ---                                        |

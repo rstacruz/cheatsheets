@@ -1,0 +1,18 @@
+---
+import cx from 'clsx'
+
+type Props = {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<aside class={cx('notice-box MarkdownBody', className)}>
+  <slot />
+</aside>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/notice-box';
+</style>

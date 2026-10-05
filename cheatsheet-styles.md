@@ -1,6 +1,5 @@
 ---
 title: Cheatsheet styles
-layout: 2017/sheet
 tags: [WIP]
 updated: 2017-10-26
 intro: |
@@ -9,31 +8,33 @@ intro: |
   You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
 ---
 
-Intro
------
-
 Variants
 --------
 {: .-three-column}
 
 ### H2 sections
 
+| Variant | Description |
+| --- | --- |
 | `-one-column` | |
 | `-two-column` | _(default)_|
 | `-three-column` | |
 | `-left-reference` | 3 columns<br>_(short first column)_ |
-| `-no-hide` | Don't hide H2 |
 
 See: [H2 sections](#two-columns)
 
 ### H3 sections
 
+| Variant | Description |
+| --- | --- |
 | `-prime` | Highlight |
 
 See: [H3 sections](#h3-sections-1)
 
 ### Tables
 
+| Variant | Description |
+| --- | --- |
 | `-bold-first` | Bold first column |
 | `-headers` | Show headers |
 | `-left-align` | Don't right align last column |
@@ -45,6 +46,8 @@ See: [Tables](#tables-1)
 
 ### Code
 
+| Variant | Description |
+| --- | --- |
 | `-box-chars` | Less line height<br>_for box drawing chars_ |
 | `-setup` | Gray background |
 | `-wrap` | Enables line-wrapping |
@@ -53,6 +56,8 @@ See: [Code](#code-1)
 
 ### Paragraphs
 
+| Variant | Description |
+| --- | --- |
 | `-setup` | Gray background |
 | `-crosslink` | Has arrow on the link |
 {: .-gray}
@@ -61,6 +66,8 @@ See: [Paragraphs](#paragraphs-1)
 
 ### Lists
 
+| Variant | Description |
+| --- | --- |
 | `-also-see` | Lighter background |
 | `-four-column` | |
 | `-six-column` | |
@@ -346,6 +353,8 @@ This is a basic table with h4's.
 
 ### Shortcuts
 
+| Shortcut | Tool |
+| --- | --- |
 | `V` | Vector |
 | `P` | Pencil |
 | `T` | Text |

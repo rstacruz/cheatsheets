@@ -1,113 +1,45 @@
 ---
 title: Vim
 category: Vim
-layout: 2017/sheet
 tags: [Featured]
 updated: 2020-07-05
 weight: -10
-intro: |
- [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
- For shortcut notation, see `:help key-notation`.
 ---
 
-Getting started
----------------
+## Getting started
 {: .-three-column}
+
+### Introduction
+
+ [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
+
+ For shortcut notation, see `:help key-notation`.
 
 ### Exiting
 {: .-prime}
 
 | Shortcut       | Description                      |
 | -------------- | -------------------------------- |
+| `:q`           | Close file                       |
 | `:qa`          | Close all files                  |
-| `:qa!`         | Close all files, abandon changes |
 | ---            | ---                              |
 | `:w`           | Save                             |
 | `:wq` _/_ `:x` | Save and close file              |
 | ---            | ---                              |
-| `:q`           | Close file                       |
-| `:q!`          | Close file, abandon changes      |
-| ---            | ---                              |
 | `ZZ`           | Save and quit                    |
-| `ZQ`           | Quit without checking changes    |
+| `:q!` _/_ `ZQ`           | Quit without checking changes    |
 {: .-shortcuts}
 
-### Navigating
+### Exiting insert mode
 
-| Shortcut            | Description       |
-| ---                 | ---               |
-| `h` `j` `k` `l`     | Arrow keys        |
-| `<C-U>` _/_ `<C-D>` | Half-page up/down |
-| `<C-B>` _/_ `<C-F>` | Page up/down      |
+| Shortcut          | Description |
+| ---               | ---         |
+| `Esc` _/_ `<C-[>` | Exit insert mode |
+| `<C-C>`           | Exit insert mode, and abort current command |
 {: .-shortcuts}
 
-#### Words
-
-| Shortcut     | Description               |
-| ---          | ---                       |
-| `b` _/_ `w`  | Previous/next word        |
-| `ge` _/_ `e` | Previous/next end of word |
-{: .-shortcuts}
-
-#### Line
-
-| Shortcut     | Description                        |
-| ---          | ---                                |
-| `0` _(zero)_ | Start of line                      |
-| `^`          | Start of line _(after whitespace)_ |
-| `$`          | End of line                        |
-{: .-shortcuts}
-
-#### Character
-
-| `fc`  | Go forward to character `c`  |
-| `Fc`  | Go backward to character `c` |
-{: .-shortcuts}
-
-#### Document
-
-| Shortcut | Description    |
-| ---      | ---            |
-| `gg`     | First line     |
-| `G`      | Last line      |
-| `:n`     | Go to line `n` |
-| `nG`     | Go to line `n` |
-{: .-shortcuts}
-
-#### Window
-
-| Shortcut | Description              |
-| ---      | ---                      |
-| `zz`     | Center this line         |
-| `zt`     | Top this line            |
-| `zb`     | Bottom this line         |
-| `H`      | Move to top of screen    |
-| `M`      | Move to middle of screen |
-| `L`      | Move to bottom of screen |
-{: .-shortcuts}
-
-#### Search
-
-| Shortcut  | Description                         |
-| ---       | ---                                 |
-| `n`       | Next matching search pattern        |
-| `N`       | Previous match                      |
-| `*`       | Next whole word under cursor        |
-| `#`       | Previous whole word under cursor    |
-{: .-shortcuts}
-
-#### Tab pages
-
-| Shortcut              | Description                     |
-| ---                   | ---                             |
-| `:tabedit [file]`     | Edit file in a new tab          |
-| `:tabfind [file]`     | Open file if exists in new tab  |
-| `:tabclose`           | Close current tab               |
-| `:tabs`               | List all tabs                   | 
-| `:tabfirst`           | Go to first tab                 |
-| `:tablast`            | Go to last tab                  |
-| `:tabn    `           | Go to next tab                  |
-| `:tabp    `           | Go to previous tab              |
+## Editing
+{: .-three-column}
 
 ### Editing
 
@@ -130,14 +62,6 @@ Getting started
 | `<C-R>`  | Redo changes                        |
 {: .-shortcuts}
 
-### Exiting insert mode
-
-| Shortcut          | Description |
-| ---               | ---         |
-| `Esc` _/_ `<C-[>` | Exit insert mode |
-| `<C-C>`           | Exit insert mode, and abort current command |
-{: .-shortcuts}
-
 ### Clipboard
 
 | Shortcut        | Description                 |
@@ -151,7 +75,7 @@ Getting started
 | `P`             | Paste before                |
 | ---             | ---                         |
 | `"*p` _/_ `"+p` | Paste from system clipboard |
-| `"*y` _/_ `"+y` | Paste to system clipboard   |
+| `"*y` _/_ `"+y` | Copy to system clipboard    |
 {: .-shortcuts}
 
 ### Visual mode
@@ -174,6 +98,83 @@ Getting started
 
 See [Operators](#operators) for other things you can do.
 
+### Find & Replace
+
+| Shortcut      | Description                            |
+| ---           | ---                                    |
+| :%s/foo/bar/g | Replace foo with bar in whole document |
+
+## Navigating
+{: .-three-column}
+
+### Directions
+
+| Shortcut            | Description       |
+| ---                 | ---               |
+| `h` `j` `k` `l`     | Arrow keys        |
+| `<C-U>` _/_ `<C-D>` | Half-page up/down |
+| `<C-B>` _/_ `<C-F>` | Page up/down      |
+{: .-shortcuts}
+
+### Words
+
+| Shortcut     | Description               |
+| ---          | ---                       |
+| `b` _/_ `w`  | Previous/next word        |
+| `ge` _/_ `e` | Previous/next end of word |
+{: .-shortcuts}
+
+### Line
+
+| Shortcut     | Description                        |
+| ---          | ---                                |
+| `0` _(zero)_ | Start of line                      |
+| `^`          | Start of line _(after whitespace)_ |
+| `$`          | End of line                        |
+{: .-shortcuts}
+
+### Character
+
+| Shortcut | Description |
+| --- | --- |
+| `fc`  | Go forward to character `c`  |
+| `Fc`  | Go backward to character `c` |
+{: .-shortcuts}
+
+### Document
+
+| Shortcut    | Description              |
+| ---         | ---                      |
+| `gg`        | First line               |
+| `G`         | Last line                |
+| `:{number}` | Go to line `{number}`    |
+| `{number}G` | Go to line `{number}`    |
+| `{number}j` | Go down `{number}` lines |
+| `{number}k` | Go up `{number}` lines   |
+{: .-shortcuts}
+
+### Window
+
+| Shortcut | Description              |
+| ---      | ---                      |
+| `zz`     | Center this line         |
+| `zt`     | Top this line            |
+| `zb`     | Bottom this line         |
+| `H`      | Move to top of screen    |
+| `M`      | Move to middle of screen |
+| `L`      | Move to bottom of screen |
+{: .-shortcuts}
+
+### Search
+
+| Shortcut  | Description                         |
+| ---       | ---                                 |
+| `n`       | Next matching search pattern        |
+| `N`       | Previous match                      |
+| `*`       | Next whole word under cursor        |
+| `#`       | Previous whole word under cursor    |
+{: .-shortcuts}
+
 Operators
 ---------
 {: .-three-column}
@@ -184,6 +185,8 @@ Operators
 Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 {: .-setup}
 
+| Operator | Motion |
+| --- | --- |
 | `d`      | `w`    |
 | Operator | Motion |
 {: .-css-breakdown}
@@ -235,6 +238,8 @@ Text objects
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
 {: .-setup}
 
+| Operator | [i]nside or [a]round | Text object |
+| --- | --- | --- |
 | `v`      | `i`                  | `p`         |
 | Operator | [i]nside or [a]round | Text object |
 {: .-css-breakdown}
@@ -280,6 +285,19 @@ See [Operators](#operators) for other things you can do.
 
 Misc
 ----
+
+### Tab pages
+
+| Shortcut              | Description                     |
+| ---                   | ---                             |
+| `:tabedit [file]`     | Edit file in a new tab          |
+| `:tabfind [file]`     | Open file if exists in new tab  |
+| `:tabclose`           | Close current tab               |
+| `:tabs`               | List all tabs                   | 
+| `:tabfirst`           | Go to first tab                 |
+| `:tablast`            | Go to last tab                  |
+| `:tabn    `           | Go to next tab                  |
+| `:tabp    `           | Go to previous tab              |
 
 ### Folds
 
@@ -334,6 +352,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 ### Windows
 
+| Shortcut | Description |
+| --- | --- |
 | `z{height}<Cr>` | Resize pane to `{height}` lines tall |
 
 ### Tags
@@ -415,9 +435,11 @@ Do these in visual or normal mode.
 
 ### Text alignment
 
-    :center [width]
-    :right [width]
-    :left
+```
+:center [width]
+:right [width]
+:left
+```
 
 See `:help formatting`
 
@@ -431,8 +453,10 @@ Do this in insert mode.
 
 ### Exiting with an error
 
-    :cq
-    :cquit
+```
+:cq
+:cquit
+```
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
@@ -446,7 +470,7 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 | `[s`                         | Move to previous misspelled word before the cursor      |
 | `z=`                         | Suggest spellings for the word under/after the cursor   |
 | `zg`                         | Add word to spell list                                  |
-| `zw`                         | Mark word as bad/mispelling                             |
+| `zw`                         | Mark word as bad/misspelling                            |
 | `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
 {: .-shortcuts}
 

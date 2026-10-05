@@ -1,7 +1,6 @@
 ---
 title: Siege
 category: Others
-layout: 2017/sheet
 intro: |
   [Siege](https://www.joedog.org/siege-home/) is an HTTP and HTTPS load testing tool.
 ---

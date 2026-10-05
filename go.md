@@ -1,9 +1,7 @@
 ---
 title: Go
-layout: 2017/sheet
 prism_languages: [go, bash]
 weight: -3
-tags: [Featured]
 category: C-like
 updated: 2020-06-21
 ---
@@ -16,7 +14,7 @@ updated: 2020-06-21
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Go repl](https://repl.it/languages/go) _(repl.it)_
-- [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
+- [Golang wiki](https://go.dev/wiki/) _(go.dev)_
 
 ### Hello world
 {: .-prime}
@@ -51,19 +49,51 @@ Or try it out in the [Go repl](https://repl.it/languages/go), or [A Tour of Go](
 
 ```go
 var msg string
-msg = "Hello"
+var msg = "Hello, world!"
+var msg string = "Hello, world!"
+var x, y int
+var x, y int = 1, 2
+var x, msg = 1, "Hello, world!"
+```
+
+#### Declaration list
+
+``` go
+var (
+  x int
+  y = 20
+  z int = 30
+  d, e = 40, "Hello"
+  f, g string
+)
 ```
 
 #### Shortcut of above (Infers type)
 
 ```go
 msg := "Hello"
+x, msg := 1, "Hello"
 ```
 
 ### Constants
 
 ```go
 const Phi = 1.618
+const Size int64 = 1024
+const x, y = 1, 2
+const (
+  Pi = 3.14
+  E  = 2.718
+)
+const (
+  Sunday = iota
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+)
 ```
 
 Constants can be character, string, boolean, or numeric values.

@@ -1,10 +1,10 @@
 ---
 title: React.js (v0.14)
 category: React
-layout: 2017/sheet
 deprecated: true
+deprecated_by: /react
 intro: |
-  **Deprecated:** this guide targets an old version of React (v0.14). See the [updated React cheatsheet](react) for new versions.
+  This guide targets an old version of React (v0.14). See the [updated React cheatsheet](react) for new versions.
 ---
 
 {%raw%}
@@ -144,6 +144,8 @@ Methods and properties you can override. See [component specs](http://facebook.g
 
 ### Mounting
 
+| Method | What |
+| --- | --- |
 | `componentWillMount()` | Before rendering (no DOM yet) |
 | `componentDidMount()` | After rendering |
 {:.greycode.no-head.lc}
@@ -152,6 +154,8 @@ Before initial rendering occurs. Add your DOM stuff on didMount (events, timers,
 
 ### Updating
 
+| Method | What |
+| --- | --- |
 | `componentWillReceiveProps`*(newProps={})* | Use `setState()` here |
 | `shouldComponentUpdate`*(newProps={}, newState={})* | Skips `render()` if returns false |
 | `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
@@ -162,6 +166,8 @@ Called when parents change properties and `.setState()`. These are not called fo
 
 ### Unmounting
 
+| Method | What |
+| --- | --- |
 | `componentWillUnmount()` | Invoked before DOM removal |
 {:.greycode.no-head.lc}
 

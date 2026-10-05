@@ -1,12 +1,13 @@
 ---
 title: js-model
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Last shipped 0.11.0 (~2012); unmaintained for a decade.
+updated: 2026-10-04
 ---
 
 ### Example
 
-```bash
+```coffeescript
 Project = Model "project", ->
   @extend
     findByTitle: (title) -> ...
@@ -17,7 +18,7 @@ Project = Model "project", ->
   # ActiveRecord::Base.include_root_in_json = false
 ```
 
-```bash
+```coffeescript
 project = Project.find(1)
 project = Project.findByTitle("hello")
 
@@ -26,20 +27,20 @@ project.markAsDone()
 
 ### Persistence
 
-```bash
+```coffeescript
 Project "hi", ->
   @persistence Model.REST, "/projects"
   @persistence Model.localStorage
 ```
 
-```bash
+```coffeescript
 Project.load ->
   # loaded
 ```
 
 ### Attrs
 
-```bash
+```coffeescript
 project = new Project(name: "Hello")
 
 project.attr('name', "Hey")
@@ -51,32 +52,32 @@ project.destroy()
 
 ### Collection
 
-```bash
+```coffeescript
 Food.add(egg)
 Food.all()
 Food.select (food) -> ...
 Food.first()
 ```
 
-```bash
+```coffeescript
 Food.find(id)
 ```
 
 ### Events
 
-```bash
+```coffeescript
 # Classes
 Project.bind "add", (obj) ->
 Project.bind "remove", (obj) ->
 ```
 
-```bash
+```coffeescript
 # Instances
 project.bind "update", ->
 project.bind "destroy", ->
 ```
 
-```bash
+```coffeescript
 project.trigger "turn_blue"
 ```
 
@@ -84,3 +85,4 @@ project.trigger "turn_blue"
 {: .-one-column}
 
 - <http://benpickles.github.io/js-model/>
+- <https://github.com/benpickles/js-model>

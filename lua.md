@@ -2,299 +2,347 @@
 title: Lua
 ---
 
-## Comments
+## Basic examples
 
-    -- comment
-    --[[ Multiline
-         comment ]]
+### References
 
-## Invoking functions
+- <https://www.lua.org/pil/13.html>
+- <http://lua-users.org/wiki/ObjectOrientedProgramming>
 
-    print()
-    print("Hi")
+### Comments
 
-    -- You can omit parentheses if the argument is one string or table literal
-    print "Hello World"     <-->     print("Hello World")
-    dofile 'a.lua'          <-->     dofile ('a.lua')
-    print [[a multi-line    <-->     print([[a multi-line
-     message]]                        message]])
-    f{x=10, y=20}           <-->     f({x=10, y=20})
-    type{}                  <-->     type({})
+```
+-- comment
+--[[ Multiline
+     comment ]]
+```
 
-## Tables / arrays
+### Invoking functions
 
-    t = {}
-    t = { a = 1, b = 2 }
-    t.a = function() ... end
+```
+print()
+print("Hi")
 
-    t = { ["hello"] = 200 }
-    t.hello
+-- You can omit parentheses if the argument is one string or table literal
+print "Hello World"     <-->     print("Hello World")
+dofile 'a.lua'          <-->     dofile ('a.lua')
+print [[a multi-line    <-->     print([[a multi-line
+ message]]                        message]])
+f{x=10, y=20}           <-->     f({x=10, y=20})
+type{}                  <-->     type({})
+```
 
-    -- Remember, arrays are also tables
-    array = { "a", "b", "c", "d" }
-    print(array[2])       -- "b" (one-indexed)
-    print(#array)         -- 4 (length)
+### Tables / arrays
 
-## Loops
+```
+t = {}
+t = { a = 1, b = 2 }
+t.a = function() ... end
 
-    while condition do
-    end
+t = { ["hello"] = 200 }
+t.hello
 
-    for i = 1,5 do
-    end
+-- Remember, arrays are also tables
+array = { "a", "b", "c", "d" }
+print(array[2])       -- "b" (one-indexed)
+print(#array)         -- 4 (length)
+```
 
-    for i = start,finish,delta do
-    end
+### Loops
 
-    for k,v in pairs(tab) do
-    end
+```
+while condition do
+end
 
-    repeat
-    until condition
+for i = 1,5 do
+end
 
-    -- Breaking out:
-    while x do
-      if condition then break end
-    end
+for i = start,finish,delta do
+end
 
-## Conditionals
+for k,v in pairs(tab) do
+end
 
-    if condition then
-      print("yes")
-    elseif condition then
-      print("maybe")
-    else
-      print("no")
-    end
+repeat
+until condition
 
-## Variables
+-- Breaking out:
+while x do
+  if condition then break end
+end
+```
 
-    local x = 2
-    two, four = 2, 4
+### Conditionals
 
-## Functions
+```
+if condition then
+  print("yes")
+elseif condition then
+  print("maybe")
+else
+  print("no")
+end
+```
 
-    function myFunction()
-      return 1
-    end
+### Variables
 
-    function myFunctionWithArgs(a, b)
-      -- ...
-    end
+```
+local x = 2
+two, four = 2, 4
+```
 
-    myFunction()
+### Functions
 
-    anonymousFunctions(function()
-      -- ...
-    end)
+```
+function myFunction()
+  return 1
+end
 
-    -- Not exported in the module
-    local function myPrivateFunction()
-    end
+function myFunctionWithArgs(a, b)
+  -- ...
+end
 
-    -- Splats
-    function doAction(action, ...)
-      print("Doing '"..action.."' to", ...)
-      --> print("Doing 'write' to", "Shirley", "Abed")
-    end
+myFunction()
 
-    doAction('write', "Shirley", "Abed")
+anonymousFunctions(function()
+  -- ...
+end)
 
-## Lookups
+-- Not exported in the module
+local function myPrivateFunction()
+end
 
-    mytable = { x = 2, y = function() .. end }
+-- Splats
+function doAction(action, ...)
+  print("Doing '"..action.."' to", ...)
+  --> print("Doing 'write' to", "Shirley", "Abed")
+end
 
-    -- The same:
-    mytable.x
-    mytable['x']
+doAction('write', "Shirley", "Abed")
+```
 
-    -- Syntactic sugar, these are equivalent:
-    mytable.y(mytable)
-    mytable:y()
+### Lookups
 
-    mytable.y(mytable, a, b)
-    mytable:y(a, b)
+```
+mytable = { x = 2, y = function() .. end }
 
-    function X:y(z) .. end
-    function X.y(self, z) .. end
+-- The same:
+mytable.x
+mytable['x']
 
-## Metatables
+-- Syntactic sugar, these are equivalent:
+mytable.y(mytable)
+mytable:y()
 
+mytable.y(mytable, a, b)
+mytable:y(a, b)
 
-    mt = {}
+function X:y(z) .. end
+function X.y(self, z) .. end
+```
 
-    -- A metatable is simply a table with functions in it.
-    mt.__tostring = function() return "lol" end
-    mt.__add      = function(b) ... end       -- a + b
-    mt.__mul      = function(b) ... end       -- a * b
-    mt.__index    = function(k) ... end       -- Lookups (a[k] or a.k)
-    mt.__newindex = function(k, v) ... end    -- Setters (a[k] = v)
+## More concepts
 
-    -- Metatables allow you to override behavior of another table.
-    mytable = {}
-    setmetatable(mytable, mt)
+### Metatables
 
-    print(myobject)
+```
+mt = {}
 
-## Classes
+-- A metatable is simply a table with functions in it.
+mt.__tostring = function() return "lol" end
+mt.__add      = function(b) ... end       -- a + b
+mt.__mul      = function(b) ... end       -- a * b
+mt.__index    = function(k) ... end       -- Lookups (a[k] or a.k)
+mt.__newindex = function(k, v) ... end    -- Setters (a[k] = v)
 
-    Account = {}
+-- Metatables allow you to override behavior of another table.
+mytable = {}
+setmetatable(mytable, mt)
 
-    function Account:new(balance)
-      local t = setmetatable({}, { __index = Account })
+print(myobject)
+```
 
-      -- Your constructor stuff
-      t.balance = (balance or 0)
-      return t
-    end
+### Classes
 
-    function Account:withdraw(amount)
-      print("Withdrawing "..amount.."...")
-      self.balance = self.balance - amount
-      self:report()
-    end
+```
+Account = {}
 
-    function Account:report()
-      print("Your current balance is: "..self.balance)
-    end
+function Account:new(balance)
+  local t = setmetatable({}, { __index = Account })
 
-    a = Account:new(9000)
-    a:withdraw(200)    -- method call
+  -- Your constructor stuff
+  t.balance = (balance or 0)
+  return t
+end
 
-## Constants
+function Account:withdraw(amount)
+  print("Withdrawing "..amount.."...")
+  self.balance = self.balance - amount
+  self:report()
+end
 
-    nil
-    false
-    true
+function Account:report()
+  print("Your current balance is: "..self.balance)
+end
+
+a = Account:new(9000)
+a:withdraw(200)    -- method call
+```
+
+### Constants
+
+```
+nil
+false
+true
+```
 
 ## Operators (and their metatable names)
 
-    -- Relational (binary)
-    -- __eq  __lt  __gt  __le  __ge
-       ==    <     >     <=    >=
-    ~=   -- Not equal, just like !=
+### Relational
 
-    -- Arithmetic (binary)
-    -- __add  __sub  __muv  __div  __mod  __pow
-       +      -      *      /      %      ^
+```
+-- Relational (binary)
+-- __eq  __lt  __gt  __le  __ge
+   ==    <     >     <=    >=
+~=   -- Not equal, just like !=
 
-    -- Arithmetic (unary)
-    -- __unm (unary minus)
-       -
+-- Arithmetic (binary)
+-- __add  __sub  __muv  __div  __mod  __pow
+   +      -      *      /      %      ^
 
-    -- Logic (and/or)
-    nil and false  --> nil
-    false and nil  --> false
-    0 and 20       --> 20
-    10 and 20      --> 20
+-- Arithmetic (unary)
+-- __unm (unary minus)
+   -
+```
 
+### Logic
 
-    -- Length
-    -- __len(array)
-    #array
+```
+-- Logic (and/or)
+nil and false  --> nil
+false and nil  --> false
+not true       --> false
+0 and 20       --> 20
+10 and 20      --> 20
+```
 
+### Tables
 
-    -- Indexing
-    -- __index(table, key)
-    t[key]
-    t.key
-
-    -- __newindex(table, key, value)
-    t[key]=value
-
-    -- String concat
-    -- __concat(left, right)
-    "hello, "..name
-
-    -- Call
-    -- __call(func, ...)
+```
+-- Length
+-- __len(array)
+#array
 
 
-## API: Global functions  [(ref)](http://lua.gts-stolberg.de/en/Basis.php)
+-- Indexing
+-- __index(table, key)
+t[key]
+t.key
 
-    dofile("hello.lua")
-    loadfile("hello.lua")
+-- __newindex(table, key, value)
+t[key]=value
 
-    assert(x)    -- x or (raise an error)
-    assert(x, "failed")
+-- String concat
+-- __concat(left, right)
+"hello, "..name
 
-    type(var)   -- "nil" | "number" | "string" | "boolean" | "table" | "function" | "thread" | "userdata"
+-- Call
+-- __call(func, ...)
+```
 
-    -- Does /not/ invoke meta methods (__index and __newindex)
-    rawset(t, index, value)    -- Like t[index] = value
-    rawget(t, index)           -- Like t[index]
+## API
 
-    _G  -- Global context
-    setfenv(1, {})  -- 1: current function, 2: caller, and so on -- {}: the new _G
+### API: Global Functions
 
-    pairs(t)     -- iterable list of {key, value}
-    ipairs(t)    -- iterable list of {index, value}
+```
+dofile("hello.lua")
+loadfile("hello.lua")
 
-    tonumber("34")
-    tonumber("8f", 16)
+assert(x)    -- x or (raise an error)
+assert(x, "failed")
 
-## API: Strings
+type(var)   -- "nil" | "number" | "string" | "boolean" | "table" | "function" | "thread" | "userdata"
 
-    'string'..'concatenation'
+-- Does /not/ invoke meta methods (__index and __newindex)
+rawset(t, index, value)    -- Like t[index] = value
+rawget(t, index)           -- Like t[index]
 
-    s = "Hello"
-    s:upper()
-    s:lower()
-    s:len()    -- Just like #s
+_G  -- Global context
+setfenv(1, {})  -- 1: current function, 2: caller, and so on -- {}: the new _G
 
-    s:find()
-    s:gfind()
+pairs(t)     -- iterable list of {key, value}
+ipairs(t)    -- iterable list of {index, value}
 
-    s:match()
-    s:gmatch()
+tonumber("34")
+tonumber("8f", 16)
+```
 
-    s:sub()
-    s:gsub()
+### API: Strings
 
-    s:rep()
-    s:char()
-    s:dump()
-    s:reverse()
-    s:byte()
-    s:format()
+```
+'string'..'concatenation'
 
-## API: Tables
+s = "Hello"
+s:upper()
+s:lower()
+s:len()    -- Just like #s
 
-    table.foreach(t, function(row) ... end)
-    table.setn
-    table.insert(t, 21)          -- append (--> t[#t+1] = 21)
-    table.insert(t, 4, 99)
-    table.getn
-    table.concat
-    table.sort
-    table.remove(t, 4)
+s:find()
+s:gfind()
 
-## API: Math [(ref)](http://lua-users.org/wiki/MathLibraryTutorial)
+s:match()
+s:gmatch()
 
-    math.abs     math.acos    math.asin       math.atan    math.atan2
-    math.ceil    math.cos     math.cosh       math.deg     math.exp
-    math.floor   math.fmod    math.frexp      math.ldexp   math.log
-    math.log10   math.max     math.min        math.modf    math.pow
-    math.rad     math.random  math.randomseed math.sin     math.sinh
-    math.sqrt    math.tan     math.tanh
+s:sub()
+s:gsub()
 
-    math.sqrt(144)
-    math
+s:rep()
+s:char()
+s:dump()
+s:reverse()
+s:byte()
+s:format()
+```
 
-## API: Misc
+### API: Tables
 
-    io.output(io.open("file.txt", "w"))
-    io.write(x)
-    io.close()
+```
+table.foreach(t, function(row) ... end)
+table.setn
+table.insert(t, 21)          -- append (--> t[#t+1] = 21)
+table.insert(t, 4, 99)
+table.getn
+table.concat
+table.sort
+table.remove(t, 4)
+```
 
-    for line in io.lines("file.txt")
+### API: Math
 
-    file = assert(io.open("file.txt", "r"))
-    file:read()
-    file:lines()
-    file:close()
+```
+math.abs     math.acos    math.asin       math.atan    math.atan2
+math.ceil    math.cos     math.cosh       math.deg     math.exp
+math.floor   math.fmod    math.frexp      math.ldexp   math.log
+math.log10   math.max     math.min        math.modf    math.pow
+math.rad     math.random  math.randomseed math.sin     math.sinh
+math.sqrt    math.tan     math.tanh
 
-## Reference
+math.sqrt(144)
+math
+```
 
-  https://www.lua.org/pil/13.html
-  http://lua-users.org/wiki/ObjectOrientedProgramming
+### API: Misc
+
+```
+io.output(io.open("file.txt", "w"))
+io.write(x)
+io.close()
+
+for line in io.lines("file.txt")
+
+file = assert(io.open("file.txt", "r"))
+file:read()
+file:lines()
+file:close()
+```

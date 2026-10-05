@@ -77,6 +77,8 @@ database: test
 
 ## Interactive mode
 
+| Shortcut | Description |
+| --- | --- |
 | `{Visual}` `⏎` | activate for selection |
 | `ga` `{motion}` | activate for motion/text object |
 {:.greycode}
@@ -85,6 +87,8 @@ Then press options (if available), then a delimiter.
 
 ### Interactive mode options
 
+| Shortcut | Description |
+| --- | --- |
 | `⏎` | Set `alignment` |
 | `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimiter) |
 | `<ctrl-r>` `4 ⏎` | Set `right_margin` |

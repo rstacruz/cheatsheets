@@ -1,0 +1,17 @@
+---
+import type { SheetPage } from '~/lib/page'
+import PageListItem from './PageListItem.astro'
+
+export type Props = {
+  pages: SheetPage[]
+}
+
+const props = Astro.props as Props
+---
+
+{props.pages.map((page) => <PageListItem page={page} class="top-sheet" />)}
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/top-sheet';
+</style>

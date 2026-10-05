@@ -1,11 +1,16 @@
 ---
 title: Modernizr
-category: JavaScript libraries
+category: Hidden
+# No longer in active development; the repo was archived in 2024.
+tags: [Archived]
+archived: Modernizr is no longer in active development.
 ---
 
 ### Script
 
-    <script src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'></script>
+```
+<script src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js'></script>
+```
 
 ### Detections
 

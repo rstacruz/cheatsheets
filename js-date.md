@@ -1,12 +1,21 @@
 ---
 title: JavaScript Date
 category: JavaScript
-layout: 2017/sheet
 weight: -3
+updated: 2026-10-04
+intro: |
+  Constructing and reading JavaScript dates, and converting them to strings
+  and timestamps.
 ---
 
 ## Date
-{: .-left-reference}
+
+### Introduction
+{: .-intro}
+
+JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
+
+- [Date reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) _(developer.mozilla.org)_
 
 ### Constructor
 
@@ -17,48 +26,57 @@ new Date()
 
 ```js
 // ms since epoch
-new Date(1419785527580)
+new Date(1393678859000)
 ```
 
 ```js
 // Date format
-new Date("May 17, 1995 03:24:00")
+new Date("March 1, 2014 13:00:59")
 ```
 
 ```js
 // ISO date format
-new Date("2013-03-01T01:10:00")
+new Date("2014-03-01T13:00:59")
 ```
 
 ```js
 new Date(2014, 2, 1, 13, 0, 59, 0)
 ```
 
-### Constructor
+See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
 
+### Arguments
+
+| Date | Year | Month | Day | Hour | Min | Sec | Milli |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | `new Date(` | `2014,` | `2,`  | `1,` | `13,` | `0,` | `59,` | `0)`  |
 | Date        | Year    | Month | Day  | Hour  | Min  | Sec   | Milli |
 {: .-css-breakdown}
 
 Months are zero-indexed (eg, January is `0`).
 
+See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
+
 ### Conversion
 
 | Method                   | Result                                      |
 | ---                      | ---                                         |
-| `d.toString()`           | `"Mon Dec 29 2014 00:58:28 GMT+0800 (PHT)"` |
-| `d.toTimeString()`       | `"00:58:46 GMT+0800 (PHT)"`                 |
-| `d.toUTCString()`        | `"Sun, 28 Dec 2014 16:58:59 GMT"`           |
+| `d.toString()`           | `"Sat Mar 01 2014 13:00:59 GMT+0000 (GMT)"` |
+| `d.toTimeString()`       | `"13:00:59 GMT+0000 (GMT)"`                 |
+| `d.toUTCString()`        | `"Sat, 01 Mar 2014 13:00:59 GMT"`           |
 | ---                      | ---                                         |
-| `d.toDateString()`       | `"Thu Jan 10 2013"`                         |
-| `d.toISOString()`        | `"2013-01-09T16:00:00.000Z"`                |
-| `d.toLocaleString()`     | `"12/29/2014, 12:57:31 AM"`                 |
-| `d.toLocaleTimeString()` | `"12:57:31 AM"`                             |
+| `d.toDateString()`       | `"Sat Mar 01 2014"`                         |
+| `d.toISOString()`        | `"2014-03-01T13:00:59.000Z"`                |
+| `d.toLocaleString()`     | `"3/1/2014, 1:00:59 PM"`                    |
+| `d.toLocaleTimeString()` | `"1:00:59 PM"`                              |
 | ---                      | ---                                         |
-| `d.getTime()`            | `1419785527580`                             |
+| `d.getTime()`            | `1393678859000`                             |
 
-Accessing
----------
+String results depend on the timezone and locale.
+
+See: [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString), [toUTCString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString), [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) _(developer.mozilla.org)_
+
+## Accessing
 
 ### Getters
 
@@ -69,31 +87,31 @@ Accessing
 | `.getFullYear()`       | `2014`            |
 | `.getMonth()`          | `0..11`           |
 | ---                    | ---               |
-| `.getHours()`          |                   |
-| `.getMinutes()`        |                   |
-| `.getSeconds()`        |                   |
-| `.getMilliseconds()`   |                   |
+| `.getHours()`          | `0..23`           |
+| `.getMinutes()`        | `0..59`           |
+| `.getSeconds()`        | `0..59`           |
+| `.getMilliseconds()`   | `0..999`          |
 | ---                    | ---               |
 | `.getTime()`           | ms since epoch    |
-| `.getTimezoneOffset()` |                   |
+| `.getTimezoneOffset()` | minutes           |
 
-UTC versions are also available (eg, `.getUTCDate()`, `.getUTCDay()`, etc).
+See: [getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime), [getTimezoneOffset()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset) _(developer.mozilla.org)_
 
 ### Setters
 
-| Method                       | Result |
-| ---                          | ---    |
-| `.setDate` _(val)_           |        |
-| `.setDay` _(val)_            |        |
-| `.setFullYear` _(val)_       |        |
-| `.setMonth` _(val)_          |        |
-| ---                          | ---    |
-| `.setHours` _(val)_          |        |
-| `.setMinutes` _(val)_        |        |
-| `.setSeconds` _(val)_        |        |
-| `.setMilliseconds` _(val)_   |        |
-| ---                          | ---    |
-| `.setTime` _(val)_           |        |
-| `.setTimezoneOffset` _(val)_ |        |
+| Method                     | Result         |
+| ---                        | ---            |
+| `.setDate` _(val)_         | ms since epoch |
+| `.setFullYear` _(val)_     | ms since epoch |
+| `.setMonth` _(val)_        | ms since epoch |
+| ---                        | ---            |
+| `.setHours` _(val)_        | ms since epoch |
+| `.setMinutes` _(val)_      | ms since epoch |
+| `.setSeconds` _(val)_      | ms since epoch |
+| `.setMilliseconds` _(val)_ | ms since epoch |
+| ---                        | ---            |
+| `.setTime` _(val)_         | ms since epoch |
 
-See the getters list.
+UTC versions are also available (eg, `.getUTCDate()`, `.setUTCDate()`, etc).
+
+See: [setTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime) _(developer.mozilla.org)_

@@ -1,7 +1,6 @@
 ---
 title: Jekyll
 jekyll_escape: true
-layout: 2017/sheet
 prism_languages: [bash, yaml, ruby]
 category: Jekyll
 updated: 2018-08-25
@@ -162,7 +161,7 @@ Markup
   ...
 {% endif %}
 ```
-{: data-line="1,3,5,7 }
+{: data-line="1,3,5,7"}
 
 ```html
 {% if page.category == 'React' %}
@@ -211,6 +210,8 @@ Markup
 ### Top-level variables
 
 
+| Variable | Description |
+| --- | --- |
 | `{{ site }}` | Data from `config.yml` |
 | `{{ page }}` | From frontmatter, and page-specific info |
 | `{{ content }}` | HTML content (use in layouts) |
@@ -225,6 +226,8 @@ See: [Variables](https://jekyllrb.com/docs/variables/)
 ```
 {: .-setup}
 
+| Variable | Description |
+| --- | --- |
 | `site.time` | Current time |
 | `site.pages` | List of pages |
 | `site.posts` | List of blog posts |
@@ -267,6 +270,8 @@ Filters
 ```
 {: .-setup}
 
+| Filter | Output |
+| --- | --- |
 | `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
 | `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
 | `date_to_string` | → `07 Nov 2008` |
@@ -444,20 +449,26 @@ See: [Paginator](https://jekyllrb.com/docs/pagination/)
 
 ### Paths
 
-    _posts/YEAR-MONTH-DAY-title.md
+```
+_posts/YEAR-MONTH-DAY-title.md
+```
 
 See: [Blogging](https://jekyllrb.com/docs/posts/)
 
 ### Image paths
 
-    ![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+```
+![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+```
 
 See: [Image paths](https://jekyllrb.com/docs/posts/#including-images-and-resources)
 
 ### Drafts
 
-    vi _drafts/a-draft-post.md
-    jekyll build --drafts
+```
+vi _drafts/a-draft-post.md
+jekyll build --drafts
+```
 
 Posts in `_drafts` only show up in development, but not production.
 See: [Drafts](https://jekyllrb.com/docs/drafts/)
@@ -503,11 +514,13 @@ Alternatively, you can put excerpts inline in your post by defining `excerpt_sep
 
 ### Permalinks
 
-    # _config.yml
-    permalink: date   # /:categories/:year/:month/:day/:title.html
-    permalink: pretty # /:categories/:year/:month/:day/:title/
-    permalink: none   # /:categories/:title.html
-    permalink: "/:title"
+```
+# _config.yml
+permalink: date   # /:categories/:year/:month/:day/:title.html
+permalink: pretty # /:categories/:year/:month/:day/:title/
+permalink: none   # /:categories/:title.html
+permalink: "/:title"
+```
 
 See: [Permalinks](https://jekyllrb.com/docs/permalinks/)
 

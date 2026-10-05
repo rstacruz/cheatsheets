@@ -1,8 +1,12 @@
 ---
 title: React-router
 category: React
-layout: default-ad
 ---
+
+### About
+{: .-intro}
+
+- <https://reactrouter.com/>
 
 {% raw %}
 

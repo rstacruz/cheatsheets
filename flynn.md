@@ -1,7 +1,7 @@
 ---
 title: Flynn
-category: Devops
-layout: 2017/sheet
+category: Hidden
+# Discontinued and unmaintained; repo archived 2021, infrastructure shut down.
 ---
 
 ### General workflow

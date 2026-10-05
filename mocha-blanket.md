@@ -1,7 +1,7 @@
 ---
 title: Mocha blanket
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Built on blanket.js, which is abandoned (its README points to Istanbul/nyc).
 intro: |
   Use [blanket](https://npmjs.com/package/blanket) for easy coverage reporting for Mocha JavaScript tests.
 ---

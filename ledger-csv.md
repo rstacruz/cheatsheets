@@ -1,7 +1,6 @@
 ---
 title: Ledger CSV format
 category: Ledger
-layout: 2017/sheet
 ---
 
 ## Ledger CSV format

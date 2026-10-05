@@ -3,6 +3,8 @@ title: Tape
 category: JavaScript libraries
 ---
 
+### Example
+
 ```js
 test('things', (t) => {
   t.plan(1)

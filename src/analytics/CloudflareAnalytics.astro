@@ -1,0 +1,11 @@
+---
+type Props = { token: string }
+const props = Astro.props as Props
+const { token } = props
+---
+
+<script
+  defer
+  type="text/partytown"
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon={`{"token": "${token}"}`}></script>

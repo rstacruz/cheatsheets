@@ -1,9 +1,10 @@
 ---
 title: Make for assets
-hljs_languages: [makefile]
+tags: [Archived]
+archived: This sheet may be listing practices that are outdated.
 ---
 
-## Basic compiling
+### Basic compiling
 
 ```makefile
 bin := ./node_modules/.bin
@@ -14,37 +15,45 @@ build/%.js: src/%.coffee
     @$(bin)/coffee < $^ > $@
 ```
 
-## Stylus + Autoprefixer
+### Stylus + Autoprefixer
 
-    bin := ./node_modules/.bin
-    stylus := $(bin)/stylus
-    autoprefixer := $(bin)/autoprefixer
-    styl_files := $(shell find web/ -name "*.styl")
+```
+bin := ./node_modules/.bin
+stylus := $(bin)/stylus
+autoprefixer := $(bin)/autoprefixer
+styl_files := $(shell find web/ -name "*.styl")
 
-    all: public/app.css
+all: public/app.css
 
-    public/app.css: css/app.styl
+public/app.css: css/app.styl
 
-    %.css: %.styl $(styl_files)
-        @$(stylus) $< | $(autoprefixer) -b "> 1%" > $@
+%.css: %.styl $(styl_files)
+    @$(stylus) $< | $(autoprefixer) -b "> 1%" > $@
+```
 
-## Hint
+### Hint
 
-    hint:
-       $(js_files)
+```
+hint:
+   $(js_files)
+```
 
-## Watching
+### Watching
 
-    watch:
-        @echo "... watching for changes"
-        @while true; do make -s; sleep 1; done
+```
+watch:
+    @echo "... watching for changes"
+    @while true; do make -s; sleep 1; done
+```
 
-## Browserify
+### Browserify
 
-    js_files := $(shell find web/ -name "*.js")
+```
+js_files := $(shell find web/ -name "*.js")
 
-    public/app.js: web/app.js
-    public/vendor.js: web/vendor.js
+public/app.js: web/app.js
+public/vendor.js: web/vendor.js
 
-    public/%.js: web/%.js $(js_files)
-        $(browserify) -t [ cssify -x .css ] $< > $@
+public/%.js: web/%.js $(js_files)
+    $(browserify) -t [ cssify -x .css ] $< > $@
+```

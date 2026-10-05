@@ -1,10 +1,13 @@
 ---
 title: Vainglory
-layout: 2017/sheet
+category: Hidden
+# Live service shut down in 2020; Community Edition development halted in 2020.
 ---
 
 ## T3 items by use
 {: .-one-column}
+
+### Items by use
 
 | Use                    | CP                                | WP                           | Util                                                                           |
 | ---                    | ---                               | ---                          | ---                                                                            |
@@ -123,6 +126,10 @@ layout: 2017/sheet
 
 ## Skill tier names
 
+### Skill tier names
+
+| Name | Level |
+| --- | --- |
 | Just Beginning | 1 |
 | Getting There | 2 |
 | Rock Solid | 3 |

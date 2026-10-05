@@ -3,8 +3,13 @@ title: Command line stuff
 ---
 
 ## List (ls)
+{: .-three-column}
 
-    ls [options] [paths]
+### Usage
+
+```
+ls [options] [paths]
+```
 
 ### Format
 
@@ -18,14 +23,14 @@ title: Command line stuff
 |---
 | `-F` | Add / after directories |
 | `-G` | Color |
-{:.shortcuts}
 
 ### Options
 
+| Switch | Description |
+| --- | --- |
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
 | `-A` | Include hidden (but not . and ..) |
-{:.shortcuts}
 
 ### Sorting
 
@@ -39,32 +44,37 @@ title: Command line stuff
 | `-c` | sort by time status was changed |
 |---
 | `-h` | Human-readable size (3k) |
-{:.shortcuts}
-
-<br>
 
 ## Tail
+{: .-three-column}
 
-    tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+### Usage
+
+```
+tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+```
 
 ### Modes
 
+| Mode | Description |
+| --- | --- |
 | `-f` | follow |
 | `-F` | follow by filename (accounts for log rotation) |
 | `-r` | Reverse order |
-{:.shortcuts}
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-bN` | N*512 bytes |
 | `-cN` | N bytes |
 | `-nN` | N lines |
 | `+N`  | Start from line N |
-{:.shortcuts}
-
-<br>
 
 ## Sudo
+{: .-three-column}
+
+### Usage
 
 ```
 sudo [options] <command>
@@ -72,11 +82,14 @@ sudo [options] <command>
 
 ### Listing
 
+| Option | Description |
+| --- | --- |
 | `-l` | List allowed commands |
-{:.shortcuts}
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-A` | Use $SUDO_ASKPASS |
 | `-b` | Run in background |
 | `-E` | Preserve environment |
@@ -84,17 +97,18 @@ sudo [options] <command>
 | `-n` | Don't prompt for password |
 | `-P` | Preserve group vector |
 | `-S` | Read password from stdin |
-{:.shortcuts}
 
 ### File descriptors
 
+| Option | Description |
+| --- | --- |
 | `-C fd` | Close all open file descriptors |
-{:.shortcuts}
 
 ### Prompt
 
+| Option | Description |
+| --- | --- |
 | `-p prompt` | Custom prompt (-p "%p password:") |
-{:.shortcuts}
 
 ### Interactive
 
@@ -105,38 +119,37 @@ sudo [options] <command>
 |----
 | `-u user` | run as this user |
 | `-g group` | run as this group |
-{:.shortcuts}
 
 ### Timestamp
 
+| Option | Description |
+| --- | --- |
 | `-v` | revalidate timestamp for 5 mins |
 | `-k` | invalidate timestamp |
 | `-K` | just like -k |
-{:.shortcuts}
-
-<br>
 
 ## wc (Word count)
+{: .-three-column}
+
+### wc
 
 ```
 ... | wc [options]
 ```
 
+### Options
+
+| Option | Description |
+| --- | --- |
 | `-c` | Bytes |
 | `-l` | Lines |
 | `-m` | Characters (incl multi-byte) |
 | `-w` | Words |
-{:.shortcuts}
-
-<br>
-
-## Search-and-replace in all files
-
-    perl -p -i -e 's/hello/HELLO/g' **/*
-
-<br>
 
 ## Grep
+{: .-three-column}
+
+### Usage
 
 ```
 grep [options] [pattern] [file ...]
@@ -164,9 +177,19 @@ grep [options] [pattern] [file ...]
 | `-r, -R` | --recursive |
 | `-v` | --invert-match |
 | `-i` | --ignore-case |
-{:.shortcuts}
 
 ### Synonyms
 
-    egrep  =>  grep -E
-    fgrep  =>  grep -F
+```
+egrep  =>  grep -E
+fgrep  =>  grep -F
+```
+
+## Other recipes
+{: .-three-column}
+
+### Search-and-replace in all files
+
+```
+perl -p -i -e 's/hello/HELLO/g' **/*
+```

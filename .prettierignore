@@ -1,0 +1,6 @@
+src/sass/vendor
+vendor
+dist
+artefacts
+*.md
+pnpm-lock.yaml

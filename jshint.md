@@ -1,14 +1,19 @@
 ---
-title: Jshint
+title: JSHint
 category: JavaScript libraries
-layout: 2017/sheet
-updated: 2017-09-12
+updated: 2026-10-04
+intro: |
+  JSHint is configured with inline `/* jshint ... */` directives.
 ---
+
+### Introduction
+{: .-intro}
+
+- [JSHint options](https://jshint.com/docs/options/) _(jshint.com)_
 
 ### Relaxing
 
 Enable these options to *not* throw errors in these conditions.
-See: [Relaxing](https://www.jshint.com/docs/options/#relaxing-options)
 {: .-setup}
 
 ```js
@@ -45,21 +50,21 @@ expect(x).be.true;
 ```
 
 ```js
-/* jshint laxcomma: true */
+/* jshint laxcomma: true */     // (deprecated)
 var one = 1
   , two = 2;
 ```
 
 ```js
-/* jshint loopfunc: true */
-for (i=0; i<10; x++) {
-  (function(i) { ... })(i);
-}
+/* jshint sub: true */          // (deprecated)
+process.env['name_here']
 ```
 
 ```js
-/* jshint sub: true */
-process.env['name_here']
+/* jshint loopfunc: true */
+for (i = 0; i < 10; i++) {
+  (function(i) { ... })(i);
+}
 ```
 
 ```js
@@ -67,10 +72,11 @@ process.env['name_here']
 "use strict";
 ```
 
+See: [Relaxing options](https://jshint.com/docs/options/#relaxing-options) _(jshint.com)_
+
 ### Enforcing
 
 Enable these options to catch more errors.
-See: [Enforcing](https://www.jshint.com/docs/options/#enforcing-options)
 {: .-setup}
 
 ```js
@@ -85,7 +91,7 @@ if (a == null)                  // err: use ===
 ```
 
 ```js
-/* jshint es3: true */
+/* jshint esversion: 3 */
 // ...for legacy IE compatibility
 a.default = function() { ... }; // err: reserved word
 array = [ 1, 2, 3, ];           // err: extra comma
@@ -102,14 +108,12 @@ Array.prototype.count = ...;    // err: don't modify native prototypes
 ```
 
 ```js
-/* jshint indent: 4 */
-if (x) {                        // err: expected indent of 4, found 2
-  ...;
-}
+/* jshint esversion: 6 */
+const sum = (a, b) => a + b     // allow ES6 syntax
 ```
 
 ```js
-/* jshint quotmark: single */
+/* jshint quotmark: single */   // (deprecated)
 /* jshint quotmark: double */
 alert("hi");                    // err: only single allowed
 ```
@@ -120,13 +124,14 @@ function() { ... }              // err: need "use strict"
 ```
 
 ```js
-/* jshint white: true, indent: 4 */
+/* jshint indent: 4, maxlen: 80 */  // (deprecated)
 /* jshint maxdepth: 2 */
 /* jshint maxparams: 3 */
 /* jshint maxstatements: 4 */
 /* jshint maxcomplexity: 5 */
-/* jshint maxlen: 80 */
 ```
+
+See: [Enforcing options](https://jshint.com/docs/options/#enforcing-options) _(jshint.com)_
 
 ### Ignore
 
@@ -135,12 +140,14 @@ function() { ... }              // err: need "use strict"
 /* jshint ignore:end */
 ```
 
-### Globals and Environments
+See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jshint.com)_
+
+### Globals and environments
 
 ```js
 /* jshint undef: true */
-/* global jQuery */
-/* global -BAD_LIB */
+/* globals jQuery */
+/* globals -BAD_LIB */
 ```
 
 ```js
@@ -150,9 +157,9 @@ function() { ... }              // err: need "use strict"
 /* jshint jquery: true */  jQuery, $
 ```
 
-See: [Environments](https://www.jshint.com/docs/options/#environments)
+See: [Environments](https://jshint.com/docs/options/#environments) _(jshint.com)_
 
 ### Also see
 
-* <https://www.jshint.com/docs/options/>
+* <https://jshint.com/docs/options/>
 * <https://gist.github.com/haschek/2595796>

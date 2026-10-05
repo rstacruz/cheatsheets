@@ -1,7 +1,6 @@
 ---
 title: Git revisions
 category: Git
-layout: 2017/sheet
 updated: 2017-10-11
 description: ""
 intro: |
@@ -10,6 +9,8 @@ intro: |
 
 ### Example usages
 
+| Example | Description |
+| --- | --- |
 | _`git log`_ `master...develop`  | inspect differences in branches         |
 | _`git rebase -i`_ `HEAD~3`      | rebase last 3 commits                   |
 | _`git reset --hard`_ `HEAD@{2}` | undo last operation that changed HEAD   |
@@ -41,6 +42,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 
 ### Commits
 
+| Reference | Description |
+| --- | --- |
 | _`git checkout`_ `dae68e1` | sha1 |
 {: .-mute-em}
 
@@ -77,6 +80,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 
 ### Other
 
+| Example | Description |
+| --- | --- |
 | `HEAD:README` | ...          |
 | `0:README`    | (0 to 3) ... |
 
@@ -84,6 +89,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 
 ### Ranges
 
+| Example | Description |
+| --- | --- |
 | _`git log`_ `master`       | reachable parents from master                   |
 | _`git log`_ `^master`      | exclude reachable parents from master           |
 | _`git log`_ `master..fix`  | reachable from *fix* but not *master*           |
@@ -102,6 +109,8 @@ A ─┬─ E ── F ── G   master
 ```
 {: .-box-chars.-setup}
 
+| Example | Description |
+| --- | --- |
 | _`git log`_ `master..fix`  | BCD         |
 | _`git log`_ `master...fix` | BCD and EFG |
 {: .-mute-em}

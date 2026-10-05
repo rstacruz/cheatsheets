@@ -1,0 +1,70 @@
+---
+import 'autocompleter/autocomplete.css'
+
+import { etc } from '../../config'
+
+export type Props = {
+  class?: string
+  /** True for the homepage */
+  isLive: boolean
+}
+const t = {
+  prefix: 'devhints.io',
+  defaultPlaceholder: 'Search {size}+ cheatsheets',
+  homePlaceholder: 'Search...'
+}
+
+const props = Astro.props as Props
+
+let placeholder = props.isLive ? t.homePlaceholder : t.defaultPlaceholder
+
+placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
+---
+
+<form class="search" action="/" method="get" data-js-search-form>
+  <label class={`search-box ${props.class ?? ''}`}>
+    <span class="prefix">{t.prefix}</span>
+    <span class="sep">/</span>
+    {
+      (
+        <input
+          name="q"
+          type="text"
+          class="input"
+          {...(props.isLive ? { autofocus: true } : {})}
+          data-js-search-input
+          placeholder={placeholder}
+          autocomplete="off"
+        />
+      )
+    }
+  </label>
+</form>
+
+<script>
+  import { onScrollVisible } from '~/lib/domutils/onScrollVisible'
+
+  // Prevent <enter> from submitting the form
+  document
+    .querySelectorAll<HTMLFormElement>('[data-js-search-form]')
+    .forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault()
+      })
+    })
+
+  document
+    .querySelectorAll<HTMLInputElement>('[data-js-search-input]')
+    .forEach((input) => {
+      onScrollVisible(input, async () => {
+        const { setup } = await import('./SearchForm.script')
+        setup(input)
+      })
+    })
+</script>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/search-box';
+  @import '../../sass/2017/components/autocomplete';
+</style>

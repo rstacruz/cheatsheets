@@ -1,10 +1,17 @@
 ---
-title: Jsdoc
+title: JSDoc
 category: JavaScript
-layout: 2017/sheet
-updated: 2020-06-23
+updated: 2026-10-04
 weight: -1
+intro: |
+  JSDoc annotates JavaScript with `/** */` doc comments.
 ---
+
+### Introduction
+{: .-intro}
+
+- [JSDoc documentation](https://jsdoc.app/) _(jsdoc.app)_
+- [Block tags](https://jsdoc.app/#block-tags) _(jsdoc.app)_
 
 ### Functions
 
@@ -13,8 +20,8 @@ weight: -1
  * This is a function.
  *
  * @param {string} n - A string param
- * @param {string} [o] - A optional string param
- * @param {string} [d=DefaultValue] - A optional string param
+ * @param {string} [o] - An optional string param
+ * @param {string} [d=DefaultValue] - An optional string param
  * @return {string} A good string
  *
  * @example
@@ -27,7 +34,7 @@ function foo(n, o, d) {
 }
 ```
 
-See: <https://jsdoc.app/index.html>
+See: [JSDoc documentation](https://jsdoc.app/) _(jsdoc.app)_
 
 ### Types
 
@@ -35,14 +42,16 @@ See: <https://jsdoc.app/index.html>
 | ------------------------------- | ------------------------------------- |
 | `@param {string=} n`            | Optional                              |
 | `@param {string} [n]`           | Optional                              |
+| `@param {string} [n="hi"]`      | Optional with default                 |
+| ---                             | ---                                   |
 | `@param {(string|number)} n`    | Multiple types                        |
 | `@param {*} n`                  | Any type                              |
 | `@param {...string} n`          | Repeatable arguments                  |
-| `@param {string} [n="hi"]`      | Optional with default                 |
 | `@param {string[]} n`           | Array of strings                      |
+| ---                             | ---                                   |
 | `@return {Promise<string[]>} n` | Promise fulfilled by array of strings |
 
-See: <https://jsdoc.app/tags-type.html>
+See: [Type tags](https://jsdoc.app/tags-type) _(jsdoc.app)_
 
 ### Variables
 
@@ -59,6 +68,8 @@ var FOO = 1
  */
 const FOO = 1
 ```
+
+See: [@type](https://jsdoc.app/tags-type) _(jsdoc.app)_
 
 ### Typedef
 
@@ -81,11 +92,9 @@ const FOO = 1
 function play(song) {}
 ```
 
-See: <https://jsdoc.app/tags-typedef.html>
+See: [@typedef](https://jsdoc.app/tags-typedef) _(jsdoc.app)_
 
-### Typedef Shorthand
-
-{% raw %}
+### Typedef shorthand
 
 ```js
 /**
@@ -93,8 +102,6 @@ See: <https://jsdoc.app/tags-typedef.html>
  * @typedef {{title: string, artist: string, year: number}} Song
  */
 ```
-
-{% endraw %}
 
 ```js
 /**
@@ -105,7 +112,7 @@ See: <https://jsdoc.app/tags-typedef.html>
 function play(song) {}
 ```
 
-See: <https://jsdoc.app/tags-typedef.html>
+See: [@typedef](https://jsdoc.app/tags-typedef) _(jsdoc.app)_
 
 ### Importing types
 
@@ -114,6 +121,10 @@ See: <https://jsdoc.app/tags-typedef.html>
  * @typedef {import('./Foo').default} Bar
  */
 
+// or
+
+/** @import { Bar } from "./Foo.js" */
+
 /**
  * @param {Bar} x
  */
@@ -121,7 +132,9 @@ See: <https://jsdoc.app/tags-typedef.html>
 function test(x) {}
 ```
 
-This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types).
+This syntax is TypeScript-specific.
+
+See: [JSDoc-supported types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) _(typescriptlang.org)_
 
 ### Other keywords
 
@@ -132,21 +145,25 @@ This syntax is [TypeScript-specific](https://github.com/Microsoft/TypeScript/wik
  * @private
  * @deprecated
  * @see
+ * @example
+ * @todo
  *
  * @function
  * @class
  */
 ```
 
-See the full list: <https://jsdoc.app/index.html#block-tags>
+See: [Block tags](https://jsdoc.app/#block-tags) _(jsdoc.app)_
 
 ### Renaming
 
 ```js
-/*
+/**
  * @alias Foo.bar
  * @name Foo.bar
  */
 ```
 
-Prefer `alias` over `name`. See: <https://jsdoc.app/tags-alias.html>
+Prefer `alias` over `name`.
+
+See: [@alias](https://jsdoc.app/tags-alias) _(jsdoc.app)_

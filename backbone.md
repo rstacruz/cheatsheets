@@ -1,6 +1,5 @@
 ---
 title: Backbone.js
-layout: 2017/sheet
 updated: 2018-12-06
 category: JavaScript libraries
 ---
@@ -55,21 +54,17 @@ view.stopListening()
     * `remove` (model, collection, options)
     * `reset` (collection, options)
     * `sort` (collection, options)
-
   * Model:
     * `change` (model, options)
     * `change:[attr]` (model, value, options)
     * `destroy` (model, collection, options)
     * `error` (model, xhr, options)
-
   * Model and collection:
     * `request` (model, xhr, options)
     * `sync` (model, resp, options)
-
   * Router:
     * `route:[name]` (params)
     * `route` (router, route, params)
-
 ## Views
 
 ### Defining

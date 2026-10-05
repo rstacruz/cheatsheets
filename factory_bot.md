@@ -1,7 +1,6 @@
 ---
 title: Factory Bot
 category: Ruby libraries
-layout: 2017/sheet
 weight: -3
 updated: 2020-07-06
 keywords:
@@ -9,7 +8,6 @@ keywords:
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
-tags: [Featurable]
 ---
 
 ## Factories

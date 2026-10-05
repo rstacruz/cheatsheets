@@ -1,7 +1,0 @@
-@mixin gutter ($property, $multiplier: 1) {
-  #{$property}: $gut * $multiplier;
-
-  @media (max-width: 480px) {
-    #{$property}: $gut-small * $multiplier;
-  }
-}

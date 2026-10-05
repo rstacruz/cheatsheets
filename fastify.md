@@ -1,7 +1,6 @@
 ---
 title: Fastify
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-09-23
 ---
 
@@ -257,8 +256,6 @@ module.exports = fp((fastify, opts, next) => {
 Allows you to limit Fastify versions via semver, and allows you not make a new Fastify scope.
 
 See: [fastify-plugin](https://github.com/fastify/fastify-plugin)
-
-### Decorators
 
 Middleware
 ----------

@@ -1,7 +1,6 @@
 ---
 title: Webpack
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-09-26
 intro: |
   This is a very basic "getting started with Webpack" guide for use with [Webpack](https://webpack.js.org) v3. This doesn't cover all features, but it should get you started in understanding the config file format.
@@ -28,6 +27,8 @@ module.exports = {
 npm install --save-dev webpack
 ```
 
+| Command | Description |
+| --- | --- |
 | `webpack` | build
 | `webpack -- -p` | build production
 | `webpack -- --watch` | compile continuously

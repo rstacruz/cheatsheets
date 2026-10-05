@@ -3,6 +3,7 @@ title: Projectionist
 category: Vim
 ---
 
+### Basic usage
 
 ```json
 /* .projectionist.vim */
@@ -16,7 +17,7 @@ category: Vim
   }
 ```
 
-## Available options
+### Available options
 
 ```js
 {
@@ -35,7 +36,7 @@ category: Vim
 }
 ```
 
-## Commands
+### Commands
 
 | Command | Description |
 |---------|-------------|
@@ -53,8 +54,7 @@ category: Vim
 | `:Lcd` | cd to root using :lcd |
 |---------|-------------|
 | `:ProjectDo {cmd}` | run command in root |
-{:.shortcuts}
 
-## Reference
+### Reference
 
 See [vim-projectionist](https://github.com/tpope/vim-projectionist).

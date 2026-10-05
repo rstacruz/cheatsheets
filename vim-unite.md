@@ -1,7 +1,7 @@
 ---
 title: Vim-Unite
-category: Vim
-layout: 2017/sheet
+category: Hidden
+# Deprecated by its author; superseded by denite.nvim and later ddu.vim.
 ---
 
 ### Usage

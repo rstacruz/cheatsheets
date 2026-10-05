@@ -1,7 +1,6 @@
 ---
 title: Nock
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### Nock

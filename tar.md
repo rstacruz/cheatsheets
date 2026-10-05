@@ -1,7 +1,6 @@
 ---
 title: tar
 category: CLI
-layout: 2017/sheet
 updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files
 ---
@@ -34,13 +33,19 @@ tar -xzf archive.tar.gz -C /target/directory
 tar -zu archive.tar.gz -C /target/file
 ```
 
+```shell
+# List files in archive
+# Add -v for additional details
+tar -tzf archive.tar.gz
+```
+
 ### Common options
 
-| Option | Description                                                              |
-|--------|--------------------------------------------------------------------------|
-| `z`    | compress with gzip                                                       |
-| `c`    | create an archive                                                        |
-| `u`    | append files which are newer than the corresponding copy ibn the archive |
-| `f`    | filename of the archive                                                  |
-| `v`    | verbose, display what is inflated or deflated                            |
-| `a`    | unlike of `z`, determine compression based on file extension             |
+| Option | Description                                                             |
+|--------|-------------------------------------------------------------------------|
+| `z`    | compress with gzip                                                      |
+| `c`    | create an archive                                                       |
+| `u`    | append files which are newer than the corresponding copy in the archive |
+| `f`    | filename of the archive                                                 |
+| `v`    | verbose, display what is inflated or deflated                           |
+| `a`    | unlike of `z`, determine compression based on file extension            |

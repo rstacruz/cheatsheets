@@ -1,7 +1,7 @@
 ---
 title: Atom
-category: Apps
-layout: 2017/sheet
+category: Hidden
+# Atom was discontinued by GitHub in 2022 and its repositories archived.
 updated: 2021-09-10
 ---
 
@@ -99,12 +99,12 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 
 ## Notes
 
-### ⌘
+### ⌘ Command
 
 - For Windows and Linux, `⌘` is the `Control` key.
 - For macOS, it's the `Command` key.
 
-### ⌥
+### ⌥ Option
 
 - For Windows and Linux, `⌥` is the `Alt` key.
 - For macOS, it's the `Option` key.

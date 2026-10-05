@@ -1,7 +1,6 @@
 ---
 title: MySQL
 updated: 2020-07-05
-layout: 2017/sheet
 category: Databases
 ---
 

@@ -1,0 +1,23 @@
+---
+import V2017Sheet from '~/components/V2017Sheet.astro'
+import { getPages } from '~/lib/page'
+import type { SheetPage } from '~/lib/page'
+
+export type Props = {
+  page: SheetPage
+}
+
+const props = Astro.props as Props
+
+export async function getStaticPaths() {
+  const pages = await getPages()
+
+  return Promise.all(
+    Object.values(pages).map((page) => {
+      return { props: { page }, params: { slug: page.slug } }
+    })
+  )
+}
+---
+
+<V2017Sheet page={props.page} />

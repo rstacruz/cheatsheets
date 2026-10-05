@@ -21,8 +21,8 @@ title: iOS Provisioning Profiles
 Needed for Adhoc & Appstore builds.
 
  * Open *Keychain Access.app*
- * *Keychain Access* menu -> *Certificate Assistant* menu -> *Request a 
- certificate...*
+ * *Keychain Access* menu -> *Certificate Assistant* menu -> *Request a
+certificate...*
    * User email address is *your email*
    * Common name is *your name*
    * CA Email address is *blank*
@@ -33,13 +33,13 @@ Needed for Adhoc & Appstore builds.
 Needed for Adhoc & Appstore builds.
 
  * in the iOS dev portal, go to *Certificates*, and download the certificate.  
- Install it on the dev machine.
+Install it on the dev machine.
 
 ### Obtaining device UDIDs
 
 Needed for Dev and Adhoc builds.
 
- * via iTunes: http://whatsmyudid.com
+ * via iTunes: <http://whatsmyudid.com>
  * via XCode: cmd+shift+2 (Organizer), Devices
 
 For developers
@@ -52,8 +52,8 @@ Don't ever ask Xcode to *Fix issue...* for you.
 No need to use `.mobileprovision` files since XCode 5.
 
  * Open the `*.mobileprovision` file using Finder
- * XCode Project -> *Build settings* tab -> *Code signing* section -> 
- *Provisioning Profile* section
+ * XCode Project -> *Build settings* tab -> *Code signing* section ->
+*Provisioning Profile* section
    * Set *Debug* to the *development* profile
    * Set *Release* to the *ad-hoc* profile
 

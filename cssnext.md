@@ -1,9 +1,8 @@
 ---
 title: cssnext
-category: CSS
-layout: 2017/sheet
+category: Hidden
+# Deprecated in favour of postcss-preset-env; repo archived.
 updated: 2017-10-30
-tags: [Featurable]
 weight: -3
 ---
 

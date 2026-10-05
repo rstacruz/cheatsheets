@@ -1,8 +1,18 @@
 ---
 title: Divshot
+category: Hidden
+# Divshot shut down in 2015.
+tags: [Archived]
+archived: Divshot is no longer in operation.
 ---
 
 ## Getting started
+
+### About
+
+Divshot was a static hosting platform.
+
+- <https://divshot.com/>
 
 ### Install divshot-cli
 

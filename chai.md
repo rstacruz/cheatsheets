@@ -1,7 +1,6 @@
 ---
 title: Chai.js
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -3
 updated: 2018-06-25
 version: chai v4.x
@@ -127,7 +126,9 @@ See: [BDD](http://chaijs.com/api/bdd/) _(chaijs.com)_
 
 ### Should: chains
 
-    .to .be .been .is .that .and .have .with .at .of .same
+```
+.to .be .been .is .that .and .have .with .at .of .same
+```
 
 These don't do anything and can be chained.
 

@@ -1,5 +1,7 @@
 ---
 title: Firefox
+tags: [Archived]
+archived: This sheet has not been updated with newer Firefox releases.
 ---
 
 ### [Firefox 31](https://www.mozilla.org/en-US/firefox/31.0/releasenotes/) (July 2014)
@@ -106,8 +108,6 @@ title: Firefox
  * CSS `font-stretch`
  * CSS improved `text-overflow`
  * JS `navigator.doNotTrack`
-
-### Firefox 8 (Nov 2011)
 
 ### Firefox 7 (Sep 2011)
 

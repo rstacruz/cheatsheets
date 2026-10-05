@@ -3,6 +3,7 @@ title: Parsimmon
 category: JavaScript libraries
 ---
 
+### Basic usage
 ```js
 const P = require('parsimmon')
 
@@ -11,7 +12,7 @@ P.regexp(/[a-z]+/)
 //=> { status: true, value: ['hello'] }
 ```
 
-## Atoms
+### Atoms
 
 ```js
 P.regexp(/[a-z]+/)
@@ -23,7 +24,7 @@ P.optWhitespace
 P.eof
 ```
 
-## Combinators
+### Combinators
 
 ```js
 P.seq(a, b, c)             // sequence of these
@@ -41,13 +42,13 @@ a.atMost(10)
 a.atLeast(10)
 ```
 
-## Formatting
+### Formatting
 
 ```js
 P.seq(P.number, P.oneOf('+-*/'), P.number)
 .map(([left, oper, right]) => ({ oper, left, right }))
 ```
 
-## Reference
+### Reference
 
 - <https://github.com/jneen/parsimmon/blob/master/API.md>

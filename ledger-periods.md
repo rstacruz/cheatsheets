@@ -3,52 +3,69 @@ title: Ledger periods
 category: Ledger
 ---
 
-    [INTERVAL] [BEGIN] [END]
+### About
+{: .-intro}
 
-Interval:
+- <https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions>
 
-    every day
-    every week
-    every month
-    every quarter
-    every year
-    every N days     # N is any integer
-    every N weeks
-    every N months
-    every N quarters
-    every N years
-    daily
-    weekly
-    biweekly
-    monthly
-    bimonthly
-    quarterly
-    yearly
+### Usage
 
-Begin:
+```
+[INTERVAL] [BEGIN] [END]
+```
 
-    from <SPEC>
-    since <SPEC>
+#### Intervals
 
-The end time can be either of:
+```
+every day
+every week
+every month
+every quarter
+every year
+every N days     # N is any integer
+every N weeks
+every N months
+every N quarters
+every N years
+daily
+weekly
+biweekly
+monthly
+bimonthly
+quarterly
+yearly
+```
 
-    to <SPEC>
-    until <SPEC>
+#### Begin
 
-Spec:
+```
+from <SPEC>
+since <SPEC>
+```
 
-    2004
-    2004/10
-    2004/10/1
-    10/1
-    october
-    oct
-    this week  # or day, month, quarter, year
-    next week
-    last week
+#### End
 
-Examples:
+```
+to <SPEC>
+until <SPEC>
+```
 
-    $ ledger r -p "since last month"
+### Spec
 
-See: http://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions
+```
+2004
+2004/10
+2004/10/1
+10/1
+october
+oct
+this week  # or day, month, quarter, year
+next week
+last week
+```
+
+### Examples
+
+```
+$ ledger r -p "since last month"
+```

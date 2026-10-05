@@ -3,6 +3,10 @@ title: Universal JS module loader
 category: JavaScript libraries
 ---
 
+### Reference
+
+ * <https://github.com/umdjs/umd>
+
 ### [With dependency](https://github.com/umdjs/umd/blob/master/amdWebGlobal.js)
 
 ~~~ js
@@ -56,7 +60,3 @@ category: JavaScript libraries
   exports.action = function () {};
 }));
 ~~~
-
-### Reference
-
- * https://github.com/umdjs/umd

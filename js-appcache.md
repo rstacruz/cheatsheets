@@ -1,33 +1,38 @@
 ---
 title: applicationCache
-category: JavaScript
-layout: 2017/sheet
+category: Hidden
+# window.applicationCache was removed from browsers; use Service Workers.
+updated: 2026-10-04
 ---
 
 ## Reference
 {: .-one-column}
 
-### applicationCache checking
+### Checking for updates
 
 ```js
 if (window.applicationCache) {
   // "Naturally" reload when an update is available
+  var cache = window.applicationCache
   var reload = false
 
-  window.applicationCache.addEventListener('updateready', () => {
-    if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-      window.applicationCache.swapCache()
+  cache.addEventListener('updateready', () => {
+    if (cache.status === cache.UPDATEREADY) {
+      cache.swapCache()
       reload = true
     }
   }, false)
 
   setInterval(() => {
     try {
-      // There's nothing to update for first-time load, browser freaks out :/
-      window.applicationCache.update()
+      // Nothing to update on first load; browsers error
+      cache.update()
     } catch (e) { }
   }, 1000 * 60 * 60) // Every hour
 }
 ```
 
-This is a deprecated HTML feature. See: [Using the application cache](https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache) _(developer.mozilla.org)_
+`window.applicationCache` was removed from browsers; use Service Workers
+instead.
+
+See: [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) _(developer.mozilla.org)_

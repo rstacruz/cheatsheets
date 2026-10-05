@@ -1,7 +1,6 @@
 ---
 title: GnuPG
 category: CLI
-layout: 2017/sheet
 tags: []
 updated: 2017-10-22
 weight: 0
@@ -103,7 +102,7 @@ gpg --keyserver <URL> ...
 ```bash
 gpg --edit-key <KEY ID>
 # In the interactive prompt:
-gpg> sign
+gpg> trust
 gpg> save
 ```
 
@@ -225,6 +224,7 @@ gpg -k --with-colons
 Field Quick Reference:
 
 | Field # | Description |
+| --- | --- |
 | 1       | Record type |
 | 2       | Validity |
 | 3       | Key length in bits |

@@ -1,11 +1,12 @@
 ---
 title: Man
 category: CLI
-layout: 2017/sheet
 ---
 
 ### Man paths
 
+| Section | Description |
+| --- | --- |
 | `1` | General User Commands |
 | `2` | System Calls |
 | `3` | Library Routines |

@@ -1,0 +1,52 @@
+---
+import { getUrlFromPage } from '~/lib/links'
+import type { SheetPage } from '~/lib/page'
+
+export type Props = {
+  class?: string
+  page?: SheetPage
+}
+const props = Astro.props as Props
+const page = props.page
+const url = getUrlFromPage(page, Astro.site)
+
+const t = {
+  facebookShare: 'Share on Facebook',
+  twitterShare: 'Share on Twitter',
+  sheetDescription: 'The ultimate cheatsheet for {title}',
+  defaultDescription: 'Ridiculous collection of web development cheatsheets'
+}
+
+const title = page?.frontmatter?.title
+
+const description = title
+  ? t.sheetDescription.replace('{title}', title)
+  : t.defaultDescription
+
+const tweet = `${description} ${url}`
+
+// prettier-ignore
+const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+// prettier-ignore
+const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`
+---
+
+<ul class={`social-list ${props.class ?? ''}`}>
+  <li class="facebook link hint--bottom" data-hint={t.facebookShare}>
+    <a
+      href={facebookURL}
+      target="share"
+      aria-label={t.facebookShare}
+      role="button"><span class="text"></span></a
+    >
+  </li>
+  {' '}
+  <li class="twitter link hint--bottom" data-hint={t.twitterShare}>
+    <a
+      href={twitterURL}
+      target="share"
+      aria-label={t.twitterShare}
+      role="button"><span class="text"></span></a
+    >
+  </li>
+</ul>

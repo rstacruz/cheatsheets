@@ -1,11 +1,12 @@
 ---
 title: Sublime Text
 category: Apps
-layout: 2017/sheet
 ---
 
 ### Select & Expand
 
+| Shortcut | Description |
+| --- | --- |
 | `⌘ D`       | select current word (repeat to include next instance of word) |
 | `⌘ L`       | select current line (repeat to include next line) |
 | `⌘ ⇧ L`     | split selection into multiple lines |
@@ -17,6 +18,8 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 ### Code Folding
 
+| Shortcut | Description |
+| --- | --- |
 | `⌘ Alt [`         | fold closest block                     |
 | `⌘ Alt ]`         | unfold closest block                   |
 | `⌘ K` `⌘ 1`       | fold all first level code blocks       |
@@ -28,6 +31,8 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 ### Editing
 
+| Shortcut | Description |
+| --- | --- |
 | `⌘ ⇧ D` | duplicate current line/selection |
 | `⌘ ⇧ K` | delete current line/selection |
 | `⇧ del` | delete current line/selection |
@@ -37,6 +42,8 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 ### Goto
 
+| Shortcut | Description |
+| --- | --- |
 | `⌘ P`         | goto anything |
 | `⌘ G`         | goto line number |
 | `⌘ R`         | goto symbol |

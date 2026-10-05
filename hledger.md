@@ -3,15 +3,22 @@ title: Hledger
 category: Ledger
 ---
 
-## Reporting
+### About
+{: .-intro}
+
+- <https://hledger.org>
+- <https://hledger.org/quickstart.html>
+
+### Reporting
 
 ```
 hledger bal {query}
 hledger reg {query}
 ```
-{:.large.terminal}
 
 ## Query
+
+### Queries
 
 Queries are used on all commands (`bal`, `reg`, etc). [(docs)](http://hledger.org/manual.html#queries)
 

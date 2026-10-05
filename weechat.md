@@ -1,7 +1,6 @@
 ---
 title: Weechat
 category: Apps
-layout: 2017/sheet
 ---
 
 ## Keys
@@ -37,6 +36,8 @@ layout: 2017/sheet
 
 ### Search
 
+| Shortcut | Description |
+| --- | --- |
 | `^r`              | Search      |
 | `Enter` `^j` `^m` | Stop search |
 {: .-shortcuts}

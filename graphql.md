@@ -1,11 +1,8 @@
 ---
 title: GraphQL
-layout: 2017/sheet
 updated: 2019-07-07
 category: API
 ---
-
-## Intro
 
 ## Queries
 {: .-three-column}
@@ -16,7 +13,7 @@ category: API
 { status }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { status: 'available' }
@@ -29,7 +26,7 @@ category: API
 { hero { name height } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { hero:
@@ -44,7 +41,7 @@ category: API
 { friends { name } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { friends:
@@ -64,7 +61,7 @@ GraphQL queries look the same for both single items or lists of items.
 }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { hero:
@@ -82,7 +79,7 @@ GraphQL queries look the same for both single items or lists of items.
 }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { luke:
@@ -123,7 +120,7 @@ Just to make things less ambiguous. Also, to use variables, you need an operatio
 { review: { stars: 5 } }
 ```
 
-#### ↓
+#### Result
 
 ```js
 { createReview: { id: 5291 } }
@@ -191,6 +188,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Scalar types
 
+| Type | Description |
+| --- | --- |
 | `Int` | Integer |
 | `Float` | Float |
 | `String` | String |
@@ -199,6 +198,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Type definitions
 
+| Definition | Description |
+| --- | --- |
 | `scalar` | Scalar type |
 | `type` | Object type |
 | `interface` | Interface type |
@@ -208,6 +209,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 #### Type modifiers
 
+| Syntax | Description |
+| --- | --- |
 | `String` | Nullable string |
 | `String!` | Required string |
 | `[String]` | List of strings |
@@ -218,7 +221,7 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 
 ```js
 type Mutation {
-  users(params: ListUsersInput) [User]!
+  users(params: ListUsersInput): [User]!
 }
 ```
 
@@ -258,7 +261,7 @@ type Album { ··· }
 union Result = Artist | Album
 
 type Query {
-  search(q: String) [Result]
+  search(q: String): [Result]
 }
 ```
 {: data-line="4"}

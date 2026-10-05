@@ -6,6 +6,7 @@ category: JavaScript libraries
 Model
 -----
 
+### Model
 ```js
 Summary = bookshelf.Model.extend({
   tableName: 'summaries',

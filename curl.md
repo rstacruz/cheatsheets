@@ -1,7 +1,7 @@
 ---
 title: Curl
 category: CLI
-layout: 2017/sheet
+tags: [Featured]
 updated: 2020-03-09
 ---
 
@@ -80,7 +80,7 @@ curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
 
 ```bash
 # multipart file upload
-curl -v -include --form key1=value1 --form upload=@localfilename URL
+curl -v --include --form key1=value1 --form upload=@localfilename URL
 
 # multipart form: send data from text field and upload file
 curl -F person=anonymous -F secret=@file.txt http://example.com/submit.cgi

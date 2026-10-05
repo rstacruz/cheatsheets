@@ -1,0 +1,22 @@
+---
+import SearchForm from './SearchForm.astro'
+---
+
+<footer class="search-footer" data-js-no-preview>
+  <div class="container">
+    <div class="search-footer-section">
+      <div class="search">
+        <SearchForm class="-small" />
+      </div>
+      <div class="links">
+        <a class="home-button" href="/"><i></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  @import '../../sass/2017/utils';
+  @import '../../sass/2017/components/home-button';
+  @import '../../sass/2017/components/search-footer';
+</style>

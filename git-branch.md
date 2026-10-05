@@ -1,7 +1,6 @@
 ---
 title: Git branches
 category: Git
-layout: 2017/sheet
 updated: 2020-02-13
 ---
 

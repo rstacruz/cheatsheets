@@ -7,6 +7,10 @@ html_class: key-codes
 Alternate files
 ---------------
 
+### Alternate files
+
+| Command | Description |
+| --- | --- |
 | `:A` |  alternate file (test)          |
 | `:R` |  related file (controller/view) |
 
@@ -79,58 +83,72 @@ Loading files
 
 ### App
 
-    :Econtroller <file>     # app/controllers/*_controller.rb
-    :Ehelper                # app/helpers/*_helper.rb
-    :Emodel <file>          # app/models/*.rb
-    :Ejob <file>            # app/jobs/*_job.rb
-    :Emailer <file>         # app/mailers/*.rb
+```
+:Econtroller <file>     # app/controllers/*_controller.rb
+:Ehelper                # app/helpers/*_helper.rb
+:Emodel <file>          # app/models/*.rb
+:Ejob <file>            # app/jobs/*_job.rb
+:Emailer <file>         # app/mailers/*.rb
+```
 
 ### DB
 
-    :Emigration <file>     # db/migrations/*.rb
-    :Eschema               # db/schema.rb
+```
+:Emigration <file>     # db/migrations/*.rb
+:Eschema               # db/schema.rb
+```
     
 ### Lib
 
-    :Elib <file>      # lib/*.rb
-    :Elib             # Gemfile
-    :Etask <file>     # lib/tasks/*.rake
+```
+:Elib <file>      # lib/*.rb
+:Elib             # Gemfile
+:Etask <file>     # lib/tasks/*.rake
+```
 
 ### Assets
 
-    :Estylesheet
-    :Ejavascript
+```
+:Estylesheet
+:Ejavascript
+```
 
 ### Views
 
-    :Eview
-    :Elayout
+```
+:Eview
+:Elayout
+```
 
 ### Test
 
-    :Espec
-    :Eunittest
-      # test/{unit,models,helpers}/*_test.rb
-      # spec/{unit,models,helpers}/*_spec.rb
+```
+:Espec
+:Eunittest
+  # test/{unit,models,helpers}/*_test.rb
+  # spec/{unit,models,helpers}/*_spec.rb
 
-    :Efunctionaltest
-      # test/{functional,controllers,mailers}/*_test.rb
-      # spec/{functional,controllers,mailers}/*_spec.rb
+:Efunctionaltest
+  # test/{functional,controllers,mailers}/*_test.rb
+  # spec/{functional,controllers,mailers}/*_spec.rb
 
-    :Eintegrationtest
-      # test/integration/*_test.rb
-      # spec/{features,requests,integration}/*_spec.rb
-      # features/*.feature
+:Eintegrationtest
+  # test/integration/*_test.rb
+  # spec/{features,requests,integration}/*_spec.rb
+  # features/*.feature
 
-    :Efixtures
-    :Efunctionaltest
+:Efixtures
+:Efunctionaltest
+```
 
 ### Config
 
-    :Einitializer <file>          # config/initializers/*.rb
-    :Elocale                      # config/locales/*.yml
-    :Eenvironment                 # application.rb
-    :Eenvironment development     # config/environments/*.rb
+```
+:Einitializer <file>          # config/initializers/*.rb
+:Elocale                      # config/locales/*.yml
+:Eenvironment                 # application.rb
+:Eenvironment development     # config/environments/*.rb
+```
 
 ## Reference
 

@@ -1,0 +1,46 @@
+---
+/*
+ * Simplified replacement for astro-seo. Is less opinionated
+ */
+
+export type Props = {
+  title?: string
+  meta?: Record<string, string | string[]>
+  metaProperties?: Record<string, string | string[]>
+  links?: Record<string, string>
+}
+
+const props = Astro.props as Props
+
+function toArray(input: string | string[]): string[] {
+  return (Array.isArray(input) ? input : [input]).filter(Boolean)
+}
+---
+
+{props.title ? <title>{props.title}</title> : null}
+
+{
+  props.meta
+    ? Object.entries(props.meta).flatMap(([name, contents]) =>
+        toArray(contents).map((content) => (
+          <meta name={name} content={content} />
+        ))
+      )
+    : null
+}
+{
+  props.metaProperties
+    ? Object.entries(props.metaProperties).flatMap(([property, contents]) =>
+        toArray(contents).map((content) => (
+          <meta property={property} content={content} />
+        ))
+      )
+    : null
+}
+{
+  props.links
+    ? Object.entries(props.links).map(([rel, href]) => (
+        <link rel={rel} href={href} />
+      ))
+    : null
+}

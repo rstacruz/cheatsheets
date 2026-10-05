@@ -1,10 +1,8 @@
 ---
 title: Flow
-layout: 2017/sheet
 category: JavaScript libraries
 updated: 2020-07-05
 weight: -3
-tags: [Featurable]
 ---
 
 ## Getting started

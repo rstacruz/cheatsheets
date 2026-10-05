@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Simple pages scenario > multi-result search 1`] = `
+[
+  {
+    "item": {
+      "slug": "react",
+      "title": "React",
+    },
+    "refIndex": 0,
+  },
+  {
+    "item": {
+      "slug": "react-router",
+      "title": "React Router",
+    },
+    "refIndex": 2,
+  },
+]
+`;
+
+exports[`Simple pages scenario > no-result search 1`] = `[]`;
+
+exports[`Simple pages scenario > one-result search 1`] = `
+[
+  {
+    "item": {
+      "slug": "vim",
+      "title": "Vim",
+    },
+    "refIndex": 1,
+  },
+]
+`;

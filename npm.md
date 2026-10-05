@@ -2,7 +2,7 @@
 title: npm
 category: JavaScript
 weight: -1
-updated: 2019-12-24
+updated: 2026-10-06
 ---
 
 ### Package management
@@ -25,11 +25,11 @@ updated: 2019-12-24
 
 | Command            | Description                                                         |
 | ---                | ---                                                                 |
-| `npm list`         | Lists the installed versions of all dependencies in this software   | 
-| `npm list -g`      | Lists the installed versions of all globally installed packages     | 
-| `npm view lodash`  | Lists the latest versions and dependencies of a package             | 
+| `npm list`         | Lists the installed versions of all dependencies in this software   |
+| `npm list -g`      | Lists the installed versions of all globally installed packages     |
+| `npm view lodash`  | Shows registry info for a package                                   |
 | `npm outdated`     | Lists only the dependencies in this software which are outdated     |
-| `npm audit`        | List known vulnerabilities of packages in the project               |
+| `npm audit`        | Lists known vulnerabilities in the project                          |
 
 ### Updating
 

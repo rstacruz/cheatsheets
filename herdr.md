@@ -16,6 +16,8 @@ intro: |
 
 ## Keyboard
 
+### Learn these first
+
 | Shortcut | Action |
 | --- | --- |
 | `prefix+c` | New tab |

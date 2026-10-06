@@ -118,11 +118,19 @@ and `resize_pane_*`.
 
 ## Navigate mode
 
+### Movement
+
 | Key | Action |
 | --- | --- |
 | `up` / `down` | Move the workspace selection |
 | `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
 | `left` / `right` | Always focus the pane left / right |
+{: .-shortcuts}
+
+### Actions
+
+| Key | Action |
+| --- | --- |
 | `tab` / `shift+tab` | Cycle panes |
 | `1..9` | Switch workspace |
 | `enter` | Open the selected workspace |
@@ -136,6 +144,8 @@ other plain keys.
 
 ## Copy mode
 
+### Movement
+
 | Key | Action |
 | --- | --- |
 | `h/j/k/l` | Move the cursor |
@@ -145,9 +155,19 @@ other plain keys.
 | `PageUp` / `PageDown` | Page up / down |
 | `ctrl+b` / `ctrl+f` | Page up / down |
 | `ctrl+u` / `ctrl+d` | Half page up / down |
+{: .-shortcuts}
+
+### Search
+
+| Key | Action |
 | --- | --- |
 | `/` / `?` | Search forward / backward |
 | `n` / `N` | Repeat search / reverse direction |
+{: .-shortcuts}
+
+### Selection
+
+| Key | Action |
 | --- | --- |
 | `v` / `Space` | Select characters (`V` selects lines) |
 | `y` / `Enter` | Copy the selection and exit |
@@ -193,6 +213,8 @@ search), not the shell or agent in a pane. Cut text stays in the field;
 
 ## Custom bindings
 
+### Binding syntax
+
 ```toml
 [keys]
 prefix = "ctrl+a"                        # or ["ctrl+space", "ctrl+s"]
@@ -206,16 +228,3 @@ zoom = ["prefix+z", "ctrl+alt+z"]
 Every binding is configurable, including the prefix; an action can carry
 several shortcuts. Direct chords skip the prefix, and `ctrl+alt` is the
 safest family to look at.
-
-| Chord | Owned by |
-| --- | --- |
-| `ctrl+alt+arrows` | GNOME, Ghostty, Konsole defaults |
-| `ctrl+alt+t` | Launch terminal (Ubuntu, Fedora) |
-| `ctrl+alt+l` / `ctrl+alt+a` | KDE lock screen / attention window |
-| `ctrl+alt+s` / `ctrl+alt+u` | Konsole |
-| `ctrl+alt+f1..f12` | Linux virtual console switching |
-{: .-shortcuts}
-
-A chord must survive your OS, terminal, and pane programs, so check new
-chords against your own shortcuts. Reload config with `prefix+shift+r` or
-`herdr server reload-config`; `herdr config reset-keys` restores defaults.

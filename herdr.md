@@ -27,20 +27,6 @@ detection built in.
 - [GitHub repository](https://github.com/herdrdev/herdr) _(github.com)_
 - [Herdr concepts](https://herdr.dev/docs/concepts/) _(herdr.dev)_
 
-### Install
-
-```bash
-curl -fsSL https://herdr.dev/install.sh | sh    # Linux/macOS
-irm https://herdr.dev/install.ps1 | iex         # Windows (PowerShell)
-brew install herdr                              # Homebrew
-mise use -g herdr                               # mise
-nix profile install github:herdrdev/herdr/v0.9.3  # Nix
-```
-
-On Windows, run the PowerShell line via
-`powershell -ExecutionPolicy Bypass -c`. `herdr update` handles direct
-installs; brew, mise, and Nix installs update through their package manager.
-
 ### Concepts
 
 ```
@@ -69,43 +55,88 @@ herdr pane current --current       # the calling pane's ID
 ### Quick start
 
 ```bash
-herdr                             # launch, or reattach to the session
+herdr
+```
+
+Launch or reattach to the default session.
+
+```bash
 herdr pane split --current --direction right --cwd "$PWD"
 herdr agent start reviewer --kind codex --pane <pane-id>
+```
+
+Split a pane, then start an agent in it. Creation commands return the new
+IDs as JSON; read `.result.pane.pane_id` or
+`.result.workspace.workspace_id` from the response.
+
+```bash
 herdr agent prompt reviewer "Review the current diff." --wait
 herdr agent read reviewer --source recent-unwrapped --lines 120
 ```
 
-Creation commands return the new IDs as JSON; read
-`.result.pane.pane_id`, `.result.workspace.workspace_id`, or
-`.result.tab.tab_id` from the response. Press `prefix+q` to detach; panes
-and agents keep running.
+Prompt the agent and read its output. Press `prefix+q` to detach; panes and
+agents keep running.
 
 ## Command map
 
-### Commands
+### Layout
 
-| Group                   | Purpose                                |
-| ----------------------- | -------------------------------------- |
-| `herdr workspace`       | Create, focus, rename, close workspaces |
-| `herdr tab`             | Manage tabs inside a workspace         |
-| `herdr pane`            | Split, run, read, move, close panes    |
-| `herdr agent`           | Start, prompt, wait on, read agents    |
-| `herdr worktree`        | Create and open git worktrees          |
-| ---                     | ---                                    |
-| `herdr session`         | Named sessions: list, attach, stop     |
-| `herdr integration`     | Install agent integrations             |
-| `herdr plugin`          | Install and manage workflow plugins    |
-| `herdr machine`         | Saved SSH machines                     |
-| `herdr api`             | Socket API snapshot and schema         |
-| `herdr notification`    | Show a notification                    |
-| ---                     | ---                                    |
-| `herdr server`          | Stop or reload the running server      |
-| `herdr status`          | Show client and server state           |
-| `herdr update`          | Update a direct install                |
-| `herdr channel`         | Choose the stable or preview channel   |
-| `herdr config`          | Validate or reset `config.toml`        |
-| `herdr completion`      | Generate shell completions             |
+#### Workspaces and tabs
+
+| Command | Purpose |
+| --- | --- |
+| `herdr workspace` | Create, focus, rename, close workspaces |
+| `herdr tab` | Manage tabs inside a workspace |
+{: .-shortcuts}
+
+#### Panes and worktrees
+
+| Command | Purpose |
+| --- | --- |
+| `herdr pane` | Split, run, read, move, close panes |
+| `herdr worktree` | Create and open git worktrees |
+{: .-shortcuts}
+
+### Agents
+
+| Command | Purpose |
+| --- | --- |
+| `herdr agent` | Start, prompt, wait on, read agents |
+| `herdr integration` | Install agent integrations |
+| `herdr plugin` | Install and manage workflow plugins |
+{: .-shortcuts}
+
+[Herdr agents cheatsheet](./herdr-agents)
+{: .-crosslink}
+
+### Sessions and server
+
+#### Sessions and machines
+
+| Command | Purpose |
+| --- | --- |
+| `herdr session` | Named sessions: list, attach, stop |
+| `herdr machine` | Saved SSH machines |
+{: .-shortcuts}
+
+#### Server
+
+| Command | Purpose |
+| --- | --- |
+| `herdr server` | Stop or reload the running server |
+| `herdr status` | Show client and server state |
+{: .-shortcuts}
+
+### Utilities
+
+| Command | Purpose |
+| --- | --- |
+| `herdr api` | Socket API snapshot and schema |
+| `herdr notification` | Show a notification |
+| `herdr update` | Update a direct install |
+| `herdr channel` | Choose the stable or preview channel |
+| `herdr config` | Validate or reset `config.toml` |
+| `herdr completion` | Generate shell completions |
 {: .-shortcuts}
 
 Most commands return JSON on stdout; read IDs and state from the response,
@@ -114,30 +145,18 @@ never from sidebar order. Server errors are JSON on stderr with exit status
 
 ### Keyboard
 
-```text
-prefix+c        new tab
-prefix+v        split right
-prefix+minus    split down
-prefix+h/j/k/l  move between panes
-prefix+q        detach; everything keeps running
-```
+| Shortcut | Action |
+| --- | --- |
+| `prefix+c` | New tab |
+| `prefix+v` / `prefix+minus` | Split right / down |
+| `prefix+h/j/k/l` | Move between panes |
+| `prefix+w` | Workspace navigation |
+| `prefix+q` | Detach; everything keeps running |
+{: .-shortcuts}
 
 The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 [Herdr keys cheatsheet](./herdr-keys)
-{: .-crosslink}
-
-### Agents
-
-```bash
-herdr agent list
-herdr agent start reviewer --kind codex --pane w1:p2
-herdr agent prompt reviewer "Review the current diff." --wait
-herdr agent wait reviewer --until blocked
-herdr agent read reviewer --source recent-unwrapped --lines 120
-```
-
-[Herdr agents cheatsheet](./herdr-agents)
 {: .-crosslink}
 
 ## Also see

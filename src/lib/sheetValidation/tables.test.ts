@@ -118,7 +118,8 @@ function findUnsplitTables(source: string) {
     }
     if (!start) {
       start = index + 1
-      header = text
+      // Collapse padding so column-width changes keep the baseline key stable
+      header = text.replace(/\s+/g, ' ')
     }
     rows += 1
     if (SEPARATOR_ROW.test(text)) separators += 1

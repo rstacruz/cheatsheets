@@ -139,8 +139,9 @@ while it is open and are independent of the `focus_pane_*` bindings.
 | `esc` | Leave navigate mode |
 {: .-shortcuts}
 
-The `navigate_*` config fields take plain keys; `esc`, `enter`, `tab`,
-and `1..9` stay reserved for navigate mode itself.
+The `navigate_*` config fields take plain keys; `esc`, `enter`,
+`tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved for navigate
+mode itself.
 
 ### Copy mode
 

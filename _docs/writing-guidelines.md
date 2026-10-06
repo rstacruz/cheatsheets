@@ -93,6 +93,12 @@ details go in links, not table rows
 - **Link upstream setup:** don't restate install instructions the project's docs
 own; link them instead
 
+## Quick starts
+
+- Show the default interactive flow first — keys, mouse, or TUI steps — not CLI
+or scripting commands
+- One code block per step, with the explanation after each block
+
 ## Content priorities
 
 1. **Essential first**: Most commonly used 20% of functionality
@@ -100,12 +106,6 @@ own; link them instead
 3. **Practical examples**: Real-world use cases over theoretical
 4. **Quick reference**: Dense information for experienced developers
 5. **Learning path**: Logical progression for newcomers
-
-**Quick starts:**
-
-- Show the default interactive flow first — keys, mouse, or TUI steps — not CLI
-or scripting commands
-- One code block per step, with the explanation after each block
 
 ## H3 writing guidelines
 

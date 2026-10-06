@@ -18,12 +18,17 @@ updated: 2024-01-01
 - **Progressive complexity:** Start with basics, move to advanced
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
+- **Every H2 needs an H3:** an H2 section is one or more H3 cards; a footer that only lists links (`Also see`, `References`) is the exception.
+- **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
 
 H2 content length:
 
 - Short H2s: 2-4 H3s (e.g., "Installing", "Getting started")
 - Medium H2s: 4-7 H3s (e.g., "Components", "Lifecycle")  
 - Long H2s: 7+ H3s (use column layouts)
+
+Prefer splitting an H2 that outgrows 7 H3s into several H2s over growing one
+section.
 
 H3 content length:
 
@@ -80,6 +85,14 @@ shows the shape.
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
+- Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
+- Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
+- Link install and upgrade instructions rather than restating them
+
+## Quick starts
+
+- Show the default interactive flow first (keys, TUI). CLI and automation recipes belong in later sections.
+- One code block per step, with the explanation after each block.
 
 ## Content priorities
 
@@ -293,6 +306,21 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | `LLLL`  | Thursday, August 2 1985 08:30 PM |
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
 ````
+
+## Checks
+
+Sheet checks live in `src/lib/sheetValidation/`. Run them with:
+
+```bash
+pnpm vitest run src/lib/sheetValidation
+```
+
+Legacy violations are recorded under `src/lib/sheetValidation/baseline/`, so
+only new ones fail. Regenerate the baselines after cleaning sheets up:
+
+```bash
+UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
+```
 
 ## SEO descriptions
 

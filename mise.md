@@ -233,6 +233,7 @@ See: [Tool registry](https://mise.jdx.dev/registry.html)
 | `core:`   | built-in installers (`core:python`)            |
 | `aqua:`   | Aqua registry (`aqua:aws/aws-cli`)             |
 | `github:` | GitHub releases (`github:BurntSushi/ripgrep`)  |
+| ---       | ---                                            |
 | `npm:`    | npm packages (`npm:prettier`)                  |
 | `pipx:`   | Python apps (`pipx:ruff`)                      |
 | `cargo:`  | crates (`cargo:starship`)                      |

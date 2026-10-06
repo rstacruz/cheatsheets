@@ -312,6 +312,18 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
 ````
 
+## Checks
+
+CI enforces the mechanical rules from `src/lib/sheetValidation/`:
+
+- every H2 has an H3 (link footers like `## Also see` are exempt)
+- code lines are 70 characters, or 42 inside `.-three-column` sections
+- tables of 8+ rows are separated with separator rows or H4 groups
+
+Legacy findings live in `src/lib/sheetValidation/baselines.ts`, so only new ones
+fail. Regenerate after cleaning sheets up with
+`UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation/updateBaseline.test.ts`.
+
 ## SEO descriptions
 
 - Write `keywords` + `intro` for SEO purposes (preferred).

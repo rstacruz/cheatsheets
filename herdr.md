@@ -77,12 +77,13 @@ herdr agent read reviewer --source recent-unwrapped --lines 120
 ```
 
 Creation commands return the new IDs as JSON; read
-`.result.pane.pane_id` (or `.result.workspace` / `.result.tab`) from the
-response. Press `prefix+q` to detach; panes and agents keep running.
+`.result.pane.pane_id`, `.result.workspace.workspace_id`, or
+`.result.tab.tab_id` from the response. Press `prefix+q` to detach; panes
+and agents keep running.
 
 ## Command map
 
-### Command groups
+### Commands
 
 | Group                   | Purpose                                |
 | ----------------------- | -------------------------------------- |
@@ -94,9 +95,10 @@ response. Press `prefix+q` to detach; panes and agents keep running.
 | ---                     | ---                                    |
 | `herdr session`         | Named sessions: list, attach, stop     |
 | `herdr integration`     | Install agent integrations             |
+| `herdr plugin`          | Install and manage workflow plugins    |
 | `herdr machine`         | Saved SSH machines                     |
 | `herdr api`             | Socket API snapshot and schema         |
-| `herdr notification`    | Desktop notifications                  |
+| `herdr notification`    | Show a notification                    |
 | ---                     | ---                                    |
 | `herdr server`          | Stop or reload the running server      |
 | `herdr status`          | Show client and server state           |

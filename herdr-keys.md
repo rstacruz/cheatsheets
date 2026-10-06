@@ -20,28 +20,22 @@ intro: |
 {: .-intro}
 
 [Herdr](https://herdr.dev) is mouse-native; keyboard control is optional.
-This reference covers the prefix model, the default bindings, navigate and
-copy modes, and custom keybindings.
+This reference covers the prefix, default bindings, navigate and copy
+modes, and custom keybindings.
 
 - [Keyboard](https://herdr.dev/docs/keyboard/) _(herdr.dev)_
 - [Configuration](https://herdr.dev/docs/configuration/) _(herdr.dev)_
 
 ### Prefix
 
-Herdr reserves one key instead of dozens, so the programs inside your
-terminal keep theirs. Press the prefix (default `ctrl+b`), release it,
-then press an action key: `prefix+c` is `ctrl+b`, then `c`.
-
-Press `prefix+?` for every active binding. Press `/` in that help to
-filter actions and shortcuts, Backspace to edit the filter, and
-`ctrl+u` to clear it.
-
 ```toml
 [keys]
 prefix = "ctrl+a"              # or ["ctrl+space", "ctrl+s"]
 ```
 
-The prefix can be rebound to any key.
+Herdr reserves one key instead of dozens. Press it (default `ctrl+b`),
+release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
+`prefix+?` lists every active binding; `/` filters that list.
 
 [Herdr cheatsheet](./herdr)
 {: .-crosslink}
@@ -114,19 +108,15 @@ The prefix can be rebound to any key.
 | `prefix+o` | Open the notification target |
 {: .-shortcuts}
 
-Optional actions are unset by default: `previous_workspace` and
-`next_workspace`, `previous_agent`, `next_agent`, `focus_agent`,
-`switch_workspace` (indexed `1..9`), `move_tab_previous`/`next`,
-`last_pane`, `clear_pane`, `open_worktree`, `remove_worktree`, and the
-direct `resize_pane_*` chords.
+Unset by default: `previous_workspace`, `next_workspace`, `previous_agent`,
+`next_agent`, `focus_agent`, `switch_workspace`, `last_pane`, `clear_pane`,
+`open_worktree`, `remove_worktree`, `move_tab_previous`, `move_tab_next`,
+and `resize_pane_*`.
 
 [Herdr agents cheatsheet](./herdr-agents)
 {: .-crosslink}
 
 ### Navigate mode
-
-`prefix+w` opens the workspace navigation surface. Its local keys win
-while it is open and are independent of the `focus_pane_*` bindings.
 
 | Key | Action |
 | --- | --- |
@@ -139,15 +129,12 @@ while it is open and are independent of the `focus_pane_*` bindings.
 | `esc` | Leave navigate mode |
 {: .-shortcuts}
 
-The `navigate_*` config fields take plain keys; `esc`, `enter`,
-`tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved for navigate
-mode itself.
+`prefix+w` opens the navigation surface; its keys win while it is open,
+independent of `focus_pane_*`. `esc`, `enter`, `tab`/`shift+tab`,
+`left`/`right`, and `1..9` stay reserved; `navigate_*` config fields take
+other plain keys.
 
 ### Copy mode
-
-`prefix+[` enters copy mode for the focused pane. Copy mode does not
-pause the pane process: output stays live and the view stays pinned
-when you scroll into history.
 
 | Key | Action |
 | --- | --- |
@@ -167,15 +154,11 @@ when you scroll into history.
 | `q` / `Esc` | Leave copy mode |
 {: .-shortcuts}
 
-Search is case-insensitive unless the query has an uppercase letter.
-`Esc` clears an active selection or search before exiting. With the
-default prefix, `ctrl+b` enters prefix mode instead of paging up.
+`prefix+[` enters copy mode for the focused pane; the pane keeps running.
+Search is case-insensitive unless the query has an uppercase letter. With
+the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
 ### Editing text fields
-
-Herdr's naming dialogs, worktree branch fields, filters, and copy-mode
-search edit at the cursor. These keys apply to Herdr-owned fields, not
-to the shell or agent inside a pane.
 
 | Key | Action |
 | --- | --- |
@@ -192,32 +175,25 @@ to the shell or agent inside a pane.
 | `ctrl+y` | Insert last cut |
 {: .-shortcuts}
 
-Cut text stays in the current field; it does not touch the system
-clipboard. `Alt` shortcuts need a terminal that reports Alt/Meta.
+These keys apply to Herdr-owned fields (dialogs, filters, copy-mode
+search), not the shell or agent in a pane. Cut text stays in the field;
+`Alt` shortcuts need a terminal that reports Alt/Meta.
 
 ### Custom bindings
 
-Every binding is configurable, including the prefix. An action can
-carry several shortcuts as an array.
-
 ```toml
 [keys]
-prefix = "ctrl+a"              # or ["ctrl+space", "ctrl+s"]
-next_tab = ["prefix+n", "ctrl+alt+]"]   # no prefix needed
-```
-
-Add direct chords to skip the prefix. The `ctrl+alt` family is the
-safest place to look.
-
-```toml
-[keys]
+prefix = "ctrl+a"                        # or ["ctrl+space", "ctrl+s"]
+next_tab = ["prefix+n", "ctrl+alt+]"]    # no prefix needed
 new_tab = ["prefix+c", "ctrl+alt+c"]
 split_vertical = ["prefix+v", "ctrl+alt+d"]
 split_horizontal = ["prefix+minus", "ctrl+alt+shift+d"]
 zoom = ["prefix+z", "ctrl+alt+z"]
 ```
 
-A few `ctrl+alt` chords are already taken:
+Every binding is configurable, including the prefix; an action can carry
+several shortcuts. Direct chords skip the prefix, and `ctrl+alt` is the
+safest family to look at.
 
 | Chord | Owned by |
 | --- | --- |
@@ -228,7 +204,6 @@ A few `ctrl+alt` chords are already taken:
 | `ctrl+alt+f1..f12` | Linux virtual console switching |
 {: .-shortcuts}
 
-A direct chord must survive your OS, your outer terminal, and the programs
-inside the pane before Herdr sees it; double-check new chords against your
-own terminal and desktop shortcuts. Reload config with `prefix+shift+r` or
+A chord must survive your OS, terminal, and pane programs, so check new
+chords against your own shortcuts. Reload config with `prefix+shift+r` or
 `herdr server reload-config`; `herdr config reset-keys` restores defaults.

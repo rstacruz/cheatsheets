@@ -47,7 +47,7 @@ Glyphs come from the [Ionicons] set via `@iconify/utils`:
 
 - **In templates** — `src/components/Icon.astro`: `<Icon name="logo-x" />` renders an inline SVG.
 - **In CSS** — the `icon()` mixin (`src/sass/2017/utils/_icon.scss`) masks a generated
-  data URI, so `color` styles it: `@include icon('md-search', 32px)`. Where the element
+  data URI, so `color` styles it: `@include icon('md-arrow-forward', 24px)`. Where the element
   paints its own background or border, use `icon-image()` instead — a mask clips those.
 
 Both read from the same `@iconify-json/ion` set, but only the CSS side touches the

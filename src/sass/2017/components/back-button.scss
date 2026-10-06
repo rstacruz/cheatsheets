@@ -34,14 +34,14 @@
   }
 
   // Icon
-  &::before {
-    content: '';
-    @include icon('md-arrow-back', 24px);
+  & > svg {
+    display: inline-block; // Tailwind preflight makes svg block-level
+    vertical-align: middle;
     color: $base-text;
   }
 
-  &:hover::before,
-  &:focus::before {
+  &:hover > svg,
+  &:focus > svg {
     color: white;
   }
 }

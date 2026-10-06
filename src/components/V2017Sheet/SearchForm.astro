@@ -2,6 +2,7 @@
 import 'autocompleter/autocomplete.css'
 
 import { etc } from '../../config'
+import Icon from '~/components/Icon.astro'
 
 export type Props = {
   class?: string
@@ -38,6 +39,7 @@ placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
         />
       )
     }
+    <span class="icon"><Icon name="md-search" size={32} /></span>
   </label>
 </form>
 

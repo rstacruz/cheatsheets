@@ -14,6 +14,7 @@ import { getSEOPropsForPage } from '~/lib/seo/seo'
 import { getJSONLDsForPage } from '~/lib/seo/jsonLd'
 import SEO from '~/components/SEO/SEO.astro'
 import NoticeBox from './V2017Sheet/NoticeBox.astro'
+import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 import { isDeprecated } from '~/lib/page/accessors'
 import { typeStyles } from '~/styles/CommonStyles'
@@ -126,7 +127,9 @@ const headingStyles = {
     </main>
   </div>
 
-  <div class="pre-footer" data-js-no-preview><i class="icon"></i></div>
+  <div class="pre-footer" data-js-no-preview>
+    <i class="icon"><Icon name="ios-flash" size={32} /></i>
+  </div>
   <CommentsArea identifier={page.slug} />
   <SearchFooter />
   <RelatedPosts page={page} />

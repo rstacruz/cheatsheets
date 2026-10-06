@@ -8,9 +8,9 @@
     margin-bottom: 16px;
   }
 
-  &::before {
-    content: '';
-    @include icon('md-information-circle', 24px);
+  & > svg {
+    display: inline-block;
+    vertical-align: middle;
     color: $base-mute3;
     margin-right: 8px;
   }

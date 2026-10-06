@@ -21,11 +21,11 @@
   }
 
   // Colour comes from the link: mute, white on hover/focus
-  & > i::before {
-    content: '';
-    @include icon('ios-home-outline', 24px);
-    height: 48px;
-    line-height: 48px;
+  & > i > svg {
+    display: inline-block; // Tailwind preflight makes svg block-level
+    vertical-align: middle;
     width: 48px;
+    height: 48px;
+    padding: 12px; // 24px glyph in a 48px box
   }
 }

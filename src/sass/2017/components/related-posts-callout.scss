@@ -32,19 +32,19 @@
   }
 
   & > .text > .icon {
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  & > .text > .icon::before {
     $arrow-color: adjust-color($base-a, $lightness: 16%, $hue: 20deg);
 
-    content: '';
-    @include icon-image('ios-arrow-back', 48px, $arrow-color);
-    height: 64px;
+    display: grid;
+    place-items: center;
     width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
     border: solid 2px $arrow-color;
     border-radius: 50%;
+
+    & > svg {
+      color: $arrow-color;
+    }
   }
 
   & > .text > .description {

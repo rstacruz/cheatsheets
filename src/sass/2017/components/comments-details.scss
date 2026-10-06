@@ -35,10 +35,10 @@
     font-weight: bold;
   }
 
-  & > summary > .count::before {
-    content: '';
-    @include icon('md-chatboxes', 24px);
-    color: $base-a;
+  & > summary > .count > svg {
+    display: inline-block;
+    vertical-align: middle;
+    color: $base-a; // pinned: the summary goes $base-a7 on hover
     margin: 0 8px;
   }
 

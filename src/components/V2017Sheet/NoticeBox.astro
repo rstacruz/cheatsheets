@@ -1,5 +1,6 @@
 ---
 import cx from 'clsx'
+import Icon from '~/components/Icon.astro'
 
 type Props = {
   class?: string
@@ -9,6 +10,7 @@ const { class: className } = Astro.props
 ---
 
 <aside class={cx('notice-box MarkdownBody', className)}>
+  <Icon name="md-information-circle" size={24} />
   <slot />
 </aside>
 

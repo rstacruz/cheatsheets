@@ -115,4 +115,11 @@
   &.comment {
     color: #569;
   }
+
+  // TOML section headers (`[keys]`) tokenize as `.table`; the global
+  // `.table { display: table }` rule otherwise breaks them onto their own
+  // lines
+  &.table {
+    display: inline;
+  }
 }

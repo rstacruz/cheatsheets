@@ -35,3 +35,32 @@ export async function collectSheetFindings(
   }
   return findings
 }
+
+/** Collects findings per sheet slug, for checks with per-sheet allowances */
+export async function collectSheetFindingsBySlug(
+  find: (source: string) => SheetFinding[]
+): Promise<Record<string, SheetFinding[]>> {
+  const result: Record<string, SheetFinding[]> = {}
+  for (const { slug, source } of await sheetSources()) {
+    const findings = find(source)
+    if (findings.length) result[slug] = findings
+  }
+  return result
+}
+
+/** Findings beyond a sheet's baseline allowance, formatted for assertions */
+export function overAllowance(
+  findings: Record<string, SheetFinding[]>,
+  allowance: Record<string, number>
+): string[] {
+  const excess: string[] = []
+  for (const [slug, list] of Object.entries(findings)) {
+    const allowed = allowance[slug] ?? 0
+    if (list.length > allowed) {
+      excess.push(
+        ...list.slice(allowed).map((f) => `${slug}:${f.line}: ${f.text}`)
+      )
+    }
+  }
+  return excess
+}

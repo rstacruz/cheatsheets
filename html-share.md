@@ -23,10 +23,3 @@ X:
   target='share'
 >
 ```
-
-Google Plus:
-{:.-setup}
-
-```html
-<a href='https://plus.google.com/share?url=URL' target='share'>
-```

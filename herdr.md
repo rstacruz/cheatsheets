@@ -16,6 +16,17 @@ intro: |
 
 ## Keyboard
 
+### Introduction
+{: .-intro}
+
+[Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
+agents: persistent sessions of workspaces, tabs, and panes, with agent
+detection built in.
+
+- [Herdr documentation](https://herdr.dev/docs/) _(herdr.dev)_
+- [GitHub repository](https://github.com/herdrdev/herdr) _(github.com)_
+- [Herdr concepts](https://herdr.dev/docs/concepts/) _(herdr.dev)_
+
 ### Learn these first
 
 | Shortcut | Action |
@@ -33,17 +44,6 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 {: .-crosslink}
 
 ## Getting started
-
-### Introduction
-{: .-intro}
-
-[Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
-agents: persistent sessions of workspaces, tabs, and panes, with agent
-detection built in.
-
-- [Herdr documentation](https://herdr.dev/docs/) _(herdr.dev)_
-- [GitHub repository](https://github.com/herdrdev/herdr) _(github.com)_
-- [Herdr concepts](https://herdr.dev/docs/concepts/) _(herdr.dev)_
 
 ### Concepts
 

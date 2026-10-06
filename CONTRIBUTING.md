@@ -41,6 +41,22 @@ Site code lives in `src/`; cheatsheets are the Markdown files in the repository 
 
 See <https://devhints.io/cheatsheet-styles> for a reference on styling.
 
+## Icons
+
+Glyphs come from the [Ionicons] set via `@iconify/utils`:
+
+- **In templates** — `src/components/Icon.astro`: `<Icon name="logo-x" />` renders an inline SVG.
+- **In CSS** — the `icon()` mixin (`src/sass/2017/utils/_icon.scss`) masks a generated
+  data URI, so `color` styles it: `@include icon('md-arrow-forward', 24px)`. Where the element
+  paints its own background or border, use `icon-image()` instead — a mask clips those.
+
+Both read from the same `@iconify-json/ion` set, but only the CSS side touches the
+generated file: `pnpm dev` and `pnpm build` regenerate `src/sass/2017/icons.generated.scss`
+(the mask/background data URIs). Add a CSS-only glyph to `USED` in
+`scripts/build-icons.mjs`, then run `pnpm icons`; `pnpm ci` fails if that file is stale.
+
+[ionicons]: https://ionicons.com
+
 ## Cheatsheet guidelines
 
 See `_docs/writing-guidelines.md` for content and formatting guidelines.

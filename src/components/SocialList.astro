@@ -1,6 +1,7 @@
 ---
 import { getUrlFromPage } from '~/lib/links'
 import type { SheetPage } from '~/lib/page'
+import Icon from './Icon.astro'
 
 export type Props = {
   class?: string
@@ -12,7 +13,7 @@ const url = getUrlFromPage(page, Astro.site)
 
 const t = {
   facebookShare: 'Share on Facebook',
-  twitterShare: 'Share on Twitter',
+  xShare: 'Share on X',
   sheetDescription: 'The ultimate cheatsheet for {title}',
   defaultDescription: 'Ridiculous collection of web development cheatsheets'
 }
@@ -28,7 +29,7 @@ const tweet = `${description} ${url}`
 // prettier-ignore
 const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
 // prettier-ignore
-const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`
+const xURL = `https://x.com/intent/post?text=${encodeURIComponent(tweet)}`
 ---
 
 <ul class={`social-list ${props.class ?? ''}`}>
@@ -37,16 +38,13 @@ const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(t
       href={facebookURL}
       target="share"
       aria-label={t.facebookShare}
-      role="button"><span class="text"></span></a
+      role="button"><Icon name="logo-facebook" size={16} /></a
     >
   </li>
   {' '}
-  <li class="twitter link hint--bottom" data-hint={t.twitterShare}>
-    <a
-      href={twitterURL}
-      target="share"
-      aria-label={t.twitterShare}
-      role="button"><span class="text"></span></a
+  <li class="x link hint--bottom" data-hint={t.xShare}>
+    <a href={xURL} target="share" aria-label={t.xShare} role="button"
+      ><Icon name="logo-x" size={16} /></a
     >
   </li>
 </ul>

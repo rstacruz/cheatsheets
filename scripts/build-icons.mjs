@@ -1,22 +1,13 @@
 // Generates src/sass/2017/icons.generated.scss: mask URIs behind
 // `@include icon(...)`; see src/sass/2017/utils/_icon.scss
 //
-// Markup-friendly brand marks use src/components/Icon.astro instead
+// CSS-painted glyphs only; markup uses src/components/Icon.astro
 import { readFileSync, renameSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { icons } from '@iconify-json/ion'
 import { getIconData, iconToHTML, iconToSVG, svgToURL } from '@iconify/utils'
 
-const USED = [
-  'md-arrow-back',
-  'md-arrow-forward',
-  'md-search',
-  'md-chatboxes',
-  'md-information-circle',
-  'ios-home-outline',
-  'ios-flash',
-  'ios-arrow-back'
-]
+const USED = ['md-arrow-forward']
 
 // Stands in for `fill="currentColor"` while the SVG is encoded
 const FILL = '__ICON_FILL__'

@@ -51,9 +51,9 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+q` | Detach; everything keeps running |
 {: .-shortcuts}
 
-### Default bindings
+## Default bindings
 
-#### Panes
+### Panes
 
 | Shortcut | Action |
 | --- | --- |
@@ -72,7 +72,7 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+[` | Enter copy mode |
 {: .-shortcuts}
 
-#### Tabs
+### Tabs
 
 | Shortcut | Action |
 | --- | --- |
@@ -83,7 +83,7 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+shift+x` | Close tab |
 {: .-shortcuts}
 
-#### Workspaces and session
+### Workspaces and session
 
 | Shortcut | Action |
 | --- | --- |
@@ -98,7 +98,7 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+q` | Detach; server and agents keep running |
 {: .-shortcuts}
 
-#### Other
+### Other
 
 | Shortcut | Action |
 | --- | --- |
@@ -116,7 +116,7 @@ and `resize_pane_*`.
 [Herdr agents cheatsheet](./herdr-agents)
 {: .-crosslink}
 
-### Navigate mode
+## Navigate mode
 
 | Key | Action |
 | --- | --- |
@@ -134,7 +134,7 @@ independent of `focus_pane_*`. `esc`, `enter`, `tab`/`shift+tab`,
 `left`/`right`, and `1..9` stay reserved; `navigate_*` config fields take
 other plain keys.
 
-### Copy mode
+## Copy mode
 
 | Key | Action |
 | --- | --- |
@@ -158,16 +158,28 @@ other plain keys.
 Search is case-insensitive unless the query has an uppercase letter. With
 the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
-### Editing text fields
+## Editing text fields
+
+### Movement
 
 | Key | Action |
 | --- | --- |
 | `left` / `right`, `ctrl+b` / `ctrl+f` | Move one character |
 | `home` / `end`, `ctrl+a` / `ctrl+e` | Move to start/end |
 | `alt+b` / `alt+f` | Move by word |
+{: .-shortcuts}
+
+### Delete
+
+| Key | Action |
 | --- | --- |
 | `Backspace`, `ctrl+h` | Delete prev char |
 | `Delete`, `ctrl+d` | Delete next char |
+{: .-shortcuts}
+
+### Cut and paste
+
+| Key | Action |
 | --- | --- |
 | `ctrl+u` / `ctrl+k` | Cut to start/end |
 | `ctrl+w`, `alt+Backspace`, `ctrl+Backspace` | Cut previous word |
@@ -179,7 +191,7 @@ These keys apply to Herdr-owned fields (dialogs, filters, copy-mode
 search), not the shell or agent in a pane. Cut text stays in the field;
 `Alt` shortcuts need a terminal that reports Alt/Meta.
 
-### Custom bindings
+## Custom bindings
 
 ```toml
 [keys]

@@ -14,6 +14,22 @@ intro: |
   keyboard.
 ---
 
+## Keyboard
+
+| Shortcut | Action |
+| --- | --- |
+| `prefix+c` | New tab |
+| `prefix+v` / `prefix+minus` | Split right / down |
+| `prefix+h/j/k/l` | Move between panes |
+| `prefix+w` | Workspace navigation |
+| `prefix+q` | Detach; everything keeps running |
+{: .-shortcuts}
+
+The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+
+[Herdr keys cheatsheet](./herdr-keys)
+{: .-crosslink}
+
 ## Getting started
 
 ### Introduction
@@ -61,21 +77,12 @@ herdr
 Launch or reattach to the default session.
 
 ```bash
-herdr pane split --current --direction right --cwd "$PWD"
-herdr agent start reviewer --kind codex --pane <pane-id>
+claude
 ```
 
-Split a pane, then start an agent in it. Creation commands return the new
-IDs as JSON; read `.result.pane.pane_id` or
-`.result.workspace.workspace_id` from the response.
-
-```bash
-herdr agent prompt reviewer "Review the current diff." --wait
-herdr agent read reviewer --source recent-unwrapped --lines 120
-```
-
-Prompt the agent and read its output. Press `prefix+q` to detach; panes and
-agents keep running.
+Run an agent in the focused pane; Herdr detects it automatically. Use the
+prefix keys to split a pane (`prefix+v`), open a tab (`prefix+c`), and
+detach (`prefix+q`) — panes and agents keep running.
 
 ## Command map
 
@@ -138,26 +145,6 @@ agents keep running.
 | `herdr config` | Validate or reset `config.toml` |
 | `herdr completion` | Generate shell completions |
 {: .-shortcuts}
-
-Most commands return JSON on stdout; read IDs and state from the response,
-never from sidebar order. Server errors are JSON on stderr with exit status
-1; CLI syntax errors exit with status 2.
-
-### Keyboard
-
-| Shortcut | Action |
-| --- | --- |
-| `prefix+c` | New tab |
-| `prefix+v` / `prefix+minus` | Split right / down |
-| `prefix+h/j/k/l` | Move between panes |
-| `prefix+w` | Workspace navigation |
-| `prefix+q` | Detach; everything keeps running |
-{: .-shortcuts}
-
-The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
-
-[Herdr keys cheatsheet](./herdr-keys)
-{: .-crosslink}
 
 ## Also see
 

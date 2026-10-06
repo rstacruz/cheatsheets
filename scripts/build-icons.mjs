@@ -58,6 +58,10 @@ function render() {
     ...entries,
     '  );',
     '',
+    '  @if not map.has-key($glyphs, $name) {',
+    '    @error "Unknown icon: #{$name}";',
+    '  }',
+    '',
     '  @return map.get($glyphs, $name);',
     '}',
     ''

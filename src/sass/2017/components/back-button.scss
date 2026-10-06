@@ -36,19 +36,12 @@
   // Icon
   &::before {
     content: '';
-    @include ion-md-arrow-back(24px, $base-text);
-    vertical-align: middle;
+    @include icon('md-arrow-back', 24px);
+    color: $base-text;
   }
 
   &:hover::before,
   &:focus::before {
-    @include ion-md-arrow-back(24px, white);
-  }
-
-  // Icon: smaller on mobile
-  @media (max-width: 480px) {
-    &::before {
-      font-size: 16px;
-    }
+    color: white;
   }
 }

@@ -1,6 +1,7 @@
 ---
 import type { SheetPage } from '~/lib/page'
 import SocialList from './SocialList.astro'
+import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 
 export type Props = {
@@ -48,6 +49,7 @@ const editLink = getEditLink(props.page)
                 data-hint={t.editOnGitHub}
               >
                 <a href={editLink}>
+                  <Icon name="logo-github" size={16} />
                   <span class="text -visible">{t.edit}</span>
                 </a>
               </li>

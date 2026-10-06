@@ -72,8 +72,8 @@
   // Icon
   &::before {
     content: '';
-    @include ion-md-search(32px, $base-head);
-    background-position: center center;
+    @include icon('md-search', 32px);
+    color: $base-head;
     flex: 0 0 64px;
     width: 64px;
     order: 2;
@@ -105,7 +105,7 @@
     flex: 0 0 48px;
     width: 48px;
     line-height: 48px;
-    background-size: 24px 24px;
-    background-position: center center;
+    mask-size: 24px 24px;
+    -webkit-mask-size: 24px 24px;
   }
 }

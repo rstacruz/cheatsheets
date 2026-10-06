@@ -20,15 +20,12 @@
     color: white;
   }
 
+  // Colour comes from the link: mute, white on hover/focus
   & > i::before {
     content: '';
-    @include ion-ios-home-outline(24px, $base-mute);
+    @include icon('ios-home-outline', 24px);
     height: 48px;
     line-height: 48px;
     width: 48px;
-  }
-
-  &:hover > i::before {
-    background-image: ion-ios-home-image(white);
   }
 }

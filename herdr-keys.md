@@ -109,11 +109,6 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+o` | Open the notification target |
 {: .-shortcuts}
 
-Unset by default: `previous_workspace`, `next_workspace`, `previous_agent`,
-`next_agent`, `focus_agent`, `switch_workspace`, `last_pane`, `clear_pane`,
-`open_worktree`, `remove_worktree`, `move_tab_previous`, `move_tab_next`,
-and `resize_pane_*`.
-
 [Herdr agents cheatsheet](./herdr-agents)
 {: .-crosslink}
 
@@ -125,6 +120,8 @@ and `resize_pane_*`.
 | --- | --- |
 | `prefix+w` | Open the navigation surface |
 {: .-shortcuts}
+
+Press `prefix+w` before pressing the keys in the next sections.
 
 ### Movement
 

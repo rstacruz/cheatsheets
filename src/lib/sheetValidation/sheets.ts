@@ -36,12 +36,16 @@ export async function collectSheetFindings(
   return findings
 }
 
+/** Markdown pages that are not sheets: repo docs, includes, fixtures, and WIP */
+const NON_SHEET = /^(?:AGENTS$|_docs\/|_includes\/|tests\/|wip\/)/
+
 /** Collects findings per sheet slug, for checks with per-sheet allowances */
 export async function collectSheetFindingsBySlug(
   find: (source: string) => SheetFinding[]
 ): Promise<Record<string, SheetFinding[]>> {
   const result: Record<string, SheetFinding[]> = {}
   for (const { slug, source } of await sheetSources()) {
+    if (NON_SHEET.test(slug)) continue
     const findings = find(source)
     if (findings.length) result[slug] = findings
   }

@@ -13,9 +13,6 @@ export type SheetBaselines = {
 
 export const baselines: SheetBaselines = {
   h2WithoutH3: {
-    '_docs/markdown-dialect': 8,
-    '_docs/writing-guidelines': 12,
-    AGENTS: 3,
     awscli: 1,
     curl: 1,
     datetime: 1,
@@ -50,7 +47,6 @@ export const baselines: SheetBaselines = {
   },
   codeLineWidth: {
     '101': 1,
-    '_docs/writing-guidelines': 8,
     activeadmin: 1,
     analytics: 1,
     animated_gif: 2,
@@ -178,13 +174,11 @@ export const baselines: SheetBaselines = {
     vimscript: 3,
     vue: 8,
     weinre: 1,
-    'wip/php': 3,
     yum: 5,
     znc: 1,
     zombie: 1
   },
   unsplitTable: {
-    '_docs/markdown-dialect': 1,
     bash: 1,
     codex: 2,
     command_line: 3,

@@ -67,6 +67,19 @@
     text-align: center;
   }
 
+  // The flat #334455 the old ::before backgrounds were baked with. The edit
+  // button still whites out with its label on hover (its own rule wins).
+  & > .facebook > a,
+  & > .x > a,
+  & > .github > a {
+    &,
+    &:visited,
+    &:hover,
+    &:focus {
+      color: $base-text;
+    }
+  }
+
   // Compensate alignment
   & > .github > a > svg {
     position: relative;

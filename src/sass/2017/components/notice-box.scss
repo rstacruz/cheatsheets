@@ -10,7 +10,8 @@
 
   &::before {
     content: '';
-    @include ion-md-information-circle(24px, $base-mute3);
+    @include icon('md-information-circle', 24px);
+    color: $base-mute3;
     margin-right: 8px;
   }
 

@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+/*
+ * Mask-based icon, sized in px. The glyph comes from icons.generated.scss and
+ * is painted in `currentColor`, so `color` styles it (eg on hover).
+ */
+@mixin icon($name, $size: 16px) {
+  display: inline-block;
+  vertical-align: middle;
+  width: $size;
+  height: $size;
+  background-color: currentColor;
+  mask: map.get($icon-data, $name) center center / $size $size no-repeat;
+  -webkit-mask: map.get($icon-data, $name) center center / $size $size no-repeat;
+}

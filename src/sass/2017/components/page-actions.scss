@@ -53,37 +53,22 @@
     margin-left: 8px;
   }
 
-  & > .facebook > a::before,
-  & > .twitter > a::before,
-  & > .github > a::before {
-    content: '';
+  // Brand marks are inline SVG; see src/components/Icon.astro
+  & > li > a > svg {
+    display: inline-block; // Tailwind's preflight makes svg block-level
     vertical-align: middle;
   }
 
-  & > .facebook > a::before {
-    @include ion-logo-facebook(16px, #334455);
-  }
-
-  & > .twitter > a::before {
-    @include ion-logo-twitter(16px, #334455);
-  }
-
-  & > .github > a::before {
-    @include ion-logo-github(16px, #334455);
-  }
-
-  & > .github > a:hover::before {
-    background-image: ion-logo-github-image(white);
-  }
-
-  & > .facebook > a::before,
-  & > .twitter > a::before {
+  // Keep the 32px slot the old ::before icon occupied. Needs .link to
+  // outweigh `action-bar`'s `width: auto` on `.link.link > a`.
+  & > .link.facebook > a,
+  & > .link.x > a {
     width: 32px;
-    height: 32px;
+    text-align: center;
   }
 
   // Compensate alignment
-  & > .github > a::before {
+  & > .github > a > svg {
     position: relative;
     top: -2px;
   }

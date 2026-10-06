@@ -26,7 +26,8 @@
 
   & > h3::before {
     content: '';
-    @include ion-md-arrow-forward(24px, $base-a);
+    @include icon('md-arrow-forward', 24px);
+    color: $base-a;
     margin-right: 16px;
   }
 

@@ -13,7 +13,8 @@
 
   & > .icon::before {
     content: '';
-    @include ion-ios-flash(32px, $base-mute);
+    @include icon('ios-flash', 32px);
+    color: $base-mute;
     opacity: 0.25;
   }
 }

@@ -25,7 +25,8 @@
 
   & > a::before {
     content: '';
-    @include ion-md-arrow-forward(16px, white);
+    @include icon('md-arrow-forward', 16px);
+    color: white;
     margin-right: 16px;
     width: 32px;
     height: 32px;

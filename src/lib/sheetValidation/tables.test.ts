@@ -2,7 +2,14 @@ import type { RootContent } from 'mdast'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
-import { collectSheetFindings } from './sheets'
+import {
+  isSheetSlug,
+  loadBaseline,
+  saveBaseline,
+  updatingBaseline
+} from './baseline'
+import { collectSheetFindings, sheetSources } from './sheets'
+import { scanFences } from './utils'
 
 function findUncoveredPipeLines(source: string) {
   const tree = unified().use(remarkParse).use(remarkGfm).parse(source)
@@ -79,4 +86,100 @@ describe('findUncoveredPipeLines()', () => {
 
 test('every sheet uses table headers', async () => {
   expect(await collectSheetFindings(findUncoveredPipeLines)).toEqual([])
+})
+
+const SEPARATOR_ROW = /^\|(?:\s*:?-{1,}:?\s*\|)+$/
+
+/** Tables of 8+ data rows should be split with `| --- |` rows or H4 groups */
+function findUnsplitTables(source: string) {
+  const lines = source.split('\n')
+  const { fenced } = scanFences(lines)
+  const found: Array<{ line: number; text: string; rows: number }> = []
+  let rows = 0
+  let separators = 0
+  let start = 0
+  let header = ''
+
+  const flush = () => {
+    const body = rows - 1 - separators
+    if (start && body >= 8 && separators <= 1) {
+      found.push({ line: start, text: header, rows: body })
+    }
+    rows = 0
+    separators = 0
+    start = 0
+  }
+
+  lines.forEach((line, index) => {
+    const text = line.trim()
+    if (fenced[index] || !text.startsWith('|')) {
+      flush()
+      return
+    }
+    if (!start) {
+      start = index + 1
+      header = text
+    }
+    rows += 1
+    if (SEPARATOR_ROW.test(text)) separators += 1
+  })
+  flush()
+  return found
+}
+
+describe('findUnsplitTables()', () => {
+  const table = (rows: number, split = false) => {
+    const body = Array.from({ length: rows }, (_, index) => `| ${index} |`)
+    if (split) body.splice(4, 0, '| --- |')
+    return ['| h |', '| --- |', ...body].join('\n')
+  }
+
+  test('flags 8 rows without separators', () => {
+    const found = findUnsplitTables(table(8))
+    expect(found).toHaveLength(1)
+    expect(found[0].rows).toBe(8)
+  })
+
+  test('allows 7 rows', () => {
+    expect(findUnsplitTables(table(7))).toEqual([])
+  })
+
+  test('allows a table with separator rows', () => {
+    expect(findUnsplitTables(table(8, true))).toEqual([])
+  })
+
+  test('ignores pipe rows inside fenced code', () => {
+    expect(findUnsplitTables(['```', table(8), '```'].join('\n'))).toEqual([])
+  })
+})
+
+test('every sheet separates long tables', async () => {
+  const findings: Array<{
+    slug: string
+    line: number
+    text: string
+    rows: number
+  }> = []
+
+  for (const { slug, source } of await sheetSources()) {
+    if (!isSheetSlug(slug)) continue
+    for (const finding of findUnsplitTables(source)) {
+      findings.push({ slug, ...finding })
+    }
+  }
+
+  const keys = [
+    ...new Set(findings.map(({ slug, text }) => `${slug}#${text}`))
+  ].sort()
+  if (updatingBaseline) return saveBaseline('tables.json', keys)
+
+  const allowed = new Set(loadBaseline<string[]>('tables.json', []))
+  expect(
+    findings
+      .filter(({ slug, text }) => !allowed.has(`${slug}#${text}`))
+      .map(
+        ({ slug, line, rows, text }) =>
+          `${slug}:${line}: ${rows} rows without separators ${text}`
+      )
+  ).toEqual([])
 })

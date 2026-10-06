@@ -309,11 +309,11 @@ Separating tables is preferred when a table grows to 8 or more rows.
 
 ## Checks
 
-CI enforces the structural rules above from `src/lib/sheetValidation/`:
+Sheet checks live in `src/lib/sheetValidation/`. Run them with:
 
-- every H2 has an H3
-- code lines are 70 characters (42 inside `.-three-column` sections)
-- tables of 8+ rows are split with separator rows or H4 groups
+```bash
+pnpm vitest run src/lib/sheetValidation
+```
 
 Legacy violations are recorded under `src/lib/sheetValidation/baseline/`, so
 only new ones fail. Regenerate the baselines after cleaning sheets up:

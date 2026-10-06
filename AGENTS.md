@@ -24,4 +24,4 @@
 
 Consult @_docs/writing-guidelines.md for formatting *.md files, and @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences).
 
-Sheet checks run in CI (`src/lib/sheetValidation/`): every H2 needs an H3, code lines are 70 characters (42 in `.-three-column`), and tables of 8+ rows need separator rows.
+Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`.

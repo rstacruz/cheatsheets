@@ -47,6 +47,7 @@ Herdr themselves. Either way you see each agent's `idle`, `working`, and
 | OpenCode | `opencode` | also reports state |
 | Pi | `pi` | also reports state |
 | OMP | `omp` | state requires the integration |
+| --- | --- | --- |
 | Droid | `droid` | |
 | Devin CLI | `devin` | |
 | Kimi Code CLI | `kimi` | also reports state |
@@ -54,6 +55,7 @@ Herdr themselves. Either way you see each agent's `idle`, `working`, and
 | Hermes Agent | `hermes` | |
 | Qoder CLI | `qodercli` | |
 | Qwen Code | `qwen` | |
+| --- | --- | --- |
 | Letta Code | `letta` | CLI install only |
 | MastraCode | `mastracode` | state requires the integration |
 | Grok CLI | `grok` | |
@@ -190,8 +192,9 @@ herdr agent explain --file screen.txt --agent codex --json
 | `detection` | Bottom-buffer snapshot used for detection |
 
 `agent get` shows the resolved agent and its state. `agent explain` reports
-detection state, the matched rule, and why an idle fallback happened. Use
-`--format ansi` (or `--ansi`) when colors and styling are evidence.
+detection state, the matched rule, and why an idle fallback happened; add
+`--json` for machine-readable output. On `agent read`, use `--format ansi`
+(or `--ansi`) when colors and styling are evidence.
 
 ### Keys and focus
 

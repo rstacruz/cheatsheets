@@ -74,7 +74,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Item justification (horizontal or column alignment) */
+  /* Item justification (horizontal or row alignment) */
   justify-items: start; /* Align items to the left */
   justify-items: center; /* Align items centered within its column */
   justify-items: end; /* Align items to the right */
@@ -82,7 +82,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Item alignment (vertical or row alignment) */
+  /* Item alignment (vertical or column alignment) */
   align-items: start; /* Align items to the top */
   align-items: center; /* Align items centered within its row */
   align-items: end; /* Align items to the bottom */
@@ -99,7 +99,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Content justification (horizontal or column alignment) */
+  /* Content justification (horizontal or row alignment) */
   justify-content: start; /* Align content to the left */
   justify-content: center; /* Align content centered horizontally within the grid */
   justify-content: end; /* Align content to the right */
@@ -111,7 +111,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Content alignment (horizontal or column alignment) */
+  /* Content alignment (vertical or column alignment) */
   align-content: start; /* Align content to the top */
   align-content: center; /* Align content centered vertically within the grid */
   align-content: end; /* Align content to the bottom */
@@ -216,7 +216,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Self justification (horizontal or column alignment) */
+  /* Self justification (horizontal or row alignment) */
   justify-self: start; /* Align item to the left */
   justify-self: center; /* Align item centered within its column */
   justify-self: end; /* Align item to the right */
@@ -224,7 +224,7 @@ prism_languages: [css]
 ```
 
 ```css
-  /* Self alignment (vertical or row alignment) */
+  /* Self alignment (vertical or column alignment) */
   align-self: start; /* Align item to the top */
   align-self: center; /* Align item centered within its row */
   align-self: end; /* Align item to the bottom */

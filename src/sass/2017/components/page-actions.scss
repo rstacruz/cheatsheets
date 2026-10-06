@@ -59,16 +59,16 @@
     vertical-align: middle;
   }
 
-  // Keep the 32px slot the old ::before icon occupied. Needs .link to
-  // outweigh `action-bar`'s `width: auto` on `.link.link > a`.
+  // 32px slot for the brand mark; `.link` must outweigh `action-bar`'s
+  // `width: auto` on `.link.link > a`
   & > .link.facebook > a,
   & > .link.x > a {
     width: 32px;
     text-align: center;
   }
 
-  // The flat #334455 the old ::before backgrounds were baked with. The edit
-  // button still whites out with its label on hover (its own rule wins).
+  // Brand marks stay pinned to $base-text; the edit button whites out with
+  // its label on hover (its own rule wins)
   & > .facebook > a,
   & > .x > a,
   & > .github > a {

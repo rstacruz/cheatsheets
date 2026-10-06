@@ -9,9 +9,8 @@ export type Props = {
 
 const { name, size = 16 } = Astro.props as Props
 
-// getIconData() — not icons.icons[name] — merges the set's own 512×512
-// default into the icon; without it iconToSVG() frames 512-space paths in a
-// 16×16 viewBox.
+// getIconData(), not icons.icons[name], merges the set's 512x512 default;
+// without it iconToSVG() frames 512-space paths in a 16x16 viewBox
 const icon = getIconData(icons, name)
 if (!icon) throw new Error(`Unknown icon in the "ion" set: ${name}`)
 

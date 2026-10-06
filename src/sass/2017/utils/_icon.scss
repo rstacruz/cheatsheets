@@ -2,9 +2,8 @@
 @use 'sass:math';
 
 /*
- * Data URI for one of the generated glyphs, with `$color` baked into its
- * fill. The colour goes in as rgb() with encoded commas — a `#` would end the
- * URI at a fragment.
+ * Data URI for one of the generated glyphs, with `$color` baked into the
+ * fill as encoded rgb(): a raw `#` would end the URI at a fragment
  */
 @function icon-url($name, $color: black) {
   $fill: 'rgb(#{math.round(color.red($color))}%2C#{math.round(
@@ -15,7 +14,7 @@
 }
 
 /*
- * Masks the glyph, so `color` paints it — hover/focus swaps stay one line.
+ * Masks the glyph so `color` paints it; hover/focus swaps stay one line
  */
 @mixin icon($name, $size: 16px) {
   display: inline-block;
@@ -28,9 +27,9 @@
 }
 
 /*
- * Paints the glyph as a background image, with `$color` baked in. Use this
- * where the element paints its own background or border: a mask clips those
- * to the glyph's silhouette.
+ * Paints the glyph as a background image with `$color` baked in. Use where
+ * the element paints its own background or border: a mask clips those to
+ * the glyph's silhouette
  */
 @mixin icon-image($name, $size: 16px, $color: black) {
   display: inline-block;

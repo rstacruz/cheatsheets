@@ -20,7 +20,7 @@
     color: white;
   }
 
-  // Colour comes from the link (mute → white on hover/focus)
+  // Colour comes from the link: mute, white on hover/focus
   & > i::before {
     content: '';
     @include icon('ios-home-outline', 24px);

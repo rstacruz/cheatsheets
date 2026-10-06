@@ -15,6 +15,7 @@ intro: |
 ---
 
 ## Keyboard
+{: .-three-column}
 
 ### Introduction
 {: .-intro}
@@ -30,7 +31,7 @@ modes, and custom keybindings.
 
 ```toml
 [keys]
-prefix = "ctrl+a"              # or ["ctrl+space", "ctrl+s"]
+prefix = "ctrl+a"   # or "ctrl+s"
 ```
 
 Herdr reserves one key instead of dozens. Press it (default `ctrl+b`),
@@ -118,6 +119,13 @@ and `resize_pane_*`.
 
 ## Navigate mode
 
+### Activate
+
+| Shortcut | Action |
+| --- | --- |
+| `prefix+w` | Open the navigation surface |
+{: .-shortcuts}
+
 ### Movement
 
 | Key | Action |
@@ -137,10 +145,9 @@ and `resize_pane_*`.
 | `esc` | Leave navigate mode |
 {: .-shortcuts}
 
-`prefix+w` opens the navigation surface; its keys win while it is open,
-independent of `focus_pane_*`. `esc`, `enter`, `tab`/`shift+tab`,
-`left`/`right`, and `1..9` stay reserved; `navigate_*` config fields take
-other plain keys.
+Its keys win while it is open, independent of `focus_pane_*`. `esc`,
+`enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved;
+`navigate_*` config fields take other plain keys.
 
 ## Copy mode
 

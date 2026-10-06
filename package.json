@@ -6,7 +6,7 @@
   "scripts": {
     "astro": "astro",
     "build": "node scripts/build-icons.mjs && astro build --silent",
-    "ci": "concurrently -g \"npm:*:check\" \"vitest run\" \"npm:test:*\" \"npm:build\"",
+    "ci": "npm run icons:check && concurrently -g \"npm:*:check\" \"vitest run\" \"npm:test:*\" \"npm:build\"",
     "dev": "node scripts/build-icons.mjs && astro dev",
     "eslint:check": "eslint .",
     "eslint:format": "eslint --fix .",

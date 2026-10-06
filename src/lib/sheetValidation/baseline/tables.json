@@ -13,7 +13,6 @@
   "http-status#| Code  | Name               | ?                                                |",
   "imagemagick#| Option              | Description                     |",
   "man#| Section | Description |",
-  "mise#| Prefix    | Source                                         |",
   "regexp#| Pattern       | Description                              |",
   "regexp#| Pattern | Description            |",
   "ronn#| Section | Description                                   |",

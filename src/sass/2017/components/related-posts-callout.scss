@@ -40,8 +40,7 @@
     $arrow-color: adjust-color($base-a, $lightness: 16%, $hue: 20deg);
 
     content: '';
-    @include icon('ios-arrow-back', 48px);
-    color: $arrow-color;
+    @include icon-image('ios-arrow-back', 48px, $arrow-color);
     height: 64px;
     width: 64px;
     border: solid 2px $arrow-color;

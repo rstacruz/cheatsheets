@@ -228,7 +228,7 @@ $ ledger reg
 ```
 
 ```bash
-  -S, --sort date
+  -S, --sort date / -date # asc / desc
   -S, --sort amount
 ```
 

@@ -105,6 +105,7 @@ and agents keep running.
 | `herdr update`          | Update a direct install                |
 | `herdr channel`         | Choose the stable or preview channel   |
 | `herdr config`          | Validate or reset `config.toml`        |
+| `herdr completion`      | Generate shell completions             |
 {: .-shortcuts}
 
 Most commands return JSON on stdout; read IDs and state from the response,

@@ -23,3 +23,11 @@
 ## Markdown files
 
 Consult @_docs/writing-guidelines.md for formatting *.md files, and @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences).
+
+`pnpm ci` enforces three mechanical rules on every sheet (see `src/lib/sheetValidation/`):
+
+- every H2 has at least one H3 (link footers like `## Also see` are exempt)
+- code lines stay within 70 characters (42 inside `.-three-column` sections)
+- tables with 8+ rows are separated with separator rows or H4 groups
+
+Legacy findings are tracked in `src/lib/sheetValidation/baselines.ts`; new sheets start at zero. Regenerate after adding or fixing findings with `UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation/updateBaseline.test.ts`.

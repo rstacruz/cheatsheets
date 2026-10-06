@@ -18,12 +18,18 @@ updated: 2024-01-01
 - **Progressive complexity:** Start with basics, move to advanced
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
+- **Every H2 needs an H3:** content lives in H3 cards, never directly under an
+H2. Link-list footers (`## Also see`, `## References`) are the only exception.
+- **Order by daily use:** put the sections readers reach for most first. For
+interactive tools that means keys and shortcuts before deeper reference.
 
 H2 content length:
 
 - Short H2s: 2-4 H3s (e.g., "Installing", "Getting started")
-- Medium H2s: 4-7 H3s (e.g., "Components", "Lifecycle")  
-- Long H2s: 7+ H3s (use column layouts)
+- Medium H2s: 4-7 H3s (e.g., "Components", "Lifecycle")
+- Long H2s: 7+ H3s (use column layouts) — or split into two H2s when the H3s
+cover distinct topics (one "Keyboard" H2 becoming "Keyboard", "Default
+bindings", and "Modes")
 
 H3 content length:
 
@@ -80,6 +86,12 @@ shows the shape.
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
+- **Omit mechanics:** exit codes, stdout shapes, and other internals belong in
+linked docs; keep them out unless the sheet documents that interface
+- **Skip third-party trivia:** chord ownership, plugin ecosystems, and similar
+details go in links, not table rows
+- **Link upstream setup:** don't restate install instructions the project's docs
+own; link them instead
 
 ## Content priorities
 
@@ -88,6 +100,12 @@ shows the shape.
 3. **Practical examples**: Real-world use cases over theoretical
 4. **Quick reference**: Dense information for experienced developers
 5. **Learning path**: Logical progression for newcomers
+
+**Quick starts:**
+
+- Show the default interactive flow first — keys, mouse, or TUI steps — not CLI
+or scripting commands
+- One code block per step, with the explanation after each block
 
 ## H3 writing guidelines
 

@@ -18,6 +18,10 @@ find <path> <conditions> <actions>
 ```
 
 ```bash
+-iname "linux"     # case insensitive
+```
+
+```bash
 -user jonathan
 -nouser
 ```

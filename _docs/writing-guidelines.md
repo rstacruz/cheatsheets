@@ -226,8 +226,8 @@ When an example spans multiple files, use each filename as its H4, one code bloc
 
 ## Archived sheets
 
-- Set `archived: <note>` for an obsolete sheet with no newer version. The note is Markdown and renders in a notice.
-- Archived sheets are unlisted like `category: Hidden`, and appear on the [archive page](https://devhints.io/archive).
+- Set `archived: <note>` for an obsolete sheet with no newer version. The note renders as Markdown in a notice.
+- Archived sheets are unlisted like `category: Hidden` and appear on the [archive page](https://devhints.io/archive).
 - `tags: [Archived]` is only a label; set `archived:` to unlist.
 
 ## Hidden sheets

@@ -122,7 +122,7 @@ The part after the colon is the tag (defaults to `latest`).
 
 ```bash
 docker login registry.example.com
-docker push me/myapp:1.0
+docker push registry.example.com/myapp:1.0
 ```
 
 The image name determines which registry it is pushed to.

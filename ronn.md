@@ -168,8 +168,10 @@ markdown(7)
 | `1`     | General commands                              |
 | `2`     | System calls                                  |
 | `3`     | C standard lib                                |
+| ---     | ---                                           |
 | `4`     | Special files (/dev) and drivers              |
 | `5`     | File formats                                  |
+| ---     | ---                                           |
 | `6`     | Games                                         |
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |

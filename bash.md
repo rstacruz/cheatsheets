@@ -747,6 +747,7 @@ printf '%i+%i=%i\n' 1 2 3  4 5 9
 | `-d`           | Delete characters                                   |
 | `-s`           | Replaces repeated characters with single occurrence |
 | `-t`           | Truncates                                           |
+| ---            | ---                                                 |
 | `[:upper:]`    | All upper case letters                              |
 | `[:lower:]`    | All lower case letters                              |
 | `[:digit:]`    | All digits                                          |

@@ -148,10 +148,12 @@ See `message-command-style` in the man page.
 | Key | Description |
 | --- | --- |
 | `#(date)` | shell command |
+| --- | --- |
 | `#I` | window index |
 | `#S` | session name |
 | `#W` | window name |
 | `#F` | window flags |
+| --- | --- |
 | `#H` | Hostname |
 | `#h` | Hostname, short |
 | `#D` | pane id |

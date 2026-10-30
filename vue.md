@@ -219,8 +219,10 @@ See: [Components Basics](https://vuejs.org/v2/guide/components.html)
 | `created` | After the instance is created [#](https://vuejs.org/v2/api/#created) |
 | `beforeMount` | Before the first render [#](https://vuejs.org/v2/api/#beforeMount) |
 | `mounted` | After the instance has been mounted [#](https://vuejs.org/v2/api/#mounted) |
+| --- | --- |
 | `beforeUpdate` | When data changes, before the DOM is patched [#](https://vuejs.org/v2/api/#beforeUpdate) |
 | `updated` | After a data change [#](https://vuejs.org/v2/api/#updated) |
+| --- | --- |
 | `beforeDestroy` | Before the instance is destroyed [#](https://vuejs.org/v2/api/#beforeDestroy) |
 | `destroyed` | After a Vue instance has been destroyed [#](https://vuejs.org/v2/api/#destroyed) |
 

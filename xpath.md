@@ -95,8 +95,10 @@ Works in Firefox and Chromium browsers.
 | Text match                   | `//button[text()="Submit"]`                              | [?](#operators)         |
 | Text match (substring)       | `//button[contains(text(),"Go")]`                        |                         |
 | Arithmetic                   | `//product[@price > 2.50]`                               |                         |
+| ---                          | ---                                                      | ---                     |
 | Has children                 | `//ul[*]`                                                |                         |
 | Has children (specific)      | `//ul[li]`                                               |                         |
+| ---                          | ---                                                      | ---                     |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
 {: .xp}

@@ -60,8 +60,8 @@ See [Semver cheatsheet](./semver) for explanation of version ranges.
   "start": "node ./bin/xxx",       /* npm start */
   "test": "vows --spec --isolate", /* npm test */
   "postinstall": "...",
-  "prepublish": "grunt build",     /* after 'npm install' and before 'npm 
-                                      publish' */
+  "prepublish": "grunt build",     /* after 'npm install' and before 'npm publish' */
+  "newScript": "echo 'do actions'" /* npm run newScript */
 }
 ```
 

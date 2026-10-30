@@ -72,7 +72,9 @@ Heading 2
 
 `=` makes a level 1 heading and `-` a level 2. Either underline can be any length.
 
-A Setext underline cannot interrupt a paragraph, so leave a blank line above one.
+Setext headings need no blank line after them, but they cannot interrupt a paragraph above.
+
+A blank line between the text and its underline turns `---` into a thematic break.
 
 ## Text
 {: .-three-column}

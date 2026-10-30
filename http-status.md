@@ -118,4 +118,4 @@ WebDAV is an extension of HTTP that allows clients to perform remote Web content
 
  * <https://en.wikipedia.org/wiki/List_of_HTTP_status_codes>
  * <https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>
- * <https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml>
+ * <https://www.iana.org/assignments/http-status-codes>

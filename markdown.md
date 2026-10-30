@@ -137,12 +137,14 @@ A blank line between items makes the list loose and wraps items in `<p>`.
 ```markdown
 1. First
 2. Second
+```
 
+```markdown
 3. Starts at three
 4. Next
 ```
 
-The first number sets the list's `start`; later numbers are ignored.
+A new list's first number sets its `start`; later numbers are ignored.
 
 `1)` also works. Use one to nine digits; changing the delimiter starts a new list.
 

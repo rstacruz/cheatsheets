@@ -131,7 +131,7 @@ heroku addons:create heroku-postgresql:essential-0
 heroku pg:info
 ```
 
-`addons:create` takes a `SERVICE:PLAN` argument; the old `addons:add` command is gone.
+`addons:create` takes a `SERVICE:PLAN` argument; `addons:add` still works as a hidden alias.
 
 #### Backups
 

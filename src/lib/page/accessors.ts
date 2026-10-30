@@ -43,10 +43,6 @@ export function isDeprecated(page: FrontmatterOnly): boolean {
   )
 }
 
-/**
- * Checks if a sheet is archived via an `archived` note
- */
-
 export function isArchived(page: FrontmatterOnly): boolean {
   return Boolean(page.frontmatter.archived)
 }

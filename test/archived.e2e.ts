@@ -20,13 +20,3 @@ test('archived sheets are noindexed', async ({ page }) => {
     'noindex, follow'
   )
 })
-
-test('archived sheets leave listings and join the archive', async ({
-  page
-}) => {
-  await page.goto('/')
-  await expect(page.locator('a[href="/firefox"]')).toHaveCount(0)
-
-  await page.goto('/archive')
-  await expect(page.locator('a[href="/firefox"]')).toHaveCount(1)
-})

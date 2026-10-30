@@ -3,6 +3,7 @@ title: Claude Code
 category: AI
 tags: [Featured]
 updated: 2026-10-03
+tier: t1
 keywords:
   - AI assistant
   - CLI

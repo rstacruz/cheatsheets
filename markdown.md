@@ -3,6 +3,7 @@ title: Markdown
 category: Markup
 prism_languages: [markdown]
 updated: 2020-07-01
+tier: t2
 weight: -1
 ---
 

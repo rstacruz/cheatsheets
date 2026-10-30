@@ -4,6 +4,7 @@ category: Devops
 prism_languages: [yaml]
 weight: -1
 updated: 2026-10-31
+tier: t1
 ---
 
 ### Basic example

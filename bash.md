@@ -3,6 +3,7 @@ title: Bash scripting
 category: CLI
 tags: [Featured]
 updated: 2020-07-05
+tier: t1
 keywords:
   - Variables
   - Functions

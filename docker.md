@@ -1,6 +1,7 @@
 ---
 title: Docker CLI
 category: Devops
+tier: t2
 tags: [Featured]
 ---
 

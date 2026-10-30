@@ -2,6 +2,7 @@
 title: mise
 category: CLI
 updated: 2026-10-03
+tier: t2
 keywords:
   - dev tool version manager
   - mise.toml

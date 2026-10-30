@@ -1,6 +1,7 @@
 ---
 title: Terraform
 category: Devops
+tier: t2
 description: |
   A practical reference for Terraform configuration and CLI workflows.
 intro: |

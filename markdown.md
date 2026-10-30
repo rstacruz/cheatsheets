@@ -264,7 +264,9 @@ const x = 1
 ````
 `````
 
-The info string's first word is conventionally the language. A backtick fence's info string cannot contain backticks, so use tildes or a longer fence.
+The info string's first word is conventionally the language. A backtick fence's info string cannot contain backticks, so use a tilde fence.
+
+When the sample itself contains a fence, make the outer fence longer.
 
 The closing fence needs the same character and at least the opening length.
 

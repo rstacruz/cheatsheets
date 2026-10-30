@@ -238,7 +238,7 @@ Alt text becomes the `alt` attribute; the optional title becomes the `title` att
 [dot]: <data:image/png;base64,...>
 ```
 
-Angle brackets are optional; use them when the URI has spaces or parentheses. The payload is truncated here.
+Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses. The payload is truncated here.
 
 The reference form keeps long payloads out of the prose.
 

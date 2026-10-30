@@ -3,7 +3,7 @@ title: docker-compose
 category: Devops
 prism_languages: [yaml]
 weight: -1
-updated: 2024-04-03 
+updated: 2026-10-31
 ---
 
 ### Basic example
@@ -300,4 +300,18 @@ user: root
 ```yaml
 # specifying both user and group with ids
 user: 0:0
+```
+
+### Secrets
+
+```yaml
+# mounts ./my_secret.txt at /run/secrets/my_secret
+services:
+  myapp:
+    image: myapp:latest
+    secrets:
+      - my_secret
+secrets:
+  my_secret:
+    file: ./my_secret.txt
 ```

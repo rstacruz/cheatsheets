@@ -2,6 +2,7 @@
 title: Date & time formats
 weight: -5
 updated: 2017-11-27
+tier: t2
 ---
 
 ## Common time formats

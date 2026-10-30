@@ -1,6 +1,7 @@
 ---
 title: MySQL
 updated: 2020-07-05
+tier: t2
 category: Databases
 ---
 

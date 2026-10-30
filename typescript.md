@@ -1,6 +1,7 @@
 ---
 title: TypeScript
 category: JavaScript libraries
+tier: t1
 tags: [Featured]
 ---
 

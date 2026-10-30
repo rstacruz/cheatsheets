@@ -1,6 +1,7 @@
 ---
 title: Xpath
 category: HTML
+tier: t1
 weight: -5
 description: |
   $x('//div//p//*') == $('div p *'), $x('//[@id="item"]') == $('#item'), and many other Xpath examples.

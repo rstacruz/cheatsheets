@@ -3,6 +3,7 @@ title: JavaScript
 category: JavaScript
 weight: -10
 updated: 2026-10-04
+tier: t1
 intro: |
   Core JavaScript language reference: strings, numbers, arrays, objects,
   collections, dates, async, and modules.

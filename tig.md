@@ -45,10 +45,12 @@ You can substitute `git log` → `tig`.
 | `d`      | Diff         |
 | `t`      | Tree (files) |
 | `b`      | Blame        |
+| ---      | ---          |
 | `s`      | Status       |
 | `c`      | Stage        |
 | `y`      | Stash        |
 | `g`      | Grep         |
+| ---      | ---          |
 | `h`      | Help         |
 {: .-shortcuts}
 
@@ -71,6 +73,7 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `/`       | Search                       |
 | `?`       | Search backwards             |
+| ---       | ---                          |
 | `j`  `k`  | Up/down                      |
 | `J`  `K`  | Next/previous                |
 | `<space>` | Page down                    |
@@ -85,6 +88,7 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `I`       | Toggle sort order modes      |
 | `i`       | Change sort header           |
+| ---       | ---                          |
 | `D`       | Toggle date display modes    |
 | `A`       | Toggle author display modes  |
 | `#`       | Toggle line numbers          |

@@ -11,10 +11,12 @@ intro: |
 | `-resize 100x40`    | Resize to a dimension           |
 | `-crop 40x30+10+10` | (width)x(height)+(x)+y          |
 | `-crop 40x30-10-10` | (width)x(height)+(x)+y          |
+| ---                 | ---                             |
 | `-flip`             | Vertical                        |
 | `-flop`             | Horizontal                      |
 | `-transpose`        | Flip vertical + rotate 90deg    |
 | `-transverse`       | Flip horizontal + rotate 270deg |
+| ---                 | ---                             |
 | `-trim`             | Trim image edges                |
 | `-rotate 90`        | Rotate 90 degrees               |
 

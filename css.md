@@ -181,9 +181,11 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | `animation:`                 | _(shorthand)_                                            |
 | `animation-name:`            | `<name>`                                                 |
 | `animation-duration:`        | `<time>ms`                                               |
+| ---                          | ---                                                      |
 | `animation-timing-function:` | `ease` `linear` `ease-in` `ease-out` `ease-in-out`       |
 | `animation-delay:`           | `<time>ms`                                               |
 | `animation-iteration-count:` | `infinite` `<number>`                                    |
+| ---                          | ---                                                      |
 | `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse`       |
 | `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
 | `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |

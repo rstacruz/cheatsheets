@@ -23,9 +23,11 @@ description: |
 | `\w`          | Word                                     |
 | `\d`          | Digit                                    |
 | `\s`          | Whitespace                               |
+| ---           | ---                                      |
 | `\W`          | Not word                                 |
 | `\D`          | Not digit                                |
 | `\S`          | Not whitespace                           |
+| ---           | ---                                      |
 | `[abc]`       | Any of a, b, or c                        |
 | `[a-e]`       | Characters between `a` and `e`           |
 | `[1-9]`       | Digit between `1` and `9`                |
@@ -42,8 +44,10 @@ description: |
 | `\A`    | Start of string        |
 | `\Z`    | End of string          |
 | `\z`    | Absolute end of string |
+| ---     | ---                    |
 | `\b`    | A word boundary        |
 | `\B`    | Non-word boundary      |
+| ---     | ---                    |
 | `^abc`  | Start with `abc`       |
 | `abc$`  | End with `abc`         |
 

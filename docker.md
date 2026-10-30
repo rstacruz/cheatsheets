@@ -174,7 +174,7 @@ Removes stopped containers, unused networks, dangling images, and unused build c
 docker system prune -a
 ```
 
-Also removes all unused images, not just dangling ones.
+Also removes all unused images (not just dangling ones) and all build cache.
 
 ```bash
 docker system prune --volumes

@@ -100,7 +100,7 @@ Strikethrough is a GFM extension. One or two tildes strike; three or more stay l
 \# not a heading
 ```
 
-A backslash escapes any ASCII punctuation character. Before anything else it stays literal.
+A backslash escapes any ASCII punctuation character. Before any other character it stays literal.
 
 ### Hard line breaks
 
@@ -240,8 +240,6 @@ Alt text becomes the `alt` attribute; the optional title becomes the `title` att
 
 Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses. The payload is truncated here.
 
-The reference form keeps long payloads out of the prose.
-
 ## Code
 {: .-three-column}
 
@@ -277,7 +275,7 @@ The closing fence needs the same character and at least the opening length.
     make a code block
 ```
 
-Four spaces indent a code block in CommonMark. Devhints sheets must use fenced blocks instead; CI rejects indented code.
+Four spaces indent a code block in CommonMark. Devhints sheets use fenced blocks; CI rejects indented code.
 
 ## Blocks
 {: .-three-column}

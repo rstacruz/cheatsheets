@@ -61,7 +61,7 @@ docker run [options] IMAGE [COMMAND] [ARG...]
       --network NETWORK      # connect to a network
 ```
 
-`docker create` takes the same options but doesn't start the container.
+`docker create` takes the same options except `-d`/`--detach`, and doesn't start the container.
 
 ### `ps` - List containers
 

@@ -2,6 +2,7 @@
 title: jQuery CDN
 category: JavaScript libraries
 tags: [Archived]
+archived: This sheet lists older jQuery versions and CDN URLs.
 ---
 
 ### Google jQuery

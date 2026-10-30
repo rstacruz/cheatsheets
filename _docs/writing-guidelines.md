@@ -224,11 +224,18 @@ When an example spans multiple files, use each filename as its H4, one code bloc
 - Set `deprecated: true` to show a deprecation notice and unlist the sheet, exactly like `category: Hidden`.
 - Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
 
+## Archived sheets
+
+- Set `archived: <note>` for an obsolete sheet with no newer version. The note is Markdown and renders in a notice.
+- Archived sheets are unlisted like `category: Hidden`, and appear on the [archive page](https://devhints.io/archive).
+- `tags: [Archived]` is only a label; set `archived:` to unlist.
+
 ## Hidden sheets
 
-- Set `category: Hidden` to keep a sheet off the homepage, the sitemap, and the related and top lists.
+- Set `category: Hidden` to keep a sheet off the homepage, the sitemap, the search index, and the related and top lists.
 - Hidden sheets stay reachable at their URL and are listed on the [archive page](https://devhints.io/archive), so retire a sheet by hiding it rather than deleting it.
-- Deprecated sheets are unlisted the same way and share the archive page.
+- Deprecated and archived sheets are unlisted the same way and share the archive page.
+- Unlisted sheets are excluded from search and marked `noindex, follow`.
 - Sheets under `tests/` are left out of the archive page.
 
 ## Syntax highlighting

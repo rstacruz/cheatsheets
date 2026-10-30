@@ -38,6 +38,14 @@ test('deprecated frontmatter', () => {
   expect(result.old.frontmatter.deprecated_by).toBe('/new')
 })
 
+test('archived frontmatter', () => {
+  const result = mapGlobToPages({
+    old: ['---', 'archived: Old and unmaintained.', '---', 'o'].join('\n')
+  })
+
+  expect(result.old.frontmatter.archived).toBe('Old and unmaintained.')
+})
+
 describe('mapGlobToPages()', () => {
   test('basic scenario', () => {
     const result = mapGlobToPages({

@@ -1,6 +1,7 @@
 import snarkdown from 'snarkdown'
 import { site } from '../../config'
 import type { SheetPage } from '../page'
+import { isListed } from '../page/accessors'
 
 export function getSEOPropsForHome() {
   const t = {
@@ -43,6 +44,7 @@ export function getSEOPropsForPage(
   const description = getDescription(page)
   const image = getPageImage(page)
   const url = getPageURL(page)
+  const robots = isListed(page) ? undefined : 'noindex, follow'
 
   return {
     title: title,
@@ -51,7 +53,8 @@ export function getSEOPropsForPage(
     },
     meta: {
       description,
-      'app:pageurl': url
+      'app:pageurl': url,
+      ...(robots !== undefined && { robots })
     },
     metaProperties: denull({
       'og:description': description,

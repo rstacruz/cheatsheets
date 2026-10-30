@@ -105,7 +105,7 @@ export function getRelatedPages(
 }
 
 /**
- * Returns archived sheets — hidden or deprecated — sorted by title.
+ * Returns archived sheets — hidden, deprecated, or archived — sorted by title.
  * Excludes test fixtures.
  */
 

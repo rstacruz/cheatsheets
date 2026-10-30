@@ -25,6 +25,7 @@ description: |
 | `204` | No Content                  | [?](https://httpstatuses.com/204) |
 | `205` | Reset Content               | [?](https://httpstatuses.com/205) |
 | `206` | Partial Content             | [?](https://httpstatuses.com/206) |
+| ---   | ---                         | ---                               |
 | `226` | IM Used                     | [?](https://httpstatuses.com/226) |
 {: .xp}
 
@@ -36,6 +37,7 @@ description: |
 | `301` | Moved Permanently  | [?](https://httpstatuses.com/301)                |
 | `302` | Found              | [?](https://httpstatuses.com/302)                |
 | `303` | See Other          | [?](https://httpstatuses.com/303)                |
+| ---   | ---                | ---                                              |
 | `304` | Not Modified       | [?](https://httpstatuses.com/304)                |
 | `305` | Use Proxy          | [?](https://httpstatuses.com/305)                |
 | `306` | *Switch Proxy*     | [?](https://httpstatusdogs.com/306-switch-proxy) |
@@ -65,12 +67,14 @@ description: |
 | `415` | Unsupported Media Type          | [?](https://httpstatuses.com/415) |
 | `416` | Range Not Satisfiable           | [?](https://httpstatuses.com/416) |
 | `417` | Expectation Failed              | [?](https://httpstatuses.com/417) |
+| ---   | ---                             | ---                               |
 | `418` | I'm a teapot                    | [?](https://httpstatuses.com/418) |
 | `421` | Misdirected Request             | [?](https://httpstatuses.com/421) |
 | `426` | Upgrade Required                | [?](https://httpstatuses.com/426) |
 | `428` | Precondition Required           | [?](https://httpstatuses.com/428) |
 | `429` | Too Many Requests               | [?](https://httpstatuses.com/429) |
 | `431` | Request Header Fields Too Large | [?](https://httpstatuses.com/431) |
+| ---   | ---                             | ---                               |
 | `451` | Unavailable For Legal Reasons   | [?](https://httpstatuses.com/451) |
 {: .xp}
 
@@ -84,6 +88,7 @@ description: |
 | `503` | Service Unavailable             | [?](https://httpstatuses.com/503) |
 | `504` | Gateway Timeout                 | [?](https://httpstatuses.com/504) |
 | `505` | HTTP Version Not Supported      | [?](https://httpstatuses.com/505) |
+| ---   | ---                             | ---                               |
 | `506` | Variant Also Negotiates         | [?](https://httpstatuses.com/506) |
 | `510` | Not Extended                    | [?](https://httpstatuses.com/510) |
 | `511` | Network Authentication Required | [?](https://httpstatuses.com/511) |
@@ -100,9 +105,11 @@ WebDAV is an extension of HTTP that allows clients to perform remote Web content
 | `102` | Processing                      | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#102) |
 | `207` | Multi-Status                    | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#207) |
 | `208` | Already Reported                | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#208) |
+| ---   | ---                             | ---                                                              |
 | `422` | Unprocessable Entity            | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#422) |
 | `423` | Locked                          | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#423) |
 | `424` | Failed Dependency               | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#424) |
+| ---   | ---                             | ---                                                              |
 | `507` | Insufficient Storage            | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#507) |
 | `508` | Loop Detected                   | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#508) |
 {: .xp}

@@ -98,10 +98,12 @@ codex fork --last          # branch the latest chat
 | ----------------------------- | ----------------------------- |
 | `-m, --model <model>`         | Choose the model              |
 | `-p, --profile <name>`        | Layer a profile over config   |
+| ---                           | ---                           |
 | `-s, --sandbox <mode>`        | Set the sandbox policy        |
 | `-a, --ask-for-approval <policy>` | Control approval prompts      |
 | `-C, --cd <dir>`              | Set the working directory     |
 | `--add-dir <dir>`             | Grant another writable folder |
+| ---                           | ---                           |
 | `--search`                    | Enable live web search        |
 | `-i, --image <file>`          | Attach images to the prompt   |
 | `-c key=value`                | Override any config value     |
@@ -237,9 +239,11 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | ----------- | ---------------------------------- |
 | `Ctrl+C`    | Close the session                  |
 | `Ctrl+R`    | Search prompt history              |
+| ---         | ---                                |
 | `Ctrl+O`    | Copy the latest response           |
 | `Ctrl+L`    | Clear the terminal view            |
 | `Ctrl+G`    | Edit the prompt in `$VISUAL`/`$EDITOR` |
+| ---         | ---                                |
 | `Esc` `Esc` | Edit the previous message and fork |
 | `Alt+R`     | Toggle raw scrollback              |
 | `Up` `Down` | Restore draft history              |

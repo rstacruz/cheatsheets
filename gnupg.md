@@ -228,17 +228,20 @@ Field Quick Reference:
 | 1       | Record type |
 | 2       | Validity |
 | 3       | Key length in bits |
+| --- | --- |
 | 4       | Public key algorithm |
 | 5       | Key ID |
 | 6       | Creation date |
 | 7       | Expiry date |
 | 8       | Certificate S/N, UID hash, trust signature info |
 | 9       | Ownertrust |
+| --- | --- |
 | 10      | User ID |
 | 11      | Signature class |
 | 12      | Key capabilities |
 | 13      | Issuer fingerprint |
 | 14      | Flag field |
+| --- | --- |
 | 15      | S/N of token |
 | 16      | Hash algorithm |
 | 17      | Curve name |

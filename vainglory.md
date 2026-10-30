@@ -19,6 +19,7 @@ category: Hidden
 | __Attack speed__       | [AC][AC]                          | [Tornado][TT], [Break][BP]   |                                                                                |
 | __Critical__           |                                   | [Monocle][TM]                |                                                                                |
 | __Auto-attack damage__ | [AC][AC], [Aftershock][AS]        | _everything_                 | [Stormcrown][SC]                                                               |
+| ---                    | ---                               | ---                          | ---                                                                            |
 | __Cooldown__           | [Clockwork][CW], [Aftershock][AS] | Spellsword                   | [Stormcrown][SC], [Contraption][Con], [Nullwave][Null], [Halcyon Boots][HBoot] |
 | __Slow__               | [Frostburn][FB]                   |                              | [Shiversteel][SS]                                                              |
 | __Reflex block__       |                                   |                              | [Aegis][Aegis] (self/shield) <br> [Crucible][Cru] (team/HP)                    |
@@ -35,8 +36,10 @@ category: Hidden
 | AS: [Aftershock][AS]          | 2400  | +35 cp  | __Basic dmg, atk speed__ <br> *+basic dmg after ability*, +25% cooldown, +2.5 recharge |
 | EoH: [Eve of Harvest][Eve]    | 2600  | +55 cp  | __Lifesteal__            <br> *+10% lifesteal*, +250 energy, +5 recharge               |
 | AC: [Alternating Current][AC] | 2800  | +60 cp  | __Basic dmg__            <br> *+basic dmg based on CP*, +65% atk speed                 |
+| ---                           | ---   | ---     | ---                                                                                    |
 | BM: [Broken Myth][BM]         | 2150  | +70 cp  | __Stack dmg__            <br> +10% shield pierce, stacking dmg                         |
 | FB: [Frostburn][FB]           | 2600  | +100 cp | __Slow__                 <br> *slow for 1.5s* at (10% + 1% per 10CP)                   |
+| ---                           | ---   | ---     | ---                                                                                    |
 | SG: [Shatterglass][SG]        | 3000  | +150 cp | __Raw power__            <br> -                                                        |
 | CW: [Clockwork][CW]           | 2500  | +30% cp | __Cooldown__             <br> *+40% cooldown*, +250 energy, +7.5 recharge              |
 | [Echo][Echo]                  | 2500? |         | __Ability repeat__       <br> +250 energy, +4 recharge                                 |
@@ -59,9 +62,11 @@ category: Hidden
 | BS: [Bonesaw][BS]          | 2700 | +15 wp  | __Armor shred__   <br> *stacking armor shred*                                 |
 | TB: [Tension Bow][TB]      | 2300 | +45 wp  | __Bonus dmg__     <br> *bonus dmg every 6s*, +8% armor pierce                 |
 | TM: [Tyrant's Monocle][TM] | 2750 | +50 wp  | __Crit__          <br> *+40% crit chance*, +20% crit dmg                      |
+| ---                        | ---  | ---     | ---                                                                           |
 | BP: [Breaking Point][BP]   | 2600 | +55 wp  | __Stacking dmg__  <br> *stacking weapon dmg*, +35% atk speed                  |
 | SM: [Serpent Mask][SM]     | 2800 | +85 wp  | __Lifesteal__     <br> *stacking lifesteal*, +10% lifesteal                   |
 | SB: [Sorrowblade][SB]      | 3100 | +150 wp | __Raw power__     <br> -                                                      |
+| ---                        | ---  | ---     | ---                                                                           |
 | PS: [Poisoned Shiv][PS]    | 2250 | +30 wp  | __Mortal wounds__ <br> *mortal wounds for 2s*, +10% lifesteal, +30% atk speed |
 | SS: Spellsword             | ?    | +90 wp  | __Cooldown__      <br> ?                                                      |
 {: .-left-align.-headers}
@@ -135,6 +140,7 @@ category: Hidden
 | Rock Solid | 3 |
 | Worthy Foe |4 |
 | Got Swagger | 5 |
+| --- | --- |
 | Credible Threat | 6 |
 | The Hotness | 7 |
 | Simply Amazing | 8 |

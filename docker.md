@@ -2,210 +2,220 @@
 title: Docker CLI
 category: Devops
 tags: [Featured]
+updated: 2026-10-31
+keywords:
+  - docker build
+  - docker run
+  - docker ps
+  - docker logs
+intro: |
+  [Docker](https://docs.docker.com/) packages applications into images and runs them as containers. This reference covers the most commonly used Docker CLI commands.
 ---
 
-Manage images
--------------
+## Getting started
 
-### `docker build`
+### About
+{: .-intro}
 
-```yml
-docker build [options] .
-  -t "app/container_name"    # name
-  --build-arg APP_HOME=$APP_HOME    # Set build-time variables
+[Docker](https://docs.docker.com/) packages applications into images and runs them as containers. This reference covers the most commonly used Docker CLI commands.
+
+- [Docker CLI reference](https://docs.docker.com/reference/cli/docker/) _(docs.docker.com)_
+- [Dockerfile cheatsheet](./dockerfile) _(devhints.io)_
+- [Docker Compose cheatsheet](./docker-compose) _(devhints.io)_
+
+### `pull` - Download an image
+
+```bash
+docker pull debian:bookworm-slim
+docker pull redis:7
 ```
 
-Create an `image` from a Dockerfile.
+Downloads an image from a registry. `docker run` pulls missing images automatically.
 
+### `run` - Start a container
 
-### `docker run`
-
-```yml
-docker run [options] IMAGE
-  # see `docker create` for options
+```bash
+docker run -it debian:bookworm-slim /bin/bash
+docker run -d --name web -p 5000:5000 myapp:1.0
+docker run --rm -it -v "$PWD":/app -w /app node:22 npm test
 ```
 
-#### Example
+Creates and starts a container from an image.
 
-```
-$ docker run -it debian:buster /bin/bash
-```
-Run a command in an `image`.
+#### Options
 
-Manage containers
------------------
-
-### `docker create`
-
-```yml
-docker create [options] IMAGE
-  -a, --attach               # attach stdout/err
-  -i, --interactive          # attach stdin (interactive)
-  -t, --tty                  # pseudo-tty
-      --name NAME            # name your image
-  -p, --publish 5000:5000    # port map (host:container)
-      --expose 5432          # expose a port to linked containers
-  -P, --publish-all          # publish all ports
-      --link container:alias # linking
-  -v, --volume `pwd`:/app    # mount (absolute paths needed)
-  -e, --env NAME=hello       # env vars
+```bash
+docker run [options] IMAGE [COMMAND] [ARG...]
+  -a, --attach               # attach STDIN/STDOUT/STDERR
+  -i, --interactive          # keep STDIN open
+  -t, --tty                  # allocate a pseudo-TTY
+      --name NAME            # container name
+  -d, --detach               # run in the background
+      --rm                   # remove when it exits
+  -p, --publish 5000:5000    # host:container port map
+  -P, --publish-all          # publish all exposed ports
+      --expose 5432          # expose without publishing
+  -v, --volume "$PWD":/app   # bind mount (absolute path)
+      --env-file .env        # read env vars from a file
+  -e, --env NAME=hello       # set an env var
+      --network NETWORK      # connect to a network
 ```
 
-#### Example
+`docker create` takes the same options but doesn't start the container.
 
-```
-$ docker create --name app_redis_1 \
-  --expose 6379 \
-  redis:3.0.2
-```
+### `ps` - List containers
 
-Create a `container` from an `image`.
-
-### `docker exec`
-
-```yml
-docker exec [options] CONTAINER COMMAND
-  -d, --detach        # run in background
-  -i, --interactive   # stdin
-  -t, --tty           # interactive
+```bash
+docker ps                 # running containers
+docker ps -a              # include stopped containers
+docker ps -q              # IDs only
+docker ps --format 'table {{.Names}}\t{{.Status}}'
 ```
 
-#### Example
+### `logs` - Show container logs
 
-```
-$ docker exec app_web_1 tail logs/development.log
-$ docker exec -t -i app_web_1 rails c
-```
-
-Run commands in a `container`.
-
-
-### `docker start`
-
-```yml
-docker start [options] CONTAINER
-  -a, --attach        # attach stdout/err
-  -i, --interactive   # attach stdin
-
-docker stop [options] CONTAINER
+```bash
+docker logs web
+docker logs -f web              # follow output
+docker logs --tail 100 web      # last 100 lines
+docker logs --since 10m web     # since a duration
 ```
 
-Start/stop a `container`.
+### `exec` - Run a command in a container
 
-
-### `docker ps`
-
-```
-$ docker ps
-$ docker ps -a
-$ docker kill $ID
+```bash
+docker exec -it web /bin/bash
+docker exec web tail -f log/development.log
 ```
 
-Manage `container`s using ps/kill.
+Runs a command in a running container. Use `-it` for interactive shells.
 
+## Images
 
-### `docker logs`
+### `build` - Build an image
 
-```
-$ docker logs $ID
-$ docker logs $ID 2>&1 | less
-$ docker logs -f $ID # Follow log output
-```
-
-See what's being logged in an `container`.
-
-
-Images
-------
-
-### `docker images`
-
-```sh
-$ docker images
-  REPOSITORY   TAG        ID
-  ubuntu       12.10      b750fe78269d
-  me/myapp     latest     7b2431a8d968
+```bash
+docker build -t myapp:1.0 .
+docker build --build-arg APP_HOME=/app -t myapp:1.0 .
 ```
 
-```sh
-$ docker images -a   # also show intermediate
+Builds an image from a `Dockerfile` in the current directory.
+
+### `images` - List images
+
+```bash
+docker images
+docker images -a     # include intermediate and dangling images
+docker image ls      # alias
 ```
 
-Manages `image`s.
+### `tag` - Tag an image
 
-### `docker rmi`
+```bash
+docker tag myapp:1.0 me/myapp:1.0
+docker tag myapp:1.0 registry.example.com/myapp:1.0
+```
 
-```yml
+The part after the colon is the tag (defaults to `latest`).
+
+### `push` - Upload an image
+
+```bash
+docker login registry.example.com
+docker push me/myapp:1.0
+```
+
+The image name determines which registry it is pushed to.
+
+### `rmi` - Delete images
+
+```bash
+docker rmi myapp:1.0
 docker rmi b750fe78269d
 ```
 
-Deletes `image`s.
+## Containers
+
+### `create` - Create a container
+
+```bash
+docker create --name cache --expose 6379 redis:7
+```
+
+Creates a container without starting it. Use `docker start` to run it.
+
+### `start` / `stop` - Start and stop
+
+```bash
+docker start web
+docker stop web
+docker restart web
+docker kill web          # stop immediately (SIGKILL)
+```
+
+### `rm` - Delete containers
+
+```bash
+docker rm web
+docker rm -f web         # stop and remove
+```
 
 ## Clean up
 
-### Clean all
+### `system prune`
 
-```sh
+```bash
 docker system prune
 ```
 
-Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)
+Removes stopped containers, unused networks, dangling images, and unused build cache.
 
-```sh
+```bash
 docker system prune -a
 ```
 
-Additionally remove any stopped containers and all unused images (not just dangling images)
+Also removes all unused images, not just dangling ones.
 
-### Containers
+```bash
+docker system prune --volumes
+```
 
-```sh
-# Stop all running containers
-docker stop $(docker ps -a -q)
+Also removes anonymous volumes.
 
-# Delete stopped containers
+### `container prune`
+
+```bash
 docker container prune
 ```
 
-### Images
+Removes all stopped containers.
 
-```sh
-docker image prune [-a]
+### `image prune`
+
+```bash
+docker image prune        # dangling images
+docker image prune -a     # all unused images
 ```
 
-Delete all the images
+### `volume prune`
 
-### Volumes
-
-```sh
-docker volume prune
+```bash
+docker volume prune       # anonymous volumes
+docker volume prune -a    # all unused volumes
 ```
 
-Delete all the volumes
+### `system df`
 
-### Systems
-
-```sh
+```bash
 docker system df
 ```
 
-Show docker disk usage
+Shows disk usage by images, containers, volumes, and build cache.
 
-```sh
+### `system events`
+
+```bash
 docker system events
 ```
 
-Get real time events from the server
-
-```sh
-docker system info
-```
-
-Display system-wide information
-
-
-
-Also see
---------
-
- * [Getting Started](https://www.docker.io/gettingstarted/) _(docker.io)_
+Streams real-time daemon events. Alias for `docker events`.

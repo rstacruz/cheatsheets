@@ -11,9 +11,13 @@
     text-align: center;
   }
 
-  & > .icon::before {
-    content: '';
-    @include ion-ios-flash(32px, $base-mute);
+  & > .icon {
+    color: $base-mute;
     opacity: 0.25;
+  }
+
+  & > .icon > svg {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

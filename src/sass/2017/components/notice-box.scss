@@ -8,9 +8,10 @@
     margin-bottom: 16px;
   }
 
-  &::before {
-    content: '';
-    @include ion-md-information-circle(24px, $base-mute3);
+  & > svg {
+    display: inline-block;
+    vertical-align: middle;
+    color: $base-mute3;
     margin-right: 8px;
   }
 

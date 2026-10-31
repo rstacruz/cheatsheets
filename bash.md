@@ -3,6 +3,7 @@ title: Bash scripting
 category: CLI
 tags: [Featured]
 updated: 2020-07-05
+tier: t1
 keywords:
   - Variables
   - Functions
@@ -746,6 +747,7 @@ printf '%i+%i=%i\n' 1 2 3  4 5 9
 | `-d`           | Delete characters                                   |
 | `-s`           | Replaces repeated characters with single occurrence |
 | `-t`           | Truncates                                           |
+| ---            | ---                                                 |
 | `[:upper:]`    | All upper case letters                              |
 | `[:lower:]`    | All lower case letters                              |
 | `[:digit:]`    | All digits                                          |

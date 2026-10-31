@@ -86,7 +86,7 @@ C-b 1       # Go to window 1
 C-b n       # Go to next window
 C-b p       # Go to previous window
 C-b w       # List all window
-C-b &       # Kill the window 
+C-b &       # Kill the window
 ```
 
 ### Detach/attach
@@ -148,10 +148,12 @@ See `message-command-style` in the man page.
 | Key | Description |
 | --- | --- |
 | `#(date)` | shell command |
+| --- | --- |
 | `#I` | window index |
 | `#S` | session name |
 | `#W` | window name |
 | `#F` | window flags |
+| --- | --- |
 | `#H` | Hostname |
 | `#h` | Hostname, short |
 | `#D` | pane id |

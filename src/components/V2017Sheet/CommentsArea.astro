@@ -1,5 +1,6 @@
 ---
 import { disqus, site } from '../../config'
+import Icon from '~/components/Icon.astro'
 
 const t = {
   suffix: 'for this cheatsheet.',
@@ -20,6 +21,7 @@ const { identifier } = props
     <details class="comments-details">
       <summary>
         <strong class="count">
+          <Icon name="md-chatboxes" size={24} />
           <span
             class="disqus-comment-count"
             data-disqus-identifier={identifier}

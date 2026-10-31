@@ -35,11 +35,10 @@
     font-weight: bold;
   }
 
-  & > summary > .count::before {
-    @include ion-md-chatboxes(24px, $base-a);
-    content: '';
+  & > summary > .count > svg {
+    display: inline-block;
     vertical-align: middle;
-    color: $base-a;
+    color: $base-a; // pinned: the summary goes $base-a7 on hover
     margin: 0 8px;
   }
 

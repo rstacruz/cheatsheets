@@ -53,37 +53,35 @@
     margin-left: 8px;
   }
 
-  & > .facebook > a::before,
-  & > .twitter > a::before,
-  & > .github > a::before {
-    content: '';
+  // Brand marks are inline SVG; see src/components/Icon.astro
+  & > li > a > svg {
+    display: inline-block; // Tailwind's preflight makes svg block-level
     vertical-align: middle;
   }
 
-  & > .facebook > a::before {
-    @include ion-logo-facebook(16px, #334455);
-  }
-
-  & > .twitter > a::before {
-    @include ion-logo-twitter(16px, #334455);
-  }
-
-  & > .github > a::before {
-    @include ion-logo-github(16px, #334455);
-  }
-
-  & > .github > a:hover::before {
-    background-image: ion-logo-github-image(white);
-  }
-
-  & > .facebook > a::before,
-  & > .twitter > a::before {
+  // 32px slot for the brand mark; `.link` must outweigh `action-bar`'s
+  // `width: auto` on `.link.link > a`
+  & > .link.facebook > a,
+  & > .link.x > a {
     width: 32px;
-    height: 32px;
+    text-align: center;
+  }
+
+  // Brand marks stay pinned to $base-text; the edit button whites out with
+  // its label on hover (its own rule wins)
+  & > .facebook > a,
+  & > .x > a,
+  & > .github > a {
+    &,
+    &:visited,
+    &:hover,
+    &:focus {
+      color: $base-text;
+    }
   }
 
   // Compensate alignment
-  & > .github > a::before {
+  & > .github > a > svg {
     position: relative;
     top: -2px;
   }

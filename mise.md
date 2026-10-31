@@ -2,6 +2,7 @@
 title: mise
 category: CLI
 updated: 2026-10-03
+tier: t2
 keywords:
   - dev tool version manager
   - mise.toml
@@ -233,6 +234,7 @@ See: [Tool registry](https://mise.jdx.dev/registry.html)
 | `core:`   | built-in installers (`core:python`)            |
 | `aqua:`   | Aqua registry (`aqua:aws/aws-cli`)             |
 | `github:` | GitHub releases (`github:BurntSushi/ripgrep`)  |
+| ---       | ---                                            |
 | `npm:`    | npm packages (`npm:prettier`)                  |
 | `pipx:`   | Python apps (`pipx:ruff`)                      |
 | `cargo:`  | crates (`cargo:starship`)                      |

@@ -3,6 +3,7 @@ title: Vim
 category: Vim
 tags: [Featured]
 updated: 2020-07-05
+tier: t1
 weight: -10
 ---
 
@@ -293,6 +294,7 @@ Misc
 | `:tabedit [file]`     | Edit file in a new tab          |
 | `:tabfind [file]`     | Open file if exists in new tab  |
 | `:tabclose`           | Close current tab               |
+| ---                   | ---                             |
 | `:tabs`               | List all tabs                   | 
 | `:tabfirst`           | Go to first tab                 |
 | `:tablast`            | Go to last tab                  |

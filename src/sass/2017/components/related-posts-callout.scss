@@ -32,22 +32,19 @@
   }
 
   & > .text > .icon {
-    margin-bottom: 16px;
-    display: block;
-  }
+    $arrow-color: adjust-color($base-a, $lightness: 16%, $hue: 20deg);
 
-  & > .text > .icon::before {
-    content: '';
-    @include ion-ios-arrow-back(
-      48px,
-      adjust-color($base-a, $lightness: 16%, $hue: 20deg)
-    );
-    height: 64px;
+    display: grid;
+    place-items: center;
     width: 64px;
-    border: solid 2px adjust-color($base-a, $lightness: 16%, $hue: 20deg);
+    height: 64px;
+    margin: 0 auto 16px;
+    border: solid 2px $arrow-color;
     border-radius: 50%;
-    text-indent: -2px;
-    text-shadow: none;
+
+    & > svg {
+      color: $arrow-color;
+    }
   }
 
   & > .text > .description {

@@ -46,6 +46,12 @@ export const SheetFrontmatterSchema = z.object({
     .string()
     .optional()
     .describe('Name of newer sheet (also marks the sheet as deprecated)'),
+  archived: z
+    .string()
+    .optional()
+    .describe(
+      'Archive note in Markdown. Unlists the sheet and renders the note in a notice.'
+    ),
   intro: z
     .string()
     .optional()

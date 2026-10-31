@@ -36,6 +36,9 @@ const editUrl = getEditLink(page)
 const intro: string | null = page.frontmatter.intro
   ? `<p>${snarkdown(page.frontmatter.intro)}</p>`
   : null
+const archived: string | null = page.frontmatter.archived
+  ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
+  : null
 
 const styles = {
   body: cx('V2017Sheet__body max-w-content p-6 md:px-8 mx-auto')
@@ -95,9 +98,13 @@ const headingStyles = {
       ) : null
     }
 
-    {/* Deprecated */}
+    {/* Archived or deprecated */}
     {
-      deprecated ? (
+      archived ? (
+        <NoticeBox class="text-xl">
+          <strong>Archived:</strong> <Fragment set:html={archived} />
+        </NoticeBox>
+      ) : deprecated ? (
         <NoticeBox class="text-xl">
           <strong>Deprecated:</strong> This guide covers an older version.{' '}
           {deprecatedBy ? (

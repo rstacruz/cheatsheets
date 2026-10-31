@@ -11,7 +11,7 @@ import type { State } from 'mdast-util-to-hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import { visit } from 'unist-util-visit'
-import { scanFences } from '~/lib/sheetValidation/utils'
+import { SEP_LINE, scanFences } from '~/lib/sheetValidation/utils'
 
 /**
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
@@ -49,8 +49,6 @@ export type KramdownCell = {
   type: 'kramdownTableCell'
   children: PhrasingContent[]
 }
-
-const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
 
 // kramdown's element categories (parser/html.rb): a line opening a non-span
 // tag is an HTML block, and a span-level element hides its body from the

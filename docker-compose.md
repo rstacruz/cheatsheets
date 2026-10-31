@@ -306,7 +306,8 @@ user: 0:0
 ### Secrets
 
 ```yaml
-# mounts ./my_secret.txt at /run/secrets/my_secret
+# mounts ./my_secret.txt at
+# /run/secrets/my_secret
 services:
   myapp:
     image: myapp:latest

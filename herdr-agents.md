@@ -2,6 +2,7 @@
 title: Herdr agents
 category: AI
 updated: 2026-10-06
+tier: t2
 keywords:
   - coding agents
   - agent states

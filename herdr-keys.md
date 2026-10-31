@@ -2,6 +2,7 @@
 title: Herdr keys
 category: AI
 updated: 2026-10-06
+tier: t2
 keywords:
   - keyboard shortcuts
   - keybindings
@@ -148,6 +149,15 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 
 ## Copy mode
 
+### Activate
+
+| Shortcut | Action |
+| --- | --- |
+| `prefix+[` | Enter copy mode for the focused pane |
+{: .-shortcuts}
+
+The pane keeps running while copy mode is open.
+
 ### Movement
 
 | Key | Action |
@@ -161,6 +171,8 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 | `ctrl+u` / `ctrl+d` | Half page up / down |
 {: .-shortcuts}
 
+With the default prefix, `ctrl+b` enters prefix mode instead of paging up.
+
 ### Search
 
 | Key | Action |
@@ -168,6 +180,8 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 | `/` / `?` | Search forward / backward |
 | `n` / `N` | Repeat search / reverse direction |
 {: .-shortcuts}
+
+Search is case-insensitive unless the query has an uppercase letter.
 
 ### Selection
 
@@ -177,10 +191,6 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 | `y` / `Enter` | Copy the selection and exit |
 | `q` / `Esc` | Leave copy mode |
 {: .-shortcuts}
-
-`prefix+[` enters copy mode for the focused pane; the pane keeps running.
-Search is case-insensitive unless the query has an uppercase letter. With
-the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
 ## Editing text fields
 

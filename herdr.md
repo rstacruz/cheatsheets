@@ -2,6 +2,7 @@
 title: Herdr
 category: AI
 updated: 2026-10-06
+tier: t2
 keywords:
   - terminal workspace manager
   - AI coding agents

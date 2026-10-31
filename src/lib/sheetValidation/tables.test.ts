@@ -11,7 +11,7 @@ import {
   updatingBaseline
 } from './baseline'
 import { collectSheetFindings, sheetSources } from './sheets'
-import { scanFences } from './utils'
+import { SEP_LINE, scanFences } from './utils'
 
 function findUncoveredPipeLines(source: string) {
   const tree = unified().use(remarkParse).use(remarkGfm).parse(source)
@@ -174,8 +174,6 @@ test('every sheet uses table headers', async () => {
   expect(await collectSheetFindings(findUncoveredPipeLines)).toEqual([])
 })
 
-const SEPARATOR_ROW = /^\|(?:\s*:?-{1,}:?\s*\|)+$/
-
 /** Tables of 8+ data rows should be split with `| --- |` rows or H4 groups */
 function findUnsplitTables(source: string) {
   const lines = source.split('\n')
@@ -208,7 +206,7 @@ function findUnsplitTables(source: string) {
       header = text.replace(/\s+/g, ' ')
     }
     rows += 1
-    if (SEPARATOR_ROW.test(text)) separators += 1
+    if (SEP_LINE.test(text)) separators += 1
   })
   flush()
   return found
@@ -233,6 +231,13 @@ describe('findUnsplitTables()', () => {
 
   test('allows a table with separator rows', () => {
     expect(findUnsplitTables(table(8, true))).toEqual([])
+  })
+
+  test('allows separator rows without a trailing pipe', () => {
+    const body = Array.from({ length: 8 }, (_, index) => `| ${index} |`)
+    body.splice(4, 0, '|---')
+    const input = ['| h |', '|---|---|', ...body].join('\n')
+    expect(findUnsplitTables(input)).toEqual([])
   })
 
   test('ignores pipe rows inside fenced code', () => {

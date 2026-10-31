@@ -19,6 +19,9 @@ export const PREV_BLOCK_START = /^(?:[#>|{}]|-{2,}\s*$|={2,}\s*$|`{3,}|~{3,})/
 
 export const FENCE_LINE = /^( {0,3})(`{3,}|~{3,})(.*)$/
 
+/** A kramdown table separator row, with or without a trailing pipe */
+export const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
+
 /** Fence membership and opening indent, following CommonMark's fence rules */
 export function scanFences(lines: string[]) {
   const fenced = new Array<boolean>(lines.length).fill(false)

@@ -77,6 +77,8 @@ database: test
 
 ## Interactive mode
 
+### Activation
+
 | Shortcut | Description |
 | --- | --- |
 | `{Visual}` `⏎` | activate for selection |

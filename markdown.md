@@ -52,13 +52,15 @@ A paragraph with **bold**, *italic*, and `code`.
 ###### Heading 6
 ```
 
-One to six `#` characters, then a space or end of line. More than six is literal.
+One to six `#`s, then a space or end of line; seven or more stay literal.
 
 ```markdown
 ## Heading 2 ##
 ```
 
-Closing `#`s are optional, but need a space before them.
+Closing `#`s need a space before them.
+
+See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 
 ### Setext headings
 
@@ -70,11 +72,9 @@ Heading 2
 ---------
 ```
 
-`=` makes a level 1 heading and `-` a level 2. Either underline can be any length.
+Either underline can be any length. It must sit directly under the text; with a blank line between, `---` becomes a thematic break.
 
-Setext headings need no blank line after them, but they cannot interrupt a paragraph above.
-
-A blank line between the text and its underline turns `---` into a thematic break.
+See: [Setext headings](https://spec.commonmark.org/0.31.2/#setext-headings)
 
 ## Text
 {: .-three-column}
@@ -90,7 +90,9 @@ A blank line between the text and its underline turns `---` into a thematic brea
 
 `_` does not emphasize inside words (`foo_bar_baz`); `*` does (`foo*bar*baz`).
 
-Strikethrough is a GFM extension. One or two tildes strike; three or more stay literal.
+Strikethrough is a GFM extension; one or two tildes, three or more stay literal.
+
+See: [Emphasis](https://spec.commonmark.org/0.31.2/#emphasis-and-strong-emphasis), [Strikethrough](https://github.github.com/gfm/#strikethrough-extension-)
 
 ### Escaping
 
@@ -100,7 +102,9 @@ Strikethrough is a GFM extension. One or two tildes strike; three or more stay l
 \# not a heading
 ```
 
-A backslash escapes any ASCII punctuation character. Before any other character it stays literal.
+A backslash escapes any ASCII punctuation; before anything else it stays literal.
+
+See: [Backslash escapes](https://spec.commonmark.org/0.31.2/#backslash-escapes)
 
 ### Hard line breaks
 
@@ -113,9 +117,9 @@ also breaks
 ```
 {: data-line="1"}
 
-Line 1 ends with two spaces. Two or more spaces or a backslash before the line ending insert a `<br>`.
+Line 1 ends in two spaces. Two or more spaces or a trailing backslash insert a `<br>`; a blank line starts a new paragraph.
 
-A blank line starts a new paragraph instead.
+See: [Hard line breaks](https://spec.commonmark.org/0.31.2/#hard-line-breaks)
 
 ## Lists
 {: .-three-column}
@@ -128,9 +132,9 @@ A blank line starts a new paragraph instead.
   - Nested item
 ```
 
-`-`, `*`, and `+` all work; changing the marker starts a new list. Indent nested items to the parent's content column.
+`-`, `*`, and `+` all work; changing the marker starts a new list. Nested items align to the parent's content column, and blank lines between items make the list loose (each item wrapped in `<p>`).
 
-A blank line between items makes the list loose and wraps items in `<p>`.
+See: [List items](https://spec.commonmark.org/0.31.2/#list-items)
 
 ### Ordered lists
 
@@ -144,9 +148,9 @@ A blank line between items makes the list loose and wraps items in `<p>`.
 4. Next
 ```
 
-A new list's first number sets its `start`; later numbers are ignored.
+The first number sets `start`; later numbers are ignored. `1)` also works; one to nine digits, and changing the delimiter starts a new list.
 
-`1)` also works. Use one to nine digits; changing the delimiter starts a new list.
+See: [Lists](https://spec.commonmark.org/0.31.2/#lists)
 
 ### Task lists
 
@@ -156,7 +160,9 @@ A new list's first number sets its `start`; later numbers are ignored.
   - [X] Nested done
 ```
 
-A GFM extension. `[ ]` is open and `[x]`/`[X]` is done; the marker must start the item's first paragraph.
+A GFM extension; the marker must start the item's first paragraph.
+
+See: [Task list items](https://github.github.com/gfm/#task-list-items-extension-)
 
 ## Links
 
@@ -168,7 +174,9 @@ A GFM extension. `[ ]` is open and `[x]`/`[X]` is done; the marker must start th
 [text](</my file.md>)
 ```
 
-The title is optional and becomes the `title` attribute. Angle brackets allow spaces in the destination.
+Angle brackets allow spaces in the destination.
+
+See: [Links](https://spec.commonmark.org/0.31.2/#links)
 
 ### Reference links
 
@@ -181,7 +189,9 @@ The title is optional and becomes the `title` attribute. Angle brackets allow sp
 [CommonMark]: https://commonmark.org/
 ```
 
-Definitions may appear before or after their links and are not rendered. `[text][]` reuses the text as the label; `[text]` is the shortcut form.
+Definitions may appear anywhere and are not rendered. `[]` reuses the label; no brackets is the shortcut form.
+
+See: [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ### Autolinks
 
@@ -194,9 +204,9 @@ www.example.com
 me@example.com
 ```
 
-The angle-bracket forms are CommonMark.
+Angle forms are CommonMark; bare URLs, `www.` hosts and emails are the GFM extension. Trailing punctuation stays outside the link.
 
-Bare URLs, `www.` hosts, and emails are the GFM autolink extension. Trailing punctuation stays outside the link.
+See: [Autolinks](https://spec.commonmark.org/0.31.2/#autolinks), [GFM autolinks](https://github.github.com/gfm/#autolinks-extension-)
 
 ### Footnotes
 
@@ -208,7 +218,7 @@ Here is a note.[^1]
 
 A GitHub extension, absent from GFM 0.29 but rendered by GitHub and devhints. Notes appear at the bottom regardless of source position.
 
-A two-space line break works inside a note.
+See: [Footnotes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)
 
 ## Images
 {: .-three-column}
@@ -220,7 +230,7 @@ A two-space line break works inside a note.
 ![Alt text](/img/logo.png "Logo")
 ```
 
-Alt text becomes the `alt` attribute; the optional title becomes the `title` attribute.
+See: [Images](https://spec.commonmark.org/0.31.2/#images)
 
 ### Reference images
 
@@ -238,7 +248,7 @@ Alt text becomes the `alt` attribute; the optional title becomes the `title` att
 [dot]: <data:image/png;base64,...>
 ```
 
-Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses. The payload is truncated here.
+Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses.
 
 ## Code
 {: .-three-column}
@@ -252,6 +262,8 @@ Angle brackets are optional; use them when the URI has spaces or unbalanced pare
 
 A code span ends with a backtick run of the same length; one space inside each end is stripped.
 
+See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
+
 ### Fenced code
 
 `````markdown
@@ -262,11 +274,9 @@ const x = 1
 ````
 `````
 
-The info string's first word is conventionally the language. A backtick fence's info string cannot contain backticks, so use a tilde fence.
+The info string's first word is the language, and a backtick info string cannot hold backticks; use tildes there. The closing fence matches the opening character and at least its length.
 
-When the sample itself contains a fence, make the outer fence longer.
-
-The closing fence needs the same character and at least the opening length.
+See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
 
 ### Indented code
 
@@ -275,7 +285,9 @@ The closing fence needs the same character and at least the opening length.
     make a code block
 ```
 
-Four spaces indent a code block in CommonMark. Devhints sheets use fenced blocks; CI rejects indented code.
+Four spaces indent a code block in CommonMark.
+
+See: [Indented code blocks](https://spec.commonmark.org/0.31.2/#indented-code-blocks)
 
 ## Blocks
 {: .-three-column}
@@ -289,9 +301,9 @@ Four spaces indent a code block in CommonMark. Devhints sheets use fenced blocks
 > > Nested quote
 ```
 
-`>` may be omitted on lazy paragraph continuation lines.
+`>` may be omitted on lazy paragraph continuation lines. A `>` on the blank line keeps one quote; without it they become two.
 
-A blank line separates two quotes; a bare `>` keeps them as one quote with two paragraphs.
+See: [Block quotes](https://spec.commonmark.org/0.31.2/#block-quotes)
 
 ### Horizontal rules
 
@@ -301,9 +313,9 @@ A blank line separates two quotes; a bare `>` keeps them as one quote with two p
 ___
 ```
 
-Three or more matching `-`, `*`, or `_`, optionally spaced. A `---` directly under text is a Setext H2 instead.
+Three or more matching `-`, `*`, or `_`, optionally spaced. Directly under text, `---` is a Setext H2 instead.
 
-Leave a blank line above it to get a rule.
+See: [Thematic breaks](https://spec.commonmark.org/0.31.2/#thematic-breaks)
 
 ### HTML
 
@@ -317,9 +329,9 @@ Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 </div>
 ```
 
-Inline tags pass through. A `<div>` block runs to a blank line and its contents are not parsed as Markdown.
+Inline tags pass through. A `<div>` block runs to a blank line and its contents are not parsed as Markdown. GitHub filters `<script>`, `<style>` and similar tags.
 
-GitHub's GFM renderer filters `<script>`, `<style>`, and similar tags.
+See: [Raw HTML](https://spec.commonmark.org/0.31.2/#raw-html), [HTML blocks](https://spec.commonmark.org/0.31.2/#html-blocks)
 
 ## Tables
 
@@ -332,9 +344,9 @@ GitHub's GFM renderer filters `<script>`, `<style>`, and similar tags.
 | Beta  | 2     |
 ```
 
-A header row and delimiter row are required; header and delimiter cell counts must match.
+A header and delimiter row are required, with matching cell counts. Cells hold inline content only; escape a literal pipe as `\|`.
 
-Cells hold inline content only; escape a literal pipe as `\|`.
+See: [Tables](https://github.github.com/gfm/#tables-extension-)
 
 ### Alignment
 
@@ -344,34 +356,3 @@ Cells hold inline content only; escape a literal pipe as `\|`.
 | a    | b      | c     |
 ```
 
-Colons in the delimiter row set left, center, or right alignment.
-
-## Devhints sheets
-
-### Frontmatter
-
-```yaml
----
-title: Markdown
-category: Markup
-updated: 2026-10-31
-keywords: [markdown, gfm]
-intro: >
-  Markdown is a plain-text
-  format for structured documents.
----
-```
-
-`updated` drives the recent list; `keywords` and `intro` feed search and meta descriptions. `intro` renders above the fold.
-
-### Sheet restrictions
-
-| Rule | Detail |
-| --- | --- |
-| Fenced code only | Indented code fails CI |
-| Table headers | A delimiter row is required |
-| Line width | 70 chars, 42 in `.-three-column` |
-| Alignment | GFM markers ignored; use `.-left-align` |
-| Trailing spaces | Only two-space hard breaks |
-
-See [Markdown dialect](/_docs/markdown-dialect) for attribute lists and table extensions.

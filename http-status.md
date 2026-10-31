@@ -96,9 +96,13 @@ description: |
 
 ## WebDAV Status Codes
 
-WebDAV is an extension of HTTP that allows clients to perform remote Web content authoring operations. It provides a framework for users to create, change and move documents on a server. It adds the following status codes on top of HTTP. 
+### About
+
+WebDAV is an extension of HTTP that allows clients to perform remote Web content authoring operations. It provides a framework for users to create, change and move documents on a server. It adds the following status codes on top of HTTP.
 
 [Read more.](https://en.wikipedia.org/wiki/WebDAV)
+
+### Codes
 
 | Code  | Name                            | ?                                                                |
 | ----  | ----                            | -                                                                |

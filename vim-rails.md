@@ -25,6 +25,8 @@ Alternate files
 Abbreviations
 -------------
 
+### Prefixes
+
 Type `:Rabbrev` for a full list.
 
 | Abbrev  | Expansion        |

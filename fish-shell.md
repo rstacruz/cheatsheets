@@ -305,6 +305,8 @@ complete --command mycommand --erase
 
 ## Useful built-in functions
 
+### Completion helpers
+
 | Function                              | Description                                                   |
 | ---                                   | ---                                                           |
 | `__fish_seen_argument`                | Check whether the specified argument is used                  |

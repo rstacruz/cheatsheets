@@ -176,14 +176,15 @@ ul.-also-see.-also-see.-also-see {
   // Cover the full card
   & > .body > ul > li > a::before {
     content: '';
-    @include ion-md-arrow-forward(24px, $base-a3);
+    @include icon('md-arrow-forward', 24px);
+    color: $base-a3;
     position: absolute;
     right: 16px;
     top: 50%;
     margin-top: -12px;
   }
   & > .body > ul > li:hover > a::before {
-    @include ion-md-arrow-forward(24px, $base-a);
+    color: $base-a;
   }
 
   & > .body > ul > li > a::after {

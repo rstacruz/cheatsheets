@@ -1,6 +1,7 @@
 ---
 import type { SheetPage } from '~/lib/page'
 import SocialList from './SocialList.astro'
+import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 
 export type Props = {
@@ -26,7 +27,9 @@ const editLink = getEditLink(props.page)
     {
       props.noBack !== true ? (
         <div class="left">
-          <a class="home back-button" href="/" aria-label={t.backToHome} />
+          <a class="home back-button" href="/" aria-label={t.backToHome}>
+            <Icon name="md-arrow-back" size={24} />
+          </a>
         </div>
       ) : null
     }
@@ -48,6 +51,7 @@ const editLink = getEditLink(props.page)
                 data-hint={t.editOnGitHub}
               >
                 <a href={editLink}>
+                  <Icon name="logo-github" size={16} />
                   <span class="text -visible">{t.edit}</span>
                 </a>
               </li>

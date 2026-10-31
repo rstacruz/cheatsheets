@@ -15,14 +15,20 @@ export function hasTag(page: SheetPage, tagName: string): boolean {
   )
 }
 
+type FrontmatterOnly = Pick<SheetPage, 'frontmatter'>
+
 /**
  * Checks if something should appear in listings: the homepage, the sitemap,
- * and the related and top lists. Hidden and deprecated sheets are not listed;
- * the archive page carries them instead.
+ * and the related and top lists. Hidden, deprecated, and archived sheets are
+ * not listed; the archive page carries them instead.
  */
 
-export function isListed(page: SheetPage): boolean {
-  return page.frontmatter.category !== 'Hidden' && !isDeprecated(page)
+export function isListed(page: FrontmatterOnly): boolean {
+  return (
+    page.frontmatter.category !== 'Hidden' &&
+    !isDeprecated(page) &&
+    !isArchived(page)
+  )
 }
 
 /**
@@ -30,11 +36,15 @@ export function isListed(page: SheetPage): boolean {
  * or by pointing to a newer sheet via `deprecated_by`
  */
 
-export function isDeprecated(page: SheetPage): boolean {
+export function isDeprecated(page: FrontmatterOnly): boolean {
   return (
     page.frontmatter.deprecated === true ||
     Boolean(page.frontmatter.deprecated_by)
   )
+}
+
+export function isArchived(page: FrontmatterOnly): boolean {
+  return Boolean(page.frontmatter.archived)
 }
 
 /**

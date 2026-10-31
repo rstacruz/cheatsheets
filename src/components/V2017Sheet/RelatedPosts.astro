@@ -4,6 +4,7 @@ import { getTopPages, getRelatedPages } from '~/lib/page/queries'
 import { etc } from '~/config'
 import RelatedPostItem from '~/components/V2017Sheet/RelatedPostItem.astro'
 import PushButton from '~/components/V2017/PushButton.astro'
+import Icon from '~/components/Icon.astro'
 
 export type Props = {
   page: SheetPage
@@ -49,7 +50,7 @@ const topPages = getTopPages(pages, page, { maxCount: 6 })
       <div class="callout">
         <a class="related-posts-callout" href="/">
           <div class="text">
-            <i class="icon"></i>
+            <i class="icon"><Icon name="ios-arrow-back" size={48} /></i>
             <span class="description">{calloutDescription}</span>
             <PushButton class="-dark">{t.callout.link}</PushButton>
           </div>

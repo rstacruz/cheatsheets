@@ -3,6 +3,7 @@ title: React.js
 category: React
 tags: [Featured]
 updated: 2026-10-03
+tier: t1
 weight: -10
 keywords:
   - useState

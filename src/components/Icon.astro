@@ -1,0 +1,20 @@
+---
+import { icons } from '@iconify-json/ion'
+import { getIconData, iconToSVG } from '@iconify/utils'
+
+export type Props = {
+  name: string
+  size?: number
+}
+
+const { name, size = 16 } = Astro.props as Props
+
+// getIconData(), not icons.icons[name], merges the set's 512x512 default;
+// without it iconToSVG() frames 512-space paths in a 16x16 viewBox
+const icon = getIconData(icons, name)
+if (!icon) throw new Error(`Unknown icon in the "ion" set: ${name}`)
+
+const { body, attributes } = iconToSVG(icon, { width: size, height: size })
+---
+
+<svg {...attributes} aria-hidden="true" set:html={body} />

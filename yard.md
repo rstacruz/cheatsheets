@@ -119,16 +119,19 @@ The optional text after `@example` becomes the example title.
 | `@api` | API audience |
 | `@author` | Author name |
 | `@deprecated` | Replacement guidance |
+| --- | --- |
 | `@example` | Usage example |
 | `@note` | Important note |
 | `@option` | Options hash key |
 | `@param` | Method parameter |
+| --- | --- |
 | `@private` | Private API |
 | `@raise` | Raised exception |
 | `@return` | Return value |
 | `@see` | Related object or URL |
 | `@since` | First release |
 | `@todo` | Pending work |
+| --- | --- |
 | `@yieldparam` | Block parameter |
 | `@yieldreturn` | Block return value |
 

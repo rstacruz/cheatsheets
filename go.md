@@ -4,6 +4,7 @@ prism_languages: [go, bash]
 weight: -3
 category: C-like
 updated: 2020-06-21
+tier: t1
 ---
 
 ## Getting started

@@ -37,6 +37,22 @@ describe('getSEOPropsForPage()', () => {
   }
 })
 
+describe('getSEOPropsForPage() robots', () => {
+  test.each([
+    ['archived', { title, archived: 'Old and unmaintained.' }],
+    ['deprecated', { title, deprecated: true }],
+    ['hidden', { title, category: 'Hidden' }]
+  ])('%s pages are noindexed', (_label, frontmatter) => {
+    const output = getSEOPropsForPage({ slug, frontmatter })
+    expect(output.meta.robots).toEqual('noindex, follow')
+  })
+
+  test('listed pages have no robots meta', () => {
+    const output = getSEOPropsForPage({ slug, frontmatter: { title } })
+    expect(output.meta).not.toHaveProperty('robots')
+  })
+})
+
 describe('toPlainText()', () => {
   test('converts markdown to plain text', () => {
     const input = 'This is a **bold** text'

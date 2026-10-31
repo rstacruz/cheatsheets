@@ -14,6 +14,7 @@ import { getSEOPropsForPage } from '~/lib/seo/seo'
 import { getJSONLDsForPage } from '~/lib/seo/jsonLd'
 import SEO from '~/components/SEO/SEO.astro'
 import NoticeBox from './V2017Sheet/NoticeBox.astro'
+import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 import { isDeprecated } from '~/lib/page/accessors'
 import { typeStyles } from '~/styles/CommonStyles'
@@ -34,6 +35,9 @@ const title: string = page.frontmatter.title ?? page.slug
 const editUrl = getEditLink(page)
 const intro: string | null = page.frontmatter.intro
   ? `<p>${snarkdown(page.frontmatter.intro)}</p>`
+  : null
+const archived: string | null = page.frontmatter.archived
+  ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
   : null
 
 const styles = {
@@ -94,9 +98,13 @@ const headingStyles = {
       ) : null
     }
 
-    {/* Deprecated */}
+    {/* Archived or deprecated */}
     {
-      deprecated ? (
+      archived ? (
+        <NoticeBox class="text-xl">
+          <strong>Archived:</strong> <Fragment set:html={archived} />
+        </NoticeBox>
+      ) : deprecated ? (
         <NoticeBox class="text-xl">
           <strong>Deprecated:</strong> This guide covers an older version.{' '}
           {deprecatedBy ? (
@@ -126,7 +134,9 @@ const headingStyles = {
     </main>
   </div>
 
-  <div class="pre-footer" data-js-no-preview><i class="icon"></i></div>
+  <div class="pre-footer" data-js-no-preview>
+    <i class="icon"><Icon name="ios-flash" size={32} /></i>
+  </div>
   <CommentsArea identifier={page.slug} />
   <SearchFooter />
   <RelatedPosts page={page} />

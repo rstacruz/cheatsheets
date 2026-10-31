@@ -2,6 +2,7 @@
 title: Kotlin
 category: Java & JVM
 updated: 2026-10-03
+tier: t1
 keywords:
   - Variables
   - Null safety

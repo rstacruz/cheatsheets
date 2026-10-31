@@ -3,6 +3,7 @@ title: npm
 category: JavaScript
 weight: -1
 updated: 2026-10-06
+tier: t2
 ---
 
 ### Package management

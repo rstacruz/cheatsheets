@@ -1,7 +1,7 @@
 ---
 title: Find
 category: CLI
-updated: 2019-11-17
+updated: 2026-10-31
 ---
 
 ### Usage
@@ -15,6 +15,7 @@ find <path> <conditions> <actions>
 
 ```bash
 -name "*.c"
+-iname "*.c"       # Case-insensitive
 ```
 
 ```bash

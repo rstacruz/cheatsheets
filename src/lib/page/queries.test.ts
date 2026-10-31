@@ -24,7 +24,15 @@ const pages = mapGlobToPages({
     '---',
     'c'
   ].join('\n'),
-  delta: ['---', 'category: Test', 'weight: 1', '---', 'd'].join('\n')
+  delta: ['---', 'category: Test', 'weight: 1', '---', 'd'].join('\n'),
+  epsilon: [
+    '---',
+    'category: Test',
+    'weight: 2',
+    'archived: Old and unmaintained.',
+    '---',
+    'e'
+  ].join('\n')
 })
 
 test('related pages skip deprecated sheets', () => {
@@ -53,6 +61,18 @@ test('category listings skip deprecated sheets', () => {
   expect(slugs).not.toContain('gamma')
 })
 
+test('archived sheets are unlisted', () => {
+  expect(
+    getRelatedPages(pages, pages.alpha).map((page) => page.slug)
+  ).not.toContain('epsilon')
+  expect(
+    getTopPages(pages, pages.alpha).map((page) => page.slug)
+  ).not.toContain('epsilon')
+  expect(
+    getPagesByCategory(pages)['Others'].pages.map((page) => page.slug)
+  ).not.toContain('epsilon')
+})
+
 const archivePages = mapGlobToPages({
   absinthe: ['---', 'title: absinthe', 'category: Hidden', '---', 'a'].join(
     '\n'
@@ -69,15 +89,23 @@ const archivePages = mapGlobToPages({
     '---',
     'l'
   ].join('\n'),
+  old: [
+    '---',
+    'title: Old',
+    'category: JavaScript',
+    'archived: No longer maintained.',
+    '---',
+    'o'
+  ].join('\n'),
   react: ['---', 'title: React', 'category: JavaScript', '---', 'r'].join('\n')
 })
 
-test('archive pages are hidden or deprecated sheets sorted by title, case-insensitively', () => {
+test('archive pages are hidden, deprecated, or archived sheets sorted by title, case-insensitively', () => {
   const slugs = getArchivedPages(archivePages).map((page) => page.slug)
 
   // case-sensitive sort puts 'Legacy' and 'Zeta' first (uppercase < lowercase);
   // the lowercased sort puts absinthe first.
-  expect(slugs).toEqual(['absinthe', 'legacy', 'Zeta'])
+  expect(slugs).toEqual(['absinthe', 'legacy', 'old', 'Zeta'])
 })
 
 test('archive pages skip listed sheets and test fixtures', () => {

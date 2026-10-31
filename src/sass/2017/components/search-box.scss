@@ -70,13 +70,18 @@
   }
 
   // Icon
-  &::before {
-    content: '';
-    @include ion-md-search(32px, $base-head);
-    background-position: center center;
+  & > .icon {
+    order: 2;
     flex: 0 0 64px;
     width: 64px;
-    order: 2;
+    display: grid;
+    place-items: center;
+    color: $base-head;
+  }
+
+  & > .icon > svg {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -101,11 +106,13 @@
     @include font-size(1);
   }
 
-  &::before {
+  & > .icon {
     flex: 0 0 48px;
     width: 48px;
-    line-height: 48px;
-    background-size: 24px 24px;
-    background-position: center center;
+  }
+
+  & > .icon > svg {
+    width: 24px;
+    height: 24px;
   }
 }

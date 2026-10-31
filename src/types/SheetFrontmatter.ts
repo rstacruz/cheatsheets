@@ -19,6 +19,12 @@ export const SheetFrontmatterSchema = z.object({
     .optional()
     .describe('`Featured` puts the sheet on the home page.'),
   updated: z.date().optional().describe('"Last updated" and recent lists.'),
+  tier: z
+    .enum(['t1', 't2'])
+    .optional()
+    .describe(
+      'Review tier: t1 is audited before t2. Not a cadence; not rendered.'
+    ),
   keywords: z
     .string()
     .array()
@@ -40,6 +46,12 @@ export const SheetFrontmatterSchema = z.object({
     .string()
     .optional()
     .describe('Name of newer sheet (also marks the sheet as deprecated)'),
+  archived: z
+    .string()
+    .optional()
+    .describe(
+      'Archive note in Markdown. Unlists the sheet and renders the note in a notice.'
+    ),
   intro: z
     .string()
     .optional()

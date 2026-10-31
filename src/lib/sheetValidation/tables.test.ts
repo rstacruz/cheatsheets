@@ -2,6 +2,8 @@ import type { RootContent } from 'mdast'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
+import { getPages } from '../page'
+import { isListed } from '../page/accessors'
 import {
   isSheetSlug,
   loadBaseline,
@@ -46,6 +48,90 @@ function findUncoveredPipeLines(source: string) {
     .map((text, index) => ({ line: index + 1, text }))
     .filter(({ line, text }) => /^\s*\|/.test(text) && !covered.has(line))
 }
+
+/** Tables that render outside an H3 card because no H3 precedes them */
+function findTablesOutsideH3(source: string) {
+  const tree = unified().use(remarkParse).use(remarkGfm).parse(source)
+  const found: { line: number; text: string }[] = []
+  let inH3 = false
+
+  for (const node of tree.children) {
+    if (node.type === 'heading') {
+      if (node.depth === 2) inH3 = false
+      else if (node.depth === 3) inH3 = true
+    } else if (node.type === 'table' && !inH3 && node.position) {
+      found.push({
+        line: node.position.start.line,
+        text: 'table has no H3 heading above it'
+      })
+    }
+  }
+
+  return found
+}
+
+describe('findTablesOutsideH3()', () => {
+  test('flags a table directly under an H2', () => {
+    const input = ['## Section', '', '| a | b |', '| --- | --- |'].join('\n')
+    expect(findTablesOutsideH3(input)).toEqual([
+      { line: 3, text: 'table has no H3 heading above it' }
+    ])
+  })
+
+  test('flags a table after prose under an H2', () => {
+    const input = ['## Section', '', 'Prose.', '', '| a | b |', '| --- | --- |']
+    expect(findTablesOutsideH3(input.join('\n'))).toEqual([
+      { line: 5, text: 'table has no H3 heading above it' }
+    ])
+  })
+
+  test('allows a table under an H3', () => {
+    const input = [
+      '## Section',
+      '',
+      '### Card',
+      '',
+      '| a | b |',
+      '| --- | --- |'
+    ]
+    expect(findTablesOutsideH3(input.join('\n'))).toEqual([])
+  })
+
+  test('allows a table under an H4 beneath an H3', () => {
+    const input = [
+      '## Section',
+      '',
+      '### Card',
+      '',
+      '#### Part',
+      '',
+      '| a | b |',
+      '| --- | --- |'
+    ]
+    expect(findTablesOutsideH3(input.join('\n'))).toEqual([])
+  })
+
+  test('resets after the next H2', () => {
+    const input = [
+      '## One',
+      '',
+      '### Card',
+      '',
+      '## Two',
+      '',
+      '| a | b |',
+      '| --- | --- |'
+    ]
+    expect(findTablesOutsideH3(input.join('\n'))).toEqual([
+      { line: 7, text: 'table has no H3 heading above it' }
+    ])
+  })
+
+  test('allows prose and lists without an H3', () => {
+    const input = ['## Section', '', 'Prose.', '', '- one', '- two'].join('\n')
+    expect(findTablesOutsideH3(input)).toEqual([])
+  })
+})
 
 describe('findUncoveredPipeLines()', () => {
   test('flags a headerless table', () => {
@@ -183,4 +269,14 @@ test('every sheet separates long tables', async () => {
           `${slug}:${line}: ${rows} rows without separators ${text}`
       )
   ).toEqual([])
+})
+
+test('every listed sheet gives each table an H3 heading', async () => {
+  const findings: string[] = []
+  for (const page of Object.values(await getPages()).filter(isListed)) {
+    for (const { line, text } of findTablesOutsideH3(page.markdown)) {
+      findings.push(`${page.slug}:${line}: ${text}`)
+    }
+  }
+  expect(findings).toEqual([])
 })

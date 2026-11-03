@@ -9,7 +9,6 @@ import { scanHeadings } from './outline'
 import { loadBaseline, saveBaseline, updatingBaseline } from './baseline'
 import { scanFences } from './utils'
 
-/** Nodes that are structure or metadata, not the H3's content */
 const NOT_CONTENT: Record<string, true> = {
   heading: true,
   html: true,
@@ -20,24 +19,22 @@ const NOT_CONTENT: Record<string, true> = {
   blockInlineAttributeList: true
 }
 
-/** A link to the site itself does not send the reader to docs */
+/** devhints.io links do not point at upstream docs */
 const SELF_LINK = /^https?:\/\/(?:www\.)?devhints\.io(?:[/?#]|$)/i
 
-/** Exact, case-sensitive; `See also:` is prose, not the docs pointer */
+/** Case-sensitive; `See also:` is prose, not the pointer */
 const SEE_LINE = /^See:/
 
-/** `<!-- see: none -->`, optionally with a reason */
 const SEE_NONE = /^<!--\s*see:\s*none\b.*-->\s*$/
 
 type Finding = { line: number; title: string }
 
-/** remark stack shared with the render pipeline, including own-line IALs */
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
 
-/** Top-level H3 sections; H4 subsections stay inside their H3 */
+/** H3 sections; H4 subsections stay inside their H3 */
 function h3Sections(tree: Root) {
   const sections: Array<{ heading: Heading; nodes: RootContent[] }> = []
   let section: { heading: Heading; nodes: RootContent[] } | undefined
@@ -54,7 +51,7 @@ function h3Sections(tree: Root) {
   return sections
 }
 
-/** `See:` anywhere in the H3, as long as it starts a block */
+/** `See:` may sit anywhere but must start a block */
 function hasSeeLine(
   nodes: RootContent[],
   lines: string[],
@@ -94,7 +91,7 @@ function hasSeeNone(
   return false
 }
 
-/** Only raw `[text](url)` syntax counts, not autolinks, references, or images */
+/** Only raw `[text](url)` counts; not autolinks, references, images */
 function hasQualifyingLink(source: string, node: RootContent) {
   let found = false
   visit(node, 'link', (link) => {
@@ -105,11 +102,6 @@ function hasQualifyingLink(source: string, node: RootContent) {
   return found
 }
 
-/**
- * H3s in tiered sheets should end with upstream documentation. Pure finder:
- * returns each H3 whose last content block has no inline link and that has no
- * `See:` line and no `<!-- see: none -->` marker.
- */
 function findMissingLinksOrSee(source: string): Finding[] {
   const lines = source.split('\n')
   const { fenced } = scanFences(lines)
@@ -159,17 +151,10 @@ describe('findMissingLinksOrSee()', () => {
     expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
   })
 
-  test('allows See: anywhere in the H3', () => {
-    const input = '### A\n\nSee: docs\n\nMore text.'
-    expect(findMissingLinksOrSee(input)).toEqual([])
-  })
-
-  test('allows a linkless See:', () => {
-    const input = '### A\n\ntext\n\nSee: `:help motion.txt`'
-    expect(findMissingLinksOrSee(input)).toEqual([])
-  })
-
-  test('allows See: directly below the heading', () => {
+  test('allows a linkless See: anywhere in the H3', () => {
+    expect(
+      findMissingLinksOrSee('### A\n\ntext\n\nSee: `:help motion.txt`')
+    ).toEqual([])
     expect(findMissingLinksOrSee('### A\nSee: docs')).toEqual([])
   })
 
@@ -178,16 +163,11 @@ describe('findMissingLinksOrSee()', () => {
     expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
   })
 
-  test('flags See also:', () => {
-    expect(findMissingLinksOrSee('### A\n\nSee also: docs')).toEqual([
-      { line: 1, title: 'A' }
-    ])
-  })
-
-  test('flags an indented See:', () => {
-    expect(findMissingLinksOrSee('### A\n\n  See: docs')).toEqual([
-      { line: 1, title: 'A' }
-    ])
+  test('accepts only an exact, unindented See:', () => {
+    const expected = [{ line: 1, title: 'A' }]
+    expect(findMissingLinksOrSee('### A\n\nSee also: docs')).toEqual(expected)
+    expect(findMissingLinksOrSee('### A\n\n  See: docs')).toEqual(expected)
+    expect(findMissingLinksOrSee('### A\n\nsee: docs')).toEqual(expected)
   })
 
   test('flags See: inside fenced code', () => {
@@ -200,16 +180,14 @@ describe('findMissingLinksOrSee()', () => {
     expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
   })
 
-  test('flags an autolink in the last block', () => {
-    expect(findMissingLinksOrSee('### A\n\n<https://example.com>')).toEqual([
-      { line: 1, title: 'A' }
-    ])
-  })
-
-  test('flags a bare URL in the last block', () => {
-    expect(findMissingLinksOrSee('### A\n\nhttps://example.com')).toEqual([
-      { line: 1, title: 'A' }
-    ])
+  test('flags an autolink or bare URL in the last block', () => {
+    const expected = [{ line: 1, title: 'A' }]
+    expect(findMissingLinksOrSee('### A\n\n<https://example.com>')).toEqual(
+      expected
+    )
+    expect(findMissingLinksOrSee('### A\n\nhttps://example.com')).toEqual(
+      expected
+    )
   })
 
   test('flags a reference-style link', () => {
@@ -223,15 +201,14 @@ describe('findMissingLinksOrSee()', () => {
     ])
   })
 
-  test('flags a link inside fenced code', () => {
-    const input = '### A\n\n```md\n[docs](https://example.com)\n```'
-    expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
-  })
-
-  test('flags a link inside a code span', () => {
+  test('flags a link inside code', () => {
+    const expected = [{ line: 1, title: 'A' }]
+    expect(
+      findMissingLinksOrSee('### A\n\n```md\n[docs](https://example.com)\n```')
+    ).toEqual(expected)
     expect(
       findMissingLinksOrSee('### A\n\n`[docs](https://example.com)`')
-    ).toEqual([{ line: 1, title: 'A' }])
+    ).toEqual(expected)
   })
 
   test('flags an absolute devhints.io link', () => {
@@ -245,17 +222,23 @@ describe('findMissingLinksOrSee()', () => {
     expect(findMissingLinksOrSee(input)).toEqual([])
   })
 
-  test('ignores a trailing HTML block', () => {
-    const input = [
-      '### A',
-      '',
-      '[docs](https://example.com)',
-      '',
-      '<style>',
-      '.a {}',
-      '</style>'
-    ].join('\n')
-    expect(findMissingLinksOrSee(input)).toEqual([])
+  test('ignores trailing HTML blocks and thematic breaks', () => {
+    expect(
+      findMissingLinksOrSee(
+        [
+          '### A',
+          '',
+          '[docs](https://example.com)',
+          '',
+          '<style>',
+          '.a {}',
+          '</style>'
+        ].join('\n')
+      )
+    ).toEqual([])
+    expect(
+      findMissingLinksOrSee('### A\n\n[docs](https://example.com)\n\n---')
+    ).toEqual([])
   })
 
   test('ignores a trailing IAL', () => {
@@ -264,51 +247,48 @@ describe('findMissingLinksOrSee()', () => {
     ).toEqual([])
   })
 
-  test('ignores a trailing thematic break', () => {
-    expect(
-      findMissingLinksOrSee('### A\n\n[docs](https://example.com)\n\n---')
-    ).toEqual([])
-  })
-
   test('stops the H3 at a setext heading', () => {
-    const input = [
-      '### A',
-      '',
-      'text',
-      '',
-      'Title',
-      '-----',
-      '',
-      '[docs](https://example.com)'
-    ].join('\n')
-    expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
-  })
-
-  test('keeps a link before a setext heading', () => {
-    const input = [
-      '### A',
-      '',
-      '[docs](https://example.com)',
-      '',
-      'Title',
-      '-----',
-      '',
-      'text'
-    ].join('\n')
-    expect(findMissingLinksOrSee(input)).toEqual([])
+    expect(
+      findMissingLinksOrSee(
+        [
+          '### A',
+          '',
+          'text',
+          '',
+          'Title',
+          '-----',
+          '',
+          '[docs](https://example.com)'
+        ].join('\n')
+      )
+    ).toEqual([{ line: 1, title: 'A' }])
+    expect(
+      findMissingLinksOrSee(
+        [
+          '### A',
+          '',
+          '[docs](https://example.com)',
+          '',
+          'Title',
+          '-----',
+          '',
+          'text'
+        ].join('\n')
+      )
+    ).toEqual([])
   })
 
   test('ignores headings inside fenced code', () => {
     expect(findMissingLinksOrSee('```md\n### A\n```')).toEqual([])
   })
 
-  test('allows an own-line opt-out marker', () => {
+  test('allows an own-line opt-out marker, with or without a reason', () => {
     expect(findMissingLinksOrSee('### A\n<!-- see: none -->')).toEqual([])
-  })
-
-  test('allows an opt-out marker with a reason', () => {
-    const input = '### A\n\ntext\n\n<!-- see: none: CLI-only section -->'
-    expect(findMissingLinksOrSee(input)).toEqual([])
+    expect(
+      findMissingLinksOrSee(
+        '### A\n\ntext\n\n<!-- see: none: CLI-only section -->'
+      )
+    ).toEqual([])
   })
 
   test('keeps an opt-out marker local to its H3', () => {
@@ -334,12 +314,6 @@ describe('findMissingLinksOrSee()', () => {
   test('reports the heading text as written', () => {
     expect(findMissingLinksOrSee('### `pull` an image\n\ntext')).toEqual([
       { line: 1, title: '`pull` an image' }
-    ])
-  })
-
-  test('requires a case-sensitive See:', () => {
-    expect(findMissingLinksOrSee('### A\n\nsee: docs')).toEqual([
-      { line: 1, title: 'A' }
     ])
   })
 
@@ -381,7 +355,7 @@ test('every tiered sheet gives each H3 a link or See', async () => {
     }))
   )
 
-  // Baseline counts tolerate same-titled H3s; a new gap still exceeds them
+  // Counts, not a set: same-titled H3s can recur
   const counts: Record<string, number> = {}
   for (const { slug, title } of findings) {
     const key = `${slug}#${title}`

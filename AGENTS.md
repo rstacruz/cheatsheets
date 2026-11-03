@@ -6,15 +6,15 @@
 - **Build**: `pnpm build`
 - **Test**: `pnpm test` (runs Vitest in watch mode)
 - **Run single test**: `pnpm vitest run <file-path>` or `pnpm vitest <file-path>` (watch mode)
-- **All tests (CI)**: `pnpm ci` (runs all linters, tests, and build)
-- **Lint**: `pnpm eslint:check` or `pnpm prettier:check`
-- **Format**: `pnpm format` (runs both ESLint and Prettier fixes)
+- **All tests (CI)**: `pnpm run ci` (runs all linters, tests, and build)
+- **Lint**: `pnpm lint:check` (oxlint; `.astro` templates are not covered)
+- **Format**: `pnpm fmt:check` reports differences, `pnpm format` fixes them (oxfmt + `oxlint --fix`)
 
 ## Code style
 
 - **Package manager**: pnpm (v8.15.4+)
 - **Framework**: Astro with TypeScript (strict mode), Tailwind CSS
-- **Imports**: Use `~/` alias for `src/` directory; Prettier organizes imports automatically
+- **Imports**: Use `~/` alias for `src/` directory
 - **Types**: Use Zod schemas for runtime validation (see `SheetFrontmatter.ts`); TypeScript strict mode enabled
 - **Naming**: camelCase for variables/functions, PascalCase for components/types
 - **Error handling**: Distinguish operational (expected) vs unexpected errors; return error objects for operational errors

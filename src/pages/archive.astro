@@ -42,12 +42,12 @@ const headingStyles = {
       <p class={headingStyles.tagline}>{t.description}</p>
     </div>
     <div class="pages-list" role="main">
-      {archivedPages.map((page) => <PageListItem page={page} />)}
-      {
-        archivedPages.length === 0 ? (
-          <p class="item text-center text-zinc-500">No archived cheatsheets.</p>
-        ) : null
-      }
+      {archivedPages.map((page) => (
+        <PageListItem page={page} />
+      ))}
+      {archivedPages.length === 0 ? (
+        <p class="item text-center text-zinc-500">No archived cheatsheets.</p>
+      ) : null}
     </div>
   </div>
 </BaseLayout>

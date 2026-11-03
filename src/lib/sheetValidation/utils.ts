@@ -24,8 +24,10 @@ export const SEP_LINE = /^([|: \t-]*?-[|: \t-]*?)[ \t]*$/
 
 /** Fence membership and opening indent, following CommonMark's fence rules */
 export function scanFences(lines: string[]) {
+  // oxlint-disable-next-line unicorn/no-new-array
   const fenced = new Array<boolean>(lines.length).fill(false)
   // Opening fence indentation, for lines inside the block
+  // oxlint-disable-next-line unicorn/no-new-array
   const indent = new Array<number>(lines.length).fill(0)
   let fence: string | null = null
   let opener = 0

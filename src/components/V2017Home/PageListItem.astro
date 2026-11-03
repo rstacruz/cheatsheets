@@ -13,8 +13,6 @@ const url = `/${page.slug}`
 <a href={url} class={`article item -item-${page.slug} ${props.class ?? ''}`}>
   <span class="info">
     <code class="slug">{page.slug}</code>
-    <span class="title">
-      {page.frontmatter.title ?? page.slug}
-    </span>
+    <span class="title">{page.frontmatter.title ?? page.slug}</span>
   </span>
 </a>

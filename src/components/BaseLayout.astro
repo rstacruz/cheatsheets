@@ -27,11 +27,9 @@ const analyticsEnabled = googleAnalytics.enabled
     {/* Title */}
     {props.title ? <title>{props.title}</title> : null}
     {/* Google tag */}
-    {
-      analyticsEnabled && googleAnalytics.measurementId ? (
-        <GoogleAnalytics measurementId={googleAnalytics.measurementId} />
-      ) : null
-    }
+    {analyticsEnabled && googleAnalytics.measurementId ? (
+      <GoogleAnalytics measurementId={googleAnalytics.measurementId} />
+    ) : null}
     <slot name="head" />
   </head>
   <body class={props.bodyClass ?? ''}>

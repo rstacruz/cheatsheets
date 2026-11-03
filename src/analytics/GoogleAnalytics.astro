@@ -6,7 +6,8 @@ const measurementId = props.measurementId
 
 <script
   type="text/partytown"
-  src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+  src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+></script>
 {/* prettier-ignore */}
 <script
   type="text/partytown"
@@ -18,7 +19,7 @@ const measurementId = props.measurementId
     .getAttribute('data-ga-measurement-id')
   window.dataLayer = window.dataLayer || []
   function gtag() {
-    dataLayer.push(arguments) // eslint-disable-line
+    dataLayer.push(arguments)
   }
   gtag('js', new Date())
   gtag('config', measurementId)

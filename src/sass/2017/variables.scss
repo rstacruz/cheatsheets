@@ -13,10 +13,12 @@ $area-width: $column * 3 + 32px;
  * Fonts
  */
 
-$system-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-$system-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono',
-  'Ubuntu Mono', Courier, monospace;
+$system-sans:
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+  'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$system-mono:
+  'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono', Courier,
+  monospace;
 $body-font: $system-sans;
 $heading-font: $system-sans;
 $monospace-font: cousine, $system-mono;

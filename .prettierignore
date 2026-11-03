@@ -1,7 +1,0 @@
-src/sass/vendor
-src/sass/2017/icons.generated.scss
-vendor
-dist
-artefacts
-*.md
-pnpm-lock.yaml

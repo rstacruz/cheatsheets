@@ -50,7 +50,9 @@ const topPages = getTopPages(pages, page, { maxCount: 6 })
       <div class="callout">
         <a class="related-posts-callout" href="/">
           <div class="text">
-            <i class="icon"><Icon name="ios-arrow-back" size={48} /></i>
+            <i class="icon">
+              <Icon name="ios-arrow-back" size={48} />
+            </i>
             <span class="description">{calloutDescription}</span>
             <PushButton class="-dark">{t.callout.link}</PushButton>
           </div>
@@ -63,11 +65,9 @@ const topPages = getTopPages(pages, page, { maxCount: 6 })
           <h3>{categoryHeading}</h3>
         </div>
         <ul class="related-post-list">
-          {
-            relatedPages.map((page) => (
-              <RelatedPostItem page={page} class="item" />
-            ))
-          }
+          {relatedPages.map((page) => (
+            <RelatedPostItem page={page} class="item" />
+          ))}
         </ul>
       </div>
 
@@ -77,7 +77,9 @@ const topPages = getTopPages(pages, page, { maxCount: 6 })
           <h3>{t.group.top}</h3>
         </div>
         <ul class="related-post-list">
-          {topPages.map((page) => <RelatedPostItem page={page} class="item" />)}
+          {topPages.map((page) => (
+            <RelatedPostItem page={page} class="item" />
+          ))}
         </ul>
       </div>
     </div>

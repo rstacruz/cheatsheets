@@ -25,12 +25,12 @@ const { identifier } = props
           <span
             class="disqus-comment-count"
             data-disqus-identifier={identifier}
-            data-disqus-url={url}>0 Comments</span
+            data-disqus-url={url}
           >
-        </strong>
-        {' '}
-        <span class="suffix">{t.suffix}</span>
-        {' '}
+            0 Comments
+          </span>
+        </strong>{' '}
+        <span class="suffix">{t.suffix}</span>{' '}
         <span class="fauxlink">{t.link}</span>
       </summary>
       <div class="comments-section">
@@ -45,7 +45,8 @@ const { identifier } = props
       host: disqus.host,
       url,
       identifier
-    })}></noscript>
+    })}
+  ></noscript>
 </section>
 
 <style lang="scss" is:global>

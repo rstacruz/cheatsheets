@@ -111,7 +111,7 @@ See: [Quick start](https://herdr.dev/docs/quick-start/)
 | `herdr worktree` | Create and open git worktrees |
 {: .-shortcuts}
 
-See: [CLI reference: workspaces](https://herdr.dev/docs/cli-reference/#workspaces)
+See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
 ### Agents
 
@@ -143,7 +143,7 @@ See: [CLI reference: workspaces](https://herdr.dev/docs/cli-reference/#workspace
 | `herdr status` | Show client and server state |
 {: .-shortcuts}
 
-See: [CLI reference: sessions](https://herdr.dev/docs/cli-reference/#sessions)
+See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
 ### Utilities
 

@@ -39,6 +39,8 @@ A paragraph with **bold**, *italic*, and `code`.
 ```
 {: data-line="3"}
 
+See: [Markdown reference](https://commonmark.org/help/)
+
 ## Headings
 
 ### ATX headings
@@ -240,6 +242,8 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images)
 [logo]: /img/logo.png "Logo"
 ```
 
+See: [Images](https://spec.commonmark.org/0.31.2/#images), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
+
 ### Data URIs
 
 ```markdown
@@ -249,6 +253,8 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images)
 ```
 
 Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses.
+
+See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
 {: .-three-column}
@@ -355,4 +361,6 @@ See: [Tables](https://github.github.com/gfm/#tables-extension-)
 | :--- | :----: | ----: |
 | a    | b      | c     |
 ```
+
+See: [Tables](https://github.github.com/gfm/#tables-extension-)
 

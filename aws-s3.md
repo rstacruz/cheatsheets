@@ -54,7 +54,7 @@ one.
 
 ```bash
 aws s3 sync ./site s3://mybucket/site
-aws s3 sync s3://mybucket/backup ./backup --delete
+aws s3 sync s3://mybucket/backup ./backup --delete   # destructive
 aws s3 sync ./site s3://mybucket/site --dryrun
 aws s3 sync ./site s3://mybucket/site --size-only
 ```

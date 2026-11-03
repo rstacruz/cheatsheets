@@ -283,6 +283,20 @@ describe('findMissingLinksOrSee()', () => {
     expect(findMissingLinksOrSee(input)).toEqual([{ line: 1, title: 'A' }])
   })
 
+  test('keeps a link before a setext heading', () => {
+    const input = [
+      '### A',
+      '',
+      '[docs](https://example.com)',
+      '',
+      'Title',
+      '-----',
+      '',
+      'text'
+    ].join('\n')
+    expect(findMissingLinksOrSee(input)).toEqual([])
+  })
+
   test('ignores headings inside fenced code', () => {
     expect(findMissingLinksOrSee('```md\n### A\n```')).toEqual([])
   })

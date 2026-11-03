@@ -53,7 +53,7 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+q` | Detach; everything keeps running |
 {: .-shortcuts}
 
-See: [Keyboard: learn these five first](https://herdr.dev/docs/keyboard/#learn-these-five-first)
+See: [Learn these five first](https://herdr.dev/docs/keyboard/#learn-these-five-first)
 
 ## Default bindings
 
@@ -76,7 +76,7 @@ See: [Keyboard: learn these five first](https://herdr.dev/docs/keyboard/#learn-t
 | `prefix+[` | Enter copy mode |
 {: .-shortcuts}
 
-See: [Keyboard: panes](https://herdr.dev/docs/keyboard/#the-rest-by-task)
+See: [The rest, by task](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 
 ### Tabs
 
@@ -89,7 +89,7 @@ See: [Keyboard: panes](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 | `prefix+shift+x` | Close tab |
 {: .-shortcuts}
 
-See: [Keyboard: tabs](https://herdr.dev/docs/keyboard/#the-rest-by-task)
+See: [The rest, by task](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 
 ### Workspaces and session
 
@@ -106,7 +106,7 @@ See: [Keyboard: tabs](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 | `prefix+q` | Detach; server and agents keep running |
 {: .-shortcuts}
 
-See: [Keyboard: workspaces and session](https://herdr.dev/docs/keyboard/#the-rest-by-task)
+See: [The rest, by task](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 
 ### Other
 
@@ -132,7 +132,7 @@ See: [Keyboard: workspaces and session](https://herdr.dev/docs/keyboard/#the-res
 
 Press `prefix+w` before pressing the keys in the next sections.
 
-See: [Navigate mode](https://herdr.dev/docs/concepts/#modes)
+See: [Modes](https://herdr.dev/docs/concepts/#modes)
 
 ### Movement
 
@@ -143,7 +143,7 @@ See: [Navigate mode](https://herdr.dev/docs/concepts/#modes)
 | `left` / `right` | Always focus the pane left / right |
 {: .-shortcuts}
 
-See: [Keybinding reference](https://herdr.dev/docs/configuration/#keybindings)
+See: [Keybindings](https://herdr.dev/docs/configuration/#keybindings)
 
 ### Actions
 
@@ -159,7 +159,7 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 `enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved;
 `navigate_*` config fields take other plain keys.
 
-See: [Keybinding reference](https://herdr.dev/docs/configuration/#keybindings)
+See: [Keybindings](https://herdr.dev/docs/configuration/#keybindings)
 
 ## Copy mode
 
@@ -172,7 +172,7 @@ See: [Keybinding reference](https://herdr.dev/docs/configuration/#keybindings)
 
 The pane keeps running while copy mode is open.
 
-See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+See: [Copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ### Movement
 
@@ -189,7 +189,7 @@ See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 With the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
-See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+See: [Copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ### Search
 
@@ -201,7 +201,7 @@ See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 Search is case-insensitive unless the query has an uppercase letter.
 
-See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+See: [Copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ### Selection
 
@@ -212,7 +212,7 @@ See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 | `q` / `Esc` | Leave copy mode |
 {: .-shortcuts}
 
-See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+See: [Copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ## Editing text fields
 
@@ -225,7 +225,7 @@ See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 | `alt+b` / `alt+f` | Move by word |
 {: .-shortcuts}
 
-See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
+See: [Editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
 
 ### Delete
 
@@ -235,7 +235,7 @@ See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-te
 | `Delete`, `ctrl+d` | Delete next char |
 {: .-shortcuts}
 
-See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
+See: [Editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
 
 ### Cut and paste
 
@@ -251,7 +251,7 @@ These keys apply to Herdr-owned fields (dialogs, filters, copy-mode
 search), not the shell or agent in a pane. Cut text stays in the field;
 `Alt` shortcuts need a terminal that reports Alt/Meta.
 
-See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
+See: [Editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
 
 ## Custom bindings
 

@@ -133,7 +133,7 @@ echo {A,B}.js
 | `{1..5}`               | Same as `1 2 3 4 5`   |
 | <code>&lcub;{1..3},{7..9}}</code> | Same as `1 2 3 7 8 9` |
 
-See: [Brace expansion](https://web.archive.org/web/20230207192110/https://wiki.bash-hackers.org/syntax/expansion/brace)
+See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
 ## Parameter expansions
 {: .-three-column}
@@ -157,7 +157,7 @@ length=2
 echo "${name:0:length}"  #=> "Jo"
 ```
 
-See: [Parameter expansion](https://web.archive.org/web/20230408142504/https://wiki.bash-hackers.org/syntax/pe)
+See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ```bash
 str="/path/to/foo.cpp"
@@ -338,7 +338,7 @@ while read -r line; do
 done <file.txt
 ```
 
-See: [Reading a file line by line](https://mywiki.wooledge.org/BashFAQ/001)
+See: [read](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-read)
 
 ### Forever
 
@@ -387,7 +387,7 @@ myfunc() {
 result=$(myfunc)
 ```
 
-See: [Returning a string from a function](https://mywiki.wooledge.org/BashFAQ/084)
+See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
 ### Raising errors
 
@@ -806,7 +806,7 @@ See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node
 source "${0%/*}/../share/foo.sh"
 ```
 
-See: [How do I determine the location of my script file?](https://mywiki.wooledge.org/BashFAQ/028)
+See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html)
 
 ### printf
 
@@ -858,7 +858,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 dir=${0%/*}
 ```
 
-See: [How do I determine the location of my script file?](https://mywiki.wooledge.org/BashFAQ/028)
+See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html)
 
 ### Getting options
 
@@ -878,7 +878,7 @@ esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi
 ```
 
-See: [How do I handle command-line options?](https://mywiki.wooledge.org/BashFAQ/035)
+See: [getopts](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-getopts)
 
 ### Heredoc
 

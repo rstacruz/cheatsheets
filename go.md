@@ -272,7 +272,7 @@ for i, val := range entry {
 }
 ```
 
-See: [For-Range loops](https://gobyexample.com/range)
+See: [For statements](https://go.dev/ref/spec#For_statements), [Range](https://go.dev/tour/moretypes/16)
 
 ### While loop
 

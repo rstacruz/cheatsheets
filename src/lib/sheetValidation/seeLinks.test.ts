@@ -5,6 +5,7 @@ import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
 import { getPages } from '../page'
+import { scanHeadings } from './outline'
 import { loadBaseline, saveBaseline, updatingBaseline } from './baseline'
 import { scanFences } from './utils'
 
@@ -109,7 +110,7 @@ function hasQualifyingLink(source: string, node: RootContent) {
  * returns each H3 whose last content block has no inline link and that has no
  * `See:` line and no `<!-- see: none -->` marker.
  */
-export function findMissingLinksOrSee(source: string): Finding[] {
+function findMissingLinksOrSee(source: string): Finding[] {
   const lines = source.split('\n')
   const { fenced } = scanFences(lines)
   const found: Finding[] = []
@@ -367,6 +368,11 @@ test('every tiered sheet gives each H3 a link or See', async () => {
       (page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2')
   )
   expect(tiered.length).toBeGreaterThan(0)
+  expect(
+    tiered.some((page) =>
+      scanHeadings(page.markdown).some((heading) => heading.level === 3)
+    )
+  ).toBe(true)
 
   const findings = tiered.flatMap((page) =>
     findMissingLinksOrSee(page.markdown).map((finding) => ({

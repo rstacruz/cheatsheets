@@ -76,6 +76,8 @@ msg := "Hello"
 x, msg := 1, "Hello"
 ```
 
+See: [Variables](https://go.dev/tour/basics/8)
+
 ### Constants
 
 ```go
@@ -117,6 +119,8 @@ string`
 
 Strings are of type `string`.
 
+See: [String types](https://go.dev/ref/spec#String_types)
+
 ### Numbers
 
 #### Typical types
@@ -135,6 +139,8 @@ var u uint = 7        // uint (unsigned)
 var p float32 = 22.7  // 32-bit float
 ```
 
+See: [Numeric types](https://go.dev/ref/spec#Numeric_types)
+
 ### Arrays
 
 ```go
@@ -143,6 +149,8 @@ numbers := [...]int{0, 0, 0, 0, 0}
 ```
 
 Arrays have a fixed size.
+
+See: [Arrays](https://go.dev/tour/moretypes/6)
 
 ### Slices
 
@@ -155,6 +163,8 @@ slice := []byte("Hello")
 ```
 
 Slices have a dynamic size, unlike arrays.
+
+See: [Slices](https://go.dev/tour/moretypes/7)
 
 ### Pointers
 
@@ -290,6 +300,8 @@ myfunc := func() bool {
 
 Functions are first class objects.
 
+See: [Function literals](https://go.dev/ref/spec#Function_literals)
+
 ### Multiple return types
 
 ```go
@@ -303,6 +315,7 @@ func getMessage() (a string, b string) {
 ```
 {: data-line="2"}
 
+See: [Multiple results](https://go.dev/tour/basics/6)
 
 ### Named return values
 
@@ -351,6 +364,8 @@ import r "math/rand"
 r.Intn()
 ```
 
+See: [Import declarations](https://go.dev/ref/spec#Import_declarations)
+
 ### Exporting names
 
 ```go
@@ -370,6 +385,8 @@ package hello
 ```
 
 Every package file has to start with `package`.
+
+See: [Packages](https://go.dev/tour/basics/1)
 
 ## Concurrency
 {: .-three-column}
@@ -528,6 +545,8 @@ func main() {
 {: data-line="3,4,5"}
 The defer func uses current value of d, unless we use a pointer to get final value at end of main.
 
+See: [Defer, panic and recover](https://go.dev/blog/defer-panic-and-recover)
+
 ## Structs
 {: .-three-column}
 
@@ -569,6 +588,8 @@ v := Vertex{X: 1}
 
 You can also put field names.
 
+See: [Struct literals](https://go.dev/tour/moretypes/5)
+
 ### Pointers to structs
 
 ```go
@@ -577,6 +598,8 @@ v.X = 2
 ```
 
 Doing `v.X` is the same as doing `(*v).X`, when `v` is a pointer.
+
+See: [Pointers to structs](https://go.dev/tour/moretypes/4)
 
 ## Methods
 
@@ -635,6 +658,8 @@ type Shape interface {
 }
 ```
 
+See: [Interfaces](https://go.dev/tour/methods/9)
+
 ### Struct
 
 ```go
@@ -644,6 +669,8 @@ type Rectangle struct {
 ```
 
 Struct `Rectangle` implicitly implements interface `Shape` by implementing all of its methods.
+
+See: [Interfaces are implemented implicitly](https://go.dev/tour/methods/10)
 
 ### Methods
 
@@ -659,6 +686,8 @@ func (r Rectangle) Perimeter() float64 {
 
 The methods defined in `Shape` are implemented in `Rectangle`.
 
+See: [Method sets](https://go.dev/ref/spec#Method_sets)
+
 ### Interface example
 
 ```go
@@ -667,6 +696,8 @@ func main() {
   fmt.Printf("Type of r: %T, Area: %v, Perimeter: %v.", r, r.Area(), r.Perimeter())
 }
 ```
+
+See: [Interface values](https://go.dev/tour/methods/11)
 
 ## References
 

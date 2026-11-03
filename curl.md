@@ -27,6 +27,8 @@ tier: t2
 -I           # --head: headers only
 ```
 
+See: [curl man page](https://curl.se/docs/manpage.html)
+
 ### Request
 
 ```bash
@@ -35,6 +37,8 @@ tier: t2
 -F               # --form: HTTP POST data for multipart/form-data
 ```
 
+See: [-X, --request](https://curl.se/docs/manpage.html#-X)
+
 ### Data
 
 ```bash
@@ -42,6 +46,8 @@ tier: t2
 -d @file     # --data via file
 -G           # --get: send -d data via get
 ```
+
+See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 
 ### Headers
 
@@ -52,6 +58,8 @@ tier: t2
 -H "X-Foo: y"    # --header
 --compressed     # use deflate/gzip
 ```
+
+See: [-H, --header](https://curl.se/docs/manpage.html#-H)
 
 ### SSL
 
@@ -65,6 +73,8 @@ tier: t2
     --cert-type       # der/pem/eng
 -k, --insecure        # for self-signed certs
 ```
+
+See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 
 ## Examples
 {: .-one-column}

@@ -27,19 +27,19 @@ placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
     <span class="prefix">{t.prefix}</span>
     <span class="sep">/</span>
     {
-      (
-        <input
-          name="q"
-          type="text"
-          class="input"
-          {...(props.isLive ? { autofocus: true } : {})}
-          data-js-search-input
-          placeholder={placeholder}
-          autocomplete="off"
-        />
-      )
+      <input
+        name="q"
+        type="text"
+        class="input"
+        {...(props.isLive ? { autofocus: true } : {})}
+        data-js-search-input
+        placeholder={placeholder}
+        autocomplete="off"
+      />
     }
-    <span class="icon"><Icon name="md-search" size={32} /></span>
+    <span class="icon">
+      <Icon name="md-search" size={32} />
+    </span>
   </label>
 </form>
 

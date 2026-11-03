@@ -59,7 +59,6 @@
     "vitest": "^1.4.0",
     "zod": "^3.22.4"
   },
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2",
   "devDependencies": {
     "@astrojs/compiler-rs": "0.5.2",
     "@iconify-json/ion": "^1.2.7",
@@ -71,5 +70,6 @@
     "mdast-util-to-hast": "^13.2.0",
     "oxfmt": "0.75.0",
     "oxlint": "1.90.0"
-  }
+  },
+  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2"
 }

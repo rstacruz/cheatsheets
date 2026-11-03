@@ -59,7 +59,9 @@ const headingStyles = {
       <div class="mt-8"></div>
 
       {/* Publicite */}
-      <div class="pubbox"><CarbonBox /></div>
+      <div class="pubbox">
+        <CarbonBox />
+      </div>
 
       <div class="mt-8"></div>
     </div>
@@ -72,37 +74,40 @@ const headingStyles = {
       <h2 class="category item" data-js-searchable-header>
         <span>{t.recentlyUpdated}</span>
       </h2>
-      {recentPages.map((page) => <PageListItem page={page} />)}
+      {recentPages.map((page) => (
+        <PageListItem page={page} />
+      ))}
 
-      {
-        Object.values(pageCategories).map((category) => {
-          if (category.pages.length === 0) return
+      {Object.values(pageCategories).map((category) => {
+        if (category.pages.length === 0) return
 
-          return (
-            <>
-              <h2 class="category item" data-js-searchable-header>
-                <span>{category.title}</span>
-              </h2>
+        return (
+          <>
+            <h2 class="category item" data-js-searchable-header>
+              <span>{category.title}</span>
+            </h2>
 
-              {category.pages.map((page) => (
-                <PageListItem page={page} />
-              ))}
-            </>
-          )
-        })
-      }
+            {category.pages.map((page) => (
+              <PageListItem page={page} />
+            ))}
+          </>
+        )
+      })}
 
       <div class="message item missing-message">
         <h3>{t.seeSomethingMissing}</h3>
         <p>
-          <a class="push-button" href={urls.newCheatsheetUrl}
-            >{t.requestCheatsheet}</a
-          >
+          <a class="push-button" href={urls.newCheatsheetUrl}>
+            {t.requestCheatsheet}
+          </a>
         </p>
       </div>
 
       <p class="item pt-8 text-center text-sm text-zinc-500">
-        <a class="hover:underline" href="/archive">Archive</a> — older cheatsheets
+        <a class="hover:underline" href="/archive">
+          Archive
+        </a>{' '}
+        — older cheatsheets
       </p>
     </div>
   </div>

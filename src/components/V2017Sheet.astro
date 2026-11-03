@@ -67,11 +67,9 @@ const headingStyles = {
 <BaseLayout bodyClass="HighlightPubFirstLine">
   <Fragment slot="head">
     <SEO {...seoProps} />
-    {
-      jsonLdSchemas.map((schema) => (
-        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-      ))
-    }
+    {jsonLdSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </Fragment>
 
   <TopNav page={page} />
@@ -83,44 +81,40 @@ const headingStyles = {
       </h1>
 
       {/* Publicite */}
-      <div class={headingStyles.pubbox} data-js-no-preview><CarbonBox /></div>
+      <div class={headingStyles.pubbox} data-js-no-preview>
+        <CarbonBox />
+      </div>
     </header>
 
     <div class={headingStyles.spacer}></div>
 
     {/* WIP */}
-    {
-      tags.includes('WIP') ? (
-        <NoticeBox>
-          This page is a work in progress. You can help by{' '}
-          <a href={editUrl}>suggesting edits</a>!
-        </NoticeBox>
-      ) : null
-    }
+    {tags.includes('WIP') ? (
+      <NoticeBox>
+        This page is a work in progress. You can help by{' '}
+        <a href={editUrl}>suggesting edits</a>!
+      </NoticeBox>
+    ) : null}
 
     {/* Archived or deprecated */}
-    {
-      archived ? (
-        <NoticeBox class="text-xl">
-          <strong>Archived:</strong> <Fragment set:html={archived} />
-        </NoticeBox>
-      ) : deprecated ? (
-        <NoticeBox class="text-xl">
-          <strong>Deprecated:</strong> This guide covers an older version.{' '}
-          {deprecatedBy ? (
-            <a href={deprecatedBy}>A newer version is available here.</a>
-          ) : null}
-        </NoticeBox>
-      ) : null
-    }
+    {archived ? (
+      <NoticeBox class="text-xl">
+        <strong>Archived:</strong> <Fragment set:html={archived} />
+      </NoticeBox>
+    ) : deprecated ? (
+      <NoticeBox class="text-xl">
+        <strong>Deprecated:</strong> This guide covers an older version.{' '}
+        {deprecatedBy ? (
+          <a href={deprecatedBy}>A newer version is available here.</a>
+        ) : null}
+      </NoticeBox>
+    ) : null}
 
-    {
-      intro ? (
-        <div class="intro-content text-xl MarkdownBody">
-          <Fragment set:html={intro} />
-        </div>
-      ) : null
-    }
+    {intro ? (
+      <div class="intro-content text-xl MarkdownBody">
+        <Fragment set:html={intro} />
+      </div>
+    ) : null}
 
     <div class={headingStyles.spacer}></div>
 
@@ -135,7 +129,9 @@ const headingStyles = {
   </div>
 
   <div class="pre-footer" data-js-no-preview>
-    <i class="icon"><Icon name="ios-flash" size={32} /></i>
+    <i class="icon">
+      <Icon name="ios-flash" size={32} />
+    </i>
   </div>
   <CommentsArea identifier={page.slug} />
   <SearchFooter />

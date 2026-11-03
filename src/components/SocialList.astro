@@ -38,13 +38,14 @@ const xURL = `https://x.com/intent/post?text=${encodeURIComponent(tweet)}`
       href={facebookURL}
       target="share"
       aria-label={t.facebookShare}
-      role="button"><Icon name="logo-facebook" size={16} /></a
+      role="button"
     >
-  </li>
-  {' '}
+      <Icon name="logo-facebook" size={16} />
+    </a>
+  </li>{' '}
   <li class="x link hint--bottom" data-hint={t.xShare}>
-    <a href={xURL} target="share" aria-label={t.xShare} role="button"
-      ><Icon name="logo-x" size={16} /></a
-    >
+    <a href={xURL} target="share" aria-label={t.xShare} role="button">
+      <Icon name="logo-x" size={16} />
+    </a>
   </li>
 </ul>

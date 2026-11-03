@@ -19,28 +19,20 @@ function toArray(input: string | string[]): string[] {
 
 {props.title ? <title>{props.title}</title> : null}
 
-{
-  props.meta
-    ? Object.entries(props.meta).flatMap(([name, contents]) =>
-        toArray(contents).map((content) => (
-          <meta name={name} content={content} />
-        ))
-      )
-    : null
-}
-{
-  props.metaProperties
-    ? Object.entries(props.metaProperties).flatMap(([property, contents]) =>
-        toArray(contents).map((content) => (
-          <meta property={property} content={content} />
-        ))
-      )
-    : null
-}
-{
-  props.links
-    ? Object.entries(props.links).map(([rel, href]) => (
-        <link rel={rel} href={href} />
+{props.meta
+  ? Object.entries(props.meta).flatMap(([name, contents]) =>
+      toArray(contents).map((content) => <meta name={name} content={content} />)
+    )
+  : null}
+{props.metaProperties
+  ? Object.entries(props.metaProperties).flatMap(([property, contents]) =>
+      toArray(contents).map((content) => (
+        <meta property={property} content={content} />
       ))
-    : null
-}
+    )
+  : null}
+{props.links
+  ? Object.entries(props.links).map(([rel, href]) => (
+      <link rel={rel} href={href} />
+    ))
+  : null}

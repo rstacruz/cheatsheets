@@ -237,6 +237,8 @@ both policy blocks off. ACL blocks stay on; prefer bucket policies.
 }
 ```
 
+The same policy blocks must be off at account level.
+
 For private hosting, serve through CloudFront with an S3 REST origin and OAC,
 then leave every block on.
 

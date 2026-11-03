@@ -5,8 +5,7 @@
   "env": { "browser": true },
   "ignorePatterns": ["dist/**"],
   "rules": {
-    "typescript/no-explicit-any": "warn",
-    "unicorn/no-new-array": "off"
+    "typescript/no-explicit-any": "warn"
   },
   "overrides": [
     {

@@ -66,7 +66,7 @@ Sync copies new and changed files only, in either direction.
 | `--delete` | Remove destination files missing from source |
 | `--size-only` | Compare by size, ignoring timestamps |
 | `--exact-timestamps` | On S3 to local, require exact mtimes |
-| `--ignore-glacier-warnings` | Skip Glacier objects without failing |
+| `--ignore-glacier-warnings` | Suppress Glacier warnings and exit code 2 |
 {: .-key-values}
 
 ### Copy between buckets

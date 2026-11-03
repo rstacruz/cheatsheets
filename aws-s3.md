@@ -39,6 +39,8 @@ aws s3 cp file.txt s3://mybucket/ --no-overwrite
 | `--no-progress` | Hide the progress bar |
 {: .-key-values}
 
+See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
+
 ### Download
 
 ```bash
@@ -49,6 +51,8 @@ aws s3 cp s3://mybucket/archive.zip . --checksum-mode ENABLED
 
 `--checksum-mode ENABLED` verifies the stored checksum when the object has
 one.
+
+See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 
 ### Sync
 
@@ -69,6 +73,8 @@ Sync copies new and changed files only, in either direction.
 | `--ignore-glacier-warnings` | Suppress Glacier warnings and exit code 2 |
 {: .-key-values}
 
+See: [aws s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
+
 ### Copy between buckets
 
 ```bash
@@ -81,6 +87,8 @@ aws s3 cp s3://source-bucket/key s3://dest-bucket/key \
 `--region` names the destination's region; `--source-region` names the
 source's. `--copy-props` controls which metadata follows the object.
 
+See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
+
 ### Presigned URLs
 
 ```bash
@@ -91,6 +99,8 @@ aws s3 presign s3://mybucket/report.pdf --expires-in 604800
 
 Each URL grants temporary GET access, one hour by default; `--expires-in`
 caps at 604800 seconds (7 days).
+
+See: [aws s3 presign](https://docs.aws.amazon.com/cli/latest/reference/s3/presign.html)
 
 ## Objects
 
@@ -107,6 +117,9 @@ aws s3api list-objects-v2 --bucket mybucket --prefix logs/ \
 
 `ls` on a bucket lists root objects and prefixes; `--recursive` walks every
 key.
+
+See: [aws s3 ls](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html),
+[list-objects-v2](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html)
 
 ### Metadata
 
@@ -129,6 +142,8 @@ Content headers are set at upload time; `head-object` reads them back.
 | `--metadata` | Custom `x-amz-meta-*` key pairs |
 {: .-key-values}
 
+See: [head-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/head-object.html)
+
 ### Delete
 
 ```bash
@@ -148,6 +163,9 @@ Always dry run `rm --recursive` first; it deletes every key under the prefix.
 }
 ```
 
+See: [aws s3 rm](https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html),
+[delete-objects](https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html)
+
 ## Buckets
 
 ### Create and delete
@@ -161,6 +179,9 @@ aws s3 rb s3://mybucket --force   # destructive
 
 Bucket names are globally unique; `mb` creates one in the given region.
 `rb --force` cannot empty a versioned bucket: delete its versions first.
+
+See: [aws s3 mb](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html),
+[aws s3 rb](https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html)
 
 ### Versioning and lifecycle
 
@@ -189,6 +210,9 @@ objects.
 }
 ```
 
+See: [put-bucket-versioning](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-versioning.html),
+[put-bucket-lifecycle-configuration](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-lifecycle-configuration.html)
+
 ### Policies and CORS
 
 ```bash
@@ -216,6 +240,9 @@ ACLs (`--acl`, `--grants`) are legacy; prefer bucket policies.
 }
 ```
 
+See: [put-bucket-policy](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-policy.html),
+[put-bucket-cors](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-cors.html)
+
 ### Static websites
 
 ```bash
@@ -241,6 +268,8 @@ The same policy blocks must be off at account level.
 
 For private hosting, serve through CloudFront with an S3 REST origin and OAC,
 then leave every block on.
+
+See: [Hosting a static website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 
 ## Also see
 

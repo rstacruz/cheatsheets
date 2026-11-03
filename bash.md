@@ -35,6 +35,8 @@ name="John"
 echo "Hello $name!"
 ```
 
+See: [Shell scripts](https://www.gnu.org/software/bash/manual/html_node/Shell-Scripts.html)
+
 ### Variables
 
 ```bash
@@ -52,6 +54,8 @@ options="iv"
 cp -$options $wildcard /tmp
 ```
 
+See: [Shell parameters](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html)
+
 ### String quotes
 
 ```bash
@@ -59,6 +63,8 @@ name="John"
 echo "Hi $name"  #=> Hi John
 echo 'Hi $name'  #=> Hi $name
 ```
+
+See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 
 ### Shell execution
 
@@ -76,6 +82,8 @@ See [Command substitution](https://web.archive.org/web/20230326081741/https://wi
 git commit && git push
 git commit || echo "Commit failed"
 ```
+
+See: [Lists](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
 
 ### Functions
 {: id='functions-example'}
@@ -188,6 +196,8 @@ echo ${!prefix_*}  # all variables names starting with `prefix_`
 prefix_a prefix_b
 ```
 
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
 ### Indirection
 
 ```bash
@@ -196,6 +206,8 @@ pointer=name
 echo ${!pointer}
 joe
 ```
+
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ### Substitution
 
@@ -215,6 +227,8 @@ joe
 | `${foo/%from/to}` | Replace suffix      |
 | `${foo/#from/to}` | Replace prefix      |
 
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
 ### Comments
 
 ```bash
@@ -229,6 +243,8 @@ comment
 '
 ```
 
+See: [Comments](https://www.gnu.org/software/bash/manual/html_node/Comments.html)
+
 ### Substrings
 
 | Expression      | Description                    |
@@ -236,11 +252,15 @@ comment
 | `${foo:0:3}`    | Substring _(position, length)_ |
 | `${foo:(-3):3}` | Substring from the right       |
 
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
 ### Length
 
 | Expression | Description      |
 | ---------- | ---------------- |
 | `${#foo}`  | Length of `$foo` |
+
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ### Manipulation
 
@@ -254,6 +274,8 @@ echo "${str^}"   #=> "Hello world!" (uppercase 1st letter)
 echo "${str^^}"  #=> "HELLO WORLD!" (all uppercase)
 ```
 
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
 ### Default values
 
 | Expression        | Description                                              |
@@ -264,6 +286,8 @@ echo "${str^^}"  #=> "HELLO WORLD!" (all uppercase)
 | `${foo:?message}` | Show error message and exit if `$foo` is unset (or null) |
 
 Omitting the `:` removes the (non)nullity checks, e.g. `${foo-val}` expands to `val` if unset otherwise `$foo`.
+
+See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ## Loops
 {: .-three-column}
@@ -276,6 +300,8 @@ for i in /etc/rc.*; do
 done
 ```
 
+See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
+
 ### C-like for loop
 
 ```bash
@@ -283,6 +309,8 @@ for ((i = 0 ; i < 100 ; i++)); do
   echo "$i"
 done
 ```
+
+See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
 ### Ranges
 
@@ -300,6 +328,8 @@ for i in {5..50..5}; do
 done
 ```
 
+See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
+
 ### Reading lines
 
 ```bash
@@ -308,6 +338,8 @@ while read -r line; do
 done <file.txt
 ```
 
+See: [Reading a file line by line](https://mywiki.wooledge.org/BashFAQ/001)
+
 ### Forever
 
 ```bash
@@ -315,6 +347,8 @@ while true; do
   ···
 done
 ```
+
+See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
 ## Functions
 {: .-three-column}
@@ -338,6 +372,8 @@ function myfunc {
 myfunc "John"
 ```
 
+See: [Shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html)
+
 ### Returning values
 
 ```bash
@@ -350,6 +386,8 @@ myfunc() {
 ```bash
 result=$(myfunc)
 ```
+
+See: [Returning a string from a function](https://mywiki.wooledge.org/BashFAQ/084)
 
 ### Raising errors
 
@@ -366,6 +404,8 @@ else
   echo "failure"
 fi
 ```
+
+See: [Exit status](https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html)
 
 ### Arguments
 
@@ -417,6 +457,8 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | `[[ X && Y ]]`       | And                      |
 | `[[ X || Y ]]`       | Or                       |
 
+See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
+
 ### File conditions
 
 | Condition               | Description             |
@@ -433,6 +475,8 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
 | `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
 | `[[ FILE1 -ef FILE2 ]]` | Same files              |
+
+See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
 
 ### Example
 
@@ -476,6 +520,8 @@ if [[ -e "file.txt" ]]; then
 fi
 ```
 
+See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
+
 ## Arrays
 
 ### Defining arrays
@@ -490,6 +536,8 @@ Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
 
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
+
 ### Working with arrays
 
 ```bash
@@ -503,6 +551,8 @@ echo "${Fruits[@]:3:2}"       # Range (from position 3, length 2)
 echo "${!Fruits[@]}"          # Keys of all elements, space-separated
 ```
 
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
+
 ### Operations
 
 ```bash
@@ -515,6 +565,8 @@ Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
 words=($(< datafile))                   # From file (split by IFS)
 ```
 
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
+
 ### Iteration
 
 ```bash
@@ -522,6 +574,8 @@ for i in "${arrayName[@]}"; do
   echo "$i"
 done
 ```
+
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
 ## Dictionaries
 {: .-three-column}
@@ -541,6 +595,8 @@ sounds[wolf]="howl"
 
 Declares `sound` as a Dictionary object (aka associative array).
 
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
+
 ### Working with dictionaries
 
 ```bash
@@ -550,6 +606,8 @@ echo "${!sounds[@]}"  # All keys
 echo "${#sounds[@]}"  # Number of elements
 unset sounds[dog]     # Delete dog
 ```
+
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
 ### Iteration
 
@@ -569,6 +627,8 @@ for key in "${!sounds[@]}"; do
 done
 ```
 
+See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
+
 ## Options
 
 ### Options
@@ -579,6 +639,8 @@ set -o errexit    # Used to exit upon error, avoiding cascading errors
 set -o pipefail   # Unveils hidden failures
 set -o nounset    # Exposes unset variables
 ```
+
+See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
 ### Glob options
 
@@ -593,6 +655,8 @@ shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
+See: [The shopt builtin](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
+
 ## History
 
 ### Commands
@@ -601,6 +665,8 @@ matches.
 | --------------------- | ----------------------------------------- |
 | `history`             | Show history                              |
 | `shopt -s histverify` | Don't execute expanded result immediately |
+
+See: [Bash history facilities](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html)
 
 ### Expansions
 
@@ -611,6 +677,8 @@ matches.
 | `!-n`        | Expand `n`th most recent command                     |
 | `!n`         | Expand `n`th command in history                      |
 | `!<command>` | Expand most recent invocation of command `<command>` |
+
+See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Event-Designators.html)
 
 ### Operations
 
@@ -624,6 +692,8 @@ matches.
 
 `!!` and `!$` can be replaced with any valid expansion.
 
+See: [Modifiers](https://www.gnu.org/software/bash/manual/html_node/Modifiers.html)
+
 ### Slices
 
 | Code     | Description                                                                              |
@@ -635,6 +705,8 @@ matches.
 | `!!:n-$` | Expand `n`th token to last from most recent command                                      |
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
+
+See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html)
 
 ## Miscellaneous
 
@@ -653,12 +725,16 @@ declare -i count  # Declare as type integer
 count+=1          # Increment
 ```
 
+See: [Shell arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)
+
 ### Subshells
 
 ```bash
 (cd somedir; echo "I'm now in $PWD")
 pwd # still in first directory
 ```
+
+See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html)
 
 ### Redirection
 
@@ -678,12 +754,16 @@ python hello.py < foo.txt      # feed foo.txt to stdin for python
 diff <(ls -r) <(ls)            # Compare two stdout without files
 ```
 
+See: [Redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+
 ### Inspecting commands
 
 ```bash
 command -V cd
 #=> "cd is a function/alias/whatever"
 ```
+
+See: [Bash builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
 ### Trap errors
 
@@ -702,6 +782,8 @@ set -o errtrace
 trap traperr ERR
 ```
 
+See: [The trap builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+
 ### Case/switch
 
 ```bash
@@ -716,11 +798,15 @@ case "$1" in
 esac
 ```
 
+See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
+
 ### Source relative
 
 ```bash
 source "${0%/*}/../share/foo.sh"
 ```
+
+See: [How do I determine the location of my script file?](https://mywiki.wooledge.org/BashFAQ/028)
 
 ### printf
 
@@ -738,6 +824,8 @@ printf '%s\n' '#!/bin/bash' 'echo hello' >file
 # format string is applied to each group of arguments
 printf '%i+%i=%i\n' 1 2 3  4 5 9
 ```
+
+See: [The printf builtin](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
 ### Transform strings
 
@@ -762,11 +850,15 @@ echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
 WELCOME TO DEVHINTS
 ```
 
+See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-invocation.html)
+
 ### Directory of script
 
 ```bash
 dir=${0%/*}
 ```
+
+See: [How do I determine the location of my script file?](https://mywiki.wooledge.org/BashFAQ/028)
 
 ### Getting options
 
@@ -785,6 +877,8 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
 esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi
 ```
+
+See: [How do I handle command-line options?](https://mywiki.wooledge.org/BashFAQ/035)
 
 ### Heredoc
 
@@ -832,6 +926,8 @@ The `-r` option disables a peculiar legacy behavior with backslashes.
 read -n 1 ans    # Just one character
 ```
 
+See: [The read builtin](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
+
 ### Special variables
 
 | Expression         | Description                            |
@@ -855,6 +951,8 @@ cd -
 pwd # /home/user/foo
 ```
 
+See: [The cd builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+
 ### Check for command's result
 
 ```bash
@@ -863,6 +961,8 @@ if ping -c 1 google.com; then
 fi
 ```
 
+See: [Exit status](https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html)
+
 ### Grep check
 
 ```bash
@@ -870,6 +970,8 @@ if grep -q 'foo' ~/.bash_history; then
   echo "You appear to have typed 'foo' in the past"
 fi
 ```
+
+See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 
 ## Also see
 {: .-one-column}

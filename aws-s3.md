@@ -226,16 +226,19 @@ aws s3api put-public-access-block --bucket mybucket \
 ```
 
 Website endpoints are public, so the bucket needs a public read policy and
-public access blocks off. Front it with CloudFront to keep blocks on.
+both policy blocks off. ACL blocks stay on; prefer bucket policies.
 
 ```json
 {
-  "BlockPublicAcls": false,
-  "IgnorePublicAcls": false,
+  "BlockPublicAcls": true,
+  "IgnorePublicAcls": true,
   "BlockPublicPolicy": false,
   "RestrictPublicBuckets": false
 }
 ```
+
+For private hosting, serve through CloudFront with an S3 REST origin and OAC,
+then leave every block on.
 
 ## Also see
 

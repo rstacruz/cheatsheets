@@ -155,10 +155,11 @@ Always dry run `rm --recursive` first; it deletes every key under the prefix.
 aws s3 mb s3://mybucket --region us-west-2
 aws s3api list-buckets --query 'Buckets[].Name' --output text
 aws s3api get-bucket-location --bucket mybucket --output text
-aws s3 rb s3://mybucket --force   # destructive: empties the bucket
+aws s3 rb s3://mybucket --force   # destructive
 ```
 
 Bucket names are globally unique; `mb` creates one in the given region.
+`rb --force` cannot empty a versioned bucket: delete its versions first.
 
 ### Versioning and lifecycle
 

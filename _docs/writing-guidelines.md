@@ -104,16 +104,10 @@ shows the shape.
 
 ## H3 writing guidelines
 
-- End each H3 with a documentation link in its last content block, or add a
-`See:` line anywhere in the section.
-- `See:` must start a line at column 0 and begin a paragraph; `See also:` and
-mid-paragraph `See:` do not count. The line may be linkless:
-``See: `:help motion.txt` ``.
-- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style
-links, images, links in code, and absolute `devhints.io` links do not count;
-links to other sheets do.
-- An H3 with no upstream docs opts out with a marker on its own line at column
-0, with an optional reason:
+- End each H3 with a documentation link in its last content block, or add a `See:` line anywhere in the section.
+- `See:` must start a line at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless: ``See: `:help motion.txt` ``.
+- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not count; links to other sheets do.
+- An H3 with no upstream docs opts out with a marker on its own line at column 0, with an optional reason:
 
   ```md
   ### Browser console
@@ -344,10 +338,7 @@ only new ones fail. Regenerate the baselines after cleaning sheets up:
 UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 ```
 
-The `every tiered sheet gives each H3 a link or See` check covers `tier: t1`
-and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)).
-Existing gaps live in `baseline/seeLinks.json`; fix `t1` gaps first. H3s from
-`{% include %}` files are out of scope.
+The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). Existing gaps live in `baseline/seeLinks.json`; fix `t1` gaps first. H3s from `{% include %}` files are out of scope.
 
 ## SEO descriptions
 

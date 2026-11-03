@@ -6,9 +6,9 @@
 - **Build**: `pnpm build`
 - **Test**: `pnpm test` (runs Vitest in watch mode)
 - **Run single test**: `pnpm vitest run <file-path>` or `pnpm vitest <file-path>` (watch mode)
-- **All tests (CI)**: `pnpm ci` (runs all linters, tests, and build)
-- **Lint**: `pnpm lint:check` or `pnpm fmt:check` (oxlint, oxfmt)
-- **Format**: `pnpm format` (runs both oxlint and oxfmt fixes)
+- **All tests (CI)**: `pnpm run ci` (runs all linters, tests, and build)
+- **Lint**: `pnpm lint:check` (oxlint)
+- **Format**: `pnpm fmt:check` to check, `pnpm format` to fix (oxfmt)
 
 ## Code style
 

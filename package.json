@@ -10,7 +10,7 @@
     "dev": "node scripts/build-icons.mjs && astro dev",
     "fmt:check": "oxfmt --check .",
     "fmt:format": "oxfmt --write .",
-    "format": "concurrently -m 1 \"npm:*:format\"",
+    "format": "concurrently -m 1 \"npm:lint:format\" \"npm:fmt:format\"",
     "icons": "node scripts/build-icons.mjs",
     "icons:check": "node scripts/build-icons.mjs --check",
     "lint:check": "oxlint .",

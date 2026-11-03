@@ -53,6 +53,8 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+q` | Detach; everything keeps running |
 {: .-shortcuts}
 
+See: [Keyboard: learn these five first](https://herdr.dev/docs/keyboard/#learn-these-five-first)
+
 ## Default bindings
 
 ### Panes
@@ -74,6 +76,8 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+[` | Enter copy mode |
 {: .-shortcuts}
 
+See: [Keyboard: panes](https://herdr.dev/docs/keyboard/#the-rest-by-task)
+
 ### Tabs
 
 | Shortcut | Action |
@@ -84,6 +88,8 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+shift+t` | Rename tab |
 | `prefix+shift+x` | Close tab |
 {: .-shortcuts}
+
+See: [Keyboard: tabs](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 
 ### Workspaces and session
 
@@ -99,6 +105,8 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 | `prefix+shift+g` | New git worktree |
 | `prefix+q` | Detach; server and agents keep running |
 {: .-shortcuts}
+
+See: [Keyboard: workspaces and session](https://herdr.dev/docs/keyboard/#the-rest-by-task)
 
 ### Other
 
@@ -124,6 +132,8 @@ release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
 
 Press `prefix+w` before pressing the keys in the next sections.
 
+See: [Navigate mode](https://herdr.dev/docs/concepts/#modes)
+
 ### Movement
 
 | Key | Action |
@@ -132,6 +142,8 @@ Press `prefix+w` before pressing the keys in the next sections.
 | `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
 | `left` / `right` | Always focus the pane left / right |
 {: .-shortcuts}
+
+See: [Keybinding reference](https://herdr.dev/docs/configuration/#keybindings)
 
 ### Actions
 
@@ -147,6 +159,8 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 `enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved;
 `navigate_*` config fields take other plain keys.
 
+See: [Keybinding reference](https://herdr.dev/docs/configuration/#keybindings)
+
 ## Copy mode
 
 ### Activate
@@ -157,6 +171,8 @@ Its keys win while it is open, independent of `focus_pane_*`. `esc`,
 {: .-shortcuts}
 
 The pane keeps running while copy mode is open.
+
+See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ### Movement
 
@@ -173,6 +189,8 @@ The pane keeps running while copy mode is open.
 
 With the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
+See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+
 ### Search
 
 | Key | Action |
@@ -183,6 +201,8 @@ With the default prefix, `ctrl+b` enters prefix mode instead of paging up.
 
 Search is case-insensitive unless the query has an uppercase letter.
 
+See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
+
 ### Selection
 
 | Key | Action |
@@ -191,6 +211,8 @@ Search is case-insensitive unless the query has an uppercase letter.
 | `y` / `Enter` | Copy the selection and exit |
 | `q` / `Esc` | Leave copy mode |
 {: .-shortcuts}
+
+See: [Keyboard: copy mode](https://herdr.dev/docs/keyboard/#copy-mode)
 
 ## Editing text fields
 
@@ -203,6 +225,8 @@ Search is case-insensitive unless the query has an uppercase letter.
 | `alt+b` / `alt+f` | Move by word |
 {: .-shortcuts}
 
+See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
+
 ### Delete
 
 | Key | Action |
@@ -210,6 +234,8 @@ Search is case-insensitive unless the query has an uppercase letter.
 | `Backspace`, `ctrl+h` | Delete prev char |
 | `Delete`, `ctrl+d` | Delete next char |
 {: .-shortcuts}
+
+See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
 
 ### Cut and paste
 
@@ -224,6 +250,8 @@ Search is case-insensitive unless the query has an uppercase letter.
 These keys apply to Herdr-owned fields (dialogs, filters, copy-mode
 search), not the shell or agent in a pane. Cut text stays in the field;
 `Alt` shortcuts need a terminal that reports Alt/Meta.
+
+See: [Keyboard: editing text fields](https://herdr.dev/docs/keyboard/#editing-text-fields)
 
 ## Custom bindings
 
@@ -242,3 +270,5 @@ zoom = ["prefix+z", "ctrl+alt+z"]
 Every binding is configurable, including the prefix; an action can carry
 several shortcuts. Direct chords skip the prefix, and `ctrl+alt` is the
 safest family to look at.
+
+See: [Keybindings](https://herdr.dev/docs/configuration/#keybindings)

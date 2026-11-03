@@ -152,6 +152,9 @@ describe('findMissingLinksOrSee()', () => {
   })
 
   test('allows a linkless See: anywhere in the H3', () => {
+    expect(findMissingLinksOrSee('### A\n\nSee: docs\n\nMore text.')).toEqual(
+      []
+    )
     expect(
       findMissingLinksOrSee('### A\n\ntext\n\nSee: `:help motion.txt`')
     ).toEqual([])

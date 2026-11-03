@@ -338,7 +338,7 @@ only new ones fail. Regenerate the baselines after cleaning sheets up:
 UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 ```
 
-The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). Existing gaps live in `baseline/seeLinks.json`; fix `t1` gaps first. H3s from `{% include %}` files are out of scope.
+The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
 ## SEO descriptions
 

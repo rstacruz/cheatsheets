@@ -8,7 +8,7 @@
 - **Run single test**: `pnpm vitest run <file-path>` or `pnpm vitest <file-path>` (watch mode)
 - **All tests (CI)**: `pnpm run ci` (runs all linters, tests, and build)
 - **Lint**: `pnpm lint:check` (oxlint; `.astro` templates are not covered)
-- **Format**: `pnpm fmt:check` to check, `pnpm format` to fix (oxfmt + `oxlint --fix`)
+- **Format**: `pnpm fmt:check` reports differences, `pnpm format` fixes them (oxfmt + `oxlint --fix`)
 
 ## Code style
 

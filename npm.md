@@ -14,6 +14,8 @@ tier: t2
 | `npm install`                     | Install everything in package.json                        |
 | `npm install --production`        | Install everything in package.json, except devDependecies |
 
+See: [npm install](https://docs.npmjs.com/cli/commands/npm-install)
+
 ### Adding packages
 
 | Command                           | Description                                               |
@@ -21,6 +23,8 @@ tier: t2
 | `npm install lodash`              | Install a package                                         |
 | `npm install --save-dev lodash`   | Install as devDependency                                  |
 | `npm install --save-exact lodash` | Install with exact                                        |
+
+See: [npm install](https://docs.npmjs.com/cli/commands/npm-install)
 
 ### Listing
 
@@ -32,6 +36,8 @@ tier: t2
 | `npm outdated`     | Lists only the dependencies in this software which are outdated     |
 | `npm audit`        | Lists known vulnerabilities in the project                          |
 
+See: [npm ls](https://docs.npmjs.com/cli/commands/npm-ls)
+
 ### Updating
 
 | Command             | Description                |
@@ -42,12 +48,16 @@ tier: t2
 | ---                 | ---                        |
 | `npm update lodash` | Update a package           |
 
+See: [npm update](https://docs.npmjs.com/cli/commands/npm-update)
+
 
 ### Removing
 
 | Command             | Description                        |
 | ---                 | ---                                |
 | `npm rm lodash`     | Remove package production packages |
+
+See: [npm uninstall](https://docs.npmjs.com/cli/commands/npm-uninstall)
 
 ## More features
 
@@ -71,6 +81,8 @@ tier: t2
 | `npm i ./archive.tgz`                | Tarball                 |
 | `npm i https://site.com/archive.tgz` | Tarball via HTTP        |
 
+See: [Package spec](https://docs.npmjs.com/cli/using-npm/package-spec)
+
 ### Bumping versions
 
 | Command                           | Description                                               |
@@ -79,6 +91,8 @@ tier: t2
 | `npm version major`               | Bump the major package version by 1 (1.2.3 → 2.0.0)       |
 | `npm version minor`               | Bump the minor package version by 1 (1.2.3 → 1.3.0)       |
 | `npm version patch`               | Bump the patch package version by 1 (1.2.3 → 1.2.4)       |
+
+See: [npm version](https://docs.npmjs.com/cli/commands/npm-version)
 
 ### Misc features
 
@@ -111,3 +125,5 @@ npm outdated [PACKAGE]
 # Check the environment and cache
 npm doctor
 ```
+
+See: [npm doctor](https://docs.npmjs.com/cli/commands/npm-doctor)

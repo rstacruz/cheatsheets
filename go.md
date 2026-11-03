@@ -498,6 +498,7 @@ func doOperation(wg *sync.WaitGroup, item string) {
 {: data-line="2"}
 
 A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
+
 See: [WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
 
 

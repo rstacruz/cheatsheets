@@ -204,11 +204,15 @@ objects.
       "ID": "expire-tmp",
       "Filter": { "Prefix": "tmp/" },
       "Status": "Enabled",
-      "Expiration": { "Days": 7 }
+      "Expiration": { "Days": 7 },
+      "NoncurrentVersionExpiration": { "NoncurrentDays": 7 }
     }
   ]
 }
 ```
+
+`Expiration` only adds delete markers in a versioned bucket;
+`NoncurrentVersionExpiration` clears the old versions.
 
 See: [put-bucket-versioning](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-versioning.html),
 [put-bucket-lifecycle-configuration](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-lifecycle-configuration.html)

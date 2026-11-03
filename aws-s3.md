@@ -89,7 +89,7 @@ aws s3 presign s3://mybucket/report.pdf --expires-in 3600
 aws s3 presign s3://mybucket/report.pdf --expires-in 604800
 ```
 
-Links grant temporary GET access. The default is one hour; `--expires-in`
+Each URL grants temporary GET access, one hour by default; `--expires-in`
 caps at 604800 seconds (7 days).
 
 ## Objects

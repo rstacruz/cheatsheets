@@ -92,7 +92,7 @@ codex fork --last          # branch the latest chat
 | `codex apply <task>` | Apply a cloud diff locally       |
 {: .-shortcuts}
 
-See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands)
+See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Flags
 
@@ -121,7 +121,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands)
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
 {: .-shortcuts}
 
-See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands)
+See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Sandbox and approvals
 {: .-prime}
@@ -348,7 +348,7 @@ git diff | codex exec "review this diff for bugs"
 
 Inside a session, `/review` reviews the working tree and `/diff` shows the changes.
 
-See: [Code review](https://learn.chatgpt.com/docs/code-review)
+See: [Code review](https://learn.chatgpt.com/docs/code-review?surface=cli)
 
 ### Cloud tasks
 

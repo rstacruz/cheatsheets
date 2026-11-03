@@ -13,7 +13,7 @@
     "format": "concurrently -m 1 \"npm:lint:format\" \"npm:fmt:format\"",
     "icons": "node scripts/build-icons.mjs",
     "icons:check": "node scripts/build-icons.mjs --check",
-    "lint:check": "oxlint .",
+    "lint:check": "oxlint --report-unused-disable-directives-severity=error .",
     "lint:format": "oxlint --fix .",
     "preview": "astro preview",
     "start": "astro dev",

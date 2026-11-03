@@ -105,7 +105,8 @@ aws s3api list-objects-v2 --bucket mybucket --prefix logs/ \
   --query 'Contents[].{Key:Key,Size:Size}' --output table
 ```
 
-`ls` on a bucket lists top-level prefixes; `--recursive` walks every key.
+`ls` on a bucket lists root objects and prefixes; `--recursive` walks every
+key.
 
 ### Metadata
 

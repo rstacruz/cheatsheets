@@ -24,6 +24,8 @@ $x("//div")
 
 Works in Firefox and Chromium browsers.
 
+See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-function), [Firefox console helpers](https://firefox-source-docs.mozilla.org/devtools-user/web_console/helpers/index.html)
+
 ## Selectors
 
 ### Descendant selectors
@@ -130,6 +132,8 @@ Expressions
 | Axis | Step | Axis | Step            |
 {: .-css-breakdown}
 
+See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
+
 ### Prefixes
 
 | Prefix | Example               | What     |
@@ -141,6 +145,8 @@ Expressions
 
 Begin your expression with any of these.
 
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
+
 ### Axes
 
 | Axis | Example             | What       |
@@ -150,6 +156,8 @@ Begin your expression with any of these.
 {: .-headers}
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
+
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes)
 
 ### Steps
 
@@ -168,6 +176,8 @@ They can also be these other things:
 //a/*          #=> All a's child elements
 ```
 
+See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
+
 Predicates
 ----------
 
@@ -180,6 +190,8 @@ Predicates
 ```
 
 Restricts a nodeset only if some condition is true. They can be chained.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Operators
 
@@ -198,6 +210,8 @@ Restricts a nodeset only if some condition is true. They can be chained.
 
 Use comparison and logic operators to make conditionals.
 
+See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
+
 ### Using nodes
 
 ```bash
@@ -213,6 +227,8 @@ Use comparison and logic operators to make conditionals.
 
 You can use nodes inside predicates.
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Indexing
 
 ```bash
@@ -225,6 +241,8 @@ You can use nodes inside predicates.
 
 Use `[]` with a number, or `last()` or `position()`.
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Chaining order
 
 ```bash
@@ -234,6 +252,8 @@ a[@href='/'][1]
 
 Order is significant, these two are different.
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Nesting predicates
 
 ```
@@ -241,6 +261,8 @@ Order is significant, these two are different.
 ```
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 Functions
 ---------
@@ -260,11 +282,15 @@ count()                    # //table[count(tr)=1]
 position()                 # //ol/li[position()=2]
 ```
 
+See: [Node-set functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Node-Set-Functions)
+
 ### Boolean functions
 
 ```bash
 not(expr)                  # button[not(starts-with(text(),"Submit"))]
 ```
+
+See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Boolean-Functions)
 
 ### String functions
 
@@ -284,6 +310,8 @@ normalize-space()
 string-length()
 ```
 
+See: [String functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-String-Functions)
+
 ### Type conversion
 
 ```bash
@@ -291,6 +319,8 @@ string()
 number()
 boolean()
 ```
+
+See: [string()](https://developer.mozilla.org/en-US/docs/Web/XPath/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XPath/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XPath/Functions#boolean)
 
 Axes
 ----
@@ -312,6 +342,8 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | `//` | `ul` | `/child::` | `li` |
 | Axis | Step | Axis       | Step |
 {: .-css-breakdown}
+
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes)
 
 ### Child axis
 
@@ -336,6 +368,8 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 //ul[count(child::li) > 2]
 ```
 
+See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#child)
+
 ### Descendant-or-self axis
 
 ```bash
@@ -351,6 +385,8 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 //ul//[last()]
 //ul/descendant-or-self::[last()]
 ```
+
+See: [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#descendant-or-self)
 
 ### Other axes
 
@@ -376,6 +412,8 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 
 There are other axes you can use.
 
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes)
+
 ### Unions
 
 ```bash
@@ -383,6 +421,8 @@ There are other axes you can use.
 ```
 
 Use `|` to join two expressions.
+
+See: [Node-sets](https://www.w3.org/TR/1999/REC-xpath-19991116/#node-sets)
 
 More examples
 -------------
@@ -398,6 +438,8 @@ count(//*)          # count all elements
 //ul/li/..          # use .. to select a parent
 ```
 
+See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XPath)
+
 ### Find a parent
 
 ```bash
@@ -412,6 +454,8 @@ Finds a `<section>` that directly contains `h1#section-name`
 Finds a `<section>` that contains `h1#section-name`.
 (Same as above, but uses descendant-or-self instead of child)
 
+See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#child), [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#descendant-or-self)
+
 ### Closest
 
 ```bash
@@ -420,6 +464,8 @@ Finds a `<section>` that contains `h1#section-name`.
 
 Works like jQuery's `$().closest('.box')`.
 
+See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#ancestor-or-self)
+
 ### Attributes
 
 ```bash
@@ -427,6 +473,8 @@ Works like jQuery's `$().closest('.box')`.
 ```
 
 Finds `<item>` and check its attributes
+
+See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#attribute)
 
 References
 ----------

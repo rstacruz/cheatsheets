@@ -3,7 +3,7 @@ title: docker-compose
 category: Devops
 prism_languages: [yaml]
 weight: -1
-updated: 2026-10-31
+updated: 2026-11-03
 tier: t1
 ---
 
@@ -27,6 +27,7 @@ services:
     image: redis
 ```
 
+See: [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
 
 ### Version 1 to 2
 
@@ -77,6 +78,8 @@ docker compose cp
 docker compose exec 
 ```
 
+See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker/compose/)
+
 ## Reference
 {: .-three-column}
 
@@ -106,6 +109,8 @@ web:
   image: a4bc65fd
 ```
 
+See: [build](https://docs.docker.com/reference/compose-file/build/)
+
 ### Ports
 
 ```yaml
@@ -118,6 +123,8 @@ web:
   # expose ports to linked services (not to host)
   expose: ["3000"]
 ```
+
+See: [ports](https://docs.docker.com/reference/compose-file/services/#ports)
 
 ### Commands
 
@@ -132,6 +139,8 @@ web:
   entrypoint: /app/start.sh
   entrypoint: [php, -d, vendor/bin/phpunit]
 ```
+
+See: [command](https://docs.docker.com/reference/compose-file/services/#command)
 
 ### Environment variables
 
@@ -148,6 +157,8 @@ web:
   env_file: .env
   env_file: [.env, .development.env]
 ```
+
+See: [environment](https://docs.docker.com/reference/compose-file/services/#environment)
 
 ### Dependencies
 
@@ -175,6 +186,8 @@ web:
       condition: service_completed_successfully
 ```
 
+See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depends_on)
+
 ### Other options
 
 ```yaml
@@ -196,6 +209,8 @@ web:
   # always, on-failure, no (default)
 ```
 
+See: [services reference](https://docs.docker.com/reference/compose-file/services/)
+
 ## Advanced features
 {: .-three-column}
 
@@ -208,6 +223,8 @@ services:
       com.example.description: "Accounting web app"
 ```
 
+See: [labels](https://docs.docker.com/reference/compose-file/services/#labels)
+
 ### DNS servers
 
 ```yaml
@@ -219,6 +236,8 @@ services:
       - 8.8.4.4
 ```
 
+See: [dns](https://docs.docker.com/reference/compose-file/services/#dns)
+
 ### Devices
 
 ```yaml
@@ -227,6 +246,8 @@ services:
     devices:
     - "/dev/ttyUSB0:/dev/ttyUSB0"
 ```
+
+See: [devices](https://docs.docker.com/reference/compose-file/services/#devices)
 
 ### External links
 
@@ -237,6 +258,8 @@ services:
       - redis_1
       - project_db_1:mysql
 ```
+
+See: [external_links](https://docs.docker.com/reference/compose-file/services/#external_links)
 
 ### Healthcheck
 
@@ -250,6 +273,8 @@ services:
       start_period: 40s
 ```
 
+See: [healthcheck](https://docs.docker.com/reference/compose-file/services/#healthcheck)
+
 ### Hosts
 
 ```yaml
@@ -259,6 +284,8 @@ services:
       - "somehost:192.168.1.100"
 ```
 
+See: [extra_hosts](https://docs.docker.com/reference/compose-file/services/#extra_hosts)
+
 ### Network
 
 ```yaml
@@ -266,6 +293,8 @@ services:
 networks:
   frontend:
 ```
+
+See: [networks](https://docs.docker.com/reference/compose-file/networks/)
 
 ### External network
 
@@ -276,6 +305,8 @@ networks:
     external:
       name: frontend
 ```
+
+See: [external networks](https://docs.docker.com/reference/compose-file/networks/#external)
 
 ### Volume
 
@@ -291,6 +322,8 @@ volumes:
   dbdata:
 ```
 
+See: [volumes](https://docs.docker.com/reference/compose-file/volumes/)
+
 ### User
 
 ```yaml
@@ -302,6 +335,8 @@ user: root
 # specifying both user and group with ids
 user: 0:0
 ```
+
+See: [user](https://docs.docker.com/reference/compose-file/services/#user)
 
 ### Secrets
 
@@ -317,3 +352,5 @@ secrets:
   my_secret:
     file: ./my_secret.txt
 ```
+
+See: [secrets](https://docs.docker.com/reference/compose-file/secrets/)

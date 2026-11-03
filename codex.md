@@ -92,6 +92,8 @@ codex fork --last          # branch the latest chat
 | `codex apply <task>` | Apply a cloud diff locally       |
 {: .-shortcuts}
 
+See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
+
 ### Flags
 
 | Flag                          | Description                   |
@@ -118,6 +120,8 @@ codex fork --last          # branch the latest chat
 | `--enable <feature>`                         | Enable optional features       |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
 {: .-shortcuts}
+
+See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Sandbox and approvals
 {: .-prime}
@@ -196,6 +200,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/copy`   | Copy the latest response       |
 {: .-shortcuts}
 
+See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
+
 ### Setup
 
 #### Config
@@ -229,6 +235,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/quit`     | Exit the CLI (also `/exit`)        |
 {: .-shortcuts}
 
+See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
+
 ## Interactive mode
 
 ### Keyboard shortcuts
@@ -256,6 +264,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `Enter`  | Inject instructions into the turn   |
 | `Tab`    | Queue a follow-up for the next turn |
 {: .-shortcuts}
+
+See: [Interactive shortcuts](https://learn.chatgpt.com/docs/developer-commands#interactive-shortcuts)
 
 ### Input modes
 
@@ -299,6 +309,8 @@ Project files merge from the repo root down to the current directory; CLI flags 
 | `RUST_LOG`             | Log verbosity for debugging          |
 {: .-shortcuts}
 
+See: [Environment variables](https://learn.chatgpt.com/docs/config-file/environment-variables)
+
 ### AGENTS.md
 
 ```md
@@ -324,6 +336,8 @@ CODEX_API_KEY=$KEY codex exec "triage open bugs"
 ```
 {: data-line="2,5,8"}
 
+See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
+
 ### Reviewing code
 
 ```bash
@@ -333,6 +347,8 @@ git diff | codex exec "review this diff for bugs"
 ```
 
 Inside a session, `/review` reviews the working tree and `/diff` shows the changes.
+
+See: [Code review](https://learn.chatgpt.com/docs/code-review?surface=cli)
 
 ### Cloud tasks
 
@@ -355,6 +371,8 @@ codex mcp list
 ```
 
 Add `--env KEY=VALUE` for stdio servers, or `--bearer-token-env-var VAR` for HTTP.
+
+See: [MCP](https://learn.chatgpt.com/docs/extend/mcp#add-an-mcp-server)
 
 ### Authentication
 

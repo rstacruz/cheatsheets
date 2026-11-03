@@ -16,6 +16,8 @@ SHOW PROCESSLIST;
 KILL process_number;
 ```
 
+See: [SHOW statements](https://dev.mysql.com/doc/refman/8.4/en/show.html)
+
 ### Select
 
 ```sql
@@ -32,6 +34,8 @@ SELECT DISTINCT field1 FROM ...
 SELECT DISTINCT field1, field2 FROM ...
 ```
 
+See: [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html)
+
 ### Select - Join
 
 ```sql
@@ -39,6 +43,8 @@ SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
 SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
 ```
+
+See: [JOIN clause](https://dev.mysql.com/doc/refman/8.4/en/join.html)
 
 ### Conditions
 
@@ -54,6 +60,8 @@ condition1 AND condition2
 condition1 OR condition2
 ```
 
+See: [Expressions](https://dev.mysql.com/doc/refman/8.4/en/expressions.html)
+
 ### Create / Open / Delete Database
 
 ```sql
@@ -64,17 +72,23 @@ DROP DATABASE DatabaseName;
 ALTER DATABASE DatabaseName CHARACTER SET utf8;
 ```
 
+See: [CREATE DATABASE](https://dev.mysql.com/doc/refman/8.4/en/create-database.html)
+
 ### Backup Database to SQL File
 
 ```bash
 mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
 ```
 
+See: [mysqldump](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html)
+
 ### Restore from backup SQL File
 
 ```bash
 mysql -u Username -p dbNameYouWant < databasename_backup.sql;
 ```
+
+See: [Executing SQL from a file](https://dev.mysql.com/doc/refman/8.4/en/mysql-batch-commands.html)
 
 ### Repair Tables After Unclean Shutdown
 
@@ -83,11 +97,15 @@ mysqlcheck --all-databases;
 mysqlcheck --all-databases --fast;
 ```
 
+See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html)
+
 ### Insert
 
 ```sql
 INSERT INTO table1 (field1, field2) VALUES (value1, value2);
 ```
+
+See: [INSERT statement](https://dev.mysql.com/doc/refman/8.4/en/insert.html)
 
 ### Delete
 
@@ -98,6 +116,8 @@ DELETE FROM table1, table2 WHERE table1.id1 =
   table2.id2 AND condition
 ```
 
+See: [DELETE statement](https://dev.mysql.com/doc/refman/8.4/en/delete.html)
+
 ### Update
 
 ```sql
@@ -105,6 +125,8 @@ UPDATE table1 SET field1=new_value1 WHERE condition;
 UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
   table1.id1 = table2.id2 AND condition;
 ```
+
+See: [UPDATE statement](https://dev.mysql.com/doc/refman/8.4/en/update.html)
 
 ### Create / Delete / Modify Table
 
@@ -170,6 +192,8 @@ ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER
   another_field
 ```
 
+See: [CREATE TABLE statement](https://dev.mysql.com/doc/refman/8.4/en/create-table.html)
+
 ### Keys
 
 ```sql
@@ -177,6 +201,8 @@ CREATE TABLE table (..., PRIMARY KEY (field1, field2))
 CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2
 (t2_field1, t2_field2))
 ```
+
+See: [FOREIGN KEY constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
 ### Users and Privileges
 
@@ -200,6 +226,8 @@ DROP USER 'user'@'host';
 ```
 
 Host ‘%’ indicates any host.
+
+See: [Account management statements](https://dev.mysql.com/doc/refman/8.4/en/account-management-statements.html)
 
 ### Main Data Types
 
@@ -245,6 +273,8 @@ Variants for TEXT&BLOB: `TINY` (max=255), `MEDIUM` (max=~16000), and `LONG` (max
 ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)
 ```
 
+See: [Data types](https://dev.mysql.com/doc/refman/8.4/en/data-types.html)
+
 ### Reset Root Password
 
 ```bash
@@ -266,3 +296,5 @@ $ /etc/init.d/mysql start
 ```
 
 Your commands may vary depending on your OS.
+
+See: [How to reset the root password](https://dev.mysql.com/doc/refman/8.4/en/resetting-permissions.html)

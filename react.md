@@ -32,6 +32,8 @@ npm install react react-dom
 
 TypeScript projects also need `@types/react` and `@types/react-dom`.
 
+See: [Installation](https://react.dev/learn/installation)
+
 ### Create a root
 
 ```jsx
@@ -540,6 +542,8 @@ Still the only built-in way to catch render errors, and still a class; [react-er
 | `componentWillUnmount` | effect cleanup |
 | Class components | function components |
 
+See: [createRoot](https://react.dev/reference/react-dom/client/createRoot)
+
 ### Components and props
 
 | Legacy | Modern |
@@ -547,6 +551,8 @@ Still the only built-in way to catch render errors, and still a class; [react-er
 | `defaultProps` (function components) | default parameter values |
 | `propTypes` | TypeScript |
 | `React.createElement` | JSX |
+
+See: [Component](https://react.dev/reference/react/Component)
 
 ### Refs and context
 
@@ -556,6 +562,8 @@ Still the only built-in way to catch render errors, and still a class; [react-er
 | `forwardRef` (v18) | `ref` as a prop (v19) |
 | Legacy context (`getChildContext`) | `createContext` |
 | `<Context.Provider value>` (v18) | `<Context value>` (v19) |
+
+See: [forwardRef](https://react.dev/reference/react/forwardRef)
 
 ### Further reading
 

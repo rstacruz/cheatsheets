@@ -9,6 +9,8 @@ tags: [Featured]
 
 TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
 
+See: [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
 ### Basic types
 
 ```ts
@@ -44,6 +46,8 @@ enum Color {
 let c: Color = Color.Green
 ```
 
+See: [Everyday types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html), [Enums](https://www.typescriptlang.org/docs/handbook/enums.html)
+
 ### Declarations
 
 ```ts
@@ -59,6 +63,8 @@ function add (a: number, b: number): number {
 // Return type is optional
 function add (a: number, b: number) { ... }
 ```
+
+See: [Variable declarations](https://www.typescriptlang.org/docs/handbook/variable-declarations.html)
 
 ## Type assertions
 
@@ -96,6 +102,8 @@ function getUser (): { name: string; age?: number } {
 }
 ```
 
+See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+
 ### Explicit
 
 ```ts
@@ -106,6 +114,8 @@ interface LabelOptions {
 function printLabel(options: LabelOptions) { ... }
 ```
 
+See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+
 ### Optional properties
 
 ```ts
@@ -115,6 +125,8 @@ interface User {
 }
 ```
 
+See: [Optional properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#optional-properties)
+
 ### Read only
 
 ```ts
@@ -122,6 +134,8 @@ interface User {
   readonly name: string
 }
 ```
+
+See: [readonly properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties)
 
 ### Dynamic keys
 
@@ -131,6 +145,8 @@ interface User {
 }
 ```
 
+See: [Index signatures](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures)
+
 ## Type aliases
 
 ### Type aliases
@@ -138,6 +154,8 @@ interface User {
 ```ts
 type Name = string | string[]
 ```
+
+See: [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
 
 ### Intersection
 
@@ -148,6 +166,8 @@ interface Circle { ... }
  
 type ColorfulCircle = Colorful & Circle;
 ```
+
+See: [Intersection types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types)
 
 ## Function types
 
@@ -270,6 +290,8 @@ type First<T extends Array<any>> = T extends [infer F, ...infer Rest] ? F : neve
 
 type Str = First<['hello', 1, false]>; // 'hello'
 ```
+
+See: [Inferring within conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
 
 ## Literal Type
 

@@ -3,7 +3,7 @@ title: Docker CLI
 category: Devops
 tier: t2
 tags: [Featured]
-updated: 2026-10-31
+updated: 2026-11-03
 keywords:
   - docker build
   - docker run
@@ -32,6 +32,8 @@ docker pull redis:7
 ```
 
 Downloads an image from a registry. `docker run` pulls missing images automatically.
+
+See: [docker pull](https://docs.docker.com/reference/cli/docker/image/pull/)
 
 ### `run` - Start a container
 
@@ -64,6 +66,8 @@ docker run [options] IMAGE [COMMAND] [ARG...]
 
 `docker create` takes the same options except `-d`/`--detach`, and doesn't start the container.
 
+See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
+
 ### `ps` - List containers
 
 ```bash
@@ -72,6 +76,8 @@ docker ps -a              # include stopped containers
 docker ps -q              # IDs only
 docker ps --format 'table {{.Names}}\t{{.Status}}'
 ```
+
+See: [docker ps](https://docs.docker.com/reference/cli/docker/container/ls/)
 
 ### `logs` - Show container logs
 
@@ -82,6 +88,8 @@ docker logs --tail 100 web      # last 100 lines
 docker logs --since 10m web     # since a duration
 ```
 
+See: [docker logs](https://docs.docker.com/reference/cli/docker/container/logs/)
+
 ### `exec` - Run a command in a container
 
 ```bash
@@ -90,6 +98,8 @@ docker exec web tail -f log/development.log
 ```
 
 Runs a command in a running container. Use `-it` for interactive shells.
+
+See: [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)
 
 ## Images
 
@@ -102,6 +112,8 @@ docker build --build-arg APP_HOME=/app -t myapp:1.0 .
 
 Builds an image from a `Dockerfile` in the current directory.
 
+See: [docker build](https://docs.docker.com/reference/cli/docker/image/build/)
+
 ### `images` - List images
 
 ```bash
@@ -109,6 +121,8 @@ docker images
 docker images -a     # include intermediate and dangling images
 docker image ls      # alias
 ```
+
+See: [docker images](https://docs.docker.com/reference/cli/docker/image/ls/)
 
 ### `tag` - Tag an image
 
@@ -119,6 +133,8 @@ docker tag myapp:1.0 registry.example.com/myapp:1.0
 
 The part after the colon is the tag (defaults to `latest`).
 
+See: [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/)
+
 ### `push` - Upload an image
 
 ```bash
@@ -128,12 +144,16 @@ docker push registry.example.com/myapp:1.0
 
 The image name determines which registry it is pushed to.
 
+See: [docker push](https://docs.docker.com/reference/cli/docker/image/push/)
+
 ### `rmi` - Delete images
 
 ```bash
 docker rmi myapp:1.0
 docker rmi b750fe78269d
 ```
+
+See: [docker rmi](https://docs.docker.com/reference/cli/docker/image/rm/)
 
 ## Containers
 
@@ -145,6 +165,8 @@ docker create --name cache --expose 6379 redis:7
 
 Creates a container without starting it. Use `docker start` to run it.
 
+See: [docker create](https://docs.docker.com/reference/cli/docker/container/create/)
+
 ### `start` / `stop` - Start and stop
 
 ```bash
@@ -154,12 +176,16 @@ docker restart web
 docker kill web          # stop immediately (SIGKILL)
 ```
 
+See: [docker start](https://docs.docker.com/reference/cli/docker/container/start/) and [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/)
+
 ### `rm` - Delete containers
 
 ```bash
 docker rm web
 docker rm -f web         # stop and remove
 ```
+
+See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 
 ## Clean up
 
@@ -183,6 +209,8 @@ docker system prune --volumes
 
 Also removes anonymous volumes.
 
+See: [docker system prune](https://docs.docker.com/reference/cli/docker/system/prune/)
+
 ### `container prune`
 
 ```bash
@@ -191,6 +219,8 @@ docker container prune
 
 Removes all stopped containers.
 
+See: [docker container prune](https://docs.docker.com/reference/cli/docker/container/prune/)
+
 ### `image prune`
 
 ```bash
@@ -198,12 +228,16 @@ docker image prune        # dangling images
 docker image prune -a     # all unused images
 ```
 
+See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/prune/)
+
 ### `volume prune`
 
 ```bash
 docker volume prune       # anonymous volumes
 docker volume prune -a    # all unused volumes
 ```
+
+See: [docker volume prune](https://docs.docker.com/reference/cli/docker/volume/prune/)
 
 ### `system df`
 
@@ -213,6 +247,8 @@ docker system df
 
 Shows disk usage by images, containers, volumes, and build cache.
 
+See: [docker system df](https://docs.docker.com/reference/cli/docker/system/df/)
+
 ### `system events`
 
 ```bash
@@ -220,3 +256,5 @@ docker system events
 ```
 
 Streams real-time daemon events. Alias for `docker events`.
+
+See: [docker system events](https://docs.docker.com/reference/cli/docker/system/events/)

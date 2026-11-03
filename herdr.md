@@ -71,6 +71,8 @@ herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
 
+See: [Concepts](https://herdr.dev/docs/concepts/)
+
 ### Quick start
 
 ```bash
@@ -86,6 +88,8 @@ claude
 Run an agent in the focused pane; Herdr detects it automatically. Use the
 prefix keys to split a pane (`prefix+v`), open a tab (`prefix+c`), and
 detach (`prefix+q`) — panes and agents keep running.
+
+See: [Quick start](https://herdr.dev/docs/quick-start/)
 
 ## Command map
 
@@ -106,6 +110,8 @@ detach (`prefix+q`) — panes and agents keep running.
 | `herdr pane` | Split, run, read, move, close panes |
 | `herdr worktree` | Create and open git worktrees |
 {: .-shortcuts}
+
+See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
 ### Agents
 
@@ -137,6 +143,8 @@ detach (`prefix+q`) — panes and agents keep running.
 | `herdr status` | Show client and server state |
 {: .-shortcuts}
 
+See: [CLI reference](https://herdr.dev/docs/cli-reference/)
+
 ### Utilities
 
 | Command | Purpose |
@@ -148,6 +156,8 @@ detach (`prefix+q`) — panes and agents keep running.
 | `herdr config` | Validate or reset `config.toml` |
 | `herdr completion` | Generate shell completions |
 {: .-shortcuts}
+
+See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
 ## Also see
 

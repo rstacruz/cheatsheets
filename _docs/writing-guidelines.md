@@ -104,7 +104,19 @@ shows the shape.
 
 ## H3 writing guidelines
 
-- Place documentation links in the end. (see next for example)
+- End each H3 with a documentation link in its last content block, or add a `See:` line anywhere in the section.
+- `See:` must start a line at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless: ``See: `:help motion.txt` ``.
+- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not count; links to other sheets do.
+- Prefer upstream project docs, specifications, or the project repository.
+- Do not link community wikis, Q&A sites, or blog posts unless the upstream project officially endorses them as its documentation (for example, the Arch Wiki).
+- If no authoritative page covers the section, a linkless `See:` line is valid; use it instead of linking an unofficial source.
+- Only when the section has no authoritative documentation and no useful reference to point at, add `<!-- see: none: short reason -->` at column 0, on its own line.
+
+  ```md
+  ### Browser console
+  <!-- see: none: browser-only, no upstream docs -->
+  ```
+
 - Prefer to write explanations *after* a pre/table. Example:
 
   ````markdown
@@ -328,6 +340,8 @@ only new ones fail. Regenerate the baselines after cleaning sheets up:
 ```bash
 UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 ```
+
+The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
 ## SEO descriptions
 

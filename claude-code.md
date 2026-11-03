@@ -36,6 +36,8 @@ npm install -g @anthropic-ai/claude-code        # npm (deprecated)
 
 On Windows: `irm https://claude.ai/install.ps1 | iex` in PowerShell, or `winget install Anthropic.ClaudeCode`.
 
+See: [Setup](https://code.claude.com/docs/en/setup)
+
 ### Sign in
 
 ```bash
@@ -45,6 +47,8 @@ claude auth status  # show the current account
 ```
 
 Claude Code needs a Pro, Max, Team, or Enterprise plan, a Console account, or a cloud provider (Amazon Bedrock, Google Cloud, or Microsoft Foundry). `ANTHROPIC_API_KEY` also works.
+
+See: [Authentication](https://code.claude.com/docs/en/authentication)
 
 ### Sessions
 
@@ -84,6 +88,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude setup-token` | Generate a token for CI    |
 {: .-shortcuts}
 
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
+
 ### Flags
 
 | Flag                      | Description                       |
@@ -100,6 +106,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `--verbose`               | Show full turn-by-turn output     |
 {: .-shortcuts}
 
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
+
 ### Other flags
 
 | Flag                             | Description                       |
@@ -110,6 +118,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `-w, --worktree`                 | Start in an isolated git worktree |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 {: .-shortcuts}
+
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 ## Slash commands
 {: .-two-column}
@@ -143,6 +153,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `/usage`  | Show cost and plan limits        |
 {: .-shortcuts}
 
+See: [Commands](https://code.claude.com/docs/en/commands)
+
 ### Setup
 
 #### Settings
@@ -173,6 +185,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `/logout` | Sign out                |
 {: .-shortcuts}
 
+See: [Commands](https://code.claude.com/docs/en/commands)
+
 ### Review
 
 #### Changes
@@ -189,6 +203,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | ------------------ | -------------------------------- |
 | `/security-review` | Scan changes for vulnerabilities |
 {: .-shortcuts}
+
+See: [Commands](https://code.claude.com/docs/en/commands)
 
 ## Interactive mode
 {: .-two-column}
@@ -227,6 +243,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 On macOS, use `Option` instead of `Alt`.
 
+See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
+
 ### Input modes
 
 | Input | Effect                          |
@@ -239,6 +257,8 @@ On macOS, use `Option` instead of `Alt`.
 {: .-shortcuts}
 
 For a newline without sending, press `\` + `Enter` or `Ctrl+J` — both work in any terminal. `Shift+Enter` works in many terminals; run `/terminal-setup` if it doesn't.
+
+See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 ## Configuration
 {: .-two-column}
@@ -289,6 +309,8 @@ claude -p "check src/ for security issues"
 
 Inside a session, `/review` reviews the current diff and `/security-review` scans it for vulnerabilities.
 
+See: [Review locally with /code-review](https://code.claude.com/docs/en/code-review-local)
+
 ### Scripting
 
 ```bash
@@ -299,6 +321,8 @@ claude -p "list the failing tests" --output-format json
 cat build.log | claude -p "explain this failure"
 ```
 {: data-line="2,5"}
+
+See: [Headless mode](https://code.claude.com/docs/en/headless)
 
 ## Also see
 {: .-one-column}

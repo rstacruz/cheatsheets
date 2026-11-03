@@ -82,6 +82,8 @@ after a server restart.
 Agents Herdr does not recognize still run normally in panes; they just show
 up as plain terminals.
 
+See: [Agents](https://herdr.dev/docs/agents/#supported-agents)
+
 ### Start an agent
 
 ```bash
@@ -133,6 +135,8 @@ is released, or is replaced. Targets accept a unique live agent name or the
 pane ID currently hosting the agent; terminal IDs and bare kind labels are
 not accepted.
 
+See: [Agent automation](https://herdr.dev/docs/agent-automation/#agent-identity-and-launch)
+
 ### Prompt and wait
 
 ```bash
@@ -155,6 +159,8 @@ agent is already working, that turn's completion may match.
 Standalone `agent wait` matches the same settled defaults; add `--until` for
 a state-specific wait. Without `--timeout` it waits indefinitely.
 
+See: [Agent automation](https://herdr.dev/docs/agent-automation/#choose-the-control-surface)
+
 ### States
 
 | State | Meaning |
@@ -172,6 +178,8 @@ it seen; CLI reads do not.
 The sidebar rolls state up: a `blocked` agent makes its pane, tab, and
 workspace look blocked, a `working` agent makes the workspace active, and a
 `done` agent stays visible until you view it.
+
+See: [Agents](https://herdr.dev/docs/agents/#how-status-works)
 
 ### Inspect
 
@@ -196,6 +204,8 @@ herdr agent explain --file screen.txt --agent codex --json
 detection state, the matched rule, and why an idle fallback happened; add
 `--json` for machine-readable output. On `agent read`, use `--format ansi`
 (or `--ansi`) when colors and styling are evidence.
+
+See: [CLI reference](https://herdr.dev/docs/cli-reference/#agents)
 
 ### Keys and focus
 
@@ -237,6 +247,8 @@ The Pi, OMP, Kimi, OpenCode, Kilo, and MastraCode integrations also report
 state; while they report, Herdr uses that instead of reading the screen.
 The others leave state to screen detection.
 
+See: [Integrations](https://herdr.dev/docs/integrations/)
+
 ### Patterns
 
 #### New tab, start, prompt
@@ -275,3 +287,5 @@ herdr agent read reviewer --source detection --lines 40
 
 Herdr returns JSON; extract IDs with `jq`, and target a unique agent name,
 an explicit pane ID, or `--current` rather than the UI-focused pane.
+
+See: [Agent automation](https://herdr.dev/docs/agent-automation/#recipes)

@@ -1,0 +1,22 @@
+packages:
+  - '.'
+
+# Optional peers (vite's sass, vitest's jsdom) were never installed under
+# pnpm 8 and 2299 dropped both from the tree; keep them out.
+autoInstallPeers: false
+
+# Keep pnpm-lock.yaml a single YAML document, so tools that read only the
+# first document (GitHub's dependency graph, Dependabot) still see our deps.
+pmOnFail: ignore
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# pnpm 10+ reads overrides from this file; package.json's "pnpm" field is
+# ignored by pnpm 12.
+overrides:
+  'js-yaml@>=3.0.0 <3.15.2': 3.15.2
+  'picomatch@<2.3.2': 2.3.2
+  'prismjs@<1.30.0': 1.30.0
+  'source-map-js@>=1.0.0 <1.2.2': 1.2.2

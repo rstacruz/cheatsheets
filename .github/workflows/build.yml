@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Installs pnpm (from packageManager) and Node.js (from .node-version),
-      # then runs a frozen install.
+      # pnpm version from packageManager, Node.js from .node-version
       - uses: pnpm/setup@v3
         with:
           cache: true

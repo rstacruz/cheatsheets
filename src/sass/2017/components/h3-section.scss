@@ -7,19 +7,45 @@
  */
 
 .h3-section > .body {
-  @apply bg-white shadow-md-cool;
-  @apply overflow-x-auto;
-  @apply rounded-md [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md;
-  @apply [&>pre]:m-0 [&>pre]:p-4;
+  background-color: #fff;
+  box-shadow:
+    0 0 0 1px rgb(0 0 80 / 0.1),
+    0 1px 1px rgb(0 0 80 / 0.1),
+    0 1.5px 3px -2px rgb(0 0 80 / 0.3),
+    0 4px 6px rgb(0 0 80 / 0.04),
+    0 8px 12px -1px rgb(0 0 80 / 0.03);
+  overflow-x: auto;
+  border-radius: 0.375rem;
+
+  & > *:first-child {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+  }
+
+  & > *:last-child {
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  & > pre {
+    margin: 0;
+    padding: 1rem;
+  }
 }
 
 .h3-section > h3 {
-  @apply border-t-mildindigo-500 border-t-2;
-  @apply text-mildindigo-800;
-  @apply text-xl;
-  @apply pt-4;
-  @apply font-manrope font-extrabold tracking-[-0.02em];
-  @apply mt-0 mb-4 whitespace-nowrap overflow-hidden;
+  border-top: 2px solid #8784c3;
+  color: #312f60;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding-top: 1rem;
+  font-family: var(--font-manrope);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /*

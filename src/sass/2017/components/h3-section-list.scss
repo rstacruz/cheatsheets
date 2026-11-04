@@ -4,13 +4,22 @@
  */
 
 .h3-section-list {
-  @apply px-0 gap-6 lg:gap-8 my-0;
-  // @apply grid grid-cols-3;
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: 1.5rem;
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: 1024px) {
+    gap: 2rem;
+  }
 }
 
 .h3-section {
-  @apply w-full break-inside-avoid;
-  @apply pb-12 pt-0;
+  width: 100%;
+  break-inside: avoid;
+  padding-bottom: 3rem;
+  padding-top: 0;
 }
 
 /*

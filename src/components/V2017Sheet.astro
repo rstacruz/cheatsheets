@@ -1,5 +1,4 @@
 ---
-// import "../sass/critical-sheet.scss";
 import cx from 'clsx'
 import snarkdown from 'snarkdown'
 import { render } from '../lib/markdown/render'
@@ -138,21 +137,19 @@ const headingStyles = {
   <RelatedPosts page={page} />
 </BaseLayout>
 
-<style lang="scss" is:global>
-  @import '../sass/2017/utils';
-  @import '../sass/2017/markdown/a-em';
-  @import '../sass/2017/markdown/code';
-  @import '../sass/2017/markdown/headings';
-  @import '../sass/2017/markdown/p';
-  @import '../sass/2017/markdown/table';
-  @import '../sass/2017/markdown/ul';
-  @import '../sass/2017/components/h2-section';
-  @import '../sass/2017/components/h3-section';
-  @import '../sass/2017/components/h3-section-list';
-  @import '../sass/2017/components/hint-mark';
-  @import '../sass/2017/components/intro-content';
-  @import '../sass/2017/components/main-heading';
-  @import '../sass/2017/components/pre-footer';
+<style is:global>
+  @import '../styles/markdown/a-em.css';
+  @import '../styles/markdown/code.css';
+  @import '../styles/markdown/headings.css';
+  @import '../styles/markdown/p.css';
+  @import '../styles/markdown/table.css';
+  @import '../styles/markdown/ul.css';
+  @import '../styles/components/h2-section.css';
+  @import '../styles/components/h3-section.css';
+  @import '../styles/components/h3-section-list.css';
+  @import '../styles/components/hint-mark.css';
+  @import '../styles/components/main-heading.css';
+  @import '../styles/components/pre-footer.css';
 </style>
 
 <script>

@@ -1,0 +1,53 @@
+.missing-message.missing-message {
+  text-align: center;
+  margin: 32px 0;
+  display: flex;
+  align-items: center;
+  border-top: solid 1px var(--dark-line-color);
+  padding-top: 16px;
+
+  @media (min-width: 769px) {
+    padding-top: 32px;
+  }
+
+  & > h3,
+  & > p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & > h3 {
+    font-size: var(--fs-1);
+    font-weight: normal;
+    color: var(--base-text);
+    flex: 1 0 auto;
+    text-align: left;
+  }
+
+  & > h3::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: var(--icon-md-arrow-forward) center center / 24px 24px no-repeat;
+    -webkit-mask: var(--icon-md-arrow-forward) center center / 24px 24px
+      no-repeat;
+    color: var(--base-a);
+    margin-right: 16px;
+  }
+
+  & > p {
+    color: var(--base-mute);
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+
+    & > p {
+      margin-top: 16px;
+    }
+  }
+}

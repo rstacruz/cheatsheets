@@ -1,0 +1,20 @@
+/*
+ * Spacer before footer
+ */
+
+.pre-footer {
+  padding: 32px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+  text-align: center;
+
+  & > .icon {
+    color: var(--base-mute);
+    opacity: 0.25;
+  }
+
+  & > .icon > svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

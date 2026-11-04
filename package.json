@@ -67,13 +67,5 @@
     "oxfmt": "0.75.0",
     "oxlint": "1.90.0"
   },
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2",
-  "pnpm": {
-    "overrides": {
-      "js-yaml@>=3.0.0 <3.15.2": "3.15.2",
-      "picomatch@<2.3.2": "2.3.2",
-      "prismjs@<1.30.0": "1.30.0",
-      "source-map-js@>=1.0.0 <1.2.2": "1.2.2"
-    }
-  }
+  "packageManager": "pnpm@12.16.1+sha512.091d1dee7927575661b25dab3c2ae31cafc1c54d6b71ed6a6600cf0c1cb10434a447eae14015f1b23e2e6bedeed79df94a932e2164d2832280dce3fb32f656d1"
 }

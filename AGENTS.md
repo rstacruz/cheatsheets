@@ -12,7 +12,7 @@
 
 ## Code style
 
-- **Package manager**: pnpm (v8.15.4+)
+- **Package manager**: pnpm (v12)
 - **Framework**: Astro with TypeScript (strict mode), Tailwind CSS
 - **Imports**: Use `~/` alias for `src/` directory
 - **Styles**: plain CSS partials in `src/styles/`; Tailwind utilities in markup

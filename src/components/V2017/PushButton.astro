@@ -9,8 +9,6 @@ const props = Astro.props as Props
   <slot />
 </div>
 
-<style lang="scss" is:global>
-  @import '../../sass/2017/utils';
-  @import '../../sass/2017/placeholders/push-button';
-  @import '../../sass/2017/components/push-button';
+<style is:global>
+  @import '../../styles/components/push-button.css';
 </style>

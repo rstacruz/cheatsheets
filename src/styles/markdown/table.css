@@ -1,0 +1,186 @@
+/*
+ * Table
+ */
+
+.MarkdownBody table {
+  width: 100%;
+
+  & tr + tr {
+    border-top: solid 1px var(--line-color);
+  }
+
+  /* Horizontal lines */
+  & tbody + tbody {
+    border-top: solid 1px var(--dark-line-color);
+  }
+
+  & td,
+  & th {
+    padding: 8px 16px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  & td:first-child {
+    white-space: nowrap;
+  }
+
+  & td > code {
+    font-size: var(--code-size);
+  }
+
+  & td:first-child > code {
+    color: #35a;
+  }
+
+  & a,
+  & a:visited {
+    color: #35a;
+    text-decoration: none;
+  }
+
+  & td:first-child > code ~ em {
+    font-size: var(--fs-n1);
+    font-style: normal;
+    color: var(--gray-text);
+  }
+
+  & thead {
+    display: none;
+  }
+
+  & thead th {
+    font-weight: normal;
+    color: var(--base-a);
+  }
+}
+
+/* -shortcuts-right tables keep content-sized columns (chips sit in the last
+   column) */
+.MarkdownBody table.-shortcuts:not(.-shortcuts-right) {
+  table-layout: fixed;
+
+  & td:first-child,
+  & th:first-child {
+    width: 35%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  & td:first-child > code {
+    font-size: 1rem;
+    padding: 5px 6px;
+    padding-left: 8px; /* compensation */
+    background: var(--gray-bg);
+    border-radius: 3px;
+    margin-right: 2px;
+    color: var(--base-text);
+  }
+}
+
+.MarkdownBody table.-shortcuts-right {
+  & td:last-child > code {
+    font-size: 1rem;
+    padding: 5px 6px;
+    padding-left: 8px; /* compensation */
+    background: var(--gray-bg);
+    border-radius: 3px;
+    margin-right: 2px;
+    color: var(--base-text);
+  }
+}
+
+.MarkdownBody table.-left-align {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
+  }
+}
+
+.MarkdownBody table.-headers {
+  & thead {
+    display: table-header-group;
+    border-bottom: solid 1px var(--dark-line-color);
+  }
+}
+
+/*
+ * Key-value pairs (like in css)
+ */
+
+.MarkdownBody table.-key-values {
+  & tbody tr td + td code {
+    display: block;
+    text-align: left;
+  }
+}
+
+.MarkdownBody table.-css-breakdown {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
+  }
+
+  & tr td {
+    font-size: var(--fs-1);
+    white-space: nowrap;
+  }
+
+  & tr td:not(:last-child) {
+    padding-right: 4px;
+  }
+
+  & tr td:not(:first-child) {
+    padding-left: 4px;
+  }
+
+  & tr:last-child {
+    background: var(--gray-bg);
+  }
+
+  & tr:last-child td {
+    font-size: var(--fs-n1);
+    color: var(--base-mute);
+    white-space: auto;
+  }
+}
+
+.MarkdownBody table.-bold-first {
+  & tr > td:first-child {
+    font-weight: bold;
+  }
+}
+
+.MarkdownBody table.-no-wrap {
+  & td,
+  & th {
+    white-space: nowrap;
+  }
+}
+
+.MarkdownBody table.-mute-em {
+  & td,
+  & th {
+    & em {
+      opacity: 0.5;
+    }
+
+    & em > code {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+/* Separators (rehype-table-separators) */
+.MarkdownBody table tr.separator {
+  & > td {
+    padding: 0;
+    height: 4px;
+    background: var(--line-color);
+    box-shadow:
+      inset 0 1px 0 var(--dark-line-color),
+      inset 0 2px 4px var(--line-color);
+  }
+}

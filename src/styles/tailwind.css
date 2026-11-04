@@ -1,4 +1,7 @@
 @import 'tailwindcss' source(none);
+@import './tokens.css';
+@import './font-scale.css';
+@import './icons.generated.css';
 
 @source '../**/*.{astro,ts}';
 

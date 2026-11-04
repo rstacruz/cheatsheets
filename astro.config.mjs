@@ -22,6 +22,7 @@ export default defineConfig({
     host: true
   } /* access from https://192.168.x.x/ */,
   vite: {
+    css: { transformer: 'lightningcss' },
     ...(viteCacheDir ? { cacheDir: viteCacheDir } : {}),
     plugins: [tailwindcss()],
     optimizeDeps: {

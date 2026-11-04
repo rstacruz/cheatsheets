@@ -9,27 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Installs pnpm (from packageManager) and Node.js (from .node-version),
+      # then runs a frozen install.
+      - uses: pnpm/setup@v3
         with:
-          node-version-file: .node-version
-      - uses: pnpm/action-setup@v3
-        with: { run_install: false }
+          cache: true
+          require-lockfile: true
 
-      # https://github.com/pnpm/action-setup?tab=readme-ov-file#use-cache-to-reduce-installation-time
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
       - name: Install playwright browsers
         run: pnpm playwright install --with-deps chromium
       - name: Run tests

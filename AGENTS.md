@@ -15,6 +15,7 @@
 - **Package manager**: pnpm (v8.15.4+)
 - **Framework**: Astro with TypeScript (strict mode), Tailwind CSS
 - **Imports**: Use `~/` alias for `src/` directory
+- **Styles**: plain CSS partials in `src/styles/`; Tailwind utilities in markup
 - **Types**: Use Zod schemas for runtime validation (see `SheetFrontmatter.ts`); TypeScript strict mode enabled
 - **Naming**: camelCase for variables/functions, PascalCase for components/types
 - **Error handling**: Distinguish operational (expected) vs unexpected errors; return error objects for operational errors

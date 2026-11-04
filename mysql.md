@@ -103,6 +103,7 @@ See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html)
 
 ```sql
 INSERT INTO table1 (field1, field2) VALUES (value1, value2);
+INSERT INTO table1 VALUES (value1, value2);
 ```
 
 See: [INSERT statement](https://dev.mysql.com/doc/refman/8.4/en/insert.html)

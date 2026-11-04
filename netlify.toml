@@ -111,6 +111,10 @@ from = "/phoenix-ecto@1.3"
 to = "/phoenix-ecto"
 [[redirects]]
 force = true
+from = "/psql"
+to = "/postgresql"
+[[redirects]]
+force = true
 from = "/sh"
 to = "/bash"
 [build]

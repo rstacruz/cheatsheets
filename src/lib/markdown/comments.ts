@@ -2,13 +2,10 @@ import type { Root } from 'mdast'
 import type { Properties } from 'hast'
 import { visit } from 'unist-util-visit'
 
-/** `<!-- {: .-two-column} -->` — attributes for the block above it */
+/** Attributes for the block above: `<!-- {: .-two-column} -->` */
 const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
-/**
- * Applies an attribute comment to the block above it, then drops the comment
- * node so later passes see the block directly. Replaces the kramdown IAL.
- */
+/** Applies attributes to the preceding block and drops the comment */
 export function commentAttributes() {
   return (tree: Root) => {
     visit(tree, 'html', (node, index, parent) => {
@@ -38,7 +35,7 @@ export function commentAttributes() {
   }
 }
 
-/** The subset used by the sheets: `.class`, `.a.b`, `key="value"` */
+/** `.class`, `.a.b`, `key="value"` */
 function parseAttributes(input: string): Properties | undefined {
   const tokens = input.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) ?? []
   const properties: Properties = {}

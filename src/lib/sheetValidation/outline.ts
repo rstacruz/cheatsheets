@@ -39,17 +39,15 @@ export type CodeLine = {
 }
 
 const BLOCK_IAL = /^\{:([^}]*)\}$/
-/** Same shape as the plugin's regex, including newlines inside the comment */
+/** Plugin parity: newlines allowed inside the comment */
 const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
-/** Index of the first non-blank line at or after `start` */
 function firstContent(lines: string[], start: number): number {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++
   return index
 }
 
-/** Inner attribute text of the attribute comment opening at `start` */
 function commentAt(lines: string[], start: number): string | undefined {
   if (!(lines[start] ?? '').trim().startsWith('<!--')) return undefined
 
@@ -63,10 +61,7 @@ function commentAt(lines: string[], start: number): string | undefined {
   return ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
 }
 
-/**
- * Attribute text below `start`. A comment may follow a blank line, and it
- * merges with a legacy IAL on the same block — the plugin does the same.
- */
+/** Merges a legacy IAL with its comment, as the plugin does */
 function attributesBelow(lines: string[], start: number): string | undefined {
   const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
   const comment = commentAt(lines, firstContent(lines, ial ? start + 1 : start))
@@ -87,7 +82,6 @@ export function scanCodeLines(source: string): CodeLine[] {
       found.push({ line: index + 1, text: line, inThreeColumn })
       return
     }
-    // An H2's layout comes from an IAL or attribute comment below it
     if (/^##\s/.test(line)) {
       inThreeColumn = /\.-three-column(?![\w-])/.test(
         attributesBelow(lines, index + 1) ?? ''

@@ -103,8 +103,11 @@ describe('comment attributes', () => {
 
   it('applies one to the fence above it, keeping the language', async () => {
     expect(
-      (await renderMarkdown('```ruby\nx\n```\n<!-- {: .-setup data-line="1"} -->'))
-        .html
+      (
+        await renderMarkdown(
+          '```ruby\nx\n```\n<!-- {: .-setup data-line="1"} -->'
+        )
+      ).html
     ).toBe(
       '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
     )
@@ -162,9 +165,9 @@ describe('comment attributes', () => {
   })
 
   it('appends to the classes from an IAL on the same block', async () => {
-    expect(
-      (await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html
-    ).toBe('<h2 class="a b" id="h">H</h2>')
+    expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
+      '<h2 class="a b" id="h">H</h2>'
+    )
   })
 })
 

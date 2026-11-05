@@ -14,6 +14,12 @@ test('return pages', () => {
   expect(keys).toContain('tests/basic')
 })
 
+test('skip internal docs', () => {
+  expect(keys).not.toContain('_docs/markdown-dialect')
+  expect(keys).not.toContain('_docs/writing-guidelines')
+  expect(keys).not.toContain('AGENTS')
+})
+
 test('frontmatter', () => {
   const page = pages.bash
   expect(page.slug).toEqual('bash')

@@ -30,7 +30,9 @@ export async function getPages(): Promise<Record<string, SheetPage>> {
       '../../*.md',
       '../../*/*.md',
       '!../../README.md',
+      '!../../AGENTS.md',
       '!../../CONTRIBUTING.md',
+      '!../../_docs/**',
       '!../../404.md',
       '!../../index.md',
       '!../../index@2016.md'

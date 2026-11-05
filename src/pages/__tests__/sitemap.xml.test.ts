@@ -14,6 +14,18 @@ test('has data', async () => {
   expect(lines).toContain('<url><loc>https://devhints.io/bash</loc></url>')
 })
 
+test('skip internal docs', async () => {
+  expect(lines).not.toContain(
+    '<url><loc>https://devhints.io/_docs/markdown-dialect</loc></url>'
+  )
+  expect(lines).not.toContain(
+    '<url><loc>https://devhints.io/_docs/writing-guidelines</loc></url>'
+  )
+  expect(lines).not.toContain(
+    '<url><loc>https://devhints.io/AGENTS</loc></url>'
+  )
+})
+
 test('skip unlisted sheets', async () => {
   expect(lines).not.toContain(
     '<url><loc>https://devhints.io/tests/basic</loc></url>'

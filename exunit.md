@@ -101,6 +101,6 @@ end
 
 
 ## Also see
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 * [ExUnit Docs](http://devdocs.io/elixir/ex_unit/exunit#configure/1)

@@ -5,7 +5,7 @@ category: Hidden
 ---
 
 ## Commands
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Events and reminders
 

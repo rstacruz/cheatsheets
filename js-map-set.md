@@ -8,7 +8,7 @@ intro: |
 ---
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 Map and Set hold keyed or unique values, keep insertion order, and are
 iterable.
@@ -27,7 +27,7 @@ map.size                      // → 2 (property, not a method)
 map.delete('a')               // → true
 map.clear()                   // removes everything
 ```
-{: data-line="2"}
+<!-- {: data-line="2"} -->
 
 ```js
 const key = {}
@@ -37,7 +37,7 @@ map.get({})         // → undefined (different object)
 map.set(NaN, 'x')
 map.get(NaN)        // → 'x' (SameValueZero)
 ```
-{: data-line="3"}
+<!-- {: data-line="3"} -->
 
 ```js
 const map = new Map([['a', 1], ['b', 2]])
@@ -48,7 +48,7 @@ for (const [key, value] of map) console.log(key, value)
 [...map]            // same as entries
 map.forEach((value, key) => ...)
 ```
-{: data-line="2"}
+<!-- {: data-line="2"} -->
 
 Plain objects coerce keys to strings; Map keeps the original key type. Keys
 compare with SameValueZero, so `NaN` equals `NaN`.
@@ -65,7 +65,7 @@ set.add(4)           // returns the set
 set.delete(2)        // → true
 set.clear()
 ```
-{: data-line="1"}
+<!-- {: data-line="1"} -->
 
 ```js
 [...new Set([1, 1, 2])]      // → [1, 2] (dedupe)
@@ -74,7 +74,7 @@ for (const value of set) console.log(value)
 [...set]                     // → ['a', 'b']
 [...set.keys()]              // same as values
 ```
-{: data-line="1"}
+<!-- {: data-line="1"} -->
 
 Sets store unique values; adding an existing value is a no-op. Iteration
 follows insertion order.
@@ -90,7 +90,7 @@ new Map(Object.entries(obj))  // plain object to a Map
 Array.from(set)               // set to array
 [...set]                      // → array
 ```
-{: data-line="1"}
+<!-- {: data-line="1"} -->
 
 `Object.fromEntries()` stringifies keys, and `Object.entries()` reads only own
 enumerable string keys.
@@ -106,7 +106,7 @@ cache.get(element)   // → { data: 1 }
 cache.has(element)   // → true
 cache.delete(element)
 ```
-{: data-line="1"}
+<!-- {: data-line="1"} -->
 
 ```js
 const seen = new WeakSet()

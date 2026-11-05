@@ -10,7 +10,7 @@ description: |
 ## Testing
 
 ### Xpath test bed
-{: .-intro}
+<!-- {: .-intro} -->
 
 Test queries in the Xpath test bed:
 
@@ -40,7 +40,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | ----                         | ----                                                     | --                      |
 | `:root`                      | `/`                                                      | [?](#prefixes)          |
 | `:root > body`               | `/body`                                                  |                         |
-{: .xp}
+<!-- {: .xp} -->
 
 ### Attribute selectors
 
@@ -56,7 +56,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
 | `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
-{: .xp}
+<!-- {: .xp} -->
 
 ### Order selectors
 
@@ -68,7 +68,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | `li#id:first-of-type`        | `//li[1][@id="id"]`                                      | [?](#chaining-order)    |
 | `a:first-child`              | `//*[1][name()="a"]`                                     |                         |
 | `a:last-child`               | `//*[last()][name()="a"]`                                |                         |
-{: .xp}
+<!-- {: .xp} -->
 
 ### Siblings
 
@@ -77,7 +77,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
-{: .xp}
+<!-- {: .xp} -->
 
 ### jQuery
 
@@ -87,7 +87,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
 | `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
 | `$('span').text()`           | `//span/text()`                                          |                         |
-{: .xp}
+<!-- {: .xp} -->
 
 ### Other things
 
@@ -103,7 +103,7 @@ See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-
 | ---                          | ---                                                      | ---                     |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-{: .xp}
+<!-- {: .xp} -->
 
 <style>
 /* ensure tables align */
@@ -130,7 +130,7 @@ Expressions
 | --- | --- | --- | --- |
 | `//` | `ul` | `/`  | `a[@id='link']` |
 | Axis | Step | Axis | Step            |
-{: .-css-breakdown}
+<!-- {: .-css-breakdown} -->
 
 See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
 
@@ -141,7 +141,7 @@ See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Loc
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-{: .-headers}
+<!-- {: .-headers} -->
 
 Begin your expression with any of these.
 
@@ -153,7 +153,7 @@ See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-ab
 | ---  | ---                 | ---        |
 | `/`  | `//ul/li/a`         | Child      |
 | `//` | `//[@id="list"]//a` | Descendant |
-{: .-headers}
+<!-- {: .-headers} -->
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
@@ -341,7 +341,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | --- | --- | --- | --- |
 | `//` | `ul` | `/child::` | `li` |
 | Axis | Step | Axis       | Step |
-{: .-css-breakdown}
+<!-- {: .-css-breakdown} -->
 
 See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes)
 
@@ -408,7 +408,7 @@ See: [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XPat
 | `following-sibling`  |        |                                                  |
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
-{: .-headers}
+<!-- {: .-headers} -->
 
 There are other axes you can use.
 
@@ -478,6 +478,6 @@ See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XPath/Axes#at
 
 References
 ----------
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 * [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_

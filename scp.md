@@ -7,7 +7,7 @@ authors:
 ---
 
 ### Usage
-{: .-prime}
+<!-- {: .-prime} -->
 
 ```bash
 scp <options> source_path destination_path

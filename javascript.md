@@ -12,7 +12,7 @@ intro: |
 ## Built-in types
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 Quick reference for the core JavaScript language. Each section links to a
 full cheatsheet.
@@ -32,7 +32,7 @@ const name = 'Ada'
 ```
 
 [JavaScript Strings cheatsheet](./js-string)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Numbers
 
@@ -45,7 +45,7 @@ Number.isInteger(2.5)      // → false
 ```
 
 [JavaScript Numbers cheatsheet](./js-number)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Arrays
 
@@ -59,7 +59,7 @@ list.includes(2)           // → true
 ```
 
 [JavaScript Arrays cheatsheet](./js-array)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Objects
 
@@ -74,7 +74,7 @@ const { name, ...rest } = user   // rest → { age: 36 }
 ```
 
 [JavaScript Objects cheatsheet](./js-object)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Map and Set
 
@@ -95,7 +95,7 @@ ages.has('Bob')                  // → true
 ```
 
 [JavaScript Map and Set cheatsheet](./js-map-set)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Dates
 
@@ -109,7 +109,7 @@ new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 ```
 
 [JavaScript Date cheatsheet](./js-date)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ## Async and modules
 
@@ -129,7 +129,7 @@ await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ```
 
 [JavaScript Async cheatsheet](./js-async)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Promises
 
@@ -142,7 +142,7 @@ await Promise.race([a(), b()])        // → first settled
 ```
 
 [Promises cheatsheet](./promise)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### fetch()
 
@@ -158,7 +158,7 @@ await fetch('/save', {
 ```
 
 [fetch() cheatsheet](./js-fetch)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Modules
 
@@ -171,7 +171,7 @@ const { Chart } = await import('./chart.js')
 ```
 
 [JavaScript Modules cheatsheet](./js-modules)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### ES2015+ features
 
@@ -184,9 +184,9 @@ for (const item of items) { ... }
 ```
 
 [ES2015+ cheatsheet](./es6)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ## Also see
 
 - [JavaScript lazy shortcuts](./js-lazy)
-{: .-also-see}
+<!-- {: .-also-see} -->

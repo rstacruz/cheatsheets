@@ -4,10 +4,10 @@ category: JavaScript
 ---
 
 ## Reference
-{:.-three-column}
+<!-- {:.-three-column} -->
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 intro: A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 

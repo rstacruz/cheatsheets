@@ -8,7 +8,7 @@ category: Ansible
 ## Getting started
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 - <https://www.ansible.com/>
 

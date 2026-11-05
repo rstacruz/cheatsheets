@@ -4,7 +4,7 @@ category: JavaScript libraries
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 Koa is a web framework for Node.js.
 

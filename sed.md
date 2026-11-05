@@ -40,7 +40,7 @@ sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' \
 replace multiple matches with the same value
 
 ## File regions
-{:.-three-column}
+<!-- {:.-three-column} -->
 
 ### Print until a certain line is met
 

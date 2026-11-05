@@ -6,7 +6,7 @@ intro: |
 ---
 
 ## Reference
-{:.-three-column}
+<!-- {:.-three-column} -->
 
 ### Creating ranges
 

@@ -5,7 +5,7 @@ updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files
 ---
 ## Reference
-{:.-two-column}
+<!-- {:.-two-column} -->
 
 ### Deflate / Inflate / Concatenate
 ```shell

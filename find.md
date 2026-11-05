@@ -5,7 +5,7 @@ updated: 2026-10-31
 ---
 
 ### Usage
-{: .-prime}
+<!-- {: .-prime} -->
 
 ```bash
 find <path> <conditions> <actions>

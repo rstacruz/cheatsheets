@@ -10,7 +10,7 @@ intro: |
 ## Basics
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 Objects are collections of key-value pairs; keys are strings or symbols.
 
@@ -29,7 +29,7 @@ const user = {
   greet() { return 'hi' },   // method shorthand
 }
 ```
-{: data-line="5-7"}
+<!-- {: data-line="5-7"} -->
 
 ```js
 const opts = { ...defaults, visible: true }
@@ -49,7 +49,7 @@ user[key]                // dynamic key from a variable
 user.address?.city       // → undefined (no address)
 user.nickname ?? 'anon'  // → 'anon' (nullish fallback)
 ```
-{: data-line="4-5"}
+<!-- {: data-line="4-5"} -->
 
 ```js
 const { a, b = 1, ...rest } = obj
@@ -81,7 +81,7 @@ user.age += 1            // update in place
 delete user.age          // → true
 'age' in user            // → false
 ```
-{: data-line="4"}
+<!-- {: data-line="4"} -->
 
 Assigning a computed key adds or overwrites a property; `delete` removes one.
 
@@ -145,7 +145,7 @@ a === b               // → false, different references
 Object.is(NaN, NaN)   // → true
 Object.is(0, -0)      // → false
 ```
-{: data-line="3"}
+<!-- {: data-line="3"} -->
 
 `===` compares object identity, not contents; `Object.is()` treats `NaN` as equal to itself.
 

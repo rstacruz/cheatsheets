@@ -35,7 +35,7 @@ $ sudo apt install tig
 You can substitute `git log` → `tig`.
 
 ## Shortcut keys
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Switching views
 
@@ -52,7 +52,7 @@ You can substitute `git log` → `tig`.
 | `g`      | Grep         |
 | ---      | ---          |
 | `h`      | Help         |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### All views
 
@@ -65,7 +65,7 @@ You can substitute `git log` → `tig`.
 | `q`       | Close view                   |
 | `Q`       | Close all (quit)             |
 | `,`       | Parent commit                |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Cursor navigation
 
@@ -80,7 +80,7 @@ You can substitute `git log` → `tig`.
 | `-`       | Page up                      |
 | `^D`      | Half page down               |
 | `^U`      | Half page up                 |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Option toggles
 
@@ -95,7 +95,7 @@ You can substitute `git log` → `tig`.
 | `~`       | Toggle line graphics         |
 | `F`       | Toggle file names            |
 | `W`       | Toggle ignore space          |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `m` - Main view
 
@@ -103,7 +103,7 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `X`       | Toggle commit sha            |
 | `C`       | Cherry pick a commit         |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `s` - Status view
 
@@ -113,7 +113,7 @@ You can substitute `git log` → `tig`.
 | `!`       | Revert file or chunk               |
 | `C`       | Commit                             |
 | `M`       | Merge with external tool           |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `c` - Stage view
 
@@ -124,14 +124,14 @@ You can substitute `git log` → `tig`.
 | `1`       | Stage line                         |
 | `\`       | Split current diff hunk            |
 | `[` `]`   | Increase/decrease the diff context |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `d` - Diff view
 
 | Shortcut  | Description                        |
 | ---       | ---                                |
 | `[` `]`   | Increase/decrease the diff context |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `y` - Stash view
 
@@ -140,4 +140,4 @@ You can substitute `git log` → `tig`.
 | `A`       | Apply selected stash               |
 | `P`       | Pop selected stash                 |
 | `!`       | Drop selected stash                |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->

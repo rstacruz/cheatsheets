@@ -8,20 +8,20 @@ deprecated_by: /enzyme
 ---
 
 ## Getting started
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 **(Deprecated)** [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers a previous version (v2.x).
 
 ### Mounting
-{: .-prime}
+<!-- {: .-prime} -->
 
 ```js
 import {shallow, mount} from 'enzyme'
 ```
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```js
 wrap = shallow(<MyComponent />)
@@ -41,7 +41,7 @@ See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
 ```js
 import toJson from 'enzyme-to-json'
 ```
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```js
 it('works', () => {

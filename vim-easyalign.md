@@ -83,7 +83,7 @@ database: test
 | --- | --- |
 | `{Visual}` `⏎` | activate for selection |
 | `ga` `{motion}` | activate for motion/text object |
-{:.greycode}
+<!-- {:.greycode} -->
 
 Then press options (if available), then a delimiter.
 
@@ -95,7 +95,7 @@ Then press options (if available), then a delimiter.
 | `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimiter) |
 | `<ctrl-r>` `4 ⏎` | Set `right_margin` |
 | `↓` | no margin |
-{:.greycode}
+<!-- {:.greycode} -->
 
 ### Example
 

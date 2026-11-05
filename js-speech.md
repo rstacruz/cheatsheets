@@ -11,7 +11,7 @@ intro: |
 ## Speech synthesis
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 Build an utterance, pick a voice, and pass it to `speechSynthesis.speak()`.
 

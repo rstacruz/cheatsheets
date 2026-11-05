@@ -51,7 +51,7 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 | `rbenv rehash`          | Re-write binstubs           |
 
 ## Using versions
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Locally
 

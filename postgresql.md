@@ -26,7 +26,7 @@ sudo -u postgres psql # as the postgres role
 | `\d+ <table>`    | Describe with sizes     |
 | `\c <database>`  | Connect to a database   |
 | `\q`             | Quit                    |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Creating a database
 

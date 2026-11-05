@@ -4,7 +4,7 @@ category: CLI
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 Use `perl` to search and replace across many files.
 

@@ -10,7 +10,7 @@ intro: |
 
 Variants
 --------
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### H2 sections
 
@@ -60,7 +60,7 @@ See: [Code](#code-1)
 | --- | --- |
 | `-setup` | Gray background |
 | `-crosslink` | Has arrow on the link |
-{: .-gray}
+<!-- {: .-gray} -->
 
 See: [Paragraphs](#paragraphs-1)
 
@@ -75,7 +75,7 @@ See: [Paragraphs](#paragraphs-1)
 See: [Lists](#lists-1)
 
 ### Adding variants
-{: .-prime}
+<!-- {: .-prime} -->
 
 ```
 ## Section
@@ -86,7 +86,7 @@ Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.
 
 H3 sections
 -----------
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Supported
 
@@ -104,7 +104,7 @@ Each section can have the following children:
 - `h4`
 
 ### Prime section
-{: .-prime}
+<!-- {: .-prime} -->
 
 This is a section with `{: .-prime}`. Notice the fancy highlight! Great for "getting started" kind of snippets.
 
@@ -116,7 +116,7 @@ This is a basic section with paragraphs in it.
 
 Code
 ----
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Basic code
 
@@ -137,7 +137,7 @@ See: [Cheatsheets](/)
 ### Code with headings
 
 #### index.js
-{: .-file}
+<!-- {: .-file} -->
 
 ```js
 here.is(() => {
@@ -146,7 +146,7 @@ here.is(() => {
 ```
 
 #### other.js
-{: .-file}
+<!-- {: .-file} -->
 
 ```js
 here.is.some.more()
@@ -162,7 +162,7 @@ app.start(() => {
   console.log(`Started at ${port}`)
 })
 ```
-{: data-line="3"}
+<!-- {: data-line="3"} -->
 
 Add `{: data-line="3"}` to add line highlights.
 
@@ -174,7 +174,7 @@ app.start(() => {
   console.log(`Started at ${port}`)
 })
 ```
-{: data-line="2,3"}
+<!-- {: data-line="2,3"} -->
 
 Add `{: data-line="2,3"}` to add multiple line highlights.
 
@@ -183,7 +183,7 @@ Add `{: data-line="2,3"}` to add multiple line highlights.
 ```js
 import React from 'react'
 ```
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```js
 class Hello extends React.Component {
@@ -210,12 +210,12 @@ Long lines will have scrollbars.
 ```js
 <script>(function(d,s){if(window.Promise&&[].includes&&Object.assign&&window.Map)return;var js,sc=d.getElementsByTagName(s)[0];js=d.createElement(s);js.src='https://cdn.polyfill.io/v2/polyfill.min.js';sc.parentNode.insertBefore(js, sc);}(document,'script'))</script>
 ```
-{: .-wrap}
+<!-- {: .-wrap} -->
 
 Add `-wrap` to wrap long lines.
 
 ## Lists
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Lists
 
@@ -242,7 +242,7 @@ Here's an extra paragraph after the list.
 Here's an extra paragraph after the list.
 
 ## List columns
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 ### Six columns
 
@@ -257,7 +257,7 @@ Here's an extra paragraph after the list.
 - Nine
 - Ten
 - Eleven
-{: .-six-column}
+<!-- {: .-six-column} -->
 
 Add `{: .-six-column}` to make large lists.
 
@@ -274,7 +274,7 @@ Add `{: .-six-column}` to make large lists.
 - Nine
 - Ten
 - Eleven
-{: .-four-column}
+<!-- {: .-four-column} -->
 
 Add `{: .-four-column}` to make large lists.
 
@@ -290,12 +290,12 @@ Add `{: .-four-column}` to make large lists.
 - Eight
 - Nine
 - Ten
-{: .-also-see}
+<!-- {: .-also-see} -->
 
 Add `{: .-also-see}`.
 
 ## Paragraphs
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Basic paragraphs
 
@@ -312,7 +312,7 @@ When paragraphs appear after `pre`/`table`/`ul`, they appear with a gray backgro
 ### Preludes
 
 Here's a prelude paragraph. Add `{: .-setup}` to make paragraphs appear with a gray background.
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```
 ···
@@ -327,10 +327,10 @@ Add `{: .-crosslink}` to make big loud external links:
 ```
 
 [Home](/)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ## Tables
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Basic table
 
@@ -362,7 +362,7 @@ This is a basic table with h4's.
 | `R` | Rectangle |
 | `O` | Oval |
 | `U` | Rounded |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 Add `{: .-shortcuts}` to tables.
 
@@ -373,7 +373,7 @@ Add `{: .-shortcuts}` to tables.
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-{: .-headers}
+<!-- {: .-headers} -->
 
 Add `{: .-headers}` to add headers.
 
@@ -392,7 +392,7 @@ Add `{: .-headers}` to add headers.
 ```
 
 ## Left reference
-{: .-left-reference}
+<!-- {: .-left-reference} -->
 
 ### One
 
@@ -420,7 +420,7 @@ Add `{: .-headers}` to add headers.
 ```
 
 ## One column
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 ### One
 

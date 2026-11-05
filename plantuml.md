@@ -3,7 +3,7 @@ title: PlantUML
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 PlantUML is a markup language for creating diagrams.
 

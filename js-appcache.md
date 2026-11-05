@@ -6,7 +6,7 @@ updated: 2026-10-04
 ---
 
 ## Reference
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 ### Checking for updates
 

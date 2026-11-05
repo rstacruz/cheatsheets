@@ -5,7 +5,7 @@ category: Hidden
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
  * [DAddYE/do](https://github.com/DAddYE/do)
 

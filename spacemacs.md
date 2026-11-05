@@ -9,7 +9,7 @@ intro: |
 
 Shortcuts
 ---------
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Layers
 
@@ -27,7 +27,7 @@ Shortcuts
 | `SPC` `l` | Layout            |
 | `SPC` `a` | Apps              |
 | `SPC` `h` | Help              |
-{: .-shortcuts.-prime}
+<!-- {: .-shortcuts.-prime} -->
 
 ### More
 
@@ -36,7 +36,7 @@ Shortcuts
 | **M-x**     | `SPC` `SPC` |
 | Terminal    | `SPC` `'`   |
 | Search      | `SPC` `/`   |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `h` - Help
 
@@ -48,7 +48,7 @@ Shortcuts
 | Documentation      | `r`      |
 | FAQ                | `f`      |
 | Vimtutor           | `T`      |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `f` - File
 
@@ -60,7 +60,7 @@ Shortcuts
 | Delete        | `D`      |
 | ---           | ---      |
 | Show filename | `y`      |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `b` - Buffer
 
@@ -69,7 +69,7 @@ Shortcuts
 | Next buffer (`:bnext`)     | `n`      |
 | Previous buffer (`:bprev`) | `p`      |
 | Delete buffer (`:bd`)      | `d`      |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `f` `e` - Config
 
@@ -79,7 +79,7 @@ Shortcuts
 | Edit config and template | `D`      |
 | ---                      | ---      |
 | Reload config            | `R`      |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `w` - Window
 
@@ -95,7 +95,7 @@ Shortcuts
 | ---                 | ---                   |
 | Split vert          | `v`                   |
 | Split vert & follow | `V`                   |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `p` - Project
 
@@ -111,7 +111,7 @@ Shortcuts
 | ---                     | ---      |
 | Open terminal           | `'`      |
 | Open terminal in root   | `$` `t`  |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `l` `w` - Workspaces
 
@@ -123,14 +123,14 @@ Shortcuts
 | **Switch to nth workspace** | `0` ... `9` |
 | ---                         | ---         |
 | Rename                      | `R`         |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ### `SPC` `t` - Toggle
 
 | Description  | Shortcut |
 | ---          | ---      |
 | Line numbers | `n`      |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `j` - Jump
 
@@ -139,7 +139,7 @@ Shortcuts
 | Character   | `j`      |
 | Line        | `l`      |
 | Word        | `w`      |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ## Major modes
 
@@ -149,7 +149,7 @@ Shortcuts
 | ---         | ---                    |
 | `,` `-`     | Insert horizontal rule |
 | `,` `h` `1` | Insert H1              |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ## Other layers
 
@@ -168,7 +168,7 @@ Shortcuts
 | ---                   | ---                    |
 | `SPC` `g` `l` `l`     | Open in GitHub         |
 | `SPC` `g` `l` `L`     | Show GitHub URL        |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 Version control is provided by Magit.
 
@@ -187,7 +187,7 @@ Version control is provided by Magit.
 | ---              | ---         | ---           |
 | Confirm          | `C-c` `C-c` |               |
 | Abort            | `C-c` `C-k` |               |
-{: .-shortcuts-right}
+<!-- {: .-shortcuts-right} -->
 
 ## References
 

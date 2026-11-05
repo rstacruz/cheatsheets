@@ -13,7 +13,7 @@ description: |
 ---
 
 ## RegExp
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Character classes
 

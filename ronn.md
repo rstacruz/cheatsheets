@@ -10,7 +10,7 @@ intro: |
 ---
 
 ## Getting started
-{: .-left-reference}
+<!-- {: .-left-reference} -->
 
 ### Installation
 
@@ -115,7 +115,7 @@ markdown(7)
 ```
 
 ## Frequently-used sections
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 ### Sections
 
@@ -132,7 +132,7 @@ markdown(7)
 - `## AUTHOR`
 - `## COPYRIGHT`
 - `## SEE ALSO`
-{: .-four-column}
+<!-- {: .-four-column} -->
 
 ## Other CLI options
 
@@ -183,7 +183,7 @@ See [Man page sections](https://www.december.com/unix/ref/mansec.html) (december
 ### npm scripts
 
 Place manual files in `man/xxx.1.md`, then in package.json:
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```json
 "scripts": {

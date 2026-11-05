@@ -37,7 +37,7 @@ aws s3 cp file.txt s3://mybucket/ --no-overwrite
 | `--quiet` | Suppress per-file output |
 | `--only-show-errors` | Hide output except errors and warnings |
 | `--no-progress` | Hide the progress bar |
-{: .-key-values}
+<!-- {: .-key-values} -->
 
 See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 
@@ -71,7 +71,7 @@ Sync copies new and changed files only, in either direction.
 | `--size-only` | Compare by size, ignoring timestamps |
 | `--exact-timestamps` | On S3 to local, require exact mtimes |
 | `--ignore-glacier-warnings` | Suppress Glacier warnings and exit code 2 |
-{: .-key-values}
+<!-- {: .-key-values} -->
 
 See: [aws s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
 
@@ -140,7 +140,7 @@ Content headers are set at upload time; `head-object` reads them back.
 | `--expires` | Date the object stops being cacheable |
 | `--no-guess-mime-type` | Skip MIME detection entirely |
 | `--metadata` | Custom `x-amz-meta-*` key pairs |
-{: .-key-values}
+<!-- {: .-key-values} -->
 
 See: [head-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/head-object.html)
 

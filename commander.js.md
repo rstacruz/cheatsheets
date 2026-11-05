@@ -4,7 +4,7 @@ category: JavaScript libraries
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 - <https://github.com/tj/commander.js/>
 

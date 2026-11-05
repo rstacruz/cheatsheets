@@ -7,14 +7,14 @@ intro: |
 ---
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 - [JSHint options](https://jshint.com/docs/options/) _(jshint.com)_
 
 ### Relaxing
 
 Enable these options to *not* throw errors in these conditions.
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```js
 /* jshint asi: true */
@@ -77,7 +77,7 @@ See: [Relaxing options](https://jshint.com/docs/options/#relaxing-options) _(jsh
 ### Enforcing
 
 Enable these options to catch more errors.
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```js
 /* jshint curly: true */

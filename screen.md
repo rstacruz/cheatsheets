@@ -15,7 +15,7 @@ intro: |
 ---
 
 ## Basics
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Basics
 

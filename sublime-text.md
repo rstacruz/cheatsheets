@@ -12,7 +12,7 @@ category: Apps
 | `⌘ ⇧ L`     | split selection into multiple lines |
 | `⌘ ⇧ A`     | select text inside tag (repeat to expand) |
 | `Ctrl ⇧ M`  | select to curly or angle brackets (repeat to expand) |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 Replace ⌘ with Ctrl on Windows and Linux.
 
@@ -27,7 +27,7 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⌘ K` `⌘ 3 (etc)` | fold all third level code blocks (etc) |
 | `⌘ K` `⌘ T`       | fold all HTML attributes               |
 | `⌘ K` `⌘ 0`       | unfold everything                      |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Editing
 
@@ -38,7 +38,7 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⇧ del` | delete current line/selection |
 | `⌘ ⇧ ↑` | move line up   |
 | `⌘ ⇧ ↓` | move line down |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Goto
 
@@ -50,7 +50,7 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⌘ P, :`      | goto line number (enter number after `:`) |
 | `⌘ P, #`      | goto and list fuzzy-matches of string (enter characters after `#`) |
 | `⌘ P, @`      | goto and list symbol (begin typing symbol name after `@`) |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Command line
 

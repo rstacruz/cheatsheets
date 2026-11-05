@@ -39,7 +39,7 @@ Type `:Rabbrev` for a full list.
 | `logd(` | logger.debug     |
 | `logi(` | logger.info      |
 | `...`   | ...              |
-{:.no-head.greycode}
+<!-- {:.no-head.greycode} -->
 
 ### Model
 
@@ -49,7 +49,7 @@ Type `:Rabbrev` for a full list.
 | `hm(`    | `has_many`                |
 | `ho(`    | `has_one`                 |
 | `habtm(` | `has_and_belongs_to_many` |
-{:.no-head.greycode}
+<!-- {:.no-head.greycode} -->
 
 ### Controllers
 
@@ -59,7 +59,7 @@ Type `:Rabbrev` for a full list.
 | `re(`   | redirect_to      |
 | `rp(`   | render partial:  |
 | `rst(`  | respond_to       |
-{:.no-head.greycode}
+<!-- {:.no-head.greycode} -->
 
 ### Views
 
@@ -67,7 +67,7 @@ Type `:Rabbrev` for a full list.
 | ---     | ---                         |
 | `dotiw` | `distance_of_time_in_words` |
 | `taiw`  | `time_ago_in_words`         |
-{:.no-head.greycode}
+<!-- {:.no-head.greycode} -->
 
 Extracting partials
 -------------------

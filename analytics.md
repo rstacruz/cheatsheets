@@ -12,7 +12,7 @@ mixpanel.register({ age: 28, gender: 'male' }); /* set common properties */
 ```
 
 [mixpanel](./mixpanel)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Google Analytics's analytics.js
 
@@ -27,4 +27,4 @@ ga('send', 'pageview', { 'dimension15': 'My custom dimension' });
 ```
 
 [analytics.js](./analytics.js)
-{: .-crosslink}
+<!-- {: .-crosslink} -->

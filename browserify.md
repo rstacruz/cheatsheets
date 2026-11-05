@@ -7,7 +7,7 @@ archived: Browserify has not been in active development.
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 Browserify is a bundler for JavaScript.
 

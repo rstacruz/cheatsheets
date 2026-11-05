@@ -1,5 +1,5 @@
 ## {{ include.title }}
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Examples
 
@@ -51,7 +51,7 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | `w`    | `1`..`53`               | **Week of year** |
 | `wo`   | `1st`..`53rd`           |                  |
 | `ww`   | `01`..`53`              |                  |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Time
 
@@ -81,7 +81,7 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | ---    | ---          | ---                        |
 | `X`    |              | Unix timestamp             |
 | `x`    |              | Millisecond Unix timestamp |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Presets
 

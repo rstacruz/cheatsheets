@@ -24,19 +24,19 @@ echo coverage.html >> .gitignore
 ### package.json
 
 The `coverage` task injects your source files (`lib`) with jscoverage hooks, runs `mocha -R html-cov`, then restores later.
-{: .-setup}
+<!-- {: .-setup} -->
 
 ```json
 /* directory */
 "coverage": "mv lib lib~; (jscoverage lib~ lib; mocha -R html-cov > coverage.html); rm -rf lib; mv lib~ lib"
 ```
-{: .-wrap}
+<!-- {: .-wrap} -->
 
 ```json
 /* single file */
 "coverage": "(cp index.js index.js~; jscoverage index.js; mv index-cov.js index.js; mocha -R html-cov > coverage.html); mv index.js~ index.js"
 ```
-{: .-wrap}
+<!-- {: .-wrap} -->
 
 ### Run
 

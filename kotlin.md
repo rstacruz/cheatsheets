@@ -18,10 +18,10 @@ intro: |
 ---
 
 ## Variables
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 [Kotlin](https://kotlinlang.org/) is a statically typed language targeting the JVM, Android, and multiplatform projects. This reference covers the essentials.
 
@@ -86,14 +86,14 @@ class Person {
 
 val key = Person.NAME_KEY
 ```
-{: data-line="7"}
+<!-- {: data-line="7"} -->
 
 Members are accessed through the class name, like statics in Java. Use `const val` for compile-time constants.
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ## Null safety
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Nullable types
 
@@ -117,7 +117,7 @@ if (name != null) {
     print("String is null")
 }
 ```
-{: data-line="4"}
+<!-- {: data-line="4"} -->
 
 After the null check, `name` is smart-cast to a non-nullable `String`.
 
@@ -166,7 +166,7 @@ val car: Car? = input as? Car
 See: [Safe casts](https://kotlinlang.org/docs/null-safety.html#safe-casts)
 
 ## Collections
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Creation
 
@@ -267,7 +267,7 @@ val total = items.sumOf { it.price }
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
 
 ## Functions
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Parameters & return types
 
@@ -375,7 +375,7 @@ val log = Logger.create("app")
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ## Classes
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Primary constructor
 
@@ -402,7 +402,7 @@ class Person(val name: String) {
     }
 }
 ```
-{: data-line="4"}
+<!-- {: data-line="4"} -->
 
 #### Default parameters
 
@@ -430,14 +430,14 @@ class Machine : Runner {
     }
 }
 ```
-{: data-line="1,9"}
+<!-- {: data-line="1,9"} -->
 
 Classes are final by default; mark them `open` to allow subclassing. Interfaces are implemented with `:`.
 
 See: [Inheritance](https://kotlinlang.org/docs/inheritance.html), [Interfaces](https://kotlinlang.org/docs/interfaces.html)
 
 ## Control flow
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### If statements
 
@@ -522,7 +522,7 @@ do {
 See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
 ## Destructuring declarations
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Objects & lists
 
@@ -577,7 +577,7 @@ Declare `operator fun componentN()` to make a class destructurable. `data class`
 See: [Destructuring declarations](https://kotlinlang.org/docs/destructuring-declarations.html)
 
 ## Also see
-{: .-one-column}
+<!-- {: .-one-column} -->
 
 - [Kotlin documentation](https://kotlinlang.org/docs/home.html) _(kotlinlang.org)_
 - [Kotlin API reference](https://kotlinlang.org/api/core/kotlin-stdlib/) _(kotlinlang.org)_

@@ -4,7 +4,7 @@ category: Ledger
 ---
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 - <https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions>
 

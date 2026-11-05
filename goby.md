@@ -13,10 +13,10 @@ intro: |
 ## Getting started
 
 ### Hello world
-{: .-prime}
+<!-- {: .-prime} -->
 
 #### hello.gb
-{: .-file}
+<!-- {: .-file} -->
 
 ```ruby
 class Greet
@@ -74,7 +74,7 @@ $ goby -i
 See [igb manual & test script](https://github.com/goby-lang/goby/blob/master/igb/manual_test.md). You can use `readline` features such as command history by arrow keys.
 
 ## Variables
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Local variable
 
@@ -306,7 +306,7 @@ end
 ```
 
 ## Module/Class definition
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Module definition and `include`
 
@@ -446,7 +446,7 @@ end
 ```
 
 ## Literal
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Keyword
 
@@ -582,7 +582,7 @@ Use the annotations to keep the comments concise.
 * special constants: `ARGV`, `STDIN`, `STDOUT`, `STDERR`, `ENV` 
 
 ## Flow control
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### `if`, `else`, `elsif`
 
@@ -658,7 +658,7 @@ end
 Under construction. Join [#605](https://github.com/goby-lang/goby/issues/605).
 
 ## Block
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Block
 
@@ -773,7 +773,7 @@ Foo.new.bar b  #=> 3
 ```
 
 ## Native class (Primary)
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 Goby's most "native" classes cannot instantiate with `new` in principle. 
 
@@ -878,7 +878,7 @@ b.call  #=> 100
   * the rest: `Object.new.methods`
 
 ## Native class (secondary)
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### `Float`
 
@@ -974,7 +974,7 @@ f.name  #=> "../test_fixtures/file_test/size.gb"
   * the rest: `Object.new.methods`
 
 ## Native class (Golang-oriented)
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### `GoMap`
 

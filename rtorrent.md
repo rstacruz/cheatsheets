@@ -6,14 +6,14 @@ intro: |
 ---
 
 ## Shortcuts
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Global
 
 | Shortcut | Description |
 | --- | --- |
 | `^q` | Quit |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Main view
 
@@ -30,7 +30,7 @@ intro: |
 | `^K` | Close a torrent |
 | --- | --- |
 | `+` _/_ `-` | Change priority |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Throttling
 
@@ -40,7 +40,7 @@ intro: |
 | --- | --- |
 | `a` _/_ `s` _/_ `d` | Increase upload throttle by 1/5/50 KB   |
 | `z` _/_ `x` _/_ `c` | Decrease upload throttle by 1/5/50 KB   |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 #### Download
 
@@ -48,7 +48,7 @@ intro: |
 | --- | --- |
 | `A` _/_ `S` _/_ `D` | Increase download throttle by 1/5/50 KB |
 | `Z` _/_ `X` _/_ `C` | Decrease download throttle by 1/5/50 KB |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### Download view
 
@@ -57,14 +57,14 @@ intro: |
 | `1` _/_ `2` | Adjust max uploads |
 | `3` _/_ `4` | Adjust min peers   |
 | `5` _/_ `6` | Adjust max peers   |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ### File list view
 
 | Shortcut | Description |
 | --- | --- |
 | `space` | Change priority |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 ## Also see
 

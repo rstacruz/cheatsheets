@@ -4,7 +4,7 @@ category: Markup
 ---
 
 ### Tomdoc
-{: .-prime}
+<!-- {: .-prime} -->
 
 ```ruby
 # Public: Duplicate some text an arbitrary number of times.

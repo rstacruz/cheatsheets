@@ -8,7 +8,7 @@ intro: |
 ---
 
 ## Syntax
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Headings
 
@@ -57,7 +57,7 @@ _underline_
 Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 
 ## Shortcuts
-{: .-three-column}
+<!-- {: .-three-column} -->
 
 ### Basic shortcuts
 
@@ -68,7 +68,7 @@ Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 | New headline   | `M-RET`              |
 | Cycle workflow | `S-LEFT` / `S-RIGHT` |
 | Cycle priority | `S-UP` / `S-DOWN` |
-{:.-shortcuts-right}
+<!-- {:.-shortcuts-right} -->
 
 ### Timer
 
@@ -79,7 +79,7 @@ Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 | Pause timer     | `C-c` `C-x` `,` |
 | ---             | ---             |
 | Start countdown | `C-c` `C-x` `;` |
-{:.-shortcuts-right}
+<!-- {:.-shortcuts-right} -->
 
 You can use this for Pomodoro!
 
@@ -94,7 +94,7 @@ You can use this for Pomodoro!
 | ---             | ---             |
 | Add date        | `C-c` `.`       |
 | Add time & date | `C-u` `C-c` `.` |
-{:.-shortcuts-right}
+<!-- {:.-shortcuts-right} -->
 
 Start by adding the current file to the agenda (`C-c [`), then use the agenda menu to navigate.
 

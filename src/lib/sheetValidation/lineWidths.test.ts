@@ -45,7 +45,7 @@ describe('findWideCodeLines()', () => {
   test('flags over 42 characters inside a three-column H2', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```bash',
       `echo ${'x'.repeat(38)}`,
@@ -57,7 +57,7 @@ describe('findWideCodeLines()', () => {
   test('allows 42 characters there', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```bash',
       `echo ${'x'.repeat(37)}`,
@@ -66,7 +66,7 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toEqual([])
   })
 
-  test('flags over 42 characters under an attribute comment', () => {
+  test('flags over 42 characters past a blank line', () => {
     const input = [
       '## A',
       '',
@@ -79,7 +79,7 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
-  test('allows 42 characters under an attribute comment', () => {
+  test('allows 42 characters past a blank line', () => {
     const input = [
       '## A',
       '',
@@ -95,7 +95,7 @@ describe('findWideCodeLines()', () => {
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```',
       'x'.repeat(30),

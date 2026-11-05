@@ -38,16 +38,10 @@ export type CodeLine = {
   inThreeColumn: boolean
 }
 
-const BLOCK_IAL = /^\{:([^}]*)\}$/
 const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/
 
-/** Inner attribute text of a legacy IAL or an attribute comment below `start` */
-function attributeLine(lines: string[], start: number): string | undefined {
-  const direct = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  if (direct) return direct[1]
-
-  // Formatters insert a blank line after the block, so the comment may not
-  // be directly below the heading
+/** Inner attribute text of the attribute comment below `start`, past blanks */
+function attributeComment(lines: string[], start: number): string | undefined {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++
   return ATTRIBUTE_COMMENT.exec(lines[index]?.trim() ?? '')?.[1]
@@ -65,10 +59,10 @@ export function scanCodeLines(source: string): CodeLine[] {
       found.push({ line: index + 1, text: line, inThreeColumn })
       return
     }
-    // An H2's layout comes from an IAL or attribute comment below it
+    // An H2's layout comes from an attribute comment below it
     if (/^##\s/.test(line)) {
       inThreeColumn = /(?:^|\s)\.-three-column(?![\w-])/.test(
-        attributeLine(lines, index + 1) ?? ''
+        attributeComment(lines, index + 1) ?? ''
       )
     }
   })

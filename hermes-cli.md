@@ -310,7 +310,7 @@ hermes config check
 hermes config migrate
 ```
 
-Dotted keys edit `config.yaml`; `UPPER_SNAKE` names are written to `.env`. `hermes config path` prints both file locations.
+Dotted keys edit `config.yaml`; `UPPER_SNAKE` names are written to `.env`. `hermes config path` and `env-path` print each file.
 
 See: [`hermes config`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-config)
 

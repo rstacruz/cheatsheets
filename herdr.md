@@ -18,7 +18,7 @@ intro: |
 ## Keyboard
 
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
 agents: persistent sessions of workspaces, tabs, and panes, with agent
@@ -37,12 +37,12 @@ detection built in.
 | `prefix+h/j/k/l` | Move between panes |
 | `prefix+w` | Workspace navigation |
 | `prefix+q` | Detach; everything keeps running |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 [Herdr keys cheatsheet](./herdr-keys)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ## Getting started
 
@@ -56,7 +56,7 @@ session
     │   └── w1:p2 pane
     └── w1:t2     tab
 ```
-{: .-box-chars}
+<!-- {: .-box-chars} -->
 
 A pane is a real terminal, preserved across client detach. An agent is a
 process Herdr recognizes inside a pane. A session is a persistent server
@@ -101,7 +101,7 @@ See: [Quick start](https://herdr.dev/docs/quick-start/)
 | --- | --- |
 | `herdr workspace` | Create, focus, rename, close workspaces |
 | `herdr tab` | Manage tabs inside a workspace |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 #### Panes and worktrees
 
@@ -109,7 +109,7 @@ See: [Quick start](https://herdr.dev/docs/quick-start/)
 | --- | --- |
 | `herdr pane` | Split, run, read, move, close panes |
 | `herdr worktree` | Create and open git worktrees |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
@@ -120,10 +120,10 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 | `herdr agent` | Start, prompt, wait on, read agents |
 | `herdr integration` | Install agent integrations |
 | `herdr plugin` | Install and manage workflow plugins |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 [Herdr agents cheatsheet](./herdr-agents)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 
 ### Sessions and server
 
@@ -133,7 +133,7 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 | --- | --- |
 | `herdr session` | Named sessions: list, attach, stop |
 | `herdr machine` | Saved SSH machines |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 #### Server
 
@@ -141,7 +141,7 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 | --- | --- |
 | `herdr server` | Stop or reload the running server |
 | `herdr status` | Show client and server state |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
@@ -155,7 +155,7 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 | `herdr channel` | Choose the stable or preview channel |
 | `herdr config` | Validate or reset `config.toml` |
 | `herdr completion` | Generate shell completions |
-{: .-shortcuts}
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
@@ -165,4 +165,4 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 - [screen](./screen)
 - [Claude Code](./claude-code)
 - [Codex](./codex)
-{: .-also-see}
+<!-- {: .-also-see} -->

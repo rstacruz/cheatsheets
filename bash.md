@@ -119,7 +119,7 @@ set -euo pipefail
 IFS=$'\n\t'
 ```
 
-`errexit` ignores failures in conditions, `&&`/`||` lists, and `!` pipelines.
+`errexit` ignores failures in conditions, all but the final command of `&&`/`||` lists, and `!` pipelines.
 
 See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
@@ -282,19 +282,19 @@ See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_n
 
 ### Transformations
 
-| Expression   | Description                |
-| ------------ | -------------------------- |
-| `"${foo@Q}"` | Quoted, reusable as input  |
-| `"${foo@U}"` | Uppercase                  |
-| `"${foo@L}"` | Lowercase                  |
-| `"${foo@u}"` | Uppercase first character  |
-| `"${foo@E}"` | Expand `$'…'` escapes      |
-| `"${foo@P}"` | Expand as a prompt string  |
-| ---          | ---                        |
-| `"${foo@A}"` | Assignment or declare form |
-| `"${foo@a}"` | Attribute flags            |
-| `"${foo@K}"` | Quoted key-value pairs     |
-| `"${foo@k}"` | Key-value pairs, split     |
+| Expression     | Description                |
+| -------------- | -------------------------- |
+| `"${foo@Q}"`   | Quoted, reusable as input  |
+| `"${foo@U}"`   | Uppercase                  |
+| `"${foo@L}"`   | Lowercase                  |
+| `"${foo@u}"`   | Uppercase first character  |
+| `"${foo@E}"`   | Expand `$'…'` escapes      |
+| `"${foo@P}"`   | Expand as a prompt string  |
+| ---            | ---                        |
+| `"${foo@A}"`   | Assignment or declare form |
+| `"${foo@a}"`   | Attribute flags            |
+| `"${foo[@]@K}"` | Quoted key-value pairs    |
+| `"${foo[@]@k}"` | Key-value pairs, split    |
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -903,7 +903,7 @@ See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bourne-She
 #### Short options
 
 ```bash
-while getopts ":Vvs:f:" opt; do
+while getopts ":Vs:f" opt; do
   case $opt in
     V) echo "$version"; exit ;;
     s) string=$OPTARG ;;

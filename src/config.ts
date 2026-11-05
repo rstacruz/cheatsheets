@@ -35,6 +35,7 @@ export const carbon = {
 } as const
 
 export const categories = [
+  'Agents',
   'Analytics',
   'Ansible',
   'Apps',

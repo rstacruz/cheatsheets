@@ -27,4 +27,5 @@ intro: See the processes in your Unix machine.
 | ---       | ---                   |
 | `V`       | Forest view           |
 | `c`       | show full path        |
+
 <!-- {: .-shortcuts} -->

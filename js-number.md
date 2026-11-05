@@ -11,6 +11,7 @@ intro: |
 ## Basics
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 JavaScript numbers are 64-bit floats (IEEE 754), so `0.1 + 0.2` is not exactly
@@ -53,6 +54,7 @@ parseInt('08', 10)     // → 8
 parseFloat('3.14abc')  // → 3.14
 +'42'                  // → 42 (unary plus)
 ```
+
 <!-- {: data-line="5"} -->
 
 `Number()` rejects trailing junk, while `parseInt()` and `parseFloat()` stop at
@@ -71,6 +73,7 @@ Number.isSafeInteger(2 ** 53)    // → false
 Number.MAX_SAFE_INTEGER          // → 9007199254740991
 Number.EPSILON                   // → 2.220446049250313e-16
 ```
+
 <!-- {: data-line="4"} -->
 
 The global `isNaN('x')` coerces its argument and returns `true`;

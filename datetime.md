@@ -6,6 +6,7 @@ tier: t2
 ---
 
 ## Common time formats
+
 <!-- {: .-one-column} -->
 
 - [UNIX strftime](./strftime) - Used by Ruby, `date`, and more

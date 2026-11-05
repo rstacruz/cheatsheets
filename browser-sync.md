@@ -4,6 +4,7 @@ category: JavaScript libraries
 ---
 
 ### About
+
 <!-- {: .-intro} -->
 
 `npm i -g browser-sync`

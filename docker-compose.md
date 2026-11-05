@@ -81,6 +81,7 @@ docker compose exec
 See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker/compose/)
 
 ## Reference
+
 <!-- {: .-three-column} -->
 
 ### Building
@@ -212,6 +213,7 @@ See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depen
 See: [services reference](https://docs.docker.com/reference/compose-file/services/)
 
 ## Advanced features
+
 <!-- {: .-three-column} -->
 
 ### Labels

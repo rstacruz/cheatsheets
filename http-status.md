@@ -12,6 +12,7 @@ description: |
 | ----  | ----                | -                                                                           |
 | `100` | Continue            | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/100) |
 | `101` | Switching Protocols | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/101) |
+
 <!-- {: .xp} -->
 
 ### Success Responses
@@ -27,6 +28,7 @@ description: |
 | `206` | Partial Content             | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206) |
 | ---   | ---                         | ---                                                                         |
 | `226` | IM Used                     | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/226) |
+
 <!-- {: .xp} -->
 
 ### Redirection Responses
@@ -43,6 +45,7 @@ description: |
 | `306` | *Switch Proxy*     | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#306)            |
 | `307` | Temporary Redirect | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/307) |
 | `308` | Permanent Redirect | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/308) |
+
 <!-- {: .xp} -->
 
 ### Client Error Responses
@@ -76,6 +79,7 @@ description: |
 | `431` | Request Header Fields Too Large | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/431) |
 | ---   | ---                             | ---                                                                         |
 | `451` | Unavailable For Legal Reasons   | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/451) |
+
 <!-- {: .xp} -->
 
 ### Server Error Responses
@@ -92,6 +96,7 @@ description: |
 | `506` | Variant Also Negotiates         | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/506) |
 | `510` | Not Extended                    | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/510) |
 | `511` | Network Authentication Required | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/511) |
+
 <!-- {: .xp} -->
 
 ## WebDAV Status Codes
@@ -116,6 +121,7 @@ WebDAV is an extension of HTTP that allows clients to perform remote Web content
 | ---   | ---                             | ---                                                              |
 | `507` | Insufficient Storage            | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#507) |
 | `508` | Loop Detected                   | [?](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#508) |
+
 <!-- {: .xp} -->
 
 ## Also see

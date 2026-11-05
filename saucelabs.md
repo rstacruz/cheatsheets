@@ -5,6 +5,7 @@ title: Saucelabs
 ### Getting started
 
 Sign up for opensauce:
+
 <!-- {: .-setup} -->
 
 - <http://saucelabs.com/opensauce>

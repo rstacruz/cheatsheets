@@ -8,6 +8,7 @@ weight: -10
 ---
 
 ## Getting started
+
 <!-- {: .-three-column} -->
 
 ### Introduction
@@ -19,6 +20,7 @@ weight: -10
 See: [Vim help](https://vimhelp.org/)
 
 ### Exiting
+
 <!-- {: .-prime} -->
 
 | Shortcut       | Description                      |
@@ -31,6 +33,7 @@ See: [Vim help](https://vimhelp.org/)
 | ---            | ---                              |
 | `ZZ`           | Save and quit                    |
 | `:q!` _/_ `ZQ`           | Quit without checking changes    |
+
 <!-- {: .-shortcuts} -->
 
 See: [Writing and quitting](https://vimhelp.org/editing.txt.html#write-quit)
@@ -41,11 +44,13 @@ See: [Writing and quitting](https://vimhelp.org/editing.txt.html#write-quit)
 | ---               | ---         |
 | `Esc` _/_ `<C-[>` | Exit insert mode |
 | `<C-C>`           | Exit insert mode, and abort current command |
+
 <!-- {: .-shortcuts} -->
 
 See: [Insert mode](https://vimhelp.org/insert.txt.html#i_CTRL-%5B)
 
 ## Editing
+
 <!-- {: .-three-column} -->
 
 ### Editing
@@ -67,6 +72,7 @@ See: [Insert mode](https://vimhelp.org/insert.txt.html#i_CTRL-%5B)
 | ---      | ---                                 |
 | `u`      | Undo changes                        |
 | `<C-R>`  | Redo changes                        |
+
 <!-- {: .-shortcuts} -->
 
 See: [Insert mode](https://vimhelp.org/insert.txt.html)
@@ -85,6 +91,7 @@ See: [Insert mode](https://vimhelp.org/insert.txt.html)
 | ---             | ---                         |
 | `"*p` _/_ `"+p` | Paste from system clipboard |
 | `"*y` _/_ `"+y` | Copy to system clipboard    |
+
 <!-- {: .-shortcuts} -->
 
 See: [Registers](https://vimhelp.org/change.txt.html#quote)
@@ -96,6 +103,7 @@ See: [Registers](https://vimhelp.org/change.txt.html#quote)
 | `v`      | Enter visual mode       |
 | `V`      | Enter visual line mode  |
 | `<C-V>`  | Enter visual block mode |
+
 <!-- {: .-shortcuts} -->
 
 #### In visual mode
@@ -105,6 +113,7 @@ See: [Registers](https://vimhelp.org/change.txt.html#quote)
 | `d` _/_ `x` | Delete selection        |
 | `s`         | Replace selection       |
 | `y`         | Yank selection _(Copy)_ |
+
 <!-- {: .-shortcuts} -->
 
 See [Operators](#operators) for other things you can do.
@@ -118,6 +127,7 @@ See [Operators](#operators) for other things you can do.
 See: [Search and replace](https://vimhelp.org/change.txt.html#%3Asubstitute)
 
 ## Navigating
+
 <!-- {: .-three-column} -->
 
 ### Directions
@@ -127,6 +137,7 @@ See: [Search and replace](https://vimhelp.org/change.txt.html#%3Asubstitute)
 | `h` `j` `k` `l`     | Arrow keys        |
 | `<C-U>` _/_ `<C-D>` | Half-page up/down |
 | `<C-B>` _/_ `<C-F>` | Page up/down      |
+
 <!-- {: .-shortcuts} -->
 
 See: [Left-right motions](https://vimhelp.org/motion.txt.html#left-right-motions)
@@ -137,6 +148,7 @@ See: [Left-right motions](https://vimhelp.org/motion.txt.html#left-right-motions
 | ---          | ---                       |
 | `b` _/_ `w`  | Previous/next word        |
 | `ge` _/_ `e` | Previous/next end of word |
+
 <!-- {: .-shortcuts} -->
 
 See: [Word motions](https://vimhelp.org/motion.txt.html#w)
@@ -148,6 +160,7 @@ See: [Word motions](https://vimhelp.org/motion.txt.html#w)
 | `0` _(zero)_ | Start of line                      |
 | `^`          | Start of line _(after whitespace)_ |
 | `$`          | End of line                        |
+
 <!-- {: .-shortcuts} -->
 
 See: [Line motions](https://vimhelp.org/motion.txt.html#0)
@@ -158,6 +171,7 @@ See: [Line motions](https://vimhelp.org/motion.txt.html#0)
 | --- | --- |
 | `fc`  | Go forward to character `c`  |
 | `Fc`  | Go backward to character `c` |
+
 <!-- {: .-shortcuts} -->
 
 See: [Character motions](https://vimhelp.org/motion.txt.html#f)
@@ -172,6 +186,7 @@ See: [Character motions](https://vimhelp.org/motion.txt.html#f)
 | `{number}G` | Go to line `{number}`    |
 | `{number}j` | Go down `{number}` lines |
 | `{number}k` | Go up `{number}` lines   |
+
 <!-- {: .-shortcuts} -->
 
 See: [Go to line](https://vimhelp.org/motion.txt.html#G)
@@ -186,6 +201,7 @@ See: [Go to line](https://vimhelp.org/motion.txt.html#G)
 | `H`      | Move to top of screen    |
 | `M`      | Move to middle of screen |
 | `L`      | Move to bottom of screen |
+
 <!-- {: .-shortcuts} -->
 
 See: [Scrolling](https://vimhelp.org/scroll.txt.html#zz)
@@ -198,24 +214,29 @@ See: [Scrolling](https://vimhelp.org/scroll.txt.html#zz)
 | `N`       | Previous match                      |
 | `*`       | Next whole word under cursor        |
 | `#`       | Previous whole word under cursor    |
+
 <!-- {: .-shortcuts} -->
 
 See: [Search commands](https://vimhelp.org/pattern.txt.html#search-commands)
 
 Operators
 ---------
+
 <!-- {: .-three-column} -->
 
 ### Usage
+
 <!-- {: .-prime} -->
 
 Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
+
 <!-- {: .-setup} -->
 
 | Operator | Motion |
 | --- | --- |
 | `d`      | `w`    |
 | Operator | Motion |
+
 <!-- {: .-css-breakdown} -->
 
 See: [Operators](https://vimhelp.org/motion.txt.html#operator)
@@ -237,6 +258,7 @@ See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 | `gu`     | Lowercase                       |
 | ---      | ---                             |
 | `!`      | Filter through external program |
+
 <!-- {: .-shortcuts} -->
 
 See: [Operators](https://vimhelp.org/motion.txt.html#operator)
@@ -244,6 +266,7 @@ See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 ### Examples
 
 Combine operators with *motions* to use them.
+
 <!-- {: .-setup} -->
 
 | Shortcut               | Description                               |
@@ -259,18 +282,22 @@ See: `:help motion.txt`
 
 Text objects
 ------------
+
 <!-- {: .-three-column} -->
 
 ### Usage
+
 <!-- {: .-prime} -->
 
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
+
 <!-- {: .-setup} -->
 
 | Operator | [i]nside or [a]round | Text object |
 | --- | --- | --- |
 | `v`      | `i`                  | `p`         |
 | Operator | [i]nside or [a]round | Text object |
+
 <!-- {: .-css-breakdown} -->
 
 See: [Text objects](https://vimhelp.org/motion.txt.html#text-objects)
@@ -289,6 +316,7 @@ See: [Text objects](https://vimhelp.org/motion.txt.html#text-objects)
 | `b`                    | A block [(            |
 | `B`                    | A block in [{         |
 | `t`                    | A XML tag block       |
+
 <!-- {: .-shortcuts} -->
 
 See: [Text objects](https://vimhelp.org/motion.txt.html#text-objects)
@@ -305,6 +333,7 @@ See: [Text objects](https://vimhelp.org/motion.txt.html#text-objects)
 | ---         | ---                                |
 | `dip`       | Delete inner paragraph             |
 | `cip`       | Change inner paragraph             |
+
 <!-- {: .-shortcuts} -->
 
 See [Operators](#operators) for other things you can do.
@@ -353,6 +382,7 @@ See: [Tab pages](https://vimhelp.org/tabpage.txt.html)
 | `zr`          | Fold less _(foldlevel -= 1)_ |
 | ---           | ---                          |
 | `zx`          | Update folds                 |
+
 <!-- {: .-shortcuts} -->
 
 Uppercase ones are recursive (eg, `zO` is open recursively).
@@ -369,6 +399,7 @@ See: [Folds](https://vimhelp.org/fold.txt.html#zo)
 | ---                 | ---                        |
 | `[m`                | Previous method start      |
 | `[M`                | Previous method end        |
+
 <!-- {: .-shortcuts} -->
 
 See: [Matching pairs](https://vimhelp.org/motion.txt.html#%25)
@@ -381,6 +412,7 @@ See: [Matching pairs](https://vimhelp.org/motion.txt.html#%25)
 | `<C-I>`  | Go forward                   |
 | ---      | ---                          |
 | `gf`     | Go to file in cursor         |
+
 <!-- {: .-shortcuts} -->
 
 See: [Jump motions](https://vimhelp.org/motion.txt.html#jump-motions)
@@ -391,6 +423,7 @@ See: [Jump motions](https://vimhelp.org/motion.txt.html#jump-motions)
 | ---      | ---              |
 | `<C-A>`  | Increment number |
 | `<C-X>`  | Decrement        |
+
 <!-- {: .-shortcuts} -->
 
 See: [CTRL-A](https://vimhelp.org/change.txt.html#CTRL-A)
@@ -416,6 +449,7 @@ See: [Window resizing](https://vimhelp.org/windows.txt.html#window-resize)
 | ---                   | ---                                             |
 | `:tselect Classname`  | Find definitions of Classname                   |
 | `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
+
 <!-- {: .-shortcuts} -->
 
 See: [Tags](https://vimhelp.org/tagsrch.txt.html)
@@ -430,6 +464,7 @@ See: [Tags](https://vimhelp.org/tagsrch.txt.html)
 | ---      | ---                                  |
 | `gUU`    | Uppercase current line (also `gUgU`) |
 | `guu`    | Lowercase current line (also `gugu`) |
+
 <!-- {: .-shortcuts} -->
 
 Do these in visual or normal mode.
@@ -463,6 +498,7 @@ See: [Changing case](https://vimhelp.org/change.txt.html#g~)
 | `:delm a`          | Delete mark `a`                                      |
 | `:delm a-d`        | Delete marks `a`, `b`, `c`, `d`                      |
 | `:delm abc`        | Delete marks `a`, `b`, `c`                           |
+
 <!-- {: .-shortcuts} -->
 
 See: [Marks](https://vimhelp.org/motion.txt.html#mark-motions)
@@ -475,6 +511,7 @@ See: [Marks](https://vimhelp.org/motion.txt.html#mark-motions)
 | `]p`       | Paste under the current indentation level         |
 | ---        | ---                                               |
 | `:set ff=unix` | Convert Windows line endings to Unix line endings |
+
 <!-- {: .-shortcuts} -->
 
 See: [Repeating commands](https://vimhelp.org/repeat.txt.html#.)
@@ -486,6 +523,7 @@ See: [Repeating commands](https://vimhelp.org/repeat.txt.html#.)
 | `<C-R><C-W>` | Insert current word into the command line |
 | `<C-R>"`     | Paste from " register                     |
 | `<C-X><C-F>` | Auto-completion of path in insert mode    |
+
 <!-- {: .-shortcuts} -->
 
 See: [Command-line editing](https://vimhelp.org/cmdline.txt.html#c_CTRL-R)
@@ -533,6 +571,7 @@ See: [:cquit](https://vimhelp.org/quickfix.txt.html#%3Acquit)
 | `zg`                         | Add word to spell list                                  |
 | `zw`                         | Mark word as bad/misspelling                            |
 | `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile  |
+
 <!-- {: .-shortcuts} -->
 
 See: [Spell checking](https://vimhelp.org/spell.txt.html)

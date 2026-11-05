@@ -4,6 +4,7 @@ category: Ledger
 ---
 
 ### About
+
 <!-- {: .-intro} -->
 
 - <https://hledger.org>

@@ -17,6 +17,7 @@ intro: |
 ## Getting started
 
 ### About
+
 <!-- {: .-intro} -->
 
 [Markdown](https://commonmark.org/) is a plain-text format for structured documents. This reference covers CommonMark and GFM syntax, from headings to tables and footnotes.
@@ -37,6 +38,7 @@ A paragraph with **bold**, *italic*, and `code`.
 
 [Link](https://commonmark.org)
 ```
+
 <!-- {: data-line="3"} -->
 
 See: [Markdown reference](https://commonmark.org/help/)
@@ -79,6 +81,7 @@ Either underline can be any length. It must sit directly under the text; with a 
 See: [Setext headings](https://spec.commonmark.org/0.31.2/#setext-headings)
 
 ## Text
+
 <!-- {: .-three-column} -->
 
 ### Emphasis and strikethrough
@@ -117,6 +120,7 @@ Second line
 Next line\
 also breaks
 ```
+
 <!-- {: data-line="1"} -->
 
 Line 1 ends in two spaces. Two or more spaces or a trailing backslash insert a `<br>`; a blank line starts a new paragraph.
@@ -124,6 +128,7 @@ Line 1 ends in two spaces. Two or more spaces or a trailing backslash insert a `
 See: [Hard line breaks](https://spec.commonmark.org/0.31.2/#hard-line-breaks)
 
 ## Lists
+
 <!-- {: .-three-column} -->
 
 ### Bullet lists
@@ -223,6 +228,7 @@ A GitHub extension, absent from GFM 0.29 but rendered by GitHub and devhints. No
 See: [Footnotes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)
 
 ## Images
+
 <!-- {: .-three-column} -->
 
 ### Inline images
@@ -257,6 +263,7 @@ Angle brackets are optional; use them when the URI has spaces or unbalanced pare
 See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
+
 <!-- {: .-three-column} -->
 
 ### Inline code
@@ -296,6 +303,7 @@ Four spaces indent a code block in CommonMark.
 See: [Indented code blocks](https://spec.commonmark.org/0.31.2/#indented-code-blocks)
 
 ## Blocks
+
 <!-- {: .-three-column} -->
 
 ### Blockquotes

@@ -10,6 +10,7 @@ intro: |
 ## Shortcuts
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 - [Operator reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators) _(developer.mozilla.org)_
@@ -38,6 +39,7 @@ See: [Unary plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 | Date to UNIX timestamp | `+new Date()` | `new Date().getTime()` |
 | Any to boolean | `!!value` | `Boolean(value)` |
 | Check array contents | `if (~arr.indexOf(v))` | `if (arr.includes(v))` |
+
 <!-- {: .-left-align.-headers} -->
 
 `.includes` is ES2016-only, otherwise use `.indexOf(val) !== -1` if you don't polyfill. `num | 0` rounds toward zero and wraps at 32 bits, unlike `Math.floor()`.

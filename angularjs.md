@@ -7,6 +7,7 @@ archived: This describes an older version of Angular.
 ---
 
 ### About
+
 <!-- {: .-intro} -->
 
  * <https://github.com/angular/angular-seed>

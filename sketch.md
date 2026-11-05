@@ -5,6 +5,7 @@ updated: 2017-08-30
 ---
 
 ## Shortcuts
+
 <!-- {: .-three-column} -->
 
 ### Insert
@@ -18,6 +19,7 @@ updated: 2017-08-30
 | `R`      | Rectangle   |
 | `O`      | Oval        |
 | `U`      | Rounded     |
+
 <!-- {: .-shortcuts} -->
 
 ### Show
@@ -29,6 +31,7 @@ updated: 2017-08-30
 | `^P`     | Show pixels            |
 | `^H`     | Show selection handles |
 | `^R`     | Show rulers            |
+
 <!-- {: .-shortcuts} -->
 
 ### Sidebars
@@ -39,6 +42,7 @@ updated: 2017-08-30
 | `⌘⌥2`    | Toggle right (inspector) |
 | `⌘⌥3`    | Toggle both              |
 | `⌘.`     | Presentation mode        |
+
 <!-- {: .-shortcuts} -->
 
 ### Zoom
@@ -49,6 +53,7 @@ updated: 2017-08-30
 | `⌘1`     | Fit to screen           |
 | `⌘2`     | Fit selection to screen |
 | `⌘3`     | Center selection        |
+
 <!-- {: .-shortcuts} -->
 
 ### Arrange
@@ -57,6 +62,7 @@ updated: 2017-08-30
 | ---            | ---                 |
 | `⌘⌥↑` _/_ `↓`  | Forward or backward |
 | `^⌘⌥↑` _/_ `↓` | Front or back       |
+
 <!-- {: .-shortcuts} -->
 
 ### Distribute
@@ -65,6 +71,7 @@ updated: 2017-08-30
 | ---      | ---         |
 | `^⌘H`    | Horizontal  |
 | `^⌘V`    | Vertical    |
+
 <!-- {: .-shortcuts} -->
 
 ### Layers
@@ -75,6 +82,7 @@ updated: 2017-08-30
 | `⌘F`     | Find layer   |
 | `⌘G`     | Group        |
 | `⌘⇧G`    | Ungroup      |
+
 <!-- {: .-shortcuts} -->
 
 ### Font
@@ -85,4 +93,5 @@ updated: 2017-08-30
 | `⌘⇧[`          | Left align     |
 | `⌘⇧\`          | Center align   |
 | `⌘⇧]`          | Right align    |
+
 <!-- {: .-shortcuts} -->

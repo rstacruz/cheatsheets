@@ -1,4 +1,5 @@
 ## {{ include.title }}
+
 <!-- {: .-three-column} -->
 
 ### Presets
@@ -10,6 +11,7 @@
 | `%m/%d/%Y`      | `06/05/2013`           |
 | `%A, %B %e, %Y` | `Sunday, June 5, 2013` |
 | `%b %e %a`      | `Jun 5 Sun`            |
+
 <!-- {: .-shortcuts} -->
 
 #### Time
@@ -18,6 +20,7 @@
 | ---             | ---                    |
 | `%H:%M`         | `23:05`                |
 | `%I:%M %p`      | `11:05 PM`             |
+
 <!-- {: .-shortcuts} -->
 
 Used by Ruby, UNIX `date`, and many more.
@@ -39,6 +42,7 @@ Used by Ruby, UNIX `date`, and many more.
 | ---    | ---                      | ---         |
 | `%d`   | `01`..`31`               | **Day**     |
 | `%e`   | `1`..`31`                |             |
+
 <!-- {: .-shortcuts} -->
 
 ### Time
@@ -57,4 +61,5 @@ Used by Ruby, UNIX `date`, and many more.
 | ---    | ---          | ---                 |
 | `%j`   | `001`..`366` | Day of the year     |
 | `%%`   | `%`          | Literal % character |
+
 <!-- {: .-shortcuts} -->

@@ -67,6 +67,7 @@ st.on('data', /*...*/)
 
 Stream types
 ------------
+
 <!-- {: .-three-column} -->
 
 ### Readable
@@ -131,6 +132,7 @@ clock()              // Readable stream
 ```
 
 ## Also see
+
 <!-- {: .-one-column} -->
 
 - <https://nodejs.org/api/stream.html>

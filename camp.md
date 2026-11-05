@@ -10,12 +10,15 @@ intro: |
 
 Getting started
 ---------------
+
 <!-- {: .-three-column} -->
 
 ### Quick start
+
 <!-- {: .-prime} -->
 
 #### app.js
+
 <!-- {: .-file} -->
 
 ```js
@@ -24,6 +27,7 @@ const camp = Camp.start({ port: 1234 })
 ```
 
 #### web/index.html
+
 <!-- {: .-file} -->
 
 ```html
@@ -43,6 +47,7 @@ camp.path('/search', (req, res) => {
   res.json({ results: ··· })
 })
 ```
+
 <!-- {: data-line="2"} -->
 
 Also available: `camp.post`, `camp.get`.
@@ -58,6 +63,7 @@ camp.path('/blog/:post.html', (req, res) => {
   }, tpl)
 })
 ```
+
 <!-- {: data-line="1,4"} -->
 
 See: [Templates](https://github.com/espadrine/sc/blob/master/doc/Readme.md#templates)
@@ -69,6 +75,7 @@ camp.notFound('/*.lol', (req, res) => {
   res.file('/404.html')
 })
 ```
+
 <!-- {: data-line="1"} -->
 
 See: [Fall through](https://github.com/espadrine/sc/blob/master/doc/Readme.md#fall-through)
@@ -81,6 +88,7 @@ camp.handle((req, res, next) => {
   next()
 })
 ```
+
 <!-- {: data-line="1"} -->
 
 See: [Handlers](https://github.com/espadrine/sc/blob/master/doc/Readme.md#handlers)
@@ -99,6 +107,7 @@ camp.path('/blog/:post.html', (req, res) => {
   }, tpl)
 })
 ```
+
 <!-- {: data-line="1,4,5,6"} -->
 
 ### Implicit templates

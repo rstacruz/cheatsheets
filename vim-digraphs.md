@@ -8,6 +8,7 @@ category: Vim
 ```
 <Ctrl-K>OK
 ```
+
 <!-- {:.light} -->
 
 ### Listing digraphs
@@ -17,6 +18,7 @@ category: Vim
 :dig
 :digraphs
 ```
+
 <!-- {:.lights} -->
 
 ## Reference

@@ -8,6 +8,7 @@ tags: [Outdated]
 ## Models
 
 ### About
+
 <!-- {: .-intro} -->
 
 Spine is an MVC framework for JavaScript.

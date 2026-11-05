@@ -28,6 +28,7 @@ flynn key add  # (adds your pubkey to AWS)
 ### Using a flynn cluster
 
 Managed in `~/.flynnrc`:
+
 <!-- {: .-setup} -->
 
 ```bash

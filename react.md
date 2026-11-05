@@ -22,6 +22,7 @@ intro: |
 {%raw%}
 
 ## Quick start
+
 <!-- {: .-two-column} -->
 
 ### Installing React
@@ -52,9 +53,11 @@ The automatic JSX runtime (v17+) means no `import React`. See: [createRoot](http
 Double-invokes renders and effects in development to surface impure logic; no effect in production. See: [StrictMode](https://react.dev/reference/react/StrictMode)
 
 ## Components
+
 <!-- {: .-three-column} -->
 
 ### Function components
+
 <!-- {: .-prime} -->
 
 ```jsx
@@ -66,6 +69,7 @@ function Hello({ name }) {
   )
 }
 ```
+
 <!-- {: data-line="3,4,5"} -->
 
 Capitalised functions that return JSX. See: [Your first component](https://react.dev/learn/your-first-component)
@@ -86,6 +90,7 @@ Capitalised functions that return JSX. See: [Your first component](https://react
   )}
 </>
 ```
+
 <!-- {: data-line="4,5,6,7,8"} -->
 
 `{}` embeds expressions, attributes are camelCase and `<>…</>` is a fragment; `null` and booleans render nothing. See: [Writing markup with JSX](https://react.dev/learn/writing-markup-with-jsx)
@@ -109,6 +114,7 @@ function Avatar({ src, alt, size = 64 }) {
   size={128}
 />
 ```
+
 <!-- {: data-line="1"} -->
 
 Defaults come from parameters (v19 removed `defaultProps`); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)
@@ -141,11 +147,13 @@ Keys must be stable and unique among siblings. See: [Rendering lists](https://re
   …
 </form>
 ```
+
 <!-- {: data-line="4,9"} -->
 
 Pass the handler, not a call, and wrap arguments in an arrow; call `e.preventDefault()` to stop browser defaults. See: [Responding to events](https://react.dev/learn/responding-to-events)
 
 ## State
+
 <!-- {: .-two-column} -->
 
 ### useState
@@ -196,6 +204,7 @@ function reducer(state, action) {
 const [state, dispatch] = useReducer(reducer, { count: 0 })
 dispatch({ type: 'increment' })
 ```
+
 <!-- {: data-line="7"} -->
 
 Prefer a reducer when updates are complex or depend on several values. See: [useReducer](https://react.dev/reference/react/useReducer)
@@ -213,11 +222,13 @@ const [error, submitAction, isPending] =
   {error && <p>{error}</p>}
 </form>
 ```
+
 <!-- {: data-line="1,2,3,4"} -->
 
 Actions are async functions in `action` props; `useOptimistic` shows an immediate value while the request runs. See: [useActionState](https://react.dev/reference/react/useActionState)
 
 ## Effects
+
 <!-- {: .-two-column} -->
 
 ### useEffect
@@ -229,6 +240,7 @@ useEffect(() => {
   return () => connection.disconnect()  // cleanup
 }, [roomId])  // re-runs when roomId changes
 ```
+
 <!-- {: data-line="4"} -->
 
 ```jsx
@@ -255,6 +267,7 @@ useEffect(() => {
   return () => controller.abort()
 }, [id])
 ```
+
 <!-- {: data-line="10"} -->
 
 Abort in the cleanup to drop stale responses, ignoring the expected `AbortError`. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
@@ -272,6 +285,7 @@ useEffect(() => {
   return () => connection.disconnect()
 }, [roomId])
 ```
+
 <!-- {: data-line="1,2,3"} -->
 
 Reads the latest props and state without re-running the effect, so it stays out of the deps. See: [useEffectEvent](https://react.dev/reference/react/useEffectEvent)
@@ -287,11 +301,13 @@ useEffect(() => {
   setFullName(first + ' ' + last)
 })
 ```
+
 <!-- {: data-line="5,6,7"} -->
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## Refs
+
 <!-- {: .-two-column} -->
 
 ### useRef
@@ -338,6 +354,7 @@ createPortal(<Modal />, document.getElementById('modal-root'))
 A portal renders elsewhere in the DOM while keeping the React tree; `dangerouslySetInnerHTML` injects raw HTML, so never pass untrusted input. See: [createPortal](https://react.dev/reference/react-dom/createPortal)
 
 ## Context
+
 <!-- {: .-two-column} -->
 
 ### createContext and useContext
@@ -351,6 +368,7 @@ function Toolbar() {
   return <button className={theme}>Hi</button>
 }
 ```
+
 <!-- {: data-line="5"} -->
 
 ```jsx
@@ -365,11 +383,13 @@ function useTheme() {
   return value
 }
 ```
+
 <!-- {: data-line="3"} -->
 
 Context passes data down without prop drilling and v19 renders `<Context>` itself as the provider; wrapping `useContext` names the value and fails loudly outside a provider. See: [useContext](https://react.dev/reference/react/useContext) · [createContext](https://react.dev/reference/react/createContext)
 
 ## Custom hooks
+
 <!-- {: .-two-column} -->
 
 Call hooks at the top level of a component or hook — never in loops, conditions or nested functions. See: [Rules of hooks](https://react.dev/reference/rules/rules-of-hooks)
@@ -392,6 +412,7 @@ function useOnlineStatus() {
   return isOnline
 }
 ```
+
 <!-- {: data-line="8,9,10,11"} -->
 
 A custom hook is just a function that calls other hooks. See: [Custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks)
@@ -407,6 +428,7 @@ const id = useId()
 `useId` gives SSR-safe ids for accessibility; `useDebugValue(label)` labels a hook in DevTools. See: [useId](https://react.dev/reference/react/useId)
 
 ## Performance
+
 <!-- {: .-two-column} -->
 
 ### memo, useMemo and useCallback
@@ -418,6 +440,7 @@ const Row = memo(function Row({ item }) {
 const visible = useMemo(() => filter(items, query), [items, query])
 const onSelect = useCallback(id => setSelected(id), [])
 ```
+
 <!-- {: data-line="1,4"} -->
 
 Cache components and values only when measurement shows a need — the React Compiler, once configured in your build, auto-memoises and removes most manual calls. See: [memo](https://react.dev/reference/react/memo)
@@ -444,11 +467,13 @@ const isOnline = useSyncExternalStore(
   () => true
 )
 ```
+
 <!-- {: data-line="4"} -->
 
 Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 
 ## Suspense and lazy
+
 <!-- {: .-two-column} -->
 
 ### lazy and Suspense
@@ -472,6 +497,7 @@ function Comments({ commentsPromise }) {
 Reads a promise or context during render and suspends; unlike hooks it may be conditional. See: [use](https://react.dev/reference/react/use)
 
 ## Rendering and SSR
+
 <!-- {: .-two-column} -->
 
 ### Client rendering
@@ -487,6 +513,7 @@ hydrateRoot(
   <App />
 )
 ```
+
 <!-- {: data-line="6,7,8,9"} -->
 
 Hydration markup must match the client render. See: [Client APIs](https://react.dev/reference/react-dom/client)
@@ -501,6 +528,7 @@ const html = renderToString(<App />)  // synchronous, blocks
 `renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense; v19 adds `prerender`. See: [Server APIs](https://react.dev/reference/react-dom/server)
 
 ## Error handling
+
 <!-- {: .-two-column} -->
 
 ### Error boundaries
@@ -525,11 +553,13 @@ class ErrorBoundary extends Component {
   }
 }
 ```
+
 <!-- {: data-line="4,5,6"} -->
 
 Still the only built-in way to catch render errors, and still a class; [react-error-boundary](https://github.com/bvaughn/react-error-boundary) wraps it with a hooks-friendly API. See: [Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 
 ## Legacy APIs
+
 <!-- {: .-two-column} -->
 
 ### Rendering and lifecycle
@@ -570,6 +600,7 @@ See: [forwardRef](https://react.dev/reference/react/forwardRef)
 See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work and are required only for error boundaries; see the [React v16 cheatsheet](react@16) for the class-era API.
 
 ## Also see
+
 <!-- {: .-two-column} -->
 
 - [React documentation](https://react.dev/) _(react.dev)_

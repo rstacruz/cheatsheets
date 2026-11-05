@@ -6,6 +6,7 @@ weight: -3
 ---
 
 ## Format
+
 <!-- {: .-two-column} -->
 
 ### Format
@@ -13,6 +14,7 @@ weight: -3
 ```
 Min  Hour Day  Mon  Weekday
 ```
+
 <!-- {: .-setup} -->
 
 ```
@@ -27,6 +29,7 @@ Min  Hour Day  Mon  Weekday
 │    └────────────────  Hour     (0..23)
 └─────────────────────  Minute   (0..59)
 ```
+
 <!-- {: .-setup.-box-chars} -->
 
 ### Operators

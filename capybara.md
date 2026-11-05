@@ -63,6 +63,7 @@ page.has_css?('.button')
 expect(page).to have_css('.button')
 page.should have_css('.button')
 ```
+
 <!-- {: .-setup} -->
 
 | Positive                          | Negative               |
@@ -84,6 +85,7 @@ page.should have_css('.button')
 | `has_table?` _(selector)_         | `has_no_table?`        |
 | ---                               | ---                    |
 | `has_select?` _(selector)_        | `has_no_select?`       |
+
 <!-- {: .-headers.-left-align} -->
 
 In Rspec, these also map to matchers like `page.should have_content`.
@@ -135,6 +137,7 @@ The two above statements are functionally equivalent.
 ```ruby
 expect(page).to \
 ```
+
 <!-- {: .-setup} -->
 
 ```ruby
@@ -170,6 +173,7 @@ expect(page).to \
 ### Common options
 
 All matchers have these options:
+
 <!-- {: .-setup} -->
 
 ```ruby
@@ -299,6 +303,7 @@ end
 ### Debugging
 
 Enable `inspector: true` and then:
+
 <!-- {: .-setup} -->
 
 ```ruby
@@ -334,6 +339,7 @@ page.set_rack_session(foo: 'bar')
 ```
 
 ## See also
+
 <!-- {: .-one-column} -->
 
 - <https://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers>

@@ -10,6 +10,7 @@ prism_languages: [css]
 ```css
 .grid-container {
 ```
+
 <!-- {: .-setup} -->
 
 ```css
@@ -175,6 +176,7 @@ prism_languages: [css]
 ```css
 }
 ```
+
 <!-- {: .-setup} -->
 
 ### Child
@@ -182,6 +184,7 @@ prism_languages: [css]
 ```css
 .grid-child {
 ```
+
 <!-- {: .-setup} -->
 
 ```css
@@ -243,10 +246,12 @@ prism_languages: [css]
 ```css
 }
 ```
+
 <!-- {: .-setup} -->
 
 
 ## References
+
 <!-- {: .-one-column} -->
 
  * [GRID: A simple visual cheatsheet](http://grid.malven.co/)

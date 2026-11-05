@@ -7,9 +7,11 @@ weight: -10
 ---
 
 ## Getting started
+
 <!-- {: .-three-column} -->
 
 ### Hello world
+
 <!-- {: .-prime} -->
 
 ```elixir
@@ -28,6 +30,7 @@ Greeter.greet("world")
 elixir hello.exs
 # Hello, world!
 ```
+
 <!-- {: .-setup} -->
 
 ### Variables
@@ -48,6 +51,7 @@ user = %{
 ```elixir
 IO.puts "Hello, " <> user.name
 ```
+
 <!-- {: .-setup} -->
 
 ### Lists
@@ -55,6 +59,7 @@ IO.puts "Hello, " <> user.name
 ```elixir
 users = [ "Tom", "Dick", "Harry" ]
 ```
+
 <!-- {: data-line="1"} -->
 
 ```elixir
@@ -70,6 +75,7 @@ source
 |> transform(:hello)
 |> print()
 ```
+
 <!-- {: data-line="2,3"} -->
 
 ```elixir
@@ -85,6 +91,7 @@ These two are equivalent.
 user = %{name: "Tom", age: 23}
 %{name: username} = user
 ```
+
 <!-- {: data-line="2"} -->
 
 This sets `username` to `"Tom"`.
@@ -98,12 +105,14 @@ end
 
 user = %{name: "Tom", age: 23}
 ```
+
 <!-- {: data-line="1"} -->
 
 Pattern matching works in function parameters too.
 
 Control flow
 ------------
+
 <!-- {: .-three-column} -->
 
 ### If
@@ -264,6 +273,7 @@ alias Foo.{Bar, Baz}
 ```elixir
 import String
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -304,11 +314,13 @@ div(a, b)   # integer division
 ```elixir
 import Float
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
 n = 10.3
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -327,11 +339,13 @@ Float.parse("34")  # → { 34.0, "" }
 ```elixir
 import Integer
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
 n = 12
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -380,6 +394,7 @@ m = %{"name" => "hi"}   # string keys ("name")
 ```elixir
 import Map
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -461,11 +476,13 @@ struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
 ```elixir
 import List
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
 l = [ 1, 2, 3, 4 ]
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -493,11 +510,13 @@ Also see [Enum](#enum).
 ```elixir
 import Enum
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
 list = [:a, :b, :c]
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -536,6 +555,7 @@ list |> empty?(fn)
 ```elixir
 import Tuple
 ```
+
 <!-- {: .-setup} -->
 
 ```elixir
@@ -757,6 +777,7 @@ end
 See: [Module](http://elixir-lang.org/docs/stable/elixir/Module.html)
 
 ## References
+
 <!-- {: .-one-column} -->
 
 - [Learn Elixir in Y minutes](https://learnxinyminutes.com/docs/elixir/)

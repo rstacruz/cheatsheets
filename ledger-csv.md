@@ -4,11 +4,13 @@ category: Ledger
 ---
 
 ## Ledger CSV format
+
 <!-- {: .-one-column} -->
 
 ```
 $ ledger csv
 ```
+
 <!-- {: .-setup} -->
 
 ```csv

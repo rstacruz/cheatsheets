@@ -205,6 +205,7 @@ See: [Calculations](http://devdocs.io/rails/activerecord/calculations)
 ### Dynamic attribute-based finders
 
 Given a field called `name`:
+
 <!-- {: .-setup} -->
 
 ```ruby
@@ -290,6 +291,7 @@ belongs_to :author,
 ### Many-to-many
 
 If you have a join model:
+
 <!-- {: .-setup} -->
 
 ```ruby
@@ -298,6 +300,7 @@ class Programmer < ActiveRecord::Base
   has_many :projects, :through => :assignments
 end
 ```
+
 <!-- {: data-line="2,3"} -->
 
 ```ruby
@@ -306,6 +309,7 @@ class Project < ActiveRecord::Base
   has_many :programmers, :through => :assignments
 end
 ```
+
 <!-- {: data-line="2,3"} -->
 
 ```ruby
@@ -314,6 +318,7 @@ class Assignment
   belongs_to :programmer
 end
 ```
+
 <!-- {: data-line="2,3"} -->
 
 ### Many-to-many (HABTM)
@@ -335,6 +340,7 @@ class Post
   has_many :attachments, as: :parent
 end
 ```
+
 <!-- {: data-line="2"} -->
 
 ```ruby
@@ -342,6 +348,7 @@ class Image
   belongs_to :parent, polymorphic: true
 end
 ```
+
 <!-- {: data-line="2"} -->
 
 And in migrations:
@@ -351,6 +358,7 @@ create_table :images do |t|
   t.references :post, polymorphic: true
 end
 ```
+
 <!-- {: data-line="2"} -->
 
 Validation
@@ -361,12 +369,14 @@ Validation
 ```ruby
 class Person < ActiveRecord::Base
 ```
+
 <!-- {:.-setup} -->
 
 ```ruby
   # Presence
   validates :name,     presence: true
 ```
+
 <!-- {: data-line="2"} -->
 
 ```ruby
@@ -450,6 +460,7 @@ class Person < ActiveRecord::Base
 ```ruby
 end
 ```
+
 <!-- {: .-setup} -->
 
 ### Custom validations
@@ -463,6 +474,7 @@ class Person < ActiveRecord::Base
   end
 end
 ```
+
 <!-- {: data-line="2"} -->
 
 ### Errors
@@ -533,6 +545,7 @@ class User < ActiveRecord::Base
   serialize :preferences
 end
 ```
+
 <!-- {: data-line="2"} -->
 
 ```ruby
@@ -554,6 +567,7 @@ class User < ActiveRecord::Base
   serialize :preferences, Hash
 end
 ```
+
 <!-- {: data-line="3"} -->
 
 ```ruby
@@ -580,6 +594,7 @@ class Song < ActiveRecord::Base
   end
 end
 ```
+
 <!-- {: data-line="4,8"} -->
 
 See: <http://api.rubyonrails.org/classes/ActiveRecord/Base.html>

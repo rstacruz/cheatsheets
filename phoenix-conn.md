@@ -9,6 +9,7 @@ Request
 -------
 
 ### Request
+
 <!-- {: .-prime} -->
 
 ```elixir
@@ -42,6 +43,7 @@ Response
 --------
 
 ### Response
+
 <!-- {: .-prime} -->
 
 ```elixir
@@ -119,6 +121,7 @@ Other features
 --------------
 
 ### Other fields
+
 <!-- {: .-prime} -->
 
 ```elixir

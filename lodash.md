@@ -135,6 +135,7 @@ _.indexOf(list, val)
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
+
 <!-- {: .-setup} -->
 
 ```js

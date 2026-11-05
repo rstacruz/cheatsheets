@@ -36,6 +36,7 @@ Variables
 ---------
 
 ### Defining
+
 <!-- {: .-prime} -->
 
 ```vim
@@ -130,6 +131,7 @@ Functions
 ---------
 
 ### Functions
+
 <!-- {: .-prime} -->
 
 ```vim
@@ -224,6 +226,7 @@ Custom commands
 ---------------
 
 ### Custom commands
+
 <!-- {: .-prime} -->
 
 ```vim
@@ -237,6 +240,7 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 ```vim
 command! Save call <SID>foo()
 ```
+
 <!-- {: .-setup} -->
 
 ```vim
@@ -250,6 +254,7 @@ endfunction
 ```vim
 command! -nargs=? Save call script#foo(<args>)
 ```
+
 <!-- {: .-setup} -->
 
 | What | What |
@@ -491,6 +496,7 @@ Numbers
 -------
 
 ### Numbers
+
 <!-- {: .-prime} -->
 
 ```vim
@@ -621,6 +627,7 @@ exists("g:...")
 
 Mapping
 -------
+
 <!-- {: .-three-column} -->
 
 ### Mapping commands
@@ -649,6 +656,7 @@ xnoremap
  └ normal, visual, insert,
    eX mode, select, operator-pending
 ```
+
 <!-- {: .-setup} -->
 
 ### Arguments

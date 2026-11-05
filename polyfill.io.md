@@ -18,6 +18,7 @@ intro: |
 ```html
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js"></script>
 ```
+
 <!-- {: .-wrap} -->
 
 This is the default script for Polyfill.io.

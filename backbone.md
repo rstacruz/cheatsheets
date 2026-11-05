@@ -223,6 +223,7 @@ var Model = Backbone.Model.extend({
   }
 })
 ```
+
 <!-- {: data-line="2"} -->
 
 ```js
@@ -259,6 +260,7 @@ var obj = new Model({ urlRoot: ··· })
 ```
 
 ## References
+
 <!-- {: .-one-column} -->
 
 - [Backbone website](http://backbonejs.org/) _(backbonejs.org)_

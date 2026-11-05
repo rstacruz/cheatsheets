@@ -77,6 +77,7 @@ See: [-H, --header](https://curl.se/docs/manpage.html#-H)
 See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 
 ## Examples
+
 <!-- {: .-one-column} -->
 
 ```bash

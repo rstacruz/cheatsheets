@@ -11,6 +11,7 @@ tags: [WIP]
 | `-` _/_ `=` | Zoom in/out
 | `3` _/_ `4` | Zoom to selection / drawing
 | `5` _/_ `6` | Zoom to page / page width
+
 <!-- {: .-shortcuts} -->
 
 ### Select tool (F1)
@@ -18,6 +19,7 @@ tags: [WIP]
 | Key | Action |
 | --- | --- |
 | `[ ]` | Rotate
+
 <!-- {: .-shortcuts} -->
 
 ### Edit path (F2)
@@ -25,6 +27,7 @@ tags: [WIP]
 | Key | Action |
 | --- | --- |
 | `Ctrl` | constraint
+
 <!-- {: .-shortcuts} -->
 
 ### Dragging an anchor handle
@@ -33,4 +36,5 @@ tags: [WIP]
 | --- | --- |
 | `Ctrl` | snap to 15 degrees
 | `Alt` | ?
+
 <!-- {: .-shortcuts} -->

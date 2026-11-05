@@ -1,7 +1,7 @@
 ---
 title: Herdr agents
 category: Agents
-updated: 2026-10-06
+updated: 2026-11-05
 tier: t2
 keywords:
   - coding agents
@@ -24,9 +24,9 @@ Herdr detects coding agents inside panes, tracks their `idle`, `working`,
 `blocked`, `done`, and `unknown` states, and rolls state up to tabs and
 workspaces. This reference covers the `herdr agent` command group.
 
-- [Agents](https://herdr.dev/docs/agents/) _(herdr.dev)_
-- [Agent automation](https://herdr.dev/docs/agent-automation/) _(herdr.dev)_
-- [Integrations](https://herdr.dev/docs/integrations/) _(herdr.dev)_
+- [Agents](https://herdr.dev/tui/docs/agents/) _(herdr.dev)_
+- [Agent automation](https://herdr.dev/tui/docs/agent-automation/) _(herdr.dev)_
+- [Integrations](https://herdr.dev/tui/docs/integrations/) _(herdr.dev)_
 
 [Herdr cheatsheet](./herdr)
 <!-- {: .-crosslink} -->
@@ -71,9 +71,10 @@ Maki, and Gemini CLI and Cline (both less tested).
 
 These agents report their own state; there is nothing to install.
 
+- [Command Code](https://commandcode.ai)
 - [Crush](https://github.com/charmbracelet/crush)
-- Command Code
-- Muse
+- [Kiro CLI](https://kiro.dev/cli/)
+- [Muse Code](https://dev.meta.ai/products/muse-code)
 - [Prime Agent](https://github.com/PrimeIntellect-ai/prime-agent)
 
 An agent that also reports its resume command comes back in the same session
@@ -82,7 +83,10 @@ after a server restart.
 Agents Herdr does not recognize still run normally in panes; they just show
 up as plain terminals.
 
-See: [Agents](https://herdr.dev/docs/agents/#supported-agents)
+A host-visible wrapper can hide the agent; prefix its command with
+`HERDR_AGENT=claude` so Herdr uses that agent's manifest.
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
 ### Start an agent
 
@@ -127,7 +131,7 @@ defaults to 30000 ms (max 300000).
 | `maki` | Maki |
 | `gemini` | Gemini CLI |
 | `cline` | Cline |
-| `muse` | Muse |
+| `muse` | Muse Code |
 
 Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents.
 A name follows the current pane occupant and clears when the agent exits,
@@ -135,7 +139,7 @@ is released, or is replaced. Targets accept a unique live agent name or the
 pane ID currently hosting the agent; terminal IDs and bare kind labels are
 not accepted.
 
-See: [Agent automation](https://herdr.dev/docs/agent-automation/#agent-identity-and-launch)
+See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#agent-identity-and-launch)
 
 ### Prompt and wait
 
@@ -159,7 +163,7 @@ agent is already working, that turn's completion may match.
 Standalone `agent wait` matches the same settled defaults; add `--until` for
 a state-specific wait. Without `--timeout` it waits indefinitely.
 
-See: [Agent automation](https://herdr.dev/docs/agent-automation/#choose-the-control-surface)
+See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-control-surface)
 
 ### States
 
@@ -179,7 +183,7 @@ The sidebar rolls state up: a `blocked` agent makes its pane, tab, and
 workspace look blocked, a `working` agent makes the workspace active, and a
 `done` agent stays visible until you view it.
 
-See: [Agents](https://herdr.dev/docs/agents/#how-status-works)
+See: [Agents](https://herdr.dev/tui/docs/agents/#how-status-works)
 
 ### Inspect
 
@@ -205,7 +209,10 @@ detection state, the matched rule, and why an idle fallback happened; add
 `--json` for machine-readable output. On `agent read`, use `--format ansi`
 (or `--ansi`) when colors and styling are evidence.
 
-See: [CLI reference](https://herdr.dev/docs/cli-reference/#agents)
+For an idle alternate-screen agent, `recent` reads past the viewport scroll
+its transcript; while the agent is busy, they return `agent_not_idle`.
+
+See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 
 ### Keys and focus
 
@@ -243,11 +250,14 @@ Every integration tells Herdr which session the agent is in, so the same
 session resumes after a server restart. Turn that off with
 `[session] resume_agents_on_restore = false`.
 
+Native restore needs current integrations; check `herdr integration status`
+after upgrading.
+
 The Pi, OMP, Kimi, OpenCode, Kilo, and MastraCode integrations also report
 state; while they report, Herdr uses that instead of reading the screen.
 The others leave state to screen detection.
 
-See: [Integrations](https://herdr.dev/docs/integrations/)
+See: [Integrations](https://herdr.dev/tui/docs/integrations/)
 
 ### Patterns
 
@@ -285,7 +295,7 @@ herdr agent get reviewer
 herdr agent read reviewer --source detection --lines 40
 ```
 
-Herdr returns JSON; extract IDs with `jq`, and target a unique agent name,
-an explicit pane ID, or `--current` rather than the UI-focused pane.
+Herdr returns JSON; extract IDs with `jq`, and target a live agent name or
+explicit pane ID rather than the UI-focused pane.
 
-See: [Agent automation](https://herdr.dev/docs/agent-automation/#recipes)
+See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#recipes)

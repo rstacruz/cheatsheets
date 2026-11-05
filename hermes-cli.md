@@ -171,7 +171,7 @@ See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli
 | ----------------- | ----------------------------------------- |
 | `prune`           | Delete sessions matching filters          |
 | `archive`         | Soft-hide sessions matching filters       |
-| `rename <id>`     | Set or change a session title             |
+| `rename <id> <title>` | Set or change a session title           |
 | `stats`           | Show session-store statistics             |
 | `optimize`        | Merge FTS5 segments and VACUUM            |
 {: .-shortcuts}

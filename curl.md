@@ -101,6 +101,8 @@ See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 --rate 10/s          # cap request rate
 ```
 
+`--rate` has no effect when `--parallel` is used.
+
 See: [--parallel](https://curl.se/docs/manpage.html#--parallel)
 
 ### HTTP versions

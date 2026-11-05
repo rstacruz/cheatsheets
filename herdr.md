@@ -1,7 +1,7 @@
 ---
 title: Herdr
 category: Agents
-updated: 2026-10-06
+updated: 2026-11-05
 tier: t2
 keywords:
   - terminal workspace manager
@@ -24,9 +24,9 @@ intro: |
 agents: persistent sessions of workspaces, tabs, and panes, with agent
 detection built in.
 
-- [Herdr documentation](https://herdr.dev/docs/) _(herdr.dev)_
+- [Herdr documentation](https://herdr.dev/tui/docs/) _(herdr.dev)_
 - [GitHub repository](https://github.com/herdrdev/herdr) _(github.com)_
-- [Herdr concepts](https://herdr.dev/docs/concepts/) _(herdr.dev)_
+- [Herdr concepts](https://herdr.dev/tui/docs/concepts/) _(herdr.dev)_
 
 ### Learn these first
 
@@ -71,7 +71,7 @@ herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
 
-See: [Concepts](https://herdr.dev/docs/concepts/)
+See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 
 ### Quick start
 
@@ -89,7 +89,7 @@ Run an agent in the focused pane; Herdr detects it automatically. Use the
 prefix keys to split a pane (`prefix+v`), open a tab (`prefix+c`), and
 detach (`prefix+q`) — panes and agents keep running.
 
-See: [Quick start](https://herdr.dev/docs/quick-start/)
+See: [Quick start](https://herdr.dev/tui/docs/quick-start/)
 
 ## Command map
 
@@ -108,10 +108,10 @@ See: [Quick start](https://herdr.dev/docs/quick-start/)
 | Command | Purpose |
 | --- | --- |
 | `herdr pane` | Split, run, read, move, close panes |
-| `herdr worktree` | Create and open git worktrees |
+| `herdr worktree` | Create, open, remove git worktrees |
 {: .-shortcuts}
 
-See: [CLI reference](https://herdr.dev/docs/cli-reference/)
+See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 
 ### Agents
 
@@ -119,7 +119,7 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 | --- | --- |
 | `herdr agent` | Start, prompt, wait on, read agents |
 | `herdr integration` | Install agent integrations |
-| `herdr plugin` | Install and manage workflow plugins |
+| `herdr plugin` | Install, update, manage plugins |
 {: .-shortcuts}
 
 [Herdr agents cheatsheet](./herdr-agents)
@@ -131,33 +131,34 @@ See: [CLI reference](https://herdr.dev/docs/cli-reference/)
 
 | Command | Purpose |
 | --- | --- |
-| `herdr session` | Named sessions: list, attach, stop |
-| `herdr machine` | Saved SSH machines |
+| `herdr session` | Named sessions: list, attach, stop, delete |
+| `herdr machine` | Saved SSH machines; `--machine` routes commands |
 {: .-shortcuts}
 
 #### Server
 
 | Command | Purpose |
 | --- | --- |
-| `herdr server` | Stop or reload the running server |
+| `herdr server` | Headless server; stop, reload, manifests |
 | `herdr status` | Show client and server state |
 {: .-shortcuts}
 
-See: [CLI reference](https://herdr.dev/docs/cli-reference/)
+See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 
 ### Utilities
 
 | Command | Purpose |
 | --- | --- |
 | `herdr api` | Socket API snapshot and schema |
+| `herdr terminal` | Attach to raw terminal streams |
 | `herdr notification` | Show a notification |
 | `herdr update` | Update a direct install |
-| `herdr channel` | Choose the stable or preview channel |
-| `herdr config` | Validate or reset `config.toml` |
+| `herdr channel` | Show or set the update channel |
+| `herdr config` | Validate config or reset keybindings |
 | `herdr completion` | Generate shell completions |
 {: .-shortcuts}
 
-See: [CLI reference](https://herdr.dev/docs/cli-reference/)
+See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 
 ## Also see
 

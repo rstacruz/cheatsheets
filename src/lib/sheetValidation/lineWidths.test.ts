@@ -66,6 +66,32 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toEqual([])
   })
 
+  test('flags over 42 characters under an attribute comment', () => {
+    const input = [
+      '## A',
+      '',
+      '<!-- {: .-three-column} -->',
+      '',
+      '```bash',
+      `echo ${'x'.repeat(38)}`,
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toHaveLength(1)
+  })
+
+  test('allows 42 characters under an attribute comment', () => {
+    const input = [
+      '## A',
+      '',
+      '<!-- {: .-three-column} -->',
+      '',
+      '```bash',
+      `echo ${'x'.repeat(37)}`,
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toEqual([])
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

@@ -1,5 +1,6 @@
 ---
 title: Ubuntu
+category: Linux
 ---
 
 ### Aptitude stuff

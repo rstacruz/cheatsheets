@@ -1,6 +1,6 @@
 ---
 title: Codex
-category: AI
+category: Agents
 updated: 2026-10-03
 tier: t2
 keywords:

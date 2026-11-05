@@ -47,8 +47,6 @@ claude auth login --console  # bill to a Console account
 claude auth status           # JSON status; --text for plain
 ```
 
-Needs a Pro, Max, Ultra, Team, or Enterprise plan, a Console account, or a cloud provider (Bedrock, Google Cloud, Foundry). `ANTHROPIC_API_KEY` also works.
-
 See: [Authentication](https://code.claude.com/docs/en/authentication)
 
 ### Sessions

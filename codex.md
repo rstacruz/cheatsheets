@@ -106,7 +106,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `-p, --profile <name>`            | Layer a profile over config   |
 | ---                               | ---                           |
 | `-s, --sandbox <mode>`            | Set the sandbox policy        |
-| `-a, --ask-for-approval <policy>` | `on-request` or `never`       |
+| `-a, --ask-for-approval <policy>` | `on-request` or `never`; no `untrusted` |
 | `-C, --cd <dir>`                  | Set the working directory     |
 | `--add-dir <dir>`                 | Grant another writable folder |
 | `--worktree`                      | Run in a managed git worktree |
@@ -124,7 +124,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | -------------------------------------------- | ------------------------------ |
 | `--oss`                                      | Use a local open-source model  |
 | `--local-provider`                           | Pick lmstudio or ollama        |
-| `--approve-for-me`                           | Auto-review approval requests  |
+| `--approve-for-me`                           | Auto-review approvals; replaces `--full-auto` |
 | `--no-alt-screen`                            | Keep output in terminal scrollback |
 | ---                                          | ---                            |
 | `--enable <feature>`                         | Enable optional features       |
@@ -150,9 +150,7 @@ codex -s workspace-write -a on-request  # Auto
 codex -s read-only -a never             # read-only, no prompts
 ```
 
-Auto is the default preset: edits in the workspace, approval to leave it. Network stays off until `sandbox_workspace_write.network_access = true`.
-
-The `untrusted` approval policy and `--full-auto` are retired; use `--approve-for-me` to route approvals through automatic review.
+Auto is the default preset: edits in the workspace, approval to leave it, network off until `sandbox_workspace_write.network_access = true`.
 
 See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
 
@@ -343,7 +341,7 @@ AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
 
-Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down. Loading stops at 32 KiB (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 ## Common workflows
 

@@ -3,7 +3,7 @@ title: Markdown
 category: Markup
 tier: t2
 weight: -1
-updated: 2026-11-05
+updated: 2026-11-06
 keywords:
   - markdown syntax
   - commonmark
@@ -273,6 +273,18 @@ See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 ### Fenced code
 
 `````markdown
+```js
+const x = 1
+```
+`````
+
+The info string's first word is the language; a backtick info string cannot contain backticks.
+
+See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
+
+### Nested code fences
+
+`````markdown
 ````markdown
 ```js
 const x = 1
@@ -280,9 +292,9 @@ const x = 1
 ````
 `````
 
-The info string's first word is the language, and a backtick info string cannot hold backticks; use tildes there. The closing fence matches the opening character and at least its length.
+A fence inside another needs a longer outer fence, or tildes. The closing fence must match the opening character and be at least as long.
 
-See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
+See: [Creating and highlighting code blocks](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)
 
 ### Indented code
 

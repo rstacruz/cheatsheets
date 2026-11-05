@@ -13,11 +13,12 @@ costs:
 
 - **Not CommonMark.** GitHub renders `{: .-two-column}` as a paragraph of
   visible text.
-- **Formatters move it.** Prettier and oxfmt insert a blank line after a block,
-  which detaches the list; oxfmt additionally folds a table's list into a table
-  row. The repo moved to oxfmt in #2283, so this stopped being hypothetical.
-- **It costs a parser.** `remark-attribute-list` 0.4.0 is a one-maintainer
-  package with its own syntax and node types, kept only for this.
+- **Formatters move it.** Both Prettier and oxfmt insert a blank line after a
+  block, which detaches the list; oxfmt additionally folds a table's list into a
+  table row. `.oxfmtrc.json` ignores `*.md` today, so nothing is broken yet —
+  Markdown formatting just cannot be turned on while lists look like this.
+- **It costs a parser.** `remark-attribute-list` 0.4.0 is a small package (four
+  npm maintainers) with its own syntax and node types, kept only for this.
 
 ## Decision
 
@@ -35,7 +36,7 @@ Attributes live in an HTML comment directly below their block:
 - The parser stays narrow — `.class`, `.a.b`, `key="value"` — because that is
   all the sheets use.
 - Both syntaxes are accepted during the rollout: #2318 adds comments, #2319
-  migrates the 1,275 remaining lists, #2320 deletes the legacy parser.
+  migrates the remaining lists in the corpus, #2320 deletes the legacy parser.
 
 ## Consequences
 
@@ -48,14 +49,15 @@ Attributes live in an HTML comment directly below their block:
 
 ## History
 
-- 2012-03-16 — repo starts as Jekyll + kramdown; `_config.yml` sets
-  `markdown: kramdown`.
+- 2012-03-16 — repo starts on Proton, its own generator (`Protonfile`, Rack/Haml).
+- 2013-10-14 — 85c46a392 "Jekyllization." moves the site to Jekyll.
+- 2014-06-14 — 1b5eac2ce adds `_config.yml` with `markdown: kramdown`.
 - 2024-03-28 — #2130 rewrote the site to Astro 4, still rendering through Ruby
   kramdown.
 - 2026-10-04 — #2247 replaced Ruby kramdown with an in-process remark/rehype
   pipeline, keeping own-line lists via `remark-attribute-list`.
-- 2026-11-03 — #2283 replaced ESLint 8 and Prettier with oxlint and oxfmt,
-  making own-line lists fragile.
+- 2026-11-03 — #2283 replaced ESLint 8 and Prettier with oxlint and oxfmt;
+  `*.md` stays out of both formatters.
 - 2026-11-06 — #2318 adds comment attributes, #2319 migrates the corpus, #2320
   removes the legacy parser.
 

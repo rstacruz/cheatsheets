@@ -116,8 +116,7 @@ mise upgrade node             # upgrade within the request (24.x)
 mise upgrade --bump node      # latest overall, rewrites mise.toml
 ```
 
-`mise settings self_update.auto=true` keeps the mise binary current;
-package-manager installs update via their manager.
+`mise settings self_update.auto=true` keeps the mise binary current; package-manager installs update via their manager.
 
 See: [mise self-update](https://mise.jdx.dev/cli/self-update.html),
 [mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
@@ -380,8 +379,7 @@ mise untrust mise.toml
 mise trust --ignore
 ```
 
-Config files can run code through tasks and hooks. Normal mode auto-trusts
-the active config on `mise run`, `mise install`, `mise exec`, and `mise watch`.
+Config files can run code through tasks and hooks. Normal mode auto-trusts the active config on `mise run`, `mise install`, `mise exec`, and `mise watch`.
 
 Simple tool-only files need no trust; paranoid mode requires explicit,
 content-bound trust for non-global files.

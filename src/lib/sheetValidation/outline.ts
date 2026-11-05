@@ -48,7 +48,8 @@ function firstContent(lines: string[], start: number): number {
   return index
 }
 
-function commentAt(lines: string[], start: number): string | undefined {
+/** Attribute text of the comment opening at `start`, and the line after it */
+function commentAt(lines: string[], start: number) {
   if (!(lines[start] ?? '').trim().startsWith('<!--')) return undefined
 
   const parts: string[] = []
@@ -56,18 +57,29 @@ function commentAt(lines: string[], start: number): string | undefined {
     const line = lines[index].trim()
     const end = line.indexOf('-->')
     parts.push(end === -1 ? line : line.slice(0, end + 3))
-    if (end !== -1) break
+    if (end === -1) continue
+
+    const text = ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
+    return text === undefined ? undefined : { text, end: index + 1 }
   }
-  return ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
+  return undefined
 }
 
-/** Merges a legacy IAL with its comment, as the plugin does */
+/** Merges a legacy IAL with the comments below, as the plugin does */
 function attributesBelow(lines: string[], start: number): string | undefined {
+  const parts: string[] = []
   const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  const comment = commentAt(lines, firstContent(lines, ial ? start + 1 : start))
+  if (ial) parts.push(ial[1])
 
-  if (ial) return comment ? `${ial[1]} ${comment}` : ial[1]
-  return comment
+  let index = firstContent(lines, ial ? start + 1 : start)
+  for (;;) {
+    const comment = commentAt(lines, index)
+    if (!comment?.text) break
+    parts.push(comment.text)
+    index = firstContent(lines, comment.end)
+  }
+
+  return parts.length ? parts.join(' ') : undefined
 }
 
 /** Code-block content lines with their enclosing H2 section's layout */

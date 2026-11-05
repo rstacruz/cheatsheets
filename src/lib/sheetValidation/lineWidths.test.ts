@@ -134,6 +134,20 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
+  test('merges stacked attribute comments', () => {
+    const input = [
+      '## A',
+      '<!-- {: .a} -->',
+      '',
+      '<!-- {: .-three-column} -->',
+      '',
+      '```',
+      'x'.repeat(43),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toHaveLength(1)
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

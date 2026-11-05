@@ -7,7 +7,10 @@ const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
 /** Containers whose children are blocks; elsewhere the comment is left as text */
 const BLOCK_PARENTS: Record<string, boolean> = Object.fromEntries(
-  ['root', 'blockquote', 'listItem'].map((type) => [type, true])
+  ['root', 'blockquote', 'listItem', 'footnoteDefinition'].map((type) => [
+    type,
+    true
+  ])
 )
 
 /** Applies attributes to the preceding block and drops the comment */
@@ -21,6 +24,8 @@ export function commentAttributes() {
 
       const target = parent.children[index - 1]
       if (!target || target.type === 'html') return
+      // Attributes on a footnote definition render nowhere
+      if (target.type === 'footnoteDefinition') return
 
       const attributes = parseAttributes(match[1])
       if (!attributes) return

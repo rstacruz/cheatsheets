@@ -148,6 +148,18 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
+  test('ignores a comment with trailing text', () => {
+    const input = [
+      '## A',
+      '<!-- {: .-three-column} --> x',
+      '',
+      '```',
+      'x'.repeat(50),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toEqual([])
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

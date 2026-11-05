@@ -182,6 +182,18 @@ describe('comment attributes', () => {
     )
   })
 
+  it('applies one inside a footnote definition', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '    <!-- {: .a} -->'].join(
+      '\n'
+    )
+    expect((await renderMarkdown(input)).html).toContain('<p class="a">note')
+  })
+
+  it('leaves a comment after a footnote definition alone', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '<!-- {: .a} -->'].join('\n')
+    expect((await renderMarkdown(input)).html).toContain('<!-- {: .a} -->')
+  })
+
   it('appends to the classes from an IAL on the same block', async () => {
     expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
       '<h2 class="a b" id="h">H</h2>'

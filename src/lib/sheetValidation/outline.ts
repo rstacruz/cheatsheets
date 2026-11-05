@@ -56,7 +56,9 @@ function commentAt(lines: string[], start: number) {
   for (let index = start; index < lines.length; index++) {
     const line = lines[index].trim()
     const end = line.indexOf('-->')
-    parts.push(end === -1 ? line : line.slice(0, end + 3))
+    // The renderer leaves `<!-- … --> text` literal, so it is not a match
+    if (end !== -1 && end + 3 !== line.length) return undefined
+    parts.push(line)
     if (end === -1) continue
 
     const text = ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]

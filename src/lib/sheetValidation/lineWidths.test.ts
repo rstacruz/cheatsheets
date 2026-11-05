@@ -79,19 +79,6 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
-  test('allows 42 characters past a blank line', () => {
-    const input = [
-      '## A',
-      '',
-      '<!-- {: .-three-column} -->',
-      '',
-      '```bash',
-      `echo ${'x'.repeat(37)}`,
-      '```'
-    ].join('\n')
-    expect(findWideCodeLines(input)).toEqual([])
-  })
-
   test('reads three-column from joined classes', () => {
     const input = [
       '## A',

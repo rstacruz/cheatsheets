@@ -18,7 +18,7 @@ import { SEP_LINE, scanFences } from '~/lib/sheetValidation/utils'
  * in separator-row bodies and ragged-row padding
  *
  * Tables are lifted out before parsing so an attribute comment lands on the
- * sentinel fence, then `kramdownTables` copies its data onto the table
+ * sentinel fence; `kramdownTables` copies it onto the table node
  */
 
 export const TABLE_SENTINEL_LANG = 'kramdown-table'

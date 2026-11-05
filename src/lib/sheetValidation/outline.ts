@@ -40,7 +40,7 @@ export type CodeLine = {
 
 const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/
 
-/** Inner attribute text of the attribute comment below `start`, past blanks */
+/** Attribute text of the comment below `start`, skipping blank lines */
 function attributeComment(lines: string[], start: number): string | undefined {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++

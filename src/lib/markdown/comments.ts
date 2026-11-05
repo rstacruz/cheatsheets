@@ -7,7 +7,7 @@ const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
 /**
  * Applies an attribute comment to the block above it, then drops the comment
- * node so later passes see the block directly. Replaces the kramdown IAL.
+ * node so later passes see the block directly
  */
 export function commentAttributes() {
   return (tree: Root) => {

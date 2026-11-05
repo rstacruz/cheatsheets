@@ -1,6 +1,6 @@
 ---
 title: Claude Code
-category: AI
+category: Agents
 tags: [Featured]
 updated: 2026-10-03
 tier: t1

@@ -3,102 +3,108 @@ title: TypeScript
 category: JavaScript libraries
 tier: t1
 tags: [Featured]
+updated: 2026-11-05
 ---
 
-### About
+## Basics
 
-TypeScript is just like ES2015 with type-checking. All ES2015 (classes, etc) should work.
+### About
+{: .-intro}
+
+TypeScript adds static types to JavaScript; types are erased at build time.
+
+`tsc` 7 is the native compiler; defaults are `strict`, `module: esnext` and `target: es2025`.
 
 See: [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 
 ### Basic types
 
+#### Primitives
+
+| Type | Example |
+| --- | --- |
+| `string` | `'Ada'` |
+| `number` | `42` |
+| `boolean` | `true` |
+| `bigint` | `42n` |
+| `symbol` | `Symbol('id')` |
+| `null` / `undefined` | `null` |
+| `object` | `{ id: 1 }` |
+
+#### Top and bottom
+
+| Type | Example |
+| --- | --- |
+| `any` | opts out of checking |
+| `unknown` | safe `any`; narrow first |
+| `void` | no return value |
+| `never` | unreachable |
+
 ```ts
-any
-void
+let tags: string[] = ['a', 'b']
+let pair: [string, number] = ['a', 1]
 
-boolean
-number
-string
+let id: string | number = 1
+let input: unknown = JSON.parse(json)
 
-null
-undefined
-
-bigint
-symbol
-
-string[]          /* or Array<string> */
-[string, number]  /* tuple */
-
-string | null | undefined   /* union */
-
-never  /* unreachable */
-unknown
+function fail(msg: string): never {
+  throw new Error(msg)
+}
 ```
+
+See: [Everyday types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+
+### Enums
 
 ```ts
 enum Color {
   Red,
-  Green,
-  Blue = 4
-};
+  Green = 4,
+}
 
 let c: Color = Color.Green
 ```
 
-See: [Everyday types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html), [Enums](https://www.typescriptlang.org/docs/handbook/enums.html)
+Numeric enums are union enums; enums are not erasable syntax.
+
+See: [Enums](https://www.typescriptlang.org/docs/handbook/enums.html)
 
 ### Declarations
 
 ```ts
-let isDone: boolean
-let isDone: boolean = false
-```
+const pi = 3.14          // type 3.14, not number
+let total: number = 0
 
-```ts
-function add (a: number, b: number): number {
+function add(a: number, b: number): number {
   return a + b
 }
 
-// Return type is optional
-function add (a: number, b: number) { ... }
+const double = (n: number) => n * 2
 ```
 
 See: [Variable declarations](https://www.typescriptlang.org/docs/handbook/variable-declarations.html)
 
-## Type assertions
+### Type assertions
 
-#### Variables
 ```ts
-let len: number = (input as string).length
-let len: number = (<string> input).length  /* not allowed in JSX */
+declare const value: unknown
+
+const input = value as string
+const len = (input as string).length
+const upper = (<string>value).toUpperCase()  // not in .tsx
 ```
 
-#### Functions
-```ts
-function object(this: {a: number, b: number}, a: number, b: number) {
-  this.a = a;
-  this.b = b;
-  return this;
-}
+`as` is preferred; angle brackets do not work in `.tsx` files.
 
-// this is used only for type declaration
-let a = object(1,2);
-// a has type {a: number, b: number}
-```
-
+See: [Type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)
 
 ## Interfaces
 
 ### Inline
 
 ```ts
-function printLabel (options: { label: string }) {
+function printLabel(options: { label: string }) {
   console.log(options.label)
-}
-
-// Note the semicolon
-function getUser (): { name: string; age?: number } {
 }
 ```
 
@@ -111,7 +117,9 @@ interface LabelOptions {
   label: string
 }
 
-function printLabel(options: LabelOptions) { ... }
+function printLabel(options: LabelOptions) {
+  console.log(options.label)
+}
 ```
 
 See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
@@ -120,193 +128,454 @@ See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 
 ```ts
 interface User {
-  name: string;
-  age?: number;
+  name: string
+  age?: number
 }
 ```
 
 See: [Optional properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#optional-properties)
 
-### Read only
+### Readonly properties
 
 ```ts
 interface User {
-  readonly name: string
+  readonly id: number
 }
 ```
 
-See: [readonly properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties)
+See: [Readonly properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties)
 
-### Dynamic keys
+### Index signatures
 
 ```ts
-{
-  [key: string]: Object[]
+interface Dict {
+  [key: string]: unknown[]
 }
 ```
+
+Same shape as `Record<string, unknown[]>`.
 
 See: [Index signatures](https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures)
 
 ## Type aliases
 
-### Type aliases
+### Aliases
 
 ```ts
 type Name = string | string[]
+type Point = { x: number; y: number }
 ```
 
 See: [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
 
-### Intersection
+### Intersections
 
 ```ts
-interface Colorful { ... }
+interface Colorful { color: string }
+interface Circle { radius: number }
 
-interface Circle { ... }
- 
-type ColorfulCircle = Colorful & Circle;
+type ColorfulCircle = Colorful & Circle
 ```
 
 See: [Intersection types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types)
 
-## Function types
+### Literal types
 
 ```ts
-interface User { ... }
+type Direction = 'north' | 'south'
+type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6
 
-function getUser(callback: (user: User) => any) { callback({...}) }
-
-getUser(function (user: User) { ... })
+const point = { x: 4, y: 2 } as const
+// point: { readonly x: 4; readonly y: 2 }
 ```
 
+See: [Literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
+
+## Type operators
+
+### Indexed access
+
+```ts
+interface Building {
+  room: {
+    door: string
+    walls: string[]
+  }
+}
+
+type Walls = Building['room']['walls']  // string[]
+```
+
+See: [Indexed access types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html)
+
+### keyof
+
+```ts
+type Point = { x: number; y: number }
+
+type P = keyof Point  // 'x' | 'y'
+```
+
+See: [keyof type operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+
+### typeof
+
+```ts
+const user = { name: 'Ada', age: 36 }
+
+type User = typeof user
+// { name: string; age: number }
+```
+
+See: [typeof type operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)
+
+### Conditional types
+
+```ts
+type ToArray<T> = T extends unknown ? T[] : never
+
+type StrOrNum = ToArray<string | number>
+// string[] | number[]
+```
+
+See: [Conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
+
+### infer
+
+```ts
+type GetReturn<T> = T extends (...args: unknown[]) => infer R
+  ? R
+  : never
+
+type Num = GetReturn<() => number>  // number
+```
+
+```ts
+type First<T extends unknown[]> =
+  T extends [infer F, ...unknown[]] ? F : never
+
+type Str = First<['hello', 1]>  // 'hello'
+```
+
+See: [Inferring within conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
+
+### Template literal types
+
+```ts
+type Space = ' ' | '\n' | '\t'
+
+type TrimLeft<S extends string> =
+  S extends `${Space}${infer Rest}` ? TrimLeft<Rest> : S
+
+type Trimmed = TrimLeft<'  hello'>  // 'hello'
+```
+
+See: [Template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
+
+## Functions
+
+### Function types
+
+```ts
+interface User { name: string }
+
+function getUser(cb: (user: User) => void) {
+  cb({ name: 'Ada' })
+}
+
+getUser(user => console.log(user.name))
+```
+
+See: [Function types](https://www.typescriptlang.org/docs/handbook/2/functions.html)
+
+### this parameters
+
+```ts
+function object(
+  this: { a: number; b: number },
+  a: number,
+  b: number
+) {
+  this.a = a
+  this.b = b
+  return this
+}
+
+const result = object.call({ a: 0, b: 0 }, 1, 2)
+// result: { a: number; b: number }
+```
+
+See: [Declaring `this`](https://www.typescriptlang.org/docs/handbook/2/functions.html#declaring-this-in-a-function)
+
+### Type predicates
+
+```ts
+function isString(x: unknown): x is string {
+  return typeof x === 'string'
+}
+
+if (isString(value)) {
+  value.toUpperCase()
+}
+```
+
+```ts
+const mixed = [1, 'a', 2]
+const nums = mixed.filter(x => typeof x === 'number')
+// number[] (inferred predicate, 5.5)
+```
+
+See: [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+
 ## Classes
+
+### Fields
 
 ```ts
 class Point {
   x: number
   y: number
   static instances = 0
+
   constructor(x: number, y: number) {
     this.x = x
     this.y = y
+    Point.instances++
   }
 }
 ```
 
-#### Inheritance
+See: [Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
+
+### Inheritance
 
 ```ts
-class Point {...}
+class Point3D extends Point {
+  z: number
 
-class Point3D extends Point {...}
+  constructor(x: number, y: number, z: number) {
+    super(x, y)
+    this.z = z
+  }
+}
 
-interface Colored {...}
+interface Colored { color: string }
 
-class Pixel extends Point implements Colored {...}
+class Pixel extends Point3D implements Colored {
+  color = '#000'
+}
 ```
 
-#### Short fields initialisation
+See: [Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
+
+### Parameter properties
 
 ```ts
 class Point {
-  static instances = 0;
   constructor(
     public x: number,
     public y: number,
-  ){}
+  ) {}
 }
 ```
 
-#### Fields which do not require initialisation
+Not erasable syntax; see [erasable syntax](#erasable-syntax).
+
+See: [Parameter properties](https://www.typescriptlang.org/docs/handbook/2/classes.html#parameter-properties)
+
+### Definite assignment
+
 ```ts
 class Point {
-  public someUselessValue!: number;
-  ...
+  // assigned outside the constructor, e.g. in init()
+  value!: number
 }
 ```
 
+See: [Strict property initialization](https://www.typescriptlang.org/docs/handbook/2/classes.html#--strictpropertyinitialization)
+
+### Decorators
+
+```ts
+function logged(
+  value: unknown,
+  context: ClassMethodDecoratorContext
+) {
+  console.log(`decorating ${String(context.name)}`)
+}
+
+class Greeter {
+  @logged greet() {
+    return 'hi'
+  }
+}
+```
+
+See: [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
+
 ## Generics
+
+### Generic classes
 
 ```ts
 class Greeter<T> {
   greeting: T
+
   constructor(message: T) {
     this.greeting = message
   }
 }
 
-let greeter = new Greeter<string>('Hello, world')
+const greeter = new Greeter<string>('Hello')
 ```
+
+See: [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+
+### Constraints
+
+```ts
+function pluck<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key]
+}
+
+const name = pluck({ name: 'Ada' }, 'name')  // string
+```
+
+See: [Generic constraints](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
+
+### Const type parameters
+
+```ts
+declare function tuple<const T extends readonly unknown[]>(
+  xs: T,
+): T
+
+const t = tuple([1, 'a'])
+// readonly [1, 'a']
+```
+
+See: [const type parameters](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#const-type-parameters)
 
 ## Modules
 
+### Exports
+
 ```ts
-export interface User { ... }
+export const pi = 3.14
+export default class Circle {}
+export type { User } from './user'
+export type * from './types'
 ```
 
-## Type extraction
+See: [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
+
+### Type-only imports
 
 ```ts
-interface Building {
-  room: {
-    door: string;
-    walls: string[];
-  };
+import type { User } from './user'
+import { createUser, type NewUser } from './user'
+```
+
+`verbatimModuleSyntax` keeps these imports as written.
+
+See: [Type-only imports](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export)
+
+### Compiler options
+
+| Option | Use |
+| --- | --- |
+| `module: "nodenext"` | Node ESM and CJS resolution |
+| `module: "bundler"` | Bundler-style resolution |
+| `module: "node20"` | Node 20+ import attributes |
+| `verbatimModuleSyntax` | Keep imports as written |
+| `erasableSyntaxOnly` | Ban enums, namespaces, parameter properties |
+| `isolatedDeclarations` | Require explicit types on exports |
+| `rewriteRelativeImportExtensions` | Rewrite `.ts` paths to `.js` |
+
+`target: es2025` is the 7.0 default; ES5 support was removed.
+
+See: [TSConfig reference](https://www.typescriptlang.org/tsconfig)
+
+## Recent additions
+
+### satisfies
+
+```ts
+type Palette = Record<string, string | number[]>
+
+const palette = {
+  red: [255, 0, 0],
+  green: '#00ff00',
+} satisfies Palette
+
+palette.red    // number[]
+palette.green  // string
+```
+
+See: [satisfies](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html#the-satisfies-operator)
+
+### Resource management
+
+```ts
+class Resource {
+  [Symbol.dispose]() {
+    console.log('closed')
+  }
 }
 
-type Walls = Building['room']['walls']; // string[]
+{
+  using file = new Resource()
+}  // logs "closed" at block exit
 ```
 
-## Keyof Type Operator
+`using` and `await using` dispose resources at scope exit; add `esnext.disposable` to `lib`.
 
-```ts
-type Point = { x: number; y: number };
+See: [using declarations](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#using-declarations-and-explicit-resource-management)
 
-type P = keyof Point; // x | y
-```
+### Erasable syntax
 
-## Conditional Types
+| Syntax | Erasable? |
+| --- | --- |
+| `interface`, `type`, `as` | yes |
+| `enum`, `namespace` | no |
+| Parameter properties | no |
+| `import x = require('x')` | no |
 
-```ts
-// SomeType extends OtherType ? TrueType : FalseType;
+`--erasableSyntaxOnly` rejects non-erasable syntax so Node can strip types without a transpiler.
 
-type ToArray<T> = T extends any ? T[] : never;
+See: [erasableSyntaxOnly](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-8.html#the---erasablesyntaxonly-option)
 
-type StrArrOrNumArr = ToArray<string | number>; // string[] | number[]
-```
+## Utility types
 
-### Inferring
+### Object types
 
-```ts
-type GetReturnType<T> = T extends (...args: unknown[]) => infer R
-  ? R
-  : never;
+| Utility | Meaning |
+| --- | --- |
+| `Partial<T>` | All properties optional |
+| `Required<T>` | All properties required |
+| `Readonly<T>` | All properties readonly |
+| `Pick<T, K>` | Only keys `K` |
+| `Omit<T, K>` | All keys except `K` |
+| `Record<K, V>` | Object with keys `K` |
 
-type Num = GetReturnType<() => number>; // number
-```
+See: [Utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
-```ts
-type First<T extends Array<any>> = T extends [infer F, ...infer Rest] ? F : never;
+### Union and function types
 
-type Str = First<['hello', 1, false]>; // 'hello'
-```
+| Utility | Meaning |
+| --- | --- |
+| `Exclude<T, U>` | Union members not in `U` |
+| `Extract<T, U>` | Union members in `U` |
+| `NonNullable<T>` | Remove `null` and `undefined` |
+| `ReturnType<F>` | Function return type |
+| `Parameters<F>` | Function parameter tuple |
+| `Awaited<T>` | Unwrap a promise |
+| `Uppercase<S>` | Uppercase string literal |
 
-See: [Inferring within conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
+See: [Utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
-## Literal Type
+## Also see
 
-```ts
-const point = { x: 4, y: 2 }; // { x: number, y: number }
-
-const literalPoint = { x: 4, y: 2 } as const; // { readonly x: 4, readonly y: 2 };
-```
-
-## Template Literal Types
-
-```ts
-type SpaceChar = ' ' | '\n' | '\t';
-
-type TrimLeft<S extends string> = S extends `${SpaceChar}${infer Rest}` ? TrimLeft<Rest> : S;
-
-type Str = TrimLeft<'    hello'>; // 'hello'
-```
+- [TypeScript documentation](https://www.typescriptlang.org/docs/)
+- [TypeScript 7.0 announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/)
+- [TSConfig reference](https://www.typescriptlang.org/tsconfig)

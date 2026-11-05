@@ -3,7 +3,7 @@ title: Markdown
 category: Markup
 tier: t2
 weight: -1
-updated: 2026-10-31
+updated: 2026-11-05
 keywords:
   - markdown syntax
   - commonmark
@@ -254,7 +254,7 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images), [Link reference defin
 
 Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses.
 
-See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
+See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
 {: .-three-column}
@@ -350,7 +350,7 @@ See: [Raw HTML](https://spec.commonmark.org/0.31.2/#raw-html), [HTML blocks](htt
 | Beta  | 2     |
 ```
 
-A header and delimiter row are required, with matching cell counts. Cells hold inline content only; escape a literal pipe as `\|`.
+Header and delimiter rows must match in cell count; body rows pad or truncate. Cells hold inline content; escape a pipe as `\|`.
 
 See: [Tables](https://github.github.com/gfm/#tables-extension-)
 

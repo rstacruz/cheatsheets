@@ -53,13 +53,14 @@ See: [-X, --request](https://curl.se/docs/manpage.html#-X)
 -d 'a=1&b=2'          # --data: form-urlencoded body
 -d @file              # read body from file
 -d @-                 # read body from stdin
+--data-binary @file   # raw bytes from file
 --data-urlencode a=1  # URL-encode a field
 -G                    # --get: append data to query string
 --json '{"a": 1}'     # JSON POST with headers
 --url-query a=1       # append an encoded query parameter
 ```
 
-`--data` sends the body as-is; use `--data-urlencode` for spaces, `&`, or `=`.
+`--data` does not URL-encode; `@file` strips newlines. Use `--data-urlencode` for `&`/`=`, or `--data-binary @file` for exact bytes.
 
 See: [-d, --data](https://curl.se/docs/manpage.html#-d)
 

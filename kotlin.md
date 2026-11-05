@@ -1,7 +1,7 @@
 ---
 title: Kotlin
 category: Java & JVM
-updated: 2026-10-03
+updated: 2026-11-05
 tier: t1
 keywords:
   - Variables
@@ -216,7 +216,7 @@ val mutableMap = immutableMap.toMutableMap()
 
 `listOf()` and `mapOf()` are read-only; use the `mutable*` builders to add, set, or remove.
 
-See: [Collection types](https://kotlinlang.org/docs/collections-overview.html#collection-types)
+See: [Read-only and mutable collections](https://kotlinlang.org/docs/collections-overview.html#read-only-and-mutable-collections)
 
 ### Iterating
 
@@ -478,7 +478,6 @@ when (direction) {
     Direction.NORTH -> print("North")
     Direction.SOUTH -> print("South")
     Direction.EAST, Direction.WEST -> print("East or West")
-    else -> print("Invalid direction")
 }
 ```
 
@@ -492,7 +491,19 @@ when {
 }
 ```
 
-`when` matches by value, type, or condition. With no argument it acts like if/else-if.
+#### With guards
+
+```kotlin
+fun label(value: Any): String = when (value) {
+    is String if value.isNotBlank() -> value
+    is Int if value > 0 -> "positive"
+    else -> "other"
+}
+```
+
+A guard adds an `if` condition to a branch; it requires a subject.
+
+`when` matches by value, type, or condition. With no argument it acts like if/else-if; as an expression it must be exhaustive.
 
 See: [When expressions](https://kotlinlang.org/docs/control-flow.html#when-expressions-and-statements)
 
@@ -515,7 +526,7 @@ See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
 ### Objects & lists
 
-Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and maps.
+Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and map entries.
 
 #### Data classes
 

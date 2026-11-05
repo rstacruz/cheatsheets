@@ -67,6 +67,9 @@ function commentAt(lines: string[], start: number) {
   return undefined
 }
 
+/** Renderer parity: a comment with no class or `key=value` is left in place */
+const ATTACHABLE = /(?:^|\s)\.\S|=/
+
 /** Merges a legacy IAL with the comments below, as the plugin does */
 function attributesBelow(lines: string[], start: number): string | undefined {
   const parts: string[] = []
@@ -76,7 +79,7 @@ function attributesBelow(lines: string[], start: number): string | undefined {
   let index = firstContent(lines, ial ? start + 1 : start)
   for (;;) {
     const comment = commentAt(lines, index)
-    if (!comment?.text) break
+    if (!comment || !ATTACHABLE.test(comment.text)) break
     parts.push(comment.text)
     index = firstContent(lines, comment.end)
   }

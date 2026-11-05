@@ -24,8 +24,9 @@ export function commentAttributes() {
 
       const target = parent.children[index - 1]
       if (!target || target.type === 'html') return
-      // Attributes on a footnote definition render nowhere
-      if (target.type === 'footnoteDefinition') return
+      // These render nothing, so attributes would vanish with the comment
+      if (target.type === 'definition' || target.type === 'footnoteDefinition')
+        return
 
       const attributes = parseAttributes(match[1])
       if (!attributes) return

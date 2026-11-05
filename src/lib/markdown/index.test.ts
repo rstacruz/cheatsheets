@@ -194,6 +194,12 @@ describe('comment attributes', () => {
     expect((await renderMarkdown(input)).html).toContain('<!-- {: .a} -->')
   })
 
+  it('leaves a comment after a link definition alone', async () => {
+    expect((await renderMarkdown('[a]: /x\n<!-- {: .a} -->')).html).toBe(
+      '<!-- {: .a} -->'
+    )
+  })
+
   it('appends to the classes from an IAL on the same block', async () => {
     expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
       '<h2 class="a b" id="h">H</h2>'

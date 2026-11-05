@@ -160,6 +160,19 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toEqual([])
   })
 
+  test('stops at a comment with no attributes', () => {
+    const input = [
+      '## A',
+      '<!-- {: } -->',
+      '<!-- {: .-three-column} -->',
+      '',
+      '```',
+      'x'.repeat(50),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toEqual([])
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

@@ -39,18 +39,35 @@ export type CodeLine = {
 }
 
 const BLOCK_IAL = /^\{:([^}]*)\}$/
-const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/
+/** Plugin parity: newlines allowed inside the comment */
+const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
-/** Inner attribute text of a legacy IAL or an attribute comment below `start` */
-function attributeLine(lines: string[], start: number): string | undefined {
-  const direct = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  if (direct) return direct[1]
-
-  // Formatters insert a blank line after the block, so the comment may not
-  // be directly below the heading
+function firstContent(lines: string[], start: number): number {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++
-  return ATTRIBUTE_COMMENT.exec(lines[index]?.trim() ?? '')?.[1]
+  return index
+}
+
+function commentAt(lines: string[], start: number): string | undefined {
+  if (!(lines[start] ?? '').trim().startsWith('<!--')) return undefined
+
+  const parts: string[] = []
+  for (let index = start; index < lines.length; index++) {
+    const line = lines[index].trim()
+    const end = line.indexOf('-->')
+    parts.push(end === -1 ? line : line.slice(0, end + 3))
+    if (end !== -1) break
+  }
+  return ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
+}
+
+/** Merges a legacy IAL with its comment, as the plugin does */
+function attributesBelow(lines: string[], start: number): string | undefined {
+  const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
+  const comment = commentAt(lines, firstContent(lines, ial ? start + 1 : start))
+
+  if (ial) return comment ? `${ial[1]} ${comment}` : ial[1]
+  return comment
 }
 
 /** Code-block content lines with their enclosing H2 section's layout */
@@ -65,10 +82,9 @@ export function scanCodeLines(source: string): CodeLine[] {
       found.push({ line: index + 1, text: line, inThreeColumn })
       return
     }
-    // An H2's layout comes from an IAL or attribute comment below it
     if (/^##\s/.test(line)) {
       inThreeColumn = /\.-three-column(?![\w-])/.test(
-        attributeLine(lines, index + 1) ?? ''
+        attributesBelow(lines, index + 1) ?? ''
       )
     }
   })

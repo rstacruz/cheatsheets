@@ -164,6 +164,12 @@ describe('comment attributes', () => {
     )
   })
 
+  it('leaves a comment with no attributes in place', async () => {
+    expect((await renderMarkdown('# H\n<!-- {: } -->')).html).toBe(
+      '<h1 id="h">H</h1>\n<!-- {: } -->'
+    )
+  })
+
   it('appends to the classes from an IAL on the same block', async () => {
     expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
       '<h2 class="a b" id="h">H</h2>'

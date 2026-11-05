@@ -302,9 +302,9 @@ mysqlcheck -u root -p --all-databases --fast
 mysqlcheck -u root -p --auto-repair app
 ```
 
-`--fast` checks only tables that were not closed properly.
+`--fast` checks only tables that were not closed properly. `--auto-repair` cannot repair InnoDB tables; `REPAIR TABLE` supports MyISAM, ARCHIVE, and CSV only.
 
-See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html)
+See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html), [REPAIR TABLE](https://dev.mysql.com/doc/refman/8.4/en/repair-table.html)
 
 ## Data types
 

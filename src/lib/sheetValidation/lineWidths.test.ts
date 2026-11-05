@@ -97,14 +97,9 @@ describe('findWideCodeLines()', () => {
       '<!-- {: .a.-three-column} -->',
       '{: .a.-three-column}'
     ]) {
-      const input = [
-        '## A',
-        attribute,
-        '',
-        '```',
-        'x'.repeat(43),
-        '```'
-      ].join('\n')
+      const input = ['## A', attribute, '', '```', 'x'.repeat(43), '```'].join(
+        '\n'
+      )
       expect(findWideCodeLines(input)).toHaveLength(1)
     }
   })

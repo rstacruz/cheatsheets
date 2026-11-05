@@ -366,7 +366,7 @@ hermes -w -z "Fix issue #123" # one-shot in a worktree
 /worktree new my-experiment   # mid-session worktree
 ```
 
-Clean, pushed worktrees are removed on quit. Dirty ones are archived and restorable with `hermes worktree restore`.
+An interactive exit asks whether to keep or archive a dirty tree. One-shot runs keep it for the sweep; archives restore with `hermes worktree restore`.
 
 See: [Git worktrees](https://hermes-agent.nousresearch.com/docs/user-guide/git-worktrees)
 

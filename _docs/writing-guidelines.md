@@ -13,6 +13,8 @@ updated: 2024-01-01
 ---
 ```
 
+- **Category:** must be one of the values in `src/config.ts` `categories`. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
+
 ## Content organisation
 
 - **Progressive complexity:** Start with basics, move to advanced

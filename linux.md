@@ -1,5 +1,6 @@
 ---
 title: Linux
+category: Linux
 ---
 
 ### Read/Write/Execute a file

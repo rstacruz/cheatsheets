@@ -1,6 +1,6 @@
 ---
 title: Perl-pie
-category: Development
+category: CLI
 ---
 
 ### About

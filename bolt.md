@@ -1,6 +1,6 @@
 ---
 title: Bolt Quickstart
-category: Bolt
+category: Devops
 updated: 2018-12-25
 authors:
   - github: lucywyman

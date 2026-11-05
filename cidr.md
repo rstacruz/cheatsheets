@@ -1,6 +1,6 @@
 ---
 title: CIDR
-category: Misc
+category: Others
 updated: 2018-05-14
 ---
 

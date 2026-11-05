@@ -908,7 +908,7 @@ while getopts ":Vs:f" opt; do
     V) echo "$version"; exit ;;
     s) string=$OPTARG ;;
     f) flag=1 ;;
-    :) echo "Missing argument for -$OPTARG" ;;
+    :) echo "Missing argument for -$OPTARG" >&2; exit 1 ;;
     *) echo "Usage: $0 [-V] [-s string] [-f]"; exit 1 ;;
   esac
 done
@@ -973,7 +973,7 @@ See: [Process substitution](https://www.gnu.org/software/bash/manual/html_node/P
 
 ```bash
 read -r -p "Proceed? [y/n] " ans
-read -s -p "Password: " pass  # no echo
+IFS= read -s -r -p "Password: " pass  # no echo
 echo "$ans"
 ```
 

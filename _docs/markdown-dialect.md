@@ -132,5 +132,5 @@ They can't be shown here, since writing them literally expands them. Everything 
 - Alignment markers (`:---`) — ignored; see [Tables](#tables).
 - `=` (tfoot) and `+` separator rows — no longer special; they become ordinary rows.
 - Inline attributes (`* {:.cls} item`) — not applied; use an attribute comment.
-- Comments above a block rather than below it — ignored.
+- Comments placed before a block — they attach to the block above, never the one below.
 - Tables inside blockquotes or lists — fall back to GFM's table HTML.

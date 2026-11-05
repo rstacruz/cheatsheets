@@ -133,8 +133,9 @@ describe('comment attributes', () => {
   })
 
   it('leaves an orphan comment alone without crashing', async () => {
-    const { html } = await renderMarkdown('<!-- {: .a} -->')
-    expect(html).not.toContain('class="a"')
+    expect((await renderMarkdown('<!-- {: .a} -->')).html).toBe(
+      '<!-- {: .a} -->'
+    )
   })
 })
 

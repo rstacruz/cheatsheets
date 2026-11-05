@@ -250,7 +250,10 @@ See: [Using roles](https://dev.mysql.com/doc/refman/8.4/en/roles.html)
 
 ### Reset root password
 
+Stop the running server first, then start recovery mode.
+
 ```bash
+sudo systemctl stop mysql   # or: /etc/init.d/mysql stop
 mysqld_safe --skip-grant-tables --skip-networking &
 mysql -u root
 ```

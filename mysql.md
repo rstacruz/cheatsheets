@@ -254,7 +254,7 @@ Stop the running server first, then start recovery mode.
 
 ```bash
 sudo systemctl stop mysql   # or: /etc/init.d/mysql stop
-mysqld_safe --skip-grant-tables --skip-networking &
+sudo mysqld_safe --user=mysql --skip-grant-tables --skip-networking &
 mysql -u root
 ```
 
@@ -267,7 +267,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_secret';
 mysqladmin -u root -p shutdown
 ```
 
-Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags instead of `mysqld_safe`.
+Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
 
 See: [How to reset the root password](https://dev.mysql.com/doc/refman/8.4/en/resetting-permissions.html)
 

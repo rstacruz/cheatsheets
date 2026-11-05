@@ -104,6 +104,36 @@ describe('findWideCodeLines()', () => {
     }
   })
 
+  test('reads a three-column comment split over lines', () => {
+    const input = [
+      '## A',
+      '<!-- {:',
+      '  .-three-column',
+      '} -->',
+      '',
+      '```',
+      'x'.repeat(43),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toHaveLength(1)
+    expect(
+      findWideCodeLines(input.replace('x'.repeat(43), 'x'.repeat(42)))
+    ).toEqual([])
+  })
+
+  test('merges a legacy IAL with the comment below it', () => {
+    const input = [
+      '## A',
+      '{: .a}',
+      '<!-- {: .-three-column} -->',
+      '',
+      '```',
+      'x'.repeat(43),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toHaveLength(1)
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

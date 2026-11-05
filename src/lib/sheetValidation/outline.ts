@@ -39,18 +39,40 @@ export type CodeLine = {
 }
 
 const BLOCK_IAL = /^\{:([^}]*)\}$/
-const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/
+/** Same shape as the plugin's regex, including newlines inside the comment */
+const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
-/** Inner attribute text of a legacy IAL or an attribute comment below `start` */
-function attributeLine(lines: string[], start: number): string | undefined {
-  const direct = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  if (direct) return direct[1]
-
-  // Formatters insert a blank line after the block, so the comment may not
-  // be directly below the heading
+/** Index of the first non-blank line at or after `start` */
+function firstContent(lines: string[], start: number): number {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++
-  return ATTRIBUTE_COMMENT.exec(lines[index]?.trim() ?? '')?.[1]
+  return index
+}
+
+/** Inner attribute text of the attribute comment opening at `start` */
+function commentAt(lines: string[], start: number): string | undefined {
+  if (!(lines[start] ?? '').trim().startsWith('<!--')) return undefined
+
+  const parts: string[] = []
+  for (let index = start; index < lines.length; index++) {
+    const line = lines[index].trim()
+    const end = line.indexOf('-->')
+    parts.push(end === -1 ? line : line.slice(0, end + 3))
+    if (end !== -1) break
+  }
+  return ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
+}
+
+/**
+ * Attribute text below `start`. A comment may follow a blank line, and it
+ * merges with a legacy IAL on the same block — the plugin does the same.
+ */
+function attributesBelow(lines: string[], start: number): string | undefined {
+  const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
+  const comment = commentAt(lines, firstContent(lines, ial ? start + 1 : start))
+
+  if (ial) return comment ? `${ial[1]} ${comment}` : ial[1]
+  return comment
 }
 
 /** Code-block content lines with their enclosing H2 section's layout */
@@ -68,7 +90,7 @@ export function scanCodeLines(source: string): CodeLine[] {
     // An H2's layout comes from an IAL or attribute comment below it
     if (/^##\s/.test(line)) {
       inThreeColumn = /\.-three-column(?![\w-])/.test(
-        attributeLine(lines, index + 1) ?? ''
+        attributesBelow(lines, index + 1) ?? ''
       )
     }
   })

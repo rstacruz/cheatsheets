@@ -217,7 +217,7 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/config`  | Show the current configuration       |
 {: .-shortcuts}
 
-See: [Configuration commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#configuration)
+See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#interactive-cli-slash-commands)
 
 ### Prompts and automation
 

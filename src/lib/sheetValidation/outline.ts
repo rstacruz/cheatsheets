@@ -67,7 +67,7 @@ export function scanCodeLines(source: string): CodeLine[] {
     }
     // An H2's layout comes from an IAL or attribute comment below it
     if (/^##\s/.test(line)) {
-      inThreeColumn = /(?:^|\s)\.-three-column(?![\w-])/.test(
+      inThreeColumn = /\.-three-column(?![\w-])/.test(
         attributeLine(lines, index + 1) ?? ''
       )
     }

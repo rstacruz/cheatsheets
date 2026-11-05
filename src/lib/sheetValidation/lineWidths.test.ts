@@ -92,6 +92,23 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toEqual([])
   })
 
+  test('reads three-column from joined classes in either form', () => {
+    for (const attribute of [
+      '<!-- {: .a.-three-column} -->',
+      '{: .a.-three-column}'
+    ]) {
+      const input = [
+        '## A',
+        attribute,
+        '',
+        '```',
+        'x'.repeat(43),
+        '```'
+      ].join('\n')
+      expect(findWideCodeLines(input)).toHaveLength(1)
+    }
+  })
+
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',

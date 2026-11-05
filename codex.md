@@ -1,7 +1,7 @@
 ---
 title: Codex
 category: Agents
-updated: 2026-10-03
+updated: 2026-11-05
 tier: t2
 keywords:
   - AI assistant
@@ -60,13 +60,15 @@ codex fork --last          # branch the latest chat
 
 #### Sessions
 
-| Command                | Description                        |
-| ---------------------- | ---------------------------------- |
-| `codex`                | Start the interactive TUI          |
-| `codex resume`         | Reopen a saved chat                |
-| `codex fork`           | Branch a saved chat into a new one |
-| `codex archive <chat>` | Hide a chat from the picker        |
-| `codex delete <chat>`  | Delete a chat and its transcript   |
+| Command                  | Description                        |
+| ------------------------ | ---------------------------------- |
+| `codex`                  | Start the interactive TUI          |
+| `codex resume`           | Reopen a saved chat                |
+| `codex fork`             | Branch a saved chat into a new one |
+| `codex archive <chat>`   | Hide a chat from the picker        |
+| `codex unarchive <chat>` | Restore an archived chat           |
+| `codex delete <chat>`    | Delete a chat and its transcript   |
+| `codex queue`            | Queue a message for a session      |
 {: .-shortcuts}
 
 #### Setup
@@ -77,7 +79,9 @@ codex fork --last          # branch the latest chat
 | `codex logout`         | Remove stored credentials    |
 | `codex update`         | Update to the latest version |
 | `codex doctor`         | Diagnose install and config  |
+| ---                    | ---                          |
 | `codex completion zsh` | Generate shell completions   |
+| `codex features list`  | List feature flags           |
 | `codex mcp`            | Manage MCP servers           |
 | `codex plugin`         | Install and remove plugins   |
 {: .-shortcuts}
@@ -96,28 +100,36 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 
 ### Flags
 
-| Flag                          | Description                   |
-| ----------------------------- | ----------------------------- |
-| `-m, --model <model>`         | Choose the model              |
-| `-p, --profile <name>`        | Layer a profile over config   |
-| ---                           | ---                           |
-| `-s, --sandbox <mode>`        | Set the sandbox policy        |
-| `-a, --ask-for-approval <policy>` | Control approval prompts      |
-| `-C, --cd <dir>`              | Set the working directory     |
-| `--add-dir <dir>`             | Grant another writable folder |
-| ---                           | ---                           |
-| `--search`                    | Enable live web search        |
-| `-i, --image <file>`          | Attach images to the prompt   |
-| `-c key=value`                | Override any config value     |
+| Flag                              | Description                   |
+| --------------------------------- | ----------------------------- |
+| `-m, --model <model>`             | Choose the model              |
+| `-p, --profile <name>`            | Layer a profile over config   |
+| ---                               | ---                           |
+| `-s, --sandbox <mode>`            | Set the sandbox policy        |
+| `-a, --ask-for-approval <policy>` | `on-request` or `never`       |
+| `-C, --cd <dir>`                  | Set the working directory     |
+| `--add-dir <dir>`                 | Grant another writable folder |
+| `--worktree`                      | Run in a managed git worktree |
+| ---                               | ---                           |
+| `--search`                        | Enable live web search        |
+| `-i, --image <file>`              | Attach images to the prompt   |
+| `-c key=value`                    | Override any config value     |
 {: .-shortcuts}
 
-#### Other flags
+See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
+
+### Other flags
 
 | Flag                                         | Description                    |
 | -------------------------------------------- | ------------------------------ |
 | `--oss`                                      | Use a local open-source model  |
+| `--local-provider`                           | Pick lmstudio or ollama        |
+| `--approve-for-me`                           | Auto-review approval requests  |
 | `--no-alt-screen`                            | Keep output in terminal scrollback |
+| ---                                          | ---                            |
 | `--enable <feature>`                         | Enable optional features       |
+| `--no-daemon`                                | Skip the shared background server |
+| `--strict-config`                            | Reject unknown config keys     |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
 {: .-shortcuts}
 
@@ -134,11 +146,15 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 {: .-shortcuts}
 
 ```bash
-codex --sandbox workspace-write --ask-for-approval on-request  # Auto
-codex --sandbox read-only --ask-for-approval never  # read-only
+codex -s workspace-write -a on-request  # Auto
+codex -s read-only -a never             # read-only, no prompts
 ```
 
-Auto (the Git-repo default): edits in the workspace, asks before leaving it. Network stays off until `sandbox_workspace_write.network_access = true`. See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
+Auto is the default preset: edits in the workspace, approval to leave it. Network stays off until `sandbox_workspace_write.network_access = true`.
+
+The `untrusted` approval policy and `--full-auto` are retired; use `--approve-for-me` to route approvals through automatic review.
+
+See: [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
 
 ### Non-interactive mode
 
@@ -146,6 +162,7 @@ Auto (the Git-repo default): edits in the workspace, asks before leaving it. Net
 codex exec "summarize this repo"        # final message to stdout
 git diff | codex exec "review this"     # pipe context in
 codex exec --json "list failing tests"  # JSONL events
+codex exec --ephemeral "triage issues"  # write no session files
 codex exec resume --last "fix them"     # continue the last run
 ```
 
@@ -173,6 +190,7 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/clear`         | Clear the terminal and start fresh |
 | `/resume`        | Reopen a saved chat                |
 | `/fork`          | Branch the current chat            |
+| `/side`          | Start an ephemeral side chat       |
 | `/compact`       | Summarize to free up context       |
 | `/rename <name>` | Rename the current chat            |
 {: .-shortcuts}
@@ -198,6 +216,7 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/status` | Show model, policy, and tokens |
 | `/usage`  | Show account token usage       |
 | `/copy`   | Copy the latest response       |
+| `/export` | Export the chat as Markdown    |
 {: .-shortcuts}
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
@@ -206,13 +225,15 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 
 #### Config
 
-| Command    | Description                    |
-| ---------- | ------------------------------ |
-| `/init`    | Generate an AGENTS.md scaffold |
-| `/skills`  | Browse and apply skills        |
-| `/plugins` | Browse installed plugins       |
-| `/mcp`     | List configured MCP tools      |
-| `/hooks`   | Manage lifecycle hooks         |
+| Command         | Description                    |
+| --------------- | ------------------------------ |
+| `/init`         | Generate an AGENTS.md scaffold |
+| `/skills`       | Browse and apply skills        |
+| `/plugins`      | Browse installed plugins       |
+| `/memories`     | Configure memory use           |
+| `/mcp`          | List configured MCP tools      |
+| `/hooks`        | Manage lifecycle hooks         |
+| `/experimental` | Toggle experimental features   |
 {: .-shortcuts}
 
 #### Interface
@@ -220,7 +241,9 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | Command       | Description                    |
 | ------------- | ------------------------------ |
 | `/theme`      | Choose a syntax theme          |
+| `/tui`        | Choose the terminal mode       |
 | `/statusline` | Configure footer items         |
+| `/title`      | Configure window title items   |
 | `/vim`        | Toggle Vim composer mode       |
 | `/keymap`     | Remap TUI shortcuts            |
 {: .-shortcuts}
@@ -294,6 +317,7 @@ model = "gpt-6.1-sol"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 model_reasoning_effort = "medium"
+web_search = "cached"
 ```
 
 Project files merge from the repo root down to the current directory; CLI flags and `-c key=value` overrides win. See: [Config basics](https://learn.chatgpt.com/docs/config-file/config-basic)
@@ -303,6 +327,7 @@ Project files merge from the repo root down to the current directory; CLI flags 
 | Variable               | Purpose                              |
 | ---------------------- | ------------------------------------ |
 | `CODEX_HOME`           | State directory (default `~/.codex`) |
+| `CODEX_SQLITE_HOME`    | Where SQLite-backed state lives      |
 | `CODEX_API_KEY`        | API key for non-interactive runs     |
 | `CODEX_ACCESS_TOKEN`   | Access token for trusted automation  |
 | `CODEX_CA_CERTIFICATE` | PEM CA bundle for corporate TLS      |
@@ -318,7 +343,7 @@ AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
 
-Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — and Codex concatenates them from the repo root down. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down. Loading stops at 32 KiB (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 ## Common workflows
 
@@ -378,7 +403,7 @@ See: [MCP](https://learn.chatgpt.com/docs/extend/mcp#add-an-mcp-server)
 
 ```bash
 codex mcp login my-server             # OAuth, opens a browser
-codex mcp login my-server --scopes read:docs
+codex mcp login my-server --scopes read,write
 codex mcp logout my-server
 ```
 

@@ -13,7 +13,7 @@ updated: 2024-01-01
 ---
 ```
 
-- **Category:** must be one of the values in `src/config.ts` `categories`. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
+- **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
 
 ## Content organisation
 

@@ -34,7 +34,6 @@ export const carbon = {
   src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
 } as const
 
-// Curated order: the homepage renders sections in this order.
 export const categories = [
   'Agents',
   'JavaScript',

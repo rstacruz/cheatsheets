@@ -1,6 +1,7 @@
-# 0001 — Attribute comments for block attributes
+# ADR 001 — Attribute comments for block attributes
 
-- **Status:** Accepted — 2026-11-06
+- **Status:** Accepted, in transition — 2026-11-06
+  <!-- #2320 drops the legacy syntax and sets this to Accepted -->
 
 ## Context
 

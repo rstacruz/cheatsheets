@@ -4,13 +4,13 @@ import { visit } from 'unist-util-visit'
 import { TABLE_SENTINEL_LANG } from './tables'
 
 /**
- * Two post-parse shims: `restoreCodeLanguage` keeps Prism classes when an IAL
- * sets `<code>` attributes, and `hoistCodeAttrs` moves non-`language-*`
- * attributes to `<pre>` like kramdown
+ * Two post-parse shims: `restoreCodeLanguage` keeps Prism classes when an
+ * attribute comment sets `<code>` attributes, and `hoistCodeAttrs` moves
+ * non-`language-*` attributes to `<pre>` like kramdown
  */
 
 /**
- * mdast-util-to-hast overwrites `<code>` className with the IAL's classes,
+ * mdast-util-to-hast overwrites `<code>` className with the attached classes,
  * dropping `language-*`; re-add it before conversion so Prism still highlights
  */
 export function restoreCodeLanguage() {

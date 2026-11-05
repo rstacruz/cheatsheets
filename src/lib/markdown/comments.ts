@@ -5,11 +5,17 @@ import { visit } from 'unist-util-visit'
 /** Attributes for the block above: `<!-- {: .-two-column} -->` */
 const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
+/** Containers whose children are blocks; elsewhere the comment is left as text */
+const BLOCK_PARENTS: Record<string, boolean> = Object.fromEntries(
+  ['root', 'blockquote', 'listItem'].map((type) => [type, true])
+)
+
 /** Applies attributes to the preceding block and drops the comment */
 export function commentAttributes() {
   return (tree: Root) => {
     visit(tree, 'html', (node, index, parent) => {
       if (!parent || index === undefined) return
+      if (!BLOCK_PARENTS[parent.type]) return
       const match = ATTRIBUTE_COMMENT.exec(node.value.trim())
       if (!match) return
 

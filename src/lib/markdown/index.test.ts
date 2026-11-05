@@ -170,6 +170,18 @@ describe('comment attributes', () => {
     )
   })
 
+  it('leaves an inline comment alone', async () => {
+    expect((await renderMarkdown('text <!-- {: .a} -->')).html).toBe(
+      '<p>text <!-- {: .a} --></p>'
+    )
+  })
+
+  it('applies one to the block inside a blockquote', async () => {
+    expect((await renderMarkdown('> quote\n>\n> <!-- {: .a} -->')).html).toBe(
+      '<blockquote>\n<p class="a">quote</p>\n</blockquote>'
+    )
+  })
+
   it('appends to the classes from an IAL on the same block', async () => {
     expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
       '<h2 class="a b" id="h">H</h2>'

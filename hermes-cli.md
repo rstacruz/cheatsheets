@@ -32,7 +32,7 @@ intro: |
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
 
-On Windows, run `iex (irm https://hermes-agent.nousresearch.com/install.ps1)` in PowerShell. macOS and Windows also have a desktop package; `hermes desktop` builds the app from a CLI install.
+On Windows, run `iex (irm https://hermes-agent.nousresearch.com/install.ps1)` in PowerShell. macOS and Windows also ship a desktop package; `hermes desktop` builds it from a CLI install.
 
 See: [Installation](https://hermes-agent.nousresearch.com/docs/getting-started/installation)
 
@@ -44,7 +44,7 @@ hermes setup            # full reconfiguration wizard
 hermes setup model      # one section at a time
 ```
 
-Sections are `model`, `terminal`, `gateway`, `tools`, and `agent`. A returning user gets the wizard with current values as defaults.
+Sections are `model`, `terminal`, `gateway`, `tools`, and `agent`. Returning users get the wizard with current values as defaults.
 
 See: [`hermes setup`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-setup)
 
@@ -82,7 +82,7 @@ See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli
 | `--image <path>`          | Attach a local image to one query    |
 | ------------------------- | ------------------------------------ |
 | `-w, --worktree`          | Start in an isolated git worktree    |
-| `--safe-mode`             | Disable every customization          |
+| `--safe-mode`             | Disable all customizations           |
 {: .-shortcuts}
 
 `--tui` opens the newer TUI; `--cli` forces the classic prompt_toolkit REPL.
@@ -262,7 +262,7 @@ quick_commands:
     target: /gmail unread
 ```
 
-`type: exec` runs a shell command; `type: alias` points at another slash command.
+`exec` runs a shell command; `alias` points at another slash command.
 
 See: [Quick commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#quick-commands)
 
@@ -294,7 +294,7 @@ See: [Keybindings](https://hermes-agent.nousresearch.com/docs/user-guide/cli#key
 > !pytest -x tests/hermes_cli
 ```
 
-`!` runs on your own machine and skips the model. A pasted block shows a one-line preview; `Tab` queues a message while the agent works.
+`!` runs on your own machine and skips the model. A pasted block shows a one-line preview.
 
 See: [Shell mode](https://hermes-agent.nousresearch.com/docs/user-guide/cli#-shell-mode)
 
@@ -366,7 +366,7 @@ hermes -w -z "Fix issue #123" # one-shot in a worktree
 /worktree new my-experiment   # mid-session worktree
 ```
 
-An interactive exit asks whether to keep or archive a dirty tree. One-shot runs keep it for the sweep; archives restore with `hermes worktree restore`.
+Exiting an interactive session asks whether to keep or archive a dirty tree. One-shot runs keep it for the stale sweep; `hermes worktree restore` brings an archive back.
 
 See: [Git worktrees](https://hermes-agent.nousresearch.com/docs/user-guide/git-worktrees)
 

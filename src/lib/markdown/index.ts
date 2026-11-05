@@ -6,6 +6,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
+import { commentAttributes } from './comments'
 import { expandJekyll } from './jekyll'
 import { hoistCodeAttrs, restoreCodeLanguage } from './ial'
 import {
@@ -27,6 +28,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
+    .use(commentAttributes)
     .use(restoreCodeLanguage)
     .use(kramdownTables)
     .use(remarkRehype, {

@@ -364,7 +364,7 @@ done <file.txt
 mapfile -t lines < file.txt
 ```
 
-`read` in a pipeline runs in a subshell; use `shopt -s lastpipe` to keep variables.
+`read` in a pipeline runs in a subshell. `shopt -s lastpipe` (plus `set +m` interactively) keeps the last stage in the current shell.
 
 See: [read](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-read), [mapfile](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-mapfile)
 
@@ -928,7 +928,7 @@ while [[ "$1" == -* && "$1" != "--" ]]; do
   esac
   shift
 done
-[[ "$1" == "--" ]] && shift
+if [[ "$1" == "--" ]]; then shift; fi
 ```
 
 See: [getopts](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts)

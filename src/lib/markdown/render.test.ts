@@ -60,7 +60,9 @@ it('nothing', async () => {
 })
 
 it('h3s with a class', async () => {
-  const input = ['### One', 'x', '### Two', '{: .-prime}', 'y'].join('\n')
+  const input = ['### One', 'x', '### Two', '<!-- {: .-prime} -->', 'y'].join(
+    '\n'
+  )
   const { html } = await render(input)
   expect(html).toMatchInlineSnapshot(`
     "<section class="h2-section"><div class="body h3-section-list">
@@ -72,7 +74,12 @@ it('h3s with a class', async () => {
 })
 
 it('h2 class', async () => {
-  const input = ['## Intro', '{: .-three-column}', '### One', 'x'].join('\n')
+  const input = [
+    '## Intro',
+    '<!-- {: .-three-column} -->',
+    '### One',
+    'x'
+  ].join('\n')
   const { html } = await render(input)
   expect(html).toMatchInlineSnapshot(`
     "<section class="h2-section -three-column"><h2 class="-three-column" id="intro">Intro</h2><div class="body h3-section-list -three-column">

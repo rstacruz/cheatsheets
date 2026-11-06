@@ -15,7 +15,8 @@ intro: |
 | _`git rebase -i`_ `HEAD~3`      | rebase last 3 commits                   |
 | _`git reset --hard`_ `HEAD@{2}` | undo last operation that changed HEAD   |
 | _`git checkout`_ `v2^{}`        | checkout the `v2` tag (not `v2` branch) |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 The 3rd argument in each of these commands is a `gitrevision`. These gitrevisions can be passed to many Git commands.
 
@@ -34,7 +35,8 @@ The 3rd argument in each of these commands is a `gitrevision`. These gitrevision
 | ---                          | ---                                             |
 | _`git show`_ `master..fix`   | reachable from *fix* but not *master*           |
 | _`git show`_ `master...fix`  | reachable from *fix* and *master*, but not both |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 These are just the common ones, there's a lot more below! (These work in many other commands, not just `git show`.)
 
@@ -45,7 +47,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | Reference | Description |
 | --- | --- |
 | _`git checkout`_ `dae68e1` | sha1 |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 ### References
 
@@ -57,7 +60,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | ---                              | ---                               |
 | _`git checkout`_ `origin/master` | aka, *refs/remotes/origin/master* |
 | _`git checkout`_ `heads/master`  | aka, *refs/heads/master*          |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 ### Searching back
 
@@ -76,7 +80,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | _`git checkout`_ `v0.99.8^{}`         | defaults to *{tag}*                      |
 | ---                                   | ---                                      |
 | _`git checkout`_ `":/fix bug"`        | searches commit messages                 |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 ### Other
 
@@ -98,7 +103,8 @@ These are just the common ones, there's a lot more below! (These work in many ot
 | _`git log`_ `HEAD^@`       | parents of *HEAD*                               |
 | _`git log`_ `HEAD^!`       | *HEAD*, then excluding parents's ancestors      |
 | _`git log`_ `HEAD^{:/fix}` | search previous *HEAD*s matching criteria       |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 ### Ranges illustration
 
@@ -107,13 +113,15 @@ A ─┬─ E ── F ── G   master
    │
    └─ B ── C ── D   fix
 ```
-{: .-box-chars.-setup}
+
+<!-- {: .-box-chars.-setup} -->
 
 | Example | Description |
 | --- | --- |
 | _`git log`_ `master..fix`  | BCD         |
 | _`git log`_ `master...fix` | BCD and EFG |
-{: .-mute-em}
+
+<!-- {: .-mute-em} -->
 
 ## References
 

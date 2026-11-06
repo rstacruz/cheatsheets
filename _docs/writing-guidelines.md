@@ -40,14 +40,14 @@ H3 content length:
 
 ## Format
 
-- Documentation is in the format of Markdown with Kramdown class extensions (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
+- Documentation is in the format of Markdown with attribute comments (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
-  - `{: .-prime}` - Visually highlighted section. Only use once per document at most.
+  - `<!-- {: .-prime} -->` - Visually highlighted section. Only use once per document at most.
 - PRE elements can have:
-  - `{: .-setup}` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
+  - `<!-- {: .-setup} -->` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
-  - `{: .-three-column}` - use if the H3's are short, and if there are at least 3 H3's in the H2.
-  - `{: .-two-column}` - the default (don't add this since it's the default)
+  - `<!-- {: .-three-column} -->` - use if the H3's are short, and if there are at least 3 H3's in the H2.
+  - `<!-- {: .-two-column} -->` - the default (don't add this since it's the default)
 
 ## Cross-linking sheets
 
@@ -56,10 +56,10 @@ block with an arrow:
 
 ````md
 [JavaScript Strings cheatsheet](./js-string)
-{: .-crosslink}
+<!-- {: .-crosslink} -->
 ````
 
-- Put the link on its own paragraph, with the IAL on the next line.
+- Put the link on its own paragraph, with the attribute comment on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
 
@@ -78,7 +78,7 @@ shows the shape.
 - Maximum line width is 70 characters
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `{: data-line="…"}` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
+- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
 
 ## Writing guidelines
 
@@ -277,7 +277,7 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 
 ````
 ### Introduction
-{: .-intro}
+<!-- {: .-intro} -->
 
 [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 

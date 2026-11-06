@@ -135,7 +135,8 @@ _.indexOf(list, val)
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 fn = _.partial(fn, 'hi')

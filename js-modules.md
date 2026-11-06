@@ -11,7 +11,8 @@ intro: |
 ## ES modules
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 ES modules (ESM) use `import` and `export`; each module is its own file.
 
@@ -26,7 +27,8 @@ export { a, b }                 // named exports
 export { x as y }               // renamed export
 export default function () {}   // default export (one per module)
 ```
-{: data-line="5"}
+
+<!-- {: data-line="5"} -->
 
 ```js
 export { x } from './x.js'      // re-export named
@@ -46,7 +48,8 @@ import * as ns from './mod.js'        // namespace object
 import './setup.js'                   // side effects only
 import def, { a } from './mod.js'     // default + named
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 Static imports are hoisted and must be top-level. Named imports are live
 bindings, reflecting later changes in the exporting module.

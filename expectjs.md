@@ -10,7 +10,8 @@ weight: -1
 ```
 npm install --save-dev expect
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 // using ES6 modules
@@ -70,7 +71,8 @@ const video = {
   play: function () { ··· }
 }
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 spy = expect.spyOn(video, 'play')

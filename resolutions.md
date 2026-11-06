@@ -5,7 +5,8 @@ weight: -1
 ---
 
 ## Resolutions
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ### Mobile
 
@@ -37,7 +38,8 @@ weight: -1
 | 412 x 846  | @4x   | 1440 x 2960       | 133 ppi | 531 ppi    | 6.2"  | Galaxy S8 Plus               |
 | 360 x 740  | @4x   | 1440 x 2960       | 142 ppi | 568 ppi    | 5.8"  | Galaxy S9                    |
 | 412 x 846  | @4x   | 1440 x 2960       | 133 ppi | 531 ppi    | 6.2"  | Galaxy S9 Plus               |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 ### Tablet
 
@@ -45,4 +47,5 @@ weight: -1
 | ---        | ---- | ---               | ---     | ---        | ---- | ---              |
 | 1024 x 768 | @2x  | 2048 x 1536       | 163 ppi | 326 ppi    | 7.9" | iPad Mini Retina |
 | 1024 x 768 | @2x  | 2048 x 1536       | 132 ppi | 264 ppi    | 9.7" | iPad Air         |
-{: .-headers}
+
+<!-- {: .-headers} -->

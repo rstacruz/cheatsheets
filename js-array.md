@@ -8,7 +8,8 @@ intro: |
 ---
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [MDN Array reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) _(developer.mozilla.org)_
 

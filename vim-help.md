@@ -5,7 +5,8 @@ updated: 2017-09-09
 ---
 
 ## Writing help files
-{: .-left-reference}
+
+<!-- {: .-left-reference} -->
 
 ### Creating a document
 

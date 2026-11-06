@@ -17,7 +17,8 @@ intro: |
 ---
 
 ## Parsley
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Installing via NPM
 

@@ -11,7 +11,8 @@ intro: |
 ## Basics
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Strings are immutable sequences of UTF-16 code units.
 
@@ -68,7 +69,8 @@ See: [charAt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 'hello'.lastIndexOf('l')    // → 3
 'hello'.indexOf('z')        // → -1
 ```
-{: data-line="6"}
+
+<!-- {: data-line="6"} -->
 
 Searches return `-1` (or `false`) when the substring is absent.
 
@@ -101,7 +103,8 @@ See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 '5'.padStart(3, '0')      // → "005"
 '5'.padEnd(3, '0')        // → "500"
 ```
-{: data-line="7,8"}
+
+<!-- {: data-line="7,8"} -->
 
 ```js
 'e\u0301'.normalize('NFC')   // → "é" (one code point)
@@ -149,7 +152,8 @@ See: [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 'B'.localeCompare('a')     // → 1
 'ABC'.toLowerCase()        // → "abc"
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 `localeCompare()` returns a negative, zero, or positive number for sorting.
 

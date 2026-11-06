@@ -16,7 +16,8 @@ intro: |
 ## Getting started
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Docker Compose](https://docs.docker.com/compose/) defines and runs multi-container applications from a Compose file. This reference covers the Compose file format and CLI.
 
@@ -394,7 +395,8 @@ Links containers from another Compose application.
 See: [external_links](https://docs.docker.com/reference/compose-file/services/#external_links)
 
 ## Composition
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Profiles
 

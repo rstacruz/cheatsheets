@@ -5,7 +5,8 @@ category: Hidden
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 * <https://github.com/kriskowal/q>
 * <https://github.com/kriskowal/q/wiki/API-Reference>

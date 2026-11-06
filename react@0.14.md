@@ -22,7 +22,8 @@ var Component = React.createClass({
 ```js
 ReactDOM.render(<Component name="John" />, document.body);
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
 
@@ -32,7 +33,8 @@ Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hack
 var UserAvatar  = React.createClass({...});
 var UserProfile = React.createClass({...});
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 var Info = React.createClass({
@@ -48,14 +50,16 @@ var Info = React.createClass({
 Nest components to separate concerns. See [multiple components](http://facebook.github.io/react/docs/multiple-components.html).
 
 ## States & Properties
-{:.center}
+
+<!-- {:.center} -->
 
 ### States and props
 
 ```html
 <MyComponent fullscreen={true} />
 ```
-{:.light}
+
+<!-- {:.light} -->
  
 ```js
 // props
@@ -103,7 +107,8 @@ ReactDOM.findDOMNode(c)  // 0.14+
 React.findDOMNode(c)  // 0.13
 c.getDOMNode()        // 0.12 below
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 c.forceUpdate()
@@ -136,7 +141,8 @@ These are methods available for `Component` instances. See [Component API](http:
 | [`propTypes: { ... }`](http://facebook.github.io/react/docs/component-specs.html#proptypes) | Validation ... [more](#property-validation) |
 | [`statics: { ... }`](http://facebook.github.io/react/docs/component-specs.html#statics) | Static methods |
 | [`displayName: "..."`](http://facebook.github.io/react/docs/component-specs.html#displayname) | Automatically filled by JSX |
-{:.greycode.no-head}
+
+<!-- {:.greycode.no-head} -->
 
 Methods and properties you can override. See [component specs](http://facebook.github.io/react/docs/component-specs.html).
 
@@ -148,7 +154,8 @@ Methods and properties you can override. See [component specs](http://facebook.g
 | --- | --- |
 | `componentWillMount()` | Before rendering (no DOM yet) |
 | `componentDidMount()` | After rendering |
-{:.greycode.no-head.lc}
+
+<!-- {:.greycode.no-head.lc} -->
 
 Before initial rendering occurs. Add your DOM stuff on didMount (events, timers, etc). See [reference](http://facebook.github.io/react/docs/component-specs.html#mounting-componentwillmount).
 
@@ -160,7 +167,8 @@ Before initial rendering occurs. Add your DOM stuff on didMount (events, timers,
 | `shouldComponentUpdate`*(newProps={}, newState={})* | Skips `render()` if returns false |
 | `componentWillUpdate`*(newProps={}, newState={})* | Can't use `setState()` here |
 | `componentDidUpdate`*(prevProps={}, prevState={})* | Operate on the DOM here |
-{:.greycode.no-head.lc}
+
+<!-- {:.greycode.no-head.lc} -->
 
 Called when parents change properties and `.setState()`. These are not called for initial renders. See [reference](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops).
 
@@ -169,7 +177,8 @@ Called when parents change properties and `.setState()`. These are not called fo
 | Method | What |
 | --- | --- |
 | `componentWillUnmount()` | Invoked before DOM removal |
-{:.greycode.no-head.lc}
+
+<!-- {:.greycode.no-head.lc} -->
 
 Clear your DOM stuff here (probably done on didMount). See [reference](http://facebook.github.io/react/docs/component-specs.html#unmounting-componentwillunmount).
 
@@ -200,7 +209,8 @@ See [initial AJAX data](http://facebook.github.io/react/tips/initial-ajax.html).
 ```html
 <input ref="myInput">
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 this.refs.myInput
@@ -216,7 +226,8 @@ Add attributes like `onChange`. See [events](https://facebook.github.io/react/do
     value={this.state.value}
     onChange={this.handleChange} />
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 handleChange: function(event) {
@@ -231,7 +242,8 @@ Allows access to DOM nodes. See [References](http://facebook.github.io/react/doc
 ```html
 Email: <input type="text" valueLink={this.linkState('email')} />
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 React.createClass({
@@ -354,7 +366,8 @@ Manipulate DOM classes with [classnames](https://www.npmjs.org/package/classname
 ```html
 <VideoPlayer src="video.mp4" />
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 var VideoPlayer = React.createClass({
@@ -374,7 +387,8 @@ var SetIntervalMixin = {
   componentWillMount: function() { .. }
 }
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```js
 var TickTock = React.createClass({

@@ -401,7 +401,7 @@ cat build.log | claude -p "explain this failure"
 
 <!-- {: data-line="2,5"} -->
 
-`--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster.
+`--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster. It ignores OAuth credentials, so set `ANTHROPIC_API_KEY`.
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 

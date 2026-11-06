@@ -9,7 +9,8 @@ tier: t2
 ## Getting started
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [curl](https://curl.se/) transfers data with URLs from the command line. This reference covers common HTTP options and recipes, current through curl 8.23.
 

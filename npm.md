@@ -9,7 +9,8 @@ tier: t2
 ## Getting started
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [npm](https://docs.npmjs.com/cli/v12/) is the package manager for Node.js. This reference covers everyday commands, package specifiers, and npm 12 defaults.
 

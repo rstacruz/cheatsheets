@@ -8,7 +8,8 @@ category: Databases
 ## Querying
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [MySQL](https://dev.mysql.com/doc/refman/8.4/en/) is an open-source relational database. This reference covers MySQL 8.4 LTS SQL, clients, and server administration.
 

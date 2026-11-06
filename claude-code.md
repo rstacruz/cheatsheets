@@ -324,10 +324,10 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 ### Settings files
 
 ```bash
-~/.claude/settings.json      # user settings
-.claude/settings.json        # project settings, committed
-.claude/settings.local.json  # personal project settings
-managed-settings.json        # organization policy
+~/.claude/settings.json                # user settings
+.claude/settings.json                  # project settings, committed
+.claude/settings.local.json            # personal project settings
+/etc/claude-code/managed-settings.json # managed policy (Linux)
 ```
 
 Run `/config` to edit settings, or pass `--settings file.json` for one session. See: [Settings](https://code.claude.com/docs/en/settings)

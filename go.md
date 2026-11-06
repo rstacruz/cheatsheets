@@ -8,20 +8,24 @@ tier: t1
 ---
 
 ## Getting started
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Go repl](https://repl.it/languages/go) _(repl.it)_
 - [Golang wiki](https://go.dev/wiki/) _(go.dev)_
 
 ### Hello world
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 #### hello.go
-{: .-file}
+
+<!-- {: .-file} -->
 
 ```go
 package main
@@ -104,7 +108,8 @@ Constants can be character, string, boolean, or numeric values.
 See: [Constants](https://tour.golang.org/basics/15)
 
 ## Basic types
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Strings
 
@@ -174,7 +179,8 @@ func main () {
   fmt.Println("Value is", b)
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```go
 func getPointer () (myPointer *int) {
@@ -182,13 +188,15 @@ func getPointer () (myPointer *int) {
   return &a
 }
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 ```go
 a := new(int)
 *a = 234
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 Pointers point to a memory location of a variable. Go is fully garbage-collected.
 
@@ -205,7 +213,8 @@ u := uint(i)
 See: [Type conversions](https://tour.golang.org/basics/13)
 
 ## Flow control
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Conditional
 
@@ -218,7 +227,8 @@ if day == "sunday" || day == "saturday" {
   work()
 }
 ```
-{: data-line="1,3,5"}
+
+<!-- {: data-line="1,3,5"} -->
 
 See: [If](https://tour.golang.org/flowcontrol/5)
 
@@ -229,7 +239,8 @@ if _, err := doThing(); err != nil {
   fmt.Println("Uh oh")
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 A condition in an `if` statement can be preceded with a statement before a `;`. Variables declared by the statement are only in scope until the end of the `if`.
 
@@ -287,7 +298,8 @@ for n != x {
 See: [Go's "while"](https://tour.golang.org/flowcontrol/3)
 
 ## Functions
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Lambdas
 
@@ -296,7 +308,8 @@ myfunc := func() bool {
   return x > 10000
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Functions are first class objects.
 
@@ -313,7 +326,8 @@ func getMessage() (a string, b string) {
   return "Hello", "World"
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Multiple results](https://go.dev/tour/basics/6)
 
@@ -326,14 +340,16 @@ func split(sum int) (x, y int) {
   return
 }
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 By defining the return value names in the signature, a `return` (no args) will return variables with those names.
 
 See: [Named return values](https://tour.golang.org/basics/7)
 
 ## Packages
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Importing
 
@@ -358,7 +374,8 @@ See: [Importing](https://tour.golang.org/basics/1)
 ```go
 import r "math/rand"
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 r.Intn()
@@ -389,7 +406,8 @@ Every package file has to start with `package`.
 See: [Packages](https://go.dev/tour/basics/1)
 
 ## Concurrency
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Goroutines
 
@@ -409,7 +427,8 @@ func main() {
   fmt.Println(<-ch, <-ch, <-ch)
 }
 ```
-{: data-line="3,6,7,8,13"}
+
+<!-- {: data-line="3,6,7,8,13"} -->
 
 ```go
 func push(name string, ch chan string) {
@@ -417,7 +436,8 @@ func push(name string, ch chan string) {
   ch <- msg
 }
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 Channels are concurrency-safe communication objects, used in goroutines.
 
@@ -433,7 +453,8 @@ ch <- 3
 // fatal error:
 // all goroutines are asleep - deadlock!
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Buffered channels limit the amount of messages it can keep.
 
@@ -449,7 +470,8 @@ ch <- 2
 ch <- 3
 close(ch)
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 #### Iterates across a channel until its closed
 
@@ -458,7 +480,8 @@ for i := range ch {
   ···
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Closed if `ok == false`
 
@@ -486,7 +509,8 @@ func main() {
   
 }
 ```
-{: data-line="1,4,8,12"}
+
+<!-- {: data-line="1,4,8,12"} -->
 
 ```go
 func doOperation(wg *sync.WaitGroup, item string) {
@@ -495,7 +519,8 @@ func doOperation(wg *sync.WaitGroup, item string) {
   // ...
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
 
@@ -512,7 +537,8 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 Defers running a function until the surrounding function returns.
 The arguments are evaluated immediately, but the function call is not ran until later.
@@ -529,7 +555,8 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-{: data-line="2,3,4"}
+
+<!-- {: data-line="2,3,4"} -->
 
 Lambdas are better suited for defer blocks.
 
@@ -543,13 +570,15 @@ func main() {
   d = time.Now().Unix()
 }
 ```
-{: data-line="3,4,5"}
+
+<!-- {: data-line="3,4,5"} -->
 The defer func uses current value of d, unless we use a pointer to get final value at end of main.
 
 See: [Defer, panic and recover](https://go.dev/blog/defer-panic-and-recover)
 
 ## Structs
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Defining
 
@@ -559,7 +588,8 @@ type Vertex struct {
   Y int
 }
 ```
-{: data-line="1,2,3,4"}
+
+<!-- {: data-line="1,2,3,4"} -->
 
 ```go
 func main() {
@@ -617,7 +647,8 @@ func (v Vertex) Abs() float64 {
   return math.Sqrt(v.X * v.X + v.Y * v.Y)
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 v := Vertex{1, 2}
@@ -636,7 +667,8 @@ func (v *Vertex) Scale(f float64) {
   v.Y = v.Y * f
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 v := Vertex{6, 12}
@@ -703,14 +735,16 @@ See: [Interface values](https://go.dev/tour/methods/11)
 ## References
 
 ### Official resources
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [A tour of Go](https://tour.golang.org/welcome/1) _(tour.golang.org)_
 - [Golang wiki](https://github.com/golang/go/wiki/) _(github.com)_
 - [Effective Go](https://golang.org/doc/effective_go.html) _(golang.org)_
 
 ### Other links
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
 - [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_

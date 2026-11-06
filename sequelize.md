@@ -4,7 +4,8 @@ category: JavaScript libraries
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Sequelize is an ORM for JavaScript.
 

@@ -11,10 +11,12 @@ keywords:
 ---
 
 ## Factories
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests. It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
 
@@ -36,7 +38,8 @@ FactoryBot.define do
   end
 end
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Defining factories](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Defining_factories)
 
@@ -98,7 +101,8 @@ factory :post do
   association :author, factory: [:user, :admin]
 end
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 #### or
 
@@ -118,10 +122,12 @@ factory :post do
   end
 end
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ## Other features
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Traits
 
@@ -132,7 +138,8 @@ factory :user do
   end
 end
 ```
-{: data-line="2,3,4"}
+
+<!-- {: data-line="2,3,4"} -->
 
 ```ruby
 create :user, :admin
@@ -152,7 +159,8 @@ factory :user do
   end
 end
 ```
-{: data-line="4,5,6"}
+
+<!-- {: data-line="4,5,6"} -->
 
 ```ruby
 create :sample_user
@@ -173,7 +181,8 @@ factory :sample_user, parent: :user do
   first_name { FFaker::Name.first_name }
 end
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```ruby
 create :sample_user
@@ -194,7 +203,8 @@ factory :user do
   end
 end
 ```
-{: data-line="2,3,4"}
+
+<!-- {: data-line="2,3,4"} -->
 
 ```ruby
 create(user, upcased: true)
@@ -211,9 +221,11 @@ See: [Transient attributes](http://www.rubydoc.info/gems/factory_bot/file/GETTIN
 * spec/factories/*.rb
 
 Place your factories in these locations.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ## See also
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * <http://rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md>

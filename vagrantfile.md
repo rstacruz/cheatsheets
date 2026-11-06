@@ -4,7 +4,8 @@ category: Devops
 ---
 
 ## Vagrantfile
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ```rb
 Vagrant.configure("2") do |config|

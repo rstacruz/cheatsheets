@@ -22,7 +22,13 @@ export default defineConfig({
     host: true
   } /* access from https://192.168.x.x/ */,
   vite: {
-    css: { transformer: 'lightningcss' },
+    // `css.transformer` is unset: Vite parses raw CSS before @tailwindcss/vite
+    // resolves @apply/@reference (tailwindlabs/tailwindcss#14205)
+    build: {
+      // Nesting is lowered for safari16.4; the esnext server build skips it
+      // Values from Vite's ESBUILD_BASELINE_WIDELY_AVAILABLE_TARGET
+      cssTarget: ['chrome111', 'edge111', 'firefox114', 'safari16.4', 'ios16.4']
+    },
     ...(viteCacheDir ? { cacheDir: viteCacheDir } : {}),
     plugins: [tailwindcss()],
     optimizeDeps: {

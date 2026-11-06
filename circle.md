@@ -4,7 +4,8 @@ category: Devops
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - <https://circleci.com/docs/config-sample>
 

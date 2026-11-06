@@ -128,7 +128,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | Flag                                         | Description                    |
 | -------------------------------------------- | ------------------------------ |
 | `--oss`                                      | Use a local open-source model  |
-| `--local-provider`                           | Pick lmstudio or ollama        |
+| `--local-provider <provider>`                | Local backend for `--oss`: lmstudio or ollama |
 | `--approve-for-me`                           | Auto-review approvals; replaces `--full-auto` |
 | `--no-alt-screen`                            | Keep output in terminal scrollback |
 | ---                                          | ---                            |

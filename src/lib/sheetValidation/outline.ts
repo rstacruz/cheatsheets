@@ -1,3 +1,9 @@
+import type { Properties } from 'hast'
+import {
+  ATTRIBUTE_COMMENT,
+  mergeAttributes,
+  parseAttributes
+} from '~/lib/markdown/comments'
 import { scanFences } from './utils'
 
 export type Heading = {
@@ -38,6 +44,62 @@ export type CodeLine = {
   inThreeColumn: boolean
 }
 
+const BLOCK_IAL = /^\{:([^}]*)\}$/
+
+function firstContent(lines: string[], start: number): number {
+  let index = start
+  while (index < lines.length && lines[index].trim() === '') index++
+  return index
+}
+
+/** Attribute text of the comment opening at `start`, and the line after it */
+function commentAt(lines: string[], start: number) {
+  if (!(lines[start] ?? '').trim().startsWith('<!--')) return undefined
+
+  const parts: string[] = []
+  for (let index = start; index < lines.length; index++) {
+    const line = lines[index].trim()
+    const end = line.indexOf('-->')
+    // The renderer leaves `<!-- … --> text` literal, so it is not a match
+    if (end !== -1 && end + 3 !== line.length) return undefined
+    parts.push(line)
+    if (end === -1) continue
+
+    const text = ATTRIBUTE_COMMENT.exec(parts.join(' '))?.[1]
+    return text === undefined ? undefined : { text, end: index + 1 }
+  }
+  return undefined
+}
+
+/** Merges a legacy IAL and the comments below, as the plugin does */
+function attributesBelow(
+  lines: string[],
+  start: number
+): Properties | undefined {
+  const properties: Properties = {}
+  const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
+  mergeAttributes(properties, parseAttributes(ial?.[1] ?? '') ?? {})
+
+  let index = firstContent(lines, ial ? start + 1 : start)
+  for (;;) {
+    const comment = commentAt(lines, index)
+    const attributes = comment && parseAttributes(comment.text)
+    if (!comment || !attributes) break
+    mergeAttributes(properties, attributes)
+    index = firstContent(lines, comment.end)
+  }
+
+  return Object.keys(properties).length > 0 ? properties : undefined
+}
+
+/** Whether the attributes below an H2 ask for `.-three-column` */
+function isThreeColumn(lines: string[], start: number): boolean {
+  const classes = String(attributesBelow(lines, start)?.className ?? '').split(
+    /\s+/
+  )
+  return classes.includes('-three-column')
+}
+
 /** Code-block content lines with their enclosing H2 section's layout */
 export function scanCodeLines(source: string): CodeLine[] {
   const lines = source.split('\n')
@@ -50,10 +112,8 @@ export function scanCodeLines(source: string): CodeLine[] {
       found.push({ line: index + 1, text: line, inThreeColumn })
       return
     }
-    // An H2's layout comes from the own-line IAL directly below it
     if (/^##\s/.test(line)) {
-      const ial = lines[index + 1] ?? ''
-      inThreeColumn = /^\{:[^}]*\.-three-column(?![\w-])/.test(ial)
+      inThreeColumn = isThreeColumn(lines, index + 1)
     }
   })
 

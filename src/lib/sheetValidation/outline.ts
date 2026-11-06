@@ -1,3 +1,4 @@
+import { ATTRIBUTE_COMMENT, parseAttributes } from '~/lib/markdown/comments'
 import { scanFences } from './utils'
 
 export type Heading = {
@@ -39,8 +40,6 @@ export type CodeLine = {
 }
 
 const BLOCK_IAL = /^\{:([^}]*)\}$/
-/** Plugin parity: newlines allowed inside the comment */
-const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
 function firstContent(lines: string[], start: number): number {
   let index = start
@@ -87,6 +86,13 @@ function attributesBelow(lines: string[], start: number): string | undefined {
   return parts.length ? parts.join(' ') : undefined
 }
 
+/** Whether the attributes below an H2 ask for `.-three-column` */
+function isThreeColumn(lines: string[], start: number): boolean {
+  const attributes = parseAttributes(attributesBelow(lines, start) ?? '')
+  const classes = String(attributes?.className ?? '').split(/\s+/)
+  return classes.includes('-three-column')
+}
+
 /** Code-block content lines with their enclosing H2 section's layout */
 export function scanCodeLines(source: string): CodeLine[] {
   const lines = source.split('\n')
@@ -100,9 +106,7 @@ export function scanCodeLines(source: string): CodeLine[] {
       return
     }
     if (/^##\s/.test(line)) {
-      inThreeColumn = /\.-three-column(?![\w-])/.test(
-        attributesBelow(lines, index + 1) ?? ''
-      )
+      inThreeColumn = isThreeColumn(lines, index + 1)
     }
   })
 

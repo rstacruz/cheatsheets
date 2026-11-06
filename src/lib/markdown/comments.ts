@@ -3,7 +3,7 @@ import type { Properties } from 'hast'
 import { visit } from 'unist-util-visit'
 
 /** Attributes for the block above: `<!-- {: .-two-column} -->` */
-const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
+export const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
 
 /** Containers whose children are blocks; elsewhere the comment is left as text */
 const BLOCK_PARENTS: Record<string, boolean> = Object.fromEntries(
@@ -48,7 +48,7 @@ export function commentAttributes() {
 }
 
 /** `.class`, `.a.b`, `key="value"` */
-function parseAttributes(input: string): Properties | undefined {
+export function parseAttributes(input: string): Properties | undefined {
   const tokens = input.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) ?? []
   const properties: Properties = {}
   const classes: string[] = []

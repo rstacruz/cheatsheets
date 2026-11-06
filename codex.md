@@ -359,7 +359,7 @@ AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
 
-Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB. See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB by default (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 ## Common workflows
 

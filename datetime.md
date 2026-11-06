@@ -1,7 +1,7 @@
 ---
 title: Date & time formats
 weight: -5
-updated: 2017-11-27
+updated: 2026-11-05
 tier: t2
 ---
 
@@ -9,8 +9,17 @@ tier: t2
 
 <!-- {: .-one-column} -->
 
-- [UNIX strftime](./strftime) - Used by Ruby, `date`, and more
-- [Moment.js](./moment#formatting) - Used by Moment.js, date-fns, and more
+### About
+
+<!-- {: .-intro} -->
+
+Date formatting tokens differ by tool: strftime for Ruby and `date`, Moment.js
+tokens for JavaScript libraries that copy them.
+
+- [strftime format cheatsheet](./strftime)
+- [Moment.js cheatsheet](./moment#formatting)
+
+See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strftime.html)
 
 {% include common/strftime_format.md title="strftime format" %}
 

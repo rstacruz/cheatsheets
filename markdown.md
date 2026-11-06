@@ -3,7 +3,7 @@ title: Markdown
 category: Markup
 tier: t2
 weight: -1
-updated: 2026-10-31
+updated: 2026-11-06
 keywords:
   - markdown syntax
   - commonmark
@@ -260,7 +260,7 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images), [Link reference defin
 
 Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses.
 
-See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
+See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
 
@@ -280,6 +280,18 @@ See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 ### Fenced code
 
 `````markdown
+```js
+const x = 1
+```
+`````
+
+The info string's first word is the language; a backtick info string cannot contain backticks.
+
+See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
+
+### Nested code fences
+
+`````markdown
 ````markdown
 ```js
 const x = 1
@@ -287,9 +299,9 @@ const x = 1
 ````
 `````
 
-The info string's first word is the language, and a backtick info string cannot hold backticks; use tildes there. The closing fence matches the opening character and at least its length.
+A fence inside another needs a longer outer fence, or tildes. The closing fence must match the opening character and be at least as long.
 
-See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
+See: [Creating and highlighting code blocks](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)
 
 ### Indented code
 
@@ -358,7 +370,7 @@ See: [Raw HTML](https://spec.commonmark.org/0.31.2/#raw-html), [HTML blocks](htt
 | Beta  | 2     |
 ```
 
-A header and delimiter row are required, with matching cell counts. Cells hold inline content only; escape a literal pipe as `\|`.
+Header and delimiter rows must match in cell count; body rows pad or truncate. Cells hold inline content; escape a pipe as `\|`.
 
 See: [Tables](https://github.github.com/gfm/#tables-extension-)
 

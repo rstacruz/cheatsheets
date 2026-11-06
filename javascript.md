@@ -2,7 +2,7 @@
 title: JavaScript
 category: JavaScript
 weight: -10
-updated: 2026-10-04
+updated: 2026-11-05
 tier: t1
 intro: |
   Core JavaScript language reference: strings, numbers, arrays, objects,
@@ -41,7 +41,7 @@ const name = 'Ada'
 ```js
 parseInt('42px', 10)       // → 42
 (1234.5).toFixed(2)        // → "1234.50"
-(1234).toLocaleString()    // → "1,234"
+(1234).toLocaleString('en-US')  // → "1,234"
 Math.max(1, 2, 3)          // → 3
 Number.isInteger(2.5)      // → false
 ```
@@ -103,20 +103,50 @@ ages.has('Bob')                  // → true
 
 <!-- {: .-crosslink} -->
 
+### Modern built-ins
+
+```js
+[3, 1, 2].toSorted()                // → [1, 2, 3]
+[1, 2, 3].with(0, 9)                // → [9, 2, 3]
+Object.groupBy(list, x => x.type)   // → { a: [...], b: [...] }
+Object.hasOwn(user, 'name')         // → true
+new Set(a).union(b)                 // → Set union
+Promise.withResolvers()             // → { promise, resolve, reject }
+await Array.fromAsync(gen())        // → collected values
+structuredClone(obj)                // → deep copy
+```
+
+Recent additions (ES2022–2026); `structuredClone` is a Web API, not ECMAScript.
+
+See: [toSorted](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted) · [Object.groupBy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy) · [Promise.withResolvers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)
+
 ### Dates
 
 ```js
 const now = new Date()
-now.toISOString()          // → "2026-10-04T00:00:00.000Z"
+now.toISOString()          // → UTC now, e.g. 2026-10-04T00:00:00.000Z
 now.getFullYear()          // → 2026
 Date.now()                 // → ms since epoch
-new Date(2014, 2, 1)       // → Sat Mar 01 2014 (month 0-indexed)
+new Date(2014, 2, 1)       // → Sat Mar 01 2014, local midnight
 new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 ```
 
 [JavaScript Date cheatsheet](./js-date)
 
 <!-- {: .-crosslink} -->
+
+### Temporal
+
+```js
+// Limited availability: Chrome 144+, Firefox 139+, Node 26
+const d = Temporal.PlainDate.from('2026-11-05')
+d.add({ months: 1 })    // → 2026-12-05
+Temporal.Now.instant()  // → Temporal.Instant
+```
+
+A modern replacement for `Date`; plain dates have no time zone.
+
+See: [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)
 
 ## Async and modules
 
@@ -142,11 +172,12 @@ await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ### Promises
 
 ```js
-new Promise((resolve, reject) => { ... })
-promise.then(v => ...).catch(err => ...)
+new Promise((resolve, reject) => { resolve(1) })
+promise.then(v => v * 2).catch(console.error)
 await Promise.all([a(), b()])         // → all results, fails fast
 await Promise.allSettled([a(), b()])  // → every result, never rejects
-await Promise.race([a(), b()])        // → first settled
+await Promise.race([a(), b()])        // → first settled, either way
+await Promise.any([a(), b()])         // → first fulfilled (ES2021)
 ```
 
 [Promises cheatsheet](./promise)
@@ -158,10 +189,11 @@ await Promise.race([a(), b()])        // → first settled
 ```js
 const res = await fetch('/data.json')
 res.status                        // → 200
-res.ok                            // → true
+res.ok                            // → true (status 200-299)
 await res.json()                  // → parsed JSON body
 await fetch('/save', {
   method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(data)
 })
 ```
@@ -177,7 +209,8 @@ export const pi = 3.14159
 export default class Circle {}
 import Circle, { pi } from './math.js'
 import * as math from './math.js'
-const { Chart } = await import('./chart.js')
+import data from './data.json' with { type: 'json' }
+const { default: Chart } = await import('./chart.js')
 ```
 
 [JavaScript Modules cheatsheet](./js-modules)

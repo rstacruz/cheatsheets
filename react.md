@@ -2,7 +2,7 @@
 title: React.js
 category: React
 tags: [Featured]
-updated: 2026-10-03
+updated: 2026-11-05
 tier: t1
 weight: -10
 keywords:
@@ -16,7 +16,7 @@ keywords:
   - props/state
   - createRoot
 intro: |
-  [React](https://react.dev/) is a JavaScript library for building user interfaces. This guide targets React v18 to v19 (function components and hooks).
+  [React](https://react.dev/) is a JavaScript library for building user interfaces. This guide targets React 19 (19.0–19.3, function components and hooks).
 ---
 
 {%raw%}
@@ -50,7 +50,7 @@ The automatic JSX runtime (v17+) means no `import React`. See: [createRoot](http
 <StrictMode><App /></StrictMode>
 ```
 
-Double-invokes renders and effects in development to surface impure logic; no effect in production. See: [StrictMode](https://react.dev/reference/react/StrictMode)
+Re-runs renders, effects and ref callbacks an extra time in development to surface impure logic; no effect in production. See: [StrictMode](https://react.dev/reference/react/StrictMode)
 
 ## Components
 
@@ -117,7 +117,7 @@ function Avatar({ src, alt, size = 64 }) {
 
 <!-- {: data-line="1"} -->
 
-Defaults come from parameters (v19 removed `defaultProps`); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)
+Defaults come from parameters (v19 dropped function defaultProps; classes keep theirs); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)
 
 ### Lists and keys
 
@@ -225,7 +225,36 @@ const [error, submitAction, isPending] =
 
 <!-- {: data-line="1,2,3,4"} -->
 
-Actions are async functions in `action` props; `useOptimistic` shows an immediate value while the request runs. See: [useActionState](https://react.dev/reference/react/useActionState)
+An action prop takes a function (sync or async) that React runs in a Transition; `useOptimistic` shows an optimistic result. See: [useActionState](https://react.dev/reference/react/useActionState)
+
+```jsx
+import { useFormStatus } from 'react-dom'
+
+function Submit() {
+  const { pending } = useFormStatus()
+  return <button disabled={pending}>Save</button>
+}
+```
+<!-- {: data-line="4"} -->
+
+`useFormStatus` reads the parent form's state; render it inside the `<form>`. See: [useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus)
+
+### useOptimistic (v19)
+
+```jsx
+const [optimistic, addOptimistic] = useOptimistic(
+  todos,
+  (state, text) => [...state, { text, sending: true }]
+)
+
+async function addTodo(formData) {
+  addOptimistic(formData.get('text'))
+  await saveTodo(formData)
+}
+```
+<!-- {: data-line="1,2,3"} -->
+
+Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter from an action prop. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
 ## Effects
 
@@ -306,6 +335,31 @@ useEffect(() => {
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
+## Concurrent UI
+<!-- {: .-two-column} -->
+
+### Activity (v19.2)
+
+```jsx
+import { Activity } from 'react'
+<Activity mode={isOpen ? 'visible' : 'hidden'}>
+  <Sidebar />
+</Activity>
+```
+
+Hides children with `display: none`, unmounts effects, and keeps their state and DOM. See: [Activity](https://react.dev/reference/react/Activity)
+
+### View transitions (v19.3)
+
+```jsx
+import { ViewTransition } from 'react'
+<ViewTransition enter="auto" exit="auto">
+  <Page />
+</ViewTransition>
+```
+
+Animates enter, exit, update and share for transitions and Suspense reveals. See: [ViewTransition](https://react.dev/reference/react/ViewTransition) · [addTransitionType](https://react.dev/reference/react/addTransitionType)
+
 ## Refs
 
 <!-- {: .-two-column} -->
@@ -320,6 +374,18 @@ return <input ref={inputRef} />
 
 A mutable `.current` box that persists without re-rendering. See: [useRef](https://react.dev/reference/react/useRef)
 
+```jsx
+<input
+  ref={node => {
+    node.focus()
+    return () => node.blur()  // on detach (v19)
+  }}
+/>
+```
+<!-- {: data-line="4"} -->
+
+Ref callbacks may return a cleanup function, called when the node detaches. See: [ref callback](https://react.dev/reference/react-dom/components/common#ref-callback)
+
 ### Ref as a prop (v19)
 
 ```jsx
@@ -328,7 +394,14 @@ function Input({ ref, ...props }) {
 }
 ```
 
-v19 passes `ref` as a normal prop; v18 uses `forwardRef`, no longer necessary in v19 and slated for deprecation. See: [forwardRef](https://react.dev/reference/react/forwardRef)
+v19 passes `ref` as a normal prop; `forwardRef` still works but is legacy (docs plan to deprecate it). See: [forwardRef](https://react.dev/reference/react/forwardRef)
+
+```jsx
+import { Fragment } from 'react'
+<Fragment ref={ref}>{rows}</Fragment>
+```
+
+19.3 attaches refs to fragments, yielding a `FragmentInstance` with DOM-like methods. See: [Fragment](https://react.dev/reference/react/Fragment)
 
 ### useImperativeHandle
 
@@ -372,8 +445,9 @@ function Toolbar() {
 <!-- {: data-line="5"} -->
 
 ```jsx
-<ThemeContext value="dark">…</ThemeContext>                     // v19
-<ThemeContext.Provider value="dark">…</ThemeContext.Provider>   // v18
+<ThemeContext value="dark">…</ThemeContext>  // v19+
+<ThemeContext.Provider value="dark">…</ThemeContext.Provider>
+// ^ still works in v19; docs plan to deprecate
 ```
 
 ```jsx
@@ -443,7 +517,7 @@ const onSelect = useCallback(id => setSelected(id), [])
 
 <!-- {: data-line="1,4"} -->
 
-Cache components and values only when measurement shows a need — the React Compiler, once configured in your build, auto-memoises and removes most manual calls. See: [memo](https://react.dev/reference/react/memo)
+Cache components and values only when measurement shows a need — [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1) (stable since Oct 2025) auto-memoises, removing most manual calls. See: [memo](https://react.dev/reference/react/memo)
 
 ### useTransition and useDeferredValue
 
@@ -494,7 +568,7 @@ function Comments({ commentsPromise }) {
 }
 ```
 
-Reads a promise or context during render and suspends; unlike hooks it may be conditional. See: [use](https://react.dev/reference/react/use)
+Reads a promise (suspends) or a context (no suspend); unlike hooks it may be conditional. Promises must be cached. See: [use](https://react.dev/reference/react/use)
 
 ## Rendering and SSR
 
@@ -522,10 +596,50 @@ Hydration markup must match the client render. See: [Client APIs](https://react.
 
 ```jsx
 import { renderToString } from 'react-dom/server'
-const html = renderToString(<App />)  // synchronous, blocks
+const html = renderToString(<App />)  // sync, no streaming
 ```
 
-`renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense; v19 adds `prerender`. See: [Server APIs](https://react.dev/reference/react-dom/server)
+`renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense.
+
+```jsx
+import { prerender } from 'react-dom/static'
+const { prelude } = await prerender(<App />)
+```
+
+`prerender` and `prerenderToNodeStream` wait for data; 19.2 adds `resume` for partial pre-rendering.
+
+`cache(fn)` dedupes Server Component work; `cacheSignal()` aborts it when the render ends.
+
+See: [Server APIs](https://react.dev/reference/react-dom/server) · [prerender](https://react.dev/reference/react-dom/static/prerender)
+
+### Browser-only rendering (v19.3)
+
+```jsx
+import { use } from 'react'
+import { browser } from 'react-dom'
+use(browser())  // suspends on the server, not the client
+```
+
+Marks a subtree as browser-only; the nearest Suspense fallback renders on the server.
+
+See: [browser](https://react.dev/reference/react-dom/browser)
+
+### Metadata and resource hints
+
+```jsx
+import { preload, prefetchDNS } from 'react-dom'
+
+<title>Dashboard</title>
+<meta name="description" content="Stats" />
+<link rel="canonical" href="https://example.com" />
+
+preload('/font.woff2', { as: 'font' })
+prefetchDNS('https://cdn.example.com')
+```
+
+React hoists metadata tags to `<head>`; `preload`, `preinit`, `preconnect` and `prefetchDNS` emit resource hints.
+
+See: [preload](https://react.dev/reference/react-dom/preload) · [title](https://react.dev/reference/react-dom/components/title)
 
 ## Error handling
 
@@ -557,6 +671,20 @@ class ErrorBoundary extends Component {
 <!-- {: data-line="4,5,6"} -->
 
 Still the only built-in way to catch render errors, and still a class; [react-error-boundary](https://github.com/bvaughn/react-error-boundary) wraps it with a hooks-friendly API. See: [Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+
+### Root error callbacks (v19)
+
+```jsx
+createRoot(node, {
+  onUncaughtError: (error, info) => log(error, info),
+  onCaughtError: (error, info) => log(error, info),
+  onRecoverableError: (error, info) => log(error, info)
+})
+```
+
+Root options report errors caught by boundaries, uncaught errors and recoverable errors.
+
+See: [createRoot](https://react.dev/reference/react-dom/client/createRoot#parameters)
 
 ## Legacy APIs
 
@@ -591,13 +719,13 @@ See: [Component](https://react.dev/reference/react/Component)
 | String refs `ref="input"` | ref callback or `useRef` |
 | `forwardRef` (v18) | `ref` as a prop (v19) |
 | Legacy context (`getChildContext`) | `createContext` |
-| `<Context.Provider value>` (v18) | `<Context value>` (v19) |
+| `<Context.Provider value>` (still works) | `<Context value>` (v19+) |
 
 See: [forwardRef](https://react.dev/reference/react/forwardRef)
 
 ### Further reading
 
-See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work and are required only for error boundaries; see the [React v16 cheatsheet](react@16) for the class-era API.
+See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work and are the only way to write an error boundary; see the [React v16 cheatsheet](react@16) for the class-era API.
 
 ## Also see
 

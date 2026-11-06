@@ -15,18 +15,6 @@ describe('renderMarkdown', () => {
     )
   })
 
-  it('applies an own-line IAL to the previous heading', async () => {
-    expect((await renderMarkdown('# hola mundo\n{: .heading}')).html).toBe(
-      '<h1 class="heading" id="hola-mundo">hola mundo</h1>'
-    )
-  })
-
-  it('splits a multi-class IAL written without spaces', async () => {
-    expect((await renderMarkdown('# hola\n{: .a.b}')).html).toBe(
-      '<h1 class="a b" id="hola">hola</h1>'
-    )
-  })
-
   it('strips {% raw %} tags', async () => {
     const input = ['{% raw %}', 'This is some text', '{% endraw %}'].join('\n')
     expect((await renderMarkdown(input)).html).toBe('<p>This is some text</p>')
@@ -62,7 +50,7 @@ describe('renderMarkdown', () => {
     )
   })
 
-  it('expands {% include %} and applies the include’s IAL', async () => {
+  it('expands {% include %} and applies the include’s attributes', async () => {
     const input = [
       '{% include common/moment_format.md title="Moment" %}',
       'This is some text'
@@ -77,20 +65,6 @@ describe('renderMarkdown', () => {
     const { html } = await renderMarkdown(content)
     expect(html).not.toContain('%raw%')
     expect(html).not.toContain('% raw %')
-  })
-
-  it('keeps language-* on <code> when a fence has an IAL', async () => {
-    expect(
-      (await renderMarkdown('```ruby\nx\n```\n{: .-setup data-line="1"}')).html
-    ).toBe(
-      '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
-    )
-  })
-
-  it('moves IAL classes to <pre> for a fence without a language', async () => {
-    expect((await renderMarkdown('```\nx\n```\n{: .-setup}')).html).toBe(
-      '<pre class="-setup"><code>x\n</code></pre>'
-    )
   })
 })
 
@@ -199,12 +173,6 @@ describe('comment attributes', () => {
       '<!-- {: .a} -->'
     )
   })
-
-  it('appends to the classes from an IAL on the same block', async () => {
-    expect((await renderMarkdown('## H\n{: .a}\n<!-- {: .b} -->')).html).toBe(
-      '<h2 class="a b" id="h">H</h2>'
-    )
-  })
 })
 
 describe('compat transforms', () => {
@@ -252,18 +220,6 @@ describe('kramdown tables', () => {
     const input = ['| `a|b` | c |', '| --- | --- |', '| d | e |'].join('\n')
     expect((await renderMarkdown(input)).html).toContain(
       '<th><code>a|b</code></th><th>c</th>'
-    )
-  })
-
-  it('applies an own-line IAL to the table', async () => {
-    const input = [
-      '| H1 | H2 |',
-      '| --- | --- |',
-      '| a | b |',
-      '{: .-shortcuts}'
-    ].join('\n')
-    expect((await renderMarkdown(input)).html).toContain(
-      '<table class="-shortcuts">'
     )
   })
 

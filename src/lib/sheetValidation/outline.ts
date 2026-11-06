@@ -44,8 +44,6 @@ export type CodeLine = {
   inThreeColumn: boolean
 }
 
-const BLOCK_IAL = /^\{:([^}]*)\}$/
-
 function firstContent(lines: string[], start: number): number {
   let index = start
   while (index < lines.length && lines[index].trim() === '') index++
@@ -71,16 +69,14 @@ function commentAt(lines: string[], start: number) {
   return undefined
 }
 
-/** Merges a legacy IAL and the comments below, as the plugin does */
+/** Merges the attribute comments below `start` */
 function attributesBelow(
   lines: string[],
   start: number
 ): Properties | undefined {
   const properties: Properties = {}
-  const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  mergeAttributes(properties, parseAttributes(ial?.[1] ?? '') ?? {})
 
-  let index = firstContent(lines, ial ? start + 1 : start)
+  let index = firstContent(lines, start)
   for (;;) {
     const comment = commentAt(lines, index)
     const attributes = comment && parseAttributes(comment.text)

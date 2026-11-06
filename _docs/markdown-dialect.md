@@ -66,16 +66,6 @@ are fine.
   place as an ordinary comment.
 - Prefer one attribute comment per block.
 
-The older kramdown line still works, and existing sheets keep it:
-
-````md
-### Setting default props
-{: .-prime}
-````
-
-- It must sit directly below the block; a blank line in between drops it.
-- A malformed one (missing `}` or quote) fails the build.
-
 ## Code
 
 Use fenced code blocks; indented code is rejected by CI.

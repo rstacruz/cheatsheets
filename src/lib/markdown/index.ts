@@ -1,7 +1,6 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import remarkAttributeList from 'remark-attribute-list'
 import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
@@ -27,7 +26,6 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
     .use(commentAttributes)
     .use(restoreCodeLanguage)
     .use(kramdownTables)

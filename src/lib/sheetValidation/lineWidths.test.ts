@@ -45,7 +45,7 @@ describe('findWideCodeLines()', () => {
   test('flags over 42 characters inside a three-column H2', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```bash',
       `echo ${'x'.repeat(38)}`,
@@ -57,7 +57,7 @@ describe('findWideCodeLines()', () => {
   test('allows 42 characters there', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```bash',
       `echo ${'x'.repeat(37)}`,
@@ -92,16 +92,16 @@ describe('findWideCodeLines()', () => {
     expect(findWideCodeLines(input)).toEqual([])
   })
 
-  test('reads three-column from joined classes in either form', () => {
-    for (const attribute of [
+  test('reads three-column from joined classes', () => {
+    const input = [
+      '## A',
       '<!-- {: .a.-three-column} -->',
-      '{: .a.-three-column}'
-    ]) {
-      const input = ['## A', attribute, '', '```', 'x'.repeat(43), '```'].join(
-        '\n'
-      )
-      expect(findWideCodeLines(input)).toHaveLength(1)
-    }
+      '',
+      '```',
+      'x'.repeat(43),
+      '```'
+    ].join('\n')
+    expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
   test('reads a three-column comment split over lines', () => {
@@ -119,19 +119,6 @@ describe('findWideCodeLines()', () => {
     expect(
       findWideCodeLines(input.replace('x'.repeat(43), 'x'.repeat(42)))
     ).toEqual([])
-  })
-
-  test('merges a legacy IAL with the comment below it', () => {
-    const input = [
-      '## A',
-      '{: .a}',
-      '<!-- {: .-three-column} -->',
-      '',
-      '```',
-      'x'.repeat(43),
-      '```'
-    ].join('\n')
-    expect(findWideCodeLines(input)).toHaveLength(1)
   })
 
   test('merges stacked attribute comments', () => {
@@ -193,7 +180,7 @@ describe('findWideCodeLines()', () => {
   test('returns to 70 characters after the next H2', () => {
     const input = [
       '## A',
-      '{: .-three-column}',
+      '<!-- {: .-three-column} -->',
       '',
       '```',
       'x'.repeat(30),

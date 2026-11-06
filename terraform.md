@@ -2,6 +2,7 @@
 title: Terraform
 category: Devops
 tier: t2
+updated: 2026-11-05
 description: |
   A practical reference for Terraform configuration and CLI workflows.
 intro: |
@@ -13,7 +14,8 @@ intro: |
 ## Getting started
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Terraform](https://developer.hashicorp.com/terraform) is an infrastructure-as-code tool for building, changing, and versioning infrastructure safely and efficiently. This reference covers the CLI, configuration, state, and modules.
 
@@ -34,7 +36,8 @@ terraform plan -help
 See: [Install Terraform](https://developer.hashicorp.com/terraform/install)
 
 ### Core workflow
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```bash
 terraform init                 # Initialize providers and backend
@@ -73,9 +76,11 @@ terraform plan -out=tfplan -detailed-exitcode
 terraform apply -auto-approve
 terraform plan -refresh-only
 terraform apply -refresh-only
+terraform plan -minimal-refresh
 ```
 
 `-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes.
+`-minimal-refresh` refreshes only resources with planned changes.
 
 See: [Terraform CLI](https://developer.hashicorp.com/terraform/cli/commands)
 
@@ -85,12 +90,12 @@ See: [Terraform CLI](https://developer.hashicorp.com/terraform/cli/commands)
 
 ```hcl
 terraform {
-  required_version = ">= 1.7.0"
+  required_version = ">= 1.17.0"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
 }
@@ -121,7 +126,7 @@ resource "aws_instance" "web" {
 
 References create implicit dependencies.
 
-See: [Resource blocks](https://developer.hashicorp.com/terraform/language/resources/syntax)
+See: [Resource blocks](https://developer.hashicorp.com/terraform/language/block/resource)
 
 ### Data sources
 
@@ -132,7 +137,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-*-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-*-amd64-server-*"]
   }
 }
 
@@ -182,10 +187,10 @@ export TF_VAR_environment=prod
 environment = "prod"
 ```
 
-Precedence increases from environment variables, `terraform.tfvars`,
-`*.auto.tfvars`, to command-line options (`-var`, `-var-file`).
+Precedence increases from environment variables, `terraform.tfvars(.json)`,
+`*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
 
-See: [Assign variable values](https://developer.hashicorp.com/terraform/language/parameterize)
+See: [Assign variable values](https://developer.hashicorp.com/terraform/language/values/variables#assign-values-to-variables)
 
 ### Local values and outputs
 
@@ -215,9 +220,31 @@ terraform output -raw instance_ip
 terraform output -json
 ```
 
-The `-raw` and `-json` options expose sensitive outputs in plain text.
+Naming a sensitive output, or using `-raw` or `-json`, exposes its value in
+plain text.
 
 See: [Local values](https://developer.hashicorp.com/terraform/language/values/locals), [Output values](https://developer.hashicorp.com/terraform/language/values/outputs)
+
+### Ephemeral values
+
+```hcl
+variable "db_password" {
+  type      = string
+  sensitive = true
+  ephemeral = true
+}
+
+resource "aws_db_instance" "main" {
+  # ...
+  password_wo         = var.db_password
+  password_wo_version = 1
+}
+```
+
+Ephemeral values are omitted from plan and state files; write-only arguments
+accept them.
+
+See: [Manage sensitive data](https://developer.hashicorp.com/terraform/language/manage-sensitive-data)
 
 ## Expressions
 
@@ -291,6 +318,7 @@ length(var.names)
 lookup(var.tags, "Name", "default")
 merge(local.common_tags, var.extra_tags)
 toset(var.names)
+convert(var.tags, map(string))
 try(local.value.deep, "fallback")
 can(regex("^[a-z]+$", var.name))
 jsonencode(local.policy)
@@ -363,8 +391,28 @@ resource "aws_instance" "web" {
 ```
 
 `prevent_destroy` does not protect an object after its configuration is removed.
+Set `destroy = false` to remove it from state without destroying it.
 
 See: [Meta-arguments](https://developer.hashicorp.com/terraform/language/meta-arguments), [Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+### Actions
+
+```hcl
+action "aws_lambda_invoke" "example" {
+  config {
+    function_name = "my_function"
+  }
+}
+```
+
+```bash
+terraform apply -invoke=action.aws_lambda_invoke.example
+```
+
+Actions run provider-defined day-2 operations; trigger them from the CLI or
+`lifecycle.action_trigger`.
+
+See: [Invoke an action](https://developer.hashicorp.com/terraform/language/invoke-actions)
 
 ## Modules
 
@@ -388,7 +436,7 @@ See: [Module blocks](https://developer.hashicorp.com/terraform/language/block/mo
 ```hcl
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.0"
+  version = "~> 6.0"
 
   name = local.name
   cidr = "10.0.0.0/16"
@@ -473,14 +521,43 @@ terraform apply
 terraform import aws_instance.web i-0123456789abcdef0
 ```
 
-Import associates an existing object with one Terraform resource address.
+Import associates an existing object with a resource address. Use `identity`
+instead of `id` when the provider defines a resource identity.
 
 See: [Import](https://developer.hashicorp.com/terraform/language/import)
+
+### Query resources
+
+```hcl
+# aws.tfquery.hcl
+list "aws_instance" "web" {
+  provider = aws
+
+  config {
+    filter {
+      name   = "instance-state-name"
+      values = ["running"]
+    }
+  }
+}
+```
+
+```bash
+terraform query
+terraform query -generate-config-out=import.tf
+terraform query -json
+```
+
+Queries find unmanaged resources; generated config contains `import` and
+`resource` blocks.
+
+See: [Import resources in bulk](https://developer.hashicorp.com/terraform/language/import/bulk)
 
 ### Workspaces
 
 ```bash
 terraform workspace list
+terraform workspace list -json
 terraform workspace new staging
 terraform workspace select staging
 terraform workspace show
@@ -490,7 +567,7 @@ terraform workspace delete staging
 
 CLI workspaces share configuration but use separate state instances.
 
-See: [State](https://developer.hashicorp.com/terraform/language/state), [Import](https://developer.hashicorp.com/terraform/language/import), [Workspaces](https://developer.hashicorp.com/terraform/cli/workspaces)
+See: [State](https://developer.hashicorp.com/terraform/language/state), [Workspaces](https://developer.hashicorp.com/terraform/cli/workspaces)
 
 ## Debugging and automation
 
@@ -529,7 +606,32 @@ terraform init -input=false
 terraform plan -input=false -no-color -detailed-exitcode
 ```
 
-See: [Automation](https://developer.hashicorp.com/terraform/tutorials/automation)
+See: [Automation](https://developer.hashicorp.com/terraform/tutorials/automation/automate-terraform)
+
+### Testing
+
+```hcl
+# tests/web.tftest.hcl
+run "plan" {
+  command = plan
+
+  assert {
+    condition     = aws_instance.web.instance_type == "t3.micro"
+    error_message = "Unexpected instance type"
+  }
+}
+```
+
+```bash
+terraform test
+terraform test -filter=tests/web.tftest.hcl
+terraform test -junit-xml=report.xml
+```
+
+Tests run in separate in-memory state, starting empty. Use `-verbose` to print
+each run's plan or state.
+
+See: [terraform test](https://developer.hashicorp.com/terraform/cli/commands/test)
 
 ### Targeting
 
@@ -540,7 +642,7 @@ terraform apply -replace=aws_instance.web
 
 Use `-target` only for exceptional recovery, not routine workflows.
 
-See: [Debugging](https://developer.hashicorp.com/terraform/internals/debugging), [Automation](https://developer.hashicorp.com/terraform/tutorials/automation)
+See: [Resource targeting](https://developer.hashicorp.com/terraform/cli/commands/plan#resource-targeting), [Automation](https://developer.hashicorp.com/terraform/tutorials/automation/automate-terraform)
 
 ## Also see
 

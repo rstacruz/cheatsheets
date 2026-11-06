@@ -1,7 +1,7 @@
 ---
 title: Kotlin
 category: Java & JVM
-updated: 2026-10-03
+updated: 2026-11-05
 tier: t1
 keywords:
   - Variables
@@ -18,10 +18,12 @@ intro: |
 ---
 
 ## Variables
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Kotlin](https://kotlinlang.org/) is a statically typed language targeting the JVM, Android, and multiplatform projects. This reference covers the essentials.
 
@@ -86,14 +88,16 @@ class Person {
 
 val key = Person.NAME_KEY
 ```
-{: data-line="7"}
+
+<!-- {: data-line="7"} -->
 
 Members are accessed through the class name, like statics in Java. Use `const val` for compile-time constants.
 
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ## Null safety
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Nullable types
 
@@ -117,7 +121,8 @@ if (name != null) {
     print("String is null")
 }
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 After the null check, `name` is smart-cast to a non-nullable `String`.
 
@@ -166,7 +171,8 @@ val car: Car? = input as? Car
 See: [Safe casts](https://kotlinlang.org/docs/null-safety.html#safe-casts)
 
 ## Collections
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Creation
 
@@ -216,7 +222,7 @@ val mutableMap = immutableMap.toMutableMap()
 
 `listOf()` and `mapOf()` are read-only; use the `mutable*` builders to add, set, or remove.
 
-See: [Collection types](https://kotlinlang.org/docs/collections-overview.html#collection-types)
+See: [Read-only and mutable collections](https://kotlinlang.org/docs/collections-overview.html#read-only-and-mutable-collections)
 
 ### Iterating
 
@@ -267,7 +273,8 @@ val total = items.sumOf { it.price }
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
 
 ## Functions
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Parameters & return types
 
@@ -375,7 +382,8 @@ val log = Logger.create("app")
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ## Classes
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Primary constructor
 
@@ -402,7 +410,8 @@ class Person(val name: String) {
     }
 }
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 #### Default parameters
 
@@ -430,14 +439,16 @@ class Machine : Runner {
     }
 }
 ```
-{: data-line="1,9"}
+
+<!-- {: data-line="1,9"} -->
 
 Classes are final by default; mark them `open` to allow subclassing. Interfaces are implemented with `:`.
 
 See: [Inheritance](https://kotlinlang.org/docs/inheritance.html), [Interfaces](https://kotlinlang.org/docs/interfaces.html)
 
 ## Control flow
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### If statements
 
@@ -478,7 +489,6 @@ when (direction) {
     Direction.NORTH -> print("North")
     Direction.SOUTH -> print("South")
     Direction.EAST, Direction.WEST -> print("East or West")
-    else -> print("Invalid direction")
 }
 ```
 
@@ -492,7 +502,19 @@ when {
 }
 ```
 
-`when` matches by value, type, or condition. With no argument it acts like if/else-if.
+#### With guards
+
+```kotlin
+fun label(value: Any): String = when (value) {
+    is String if value.isNotBlank() -> value
+    is Int if value > 0 -> "positive"
+    else -> "other"
+}
+```
+
+A guard adds an `if` condition to a branch; it requires a subject.
+
+`when` matches by value, type, or condition. With no argument it acts like if/else-if; as an expression it must be exhaustive.
 
 See: [When expressions](https://kotlinlang.org/docs/control-flow.html#when-expressions-and-statements)
 
@@ -511,11 +533,12 @@ do {
 See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
 ## Destructuring declarations
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Objects & lists
 
-Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and maps.
+Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and map entries.
 
 #### Data classes
 
@@ -566,7 +589,8 @@ Declare `operator fun componentN()` to make a class destructurable. `data class`
 See: [Destructuring declarations](https://kotlinlang.org/docs/destructuring-declarations.html)
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - [Kotlin documentation](https://kotlinlang.org/docs/home.html) _(kotlinlang.org)_
 - [Kotlin API reference](https://kotlinlang.org/api/core/kotlin-stdlib/) _(kotlinlang.org)_

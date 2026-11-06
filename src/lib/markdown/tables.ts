@@ -17,8 +17,8 @@ import { SEP_LINE, scanFences } from '~/lib/sheetValidation/utils'
  * kramdown's table dialect, ported from table.rb (REL_2_4_0); differs from GFM
  * in separator-row bodies and ragged-row padding
  *
- * Tables are lifted out before parsing so attribute-list can attach IALs, then
- * re-expanded into a custom node by `kramdownTables`
+ * Tables are lifted out before parsing so an attribute comment lands on the
+ * sentinel fence; `kramdownTables` copies it onto the table node
  */
 
 export const TABLE_SENTINEL_LANG = 'kramdown-table'

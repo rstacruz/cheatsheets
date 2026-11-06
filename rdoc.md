@@ -6,7 +6,8 @@ intro: |
 ---
 
 ### Basic comment
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```ruby
 # Adds two numbers.
@@ -141,8 +142,10 @@ end
 Place the directive at the beginning of the file to select a supported input format.
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://ruby-doc.org/3.4/RDoc/MarkupReference.html>
 - <https://ruby-doc.org/3.4/contributing/documentation_guide_md.html>
-{: .-also-see}
+
+<!-- {: .-also-see} -->

@@ -25,7 +25,8 @@ weight: -3
 ```css
 .container {
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```css
   display: flex;
@@ -63,14 +64,16 @@ weight: -3
 ```css
 }
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ### Child
 
 ```css
 .container > div {
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```css
   /* This: */
@@ -94,7 +97,8 @@ weight: -3
 ```css
 }
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 
 ## Tricks
@@ -190,7 +194,8 @@ Vertically-center all items.
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
  * [MDN: Using CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes)
  * [Ultimate flexbox cheatsheet](https://www.sketchingwithcss.com/samplechapter/cheatsheet.html)

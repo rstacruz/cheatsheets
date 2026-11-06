@@ -36,7 +36,8 @@ keywords:
 ```
 
 ### Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * [Render](https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view)
 * [Page's repository](https://github.com/command-line-interface-pages/cli-pages)

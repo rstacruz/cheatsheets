@@ -1,5 +1,4 @@
 import type { Heading, Root, RootContent } from 'mdast'
-import remarkAttributeList from 'remark-attribute-list'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
@@ -14,9 +13,7 @@ const NOT_CONTENT: Record<string, true> = {
   html: true,
   thematicBreak: true,
   definition: true,
-  footnoteDefinition: true,
-  attributeListDefinition: true,
-  blockInlineAttributeList: true
+  footnoteDefinition: true
 }
 
 /** devhints.io links do not point at upstream docs */
@@ -29,10 +26,7 @@ const SEE_NONE = /^<!--\s*see:\s*none\b.*-->\s*$/
 
 type Finding = { line: number; title: string }
 
-const processor = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkAttributeList, { allowNoSpaceBeforeName: true })
+const processor = unified().use(remarkParse).use(remarkGfm)
 
 /** H3 sections; H4 subsections stay inside their H3 */
 function h3Sections(tree: Root) {
@@ -244,9 +238,11 @@ describe('findMissingLinksOrSee()', () => {
     ).toEqual([])
   })
 
-  test('ignores a trailing IAL', () => {
+  test('ignores a trailing attribute comment', () => {
     expect(
-      findMissingLinksOrSee('### A\n\n[docs](./react)\n{: .-crosslink}')
+      findMissingLinksOrSee(
+        '### A\n\n[docs](./react)\n<!-- {: .-crosslink} -->'
+      )
     ).toEqual([])
   })
 

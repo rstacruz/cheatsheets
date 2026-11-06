@@ -8,20 +8,24 @@ tier: t1
 ---
 
 ## Getting started
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [A tour of Go](https://go.dev/tour/welcome/1) _(go.dev)_
 - [Go playground](https://go.dev/play/) _(go.dev)_
 - [Go wiki](https://go.dev/wiki/) _(go.dev)_
 
 ### Hello world
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 #### hello.go
-{: .-file}
+
+<!-- {: .-file} -->
 
 ```go
 package main
@@ -120,7 +124,8 @@ Constants can be character, string, boolean, or numeric values.
 See: [Constants](https://go.dev/tour/basics/15)
 
 ## Basic types
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Strings
 
@@ -227,7 +232,8 @@ func main() {
   fmt.Println("Value is", b)
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```go
 func getPointer() (p *int) {
@@ -235,13 +241,15 @@ func getPointer() (p *int) {
   return &a
 }
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 ```go
 p := new(int)
 *p = 234
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 Pointers point to a memory location of a variable. Go is fully garbage-collected and has no pointer arithmetic.
 
@@ -264,7 +272,8 @@ u := uint(i)
 See: [Type conversions](https://go.dev/tour/basics/13)
 
 ## Flow control
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Conditional
 
@@ -277,7 +286,8 @@ if day == "sunday" || day == "saturday" {
   work()
 }
 ```
-{: data-line="1,3,5"}
+
+<!-- {: data-line="1,3,5"} -->
 
 See: [If](https://go.dev/tour/flowcontrol/5)
 
@@ -288,7 +298,8 @@ if _, err := doThing(); err != nil {
   fmt.Println("Uh oh")
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 An `if` can run a statement before the condition. Its variables are scoped to the `if`.
 
@@ -355,7 +366,8 @@ That's Go's only loop: `for` with just a condition.
 See: [Go's "while"](https://go.dev/tour/flowcontrol/3)
 
 ## Functions
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Lambdas
 
@@ -364,7 +376,8 @@ myfunc := func() bool {
   return x > 10000
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Functions are first-class objects.
 
@@ -381,7 +394,8 @@ func getMessage() (a, b string) {
   return "Hello", "World"
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Multiple results](https://go.dev/tour/basics/6)
 
@@ -394,7 +408,8 @@ func split(sum int) (x, y int) {
   return
 }
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 By defining the return value names in the signature, a `return` (no args) will return variables with those names.
 
@@ -473,7 +488,8 @@ func Sum[T Number](xs []T) T {
 See: [Type constraints](https://go.dev/ref/spec#Type_constraints)
 
 ## Packages
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Importing
 
@@ -499,7 +515,8 @@ See: [Importing](https://go.dev/tour/basics/1)
 import r "math/rand"
 import _ "embed"  // side effects
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 r.Intn()
@@ -532,7 +549,8 @@ Every package file has to start with `package`.
 See: [Packages](https://go.dev/tour/basics/1)
 
 ## Concurrency
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Goroutines
 
@@ -552,7 +570,8 @@ func main() {
   fmt.Println(<-ch, <-ch, <-ch)
 }
 ```
-{: data-line="3,6,7,8,13"}
+
+<!-- {: data-line="3,6,7,8,13"} -->
 
 ```go
 func push(name string, ch chan string) {
@@ -560,7 +579,8 @@ func push(name string, ch chan string) {
   ch <- msg
 }
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 Channels are concurrency-safe communication objects, used in goroutines.
 
@@ -576,7 +596,8 @@ ch <- 3
 // fatal error:
 // all goroutines are asleep - deadlock!
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Buffered channels limit the number of messages they can hold.
 
@@ -607,7 +628,8 @@ ch <- 2
 ch <- 3
 close(ch)
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 #### Iterates across a channel until closed
 
@@ -616,7 +638,8 @@ for i := range ch {
   // ...
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Closed if `ok == false`
 
@@ -642,7 +665,8 @@ func main() {
   wg.Wait()
 }
 ```
-{: data-line="1,4,7,11"}
+
+<!-- {: data-line="1,4,7,11"} -->
 
 `wg.Go` (Go 1.25+) adds and runs a task; `Add` and `Done` still work.
 
@@ -680,6 +704,8 @@ if errors.Is(err, os.ErrNotExist) {
 }
 ```
 
+<!-- {: data-line="2"} -->
+
 ```go
 var pathErr *fs.PathError
 if errors.As(err, &pathErr) {
@@ -703,7 +729,8 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 `defer` runs a function when the surrounding function returns.
 Arguments are evaluated immediately, but the call runs later.
@@ -720,7 +747,8 @@ func main() {
   fmt.Println("Working...")
 }
 ```
-{: data-line="2,3,4"}
+
+<!-- {: data-line="2,3,4"} -->
 
 Lambdas are better suited for defer blocks.
 
@@ -734,7 +762,8 @@ func main() {
   d = time.Now().Unix()
 }
 ```
-{: data-line="3,4,5"}
+
+<!-- {: data-line="3,4,5"} -->
 
 Arguments are evaluated when `defer` runs; a pointer argument still sees the final value.
 
@@ -757,7 +786,8 @@ panic("boom")
 See: [Defer, panic and recover](https://go.dev/blog/defer-panic-and-recover)
 
 ## Structs
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Defining
 
@@ -767,7 +797,8 @@ type Vertex struct {
   Y int
 }
 ```
-{: data-line="1,2,3,4"}
+
+<!-- {: data-line="1,2,3,4"} -->
 
 ```go
 func main() {
@@ -848,7 +879,8 @@ func (v Vertex) Abs() float64 {
   return math.Sqrt(v.X * v.X + v.Y * v.Y)
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 v := Vertex{1, 2}
@@ -867,7 +899,8 @@ func (v *Vertex) Scale(f float64) {
   v.Y = v.Y * f
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```go
 v := Vertex{6, 12}
@@ -956,14 +989,16 @@ See: [Type assertions](https://go.dev/ref/spec#Type_assertions), [Type switches]
 ## References
 
 ### Official resources
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [A tour of Go](https://go.dev/tour/welcome/1) _(go.dev)_
 - [Go wiki](https://go.dev/wiki/) _(go.dev)_
 - [Effective Go](https://go.dev/doc/effective_go) _(go.dev)_
 
 ### Other links
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - [Go by Example](https://gobyexample.com/) _(gobyexample.com)_
 - [Awesome Go](https://awesome-go.com/) _(awesome-go.com)_

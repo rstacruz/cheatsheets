@@ -16,7 +16,8 @@ intro: |
 ## Getting started
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Docker](https://docs.docker.com/) packages applications into images and runs them as containers. This reference covers the most commonly used Docker CLI commands.
 

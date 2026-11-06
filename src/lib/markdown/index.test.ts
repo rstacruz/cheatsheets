@@ -15,18 +15,6 @@ describe('renderMarkdown', () => {
     )
   })
 
-  it('applies an own-line IAL to the previous heading', async () => {
-    expect((await renderMarkdown('# hola mundo\n{: .heading}')).html).toBe(
-      '<h1 class="heading" id="hola-mundo">hola mundo</h1>'
-    )
-  })
-
-  it('splits a multi-class IAL written without spaces', async () => {
-    expect((await renderMarkdown('# hola\n{: .a.b}')).html).toBe(
-      '<h1 class="a b" id="hola">hola</h1>'
-    )
-  })
-
   it('strips {% raw %} tags', async () => {
     const input = ['{% raw %}', 'This is some text', '{% endraw %}'].join('\n')
     expect((await renderMarkdown(input)).html).toBe('<p>This is some text</p>')
@@ -62,7 +50,7 @@ describe('renderMarkdown', () => {
     )
   })
 
-  it('expands {% include %} and applies the include’s IAL', async () => {
+  it('expands {% include %} and applies the include’s attributes', async () => {
     const input = [
       '{% include common/moment_format.md title="Moment" %}',
       'This is some text'
@@ -78,18 +66,111 @@ describe('renderMarkdown', () => {
     expect(html).not.toContain('%raw%')
     expect(html).not.toContain('% raw %')
   })
+})
 
-  it('keeps language-* on <code> when a fence has an IAL', async () => {
+describe('comment attributes', () => {
+  it('applies an attribute comment to the heading above it', async () => {
     expect(
-      (await renderMarkdown('```ruby\nx\n```\n{: .-setup data-line="1"}')).html
+      (await renderMarkdown('## Hola\n\n<!-- {: .-two-column} -->')).html
+    ).toBe('<h2 class="-two-column" id="hola">Hola</h2>')
+  })
+
+  it('applies one to the fence above it, keeping the language', async () => {
+    expect(
+      (
+        await renderMarkdown(
+          '```ruby\nx\n```\n<!-- {: .-setup data-line="1"} -->'
+        )
+      ).html
     ).toBe(
       '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
     )
   })
 
-  it('moves IAL classes to <pre> for a fence without a language', async () => {
-    expect((await renderMarkdown('```\nx\n```\n{: .-setup}')).html).toBe(
-      '<pre class="-setup"><code>x\n</code></pre>'
+  it('applies one to the table above it', async () => {
+    const input = [
+      '| A | B |',
+      '| --- | --- |',
+      '| 1 | 2 |',
+      '',
+      '<!-- {: .-key-values} -->'
+    ].join('\n')
+    expect((await renderMarkdown(input)).html).toContain(
+      '<table class="-key-values">'
+    )
+  })
+
+  it('applies one to the list above it', async () => {
+    const input = ['- [A](/a)', '- [B](/b)', '<!-- {: .-also-see} -->'].join(
+      '\n'
+    )
+    expect((await renderMarkdown(input)).html).toBe(
+      '<ul class="-also-see">\n<li><a href="/a">A</a></li>\n<li><a href="/b">B</a></li>\n</ul>'
+    )
+  })
+
+  it('applies one to the paragraph above it', async () => {
+    expect(
+      (await renderMarkdown('[A](/a)\n\n<!-- {: .-crosslink} -->')).html
+    ).toBe('<p class="-crosslink"><a href="/a">A</a></p>')
+  })
+
+  it('splits classes written without spaces', async () => {
+    expect((await renderMarkdown('## H\n<!-- {: .a.b} -->')).html).toBe(
+      '<h2 class="a b" id="h">H</h2>'
+    )
+  })
+
+  it('reads single-quoted values', async () => {
+    expect((await renderMarkdown("## H\n<!-- {: id='x'} -->")).html).toBe(
+      '<h2 id="x">H</h2>'
+    )
+  })
+
+  it('removes the comment from the output', async () => {
+    const input = ['## H', '', '<!-- {: .a} -->', '', 'text'].join('\n')
+    expect((await renderMarkdown(input)).html).not.toContain('<!--')
+  })
+
+  it('leaves an orphan comment alone without crashing', async () => {
+    expect((await renderMarkdown('<!-- {: .a} -->')).html).toBe(
+      '<!-- {: .a} -->'
+    )
+  })
+
+  it('leaves a comment with no attributes in place', async () => {
+    expect((await renderMarkdown('# H\n<!-- {: } -->')).html).toBe(
+      '<h1 id="h">H</h1>\n<!-- {: } -->'
+    )
+  })
+
+  it('leaves an inline comment alone', async () => {
+    expect((await renderMarkdown('text <!-- {: .a} -->')).html).toBe(
+      '<p>text <!-- {: .a} --></p>'
+    )
+  })
+
+  it('applies one to the block inside a blockquote', async () => {
+    expect((await renderMarkdown('> quote\n>\n> <!-- {: .a} -->')).html).toBe(
+      '<blockquote>\n<p class="a">quote</p>\n</blockquote>'
+    )
+  })
+
+  it('applies one inside a footnote definition', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '    <!-- {: .a} -->'].join(
+      '\n'
+    )
+    expect((await renderMarkdown(input)).html).toContain('<p class="a">note')
+  })
+
+  it('leaves a comment after a footnote definition alone', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '<!-- {: .a} -->'].join('\n')
+    expect((await renderMarkdown(input)).html).toContain('<!-- {: .a} -->')
+  })
+
+  it('leaves a comment after a link definition alone', async () => {
+    expect((await renderMarkdown('[a]: /x\n<!-- {: .a} -->')).html).toBe(
+      '<!-- {: .a} -->'
     )
   })
 })
@@ -139,18 +220,6 @@ describe('kramdown tables', () => {
     const input = ['| `a|b` | c |', '| --- | --- |', '| d | e |'].join('\n')
     expect((await renderMarkdown(input)).html).toContain(
       '<th><code>a|b</code></th><th>c</th>'
-    )
-  })
-
-  it('applies an own-line IAL to the table', async () => {
-    const input = [
-      '| H1 | H2 |',
-      '| --- | --- |',
-      '| a | b |',
-      '{: .-shortcuts}'
-    ].join('\n')
-    expect((await renderMarkdown(input)).html).toContain(
-      '<table class="-shortcuts">'
     )
   })
 

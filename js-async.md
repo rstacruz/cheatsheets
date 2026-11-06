@@ -9,7 +9,8 @@ intro: |
 ---
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 `async`/`await` is syntax on top of promises for writing asynchronous code
 that reads like synchronous code.
@@ -18,7 +19,8 @@ that reads like synchronous code.
 - [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) _(developer.mozilla.org)_
 
 [Promises cheatsheet](./promise)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### async and await
 
@@ -30,7 +32,8 @@ async function load() {
 
 load()                     // → Promise
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```js
 try {
@@ -39,7 +42,8 @@ try {
   console.error(err)       // rejection lands here
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 An `async` function always returns a promise; `await` unwraps it. `return`
 resolves, a throw rejects, and top-level `await` works in ES modules only.
@@ -84,7 +88,8 @@ const id = setTimeout(() => {
 
 clearTimeout(id)
 ```
-{: data-line="5"}
+
+<!-- {: data-line="5"} -->
 
 #### setInterval()
 
@@ -95,7 +100,8 @@ const id = setInterval(() => {
 
 clearInterval(id)
 ```
-{: data-line="5"}
+
+<!-- {: data-line="5"} -->
 
 #### sleep()
 
@@ -120,7 +126,8 @@ fetch('/data.json', { signal: controller.signal })
 
 controller.abort()
 ```
-{: data-line="6"}
+
+<!-- {: data-line="6"} -->
 
 ```js
 // Built-in timeout signal

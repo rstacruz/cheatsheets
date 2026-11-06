@@ -5,6 +5,7 @@ updated: 2017-09-12
 ---
 
 ## FFaker
+
 <!-- {: .-one-column} -->
 
 ### Installing
@@ -15,6 +16,7 @@ require 'ffaker'
 ```
 
 ## Faker::Address
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -42,6 +44,7 @@ Faker::Address.secondary_address        #=> "Suite 560"
 ```
 
 ## Faker::Company
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -75,6 +78,7 @@ Faker::Company.position                 #=> "General Corporate President"
 ```
 
 ## Faker::Education
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -108,6 +112,7 @@ Faker::Education.school_name            #=> "Larkfield"
 ```
 
 ## Faker::Geolocation
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -123,6 +128,7 @@ Faker::Geolocation.lng                  #=> -115.120716573
 ```
 
 ## Faker::Internet
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -168,6 +174,7 @@ Faker::Internet.domain_suffix           #=> "us"
 ```
 
 ## Faker::Job
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -177,6 +184,7 @@ Faker::Job.title                        #=> "Future Data Assistant"
 ```
 
 ## Faker::Lorem
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -261,6 +269,7 @@ Faker::Lorem.paragraphs(3)              #=> ["Iusto mollitia sequi nam perspicia
 ```
 
 ## Faker::HipsterIpsum
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -279,6 +288,7 @@ Faker::HipsterIpsum.paragraph           #=> "Wayfarers mustache thundercats pitc
 ```
 
 ## Faker::HTMLIpsum
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -320,6 +330,7 @@ Faker::HTMLIpsum.fancy_string           #=> "<a href=\"#distinctio\" title=\"Ten
 ```
 
 ## Faker::Name
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -353,6 +364,7 @@ Faker::Name.suffix                      #=> "I"
 ```
 
 ## Faker::PhoneNumber
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -368,6 +380,7 @@ Faker::PhoneNumber.short_phone_number   #=> "473-412-3192"
 ```
 
 ## Faker::Product
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -395,6 +408,7 @@ Faker::Product.model                    #=> "I-422"
 ```
 
 ## Faker::NameCN
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -422,6 +436,7 @@ Faker::NameCN.last_name                 #=> "释"
 ```
 
 ## Faker::NameDE
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -449,6 +464,7 @@ Faker::NameDE.prefix                    #=> "Frau"
 ```
 
 ## Faker::NameJA
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -476,6 +492,7 @@ Faker::NameJA.last_name                 #=> "小栗"
 ```
 
 ## Faker::NameRU
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -515,6 +532,7 @@ Faker::NameRU.name(:female)             #=> "Зиядтдинова Полина
 ```
 
 ## Faker::NameSN
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -560,6 +578,7 @@ Faker::NameSN.prefix_female             #=> "adjaratou"
 ```
 
 ## Faker::PhoneNumberAU
+
 <!-- {: .-one-column} -->
 
 ```ruby
@@ -569,6 +588,7 @@ Faker::PhoneNumberAU.phone_number       #=> "0495 539 191"
 ```
 
 ## Faker::PhoneNumberSN
+
 <!-- {: .-one-column} -->
 
 ```ruby

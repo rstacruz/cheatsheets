@@ -137,6 +137,42 @@ describe('comment attributes', () => {
       '<!-- {: .a} -->'
     )
   })
+
+  it('leaves a comment with no attributes in place', async () => {
+    expect((await renderMarkdown('# H\n<!-- {: } -->')).html).toBe(
+      '<h1 id="h">H</h1>\n<!-- {: } -->'
+    )
+  })
+
+  it('leaves an inline comment alone', async () => {
+    expect((await renderMarkdown('text <!-- {: .a} -->')).html).toBe(
+      '<p>text <!-- {: .a} --></p>'
+    )
+  })
+
+  it('applies one to the block inside a blockquote', async () => {
+    expect((await renderMarkdown('> quote\n>\n> <!-- {: .a} -->')).html).toBe(
+      '<blockquote>\n<p class="a">quote</p>\n</blockquote>'
+    )
+  })
+
+  it('applies one inside a footnote definition', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '    <!-- {: .a} -->'].join(
+      '\n'
+    )
+    expect((await renderMarkdown(input)).html).toContain('<p class="a">note')
+  })
+
+  it('leaves a comment after a footnote definition alone', async () => {
+    const input = ['Text[^a]', '', '[^a]: note', '<!-- {: .a} -->'].join('\n')
+    expect((await renderMarkdown(input)).html).toContain('<!-- {: .a} -->')
+  })
+
+  it('leaves a comment after a link definition alone', async () => {
+    expect((await renderMarkdown('[a]: /x\n<!-- {: .a} -->')).html).toBe(
+      '<!-- {: .a} -->'
+    )
+  })
 })
 
 describe('compat transforms', () => {

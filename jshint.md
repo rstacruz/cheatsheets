@@ -7,6 +7,7 @@ intro: |
 ---
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 - [JSHint options](https://jshint.com/docs/options/) _(jshint.com)_
@@ -14,6 +15,7 @@ intro: |
 ### Relaxing
 
 Enable these options to *not* throw errors in these conditions.
+
 <!-- {: .-setup} -->
 
 ```js
@@ -77,6 +79,7 @@ See: [Relaxing options](https://jshint.com/docs/options/#relaxing-options) _(jsh
 ### Enforcing
 
 Enable these options to catch more errors.
+
 <!-- {: .-setup} -->
 
 ```js

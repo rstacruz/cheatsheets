@@ -82,6 +82,7 @@ project.trigger "turn_blue"
 ```
 
 ## References
+
 <!-- {: .-one-column} -->
 
 - <http://benpickles.github.io/js-model/>

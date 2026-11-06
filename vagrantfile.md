@@ -4,6 +4,7 @@ category: Devops
 ---
 
 ## Vagrantfile
+
 <!-- {: .-one-column} -->
 
 ```rb

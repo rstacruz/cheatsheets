@@ -9,6 +9,7 @@ intro: |
 ### Quickstart guide
 
 Install blanket:
+
 <!-- {: .-setup} -->
 
 ```bash
@@ -49,6 +50,7 @@ npm run coverage
 ### Travis + coveralls.io support
 
 Visit [coveralls.io] then activate your repo. Then install the appropriate packages:
+
 <!-- {: .-setup} -->
 
 ```bash

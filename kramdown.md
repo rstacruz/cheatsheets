@@ -4,6 +4,7 @@ category: Markup
 ---
 
 ### About
+
 <!-- {: .-intro} -->
 
 Kramdown is a Markdown parser in Ruby.

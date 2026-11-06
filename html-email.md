@@ -62,6 +62,7 @@ Inline your CSS as much as possible.
 `<style>` is supported in the head and body by everything except Gmail. Only use them for responsive styles.
 
 ## References
+
 <!-- {: .-one-column} -->
 
 - [CSS support matrix](https://www.campaignmonitor.com/css/) _campaignmonitor.com_

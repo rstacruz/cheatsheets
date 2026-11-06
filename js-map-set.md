@@ -8,6 +8,7 @@ intro: |
 ---
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 Map and Set hold keyed or unique values, keep insertion order, and are
@@ -27,6 +28,7 @@ map.size                      // → 2 (property, not a method)
 map.delete('a')               // → true
 map.clear()                   // removes everything
 ```
+
 <!-- {: data-line="2"} -->
 
 ```js
@@ -37,6 +39,7 @@ map.get({})         // → undefined (different object)
 map.set(NaN, 'x')
 map.get(NaN)        // → 'x' (SameValueZero)
 ```
+
 <!-- {: data-line="3"} -->
 
 ```js
@@ -48,6 +51,7 @@ for (const [key, value] of map) console.log(key, value)
 [...map]            // same as entries
 map.forEach((value, key) => ...)
 ```
+
 <!-- {: data-line="2"} -->
 
 Plain objects coerce keys to strings; Map keeps the original key type. Keys
@@ -65,6 +69,7 @@ set.add(4)           // returns the set
 set.delete(2)        // → true
 set.clear()
 ```
+
 <!-- {: data-line="1"} -->
 
 ```js
@@ -74,6 +79,7 @@ for (const value of set) console.log(value)
 [...set]                     // → ['a', 'b']
 [...set.keys()]              // same as values
 ```
+
 <!-- {: data-line="1"} -->
 
 Sets store unique values; adding an existing value is a no-op. Iteration
@@ -90,6 +96,7 @@ new Map(Object.entries(obj))  // plain object to a Map
 Array.from(set)               // set to array
 [...set]                      // → array
 ```
+
 <!-- {: data-line="1"} -->
 
 `Object.fromEntries()` stringifies keys, and `Object.entries()` reads only own
@@ -106,6 +113,7 @@ cache.get(element)   // → { data: 1 }
 cache.has(element)   // → true
 cache.delete(element)
 ```
+
 <!-- {: data-line="1"} -->
 
 ```js

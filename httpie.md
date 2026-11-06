@@ -8,6 +8,7 @@ description: |
 ---
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 [HTTPie](https://httpie.org/) is a command-line HTTP client.

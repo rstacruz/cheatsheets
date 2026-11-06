@@ -16,9 +16,11 @@ intro: |
 ---
 
 ## Getting started
+
 <!-- {: .-two-column} -->
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 [Hermes Agent](https://hermes-agent.nousresearch.com/docs/) is Nous Research's AI agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
@@ -63,6 +65,7 @@ On a real TTY, `-q` submits the prompt literally and stays interactive. `--onesh
 See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli#running-the-cli)
 
 ## CLI reference
+
 <!-- {: .-two-column} -->
 
 ### Chat
@@ -83,6 +86,7 @@ See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli
 | ------------------------- | ------------------------------------ |
 | `-w, --worktree`          | Start in an isolated git worktree    |
 | `--safe-mode`             | Disable all customizations           |
+
 <!-- {: .-shortcuts} -->
 
 `--tui` opens the newer TUI; `--cli` forces the classic prompt_toolkit REPL.
@@ -105,6 +109,7 @@ hermes -z "review this diff" --usage-file usage.json
 | `1`   | Completed with no text   | Failed or never ran    |
 | `2`   | Failed or usage error    | —                      |
 | `130` | Interrupted              | Interrupted            |
+
 <!-- {: .-shortcuts} -->
 
 See: [Scripted one-shot](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes--z-prompt--scripted-one-shot)
@@ -150,6 +155,7 @@ See: [`hermes auth`](https://hermes-agent.nousresearch.com/docs/reference/cli-co
 | `install`     | Install a systemd or launchd service         |
 | `uninstall`   | Remove the installed service                 |
 | `setup`       | Set up messaging platforms interactively     |
+
 <!-- {: .-shortcuts} -->
 
 On WSL, prefer `gateway run` inside tmux; systemd support is unreliable there.
@@ -174,6 +180,7 @@ See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli
 | `rename <id> <title>` | Set or change a session title           |
 | `stats`           | Show session-store statistics             |
 | `optimize`        | Merge FTS5 segments and VACUUM            |
+
 <!-- {: .-shortcuts} -->
 
 `prune` defaults to sessions older than 90 days; run it with `--dry-run` first.
@@ -186,6 +193,7 @@ hermes sessions export sessions.jsonl
 See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-sessions)
 
 ## Slash commands
+
 <!-- {: .-two-column} -->
 
 ### Session control
@@ -202,6 +210,7 @@ See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cl
 | `/rewind [N]`       | Edit an earlier prompt, or fork before it |
 | `/branch [name]`    | Copy the session to a new branch         |
 | `/save <format>`    | Export as JSON, Markdown, or HTML        |
+
 <!-- {: .-shortcuts} -->
 
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
@@ -215,6 +224,7 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/status`  | Show session details and a recap     |
 | `/usage`   | Show tokens, cost, and account limits |
 | `/config`  | Show the current configuration       |
+
 <!-- {: .-shortcuts} -->
 
 See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#interactive-cli-slash-commands)
@@ -230,6 +240,7 @@ See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/s
 | `/goal <text>`                        | Set a goal that spans turns          |
 | `/loop [interval] <prompt>`           | Re-run a prompt on a schedule        |
 | `/heartbeat every <interval> <prompt>` | Repeat a prompt while the session is idle |
+
 <!-- {: .-shortcuts} -->
 
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
@@ -243,6 +254,7 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/skills`      | Search, install, and manage skills     |
 | `/memory`      | Review pending memory writes           |
 | `/reload-mcp`  | Reload MCP servers and their tools     |
+
 <!-- {: .-shortcuts} -->
 
 See: [Tools and skills](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#tools--skills)
@@ -267,6 +279,7 @@ quick_commands:
 See: [Quick commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#quick-commands)
 
 ## Interactive mode
+
 <!-- {: .-two-column} -->
 
 ### Keyboard
@@ -283,6 +296,7 @@ See: [Quick commands](https://hermes-agent.nousresearch.com/docs/reference/slash
 | ------------------------- | --------------------------------- |
 | `Tab`                     | Autocomplete; queue while busy    |
 | `Ctrl+D`                  | Exit; a running turn keeps going  |
+
 <!-- {: .-shortcuts} -->
 
 See: [Keybindings](https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings)
@@ -299,6 +313,7 @@ See: [Keybindings](https://hermes-agent.nousresearch.com/docs/user-guide/cli#key
 See: [Shell mode](https://hermes-agent.nousresearch.com/docs/user-guide/cli#-shell-mode)
 
 ## Configuration
+
 <!-- {: .-two-column} -->
 
 ### Config
@@ -338,11 +353,13 @@ See: [`hermes profile`](https://hermes-agent.nousresearch.com/docs/reference/cli
 | `--ignore-user-config`     | Skip `config.yaml`; `.env` still loads |
 | `--ignore-rules`           | Skip AGENTS.md, memory, and skills  |
 | `--safe-mode`              | Disable all customizations          |
+
 <!-- {: .-shortcuts} -->
 
 See: [Configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)
 
 ## Common workflows
+
 <!-- {: .-two-column} -->
 
 ### Scripting and CI
@@ -352,6 +369,7 @@ hermes -z "summarize the failing test" --usage-file usage.json
 hermes chat -q "review this diff" --format stream-json
 hermes chat --safe-mode --model gpt-4.1 -q "Config bug?"
 ```
+
 <!-- {: data-line="2"} -->
 
 `stream-json` emits one JSON event per line. `--safe-mode` ignores your setup, so a broken config cannot block the run.
@@ -383,6 +401,7 @@ echo "RAM 92%" | hermes send --to telegram:-1001234567890
 See: [`hermes send`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-send)
 
 ## Also see
+
 <!-- {: .-one-column} -->
 
 - [Claude Code](./claude-code)

@@ -3,6 +3,7 @@ title: Command line stuff
 ---
 
 ## List (ls)
+
 <!-- {: .-three-column} -->
 
 ### Usage
@@ -46,6 +47,7 @@ ls [options] [paths]
 | `-h` | Human-readable size (3k) |
 
 ## Tail
+
 <!-- {: .-three-column} -->
 
 ### Usage
@@ -72,6 +74,7 @@ tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 | `+N`  | Start from line N |
 
 ## Sudo
+
 <!-- {: .-three-column} -->
 
 ### Usage
@@ -129,6 +132,7 @@ sudo [options] <command>
 | `-K` | just like -k |
 
 ## wc (Word count)
+
 <!-- {: .-three-column} -->
 
 ### wc
@@ -147,6 +151,7 @@ sudo [options] <command>
 | `-w` | Words |
 
 ## Grep
+
 <!-- {: .-three-column} -->
 
 ### Usage
@@ -186,6 +191,7 @@ fgrep  =>  grep -F
 ```
 
 ## Other recipes
+
 <!-- {: .-three-column} -->
 
 ### Search-and-replace in all files

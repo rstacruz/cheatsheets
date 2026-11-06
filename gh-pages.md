@@ -19,6 +19,7 @@ See: [Setting up a custom domain](https://help.github.com/articles/quick-start-s
 ### Set up your domain
 
 Subdomain (like www):
+
 <!-- {: .-setup} -->
 
 ```
@@ -26,6 +27,7 @@ Subdomain (like www):
 ```
 
 Apex domains:
+
 <!-- {: .-setup} -->
 
 ```
@@ -33,6 +35,7 @@ Apex domains:
 ```
 
 Apex domains (alternative):
+
 <!-- {: .-setup} -->
 
 ```
@@ -41,6 +44,7 @@ A => 192.30.252.154
 ```
 
 ## References
+
 <!-- {: .-one-column} -->
 
 - <https://pages.github.com>

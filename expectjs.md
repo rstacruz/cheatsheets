@@ -10,6 +10,7 @@ weight: -1
 ```
 npm install --save-dev expect
 ```
+
 <!-- {: .-setup} -->
 
 ```js
@@ -70,6 +71,7 @@ const video = {
   play: function () { ··· }
 }
 ```
+
 <!-- {: .-setup} -->
 
 ```js

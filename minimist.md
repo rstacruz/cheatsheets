@@ -8,6 +8,7 @@ category: JavaScript libraries
 ```js
 var minimist = require('minimist')
 ```
+
 <!-- {: .-setup} -->
 
 ```js
@@ -43,6 +44,7 @@ All options are optional.
 ### Result
 
 With `--lang xml --no-pager -h index.js package.json`, you get:
+
 <!-- {: .-setup} -->
 
 ```
@@ -60,6 +62,7 @@ args == {
 ### Help and version
 
 Use [meow](https://www.npmjs.com/package/meow) to automatically add support for `--help`, `--version` and more.
+
 <!-- {: .-setup} -->
 
 ```js

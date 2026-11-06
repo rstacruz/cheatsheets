@@ -61,8 +61,9 @@ are fine.
 
 - Classes are `.name`; join them as `.a.b` or `.a .b`.
 - Other attributes are `key="value"` (`key='value'` and bare values work too).
-- Unrecognised tokens are ignored; a comment with no attributes above it is left
-  as an ordinary comment.
+- Unrecognised tokens are ignored.
+- A comment with no parsable attributes, or with no block above it, is left in
+  place as an ordinary comment.
 - Prefer one attribute comment per block.
 
 ## Code

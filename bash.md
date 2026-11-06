@@ -15,9 +15,11 @@ keywords:
 ---
 
 ## Getting started
+
 <!-- {: .-three-column} -->
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 This is a quick reference to getting started with Bash scripting.
@@ -86,6 +88,7 @@ git commit || echo "Commit failed"
 See: [Lists](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
 
 ### Functions
+
 <!-- {: id='functions-example'} -->
 
 ```bash
@@ -99,6 +102,7 @@ echo "You are $(get_name)"
 See: [Functions](#functions)
 
 ### Conditionals
+
 <!-- {: id='conditionals-example'} -->
 
 ```bash
@@ -136,6 +140,7 @@ echo {A,B}.js
 See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
 ## Parameter expansions
+
 <!-- {: .-three-column} -->
 
 ### Basics
@@ -290,6 +295,7 @@ Omitting the `:` removes the (non)nullity checks, e.g. `${foo-val}` expands to `
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ## Loops
+
 <!-- {: .-three-column} -->
 
 ### Basic for loop
@@ -351,6 +357,7 @@ done
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
 ## Functions
+
 <!-- {: .-three-column} -->
 
 ### Defining functions
@@ -423,6 +430,7 @@ Otherwise, they do exactly the same thing (arguments as separate strings).
 See [Special parameters](https://web.archive.org/web/20230318164746/https://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
 ## Conditionals
+
 <!-- {: .-three-column} -->
 
 ### Conditions
@@ -578,6 +586,7 @@ done
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
 ## Dictionaries
+
 <!-- {: .-three-column} -->
 
 ### Defining
@@ -974,6 +983,7 @@ fi
 See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 
 ## Also see
+
 <!-- {: .-one-column} -->
 
 - [Bash-hackers wiki](https://web.archive.org/web/20230406205817/https://wiki.bash-hackers.org/) _(bash-hackers.org)_

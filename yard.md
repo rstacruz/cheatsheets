@@ -6,6 +6,7 @@ intro: |
 ---
 
 ### Method documentation
+
 <!-- {: .-prime} -->
 
 ```ruby
@@ -136,9 +137,11 @@ The optional text after `@example` becomes the example title.
 | `@yieldreturn` | Block return value |
 
 ## Also see
+
 <!-- {: .-one-column} -->
 
 - <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
 - <https://www.rubydoc.info/gems/yard/file/docs/Tags.md>
 - <https://yardoc.org/types.html>
+
 <!-- {: .-also-see} -->

@@ -8,6 +8,7 @@ intro: |
 ### Get started
 
 Add some base boxes:
+
 <!-- {: .-setup} -->
 
 ```bash

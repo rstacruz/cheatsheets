@@ -14,6 +14,7 @@ keywords:
 ## Getting started
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 [Enzyme](https://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
@@ -21,11 +22,13 @@ keywords:
 - [Enzyme website](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
 
 ### Mounting
+
 <!-- {: .-prime} -->
 
 ```js
 import {shallow, mount} from 'enzyme'
 ```
+
 <!-- {: .-setup} -->
 
 ```js
@@ -53,15 +56,18 @@ Shows HTML for debugging purposes.
 See: [debug()](https://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## Examples
+
 <!-- {: .-three-column} -->
 
 ### Basic example
+
 <!-- {: .-prime} -->
 
 ```js
 import { shallow } from 'enzyme'
 import MyComponent from '../MyComponent'
 ```
+
 <!-- {: .-setup} -->
 
 ```js
@@ -148,6 +154,7 @@ npm install --save-dev enzyme \
   enzyme-adapter-react-16 \
   react-test-renderer
 ```
+
 <!-- {: .-setup} -->
 
 #### test/setup.js
@@ -178,6 +185,7 @@ See: [Installation](https://airbnb.io/enzyme/#installation)
 ```
 npm install --save-dev enzyme-to-json
 ```
+
 <!-- {: .-setup} -->
 
 #### package.json

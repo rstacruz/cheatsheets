@@ -17,6 +17,7 @@ prism_languages: [json, bash]
 | `npm install -g gulp` | `yarn global add gulp` |
 | `npm update` | `yarn upgrade` |
 | `./node_modules/.bin/gulp` | `yarn run gulp` |
+
 <!-- {: .-left-align.-headers} -->
 
 ### yarn install
@@ -53,6 +54,7 @@ These options are available for `yarn add`.
 ### Workspaces
 
 In `package.json`:
+
 <!-- {: .-setup} -->
 
 ```json
@@ -70,6 +72,7 @@ jest/
    └─ jest-diff/
       └─ package.json
 ```
+
 <!-- {: .-box-chars} -->
 
 (New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
@@ -77,6 +80,7 @@ jest/
 ### Selective version resolution
 
 In `package.json`:
+
 <!-- {: .-setup} -->
 
 ```json

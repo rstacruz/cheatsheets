@@ -82,6 +82,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Food    $20
   Assets:Cash     $-20  = $500
 ```
+
 <!-- {: data-line="3"} -->
 
 `Cash $X = $500` ensures Cash is at $500 after the transaction.
@@ -97,6 +98,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Food            $20
   Assets:Cash              = $500
 ```
+
 <!-- {: data-line="2,7"} -->
 
 `ACCOUNT = $500` figures out what's needed to make it $500.
@@ -108,6 +110,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   (Assets:Checking)  -$200
   Expenses:Rent
 ```
+
 <!-- {: data-line="2"} -->
 
 ### Commodities
@@ -118,6 +121,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Fridge                35 apples @ $0.42
   Assets:Cash
 ```
+
 <!-- {: data-line="3"} -->
 
 ```bash
@@ -126,6 +130,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Fridge                35 apples @@ $14.70
   Assets:Cash
 ```
+
 <!-- {: data-line="3"} -->
 
 ```bash
@@ -134,6 +139,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Gasoline             11 GAL {=$2.299}
   Assets:Cash
 ```
+
 <!-- {: data-line="3"} -->
 
 ### Commodity definitions
@@ -162,6 +168,7 @@ commodity $
 ledger bal --budget Expenses
 ledger bal --unbudgeted Expenses
 ```
+
 <!-- {: .-setup} -->
 
 ### Comments
@@ -208,6 +215,7 @@ $ ledger bal|reg --period "until aug"
 $ ledger bal|reg --period "last oct"
 $ ledger bal|reg --period "every week"
 ```
+
 <!-- {: .-setup} -->
 
 ### Register
@@ -215,6 +223,7 @@ $ ledger bal|reg --period "every week"
 ```bash
 $ ledger reg
 ```
+
 <!-- {: .-setup} -->
 
 ```bash
@@ -290,6 +299,7 @@ ledger r food and @Starbucks and not dining
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+
 <!-- {: data-line="1"} -->
 
 Say you're in business. If you bill a customer, you can enter something like above.
@@ -300,11 +310,14 @@ Then, when you receive the payment, you change it to:
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+
 <!-- {: data-line="1"} -->
 
 ## References
+
 <!-- {: .-one-column} -->
 
 * <http://ledger-cli.org/3.0/doc/ledger3.html>
 * <https://gist.github.com/agaviria/3317397>
+
 <!-- {: .-also-see} -->

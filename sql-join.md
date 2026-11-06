@@ -12,6 +12,7 @@ SELECT * FROM order_items \
   LEFT OUTER JOIN orders \
   ON order_items.order_id = orders.id
 ```
+
 <!-- {: .-wrap} -->
 
 Joins are typically added to `SELECT` statements to add more columns and records.
@@ -21,6 +22,7 @@ Joins are typically added to `SELECT` statements to add more columns and records
 ```
 SELECT * FROM `A` INNER JOIN `B`
 ```
+
 <!-- {: .-setup} -->
 
 ```
@@ -30,6 +32,7 @@ SELECT * FROM `A` INNER JOIN `B`
 └────┼───┘  B │
      └────────┘
 ```
+
 <!-- {: .-box-chars.-setup} -->
 
 | Join             | What            |

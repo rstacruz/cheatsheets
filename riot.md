@@ -4,6 +4,7 @@ category: JavaScript libraries
 ---
 
 ### About
+
 <!-- {: .-intro} -->
 
 Riot is a UI library for JavaScript.

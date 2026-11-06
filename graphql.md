@@ -5,6 +5,7 @@ category: API
 ---
 
 ## Queries
+
 <!-- {: .-three-column} -->
 
 ### Basic query
@@ -18,6 +19,7 @@ category: API
 ```js
 { status: 'available' }
 ```
+
 <!-- {: .-setup} -->
 
 ### Nesting
@@ -33,6 +35,7 @@ category: API
     { name: "Luke Skywalker",
       height: 1.74 } }
 ```
+
 <!-- {: .-setup} -->
 
 ### Lists
@@ -49,6 +52,7 @@ category: API
       { name: "Han Solo" },
       { name: "R2D2" } ] }
 ```
+
 <!-- {: .-setup} -->
 
 GraphQL queries look the same for both single items or lists of items.
@@ -68,6 +72,7 @@ GraphQL queries look the same for both single items or lists of items.
     { id: "1000",
     { name: "Luke Skywalker" } }
 ```
+
 <!-- {: .-setup} -->
 
 ### Aliases
@@ -87,6 +92,7 @@ GraphQL queries look the same for both single items or lists of items.
     han:
     { name: "Han Solo" } }
 ```
+
 <!-- {: .-setup} -->
 
 ### Operation names and variables
@@ -166,6 +172,7 @@ fetch('http://myapi/graphql', {
 
 Schema
 ------
+
 <!-- {: .-three-column} -->
 
 ### Basic schemas
@@ -250,6 +257,7 @@ type Root {
   direction: DIRECTION!
 }
 ```
+
 <!-- {: data-line="1,2,3,4"} -->
 
 ### Unions
@@ -264,6 +272,7 @@ type Query {
   search(q: String): [Result]
 }
 ```
+
 <!-- {: data-line="4"} -->
 
 References

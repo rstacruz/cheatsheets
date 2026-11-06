@@ -5,9 +5,11 @@ updated: 2026-10-06
 ---
 
 ## Share links
+
 <!-- {: .-one-column} -->
 
 Facebook:
+
 <!-- {:.-setup} -->
 
 ```html
@@ -15,6 +17,7 @@ Facebook:
 ```
 
 X:
+
 <!-- {:.-setup} -->
 
 ```html

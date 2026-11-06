@@ -14,9 +14,11 @@ keywords:
 ---
 
 ## Basics
+
 <!-- {: .-three-column} -->
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 This is a quick reference to [Sass stylesheets](https://sass-lang.com).
@@ -409,6 +411,7 @@ map-get($map, key1)
 ```
 
 ## See also
+
 <!-- {: .-one-column} -->
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>

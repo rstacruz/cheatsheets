@@ -7,6 +7,7 @@ updated: 2017-09-23
 ## Getting started
 
 ### Introduction
+
 <!-- {: .-intro} -->
 
 [Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
@@ -15,6 +16,7 @@ updated: 2017-09-23
 - [Documentation](https://github.com/fastify/fastify#documentation) _(github.com)_
 
 ### Hello world
+
 <!-- {: .-prime} -->
 
 ```js
@@ -163,6 +165,7 @@ fastify.get('/', { schema }, (req, reply) => {
   ···
 })
 ```
+
 <!-- {: data-line="1"} -->
 
 #### or (same as above)
@@ -175,6 +178,7 @@ fastify.route({
   handler: (req, reply) => { ··· }
 })
 ```
+
 <!-- {: data-line="4"} -->
 
 By defining a JSON schema, you get validation and improved performance.
@@ -192,6 +196,7 @@ fastify.register(
   err => { if (err) throw err }
 )
 ```
+
 <!-- {: data-line="3"} -->
 
 #### route.js
@@ -290,6 +295,7 @@ fastify.register(require('point-of-view'), {
   }
 })
 ```
+
 <!-- {: data-line="3"} -->
 
 ```js
@@ -297,6 +303,7 @@ fastify.get('/', (req, reply) => {
   reply.view('/templates/index.ejs', { text: 'text' })
 })
 ```
+
 <!-- {: data-line="2"} -->
 
 Support `ejs`, `pug`, `handlebars` and `marko`.

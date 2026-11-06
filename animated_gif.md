@@ -4,6 +4,7 @@ category: CLI
 ---
 
 ## Animated GIFs
+
 <!-- {: .-one-column} -->
 
 ### Convert MP4 to GIF

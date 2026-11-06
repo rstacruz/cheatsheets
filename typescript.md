@@ -31,14 +31,14 @@ See: [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.ht
 | `null` / `undefined` | `null` |
 | `object` | `{ id: 1 }` |
 
-#### Top and bottom
+#### Special types
 
-| Type | Example |
+| Type | Meaning |
 | --- | --- |
 | `any` | opts out of checking |
-| `unknown` | safe `any`; narrow first |
+| `unknown` | top type; safe `any`, narrow first |
 | `void` | no return value |
-| `never` | unreachable |
+| `never` | bottom type; unreachable |
 
 ```ts
 let tags: string[] = ['a', 'b']

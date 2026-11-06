@@ -15,10 +15,12 @@ intro: |
 ---
 
 ## Getting started
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
@@ -61,7 +63,8 @@ git diff | claude -p "review this diff"
 Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"` to resume one by name. See: [Quickstart](https://code.claude.com/docs/en/quickstart)
 
 ## CLI reference
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Commands
 
@@ -75,7 +78,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude -c`           | Continue most recent conversation |
 | `claude -r <session>` | Resume a session by ID or name    |
 | `claude --bg "task"`  | Start a background agent          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Setup
 
@@ -88,7 +92,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude plugin`      | Install and manage plugins  |
 | `claude auth status` | Show authentication status  |
 | `claude setup-token` | Generate a token for CI     |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -107,7 +112,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--permission-mode plan`  | Start in a permission mode        |
 | `--add-dir ../lib`        | Add extra working directories     |
 | `--verbose`               | Show full turn-by-turn output     |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -121,14 +127,16 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `-w, --worktree`                 | Start in an isolated git worktree |
 | `--bare`                         | Skip hooks, plugins, and memory   |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 `-p` runs also take `--output-format text|json|stream-json`, `--max-turns`, `--max-budget-usd`, and `--json-schema`.
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 
 ## Slash commands
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Session
 
@@ -140,7 +148,8 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 | `/clear`   | Start a new conversation     |
 | `/compact` | Summarize to free up context |
 | `/context` | Show context window usage    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Planning
 
@@ -149,7 +158,8 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 | `/plan`             | Enter plan mode              |
 | `/goal <condition>` | Keep working until it is met |
 | `/btw <question>`   | Ask a side question          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### History
 
@@ -159,7 +169,8 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 | `/rewind` | Restore code and conversation   |
 | `/branch` | Branch the conversation here    |
 | `/export` | Export the conversation as text |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Usage
 
@@ -167,7 +178,8 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 | --------- | -------------------------------- |
 | `/status` | Show version, model, and account |
 | `/usage`  | Show cost and plan limits        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -181,7 +193,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/model`  | Switch the AI model          |
 | `/effort` | Set reasoning effort         |
 | `/memory` | Edit memory files            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Project
 
@@ -192,7 +205,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/mcp`         | Manage MCP connections       |
 | `/hooks`       | View hook configurations     |
 | `/doctor`      | Run a setup checkup          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Account
 
@@ -201,12 +215,14 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/login`  | Sign in to your account |
 | `/logout` | Sign out                |
 | `/exit`   | Exit the CLI (`/quit`)  |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
 ## Review and background work
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Review
 
@@ -217,7 +233,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/diff`            | Review working-tree changes      |
 | `/code-review`     | Review the diff, a PR, or a path |
 | `/security-review` | Scan changes for vulnerabilities |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 `/review` is an alias of `/code-review`, which takes an effort level, `--fix`, and a PR number.
 
@@ -231,12 +248,14 @@ See: [Review locally with /code-review](https://code.claude.com/docs/en/code-rev
 | `/fork`           | Copy it into a new background session    |
 | `/subtask <task>` | Run a task in a forked subagent          |
 | `/tasks`          | View and manage background work          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
 ## Interactive mode
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Keyboard shortcuts
 
@@ -250,7 +269,8 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 | `Esc` `Esc`     | Clear the draft, or rewind         |
 | `Ctrl+B`        | Background running tasks           |
 | `Ctrl+X Ctrl+K` | Stop all background subagents      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Prompt
 
@@ -263,7 +283,8 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 | `Ctrl+V`    | Paste an image from the clipboard |
 | `Ctrl+G`    | Edit the prompt in `$EDITOR`      |
 | `Ctrl+S`    | Stash or restore the prompt       |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Display
 
@@ -273,7 +294,8 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 | `Ctrl+R` | Search prompt history        |
 | `Ctrl+O` | Toggle the transcript viewer |
 | `Ctrl+T` | Toggle Claude's task list    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 On macOS, use `Option` instead of `Alt`; some chords need Option mapped to Meta.
 
@@ -288,14 +310,16 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 | `@`   | Mention a file path             |
 | `:`   | Insert an emoji by shortcode    |
 | `?`   | Show the shortcut help panel    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 For a newline, `\` + `Enter` or `Ctrl+J` works anywhere; `Shift+Enter` needs `/terminal-setup` in some terminals.
 
 See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 ## Configuration
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Settings files
 
@@ -319,7 +343,8 @@ Run `/config` to edit settings, or pass `--settings file.json` for one session. 
 | `BASH_DEFAULT_TIMEOUT_MS`         | Bash tool timeout (default 120000)     |
 | `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | Turn auto memory off                   |
 | `DISABLE_AUTOUPDATER`             | Turn background updates off            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 Settings files can also set env vars under an `env` key. See: [Environment variables](https://code.claude.com/docs/en/env-vars)
 
@@ -344,12 +369,14 @@ CLAUDE.local.md       # personal notes, not committed
 | `auto`              | Everything, with background checks      |
 | `dontAsk`           | Pre-approved tools only; rest denied    |
 | `bypassPermissions` | Everything                              |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 `auto` is the built-in starting mode; `Shift+Tab` cycles modes in a session. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
 
 ## Common workflows
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Reviewing code
 
@@ -371,7 +398,8 @@ claude -p "list the failing tests" --output-format json
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
-{: data-line="2,5"}
+
+<!-- {: data-line="2,5"} -->
 
 `--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster.
 
@@ -389,7 +417,8 @@ Inside a session, `/background` detaches it and `/batch` fans work out across wo
 See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_

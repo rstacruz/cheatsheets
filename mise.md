@@ -1,7 +1,7 @@
 ---
 title: mise
 category: CLI
-updated: 2026-10-03
+updated: 2026-11-05
 tier: t2
 keywords:
   - dev tool version manager
@@ -18,7 +18,8 @@ intro: |
 ## Getting started
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [mise](https://mise.jdx.dev) installs and switches dev tool versions per project
 and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
@@ -30,7 +31,7 @@ and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
 ### Install
 
 ```bash
-curl https://mise.run | sh      # → ~/.local/bin/mise
+curl -fsSL https://mise.run | sh   # → ~/.local/bin/mise
 brew install mise               # works, installer preferred
 
 # Debian/Ubuntu
@@ -43,7 +44,8 @@ export PATH="$HOME/.local/bin:$PATH"
 mise --version
 mise doctor                     # diagnose shell/shim problems
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 The installer drops the binary in `~/.local/bin`; activation adds it to `PATH`.
 
@@ -59,7 +61,8 @@ eval "$(~/.local/bin/mise activate bash)"  # if mise is not on PATH
 # fish
 mise activate fish | source
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 Activation re-exports `PATH` and project env on every prompt.
 Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` —
@@ -72,7 +75,7 @@ See: [mise activate](https://mise.jdx.dev/cli/activate.html)
 ```bash
 eval "$(mise activate zsh --shims)"
 export PATH="$HOME/.local/share/mise/shims:$PATH"   # equivalent
-mise reshim                                         # after installs
+mise reshim                      # after external installs
 ```
 
 Shims give editors and scripts a stable path; `mise activate` supports
@@ -81,7 +84,8 @@ more features (env vars, hooks), so prefer it interactively.
 See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 
 ### Core commands
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 #### Tools
 
@@ -116,8 +120,7 @@ mise upgrade node             # upgrade within the request (24.x)
 mise upgrade --bump node      # latest overall, rewrites mise.toml
 ```
 
-`mise settings set auto_update true` keeps mise current automatically;
-package-manager installs update via their manager.
+`mise settings self_update.auto=true` keeps the mise binary current; package-manager installs update via their manager.
 
 See: [mise self-update](https://mise.jdx.dev/cli/self-update.html),
 [mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
@@ -133,7 +136,8 @@ mise use --pin node@24           # save the exact resolved version
 mise use --path .tool-versions --pin node@24
 mise use                         # interactive tool picker
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```toml
 [tools]
@@ -173,12 +177,13 @@ erlang = "ref:master"   # build a git ref
 go = "prefix:1.19"      # latest 1.19.x
 shfmt = "path:./shfmt"  # custom install dir
 ```
-{: data-line="5,6,7"}
+
+<!-- {: data-line="5,6,7"} -->
 
 A request is a range; an exact version is a pin. `prefix:` helps when `1.19`
 matches only `1.19`. Aliases like `lts` are not universal.
 
-See: [Scopes](https://mise.jdx.dev/configuration.html#scopes)
+See: [Version requests](https://mise.jdx.dev/dev-tools/versions.html)
 
 ### Inspect
 
@@ -204,7 +209,8 @@ mise install --locked      # install from the lockfile
 mise prune --dry-run       # show unused installed versions
 mise ls --prunable
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 `mise.lock` records resolved versions for teammates and CI; `prune` deletes
 only versions unused by any tracked config or executed stub.
@@ -236,7 +242,7 @@ See: [Tool registry](https://mise.jdx.dev/registry.html)
 | `github:` | GitHub releases (`github:BurntSushi/ripgrep`)  |
 | ---       | ---                                            |
 | `npm:`    | npm packages (`npm:prettier`)                  |
-| `pipx:`   | Python apps (`pipx:ruff`)                      |
+| `pypi:`   | Python packages (`pypi:black`, also `pipx:`)   |
 | `cargo:`  | crates (`cargo:starship`)                      |
 | `go:`     | Go modules (`go:github.com/DarthSim/hivemind`) |
 | `asdf:`   | asdf plugins (`asdf:owner/plugin`)             |
@@ -253,10 +259,11 @@ See: [Backends](https://mise.jdx.dev/dev-tools/backends/),
 mise use aqua:aws/aws-cli             # Aqua registry
 mise use github:BurntSushi/ripgrep    # GitHub releases
 mise use npm:prettier                 # npm package
-mise use pipx:ruff                    # Python app
+mise use pypi:ruff                    # Python package
 mise use cargo:starship               # crates.io crate
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 Add a version the same way: `mise use github:BurntSushi/ripgrep@14`.
 
@@ -335,7 +342,7 @@ See: [Idiomatic version files](https://mise.jdx.dev/configuration.html#idiomatic
 ### Settings
 
 ```bash
-mise settings ls --all           # effective values + sources
+mise settings ls --all           # every setting's value
 mise settings set jobs 4         # global config
 mise settings set --local jobs 2 # project override
 mise settings unset --local jobs
@@ -368,7 +375,7 @@ See: [Settings](https://mise.jdx.dev/configuration/settings.html)
 `MISE_NO_CONFIG=1`, `MISE_NO_ENV=1`, and `MISE_NO_HOOKS=1` skip config, env,
 and hooks for one invocation.
 
-See: [Environment variables](https://mise.jdx.dev/configuration.html#environment-variables)
+See: [Environment variables](https://mise.jdx.dev/configuration/environment-variables.html)
 
 ### Trust
 
@@ -380,8 +387,7 @@ mise untrust mise.toml
 mise trust --ignore
 ```
 
-Config files can define tasks and hooks that execute code. Normal mode
-auto-trusts the active config on `mise run`, `mise install`, and `mise exec`.
+Config files can run code through tasks and hooks. Normal mode auto-trusts the active config on `mise run`, `mise install`, `mise exec`, and `mise watch`.
 
 Simple tool-only files need no trust; paranoid mode requires explicit,
 content-bound trust for non-global files.
@@ -442,6 +448,10 @@ _.path = "./node_modules/.bin"  # one entry
 ```toml
 [env]
 _.path = ["tools/bin", "{{config_root}}/bin"]  # or several
+```
+
+```bash
+mise env --paths                # PATH entries mise manages
 ```
 
 Relative entries resolve against the config root, so they keep working from
@@ -548,7 +558,7 @@ mise watch build               # rerun on source changes
 mise watch test --clear
 ```
 
-Watches the task's `sources`; extra arguments go to watchexec.
+Watches the task's `sources`; arguments after `--` go to the task.
 
 See: [mise watch](https://mise.jdx.dev/cli/watch.html)
 

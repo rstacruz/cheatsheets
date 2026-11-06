@@ -16,7 +16,8 @@ intro: |
 ## Getting started
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Codex](https://learn.chatgpt.com/docs/codex/cli) is OpenAI's coding agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
@@ -69,7 +70,8 @@ codex fork --last          # branch the latest chat
 | `codex unarchive <chat>` | Restore an archived chat           |
 | `codex delete <chat>`    | Delete a chat and its transcript   |
 | `codex queue`            | Queue a message for a session      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Setup
 
@@ -84,7 +86,8 @@ codex fork --last          # branch the latest chat
 | `codex features list`  | List feature flags           |
 | `codex mcp`            | Manage MCP servers           |
 | `codex plugin`         | Install and remove plugins   |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Automation
 
@@ -94,7 +97,8 @@ codex fork --last          # branch the latest chat
 | `codex review`       | Review changes non-interactively |
 | `codex cloud`        | Browse and run cloud chats       |
 | `codex apply <task>` | Apply a cloud diff locally       |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -114,7 +118,8 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `--search`                        | Enable live web search        |
 | `-i, --image <file>`              | Attach images to the prompt   |
 | `-c key=value`                    | Override any config value     |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -131,19 +136,22 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `--no-daemon`                                | Skip the shared background server |
 | `--strict-config`                            | Reject unknown config keys     |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Sandbox and approvals
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 | Mode                 | Effect                          |
 | -------------------- | ------------------------------- |
 | `read-only`          | Read files; no edits or network |
 | `workspace-write`    | Edit the workspace; network off |
 | `danger-full-access` | No sandbox at all               |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ```bash
 codex -s workspace-write -a on-request  # Auto
@@ -191,7 +199,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/side`          | Start an ephemeral side chat       |
 | `/compact`       | Summarize to free up context       |
 | `/rename <name>` | Rename the current chat            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Control
 
@@ -203,7 +212,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/approve`          | Retry an auto-denied action  |
 | `/model`            | Choose the active model      |
 | `/fast`             | Toggle the Fast service tier |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Inspect
 
@@ -215,7 +225,8 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/usage`  | Show account token usage       |
 | `/copy`   | Copy the latest response       |
 | `/export` | Export the chat as Markdown    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -232,7 +243,8 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/mcp`          | List configured MCP tools      |
 | `/hooks`        | Manage lifecycle hooks         |
 | `/experimental` | Toggle experimental features   |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Interface
 
@@ -244,7 +256,8 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/title`      | Configure window title items   |
 | `/vim`        | Toggle Vim composer mode       |
 | `/keymap`     | Remap TUI shortcuts            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Account
 
@@ -254,7 +267,8 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/feedback` | Send logs to the maintainers       |
 | `/logout`   | Sign out                           |
 | `/quit`     | Exit the CLI (also `/exit`)        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -276,7 +290,8 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `Esc` `Esc` | Edit the previous message and fork |
 | `Alt+R`     | Toggle raw scrollback              |
 | `Up` `Down` | Restore draft history              |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### While running
 
@@ -284,7 +299,8 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | -------- | ----------------------------------- |
 | `Enter`  | Inject instructions into the turn   |
 | `Tab`    | Queue a follow-up for the next turn |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Interactive shortcuts](https://learn.chatgpt.com/docs/developer-commands#interactive-shortcuts)
 
@@ -295,7 +311,8 @@ See: [Interactive shortcuts](https://learn.chatgpt.com/docs/developer-commands#i
 | `/`   | Slash commands               |
 | `@`   | Search files and add paths   |
 | `!`   | Run a shell command directly |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 Paste an image into the composer. See: [Image inputs](https://learn.chatgpt.com/docs/image-inputs)
 
@@ -330,7 +347,8 @@ Project files merge from the repo root down to the current directory; CLI flags 
 | `CODEX_ACCESS_TOKEN`   | Access token for trusted automation  |
 | `CODEX_CA_CERTIFICATE` | PEM CA bundle for corporate TLS      |
 | `RUST_LOG`             | Log verbosity for debugging          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Environment variables](https://learn.chatgpt.com/docs/config-file/environment-variables)
 
@@ -357,7 +375,8 @@ codex exec -o summary.md "summarize this repo"
 # Use an API key inline in CI
 CODEX_API_KEY=$KEY codex exec "triage open bugs"
 ```
-{: data-line="2,5,8"}
+
+<!-- {: data-line="2,5,8"} -->
 
 See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -408,7 +427,8 @@ codex mcp logout my-server
 OAuth works with streamable HTTP servers that support it. Stored credentials live in the store set by `mcp_oauth_credentials_store` (auto, file, or keyring). See: [MCP](https://learn.chatgpt.com/docs/extend/mcp)
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli) _(learn.chatgpt.com)_
 - [Configuration](https://learn.chatgpt.com/docs/config-file/config-basic) _(learn.chatgpt.com)_

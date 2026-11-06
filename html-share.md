@@ -5,17 +5,20 @@ updated: 2026-10-06
 ---
 
 ## Share links
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 Facebook:
-{:.-setup}
+
+<!-- {:.-setup} -->
 
 ```html
 <a href='https://www.facebook.com/sharer/sharer.php?u=URL' target='share'>
 ```
 
 X:
-{:.-setup}
+
+<!-- {:.-setup} -->
 
 ```html
 <a

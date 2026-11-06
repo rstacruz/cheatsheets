@@ -19,21 +19,24 @@ See: [Setting up a custom domain](https://help.github.com/articles/quick-start-s
 ### Set up your domain
 
 Subdomain (like www):
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
  CNAME => username.github.io
 ```
 
 Apex domains:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
  ALIAS => username.github.io
 ```
 
 Apex domains (alternative):
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 A => 192.30.252.153
@@ -41,6 +44,7 @@ A => 192.30.252.154
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://pages.github.com>

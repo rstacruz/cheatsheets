@@ -4,7 +4,8 @@ category: React
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - <https://reactrouter.com/>
 

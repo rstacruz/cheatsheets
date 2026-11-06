@@ -4,7 +4,8 @@ category: Ruby libraries
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Sequel is a database toolkit for Ruby.
 

@@ -17,7 +17,9 @@
 | --------- | -------- |
 | `hh:mm a` | 12:30 pm |
 
-Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format](https://date-fns.org/v1.28.5/docs/format). Similar to Java [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+Moment.js tokens; [date-fns](https://date-fns.org/docs/format) and Java [SimpleDateFormat](https://docs.oracle.com/en/java/javase/27/docs/api/java.base/java/text/SimpleDateFormat.html) use different ones.
+
+See: [Format](https://momentjs.com/docs/#/displaying/format/)
 
 ### Date
 
@@ -53,35 +55,39 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | `ww`   | `01`..`53`              |                  |
 {: .-shortcuts}
 
+See: [Format](https://momentjs.com/docs/#/displaying/format/)
+
 ### Time
 
-| Symbol | Example      | Area                       |
-| ---    | ---          | ---                        |
-| `H`    | `0`..`23`    | **24h hour**               |
-| `HH`   | `00`..`23`   |                            |
-| ---    | ---          | ---                        |
-| `h`    | `1`..`12`    | **12h hour**               |
-| `hh`   | `01`..`12`   |                            |
-| ---    | ---          | ---                        |
-| `m`    | `0`..`59`    | **Minutes**                |
-| `mm`   | `00`..`59`   |                            |
-| ---    | ---          | ---                        |
-| `s`    | `0`..`59`    | **Seconds**                |
-| `ss`   | `00`..`59`   |                            |
-| ---    | ---          | ---                        |
-| `a`    | `am`         | **AM/PM**                  |
-| `A`    | `AM`         |                            |
-| ---    | ---          | ---                        |
-| `Z`    | `+07:00`     | **Timezone offset**        |
-| `ZZ`   | `+0730`      |                            |
-| ---    | ---          | ---                        |
-| `S`    | `0`..`9`     | Deciseconds                |
-| `SS`   | `00`..`99`   | Centiseconds               |
-| `SSS`  | `000`..`999` | Milliseconds               |
-| ---    | ---          | ---                        |
-| `X`    |              | Unix timestamp             |
-| `x`    |              | Millisecond Unix timestamp |
+| Symbol | Example         | Area                       |
+| ---    | ---             | ---                        |
+| `H`    | `0`..`23`       | **24h hour**               |
+| `HH`   | `00`..`23`      |                            |
+| ---    | ---             | ---                        |
+| `h`    | `1`..`12`       | **12h hour**               |
+| `hh`   | `01`..`12`      |                            |
+| ---    | ---             | ---                        |
+| `m`    | `0`..`59`       | **Minutes**                |
+| `mm`   | `00`..`59`      |                            |
+| ---    | ---             | ---                        |
+| `s`    | `0`..`59`       | **Seconds**                |
+| `ss`   | `00`..`59`      |                            |
+| ---    | ---             | ---                        |
+| `a`    | `am`            | **AM/PM**                  |
+| `A`    | `AM`            |                            |
+| ---    | ---             | ---                        |
+| `Z`    | `+07:00`        | **Zone offset**            |
+| `ZZ`   | `+0730`         |                            |
+| ---    | ---             | ---                        |
+| `S`    | `0`..`9`        | Deciseconds                |
+| `SS`   | `00`..`99`      | Centiseconds               |
+| `SSS`  | `000`..`999`    | Milliseconds               |
+| ---    | ---             | ---                        |
+| `X`    | `1360013296`    | Unix timestamp             |
+| `x`    | `1360013296123` | Unix ms timestamp          |
 {: .-shortcuts}
+
+See: [Format](https://momentjs.com/docs/#/displaying/format/)
 
 ### Presets
 
@@ -98,3 +104,5 @@ Used by [Moment.js](http://momentjs.com/docs/#/displaying/) and [date-fns/format
 | ---     | ---                              |
 | `LLLL`  | Thursday, August 2 1985 08:30 PM |
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
+
+See: [Long date formats](https://momentjs.com/docs/#/customization/long-date-formats/)

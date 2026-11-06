@@ -366,13 +366,13 @@ CLAUDE.local.md       # personal notes, not committed
 | `default`           | Reads only (labeled Manual)             |
 | `acceptEdits`       | Reads, file edits, filesystem commands  |
 | `plan`              | Reads, until you approve a plan         |
-| `auto`              | Everything, with background checks      |
+| `auto`              | Everything, with safety checks          |
 | `dontAsk`           | Pre-approved tools only; rest denied    |
 | `bypassPermissions` | Everything                              |
 
 <!-- {: .-shortcuts} -->
 
-`auto` is the built-in starting mode; `Shift+Tab` cycles modes in a session. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
+`auto` is the built-in starting mode; `Shift+Tab` cycles modes in a session. A classifier can still block actions, and explicit ask rules still prompt. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
 
 ## Common workflows
 

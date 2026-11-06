@@ -44,8 +44,6 @@ docker run -d --name web -p 5000:5000 myapp:1.0
 docker run --rm -it -v "$PWD":/app -w /app node:24 npm test
 ```
 
-Creates and starts a container from an image.
-
 #### Options
 
 ```bash
@@ -67,7 +65,7 @@ docker run [options] IMAGE [COMMAND] [ARG...]
       --pull always          # missing (default), always, never
 ```
 
-`docker create` takes most of the same options except `-d`/`--detach`, and doesn't start the container.
+Creates and starts a container from an image. Takes most of the same options as `docker create` (except `--detach`) and doesn't start the container.
 
 See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
 
@@ -196,22 +194,12 @@ See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 ### `system prune`
 
 ```bash
-docker system prune
+docker system prune            # stopped containers, networks, cache
+docker system prune -a         # also unused images, all build cache
+docker system prune --volumes  # also anonymous volumes
 ```
 
-Removes stopped containers, unused networks, dangling images, and unused build cache.
-
-```bash
-docker system prune -a
-```
-
-Also removes all unused images (not just dangling ones) and all build cache.
-
-```bash
-docker system prune --volumes
-```
-
-Also removes anonymous volumes.
+Removes stopped containers, unused networks, dangling images, and unused build cache. `-a` also removes all unused images and build cache; `--volumes` also removes anonymous volumes.
 
 See: [docker system prune](https://docs.docker.com/reference/cli/docker/system/prune/)
 

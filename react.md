@@ -235,7 +235,7 @@ function Submit() {
   return <button disabled={pending}>Save</button>
 }
 ```
-{: data-line="4"}
+<!-- {: data-line="4"} -->
 
 `useFormStatus` reads the parent form's state; render it inside the `<form>`. See: [useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus)
 
@@ -252,7 +252,7 @@ async function addTodo(formData) {
   await saveTodo(formData)
 }
 ```
-{: data-line="1,2,3"}
+<!-- {: data-line="1,2,3"} -->
 
 Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter from an action prop. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
@@ -336,7 +336,7 @@ useEffect(() => {
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## Concurrent UI
-{: .-two-column}
+<!-- {: .-two-column} -->
 
 ### Activity (v19.2)
 
@@ -382,7 +382,7 @@ A mutable `.current` box that persists without re-rendering. See: [useRef](https
   }}
 />
 ```
-{: data-line="4"}
+<!-- {: data-line="4"} -->
 
 Ref callbacks may return a cleanup function, called when the node detaches. See: [ref callback](https://react.dev/reference/react-dom/components/common#ref-callback)
 

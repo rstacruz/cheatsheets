@@ -9,7 +9,7 @@ updated: 2026-11-05
 ## Basics
 
 ### About
-{: .-intro}
+<!-- {: .-intro} -->
 
 TypeScript adds static types to JavaScript; types are erased at build time.
 

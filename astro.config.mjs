@@ -22,7 +22,19 @@ export default defineConfig({
     host: true
   } /* access from https://192.168.x.x/ */,
   vite: {
-    css: { transformer: 'lightningcss' },
+    // Don't set `css.transformer: 'lightningcss'`: Vite hands raw CSS to
+    // Lightning CSS before `@tailwindcss/vite` can resolve `@apply` and
+    // `@reference`, so Astro's `<style>` preprocessing floods `astro dev`
+    // with "Unknown at rule" warnings (tailwindlabs/tailwindcss#14205).
+    //
+    // Nesting still gets flattened for Safari 16.4, since Vite minifies CSS
+    // with Lightning CSS and `cssTarget` drives the lowering. Astro inlines
+    // stylesheets during the server build, whose `esnext` target would
+    // otherwise leave `&` rules in the output.
+    build: {
+      // Vite's `ESBUILD_BASELINE_WIDELY_AVAILABLE_TARGET`.
+      cssTarget: ['chrome111', 'edge111', 'firefox114', 'safari16.4', 'ios16.4']
+    },
     ...(viteCacheDir ? { cacheDir: viteCacheDir } : {}),
     plugins: [tailwindcss()],
     optimizeDeps: {

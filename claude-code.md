@@ -261,14 +261,14 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
 #### Session
 
-| Shortcut        | Description                        |
-| --------------- | ---------------------------------- |
-| `Ctrl+C`        | Interrupt, clear input, or exit    |
-| `Ctrl+D`        | Exit Claude Code                   |
-| `Esc`           | Interrupt Claude, or close dialogs |
-| `Esc` `Esc`     | Clear the draft, or rewind         |
-| `Ctrl+B`        | Background running tasks           |
-| `Ctrl+X Ctrl+K` | Stop all background subagents      |
+| Shortcut        | Description                                |
+| --------------- | ------------------------------------------ |
+| `Ctrl+C`        | Interrupt, clear input, or exit            |
+| `Ctrl+D`        | Exit Claude Code                           |
+| `Esc`           | Interrupt Claude, or close dialogs         |
+| `Esc` `Esc`     | Clear the draft, or rewind                 |
+| `Ctrl+B`        | Background running tasks                   |
+| `Ctrl+X Ctrl+K` | Stop all background subagents; press twice |
 
 <!-- {: .-shortcuts} -->
 

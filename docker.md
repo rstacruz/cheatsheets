@@ -3,7 +3,7 @@ title: Docker CLI
 category: Devops
 tier: t2
 tags: [Featured]
-updated: 2026-11-03
+updated: 2026-11-05
 keywords:
   - docker build
   - docker run
@@ -28,23 +28,22 @@ intro: |
 ### `pull` - Download an image
 
 ```bash
-docker pull debian:bookworm-slim
-docker pull redis:7
+docker pull debian:trixie-slim
+docker pull redis:8
+docker pull --platform linux/amd64 redis:8
 ```
 
-Downloads an image from a registry. `docker run` pulls missing images automatically.
+Downloads an image from a registry. `docker run` pulls missing images automatically. Use `--platform` to fetch a specific architecture.
 
 See: [docker pull](https://docs.docker.com/reference/cli/docker/image/pull/)
 
 ### `run` - Start a container
 
 ```bash
-docker run -it debian:bookworm-slim /bin/bash
+docker run -it debian:trixie-slim /bin/bash
 docker run -d --name web -p 5000:5000 myapp:1.0
-docker run --rm -it -v "$PWD":/app -w /app node:22 npm test
+docker run --rm -it -v "$PWD":/app -w /app node:24 npm test
 ```
-
-Creates and starts a container from an image.
 
 #### Options
 
@@ -63,9 +62,11 @@ docker run [options] IMAGE [COMMAND] [ARG...]
       --env-file .env        # read env vars from a file
   -e, --env NAME=hello       # set an env var
       --network NETWORK      # connect to a network
+      --platform linux/amd64 # set target platform
+      --pull always          # missing (default), always, never
 ```
 
-`docker create` takes the same options except `-d`/`--detach`, and doesn't start the container.
+Creates and starts a container from an image. Takes most of the same options as `docker create` (except `--detach`) and doesn't start the container.
 
 See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
 
@@ -108,6 +109,7 @@ See: [docker exec](https://docs.docker.com/reference/cli/docker/container/exec/)
 
 ```bash
 docker build -t myapp:1.0 .
+docker build --platform linux/amd64 -t myapp:1.0 .
 docker build --build-arg APP_HOME=/app -t myapp:1.0 .
 ```
 
@@ -132,7 +134,7 @@ docker tag myapp:1.0 me/myapp:1.0
 docker tag myapp:1.0 registry.example.com/myapp:1.0
 ```
 
-The part after the colon is the tag (defaults to `latest`).
+The tag defaults to `latest` when omitted.
 
 See: [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/)
 
@@ -161,7 +163,7 @@ See: [docker rmi](https://docs.docker.com/reference/cli/docker/image/rm/)
 ### `create` - Create a container
 
 ```bash
-docker create --name cache --expose 6379 redis:7
+docker create --name cache --expose 6379 redis:8
 ```
 
 Creates a container without starting it. Use `docker start` to run it.
@@ -193,22 +195,12 @@ See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 ### `system prune`
 
 ```bash
-docker system prune
+docker system prune            # stopped containers, networks, cache
+docker system prune -a         # also unused images, all build cache
+docker system prune --volumes  # also anonymous volumes
 ```
 
-Removes stopped containers, unused networks, dangling images, and unused build cache.
-
-```bash
-docker system prune -a
-```
-
-Also removes all unused images (not just dangling ones) and all build cache.
-
-```bash
-docker system prune --volumes
-```
-
-Also removes anonymous volumes.
+Removes stopped containers, unused networks, dangling images, and unused build cache. `-a` also removes all unused images and build cache; `--volumes` also removes anonymous volumes.
 
 See: [docker system prune](https://docs.docker.com/reference/cli/docker/system/prune/)
 
@@ -230,6 +222,15 @@ docker image prune -a     # all unused images
 ```
 
 See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/prune/)
+
+### `builder prune`
+
+```bash
+docker builder prune        # dangling build cache
+docker builder prune -a     # all unused build cache
+```
+
+See: [docker builder prune](https://docs.docker.com/reference/cli/docker/builder/prune/)
 
 ### `volume prune`
 

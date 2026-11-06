@@ -86,9 +86,6 @@ importers:
       rehype-stringify:
         specifier: ^10.0.1
         version: 10.0.1
-      remark-attribute-list:
-        specifier: '>=0.4.0 <1'
-        version: 0.4.0(@types/mdast@4.0.4)(@types/unist@3.0.3)(mdast-util-from-markdown@2.1.0(supports-color@10.2.2))(micromark-util-types@2.0.3)(remark-parse@11.0.0(supports-color@10.2.2))(unified@11.0.5)
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1(supports-color@10.2.2)
@@ -2098,18 +2095,6 @@ packages:
   rehype-stringify@10.0.1:
     resolution: {integrity: sha512-k9ecfXHmIPuFVI61B9DeLPN0qFHfawM6RsuX48hoqlaKSF61RskNjSm1lI8PhBEM0MRdLxVVm4WmTqJQccH9mA==}
 
-  remark-attribute-list@0.4.0:
-    resolution: {integrity: sha512-/c/+6zFsKkxq1GJQ7qlxHhbzPdJ3SjRr6FVVc7mqpoRMNHsefnsVKP7B2xm2tHyec85087qGMHWHSQn8s5XWcg==}
-    engines: {node: '>=20.0.0'}
-    peerDependencies:
-      '@types/mdast': ^4.0.0
-      '@types/unist': ^3.0.0
-      mdast-util-from-markdown: ^2.0.0
-      mdast-util-mdx: ^3.0.0
-      micromark-util-types: ^2.0.0
-      remark-parse: ^11.0.0
-      unified: ^11.0.0
-
   remark-gfm@4.0.1:
     resolution: {integrity: sha512-1quofZ2RQ9EWdeN34S79+KExV1764+wCUGop5CPL1WGdD0ocPpu91lzPGbwWMECpEpd42kJGQwzRfyov9j4yNg==}
 
@@ -2306,9 +2291,6 @@ packages:
 
   unist-util-position@5.0.0:
     resolution: {integrity: sha512-fucsC7HjXvkB5R3kTCO7kUjRdrS0BJt3M/FPxmHMBOm8JQi2BsHAHFsy27E0EolP8rp0NzXsJ+jNPyDWvOJZPA==}
-
-  unist-util-remove@4.0.0:
-    resolution: {integrity: sha512-b4gokeGId57UVRX/eVKej5gXqGlc9+trkORhFJpu9raqZkZhU0zm8Doi05+HaiBsMEIJowL+2WtQ5ItjsngPXg==}
 
   unist-util-stringify-position@3.0.3:
     resolution: {integrity: sha512-k5GzIBZ/QatR8N5X2y+drfpWG8IDBzdnVj6OInRNWm1oXrzydiaAT2OQiA8DPRRZyAKb9b6I2a6PxYklZD0gKg==}
@@ -4502,20 +4484,6 @@ snapshots:
       hast-util-to-html: 9.0.6
       unified: 11.0.5
 
-  remark-attribute-list@0.4.0(@types/mdast@4.0.4)(@types/unist@3.0.3)(mdast-util-from-markdown@2.1.0(supports-color@10.2.2))(micromark-util-types@2.0.3)(remark-parse@11.0.0(supports-color@10.2.2))(unified@11.0.5):
-    dependencies:
-      '@types/mdast': 4.0.4
-      '@types/unist': 3.0.3
-      devlop: 1.1.0
-      mdast-util-from-markdown: 2.1.0(supports-color@10.2.2)
-      micromark-util-character: 2.1.1
-      micromark-util-symbol: 2.0.1
-      micromark-util-types: 2.0.3
-      remark-parse: 11.0.0(supports-color@10.2.2)
-      unified: 11.0.5
-      unist-util-remove: 4.0.0
-      unist-util-visit: 5.2.0
-
   remark-gfm@4.0.1(supports-color@10.2.2):
     dependencies:
       '@types/mdast': 4.0.4
@@ -4787,12 +4755,6 @@ snapshots:
   unist-util-position@5.0.0:
     dependencies:
       '@types/unist': 3.0.3
-
-  unist-util-remove@4.0.0:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-is: 6.0.1
-      unist-util-visit-parents: 6.1.0
 
   unist-util-stringify-position@3.0.3:
     dependencies:

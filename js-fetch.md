@@ -9,7 +9,8 @@ intro: |
 ---
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 `fetch()` requests a resource over HTTP and returns a promise for the response.
 
@@ -17,7 +18,8 @@ intro: |
 - [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ### Fetch
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
 fetch('/data.json')
@@ -27,7 +29,8 @@ fetch('/data.json')
   })
   .catch(err => ...)
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
@@ -109,7 +112,8 @@ Node 18+ has a global `fetch` (stable in Node 21). On older versions, use
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://fetch.spec.whatwg.org/>
 - <https://www.npmjs.com/package/whatwg-fetch>

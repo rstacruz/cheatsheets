@@ -13,7 +13,8 @@ description: |
 ```js
 const { assert } = require('chai')
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 assert(val)
@@ -72,7 +73,8 @@ See: [Assert API](http://chaijs.com/api/assert/) _(chaijs.com)_
 ```js
 const { expect } = require('chai')
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 expect(object)
@@ -146,7 +148,8 @@ expect(object).not.equal('x')
 global.jQuery = ···
 chai.use(require('chai-jquery'))
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 expect($body)

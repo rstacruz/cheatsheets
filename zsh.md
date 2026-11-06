@@ -18,7 +18,8 @@ category: CLI
 | ---               | ---                 | ---
 | `*(m0)`           | `rm *(m0)`          | Last modified today
 | `*(m-4)`          |                     | Last modified <4 days ago
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 ### Change default shell
 
@@ -32,7 +33,8 @@ chsh -s `which zsh`
 | ---               | ---                                                   | ---
 | `<(COMMAND)`      | `grep "needle" <(curl "https://haystack.io")`         | Replace argument with _named pipe/FIFO_ (read-only) with command output
 | `=(COMMAND)`      | `vim =(curl "https://haystack.io")`                   | Replace argument with _file_ (writable) containing command output
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 ### Also see
 

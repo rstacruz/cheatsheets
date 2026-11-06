@@ -13,7 +13,8 @@ intro: |
 ---
 
 ## Shortcuts
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Command palette
 
@@ -21,7 +22,8 @@ intro: |
 | ----- | ----------------- |
 | `⇧⌘P` | Show all commands |
 | `⌘P`  | Show files        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Sidebars
 
@@ -34,7 +36,8 @@ intro: |
 | `⇧⌘D` | Debug          |
 | `⇧⌘X` | Extensions     |
 | `⇧^G` | Git (SCM)      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Search
 
@@ -45,7 +48,8 @@ intro: |
 | ----  | ----             |
 | `⇧⌘F` | Find in files    |
 | `⇧⌘H` | Replace in files |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Panel
 
@@ -57,7 +61,8 @@ intro: |
 | `⇧⌘U`                      | Output        |
 | `⇧⌘Y`                      | Debug console |
 | <code>^`</code>            | Terminal      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### View
 
@@ -67,7 +72,8 @@ intro: |
 | ----     | ----             |
 | `⌘k` `u` | Close unmodified |
 | `⌘k` `w` | Close all        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Debug
 
@@ -87,7 +93,8 @@ intro: |
 | ----   | ----                    |
 | `⇧⌘D`  | Debug sidebar           |
 | `⇧⌘Y`  | Debug panel             |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ## References
 

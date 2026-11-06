@@ -15,10 +15,12 @@ intro: |
 ---
 
 ## Getting started
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
@@ -62,7 +64,8 @@ git diff | claude -p "review this diff"
 Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"` to resume one by name. See: [Quickstart](https://code.claude.com/docs/en/quickstart)
 
 ## CLI reference
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Commands
 
@@ -75,7 +78,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude -p "query"`   | Print response and exit           |
 | `claude -c`           | Continue most recent conversation |
 | `claude -r <session>` | Resume a session by ID or name    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Setup
 
@@ -86,7 +90,8 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude mcp`         | Configure MCP servers      |
 | `claude auth status` | Show authentication status |
 | `claude setup-token` | Generate a token for CI    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -104,7 +109,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--permission-mode plan`  | Start in a permission mode        |
 | `--add-dir ../lib`        | Add extra working directories     |
 | `--verbose`               | Show full turn-by-turn output     |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -117,12 +123,14 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--ide`                          | Auto-connect to your IDE          |
 | `-w, --worktree`                 | Start in an isolated git worktree |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 ## Slash commands
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Session
 
@@ -134,7 +142,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `/clear`   | Start a new conversation     |
 | `/compact` | Summarize to free up context |
 | `/context` | Show context window usage    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### History
 
@@ -143,7 +152,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `/resume` | Resume a previous conversation  |
 | `/rewind` | Restore code and conversation   |
 | `/export` | Export the conversation as text |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Usage
 
@@ -151,7 +161,8 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | --------- | -------------------------------- |
 | `/status` | Show version, model, and account |
 | `/usage`  | Show cost and plan limits        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -165,7 +176,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/model`  | Switch the AI model          |
 | `/effort` | Set reasoning effort         |
 | `/memory` | Edit memory files            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Project
 
@@ -175,7 +187,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `/permissions` | Manage permission rules      |
 | `/mcp`         | Manage MCP connections       |
 | `/doctor`      | Run a setup checkup          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Account
 
@@ -183,7 +196,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | --------- | ----------------------- |
 | `/login`  | Sign in to your account |
 | `/logout` | Sign out                |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
@@ -195,19 +209,22 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | --------- | -------------------------------- |
 | `/diff`   | Review working-tree changes      |
 | `/review` | Review changes or a pull request |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Security
 
 | Command            | Description                      |
 | ------------------ | -------------------------------- |
 | `/security-review` | Scan changes for vulnerabilities |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
 ## Interactive mode
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Keyboard shortcuts
 
@@ -220,7 +237,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `Esc`       | Interrupt Claude, or close dialogs |
 | `Esc` `Esc` | Clear the draft, or rewind        |
 | `Ctrl+B`    | Background running tasks          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Prompt
 
@@ -230,7 +248,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `Alt+P`     | Switch model                      |
 | `Alt+T`     | Toggle extended thinking          |
 | `Ctrl+V`    | Paste an image from the clipboard |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Display
 
@@ -239,7 +258,8 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 | `Ctrl+L` | Redraw the screen            |
 | `Ctrl+R` | Search prompt history        |
 | `Ctrl+O` | Toggle the transcript viewer |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 On macOS, use `Option` instead of `Alt`.
 
@@ -254,14 +274,16 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 | `@`   | Mention a file path             |
 | `:`   | Insert an emoji by shortcode    |
 | `?`   | Show the shortcut help panel    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 For a newline without sending, press `\` + `Enter` or `Ctrl+J` — both work in any terminal. `Shift+Enter` works in many terminals; run `/terminal-setup` if it doesn't.
 
 See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 ## Configuration
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Settings files
 
@@ -298,7 +320,8 @@ CLAUDE.local.md       # personal project notes, not committed
 `/init` generates a project CLAUDE.md; `/memory` edits memory files and auto memory. Import files with `@path/to/file.md`. See: [Memory](https://code.claude.com/docs/en/memory)
 
 ## Common workflows
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Reviewing code
 
@@ -320,12 +343,14 @@ claude -p "list the failing tests" --output-format json
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
-{: data-line="2,5"}
+
+<!-- {: data-line="2,5"} -->
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_

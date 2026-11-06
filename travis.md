@@ -7,7 +7,8 @@ intro: |
 ---
 
 ## Reference
-{:.-three-column}
+
+<!-- {:.-three-column} -->
 
 ### Node.js
 

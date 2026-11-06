@@ -4,7 +4,8 @@ category: Ruby
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 RSpec is a Ruby library for testing.
 

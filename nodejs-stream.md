@@ -67,7 +67,8 @@ st.on('data', /*...*/)
 
 Stream types
 ------------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Readable
 
@@ -131,7 +132,8 @@ clock()              // Readable stream
 ```
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://nodejs.org/api/stream.html>
 - <https://github.com/substack/stream-handbook>

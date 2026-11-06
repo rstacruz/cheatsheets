@@ -32,18 +32,25 @@ export function commentAttributes() {
       if (!attributes) return
 
       const data = (target.data ??= {})
-      const properties = (data.hProperties ??= {}) as Properties
-      for (const [key, value] of Object.entries(attributes)) {
-        const existing = properties[key]
-        properties[key] =
-          key === 'className' && existing
-            ? [existing, value].flat().join(' ')
-            : value
-      }
+      mergeAttributes((data.hProperties ??= {}) as Properties, attributes)
 
       parent.children.splice(index, 1)
       return index
     })
+  }
+}
+
+/** Appends classes, overwrites every other key */
+export function mergeAttributes(
+  properties: Properties,
+  attributes: Properties
+): void {
+  for (const [key, value] of Object.entries(attributes)) {
+    const existing = properties[key]
+    properties[key] =
+      key === 'className' && existing
+        ? [existing, value].flat().join(' ')
+        : value
   }
 }
 

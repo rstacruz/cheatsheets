@@ -1,4 +1,9 @@
-import { ATTRIBUTE_COMMENT, parseAttributes } from '~/lib/markdown/comments'
+import type { Properties } from 'hast'
+import {
+  ATTRIBUTE_COMMENT,
+  mergeAttributes,
+  parseAttributes
+} from '~/lib/markdown/comments'
 import { scanFences } from './utils'
 
 export type Heading = {
@@ -66,30 +71,32 @@ function commentAt(lines: string[], start: number) {
   return undefined
 }
 
-/** Renderer parity: a comment with no class or `key=value` is left in place */
-const ATTACHABLE = /(?:^|\s)\.\S|=/
-
-/** Merges a legacy IAL with the comments below, as the plugin does */
-function attributesBelow(lines: string[], start: number): string | undefined {
-  const parts: string[] = []
+/** Merges a legacy IAL and the comments below, as the plugin does */
+function attributesBelow(
+  lines: string[],
+  start: number
+): Properties | undefined {
+  const properties: Properties = {}
   const ial = BLOCK_IAL.exec(lines[start]?.trim() ?? '')
-  if (ial) parts.push(ial[1])
+  mergeAttributes(properties, parseAttributes(ial?.[1] ?? '') ?? {})
 
   let index = firstContent(lines, ial ? start + 1 : start)
   for (;;) {
     const comment = commentAt(lines, index)
-    if (!comment || !ATTACHABLE.test(comment.text)) break
-    parts.push(comment.text)
+    const attributes = comment && parseAttributes(comment.text)
+    if (!comment || !attributes) break
+    mergeAttributes(properties, attributes)
     index = firstContent(lines, comment.end)
   }
 
-  return parts.length ? parts.join(' ') : undefined
+  return Object.keys(properties).length > 0 ? properties : undefined
 }
 
 /** Whether the attributes below an H2 ask for `.-three-column` */
 function isThreeColumn(lines: string[], start: number): boolean {
-  const attributes = parseAttributes(attributesBelow(lines, start) ?? '')
-  const classes = String(attributes?.className ?? '').split(/\s+/)
+  const classes = String(attributesBelow(lines, start)?.className ?? '').split(
+    /\s+/
+  )
   return classes.includes('-three-column')
 }
 

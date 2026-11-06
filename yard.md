@@ -6,7 +6,8 @@ intro: |
 ---
 
 ### Method documentation
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```ruby
 # Downloads a page.
@@ -136,9 +137,11 @@ The optional text after `@example` becomes the example title.
 | `@yieldreturn` | Block return value |
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
 - <https://www.rubydoc.info/gems/yard/file/docs/Tags.md>
 - <https://yardoc.org/types.html>
-{: .-also-see}
+
+<!-- {: .-also-see} -->

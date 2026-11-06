@@ -4,12 +4,14 @@ category: Ledger
 ---
 
 ## Ledger CSV format
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ```
 $ ledger csv
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```csv
 date         , code  , desc     , account            , currency , amt     , pending/cleared , notes

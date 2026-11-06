@@ -8,7 +8,8 @@ intro: |
 ---
 
 ## Getting started
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Connect
 
@@ -41,7 +42,8 @@ knex('users')
   .where({ email: 'hi@example.com' })
   .then(rows => ···)
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Select](#select-1)
 
@@ -51,7 +53,8 @@ See: [Select](#select-1)
 knex('users')
   .insert({ email: 'hi@example.com' })
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Insert](#insert-1)
 
@@ -62,7 +65,8 @@ knex('users')
   .where({ id: 135 })
   .update({ email: 'hi@example.com' })
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 See: [Update](#update-1)
 
@@ -90,7 +94,8 @@ knex seed:run --specific=seed-filename.js # Runs a specific seed file
 See: [Seeds](http://knexjs.org/#Seeds)
 
 ## Connect
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Libraries
 
@@ -119,7 +124,8 @@ var knex = require('knex')({
   pool: { min: 0, max: 7 }
 })
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 See: [Initializing the library](http://knexjs.org/#Installation-client)
 
@@ -133,7 +139,8 @@ var pg = require('knex')({
   pool: { min: 0, max: 7 }
 })
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 ### Connect via Sqlite
 
@@ -143,7 +150,8 @@ var knex = require('knex')({
   connection: { filename: './mydb.sqlite' }
 })
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 ## Select
 
@@ -388,7 +396,8 @@ knex.schema.createTable('accounts', table => {
 })
 .then(() => ···)
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 See: [Schema builder](http://knexjs.org/#Schema)
 
@@ -421,7 +430,8 @@ knex.schema.table('accounts', table => {
 ```js
 })
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 See: [Schema builder](http://knexjs.org/#Schema)
 
@@ -441,7 +451,8 @@ knex.schema
 See: [Schema builder](http://knexjs.org/#Schema)
 
 ## Modifying
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Insert
 

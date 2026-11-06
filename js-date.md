@@ -11,7 +11,8 @@ intro: |
 ## Date
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
 
@@ -51,7 +52,8 @@ See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `new Date(` | `2014,` | `2,`  | `1,` | `13,` | `0,` | `59,` | `0)`  |
 | Date        | Year    | Month | Day  | Hour  | Min  | Sec   | Milli |
-{: .-css-breakdown}
+
+<!-- {: .-css-breakdown} -->
 
 Months are zero-indexed (eg, January is `0`).
 

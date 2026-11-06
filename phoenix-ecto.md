@@ -6,7 +6,8 @@ updated: 2017-08-30
 ---
 
 ## Schemas
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Generating
 
@@ -50,7 +51,8 @@ end
 | --- |
 | `{:array, inner_type}` |
 | `:map` |
-{: .-left-align}
+
+<!-- {: .-left-align} -->
 
 ## Changesets
 
@@ -204,6 +206,7 @@ from(p in Post, where: p.id < 10)
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - Based on Ecto 1.3.

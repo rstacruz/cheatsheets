@@ -6,7 +6,8 @@ category: Ruby
 ### Listing scopes
 
 Allows you to filter listings by a certain scope.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```ruby
 scope :draft
@@ -29,7 +30,8 @@ filter :username
 ### Custom actions
 
 You can define custom actions for models.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```ruby
 before_filter only: [:show, :edit, :publish] do

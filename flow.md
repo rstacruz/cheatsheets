@@ -6,10 +6,12 @@ weight: -3
 ---
 
 ## Getting started
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Simple example
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
 /* @flow */
@@ -19,7 +21,8 @@ function square (n: number) {
 
 const four = square(2)
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 Most of what you need to do is to simply add annotations to function arguments!
 
@@ -32,7 +35,8 @@ function square (n: number) {
   const result = n * n
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 `result` is inferred to be a number because `number * number` will result in a number. There's no need to give it annotations.
 
@@ -46,14 +50,16 @@ type Person = {
   likes: Array<string>
 }
 ```
-{: data-line="1,2,3,4,5,6"}
+
+<!-- {: data-line="1,2,3,4,5,6"} -->
 
 ```js
 function greet(user: Person) {
   console.log('hello', user.name)
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```js
 greet({ name: 'Miles Davis', ··· })
@@ -106,7 +112,8 @@ type Album = {
   name: ?string
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```js
 const a: Album = { }                 // ✗ Error
@@ -126,7 +133,8 @@ type Album = {
   name?: string
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```js
 const a: Album = { } // ✓ OK
@@ -140,7 +148,8 @@ This makes an `Album` valid even if `name` is not part of the keys. This is diff
 See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-optional-object-properties)
 
 ## Objects
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Width subtyping
 
@@ -158,7 +167,8 @@ const a: Artist = {
   genre: 'House' // ✓ OK
 }
 ```
-{: data-line="6"}
+
+<!-- {: data-line="6"} -->
 
 A type with more properties is "wider" and is a subtype of a "narrower" type.
 
@@ -172,7 +182,8 @@ type Artist = {|
   label: string
 |}
 ```
-{: data-line="1,4"}
+
+<!-- {: data-line="1,4"} -->
 
 ```js
 const a: Artist = {
@@ -181,7 +192,8 @@ const a: Artist = {
   genre: 'House' // ✗ Error
 }
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 Exact object types prevent extra properties from being added to an object.
 
@@ -194,7 +206,8 @@ type Items = {
   [key: string]: Item
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-as-maps)
 

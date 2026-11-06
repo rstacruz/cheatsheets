@@ -29,7 +29,8 @@ weight: -3
   },
 }
 ```
-{: data-line="2,3,4,5"}
+
+<!-- {: data-line="2,3,4,5"} -->
 
 Highlighted lines are required.
 
@@ -88,8 +89,10 @@ See [Semver cheatsheet](./semver) for explanation of version ranges.
 Keys in `config` are exposed as env vars to scripts.
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
  * <http://package.json.nodejitsu.com/>
  * `npm help package.json`
-{: .-also-see}
+
+<!-- {: .-also-see} -->

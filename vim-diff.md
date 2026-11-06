@@ -9,16 +9,19 @@ intro: |
 
 Getting started
 ---------------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Navigating
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 | Shortcut       | Description                      |
 | ---            | ---                              |
 | `]c`           | Next difference                  |
 | `[c`           | Previous difference              |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Editing
 
@@ -29,7 +32,8 @@ Getting started
 | ---            | ---                              |
 | `:diffupdate`  | Re-scan the files for differences.                    |
 | `ZQ`           | Quit without checking changes    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Folds
 
@@ -48,7 +52,8 @@ Getting started
 | `zr`          | Fold less _(foldlevel -= 1)_ |
 | ---           | ---                          |
 | `zx`          | Update folds                 |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 
 Also see

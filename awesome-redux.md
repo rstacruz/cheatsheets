@@ -7,7 +7,8 @@ updated: 2017-11-19
 ### redux-actions
 
 Create action creators in flux standard action format.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 increment = createAction('INCREMENT', amount => amount)
@@ -25,12 +26,14 @@ increment(err) === { type: 'INCREMENT', payload: err, error: true }
 ```
 
 [redux-actions](https://www.npmjs.com/package/redux-actions)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### flux-standard-action
 
 A standard for flux action objects. An action may have an `error`, `payload` and `meta` and nothing else.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 { type: 'ADD_TODO', payload: { text: 'Work it' } }
@@ -38,12 +41,14 @@ A standard for flux action objects. An action may have an `error`, `payload` and
 ```
 
 [flux-standard-action](https://github.com/acdlite/flux-standard-action)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### redux-multi
 
 Dispatch multiple actions in one action creator.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 store.dispatch([
@@ -53,11 +58,13 @@ store.dispatch([
 ```
 
 [redux-multi](https://github.com/ashaffer/redux-multi)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### reduce-reducers
 Combines reducers (like *combineReducers()*), but without namespacing magic.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 re = reduceReducers(
@@ -69,19 +76,22 @@ re(10, { number: 2 })  //=> 14
 ```
 
 [reduce-reducers](https://www.npmjs.com/package/reduce-reducers)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### redux-logger
 
 Logs actions to your console.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 // Nothing to see here
 ```
 
 [redux-logger](https://github.com/evgenyrodionov/redux-logger)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 Async
 -----
@@ -89,7 +99,8 @@ Async
 ### redux-promise
 
 Pass promises to actions. Dispatches a flux-standard-action.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 increment = createAction('INCREMENT')  // redux-actions
@@ -97,12 +108,14 @@ increment(Promise.resolve(42))
 ```
 
 [redux-promise](https://github.com/acdlite/redux-promise)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### redux-promises
 
 Sorta like that, too. Works by letting you pass *thunks* (functions) to `dispatch()`. Also has 'idle checking'.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 fetchData = (url) => (dispatch) => {
@@ -121,12 +134,14 @@ fetchData('/posts')(store.dispatch)
 ```
 
 [redux-promises](https://www.npmjs.com/package/redux-promises)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### redux-effects
 
 Pass side effects declaratively to keep your actions pure.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 {
@@ -142,12 +157,14 @@ Pass side effects declaratively to keep your actions pure.
 ```
 
 [redux-effects](https://www.npmjs.com/package/redux-effects)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### redux-thunk
 
 Pass "thunks" to as actions. Extremely similar to redux-promises, but has support for getState.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 fetchData = (url) => (dispatch, getState) => {
@@ -174,4 +191,5 @@ store.dispatch(fetchPosts()).then(() => {
 ```
 
 [redux-thunk](https://www.npmjs.com/package/redux-thunk)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->

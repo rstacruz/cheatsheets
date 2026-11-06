@@ -4,7 +4,8 @@ category: JavaScript libraries
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
   * [Sinon-chai](https://github.com/domenic/sinon-chai)
 

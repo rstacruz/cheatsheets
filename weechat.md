@@ -4,7 +4,8 @@ category: Apps
 ---
 
 ## Keys
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Buffers
 
@@ -22,7 +23,8 @@ category: Apps
 | ---              | ---                              |
 | `A-w A-Left`     | Switch windows                   |
 | `A-w A-b`        | Balance windows                  |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 (`A-` is alt.)
 
@@ -40,4 +42,5 @@ category: Apps
 | --- | --- |
 | `^r`              | Search      |
 | `Enter` `^j` `^m` | Stop search |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->

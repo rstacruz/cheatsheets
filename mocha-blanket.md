@@ -9,7 +9,8 @@ intro: |
 ### Quickstart guide
 
 Install blanket:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 npm i --save-dev blanket
@@ -49,7 +50,8 @@ npm run coverage
 ### Travis + coveralls.io support
 
 Visit [coveralls.io] then activate your repo. Then install the appropriate packages:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 npm i --save-dev mocha-lcov-reporter coveralls

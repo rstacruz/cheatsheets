@@ -118,7 +118,8 @@ HTTP/3 needs a curl built with HTTP/3 support.
 See: [--http3](https://curl.se/docs/manpage.html#--http3)
 
 ## Examples
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ### Common recipes
 

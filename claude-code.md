@@ -33,7 +33,7 @@ intro: |
 curl -fsSL https://claude.ai/install.sh | bash  # native
 brew install --cask claude-code                 # Homebrew
 npm install -g @anthropic-ai/claude-code        # npm, Node 22+
-claude install stable                           # pin a version
+claude install stable                           # stable channel
 ```
 
 On Windows: `irm https://claude.ai/install.ps1 | iex` in PowerShell, or `winget install Anthropic.ClaudeCode`.

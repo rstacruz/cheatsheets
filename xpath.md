@@ -11,7 +11,8 @@ updated: 2026-11-05
 ## Testing
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
 
@@ -58,7 +59,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | ----                         | ----                                                     | --                      |
 | `:root`                      | `/html`                                                  | [?](#prefixes)          |
 | `:root > body`               | `/html/body`                                             |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Attribute selectors
 
@@ -74,7 +76,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `a[href$='pdf']`             | `//a[substring(@href, string-length(@href) - 2) = 'pdf']` | [?](#string-functions)  |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
 | `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Order selectors
 
@@ -86,7 +89,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `li#id:first-of-type`        | `//li[1][@id="id"]`                                      | [?](#chaining-order)    |
 | `a:first-child`              | `//*[1][name()="a"]`                                     |                         |
 | `a:last-child`               | `//*[last()][name()="a"]`                                |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Siblings
 
@@ -95,7 +99,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::*[1][self::ul]`                 |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::*[@id="id"]`                    |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### jQuery
 
@@ -105,7 +110,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `$('li').closest('section')` | `//li/ancestor-or-self::section[1]`                      |                         |
 | `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
 | `$('span').text()`           | `//span/text()`                                          |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Other things
 
@@ -121,7 +127,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | ---                          | ---                                                      | ---                     |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-{: .xp}
+
+<!-- {: .xp} -->
 
 <style>
 /* ensure tables align */
@@ -167,7 +174,8 @@ See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Loc
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 Begin your expression with any of these.
 
@@ -179,7 +187,8 @@ See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-ab
 | ---       | ---                    | ---        |
 | `/`       | `//ul/li/a`            | Child      |
 | `//`      | `//*[@id="list"]//a`   | Descendant |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
@@ -457,7 +466,8 @@ See: [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/
 | `following-sibling`  |        |                                                  |
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 There are other axes you can use.
 
@@ -528,7 +538,8 @@ Finds `<item>` whose price is more than twice its discount.
 See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * [XPath 1.0 specification](https://www.w3.org/TR/1999/REC-xpath-19991116/) _(w3.org)_
 * [XPath reference](https://developer.mozilla.org/en-US/docs/Web/XML/XPath) _(MDN)_

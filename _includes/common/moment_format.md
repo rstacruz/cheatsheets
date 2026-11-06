@@ -1,5 +1,6 @@
 ## {{ include.title }}
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Examples
 
@@ -53,7 +54,8 @@ See: [Format](https://momentjs.com/docs/#/displaying/format/)
 | `w`    | `1`..`53`               | **Week of year** |
 | `wo`   | `1st`..`53rd`           |                  |
 | `ww`   | `01`..`53`              |                  |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Format](https://momentjs.com/docs/#/displaying/format/)
 
@@ -85,7 +87,8 @@ See: [Format](https://momentjs.com/docs/#/displaying/format/)
 | ---    | ---             | ---                        |
 | `X`    | `1360013296`    | Unix timestamp             |
 | `x`    | `1360013296123` | Unix ms timestamp          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [Format](https://momentjs.com/docs/#/displaying/format/)
 

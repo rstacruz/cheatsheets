@@ -18,7 +18,8 @@ intro: |
 ## Agents
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Herdr detects coding agents inside panes, tracks their `idle`, `working`,
 `blocked`, `done`, and `unknown` states, and rolls state up to tabs and
@@ -29,7 +30,8 @@ workspaces. This reference covers the `herdr agent` command group.
 - [Integrations](https://herdr.dev/tui/docs/integrations/) _(herdr.dev)_
 
 [Herdr cheatsheet](./herdr)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### Supported agents
 
@@ -232,7 +234,8 @@ and send a literal `ctrl+b` with `ctrl+b ctrl+b`. Use `--takeover` when
 another attach client already owns input.
 
 [Herdr keys cheatsheet](./herdr-keys)
-{: .-crosslink}
+
+<!-- {: .-crosslink} -->
 
 ### Integrations
 

@@ -269,7 +269,8 @@ number:
 ```rb
 number_to_currency(n)
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```yml
 number:

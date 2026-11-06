@@ -18,7 +18,8 @@ intro: |
 ## Getting started
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 [mise](https://mise.jdx.dev) installs and switches dev tool versions per project
 and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
@@ -43,7 +44,8 @@ export PATH="$HOME/.local/bin:$PATH"
 mise --version
 mise doctor                     # diagnose shell/shim problems
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 The installer drops the binary in `~/.local/bin`; activation adds it to `PATH`.
 
@@ -59,7 +61,8 @@ eval "$(~/.local/bin/mise activate bash)"  # if mise is not on PATH
 # fish
 mise activate fish | source
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 Activation re-exports `PATH` and project env on every prompt.
 Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` —
@@ -81,7 +84,8 @@ more features (env vars, hooks), so prefer it interactively.
 See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 
 ### Core commands
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 #### Tools
 
@@ -132,7 +136,8 @@ mise use --pin node@24           # save the exact resolved version
 mise use --path .tool-versions --pin node@24
 mise use                         # interactive tool picker
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```toml
 [tools]
@@ -172,7 +177,8 @@ erlang = "ref:master"   # build a git ref
 go = "prefix:1.19"      # latest 1.19.x
 shfmt = "path:./shfmt"  # custom install dir
 ```
-{: data-line="5,6,7"}
+
+<!-- {: data-line="5,6,7"} -->
 
 A request is a range; an exact version is a pin. `prefix:` helps when `1.19`
 matches only `1.19`. Aliases like `lts` are not universal.
@@ -203,7 +209,8 @@ mise install --locked      # install from the lockfile
 mise prune --dry-run       # show unused installed versions
 mise ls --prunable
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 `mise.lock` records resolved versions for teammates and CI; `prune` deletes
 only versions unused by any tracked config or executed stub.
@@ -255,7 +262,8 @@ mise use npm:prettier                 # npm package
 mise use pypi:ruff                    # Python package
 mise use cargo:starship               # crates.io crate
 ```
-{: data-line="1,2"}
+
+<!-- {: data-line="1,2"} -->
 
 Add a version the same way: `mise use github:BurntSushi/ripgrep@14`.
 

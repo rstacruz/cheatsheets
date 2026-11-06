@@ -4,7 +4,8 @@ category: JavaScript libraries
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - <https://www.npmjs.org/package/nopt>
 

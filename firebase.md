@@ -81,7 +81,8 @@ post = Posts.push({ title: "How to do things", author: "alan" })
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * <https://www.firebase.com/docs/web/api/>
 * <https://www.firebase.com/docs/web/recipes.html>

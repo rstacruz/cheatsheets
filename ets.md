@@ -29,7 +29,8 @@ iex> :ets.delete_all_objects(table)
 ```elixir
 iex> table = :ets.new(:my_table, [:set, :protected])
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 | Flag | Description |
 | --- | --- |
@@ -46,7 +47,8 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * <http://erlang.org/doc/man/ets.html>
 * <http://learnyousomeerlang.com/ets>

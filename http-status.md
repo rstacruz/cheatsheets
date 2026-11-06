@@ -10,7 +10,8 @@ description: |
 ## Status codes
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Three-digit responses listed in the [IANA registry](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines most of them. Links go to MDN, except 305 and 306.
 
@@ -21,7 +22,8 @@ Three-digit responses listed in the [IANA registry](https://www.iana.org/assignm
 | `100` | Continue            | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/100) |
 | `101` | Switching Protocols | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/101) |
 | `103` | Early Hints         | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/103) |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Success responses
 
@@ -36,7 +38,8 @@ Three-digit responses listed in the [IANA registry](https://www.iana.org/assignm
 | `206` | Partial Content               | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206) |
 | ---   | ---                           | ---                                                                         |
 | `226` | IM Used                       | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/226) |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Redirection responses
 
@@ -52,7 +55,8 @@ Three-digit responses listed in the [IANA registry](https://www.iana.org/assignm
 | `306` | (Unused)                | [?](https://www.rfc-editor.org/rfc/rfc9110.html#name-306-unused)             |
 | `307` | Temporary Redirect      | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/307)  |
 | `308` | Permanent Redirect      | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/308)  |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Client error responses
 
@@ -87,7 +91,8 @@ Three-digit responses listed in the [IANA registry](https://www.iana.org/assignm
 | `431` | Request Header Fields Too Large | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/431) |
 | ---   | ---                             | ---                                                                         |
 | `451` | Unavailable For Legal Reasons   | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/451) |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Server error responses
 
@@ -103,7 +108,8 @@ Three-digit responses listed in the [IANA registry](https://www.iana.org/assignm
 | `506` | Variant Also Negotiates         | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/506) |
 | `510` | Not Extended (obsoleted)        | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/510) |
 | `511` | Network Authentication Required | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/511) |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ## WebDAV status codes
 
@@ -126,7 +132,8 @@ See: [RFC 4918](https://www.rfc-editor.org/rfc/rfc4918.html)
 | ---   | ---                             | ---                                                                         |
 | `507` | Insufficient Storage            | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/507) |
 | `508` | Loop Detected                   | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/508) |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ## Also see
 

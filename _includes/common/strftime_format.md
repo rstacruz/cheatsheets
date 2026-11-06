@@ -1,5 +1,6 @@
 ## {{ include.title }}
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Presets
 
@@ -11,7 +12,8 @@
 | `%A, %B %e, %Y` | `Wednesday, June 5, 2013` |
 | `%F`            | `2013-06-05`              |
 | `%b %e %a`      | `Jun 5 Wed`               |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 #### Time
 
@@ -20,7 +22,8 @@
 | `%H:%M`    | `23:05`    |
 | `%I:%M %p` | `11:05 PM` |
 | `%T`       | `23:05:00` |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 Used by Ruby, UNIX `date`, and many more.
 
@@ -43,7 +46,8 @@ See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strft
 | ---    | ---                      | ---         |
 | `%d`   | `01`..`31`               | **Day**     |
 | `%e`   | `1`..`31`                |             |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strftime.html)
 
@@ -65,6 +69,7 @@ See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strft
 | `%j`   | `001`..`366` | Day of the year     |
 | `%s`   | `1370473500` | Epoch seconds       |
 | `%%`   | `%`          | Literal % character |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strftime.html)

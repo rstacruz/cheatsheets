@@ -6,10 +6,12 @@ tier: t2
 ---
 
 ## Common time formats
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Date formatting tokens differ by tool: strftime for Ruby and `date`, Moment.js
 tokens for JavaScript libraries that copy them.

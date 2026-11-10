@@ -101,7 +101,6 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 | Flag                      | Description                       |
 | ------------------------- | --------------------------------- |
-| `-p, --print`             | Print response and exit           |
 | `-c, --continue`          | Continue most recent conversation |
 | `-r, --resume`            | Resume a session by ID or name    |
 | ------------------------- | --------------------------------- |
@@ -125,12 +124,24 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--settings file.json`           | Load settings for this session    |
 | `--ide`                          | Auto-connect to your IDE          |
 | `-w, --worktree`                 | Start in an isolated git worktree |
-| `--bare`                         | Skip hooks, plugins, and memory   |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 
 <!-- {: .-shortcuts} -->
 
-`-p` runs also take `--output-format text|json|stream-json`, `--max-turns`, `--max-budget-usd`, and `--json-schema`.
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
+
+### Headless mode
+
+| Flag                   | Description                      |
+| ---------------------- | -------------------------------- |
+| `-p, --print`          | Print the response and exit      |
+| `--output-format json` | `text`, `json`, or `stream-json` |
+| `--json-schema schema` | Constrain output to a schema     |
+| `--max-turns 3`        | Limit agentic turns              |
+| `--max-budget-usd 5`   | Stop the run at a spend cap      |
+| `--bare`               | Skip hooks, plugins, and memory  |
+
+<!-- {: .-shortcuts} -->
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 

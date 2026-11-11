@@ -2,7 +2,7 @@
 title: React.js
 category: React
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 weight: -10
 keywords:
@@ -254,7 +254,7 @@ async function addTodo(formData) {
 ```
 <!-- {: data-line="1,2,3"} -->
 
-Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter from an action prop. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
+Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter inside an action or transition. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
 ## Effects
 
@@ -608,7 +608,8 @@ const { prelude } = await prerender(<App />)
 
 `prerender` and `prerenderToNodeStream` wait for data; 19.2 adds `resume` for partial pre-rendering.
 
-`cache(fn)` dedupes Server Component work; `cacheSignal()` aborts it when the render ends.
+`cache(fn)` dedupes Server Component work; `cacheSignal()` returns an
+AbortSignal aborted when the render ends.
 
 See: [Server APIs](https://react.dev/reference/react-dom/server) · [prerender](https://react.dev/reference/react-dom/static/prerender)
 
@@ -620,7 +621,8 @@ import { browser } from 'react-dom'
 use(browser())  // suspends on the server, not the client
 ```
 
-Marks a subtree as browser-only; the nearest Suspense fallback renders on the server.
+Marks a Client Component as browser-only; its nearest Suspense fallback
+renders during SSR.
 
 See: [browser](https://react.dev/reference/react-dom/browser)
 

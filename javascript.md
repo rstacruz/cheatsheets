@@ -2,7 +2,7 @@
 title: JavaScript
 category: JavaScript
 weight: -10
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 intro: |
   Core JavaScript language reference: strings, numbers, arrays, objects,
@@ -15,7 +15,7 @@ intro: |
 
 <!-- {: .-intro} -->
 
-Quick reference for the core JavaScript language. Each section links to a
+Quick reference for the core JavaScript language. Most sections link to a
 full cheatsheet.
 
 - [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) _(developer.mozilla.org)_
@@ -108,11 +108,13 @@ ages.has('Bob')                  // → true
 ```js
 [3, 1, 2].toSorted()                // → [1, 2, 3]
 [1, 2, 3].with(0, 9)                // → [9, 2, 3]
-Object.groupBy(list, x => x.type)   // → { a: [...], b: [...] }
+Object.groupBy(list, n => n % 2)    // → { 0: [2], 1: [1, 3] }
 Object.hasOwn(user, 'name')         // → true
 new Set(a).union(b)                 // → Set union
 Promise.withResolvers()             // → { promise, resolve, reject }
 await Array.fromAsync(gen())        // → collected values
+[1, 2].values().map(x => x * 2).toArray()  // → [2, 4]
+await Promise.try(risky)            // → rejects on sync throw
 structuredClone(obj)                // → deep copy
 ```
 
@@ -224,7 +226,7 @@ const [first, ...rest] = list
 const { title, ...others } = book
 const fn = (x = 1) => x * 2
 const message = `Hello ${name}`
-for (const item of items) { ... }
+for (const item of list) console.log(item)
 ```
 
 [ES2015+ cheatsheet](./es6)

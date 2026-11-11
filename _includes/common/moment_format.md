@@ -18,7 +18,7 @@
 | --------- | -------- |
 | `hh:mm a` | 12:30 pm |
 
-Moment.js tokens; [date-fns](https://date-fns.org/docs/format) and Java [SimpleDateFormat](https://docs.oracle.com/en/java/javase/27/docs/api/java.base/java/text/SimpleDateFormat.html) use different ones.
+Moment.js tokens; [date-fns](https://date-fns.org/docs/format) and Java [SimpleDateFormat](https://docs.oracle.com/en/java/javase/27/docs/api/java.base/java/text/SimpleDateFormat.html) use different ones. Moment itself is in maintenance mode.
 
 See: [Format](https://momentjs.com/docs/#/displaying/format/)
 
@@ -99,13 +99,13 @@ See: [Format](https://momentjs.com/docs/#/displaying/format/)
 | `LT`    | 8:30 PM                          |
 | `LTS`   | 8:30:25 PM                       |
 | ---     | ---                              |
-| `LL`    | August 2 1985                    |
-| `ll`    | Aug 2 1985                       |
+| `LL`    | August 2, 1985                   |
+| `ll`    | Aug 2, 1985                      |
 | ---     | ---                              |
-| `LLL`   | August 2 1985 08:30 PM           |
-| `lll`   | Aug 2 1985 08:30 PM              |
+| `LLL`   | August 2, 1985 8:30 PM           |
+| `lll`   | Aug 2, 1985 8:30 PM              |
 | ---     | ---                              |
-| `LLLL`  | Thursday, August 2 1985 08:30 PM |
-| `llll`  | Thu, Aug 2 1985 08:30 PM         |
+| `LLLL`  | Friday, August 2, 1985 8:30 PM   |
+| `llll`  | Fri, Aug 2, 1985 8:30 PM         |
 
 See: [Long date formats](https://momentjs.com/docs/#/customization/long-date-formats/)

@@ -3,7 +3,7 @@ title: Markdown
 category: Markup
 tier: t2
 weight: -1
-updated: 2026-11-06
+updated: 2026-11-11
 keywords:
   - markdown syntax
   - commonmark
@@ -24,7 +24,6 @@ intro: |
 
 - [CommonMark specification](https://spec.commonmark.org/0.31.2/) _(spec.commonmark.org)_
 - [GitHub Flavored Markdown specification](https://github.github.com/gfm/) _(github.github.com)_
-- [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) _(docs.github.com)_
 
 ### Basic example
 

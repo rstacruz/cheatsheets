@@ -3,7 +3,7 @@ title: Docker CLI
 category: Devops
 tier: t2
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 keywords:
   - docker build
   - docker run
@@ -66,7 +66,9 @@ docker run [options] IMAGE [COMMAND] [ARG...]
       --pull always          # missing (default), always, never
 ```
 
-Creates and starts a container from an image. Takes most of the same options as `docker create` (except `--detach`) and doesn't start the container.
+Creates and starts a container from an image. Takes the same options
+as `docker create`, plus the detach options (`-d`, `--detach-keys`,
+`--sig-proxy`).
 
 See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
 
@@ -116,6 +118,20 @@ docker build --build-arg APP_HOME=/app -t myapp:1.0 .
 Builds an image from a `Dockerfile` in the current directory.
 
 See: [docker build](https://docs.docker.com/reference/cli/docker/image/build/)
+
+### `buildx` - Multi-platform builds
+
+```bash
+docker buildx create --name multi --use
+docker buildx build --platform linux/amd64,linux/arm64 \
+  -t me/app:1.0 --push .
+docker buildx ls
+```
+
+`docker build` is an alias for `docker buildx build`. Multi-platform
+output needs `--push` or `--output`.
+
+See: [docker buildx](https://docs.docker.com/reference/cli/docker/buildx/)
 
 ### `images` - List images
 
@@ -185,7 +201,7 @@ See: [docker start](https://docs.docker.com/reference/cli/docker/container/start
 
 ```bash
 docker rm web
-docker rm -f web         # stop and remove
+docker rm -f web         # force-remove a running container
 ```
 
 See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
@@ -226,11 +242,11 @@ See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/pru
 ### `builder prune`
 
 ```bash
-docker builder prune        # dangling build cache
-docker builder prune -a     # all unused build cache
+docker builder prune        # remove build cache
+docker builder prune -a     # also internal/frontend images
 ```
 
-See: [docker builder prune](https://docs.docker.com/reference/cli/docker/builder/prune/)
+See: [docker buildx prune](https://docs.docker.com/reference/cli/docker/buildx/prune/)
 
 ### `volume prune`
 

@@ -2,7 +2,7 @@
 title: Claude Code
 category: Agents
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 keywords:
   - AI assistant
@@ -83,15 +83,17 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 #### Setup
 
-| Command              | Description                 |
-| -------------------- | --------------------------- |
-| `claude update`      | Update to latest version    |
-| `claude install`     | Install or pin a version    |
-| `claude doctor`      | Check install and settings  |
-| `claude mcp`         | Configure MCP servers       |
-| `claude plugin`      | Install and manage plugins  |
-| `claude auth status` | Show authentication status  |
-| `claude setup-token` | Generate a token for CI     |
+| Command              | Description                    |
+| -------------------- | ------------------------------ |
+| `claude update`      | Update to latest version       |
+| `claude install`     | Install or pin a version       |
+| `claude doctor`      | Check install and settings     |
+| `claude import`      | Import another agent's setup   |
+| -------------------- | ------------------------------ |
+| `claude mcp`         | Configure MCP servers          |
+| `claude plugin`      | Install and manage plugins     |
+| `claude auth status` | Show authentication status     |
+| `claude setup-token` | Generate a token for CI        |
 
 <!-- {: .-shortcuts} -->
 
@@ -125,6 +127,7 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--ide`                          | Auto-connect to your IDE          |
 | `-w, --worktree`                 | Start in an isolated git worktree |
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
+| `--safe-mode`                    | Start with customizations off     |
 
 <!-- {: .-shortcuts} -->
 

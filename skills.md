@@ -11,7 +11,7 @@ keywords:
   - Claude Code skills
   - Codex skills
 intro: |
-  [Agent Skills](https://agentskills.io) is an open format for instructions,
+  [Agent Skills](https://agentskills.io) is an open standard for instructions,
   scripts, and references that agents load on demand. This reference covers
   layout, frontmatter, writing patterns, and discovery.
 ---
@@ -22,7 +22,7 @@ intro: |
 
 <!-- {: .-intro} -->
 
-[Agent Skills](https://agentskills.io) is an open format for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
+[Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
 
 - [Agent Skills specification](https://agentskills.io/specification) _(agentskills.io)_
 - [Authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) _(platform.claude.com)_
@@ -39,7 +39,7 @@ skill-name/
 └── evals/        # optional test cases
 ```
 
-`SKILL.md` is the only required file. Scripts run without entering context; references and assets load only when needed.
+`SKILL.md` is the only required file. Scripts run without being loaded into context; references and assets load only when needed.
 
 ```md
 ---

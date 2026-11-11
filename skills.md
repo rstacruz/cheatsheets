@@ -32,14 +32,17 @@ intro: |
 
 ```
 skill-name/
-├── SKILL.md      # metadata + instructions
-├── scripts/      # run, not read
-├── references/   # read on demand
-├── assets/       # copied into output
-└── evals/        # optional test cases
+├── SKILL.md
+├── scripts/
+├── references/
+└── assets/
 ```
 
-`SKILL.md` is the only required file. Scripts run without being loaded into context; references and assets load only when needed.
+`SKILL.md` is required; the rest are optional. Scripts execute without loading into context, references load on demand, and assets land in output.
+
+See: [Skill structure](https://agentskills.io/specification)
+
+### Sample skill
 
 ```md
 ---
@@ -47,11 +50,13 @@ name: summarize-changes
 description: >
   Summarizes uncommitted changes. Use when asked what changed.
 ---
+
+Run `git diff HEAD`, then list the risks.
 ```
 
-The folder name must match `name`, so this skill is invoked as `/summarize-changes`.
+Frontmatter first, then plain instructions. The body loads only when the skill activates.
 
-See: [Skill structure](https://agentskills.io/specification)
+See: [SKILL.md format](https://agentskills.io/specification)
 
 ### Locations
 
@@ -64,9 +69,7 @@ See: [Skill structure](https://agentskills.io/specification)
 | Copilot | `.github/skills/` | `~/.copilot/skills/` |
 <!-- {: .-headers} -->
 
-Codex and Claude Code also scan parent directories up to the repository root. Most harnesses read `.agents/skills/`, and Copilot reads `.claude/skills/` too.
-
-Skills from a repository are untrusted input: review `allowed-tools` and bundled scripts before installing.
+Codex and Claude Code also scan parent directories; most harnesses read `.agents/skills/`. Review `allowed-tools` and scripts before trusting a repo skill.
 
 See: [Claude Code skills](https://code.claude.com/docs/en/skills), [Codex skill locations](https://learn.chatgpt.com/docs/build-skills#where-to-save-skills)
 
@@ -88,33 +91,32 @@ Names use lowercase letters, numbers, and single hyphens. `PDF-Processing`, `-pd
 
 See: [Frontmatter fields](https://agentskills.io/specification)
 
-### Harness extras
+### Claude Code
 
 ```yaml
-# Claude Code only
 disable-model-invocation: true   # only /name runs it
 user-invocable: false            # only the model runs it
 paths: "src/**/*.ts"             # activate on matching files
 context: fork                    # run in a subagent
 ```
 
+These extras work in Claude Code, but claude.ai uploads and the Skills API accept only the six spec fields.
+
+See: [Frontmatter reference](https://code.claude.com/docs/en/skills#frontmatter-reference)
+
+### Codex
+
 ```yaml
-# agents/openai.yaml (Codex)
+# agents/openai.yaml
 interface:
   display_name: "Release notes"
 policy:
   allow_implicit_invocation: false
 ```
 
-Extras outside the six spec fields work in Claude Code, but claude.ai uploads and the Skills API reject them. Codex keeps UI metadata and invocation policy in `agents/openai.yaml`.
+Codex keeps UI metadata and invocation policy in `agents/openai.yaml`.
 
-See: [Claude Code frontmatter](https://code.claude.com/docs/en/skills#frontmatter-reference), [Codex metadata](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
-
-[Claude Code cheatsheet](./claude-code)
-<!-- {: .-crosslink} -->
-
-[Codex cheatsheet](./codex)
-<!-- {: .-crosslink} -->
+See: [Optional metadata](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
 
 ## Writing
 
@@ -139,11 +141,7 @@ See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-
 | Execution | `scripts/`, `references/` | none until read |
 <!-- {: .-headers} -->
 
-Keep `SKILL.md` under 500 lines. Say when to read a file, and keep references one level deep:
-
-```md
-Tracked changes: read `references/redlining.md`.
-```
+Keep `SKILL.md` under 500 lines, keep references one level deep, and say when to read each file.
 
 See: [Progressive disclosure](https://agentskills.io/specification#progressive-disclosure)
 
@@ -157,7 +155,7 @@ See: [Progressive disclosure](https://agentskills.io/specification#progressive-d
 - `/health` returns 200 with the database down; use `/ready`.
 ```
 
-This is usually the highest-value section. Add a line every time an agent gets something wrong that it could not have guessed.
+Usually the highest-value section: add a line every time an agent gets something wrong it could not have guessed.
 
 See: [Gotchas sections](https://agentskills.io/skill-creation/best-practices#gotchas-sections)
 
@@ -182,9 +180,7 @@ See: [Plan, validate, execute](https://agentskills.io/skill-creation/best-practi
 python scripts/analyze.py input.pdf > fields.json
 ```
 
-Non-interactive only: flags, env vars, or stdin, never a prompt. Write data to stdout and diagnostics to stderr, and support `--help`.
-
-Say whether to run a script or read it as reference.
+Non-interactive only: flags, env vars, or stdin. Data to stdout, diagnostics to stderr, `--help` works, and say whether to run or read it.
 
 See: [Using scripts](https://agentskills.io/skill-creation/using-scripts)
 
@@ -213,7 +209,7 @@ See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-
 }
 ```
 
-Run each case with and without the skill, grade the assertions, and read the execution traces. Wasted exploration means the instructions are too vague.
+Run each case with and without the skill, grade the assertions, and read the traces; wasted exploration means vague instructions.
 
 See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills)
 
@@ -229,3 +225,5 @@ See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills
 - [Gemini CLI skills](https://geminicli.com/docs/cli/skills/)
 - [Copilot agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
 - [anthropics/skills](https://github.com/anthropics/skills)
+- [Claude Code cheatsheet](./claude-code) _(devhints.io)_
+- [Codex cheatsheet](./codex) _(devhints.io)_

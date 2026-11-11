@@ -94,8 +94,9 @@ See: [Frontmatter fields](https://agentskills.io/specification)
 ### Claude Code
 
 ```yaml
+# Use one invocation flag, not both
 disable-model-invocation: true   # only /name runs it
-user-invocable: false            # only the model runs it
+# user-invocable: false          # only the model runs it
 paths: "src/**/*.ts"             # activate on matching files
 context: fork                    # run in a subagent
 ```

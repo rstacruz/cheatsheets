@@ -2,7 +2,7 @@
 title: HTTP Status
 category: API
 tier: t2
-updated: 2026-11-05
+updated: 2026-11-11
 description: |
   List of HTTP Status codes and links to description.
 ---
@@ -13,7 +13,7 @@ description: |
 
 <!-- {: .-intro} -->
 
-Three-digit responses listed in the [IANA registry](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines most of them. Links go to MDN, except 305 and 306.
+Three-digit responses listed in the [IANA registry](https://www.iana.org/assignments/http-status-codes); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines most of them. Links go to MDN, except 305 and 306.
 
 ### Informational responses
 
@@ -121,22 +121,22 @@ See: [RFC 4918](https://www.rfc-editor.org/rfc/rfc4918.html)
 
 ### Codes
 
-| Code  | Name                            | ?                                                                           |
-| ----  | ----                            | -                                                                           |
-| `102` | Processing                      | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/102) |
-| `207` | Multi-Status                    | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/207) |
-| `208` | Already Reported                | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/208) |
-| ---   | ---                             | ---                                                                         |
-| `423` | Locked                          | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/423) |
-| `424` | Failed Dependency               | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/424) |
-| ---   | ---                             | ---                                                                         |
-| `507` | Insufficient Storage            | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/507) |
-| `508` | Loop Detected                   | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/508) |
+| Code  | Name                 | ?                                                                                      |
+| ----  | ----                 | -                                                                                      |
+| `102` | Processing           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status#102_processing) |
+| `207` | Multi-Status         | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/207)            |
+| `208` | Already Reported     | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/208)            |
+| ---   | ---                  | ---                                                                                    |
+| `423` | Locked               | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/423)            |
+| `424` | Failed Dependency    | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/424)            |
+| ---   | ---                  | ---                                                                                    |
+| `507` | Insufficient Storage | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/507)            |
+| `508` | Loop Detected        | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/508)            |
 
 <!-- {: .xp} -->
 
 ## Also see
 
-- [HTTP status code registry](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) _(iana.org)_
+- [HTTP status code registry](https://www.iana.org/assignments/http-status-codes) _(iana.org)_
 - [RFC 9110: status codes](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) _(rfc-editor.org)_
 - [MDN status code reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) _(developer.mozilla.org)_

@@ -2,7 +2,7 @@
 title: Vim
 category: Vim
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 weight: -10
 ---
@@ -240,8 +240,6 @@ Operators
 
 ### Usage
 
-<!-- {: .-prime} -->
-
 Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 
 <!-- {: .-setup} -->
@@ -300,8 +298,6 @@ Text objects
 <!-- {: .-three-column} -->
 
 ### Usage
-
-<!-- {: .-prime} -->
 
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
 
@@ -580,6 +576,8 @@ See: [Command-line editing](https://vimhelp.org/cmdline.txt.html#c_CTRL-R)
 
 <!-- {: .-shortcuts} -->
 
+Vim 9.2 matches fuzzily with `:set completeopt+=fuzzy`.
+
 See: [Insert completion](https://vimhelp.org/insert.txt.html#ins-completion)
 
 ### Text alignment
@@ -609,7 +607,7 @@ See: [Expression register](https://vimhelp.org/insert.txt.html#i_CTRL-R_%3D)
 :cquit
 ```
 
-Works like `:qa`, but throws an error. Great for aborting Git commands.
+Quits like `:qa!`, abandoning changes, and returns an error code. Great for aborting Git commands.
 
 See: [:cquit](https://vimhelp.org/quickfix.txt.html#%3Acquit)
 

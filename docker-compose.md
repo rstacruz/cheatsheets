@@ -3,7 +3,7 @@ title: docker-compose
 category: Devops
 prism_languages: [yaml]
 weight: -1
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 keywords:
   - docker compose
@@ -456,3 +456,20 @@ services:
 Reuses a service definition from another file.
 
 See: [extends](https://docs.docker.com/reference/compose-file/services/#extends)
+
+### Merge overrides
+
+```yaml
+# compose.override.yaml
+services:
+  app:
+    ports: !override
+      - "8443:443"
+    environment:
+      FOO: !reset null
+```
+
+The override file merges into the base; `!reset` clears a value
+and `!override` replaces it instead of appending.
+
+See: [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)

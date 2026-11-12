@@ -2,7 +2,7 @@
 title: Curl
 category: CLI
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 ---
 
@@ -83,10 +83,13 @@ See: [-H, --header](https://curl.se/docs/manpage.html#-H)
 ```bash
 --cacert ca.pem   # CA bundle
 --capath /etc/ssl # CA directory
+--ca-native       # add the OS certificate store
 -E cert.pem       # --cert: client certificate
 --cert-type PEM   # certificate type
 -k                # --insecure: skip verification
 ```
+
+`--ca-native` adds the OS trust store; support depends on the TLS backend.
 
 See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 
@@ -98,13 +101,15 @@ See: [SSL certificate verification](https://curl.se/docs/sslcerts.html)
 --no-progress-meter  # hide progress, keep errors
 --retry 3            # retry transient errors
 --retry-all-errors   # retry any error
+-C -                 # --continue-at: resume a partial file
 --parallel           # run transfers in parallel
 --rate 10/s          # cap request rate
+--resolve example.com:443:127.0.0.1  # pin host to an address
 ```
 
 `--rate` has no effect when `--parallel` is used.
 
-See: [--parallel](https://curl.se/docs/manpage.html#--parallel)
+See: [--parallel](https://curl.se/docs/manpage.html#--parallel), [retries](https://ec.haxx.se/usingcurl/downloads/retry.html)
 
 ### HTTP versions
 
@@ -117,6 +122,33 @@ See: [--parallel](https://curl.se/docs/manpage.html#--parallel)
 HTTP/3 needs a curl built with HTTP/3 support.
 
 See: [--http3](https://curl.se/docs/manpage.html#--http3)
+
+### Variables
+
+```bash
+--variable host=example.com    # set a variable
+--variable %TOKEN             # import an environment variable
+--expand-url 'https://{{host}}/v1'
+--expand-data '{{TOKEN:trim}}'
+```
+
+Only `--expand-*` options expand `{{name}}`. Functions include `trim`,
+`json`, `url`, `b64`, and `64dec`.
+
+See: [--variable](https://curl.se/docs/manpage.html#--variable)
+
+### Config files
+
+```bash
+-K curlrc           # --config: read options from a file
+-K -                # read options from stdin
+-q                  # --disable: ignore .curlrc
+```
+
+curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then
+`$HOME/.curlrc`. Write one option per line, without leading dashes.
+
+See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 
 ## Examples
 
@@ -149,4 +181,4 @@ curl -s -o /dev/null -w '%{http_code}\n' https://example.com
 curl -fL --retry 3 -O https://example.com/file.tar.gz
 ```
 
-See: [Using curl](https://everything.curl.dev/usingcurl)
+See: [Using curl](https://ec.haxx.se/usingcurl/)

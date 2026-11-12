@@ -2,7 +2,7 @@
 title: Terraform
 category: Devops
 tier: t2
-updated: 2026-11-05
+updated: 2026-11-11
 description: |
   A practical reference for Terraform configuration and CLI workflows.
 intro: |
@@ -105,9 +105,16 @@ provider "aws" {
 }
 ```
 
-Commit `.terraform.lock.hcl`; do not commit `.terraform/`.
+```bash
+terraform providers lock \
+  -platform=linux_amd64 \
+  -platform=darwin_arm64
+```
 
-See: [Provider requirements](https://developer.hashicorp.com/terraform/language/providers/requirements)
+Commit `.terraform.lock.hcl`; do not commit `.terraform/`. Lock entries are
+per-platform, so lock each platform your CI runs.
+
+See: [Provider requirements](https://developer.hashicorp.com/terraform/language/providers/requirements), [providers lock](https://developer.hashicorp.com/terraform/cli/commands/providers/lock)
 
 ### Resources
 
@@ -468,6 +475,31 @@ See: [Modules](https://developer.hashicorp.com/terraform/language/modules)
 
 ## State and existing resources
 
+### Backends
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket       = "my-tf-state"
+    key          = "prod/terraform.tfstate"
+    region       = "us-east-1"
+    use_lockfile = true
+  }
+}
+```
+
+```bash
+terraform init -migrate-state   # after changing the backend
+terraform init -reconfigure     # ignore saved backend config
+terraform init -backend-config=prod.s3.tfbackend
+```
+
+S3 backend locking needs `use_lockfile`; the older `dynamodb_table` is
+deprecated. Keep credentials out of configuration and pass them with
+`-backend-config`.
+
+See: [Backends](https://developer.hashicorp.com/terraform/language/backend), [S3 backend](https://developer.hashicorp.com/terraform/language/backend/s3)
+
 ### Inspect state
 
 ```bash
@@ -568,6 +600,49 @@ terraform workspace delete staging
 CLI workspaces share configuration but use separate state instances.
 
 See: [State](https://developer.hashicorp.com/terraform/language/state), [Workspaces](https://developer.hashicorp.com/terraform/cli/workspaces)
+
+## Provisioners and checks
+
+### Provisioners
+
+```hcl
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "remote-exec" {
+    inline = ["sudo systemctl restart app"]
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> hosts"
+  }
+}
+```
+
+Provisioners run only at create or destroy time, never on updates. Destroy-time
+provisioners use a `when` argument. Prefer purpose-built resources.
+
+See: [Provisioners](https://developer.hashicorp.com/terraform/language/provisioners)
+
+### `check` blocks
+
+```hcl
+check "health_check" {
+  data "http" "app" {
+    url = "https://example.com"
+  }
+
+  assert {
+    condition     = data.http.app.status_code == 200
+    error_message = "Health check failed"
+  }
+}
+```
+
+Checks run after plan and apply; a failing `assert` warns instead of failing
+the run. Data sources nested in a `check` block are read last.
+
+See: [`check` block](https://developer.hashicorp.com/terraform/language/block/check)
 
 ## Debugging and automation
 

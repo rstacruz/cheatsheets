@@ -3,7 +3,7 @@ title: TypeScript
 category: JavaScript libraries
 tier: t1
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 ---
 
 ## Basics
@@ -485,16 +485,18 @@ See: [Type-only imports](https://www.typescriptlang.org/docs/handbook/release-no
 | Option | Use |
 | --- | --- |
 | `module: "nodenext"` | Node ESM and CJS resolution |
-| `module: "bundler"` | Bundler-style resolution |
-| `module: "node20"` | Node 20+ import attributes |
+| `module: "node20"` | Node 20 module rules |
+| `moduleResolution: "bundler"` | Bundler-style resolution |
 | `verbatimModuleSyntax` | Keep imports as written |
+| --- | --- |
+| `noUncheckedIndexedAccess` | Index access includes `undefined` |
 | `erasableSyntaxOnly` | Ban enums, namespaces, parameter properties |
 | `isolatedDeclarations` | Require explicit types on exports |
 | `rewriteRelativeImportExtensions` | Rewrite `.ts` paths to `.js` |
 
 `target: es2025` is the 7.0 default; ES5 support was removed.
 
-See: [TSConfig reference](https://www.typescriptlang.org/tsconfig)
+See: [TSConfig reference](https://www.typescriptlang.org/tsconfig/)
 
 ## Recent additions
 
@@ -578,4 +580,4 @@ See: [Utility types](https://www.typescriptlang.org/docs/handbook/utility-types.
 
 - [TypeScript documentation](https://www.typescriptlang.org/docs/)
 - [TypeScript 7.0 announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/)
-- [TSConfig reference](https://www.typescriptlang.org/tsconfig)
+- [TSConfig reference](https://www.typescriptlang.org/tsconfig/)

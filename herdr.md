@@ -1,7 +1,7 @@
 ---
 title: Herdr
 category: Agents
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 keywords:
   - terminal workspace manager
@@ -139,7 +139,7 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 
 | Command | Purpose |
 | --- | --- |
-| `herdr server` | Headless server; stop, reload, manifests |
+| `herdr server` | Headless server; stop, reload-config, manifests |
 | `herdr status` | Show client and server state |
 <!-- {: .-shortcuts} -->
 

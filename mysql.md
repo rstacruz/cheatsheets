@@ -1,6 +1,6 @@
 ---
 title: MySQL
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 category: Databases
 ---
@@ -11,9 +11,9 @@ category: Databases
 
 <!-- {: .-intro} -->
 
-[MySQL](https://dev.mysql.com/doc/refman/8.4/en/) is an open-source relational database. This reference covers MySQL 8.4 LTS SQL, clients, and server administration.
+[MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
 
-- [MySQL 8.4 Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/)
+- [MySQL 9.7 Reference Manual](https://dev.mysql.com/doc/refman/9.7/en/)
 - [MySQL documentation](https://dev.mysql.com/doc/)
 
 ### Select
@@ -28,7 +28,7 @@ SELECT * FROM t LIMIT 10 OFFSET 20;
 SELECT col, COUNT(*) FROM t GROUP BY col HAVING COUNT(*) > 1;
 ```
 
-See: [SELECT statement](https://dev.mysql.com/doc/refman/8.4/en/select.html)
+See: [SELECT statement](https://dev.mysql.com/doc/refman/9.7/en/select.html)
 
 ### Joins
 
@@ -40,7 +40,7 @@ SELECT * FROM t1 CROSS JOIN t2;
 SELECT * FROM t1 JOIN t2 USING (id);
 ```
 
-See: [JOIN clause](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+See: [JOIN clause](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
 ### Conditions
 
@@ -56,7 +56,7 @@ cond1 OR cond2
 NOT cond
 ```
 
-See: [Expressions](https://dev.mysql.com/doc/refman/8.4/en/expressions.html)
+See: [Expressions](https://dev.mysql.com/doc/refman/9.7/en/expressions.html)
 
 ### CTEs and window functions
 
@@ -69,7 +69,7 @@ SELECT id,
 FROM t;
 ```
 
-See: [WITH](https://dev.mysql.com/doc/refman/8.4/en/with.html), [Window functions](https://dev.mysql.com/doc/refman/8.4/en/window-functions.html)
+See: [WITH](https://dev.mysql.com/doc/refman/9.7/en/with.html), [Window functions](https://dev.mysql.com/doc/refman/9.7/en/window-functions.html)
 
 ## Modifying data
 
@@ -84,7 +84,7 @@ INSERT INTO t (id, col1) VALUES (1, 'a') AS new
 INSERT INTO t1 (col1) SELECT col1 FROM t2;
 ```
 
-See: [INSERT](https://dev.mysql.com/doc/refman/8.4/en/insert.html), [ON DUPLICATE KEY UPDATE](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html)
+See: [INSERT](https://dev.mysql.com/doc/refman/9.7/en/insert.html), [ON DUPLICATE KEY UPDATE](https://dev.mysql.com/doc/refman/9.7/en/insert-on-duplicate.html)
 
 ### Update
 
@@ -95,7 +95,7 @@ UPDATE t1 JOIN t2 ON t1.id = t2.id
 UPDATE t SET col1 = col1 + 1 ORDER BY id LIMIT 10;
 ```
 
-See: [UPDATE statement](https://dev.mysql.com/doc/refman/8.4/en/update.html)
+See: [UPDATE statement](https://dev.mysql.com/doc/refman/9.7/en/update.html)
 
 ### Delete
 
@@ -106,7 +106,7 @@ DELETE t1 FROM t1 JOIN t2 ON t1.id = t2.id;
 TRUNCATE TABLE t;
 ```
 
-See: [DELETE statement](https://dev.mysql.com/doc/refman/8.4/en/delete.html)
+See: [DELETE statement](https://dev.mysql.com/doc/refman/9.7/en/delete.html)
 
 ## Schema
 
@@ -119,7 +119,7 @@ ALTER DATABASE app CHARACTER SET utf8mb4;
 DROP DATABASE app;
 ```
 
-See: [CREATE DATABASE](https://dev.mysql.com/doc/refman/8.4/en/create-database.html)
+See: [CREATE DATABASE](https://dev.mysql.com/doc/refman/9.7/en/create-database.html)
 
 ### Create table
 
@@ -135,7 +135,7 @@ CREATE TEMPORARY TABLE tmp (id INT);
 CREATE TABLE t3 LIKE t;
 ```
 
-See: [CREATE TABLE statement](https://dev.mysql.com/doc/refman/8.4/en/create-table.html)
+See: [CREATE TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/create-table.html)
 
 ### Alter table
 
@@ -150,7 +150,7 @@ ALTER TABLE t ALTER COLUMN col DROP DEFAULT;
 ALTER TABLE t RENAME TO t2;
 ```
 
-See: [ALTER TABLE statement](https://dev.mysql.com/doc/refman/8.4/en/alter-table.html)
+See: [ALTER TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/alter-table.html)
 
 ### Keys and constraints
 
@@ -167,7 +167,7 @@ ALTER TABLE t ADD CONSTRAINT fk_org
 ALTER TABLE t ADD CONSTRAINT chk CHECK (qty > 0);
 ```
 
-See: [FOREIGN KEY constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html), [CHECK constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)
+See: [FOREIGN KEY constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-foreign-keys.html), [CHECK constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-check-constraints.html)
 
 ### Indexes
 
@@ -179,7 +179,7 @@ ALTER TABLE t ADD INDEX idx_col (col);
 DROP INDEX idx_name ON t;
 ```
 
-See: [CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html)
+See: [CREATE INDEX](https://dev.mysql.com/doc/refman/9.7/en/create-index.html)
 
 ## Inspecting
 
@@ -195,7 +195,7 @@ SHOW INDEX FROM t;
 SHOW GRANTS FOR CURRENT_USER;
 ```
 
-See: [SHOW statements](https://dev.mysql.com/doc/refman/8.4/en/show.html)
+See: [SHOW statements](https://dev.mysql.com/doc/refman/9.7/en/show.html)
 
 ### Process list
 
@@ -207,7 +207,7 @@ KILL QUERY 123;
 KILL CONNECTION 123;
 ```
 
-See: [KILL statement](https://dev.mysql.com/doc/refman/8.4/en/kill.html), [SHOW PROCESSLIST](https://dev.mysql.com/doc/refman/8.4/en/show-processlist.html)
+See: [KILL statement](https://dev.mysql.com/doc/refman/9.7/en/kill.html), [SHOW PROCESSLIST](https://dev.mysql.com/doc/refman/9.7/en/show-processlist.html)
 
 ## Users and privileges
 
@@ -221,9 +221,10 @@ REVOKE INSERT ON app.* FROM 'app'@'localhost';
 DROP USER 'app'@'localhost';
 ```
 
-Host `%` matches any host; prefer `localhost` for local clients.
+Host `%` matches any host; prefer `localhost` for local clients. Accounts default
+to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
 
-See: [CREATE USER](https://dev.mysql.com/doc/refman/8.4/en/create-user.html), [GRANT](https://dev.mysql.com/doc/refman/8.4/en/grant.html)
+See: [CREATE USER](https://dev.mysql.com/doc/refman/9.7/en/create-user.html), [GRANT](https://dev.mysql.com/doc/refman/9.7/en/grant.html)
 
 ### Change password
 
@@ -235,7 +236,7 @@ SET PASSWORD = 'new_secret';
 
 `ALTER USER` is preferred over `SET PASSWORD`.
 
-See: [ALTER USER](https://dev.mysql.com/doc/refman/8.4/en/alter-user.html), [SET PASSWORD](https://dev.mysql.com/doc/refman/8.4/en/set-password.html)
+See: [ALTER USER](https://dev.mysql.com/doc/refman/9.7/en/alter-user.html), [SET PASSWORD](https://dev.mysql.com/doc/refman/9.7/en/set-password.html)
 
 ### Roles
 
@@ -247,7 +248,7 @@ SET DEFAULT ROLE 'read_only' TO 'app'@'localhost';
 DROP ROLE 'read_only';
 ```
 
-See: [Using roles](https://dev.mysql.com/doc/refman/8.4/en/roles.html)
+See: [Using roles](https://dev.mysql.com/doc/refman/9.7/en/roles.html)
 
 ### Reset root password
 
@@ -270,7 +271,7 @@ mysqladmin -u root -p shutdown
 
 Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
 
-See: [How to reset the root password](https://dev.mysql.com/doc/refman/8.4/en/resetting-permissions.html)
+See: [How to reset the root password](https://dev.mysql.com/doc/refman/9.7/en/resetting-permissions.html)
 
 ## Backup and restore
 
@@ -284,7 +285,7 @@ mysqldump -u root -p --no-data app > schema.sql
 
 `--single-transaction` gives a consistent InnoDB snapshot without locking tables.
 
-See: [mysqldump](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html)
+See: [mysqldump](https://dev.mysql.com/doc/refman/9.7/en/mysqldump.html)
 
 ### Restore
 
@@ -293,7 +294,7 @@ mysql -u root -p -e 'CREATE DATABASE IF NOT EXISTS app'
 mysql -u root -p app < app.sql
 ```
 
-See: [Executing SQL from a file](https://dev.mysql.com/doc/refman/8.4/en/mysql-batch-commands.html)
+See: [Executing SQL from a file](https://dev.mysql.com/doc/refman/9.7/en/mysql-batch-commands.html)
 
 ### Check and repair
 
@@ -305,7 +306,7 @@ mysqlcheck -u root -p --auto-repair app
 
 `--fast` checks only tables that were not closed properly. `--auto-repair` cannot repair InnoDB tables; `REPAIR TABLE` supports MyISAM, ARCHIVE, and CSV only.
 
-See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html), [REPAIR TABLE](https://dev.mysql.com/doc/refman/8.4/en/repair-table.html)
+See: [mysqlcheck](https://dev.mysql.com/doc/refman/9.7/en/mysqlcheck.html), [REPAIR TABLE](https://dev.mysql.com/doc/refman/9.7/en/repair-table.html)
 
 ## Data types
 
@@ -321,7 +322,7 @@ See: [mysqlcheck](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html), [REP
 
 `UNSIGNED` disallows negatives and raises the upper bound.
 
-See: [Integer types](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html)
+See: [Integer types](https://dev.mysql.com/doc/refman/9.7/en/integer-types.html)
 
 ### Numeric
 
@@ -333,7 +334,7 @@ See: [Integer types](https://dev.mysql.com/doc/refman/8.4/en/integer-types.html)
 
 `FLOAT(M,D)` and `DOUBLE(M,D)` are deprecated.
 
-See: [Numeric types](https://dev.mysql.com/doc/refman/8.4/en/numeric-types.html)
+See: [Numeric types](https://dev.mysql.com/doc/refman/9.7/en/numeric-types.html)
 
 ### Strings
 
@@ -349,7 +350,7 @@ See: [Numeric types](https://dev.mysql.com/doc/refman/8.4/en/numeric-types.html)
 
 `utf8` is a deprecated alias for `utf8mb3`; use `utf8mb4`.
 
-See: [String types](https://dev.mysql.com/doc/refman/8.4/en/string-types.html)
+See: [String types](https://dev.mysql.com/doc/refman/9.7/en/string-types.html)
 
 ### Date and time
 
@@ -363,7 +364,7 @@ See: [String types](https://dev.mysql.com/doc/refman/8.4/en/string-types.html)
 
 `TIMESTAMP` converts to the session time zone; `DATETIME` does not.
 
-See: [Date and time types](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html)
+See: [Date and time types](https://dev.mysql.com/doc/refman/9.7/en/date-and-time-types.html)
 
 ### JSON
 
@@ -379,4 +380,4 @@ ALTER TABLE t ADD COLUMN name VARCHAR(50)
 
 Index a generated column to index a JSON field.
 
-See: [The JSON data type](https://dev.mysql.com/doc/refman/8.4/en/json.html)
+See: [The JSON data type](https://dev.mysql.com/doc/refman/9.7/en/json.html)

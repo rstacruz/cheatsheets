@@ -1,7 +1,7 @@
 ---
 title: Kotlin
 category: Java & JVM
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 keywords:
   - Variables
@@ -53,7 +53,21 @@ val upper = "Hi, ${name.uppercase()}"
 
 String templates interpolate values with `$name` or `${expression}`.
 
-See: [String templates](https://kotlinlang.org/docs/strings.html#string-templates)
+```kotlin
+val raw = """
+  Hi, $name
+""".trimIndent()
+```
+
+Triple-quoted strings keep escapes and layout literal; `trimIndent()` strips shared indentation.
+
+```kotlin
+val json = $$"""{ "id": $${id} }"""
+```
+
+`$$` sets how many dollars start an interpolation, for text like JSON.
+
+See: [String templates](https://kotlinlang.org/docs/strings.html#string-templates), [Multiline strings](https://kotlinlang.org/docs/strings.html#multiline-strings), [Multi-dollar interpolation](https://kotlinlang.org/docs/strings.html#multi-dollar-string-interpolation)
 
 ### Numbers
 

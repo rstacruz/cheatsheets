@@ -2,7 +2,7 @@
 title: Hermes CLI
 category: Agents
 tier: t2
-updated: 2026-11-05
+updated: 2026-11-11
 keywords:
   - AI assistant
   - CLI
@@ -46,7 +46,7 @@ hermes setup            # full reconfiguration wizard
 hermes setup model      # one section at a time
 ```
 
-Sections are `model`, `terminal`, `gateway`, `tools`, and `agent`. Returning users get the wizard with current values as defaults.
+Sections are `model`, `tts`, `terminal`, `gateway`, `tools`, and `agent`. Returning users get the wizard with current values as defaults.
 
 See: [`hermes setup`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-setup)
 
@@ -84,7 +84,7 @@ See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli
 | `--format stream-json`    | Emit JSONL events for a `-q` run     |
 | `--image <path>`          | Attach a local image to one query    |
 | ------------------------- | ------------------------------------ |
-| `-w, --worktree`          | Start in an isolated git worktree    |
+| `--worktree`              | Start in an isolated git worktree    |
 | `--safe-mode`             | Disable all customizations           |
 
 <!-- {: .-shortcuts} -->

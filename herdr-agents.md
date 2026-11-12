@@ -1,7 +1,7 @@
 ---
 title: Herdr agents
 category: Agents
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 keywords:
   - coding agents
@@ -178,8 +178,7 @@ See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-
 | `unknown` | Present, but Herdr cannot classify it |
 
 `idle` and `done` are the same underlying state; `done` is the unseen
-variant. Focusing the tab or targeting the pane with a focus command marks
-it seen; CLI reads do not.
+variant. Focus commands mark it seen; CLI reads do not.
 
 The sidebar rolls state up: a `blocked` agent makes its pane, tab, and
 workspace look blocked, a `working` agent makes the workspace active, and a
@@ -211,8 +210,9 @@ detection state, the matched rule, and why an idle fallback happened; add
 `--json` for machine-readable output. On `agent read`, use `--format ansi`
 (or `--ansi`) when colors and styling are evidence.
 
-For an idle alternate-screen agent, `recent` reads past the viewport scroll
-its transcript; while the agent is busy, they return `agent_not_idle`.
+For an idle alternate-screen agent, `recent` with `--lines` beyond the
+visible screen scrolls its transcript; while the agent is not idle, that
+read returns `agent_not_idle`.
 
 See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 

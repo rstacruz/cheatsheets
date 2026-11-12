@@ -1,7 +1,7 @@
 ---
 title: Codex
 category: Agents
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 keywords:
   - AI assistant
@@ -66,6 +66,8 @@ codex fork --last          # branch the latest chat
 | `codex`                  | Start the interactive TUI          |
 | `codex resume`           | Reopen a saved chat                |
 | `codex fork`             | Branch a saved chat into a new one |
+| `codex agents`           | Browse and switch sessions         |
+| ---                      | ---                                |
 | `codex archive <chat>`   | Hide a chat from the picker        |
 | `codex unarchive <chat>` | Restore an archived chat           |
 | `codex delete <chat>`    | Delete a chat and its transcript   |
@@ -133,6 +135,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `--no-alt-screen`                            | Keep output in terminal scrollback |
 | ---                                          | ---                            |
 | `--enable <feature>`                         | Enable optional features       |
+| `--disable <feature>`                        | Turn an optional feature off   |
 | `--no-daemon`                                | Skip the shared background server |
 | `--strict-config`                            | Reject unknown config keys     |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
@@ -225,6 +228,21 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/usage`  | Show account token usage       |
 | `/copy`   | Copy the latest response       |
 | `/export` | Export the chat as Markdown    |
+
+<!-- {: .-shortcuts} -->
+
+See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
+
+### Terminals and workspace
+
+| Command       | Description                        |
+| ------------- | ---------------------------------- |
+| `/ps`         | Show background terminals          |
+| `/stop`       | Stop all background terminals      |
+| `/cd <path>`  | Move the session to a directory    |
+| `/worktree`   | Continue in a managed git worktree |
+| `/recap`      | Summarize the chat, keep context   |
+| `/raw`        | Toggle raw scrollback              |
 
 <!-- {: .-shortcuts} -->
 

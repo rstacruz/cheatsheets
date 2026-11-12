@@ -3,7 +3,7 @@ title: Go
 prism_languages: [go, bash]
 weight: -3
 category: C-like
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 ---
 
@@ -59,6 +59,11 @@ Or try it in the [Go playground](https://go.dev/play/).
 | `go vet ./...` | Report likely bugs |
 | `go fmt ./...` | Format packages |
 | `go mod tidy` | Sync dependencies |
+| `go doc fmt.Println` | Show documentation |
+
+`go work init` starts a workspace; `go tool pprof` profiles a binary.
+
+`GOTOOLCHAIN=auto` lets `go.mod` pick a newer toolchain; `go telemetry local` keeps counters local.
 
 See: [go command](https://pkg.go.dev/cmd/go)
 
@@ -77,7 +82,7 @@ var x, msg = 1, "Hello, world!"
 
 #### Declaration list
 
-``` go
+```go
 var (
   x int
   y = 20
@@ -310,7 +315,7 @@ See: [If with a short statement](https://go.dev/tour/flowcontrol/6)
 ```go
 switch day {
 case "sunday":
-  // cases don't "fall through" by default!
+  // cases don't fall through by default
   fallthrough
 case "saturday":
   rest()
@@ -337,7 +342,16 @@ for i := range 3 {
 
 Since Go 1.22 the range clause also accepts an integer.
 
-See: [For statements](https://go.dev/ref/spec#For_statements)
+```go
+nums := slices.Values([]int{1, 2, 3})
+for n := range nums {
+  fmt.Println(n)
+}
+```
+
+Since Go 1.23 it also accepts an iterator function.
+
+See: [For statements](https://go.dev/ref/spec#For_statements), [iter package](https://pkg.go.dev/iter)
 
 ### For-range loop
 
@@ -465,7 +479,13 @@ func (s *Stack[T]) Map[U any](f func(T) U) []U {
 
 Go 1.27 allows methods to declare their own type parameters.
 
-See: [Type parameters](https://go.dev/tour/generics/1), [Generic methods](https://go.dev/doc/go1.27#language)
+```go
+type Set[T comparable] = map[T]struct{}
+```
+
+Since Go 1.24 a type alias may take type parameters.
+
+See: [Type parameters](https://go.dev/tour/generics/1), [Generic methods](https://go.dev/doc/go1.27#language), [Alias declarations](https://go.dev/ref/spec#Alias_declarations)
 
 ### Constraints
 
@@ -507,7 +527,7 @@ import (
 
 Both are the same.
 
-See: [Importing](https://go.dev/tour/basics/1)
+See: [Importing](https://go.dev/tour/basics/2)
 
 ### Aliases
 
@@ -583,6 +603,8 @@ func push(name string, ch chan string) {
 <!-- {: data-line="3"} -->
 
 Channels are concurrency-safe communication objects, used in goroutines.
+
+Goroutines run on `GOMAXPROCS` threads; since Go 1.25 that follows the container's CPU limit on Linux.
 
 See: [Goroutines](https://go.dev/tour/concurrency/1), [Channels](https://go.dev/tour/concurrency/2)
 

@@ -2,7 +2,7 @@
 title: Bash scripting
 category: CLI
 tags: [Featured]
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t1
 keywords:
   - Variables
@@ -75,6 +75,7 @@ See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 echo "I'm in $(pwd)"
 echo "I'm in `pwd`"  # deprecated
 echo "$(< file.txt)"  # no fork
+echo "${ printf hi; }"  # 5.3, no fork
 ```
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
@@ -123,7 +124,7 @@ set -euo pipefail
 IFS=$'\n\t'
 ```
 
-`errexit` ignores failures in conditions, all but the final command of `&&`/`||` lists, and `!` pipelines.
+`errexit` skips failures in conditions, in all but the last command of `&&`/`||` lists and pipelines, and in commands negated with `!`.
 
 See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
@@ -212,8 +213,7 @@ See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_n
 ```bash
 name=joe
 pointer=name
-echo ${!pointer}
-joe
+echo "${!pointer}"  # => joe
 ```
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
@@ -695,7 +695,7 @@ shopt -s globstar    # ** matches recursively
 shopt -s extglob     # Extended patterns: @(a|b), !(a)
 ```
 
-`globskipdots` is on by default since bash 5.2. `GLOBSORT` sets sort order (name, size, mtime).
+`globskipdots` is on by default since bash 5.2. `GLOBSORT` picks the glob sort key (`name`, `size`, `mtime`), with `-` to reverse (bash 5.3).
 
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
@@ -853,7 +853,9 @@ source "${BASH_SOURCE[0]%/*}/../share/foo.sh"
 
 `BASH_SOURCE` points at the file even when the script is sourced.
 
-See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html)
+Bash 5.3 adds `source -p dirs` to search a colon-separated list instead of `$PATH`.
+
+See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-BASH_005fSOURCE)
 
 ### printf
 
@@ -905,7 +907,9 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 dir=${BASH_SOURCE[0]%/*}
 ```
 
-See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html)
+`BASH_SOURCE` is the path as invoked; `shopt -s bash_source_fullpath` (bash 5.3) makes it absolute.
+
+See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-BASH_005fSOURCE)
 
 ### Getting options
 

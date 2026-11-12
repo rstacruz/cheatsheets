@@ -1,7 +1,7 @@
 ---
 title: mise
 category: CLI
-updated: 2026-11-05
+updated: 2026-11-11
 tier: t2
 keywords:
   - dev tool version manager
@@ -173,15 +173,15 @@ See: [mise install](https://mise.jdx.dev/cli/install.html)
 node = "24"             # latest 24.x
 python = "3.13.1"       # exact
 ruby = "latest"
-erlang = "ref:master"   # build a git ref
 go = "prefix:1.19"      # latest 1.19.x
-shfmt = "path:./shfmt"  # custom install dir
+shfmt = "path:./shfmt"  # existing directory
+"cargo:owner/tool" = "tag:v1.2.3"  # git ref build
 ```
 
 <!-- {: data-line="5,6,7"} -->
 
-A request is a range; an exact version is a pin. `prefix:` helps when `1.19`
-matches only `1.19`. Aliases like `lts` are not universal.
+A request is a range; an exact version is a pin. `prefix:` disambiguates a
+release named exactly `1.19`. Aliases like `lts` are not universal.
 
 See: [Version requests](https://mise.jdx.dev/dev-tools/versions.html)
 
@@ -382,7 +382,7 @@ See: [Environment variables](https://mise.jdx.dev/configuration/environment-vari
 ```bash
 mise trust --show            # trust status of nearby configs
 mise trust                   # trust the local config
-mise trust --all             # trust this tree + parents
+mise trust --all             # dir, parents, subdirs
 mise untrust mise.toml
 mise trust --ignore
 ```
@@ -473,7 +473,8 @@ API_KEY = { value = "sk-...", redact = true }
 output. Secrets do not belong in committed config — `mise.local.toml` is
 still plaintext.
 
-See: [Environments](https://mise.jdx.dev/environments/)
+See: [Secrets](https://mise.jdx.dev/environments/secrets/),
+[Environments](https://mise.jdx.dev/environments/)
 
 ## Tasks
 

@@ -1,7 +1,7 @@
 ---
 title: AWS S3
 category: Devops
-updated: 2026-11-03
+updated: 2026-11-11
 tier: t2
 keywords:
   - aws s3 cli
@@ -34,6 +34,7 @@ aws s3 cp file.txt s3://mybucket/ --no-overwrite
 | `--recursive` | Recurse into directories and prefixes |
 | `--dryrun` | Print the operations without running them |
 | `--no-overwrite` | Skip files already at the destination |
+| `--checksum-algorithm` | Checksum algorithm, `CRC64NVME` by default |
 | `--quiet` | Suppress per-file output |
 | `--only-show-errors` | Hide output except errors and warnings |
 | `--no-progress` | Hide the progress bar |
@@ -87,7 +88,7 @@ aws s3 cp s3://source-bucket/key s3://dest-bucket/key \
 ```
 
 `--region` names the destination's region; `--source-region` names the
-source's. `--copy-props` controls which metadata follows the object.
+source's. `--copy-props` controls which properties the copy preserves.
 
 See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 

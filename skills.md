@@ -196,7 +196,7 @@ See: [Using scripts](https://agentskills.io/skill-creation/using-scripts)
 ]
 ```
 
-Write 10 positive and 10 negative queries, run each three times, and keep a 60/40 train/validation split.
+Write about 20 queries (8–10 positive, 8–10 negative), run each three times, and keep a 60/40 train/validation split.
 
 See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-descriptions)
 
@@ -204,13 +204,14 @@ See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-
 
 ```json
 {
-  "query": "Extract text from document.pdf",
-  "files": ["document.pdf"],
-  "expected_behavior": ["Reads every page", "Writes output.txt"]
+  "id": 1,
+  "prompt": "Extract text from document.pdf",
+  "files": ["evals/files/document.pdf"],
+  "expected_output": "Every page read; text saved to output.txt"
 }
 ```
 
-Run each case with and without the skill, grade the assertions, and read the traces; wasted exploration means vague instructions.
+Cases live in `evals/evals.json`. Run each with and without the skill, grade the assertions, and read the traces; wasted exploration means vague instructions.
 
 See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills)
 
@@ -224,7 +225,7 @@ See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills
 - [OpenAI Skills API](https://developers.openai.com/api/docs/guides/tools-skills)
 - [Cursor skills](https://cursor.com/docs/skills)
 - [Gemini CLI skills](https://geminicli.com/docs/cli/skills/)
-- [Copilot agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+- [Copilot agent skills](https://docs.github.com/en/copilot/concepts/customizations/agent-skills)
 - [anthropics/skills](https://github.com/anthropics/skills)
 - [Claude Code cheatsheet](./claude-code) _(devhints.io)_
 - [Codex cheatsheet](./codex) _(devhints.io)_

@@ -223,7 +223,7 @@ See: [Keybinds](https://opencode.ai/docs/cli/keybinds)
 
 <!-- {: .-shortcuts} -->
 
-`@src/auth.ts#20-45` attaches a line range. `Enter` steers a running session; `Ctrl+X` then `Enter` queues the prompt for later. For a newline, use `Ctrl+J` or `Shift+Enter`.
+`@src/auth.ts#20-45` attaches a line range. `Enter` steers a running session; `Ctrl+X` `Enter` queues the prompt. For a newline, use `Ctrl+J` or `Shift+Enter`.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 
@@ -341,9 +341,13 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 <!-- {: data-line="4"} -->
 
-Rules evaluate in order and the last match wins, so exceptions follow the broad rule. Anything unmatched asks. Every agent starts with everything allowed except `.env` and `.env.*` reads, which ask; `.env.example` stays allowed.
+Rules evaluate in order and the last match wins, so exceptions follow the broad rule. Anything unmatched asks.
 
-Common actions are `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, and `external_directory`; MCP tools get one action per server and tool. V2 retired v1's `permission`, `bash`, and `task` names.
+Every agent starts with everything allowed except `.env` and `.env.*` reads, which ask; `.env.example` stays allowed.
+
+Common actions are `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, and `external_directory`; MCP tools get their own.
+
+V2 retired v1's `permission`, `bash`, and `task` names.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 
@@ -405,7 +409,7 @@ See: [run](https://opencode.ai/docs/cli/commands#run)
 /redo     # cancel the staged rollback and restore the work
 ```
 
-`/undo` puts the prompt back in the composer; submitting it commits the rollback. Snapshots capture filesystem state, so files return too. Turn them off with `"snapshots": false`.
+`/undo` returns the prompt to the composer; submitting it commits the rollback. Snapshots bring files back too, and turn off with `"snapshots": false`.
 
 See: [Snapshots](https://opencode.ai/docs/snapshots)
 

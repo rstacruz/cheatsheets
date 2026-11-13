@@ -35,7 +35,7 @@ npm install -g @opencode/cli                      # npm
 bun install -g --trust @opencode/cli              # bun
 ```
 
-Windows has standalone zips only; the package managers cover macOS and Linux.
+Windows gets a standalone zip; the package managers cover macOS and Linux.
 
 See: [Intro](https://opencode.ai/docs/)
 
@@ -142,7 +142,7 @@ See: [Background service](https://opencode.ai/docs/cli#background-service)
 
 <!-- {: .-shortcuts} -->
 
-`/btw` answers from the session's context without adding to it. `Esc` interrupts a run; the reverted prompt returns to the composer.
+`/btw` answers from the session's context without adding it to the transcript. `Esc` interrupts a run.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 
@@ -343,7 +343,7 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 Rules evaluate in order and the last match wins, so exceptions follow the broad rule. Anything unmatched asks. Agents start with everything allowed except `.env` reads.
 
-Actions are `shell`, `edit`, `read`, `subagent`, `skill`, `webfetch`, and `external_directory`. V2 renamed v1's `permission`, `bash`, and `task`.
+Actions are `shell`, `edit`, `read`, `subagent`, `skill`, `webfetch`, and `external_directory`. V2 retired v1's `permission`, `bash`, and `task` names.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 
@@ -382,7 +382,7 @@ git diff | opencode run "review this diff for bugs"
 opencode run --file src/auth.ts "review error handling"
 ```
 
-In the TUI, `/diff` opens the diff viewer and `m` marks files reviewed. `/undo` reverts a turn and the edits it made.
+In the TUI, `/diff` opens the diff viewer and `m` marks files reviewed.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 

@@ -100,7 +100,7 @@ See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics
 
 ## Search
 
-### Find and replace
+### Find
 
 | Key        | Description            |
 | ---        | ---                    |
@@ -109,12 +109,18 @@ See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics
 | `⌘G`       | Find next match        |
 | `⇧⌘G`      | Find previous match    |
 | `⌥Enter`   | Select all matches     |
+
+See: [Search and replace](https://code.visualstudio.com/docs/editing/codebasics#_search-and-replace)
+
+### Search across files
+
+| Key        | Description            |
 | ---        | ---                    |
 | `⇧⌘F`      | Find in files          |
 | `⇧⌘H`      | Replace in files       |
 | `⇧⌘J`      | Toggle search details  |
 
-See: [Search and replace](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files)
+See: [Search across files](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files)
 
 ## Views
 <!-- {: .-three-column} -->
@@ -196,7 +202,7 @@ See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 
 ## Debug
 
-### Starting and stepping
+### Starting and stopping
 
 | Key            | Description                |
 | ---            | ---                        |
@@ -204,6 +210,12 @@ See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 | `⇧⌘F5`         | Restart                    |
 | `⇧F5`          | Stop                       |
 | `⌃F5`          | Start without debugging    |
+
+See: [Debugging](https://code.visualstudio.com/docs/debugtest/debugging)
+
+### Breakpoints and stepping
+
+| Key            | Description                |
 | ---            | ---                        |
 | `F9`           | Toggle breakpoint          |
 | `F10`          | Step over                  |
@@ -212,7 +224,7 @@ See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 | `⇧⌘D`          | Debug view                 |
 | `⇧⌘Y`          | Debug console              |
 
-See: [Debugging](https://code.visualstudio.com/docs/debugtest/debugging)
+See: [Debug actions](https://code.visualstudio.com/docs/debugtest/debugging#_debug-actions)
 
 ## Command line
 

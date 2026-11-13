@@ -1,0 +1,20 @@
+[
+  "bash#| Expression | Description |",
+  "capybara#| Positive | Negative |",
+  "css#| Selector | Description |",
+  "ets#| Flag | Description |",
+  "git-revisions#| Example | Description |",
+  "jekyll#| Filter | Description |",
+  "jekyll#| Filter | Output |",
+  "jekyll#| Variable | Description |",
+  "js-async#| Call | Resolves when |",
+  "postgresql-json#| Operator | Description | Example |",
+  "postgresql-json#| Operator | Description | Example | Returns |",
+  "postgresql-json#| Operator | Example | Description",
+  "rollup#| Command | Description |",
+  "sql-join#| Join | What |",
+  "vimscript#| What | What |",
+  "vue#| Method | Description |",
+  "webpack#| Command | Description |",
+  "xpath#| Part | Example | Meaning |"
+]

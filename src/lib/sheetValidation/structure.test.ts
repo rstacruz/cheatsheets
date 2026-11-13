@@ -7,37 +7,40 @@ import {
 import { scanHeadings } from './outline'
 import { sheetSources } from './sheets'
 
-/** Footer sections list links only; the one H2 shape allowed to skip H3s */
-const FOOTER_TITLES = new Set([
-  'also see',
-  'see also',
-  'references',
-  'reference',
-  'read more'
-])
+/** Footer sections list links only; the one H2 shape exempt from the minimum */
+const FOOTER_TITLES: Record<string, true> = {
+  'also see': true,
+  'see also': true,
+  references: true,
+  reference: true,
+  'read more': true
+}
 
-type Finding = { line: number; title: string }
+/** A single card renders as a stub, so every section gets at least two */
+const MIN_H3 = 2
 
-function findH2WithoutH3(source: string): Finding[] {
+type Finding = { line: number; title: string; count: number }
+
+function findThinH2Sections(source: string): Finding[] {
   const found: Finding[] = []
-  let section: { line: number; title: string; hasH3: boolean } | undefined
+  let section: Finding | undefined
 
   const flush = () => {
     if (
       section &&
-      !section.hasH3 &&
-      !FOOTER_TITLES.has(section.title.toLowerCase())
+      section.count < MIN_H3 &&
+      !FOOTER_TITLES[section.title.toLowerCase()]
     ) {
-      found.push({ line: section.line, title: section.title })
+      found.push(section)
     }
   }
 
   for (const heading of scanHeadings(source)) {
     if (heading.level === 2) {
       flush()
-      section = { line: heading.line, title: heading.title, hasH3: false }
+      section = { line: heading.line, title: heading.title, count: 0 }
     } else if (heading.level === 3 && section) {
-      section.hasH3 = true
+      section.count++
     }
   }
 
@@ -45,37 +48,61 @@ function findH2WithoutH3(source: string): Finding[] {
   return found
 }
 
-describe('findH2WithoutH3()', () => {
+describe('findThinH2Sections()', () => {
   test('flags an H2 with no H3', () => {
-    expect(findH2WithoutH3('## A\n\ntext')).toEqual([{ line: 1, title: 'A' }])
+    expect(findThinH2Sections('## A\n\ntext')).toEqual([
+      { line: 1, title: 'A', count: 0 }
+    ])
   })
 
-  test('allows an H2 with an H3', () => {
-    expect(findH2WithoutH3('## A\n\n### B\n\ntext')).toEqual([])
+  test('flags an H2 with one H3', () => {
+    expect(findThinH2Sections('## A\n\n### B\n\ntext')).toEqual([
+      { line: 1, title: 'A', count: 1 }
+    ])
+  })
+
+  test('allows an H2 with two H3s', () => {
+    expect(findThinH2Sections('## A\n\n### B\n\n### C')).toEqual([])
+  })
+
+  test('does not count H4s', () => {
+    expect(findThinH2Sections('## A\n\n### B\n\n#### C')).toEqual([
+      { line: 1, title: 'A', count: 1 }
+    ])
   })
 
   test('allows footer sections', () => {
     const input = '## A\n\n### B\n\n## Also see\n\n- [x](./x)'
-    expect(findH2WithoutH3(input)).toEqual([])
+    expect(findThinH2Sections(input)).toEqual([
+      { line: 1, title: 'A', count: 1 }
+    ])
   })
 
-  test('flags each H2 that has no H3', () => {
-    expect(findH2WithoutH3('## A\n\n## B\n')).toEqual([
-      { line: 1, title: 'A' },
-      { line: 3, title: 'B' }
+  test('allows footer sections with one card', () => {
+    const input = '## References\n\n### Docs\n\n- [x](./x)'
+    expect(findThinH2Sections(input)).toEqual([])
+  })
+
+  test('flags each thin H2', () => {
+    expect(findThinH2Sections('## A\n\n### B\n\n## C\n')).toEqual([
+      { line: 1, title: 'A', count: 1 },
+      { line: 5, title: 'C', count: 0 }
     ])
   })
 
   test('ignores headings inside fenced code', () => {
-    expect(findH2WithoutH3('## A\n\n### B\n\n```md\n## C\n```')).toEqual([])
+    const input = '## A\n\n### B\n\n```md\n## C\n```'
+    expect(findThinH2Sections(input)).toEqual([
+      { line: 1, title: 'A', count: 1 }
+    ])
   })
 })
 
-test('every sheet gives each H2 an H3', async () => {
+test('every sheet gives each H2 at least two H3s', async () => {
   const findings: Array<Finding & { slug: string }> = []
   for (const { slug, source } of await sheetSources()) {
     if (!isSheetSlug(slug)) continue
-    for (const finding of findH2WithoutH3(source)) {
+    for (const finding of findThinH2Sections(source)) {
       findings.push({ slug, ...finding })
     }
   }
@@ -87,8 +114,10 @@ test('every sheet gives each H2 an H3', async () => {
 
   const allowed = new Set(loadBaseline<string[]>('structure.json', []))
   expect(
-    findings
-      .filter(({ slug, title }) => !allowed.has(`${slug}#${title}`))
-      .map(({ slug, line, title }) => `${slug}:${line}: ${title}`)
+    findings.flatMap(({ slug, line, title, count }) =>
+      allowed.has(`${slug}#${title}`)
+        ? []
+        : [`${slug}:${line}: "${title}" has ${count} H3`]
+    )
   ).toEqual([])
 })

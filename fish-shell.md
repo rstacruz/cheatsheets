@@ -14,34 +14,11 @@ intro: |
 ### About
 <!-- {: .-intro} -->
 
-fish ships with autosuggestions, syntax highlighting, and tab completions
-for common commands. Scripts use fish's own syntax rather than POSIX sh.
+fish ships with autosuggestions, syntax highlighting, and tab completions for
+common commands. Scripts use fish's own syntax rather than POSIX sh.
 
 - [Documentation](https://fishshell.com/docs/current/index.html) _(fishshell.com)_
 - [GitHub repository](https://github.com/fish-shell/fish-shell) _(github.com)_
-
-### Keys
-
-| Shortcut                 | Description                     |
-| ---                      | ---                             |
-| `Tab`                    | Complete the current token      |
-| `Shift Tab`              | Complete and search the pager   |
-| `Left` / `Right`         | Move one character              |
-| `Alt Left` / `Alt Right` | Move one word                   |
-| `Up` / `Down`            | Previous/next command           |
-| `Alt Up` / `Alt Down`    | Previous/next argument          |
-| ---                      | ---                             |
-| `^A` / `^E`              | Start/end of line               |
-| `^U`                     | Kill to start of line           |
-| `^K`                     | Kill to end of line             |
-| `^W`                     | Kill previous path component    |
-| ---                      | ---                             |
-| `^C`                     | Cancel the line                 |
-| `^D`                     | Delete character; exit if empty |
-| `^L`                     | Clear the screen                |
-| `^R`                     | Search history                  |
-
-See: [Shared bindings](https://fishshell.com/docs/current/interactive.html#shared-bindings)
 
 ### Comments and printing
 
@@ -62,7 +39,11 @@ set my_variable 'Hello from Fish!'
 set --erase my_variable
 ```
 
-Pass a flag to choose where a variable lives:
+`set` stores a list even when given one value; `echo $my_variable` expands it.
+
+See: [Variables](https://fishshell.com/docs/current/language.html#variables)
+
+### Variable scope
 
 ```fish
 set -l local_var 1     # current block
@@ -71,14 +52,63 @@ set -U universal_var 1 # every session
 set -x EDITOR nvim     # exported to children
 ```
 
-Inspect and test:
+`-l`, `-g`, and `-U` choose where a variable lives; `-x` exports it.
+
+See: [Variables](https://fishshell.com/docs/current/language.html#variables)
+
+### Inspecting variables
 
 ```fish
 set --show PATH
 set --query EDITOR; and echo 'editor is set'
 ```
 
-See: [Variables](https://fishshell.com/docs/current/language.html#variables)
+`--show` prints scope and value; `--query` sets `$status` without printing.
+
+See: [set](https://fishshell.com/docs/current/cmds/set.html)
+
+## Keys
+
+### Moving around
+
+| Shortcut                 | Description               |
+| ---                      | ---                       |
+| `Left` / `Right`         | Move one character        |
+| `Alt Left` / `Alt Right` | Move one word             |
+| `Alt <` / `Alt >`        | Start/end of commandline  |
+| `^A` / `^E`              | Start/end of line         |
+
+See: [Shared bindings](https://fishshell.com/docs/current/interactive.html#shared-bindings)
+
+### Editing the line
+
+| Shortcut        | Description                     |
+| ---             | ---                             |
+| `^U`            | Kill to start of line           |
+| `^K`            | Kill to end of line             |
+| `^W`            | Kill previous path component    |
+| `Alt Backspace` | Kill previous word              |
+| ---             | ---                             |
+| `^C`            | Cancel the line                 |
+| `^D`            | Delete character; exit if empty |
+| `^L`            | Clear the screen                |
+| `^Z` / `^_`     | Undo the last edit              |
+
+See: [Emacs mode](https://fishshell.com/docs/current/interactive.html#emacs-mode)
+
+### History and completion
+
+| Shortcut              | Description                     |
+| ---                   | ---                             |
+| `Tab`                 | Complete the current token      |
+| `Shift Tab`           | Complete and search the pager   |
+| `Up` / `Down`         | Previous/next command           |
+| `Alt Up` / `Alt Down` | Previous/next argument          |
+| `^R`                  | Search history                  |
+
+See: [History search](https://fishshell.com/docs/current/interactive.html#searchable-command-history)
+
+## Lists and math
 
 ### Slicing
 
@@ -101,6 +131,10 @@ set count (math $count + 1)
 echo (math '2 ^ 10')
 ```
 
+`math` prints the result; capture it with `(...)`.
+
+#### Operators
+
 | Operator | Performs       |
 | ---      | ---            |
 | `+`      | Addition       |
@@ -121,6 +155,10 @@ string match --regex --entire 'Fish' 'Hello from Fish!'
 string match --quiet 'Fish*' 'Hello from Fish!'
 ```
 
+`--quiet` sets `$status` instead of printing.
+
+#### Patterns
+
 | Pattern   | Matches                   |
 | ---       | ---                       |
 | `x?`      | Zero or one `x` chars     |
@@ -137,7 +175,7 @@ string match --quiet 'Fish*' 'Hello from Fish!'
 | `\W`      | Not word character        |
 | `\D`      | Not digit character       |
 
-See: [string](https://fishshell.com/docs/current/cmds/string.html)
+See: [string match](https://fishshell.com/docs/current/cmds/string.html#match-subcommand)
 
 ### Replacing
 
@@ -148,6 +186,8 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 # Replaces all matches
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```
+
+Add `--all` to replace every match.
 
 See: [string replace](https://fishshell.com/docs/current/cmds/string.html#replace-subcommand)
 
@@ -176,7 +216,7 @@ See: [string split](https://fishshell.com/docs/current/cmds/string.html#split-an
 
 ## Control flow
 
-### Conditionals
+### If/else
 
 ```fish
 if test $my_variable -lt $another_variable
@@ -188,42 +228,48 @@ else
 end
 ```
 
-Short-circuit with `and`/`or`, or `&&`/`||`:
+See: [Conditions](https://fishshell.com/docs/current/language.html#syntax-conditional)
+
+### Tests
 
 ```fish
 test -d /tmp; and echo 'directory'
 test -f /nope; or echo 'missing'
 ```
 
+`and` and `or` run the next command based on `$status`; `&&` and `||` work too.
+
 #### Numbers
 
-| Operator | Meaning                  |
-| ---      | ---                      |
-| `-lt`    | [L]ess [t]han            |
-| `-eq`    | [E]qual                  |
-| `-gt`    | [G]reater [t]han         |
-| `-le`    | Less than or equal       |
-| `-ge`    | Greater than or equal    |
-| `-ne`    | Not equal                |
+| Operator | Meaning               |
+| ---      | ---                   |
+| `-lt`    | Less than             |
+| `-eq`    | Equal                 |
+| `-gt`    | Greater than          |
+| `-le`    | Less than or equal    |
+| `-ge`    | Greater than or equal |
+| `-ne`    | Not equal             |
 
 #### Strings
 
-| Operator | Meaning    |
-| ---      | ---        |
-| `=`      | Equal      |
-| `!=`     | Not equal  |
+| Operator | Meaning   |
+| ---      | ---       |
+| `=`      | Equal     |
+| `!=`     | Not equal |
 
 #### Files
 
-| Operator | Meaning                   |
-| ---      | ---                       |
-| `-f`     | File exists               |
-| `-d`     | Directory exists          |
-| `-r`     | Exists and readable       |
-| `-w`     | Exists and writable       |
-| `-x`     | Exists and executable     |
+| Operator | Meaning               |
+| ---      | ---                   |
+| `-f`     | File exists           |
+| `-d`     | Directory exists      |
+| `-r`     | Exists and readable   |
+| `-w`     | Exists and writable   |
+| `-x`     | Exists and executable |
 
-#### Switch
+See: [Conditions](https://fishshell.com/docs/current/language.html#conditions)
+
+### Switch
 
 ```fish
 switch $my_variable
@@ -234,7 +280,9 @@ switch $my_variable
 end
 ```
 
-See: [Conditions](https://fishshell.com/docs/current/language.html#syntax-conditional)
+`case '*'` is the default branch.
+
+See: [Conditions](https://fishshell.com/docs/current/language.html#conditions)
 
 ### Loops
 
@@ -266,14 +314,20 @@ end
 functions --erase my_function
 ```
 
-Arguments arrive in `$argv`. Edit and persist functions:
+Arguments arrive in `$argv`.
+
+See: [Functions](https://fishshell.com/docs/current/language.html#functions)
+
+### Editing functions
 
 ```fish
 funced my_function    # edit in $EDITOR
 funcsave my_function  # write to config
 ```
 
-See: [Functions](https://fishshell.com/docs/current/language.html#functions)
+`funced` opens the function; `funcsave` persists it.
+
+See: [funced](https://fishshell.com/docs/current/cmds/funced.html)
 
 ## Processes
 
@@ -286,6 +340,8 @@ my_command > out.txt 2>&1
 my_command < in.txt
 ```
 
+`&|` pipes both streams; `2>&1` merges stderr into stdout.
+
 See: [Pipes](https://fishshell.com/docs/current/language.html#pipes)
 
 ### Command substitution
@@ -295,6 +351,8 @@ echo (math 1 + 2)
 echo $(math 1 + 2)        # fish 3.4+
 echo (my_command | psub)  # gives a temp file path
 ```
+
+`psub` turns command output into a file for programs that need one.
 
 See: [Command substitution](https://fishshell.com/docs/current/language.html#command-substitution)
 
@@ -384,15 +442,19 @@ complete --command mycommand --short-option h --long-option help
 complete --command mycommand --erase
 ```
 
-| Option           | Description                          |
-| ---              | ---                                  |
-| `--arguments`    | Arguments to the command or option   |
-| `--short-option` | Short option                         |
-| `--long-option`  | Long option                          |
-| `--no-files`     | Don't suggest files                  |
-| `--force-files`  | Suggest files                        |
-| `--condition`    | Only suggest under a condition       |
-| `--description`  | Description in the pager             |
+`complete` registers options for tab completion.
+
+#### Completion options
+
+| Option           | Description                        |
+| ---              | ---                                |
+| `--arguments`    | Arguments to the command or option |
+| `--short-option` | Short option                       |
+| `--long-option`  | Long option                        |
+| `--no-files`     | Don't suggest files                |
+| `--force-files`  | Suggest files                      |
+| `--condition`    | Only suggest under a condition     |
+| `--description`  | Description in the pager           |
 
 See: [complete](https://fishshell.com/docs/current/cmds/complete.html)
 

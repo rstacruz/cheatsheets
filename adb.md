@@ -35,22 +35,15 @@ See: [adb documentation](https://developer.android.com/tools/adb)
 
 ### Wireless debugging
 
-Pair once, then connect. The pairing port is not the port you connect to:
-
 ```bash
 adb pair 192.168.1.20:37123     # code from the pairing dialog
 adb connect 192.168.1.20:5555   # wireless debugging port
 adb disconnect 192.168.1.20:5555
+adb tcpip 5555                  # Android 10 and lower, after USB
 ```
 
-Devices on the network can be discovered with `adb mdns services`.
-
-Android 10 and lower switch to TCP/IP after a USB connection:
-
-```bash
-adb tcpip 5555
-adb connect 192.168.1.20:5555
-```
+`pair` uses the port shown in the pairing dialog; `connect` uses the wireless
+debugging port. `adb mdns services` discovers devices on the network.
 
 See: [Connect over Wi-Fi](https://developer.android.com/tools/adb#wireless-adb-android-11)
 
@@ -64,6 +57,8 @@ adb install-multiple a.apk b.apk
 adb uninstall com.example.app
 adb uninstall -k com.example.app  # keep data
 ```
+
+#### Install options
 
 | Option  | Description                    |
 | ---     | ---                            |
@@ -101,6 +96,8 @@ See: [Copy files](https://developer.android.com/tools/adb#copyfiles)
 | `adb shell pm list packages`        | List installed packages    |
 | `adb shell pm list packages -3`     | Third-party packages only  |
 | `adb exec-out screencap -p > a.png` | Raw stdout, no pty         |
+
+#### Quoting
 
 Arguments are passed like `ssh`, so quote twice for the device shell:
 

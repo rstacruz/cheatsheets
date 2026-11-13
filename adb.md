@@ -151,7 +151,7 @@ See: [Take a screenshot](https://developer.android.com/tools/adb#screencap)
 
 | Command                                 | Description          |
 | ---                                     | ---                  |
-| `adb bugreport > report.zip`            | Full bug report      |
+| `adb bugreport report.zip`              | Full bug report      |
 | `adb shell dumpsys activity`            | Activity state       |
 | `adb shell dumpsys meminfo <pkg>`       | Memory use           |
 | `adb shell dumpsys gfxinfo <pkg>`       | Frame stats          |

@@ -241,8 +241,8 @@ See: [Extension marketplace](https://code.visualstudio.com/docs/configure/extens
 ### Remote tunnels
 
 ```bash
-code tunnel               # serve this machine
-code tunnel --name my-box # fixed tunnel name
+code tunnel            # serve this machine
+code tunnel --no-sleep # keep the host awake
 ```
 
 Reachable from a browser or another VS Code client.

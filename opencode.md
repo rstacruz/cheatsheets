@@ -231,7 +231,7 @@ See: [TUI](https://opencode.ai/docs/cli/tui)
 
 | Key        | Action                                      |
 | ---------- | ------------------------------------------- |
-| `d`        | Switch source: all, committed, working, last turn |
+| `d`        | Change the review scope                     |
 | `m`        | Mark the file reviewed                      |
 | `n` / `p`  | Next or previous file                       |
 | `v`        | Toggle split or unified view                |
@@ -240,7 +240,7 @@ See: [TUI](https://opencode.ai/docs/cli/tui)
 
 <!-- {: .-shortcuts} -->
 
-Open it with `/diff`. In the viewer, `d` changes the scope and **Base** changes the comparison branch. Set the default with `diffs.source`: `branch`, `committed`, `working`, or `turn`.
+Open it with `/diff`; `d` changes the scope and **Base** changes the branch. Set the default in `cli.json` with `diffs.source` (`branch`, `committed`, `working`, `turn`).
 
 See: [Keybinds](https://opencode.ai/docs/cli/keybinds#diff-viewer)
 

@@ -66,8 +66,8 @@ See: [User interface](https://code.visualstudio.com/docs/editing/getting-started
 | Key                   | Description                    |
 | ---                   | ---                            |
 | `⌘C` / `⌘X`           | Copy/cut line (no selection)    |
-| `⌥↑` / `⌥↓`           | Move line up/down               |
-| `⇧⌥↑` / `⇧⌥↓`         | Copy line up/down               |
+| `⌥Up` / `⌥Down`       | Move line up/down               |
+| `⇧⌥Up` / `⇧⌥Down`     | Copy line up/down               |
 | `⇧⌘K`                 | Delete line                     |
 | `⌘Enter` / `⇧⌘Enter`  | Insert line below/above         |
 | `⌘]` / `⌘[`           | Indent/outdent line             |
@@ -83,18 +83,18 @@ See: [Code basics](https://code.visualstudio.com/docs/editing/codebasics)
 
 ### Multi-cursor
 
-| Key                 | Description                      |
-| ---                 | ---                              |
-| `⌥ + click`         | Insert cursor                    |
-| `⌥⌘↑` / `⌥⌘↓`       | Insert cursor above/below        |
-| `⌘D`                | Add next find match to selection |
-| `⌘K ⌘D`             | Skip last match                  |
-| `⇧⌘L`               | Select all occurrences           |
-| `⌘F2`               | Select all occurrences of word   |
-| `⌘U`                | Undo last cursor operation       |
-| ---                 | ---                              |
-| `⇧⌥I`               | Cursor at end of each line       |
-| `⌃⇧⌘→` / `⌃⇧⌘←`     | Expand/shrink selection          |
+| Key                    | Description                      |
+| ---                    | ---                              |
+| `⌥ + click`            | Insert cursor                    |
+| `⌥⌘Up` / `⌥⌘Down`      | Insert cursor above/below        |
+| `⌘D`                   | Add next find match to selection |
+| `⌘K ⌘D`                | Skip last match                  |
+| `⇧⌘L`                  | Select all occurrences           |
+| `⌘F2`                  | Select all occurrences of word   |
+| `⌘U`                   | Undo last cursor operation       |
+| ---                    | ---                              |
+| `⇧⌥I`                  | Cursor at end of each line       |
+| `⌃⇧⌘Right` / `⌃⇧⌘Left` | Expand/shrink selection          |
 
 See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics#_multiple-selections-multicursor)
 
@@ -188,7 +188,7 @@ See: [Code navigation](https://code.visualstudio.com/docs/editing/editingevolved
 | ---                      | ---                        |
 | `⌘\`                     | Split editor               |
 | `⌘1` / `⌘2` / `⌘3`       | Focus editor group         |
-| `⌘K ⌘←` / `⌘K ⌘→`        | Focus previous/next group  |
+| `⌘K ⌘Left` / `⌘K ⌘Right` | Focus previous/next group  |
 | `⌃Tab` / `⌃⇧Tab`         | Next/previous editor       |
 | `⌘K Enter`               | Keep preview editor open   |
 

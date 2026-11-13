@@ -22,24 +22,24 @@ for common commands. Scripts use fish's own syntax rather than POSIX sh.
 
 ### Keys
 
-| Shortcut            | Description                     |
-| ---                 | ---                             |
-| `Tab`               | Complete the current token      |
-| `Shift Tab`         | Complete and search the pager   |
-| `←` / `→`           | Move one character              |
-| `Alt ←` / `Alt →`   | Move one word                   |
-| `↑` / `↓`           | Previous/next command           |
-| `Alt ↑` / `Alt ↓`   | Previous/next argument          |
-| ---                 | ---                             |
-| `^A` / `^E`         | Start/end of line               |
-| `^U`                | Kill to start of line           |
-| `^K`                | Kill to end of line             |
-| `^W`                | Kill previous path component    |
-| ---                 | ---                             |
-| `^C`                | Cancel the line                 |
-| `^D`                | Delete character; exit if empty |
-| `^L`                | Clear the screen                |
-| `^R`                | Search history                  |
+| Shortcut                 | Description                     |
+| ---                      | ---                             |
+| `Tab`                    | Complete the current token      |
+| `Shift Tab`              | Complete and search the pager   |
+| `Left` / `Right`         | Move one character              |
+| `Alt Left` / `Alt Right` | Move one word                   |
+| `Up` / `Down`            | Previous/next command           |
+| `Alt Up` / `Alt Down`    | Previous/next argument          |
+| ---                      | ---                             |
+| `^A` / `^E`              | Start/end of line               |
+| `^U`                     | Kill to start of line           |
+| `^K`                     | Kill to end of line             |
+| `^W`                     | Kill previous path component    |
+| ---                      | ---                             |
+| `^C`                     | Cancel the line                 |
+| `^D`                     | Delete character; exit if empty |
+| `^L`                     | Clear the screen                |
+| `^R`                     | Search history                  |
 
 See: [Shared bindings](https://fishshell.com/docs/current/interactive.html#shared-bindings)
 
@@ -60,7 +60,7 @@ set my_variable 'Hello from Fish!'
 set --erase my_variable
 ```
 
-Scopes:
+Pass a flag to choose where a variable lives:
 
 ```fish
 set -l local_var 1     # current block

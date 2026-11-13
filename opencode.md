@@ -400,7 +400,9 @@ opencode run --archived "review this diff"
 ANTHROPIC_API_KEY=$KEY opencode run --standalone "triage bugs"
 ```
 
-`--standalone` starts a private server, so a CI secret reaches it. An `--archived` session still exists; it just stays out of lists.
+`--standalone` starts a private server, so a CI secret reaches it.
+
+`--archived` keeps a run out of the session picker and inbox; `opencode session list` still shows it.
 
 See: [run](https://opencode.ai/docs/cli/commands#run)
 

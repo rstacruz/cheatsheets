@@ -2,138 +2,138 @@
 title: Fish shell
 category: CLI
 prism_languages: [fish]
-updated: 2018-01-31
+updated: 2026-11-14
 weight: -1
+intro: |
+  [fish](https://fishshell.com/) is a user-friendly command-line shell. This
+  sheet targets fish 4.x; most scripting syntax also works on fish 3.x.
 ---
+
+## Basics
+
+### About
+<!-- {: .-intro} -->
+
+fish ships with autosuggestions, syntax highlighting, and tab completions
+for common commands. Scripts use fish's own syntax rather than POSIX sh.
+
+- [Documentation](https://fishshell.com/docs/current/index.html) _(fishshell.com)_
+- [GitHub repository](https://github.com/fish-shell/fish-shell) _(github.com)_
 
 ### Keys
 
-| Shortcut            | Description                           |
-| ---                 | ---                                   |
-| `^A ←`/`^E →`       | Move to the line beginning/end        |
-| `Alt ←`/`Alt →`     | Jump to the previous/next word        |
-| `↑`/`↓`             | Switch to the previous/next command   |
-| `Alt ↑`/`Alt ↓`     | Switch to the previous/next arguments |
-| ---                 | ---                                   |
-| `^U`                | Delete to the beginning               |
-| `^C`                | Cancel the line                       |
-| ---                 | ---                                   |
-| `Alt H`             | Show the command man page description |
-| `Alt W`             | Show the short command description    |
-| ---                 | ---                                   |
-| `Alt .`             | Repeat last argument                  |
+| Shortcut            | Description                     |
+| ---                 | ---                             |
+| `Tab`               | Complete the current token      |
+| `Shift Tab`         | Complete and search the pager   |
+| `←` / `→`           | Move one character              |
+| `Alt ←` / `Alt →`   | Move one word                   |
+| `↑` / `↓`           | Previous/next command           |
+| `Alt ↑` / `Alt ↓`   | Previous/next argument          |
+| ---                 | ---                             |
+| `^A` / `^E`         | Start/end of line               |
+| `^U`                | Kill to start of line           |
+| `^K`                | Kill to end of line             |
+| `^W`                | Kill previous path component    |
+| ---                 | ---                             |
+| `^C`                | Cancel the line                 |
+| `^D`                | Delete character; exit if empty |
+| `^L`                | Clear the screen                |
+| `^R`                | Search history                  |
 
-### Sample program
+See: [Shared bindings](https://fishshell.com/docs/current/interactive.html#shared-bindings)
 
-```fish
-#!/usr/bin/env fish
-
-echo 'Hello from Fish!'
-```
-
-### Comments
+### Comments and printing
 
 ```fish
 # my comment
-```
-
-### Printing text
-
-```fish
 echo 'Hello from Fish!'
-# or
 printf '%s\n' 'Hello from Fish!'
 ```
 
-Print the string with a trailing `\n`.
+`echo` adds a newline; `printf` takes a format string.
 
-### Reading from stdin
-
-```fish
-read my_variable
-```
-
-Reads the string to a variable `my_variable`.
-
-### Loops
+### Variables
 
 ```fish
-for i in (seq 1 10)
-  ...
-end
-```
-
-## Variables
-
-### Defining and erasing
-
-```fish
-# Declare the global/local variable:
 set my_variable 'Hello from Fish!'
-
-i# Remove the variable:
 set --erase my_variable
 ```
+
+Scopes:
+
+```fish
+set -l local_var 1     # current block
+set -g global_var 1    # current session
+set -U universal_var 1 # every session
+set -x EDITOR nvim     # exported to children
+```
+
+Inspect and test:
+
+```fish
+set --show PATH
+set --query EDITOR; and echo 'editor is set'
+```
+
+See: [Variables](https://fishshell.com/docs/current/language.html#variables)
 
 ### Slicing
 
 ```fish
-echo $my_variable[1..10]
-echo $my_variable[2..]
-echo $my_variable[..-2]
+set v a b c
+echo $v[1]    # a
+echo $v[1..2] # a b
+echo $v[2..]  # b c
+echo $v[-1]   # c
 ```
 
-## Numbers
+Indexes count from 1; negative indexes start at the end.
 
-### Incrementing and decrementing
+### Numbers
 
 ```fish
-set my_variable (math $my_variable + 1)
-set my_variable (math $my_variable - 1)
+set count (math $count + 1)
+echo (math '2 ^ 10')
 ```
 
-### Arithmetic
+| Operator | Performs       |
+| ---      | ---            |
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
+| `%`      | Modulo         |
+| `^`      | Exponentiation |
 
-```fish
-echo (math 1 + 2)
-```
-
-| Operator            | Performs       |
-| ---                 | ---            |
-| `+`                 | Addition       |
-| `-`                 | Subtraction    |
-| `*`                 | Multiplication |
-| `/`                 | Division       |
-| `%`                 | Modulo         |
-| `^`                 | Exponentiation |
+See: [math](https://fishshell.com/docs/current/cmds/math.html)
 
 ## Strings
 
 ### Matching
 
-Match the string against a regular expression:
-
 ```fish
 string match --regex --entire 'Fish' 'Hello from Fish!'
+string match --quiet 'Fish*' 'Hello from Fish!'
 ```
 
-| Pattern             | Matches                   |
-| ---                 | ---                       |
-| `x?`                | Zero or one `x` chars     |
-| `x*`                | Any count `x` chars       |
-| `x+`                | One or more  `x` chars    |
-| `x{n}`              | n times `x` chars         |
-| `x{n,m}`            | n to m times `x` chars    |
-| `x{n,}`             | n or more times `x` chars |
-| `[xy]`              | `x` or y char             |
-| `[^xy]`             | not `x` or y char         |
-| ---                 | ---                 |
-| `\w`                | Word character      |
-| `\d`                | Digit character     |
-| `\W`                | Not word character  |
-| `\D`                | Not digit character |
+| Pattern   | Matches                   |
+| ---       | ---                       |
+| `x?`      | Zero or one `x` chars     |
+| `x*`      | Any count of `x` chars    |
+| `x+`      | One or more `x` chars     |
+| `x{n}`    | n times `x` chars         |
+| `x{n,m}`  | n to m times `x` chars    |
+| `x{n,}`   | n or more `x` chars       |
+| `[xy]`    | `x` or `y` char           |
+| `[^xy]`   | Not `x` or `y` char       |
+| ---       | ---                       |
+| `\w`      | Word character            |
+| `\d`      | Digit character           |
+| `\W`      | Not word character        |
+| `\D`      | Not digit character       |
 
-Perl compatible regular expressions are described here.
+See: [string](https://fishshell.com/docs/current/cmds/string.html)
 
 ### Replacing
 
@@ -145,180 +145,282 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```
 
-## Conditionals
+### Transforming
 
-### If/else
+```fish
+string upper 'Hello'  # HELLO
+string lower 'Hello'  # hello
+string trim '  hi  '  # hi
+string length 'Hello' # 5
+```
+
+### Splitting and joining
+
+```fish
+string split , 'a,b,c'   # a b c
+string join , a b c      # a,b,c
+string collect (printf 'a\nb\n')  # joins lines
+
+```
+
+`string split` returns a list; `string join` takes one.
+
+## Control flow
+
+### Conditionals
 
 ```fish
 if test $my_variable -lt $another_variable
-  ···
+  echo 'less'
 else if test $my_variable -eq $another_variable
-  ···
+  echo 'equal'
 else
-  ···
+  echo 'greater'
 end
 ```
 
-### Comparisons
+Short-circuit with `and`/`or`, or their `&&`/`||` aliases:
+
+```fish
+test -d /tmp; and echo 'directory'
+test -f /nope; or echo 'missing'
+```
 
 #### Numbers
 
-| Number operator     | Meaning                                   |
-| ---                 | ---                                       |
-| `-lt`               | [L]ess [t]han                             |
-| `-eq`               | [Eq]ual                                   |
-| `-gt`               | [G]reater [t]han                          |
-| `-le`               | [L]ess than or [e]qual to                 |
-| `-ge`               | [G]reater than or [e]qual to              |
-| `-ne`               | [N]ot [E]qual                             |
+| Operator | Meaning                  |
+| ---      | ---                      |
+| `-lt`    | [L]ess [t]han            |
+| `-eq`    | [E]qual                  |
+| `-gt`    | [G]reater [t]han         |
+| `-le`    | Less than or equal       |
+| `-ge`    | Greater than or equal    |
+| `-ne`    | Not equal                |
 
 #### Strings
 
-| String operator     | Meaning                                   |
-| ---                 | ---                                       |
-| `=`                 | [Eq]ual                                   |
-| `!=`                | [N]ot [E]qual                             |
+| Operator | Meaning    |
+| ---      | ---        |
+| `=`      | Equal      |
+| `!=`     | Not equal  |
 
 #### Files
 
-| File operator       | Meaning                                   |
-| ---                 | ---                                       |
-| `-f`                | [F]ile exists                             |
-| `-d`                | [D]irectory exists                        |
-| `-r`                | File or directory exists and [r]eadable   |
-| `-w`                | File or directory exists and [w]ritable   |
-| `-x`                | File or directory exists and e[x]ecutable |
+| Operator | Meaning                   |
+| ---      | ---                       |
+| `-f`     | File exists               |
+| `-d`     | Directory exists          |
+| `-r`     | Exists and readable       |
+| `-w`     | Exists and writable       |
+| `-x`     | Exists and executable     |
 
-
-## Process communication
-
-### Writing to files
+#### Switch
 
 ```fish
-# Overwrite file
-echo 'Hello from Fish!' > my_file
-
-# Append to file
-echo 'Hello from Fish!' >> my_file
+switch $my_variable
+  case 'Yes'
+    echo 'Affirmative'
+  case '*'
+    echo 'Anything else'
+end
 ```
 
-### Piping
+See: [Conditions](https://fishshell.com/docs/current/language.html#syntax-conditional)
+
+### Loops
+
+```fish
+for i in (seq 1 3)
+  echo "i=$i"
+end
+
+for file in *.txt
+  echo $file
+end
+
+while true
+  break
+end
+```
+
+`break` and `continue` work inside loops.
+
+See: [Loops](https://fishshell.com/docs/current/language.html#syntax-loops-and-blocks)
+
+### Functions
+
+```fish
+function my_function --description 'My description'
+  echo $argv[1]
+end
+
+functions --erase my_function
+```
+
+Arguments arrive in `$argv`. Edit and persist functions:
+
+```fish
+funced my_function    # edit in $EDITOR
+funcsave my_function  # write to config
+```
+
+See: [Functions](https://fishshell.com/docs/current/language.html#functions)
+
+## Processes
+
+### Pipes and redirection
 
 ```fish
 my_command | another_command
+my_command &| another_command  # pipes stdout and stderr
+my_command > out.txt 2>&1
+my_command < in.txt
 ```
 
-Passes the first command stdout output as an input to a second command.
+See: [Pipes](https://fishshell.com/docs/current/language.html#pipes)
 
 ### Command substitution
 
 ```fish
-echo (math $my_variable + 1)
+echo (math 1 + 2)
+echo $(math 1 + 2)        # fish 3.4+
+echo (my_command | psub)  # gives a temp file path
 ```
 
-The `(...)` expression is substituted with the output of the command inside it.
+See: [Command substitution](https://fishshell.com/docs/current/language.html#command-substitution)
 
-
-### Process substitution
+### Background jobs
 
 ```fish
-echo (math $my_variable + 1 | psub)
+my_command &
+jobs
+fg %1
+bg %1
 ```
 
-The `(... | psub)` expression is substituted with a temporary file with the command's output.
+Job specs look like `%1`.
 
-## Functions
-
-### Defining and erasing
+### Input
 
 ```fish
-# Declare the function
-function my_function --description 'My description'
-  ···
-end
-
-# Remove the function
-functions --erase my_function
+read name
+read -s password      # no echo
+read -P 'Name: ' name # prompt
 ```
 
-## Events
+`read` stores one value per line by default.
 
-### Emitting
+## Paths
+
+### The path builtin
 
 ```fish
-emit my_event
+path basename /usr/local/bin/fish  # fish
+path dirname /usr/local/bin/fish   # /usr/local/bin
+path extension src/main.rs         # .rs
+path change-extension .js src/a.ts # src/a.js
+path normalize ./src/../a.txt      # a.txt
 ```
 
-Emits an event that can be picked up by other functions.
+`path filter` and `path is` take `-d`, `-f`, `-r`, `-w`, `-x`.
 
-### Event handling
+### Adding to PATH
 
 ```fish
-function my_hook --on-event my_event
-  ···
-end
+fish_add_path ~/.local/bin
+fish_add_path --prepend /opt/bin
 ```
 
-Reacts to the `my_event` event.
+It edits `fish_user_paths` and records it in universal variables.
 
-## Abbreviations
+See: [fish_add_path](https://fishshell.com/docs/current/cmds/fish_add_path.html)
 
-### Defining and erasing
+## Interactive
 
-```fish
-# Declare the abbreviation
-abbr --add grh "git reset --hard HEAD"
-```
-
+### Abbreviations
 
 ```fish
-# Remove the abbreviation
+abbr --add grh 'git reset --hard HEAD'
+abbr --show
 abbr --erase grh
 ```
 
-## Completions
+Abbreviations expand while typing, in interactive shells only.
 
-### Defining completions
+See: [Abbreviations](https://fishshell.com/docs/current/interactive.html#abbreviations)
+
+### History
+
+```fish
+history search 'git commit'
+history delete --contains 'secret'
+history merge
+```
+
+`^R` opens the history pager.
+
+See: [History](https://fishshell.com/docs/current/interactive.html#searchable-command-history)
+
+### Completions
 
 ```fish
 complete --command mycommand --arguments 'install uninstall'
-complete --command mycommand --short-option 'h' --long-option 'help' --description 'Display help'
-```
-
-| Option              | Description                                          |
-| ---                 | ---                                                  |
-| `--arguments`       | Arguments to the command itself or option            |
-| `--short-option`    | Short option                                         |
-| `--long-option`     | Long option                                          |
-| `--no-files`        | Don't suggest files                                  |
-| `--force-files`     | Suggest files                                        |
-| `--condition`       | Display the hint only when a given condition is true |
-| `--description`     | Description                                          |
-
-Declares the completion for a command.
-
-### Removing completions
-
-```fish
+complete --command mycommand --short-option h --long-option help
 complete --command mycommand --erase
 ```
 
-## Useful built-in functions
+| Option           | Description                          |
+| ---              | ---                                  |
+| `--arguments`    | Arguments to the command or option   |
+| `--short-option` | Short option                         |
+| `--long-option`  | Long option                          |
+| `--no-files`     | Don't suggest files                  |
+| `--force-files`  | Suggest files                        |
+| `--condition`    | Only suggest under a condition       |
+| `--description`  | Description in the pager             |
 
-### Completion helpers
+See: [complete](https://fishshell.com/docs/current/cmds/complete.html)
 
-| Function                              | Description                                                   |
-| ---                                   | ---                                                           |
-| `__fish_seen_argument`                | Check whether the specified argument is used                  |
-| `__fish_seen_subcommand_from`         | Check whether the specified subcommand is used                |
-| `__fish_use_subcommand`               | Check whether any subcommand is used                          |
-| ---                                   | ---                                                           |
-| `__fish_complete_directories`         | Complete directories with the specified letters in their name |
-| `__fish_complete_suffix`              | Complete files with the specified suffix                      |
-| ---                                   | ---                                                           |
-| `__fish_complete_users`               | List all users                                                |
-| `__fish_complete_groups`              | List all user groups                                          |
-| `__fish_print_hostnames`              | List all host names                                           |
-| `__fish_complete_pids`                | List all PIDs                                                 |
-| `__fish_print_filesystems`            | List all known filesystems                                    |
-| `__fish_print_interfaces`             | List all network interfaces                                   |
+### Key bindings
+
+```fish
+bind \cy 'echo hi'
+bind --erase \cy
+```
+
+`fish_key_reader` prints the notation for a pressed key.
+
+See: [bind](https://fishshell.com/docs/current/cmds/bind.html)
+
+## Configuration
+
+### Config files
+
+```fish
+# ~/.config/fish/config.fish
+set -gx EDITOR nvim
+fish_add_path ~/.local/bin
+```
+
+Files in `~/.config/fish/conf.d/` load in name order first. Universal
+variables persist in `~/.local/share/fish/fish_variables`.
+
+See: [Configuration](https://fishshell.com/docs/current/language.html#configuration-files)
+
+### Status checks
+
+```fish
+status is-interactive
+status is-login
+status fish-path
+```
+
+`$status` holds the exit code of the last command.
+
+See: [status](https://fishshell.com/docs/current/cmds/status.html)
+
+## Also see
+
+- [Tutorial](https://fishshell.com/docs/current/tutorial.html)
+- [Fish for bash users](https://fishshell.com/docs/current/fish_for_bash_users.html)
+- [Release notes](https://fishshell.com/docs/current/relnotes.html)

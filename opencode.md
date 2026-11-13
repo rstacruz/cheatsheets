@@ -343,7 +343,7 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 Rules evaluate in order and the last match wins, so exceptions follow the broad rule. Anything unmatched asks. Every agent starts with everything allowed except `.env` and `.env.*` reads, which ask; `.env.example` stays allowed.
 
-Actions are `shell`, `edit`, `read`, `subagent`, `skill`, `webfetch`, and `external_directory`. V2 retired v1's `permission`, `bash`, and `task` names.
+Common actions are `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, and `external_directory`; MCP tools get one action per server and tool. V2 retired v1's `permission`, `bash`, and `task` names.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 

@@ -53,6 +53,8 @@ printf '%s\n' 'Hello from Fish!'
 
 `echo` adds a newline; `printf` takes a format string.
 
+See: [Comments](https://fishshell.com/docs/current/language.html#comments)
+
 ### Variables
 
 ```fish
@@ -89,6 +91,8 @@ echo $v[-1]   # c
 ```
 
 Indexes count from 1; negative indexes start at the end.
+
+See: [Slices](https://fishshell.com/docs/current/language.html#expand-slices)
 
 ### Numbers
 
@@ -145,6 +149,8 @@ string replace --regex 'Fish' 'fish' 'Hello from Fish!'
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```
 
+See: [string replace](https://fishshell.com/docs/current/cmds/string.html#replace-subcommand)
+
 ### Transforming
 
 ```fish
@@ -153,6 +159,8 @@ string lower 'Hello'  # hello
 string trim '  hi  '  # hi
 string length 'Hello' # 5
 ```
+
+See: [string upper](https://fishshell.com/docs/current/cmds/string.html#upper-subcommand)
 
 ### Splitting and joining
 
@@ -163,6 +171,8 @@ string collect (printf 'a\nb\n')  # joins lines
 ```
 
 `string split` returns a list; `string join` takes one.
+
+See: [string split](https://fishshell.com/docs/current/cmds/string.html#split-and-split0-subcommands)
 
 ## Control flow
 
@@ -326,6 +336,8 @@ path normalize ./src/../a.txt      # a.txt
 ```
 
 `path filter` and `path is` take `-d`, `-f`, `-r`, `-w`, `-x`.
+
+See: [path](https://fishshell.com/docs/current/cmds/path.html)
 
 ### Adding to PATH
 

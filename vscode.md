@@ -96,7 +96,7 @@ See: [Code basics](https://code.visualstudio.com/docs/editing/codebasics)
 | `⇧⌥I`                  | Cursor at end of each line       |
 | `⌃⇧⌘Right` / `⌃⇧⌘Left` | Expand/shrink selection          |
 
-See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics#_multiple-selections-multicursor)
+See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics#_multiple-selections-multi-cursor)
 
 ## Search
 

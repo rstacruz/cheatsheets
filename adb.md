@@ -73,6 +73,8 @@ adb uninstall -k com.example.app  # keep data
 | `-g`    | Grant all runtime permissions  |
 | `--abi` | Override the device ABI        |
 
+See: [Package manager](https://developer.android.com/tools/adb#pm)
+
 ## Files and shell
 
 ### File transfer
@@ -85,6 +87,8 @@ adb push --sync ./build /sdcard/build
 ```
 
 `adb sync` copies a local AOSP build to the device.
+
+See: [Copy files](https://developer.android.com/tools/adb#copyfiles)
 
 ### Remote shell
 
@@ -116,6 +120,8 @@ adb reverse --list
 ```
 
 Use `reverse` to point an app at a server running on the workstation.
+
+See: [Port forwarding](https://developer.android.com/tools/adb#forwardports)
 
 ## Debugging
 
@@ -157,6 +163,8 @@ See: [Take a screenshot](https://developer.android.com/tools/adb#screencap)
 | `adb shell dumpsys gfxinfo <pkg>`       | Frame stats          |
 | `adb shell dumpsys battery`             | Battery state        |
 | `adb jdwp`                              | Debuggable PIDs      |
+
+See: [Bug reports](https://developer.android.com/studio/debug/bug-report)
 
 ## Device control
 
@@ -200,6 +208,8 @@ adb emu avd name
 ```
 
 `adb emu` forwards a command to the emulator console of the target.
+
+See: [Emulator console](https://developer.android.com/studio/run/emulator-console)
 
 ## Also see
 

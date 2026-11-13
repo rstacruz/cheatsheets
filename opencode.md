@@ -240,7 +240,7 @@ See: [TUI](https://opencode.ai/docs/cli/tui)
 
 <!-- {: .-shortcuts} -->
 
-Open it with `/diff`. The source choice lasts until the TUI exits; set a default with `diffs.source` in `cli.json`.
+Open it with `/diff`. In the viewer, `d` changes the scope and **Base** changes the comparison branch. Set the default with `diffs.source`: `branch`, `committed`, `working`, or `turn`.
 
 See: [Keybinds](https://opencode.ai/docs/cli/keybinds#diff-viewer)
 

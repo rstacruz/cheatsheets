@@ -160,7 +160,6 @@ string length 'Hello' # 5
 string split , 'a,b,c'   # a b c
 string join , a b c      # a,b,c
 string collect (printf 'a\nb\n')  # joins lines
-
 ```
 
 `string split` returns a list; `string join` takes one.
@@ -179,7 +178,7 @@ else
 end
 ```
 
-Short-circuit with `and`/`or`, or their `&&`/`||` aliases:
+Short-circuit with `and`/`or`, or `&&`/`||`:
 
 ```fish
 test -d /tmp; and echo 'directory'
@@ -300,6 +299,8 @@ bg %1
 
 Job specs look like `%1`.
 
+See: [Job control](https://fishshell.com/docs/current/language.html#job-control)
+
 ### Input
 
 ```fish
@@ -308,7 +309,9 @@ read -s password      # no echo
 read -P 'Name: ' name # prompt
 ```
 
-`read` stores one value per line by default.
+`-s` hides typed input; `-P` prints a prompt.
+
+See: [read](https://fishshell.com/docs/current/cmds/read.html)
 
 ## Paths
 

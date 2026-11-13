@@ -30,9 +30,11 @@ intro: |
 curl -fsSL https://chatgpt.com/codex/install.sh | sh   # macOS/Linux
 npm install -g @openai/codex                           # npm
 brew install --cask codex                              # macOS
+irm https://chatgpt.com/codex/install.ps1 | iex        # Windows
 ```
 
-On Windows, run `irm https://chatgpt.com/codex/install.ps1 | iex` in PowerShell. See: [Getting started](https://learn.chatgpt.com/docs/codex/cli#getting-started)
+On Windows, run `irm https://chatgpt.com/codex/install.ps1 | iex` in PowerShell.
+See: [Getting started](https://learn.chatgpt.com/docs/codex/cli#getting-started)
 
 ### Sign in
 

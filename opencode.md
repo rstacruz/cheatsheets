@@ -297,7 +297,9 @@ See: [Config](https://opencode.ai/docs/config)
 
 <!-- {: data-line="2,6"} -->
 
-References are `provider/model`, with an optional `#variant` for reasoning effort. `package` reaches any OpenAI-compatible endpoint; catalog providers only need `/connect`.
+References are `provider/model`, with an optional `#variant` for reasoning effort. Variants work in agents, commands, and `--model`; the root `model` key ignores them.
+
+`package` reaches any OpenAI-compatible endpoint; catalog providers only need `/connect`.
 
 See: [Providers](https://opencode.ai/docs/providers)
 

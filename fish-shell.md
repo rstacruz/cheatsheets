@@ -402,8 +402,9 @@ set -gx EDITOR nvim
 fish_add_path ~/.local/bin
 ```
 
-Files in `~/.config/fish/conf.d/` load in name order first. Universal
-variables persist in `~/.local/share/fish/fish_variables`.
+Snippets in `~/.config/fish/conf.d/` run first, in name order, then
+`config.fish`. Universal variables persist in
+`~/.local/share/fish/fish_variables`.
 
 See: [Configuration](https://fishshell.com/docs/current/language.html#configuration-files)
 

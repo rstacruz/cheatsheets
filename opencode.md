@@ -272,10 +272,10 @@ See: [Keybinds](https://opencode.ai/docs/cli/keybinds)
 ~/.config/opencode/opencode.jsonc  # global, every project
 opencode.jsonc                     # project root, committed
 .opencode/opencode.jsonc           # project, beats both above
-/etc/opencode/opencode.json        # system, highest priority
+/etc/opencode/opencode.json        # system dir (Linux), highest
 ```
 
-Every `.opencode` config overrides every direct config; the system directory outranks both. TUI settings live in `~/.config/opencode/cli.json`.
+Every `.opencode` config overrides every direct config; the system directory outranks both. On macOS that directory is `/Library/Application Support/opencode`. TUI settings live in `~/.config/opencode/cli.json`.
 
 See: [Config](https://opencode.ai/docs/config)
 

@@ -35,7 +35,7 @@ See: [adb documentation](https://developer.android.com/tools/adb)
 
 ### Wireless debugging
 
-Pair once, then connect. The pairing port differs from the debugging port:
+Pair once, then connect. The pairing port is not the port you connect to:
 
 ```bash
 adb pair 192.168.1.20:37123     # code from the pairing dialog
@@ -65,13 +65,13 @@ adb uninstall com.example.app
 adb uninstall -k com.example.app  # keep data
 ```
 
-| Option | Description                    |
-| ---    | ---                            |
-| `-r`   | Replace an existing app        |
-| `-t`   | Allow test packages            |
-| `-d`   | Allow a version downgrade      |
-| `-g`   | Grant all runtime permissions  |
-| `--abi`| Override the device ABI        |
+| Option  | Description                    |
+| ---     | ---                            |
+| `-r`    | Replace an existing app        |
+| `-t`    | Allow test packages            |
+| `-d`    | Allow a version downgrade      |
+| `-g`    | Grant all runtime permissions  |
+| `--abi` | Override the device ABI        |
 
 ## Files and shell
 
@@ -88,15 +88,15 @@ adb push --sync ./build /sdcard/build
 
 ### Remote shell
 
-| Command                            | Description                |
-| ---                                | ---                        |
-| `adb shell`                        | Interactive shell          |
-| `adb shell <command>`              | Run one command            |
-| `adb shell wm size`                | Print screen resolution    |
-| `adb shell wm size 1080x1920`      | Override resolution        |
-| `adb shell pm list packages`       | List installed packages    |
-| `adb shell pm list packages -3`    | Third-party packages only  |
-| `adb exec-out screencap -p > a.png`| Raw stdout, no pty         |
+| Command                             | Description                |
+| ---                                 | ---                        |
+| `adb shell`                         | Interactive shell          |
+| `adb shell <command>`               | Run one command            |
+| `adb shell wm size`                 | Print screen resolution    |
+| `adb shell wm size 1080x1920`       | Override resolution        |
+| `adb shell pm list packages`        | List installed packages    |
+| `adb shell pm list packages -3`     | Third-party packages only  |
+| `adb exec-out screencap -p > a.png` | Raw stdout, no pty         |
 
 Arguments are passed like `ssh`, so quote twice for the device shell:
 

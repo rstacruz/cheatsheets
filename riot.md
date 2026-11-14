@@ -65,13 +65,19 @@ this.go = function (e) { ... }
 
 ## API
 
+### Lifecycle methods
+
 ```js
 this.update()
 this.update({ data: 'hi' }
 
 this.unmount()
 this.unmount(true) // keep parent tag
+```
 
+### Global helpers
+
+```js
 riot.update() // update all
 ```
 
@@ -121,15 +127,24 @@ riot.update() // update all
 
 ## Router
 
+### Matching routes
+
 ```js
 riot.route('customers/*/edit', (id) => {
 })
 riot.route('customers/234/edit')
+```
+
+### Starting the router
+
+```js
 riot.route.start()
 riot.route.start(true) // exec the current url
 ```
 
 ## Lifecycle
+
+### Mounting
 
 ```js
 this.on('before-mount', function() {
@@ -139,7 +154,11 @@ this.on('before-mount', function() {
 this.on('mount', function() {
 // right after the tag is mounted on the page
 })
+```
 
+### Updating and unmounting
+
+```js
 this.on('update', function() {
 // allows recalculation of context data before the update
 })

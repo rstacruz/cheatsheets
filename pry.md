@@ -109,7 +109,9 @@ $ pry -r ./config/environment
 > ls -G xx   # Grep by regex
 ```
 
-## Shell integration
+## Shell and plugins
+
+### Shell integration
 
 shell-mode adds dir to the prompt.
 
@@ -124,7 +126,7 @@ Commands with `.` are shell commands.
 pry(main)> .cat hello.txt
 ```
 
-## hirb
+### hirb
 Add the [hirb](https://rubygems.org/gems/hirb) gem.
 
 ```
@@ -133,7 +135,7 @@ Add the [hirb](https://rubygems.org/gems/hirb) gem.
 > view User.all, fields: %w[id name email]
 ```
 
-## pry-rescue
+### pry-rescue
 Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
 
 ```rb
@@ -155,7 +157,7 @@ pry(main)> cd-cause
 pry(main)> try-again
 ```
 
-## pry-remote
+### pry-remote
 Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
 
 ```rb

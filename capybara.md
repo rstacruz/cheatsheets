@@ -66,6 +66,8 @@ page.should have_css('.button')
 
 <!-- {: .-setup} -->
 
+#### Matchers
+
 | Positive                          | Negative               |
 | ---                               | ---                    |
 | `has_content?`                    | `has_no_content?`      |

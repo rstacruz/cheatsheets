@@ -35,6 +35,8 @@ SELECT * FROM `A` INNER JOIN `B`
 
 <!-- {: .-box-chars.-setup} -->
 
+#### Join types
+
 | Join             | What            |
 | ----             | ----            |
 | Inner join       | `∩`             |

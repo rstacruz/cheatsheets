@@ -32,6 +32,8 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 
 <!-- {: .-setup} -->
 
+#### Options
+
 | Flag | Description |
 | --- | --- |
 | `:set` | no duplicate keys (or: `:ordered_set`, `:bag`, `:duplicate_bag`) |

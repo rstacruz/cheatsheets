@@ -64,6 +64,8 @@ for (const id of ids) {
 const results = await Promise.all(ids.map(getItem))
 ```
 
+#### Combinators
+
 | Call | Resolves when |
 | --- | --- |
 | `Promise.all()` | all fulfill, else rejects |

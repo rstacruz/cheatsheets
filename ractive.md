@@ -97,7 +97,9 @@ view.toHTML()  //=> String
 view.render()
 ```
 
-## Extend
+## Components and templates
+
+### Extend
 
 ```
 View = Ractive.extend({
@@ -106,7 +108,7 @@ View = Ractive.extend({
 new View()
 ```
 
-## [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
+### [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
 
 See: <https://github.com/RactiveJS/Ractive/issues/74>
 
@@ -124,7 +126,7 @@ ractive = new Ractive({
 });
 ```
 
-## Partials
+### Partials
 
 ```
 // Global partials
@@ -160,7 +162,9 @@ view.on('sort', function (e, column) {
  }, { init: false });
 ```
 
-## Markup
+## Extensions
+
+### Markup
 
 ```
 Hello, {{name}}
@@ -182,7 +186,7 @@ Body: {{{unescaped}}}
 {{#statusDogs[selected]}}
 ```
 
-## Transformed attributes
+### Transformed attributes
 
 This transforms the `list` attribute via a helper function called `sort()`.
 
@@ -196,7 +200,7 @@ data: {
 }
 ```
 
-## Transitions
+### Transitions
 
 ```
 <div intro="fade">
@@ -219,7 +223,7 @@ Ractive.transitions.bump = function(t, params) {
 };
 ```
 
-## [Decorators](http://docs.ractivejs.org/latest/decorators)
+### [Decorators](http://docs.ractivejs.org/latest/decorators)
 
 ```
 <span decorator="tooltip:hello there">Hover me</span>
@@ -240,7 +244,7 @@ decorators: {
 tooltip: function (node, a, b, two, c) { ... }
 ```
 
-## [Adaptors](http://docs.ractivejs.org/latest/adaptors)
+### [Adaptors](http://docs.ractivejs.org/latest/adaptors)
 
 ```
 myAdaptor = {
@@ -264,7 +268,7 @@ myAdaptor = {
 };
 ```
 
-## [Computed properties](http://docs.ractivejs.org/latest/computed-properties)
+### [Computed properties](http://docs.ractivejs.org/latest/computed-properties)
 
 ```
 new Ractive({

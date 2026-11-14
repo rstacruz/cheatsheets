@@ -116,6 +116,8 @@ A ─┬─ E ── F ── G   master
 
 <!-- {: .-box-chars.-setup} -->
 
+#### Examples
+
 | Example | Description |
 | --- | --- |
 | _`git log`_ `master..fix`  | BCD         |

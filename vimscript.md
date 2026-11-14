@@ -257,6 +257,8 @@ command! -nargs=? Save call script#foo(<args>)
 
 <!-- {: .-setup} -->
 
+#### Arguments
+
 | What | What |
 | ---- | ---- |
 | `-nargs=0` | 0 arguments, default |

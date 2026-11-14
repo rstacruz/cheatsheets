@@ -156,6 +156,8 @@ See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 //ul/li[1]/a[@href]
 ```
 
+#### Syntax
+
 | Part      | Example      | Meaning           |
 | ---       | ---          | ---               |
 | `//`      | `//ul`       | Any descendant    |

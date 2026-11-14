@@ -25,6 +25,8 @@ keywords:
 
 <!-- {: .-setup} -->
 
+#### Common selectors
+
 | Selector          | Description  |
 | ----------------- | ------------ |
 | `*`               | All elements |

@@ -24,12 +24,17 @@ const groups = [
       'codex',
       'opencode',
       'terraform',
-      'bash'
+      'bash',
+      'vim'
     ]
   },
   {
-    label: 'Mono · simple-icons + devicon',
-    slugs: ['go', 'curl', 'markdown', 'hermes-cli']
+    label: 'Mono · simple-icons',
+    slugs: ['curl', 'markdown', 'hermes-cli']
+  },
+  {
+    label: 'Tech · devicon',
+    slugs: ['go']
   },
   {
     label: 'Glyph · icon-park-outline',
@@ -43,7 +48,7 @@ const groups = [
 
 const ladders = [
   ['react', 'colour'],
-  ['go', 'mono'],
+  ['go', 'tech'],
   ['skills', 'glyph'],
   ['herdr', 'image']
 ] as const
@@ -97,7 +102,7 @@ const sizeStudy = [40, 48, 56, 64, 80]
       <h1>Sheet logo placements</h1>
       <p>
         Bare marks only: no backgrounds, no borders. Six placements, size
-        studies, and a broader selection of colour, mono, glyph, and image
+        studies, and a broader selection of colour, mono, tech, glyph, and image
         marks. Top nav, the Introduction card, and the app-icon treatment are
         omitted this round.
       </p>
@@ -123,7 +128,7 @@ const sizeStudy = [40, 48, 56, 64, 80]
 
     <section class="block">
       <h2>2 · Size ladder by mark kind</h2>
-      <p class="note">32–64px. Colour, mono, glyph, and image in one pass.</p>
+      <p class="note">32–64px. Colour, tech, glyph, and image in one pass.</p>
       {ladders.map(([slug, kind]) => (
         <div class="ladder-row">
           <div class="ladder-label">

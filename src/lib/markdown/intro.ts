@@ -9,17 +9,23 @@ export type IntroOptions = {
 /** Renders the Introduction card as the first card in the first section list */
 export async function insertIntroCard(
   html: string,
-  options: IntroOptions
+  { intro, links }: IntroOptions
 ): Promise<string> {
-  const markdown = introCardMarkdown(options)
-  if (!markdown) return html
+  const parts: string[] = []
+  if (intro?.trim()) {
+    parts.push((await renderMarkdown(intro.trim())).html)
+  }
+  if (links?.length) {
+    /* Rendered apart from `intro` so a trailing list cannot absorb the rows */
+    parts.push((await renderMarkdown(links.map(formatLink).join('\n'))).html)
+  }
+  if (!parts.length) return html
 
   const id = uniqueId(html, 'introduction')
-  const body = (await renderMarkdown(markdown)).html
   const card =
     `<section class="h3-section -intro">` +
     `<h3 class="-intro" id="${id}">Introduction</h3>` +
-    `<div class="body -intro">${body}</div>` +
+    `<div class="body -intro">${parts.join('')}</div>` +
     `</section>`
 
   const marker = '<div class="body h3-section-list'
@@ -28,16 +34,6 @@ export async function insertIntroCard(
 
   const end = html.indexOf('>', at) + 1
   return html.slice(0, end) + card + html.slice(end)
-}
-
-export function introCardMarkdown({
-  intro,
-  links
-}: IntroOptions): string | null {
-  const parts: string[] = []
-  if (intro?.trim()) parts.push(intro.trim())
-  if (links?.length) parts.push(links.map(formatLink).join('\n'))
-  return parts.length > 0 ? parts.join('\n\n') : null
 }
 
 function formatLink({ title, url }: SheetLink) {

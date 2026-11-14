@@ -103,8 +103,7 @@ describe('intro card', () => {
       ]
     })
     expect(html).toMatchInlineSnapshot(`
-      "<section class="h2-section"><div class="body h3-section-list"><section class="h3-section -intro"><h3 class="-intro" id="introduction">Introduction</h3><div class="body -intro"><p>Hello <strong>world</strong></p>
-      <ul>
+      "<section class="h2-section"><div class="body h3-section-list"><section class="h3-section -intro"><h3 class="-intro" id="introduction">Introduction</h3><div class="body -intro"><p>Hello <strong>world</strong></p><ul>
       <li><a href="https://example.com/docs">Docs</a> <em>(example.com)</em></li>
       <li><a href="https://www.github.com/me/repo">Repo</a> <em>(github.com)</em></li>
       </ul></div></section>
@@ -179,11 +178,20 @@ it('inserts the intro card inside the first h2 section', async () => {
     links: [{ title: 'Docs', url: './docs' }]
   })
   expect(html).toMatchInlineSnapshot(`
-    "<section class="h2-section"><h2 id="sun">Sun</h2><div class="body h3-section-list"><section class="h3-section -intro"><h3 class="-intro" id="introduction">Introduction</h3><div class="body -intro"><p>Hello</p>
-    <ul>
+    "<section class="h2-section"><h2 id="sun">Sun</h2><div class="body h3-section-list"><section class="h3-section -intro"><h3 class="-intro" id="introduction">Introduction</h3><div class="body -intro"><p>Hello</p><ul>
     <li><a href="./docs">Docs</a> <em>(devhints.io)</em></li>
     </ul></div></section>
     <section class="h3-section"><h3 id="one">One</h3><div class="body">
     <p>x</p></div></section></div></section>"
   `)
+})
+
+it('keeps link rows out of a list that ends the intro', async () => {
+  const { html } = await render('### One\nx', {
+    intro: '- one\n- two',
+    links: [{ title: 'Docs', url: './docs' }]
+  })
+  expect(html.match(/<ul>/g)).toHaveLength(2)
+  expect(html).not.toContain('<li><p>one')
+  expect(html).toContain('<li><a href="./docs">Docs</a>')
 })

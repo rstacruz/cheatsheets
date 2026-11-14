@@ -1,14 +1,11 @@
 ---
 title: PlantUML
+intro: |
+  PlantUML is a markup language for creating diagrams.
+links:
+  - title: https://plantuml.com/
+    url: https://plantuml.com/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-PlantUML is a markup language for creating diagrams.
-
-- <https://plantuml.com/>
 
 ### Format
 

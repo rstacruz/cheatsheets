@@ -4,21 +4,16 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Parsing, checking, and formatting JavaScript numbers, plus common Math
-  operations.
+  JavaScript numbers are 64-bit floats (IEEE 754), so `0.1 + 0.2` is not exactly
+  `0.3`; use BigInt beyond 2^53.
+links:
+  - title: Number
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+  - title: Math
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 ---
 
 ## Basics
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-JavaScript numbers are 64-bit floats (IEEE 754), so `0.1 + 0.2` is not exactly
-`0.3`; use BigInt beyond 2^53.
-
-- [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) _(developer.mozilla.org)_
-- [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) _(developer.mozilla.org)_
 
 ### Literals
 

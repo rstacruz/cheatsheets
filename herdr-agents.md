@@ -10,28 +10,21 @@ keywords:
   - integrations
   - terminal
 intro: |
-  [Herdr](https://herdr.dev) recognizes coding agents running in panes and
-  tracks their state. This reference covers the `herdr agent` and
-  `herdr integration` commands.
+  Herdr detects coding agents inside panes, tracks their `idle`, `working`,
+  `blocked`, `done`, and `unknown` states, and rolls state up to tabs and
+  workspaces. This reference covers the `herdr agent` command group.
+links:
+  - title: Agents
+    url: https://herdr.dev/tui/docs/agents/
+  - title: Agent automation
+    url: https://herdr.dev/tui/docs/agent-automation/
+  - title: Integrations
+    url: https://herdr.dev/tui/docs/integrations/
+  - title: Herdr cheatsheet
+    url: "./herdr"
 ---
 
 ## Agents
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Herdr detects coding agents inside panes, tracks their `idle`, `working`,
-`blocked`, `done`, and `unknown` states, and rolls state up to tabs and
-workspaces. This reference covers the `herdr agent` command group.
-
-- [Agents](https://herdr.dev/tui/docs/agents/) _(herdr.dev)_
-- [Agent automation](https://herdr.dev/tui/docs/agent-automation/) _(herdr.dev)_
-- [Integrations](https://herdr.dev/tui/docs/integrations/) _(herdr.dev)_
-
-[Herdr cheatsheet](./herdr)
-
-<!-- {: .-crosslink} -->
 
 ### Supported agents
 

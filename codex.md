@@ -10,19 +10,15 @@ keywords:
   - Sandbox
   - Approvals
 intro: |
-  [Codex](https://learn.chatgpt.com/docs/codex/cli) is OpenAI's coding agent for the terminal. This reference covers sessions, commands, flags, and configuration.
+  [Codex](https://learn.chatgpt.com/docs/codex/cli) is OpenAI's coding agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
+links:
+  - title: Codex CLI documentation
+    url: https://learn.chatgpt.com/docs/codex/cli
+  - title: GitHub repository
+    url: https://github.com/openai/codex
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Codex](https://learn.chatgpt.com/docs/codex/cli) is OpenAI's coding agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
-
-- [Codex CLI documentation](https://learn.chatgpt.com/docs/codex/cli) _(learn.chatgpt.com)_
-- [GitHub repository](https://github.com/openai/codex) _(github.com)_
 
 ### Install
 

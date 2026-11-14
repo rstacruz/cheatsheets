@@ -6,18 +6,16 @@ weight: -5
 description: |
   $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.
 updated: 2026-11-05
+intro: |
+  XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
+links:
+  - title: XPath reference
+    url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath
+  - title: XPath 1.0 specification
+    url: https://www.w3.org/TR/1999/REC-xpath-19991116/
 ---
 
 ## Testing
-
-### About
-
-<!-- {: .-intro} -->
-
-XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
-
-- [XPath reference](https://developer.mozilla.org/en-US/docs/Web/XML/XPath) _(MDN)_
-- [XPath 1.0 specification](https://www.w3.org/TR/1999/REC-xpath-19991116/) _(w3.org)_
 
 ### Browser console
 

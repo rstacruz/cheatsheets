@@ -2,6 +2,9 @@
 title: ZNC bouncer
 intro: |
   A quick reference to the [ZNC](https://znc.bg) IRC bouncer's common commands.
+links:
+  - title: ZNC
+    url: https://znc.bg
 ---
 
 ## Commands

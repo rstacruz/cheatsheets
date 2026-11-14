@@ -1,15 +1,12 @@
 ---
 title: Sequel
 category: Ruby libraries
+intro: |
+  Sequel is a database toolkit for Ruby.
+links:
+  - title: https://github.com/jeremyevans/sequel
+    url: https://github.com/jeremyevans/sequel
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Sequel is a database toolkit for Ruby.
-
-- <https://github.com/jeremyevans/sequel>
 
 ### Open a database
 

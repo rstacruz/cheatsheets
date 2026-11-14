@@ -11,22 +11,17 @@ keywords:
   - Claude Code skills
   - Codex skills
 intro: |
-  [Agent Skills](https://agentskills.io) is an open standard for instructions,
-  scripts, and references that agents load on demand. This reference covers
-  layout, frontmatter, writing patterns, and discovery.
+  [Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
+links:
+  - title: Agent Skills specification
+    url: https://agentskills.io/specification
+  - title: Authoring best practices
+    url: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
+  - title: anthropics/skills
+    url: https://github.com/anthropics/skills
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
-
-- [Agent Skills specification](https://agentskills.io/specification) _(agentskills.io)_
-- [Authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) _(platform.claude.com)_
-- [anthropics/skills](https://github.com/anthropics/skills) _(github.com)_
 
 ### Anatomy
 

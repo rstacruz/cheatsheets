@@ -3,17 +3,14 @@ title: Spine
 category: Hidden
 # No longer maintained; last release around 2014.
 tags: [Outdated]
+intro: |
+  Spine is an MVC framework for JavaScript.
+links:
+  - title: https://spine.github.io/
+    url: https://spine.github.io/
 ---
 
 ## Models
-
-### About
-
-<!-- {: .-intro} -->
-
-Spine is an MVC framework for JavaScript.
-
-- <https://spine.github.io/>
 
 ### Models
 

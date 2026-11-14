@@ -5,20 +5,16 @@ prism_languages: [fish]
 updated: 2026-11-14
 weight: -1
 intro: |
-  [fish](https://fishshell.com/) is a user-friendly command-line shell. This
-  sheet targets fish 4.x; most scripting syntax also works on fish 3.x.
+  fish ships with autosuggestions, syntax highlighting, and tab completions for
+  common commands. Scripts use fish's own syntax rather than POSIX sh.
+links:
+  - title: Documentation
+    url: https://fishshell.com/docs/current/index.html
+  - title: GitHub repository
+    url: https://github.com/fish-shell/fish-shell
 ---
 
 ## Basics
-
-### About
-<!-- {: .-intro} -->
-
-fish ships with autosuggestions, syntax highlighting, and tab completions for
-common commands. Scripts use fish's own syntax rather than POSIX sh.
-
-- [Documentation](https://fishshell.com/docs/current/index.html) _(fishshell.com)_
-- [GitHub repository](https://github.com/fish-shell/fish-shell) _(github.com)_
 
 ### Comments and printing
 

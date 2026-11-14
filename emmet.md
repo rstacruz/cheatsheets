@@ -5,6 +5,9 @@ prism_languages: [html, css]
 updated: 2020-07-03
 intro: |
   Emmet is a markup language for expanding CSS rules into HTML
+links:
+  - title: Emmet documentation
+    url: https://docs.emmet.io/
 ---
 
 ### Child: >

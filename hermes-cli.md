@@ -10,23 +10,17 @@ keywords:
   - Gateway
   - Sessions
 intro: |
-  [Hermes](https://hermes-agent.nousresearch.com/docs/) is Nous Research's
-  AI agent for the terminal. This reference covers setup, chat, models,
-  the gateway, sessions, and slash commands.
+  [Hermes Agent](https://hermes-agent.nousresearch.com/docs/) is Nous Research's AI agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
+links:
+  - title: Hermes documentation
+    url: https://hermes-agent.nousresearch.com/docs/
+  - title: GitHub repository
+    url: https://github.com/nousresearch/hermes-agent
 ---
 
 ## Getting started
 
 <!-- {: .-two-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Hermes Agent](https://hermes-agent.nousresearch.com/docs/) is Nous Research's AI agent for the terminal. This reference covers the most commonly used commands, flags, and settings.
-
-- [Hermes documentation](https://hermes-agent.nousresearch.com/docs/) _(hermes-agent.nousresearch.com)_
-- [GitHub repository](https://github.com/nousresearch/hermes-agent) _(github.com)_
 
 ### Install
 

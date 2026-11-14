@@ -10,21 +10,17 @@ keywords:
   - Permissions
   - TUI
 intro: |
-  [OpenCode](https://opencode.ai/docs/) is an open source coding agent for the terminal. This reference covers sessions, providers, permissions, and configuration.
+  [OpenCode](https://opencode.ai/docs/) is Anomaly's open source coding agent, with a terminal, desktop, and web client. This reference covers v2: the TUI, the CLI, and `opencode.jsonc`.
+links:
+  - title: OpenCode documentation
+    url: https://opencode.ai/docs/
+  - title: GitHub repository
+    url: https://github.com/anomalyco/opencode
 ---
 
 ## Getting started
 
 <!-- {: .-two-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[OpenCode](https://opencode.ai/docs/) is Anomaly's open source coding agent, with a terminal, desktop, and web client. This reference covers v2: the TUI, the CLI, and `opencode.jsonc`.
-
-- [OpenCode documentation](https://opencode.ai/docs/) _(opencode.ai)_
-- [GitHub repository](https://github.com/anomalyco/opencode) _(github.com)_
 
 ### Install
 

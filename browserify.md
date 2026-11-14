@@ -4,15 +4,12 @@ category: Hidden
 # No longer in active development; legacy transforms; superseded by modern bundlers.
 tags: [Archived]
 archived: Browserify has not been in active development.
+intro: |
+  Browserify is a bundler for JavaScript.
+links:
+  - title: https://browserify.org/
+    url: https://browserify.org/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Browserify is a bundler for JavaScript.
-
-- <https://browserify.org/>
 
 ### Usage
 

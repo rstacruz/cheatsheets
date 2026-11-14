@@ -5,6 +5,9 @@ category: Hidden
 prism_languages: [coffeescript]
 intro: |
   [Modella](https://www.npmjs.com/package/modella) allows you to create simple models in JavaScript. This is a guide on basic usage of Modella in CoffeeScript.
+links:
+  - title: Modella repository
+    url: https://github.com/modella/modella
 ---
 
 ### Defining models

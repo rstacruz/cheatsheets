@@ -5,22 +5,20 @@ tags: [Featured]
 updated: 2026-11-11
 tier: t1
 weight: -10
+intro: |
+  [Vim](https://www.vim.org/) is a highly efficient text editor. This reference covers Vim 9.2.
+
+  For shortcut notation, see `:help key-notation`. Run `:Tutor` for the built-in tutorial.
+links:
+  - title: Vim documentation
+    url: https://vimhelp.org/
+  - title: Vim source code
+    url: https://github.com/vim/vim
 ---
 
 ## Getting started
 
 <!-- {: .-three-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Vim](https://www.vim.org/) is a highly efficient text editor. This reference covers Vim 9.2.
-
-For shortcut notation, see `:help key-notation`. Run `:Tutor` for the built-in tutorial.
-
-- [Vim documentation](https://vimhelp.org/) _(vimhelp.org)_
-- [Vim source code](https://github.com/vim/vim) _(github.com)_
 
 ### Exiting
 

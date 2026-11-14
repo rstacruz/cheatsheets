@@ -3,6 +3,9 @@ title: Premailer
 tags: [WIP]
 intro: |
   [Premailer](https://github.com/premailer/premailer/) is a Ruby library that inlines CSS into HTML.
+links:
+  - title: Premailer
+    url: https://github.com/premailer/premailer/
 ---
 
 ### Custom CSS properties

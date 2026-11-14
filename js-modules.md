@@ -4,19 +4,13 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  ES modules: exporting and importing values, dynamic imports, and Node.js
-  interop.
+  ES modules (ESM) use `import` and `export`; each module is its own file.
+links:
+  - title: JavaScript modules
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 ---
 
 ## ES modules
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-ES modules (ESM) use `import` and `export`; each module is its own file.
-
-- [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) _(developer.mozilla.org)_
 
 ### Exporting
 

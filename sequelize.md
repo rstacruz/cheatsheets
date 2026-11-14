@@ -1,15 +1,12 @@
 ---
 title: Sequelize
 category: JavaScript libraries
+intro: |
+  Sequelize is an ORM for JavaScript.
+links:
+  - title: https://sequelize.org/
+    url: https://sequelize.org/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Sequelize is an ORM for JavaScript.
-
-- <https://sequelize.org/>
 
 ### API
 

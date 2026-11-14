@@ -2,18 +2,16 @@
 title: Ractive.js
 category: JavaScript libraries
 updated: 2026-11-14
+intro: |
+  Ractive is a template-driven UI library for JavaScript.
+links:
+  - title: Ractive.js
+    url: https://ractive.js.org/
+  - title: GitHub repository
+    url: https://github.com/ractivejs/ractive
 ---
 
 {% raw %}
-
-### About
-
-<!-- {: .-intro} -->
-
-Ractive is a template-driven UI library for JavaScript.
-
-- <https://ractive.js.org/>
-- <https://github.com/ractivejs/ractive>
 
 ### [Initialization](https://ractive.js.org/api/#initialization-options)
 

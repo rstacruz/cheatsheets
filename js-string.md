@@ -4,20 +4,15 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Working with JavaScript strings: creating, extracting, transforming, and
-  splitting text.
+  Strings are immutable sequences of UTF-16 code units.
+links:
+  - title: String reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+  - title: Template literals
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 ---
 
 ## Basics
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Strings are immutable sequences of UTF-16 code units.
-
-- [String reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) _(developer.mozilla.org)_
-- [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) _(developer.mozilla.org)_
 
 ### Creating
 

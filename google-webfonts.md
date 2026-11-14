@@ -9,6 +9,9 @@ archived: |
   with `<link>` or `@import`.
 intro: |
   Short snippets on using [Google Fonts](https://fonts.google.com/) in a web page.
+links:
+  - title: Google Fonts
+    url: https://fonts.google.com/
 ---
 
 ### Link tag

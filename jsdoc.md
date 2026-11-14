@@ -5,14 +5,13 @@ updated: 2026-10-04
 weight: -1
 intro: |
   JSDoc annotates JavaScript with `/** */` doc comments.
+
+links:
+  - title: JSDoc documentation
+    url: https://jsdoc.app/
+  - title: Block tags
+    url: https://jsdoc.app/#block-tags
 ---
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-- [JSDoc documentation](https://jsdoc.app/) _(jsdoc.app)_
-- [Block tags](https://jsdoc.app/#block-tags) _(jsdoc.app)_
 
 ### Functions
 

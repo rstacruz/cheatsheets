@@ -2,6 +2,9 @@
 title: Google Webfonts
 intro: |
   Short snippets on using [Google Webfonts](https://google.com/fonts) in a web page.
+links:
+  - title: Google Fonts
+    url: https://fonts.google.com/
 ---
 
 ### Link tag

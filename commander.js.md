@@ -1,13 +1,10 @@
 ---
 title: Commander.js
 category: JavaScript libraries
+links:
+  - title: https://github.com/tj/commander.js/
+    url: https://github.com/tj/commander.js/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-- <https://github.com/tj/commander.js/>
 
 ### Initialize
 

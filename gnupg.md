@@ -6,6 +6,9 @@ updated: 2017-10-22
 weight: 0
 intro: |
   [GnuPG](https://gnupg.org/) is a complete and free implementation of the OpenPGP standard.
+links:
+  - title: GnuPG
+    url: https://gnupg.org/
 ---
 
 Basics

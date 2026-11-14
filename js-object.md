@@ -4,19 +4,15 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Creating, reading, and transforming plain JavaScript objects.
+  Objects are collections of key-value pairs; keys are strings or symbols.
+links:
+  - title: Object
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+  - title: Destructuring assignment
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
 ---
 
 ## Basics
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Objects are collections of key-value pairs; keys are strings or symbols.
-
-- [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) _(developer.mozilla.org)_
-- [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) _(developer.mozilla.org)_
 
 ### Literals
 

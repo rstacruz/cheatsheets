@@ -1,15 +1,12 @@
 ---
 title: Pry
 category: Ruby libraries
+intro: |
+  Pry is a runtime development console for Ruby.
+links:
+  - title: https://github.com/pry/pry
+    url: https://github.com/pry/pry
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Pry is a runtime development console for Ruby.
-
-- <https://github.com/pry/pry>
 
 ### cd
 

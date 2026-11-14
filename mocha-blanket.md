@@ -4,6 +4,9 @@ category: Hidden
 # Built on blanket.js, which is abandoned (its README points to Istanbul/nyc).
 intro: |
   Use [blanket](https://npmjs.com/package/blanket) for easy coverage reporting for Mocha JavaScript tests.
+links:
+  - title: blanket repository
+    url: https://github.com/alex-seville/blanket
 ---
 
 ### Quickstart guide

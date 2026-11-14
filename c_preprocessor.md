@@ -3,6 +3,9 @@ title: C Preprocessor
 category: C-like
 intro: |
   Quick reference for the [C macro preprocessor](https://en.m.wikipedia.org/wiki/C_preprocessor), which can be used independent of C/C++.
+links:
+  - title: C macro preprocessor
+    url: https://en.wikipedia.org/wiki/C_preprocessor
 ---
 
 ## Reference

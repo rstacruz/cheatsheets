@@ -4,18 +4,14 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Keyed collections: Map for arbitrary keys, Set for unique values.
+  Map and Set hold keyed or unique values, keep insertion order, and are
+  iterable.
+links:
+  - title: Map
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+  - title: Set
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 ---
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Map and Set hold keyed or unique values, keep insertion order, and are
-iterable.
-
-- [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) _(developer.mozilla.org)_
-- [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) _(developer.mozilla.org)_
 
 ### Map
 

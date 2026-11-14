@@ -5,13 +5,11 @@ updated: 2026-10-04
 intro: |
   Common operations on JavaScript arrays: indexing, slicing, adding and removing
   items, and iterating.
+
+links:
+  - title: MDN Array reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 ---
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-- [MDN Array reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) _(developer.mozilla.org)_
 
 ### Accessing
 

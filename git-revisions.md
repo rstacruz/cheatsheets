@@ -5,6 +5,9 @@ updated: 2017-10-11
 description: ""
 intro: |
   A list of revision specifications you can use with `git log` and many other Git commands. Summarized from `gitrevisions(7)` man page.
+links:
+  - title: gitrevisions
+    url: https://git-scm.com/docs/gitrevisions
 ---
 
 ### Example usages

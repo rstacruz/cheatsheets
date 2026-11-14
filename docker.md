@@ -11,19 +11,16 @@ keywords:
   - docker logs
 intro: |
   [Docker](https://docs.docker.com/) packages applications into images and runs them as containers. This reference covers the most commonly used Docker CLI commands.
+links:
+  - title: Docker CLI reference
+    url: https://docs.docker.com/reference/cli/docker/
+  - title: Dockerfile cheatsheet
+    url: "./dockerfile"
+  - title: Docker Compose cheatsheet
+    url: "./docker-compose"
 ---
 
 ## Getting started
-
-### About
-
-<!-- {: .-intro} -->
-
-[Docker](https://docs.docker.com/) packages applications into images and runs them as containers. This reference covers the most commonly used Docker CLI commands.
-
-- [Docker CLI reference](https://docs.docker.com/reference/cli/docker/) _(docs.docker.com)_
-- [Dockerfile cheatsheet](./dockerfile) _(devhints.io)_
-- [Docker Compose cheatsheet](./docker-compose) _(devhints.io)_
 
 ### `pull` - Download an image
 

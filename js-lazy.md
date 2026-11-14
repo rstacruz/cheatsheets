@@ -5,15 +5,13 @@ updated: 2026-10-04
 intro: |
   Shorthand idioms for coercing values in JavaScript, and the explicit calls
   they replace.
+
+links:
+  - title: Operator reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
 ---
 
 ## Shortcuts
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-- [Operator reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators) _(developer.mozilla.org)_
 
 ### Examples
 

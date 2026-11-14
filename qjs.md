@@ -2,14 +2,12 @@
 title: Q.js
 category: Hidden
 # Archived and deprecated in favour of native JavaScript Promises.
+links:
+  - title: https://github.com/kriskowal/q
+    url: https://github.com/kriskowal/q
+  - title: https://github.com/kriskowal/q/wiki/API-Reference
+    url: https://github.com/kriskowal/q/wiki/API-Reference
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-* <https://github.com/kriskowal/q>
-* <https://github.com/kriskowal/q/wiki/API-Reference>
 
 ### Creating promises (Q.promise)
 

@@ -6,6 +6,9 @@ updated: 2017-09-21
 weight: -1
 intro: |
   [Camp](https://github.com/espadrine/sc/) is a Node.js web server framework. This guide targets Camp v17.x.
+links:
+  - title: Camp repository
+    url: https://github.com/espadrine/sc/
 ---
 
 Getting started

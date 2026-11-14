@@ -28,6 +28,71 @@ test('frontmatter', () => {
   expect(typeof page.frontmatter.keywords).toEqual('object')
 })
 
+test('links frontmatter', () => {
+  const result = mapGlobToPages({
+    bash: [
+      '---',
+      'title: Bash',
+      'links:',
+      '  - title: Docs',
+      '    url: https://example.com/docs',
+      '---',
+      '# hi'
+    ].join('\n')
+  })
+
+  expect(result.bash.frontmatter.links).toEqual([
+    { title: 'Docs', url: 'https://example.com/docs' }
+  ])
+})
+
+test('intro length cap', () => {
+  const page = (intro: string) =>
+    mapGlobToPages({
+      bash: [
+        '---',
+        'title: Bash',
+        `intro: ${intro}`,
+        'links:',
+        '  - title: Docs',
+        '    url: https://example.com/docs',
+        '---',
+        '# hi'
+      ].join('\n')
+    })
+
+  expect(() => page('x'.repeat(501))).toThrow(/intro/)
+  expect(() => page('x'.repeat(500))).not.toThrow()
+})
+
+test('intro requires a link', () => {
+  expect(() =>
+    mapGlobToPages({
+      bash: ['---', 'title: Bash', 'intro: Hello', '---', '# hi'].join('\n')
+    })
+  ).toThrow(/links/)
+})
+
+test('links cap', () => {
+  const page = (count: number) =>
+    mapGlobToPages({
+      bash: [
+        '---',
+        'title: Bash',
+        'links:',
+        ...Array.from(
+          { length: count },
+          (_, i) => `  - title: L${i}\n    url: https://example.com/${i}`
+        ),
+        '---',
+        '# hi'
+      ].join('\n')
+    })
+
+  expect(() => page(5)).toThrow(/links/)
+  expect(() => page(4)).not.toThrow()
+})
+
 test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [

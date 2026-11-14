@@ -328,7 +328,13 @@ See: [Providers](https://opencode.ai/docs/providers)
 | `general` | `subagent` | Research and multi-step work     |
 | `explore` | `subagent` | Search and read, never edit      |
 
-Markdown agents live in `.opencode/agents/` or `~/.config/opencode/agents/`:
+<!-- {: .-shortcuts} -->
+
+Subagents run in background child sessions and report back when idle.
+
+See: [Agents](https://opencode.ai/docs/agents)
+
+### Custom agents
 
 ```md
 ---
@@ -342,7 +348,7 @@ Review the current changes.
 
 <!-- {: data-line="3"} -->
 
-The body becomes the system prompt. Subagents run in background child sessions and report back when idle.
+Markdown agents live in `.opencode/agents/` or `~/.config/opencode/agents/`; the body becomes the system prompt. `mode` is `primary`, `subagent`, or `all`.
 
 See: [Agents](https://opencode.ai/docs/agents)
 

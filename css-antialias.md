@@ -4,6 +4,9 @@ category: CSS
 updated: 2017-10-13
 intro: |
   Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
+links:
+  - title: maxvoltar.com
+    url: http://maxvoltar.com/archive/-webkit-font-smoothing
 ---
 
 ### Antialias

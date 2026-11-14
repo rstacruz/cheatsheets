@@ -8,6 +8,9 @@ updated: 2026-11-14
 intro: |
   [adb](https://developer.android.com/tools/adb) talks to an Android device
   over USB or Wi-Fi. This sheet targets platform-tools 37.
+links:
+  - title: adb documentation
+    url: https://developer.android.com/tools/adb
 ---
 
 ## Basics

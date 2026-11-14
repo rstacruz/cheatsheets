@@ -5,6 +5,9 @@ tags: [WIP]
 updated: 2017-10-10
 intro: |
   [Absinthe](http://absinthe-graphql.org/) allows you to write GraphQL servers in Elixir.
+links:
+  - title: Absinthe documentation
+    url: https://hexdocs.pm/absinthe/
 ---
 
 ## Introduction

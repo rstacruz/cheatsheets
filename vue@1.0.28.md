@@ -6,6 +6,9 @@ deprecated_by: /vue
 weight: -10
 intro: |
   This guide targets an old version of Vue.js (v1.0.28). See the [updated Vue.js cheatsheet](vue) for new versions.
+links:
+  - title: vueify
+    url: https://www.npmjs.com/package/vueify
 ---
 
 {% raw %}

@@ -13,6 +13,9 @@ keywords:
   - "Lifecycle"
 intro: |
   [Stencil](https://github.com/ionic-team/stencil) is a compiler for web components made by the Ionic team. This guide targets Stencil v0.0.5.
+links:
+  - title: Handling user input
+    url: https://stenciljs.com/docs/templating/#handling-user-input
 ---
 
 ## Quick-start guide

@@ -2,6 +2,9 @@
 title: Imagemagick
 intro: |
   A quick reference for common [Imagemagick](https://www.imagemagick.org) commands and switches.
+links:
+  - title: Imagemagick
+    url: https://www.imagemagick.org
 ---
 
 ### Common options

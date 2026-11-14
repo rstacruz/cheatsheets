@@ -49,11 +49,28 @@ test('links frontmatter', () => {
 test('intro length cap', () => {
   const page = (intro: string) =>
     mapGlobToPages({
-      bash: ['---', 'title: Bash', `intro: ${intro}`, '---', '# hi'].join('\n')
+      bash: [
+        '---',
+        'title: Bash',
+        `intro: ${intro}`,
+        'links:',
+        '  - title: Docs',
+        '    url: https://example.com/docs',
+        '---',
+        '# hi'
+      ].join('\n')
     })
 
   expect(() => page('x'.repeat(501))).toThrow(/intro/)
   expect(() => page('x'.repeat(500))).not.toThrow()
+})
+
+test('intro requires a link', () => {
+  expect(() =>
+    mapGlobToPages({
+      bash: ['---', 'title: Bash', 'intro: Hello', '---', '# hi'].join('\n')
+    })
+  ).toThrow(/links/)
 })
 
 test('links cap', () => {

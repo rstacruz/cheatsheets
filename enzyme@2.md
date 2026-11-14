@@ -7,6 +7,9 @@ deprecated: true
 deprecated_by: /enzyme
 intro: |
   **(Deprecated)** [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers a previous version (v2.x).
+links:
+  - title: Enzyme documentation
+    url: https://enzymejs.github.io/enzyme/
 ---
 
 ## Getting started

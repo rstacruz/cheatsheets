@@ -4,6 +4,9 @@ category: Hidden
 # Discontinued (repo archived); the sheet points to enquire.js/matchMedia.
 intro: |
   [Harvey.js](http://harvesthq.github.io/harvey/) helps you build responsive interfaces.
+links:
+  - title: Harvey.js
+    url: http://harvesthq.github.io/harvey/
 ---
 
 ### Usage

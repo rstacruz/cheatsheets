@@ -8,6 +8,9 @@ keywords:
   - "watchexec --help"
 intro: |
   [mattgreen/watchexec](https://github.com/mattgreen/watchexec) runs commands whenever certain files change.
+links:
+  - title: mattgreen/watchexec
+    url: https://github.com/mattgreen/watchexec
 ---
 
 ### Installation

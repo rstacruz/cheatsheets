@@ -6,6 +6,9 @@ intro: |
   This is a reference of styles that you can use on Devhints cheatsheets. How
   meta!
   You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
+links:
+  - title: Cheatsheet repository
+    url: https://github.com/rstacruz/cheatsheets/
 ---
 
 Variants

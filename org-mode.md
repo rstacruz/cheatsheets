@@ -5,6 +5,9 @@ category: Apps
 updated: 2018-02-19
 intro: |
   [Org mode](https://orgmode.org/) is for keeping hierarchal notes (and more) in Emacs.
+links:
+  - title: Org mode
+    url: https://orgmode.org/
 ---
 
 ## Syntax

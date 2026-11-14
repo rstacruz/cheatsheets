@@ -37,13 +37,13 @@ const placements: {
     id: 'beside',
     title: '1 · Beside the h1',
     note: 'Bare mark left of the title, optically centred. Strongest identity; eats title width.',
-    size: 72
+    size: 96
   },
   {
     id: 'above',
     title: '2 · Above the h1',
     note: 'App-icon hero. Works on mobile; pushes the title down.',
-    size: 80
+    size: 112
   },
   {
     id: 'inline',
@@ -86,14 +86,14 @@ const placements: {
     </header>
 
     <section class="types">
-      <h2>1 · Bare marks, 64px</h2>
+      <h2>1 · Bare marks, 80px</h2>
       <p class="note">
         No background, no border. Image marks get a small radius.
       </p>
       <div class="tiles">
         {marks.map(([slug, kind]) => (
           <figure>
-            <Logo slug={slug} size={64} />
+            <Logo slug={slug} size={80} />
             <figcaption>
               {slug} · {kind}
             </figcaption>
@@ -103,14 +103,14 @@ const placements: {
     </section>
 
     <section class="types">
-      <h2>2 · App-icon variant, 64px</h2>
+      <h2>2 · App-icon variant, 80px</h2>
       <p class="note">
-        Brand-tinted background, icon at 90%, no border, soft shadow.
+        Brand-tinted background, icon at 86%, no border, soft shadow.
       </p>
       <div class="tiles">
         {marks.map(([slug, kind]) => (
           <figure>
-            <Logo slug={slug} size={64} variant="app" />
+            <Logo slug={slug} size={80} variant="app" />
             <figcaption>
               {slug} · {kind}
             </figcaption>
@@ -123,7 +123,7 @@ const placements: {
       <h2>3 · Bare size ladder</h2>
       <p class="note">The mark always fills the slot; no chip.</p>
       <div class="tiles sizes">
-        {[40, 48, 56, 64, 80].map((size) => (
+        {[64, 80, 96, 112].map((size) => (
           <figure>
             <Logo slug="react" size={size} />
             <figcaption>{size}px</figcaption>
@@ -157,42 +157,42 @@ const placements: {
         </p>
       </div>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" size={72} />
-        <SheetLogoSpecimen page={claude} placement="beside" size={72} />
-        <SheetLogoSpecimen page={go} placement="beside" size={72} />
-        <SheetLogoSpecimen page={herdr} placement="beside" size={72} />
-        <SheetLogoSpecimen page={xpath} placement="beside" size={72} />
+        <SheetLogoSpecimen page={react} placement="beside" size={96} />
+        <SheetLogoSpecimen page={claude} placement="beside" size={96} />
+        <SheetLogoSpecimen page={go} placement="beside" size={96} />
+        <SheetLogoSpecimen page={herdr} placement="beside" size={96} />
+        <SheetLogoSpecimen page={xpath} placement="beside" size={96} />
       </div>
     </section>
 
     <section class="specimen">
       <div class="specimen-meta">
         <h2>8 · Beside the h1, app-icon variant</h2>
-        <p>64px tinted tiles, no border, soft shadow.</p>
+        <p>80px tinted tiles, icon at 86%, no border, soft shadow.</p>
       </div>
       <div class="specimen-frame stack">
         <SheetLogoSpecimen
           page={react}
           placement="beside"
-          size={64}
+          size={80}
           variant="app"
         />
         <SheetLogoSpecimen
           page={claude}
           placement="beside"
-          size={64}
+          size={80}
           variant="app"
         />
         <SheetLogoSpecimen
           page={go}
           placement="beside"
-          size={64}
+          size={80}
           variant="app"
         />
         <SheetLogoSpecimen
           page={herdr}
           placement="beside"
-          size={64}
+          size={80}
           variant="app"
         />
       </div>
@@ -200,13 +200,13 @@ const placements: {
 
     <section class="specimen">
       <div class="specimen-meta">
-        <h2>9 · Beside the h1, 56 vs 64 vs 72</h2>
+        <h2>9 · Beside the h1, 80 vs 96 vs 112</h2>
         <p>Bare marks at three header sizes.</p>
       </div>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" size={56} />
-        <SheetLogoSpecimen page={react} placement="beside" size={64} />
-        <SheetLogoSpecimen page={react} placement="beside" size={72} />
+        <SheetLogoSpecimen page={react} placement="beside" size={80} />
+        <SheetLogoSpecimen page={react} placement="beside" size={96} />
+        <SheetLogoSpecimen page={react} placement="beside" size={112} />
       </div>
     </section>
 

@@ -34,12 +34,13 @@
   box-shadow:
     0 4px 12px rgb(51 68 85 / 16%),
     0 1px 2px rgb(51 68 85 / 10%);
+  overflow: hidden;
 }
 
 .logo-tile.-app > svg,
 .logo-tile.-app > img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 86%;
+  max-height: 86%;
   width: auto;
   height: auto;
 }

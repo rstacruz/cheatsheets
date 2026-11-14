@@ -29,7 +29,12 @@ export function resolveLogo(logo: SheetLogo | null): ResolvedLogo | null {
   const icon = getIconData(sets[logo.set], logo.name)
   if (!icon) throw new Error(`Unknown logo: ${logo.set}:${logo.name}`)
 
-  const { body, attributes } = iconToSVG(icon)
+  const { body, viewBox, attributes } = iconToSVG(icon)
+  // iconToSVG() defaults to width/height="1em"; pin the intrinsic size to the
+  // viewBox so CSS can scale the mark to fill its slot
+  attributes.width = viewBox[2]
+  attributes.height = viewBox[3]
+
   return {
     kind: 'svg',
     attributes,

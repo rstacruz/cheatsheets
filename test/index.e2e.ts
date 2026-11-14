@@ -71,7 +71,7 @@ test('date pages', async ({ page }) => {
   await page
     .getByRole('heading', { name: 'Internationalization', exact: true })
     .focus()
-  await page.getByRole('heading', { name: 'Add' }).focus()
+  await page.getByRole('heading', { name: 'Manipulating' }).focus()
 
   await page.goto('/datetime')
   await page.getByRole('heading', { name: 'strftime format' }).focus()

@@ -3,6 +3,9 @@ title: tar
 category: CLI
 updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files
+links:
+  - title: GNU tar manual
+    url: https://www.gnu.org/software/tar/manual/
 ---
 ## Reference
 

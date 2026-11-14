@@ -5,6 +5,9 @@ updated: 2019-12-26
 weight: -10
 intro: |
   [Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
+links:
+  - title: Vue 2 API
+    url: https://v2.vuejs.org/v2/api/#delimiters
 ---
 
 {%raw%}

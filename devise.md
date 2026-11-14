@@ -1,15 +1,12 @@
 ---
 title: Devise
+intro: |
+  [Devise](https://github.com/plataformatec/devise) is a flexible authentication
+  gem.
+links:
+  - title: https://github.com/plataformatec/devise
+    url: https://github.com/plataformatec/devise
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-[Devise](https://github.com/plataformatec/devise) is a flexible authentication
-gem.
-
-- <https://github.com/plataformatec/devise>
 
 ### Installation
 

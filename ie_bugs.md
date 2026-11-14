@@ -5,6 +5,9 @@ category: Hidden
 updated: 2018-03-06
 intro: |
   A bunch of bugs to take care of if you're going to target legacy IE browsers.
+links:
+  - title: IE8 change event
+    url: https://stackoverflow.com/questions/8005442/checkbox-change-event-works-when-click-the-label-in-ie8-ie7
 ---
 
 ### IE8: 'change' event

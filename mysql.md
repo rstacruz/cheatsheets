@@ -3,18 +3,16 @@ title: MySQL
 updated: 2026-11-11
 tier: t2
 category: Databases
+intro: |
+  [MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
+links:
+  - title: MySQL 9.7 Reference Manual
+    url: https://dev.mysql.com/doc/refman/9.7/en/
+  - title: MySQL documentation
+    url: https://dev.mysql.com/doc/
 ---
 
 ## Querying
-
-### About
-
-<!-- {: .-intro} -->
-
-[MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
-
-- [MySQL 9.7 Reference Manual](https://dev.mysql.com/doc/refman/9.7/en/)
-- [MySQL documentation](https://dev.mysql.com/doc/)
 
 ### Select
 

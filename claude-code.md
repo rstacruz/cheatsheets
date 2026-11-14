@@ -11,21 +11,17 @@ keywords:
   - Permission modes
   - Keyboard shortcuts
 intro: |
-  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers sessions, commands, flags, and configuration.
+  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+links:
+  - title: Claude Code documentation
+    url: https://code.claude.com/docs/en/overview
+  - title: GitHub repository
+    url: https://github.com/anthropics/claude-code
 ---
 
 ## Getting started
 
 <!-- {: .-two-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
-
-- [Claude Code documentation](https://code.claude.com/docs/en/overview) _(code.claude.com)_
-- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
 
 ### Install
 

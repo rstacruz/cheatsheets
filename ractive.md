@@ -1,18 +1,16 @@
 ---
 title: Ractive.js
 category: JavaScript libraries
+intro: |
+  Ractive is a UI library for JavaScript.
+links:
+  - title: https://ractive.js.org/
+    url: https://ractive.js.org/
+  - title: https://ractivejs.org/
+    url: https://ractivejs.org/
 ---
 
 {% raw %}
-
-### About
-
-<!-- {: .-intro} -->
-
-Ractive is a UI library for JavaScript.
-
-- <https://ractive.js.org/>
-- <https://ractivejs.org/>
 
 ### [Initialization](http://docs.ractivejs.org/latest/options)
 

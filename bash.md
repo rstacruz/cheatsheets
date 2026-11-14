@@ -12,21 +12,20 @@ keywords:
   - Loops
   - Conditional execution
   - Command substitution
+intro: |
+  This is a quick reference to getting started with Bash scripting.
+links:
+  - title: Bash reference manual
+    url: https://www.gnu.org/software/bash/manual/bash.html
+  - title: Bash FAQ
+    url: https://tiswww.case.edu/php/chet/bash/FAQ
+  - title: GNU Bash
+    url: https://www.gnu.org/software/bash/
 ---
 
 ## Getting started
 
 <!-- {: .-three-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-This is a quick reference to getting started with Bash scripting.
-
-- [Bash reference manual](https://www.gnu.org/software/bash/manual/bash.html) _(gnu.org)_
-- [Bash FAQ](https://tiswww.case.edu/php/chet/bash/FAQ) _(case.edu)_
-- [GNU Bash](https://www.gnu.org/software/bash/) _(gnu.org)_
 
 ### Example
 

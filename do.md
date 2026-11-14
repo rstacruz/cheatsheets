@@ -2,13 +2,10 @@
 title: Do gem
 category: Hidden
 # The Do gem was last released around 2012 and is unmaintained.
+links:
+  - title: DAddYE/do
+    url: https://github.com/DAddYE/do
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
- * [DAddYE/do](https://github.com/DAddYE/do)
 
 ### Connection
 

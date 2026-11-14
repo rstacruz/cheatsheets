@@ -3,6 +3,9 @@ title: sed
 category: CLI
 intro: |
   Here's some hints on using sed.
+links:
+  - title: GNU sed manual
+    url: https://www.gnu.org/software/sed/manual/sed.html
 ---
 
 ### Replacements

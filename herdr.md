@@ -11,22 +11,18 @@ keywords:
   - panes
 intro: |
   [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
-  agents. This reference covers the core concepts, command groups, and
-  keyboard.
+  agents: persistent sessions of workspaces, tabs, and panes, with agent
+  detection built in.
+links:
+  - title: Herdr documentation
+    url: https://herdr.dev/tui/docs/
+  - title: GitHub repository
+    url: https://github.com/herdrdev/herdr
+  - title: Herdr concepts
+    url: https://herdr.dev/tui/docs/concepts/
 ---
 
 ## Keyboard
-
-### Introduction
-<!-- {: .-intro} -->
-
-[Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
-agents: persistent sessions of workspaces, tabs, and panes, with agent
-detection built in.
-
-- [Herdr documentation](https://herdr.dev/tui/docs/) _(herdr.dev)_
-- [GitHub repository](https://github.com/herdrdev/herdr) _(github.com)_
-- [Herdr concepts](https://herdr.dev/tui/docs/concepts/) _(herdr.dev)_
 
 ### Learn these first
 

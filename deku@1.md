@@ -5,6 +5,9 @@ deprecated: true
 deprecated_by: /deku
 intro: |
   Quick reference for [Deku](https://www.npmjs.com/package/deku), a minimal virtual DOM library. This is for Deku v1. See [deku](./deku) for a more updated cheatsheet.
+links:
+  - title: Deku repository
+    url: https://github.com/dekujs/deku
 ---
 
 ### Example

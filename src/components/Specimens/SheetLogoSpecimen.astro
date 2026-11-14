@@ -1,10 +1,7 @@
 ---
 import cx from 'clsx'
 import Logo from '~/components/Logo.astro'
-import Icon from '~/components/Icon.astro'
-import { getSheetLogo } from '~/lib/logos'
-import { logoHtml } from '~/lib/logo-render'
-import { render } from '~/lib/markdown/render'
+import type { LogoVariant } from '~/lib/logo-render'
 import type { SheetPage } from '~/lib/page'
 import { typeStyles } from '~/styles/CommonStyles'
 
@@ -15,39 +12,17 @@ export type Placement =
   | 'kicker'
   | 'suffix'
   | 'watermark'
-  | 'intro'
-  | 'nav'
 
 export type Props = {
   page: SheetPage
   placement: Placement
   size?: number
+  variant?: LogoVariant
 }
 
-const { page, placement, size = 56 } = Astro.props as Props
+const { page, placement, size = 56, variant = 'bare' } = Astro.props as Props
 const title: string = page.frontmatter.title ?? page.slug
 const category: string = page.frontmatter.category ?? ''
-
-const logo = getSheetLogo(page.slug)
-const introLogo = logoHtml(logo, 40, 'specimen-intro-logo')
-
-const { html } = await render(page.markdown, {
-  intro: page.frontmatter.intro,
-  links: page.frontmatter.links
-})
-
-// The generated intro card has no nested sections; take it up to the first close
-const introStart = html.indexOf('<section class="h3-section -intro">')
-const introEnd = introStart === -1 ? -1 : html.indexOf('</section>', introStart)
-const introCard =
-  introStart === -1
-    ? ''
-    : html
-        .slice(introStart, introEnd + '</section>'.length)
-        .replace(
-          '<div class="body -intro">',
-          `<div class="body -intro">${introLogo}`
-        )
 
 const headingStyles = {
   root: cx('MainHeading__root', 'mt-4 w-full', 'flex flex-col'),
@@ -61,68 +36,61 @@ const headingStyles = {
 }
 ---
 
-{placement === 'nav' ? (
-  <div class="specimen-nav">
-    <a class="specimen-back" href="/" aria-label="Back to home">
-      <Icon name="md-arrow-back" size={24} />
-    </a>
-    <Logo slug={page.slug} size={24} />
-    <span class="specimen-brand">devhints.io</span>
-    <span class="specimen-nav-actions">
-      <Icon name="logo-github" size={16} />
-      <span>Edit</span>
-    </span>
-  </div>
-) : placement === 'intro' ? (
-  <div class="specimen-intro">
-    <header class={headingStyles.root} role="banner">
-      <h1 class={headingStyles.h1}>
-        <span>{title}</span>
-        <span class="specimen-suffix"> cheatsheet</span>
-      </h1>
-    </header>
-    <div class="MarkdownBody" set:html={introCard} />
-  </div>
-) : (
-  <header
-    class:list={[
-      headingStyles.root,
-      { 'specimen-watermark': placement === 'watermark' }
-    ]}
-    role="banner"
-  >
-    {placement === 'watermark' && (
-      <Logo slug={page.slug} size={260} class="specimen-watermark-logo" />
-    )}
+<header
+  class:list={[
+    headingStyles.root,
+    { 'specimen-watermark': placement === 'watermark' }
+  ]}
+  role="banner"
+>
+  {placement === 'watermark' && (
+    <Logo
+      slug={page.slug}
+      size={260}
+      variant="bare"
+      class="specimen-watermark-logo"
+    />
+  )}
 
-    {placement === 'above' && (
-      <div class="specimen-above">
-        <Logo slug={page.slug} size={size} />
-      </div>
-    )}
-
-    {placement === 'kicker' && (
-      <div class="specimen-kicker">
-        <Logo slug={page.slug} size={20} />
-        <span>{category}</span>
-      </div>
-    )}
-
-    <div class="specimen-title-row">
-      {placement === 'beside' && <Logo slug={page.slug} size={size} />}
-      <h1 class={headingStyles.h1}>
-        {placement === 'inline' && (
-          <Logo slug={page.slug} size={40} class="specimen-inline" />
-        )}
-        <span>{title}</span>
-        <span class="specimen-suffix"> cheatsheet</span>
-        {placement === 'suffix' && (
-          <Logo slug={page.slug} size={28} class="specimen-suffix-logo" />
-        )}
-      </h1>
+  {placement === 'above' && (
+    <div class="specimen-above">
+      <Logo slug={page.slug} size={size} variant={variant} />
     </div>
-  </header>
-)}
+  )}
+
+  {placement === 'kicker' && (
+    <div class="specimen-kicker">
+      <Logo slug={page.slug} size={20} variant={variant} />
+      <span>{category}</span>
+    </div>
+  )}
+
+  <div class="specimen-title-row">
+    {placement === 'beside' && (
+      <Logo slug={page.slug} size={size} variant={variant} />
+    )}
+    <h1 class={headingStyles.h1}>
+      {placement === 'inline' && (
+        <Logo
+          slug={page.slug}
+          size={40}
+          variant={variant}
+          class="specimen-inline"
+        />
+      )}
+      <span>{title}</span>
+      <span class="specimen-suffix"> cheatsheet</span>
+      {placement === 'suffix' && (
+        <Logo
+          slug={page.slug}
+          size={28}
+          variant={variant}
+          class="specimen-suffix-logo"
+        />
+      )}
+    </h1>
+  </div>
+</header>
 
 <style>
   .specimen-title-row {
@@ -178,52 +146,10 @@ const headingStyles = {
     transform: translateY(-50%);
     opacity: 0.16;
     filter: grayscale(1);
-    box-shadow: none;
-    background: transparent;
   }
 
   .specimen-watermark h1 {
     position: relative;
     z-index: 1;
-  }
-
-  .specimen-intro {
-    margin-top: 32px;
-  }
-
-  .specimen-intro :global(.specimen-intro-logo) {
-    float: right;
-    margin: 0 0 12px 16px;
-  }
-
-  .specimen-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--line-color);
-    color: var(--base-text);
-  }
-
-  .specimen-back {
-    display: inline-flex;
-    color: var(--base-text);
-  }
-
-  .specimen-brand {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-
-  .specimen-nav-actions {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: auto;
-    color: var(--base-mute);
-    font-size: 12px;
   }
 </style>

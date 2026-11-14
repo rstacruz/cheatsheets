@@ -16,6 +16,17 @@ const claude = pages['claude-code']
 const skills = pages.skills
 const mise = pages.mise
 
+const marks = [
+  ['react', 'colour'],
+  ['claude-code', 'colour'],
+  ['go', 'mono square'],
+  ['skills', 'glyph'],
+  ['xpath', 'glyph'],
+  ['curl', 'mono square'],
+  ['herdr', 'image'],
+  ['mise', 'image']
+] as const
+
 const placements: {
   id: Placement
   title: string
@@ -25,13 +36,14 @@ const placements: {
   {
     id: 'beside',
     title: '1 · Beside the h1',
-    note: 'Tile left of the title, optically centred. Strongest identity; eats title width.'
+    note: 'Bare mark left of the title, optically centred. Strongest identity; eats title width.',
+    size: 72
   },
   {
     id: 'above',
     title: '2 · Above the h1',
     note: 'App-icon hero. Works on mobile; pushes the title down.',
-    size: 72
+    size: 80
   },
   {
     id: 'inline',
@@ -41,7 +53,7 @@ const placements: {
   {
     id: 'kicker',
     title: '4 · Kicker above the h1',
-    note: 'Tiny tile with the category. Subtle, but duplicates the category.'
+    note: 'Tiny mark with the category. Subtle, but duplicates the category.'
   },
   {
     id: 'suffix',
@@ -52,16 +64,6 @@ const placements: {
     id: 'watermark',
     title: '6 · Watermark behind the h1',
     note: 'Oversized ghost mark. Only works for simple silhouettes.'
-  },
-  {
-    id: 'intro',
-    title: '7 · Inside the Introduction card',
-    note: 'Float-right badge in the card body. Contextual and mobile-friendly.'
-  },
-  {
-    id: 'nav',
-    title: '8 · Top nav, next to the brand',
-    note: 'Persistent while scrolling. Competes with the back and edit controls.'
   }
 ]
 ---
@@ -76,51 +78,50 @@ const placements: {
       <p class="eyebrow">Specimen · throwaway exploration</p>
       <h1>Sheet logo placements</h1>
       <p>
-        Same sheet (<code>react</code>), eight places to put the mark. The tile
-        is 56px in the header specimens and 40px inside the intro card.
+        Same sheet (<code>react</code>), six places on the sheet page. Two logo
+        treatments: <strong>bare</strong> (no background or border, mark is the
+        slot) and <strong>app icon</strong> (brand-tinted background, bigger
+        mark, no border, soft shadow). Top nav and intro card omitted.
       </p>
     </header>
 
     <section class="types">
-      <h2>1 · Logo types at 56px</h2>
+      <h2>1 · Bare marks, 64px</h2>
+      <p class="note">
+        No background, no border. Image marks get a small radius.
+      </p>
       <div class="tiles">
-        <figure>
-          <Logo slug="react" size={56} />
-          <figcaption>react · colour</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="go" size={56} />
-          <figcaption>go · mono square</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="herdr" size={56} />
-          <figcaption>herdr · file</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="skills" size={56} />
-          <figcaption>skills · mono square</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="xpath" size={56} />
-          <figcaption>xpath · glyph</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="curl" size={56} />
-          <figcaption>curl · mono square</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="claude-code" size={56} />
-          <figcaption>claude-code · colour</figcaption>
-        </figure>
-        <figure>
-          <Logo slug="mise" size={56} />
-          <figcaption>mise · file</figcaption>
-        </figure>
+        {marks.map(([slug, kind]) => (
+          <figure>
+            <Logo slug={slug} size={64} />
+            <figcaption>
+              {slug} · {kind}
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </section>
 
     <section class="types">
-      <h2>2 · Size ladder</h2>
+      <h2>2 · App-icon variant, 64px</h2>
+      <p class="note">
+        Brand-tinted background, icon at 90%, no border, soft shadow.
+      </p>
+      <div class="tiles">
+        {marks.map(([slug, kind]) => (
+          <figure>
+            <Logo slug={slug} size={64} variant="app" />
+            <figcaption>
+              {slug} · {kind}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="types">
+      <h2>3 · Bare size ladder</h2>
+      <p class="note">The mark always fills the slot; no chip.</p>
       <div class="tiles sizes">
         {[40, 48, 56, 64, 80].map((size) => (
           <figure>
@@ -149,43 +150,63 @@ const placements: {
 
     <section class="specimen">
       <div class="specimen-meta">
-        <h2>9 · Beside the h1, across logo types</h2>
+        <h2>7 · Beside the h1, across logo types</h2>
         <p>
-          The same placement with a colour mark, a mono square, an official
-          file, and a glyph.
+          Same placement with a colour mark, a mono square, an image mark, and a
+          glyph.
         </p>
       </div>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" />
-        <SheetLogoSpecimen page={go} placement="beside" />
-        <SheetLogoSpecimen page={herdr} placement="beside" />
-        <SheetLogoSpecimen page={xpath} placement="beside" />
+        <SheetLogoSpecimen page={react} placement="beside" size={72} />
+        <SheetLogoSpecimen page={claude} placement="beside" size={72} />
+        <SheetLogoSpecimen page={go} placement="beside" size={72} />
+        <SheetLogoSpecimen page={herdr} placement="beside" size={72} />
+        <SheetLogoSpecimen page={xpath} placement="beside" size={72} />
       </div>
     </section>
 
     <section class="specimen">
       <div class="specimen-meta">
-        <h2>10 · Beside the h1, wordmark-heavy sheets</h2>
-        <p>
-          <code>curl</code> and <code>skills</code> use square mono marks, so
-          they hold up at 48–56px.
-        </p>
+        <h2>8 · Beside the h1, app-icon variant</h2>
+        <p>64px tinted tiles, no border, soft shadow.</p>
       </div>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={curl} placement="beside" />
-        <SheetLogoSpecimen page={skills} placement="beside" />
-        <SheetLogoSpecimen page={claude} placement="beside" />
+        <SheetLogoSpecimen
+          page={react}
+          placement="beside"
+          size={64}
+          variant="app"
+        />
+        <SheetLogoSpecimen
+          page={claude}
+          placement="beside"
+          size={64}
+          variant="app"
+        />
+        <SheetLogoSpecimen
+          page={go}
+          placement="beside"
+          size={64}
+          variant="app"
+        />
+        <SheetLogoSpecimen
+          page={herdr}
+          placement="beside"
+          size={64}
+          variant="app"
+        />
       </div>
     </section>
 
     <section class="specimen">
       <div class="specimen-meta">
-        <h2>11 · Beside the h1, 48 vs 56</h2>
-        <p>Same placement at two header sizes.</p>
+        <h2>9 · Beside the h1, 56 vs 64 vs 72</h2>
+        <p>Bare marks at three header sizes.</p>
       </div>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" size={48} />
         <SheetLogoSpecimen page={react} placement="beside" size={56} />
+        <SheetLogoSpecimen page={react} placement="beside" size={64} />
+        <SheetLogoSpecimen page={react} placement="beside" size={72} />
       </div>
     </section>
 
@@ -242,7 +263,7 @@ const placements: {
   }
 
   .intro p {
-    max-width: 640px;
+    max-width: 680px;
     color: var(--base-text);
   }
 
@@ -259,6 +280,7 @@ const placements: {
     color: var(--base-head);
   }
 
+  .note,
   .specimen-meta p {
     max-width: 640px;
     margin: 0 0 16px;
@@ -270,7 +292,7 @@ const placements: {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    gap: 24px;
+    gap: 28px;
     margin-top: 20px;
   }
 
@@ -279,7 +301,7 @@ const placements: {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
   .tiles figcaption {

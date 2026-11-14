@@ -10,37 +10,48 @@ const sets = {
   'icon-park-outline': iconParkOutline
 }
 
+export type LogoVariant = 'bare' | 'app'
+
 export type ResolvedLogo =
-  | { kind: 'svg'; attributes: Record<string, string>; body: string }
-  | { kind: 'img'; src: string }
+  | {
+      kind: 'svg'
+      attributes: Record<string, string>
+      body: string
+      tint: string | null
+    }
+  | { kind: 'img'; src: string; tint: string | null }
 
 /** Resolve a registry entry to build-time SVG or a static file. */
 export function resolveLogo(logo: SheetLogo | null): ResolvedLogo | null {
   if (!logo) return null
-  if (logo.kind === 'file') return { kind: 'img', src: logo.src }
+  if (logo.kind === 'file') return { kind: 'img', src: logo.src, tint: null }
 
   const icon = getIconData(sets[logo.set], logo.name)
   if (!icon) throw new Error(`Unknown logo: ${logo.set}:${logo.name}`)
 
   const { body, attributes } = iconToSVG(icon)
-  return { kind: 'svg', attributes, body: replaceIDs(body) }
+  return {
+    kind: 'svg',
+    attributes,
+    body: replaceIDs(body),
+    tint: dominantColor(body)
+  }
 }
 
-/** Tile markup for places that need a string (eg, the intro card HTML). */
-export function logoHtml(
-  logo: SheetLogo | null,
-  size: number,
-  className = ''
-): string {
-  const resolved = resolveLogo(logo)
-  if (!resolved) return ''
+/**
+ * Most common non-black/white fill. Drives the soft app-icon background.
+ * `simple-icons` use `currentColor`, so they fall back to the site accent.
+ */
+function dominantColor(body: string): string | null {
+  const counts = new Map<string, number>()
 
-  const inner =
-    resolved.kind === 'img'
-      ? `<img src="${resolved.src}" alt="" />`
-      : `<svg ${Object.entries(resolved.attributes)
-          .map(([key, value]) => `${key}="${value}"`)
-          .join(' ')}>${resolved.body}</svg>`
+  for (const match of body.matchAll(
+    /(?:fill|stop-color)="(#[0-9a-fA-F]{3,8})"/g
+  )) {
+    const color = match[1].toLowerCase()
+    if (/^#(?:fff(?:fff)?|000(?:000)?)$/.test(color)) continue
+    counts.set(color, (counts.get(color) ?? 0) + 1)
+  }
 
-  return `<span class="logo-tile ${className}" style="--logo-size:${size}px" aria-hidden="true">${inner}</span>`
+  return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null
 }

@@ -1,5 +1,5 @@
-/* Uniform tile for sheet logos. Global so string-rendered placements (the
-   intro card) and the Logo component share one treatment. */
+/* Sheet logo variants. Global so string-rendered placements (the intro card)
+   and the Logo component share one treatment. */
 .logo-tile {
   display: inline-flex;
   align-items: center;
@@ -7,16 +7,43 @@
   flex: none;
   width: var(--logo-size);
   height: var(--logo-size);
-  border-radius: calc(var(--logo-size) * 0.22);
-  background: var(--base-panel);
-  box-shadow: inset 0 0 0 1px var(--line-color);
-  overflow: hidden;
 }
 
-.logo-tile > svg,
-.logo-tile > img {
-  max-width: 76%;
-  max-height: 76%;
+/* Bare: no background, no border, no shadow. The mark is the whole slot. */
+.logo-tile.-bare {
+  background: transparent;
+  box-shadow: none;
+}
+
+.logo-tile.-bare > svg,
+.logo-tile.-bare > img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
+}
+
+/* App-icon variant: coloured tint, no border, subtle shadow, larger mark. */
+.logo-tile.-app {
+  border-radius: calc(var(--logo-size) * 0.24);
+  background: color-mix(
+    in srgb,
+    var(--logo-tint, var(--base-a)) 30%,
+    var(--base-panel)
+  );
+  box-shadow:
+    0 4px 12px rgb(51 68 85 / 16%),
+    0 1px 2px rgb(51 68 85 / 10%);
+}
+
+.logo-tile.-app > svg,
+.logo-tile.-app > img {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+.logo-tile > img {
+  border-radius: 22%;
 }

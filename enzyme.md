@@ -154,7 +154,7 @@ wrap.find('input').simulate('change', {
 
 ### Initial setup
 
-```
+```bash
 npm install --save-dev enzyme \
   enzyme-adapter-react-16 \
   react-test-renderer
@@ -187,7 +187,7 @@ See: [Installation](https://enzymejs.github.io/enzyme/#installation)
 
 ### Jest snapshots
 
-```
+```bash
 npm install --save-dev enzyme-to-json
 ```
 

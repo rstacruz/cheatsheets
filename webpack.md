@@ -99,6 +99,8 @@ output: {
 | `[ext]` | Extension, with the dot |
 | `[query]` | Query string, with the `?` |
 
+<!-- {: .-headers} -->
+
 `output.clean` empties the output directory before each build.
 
 See: [Output](https://webpack.js.org/configuration/output/)
@@ -111,15 +113,15 @@ module.exports = {
 }
 ```
 
-#### Defaults
+`mode` is shorthand for three defaults:
 
-| Mode | `devtool` | Minified | `process.env.NODE_ENV` |
-| --- | --- | --- | --- |
-| `development` | `eval` | No | `development` |
-| `production` | `false` | Yes | `production` |
-| `none` | `false` | No | unset |
+```js
+mode: 'development'  // => NODE_ENV=development, devtool: 'eval'
+mode: 'production'   // => NODE_ENV=production, minified
+mode: 'none'         // => no defaults, NODE_ENV untouched
+```
 
-Production also turns on tree shaking and deterministic module IDs. Never hardcode the mode twice; read it from an env var.
+Production mode also turns on tree shaking and deterministic module IDs. Never hardcode the mode twice; read it from an env var.
 
 See: [Mode](https://webpack.js.org/configuration/mode/)
 
@@ -260,6 +262,8 @@ module.exports = {
 | `asset/bytes` | A `Uint8Array` | none |
 | `asset` | Inline under `maxSize`, else a file | `url-loader` |
 
+<!-- {: .-headers} -->
+
 Asset modules are built in, so no loader is needed for images or fonts.
 
 See: [Asset modules](https://webpack.js.org/guides/asset-modules/)
@@ -373,6 +377,8 @@ See: [cache](https://webpack.js.org/configuration/cache/)
 | `json-loader` | Built in |
 | `babel-polyfill` | `core-js` plus `@babel/preset-env` |
 
+<!-- {: .-headers} -->
+
 See: [Asset modules](https://webpack.js.org/guides/asset-modules/)
 
 ### Node polyfills
@@ -400,6 +406,8 @@ See: [Shimming](https://webpack.js.org/guides/shimming/)
 | `optimization.namedModules` | `optimization.moduleIds: 'named'` |
 | `optimization.namedChunks` | `optimization.chunkIds: 'named'` |
 | `optimization.hashedModuleIds` | `optimization.moduleIds: 'deterministic'` |
+
+<!-- {: .-headers} -->
 
 `NamedModulesPlugin` and `NamedChunksPlugin` were removed along with these options.
 

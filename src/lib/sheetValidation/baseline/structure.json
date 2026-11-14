@@ -48,6 +48,5 @@
   "vimscript-snippets#Misc",
   "vue@1.0.28#API",
   "vue@1.0.28#Vue templates",
-  "web-workers#Web workers",
-  "webpack#Other features"
+  "web-workers#Web workers"
 ]

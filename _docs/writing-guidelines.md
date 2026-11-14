@@ -273,7 +273,7 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 ## Introduction
 
 - Set `intro` frontmatter; it renders as the first card on the sheet.
-- Max 25 words per paragraph.
+- Max 25 words per paragraph, 500 characters in total.
 - Up to 4 `links`. These should be reputable, first-party sources as much as possible.
 - Link sources (`_(hostname)_`) are inferred from the URL; do not write them.
 

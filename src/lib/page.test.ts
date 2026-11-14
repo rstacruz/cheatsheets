@@ -46,6 +46,16 @@ test('links frontmatter', () => {
   ])
 })
 
+test('intro length cap', () => {
+  const page = (intro: string) =>
+    mapGlobToPages({
+      bash: ['---', 'title: Bash', `intro: ${intro}`, '---', '# hi'].join('\n')
+    })
+
+  expect(() => page('x'.repeat(501))).toThrow(/intro/)
+  expect(() => page('x'.repeat(500))).not.toThrow()
+})
+
 test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [

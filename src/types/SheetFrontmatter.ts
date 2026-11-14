@@ -61,9 +61,10 @@ export const SheetFrontmatterSchema = z.object({
     ),
   intro: z
     .string()
+    .max(500)
     .optional()
     .describe(
-      'Introduction card text in Markdown. Also used in meta descriptions.'
+      'Introduction card text in Markdown (max 500 chars). Also used in meta descriptions.'
     ),
   links: z
     .array(SheetLinkSchema)

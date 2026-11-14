@@ -3,18 +3,18 @@ title: Yarn
 category: JavaScript libraries
 weight: -3
 updated: 2026-11-14
+intro: |
+  [Yarn](https://yarnpkg.com/) is a package manager for JavaScript. This reference covers Yarn 4 (the Berry line): Corepack installs, the modern CLI, workspaces, constraints, and Plug'n'Play.
+links:
+  - title: Yarn documentation
+    url: https://yarnpkg.com/getting-started/install
+  - title: Migration guide
+    url: https://yarnpkg.com/migration/guide
+  - title: GitHub repository
+    url: https://github.com/yarnpkg/berry
 ---
 
 ## Getting started
-
-### About
-<!-- {: .-intro} -->
-
-[Yarn](https://yarnpkg.com/) is a package manager for JavaScript. This reference covers Yarn 4 (the Berry line): Corepack installs, the modern CLI, workspaces, constraints, and Plug'n'Play.
-
-- [Yarn documentation](https://yarnpkg.com/getting-started/install) _(yarnpkg.com)_
-- [Migration guide](https://yarnpkg.com/migration/guide) _(yarnpkg.com)_
-- [GitHub repository](https://github.com/yarnpkg/berry) _(github.com)_
 
 ### Install
 

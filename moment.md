@@ -2,17 +2,16 @@
 title: Moment.js
 category: JavaScript libraries
 updated: 2026-11-14
+intro: |
+  [Moment.js](https://momentjs.com/docs/) parses, formats, and manipulates dates. It is a legacy project in maintenance mode: fine for existing code, discouraged for new projects.
+links:
+  - title: Moment.js documentation
+    url: https://momentjs.com/docs/
+  - title: Project status
+    url: https://momentjs.com/news/
 ---
 
 ## Getting started
-
-### About
-<!-- {: .-intro} -->
-
-[Moment.js](https://momentjs.com/docs/) parses, formats, and manipulates dates. It is a legacy project in maintenance mode: fine for existing code, discouraged for new projects.
-
-- [Moment.js documentation](https://momentjs.com/docs/) _(momentjs.com)_
-- [Project status](https://momentjs.com/news/) _(momentjs.com)_
 
 ### Maintenance status
 

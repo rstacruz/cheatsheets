@@ -3,17 +3,16 @@ title: Redux
 category: React
 updated: 2026-11-14
 weight: -3
+intro: |
+  [Redux Toolkit](https://redux.js.org/toolkit/introduction/getting-started) is the standard way to write Redux. This reference targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.
+links:
+  - title: Redux Toolkit documentation
+    url: https://redux.js.org/toolkit/introduction/getting-started
+  - title: GitHub repository
+    url: https://github.com/reduxjs/redux-toolkit
 ---
 
 ## Store
-
-### About
-<!-- {: .-intro} -->
-
-[Redux Toolkit](https://redux.js.org/toolkit/introduction/getting-started) is the standard way to write Redux. This reference targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.
-
-- [Redux Toolkit documentation](https://redux.js.org/toolkit/introduction/getting-started) _(redux.js.org)_
-- [GitHub repository](https://github.com/reduxjs/redux-toolkit) _(github.com)_
 
 ### Install
 

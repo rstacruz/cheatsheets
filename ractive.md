@@ -17,7 +17,7 @@ Ractive is a template-driven UI library for JavaScript.
 
 ### [Initialization](https://ractive.js.org/api/#initialization-options)
 
-```
+```js
 new Ractive({
   el: '#box',
   template: '...', // required
@@ -46,7 +46,7 @@ new Ractive({
 
 ### Updating values
 
-```
+```js
 view.add('count', 1)       //=> promise
 view.subtract('count', 1)  //=> promise
 view.toggle('shown')       //=> promise
@@ -61,7 +61,7 @@ view.get('a')
 
 ### Nodes and components
 
-```
+```js
 view.find('.klass')
 view.findAll('.klass')
 
@@ -71,7 +71,7 @@ view.findAllComponents('photo')
 
 ### Events
 
-```
+```js
 view.on('event', function() { ... })
 view.off('event', fn)
 view.fire('event')
@@ -79,7 +79,7 @@ view.fire('event')
 
 ### Others
 
-```
+```js
 view.update()
 view.updateModel()
 
@@ -95,7 +95,7 @@ view.render()
 
 ### Extend
 
-```
+```js
 View = Ractive.extend({
   ...
 })
@@ -120,20 +120,24 @@ See: [Components](https://ractive.js.org/api/#components)
 
 ### Partials
 
-```
+```js
 // Global partials
 Ractive.partials.x = "<..>"
 ```
 
 ## Events
 
-```
+### Lifecycle
+
+```js
 view.on('teardown', fn)
 ```
 
+See: [Events](https://ractive.js.org/api/#ractiveon)
+
 ### DOM Events
 
-```
+```html
 <button on-click='activate'>Activate!</button>
 
 view.on({
@@ -148,7 +152,7 @@ view.on('sort', function (e, column) {
 
 ### Observing
 
-```
+```js
 view.observe("name", function (name) {
   console.log("Changed name to", name);
 }, { init: false });
@@ -158,7 +162,7 @@ view.observe("name", function (name) {
 
 ### Markup
 
-```
+```html
 Hello, {{name}}
 Body: {{{unescaped}}}
 
@@ -202,7 +206,7 @@ See: [Each sections](https://ractive.js.org/api/#each-sections)
 
 ### Transitions
 
-```
+```js
 <div intro="fade">
 <div intro="bump">
 <div intro="bump:{duration:400}">
@@ -225,7 +229,7 @@ Ractive.transitions.bump = function(t, params) {
 
 ### [Decorators](https://ractive.js.org/api/#decorators)
 
-```
+```js
 <span decorator="tooltip:hello there">Hover me</span>
 
 decorators: {
@@ -246,7 +250,7 @@ tooltip: function (node, a, b, two, c) { ... }
 
 ### [Adaptors](https://ractive.js.org/api/#adaptors)
 
-```
+```js
 myAdaptor = {
   filter: function (object, keypath, ractive) {
     // return `true` if a particular object is of the type we want to adapt
@@ -270,7 +274,7 @@ myAdaptor = {
 
 ### [Computed properties](https://ractive.js.org/api/#computed)
 
-```
+```js
 new Ractive({
   template: '{{area}}',
   computed: {

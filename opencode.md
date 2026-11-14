@@ -134,7 +134,7 @@ opencode --server http://localhost:4096
 opencode service set disabled true   # stop the shared service
 ```
 
-One background server per user owns sessions and tools. `--standalone` gives a run its own server, which is what CI needs.
+One background server per user owns sessions and tools. In CI, `opencode run --standalone` gives a run its own server, so a secret reaches it.
 
 See: [Background service](https://opencode.ai/docs/cli#background-service)
 
@@ -414,15 +414,21 @@ In the TUI, `/diff` opens the diff viewer and `m` marks files reviewed.
 
 See: [TUI](https://opencode.ai/docs/cli/tui)
 
-### Scripting and CI
+### JSON output
 
 ```bash
 opencode run --format json "list the TODO comments" | jq
-opencode run --archived "review this diff"
-ANTHROPIC_API_KEY=$KEY opencode run --standalone "triage bugs"
 ```
 
-`--standalone` starts a private server, so a CI secret reaches it.
+`--format json` emits newline-delimited JSON, so piping into `jq` works.
+
+See: [run](https://opencode.ai/docs/cli/commands#run)
+
+### Archived runs
+
+```bash
+opencode run --archived "review this diff"
+```
 
 `--archived` keeps a run out of the session picker and inbox; `opencode session list` still shows it.
 

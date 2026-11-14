@@ -172,3 +172,18 @@ describe('intro card', () => {
     expect(html).toContain('<h3 class="-intro" id="introduction-1">')
   })
 })
+
+it('inserts the intro card inside the first h2 section', async () => {
+  const { html } = await render('## Sun\n\n### One\nx', {
+    intro: 'Hello',
+    links: [{ title: 'Docs', url: './docs' }]
+  })
+  expect(html).toMatchInlineSnapshot(`
+    "<section class="h2-section"><h2 id="sun">Sun</h2><div class="body h3-section-list"><section class="h3-section -intro"><h3 class="-intro" id="introduction">Introduction</h3><div class="body -intro"><p>Hello</p>
+    <ul>
+    <li><a href="./docs">Docs</a> <em>(devhints.io)</em></li>
+    </ul></div></section>
+    <section class="h3-section"><h3 id="one">One</h3><div class="body">
+    <p>x</p></div></section></div></section>"
+  `)
+})

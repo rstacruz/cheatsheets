@@ -1,12 +1,11 @@
 ---
 title: Social media images
-layout: 2017/sheet
 ---
 
 ### Facebook
 
 | What | Dimensions |
-|:---- | ----------:|
+| --- | --- |
 | Cover photo | 851 x 315 |
 | Display picture | 168 x 168 ? |
 | Highlighted image | 1200 x 717 (appears 843 x 504) |
@@ -16,7 +15,7 @@ layout: 2017/sheet
 ### Twitter
 
 | What | Dimensions |
-|:---- | ----------:|
+| --- | --- |
 | Page header | 1500 x 500 |
 | Display picture | 400 x 400 (shown as 200x200) |
 | In-stream photo preview | 440 x 220 (2:1) |

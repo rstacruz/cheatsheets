@@ -1,12 +1,12 @@
 ---
 title: tar
 category: CLI
-layout: 2017/sheet
 updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files
 ---
 ## Reference
-{:.-two-column}
+
+<!-- {:.-two-column} -->
 
 ### Deflate / Inflate / Concatenate
 ```shell
@@ -32,6 +32,12 @@ tar -xzf archive.tar.gz -C /target/directory
 ```shell
 # Append a file to an existing archive
 tar -zu archive.tar.gz -C /target/file
+```
+
+```shell
+# List files in archive
+# Add -v for additional details
+tar -tzf archive.tar.gz
 ```
 
 ### Common options

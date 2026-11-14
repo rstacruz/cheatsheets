@@ -1,11 +1,9 @@
 ---
 title: Yarn
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -3
 updated: 2019-09-30
 prism_languages: [json, bash]
-tags: [Featurable]
 ---
 
 ### npm equivalents
@@ -19,7 +17,8 @@ tags: [Featurable]
 | `npm install -g gulp` | `yarn global add gulp` |
 | `npm update` | `yarn upgrade` |
 | `./node_modules/.bin/gulp` | `yarn run gulp` |
-{: .-left-align.-headers}
+
+<!-- {: .-left-align.-headers} -->
 
 ### yarn install
 
@@ -55,7 +54,8 @@ These options are available for `yarn add`.
 ### Workspaces
 
 In `package.json`:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```json
 "workspaces": [
@@ -72,14 +72,16 @@ jest/
    └─ jest-diff/
       └─ package.json
 ```
-{: .-box-chars}
+
+<!-- {: .-box-chars} -->
 
 (New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
 
 ### Selective version resolution
 
 In `package.json`:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```json
 "resolutions": {

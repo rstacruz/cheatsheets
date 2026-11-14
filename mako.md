@@ -1,7 +1,6 @@
 ---
 title: Mako
 category: Python
-layout: 2017/sheet
 ---
 
 ### Basic usage

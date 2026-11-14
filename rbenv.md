@@ -1,7 +1,6 @@
 ---
 title: rbenv
 category: Ruby
-layout: 2017/sheet
 updated: 2018-02-20
 weight: -1
 description: |
@@ -52,7 +51,8 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 | `rbenv rehash`          | Re-write binstubs           |
 
 ## Using versions
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Locally
 

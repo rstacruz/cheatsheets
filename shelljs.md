@@ -1,7 +1,6 @@
 ---
 title: Shell.js
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-10-27
 weight: -1
 intro: |

@@ -1,20 +1,21 @@
 ---
 title: Cron
 category: CLI
-layout: 2017/sheet
-updated: 2018-05-03
+updated: 2024-03-17
 weight: -3
 ---
 
 ## Format
-{: .-two-column}
+
+<!-- {: .-two-column} -->
 
 ### Format
 
 ```
 Min  Hour Day  Mon  Weekday
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 *    *    *    *    *  command to be executed
@@ -28,7 +29,8 @@ Min  Hour Day  Mon  Weekday
 │    └────────────────  Hour     (0..23)
 └─────────────────────  Minute   (0..59)
 ```
-{: .-setup.-box-chars}
+
+<!-- {: .-setup.-box-chars} -->
 
 ### Operators
 
@@ -38,6 +40,18 @@ Min  Hour Day  Mon  Weekday
 | `,`      | separate individual values |
 | `-`      | a range of values          |
 | `/`      | divide a value into steps  |
+
+### Special strings
+
+| String       | Description                            |
+| ---          | ---                                    |
+| `@reboot`    | every rebot                            |
+| `@hourly`    | once every hour - same as `0 * * * *`  |
+| `@daily`     | once every day - same as `0 0 * * *`   |
+| `@midnight`  | once every midnight - same as `@daily` |
+| `@weekly`    | once every week - same as `0 0 * * 0`  |
+| `@monthly`   | once every month - same as `0 0 1 * *` |
+| `@yearly`    | once every year - same as `0 0 1 1 *`  |
 
 ### Examples
 
@@ -49,22 +63,19 @@ Min  Hour Day  Mon  Weekday
 | `0 18 * * 0-6` | every week Mon-Sat at 6pm   |
 | `10 2 * * 6,7` | every Sat and Sun on 2:10am |
 | `0 0 * * 0`    | every Sunday midnight       |
-| ---            | ---                         |
-| `@reboot`      | every reboot                |
 
 ### Crontab
 
 ```bash
 # Adding tasks easily
 echo "@reboot echo hi" | crontab
-```
 
-```bash
-# Open in editor
-crontab -e
-```
+# Open in editor - optional for another user
+crontab -e [-u user]
 
-```bash
-# List tasks
+# List tasks - optional for another user
 crontab -l [-u user]
+
+# Delete crontab file - optional for another user
+crontab -r [-u user]
 ```

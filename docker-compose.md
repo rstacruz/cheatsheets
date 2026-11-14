@@ -1,171 +1,277 @@
 ---
 title: docker-compose
 category: Devops
-layout: 2017/sheet
 prism_languages: [yaml]
 weight: -1
-updated: 2020-01-01
+updated: 2026-11-11
+tier: t1
+keywords:
+  - docker compose
+  - compose file
+  - docker compose up
+intro: |
+  [Docker Compose](https://docs.docker.com/compose/) defines and runs multi-container applications from a Compose file. This reference covers the Compose file format and CLI.
 ---
+
+## Getting started
+
+### About
+
+<!-- {: .-intro} -->
+
+[Docker Compose](https://docs.docker.com/compose/) defines and runs multi-container applications from a Compose file. This reference covers the Compose file format and CLI.
+
+- [Compose file reference](https://docs.docker.com/reference/compose-file/) _(docs.docker.com)_
+- [Docker CLI cheatsheet](./docker) _(devhints.io)_
 
 ### Basic example
 
 ```yaml
-# docker-compose.yml
-version: '2'
-
+# compose.yaml
 services:
   web:
-    build:
-    # build from Dockerfile
-      context: ./Path
-      dockerfile: Dockerfile
+    build: .
     ports:
-     - "5000:5000"
+      - "5000:5000"
     volumes:
-     - .:/code
+      - .:/code
+    depends_on:
+      - redis
   redis:
-    image: redis
+    image: redis:8
 ```
+
+Compose reads `compose.yaml` by default; `docker-compose.yml` also works. The top-level `version` field is obsolete.
+
+See: [Compose quickstart](https://docs.docker.com/compose/gettingstarted/)
+
+### Compose versions
+
+```sh
+docker-compose up -d   # v1, retired
+docker compose up -d   # current plugin
+```
+
+Compose v1 is retired; use the `docker compose` plugin (currently v5).
+
+See: [Compose release notes](https://github.com/docker/compose/releases)
 
 ### Commands
 
-```sh
-docker-compose start
-docker-compose stop
-```
+| Command | Description |
+| --- | --- |
+| `docker compose up -d` | Create and start in background |
+| `docker compose up --wait` | Wait for services to be running or healthy |
+| `docker compose down` | Stop and remove containers and networks |
+| `docker compose ps` | List project containers |
+| `docker compose logs -f web` | Follow service logs |
+| --- | --- |
+| `docker compose exec web sh` | Run a command in a service |
+| `docker compose run --rm web sh` | Run a one-off command |
+| `docker compose build` | Build or rebuild images |
+| `docker compose pull` | Pull service images |
+| `docker compose push` | Push service images |
+| --- | --- |
+| `docker compose restart` | Restart services |
+| `docker compose stop` / `start` | Stop or start services |
+| `docker compose config` | Render the resolved configuration |
+| `docker compose ls` | List running projects |
+| `docker compose watch` | Sync or rebuild on changes |
 
-```sh
-docker-compose pause
-docker-compose unpause
-```
+Global flags: `-f FILE`, `-p NAME`, `--profile NAME`, `--env-file FILE`.
 
-```sh
-docker-compose ps
-docker-compose up
-docker-compose down
-```
+See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker/compose/)
 
-## Reference
-{: .-three-column}
+## Services
 
-### Building
+### Building and images
 
 ```yaml
-web:
-  # build from Dockerfile
-  build: .
-  args:     # Add build arguments
-    APP_HOME: app
-```
-
-```yaml
-  # build from custom Dockerfile
-  build:
-    context: ./dir
-    dockerfile: Dockerfile.dev
+services:
+  web:
+    build: .
 ```
 
 ```yaml
-  # build from image
-  image: ubuntu
-  image: ubuntu:14.04
-  image: tutum/influxdb
-  image: example-registry:4000/postgresql
-  image: a4bc65fd
+services:
+  web:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile.dev
+      args:
+        APP_HOME: app
 ```
+
+A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments.
+
+```yaml
+services:
+  web:
+    image: ghcr.io/example/app:1.0
+```
+
+`image` accepts a registry path, tag, or digest.
+
+See: [build](https://docs.docker.com/reference/compose-file/build/)
 
 ### Ports
 
 ```yaml
-  ports:
-    - "3000"
-    - "8000:80"  # host:container
+services:
+  web:
+    ports:
+      - "3000"           # random host port
+      - "8000:80"        # host:container
+      - "127.0.0.1:8001:8001"
 ```
 
 ```yaml
-  # expose ports to linked services (not to host)
-  expose: ["3000"]
+services:
+  web:
+    expose:
+      - "3000"
 ```
 
-### Commands
+Quote mappings to avoid YAML base-60 parsing. `expose` opens ports to linked services without publishing them.
+
+See: [ports](https://docs.docker.com/reference/compose-file/services/#ports) and [expose](https://docs.docker.com/reference/compose-file/services/#expose)
+
+### Command and entrypoint
 
 ```yaml
-  # command to execute
-  command: bundle exec thin -p 3000
-  command: [bundle, exec, thin, -p, 3000]
-```
-
-```yaml
-  # override the entrypoint
-  entrypoint: /app/start.sh
-  entrypoint: [php, -d, vendor/bin/phpunit]
-```
-
-### Environment variables
-
-```yaml
-  # environment vars
-  environment:
-    RACK_ENV: development
-  environment:
-    - RACK_ENV=development
+services:
+  web:
+    command: bundle exec thin -p 3000
 ```
 
 ```yaml
-  # environment vars from file
-  env_file: .env
-  env_file: [.env, .development.env]
+services:
+  web:
+    entrypoint: ["/app/start.sh"]
 ```
+
+`command` overrides the image's CMD; `entrypoint` overrides its ENTRYPOINT. Both accept a string or list.
+
+See: [command](https://docs.docker.com/reference/compose-file/services/#command) and [entrypoint](https://docs.docker.com/reference/compose-file/services/#entrypoint)
+
+### Environment
+
+```yaml
+services:
+  web:
+    environment:
+      RACK_ENV: development
+```
+
+```yaml
+services:
+  web:
+    env_file:
+      - .env
+      - .development.env
+```
+
+Environment values can use a mapping or a list. `env_file` loads variables from files.
+
+See: [environment](https://docs.docker.com/reference/compose-file/services/#environment)
 
 ### Dependencies
 
 ```yaml
-  # makes the `db` service available as the hostname `database`
-  # (implies depends_on)
-  links:
-    - db:database
-    - redis
+services:
+  web:
+    depends_on:
+      - db
 ```
 
 ```yaml
-  # make sure `db` is alive before starting
-  depends_on:
-    - db
+services:
+  web:
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+```
+
+Long syntax waits for health or successful completion and can restart dependents.
+
+```yaml
+services:
+  web:
+    links:
+      - db:database
+```
+
+Links add an alias and implicit dependency; networks are preferred.
+
+See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depends_on) and [links](https://docs.docker.com/reference/compose-file/services/#links)
+
+## Runtime
+
+### Restart and resources
+
+```yaml
+services:
+  web:
+    restart: unless-stopped
 ```
 
 ```yaml
-  # make sure `db` is healty before starting
-  # and db-init completed without failure
-  depends_on:
-    db:
-      condition: service_healthy
-    db-init:
-      condition: service_completed_successfully
+services:
+  web:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
 ```
 
-### Other options
+Policies: `no`, `always`, `on-failure`, `unless-stopped`. `deploy.resources.limits` caps CPUs and memory.
+
+See: [restart](https://docs.docker.com/reference/compose-file/services/#restart) and [deploy resources](https://docs.docker.com/reference/compose-file/deploy/#resources)
+
+### Healthcheck
 
 ```yaml
-  # make this service extend another
-  extends:
-    file: common.yml  # optional
-    service: webapp
+services:
+  web:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+      start_interval: 5s
 ```
+
+`test` accepts `CMD`, `CMD-SHELL`, or `NONE`; `start_interval` sets the probe rate during startup.
+
+See: [healthcheck](https://docs.docker.com/reference/compose-file/services/#healthcheck)
+
+### User
 
 ```yaml
-  volumes:
-    - /var/lib/mysql
-    - ./_data:/var/lib/mysql
+services:
+  web:
+    user: "1000:1000"
 ```
+
+Runs the container process as the given user and group.
+
+See: [user](https://docs.docker.com/reference/compose-file/services/#user)
+
+### Devices
 
 ```yaml
-  # automatically restart container
-  restart: unless-stopped
-  # always, on-failure, no (default)
+services:
+  web:
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
 ```
 
-## Advanced features
-{: .-three-column}
+Maps host devices into the container.
+
+See: [devices](https://docs.docker.com/reference/compose-file/services/#devices)
 
 ### Labels
 
@@ -176,25 +282,103 @@ services:
       com.example.description: "Accounting web app"
 ```
 
-### DNS servers
+Labels add metadata to containers.
+
+See: [labels](https://docs.docker.com/reference/compose-file/services/#labels)
+
+## Networking and storage
+
+### Networks
 
 ```yaml
 services:
   web:
-    dns: 8.8.8.8
+    networks:
+      - frontend
+networks:
+  frontend:
+```
+
+Creates a `frontend` network and attaches `web` to it.
+
+See: [networks](https://docs.docker.com/reference/compose-file/networks/)
+
+### External networks
+
+```yaml
+networks:
+  frontend:
+    external: true
+    name: shared_frontend
+```
+
+`external: true` uses a network Compose does not create; `name` is its actual name.
+
+See: [external networks](https://docs.docker.com/reference/compose-file/networks/#external)
+
+### DNS and hosts
+
+```yaml
+services:
+  web:
     dns:
       - 8.8.8.8
       - 8.8.4.4
+    extra_hosts:
+      - "somehost=192.168.1.100"
 ```
 
-### Devices
+`dns` sets resolvers; `extra_hosts` adds `/etc/hosts` entries.
+
+See: [dns](https://docs.docker.com/reference/compose-file/services/#dns) and [extra_hosts](https://docs.docker.com/reference/compose-file/services/#extra_hosts)
+
+### Volumes
+
+```yaml
+services:
+  db:
+    image: postgres:18
+    volumes:
+      - dbdata:/var/lib/postgresql
+volumes:
+  dbdata:
+```
+
+Named volumes persist data; bind mounts use a host path such as `./data:/data`.
+
+See: [volumes](https://docs.docker.com/reference/compose-file/volumes/)
+
+### Secrets
 
 ```yaml
 services:
   web:
-    devices:
-    - "/dev/ttyUSB0:/dev/ttyUSB0"
+    secrets:
+      - my_secret
+secrets:
+  my_secret:
+    file: ./my_secret.txt
 ```
+
+Secrets mount at `/run/secrets/<name>` and are read-only.
+
+See: [secrets](https://docs.docker.com/reference/compose-file/secrets/)
+
+### Configs
+
+```yaml
+services:
+  web:
+    configs:
+      - http_config
+configs:
+  http_config:
+    file: ./httpd.conf
+```
+
+Configs mount non-sensitive files at `/<name>` by default.
+
+See: [configs](https://docs.docker.com/reference/compose-file/configs/)
 
 ### External links
 
@@ -206,67 +390,86 @@ services:
       - project_db_1:mysql
 ```
 
-### Healthcheck
+Links containers from another Compose application.
+
+See: [external_links](https://docs.docker.com/reference/compose-file/services/#external_links)
+
+## Composition
+
+<!-- {: .-three-column} -->
+
+### Profiles
 
 ```yaml
-    # declare service healthy when `test` command succeed
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+services:
+  debug:
+    image: busybox
+    profiles: ["debug"]
 ```
 
-### Hosts
+Run with `docker compose --profile debug up`.
+
+See: [profiles](https://docs.docker.com/reference/compose-file/services/#profiles)
+
+### Watch
 
 ```yaml
 services:
   web:
-    extra_hosts:
-      - "somehost:192.168.1.100"
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: rebuild
+          path: package.json
 ```
 
-### Network
+Syncs files and rebuilds on changes. Run `docker compose watch`.
+
+See: [Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/)
+
+### Include
 
 ```yaml
-# creates a custom network called `frontend`
-networks:
-  frontend:
+include:
+  - common.yaml
+services:
+  web:
+    image: nginx:stable
 ```
 
-### External network
+Loads another Compose file into the project. Include can also fetch OCI or Git sources.
+
+See: [include](https://docs.docker.com/reference/compose-file/include/)
+
+### Extends
 
 ```yaml
-# join a pre-existing network
-networks:
-  default:
-    external:
-      name: frontend
+services:
+  web:
+    extends:
+      file: common.yml
+      service: webapp
 ```
 
-### Volume
+Reuses a service definition from another file.
+
+See: [extends](https://docs.docker.com/reference/compose-file/services/#extends)
+
+### Merge overrides
 
 ```yaml
-# mount host paths or named volumes, specified as sub-options to a service
-  db:
-    image: postgres:latest
-    volumes:
-      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
-      - "dbdata:/var/lib/postgresql/data"
-
-volumes:
-  dbdata:
+# compose.override.yaml
+services:
+  app:
+    ports: !override
+      - "8443:443"
+    environment:
+      FOO: !reset null
 ```
 
-### User
+The override file merges into the base; `!reset` clears a value
+and `!override` replaces it instead of appending.
 
-```yaml
-# specifying user
-user: root
-```
-
-```yaml
-# specifying both user and group with ids
-user: 0:0
-```
+See: [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)

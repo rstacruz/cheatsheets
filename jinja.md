@@ -1,7 +1,6 @@
 ---
 title: Jinja
 category: Python
-layout: 2017/sheet
 ---
 
 {% raw %}

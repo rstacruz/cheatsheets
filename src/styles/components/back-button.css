@@ -1,0 +1,47 @@
+/*
+ * Home link
+ */
+
+.back-button {
+  text-decoration: none;
+  width: 48px;
+  height: 48px;
+  line-height: 46px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  transition: all 100ms linear;
+
+  /* Smaller on mobile */
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 32px;
+    line-height: 30px;
+  }
+
+  /* Colors */
+  &,
+  &:visited {
+    color: var(--base-mute);
+  }
+
+  /* Active */
+  &:hover,
+  &:focus {
+    color: white;
+    background: var(--base-a);
+    opacity: 1;
+  }
+
+  /* Icon */
+  & > svg {
+    display: inline-block; /* Tailwind preflight makes svg block-level */
+    vertical-align: middle;
+    color: var(--base-text);
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    color: white;
+  }
+}

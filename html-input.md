@@ -1,7 +1,6 @@
 ---
 title: Input tag
 category: HTML
-layout: 2017/sheet
 updated: 2017-10-30
 weight: -3
 ---
@@ -36,13 +35,15 @@ weight: -3
 * tel
 * **text**
 * search
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 #### Time
 
 * date
 * time
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 #### Time (not widely supported)
 
@@ -50,14 +51,16 @@ weight: -3
 * week
 * datetime
 * datetime-local
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 #### Etc
 
 * **file**
 * **radio**
 * **checkbox**
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 #### Buttons
 
@@ -65,13 +68,15 @@ weight: -3
 * reset
 * submit
 * image
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 #### Numeric
 
 * number
 * range
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 ## Examples
 

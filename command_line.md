@@ -1,14 +1,16 @@
 ---
 title: Command line stuff
-layout: 2017/sheet
 ---
 
 ## List (ls)
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Usage
 
-    ls [options] [paths]
+```
+ls [options] [paths]
+```
 
 ### Format
 
@@ -25,6 +27,8 @@ layout: 2017/sheet
 
 ### Options
 
+| Switch | Description |
+| --- | --- |
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
 | `-A` | Include hidden (but not . and ..) |
@@ -43,29 +47,35 @@ layout: 2017/sheet
 | `-h` | Human-readable size (3k) |
 
 ## Tail
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Usage
 
-    tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+```
+tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+```
 
 ### Modes
 
+| Mode | Description |
+| --- | --- |
 | `-f` | follow |
 | `-F` | follow by filename (accounts for log rotation) |
 | `-r` | Reverse order |
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-bN` | N*512 bytes |
 | `-cN` | N bytes |
 | `-nN` | N lines |
 | `+N`  | Start from line N |
 
-<br>
-
 ## Sudo
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Usage
 
@@ -75,10 +85,14 @@ sudo [options] <command>
 
 ### Listing
 
+| Option | Description |
+| --- | --- |
 | `-l` | List allowed commands |
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-A` | Use $SUDO_ASKPASS |
 | `-b` | Run in background |
 | `-E` | Preserve environment |
@@ -89,10 +103,14 @@ sudo [options] <command>
 
 ### File descriptors
 
+| Option | Description |
+| --- | --- |
 | `-C fd` | Close all open file descriptors |
 
 ### Prompt
 
+| Option | Description |
+| --- | --- |
 | `-p prompt` | Custom prompt (-p "%p password:") |
 
 ### Interactive
@@ -107,12 +125,15 @@ sudo [options] <command>
 
 ### Timestamp
 
+| Option | Description |
+| --- | --- |
 | `-v` | revalidate timestamp for 5 mins |
 | `-k` | invalidate timestamp |
 | `-K` | just like -k |
 
 ## wc (Word count)
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### wc
 
@@ -122,13 +143,16 @@ sudo [options] <command>
 
 ### Options
 
+| Option | Description |
+| --- | --- |
 | `-c` | Bytes |
 | `-l` | Lines |
 | `-m` | Characters (incl multi-byte) |
 | `-w` | Words |
 
 ## Grep
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Usage
 
@@ -161,12 +185,17 @@ grep [options] [pattern] [file ...]
 
 ### Synonyms
 
-    egrep  =>  grep -E
-    fgrep  =>  grep -F
+```
+egrep  =>  grep -E
+fgrep  =>  grep -F
+```
 
 ## Other recipes
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Search-and-replace in all files
 
-    perl -p -i -e 's/hello/HELLO/g' **/*
+```
+perl -p -i -e 's/hello/HELLO/g' **/*
+```

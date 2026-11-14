@@ -1,6 +1,5 @@
 ---
 title: Apache Cordova
-layout: 2017/sheet
 intro: |
   A quick reference to common [Apache Cordova](https://cordova.apache.org/) commands.
 ---

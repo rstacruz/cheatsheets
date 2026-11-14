@@ -1,268 +1,383 @@
 ---
 title: MySQL
-updated: 2020-07-05
-layout: 2017/sheet
+updated: 2026-11-11
+tier: t2
 category: Databases
 ---
 
-### Browsing
+## Querying
 
-```sql
-SHOW DATABASES;
-SHOW TABLES;
-SHOW FIELDS FROM table / DESCRIBE table;
-SHOW CREATE TABLE table;
-SHOW PROCESSLIST;
-KILL process_number;
-```
+### About
+
+<!-- {: .-intro} -->
+
+[MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
+
+- [MySQL 9.7 Reference Manual](https://dev.mysql.com/doc/refman/9.7/en/)
+- [MySQL documentation](https://dev.mysql.com/doc/)
 
 ### Select
 
 ```sql
-SELECT * FROM table;
-SELECT * FROM table1, table2;
-SELECT field1, field2 FROM table1, table2;
-SELECT ... FROM ... WHERE condition
-SELECT ... FROM ... WHERE condition GROUP BY field;
-SELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2;
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2;
-SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;
-SELECT ... FROM ... WHERE condition LIMIT 10;
-SELECT DISTINCT field1 FROM ...
-SELECT DISTINCT field1, field2 FROM ...
+SELECT * FROM t;
+SELECT col1, col2 FROM t;
+SELECT DISTINCT col1 FROM t;
+SELECT * FROM t WHERE cond;
+SELECT * FROM t ORDER BY col1, col2 DESC;
+SELECT * FROM t LIMIT 10 OFFSET 20;
+SELECT col, COUNT(*) FROM t GROUP BY col HAVING COUNT(*) > 1;
 ```
 
-### Select - Join
+See: [SELECT statement](https://dev.mysql.com/doc/refman/9.7/en/select.html)
+
+### Joins
 
 ```sql
-SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
-SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
-SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
+SELECT * FROM t1 JOIN t2 ON t1.id = t2.id;
+SELECT * FROM t1 LEFT JOIN t2 ON t1.id = t2.id;
+SELECT * FROM t1 RIGHT JOIN t2 ON t1.id = t2.id;
+SELECT * FROM t1 CROSS JOIN t2;
+SELECT * FROM t1 JOIN t2 USING (id);
 ```
+
+See: [JOIN clause](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
 ### Conditions
 
 ```sql
-field1 = value1
-field1 <> value1
-field1 LIKE 'value _ %'
-field1 IS NULL
-field1 IS NOT NULL
-field1 IS IN (value1, value2)
-field1 IS NOT IN (value1, value2)
-condition1 AND condition2
-condition1 OR condition2
+col = value
+col <> value
+col LIKE 'val%'       -- % any chars, _ one char
+col IS NULL
+col IN (1, 2, 3)
+col BETWEEN 1 AND 10
+cond1 AND cond2
+cond1 OR cond2
+NOT cond
 ```
 
-### Create / Open / Delete Database
+See: [Expressions](https://dev.mysql.com/doc/refman/9.7/en/expressions.html)
+
+### CTEs and window functions
 
 ```sql
-CREATE DATABASE DatabaseName;
-CREATE DATABASE DatabaseName CHARACTER SET utf8;
-USE DatabaseName;
-DROP DATABASE DatabaseName;
-ALTER DATABASE DatabaseName CHARACTER SET utf8;
+WITH cte AS (SELECT * FROM t WHERE cond)
+SELECT * FROM cte;
+
+SELECT id,
+  ROW_NUMBER() OVER (PARTITION BY grp ORDER BY id) AS rn
+FROM t;
 ```
 
-### Backup Database to SQL File
+See: [WITH](https://dev.mysql.com/doc/refman/9.7/en/with.html), [Window functions](https://dev.mysql.com/doc/refman/9.7/en/window-functions.html)
 
-```bash
-mysqldump -u Username -p dbNameYouWant > databasename_backup.sql
-```
-
-### Restore from backup SQL File
-
-```bash
-mysql -u Username -p dbNameYouWant < databasename_backup.sql;
-```
-
-### Repair Tables After Unclean Shutdown
-
-```bash
-mysqlcheck --all-databases;
-mysqlcheck --all-databases --fast;
-```
+## Modifying data
 
 ### Insert
 
 ```sql
-INSERT INTO table1 (field1, field2) VALUES (value1, value2);
+INSERT INTO t (col1, col2) VALUES (1, 'a');
+INSERT INTO t (col1, col2) VALUES (1, 'a'), (2, 'b');
+INSERT INTO t SET col1 = 1, col2 = 'a';
+INSERT INTO t (id, col1) VALUES (1, 'a') AS new
+  ON DUPLICATE KEY UPDATE col1 = new.col1;
+INSERT INTO t1 (col1) SELECT col1 FROM t2;
 ```
 
-### Delete
-
-```sql
-DELETE FROM table1 / TRUNCATE table1
-DELETE FROM table1 WHERE condition
-DELETE FROM table1, table2 WHERE table1.id1 =
-  table2.id2 AND condition
-```
+See: [INSERT](https://dev.mysql.com/doc/refman/9.7/en/insert.html), [ON DUPLICATE KEY UPDATE](https://dev.mysql.com/doc/refman/9.7/en/insert-on-duplicate.html)
 
 ### Update
 
 ```sql
-UPDATE table1 SET field1=new_value1 WHERE condition;
-UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE
-  table1.id1 = table2.id2 AND condition;
+UPDATE t SET col1 = 'a' WHERE id = 1;
+UPDATE t1 JOIN t2 ON t1.id = t2.id
+  SET t1.col1 = t2.col1;
+UPDATE t SET col1 = col1 + 1 ORDER BY id LIMIT 10;
 ```
 
-### Create / Delete / Modify Table
+See: [UPDATE statement](https://dev.mysql.com/doc/refman/9.7/en/update.html)
 
-#### Create
+### Delete
 
 ```sql
-CREATE TABLE table (field1 type1, field2 type2);
-CREATE TABLE table (field1 type1, field2 type2, INDEX (field));
-CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));
-CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));
+DELETE FROM t WHERE id = 1;
+DELETE FROM t ORDER BY id LIMIT 10;
+DELETE t1 FROM t1 JOIN t2 ON t1.id = t2.id;
+TRUNCATE TABLE t;
+```
+
+See: [DELETE statement](https://dev.mysql.com/doc/refman/9.7/en/delete.html)
+
+## Schema
+
+### Create database
+
+```sql
+CREATE DATABASE app CHARACTER SET utf8mb4;
+USE app;
+ALTER DATABASE app CHARACTER SET utf8mb4;
+DROP DATABASE app;
+```
+
+See: [CREATE DATABASE](https://dev.mysql.com/doc/refman/9.7/en/create-database.html)
+
+### Create table
+
+```sql
+CREATE TABLE t (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS t2 (id INT PRIMARY KEY);
+CREATE TEMPORARY TABLE tmp (id INT);
+CREATE TABLE t3 LIKE t;
+```
+
+See: [CREATE TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/create-table.html)
+
+### Alter table
+
+```sql
+ALTER TABLE t ADD COLUMN col VARCHAR(20) AFTER id;
+ALTER TABLE t MODIFY COLUMN col VARCHAR(50) NOT NULL;
+ALTER TABLE t CHANGE COLUMN old new VARCHAR(50);
+ALTER TABLE t RENAME COLUMN old TO new;
+ALTER TABLE t DROP COLUMN col;
+ALTER TABLE t ALTER COLUMN col SET DEFAULT 'x';
+ALTER TABLE t ALTER COLUMN col DROP DEFAULT;
+ALTER TABLE t RENAME TO t2;
+```
+
+See: [ALTER TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/alter-table.html)
+
+### Keys and constraints
+
+```sql
+CREATE TABLE t (
+  id INT PRIMARY KEY,
+  org_id INT NOT NULL,
+  CONSTRAINT fk_org FOREIGN KEY (org_id)
+    REFERENCES org (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+ALTER TABLE t ADD CONSTRAINT fk_org
+  FOREIGN KEY (org_id) REFERENCES org (id);
+ALTER TABLE t ADD CONSTRAINT chk CHECK (qty > 0);
+```
+
+See: [FOREIGN KEY constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-foreign-keys.html), [CHECK constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-check-constraints.html)
+
+### Indexes
+
+```sql
+CREATE INDEX idx_name ON t (name);
+CREATE UNIQUE INDEX idx_email ON t (email);
+CREATE INDEX idx_multi ON t (col1, col2);
+ALTER TABLE t ADD INDEX idx_col (col);
+DROP INDEX idx_name ON t;
+```
+
+See: [CREATE INDEX](https://dev.mysql.com/doc/refman/9.7/en/create-index.html)
+
+## Inspecting
+
+### Show and describe
+
+```sql
+SHOW DATABASES;
+SHOW TABLES;
+SHOW COLUMNS FROM t;
+DESCRIBE t;
+SHOW CREATE TABLE t;
+SHOW INDEX FROM t;
+SHOW GRANTS FOR CURRENT_USER;
+```
+
+See: [SHOW statements](https://dev.mysql.com/doc/refman/9.7/en/show.html)
+
+### Process list
+
+```sql
+SHOW PROCESSLIST;
+SHOW FULL PROCESSLIST;
+KILL 123;
+KILL QUERY 123;
+KILL CONNECTION 123;
+```
+
+See: [KILL statement](https://dev.mysql.com/doc/refman/9.7/en/kill.html), [SHOW PROCESSLIST](https://dev.mysql.com/doc/refman/9.7/en/show-processlist.html)
+
+## Users and privileges
+
+### Create user and grant
+
+```sql
+CREATE USER 'app'@'localhost' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON app.* TO 'app'@'localhost';
+GRANT SELECT, INSERT ON app.* TO 'app'@'localhost';
+REVOKE INSERT ON app.* FROM 'app'@'localhost';
+DROP USER 'app'@'localhost';
+```
+
+Host `%` matches any host; prefer `localhost` for local clients. Accounts default
+to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
+
+See: [CREATE USER](https://dev.mysql.com/doc/refman/9.7/en/create-user.html), [GRANT](https://dev.mysql.com/doc/refman/9.7/en/grant.html)
+
+### Change password
+
+```sql
+ALTER USER 'app'@'localhost' IDENTIFIED BY 'new_secret';
+SET PASSWORD FOR 'app'@'localhost' = 'new_secret';
+SET PASSWORD = 'new_secret';
+```
+
+`ALTER USER` is preferred over `SET PASSWORD`.
+
+See: [ALTER USER](https://dev.mysql.com/doc/refman/9.7/en/alter-user.html), [SET PASSWORD](https://dev.mysql.com/doc/refman/9.7/en/set-password.html)
+
+### Roles
+
+```sql
+CREATE ROLE 'read_only';
+GRANT SELECT ON app.* TO 'read_only';
+GRANT 'read_only' TO 'app'@'localhost';
+SET DEFAULT ROLE 'read_only' TO 'app'@'localhost';
+DROP ROLE 'read_only';
+```
+
+See: [Using roles](https://dev.mysql.com/doc/refman/9.7/en/roles.html)
+
+### Reset root password
+
+Stop the running server first, then start recovery mode.
+
+```bash
+sudo systemctl stop mysql   # or: /etc/init.d/mysql stop
+sudo mysqld_safe --user=mysql --skip-grant-tables --skip-networking &
+mysql -u root
 ```
 
 ```sql
-CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,
-  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))
-    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]
-```
-
-```sql
-CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,
- FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))
-```
-
-```sql
-CREATE TABLE table IF NOT EXISTS;
-```
-
-```sql
-CREATE TEMPORARY TABLE table;
-```
-
-#### Drop
-
-```sql
-DROP TABLE table;
-DROP TABLE IF EXISTS table;
-DROP TABLE table1, table2, ...
-```
-
-#### Alter
-
-```sql
-ALTER TABLE table MODIFY field1 type1
-ALTER TABLE table MODIFY field1 type1 NOT NULL ...
-ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1
-ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ...
-ALTER TABLE table ALTER field1 SET DEFAULT ...
-ALTER TABLE table ALTER field1 DROP DEFAULT
-ALTER TABLE table ADD new_name_field1 type1
-ALTER TABLE table ADD new_name_field1 type1 FIRST
-ALTER TABLE table ADD new_name_field1 type1 AFTER another_field
-ALTER TABLE table DROP field1
-ALTER TABLE table ADD INDEX (field);
-```
-
-#### Change field order
-
-```sql
-ALTER TABLE table MODIFY field1 type1 FIRST
-ALTER TABLE table MODIFY field1 type1 AFTER another_field
-ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST
-ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER
-  another_field
-```
-
-### Keys
-
-```sql
-CREATE TABLE table (..., PRIMARY KEY (field1, field2))
-CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2
-(t2_field1, t2_field2))
-```
-
-### Users and Privileges
-
-```sql
-CREATE USER 'user'@'localhost';
-GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
-GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
-REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
-REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
 FLUSH PRIVILEGES;
-```
-
-```sql
-SET PASSWORD = PASSWORD('new_pass');
-SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');
-SET PASSWORD = OLD_PASSWORD('new_pass');
-```
-
-```sql
-DROP USER 'user'@'host';
-```
-
-Host ‘%’ indicates any host.
-
-### Main Data Types
-
-```sql
-TINYINT (1o: -128 to +127)
-SMALLINT (2o: +-65 000)
-MEDIUMINT (3o: +-16 000 000)
-INT (4o: +- 2 000 000 000)
-BIGINT (8o: +-9.10^18)
-```
-
-```sql
-Precise interval: -(2^(8*N-1)) -> (2^8*N)-1
-```
-
-⚠ INT(2) = "2 digits displayed" -- NOT "number with 2 digits max"
-
-```sql
-FLOAT(M,D)
-DOUBLE(M,D)
-FLOAT(D=0->53)
-```
-
-⚠ 8,3 -> 12345,678 -- NOT 12345678,123!
-
-```sql
-TIME (HH:MM)
-YEAR (AAAA)
-DATE (AAAA-MM-JJ)
-DATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)
-TIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)
-```
-
-```sql
-VARCHAR (single-line; explicit size)
-TEXT (multi-lines; max size=65535)
-BLOB (binary; max size=65535)
-```
-
-Variants for TEXT&BLOB: `TINY` (max=255), `MEDIUM` (max=~16000), and `LONG` (max=4Go). Ex: `VARCHAR(32)`, `TINYTEXT`, `LONGBLOB`, `MEDIUMTEXT`
-
-```sql
-ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)
-```
-
-### Reset Root Password
-
-```bash
-$ /etc/init.d/mysql stop
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_secret';
 ```
 
 ```bash
-$ mysqld_safe --skip-grant-tables
+mysqladmin -u root -p shutdown
 ```
+
+Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
+
+See: [How to reset the root password](https://dev.mysql.com/doc/refman/9.7/en/resetting-permissions.html)
+
+## Backup and restore
+
+### Backup
 
 ```bash
-$ mysql # on another terminal
-mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';
+mysqldump -u root -p --single-transaction \
+  --routines --triggers app > app.sql
+mysqldump -u root -p --no-data app > schema.sql
 ```
+
+`--single-transaction` gives a consistent InnoDB snapshot without locking tables.
+
+See: [mysqldump](https://dev.mysql.com/doc/refman/9.7/en/mysqldump.html)
+
+### Restore
 
 ```bash
-## Switch back to the mysqld_safe terminal and kill the process using Control + \
-$ /etc/init.d/mysql start
+mysql -u root -p -e 'CREATE DATABASE IF NOT EXISTS app'
+mysql -u root -p app < app.sql
 ```
 
-Your commands may vary depending on your OS.
+See: [Executing SQL from a file](https://dev.mysql.com/doc/refman/9.7/en/mysql-batch-commands.html)
+
+### Check and repair
+
+```bash
+mysqlcheck -u root -p --all-databases
+mysqlcheck -u root -p --all-databases --fast
+mysqlcheck -u root -p --auto-repair app
+```
+
+`--fast` checks only tables that were not closed properly. `--auto-repair` cannot repair InnoDB tables; `REPAIR TABLE` supports MyISAM, ARCHIVE, and CSV only.
+
+See: [mysqlcheck](https://dev.mysql.com/doc/refman/9.7/en/mysqlcheck.html), [REPAIR TABLE](https://dev.mysql.com/doc/refman/9.7/en/repair-table.html)
+
+## Data types
+
+### Integers
+
+| Type        | Signed range                    |
+| ---         | ---                             |
+| `TINYINT`   | -128 to 127                     |
+| `SMALLINT`  | -32,768 to 32,767               |
+| `MEDIUMINT` | -8,388,608 to 8,388,607         |
+| `INT`       | -2,147,483,648 to 2,147,483,647 |
+| `BIGINT`    | -9.22e18 to 9.22e18             |
+
+`UNSIGNED` disallows negatives and raises the upper bound.
+
+See: [Integer types](https://dev.mysql.com/doc/refman/9.7/en/integer-types.html)
+
+### Numeric
+
+| Type           | Meaning            |
+| ---            | ---                |
+| `DECIMAL(M,D)` | Exact fixed-point  |
+| `FLOAT`        | 4-byte approximate |
+| `DOUBLE`       | 8-byte approximate |
+
+`FLOAT(M,D)` and `DOUBLE(M,D)` are deprecated.
+
+See: [Numeric types](https://dev.mysql.com/doc/refman/9.7/en/numeric-types.html)
+
+### Strings
+
+| Type                        | Maximum              |
+| ---                         | ---                  |
+| `CHAR(n)`                   | Fixed length, padded |
+| `VARCHAR(n)`                | Variable length      |
+| `TINYTEXT` / `TINYBLOB`     | 255 bytes            |
+| `TEXT` / `BLOB`             | 65,535 bytes         |
+| `MEDIUMTEXT` / `MEDIUMBLOB` | 16 MB                |
+| `LONGTEXT` / `LONGBLOB`     | 4 GB                 |
+| `ENUM('a','b')`             | One value from a list |
+
+`utf8` is a deprecated alias for `utf8mb3`; use `utf8mb4`.
+
+See: [String types](https://dev.mysql.com/doc/refman/9.7/en/string-types.html)
+
+### Date and time
+
+| Type        | Range                                              |
+| ---         | ---                                                |
+| `DATE`      | 1000-01-01 to 9999-12-31                           |
+| `DATETIME`  | 1000-01-01 00:00:00 to 9999-12-31 23:59:59         |
+| `TIMESTAMP` | 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC |
+| `TIME`      | -838:59:59 to 838:59:59                            |
+| `YEAR`      | 1901 to 2155                                       |
+
+`TIMESTAMP` converts to the session time zone; `DATETIME` does not.
+
+See: [Date and time types](https://dev.mysql.com/doc/refman/9.7/en/date-and-time-types.html)
+
+### JSON
+
+```sql
+CREATE TABLE t (id INT PRIMARY KEY, doc JSON);
+INSERT INTO t VALUES (1, '{"name": "Ada"}');
+SELECT doc->>'$.name' FROM t;
+UPDATE t SET doc = JSON_SET(doc, '$.age', 36);
+ALTER TABLE t ADD COLUMN name VARCHAR(50)
+  GENERATED ALWAYS AS (doc->>'$.name') STORED,
+  ADD INDEX (name);
+```
+
+Index a generated column to index a JSON field.
+
+See: [The JSON data type](https://dev.mysql.com/doc/refman/9.7/en/json.html)

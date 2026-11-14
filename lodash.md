@@ -1,7 +1,6 @@
 ---
 title: Lodash
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -3
 updated: 2020-06-24
 description: |
@@ -136,7 +135,8 @@ _.indexOf(list, val)
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 fn = _.partial(fn, 'hi')

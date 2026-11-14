@@ -1,6 +1,5 @@
 ---
 title: Semver
-layout: 2017/sheet
 updated: 2019-12-31
 weight: -3
 ---
@@ -8,19 +7,24 @@ weight: -3
 ### Semver
 
 Given a version number `MAJOR.MINOR.PATCH`:
-{: .-setup}
 
+<!-- {: .-setup} -->
+
+| Part | Description |
+| --- | --- |
 | `MAJOR` | incompatible API changes                 |
 | `MINOR` | add functionality (backwards-compatible) |
 | `PATCH` | bug fixes (backwards-compatible)         |
 
 ### Simple ranges
 
-      1.2.3
-     =1.2.3
-     >1.2.3
-     <1.2.3
-    >=1.2.3
+```
+  1.2.3
+ =1.2.3
+ >1.2.3
+ <1.2.3
+>=1.2.3
+```
 
 Note that suffixed versions (`1.2.3-rc1`) are not matched.
 
@@ -45,7 +49,8 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 | ---      | ---                 | ---                |
 | `*`      | any version         |                    |
 | `x`      | same                |                    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Hyphenated ranges
 
@@ -79,18 +84,24 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 
 ### Pre-releases
 
-    1.2.3-prerelease+build
+```
+1.2.3-prerelease+build
+```
 
 ### Explanation
 
+| Range | Meaning |
+| --- | --- |
 | `^` | means "compatible with" |
 | `~` | means "reasonably close to" |
 | `0.x.x` | is for "initial development" |
 | `1.x.x` | means public API is defined |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
  * <https://semver.org/>
  * <https://docs.npmjs.com/misc/semver>

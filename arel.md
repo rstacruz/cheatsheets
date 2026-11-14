@@ -1,11 +1,11 @@
 ---
 title: Arel
 category: Rails
-layout: 2017/sheet
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Arel is an SQL abstraction library built into Ruby on Rails.
 

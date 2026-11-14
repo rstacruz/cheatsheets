@@ -2,10 +2,8 @@
 title: Vim scripting
 category: Vim
 prism_languages: [vim]
-layout: 2017/sheet
 updated: 2020-07-05
 weight: -10
-tags: [Featurable]
 ---
 
 ### Start hacking
@@ -38,7 +36,8 @@ Variables
 ---------
 
 ### Defining
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```vim
 let var = "hello"
@@ -132,7 +131,8 @@ Functions
 ---------
 
 ### Functions
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```vim
 " prefix with s: for local script-only functions
@@ -226,7 +226,8 @@ Custom commands
 ---------------
 
 ### Custom commands
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```vim
 command! Save :set fo=want tw=80 nowrap
@@ -239,7 +240,8 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 ```vim
 command! Save call <SID>foo()
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```vim
 function! s:foo()
@@ -252,7 +254,8 @@ endfunction
 ```vim
 command! -nargs=? Save call script#foo(<args>)
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 | What | What |
 | ---- | ---- |
@@ -493,7 +496,8 @@ Numbers
 -------
 
 ### Numbers
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```vim
 let int = 1000
@@ -623,7 +627,8 @@ exists("g:...")
 
 Mapping
 -------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Mapping commands
 
@@ -651,10 +656,13 @@ xnoremap
  └ normal, visual, insert,
    eX mode, select, operator-pending
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ### Arguments
 
+| Argument | Description |
+| --- | --- |
 | `<buffer>` | only in current buffer |
 | `<silent>` | no echo |
 | `<nowait>` | |

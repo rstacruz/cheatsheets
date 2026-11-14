@@ -1,26 +1,21 @@
-name: Build and test
-on: [push, pull_request]
-
+name: Run tests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      # pnpm version from packageManager, Node.js from .node-version
+      - uses: pnpm/setup@v3
         with:
-          node-version: '16.14.2'
-          cache: yarn
+          cache: true
+          require-lockfile: true
 
-      - name: Use Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.5'
-          bundler-cache: true
-
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn test
-      - run: yarn test:smoke
+      - name: Install playwright browsers
+        run: pnpm playwright install --with-deps chromium
+      - name: Run tests
+        run: pnpm run ci

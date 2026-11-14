@@ -1,25 +1,26 @@
 ---
 title: Jest
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2020-06-17
 weight: -3
-tags: [Featurable]
 intro: |
   A quick overview to [Jest](https://facebook.github.io/jest/), a test framework for Node.js. This guide targets Jest v20.
 ---
 
 Testing
 -------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Quick start
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```bash
 npm install --save-dev jest babel-jest
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```js
 /* Add to package.json */
@@ -104,7 +105,8 @@ See: [test.skip](https://facebook.github.io/jest/docs/en/api.html#testskipname-f
 
 Expect
 ------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Basic expectations
 
@@ -207,7 +209,8 @@ test('works with promises', () => {
   })
 })
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 ```js
 test('works with async/await', async () => {
@@ -215,7 +218,8 @@ test('works with async/await', async () => {
   ···
 })
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 Return promises, or use async/await.
 See: [Async tutorial](https://facebook.github.io/jest/docs/en/tutorial-async.html)
@@ -228,7 +232,8 @@ it('works', () => {
   expect(output).toMatchSnapshot()
 })
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 First run creates a snapshot. Subsequent runs match the saved snapshot.
 See: [Snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
@@ -238,7 +243,8 @@ See: [Snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing
 ```jsx
 import renderer from 'react-test-renderer'
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```jsx
 it('works', () => {
@@ -249,7 +255,8 @@ it('works', () => {
   expect(tree).toMatchSnapshot()
 })
 ```
-{: data-line="2,3,4"}
+
+<!-- {: data-line="2,3,4"} -->
 
 React's test renderer can be used for Jest snapshots.
 See: [Snapshot test](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test)
@@ -317,7 +324,8 @@ b = new Fn()
 Fn.mock.instances
 // → [a, b]
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 See: [.mock property](https://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
 
@@ -334,7 +342,8 @@ fn.mock.calls.length   // → 2
 fn.mock.calls[0][0]    // → 123
 fn.mock.calls[1][0]    // → 456
 ```
-{: data-line="1,2,3"}
+
+<!-- {: data-line="1,2,3"} -->
 
 See: [.mock property](https://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
 
@@ -358,7 +367,8 @@ const fn = jest.fn()
   .mockImplementationOnce(() => 1)
   .mockImplementationOnce(() => 2)
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 ```js
 fn()    // → 1
@@ -366,7 +376,9 @@ fn()    // → 2
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://facebook.github.io/jest/>
-{: .-also-see}
+
+<!-- {: .-also-see} -->

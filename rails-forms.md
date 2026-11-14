@@ -1,7 +1,6 @@
 ---
 title: Rails form helpers
 category: Rails
-layout: 2017/sheet
 ---
 
 ## Form builder

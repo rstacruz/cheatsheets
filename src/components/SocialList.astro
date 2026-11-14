@@ -1,0 +1,51 @@
+---
+import { getUrlFromPage } from '~/lib/links'
+import type { SheetPage } from '~/lib/page'
+import Icon from './Icon.astro'
+
+export type Props = {
+  class?: string
+  page?: SheetPage
+}
+const props = Astro.props as Props
+const page = props.page
+const url = getUrlFromPage(page, Astro.site)
+
+const t = {
+  facebookShare: 'Share on Facebook',
+  xShare: 'Share on X',
+  sheetDescription: 'The ultimate cheatsheet for {title}',
+  defaultDescription: 'Ridiculous collection of web development cheatsheets'
+}
+
+const title = page?.frontmatter?.title
+
+const description = title
+  ? t.sheetDescription.replace('{title}', title)
+  : t.defaultDescription
+
+const tweet = `${description} ${url}`
+
+// prettier-ignore
+const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+// prettier-ignore
+const xURL = `https://x.com/intent/post?text=${encodeURIComponent(tweet)}`
+---
+
+<ul class={`social-list ${props.class ?? ''}`}>
+  <li class="facebook link hint--bottom" data-hint={t.facebookShare}>
+    <a
+      href={facebookURL}
+      target="share"
+      aria-label={t.facebookShare}
+      role="button"
+    >
+      <Icon name="logo-facebook" size={16} />
+    </a>
+  </li>{' '}
+  <li class="x link hint--bottom" data-hint={t.xShare}>
+    <a href={xURL} target="share" aria-label={t.xShare} role="button">
+      <Icon name="logo-x" size={16} />
+    </a>
+  </li>
+</ul>

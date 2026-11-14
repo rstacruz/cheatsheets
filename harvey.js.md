@@ -1,7 +1,7 @@
 ---
 title: Harvey.js
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Discontinued (repo archived); the sheet points to enquire.js/matchMedia.
 intro: |
   [Harvey.js](http://harvesthq.github.io/harvey/) helps you build responsive interfaces.
 ---

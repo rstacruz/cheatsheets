@@ -1,13 +1,13 @@
 ---
 title: DOM Selection
 category: JavaScript
-layout: 2017/sheet
 intro: |
   Quick introduction to the HTML [DOM selection API](https://devdocs.io/dom/selection).
 ---
 
 ## Reference
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Selection
 

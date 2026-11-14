@@ -1,0 +1,34 @@
+.push-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+
+  &,
+  &:visited {
+    background-color: var(--base-a);
+    background: var(--base-a-gradient);
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--base-a-dark);
+    box-shadow: none;
+    color: white;
+  }
+}
+
+.push-button.-dark {
+  &,
+  &:visited {
+    background: var(--base-a-dark);
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--base-a-darker);
+    color: white;
+  }
+}

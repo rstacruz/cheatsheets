@@ -1,7 +1,6 @@
 ---
 title: Ledger queries
 category: Ledger
-layout: 2017/sheet
 ---
 
 ### About

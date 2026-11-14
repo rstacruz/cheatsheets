@@ -1,7 +1,6 @@
 ---
 title: assert
 category: Node.js
-layout: 2017/sheet
 ---
 
 ### Assertions
@@ -23,4 +22,4 @@ assert.throws(fn)
 
 ### References
 
-- http://nodejs.org/api/assert.html
+- <http://nodejs.org/api/assert.html>

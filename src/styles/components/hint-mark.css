@@ -1,0 +1,22 @@
+.hint-mark {
+  cursor: help;
+
+  & > i::before {
+    content: '?';
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  & > i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgb(58 193 203 / 30%);
+    color: var(--base-mute);
+    margin: 0 0.4em;
+  }
+}

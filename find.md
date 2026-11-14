@@ -1,12 +1,12 @@
 ---
 title: Find
 category: CLI
-layout: 2017/sheet
-updated: 2019-11-17
+updated: 2026-10-31
 ---
 
 ### Usage
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```bash
 find <path> <conditions> <actions>
@@ -16,6 +16,7 @@ find <path> <conditions> <actions>
 
 ```bash
 -name "*.c"
+-iname "*.c"       # Case-insensitive
 ```
 
 ```bash

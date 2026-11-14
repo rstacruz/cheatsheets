@@ -1,7 +1,12 @@
 ---
 title: bluebird.js
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Last release 3.7.2 (2019-11-28); upstream asks projects to use native
+# promises instead.
+tags: [Archived]
+archived: |
+  Bluebird last shipped in 2019 and upstream recommends native promises.
+  See [Promises](./promise) for the standard API.
 weight: -1
 updated: 2017-09-08
 ---
@@ -35,7 +40,8 @@ Those marked with `*` are non-standard Promise API that only work with Bluebird 
   ···
 })
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
 
@@ -51,7 +57,8 @@ Promise.join(
   }
 )
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
 
@@ -75,13 +82,15 @@ Promise.any(promises)
   .then(results => {
   })
 ```
-{: data-line="1,8"}
+
+<!-- {: data-line="1,8"} -->
 
 ```js
 Promise.map(urls, url => fetch(url))
   .then(···)
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
 
@@ -97,7 +106,8 @@ Promise.props({
   res.posts
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Use [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
 
@@ -113,7 +123,8 @@ function getPhotos() {
 
 getPhotos().then(···)
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 
@@ -123,7 +134,8 @@ Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 var readFile = Promise.promisify(fs.readFile)
 var fs = Promise.promisifyAll(require('fs'))
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
@@ -137,7 +149,8 @@ User.login = Promise.method((email, password) => {
   return /* promise */
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
@@ -149,7 +162,8 @@ User.login = Promise.coroutine(function* (email, password) {
   return user
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 

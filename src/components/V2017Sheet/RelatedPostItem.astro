@@ -1,0 +1,25 @@
+---
+import type { SheetPage } from '~/lib/page'
+
+export type Props = {
+  class?: string
+  page: SheetPage
+}
+const props = Astro.props as Props
+const page = props.page
+const url = `/${page.slug}`
+
+const t = {
+  suffix: 'cheatsheet'
+}
+---
+
+<li class={`related-post-item ${props.class ?? ''}`}>
+  <a href={url}>
+    <strong>{page.frontmatter.title}</strong> <span>{t.suffix}</span>
+  </a>
+</li>
+
+<style is:global>
+  @import '../../styles/components/related-post-item.css';
+</style>

@@ -1,0 +1,41 @@
+@import 'tailwindcss' source(none);
+@import './tokens.css';
+@import './font-scale.css';
+@import './icons.generated.css';
+
+@source '../**/*.{astro,ts}';
+
+@theme {
+  --color-mildindigo-50: #f2f1f8;
+  --color-mildindigo-100: #e8e7f3;
+  --color-mildindigo-200: #d0cfe8;
+  --color-mildindigo-300: #b5b4da;
+  --color-mildindigo-400: #9e9ccf;
+  --color-mildindigo-500: #8784c3;
+  --color-mildindigo-600: #6f6bb7;
+  --color-mildindigo-700: #4c4893;
+  --color-mildindigo-800: #312f60;
+  --color-mildindigo-900: #191730;
+  --color-mildindigo-950: #0c0c18;
+
+  /* Pin the two zinc shades used to the v3 palette */
+  --color-zinc-500: #71717a;
+  --color-zinc-950: #09090b;
+
+  --container-content: 1232px;
+  --container-slim: 740px;
+  --spacing-content: 1232px;
+  --spacing-slim: 740px;
+
+  --font-manrope:
+    Manrope, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --shadow-md-cool:
+    0 0 0 1px rgb(0 0 80 / 0.1), 0 1px 1px rgb(0 0 80 / 0.1),
+    0 1.5px 3px -2px rgb(0 0 80 / 0.3), 0 4px 6px rgb(0 0 80 / 0.04),
+    0 8px 12px -1px rgb(0 0 80 / 0.03);
+  --shadow-lg-cool:
+    0 1px 1px rgb(0 0 80 / 0.05), 0 1.5px 3px -1px rgb(0 0 80 / 0.15),
+    0 4px 6px -1px rgb(0 0 80 / 0.07), 0 8px 12px -1px rgb(0 0 80 / 0.04);
+}

@@ -1,7 +1,6 @@
 ---
 title: Tabular
 category: Vim
-layout: 2017/sheet
 updated: 2017-10-11
 weight: -1
 intro: |
@@ -9,14 +8,16 @@ intro: |
 ---
 
 ## Common usage
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Tables
 
 ```
 :Tab /|
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 | Fruit  | Color  |
@@ -31,7 +32,8 @@ intro: |
 ```
 :Tab /=
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 title = "Hello"
@@ -44,7 +46,8 @@ width = 640
 ```
 :Tab /:\zs/l0l1
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 title:       "Hello world"
@@ -55,14 +58,16 @@ width:       640
 ```
 
 ## Tab command
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Basic example
 
 ```
 :Tab /:
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 title : My picture
@@ -74,7 +79,8 @@ src   : img.jpg
 ```
 :Tab /:/r0
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 title:My picture
@@ -86,7 +92,8 @@ title:My picture
 ```
 :Tab /:\zs
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 title:  My picture
@@ -100,7 +107,8 @@ The `\zs` atom will exclude the `:` from the search match.
 ```
 :Tab /:/r1c1l0
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 title : My picture
@@ -118,7 +126,8 @@ title : My picture
 ```
 :Tab /^[^,]*\zs,/r0
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 abc,hello

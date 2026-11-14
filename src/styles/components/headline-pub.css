@@ -1,0 +1,176 @@
+/*
+ * Carbon ads
+ *
+ *     .HeadlinePub
+ *       div#carbonads
+ *         span
+ *           span.carbon-wrap
+ *             a.carbon-img > img
+ *             a.carbon-text {description}
+ *           a.carbon-poweredby {powered by Carbon}
+ */
+
+.HeadlinePub .carbon-img,
+.HeadlinePub .carbon-text,
+.HeadlinePub .carbon-poweredby {
+  text-decoration: none;
+}
+
+/* Increase hit area */
+.HeadlinePub .carbon-text,
+.HeadlinePub .carbon-poweredby {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.HeadlinePub .carbon-img > img {
+  width: 130px;
+  height: 100px;
+  box-shadow: var(--shadow3);
+  border-radius: 3px;
+  background: rgb(85 102 119 / 20%);
+  color: transparent;
+}
+
+.HeadlinePub .carbon-img:hover img {
+  transform: translate3d(0, -1px, 0);
+  box-shadow: var(--shadow6);
+}
+
+.HeadlinePub .carbon-text,
+.HeadlinePub .carbon-text:visited {
+  color: var(--base-text);
+}
+
+/* Allow line breaks */
+.HeadlinePub .carbon-text::after {
+  content: '  ';
+}
+
+.HeadlinePub .carbon-text:hover,
+.HeadlinePub .carbon-poweredby:hover {
+  color: var(--base-b);
+}
+
+.HeadlinePub .carbon-poweredby,
+.HeadlinePub .carbon-poweredby:visited {
+  display: block;
+  margin-top: 8px;
+  white-space: nowrap;
+  color: var(--gray-text);
+}
+
+.HeadlinePub {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Hide placeholders after carbon has loaded */
+  & #carbonads ~ .placeholder {
+    opacity: 0;
+    transition: opacity 250ms linear;
+    pointer-events: none;
+  }
+
+  & > .placeholder {
+    background-image: linear-gradient(
+      92deg,
+      rgb(85 102 119 / 10%),
+      rgb(85 102 119 / 17%) 15%,
+      rgb(85 102 119 / 10%) 30%
+    );
+    background-size: 450px 100%;
+    background-repeat: repeat;
+    animation: 2.5s ease-in-out infinite placeholder-swish;
+    border-radius: 3px;
+    position: absolute;
+    display: block;
+  }
+
+  & > .placeholder.-one {
+    left: 0;
+    top: 0;
+    width: 130px;
+    height: 100px;
+  }
+
+  & > .placeholder.-two,
+  & > .placeholder.-three,
+  & > .placeholder.-four {
+    left: 154px;
+    top: 6px;
+    height: 8px;
+    width: 226px;
+  }
+
+  & > .placeholder.-three {
+    top: 28px;
+  }
+
+  & > .placeholder.-four {
+    top: 50px;
+    width: 63.28px;
+  }
+
+  /* Make the ad show up above the placeholder */
+  & #carbonads {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Carbon wrapper */
+  &,
+  & > div > span {
+    display: block;
+    width: 380px;
+    height: 100px;
+    text-align: left;
+  }
+
+  .HighlightPubFirstLine & > div > span:first-line {
+    font-weight: bold;
+  }
+
+  /* Clearfix */
+  & > div > span::after {
+    content: '';
+    display: table;
+    clear: both;
+    zoom: 1;
+  }
+
+  & .carbon-img {
+    float: left;
+    margin-right: 24px;
+  }
+}
+
+#carbonads {
+  animation: 500ms ease-out pub-text-enter;
+}
+
+@keyframes placeholder-swish {
+  0% {
+    background-position: -150px 0%;
+  }
+
+  50% {
+    background-position: 300px 0%;
+  }
+
+  100% {
+    background-position: 300px 0%;
+  }
+}
+
+@keyframes pub-text-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

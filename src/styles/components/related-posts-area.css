@@ -1,0 +1,21 @@
+/*
+ * Related posts
+ */
+
+.related-posts-area {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: var(--gray-bg);
+
+  & > .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: var(--area-width);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 481px) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}

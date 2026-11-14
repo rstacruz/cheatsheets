@@ -1,7 +1,6 @@
 ---
 title: Tig
 category: Git
-layout: 2017/sheet
 updated: 2022-12-08
 weight: -3
 ---
@@ -36,7 +35,8 @@ $ sudo apt install tig
 You can substitute `git log` → `tig`.
 
 ## Shortcut keys
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Switching views
 
@@ -46,12 +46,15 @@ You can substitute `git log` → `tig`.
 | `d`      | Diff         |
 | `t`      | Tree (files) |
 | `b`      | Blame        |
+| ---      | ---          |
 | `s`      | Status       |
 | `c`      | Stage        |
 | `y`      | Stash        |
 | `g`      | Grep         |
+| ---      | ---          |
 | `h`      | Help         |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### All views
 
@@ -64,7 +67,8 @@ You can substitute `git log` → `tig`.
 | `q`       | Close view                   |
 | `Q`       | Close all (quit)             |
 | `,`       | Parent commit                |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Cursor navigation
 
@@ -72,13 +76,15 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `/`       | Search                       |
 | `?`       | Search backwards             |
+| ---       | ---                          |
 | `j`  `k`  | Up/down                      |
 | `J`  `K`  | Next/previous                |
 | `<space>` | Page down                    |
 | `-`       | Page up                      |
 | `^D`      | Half page down               |
 | `^U`      | Half page up                 |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Option toggles
 
@@ -86,13 +92,15 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `I`       | Toggle sort order modes      |
 | `i`       | Change sort header           |
+| ---       | ---                          |
 | `D`       | Toggle date display modes    |
 | `A`       | Toggle author display modes  |
 | `#`       | Toggle line numbers          |
 | `~`       | Toggle line graphics         |
 | `F`       | Toggle file names            |
 | `W`       | Toggle ignore space          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### `m` - Main view
 
@@ -100,7 +108,8 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `X`       | Toggle commit sha            |
 | `C`       | Cherry pick a commit         |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### `s` - Status view
 
@@ -110,7 +119,8 @@ You can substitute `git log` → `tig`.
 | `!`       | Revert file or chunk               |
 | `C`       | Commit                             |
 | `M`       | Merge with external tool           |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### `c` - Stage view
 
@@ -121,14 +131,16 @@ You can substitute `git log` → `tig`.
 | `1`       | Stage line                         |
 | `\`       | Split current diff hunk            |
 | `[` `]`   | Increase/decrease the diff context |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### `d` - Diff view
 
 | Shortcut  | Description                        |
 | ---       | ---                                |
 | `[` `]`   | Increase/decrease the diff context |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### `y` - Stash view
 
@@ -137,4 +149,5 @@ You can substitute `git log` → `tig`.
 | `A`       | Apply selected stash               |
 | `P`       | Pop selected stash                 |
 | `!`       | Drop selected stash                |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->

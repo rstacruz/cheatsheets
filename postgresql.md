@@ -1,25 +1,50 @@
 ---
 title: PostgreSQL
 category: Databases
-layout: 2017/sheet
+updated: 2026-11-04
+keywords: [psql, postgres, SQL]
+intro: |
+  PostgreSQL is an open source object-relational database system. Its
+  `psql` client runs SQL and meta-commands from a terminal.
 ---
 
-### Console
+### Connecting
 
-    $ psql #logs in to default database & default user
-    $ sudo -u <rolename:postgres> psql #logs in with a particular user
+```shell
+psql                  # default database, default user
+sudo -u postgres psql # as the postgres role
+```
 
-Replace anything within `<placeholder>` accordingly
+### psql commands
 
-### Commands
+| Command          | Description             |
+| ---              | ---                     |
+| `\du`            | List roles              |
+| `\l`             | List databases          |
+| `\dt`            | List tables             |
+| `\d <table>`     | Describe a table        |
+| `\d+ <table>`    | Describe with sizes     |
+| `\c <database>`  | Connect to a database   |
+| `\q`             | Quit                    |
 
- * Show roles: `\du`
- * Show tables: `\dt`
- * Show databases: `\l`
- * Connect to a database: `\c <database>`
- * Show columns of a table: `\d <table>` or `\d+ <table>`
- * Quit: `\q`
+<!-- {: .-shortcuts} -->
 
-### Creating database
+### Creating a database
 
-     $ createdb databasename
+```shell
+createdb <database>
+```
+
+### Dropping a database
+
+```shell
+dropdb <database>
+```
+
+### Running a query
+
+```shell
+psql -Atc "SELECT * FROM <table>"   # scripting
+psql --no-align --tuples-only \
+  --command="SELECT * FROM <table>" # same
+```

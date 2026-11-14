@@ -1,0 +1,121 @@
+.page-actions {
+  margin: 0;
+  padding: 0;
+  height: 32px;
+
+  & > .link.link > a {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: top;
+    width: auto;
+  }
+
+  & > li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  & > li > a,
+  & > li > a:visited {
+    color: var(--base-mute);
+    text-decoration: none;
+  }
+
+  & > li > a:hover,
+  & > li > a:focus {
+    color: var(--base-a);
+
+    & > .text {
+      color: var(--base-a);
+    }
+  }
+
+  & > li > a > .text {
+    font-size: var(--fs-n1);
+    display: none;
+  }
+
+  & > li > a > .text.-visible {
+    display: inline;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  /* Brand marks are inline SVG; see src/components/Icon.astro */
+  & > li > a > svg {
+    display: inline-block; /* Tailwind's preflight makes svg block-level */
+    vertical-align: middle;
+  }
+
+  /* 32px slot for the brand mark; `.link` must outweigh `width: auto` on
+     `.link.link > a` */
+  & > .link.facebook > a,
+  & > .link.x > a {
+    width: 32px;
+    text-align: center;
+  }
+
+  /* Brand marks stay pinned to the text colour; the edit button whites out
+     with its label on hover (its own rule wins) */
+  & > .facebook > a,
+  & > .x > a,
+  & > .github > a {
+    &,
+    &:visited,
+    &:hover,
+    &:focus {
+      color: var(--base-text);
+    }
+  }
+
+  /* Compensate alignment */
+  & > .github > a > svg {
+    position: relative;
+    top: -2px;
+  }
+
+  & > .link.-button > a {
+    box-shadow: inset 0 0 0 1px var(--dark-line-color);
+    border-radius: 2px;
+    padding: 0 16px;
+    margin: 0 8px;
+    transition: all 100ms linear;
+
+    & > .text {
+      margin-left: 4px;
+      position: relative;
+      top: -1px;
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--base-a-gradient);
+      box-shadow: var(--shadow2);
+
+      &,
+      & > .text {
+        color: white;
+      }
+    }
+  }
+
+  /* Space them out in mobile */
+  @media (max-width: 768px) {
+    & > .link {
+      margin-left: 16px;
+    }
+  }
+
+  /* Collapse */
+  & > .link:first-child > a {
+    margin-left: 0;
+  }
+
+  & > .link:last-child > a {
+    margin-right: 0;
+  }
+}

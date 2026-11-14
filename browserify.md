@@ -1,13 +1,14 @@
 ---
 title: Browserify
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# No longer in active development; legacy transforms; superseded by modern bundlers.
 tags: [Archived]
 archived: Browserify has not been in active development.
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Browserify is a bundler for JavaScript.
 
@@ -15,28 +16,32 @@ Browserify is a bundler for JavaScript.
 
 ### Usage
 
-    browserify input.js
-      -o output.js
-      -t coffeeify
-      -t [ coffeeify --extension coffee ]
+```
+browserify input.js
+  -o output.js
+  -t coffeeify
+  -t [ coffeeify --extension coffee ]
 
-      -u react (--exclude: omit a file)
-      -x react (--external: reference in another bundle)
-      -i react (--ignore: stub a file)
-      -s Myapp (--standalone: generate a UMD bundle)
-      --debug
+  -u react (--exclude: omit a file)
+  -x react (--external: reference in another bundle)
+  -i react (--ignore: stub a file)
+  -s Myapp (--standalone: generate a UMD bundle)
+  --debug
+```
 
 ### Programmatic usage
 
-    browserify = require('browserify')
-    browserify()
-      .add('main.js')
-      .bundle()
-      .transform(coffeeify)
-      .transform({extensions: '.coffee'}, coffeeify)
-      .pipe(process.stdout)
+```
+browserify = require('browserify')
+browserify()
+  .add('main.js')
+  .bundle()
+  .transform(coffeeify)
+  .transform({extensions: '.coffee'}, coffeeify)
+  .pipe(process.stdout)
 
-    browserify({})
+browserify({})
+```
 
 ### Tools
 
@@ -52,5 +57,5 @@ Transforms
   * reactify
   * brfs
   * cssify
-  * https://github.com/substack/node-browserify/wiki/list-of-transforms
+  * <https://github.com/substack/node-browserify/wiki/list-of-transforms>
 

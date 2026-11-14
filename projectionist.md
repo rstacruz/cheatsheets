@@ -1,7 +1,6 @@
 ---
 title: Projectionist
 category: Vim
-layout: 2017/sheet
 ---
 
 ### Basic usage

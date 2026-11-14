@@ -1,6 +1,5 @@
 ---
 title: SimpleForm
-layout: 2017/sheet
 tags: [WIP]
 ---
 

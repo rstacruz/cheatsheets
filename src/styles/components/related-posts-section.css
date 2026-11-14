@@ -1,0 +1,72 @@
+/*
+ * Section
+ * has callout and group
+ */
+
+.related-posts-section {
+  display: flex;
+  margin-left: -16px;
+  margin-right: -16px;
+
+  & > .callout,
+  & > .group {
+    margin: 0;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  @media (max-width: 1264px) {
+    margin-left: -8px;
+    margin-right: -8px;
+
+    & > .callout,
+    & > .group {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+
+  & > .callout {
+    flex: 1 1 33%;
+  }
+
+  & > .group {
+    flex: 1 1 50%;
+  }
+
+  & > .callout {
+    display: flex;
+
+    & > * {
+      flex: 1 0 100%;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+
+    & > .callout,
+    & > .group {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      flex: 1 1 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 481px) and (max-width: 768px) {
+    flex-wrap: wrap;
+
+    & > .callout,
+    & > .group {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      flex: 1 1 100%;
+    }
+
+    & > .group {
+      flex: 1 1 40%;
+    }
+  }
+}

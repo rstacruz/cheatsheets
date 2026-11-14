@@ -1,12 +1,13 @@
 ---
 title: Atom
-category: Apps
-layout: 2017/sheet
+category: Hidden
+# Atom was discontinued by GitHub in 2022 and its repositories archived.
 updated: 2021-09-10
 ---
 
 ## Shortcuts
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Tree
 
@@ -14,14 +15,16 @@ updated: 2021-09-10
 | -------- | ------------------- |
 | `⌘\`     | Toggle tree         |
 | `⌘⇧\`    | Reveal current file |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Comments
 
 | Shortcut | Description     |
 | -------- | --------------- |
 | `⌘/`     | Toggle comments |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### View
 
@@ -33,7 +36,8 @@ updated: 2021-09-10
 | `⌘⌥-`                | Shrink pane                                     |
 | ---                  | ---                                             |
 | `^⇧←`/`^⇧→`          | Move tab to left/right                          |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Bracket matcher
 
@@ -43,7 +47,8 @@ updated: 2021-09-10
 | `^⌫`     | Remove brackets from selection |
 | `^⌘m`    | Select inside brackets         |
 | `⌥⌘.`    | Close tag                      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Symbols view
 
@@ -51,7 +56,8 @@ updated: 2021-09-10
 | -------- | -------------------------------- |
 | `⌥⌘↓`    | Jump to declaration under cursor |
 | `^⇧r`    | Show tags                        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 Symbols view enables Ctags support for Atom.
 
@@ -63,7 +69,8 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | -------- | ------------------------------ |
 | `^⇧9` | Show Git pane |
 | `^⇧8` | Show GitHub pane |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Editing
 
@@ -80,7 +87,8 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | ---      | ---            |
 | `^⇧k`    | Delete line    |
 | `⌘⇧d`    | Duplicate line |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Project
 
@@ -95,16 +103,17 @@ See: [Symbols view](https://atom.io/packages/symbols-view)
 | `⌘f`     | Find in file            |
 | `⌘⇧f`    | Find in project         |
 | `⌘t`     | Search files in project |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ## Notes
 
-### ⌘
+### ⌘ Command
 
 - For Windows and Linux, `⌘` is the `Control` key.
 - For macOS, it's the `Command` key.
 
-### ⌥
+### ⌥ Option
 
 - For Windows and Linux, `⌥` is the `Alt` key.
 - For macOS, it's the `Option` key.

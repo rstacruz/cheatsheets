@@ -1,7 +1,6 @@
 ---
 title: minimist
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### Usage
@@ -9,7 +8,8 @@ layout: 2017/sheet
 ```js
 var minimist = require('minimist')
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 var args = minimist(process.argv.slice(2), {
@@ -44,7 +44,8 @@ All options are optional.
 ### Result
 
 With `--lang xml --no-pager -h index.js package.json`, you get:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 args == {
@@ -61,7 +62,8 @@ args == {
 ### Help and version
 
 Use [meow](https://www.npmjs.com/package/meow) to automatically add support for `--help`, `--version` and more.
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 meow(`

@@ -1,14 +1,15 @@
 ---
 title: Promises
 category: JavaScript
-layout: 2017/sheet
 ---
 
 ## Reference
-{:.-three-column}
+
+<!-- {:.-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 intro: A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
@@ -29,7 +30,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor) to create new promises.
+Use [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Constructor) to create new promises.
 
 ### Consuming promises
 

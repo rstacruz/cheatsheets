@@ -1,7 +1,6 @@
 ---
 title: "Phoenix: Routing"
 category: Elixir
-layout: 2017/sheet
 weight: -1
 ---
 
@@ -48,7 +47,8 @@ Generates these routes:
 | POST      | `/users`          | `user_path(:create, user)` |
 | PATCH/PUT | `/users/:id`      | `user_path(:update, user)` |
 | DELETE    | `/users/:id`      | `user_path(:delete, user)` |
-{: .-left-align}
+
+<!-- {: .-left-align} -->
 
 See: [resources/4](https://hexdocs.pm/phoenix/Phoenix.Router.html#resources/4) _(hexdocs.pm)_
 

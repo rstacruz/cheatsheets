@@ -1,11 +1,11 @@
 ---
 title: Hledger
 category: Ledger
-layout: 2017/sheet
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - <https://hledger.org>
 - <https://hledger.org/quickstart.html>

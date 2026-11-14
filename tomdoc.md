@@ -1,11 +1,11 @@
 ---
 title: Tomdoc
 category: Markup
-layout: 2017/sheet
 ---
 
 ### Tomdoc
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```ruby
 # Public: Duplicate some text an arbitrary number of times.

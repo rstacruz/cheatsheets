@@ -1,13 +1,14 @@
 ---
 title: Angular.js
-category: JavaScript libraries
+category: Hidden
+# AngularJS 1.x reached end of life on 2021-12-31.
 tags: [Archived]
 archived: This describes an older version of Angular.
-layout: 2017/sheet
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
  * <https://github.com/angular/angular-seed>
  * <https://angularjs.org/>

@@ -1,11 +1,11 @@
 ---
 title: CircleCI
 category: Devops
-layout: 2017/sheet
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 - <https://circleci.com/docs/config-sample>
 

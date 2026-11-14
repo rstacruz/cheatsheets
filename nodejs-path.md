@@ -1,7 +1,6 @@
 ---
 title: Node.js path API
 category: Node.js
-layout: 2017/sheet
 intro: |
   Quick reference to the [Node.js path API](https://nodejs.org/api/path.html).
 ---
@@ -30,4 +29,4 @@ path.basename('/etc/rc.d', '.d') // => "rc"
 
 ### References
 
-- https://nodejs.org/api/path.html
+- <https://nodejs.org/api/path.html>

@@ -1,7 +1,6 @@
 ---
 title: Layout thrashing
 category: HTML
-layout: 2017/sheet
 description: ""
 updated: 2017-10-19
 weight: -1
@@ -10,7 +9,8 @@ intro: |
 ---
 
 ## Layout thrashing
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 ### Things that cause invalidation
 
@@ -38,7 +38,8 @@ intro: |
   - scrollLeft
   - scrollTop
   - scrollWidth
-{: .-six-column}
+
+<!-- {: .-six-column} -->
 
 #### MouseEvent
 
@@ -46,7 +47,8 @@ intro: |
   - layerY
   - offsetX
   - offsetY
-{: .-six-column}
+
+<!-- {: .-six-column} -->
 
 #### Window
 
@@ -55,13 +57,15 @@ intro: |
   - scrollTo
   - scrollX
   - scrollY
-{: .-six-column}
+
+<!-- {: .-six-column} -->
 
 #### Frame, Document & Image
 
   - height
   - width
-{: .-six-column}
+
+<!-- {: .-six-column} -->
 
 #### jQuery
 
@@ -74,7 +78,8 @@ intro: |
   - $.fn.text('...')
   - $(':hidden')
   - $(':contains')
-{: .-six-column}
+
+<!-- {: .-six-column} -->
 
 ## Also see
 

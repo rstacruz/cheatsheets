@@ -1,8 +1,6 @@
 ---
 title: Sass
 category: CSS
-layout: 2017/sheet
-tags: [Featured]
 updated: 2020-07-03
 weight: -5
 keywords:
@@ -16,10 +14,12 @@ keywords:
 ---
 
 ## Basics
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Introduction
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 This is a quick reference to [Sass stylesheets](https://sass-lang.com).
 
@@ -411,7 +411,8 @@ map-get($map, key1)
 ```
 
 ## See also
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>
 - <http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript>

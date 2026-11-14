@@ -1,13 +1,13 @@
 ---
 title: Dockerfile
 category: Devops
-layout: 2017/sheet
 prism_languages: [docker]
 updated: 2019-10-20
 ---
 
 ## Reference
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Inheritance
 
@@ -107,6 +107,7 @@ that label-values can span multiple lines."
 ```
 
 ## See also
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <https://docs.docker.com/engine/reference/builder/>

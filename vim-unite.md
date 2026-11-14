@@ -1,7 +1,7 @@
 ---
 title: Vim-Unite
-category: Vim
-layout: 2017/sheet
+category: Hidden
+# Deprecated by its author; superseded by denite.nvim and later ddu.vim.
 ---
 
 ### Usage
@@ -33,11 +33,13 @@ layout: 2017/sheet
 | `-start-insert`            |                                                             |
 | `-no-quit`                 |                                                             |
 | `-winheight=10`            |                                                             |
+| ---                        | ---                                                         |
 | `-quick-match`             | select by pressing asdf keys                                |
 | `-winwidth=40`             | use with vertical                                           |
 | `-no-split`                | open in current buffer                                      |
 | `-auto-preview`            | great for outline                                           |
 | `-vertical`                | open as sidebar                                             |
+| ---                        | ---                                                         |
 | `-buffer-name=xxx -resume` | resume the next time it's called (faster)                   |
 | `-input=`                  | reset input (use with -resume)                              |
 | `-unique`                  | remove duplicates (eg, if using `file_rec` with `file_mru`) |

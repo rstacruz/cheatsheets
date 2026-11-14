@@ -1,7 +1,6 @@
 ---
 title: CSS tricks
 category: CSS
-layout: 2017/sheet
 ---
 
 ### Heading kerning pairs and ligature
@@ -84,7 +83,8 @@ See: <http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-sa
 
 Browser hacks
 -------------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Disclaimer
 

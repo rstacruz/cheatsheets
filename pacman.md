@@ -2,14 +2,15 @@
 title: Pacman
 category: Linux
 updated: 2018-07-07
-layout: 2017/sheet
 ---
 
 ## Commands
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Pacman is the package manager for Arch Linux and its derivatives.
 
@@ -24,7 +25,8 @@ Pacman is the package manager for Arch Linux and its derivatives.
 | `pacman -Rsc <pkg>`     | Uninstall                         |
 | `pacman -Ss <keywords>` | Search                            |
 | `pacman -Syu`           | Upgrade everything                |
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ### Query
 

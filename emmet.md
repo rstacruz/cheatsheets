@@ -1,7 +1,6 @@
 ---
 title: Emmet
 category: Markup
-layout: 2017/sheet
 prism_languages: [html, css]
 updated: 2020-07-03
 intro: |

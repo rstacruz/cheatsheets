@@ -1,12 +1,12 @@
 ---
 title: Sketch
 category: Apps
-layout: 2017/sheet
 updated: 2017-08-30
 ---
 
 ## Shortcuts
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Insert
 
@@ -19,7 +19,8 @@ updated: 2017-08-30
 | `R`      | Rectangle   |
 | `O`      | Oval        |
 | `U`      | Rounded     |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Show
 
@@ -30,7 +31,8 @@ updated: 2017-08-30
 | `^P`     | Show pixels            |
 | `^H`     | Show selection handles |
 | `^R`     | Show rulers            |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Sidebars
 
@@ -40,7 +42,8 @@ updated: 2017-08-30
 | `⌘⌥2`    | Toggle right (inspector) |
 | `⌘⌥3`    | Toggle both              |
 | `⌘.`     | Presentation mode        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Zoom
 
@@ -50,7 +53,8 @@ updated: 2017-08-30
 | `⌘1`     | Fit to screen           |
 | `⌘2`     | Fit selection to screen |
 | `⌘3`     | Center selection        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Arrange
 
@@ -58,7 +62,8 @@ updated: 2017-08-30
 | ---            | ---                 |
 | `⌘⌥↑` _/_ `↓`  | Forward or backward |
 | `^⌘⌥↑` _/_ `↓` | Front or back       |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Distribute
 
@@ -66,7 +71,8 @@ updated: 2017-08-30
 | ---      | ---         |
 | `^⌘H`    | Horizontal  |
 | `^⌘V`    | Vertical    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Layers
 
@@ -76,7 +82,8 @@ updated: 2017-08-30
 | `⌘F`     | Find layer   |
 | `⌘G`     | Group        |
 | `⌘⇧G`    | Ungroup      |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 ### Font
 
@@ -86,4 +93,5 @@ updated: 2017-08-30
 | `⌘⇧[`          | Left align     |
 | `⌘⇧\`          | Center align   |
 | `⌘⇧]`          | Right align    |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->

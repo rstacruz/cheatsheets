@@ -1,11 +1,11 @@
 ---
 title: Riot.js
 category: JavaScript libraries
-layout: 2017/sheet
 ---
 
 ### About
-{: .-intro}
+
+<!-- {: .-intro} -->
 
 Riot is a UI library for JavaScript.
 

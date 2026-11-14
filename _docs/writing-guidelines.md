@@ -346,9 +346,7 @@ UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
-Two shape checks cover every sheet: each H2 needs at least two H3s
-(`baseline/structure.json`), and a table after a code block needs an H4 in
-between (`baseline/tableIntros.json`).
+Two shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), and a table after a code block needs an H4 in between (`baseline/tableIntros.json`).
 
 ## SEO descriptions
 

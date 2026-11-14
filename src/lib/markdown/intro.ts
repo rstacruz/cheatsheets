@@ -6,11 +6,7 @@ export type IntroOptions = {
   links?: SheetLink[]
 }
 
-/**
- * Renders the Introduction card and inserts it as the first card in the
- * first section list. Sectionize has already grouped pre-H3 content into its
- * own card, so the insertion cannot swallow following blocks.
- */
+/** Renders the Introduction card as the first card in the first section list */
 export async function insertIntroCard(
   html: string,
   options: IntroOptions

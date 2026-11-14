@@ -1,6 +1,7 @@
 ---
 title: Ractive.js
 category: JavaScript libraries
+updated: 2026-11-14
 ---
 
 {% raw %}
@@ -9,39 +10,35 @@ category: JavaScript libraries
 
 <!-- {: .-intro} -->
 
-Ractive is a UI library for JavaScript.
+Ractive is a template-driven UI library for JavaScript.
 
 - <https://ractive.js.org/>
-- <https://ractivejs.org/>
+- <https://github.com/ractivejs/ractive>
 
-### [Initialization](http://docs.ractivejs.org/latest/options)
+### [Initialization](https://ractive.js.org/api/#initialization-options)
 
 ```
 new Ractive({
-  el: $('..'),
   el: '#box',
   template: '...', // required
 
-  // callbacks
-  init: function() {},    // on instantiate
-  complete: function() {}, // on finish animations
-
-  // objs
+  // data
   data: { ... },
   partials: { ... },    // global: Ractive.partials
   transitions: { ... }, // global: Ractive.transitions
-  components: { ... },
+  components: { ... },  // global: Ractive.components
   adaptors: [ ... ],
 
   // options
-  magic: false
-  modifyArrays: true
-  twoway: true
-  noIntro: true // true = disable transition on initial render
-  lazy: false   // false = use keyevents, true = use change/blur
-  append: false // false = overwrite element, true = append
-  debug: false
-  sanitize: false
+  twoway: true,
+  noIntro: true, // true = disable transition on initial render
+  lazy: false,   // false = use keyevents, true = use change/blur
+  append: false, // false = overwrite element, true = append
+  sanitize: false,
+
+  // callbacks
+  oninit () {},    // on instantiate
+  oncomplete () {} // on finish animations
 })
 ```
 
@@ -60,7 +57,6 @@ view.reset({ a: true })
 view.merge('list', [a,b,c])
 
 view.get('a')
-view.data.a
 ```
 
 ### Nodes and components
@@ -68,8 +64,6 @@ view.data.a
 ```
 view.find('.klass')
 view.findAll('.klass')
-view.nodes
-view.nodes['hello']   // .find('#hello')
 
 view.findComponent('photo')
 view.findAllComponents('photo')
@@ -89,7 +83,7 @@ view.fire('event')
 view.update()
 view.updateModel()
 
-view.insert('.node .path')
+view.insert('#container')
 
 view.observe({ 'name': function() { ... } })
 
@@ -108,13 +102,9 @@ View = Ractive.extend({
 new View()
 ```
 
-### [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
+### Components
 
-See: <https://github.com/RactiveJS/Ractive/issues/74>
-
-<!-- {:.center} -->
-
-```
+```js
 Widget = Ractive.extend({ ... })
 
 ractive = new Ractive({
@@ -126,6 +116,8 @@ ractive = new Ractive({
 });
 ```
 
+See: [Components](https://ractive.js.org/api/#components)
+
 ### Partials
 
 ```
@@ -136,7 +128,7 @@ Ractive.partials.x = "<..>"
 ## Events
 
 ```
-view.on('teardown')
+view.on('teardown', fn)
 ```
 
 ### DOM Events
@@ -150,16 +142,16 @@ view.on({
 
 <button on-click='sort:name'>Sort by name</button>
 view.on('sort', function (e, column) {
-  console.log('sorting by #{column}');
+  console.log('sorting by', column);
 });
 ```
 
 ### Observing
 
 ```
- view.observe("name", function (name) {
-   console.log("Changed name to", name);
- }, { init: false });
+view.observe("name", function (name) {
+  console.log("Changed name to", name);
+}, { init: false });
 ```
 
 ## Extensions
@@ -181,24 +173,32 @@ Body: {{{unescaped}}}
 {{#user}}Welcome, sire{{/user}} <!-- if true -->
 
 {{>partialName}}
-<component>
+<Widget foo="bar"/>
 
 {{#statusDogs[selected]}}
 ```
 
-### Transformed attributes
+### Computed sections
 
-This transforms the `list` attribute via a helper function called `sort()`.
+This transforms the `list` data via a helper function called `sort()`.
 
+```html
+{{#each sort(list, 'name') as item: num}}
+  <li>{{num}} - {{item.name}}</li>
+{{/each}}
 ```
-{{# sort(list, "name") :num }}
-  <li>{{num}} - {{name}}</li>
-{{/ end. any text goes here }}
 
+```js
 data: {
-  sort: function(array, column) { return array.whatever(); }
+  sort: function (array, column) {
+    return array.slice().sort(function (a, b) {
+      return a[column] > b[column] ? 1 : -1
+    })
+  }
 }
 ```
+
+See: [Each sections](https://ractive.js.org/api/#each-sections)
 
 ### Transitions
 
@@ -223,7 +223,7 @@ Ractive.transitions.bump = function(t, params) {
 };
 ```
 
-### [Decorators](http://docs.ractivejs.org/latest/decorators)
+### [Decorators](https://ractive.js.org/api/#decorators)
 
 ```
 <span decorator="tooltip:hello there">Hover me</span>
@@ -244,7 +244,7 @@ decorators: {
 tooltip: function (node, a, b, two, c) { ... }
 ```
 
-### [Adaptors](http://docs.ractivejs.org/latest/adaptors)
+### [Adaptors](https://ractive.js.org/api/#adaptors)
 
 ```
 myAdaptor = {
@@ -268,16 +268,20 @@ myAdaptor = {
 };
 ```
 
-### [Computed properties](http://docs.ractivejs.org/latest/computed-properties)
+### [Computed properties](https://ractive.js.org/api/#computed)
 
 ```
 new Ractive({
   template: '{{area}}',
   computed: {
-    area: function () { return this.get('width') * this.get('height'); }
-    area: '${width} * ${height}'
+    area: function () {
+      return this.get('width') * this.get('height')
+    },
+    perimeter: '2 * (width + height)',
     fullname: {
-      get: '${first} + " " + ${last}"
+      get: function () {
+        return this.get('first') + ' ' + this.get('last')
+      },
       set: function (name) { ... }
     }
   }

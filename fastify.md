@@ -4,18 +4,14 @@ category: JavaScript libraries
 updated: 2026-11-14
 intro: |
   [Fastify](https://fastify.dev) is a Node.js web framework with a fast router, JSON-schema validation, and a pino logger. This reference targets Fastify v5.
+links:
+  - title: Documentation
+    url: https://fastify.dev/docs/latest/
+  - title: GitHub repository
+    url: https://github.com/fastify/fastify
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Fastify](https://fastify.dev) builds HTTP servers around a radix-tree router, per-route schemas, and a plugin system with encapsulation. This reference targets v5, which requires Node 20 or newer.
-
-- [Documentation](https://fastify.dev/docs/latest/) _(fastify.dev)_
-- [GitHub repository](https://github.com/fastify/fastify) _(github.com)_
 
 ### Hello world
 

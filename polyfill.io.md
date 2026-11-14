@@ -5,6 +5,9 @@ category: Hidden
 updated: 2024-06-26
 intro: |
   Polyfill.io is a service that serves JavaScript polyfills.
+links:
+  - title: Cloudflare now serves polyfill.io
+    url: https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
 ---
 
 ## Usage

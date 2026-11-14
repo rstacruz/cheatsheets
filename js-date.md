@@ -4,19 +4,13 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Constructing and reading JavaScript dates, and converting them to strings
-  and timestamps.
+  JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
+links:
+  - title: Date reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 ---
 
 ## Date
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
-
-- [Date reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) _(developer.mozilla.org)_
 
 ### Constructor
 

@@ -4,18 +4,14 @@ category: JavaScript libraries
 updated: 2026-11-14
 intro: |
   [Webpack](https://webpack.js.org) bundles JavaScript, CSS, and other assets into files a browser can load. This reference targets webpack 5 and webpack-cli 7.
+links:
+  - title: Documentation
+    url: https://webpack.js.org/concepts/
+  - title: GitHub repository
+    url: https://github.com/webpack/webpack
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Webpack](https://webpack.js.org) builds a dependency graph from your entry points and emits bundles. Since v4 it needs no config file, but every real project has one.
-
-- [Documentation](https://webpack.js.org/concepts/) _(webpack.js.org)_
-- [GitHub repository](https://github.com/webpack/webpack) _(github.com)_
 
 ### Install
 

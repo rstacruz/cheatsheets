@@ -5,6 +5,9 @@ updated: 2019-11-14
 weight: -10
 intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
+links:
+  - title: ECMAScript 2015 specification
+    url: https://262.ecma-international.org/6.0/
 ---
 
 ### Block scoping

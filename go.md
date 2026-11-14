@@ -5,19 +5,18 @@ weight: -3
 category: C-like
 updated: 2026-11-11
 tier: t1
+links:
+  - title: A tour of Go
+    url: https://go.dev/tour/welcome/1
+  - title: Go playground
+    url: https://go.dev/play/
+  - title: Go wiki
+    url: https://go.dev/wiki/
 ---
 
 ## Getting started
 
 <!-- {: .-three-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-- [A tour of Go](https://go.dev/tour/welcome/1) _(go.dev)_
-- [Go playground](https://go.dev/play/) _(go.dev)_
-- [Go wiki](https://go.dev/wiki/) _(go.dev)_
 
 ### Hello world
 

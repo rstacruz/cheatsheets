@@ -7,6 +7,9 @@ weight: -1
 prism_languages: [bash, ruby, json, markdown]
 intro: |
   Ronn generates Man pages. See [ronn(1)](https://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](https://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](httpss://github.com/rtomayko/ronn).
+links:
+  - title: ronn(1)
+    url: https://rtomayko.github.io/ronn/ronn.1.html
 ---
 
 ## Getting started

@@ -5,6 +5,9 @@ deprecated: true
 deprecated_by: /react
 intro: |
   This guide targets React v15 to v16 (class components and legacy APIs). See the [updated React cheatsheet](/react) for React v18 to v19.
+links:
+  - title: Using props
+    url: https://legacy.reactjs.org/docs/components-and-props.html
 ---
 
 {%raw%}

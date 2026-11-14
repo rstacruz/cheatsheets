@@ -10,25 +10,19 @@ keywords:
   - copy mode
   - terminal multiplexer
 intro: |
-  [Herdr](https://herdr.dev) drives its terminal workspace from the
-  keyboard through a prefix key. This reference covers the default
-  bindings, navigate and copy modes, and custom keybindings.
+  [Herdr](https://herdr.dev) is mouse-native; keyboard control is optional.
+  This reference covers the prefix, default bindings, navigate and copy
+  modes, and custom keybindings.
+links:
+  - title: Keyboard
+    url: https://herdr.dev/tui/docs/keyboard/
+  - title: Configuration
+    url: https://herdr.dev/tui/docs/configuration/
 ---
 
 ## Keyboard
 
 <!-- {: .-three-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Herdr](https://herdr.dev) is mouse-native; keyboard control is optional.
-This reference covers the prefix, default bindings, navigate and copy
-modes, and custom keybindings.
-
-- [Keyboard](https://herdr.dev/tui/docs/keyboard/) _(herdr.dev)_
-- [Configuration](https://herdr.dev/tui/docs/configuration/) _(herdr.dev)_
 
 ### Prefix
 

@@ -4,20 +4,15 @@ category: JavaScript
 weight: -1
 updated: 2026-10-04
 intro: |
-  Speak text aloud in the browser with the Web Speech API: utterances, voices,
-  and playback.
+  Build an utterance, pick a voice, and pass it to `speechSynthesis.speak()`.
+links:
+  - title: SpeechSynthesisUtterance
+    url: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
+  - title: SpeechSynthesis
+    url: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 ---
 
 ## Speech synthesis
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Build an utterance, pick a voice, and pass it to `speechSynthesis.speak()`.
-
-- [SpeechSynthesisUtterance](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance) _(developer.mozilla.org)_
-- [SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) _(developer.mozilla.org)_
 
 ### Speaking
 

@@ -10,23 +10,18 @@ keywords:
   - asdf alternative
   - project tasks
 intro: |
-  [mise](https://mise.jdx.dev) installs and switches dev tool versions per
-  project, manages environment variables, and runs tasks. This reference covers
-  the CLI, `mise.toml`, and daily workflows.
+  [mise](https://mise.jdx.dev) installs and switches dev tool versions per project
+  and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
+links:
+  - title: mise documentation
+    url: https://mise.jdx.dev
+  - title: GitHub repository
+    url: https://github.com/jdx/mise
+  - title: Tool registry
+    url: https://mise.jdx.dev/registry.html
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[mise](https://mise.jdx.dev) installs and switches dev tool versions per project
-and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
-
-- [mise documentation](https://mise.jdx.dev) _(mise.jdx.dev)_
-- [GitHub repository](https://github.com/jdx/mise) _(github.com)_
-- [Tool registry](https://mise.jdx.dev/registry.html) _(mise.jdx.dev)_
 
 ### Install
 

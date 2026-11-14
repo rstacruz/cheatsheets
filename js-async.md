@@ -4,23 +4,16 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Asynchronous JavaScript with async/await: concurrency, timers, and
-  cancellation.
+  `async`/`await` is syntax on top of promises for writing asynchronous code
+  that reads like synchronous code.
+links:
+  - title: async function
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+  - title: await
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+  - title: Promises cheatsheet
+    url: "./promise"
 ---
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-`async`/`await` is syntax on top of promises for writing asynchronous code
-that reads like synchronous code.
-
-- [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) _(developer.mozilla.org)_
-- [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) _(developer.mozilla.org)_
-
-[Promises cheatsheet](./promise)
-
-<!-- {: .-crosslink} -->
 
 ### async and await
 

@@ -1,13 +1,10 @@
 ---
 title: React-router
 category: React
+links:
+  - title: https://reactrouter.com/
+    url: https://reactrouter.com/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-- <https://reactrouter.com/>
 
 {% raw %}
 

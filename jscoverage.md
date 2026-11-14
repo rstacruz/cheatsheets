@@ -5,6 +5,9 @@ category: Hidden
 updated: 2026-10-04
 intro: |
   A small guide into installing [jscoverage](https://www.npmjs.com/package/jscoverage). Also see [mocha-blanket](./mocha-blanket).
+links:
+  - title: jscoverage
+    url: https://www.npmjs.com/package/jscoverage
 ---
 
 ### Install

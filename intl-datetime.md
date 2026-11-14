@@ -4,6 +4,9 @@ category: JavaScript
 tags: [Featured]
 intro: |
   `Intl.DateTimeFormat` is used to format date strings in JavaScript.
+links:
+  - title: Intl.DateTimeFormat
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 ---
 
 ### Parsing

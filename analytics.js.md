@@ -5,6 +5,9 @@ category: Hidden
 updated: 2017-10-29
 intro: |
   Google Analytics's analytics.js is deprecated.
+links:
+  - title: analytics.js documentation
+    url: https://developers.google.com/analytics/devguides/collection/analyticsjs
 ---
 
 ### Page view

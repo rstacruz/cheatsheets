@@ -8,21 +8,20 @@ keywords:
   - "factory :user"
   - "first_name 'John'"
   - "sequence(:username) { |n| \"user#{n}\" }"
+intro: |
+  [Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests. It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
+links:
+  - title: Factory Bot documentation
+    url: http://www.rubydoc.info/gems/factory_bot/
+  - title: Getting started
+    url: https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md
+  - title: Source code
+    url: https://github.com/thoughtbot/factory_bot
 ---
 
 ## Factories
 
 <!-- {: .-three-column} -->
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-[Factory Bot](http://www.rubydoc.info/gems/factory_bot/) is a helper for writing factories for Ruby tests. It was previously known as Factory Girl. For older versions, use `FactoryGirl` instead of `FactoryBot`.
-
-- [Factory Bot documentation](http://www.rubydoc.info/gems/factory_bot/) _(rubydoc.info)_
-- [Getting started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) _(github.com)_
-- [Source code](https://github.com/thoughtbot/factory_bot) _(github.com)_
 
 ### Defining factories
 

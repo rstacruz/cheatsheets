@@ -1,14 +1,12 @@
 ---
 title: Hledger
 category: Ledger
+links:
+  - title: https://hledger.org
+    url: https://hledger.org
+  - title: https://hledger.org/quickstart.html
+    url: https://hledger.org/quickstart.html
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-- <https://hledger.org>
-- <https://hledger.org/quickstart.html>
 
 ### Reporting
 

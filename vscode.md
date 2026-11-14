@@ -10,22 +10,17 @@ keywords:
   - "⌃`: Toggle terminal"
   - "F5: Start debugging"
 intro: |
-  [Visual Studio Code](https://code.visualstudio.com/) is a free code editor
-  from Microsoft. This sheet covers the macOS shortcuts of 1.146, the `code`
-  CLI, and the settings files.
+  Shortcuts below are the macOS defaults. On Windows and Linux, replace `⌘` with
+  `Ctrl` and `⌥` with `Alt`.
+links:
+  - title: Keyboard shortcuts
+    url: https://code.visualstudio.com/docs/configure/keybindings
+  - title: Command line interface
+    url: https://code.visualstudio.com/docs/configure/command-line
 ---
 
 ## Basics
 <!-- {: .-three-column} -->
-
-### About
-<!-- {: .-intro} -->
-
-Shortcuts below are the macOS defaults. On Windows and Linux, replace `⌘` with
-`Ctrl` and `⌥` with `Alt`.
-
-- [Keyboard shortcuts](https://code.visualstudio.com/docs/configure/keybindings) _(code.visualstudio.com)_
-- [Command line interface](https://code.visualstudio.com/docs/configure/command-line) _(code.visualstudio.com)_
 
 ### Command palette
 

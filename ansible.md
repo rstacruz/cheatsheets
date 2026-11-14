@@ -1,17 +1,14 @@
 ---
 title: Ansible
 category: Ansible
+links:
+  - title: https://www.ansible.com/
+    url: https://www.ansible.com/
 ---
 
 {% raw %}
 
 ## Getting started
-
-### About
-
-<!-- {: .-intro} -->
-
-- <https://www.ansible.com/>
 
 ### Hosts
 

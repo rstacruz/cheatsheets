@@ -3,6 +3,9 @@ title: Vagrant
 category: Devops
 intro: |
  [Vagrant](http://vagrantup.com) lets you build isolated virtual environments for your apps.
+links:
+  - title: Vagrant
+    url: https://www.vagrantup.com/
 ---
 
 ### Get started

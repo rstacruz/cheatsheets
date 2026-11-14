@@ -4,19 +4,15 @@ category: Devops
 prism_languages: [docker]
 updated: 2026-11-14
 intro: |
-  A Dockerfile lists the instructions that build a container image. This reference covers current syntax and BuildKit: multi-stage builds, cache mounts, secrets, and the instructions you reach for most.
+  A Dockerfile lists the instructions that build a container image; BuildKit, the default builder since Docker 23, runs them in parallel. This reference covers multi-stage builds, cache mounts, secrets, and the instructions you reach for most.
+links:
+  - title: Dockerfile reference
+    url: https://docs.docker.com/reference/dockerfile/
+  - title: Build best practices
+    url: https://docs.docker.com/build/building/best-practices/
 ---
 
 ## Getting started
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-BuildKit, the default builder since Docker 23, runs independent instructions in parallel and caches layers by content. Most modern features need the `docker/dockerfile:1` frontend.
-
-- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/) _(docs.docker.com)_
-- [Build best practices](https://docs.docker.com/build/building/best-practices/) _(docs.docker.com)_
 
 ### First image
 

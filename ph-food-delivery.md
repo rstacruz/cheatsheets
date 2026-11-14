@@ -2,6 +2,9 @@
 title: Food delivery (Philippines)
 intro: |
   Food delivery numbers & sites for top restaurant chains in Metro Manila. For numbers outside Metro Manila, check their websites.
+links:
+  - title: Army Navy
+    url: https://www.armynavy.com.ph/
 ---
 
 ## Numbers

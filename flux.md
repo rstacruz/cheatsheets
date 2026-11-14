@@ -2,17 +2,14 @@
 title: Flux architecture
 category: Hidden
 # The Flux library was archived by Facebook in 2023; docs recommend migrating to Redux.
+intro: |
+  Flux is an architecture for building client-side web applications.
+links:
+  - title: In-Depth Overview
+    url: https://facebook.github.io/flux/docs/in-depth-overview/
 ---
 
 ## About
-
-### About
-
-<!-- {: .-intro} -->
-
-Flux is an architecture for building client-side web applications.
-
-* [In-Depth Overview](https://facebook.github.io/flux/docs/in-depth-overview/) _(facebook.github.io)_
 
 ### Architecture
 

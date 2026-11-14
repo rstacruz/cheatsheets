@@ -5,15 +5,14 @@ tier: t2
 updated: 2026-11-11
 description: |
   List of HTTP Status codes and links to description.
+intro: |
+  Three-digit responses listed in the [IANA registry](https://www.iana.org/assignments/http-status-codes); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines most of them. Links go to MDN, except 305 and 306.
+links:
+  - title: RFC 9110
+    url: https://www.rfc-editor.org/rfc/rfc9110.html
 ---
 
 ## Status codes
-
-### About
-
-<!-- {: .-intro} -->
-
-Three-digit responses listed in the [IANA registry](https://www.iana.org/assignments/http-status-codes); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) defines most of them. Links go to MDN, except 305 and 306.
 
 ### Informational responses
 

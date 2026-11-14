@@ -15,7 +15,7 @@ updated: 2017-09-12
 require 'ffaker'
 ```
 
-## Faker::Address
+### Faker::Address
 
 <!-- {: .-one-column} -->
 
@@ -43,7 +43,7 @@ Faker::Address.secondary_address        #=> "Suite 560"
                                         #=> "Apt. 411"
 ```
 
-## Faker::Company
+### Faker::Company
 
 <!-- {: .-one-column} -->
 
@@ -77,7 +77,7 @@ Faker::Company.position                 #=> "General Corporate President"
                                         #=> "Associate Director"
 ```
 
-## Faker::Education
+### Faker::Education
 
 <!-- {: .-one-column} -->
 
@@ -111,7 +111,7 @@ Faker::Education.school_name            #=> "Larkfield"
                                         #=> "Lakepoint"
 ```
 
-## Faker::Geolocation
+### Faker::Geolocation
 
 <!-- {: .-one-column} -->
 
@@ -127,7 +127,7 @@ Faker::Geolocation.lng                  #=> -115.120716573
                                         #=> -72.204989
 ```
 
-## Faker::Internet
+### Faker::Internet
 
 <!-- {: .-one-column} -->
 
@@ -173,7 +173,7 @@ Faker::Internet.domain_suffix           #=> "us"
                                         #=> "biz"
 ```
 
-## Faker::Job
+### Faker::Job
 
 <!-- {: .-one-column} -->
 
@@ -183,7 +183,11 @@ Faker::Job.title                        #=> "Future Data Assistant"
                                         #=> "Product Research Developer"
 ```
 
-## Faker::Lorem
+## Text
+
+<!-- {: .-one-column} -->
+
+### Faker::Lorem
 
 <!-- {: .-one-column} -->
 
@@ -268,7 +272,7 @@ Faker::Lorem.paragraphs(3)              #=> ["Iusto mollitia sequi nam perspicia
                                         #    quaerat aperiam. Accusantium quis voluptatem dolorem."]
 ```
 
-## Faker::HipsterIpsum
+### Faker::HipsterIpsum
 
 <!-- {: .-one-column} -->
 
@@ -287,7 +291,7 @@ Faker::HipsterIpsum.paragraph           #=> "Wayfarers mustache thundercats pitc
                                         #    enger bag lo-fi four l..."
 ```
 
-## Faker::HTMLIpsum
+### Faker::HTMLIpsum
 
 <!-- {: .-one-column} -->
 
@@ -329,7 +333,11 @@ Faker::HTMLIpsum.fancy_string           #=> "<a href=\"#distinctio\" title=\"Ten
                                         #    umquam excepturi quod ..."
 ```
 
-## Faker::Name
+## Names and products
+
+<!-- {: .-one-column} -->
+
+### Faker::Name
 
 <!-- {: .-one-column} -->
 
@@ -363,7 +371,7 @@ Faker::Name.suffix                      #=> "I"
                                         #=> "DDS"
 ```
 
-## Faker::PhoneNumber
+### Faker::PhoneNumber
 
 <!-- {: .-one-column} -->
 
@@ -379,7 +387,7 @@ Faker::PhoneNumber.short_phone_number   #=> "473-412-3192"
                                         #=> "080-546-2356"
 ```
 
-## Faker::Product
+### Faker::Product
 
 <!-- {: .-one-column} -->
 
@@ -407,7 +415,7 @@ Faker::Product.model                    #=> "I-422"
                                         #=> "L6"
 ```
 
-## Faker::NameCN
+### Faker::NameCN
 
 <!-- {: .-one-column} -->
 
@@ -435,7 +443,7 @@ Faker::NameCN.last_name                 #=> "释"
                                         #=> "麻"
 ```
 
-## Faker::NameDE
+### Faker::NameDE
 
 <!-- {: .-one-column} -->
 
@@ -463,7 +471,7 @@ Faker::NameDE.prefix                    #=> "Frau"
                                         #=> "Prof."
 ```
 
-## Faker::NameJA
+### Faker::NameJA
 
 <!-- {: .-one-column} -->
 
@@ -491,7 +499,11 @@ Faker::NameJA.last_name                 #=> "小栗"
                                         #=> "友寄"
 ```
 
-## Faker::NameRU
+## Locale variants
+
+<!-- {: .-one-column} -->
+
+### Faker::NameRU
 
 <!-- {: .-one-column} -->
 
@@ -531,7 +543,7 @@ Faker::NameRU.name(:female)             #=> "Зиядтдинова Полина
                                         #=> "Дарина Минхазова"
 ```
 
-## Faker::NameSN
+### Faker::NameSN
 
 <!-- {: .-one-column} -->
 
@@ -577,7 +589,7 @@ Faker::NameSN.prefix_female             #=> "adjaratou"
                                         #=> "adja"
 ```
 
-## Faker::PhoneNumberAU
+### Faker::PhoneNumberAU
 
 <!-- {: .-one-column} -->
 
@@ -587,7 +599,7 @@ Faker::PhoneNumberAU.phone_number       #=> "0495 539 191"
                                         #=> "0496 013 652"
 ```
 
-## Faker::PhoneNumberSN
+### Faker::PhoneNumberSN
 
 <!-- {: .-one-column} -->
 

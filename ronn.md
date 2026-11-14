@@ -119,7 +119,7 @@ markdown(7)
 
 <!-- {: .-one-column} -->
 
-### Sections
+### Structure
 
 - `## SYNOPSIS`
 - `## DESCRIPTION`
@@ -127,6 +127,9 @@ markdown(7)
 - `## SYNTAX`
 - `## ENVIRONMENT`
 - `## RETURN VALUES`
+
+### Reference
+
 - `## STANDARDS`
 - `## SECURITY CONSIDERATIONS`
 - `## BUGS`
@@ -145,6 +148,8 @@ markdown(7)
 --pipe                       # write to stdout
 --server, -S                 # serve in http://localhost:1207
 ```
+
+### Formatting
 
 ```bash
 --html, -5                   # default
@@ -166,6 +171,8 @@ markdown(7)
 
 ## Sections
 
+### Standard sections
+
 | Section | Description                                   |
 | ---     | ---                                           |
 | `1`     | General commands                              |
@@ -174,6 +181,10 @@ markdown(7)
 | ---     | ---                                           |
 | `4`     | Special files (/dev) and drivers              |
 | `5`     | File formats                                  |
+
+### Other sections
+
+| Section | Description                                   |
 | ---     | ---                                           |
 | `6`     | Games                                         |
 | `7`     | Misc                                          |

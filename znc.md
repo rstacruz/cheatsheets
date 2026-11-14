@@ -4,7 +4,9 @@ intro: |
   A quick reference to the [ZNC](https://znc.bg) IRC bouncer's common commands.
 ---
 
-## Start
+## Commands
+
+### Start
 
 ```
 /msg *status addserver irc.undernet.org [6667]
@@ -19,7 +21,7 @@ intro: |
 /msg *status loadmod kickrejoin
 ```
 
-## Away
+### Away
 
 ```
 /msg *status loadmod away
@@ -29,7 +31,7 @@ intro: |
 /msg *away delete all
 ```
 
-## Watch
+### Watch
 
 ```
 /msg *status loadmod watch

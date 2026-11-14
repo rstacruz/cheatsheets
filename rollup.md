@@ -31,6 +31,8 @@ export default {
 npm install -D rollup
 ```
 
+#### Commands
+
 | Command                                | Description         |
 | ---                                    | ---                 |
 | `rollup -c -o bundle.js`               | bundle using config |

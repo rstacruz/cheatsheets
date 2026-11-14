@@ -130,7 +130,7 @@ _.indexOf(list, val)
 
 ## Functions
 
-### Currying
+### Partial application
 
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
@@ -145,6 +145,8 @@ fn('joe')    // → 'hi, joe!'
 fn = _.partial(fn, 'joe')
 fn('yo')     // → 'yo, joe!'
 ```
+
+### Currying
 
 ```js
 _.curry(greet)('hi')         // → function(name)
@@ -238,6 +240,14 @@ _.keys(obj)
 _.values(obj)
 ```
 
+### Merging
+
+```js
+_.assign(obj, source)
+_.merge(obj, source)
+_.cloneDeep(obj)
+```
+
 ## Chaining
 
 ### Chain and value
@@ -249,4 +259,11 @@ _([1, 2, 3])
   .tap(console.log)
   .thru((n) => n.reverse())
   .value()
+```
+
+### Implicit chaining
+
+```js
+_(list).map(fn).filter(fn).value()
+_.chain(list).map(fn).value()
 ```

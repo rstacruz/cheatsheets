@@ -78,6 +78,8 @@ See: [v-bind](https://vuejs.org/v2/api/#v-bind)
 <input v-model="firstName" >
 ```
 
+#### Modifiers
+
 | Method | Description |
 | --- | --- |
 | `v-model.lazy="..."` | Syncs input after change event |
@@ -114,6 +116,8 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 ```html
 <img @mouseover.once="showImage">...
 ```
+
+#### Modifiers
 
 | Method | Description |
 | --- | --- |

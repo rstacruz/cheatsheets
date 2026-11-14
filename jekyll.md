@@ -240,6 +240,8 @@ See: [Variables](https://jekyllrb.com/docs/variables/)
 
 <!-- {: .-setup} -->
 
+#### Variables
+
 | Variable | Description |
 | --- | --- |
 | `site.time` | Current time |
@@ -286,6 +288,8 @@ Filters
 
 <!-- {: .-setup} -->
 
+#### Filters
+
 | Filter | Output |
 | --- | --- |
 | `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
@@ -303,6 +307,8 @@ Filters
 
 <!-- {: .-setup} -->
 
+#### Filters
+
 | Filter | Description |
 | --- | --- |
 | `textilize` | Textile |
@@ -319,6 +325,8 @@ Filters
 ```
 
 <!-- {: .-setup} -->
+
+#### Filters
 
 | Filter | Description |
 | --- | --- |
@@ -350,6 +358,8 @@ Filters
 ```
 
 <!-- {: .-setup} -->
+
+#### Filters
 
 | Filter                             | Description |
 | ---                                | ---         |
@@ -392,6 +402,8 @@ See: [String filters](https://docs.shopify.com/themes/liquid-documentation/filte
 
 <!-- {: .-setup} -->
 
+#### Filters
+
 | Filter | Description |
 | --- | --- |
 | `number_of_words` | |
@@ -408,6 +420,8 @@ See: [String filters](https://docs.shopify.com/themes/liquid-documentation/filte
 ```
 
 <!-- {: .-setup} -->
+
+#### Filters
 
 | Filter | Description |
 | --- | --- |

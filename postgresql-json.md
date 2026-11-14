@@ -16,6 +16,8 @@ SELECT data->>'name' AS name FROM users;
 
 <!-- {: .-setup} -->
 
+#### Operators
+
 | Operator       | Description                        | Example          | Returns |
 | ----           | ----                               | ----             | ----    |
 | `->` _int_     | Get array element `2`              | `data->2`        | JSON    |
@@ -39,6 +41,8 @@ SELECT data->tags ? 'admin' AS is_admin FROM users;
 
 <!-- {: .-setup} -->
 
+#### Operators
+
 | Operator      | Description                   | Example                          |
 | ----          | ----                          | ----                             |
 | `?` _str_     | Does `data` have key `name`?  | `data ? 'name'`                  |
@@ -60,6 +64,8 @@ UPDATE users SET tags = tags || array['admin'];
 ```
 
 <!-- {: .-setup} -->
+
+#### Operators
 
 | Operator       |  Example                   |  Description
 | ----           |  ----                      |  ----

@@ -134,6 +134,8 @@ See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Se
 echo {A,B}.js
 ```
 
+#### Expansion forms
+
 | Expression             | Description           |
 | ---------------------- | --------------------- |
 | `{A,B}`                | Same as `A B`         |

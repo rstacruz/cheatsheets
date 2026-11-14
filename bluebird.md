@@ -1,6 +1,12 @@
 ---
 title: bluebird.js
-category: JavaScript libraries
+category: Hidden
+# Last release 3.7.2 (2019-11-28); upstream asks projects to use native
+# promises instead.
+tags: [Archived]
+archived: |
+  Bluebird last shipped in 2019 and upstream recommends native promises.
+  See [Promises](./promise) for the standard API.
 weight: -1
 updated: 2017-09-08
 ---

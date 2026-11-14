@@ -20,7 +20,7 @@ updated: 2024-01-01
 - **Progressive complexity:** Start with basics, move to advanced
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
-- **Every H2 needs an H3:** an H2 section is one or more H3 cards; a footer that only lists links (`Also see`, `References`) is the exception.
+- **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
 
 H2 content length:
@@ -79,6 +79,7 @@ shows the shape.
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
+- A table that follows a code block needs an H4 in between (eg `#### Options`), or it reads as part of the block
 
 ## Writing guidelines
 
@@ -344,6 +345,8 @@ UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 ```
 
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
+
+Two shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), and a table after a code block needs an H4 in between (`baseline/tableIntros.json`).
 
 ## SEO descriptions
 

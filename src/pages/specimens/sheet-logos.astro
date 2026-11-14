@@ -1,0 +1,385 @@
+---
+import BaseLayout from '~/components/BaseLayout.astro'
+import Logo from '~/components/Logo.astro'
+import SheetLogoSpecimen, {
+  type Placement
+} from '~/components/Specimens/SheetLogoSpecimen.astro'
+import { getPages } from '~/lib/page'
+
+const pages = await getPages()
+
+const groups = [
+  {
+    label: 'Colour · logos',
+    slugs: [
+      'react',
+      'claude-code',
+      'javascript',
+      'typescript',
+      'npm',
+      'docker',
+      'mysql',
+      'aws-s3',
+      'kotlin',
+      'codex',
+      'opencode',
+      'terraform',
+      'bash',
+      'vim'
+    ]
+  },
+  {
+    label: 'Mono · simple-icons',
+    slugs: ['curl', 'markdown', 'hermes-cli']
+  },
+  {
+    label: 'Tech · devicon',
+    slugs: ['go']
+  },
+  {
+    label: 'Glyph · icon-park-outline',
+    slugs: ['skills', 'xpath', 'datetime', 'http-status', 'intl-datetime']
+  },
+  {
+    label: 'Image · official SVG',
+    slugs: ['herdr', 'mise']
+  }
+] as const
+
+const ladders = [
+  ['react', 'colour'],
+  ['go', 'tech'],
+  ['skills', 'glyph'],
+  ['herdr', 'image']
+] as const
+
+const ladderSizes = [32, 40, 48, 56, 64]
+
+const placements: { id: Placement; title: string; note: string }[] = [
+  {
+    id: 'beside',
+    title: '1 · Beside the h1',
+    note: 'Mark left of the title, optically centred. Strongest identity; eats title width.'
+  },
+  {
+    id: 'above',
+    title: '2 · Above the h1',
+    note: 'App-icon hero. Works on mobile; pushes the title down.'
+  },
+  {
+    id: 'inline',
+    title: '3 · Inline before the title',
+    note: 'Favicon-like. Constrained to text size, so it reads as a glyph.'
+  },
+  {
+    id: 'kicker',
+    title: '4 · Kicker above the h1',
+    note: 'Tiny mark with the category. Subtle, but duplicates the category.'
+  },
+  {
+    id: 'suffix',
+    title: '5 · After the “cheatsheet” suffix',
+    note: 'Low-prominence brand mark. Easy to miss.'
+  },
+  {
+    id: 'watermark',
+    title: '6 · Watermark behind the h1',
+    note: 'Oversized ghost mark. Only works for simple silhouettes.'
+  }
+]
+
+const sizeStudy = [40, 48, 56, 64, 80]
+---
+
+<BaseLayout title="Sheet logo placements">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <div class="wrap">
+    <header class="intro">
+      <p class="eyebrow">Specimen · throwaway exploration</p>
+      <h1>Sheet logo placements</h1>
+      <p>
+        Bare marks only: no backgrounds, no borders. Six placements, size
+        studies, and a broader selection of colour, mono, tech, glyph, and image
+        marks. Top nav, the Introduction card, and the app-icon treatment are
+        omitted this round.
+      </p>
+    </header>
+
+    <section class="block">
+      <h2>1 · Mark selection, 56px</h2>
+      <p class="note">Every mark that has a sheet, grouped by source.</p>
+      {groups.map((group) => (
+        <div class="group">
+          <h3>{group.label}</h3>
+          <div class="tiles">
+            {group.slugs.map((slug) => (
+              <figure>
+                <Logo slug={slug} size={56} />
+                <figcaption>{slug}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="block">
+      <h2>2 · Size ladder by mark kind</h2>
+      <p class="note">32–64px. Colour, tech, glyph, and image in one pass.</p>
+      {ladders.map(([slug, kind]) => (
+        <div class="ladder-row">
+          <div class="ladder-label">
+            {slug}
+            <span>{kind}</span>
+          </div>
+          <div class="tiles sizes">
+            {ladderSizes.map((size) => (
+              <figure>
+                <Logo slug={slug} size={size} />
+                <figcaption>{size}px</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    {placements.map((placement) => (
+      <section class="specimen">
+        <div class="specimen-meta">
+          <h2>{placement.title}</h2>
+          <p>{placement.note}</p>
+        </div>
+        <div class="specimen-frame">
+          <SheetLogoSpecimen page={pages.react} placement={placement.id} />
+        </div>
+      </section>
+    ))}
+
+    <section class="block">
+      <h2>7 · Beside vs above, 40–80px</h2>
+      <p class="note">
+        Same mark, same header, two placements. 40px is too small beside a 48px
+        h1; 56–64px is the practical floor.
+      </p>
+      <div class="compare">
+        {sizeStudy.map((size) => (
+          <div class="compare-row">
+            <div class="ladder-label">{size}px</div>
+            <div class="compare-cell">
+              <SheetLogoSpecimen
+                page={pages.react}
+                placement="beside"
+                size={size}
+              />
+            </div>
+            <div class="compare-cell">
+              <SheetLogoSpecimen
+                page={pages.react}
+                placement="above"
+                size={size}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>8 · Beside the h1, across mark kinds</h2>
+      <p class="note">Colour, mono, glyph, and image marks at 56px.</p>
+      <div class="specimen-frame stack">
+        <SheetLogoSpecimen page={pages.react} placement="beside" />
+        <SheetLogoSpecimen page={pages['claude-code']} placement="beside" />
+        <SheetLogoSpecimen page={pages.go} placement="beside" />
+        <SheetLogoSpecimen page={pages.skills} placement="beside" />
+        <SheetLogoSpecimen page={pages.herdr} placement="beside" />
+        <SheetLogoSpecimen page={pages.mise} placement="beside" />
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>
+        Throwaway specimen page. Sources: <code>logos</code>,
+        <code>simple-icons</code>, <code>devicon</code>,
+        <code>icon-park-outline</code>; official SVGs for Herdr and mise.
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import '../../styles/markdown/a-em.css';
+  @import '../../styles/markdown/code.css';
+  @import '../../styles/markdown/headings.css';
+  @import '../../styles/markdown/p.css';
+  @import '../../styles/markdown/table.css';
+  @import '../../styles/markdown/ul.css';
+  @import '../../styles/components/h2-section.css';
+  @import '../../styles/components/h3-section.css';
+  @import '../../styles/components/h3-section-list.css';
+  @import '../../styles/components/main-heading.css';
+</style>
+
+<style>
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .intro {
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    color: var(--base-mute4);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .intro h1 {
+    margin: 0 0 12px;
+    font-family: var(--font-heading);
+    font-size: 40px;
+    line-height: 1.15;
+    color: var(--base-head);
+  }
+
+  .intro p {
+    max-width: 690px;
+    color: var(--base-text);
+  }
+
+  .block,
+  .specimen {
+    margin: 0 0 56px;
+  }
+
+  .block h2,
+  .specimen-meta h2 {
+    margin: 0 0 6px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--base-head);
+  }
+
+  .group {
+    margin-top: 24px;
+  }
+
+  .group h3 {
+    margin: 0 0 4px;
+    color: var(--base-mute4);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .note,
+  .specimen-meta p {
+    max-width: 680px;
+    margin: 0 0 16px;
+    color: var(--base-mute);
+    font-size: 14px;
+  }
+
+  .tiles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 22px;
+    margin-top: 14px;
+  }
+
+  .tiles figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 48px;
+  }
+
+  .tiles figcaption {
+    color: var(--base-mute4);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .tiles.sizes {
+    align-items: center;
+    gap: 18px;
+  }
+
+  .ladder-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-color);
+  }
+
+  .ladder-label {
+    width: 92px;
+    flex: none;
+    color: var(--base-text);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ladder-label span {
+    display: block;
+    color: var(--base-mute4);
+    font-weight: 400;
+  }
+
+  .compare {
+    margin-top: 20px;
+  }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-color);
+  }
+
+  .compare-row:first-child {
+    border-top: 0;
+  }
+
+  .compare-cell {
+    min-width: 0;
+  }
+
+  .specimen-frame {
+    padding: 32px;
+    border: 1px solid var(--line-color);
+    border-radius: 12px;
+    background: var(--base-body);
+  }
+
+  .specimen-frame.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .foot {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-color);
+    color: var(--base-mute4);
+    font-size: 13px;
+  }
+</style>

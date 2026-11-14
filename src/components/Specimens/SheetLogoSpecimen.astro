@@ -1,0 +1,146 @@
+---
+import cx from 'clsx'
+import Logo from '~/components/Logo.astro'
+import type { SheetPage } from '~/lib/page'
+import { typeStyles } from '~/styles/CommonStyles'
+
+export type Placement =
+  | 'above'
+  | 'beside'
+  | 'inline'
+  | 'kicker'
+  | 'suffix'
+  | 'watermark'
+
+export type Props = {
+  page: SheetPage
+  placement: Placement
+  size?: number
+}
+
+const { page, placement, size = 56 } = Astro.props as Props
+const title: string = page.frontmatter.title ?? page.slug
+const category: string = page.frontmatter.category ?? ''
+
+const headingStyles = {
+  root: cx('MainHeading__root', 'mt-4 w-full', 'flex flex-col'),
+  h1: cx(
+    'MainHeading__h1',
+    typeStyles.manrope,
+    'text-5xl leading-[1.2] text-zinc-950',
+    'text-center md:text-left',
+    'flex-1'
+  )
+}
+---
+
+<header
+  class:list={[
+    headingStyles.root,
+    { 'specimen-watermark': placement === 'watermark' }
+  ]}
+  role="banner"
+>
+  {placement === 'watermark' && (
+    <Logo slug={page.slug} size={260} class="specimen-watermark-logo" />
+  )}
+
+  {placement === 'above' && (
+    <div class="specimen-above">
+      <Logo slug={page.slug} size={size} />
+    </div>
+  )}
+
+  {placement === 'kicker' && (
+    <div class="specimen-kicker">
+      <Logo slug={page.slug} size={20} />
+      <span>{category}</span>
+    </div>
+  )}
+
+  <div class="specimen-title-row">
+    {placement === 'beside' && <Logo slug={page.slug} size={size} />}
+    <h1 class={headingStyles.h1}>
+      {placement === 'inline' && (
+        <Logo
+          slug={page.slug}
+          size={40}
+
+          class="specimen-inline"
+        />
+      )}
+      <span>{title}</span>
+      <span class="specimen-suffix"> cheatsheet</span>
+      {placement === 'suffix' && (
+        <Logo
+          slug={page.slug}
+          size={28}
+
+          class="specimen-suffix-logo"
+        />
+      )}
+    </h1>
+  </div>
+</header>
+
+<style>
+  .specimen-title-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .specimen-above {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .specimen-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--base-mute4);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .specimen-suffix {
+    font-weight: 400;
+  }
+
+  .specimen-inline {
+    display: inline-flex;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+
+  .specimen-suffix-logo {
+    display: inline-flex;
+    margin-left: 8px;
+    vertical-align: 2px;
+  }
+
+  .specimen-watermark {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .specimen-watermark :global(.specimen-watermark-logo) {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.16;
+    filter: grayscale(1);
+  }
+
+  .specimen-watermark h1 {
+    position: relative;
+    z-index: 1;
+  }
+</style>

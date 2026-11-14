@@ -1,0 +1,31 @@
+---
+import { getSheetLogo } from '~/lib/logos'
+import { resolveLogo } from '~/lib/logo-render'
+
+export type Props = {
+  slug: string
+  size?: number
+  class?: string
+}
+
+const { slug, size = 56, class: className } = Astro.props as Props
+const logo = resolveLogo(getSheetLogo(slug))
+---
+
+{logo && (
+  <span
+    class:list={['logo-tile', className]}
+    style={`--logo-size:${size}px`}
+    aria-hidden="true"
+  >
+    {logo.kind === 'svg' ? (
+      <svg {...logo.attributes} set:html={logo.body} />
+    ) : (
+      <img src={logo.src} alt="" />
+    )}
+  </span>
+)}
+
+<style is:global>
+  @import '../styles/components/logo.css';
+</style>

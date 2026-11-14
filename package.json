@@ -57,7 +57,11 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@iconify-json/devicon": "^1.2.80",
+    "@iconify-json/icon-park-outline": "^1.2.4",
     "@iconify-json/ion": "^1.2.7",
+    "@iconify-json/logos": "^1.2.20",
+    "@iconify-json/simple-icons": "^1.2.102",
     "@iconify/utils": "^3.1.7",
     "@types/hast": "^3.0.5",
     "@types/mdast": "^4.0.4",

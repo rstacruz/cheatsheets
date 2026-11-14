@@ -1,0 +1,22 @@
+/* Bare sheet-mark slot. Global so the Logo component owns one treatment. */
+.logo-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--logo-size);
+  height: var(--logo-size);
+}
+
+.logo-tile > svg,
+.logo-tile > img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Image marks that carry their own canvas get rounded corners. */
+.logo-tile > img {
+  border-radius: 22%;
+}

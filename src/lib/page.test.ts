@@ -56,6 +56,26 @@ test('intro length cap', () => {
   expect(() => page('x'.repeat(500))).not.toThrow()
 })
 
+test('links cap', () => {
+  const page = (count: number) =>
+    mapGlobToPages({
+      bash: [
+        '---',
+        'title: Bash',
+        'links:',
+        ...Array.from(
+          { length: count },
+          (_, i) => `  - title: L${i}\n    url: https://example.com/${i}`
+        ),
+        '---',
+        '# hi'
+      ].join('\n')
+    })
+
+  expect(() => page(5)).toThrow(/links/)
+  expect(() => page(4)).not.toThrow()
+})
+
 test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [

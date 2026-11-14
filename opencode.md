@@ -70,26 +70,42 @@ See: [CLI](https://opencode.ai/docs/cli)
 
 <!-- {: .-two-column} -->
 
-### Commands
+### Session commands
+
+| Command                        | Description                 |
+| ------------------------------ | --------------------------- |
+| `opencode run <prompt>`        | Send one prompt, then exit  |
+| `opencode mini`                | Start the minimal interface |
+| `opencode session list`        | List saved sessions         |
+| `opencode session export <id>` | Export a session as JSON    |
+
+<!-- {: .-shortcuts} -->
+
+See: [run](https://opencode.ai/docs/cli/commands#run)
+
+### Setup commands
+
+| Command                      | Description                |
+| ---------------------------- | -------------------------- |
+| `opencode auth login <name>` | Sign in to a provider      |
+| `opencode models`            | List available models      |
+| `opencode mcp add <name>`    | Add an MCP server          |
+| `opencode plugin list`       | List installed plugins     |
+
+<!-- {: .-shortcuts} -->
+
+See: [auth](https://opencode.ai/docs/cli/commands#auth)
+
+### Service commands
 
 | Command                        | Description                   |
 | ------------------------------ | ----------------------------- |
-| `opencode run <prompt>`        | Send one prompt, then exit    |
-| `opencode mini`                | Start the minimal interface   |
-| `opencode session list`        | List saved sessions           |
-| `opencode session export <id>` | Export a session as JSON      |
-| ---                            | ---                           |
-| `opencode auth login <name>`   | Sign in to a provider         |
-| `opencode models`              | List available models         |
-| `opencode mcp add <name>`      | Add an MCP server             |
-| `opencode plugin list`         | List installed plugins        |
-| ---                            | ---                           |
 | `opencode service set <k> <v>` | Change shared server settings |
 | `opencode debug paths`         | Print state and config paths  |
 
 <!-- {: .-shortcuts} -->
 
-See: [Commands](https://opencode.ai/docs/cli/commands)
+See: [CLI](https://opencode.ai/docs/cli#background-service)
 
 ### Run flags
 

@@ -7,43 +7,59 @@ import SheetLogoSpecimen, {
 import { getPages } from '~/lib/page'
 
 const pages = await getPages()
-const react = pages.react
-const go = pages.go
-const herdr = pages.herdr
-const xpath = pages.xpath
-const curl = pages.curl
-const claude = pages['claude-code']
-const skills = pages.skills
-const mise = pages.mise
 
-const marks = [
-  ['react', 'colour'],
-  ['claude-code', 'colour'],
-  ['go', 'mono square'],
-  ['skills', 'glyph'],
-  ['xpath', 'glyph'],
-  ['curl', 'mono square'],
-  ['herdr', 'image'],
-  ['mise', 'image']
+const groups = [
+  {
+    label: 'Colour · logos',
+    slugs: [
+      'react',
+      'claude-code',
+      'javascript',
+      'typescript',
+      'npm',
+      'docker',
+      'mysql',
+      'aws-s3',
+      'kotlin',
+      'codex',
+      'opencode',
+      'terraform',
+      'bash'
+    ]
+  },
+  {
+    label: 'Mono · simple-icons + devicon',
+    slugs: ['go', 'curl', 'markdown', 'hermes-cli']
+  },
+  {
+    label: 'Glyph · icon-park-outline',
+    slugs: ['skills', 'xpath', 'datetime', 'http-status', 'intl-datetime']
+  },
+  {
+    label: 'Image · official SVG',
+    slugs: ['herdr', 'mise']
+  }
 ] as const
 
-const placements: {
-  id: Placement
-  title: string
-  note: string
-  size?: number
-}[] = [
+const ladders = [
+  ['react', 'colour'],
+  ['go', 'mono'],
+  ['skills', 'glyph'],
+  ['herdr', 'image']
+] as const
+
+const ladderSizes = [32, 40, 48, 56, 64]
+
+const placements: { id: Placement; title: string; note: string }[] = [
   {
     id: 'beside',
     title: '1 · Beside the h1',
-    note: 'Bare mark left of the title, optically centred. Strongest identity; eats title width.',
-    size: 96
+    note: 'Mark left of the title, optically centred. Strongest identity; eats title width.'
   },
   {
     id: 'above',
     title: '2 · Above the h1',
-    note: 'App-icon hero. Works on mobile; pushes the title down.',
-    size: 112
+    note: 'App-icon hero. Works on mobile; pushes the title down.'
   },
   {
     id: 'inline',
@@ -66,6 +82,8 @@ const placements: {
     note: 'Oversized ghost mark. Only works for simple silhouettes.'
   }
 ]
+
+const sizeStudy = [40, 48, 56, 64, 80]
 ---
 
 <BaseLayout title="Sheet logo placements">
@@ -78,58 +96,50 @@ const placements: {
       <p class="eyebrow">Specimen · throwaway exploration</p>
       <h1>Sheet logo placements</h1>
       <p>
-        Same sheet (<code>react</code>), six places on the sheet page. Two logo
-        treatments: <strong>bare</strong> (no background or border, mark is the
-        slot) and <strong>app icon</strong> (brand-tinted background, bigger
-        mark, no border, soft shadow). Top nav and intro card omitted.
+        Bare marks only: no backgrounds, no borders. Six placements, size
+        studies, and a broader selection of colour, mono, glyph, and image
+        marks. Top nav, the Introduction card, and the app-icon treatment are
+        omitted this round.
       </p>
     </header>
 
-    <section class="types">
-      <h2>1 · Bare marks, 80px</h2>
-      <p class="note">
-        No background, no border. Image marks get a small radius.
-      </p>
-      <div class="tiles">
-        {marks.map(([slug, kind]) => (
-          <figure>
-            <Logo slug={slug} size={80} />
-            <figcaption>
-              {slug} · {kind}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+    <section class="block">
+      <h2>1 · Mark selection, 56px</h2>
+      <p class="note">Every mark that has a sheet, grouped by source.</p>
+      {groups.map((group) => (
+        <div class="group">
+          <h3>{group.label}</h3>
+          <div class="tiles">
+            {group.slugs.map((slug) => (
+              <figure>
+                <Logo slug={slug} size={56} />
+                <figcaption>{slug}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
 
-    <section class="types">
-      <h2>2 · App-icon variant, 80px</h2>
-      <p class="note">
-        Brand-tinted background, icon at 86%, no border, soft shadow.
-      </p>
-      <div class="tiles">
-        {marks.map(([slug, kind]) => (
-          <figure>
-            <Logo slug={slug} size={80} variant="app" />
-            <figcaption>
-              {slug} · {kind}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-
-    <section class="types">
-      <h2>3 · Bare size ladder</h2>
-      <p class="note">The mark always fills the slot; no chip.</p>
-      <div class="tiles sizes">
-        {[64, 80, 96, 112].map((size) => (
-          <figure>
-            <Logo slug="react" size={size} />
-            <figcaption>{size}px</figcaption>
-          </figure>
-        ))}
-      </div>
+    <section class="block">
+      <h2>2 · Size ladder by mark kind</h2>
+      <p class="note">32–64px. Colour, mono, glyph, and image in one pass.</p>
+      {ladders.map(([slug, kind]) => (
+        <div class="ladder-row">
+          <div class="ladder-label">
+            {slug}
+            <span>{kind}</span>
+          </div>
+          <div class="tiles sizes">
+            {ladderSizes.map((size) => (
+              <figure>
+                <Logo slug={slug} size={size} />
+                <figcaption>{size}px</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
 
     {placements.map((placement) => (
@@ -139,82 +149,58 @@ const placements: {
           <p>{placement.note}</p>
         </div>
         <div class="specimen-frame">
-          <SheetLogoSpecimen
-            page={react}
-            placement={placement.id}
-            size={placement.size ?? 56}
-          />
+          <SheetLogoSpecimen page={pages.react} placement={placement.id} />
         </div>
       </section>
     ))}
 
-    <section class="specimen">
-      <div class="specimen-meta">
-        <h2>7 · Beside the h1, across logo types</h2>
-        <p>
-          Same placement with a colour mark, a mono square, an image mark, and a
-          glyph.
-        </p>
-      </div>
-      <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" size={96} />
-        <SheetLogoSpecimen page={claude} placement="beside" size={96} />
-        <SheetLogoSpecimen page={go} placement="beside" size={96} />
-        <SheetLogoSpecimen page={herdr} placement="beside" size={96} />
-        <SheetLogoSpecimen page={xpath} placement="beside" size={96} />
-      </div>
-    </section>
-
-    <section class="specimen">
-      <div class="specimen-meta">
-        <h2>8 · Beside the h1, app-icon variant</h2>
-        <p>80px tinted tiles, icon at 86%, no border, soft shadow.</p>
-      </div>
-      <div class="specimen-frame stack">
-        <SheetLogoSpecimen
-          page={react}
-          placement="beside"
-          size={80}
-          variant="app"
-        />
-        <SheetLogoSpecimen
-          page={claude}
-          placement="beside"
-          size={80}
-          variant="app"
-        />
-        <SheetLogoSpecimen
-          page={go}
-          placement="beside"
-          size={80}
-          variant="app"
-        />
-        <SheetLogoSpecimen
-          page={herdr}
-          placement="beside"
-          size={80}
-          variant="app"
-        />
+    <section class="block">
+      <h2>7 · Beside vs above, 40–80px</h2>
+      <p class="note">
+        Same mark, same header, two placements. 40px is too small beside a 48px
+        h1; 56–64px is the practical floor.
+      </p>
+      <div class="compare">
+        {sizeStudy.map((size) => (
+          <div class="compare-row">
+            <div class="ladder-label">{size}px</div>
+            <div class="compare-cell">
+              <SheetLogoSpecimen
+                page={pages.react}
+                placement="beside"
+                size={size}
+              />
+            </div>
+            <div class="compare-cell">
+              <SheetLogoSpecimen
+                page={pages.react}
+                placement="above"
+                size={size}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
-    <section class="specimen">
-      <div class="specimen-meta">
-        <h2>9 · Beside the h1, 80 vs 96 vs 112</h2>
-        <p>Bare marks at three header sizes.</p>
-      </div>
+    <section class="block">
+      <h2>8 · Beside the h1, across mark kinds</h2>
+      <p class="note">Colour, mono, glyph, and image marks at 56px.</p>
       <div class="specimen-frame stack">
-        <SheetLogoSpecimen page={react} placement="beside" size={80} />
-        <SheetLogoSpecimen page={react} placement="beside" size={96} />
-        <SheetLogoSpecimen page={react} placement="beside" size={112} />
+        <SheetLogoSpecimen page={pages.react} placement="beside" />
+        <SheetLogoSpecimen page={pages['claude-code']} placement="beside" />
+        <SheetLogoSpecimen page={pages.go} placement="beside" />
+        <SheetLogoSpecimen page={pages.skills} placement="beside" />
+        <SheetLogoSpecimen page={pages.herdr} placement="beside" />
+        <SheetLogoSpecimen page={pages.mise} placement="beside" />
       </div>
     </section>
 
     <footer class="foot">
       <p>
         Throwaway specimen page. Sources: <code>logos</code>,
-        <code>simple-icons</code>, <code>icon-park-outline</code>; official SVGs
-        for Herdr and mise.
+        <code>simple-icons</code>, <code>devicon</code>,
+        <code>icon-park-outline</code>; official SVGs for Herdr and mise.
       </p>
     </footer>
   </div>
@@ -235,7 +221,7 @@ const placements: {
 
 <style>
   .wrap {
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 48px 24px 96px;
   }
@@ -262,16 +248,16 @@ const placements: {
   }
 
   .intro p {
-    max-width: 680px;
+    max-width: 690px;
     color: var(--base-text);
   }
 
-  .types,
+  .block,
   .specimen {
     margin: 0 0 56px;
   }
 
-  .types h2,
+  .block h2,
   .specimen-meta h2 {
     margin: 0 0 6px;
     font-family: var(--font-heading);
@@ -279,9 +265,22 @@ const placements: {
     color: var(--base-head);
   }
 
+  .group {
+    margin-top: 24px;
+  }
+
+  .group h3 {
+    margin: 0 0 4px;
+    color: var(--base-mute4);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   .note,
   .specimen-meta p {
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 0 16px;
     color: var(--base-mute);
     font-size: 14px;
@@ -291,8 +290,8 @@ const placements: {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    gap: 28px;
-    margin-top: 20px;
+    gap: 22px;
+    margin-top: 14px;
   }
 
   .tiles figure {
@@ -300,7 +299,8 @@ const placements: {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    min-width: 48px;
   }
 
   .tiles figcaption {
@@ -309,8 +309,52 @@ const placements: {
     white-space: nowrap;
   }
 
-  .sizes {
+  .tiles.sizes {
     align-items: center;
+    gap: 18px;
+  }
+
+  .ladder-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-color);
+  }
+
+  .ladder-label {
+    width: 92px;
+    flex: none;
+    color: var(--base-text);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ladder-label span {
+    display: block;
+    color: var(--base-mute4);
+    font-weight: 400;
+  }
+
+  .compare {
+    margin-top: 20px;
+  }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-color);
+  }
+
+  .compare-row:first-child {
+    border-top: 0;
+  }
+
+  .compare-cell {
+    min-width: 0;
   }
 
   .specimen-frame {
@@ -323,7 +367,7 @@ const placements: {
   .specimen-frame.stack {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 36px;
   }
 
   .foot {

@@ -4,6 +4,7 @@
  * Sources (all devDependencies, rendered at build time):
  * - `@iconify-json/logos` (CC0) — colour brand marks
  * - `@iconify-json/simple-icons` (CC0) — square mono fallbacks
+ * - `@iconify-json/devicon` (MIT) — tech marks with no mono equivalent
  * - `@iconify-json/icon-park-outline` (Apache-2.0) — non-brand glyphs
  * - `public/assets/logos/*.svg` — marks with no Iconify set entry
  *
@@ -11,7 +12,7 @@
  */
 
 export type SheetLogo =
-  | { kind: 'set'; set: 'logos' | 'simple-icons'; name: string }
+  | { kind: 'set'; set: 'logos' | 'simple-icons' | 'devicon'; name: string }
   | { kind: 'glyph'; set: 'icon-park-outline'; name: string }
   | { kind: 'file'; src: string }
 
@@ -19,7 +20,7 @@ export const sheetLogos: Record<string, SheetLogo> = {
   bash: { kind: 'set', set: 'logos', name: 'bash-icon' },
   'claude-code': { kind: 'set', set: 'logos', name: 'claude-icon' },
   'docker-compose': { kind: 'set', set: 'logos', name: 'docker-icon' },
-  go: { kind: 'set', set: 'simple-icons', name: 'go' },
+  go: { kind: 'set', set: 'devicon', name: 'go' },
   javascript: { kind: 'set', set: 'logos', name: 'javascript' },
   kotlin: { kind: 'set', set: 'logos', name: 'kotlin-icon' },
   react: { kind: 'set', set: 'logos', name: 'react' },

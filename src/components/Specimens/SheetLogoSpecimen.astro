@@ -1,7 +1,6 @@
 ---
 import cx from 'clsx'
 import Logo from '~/components/Logo.astro'
-import type { LogoVariant } from '~/lib/logo-render'
 import type { SheetPage } from '~/lib/page'
 import { typeStyles } from '~/styles/CommonStyles'
 
@@ -17,10 +16,9 @@ export type Props = {
   page: SheetPage
   placement: Placement
   size?: number
-  variant?: LogoVariant
 }
 
-const { page, placement, size = 56, variant = 'bare' } = Astro.props as Props
+const { page, placement, size = 56 } = Astro.props as Props
 const title: string = page.frontmatter.title ?? page.slug
 const category: string = page.frontmatter.category ?? ''
 
@@ -44,37 +42,30 @@ const headingStyles = {
   role="banner"
 >
   {placement === 'watermark' && (
-    <Logo
-      slug={page.slug}
-      size={260}
-      variant="bare"
-      class="specimen-watermark-logo"
-    />
+    <Logo slug={page.slug} size={260} class="specimen-watermark-logo" />
   )}
 
   {placement === 'above' && (
     <div class="specimen-above">
-      <Logo slug={page.slug} size={size} variant={variant} />
+      <Logo slug={page.slug} size={size} />
     </div>
   )}
 
   {placement === 'kicker' && (
     <div class="specimen-kicker">
-      <Logo slug={page.slug} size={20} variant={variant} />
+      <Logo slug={page.slug} size={20} />
       <span>{category}</span>
     </div>
   )}
 
   <div class="specimen-title-row">
-    {placement === 'beside' && (
-      <Logo slug={page.slug} size={size} variant={variant} />
-    )}
+    {placement === 'beside' && <Logo slug={page.slug} size={size} />}
     <h1 class={headingStyles.h1}>
       {placement === 'inline' && (
         <Logo
           slug={page.slug}
           size={40}
-          variant={variant}
+
           class="specimen-inline"
         />
       )}
@@ -84,7 +75,7 @@ const headingStyles = {
         <Logo
           slug={page.slug}
           size={28}
-          variant={variant}
+
           class="specimen-suffix-logo"
         />
       )}

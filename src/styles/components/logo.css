@@ -1,5 +1,4 @@
-/* Sheet logo variants. Global so string-rendered placements (the intro card)
-   and the Logo component share one treatment. */
+/* Bare sheet-mark slot. Global so the Logo component owns one treatment. */
 .logo-tile {
   display: inline-flex;
   align-items: center;
@@ -9,42 +8,15 @@
   height: var(--logo-size);
 }
 
-/* Bare: no background, no border, no shadow. The mark is the whole slot. */
-.logo-tile.-bare {
-  background: transparent;
-  box-shadow: none;
-}
-
-.logo-tile.-bare > svg,
-.logo-tile.-bare > img {
+.logo-tile > svg,
+.logo-tile > img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
 }
 
-/* App-icon variant: coloured tint, no border, subtle shadow, larger mark. */
-.logo-tile.-app {
-  border-radius: calc(var(--logo-size) * 0.24);
-  background: color-mix(
-    in srgb,
-    var(--logo-tint, var(--base-a)) 30%,
-    var(--base-panel)
-  );
-  box-shadow:
-    0 4px 12px rgb(51 68 85 / 16%),
-    0 1px 2px rgb(51 68 85 / 10%);
-  overflow: hidden;
-}
-
-.logo-tile.-app > svg,
-.logo-tile.-app > img {
-  max-width: 86%;
-  max-height: 86%;
-  width: auto;
-  height: auto;
-}
-
+/* Image marks that carry their own canvas get rounded corners. */
 .logo-tile > img {
   border-radius: 22%;
 }

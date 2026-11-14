@@ -24,7 +24,10 @@ export type Props = {
 
 const props = Astro.props as Props
 const page = props.page
-const mkdn = await render(page.markdown)
+const mkdn = await render(page.markdown, {
+  intro: page.frontmatter.intro,
+  links: page.frontmatter.links
+})
 const seoProps = getSEOPropsForPage(page)
 const jsonLdSchemas = getJSONLDsForPage(page)
 const tags = page.frontmatter.tags ?? []
@@ -32,9 +35,6 @@ const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
 const title: string = page.frontmatter.title ?? page.slug
 const editUrl = getEditLink(page)
-const intro: string | null = page.frontmatter.intro
-  ? `<p>${snarkdown(page.frontmatter.intro)}</p>`
-  : null
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
   : null
@@ -107,12 +107,6 @@ const headingStyles = {
           <a href={deprecatedBy}>A newer version is available here.</a>
         ) : null}
       </NoticeBox>
-    ) : null}
-
-    {intro ? (
-      <div class="intro-content text-xl MarkdownBody">
-        <Fragment set:html={intro} />
-      </div>
     ) : null}
 
     <div class={headingStyles.spacer}></div>

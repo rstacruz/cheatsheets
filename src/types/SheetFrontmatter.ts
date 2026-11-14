@@ -1,5 +1,12 @@
 import { z } from 'zod'
 
+export const SheetLinkSchema = z.object({
+  title: z.string().min(1).describe('Link text.'),
+  url: z.string().min(1).describe('Absolute URL or page-relative path.')
+})
+
+export type SheetLink = z.infer<typeof SheetLinkSchema>
+
 export const SheetFrontmatterSchema = z.object({
   title: z
     .union([z.string(), z.number()])
@@ -56,8 +63,13 @@ export const SheetFrontmatterSchema = z.object({
     .string()
     .optional()
     .describe(
-      'Introduction text in Markdown. Appears above the fold and on meta descriptions.'
-    )
+      'Introduction card text in Markdown. Also used in meta descriptions.'
+    ),
+  links: z
+    .array(SheetLinkSchema)
+    .max(4)
+    .optional()
+    .describe('Links shown in the Introduction card (max 4).')
 })
 
 export type SheetFrontmatter = z.infer<typeof SheetFrontmatterSchema>

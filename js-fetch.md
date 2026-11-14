@@ -4,18 +4,13 @@ category: JavaScript
 weight: -3
 updated: 2026-10-04
 intro: |
-  Fetch data over HTTP in the browser: responses, request options, and error
-  handling.
+  `fetch()` requests a resource over HTTP and returns a promise for the response.
+links:
+  - title: Using Fetch
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+  - title: fetch()
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
 ---
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-`fetch()` requests a resource over HTTP and returns a promise for the response.
-
-- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) _(developer.mozilla.org)_
-- [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
 ### Fetch
 

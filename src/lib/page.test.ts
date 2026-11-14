@@ -28,6 +28,24 @@ test('frontmatter', () => {
   expect(typeof page.frontmatter.keywords).toEqual('object')
 })
 
+test('links frontmatter', () => {
+  const result = mapGlobToPages({
+    bash: [
+      '---',
+      'title: Bash',
+      'links:',
+      '  - title: Docs',
+      '    url: https://example.com/docs',
+      '---',
+      '# hi'
+    ].join('\n')
+  })
+
+  expect(result.bash.frontmatter.links).toEqual([
+    { title: 'Docs', url: 'https://example.com/docs' }
+  ])
+})
+
 test('deprecated frontmatter', () => {
   const result = mapGlobToPages({
     old: [

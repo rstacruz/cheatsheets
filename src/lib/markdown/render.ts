@@ -3,6 +3,7 @@ import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
 import { renderMarkdown } from './index'
+import { insertIntroCard, type IntroOptions } from './intro'
 import { plugin as rehypeSectionize } from '@rstacruz/rehype-sectionize'
 
 const PRISM_CONFIG = {
@@ -65,12 +66,18 @@ const REHYPE_SECTIONIZE_CONFIG = [
  * Renders Markdown to HTML and applies some post-processing.
  */
 
-export async function render(input: string): Promise<{ html: string }> {
+export type RenderOptions = IntroOptions
+
+export async function render(
+  input: string,
+  options: RenderOptions = {}
+): Promise<{ html: string }> {
   let { html } = await renderMarkdown(input)
   html = addInitialH2(html)
   html = addH3s(html)
   html = await processRehype(html)
   html = removeBlankHeadings(html)
+  html = await insertIntroCard(html, options)
   return { html }
 }
 

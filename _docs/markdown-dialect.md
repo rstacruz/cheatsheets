@@ -1,15 +1,14 @@
 ---
 title: Markdown dialect
 category: Hidden
+intro: |
+  Sheets are CommonMark plus GFM, with a small kramdown-style layer on top. This page covers that layer, the CI rules, and where the result differs from plain CommonMark.
+links:
+  - title: Cheatsheet styles
+    url: /cheatsheet-styles
+  - title: Writing guidelines
+    url: /_docs/writing-guidelines
 ---
-
-### About
-<!-- {: .-intro} -->
-
-Sheets are CommonMark plus GFM, with a small kramdown-style layer on top. This page covers that layer, the CI rules, and where the result differs from plain CommonMark.
-
-- [Cheatsheet styles](/cheatsheet-styles) _(class catalogue)_
-- [Writing guidelines](/_docs/writing-guidelines) _(prose, layout, frontmatter)_
 
 ## Differences from CommonMark
 
@@ -30,7 +29,7 @@ An H2 starts a section; an H3 is a card inside it. Both get an id from their tex
 
 - Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
-- The first H3 is usually `### About` with `.-intro`.
+- The first card is the Introduction, generated from `intro` and `links` frontmatter.
 
 ````md
 ## Queries

@@ -5,21 +5,16 @@ weight: -10
 updated: 2026-11-11
 tier: t1
 intro: |
-  Core JavaScript language reference: strings, numbers, arrays, objects,
-  collections, dates, async, and modules.
+  Quick reference for the core JavaScript language. Most sections link to a
+  full cheatsheet.
+links:
+  - title: JavaScript reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+  - title: JavaScript Guide
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 ---
 
 ## Built-in types
-
-### Introduction
-
-<!-- {: .-intro} -->
-
-Quick reference for the core JavaScript language. Most sections link to a
-full cheatsheet.
-
-- [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) _(developer.mozilla.org)_
-- [JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) _(developer.mozilla.org)_
 
 ### Strings
 

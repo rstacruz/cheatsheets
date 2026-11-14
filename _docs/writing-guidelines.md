@@ -272,19 +272,23 @@ Ensure syntax highlighting languages are part of [PrismJS's supported languages]
 
 ## Introduction
 
-- Introduction H3s are strongly recommended in the first H2.
+- Set `intro` frontmatter; it renders as the first card on the sheet.
 - Max 25 words per paragraph.
-- Max 3 links. These should always be reputable, first-party sources as much as possible.
+- Up to 4 `links`. These should be reputable, first-party sources as much as possible.
+- Link sources (`_(hostname)_`) are inferred from the URL; do not write them.
 
-````
-### Introduction
-<!-- {: .-intro} -->
+```yaml
+intro: |
+  [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
-[Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+links:
+  - title: Claude Code documentation
+    url: https://code.claude.com/docs
+  - title: GitHub repository
+    url: https://github.com/anthropics/claude-code
+```
 
-- [Claude Code documentation](https://code.claude.com/docs) _(code.claude.com)_
-- [GitHub repository](https://github.com/anthropics/claude-code) _(github.com)_
-````
+The card is generated; never write an `### Introduction` card by hand.
 
 ## Tables: separating
 

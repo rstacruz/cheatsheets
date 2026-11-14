@@ -1,15 +1,12 @@
 ---
 title: Riot.js
 category: JavaScript libraries
+intro: |
+  Riot is a UI library for JavaScript.
+links:
+  - title: https://riot.js.org/
+    url: https://riot.js.org/
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Riot is a UI library for JavaScript.
-
-- <https://riot.js.org/>
 
 ### Tags
 

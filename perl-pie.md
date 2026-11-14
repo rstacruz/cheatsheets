@@ -1,13 +1,9 @@
 ---
 title: Perl-pie
 category: CLI
+intro: |
+  Use `perl` to search and replace across many files.
 ---
-
-### About
-
-<!-- {: .-intro} -->
-
-Use `perl` to search and replace across many files.
 
 ### Search and replace
 

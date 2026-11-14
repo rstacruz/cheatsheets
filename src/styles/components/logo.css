@@ -1,0 +1,22 @@
+/* Uniform tile for sheet logos. Global so string-rendered placements (the
+   intro card) and the Logo component share one treatment. */
+.logo-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: calc(var(--logo-size) * 0.22);
+  background: var(--base-panel);
+  box-shadow: inset 0 0 0 1px var(--line-color);
+  overflow: hidden;
+}
+
+.logo-tile > svg,
+.logo-tile > img {
+  max-width: 76%;
+  max-height: 76%;
+  width: auto;
+  height: auto;
+}

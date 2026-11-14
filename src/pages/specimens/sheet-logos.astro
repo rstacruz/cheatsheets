@@ -1,0 +1,315 @@
+---
+import BaseLayout from '~/components/BaseLayout.astro'
+import Logo from '~/components/Logo.astro'
+import SheetLogoSpecimen, {
+  type Placement
+} from '~/components/Specimens/SheetLogoSpecimen.astro'
+import { getPages } from '~/lib/page'
+
+const pages = await getPages()
+const react = pages.react
+const go = pages.go
+const herdr = pages.herdr
+const xpath = pages.xpath
+const curl = pages.curl
+const claude = pages['claude-code']
+const skills = pages.skills
+const mise = pages.mise
+
+const placements: {
+  id: Placement
+  title: string
+  note: string
+  size?: number
+}[] = [
+  {
+    id: 'beside',
+    title: '1 · Beside the h1',
+    note: 'Tile left of the title, optically centred. Strongest identity; eats title width.'
+  },
+  {
+    id: 'above',
+    title: '2 · Above the h1',
+    note: 'App-icon hero. Works on mobile; pushes the title down.',
+    size: 72
+  },
+  {
+    id: 'inline',
+    title: '3 · Inline before the title',
+    note: 'Favicon-like. Constrained to text size, so it reads as a glyph.'
+  },
+  {
+    id: 'kicker',
+    title: '4 · Kicker above the h1',
+    note: 'Tiny tile with the category. Subtle, but duplicates the category.'
+  },
+  {
+    id: 'suffix',
+    title: '5 · After the “cheatsheet” suffix',
+    note: 'Low-prominence brand mark. Easy to miss.'
+  },
+  {
+    id: 'watermark',
+    title: '6 · Watermark behind the h1',
+    note: 'Oversized ghost mark. Only works for simple silhouettes.'
+  },
+  {
+    id: 'intro',
+    title: '7 · Inside the Introduction card',
+    note: 'Float-right badge in the card body. Contextual and mobile-friendly.'
+  },
+  {
+    id: 'nav',
+    title: '8 · Top nav, next to the brand',
+    note: 'Persistent while scrolling. Competes with the back and edit controls.'
+  }
+]
+---
+
+<BaseLayout title="Sheet logo placements">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <div class="wrap">
+    <header class="intro">
+      <p class="eyebrow">Specimen · throwaway exploration</p>
+      <h1>Sheet logo placements</h1>
+      <p>
+        Same sheet (<code>react</code>), eight places to put the mark. The tile
+        is 56px in the header specimens and 40px inside the intro card.
+      </p>
+    </header>
+
+    <section class="types">
+      <h2>1 · Logo types at 56px</h2>
+      <div class="tiles">
+        <figure>
+          <Logo slug="react" size={56} />
+          <figcaption>react · colour</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="go" size={56} />
+          <figcaption>go · mono square</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="herdr" size={56} />
+          <figcaption>herdr · file</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="skills" size={56} />
+          <figcaption>skills · mono square</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="xpath" size={56} />
+          <figcaption>xpath · glyph</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="curl" size={56} />
+          <figcaption>curl · mono square</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="claude-code" size={56} />
+          <figcaption>claude-code · colour</figcaption>
+        </figure>
+        <figure>
+          <Logo slug="mise" size={56} />
+          <figcaption>mise · file</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="types">
+      <h2>2 · Size ladder</h2>
+      <div class="tiles sizes">
+        {[40, 48, 56, 64, 80].map((size) => (
+          <figure>
+            <Logo slug="react" size={size} />
+            <figcaption>{size}px</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    {placements.map((placement) => (
+      <section class="specimen">
+        <div class="specimen-meta">
+          <h2>{placement.title}</h2>
+          <p>{placement.note}</p>
+        </div>
+        <div class="specimen-frame">
+          <SheetLogoSpecimen
+            page={react}
+            placement={placement.id}
+            size={placement.size ?? 56}
+          />
+        </div>
+      </section>
+    ))}
+
+    <section class="specimen">
+      <div class="specimen-meta">
+        <h2>9 · Beside the h1, across logo types</h2>
+        <p>
+          The same placement with a colour mark, a mono square, an official
+          file, and a glyph.
+        </p>
+      </div>
+      <div class="specimen-frame stack">
+        <SheetLogoSpecimen page={react} placement="beside" />
+        <SheetLogoSpecimen page={go} placement="beside" />
+        <SheetLogoSpecimen page={herdr} placement="beside" />
+        <SheetLogoSpecimen page={xpath} placement="beside" />
+      </div>
+    </section>
+
+    <section class="specimen">
+      <div class="specimen-meta">
+        <h2>10 · Beside the h1, wordmark-heavy sheets</h2>
+        <p>
+          <code>curl</code> and <code>skills</code> use square mono marks, so
+          they hold up at 48–56px.
+        </p>
+      </div>
+      <div class="specimen-frame stack">
+        <SheetLogoSpecimen page={curl} placement="beside" />
+        <SheetLogoSpecimen page={skills} placement="beside" />
+        <SheetLogoSpecimen page={claude} placement="beside" />
+      </div>
+    </section>
+
+    <section class="specimen">
+      <div class="specimen-meta">
+        <h2>11 · Beside the h1, 48 vs 56</h2>
+        <p>Same placement at two header sizes.</p>
+      </div>
+      <div class="specimen-frame stack">
+        <SheetLogoSpecimen page={react} placement="beside" size={48} />
+        <SheetLogoSpecimen page={react} placement="beside" size={56} />
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>
+        Throwaway specimen page. Sources: <code>logos</code>,
+        <code>simple-icons</code>, <code>icon-park-outline</code>; official SVGs
+        for Herdr and mise.
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import '../../styles/markdown/a-em.css';
+  @import '../../styles/markdown/code.css';
+  @import '../../styles/markdown/headings.css';
+  @import '../../styles/markdown/p.css';
+  @import '../../styles/markdown/table.css';
+  @import '../../styles/markdown/ul.css';
+  @import '../../styles/components/h2-section.css';
+  @import '../../styles/components/h3-section.css';
+  @import '../../styles/components/h3-section-list.css';
+  @import '../../styles/components/main-heading.css';
+  @import '../../styles/components/logo.css';
+</style>
+
+<style>
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .intro {
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    color: var(--base-mute4);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .intro h1 {
+    margin: 0 0 12px;
+    font-family: var(--font-heading);
+    font-size: 40px;
+    line-height: 1.15;
+    color: var(--base-head);
+  }
+
+  .intro p {
+    max-width: 640px;
+    color: var(--base-text);
+  }
+
+  .types,
+  .specimen {
+    margin: 0 0 56px;
+  }
+
+  .types h2,
+  .specimen-meta h2 {
+    margin: 0 0 6px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--base-head);
+  }
+
+  .specimen-meta p {
+    max-width: 640px;
+    margin: 0 0 16px;
+    color: var(--base-mute);
+    font-size: 14px;
+  }
+
+  .tiles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .tiles figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tiles figcaption {
+    color: var(--base-mute4);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .sizes {
+    align-items: center;
+  }
+
+  .specimen-frame {
+    padding: 32px;
+    border: 1px solid var(--line-color);
+    border-radius: 12px;
+    background: var(--base-body);
+  }
+
+  .specimen-frame.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .foot {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-color);
+    color: var(--base-mute4);
+    font-size: 13px;
+  }
+</style>

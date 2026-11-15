@@ -406,6 +406,12 @@ See: [Run modes](https://cursor.com/docs/agent/security/run-modes)
 | `WebFetch(docs.github.com)` | Fetches from a domain     |
 | `Mcp(datadog:*)`            | Tools on an MCP server    |
 
+`Shell` matches the first word of a command, `Read` and `Write` take globs, `WebFetch` takes a domain, and `Mcp` takes `server:tool`.
+
+See: [Permissions](https://cursor.com/docs/cli/reference/permissions)
+
+### Allow and deny
+
 ```json
 {
   "permissions": {

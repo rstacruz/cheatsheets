@@ -1,7 +1,7 @@
 ---
 title: Ledger periods
 subtitle: Period expression syntax
-category: Ledger
+category: Plain-text accounting
 links:
   - title: https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions
     url: https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions

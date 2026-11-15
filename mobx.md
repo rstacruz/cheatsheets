@@ -1,7 +1,13 @@
 ---
 title: Mobx
 subtitle: Reactive state management library
-category: JavaScript libraries
+category: Hidden
+# MobX 3/4 API; autorunAsync, expr, asStructure removed; decorators need makeObservable.
+tags: [Archived]
+archived: |
+  MobX 6 (2020) removed `autorunAsync`, `expr`, and `asStructure`/`asFlat`,
+  and requires `makeObservable()` with decorators. See
+  [mobx.js.org](https://mobx.js.org/).
 updated: 2018-05-14
 ---
 

@@ -63,7 +63,7 @@ export const categories = [
   'Ansible',
   'Analytics',
   'Jekyll',
-  'Ledger',
+  'Plain-text accounting',
   'Others'
 ]
 

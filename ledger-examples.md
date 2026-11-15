@@ -1,7 +1,7 @@
 ---
 title: Ledger examples
 subtitle: Double-entry accounting example set
-category: Ledger
+category: Plain-text accounting
 ---
 
 ### Inspecting transactions

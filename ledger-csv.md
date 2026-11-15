@@ -1,7 +1,7 @@
 ---
 title: Ledger CSV format
 subtitle: Ledger CSV export format
-category: Ledger
+category: Plain-text accounting
 ---
 
 ## Ledger CSV format

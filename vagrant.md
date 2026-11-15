@@ -1,7 +1,13 @@
 ---
 title: Vagrant
 subtitle: Virtual machine environment manager
-category: Devops
+category: Hidden
+# files.vagrantup.com is gone; HCP Vagrant/Vagrant Cloud ends operations 2026-12-31.
+tags: [Archived]
+archived: |
+  `files.vagrantup.com` no longer resolves, and HashiCorp's Vagrant box
+  registry ends operations on 31 December 2026. Use
+  [Docker](https://devhints.io/docker) or a self-hosted box instead.
 intro: |
  [Vagrant](http://vagrantup.com) lets you build isolated virtual environments for your apps.
 links:

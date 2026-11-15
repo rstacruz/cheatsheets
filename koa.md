@@ -1,7 +1,13 @@
 ---
 title: Koa
 subtitle: Async middleware framework
-category: JavaScript libraries
+category: Hidden
+# Generator middleware examples do not run on Koa 2+; Koa 3 dropped generators.
+tags: [Archived]
+archived: |
+  These examples use generator middleware, which Koa 2 replaced with
+  async/await and Koa 3 no longer supports. Use
+  [async middleware](https://koajs.com/).
 intro: |
   Koa is a web framework for Node.js.
 links:

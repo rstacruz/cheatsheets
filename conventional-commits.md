@@ -6,9 +6,10 @@ tier: t2
 updated: 2026-11-16
 intro: |
   [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a
-  commit message convention that maps commits to SemVer releases. This
-  reference covers the message grammar, the recommended types, breaking-change
-  markers, and the tooling that reads them.
+  commit message convention that maps commits to SemVer releases.
+
+  This reference covers the message grammar, the recommended types,
+  breaking-change markers, and the tooling that reads them.
 links:
   - title: Conventional Commits 1.0.0
     url: https://www.conventionalcommits.org/en/v1.0.0/
@@ -111,8 +112,8 @@ Closes #124
 <!-- {: .-headers} -->
 
 Body and footers each start after one blank line. Tokens replace spaces with
-`-`, and a value may span lines until the next token. `BREAKING-CHANGE` is a
-synonym.
+`-`, except `BREAKING CHANGE`; a value may span lines until the next token.
+`BREAKING-CHANGE` is a synonym.
 
 See: [git interpret-trailers](https://git-scm.com/docs/git-interpret-trailers)
 
@@ -195,8 +196,8 @@ See: [Contributor workflow](https://www.conventionalcommits.org/en/v1.0.0/#do-al
 
 ## Versioning
 
-Each type maps to a release bump, and tools pick the highest one since the last
-tag.
+Each commit maps to a release bump, and tools pick the highest one since the
+last tag.
 
 [Semver cheatsheet](./semver)
 <!-- {: .-crosslink} -->
@@ -240,12 +241,12 @@ git log --no-merges --format='%s' v1.2.0..HEAD
 
 # Count each type
 git log --no-merges --format='%s' v1.2.0..HEAD |
-  sed -E 's/^([a-zA-Z]+)(\([^)]*\))?!?:.*/\1/' |
+  sed -nE 's/^([a-zA-Z]+)(\([^)]*\))?!?: .+/\1/p' |
   sort | uniq -c | sort -rn
 ```
 
-Replace the range with your last tag. The expression drops the scope and `!`,
-so the output is a count per type.
+Replace the range with your last tag. The expression drops the scope and `!`
+and skips subjects that do not parse, so the output is a count per type.
 
 See: [git log](https://git-scm.com/docs/git-log)
 

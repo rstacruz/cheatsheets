@@ -1,5 +1,6 @@
 ---
 title: Terraform
+subtitle: Infrastructure as code tool
 category: Devops
 tier: t2
 updated: 2026-11-11

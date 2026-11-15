@@ -1,5 +1,6 @@
 ---
 title: top
+subtitle: Process monitor
 category: CLI
 updated: 2020-01-01
 intro: See the processes in your Unix machine.

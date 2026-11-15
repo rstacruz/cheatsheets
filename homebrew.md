@@ -1,5 +1,6 @@
 ---
 title: Homebrew
+subtitle: Package manager for macOS
 weight: -3
 category: CLI
 ---

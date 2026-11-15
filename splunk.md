@@ -1,5 +1,6 @@
 ---
 title: Splunk
+subtitle: Machine data search platform
 category: Devops
 updated: 2026-11-15
 keywords:

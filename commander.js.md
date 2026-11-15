@@ -1,5 +1,6 @@
 ---
 title: Commander.js
+subtitle: Node.js CLI framework
 category: JavaScript libraries
 links:
   - title: https://github.com/tj/commander.js/

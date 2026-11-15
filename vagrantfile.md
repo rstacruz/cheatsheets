@@ -1,5 +1,6 @@
 ---
 title: Vagrantfile
+subtitle: Vagrant configuration file
 category: Devops
 ---
 

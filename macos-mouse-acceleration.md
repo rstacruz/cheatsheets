@@ -1,5 +1,6 @@
 ---
 title: Mouse Acceleration
+subtitle: Fix for macOS mouse acceleration
 category: macOS
 updated: 2018-03-20
 weight: -1

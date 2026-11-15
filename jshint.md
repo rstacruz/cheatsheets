@@ -1,5 +1,6 @@
 ---
 title: JSHint
+subtitle: JavaScript linter
 category: JavaScript libraries
 updated: 2026-10-04
 intro: |

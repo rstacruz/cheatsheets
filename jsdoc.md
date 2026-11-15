@@ -1,5 +1,6 @@
 ---
 title: JSDoc
+subtitle: Doc comment annotation syntax
 category: JavaScript
 updated: 2026-10-04
 weight: -1

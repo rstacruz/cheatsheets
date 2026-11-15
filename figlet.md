@@ -1,5 +1,6 @@
 ---
 title: Figlet
+subtitle: ASCII art text renderer
 updated: 2018-06-14
 introduction: |
   [Figlet] renders text as ASCII art. Here's a list of Figlet fonts for Figlet 2.2.5.

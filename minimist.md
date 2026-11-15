@@ -1,5 +1,6 @@
 ---
 title: minimist
+subtitle: CLI argument parser
 category: JavaScript libraries
 ---
 

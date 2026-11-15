@@ -1,5 +1,6 @@
 ---
 title: Ronn
+subtitle: Man page generator
 category: Hidden
 # The original gem is defunct (0.7.3, 2010); use the ronn-ng fork.
 updated: 2017-10-15

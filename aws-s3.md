@@ -1,5 +1,6 @@
 ---
 title: AWS S3
+subtitle: Object storage service
 category: Devops
 updated: 2026-11-11
 tier: t2

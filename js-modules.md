@@ -1,5 +1,6 @@
 ---
 title: JavaScript Modules
+subtitle: Syntax for ES modules
 category: JavaScript
 weight: -3
 updated: 2026-10-04

@@ -1,5 +1,6 @@
 ---
 title: Git revisions
+subtitle: Revision syntax reference
 category: Git
 updated: 2017-10-11
 description: ""

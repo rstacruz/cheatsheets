@@ -1,5 +1,6 @@
 ---
 title: Git tricks
+subtitle: Assorted Git recipes
 category: Git
 ---
 

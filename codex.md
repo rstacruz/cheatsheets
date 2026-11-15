@@ -1,5 +1,6 @@
 ---
 title: Codex
+subtitle: Terminal coding agent
 category: Agents
 updated: 2026-11-11
 tier: t2

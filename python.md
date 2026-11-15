@@ -1,5 +1,6 @@
 ---
 title: Python
+subtitle: Readable language for scripting
 category: Python
 ---
 

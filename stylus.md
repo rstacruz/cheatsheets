@@ -1,5 +1,6 @@
 ---
 title: Stylus
+subtitle: Indentation-based CSS preprocessor
 category: CSS
 prism_languages: [stylus]
 weight: -3

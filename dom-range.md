@@ -1,5 +1,6 @@
 ---
 title: DOM Range
+subtitle: Document range API
 category: JavaScript
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).

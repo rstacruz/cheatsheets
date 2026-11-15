@@ -1,5 +1,6 @@
 ---
 title: Git log format string
+subtitle: Log format placeholder reference
 category: Git
 updated: 2017-10-18
 weight: -1

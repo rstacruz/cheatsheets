@@ -1,5 +1,6 @@
 ---
 title: ActiveAdmin
+subtitle: Rails admin interface framework
 category: Ruby
 ---
 

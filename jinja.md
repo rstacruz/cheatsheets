@@ -1,5 +1,6 @@
 ---
 title: Jinja
+subtitle: Python templating engine
 category: Python
 ---
 

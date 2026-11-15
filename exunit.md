@@ -1,5 +1,6 @@
 ---
 title: ExUnit
+subtitle: Elixir test framework
 category: Elixir
 updated: 2018-11-19
 ---

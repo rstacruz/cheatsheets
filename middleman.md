@@ -1,5 +1,6 @@
 ---
 title: Middleman 3
+subtitle: Ruby static site generator
 category: JavaScript libraries
 tags: [Archived]
 archived: This guide is for Middleman v3.

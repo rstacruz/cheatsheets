@@ -1,5 +1,6 @@
 ---
 title: rename
+subtitle: Batch file renamer
 category: CLI
 ---
 

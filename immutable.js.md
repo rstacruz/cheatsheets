@@ -1,5 +1,6 @@
 ---
 title: Immutable.js
+subtitle: Persistent data structure library
 category: JavaScript libraries
 ---
 

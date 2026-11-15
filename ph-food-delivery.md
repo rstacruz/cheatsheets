@@ -1,5 +1,6 @@
 ---
 title: Food delivery (Philippines)
+subtitle: Manila restaurant delivery numbers
 intro: |
   Food delivery numbers & sites for top restaurant chains in Metro Manila. For numbers outside Metro Manila, check their websites.
 links:

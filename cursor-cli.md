@@ -1,5 +1,6 @@
 ---
 title: Cursor CLI
+subtitle: Cursor terminal agent
 category: Agents
 updated: 2026-11-15
 tier: t2

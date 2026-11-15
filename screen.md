@@ -1,5 +1,6 @@
 ---
 title: Screen
+subtitle: GNU terminal multiplexer
 category: CLI
 updated: 2024-02-03
 keywords:

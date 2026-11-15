@@ -1,5 +1,6 @@
 ---
 title: Chai.js
+subtitle: JavaScript assertion library
 category: JavaScript libraries
 weight: -3
 updated: 2018-06-25

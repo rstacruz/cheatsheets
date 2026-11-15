@@ -1,5 +1,6 @@
 ---
 title: Command line stuff
+subtitle: Unix shell basics
 ---
 
 ## List (ls)

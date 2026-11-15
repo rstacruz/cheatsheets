@@ -1,5 +1,6 @@
 ---
 title: git log
+subtitle: Commit history viewer
 category: Git
 ---
 

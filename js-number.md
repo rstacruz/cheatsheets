@@ -1,5 +1,6 @@
 ---
 title: JavaScript Numbers
+subtitle: Floating-point number reference
 category: JavaScript
 weight: -3
 updated: 2026-10-04

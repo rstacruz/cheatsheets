@@ -1,5 +1,6 @@
 ---
 title: Google Webfonts
+subtitle: Web font loading snippets
 category: Hidden
 # Documents the retired v1 CSS API; Google now serves fonts from `/css2`.
 tags: [Archived]

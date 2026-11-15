@@ -1,5 +1,6 @@
 ---
 title: SQL joins
+subtitle: SQL join types
 category: Databases
 updated: 2018-12-06
 weight: -1

@@ -1,5 +1,6 @@
 ---
 title: Travis.yml
+subtitle: Travis CI YAML configuration
 category: Devops
 prism_languages: [yaml]
 intro: |

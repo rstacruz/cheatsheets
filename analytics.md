@@ -1,5 +1,6 @@
 ---
 title: Analytics libraries
+subtitle: Analytics library comparison
 category: Analytics
 ---
 

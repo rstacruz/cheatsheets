@@ -1,5 +1,6 @@
 ---
 title: Google Analytics's analytics.js
+subtitle: Deprecated Google Analytics library
 category: Hidden
 # Universal Analytics stopped processing data on 2023-07-01; replaced by GA4/gtag.js.
 updated: 2017-10-29

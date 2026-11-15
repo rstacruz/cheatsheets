@@ -1,5 +1,6 @@
 ---
 title: React.js (v0.14)
+subtitle: Legacy React 0.14 API
 category: React
 deprecated: true
 deprecated_by: /react

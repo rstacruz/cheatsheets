@@ -1,5 +1,6 @@
 ---
 title: Linux
+subtitle: Unix-like operating system
 category: Linux
 ---
 

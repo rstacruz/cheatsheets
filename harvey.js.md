@@ -1,5 +1,6 @@
 ---
 title: Harvey.js
+subtitle: Media query helper library
 category: Hidden
 # Discontinued (repo archived); the sheet points to enquire.js/matchMedia.
 intro: |

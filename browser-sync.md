@@ -1,5 +1,6 @@
 ---
 title: Browsersync
+subtitle: Live-reload dev server
 category: JavaScript libraries
 intro: |
   `npm i -g browser-sync`

@@ -1,5 +1,6 @@
 ---
 title: Mixpanel
+subtitle: Product analytics service
 category: Analytics
 ---
 

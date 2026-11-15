@@ -1,5 +1,6 @@
 ---
 title: Web workers
+subtitle: Browser background threads
 category: JavaScript
 updated: 2026-11-15
 keywords:

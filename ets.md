@@ -1,5 +1,6 @@
 ---
 title: Erlang ETS
+subtitle: In-memory key-value store
 category: Elixir
 weight: -1
 ---

@@ -1,5 +1,6 @@
 ---
 title: Pug
+subtitle: HTML template engine
 category: JavaScript libraries
 prism_languages: [jade]
 updated: 2017-10-30

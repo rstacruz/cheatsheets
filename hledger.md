@@ -1,5 +1,6 @@
 ---
 title: Hledger
+subtitle: Ledger-compatible accounting tool
 category: Ledger
 links:
   - title: https://hledger.org

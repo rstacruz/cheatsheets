@@ -1,5 +1,6 @@
 ---
 title: Parsimmon
+subtitle: Parser combinator library
 category: JavaScript libraries
 ---
 

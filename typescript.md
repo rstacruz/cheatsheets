@@ -1,5 +1,6 @@
 ---
 title: TypeScript
+subtitle: Typed superset of JavaScript
 category: JavaScript libraries
 tier: t1
 tags: [Featured]

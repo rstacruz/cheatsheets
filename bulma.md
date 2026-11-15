@@ -1,5 +1,6 @@
 ---
 title: Bulma
+subtitle: Flexbox-based CSS framework
 category: CSS
 prism_languages: [css, html]
 weight: -1

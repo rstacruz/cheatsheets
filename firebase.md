@@ -1,5 +1,6 @@
 ---
 title: Firebase
+subtitle: Backend as a service
 prism_languages: [coffeescript]
 tags: [WIP]
 ---

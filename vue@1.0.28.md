@@ -1,5 +1,6 @@
 ---
 title: Vue.js v1.0.28
+subtitle: Legacy Vue 1 API
 category: JavaScript
 deprecated: true
 deprecated_by: /vue

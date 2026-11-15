@@ -1,5 +1,6 @@
 ---
 title: Weechat
+subtitle: Terminal IRC client
 category: Apps
 ---
 

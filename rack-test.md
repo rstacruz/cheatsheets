@@ -1,5 +1,6 @@
 ---
 title: rack-test
+subtitle: Rack testing helpers
 category: Ruby libraries
 ---
 

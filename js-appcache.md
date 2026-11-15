@@ -1,5 +1,6 @@
 ---
 title: applicationCache
+subtitle: Deprecated offline caching API
 category: Hidden
 # window.applicationCache was removed from browsers; use Service Workers.
 updated: 2026-10-04

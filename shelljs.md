@@ -1,5 +1,6 @@
 ---
 title: Shell.js
+subtitle: Unix commands for Node
 category: JavaScript libraries
 updated: 2017-10-27
 weight: -1

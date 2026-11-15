@@ -1,5 +1,6 @@
 ---
 title: Stencil
+subtitle: Web component compiler
 category: JavaScript libraries
 updated: 2019-05-08
 keywords:

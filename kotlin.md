@@ -1,5 +1,6 @@
 ---
 title: Kotlin
+subtitle: JVM programming language
 category: Java & JVM
 updated: 2026-11-11
 tier: t1

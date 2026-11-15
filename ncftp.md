@@ -1,5 +1,6 @@
 ---
 title: ncftp
+subtitle: Command-line FTP client
 category: CLI
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Nopt
+subtitle: Option parsing library
 category: JavaScript libraries
 links:
   - title: https://www.npmjs.org/package/nopt

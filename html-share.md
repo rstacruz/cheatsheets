@@ -1,5 +1,6 @@
 ---
 title: Share links
+subtitle: Social share link markup
 category: HTML
 updated: 2026-10-06
 ---

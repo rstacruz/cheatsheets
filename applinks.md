@@ -1,5 +1,6 @@
 ---
 title: Applinks
+subtitle: Deep-link metadata standard
 category: HTML
 ---
 

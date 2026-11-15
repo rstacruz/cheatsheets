@@ -1,5 +1,6 @@
 ---
 title: Pass
+subtitle: Command-line password store
 category: CLI
 ---
 

@@ -16,6 +16,16 @@ export const SheetFrontmatterSchema = z
       .optional()
       .describe('Sheet name. Falls back to the filename.'),
 
+    subtitle: z
+      .string()
+      .trim()
+      .min(1)
+      .refine((value) => value.split(/\s+/).length <= 5, {
+        message: 'Subtitle must be 5 words or fewer'
+      })
+      .optional()
+      .describe('One-line description shown under the title (max 5 words).'),
+
     category: z
       .string()
       .optional()

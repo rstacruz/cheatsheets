@@ -1,5 +1,6 @@
 ---
 title: Xpath
+subtitle: Query language for XML
 category: HTML
 tier: t1
 weight: -5

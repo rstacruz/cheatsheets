@@ -1,5 +1,6 @@
 ---
 title: "Phoenix: Ecto"
+subtitle: Database wrapper for Elixir
 category: Elixir
 tags: [WIP]
 updated: 2017-08-30

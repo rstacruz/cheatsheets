@@ -1,5 +1,6 @@
 ---
 title: Ledger examples
+subtitle: Double-entry accounting example set
 category: Ledger
 ---
 

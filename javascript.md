@@ -1,5 +1,6 @@
 ---
 title: JavaScript
+subtitle: Core scripting language
 category: JavaScript
 weight: -10
 updated: 2026-11-11

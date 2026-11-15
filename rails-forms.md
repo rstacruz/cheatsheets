@@ -1,5 +1,6 @@
 ---
 title: Rails form helpers
+subtitle: Form builder field reference
 category: Rails
 ---
 

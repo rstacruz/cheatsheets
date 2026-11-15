@@ -1,5 +1,6 @@
 ---
 title: httpie
+subtitle: Human-friendly HTTP client
 category: CLI
 weight: -3
 updated: 2020-07-05

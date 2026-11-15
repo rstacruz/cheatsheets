@@ -1,5 +1,6 @@
 ---
 title: Bundler
+subtitle: Ruby dependency manager
 category: Ruby
 ---
 

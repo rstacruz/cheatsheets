@@ -1,5 +1,6 @@
 ---
 title: Microformats
+subtitle: Semantic HTML markup patterns
 category: HTML
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Rails models
+subtitle: ActiveRecord model reference
 category: Rails
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Enzyme
+subtitle: React component test utility
 category: Hidden
 # Last release 3.11.0 (2020); no React 18 or 19 adapter.
 tags: [Archived]

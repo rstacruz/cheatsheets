@@ -1,5 +1,6 @@
 ---
 title: Knex
+subtitle: SQL query builder
 updated: 2020-06-03
 category: Databases
 intro: |

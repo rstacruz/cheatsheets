@@ -1,5 +1,6 @@
 ---
 title: composer
+subtitle: PHP package manager
 category: CLI
 weight: -1
 authors:

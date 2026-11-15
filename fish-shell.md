@@ -1,5 +1,6 @@
 ---
 title: Fish shell
+subtitle: Interactive shell with autosuggestions
 category: CLI
 prism_languages: [fish]
 updated: 2026-11-14

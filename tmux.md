@@ -1,5 +1,6 @@
 ---
 title: tmux
+subtitle: Terminal multiplexer
 category: CLI
 updated: 2024-04-08
 ---

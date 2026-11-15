@@ -1,5 +1,6 @@
 ---
 title: JavaScript Objects
+subtitle: Key-value object reference
 category: JavaScript
 weight: -3
 updated: 2026-10-04

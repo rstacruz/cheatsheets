@@ -1,5 +1,6 @@
 ---
 title: Phoenix
+subtitle: Web framework for Elixir
 category: Elixir
 weight: -1
 updated: 2018-03-06

@@ -1,5 +1,6 @@
 ---
 title: Haml
+subtitle: Indentation-based HTML templating
 category: Markup
 prism_languages: [haml]
 ---

@@ -1,5 +1,6 @@
 ---
 title: Rubygems
+subtitle: Ruby gem package manager
 category: Ruby
 intro: |
   A quick reference to common [rubygems](https://rubygems.org) CLI commands.

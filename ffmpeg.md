@@ -1,5 +1,6 @@
 ---
 title: ffmpeg
+subtitle: Audio and video transcoder
 category: CLI
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Mobx
+subtitle: Reactive state management library
 category: JavaScript libraries
 updated: 2018-05-14
 ---

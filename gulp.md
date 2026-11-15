@@ -1,5 +1,6 @@
 ---
 title: Gulp
+subtitle: JavaScript task runner
 category: JavaScript libraries
 tags: [Archived]
 archived: The information on this sheet may possibly be outdated.

@@ -1,5 +1,6 @@
 ---
 title: Jest
+subtitle: JavaScript test runner
 category: JavaScript libraries
 updated: 2020-06-17
 weight: -3

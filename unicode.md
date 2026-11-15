@@ -1,5 +1,6 @@
 ---
 title: Unicode symbols
+subtitle: Reference for symbol codepoints
 ---
 
 ### Symbols

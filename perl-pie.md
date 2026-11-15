@@ -1,5 +1,6 @@
 ---
 title: Perl-pie
+subtitle: In-place file editing
 category: CLI
 intro: |
   Use `perl` to search and replace across many files.

@@ -1,5 +1,6 @@
 ---
 title: Tig
+subtitle: Terminal Git repository browser
 category: Git
 updated: 2022-12-08
 weight: -3

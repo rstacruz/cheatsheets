@@ -1,5 +1,6 @@
 ---
 title: Ansible examples
+subtitle: Sample playbooks and roles
 category: Ansible
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Rails i18n
+subtitle: Translation and localization
 category: Rails
 ---
 

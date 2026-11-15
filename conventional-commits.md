@@ -196,11 +196,15 @@ See: [Contributor workflow](https://www.conventionalcommits.org/en/v1.0.0/#do-al
 
 ## Versioning
 
+### Semver
+
 Each commit maps to a release bump, and tools pick the highest one since the
 last tag.
 
 [Semver cheatsheet](./semver)
 <!-- {: .-crosslink} -->
+
+See: [Semantic Versioning](https://semver.org/)
 
 ### Mapping to semver
 

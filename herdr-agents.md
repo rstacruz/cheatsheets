@@ -27,8 +27,12 @@ links:
 
 ## Supported agents
 
+### Integration and detection
+
 - Herdr supports the agent, or the agent supports Herdr
 - Either way you see `idle`, `working`, and `blocked`, and can wait on it from scripts
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
 ### A–C
 

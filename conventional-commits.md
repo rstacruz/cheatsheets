@@ -30,7 +30,7 @@ links:
 [optional footer(s)]
 ```
 
-#### Parts
+#### Fields
 
 | Part | Required | Notes |
 | --- | --- | --- |
@@ -40,6 +40,8 @@ links:
 | `description` | yes | short summary after `: ` |
 | body | no | free-form, after one blank line |
 | footers | no | token/value pairs after the body |
+
+<!-- {: .-headers} -->
 
 The colon and space after the prefix are required, so `feat:add` does not
 parse. The `!` sits immediately before the colon.
@@ -62,6 +64,8 @@ See: [Specification summary](https://www.conventionalcommits.org/en/v1.0.0/#summ
 | `ci` | CI config and scripts | none |
 | `chore` | other changes outside src and tests | none |
 | `revert` | undoes an earlier commit | none |
+
+<!-- {: .-headers} -->
 
 Only `feat` and `fix` have spec-defined meanings. The rest are the
 `@commitlint/config-conventional` set; additional types are allowed, but they
@@ -104,6 +108,8 @@ Closes #124
 | `Reviewed-by: Z` | reviewer trailer |
 | `BREAKING CHANGE: …` | breaking change, uppercase |
 
+<!-- {: .-headers} -->
+
 Body and footers each start after one blank line. Tokens replace spaces with
 `-`, and a value may span lines until the next token. `BREAKING-CHANGE` is a
 synonym.
@@ -116,7 +122,9 @@ See: [git interpret-trailers](https://git-scm.com/docs/git-interpret-trailers)
 | --- | --- |
 | `!` before `:` | `feat!: drop Node 6 support` |
 | Footer | `BREAKING CHANGE: drop Node 6 support` |
-| Both | `feat(api)!:` plus a footer |
+| Both | `feat(api)!: drop Node 6` plus a footer |
+
+<!-- {: .-headers} -->
 
 The footer form is uppercase and works with any type. With `!` alone, the
 description must describe the break. Both forms may appear together.
@@ -201,6 +209,8 @@ tag.
 | any `feat:`, no break | MINOR | 1.2.3 → 1.3.0 |
 | `!` or `BREAKING CHANGE:` | MAJOR | 1.2.3 → 2.0.0 |
 
+<!-- {: .-headers} -->
+
 The highest bump wins, so a breaking `fix:` is still a major release. Breaking
 changes count whatever the commit type.
 
@@ -213,6 +223,8 @@ See: [Conventional Commits and SemVer](https://www.conventionalcommits.org/en/v1
 | [semantic-release](https://semantic-release.org/) | `npx semantic-release` | tags and publishes |
 | [standard-version](https://github.com/conventional-changelog/standard-version) | `npx standard-version` | bumps files, writes changelog |
 | [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) | `npx commit-and-tag-version` | maintained fork of standard-version |
+
+<!-- {: .-headers} -->
 
 semantic-release runs on the release branch after CI. standard-version is
 deprecated: its README recommends release-please, while the fork keeps the same

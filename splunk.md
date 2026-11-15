@@ -1,7 +1,6 @@
 ---
 title: Splunk
 category: Devops
-tier: t2
 updated: 2026-11-15
 keywords:
   - Splunk SPL

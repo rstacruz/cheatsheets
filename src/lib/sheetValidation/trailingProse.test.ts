@@ -11,7 +11,7 @@ import {
 import { sheetSources } from './sheets'
 
 /** Prose after the last code block or table in an H3 card */
-const LIMIT = 30
+const LIMIT = 40
 
 const SEE_LINE = /^See:/
 
@@ -90,16 +90,16 @@ describe('findLongTrailingProse()', () => {
   const card = (trailing: string) =>
     ['### A', '', '```bash', 'ls', '```', '', trailing].join('\n')
 
-  test('flags 31 words after a code block', () => {
-    expect(findLongTrailingProse(card(prose(31)))).toHaveLength(1)
+  test('flags 41 words after a code block', () => {
+    expect(findLongTrailingProse(card(prose(41)))).toHaveLength(1)
   })
 
-  test('allows 30 words', () => {
-    expect(findLongTrailingProse(card(prose(30)))).toEqual([])
+  test('allows 40 words', () => {
+    expect(findLongTrailingProse(card(prose(40)))).toEqual([])
   })
 
   test('ignores prose before the block', () => {
-    const input = ['### A', '', prose(40), '', '```bash', 'ls', '```'].join(
+    const input = ['### A', '', prose(50), '', '```bash', 'ls', '```'].join(
       '\n'
     )
     expect(findLongTrailingProse(input)).toEqual([])
@@ -118,7 +118,7 @@ describe('findLongTrailingProse()', () => {
       '| --- |',
       '| x |',
       '',
-      prose(31)
+      prose(41)
     ].join('\n')
     expect(findLongTrailingProse(input)).toHaveLength(1)
   })

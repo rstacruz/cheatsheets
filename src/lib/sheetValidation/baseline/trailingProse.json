@@ -1,27 +1,4 @@
 [
-  "bash#Glob options",
   "composer#Installing dependencies",
-  "goby#Order of method parameter",
-  "goby#Special `get_block` keyword",
-  "herdr#Quick start",
-  "herdr-agents#Inspect",
-  "herdr-agents#Integrations",
-  "herdr-agents#Keys and focus",
-  "herdr-agents#Prompt and wait",
-  "herdr-agents#Start an agent",
-  "herdr-agents#States",
-  "herdr-agents#Supported agents",
-  "herdr-keys#Cut and paste",
-  "herdr-keys#Prefix",
-  "intl-datetime#Parsing",
-  "js-modules#createRequire()",
-  "kotlin#When statements",
-  "markdown#Bullet lists",
-  "mise#Trust",
-  "opencode#Permissions",
-  "opencode#Providers and models",
-  "react@16#Effect hook",
-  "semver#Hyphenated ranges",
-  "splunk#inputlookup and outputlookup",
-  "vimscript#Overwriting"
+  "opencode#Permissions"
 ]

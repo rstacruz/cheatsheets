@@ -84,7 +84,8 @@ shows the shape.
 ## Writing guidelines
 
 - Aim for brevity
-- Prose after the last code block or table in a card: 30 words max; split into another H3 if it needs more
+- Prose after the last code block or table in a card: 40 words max; split into another H3 if it needs more
+- Prose comes last in a card: no paragraph may be followed by a code block or table. Fold the note into the block, or split the card
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
@@ -350,7 +351,7 @@ UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
-Three shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), and prose after the last block in a card stays under 30 words (`baseline/trailingProse.json`).
+Four shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), and no paragraph is followed by a block (`baseline/paragraphPlacement.json`).
 
 ## SEO descriptions
 

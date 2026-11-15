@@ -331,7 +331,7 @@ bind -s                      # macros
 #### Shell commands
 
 ```bash
-bind -x '"\C-x\C-g": git status'
+bind -x '"\C-x\C-w": git status'
 bind -m vi-insert '"\C-l": clear-screen'
 ```
 

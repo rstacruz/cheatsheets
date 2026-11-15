@@ -419,7 +419,9 @@ test('every card shows code before its tables', async () => {
   const allowed = new Set(loadBaseline<string[]>('tableBeforeCode.json', []))
   expect(
     findings.flatMap(({ slug, line, text }) =>
-      allowed.has(`${slug}#${text}`) ? [] : [`${slug}:${line}: code after a table (${text})`]
+      allowed.has(`${slug}#${text}`)
+        ? []
+        : [`${slug}:${line}: code after a table (${text})`]
     )
   ).toEqual([])
 })

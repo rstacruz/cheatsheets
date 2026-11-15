@@ -11,7 +11,7 @@ keywords:
   - subtitles
   - audio extraction
 intro: |
-  [yt-dlp](https://github.com/yt-dlp/yt-dlp#readme) is a command-line downloader for YouTube and thousands of other sites. This reference covers format selection, output templates, audio, subtitles, cookies, and the options worth remembering.
+  [yt-dlp](https://github.com/yt-dlp/yt-dlp#readme) is a command-line downloader for YouTube and thousands of other sites. This reference covers format selection, output templates, audio, subtitles, cookies, and scripting.
 links:
   - title: yt-dlp README
     url: https://github.com/yt-dlp/yt-dlp#readme
@@ -210,8 +210,8 @@ yt-dlp -t mp4 URL    # mp4 with h264/aac
 yt-dlp -t mkv URL    # mkv, any codecs
 ```
 
-Presets bundle the common format and conversion flags for you. The
-names are stable across releases.
+Presets bundle the common format and conversion flags. The names are
+stable across releases.
 
 See: [Preset aliases](https://github.com/yt-dlp/yt-dlp#preset-aliases)
 

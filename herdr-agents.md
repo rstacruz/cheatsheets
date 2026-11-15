@@ -24,59 +24,69 @@ links:
     url: "./herdr"
 ---
 
-## Agents
-
-### Supported agents
+## Supported agents
 
 - Herdr supports the agent, or the agent supports Herdr
 - Either way you see `idle`, `working`, and `blocked`, and can wait on it from scripts
 
-#### Supported by Herdr, with an integration
+### A–C
 
-| Agent | Integration | Notes |
+| Agent | Kind | Notes |
 | --- | --- | --- |
-| Claude Code | `claude` | |
-| Codex | `codex` | |
-| GitHub Copilot CLI | `copilot` | |
-| Cursor Agent CLI | `cursor` | |
-| OpenCode | `opencode` | also reports state |
-| Pi | `pi` | also reports state |
-| OMP | `omp` | state requires the integration |
+| Amp | `amp` | detected only |
+| Antigravity CLI | `agy` | integration; install `antigravity-cli` |
+| Claude Code | `claude` | integration |
+| Cline | `cline` | detected only, less tested |
+| Codex | `codex` | integration |
 | --- | --- | --- |
-| Droid | `droid` | |
-| Devin CLI | `devin` | |
-| Kimi Code CLI | `kimi` | also reports state |
-| Kilo Code CLI | `kilo` | also reports state |
-| Hermes Agent | `hermes` | |
-| Qoder CLI | `qodercli` | |
-| Qwen Code | `qwen` | |
-| --- | --- | --- |
-| Letta Code | `letta` | CLI install only |
-| MastraCode | `mastracode` | state requires the integration |
-| Grok CLI | `grok` | |
-| Antigravity CLI | `antigravity-cli` | |
-
-#### Detected, state only
-
-- Amp
-- Kiro CLI
-- Maki
-- Gemini CLI (less tested)
-- Cline (less tested)
-
-#### Supported by the agent
-
-- [Command Code](https://commandcode.ai)
-- [Crush](https://github.com/charmbracelet/crush)
-- [Kiro CLI](https://kiro.dev/cli/)
-- [Muse Code](https://dev.meta.ai/products/muse-code)
-- [Prime Agent](https://github.com/PrimeIntellect-ai/prime-agent)
-
-An agent that reports its resume command returns in the same session after a restart.
-
-Unrecognized agents still run in panes as plain terminals; prefix a wrapper with `HERDR_AGENT=claude` so Herdr sees the agent.
+| Command Code | — | reports its own state |
+| Crush | — | reports its own state |
+| Cursor Agent CLI | `cursor` | integration |
 
 See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### D–K
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Devin CLI | `devin` | integration |
+| Droid | `droid` | integration |
+| Gemini CLI | `gemini` | detected only, less tested |
+| GitHub Copilot CLI | `copilot` | integration |
+| Grok CLI | `grok` | integration |
+| --- | --- | --- |
+| Hermes Agent | `hermes` | integration |
+| Kilo Code CLI | `kilo` | integration; reports state |
+| Kimi Code CLI | `kimi` | integration; reports state |
+| Kiro CLI | `kiro` | detected; reports state |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### L–Q
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Letta Code | `letta` | integration; CLI install only |
+| Maki | `maki` | detected only |
+| MastraCode | `mastracode` | integration; state needs it |
+| Muse Code | `muse` | reports its own state |
+| OMP | `omp` | integration; state needs it |
+| --- | --- | --- |
+| OpenCode | `opencode` | integration; reports state |
+| Pi | `pi` | integration; reports state |
+| Prime Agent | — | reports its own state |
+| Qoder CLI | `qodercli` | integration |
+| Qwen Code | `qwen` | integration |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### Unrecognized agents
+
+An agent that reports its resume command returns in the same session after a restart. Unrecognized agents still run as plain terminals; prefix a wrapper with `HERDR_AGENT=claude` so Herdr sees the agent.
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+## Agents
 
 ### Start an agent
 
@@ -89,39 +99,8 @@ herdr agent start reviewer --kind claude --pane w1:p2 \
   -- --model sonnet
 ```
 
-#### Kinds
+`--kind` takes a kind from Supported agents. Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents; a name clears when the agent exits.
 
-| Kind | Agent |
-| --- | --- |
-| `claude` | Claude Code |
-| `codex` | Codex |
-| `copilot` | GitHub Copilot CLI |
-| `cursor` | Cursor Agent CLI |
-| `opencode` | OpenCode |
-| `pi` | Pi |
-| `omp` | OMP |
-| --- | --- |
-| `droid` | Droid |
-| `devin` | Devin CLI |
-| `kimi` | Kimi Code CLI |
-| `kilo` | Kilo Code CLI |
-| `hermes` | Hermes Agent |
-| `qodercli` | Qoder CLI |
-| `qwen` | Qwen Code |
-| --- | --- |
-| `letta` | Letta Code |
-| `mastracode` | MastraCode |
-| `grok` | Grok CLI |
-| `agy` | Antigravity CLI |
-| `amp` | Amp |
-| `kiro` | Kiro CLI |
-| `maki` | Maki |
-| `gemini` | Gemini CLI |
-| `cline` | Cline |
-| `muse` | Muse Code |
-
-Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents.
-A name follows the pane occupant and clears when the agent exits.
 Targets take a live agent name or its pane ID; bare kinds are rejected.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#agent-identity-and-launch)

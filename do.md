@@ -3,6 +3,10 @@ title: Do gem
 subtitle: Remote command runner
 category: Hidden
 # The Do gem was last released around 2012 and is unmaintained.
+tags: [Archived]
+archived: |
+  The Do gem was last released around 2012 and is unmaintained. Use plain
+  Ruby objects or a maintained dependency-injection library instead.
 links:
   - title: DAddYE/do
     url: https://github.com/DAddYE/do

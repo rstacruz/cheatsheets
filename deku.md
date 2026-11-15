@@ -3,6 +3,10 @@ title: Deku v2
 subtitle: Tiny virtual DOM library
 category: Hidden
 # Abandoned; the v2 rewrite never left RC (2.0.0-rc16, 2016).
+tags: [Archived]
+archived: |
+  Deku was abandoned; the v2 rewrite never left release candidate
+  (2.0.0-rc16, 2016). Use Preact or React instead.
 intro: |
   Quick reference for [Deku](https://www.npmjs.com/package/deku), a minimal virtual DOM library.
 links:

@@ -60,6 +60,9 @@ or a browser-removal version. Put the reason in the note.
 `archived:` alone also unlists the sheet; `category: Hidden` keeps the intent
 explicit. `tags: [Archived]` is only a label.
 
+A hidden sheet that turns out to be retired should be upgraded to `archived:`
+so the archive page shows why it is there.
+
 ## Checklist
 
 - [ ] Find dated proof of the retirement (shutdown date, last release, repo

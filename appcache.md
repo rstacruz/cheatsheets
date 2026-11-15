@@ -3,6 +3,11 @@ title: Appcache
 subtitle: Deprecated offline cache API
 category: Hidden
 # Application Cache was removed from browsers (Firefox 84 / Chrome 95).
+tags: [Archived]
+archived: |
+  Application Cache was removed from browsers (Firefox 84, Chrome 95). Use
+  [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+  instead.
 ---
 
 ### Format

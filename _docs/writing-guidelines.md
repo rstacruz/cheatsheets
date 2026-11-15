@@ -296,6 +296,20 @@ links:
 
 The card is generated; never write an `### Introduction` card by hand.
 
+## Table headers
+
+Table headers are hidden by default. Add `<!-- {: .-headers} -->` after the
+table when the column labels carry meaning; otherwise leave them out and write
+rows that read on their own.
+
+```md
+| Part | Required |
+| --- | --- |
+| `type` | yes |
+| body | no |
+<!-- {: .-headers} -->
+```
+
 ## Tables: separating
 
 Separating tables is preferred when a table grows to 8 or more rows.

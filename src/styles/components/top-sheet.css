@@ -2,7 +2,7 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 10px;
 
   @media (max-width: 580px) {
     grid-template-columns: 1fr;
@@ -13,9 +13,9 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   text-shadow: 0 1px 1px rgb(51 68 85 / 30%);
 
   > .sheet-card__title,

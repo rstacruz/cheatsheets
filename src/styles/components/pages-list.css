@@ -1,7 +1,7 @@
 .pages-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 8px;
+  gap: 10px;
 
   > .category,
   > .message {
@@ -15,8 +15,8 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  padding: 10px 12px 2.5rem;
-  border-radius: 8px;
+  padding: 12px 14px 4rem;
+  border-radius: 10px;
   background: var(--base-card);
   text-decoration: none;
 

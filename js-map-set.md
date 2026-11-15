@@ -1,6 +1,6 @@
 ---
 title: JavaScript Map and Set
-subtitle: Keyed collection API
+subtitle: Keyed and unique-value collections
 category: JavaScript
 weight: -3
 updated: 2026-10-04

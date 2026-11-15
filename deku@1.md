@@ -1,6 +1,6 @@
 ---
 title: Deku v1
-subtitle: Older virtual DOM library
+subtitle: Legacy virtual DOM library
 category: JavaScript libraries
 deprecated: true
 deprecated_by: /deku

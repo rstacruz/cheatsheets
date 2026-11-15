@@ -1,6 +1,6 @@
 ---
 title: Screen resolutions
-subtitle: Screen resolution reference
+subtitle: Screen resolution and density table
 updated: 2020-07-03
 weight: -1
 ---

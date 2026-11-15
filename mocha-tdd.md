@@ -1,6 +1,6 @@
 ---
 title: Mocha.js TDD interface
-subtitle: TDD test interface
+subtitle: Suite and test API
 category: JavaScript libraries
 ---
 

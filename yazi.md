@@ -36,6 +36,11 @@ brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide
 # Debian/Ubuntu: use the official APT repo
 curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg \
   | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null
+printf '%s %s\n' \
+  'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg]' \
+  'https://yazi-rs.github.io/builds/ stable main' \
+  | sudo tee /etc/apt/sources.list.d/yazi.list
+sudo apt update && sudo apt install yazi
 ```
 
 `file(1)` is required; `ffmpeg`, `7z`, `jq`, `poppler`, `fd`, `rg`, `fzf`, and

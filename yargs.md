@@ -1,7 +1,13 @@
 ---
 title: Yargs
 subtitle: Node CLI option parser
-category: JavaScript libraries
+category: Hidden
+# Documents the yargs singleton, removed in yargs 18 (2025).
+tags: [Archived]
+archived: |
+  Yargs 18 (2025) is ESM-only and exposes a factory; the
+  `require('yargs').argv` singleton is gone. See
+  [yargs.js.org](https://yargs.js.org/).
 ---
 
 ### Basic usage

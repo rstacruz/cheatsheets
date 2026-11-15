@@ -1,7 +1,13 @@
 ---
 title: Meow
 subtitle: CLI app helper
-category: JavaScript libraries
+category: Hidden
+# 2017 API; current meow is ESM-only and requires importMeta and a flags schema.
+tags: [Archived]
+archived: |
+  Meow 6 replaced the minimist options and 10.0 became ESM-only; current
+  versions require `importMeta` and a `flags` schema. See the
+  [README](https://github.com/sindresorhus/meow).
 updated: 2017-10-30
 weight: -1
 intro: |

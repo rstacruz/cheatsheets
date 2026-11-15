@@ -1,7 +1,13 @@
 ---
 title: Microformats
 subtitle: Semantic HTML markup patterns
-category: HTML
+category: Hidden
+# Predates microformats2; mixes hAtom classes with unattached schema.org microdata.
+tags: [Archived]
+archived: |
+  This predates microformats2 and mixes hAtom class names with unattached
+  schema.org microdata, so parsers extract nothing. Use
+  [h-entry](https://microformats.org/wiki/h-entry) instead.
 ---
 
 ### Author

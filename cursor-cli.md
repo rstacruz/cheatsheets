@@ -10,7 +10,7 @@ keywords:
   - Sandbox
   - Approvals
 intro: |
-  [Cursor CLI](https://cursor.com/docs/cli) is Cursor's coding agent for the terminal, installed as `agent`. Covers the TUI, print mode, and `cli-config.json`.
+  [Cursor CLI](https://cursor.com/docs/cli) is Cursor's coding agent for the terminal, installed as `agent`. This reference covers the TUI, print mode, and `cli-config.json`.
 links:
   - title: Cursor CLI documentation
     url: https://cursor.com/docs/cli
@@ -160,7 +160,7 @@ agent -p --output-format json "list the TODOs" | jq .result
 agent -p --force "upgrade the test runner"
 ```
 
-Print mode follows the session's approval rules but cannot stop to ask: allowlisted commands and workspace edits run, anything else is rejected.
+Print mode follows the session's approval rules but cannot stop to ask: allowlisted commands and workspace edits run; anything else is rejected.
 
 Add `--force` to run everything not explicitly denied. Writes outside the workspace, `.vscode/`, and `.git/hooks/` stay blocked.
 
@@ -356,7 +356,7 @@ agent models                      # same, as a subcommand
 agent --model gpt-5 "fix tests"   # pin one for a run
 ```
 
-Fresh installs start on Auto. Team restrictions shrink the list; a blocked `--model` exits with the message.
+Fresh installs start on Auto. Team restrictions shrink the list; a blocked `--model` exits with a restriction message.
 
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration#models)
 
@@ -429,7 +429,7 @@ agent sandbox run ls --network  # one command, network allowed
 
 `/sandbox` opens a menu for the sandbox mode and network access; settings persist.
 
-Inside it, the workspace is writable and network is limited to `sandbox.json` plus Cursor defaults. `.git/hooks` stays protected.
+Inside it, the workspace is writable and the network is limited to `sandbox.json` plus Cursor defaults. `.git/hooks` stays protected.
 
 On Linux the sandbox needs Landlock (kernel 6.2+) and unprivileged user namespaces; otherwise the CLI asks for approval instead of sandboxing.
 

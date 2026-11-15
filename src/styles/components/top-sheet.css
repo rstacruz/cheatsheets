@@ -19,9 +19,11 @@
   text-shadow: 0 1px 1px rgb(51 68 85 / 30%);
 
   > .sheet-card__title {
+    font-family: var(--font-manrope);
     font-size: 20px;
     font-weight: 800;
     line-height: 1.25;
+    overflow-wrap: break-word;
   }
 
   > .sheet-card__title,

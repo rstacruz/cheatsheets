@@ -36,10 +36,9 @@
 
   > .sheet-card__title {
     color: var(--base-head);
+    font-family: var(--font-manrope);
     font-weight: 600;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
   }
 
   > .sheet-card__subtitle {

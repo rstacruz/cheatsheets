@@ -172,10 +172,9 @@ const styles = {
 
   .card__title {
     color: var(--base-head);
+    font-family: var(--font-manrope);
     font-weight: 600;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
   }
 
   .card__subtitle {
@@ -258,9 +257,11 @@ const styles = {
   }
 
   .card--featured .card__title {
+    font-family: var(--font-manrope);
     font-size: 20px;
     font-weight: 800;
     line-height: 1.25;
+    overflow-wrap: break-word;
   }
 
   .card--featured .card__title,

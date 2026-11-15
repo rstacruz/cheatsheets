@@ -1,7 +1,6 @@
 ---
 title: Express.js
 category: JavaScript libraries
-layoute: 2017/sheet
 ---
 
 ### Settings

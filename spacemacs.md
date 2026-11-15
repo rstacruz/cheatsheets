@@ -1,16 +1,19 @@
 ---
 title: Spacemacs
-layout: 2017/sheet
 category: Apps
 updated: 2020-05-22
 tags: [WIP]
 intro: |
   [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
+links:
+  - title: Spacemacs
+    url: https://www.spacemacs.org/
 ---
 
 Shortcuts
 ---------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Layers
 
@@ -28,133 +31,147 @@ Shortcuts
 | `SPC` `l` | Layout            |
 | `SPC` `a` | Apps              |
 | `SPC` `h` | Help              |
-{: .-shortcuts.-prime}
+
+<!-- {: .-shortcuts.-prime} -->
 
 ### More
 
-| Description | Shortcut    |
+| Shortcut    | Description |
 | ---         | ---         |
-| **M-x**     | `SPC` `SPC` |
-| Terminal    | `SPC` `'`   |
-| Search      | `SPC` `/`   |
-{: .-shortcuts-right}
+| `SPC` `SPC` | **M-x**     |
+| `SPC` `'`   | Terminal    |
+| `SPC` `/`   | Search      |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `h` - Help
 
-| Description        | Shortcut |
-| ---                | ---      |
-| **Spacemacs help** | `SPC`    |
-| ---                | ---      |
-| Layers             | `l`      |
-| Documentation      | `r`      |
-| FAQ                | `f`      |
-| Vimtutor           | `T`      |
-{: .-shortcuts-right}
+| Shortcut | Description        |
+| ---      | ---                |
+| `SPC`    | **Spacemacs help** |
+| ---      | ---                |
+| `l`      | Layers             |
+| `r`      | Documentation      |
+| `f`      | FAQ                |
+| `T`      | Vimtutor           |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `f` - File
 
-| Description   | Shortcut |
-| ---           | ---      |
-| **Save**      | `s`      |
-| Save all      | `S`      |
-| Copy          | `c`      |
-| Delete        | `D`      |
-| ---           | ---      |
-| Show filename | `y`      |
-{: .-shortcuts-right}
+| Shortcut | Description   |
+| ---      | ---           |
+| `s`      | **Save**      |
+| `S`      | Save all      |
+| `c`      | Copy          |
+| `D`      | Delete        |
+| ---      | ---           |
+| `y`      | Show filename |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `b` - Buffer
 
-| Description                | Shortcut |
-| ---                        | ---      |
-| Next buffer (`:bnext`)     | `n`      |
-| Previous buffer (`:bprev`) | `p`      |
-| Delete buffer (`:bd`)      | `d`      |
-{: .-shortcuts-right}
+| Shortcut | Description                |
+| ---      | ---                        |
+| `n`      | Next buffer (`:bnext`)     |
+| `p`      | Previous buffer (`:bprev`) |
+| `d`      | Delete buffer (`:bd`)      |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `f` `e` - Config
 
-| Description              | Shortcut |
-| ---                      | ---      |
-| **Edit config**          | `d`      |
-| Edit config and template | `D`      |
-| ---                      | ---      |
-| Reload config            | `R`      |
-{: .-shortcuts}
+| Shortcut | Description              |
+| ---      | ---                      |
+| `d`      | **Edit config**          |
+| `D`      | Edit config and template |
+| ---      | ---                      |
+| `R`      | Reload config            |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `w` - Window
 
-| Description         | Shortcut              |
-| ---                 | ---                   |
-| Help                | `.`                   |
-|                     | ---                   |
-| Select              | `h` / `j` / `k` / `l` |
-| Move                | `H` / `J` / `K` / `L` |
-| ---                 | ---                   |
-| Split               | `s`                   |
-| Split & follow      | `S`                   |
-| ---                 | ---                   |
-| Split vert          | `v`                   |
-| Split vert & follow | `V`                   |
-{: .-shortcuts-right}
+| Shortcut              | Description         |
+| ---                   | ---                 |
+| `.`                   | Help                |
+| ---                   | |
+| `h` / `j` / `k` / `l` | Select              |
+| `H` / `J` / `K` / `L` | Move                |
+| ---                   | ---                 |
+| `s`                   | Split               |
+| `S`                   | Split & follow      |
+| ---                   | ---                 |
+| `v`                   | Split vert          |
+| `V`                   | Split vert & follow |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `p` - Project
 
-| Description             | Shortcut |
-| ---                     | ---      |
-| **Switch project**      | `l`      |
-| Switch project          | `p`      |
-| ---                     | ---      |
-| **Open files & recent** | `h`      |
-| Open files              | `f`      |
-| ---                     | ---      |
-| **Show tree**           | `t`      |
-| ---                     | ---      |
-| Open terminal           | `'`      |
-| Open terminal in root   | `$` `t`  |
-{: .-shortcuts-right}
+| Shortcut | Description             |
+| ---      | ---                     |
+| `l`      | **Switch project**      |
+| `p`      | Switch project          |
+| ---      | ---                     |
+| `h`      | **Open files & recent** |
+| `f`      | Open files              |
+| ---      | ---                     |
+| `t`      | **Show tree**           |
+| ---      | ---                     |
+| `'`      | Open terminal           |
+| `$` `t`  | Open terminal in root   |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `l` `w` - Workspaces
 
-| Description                 | Shortcut    |
-| ---                         | ---         |
-| Help                        | `?`         |
-| ---                         | ---         |
-| Switch previous layout      | `TAB`       |
-| **Switch to nth workspace** | `0` ... `9` |
-| ---                         | ---         |
-| Rename                      | `R`         |
-{: .-shortcuts-right}
+| Shortcut    | Description                 |
+| ---         | ---                         |
+| `?`         | Help                        |
+| ---         | ---                         |
+| `TAB`       | Switch previous layout      |
+| `0` ... `9` | **Switch to nth workspace** |
+| ---         | ---                         |
+| `R`         | Rename                      |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `t` - Toggle
 
-| Description  | Shortcut |
-| ---          | ---      |
-| Line numbers | `n`      |
-{: .-shortcuts
+| Shortcut | Description  |
+| ---      | ---          |
+| `n`      | Line numbers |
+
+<!-- {: .-shortcuts} -->
 
 ### `SPC` `j` - Jump
 
-| Description | Shortcut |
-| ---         | ---      |
-| Character   | `j`      |
-| Line        | `l`      |
-| Word        | `w`      |
-{: .-shortcuts-right}
+| Shortcut | Description |
+| ---      | ---         |
+| `j`      | Character   |
+| `l`      | Line        |
+| `w`      | Word        |
 
-## Major modes
+<!-- {: .-shortcuts} -->
 
-### Markdown
+## More shortcuts
+
+### Major modes
+
+#### Markdown
 
 | Shortcut    | Description            |
 | ---         | ---                    |
 | `,` `-`     | Insert horizontal rule |
 | `,` `h` `1` | Insert H1              |
-{: .-shortcuts}
 
-## Other layers
+<!-- {: .-shortcuts} -->
 
-### version-control
+### Other layers
+
+#### version-control
 
 | Shortcut              | Description            |
 | ---                   | ---                    |
@@ -169,26 +186,28 @@ Shortcuts
 | ---                   | ---                    |
 | `SPC` `g` `l` `l`     | Open in GitHub         |
 | `SPC` `g` `l` `L`     | Show GitHub URL        |
-{: .-shortcuts}
+
+<!-- {: .-shortcuts} -->
 
 Version control is provided by Magit.
 
-## Emacs standard
+### Emacs standard
 
-### File
+#### File
 
-| Description      | Emacs       | Spacemacs     |
-| ---              | ---         | ---           |
-| Save             | `C-x` `C-s` | `SPC` `f` `s` |
-| Open             | `C-x` `C-f` | `SPC` `f` `f` |
-| Close            | `C-x` `C-k` |               |
-| ---              | ---         | ---           |
-| Split horizontal | `C-x` `2`   | `SPC` `w` `h` |
-| Split vertical   | `C-x` `3`   | `SPC` `w` `v` |
-| ---              | ---         | ---           |
-| Confirm          | `C-c` `C-c` |               |
-| Abort            | `C-c` `C-k` |               |
-{: .-shortcuts-right}
+| Emacs       | Spacemacs     | Description      |
+| ---         | ---           | ---              |
+| `C-x` `C-s` | `SPC` `f` `s` | Save             |
+| `C-x` `C-f` | `SPC` `f` `f` | Open             |
+| `C-x` `C-k` |               | Close            |
+| ---         | ---           | ---              |
+| `C-x` `2`   | `SPC` `w` `h` | Split horizontal |
+| `C-x` `3`   | `SPC` `w` `v` | Split vertical   |
+| ---         | ---           | ---              |
+| `C-c` `C-c` |               | Confirm          |
+| `C-c` `C-k` |               | Abort            |
+
+<!-- {: .-shortcuts} -->
 
 ## References
 

@@ -1,6 +1,5 @@
 ---
 title: Watchexec
-layout: 2017/sheet
 updated: 2017-10-18
 category: CLI
 weight: -1
@@ -9,6 +8,9 @@ keywords:
   - "watchexec --help"
 intro: |
   [mattgreen/watchexec](https://github.com/mattgreen/watchexec) runs commands whenever certain files change.
+links:
+  - title: mattgreen/watchexec
+    url: https://github.com/mattgreen/watchexec
 ---
 
 ### Installation
@@ -45,11 +47,15 @@ Runs `npm test` when `lib/` and `test/` files change.
 
 #### Flags
 
+| Flag | Description |
+| --- | --- |
 | `-c` `--clear`   | Clear screen                         |
 | `-r` `--restart` | Restart process if its still running |
 
 #### Options
 
+| Option | Description |
+| --- | --- |
 | `-s` `--signal SIGKILL` | Kill signal to use            |
 | `-d` `--debounce MS`    | Debounce by `MS` milliseconds |
 | `-e` `--exts EXTS`      | Extensions                    |

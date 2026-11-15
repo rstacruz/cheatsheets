@@ -1,7 +1,6 @@
 ---
 title: ExUnit
 category: Elixir
-layout: 2017/sheet
 updated: 2018-11-19
 ---
 
@@ -102,6 +101,7 @@ end
 
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * [ExUnit Docs](http://devdocs.io/elixir/ex_unit/exunit#configure/1)

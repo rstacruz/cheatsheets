@@ -1,7 +1,0 @@
-@mixin section-gutter($property, $multiplier: 1) {
-  #{$property}: 16px * $multiplier;
-
-  @media (max-width: $area-width + 32px) {
-    #{$property}: 8px * $multiplier;
-  }
-}

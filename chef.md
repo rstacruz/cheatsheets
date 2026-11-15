@@ -1,13 +1,13 @@
 ---
 title: Chef
 category: Devops
-layout: 2017/sheet
 ---
 
 ### Install
 
 In your server:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 $ sudo apt-get install curl

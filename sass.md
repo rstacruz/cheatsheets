@@ -1,8 +1,6 @@
 ---
 title: Sass
 category: CSS
-layout: 2017/sheet
-tags: [Featured]
 updated: 2020-07-03
 weight: -5
 keywords:
@@ -13,17 +11,16 @@ keywords:
   - "@for @each @while @if @else"
   - "$list: (a b c)"
   - "$map: (a: b, c: d)"
+intro: |
+  This is a quick reference to [Sass stylesheets](https://sass-lang.com).
+links:
+  - title: Sass documentation
+    url: https://sass-lang.com/documentation
 ---
 
 ## Basics
-{: .-three-column}
 
-### Introduction
-{: .-intro}
-
-This is a quick reference to [Sass stylesheets](https://sass-lang.com).
-
-- [Sass documentation](https://sass-lang.com/documentation) _(sass-lang.com)_
+<!-- {: .-three-column} -->
 
 ### Variables
 
@@ -411,7 +408,8 @@ map-get($map, key1)
 ```
 
 ## See also
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - <http://sass-lang.com/documentation/Sass/Script/Functions.html>
 - <http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sassscript>

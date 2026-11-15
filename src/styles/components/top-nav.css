@@ -1,0 +1,104 @@
+.top-nav {
+  &,
+  & > .container {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Smaller on mobile */
+  @media (max-width: 480px) {
+    & > .container {
+      height: 32px;
+      line-height: 32px;
+      margin-top: 8px;
+    }
+
+    & {
+      height: 48px;
+      padding: 8px 0;
+      border-bottom: solid 1px var(--dark-line-color);
+      margin-bottom: 8px;
+    }
+  }
+
+  & > .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: var(--area-width);
+    margin: 0 auto;
+  }
+}
+
+.top-nav > .container {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  & > .left {
+    flex: 0 0 auto;
+    line-height: 32px;
+  }
+
+  & > .brand {
+    flex: 1 1 auto;
+  }
+
+  & > .actions {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
+  & > .brand {
+    font-size: var(--fs-n1);
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    &,
+    &:visited {
+      color: var(--base-text);
+    }
+
+    &:hover {
+      color: var(--base-a);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    & > .brand {
+      display: none;
+    }
+
+    & > .actions {
+      margin-left: auto;
+    }
+  }
+
+  /* Desktop: absolute the actions */
+  @media (min-width: 481px) {
+    & > .actions {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+
+    & > .left {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+    }
+  }
+
+  /* Offset so it doesn't look misaligned */
+  @media (min-width: 1232px) {
+    & > .left > .home {
+      position: relative;
+      left: -16px;
+    }
+  }
+}

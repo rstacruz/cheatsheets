@@ -1,0 +1,19 @@
+.notice-box {
+  margin-bottom: 24px;
+  color: var(--base-mute);
+
+  @media (max-width: 480px) {
+    margin-bottom: 16px;
+  }
+
+  & > svg {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--base-mute3);
+    margin-right: 8px;
+  }
+
+  & > a {
+    text-decoration: none;
+  }
+}

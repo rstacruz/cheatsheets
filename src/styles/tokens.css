@@ -1,0 +1,85 @@
+/*
+ * Design tokens
+ */
+
+:root {
+  /*
+   * Metrics
+   */
+
+  --code-size: 0.96em;
+  --code-line-height: 1.5;
+  --area-width: 1232px;
+
+  /*
+   * Fonts
+   */
+
+  --font-system-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-system-mono:
+    'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
+    Courier, monospace;
+  --font-body: var(--font-system-sans);
+  --font-heading: var(--font-system-sans);
+  --font-monospace: cousine, var(--font-system-mono);
+
+  /*
+   * Base colors
+   */
+
+  --base-body: #fafafc;
+  --base-panel: white;
+  --base-head: #111;
+  --base-text: #345;
+  --base-mute: #556677;
+
+  --base-a: #745fb5; /* indigo */
+  --base-b: #26648e; /* blue */
+  --base-c: #14af83; /* teal */
+
+  --base-a3: #969bcf;
+  --base-a7: #673d85;
+  --base-b3: #3ac1cb;
+  --base-b7: #15234d;
+  --base-mute7: #333d47;
+  --base-mute6: #44525f;
+  --base-mute4: #667a8f;
+  --base-mute3: #7c8fa2;
+
+  --body-bg: #fafafc;
+  --gray-bg: #f3f5fc;
+  --gray-text: #556677;
+
+  --line-color: rgb(85 102 119 / 18%);
+  --dark-line-color: rgb(85 102 119 / 30%);
+
+  --base-a-gradient: linear-gradient(5deg, #745fb5, #9066b8);
+
+  /*
+   * Derived colors
+   */
+
+  --base-a-hover: #5f4aa1;
+  --base-a-dark: #4f3d85;
+  --base-a-darker: #3e3069;
+  --base-a-bright: #9a6dbb;
+  --base-a-brighter: #b796cf;
+  --base-b-bright: #2e90ae;
+  --base-b-dark: #1d406e;
+  --base-c-bright: #15b89a;
+  --base-c-dark: #108b68;
+  --base-mute-bright: #5e7683;
+  --gray-text-bright: #8899aa;
+
+  /*
+   * Shadows
+   */
+
+  --shadow2: 0 1px 1px rgb(85 102 119 / 55%);
+  --shadow3: 0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%);
+  --shadow6:
+    0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%),
+    0 8px 12px rgb(58 193 203 / 10%);
+}

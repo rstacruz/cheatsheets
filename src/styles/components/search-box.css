@@ -1,0 +1,116 @@
+.search-box {
+  background: var(--base-panel);
+  box-shadow: var(--shadow3);
+  border-radius: 4px;
+  display: flex;
+  height: 64px;
+  align-items: center;
+  cursor: text;
+
+  &:focus-within {
+    box-shadow:
+      inset 0 0 0 1px var(--base-c),
+      0 0 0 3px rgb(20 175 131 / 10%);
+  }
+
+  & > input {
+    font-family: var(--font-body);
+    font-size: var(--fs-2);
+    padding: 16px;
+    height: 64px;
+    background: transparent;
+    border: 0;
+    flex: 1 1 auto;
+    padding-left: 0;
+    font-weight: bold;
+    color: var(--base-head);
+    min-width: 48px;
+    cursor: text; /* Undoes [aria-controls] in sanitize.css */
+
+    &::placeholder {
+      font-weight: normal;
+      color: var(--base-mute);
+    }
+  }
+
+  & > input:focus {
+    outline: 0;
+  }
+
+  & > .prefix {
+    font-size: var(--fs-0);
+    display: block;
+    color: rgb(85 102 119 / 50%);
+    font-weight: 400;
+    user-select: none;
+    line-height: 1.5em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: rgb(250 250 252 / 50%);
+    margin: 0 0 0 16px;
+    box-shadow: 0 1px 1px rgb(85 102 119 / 25%);
+  }
+
+  & > .sep {
+    color: rgb(85 102 119 / 50%);
+    font-size: var(--fs-2);
+    margin: 0 8px;
+  }
+
+  /* Hide prefix on mobile */
+  @media (max-width: 768px) {
+    & > .prefix,
+    & > .sep {
+      display: none;
+    }
+
+    & > input {
+      padding-left: 16px;
+    }
+  }
+
+  /* Icon */
+  & > .icon {
+    order: 2;
+    flex: 0 0 64px;
+    width: 64px;
+    display: grid;
+    place-items: center;
+    color: var(--base-head);
+  }
+
+  & > .icon > svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/*
+ * Small
+ */
+
+.search-box.-small {
+  height: 48px;
+
+  & > input {
+    padding: 8px;
+    height: 48px;
+    padding-left: 0;
+  }
+
+  & > .prefix,
+  & > .sep,
+  & > input {
+    font-size: var(--fs-1);
+  }
+
+  & > .icon {
+    flex: 0 0 48px;
+    width: 48px;
+  }
+
+  & > .icon > svg {
+    width: 24px;
+    height: 24px;
+  }
+}

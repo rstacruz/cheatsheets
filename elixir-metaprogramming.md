@@ -1,7 +1,6 @@
 ---
 title: Elixir metaprogramming
 category: Elixir
-layout: 2017/sheet
 ---
 
 ### Kernel

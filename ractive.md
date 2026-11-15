@@ -1,248 +1,293 @@
 ---
 title: Ractive.js
 category: JavaScript libraries
-layout: 2017/sheet
+updated: 2026-11-14
+intro: |
+  Ractive is a template-driven UI library for JavaScript.
+links:
+  - title: Ractive.js
+    url: https://ractive.js.org/
+  - title: GitHub repository
+    url: https://github.com/ractivejs/ractive
 ---
 
 {% raw %}
 
-### About
-{: .-intro}
+### [Initialization](https://ractive.js.org/api/#initialization-options)
 
-Ractive is a UI library for JavaScript.
+```js
+new Ractive({
+  el: '#box',
+  template: '...', // required
 
-- <https://ractive.js.org/>
-- <https://ractivejs.org/>
+  // data
+  data: { ... },
+  partials: { ... },    // global: Ractive.partials
+  transitions: { ... }, // global: Ractive.transitions
+  components: { ... },  // global: Ractive.components
+  adaptors: [ ... ],
 
-### [Initialization](http://docs.ractivejs.org/latest/options)
+  // options
+  twoway: true,
+  noIntro: true, // true = disable transition on initial render
+  lazy: false,   // false = use keyevents, true = use change/blur
+  append: false, // false = overwrite element, true = append
+  sanitize: false,
 
-    new Ractive({
-      el: $('..'),
-      el: '#box',
-      template: '...', // required
-
-      // callbacks
-      init: function() {},    // on instantiate
-      complete: function() {}, // on finish animations
-
-      // objs
-      data: { ... },
-      partials: { ... },    // global: Ractive.partials
-      transitions: { ... }, // global: Ractive.transitions
-      components: { ... },
-      adaptors: [ ... ],
-
-      // options
-      magic: false
-      modifyArrays: true
-      twoway: true
-      noIntro: true // true = disable transition on initial render
-      lazy: false   // false = use keyevents, true = use change/blur
-      append: false // false = overwrite element, true = append
-      debug: false
-      sanitize: false
-    })
+  // callbacks
+  oninit () {},    // on instantiate
+  oncomplete () {} // on finish animations
+})
+```
 
 ## Instance methods
 
 ### Updating values
 
-    view.add('count', 1)       //=> promise
-    view.subtract('count', 1)  //=> promise
-    view.toggle('shown')       //=> promise
+```js
+view.add('count', 1)       //=> promise
+view.subtract('count', 1)  //=> promise
+view.toggle('shown')       //=> promise
 
-    view.set('a', true)
-    view.set({ a: true })
-    view.reset({ a: true })
-    view.merge('list', [a,b,c])
+view.set('a', true)
+view.set({ a: true })
+view.reset({ a: true })
+view.merge('list', [a,b,c])
 
-    view.get('a')
-    view.data.a
+view.get('a')
+```
 
 ### Nodes and components
 
-    view.find('.klass')
-    view.findAll('.klass')
-    view.nodes
-    view.nodes['hello']   // .find('#hello')
+```js
+view.find('.klass')
+view.findAll('.klass')
 
-    view.findComponent('photo')
-    view.findAllComponents('photo')
+view.findComponent('photo')
+view.findAllComponents('photo')
+```
 
 ### Events
 
-    view.on('event', function() { ... })
-    view.off('event', fn)
-    view.fire('event')
+```js
+view.on('event', function() { ... })
+view.off('event', fn)
+view.fire('event')
+```
 
 ### Others
 
-    view.update()
-    view.updateModel()
+```js
+view.update()
+view.updateModel()
 
-    view.insert('.node .path')
+view.insert('#container')
 
-    view.observe({ 'name': function() { ... } })
+view.observe({ 'name': function() { ... } })
 
-    view.toHTML()  //=> String
-    view.render()
+view.toHTML()  //=> String
+view.render()
+```
 
-## Extend
+## Components and templates
 
-    View = Ractive.extend({
-      ...
-    })
-    new View()
+### Extend
 
-## [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
+```js
+View = Ractive.extend({
+  ...
+})
+new View()
+```
 
-See: https://github.com/RactiveJS/Ractive/issues/74
-{:.center}
+### Components
 
-    Widget = Ractive.extend({ ... })
+```js
+Widget = Ractive.extend({ ... })
 
-    ractive = new Ractive({
-      el: 'main',
-      template: '<widget foo="bar"/>',
-      components: {
-        widget: Widget
-      }
-    });
+ractive = new Ractive({
+  el: 'main',
+  template: '<widget foo="bar"/>',
+  components: {
+    widget: Widget
+  }
+});
+```
 
-## Partials
+See: [Components](https://ractive.js.org/api/#components)
 
-    // Global partials
-    Ractive.partials.x = "<..>"
+### Partials
+
+```js
+// Global partials
+Ractive.partials.x = "<..>"
+```
 
 ## Events
 
-    view.on('teardown')
+### Lifecycle
+
+```js
+view.on('teardown', fn)
+```
+
+See: [Events](https://ractive.js.org/api/#ractiveon)
 
 ### DOM Events
 
-    <button on-click='activate'>Activate!</button>
+```html
+<button on-click='activate'>Activate!</button>
 
-    view.on({
-      activate: function () { ... }
-    });
+view.on({
+  activate: function () { ... }
+});
 
-    <button on-click='sort:name'>Sort by name</button>
-    view.on('sort', function (e, column) {
-      console.log('sorting by #{column}');
-    });
+<button on-click='sort:name'>Sort by name</button>
+view.on('sort', function (e, column) {
+  console.log('sorting by', column);
+});
+```
 
 ### Observing
 
-     view.observe("name", function (name) {
-       console.log("Changed name to", name);
-     }, { init: false });
+```js
+view.observe("name", function (name) {
+  console.log("Changed name to", name);
+}, { init: false });
+```
 
-## Markup
+## Extensions
 
-    Hello, {{name}}
-    Body: {{{unescaped}}}
+### Markup
 
-    <!-- each -->
-    {{#mylist:i}}
-      <li>{{this.name}}</li>
-      <li>{{name}}</li>
-      <li>{{.}}</li> <!-- same as 'this' -->
-    {{/mylist}}
+```html
+Hello, {{name}}
+Body: {{{unescaped}}}
 
-    {{^user}}Not logged in{{/user}} <!-- if false -->
-    {{#user}}Welcome, sire{{/user}} <!-- if true -->
+<!-- each -->
+{{#mylist:i}}
+  <li>{{this.name}}</li>
+  <li>{{name}}</li>
+  <li>{{.}}</li> <!-- same as 'this' -->
+{{/mylist}}
 
-    {{>partialName}}
-    <component>
+{{^user}}Not logged in{{/user}} <!-- if false -->
+{{#user}}Welcome, sire{{/user}} <!-- if true -->
 
-    {{#statusDogs[selected]}}
+{{>partialName}}
+<Widget foo="bar"/>
 
-## Transformed attributes
+{{#statusDogs[selected]}}
+```
 
-This transforms the `list` attribute via a helper function called `sort()`.
+### Computed sections
 
-    {{# sort(list, "name") :num }}
-      <li>{{num}} - {{name}}</li>
-    {{/ end. any text goes here }}
+This transforms the `list` data via a helper function called `sort()`.
 
-    data: {
-      sort: function(array, column) { return array.whatever(); }
-    }
+```html
+{{#each sort(list, 'name') as item: num}}
+  <li>{{num}} - {{item.name}}</li>
+{{/each}}
+```
 
-## Transitions
+```js
+data: {
+  sort: function (array, column) {
+    return array.slice().sort(function (a, b) {
+      return a[column] > b[column] ? 1 : -1
+    })
+  }
+}
+```
 
-    <div intro="fade">
-    <div intro="bump">
-    <div intro="bump:{duration:400}">
+See: [Each sections](https://ractive.js.org/api/#each-sections)
 
-    Ractive.transitions.bump = function(t, params) {
-       params = t.processParams( params, {
-         duration: 400,
-         color: t.isIntro ? 'rgb(0,255,0)' : 'rgb(255,0,0)'
-       });
+### Transitions
 
-      if (t.isIntro) {
-        /* enter */
-      } else {
-        /* exit */
+```js
+<div intro="fade">
+<div intro="bump">
+<div intro="bump:{duration:400}">
+
+Ractive.transitions.bump = function(t, params) {
+   params = t.processParams( params, {
+     duration: 400,
+     color: t.isIntro ? 'rgb(0,255,0)' : 'rgb(255,0,0)'
+   });
+
+  if (t.isIntro) {
+    /* enter */
+  } else {
+    /* exit */
+  }
+
+  t.complete();
+};
+```
+
+### [Decorators](https://ractive.js.org/api/#decorators)
+
+```js
+<span decorator="tooltip:hello there">Hover me</span>
+
+decorators: {
+  tooltip: function (node, content) {
+    // setup code here
+    return {
+      teardown: function () {
+        // cleanup code here
       }
+    }
+  }
+}
 
-      t.complete();
+<span decorator="tooltip:'a','b',2,'c'">Hover me</span>
+
+tooltip: function (node, a, b, two, c) { ... }
+```
+
+### [Adaptors](https://ractive.js.org/api/#adaptors)
+
+```js
+myAdaptor = {
+  filter: function (object, keypath, ractive) {
+    // return `true` if a particular object is of the type we want to adapt
+  },
+  wrap: function (ractive, object, keypath, prefixer) {
+    // set up event bindings here
+    object.on('change', function () { ractive.set(prefixer({...})); });
+    // then return a wrapper:
+    return {
+      teardown: function () { .. },
+      // json representation
+      get: function () { return { a:2, b:3, c:4, ... }; },
+      // called on ractive.set
+      set: function (key, val) { },
+      // called on ractive.set on root (return false = die)
+      reset: function (data) { return false; }
     };
+  }
+};
+```
 
-## [Decorators](http://docs.ractivejs.org/latest/decorators)
+### [Computed properties](https://ractive.js.org/api/#computed)
 
-    <span decorator="tooltip:hello there">Hover me</span>
-
-    decorators: {
-      tooltip: function (node, content) {
-        // setup code here
-        return {
-          teardown: function () {
-            // cleanup code here
-          }
-        }
-      }
-    }
-
-    <span decorator="tooltip:'a','b',2,'c'">Hover me</span>
-
-    tooltip: function (node, a, b, two, c) { ... }
-
-## [Adaptors](http://docs.ractivejs.org/latest/adaptors)
-
-    myAdaptor = {
-      filter: function (object, keypath, ractive) {
-        // return `true` if a particular object is of the type we want to adapt
+```js
+new Ractive({
+  template: '{{area}}',
+  computed: {
+    area: function () {
+      return this.get('width') * this.get('height')
+    },
+    perimeter: '2 * (width + height)',
+    fullname: {
+      get: function () {
+        return this.get('first') + ' ' + this.get('last')
       },
-      wrap: function (ractive, object, keypath, prefixer) {
-        // set up event bindings here
-        object.on('change', function () { ractive.set(prefixer({...})); });
-        // then return a wrapper:
-        return {
-          teardown: function () { .. },
-          // json representation
-          get: function () { return { a:2, b:3, c:4, ... }; },
-          // called on ractive.set
-          set: function (key, val) { },
-          // called on ractive.set on root (return false = die)
-          reset: function (data) { return false; }
-        };
-      }
-    };
-
-## [Computed properties](http://docs.ractivejs.org/latest/computed-properties)
-
-    new Ractive({
-      template: '{{area}}',
-      computed: {
-        area: function () { return this.get('width') * this.get('height'); }
-        area: '${width} * ${height}'
-        fullname: {
-          get: '${first} + " " + ${last}"
-          set: function (name) { ... }
-        }
-      }
-    });
+      set: function (name) { ... }
+    }
+  }
+});
+```
 
 {% endraw %}

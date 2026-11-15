@@ -1,15 +1,12 @@
 ---
 title: RSpec
 category: Ruby
-layout: 2017/sheet
+intro: |
+  RSpec is a Ruby library for testing.
+links:
+  - title: https://rspec.info/
+    url: https://rspec.info/
 ---
-
-### About
-{: .-intro}
-
-RSpec is a Ruby library for testing.
-
-- <https://rspec.info/>
 
 ### Invoking tests
 
@@ -49,11 +46,11 @@ before :each do
   # before all tests
 end
 
-before do
+before :all do
   # before this suite
 end
 
-after do
+after : all do
   # after this suite
 end
 ```
@@ -137,6 +134,9 @@ expect(list).to have_at_least(2).things
 expect(list).to have_at_most(3).things
 
 expect(list).to have(2).errors_on(:field)
+
+expect(list).to contain_exactly(1, 2)
+expect(list).to match_array([1, 2])
 ```
 
 ### Change
@@ -193,7 +193,7 @@ expect(die).to receive(:roll)
   .at_most(n).times
 ```
 
-https://relishapp.com/rspec/rspec-mocks/docs
+<https://relishapp.com/rspec/rspec-mocks/docs>
 
 ## Spec helpers
 

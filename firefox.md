@@ -1,6 +1,5 @@
 ---
 title: Firefox
-layout: 2017/sheet
 tags: [Archived]
 archived: This sheet has not been updated with newer Firefox releases.
 ---
@@ -109,8 +108,6 @@ archived: This sheet has not been updated with newer Firefox releases.
  * CSS `font-stretch`
  * CSS improved `text-overflow`
  * JS `navigator.doNotTrack`
-
-### Firefox 8 (Nov 2011)
 
 ### Firefox 7 (Sep 2011)
 

@@ -1,10 +1,13 @@
 ---
 title: Google Analytics's analytics.js
-category: Analytics
-layout: 2017/sheet
+category: Hidden
+# Universal Analytics stopped processing data on 2023-07-01; replaced by GA4/gtag.js.
 updated: 2017-10-29
 intro: |
   Google Analytics's analytics.js is deprecated.
+links:
+  - title: analytics.js documentation
+    url: https://developers.google.com/analytics/devguides/collection/analyticsjs
 ---
 
 ### Page view

@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "printWidth": 80,
+  "astro": true,
+  "ignorePatterns": [
+    "src/sass/vendor",
+    "src/sass/2017/icons.generated.scss",
+    "vendor",
+    "dist",
+    "artefacts",
+    "*.md",
+    "pnpm-lock.yaml"
+  ]
+}

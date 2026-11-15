@@ -1,13 +1,16 @@
 ---
 title: C Preprocessor
 category: C-like
-layout: 2017/sheet
 intro: |
   Quick reference for the [C macro preprocessor](https://en.m.wikipedia.org/wiki/C_preprocessor), which can be used independent of C/C++.
+links:
+  - title: C macro preprocessor
+    url: https://en.wikipedia.org/wiki/C_preprocessor
 ---
 
 ## Reference
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Compiling
 

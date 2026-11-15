@@ -1,9 +1,8 @@
 ---
 title: cssnext
-category: CSS
-layout: 2017/sheet
+category: Hidden
+# Deprecated in favour of postcss-preset-env; repo archived.
 updated: 2017-10-30
-tags: [Featurable]
 weight: -3
 ---
 
@@ -91,7 +90,8 @@ Selectors
 :--button { ··· }
 :--button:--enter { ··· }
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ### Future selectors
 
@@ -165,7 +165,8 @@ div {
 Sets animation, background, margin, padding, and so on.
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 - Based on cssnext 2.9.0.
 - <http://cssnext.io/features/>

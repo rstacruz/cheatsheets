@@ -1,12 +1,12 @@
 ---
 title: GNU grep
 category: CLI
-layout: 2017/sheet
 updated: 2021-08-23
 ---
 
 ### Usage
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```bash
 grep <options> pattern <file...>

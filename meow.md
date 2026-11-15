@@ -1,11 +1,13 @@
 ---
 title: Meow
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2017-10-30
 weight: -1
 intro: |
   [meow](https://npmjs.com/package/meow) is the easiest way to write command line apps for Node.js.
+links:
+  - title: meow repository
+    url: https://github.com/sindresorhus/meow
 ---
 
 ### Typical settings

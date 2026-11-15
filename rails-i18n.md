@@ -1,7 +1,6 @@
 ---
 title: Rails i18n
 category: Rails
-layout: 2017/sheet
 ---
 
 ### References
@@ -270,7 +269,8 @@ number:
 ```rb
 number_to_currency(n)
 ```
-{:.light}
+
+<!-- {:.light} -->
 
 ```yml
 number:

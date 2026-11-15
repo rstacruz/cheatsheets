@@ -1,0 +1,136 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getSEOPropsForPage() > title only 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet",
+  },
+  "title": "React cheatsheet",
+}
+`;
+
+exports[`getSEOPropsForPage() > with Markdown description 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "A React cheatsheet (Markdown text) · One-page guide to React",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "A React cheatsheet (Markdown text) · One-page guide to React",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "A React cheatsheet (Markdown text) · One-page guide to React",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet",
+  },
+  "title": "React cheatsheet",
+}
+`;
+
+exports[`getSEOPropsForPage() > with description 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "A React cheatsheet · One-page guide to React",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "A React cheatsheet · One-page guide to React",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "A React cheatsheet · One-page guide to React",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet",
+  },
+  "title": "React cheatsheet",
+}
+`;
+
+exports[`getSEOPropsForPage() > with description, keywords 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "A React cheatsheet · One-page guide to React",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "A React cheatsheet · One-page guide to React",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "A React cheatsheet · One-page guide to React",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet",
+  },
+  "title": "React cheatsheet",
+}
+`;
+
+exports[`getSEOPropsForPage() > with keywords 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "hooks · components · props · One-page guide to React",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "hooks · components · props · One-page guide to React",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "hooks · components · props · One-page guide to React",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet",
+  },
+  "title": "React cheatsheet",
+}
+`;

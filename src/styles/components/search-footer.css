@@ -1,0 +1,32 @@
+/*
+ * Search bar around the footer
+ */
+
+.search-footer {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: var(--gray-bg);
+  border-top: solid 1px var(--dark-line-color);
+  border-bottom: solid 1px var(--dark-line-color);
+
+  & > .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: var(--area-width);
+    margin: 0 auto;
+  }
+}
+
+.search-footer-section {
+  display: flex;
+
+  & > .search {
+    flex: 0 1 640px;
+  }
+
+  & > .links {
+    padding-left: 16px;
+    flex: 0 1 auto;
+    margin-left: auto;
+  }
+}

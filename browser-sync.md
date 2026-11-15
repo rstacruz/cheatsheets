@@ -1,15 +1,12 @@
 ---
 title: Browsersync
 category: JavaScript libraries
-layout: 2017/sheet
+intro: |
+  `npm i -g browser-sync`
+links:
+  - title: browsersync.io
+    url: https://browsersync.io
 ---
-
-### About
-{: .-intro}
-
-`npm i -g browser-sync`
-
-* [browsersync.io](https://browsersync.io)
 
 ### Start a server
 

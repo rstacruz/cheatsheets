@@ -1,7 +1,6 @@
 ---
 title: Stencil
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2019-05-08
 keywords:
   - "@Component"
@@ -14,13 +13,18 @@ keywords:
   - "Lifecycle"
 intro: |
   [Stencil](https://github.com/ionic-team/stencil) is a compiler for web components made by the Ionic team. This guide targets Stencil v0.0.5.
+links:
+  - title: Handling user input
+    url: https://stenciljs.com/docs/templating/#handling-user-input
 ---
 
 ## Quick-start guide
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Getting started
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 #### JavaScript
 
@@ -67,7 +71,8 @@ export class MyComponent {
   }
 }
 ```
-{: data-line="5,10,11"}
+
+<!-- {: data-line="5,10,11"} -->
 
 Stencil uses DOM events.
 
@@ -83,7 +88,8 @@ render () {
   ]
 }
 ```
-{: data-line="3,4"}
+
+<!-- {: data-line="3,4"} -->
 
 `render()` can return an array of elements.
 
@@ -102,7 +108,8 @@ export class MyComponent {
   }
 }
 ```
-{: data-line="4,5"}
+
+<!-- {: data-line="4,5"} -->
 
 Just do assignments. You can't do mutations though, see next section.
 
@@ -136,7 +143,8 @@ See: [Updating arrays](https://stenciljs.com/docs/reactive-data/#updating-arrays
   <span>Hello, friends</span>
 </my-component>
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 #### Component
 
@@ -145,7 +153,8 @@ render() {
   return <h1><slot /></h1>
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 You can pass JSX/HTML as child elements. Use the `slot` tag to use them inside your component.
 
@@ -159,7 +168,8 @@ See: [Slots](https://stenciljs.com/docs/templating#slots)
   <p slot='my-footer'>Thanks</p>
 </my-component>
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 #### Component
 
@@ -171,7 +181,8 @@ render () {
   </div>
 }
 ```
-{: data-line="3,4"}
+
+<!-- {: data-line="3,4"} -->
 
 See: [Slots](https://stenciljs.com/docs/templating#slots)
 

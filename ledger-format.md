@@ -1,7 +1,6 @@
 ---
 title: Ledger format
 category: Ledger
-layout: 2017/sheet
 ---
 
 ### Example

@@ -2,7 +2,7 @@
 title: jQuery CDN
 category: JavaScript libraries
 tags: [Archived]
-layout: 2017/sheet
+archived: This sheet lists a CDN URL for jQuery 1.11, which is no longer current.
 ---
 
 ### Google jQuery

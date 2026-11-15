@@ -1,7 +1,6 @@
 ---
 title: Erlang ETS
 category: Elixir
-layout: 2017/sheet
 weight: -1
 ---
 
@@ -30,8 +29,13 @@ iex> :ets.delete_all_objects(table)
 ```elixir
 iex> table = :ets.new(:my_table, [:set, :protected])
 ```
-{: .-setup}
 
+<!-- {: .-setup} -->
+
+#### Options
+
+| Flag | Description |
+| --- | --- |
 | `:set` | no duplicate keys (or: `:ordered_set`, `:bag`, `:duplicate_bag`) |
 | `:protected` | only this process can use it (or: `:public`, `:private`) |
 
@@ -45,7 +49,8 @@ iex> table = :ets.new(:my_table, [:set, :protected])
 ```
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * <http://erlang.org/doc/man/ets.html>
 * <http://learnyousomeerlang.com/ets>

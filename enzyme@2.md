@@ -1,27 +1,30 @@
 ---
 title: Enzyme v2
 category: React
-layout: 2017/sheet
 updated: 2017-10-12
 weight: -1
+deprecated: true
 deprecated_by: /enzyme
+intro: |
+  **(Deprecated)** [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers a previous version (v2.x).
+links:
+  - title: Enzyme documentation
+    url: https://enzymejs.github.io/enzyme/
 ---
 
 ## Getting started
-{: .-three-column}
 
-### Introduction
-{: .-intro}
-
-**(Deprecated)** [Enzyme](http://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers a previous version (v2.x).
+<!-- {: .-three-column} -->
 
 ### Mounting
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
 import {shallow, mount} from 'enzyme'
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 wrap = shallow(<MyComponent />)
@@ -41,7 +44,8 @@ See: [Shallow rendering](http://airbnb.io/enzyme/docs/api/shallow.html),
 ```js
 import toJson from 'enzyme-to-json'
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 it('works', () => {

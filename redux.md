@@ -1,196 +1,312 @@
 ---
 title: Redux
 category: React
-layout: 2017/sheet
-updated: 2018-01-17
+updated: 2026-11-14
 weight: -3
+intro: |
+  [Redux Toolkit](https://redux.js.org/toolkit/introduction/getting-started) is the standard way to write Redux. This reference targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.
+links:
+  - title: Redux Toolkit documentation
+    url: https://redux.js.org/toolkit/introduction/getting-started
+  - title: GitHub repository
+    url: https://github.com/reduxjs/redux-toolkit
 ---
+
+## Store
+
+### Install
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+
+`@reduxjs/toolkit` bundles Redux, Immer, and Reselect; `react-redux` provides the bindings.
+
+See: [Getting started](https://redux.js.org/toolkit/introduction/getting-started)
 
 ### Creating a store
 
-```js
-import { createStore } from 'redux'
-```
-{: .-setup}
+```ts
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './counterSlice'
 
-```js
-// Reducer
-function counter (state = { value: 0 }, action) {
-  switch (action.type) {
-  case 'INCREMENT':
-    return { value: state.value + 1 }
-  case 'DECREMENT':
-    return { value: state.value - 1 }
-  default:
-    return state
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer
   }
+})
+```
+
+`configureStore` combines slice reducers, adds thunk middleware, and enables DevTools and development checks.
+
+See: [configureStore](https://redux.js.org/toolkit/api/configureStore)
+
+### Middleware
+
+```ts
+import { configureStore } from '@reduxjs/toolkit'
+import { api } from './api'
+
+export const store = configureStore({
+  reducer: { [api.reducerPath]: api.reducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware)
+})
+```
+
+`getDefaultMiddleware()` keeps the defaults typed; use `.concat()` or `.prepend()` rather than spreading.
+
+See: [configureStore](https://redux.js.org/toolkit/api/configureStore)
+
+## Slices
+
+### Defining a slice
+
+```ts
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: {
+    incremented: (state) => {
+      state.value += 1
+    },
+    added: (state, action: PayloadAction<number>) => {
+      state.value += action.payload
+    }
+  }
+})
+
+export const { incremented, added } = counterSlice.actions
+export default counterSlice.reducer
+```
+
+`createSlice` generates the action creators and types. Reducers may mutate `state`; Immer keeps it immutable.
+
+See: [createSlice](https://redux.js.org/toolkit/api/createSlice)
+
+### Async thunks
+
+```ts
+import { createAsyncThunk } from '@reduxjs/toolkit'
+
+export const fetchUser = createAsyncThunk(
+  'users/fetch',
+  async (id: number, { rejectWithValue }) => {
+    const res = await fetch(`/api/users/${id}`)
+    if (!res.ok) return rejectWithValue(await res.text())
+    return (await res.json()) as User
+  }
+)
+```
+
+The thunk dispatches `pending`, `fulfilled`, and `rejected` actions; `rejectWithValue()` sets the rejected payload.
+
+See: [createAsyncThunk](https://redux.js.org/toolkit/api/createAsyncThunk)
+
+### Handling thunk results
+
+```ts
+extraReducers: (builder) => {
+  builder
+    .addCase(fetchUser.pending, (state) => {
+      state.status = 'loading'
+    })
+    .addCase(fetchUser.fulfilled, (state, action) => {
+      state.user = action.payload
+      state.status = 'idle'
+    })
+    .addCase(fetchUser.rejected, (state, action) => {
+      state.error = action.payload as string
+    })
 }
 ```
 
-```js
-let store = createStore(counter)
+Handle lifecycle actions in `extraReducers`, one `builder.addCase()` per action creator.
+
+See: [createAsyncThunk](https://redux.js.org/toolkit/api/createAsyncThunk)
+
+### Selectors
+
+```ts
+import { createSelector } from '@reduxjs/toolkit'
+import type { RootState } from './store'
+
+export const selectItems = (state: RootState) => state.cart.items
+
+export const selectTotal = createSelector([selectItems], (items) =>
+  items.reduce((total, item) => total + item.price, 0)
+)
 ```
 
-```js
-// Optional - you can pass `initialState` as a second arg
-let store = createStore(counter, { value: 0 })
+`createSelector` memoizes derived values, so components skip re-rendering when inputs are unchanged.
+
+See: [createSelector](https://redux.js.org/toolkit/api/createSelector)
+
+## RTK Query
+
+### API slice
+
+```ts
+import {
+  createApi,
+  fetchBaseQuery
+} from '@reduxjs/toolkit/query/react'
+
+type UserPatch = Partial<User> & { id: number }
+
+export const api = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  tagTypes: ['User'],
+  endpoints: (build) => ({
+    getUser: build.query<User, number>({
+      query: (id) => `users/${id}`,
+      providesTags: ['User']
+    }),
+    updateUser: build.mutation<User, UserPatch>({
+      query: ({ id, ...patch }) => ({
+        url: `users/${id}`,
+        method: 'PATCH',
+        body: patch
+      }),
+      invalidatesTags: ['User']
+    })
+  })
+})
+
+export const { useGetUserQuery, useUpdateUserMutation } = api
 ```
 
-A store is made from a reducer function, which takes the current `state`, and
-returns a new `state` depending on the `action` it was given.
+One API slice per base URL. `tagTypes` powers cache invalidation after mutations.
 
-### Using a store
+See: [RTK Query overview](https://redux.js.org/toolkit/rtk-query/overview)
 
-```js
-let store = createStore(counter)
-```
-{: .-setup}
+### Adding to the store
 
-```js
-// Dispatches an action; this changes the state
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'DECREMENT' })
-```
+```ts
+import { configureStore } from '@reduxjs/toolkit'
+import { api } from './api'
 
-```js
-// Gets the current state
-store.getState()
+export const store = configureStore({
+  reducer: { [api.reducerPath]: api.reducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware)
+})
 ```
 
-```js
-// Listens for changes
-store.subscribe(() => { ... })
+Both the reducer and the middleware are required; the middleware drives caching, invalidation, and polling.
+
+See: [RTK Query overview](https://redux.js.org/toolkit/rtk-query/overview)
+
+### Query hooks
+
+```tsx
+import { useGetUserQuery } from './api'
+
+function User ({ id }: { id: number }) {
+  const { data, isLoading, error } = useGetUserQuery(id)
+  if (isLoading) return <p>Loading…</p>
+  if (error) return <p>Failed</p>
+  return <p>{data?.name}</p>
+}
 ```
 
-Dispatch actions to change the store's state.
+Hooks fetch on mount, refetch when the argument changes, and share one cache entry per argument.
 
-## React Redux
+See: [RTK Query overview](https://redux.js.org/toolkit/rtk-query/overview)
+
+## React
 
 ### Provider
 
-```js
+```tsx
 import { Provider } from 'react-redux'
-```
-{: .-setup}
+import { createRoot } from 'react-dom/client'
+import { store } from './store'
 
-```js
-React.render(
+createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <App />
-  </Provider>, mountNode)
+  </Provider>
+)
 ```
 
-The `<Provider>` component makes the store available in your React components. You need this so you can use `connect()`.
+`<Provider>` supplies the store to `useSelector` and `useDispatch`. Wrap the app once, at the root.
 
-### Mapping state
+See: [Provider](https://redux.js.org/react-redux/api/provider)
 
-```js
-import { connect } from 'react-redux'
+### Typed hooks
+
+```ts
+import { useDispatch, useSelector } from 'react-redux'
+import type { RootState, AppDispatch } from './store'
+
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()
 ```
-{: .-setup}
 
-```js
-// A functional React component
-function App ({ message, onMessageClick }) {
+`withTypes` is a no-op at runtime; it types both hooks for the whole app.
+
+See: [Usage with TypeScript](https://redux.js.org/toolkit/usage/usage-with-typescript)
+
+### Reading state
+
+```tsx
+import { useAppDispatch, useAppSelector } from './store'
+import { incremented } from './counterSlice'
+
+function Counter () {
+  const value = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
   return (
-    <div onClick={() => onMessageClick('hello')}>
-      {message}
-    </div>
+    <button onClick={() => dispatch(incremented())}>{value}</button>
   )
 }
 ```
 
+Select the smallest value you need; `useSelector` re-renders when the returned reference changes.
+
+See: [Hooks](https://redux.js.org/react-redux/api/hooks)
+
+## Legacy Redux
+
+### createStore
+
 ```js
-// Maps `state` to `props`:
-// These will be added as props to the component.
-function mapState (state) {
-  return { message: state.message }
-}
+import { legacy_createStore as createStore } from 'redux'
 
-// Maps `dispatch` to `props`:
-function mapDispatch (dispatch) {
-  return {
-    onMessageClick (message) {
-      dispatch({ type: 'click', message })
-    }
-  }
-}
-
-// Connect them:
-export default connect(mapState, mapDispatch)(App)
+const store = createStore(counter, { value: 0 })
 ```
 
-### Shorthand
+`createStore` is deprecated: it renders with a strikethrough but still works. Use `configureStore` in new code.
+
+See: [createStore](https://redux.js.org/api/createstore)
+
+### connect
 
 ```js
+import { connect } from 'react-redux'
+
 export default connect(
-  (state) => ({
-    message: state.message
-  }),
+  (state) => ({ message: state.message }),
   (dispatch) => ({
-    onMessageClick: (message) => {
-      dispatch({ type: 'click', message })
-    }
+    onMessageClick: (message) => dispatch({ type: 'click', message })
   })
 )(App)
 ```
 
-Same as above, but shorter.
+`connect` is deprecated as of React-Redux 9.3.0. It still works, but the hooks above are simpler and type better.
 
-### Combining reducers
-
-```js
-const reducer = combineReducers({
-  counter, user, store
-})
-```
-
-Combines multiple reducers into one reducer function. See: [combineReducers](https://redux.js.org/docs/api/combineReducers.html) _(redux.js.org)_
-
-## Middleware
-
-### Signature
-
-```js
-// noop middleware
-const logger = store => dispatch => action { dispatch(action) }
-```
-
-```js
-const logger = store => {
-  // This function runs on createStore().
-  // It returns a decorator for dispatch().
-
-  return dispatch => {
-    // Runs on createStore(), too.
-    // It returns a new dispatch() function
-
-    return action => {
-      // Runs on every dispatch()
-    }
-  }
-}
-```
-
-Middlewares are simply decorators for `dispatch()` to allow you to take
-different kinds of actions, and to perform different tasks when receiving
-actions.
-
-### Applying middleware
-
-```js
-const enhancer = applyMiddleware(logger, thunk, ...)
-```
-
-```js
-const store = createStore(reducer, {}, enhancer)
-```
-{: data-line="1"}
+See: [connect](https://redux.js.org/react-redux/api/connect)
 
 ## References
-{: .-one-column}
+<!-- {: .-one-column} -->
 
-* [Redux](https://www.npmjs.com/package/redux) _(npmjs.com)_
-* [React-redux](https://www.npmjs.com/package/react-redux) _(npmjs.com)_
-* [Usage with React](http://redux.js.org/docs/basics/UsageWithReact.html) _(redux.js.org)_
-{: .-also-see}
+* [Redux Toolkit docs](https://redux.js.org/toolkit/introduction/getting-started) _(redux.js.org)_
+* [Migrating to modern Redux](https://redux.js.org/usage/migrating-to-modern-redux) _(redux.js.org)_
+* [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit) _(npmjs.com)_
+* [React Redux](https://www.npmjs.com/package/react-redux) _(npmjs.com)_
+
+<!-- {: .-also-see} -->

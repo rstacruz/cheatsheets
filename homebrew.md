@@ -1,6 +1,5 @@
 ---
 title: Homebrew
-layout: 2017/sheet
 weight: -3
 category: CLI
 ---
@@ -50,8 +49,10 @@ category: CLI
 Cask commands are used for interacting with graphical applications.
 
 ## Also see
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
 * [Homebrew homepage](https://brew.sh/) _brew.sh_
 * [Homebrew docs](https://docs.brew.sh) _docs.brew.sh_
-{: .-also-see}
+
+<!-- {: .-also-see} -->

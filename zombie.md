@@ -1,9 +1,12 @@
 ---
 title: Zombie
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Archived/unmaintained; final release 6.1.4 (2018).
 intro: |
   [Zombie](http://zombie.js.org/) is a full-stack testing solution for Node.js.
+links:
+  - title: Zombie
+    url: http://zombie.js.org/
 ---
 
 ## Zombie

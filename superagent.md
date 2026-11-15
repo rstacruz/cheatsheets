@@ -2,7 +2,6 @@
 title: Superagent
 category: JavaScript libraries
 updated: 2018-04-21
-layout: 2017/sheet
 tags:
   - WIP
 ---

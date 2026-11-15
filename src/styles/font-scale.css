@@ -1,0 +1,54 @@
+/*
+ * Fluid type scale.
+ *
+ * Six steps of the old modular scale, interpolated between 480px, 768px,
+ * and 1280px. Below 480px the 480px step applies; above 1280px the 1280px
+ * step applies.
+ *
+ * The interpolations are written as `vw` coefficient + px intercept. That
+ * is the form the CSS minifier folded the previous per-element `calc()`s
+ * into; keeping the same numbers makes the computed sizes identical.
+ */
+
+:root {
+  --fs-n1: 11px;
+  --fs-0: 13px;
+  --fs-1: 15px;
+  --fs-2: 17px;
+  --fs-6: 30px;
+  --fs-8: 40px;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  :root {
+    --fs-n1: calc(0.347222vw + 9.33333px);
+    --fs-0: calc(0.347222vw + 11.3333px);
+    --fs-1: calc(0.347222vw + 13.3333px);
+    --fs-2: calc(0.694445vw + 13.6667px);
+    --fs-6: calc(1.38889vw + 23.3333px);
+    --fs-8: calc(2.08333vw + 30px);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-n1: 12px;
+    --fs-0: 14px;
+    --fs-1: 16px;
+    --fs-2: 19px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  :root {
+    --fs-6: calc(0.390625vw + 31px);
+    --fs-8: calc(0.585938vw + 41.5px);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --fs-6: 36px;
+    --fs-8: 49px;
+  }
+}

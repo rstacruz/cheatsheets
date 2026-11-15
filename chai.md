@@ -1,7 +1,6 @@
 ---
 title: Chai.js
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -3
 updated: 2018-06-25
 version: chai v4.x
@@ -14,7 +13,8 @@ description: |
 ```js
 const { assert } = require('chai')
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 assert(val)
@@ -73,7 +73,8 @@ See: [Assert API](http://chaijs.com/api/assert/) _(chaijs.com)_
 ```js
 const { expect } = require('chai')
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 expect(object)
@@ -127,7 +128,9 @@ See: [BDD](http://chaijs.com/api/bdd/) _(chaijs.com)_
 
 ### Should: chains
 
-    .to .be .been .is .that .and .have .with .at .of .same
+```
+.to .be .been .is .that .and .have .with .at .of .same
+```
 
 These don't do anything and can be chained.
 
@@ -145,7 +148,8 @@ expect(object).not.equal('x')
 global.jQuery = ···
 chai.use(require('chai-jquery'))
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 expect($body)

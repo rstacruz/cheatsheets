@@ -2,7 +2,6 @@
 title: Vim-rails
 category: Vim
 html_class: key-codes
-layout: 2017/sheet
 ---
 
 Alternate files
@@ -26,6 +25,8 @@ Alternate files
 Abbreviations
 -------------
 
+### Prefixes
+
 Type `:Rabbrev` for a full list.
 
 | Abbrev  | Expansion        |
@@ -38,7 +39,8 @@ Type `:Rabbrev` for a full list.
 | `logd(` | logger.debug     |
 | `logi(` | logger.info      |
 | `...`   | ...              |
-{:.no-head.greycode}
+
+<!-- {:.no-head.greycode} -->
 
 ### Model
 
@@ -48,7 +50,8 @@ Type `:Rabbrev` for a full list.
 | `hm(`    | `has_many`                |
 | `ho(`    | `has_one`                 |
 | `habtm(` | `has_and_belongs_to_many` |
-{:.no-head.greycode}
+
+<!-- {:.no-head.greycode} -->
 
 ### Controllers
 
@@ -58,7 +61,8 @@ Type `:Rabbrev` for a full list.
 | `re(`   | redirect_to      |
 | `rp(`   | render partial:  |
 | `rst(`  | respond_to       |
-{:.no-head.greycode}
+
+<!-- {:.no-head.greycode} -->
 
 ### Views
 
@@ -66,7 +70,8 @@ Type `:Rabbrev` for a full list.
 | ---     | ---                         |
 | `dotiw` | `distance_of_time_in_words` |
 | `taiw`  | `time_ago_in_words`         |
-{:.no-head.greycode}
+
+<!-- {:.no-head.greycode} -->
 
 Extracting partials
 -------------------
@@ -84,58 +89,72 @@ Loading files
 
 ### App
 
-    :Econtroller <file>     # app/controllers/*_controller.rb
-    :Ehelper                # app/helpers/*_helper.rb
-    :Emodel <file>          # app/models/*.rb
-    :Ejob <file>            # app/jobs/*_job.rb
-    :Emailer <file>         # app/mailers/*.rb
+```
+:Econtroller <file>     # app/controllers/*_controller.rb
+:Ehelper                # app/helpers/*_helper.rb
+:Emodel <file>          # app/models/*.rb
+:Ejob <file>            # app/jobs/*_job.rb
+:Emailer <file>         # app/mailers/*.rb
+```
 
 ### DB
 
-    :Emigration <file>     # db/migrations/*.rb
-    :Eschema               # db/schema.rb
+```
+:Emigration <file>     # db/migrations/*.rb
+:Eschema               # db/schema.rb
+```
     
 ### Lib
 
-    :Elib <file>      # lib/*.rb
-    :Elib             # Gemfile
-    :Etask <file>     # lib/tasks/*.rake
+```
+:Elib <file>      # lib/*.rb
+:Elib             # Gemfile
+:Etask <file>     # lib/tasks/*.rake
+```
 
 ### Assets
 
-    :Estylesheet
-    :Ejavascript
+```
+:Estylesheet
+:Ejavascript
+```
 
 ### Views
 
-    :Eview
-    :Elayout
+```
+:Eview
+:Elayout
+```
 
 ### Test
 
-    :Espec
-    :Eunittest
-      # test/{unit,models,helpers}/*_test.rb
-      # spec/{unit,models,helpers}/*_spec.rb
+```
+:Espec
+:Eunittest
+  # test/{unit,models,helpers}/*_test.rb
+  # spec/{unit,models,helpers}/*_spec.rb
 
-    :Efunctionaltest
-      # test/{functional,controllers,mailers}/*_test.rb
-      # spec/{functional,controllers,mailers}/*_spec.rb
+:Efunctionaltest
+  # test/{functional,controllers,mailers}/*_test.rb
+  # spec/{functional,controllers,mailers}/*_spec.rb
 
-    :Eintegrationtest
-      # test/integration/*_test.rb
-      # spec/{features,requests,integration}/*_spec.rb
-      # features/*.feature
+:Eintegrationtest
+  # test/integration/*_test.rb
+  # spec/{features,requests,integration}/*_spec.rb
+  # features/*.feature
 
-    :Efixtures
-    :Efunctionaltest
+:Efixtures
+:Efunctionaltest
+```
 
 ### Config
 
-    :Einitializer <file>          # config/initializers/*.rb
-    :Elocale                      # config/locales/*.yml
-    :Eenvironment                 # application.rb
-    :Eenvironment development     # config/environments/*.rb
+```
+:Einitializer <file>          # config/initializers/*.rb
+:Elocale                      # config/locales/*.yml
+:Eenvironment                 # application.rb
+:Eenvironment development     # config/environments/*.rb
+```
 
 ## Reference
 

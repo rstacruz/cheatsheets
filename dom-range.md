@@ -1,13 +1,16 @@
 ---
 title: DOM Range
 category: JavaScript
-layout: 2017/sheet
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
+links:
+  - title: Range
+    url: https://developer.mozilla.org/en-US/docs/Web/API/Range
 ---
 
 ## Reference
-{:.-three-column}
+
+<!-- {:.-three-column} -->
 
 ### Creating ranges
 

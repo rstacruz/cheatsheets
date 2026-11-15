@@ -1,6 +1,7 @@
 ---
 title: Freenode
-layout: 2017/sheet
+category: Hidden
+# The network collapsed in 2021; communities moved to Libera.Chat/OFTC.
 tags: [WIP]
 ---
 

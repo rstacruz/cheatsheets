@@ -1,0 +1,53 @@
+/*
+ * Callout
+ */
+
+.related-posts-callout {
+  display: flex;
+  text-decoration: none;
+  background: var(--base-a-gradient);
+  padding: 32px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 2px;
+  box-shadow: var(--shadow2);
+  text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+
+  &,
+  &:visited {
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--base-a-hover);
+  }
+
+  & > .text {
+    margin: auto;
+    text-align: center;
+  }
+
+  & > .text > .icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border: solid 2px var(--base-a-brighter);
+    border-radius: 50%;
+
+    & > svg {
+      color: var(--base-a-brighter);
+    }
+  }
+
+  & > .text > .description {
+    font-size: var(--fs-1);
+    line-height: 1.4;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,66 @@
+---
+import type { SheetPage } from '~/lib/page'
+import SocialList from './SocialList.astro'
+import Icon from './Icon.astro'
+import { getEditLink } from '~/lib/links'
+
+export type Props = {
+  noBack?: boolean
+  noShare?: boolean
+  noEdit?: boolean
+  page?: SheetPage
+}
+const props = Astro.props as Props
+
+const t = {
+  title: 'Devhints.io',
+  editOnGitHub: 'Edit on GitHub',
+  edit: 'Edit',
+  backToHome: 'Back to home'
+}
+
+const editLink = getEditLink(props.page)
+---
+
+<nav class="top-nav" data-js-no-preview role="navigation">
+  <div class="container">
+    {props.noBack !== true ? (
+      <div class="left">
+        <a class="home back-button" href="/" aria-label={t.backToHome}>
+          <Icon name="md-arrow-back" size={24} />
+        </a>
+      </div>
+    ) : null}
+
+    <a class="brand" href="/">
+      {t.title}
+    </a>
+
+    {props.noShare !== true ? (
+      <div class="actions">
+        {/* Social share links */}
+        <SocialList class="social page-actions" page={props.page} />
+
+        {props.noEdit !== true ? (
+          <ul class="page-actions">
+            <li
+              class="link github -button hint--bottom"
+              data-hint={t.editOnGitHub}
+            >
+              <a href={editLink}>
+                <Icon name="logo-github" size={16} />
+                <span class="text -visible">{t.edit}</span>
+              </a>
+            </li>
+          </ul>
+        ) : null}
+      </div>
+    ) : null}
+  </div>
+</nav>
+
+<style is:global>
+  @import '../styles/components/back-button.css';
+  @import '../styles/components/page-actions.css';
+  @import '../styles/components/top-nav.css';
+</style>

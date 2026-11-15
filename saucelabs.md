@@ -1,14 +1,14 @@
 ---
 title: Saucelabs
-layout: 2017/sheet
 ---
 
 ### Getting started
 
 Sign up for opensauce:
-{: .-setup}
 
-- http://saucelabs.com/opensauce
+<!-- {: .-setup} -->
+
+- <http://saucelabs.com/opensauce>
 
 Install [zuul](https://npmjs.com/package/zuul):
 

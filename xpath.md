@@ -1,65 +1,85 @@
 ---
 title: Xpath
 category: HTML
-layout: 2017/sheet
-tags: [Featured]
+tier: t1
 weight: -5
 description: |
-  $x('//div//p//*') == $('div p *'), $x('//[@id="item"]') == $('#item'), and many other Xpath examples.
+  $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.
+updated: 2026-11-05
+intro: |
+  XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
+links:
+  - title: XPath reference
+    url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath
+  - title: XPath 1.0 specification
+    url: https://www.w3.org/TR/1999/REC-xpath-19991116/
 ---
 
 ## Testing
 
-### Xpath test bed
-{: .-intro}
-
-Test queries in the Xpath test bed:
-
-- [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
-
 ### Browser console
 
 ```js
-$x("//div")
+$x('//div')          // array of elements
+$x('//li', ul)       // search within a node
 ```
 
-Works in Firefox and Chrome.
+Works in Firefox and Chromium browsers.
+
+See: [$x()](https://developer.chrome.com/docs/devtools/console/utilities/#xpath-function), [Firefox console helpers](https://firefox-source-docs.mozilla.org/devtools-user/web_console/helpers/index.html)
+
+### document.evaluate()
+
+```js
+const result = document.evaluate(
+  '//ul/li', document, null,
+  XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
+)
+result.snapshotLength     // => 3
+result.snapshotItem(0)    // first match
+```
+
+Use `document.evaluate()` outside devtools; `$x()` is a console helper.
+
+See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Guides/Introduction_to_using_XPath_in_JavaScript)
 
 ## Selectors
 
 ### Descendant selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1`                         | `//h1`                                                   | [?](#prefixes)          |
-| `div p`                      | `//div//p`                                               | [?](#axes)              |
-| `ul > li`                    | `//ul/li`                                                | [?](#axes)              |
+| `div p`                      | `//div//p`                                               | [?](#separators)              |
+| `ul > li`                    | `//ul/li`                                                | [?](#separators)              |
 | `ul > li > a`                | `//ul/li/a`                                              |                         |
 | `div > *`                    | `//div/*`                                                |                         |
 | ----                         | ----                                                     | --                      |
-| `:root`                      | `/`                                                      | [?](#prefixes)          |
-| `:root > body`               | `/body`                                                  |                         |
-{: .xp}
+| `:root`                      | `/html`                                                  | [?](#prefixes)          |
+| `:root > body`               | `/html/body`                                             |                         |
+
+<!-- {: .xp} -->
 
 ### Attribute selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `#id`                        | `//*[@id="id"]`                                           | [?](#predicates)        |
-| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*          |                         |
+| `#id`                        | `//*[@id="id"]`                                          | [?](#predicates)        |
+| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*         |                         |
 | `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
 | `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
 | `a[rel]`                     | `//a[@rel]`                                              |                         |
 | ----                         | ----                                                     | --                      |
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
-| `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
+| `a[href$='pdf']`             | `//a[substring(@href, string-length(@href) - 2) = 'pdf']` | [?](#string-functions)  |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
 | `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Order selectors
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `ul > li:first-of-type`      | `//ul/li[1]`                                             | [?](#indexing)          |
 | `ul > li:nth-of-type(2)`     | `//ul/li[2]`                                             |                         |
@@ -67,40 +87,46 @@ Works in Firefox and Chrome.
 | `li#id:first-of-type`        | `//li[1][@id="id"]`                                      | [?](#chaining-order)    |
 | `a:first-child`              | `//*[1][name()="a"]`                                     |                         |
 | `a:last-child`               | `//*[last()][name()="a"]`                                |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Siblings
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
-| `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
-| `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
-{: .xp}
+| `h1 + ul`                    | `//h1/following-sibling::*[1][self::ul]`                 |                         |
+| `h1 ~ #id`                   | `//h1/following-sibling::*[@id="id"]`                    |                         |
+
+<!-- {: .xp} -->
 
 ### jQuery
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `$('ul > li').parent()`      | `//ul/li/..`                                             | [?](#other-axes)        |
-| `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
+| `$('li').closest('section')` | `//li/ancestor-or-self::section[1]`                      |                         |
 | `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
 | `$('span').text()`           | `//span/text()`                                          |                         |
-{: .xp}
+
+<!-- {: .xp} -->
 
 ### Other things
 
-| CSS                          | Xpath                                                    | ?                       |
+| CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `h1:not([id])`               | `//h1[not(@id)]`                                         | [?](#boolean-functions) |
 | Text match                   | `//button[text()="Submit"]`                              | [?](#operators)         |
-| Text match (substring)       | `//button[contains(text(),"Go")]`                        |                         |
-| Arithmetic                   | `//product[@price > 2.50]`                               |                         |
+| Text contains                | `//button[contains(., "Go")]`                            |                         |
+| Numeric compare              | `//product[@price > 2.50]`                               |                         |
+| ---                          | ---                                                      | ---                     |
 | Has children                 | `//ul[*]`                                                |                         |
 | Has children (specific)      | `//ul[li]`                                               |                         |
+| ---                          | ---                                                      | ---                     |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-{: .xp}
+
+<!-- {: .xp} -->
 
 <style>
 /* ensure tables align */
@@ -116,16 +142,30 @@ table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
 
-Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)).
+XPath has no space-separated token operator. Wrap the attribute in spaces and search for the token; this also works for `rel`.
 
-Expressions
------------
+See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
+
+## Expressions
 
 ### Steps and axes
 
-| `//` | `ul` | `/`  | `a[@id='link']` |
-| Axis | Step | Axis | Step            |
-{: .-css-breakdown}
+```bash
+//ul/li[1]/a[@href]
+```
+
+#### Syntax
+
+| Part      | Example      | Meaning           |
+| ---       | ---          | ---               |
+| `//`      | `//ul`       | Any descendant    |
+| `/`       | `/li`        | Direct child      |
+| `li`      | `li`         | Element step      |
+| `[1]`     | `li[1]`      | Predicate         |
+
+A path is a series of steps separated by `/`; `//` selects descendants at any depth.
+
+See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
 
 ### Prefixes
 
@@ -134,39 +174,46 @@ Expressions
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 Begin your expression with any of these.
 
-### Axes
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
 
-| Axis | Example             | What       |
-| ---  | ---                 | ---        |
-| `/`  | `//ul/li/a`         | Child      |
-| `//` | `//[@id="list"]//a` | Descendant |
-{: .-headers}
+### Separators
+
+| Separator | Example                | Selects    |
+| ---       | ---                    | ---        |
+| `/`       | `//ul/li/a`            | Child      |
+| `//`      | `//*[@id="list"]//a`   | Descendant |
+
+<!-- {: .-headers} -->
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
+
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes)
 
 ### Steps
 
 ```bash
 //div
 //div[@name='box']
-//[@id='link']
+//*[@id='link']
 ```
 
-A step may have an element name (`div`) and [predicates](#predicate) (`[...]`). Both are optional.
+A step may have an element name (`div`) and [predicates](#predicates) (`[...]`). Both are optional.
 They can also be these other things:
 
 ```bash
-//a/text()     #=> "Go home"
-//a/@href      #=> "index.html"
-//a/*          #=> All a's child elements
+//a/text()     #=> text nodes
+//a/@href      #=> href attributes
+//a/*          #=> child elements
 ```
 
-Predicates
-----------
+See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
+
+## Predicates
 
 ### Predicates
 
@@ -176,7 +223,9 @@ Predicates
 //div[@class="head"][@id="top"]
 ```
 
-Restricts a nodeset only if some condition is true. They can be chained.
+Keeps only the nodes for which the condition is true. Predicates can be chained.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Operators
 
@@ -190,10 +239,19 @@ Restricts a nodeset only if some condition is true. They can be chained.
 ```bash
 # Logic (and/or)
 //div[@id="head" and position()=2]
-//div[(x and y) or not(z)]
+//div[(h1 or p) and not(@hidden)]
+```
+
+```bash
+# Arithmetic (div and mod, not / and %)
+//item[@price > 2*@discount]
+//item[@price div 2 > 4]
+//item[position() mod 2 = 1]
 ```
 
 Use comparison and logic operators to make conditionals.
+
+See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
 ### Using nodes
 
@@ -210,87 +268,132 @@ Use comparison and logic operators to make conditionals.
 
 You can use nodes inside predicates.
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Indexing
 
 ```bash
-//a[1]                  # first <a>
-//a[last()]             # last <a>
-//ol/li[2]              # second <li>
-//ol/li[position()=2]   # same as above
-//ol/li[position()>1]   # :not(:first-of-type)
+//a[1]                # first <a> of each parent
+(//a)[1]             # first <a> in the document
+//a[last()]           # last <a> of each parent
+(//a)[last()]        # last <a> in the document
+//ol/li[2]            # second <li>
+//ol/li[position()=2] # same as above
+//ol/li[position()>1] # all but the first
 ```
 
-Use `[]` with a number, or `last()` or `position()`.
+Predicates apply to each parent's matches. Wrap the path in `()` to index the whole result.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Chaining order
 
 ```bash
-a[1][@href='/']
-a[@href='/'][1]
+//a[1][@href='/']
+//a[@href='/'][1]
 ```
 
-Order is significant, these two are different.
+Order is significant: these two are different.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Nesting predicates
 
-```
+```bash
 //section[.//h1[@id='hi']]
 ```
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
-Functions
----------
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
-### Node functions
+## Functions
+
+### Node-set functions
 
 ```bash
-name()                     # //[starts-with(name(), 'h')]
-text()                     # //button[text()="Submit"]
-                           # //button/text()
-lang(str)
+name()                  # //*[starts-with(name(), 'h')]
+local-name()            # //*[local-name()='item']
 namespace-uri()
+id('item1')             # element with id="item1"
+count()                 # //ul[count(li) > 2]
+position()              # //ol/li[position()=2]
+last()                  # //ul/li[last()]
 ```
 
-```bash
-count()                    # //table[count(tr)=1]
-position()                 # //ol/li[position()=2]
-```
+`text()` and `@attr` are node tests, not functions ([steps](#steps)).
+
+See: [Node-set functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Node-Set-Functions)
 
 ### Boolean functions
 
 ```bash
-not(expr)                  # button[not(starts-with(text(),"Submit"))]
+not(expr)               # //button[not(@disabled)]
+boolean(expr)           # boolean('') => false
+true()
+false()
+lang('en')              # //p[lang('en')]
 ```
+
+See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Boolean-Functions)
 
 ### String functions
 
 ```bash
-contains()                 # font[contains(@class,"head")]
-starts-with()              # font[starts-with(@class,"head")]
-ends-with()                # font[ends-with(@class,"head")]
+contains()              # //font[contains(@class, 'head')]
+starts-with()           # //font[starts-with(@class, 'head')]
+substring()             # substring('12345', 2, 3) => '234'
+substring-before()      # substring-before('01/02', '/') => '01'
+substring-after()       # substring-after('01/02', '/') => '02'
+concat()                # concat('a', 'b') => 'ab'
+string-length()         # //p[string-length() > 80]
+normalize-space()       # //p[normalize-space() = 'Hi']
+translate()             # translate('ABC', 'ABC', 'abc') => 'abc'
+string()                # string(//a/@href) => '/home'
 ```
 
 ```bash
-concat(x,y)
-substring(str, start, len)
-substring-before("01/02", "/")  #=> 01
-substring-after("01/02", "/")   #=> 02
-translate()
-normalize-space()
-string-length()
+# Case-insensitive text match
+//button[contains(
+  translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+               'abcdefghijklmnopqrstuvwxyz'),
+  'go'
+)]
 ```
+
+```bash
+# href ends with .pdf
+//a[substring(@href, string-length(@href) - 2) = 'pdf']
+```
+
+XPath 1.0 has no `ends-with()`; use `substring()`. XPath 2.0 adds `ends-with()` and `matches()`.
+
+See: [String functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-String-Functions)
+
+### Number functions
+
+```bash
+sum(//item/@price)      # total of all price attributes
+floor(3.7)              # => 3
+ceiling(3.2)            # => 4
+round(3.5)              # => 4
+```
+
+See: [Number functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Number-Functions)
 
 ### Type conversion
 
 ```bash
-string()
-number()
-boolean()
+string(2)               # => "2"
+number('3.14')          # => 3.14
+boolean(0)              # => false
+boolean('')             # => false
+boolean('x')            # => true
 ```
 
-Axes
-----
+See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#boolean)
+
+## Axes
 
 ### Using axes
 
@@ -299,14 +402,12 @@ Axes
 //ul/child::li                # ul > li (same)
 //ul/following-sibling::li    # ul ~ li
 //ul/descendant-or-self::li   # ul li
-//ul/ancestor-or-self::li     # $('ul').closest('li')
+//ul/ancestor-or-self::li[1]  # $('ul').closest('li')
 ```
 
-Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
+Steps are separated by `/`, usually picking child nodes. Use `::` to pick a different axis.
 
-| `//` | `ul` | `/child::` | `li` |
-| Axis | Step | Axis       | Step |
-{: .-css-breakdown}
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes)
 
 ### Child axis
 
@@ -331,21 +432,19 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 //ul[count(child::li) > 2]
 ```
 
+See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child)
+
 ### Descendant-or-self axis
 
 ```bash
 # both the same
 //div//h4
-//div/descendant-or-self::h4
+//div/descendant-or-self::node()/child::h4
 ```
 
-`//` is short for the `descendant-or-self::` axis.
+`//` is short for `descendant-or-self::node()/`.
 
-```bash
-# both the same
-//ul//[last()]
-//ul/descendant-or-self::[last()]
-```
+See: [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#descendant-or-self)
 
 ### Other axes
 
@@ -358,7 +457,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | `child`              |        | `div` is short for `child::div`                  |
 | `descendant`         |        |                                                  |
 | `descendant-or-self` | `//`   | `//` is short for `/descendant-or-self::node()/` |
-| `namespace`          |        |                                                  |
+| `namespace`          |        | Not supported by browsers                        |
 | ---                  | ---    | ---                                              |
 | `self`               | `.`    | `.` is short for `self::node()`                  |
 | `parent`             | `..`   | `..` is short for `parent::node()`               |
@@ -367,9 +466,12 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | `following-sibling`  |        |                                                  |
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
-{: .-headers}
+
+<!-- {: .-headers} -->
 
 There are other axes you can use.
+
+See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes)
 
 ### Unions
 
@@ -379,8 +481,9 @@ There are other axes you can use.
 
 Use `|` to join two expressions.
 
-More examples
--------------
+See: [Node-sets](https://www.w3.org/TR/1999/REC-xpath-19991116/#node-sets)
+
+## More examples
 
 ### Examples
 
@@ -388,32 +491,41 @@ More examples
 //*                 # all elements
 count(//*)          # count all elements
 (//h1)[1]/text()    # text of the first h1 heading
-//li[span]          # find a <li> with an <span> inside it
+//li[span]          # find a <li> with a direct <span> child
                     # ...expands to //li[child::span]
 //ul/li/..          # use .. to select a parent
 ```
+
+See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 
 ### Find a parent
 
 ```bash
 //section[h1[@id='section-name']]
 ```
-Finds a `<section>` that directly contains `h1#section-name`
+
+Finds a `<section>` that directly contains `h1#section-name`.
 
 ```bash
-//section[//h1[@id='section-name']]
+//section[.//h1[@id='section-name']]
 ```
 
-Finds a `<section>` that contains `h1#section-name`.
-(Same as above, but uses descendant-or-self instead of child)
+Finds a `<section>` that contains `h1#section-name` anywhere.
+The leading `.` makes the inner path relative to the section.
+
+See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child), [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#descendant-or-self)
 
 ### Closest
 
 ```bash
-./ancestor-or-self::[@class="box"]
+./ancestor-or-self::*[
+  contains(concat(' ', normalize-space(@class), ' '), ' box ')
+][1]
 ```
 
 Works like jQuery's `$().closest('.box')`.
+
+See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self)
 
 ### Attributes
 
@@ -421,10 +533,15 @@ Works like jQuery's `$().closest('.box')`.
 //item[@price > 2*@discount]
 ```
 
-Finds `<item>` and check its attributes
+Finds `<item>` whose price is more than twice its discount.
 
-References
-----------
-{: .-one-column}
+See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
 
-* [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+## References
+
+<!-- {: .-one-column} -->
+
+* [XPath 1.0 specification](https://www.w3.org/TR/1999/REC-xpath-19991116/) _(w3.org)_
+* [XPath reference](https://developer.mozilla.org/en-US/docs/Web/XML/XPath) _(MDN)_
+* [CSS selectors compared to XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Guides/Comparison_with_CSS_selectors) _(MDN)_
+* [XPath 3.1](https://www.w3.org/TR/xpath-31/) _(w3.org)_

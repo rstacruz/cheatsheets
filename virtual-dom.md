@@ -1,7 +1,7 @@
 ---
 title: Virtual-dom
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# No release since 2.1.1 (2015); unmaintained.
 ---
 
 ### About

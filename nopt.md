@@ -1,13 +1,10 @@
 ---
 title: Nopt
 category: JavaScript libraries
-layout: 2017/sheet
+links:
+  - title: https://www.npmjs.org/package/nopt
+    url: https://www.npmjs.org/package/nopt
 ---
-
-### About
-{: .-intro}
-
-- <https://www.npmjs.org/package/nopt>
 
 ### Example
 

@@ -1,9 +1,11 @@
 ---
 title: Ansi codes
 category: CLI
-layout: 2017/sheet
 intro: |
   Quick reference to ANSI color codes.
+links:
+  - title: ANSI escape code
+    url: https://en.wikipedia.org/wiki/ANSI_escape_code
 ---
 
 ### Format

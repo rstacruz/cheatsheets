@@ -1,0 +1,120 @@
+.MarkdownBody code {
+  color: var(--gray-text);
+  font-size: var(--code-size);
+}
+
+.MarkdownBody pre,
+.MarkdownBody code {
+  font-family: var(--font-monospace);
+}
+
+/* Reduce line height for box drawing characters */
+.MarkdownBody pre.-box-chars {
+  line-height: 1.32;
+}
+
+/* For figlet.md */
+.MarkdownBody pre.-figlet {
+  line-height: 1;
+  font-size: 11px;
+}
+
+/*
+ * Undo prism theme styles
+ */
+
+.MarkdownBody {
+  & pre {
+    box-shadow: none;
+    border-left: 0;
+    overflow: hidden;
+    overflow-x: auto;
+    background: white;
+    font-size: var(--code-size);
+    line-height: var(--code-line-height);
+  }
+
+  & pre.-wrap {
+    white-space: pre-wrap;
+  }
+
+  & pre > code {
+    color: var(--base-head);
+    max-height: auto;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    font-size: 1em;
+  }
+
+  /* Line highlight */
+  & .line-highlight {
+    background: linear-gradient(
+      to right,
+      rgb(20 175 131 / 5%) 25%,
+      transparent
+    );
+  }
+
+  /* Line highlight ranges */
+  & .line-highlight[data-end] {
+    margin-top: 0;
+  }
+
+  & .line-highlight::before,
+  & .line-highlight::after {
+    display: none;
+  }
+}
+
+.MarkdownBody pre.-setup,
+.MarkdownBody p.-setup,
+.MarkdownBody ul.-setup,
+.MarkdownBody p.-crosslink {
+  background: var(--gray-bg);
+}
+
+/*
+ * Syntax highlight
+ */
+
+.token {
+  &.tag,
+  &.keyword {
+    color: var(--base-b);
+  }
+
+  &.tag {
+    color: var(--base-b-dark);
+  }
+
+  &.value,
+  &.string,
+  &.number,
+  &.attr-value,
+  &.boolean,
+  &.regex {
+    color: var(--base-c);
+  }
+
+  &.function,
+  &.attr-name {
+    color: var(--base-b-bright);
+  }
+
+  &.punctuation,
+  &.operator {
+    color: #669;
+  }
+
+  &.comment {
+    color: #569;
+  }
+
+  /* TOML section headers (`[keys]`) tokenize as `.table`; the global
+     `.table { display: table }` rule otherwise breaks them onto their own
+     lines */
+  &.table {
+    display: inline;
+  }
+}

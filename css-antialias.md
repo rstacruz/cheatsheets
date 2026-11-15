@@ -1,14 +1,17 @@
 ---
 title: CSS antialiasing
 category: CSS
-layout: 2017/sheet
 updated: 2017-10-13
 intro: |
   Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
+links:
+  - title: maxvoltar.com
+    url: http://maxvoltar.com/archive/-webkit-font-smoothing
 ---
 
 ### Antialias
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```css
 * {
@@ -23,9 +26,11 @@ intro: |
  * Webkits (Chrome, Safari, etc)
 
 ## References
-{: .-one-column}
+
+<!-- {: .-one-column} -->
 
  * [maxvoltar.com](http://maxvoltar.com/archive/-webkit-font-smoothing)
  * [maximilianhoffman.com](http://maximilianhoffmann.com/posts/better-font-rendering-on-osx)
  * [ilikekillnerds.com](http://ilikekillnerds.com/2010/12/a-solution-to-stop-font-face-fonts-looking-bold-on-mac-browsers/)
-{: .-also-see}
+
+<!-- {: .-also-see} -->

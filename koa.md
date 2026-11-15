@@ -1,15 +1,12 @@
 ---
 title: Koa
 category: JavaScript libraries
-layout: 2017/sheet
+intro: |
+  Koa is a web framework for Node.js.
+links:
+  - title: https://koajs.com/
+    url: https://koajs.com/
 ---
-
-### About
-{: .-intro}
-
-Koa is a web framework for Node.js.
-
-- <https://koajs.com/>
 
 ### Reference
 

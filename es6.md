@@ -1,12 +1,13 @@
 ---
 title: ES2015+
 category: JavaScript
-layout: 2017/sheet
-tags: [Featured]
 updated: 2019-11-14
 weight: -10
 intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
+links:
+  - title: ECMAScript 2015 specification
+    url: https://262.ecma-international.org/6.0/
 ---
 
 ### Block scoping
@@ -21,7 +22,8 @@ function fn () {
   }
 }
 ```
-{: data-line="2,4"}
+
+<!-- {: data-line="2,4"} -->
 
 #### Const
 
@@ -90,7 +92,8 @@ class Circle extends Shape {
     this.radius = radius
   }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Methods
 
@@ -99,7 +102,8 @@ class Circle extends Shape {
     return Math.PI * 2 * this.radius
   }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Calling superclass methods
 
@@ -108,7 +112,8 @@ class Circle extends Shape {
     return super.expand(n) * Math.PI
   }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 #### Static methods
 
@@ -118,7 +123,8 @@ class Circle extends Shape {
   }
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Syntactic sugar for prototypes.
 See: [Classes](https://babeljs.io/learn-es2015/#classes)
@@ -129,11 +135,13 @@ See: [Classes](https://babeljs.io/learn-es2015/#classes)
 const byte = 2 ** 8
 // Same as: Math.pow(2, 8)
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Promises
 --------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Making promises
 
@@ -143,7 +151,8 @@ new Promise((resolve, reject) => {
   else { reject(error) }
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 For asynchronous programming.
 See: [Promises](https://babeljs.io/learn-es2015/#promises)
@@ -155,7 +164,8 @@ promise
   .then((result) => { ··· })
   .catch((error) => { ··· })
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 
 ### Using promises with finally
@@ -166,7 +176,8 @@ promise
   .catch((error) => { ··· })
   .finally(() => { // logic independent of success/error })
 ```
-{: data-line="4"}
+
+<!-- {: data-line="4"} -->
 
 The handler is called when the promise is fulfilled or rejected.
 
@@ -189,7 +200,8 @@ async function run () {
   return [user, tweets]
 }
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 `async` functions are another way of using functions.
 
@@ -197,7 +209,8 @@ See: [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Re
 
 Destructuring
 -------------
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Destructuring assignment
 
@@ -206,7 +219,8 @@ Destructuring
 ```js
 const [first, last] = ['Nikola', 'Tesla']
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Objects
 
@@ -216,7 +230,8 @@ let {title, author} = {
   author: 'R. Galbraith'
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Supports for matching arrays and objects.
 See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
@@ -242,7 +257,8 @@ function greet({ name, greeting }) {
   console.log(`${greeting}, ${name}!`)
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
@@ -257,7 +273,8 @@ function greet({ name = 'Rauno' } = {}) {
   console.log(`Hi ${name}!`);
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```js
 greet() // Hi Rauno!
@@ -271,7 +288,8 @@ function printCoordinates({ left: x, top: y }) {
   console.log(`x: ${x}, y: ${y}`)
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 ```js
 printCoordinates({ left: 25, top: 90 })
@@ -286,7 +304,8 @@ for (let {title, artist} of songs) {
   ···
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 The assignment expressions work in loops, too.
 
@@ -296,7 +315,8 @@ The assignment expressions work in loops, too.
 ```js
 const { id, ...detail } = song;
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Extract some keys individually and remaining keys in the object using rest (...) operator
 
@@ -314,7 +334,8 @@ const options = {
   visible: true
 }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 #### without Object spread
 
@@ -339,7 +360,8 @@ const users = [
   'rstacruz'
 ]
 ```
-{: data-line="2,3"}
+
+<!-- {: data-line="2,3"} -->
 
 #### without Array spread
 
@@ -365,7 +387,8 @@ function greet (name = 'Jerry') {
   return `Hello ${name}`
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Rest arguments
 
@@ -375,7 +398,8 @@ function fn(x, ...y) {
   return x * y.length
 }
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Spread
 
@@ -383,7 +407,8 @@ function fn(x, ...y) {
 fn(...[1, 2, 3])
 // same as fn(1, 2, 3)
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 Default, rest, spread.
 See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread)
@@ -397,7 +422,8 @@ setTimeout(() => {
   ···
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### With arguments
 
@@ -406,7 +432,8 @@ readFile('text.txt', (err, data) => {
   ...
 })
 ```
-{: data-line="1"}
+
+<!-- {: data-line="1"} -->
 
 #### Implicit return
 ```js
@@ -418,7 +445,8 @@ numbers.map(n => ({
 }))
 // Implicitly returning objects requires parentheses around the object
 ```
-{: data-line="1,4,5,6"}
+
+<!-- {: data-line="1,4,5,6"} -->
 
 Like functions but with `this` preserved.
 See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)
@@ -445,7 +473,8 @@ const App = {
 }
 // Same as: App = { start: function () {···} }
 ```
-{: data-line="2"}
+
+<!-- {: data-line="2"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -461,7 +490,8 @@ const App = {
   }
 }
 ```
-{: data-line="2,5"}
+
+<!-- {: data-line="2,5"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -474,7 +504,8 @@ let handlers = {
 }
 // Same as: handlers = { 'onclick': true }
 ```
-{: data-line="3"}
+
+<!-- {: data-line="3"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -489,7 +520,8 @@ Object.values(fatherJS)
 Object.entries(fatherJS)
 // [["age", 57], ["name", "Brendan Eich"]]
 ```
-{: data-line="3,5"}
+
+<!-- {: data-line="3,5"} -->
 
 
 Modules

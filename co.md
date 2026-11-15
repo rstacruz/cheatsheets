@@ -1,11 +1,14 @@
 ---
 title: co
-category: JavaScript libraries
-layout: 2017/sheet
+category: Hidden
+# Superseded by native async/await; last release 4.6.0 (2015).
 updated: 2017-10-27
 weight: -1
 intro: |
   [co](https://github.com/tj/co) allows you to use generators to manage async flow.
+links:
+  - title: co
+    url: https://github.com/tj/co
 ---
 
 [co]: https://github.com/tj/co

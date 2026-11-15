@@ -1,7 +1,6 @@
 ---
 title: Rollup.js
 category: JavaScript libraries
-layout: 2017/sheet
 updated: 2020-01-29
 authors:
   - github: ryanSN
@@ -11,6 +10,9 @@ keywords:
   - rollup.config.js
 intro: |
   [Rollup](https://rollupjs.org/) Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
+links:
+  - title: Rollup
+    url: https://rollupjs.org/
 ---
 
 ### Basic config
@@ -31,6 +33,8 @@ export default {
 ```bash
 npm install -D rollup
 ```
+
+#### Commands
 
 | Command                                | Description         |
 | ---                                    | ---                 |

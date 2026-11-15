@@ -1,9 +1,12 @@
 ---
 title: Enzyme
-category: React
-layout: 2017/sheet
+category: Hidden
+# Last release 3.11.0 (2020); no React 18 or 19 adapter.
+tags: [Archived]
+archived: |
+  Enzyme last shipped 3.11.0 in 2020 and has no adapter for React 18 or 19.
+  New tests use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 updated: 2020-02-12
-tags: [Featured]
 weight: -1
 keywords:
   - shallow()
@@ -11,24 +14,26 @@ keywords:
   - wrap.setProps()
   - "wrap.find().simulate('click')"
   - "wrap.contains(<div/>)"
+intro: |
+  [Enzyme](https://enzymejs.github.io/enzyme/) lets you write unit tests for React components. This guide covers Enzyme 3.x.
+links:
+  - title: Enzyme website
+    url: https://enzymejs.github.io/enzyme/
+  - title: GitHub repository
+    url: https://github.com/enzymejs/enzyme
 ---
 
 ## Getting started
 
-### Introduction
-{: .-intro}
-
-[Enzyme](https://airbnb.io/enzyme) lets you write unit tests for React components. This guide covers Enzyme 3.x.
-
-- [Enzyme website](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
-
 ### Mounting
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
 import {shallow, mount} from 'enzyme'
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 wrap = shallow(<MyComponent />)
@@ -41,8 +46,8 @@ wrap = mount(<MyComponent />)
 Shallow wrapping doesn't descend down to sub-components.
 A full mount also mounts sub-components.
 
-See: [Shallow rendering](https://airbnb.io/enzyme/docs/api/shallow.html),
-[Full rendering](https://airbnb.io/enzyme/docs/api/mount.html)
+See: [Shallow rendering](https://enzymejs.github.io/enzyme/docs/api/shallow.html),
+[Full rendering](https://enzymejs.github.io/enzyme/docs/api/mount.html)
 
 ### Debugging
 
@@ -52,19 +57,22 @@ console.log(wrap.debug())
 
 Shows HTML for debugging purposes.
 
-See: [debug()](https://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html)
+See: [debug()](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/debug.html)
 
 ## Examples
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Basic example
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
 import { shallow } from 'enzyme'
 import MyComponent from '../MyComponent'
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```js
 it('works', () => {
@@ -145,12 +153,13 @@ wrap.find('input').simulate('change', {
 
 ### Initial setup
 
-```
+```bash
 npm install --save-dev enzyme \
   enzyme-adapter-react-16 \
   react-test-renderer
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 #### test/setup.js
 
@@ -173,14 +182,15 @@ Enzyme.configure({ adapter: new Adapter() })
 
 This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's installation instructions.
 
-See: [Installation](https://airbnb.io/enzyme/#installation)
+See: [Installation](https://enzymejs.github.io/enzyme/#installation)
 
 ### Jest snapshots
 
-```
+```bash
 npm install --save-dev enzyme-to-json
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 #### package.json
 
@@ -229,7 +239,7 @@ wrap.getElements()    // → Array<ReactElement>
 wrap.getDOMNode()     // → DOMComponent
 ```
 
-See: [Full rendering API](https://airbnb.io/enzyme/docs/api/mount.html)
+See: [Full rendering API](https://enzymejs.github.io/enzyme/docs/api/mount.html)
 
 ### Actions
 
@@ -293,5 +303,5 @@ wrap.containsAnyMatchingElements([ <div /> ]) // → boolean
 
 ## References
 
-- [Enzyme website](https://airbnb.io/enzyme) _(airbnb.io)_
+- [Enzyme docs](https://enzymejs.github.io/enzyme/) _(enzymejs.github.io)_
 - [Enzyme v2 cheatsheet](./enzyme@2) _(devhints.io)_ (old version)

@@ -1,0 +1,51 @@
+/*
+ * Comments disclosure triangle
+ */
+
+.comments-details {
+  margin-bottom: -16px;
+
+  &[open] {
+    margin-bottom: 0;
+  }
+
+  & > summary {
+    font-size: var(--fs-1);
+    color: var(--base-a);
+    padding: 24px 0;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  & > summary:hover,
+  & > summary:focus {
+    &,
+    & > .suffix {
+      color: var(--base-a7);
+    }
+
+    & > .fauxlink {
+      border-bottom: solid 1px var(--base-a7);
+    }
+  }
+
+  & > summary > .count {
+    font-weight: bold;
+  }
+
+  & > summary > .count > svg {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--base-a); /* pinned: the summary goes a7 on hover */
+    margin: 0 8px;
+  }
+
+  & > summary > .suffix {
+    color: var(--base-mute);
+  }
+
+  & > summary > .fauxlink {
+    margin-left: 4px;
+    border-bottom: solid 1px rgb(116 95 181 / 25%);
+  }
+}

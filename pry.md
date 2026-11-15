@@ -1,15 +1,12 @@
 ---
 title: Pry
 category: Ruby libraries
-layout: 2017/sheet
+intro: |
+  Pry is a runtime development console for Ruby.
+links:
+  - title: https://github.com/pry/pry
+    url: https://github.com/pry/pry
 ---
-
-### About
-{: .-intro}
-
-Pry is a runtime development console for Ruby.
-
-- <https://github.com/pry/pry>
 
 ### cd
 
@@ -55,18 +52,24 @@ Pry is a runtime development console for Ruby.
 
 ### Editing
 
-    > edit Pry#repl
+```
+> edit Pry#repl
+```
 
 ### Gems
 
-    > gem-cd foo      # Switch to gem's dir
-    > gem-install foo
-    > gem-list
+```
+> gem-cd foo      # Switch to gem's dir
+> gem-install foo
+> gem-list
+```
 
 ### Misc commands
 
-    > hist          # History
-    > wtf?          # Trace of recent exception
+```
+> hist          # History
+> wtf?          # Trace of recent exception
+```
 
 ## Rails
 
@@ -74,48 +77,62 @@ Pry is a runtime development console for Ruby.
 
 Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
-    $ pry -r ./config/environment
+```
+$ pry -r ./config/environment
+```
 
 ### Rails
 
-    > show-models
-    > show-routes
-    > show-middleware
+```
+> show-models
+> show-routes
+> show-middleware
+```
 
 ### ls
 
-    > ls         # All
+```
+> ls         # All
 
-    > ls -m      # Methods
-    > ls -M      # Instance methods
+> ls -m      # Methods
+> ls -M      # Instance methods
 
-    > ls -g      # Globals
-    > ls -l      # Local vars
-    > ls -c      # Constants
+> ls -g      # Globals
+> ls -l      # Local vars
+> ls -c      # Constants
 
-    > ls -i      # Instance vars
+> ls -i      # Instance vars
 
-    > ls -G xx   # Grey by regex
+> ls -G xx   # Grep by regex
+```
 
-## Shell integration
+## Shell and plugins
+
+### Shell integration
 
 shell-mode adds dir to the prompt.
 
-    pry(main)> shell-mode
-    pry(main):/home/x $
+```
+pry(main)> shell-mode
+pry(main):/home/x $
+```
 
 Commands with `.` are shell commands.
 
-    pry(main)> .cat hello.txt
+```
+pry(main)> .cat hello.txt
+```
 
-## hirb
+### hirb
 Add the [hirb](https://rubygems.org/gems/hirb) gem.
 
-    > table User.all
-    > view User.all
-    > view User.all, fields: %w[id name email]
+```
+> table User.all
+> view User.all
+> view User.all, fields: %w[id name email]
+```
 
-## pry-rescue
+### pry-rescue
 Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
 
 ```rb
@@ -137,7 +154,7 @@ pry(main)> cd-cause
 pry(main)> try-again
 ```
 
-## pry-remote
+### pry-remote
 Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
 
 ```rb

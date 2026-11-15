@@ -1,0 +1,29 @@
+/*
+ * Home button inside `search-footer`
+ */
+
+.home-button {
+  display: inline-block;
+  box-shadow: inset 0 0 0 1px var(--dark-line-color);
+  border-radius: 50%;
+
+  &,
+  &:visited {
+    color: var(--base-mute);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--base-a);
+    color: white;
+  }
+
+  /* Colour comes from the link: mute, white on hover/focus */
+  & > i > svg {
+    display: inline-block; /* Tailwind preflight makes svg block-level */
+    vertical-align: middle;
+    width: 48px;
+    height: 48px;
+    padding: 12px; /* 24px glyph in a 48px box */
+  }
+}

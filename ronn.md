@@ -1,16 +1,20 @@
 ---
 title: Ronn
-category: Ruby libraries
-layout: 2017/sheet
+category: Hidden
+# The original gem is defunct (0.7.3, 2010); use the ronn-ng fork.
 updated: 2017-10-15
 weight: -1
 prism_languages: [bash, ruby, json, markdown]
 intro: |
   Ronn generates Man pages. See [ronn(1)](https://rtomayko.github.io/ronn/ronn.1.html), [ronn-format(7)](https://rtomayko.github.com/ronn/ronn-format.7.html). Also see it on GitHub: [rtomayko/ronn](httpss://github.com/rtomayko/ronn).
+links:
+  - title: ronn(1)
+    url: https://rtomayko.github.io/ronn/ronn.1.html
 ---
 
 ## Getting started
-{: .-left-reference}
+
+<!-- {: .-left-reference} -->
 
 ### Installation
 
@@ -115,9 +119,10 @@ markdown(7)
 ```
 
 ## Frequently-used sections
-{: .-one-column}
 
-### Sections
+<!-- {: .-one-column} -->
+
+### Structure
 
 - `## SYNOPSIS`
 - `## DESCRIPTION`
@@ -125,6 +130,9 @@ markdown(7)
 - `## SYNTAX`
 - `## ENVIRONMENT`
 - `## RETURN VALUES`
+
+### Reference
+
 - `## STANDARDS`
 - `## SECURITY CONSIDERATIONS`
 - `## BUGS`
@@ -132,7 +140,8 @@ markdown(7)
 - `## AUTHOR`
 - `## COPYRIGHT`
 - `## SEE ALSO`
-{: .-four-column}
+
+<!-- {: .-four-column} -->
 
 ## Other CLI options
 
@@ -142,6 +151,8 @@ markdown(7)
 --pipe                       # write to stdout
 --server, -S                 # serve in http://localhost:1207
 ```
+
+### Formatting
 
 ```bash
 --html, -5                   # default
@@ -163,13 +174,21 @@ markdown(7)
 
 ## Sections
 
+### Standard sections
+
 | Section | Description                                   |
 | ---     | ---                                           |
 | `1`     | General commands                              |
 | `2`     | System calls                                  |
 | `3`     | C standard lib                                |
+| ---     | ---                                           |
 | `4`     | Special files (/dev) and drivers              |
 | `5`     | File formats                                  |
+
+### Other sections
+
+| Section | Description                                   |
+| ---     | ---                                           |
 | `6`     | Games                                         |
 | `7`     | Misc                                          |
 | `8`     | System administration commands and procedures |
@@ -181,7 +200,8 @@ See [Man page sections](https://www.december.com/unix/ref/mansec.html) (december
 ### npm scripts
 
 Place manual files in `man/xxx.1.md`, then in package.json:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```json
 "scripts": {

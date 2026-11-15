@@ -1,15 +1,18 @@
 ---
 title: Vagrant
 category: Devops
-layout: 2017/sheet
 intro: |
  [Vagrant](http://vagrantup.com) lets you build isolated virtual environments for your apps.
+links:
+  - title: Vagrant
+    url: https://www.vagrantup.com/
 ---
 
 ### Get started
 
 Add some base boxes:
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```bash
 vagrant box add precise64 http://files.vagrantup.com/precise64.box

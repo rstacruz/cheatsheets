@@ -1,13 +1,10 @@
 ---
 title: CircleCI
 category: Devops
-layout: 2017/sheet
+links:
+  - title: https://circleci.com/docs/config-sample
+    url: https://circleci.com/docs/config-sample
 ---
-
-### About
-{: .-intro}
-
-- <https://circleci.com/docs/config-sample>
 
 ### circle.yml
 

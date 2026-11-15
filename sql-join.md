@@ -1,6 +1,5 @@
 ---
 title: SQL joins
-layout: 2017/sheet
 category: Databases
 updated: 2018-12-06
 weight: -1
@@ -13,7 +12,8 @@ SELECT * FROM order_items \
   LEFT OUTER JOIN orders \
   ON order_items.order_id = orders.id
 ```
-{: .-wrap}
+
+<!-- {: .-wrap} -->
 
 Joins are typically added to `SELECT` statements to add more columns and records.
 
@@ -22,7 +22,8 @@ Joins are typically added to `SELECT` statements to add more columns and records
 ```
 SELECT * FROM `A` INNER JOIN `B`
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
 
 ```
 ┌────────┐
@@ -31,7 +32,10 @@ SELECT * FROM `A` INNER JOIN `B`
 └────┼───┘  B │
      └────────┘
 ```
-{: .-box-chars.-setup}
+
+<!-- {: .-box-chars.-setup} -->
+
+#### Join types
 
 | Join             | What            |
 | ----             | ----            |

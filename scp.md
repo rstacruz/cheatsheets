@@ -1,14 +1,14 @@
 ---
 title: scp
 category: CLI
-layout: 2017/sheet
 updated: 2018-12-25
 authors:
   - github: vastpeng
 ---
 
 ### Usage
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```bash
 scp <options> source_path destination_path
@@ -20,7 +20,7 @@ scp <options> source_path destination_path
 -r      # transfer directory 
 -v      # see the transfer details
 -C      # copy files with compression
--l 800  # limit bandwith with 800
+-l 800  # limit bandwidth with 800
 -p      # preserving the original attributes of the copied files
 -P      # connection port
 -q      # hidden the output

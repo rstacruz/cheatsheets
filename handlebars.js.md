@@ -1,7 +1,6 @@
 ---
 title: Handlebars.js
 category: JavaScript libraries
-layout: 2017/sheet
 weight: -1
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: CSS
 category: CSS
-layout: 2017/sheet
 weight: -1
 keywords:
   - "margin, padding, border"
@@ -13,7 +12,8 @@ keywords:
 ---
 
 ## Basics
-{: .-three-column}
+
+<!-- {: .-three-column} -->
 
 ### Selectors
 
@@ -22,7 +22,10 @@ keywords:
   font-weight: bold;
 }
 ```
-{: .-setup}
+
+<!-- {: .-setup} -->
+
+#### Common selectors
 
 | Selector          | Description  |
 | ----------------- | ------------ |
@@ -60,7 +63,6 @@ keywords:
 | -------------------- | ------------------------------------------ |
 | `:target`            | eg, `h2#foo:target`                        |
 | ---                  | ---                                        |
-| `:disabled`          |                                            |
 | `:focus`             |                                            |
 | `:active`            |                                            |
 | ---                  | ---                                        |
@@ -90,10 +92,12 @@ keywords:
 | `:last-child`     |
 | `:nth-child(2)`   |
 | `:only-child`     |
-{: .-left-align}
+
+<!-- {: .-left-align} -->
 
 ## Fonts
-{: .-left-reference}
+
+<!-- {: .-left-reference} -->
 
 ### Properties
 
@@ -110,16 +114,19 @@ keywords:
 | ---                | ---                                  |
 | `text-align:`      | `left` `right` `center` `justify`    |
 | `text-transform:`  | `capitalize` `uppercase` `lowercase` |
-{: .-key-values}
+
+<!-- {: .-key-values} -->
 
 ### Shorthand
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 |         | style    | weight | size (required) |     | line-height | family            |
 | ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
 | `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
 |         | style    | weight | size (required) |     | line-height | family (required) |
-{: .-css-breakdown}
+
+<!-- {: .-css-breakdown} -->
 
 ### Example
 
@@ -140,7 +147,8 @@ text-transform: lowercase; /* hello */
 ```
 
 ## Background
-{: .-left-reference}
+
+<!-- {: .-left-reference} -->
 
 ### Properties
 
@@ -155,7 +163,8 @@ text-transform: lowercase; /* hello */
 | `background-clip:`       | `border-box` `padding-box` `content-box` |
 | `background-repeat:`     | `no-repeat` `repeat-x` `repeat-y`        |
 | `background-attachment:` | `scroll` `fixed` `local`                 |
-{: .-key-values}
+
+<!-- {: .-key-values} -->
 
 ### Shorthand
 
@@ -164,7 +173,8 @@ text-transform: lowercase; /* hello */
 | `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
 | `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
 |               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-{: .-css-breakdown}
+
+<!-- {: .-css-breakdown} -->
 
 ### Multiple backgrounds
 
@@ -174,7 +184,8 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 ```
 
 ## Animation
-{: .-left-reference}
+
+<!-- {: .-left-reference} -->
 
 ### Properties
 
@@ -183,13 +194,16 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | `animation:`                 | _(shorthand)_                                            |
 | `animation-name:`            | `<name>`                                                 |
 | `animation-duration:`        | `<time>ms`                                               |
+| ---                          | ---                                                      |
 | `animation-timing-function:` | `ease` `linear` `ease-in` `ease-out` `ease-in-out`       |
 | `animation-delay:`           | `<time>ms`                                               |
 | `animation-iteration-count:` | `infinite` `<number>`                                    |
+| ---                          | ---                                                      |
 | `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse`       |
 | `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
 | `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |
-{: .-key-values}
+
+<!-- {: .-key-values} -->
 
 ### Shorthand
 
@@ -197,7 +211,8 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
 | `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `reverse`  |
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-{: .-css-breakdown}
+
+<!-- {: .-css-breakdown} -->
 
 ### Example
 

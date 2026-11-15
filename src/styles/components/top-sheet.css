@@ -1,0 +1,67 @@
+.top-sheet[class][class] {
+  padding: 4px;
+  text-decoration: none;
+
+  & > .info {
+    display: block;
+    background: var(--base-a);
+    text-align: left;
+    padding: 16px;
+    width: auto;
+    border-radius: 3px;
+    box-shadow: var(--shadow2);
+    text-shadow: 0 1px 1px rgb(51 68 85 / 30%);
+    white-space: nowrap;
+  }
+
+  & > .info,
+  & > .info > .slug[class] {
+    color: white; /* overrides pages-list > info > slug */
+  }
+
+  &:hover > .info,
+  &:focus > .info {
+    box-shadow: var(--shadow3);
+  }
+
+  &:nth-of-type(3n + 1) {
+    & > .info {
+      background: linear-gradient(15deg, var(--base-a), var(--base-a-bright));
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: var(--base-a-hover);
+    }
+  }
+
+  &:nth-of-type(3n + 2) {
+    & > .info {
+      background: linear-gradient(
+        15deg,
+        var(--base-mute),
+        var(--base-mute-bright)
+      );
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: var(--base-mute6);
+    }
+  }
+
+  &:nth-of-type(3n + 3) {
+    & > .info {
+      background: linear-gradient(15deg, var(--base-c), var(--base-c-bright));
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      background: var(--base-c-dark);
+    }
+  }
+
+  & > .info > .title {
+    display: none;
+  }
+}

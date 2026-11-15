@@ -1,321 +1,470 @@
 ---
 title: Fastify
 category: JavaScript libraries
-layout: 2017/sheet
-updated: 2017-09-23
+updated: 2026-11-14
+intro: |
+  [Fastify](https://fastify.dev) is a Node.js web framework with a fast router, JSON-schema validation, and a pino logger. This reference targets Fastify v5.
+links:
+  - title: Documentation
+    url: https://fastify.dev/docs/latest/
+  - title: GitHub repository
+    url: https://github.com/fastify/fastify
 ---
 
 ## Getting started
 
-### Introduction
-{: .-intro}
-
-[Fastify](https://github.com/fastify/fastify) lets you create HTTP servers in Node.js with good performance. This guide targets fastify v0.28.x.
-
-- [Fastify source code](https://github.com/fastify/fastify) _(github.com)_
-- [Documentation](https://github.com/fastify/fastify#documentation) _(github.com)_
-
 ### Hello world
-{: .-prime}
+
+<!-- {: .-prime} -->
 
 ```js
-const fastify = require('fastify')()
+import Fastify from 'fastify'
 
-fastify.get('/', (req, reply) => {
-  reply.send({ hello: 'world' })
+const app = Fastify({ logger: true })
+
+app.get('/', async () => {
+  return { hello: 'world' }
 })
 
-fastify.listen(3000, err => {
-  if (err) throw err
-  const port = fastify.server.address().port
-  console.log(`server listening on ${port}`)
-})
+await app.listen({ port: 3000 })
 ```
 
-### Plugins
+`listen` takes an object. It binds `127.0.0.1` by default; pass `host: '0.0.0.0'` inside a container.
+
+See: [Getting started](https://fastify.dev/docs/latest/Guides/Getting-Started/)
+
+### Project layout
 
 #### app.js
 
 ```js
-fastify.register(require('./route'))
+import Fastify from 'fastify'
+
+export function build (opts = {}) {
+  const app = Fastify(opts)
+  app.get('/', async () => ({ hello: 'world' }))
+  return app
+}
 ```
 
-#### route.js
+#### server.js
 
 ```js
-function (fastify, opts, next) {
-  fastify.get('/', (req, reply) => {
-    reply.send({ hello: 'world' })
-  })
+import { build } from './app.js'
 
-  next()
+const app = build({ logger: true })
+await app.listen({ port: 3000, host: '0.0.0.0' })
+```
+
+Keeping the app separate from `listen` lets tests call `app.inject()` without a port.
+
+See: [Testing](https://fastify.dev/docs/latest/Guides/Testing/)
+
+### Graceful shutdown
+
+```js
+process.on('SIGTERM', async () => {
+  await app.close()
+  process.exit(0)
 })
 ```
 
-Compose your app functionality into plugins. Plugins are simply functions.
+`close()` waits for in-flight requests and runs `onClose` hooks, so pools and queues close with the server.
 
-See: [Plugins](https://github.com/fastify/fastify/blob/master/docs/Plugins.md)
+See: [close](https://fastify.dev/docs/latest/Reference/Server/#close)
 
-## Routes
+## Routing
 
-### Writing routes
+### Shorthand
 
 ```js
-fastify.route({
+app.get('/users/:id', async (request) => {
+  return { id: request.params.id }
+})
+
+app.post('/users', async (request) => {
+  return request.body
+})
+```
+
+`get`, `post`, `put`, `patch`, `delete`, `head`, `options`, and `trace` all take the same arguments.
+
+See: [Routes](https://fastify.dev/docs/latest/Reference/Routes/)
+
+### Full declaration
+
+```js
+app.route({
   method: 'GET',
-  url: '/',
-  schema: { ··· },
-  handler: (req, reply) => { ··· }
-  beforeHandler: (req, reply, done) => { ··· }
+  url: '/users/:id',
+  schema: {
+    params: {
+      type: 'object',
+      properties: { id: { type: 'string' } }
+    }
+  },
+  handler: async (request) => ({ id: request.params.id })
 })
 ```
 
-### Shorthand declarations
+`method` also takes an array, and `url` has an alias `path`. The full form accepts every hook as an option.
+
+See: [Full declaration](https://fastify.dev/docs/latest/Reference/Routes/#full-declaration)
+
+### Route options
 
 ```js
-fastify.get(path, [options], handler)
-fastify.head(···)
-fastify.post(···)
-fastify.put(···)
-fastify.delete(···)
-fastify.options(···)
-fastify.patch(···)
-```
-
-### Async/await
-
-```js
-fastify.get('/', options, async (req, reply) => {
-  return data
-  // or
-  reply.send(data)
+app.get('/admin', {
+  logLevel: 'warn',
+  bodyLimit: 1024,
+  config: { role: 'admin' },
+  handler: async () => ({ ok: true })
 })
 ```
 
-When using async functions, you can either `return` data or use `reply.send`.
+`config` is arbitrary data, read back as `request.routeOptions.config`. `exposeHeadRoute` adds a `HEAD` sibling for `GET`.
 
-Request/reply
--------------
+See: [Routes options](https://fastify.dev/docs/latest/Reference/Routes/#routes-options)
 
-### Request
-
-```js
-request.query
-request.body
-request.params
-request.headers
-request.req  // Node.js core
-request.log.info('hello')
-```
-
-See: [Request](https://github.com/fastify/fastify/blob/master/docs/Request.md)
-
-### Reply
-
-#### Response headers
+### Error handling
 
 ```js
-reply.code(404)
-reply.header('Content-Type', 'text/html')
-reply.type('text/html')
+app.setErrorHandler((error, request, reply) => {
+  request.log.error(error)
+  reply.code(error.statusCode ?? 500)
+    .send({ error: error.message })
+})
 ```
 
-#### Redirects
+Throw from a handler and Fastify lands here; the default handler returns `{ statusCode, error, message }`.
+
+See: [setErrorHandler](https://fastify.dev/docs/latest/Reference/Server/#seterrorhandler)
+
+## Plugins
+
+### Writing a plugin
 
 ```js
-reply.redirect('/foo')
-reply.redirect(302, '/foo')
-```
+async function routes (app, opts) {
+  app.get('/', async () => ({ hello: opts.name }))
+}
 
-#### Sending
+export default routes
+```
 
 ```js
-reply.send(payload)
-reply.sent // → true|false
+await app.register(routes, { name: 'world' })
 ```
 
-See: [Reply](https://github.com/fastify/fastify/blob/master/docs/Reply.md)
+Everything in Fastify is a plugin: routes, decorators, hooks, and third-party packages.
 
-### JSON schema
+See: [Plugins](https://fastify.dev/docs/latest/Reference/Plugins/)
 
-#### Define a JSON schema
+### Encapsulation
+
+```js
+app.register(async (scope) => {
+  scope.decorate('db', { users: [] })
+  scope.get('/internal', async () => scope.db.users)
+})
+```
+
+Decorators and hooks stay inside the plugin that added them. Sibling plugins cannot see `db`, and routes added outside the plugin cannot either.
+
+See: [Encapsulation](https://fastify.dev/docs/latest/Reference/Plugins/#encapsulation)
+
+### fastify-plugin
+
+```js
+import fp from 'fastify-plugin'
+
+export default fp(async (app) => {
+  app.decorate('db', await connect())
+}, { name: 'db', fastify: '5.x' })
+```
+
+Wrapping a plugin skips encapsulation, so its decorators land on the parent instance. The metadata names the plugin and pins compatible versions.
+
+See: [fastify-plugin](https://github.com/fastify/fastify-plugin)
+
+### Official plugins
+
+| Package | Adds |
+| --- | --- |
+| `@fastify/cors` | CORS headers |
+| `@fastify/helmet` | Security headers |
+| `@fastify/cookie` | Cookie parsing and signing |
+| `@fastify/jwt` | JWT authentication |
+| `@fastify/static` | Static file serving |
+| `@fastify/autoload` | Load a folder as plugins |
+| `@fastify/swagger` | OpenAPI from route schemas |
+
+Every `fastify-*` package moved to the `@fastify` scope in v4, and the old names are unmaintained.
+
+See: [Ecosystem](https://fastify.dev/ecosystem/)
+
+## Hooks
+
+### Lifecycle
+
+| Hook | Runs |
+| --- | --- |
+| `onRequest` | First; `request.body` is still undefined |
+| `preParsing` | Before the payload is parsed |
+| `preValidation` | After parsing, before validation |
+| `preHandler` | Before the route handler |
+| `preSerialization` | Before the reply is serialized |
+| --- | --- |
+| `onError` | When the handler or a hook throws |
+| `onSend` | Before the reply is flushed |
+| `onResponse` | After the reply is sent |
+| `onTimeout` | When `handlerTimeout` expires |
+| `onRequestAbort` | When the client disconnects |
+
+Application hooks (`onReady`, `onListen`, `onClose`, `onRoute`) cover the server, not a request.
+
+See: [Lifecycle](https://fastify.dev/docs/latest/Reference/Lifecycle/)
+
+### Adding hooks
+
+```js
+app.addHook('onRequest', async (request) => {
+  request.start = Date.now()
+})
+
+app.addHook('onResponse', async (request) => {
+  request.log.info({ ms: Date.now() - request.start })
+})
+```
+
+Never pass a `done` callback to an `async` hook; return or throw instead.
+
+See: [Hooks](https://fastify.dev/docs/latest/Reference/Hooks/)
+
+### Route hooks
+
+```js
+app.get('/private', {
+  onRequest: [authenticate],
+  preHandler: [loadUser],
+  handler: async (request) => ({ user: request.user })
+})
+```
+
+Route hooks run after the ones registered on the instance, and each option takes an array.
+
+See: [Route-level hooks](https://fastify.dev/docs/latest/Reference/Hooks/#route-level-hooks)
+
+## Schemas
+
+### Validation
 
 ```js
 const schema = {
-  querystring: {
-    name: { type: 'string' },
-    excitement: { type: 'integer' }
-  },
+  body: {
+    type: 'object',
+    required: ['name'],
+    properties: {
+      name: { type: 'string' },
+      age: { type: 'integer', minimum: 0 }
+    }
+  }
+}
+
+app.post('/users', { schema }, async (request) => {
+  return request.body
+})
+```
+
+v5 removed schema shorthand, so every schema needs `type`. An invalid request gets a `400` before the handler runs.
+
+See: [Validation](https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/)
+
+### Response serialization
+
+```js
+const schema = {
   response: {
     200: {
       type: 'object',
       properties: {
-        hello: { type: 'string' }
+        id: { type: 'string' },
+        name: { type: 'string' }
       }
     }
   }
 }
 ```
 
-#### Pass it to the route
+`fast-json-stringify` compiles the schema and drops properties it does not list, which is both faster and safer than `JSON.stringify`.
+
+See: [Serialization](https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/#serialization)
+
+### Shared schemas
 
 ```js
-fastify.get('/', { schema }, (req, reply) => {
-  ···
+app.addSchema({
+  $id: 'user',
+  type: 'object',
+  properties: { id: { type: 'string' } }
 })
-```
-{: data-line="1"}
 
-#### or (same as above)
+app.get('/me', {
+  schema: { response: { 200: { $ref: 'user#' } } }
+}, handler)
+```
+
+`addSchema` is encapsulated, so a schema added in a plugin stays in that plugin's scope.
+
+See: [Adding a shared schema](https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/#adding-a-shared-schema)
+
+## Request and reply
+
+### Request
+
+| Property | Holds |
+| --- | --- |
+| `request.body` | Parsed payload |
+| `request.query` | Parsed query string |
+| `request.params` | Route parameters |
+| `request.headers` | Request headers |
+| `request.id` | Request ID, also in every log line |
+| --- | --- |
+| `request.ip` | Client IP; `request.ips` when behind a proxy |
+| `request.host` | Host and port from the `Host` header |
+| `request.protocol` | `http` or `https` |
+| `request.log` | Request-scoped pino logger |
+| `request.raw` | Node.js `IncomingMessage` |
+
+`request.signal` aborts when the handler times out or the client disconnects.
+
+See: [Request](https://fastify.dev/docs/latest/Reference/Request/)
+
+### Reply
 
 ```js
-fastify.route({
-  method: 'GET',
-  url: '/',
-  schema,
-  handler: (req, reply) => { ··· }
-})
-```
-{: data-line="4"}
-
-By defining a JSON schema, you get validation and improved performance.
-
-See: [Validation and serialization](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md)
-
-Plugins
--------
-
-### With function
-
-```js
-fastify.register(
-  require('./route'),
-  err => { if (err) throw err }
-)
-```
-{: data-line="3"}
-
-#### route.js
-
-```js
-module.exports = (fastify, options, next) => {
-  fastify.get('/', ···)
-  next()
-}
+reply.code(201)
+reply.header('X-Request-Id', request.id)
+reply.type('text/html')
+reply.redirect('/login')        // 302
+reply.redirect('/login', 301)
+reply.send({ ok: true })
+reply.callNotFound()
 ```
 
+Returning a value from an `async` handler is the same as calling `reply.send()`. `reply.sent` tells you whether a response has gone out.
 
-See: [Register](https://github.com/fastify/fastify/blob/master/docs/Getting-Started.md#register)
-
-### Multiple
-
-```js
-fastify.register([
-  require('./another-route'),
-  require('./yet-another-route')
-], opts, (err) => {
-  if (err) throw err
-})
-```
-
-You can pass arrays to `register()`.
-
-### Register with prefix
-
-```js
-fastify.register(
-  require('./route'),
-  { prefix: '/v1' }
-)
-```
-
-This prefixes all routes in that module.
-
-### Helmet
-
-```js
-const helmet = require('fastify-helmet')
-
-fastify.register(helmet)
-```
-
-See: [fastify-helmet](https://github.com/fastify/fastify-helmet)
-
-### fastify-plugin
-
-```js
-const fp = require('fastify-plugin')
-
-module.exports = fp((fastify, opts, next) => {
-  // your plugin code
-  fastify.decorate('utility', () => {})
-
-  next()
-}, '0.x')
-```
-
-Allows you to limit Fastify versions via semver, and allows you not make a new Fastify scope.
-
-See: [fastify-plugin](https://github.com/fastify/fastify-plugin)
+See: [Reply](https://fastify.dev/docs/latest/Reference/Reply/)
 
 ### Decorators
 
-Middleware
-----------
-
-### Middleware
-
 ```js
-fastify.use(require('cors')())
-fastify.use(require('dns-prefetch-control')())
-fastify.use(require('frameguard')())
-fastify.use(require('hide-powered-by')())
-fastify.use(require('hsts')())
-fastify.use(require('ienoopen')())
-fastify.use(require('x-xss-protection')())
+app.decorate('db', connect())
+app.decorateRequest('user', null)
+app.decorateReply('cache', null)
 ```
 
-Compatible with Express and Restify middlewares. (Don't use these middleware, these are covered by [fastify-helmet](https://github.com/fastify/fastify-helmet).)
+```js
+app.addHook('preHandler', async (request) => {
+  request.user = await request.server.db.findUser(request)
+})
+```
 
-See: [Middlewares](https://github.com/fastify/fastify/blob/master/docs/Middleware.md)
+Declare request decorators with a scalar such as `null` or `''`. Assigning a reference type at startup throws.
 
-Template rendering
-------------------
+See: [Decorators](https://fastify.dev/docs/latest/Reference/Decorators/)
 
-### point-of-view
+## Logging
+
+### Setup
 
 ```js
-const fastify = require('fastify')()
-
-fastify.register(require('point-of-view'), {
-  engine: {
-    ejs: require('ejs')
+const app = Fastify({
+  logger: {
+    level: 'info',
+    transport: { target: 'pino-pretty' }
   }
 })
 ```
-{: data-line="3"}
+
+A custom instance goes in `loggerInstance`; v5 stopped accepting one in `logger`.
 
 ```js
-fastify.get('/', (req, reply) => {
-  reply.view('/templates/index.ejs', { text: 'text' })
-})
+import pino from 'pino'
+
+const app = Fastify({ loggerInstance: pino({ level: 'warn' }) })
 ```
-{: data-line="2"}
 
-Support `ejs`, `pug`, `handlebars` and `marko`.
+`pino-pretty` is a dev dependency, not bundled.
 
-See: [point-of-view](https://github.com/fastify/point-of-view)
+See: [Logging](https://fastify.dev/docs/latest/Reference/Logging/)
 
-### Options
+### Request logs
 
 ```js
-fastify.register(require('point-of-view'), {
-  engine: {
-    ejs: require('ejs')
-  },
-  templates: '/templates',
-  options: {}
+app.get('/', async (request) => {
+  request.log.info({ user: request.user }, 'loading dashboard')
+  return { ok: true }
 })
 ```
 
-`templates` lets you update the templates folder. `options` are options passed onto the template engines.
+Fastify logs one line per request by default. Set `disableRequestLogging: true` to silence it and log from hooks yourself.
+
+See: [Request logging](https://fastify.dev/docs/latest/Reference/Logging/#usage)
+
+### Redaction
+
+```js
+const app = Fastify({
+  logger: {
+    redact: {
+      paths: ['req.headers.authorization', 'req.body.password'],
+      censor: '[redacted]'
+    }
+  }
+})
+```
+
+Redaction is a pino feature, so it applies to child loggers such as `request.log` too.
+
+See: [pino redaction](https://getpino.io/#/docs/redaction)
+
+## Testing
+
+### inject
+
+```js
+const response = await app.inject({
+  method: 'POST',
+  url: '/users',
+  payload: { name: 'Ada' }
+})
+
+response.statusCode   // 201
+response.json()       // { id: '1', name: 'Ada' }
+```
+
+`inject()` boots every plugin and sends a fake request through the real lifecycle; no port is bound.
+
+See: [Testing with HTTP injection](https://fastify.dev/docs/latest/Guides/Testing/#testing-with-http-injection)
+
+### node:test
+
+```js
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import { build } from './app.js'
+
+test('GET /', async (t) => {
+  const app = build()
+  t.after(() => app.close())
+
+  const res = await app.inject({ method: 'GET', url: '/' })
+  assert.equal(res.statusCode, 200)
+  assert.deepEqual(res.json(), { hello: 'world' })
+})
+```
+
+Call the same `build()` helper the server calls, so tests exercise the real plugin tree.
+
+See: [Testing](https://fastify.dev/docs/latest/Guides/Testing/)

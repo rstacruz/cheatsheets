@@ -3,7 +3,6 @@ title: Vim Easyalign
 html_class: key-codes
 hljs_languages: [vim]
 category: Vim
-layout: 2017/sheet
 ---
 
 ## Command mode
@@ -78,19 +77,27 @@ database: test
 
 ## Interactive mode
 
+### Activation
+
+| Shortcut | Description |
+| --- | --- |
 | `{Visual}` `⏎` | activate for selection |
 | `ga` `{motion}` | activate for motion/text object |
-{:.greycode}
+
+<!-- {:.greycode} -->
 
 Then press options (if available), then a delimiter.
 
 ### Interactive mode options
 
+| Shortcut | Description |
+| --- | --- |
 | `⏎` | Set `alignment` |
 | `<ctrl-l>` `4 ⏎` | Set `left_margin` (to the left of the delimiter) |
 | `<ctrl-r>` `4 ⏎` | Set `right_margin` |
 | `↓` | no margin |
-{:.greycode}
+
+<!-- {:.greycode} -->
 
 ### Example
 

@@ -1,14 +1,17 @@
 ---
 title: Travis.yml
 category: Devops
-layout: 2017/sheet
 prism_languages: [yaml]
 intro: |
   Quick reference for [Travis CI](https://travis-ci.org) yaml configuration. See [official documentation](https://docs.travis-ci.com/user/customizing-the-build/).
+links:
+  - title: Travis CI documentation
+    url: https://docs.travis-ci.com/
 ---
 
 ## Reference
-{:.-three-column}
+
+<!-- {:.-three-column} -->
 
 ### Node.js
 
@@ -109,6 +112,6 @@ gemfile:
 
 ### References
 
-- https://about.travis-ci.org/docs/user/build-configuration/
-- https://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/
-- https://about.travis-ci.org/docs/user/languages/ruby/
+- <https://about.travis-ci.org/docs/user/build-configuration/>
+- <https://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/>
+- <https://about.travis-ci.org/docs/user/languages/ruby/>

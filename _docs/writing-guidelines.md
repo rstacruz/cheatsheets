@@ -349,6 +349,8 @@ only new ones fail. Regenerate the baselines after cleaning sheets up:
 UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 ```
 
+Then run `pnpm fmt:format`; oxfmt collapses short baseline arrays to one line.
+
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
 Four shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), and no paragraph is followed by a block (`baseline/paragraphPlacement.json`).

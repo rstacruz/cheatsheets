@@ -121,13 +121,6 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 <img @mouseover.once="showImage">...
 ```
 
-#### Modifiers
-
-| Method | Description |
-| --- | --- |
-| `.stop` | Stop all event propagation |
-| `.self ` | Only trigger if event.target is element itself |
-
 #### Keyboard entry example
 ```html
 <input @keyup.enter="submit">
@@ -137,6 +130,13 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 ```html
 <input @keyup.ctrl.c="onCopy">
 ```
+
+#### Modifiers
+
+| Method | Description |
+| --- | --- |
+| `.stop` | Stop all event propagation |
+| `.self ` | Only trigger if event.target is element itself |
 
 See: [Events](https://vuejs.org/v2/guide/events.html)
 

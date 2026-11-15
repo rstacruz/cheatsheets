@@ -40,12 +40,6 @@ also:
 
 ### Command prefixes
 
-| Prefix | Description                                 |
-| ------ | ------------------------------------------- |
-| `-`    | Ignore errors                               |
-| `@`    | Don't print command                         |
-| `+`    | Run even if Make is in 'don't execute' mode |
-
 ```makefile
 build:
     @echo "compiling"
@@ -53,6 +47,14 @@ build:
 
 -include .depend
 ```
+
+#### Prefixes
+
+| Prefix | Description                                 |
+| ------ | ------------------------------------------- |
+| `-`    | Ignore errors                               |
+| `@`    | Don't print command                         |
+| `+`    | Run even if Make is in 'don't execute' mode |
 
 ### Find files
 

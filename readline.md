@@ -116,6 +116,13 @@ See: [Searching for commands in the history](https://tiswww.case.edu/php/chet/re
 
 ### Repeat a command
 
+```bash
+apt install ripgrep
+sudo !!                     # sudo apt install ripgrep
+```
+
+#### Event designators
+
 | Syntax | Expands to |
 | --- | --- |
 | `!!` | Previous command |
@@ -124,17 +131,19 @@ See: [Searching for commands in the history](https://tiswww.case.edu/php/chet/re
 | `!string` | Most recent command starting with string |
 | `!?string?` | Most recent command containing string |
 
-```bash
-apt install ripgrep
-sudo !!                     # sudo apt install ripgrep
-```
-
 Event designators pick the history entry to reuse; `!n` takes the number
 printed by `history`.
 
 See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Event-Designators.html)
 
 ### Reuse arguments
+
+```bash
+cp report.txt /tmp/backup.txt
+echo !^ !$                  # report.txt /tmp/backup.txt
+```
+
+#### Word designators
 
 | Syntax | Expands to |
 | --- | --- |
@@ -144,23 +153,11 @@ See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Even
 | `!:2` | Second word of the previous command |
 | `!:2-4` | Words 2 through 4 |
 
-```bash
-cp report.txt /tmp/backup.txt
-echo !^ !$                  # report.txt /tmp/backup.txt
-```
-
 Words count from 0 at the command name; `!$` is shorthand for the last word.
 
 See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html)
 
 ### Substitute parts
-
-| Syntax | Expands to |
-| --- | --- |
-| `^old^new` | Previous command with `old` replaced |
-| `!!:p` | Print the command without running it |
-| `!$:h` | Directory part of the last word |
-| `!$:t` | Filename part of the last word |
 
 ```bash
 grep -r todo src
@@ -168,6 +165,15 @@ grep -r todo src
 ls /usr/local/bin
 cd !$:h                     # cd /usr/local
 ```
+
+#### Modifiers
+
+| Syntax | Expands to |
+| --- | --- |
+| `^old^new` | Previous command with `old` replaced |
+| `!!:p` | Print the command without running it |
+| `!$:h` | Directory part of the last word |
+| `!$:t` | Filename part of the last word |
 
 Single quotes suppress expansion, a backslash escapes `!`, and `set +H` turns
 it off for the session. Add `:p` to any designator to preview the result.

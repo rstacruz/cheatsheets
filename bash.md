@@ -880,6 +880,13 @@ See: [The printf builtin](https://www.gnu.org/software/bash/manual/html_node/Bas
 
 ### Transform strings
 
+```bash
+echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
+WELCOME TO DEVHINTS
+```
+
+#### Options
+
 | Command option | Description                                         |
 | -------------- | --------------------------------------------------- |
 | `-c`           | Operations apply to characters not in the given set |
@@ -893,13 +900,6 @@ See: [The printf builtin](https://www.gnu.org/software/bash/manual/html_node/Bas
 | `[:space:]`    | All whitespace                                      |
 | `[:alpha:]`    | All letters                                         |
 | `[:alnum:]`    | All letters and digits                              |
-
-#### Example
-
-```bash
-echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
-WELCOME TO DEVHINTS
-```
 
 See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-invocation.html)
 

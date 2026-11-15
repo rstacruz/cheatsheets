@@ -15,9 +15,9 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  padding: 8px 10px;
-  border: 1px solid var(--dark-line-color);
-  border-radius: 4px;
+  padding: 10px 12px 2.5rem;
+  border-radius: 8px;
+  background: var(--base-card);
   text-decoration: none;
 
   &,
@@ -27,8 +27,7 @@
 
   &:hover,
   &:focus {
-    border-color: var(--base-a3);
-    background: var(--base-panel);
+    background: var(--base-card-hover);
 
     > .sheet-card__title {
       color: var(--base-a);

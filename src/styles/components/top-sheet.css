@@ -1,9 +1,21 @@
+.featured-pages {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
+  @media (max-width: 580px) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .top-sheet[class][class] {
-  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   padding: 12px 14px;
   text-decoration: none;
-  border-radius: 3px;
-  box-shadow: var(--shadow2);
+  border-radius: 8px;
   text-shadow: 0 1px 1px rgb(51 68 85 / 30%);
 
   > .sheet-card__title,
@@ -17,8 +29,6 @@
 
   &:hover,
   &:focus {
-    box-shadow: var(--shadow3);
-
     > .sheet-card__title {
       color: white;
     }

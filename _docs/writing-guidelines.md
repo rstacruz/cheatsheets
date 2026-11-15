@@ -81,7 +81,8 @@ shows the shape.
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
-- A table that follows a code block needs an H4 in between (eg `#### Options`), or it reads as part of the block
+- Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
+- A table that follows a code block needs an H4 in between, or it reads as part of the block
 
 ## Writing guidelines
 

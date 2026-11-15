@@ -18,6 +18,18 @@ links:
 
 ### Basic types
 
+```ts
+let tags: string[] = ['a', 'b']
+let pair: [string, number] = ['a', 1]
+
+let id: string | number = 1
+let input: unknown = JSON.parse(json)
+
+function fail(msg: string): never {
+  throw new Error(msg)
+}
+```
+
 #### Primitives
 
 | Type | Example |
@@ -38,18 +50,6 @@ links:
 | `unknown` | top type; safe `any`, narrow first |
 | `void` | no return value |
 | `never` | bottom type; unreachable |
-
-```ts
-let tags: string[] = ['a', 'b']
-let pair: [string, number] = ['a', 1]
-
-let id: string | number = 1
-let input: unknown = JSON.parse(json)
-
-function fail(msg: string): never {
-  throw new Error(msg)
-}
-```
 
 See: [Everyday types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 

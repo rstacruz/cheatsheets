@@ -339,6 +339,14 @@ See: [rename](https://help.splunk.com/en/splunk-enterprise/search/spl-search-ref
 
 ### String and value functions
 
+```splunk-spl
+| eval parts = split(path, "/")
+| eval first = mvindex(parts, 1)
+| eval name = lower(coalesce(user, "unknown"))
+```
+
+#### Functions
+
 | Function | Result |
 | --- | --- |
 | `if(cond, a, b)` | Choose one value |
@@ -353,12 +361,6 @@ See: [rename](https://help.splunk.com/en/splunk-enterprise/search/spl-search-ref
 
 `if` and `case` return values; `split` and `mvindex` work on multivalue
 fields.
-
-```splunk-spl
-| eval parts = split(path, "/")
-| eval first = mvindex(parts, 1)
-| eval name = lower(coalesce(user, "unknown"))
-```
 
 See: [eval functions](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/evaluation-functions)
 

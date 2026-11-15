@@ -397,14 +397,6 @@ See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-
 
 ### Config file
 
-| System | Path |
-| --- | --- |
-| Linux/macOS | `${XDG_CONFIG_HOME}/yt-dlp/config` |
-| Windows | `%APPDATA%\yt-dlp\config` |
-| Portable | `yt-dlp.conf` beside the binary |
-
-#### Example
-
 ```bash
 # ~/.config/yt-dlp/config
 -f "bv*+ba/b"
@@ -412,6 +404,14 @@ See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-
 -o "%(uploader)s/%(title)s [%(id)s].%(ext)s"
 --embed-metadata
 ```
+
+#### Paths
+
+| System | Path |
+| --- | --- |
+| Linux/macOS | `${XDG_CONFIG_HOME}/yt-dlp/config` |
+| Windows | `%APPDATA%\yt-dlp\config` |
+| Portable | `yt-dlp.conf` beside the binary |
 
 One option per line, with no space after the dashes and shell-style
 quoting.

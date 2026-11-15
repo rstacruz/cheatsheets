@@ -23,8 +23,8 @@ Archive when a reader following the sheet would hit a dead end.
 | The data is ephemeral    | phone directories, prices, local listings       |
 | The sheet is a link list | curated links whose targets have rotted         |
 
-Each of these has dated proof: a shutdown notice, a last release, an archived
-repository, or a browser-removal version. Put that proof in the note.
+Prefer dated proof: a shutdown notice, a last release, an archived repository,
+or a browser-removal version. Put the reason in the note.
 
 ## What is not worth archiving
 

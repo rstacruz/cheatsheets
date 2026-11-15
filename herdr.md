@@ -44,6 +44,8 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 ### Concepts
 
+#### Layout
+
 ```
 session
 └── w1            workspace   project container (one repo or task)
@@ -53,6 +55,8 @@ session
     └── w1:t2     tab
 ```
 <!-- {: .-box-chars} -->
+
+#### Commands
 
 ```bash
 herdr session list                 # persistent server namespaces

@@ -22,11 +22,15 @@ links:
 
 ### Install
 
+#### macOS, Linux, and WSL
+
 ```bash
 curl https://cursor.com/install -fsS | bash  # macOS, Linux, WSL
 agent --version                              # verify the install
 agent update                                 # upgrade in place
 ```
+
+#### Windows
 
 ```powershell
 irm 'https://cursor.com/install?win32=true' | iex  # Windows
@@ -443,11 +447,15 @@ See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 
 ### Config files
 
+#### Paths
+
 ```bash
 ~/.cursor/cli-config.json           # global, every project
 .cursor/cli.json                    # project, permissions only
 $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
 ```
+
+#### Example
 
 ```json
 {
@@ -463,11 +471,15 @@ See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 
 ### Rules and AGENTS.md
 
+#### Files
+
 ```bash
 .cursor/rules/*.mdc   # project rules; .md is ignored
 AGENTS.md             # root instructions, committed
 CLAUDE.md             # also read at the root
 ```
+
+#### Frontmatter
 
 ```md
 ---

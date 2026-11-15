@@ -114,19 +114,7 @@ searching live.
 
 See: [Searching for commands in the history](https://tiswww.case.edu/php/chet/readline/readline.html#Searching-for-Commands-in-the-History)
 
-### History expansion
-
-```bash
-apt install ripgrep
-sudo !!                     # sudo apt install ripgrep
-echo !$                     # last word of previous command
-cp report.txt /tmp/backup.txt
-echo !:2                    # /tmp/backup.txt
-grep -r todo src
-^todo^FIXME^                # repeat with todo replaced
-```
-
-#### Designators
+### Repeat a command
 
 | Syntax | Expands to |
 | --- | --- |
@@ -135,22 +123,56 @@ grep -r todo src
 | `!-n` | n commands back |
 | `!string` | Most recent command starting with string |
 | `!?string?` | Most recent command containing string |
+
+```bash
+apt install ripgrep
+sudo !!                     # sudo apt install ripgrep
+```
+
+Event designators pick the history entry to reuse; `!n` takes the number
+printed by `history`.
+
+See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Event-Designators.html)
+
+### Reuse arguments
+
+| Syntax | Expands to |
 | --- | --- |
 | `!$` | Last word of the previous command |
 | `!*` | All arguments of the previous command |
 | `!^` | First argument of the previous command |
 | `!:2` | Second word of the previous command |
 | `!:2-4` | Words 2 through 4 |
+
+```bash
+cp report.txt /tmp/backup.txt
+echo !^ !$                  # report.txt /tmp/backup.txt
+```
+
+Words count from 0 at the command name; `!$` is shorthand for the last word.
+
+See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html)
+
+### Substitute parts
+
+| Syntax | Expands to |
 | --- | --- |
 | `^old^new` | Previous command with `old` replaced |
 | `!!:p` | Print the command without running it |
 | `!$:h` | Directory part of the last word |
 | `!$:t` | Filename part of the last word |
 
-Expansion runs before word splitting. Single quotes suppress it, a backslash
-escapes `!`, and `set +H` turns it off for the session.
+```bash
+grep -r todo src
+^todo^FIXME^                # repeat with todo replaced
+ls /usr/local/bin
+cd !$:h                     # cd /usr/local
+```
 
-See: [History expansion](https://www.gnu.org/software/bash/manual/html_node/History-Interaction.html)
+Single quotes suppress expansion, a backslash escapes `!`, and `set +H` turns
+it off for the session. Add `:p` to any designator to preview the result.
+
+See: [Modifiers](https://www.gnu.org/software/bash/manual/html_node/Modifiers.html)
 
 ### History limits
 
@@ -271,14 +293,24 @@ sessions.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 
-### vi keys
+### Command mode
 
 | Key | Action |
 | --- | --- |
-| `Esc` | Command mode |
+| `Esc` | Enter command mode |
 | `h` / `l` | Left / right |
 | `w` / `b` / `e` | Word forward / back / end |
 | `0` / `$` | Start / end of line |
+| `f` / `t` | Jump to a character |
+
+`Esc` leaves insert mode. Readline implements the POSIX `sh` vi subset, not
+full vi; motions take an operator such as `d` or `c`.
+
+See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
+
+### Editing text
+
+| Key | Action |
 | --- | --- |
 | `i` / `a` | Insert before / after cursor |
 | `I` / `A` | Insert at start / end of line |
@@ -287,12 +319,21 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 | `cw` / `cc` | Change word / line |
 | `p` / `P` | Paste after / before |
 | `u` | Undo |
+
+`i` and `a` return to insert mode. An operator plus a motion edits a range,
+so `d$` deletes to the end of the line.
+
+See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
+
+### Searching
+
+| Key | Action |
 | --- | --- |
-| `/` / `?` | Search forward / back |
+| `/` / `?` | Search the history |
 | `n` / `N` | Next / previous match |
 
-These are command-mode keys. Readline implements the POSIX `sh` vi subset, so
-the basic motions and operators work as in vi.
+Searches walk the command history; `n` repeats the match and `N` reverses the
+direction.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 

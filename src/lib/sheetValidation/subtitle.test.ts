@@ -1,6 +1,20 @@
 import { getPages } from '../page'
+import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
 const MAX_WORDS = 5
+
+const fiveWords = { subtitle: 'one two three four five' }
+const sixWords = { subtitle: 'one two three four five six' }
+
+test('the schema accepts a five-word subtitle', () => {
+  expect(SheetFrontmatterSchema.parse(fiveWords).subtitle).toBe(
+    fiveWords.subtitle
+  )
+})
+
+test('the schema rejects a six-word subtitle', () => {
+  expect(() => SheetFrontmatterSchema.parse(sixWords)).toThrow()
+})
 
 test('every sheet has a subtitle of five words or fewer', async () => {
   const pages = await getPages()

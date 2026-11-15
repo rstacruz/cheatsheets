@@ -44,6 +44,8 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 ### Concepts
 
+#### Layout
+
 ```
 session
 └── w1            workspace   project container (one repo or task)
@@ -54,10 +56,7 @@ session
 ```
 <!-- {: .-box-chars} -->
 
-A pane is a real terminal, preserved across client detach. An agent is a
-process Herdr recognizes inside a pane. A session is a persistent server
-namespace; `herdr` attaches to the default session. Public IDs are opaque
-handles: `w1`, `w1:t1`, `w1:p1`.
+#### Commands
 
 ```bash
 herdr session list                 # persistent server namespaces
@@ -67,23 +66,20 @@ herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
 
+A pane is a real terminal, preserved across detach. An agent is a process
+Herdr recognizes in a pane. A session is a persistent server namespace;
+`herdr` attaches to the default one.
+
 See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 
 ### Quick start
 
 ```bash
-herdr
+herdr     # launch, or reattach to a session
+claude    # run an agent; Herdr detects it
 ```
 
-Launch or reattach to the default session.
-
-```bash
-claude
-```
-
-Run an agent in the focused pane; Herdr detects it automatically. Use the
-prefix keys to split a pane (`prefix+v`), open a tab (`prefix+c`), and
-detach (`prefix+q`) — panes and agents keep running.
+Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
 
 See: [Quick start](https://herdr.dev/tui/docs/quick-start/)
 

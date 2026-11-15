@@ -1,5 +1,6 @@
 ---
 title: AWS CLI
+subtitle: Command-line interface for AWS
 category: Devops
 ---
 

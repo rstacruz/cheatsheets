@@ -1,5 +1,6 @@
 ---
 title: Rake
+subtitle: Ruby build task runner
 category: Ruby
 ---
 

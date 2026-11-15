@@ -1,5 +1,6 @@
 ---
 title: Awesome Redux
+subtitle: Curated Redux addon list
 category: React
 updated: 2017-11-19
 ---

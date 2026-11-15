@@ -1,5 +1,6 @@
 ---
 title: Vim Easyalign
+subtitle: Interactive alignment plugin
 html_class: key-codes
 hljs_languages: [vim]
 category: Vim

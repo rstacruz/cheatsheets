@@ -1,5 +1,6 @@
 ---
 title: "Phoenix: Plug.Conn"
+subtitle: Plug connection struct
 category: Elixir
 updated: 2018-01-19
 weight: -5

@@ -1,5 +1,6 @@
 ---
 title: HTTP Status
+subtitle: Three-digit response code list
 category: API
 tier: t2
 updated: 2026-11-11

@@ -1,5 +1,6 @@
 ---
 title: Canvas
+subtitle: HTML canvas drawing API
 category: JavaScript
 ---
 

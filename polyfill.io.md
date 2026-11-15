@@ -1,5 +1,6 @@
 ---
 title: Polyfill.io
+subtitle: JavaScript polyfill CDN
 category: Hidden
 # The domain was hijacked and shut down in the June 2024 supply-chain attack.
 updated: 2024-06-26

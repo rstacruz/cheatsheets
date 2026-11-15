@@ -1,5 +1,6 @@
 ---
 title: Ledger periods
+subtitle: Period expression syntax
 category: Ledger
 links:
   - title: https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions

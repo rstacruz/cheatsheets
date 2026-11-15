@@ -1,5 +1,6 @@
 ---
 title: GitHub pages
+subtitle: GitHub Pages deployment
 category: Jekyll
 ---
 

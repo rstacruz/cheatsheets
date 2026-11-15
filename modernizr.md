@@ -1,5 +1,6 @@
 ---
 title: Modernizr
+subtitle: Browser feature detection
 category: Hidden
 # No longer in active development; the repo was archived in 2024.
 tags: [Archived]

@@ -1,5 +1,6 @@
 ---
 title: C# 7
+subtitle: "C# 7 language features"
 category: C-like
 updated: 2018-12-06
 prism_languages: [csharp]

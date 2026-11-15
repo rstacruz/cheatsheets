@@ -1,5 +1,6 @@
 ---
 title: Make for assets
+subtitle: Asset compilation recipes
 tags: [Archived]
 archived: This sheet may be listing practices that are outdated.
 ---

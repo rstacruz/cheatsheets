@@ -1,5 +1,6 @@
 ---
 title: Sequelize
+subtitle: Node.js SQL ORM
 category: JavaScript libraries
 intro: |
   Sequelize is an ORM for JavaScript.

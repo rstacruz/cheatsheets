@@ -1,5 +1,6 @@
 ---
 title: Elixir metaprogramming
+subtitle: Macro-based code generation
 category: Elixir
 ---
 

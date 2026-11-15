@@ -1,5 +1,6 @@
 ---
 title: Meow
+subtitle: CLI app helper
 category: JavaScript libraries
 updated: 2017-10-30
 weight: -1

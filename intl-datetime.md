@@ -1,5 +1,6 @@
 ---
 title: Intl.DateTimeFormat
+subtitle: Locale-aware date formatter
 category: JavaScript
 tags: [Featured]
 intro: |

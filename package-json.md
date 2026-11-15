@@ -1,5 +1,6 @@
 ---
 title: package.json
+subtitle: Manifest for npm packages
 category: Node.js
 prism_languages: [json]
 updated: 2020-06-23

@@ -1,5 +1,6 @@
 ---
 title: CSS antialiasing
+subtitle: Font smoothing snippet
 category: CSS
 updated: 2017-10-13
 intro: |

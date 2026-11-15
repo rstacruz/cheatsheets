@@ -1,5 +1,6 @@
 ---
 title: Sass
+subtitle: Mature CSS preprocessor
 category: CSS
 updated: 2020-07-03
 weight: -5

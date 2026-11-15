@@ -1,5 +1,6 @@
 ---
 title: Rails
+subtitle: Web framework for Ruby
 category: Rails
 ---
 

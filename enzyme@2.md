@@ -1,5 +1,6 @@
 ---
 title: Enzyme v2
+subtitle: Legacy React test utility
 category: React
 updated: 2017-10-12
 weight: -1

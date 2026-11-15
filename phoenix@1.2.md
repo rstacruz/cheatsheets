@@ -1,5 +1,6 @@
 ---
 title: Phoenix 1.2
+subtitle: Legacy Phoenix framework
 category: Elixir
 weight: -1
 updated: 2018-03-06

@@ -1,5 +1,6 @@
 ---
 title: Projectionist
+subtitle: Vim file projection plugin
 category: Vim
 ---
 

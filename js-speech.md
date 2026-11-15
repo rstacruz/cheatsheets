@@ -1,5 +1,6 @@
 ---
 title: JavaScript speech synthesis
+subtitle: Speech synthesis API
 category: JavaScript
 weight: -1
 updated: 2026-10-04

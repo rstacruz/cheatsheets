@@ -1,5 +1,6 @@
 ---
 title: CSS flexbox
+subtitle: One-dimensional layout system
 category: CSS
 updated: 2020-06-13
 prism_languages: [css]

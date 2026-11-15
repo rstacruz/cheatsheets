@@ -1,5 +1,6 @@
 ---
 title: mise
+subtitle: Dev tool version manager
 category: CLI
 updated: 2026-11-11
 tier: t2

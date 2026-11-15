@@ -1,5 +1,6 @@
 ---
 title: Vimscript snippets
+subtitle: Common code recipes
 category: Vim
 ---
 

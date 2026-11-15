@@ -1,5 +1,6 @@
 ---
 title: Underscore-string
+subtitle: String utility library
 category: Hidden
 # Archived/unmaintained (last release 3.3.6, 2022); prefer native String methods.
 ---

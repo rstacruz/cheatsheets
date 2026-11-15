@@ -1,5 +1,6 @@
 ---
 title: Ledger queries
+subtitle: Query syntax for Ledger
 category: Ledger
 ---
 

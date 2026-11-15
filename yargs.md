@@ -1,5 +1,6 @@
 ---
 title: Yargs
+subtitle: Node CLI option parser
 category: JavaScript libraries
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Ruby
+subtitle: Object-oriented scripting language
 category: Ruby
 tags: [WIP]
 intro: |

@@ -1,5 +1,6 @@
 ---
 title: Vim scripting
+subtitle: Scripting language for Vim
 category: Vim
 prism_languages: [vim]
 updated: 2020-07-05

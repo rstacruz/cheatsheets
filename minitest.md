@@ -1,5 +1,6 @@
 ---
 title: Minitest
+subtitle: Lightweight Ruby test suite
 category: Ruby
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Bootstrap
+subtitle: CSS component framework
 prism_languages: [scss, haml, html]
 weight: -1
 category: CSS

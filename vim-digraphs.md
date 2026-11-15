@@ -1,5 +1,6 @@
 ---
 title: Vim digraphs
+subtitle: Special character input reference
 category: Vim
 ---
 

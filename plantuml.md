@@ -1,5 +1,6 @@
 ---
 title: PlantUML
+subtitle: Diagram markup language
 intro: |
   PlantUML is a markup language for creating diagrams.
 links:

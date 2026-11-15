@@ -1,5 +1,6 @@
 ---
 title: HTML emails
+subtitle: Email-compatible HTML markup
 category: HTML
 updated: 2017-08-30
 ---

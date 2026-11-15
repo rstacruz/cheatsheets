@@ -1,5 +1,6 @@
 ---
 title: Tape
+subtitle: TAP test harness
 category: JavaScript libraries
 ---
 

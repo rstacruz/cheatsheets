@@ -1,5 +1,6 @@
 ---
 title: React.js
+subtitle: UI library for web apps
 category: React
 tags: [Featured]
 updated: 2026-11-11

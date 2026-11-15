@@ -1,5 +1,6 @@
 ---
 title: HTML meta tags
+subtitle: Document metadata tags
 category: HTML
 updated: 2020-03-20
 weight: -3

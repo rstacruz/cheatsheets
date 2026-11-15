@@ -1,5 +1,6 @@
 ---
 title: Rails tricks
+subtitle: Assorted Rails tips
 category: Rails
 tags: [Archived]
 archived: This sheet may describe practices that might be outdated.

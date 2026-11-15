@@ -1,5 +1,6 @@
 ---
 title: Emacs
+subtitle: Extensible text editor
 category: CLI
 ---
 

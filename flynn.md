@@ -1,5 +1,6 @@
 ---
 title: Flynn
+subtitle: Open-source platform as a service
 category: Hidden
 # Discontinued and unmaintained; repo archived 2021, infrastructure shut down.
 ---

@@ -1,5 +1,6 @@
 ---
 title: Weinre
+subtitle: Remote web inspector
 category: Hidden
 # Deprecated since 2016.
 tags: [Archived]

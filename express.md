@@ -1,5 +1,6 @@
 ---
 title: Express.js
+subtitle: Node.js web framework
 category: JavaScript libraries
 ---
 

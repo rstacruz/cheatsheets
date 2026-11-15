@@ -1,5 +1,6 @@
 ---
 title: CircleCI
+subtitle: CI configuration reference
 category: Devops
 links:
   - title: https://circleci.com/docs/config-sample

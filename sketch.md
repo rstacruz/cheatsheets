@@ -1,5 +1,6 @@
 ---
 title: Sketch
+subtitle: Mac vector design app
 category: Apps
 updated: 2017-08-30
 ---

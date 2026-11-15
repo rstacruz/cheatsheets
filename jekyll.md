@@ -1,5 +1,6 @@
 ---
 title: Jekyll
+subtitle: Static site generator
 jekyll_escape: true
 prism_languages: [bash, yaml, ruby]
 category: Jekyll

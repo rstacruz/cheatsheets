@@ -1,5 +1,6 @@
 ---
 title: fetch()
+subtitle: Browser HTTP request function
 category: JavaScript
 weight: -3
 updated: 2026-10-04

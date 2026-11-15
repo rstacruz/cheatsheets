@@ -1,5 +1,6 @@
 ---
 title: Watchexec
+subtitle: File watcher command runner
 updated: 2017-10-18
 category: CLI
 weight: -1

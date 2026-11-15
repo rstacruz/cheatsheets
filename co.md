@@ -1,5 +1,6 @@
 ---
 title: co
+subtitle: Generator-based async runner
 category: Hidden
 # Superseded by native async/await; last release 4.6.0 (2015).
 updated: 2017-10-27

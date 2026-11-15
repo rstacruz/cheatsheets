@@ -1,5 +1,6 @@
 ---
 title: Legacy IE bugs
+subtitle: Legacy browser bug catalog
 category: Hidden
 # Documents bugs in IE6-IE8; IE was retired in 2022.
 updated: 2018-03-06

@@ -1,5 +1,6 @@
 ---
 title: "Phoenix: Ecto migrations"
+subtitle: Database migration tasks
 category: Elixir
 weight: -1
 updated: 2020-02-23

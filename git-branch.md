@@ -1,5 +1,6 @@
 ---
 title: Git branches
+subtitle: Branch management workflow
 category: Git
 updated: 2020-02-13
 ---

@@ -1,5 +1,6 @@
 ---
 title: Sinon
+subtitle: JavaScript test doubles
 category: JavaScript libraries
 weight: -1
 updated: 2017-10-27

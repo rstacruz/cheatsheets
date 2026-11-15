@@ -1,5 +1,6 @@
 ---
 title: Appcache
+subtitle: Deprecated offline cache API
 category: Hidden
 # Application Cache was removed from browsers (Firefox 84 / Chrome 95).
 ---

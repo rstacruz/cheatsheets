@@ -1,5 +1,6 @@
 ---
 title: Machinist
+subtitle: Ruby fixture library
 category: Hidden
 # No longer in active development since 2013.
 tags: [Archived]

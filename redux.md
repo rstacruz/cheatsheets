@@ -1,5 +1,6 @@
 ---
 title: Redux
+subtitle: Predictable state container
 category: React
 updated: 2026-11-14
 weight: -3

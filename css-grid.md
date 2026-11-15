@@ -1,5 +1,6 @@
 ---
 title: CSS Grid
+subtitle: Two-dimensional layout system
 category: CSS
 updated: 2019-08-23
 prism_languages: [css]

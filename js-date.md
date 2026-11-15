@@ -1,5 +1,6 @@
 ---
 title: JavaScript Date
+subtitle: Date and time API
 category: JavaScript
 weight: -3
 updated: 2026-10-04

@@ -1,5 +1,6 @@
 ---
 title: Command Line Interface Pages
+subtitle: CLI cheatsheet format
 category: CLI
 updated: 2023-02-23
 keywords:

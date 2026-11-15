@@ -1,5 +1,6 @@
 ---
 title: Bookshelf.js
+subtitle: SQL ORM for Node.js
 category: JavaScript libraries
 ---
 

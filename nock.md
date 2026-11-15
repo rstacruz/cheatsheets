@@ -1,5 +1,6 @@
 ---
 title: Nock
+subtitle: HTTP mocking library
 category: JavaScript libraries
 ---
 

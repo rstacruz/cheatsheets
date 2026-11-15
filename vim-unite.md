@@ -1,5 +1,6 @@
 ---
 title: Vim-Unite
+subtitle: Unified search interface
 category: Hidden
 # Deprecated by its author; superseded by denite.nvim and later ddu.vim.
 ---

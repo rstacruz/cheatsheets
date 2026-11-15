@@ -1,5 +1,6 @@
 ---
 title: Ansible
+subtitle: Configuration management tool
 category: Ansible
 links:
   - title: https://www.ansible.com/

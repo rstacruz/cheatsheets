@@ -1,5 +1,6 @@
 ---
 title: Webpack
+subtitle: Asset and module bundler
 category: JavaScript libraries
 updated: 2026-11-14
 intro: |

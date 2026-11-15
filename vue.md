@@ -1,5 +1,6 @@
 ---
 title: Vue.js
+subtitle: UI framework
 category: JavaScript
 updated: 2019-12-26
 weight: -10

@@ -1,5 +1,6 @@
 ---
 title: Flashlight
+subtitle: Spotlight extension for macOS
 category: Hidden
 # Discontinued; broken on macOS Big Sur+ after Apple changed the Spotlight API.
 ---

@@ -1,5 +1,6 @@
 ---
 title: Devise
+subtitle: Rails authentication gem
 intro: |
   [Devise](https://github.com/plataformatec/devise) is a flexible authentication
   gem.

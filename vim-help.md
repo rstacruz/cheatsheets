@@ -1,5 +1,6 @@
 ---
 title: Vim helpfiles
+subtitle: Help file authoring reference
 category: Vim
 updated: 2017-09-09
 ---

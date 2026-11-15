@@ -1,5 +1,6 @@
 ---
 title: Vagrant
+subtitle: Virtual machine environment manager
 category: Devops
 intro: |
  [Vagrant](http://vagrantup.com) lets you build isolated virtual environments for your apps.

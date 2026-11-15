@@ -1,5 +1,6 @@
 ---
 title: Travis.yml
+subtitle: Hosted continuous integration service
 category: Devops
 prism_languages: [yaml]
 intro: |

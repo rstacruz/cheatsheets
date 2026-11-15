@@ -1,5 +1,6 @@
 ---
 title: Textile
+subtitle: Lightweight markup language
 category: Markup
 updated: 2026-11-14
 weight: -1

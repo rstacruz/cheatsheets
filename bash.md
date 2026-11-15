@@ -1,5 +1,6 @@
 ---
 title: Bash scripting
+subtitle: Shell scripting language
 category: CLI
 tags: [Featured]
 updated: 2026-11-11

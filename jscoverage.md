@@ -1,5 +1,6 @@
 ---
 title: jscoverage
+subtitle: Code coverage tool
 category: Hidden
 # Discontinued after 0.6.0 (2015); replaced by istanbul/nyc.
 updated: 2026-10-04

@@ -1,5 +1,6 @@
 ---
 title: Rsync
+subtitle: File sync utility
 category: CLI
 weight: -1
 ---

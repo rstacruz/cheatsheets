@@ -1,5 +1,6 @@
 ---
 title: adb (Android Debug Bridge)
+subtitle: Android device debugging bridge
 category: CLI
 weight: -1
 authors:

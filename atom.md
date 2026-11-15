@@ -1,5 +1,6 @@
 ---
 title: Atom
+subtitle: Discontinued hackable text editor
 category: Hidden
 # Atom was discontinued by GitHub in 2022 and its repositories archived.
 updated: 2021-09-10

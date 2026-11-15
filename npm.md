@@ -1,5 +1,6 @@
 ---
 title: npm
+subtitle: Node.js package manager
 category: JavaScript
 weight: -1
 updated: 2026-11-11

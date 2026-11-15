@@ -1,5 +1,6 @@
 ---
 title: Ruby 2.1
+subtitle: Ruby 2.1 feature summary
 category: Ruby
 tags: [Archived]
 archived: This sheet covers Ruby 2.1, which reached end of life in 2017.

@@ -1,5 +1,6 @@
 ---
 title: Elixir
+subtitle: Functional language on BEAM
 category: Elixir
 tags: [New]
 updated: 2018-07-04

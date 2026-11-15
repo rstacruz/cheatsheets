@@ -1,5 +1,6 @@
 ---
 title: Input tag
+subtitle: Input element reference
 category: HTML
 updated: 2017-10-30
 weight: -3

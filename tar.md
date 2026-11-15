@@ -1,5 +1,6 @@
 ---
 title: tar
+subtitle: Archive utility
 category: CLI
 updated: 2022-08-11
 intro: Concatenate, Deflate, Inflate files

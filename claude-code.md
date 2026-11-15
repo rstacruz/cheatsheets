@@ -1,5 +1,6 @@
 ---
 title: Claude Code
+subtitle: AI coding agent
 category: Agents
 tags: [Featured]
 updated: 2026-11-11

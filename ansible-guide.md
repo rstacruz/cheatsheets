@@ -1,5 +1,6 @@
 ---
 title: "Ansible quickstart"
+subtitle: First-playbook walkthrough
 category: Ansible
 description: |
   A quick guide to getting started with your first Ansible playbook.

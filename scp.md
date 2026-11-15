@@ -1,5 +1,6 @@
 ---
 title: scp
+subtitle: Secure file copy
 category: CLI
 updated: 2018-12-25
 authors:

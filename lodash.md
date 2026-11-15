@@ -1,5 +1,6 @@
 ---
 title: Lodash
+subtitle: JavaScript utility library
 category: JavaScript libraries
 weight: -3
 updated: 2020-06-24

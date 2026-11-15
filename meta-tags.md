@@ -1,5 +1,6 @@
 ---
 title: Meta-tags gem
+subtitle: Rails meta tag helper
 category: Ruby libraries
 weight: -1
 updated: 2017-09-08

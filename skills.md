@@ -1,5 +1,6 @@
 ---
 title: Agent skills
+subtitle: On-demand agent instructions
 category: Agents
 tags: [Featured]
 updated: 2026-11-11

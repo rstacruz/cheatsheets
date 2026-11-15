@@ -1,5 +1,6 @@
 ---
 title: Koa
+subtitle: Async middleware framework
 category: JavaScript libraries
 intro: |
   Koa is a web framework for Node.js.

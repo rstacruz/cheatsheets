@@ -1,5 +1,6 @@
 ---
 title: Virtual-dom
+subtitle: Virtual DOM library
 category: Hidden
 # No release since 2.1.1 (2015); unmaintained.
 ---

@@ -185,7 +185,7 @@ See: [Bash variables](https://www.gnu.org/software/bash/manual/html_node/Bash-Va
 
 ### Common settings
 
-```inputrc
+```ini
 # ~/.inputrc
 set editing-mode emacs
 set completion-ignore-case on
@@ -203,7 +203,7 @@ See: [Init file syntax](https://www.gnu.org/software/bash/manual/html_node/Readl
 
 ### Rebinding keys
 
-```inputrc
+```ini
 "\C-x\C-r": re-read-init-file
 "\e[1;5C": forward-word
 "\e[A": history-search-backward
@@ -217,7 +217,7 @@ See: [Readline init file](https://www.gnu.org/software/bash/manual/html_node/Rea
 
 ### Macros
 
-```inputrc
+```ini
 "\C-o": "> output"
 "\C-g": "git status\C-m"
 ```
@@ -229,7 +229,7 @@ See: [Keyboard macros](https://tiswww.case.edu/php/chet/readline/readline.html#K
 
 ### Conditionals
 
-```inputrc
+```ini
 $include /etc/inputrc
 
 $if Bash
@@ -255,7 +255,7 @@ See: [Conditional init constructs](https://tiswww.case.edu/php/chet/readline/rea
 
 #### Persist
 
-```inputrc
+```ini
 set editing-mode vi
 ```
 
@@ -300,7 +300,7 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 
 #### inputrc
 
-```inputrc
+```ini
 set keymap vi-insert
 "\C-l": clear-screen
 ```

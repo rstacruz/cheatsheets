@@ -109,8 +109,8 @@ See: [Open](https://beancount.github.io/docs/beancount_language_syntax/#open)
   asset-class: "cash"
 ```
 
-Declaring a commodity is optional; using it is enough. The directive exists to
-attach metadata that plugins and reports can read.
+Declaring a commodity is optional; using it is enough. The directive attaches
+metadata that plugins and reports read.
 
 See: [Commodity](https://beancount.github.io/docs/beancount_language_syntax/#commodity)
 
@@ -287,7 +287,7 @@ See: [How inventories work](https://beancount.github.io/docs/how_inventories_wor
 2024-03-02 document Assets:Bank:Checking "stmts/2024-03.pdf"
 ```
 
-Both land in the account's journal. `document` points at a file that must
+Both appear in the account's journal. `document` points at a file that must
 exist on disk.
 
 See: [Notes](https://beancount.github.io/docs/beancount_language_syntax/#notes)
@@ -301,7 +301,7 @@ See: [Notes](https://beancount.github.io/docs/beancount_language_syntax/#notes)
 ```
 
 `event` records a value over time, `query` saves a BQL statement, and `custom`
-is the escape hatch plugins use for their own directives.
+carries directives that plugins define.
 
 See: [Events](https://beancount.github.io/docs/beancount_language_syntax/#events)
 
@@ -331,7 +331,7 @@ include "transactions/2024.beancount"
 ```
 
 Paths are relative to the including file. Everything is merged before sorting
-by date, so includes can be arranged however you like.
+by date, so the include order does not matter.
 
 See: [Includes](https://beancount.github.io/docs/beancount_language_syntax/#includes)
 
@@ -460,8 +460,8 @@ JOURNAL "Assets:Bank" AT COST
 PRINT FROM year = 2024
 ```
 
-`BALANCES`, `JOURNAL` and `PRINT` expand to SELECTs. Add
-`FROM CLOSE ON 2024-12-31 CLEAR` for a period report.
+`BALANCES`, `JOURNAL` and `PRINT` expand to SELECTs.
+`FROM CLOSE ON 2024-12-31 CLEAR` turns one into a period report.
 
 See: [High-level shortcuts](https://beancount.github.io/docs/beancount_query_language/#high-level-shortcuts)
 

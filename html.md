@@ -1,12 +1,6 @@
 ---
 title: HTML
-category: Hidden
-# 2012 boilerplate: IE conditional comments, Chrome Frame, ga.js, and webfont.js v1.
-tags: [Archived]
-archived: |
-  This is 2012 boilerplate: IE conditional comments, Google Chrome Frame,
-  `ga.js`, and `webfont.js` v1 are all retired. Start from
-  [MDN's HTML docs](https://developer.mozilla.org/en-US/docs/Web/HTML).
+category: HTML
 ---
 
 ### Head stuff

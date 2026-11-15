@@ -18,7 +18,7 @@ Archive when a reader following the sheet would hit a dead end.
 | ------------------------ | ----------------------------------------------- |
 | The service is gone      | Divshot, legacy TestFlight, Vainglory           |
 | The project is retired   | Enzyme, Modernizr, AngularJS                    |
-| The platform removed it  | AppCache, IE conditional comments, Universal Analytics |
+| The platform removed it  | AppCache, Universal Analytics, Flash            |
 | The instructions call dead endpoints | `rawgit.com`, `testflightapp.com`, `circle.yml` |
 | The data is ephemeral    | phone directories, prices, local listings       |
 | The sheet is a link list | curated links whose targets have rotted         |
@@ -35,6 +35,8 @@ or a browser-removal version. Put the reason in the note.
   Ruby 2.1 was archived because it reached end of life, not because it was old.
 - **A sheet that just needs a refresh.** Dead links, moved docs, and new syntax
   are refresh work. Archiving would throw away a fixable page.
+- **A sheet that needs a rewrite.** Keep it listed while someone plans to redo
+  it; `html` was left alone for this reason.
 - **Unmaintained but still usable.** A library with no release since 2019 can
   still have an accurate API. Archive only when following the sheet breaks.
   Examples from a 2026 sweep that stayed: `gremlins.js` (dormant, API matches

@@ -47,6 +47,5 @@
   "vimscript-snippets#Autoload",
   "vimscript-snippets#Misc",
   "vue@1.0.28#API",
-  "vue@1.0.28#Vue templates",
-  "web-workers#Web workers"
+  "vue@1.0.28#Vue templates"
 ]

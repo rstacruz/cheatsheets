@@ -3,6 +3,10 @@ title: Flashlight
 subtitle: Spotlight extension for macOS
 category: Hidden
 # Discontinued; broken on macOS Big Sur+ after Apple changed the Spotlight API.
+tags: [Archived]
+archived: |
+  Flashlight was discontinued and broke on macOS Big Sur+ when Apple changed
+  the Spotlight API. Use Spotlight, Alfred, or Raycast instead.
 ---
 
 ## Commands

@@ -3,6 +3,11 @@ title: Vim-Unite
 subtitle: Unified search interface
 category: Hidden
 # Deprecated by its author; superseded by denite.nvim and later ddu.vim.
+tags: [Archived]
+archived: |
+  Unite was deprecated by its author. Use
+  [ddu.vim](https://github.com/Shougo/ddu.vim) or
+  [fzf.vim](https://github.com/junegunn/fzf.vim) instead.
 ---
 
 ### Usage

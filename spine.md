@@ -3,7 +3,10 @@ title: Spine
 subtitle: JavaScript MVC framework
 category: Hidden
 # No longer maintained; last release around 2014.
-tags: [Outdated]
+tags: [Archived]
+archived: |
+  Spine has not been maintained since around 2014. Use a maintained framework
+  such as React, Vue, or Svelte.
 intro: |
   Spine is an MVC framework for JavaScript.
 links:

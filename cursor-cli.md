@@ -10,7 +10,7 @@ keywords:
   - Sandbox
   - Approvals
 intro: |
-  [Cursor CLI](https://cursor.com/docs/cli) is Cursor's coding agent for the terminal, installed as `agent`. This reference covers the TUI, print mode, and `cli-config.json`.
+  [Cursor CLI](https://cursor.com/docs/cli) is Cursor's coding agent for the terminal, installed as `agent`. Covers the TUI, print mode, and `cli-config.json`.
 links:
   - title: Cursor CLI documentation
     url: https://cursor.com/docs/cli
@@ -60,7 +60,7 @@ agent --continue          # alias for --resume=-1
 agent --resume <chat-id>  # resume a specific chat
 ```
 
-`agent create-chat` makes an empty chat and prints its ID, which pairs with `--resume`.
+`agent create-chat` makes an empty chat and prints its ID; pass it to `--resume`.
 
 See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 
@@ -160,7 +160,7 @@ agent -p --output-format json "list the TODOs" | jq .result
 agent -p --force "upgrade the test runner"
 ```
 
-Print mode follows the session's approval rules but cannot stop to ask. Workspace edits and allowlisted commands run; anything needing approval is rejected.
+Print mode follows the session's approval rules but cannot stop to ask: allowlisted commands and workspace edits run, anything else is rejected.
 
 Add `--force` to run everything not explicitly denied. Writes outside the workspace, `.vscode/`, and `.git/hooks/` stay blocked.
 
@@ -356,7 +356,7 @@ agent models                      # same, as a subcommand
 agent --model gpt-5 "fix tests"   # pin one for a run
 ```
 
-Fresh installs start on Auto. Team model restrictions shrink the list, and a blocked `--model` exits with the restriction message.
+Fresh installs start on Auto. Team restrictions shrink the list; a blocked `--model` exits with the message.
 
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration#models)
 
@@ -387,11 +387,11 @@ See: [Changelog](https://cursor.com/docs/cli/changelog)
 
 <!-- {: .-shortcuts} -->
 
-Auto-review runs allowlisted calls, tries the sandbox for shell commands, and sends the rest to a classifier.
+Auto-review tries the sandbox for shell commands, then sends the rest to a classifier.
 
 Set the mode with `approvalMode` in `cli-config.json`, or toggle Run Everything with `/run-everything`.
 
-`--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow; without it, print mode rejects calls needing approval.
+`--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow.
 
 See: [Run modes](https://cursor.com/docs/agent/security/run-modes)
 
@@ -427,7 +427,9 @@ agent sandbox enable            # keep it on for every run
 agent sandbox run ls --network  # one command, network allowed
 ```
 
-`/sandbox` opens a menu for the mode and network access; settings persist. Inside the sandbox the workspace is writable, network is limited to `sandbox.json` plus Cursor defaults, and `.git/hooks` stays protected.
+`/sandbox` opens a menu for the sandbox mode and network access; settings persist.
+
+Inside it, the workspace is writable and network is limited to `sandbox.json` plus Cursor defaults. `.git/hooks` stays protected.
 
 On Linux the sandbox needs Landlock (kernel 6.2+) and unprivileged user namespaces; otherwise the CLI asks for approval instead of sandboxing.
 
@@ -473,7 +475,7 @@ alwaysApply: false
 ---
 ```
 
-`alwaysApply: true` includes a rule in every session. `globs` attaches it when a matching file is in context, and `description` lets the agent pull it in when relevant.
+`alwaysApply: true` includes a rule in every session. `globs` adds it for matching files; `description` lets the agent pull it in when relevant.
 
 With neither, a rule loads only on `@`-mention. Plain `.md` files in `.cursor/rules` are ignored.
 

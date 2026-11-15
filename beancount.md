@@ -43,7 +43,7 @@ See: [Installing Beancount](https://beancount.github.io/docs/installing_beancoun
 
 #### ledger.beancount
 
-```beancount
+```
 option "title" "Personal"
 option "operating_currency" "USD"
 
@@ -89,7 +89,7 @@ See: [Accounts](https://beancount.github.io/docs/beancount_language_syntax/#acco
 
 ### Open and close
 
-```beancount
+```
 2024-01-01 open Assets:Bank:Checking     USD
 2024-01-01 open Assets:Broker:HOOL       HOOL,USD
 2024-01-01 open Assets:Cash                     ; any currency
@@ -103,7 +103,7 @@ See: [Open](https://beancount.github.io/docs/beancount_language_syntax/#open)
 
 ### Commodities
 
-```beancount
+```
 2024-01-01 commodity USD
   name: "US Dollar"
   asset-class: "cash"
@@ -118,7 +118,7 @@ See: [Commodity](https://beancount.github.io/docs/beancount_language_syntax/#com
 
 ### Payee and narration
 
-```beancount
+```
 2024-01-05 * "Cafe Mogador" "Lamb tagine"
   Expenses:Food            37.45 USD
   Assets:Bank:Checking
@@ -139,7 +139,7 @@ See: [Payee & narration](https://beancount.github.io/docs/beancount_language_syn
 
 ### Flags, tags, links
 
-```beancount
+```
 2024-01-05 * "Flight to Berlin" #berlin ^invoice-42
   Liabilities:Card        -1230.27 USD
   Expenses:Travel
@@ -162,7 +162,7 @@ See: [Tags](https://beancount.github.io/docs/beancount_language_syntax/#tags)
 
 ### Postings
 
-```beancount
+```
 2024-01-05 * "Cafe Mogador" "Lunch"
   Liabilities:Card        -37.45 USD
   Expenses:Food                      ; 37.45 USD
@@ -181,7 +181,7 @@ See: [Amount interpolation](https://beancount.github.io/docs/beancount_language_
 
 ### Assertions
 
-```beancount
+```
 2024-02-01 balance Assets:Bank:Checking   1000.00 USD
 2024-02-01 balance Assets:Cash             210.00 CAD
 ```
@@ -193,7 +193,7 @@ See: [Balance assertions](https://beancount.github.io/docs/beancount_language_sy
 
 ### Tolerance
 
-```beancount
+```
 2024-02-01 balance Assets:Bank:Checking   1000.00 ~ 0.01 USD
 2024-02-01 balance Assets:Funds            319.020 ~ 0.002 RGAGX
 ```
@@ -205,7 +205,7 @@ See: [Explicit tolerances](https://beancount.github.io/docs/precision_tolerances
 
 ### Pad
 
-```beancount
+```
 2024-01-02 pad Assets:Bank:Checking Equity:Opening-Balances
 2024-01-03 balance Assets:Bank:Checking   1000.00 USD
 ```
@@ -219,7 +219,7 @@ See: [Pad](https://beancount.github.io/docs/beancount_language_syntax/#pad)
 
 ### Prices
 
-```beancount
+```
 2024-03-02 price HOOL   200.00 USD
 2024-03-02 price USD    1.35 CAD
 
@@ -241,7 +241,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
 
 #### Per-unit cost
 
-```beancount
+```
 2024-02-05 * "Buy shares"
   Assets:Broker:HOOL      10 HOOL {183.07 USD}
   Assets:Bank:Checking
@@ -254,7 +254,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
 
 #### Total cost
 
-```beancount
+```
 2024-02-05 * "Buy shares"
   Assets:Broker:HOOL      10 HOOL {{1830.70 USD}}
   Assets:Bank:Checking
@@ -262,7 +262,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
 
 #### Labelled lot
 
-```beancount
+```
 2024-02-05 * "Buy shares"
   Assets:Broker:HOOL       5 HOOL {183.07 USD, "lot-a"}
   Assets:Bank:Checking
@@ -282,7 +282,7 @@ See: [How inventories work](https://beancount.github.io/docs/how_inventories_wor
 
 ### Notes and documents
 
-```beancount
+```
 2024-03-02 note Assets:Bank:Checking "Called about the wire"
 2024-03-02 document Assets:Bank:Checking "stmts/2024-03.pdf"
 ```
@@ -294,7 +294,7 @@ See: [Notes](https://beancount.github.io/docs/beancount_language_syntax/#notes)
 
 ### Events, queries, custom
 
-```beancount
+```
 2024-03-02 event "location" "Paris, France"
 2024-03-02 query "food" "SELECT account, sum(position)"
 2024-03-02 custom "budget" "Expenses:Food" TRUE 500.00 USD
@@ -307,7 +307,7 @@ See: [Events](https://beancount.github.io/docs/beancount_language_syntax/#events
 
 ### Metadata
 
-```beancount
+```
 2024-02-05 * "Buy shares"
   statement: "confirm-123.pdf"
   Assets:Broker:HOOL      10 HOOL {183.07 USD}
@@ -325,7 +325,7 @@ See: [Metadata](https://beancount.github.io/docs/beancount_language_syntax/#meta
 
 ### Includes
 
-```beancount
+```
 include "accounts.beancount"
 include "transactions/2024.beancount"
 ```
@@ -337,7 +337,7 @@ See: [Includes](https://beancount.github.io/docs/beancount_language_syntax/#incl
 
 ### Options
 
-```beancount
+```
 option "title" "Personal Ledger"
 option "operating_currency" "USD"
 option "documents" "/home/me/statements"

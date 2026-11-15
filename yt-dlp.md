@@ -279,7 +279,8 @@ yt-dlp --embed-chapters URL
 ```
 
 `--embed-metadata` also embeds chapters and infojson unless disabled.
-All three need ffmpeg.
+Metadata and chapters need ffmpeg. Thumbnails can embed with mutagen
+or AtomicParsley instead.
 
 See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-options)
 
@@ -294,7 +295,7 @@ yt-dlp --no-overwrites URL    # skip files already there
 ```
 
 Downloads use `.part` files and resume by default; `--no-part`
-removes the temporary file but loses resuming.
+skips the temporary file but loses resuming.
 
 See: [Filesystem options](https://github.com/yt-dlp/yt-dlp#filesystem-options)
 

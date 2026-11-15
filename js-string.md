@@ -1,5 +1,6 @@
 ---
 title: JavaScript Strings
+subtitle: String manipulation reference
 category: JavaScript
 weight: -3
 updated: 2026-10-04

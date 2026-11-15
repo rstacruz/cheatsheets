@@ -1,5 +1,6 @@
 ---
 title: Yaml
+subtitle: Human-readable data format
 category: Markup
 prism_languages: [yaml]
 ---

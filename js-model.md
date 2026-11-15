@@ -1,5 +1,6 @@
 ---
 title: js-model
+subtitle: CoffeeScript model library
 category: Hidden
 # Last shipped 0.11.0 (~2012); unmaintained for a decade.
 updated: 2026-10-04

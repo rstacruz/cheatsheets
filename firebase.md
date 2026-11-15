@@ -1,5 +1,6 @@
 ---
 title: Firebase
+subtitle: Backend as a service
 category: Hidden
 # Documents the pre-2016 Firebase API (`new Firebase()`), removed in SDK 3.
 prism_languages: [coffeescript]

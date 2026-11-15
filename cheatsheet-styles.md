@@ -1,5 +1,6 @@
 ---
 title: Cheatsheet styles
+subtitle: Styling reference for cheatsheets
 tags: [WIP]
 updated: 2017-10-26
 intro: |

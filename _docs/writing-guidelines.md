@@ -7,6 +7,7 @@ Fields and their meanings live in [`src/types/SheetFrontmatter.ts`](https://gith
 ```yaml
 ---
 title: React
+subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
 updated: 2024-01-01
@@ -14,6 +15,7 @@ updated: 2024-01-01
 ```
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
+- **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 
 ## Content organisation
 

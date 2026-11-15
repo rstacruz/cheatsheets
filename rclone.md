@@ -1,5 +1,6 @@
 ---
 title: rclone
+subtitle: Cloud storage sync tool
 category: CLI
 ---
 

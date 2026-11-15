@@ -1,5 +1,6 @@
 ---
 title: Vimscript functions
+subtitle: Built-in function reference
 category: Vim
 ---
 

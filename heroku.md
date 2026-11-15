@@ -1,5 +1,6 @@
 ---
 title: Heroku
+subtitle: Cloud application hosting platform
 category: Devops
 updated: 2026-10-30
 description: |

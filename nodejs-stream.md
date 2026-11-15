@@ -1,5 +1,6 @@
 ---
 title: Node.js streams
+subtitle: Streaming data API
 category: Node.js
 weight: -1
 updated: 2017-08-30

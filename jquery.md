@@ -1,5 +1,6 @@
 ---
 title: jQuery
+subtitle: DOM manipulation library
 category: JavaScript libraries
 tags: [WIP]
 weight: -1

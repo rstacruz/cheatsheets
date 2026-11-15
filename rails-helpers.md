@@ -1,5 +1,6 @@
 ---
 title: Rails helpers
+subtitle: View helper reference
 category: Rails
 ---
 

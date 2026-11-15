@@ -1,5 +1,6 @@
 ---
 title: Emmet
+subtitle: HTML abbreviation expander
 category: Markup
 prism_languages: [html, css]
 updated: 2020-07-03

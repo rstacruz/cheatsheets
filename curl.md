@@ -1,5 +1,6 @@
 ---
 title: Curl
+subtitle: Command-line HTTP client
 category: CLI
 tags: [Featured]
 updated: 2026-11-11

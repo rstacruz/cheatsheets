@@ -1,5 +1,6 @@
 ---
 title: Absinthe
+subtitle: GraphQL server framework for Elixir
 category: Hidden
 tags: [WIP]
 updated: 2017-10-10

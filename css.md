@@ -1,5 +1,6 @@
 ---
 title: CSS
+subtitle: Stylesheet language
 category: CSS
 weight: -1
 keywords:

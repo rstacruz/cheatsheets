@@ -1,5 +1,6 @@
 ---
 title: Makefile
+subtitle: Build automation file
 prism_languages: [makefile]
 category: CLI
 ---

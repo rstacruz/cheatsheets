@@ -1,5 +1,6 @@
 ---
 title: Handlebars.js
+subtitle: JavaScript templating engine
 category: JavaScript libraries
 weight: -1
 ---

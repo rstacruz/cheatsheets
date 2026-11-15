@@ -1,5 +1,6 @@
 ---
 title: Sinon-chai
+subtitle: Sinon assertions for Chai
 category: JavaScript libraries
 links:
   - title: Sinon-chai

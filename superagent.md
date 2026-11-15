@@ -1,5 +1,6 @@
 ---
 title: Superagent
+subtitle: HTTP client for Node
 category: JavaScript libraries
 updated: 2018-04-21
 tags:

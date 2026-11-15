@@ -1,5 +1,6 @@
 ---
 title: Slim
+subtitle: Ruby template engine
 category: Ruby libraries
 prism_languages: [jade]
 weight: -1

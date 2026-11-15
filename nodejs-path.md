@@ -1,5 +1,6 @@
 ---
 title: Node.js path API
+subtitle: Path manipulation module
 category: Node.js
 intro: |
   Quick reference to the [Node.js path API](https://nodejs.org/api/path.html).

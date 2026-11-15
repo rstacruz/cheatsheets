@@ -1,5 +1,6 @@
 ---
 title: Rollup.js
+subtitle: ES module bundler
 category: JavaScript libraries
 updated: 2020-01-29
 authors:

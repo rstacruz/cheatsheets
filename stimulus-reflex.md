@@ -1,5 +1,6 @@
 ---
 title: StimulusReflex
+subtitle: Rails reactive page updates
 category: Ruby
 updated: 2021-01-07
 ---

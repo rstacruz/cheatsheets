@@ -1,5 +1,6 @@
 ---
 title: GNU grep
+subtitle: Pattern search utility
 category: CLI
 updated: 2021-08-23
 ---

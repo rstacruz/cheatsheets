@@ -1,5 +1,6 @@
 ---
 title: FFaker
+subtitle: Fake data generator
 category: Ruby libraries
 updated: 2017-09-12
 ---

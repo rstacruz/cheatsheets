@@ -1,5 +1,6 @@
 ---
 title: Man
+subtitle: Manual page viewer
 category: CLI
 ---
 

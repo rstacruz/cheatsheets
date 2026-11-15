@@ -1,5 +1,6 @@
 ---
 title: Herdr
+subtitle: Terminal workspace manager
 category: Agents
 updated: 2026-11-11
 tier: t2

@@ -1,5 +1,6 @@
 ---
 title: Pacman
+subtitle: Arch Linux package manager
 category: Linux
 updated: 2018-07-07
 intro: |

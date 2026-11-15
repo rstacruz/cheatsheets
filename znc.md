@@ -1,5 +1,6 @@
 ---
 title: ZNC bouncer
+subtitle: IRC bouncer
 intro: |
   A quick reference to the [ZNC](https://znc.bg) IRC bouncer's common commands.
 links:

@@ -1,5 +1,6 @@
 ---
 title: CSS tricks
+subtitle: Assorted CSS snippets
 category: CSS
 ---
 

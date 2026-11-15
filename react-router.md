@@ -1,5 +1,6 @@
 ---
 title: React-router
+subtitle: Routing library for React
 category: React
 links:
   - title: https://reactrouter.com/

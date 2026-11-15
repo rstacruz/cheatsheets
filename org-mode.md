@@ -1,5 +1,6 @@
 ---
 title: Org Mode
+subtitle: Emacs note organizer
 tags: [WIP]
 category: Apps
 updated: 2018-02-19

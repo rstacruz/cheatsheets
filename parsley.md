@@ -1,5 +1,6 @@
 ---
 title: Parsley.js
+subtitle: Frontend form validation
 updated: 2018-12-06
 weight: -1
 category: JavaScript libraries

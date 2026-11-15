@@ -1,5 +1,6 @@
 ---
 title: docker-compose
+subtitle: Multi-container app definition
 category: Devops
 prism_languages: [yaml]
 weight: -1

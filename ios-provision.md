@@ -1,5 +1,6 @@
 ---
 title: iOS Provisioning Profiles
+subtitle: Code signing for iOS
 category: Hidden
 # testflightapp.com shut down in 2015; Xcode has signed apps automatically since Xcode 8.
 tags: [Archived]

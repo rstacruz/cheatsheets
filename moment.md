@@ -1,5 +1,6 @@
 ---
 title: Moment.js
+subtitle: Date manipulation library
 category: JavaScript libraries
 updated: 2026-11-14
 intro: |

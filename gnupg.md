@@ -1,5 +1,6 @@
 ---
 title: GnuPG
+subtitle: OpenPGP encryption suite
 category: CLI
 tags: []
 updated: 2017-10-22

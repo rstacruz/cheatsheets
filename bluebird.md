@@ -1,5 +1,6 @@
 ---
 title: bluebird.js
+subtitle: Promise library for Node
 category: Hidden
 # Last release 3.7.2 (2019-11-28); upstream asks projects to use native
 # promises instead.

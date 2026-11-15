@@ -1,5 +1,6 @@
 ---
 title: Vimdiff
+subtitle: Vim diff comparison mode
 category: Vim
 updated: 2018-12-06
 weight: -10

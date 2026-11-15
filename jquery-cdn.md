@@ -1,5 +1,6 @@
 ---
 title: jQuery CDN
+subtitle: Archived jQuery CDN reference
 category: JavaScript libraries
 tags: [Archived]
 archived: This sheet lists a CDN URL for jQuery 1.11, which is no longer current.

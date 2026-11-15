@@ -1,5 +1,6 @@
 ---
 title: Riot.js
+subtitle: Tiny component UI library
 category: JavaScript libraries
 intro: |
   Riot is a UI library for JavaScript.

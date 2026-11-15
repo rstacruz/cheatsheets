@@ -1,5 +1,6 @@
 ---
 title: Pry
+subtitle: Runtime console for Ruby
 category: Ruby libraries
 intro: |
   Pry is a runtime development console for Ruby.

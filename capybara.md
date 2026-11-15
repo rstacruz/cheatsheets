@@ -1,5 +1,6 @@
 ---
 title: Capybara
+subtitle: Browser test automation for Ruby
 category: Ruby libraries
 weight: -5
 updated: 2020-06-13

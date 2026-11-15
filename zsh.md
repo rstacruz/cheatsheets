@@ -1,5 +1,6 @@
 ---
 title: zsh
+subtitle: Unix shell
 category: CLI
 ---
 

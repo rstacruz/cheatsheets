@@ -1,5 +1,6 @@
 ---
 title: Herdr agents
+subtitle: Coding agent state detection
 category: Agents
 updated: 2026-11-15
 tier: t2

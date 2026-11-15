@@ -1,5 +1,6 @@
 ---
 title: Tabular
+subtitle: Vim text alignment plugin
 category: Vim
 updated: 2017-10-11
 weight: -1

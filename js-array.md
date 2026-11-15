@@ -1,5 +1,6 @@
 ---
 title: JavaScript Arrays
+subtitle: Array manipulation reference
 category: JavaScript
 updated: 2026-10-04
 intro: |

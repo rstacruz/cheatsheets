@@ -1,5 +1,6 @@
 ---
 title: Mouse Acceleration
+subtitle: Fix for macOS mouse acceleration
 category: Hidden
 # macOS 14 moved this to System Settings; com.apple.mouse.scaling no longer works.
 tags: [Archived]

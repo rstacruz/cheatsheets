@@ -1,5 +1,6 @@
 ---
 title: Chunky PNG
+subtitle: Ruby PNG manipulation library
 category: Ruby libraries
 ---
 

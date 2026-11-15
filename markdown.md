@@ -1,5 +1,6 @@
 ---
 title: Markdown
+subtitle: Plain-text markup format
 category: Markup
 tier: t2
 weight: -1

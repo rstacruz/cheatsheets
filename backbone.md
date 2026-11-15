@@ -1,5 +1,6 @@
 ---
 title: Backbone.js
+subtitle: Frontend MVC library
 updated: 2018-12-06
 category: JavaScript libraries
 ---

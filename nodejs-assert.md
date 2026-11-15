@@ -1,5 +1,6 @@
 ---
 title: assert
+subtitle: Assertion testing module
 category: Node.js
 ---
 

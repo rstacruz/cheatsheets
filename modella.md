@@ -1,5 +1,6 @@
 ---
 title: Modella
+subtitle: JavaScript model library
 category: Hidden
 # Last release 0.2.14 (2014); unmaintained.
 prism_languages: [coffeescript]

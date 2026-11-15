@@ -1,5 +1,6 @@
 ---
 title: Caskroom index
+subtitle: Homebrew Cask app index
 tags: [Archived]
 archived: This sheet may have outdated information.
 ---

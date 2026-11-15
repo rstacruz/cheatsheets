@@ -1,5 +1,6 @@
 ---
 title: YUM
+subtitle: RPM package manager
 category: CLI
 updated: 2024-02-07
 ---

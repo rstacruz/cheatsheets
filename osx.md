@@ -1,5 +1,6 @@
 ---
 title: OS X
+subtitle: Mac administration commands
 category: macOS
 ---
 

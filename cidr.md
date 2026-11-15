@@ -1,5 +1,6 @@
 ---
 title: CIDR
+subtitle: IP address range notation
 category: Others
 updated: 2018-05-14
 ---

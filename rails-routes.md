@@ -1,5 +1,6 @@
 ---
 title: Routes
+subtitle: URL routing reference
 category: Rails
 ---
 

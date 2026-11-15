@@ -1,5 +1,6 @@
 ---
 title: SimpleForm
+subtitle: Rails form builder
 tags: [WIP]
 ---
 

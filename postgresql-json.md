@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL JSON
+subtitle: JSON queries and operators
 prism_languages: [sql]
 updated: 2018-12-06
 category: Databases

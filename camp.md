@@ -1,5 +1,6 @@
 ---
 title: Camp
+subtitle: Express-compatible web framework
 category: Hidden
 # Abandoned; last npm release was 18.1.1 (2021).
 updated: 2017-09-21

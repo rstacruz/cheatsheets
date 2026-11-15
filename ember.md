@@ -1,5 +1,6 @@
 ---
 title: Ember.js
+subtitle: Convention-driven web framework
 category: JavaScript libraries
 tags: [Archived]
 archived: This sheet describes an older version of Ember.

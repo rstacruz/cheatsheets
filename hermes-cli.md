@@ -1,5 +1,6 @@
 ---
 title: Hermes CLI
+subtitle: Terminal AI agent CLI
 category: Agents
 tier: t2
 updated: 2026-11-11

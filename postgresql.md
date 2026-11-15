@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL
+subtitle: Object-relational database system
 category: Databases
 updated: 2026-11-04
 keywords: [psql, postgres, SQL]

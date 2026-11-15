@@ -1,5 +1,6 @@
 ---
 title: cssnext
+subtitle: Future CSS syntax transpiler
 category: Hidden
 # Deprecated in favour of postcss-preset-env; repo archived.
 updated: 2017-10-30

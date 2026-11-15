@@ -1,5 +1,6 @@
 ---
 title: Frequency separation retouching
+subtitle: Photoshop retouching technique
 category: Others
 tags: [Archived]
 archived: This sheet covers a Photoshop retouching technique and may be outdated.

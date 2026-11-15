@@ -1,5 +1,6 @@
 ---
 title: Universal JS module loader
+subtitle: Universal module definition pattern
 category: JavaScript libraries
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Sublime Text
+subtitle: Text editor shortcuts
 category: Apps
 ---
 

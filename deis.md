@@ -1,5 +1,6 @@
 ---
 title: Deis
+subtitle: Kubernetes PaaS platform
 category: Hidden
 # Discontinued (final release 2017); repo archived 2021.
 ---

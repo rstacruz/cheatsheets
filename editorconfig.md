@@ -1,5 +1,6 @@
 ---
 title: editorconfig
+subtitle: Editor config format
 prism_languages: [ini]
 weight: -1
 updated: 2019-09-25

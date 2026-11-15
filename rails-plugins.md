@@ -1,5 +1,6 @@
 ---
 title: Rails plugins
+subtitle: Engine plugin authoring
 category: Rails
 ---
 

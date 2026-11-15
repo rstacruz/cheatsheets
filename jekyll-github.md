@@ -1,5 +1,6 @@
 ---
 title: Jekyll for GitHub pages
+subtitle: GitHub Pages static site setup
 category: Jekyll
 tags: [WIP]
 updated: 2017-11-17

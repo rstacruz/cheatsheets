@@ -1,5 +1,6 @@
 ---
 title: GraphQL
+subtitle: API query language
 updated: 2019-07-07
 category: API
 ---

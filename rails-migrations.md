@@ -1,5 +1,6 @@
 ---
 title: Rails migrations
+subtitle: Database schema migrations
 category: Rails
 ---
 

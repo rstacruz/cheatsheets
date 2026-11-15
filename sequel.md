@@ -1,5 +1,6 @@
 ---
 title: Sequel
+subtitle: Ruby database toolkit
 category: Ruby libraries
 intro: |
   Sequel is a database toolkit for Ruby.

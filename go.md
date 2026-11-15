@@ -1,5 +1,6 @@
 ---
 title: Go
+subtitle: Compiled language for services
 prism_languages: [go, bash]
 weight: -3
 category: C-like

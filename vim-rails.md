@@ -1,5 +1,6 @@
 ---
 title: Vim-rails
+subtitle: Rails navigation plugin
 category: Vim
 html_class: key-codes
 ---

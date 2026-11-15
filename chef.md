@@ -1,5 +1,6 @@
 ---
 title: Chef
+subtitle: Infrastructure automation platform
 category: Devops
 ---
 

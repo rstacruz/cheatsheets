@@ -1,5 +1,6 @@
 ---
 title: Awesome Redux
+subtitle: Curated Redux addon list
 category: Hidden
 # Pre-2018 list; 7 of its 9 libraries are unmaintained, and Redux now recommends Redux Toolkit.
 tags: [Archived]

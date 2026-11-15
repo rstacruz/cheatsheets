@@ -1,5 +1,6 @@
 ---
 title: Ractive.js
+subtitle: Template-driven UI library
 category: JavaScript libraries
 updated: 2026-11-14
 intro: |

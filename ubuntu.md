@@ -1,5 +1,6 @@
 ---
 title: Ubuntu
+subtitle: Linux distribution
 category: Linux
 ---
 

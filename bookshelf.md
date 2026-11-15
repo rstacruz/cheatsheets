@@ -1,5 +1,6 @@
 ---
 title: Bookshelf.js
+subtitle: SQL ORM for Node.js
 category: Hidden
 # No release since 1.2.0 (2020); for new projects use Objection.js or Knex.
 tags: [Archived]

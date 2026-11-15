@@ -1,5 +1,6 @@
 ---
 title: Layout thrashing
+subtitle: Forced reflow performance issue
 category: HTML
 description: ""
 updated: 2017-10-19

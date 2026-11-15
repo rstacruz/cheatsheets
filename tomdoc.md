@@ -1,5 +1,6 @@
 ---
 title: Tomdoc
+subtitle: Ruby documentation format
 category: Markup
 ---
 

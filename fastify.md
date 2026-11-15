@@ -1,5 +1,6 @@
 ---
 title: Fastify
+subtitle: Fast Node.js web framework
 category: JavaScript libraries
 updated: 2026-11-14
 intro: |

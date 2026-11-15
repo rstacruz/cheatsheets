@@ -1,5 +1,6 @@
 ---
 title: ES2015+
+subtitle: Modern JavaScript features
 category: JavaScript
 updated: 2019-11-14
 weight: -10

@@ -1,5 +1,6 @@
 ---
 title: JavaScript Async
+subtitle: Syntax for async functions
 category: JavaScript
 weight: -3
 updated: 2026-10-04

@@ -1,5 +1,6 @@
 ---
 title: Visual Studio Code
+subtitle: Extensible code editor
 category: Apps
 updated: 2026-11-14
 weight: -5

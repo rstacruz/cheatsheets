@@ -1,5 +1,6 @@
 ---
 title: Rails controllers
+subtitle: Request handling classes
 category: Rails
 ---
 

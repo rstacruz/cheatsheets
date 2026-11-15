@@ -1,5 +1,6 @@
 ---
 title: Spacemacs
+subtitle: Emacs configuration distribution
 category: Apps
 updated: 2020-05-22
 tags: [WIP]

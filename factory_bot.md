@@ -1,5 +1,6 @@
 ---
 title: Factory Bot
+subtitle: Ruby test data factory library
 category: Ruby libraries
 weight: -3
 updated: 2020-07-06

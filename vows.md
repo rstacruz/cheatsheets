@@ -1,5 +1,6 @@
 ---
 title: Vows
+subtitle: Asynchronous test framework
 category: Hidden
 # Unmaintained; final release 0.8.3 (2019).
 ---

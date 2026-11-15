@@ -1,5 +1,6 @@
 ---
 title: sed
+subtitle: Stream text editor
 category: CLI
 intro: |
   Here's some hints on using sed.

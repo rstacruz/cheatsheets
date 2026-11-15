@@ -1,5 +1,6 @@
 ---
 title: RSpec
+subtitle: Ruby testing library
 category: Ruby
 intro: |
   RSpec is a Ruby library for testing.

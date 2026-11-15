@@ -1,5 +1,6 @@
 ---
 title: Ansible modules
+subtitle: Module reference for playbooks
 category: Ansible
 prism_languages: [yaml]
 updated: 2017-10-03

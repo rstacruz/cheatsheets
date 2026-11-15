@@ -1,5 +1,6 @@
 ---
 title: rbenv
+subtitle: Ruby version manager
 category: Ruby
 updated: 2018-02-20
 weight: -1

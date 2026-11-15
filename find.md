@@ -1,5 +1,6 @@
 ---
 title: Find
+subtitle: File search utility
 category: CLI
 updated: 2026-10-31
 ---

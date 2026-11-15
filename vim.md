@@ -1,5 +1,6 @@
 ---
 title: Vim
+subtitle: Modal text editor
 category: Vim
 tags: [Featured]
 updated: 2026-11-11

@@ -1,5 +1,6 @@
 ---
 title: Inkscape
+subtitle: Vector graphics editor
 category: Apps
 tags: [WIP]
 ---

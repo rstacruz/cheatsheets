@@ -1,5 +1,6 @@
 ---
 title: Ledger CSV format
+subtitle: Ledger CSV export format
 category: Ledger
 ---
 

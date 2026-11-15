@@ -160,9 +160,9 @@ agent -p --output-format json "list the TODOs" | jq .result
 agent -p --force "upgrade the test runner"
 ```
 
-Print mode follows the session's approval rules but cannot stop to ask: allowlisted commands and workspace edits run; anything else is rejected.
+Print mode follows session approval rules but cannot ask: allowlisted edits run, the rest is rejected.
 
-Add `--force` to run everything not explicitly denied. Writes outside the workspace, `.vscode/`, and `.git/hooks/` stay blocked.
+Add `--force` to run what it would reject; outside-workspace writes stay blocked.
 
 See: [Using headless CLI](https://cursor.com/docs/cli/headless)
 
@@ -179,9 +179,9 @@ agent -p --output-format json "explain src/auth.ts"
 agent -p --output-format stream-json "fix the tests"
 ```
 
-`stream-json` emits `system`, `user`, `assistant`, `tool_call`, and a final `result` event. Add `--stream-partial-output` for text deltas.
+`stream-json` emits `system`, `user`, `assistant`, `tool_call`, and `result` events.
 
-Skip assistant events that carry `model_call_id`; they repeat text.
+Add `--stream-partial-output` for text deltas; skip assistant events carrying `model_call_id`.
 
 See: [Output format](https://cursor.com/docs/cli/reference/output-format)
 
@@ -387,11 +387,7 @@ See: [Changelog](https://cursor.com/docs/cli/changelog)
 
 <!-- {: .-shortcuts} -->
 
-Auto-review tries the sandbox for shell commands, then sends the rest to a classifier.
-
-Set the mode with `approvalMode` in `cli-config.json`, or toggle Run Everything with `/run-everything`.
-
-`--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow.
+Auto-review sandboxes shell commands and sends the rest to a classifier. Set the mode with `approvalMode` or `/run-everything`; `--force` (or `--yolo`) runs everything `permissions.deny` and team policy allow.
 
 See: [Run modes](https://cursor.com/docs/agent/security/run-modes)
 
@@ -433,11 +429,13 @@ agent sandbox enable            # keep it on for every run
 agent sandbox run ls --network  # one command, network allowed
 ```
 
-`/sandbox` opens a menu for the sandbox mode and network access; settings persist.
+`/sandbox` sets the mode and network access; settings persist. The sandbox allows workspace writes and limits network to `sandbox.json` plus Cursor defaults.
 
-Inside it, the workspace is writable and the network is limited to `sandbox.json` plus Cursor defaults. `.git/hooks` stays protected.
+See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 
-On Linux the sandbox needs Landlock (kernel 6.2+) and unprivileged user namespaces; otherwise the CLI asks for approval instead of sandboxing.
+### Sandbox limits
+
+`.git/hooks` and other protected paths stay off limits. On Linux, Landlock (kernel 6.2+) and unprivileged user namespaces are required; without them the CLI asks for approval.
 
 See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 
@@ -459,16 +457,14 @@ $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
 }
 ```
 
-`version`, `editor.vimMode`, and `permissions.allow`/`deny` are required. The CLI repairs missing fields and backs up a broken file as `.bad`.
-
-Project files may only set permissions. On Linux, `XDG_CONFIG_HOME` moves the global file.
+`version`, `editor.vimMode`, and `permissions.allow`/`deny` are required. The CLI repairs missing fields and backs up broken files as `.bad`. Project files set only permissions.
 
 See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 
 ### Rules and AGENTS.md
 
 ```bash
-.cursor/rules/*.mdc   # project rules, committed
+.cursor/rules/*.mdc   # project rules; .md is ignored
 AGENTS.md             # root instructions, committed
 CLAUDE.md             # also read at the root
 ```
@@ -481,9 +477,7 @@ alwaysApply: false
 ---
 ```
 
-`alwaysApply: true` includes a rule in every session. `globs` adds it for matching files; `description` lets the agent pull it in when relevant.
-
-With neither, a rule loads only on `@`-mention. Plain `.md` files in `.cursor/rules` are ignored.
+`alwaysApply` runs a rule every session, `globs` scopes it to matching files, and `description` lets the agent pull it in. Without either, only `@`-mention loads it.
 
 See: [Rules](https://cursor.com/docs/rules)
 

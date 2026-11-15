@@ -425,10 +425,11 @@ See: [lookup](https://help.splunk.com/en/splunk-enterprise/search/spl-search-ref
 | `| inputlookup users.csv where active=1` | Filter lookup rows |
 | `| outputlookup users.csv` | Overwrite the table |
 | `| outputlookup users.csv append=true` | Append rows |
-| `| outputlookup users.csv key_field=username` | Update matching rows |
+| `| outputlookup users_kv key_field=username` | Update KV store rows |
 
 `inputlookup` reads a CSV or KV store table without searching an index.
-`outputlookup` writes files and is treated as a risky command.
+`outputlookup` writes lookup tables and is treated as a risky command.
+`key_field` updates KV store collections, not CSV files.
 
 See: [inputlookup](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/search-commands/inputlookup), [outputlookup](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/search-commands/outputlookup)
 

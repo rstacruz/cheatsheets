@@ -1,7 +1,7 @@
 ---
 title: Beancount
 subtitle: Plain-text double-entry accounting
-category: Ledger
+category: Plain-text accounting
 tier: t2
 updated: 2026-11-16
 keywords:

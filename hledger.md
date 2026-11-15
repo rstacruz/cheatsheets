@@ -1,7 +1,7 @@
 ---
 title: Hledger
 subtitle: Ledger-compatible accounting tool
-category: Ledger
+category: Plain-text accounting
 links:
   - title: https://hledger.org
     url: https://hledger.org

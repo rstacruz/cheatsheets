@@ -1,6 +1,13 @@
 ---
 title: Analytics libraries
-category: Analytics
+category: Hidden
+# Universal Analytics stopped processing hits on 2023-07-01.
+tags: [Archived]
+archived: |
+  This documents Universal Analytics (`analytics.js`), which stopped processing
+  hits on 1 July 2023. Use
+  [Google Analytics 4](https://developers.google.com/analytics/devguides/collection/ga4)
+  instead; Mixpanel has its own [sheet](./mixpanel).
 ---
 
 ### Mixpanel

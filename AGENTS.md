@@ -23,6 +23,6 @@
 
 ## Markdown files
 
-Consult @_docs/writing-guidelines.md for formatting *.md files, and @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences).
+Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), and @_docs/archiving.md for when to archive a sheet.
 
 Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`.

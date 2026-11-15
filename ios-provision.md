@@ -1,5 +1,12 @@
 ---
 title: iOS Provisioning Profiles
+category: Hidden
+# testflightapp.com shut down in 2015; Xcode has signed apps automatically since Xcode 8.
+tags: [Archived]
+archived: |
+  `testflightapp.com` shut down in 2015, and Xcode has managed signing
+  automatically since Xcode 8. Use automatic signing and TestFlight in
+  [App Store Connect](https://developer.apple.com/testflight/).
 ---
 
 ### Types of profiles

@@ -1,5 +1,13 @@
 ---
 title: Saucelabs
+category: Hidden
+# The Open Sauce signup page is gone and zuul, the runner it uses, was archived in 2021.
+tags: [Archived]
+archived: |
+  The Open Sauce signup page is gone, and `zuul` (the runner this sheet uses)
+  was archived in 2021. See
+  [Sauce Labs docs](https://docs.saucelabs.com/) or
+  [Playwright](https://playwright.dev/).
 ---
 
 ### Getting started

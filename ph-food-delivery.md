@@ -1,5 +1,13 @@
 ---
 title: Food delivery (Philippines)
+category: Hidden
+# Metro Manila landlines became 8 digits in 2019; most listed delivery sites are gone.
+tags: [Archived]
+archived: |
+  Metro Manila landlines became 8 digits in 2019, and most of the listed
+  delivery sites are gone. Order through
+  [Grab Food](https://www.grab.com/ph/food/) or
+  [foodpanda](https://www.foodpanda.ph/).
 intro: |
   Food delivery numbers & sites for top restaurant chains in Metro Manila. For numbers outside Metro Manila, check their websites.
 links:

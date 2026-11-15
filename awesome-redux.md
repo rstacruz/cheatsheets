@@ -1,6 +1,12 @@
 ---
 title: Awesome Redux
-category: React
+category: Hidden
+# Pre-2018 list; 7 of its 9 libraries are unmaintained, and Redux now recommends Redux Toolkit.
+tags: [Archived]
+archived: |
+  A pre-2018 list of Redux helper libraries; 7 of the 9 listed are unmaintained.
+  Redux now recommends [Redux Toolkit](https://redux-toolkit.js.org/) for new
+  projects.
 updated: 2017-11-19
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Chai.js
 subtitle: JavaScript assertion library
-category: JavaScript libraries
+category: JavaScript testing
 weight: -3
 updated: 2018-06-25
 version: chai v4.x

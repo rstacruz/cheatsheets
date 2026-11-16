@@ -1,7 +1,7 @@
 ---
 title: Stencil
 subtitle: Web component compiler
-category: JavaScript libraries
+category: Build tools
 updated: 2019-05-08
 keywords:
   - "@Component"

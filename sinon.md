@@ -1,7 +1,7 @@
 ---
 title: Sinon
 subtitle: JavaScript test double library
-category: JavaScript libraries
+category: JavaScript testing
 weight: -1
 updated: 2017-10-27
 ---

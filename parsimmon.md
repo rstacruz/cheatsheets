@@ -1,7 +1,7 @@
 ---
 title: Parsimmon
 subtitle: Parser combinator library
-category: JavaScript libraries
+category: Node.js
 ---
 
 ### Basic usage

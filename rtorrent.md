@@ -1,7 +1,7 @@
 ---
 title: rTorrent
 subtitle: Terminal BitTorrent client
-category: CLI
+category: Networking
 intro: |
   [rTorrent](https://rakshasa.github.io/rtorrent/) is a command-line torrent application. Here are some shortcut keys.
 links:

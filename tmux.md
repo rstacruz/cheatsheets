@@ -1,7 +1,7 @@
 ---
 title: tmux
 subtitle: Terminal multiplexer
-category: CLI
+category: Shell
 updated: 2024-04-08
 ---
 

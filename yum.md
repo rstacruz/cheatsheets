@@ -1,7 +1,7 @@
 ---
 title: YUM
 subtitle: RPM package manager
-category: CLI
+category: Package managers
 updated: 2024-02-07
 ---
 

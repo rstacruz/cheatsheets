@@ -1,5 +1,6 @@
 ---
 title: Command line stuff
+category: Shell
 subtitle: Unix shell basics
 ---
 

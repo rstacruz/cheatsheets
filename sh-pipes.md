@@ -1,7 +1,7 @@
 ---
 title: "Shell: named pipes"
 subtitle: Process substitution and named pipes
-category: CLI
+category: Shell
 ---
 
 ### Named pipes

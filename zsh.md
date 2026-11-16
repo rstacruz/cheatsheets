@@ -1,7 +1,7 @@
 ---
 title: zsh
 subtitle: Unix shell
-category: CLI
+category: Shell
 ---
 
 ### Expressions

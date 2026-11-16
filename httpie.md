@@ -1,7 +1,7 @@
 ---
 title: httpie
 subtitle: Human-friendly HTTP client
-category: CLI
+category: Networking
 weight: -3
 updated: 2020-07-05
 description: |

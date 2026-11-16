@@ -1,7 +1,7 @@
 ---
 title: CIDR
 subtitle: IP address range notation
-category: Others
+category: Networking
 updated: 2018-05-14
 ---
 

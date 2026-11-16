@@ -1,5 +1,6 @@
 ---
 title: Lua
+category: Others
 subtitle: Lightweight scripting language
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: composer
 subtitle: PHP package manager
-category: CLI
+category: Package managers
 weight: -1
 authors:
   - github: benolot

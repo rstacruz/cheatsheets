@@ -1,7 +1,7 @@
 ---
 title: Tape
 subtitle: TAP test harness
-category: JavaScript libraries
+category: JavaScript testing
 ---
 
 ### Example

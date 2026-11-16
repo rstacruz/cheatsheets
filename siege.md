@@ -1,7 +1,7 @@
 ---
 title: Siege
 subtitle: HTTP load testing tool
-category: Others
+category: Networking
 intro: |
   [Siege](https://www.joedog.org/siege/) is an HTTP and HTTPS load testing tool.
 links:

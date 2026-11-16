@@ -1,5 +1,6 @@
 ---
 title: Licenses
+category: Others
 subtitle: Open source license texts
 section: Development
 updated: 2017-08-30

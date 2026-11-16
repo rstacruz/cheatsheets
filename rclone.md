@@ -1,7 +1,7 @@
 ---
 title: rclone
 subtitle: Cloud storage sync tool
-category: CLI
+category: Networking
 ---
 
 ### Basic configuration

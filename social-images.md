@@ -1,5 +1,6 @@
 ---
 title: Social media images
+category: Others
 subtitle: Social media image sizes
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Figlet
+category: Media tools
 subtitle: ASCII art text renderer
 updated: 2018-06-14
 introduction: |

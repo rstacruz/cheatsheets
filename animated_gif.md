@@ -1,7 +1,7 @@
 ---
 title: Animated GIFs
 subtitle: Video-to-GIF conversion commands
-category: CLI
+category: Media tools
 ---
 
 ## Animated GIFs

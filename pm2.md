@@ -1,7 +1,7 @@
 ---
 title: pm2
 subtitle: Node.js process manager
-category: CLI
+category: Node.js
 authors: { github: "Dr-Dino" }
 updated: 2020-05-08
 ---

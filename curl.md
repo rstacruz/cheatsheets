@@ -1,7 +1,7 @@
 ---
 title: Curl
 subtitle: Command-line HTTP client
-category: CLI
+category: Networking
 tags: [Featured]
 updated: 2026-11-11
 tier: t2

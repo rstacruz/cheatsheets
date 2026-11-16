@@ -1,5 +1,6 @@
 ---
 title: Premailer
+category: Ruby libraries
 subtitle: CSS inliner for email
 tags: [WIP]
 intro: |

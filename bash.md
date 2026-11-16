@@ -1,7 +1,7 @@
 ---
 title: Bash scripting
 subtitle: Shell scripting language
-category: CLI
+category: Shell
 tags: [Featured]
 updated: 2026-11-11
 tier: t1

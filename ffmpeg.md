@@ -1,7 +1,7 @@
 ---
 title: ffmpeg
 subtitle: Audio and video transcoder
-category: CLI
+category: Media tools
 ---
 
 ### Common switches

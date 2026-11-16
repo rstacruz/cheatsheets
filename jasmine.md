@@ -1,7 +1,7 @@
 ---
 title: Jasmine
 subtitle: BDD test framework
-category: JavaScript libraries
+category: JavaScript testing
 weight: -1
 ---
 

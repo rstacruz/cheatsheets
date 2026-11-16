@@ -1,5 +1,6 @@
 ---
 title: strftime format
+category: Others
 subtitle: Date format reference
 weight: -5
 updated: 2017-11-27

@@ -1,7 +1,7 @@
 ---
 title: Readline
 subtitle: Line editing for CLI prompts
-category: CLI
+category: Shell
 tier: t2
 updated: 2026-11-16
 intro: |

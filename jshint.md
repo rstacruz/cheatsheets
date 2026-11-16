@@ -1,7 +1,7 @@
 ---
 title: JSHint
 subtitle: JavaScript linter
-category: JavaScript libraries
+category: Build tools
 updated: 2026-10-04
 intro: |
   JSHint is configured with inline `/* jshint ... */` directives.

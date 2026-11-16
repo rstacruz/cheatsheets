@@ -21,7 +21,7 @@
   --font-system-mono:
     'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
     Courier, monospace;
-  --font-body: var(--font-system-sans);
+  --font-body: 'Geist Variable', var(--font-system-sans);
   --font-heading: var(--font-system-sans);
   --font-monospace: cousine, var(--font-system-mono);
 

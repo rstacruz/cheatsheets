@@ -45,10 +45,10 @@
     user-select: none;
     line-height: 1.5em;
     padding: 2px 8px;
-    border-radius: 3px;
+    border: solid 1px var(--line-color);
+    border-radius: 999px;
     background: rgb(250 250 252 / 50%);
-    margin: 0 0 0 16px;
-    box-shadow: 0 1px 1px rgb(85 102 119 / 25%);
+    margin: 0 0 0 19px;
   }
 
   & > .sep {
@@ -91,6 +91,10 @@
 
 .search-box.-small {
   height: 48px;
+
+  & > .prefix {
+    margin-left: 11px;
+  }
 
   & > input {
     padding: 8px;

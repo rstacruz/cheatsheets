@@ -551,8 +551,9 @@ Alternatively, you can put excerpts inline in your post by defining `excerpt_sep
 
 ### Permalinks
 
+#### _config.yml
+
 ```
-# _config.yml
 permalink: date   # /:categories/:year/:month/:day/:title.html
 permalink: pretty # /:categories/:year/:month/:day/:title/
 permalink: none   # /:categories/:title.html
@@ -581,16 +582,18 @@ See: [Data](https://jekyllrb.com/docs/datafiles/)
 
 ### Collections
 
+#### _config.yml
+
 ```yml
-# _config.yml
 collections:
   - authors
 ```
 
 <!-- {: .-setup} -->
 
+#### _/authors/a-n-roquelaire.md
+
 ```yml
-# _/authors/a-n-roquelaire.md
 ---
 name: A. N. Roquelaire
 real_name: Anne Rice

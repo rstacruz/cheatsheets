@@ -359,8 +359,9 @@ mise settings set --local jobs 2 # project override
 mise settings unset --local jobs
 ```
 
+#### ~/.config/mise/config.toml
+
 ```toml
-# ~/.config/mise/config.toml
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
 trusted_config_paths = ["~/work/trusted"]

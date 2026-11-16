@@ -273,8 +273,9 @@ See: [git log](https://git-scm.com/docs/git-log)
 
 ### commitlint
 
+#### commitlint.config.js
+
 ```js
-// commitlint.config.js
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {

@@ -6,8 +6,9 @@ category: Vim
 
 ### Basic usage
 
+#### .projectionist.vim
+
 ```json
-/* .projectionist.vim */
 {
   "app/assets/react/components/*.jsx": {
     "type": "component",

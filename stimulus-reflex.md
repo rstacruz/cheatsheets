@@ -78,22 +78,25 @@ end
 
 Instead of refreshing the entire page, you can specify a portion of the page to update with `morph(selector, content)`
 
+#### show.html.erb
+
 ```html
-<!-- show.html.erb -->
 <header data-reflex="click->Example#change">
   <%= render partial: "path/to/foo", locals: {message: "Am I the medium or the massage?"} %>
 </header>
 ```
 
+#### _foo.html.erb
+
 ```html
-<!-- _foo.html.erb -->
 <div id="foo">
   <span class="spa"><%= message %></span>
 </div>
 ```
 
+#### example_reflex.rb
+
 ```ruby
-# example_reflex.rb
 class ExampleReflex < ApplicationReflex
   def change
     morph "#foo", "Your muscles... they are so tight."
@@ -105,8 +108,9 @@ end
 
 Use `morph :nothing` in reflexes that do something on the server without updating the client.
 
+#### example_reflex.rb
+
 ```ruby
-# example_reflex.rb
 class ExampleReflex < ApplicationReflex
   def change
     LongRunningJob.perform_later
@@ -184,8 +188,9 @@ this.stimulate('Comments#create')
 
 You can use the `data-reflex-dataset="combined"` directive to scoop all data attributes up the DOM hierarchy and pass them as part of the Reflex payload.
 
+#### new.html.erb
+
 ```html
-<!-- new.html.erb -->
 <div data-post-id="<%= @post.id %>">
   <div data-category-id="<%= @category.id %>">
     <button data-reflex="click->Comment#create" data-reflex-dataset="combined">Create</button>
@@ -193,8 +198,9 @@ You can use the `data-reflex-dataset="combined"` directive to scoop all data att
 </div>
 ```
 
+#### comment_reflex.rb
+
 ```html
-# comment_reflex.rb
 class CommentReflex < ApplicationReflex
   def create
     puts element.dataset["post-id"]
@@ -207,8 +213,9 @@ end
 
 Instead of updating your entire page, you can specify exactly which parts of the DOM will be updated using the `data-reflex-root` attribute. [Full docs](http://docs.stimulusreflex.com/morph-modes#scoping-page-morphs)
 
+#### index.html.erb
+
 ```text
-<!-- index.html.erb -->
 <div data-reflex-root="[forward],[backward]">
   <input type="text" value="<%= @words %>" data-reflex="keyup->Example#words">
   <div forward><%= @words %></div>
@@ -216,8 +223,9 @@ Instead of updating your entire page, you can specify exactly which parts of the
 </div>
 ```
 
+#### example_reflex.rb
+
 ```ruby
-# example_reflex.rb
   def words
     @words = element[:value]
   end
@@ -227,8 +235,9 @@ Instead of updating your entire page, you can specify exactly which parts of the
 
 Add data-reflex-permanent to any element in your DOM, and it will be left unchanged by full-page Reflex updates and morph calls that re-render partials.
 
+#### index.html.erb
+
 ```erb
-<!-- index.html.erb -->
 <div data-reflex-permanent>
   <iframe src="https://ghbtns.com/github-btn.html?user=hopsoft&repo=stimulus_reflex&type=star&count=true" frameborder="0" scrolling="0" class="ghbtn"></iframe>
   <iframe src="https://ghbtns.com/github-btn.html?user=hopsoft&repo=stimulus_reflex&type=fork&count=true" frameborder="0" scrolling="0" class="ghbtn"></iframe>
@@ -239,8 +248,9 @@ Add data-reflex-permanent to any element in your DOM, and it will be left unchan
 
 call `raise :abort` within a reflex method to cancel it.
 
+#### comment_reflex.rb
+
 ```ruby
-# comment_reflex.rb
 class CommentReflex < ApplicationReflex
   def create
     raise :abort

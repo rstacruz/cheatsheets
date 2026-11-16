@@ -570,8 +570,9 @@ See: [Import](https://developer.hashicorp.com/terraform/language/import)
 
 ### Query resources
 
+#### aws.tfquery.hcl
+
 ```hcl
-# aws.tfquery.hcl
 list "aws_instance" "web" {
   provider = aws
 
@@ -695,8 +696,9 @@ See: [Automation](https://developer.hashicorp.com/terraform/tutorials/automation
 
 ### Testing
 
+#### tests/web.tftest.hcl
+
 ```hcl
-# tests/web.tftest.hcl
 run "plan" {
   command = plan
 

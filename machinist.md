@@ -15,8 +15,9 @@ Machinist is a fixture management library for Ruby.
 
 ### Installing
 
+#### Gemfile
+
 ```
-# Gemfile
 gem 'machinist', '>= 2.0.0.beta2', group: 'test'
 
 # ~$ bundle

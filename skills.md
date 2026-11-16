@@ -118,8 +118,9 @@ See: [Frontmatter reference](https://code.claude.com/docs/en/skills#frontmatter-
 
 ### Codex
 
+#### agents/openai.yaml
+
 ```yaml
-# agents/openai.yaml
 interface:
   display_name: "Release notes"
 policy:

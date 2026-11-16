@@ -90,7 +90,11 @@ Custom generators
 
 ```
 # rails g initializer
-# lib/generators/initializer_generator.rb
+```
+
+#### lib/generators/initializer_generator.rb
+
+```
 class InitializerGenerator < Rails::Generators::Base
   def create_initializer_file
     create_file "config/initializers/initializer.rb", "# Add initialization content here"
@@ -150,8 +154,9 @@ ActiveModel 'acts as'
 
 ### acts as
 
+#### yaffle/lib/yaffle/acts_as_yaffle.rb
+
 ```
-# yaffle/lib/yaffle/acts_as_yaffle.rb
 module Yaffle
   module ActsAsYaffle
     extend ActiveSupport::Concern

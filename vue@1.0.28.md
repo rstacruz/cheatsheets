@@ -93,8 +93,9 @@ new Vue({
 ## Vue templates
 Via [vueify](https://www.npmjs.com/package/vueify)
 
+#### app.vue
+
 ```js
-// app.vue
 <template>
   <h1 class="red">{{msg}}</h1>
 </template>

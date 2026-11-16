@@ -28,9 +28,9 @@ archived: The information on this sheet may possibly be outdated.
 
 ### Example
 
+#### gulpfile.js
 
 ```
-// gulpfile.js
 // Load plugins
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),

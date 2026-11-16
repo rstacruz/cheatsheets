@@ -23,8 +23,9 @@ For the GFM parser:
 
 ### For jekyll (gh-pages)
 
+#### _config.yml
+
 ```
-# _config.yml
 markdown: kramdown
 kramdown:
   input: GFM

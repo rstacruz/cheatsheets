@@ -23,6 +23,9 @@ importers:
       '@fontsource/cousine':
         specifier: ^5.0.15
         version: 5.3.0
+      '@fontsource/handjet':
+        specifier: ^5.3.1
+        version: 5.3.1
       '@fontsource/manrope':
         specifier: ^5.0.19
         version: 5.3.0
@@ -495,6 +498,9 @@ packages:
 
   '@fontsource/cousine@5.3.0':
     resolution: {integrity: sha512-EhVes1KpHrmPwGVCoVxYpdiIi/L2LRGxbAuv07m3TdY76f9Vmwyhd/TNqi2RC0NOvMCNt2FtYPJcAfFfkK9DoQ==}
+
+  '@fontsource/handjet@5.3.1':
+    resolution: {integrity: sha512-8n2ZgQ2ppR6vsNZxcDdU+owdZtLXkMWExglVvv6nqLI0dcz6B0lHV0YJYRn1sIwDKS+xqv4EIJrlcOdXumk6bA==}
 
   '@fontsource/manrope@5.3.0':
     resolution: {integrity: sha512-obJ1Dv3+uCA6HlHgW8u4BGYxJR9In2HW7gjJhlflEvkrj1X1iSEwu0fToL+JYGC/FEKFfIz1sBuPduvcL2gIAA==}
@@ -2847,6 +2853,8 @@ snapshots:
     optional: true
 
   '@fontsource/cousine@5.3.0': {}
+
+  '@fontsource/handjet@5.3.1': {}
 
   '@fontsource/manrope@5.3.0': {}
 

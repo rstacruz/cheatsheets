@@ -3,6 +3,21 @@ title: Readline
 subtitle: Line editing for CLI prompts
 category: CLI
 tier: t2
+fragments:
+  - "~/.inputrc"
+  - "C-a"
+  - "C-e"
+  - "C-r"
+  - "C-k"
+  - "C-u"
+  - "C-y"
+  - "C-w"
+  - "M-f"
+  - "M-b"
+  - "M-d"
+  - "C-x C-u"
+  - "M-."
+  - "set -o vi"
 updated: 2026-11-16
 intro: |
   [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) edits

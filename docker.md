@@ -3,6 +3,21 @@ title: Docker CLI
 subtitle: Container engine CLI
 category: Devops
 tier: t2
+fragments:
+  - "docker pull"
+  - "docker run -it"
+  - "docker ps -a"
+  - "docker logs -f"
+  - "docker exec -it"
+  - "docker build -t"
+  - "docker images"
+  - "docker rm -f"
+  - "docker tag"
+  - "system prune"
+  - "docker ps -q"
+  - "docker buildx"
+  - "docker rmi"
+  - "docker system df"
 tags: [Featured]
 updated: 2026-11-11
 keywords:

@@ -3,6 +3,21 @@ title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
 category: JavaScript
 tags: [Featured]
+fragments:
+  - "DateTimeFormat"
+  - "new Date"
+  - "format(date)"
+  - "'en-GB'"
+  - "timeZone"
+  - "hour12"
+  - "weekday"
+  - "month: 'numeric'"
+  - "year: 'numeric'"
+  - "hour: 'numeric'"
+  - "'en-US'"
+  - "'en-AU'"
+  - "hourCycle"
+  - "timeZoneName"
 intro: |
   `Intl.DateTimeFormat` is used to format date strings in JavaScript.
 links:

@@ -4,6 +4,21 @@ subtitle: Object storage service
 category: Devops
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "aws s3 cp"
+  - "aws s3 sync"
+  - "aws s3 ls"
+  - "aws s3 rm"
+  - "aws s3 mb"
+  - "aws s3 presign"
+  - "aws s3api"
+  - "--recursive"
+  - "--exclude"
+  - "--dryrun"
+  - "--include"
+  - "--delete"
+  - "--expires-in"
+  - "--content-type"
 keywords:
   - aws s3 cli
   - s3 cp sync

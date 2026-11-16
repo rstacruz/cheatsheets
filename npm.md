@@ -5,6 +5,21 @@ category: JavaScript
 weight: -1
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "npm install"
+  - "npm ci"
+  - "npm i -D"
+  - "npm run"
+  - "npm test"
+  - "npm ls"
+  - "npm outdated"
+  - "npm audit"
+  - "npm publish"
+  - "npm why lodash"
+  - "npm explain"
+  - "npm doctor"
+  - "npm pkg get"
+  - "npm pack"
 intro: |
   [npm](https://docs.npmjs.com/cli/v12/) is the package manager for Node.js. This reference covers everyday commands, package specifiers, and npm 12 defaults.
 links:

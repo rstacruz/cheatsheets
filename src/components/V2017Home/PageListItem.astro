@@ -1,18 +1,39 @@
 ---
 import type { SheetPage } from '../../lib/page'
 
+const CARD_FRAGMENT_COUNT = 22
+
 export type Props = {
   page: SheetPage
   class?: string
+  showFragments?: boolean
 }
 const props = Astro.props as Props
 const page = props.page
 const url = `/${page.slug}`
+const title = page.frontmatter.title ?? page.slug
+const subtitle = page.frontmatter.subtitle
+const sourceFragments = page.frontmatter.fragments ?? []
+const fragments =
+  props.showFragments && sourceFragments.length > 0
+    ? Array.from(
+        { length: CARD_FRAGMENT_COUNT },
+        (_, index) => sourceFragments[index % sourceFragments.length]
+      )
+    : undefined
 ---
 
-<a href={url} class={`article item -item-${page.slug} ${props.class ?? ''}`}>
-  <span class="info">
-    <code class="slug">{page.slug}</code>
-    <span class="title">{page.frontmatter.title ?? page.slug}</span>
-  </span>
+<a
+  href={url}
+  class={`article sheet-card -item-${page.slug} ${props.class ?? ''}`}
+>
+  {fragments && (
+    <span class="sheet-card__fragments" aria-hidden="true">
+      {fragments.map((fragment) => (
+        <span class="sheet-card__fragment">{fragment}</span>
+      ))}
+    </span>
+  )}
+  <span class="sheet-card__title">{title}</span>
+  {subtitle && <span class="sheet-card__subtitle">{subtitle}</span>}
 </a>

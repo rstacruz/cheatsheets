@@ -3,6 +3,21 @@ title: Xpath
 subtitle: Query language for XML
 category: HTML
 tier: t1
+fragments:
+  - "//div"
+  - "//a"
+  - "@href"
+  - "text()"
+  - "[1]"
+  - "parent::"
+  - "following"
+  - "contains()"
+  - "count()"
+  - "//*"
+  - "//span"
+  - "/html/body"
+  - "@id"
+  - "not(expr)"
 weight: -5
 description: |
   $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.

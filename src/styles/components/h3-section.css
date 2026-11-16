@@ -9,10 +9,11 @@
  */
 
 .h3-section > .body {
-  @apply bg-white shadow-md-cool;
+  @apply bg-white;
   @apply overflow-x-auto;
-  @apply rounded-md [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md;
+  @apply rounded-[12px] [&>*:first-child]:rounded-t-[12px] [&>*:last-child]:rounded-b-[12px];
   @apply [&>pre]:m-0 [&>pre]:p-4;
+  border: solid 1px var(--line-color);
 }
 
 .h3-section > h3 {

@@ -9,15 +9,21 @@ category: Plain-text accounting
 ```
 # show me expenses for october (--period)
   ledger r Expenses -p oct
+```
 
+```
 # what's the most expensive? (--sorted)
   ledger r Expenses -S amount --tail 10
+```
 
+```
 # how much was spent on grocery? (--weekly, --monthly)
   ledger r Grocery
   ledger r Grocery -W
   ledger r Grocery -M
+```
 
+```
 # what did I spend my Mastercard on? (--period, --begin, --end)
   ledger r mastercard
   ledger r mastercard -p "january"
@@ -29,10 +35,14 @@ category: Plain-text accounting
 ```
 # Graph my bank account balance, monthly
   ledger r Savings -M
+```
 
+```
 # Graph my expenses, monthly (-n = --collapse)
   ledger r Expenses -M -n
+```
 
+```
 # ...what's the average per month?
   ledger r Expenses -M -n --average
 ```

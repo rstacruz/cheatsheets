@@ -18,20 +18,30 @@ HEAD~5      # 5 commits before head
 # create a new branch
   git checkout -b $branchname
   git push origin $branchname --set-upstream
+```
 
+```
 # get a remote branch
   git fetch origin
   git checkout --track origin/$branchname
+```
 
+```
 # delete local remote-tracking branches (lol)
   git remote prune origin
+```
 
+```
 # list merged branches
   git branch -a --merged
+```
 
+```
 # delete remote branch
   git push origin :$branchname
-  
+```
+
+```
 # go back to previous branch
   git checkout -
 ```
@@ -41,7 +51,9 @@ HEAD~5      # 5 commits before head
 ```
 # Rebase your changes on top of the remote master
   git pull --rebase upstream master
-  
+```
+
+```
 # Squash multiple commits into one for a cleaner git log
 # (on the following screen change the word pick to either 'f' or 's')
   git rebase -i $commit_ref
@@ -55,10 +67,14 @@ Submodules
 ```
 # Import .gitmodules
   git submodule init
+```
 
+```
 # Clone missing submodules, and checkout commits
   git submodule update --init --recursive
+```
 
+```
 # Update remote URLs in .gitmodules
 # (Use when you changed remotes in submodules)
   git submodule sync
@@ -115,10 +131,14 @@ git rebase 76acada^
 ```
 # get current sha1 (?)
   git show-ref HEAD -s
+```
 
+```
 # show single commit info
   git log -1 f5a960b5
+```
 
+```
 # Go back up to root directory
   cd "$(git rev-parse --show-top-level)"
 ```

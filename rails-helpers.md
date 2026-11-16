@@ -50,7 +50,9 @@ content_tag(:p, "Hello")
 # Creates a time select tag that, when POSTed, will be stored in the article
 # variable in the sunrise attribute.
 time_select "article", "start_time"
+```
 
+```
 # All options are optional
 time_select "article", "start_time", \
   include_seconds: true,
@@ -58,7 +60,9 @@ time_select "article", "start_time", \
   prompt: true,
   prompt: { hour: "Choose hr", minute: "Choose min", second: "Choose sec" },
   ampm: true
+```
 
+```
 # For dates (all options are optional)
 date_select "article", "written_on", \
   start_year: 1995,

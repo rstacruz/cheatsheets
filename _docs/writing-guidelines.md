@@ -130,13 +130,14 @@ shows the shape.
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
 - Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
 - A table that follows a code block needs an H4 in between, or it reads as part of the block
+- One example per code block: start a new fence instead of stacking commented examples
 
 ## Writing guidelines
 
 - Aim for brevity
 - Prose after the last code block or table in a card: 40 words max; split into another H3 if it needs more
 - Prose comes last in a card: no paragraph may be followed by a code block or table. Fold the note into the block, or split the card
-- Two code blocks in a card need an H4 between them, so each block has a label
+- Two code blocks in a card need an H4 between them, so each block has a label; a caption-led block is self-labelled, so it needs no H4
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
@@ -420,7 +421,7 @@ Then run `pnpm fmt:format`; oxfmt collapses short baseline arrays to one line.
 
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
-Five shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), no paragraph is followed by a block (`baseline/paragraphPlacement.json`), and two code blocks need an H4 between them (`baseline/consecutiveBlocks.json`).
+Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), no paragraph is followed by a block (`baseline/paragraphPlacement.json`), two code blocks need an H4 between them unless caption-led (`baseline/consecutiveBlocks.json`), and a code block holds one commented example (`baseline/multiExampleBlocks.json`).
 
 ## SEO descriptions
 

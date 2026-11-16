@@ -420,12 +420,12 @@ See: [Review locally with /code-review](https://code.claude.com/docs/en/code-rev
 ```bash
 # One-shot JSON output for scripts
 claude -p "list the failing tests" --output-format json
+```
 
+```bash
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
-
-<!-- {: data-line="2,5"} -->
 
 `--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster. It ignores OAuth credentials, so set `ANTHROPIC_API_KEY`.
 

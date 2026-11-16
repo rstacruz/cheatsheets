@@ -401,15 +401,17 @@ Each directory contributes one file — `AGENTS.override.md` if present, else `A
 ```bash
 # Machine-readable events for scripts
 codex exec --json "list the failing tests" | jq
+```
 
+```bash
 # Capture the final message in a file
 codex exec -o summary.md "summarize this repo"
+```
 
+```bash
 # Use an API key inline in CI
 CODEX_API_KEY=$KEY codex exec "triage open bugs"
 ```
-
-<!-- {: data-line="2,5,8"} -->
 
 See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 

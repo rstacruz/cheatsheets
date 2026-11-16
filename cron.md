@@ -70,13 +70,19 @@ Min  Hour Day  Mon  Weekday
 ```bash
 # Adding tasks easily
 echo "@reboot echo hi" | crontab
+```
 
+```bash
 # Open in editor - optional for another user
 crontab -e [-u user]
+```
 
+```bash
 # List tasks - optional for another user
 crontab -l [-u user]
+```
 
+```bash
 # Delete crontab file - optional for another user
 crontab -r [-u user]
 ```

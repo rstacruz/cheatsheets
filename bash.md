@@ -990,7 +990,9 @@ Herestring allows a string to be treated as a standard input (stdin). See [Bash 
 while IFS= read -r line; do
   echo "$line"
 done < <(myfunc)
+```
 
+```sh
 # compare content of two folders
 diff <(ls "$dir1") <(ls "$dir2")
 ```

@@ -198,7 +198,9 @@ See: [Revert commits](https://www.conventionalcommits.org/en/v1.0.0/#how-does-co
 # Squash: the commit subject is the PR title
 git merge --squash feature/login
 git commit -m 'feat(auth): add login with SSO'
+```
 
+```bash
 # Merge commit: pass a conventional subject
 git merge --no-ff feature/login -m 'feat(auth): add SSO'
 ```
@@ -257,7 +259,9 @@ See: [semantic-release docs](https://semantic-release.org/)
 ```bash
 # Subjects since the last tag
 git log --no-merges --format='%s' v1.2.0..HEAD
+```
 
+```bash
 # Count each type
 git log --no-merges --format='%s' v1.2.0..HEAD |
   sed -nE 's/^([a-zA-Z]+)(\([^)]*\))?!?: .+/\1/p' |

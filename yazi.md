@@ -3,6 +3,21 @@ title: Yazi
 subtitle: Terminal file manager
 category: CLI
 tier: t2
+fragments:
+  - "yazi"
+  - "gg"
+  - "G"
+  - "<Space>"
+  - "y"
+  - "p"
+  - "d"
+  - "a"
+  - "r"
+  - "v"
+  - "t"
+  - "z"
+  - "cc"
+  - "<C-a>"
 updated: 2026-11-16
 keywords:
   - yazi

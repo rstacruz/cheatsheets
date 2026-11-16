@@ -3,6 +3,21 @@ title: Beancount
 subtitle: Plain-text double-entry accounting
 category: Plain-text accounting
 tier: t2
+fragments:
+  - "Assets:Cash"
+  - "Liabilities:Card"
+  - "Expenses:Food"
+  - "Expenses:Travel"
+  - "txn"
+  - "open"
+  - "balance"
+  - "price"
+  - "pad"
+  - "commodity"
+  - "close"
+  - "bean-check"
+  - "bean-format"
+  - "fava"
 updated: 2026-11-16
 keywords:
   - beancount

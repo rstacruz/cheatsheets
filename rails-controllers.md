@@ -60,21 +60,29 @@ before_filter :authenticate, only: [:login]
 def authenticate
   redirect_to login_url unless controller.logged_in?
 end
+```
 
+```
 # Filter with inline
 before_filter do |controller|
   redirect_to login_url unless controller.logged_in?
 end
+```
 
+```
 # Filter with external classes
 before_filter LoginFilter
 class LoginFilter
   def self.filter(controller) ...; end
 end
+```
 
+```
 # Filter exceptions
 skip_before_filter :require_login, only: [:new, :create]
+```
 
+```
 # Before/after filters
 around_filter :wrap_in_transaction
 def wrap_in_transaction(&blk)
@@ -86,14 +94,18 @@ end
 
 ```
 before_filter :authenticate
+```
 
+```
 # Basic authentication:
 def authenticate
   authenticate_or_request_with_http_basic { |u, p|
     u == "root" && p == "alpine"
   }
 end
+```
 
+```
 # ...or digest (hashed) authentication:
 # uses the ha1 hash (username:realm:password)
 def authenticate_by_digest
@@ -106,13 +118,17 @@ def authenticate_by_digest
     users[user]
   }
 end
+```
 
+```
 # For integration tests
 def test_access
   auth = ActionController::HttpAuthentication::Basic.encode_credentials(user, pass)
   get "/notes/1.xml", nil, 'HTTP_AUTHORIZATION' => auth
 end
+```
 
+```
 # Token auth
 is_logged_in = authenticate_with_http_token do |token, options|
   token == our_secret_token

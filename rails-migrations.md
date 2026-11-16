@@ -109,13 +109,19 @@ $ rails generate migration RemovePartNumberFromProducts part_number:string
 ```
 # Simple
 add_index :suppliers, :name
+```
 
+```
 # Unique
 add_index :accounts, [:branch_id, :party_id], :unique => true
+```
 
+```
 # Named (:name => ...)
 add_index :accounts, [:branch_id, :party_id], :unique => true, :name => "by_branch_party"
+```
 
+```
 # Length
 add_index :accounts, :name, :name => ‘by_name’, :length => 10
 add_index :accounts, [:name, :surname], :name => ‘by_name_surname’,
@@ -123,7 +129,9 @@ add_index :accounts, [:name, :surname], :name => ‘by_name_surname’,
     :name => 10,
     :surname => 15
   }
+```
 
+```
 # Sort order (no MySQL support)
 add_index :accounts, [:branch_id, :party_id, :surname],
   :order => {:branch_id => :desc, :part_id => :asc}

@@ -95,10 +95,14 @@ git reset --hard
 
 ```bash
 git reset --hard $commit_id
+```
 
+```bash
 # Now push safely to your branch
 git push --force-with-lease
+```
 
+```bash
 # Or push brutally to your branch
 git push --force
 ```

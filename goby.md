@@ -120,14 +120,20 @@ Should be "`@[a-z][a-z0-9_]+`"(snake_case).
 ```ruby
 # array literal
 a, b, c = [1, 2, 3]
+```
 
+```ruby
 # array with '*'
 a = [1, 2, 3]
 x, y, z = *a
+```
 
+```ruby
 # array literal with '*'
 a, b, c = *[1, 2, 3]
+```
 
+```ruby
 # bare assignment: unsupported
 a, b, c = 1, 2, 3  #=> unexpected 3 Line: 0
 ```
@@ -962,11 +968,15 @@ Using `/ /` is to be implemented.
 # numbered capture
 'abcd'.match(Regexp.new('(b.)'))
 #=> #<MatchData 0:"bc" 1:"bc">
+```
 
+```ruby
 # named capture
 'abcd'.match(Regexp.new('a(?<first>b)(?<second>c)'))
 #=> #<MatchData 0:"abc" first:"b" second:"c">
+```
 
+```ruby
 # converting to hash
 » 'abcd'.match(Regexp.new('a(?<first>b)(?<second>c)')).to_h
 #» { 0: "abc", first: "b", second: "c" }

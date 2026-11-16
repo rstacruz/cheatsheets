@@ -45,12 +45,11 @@ javascript_link_tag :monkey
     = fields.checkbox :admin
 
   = f.submit
-
-# Also: check_box, email_field, fields_for
-# file_field, hidden_field, label, number_field, password_field
-# radio_button, range_field, search_field, telephonen_field,
-# text_area, text_field, url_field
 ```
+
+Also: check_box, email_field, fields_for, file_field, hidden_field, label,
+number_field, password_field, radio_button, range_field, search_field,
+telephonen_field, text_area, text_field, url_field.
 
 Controllers
 -----------
@@ -164,7 +163,9 @@ Layouts
 ```
 # app/views/layouts/application.html.erb
 <%= content_for?(:content) ? yield :content : yield %>
+```
 
+```
 # app/views/layouts/news.html.erb
 <% content_for :content do %>
    ...

@@ -90,7 +90,9 @@ YARD type declarations are conventions rather than Ruby runtime checks.
 # @param host [String] the host name
 def clean(user, host)
 end
+```
 
+```ruby
 # @param (see #clean)
 def activate(user, host)
 end

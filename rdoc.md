@@ -130,7 +130,6 @@ end
 # :section: Expiry methods
 # Methods for expiring records.
 
-# Expires the record.
 def expire!
 end
 ```

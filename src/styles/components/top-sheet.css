@@ -1,19 +1,15 @@
 .featured-pages {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-
-  @media (max-width: 580px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .top-sheet[class][class] {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  height: 170px;
+  height: 220px;
   padding: 16px 18px 18px;
   overflow: hidden;
   text-decoration: none;
@@ -44,6 +40,7 @@
     gap: 4px 5px;
     min-height: 0;
     margin: 0 0 8px;
+    padding-right: 20%;
     overflow: hidden;
     opacity: 0.5;
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);

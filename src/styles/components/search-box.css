@@ -1,7 +1,7 @@
 .search-box {
   background: var(--base-panel);
   box-shadow: var(--shadow3);
-  border-radius: 4px;
+  border-radius: 999px;
   display: flex;
   height: 64px;
   align-items: center;

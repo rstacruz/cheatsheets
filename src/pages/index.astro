@@ -21,7 +21,7 @@ import { urls } from '~/config'
 const pages = await getPages()
 const pageCategories = getPagesByCategory(pages)
 const featuredPages = getFeaturedPages(pages, { maxCount: 8 })
-const recentPages = getRecentPages(pages, { maxCount: 18 })
+const recentPages = getRecentPages(pages, { maxCount: 12 })
 
 const seoProps = getSEOPropsForHome()
 const t = {
@@ -33,7 +33,7 @@ const t = {
 }
 
 const styles = {
-  body: 'V2017Sheet__body max-w-slim p-6 md:px-8 mx-auto'
+  body: 'V2017Sheet__body max-w-[1024px] p-6 md:px-8 mx-auto'
 }
 
 const headingStyles = {

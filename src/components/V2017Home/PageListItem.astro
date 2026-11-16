@@ -1,6 +1,8 @@
 ---
 import type { SheetPage } from '../../lib/page'
 
+const CARD_FRAGMENT_COUNT = 22
+
 export type Props = {
   page: SheetPage
   class?: string
@@ -11,7 +13,14 @@ const page = props.page
 const url = `/${page.slug}`
 const title = page.frontmatter.title ?? page.slug
 const subtitle = page.frontmatter.subtitle
-const fragments = props.showFragments ? page.frontmatter.fragments : undefined
+const sourceFragments = page.frontmatter.fragments ?? []
+const fragments =
+  props.showFragments && sourceFragments.length > 0
+    ? Array.from(
+        { length: CARD_FRAGMENT_COUNT },
+        (_, index) => sourceFragments[index % sourceFragments.length]
+      )
+    : undefined
 ---
 
 <a

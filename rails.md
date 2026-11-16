@@ -160,13 +160,15 @@ head :created, location: photo_path(@photo)
 Layouts
 -------
 
+#### app/views/layouts/application.html.erb
+
 ```
-# app/views/layouts/application.html.erb
 <%= content_for?(:content) ? yield :content : yield %>
 ```
 
+#### app/views/layouts/news.html.erb
+
 ```
-# app/views/layouts/news.html.erb
 <% content_for :content do %>
    ...
 <% end %>

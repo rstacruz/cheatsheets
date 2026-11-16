@@ -187,8 +187,9 @@ See: [Constraints](https://yarnpkg.com/features/constraints)
 
 ### Plug'n'Play
 
+#### .yarnrc.yml
+
 ```yaml
-# .yarnrc.yml
 nodeLinker: pnp
 ```
 
@@ -198,8 +199,9 @@ See: [Plug'n'Play](https://yarnpkg.com/features/pnp)
 
 ### Zero-install
 
+#### .yarnrc.yml
+
 ```yaml
-# .yarnrc.yml
 enableGlobalCache: false
 ```
 

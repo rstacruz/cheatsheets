@@ -98,8 +98,9 @@ See: [Worker.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Wor
 
 ### Send from the worker
 
+#### worker.js
+
 ```js
-// worker.js
 self.onmessage = ({ data }) => {
   self.postMessage(data.text.split(','))
 }

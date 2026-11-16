@@ -292,25 +292,28 @@ See: [spot](https://yazi-rs.github.io/docs/configuration/keymap#mgr.spot)
 
 ### Image preview
 
+#### tmux.conf
+
 ```sh
-# tmux.conf: let image protocols through
 set -g allow-passthrough on
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-line="1"} -->
 
-Yazi picks kitty, iTerm2, WezTerm, Sixel, Überzug++, or Chafa automatically.
-Outside a supported terminal, install `ueberzugpp` or `chafa`. Code, JSON,
-folders, PDFs, and archives preview through built-in plugins.
+These settings let tmux pass image protocols through. Yazi picks kitty,
+iTerm2, WezTerm, Sixel, Überzug++, or Chafa automatically. Outside a
+supported terminal, install `ueberzugpp` or `chafa`. Code, JSON, folders,
+PDFs, and archives preview through built-in plugins.
 
 See: [image preview](https://yazi-rs.github.io/docs/image-preview)
 
 ### Preview settings
 
+#### ~/.config/yazi/yazi.toml
+
 ```toml
-# ~/.config/yazi/yazi.toml
 [preview]
 max_width  = 1000
 max_height = 1000
@@ -354,8 +357,9 @@ See: [Helix picker example](https://yazi-rs.github.io/docs/tips#helix)
 
 ### Editor
 
+#### ~/.config/yazi/yazi.toml
+
 ```toml
-# ~/.config/yazi/yazi.toml
 [[opener.edit]]
 run   = "$EDITOR %s"
 block = true
@@ -389,8 +393,9 @@ See: [configuration](https://yazi-rs.github.io/docs/configuration/overview)
 
 ### yazi.toml
 
+#### ~/.config/yazi/yazi.toml
+
 ```toml
-# ~/.config/yazi/yazi.toml
 [mgr]
 show_hidden = true
 sort_by     = "natural"
@@ -407,8 +412,9 @@ See: [yazi.toml](https://yazi-rs.github.io/docs/configuration/yazi)
 
 ### keymap.toml
 
+#### ~/.config/yazi/keymap.toml
+
 ```toml
-# ~/.config/yazi/keymap.toml
 [[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
 run  = "cd ~/Downloads"
@@ -427,8 +433,9 @@ See: [keymap.toml](https://yazi-rs.github.io/docs/configuration/keymap)
 
 ### theme.toml
 
+#### ~/.config/yazi/theme.toml
+
 ```toml
-# ~/.config/yazi/theme.toml
 [flavor]
 dark  = "catppuccin-mocha"
 light = "catppuccin-latte"
@@ -444,8 +451,9 @@ See: [theme.toml](https://yazi-rs.github.io/docs/configuration/theme)
 
 ### Openers
 
+#### ~/.config/yazi/yazi.toml
+
 ```toml
-# ~/.config/yazi/yazi.toml
 [opener]
 edit = [
 	{ run = "$EDITOR %s", block = true, for = "unix" },
@@ -498,8 +506,9 @@ See: [ya emit](https://yazi-rs.github.io/docs/dds#ya-emit)
 
 ### Plugin config
 
+#### ~/.config/yazi/yazi.toml
+
 ```toml
-# ~/.config/yazi/yazi.toml
 [plugin]
 prepend_previewers = [
 	{ mime = "image/heic", run = "heic" },

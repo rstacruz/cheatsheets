@@ -7,22 +7,27 @@ archived: This sheet describes an older version of Google Analytics (UA).
 
 ### Pageview
 
+#### Analytics.js
+
 ```
-// Analytics.js
 ga('create', 'UA-XXXX-Y', 'auto');
 ga('send', 'pageview');
 ```
 
 ### Track events
 
+#### ga.js
+
 ```
-// ga.js
 // [..., category, action, label, value (int), noninteraction (bool)]
 _gaq.push(['_trackEvent', 'Videos', 'Play', 'Birthday video', true])
 _gaq.push(['_trackEvent', 'Projects', 'Donate', 'Project name'])
 _gaq.push(['_trackEvent', 'Accounts', 'Login'])
+```
 
-// Analytics.js
+#### Analytics.js
+
+```
 //       ,        ,  category,  action,  label,         value (int)
 ga('send', 'event', 'button',   'click', 'nav buttons', 4);
 ```

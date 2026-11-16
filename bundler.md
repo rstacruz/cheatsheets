@@ -63,8 +63,9 @@ $ bundle config --global local.xxx ~/projects/xxx
 
 ### Rake Gem tasks
 
+#### Rakefile
+
 ```
-# Rakefile
 require 'bundler/gem_tasks'
 ```
 

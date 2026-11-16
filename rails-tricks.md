@@ -41,8 +41,9 @@ en:
 
 ### Exception handling
 
+#### config/application.rb
+
 ```
-# config/application.rb
 config.exceptions_app = self.routes
 
 get '/404', to: 'errors#not_found'

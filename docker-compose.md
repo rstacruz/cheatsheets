@@ -38,8 +38,9 @@ links:
 
 ### Basic example
 
+#### compose.yaml
+
 ```yaml
-# compose.yaml
 services:
   web:
     build: .
@@ -471,8 +472,9 @@ See: [extends](https://docs.docker.com/reference/compose-file/services/#extends)
 
 ### Merge overrides
 
+#### compose.override.yaml
+
 ```yaml
-# compose.override.yaml
 services:
   app:
     ports: !override

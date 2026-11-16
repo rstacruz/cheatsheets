@@ -472,8 +472,9 @@ See: [bind](https://fishshell.com/docs/current/cmds/bind.html)
 
 ### Config files
 
+#### ~/.config/fish/config.fish
+
 ```fish
-# ~/.config/fish/config.fish
 set -gx EDITOR nvim
 fish_add_path ~/.local/bin
 ```

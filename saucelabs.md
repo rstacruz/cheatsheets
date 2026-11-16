@@ -35,8 +35,9 @@ sauce_key: abc12348-e3e2-...
 
 Add `.zuul.yml` to your project:
 
+#### .zuul.yml
+
 ```yml
-# .zuul.yml
 ui: mocha-bdd
 browsers:
   - name: chrome

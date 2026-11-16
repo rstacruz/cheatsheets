@@ -9,10 +9,12 @@
  */
 
 .h3-section > .body {
-  @apply bg-white shadow-md-cool;
+  @apply bg-white;
   @apply overflow-x-auto;
-  @apply rounded-md [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md;
+  @apply rounded-[12px];
+  padding: 4px;
   @apply [&>pre]:m-0 [&>pre]:p-4;
+  border: solid 1px var(--line-color);
 }
 
 .h3-section > h3 {
@@ -29,6 +31,17 @@
  */
 
 .h3-section > .body {
+  /* Inset content follows the card corners: 12px card − 4px gutter */
+  & > :first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  & > :last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
   /* Lists */
   & > ul {
     margin: 0;
@@ -65,22 +78,42 @@
 
   /* Paragraphs */
   & > p {
+    margin: 4px 0;
     padding: 16px;
-    margin: 0;
+    border: 0;
+  }
+
+  & > p:first-of-type {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  & > p:last-of-type {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  /* The card gutter already supplies the outer 4px */
+  & > p:first-child,
+  & > h4:first-child {
+    margin-top: 0;
+  }
+
+  & > p:last-child,
+  & > h4:last-child {
+    margin-bottom: 0;
   }
 
   /* Headings in between bodies */
   & > h4 {
     font-size: var(--fs-n1);
-    margin: 0;
+    margin: 4px 0;
     padding: 4px 16px;
     font-weight: normal;
     background: var(--gray-bg);
     color: var(--gray-text);
-
-    & + * {
-      border-top: solid 1px var(--line-color);
-    }
+    border: 0;
+    border-radius: 8px;
   }
 
   /* Description paragraphs */
@@ -103,12 +136,17 @@
     }
   }
 
-  /* Line divisions */
-  & > *:not(:first-child) {
+  /* Line divisions: keep mixed sections apart, but not the gray tiles */
+  & > :where(:not(:first-child):not(p):not(h4)) {
     border-top: solid 1px var(--line-color);
   }
 
-  /* Collapse paragraphs together */
+  & > p + *,
+  & > h4 + * {
+    border-top: 0;
+  }
+
+  /* Meld consecutive paragraphs into one tile */
   & > p + p,
   & > p + p:not(:first-child) {
     margin-top: -1.5em;

@@ -3,6 +3,21 @@ title: TypeScript
 subtitle: Typed superset of JavaScript
 category: Build tools
 tier: t1
+fragments:
+  - "interface User"
+  - "type User"
+  - "enum Color"
+  - "readonly"
+  - "keyof"
+  - "typeof"
+  - "as const"
+  - "Partial<T>"
+  - "Record<K, V>"
+  - "infer"
+  - "string"
+  - "number"
+  - "unknown"
+  - "satisfies"
 tags: [Featured]
 updated: 2026-11-11
 intro: |

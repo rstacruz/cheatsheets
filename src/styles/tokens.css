@@ -21,7 +21,7 @@
   --font-system-mono:
     'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
     Courier, monospace;
-  --font-body: var(--font-system-sans);
+  --font-body: 'Geist Variable', var(--font-system-sans);
   --font-heading: var(--font-system-sans);
   --font-monospace: cousine, var(--font-system-mono);
 
@@ -51,6 +51,10 @@
   --body-bg: #fafafc;
   --gray-bg: #f3f5fc;
   --gray-text: #556677;
+
+  /* Sheet cards: a quiet fill, slightly darker on hover */
+  --base-card: #f1f3f8;
+  --base-card-hover: #e7eaf2;
 
   --line-color: rgb(85 102 119 / 18%);
   --dark-line-color: rgb(85 102 119 / 30%);

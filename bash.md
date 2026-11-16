@@ -5,6 +5,21 @@ category: Shell
 tags: [Featured]
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "#!/usr/bin/env"
+  - "set -euo"
+  - "$(pwd)"
+  - "${name}"
+  - "${food:-Cake}"
+  - "[[ -z \"$x\" ]]"
+  - "get_name()"
+  - "while true"
+  - "trap traperr ERR"
+  - "IFS=$'\\n\\t'"
+  - 'name="John"'
+  - 'echo "$name"'
+  - "{A,B}.js"
+  - "${str##*/}"
 keywords:
   - Variables
   - Functions

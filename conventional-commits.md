@@ -3,6 +3,21 @@ title: Conventional Commits
 subtitle: Structured messages that drive releases
 category: Git
 tier: t2
+fragments:
+  - "feat:"
+  - "fix:"
+  - "feat(lang):"
+  - "fix(parser):"
+  - "BREAKING CHANGE:"
+  - "docs:"
+  - "refactor:"
+  - "perf:"
+  - "test:"
+  - "build:"
+  - "ci:"
+  - "chore:"
+  - "style:"
+  - "revert:"
 updated: 2026-11-16
 intro: |
   [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a

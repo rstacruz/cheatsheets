@@ -45,6 +45,14 @@ export const SheetFrontmatterSchema = z
       .describe(
         'Review tier: t1 is audited before t2. Not a cadence; not rendered.'
       ),
+    fragments: z
+      .array(z.string().trim().min(1).max(16))
+      .min(12)
+      .max(20)
+      .optional()
+      .describe(
+        'Short fragments shown muted with a bottom fade on the homepage card. Required for t1 and t2 sheets.'
+      ),
     keywords: z
       .string()
       .array()
@@ -88,6 +96,16 @@ export const SheetFrontmatterSchema = z
   .refine((value) => !value.intro || (value.links?.length ?? 0) > 0, {
     message: '`intro` requires at least one `links` entry',
     path: ['links']
+  })
+  .superRefine((value, ctx) => {
+    if (value.tier !== 't1' && value.tier !== 't2') return
+    if (value.fragments) return
+
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['fragments'],
+      message: '`fragments` is required for t1 and t2 sheets'
+    })
   })
 
 export type SheetFrontmatter = z.infer<typeof SheetFrontmatterSchema>

@@ -4,6 +4,21 @@ subtitle: Open-source coding agent
 category: Agents
 updated: 2026-11-14
 tier: t2
+fragments:
+  - "opencode"
+  - "opencode run"
+  - "opencode mini"
+  - "opencode auth"
+  - "opencode models"
+  - "opencode mcp"
+  - "--model"
+  - "--agent"
+  - "--continue"
+  - "--format json"
+  - "opencode session"
+  - "opencode service"
+  - "--standalone"
+  - "--auto"
 keywords:
   - AI assistant
   - CLI

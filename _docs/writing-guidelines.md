@@ -17,6 +17,39 @@ updated: 2024-01-01
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 
+### Fragments
+
+Every T1 and T2 sheet needs `fragments`: 12–20 short strings shown muted with
+a bottom fade on the sheet's homepage card. They are decoration, not
+documentation.
+
+```yaml
+fragments:
+  - "curl -s"
+  - "-X POST"
+  - "--compressed"
+  - "-H 'X-Foo: bar'"
+  - "-d @file"
+  - "-F file=@path"
+  - "-o file"
+  - "-L"
+  - "-I"
+  - "--http2"
+  - "-O"
+  - "-u user:pass"
+```
+
+- Copy commands, flags, or syntax from the sheet; never add a new command.
+- Keep each fragment to 16 characters or fewer. Mid-token clipping is expected.
+- The first two or three should identify the tool without the title.
+- Mix shapes: commands, flags, values, syntax, codes. Avoid a run of flags.
+- Quote every entry: YAML reads `-X`, `#`, `*` and `:` as syntax.
+- No sentences, Markdown formatting, or trailing punctuation.
+- Keep cards distinct; skip generic `--help`, `install`, `usage`.
+- Order for visual rhythm, not importance.
+
+Non-tiered sheets may omit fragments. `pnpm test` enforces presence and length.
+
 ## Categories
 
 A category is a nav group. Its order in `src/config.ts` is the nav order; `Others` stays last.

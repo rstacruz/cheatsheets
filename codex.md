@@ -4,6 +4,21 @@ subtitle: Terminal coding agent
 category: Agents
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "codex"
+  - "codex exec"
+  - "codex resume"
+  - "codex fork"
+  - "codex review"
+  - "codex login"
+  - "codex mcp"
+  - "--model"
+  - "--sandbox"
+  - "--search"
+  - "codex cloud"
+  - "codex apply"
+  - "codex doctor"
+  - "--worktree"
 keywords:
   - AI assistant
   - CLI

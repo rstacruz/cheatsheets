@@ -5,6 +5,21 @@ category: Networking
 tags: [Featured]
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "curl -s"
+  - "-X POST"
+  - "--compressed"
+  - "-H 'X-Foo: bar'"
+  - "-d @file"
+  - "-F file=@path"
+  - "-o file"
+  - "-L"
+  - "-I"
+  - "--http2"
+  - "-O"
+  - "-u user:pass"
+  - "--fail"
+  - "-v"
 intro: |
   [curl](https://curl.se/) transfers data with URLs from the command line. This reference covers common HTTP options and recipes, current through curl 8.23.
 links:

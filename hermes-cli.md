@@ -3,6 +3,21 @@ title: Hermes CLI
 subtitle: Terminal AI agent CLI
 category: Agents
 tier: t2
+fragments:
+  - "hermes"
+  - "hermes chat"
+  - "hermes -z"
+  - "hermes -c"
+  - "hermes setup"
+  - "hermes model"
+  - "--oneshot"
+  - "--model"
+  - "--provider"
+  - "--worktree"
+  - "--quiet"
+  - "--tui"
+  - "--cli"
+  - "--usage-file"
 updated: 2026-11-11
 keywords:
   - AI assistant

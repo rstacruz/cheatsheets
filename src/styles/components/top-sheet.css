@@ -53,9 +53,10 @@
     border-radius: 999px;
     background: rgb(0 0 0 / 12%);
     color: rgb(255 255 255 / 80%);
-    font-family: 'VT323', var(--font-monospace);
-    font-size: 13px;
-    line-height: 16px;
+    font-family: 'Handjet', var(--font-monospace);
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
 

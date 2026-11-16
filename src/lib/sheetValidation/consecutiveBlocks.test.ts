@@ -12,11 +12,15 @@ import { sheetSources } from './sheets'
 
 const processor = unified().use(remarkParse).use(remarkGfm)
 
+// Column 0 only: `#define`, shebangs and indented comments do not label
+const CAPTION = /^#(?:\s|$)/
+
 type Finding = { line: number; heading: string }
 
 /**
  * Flags two code blocks in one card with no heading between them. Give each
- * block an H4 label, or the second reads as part of the first.
+ * block an H4 label, or the second reads as part of the first. A block that
+ * opens with a caption comment is self-labelled and needs no H4.
  */
 function findConsecutiveBlocks(source: string): Finding[] {
   const lines = source.split('\n')
@@ -32,7 +36,8 @@ function findConsecutiveBlocks(source: string): Finding[] {
       if (node.type === 'heading') {
         previous = undefined
       } else if (node.type === 'code' && node.position) {
-        if (previous !== undefined) {
+        const caption = CAPTION.test(node.value.split('\n')[0] ?? '')
+        if (previous !== undefined && !caption) {
           found.push({
             line: node.position.start.line,
             heading: (lines[heading.position.start.line - 1] ?? '')
@@ -81,6 +86,20 @@ describe('findConsecutiveBlocks()', () => {
 
   test('flags blocks with only prose between them', () => {
     const input = body([...pre('ls'), '', 'Text', '', ...pre('pwd')])
+    expect(findConsecutiveBlocks(input)).toHaveLength(1)
+  })
+
+  test('allows adjacent caption-led blocks', () => {
+    const input = body([
+      ...pre('# Arch\npacman -S yazi'),
+      '',
+      ...pre('# macOS\nbrew install yazi')
+    ])
+    expect(findConsecutiveBlocks(input)).toEqual([])
+  })
+
+  test('flags an uncaptioned block after a captioned one', () => {
+    const input = body([...pre('# Arch\npacman -S yazi'), '', ...pre('pwd')])
     expect(findConsecutiveBlocks(input)).toHaveLength(1)
   })
 

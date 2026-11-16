@@ -1,6 +1,7 @@
 import { categories } from '~/config'
 import { getPages } from './page'
 import { isListed } from './page/accessors'
+import { getPagesByCategory } from './page/queries'
 
 describe('categories config', () => {
   test('pins the curated order', () => {
@@ -26,5 +27,34 @@ describe('categories config', () => {
     }
 
     expect(unknownCategories).toEqual([])
+  })
+})
+
+const MIN_PER_CATEGORY = 3
+const MAX_PER_CATEGORY = 16
+const MAX_OTHERS = 12
+
+describe('category sizes', () => {
+  test('listed sheets stay within the size bounds', async () => {
+    const grouped = getPagesByCategory(await getPages())
+    const findings: string[] = []
+
+    const others = grouped['Others']?.pages.length ?? 0
+    if (others > MAX_OTHERS) {
+      findings.push(`Others: ${others} sheets (max ${MAX_OTHERS})`)
+    }
+
+    for (const category of categories) {
+      if (category === 'Others') continue
+      const count = grouped[category]?.pages.length ?? 0
+      if (count < MIN_PER_CATEGORY || count > MAX_PER_CATEGORY) {
+        findings.push(
+          `${category}: ${count} sheets ` +
+            `(needs ${MIN_PER_CATEGORY}-${MAX_PER_CATEGORY})`
+        )
+      }
+    }
+
+    expect(findings).toEqual([])
   })
 })

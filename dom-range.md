@@ -1,7 +1,7 @@
 ---
 title: DOM Range
 subtitle: Document range API
-category: JavaScript
+category: Browser APIs
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
 links:

@@ -1,7 +1,7 @@
 ---
 title: Redux
 subtitle: Predictable state container
-category: React
+category: JavaScript libraries
 updated: 2026-11-14
 weight: -3
 intro: |

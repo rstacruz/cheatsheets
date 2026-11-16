@@ -1,7 +1,7 @@
 ---
 title: Ansi codes
 subtitle: ANSI terminal color codes
-category: CLI
+category: Shell
 intro: |
   Quick reference to ANSI color codes.
 links:

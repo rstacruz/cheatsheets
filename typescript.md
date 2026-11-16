@@ -1,7 +1,7 @@
 ---
 title: TypeScript
 subtitle: Typed superset of JavaScript
-category: JavaScript libraries
+category: Build tools
 tier: t1
 fragments:
   - "interface User"

@@ -1,7 +1,7 @@
 ---
 title: Webpack
 subtitle: Asset and module bundler
-category: JavaScript libraries
+category: Build tools
 updated: 2026-11-14
 intro: |
   [Webpack](https://webpack.js.org) bundles JavaScript, CSS, and other assets into files a browser can load. This reference targets webpack 5 and webpack-cli 7.

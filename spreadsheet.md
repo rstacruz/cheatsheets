@@ -1,5 +1,6 @@
 ---
 title: Spreadsheet functions
+category: Others
 subtitle: Spreadsheet formula reference
 tags: [WIP]
 ---

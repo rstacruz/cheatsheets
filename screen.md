@@ -1,7 +1,7 @@
 ---
 title: Screen
 subtitle: GNU terminal multiplexer
-category: CLI
+category: Shell
 updated: 2024-02-03
 keywords:
   - Screen

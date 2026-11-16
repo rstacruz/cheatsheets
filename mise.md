@@ -1,7 +1,7 @@
 ---
 title: mise
 subtitle: Dev tool version manager
-category: CLI
+category: Package managers
 updated: 2026-11-11
 tier: t2
 fragments:

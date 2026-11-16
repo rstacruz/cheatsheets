@@ -1,7 +1,7 @@
 ---
 title: Flow
 subtitle: JavaScript type checker
-category: JavaScript libraries
+category: Build tools
 updated: 2020-07-05
 weight: -3
 ---

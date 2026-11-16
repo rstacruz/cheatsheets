@@ -1,7 +1,7 @@
 ---
 title: React.js
 subtitle: UI library
-category: React
+category: JavaScript libraries
 tags: [Featured]
 updated: 2026-11-11
 tier: t1

@@ -1,7 +1,7 @@
 ---
 title: Emacs
 subtitle: Extensible text editor
-category: CLI
+category: Apps
 ---
 
 ### Movements

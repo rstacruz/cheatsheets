@@ -1,7 +1,7 @@
 ---
 title: Sinon-chai
 subtitle: Sinon assertions for Chai
-category: JavaScript libraries
+category: JavaScript testing
 links:
   - title: Sinon-chai
     url: https://github.com/domenic/sinon-chai

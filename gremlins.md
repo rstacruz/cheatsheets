@@ -1,7 +1,7 @@
 ---
 title: Gremlins.js
 subtitle: JavaScript monkey-testing library
-category: JavaScript libraries
+category: JavaScript testing
 updated: 2017-10-22
 weight: -1
 intro: |

@@ -1,5 +1,6 @@
 ---
 title: Date & time formats
+category: Others
 subtitle: Date format tokens
 weight: -5
 updated: 2026-11-11

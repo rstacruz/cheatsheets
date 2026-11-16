@@ -1,7 +1,7 @@
 ---
 title: Mocha.js
 subtitle: BDD test runner
-category: JavaScript libraries
+category: JavaScript testing
 ---
 
 ### BDD

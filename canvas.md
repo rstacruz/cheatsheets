@@ -1,7 +1,7 @@
 ---
 title: Canvas
 subtitle: HTML canvas drawing API
-category: JavaScript
+category: Browser APIs
 ---
 
 ### Getting the context

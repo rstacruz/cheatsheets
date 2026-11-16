@@ -1,7 +1,7 @@
 ---
 title: Kotlin
 subtitle: JVM programming language
-category: Java & JVM
+category: C-like
 updated: 2026-11-11
 tier: t1
 fragments:

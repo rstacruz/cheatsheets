@@ -1,7 +1,7 @@
 ---
 title: ncftp
 subtitle: Command-line FTP client
-category: CLI
+category: Networking
 ---
 
 ### Bookmarking

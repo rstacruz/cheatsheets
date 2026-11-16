@@ -1,7 +1,7 @@
 ---
 title: JavaScript speech synthesis
 subtitle: Speech synthesis API
-category: JavaScript
+category: Browser APIs
 weight: -1
 updated: 2026-10-04
 intro: |

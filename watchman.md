@@ -1,5 +1,6 @@
 ---
 title: Watchman
+category: CLI
 subtitle: File watching service
 updated: 2017-10-18
 weight: -1

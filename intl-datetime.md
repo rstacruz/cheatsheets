@@ -1,7 +1,7 @@
 ---
 title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
-category: JavaScript
+category: Browser APIs
 tags: [Featured]
 fragments:
   - "DateTimeFormat"

@@ -1,5 +1,6 @@
 ---
 title: Nocode
+category: Others
 subtitle: Satirical zero-code project
 updated: 2018-03-17
 intro: |

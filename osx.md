@@ -1,7 +1,7 @@
 ---
 title: OS X
 subtitle: Mac administration commands
-category: macOS
+category: Apps
 ---
 
 ### Locations of startup items

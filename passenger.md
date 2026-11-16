@@ -1,5 +1,6 @@
 ---
 title: Phusion Passenger
+category: Rails
 subtitle: Ruby application server
 tags: [WIP]
 ---

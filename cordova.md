@@ -1,5 +1,6 @@
 ---
 title: Apache Cordova
+category: JavaScript libraries
 subtitle: Cross-platform mobile app builder
 intro: |
   A quick reference to common [Apache Cordova](https://cordova.apache.org/) commands.

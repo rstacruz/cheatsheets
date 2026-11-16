@@ -1,7 +1,7 @@
 ---
 title: scp
 subtitle: Secure file copy
-category: CLI
+category: Networking
 updated: 2018-12-25
 authors:
   - github: vastpeng

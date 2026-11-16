@@ -1,7 +1,7 @@
 ---
 title: Mocha HTML
 subtitle: Browser test page template
-category: JavaScript libraries
+category: JavaScript testing
 ---
 
 ### About

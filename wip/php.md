@@ -1,6 +1,6 @@
 ---
 title: PHP
-category: PHP
+category: Hidden
 prism_languages: [php]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: yt-dlp
 subtitle: Command-line video downloader
-category: CLI
+category: Media tools
 updated: 2026-11-16
 tier: t2
 fragments:

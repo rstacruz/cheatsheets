@@ -2,7 +2,7 @@
 title: Makefile
 subtitle: Build automation file
 prism_languages: [makefile]
-category: CLI
+category: Build tools
 ---
 
 ### Var assignment

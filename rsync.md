@@ -1,7 +1,7 @@
 ---
 title: Rsync
 subtitle: File sync utility
-category: CLI
+category: Networking
 weight: -1
 ---
 

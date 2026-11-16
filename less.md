@@ -1,5 +1,6 @@
 ---
 title: Less.js
+category: CSS
 subtitle: CSS preprocessor
 ---
 

@@ -2,7 +2,7 @@
 title: AppleScript
 subtitle: Mac automation language
 updated: 2018-12-06
-category: macOS
+category: Apps
 prism_languages: [applescript]
 ---
 

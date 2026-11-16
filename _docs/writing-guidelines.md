@@ -14,8 +14,21 @@ updated: 2024-01-01
 ---
 ```
 
-- **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
+- **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
+
+## Categories
+
+A category is a nav group. Its order in `src/config.ts` is the nav order; `Others` stays last.
+
+- **Sizes:** every listed category except `Others` holds 3-16 sheets; `Others` holds at most 12. Hidden, deprecated, and archived sheets don't count.
+- **New sheets:** file under the closest existing category. Don't create a category for one sheet.
+- **New categories:** add one only when at least 3 sheets share it, in nav order in `src/config.ts`. The donor category must stay at 3 or more.
+- **Splitting:** when a category passes 16, split it along a subject line (runtime vs library, language vs tool), not alphabetically. Both sides must stay within 3-16.
+- **Merging:** when a category falls below 3, fold it into its closest parent and remove it from `src/config.ts`.
+- **Others:** a last resort. If it is full, pick the closest category or split one; don't add a new "Misc".
+
+Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
 ## Content organisation
 

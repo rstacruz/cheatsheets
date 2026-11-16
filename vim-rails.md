@@ -80,7 +80,9 @@ Extracting partials
 ```rb
 # from view => app/views/home/_foo_partial.haml
   :Rextract home/foo_partial
+```
 
+```rb
 # from model => app/models/concerns/foo_concern.rb
   :Rextract FooConcern
 ```

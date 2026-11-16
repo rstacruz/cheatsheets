@@ -179,7 +179,9 @@ See: [string match](https://fishshell.com/docs/current/cmds/string.html#match-su
 ```fish
 # Replaces the first match
 string replace --regex 'Fish' 'fish' 'Hello from Fish!'
+```
 
+```fish
 # Replaces all matches
 string replace --regex --all 'Fish' 'fish' 'Hello from Fish!'
 ```

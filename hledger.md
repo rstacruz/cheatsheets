@@ -171,10 +171,14 @@ hledger stats
 
   hledger balancesheet Assets [--cleared --cost --empty -e tomorrow]
   # ...discard future stuff; convert foreign currencies
+```
 
+```
 # Monthly changes in assets
   hledger bal Assets Liabilities --monthly --tree --historical [--cleared --cost --empty -e tomorrow]
+```
 
+```
 # Weekly expenses
   hledger bal Expenses --weekly --average --tree -b 'last month' [--cleared --cost --empty -e tomorrow]
 ```

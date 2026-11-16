@@ -161,7 +161,9 @@ Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
 ```rb
 # In your code:
 binding.remote_pry
+```
 
+```rb
 # In the shell:
 bundle exec pry-remote
 ```

@@ -29,16 +29,22 @@ Q.promise (ok, fail) =>
 
 ```
 promises = [saveDisk(), saveCloud()]
+```
 
+```
 # When all succeeds, or *at least one* error
 Q.all(promises).done ->
   alert "Saved"
+```
 
+```
 # Same, but get the values
 Q.all(promises).spread (a, b) ->
   alert "Result A:" + a
   alert "Result B:" + b
+```
 
+```
 # When all either succeeds or errors
 Q.allSettled(promises).done -> ...
 ```

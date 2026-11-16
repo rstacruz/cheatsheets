@@ -44,19 +44,21 @@ links:
 ```bash
 curl -fsSL https://mise.run | sh   # → ~/.local/bin/mise
 brew install mise               # works, installer preferred
+```
 
+```bash
 # Debian/Ubuntu
 sudo apt install -y extrepo
 sudo extrepo enable mise && sudo apt update
 sudo apt install -y mise
+```
 
+```bash
 # installer only: not on PATH until activation
 export PATH="$HOME/.local/bin:$PATH"
 mise --version
 mise doctor                     # diagnose shell/shim problems
 ```
-
-<!-- {: data-line="1"} -->
 
 The installer drops the binary in `~/.local/bin`; activation adds it to `PATH`.
 

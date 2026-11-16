@@ -80,22 +80,30 @@ PCRE has even more options such as additional anchors and character classes, loo
 # Case insensitive: match any line in foo.txt
 # that contains "bar"
 grep -i bar foo.txt
+```
 
+```bash
 #  match any line in bar.txt that contains
 # either "foo" or "oof"
 grep -E "foo|oof" bar.txt
+```
 
+```bash
 # match anything that resembles a URL in
 # foo.txt and only print out the match
 grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
+```
 
+```bash
 # can also be used with pipes:
 # match any line that contains "export" in
 # .bash_profile, pipe to another grep that
 # matches any of the first set of matches
 # containing "PATH"
 grep "export" .bash_profile | grep "PATH"
+```
 
+```bash
 # follow the tail of server.log, pipe to grep
 # and print out any line that contains "error"
 # and include 5 lines of context

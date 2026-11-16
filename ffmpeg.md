@@ -59,7 +59,9 @@ ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
 ```bash
 # video from 1st file, audio from 2nd
 ffmpeg -i input1.mp4 -i input2.mp4 -map 0:v:0 -map 1:a:0 output.mp4
+```
 
+```bash
 # all video from 1st file, all audio from 2nd
 ffmpeg -i input1.mp4 -i input2.mp3 -map 0:v -map 1:a output.mkv
 ```

@@ -130,6 +130,7 @@ shows the shape.
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
 - Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
 - A table that follows a code block needs an H4 in between, or it reads as part of the block
+- One example per code block: start a new fence instead of stacking commented examples
 
 ## Writing guidelines
 

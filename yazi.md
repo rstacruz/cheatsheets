@@ -44,10 +44,14 @@ links:
 ```bash
 # Arch Linux
 sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide
+```
 
+```bash
 # macOS
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide
+```
 
+```bash
 # Debian/Ubuntu: use the official APT repo
 curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg \
   | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null

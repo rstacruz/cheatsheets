@@ -5,6 +5,21 @@ category: JavaScript
 weight: -10
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "const res"
+  - "n => n * 2"
+  - "await"
+  - "await fetch"
+  - "Promise.all"
+  - "res.json"
+  - "list.map"
+  - "Object.keys"
+  - "JSON.stringify"
+  - "console.log"
+  - "list.filter"
+  - "list.find"
+  - "new Map"
+  - "Array.fromAsync"
 intro: |
   Quick reference for the core JavaScript language. Most sections link to a
   full cheatsheet.

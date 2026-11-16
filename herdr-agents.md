@@ -4,6 +4,21 @@ subtitle: Coding agent state detection
 category: Agents
 updated: 2026-11-15
 tier: t2
+fragments:
+  - "agent start"
+  - "agent prompt"
+  - "agent wait"
+  - "--kind codex"
+  - "--wait"
+  - "--until blocked"
+  - "idle"
+  - "working"
+  - "blocked"
+  - "done"
+  - "herdr agent"
+  - "--timeout"
+  - "--kind claude"
+  - "--until working"
 keywords:
   - coding agents
   - agent states

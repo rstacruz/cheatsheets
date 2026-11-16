@@ -6,6 +6,21 @@ weight: -3
 category: C-like
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "package main"
+  - "func main()"
+  - "import \"fmt\""
+  - ":="
+  - "err != nil"
+  - "defer"
+  - "go push"
+  - "chan int"
+  - "struct"
+  - "interface{}"
+  - "go run ."
+  - "go build"
+  - "go test"
+  - "go mod tidy"
 links:
   - title: A tour of Go
     url: https://go.dev/tour/welcome/1

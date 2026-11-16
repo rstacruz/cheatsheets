@@ -3,6 +3,21 @@ title: Terraform
 subtitle: Infrastructure as code tool
 category: Devops
 tier: t2
+fragments:
+  - "terraform init"
+  - "terraform plan"
+  - "terraform apply"
+  - "terraform fmt"
+  - "terraform import"
+  - "-auto-approve"
+  - "resource"
+  - "variable"
+  - "for_each"
+  - "module"
+  - "locals"
+  - "data"
+  - "count"
+  - "depends_on"
 updated: 2026-11-11
 description: |
   A practical reference for Terraform configuration and CLI workflows.

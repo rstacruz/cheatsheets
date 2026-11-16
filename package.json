@@ -24,6 +24,7 @@
     "@astrojs/partytown": "^2.1.9",
     "@astrojs/ts-plugin": "^1.10.12",
     "@fontsource/cousine": "^5.0.15",
+    "@fontsource/handjet": "^5.3.1",
     "@fontsource/manrope": "^5.0.19",
     "@mapbox/rehype-prism": "^0.9.0",
     "@playwright/test": "^1.64.1",

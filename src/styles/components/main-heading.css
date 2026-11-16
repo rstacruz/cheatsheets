@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   position: relative;
-
   & > h1 {
     font-size: var(--fs-8);
     line-height: 1.2;
@@ -32,6 +31,12 @@
       margin-bottom: 24px;
     }
   }
+}
+
+.MainHeading__suffix {
+  color: var(--base-mute3);
+  font-family: var(--font-monospace);
+  font-weight: 400;
 }
 
 .UseCompactHeader .main-heading {

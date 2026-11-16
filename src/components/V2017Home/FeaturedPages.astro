@@ -1,5 +1,6 @@
 ---
 import type { SheetPage } from '~/lib/page'
+import '@fontsource/handjet/latin-400.css'
 import PageListItem from './PageListItem.astro'
 
 export type Props = {
@@ -9,9 +10,13 @@ export type Props = {
 const props = Astro.props as Props
 ---
 
-{props.pages.map((page) => (
-  <PageListItem page={page} class="top-sheet" />
-))}
+{props.pages.length > 0 && (
+  <div class="featured-pages">
+    {props.pages.map((page) => (
+      <PageListItem page={page} class="top-sheet" showFragments />
+    ))}
+  </div>
+)}
 
 <style is:global>
   @import '../../styles/components/top-sheet.css';

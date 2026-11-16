@@ -5,6 +5,21 @@ category: React
 tags: [Featured]
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "<App />"
+  - "useState"
+  - "useEffect"
+  - "useReducer"
+  - "useMemo"
+  - "props"
+  - "onClick"
+  - "items.map"
+  - "createRoot"
+  - "<StrictMode>"
+  - "useRef"
+  - "useContext"
+  - "useCallback"
+  - "Suspense"
 weight: -10
 keywords:
   - useState

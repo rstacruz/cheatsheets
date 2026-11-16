@@ -4,6 +4,21 @@ subtitle: Terminal workspace manager
 category: Agents
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "herdr"
+  - "prefix+c"
+  - "prefix+v"
+  - "prefix+h/j/k/l"
+  - "prefix+q"
+  - "prefix+?"
+  - "herdr workspace"
+  - "herdr tab"
+  - "herdr pane"
+  - "herdr agent"
+  - "herdr session"
+  - "prefix+w"
+  - "prefix+n"
+  - "prefix+p"
 keywords:
   - terminal workspace manager
   - AI coding agents

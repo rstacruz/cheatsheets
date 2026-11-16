@@ -4,6 +4,21 @@ subtitle: Dev tool version manager
 category: CLI
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "mise use"
+  - "mise install"
+  - "mise exec"
+  - "mise run"
+  - "mise ls"
+  - "mise outdated"
+  - "mise trust"
+  - "mise env"
+  - "mise.toml"
+  - "node@20"
+  - "mise upgrade"
+  - "mise uninstall"
+  - "mise doctor"
+  - "mise settings"
 keywords:
   - dev tool version manager
   - mise.toml

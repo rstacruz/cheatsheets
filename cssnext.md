@@ -3,6 +3,11 @@ title: cssnext
 subtitle: Future CSS syntax transpiler
 category: Hidden
 # Deprecated in favour of postcss-preset-env; repo archived.
+tags: [Archived]
+archived: |
+  cssnext was deprecated in favour of
+  [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env);
+  its repository is archived.
 updated: 2017-10-30
 weight: -3
 ---

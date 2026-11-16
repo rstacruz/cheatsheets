@@ -61,7 +61,8 @@ Add a CSS-only glyph to `USED` in `scripts/build-icons.mjs`, then run `pnpm icon
 
 ## Cheatsheet guidelines
 
-See `_docs/writing-guidelines.md` for content and formatting guidelines.
+See `_docs/writing-guidelines.md` for content and formatting guidelines, and
+`_docs/archiving.md` for when to archive a sheet.
 
 ## Setting up redirects
 

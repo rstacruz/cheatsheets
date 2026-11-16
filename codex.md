@@ -161,6 +161,13 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 
 <!-- {: .-prime} -->
 
+```bash
+codex -s workspace-write -a on-request  # Auto
+codex -s read-only -a never             # read-only, no prompts
+```
+
+#### Modes
+
 | Mode                 | Effect                          |
 | -------------------- | ------------------------------- |
 | `read-only`          | Read files; no edits or network |
@@ -168,11 +175,6 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `danger-full-access` | No sandbox at all               |
 
 <!-- {: .-shortcuts} -->
-
-```bash
-codex -s workspace-write -a on-request  # Auto
-codex -s read-only -a never             # read-only, no prompts
-```
 
 Auto is the default preset: edits in the workspace, approval to leave it, network off until `sandbox_workspace_write.network_access = true`.
 

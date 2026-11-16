@@ -1,7 +1,13 @@
 ---
 title: Express.js
 subtitle: Node.js web framework
-category: JavaScript libraries
+category: Hidden
+# Documents the Express 3 API, removed in Express 4 (2014).
+tags: [Archived]
+archived: |
+  This documents the Express 3 API. `app.configure()`, `express.logger()`,
+  and `res.send(status, body)` were removed in Express 4 in 2014. See the
+  [current docs](https://expressjs.com/).
 ---
 
 ### Settings

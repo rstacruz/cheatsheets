@@ -188,16 +188,18 @@ See: [Using headless CLI](https://cursor.com/docs/cli/headless)
 
 ### Output formats
 
+```bash
+agent -p --output-format json "explain src/auth.ts"
+agent -p --output-format stream-json "fix the tests"
+```
+
+#### Formats
+
 | Format        | Output                                    |
 | ------------- | ----------------------------------------- |
 | `text`        | Only the final message (default)          |
 | `json`        | One object with `result` and `session_id` |
 | `stream-json` | Newline-delimited events                  |
-
-```bash
-agent -p --output-format json "explain src/auth.ts"
-agent -p --output-format stream-json "fix the tests"
-```
 
 `stream-json` emits `system`, `user`, `assistant`, `tool_call`, and `result` events.
 

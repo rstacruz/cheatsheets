@@ -3,6 +3,10 @@ title: js-model
 subtitle: CoffeeScript model library
 category: Hidden
 # Last shipped 0.11.0 (~2012); unmaintained for a decade.
+tags: [Archived]
+archived: |
+  js-model last shipped 0.11.0 around 2012 and has been unmaintained for a
+  decade. Use MobX or plain objects instead.
 updated: 2026-10-04
 ---
 

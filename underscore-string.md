@@ -3,6 +3,10 @@ title: Underscore-string
 subtitle: String utility library
 category: Hidden
 # Archived/unmaintained (last release 3.3.6, 2022); prefer native String methods.
+tags: [Archived]
+archived: |
+  Underscore.string is archived and unmaintained (last release 3.3.6, 2022).
+  Use native JavaScript String methods instead.
 ---
 
 ### Usage

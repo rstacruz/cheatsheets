@@ -3,6 +3,10 @@ title: Mocha blanket
 subtitle: Code coverage reporting
 category: Hidden
 # Built on blanket.js, which is abandoned (its README points to Istanbul/nyc).
+tags: [Archived]
+archived: |
+  Blanket.js, which this sheet builds on, is abandoned. Use
+  [istanbul/nyc](https://istanbul.js.org/) for coverage instead.
 intro: |
   Use [blanket](https://npmjs.com/package/blanket) for easy coverage reporting for Mocha JavaScript tests.
 links:

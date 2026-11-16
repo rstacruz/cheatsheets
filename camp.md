@@ -3,6 +3,10 @@ title: Camp
 subtitle: Express-compatible web framework
 category: Hidden
 # Abandoned; last npm release was 18.1.1 (2021).
+tags: [Archived]
+archived: |
+  Camp has been abandoned; its last npm release was 18.1.1 in 2021. Use
+  Express, Fastify, or Koa instead.
 updated: 2017-09-21
 weight: -1
 intro: |

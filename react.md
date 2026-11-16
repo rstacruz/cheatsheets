@@ -485,7 +485,11 @@ Context passes data down without prop drilling and v19 renders `<Context>` itsel
 
 <!-- {: .-two-column} -->
 
-Call hooks at the top level of a component or hook — never in loops, conditions or nested functions. See: [Rules of hooks](https://react.dev/reference/rules/rules-of-hooks)
+### Rules of hooks
+
+Call hooks at the top level of a component or hook — never in loops, conditions or nested functions.
+
+See: [Rules of hooks](https://react.dev/reference/rules/rules-of-hooks)
 
 ### useOnlineStatus
 

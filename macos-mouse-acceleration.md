@@ -1,7 +1,14 @@
 ---
 title: Mouse Acceleration
 subtitle: Fix for macOS mouse acceleration
-category: macOS
+category: Hidden
+# macOS 14 moved this to System Settings; com.apple.mouse.scaling no longer works.
+tags: [Archived]
+archived: |
+  macOS 14 Sonoma moved this to System Settings › Mouse › Advanced › Pointer
+  acceleration; `com.apple.mouse.scaling -1` no longer turns acceleration off.
+  See [Mouse settings](https://support.apple.com/guide/mac-help/mouse-settings-mh29222/mac)
+  in Apple's Mac User Guide.
 updated: 2018-03-20
 weight: -1
 keywords:

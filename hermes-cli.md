@@ -168,15 +168,26 @@ See: [`hermes auth`](https://hermes-agent.nousresearch.com/docs/reference/cli-co
 
 <!-- {: .-shortcuts} -->
 
-On WSL, prefer `gateway run` inside tmux; systemd support is unreliable there.
+See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-gateway)
+
+### WSL
 
 ```bash
 tmux new -s hermes 'hermes gateway run'
 ```
 
+On WSL, prefer `gateway run` inside tmux; systemd support is unreliable there.
+
 See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-gateway)
 
 ### Sessions
+
+```bash
+hermes sessions prune --dry-run
+hermes sessions export sessions.jsonl
+```
+
+#### Subcommands
 
 | Subcommand        | Description                               |
 | ----------------- | ----------------------------------------- |
@@ -194,11 +205,6 @@ See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli
 <!-- {: .-shortcuts} -->
 
 `prune` defaults to sessions older than 90 days; run it with `--dry-run` first.
-
-```bash
-hermes sessions prune --dry-run
-hermes sessions export sessions.jsonl
-```
 
 See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-sessions)
 

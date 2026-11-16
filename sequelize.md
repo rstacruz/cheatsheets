@@ -1,7 +1,13 @@
 ---
 title: Sequelize
 subtitle: Node.js SQL ORM
-category: JavaScript libraries
+category: Hidden
+# Documents Sequelize 2.x; success(), find(), updateAttributes() were removed in 3-5.
+tags: [Archived]
+archived: |
+  This is the Sequelize 2.x API: `.success()`, `find()`, and
+  `updateAttributes()` were removed in Sequelize 3–5. See the
+  [Sequelize v6 docs](https://sequelize.org/docs/v6/).
 intro: |
   Sequelize is an ORM for JavaScript.
 links:

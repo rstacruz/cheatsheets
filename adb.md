@@ -101,13 +101,15 @@ See: [Copy files](https://developer.android.com/tools/adb#copyfiles)
 | `adb shell pm list packages -3`     | Third-party packages only  |
 | `adb exec-out screencap -p > a.png` | Raw stdout, no pty         |
 
-#### Quoting
+See: [Issue shell commands](https://developer.android.com/tools/adb#shellcommands)
 
-Arguments are passed like `ssh`, so quote twice for the device shell:
+### Quoting
 
 ```bash
 adb shell setprop key "'two words'"
 ```
+
+Arguments are passed like `ssh`, so quote twice for the device shell.
 
 See: [Issue shell commands](https://developer.android.com/tools/adb#shellcommands)
 

@@ -56,6 +56,7 @@ Non-tiered sheets may omit fragments. `pnpm test` enforces presence and length.
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
 - **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
+- **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
 
 H2 content length:
@@ -114,7 +115,8 @@ shows the shape.
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
-- A table that follows a code block needs an H4 in between (eg `#### Options`), or it reads as part of the block
+- Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
+- A table that follows a code block needs an H4 in between, or it reads as part of the block
 
 ## Writing guidelines
 
@@ -291,6 +293,8 @@ When an example spans multiple files, use each filename as its H4, one code bloc
 
 ## Archived sheets
 
+See [`archiving.md`](archiving.md) for when a sheet is worth archiving.
+
 - Set `archived: <note>` for an obsolete sheet with no newer version. The note renders as Markdown in a notice.
 - Archived sheets are unlisted like `category: Hidden` and appear on the [archive page](https://devhints.io/archive).
 - `tags: [Archived]` is only a label; set `archived:` to unlist.
@@ -326,6 +330,20 @@ links:
 ```
 
 The card is generated; never write an `### Introduction` card by hand.
+
+## Table headers
+
+Table headers are hidden by default. Add `<!-- {: .-headers} -->` after the
+table when the column labels carry meaning; otherwise leave them out and write
+rows that read on their own.
+
+```md
+| Part | Required |
+| --- | --- |
+| `type` | yes |
+| body | no |
+<!-- {: .-headers} -->
+```
 
 ## Tables: separating
 

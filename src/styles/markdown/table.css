@@ -50,8 +50,11 @@
   }
 
   & thead th {
+    font-size: var(--fs-n1);
     font-weight: normal;
-    color: var(--base-a);
+    color: var(--gray-text);
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 

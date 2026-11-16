@@ -23,6 +23,7 @@ updated: 2024-01-01
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
 - **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
+- **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
 
 H2 content length:
@@ -296,6 +297,20 @@ links:
 ```
 
 The card is generated; never write an `### Introduction` card by hand.
+
+## Table headers
+
+Table headers are hidden by default. Add `<!-- {: .-headers} -->` after the
+table when the column labels carry meaning; otherwise leave them out and write
+rows that read on their own.
+
+```md
+| Part | Required |
+| --- | --- |
+| `type` | yes |
+| body | no |
+<!-- {: .-headers} -->
+```
 
 ## Tables: separating
 

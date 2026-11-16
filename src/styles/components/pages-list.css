@@ -4,7 +4,8 @@
   gap: 16px;
 
   > .category,
-  > .message {
+  > .message,
+  > .item {
     grid-column: 1 / -1;
   }
 }
@@ -19,11 +20,6 @@
   border-radius: 10px;
   background: var(--base-card);
   text-decoration: none;
-
-  &,
-  &:visited {
-    color: var(--base-mute3);
-  }
 
   &:hover,
   &:focus {

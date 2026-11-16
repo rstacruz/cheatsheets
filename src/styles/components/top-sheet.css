@@ -16,16 +16,12 @@
   border-radius: 10px;
 
   > .sheet-card__title {
+    color: white;
     font-family: var(--font-manrope);
     font-size: 18px;
     font-weight: 800;
     line-height: 1.25;
     overflow-wrap: break-word;
-  }
-
-  > .sheet-card__title,
-  > .sheet-card__subtitle {
-    color: white;
   }
 
   > .sheet-card__subtitle {
@@ -58,13 +54,6 @@
     line-height: 18px;
     letter-spacing: 0.02em;
     white-space: nowrap;
-  }
-
-  &:hover,
-  &:focus {
-    > .sheet-card__title {
-      color: white;
-    }
   }
 
   &:nth-of-type(3n + 1) {

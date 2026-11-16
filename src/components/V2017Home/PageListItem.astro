@@ -25,9 +25,9 @@ const fragments =
 
 <a
   href={url}
-  class={`article sheet-card item -item-${page.slug} ${props.class ?? ''}`}
+  class={`article sheet-card -item-${page.slug} ${props.class ?? ''}`}
 >
-  {fragments && fragments.length > 0 && (
+  {fragments && (
     <span class="sheet-card__fragments" aria-hidden="true">
       {fragments.map((fragment) => (
         <span class="sheet-card__fragment">{fragment}</span>

@@ -12,15 +12,12 @@ import { sheetSources } from './sheets'
 
 const processor = unified().use(remarkParse).use(remarkGfm)
 
-// Column 0 only: `#define`, shebangs and indented comments do not label
+// Column 0; `#define` and indented comments are not captions
 const CAPTION = /^#(?:\s|$)/
 
 type Finding = { line: number; heading: string; caption: string }
 
-/**
- * Flags a code block that stacks two or more commented examples. Split them
- * into one fence per example, so each can be scanned and linked on its own.
- */
+/** Flags a block stacking two or more commented examples */
 function findMultiExampleBlocks(source: string): Finding[] {
   const lines = source.split('\n')
   const found: Finding[] = []

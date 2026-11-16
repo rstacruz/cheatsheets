@@ -12,16 +12,12 @@ import { sheetSources } from './sheets'
 
 const processor = unified().use(remarkParse).use(remarkGfm)
 
-// Column 0 only: `#define`, shebangs and indented comments do not label
+// Column 0; `#define` and indented comments are not captions
 const CAPTION = /^#(?:\s|$)/
 
 type Finding = { line: number; heading: string }
 
-/**
- * Flags two code blocks in one card with no heading between them. Give each
- * block an H4 label, or the second reads as part of the first. A block that
- * opens with a caption comment is self-labelled and needs no H4.
- */
+/** Flags unlabelled adjacent code blocks; a caption-led block passes */
 function findConsecutiveBlocks(source: string): Finding[] {
   const lines = source.split('\n')
   const found: Finding[] = []

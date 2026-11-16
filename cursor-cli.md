@@ -4,6 +4,21 @@ subtitle: Cursor terminal agent
 category: Agents
 updated: 2026-11-15
 tier: t2
+fragments:
+  - "agent"
+  - "agent -p"
+  - "agent ls"
+  - "agent resume"
+  - "agent models"
+  - "agent mcp"
+  - "--print"
+  - "--model"
+  - "--plan"
+  - "--output-format"
+  - "agent login"
+  - "agent status"
+  - "agent update"
+  - "agent sandbox"
 keywords:
   - AI assistant
   - CLI

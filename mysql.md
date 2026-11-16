@@ -3,6 +3,21 @@ title: MySQL
 subtitle: Relational database server
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "SELECT *"
+  - "LEFT JOIN"
+  - "WHERE"
+  - "GROUP BY"
+  - "CREATE TABLE"
+  - "ALTER TABLE"
+  - "INSERT INTO"
+  - "UPDATE"
+  - "CREATE INDEX"
+  - "SHOW TABLES"
+  - "SHOW DATABASES"
+  - "DESCRIBE t"
+  - "CREATE DATABASE"
+  - "COUNT(*)"
 category: Databases
 intro: |
   [MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.

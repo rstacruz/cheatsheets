@@ -4,6 +4,21 @@ subtitle: JVM programming language
 category: Java & JVM
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "val"
+  - "var"
+  - "fun"
+  - "data class"
+  - "when"
+  - "?."
+  - "?:"
+  - "!!"
+  - "listOf"
+  - "mapOf"
+  - "filter"
+  - "map"
+  - "forEach"
+  - "companion object"
 keywords:
   - Variables
   - Null safety

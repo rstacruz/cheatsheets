@@ -4,6 +4,21 @@ subtitle: Terminal keyboard shortcuts
 category: Agents
 updated: 2026-11-05
 tier: t2
+fragments:
+  - "prefix"
+  - "prefix+c"
+  - "prefix+v"
+  - "prefix+minus"
+  - "prefix+h/j/k/l"
+  - "prefix+z"
+  - "prefix+x"
+  - "prefix+["
+  - "prefix+?"
+  - "ctrl+b"
+  - "prefix+tab"
+  - "prefix+e"
+  - "prefix+r"
+  - "prefix+1..9"
 keywords:
   - keyboard shortcuts
   - keybindings

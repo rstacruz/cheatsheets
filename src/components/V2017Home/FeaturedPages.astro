@@ -12,7 +12,7 @@ const props = Astro.props as Props
 {props.pages.length > 0 && (
   <div class="featured-pages">
     {props.pages.map((page) => (
-      <PageListItem page={page} class="top-sheet" />
+      <PageListItem page={page} class="top-sheet" showFragments />
     ))}
   </div>
 )}

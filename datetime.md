@@ -4,6 +4,21 @@ subtitle: Date format tokens
 weight: -5
 updated: 2026-11-11
 tier: t2
+fragments:
+  - "YYYY-MM-DD"
+  - "dddd, MMMM Do"
+  - "hh:mm a"
+  - "ZZ"
+  - "%m/%d/%Y"
+  - "%A, %B %e, %Y"
+  - "%H:%M"
+  - "%I:%M %p"
+  - "%T"
+  - "%s"
+  - "MMMM"
+  - "Do"
+  - "%a"
+  - "%b"
 intro: |
   Date formatting tokens differ by tool: strftime for Ruby and `date`, Moment.js
   tokens for JavaScript libraries that copy them.

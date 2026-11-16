@@ -26,6 +26,9 @@ importers:
       '@fontsource/manrope':
         specifier: ^5.0.19
         version: 5.3.0
+      '@fontsource/vt323':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@mapbox/rehype-prism':
         specifier: ^0.9.0
         version: 0.9.0
@@ -498,6 +501,9 @@ packages:
 
   '@fontsource/manrope@5.3.0':
     resolution: {integrity: sha512-obJ1Dv3+uCA6HlHgW8u4BGYxJR9In2HW7gjJhlflEvkrj1X1iSEwu0fToL+JYGC/FEKFfIz1sBuPduvcL2gIAA==}
+
+  '@fontsource/vt323@5.3.0':
+    resolution: {integrity: sha512-3w33Rg/0+R1587HQfz4t7Q7e0GGeCqr3wmzIwqdGInUnrGEwMA5eX39GP4Z9wpTQnwfhVOhYuxuRwRUeIcicbw==}
 
   '@iconify-json/ion@1.2.7':
     resolution: {integrity: sha512-ZJNG5kLCbTPr68mdP0jx6Q3lB9AMEQKO2+VvIjuJ2llGFICBLD+cvESn/qGDRIqSfk2D3PrFMf/Qg8WKIUV7cg==}
@@ -2849,6 +2855,8 @@ snapshots:
   '@fontsource/cousine@5.3.0': {}
 
   '@fontsource/manrope@5.3.0': {}
+
+  '@fontsource/vt323@5.3.0': {}
 
   '@iconify-json/ion@1.2.7':
     dependencies:

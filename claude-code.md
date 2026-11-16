@@ -5,6 +5,21 @@ category: Agents
 tags: [Featured]
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "claude"
+  - "claude -p"
+  - "claude -c"
+  - "claude --bg"
+  - "--model sonnet"
+  - "--effort high"
+  - "--worktree"
+  - "claude mcp"
+  - "/compact"
+  - "/review"
+  - "claude doctor"
+  - "claude update"
+  - "--ide"
+  - "--max-turns"
 keywords:
   - AI assistant
   - CLI

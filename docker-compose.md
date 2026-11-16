@@ -6,6 +6,21 @@ prism_languages: [yaml]
 weight: -1
 updated: 2026-11-11
 tier: t1
+fragments:
+  - "compose up"
+  - "compose down"
+  - "compose up -d"
+  - "compose logs -f"
+  - "compose build"
+  - "compose ps"
+  - "compose exec"
+  - "compose config"
+  - "compose pull"
+  - "compose restart"
+  - "compose run"
+  - "compose push"
+  - "compose stop"
+  - "compose watch"
 keywords:
   - docker compose
   - compose file

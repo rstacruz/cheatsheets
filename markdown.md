@@ -3,6 +3,21 @@ title: Markdown
 subtitle: Plain-text markup format
 category: Markup
 tier: t2
+fragments:
+  - "# Heading"
+  - "**bold**"
+  - "*italic*"
+  - "~~strike~~"
+  - "`code`"
+  - "[text](url)"
+  - "![alt](img)"
+  - "> A quote"
+  - "- First item"
+  - "- [ ] Open"
+  - "---"
+  - "| a | b |"
+  - "1. item"
+  - "[^1]"
 weight: -1
 updated: 2026-11-11
 keywords:

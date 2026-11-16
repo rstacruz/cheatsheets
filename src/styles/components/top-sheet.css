@@ -2,7 +2,7 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 16px;
 
   @media (max-width: 580px) {
     grid-template-columns: 1fr;
@@ -13,14 +13,15 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 16px 18px 4rem;
+  height: 170px;
+  padding: 16px 18px 18px;
+  overflow: hidden;
   text-decoration: none;
   border-radius: 10px;
-  text-shadow: 0 1px 1px rgb(51 68 85 / 30%);
 
   > .sheet-card__title {
     font-family: var(--font-manrope);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     line-height: 1.25;
     overflow-wrap: break-word;
@@ -33,6 +34,32 @@
 
   > .sheet-card__subtitle {
     color: rgb(255 255 255 / 78%);
+  }
+
+  > .sheet-card__fragments {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px 5px;
+    min-height: 0;
+    margin: 0 0 8px;
+    overflow: hidden;
+    opacity: 0.5;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  > .sheet-card__fragments > .sheet-card__fragment {
+    flex: 0 0 auto;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgb(0 0 0 / 12%);
+    color: rgb(255 255 255 / 80%);
+    font-family: 'VT323', var(--font-monospace);
+    font-size: 13px;
+    line-height: 16px;
+    white-space: nowrap;
   }
 
   &:hover,

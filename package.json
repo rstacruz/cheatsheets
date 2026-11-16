@@ -25,6 +25,7 @@
     "@astrojs/ts-plugin": "^1.10.12",
     "@fontsource/cousine": "^5.0.15",
     "@fontsource/manrope": "^5.0.19",
+    "@fontsource/vt323": "^5.3.0",
     "@mapbox/rehype-prism": "^0.9.0",
     "@playwright/test": "^1.64.1",
     "@rstacruz/rehype-sectionize": "^0.7.0",

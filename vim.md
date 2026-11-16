@@ -5,6 +5,21 @@ category: Vim
 tags: [Featured]
 updated: 2026-11-11
 tier: t1
+fragments:
+  - ":wq"
+  - ":q!"
+  - "i"
+  - "Esc"
+  - "dd"
+  - "yy"
+  - "p"
+  - "/pattern"
+  - ":%s/foo/bar/g"
+  - "vip"
+  - "u"
+  - "gg"
+  - "G"
+  - "x"
 weight: -10
 intro: |
   [Vim](https://www.vim.org/) is a highly efficient text editor. This reference covers Vim 9.2.

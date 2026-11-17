@@ -42,7 +42,9 @@ links:
 ```js
 new Intl.NumberFormat()
 new Intl.NumberFormat('en-US')
-new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 })
+new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 2
+})
 ```
 
 #### Formatting
@@ -70,7 +72,7 @@ new Intl.NumberFormat('default', opts).format(0.25)
 new Intl.NumberFormat(undefined, opts).format(0.25)
 // → '25%'
 ```
-<!-- {: data-line="3,5"} -->
+<!-- {: .-wrap} -->
 
 `'default'` and `undefined` both mean "use the runtime's default locale".
 
@@ -87,7 +89,6 @@ new Intl.NumberFormat('en-US', {
 }).format(1234.5)
 // → '$1,234.50'
 ```
-<!-- {: data-line="2-3"} -->
 
 `currency` is required for this style and takes an ISO 4217 code. The default
 display is the locale's symbol.
@@ -102,7 +103,6 @@ new Intl.NumberFormat('en-US', {
 }).format(0.256)
 // → '26%'
 ```
-<!-- {: data-line="2"} -->
 
 `percent` multiplies by 100 and formats with the locale's percent sign.
 
@@ -117,20 +117,25 @@ new Intl.NumberFormat('en-US', {
 }).format(50)
 // → '50 km/h'
 ```
-<!-- {: data-line="2-3"} -->
+
+#### Formatter
+
+```js
+const liter = (unitDisplay) => (
+  new Intl.NumberFormat('en-US', {
+    style: 'unit', unit: 'liter', unitDisplay
+  })
+)
+```
 
 #### Display
 
 ```js
-const liter = (unitDisplay) => new Intl.NumberFormat('en-US', {
-  style: 'unit', unit: 'liter', unitDisplay
-})
-
 liter('short').format(2.5)   // → '2.5 L'
 liter('narrow').format(2.5)  // → '2.5L'
 liter('long').format(2.5)    // → '2.5 liters'
 ```
-<!-- {: data-line="2,4-6"} -->
+<!-- {: .-wrap} -->
 
 `unit` takes an identifier such as `liter`; `unitDisplay` defaults to
 `'short'`.
@@ -141,28 +146,39 @@ See: [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
 
 ### Currency display
 
-```js
-const usd = (currencyDisplay) => new Intl.NumberFormat('en-US', {
-  style: 'currency', currency: 'USD', currencyDisplay
-})
+#### Formatter
 
+```js
+const usd = (currencyDisplay) => (
+  new Intl.NumberFormat('en-US', {
+    style: 'currency', currency: 'USD', currencyDisplay
+  })
+)
+```
+<!-- {: .-wrap} -->
+
+#### Output
+
+```js
 usd('symbol').format(1234.5)        // → '$1,234.50'
 usd('code').format(1234.5)          // → 'USD 1,234.50'
 usd('name').format(1234.5)          // → '1,234.50 US dollars'
 ```
-<!-- {: data-line="2,5-7"} -->
+<!-- {: .-wrap} -->
 
 #### Narrow symbols
 
 ```js
-const cad = (currencyDisplay) => new Intl.NumberFormat('en-US', {
-  style: 'currency', currency: 'CAD', currencyDisplay
-})
+const cad = (currencyDisplay) => (
+  new Intl.NumberFormat('en-US', {
+    style: 'currency', currency: 'CAD', currencyDisplay
+  })
+)
 
 cad('symbol').format(1234.5)        // → 'CA$1,234.50'
 cad('narrowSymbol').format(1234.5)  // → '$1,234.50'
 ```
-<!-- {: data-line="2,5-6"} -->
+<!-- {: .-wrap} -->
 
 `narrowSymbol` drops the country prefix, `code` prints the ISO code, and `name`
 spells the currency out with the locale's plural rules.
@@ -179,7 +195,6 @@ new Intl.NumberFormat('en-US', {
 }).format(-1234.5)
 // → '($1,234.50)'
 ```
-<!-- {: data-line="4"} -->
 
 `'standard'` (the default) writes `-$1,234.50`; `'accounting'` wraps negatives
 in parentheses where the locale does.
@@ -190,16 +205,22 @@ See: [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### Compact notation
 
+#### Formatter
+
 ```js
 const compact = new Intl.NumberFormat('en-US', {
   notation: 'compact'
 })
+```
 
+#### Output
+
+```js
 compact.format(1234)      // → '1.2K'
 compact.format(1500)      // → '1.5K'
 compact.format(2000000)   // → '2M'
 ```
-<!-- {: data-line="2,5-7"} -->
+<!-- {: .-wrap} -->
 
 #### Long display
 
@@ -210,7 +231,6 @@ new Intl.NumberFormat('en-US', {
 }).format(2000000)
 // → '2 million'
 ```
-<!-- {: data-line="2-3"} -->
 
 `compactDisplay` defaults to `'short'`. Compact notation rounds by significant
 digits unless fraction digits are set.
@@ -228,7 +248,7 @@ new Intl.NumberFormat('en-US', {
   notation: 'engineering'
 }).format(987654321)  // → '987.654E6'
 ```
-<!-- {: data-line="2,6"} -->
+<!-- {: .-wrap} -->
 
 `scientific` prints one leading digit; `engineering` groups the exponent in
 threes.
@@ -239,15 +259,23 @@ See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 ### Fraction digits
 
-```js
-const fraction = (options) => new Intl.NumberFormat('en-US', options)
+#### Formatter
 
+```js
+const fraction = (options) => (
+  new Intl.NumberFormat('en-US', options)
+)
+```
+
+#### Output
+
+```js
 fraction({ minimumFractionDigits: 2 }).format(42)
 // → '42.00'
 fraction({ maximumFractionDigits: 0 }).format(42.666)
 // → '43'
 ```
-<!-- {: data-line="3,5"} -->
+<!-- {: .-wrap} -->
 
 Decimal numbers default to `minimumFractionDigits: 0` and
 `maximumFractionDigits: 3`; currency defaults use the currency's minor unit.
@@ -256,15 +284,23 @@ See: [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 
 ### Significant digits
 
-```js
-const sig = (options) => new Intl.NumberFormat('en-US', options)
+#### Formatter
 
+```js
+const sig = (options) => (
+  new Intl.NumberFormat('en-US', options)
+)
+```
+
+#### Output
+
+```js
 sig({ maximumSignificantDigits: 3 }).format(1234.5)
 // → '1,230'
 sig({ minimumSignificantDigits: 5 }).format(1.5)
 // → '1.5000'
 ```
-<!-- {: data-line="3,5"} -->
+<!-- {: .-wrap} -->
 
 Significant digits win over fraction digits unless `roundingPriority` says
 otherwise.
@@ -283,7 +319,6 @@ const floor = new Intl.NumberFormat('en-US', {
 
 floor.format(1.9)  // → '1'
 ```
-<!-- {: data-line="3"} -->
 
 #### Trailing zeros
 
@@ -296,7 +331,6 @@ const strip = new Intl.NumberFormat('en-US', {
 strip.format(1)    // → '1'
 strip.format(1.5)  // → '1.50'
 ```
-<!-- {: data-line="3"} -->
 
 `roundingMode` defaults to `'halfExpand'`; other values include `'ceil'`,
 `'floor'`, `'trunc'`, and `'halfEven'`. `stripIfInteger` hides all-zero
@@ -308,14 +342,23 @@ See: [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### Sign display
 
-```js
-const sign = (signDisplay) =>
-  new Intl.NumberFormat('en-US', { signDisplay })
+#### Formatter
 
+```js
+const sign = (signDisplay) => (
+  new Intl.NumberFormat('en-US', { signDisplay })
+)
+```
+<!-- {: .-wrap} -->
+
+#### Output
+
+```js
 sign('always').format(42)      // → '+42'
 sign('exceptZero').format(0)   // → '0'
 sign('never').format(-42)      // → '42'
 ```
+<!-- {: .-wrap} -->
 
 `'auto'` (the default) signs negatives only; `'negative'` also hides negative
 zero.
@@ -324,14 +367,22 @@ See: [signDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 ### Grouping
 
-```js
-const enUS = (options) => new Intl.NumberFormat('en-US', options)
+#### Formatter
 
+```js
+const enUS = (options) => (
+  new Intl.NumberFormat('en-US', options)
+)
+```
+
+#### Output
+
+```js
 enUS({ useGrouping: false }).format(1234567)  // → '1234567'
 enUS({ useGrouping: 'min2' }).format(999)     // → '999'
 enUS({ useGrouping: 'min2' }).format(12345)   // → '12,345'
 ```
-<!-- {: data-line="3-5"} -->
+<!-- {: .-wrap} -->
 
 `'auto'` is the default; `'min2'` groups only when a group holds two or more
 digits. Indian English groups differently (`12,34,567`).
@@ -342,19 +393,25 @@ See: [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 ### formatToParts()
 
+#### Formatter
+
 ```js
 const nf = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD'
 })
+```
 
+#### Parts
+
+```js
 nf.formatToParts(1234.5)
 // → [{ type: 'currency', value: '$' },
 //    { type: 'integer', value: '1' },
 //    { type: 'group', value: ',' },
 //    ...]
 ```
-<!-- {: data-line="6"} -->
+<!-- {: .-wrap} -->
 
 #### Part types
 
@@ -385,17 +442,22 @@ See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 
 ### formatRange()
 
+#### Formatter
+
 ```js
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
   maximumFractionDigits: 0
 })
+```
 
+#### Output
+
+```js
 usd.formatRange(3, 5)      // → '$3 – $5'
 usd.formatRange(2.9, 3.1)  // → '~$3'
 ```
-<!-- {: data-line="5-6"} -->
 
 `formatRangeToParts()` adds a `source` of `startRange`, `endRange`, or
 `shared`. Both need Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+.
@@ -404,17 +466,23 @@ See: [formatRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### resolvedOptions()
 
+#### Formatter
+
 ```js
 const nf = new Intl.NumberFormat('de-DE', {
   style: 'unit',
   unit: 'kilometer'
 })
+```
 
+#### Output
+
+```js
 nf.resolvedOptions().locale       // → 'de-DE'
 nf.resolvedOptions().unit         // → 'kilometer'
 nf.resolvedOptions().unitDisplay  // → 'short'
 ```
-<!-- {: data-line="2-3,6-8"} -->
+<!-- {: .-wrap} -->
 
 `resolvedOptions()` returns the locale and every option after defaults apply.
 
@@ -448,7 +516,6 @@ new Intl.NumberFormat('ar-EG', {
 }).format(1234.5)
 // → '1,234.5'
 ```
-<!-- {: data-line="4"} -->
 
 `numberingSystem` overrides the locale's digits; `'latn'` is Western, `'arab'`
 Arabic-Indic, and `'hanidec'` Chinese numerals.
@@ -464,7 +531,6 @@ See: [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 })
 // → '$1,234.50'
 ```
-<!-- {: data-line="2-3"} -->
 
 `toLocaleString()` is equivalent to
 `new Intl.NumberFormat(locale, options).format(number)`, but builds a
@@ -474,7 +540,9 @@ See: [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ## Options reference
 
-### All options
+### Combined example
+
+#### Formatter
 
 ```js
 const nf = new Intl.NumberFormat('en-US', {
@@ -484,12 +552,20 @@ const nf = new Intl.NumberFormat('en-US', {
   signDisplay: 'always',
   maximumFractionDigits: 0
 })
+```
 
+#### Output
+
+```js
 nf.format(1234.5)  // → '+$1,235'
 ```
-<!-- {: data-line="2-6"} -->
+<!-- {: .-wrap} -->
 
-#### Style options
+The options below combine into the formatter above.
+
+See: [Intl.NumberFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
+
+### Style options
 
 | Option | Values |
 | --- | --- |
@@ -504,7 +580,9 @@ nf.format(1234.5)  // → '+$1,235'
 | `compactDisplay` | `'short'` (default), `'long'` |
 <!-- {: .-headers} -->
 
-#### Digit options
+See: [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style)
+
+### Digit options
 
 | Option | Values |
 | --- | --- |
@@ -519,7 +597,9 @@ nf.format(1234.5)  // → '+$1,235'
 | `trailingZeroDisplay` | `'auto'` (default), `'stripIfInteger'` |
 <!-- {: .-headers} -->
 
-#### Other options
+See: [minimumIntegerDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumintegerdigits)
+
+### Other options
 
 | Option | Values |
 | --- | --- |
@@ -530,7 +610,7 @@ nf.format(1234.5)  // → '+$1,235'
 | `localeMatcher` | `'best fit'` (default), `'lookup'` |
 <!-- {: .-headers} -->
 
-See: [ECMA-402 NumberFormat](https://tc39.es/ecma402/#numberformat-objects)
+See: [signDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#signdisplay)
 
 ### Errors and fallbacks
 
@@ -544,12 +624,9 @@ new Intl.NumberFormat('en-US', {
 })
 // RangeError: maximumFractionDigits value is out of range.
 ```
-<!-- {: data-line="1,5-6"} -->
+<!-- {: .-wrap} -->
 
 Missing `currency` or `unit`, invalid enums, and contradictory digit ranges
-throw. Unsupported locales fall back to the default;
-`Intl.NumberFormat.supportedLocalesOf()` filters a list to what the runtime has.
-`formatRange()`, `roundingMode`, and `trailingZeroDisplay` need Chrome 106+,
-Firefox 116+, or Safari 15.4+.
+throw.
 
 See: [Exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#exceptions)

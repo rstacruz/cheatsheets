@@ -223,7 +223,7 @@ for (const locale of ['de-DE', 'ja-JP']) {
 
 You supply the number and the unit; word order, prepositions and plural
 endings come from the locale data. At long style `en-US` and `en-GB` agree on
-`'1 day ago'` — the abbreviation is where they part.
+`'1 day ago'`; the abbreviation is where they part.
 
 See: [ECMA-402 RelativeTimeFormat objects](https://tc39.es/ecma402/#relativetimeformat-objects)
 
@@ -237,7 +237,8 @@ See: [ECMA-402 RelativeTimeFormat objects](https://tc39.es/ecma402/#relativetime
 <!-- {: .-headers} -->
 
 Plural selection belongs to the locale, so `-1`, `-2` and `-5` each get their
-own form for free. `ja-JP` has no count agreement: `1 日前`, `2 日前`.
+own form without extra work. `ja-JP` has no count agreement: `1 日前`,
+`2 日前`.
 
 See: [Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)
 

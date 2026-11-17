@@ -56,14 +56,15 @@ See: [DurationFormat() constructor](https://developer.mozilla.org/en-US/docs/Web
 ```js
 const duration = { hours: 1, minutes: 30 }
 const format = style =>
-  new Intl.DurationFormat('en-US', { style }).format(duration)
+  new Intl.DurationFormat('en-US', { style })
+    .format(duration)
 
 format('long')    // → '1 hour, 30 minutes'
 format('short')   // → '1 hr, 30 min'
 format('narrow')  // → '1h 30m'
 format('digital') // → '1:30:00'
 ```
-<!-- {: data-line="5-8"} -->
+<!-- {: data-line="6-9"} -->
 
 `'short'` is the default. `'digital'` renders `h:mm:ss`, so seconds always
 appear; date units stay in prose, so `{ days: 2, hours: 3 }` becomes
@@ -95,13 +96,16 @@ See: [Intl.DurationFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 ### Per-unit styles
 
 ```js
-new Intl.DurationFormat('en', {
+const duration = { hours: 1, minutes: 46, seconds: 40 }
+const df = new Intl.DurationFormat('en', {
   style: 'digital',
   hours: 'long'
-}).format({ hours: 1, minutes: 46, seconds: 40 })
+})
+
+df.format(duration)
 // → '1 hour, 46:40'
 ```
-<!-- {: data-line="5"} -->
+<!-- {: data-line="8"} -->
 
 #### Option values
 
@@ -124,13 +128,15 @@ See: [DurationFormat() constructor](https://developer.mozilla.org/en-US/docs/Web
 ### Zero values
 
 ```js
-new Intl.DurationFormat('en-US', {
+const df = new Intl.DurationFormat('en-US', {
   hours: 'long',
   hoursDisplay: 'always'
-}).format({ minutes: 45 })
+})
+
+df.format({ minutes: 45 })
 // → '0 hours, 45 min'
 ```
-<!-- {: data-line="5"} -->
+<!-- {: data-line="7"} -->
 
 Zero-valued units are hidden by default. `'always'` keeps one on screen, which
 stops columns and timers from jumping as values change.

@@ -27,7 +27,7 @@ keywords:
   - Permission modes
   - Keyboard shortcuts
 intro: |
-  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers setup, interactive mode, configuration, and common workflows.
+  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers CLI commands, flags, interactive mode, configuration, and workflows.
 links:
   - title: Claude Code documentation
     url: https://code.claude.com/docs/en/overview
@@ -78,38 +78,87 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 <!-- {: .-two-column} -->
 
-### Common commands
+### Commands
+
+#### Sessions
+
+| Command               | Description                       |
+| --------------------- | --------------------------------- |
+| `claude`              | Start interactive session         |
+| `claude "query"`      | Start with an initial prompt      |
+| `claude -p "query"`   | Print response and exit           |
+| `claude -c`           | Continue most recent conversation |
+| `claude -r <session>` | Resume a session by ID or name    |
+| `claude --bg "task"`  | Start a background agent          |
+
+<!-- {: .-shortcuts} -->
+
+#### Setup
 
 | Command              | Description                    |
 | -------------------- | ------------------------------ |
-| `claude`             | Start an interactive session   |
-| `claude -p "query"`  | Print the answer and exit      |
-| `claude -c`          | Continue the last conversation |
-| `claude -r <session>`| Resume by ID or name           |
-| `claude --bg "task"` | Start a background agent       |
+| `claude update`      | Update to latest version       |
+| `claude install`     | Install or pin a version       |
+| `claude doctor`      | Check install and settings     |
+| `claude import`      | Import another agent's setup   |
 | -------------------- | ------------------------------ |
 | `claude mcp`         | Configure MCP servers          |
 | `claude plugin`      | Install and manage plugins     |
-| `claude update`      | Update to the latest version   |
-| `claude doctor`      | Print install diagnostics      |
+| `claude auth status` | Show authentication status     |
+| `claude setup-token` | Generate a token for CI        |
+
+<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
-### Common flags
+### Flags
 
-| Flag                     | Description                       |
-| ------------------------ | --------------------------------- |
-| `--model sonnet`         | Choose the model                  |
-| `--effort high`          | Set reasoning effort              |
-| `--permission-mode plan` | Start in a permission mode        |
-| `--add-dir ../lib`       | Add extra working directories     |
-| ------------------------ | --------------------------------- |
-| `-w, --worktree`         | Start in an isolated git worktree |
-| `--output-format json`   | Print JSON for scripts            |
-| `--max-turns 3`          | Limit agentic turns               |
-| `--debug`                | Enable debug mode                 |
+| Flag                      | Description                       |
+| ------------------------- | --------------------------------- |
+| `-c, --continue`          | Continue most recent conversation |
+| `-r, --resume`            | Resume a session by ID or name    |
+| ------------------------- | --------------------------------- |
+| `--model sonnet`          | Choose the model                  |
+| `--effort high`           | Set reasoning effort              |
+| `--fallback-model sonnet` | Fall back when overloaded         |
+| ------------------------- | --------------------------------- |
+| `--permission-mode plan`  | Start in a permission mode        |
+| `--add-dir ../lib`        | Add extra working directories     |
+| `--verbose`               | Show full turn-by-turn output     |
 
-See: [CLI reference](https://code.claude.com/docs/en/cli-reference), [full command reference](./claude-code-commands)
+<!-- {: .-shortcuts} -->
+
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
+
+### Other flags
+
+| Flag                             | Description                       |
+| -------------------------------- | --------------------------------- |
+| `--debug`                        | Enable debug mode                 |
+| `--settings file.json`           | Load settings for this session    |
+| `--ide`                          | Auto-connect to your IDE          |
+| `-w, --worktree`                 | Start in an isolated git worktree |
+| `--dangerously-skip-permissions` | Skip all permission prompts       |
+| `--safe-mode`                    | Start with customizations off     |
+
+<!-- {: .-shortcuts} -->
+
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
+
+### Headless mode
+
+| Flag                   | Description                      |
+| ---------------------- | -------------------------------- |
+| `-p, --print`          | Print the response and exit      |
+| `--output-format json` | `text`, `json`, or `stream-json` |
+| `--json-schema schema` | Constrain output to a schema     |
+| `--max-turns 3`        | Limit agentic turns              |
+| `--max-budget-usd 5`   | Stop the run at a spend cap      |
+| `--bare`               | Skip hooks, plugins, and memory  |
+
+<!-- {: .-shortcuts} -->
+
+See: [Headless mode](https://code.claude.com/docs/en/headless)
 
 ## Slash commands
 

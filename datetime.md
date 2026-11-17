@@ -39,10 +39,6 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 ---
 
-{% include common/strftime_format.md title="strftime format" %}
-
-{% include common/moment_format.md title="Moment.js format" %}
-
 ## Common formats
 
 ### The same date
@@ -225,3 +221,7 @@ date.ToString("R")      // RFC 1123
 Custom patterns are case-sensitive: `MM` is the month, `mm` is minutes.
 
 See: [Custom date formats](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
+
+{% include common/strftime_format.md title="strftime format" %}
+
+{% include common/moment_format.md title="Moment.js format" %}

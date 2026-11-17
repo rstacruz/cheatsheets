@@ -11,16 +11,16 @@ fragments:
   - "select(.active)"
   - "map(.name)"
   - "-r"
-  - "-c"
-  - "-s"
-  - "-n"
-  - "--arg name"
-  - "--argjson"
   - "sort_by(.name)"
-  - "group_by(.role)"
+  - "-c"
   - "to_entries"
+  - "-s"
+  - "group_by(.role)"
+  - "-n"
   - "with_entries"
+  - "--arg name"
   - "@csv"
+  - "--argjson"
   - "@tsv"
   - "reduce"
 intro: |
@@ -81,7 +81,7 @@ jq -c '.users[1]' api.json
 | `-S` | sort keys |
 | `--tab` | indent with tabs |
 | `--indent 4` | indent with 4 spaces |
-| `-e` | exit 1 on false or null |
+| `-e` | exit 1 on false/null, 4 if empty |
 <!-- {: .-headers} -->
 
 See: [Invoking jq](https://jqlang.org/manual/#invoking-jq)

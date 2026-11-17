@@ -104,7 +104,7 @@ new Intl.NumberFormat('en-US', {
 ```
 <!-- {: data-line="2"} -->
 
-`percent` multiplies by 100 and appends the locale's percent sign.
+`percent` multiplies by 100 and formats with the locale's percent sign.
 
 See: [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style)
 
@@ -354,7 +354,7 @@ nf.formatToParts(1234.5)
 //    { type: 'group', value: ',' },
 //    ...]
 ```
-<!-- {: data-line="8"} -->
+<!-- {: data-line="6"} -->
 
 #### Part types
 
@@ -366,13 +366,14 @@ nf.formatToParts(1234.5)
 | `decimal` | `.` |
 | `fraction` | `50` |
 | --- | --- |
-| `literal` | ` – ` |
+| `literal` | `' – '` |
 | `minusSign` | `-` |
 | `plusSign` | `+` |
 | `percentSign` | `%` |
 | `unit` | `km/h` |
 | --- | --- |
-| `exponent` | `E` |
+| `exponentSeparator` | `E` |
+| `exponentInteger` | `3` |
 | `compact` | `K` |
 | `nan` | `NaN` |
 <!-- {: .-headers} -->
@@ -514,7 +515,7 @@ nf.format(1234.5)  // → '+$1,235'
 | `minimumSignificantDigits` | 1–21 (default 1) |
 | `maximumSignificantDigits` | 1–21 (default 21) |
 | `roundingIncrement` | 1 (default), 2, 5, 10, 20, 25, 50, … |
-| `roundingMode` | `'halfExpand'` (default), `'ceil'`, `'floor'`, `'expand'`, `'trunc'`, `'halfEven'` |
+| `roundingMode` | `'halfExpand'` (default), `'ceil'`, `'floor'`, `'expand'`, `'trunc'`, `'halfCeil'`, `'halfFloor'`, `'halfTrunc'`, `'halfEven'` |
 | `trailingZeroDisplay` | `'auto'` (default), `'stripIfInteger'` |
 <!-- {: .-headers} -->
 
@@ -547,7 +548,7 @@ new Intl.NumberFormat('en-US', {
 
 Missing `currency` or `unit`, invalid enums, and contradictory digit ranges
 throw. Unsupported locales fall back to the default;
-`Intl.NumberFormat.supportedLocalesOf()` lists what the runtime has.
+`Intl.NumberFormat.supportedLocalesOf()` filters a list to what the runtime has.
 `formatRange()`, `roundingMode`, and `trailingZeroDisplay` need Chrome 106+,
 Firefox 116+, or Safari 15.4+.
 

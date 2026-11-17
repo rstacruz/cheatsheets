@@ -7,7 +7,7 @@ fragments:
   - "worktree add"
   - "worktree list"
   - "worktree remove"
-  - "-b $branch"
+  - "-b hotfix"
   - "--detach"
   - "--no-checkout"
   - "--orphan"
@@ -45,9 +45,9 @@ git worktree add ../next
 git worktree add ../fix -b fix main
 ```
 
-The first form checks out an existing branch. Without a branch, `add` creates
-one named after the path. `-b` creates a branch from a start point, `HEAD` by
-default. The path must not exist.
+The first form checks out an existing branch. Without a branch, `add` checks
+out or creates the branch named after the path. `-b` creates a branch from a
+start point, `HEAD` by default. The path must be empty or missing.
 
 See: [git worktree add](https://git-scm.com/docs/git-worktree#_commands)
 
@@ -97,10 +97,10 @@ git worktree list --porcelain
 | `locked` | protected from prune, move, and remove |
 | `prunable` | the worktree directory is missing |
 
-Each line shows the path, current commit, and branch or `detached HEAD`. `-v`
-adds lock reasons; `--porcelain` emits stable `key value` records for scripts.
-`bare` and `detached` appear in the default output; `locked` and `prunable` are
-appended.
+The default output shows the path, current commit, and branch or `detached
+HEAD`. `-v` adds lock reasons; `--porcelain` emits stable `key value` records
+for scripts. `bare` and `detached` appear in the default output; `locked` and
+`prunable` are appended.
 
 See: [List output format](https://git-scm.com/docs/git-worktree#_list_output_format)
 
@@ -223,9 +223,9 @@ git sparse-checkout set --cone src docs
 git read-tree -mu HEAD
 ```
 
-Patterns live in `.git/worktrees/<id>/info/sparse-checkout`, but
-`core.sparseCheckout` is shared. `read-tree` fills the empty index; enable
-`extensions.worktreeConfig` to keep the flag per worktree.
+Patterns live in `.git/worktrees/<id>/info/sparse-checkout`, and `set` turns
+on `extensions.worktreeConfig` so `core.sparseCheckout` stays per worktree.
+`read-tree` fills the empty index.
 
 See: [git-sparse-checkout](https://git-scm.com/docs/git-sparse-checkout)
 
@@ -238,7 +238,7 @@ See: [git-sparse-checkout](https://git-scm.com/docs/git-sparse-checkout)
 | multiple checkouts | experimental, incomplete |
 
 Git still calls multiple checkouts experimental and warns that submodule
-support is incomplete. Prefer one worktree per branch for superprojects, and
+support is incomplete. Avoid multiple checkouts of a superproject, and
 expect `--force` when removing one that carries submodules.
 
 See: [git worktree bugs](https://git-scm.com/docs/git-worktree#_bugs)
@@ -291,7 +291,7 @@ git clone --bare git@github.com:me/repo.git repo.git
 git -C repo.git worktree add ../main main
 ```
 
-A bare repository has no checkout of its own, so every branch lives in a
+A bare repository has no checkout of its own, so each checkout lives in a
 sibling directory while sharing one object store. This layout suits dotfiles
 and build hosts.
 

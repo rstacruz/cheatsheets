@@ -3,7 +3,7 @@ title: Claude Code
 subtitle: AI coding agent
 category: Agents
 tags: [Featured]
-updated: 2026-11-11
+updated: 2026-11-18
 tier: t1
 fragments:
   - "claude"
@@ -27,7 +27,7 @@ keywords:
   - Permission modes
   - Keyboard shortcuts
 intro: |
-  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+  [Claude Code](https://code.claude.com/docs/en/overview) is Anthropic's AI coding assistant for the terminal. This reference covers setup, interactive mode, configuration, and common workflows.
 links:
   - title: Claude Code documentation
     url: https://code.claude.com/docs/en/overview
@@ -78,206 +78,78 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 
 <!-- {: .-two-column} -->
 
-### Commands
-
-#### Sessions
-
-| Command               | Description                       |
-| --------------------- | --------------------------------- |
-| `claude`              | Start interactive session         |
-| `claude "query"`      | Start with an initial prompt      |
-| `claude -p "query"`   | Print response and exit           |
-| `claude -c`           | Continue most recent conversation |
-| `claude -r <session>` | Resume a session by ID or name    |
-| `claude --bg "task"`  | Start a background agent          |
-
-<!-- {: .-shortcuts} -->
-
-#### Setup
+### Common commands
 
 | Command              | Description                    |
 | -------------------- | ------------------------------ |
-| `claude update`      | Update to latest version       |
-| `claude install`     | Install or pin a version       |
-| `claude doctor`      | Check install and settings     |
-| `claude import`      | Import another agent's setup   |
+| `claude`             | Start an interactive session   |
+| `claude -p "query"`  | Print the answer and exit      |
+| `claude -c`          | Continue the last conversation |
+| `claude -r <session>`| Resume by ID or name           |
+| `claude --bg "task"` | Start a background agent       |
 | -------------------- | ------------------------------ |
 | `claude mcp`         | Configure MCP servers          |
 | `claude plugin`      | Install and manage plugins     |
-| `claude auth status` | Show authentication status     |
-| `claude setup-token` | Generate a token for CI        |
-
-<!-- {: .-shortcuts} -->
+| `claude update`      | Update to the latest version   |
+| `claude doctor`      | Print install diagnostics      |
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
-### Flags
+### Common flags
 
-| Flag                      | Description                       |
-| ------------------------- | --------------------------------- |
-| `-c, --continue`          | Continue most recent conversation |
-| `-r, --resume`            | Resume a session by ID or name    |
-| ------------------------- | --------------------------------- |
-| `--model sonnet`          | Choose the model                  |
-| `--effort high`           | Set reasoning effort              |
-| `--fallback-model sonnet` | Fall back when overloaded         |
-| ------------------------- | --------------------------------- |
-| `--permission-mode plan`  | Start in a permission mode        |
-| `--add-dir ../lib`        | Add extra working directories     |
-| `--verbose`               | Show full turn-by-turn output     |
-
-<!-- {: .-shortcuts} -->
+| Flag                     | Description                       |
+| ------------------------ | --------------------------------- |
+| `--model sonnet`         | Choose the model                  |
+| `--effort high`          | Set reasoning effort              |
+| `--permission-mode plan` | Start in a permission mode        |
+| `--add-dir ../lib`       | Add extra working directories     |
+| ------------------------ | --------------------------------- |
+| `-w, --worktree`         | Start in an isolated git worktree |
+| `--output-format json`   | Print JSON for scripts            |
+| `--max-turns 3`          | Limit agentic turns               |
+| `--debug`                | Enable debug mode                 |
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
-### Other flags
-
-| Flag                             | Description                       |
-| -------------------------------- | --------------------------------- |
-| `--debug`                        | Enable debug mode                 |
-| `--settings file.json`           | Load settings for this session    |
-| `--ide`                          | Auto-connect to your IDE          |
-| `-w, --worktree`                 | Start in an isolated git worktree |
-| `--dangerously-skip-permissions` | Skip all permission prompts       |
-| `--safe-mode`                    | Start with customizations off     |
-
-<!-- {: .-shortcuts} -->
-
-See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
-
-### Headless mode
-
-| Flag                   | Description                      |
-| ---------------------- | -------------------------------- |
-| `-p, --print`          | Print the response and exit      |
-| `--output-format json` | `text`, `json`, or `stream-json` |
-| `--json-schema schema` | Constrain output to a schema     |
-| `--max-turns 3`        | Limit agentic turns              |
-| `--max-budget-usd 5`   | Stop the run at a spend cap      |
-| `--bare`               | Skip hooks, plugins, and memory  |
-
-<!-- {: .-shortcuts} -->
-
-See: [Headless mode](https://code.claude.com/docs/en/headless)
+[Claude Code commands cheatsheet](./claude-code-commands)
+<!-- {: .-crosslink} -->
 
 ## Slash commands
 
 <!-- {: .-two-column} -->
 
-### Session
+### Everyday commands
 
-#### Conversation
-
-| Command    | Description                  |
-| ---------- | ---------------------------- |
-| `/help`    | Show available commands      |
-| `/clear`   | Start a new conversation     |
-| `/compact` | Summarize to free up context |
-| `/context` | Show context window usage    |
-
-<!-- {: .-shortcuts} -->
-
-#### Planning
-
-| Command             | Description                  |
-| ------------------- | ---------------------------- |
-| `/plan`             | Enter plan mode              |
-| `/goal <condition>` | Keep working until it is met |
-| `/btw <question>`   | Ask a side question          |
-
-<!-- {: .-shortcuts} -->
-
-#### History
-
-| Command   | Description                     |
-| --------- | ------------------------------- |
-| `/resume` | Resume a previous conversation  |
-| `/rewind` | Restore code and conversation   |
-| `/branch` | Branch the conversation here    |
-| `/export` | Export the conversation as text |
-
-<!-- {: .-shortcuts} -->
-
-#### Usage
-
-| Command   | Description                      |
-| --------- | -------------------------------- |
-| `/status` | Show version, model, and account |
-| `/usage`  | Show cost and plan limits        |
-
-<!-- {: .-shortcuts} -->
+| Command        | Description                  |
+| -------------- | ---------------------------- |
+| `/help`        | Show available commands      |
+| `/clear`       | Start a new conversation     |
+| `/compact`     | Summarize to free up context |
+| `/context`     | Show context window usage    |
+| -------------- | ---------------------------- |
+| `/plan`        | Enter plan mode              |
+| `/model`       | Switch the AI model          |
+| `/permissions` | Allow, ask, and deny rules   |
+| `/status`      | Show version, model, account |
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
-### Setup
-
-#### Settings
-
-| Command   | Description                  |
-| --------- | ---------------------------- |
-| `/config` | Open settings or set a value |
-| `/model`  | Switch the AI model          |
-| `/effort` | Set reasoning effort         |
-| `/memory` | Edit memory files            |
-
-<!-- {: .-shortcuts} -->
-
-#### Project
+### Project commands
 
 | Command        | Description                  |
 | -------------- | ---------------------------- |
 | `/init`        | Generate a starter CLAUDE.md |
-| `/permissions` | Allow, ask, and deny rules   |
+| `/memory`      | Edit memory files            |
 | `/mcp`         | Manage MCP connections       |
 | `/hooks`       | View hook configurations     |
 | `/doctor`      | Run a setup checkup          |
-
-<!-- {: .-shortcuts} -->
-
-#### Account
-
-| Command   | Description             |
-| --------- | ----------------------- |
-| `/login`  | Sign in to your account |
-| `/logout` | Sign out                |
-| `/exit`   | Exit the CLI (`/quit`)  |
-
-<!-- {: .-shortcuts} -->
+| `/diff`        | Review working-tree changes  |
+| `/code-review` | Review the diff or a PR      |
 
 See: [Commands](https://code.claude.com/docs/en/commands)
 
-## Review and background work
-
-<!-- {: .-two-column} -->
-
-### Review
-
-#### Changes
-
-| Command            | Description                      |
-| ------------------ | -------------------------------- |
-| `/diff`            | Review working-tree changes      |
-| `/code-review`     | Review the diff, a PR, or a path |
-| `/security-review` | Scan changes for vulnerabilities |
-
-<!-- {: .-shortcuts} -->
-
-`/review` is an alias of `/code-review`, which takes an effort level, `--fix`, and a PR number.
-
-See: [Review locally with /code-review](https://code.claude.com/docs/en/code-review-local)
-
-### Background work
-
-| Command           | Description                              |
-| ----------------- | ---------------------------------------- |
-| `/background`     | Detach this session as a background agent |
-| `/fork`           | Copy it into a new background session    |
-| `/subtask <task>` | Run a task in a forked subagent          |
-| `/tasks`          | View and manage background work          |
-
-<!-- {: .-shortcuts} -->
-
-See: [Agent view](https://code.claude.com/docs/en/agent-view)
+[Claude Code commands cheatsheet](./claude-code-commands)
+<!-- {: .-crosslink} -->
 
 ## Interactive mode
 
@@ -446,6 +318,7 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
 <!-- {: .-one-column} -->
 
+- [Claude Code commands cheatsheet](./claude-code-commands)
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_
 - [Interactive mode](https://code.claude.com/docs/en/interactive-mode) _(code.claude.com)_

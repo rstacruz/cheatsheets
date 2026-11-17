@@ -15,10 +15,10 @@ fragments:
   - "--worktree"
   - "claude mcp"
   - "/compact"
-  - "/review"
+  - "/code-review"
   - "claude doctor"
   - "claude update"
-  - "--ide"
+  - "/permissions"
   - "--max-turns"
 keywords:
   - AI assistant
@@ -109,10 +109,7 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--max-turns 3`          | Limit agentic turns               |
 | `--debug`                | Enable debug mode                 |
 
-See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
-
-[Claude Code commands cheatsheet](./claude-code-commands)
-<!-- {: .-crosslink} -->
+See: [CLI reference](https://code.claude.com/docs/en/cli-reference), [full command reference](./claude-code-commands)
 
 ## Slash commands
 

@@ -19,9 +19,9 @@ fragments:
   - "%A, %B %e, %Y"
   - "ZZ"
   - "toISOString()"
-  - "RFC 3339"
-  - "Unix time"
-  - "epoch"
+  - "T23:05:00Z"
+  - "1370473500"
+  - "date +%s"
   - "%s"
   - "MMM d, yyyy"
 intro: |
@@ -108,7 +108,7 @@ date -d @1370473500         # GNU date: Wed Jun 5 2013
 ```
 
 Seconds since `1970-01-01T00:00:00Z`, ignoring leap seconds. JavaScript
-and Java use milliseconds.
+and Java's `Date` count milliseconds.
 
 See: [date(1)](https://man7.org/linux/man-pages/man1/date.1.html)
 

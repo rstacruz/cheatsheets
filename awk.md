@@ -85,8 +85,8 @@ See: [Range patterns](https://www.gnu.org/software/gawk/manual/gawk.html#Ranges)
 -F fs          # Field separator
 -v var=value   # Set a variable
 -f prog.awk    # Read the program from a file
---posix        # Strict POSIX mode
---version      # GNU awk version
+--posix        # Strict POSIX mode (gawk)
+--version      # Version (gawk)
 ```
 
 `gawk -i inplace` edits files in place, but it is a GNU extension.
@@ -227,8 +227,8 @@ awk 'BEGIN { printf "%03d %x %c\n", 7, 255, 65 }'
 awk '{ s = sprintf("%s: %d", $1, $2); print s }' file
 ```
 
-`printf` takes a format and a comma-separated list; `print` adds `OFS`
-and `ORS` instead.
+`printf` takes a format and a comma-separated list; `print` separates its
+arguments with `OFS` and ends with `ORS`.
 
 See: [Printf](https://www.gnu.org/software/gawk/manual/gawk.html#Printf)
 
@@ -366,7 +366,8 @@ awk 'NR == FNR { seen[$0] = 1; next }
      $0 in seen' a.txt b.txt       # Lines in both files
 ```
 
-`NR == FNR` is true only while the first file is being read.
+`NR == FNR` holds while the first file is read; an empty first file breaks
+the trick.
 
 See: [FNR](https://www.gnu.org/software/gawk/manual/gawk.html#Auto_002dset)
 

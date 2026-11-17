@@ -131,6 +131,8 @@ shows the shape.
 - Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
 - A table that follows a code block needs an H4 in between, or it reads as part of the block
 - One example per code block: start a new fence instead of stacking commented examples
+- Split setup from use: build the formatter or value in one block, then call it in a second block, each with its own H4 (eg `#### Formatter`, `#### Output`). A long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards
+- Prefer `=> (` … `)` line breaks over one long arrow line, and add `.-wrap` when the remaining lines still overflow
 
 ## Writing guidelines
 

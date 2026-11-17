@@ -38,11 +38,6 @@ links:
 
 ### Constructor
 
-```js
-const rtf = new Intl.RelativeTimeFormat('en-US')
-const de = new Intl.RelativeTimeFormat('de-DE', { numeric: 'auto' })
-```
-
 #### Syntax
 
 ```js
@@ -50,6 +45,17 @@ new Intl.RelativeTimeFormat()
 new Intl.RelativeTimeFormat(locales)
 new Intl.RelativeTimeFormat(locales, options)
 ```
+<!-- {: .-wrap} -->
+
+#### Formatter
+
+```js
+const rtf = new Intl.RelativeTimeFormat('en-US')
+const de = new Intl.RelativeTimeFormat('de-DE', {
+  numeric: 'auto'
+})
+```
+<!-- {: .-wrap} -->
 
 `locales` is a BCP 47 tag or an array of tags; the first supported one wins.
 Call the constructor with `new` — a plain call throws `TypeError`. Options
@@ -59,10 +65,17 @@ See: [Intl.RelativeTimeFormat() constructor](https://developer.mozilla.org/en-US
 
 ### Options without a locale
 
+#### Formatter
+
 ```js
 const opts = { numeric: 'auto', style: 'short' }
 const rtf = new Intl.RelativeTimeFormat('default', opts)
+```
+<!-- {: .-wrap} -->
 
+#### Output
+
+```js
 rtf.resolvedOptions().locale  // → 'en-US'
 ```
 
@@ -76,14 +89,22 @@ See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ### Values and units
 
+#### Formatter
+
 ```js
 const rtf = new Intl.RelativeTimeFormat('en-US')
+```
+<!-- {: .-wrap} -->
 
+#### Output
+
+```js
 rtf.format(-1, 'day')     // → '1 day ago'
 rtf.format(2, 'day')      // → 'in 2 days'
 rtf.format(1, 'year')     // → 'in 1 year'
 rtf.format(-3, 'month')   // → '3 months ago'
 ```
+<!-- {: .-wrap} -->
 
 #### Units
 
@@ -102,18 +123,25 @@ rtf.format(-3, 'month')   // → '3 months ago'
 
 Negative is the past, positive the future; zero counts as future
 (`'in 0 days'`). Unit names stay singular: `'day'`, never `'days'`. Values
-aren't rounded, so `-1.5` renders as `'1.5 days ago'`; an unknown unit throws
+aren't rounded, so `-1.5` renders as `'1.5 days ago'`. An unknown unit throws
 `RangeError`.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format)
 
 ### Numeric option
 
+#### Formatter
+
 ```js
 const rtf = new Intl.RelativeTimeFormat('en-US', {
   numeric: 'auto'
 })
+```
+<!-- {: .-wrap} -->
 
+#### Output
+
+```js
 rtf.format(-1, 'day')     // → 'yesterday'
 rtf.format(1, 'day')      // → 'tomorrow'
 rtf.format(0, 'day')      // → 'today'
@@ -121,6 +149,7 @@ rtf.format(0, 'second')   // → 'now'
 rtf.format(-2, 'day')     // → '2 days ago'
 rtf.format(-1, 'week')    // → 'last week'
 ```
+<!-- {: .-wrap} -->
 
 `'auto'` uses a wording only where the locale has one for that value and
 unit; `2` stays numeric. The default, `'always'`, prints `'1 day ago'` and
@@ -130,16 +159,22 @@ See: [numeric option](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Re
 
 ### Style option
 
-```js
-const short = new Intl.RelativeTimeFormat('en-US', { style: 'short' })
-const narrow = new Intl.RelativeTimeFormat('en-US', {
-  style: 'narrow'
-})
+#### Formatter
 
-short.format(-1, 'hour')    // → '1 hr. ago'
-narrow.format(-1, 'hour')   // → '1h ago'
-narrow.format(2, 'day')     // → 'in 2d'
+```js
+const rtf = (style) => (
+  new Intl.RelativeTimeFormat('en-US', { style })
+)
 ```
+
+#### Output
+
+```js
+rtf('short').format(-1, 'hour')   // → '1 hr. ago'
+rtf('narrow').format(-1, 'hour')  // → '1h ago'
+rtf('narrow').format(2, 'day')    // → 'in 2d'
+```
+<!-- {: .-wrap} -->
 
 `'long'` is the default; `'narrow'` is the most compact. `numeric: 'auto'`
 wordings such as `'yesterday'` survive both styles.
@@ -150,26 +185,32 @@ See: [style option](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### formatToParts()
 
+#### Formatter
+
 ```js
 const rtf = new Intl.RelativeTimeFormat('en-US')
+```
+<!-- {: .-wrap} -->
 
+#### Output
+
+```js
 rtf.formatToParts(-2, 'day')
 // → [
 //   { type: 'integer', value: '2', unit: 'day' },
 //   { type: 'literal', value: ' days ago' }
 // ]
 ```
+<!-- {: .-wrap} -->
 
 #### Without a number
 
 ```js
-const rtf = new Intl.RelativeTimeFormat('en-US', {
-  numeric: 'auto'
-})
-
-rtf.formatToParts(-1, 'day')
+new Intl.RelativeTimeFormat('en-US', { numeric: 'auto' })
+  .formatToParts(-1, 'day')
 // → [{ type: 'literal', value: 'yesterday' }]
 ```
+<!-- {: .-wrap} -->
 
 Parts are `literal`, `integer`, `decimal` or `fraction`. A phrase with no
 number at all is a single `literal` part.
@@ -178,12 +219,19 @@ See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 
 ### resolvedOptions()
 
+#### Formatter
+
 ```js
 const rtf = new Intl.RelativeTimeFormat('de-DE', {
   numeric: 'auto',
   style: 'short'
 })
+```
+<!-- {: .-wrap} -->
 
+#### Output
+
+```js
 rtf.resolvedOptions()
 // → {
 //   locale: 'de-DE',
@@ -202,24 +250,29 @@ See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Locale differences
 
-```js
-const enUS = new Intl.RelativeTimeFormat('en-US', { style: 'short' })
-const enGB = new Intl.RelativeTimeFormat('en-GB', { style: 'short' })
-
-enUS.format(-1, 'hour')  // → '1 hr. ago'
-enGB.format(-1, 'hour')  // → '1 hr ago'
-```
-
-#### Longer forms
+#### Formatter
 
 ```js
-for (const locale of ['de-DE', 'ja-JP']) {
-  const rtf = new Intl.RelativeTimeFormat(locale)
-  console.log(locale, rtf.format(-2, 'day'))
-}
-// de-DE vor 2 Tagen
-// ja-JP 2 日前
+const rtf = (locale, style) => (
+  new Intl.RelativeTimeFormat(locale, { style })
+)
 ```
+
+#### Output
+
+```js
+rtf('en-US', 'short').format(-1, 'hour')  // → '1 hr. ago'
+rtf('en-GB', 'short').format(-1, 'hour')  // → '1 hr ago'
+```
+<!-- {: .-wrap} -->
+
+#### Long style
+
+```js
+rtf('de-DE').format(-2, 'day')  // → 'vor 2 Tagen'
+rtf('ja-JP').format(-2, 'day')  // → '2 日前'
+```
+<!-- {: .-wrap} -->
 
 You supply the number and the unit; word order, prepositions and plural
 endings come from the locale data. At long style `en-US` and `en-GB` agree on
@@ -246,14 +299,24 @@ See: [Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ### Computing the delta
 
-```js
-const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
+#### Setup
 
+```js
+const rtf = new Intl.RelativeTimeFormat('en', {
+  numeric: 'auto'
+})
 const now = new Date('2026-11-18T12:00:00Z')
 const then = new Date('2026-11-16T12:00:00Z')
-
-rtf.format((then - now) / 86_400_000, 'day')  // → '2 days ago'
 ```
+<!-- {: .-wrap} -->
+
+#### Output
+
+```js
+rtf.format((then - now) / 86_400_000, 'day')
+// → '2 days ago'
+```
+<!-- {: .-wrap} -->
 
 The formatter never reads a clock. Subtract the dates yourself, divide down
 to the unit you want, and keep the sign.
@@ -262,8 +325,12 @@ See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 ### A timeAgo() helper
 
+#### Helper
+
 ```js
-const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
+const rtf = new Intl.RelativeTimeFormat('en', {
+  numeric: 'auto'
+})
 
 const timeAgo = (date, now = Date.now()) => {
   const s = Math.round((date.getTime() - now) / 1000)
@@ -277,6 +344,7 @@ const timeAgo = (date, now = Date.now()) => {
   return rtf.format(Math.round(s / 86_400), 'day')
 }
 ```
+<!-- {: .-wrap} -->
 
 #### Usage
 
@@ -287,6 +355,7 @@ timeAgo(new Date('2026-11-18T11:59:30Z'), now)  // '30 seconds ago'
 timeAgo(new Date('2026-11-18T09:00:00Z'), now)  // '3 hours ago'
 timeAgo(new Date('2026-11-16T12:00:00Z'), now)  // '2 days ago'
 ```
+<!-- {: .-wrap} -->
 
 `Math.round()` picks a whole unit, and the sign is kept so past values stay
 negative. Add month and year branches when you need coarser output.

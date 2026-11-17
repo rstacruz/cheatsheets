@@ -11,7 +11,7 @@ fragments:
   - "numeric: 'auto'"
   - "'yesterday'"
   - "'tomorrow'"
-  - "style: 'narrow'"
+  - "rtf('narrow')"
   - "formatToParts"
   - "resolvedOptions"
   - "quarter"

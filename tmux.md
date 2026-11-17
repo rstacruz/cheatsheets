@@ -33,8 +33,8 @@ links:
     url: https://man.openbsd.org/tmux
   - title: tmux wiki
     url: https://github.com/tmux/tmux/wiki
-  - title: tmux.conf manual
-    url: https://man.openbsd.org/tmux.conf
+  - title: tmux options
+    url: https://man.openbsd.org/tmux#OPTIONS
 ---
 
 ## Sessions
@@ -210,10 +210,11 @@ C-b [               # Enter copy mode
 C-s                 # Search forward
 C-r                 # Search backward
 n  N                # Next / previous match
-q                   # Exit copy mode
+Escape              # Exit copy mode
 ```
 
 Scrolling with the wheel works in copy mode when mouse support is on.
+`set -g mode-keys vi` swaps in `/`, `?`, and `q`.
 
 See: [copy-mode](https://man.openbsd.org/tmux#copy-mode)
 
@@ -232,7 +233,7 @@ set -sg escape-time 10
 
 tmux reads `~/.tmux.conf` when the server starts, not on every attach.
 
-See: [tmux.conf](https://man.openbsd.org/tmux.conf)
+See: [Options](https://man.openbsd.org/tmux#OPTIONS)
 
 ### Reload
 

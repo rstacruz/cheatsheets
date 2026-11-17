@@ -146,7 +146,8 @@ See: [Date.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 ```js
 new Intl.DateTimeFormat('en-GB', {
   dateStyle: 'long',
-  timeStyle: 'short'
+  timeStyle: 'short',
+  timeZone: 'UTC'
 }).format(date)          // 5 June 2013 at 23:05
 
 date.toISOString()       // 2013-06-05T23:05:00.000Z

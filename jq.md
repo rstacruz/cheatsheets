@@ -26,7 +26,7 @@ fragments:
 intro: |
   [jq](https://jqlang.org/) filters JSON on the command line: pick fields,
   reshape objects, and reformat output. This sheet covers the filters and
-  flags reached for most often.
+  flags used most often.
 links:
   - title: jq manual
     url: https://jqlang.org/manual/
@@ -294,7 +294,7 @@ jq -r '.users[0] | try (.name - 1) catch .' api.json
 # → string ("Ada") and number (1) cannot be subtracted
 ```
 
-`catch .` receives the message. `?` is shorthand for `try ... catch empty`.
+`catch .` receives the message. `?` is shorthand for `try`.
 
 See: [try-catch](https://jqlang.org/manual/#try-catch)
 
@@ -325,7 +325,7 @@ echo '[12,48,7]' | jq 'reduce .[] as $n (0; . + $n)'
 # → 67
 ```
 
-The second argument seeds the accumulator; the last is applied per element.
+`(0; . + $n)` seeds the accumulator at `0` and adds each element.
 
 See: [reduce](https://jqlang.org/manual/#reduce)
 
@@ -363,7 +363,7 @@ jq -r '.users[] | [.name,.role] | @tsv' api.json
 # → Grace	dev
 ```
 
-`@csv` quotes strings and escapes commas; `@tsv` separates columns with tabs.
+`@csv` quotes strings and separates fields with commas; `@tsv` uses tabs.
 
 See: [Format strings](https://jqlang.org/manual/#format-strings-and-escaping)
 

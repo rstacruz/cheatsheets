@@ -106,3 +106,8 @@ git push --force-with-lease
 # Or push brutally to your branch
 git push --force
 ```
+
+### Worktrees
+
+[Git worktrees cheatsheet](./git-worktrees)
+<!-- {: .-crosslink} -->

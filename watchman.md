@@ -1,6 +1,6 @@
 ---
 title: Watchman
-category: CLI
+category: Build tools
 subtitle: File watching service
 updated: 2017-10-18
 weight: -1

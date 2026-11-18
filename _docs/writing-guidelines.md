@@ -142,7 +142,7 @@ shows the shape.
 - Two code blocks in a card need an H4 between them, so each block has a label; a caption-led block is self-labelled, so it needs no H4
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
-- Omit explanations if they are obvious
+- Omit explanations if they are obvious. See `prose/omit-redundant`.
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
@@ -233,82 +233,11 @@ See [`archiving.md`](archiving.md) for when a sheet is worth archiving.
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
 
-## Introduction
+- Set `intro` frontmatter. See `frontmatter/introduction`.
 
-- Set `intro` frontmatter; it renders as the first card on the sheet.
-- Max 25 words per paragraph, 500 characters in total.
-- Up to 4 `links`, and at least 1 whenever `intro` is set. These should be reputable, first-party sources as much as possible.
-- Link sources (`_(hostname)_`) are inferred from the URL; do not write them.
+- Add `.-headers` when column labels carry meaning. See `tables/headers`.
 
-```yaml
-intro: |
-  [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
-
-links:
-  - title: Claude Code documentation
-    url: https://code.claude.com/docs
-  - title: GitHub repository
-    url: https://github.com/anthropics/claude-code
-```
-
-The card is generated; never write an `### Introduction` card by hand.
-
-## Table headers
-
-Table headers are hidden by default. Add `<!-- {: .-headers} -->` after the
-table when the column labels carry meaning; otherwise leave them out and write
-rows that read on their own.
-
-```md
-| Part | Required |
-| --- | --- |
-| `type` | yes |
-| body | no |
-<!-- {: .-headers} -->
-```
-
-## Tables: separating
-
-Separating tables is preferred when a table grows to 8 or more rows.
-
-### Option A: H4s and multiple tables
-
-````markdown
-### Examples
-
-#### Date
-
-| Example                   | Output                 |
-| ------------------------- | ---------------------- |
-| `YYYY-MM-DD`              | 2014-01-01             |
-| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
-| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
-
-#### Time
-
-| Example   | Output   |
-| --------- | -------- |
-| `hh:mm a` | 12:30 pm |
-
-````
-
-### Option B: horizontal lines
-
-````markdown
-| Example | Output                           |
-| ------- | -------------------------------- |
-| `LT`    | 8:30 PM                          |
-| `LTS`   | 8:30:25 PM                       |
-| ---     | ---                              |
-| `LL`    | August 2 1985                    |
-| `ll`    | Aug 2 1985                       |
-| ---     | ---                              |
-| `LLL`   | August 2 1985 08:30 PM           |
-| `lll`   | Aug 2 1985 08:30 PM              |
-| ---     | ---                              |
-| `LLLL`  | Thursday, August 2 1985 08:30 PM |
-| `llll`  | Thu, Aug 2 1985 08:30 PM         |
-````
+- Separate tables of 8+ rows with H4 groups or `| --- |` rows. See `tables/separating`.
 
 ## Rules
 
@@ -386,6 +315,16 @@ Split an oversized "All options" card into focused cards like `Style options` an
 ### cards/short-trailing-prose
 
 Prose after the last block stays under 40 words; a single sentence usually suffices.
+
+````markdown
+### Errors
+
+```js
+parse('4.2') // → { ok: true, value: 4.2 }
+```
+
+Invalid input returns an error object.
+````
 
 ### cards/size-limits
 
@@ -503,6 +442,120 @@ Float.parse("34.1")      # → {34.1, ""}
 ```
 ````
 
+### frontmatter/introduction
+
+Set `intro` frontmatter; it renders as the first card. Keep paragraphs under 25 words and links to at most four first-party sources.
+
+````yaml
+intro: |
+  [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
+
+links:
+  - title: Claude Code documentation
+    url: https://code.claude.com/docs
+  - title: GitHub repository
+    url: https://github.com/anthropics/claude-code
+````
+
+The card is generated; never write an `### Introduction` card by hand.
+
+### tables/headers
+
+Table headers are hidden by default. Add `.-headers` after the table when the column labels carry meaning.
+
+````md
+| Part | Required |
+| --- | --- |
+| `type` | yes |
+| body | no |
+<!-- {: .-headers} -->
+````
+
+### tables/separating
+
+Separate tables of 8+ rows with H4 groups or `| --- |` rows.
+
+#### H4 groups
+
+````markdown
+### Examples
+
+#### Date
+
+| Example                   | Output                 |
+| ------------------------- | ---------------------- |
+| `YYYY-MM-DD`              | 2014-01-01             |
+| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
+
+#### Time
+
+| Example   | Output   |
+| --------- | -------- |
+| `hh:mm a` | 12:30 pm |
+````
+
+#### Separator rows
+
+````markdown
+| Example | Output                           |
+| ------- | -------------------------------- |
+| `LT`    | 8:30 PM                          |
+| `LTS`   | 8:30:25 PM                       |
+| ---     | ---                              |
+| `LL`    | August 2 1985                    |
+| `ll`    | Aug 2 1985                       |
+| ---     | ---                              |
+| `LLLL`  | Thursday, August 2 1985 08:30 PM |
+| `llll`  | Thu, Aug 2 1985 08:30 PM         |
+````
+
+### prose/omit-redundant
+
+Omit redundant prose. When a note is needed, put it after the code block and keep only what the code does not say.
+
+````md
+// Avoid:
+```sh
+wget --quiet
+```
+
+This command runs wget with the quiet option, which suppresses its output.
+
+// Consider:
+```sh
+wget --quiet
+```
+
+--quiet suppresses output
+````
+
+### frontmatter/seo-descriptions
+
+Write `keywords` with `intro` for SEO; `description` with `intro` also works. Without either, a description is generated from `intro`.
+
+#### Keywords
+
+````md
+keywords: [React.Component, render(), componentDidMount(), props/state]
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
+#### Description
+
+````md
+description: One-page reference to React and its API.
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
+#### Intro only
+
+````md
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
 ## Checks
 
 Sheet checks live in `src/lib/sheetValidation/`. Run them with:
@@ -526,36 +579,4 @@ Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/st
 
 Three more checks cover tables, cards, and code blocks: `shortcutTables` flags shortcut styling on tables whose key column is not a keypress (`baseline/shortcutTables.json` must stay empty), `cardSize` reports oversized cards (`baseline/cardSize.json` holds tolerated cards), and `dataLine` flags `data-line` values outside their fenced block. Only `cardSize` has a populated baseline; `dataLine` has none.
 
-## SEO descriptions
-
-- Write `keywords` + `intro` for SEO purposes (preferred).
-- `description` + `intro` is also supported.
-
-### Option A: Keywords (and intro)
-
-Set `keywords` (and optionally `intro`). This is the easiest and the preferred
-way for now.
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-React.Component · render() · componentDidMount() · props/state · React is a
-JavaScript library for building web...
-```
-
-### Option B: Description (and intro)
-
-Set `description` (and optionally `intro`)
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-One-page reference to React and its API. React is a JavaScript library for
-building web user interfaces...
-```
-
-### Option C: Intro only
-
-If you left out `description` or `keywords`, a default description will be added.
+- Write `keywords` + `intro` for SEO purposes. See `frontmatter/seo-descriptions`.

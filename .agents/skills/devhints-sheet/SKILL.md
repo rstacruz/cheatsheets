@@ -23,3 +23,8 @@ Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelin
 - [code/filename-markers](../../../_docs/writing-guidelines.md#codefilename-markers)
 - [tables/reference-information](../../../_docs/writing-guidelines.md#tablesreference-information)
 - [code/inline-comments](../../../_docs/writing-guidelines.md#codeinline-comments)
+- [frontmatter/introduction](../../../_docs/writing-guidelines.md#frontmatterintroduction)
+- [tables/headers](../../../_docs/writing-guidelines.md#tablesheaders)
+- [tables/separating](../../../_docs/writing-guidelines.md#tablesseparating)
+- [prose/omit-redundant](../../../_docs/writing-guidelines.md#proseomit-redundant)
+- [frontmatter/seo-descriptions](../../../_docs/writing-guidelines.md#frontmatterseo-descriptions)

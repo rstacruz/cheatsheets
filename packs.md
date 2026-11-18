@@ -3,6 +3,28 @@ title: Packs (ruby)
 subtitle: Modular packaging for Ruby apps
 category: Ruby libraries
 updated: 2026-11-18
+tier: t2
+fragments:
+  - "bin/packs"
+  - "bin/packs create"
+  - "make_public"
+  - "add_dependency"
+  - "move_to_folder"
+  - "move_to_parent"
+  - "get_info"
+  - "top_violations"
+  - "validate"
+  - "check"
+  - "update"
+  - "package_todo.yml"
+  - "package.yml"
+  - "packs.yml"
+  - "pack_paths"
+  - "readme_template"
+  - "app/public"
+  - "gems/*"
+  - "privacy"
+  - "layer"
 intro: Packs are a specification for an extensible packaging system to help modularize Ruby applications.
 links:
   - title: Documentation

@@ -4,7 +4,7 @@ subtitle: Command-line HTTP client
 category: Networking
 tags: [Featured]
 updated: 2026-11-11
-tier: t2
+tier: t1
 fragments:
   - "curl -s"
   - "-X POST"

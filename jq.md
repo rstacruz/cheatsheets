@@ -2,7 +2,7 @@
 title: jq
 subtitle: JSON processor
 category: CLI
-tier: t2
+tier: t1
 updated: 2026-11-18
 fragments:
   - "jq '.'"

@@ -3,7 +3,7 @@ title: Herdr keys
 subtitle: Terminal keyboard shortcuts
 category: Agents
 updated: 2026-11-05
-tier: t2
+tier: t1
 fragments:
   - "prefix"
   - "prefix+c"

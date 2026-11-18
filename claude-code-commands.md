@@ -3,7 +3,7 @@ title: Claude Code commands
 subtitle: Slash command reference
 category: Agents
 updated: 2026-11-18
-tier: t2
+tier: t1
 fragments:
   - "/help"
   - "/compact"

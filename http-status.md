@@ -2,7 +2,7 @@
 title: HTTP Status
 subtitle: Three-digit response code list
 category: API
-tier: t2
+tier: t1
 fragments:
   - "200 OK"
   - "201 Created"

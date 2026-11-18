@@ -3,7 +3,7 @@ title: yt-dlp
 subtitle: Command-line video downloader
 category: Media tools
 updated: 2026-11-16
-tier: t2
+tier: t1
 fragments:
   - "yt-dlp"
   - "-F"

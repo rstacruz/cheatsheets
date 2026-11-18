@@ -3,7 +3,7 @@ title: tmux
 subtitle: Terminal multiplexer
 category: Shell
 updated: 2026-11-18
-tier: t2
+tier: t1
 fragments:
   - "C-b"
   - "tmux new -s work"

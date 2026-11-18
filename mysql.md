@@ -2,7 +2,7 @@
 title: MySQL
 subtitle: Relational database server
 updated: 2026-11-11
-tier: t2
+tier: t1
 fragments:
   - "SELECT *"
   - "LEFT JOIN"

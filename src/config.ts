@@ -25,7 +25,8 @@ export const github = {
 } as const
 
 export const urls = {
-  newCheatsheetUrl: 'https://github.com/rstacruz/cheatsheets/issues/907'
+  newCheatsheetUrl:
+    'https://github.com/rstacruz/cheatsheets/issues/new?template=request-cheatsheet.yml'
 } as const
 
 export const carbon = {

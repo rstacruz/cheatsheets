@@ -486,7 +486,7 @@ Separate tables of 8+ rows with H4 groups or `| --- |` rows.
 
 ### prose/omit-redundant
 
-Omit redundant prose. When a note is needed, put it after the code block and keep only what the code does not say.
+Omit redundant prose. When the code is self-explanatory, add no trailing paragraph.
 
 ````md
 // Avoid:
@@ -496,12 +496,10 @@ wget --quiet
 
 This command runs wget with the quiet option, which suppresses its output.
 
-// Consider:
+// Consider: no trailing paragraph
 ```sh
 wget --quiet
 ```
-
---quiet suppresses output
 ````
 
 ### frontmatter/seo-descriptions

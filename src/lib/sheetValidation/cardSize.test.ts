@@ -8,7 +8,12 @@ import { scanHeadings } from './outline'
 import { sheetSources } from './sheets'
 import { SEP_LINE, scanFences } from './utils'
 
-type Finding = { line: number; heading: string; text: string }
+type Finding = {
+  line: number
+  heading: string
+  occurrence: number
+  text: string
+}
 
 const MAX_TABLES = 4
 const MAX_LINES = 50
@@ -52,9 +57,12 @@ function findLargeCards(source: string): Finding[] {
   const { fenced } = scanFences(lines)
   const headings = scanHeadings(source)
   const found: Finding[] = []
+  const seen = new Map<string, number>()
 
   headings.forEach((heading, index) => {
     if (heading.level !== 3) return
+    const occurrence = (seen.get(heading.title) ?? 0) + 1
+    seen.set(heading.title, occurrence)
     const end = headings[index + 1]?.line ?? lines.length + 1
     const lineCount = end - heading.line
     const tables = countTables(lines, fenced, heading.line, end - 1)
@@ -65,6 +73,7 @@ function findLargeCards(source: string): Finding[] {
     found.push({
       line: heading.line,
       heading: heading.title,
+      occurrence,
       text: `card has ${reason}`
     })
   })
@@ -94,14 +103,14 @@ describe('findLargeCards()', () => {
       ''
     ]).flat()
     expect(findLargeCards(card(body))).toEqual([
-      { line: 3, heading: 'Card', text: 'card has 4 tables' }
+      { line: 3, heading: 'Card', occurrence: 1, text: 'card has 4 tables' }
     ])
   })
 
   test('flags a card with 50 lines', () => {
     const body = Array(47).fill('text')
     expect(findLargeCards(card(body))).toEqual([
-      { line: 3, heading: 'Card', text: 'card has 50 lines' }
+      { line: 3, heading: 'Card', occurrence: 1, text: 'card has 50 lines' }
     ])
   })
 
@@ -128,28 +137,41 @@ describe('findLargeCards()', () => {
     ]
     expect(findLargeCards(card(body))).toEqual([])
   })
+
+  test('numbers same-titled cards by their place in the sheet', () => {
+    const input = [
+      '## Section',
+      '',
+      '### Methods',
+      '',
+      'text',
+      '',
+      '### Methods',
+      '',
+      ...Array(48).fill('text')
+    ].join('\n')
+    expect(findLargeCards(input)).toEqual([
+      { line: 7, heading: 'Methods', occurrence: 2, text: 'card has 50 lines' }
+    ])
+  })
 })
 
-/** Baseline keys keep same-titled cards distinct across a sheet */
+/** Baseline keys use the card's place among same-titled cards */
 function cardKeys(findings: Array<{ slug: string } & Finding>) {
-  const seen = new Map<string, number>()
-  return findings.map(({ slug, heading }) => {
-    const base = `${slug}#${heading}`
-    const nth = (seen.get(base) ?? 0) + 1
-    seen.set(base, nth)
-    return `${base}#${nth}`
-  })
+  return findings.map(
+    ({ slug, heading, occurrence }) => `${slug}#${heading}#${occurrence}`
+  )
 }
 
-test('cardKeys disambiguates same-titled cards', () => {
+test('cardKeys uses each card’s occurrence', () => {
   const findings = [
-    { slug: 'sheet', line: 1, heading: 'Methods', text: 'card has 4 tables' },
-    { slug: 'sheet', line: 10, heading: 'Methods', text: 'card has 50 lines' }
+    { slug: 'sheet', line: 1, heading: 'Methods', occurrence: 1, text: 'a' },
+    { slug: 'sheet', line: 10, heading: 'Methods', occurrence: 2, text: 'b' }
   ]
   expect(cardKeys(findings)).toEqual(['sheet#Methods#1', 'sheet#Methods#2'])
 })
 
-test('every card stays within the size limit', async () => {
+test('cards/size-limits: every card stays within the size limit', async () => {
   const findings: Array<{ slug: string } & Finding> = []
 
   for (const { slug, source } of await sheetSources()) {

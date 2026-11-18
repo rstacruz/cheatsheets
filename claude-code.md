@@ -91,8 +91,6 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude -r <session>` | Resume a session by ID or name    |
 | `claude --bg "task"`  | Start a background agent          |
 
-<!-- {: .-shortcuts} -->
-
 #### Setup
 
 | Command              | Description                    |
@@ -106,8 +104,6 @@ Use `claude -c` to continue the last conversation, or `claude -r "auth-refactor"
 | `claude plugin`      | Install and manage plugins     |
 | `claude auth status` | Show authentication status     |
 | `claude setup-token` | Generate a token for CI        |
-
-<!-- {: .-shortcuts} -->
 
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
@@ -126,8 +122,6 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--add-dir ../lib`        | Add extra working directories     |
 | `--verbose`               | Show full turn-by-turn output     |
 
-<!-- {: .-shortcuts} -->
-
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 ### Other flags
@@ -141,8 +135,6 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--dangerously-skip-permissions` | Skip all permission prompts       |
 | `--safe-mode`                    | Start with customizations off     |
 
-<!-- {: .-shortcuts} -->
-
 See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 
 ### Headless mode
@@ -155,8 +147,6 @@ See: [CLI reference](https://code.claude.com/docs/en/cli-reference)
 | `--max-turns 3`        | Limit agentic turns              |
 | `--max-budget-usd 5`   | Stop the run at a spend cap      |
 | `--bare`               | Skip hooks, plugins, and memory  |
-
-<!-- {: .-shortcuts} -->
 
 See: [Headless mode](https://code.claude.com/docs/en/headless)
 
@@ -255,8 +245,6 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 | `:`   | Insert an emoji by shortcode    |
 | `?`   | Show the shortcut help panel    |
 
-<!-- {: .-shortcuts} -->
-
 For a newline, `\` + `Enter` or `Ctrl+J` works anywhere; `Shift+Enter` needs `/terminal-setup` in some terminals.
 
 See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
@@ -288,8 +276,6 @@ Run `/config` to edit settings, or pass `--settings file.json` for one session. 
 | `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | Turn auto memory off                   |
 | `DISABLE_AUTOUPDATER`             | Turn background updates off            |
 
-<!-- {: .-shortcuts} -->
-
 Settings files can also set env vars under an `env` key. See: [Environment variables](https://code.claude.com/docs/en/env-vars)
 
 ### Memory
@@ -313,8 +299,6 @@ CLAUDE.local.md       # personal notes, not committed
 | `auto`              | Everything, with safety checks          |
 | `dontAsk`           | Pre-approved tools only; rest denied    |
 | `bypassPermissions` | Everything                              |
-
-<!-- {: .-shortcuts} -->
 
 `auto` is the built-in starting mode; `Shift+Tab` cycles modes in a session. A classifier can still block actions, and explicit ask rules still prompt. See: [Permission modes](https://code.claude.com/docs/en/permission-modes)
 

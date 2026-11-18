@@ -288,7 +288,6 @@ Background output goes to `wget-log` unless `-o` is set.
 See: [Basic startup options](https://www.gnu.org/software/wget/manual/wget.html#Basic-Startup-Options)
 
 ## Examples
-<!-- {: .-one-column} -->
 
 ### Common recipes
 

@@ -1,6 +1,6 @@
 name: Request a cheatsheet
 description: Request a new cheatsheet for an app or tool.
-title: 'Cheatsheet request: '
+title: 'Cheatsheet request: APP_NAME_HERE'
 body:
   - type: input
     id: app-name

@@ -34,3 +34,4 @@ Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelin
 - [prose/paragraphs-last](../../../_docs/writing-guidelines.md#proseparagraphs-last)
 - [code/one-example-per-block](../../../_docs/writing-guidelines.md#codeone-example-per-block)
 - [frontmatter/h3-links](../../../_docs/writing-guidelines.md#frontmatterh3-links)
+- [prose/see-line](../../../_docs/writing-guidelines.md#prosesee-line)

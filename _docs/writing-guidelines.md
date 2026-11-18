@@ -122,16 +122,6 @@ substantial example (at least five use cases per code block) rather than a
 sparse two-line snippet. The Arrays section in [javascript.md](/javascript)
 shows the shape.
 
-## Code blocks
-
-- Maximum line width is 70 characters
-- In `.-three-column` sections, maximum is 42 characters
-- Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); see `code/data-line-in-block`
-- Show the example before its labelled reference table. See `tables/options-after-code`.
-- One example per code block: start a new fence instead of stacking commented examples
-- Split setup from use: build the formatter or value in one block, then call it in a second block, each with its own H4 (eg `#### Formatter`, `#### Output`). A long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards
-- Prefer `=> (` … `)` line breaks over one long arrow line, and add `.-wrap` when the remaining lines still overflow
 
 ## Writing guidelines
 
@@ -141,7 +131,6 @@ shows the shape.
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious. See `prose/omit-redundant`.
-- Omit explanations the example already shows: a TOML card with `# comment`, a trailing `# comment`, and `"# not a comment"` needs no note explaining `#` comments
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
@@ -158,29 +147,6 @@ shows the shape.
 3. **Practical examples**: Real-world use cases over theoretical
 4. **Quick reference**: Dense information for experienced developers
 5. **Learning path**: Logical progression for newcomers
-
-## H3 writing guidelines
-
-- End each H3 with a documentation link in its last content block, or add a `See:` line anywhere in the section.
-- `See:` must start a line at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless: ``See: `:help motion.txt` ``.
-- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not count; links to other sheets do.
-- Prefer upstream project docs, specifications, or the project repository.
-- Do not link community wikis, Q&A sites, or blog posts unless the upstream project officially endorses them as its documentation (for example, the Arch Wiki).
-- If no authoritative page covers the section, a linkless `See:` line is valid; use it instead of linking an unofficial source.
-- Only when the section has no authoritative documentation and no useful reference to point at, add `<!-- see: none: short reason -->` at column 0, on its own line.
-
-  ```md
-  ### Browser console
-  <!-- see: none: browser-only, no upstream docs -->
-  ```
-
-- Prefer to write explanations after a pre/table. See `prose/explanations-after-blocks`.
-- When an example has multiple files, use H4 as filename markers. See `code/filename-markers`.
-- When showing reference information, use tables for quick scanning. See `tables/reference-information`.
-- Use inline comments to explain results, equivalents, or provide context. See `code/inline-comments`.
-
-- Use H4s to split an H3 into labelled segments. See `cards/h4-subheadings`.
-- Multi-file examples use filename H4s. See `code/filename-markers`.
 
 ## Deprecated sheets
 
@@ -207,12 +173,6 @@ See [`archiving.md`](archiving.md) for when a sheet is worth archiving.
 ## Syntax highlighting
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
-
-- Set `intro` frontmatter. See `frontmatter/introduction`.
-
-- Add `.-headers` when column labels carry meaning. See `tables/headers`.
-
-- Separate tables of 8+ rows with H4 groups or `| --- |` rows. See `tables/separating`.
 
 ## Rules
 
@@ -251,7 +211,7 @@ Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column 
 
 🤖 Check: `code/wrap-long-lines`.
 
-Code lines stay under 70 characters. Add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
+Code lines stay under 70 characters (42 in `.-three-column` sections). Wrap onto more lines rather than exceed the limit; add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
 
 ````js
 const fraction = (options) => (
@@ -277,7 +237,7 @@ b
 
 🤖 Check: `code/split-setup-and-use`.
 
-Build the value in one pre block and call it in another, each with its own H4 label.
+Build the value in one pre block and call it in another, each with its own H4 label; a long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards.
 
 ````md
 #### Formatter
@@ -522,6 +482,14 @@ wget --quiet
 ```
 ````
 
+When the example already shows the detail, skip the note.
+
+````toml
+# comment
+key = "value" # trailing comment
+quoted = "# not a comment"
+````
+
 ### frontmatter/seo-descriptions
 
 Write `keywords` with `intro` for SEO; `description` with `intro` also works. Without either, a description is generated from `intro`.
@@ -590,27 +558,45 @@ wget --quiet --output-document=out.html https://example.com
 
 ### cards/two-h3-per-h2
 
-Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
-
 🤖 Check: `cards/two-h3-per-h2`.
+
+Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
 
 ### prose/paragraphs-last
 
-No paragraph may be followed by a code block or table in a card. Fold the note into the block or split the card.
-
 🤖 Check: `prose/paragraphs-last`.
+
+No paragraph may be followed by a code block or table in a card. Fold the note into the block or split the card.
 
 ### code/one-example-per-block
 
-A code block holds one example. Start a new fence instead of stacking commented examples.
-
 🤖 Check: `code/one-example-per-block`.
+
+A code block holds one example. Start a new fence instead of stacking commented examples.
 
 ### frontmatter/h3-links
 
-End each H3 with a documentation link or a `See:` line on tiered sheets.
+🤖 Check: `frontmatter/h3-links`.
+
+End each H3 with a documentation link or a `See:` line on tiered sheets. Prefer upstream project docs, specifications, or the project repository; skip community wikis, Q&A sites, and blog posts unless the project endorses them as documentation.
+
+If no authoritative page covers the section, use a linkless `See:` line instead of an unofficial link. Only when there is neither, add `<!-- see: none: short reason -->` at column 0.
+
+````md
+### Browser console
+<!-- see: none: browser-only, no upstream docs -->
+````
+
+### prose/see-line
 
 🤖 Check: `frontmatter/h3-links`.
+
+`See:` must start at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless. Only inline links `[text](url)` count; autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not, but links to other sheets do.
+
+````md
+See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+See: `:help motion.txt`
+````
 
 ## Checks
 

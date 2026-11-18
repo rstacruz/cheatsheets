@@ -361,10 +361,10 @@ See: [Update PM2](https://pm2.keymetrics.io/docs/usage/update-pm2/)
 
 ### Report & dashboard
 
-| Command         | Effect                      |
-| ---             | ---                         |
-| `pm2 report`    | Print a diagnostic report   |
-| `pm2 dashboard` | Open the web dashboard      |
+| Command         | Effect                            |
+| ---             | ---                               |
+| `pm2 report`    | Print a diagnostic report         |
+| `pm2 dashboard` | Terminal dashboard, like `monit`  |
 
 See: [CLI reference](https://pm2.keymetrics.io/docs/usage/commands/)
 

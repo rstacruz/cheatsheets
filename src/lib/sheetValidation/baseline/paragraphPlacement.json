@@ -129,8 +129,6 @@
   "mocha-blanket#Quickstart guide",
   "mocha-blanket#Travis + coveralls.io support",
   "mysql#Reset root password",
-  "packs#Make a file or directory public",
-  "packs#Move a pack",
   "perl-pie#Back-referencing",
   "phoenix-routing#Resources",
   "pry#Rails console",

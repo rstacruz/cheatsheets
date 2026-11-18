@@ -239,10 +239,10 @@ pm2 start app.js --watch --ignore-watch node_modules
 
 #### Watch flags
 
-| Flag                  | Effect                     |
-| ---                   | ---                        |
-| `--watch`             | Watch the app directory    |
-| `--watch-delay 1000`  | Debounce restarts by 1s    |
+| Flag                 | Effect                     |
+| ---                  | ---                        |
+| `--watch`            | Watch the app directory    |
+| `--watch-delay 1`    | Debounce restarts by 1s    |
 
 Use `--watch` in development; production restarts belong to reloads and
 deploys.

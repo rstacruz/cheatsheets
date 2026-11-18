@@ -220,7 +220,7 @@ Each rule has a stable slug that reviews and the sheet skill link to.
 
 ### tables/cli-options
 
-🤖 Check: `shortcutTables`.
+🤖 Check: `tables/shortcut-keys`.
 
 CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress columns only.
 
@@ -234,7 +234,7 @@ CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress co
 
 ### tables/shortcut-keys
 
-🤖 Check: `shortcutTables`.
+🤖 Check: `tables/shortcut-keys`.
 
 Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column is last.
 
@@ -249,7 +249,7 @@ Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column 
 
 ### code/wrap-long-lines
 
-🤖 Check: `lineWidths`.
+🤖 Check: `code/wrap-long-lines`.
 
 Code lines stay under 70 characters. Add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
 
@@ -261,7 +261,7 @@ const fraction = (options) => (
 
 ### code/data-line-in-block
 
-🤖 Check: `dataLine`.
+🤖 Check: `code/data-line-in-block`.
 
 Every `data-line` reference must fall inside its fenced block; don't point past the last line.
 
@@ -275,7 +275,7 @@ b
 
 ### code/split-setup-and-use
 
-🤖 Check: `consecutiveBlocks`.
+🤖 Check: `code/split-setup-and-use`.
 
 Build the value in one pre block and call it in another, each with its own H4 label.
 
@@ -299,7 +299,7 @@ Split an oversized "All options" card into focused cards like `Style options` an
 
 ### cards/short-trailing-prose
 
-🤖 Check: `trailingProse`.
+🤖 Check: `cards/short-trailing-prose`.
 
 Prose after the last block stays under 40 words; a single sentence usually suffices.
 
@@ -315,7 +315,7 @@ Invalid input returns an error object.
 
 ### cards/size-limits
 
-🤖 Check: `cardSize`.
+🤖 Check: `cards/size-limits`.
 
 Keep a card under four tables and 50 lines; split it before adding another table.
 
@@ -433,7 +433,7 @@ Float.parse("34.1")      # → {34.1, ""}
 
 ### frontmatter/introduction
 
-🤖 Check: `intro`.
+🤖 Check: `frontmatter/introduction`.
 
 Set `intro` frontmatter; it renders as the first card. Keep paragraphs under 25 words and links to at most four first-party sources.
 
@@ -452,7 +452,7 @@ The card is generated; never write an `### Introduction` card by hand.
 
 ### tables/headers
 
-🤖 Check: table headers.
+🤖 Check: `tables/headers`.
 
 Table headers are hidden by default. Add `.-headers` after the table when the column labels carry meaning.
 
@@ -466,7 +466,7 @@ Table headers are hidden by default. Add `.-headers` after the table when the co
 
 ### tables/separating
 
-🤖 Check: table separating.
+🤖 Check: `tables/separating`.
 
 Separate tables of 8+ rows with H4 groups or `| --- |` rows.
 
@@ -571,7 +571,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 
 ### tables/options-after-code
 
-🤖 Check: `tableIntros`.
+🤖 Check: `tables/options-after-code`.
 
 Show the code example first, then label its reference table with an H4 such as `#### Options`.
 
@@ -592,25 +592,25 @@ wget --quiet --output-document=out.html https://example.com
 
 Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
 
-🤖 Check: `structure`.
+🤖 Check: `cards/two-h3-per-h2`.
 
 ### prose/paragraphs-last
 
 No paragraph may be followed by a code block or table in a card. Fold the note into the block or split the card.
 
-🤖 Check: `paragraphPlacement`.
+🤖 Check: `prose/paragraphs-last`.
 
 ### code/one-example-per-block
 
 A code block holds one example. Start a new fence instead of stacking commented examples.
 
-🤖 Check: `multiExampleBlocks`.
+🤖 Check: `code/one-example-per-block`.
 
 ### frontmatter/h3-links
 
 End each H3 with a documentation link or a `See:` line on tiered sheets.
 
-🤖 Check: `seeLinks`.
+🤖 Check: `frontmatter/h3-links`.
 
 ## Checks
 
@@ -628,6 +628,6 @@ UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 
 Then run `pnpm fmt:format`; oxfmt collapses short baseline arrays to one line.
 
-Automated checks are marked with 🤖 on their rules in [Rules](#rules). `baseline/seeLinks.json` and `baseline/shortcutTables.json` stay empty; `baseline/cardSize.json` holds tolerated cards; `dataLine` has no baseline.
+Automated checks are marked with 🤖 on their rules in [Rules](#rules).
 
 

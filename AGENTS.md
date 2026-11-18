@@ -27,4 +27,4 @@ Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-
 
 Verify example outputs against the runtime: run the snippet, capture its real output, and paste it verbatim; watch for NBSP and other invisible characters.
 
-Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`, which includes `shortcutTables`, `cardSize`, and `dataLine`.
+Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`; check names follow their rule slugs.

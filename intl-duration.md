@@ -64,7 +64,6 @@ format('short')   // → '1 hr, 30 min'
 format('narrow')  // → '1h 30m'
 format('digital') // → '1:30:00'
 ```
-<!-- {: data-line="6-9"} -->
 
 `'short'` is the default. `'digital'` renders `h:mm:ss`, so seconds always
 appear; date units stay in prose, so `{ days: 2, hours: 3 }` becomes
@@ -84,7 +83,6 @@ format('en-US') // → '1 hour, 30 minutes'
 format('de-DE') // → '1 Stunde, 30 Minuten'
 format('ja-JP') // → '1 時間 30 分'
 ```
-<!-- {: data-line="6-8"} -->
 
 Word order, plural forms, and separators come from the locale. Output varies
 between ICU versions and engines, so never compare it to hardcoded strings.
@@ -105,7 +103,6 @@ const df = new Intl.DurationFormat('en', {
 df.format(duration)
 // → '1 hour, 46:40'
 ```
-<!-- {: data-line="8"} -->
 
 #### Option values
 
@@ -136,7 +133,6 @@ const df = new Intl.DurationFormat('en-US', {
 df.format({ minutes: 45 })
 // → '0 hours, 45 min'
 ```
-<!-- {: data-line="7"} -->
 
 Zero-valued units are hidden by default. `'always'` keeps one on screen, which
 stops columns and timers from jumping as values change.
@@ -157,7 +153,6 @@ format()  // → '0:00:12.345'
 format(2) // → '0:00:12.34'
 format(5) // → '0:00:12.34500'
 ```
-<!-- {: data-line="8-10"} -->
 
 Digits are truncated toward zero, not rounded, and short values are padded
 with trailing zeros. Omit `fractionalDigits` to show as many digits as the
@@ -179,7 +174,6 @@ parts.map(p => `${p.type}: ${p.value}`)
 //    'literal: , ', 'integer: 30', 'literal: ',
 //    'unit: minutes']
 ```
-<!-- {: data-line="5-8"} -->
 
 Numbers arrive as `integer` (or `decimal` and `fraction`), separators as
 `literal`, and unit names as `unit`, so each piece can be styled on its own.
@@ -198,7 +192,6 @@ const { locale, style, hours } = df.resolvedOptions()
 // style: 'narrow'
 // hours: 'narrow'
 ```
-<!-- {: data-line="6-8"} -->
 
 `resolvedOptions()` reports the locale and every unit style after defaults
 are applied, including the `…Display` values.
@@ -257,7 +250,6 @@ new Intl.NumberFormat('en-US', {
 }).format(2)
 // → '2 hours'
 ```
-<!-- {: data-line="6"} -->
 
 Use `Intl.DurationFormat` for elapsed lengths, `Intl.RelativeTimeFormat` for
 points in time, and a `unit` `Intl.NumberFormat` for one standalone quantity.

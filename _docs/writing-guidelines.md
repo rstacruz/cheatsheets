@@ -143,6 +143,7 @@ shows the shape.
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious. See `prose/omit-redundant`.
+- Omit explanations the example already shows: a TOML card with `# comment`, a trailing `# comment`, and `"# not a comment"` needs no note explaining `#` comments
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
@@ -180,32 +181,8 @@ shows the shape.
 - When showing reference information, use tables for quick scanning. See `tables/reference-information`.
 - Use inline comments to explain results, equivalents, or provide context. See `code/inline-comments`.
 
-## H4 sub-headings
-
-Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options").
-
-Example:
-
-````markdown
-### Parsing
-
-#### As local time
-
-```js
-const date = new Date(2012, 11, 20, 3, 0, 0)
-```
-
-#### As UTC time
-
-```js
-const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
-```
-````
-
-- Keep labels short (1-4 words)
-- Prefer 2-4 segments per H3
-
-- Multi-file examples use each filename as its H4, one code block per file. See `code/filename-markers`.
+- Use H4s to split an H3 into labelled segments. See `cards/h4-subheadings`.
+- Multi-file examples use filename H4s. See `code/filename-markers`.
 
 ## Deprecated sheets
 
@@ -554,6 +531,26 @@ intro: |
 ````md
 intro: |
   React is a JavaScript library for building web user interfaces.
+````
+
+### cards/h4-subheadings
+
+Use H4s to split an H3 into labelled segments: concept variants, topics, or reference groups. Keep labels short and use 2–4 segments.
+
+````markdown
+### Parsing
+
+#### As local time
+
+```js
+const date = new Date(2012, 11, 20, 3, 0, 0)
+```
+
+#### As UTC time
+
+```js
+const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+```
 ````
 
 ## Checks

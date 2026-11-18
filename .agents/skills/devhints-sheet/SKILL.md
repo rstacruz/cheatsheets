@@ -30,3 +30,7 @@ Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelin
 - [frontmatter/seo-descriptions](../../../_docs/writing-guidelines.md#frontmatterseo-descriptions)
 - [cards/h4-subheadings](../../../_docs/writing-guidelines.md#cardsh4-subheadings)
 - [tables/options-after-code](../../../_docs/writing-guidelines.md#tablesoptions-after-code)
+- [cards/two-h3-per-h2](../../../_docs/writing-guidelines.md#cardstwo-h3-per-h2)
+- [prose/paragraphs-last](../../../_docs/writing-guidelines.md#proseparagraphs-last)
+- [code/one-example-per-block](../../../_docs/writing-guidelines.md#codeone-example-per-block)
+- [frontmatter/h3-links](../../../_docs/writing-guidelines.md#frontmatterh3-links)

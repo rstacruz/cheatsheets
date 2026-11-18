@@ -23,7 +23,7 @@
 
 ## Sheet authoring
 
-Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), and @_docs/archiving.md for when to archive a sheet.
+Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), and @_docs/archiving.md for when to archive a sheet. Reviewers and skills refer to rules by stable slugs such as `tables/shortcut-keys`.
 
 Verify example outputs against the runtime: run the snippet, capture its real output, and paste it verbatim; watch for NBSP and other invisible characters.
 

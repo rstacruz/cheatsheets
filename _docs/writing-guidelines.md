@@ -127,7 +127,7 @@ shows the shape.
 - Maximum line width is 70 characters
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); every referenced line must fall inside that fenced block; skip when nothing is worth highlighting
+- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); see `code/data-line-in-block`
 - Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
 - A table that follows a code block needs an H4 in between, or it reads as part of the block
 - One example per code block: start a new fence instead of stacking commented examples
@@ -175,102 +175,10 @@ shows the shape.
   <!-- see: none: browser-only, no upstream docs -->
   ```
 
-- Prefer to write explanations *after* a pre/table. Example:
-
-  ````markdown
-  ### Setting default props
-
-  ```jsx
-  Hello.defaultProps = {
-    color: 'blue'
-  }
-  ```
-
-  Default properties are used if no properties are given.
-
-  See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
-  ````
-
-- When an example has multiple files, use H4 as filename markers. Example:
-
-  ````markdown
-  ### via Data Attributes
-
-  #### index.html.erb
-
-  ```html
-  <a
-    href="#"
-    data-reflex="click->CounterReflex#increment"
-    data-step="1"
-    data-count="<%= @count.to_i %>"
-    >Increment <%= @count.to_i %></a
-  >
-  ```
-
-  #### counter_reflex.rb
-
-  ```ruby
-  class CounterReflex < StimulusReflex::Reflex
-    def increment
-      @count = element.dataset[:count].to_i + element.dataset[:step].to_i
-    end
-  end
-  ```
-
-  Trigger reflexes without writing any javascript with the `data-reflex` attribute.
-
-  ````
-
-- When showing reference information, use tables for quick scanning. Example:
-
-  ````markdown
-  ### Primitives
-
-  | Sample                  | Type            |
-  | ---                     | ---             |
-  | `nil`                   | Nil/null        |
-  | `true` _/_ `false`      | Boolean         |
-  | ---                     | ---             |
-  | `23`                    | Integer         |
-  | `3.14`                  | Float           |
-  | ---                     | ---             |
-  | `"hello"`               | Binary string   |
-  | `:hello`                | Atom            |
-
-  These are the basic data types in Elixir.
-  ````
-
-- Use inline comments to explain results, equivalents, or provide context. Example:
-
-  ````markdown
-  ### Pattern matching
-
-  ```elixir
-  user = %{name: "Tom", age: 23}
-  %{name: username} = user  # → username = "Tom"
-  ```
-
-  ### Piping
-
-  ```elixir
-  source
-  |> transform(:hello)     # Step 1: transform the data
-  |> print()               # Step 2: output the result
-  ```
-
-  ```elixir
-  # Same as:
-  print(transform(source, :hello))
-  ```
-
-  ### Type conversions
-
-  ```elixir
-  Integer.parse("34")      # → {34, ""}
-  Float.parse("34.1")      # → {34.1, ""}
-  ```
-  ````
+- Prefer to write explanations after a pre/table. See `prose/explanations-after-blocks`.
+- When an example has multiple files, use H4 as filename markers. See `code/filename-markers`.
+- When showing reference information, use tables for quick scanning. See `tables/reference-information`.
+- Use inline comments to explain results, equivalents, or provide context. See `code/inline-comments`.
 
 ## H4 sub-headings
 
@@ -297,9 +205,7 @@ const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 - Keep labels short (1-4 words)
 - Prefer 2-4 segments per H3
 
-### Filename markers
-
-When an example spans multiple files, use each filename as its H4, one code block per file (see the example under H3 writing guidelines).
+- Multi-file examples use each filename as its H4, one code block per file. See `code/filename-markers`.
 
 ## Deprecated sheets
 
@@ -361,40 +267,6 @@ rows that read on their own.
 <!-- {: .-headers} -->
 ```
 
-## Tables: CLI options and shortcuts
-
-CLI flags get a plain table. Reserve `.-shortcuts` for keyboard/keypress columns: Ctrl-, ctrl+, ⌘, Alt+, Shift+, `^x`, `C-x`, `SPC`. It is not for CLI flags (`--flag`, `-f`) or slash commands (`/cmd`).
-
-### CLI options
-
-````md
-| Flag                   | Description                      |
-| ---------------------- | -------------------------------- |
-| `-p, --print`          | Print the response and exit      |
-| `--output-format json` | `text`, `json`, or `stream-json` |
-| `--json-schema schema` | Constrain output to a schema     |
-| `--max-turns 3`        | Limit agentic turns              |
-| `--max-budget-usd 5`   | Stop the run at a spend cap      |
-| `--bare`               | Skip hooks, plugins, and memory  |
-````
-
-### Keyboard shortcuts
-
-````md
-| Shortcut        | Description                                |
-| --------------- | ------------------------------------------ |
-| `Ctrl+C`        | Interrupt, clear input, or exit            |
-| `Ctrl+D`        | Exit Claude Code                           |
-| `Esc`           | Interrupt Claude, or close dialogs         |
-| `Esc` `Esc`     | Clear the draft, or rewind                 |
-| `Ctrl+B`        | Background running tasks                   |
-| `Ctrl+X Ctrl+K` | Stop all background subagents; press twice |
-
-<!-- {: .-shortcuts} -->
-````
-
-Use `.-shortcuts-right` when the key column is last.
-
 ## Tables: separating
 
 Separating tables is preferred when a table grows to 8 or more rows.
@@ -436,6 +308,199 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | ---     | ---                              |
 | `LLLL`  | Thursday, August 2 1985 08:30 PM |
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
+````
+
+## Rules
+
+Each rule has a stable slug that reviews and the sheet skill link to.
+
+### tables/cli-options
+
+CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress columns only.
+
+````md
+| Flag                   | Description                      |
+| ---------------------- | -------------------------------- |
+| `-p, --print`          | Print the response and exit      |
+| `--output-format json` | `text`, `json`, or `stream-json` |
+| `--bare`               | Skip hooks, plugins, and memory  |
+````
+
+### tables/shortcut-keys
+
+Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column is last.
+
+````md
+| Shortcut | Description   |
+| -------- | ------------- |
+| `Ctrl+C` | Interrupt     |
+| `Esc`    | Close dialogs |
+
+<!-- {: .-shortcuts} -->
+````
+
+### code/wrap-long-lines
+
+Code lines stay under 70 characters. Add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
+
+````js
+const fraction = (options) => (
+  options.numerator / options.denominator
+)
+````
+
+### code/data-line-in-block
+
+Every `data-line` reference must fall inside its fenced block; don't point past the last line.
+
+````md
+```elixir
+a
+b
+```
+<!-- {: data-line="2"} -->
+````
+
+### code/split-setup-and-use
+
+Build the value in one pre block and call it in another, each with its own H4 label.
+
+````md
+#### Formatter
+
+```js
+const format = (value) => value.trim()
+```
+
+#### Output
+
+```js
+format(' hi ') // 'hi'
+```
+````
+
+### cards/split-all-options
+
+Split an oversized "All options" card into focused cards like `Style options` and `Digit options`.
+
+### cards/short-trailing-prose
+
+Prose after the last block stays under 40 words; a single sentence usually suffices.
+
+### cards/size-limits
+
+Keep a card under four tables and 50 lines; split it before adding another table.
+
+### workflow/verify-output-against-runtime
+
+Run the example, capture its real output, and paste it verbatim. Watch for NBSP and other invisible characters.
+
+### prose/single-line
+
+Keep each paragraph on one line; don't hard-wrap prose across lines.
+
+### prose/explanations-after-blocks
+
+Prefer explanations after a pre or table, not before it.
+
+````markdown
+### Setting default props
+
+```jsx
+Hello.defaultProps = {
+  color: 'blue'
+}
+```
+
+Default properties are used if no properties are given.
+
+See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+````
+
+### code/filename-markers
+
+When an example spans multiple files, use each filename as its H4, one code block per file.
+
+````markdown
+### via Data Attributes
+
+#### index.html.erb
+
+```html
+<a
+  href="#"
+  data-reflex="click->CounterReflex#increment"
+  data-step="1"
+  data-count="<%= @count.to_i %>"
+  >Increment <%= @count.to_i %></a
+>
+```
+
+#### counter_reflex.rb
+
+```ruby
+class CounterReflex < StimulusReflex::Reflex
+  def increment
+    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+  end
+end
+```
+
+Trigger reflexes without writing any javascript with the `data-reflex` attribute.
+````
+
+### tables/reference-information
+
+Use tables for quick scanning when showing reference information.
+
+````markdown
+### Primitives
+
+| Sample                  | Type            |
+| ---                     | ---             |
+| `nil`                   | Nil/null        |
+| `true` _/_ `false`      | Boolean         |
+| ---                     | ---             |
+| `23`                    | Integer         |
+| `3.14`                  | Float           |
+| ---                     | ---             |
+| `"hello"`               | Binary string   |
+| `:hello`                | Atom            |
+
+These are the basic data types in Elixir.
+````
+
+### code/inline-comments
+
+Use inline comments to explain results, equivalents, or provide context.
+
+````markdown
+### Pattern matching
+
+```elixir
+user = %{name: "Tom", age: 23}
+%{name: username} = user  # → username = "Tom"
+```
+
+### Piping
+
+```elixir
+source
+|> transform(:hello)     # Step 1: transform the data
+|> print()               # Step 2: output the result
+```
+
+```elixir
+# Same as:
+print(transform(source, :hello))
+```
+
+### Type conversions
+
+```elixir
+Integer.parse("34")      # → {34, ""}
+Float.parse("34.1")      # → {34.1, ""}
+```
 ````
 
 ## Checks

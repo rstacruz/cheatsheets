@@ -140,7 +140,7 @@ function findShortcutTableClasses(source: string): Finding[] {
   return found
 }
 
-describe('findShortcutTableClasses()', () => {
+describe('tables/shortcut-keys: findShortcutTableClasses()', () => {
   const table = (keys: string[], comment = '') =>
     [
       '| Key | Description |',
@@ -247,7 +247,7 @@ describe('findShortcutTableClasses()', () => {
   })
 })
 
-test('every key table carries the matching shortcuts class', async () => {
+test('tables/shortcut-keys: every key table carries the matching class', async () => {
   const findings = await collectSheetFindings(findShortcutTableClasses)
   if (updatingBaseline) return saveBaseline('shortcutTables.json', findings)
 

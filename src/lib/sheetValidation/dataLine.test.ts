@@ -84,7 +84,7 @@ function findInvalidDataLines(source: string): Finding[] {
   return found
 }
 
-describe('findInvalidDataLines()', () => {
+describe('code/data-line-in-block: findInvalidDataLines()', () => {
   const fenced = (code: string[], spec?: string) =>
     [
       '```js',
@@ -141,7 +141,7 @@ describe('findInvalidDataLines()', () => {
   })
 })
 
-test('every data-line reference stays inside its code block', async () => {
+test('code/data-line-in-block: every reference stays inside its code block', async () => {
   const findings: string[] = []
 
   for (const { slug, source } of await sheetSources()) {

@@ -1,22 +1,25 @@
 ---
 name: devhints-sheet
-description: Guides editing devhints.io cheatsheet *.md files and reviewing sheet PRs, covering formatting checks, table shortcuts, and output verification. Use when editing *.md sheets or reviewing sheet PRs.
+description: Index of stable sheet-authoring rules for devhints.io. Use when editing *.md sheets or reviewing sheet PRs.
 ---
 
 # Devhints sheet authoring
 
-Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md) and [_docs/markdown-dialect.md](../../../_docs/markdown-dialect.md). This checklist covers the fixes that come up in review.
+Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md#rules).
 
-## Review checklist
+## Rules
 
-- [ ] `data-line` values point to lines inside the fenced block; no off-by-one.
-- [ ] Code lines stay short; add `.-wrap` when they still overflow.
-- [ ] Break long `const f = (x) => ...` lines into `=> (` … `)` blocks.
-- [ ] Split setup from use into separate pre blocks, each with an H4 label.
-- [ ] Split oversized `All options` cards, and trim trailing prose.
-
-## Output verification
-
-1. Run the example against the real runtime.
-2. Capture its actual output.
-3. Paste that output verbatim into the sheet, watching for NBSP and other invisible characters.
+- [tables/cli-options](../../../_docs/writing-guidelines.md#tablescli-options)
+- [tables/shortcut-keys](../../../_docs/writing-guidelines.md#tablesshortcut-keys)
+- [code/wrap-long-lines](../../../_docs/writing-guidelines.md#codewrap-long-lines)
+- [code/data-line-in-block](../../../_docs/writing-guidelines.md#codedata-line-in-block)
+- [code/split-setup-and-use](../../../_docs/writing-guidelines.md#codesplit-setup-and-use)
+- [cards/split-all-options](../../../_docs/writing-guidelines.md#cardssplit-all-options)
+- [cards/short-trailing-prose](../../../_docs/writing-guidelines.md#cardsshort-trailing-prose)
+- [cards/size-limits](../../../_docs/writing-guidelines.md#cardssize-limits)
+- [workflow/verify-output-against-runtime](../../../_docs/writing-guidelines.md#workflowverify-output-against-runtime)
+- [prose/single-line](../../../_docs/writing-guidelines.md#prosesingle-line)
+- [prose/explanations-after-blocks](../../../_docs/writing-guidelines.md#proseexplanations-after-blocks)
+- [code/filename-markers](../../../_docs/writing-guidelines.md#codefilename-markers)
+- [tables/reference-information](../../../_docs/writing-guidelines.md#tablesreference-information)
+- [code/inline-comments](../../../_docs/writing-guidelines.md#codeinline-comments)

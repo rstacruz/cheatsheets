@@ -55,11 +55,10 @@ key = "value"  # trailing comment
 another = "# not a comment"
 ```
 
-`#` starts a comment unless it appears inside a string.
-
 See: [Comment](https://toml.io/en/v1.1.0#comment)
 
 ## Keys
+<!-- {: .-three-column} -->
 
 ### Bare keys
 
@@ -99,23 +98,25 @@ Dots build nested tables. Finish one prefix before starting another.
 See: [Keys](https://toml.io/en/v1.1.0#keys)
 
 ## Strings
+<!-- {: .-three-column} -->
 
 ### Basic strings
 
 ```toml
-str = "I'm a string. \"You can quote me\". Name\tJos\u00E9"
+quote = "She said \"hi\""
+tabbed = "Name\tJos\u00E9"
 esc = "\e"
 cafe = "caf\xE9"
 ```
 
-Basic strings use `"` with escapes. `\e` and `\xHH` are 1.1.0 additions.
+The `\e` and `\xHH` escapes are 1.1.0 additions.
 
 See: [String](https://toml.io/en/v1.1.0#string)
 
 ### Literal strings
 
 ```toml
-winpath = 'C:\Users\nodejs\templates'
+winpath = 'C:\Users\node'
 regex = '<\i\c*\s*>'
 ```
 
@@ -138,18 +139,17 @@ See: [String](https://toml.io/en/v1.1.0#string)
 ### Multi-line literal strings
 
 ```toml
-regex2 = '''I [dw]on't need \d{2} apples'''
+regex2 = '''\d{2} apples'''
 lines = '''
 The first newline is
 trimmed in literal strings.
 '''
 ```
 
-Triple single quotes keep text as written, including backslashes.
-
 See: [String](https://toml.io/en/v1.1.0#string)
 
 ## Numbers and booleans
+<!-- {: .-three-column} -->
 
 ### Integers
 
@@ -189,11 +189,10 @@ bool1 = true
 bool2 = false
 ```
 
-Booleans are lowercase.
-
 See: [Boolean](https://toml.io/en/v1.1.0#boolean)
 
 ## Dates and times
+<!-- {: .-three-column} -->
 
 ### Offset date-time
 
@@ -227,36 +226,31 @@ lt1 = 07:32:00
 lt2 = 00:32:00.5
 ```
 
-Use a date or time alone when the other part is not needed.
-
 See: [Local date](https://toml.io/en/v1.1.0#local-date),
 [Local time](https://toml.io/en/v1.1.0#local-time)
 
 ## Arrays
+<!-- {: .-three-column} -->
 
 ### Arrays
 
 ```toml
 integers = [ 1, 2, 3 ]
-colors = [ "red", "yellow", "green" ]
+colors = [ "red", "blue" ]
 nested = [ [ 1, 2 ], [3, 4, 5] ]
 ```
-
-Arrays are ordered, comma-separated, and can nest.
 
 See: [Array](https://toml.io/en/v1.1.0#array)
 
 ### Mixed types
 
 ```toml
-numbers = [ 0.1, 0.2, 0.5, 1, 2, 5 ]
+numbers = [ 0.1, 1, 2, 5 ]
 contributors = [
   "Foo Bar <foo@example.com>",
-  { name = "Baz Qux", email = "baz@example.com" }
+  {name="Baz",email="baz@x.io"}
 ]
 ```
-
-Values of different types, including inline tables, may share an array.
 
 See: [Array](https://toml.io/en/v1.1.0#array)
 
@@ -269,11 +263,10 @@ integers = [
 ]
 ```
 
-Newlines, comments, and trailing commas are allowed in arrays.
-
 See: [Array](https://toml.io/en/v1.1.0#array)
 
 ## Tables
+<!-- {: .-three-column} -->
 
 ### Standard tables
 

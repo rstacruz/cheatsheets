@@ -143,6 +143,7 @@ shows the shape.
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
 - Omit explanations if they are obvious
+- Omit explanations the example already shows: a TOML card with `# comment`, a trailing `# comment`, and `"# not a comment"` needs no note explaining `#` comments
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them

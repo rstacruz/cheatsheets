@@ -24,7 +24,7 @@ const SHORTCUT_PATTERNS = [
   /prefix\+/i,
   /\bSPC\b/,
   /^\^x/i,
-  /^[CSM]-[a-z]/i,
+  /^[CSM]-\S/i,
   NAMED_KEY,
   /[←→↑↓]/
 ]
@@ -165,15 +165,21 @@ describe('findShortcutTableClasses()', () => {
     ).toEqual([{ line: 1, text }])
   })
 
-  it.each(['`⌘A`', '`⇧⌘B`', '`ctrl+c`', '`F12`', '`Tab`', '<C-R>', '<Tab>'])(
-    'flags an unstyled shortcut row %s',
-    (key) => {
-      const input = table([key, '`⌘D`'])
-      expect(findShortcutTableClasses(input)).toEqual([
-        { line: 1, text: 'add .-shortcuts to shortcut table' }
-      ])
-    }
-  )
+  it.each([
+    '`⌘A`',
+    '`⇧⌘B`',
+    '`ctrl+c`',
+    '`F12`',
+    '`Tab`',
+    '<C-R>',
+    '<C-[>',
+    '<Tab>'
+  ])('flags an unstyled shortcut row %s', (key) => {
+    const input = table([key, '`⌘D`'])
+    expect(findShortcutTableClasses(input)).toEqual([
+      { line: 1, text: 'add .-shortcuts to shortcut table' }
+    ])
+  })
 
   it.each(['', '<!-- {: .-shortcuts} -->'])(
     'allows a mixed vim table with one /pattern row (%s)',

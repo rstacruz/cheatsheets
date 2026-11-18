@@ -30,8 +30,6 @@ keywords:
   - pm2 startup
 intro: |
   [PM2](https://pm2.keymetrics.io) is a production process manager for Node.js.
-  This reference covers starting apps, clustering, logs, restarts, startup,
-  deployment, and daemon commands.
 links:
   - title: PM2 command reference
     url: https://pm2.keymetrics.io/docs/usage/commands/
@@ -79,8 +77,7 @@ pm2 start app.js -i 4 --name api
 | `-i 0`        | Legacy equivalent of `-i max` |
 | `--wait-ready` | Wait for the app ready signal |
 
-Cluster mode balances traffic across workers. `-i 0` still works, but
-`-i max` states the intent plainly.
+Cluster mode balances traffic across workers.
 
 See: [Cluster mode](https://pm2.keymetrics.io/docs/usage/cluster-mode/)
 
@@ -215,7 +212,7 @@ pm2 logs api --err
 | `--err`     | Only error output         |
 | `--out`     | Only standard output      |
 
-Streaming uses PM2's raw format by default; `--json` emits structured lines.
+Streaming uses PM2's raw format by default.
 
 See: [Log management](https://pm2.keymetrics.io/docs/usage/log-management/)
 
@@ -227,7 +224,7 @@ See: [Log management](https://pm2.keymetrics.io/docs/usage/log-management/)
 | `pm2 reloadLogs` | Reopen logs after rotation    |
 | `pm2 logrotate`  | Generate a logrotate config   |
 
-Run `pm2 reloadLogs` after an external rotation so PM2 reopens the files.
+Run `pm2 reloadLogs` after an external rotation.
 
 See: [Log management](https://pm2.keymetrics.io/docs/usage/log-management/)
 
@@ -261,7 +258,7 @@ See: [Watch & restart](https://pm2.keymetrics.io/docs/usage/watch-and-restart/)
 | `--update-env`              | Apply new env vars on restart |
 | `--no-autorestart`          | Leave crashed processes down |
 
-PM2 restarts a process that exits by default; `--no-autorestart` disables it.
+PM2 restarts a process that exits by default.
 
 See: [Watch & restart](https://pm2.keymetrics.io/docs/usage/watch-and-restart/)
 

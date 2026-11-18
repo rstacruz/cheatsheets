@@ -1,18 +1,27 @@
 ---
-import { icons } from '@iconify-json/ion'
+import { icons as ion } from '@iconify-json/ion'
+import { icons as iconParkOutline } from '@iconify-json/icon-park-outline'
 import { getIconData, iconToSVG } from '@iconify/utils'
+
+export type IconSet = 'ion' | 'icon-park-outline'
 
 export type Props = {
   name: string
   size?: number
+  set?: IconSet
 }
 
-const { name, size = 16 } = Astro.props as Props
+const { name, size = 16, set = 'ion' } = Astro.props as Props
 
-// getIconData(), not icons.icons[name], merges the set's 512x512 default;
-// without it iconToSVG() frames 512-space paths in a 16x16 viewBox
-const icon = getIconData(icons, name)
-if (!icon) throw new Error(`Unknown icon in the "ion" set: ${name}`)
+const sets = {
+  ion,
+  'icon-park-outline': iconParkOutline
+}
+
+// getIconData(), not icons.icons[name], merges the set's default size;
+// without it iconToSVG() frames a 512-space path in a 16x16 viewBox
+const icon = getIconData(sets[set], name)
+if (!icon) throw new Error(`Unknown icon in the "${set}" set: ${name}`)
 
 const { body, attributes } = iconToSVG(icon, { width: size, height: size })
 ---

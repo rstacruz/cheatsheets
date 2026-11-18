@@ -54,7 +54,7 @@ pm2 start server.js -- --port 3000
 | Flag          | Effect                      |
 | ---           | ---                         |
 | `--name`      | Name the process            |
-| `--attach`    | Attach to the process stdio |
+| `--attach`    | Attach to logs after start  |
 | `--no-daemon` | Run in the foreground       |
 | `--no-vizion` | Skip git metadata parsing   |
 
@@ -94,8 +94,8 @@ pm2 start ecosystem.config.js --env production
 
 | Command                            | Effect                    |
 | ---                                | ---                       |
-| `pm2 init`                         | Generate an ecosystem file |
-| `pm2 ecosystem`                    | Alias for `pm2 init`      |
+| `pm2 ecosystem`                    | Generate an ecosystem file |
+| `pm2 init`                         | Alias for `pm2 ecosystem` |
 | `pm2 start ecosystem.config.js`    | Start every declared app  |
 | `--only api`                       | Start one named app       |
 | `--env production`                 | Use the named env block   |

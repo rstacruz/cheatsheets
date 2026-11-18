@@ -127,7 +127,7 @@ shows the shape.
 - Maximum line width is 70 characters
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
+- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); every referenced line must fall inside that fenced block; skip when nothing is worth highlighting
 - Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
 - A table that follows a code block needs an H4 in between, or it reads as part of the block
 - One example per code block: start a new fence instead of stacking commented examples
@@ -361,6 +361,42 @@ rows that read on their own.
 <!-- {: .-headers} -->
 ```
 
+## Tables: CLI options and shortcuts
+
+CLI flags get a plain table. Reserve `.-shortcuts` for keyboard/keypress
+columns: Ctrl-, ctrl+, ⌘, Alt+, Shift+, `^x`, `C-x`, `SPC`. It is not for
+CLI flags (`--flag`, `-f`) or slash commands (`/cmd`).
+
+### CLI options
+
+````md
+| Flag                   | Description                      |
+| ---------------------- | -------------------------------- |
+| `-p, --print`          | Print the response and exit      |
+| `--output-format json` | `text`, `json`, or `stream-json` |
+| `--json-schema schema` | Constrain output to a schema     |
+| `--max-turns 3`        | Limit agentic turns              |
+| `--max-budget-usd 5`   | Stop the run at a spend cap      |
+| `--bare`               | Skip hooks, plugins, and memory  |
+````
+
+### Keyboard shortcuts
+
+````md
+| Shortcut        | Description                                |
+| --------------- | ------------------------------------------ |
+| `Ctrl+C`        | Interrupt, clear input, or exit            |
+| `Ctrl+D`        | Exit Claude Code                           |
+| `Esc`           | Interrupt Claude, or close dialogs         |
+| `Esc` `Esc`     | Clear the draft, or rewind                 |
+| `Ctrl+B`        | Background running tasks                   |
+| `Ctrl+X Ctrl+K` | Stop all background subagents; press twice |
+
+<!-- {: .-shortcuts} -->
+````
+
+Use `.-shortcuts-right` when the key column is last.
+
 ## Tables: separating
 
 Separating tables is preferred when a table grows to 8 or more rows.
@@ -424,6 +460,13 @@ Then run `pnpm fmt:format`; oxfmt collapses short baseline arrays to one line.
 The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
 
 Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), no paragraph is followed by a block (`baseline/paragraphPlacement.json`), two code blocks need an H4 between them unless caption-led (`baseline/consecutiveBlocks.json`), and a code block holds one commented example (`baseline/multiExampleBlocks.json`).
+
+Three more checks cover tables, cards, and code blocks: `shortcutTables`
+flags shortcut styling on tables whose key column is not a keypress
+(`baseline/shortcutTables.json` must stay empty), `cardSize` reports
+oversized cards (`baseline/cardSize.json`), and `dataLine` flags `data-line`
+values outside their fenced block (`baseline/dataLine.json`). The `cardSize`
+and `dataLine` baselines are unused.
 
 ## SEO descriptions
 

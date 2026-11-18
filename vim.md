@@ -610,6 +610,8 @@ See: [Aligning text](https://vimhelp.org/change.txt.html#%3Acenter)
 | ---           | ---                                       |
 | `<C-R>=128/2` | Shows the result of the division : '64'   |
 
+<!-- {: .-shortcuts} -->
+
 Do this in insert mode.
 
 See: [Expression register](https://vimhelp.org/insert.txt.html#i_CTRL-R_%3D)

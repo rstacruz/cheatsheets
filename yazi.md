@@ -285,6 +285,8 @@ See: [search](https://yazi-rs.github.io/docs/configuration/keymap#mgr.search)
 | `<Tab>` | Toggle file details |
 | `<Esc>` | Close the spot |
 
+<!-- {: .-shortcuts} -->
+
 Spot shows the MIME type, size, and permissions — useful when writing `[open]`
 rules.
 

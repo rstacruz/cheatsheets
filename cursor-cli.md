@@ -147,8 +147,6 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | `--workspace <path>`      | Workspace directory to use        |
 | `-w, --worktree [name]`   | Run in a new Git worktree         |
 
-<!-- {: .-shortcuts} -->
-
 See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 
 ### Other flags
@@ -166,8 +164,6 @@ See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 | `--yolo`                | Alias for `--force`                   |
 | `-v, --version`         | Print the version                     |
 | `-h, --help`            | Show help for a command               |
-
-<!-- {: .-shortcuts} -->
 
 See: [Parameters](https://cursor.com/docs/cli/reference/parameters)
 
@@ -220,8 +216,6 @@ See: [Output format](https://cursor.com/docs/cli/reference/output-format)
 | `/rewind`        | Jump back to an earlier message |
 | `/summarize`     | Summarize to free up context    |
 
-<!-- {: .-shortcuts} -->
-
 `/new` also answers to `/clear`, `/new-chat`, and `/newchat`; `/summarize` to `/compress`.
 
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
@@ -243,8 +237,6 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | `/config`           | Edit CLI settings             |
 | `/vim`              | Toggle Vim keys               |
 
-<!-- {: .-shortcuts} -->
-
 `/auto-run` aliases `/run-everything`. `/goal` keeps the objective across idle runs.
 
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
@@ -261,8 +253,6 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | `/copy-conversation-id` | Copy the conversation ID         |
 | `/help [command]`       | Show help                        |
 
-<!-- {: .-shortcuts} -->
-
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 
 ### Interface
@@ -275,8 +265,6 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | `/status-indicators` | Toggle terminal title status |
 | `/open`              | Open the repo root in Cursor |
 
-<!-- {: .-shortcuts} -->
-
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 
 ### Account
@@ -287,8 +275,6 @@ See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 | `/feedback <message>` | Send feedback to the team         |
 | `/logout`             | Sign out                          |
 | `/quit`               | Exit (also `/exit`)               |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://cursor.com/docs/cli/reference/slash-commands)
 
@@ -390,8 +376,6 @@ See: [Configuration](https://cursor.com/docs/cli/reference/configuration#models)
 | `/composer` | Jump to Composer           |
 | `/fast`     | Toggle Fast when supported |
 | `/max-mode` | Toggle Max Mode            |
-
-<!-- {: .-shortcuts} -->
 
 Each family shortcut remembers your last pick. Turn them off under Model slash commands in `/config`.
 

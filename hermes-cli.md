@@ -97,8 +97,6 @@ See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli
 | `--worktree`              | Start in an isolated git worktree    |
 | `--safe-mode`             | Disable all customizations           |
 
-<!-- {: .-shortcuts} -->
-
 `--tui` opens the newer TUI; `--cli` forces the classic prompt_toolkit REPL.
 
 See: [`hermes chat`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-chat)
@@ -227,8 +225,6 @@ See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cl
 | `/branch [name]`    | Copy the session to a new branch         |
 | `/save <format>`    | Export as JSON, Markdown, or HTML        |
 
-<!-- {: .-shortcuts} -->
-
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
 
 ### Model, context, and status
@@ -240,8 +236,6 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/status`  | Show session details and a recap     |
 | `/usage`   | Show tokens, cost, and account limits |
 | `/config`  | Show the current configuration       |
-
-<!-- {: .-shortcuts} -->
 
 See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#interactive-cli-slash-commands)
 
@@ -257,8 +251,6 @@ See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/s
 | `/loop [interval] <prompt>`           | Re-run a prompt on a schedule        |
 | `/heartbeat every <interval> <prompt>` | Repeat a prompt while the session is idle |
 
-<!-- {: .-shortcuts} -->
-
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
 
 ### Tools and skills
@@ -270,8 +262,6 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/skills`      | Search, install, and manage skills     |
 | `/memory`      | Review pending memory writes           |
 | `/reload-mcp`  | Reload MCP servers and their tools     |
-
-<!-- {: .-shortcuts} -->
 
 See: [Tools and skills](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#tools--skills)
 

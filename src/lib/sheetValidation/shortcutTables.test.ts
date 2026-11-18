@@ -23,9 +23,8 @@ const SHORTCUT_PATTERNS = [
   /alt\+/i,
   /prefix\+/i,
   /\bSPC\b/,
-  /<C-/i,
   /^\^x/i,
-  /^[CM]-x\b/i,
+  /^[CSM]-[a-z]/i,
   NAMED_KEY,
   /[←→↑↓]/
 ]
@@ -34,8 +33,9 @@ const SHORTCUT_PATTERNS = [
 function keyText(cell: string) {
   return cell
     .replace(/`/g, '')
-    .replace(/<[^>]*>/g, '')
+    .replace(/<\/?(?:code|kbd)>/gi, '')
     .replace(/&[a-z#0-9]+;/gi, '')
+    .replace(/<([^>]+)>/g, '$1')
     .trim()
 }
 
@@ -165,7 +165,7 @@ describe('findShortcutTableClasses()', () => {
     ).toEqual([{ line: 1, text }])
   })
 
-  it.each(['`⌘A`', '`⇧⌘B`', '`ctrl+c`', '`F12`', '`Tab`'])(
+  it.each(['`⌘A`', '`⇧⌘B`', '`ctrl+c`', '`F12`', '`Tab`', '<C-R>', '<Tab>'])(
     'flags an unstyled shortcut row %s',
     (key) => {
       const input = table([key, '`⌘D`'])

@@ -137,7 +137,6 @@ shows the shape.
 ## Writing guidelines
 
 - Aim for brevity
-- Prose after the last code block or table in a card: 40 words max; split into another H3 if it needs more
 - Prose comes last in a card: no paragraph may be followed by a code block or table. Fold the note into the block, or split the card
 - Two code blocks in a card need an H4 between them, so each block has a label; a caption-led block is self-labelled, so it needs no H4
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences

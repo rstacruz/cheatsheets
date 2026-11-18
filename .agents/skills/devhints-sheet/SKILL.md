@@ -5,9 +5,7 @@ description: Guides editing devhints.io cheatsheet *.md files and reviewing shee
 
 # Devhints sheet authoring
 
-Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md)
-and [_docs/markdown-dialect.md](../../../_docs/markdown-dialect.md). This
-checklist covers the fixes that come up in review.
+Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md) and [_docs/markdown-dialect.md](../../../_docs/markdown-dialect.md). This checklist covers the fixes that come up in review.
 
 ## Review checklist
 
@@ -21,5 +19,4 @@ checklist covers the fixes that come up in review.
 
 1. Run the example against the real runtime.
 2. Capture its actual output.
-3. Paste that output verbatim into the sheet, watching for NBSP and other
-   invisible characters.
+3. Paste that output verbatim into the sheet, watching for NBSP and other invisible characters.

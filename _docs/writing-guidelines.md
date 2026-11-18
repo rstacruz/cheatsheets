@@ -363,9 +363,7 @@ rows that read on their own.
 
 ## Tables: CLI options and shortcuts
 
-CLI flags get a plain table. Reserve `.-shortcuts` for keyboard/keypress
-columns: Ctrl-, ctrl+, ⌘, Alt+, Shift+, `^x`, `C-x`, `SPC`. It is not for
-CLI flags (`--flag`, `-f`) or slash commands (`/cmd`).
+CLI flags get a plain table. Reserve `.-shortcuts` for keyboard/keypress columns: Ctrl-, ctrl+, ⌘, Alt+, Shift+, `^x`, `C-x`, `SPC`. It is not for CLI flags (`--flag`, `-f`) or slash commands (`/cmd`).
 
 ### CLI options
 
@@ -461,12 +459,7 @@ The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and
 
 Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), no paragraph is followed by a block (`baseline/paragraphPlacement.json`), two code blocks need an H4 between them unless caption-led (`baseline/consecutiveBlocks.json`), and a code block holds one commented example (`baseline/multiExampleBlocks.json`).
 
-Three more checks cover tables, cards, and code blocks: `shortcutTables`
-flags shortcut styling on tables whose key column is not a keypress
-(`baseline/shortcutTables.json` must stay empty), `cardSize` reports
-oversized cards (`baseline/cardSize.json` holds tolerated cards), and
-`dataLine` flags `data-line` values outside their fenced block. Only
-`cardSize` has a populated baseline; `dataLine` has none.
+Three more checks cover tables, cards, and code blocks: `shortcutTables` flags shortcut styling on tables whose key column is not a keypress (`baseline/shortcutTables.json` must stay empty), `cardSize` reports oversized cards (`baseline/cardSize.json` holds tolerated cards), and `dataLine` flags `data-line` values outside their fenced block. Only `cardSize` has a populated baseline; `dataLine` has none.
 
 ## SEO descriptions
 

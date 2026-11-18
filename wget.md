@@ -3,7 +3,7 @@ title: Wget
 subtitle: Non-interactive network downloader
 category: Networking
 updated: 2026-11-18
-tier: t2
+tier: t1
 fragments:
   - "wget URL"
   - "-O file"

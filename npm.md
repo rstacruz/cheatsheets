@@ -4,7 +4,7 @@ subtitle: Node.js package manager
 category: JavaScript
 weight: -1
 updated: 2026-11-11
-tier: t2
+tier: t1
 fragments:
   - "npm install"
   - "npm ci"

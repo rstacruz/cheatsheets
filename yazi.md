@@ -2,7 +2,7 @@
 title: Yazi
 subtitle: Terminal file manager
 category: CLI
-tier: t2
+tier: t1
 fragments:
   - "yazi"
   - "gg"

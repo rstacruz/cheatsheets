@@ -4,7 +4,7 @@ category: Others
 subtitle: Date format codes by tool
 weight: -5
 updated: 2026-11-18
-tier: t2
+tier: t1
 fragments:
   - "YYYY-MM-DD"
   - "%Y-%m-%d"

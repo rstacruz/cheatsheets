@@ -2,7 +2,7 @@
 title: Intl.RelativeTimeFormat
 subtitle: Locale-aware relative time
 category: Browser APIs
-tier: t2
+tier: t1
 updated: 2026-11-18
 fragments:
   - "Intl.Relative"

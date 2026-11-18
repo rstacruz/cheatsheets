@@ -2,7 +2,7 @@
 title: Readline
 subtitle: Line editing for CLI prompts
 category: Shell
-tier: t2
+tier: t1
 fragments:
   - "~/.inputrc"
   - "C-a"

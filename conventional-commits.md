@@ -2,7 +2,7 @@
 title: Conventional Commits
 subtitle: Structured messages that drive releases
 category: Git
-tier: t2
+tier: t1
 fragments:
   - "feat:"
   - "fix:"

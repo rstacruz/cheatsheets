@@ -3,7 +3,7 @@ title: Cursor CLI
 subtitle: Cursor terminal agent
 category: Agents
 updated: 2026-11-15
-tier: t2
+tier: t1
 fragments:
   - "agent"
   - "agent -p"

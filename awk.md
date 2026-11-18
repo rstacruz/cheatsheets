@@ -3,7 +3,7 @@ title: awk
 subtitle: Text processing language
 category: Shell
 updated: 2026-11-18
-tier: t2
+tier: t1
 fragments:
   - "awk '{print $1}'"
   - "-F:"

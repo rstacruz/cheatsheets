@@ -2,7 +2,7 @@
 title: Zsh
 subtitle: Interactive shell
 category: Shell
-tier: t2
+tier: t1
 updated: 2026-11-18
 fragments:
   - "setopt"

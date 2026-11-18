@@ -2,7 +2,7 @@
 title: Markdown
 subtitle: Plain-text markup format
 category: Markup
-tier: t2
+tier: t1
 fragments:
   - "# Heading"
   - "**bold**"

@@ -2,7 +2,7 @@
 title: Beancount
 subtitle: Plain-text double-entry accounting
 category: Plain-text accounting
-tier: t2
+tier: t1
 fragments:
   - "Assets:Cash"
   - "Liabilities:Card"

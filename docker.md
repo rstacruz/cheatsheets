@@ -2,7 +2,7 @@
 title: Docker CLI
 subtitle: Container engine CLI
 category: Devops
-tier: t2
+tier: t1
 fragments:
   - "docker pull"
   - "docker run -it"

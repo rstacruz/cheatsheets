@@ -3,7 +3,7 @@ title: mise
 subtitle: Dev tool version manager
 category: Package managers
 updated: 2026-11-11
-tier: t2
+tier: t1
 fragments:
   - "mise use"
   - "mise install"

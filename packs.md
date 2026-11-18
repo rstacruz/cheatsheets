@@ -46,7 +46,7 @@ $ bin/packs make_public \
   packs/profiles/app/services/create_profile_service.rb
 ```
 
-Make a file or directory public API, so classes outside the pack can use it. The file moves to `app/public/`. Allow external code to call `CreateProfileService`.
+Make a file or directory public API by moving it under `app/public/`, so classes outside the pack can call `CreateProfileService`.
 
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 

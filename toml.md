@@ -104,7 +104,7 @@ See: [Keys](https://toml.io/en/v1.1.0#keys)
 
 ```toml
 str = "I'm a string. \"You can quote me\". Name\tJos\u00E9"
-bell = "\e"
+esc = "\e"
 cafe = "caf\xE9"
 ```
 

@@ -249,8 +249,11 @@ describe('tables/shortcut-keys: findShortcutTableClasses()', () => {
 
 test('tables/shortcut-keys: every key table carries the matching class', async () => {
   const findings = await collectSheetFindings(findShortcutTableClasses)
-  if (updatingBaseline) return saveBaseline('shortcutTables.json', findings)
+  if (updatingBaseline)
+    return saveBaseline('tables-shortcut-keys.json', findings)
 
-  const allowed = new Set(loadBaseline<string[]>('shortcutTables.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('tables-shortcut-keys.json', [])
+  )
   expect(findings.filter((finding) => !allowed.has(finding))).toEqual([])
 })

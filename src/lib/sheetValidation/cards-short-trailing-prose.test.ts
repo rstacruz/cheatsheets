@@ -146,9 +146,12 @@ test('every card keeps trailing prose within the limit', async () => {
   const keys = [
     ...new Set(findings.map(({ slug, heading }) => `${slug}#${heading}`))
   ].sort()
-  if (updatingBaseline) return saveBaseline('trailingProse.json', keys)
+  if (updatingBaseline)
+    return saveBaseline('cards-short-trailing-prose.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('trailingProse.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('cards-short-trailing-prose.json', [])
+  )
   const unexpected: string[] = []
   for (const { slug, line, words, heading } of findings) {
     if (allowed.has(`${slug}#${heading}`)) continue

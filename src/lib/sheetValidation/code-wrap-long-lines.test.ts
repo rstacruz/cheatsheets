@@ -207,9 +207,12 @@ test('every sheet keeps code lines within the width limit', async () => {
     for (const finding of wide) findings.push({ slug, ...finding })
   }
 
-  if (updatingBaseline) return saveBaseline('lineWidths.json', counts)
+  if (updatingBaseline) return saveBaseline('code-wrap-long-lines.json', counts)
 
-  const allowed = loadBaseline<Record<string, number>>('lineWidths.json', {})
+  const allowed = loadBaseline<Record<string, number>>(
+    'code-wrap-long-lines.json',
+    {}
+  )
   expect(
     Object.entries(counts)
       .filter(([slug, count]) => count > (allowed[slug] ?? 0))

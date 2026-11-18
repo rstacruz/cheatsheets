@@ -125,9 +125,11 @@ test('every card keeps prose after its blocks', async () => {
   const keys = [
     ...new Set(findings.map(({ slug, heading }) => `${slug}#${heading}`))
   ].sort()
-  if (updatingBaseline) return saveBaseline('paragraphPlacement.json', keys)
+  if (updatingBaseline) return saveBaseline('prose-paragraphs-last.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('paragraphPlacement.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('prose-paragraphs-last.json', [])
+  )
   const unexpected: string[] = []
   for (const { slug, line, heading } of findings) {
     if (allowed.has(`${slug}#${heading}`)) continue

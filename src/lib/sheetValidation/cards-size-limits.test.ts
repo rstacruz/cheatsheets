@@ -182,9 +182,10 @@ test('cards/size-limits: every card stays within the size limit', async () => {
   }
 
   const keys = cardKeys(findings)
-  if (updatingBaseline) return saveBaseline('cardSize.json', [...keys].sort())
+  if (updatingBaseline)
+    return saveBaseline('cards-size-limits.json', [...keys].sort())
 
-  const allowed = new Set(loadBaseline<string[]>('cardSize.json', []))
+  const allowed = new Set(loadBaseline<string[]>('cards-size-limits.json', []))
   const unexpected = findings.flatMap(({ slug, line, text }, index) =>
     allowed.has(keys[index]) ? [] : [`${slug}:${line}: ${text}`]
   )

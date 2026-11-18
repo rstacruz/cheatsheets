@@ -33,7 +33,7 @@
     "@tailwindcss/vite": "^4.3.4",
     "@types/mapbox__rehype-prism": "^0.8.3",
     "@types/mdast": "^4.0.4",
-    "astro": "^7.4.5",
+    "astro": "^7.4.7",
     "autocompleter": "^9.1.0",
     "clsx": "^2.1.1",
     "concurrently": "^10.0.6",

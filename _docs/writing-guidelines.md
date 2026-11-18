@@ -464,9 +464,9 @@ Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/st
 Three more checks cover tables, cards, and code blocks: `shortcutTables`
 flags shortcut styling on tables whose key column is not a keypress
 (`baseline/shortcutTables.json` must stay empty), `cardSize` reports
-oversized cards (`baseline/cardSize.json`), and `dataLine` flags `data-line`
-values outside their fenced block (`baseline/dataLine.json`). The `cardSize`
-and `dataLine` baselines are unused.
+oversized cards (`baseline/cardSize.json` holds tolerated cards), and
+`dataLine` flags `data-line` values outside their fenced block. Only
+`cardSize` has a populated baseline; `dataLine` has none.
 
 ## SEO descriptions
 

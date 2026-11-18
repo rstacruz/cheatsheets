@@ -128,8 +128,7 @@ shows the shape.
 - In `.-three-column` sections, maximum is 42 characters
 - Wrap onto more lines rather than exceed the limit
 - Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); see `code/data-line-in-block`
-- Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
-- A table that follows a code block needs an H4 in between, or it reads as part of the block
+- Show the example before its labelled reference table. See `tables/options-after-code`.
 - One example per code block: start a new fence instead of stacking commented examples
 - Split setup from use: build the formatter or value in one block, then call it in a second block, each with its own H4 (eg `#### Formatter`, `#### Output`). A long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards
 - Prefer `=> (` … `)` line breaks over one long arrow line, and add `.-wrap` when the remaining lines still overflow
@@ -550,6 +549,23 @@ const date = new Date(2012, 11, 20, 3, 0, 0)
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 ```
+````
+
+### tables/options-after-code
+
+Show the code example first, then label its reference table with an H4 such as `#### Options`.
+
+````md
+```sh
+wget --quiet --output-document=out.html https://example.com
+```
+
+#### Options
+
+| Flag                    | Description     |
+| ----------------------- | --------------- |
+| `--quiet`               | Suppress output |
+| `-O, --output-document` | Write to a file |
 ````
 
 ## Checks

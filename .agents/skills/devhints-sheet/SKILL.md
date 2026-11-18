@@ -29,3 +29,4 @@ Full rules live in [_docs/writing-guidelines.md](../../../_docs/writing-guidelin
 - [prose/omit-redundant](../../../_docs/writing-guidelines.md#proseomit-redundant)
 - [frontmatter/seo-descriptions](../../../_docs/writing-guidelines.md#frontmatterseo-descriptions)
 - [cards/h4-subheadings](../../../_docs/writing-guidelines.md#cardsh4-subheadings)
+- [tables/options-after-code](../../../_docs/writing-guidelines.md#tablesoptions-after-code)

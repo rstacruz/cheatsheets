@@ -130,6 +130,25 @@ describe('findLargeCards()', () => {
   })
 })
 
+/** Baseline keys keep same-titled cards distinct across a sheet */
+function cardKeys(findings: Array<{ slug: string } & Finding>) {
+  const seen = new Map<string, number>()
+  return findings.map(({ slug, heading }) => {
+    const base = `${slug}#${heading}`
+    const nth = (seen.get(base) ?? 0) + 1
+    seen.set(base, nth)
+    return `${base}#${nth}`
+  })
+}
+
+test('cardKeys disambiguates same-titled cards', () => {
+  const findings = [
+    { slug: 'sheet', line: 1, heading: 'Methods', text: 'card has 4 tables' },
+    { slug: 'sheet', line: 10, heading: 'Methods', text: 'card has 50 lines' }
+  ]
+  expect(cardKeys(findings)).toEqual(['sheet#Methods#1', 'sheet#Methods#2'])
+})
+
 test('every card stays within the size limit', async () => {
   const findings: Array<{ slug: string } & Finding> = []
 
@@ -140,16 +159,12 @@ test('every card stays within the size limit', async () => {
     }
   }
 
-  const keys = [
-    ...new Set(findings.map(({ slug, heading }) => `${slug}#${heading}`))
-  ].sort()
-  if (updatingBaseline) return saveBaseline('cardSize.json', keys)
+  const keys = cardKeys(findings)
+  if (updatingBaseline) return saveBaseline('cardSize.json', [...keys].sort())
 
   const allowed = new Set(loadBaseline<string[]>('cardSize.json', []))
-  const unexpected: string[] = []
-  for (const { slug, line, text, heading } of findings) {
-    if (allowed.has(`${slug}#${heading}`)) continue
-    unexpected.push(`${slug}:${line}: ${text}`)
-  }
+  const unexpected = findings.flatMap(({ slug, line, text }, index) =>
+    allowed.has(keys[index]) ? [] : [`${slug}:${line}: ${text}`]
+  )
   expect(unexpected).toEqual([])
 })

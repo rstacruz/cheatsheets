@@ -21,7 +21,7 @@ overrides:
   'prismjs@<1.30.0': 1.30.0
   'source-map-js@>=1.0.0 <1.2.2': 1.2.2
 
-# See ADR 002 for why this advisory is ignored
+# no fix upstream; build/test globs only
 audit:
   ignore:
     - GHSA-fc5q-39xc-vjpf

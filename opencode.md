@@ -91,7 +91,6 @@ See: [CLI](https://opencode.ai/docs/cli)
 | `opencode session list`        | List saved sessions         |
 | `opencode session export <id>` | Export a session as JSON    |
 
-<!-- {: .-shortcuts} -->
 
 See: [run](https://opencode.ai/docs/cli/commands#run)
 
@@ -104,7 +103,6 @@ See: [run](https://opencode.ai/docs/cli/commands#run)
 | `opencode mcp add <name>`    | Add an MCP server          |
 | `opencode plugin list`       | List installed plugins     |
 
-<!-- {: .-shortcuts} -->
 
 See: [auth](https://opencode.ai/docs/cli/commands#auth)
 
@@ -115,7 +113,6 @@ See: [auth](https://opencode.ai/docs/cli/commands#auth)
 | `opencode service set <k> <v>` | Change shared server settings |
 | `opencode debug paths`         | Print state and config paths  |
 
-<!-- {: .-shortcuts} -->
 
 See: [CLI](https://opencode.ai/docs/cli#background-service)
 
@@ -134,7 +131,6 @@ See: [CLI](https://opencode.ai/docs/cli#background-service)
 | `--archived`               | Keep the session out of lists        |
 | `--standalone`             | Run on a private server              |
 
-<!-- {: .-shortcuts} -->
 
 See: [run](https://opencode.ai/docs/cli/commands#run)
 
@@ -168,7 +164,6 @@ See: [Background service](https://opencode.ai/docs/cli#background-service)
 | `/editor`         | Edit the prompt in `$EDITOR`         |
 | `/highlights`     | Replay the release notes             |
 
-<!-- {: .-shortcuts} -->
 
 `/btw` answers from the session's context without adding it to the transcript. `Esc` interrupts a run.
 
@@ -183,7 +178,6 @@ See: [TUI](https://opencode.ai/docs/cli/tui)
 | `/agents`  | Choose the session agent            |
 | `/mcps`    | Inspect servers and sign in         |
 
-<!-- {: .-shortcuts} -->
 
 See: [MCP servers](https://opencode.ai/docs/mcp-servers)
 

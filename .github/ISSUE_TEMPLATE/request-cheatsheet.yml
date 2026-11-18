@@ -1,0 +1,12 @@
+name: Request a cheatsheet
+description: Request a new cheatsheet for an app or tool.
+title: 'Cheatsheet request'
+body:
+  - type: input
+    id: app-name
+    attributes:
+      label: App name
+      description: Name of the app or tool you'd like a cheatsheet for.
+      placeholder: e.g. jq, ripgrep, docker
+    validations:
+      required: true

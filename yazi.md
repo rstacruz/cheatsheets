@@ -30,7 +30,7 @@ intro: |
   three TOML files.
 links:
   - title: Yazi documentation
-    url: https://yazi-rs.github.io/docs/
+    url: https://yazi-rs.github.io/docs/quick-start/
   - title: GitHub repository
     url: https://github.com/sxyazi/yazi
   - title: Default keymap

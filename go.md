@@ -554,7 +554,7 @@ import _ "embed"  // side effects
 <!-- {: data-line="1"} -->
 
 ```go
-r.Intn()
+r.Intn(10)
 ```
 
 A `_` alias imports a package only for its side effects.

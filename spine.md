@@ -35,56 +35,92 @@ User = Spine.Model.sub()
 
 ### Class methods
 
+#### Configuration
+
 ```
 .configure 'modelname', attributes...
+```
 
-# Inheritance
+#### Inheritance
+
+```
 .include(Module)
 .extend(Module)
+```
 
+#### Creating and counting
+
+```
 .create(name: "John")
 
 .count()
+```
 
-# Events
+#### Events
+
+```
 .on 'refresh change', (user) -> ...
 .trigger 'event'
 
 .change (user) -> ...  # same as on('change')
 .fetch (user) -> ...   # same as on('fetch')
+```
 
-# JSON
+#### JSON
+
+```
 .toJSON()         # all records
 .fromJSON(json)   # from json string
 .fromForm(el)
+```
 
-# Data
+#### Data
+
+```
 .records     # Hash of instances
 .attributes  # array of attributes (from .configure)
+```
 
-# Convenience
+#### Convenience
+
+```
 .toString()  #=> "User"
+```
 
-# Find by ID
+#### Find by ID
+
+```
 .exists(1)
 .find(1)     # throws error
+```
 
-# Find by something
+#### Find by attribute
+
+```
 .select (u) u.name == 'bob'
 .findByAttribute 'name', 'bob'
 .findAllByAttribute 'name', 'bob'
 
 .all()
 .slice(6, 13)  # cloned copies of instances
+```
 
-# Iterating
+#### Iterating
+
+```
 .each (user) ->
+```
 
-# Ends
+#### Ends
+
+```
 .first()
 .last()
+```
 
-# Deleting
+#### Deleting
+
+```
 .deleteAll()
 .destroyAll()
 .destroyAll({ ..options.. })
@@ -93,35 +129,60 @@ User = Spine.Model.sub()
 
 ### Instance methods
 
+#### Creating
+
 ```
 user = new User();
+```
 
+#### State
+
+```
 user
 .isNew()
 .exists()
+```
 
-# Validation
+#### Validation
+
+```
 .isValid()
 .validate()    # validate = (-> "Name required" unless @name)
+```
 
+#### Attributes
+
+```
 .attributes()  # hash of attr values
 .eql(other)    # equality check
+```
 
-# Update
+#### Update
+
+```
 .load(attrs)
 .reload()
 .fromForm(form)
 .updateAttribute("name", "john")
 .updateAttributes(name: "John")
+```
 
-# Event
+#### Events
+
+```
 .on 'event', -> ...
 .trigger 'event'
+```
 
-# Retrieve
+#### Retrieving
+
+```
 .toJSON()
+```
 
-# Persistence
+#### Persistence
+
+```
 .save()
 
 .destroy()

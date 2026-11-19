@@ -170,8 +170,8 @@ const parts = new Intl.DurationFormat('en-US', {
 }).formatToParts({ hours: 1, minutes: 30 })
 
 parts.map(p => `${p.type}: ${p.value}`)
-// → ['integer: 1', 'literal: ', 'unit: hour',
-//    'literal: , ', 'integer: 30', 'literal: ',
+// → ['integer: 1', 'literal:  ', 'unit: hour',
+//    'literal: , ', 'integer: 30', 'literal:  ',
 //    'unit: minutes']
 ```
 

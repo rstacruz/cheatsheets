@@ -42,29 +42,51 @@ max_line_length = 80
 
 ### Full example
 
+#### Root
+
 ```ini
 # top-most EditorConfig file
 root = true
+```
 
+#### All files
+
+```ini
 # Unix-style newlines with a newline ending every file
 [*]
 end_of_line = lf
 insert_final_newline = true
+```
 
+#### Python files
+
+```ini
 # 4 space indentation
 [*.py]
 indent_style = space
 indent_size = 4
+```
 
+#### JavaScript files
+
+```ini
 # Tab indentation (no size specified)
 [*.js]
 indent_style = tab
+```
 
+#### Library JavaScript
+
+```ini
 # Indentation override for all JS under lib directory
 [lib/**.js]
 indent_style = space
 indent_size = 2
+```
 
+#### Config files
+
+```ini
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
 indent_style = space

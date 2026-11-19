@@ -165,23 +165,49 @@ projects_url    # http://site.com/projects
 
 ### Default help text
 
+#### Priority
+
 ```
 # The priority is based upon order of creation:
 # first created -> highest priority.
+```
 
+#### Regular route
+
+```
 # Sample of regular route:
 match 'products/:id' => 'catalog#view'
+```
 
+#### Dynamic segments
+
+```
 # Keep in mind you can assign values other than :controller and :action
+```
 
+#### Named route
+
+```
 # Sample of named route:
 match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+```
 
+#### Invoking named routes
+
+```
 # This route can be invoked with purchase_url(:id => product.id)
+```
 
+#### Resource route
+
+```
 # Sample resource route (maps HTTP verbs to controller actions automatically):
 resources :products
+```
 
+#### Resource options
+
+```
 # Sample resource route with options:
 resources :products do
   member do
@@ -193,13 +219,21 @@ resources :products do
     get 'sold'
   end
 end
+```
 
+#### Sub-resources
+
+```
 # Sample resource route with sub-resources:
 resources :products do
   resources :comments, :sales
   resource :seller
 end
+```
 
+#### Nested sub-resources
+
+```
 # Sample resource route with more complex sub-resources
 resources :products do
   resources :comments
@@ -207,20 +241,36 @@ resources :products do
     get 'recent', :on => :collection
   end
 end
+```
 
+#### Namespace
+
+```
 # Sample resource route within a namespace:
 namespace :admin do
   # Directs /admin/products/* to Admin::ProductsController
   # (app/controllers/admin/products_controller.rb)
   resources :products
 end
+```
 
+#### Root route
+
+```
 # You can have the root of your site routed with "root"
 # just remember to delete public/index.html.
 root :to => 'welcome#index'
+```
 
+#### Inspecting routes
+
+```
 # See how all your routes lay out with "rake routes"
+```
 
+#### Legacy wildcard route
+
+```
 # This is a legacy wild controller route that's not recommended for RESTful applications.
 # Note: This route will make all actions in every controller accessible via GET requests.
 match ':controller(/:action(/:id(.:format)))'

@@ -371,13 +371,7 @@ See: [Agents](https://opencode.ai/docs/agents)
 
 <!-- {: data-line="4"} -->
 
-Rules evaluate in order and the last match wins, so exceptions follow the broad rule. Anything unmatched asks.
-
-Every agent starts with everything allowed except `.env` and `.env.*` reads, which ask; `.env.example` stays allowed.
-
-Common actions are `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, and `external_directory`; MCP tools get their own.
-
-V2 retired v1's `permission`, `bash`, and `task` names.
+Last match wins and unmatched actions ask; defaults allow everything except `.env` reads (`.env.example` stays allowed); actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools; v1's `permission`, `bash`, `task` names are retired.
 
 See: [Permissions](https://opencode.ai/docs/permissions)
 
@@ -389,7 +383,7 @@ AGENTS.md                     # project, committed
 packages/web/AGENTS.md        # loads when that area is read
 ```
 
-Files combine from the global one down to the workspace; nested files load as the agent explores. V2 reads `AGENTS.md` only, not `CLAUDE.md`.
+Files combine from the global one down to the workspace; nested files load as the agent explores. Where a directory has no `AGENTS.md`, V2 falls back to `CLAUDE.md` (and `~/.claude/CLAUDE.md` globally).
 
 See: [Instructions](https://opencode.ai/docs/instructions)
 

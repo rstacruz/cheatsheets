@@ -34,6 +34,13 @@ export function getPagesByCategory(pages: Record<string, SheetPage>) {
 }
 
 /**
+ * Counts listed sheets, excluding hidden, deprecated, and archived ones.
+ */
+export function getListedSheetCount(pages: Record<string, SheetPage>): number {
+  return Object.values(pages).filter(isListed).length
+}
+
+/**
  * Returns categories and their corresponding pages.
  */
 

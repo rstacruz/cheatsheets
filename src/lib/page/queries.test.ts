@@ -1,6 +1,7 @@
 import { mapGlobToPages } from '../page'
 import {
   getArchivedPages,
+  getListedSheetCount,
   getPagesByCategory,
   getRelatedPages,
   getTopPages
@@ -113,4 +114,9 @@ test('archive pages skip listed sheets and test fixtures', () => {
 
   expect(slugs).not.toContain('react')
   expect(slugs).not.toContain('tests/basic')
+})
+
+test('listed count excludes hidden, deprecated, and archived sheets', () => {
+  expect(getListedSheetCount(pages)).toBe(2)
+  expect(getListedSheetCount(archivePages)).toBe(1)
 })

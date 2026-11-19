@@ -1,7 +1,14 @@
 ---
 title: Social media images
-category: Others
+category: Hidden
 subtitle: Social media image sizes
+# 2013-era Facebook and Twitter dimensions; current og:image is 1200x630.
+tags: [Archived]
+archived: |
+  This table records 2013-era Facebook and Twitter layouts. Current sharing
+  cards use 1200x630 (1.91:1) images, so the listed sizes render undersized or
+  cropped. Use [html-meta](./html-meta) for tags and each platform's current
+  sharing docs for dimensions.
 ---
 
 ### Facebook

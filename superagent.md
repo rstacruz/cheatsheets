@@ -1,10 +1,14 @@
 ---
 title: Superagent
 subtitle: HTTP client for Node
-category: Node.js
+category: Hidden
+# Unfinished since 2018: res.error is an Error object, not a boolean, and noContent's 1223 status is obsolete.
 updated: 2018-04-21
-tags:
-  - WIP
+tags: [Archived]
+archived: |
+  This unfinished response-object reference misstates `res.error` (an `Error`
+  object, not a boolean) and keeps the removed IE9 `1223` status. Use the
+  [Superagent repository](https://github.com/forwardemail/superagent) instead.
 ---
 
 ### Response object

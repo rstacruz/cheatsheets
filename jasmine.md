@@ -1,8 +1,15 @@
 ---
 title: Jasmine
 subtitle: BDD test framework
-category: JavaScript testing
+category: Hidden
+# Documents the removed Jasmine 1.x spy API and HTML reporter (Jasmine 2.0, 2015).
 weight: -1
+tags: [Archived]
+archived: |
+  This documents the Jasmine 1.x API: `andReturn`, `andCallFake`, the `.calls`
+  accessors, and `jasmine.HtmlReporter` were removed in Jasmine 2.0 (2015), so
+  these examples fail on current Jasmine. See the
+  [Jasmine docs](https://jasmine.github.io/) or the [Jest cheatsheet](./jest).
 ---
 
 ## Tests

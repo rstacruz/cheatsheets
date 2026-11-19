@@ -476,7 +476,7 @@ max(dict)
 min(dict)
 ```
 
-#### Count and map
+#### Count and stringify
 
 ```vim
 count(dict, 'x')

@@ -76,11 +76,11 @@ links:
 
 ### Rails console
 
-Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
-
 ```
 $ pry -r ./config/environment
 ```
+
+Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
 
 ### Rails
 
@@ -111,21 +111,20 @@ $ pry -r ./config/environment
 
 ### Shell integration
 
-shell-mode adds dir to the prompt.
-
 ```
 pry(main)> shell-mode
 pry(main):/home/x $
 ```
 
-Commands with `.` are shell commands.
-
 ```
 pry(main)> .cat hello.txt
 ```
 
+shell-mode adds dir to the prompt.
+
+Commands with `.` are shell commands.
+
 ### hirb
-Add the [hirb](https://rubygems.org/gems/hirb) gem.
 
 ```
 > table User.all
@@ -133,8 +132,9 @@ Add the [hirb](https://rubygems.org/gems/hirb) gem.
 > view User.all, fields: %w[id name email]
 ```
 
+Add the [hirb](https://rubygems.org/gems/hirb) gem.
+
 ### pry-rescue
-Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
 
 ```rb
 Pry::rescue {
@@ -142,21 +142,22 @@ Pry::rescue {
 }
 ```
 
-Or run:
-
 ```
 bundle exec rescue rspec
 ```
-
-Additional commands:
 
 ```
 pry(main)> cd-cause
 pry(main)> try-again
 ```
 
+Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
+
+Or run:
+
+Additional commands:
+
 ### pry-remote
-Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
 
 ```rb
 # In your code:
@@ -167,6 +168,8 @@ binding.remote_pry
 # In the shell:
 bundle exec pry-remote
 ```
+
+Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
 
 ## Reference
 

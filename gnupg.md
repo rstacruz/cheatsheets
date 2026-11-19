@@ -21,11 +21,11 @@ Basics
 gpg -o key.gpg --export <KEY ID>
 ```
 
-__Export key in ASCII:__
-
 ```bash
 gpg -o key.asc --armor --export <KEY ID>
 ```
+
+__Export key in ASCII:__
 
 __Note:__ Omitting the `-o|--output` option will print the key to `stdout`.
 
@@ -36,72 +36,66 @@ gpg --import key.gpg
 gpg --import key.asc
 ```
 
-Only merge updates for keys already in key-ring:
-
 ```bash
 gpg --import key.asc --import-options merge-only
 ```
 
+Only merge updates for keys already in key-ring:
+
 ### Managing your keyring
 
-Generate a new key:
-
-<!-- {: .-setup} -->
-
 ```bash
+# Generate a new key
 gpg --gen-key
 # or, generate a new key with dialogs for all options
 gpg --full-gen-key
 ```
-
-List public keys:
 
 ```bash
 gpg -k
 gpg --list-keys
 ```
 
-List secret keys:
-
 ```bash
 gpg -K
 gpg --list-secret-keys
 ```
 
+List public keys:
+
+List secret keys:
+
 
 ### Using a keyserver
 
-Import keys from keyserver:
-
-<!-- {: .-setup} -->
-
 ```bash
+# Import keys from keyserver
 gpg --receive-keys <KEY IDS>
 ```
-
-Upload keys to keyserver:
 
 ```bash
 gpg --send-keys <KEY IDS>
 ```
 
-Request updates from keyserver for keys already in your keyring:
-
 ```bash
 gpg --refresh-keys
 ```
-
-Search keys from keyserver:
 
 ```bash
 gpg --search-keys "<SEARCH STRING>"
 ```
 
-Override keyserver from `~/.gnupg/gpg.conf`
-
 ```bash
 gpg --keyserver <URL> ...
 ```
+
+Upload keys to keyserver:
+
+Request updates from keyserver for keys already in your keyring:
+
+Search keys from keyserver:
+
+Override keyserver from `~/.gnupg/gpg.conf`
 
 ### Trusting a key
 
@@ -121,13 +115,10 @@ Encrypting
 <!-- {: .-two-column} -->
 
 ### Public key encryption
-This will produce an encrypted file, `secret.txt.gpg`, that can only be decrypted by the recipient:
-
 ```bash
+# Produces secret.txt.gpg, decryptable only by the recipient
 gpg -e -o secret.txt.gpg -r <RECIPIENT> secret.txt
 ```
-
-For `<RECIPIENT>` you can use their key ID, their email, or their name (or part thereof).
 
 ```bash
 gpg -e -r <KEY ID> ...
@@ -135,23 +126,25 @@ gpg -e -r "Bez" ...
 gpg -e -r "bezalelhermoso@gmail.com" ...
 ```
 
-Specifying multiple recipients
-
 ```bash
 gpg -e -r <RECIPIENT> -r <ANOTHER RECIPIENT> ... secret.txt
 ```
 
+For `<RECIPIENT>` you can use their key ID, their email, or their name (or part thereof).
+
+Specifying multiple recipients
+
 __NOTE__: Omitting `-o|--output` will produce an encrypted file named `<ORIGINAL FILENAME>.gpg` by default.
 
 ### Symmetric encryption
-
-Encrypt file using a shared key. You will be prompted for a passphrase.
 
 ```bash
 gpg --symmetric secret.txt
 # or
 gpg -c secret.txt
 ```
+
+Encrypt file using a shared key. You will be prompted for a passphrase.
 
 Decrypting
 ---------
@@ -179,12 +172,12 @@ Signing & Verifying
 gpg -o signed-file.txt.gpg -s file.txt
 ```
 
-This can be used during encryption to also sign encrypted files:
-
 ```bash
 gpg -s -o secret.txt.gpg \
   -r <RECIPIENT> secret.txt
 ```
+
+This can be used during encryption to also sign encrypted files:
 
 ### Verifying a signature
 
@@ -205,34 +198,30 @@ Miscellaneous
 
 ### Components
 
-List all components:
-
-<!-- {: .-setup} -->
-
 ```bash
+# List all components
 gpgconf --list-components
 ```
-
-Kill a component:
 
 ```bash
 gpgconf --kill <COMPONENT> # i.e. gpgconf --kill dirmngr
 ```
 
-Kill all components:
 ```bash
 gpgconf --kill all
 ```
 
-### Parsing keyring data
+Kill a component:
 
-Use `--with-colons` to produce an output that can easily be parsed i.e. with `awk`, `grep`. Fields are colon-separated.
+Kill all components:
+
+### Parsing keyring data
 
 ```bash
 gpg -k --with-colons
 ```
 
-Field Quick Reference:
+#### Field quick reference
 
 | Field # | Description |
 | --- | --- |
@@ -259,6 +248,8 @@ Field Quick Reference:
 | 18      | Compliance flags |
 | 19      | Last update timestamp |
 | 20      | Origin |
+
+Use `--with-colons` to produce an output that can easily be parsed i.e. with `awk`, `grep`. Fields are colon-separated.
 
 See [GnuPG Details](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS) for more details.
 

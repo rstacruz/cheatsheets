@@ -151,7 +151,8 @@ $('#myform input').parsley()
 ```js
 // Supported & excluded inputs by default
   inputs: 'input, textarea, select'
-  excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden]'
+  excluded: 'input[type=button], input[type=submit], ' +
+    'input[type=reset], input[type=hidden]'
 ```
 
 ```js

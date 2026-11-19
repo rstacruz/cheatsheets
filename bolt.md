@@ -16,8 +16,9 @@ description: |
 ### Install Bolt
 
 ```bash
-# On MacOS
-brew cask install puppetlabs/puppet/puppet-bolt
+# On macOS
+brew tap puppetlabs/puppet
+brew install --cask puppet-bolt
 # On Windows
 choco install puppet-bolt
 ```
@@ -36,7 +37,9 @@ Tasks can be written in any language your targets can run. See [writing tasks](h
 ### Run Bolt
 
 ```bash
-bolt task run mymodule::myscript -n node1.example.com,node2.example.com --private-key ~/.ssh/id_rsa-private
+bolt task run mymodule::myscript \
+  -t node1.example.com,node2.example.com \
+  --private-key ~/.ssh/id_rsa-private
 ```
 
 See `bolt task run --help` for more information and command line options.

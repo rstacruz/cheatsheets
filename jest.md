@@ -5,7 +5,7 @@ category: JavaScript testing
 updated: 2020-06-17
 weight: -3
 intro: |
-  A quick overview to [Jest](https://facebook.github.io/jest/), a test framework for Node.js. This guide targets Jest v20.
+  A quick overview to [Jest](https://jestjs.io/), a test framework for Node.js.
 links:
   - title: Jest documentation
     url: https://jestjs.io/docs/getting-started
@@ -38,7 +38,7 @@ npm install --save-dev jest babel-jest
 npm test -- --watch
 ```
 
-See: [Getting started](https://facebook.github.io/jest/docs/en/getting-started.html)
+See: [Getting started](https://jestjs.io/docs/getting-started)
 
 ### Writing tests
 
@@ -50,7 +50,7 @@ describe('My work', () => {
 })
 ```
 
-See: [describe()](https://facebook.github.io/jest/docs/en/api.html#describename-fn), [test()](https://facebook.github.io/jest/docs/en/api.html#testname-fn), [expect()](https://facebook.github.io/jest/docs/en/expect.html#content)
+See: [describe()](https://jestjs.io/docs/api#describename-fn), [test()](https://jestjs.io/docs/api#testname-fn-timeout), [expect()](https://jestjs.io/docs/expect#expectvalue)
 
 ### BDD syntax
 
@@ -63,7 +63,7 @@ describe('My work', () => {
 ```
 
 `it` is an alias for `test`.
-See: [test()](https://facebook.github.io/jest/docs/en/api.html#testname-fn)
+See: [test()](https://jestjs.io/docs/api#testname-fn-timeout)
 
 ### Setup
 
@@ -77,7 +77,7 @@ beforeAll(() => { ... })
 afterAll(() => { ... })
 ```
 
-See: [afterAll() and more](https://facebook.github.io/jest/docs/en/api.html#afterallfn)
+See: [afterAll() and more](https://jestjs.io/docs/api#afterallfn-timeout)
 
 ### Focusing tests
 
@@ -86,7 +86,7 @@ describe.only(···)
 it.only(···) // alias: fit()
 ```
 
-See: [test.only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn)
+See: [test.only](https://jestjs.io/docs/api#testonlyname-fn)
 
 
 ### Skipping tests
@@ -96,7 +96,7 @@ describe.skip(···)
 it.skip(···) // alias: xit()
 ```
 
-See: [test.skip](https://facebook.github.io/jest/docs/en/api.html#testskipname-fn)
+See: [test.skip](https://jestjs.io/docs/api#testskipname-fn)
 
 
 ### Optional flags
@@ -123,7 +123,7 @@ expect(value)
 ```
 
 Note that `toEqual` is a deep equality check.
-See: [expect()](https://facebook.github.io/jest/docs/en/expect.html#expectvalue)
+See: [expect()](https://jestjs.io/docs/expect#expectvalue)
 
 ### Snapshots
 
@@ -134,7 +134,7 @@ expect(value)
 ```
 
 Note that `toMatchInlineSnapshot()` requires Prettier to be set up for the project.
-See: [Inline snapshots](https://jestjs.io/docs/en/snapshot-testing#inline-snapshots)
+See: [Inline snapshots](https://jestjs.io/docs/snapshot-testing#inline-snapshots)
 
 ### Errors
 
@@ -226,7 +226,7 @@ test('works with async/await', async () => {
 <!-- {: data-line="2"} -->
 
 Return promises, or use async/await.
-See: [Async tutorial](https://facebook.github.io/jest/docs/en/tutorial-async.html)
+See: [Async tutorial](https://jestjs.io/docs/tutorial-async)
 
 ### Snapshots
 
@@ -240,7 +240,7 @@ it('works', () => {
 <!-- {: data-line="3"} -->
 
 First run creates a snapshot. Subsequent runs match the saved snapshot.
-See: [Snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
+See: [Snapshot testing](https://jestjs.io/docs/snapshot-testing)
 
 ### React test renderer
 
@@ -263,7 +263,7 @@ it('works', () => {
 <!-- {: data-line="2,3,4"} -->
 
 React's test renderer can be used for Jest snapshots.
-See: [Snapshot test](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test)
+See: [Snapshot test](https://jestjs.io/docs/tutorial-react-native#snapshot-test)
 
 ### Timers
 
@@ -274,12 +274,12 @@ jest.useFakeTimers()
 ```js
 it('works', () => {
   jest.runOnlyPendingTimers()
-  jest.runTimersToTime(1000)
+  jest.advanceTimersByTime(1000)
   jest.runAllTimers()
 })
 ```
 
-See: [Timer Mocks](https://facebook.github.io/jest/docs/en/timer-mocks.html)
+See: [Timer Mocks](https://jestjs.io/docs/timer-mocks)
 
 ## Mock functions
 
@@ -293,7 +293,7 @@ const fn = jest.fn()
 const fn = jest.fn(n => n * n)
 ```
 
-See: [Mock functions](https://facebook.github.io/jest/docs/en/mock-functions.html#using-a-mock-function)
+See: [Mock functions](https://jestjs.io/docs/mock-function-api#jestfnimplementation)
 
 ### Assertions
 
@@ -331,7 +331,7 @@ Fn.mock.instances
 
 <!-- {: data-line="1"} -->
 
-See: [.mock property](https://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
+See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockinstances)
 
 ### Calls
 
@@ -349,7 +349,7 @@ fn.mock.calls[1][0]    // → 456
 
 <!-- {: data-line="1,2,3"} -->
 
-See: [.mock property](https://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
+See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockcalls)
 
 ### Return values
 
@@ -383,6 +383,6 @@ fn()    // → 2
 
 <!-- {: .-one-column} -->
 
-- <https://facebook.github.io/jest/>
+- <https://jestjs.io/>
 
 <!-- {: .-also-see} -->

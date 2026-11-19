@@ -12,7 +12,7 @@ fragments:
   - "401 Unauthorized"
   - "403 Forbidden"
   - "404 Not Found"
-  - "418 (Unused)"
+  - "418 I'm a teapot"
   - "500 Error"
   - "302 Found"
   - "307 Redirect"
@@ -96,7 +96,7 @@ links:
 | `416` | Range Not Satisfiable           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/416) |
 | `417` | Expectation Failed              | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/417) |
 | ---   | ---                             | ---                                                                         |
-| `418` | (Unused)                        | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/418) |
+| `418` | I'm a teapot                    | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/418) |
 | `421` | Misdirected Request             | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/421) |
 | `422` | Unprocessable Content           | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/422) |
 | `425` | Too Early                       | [?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/425) |

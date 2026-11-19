@@ -4,7 +4,7 @@ subtitle: Travis CI YAML configuration
 category: Devops
 prism_languages: [yaml]
 intro: |
-  Quick reference for [Travis CI](https://travis-ci.org) yaml configuration. See [official documentation](https://docs.travis-ci.com/user/customizing-the-build/).
+  Quick reference for [Travis CI](https://travis-ci.com/) yaml configuration. See [official documentation](https://docs.travis-ci.com/user/customizing-the-build/).
 links:
   - title: Travis CI documentation
     url: https://docs.travis-ci.com/
@@ -113,6 +113,6 @@ gemfile:
 
 ### References
 
-- <https://about.travis-ci.org/docs/user/build-configuration/>
-- <https://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/>
-- <https://about.travis-ci.org/docs/user/languages/ruby/>
+- <https://docs.travis-ci.com/user/customizing-the-build/>
+- <https://docs.travis-ci.com/user/languages/javascript-with-nodejs/>
+- <https://docs.travis-ci.com/user/languages/ruby/>

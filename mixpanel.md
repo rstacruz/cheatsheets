@@ -25,4 +25,4 @@ mixpanel.track('Search', { query: 'cheese' })
 
 ### References
 
-* <https://mixpanel.com/help/reference/javascript>
+* <https://docs.mixpanel.com/docs/tracking-methods/sdks/javascript>

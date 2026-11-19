@@ -30,7 +30,7 @@ $.ajax.calledOnce == true
 ```
 
 ```js
-sinon.stub($, 'ajax', function () { ... }) // function optional
+sinon.stub($, 'ajax').callsFake(function () { ... })
 ```
 
 ```js

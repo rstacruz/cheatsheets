@@ -15,7 +15,7 @@ category: Package managers
 | ---                        | ---                         |
 | `brew unlink git`          | Unlink                      |
 | `brew link git`            | Link                        |
-| `brew switch git 2.5.0`    | Change versions             |
+| `brew pin git`             | Pin the current version     |
 | ---                        | ---                         |
 | `brew list --versions git` | See what versions you have  |
 

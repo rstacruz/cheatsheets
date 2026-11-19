@@ -20,11 +20,7 @@ All composer commands, depending on your install, may need to use `php composer.
 | ---                                    | ---                                                          |
 | `composer install --dry-run`           | Simulates the install without installing anything            |
 
-This command doesn't change any file. If `composer.lock` is not present, it will create it.
-
-`composer.lock` **should always** be committed to the repository. It has all the information needed to bring the
-local dependencies to the last committed state. If that file is modified on the repository, you will need to run
-`composer install` again after fetching the changes to update your local dependencies to those on that file.
+A dry run changes nothing; otherwise `install` creates `composer.lock`, which belongs in the repository so a rerun after fetching changes restores exact dependencies.
 
 ### Updating packages
 

@@ -7,6 +7,8 @@ prism_languages: [yaml]
 
 ### Dictionaries and lists
 
+#### Comments and dictionaries
+
 ```yaml
 # comments start with "#"
 # dictionary are written like "key: value"
@@ -15,14 +17,22 @@ languages:
   perl: Elite
   python: Elite
   pascal: Lame
+```
 
+#### Lists
+
+```yaml
 # list items beginn with a "- "
 foods:
   - Apple
   - Orange
   - Strawberry
   - Mango
+```
 
+#### Booleans
+
+```yaml
 # booleans are lower case
 employed: true
 ```

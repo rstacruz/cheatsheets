@@ -42,6 +42,8 @@ links:
 | `ctrl+a k`      | Kill current screen tab                                                                  |
 | `ctrl+a Esc`    | Enter scrollback mode (PgUp/PgDn or arrows to scroll)                                   |
 
+<!-- {: .-shortcuts} -->
+
 ### Visual pleasure
 
 | Keybind                         | Description                  |
@@ -52,6 +54,8 @@ links:
 | `ctrl+a Q`                      | Remove all screen splits     |
 | `ctrl+a C`                      | Clear the current screen tab |
 
+<!-- {: .-shortcuts} -->
+
 ### Accessibility
 
 | Keybind         | Description                                         |
@@ -61,3 +65,5 @@ links:
 | `ctrl+a ctrl+a` | Switch to last used screen tab                      |
 | `ctrl+a a`      | Send `ctrl+a` to current screen tab                 |
 | `ctrl+a ctrl+w` | See a list of all screen tabs in the current screen |
+
+<!-- {: .-shortcuts} -->

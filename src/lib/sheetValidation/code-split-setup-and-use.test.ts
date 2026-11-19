@@ -118,9 +118,12 @@ test('every card separates its code blocks', async () => {
   const keys = [
     ...new Set(findings.map(({ slug, heading }) => `${slug}#${heading}`))
   ].sort()
-  if (updatingBaseline) return saveBaseline('consecutiveBlocks.json', keys)
+  if (updatingBaseline)
+    return saveBaseline('code-split-setup-and-use.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('consecutiveBlocks.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('code-split-setup-and-use.json', [])
+  )
   const unexpected: string[] = []
   for (const { slug, line, heading } of findings) {
     if (allowed.has(`${slug}#${heading}`)) continue

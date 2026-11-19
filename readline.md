@@ -48,6 +48,8 @@ links:
 | `C-d` | Delete char under cursor (EOF if empty) |
 | `Backspace` | Delete char before cursor |
 
+<!-- {: .-shortcuts} -->
+
 These Emacs-style keys work in every prompt that links Readline, including
 bash, psql, and python. Arrow keys work too when the terminal sends the
 expected escape sequences.
@@ -62,6 +64,8 @@ See: [Readline movement commands](https://tiswww.case.edu/php/chet/readline/read
 | `M-d` | Kill forward to the end of a word |
 | `M-DEL` | Kill back to the start of a word |
 | `C-w` | Kill back to whitespace |
+
+<!-- {: .-shortcuts} -->
 
 `C-w` stops only at whitespace, so it removes `--flag=value` whole. `M-DEL`
 stops at punctuation too.
@@ -78,6 +82,8 @@ See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readl
 | `M-y` | Swap in an earlier kill |
 | `M-.` | Insert the last word of the previous command |
 
+<!-- {: .-shortcuts} -->
+
 Killed text lands on the kill ring; press `C-y` then `M-y` to cycle older
 entries. In bash `C-u` is line discard, not the Emacs number prefix.
 
@@ -91,6 +97,8 @@ See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readl
 | `M-r` | Revert every change to this line |
 | `C-t` | Transpose two characters |
 | `M-t` | Transpose two words |
+
+<!-- {: .-shortcuts} -->
 
 Undo is remembered per history line and steps all the way back to an empty
 line. `M-r` discards the whole edit instead of one step at a time.
@@ -122,6 +130,8 @@ See: [Numeric arguments](https://tiswww.case.edu/php/chet/readline/readline.html
 | `RET` | Accept the match and run the line |
 | `C-g` | Cancel, keep the typed line |
 | `M-p` / `M-n` | Non-incremental search back / forward |
+
+<!-- {: .-shortcuts} -->
 
 `C-r` is the fastest way to find an earlier command: type a fragment, press
 `C-r` again to walk matches, then `RET`. `M-p` asks for a string instead of

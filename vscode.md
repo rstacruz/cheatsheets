@@ -36,6 +36,8 @@ links:
 | ---     | ---                        |
 | `⌘K ⌘S` | Keyboard shortcuts         |
 
+<!-- {: .-shortcuts} -->
+
 See: [Keyboard shortcuts](https://code.visualstudio.com/docs/configure/keybindings)
 
 ### Files
@@ -54,6 +56,8 @@ See: [Keyboard shortcuts](https://code.visualstudio.com/docs/configure/keybindin
 | ---     | ---                     |
 | `⌘K P`  | Copy path of active file|
 | `⌘K R`  | Reveal active file      |
+
+<!-- {: .-shortcuts} -->
 
 See: [User interface](https://code.visualstudio.com/docs/editing/getting-started/userinterface)
 
@@ -75,6 +79,8 @@ See: [User interface](https://code.visualstudio.com/docs/editing/getting-started
 | `⌘K ⌘X`               | Trim trailing whitespace        |
 | `⌥Z`                  | Toggle word wrap                |
 
+<!-- {: .-shortcuts} -->
+
 See: [Code basics](https://code.visualstudio.com/docs/editing/codebasics)
 
 ### Multi-cursor
@@ -92,6 +98,8 @@ See: [Code basics](https://code.visualstudio.com/docs/editing/codebasics)
 | `⇧⌥I`                  | Cursor at end of each line       |
 | `⌃⇧⌘Right` / `⌃⇧⌘Left` | Expand/shrink selection          |
 
+<!-- {: .-shortcuts} -->
+
 See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics#_multiple-selections-multi-cursor)
 
 ## Search
@@ -106,6 +114,8 @@ See: [Multiple selections](https://code.visualstudio.com/docs/editing/codebasics
 | `⇧⌘G`      | Find previous match    |
 | `⌥Enter`   | Select all matches     |
 
+<!-- {: .-shortcuts} -->
+
 See: [Search and replace](https://code.visualstudio.com/docs/editing/codebasics#_search-and-replace)
 
 ### Search across files
@@ -115,6 +125,8 @@ See: [Search and replace](https://code.visualstudio.com/docs/editing/codebasics#
 | `⇧⌘F`      | Find in files          |
 | `⇧⌘H`      | Replace in files       |
 | `⇧⌘J`      | Toggle search details  |
+
+<!-- {: .-shortcuts} -->
 
 See: [Search across files](https://code.visualstudio.com/docs/editing/codebasics#_search-across-files)
 
@@ -133,6 +145,8 @@ See: [Search across files](https://code.visualstudio.com/docs/editing/codebasics
 | `⇧⌘D`  | Debug          |
 | `⇧⌘X`  | Extensions     |
 
+<!-- {: .-shortcuts} -->
+
 See: [User interface](https://code.visualstudio.com/docs/editing/getting-started/userinterface)
 
 ### Panel
@@ -147,6 +161,8 @@ See: [User interface](https://code.visualstudio.com/docs/editing/getting-started
 | <code>⌃`</code>           | Terminal      |
 | <code>⌃⇧`</code>          | New terminal  |
 
+<!-- {: .-shortcuts} -->
+
 See: [Terminal basics](https://code.visualstudio.com/docs/terminal/basics)
 
 ### Zen mode
@@ -159,6 +175,8 @@ See: [Terminal basics](https://code.visualstudio.com/docs/terminal/basics)
 | `⌃⌘F`           | Toggle full screen|
 | `⌥⌘0`           | Toggle editor layout |
 | `⌘=` / `⇧⌘-`    | Zoom in/out       |
+
+<!-- {: .-shortcuts} -->
 
 See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 
@@ -182,6 +200,8 @@ See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 | `F8` / `⇧F8` | Next/previous problem      |
 | `⌃-` / `⌃⇧-` | Go back/forward            |
 
+<!-- {: .-shortcuts} -->
+
 See: [Code navigation](https://code.visualstudio.com/docs/editing/editingevolved)
 
 ### Editor groups
@@ -193,6 +213,8 @@ See: [Code navigation](https://code.visualstudio.com/docs/editing/editingevolved
 | `⌘K ⌘Left` / `⌘K ⌘Right` | Focus previous/next group  |
 | `⌃Tab` / `⌃⇧Tab`         | Next/previous editor       |
 | `⌘K Enter`               | Keep preview editor open   |
+
+<!-- {: .-shortcuts} -->
 
 See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 
@@ -207,6 +229,8 @@ See: [Custom layout](https://code.visualstudio.com/docs/configure/custom-layout)
 | `⇧F5`          | Stop                       |
 | `⌃F5`          | Start without debugging    |
 
+<!-- {: .-shortcuts} -->
+
 See: [Debugging](https://code.visualstudio.com/docs/debugtest/debugging)
 
 ### Breakpoints and stepping
@@ -219,6 +243,8 @@ See: [Debugging](https://code.visualstudio.com/docs/debugtest/debugging)
 | ---            | ---                        |
 | `⇧⌘D`          | Debug view                 |
 | `⇧⌘Y`          | Debug console              |
+
+<!-- {: .-shortcuts} -->
 
 See: [Debug actions](https://code.visualstudio.com/docs/debugtest/debugging#_debug-actions)
 

@@ -122,28 +122,15 @@ substantial example (at least five use cases per code block) rather than a
 sparse two-line snippet. The Arrays section in [javascript.md](/javascript)
 shows the shape.
 
-## Code blocks
-
-- Maximum line width is 70 characters
-- In `.-three-column` sections, maximum is 42 characters
-- Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
-- Show the example before its reference table: code block, then an H4 (eg `#### Options`), then the table
-- A table that follows a code block needs an H4 in between, or it reads as part of the block
-- One example per code block: start a new fence instead of stacking commented examples
-- Split setup from use: build the formatter or value in one block, then call it in a second block, each with its own H4 (eg `#### Formatter`, `#### Output`). A long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards
-- Prefer `=> (` … `)` line breaks over one long arrow line, and add `.-wrap` when the remaining lines still overflow
 
 ## Writing guidelines
 
 - Aim for brevity
-- Prose after the last code block or table in a card: 40 words max; split into another H3 if it needs more
 - Prose comes last in a card: no paragraph may be followed by a code block or table. Fold the note into the block, or split the card
 - Two code blocks in a card need an H4 between them, so each block has a label; a caption-led block is self-labelled, so it needs no H4
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
-- Omit explanations if they are obvious
-- Omit explanations the example already shows: a TOML card with `# comment`, a trailing `# comment`, and `"# not a comment"` needs no note explaining `#` comments
+- Omit explanations if they are obvious. See `prose/omit-redundant`.
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
@@ -160,147 +147,6 @@ shows the shape.
 3. **Practical examples**: Real-world use cases over theoretical
 4. **Quick reference**: Dense information for experienced developers
 5. **Learning path**: Logical progression for newcomers
-
-## H3 writing guidelines
-
-- End each H3 with a documentation link in its last content block, or add a `See:` line anywhere in the section.
-- `See:` must start a line at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless: ``See: `:help motion.txt` ``.
-- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not count; links to other sheets do.
-- Prefer upstream project docs, specifications, or the project repository.
-- Do not link community wikis, Q&A sites, or blog posts unless the upstream project officially endorses them as its documentation (for example, the Arch Wiki).
-- If no authoritative page covers the section, a linkless `See:` line is valid; use it instead of linking an unofficial source.
-- Only when the section has no authoritative documentation and no useful reference to point at, add `<!-- see: none: short reason -->` at column 0, on its own line.
-
-  ```md
-  ### Browser console
-  <!-- see: none: browser-only, no upstream docs -->
-  ```
-
-- Prefer to write explanations *after* a pre/table. Example:
-
-  ````markdown
-  ### Setting default props
-
-  ```jsx
-  Hello.defaultProps = {
-    color: 'blue'
-  }
-  ```
-
-  Default properties are used if no properties are given.
-
-  See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
-  ````
-
-- When an example has multiple files, use H4 as filename markers. Example:
-
-  ````markdown
-  ### via Data Attributes
-
-  #### index.html.erb
-
-  ```html
-  <a
-    href="#"
-    data-reflex="click->CounterReflex#increment"
-    data-step="1"
-    data-count="<%= @count.to_i %>"
-    >Increment <%= @count.to_i %></a
-  >
-  ```
-
-  #### counter_reflex.rb
-
-  ```ruby
-  class CounterReflex < StimulusReflex::Reflex
-    def increment
-      @count = element.dataset[:count].to_i + element.dataset[:step].to_i
-    end
-  end
-  ```
-
-  Trigger reflexes without writing any javascript with the `data-reflex` attribute.
-
-  ````
-
-- When showing reference information, use tables for quick scanning. Example:
-
-  ````markdown
-  ### Primitives
-
-  | Sample                  | Type            |
-  | ---                     | ---             |
-  | `nil`                   | Nil/null        |
-  | `true` _/_ `false`      | Boolean         |
-  | ---                     | ---             |
-  | `23`                    | Integer         |
-  | `3.14`                  | Float           |
-  | ---                     | ---             |
-  | `"hello"`               | Binary string   |
-  | `:hello`                | Atom            |
-
-  These are the basic data types in Elixir.
-  ````
-
-- Use inline comments to explain results, equivalents, or provide context. Example:
-
-  ````markdown
-  ### Pattern matching
-
-  ```elixir
-  user = %{name: "Tom", age: 23}
-  %{name: username} = user  # → username = "Tom"
-  ```
-
-  ### Piping
-
-  ```elixir
-  source
-  |> transform(:hello)     # Step 1: transform the data
-  |> print()               # Step 2: output the result
-  ```
-
-  ```elixir
-  # Same as:
-  print(transform(source, :hello))
-  ```
-
-  ### Type conversions
-
-  ```elixir
-  Integer.parse("34")      # → {34, ""}
-  Float.parse("34.1")      # → {34.1, ""}
-  ```
-  ````
-
-## H4 sub-headings
-
-Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options").
-
-Example:
-
-````markdown
-### Parsing
-
-#### As local time
-
-```js
-const date = new Date(2012, 11, 20, 3, 0, 0)
-```
-
-#### As UTC time
-
-```js
-const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
-```
-````
-
-- Keep labels short (1-4 words)
-- Prefer 2-4 segments per H3
-
-### Filename markers
-
-When an example spans multiple files, use each filename as its H4, one code block per file (see the example under H3 writing guidelines).
 
 ## Deprecated sheets
 
@@ -328,14 +174,230 @@ See [`archiving.md`](archiving.md) for when a sheet is worth archiving.
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
 
-## Introduction
+## Rules
 
-- Set `intro` frontmatter; it renders as the first card on the sheet.
-- Max 25 words per paragraph, 500 characters in total.
-- Up to 4 `links`, and at least 1 whenever `intro` is set. These should be reputable, first-party sources as much as possible.
-- Link sources (`_(hostname)_`) are inferred from the URL; do not write them.
+Each rule has a stable slug that reviews and the sheet skill link to.
 
-```yaml
+### tables/cli-options
+
+🤖 Check: `tables/shortcut-keys`.
+
+CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress columns only.
+
+````md
+| Flag                   | Description                      |
+| ---------------------- | -------------------------------- |
+| `-p, --print`          | Print the response and exit      |
+| `--output-format json` | `text`, `json`, or `stream-json` |
+| `--bare`               | Skip hooks, plugins, and memory  |
+````
+
+### tables/shortcut-keys
+
+🤖 Check: `tables/shortcut-keys`.
+
+Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column is last.
+
+````md
+| Shortcut | Description   |
+| -------- | ------------- |
+| `Ctrl+C` | Interrupt     |
+| `Esc`    | Close dialogs |
+
+<!-- {: .-shortcuts} -->
+````
+
+### code/wrap-long-lines
+
+🤖 Check: `code/wrap-long-lines`.
+
+Code lines stay under 70 characters (42 in `.-three-column` sections). Wrap onto more lines rather than exceed the limit; add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
+
+````js
+const fraction = (options) => (
+  options.numerator / options.denominator
+)
+````
+
+### code/data-line-in-block
+
+🤖 Check: `code/data-line-in-block`.
+
+Every `data-line` reference must fall inside its fenced block; don't point past the last line.
+
+````md
+```elixir
+a
+b
+```
+<!-- {: data-line="2"} -->
+````
+
+### code/split-setup-and-use
+
+🤖 Check: `code/split-setup-and-use`.
+
+Build the value in one pre block and call it in another, each with its own H4 label; a long `const f = (x) => new Thing(x)` one-liner is hard to scan and does not wrap in narrow cards.
+
+````md
+#### Formatter
+
+```js
+const format = (value) => value.trim()
+```
+
+#### Output
+
+```js
+format(' hi ') // 'hi'
+```
+````
+
+### cards/split-all-options
+
+Split an oversized "All options" card into focused cards like `Style options` and `Digit options`.
+
+### cards/short-trailing-prose
+
+🤖 Check: `cards/short-trailing-prose`.
+
+Prose after the last block stays under 40 words; a single sentence usually suffices.
+
+````markdown
+### Errors
+
+```js
+parse('4.2') // → { ok: true, value: 4.2 }
+```
+
+Invalid input returns an error object.
+````
+
+### cards/size-limits
+
+🤖 Check: `cards/size-limits`.
+
+Keep a card under four tables and 50 lines; split it before adding another table.
+
+### workflow/verify-output-against-runtime
+
+Run the example, capture its real output, and paste it verbatim. Watch for NBSP and other invisible characters.
+
+### prose/single-line
+
+Keep each paragraph on one line; don't hard-wrap prose across lines.
+
+### prose/explanations-after-blocks
+
+Prefer explanations after a pre or table, not before it.
+
+````markdown
+### Setting default props
+
+```jsx
+Hello.defaultProps = {
+  color: 'blue'
+}
+```
+
+Default properties are used if no properties are given.
+
+See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+````
+
+### code/filename-markers
+
+When an example spans multiple files, use each filename as its H4, one code block per file.
+
+````markdown
+### via Data Attributes
+
+#### index.html.erb
+
+```html
+<a
+  href="#"
+  data-reflex="click->CounterReflex#increment"
+  data-step="1"
+  data-count="<%= @count.to_i %>"
+  >Increment <%= @count.to_i %></a
+>
+```
+
+#### counter_reflex.rb
+
+```ruby
+class CounterReflex < StimulusReflex::Reflex
+  def increment
+    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+  end
+end
+```
+
+Trigger reflexes without writing any javascript with the `data-reflex` attribute.
+````
+
+### tables/reference-information
+
+Use tables for quick scanning when showing reference information.
+
+````markdown
+### Primitives
+
+| Sample                  | Type            |
+| ---                     | ---             |
+| `nil`                   | Nil/null        |
+| `true` _/_ `false`      | Boolean         |
+| ---                     | ---             |
+| `23`                    | Integer         |
+| `3.14`                  | Float           |
+| ---                     | ---             |
+| `"hello"`               | Binary string   |
+| `:hello`                | Atom            |
+
+These are the basic data types in Elixir.
+````
+
+### code/inline-comments
+
+Use inline comments to explain results, equivalents, or provide context.
+
+````markdown
+### Pattern matching
+
+```elixir
+user = %{name: "Tom", age: 23}
+%{name: username} = user  # → username = "Tom"
+```
+
+### Piping
+
+```elixir
+source
+|> transform(:hello)     # Step 1: transform the data
+|> print()               # Step 2: output the result
+```
+
+```elixir
+# Same as:
+print(transform(source, :hello))
+```
+
+### Type conversions
+
+```elixir
+Integer.parse("34")      # → {34, ""}
+Float.parse("34.1")      # → {34.1, ""}
+```
+````
+
+### frontmatter/introduction
+
+🤖 Check: `frontmatter/introduction`.
+
+Set `intro` frontmatter; it renders as the first card. Keep paragraphs under 25 words and links to at most four first-party sources.
+
+````yaml
 intro: |
   [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
 
@@ -344,29 +406,31 @@ links:
     url: https://code.claude.com/docs
   - title: GitHub repository
     url: https://github.com/anthropics/claude-code
-```
+````
 
 The card is generated; never write an `### Introduction` card by hand.
 
-## Table headers
+### tables/headers
 
-Table headers are hidden by default. Add `<!-- {: .-headers} -->` after the
-table when the column labels carry meaning; otherwise leave them out and write
-rows that read on their own.
+🤖 Check: `tables/headers`.
 
-```md
+Table headers are hidden by default. Add `.-headers` after the table when the column labels carry meaning.
+
+````md
 | Part | Required |
 | --- | --- |
 | `type` | yes |
 | body | no |
 <!-- {: .-headers} -->
-```
+````
 
-## Tables: separating
+### tables/separating
 
-Separating tables is preferred when a table grows to 8 or more rows.
+🤖 Check: `tables/separating`.
 
-### Option A: H4s and multiple tables
+Separate tables of 8+ rows with H4 groups or `| --- |` rows.
+
+#### H4 groups
 
 ````markdown
 ### Examples
@@ -376,7 +440,6 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | Example                   | Output                 |
 | ------------------------- | ---------------------- |
 | `YYYY-MM-DD`              | 2014-01-01             |
-| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
 | `dddd [the] Do [of] MMMM` | Friday the 16th of May |
 
 #### Time
@@ -384,10 +447,9 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | Example   | Output   |
 | --------- | -------- |
 | `hh:mm a` | 12:30 pm |
-
 ````
 
-### Option B: horizontal lines
+#### Separator rows
 
 ````markdown
 | Example | Output                           |
@@ -398,11 +460,142 @@ Separating tables is preferred when a table grows to 8 or more rows.
 | `LL`    | August 2 1985                    |
 | `ll`    | Aug 2 1985                       |
 | ---     | ---                              |
-| `LLL`   | August 2 1985 08:30 PM           |
-| `lll`   | Aug 2 1985 08:30 PM              |
-| ---     | ---                              |
 | `LLLL`  | Thursday, August 2 1985 08:30 PM |
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
+````
+
+### prose/omit-redundant
+
+Omit redundant prose. When the code is self-explanatory, add no trailing paragraph.
+
+````md
+// Avoid:
+```sh
+wget --quiet
+```
+
+This command runs wget with the quiet option, which suppresses its output.
+
+// Consider: no trailing paragraph
+```sh
+wget --quiet
+```
+````
+
+When the example already shows the detail, skip the note.
+
+````toml
+# comment
+key = "value" # trailing comment
+quoted = "# not a comment"
+````
+
+### frontmatter/seo-descriptions
+
+Write `keywords` with `intro` for SEO; `description` with `intro` also works. Without either, a description is generated from `intro`.
+
+#### Keywords
+
+````md
+keywords: [React.Component, render(), componentDidMount(), props/state]
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
+#### Description
+
+````md
+description: One-page reference to React and its API.
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
+#### Intro only
+
+````md
+intro: |
+  React is a JavaScript library for building web user interfaces.
+````
+
+### cards/h4-subheadings
+
+Use H4s to split an H3 into labelled segments: concept variants, topics, or reference groups. Keep labels short and use 2–4 segments.
+
+````markdown
+### Parsing
+
+#### As local time
+
+```js
+const date = new Date(2012, 11, 20, 3, 0, 0)
+```
+
+#### As UTC time
+
+```js
+const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
+```
+````
+
+### tables/options-after-code
+
+🤖 Check: `tables/options-after-code`.
+
+Show the code example first, then label its reference table with an H4 such as `#### Options`.
+
+````md
+```sh
+wget --quiet --output-document=out.html https://example.com
+```
+
+#### Options
+
+| Flag                    | Description     |
+| ----------------------- | --------------- |
+| `--quiet`               | Suppress output |
+| `-O, --output-document` | Write to a file |
+````
+
+### cards/two-h3-per-h2
+
+🤖 Check: `cards/two-h3-per-h2`.
+
+Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
+
+### prose/paragraphs-last
+
+🤖 Check: `prose/paragraphs-last`.
+
+No paragraph may be followed by a code block or table in a card. Fold the note into the block or split the card.
+
+### code/one-example-per-block
+
+🤖 Check: `code/one-example-per-block`.
+
+A code block holds one example. Start a new fence instead of stacking commented examples.
+
+### frontmatter/h3-links
+
+🤖 Check: `frontmatter/h3-links`.
+
+End each H3 with a documentation link or a `See:` line on tiered sheets. Prefer upstream project docs, specifications, or the project repository; skip community wikis, Q&A sites, and blog posts unless the project endorses them as documentation.
+
+If no authoritative page covers the section, use a linkless `See:` line instead of an unofficial link. Only when there is neither, add `<!-- see: none: short reason -->` at column 0.
+
+````md
+### Browser console
+<!-- see: none: browser-only, no upstream docs -->
+````
+
+### prose/see-line
+
+🤖 Check: `frontmatter/h3-links`.
+
+`See:` must start at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless. Only inline links `[text](url)` count; autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not, but links to other sheets do.
+
+````md
+See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+See: `:help motion.txt`
 ````
 
 ## Checks
@@ -413,8 +606,7 @@ Sheet checks live in `src/lib/sheetValidation/`. Run them with:
 pnpm vitest run src/lib/sheetValidation
 ```
 
-Legacy violations are recorded under `src/lib/sheetValidation/baseline/`, so
-only new ones fail. Regenerate the baselines after cleaning sheets up:
+Legacy violations are recorded under `src/lib/sheetValidation/baseline/`, so only new ones fail. Regenerate the baselines after cleaning sheets up:
 
 ```bash
 UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
@@ -422,40 +614,6 @@ UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
 
 Then run `pnpm fmt:format`; oxfmt collapses short baseline arrays to one line.
 
-The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
+Automated checks are marked with 🤖 on their rules in [Rules](#rules).
 
-Six shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), a table after a code block needs an H4 in between (`baseline/tableIntros.json`), prose after the last block in a card stays under 40 words (`baseline/trailingProse.json`), no paragraph is followed by a block (`baseline/paragraphPlacement.json`), two code blocks need an H4 between them unless caption-led (`baseline/consecutiveBlocks.json`), and a code block holds one commented example (`baseline/multiExampleBlocks.json`).
 
-## SEO descriptions
-
-- Write `keywords` + `intro` for SEO purposes (preferred).
-- `description` + `intro` is also supported.
-
-### Option A: Keywords (and intro)
-
-Set `keywords` (and optionally `intro`). This is the easiest and the preferred
-way for now.
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-React.Component · render() · componentDidMount() · props/state · React is a
-JavaScript library for building web...
-```
-
-### Option B: Description (and intro)
-
-Set `description` (and optionally `intro`)
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-One-page reference to React and its API. React is a JavaScript library for
-building web user interfaces...
-```
-
-### Option C: Intro only
-
-If you left out `description` or `keywords`, a default description will be added.

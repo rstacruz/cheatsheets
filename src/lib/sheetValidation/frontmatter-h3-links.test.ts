@@ -363,11 +363,11 @@ test('every tiered sheet gives each H3 a link or See', async () => {
 
   if (updatingBaseline) {
     const sorted = Object.entries(counts).sort(([a], [b]) => (a < b ? -1 : 1))
-    return saveBaseline('seeLinks.json', Object.fromEntries(sorted))
+    return saveBaseline('frontmatter-h3-links.json', Object.fromEntries(sorted))
   }
 
   const allowed = {
-    ...loadBaseline<Record<string, number>>('seeLinks.json', {})
+    ...loadBaseline<Record<string, number>>('frontmatter-h3-links.json', {})
   }
   const unexpected: string[] = []
   for (const { slug, line, title } of findings) {

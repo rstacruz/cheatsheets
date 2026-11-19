@@ -134,8 +134,6 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `-i, --image <file>`              | Attach images to the prompt   |
 | `-c key=value`                    | Override any config value     |
 
-<!-- {: .-shortcuts} -->
-
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Other flags
@@ -152,8 +150,6 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `--no-daemon`                                | Skip the shared background server |
 | `--strict-config`                            | Reject unknown config keys     |
 | `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
-
-<!-- {: .-shortcuts} -->
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -218,8 +214,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/compact`       | Summarize to free up context       |
 | `/rename <name>` | Rename the current chat            |
 
-<!-- {: .-shortcuts} -->
-
 #### Control
 
 | Command             | Description                  |
@@ -231,8 +225,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/model`            | Choose the active model      |
 | `/fast`             | Toggle the Fast service tier |
 
-<!-- {: .-shortcuts} -->
-
 #### Inspect
 
 | Command   | Description                    |
@@ -243,8 +235,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/usage`  | Show account token usage       |
 | `/copy`   | Copy the latest response       |
 | `/export` | Export the chat as Markdown    |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -258,8 +248,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/worktree`   | Continue in a managed git worktree |
 | `/recap`      | Summarize the chat, keep context   |
 | `/raw`        | Toggle raw scrollback              |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -277,8 +265,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/hooks`        | Manage lifecycle hooks         |
 | `/experimental` | Toggle experimental features   |
 
-<!-- {: .-shortcuts} -->
-
 #### Interface
 
 | Command       | Description                    |
@@ -290,8 +276,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/vim`        | Toggle Vim composer mode       |
 | `/keymap`     | Remap TUI shortcuts            |
 
-<!-- {: .-shortcuts} -->
-
 #### Account
 
 | Command     | Description                        |
@@ -300,8 +284,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/feedback` | Send logs to the maintainers       |
 | `/logout`   | Sign out                           |
 | `/quit`     | Exit the CLI (also `/exit`)        |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 

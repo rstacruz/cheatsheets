@@ -91,6 +91,8 @@ See: [Shared bindings](https://fishshell.com/docs/current/interactive.html#share
 | `^L`            | Clear the screen                |
 | `^Z` / `^_`     | Undo the last edit              |
 
+<!-- {: .-shortcuts} -->
+
 See: [Emacs mode](https://fishshell.com/docs/current/interactive.html#emacs-mode)
 
 ### History and completion

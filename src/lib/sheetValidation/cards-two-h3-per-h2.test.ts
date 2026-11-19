@@ -110,9 +110,11 @@ test('every sheet gives each H2 at least two H3s', async () => {
   const keys = [
     ...new Set(findings.map(({ slug, title }) => `${slug}#${title}`))
   ].sort()
-  if (updatingBaseline) return saveBaseline('structure.json', keys)
+  if (updatingBaseline) return saveBaseline('cards-two-h3-per-h2.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('structure.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('cards-two-h3-per-h2.json', [])
+  )
   expect(
     findings.flatMap(({ slug, line, title, count }) =>
       allowed.has(`${slug}#${title}`)

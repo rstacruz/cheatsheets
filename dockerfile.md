@@ -33,7 +33,7 @@ EXPOSE 3000
 CMD ["node", "dist/server.js"]
 ```
 
-<!-- {: data-line="5,6,12,14"} -->
+<!-- {: data-line="5,6,12,13"} -->
 
 Dependencies are installed before the source lands, so editing code skips the install layer.
 

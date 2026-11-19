@@ -113,9 +113,12 @@ test('every code block holds one example', async () => {
       )
     )
   ].sort()
-  if (updatingBaseline) return saveBaseline('multiExampleBlocks.json', keys)
+  if (updatingBaseline)
+    return saveBaseline('code-one-example-per-block.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('multiExampleBlocks.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('code-one-example-per-block.json', [])
+  )
   const unexpected: string[] = []
   for (const { slug, line, heading, caption } of findings) {
     if (allowed.has(`${slug}#${heading}#${caption}`)) continue

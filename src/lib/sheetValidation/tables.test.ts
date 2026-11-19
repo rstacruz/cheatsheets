@@ -438,9 +438,12 @@ test('every table after a code block is introduced by an H4', async () => {
   const keys = [
     ...new Set(findings.map(({ slug, text }) => `${slug}#${text}`))
   ].sort()
-  if (updatingBaseline) return saveBaseline('tableIntros.json', keys)
+  if (updatingBaseline)
+    return saveBaseline('tables-options-after-code.json', keys)
 
-  const allowed = new Set(loadBaseline<string[]>('tableIntros.json', []))
+  const allowed = new Set(
+    loadBaseline<string[]>('tables-options-after-code.json', [])
+  )
   expect(
     findings.flatMap(({ slug, line, text }) =>
       allowed.has(`${slug}#${text}`) ? [] : [`${slug}:${line}: ${text}`]

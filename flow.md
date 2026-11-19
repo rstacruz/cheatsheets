@@ -169,7 +169,7 @@ const a: Artist = {
 }
 ```
 
-<!-- {: data-line="6"} -->
+<!-- {: data-line="4"} -->
 
 A type with more properties is "wider" and is a subtype of a "narrower" type.
 

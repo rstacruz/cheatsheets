@@ -21,8 +21,10 @@
 - **Error handling**: Distinguish operational (expected) vs unexpected errors; return error objects for operational errors
 - **Testing**: Vitest with globals enabled; use `it.each()` for repeated test cases; prefer object constants over helper functions
 
-## Markdown files
+## Sheet authoring
 
-Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), and @_docs/archiving.md for when to archive a sheet.
+Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), and @_docs/archiving.md for when to archive a sheet. Reviewers and skills refer to rules by stable slugs such as `tables/shortcut-keys`.
 
-Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`.
+Verify example outputs against the runtime: run the snippet, capture its real output, and paste it verbatim; watch for NBSP and other invisible characters.
+
+Sheet checks live in `src/lib/sheetValidation/`. Run them with `pnpm vitest run src/lib/sheetValidation`; check names follow their rule slugs.

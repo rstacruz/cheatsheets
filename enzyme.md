@@ -30,15 +30,21 @@ links:
 
 <!-- {: .-prime} -->
 
+#### Import
+
 ```js
 import {shallow, mount} from 'enzyme'
 ```
 
 <!-- {: .-setup} -->
 
+#### Shallow
+
 ```js
 wrap = shallow(<MyComponent />)
 ```
+
+#### Full mount
 
 ```js
 wrap = mount(<MyComponent />)
@@ -68,12 +74,16 @@ See: [debug()](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/debug.htm
 
 <!-- {: .-prime} -->
 
+#### Imports
+
 ```js
 import { shallow } from 'enzyme'
 import MyComponent from '../MyComponent'
 ```
 
 <!-- {: .-setup} -->
+
+#### Test
 
 ```js
 it('works', () => {
@@ -100,6 +110,8 @@ wrap.setState({ show: true })
 expect(wrap.prop('name')).toEqual('Moe')
 expect(wrap.state('show')).toEqual(true)
 ```
+
+#### Membership
 
 ```js
 expect('name' in wrap.props()).toEqual('Moe')
@@ -220,6 +232,8 @@ See: [enzyme-to-json](https://www.npmjs.com/package/enzyme-to-json)
 
 ### Traversing
 
+#### Wrappers
+
 ```js
 wrap.find('button')   // → ReactWrapper
 wrap.filter('button') // → ReactWrapper
@@ -232,6 +246,8 @@ wrap.at(0)            // → ReactWrapper
 wrap.first()          // → ReactWrapper
 wrap.last()           // → ReactWrapper
 ```
+
+#### Elements
 
 ```js
 wrap.get(0)           // → ReactElement
@@ -250,11 +266,15 @@ wrap.simulate('click')
 
 ### React components
 
+#### Setters
+
 ```js
 wrap.setState({ ··· })
 wrap.setProps({ ··· })
 wrap.setContext({ ··· })
 ```
+
+#### Read all
 
 ```js
 wrap.state()         // get full state
@@ -262,11 +282,15 @@ wrap.props()         // get full props
 wrap.context()       // get full context
 ```
 
+#### Read one
+
 ```js
 wrap.state('key')    // → any
 wrap.prop('key')     // → any
 wrap.context('key')  // → any
 ```
+
+#### Instance
 
 ```js
 wrap.instance()      // → ReactComponent

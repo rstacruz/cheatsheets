@@ -27,23 +27,33 @@ html(lang='en')
 
 ### Elements
 
+#### Plain element
+
 ```jade
 div
   | Just a div
 ```
+
+#### Class
 
 ```jade
 .search
   | A div, with class 'search'
 ```
 
+#### Text
+
 ```jade
 h1 A heading with text
 ```
 
+#### Interpolation
+
 ```jade
 h1= page.title
 ```
+
+#### Shorthand
 
 ```jade
 div.class
@@ -53,9 +63,13 @@ h1.header
 
 ### Attributes
 
+#### Static
+
 ```jade
 input(type='text' name='q' autofocus)
 ```
+
+#### Dynamic
 
 ```jade
 - var authenticated = true
@@ -66,13 +80,19 @@ See: [Attributes](https://pugjs.org/language/attributes.html)
 
 ### Comments
 
+#### HTML comment
+
 ```jade
 // This comment will appear in the HTML
 ```
 
+#### Silent comment
+
 ```jade
 //- This is a silent comment
 ```
+
+#### Comment block
 
 ```jade
 //-
@@ -92,6 +112,8 @@ ul
 
 ### Layouts
 
+#### Page
+
 ```jade
 //- page.pug
 extends layout.pug
@@ -103,6 +125,8 @@ block content
   | hello
 ```
 
+#### Layout
+
 ```jade
 //- layout.pug
 title
@@ -113,9 +137,13 @@ body
 
 ### Includes (partials)
 
+#### Include
+
 ```jade
 include ./includes/head.pug
 ```
+
+#### Filter
 
 ```jade
 include:markdown article.md
@@ -125,6 +153,8 @@ See: [Includes](https://pugjs.org/language/includes.html)
 
 ### Multiline text
 
+#### Text
+
 ```jade
 p.
   This is text that doesn't need to
@@ -132,6 +162,8 @@ p.
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Script
 
 ```jade
 script.
@@ -161,6 +193,8 @@ See: [Conditionals](https://pugjs.org/language/conditionals.html)
 
 ### Mixins
 
+#### Define
+
 ```jade
 mixin list
   ul
@@ -168,6 +202,8 @@ mixin list
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Use
 
 ```jade
 +list
@@ -178,12 +214,16 @@ See: [Mixins](https://pugjs.org/language/mixins.html)
 
 ### Mixin attributes
 
+#### Define
+
 ```jade
 mixin pet(name)
   span.pet= name
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Use
 
 ```jade
 +pet('cat')
@@ -193,6 +233,8 @@ See: [Mixin attributes](https://pugjs.org/language/mixins.html#mixin-attributes)
 
 ### Mixin blocks
 
+#### Define
+
 ```jade
 mixin article(title)
   article
@@ -201,6 +243,8 @@ mixin article(title)
 ```
 
 <!-- {: data-line="1,4"} -->
+
+#### Use
 
 ```jade
 +article('hello there')

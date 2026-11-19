@@ -37,12 +37,16 @@ _.get(object, ['users', 0, 'name'])
 
 ### Iteration
 
+#### Traversal
+
 ```js
 _.forEach(list, (item, i) => ...)
 _.forEachRight(list, ...)
 
 _.map(list, ...)
 ```
+
+#### Predicates
 
 ```js
 _.every(users, (u) => u.active)  // → true|false (aka _.all)
@@ -64,6 +68,8 @@ _.flattenDeep
 
 ### Filtering
 
+#### Drop and take
+
 ```js
 _.drop([ abcdef ], 2)          // → [   cdef ]
 _.dropRight([ abcdef ], 2)     // → [ abcd   ]
@@ -72,10 +78,14 @@ _.takeRight([ abcdef ], 2)     // → [     de ]
 _.slice([ abcdef ], 2, 4)      // → [   cd   ]
 ```
 
+#### Ends
+
 ```js
 _.initial([ abcdef ])          // → [ abcde  ] - dropRight(list, 1)
 _.rest([ abcdef ])             // → [  bcdef ] - takeRight(list, 1)
 ```
+
+#### Predicates
 
 ```js
 _.dropWhile(list, 'active')            // works like filter
@@ -85,9 +95,13 @@ _.dropWhile(list, (n) => ...)
 _.dropRightWhile(list, ...)
 ```
 
+#### Excluding
+
 ```js
 _.without([ abcde ], b)        // → [ acde ]
 ```
+
+#### Removal
 
 ```js
 _.remove(list, (n) => n % 2)
@@ -102,6 +116,8 @@ _.last([ abcdef ])             // → f
 
 ### Sets
 
+#### Set operations
+
 ```js
 _.uniq()
 _.difference([ abc ], [ bc ])       // → [ a    ]
@@ -109,21 +125,29 @@ _.intersection([ abc ], [ bcd ])    // → [  bc  ]
 _.union([ abc ], [ bcd ])           // → [ abcd ] (unique)
 ```
 
+#### Native concat
+
 ```js
 Array#concat()
 ```
 
 ### Indexes
 
+#### Search
+
 ```js
 _.findIndex(list, fn)
 _.findLastIndex(list, fn)
 ```
 
+#### Sorted
+
 ```js
 _.sortedIndex(list, val)
 _.sortedLastIndex(list, val)
 ```
+
+#### Index of
 
 ```js
 _.indexOf(list, val)
@@ -133,11 +157,15 @@ _.indexOf(list, val)
 
 ### Partial application
 
+#### Greeting
+
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
 
 <!-- {: .-setup} -->
+
+#### Partial
 
 ```js
 fn = _.partial(fn, 'hi')
@@ -221,11 +249,15 @@ _.trimRight('  str  ')    // → '  str'
 
 ### Etc
 
+#### String helpers
+
 ```js
 _.repeat('-', 2)              // → '--'
 _.deburr('déjà vu')           // → 'deja vu'
 _.trunc('hello world', 5)     // → 'hello...'
 ```
+
+#### Prefix checks
 
 ```js
 _.startsWith('abc', 'a')   // → true

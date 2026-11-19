@@ -239,10 +239,14 @@ See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
 
 ### Default values
 
+#### Destructuring
+
 ```js
 const scores = [22, 33]
 const [math = 50, sci = 50, arts = 50] = scores
 ```
+
+#### Result
 
 ```js
 // Result:
@@ -253,6 +257,8 @@ Default values can be assigned while destructuring arrays or objects.
 
 ### Function arguments
 
+#### Definition
+
 ```js
 function greet({ name, greeting }) {
   console.log(`${greeting}, ${name}!`)
@@ -260,6 +266,8 @@ function greet({ name, greeting }) {
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Calling
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
@@ -269,6 +277,8 @@ Destructuring of objects and arrays can also be done in function arguments.
 
 ### Default values
 
+#### Definition
+
 ```js
 function greet({ name = 'Rauno' } = {}) {
   console.log(`Hi ${name}!`);
@@ -277,12 +287,16 @@ function greet({ name = 'Rauno' } = {}) {
 
 <!-- {: data-line="1"} -->
 
+#### Calling
+
 ```js
 greet() // Hi Rauno!
 greet({ name: 'Larry' }) // Hi Larry!
 ```
 
 ### Reassigning keys
+
+#### Definition
 
 ```js
 function printCoordinates({ left: x, top: y }) {
@@ -291,6 +305,8 @@ function printCoordinates({ left: x, top: y }) {
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Calling
 
 ```js
 printCoordinates({ left: 25, top: 90 })
@@ -530,25 +546,35 @@ Modules
 
 ### Imports
 
+#### Side effect
+
 ```js
 import 'helpers'
 // aka: require('···')
 ```
+
+#### Default
 
 ```js
 import Express from 'express'
 // aka: const Express = require('···').default || require('···')
 ```
 
+#### Named
+
 ```js
 import { indent } from 'helpers'
 // aka: const indent = require('···').indent
 ```
 
+#### Namespace
+
 ```js
 import * as Helpers from 'helpers'
 // aka: const Helpers = require('···')
 ```
+
+#### Renamed
 
 ```js
 import { indentSpaces as indent } from 'helpers'
@@ -560,15 +586,21 @@ See: [Module imports](https://babeljs.io/learn-es2015/#modules)
 
 ### Exports
 
+#### Default
+
 ```js
 export default function () { ··· }
 // aka: module.exports.default = ···
 ```
 
+#### Named function
+
 ```js
 export function mymethod () { ··· }
 // aka: module.exports.mymethod = ···
 ```
+
+#### Named value
 
 ```js
 export const pi = 3.14159
@@ -583,12 +615,16 @@ Generators
 
 ### Generators
 
+#### Definition
+
 ```js
 function* idMaker () {
   let id = 0
   while (true) { yield id++ }
 }
 ```
+
+#### Usage
 
 ```js
 let gen = idMaker()

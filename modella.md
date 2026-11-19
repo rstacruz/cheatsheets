@@ -17,15 +17,21 @@ links:
 
 ### Defining models
 
+#### Model
+
 ```coffeescript
 User = Modella('User')
 ```
+
+#### Attributes
 
 ```coffeescript
   .attr('name')
   .attr('email', { required: true })
   .use(require('modella-validators'))
 ```
+
+#### Validators
 
 ```coffeescript
   .validator (u) ->
@@ -34,6 +40,8 @@ User = Modella('User')
 
 ### Instances
 
+#### Accessors
+
 ```coffeescript
 user
   .name()
@@ -41,11 +49,15 @@ user
   .set(name: 'John')
 ```
 
+#### Checks
+
 ```coffeescript
   .has('name')   # → true
   .isNew()
   .isValid()
 ```
+
+#### Persistence
 
 ```coffeescript
   .save (err) ->
@@ -58,9 +70,13 @@ user
 
 ### Emitting
 
+#### Model
+
 ```coffeescript
 Model.emit('event', [data...])
 ```
+
+#### Record
 
 ```coffeescript
 record.emit('event', [data...])
@@ -73,33 +89,21 @@ user
   .on 'save', ->
   .on 'create', ->
   .on 'saving', (data, done) -> done()
-```
 
-```coffeescript
   .on 'remove', ->
   .on 'removing', (data, done) -> done()
-```
 
-```coffeescript
   .on 'valid', ->
   .on 'invalid', ->
-```
 
-```coffeescript
   .on 'change', ->
   .on 'change email', ->
-```
 
-```coffeescript
   .on 'initializing', (instance, attrs) ->
   .on 'initialize', ->
-```
 
-```coffeescript
   .on 'error', -> failed to save model
-```
 
-```coffeescript
   .on 'setting', (instance, attrs) ->  # on Model#set()
   .on 'attr', -> # new attr via Model.attr()
 ```

@@ -56,12 +56,16 @@ The `s:` prefix is also available in function names. See `:help local-variables`
 
 ### Other prefixes
 
+#### Scopes
+
 ```vim
 let w:foo = 'bar'    " w: window
 let b:state = 'on'   " b: buffer
 let t:state = 'off'  " t: tab
 echo v:var           " v: vim special
 ```
+
+#### Registers and environment
 
 ```vim
 let @/ = ''          " @  register (this clears last search pattern)
@@ -81,10 +85,14 @@ Prefix Vim options with `&`
 
 ### Operators
 
+#### Arithmetic
+
 ```vim
 a + b             " numbers only!
 'hello ' . name   " concat
 ```
+
+#### Assignment
 
 ```vim
 let var -= 2
@@ -238,11 +246,15 @@ Custom commands start with uppercase letters. The `!` redefines a command if it 
 
 ### Commands calling functions
 
+#### Command
+
 ```vim
 command! Save call <SID>foo()
 ```
 
 <!-- {: .-setup} -->
+
+#### Function
 
 ```vim
 function! s:foo()
@@ -286,10 +298,14 @@ endif
 
 ### Truthiness
 
+#### In conditions
+
 ```vim
 if 1 | echo "true"  | endif
 if 0 | echo "false" | endif
 ```
+
+#### Values
 
 ```vim
 if 1       "=> 1 (true)
@@ -437,9 +453,13 @@ See `:help dict`
 
 ### Using dictionaries
 
+#### Remove
+
 ```vim
 remove(colors, "apple")
 ```
+
+#### Inspect
 
 ```vim
 " :help E715
@@ -449,15 +469,21 @@ keys(dict)
 len(dict)
 ```
 
+#### Extremes
+
 ```vim
 max(dict)
 min(dict)
 ```
 
+#### Count and stringify
+
 ```vim
 count(dict, 'x')
 string(dict)
 ```
+
+#### Transform
 
 ```vim
 map(dict, '<>> " . v:val')
@@ -649,9 +675,13 @@ xnoremap
 
 ### Explanation
 
+#### Syntax
+
 ```vim
 [nvixso](nore)map
 ```
+
+#### Breakdown
 
 ```
  │       └ don't recurse

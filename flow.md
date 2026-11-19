@@ -43,6 +43,8 @@ function square (n: number) {
 
 ### Type aliases
 
+#### Definition
+
 ```js
 type Person = {
   name: string,
@@ -54,6 +56,8 @@ type Person = {
 
 <!-- {: data-line="1,2,3,4,5,6"} -->
 
+#### Usage
+
 ```js
 function greet(user: Person) {
   console.log('hello', user.name)
@@ -61,6 +65,8 @@ function greet(user: Person) {
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Call
 
 ```js
 greet({ name: 'Miles Davis', ··· })
@@ -80,9 +86,13 @@ See: [Variable types](https://flow.org/en/docs/types/variables/)
 
 ### Importing and exporting
 
+#### Import
+
 ```js
 import type { Person } from './types'
 ```
+
+#### Export
 
 ```js
 export type Person = {
@@ -94,9 +104,13 @@ See: [Module types](https://flow.org/en/docs/types/modules)
 
 ### Union types
 
+#### Primitives
+
 ```js
 type Action = number | string
 ```
+
+#### Literals
 
 ```js
 type Direction = 'left' | 'right'
@@ -108,6 +122,8 @@ See: [Unions](https://flow.org/en/docs/types/unions/)
 
 ### Maybe types
 
+#### Definition
+
 ```js
 type Album = {
   name: ?string
@@ -115,6 +131,8 @@ type Album = {
 ```
 
 <!-- {: data-line="2"} -->
+
+#### Values
 
 ```js
 const a: Album = { }                 // ✗ Error
@@ -129,6 +147,8 @@ See: [Maybe types](https://flow.org/en/docs/types/primitives/#toc-maybe-types)
 
 ### Optional properties
 
+#### Definition
+
 ```js
 type Album = {
   name?: string
@@ -136,6 +156,8 @@ type Album = {
 ```
 
 <!-- {: data-line="2"} -->
+
+#### Values
 
 ```js
 const a: Album = { } // ✓ OK
@@ -154,12 +176,16 @@ See: [Optional properties](https://flow.org/en/docs/types/primitives/#toc-option
 
 ### Width subtyping
 
+#### Base type
+
 ```js
 type Artist = {
   name: string,
   label: string
 }
 ```
+
+#### Wider object
 
 ```js
 const a: Artist = {
@@ -177,6 +203,8 @@ See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
 
 ### Exact object types
 
+#### Exact type
+
 ```js
 type Artist = {|
   name: string,
@@ -185,6 +213,8 @@ type Artist = {|
 ```
 
 <!-- {: data-line="1,4"} -->
+
+#### Extra property
 
 ```js
 const a: Artist = {
@@ -300,9 +330,13 @@ See: [Interfaces](https://flow.org/en/docs/types/interfaces/)
 
 ### Functions
 
+#### Callback
+
 ```js
 const callback: () => void = function () {}
 ```
+
+#### Generic function
 
 ```js
 function filter<T> (
@@ -317,10 +351,14 @@ See: [Functions](https://flow.org/en/docs/types/functions/)
 
 ### Imports
 
+#### Import types
+
 ```js
 import type { Person } from '../person'
 import typeof Config from '../config'
 ```
+
+#### Export types
 
 ```js
 export type Person = { id: string }

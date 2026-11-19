@@ -18,6 +18,8 @@ links:
 
 ### Literals
 
+#### Numeric
+
 ```js
 42          // → 42
 3.14        // → 3.14
@@ -27,6 +29,8 @@ links:
 1_000_000   // → 1000000 (numeric separators)
 1e3         // → 1000 (exponent)
 ```
+
+#### Special values
 
 ```js
 Infinity     // → Infinity
@@ -81,6 +85,8 @@ See: [Number.isInteger()](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 
 ### Rounding
 
+#### Rounding methods
+
 ```js
 Math.round(4.5)     // → 5
 Math.round(-4.5)    // → -4
@@ -89,6 +95,8 @@ Math.floor(-4.7)    // → -5
 Math.ceil(4.2)      // → 5
 Math.trunc(4.7)     // → 4 (drop the fraction)
 ```
+
+#### toFixed()
 
 ```js
 (2.5).toFixed(0)            // → "3"
@@ -103,6 +111,8 @@ See: [Math.round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### Math
 
+#### Methods
+
 ```js
 Math.abs(-3)          // → 3
 Math.min(1, 2, 3)     // → 1
@@ -114,6 +124,8 @@ Math.sign(-3)         // → -1
 Math.hypot(3, 4)      // → 5
 Math.PI               // → 3.141592653589793
 ```
+
+#### Random
 
 ```js
 Math.random()        // → 0 <= n < 1
@@ -127,11 +139,15 @@ See: [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
 
 ### Formatting
 
+#### Locale
+
 ```js
 const n = 1234567.891
 
 n.toLocaleString('en-US')   // → "1,234,567.891"
 ```
+
+#### Intl
 
 ```js
 const fmt = (opts) => new Intl.NumberFormat('en-US', opts)
@@ -142,6 +158,8 @@ fmt({ style: 'percent' }).format(0.25)      // → "25%"
 fmt({ notation: 'compact' }).format(12345)  // → "12K"
 fmt({ style: 'unit', unit: 'kilometer' }).format(5)  // → "5 km"
 ```
+
+#### Precision
 
 ```js
 (3.14159).toPrecision(3)   // → "3.14"
@@ -155,6 +173,8 @@ See: [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### BigInt
 
+#### Basics
+
 ```js
 123n             // → 123n
 typeof 1n        // → 'bigint'
@@ -164,6 +184,8 @@ BigInt(123)      // → 123n
 10n / 3n         // → 3n (truncates)
 1n < 2           // → true
 ```
+
+#### Mixing types
 
 ```js
 1n + 1           // TypeError: Cannot mix BigInt and other types

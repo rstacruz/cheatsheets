@@ -2,7 +2,7 @@
 import cx from 'clsx'
 import snarkdown from 'snarkdown'
 import { render } from '../lib/markdown/render'
-import type { SheetPage } from '../lib/page'
+import { getPages, type SheetPage } from '../lib/page'
 import BaseLayout from './BaseLayout.astro'
 import TopNav from './TopNav.astro'
 import CommentsArea from './V2017Sheet/CommentsArea.astro'
@@ -16,6 +16,7 @@ import NoticeBox from './V2017Sheet/NoticeBox.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 import { isDeprecated } from '~/lib/page/accessors'
+import { getListedSheetCount } from '~/lib/page/queries'
 import { typeStyles } from '~/styles/CommonStyles'
 
 export type Props = {
@@ -24,6 +25,8 @@ export type Props = {
 
 const props = Astro.props as Props
 const page = props.page
+const pages = await getPages()
+const sheetCount = getListedSheetCount(pages)
 const mkdn = await render(page.markdown, {
   intro: page.frontmatter.intro,
   links: page.frontmatter.links
@@ -128,8 +131,8 @@ const headingStyles = {
     </i>
   </div>
   <CommentsArea identifier={page.slug} />
-  <SearchFooter />
-  <RelatedPosts page={page} />
+  <SearchFooter count={sheetCount} />
+  <RelatedPosts page={page} pages={pages} />
 </BaseLayout>
 
 <style is:global>

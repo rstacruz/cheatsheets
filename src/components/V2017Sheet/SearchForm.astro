@@ -1,14 +1,15 @@
 ---
 import 'autocompleter/autocomplete.css'
 
-import { etc } from '../../config'
 import Icon from '~/components/Icon.astro'
 
-export type Props = {
+type BaseProps = {
   class?: string
-  /** True for the homepage */
-  isLive: boolean
 }
+
+export type Props =
+  | (BaseProps & { isLive: true })
+  | (BaseProps & { isLive?: false; count: number })
 const t = {
   prefix: 'devhints.io',
   defaultPlaceholder: 'Search {size}+ cheatsheets',
@@ -17,9 +18,10 @@ const t = {
 
 const props = Astro.props as Props
 
-let placeholder = props.isLive ? t.homePlaceholder : t.defaultPlaceholder
-
-placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
+const placeholder =
+  props.isLive === true
+    ? t.homePlaceholder
+    : t.defaultPlaceholder.replace('{size}', props.count.toString())
 ---
 
 <form class="search" action="/" method="get" data-js-search-form>

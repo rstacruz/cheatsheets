@@ -5,10 +5,6 @@ export const site = {
   title: 'Devhints.io cheatsheets'
 } as const
 
-export const etc = {
-  advertisedSheetCount: 357
-} as const
-
 export const disqus = {
   enabled: true,
   host: 'devhints.disqus.com'

@@ -1,13 +1,19 @@
 ---
 import SearchForm from './SearchForm.astro'
 import Icon from '~/components/Icon.astro'
+
+export type Props = {
+  count: number
+}
+
+const props = Astro.props as Props
 ---
 
 <footer class="search-footer" data-js-no-preview>
   <div class="container">
     <div class="search-footer-section">
       <div class="search">
-        <SearchForm class="-small" />
+        <SearchForm class="-small" count={props.count} />
       </div>
       <div class="links">
         <a class="home-button" href="/">

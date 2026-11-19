@@ -389,7 +389,7 @@ AGENTS.md                     # project, committed
 packages/web/AGENTS.md        # loads when that area is read
 ```
 
-Files combine from the global one down to the workspace; nested files load as the agent explores. V2 reads `AGENTS.md` only, not `CLAUDE.md`.
+Files combine from the global one down to the workspace; nested files load as the agent explores. Where a directory has no `AGENTS.md`, V2 falls back to `CLAUDE.md` (and `~/.claude/CLAUDE.md` globally).
 
 See: [Instructions](https://opencode.ai/docs/instructions)
 

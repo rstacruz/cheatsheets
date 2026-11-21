@@ -59,41 +59,17 @@ The desktop app bundles a daemon; Paseo does not ship a coding agent, so install
 
 See: [Server / CLI](https://paseo.sh/docs#server--cli)
 
-### Start daemon
+### First run
 
 ```bash
-paseo daemon start --home ~/paseo-test
-paseo daemon status --home ~/paseo-test
+paseo run "fix the tests"
+paseo ls
+paseo attach <id>     # stream output; Ctrl+C to detach
 ```
 
-`start` runs in the background; `status` reports the published endpoint.
+The CLI creates a local workspace for the current directory.
 
-See: [Daemon management](https://paseo.sh/docs/cli#daemon-management)
-
-### Providers
-
-```bash
-paseo provider ls
-paseo provider models claude
-paseo provider diagnostic claude
-paseo provider diagnostic codex --json
-```
-
-Provider diagnostics report the daemon's own PATH, binaries, and model count.
-
-See: [Provider diagnostics](https://paseo.sh/docs/cli#provider-diagnostics)
-
-### Select a daemon
-
-```bash
-paseo --home ~/paseo-test ls
-paseo --host devbox:6767 project ls
-paseo --host "$OFFER_URL" run "fix the failing tests"
-```
-
-Selectors work before or after the command. Two selectors yield `TARGET_AMBIGUOUS`; there is no default-port fallback.
-
-See: [Select one daemon](https://paseo.sh/docs/cli#select-one-daemon)
+See: [Quick reference](https://paseo.sh/docs/cli#quick-reference)
 
 ## Agents
 
@@ -107,7 +83,7 @@ paseo run --new-workspace worktree --worktree-mode branch-off \
   --new-branch feature/x --base origin/main "implement feature X"
 ```
 
-A bare `run` from a human shell creates a local workspace; `--no-wait` returns while the agent keeps running. `--output-schema` cannot combine with `--no-wait`.
+A bare `run` in an interactive shell creates a local workspace; `--no-wait` returns while the agent keeps running. `--output-schema` cannot combine with `--no-wait`.
 
 See: [Running agents](https://paseo.sh/docs/cli#running-agents)
 
@@ -161,7 +137,7 @@ paseo stop --all
 
 `wait` blocks until the current task finishes; `stop` is a no-op for idle agents.
 
-See: [Waiting for agents](https://paseo.sh/docs/cli#waiting-for-agents) and [Quick reference](https://paseo.sh/docs/cli#quick-reference)
+See: [Waiting for agents](https://paseo.sh/docs/cli#waiting-for-agents)
 
 ### Permissions and modes
 
@@ -171,10 +147,9 @@ paseo permit allow <id>
 paseo permit deny <id> --all
 paseo agent mode <id> --list
 paseo agent mode <id> plan
-paseo agent detach <id>
 ```
 
-`detach` changes only the parent relationship; the agent keeps running.
+Permission requests are per-agent; modes are provider-specific.
 
 See: [Permissions](https://paseo.sh/docs/cli#permissions) and [Agent modes](https://paseo.sh/docs/cli#agent-modes)
 
@@ -231,13 +206,14 @@ paseo workspace ls
 paseo workspace ls --background
 paseo workspace rename <workspace-id> "Auth rework"
 paseo workspace archive <workspace-id>
+paseo workspace setup <id>
 ```
 
 Inside an agent, `PASEO_WORKSPACE_ID` holds its own workspace ID.
 
 See: [Workspaces](https://paseo.sh/docs/cli#workspaces)
 
-## Workspace tools
+## Terminals and scripts
 
 ### Terminals
 
@@ -274,9 +250,10 @@ See: [Workspace scripts](https://paseo.sh/docs/cli#workspace-scripts) and [Scrip
 agent_id=$(paseo run --no-wait --quiet \
   --title api-agent "implement the API")
 paseo wait "$agent_id"
+paseo agent detach <id>
 ```
 
-`PASEO_AGENT_ID` makes a new run a subagent in the same workspace unless `--workspace` is set.
+`PASEO_AGENT_ID` makes a new run a subagent in the same workspace unless `--workspace` is set. Detach changes only the parent relationship and the agent keeps running.
 
 See: [Multi-agent workflows](https://paseo.sh/docs/cli#multi-agent-workflows)
 
@@ -304,7 +281,7 @@ paseo --host "$OFFER_URL" run "fix the failing tests"
 
 `--host` also accepts pairing offers; relay connections are end-to-end encrypted and SSH hosts must already run a daemon.
 
-See: [Connected hosts](https://paseo.sh/docs/cli#connected-hosts) and [Connecting to a remote daemon](https://paseo.sh/docs/cli#connecting-to-a-remote-daemon)
+See: [Connecting to a remote daemon](https://paseo.sh/docs/cli#connecting-to-a-remote-daemon)
 
 ## Schedules
 
@@ -350,7 +327,7 @@ paseo heartbeat update <id> --cron "*/10 * * * *"
 paseo heartbeat delete <id>
 ```
 
-Heartbeats need `PASEO_AGENT_ID` and raw `--cron`; only new-agent schedules accept `--every`.
+Heartbeats need `PASEO_AGENT_ID` and raw `--cron`. `--every` presets apply only to new-agent schedules.
 
 See: [Heartbeats](https://paseo.sh/docs/schedules-cli#heartbeats)
 
@@ -360,10 +337,10 @@ See: [Heartbeats](https://paseo.sh/docs/schedules-cli#heartbeats)
 
 ```bash
 paseo daemon config set daemon.listen 127.0.0.1:6799 \
-  --home ~/paseo-test
+  --home ~/.paseo
 paseo daemon config set daemon.relay.enabled false \
-  --home ~/paseo-test
-paseo daemon reload --home ~/paseo-test
+  --home ~/.paseo
+paseo daemon reload --home ~/.paseo
 ```
 
 `reload` applies runtime-safe changes and never restarts implicitly.
@@ -373,13 +350,13 @@ See: [Apply changes](https://paseo.sh/docs/configuration#apply-changes)
 ### Lifecycle
 
 ```bash
-paseo daemon start --home ~/paseo-test
-paseo daemon status --home ~/paseo-test
-paseo daemon restart --home ~/paseo-test
-paseo daemon stop --home ~/paseo-test
+paseo daemon start --home ~/.paseo
+paseo daemon status --home ~/.paseo
+paseo daemon restart --home ~/.paseo
+paseo daemon stop --home ~/.paseo
 PASEO_LISTEN=127.0.0.1:6799 \
   PASEO_RELAY_ENABLED=false \
-  paseo daemon run --home ~/paseo-test
+  paseo daemon run --home ~/.paseo
 ```
 
 `start` backgrounds the daemon; `stop --home` waits for exit; `run` stays attached with launch-time env overrides.
@@ -409,22 +386,73 @@ paseo ls -q
 paseo --no-color ls
 ```
 
-`--host` and `--home` work before or after the command; `-q` prints IDs only.
+Most commands accept these output flags; `-q` prints IDs only.
 
 See: [Global options](https://paseo.sh/docs/cli#global-options)
+
+### Select a daemon
+
+```bash
+paseo --home ~/.paseo ls
+paseo --host devbox:6767 project ls
+paseo --host "$OFFER_URL" run "fix the failing tests"
+```
+
+Selectors work before or after the command. Two selectors yield `TARGET_AMBIGUOUS`; there is no default-port fallback.
+
+See: [Select one daemon](https://paseo.sh/docs/cli#select-one-daemon)
 
 ### Environment
 
 ```bash
-PASEO_HOME=~/paseo-test paseo ls
+PASEO_HOME=~/.paseo paseo ls
 PASEO_HOST=devbox:6767 paseo ls
 echo "$PASEO_AGENT_ID"        # set inside agent sessions
 echo "$PASEO_WORKSPACE_ID"    # current agent's workspace
 ```
 
-Flags override environment selectors; setting both `PASEO_HOME` and `PASEO_HOST` without a flag fails with `TARGET_AMBIGUOUS`.
+Flags override environment selectors; the agent variables are read-only inside sessions.
 
 See: [Select one daemon](https://paseo.sh/docs/cli#select-one-daemon)
+
+### Providers
+
+```bash
+paseo provider ls
+paseo provider models claude
+paseo provider diagnostic claude
+paseo provider diagnostic codex --json
+```
+
+Provider diagnostics report the daemon's own PATH, binaries, and model count.
+
+See: [Provider diagnostics](https://paseo.sh/docs/cli#provider-diagnostics)
+
+### Usage
+
+```bash
+paseo usage
+paseo usage ls --refresh
+paseo usage inspect <report-id>
+paseo usage ls --json
+```
+
+Quota reports come from the host and `--refresh` bypasses the five-minute cache.
+
+See: [Account usage](https://paseo.sh/docs/cli#account-usage)
+
+### Hub
+
+```bash
+paseo hub status
+paseo hub login [url]
+paseo hub permissions list
+paseo hub deploy --dry-run
+```
+
+Grant `hub.execute` only to trusted automations.
+
+See: [Hub](https://paseo.sh/docs/cli#hub)
 
 ### Plugins
 

@@ -22,9 +22,7 @@ fragments:
   - "--no-checkout"
   - "--first-parent"
 intro: |
-  `git bisect` binary-searches history for a commit that introduced a bug.
-
-  Mark good and bad endpoints, test each midpoint, then reset to the original commit.
+  `git bisect` binary-searches history for a commit that introduced a bug, testing each midpoint between good and bad endpoints before reset.
 links:
   - title: git-bisect manual
     url: https://git-scm.com/docs/git-bisect

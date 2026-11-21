@@ -24,9 +24,9 @@ fragments:
   - "length($0)"
   - "sort | uniq -c"
 intro: |
-  awk is a line-by-line text processor built into every Unix. Each record
-  is matched against patterns, and each pattern runs an action.
-  This sheet uses portable awk, noting where GNU awk adds more.
+  awk is a line-by-line text processor built into every Unix. Patterns
+  match records and run actions. This sheet covers portable awk and GNU
+  extensions.
 links:
   - title: GNU awk manual
     url: https://www.gnu.org/software/gawk/manual/gawk.html

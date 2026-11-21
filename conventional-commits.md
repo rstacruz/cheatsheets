@@ -20,10 +20,9 @@ fragments:
   - "revert:"
 updated: 2026-11-16
 intro: |
-  [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a
-  commit message convention that maps commits to SemVer releases.
-  This reference covers the message grammar, the recommended types,
-  breaking-change markers, and the tooling that reads them.
+  [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) maps
+  commit messages to SemVer releases. This reference covers message grammar,
+  recommended types, breaking-change markers, and the tooling that reads them.
 links:
   - title: Conventional Commits 1.0.0
     url: https://www.conventionalcommits.org/en/v1.0.0/

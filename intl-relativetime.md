@@ -22,10 +22,9 @@ fragments:
   - "1 hr. ago"
   - "localeMatcher"
 intro: |
-  `Intl.RelativeTimeFormat` turns a signed number and a unit into a phrase
-  like "3 days ago" or "in 2 weeks". This sheet covers its constructor,
-  options, and the usual "time ago" pattern.
-  Examples run on Node 26 with full ICU and an `en-US` default locale.
+  `Intl.RelativeTimeFormat` turns a signed number and unit into phrases
+  like "3 days ago". This sheet covers options, the "time ago" pattern,
+  and Node 26 examples.
 links:
   - title: Intl.RelativeTimeFormat on MDN
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat

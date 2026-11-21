@@ -23,9 +23,9 @@ fragments:
   - "'ja-JP'"
   - "2-digit"
 intro: |
-  `Intl.DurationFormat` turns a duration record like
-  `{ hours: 1, minutes: 30 }` into locale-aware text such as "1 hr, 30 min".
-  This sheet covers its styles, per-unit options, and output methods.
+  `Intl.DurationFormat` turns `{ hours: 1, minutes: 30 }` into locale-aware
+  text like "1 hr, 30 min". This sheet covers styles, per-unit options,
+  and output methods.
 links:
   - title: Intl.DurationFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat

@@ -217,7 +217,6 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 ```bash
 $ git rebase main
 error: could not apply b0841e8... change line two on topic
-hint: You can instead skip this commit: run "git rebase --skip".
 $ git status --short
 UU story.txt
 ```
@@ -241,7 +240,7 @@ $ git -c rerere.enabled=false rebase --continue
 Successfully rebased and updated refs/heads/topic.
 ```
 
-Stage each resolved file with `git add`, then continue; `--skip` discards the patch instead.
+Git marks conflicted paths `UU`; stage each with `git add`, then run `git rebase --continue` or use `--skip` to drop the patch.
 
 See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
 

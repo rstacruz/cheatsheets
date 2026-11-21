@@ -402,7 +402,15 @@ echo $a ?? $b; // fallback
 echo $a ?: $b; // fallback
 ```
 
-`??` tests for null; `?:` tests truthiness. `?->` chains through null safely.
+#### Nullsafe
+
+```php
+<?php
+$user = null;
+echo $user?->name ?? 'guest'; // guest
+```
+
+`??` tests for null; `?:` tests truthiness. `?->` short-circuits on null.
 
 See: [Comparison operators](https://www.php.net/manual/en/language.operators.comparison.php#language.operators.comparison.coalesce)
 
@@ -494,6 +502,227 @@ echo $greet('Ada'); // Hi, Ada
 ```
 
 See: [Anonymous functions](https://www.php.net/manual/en/functions.anonymous.php)
+
+## Common tasks
+
+### Checking variables
+
+```php
+<?php
+$x = null;
+var_dump(isset($x));     // bool(false)
+var_dump(empty($x));     // bool(true)
+var_dump(is_string($x)); // bool(false)
+```
+
+#### Options array
+
+```php
+<?php
+$options = [
+    'key' => 'value',
+    'blank' => '',
+    'nothing' => null,
+];
+
+var_dump(isset($options['key']), empty($options['key']));
+var_dump(isset($options['blank']), empty($options['blank']));
+var_dump(isset($options['nothing']), empty($options['nothing']));
+```
+
+#### Output
+
+```text
+bool(true)
+bool(false)
+bool(true)
+bool(true)
+bool(false)
+bool(true)
+```
+
+`isset()` is false for null values; `empty()` also rejects `''`, `0`, and `[]`.
+
+See: [isset](https://www.php.net/manual/en/function.isset.php)
+
+### Inspecting values
+
+```php
+<?php
+$x = ['a' => 1];
+var_dump($x);
+```
+
+#### Output
+
+```text
+array(1) {
+  ["a"]=>
+  int(1)
+}
+```
+
+`var_dump()` prints types and structure.
+
+See: [var_dump](https://www.php.net/manual/en/function.var-dump.php)
+
+### JSON
+
+```php
+<?php
+$user = ['name' => 'Ada', 'roles' => ['admin', 'editor']];
+$json = json_encode($user);
+echo $json; // {"name":"Ada","roles":["admin","editor"]}
+```
+
+#### Decode
+
+```php
+<?php
+$data = json_decode('{"name":"Ada"}', true);
+echo $data['name']; // Ada
+```
+
+Pass `true` to `json_decode()` for arrays instead of objects.
+
+See: [JSON functions](https://www.php.net/manual/en/ref.json.php)
+
+### Dates and times
+
+```php
+<?php
+echo date('Y-m-d', strtotime('2026-11-21')); // 2026-11-21
+```
+
+#### DateTime
+
+```php
+<?php
+$date = new DateTime('2026-11-21');
+echo $date->format('l, F j, Y'); // Saturday, November 21, 2026
+```
+
+`DateTime` handles time zones and date arithmetic per instance.
+
+See: [DateTime](https://www.php.net/manual/en/class.datetime.php)
+
+### Regular expressions
+
+```php
+<?php
+$s = 'Call 555-1234 now';
+preg_match('/(\d{3})-(\d{4})/', $s, $m);
+echo $m[0]; // 555-1234
+echo $m[1]; // 555
+echo $m[2]; // 1234
+```
+
+#### Replace
+
+```php
+<?php
+echo preg_replace('/\s+/', '-', 'a b  c'); // a-b-c
+```
+
+See: [PCRE functions](https://www.php.net/manual/en/ref.pcre.php)
+
+### Files
+
+```php
+<?php
+file_put_contents('note.txt', "hello\n");
+echo file_get_contents('note.txt'); // hello
+```
+
+See: [Filesystem functions](https://www.php.net/manual/en/ref.filesystem.php)
+
+## Errors and exceptions
+
+### try / catch / finally
+
+```php
+<?php
+try {
+    throw new DivisionByZeroError('Division by zero');
+} catch (DivisionByZeroError $e) {
+    echo $e->getMessage(), "\n";
+} finally {
+    echo "done\n";
+}
+```
+
+#### Output
+
+```text
+Division by zero
+done
+```
+
+`finally` runs whether or not an exception was thrown.
+
+See: [Exceptions](https://www.php.net/manual/en/language.exceptions.php)
+
+### Throwing exceptions
+
+```php
+<?php
+function divide(int $a, int $b): float
+{
+    if ($b === 0) {
+        throw new InvalidArgumentException('zero divisor');
+    }
+    return $a / $b;
+}
+
+echo divide(6, 2); // 3
+```
+
+See: [throw](https://www.php.net/manual/en/language.exceptions.php#language.exceptions.throw)
+
+### Throwable hierarchy
+
+```php
+<?php
+try {
+    str_split([]);
+} catch (Throwable $e) {
+    echo get_class($e); // TypeError
+}
+```
+
+#### Hierarchy
+
+| Base         | Examples                     |
+| ------------ | ---------------------------- |
+| `Throwable`  | `Error`, `Exception`         |
+| `Error`      | `TypeError`, `ValueError`    |
+| `Exception`  | `RuntimeException`, `LogicException` |
+
+Catch `Throwable` to handle both errors and exceptions.
+
+See: [Throwable](https://www.php.net/manual/en/class.throwable.php)
+
+### Custom exceptions
+
+```php
+<?php
+class ValidationError extends RuntimeException
+{
+    public function __construct(public string $field)
+    {
+        parent::__construct("Invalid: $field");
+    }
+}
+
+try {
+    throw new ValidationError('email');
+} catch (ValidationError $e) {
+    echo $e->getMessage(); // Invalid: email
+    echo $e->field;        // email
+}
+```
+
+See: [Extending exceptions](https://www.php.net/manual/en/language.exceptions.extending.php)
 
 ## Classes and objects
 
@@ -708,228 +937,6 @@ class Service
 Attributes are read through reflection; `#[Attribute]` marks an attribute class.
 
 See: [Attributes](https://www.php.net/manual/en/language.attributes.php)
-
-## Common tasks
-
-### Checking variables
-
-```php
-<?php
-$x = null;
-var_dump(isset($x));     // bool(false)
-var_dump(empty($x));     // bool(true)
-var_dump(is_string($x)); // bool(false)
-```
-
-#### Options array
-
-```php
-<?php
-$options = [
-    'key' => 'value',
-    'blank' => '',
-    'nothing' => null,
-];
-
-var_dump(isset($options['key']), empty($options['key']));
-var_dump(isset($options['blank']), empty($options['blank']));
-var_dump(isset($options['nothing']), empty($options['nothing']));
-```
-
-#### Output
-
-```text
-bool(true)
-bool(false)
-bool(true)
-bool(true)
-bool(false)
-bool(true)
-```
-
-`isset()` is false for null values; `empty()` also rejects `''`, `0`, and `[]`.
-
-See: [isset](https://www.php.net/manual/en/function.isset.php)
-
-### Inspecting values
-
-```php
-<?php
-$x = ['a' => 1];
-var_dump($x);
-```
-
-#### Output
-
-```text
-array(1) {
-  ["a"]=>
-  int(1)
-}
-```
-
-`var_dump()` prints types and structure.
-
-See: [var_dump](https://www.php.net/manual/en/function.var-dump.php)
-
-### JSON
-
-```php
-<?php
-$user = ['name' => 'Ada', 'roles' => ['admin', 'editor']];
-$json = json_encode($user);
-echo $json; // {"name":"Ada","roles":["admin","editor"]}
-```
-
-#### Decode
-
-```php
-<?php
-$data = json_decode('{"name":"Ada"}', true);
-echo $data['name']; // Ada
-```
-
-Pass `true` to `json_decode()` for arrays instead of objects.
-
-See: [JSON functions](https://www.php.net/manual/en/ref.json.php)
-
-### Dates and times
-
-```php
-<?php
-echo date('Y-m-d', strtotime('2026-11-21')); // 2026-11-21
-```
-
-#### DateTime
-
-```php
-<?php
-$date = new DateTime('2026-11-21');
-echo $date->format('l, F j, Y'); // Saturday, November 21, 2026
-```
-
-`DateTime` handles time zones and arithmetic that `date()` cannot.
-
-See: [DateTime](https://www.php.net/manual/en/class.datetime.php)
-
-### Regular expressions
-
-```php
-<?php
-$s = 'Call 555-1234 now';
-preg_match('/(\d{3})-(\d{4})/', $s, $m);
-echo $m[1]; // 555
-echo $m[2]; // 1234
-```
-
-#### Replace
-
-```php
-<?php
-echo preg_replace('/\s+/', '-', 'a b  c'); // a-b-c
-```
-
-`$m[0]` holds the whole match; `$m[1]` onward hold capture groups.
-
-See: [PCRE functions](https://www.php.net/manual/en/ref.pcre.php)
-
-### Files
-
-```php
-<?php
-file_put_contents('note.txt', "hello\n");
-echo file_get_contents('note.txt'); // hello
-```
-
-See: [Filesystem functions](https://www.php.net/manual/en/ref.filesystem.php)
-
-## Errors and exceptions
-
-### try / catch / finally
-
-```php
-<?php
-try {
-    throw new DivisionByZeroError('Division by zero');
-} catch (DivisionByZeroError $e) {
-    echo $e->getMessage(), "\n";
-} finally {
-    echo "done\n";
-}
-```
-
-#### Output
-
-```text
-Division by zero
-done
-```
-
-`finally` runs whether or not an exception was thrown.
-
-See: [Exceptions](https://www.php.net/manual/en/language.exceptions.php)
-
-### Throwing exceptions
-
-```php
-<?php
-function divide(int $a, int $b): float
-{
-    if ($b === 0) {
-        throw new InvalidArgumentException('zero divisor');
-    }
-    return $a / $b;
-}
-
-echo divide(6, 2); // 3
-```
-
-See: [throw](https://www.php.net/manual/en/language.exceptions.php#language.exceptions.throw)
-
-### Throwable hierarchy
-
-```php
-<?php
-try {
-    str_split([]);
-} catch (Throwable $e) {
-    echo get_class($e); // TypeError
-}
-```
-
-#### Hierarchy
-
-| Base         | Examples                     |
-| ------------ | ---------------------------- |
-| `Throwable`  | `Error`, `Exception`         |
-| `Error`      | `TypeError`, `ValueError`    |
-| `Exception`  | `RuntimeException`, `LogicException` |
-
-Catch `Throwable` to handle both errors and exceptions.
-
-See: [Throwable](https://www.php.net/manual/en/class.throwable.php)
-
-### Custom exceptions
-
-```php
-<?php
-class ValidationError extends RuntimeException
-{
-    public function __construct(public string $field)
-    {
-        parent::__construct("Invalid: $field");
-    }
-}
-
-try {
-    throw new ValidationError('email');
-} catch (ValidationError $e) {
-    echo $e->getMessage(); // Invalid: email
-    echo $e->field;        // email
-}
-```
-
-See: [Extending exceptions](https://www.php.net/manual/en/language.exceptions.extending.php)
 
 ## References
 

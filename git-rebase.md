@@ -51,7 +51,7 @@ $ git rebase -i main
 $ git rebase -i --root
 ```
 
-`-i` opens the todo before replay. The other forms replay commits after `main`, or every commit back to the root.
+`-i` opens the todo before replay. `HEAD~3` takes the last three commits, `main` those after `main`, and `--root` every commit.
 
 See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
@@ -63,7 +63,7 @@ pick adc2cdb # add docs
 pick 61763ac # fix typo
 ```
 
-Git replays these lines top to bottom; deleting one drops that commit. This build prints subjects with a leading `# `.
+Git replays these lines top to bottom; deleting one drops that commit.
 
 See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
@@ -80,38 +80,18 @@ See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
-### Editor and range
-
-#### Range
-
-```bash
-$ git rebase -i HEAD~3
-$ git rebase -i main
-```
-
-#### Editors
+### Choose an editor
 
 ```bash
 $ export GIT_SEQUENCE_EDITOR=vim
 $ export GIT_EDITOR=vim
 ```
 
-`GIT_SEQUENCE_EDITOR` opens the todo; `GIT_EDITOR` opens commit messages. `HEAD~3` selects the last three commits.
+`GIT_SEQUENCE_EDITOR` opens the todo; `GIT_EDITOR` opens commit messages.
 
 See: [git rebase](https://git-scm.com/docs/git-rebase)
 
 ## Rewrite commits
-
-### Pick and reorder
-
-```text
-# p, pick <commit> = use commit
-# These lines can be re-ordered; they are executed from top to bottom.
-```
-
-Leave a line as `pick` to replay it unchanged; move lines to reorder them.
-
-See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Reword a message
 
@@ -123,9 +103,9 @@ ddc466d add user docs
 c6adc97 add base
 ```
 
-Change `pick` to `reword` in the todo; git opens the message editor, then replays later commits.
+Change `pick` to `reword` in the todo; Git opens the message editor, then replays later commits.
 
-See: [git commit](https://git-scm.com/docs/git-commit)
+See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Squash commits
 
@@ -136,9 +116,9 @@ a0639e0 add feature and docs
 c6adc97 add base
 ```
 
-Mark the second commit `squash` to fold it into the previous one; git opens a combined message editor.
+Mark the second commit `squash` to fold it into the previous one; Git opens a combined message editor.
 
-See: [git commit](https://git-scm.com/docs/git-commit)
+See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Fixup commits
 
@@ -236,7 +216,7 @@ three
 #### Finish
 
 ```bash
-$ git -c rerere.enabled=false rebase --continue
+$ git rebase --continue
 Successfully rebased and updated refs/heads/topic.
 ```
 
@@ -285,6 +265,14 @@ Prefix with `fixup!` to keep the target's message, or `squash!` to edit the comb
 See: [git commit](https://git-scm.com/docs/git-commit)
 
 ### Reorder automatically
+
+#### Command
+
+```bash
+$ git rebase -i --autosquash HEAD~5
+```
+
+#### Resulting todo
 
 ```bash
 pick 877bace # add feature

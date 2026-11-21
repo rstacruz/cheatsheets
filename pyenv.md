@@ -215,7 +215,7 @@ pyenv activate myenv
 pyenv deactivate
 ```
 
-Manual activation needs no setup; automatic activation needs `eval "$(pyenv virtualenv-init -)"` in the shell rc.
+Activation needs shell integration: load `pyenv init` and `eval "$(pyenv virtualenv-init -)"` in the shell rc. `virtualenv-init` also follows `.python-version` when changing directories.
 
 See: [Activate virtualenv](https://github.com/pyenv/pyenv-virtualenv#activate-virtualenv)
 

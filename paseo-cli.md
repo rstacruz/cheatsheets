@@ -222,7 +222,7 @@ paseo workspace create --isolation worktree \
 
 Worktree modes are `branch-off`, `checkout-branch`, and `checkout-pr`; `paseo.json` scripts attach to the worktree.
 
-See: [Scripts and services](https://paseo.sh/docs/worktrees#scripts-and-services)
+See: [Create a worktree-backed workspace](https://paseo.sh/docs/worktrees#create-a-worktree-backed-workspace)
 
 ### Manage
 

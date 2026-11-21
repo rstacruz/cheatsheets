@@ -69,7 +69,7 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 | `-o log` | Write messages to `log`           |
 | `-a log` | Append to `log`                   |
 
-`-o` overwrites; `-a` appends. `-S` prints response headers; use `-q` in scripts.
+`-o` overwrites; `-a` appends. Use `-q` in scripts.
 
 See: [Logging and input file options](https://www.gnu.org/software/wget/manual/wget.html#Logging-and-Input-File-Options), [download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
 

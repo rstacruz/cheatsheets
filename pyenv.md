@@ -48,12 +48,12 @@ links:
 ### Install
 
 ```bash
-curl -fsSL https://pyenv.run | bash
-brew install pyenv
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+curl -fsSL https://pyenv.run | bash   # installer
+brew install pyenv                    # Homebrew
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv   # manual
 ```
 
-The installer bundles pyenv-doctor, pyenv-update, and pyenv-virtualenv. Most Python versions are built from source.
+The pyenv.run installer bundles pyenv-doctor, pyenv-update, and pyenv-virtualenv. Most Python versions are built from source.
 
 See: [Installation](https://github.com/pyenv/pyenv#installation), [Build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
 
@@ -162,7 +162,7 @@ pyenv whence pip
 
 See: [pyenv which](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-which)
 
-### Reshim
+### Rehash
 
 ```bash
 pyenv rehash
@@ -268,12 +268,10 @@ See: [pyenv-update](https://github.com/pyenv/pyenv-update)
 ### Upgrade pyenv
 
 ```bash
-brew upgrade pyenv
-pyenv update
 cd "$(pyenv root)" && git pull
 ```
 
-Use the command that matches how pyenv was installed.
+For a Git checkout. Use `pyenv update` above to refresh plugins too.
 
 See: [Upgrading pyenv](https://github.com/pyenv/pyenv#upgrading)
 

@@ -32,7 +32,7 @@ links:
 
 ## Getting started
 
-### Reading standard input
+### Standard input
 
 <!-- {: .-prime} -->
 
@@ -92,9 +92,9 @@ GNU xargs runs the command once with no arguments; `-r` skips it.
 
 See: [POSIX xargs](https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/utilities/xargs.html)
 
-## Null-delimited input
+## NUL-delimited input
 
-### From find
+### NUL input from find
 
 ```bash
 $ find . -name '*.txt' -print0 | xargs -0 -n 1 echo

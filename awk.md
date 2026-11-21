@@ -26,7 +26,6 @@ fragments:
 intro: |
   awk is a line-by-line text processor built into every Unix. Each record
   is matched against patterns, and each pattern runs an action.
-
   This sheet uses portable awk, noting where GNU awk adds more.
 links:
   - title: GNU awk manual

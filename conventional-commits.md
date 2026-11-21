@@ -22,7 +22,6 @@ updated: 2026-11-16
 intro: |
   [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) is a
   commit message convention that maps commits to SemVer releases.
-
   This reference covers the message grammar, the recommended types,
   breaking-change markers, and the tooling that reads them.
 links:

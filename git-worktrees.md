@@ -24,7 +24,6 @@ updated: 2026-11-18
 intro: |
   A linked worktree is a second checkout of the same repository. It shares
   objects, refs, and config, but keeps its own HEAD, index, and files.
-
   They suit parallel branches, review, hotfixes, and one checkout per agent.
 links:
   - title: git-worktree manual

@@ -31,7 +31,6 @@ intro: |
   [MetaTags](https://github.com/kpumuk/meta-tags) sets head metadata in Rails
   apps: titles, descriptions, canonical URLs, robots directives, and social
   tags.
-
   Set tags with `set_meta_tags` in controllers or views, then render them in
   the layout with `display_meta_tags`.
 links:

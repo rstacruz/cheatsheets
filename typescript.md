@@ -22,7 +22,6 @@ tags: [Featured]
 updated: 2026-11-11
 intro: |
   TypeScript adds static types to JavaScript; types are erased at build time.
-
   `tsc` 7 is the native compiler; defaults are `strict`, `module: esnext` and `target: es2025`.
 links:
   - title: TypeScript Handbook

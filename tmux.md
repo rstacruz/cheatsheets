@@ -26,7 +26,6 @@ fragments:
 intro: |
   tmux is a terminal multiplexer: sessions keep running after you
   disconnect, and one terminal splits into windows and panes.
-
   This sheet covers the default `C-b` prefix and the commands for scripting.
 links:
   - title: tmux manual

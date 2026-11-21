@@ -25,7 +25,6 @@ intro: |
   `Intl.RelativeTimeFormat` turns a signed number and a unit into a phrase
   like "3 days ago" or "in 2 weeks". This sheet covers its constructor,
   options, and the usual "time ago" pattern.
-
   Examples run on Node 26 with full ICU and an `en-US` default locale.
 links:
   - title: Intl.RelativeTimeFormat on MDN

@@ -27,7 +27,6 @@ fragments:
 intro: |
   A date format is a pattern of tokens that tells a library how to write
   or read a date.
-
   The same format has a different spelling in every language: `%Y-%m-%d`
   in strftime, `YYYY-MM-DD` in Moment, `yyyy-MM-dd` in Java.
 links:

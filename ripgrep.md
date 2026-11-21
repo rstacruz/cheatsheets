@@ -6,25 +6,25 @@ updated: 2026-11-21
 tier: t1
 fragments:
   - "rg TODO"
+  - "-n"
   - "rg --files"
   - "rg -g '*.rs'"
-  - "-n"
   - "-C 1"
-  - "-i"
+  - "rg -i todo"
   - "-F"
+  - "rg 'TODO|FIXME'"
   - "-w"
   - "-e TODO"
-  - "-t rust"
+  - "rg -t rust TODO"
+  - "'!tests/**'"
   - "--hidden"
-  - "--no-ignore"
-  - "-l"
+  - "rg -H -n TODO"
+  - "git ls-files"
   - "-c"
+  - "-exec rg"
   - "-o"
   - "-r '$1!'"
-  - "-U"
   - "-P"
-  - "git ls-files"
-  - "-exec rg"
 keywords:
   - ripgrep
   - rg
@@ -47,8 +47,6 @@ links:
 ### Basic search
 <!-- {: .-prime} -->
 
-#### Command
-
 ```bash
 rg TODO
 ```
@@ -62,7 +60,7 @@ src/lib.rs:    // TODO: validate input
 src/main.rs:    // TODO: bind the port
 ```
 
-Each match prints its path and line; `-n` adds line numbers.
+Each match prints its path and matching line; `-n` adds line numbers.
 
 See: [ripgrep repository](https://github.com/BurntSushi/ripgrep)
 
@@ -101,7 +99,7 @@ See: `rg --help` (--files)
 
 ## Search patterns
 
-### Fixed strings and regex
+### Regex and fixed strings
 
 #### Regex
 
@@ -130,7 +128,7 @@ rg -S todo
 rg -w port
 ```
 
-`-i` ignores case; `-S` ignores case only when the pattern is all lowercase. Matching is case-sensitive by default, and `-w` requires whole words.
+Matching is case-sensitive by default; `-i` ignores case, `-S` only for all-lowercase patterns, and `-w` matches whole words.
 
 See: `rg --help` (-i, -S, -w)
 
@@ -152,7 +150,7 @@ rg 'TODO|FIXME'
 rg -e TODO -e FIXME
 ```
 
-Both forms find the same five matches; `-e` may be repeated.
+Both forms find the same matches; `-e` may be repeated.
 
 See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 
@@ -237,8 +235,6 @@ See: `rg --help` (--hidden, --no-ignore)
 ## Output and context
 
 ### Context lines
-
-#### Command
 
 ```bash
 rg -n -C 1 TODO src/main.rs
@@ -394,7 +390,7 @@ fn main() {
     // TODO: bind the port
 ```
 
-`-U` lets a pattern span lines. `(?s)` makes `.` match newlines; `--multiline-dotall` does the same for every pattern.
+`-U` lets patterns span lines; `(?s)` makes `.` match newlines, and `--multiline-dotall` applies that to every pattern.
 
 See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 
@@ -418,12 +414,12 @@ See: [PCRE2 syntax](https://pcre.org/current/doc/html/pcre2syntax.html)
 
 ### Engine selection
 
-| Flag              | Engine                  |
-| ---               | ---                     |
-| `-P`, `--pcre2`   | PCRE2                   |
-| `--engine pcre2`  | PCRE2, long form        |
-| `--no-pcre2`      | Restore the default     |
-| `--engine default`| Default regex engine    |
+| Flag               | Effect                 |
+| ---                | ---                    |
+| `-P`, `--pcre2`    | Use PCRE2              |
+| `--engine pcre2`   | Use PCRE2 (long form)  |
+| `--no-pcre2`       | Restore the default    |
+| `--engine default` | Use the default engine |
 
 See: `rg --help` (--engine)
 

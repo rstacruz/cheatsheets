@@ -23,7 +23,7 @@ fragments:
   - "uv publish"
   - "uv version"
 intro: |
-  [uv](https://docs.astral.sh/uv/) is a Python package and project manager. This reference covers project setup, dependencies, Python versions, lockfiles, environments, tools, and publishing.
+  [uv](https://docs.astral.sh/uv/) is a Python package and project manager. This reference covers project setup, dependencies, Python versions, lockfiles, syncing, tools, and publishing.
 links:
   - title: uv documentation
     url: https://docs.astral.sh/uv/
@@ -35,13 +35,13 @@ links:
 
 ## Getting started
 
-### Install
+### Install uv
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Use the PowerShell installer on Windows; `uv self update` upgrades uv.
+On Windows, use the PowerShell installer. `uv self update` upgrades uv.
 
 See: [Installation](https://docs.astral.sh/uv/getting-started/installation/)
 
@@ -60,6 +60,19 @@ uv init --bare
 Creates `pyproject.toml`, `.python-version`, `README.md` and `.gitignore`; `--bare` writes only `pyproject.toml`.
 
 See: [Creating a project](https://docs.astral.sh/uv/concepts/projects/init/)
+
+### Project version
+
+```bash
+uv version
+uv version 1.2.3
+uv version --bump minor
+uv version --dry-run
+```
+
+`uv version` reads and updates `[project].version` in `pyproject.toml`.
+
+See: [uv version](https://docs.astral.sh/uv/reference/cli/#uv-version)
 
 ## Running code
 <!-- {: .-three-column} -->
@@ -112,24 +125,23 @@ uv add --group docs mkdocs
 uv remove rich
 ```
 
-`uv add` writes `pyproject.toml` and refreshes the lockfile and `.venv`.
+`uv add` updates `pyproject.toml`, `uv.lock`, and the `.venv`.
 
 See: [Dependencies](https://docs.astral.sh/uv/concepts/projects/dependencies/)
 
 ### Groups and extras
 
 ```bash
-uv add --group dev pytest
 uv add --optional pdf reportlab
 uv sync --group docs
 uv sync --no-dev
 ```
 
-`--group` targets a dependency group; `--optional` adds an extra.
+`--dev` is shorthand for `--group dev`; `--optional` adds an extra.
 
 See: [Dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups)
 
-### Inspect the graph
+### Inspect dependencies
 
 ```bash
 uv tree
@@ -164,7 +176,7 @@ uv python pin 3.13.2
 uv python pin --global 3.13
 ```
 
-A pin writes `.python-version` and must fit the project's `requires-python`.
+A pin writes `.python-version` and must satisfy the project's `requires-python` range.
 
 See: [Python version files](https://docs.astral.sh/uv/concepts/python-versions/#python-version-files)
 
@@ -176,7 +188,7 @@ uv sync -p 3.12
 uv python find 3.12
 ```
 
-`-p` picks an interpreter for one command; `uv python find` prints its path.
+`-p` is short for `--python` and applies to one command; `uv python find` prints its path.
 
 See: [uv python find](https://docs.astral.sh/uv/reference/cli/#uv-python-find)
 
@@ -202,7 +214,7 @@ uv lock -P rich
 uv lock --upgrade-group dev
 ```
 
-`-U` upgrades everything; `-P` upgrades one package.
+`-U` upgrades all locked packages; `-P` upgrades one package.
 
 See: [Locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/#locking-and-syncing)
 
@@ -214,7 +226,7 @@ uv export --format pylock.toml -o pylock.toml
 uv export --format cyclonedx1.5 -o sbom.json
 ```
 
-Formats: `requirements.txt`, `pylock.toml`, `cyclonedx1.5` (experimental).
+`cyclonedx1.5` is experimental.
 
 See: [Exporting](https://docs.astral.sh/uv/concepts/projects/export/)
 
@@ -296,19 +308,6 @@ uv publish --trusted-publishing always
 uv publish --dry-run
 ```
 
-Prefer trusted publishing or `UV_PUBLISH_TOKEN` over a literal token.
+Trusted publishing or `$UV_PUBLISH_TOKEN` keeps a literal token out of the command.
 
 See: [Publishing packages](https://docs.astral.sh/uv/guides/package/#publishing-your-package)
-
-### Project version
-
-```bash
-uv version
-uv version 1.2.3
-uv version --bump minor
-uv version --dry-run
-```
-
-`uv version` reads and updates `[project].version` in `pyproject.toml`.
-
-See: [uv version](https://docs.astral.sh/uv/reference/cli/#uv-version)

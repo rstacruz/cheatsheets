@@ -34,7 +34,7 @@ links:
 
 ## Starting a session
 
-### Mark the endpoints
+### Step 1: Mark the endpoints
 
 #### Interactively
 
@@ -61,7 +61,15 @@ The bracketed commit is checked out; test and mark it.
 
 See: [Basic bisect commands](https://git-scm.com/docs/git-bisect#_basic_bisect_commands_start_bad_good)
 
-### Test and mark
+### Step 2: Test and mark
+
+#### Test
+
+```bash
+make test    # placeholder: your project's test command
+```
+
+#### Mark
 
 ```bash
 git bisect good    # current commit works
@@ -78,7 +86,7 @@ d093306e4c74e27178f4332bc119b125a541d286 is the first 'bad' commit
 
 See: [Basic bisect commands](https://git-scm.com/docs/git-bisect#_basic_bisect_commands_start_bad_good)
 
-### Rename the outcomes
+### Step 3: Rename the outcomes
 
 ```bash
 git bisect start --term-good=passing --term-bad=failing HEAD HEAD~7

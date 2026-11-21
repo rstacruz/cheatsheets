@@ -188,7 +188,7 @@ uv sync -p 3.12
 uv python find 3.12
 ```
 
-`-p` is short for `--python` and applies to one command; `uv python find` prints its path.
+`-p` is shorthand for `--python` and applies to one command; `uv python find` prints its path.
 
 See: [uv python find](https://docs.astral.sh/uv/reference/cli/#uv-python-find)
 

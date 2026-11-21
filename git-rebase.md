@@ -217,7 +217,6 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 ```bash
 $ git rebase main
 error: could not apply b0841e8... change line two on topic
-hint: Resolve all conflicts manually, mark them as resolved with
 hint: You can instead skip this commit: run "git rebase --skip".
 $ git status --short
 UU story.txt

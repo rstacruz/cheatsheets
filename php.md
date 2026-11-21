@@ -390,7 +390,19 @@ foreach ($fruits as $i => $fruit) {
 1: banana
 ```
 
-See: [foreach](https://www.php.net/manual/en/control-structures.foreach.php)
+#### Other loops
+
+```php
+<?php
+for ($i = 0; $i < 3; $i++) {
+    echo $i; // 012
+}
+while ($i > 0) {
+    $i--;
+}
+```
+
+See: [foreach](https://www.php.net/manual/en/control-structures.foreach.php), [for](https://www.php.net/manual/en/control-structures.for.php)
 
 ### Ternary and null coalescing
 
@@ -941,18 +953,17 @@ See: [Attributes](https://www.php.net/manual/en/language.attributes.php)
 ## References
 
 ### Official resources
+<!-- {: .-intro} -->
 
 - [PHP manual](https://www.php.net/manual/en/) _(php.net)_
 - [Language reference](https://www.php.net/manual/en/langref.php) _(php.net)_
 - [Getting started](https://www.php.net/manual/en/tutorial.php) _(php.net)_
 
-See: [PHP manual](https://www.php.net/manual/en/)
-
 ### Language reference
+<!-- {: .-intro} -->
 
 - [Basic syntax](https://www.php.net/manual/en/language.basic-syntax.php) _(php.net)_
 - [Functions](https://www.php.net/manual/en/functions.user-defined.php) _(php.net)_
 - [Classes and objects](https://www.php.net/manual/en/language.oop5.php) _(php.net)_
 - [Standard library](https://www.php.net/manual/en/ref.index.php) _(php.net)_
 
-See: [Language reference](https://www.php.net/manual/en/langref.php)

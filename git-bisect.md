@@ -24,7 +24,7 @@ fragments:
 intro: |
   `git bisect` binary-searches history for a commit that introduced a bug.
 
-  Mark a good and bad endpoint, test each midpoint, then reset to return.
+  Mark good and bad endpoints, test each midpoint, then reset to the original commit.
 links:
   - title: git-bisect manual
     url: https://git-scm.com/docs/git-bisect
@@ -59,7 +59,7 @@ Bisecting: 3 revisions left to test after this (roughly 2 steps)
 [d093306e4c74e27178f4332bc119b125a541d286] step 4 (broken)
 ```
 
-The bracketed commit is now checked out. Test it, then mark it.
+The bracketed commit is checked out; test and mark it.
 
 See: [Basic bisect commands](https://git-scm.com/docs/git-bisect#_basic_bisect_commands_start_bad_good)
 
@@ -107,7 +107,7 @@ git bisect skip                 # current commit cannot be tested
 git bisect skip HEAD~2..HEAD~1  # range of commits
 ```
 
-Reserve `skip` for commits that fail for unrelated reasons, such as a broken build. If every remaining commit is skipped, Git lists candidates.
+`skip` covers commits that fail for unrelated reasons, such as a broken build. If every remaining commit is skipped, Git lists candidates.
 
 See: [Bisect skip](https://git-scm.com/docs/git-bisect#_bisect_skip)
 
@@ -150,7 +150,7 @@ git reset --hard HEAD~3
 git bisect bad
 ```
 
-Use this when the suggested commit is unhelpful; the final mark still applies to the checked-out commit.
+When the suggested commit is unhelpful, the final mark still applies to the checked-out commit.
 
 See: [Avoiding testing a commit](https://git-scm.com/docs/git-bisect#_avoiding_testing_a_commit)
 
@@ -189,8 +189,6 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
 <!-- {: .-headers} -->
 
-A passing test returns `0`; a failing test returns `1`. Use `125` when the commit cannot be tested at all.
-
 See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
 ### Skip from a script
@@ -203,7 +201,7 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 npm test
 ```
 
-The script keeps its own test status for normal commits and returns `125` for those it cannot build.
+The script returns `125` when `package.json` is missing; otherwise `npm test` supplies the exit status.
 
 See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
@@ -263,7 +261,7 @@ Previous HEAD position was 941212d step 3 (ok)
 Switched to branch 'main'
 ```
 
-Plain `reset` returns to the starting commit; `bisect/bad` leaves you on the culprit. Either clears the session.
+Plain `reset` returns to the starting commit; `bisect/bad` leaves the bad commit checked out. Either clears the session.
 
 See: [Bisect reset](https://git-scm.com/docs/git-bisect#_bisect_reset)
 

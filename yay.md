@@ -76,19 +76,25 @@ See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 | Mode                             | What it does                       |
 | -------------------------------- | ---------------------------------- |
 | `yay`                            | Update everything (`-Syu`)         |
-| `-Y`                             | Search and install menu            |
 | `-S`, `-Si`, `-Ss`, `-Su`, `-Sc` | pacman operations with AUR support |
 | `-R`                             | Remove; also drops devel cache     |
 
 #### Yay operations
 
-| Mode        | What it does                  |
-| ----------- | ----------------------------- |
-| `-B`        | Build a local PKGBUILD        |
-| `-G`        | Download a PKGBUILD           |
-| `-P`        | Print information or config   |
-| `-W`        | Vote or unvote on the AUR     |
-| `-N`, `-a`  | Limit targets to repos or AUR |
+| Mode | What it does              |
+| ---- | ------------------------- |
+| `-Y` | Search and install menu   |
+| `-B` | Build a local PKGBUILD    |
+| `-G` | Download a PKGBUILD       |
+| `-P` | Print information or config |
+| `-W` | Vote or unvote on the AUR |
+
+#### Source options
+
+| Mode       | What it does             |
+| ---------- | ------------------------ |
+| `-N`       | Target repo packages     |
+| `-a`       | Target AUR packages      |
 
 See: [Yay operations](https://jguer.github.io/yay/man.html)
 
@@ -102,8 +108,6 @@ yay -S --needed foo     # skip packages already installed
 yay -Ss foo             # search names and descriptions
 yay -Si foo             # show details
 ```
-
-`-Ss` searches names and descriptions; `-Si` shows details before installing.
 
 See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 

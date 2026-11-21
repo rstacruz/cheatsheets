@@ -57,11 +57,12 @@ rg TODO
 
 ```
 tests/main_test.rs:// TODO: add a test
+scratch.md:TODO: untracked scratch note
 src/lib.rs:    // TODO: validate input
 src/main.rs:    // TODO: bind the port
 ```
 
-Each match prints its path, line number, and line.
+Each match prints its path and line; `-n` adds line numbers.
 
 See: [ripgrep repository](https://github.com/BurntSushi/ripgrep)
 
@@ -129,7 +130,7 @@ rg -S todo
 rg -w port
 ```
 
-`-i` always ignores case; `-S`, the default, ignores case only when the pattern is all lowercase. `-w` requires whole words.
+`-i` ignores case; `-S` ignores case only when the pattern is all lowercase. Matching is case-sensitive by default, and `-w` requires whole words.
 
 See: `rg --help` (-i, -S, -w)
 
@@ -151,7 +152,7 @@ rg 'TODO|FIXME'
 rg -e TODO -e FIXME
 ```
 
-Both forms find the same four matches; `-e` may be repeated.
+Both forms find the same five matches; `-e` may be repeated.
 
 See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 
@@ -391,7 +392,6 @@ rg -U '(?s)fn main\(\).*?TODO' src/main.rs
 fn main() {
     let port = 8080;
     // TODO: bind the port
-}
 ```
 
 `-U` lets a pattern span lines. `(?s)` makes `.` match newlines; `--multiline-dotall` does the same for every pattern.

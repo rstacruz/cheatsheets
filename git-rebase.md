@@ -33,7 +33,7 @@ links:
   - title: git-rebase manual
     url: https://git-scm.com/docs/git-rebase
   - title: "Pro Git: Rewriting History"
-    url: https://progit3.com/book/rewriting-history/
+    url: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
   - title: git-reflog manual
     url: https://git-scm.com/docs/git-reflog
 ---

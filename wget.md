@@ -2,7 +2,7 @@
 title: Wget
 subtitle: Non-interactive network downloader
 category: Networking
-updated: 2026-11-18
+updated: 2026-11-21
 tier: t1
 fragments:
   - "wget URL"
@@ -41,7 +41,7 @@ links:
 | `wget URL`    | Save to the current directory         |
 | `-i urls.txt` | Read URLs from a file (`--input-file`) |
 
-Wget runs without a UI and keeps downloading after you log out.
+Wget works without a UI; add `-b` to keep a download running after logout.
 
 See: [Invoking](https://www.gnu.org/software/wget/manual/wget.html#Invoking)
 
@@ -60,17 +60,18 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 
 ### Quiet and verbose
 
-| Flag     | Effect                                  |
-| -------- | --------------------------------------- |
-| `-q`     | Suppress all output (`--quiet`)         |
-| `-v`     | Show headers and debug (`--verbose`)    |
-| `-nv`    | Between quiet and verbose               |
-| `-o log` | Write messages to `log`                 |
-| `-a log` | Append to `log`                         |
+| Flag     | Effect                            |
+| -------- | --------------------------------- |
+| `-q`     | Suppress all output (`--quiet`)   |
+| `-v`     | Verbose output (default)          |
+| `-S`     | Print server response headers     |
+| `-nv`    | Between quiet and verbose         |
+| `-o log` | Write messages to `log`           |
+| `-a log` | Append to `log`                   |
 
 `-o` overwrites; `-a` appends. Use `-q` in scripts.
 
-See: [Logging and input file options](https://www.gnu.org/software/wget/manual/wget.html#Logging-and-Input-File-Options)
+See: [Logging and input file options](https://www.gnu.org/software/wget/manual/wget.html#Logging-and-Input-File-Options), [Download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
 
 ### Resume and timestamping
 
@@ -80,8 +81,7 @@ See: [Logging and input file options](https://www.gnu.org/software/wget/manual/w
 | `-N`          | Fetch only newer files            |
 | `--no-clobber` | Skip files that exist            |
 
-`-c`, `-N` and `-nc` answer different "file exists" cases;
-pick one rather than stacking them.
+`-c`, `-N` and `-nc` answer different "file exists" cases. `-N` and `-nc` can't be combined, and `-N` does nothing with `-O`.
 
 See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
 
@@ -207,12 +207,12 @@ See: [Recursive accept/reject options](https://www.gnu.org/software/wget/manual/
 
 ### Domains and hosts
 
-| Flag                             | Effect                    |
-| -------------------------------- | ------------------------- |
-| `--domains=example.com`          | Follow only this domain   |
-| `--exclude-domains=ads.example.com` | Skip a specific host   |
+| Flag                                | Effect                      |
+| ----------------------------------- | --------------------------- |
+| `--domains=example.com`             | Limit spanning to a domain  |
+| `--exclude-domains=ads.example.com` | Exclude a domain            |
 
-`--domains` includes subdomains and accepts comma-separated names.
+Comma-separated; subdomains match, but spanning needs `--span-hosts`.
 
 See: [Recursive accept/reject options](https://www.gnu.org/software/wget/manual/wget.html#Recursive-Accept_002fReject-Options)
 
@@ -225,7 +225,7 @@ See: [Recursive accept/reject options](https://www.gnu.org/software/wget/manual/
 
 Patterns match directory names in the URL path.
 
-See: [Directory-based limits](https://www.gnu.org/software/wget/manual/wget.html#Directory-Based-Limits)
+See: [Directory-based limits](https://www.gnu.org/software/wget/manual/wget.html#Directory_002dBased-Limits)
 
 ### Link following
 
@@ -278,12 +278,12 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 
 ### Quota and background
 
-| Flag          | Effect                              |
-| ------------- | ----------------------------------- |
-| `--quota=100m` | Stop after 100 MB downloaded      |
-| `-b`          | Detach and keep downloading         |
+| Flag           | Effect                          |
+| -------------- | ------------------------------- |
+| `--quota=100m` | Cap a batch download at 100 MB  |
+| `-b`           | Detach and keep downloading     |
 
-Background output goes to `wget-log` unless `-o` is set.
+Quota ignores single files; `-b` logs to `wget-log` unless `-o` is set.
 
 See: [Basic startup options](https://www.gnu.org/software/wget/manual/wget.html#Basic-Startup-Options)
 
@@ -315,6 +315,11 @@ wget --header='Authorization: Bearer TOKEN' \
 ```bash
 # Check a URL without downloading
 wget --spider -q https://example.com && echo OK
+```
+
+```bash
+# Show response headers
+wget -S --spider https://example.com
 ```
 
 See: [Examples](https://www.gnu.org/software/wget/manual/wget.html#Examples)

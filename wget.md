@@ -280,7 +280,7 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 
 | Flag           | Effect                          |
 | -------------- | ------------------------------- |
-| `--quota=100m` | Cap a recursive crawl at 100 MB |
+| `--quota=100m` | Cap a batch download at 100 MB  |
 | `-b`           | Detach and keep downloading     |
 
 Quota ignores single files; `-b` logs to `wget-log` unless `-o` is set.

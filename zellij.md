@@ -176,7 +176,7 @@ M-p          TogglePaneInGroup
 M-Shift-p    ToggleGroupMarking
 ```
 
-There is no built-in `stacked` layout in 0.46.0; `C-p s` stacks the new pane.
+`C-p s` stacks the new pane.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
@@ -353,11 +353,9 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 zellij a -c work             # Attach or create
 zellij a -c -b work          # Create detached
 zellij w work                # Watch read-only
-zellij k work                # Kill a session
-zellij ls -s                 # Names only
 ```
 
-`w` watches a session, `k` kills it, and `-b` creates it in the background.
+`w` watches read-only; `-b` creates a detached session.
 
 See: [Documentation](https://zellij.dev/documentation/)
 

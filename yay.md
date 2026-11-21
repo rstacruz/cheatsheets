@@ -65,7 +65,6 @@ yay                  # refresh and upgrade everything
 yay foo              # search, then pick packages to install
 ```
 
-A bare `yay` runs `yay -Syu`; with targets it opens the selection menu.
 
 See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 
@@ -89,16 +88,16 @@ See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 | `-P` | Print information or config |
 | `-W` | Vote or unvote on the AUR |
 
-#### Source options
+#### Source flags
 
-| Mode       | What it does             |
-| ---------- | ------------------------ |
-| `-N`       | Target repo packages     |
-| `-a`       | Target AUR packages      |
+| Flag | What it does         |
+| ---- | -------------------- |
+| `-N` | Target repo packages |
+| `-a` | Target AUR packages  |
 
 See: [Yay operations](https://jguer.github.io/yay/man.html)
 
-## Install and upgrade
+## Package operations
 
 ### Search and install
 
@@ -159,7 +158,7 @@ yay -Bi ./pkg
 yay -Bi ./pkg --mflags "--skipchecksums"
 ```
 
-Only skip integrity checks for sources you trust; AUR dependencies are resolved before makepkg runs.
+AUR dependencies are resolved before makepkg runs. Only skip integrity checks for sources you trust.
 
 See: [Build options](https://jguer.github.io/yay/man.html)
 
@@ -171,7 +170,7 @@ yay -Gp foo
 yay -Gf foo
 ```
 
-`-G` uses ABS for repo packages and the AUR otherwise; `-p` prints, `-f` overwrites.
+`-G` uses ABS for repo packages and the AUR otherwise. `-p` prints; `-f` overwrites.
 
 See: [getpkgbuild options](https://jguer.github.io/yay/man.html)
 
@@ -199,7 +198,7 @@ See: [Web options](https://jguer.github.io/yay/man.html)
 
 ## Configuration
 
-### Show operations
+### Inspect info
 
 ```bash
 yay -Ps                 # installed-package statistics
@@ -214,28 +213,28 @@ yay -Pwq                # news titles only
 
 See: [Show options](https://jguer.github.io/yay/man.html)
 
-### Persist options
+### Save settings
 
 ```bash
 yay --editmenu --diffmenu=false --save
 yay --noanswerupgrade --save
 ```
 
-`--save` writes to `config.json`; answer flags pre-select menu replies.
+`--save` writes to `config.json`. `--answerupgrade` preselects a reply; `--noanswerupgrade` clears it.
 
 See: [Permanent configuration settings](https://jguer.github.io/yay/man.html)
 
 ### Common options
 
-| Flag              | Description                    |
-| ----------------- | ------------------------------ |
-| `--noconfirm`     | Skip confirmation prompts      |
-| `--needed`        | Skip already-installed packages |
-| `--mflags <flags>` | Pass options to makepkg        |
-| `--builddir <dir>` | Use another build directory    |
-| `--batchinstall`  | Queue builds before installing |
-| `--sudoloop`      | Keep sudo alive during builds  |
-| `--editmenu`      | Review PKGBUILDs before build  |
+| Flag               | Description                     |
+| ------------------ | ------------------------------- |
+| `--noconfirm`      | Skip confirmation prompts       |
+| `--needed`         | Skip already-installed packages |
+| `--mflags <flags>` | Pass options to makepkg         |
+| `--builddir <dir>` | Use another build directory     |
+| `--batchinstall`   | Queue builds before installing  |
+| `--sudoloop`       | Keep sudo alive during builds   |
+| `--editmenu`       | Review PKGBUILDs before build   |
 
 See: [Yay options](https://jguer.github.io/yay/man.html)
 

@@ -62,10 +62,7 @@ See: [Installation](https://github.com/Jguer/yay#installation)
 
 ```bash
 yay                  # refresh and upgrade everything
-yay firefox          # search, then pick packages to install
-yay -S neovim        # install from a repo or the AUR
-yay -Ss ripgrep      # search both sources
-yay -Si ripgrep      # show package details
+yay foo              # search, then pick packages to install
 ```
 
 A bare `yay` runs `yay -Syu`; with targets it opens the selection menu.
@@ -74,17 +71,24 @@ See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 
 ### Operation modes
 
-| Mode                                 | What it does                       |
-| ------------------------------------ | ---------------------------------- |
-| `yay` / `-Y`                         | Search and install menu            |
-| `-S`, `-Si`, `-Ss`, `-Su`, `-Sc`     | pacman operations with AUR support |
-| `-R`                                 | Remove; also drops devel cache     |
-| ---                                 | ---------------------------------- |
-| `-B`                                 | Build a local PKGBUILD             |
-| `-G`                                 | Download a PKGBUILD                |
-| `-P`                                 | Print information or config        |
-| `-W`                                 | Vote or unvote on the AUR          |
-| `-N`, `-a`                           | Limit targets to repos or AUR      |
+#### Pacman operations
+
+| Mode                             | What it does                       |
+| -------------------------------- | ---------------------------------- |
+| `yay`                            | Update everything (`-Syu`)         |
+| `-Y`                             | Search and install menu            |
+| `-S`, `-Si`, `-Ss`, `-Su`, `-Sc` | pacman operations with AUR support |
+| `-R`                             | Remove; also drops devel cache     |
+
+#### Yay operations
+
+| Mode        | What it does                  |
+| ----------- | ----------------------------- |
+| `-B`        | Build a local PKGBUILD        |
+| `-G`        | Download a PKGBUILD           |
+| `-P`        | Print information or config   |
+| `-W`        | Vote or unvote on the AUR     |
+| `-N`, `-a`  | Limit targets to repos or AUR |
 
 See: [Yay operations](https://jguer.github.io/yay/man.html)
 
@@ -93,21 +97,19 @@ See: [Yay operations](https://jguer.github.io/yay/man.html)
 ### Search and install
 
 ```bash
-yay foo                 # first search, then narrow the results
 yay -S foo              # install from a repo or the AUR
 yay -S --needed foo     # skip packages already installed
 yay -Ss foo             # search names and descriptions
 yay -Si foo             # show details
 ```
 
-The first search term queries both sources; the rest narrow the results.
+`-Ss` searches names and descriptions; `-Si` shows details before installing.
 
 See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 
 ### Upgrade
 
 ```bash
-yay                     # same as yay -Syu
 yay -Syu                # upgrade repo and AUR packages
 yay -Sua                # upgrade AUR packages only
 yay -Syu --devel        # also check -git packages
@@ -131,60 +133,60 @@ yay -Sc                 # clean AUR cache and untracked files
 See: [Extended pacman operations](https://jguer.github.io/yay/man.html)
 
 ## AUR workflow
+<!-- {: .-three-column} -->
 
 ### Source selection
 
 ```bash
-yay -Syu --repo         # sysupgrade: repo packages only
-yay -Syu --aur          # sysupgrade: AUR packages only
-yay -Ss foo --aur       # search the AUR only
+yay -Syu --repo
+yay -Syu --aur
+yay -Ss foo --aur
 ```
 
-Dependencies still resolve from both sources.
+`--repo` and `--aur` limit sysupgrade to one source; dependencies still resolve from both.
 
 See: [New options](https://jguer.github.io/yay/man.html)
 
 ### Build a local PKGBUILD
 
 ```bash
-yay -B ./pkg            # build in this directory
-yay -Bi ./pkg           # build and install
-yay -Bi ./pkg --mflags "--skipchecksums --skippgpcheck"
+yay -B ./pkg
+yay -Bi ./pkg
+yay -Bi ./pkg --mflags "--skipchecksums"
 ```
 
-AUR dependencies are resolved before makepkg runs.
+Only skip integrity checks for sources you trust; AUR dependencies are resolved before makepkg runs.
 
 See: [Build options](https://jguer.github.io/yay/man.html)
 
 ### Download a PKGBUILD
 
 ```bash
-yay -G foo              # fetch from ABS or the AUR
-yay -Gp foo             # print the PKGBUILD to stdout
-yay -Gf foo             # overwrite an existing ABS download
+yay -G foo
+yay -Gp foo
+yay -Gf foo
 ```
 
-`-G` uses ABS for repo packages and the AUR otherwise.
+`-G` uses ABS for repo packages and the AUR otherwise; `-p` prints, `-f` overwrites.
 
 See: [getpkgbuild options](https://jguer.github.io/yay/man.html)
 
 ### Development packages
 
 ```bash
-yay -Y --gendb          # import devel state once after migration
-yay -Syu --devel        # check -git packages on upgrade
-yay -Y --devel --save   # enable devel checks permanently
+yay -Y --gendb
+yay -Y --devel --save
 ```
 
-`--gendb` records current commits; only Git sources are tracked.
+Run `--gendb` once after migration; only Git sources are tracked.
 
 See: [First use](https://github.com/Jguer/yay#first-use)
 
 ### Voting
 
 ```bash
-yay -Wv foo             # vote for an AUR package
-yay -Wu foo             # remove your vote
+yay -Wv foo
+yay -Wu foo
 ```
 
 Voting needs `AUR_USERNAME` and `AUR_PASSWORD`.
@@ -211,7 +213,6 @@ See: [Show options](https://jguer.github.io/yay/man.html)
 ### Persist options
 
 ```bash
-yay --devel --save
 yay --editmenu --diffmenu=false --save
 yay --noanswerupgrade --save
 ```

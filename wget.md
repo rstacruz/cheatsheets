@@ -71,7 +71,7 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 
 `-o` overwrites; `-a` appends. Use `-q` in scripts.
 
-See: [Logging and input file options](https://www.gnu.org/software/wget/manual/wget.html#Logging-and-Input-File-Options), [download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
+See: [Logging and input file options](https://www.gnu.org/software/wget/manual/wget.html#Logging-and-Input-File-Options), [Download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
 
 ### Resume and timestamping
 
@@ -212,7 +212,7 @@ See: [Recursive accept/reject options](https://www.gnu.org/software/wget/manual/
 | `--domains=example.com`             | Limit spanning to a domain  |
 | `--exclude-domains=ads.example.com` | Exclude a domain            |
 
-Comma-separated; subdomains match, but spanning needs `-H`.
+Comma-separated; subdomains match, but spanning needs `--span-hosts`.
 
 See: [Recursive accept/reject options](https://www.gnu.org/software/wget/manual/wget.html#Recursive-Accept_002fReject-Options)
 

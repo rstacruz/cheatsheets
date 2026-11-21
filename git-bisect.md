@@ -18,7 +18,7 @@ fragments:
   - "125"
   - "refs/bisect/bad"
   - "HEAD~2..HEAD~1"
-  - "--term-old"
+  - "--term-good"
   - "--no-checkout"
   - "--first-parent"
 intro: |
@@ -232,14 +232,6 @@ See: [Bisect log and replay](https://git-scm.com/docs/git-bisect#_bisect_log_and
 ```bash
 git bisect reset
 git bisect replay bisect.log
-```
-
-#### Replaying
-
-```
-Bisecting: 3 revisions left to test after this (roughly 2 steps)
-[d093306e4c74e27178f4332bc119b125a541d286] step 4 (broken)
-d093306e4c74e27178f4332bc119b125a541d286 is the first 'bad' commit
 ```
 
 Delete a wrong `git bisect good` or `git bisect bad` line before replaying.

@@ -5,7 +5,7 @@ category: Shell
 updated: 2026-11-21
 tier: t1
 fragments:
-  - "xargs -n 1"
+  - "xargs -t -n 1"
   - "-print0"
   - "| xargs -0"
   - "-n 2"
@@ -16,7 +16,7 @@ fragments:
   - "-d,"
   - "a b\\0c d\\0"
   - "xargs -0 -n 1"
-  - "xargs -P 4"
+  - "xargs -0 -P 4"
   - "xargs -I {}"
   - "xargs -r"
   - "xargs -t"
@@ -207,4 +207,4 @@ See: [xargs(1)](https://man7.org/linux/man-pages/man1/xargs.1.html)
 | `-r` | Skip empty input |
 | `-P 4` | Run up to four jobs |
 
-See: [POSIX xargs](https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/utilities/xargs.html)
+See: [xargs(1)](https://man7.org/linux/man-pages/man1/xargs.1.html)

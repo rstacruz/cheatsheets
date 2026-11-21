@@ -59,7 +59,7 @@ zellij -s work -l compact   # Both
 
 See: [Documentation](https://zellij.dev/documentation/)
 
-### Attach and list
+### Attach, list, and kill
 
 ```bash
 zellij ls                    # List sessions
@@ -71,7 +71,7 @@ zellij attach -c work        # Create if missing
 zellij k work                # Kill a session
 ```
 
-`ls` aliases `list-sessions`, `a` aliases `attach`, and `k` kills a session.
+`ls` aliases `list-sessions`; `a` aliases `attach`.
 
 See: [Documentation](https://zellij.dev/documentation/)
 
@@ -99,7 +99,7 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 C-q            Quit
 C-o d          Detach
 C-g            Lock and unlock
-Enter, Esc     Back to normal mode
+Enter, Esc     Back to Normal mode
 ```
 
 `C-q` ends the session; `C-o d` leaves it running for `zellij a`.
@@ -161,7 +161,7 @@ M-f          ToggleFloatingPanes
 C-p i        TogglePanePinned
 ```
 
-`M-f` toggles every floating pane in the tab from any mode except Locked.
+`M-f` toggles every floating pane in the tab from any mode except Locked mode.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
@@ -175,8 +175,6 @@ C-p Shift-s  ToggleStackListOrientation
 M-p          TogglePaneInGroup
 M-Shift-p    ToggleGroupMarking
 ```
-
-`C-p s` stacks the new pane.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
@@ -255,9 +253,9 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 ### Mouse wheel
 
 ```text
-ScrollUp / ScrollDown        Scroll 3
-Alt ScrollUp / Alt ScrollDown  ScrollToPrompt "previous", "next"
-Ctrl ScrollUp / Ctrl ScrollDown  ResizeScroll "increase", "decrease"
+ScrollUp / ScrollDown           Scroll 3
+Alt ScrollUp / Alt ScrollDown   ScrollToPrompt "previous", "next"
+Ctrl ScrollUp / Ctrl ScrollDown ResizeScroll "increase", "decrease"
 ```
 
 Hold Shift to temporarily disable mouse handling.
@@ -355,8 +353,6 @@ zellij a -c -b work          # Create detached
 zellij w work                # Watch read-only
 ```
 
-`w` watches read-only; `-b` creates a detached session.
-
 See: [Documentation](https://zellij.dev/documentation/)
 
 ### Run a command in a pane
@@ -430,7 +426,7 @@ layout_dir "/path/to/my/layout_dir"
 mouse_mode false
 ```
 
-Set `theme` to pin a theme; omit it to follow the host palette.
+Use `theme` to pin one theme; `theme_dark` and `theme_light` follow the host palette.
 
 See: [Configuration](https://zellij.dev/documentation/configuration)
 

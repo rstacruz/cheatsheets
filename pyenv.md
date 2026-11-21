@@ -78,8 +78,6 @@ See: [pyenv init](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-i
 | `pyenv root` | Install directory |
 | `pyenv commands` | Every available command |
 
-Plugin commands appear in `pyenv commands` too.
-
 See: [Commands reference](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md)
 
 ## Python versions
@@ -171,7 +169,7 @@ pyenv rehash
 pyenv shims
 ```
 
-Installs and uninstalls reshim automatically. Run `pyenv rehash` after adding executables outside pyenv.
+pyenv reshims on installs and uninstalls. Run `pyenv rehash` after adding executables outside pyenv.
 
 See: [pyenv rehash](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-rehash)
 
@@ -226,7 +224,7 @@ pyenv local myenv
 pyenv version
 ```
 
-With `virtualenv-init` configured, entering the directory activates the environment.
+`pyenv local myenv` stores the environment name in `.python-version`.
 
 See: [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#usage)
 

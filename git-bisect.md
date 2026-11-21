@@ -197,20 +197,6 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
 See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
-### Skip from a script
-
-#### check.sh
-
-```sh
-#!/bin/sh
-[ -f package.json ] || exit 125
-npm test
-```
-
-The script returns `125` when `package.json` is missing; otherwise `npm test` supplies the exit status.
-
-See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
-
 ## Saving and resuming
 
 ### Save the log

@@ -10,7 +10,7 @@ fragments:
   - "paseo ls -a"
   - "paseo attach"
   - "paseo send"
-  - "paseo logs -f"
+  - "paseo logs <id>"
   - "paseo wait"
   - "paseo stop"
   - "--no-wait"

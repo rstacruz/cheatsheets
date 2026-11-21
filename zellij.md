@@ -161,7 +161,7 @@ M-f          ToggleFloatingPanes
 C-p i        TogglePanePinned
 ```
 
-`M-f` toggles every floating pane in the tab from any mode.
+`M-f` toggles every floating pane in the tab from any mode except Locked.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
@@ -423,7 +423,6 @@ See: [Configuration](https://zellij.dev/documentation/configuration)
 ### Theme and layout defaults
 
 ```text
-theme "default"
 theme_dark "nightfox"
 theme_light "dayfox"
 default_layout "compact"

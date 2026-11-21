@@ -109,7 +109,7 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 # These lines can be re-ordered; they are executed from top to bottom.
 ```
 
-Leave a line as `pick` to replay it unchanged; move lines to change their order.
+Leave a line as `pick` to replay it unchanged; move lines to reorder them.
 
 See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
@@ -191,7 +191,7 @@ fe338df fix typo
 c6adc97 add base
 ```
 
-Delete the todo line, or mark it `drop`, to remove the commit from the rewritten history.
+Delete the todo line, or mark it `drop`, to remove the commit.
 
 See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
@@ -255,7 +255,7 @@ adc2cdb add docs
 c6adc97 add base
 ```
 
-`--abort` prints nothing and restores the pre-rebase branch exactly.
+`--abort` restores the pre-rebase branch.
 
 See: [git rebase](https://git-scm.com/docs/git-rebase)
 
@@ -320,7 +320,7 @@ Rebasing (2/2)
 Successfully rebased and updated refs/heads/topic.
 ```
 
-Replays only `9def53e..topic` onto `main`; the topic branch's old base is excluded.
+Replays only `9def53e..topic` onto `main`.
 
 See: [Transplanting a topic branch with --onto](https://git-scm.com/docs/git-rebase#_transplanting_a_topic_branch_with_onto)
 

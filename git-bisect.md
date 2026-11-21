@@ -56,7 +56,7 @@ git bisect start HEAD v1.2.0
 
 ```
 Bisecting: 3 revisions left to test after this (roughly 2 steps)
-[54d3a03b8e30dbe3d6c45273ef21b6b9f8185918] step 4 (broken)
+[d093306e4c74e27178f4332bc119b125a541d286] step 4 (broken)
 ```
 
 The bracketed commit is now checked out. Test it, then mark it.
@@ -73,7 +73,7 @@ git bisect bad     # current commit fails
 #### Result
 
 ```
-54d3a03b8e30dbe3d6c45273ef21b6b9f8185918 is the first 'bad' commit
+d093306e4c74e27178f4332bc119b125a541d286 is the first 'bad' commit
 ```
 
 `refs/bisect/bad` points at that commit until the session is reset.
@@ -122,13 +122,13 @@ git bisect visualize --oneline
 #### Output
 
 ```
-241a3b4 step 8 (broken)
-5dfe180 step 7 (broken)
-a9ac61e step 6 (broken)
-ab90fbb step 5 (broken)
-54d3a03 step 4 (broken)
-d0b04cc step 3 (ok)
-f65a146 step 2 (ok)
+d778145 step 8 (broken)
+e3d3902 step 7 (broken)
+d27c8f4 step 6 (broken)
+1d61b4c step 5 (broken)
+d093306 step 4 (broken)
+941212d step 3 (ok)
+c835f75 step 2 (ok)
 ```
 
 #### Desktop
@@ -167,8 +167,9 @@ git bisect run ./check.sh
 ```
 running './check.sh'
 Bisecting: 0 revisions left to test after this (roughly 1 step)
-[d0b04cc09288e52ff871da6492f6c2ad81c604ef] step 3 (ok)
-54d3a03b8e30dbe3d6c45273ef21b6b9f8185918 is the first 'bad' commit
+[941212d998fb435277ab5ebf955092f2d7d3af95] step 3 (ok)
+running './check.sh'
+d093306e4c74e27178f4332bc119b125a541d286 is the first 'bad' commit
 bisect found first 'bad' commit
 ```
 
@@ -183,6 +184,7 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 | `0` | good |
 | `1`–`124` | bad |
 | `125` | skip this commit |
+| `126`–`127` | abort (bogus exit code) |
 | `128`+ | abort the run |
 
 <!-- {: .-headers} -->
@@ -197,7 +199,7 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 
 ```sh
 #!/bin/sh
-[ -f Makefile ] || exit 125
+[ -f package.json ] || exit 125
 npm test
 ```
 
@@ -216,9 +218,11 @@ git bisect log > bisect.log
 #### Log
 
 ```
-# bad: [241a3b46ef74aac4a923a9619bfe6ffa23439dc7] step 8 (broken)
-# good: [3ae89023aaae3aa4b7331dd123cf1b18ccea81cd] step 1 (ok)
+# bad: [d778145b4e9053434911b243e65b796603f12480] step 8 (broken)
+# good: [2319d13da6615005584f096d817ea027afb6e0ee] step 1 (ok)
 git bisect start 'HEAD' 'HEAD~7'
+git bisect bad d093306e4c74e27178f4332bc119b125a541d286
+git bisect good 941212d998fb435277ab5ebf955092f2d7d3af95
 ```
 
 Each mark is recorded as a command, so the log can be edited and replayed.
@@ -235,9 +239,9 @@ git bisect replay bisect.log
 #### Replaying
 
 ```
-Bisecting: 2 revisions left to test after this (roughly 2 steps)
-[94400c6e8c4c369f04d690559f9261e827830745] step 4 (broken)
-94400c6e8c4c369f04d690559f9261e827830745 is the first 'bad' commit
+Bisecting: 3 revisions left to test after this (roughly 2 steps)
+[d093306e4c74e27178f4332bc119b125a541d286] step 4 (broken)
+d093306e4c74e27178f4332bc119b125a541d286 is the first 'bad' commit
 ```
 
 Delete a wrong `git bisect good` or `git bisect bad` line before replaying.
@@ -255,7 +259,7 @@ git bisect reset HEAD
 #### Output
 
 ```
-Previous HEAD position was d0b04cc step 3 (ok)
+Previous HEAD position was 941212d step 3 (ok)
 Switched to branch 'main'
 ```
 

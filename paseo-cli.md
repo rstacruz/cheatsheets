@@ -34,8 +34,7 @@ keywords:
   - daemon
 intro: |
   [Paseo](https://paseo.sh) runs coding agents on your machines from a
-  terminal, desktop, mobile, or web client. This reference covers the
-  CLI commands, flags, and workflows.
+  terminal, desktop, mobile, or web client.
 links:
   - title: Paseo CLI reference
     url: https://paseo.sh/docs/cli
@@ -303,7 +302,7 @@ paseo --host localhost:6767 host ls --json
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
 
-`--host` also accepts pairing offers; relay connections are end to end encrypted and SSH hosts must already run a daemon.
+`--host` also accepts pairing offers; relay connections are end-to-end encrypted and SSH hosts must already run a daemon.
 
 See: [Connected hosts](https://paseo.sh/docs/cli#connected-hosts) and [Connecting to a remote daemon](https://paseo.sh/docs/cli#connecting-to-a-remote-daemon)
 
@@ -395,7 +394,7 @@ paseo daemon pair --json
 paseo --host "$OFFER_URL" ls
 ```
 
-Relay is off by default; `--relay` gives explicit consent.
+Relay is off by default; `--relay` opts in.
 
 See: [Connecting to a remote daemon](https://paseo.sh/docs/cli#connecting-to-a-remote-daemon)
 

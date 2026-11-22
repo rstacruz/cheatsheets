@@ -58,11 +58,11 @@ See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 | --- | --- |
 | Anything, anywhere | `/grill-me` |
 | A repo, one session | `/grill-with-docs` |
-| Too big for one session | `/wayfinder` |
+| Fog spans sessions | `/wayfinder` |
 | A question you must see or feel | `/prototype` |
 | A bare interview | `/grilling` |
 
-`grill-me` and `grill-with-docs` are the two user-invoked front doors; both run the same interview. Wayfinder and prototype are separate routes.
+`/grill-me` and `/grill-with-docs` are the two user-invoked front doors; both run the same interview. `/wayfinder` and `/prototype` are separate routes.
 
 See: [Front doors](https://www.aihero.dev/skills-grilling)
 
@@ -94,6 +94,8 @@ See: [grilling SKILL.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills
 ➡️ Google Workspace: staff already have accounts.
 
 You: 1 yes
+
+---
 
 ❓ **Q2** - **Existing passwords**: keep local login during rollout?
 ➡️ Keep it for one release, then remove it.
@@ -155,10 +157,10 @@ See: [The round](https://www.aihero.dev/skills-grilling)
 | Push back on a vague question | Scope belongs to you |
 | Say "I don't know" | A real answer; often a prototype signal |
 | Count rounds, not questions | Forty-six questions over four rounds is ordinary |
-| Around 200 questions | Scope is too big; split it and grill the pieces |
+| Around 200 questions | Scope signal, not a cap: split the work |
 | No question cap | A cap is out of scope on purpose |
 
-Long sessions drift into the dumb zone, where questions get worse. Ask it to wrap up, or accept the plan where it stands. Passive "agreed, agreed, agreed" answers produce confident nonsense.
+Long sessions drift into the dumb zone, where questions get worse. Ask it to wrap up, or accept the plan where it stands.
 
 See: [Long sessions and passivity](https://www.aihero.dev/skills-grill-me)
 

@@ -40,7 +40,7 @@ links:
 | Claude Code | `claude plugin install mattpocock-skills@claude-plugins-official` |
 | Codex | `codex plugin marketplace add mattpocock/skills`, then `codex plugin add mattpocock-skills@mattpocock` |
 | Copilot CLI | `copilot plugin marketplace add mattpocock/skills`, then `copilot plugin install mattpocock-skills@mattpocock` |
-| Gemini CLI | `gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering`, then the same command with `--path skills/productivity` |
+| Gemini CLI | `gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering`; `gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity` |
 | Others | `npx skills@latest add mattpocock/skills -a <agent>` |
 
 See: [Install block](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/install-block.md)
@@ -72,9 +72,9 @@ See: [Setup SKILL.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills/en
 
 ```text
 /grill-with-docs ─▶ /to-spec ─▶ /to-tickets ─▶ /implement
-        │                            │              │
-        ├─ GLOSSARY.md, ADRs          │              ├─▶ /code-review
-        └─ /wayfinder if multi-session│              └─▶ /pr ─▶ /retro
+        │                                              │
+        ├─ GLOSSARY.md, ADRs                          ├─▶ /code-review
+        └─ /wayfinder when multi-session             └─▶ /pr ─▶ /retro
 /triage ─▶ ready-for-agent ─▶ /implement
 ```
 
@@ -88,7 +88,7 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 | `/to-spec` | seam check confirmed, spec published `ready-for-agent` |
 | `/to-tickets` | numbered breakdown approved, demoable slices with blocking edges |
 | `/implement` | typecheck, single tests, full suite once, review, commit |
-| `/code-review` | resolvable fixed point, non-empty diff, two reports |
+| `/code-review` | resolvable fixed point, non-empty diff, Standards and Spec reports |
 | `/pr` | body has Summary, before/after Evidence, door and blast radius |
 
 See: [Flow map](https://www.aihero.dev/skills-ask-matt)
@@ -100,8 +100,8 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 | Unsure which skill fits | `/ask-matt` |
 | Idea is fuzzy, no repo | `/grill-me` |
 | Fuzzy, in a repo | `/grill-with-docs` |
-| Too big for one session | `/wayfinder` |
-| Decided, multi-session build | `/to-spec` |
+| Fog spans sessions | `/wayfinder` |
+| Decided, need a durable spec | `/to-spec` |
 | --- | --- |
 | Spec ready to slice | `/to-tickets` |
 | Tickets exist, ready to code | `/implement` |
@@ -196,6 +196,7 @@ _Avoid_: Bill, payment request
 
 ```md
 # Write model
+
 Orders go to Postgres; the read model is projected into Redis.
 ```
 
@@ -216,7 +217,7 @@ See: [implement](https://www.aihero.dev/skills-implement)
 
 ### TDD loop
 
-| Anti-pattern | Tell |
+| Pitfall | Tell |
 | --- | --- |
 | Implementation-coupled | Breaks on refactor, not behaviour |
 | Tautological | Assertion recomputes the expected value |
@@ -246,7 +247,7 @@ See: [code-review](https://www.aihero.dev/skills-code-review)
 | Reachable by | Examples |
 | --- | --- |
 | Human only | `/grill-me`, `/to-spec`, `/implement`, `/triage`, `/setup-matt-pocock-skills` |
-| Model or human | `grilling`, `tdd`, `code-review`, `pr` |
+| Model or human, via Skill tool | `grilling`, `tdd`, `code-review`, `pr` |
 | Never | A Skill tool call to a user-invoked skill |
 
 See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/invocation.md)

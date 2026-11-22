@@ -85,7 +85,7 @@ resources "/users", UserController do
 end
 ```
 
-Nested routes receive `:user_id` in `params`.
+Nested routes receive `"user_id"` in `params`.
 
 See: [Routing guide](https://hexdocs.pm/phoenix/routing.html)
 
@@ -130,9 +130,9 @@ See: [Scoped routes](https://hexdocs.pm/phoenix/routing.html#scoped-routes)
 
 ```sh
 $ mix phx.routes
-  GET   /users                                 UserController :index
-  GET   /users/:id                             UserController :show
-  GET   /users/:user_id/posts                  PostController :index
+GET  /users     HelloWeb.UserController :index
+GET  /users/:id HelloWeb.UserController :show
+GET  /users/:user_id/posts HelloWeb.PostController :index
 ```
 
 The output lists each verb, path, controller, and action.
@@ -219,7 +219,7 @@ mix phx.gen.context Accounts User users name:string
 mix phx.gen.schema User users name:string
 ```
 
-Generators create schemas, contexts, migrations, and tests together.
+HTML, JSON, LiveView, and context generators create tests; `phx.gen.schema` creates only a schema and migration.
 
 See: [mix phx.gen.html](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Html.html)
 
@@ -277,7 +277,11 @@ Migrations live in `priv/repo/migrations/`.
 
 ```elixir
 Phoenix.PubSub.subscribe(Hello.PubSub, "room:lobby")
-Phoenix.PubSub.broadcast(Hello.PubSub, "room:lobby", {:new_message, msg})
+Phoenix.PubSub.broadcast(
+  Hello.PubSub,
+  "room:lobby",
+  {:new_message, msg}
+)
 Phoenix.PubSub.unsubscribe(Hello.PubSub, "room:lobby")
 ```
 

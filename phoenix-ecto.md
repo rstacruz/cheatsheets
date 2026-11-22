@@ -210,15 +210,15 @@ Bulk calls bypass changesets and callbacks.
 ### Transactions
 
 ```elixir
-Repo.transaction(fn ->
-  case Repo.insert(changeset) do
-    {:ok, post} -> post
-    {:error, reason} -> Repo.rollback(reason)
+Repo.transact(fn ->
+  with {:ok, _user} <- Repo.insert(user_changeset),
+       {:ok, post} <- Repo.insert(post_changeset) do
+    {:ok, post}
   end
 end)
 ```
 
-Returns `{:ok, value}` or `{:error, reason}`; `rollback/1` aborts the transaction.
+The function must return `{:ok, value}` or `{:error, reason}`; `Repo.rollback/1` exits early.
 
 ## Queries
 

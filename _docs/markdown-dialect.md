@@ -80,6 +80,21 @@ puts "hi"
 <!-- {: .-setup data-line="1"} -->
 ````
 
+A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
+
+- Name the diagram with `accTitle:` and describe it with `accDescr:` inside the source.
+- Don't put a `title="..."` on the fence; CI rejects it.
+- Bold each node's label and add a short description after `<br>`.
+
+````md
+```mermaid
+flowchart LR
+  accTitle: Hook anatomy
+  PreToolUse["`**PreToolUse**<br>before a tool call`"]
+  PreToolUse --> Edit["`**Edit|Write**<br>either tool`"]
+```
+````
+
 ## Tables
 
 Tables use kramdown's dialect, not GFM's.

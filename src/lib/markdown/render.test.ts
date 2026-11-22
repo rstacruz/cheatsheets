@@ -186,6 +186,24 @@ it('inserts the intro card inside the first h2 section', async () => {
   `)
 })
 
+it('keeps a mermaid diagram through post-processing', async () => {
+  const input = [
+    '### Diagram',
+    '',
+    '```mermaid',
+    'flowchart LR',
+    '  accTitle: Hook anatomy',
+    '  A["A"] --> B["B"]',
+    '```'
+  ].join('\n')
+  const { html } = await render(input)
+  expect(html).toContain('<figure class="MermaidDiagram"')
+  expect(html).toContain('<pre class="mermaid MermaidDiagram__source">')
+  expect(html).toContain('Hook anatomy</figcaption>')
+  expect(html).not.toContain('language-mermaid')
+  expect(html).not.toContain('class="token')
+})
+
 it('keeps link rows out of a list that ends the intro', async () => {
   const { html } = await render('### One\nx', {
     intro: '- one\n- two',

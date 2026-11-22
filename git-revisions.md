@@ -2,7 +2,7 @@
 title: Git revisions
 subtitle: Revision syntax reference
 category: Git
-updated: 2017-10-11
+updated: 2026-11-22
 description: ""
 intro: |
   A list of revision specifications you can use with `git log` and many other Git commands. Summarized from `gitrevisions(7)` man page.
@@ -112,13 +112,15 @@ These are just the common ones, there's a lot more below! (These work in many ot
 
 ### Ranges illustration
 
-```nohighlight
-A ─┬─ E ── F ── G   master
-   │
-   └─ B ── C ── D   fix
+```mermaid
+flowchart LR
+  accTitle: Ranges illustration
+  accDescr: fix branches from A; master continues E, F, G.
+  A["`**A**`"] --> E["`**E**`"] --> F["`**F**`"]
+  F --> G["`**G**<br>master`"]
+  A --> B["`**B**`"] --> C["`**C**`"]
+  C --> D["`**D**<br>fix`"]
 ```
-
-<!-- {: .-box-chars.-setup} -->
 
 #### Examples
 

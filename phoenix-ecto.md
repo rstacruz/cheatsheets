@@ -236,6 +236,7 @@ Post
 |> where([p], p.title == ^title)
 |> order_by([p], desc: p.id)
 |> limit(5)
+|> select([p], p.title)
 |> Repo.all()
 #=> ["Hello"]
 ```

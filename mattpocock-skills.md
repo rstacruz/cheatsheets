@@ -40,7 +40,7 @@ links:
 | Claude Code | `claude plugin install mattpocock-skills@claude-plugins-official` |
 | Codex | `codex plugin marketplace add mattpocock/skills`, then `codex plugin add mattpocock-skills@mattpocock` |
 | Copilot CLI | `copilot plugin marketplace add mattpocock/skills`, then `copilot plugin install mattpocock-skills@mattpocock` |
-| Gemini CLI | `gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering`, plus `skills/productivity` |
+| Gemini CLI | `gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering`, then the same command with `--path skills/productivity` |
 | Others | `npx skills@latest add mattpocock/skills -a <agent>` |
 
 See: [Install block](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/install-block.md)
@@ -101,10 +101,11 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 | Idea is fuzzy, no repo | `/grill-me` |
 | Fuzzy, in a repo | `/grill-with-docs` |
 | Too big for one session | `/wayfinder` |
-| Aligned, want it written down | `/to-spec` |
+| Decided, multi-session build | `/to-spec` |
 | --- | --- |
-| Spec split across sessions | `/to-tickets` |
+| Spec ready to slice | `/to-tickets` |
 | Tickets exist, ready to code | `/implement` |
+| Decided, fits one session | `/implement` |
 | Whole spec, many tickets | `/implement-spec` |
 
 See: [Router](https://www.aihero.dev/skills-ask-matt)
@@ -125,13 +126,9 @@ See: [Triage](https://www.aihero.dev/skills-triage)
 
 ```text
 /grill-with-docs add SSO for the admin console
-❓ **Q1** - **Identity provider**: Okta, or Google Workspace?
-➡️ Google Workspace: staff already have accounts.
-❓ **Q2** - **Existing passwords**: keep local login during rollout?
-➡️ Keep it for one release, then remove it.
 ```
 
-Answer by number. Terms settle into `GLOSSARY.md`; only decisions passing all three ADR gates become files.
+The result is shared understanding you hand to `/to-spec`; the next sheet covers how the interview runs.
 
 See: [grill-with-docs](https://www.aihero.dev/skills-grill-with-docs)
 
@@ -151,7 +148,7 @@ See: [to-spec](https://www.aihero.dev/skills-to-spec)
 
 ```text
 /implement #43
-/code-review main...HEAD
+/code-review main
 /pr
 ```
 
@@ -190,9 +187,9 @@ See: [to-tickets](https://www.aihero.dev/skills-to-tickets)
 #### Glossary
 
 ```md
-**Order**:
-A request for goods from a customer.
-_Avoid_: Purchase, transaction
+**Invoice**:
+A request for payment sent to a customer after delivery.
+_Avoid_: Bill, payment request
 ```
 
 #### ADRs

@@ -242,7 +242,7 @@ See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents
 
 ### One at a time
 
-```yaml
+```text
 # add to your global CLAUDE.md
 When grilling, ask one question at a time.
 ```

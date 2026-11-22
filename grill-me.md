@@ -161,7 +161,6 @@ See: [Facts vs decisions](https://www.aihero.dev/skills-grilling)
 | --- | --- |
 | `/grill-me` | `grilling` |
 | `/grill-with-docs` | `grilling` and `domain-modeling` |
-| Partial load | Good interview, no paper trail |
 
 A one-line wrapper delegates with a Skill tool call. Selective installs miss the primitives; ask the agent which skills it loaded if the round has no recommendations.
 

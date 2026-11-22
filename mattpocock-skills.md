@@ -74,6 +74,8 @@ See: [grill-with-docs](https://www.aihero.dev/skills-grill-with-docs)
 /to-tickets #42
 ```
 
+/to-spec synthesises the conversation without a new interview; `/to-tickets` slices the spec into demoable work with blocking edges.
+
 See: [to-spec](https://www.aihero.dev/skills-to-spec)
 
 ### Tickets to PR
@@ -83,6 +85,8 @@ See: [to-spec](https://www.aihero.dev/skills-to-spec)
 /code-review main
 /pr
 ```
+
+One ticket per fresh context. `/implement` drives red-green tests at the agreed seams, calls review and commits; `/pr` shapes the body.
 
 See: [pr](https://www.aihero.dev/skills-pr)
 
@@ -233,6 +237,8 @@ See: [implement](https://www.aihero.dev/skills-implement)
 red   -> failing test at an agreed seam
 green -> minimum code to pass
 ```
+
+#### Pitfalls
 
 - **One slice at a time** Repeat red-green; refactoring belongs in review
 - **Implementation-coupled** Breaks on refactor, not behaviour

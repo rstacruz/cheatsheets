@@ -22,16 +22,17 @@ Min  Hour Day  Mon  Weekday
 *    *    *    *    *  command to be executed
 ```
 
-```
-┬    ┬    ┬    ┬    ┬
-│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
-│    │    │    └──────  Month    (1..12)
-│    │    └───────────  Day      (1..31)
-│    └────────────────  Hour     (0..23)
-└─────────────────────  Minute   (0..59)
-```
+#### Fields
 
-<!-- {: .-setup.-box-chars} -->
+```mermaid
+flowchart LR
+  accTitle: Cron fields
+  accDescr: Five fields in order, from minute to weekday.
+  Minute["`**Minute**<br>0..59`"] --> Hour["`**Hour**<br>0..23`"]
+  Hour --> Day["`**Day**<br>1..31`"]
+  Day --> Month["`**Month**<br>1..12`"]
+  Month --> Weekday["`**Weekday**<br>0=Sun .. 6=Sat`"]
+```
 
 ### Operators
 

@@ -190,8 +190,9 @@ it('keeps a mermaid diagram through post-processing', async () => {
   const input = [
     '### Diagram',
     '',
-    '```mermaid title="Hook anatomy"',
+    '```mermaid',
     'flowchart LR',
+    '  accTitle: Hook anatomy',
     '  A["A"] --> B["B"]',
     '```'
   ].join('\n')

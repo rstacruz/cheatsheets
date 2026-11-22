@@ -41,23 +41,23 @@ links:
 
 ### Anatomy
 
-```mermaid title="Event to handler"
+```mermaid
 flowchart LR
   accTitle: Hook anatomy
   accDescr: PreToolUse uses Edit|Write; Notification an empty matcher.
   subgraph event ["`**Event**`"]
     direction TB
-    PreToolUse["PreToolUse"]
-    Notification["Notification"]
+    PreToolUse["`**PreToolUse**<br>before a tool call`"]
+    Notification["`**Notification**<br>Claude needs input`"]
   end
   subgraph matcher ["`**Matcher group**`"]
     direction TB
-    EditWrite["Edit|Write"]
-    Empty["#quot;#quot;"]
+    EditWrite["`**Edit|Write**<br>either tool`"]
+    Empty["`**#quot;#quot;**<br>every event`"]
   end
   subgraph handler ["`**Handler**`"]
     direction TB
-    Command["command"]
+    Command["`**command**<br>runs a shell command`"]
   end
   PreToolUse --> EditWrite --> Command
   Notification --> Empty --> Command

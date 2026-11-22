@@ -297,10 +297,11 @@ describe('kramdown tables', () => {
 })
 
 describe('mermaid diagrams', () => {
-  it('renders a titled fence as a diagram figure', async () => {
+  it('renders a mermaid fence as a diagram figure', async () => {
     const input = [
-      '```mermaid title="Hook anatomy"',
+      '```mermaid',
       'flowchart LR',
+      '  accTitle: Hook anatomy',
       '  A["A"] --> B["B"]',
       '```'
     ].join('\n')
@@ -309,7 +310,7 @@ describe('mermaid diagrams', () => {
       '<figure class="MermaidDiagram" data-mermaid-diagram="">'
     )
     expect(html).toContain(
-      '<pre class="mermaid MermaidDiagram__source">flowchart LR\n  A["A"] --> B["B"]\n</pre>'
+      '<pre class="mermaid MermaidDiagram__source">flowchart LR\n  accTitle: Hook anatomy\n  A["A"] --> B["B"]\n</pre>'
     )
     expect(html).toContain(
       '<figcaption class="MermaidDiagram__caption">Hook anatomy</figcaption>'
@@ -318,20 +319,14 @@ describe('mermaid diagrams', () => {
     expect(html).not.toContain('token ')
   })
 
-  it('falls back to accTitle, then a hidden caption', async () => {
-    const titled = await renderMarkdown(
-      '```mermaid\nflowchart LR\n  accTitle: Acc title\n  A --> B\n```'
+  it('ignores fence titles and hides a fallback caption', async () => {
+    const { html } = await renderMarkdown(
+      '```mermaid title="Fence title"\nflowchart LR\n  A --> B\n```'
     )
-    expect(titled.html).toContain(
-      '<figcaption class="MermaidDiagram__caption">Acc title</figcaption>'
-    )
-
-    const untitled = await renderMarkdown(
-      '```mermaid\nflowchart LR\n  A --> B\n```'
-    )
-    expect(untitled.html).toContain(
+    expect(html).toContain(
       '<figcaption class="MermaidDiagram__caption MermaidDiagram__caption--hidden">Diagram</figcaption>'
     )
+    expect(html).not.toContain('Fence title')
   })
 
   it('does not touch other fenced languages', async () => {

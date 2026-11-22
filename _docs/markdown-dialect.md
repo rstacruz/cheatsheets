@@ -82,14 +82,16 @@ puts "hi"
 
 A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
 
-- Add `title="..."` to the fence for the visible caption; it also names the diagram for assistive tech.
-- `accTitle:` and `accDescr:` inside the source are the fallbacks.
-- Without either, the caption is a visually hidden "Diagram".
+- Name the diagram with `accTitle:` and describe it with `accDescr:` inside the source.
+- Don't put a `title="..."` on the fence; CI rejects it.
+- Bold each node's label and add a short description after `<br>`.
 
 ````md
-```mermaid title="Hook anatomy"
+```mermaid
 flowchart LR
-  PreToolUse["PreToolUse"] --> Edit["Edit|Write"]
+  accTitle: Hook anatomy
+  PreToolUse["`**PreToolUse**<br>before a tool call`"]
+  PreToolUse --> Edit["`**Edit|Write**<br>either tool`"]
 ```
 ````
 

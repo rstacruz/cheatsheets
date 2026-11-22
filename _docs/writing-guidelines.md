@@ -226,6 +226,21 @@ const fraction = (options) => (
 )
 ````
 
+### code/mermaid-fences
+
+🤖 Check: `code/mermaid-fences`.
+
+Use a `mermaid` fence for diagrams. Name it with `accTitle:` and describe it with `accDescr:` inside the source; don't put a `title="..."` on the fence. Bold each node label and add a short description after `<br>`.
+
+````md
+```mermaid
+flowchart LR
+  accTitle: Hook anatomy
+  PreToolUse["`**PreToolUse**<br>before a tool call`"]
+  PreToolUse --> Edit["`**Edit|Write**<br>either tool`"]
+```
+````
+
 ### code/data-line-in-block
 
 🤖 Check: `code/data-line-in-block`.

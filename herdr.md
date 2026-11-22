@@ -63,7 +63,7 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 #### Layout
 
-```mermaid title="Session layout"
+```mermaid
 flowchart TD
   accTitle: Herdr session layout
   accDescr: Sessions hold workspaces, tabs, and panes.

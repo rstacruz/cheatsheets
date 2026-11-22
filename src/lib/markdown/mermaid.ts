@@ -10,21 +10,14 @@ import { SKIP, visit } from 'unist-util-visit'
 /**
  * Turns ` ```mermaid ` fences into figures rendered by Mermaid in the browser.
  *
- * Titles come from the fence meta (`title="Hook anatomy"`) or the diagram's
- * own `accTitle:`, so the figure has a caption before Mermaid runs.
+ * Titles come from the diagram's own `accTitle:`, so the figure has a caption
+ * before Mermaid runs. Fence titles are deliberately ignored.
  */
 
 export const MERMAID_LANG = 'mermaid'
 
-const TITLE_META = /(?:^|\s)title=(?:"([^"]*)"|'([^']*)')/
 const ACC_TITLE = /^\s*accTitle:\s*(.+?)\s*$/m
 const ACC_DESCRIPTION = /^\s*accDescr:\s*(.+?)\s*$/m
-
-function metaTitle(meta: string | null | undefined): string | undefined {
-  if (!meta) return undefined
-  const match = TITLE_META.exec(meta)
-  return match?.[1] ?? match?.[2] ?? undefined
-}
 
 export function remarkMermaid() {
   return (tree: Root) => {
@@ -32,7 +25,7 @@ export function remarkMermaid() {
       if (node.lang !== MERMAID_LANG) return
 
       const properties: Properties = {}
-      const title = metaTitle(node.meta) ?? ACC_TITLE.exec(node.value)?.[1]
+      const title = ACC_TITLE.exec(node.value)?.[1]
       const description = ACC_DESCRIPTION.exec(node.value)?.[1]
 
       if (title) properties['data-diagram-title'] = title

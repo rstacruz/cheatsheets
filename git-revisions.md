@@ -118,8 +118,6 @@ A ─┬─ E ── F ── G   master
    └─ B ── C ── D   fix
 ```
 
-<!-- {: .-box-chars.-setup} -->
-
 #### Examples
 
 | Example | Description |

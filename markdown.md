@@ -64,15 +64,14 @@ Second paragraph,
 still one paragraph.
 ```
 
-Blank lines separate paragraphs; a single newline stays within one.
+Blank lines separate paragraphs; a single newline stays inside the paragraph.
 
 See: [Paragraphs](https://spec.commonmark.org/0.31.2/#paragraphs)
 
 ## Headings
+<!-- {: .-three-column} -->
 
 ### ATX headings
-
-#### Levels
 
 ```markdown
 # Heading 1
@@ -81,18 +80,22 @@ See: [Paragraphs](https://spec.commonmark.org/0.31.2/#paragraphs)
 #### Heading 4
 ##### Heading 5
 ###### Heading 6
-```
-
-#### Closing hashes
-
-```markdown
-## Heading 2 ##
-## Heading 2 #######
 
 ####### Seven hashes
 ```
 
-Closing `#`s may be any length when preceded by a space; seven or more opening `#`s stay literal.
+One to six `#`s, then a space or end of line; seven or more stay literal.
+
+See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
+
+### Closing hashes
+
+```markdown
+## Heading 2 ##
+## Heading 2 #######
+```
+
+Closing `#`s may be any length when preceded by a space.
 
 See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 
@@ -189,7 +192,7 @@ See: [List items](https://spec.commonmark.org/0.31.2/#list-items)
 4. Next
 ```
 
-The first number sets `start`; later numbers are ignored. `1)` also works; one to nine digits, and changing the delimiter starts a new list.
+The first number sets `start`; later numbers are ignored. `1)` also works, and markers take up to nine digits. Changing the delimiter starts a new list.
 
 See: [Lists](https://spec.commonmark.org/0.31.2/#lists)
 
@@ -307,7 +310,7 @@ See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Sche
 `` `code` ``
 ```
 
-A code span ends with a backtick run of the same length. When content starts and ends with one space, both are stripped.
+A code span opens and closes with backtick runs of the same length. When content starts and ends with one space, both are stripped.
 
 See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 

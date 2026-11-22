@@ -156,7 +156,7 @@ See: [Triage](https://www.aihero.dev/skills-triage)
 - **Human only** `/grill-me`, `/grill-with-docs`, `/to-spec`, `/implement`, `/triage`, `/setup-matt-pocock-skills`
 - **Model or human, via Skill tool** `grilling`, `tdd`, `code-review`, `pr`
 - **Never** A Skill tool call to a user-invoked skill
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/invocation.md)
 
@@ -171,7 +171,7 @@ See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents
 - **Testing Decisions** Good-test rule, modules, prior art
 - **Out of Scope** Refused work
 - **Further Notes** Anything left over
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 See: [to-spec](https://www.aihero.dev/skills-to-spec)
 
@@ -182,7 +182,7 @@ See: [to-spec](https://www.aihero.dev/skills-to-spec)
 - **Single context** Sized for one fresh context window
 - **Blocking edges** Prerequisites; work the frontier first
 - **Wide refactor** Expand, migrate in batches, then contract
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 See: [to-tickets](https://www.aihero.dev/skills-to-tickets)
 
@@ -243,7 +243,7 @@ green -> minimum code to pass
 - **One slice at a time** Repeat red-green; refactoring belongs in review
 - **Implementation-coupled** Breaks on refactor, not behaviour
 - **Tautological** Assertion recomputes the expected value
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 See: [tdd](https://www.aihero.dev/skills-tdd)
 

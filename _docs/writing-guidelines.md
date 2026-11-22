@@ -430,21 +430,21 @@ Use a list, not a table, for enumerable values — flags, file types, modes, nam
 <!-- {: .-enum} -->
 ````
 
-### lists/prose-list
+### lists/term-tiles
 
-Use `.-prose-list` for guidance cards whose items are a short term and a prose description. Items are small bordered cards in a two-column grid; the bold term sits above its description with no bullet, and an odd last item spans both columns.
+Prefer `.-term-tiles` for a card whose items pair a short term with a prose description. Use it instead of a two-column table when descriptions need a sentence or inline code.
 
-Use a two-column table instead for short mappings and reference values, such as dependencies, file paths and triage labels.
+- Bold the term; the description follows it on the same source line and renders beneath it.
+- Items are small bordered cards in a two-column grid with no bullets.
+- An odd last item spans both columns; narrow screens collapse to one column.
 
 ````md
 - **Tracer bullet** Narrow path through schema, API, UI and tests
 - **Demoable** Verifiable on its own
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 ````
 
-Descriptions may contain inline code; keep the bolded term first on the line.
-
-Command lookups stay tables with the command first; see `tables/command-first`.
+Use a two-column table for short mappings and reference values (dependencies, file paths, triage labels). Command lookups stay tables with the command first; see `tables/command-first`.
 
 ### lists/enumeration-width
 

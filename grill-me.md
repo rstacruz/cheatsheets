@@ -45,7 +45,7 @@ links:
 - **Input** A loose idea, not a plan
 - **Output** Decisions you can commit to
 - **Constraint** No repo; nothing written to disk
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 `/grill-me` runs the `grilling` primitive under another name. You type `/grill-me`; the agent never invokes it on its own. The session is stateless, so the result stays in the conversation.
 
@@ -121,7 +121,7 @@ See: [One question at a time](https://www.aihero.dev/skills-grilling)
 
 - **Plan mode on** The agent hurries to produce a plan
 - **Plan mode off** Rounds continue until the frontier is empty
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 The session ends when every branch is visited. The agent then asks you to confirm shared understanding before it acts; it does not start building on its own.
 
@@ -177,7 +177,7 @@ See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents
 - **`1 no`** Reject it
 - **`2 the second option`** Pick a listed alternative
 - **"answer the recommendation"** Use when the recommendation argues against its own question
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 Numbered answers work because the format is fixed. Add a reason when it changes what the agent asks next.
 
@@ -190,7 +190,7 @@ See: [The round](https://www.aihero.dev/skills-grilling)
 - **Count rounds, not questions** Forty-six questions over four rounds is ordinary
 - **Around 200 questions** Scope signal, not a cap: split the work
 - **No question cap** A cap is out of scope on purpose
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 Long sessions drift into the dumb zone, where questions get worse. Ask it to wrap up, or accept the plan where it stands.
 
@@ -201,7 +201,7 @@ See: [Long sessions and passivity](https://www.aihero.dev/skills-grill-me)
 - **"Agreed, agreed, agreed"** Push back or ask for more detail
 - **Scope drifting** Say so in the round
 - **End with no disagreement** You did not need the session
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 The quality of your answers decides the result. A long interview is not evidence that you decided anything.
 
@@ -211,7 +211,7 @@ See: [A conversation, not an interview](https://www.aihero.dev/skills-grill-me)
 
 - **"How should this interaction feel?"** Stop asking, build a throwaway
 - **"One long form or three pages?"** Use `/prototype`, look, then answer in one line
-<!-- {: .-prose-list} -->
+<!-- {: .-term-tiles} -->
 
 Talking cannot settle a question that needs something to react to. Building the throwaway is faster than rephrasing the same question.
 

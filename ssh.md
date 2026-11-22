@@ -150,7 +150,7 @@ Host *.internal
     ProxyJump bastion
 ```
 
-The first matching block wins, so list specific hosts before wildcards.
+For each option, the first value wins, so list specific hosts before wildcards.
 
 See: [ssh_config(5)](https://man.openbsd.org/ssh_config.5)
 

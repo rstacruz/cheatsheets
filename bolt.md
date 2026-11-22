@@ -1,6 +1,6 @@
 ---
 title: Bolt
-subtitle: Puppet automation and orchestration runner
+subtitle: Puppet task and plan runner
 category: Devops
 updated: 2026-11-22
 last_verified_with: "Bolt 4.0.0 CLI on Linux x86_64; examples cross-checked against 5.2.1 docs."
@@ -22,8 +22,9 @@ intro: |
 ### Run a command
 
 ```sh
-bolt command run whoami -t localhost
-# → rsc
+bolt command run 'echo hello world' \
+  -t localhost
+# → hello world
 ```
 
 Quotes keep spaces and shell characters together.
@@ -33,7 +34,7 @@ See: [Run Bolt](https://help.puppet.com/bolt/current/topics/running_bolt_command
 ### Run a task
 
 ```sh
-bolt task run package -t localhost \
+bolt task run package -t web \
   action=status name=vim
 ```
 
@@ -166,7 +167,7 @@ bolt apply -e "notify { 'hi': }" \
   -t localhost --noop
 ```
 
-Tasks must set `supports_noop: true` to honor `--noop`.
+`--noop` previews changes; tasks need `supports_noop: true` to honor it.
 
 See: [Apply code](https://help.puppet.com/bolt/current/topics/applying_manifest_blocks.htm)
 

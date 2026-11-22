@@ -58,6 +58,8 @@ func greetMe(name string) string {
 }
 ```
 
+#### Run it
+
 ```bash
 $ go mod init hello
 $ go run .
@@ -150,9 +152,13 @@ See: [Constants](https://go.dev/tour/basics/15)
 
 ### Strings
 
+#### Quoted
+
 ```go
 str := "Hello"
 ```
+
+#### Multiline
 
 ```go
 str := `Multiline
@@ -206,26 +212,34 @@ See: [Arrays](https://go.dev/tour/moretypes/6)
 
 ### Slices
 
+#### Literal
+
 ```go
 slice := []int{2, 3, 4}
 ```
 
+#### Byte slice
+
 ```go
 slice := []byte("Hello")
 ```
+
+#### With make
 
 ```go
 s := make([]int, 3, 5)  // len 3, cap 5
 s = append(s, 4)
 ```
 
-Slices have a dynamic size, unlike arrays.
+#### Helpers
 
 ```go
 s := []int{3, 1, 2}
 slices.Sort(s)        // [1 2 3]
 slices.Contains(s, 2) // true
 ```
+
+Slices have a dynamic size, unlike arrays.
 
 The `slices` package has generic helpers for sorting and searching.
 
@@ -247,6 +261,8 @@ See: [Maps](https://go.dev/tour/moretypes/19), [maps package](https://pkg.go.dev
 
 ### Pointers
 
+#### Dereferencing
+
 ```go
 func main() {
   b := *getPointer()
@@ -255,6 +271,8 @@ func main() {
 ```
 
 <!-- {: data-line="2"} -->
+
+#### Returning an address
 
 ```go
 func getPointer() (p *int) {
@@ -265,6 +283,8 @@ func getPointer() (p *int) {
 
 <!-- {: data-line="3"} -->
 
+#### Allocating
+
 ```go
 p := new(int)
 *p = 234
@@ -272,11 +292,13 @@ p := new(int)
 
 <!-- {: data-line="2"} -->
 
-Pointers point to a memory location of a variable. Go is fully garbage-collected and has no pointer arithmetic.
+#### New with a value
 
 ```go
 q := new(42)  // pointer to 42
 ```
+
+Pointers point to a memory location of a variable. Go is fully garbage-collected and has no pointer arithmetic.
 
 Since Go 1.26, `new` accepts an expression as the initial value.
 
@@ -344,11 +366,15 @@ See: [Switch](https://go.dev/wiki/Switch)
 
 ### For loop
 
+#### Classic
+
 ```go
 for count := 0; count <= 10; count++ {
   fmt.Println("My counter is at", count)
 }
 ```
+
+#### Over an integer
 
 ```go
 for i := range 3 {
@@ -356,7 +382,7 @@ for i := range 3 {
 }
 ```
 
-Since Go 1.22 the range clause also accepts an integer.
+#### Over an iterator
 
 ```go
 nums := slices.Values([]int{1, 2, 3})
@@ -364,6 +390,8 @@ for n := range nums {
   fmt.Println(n)
 }
 ```
+
+Since Go 1.22 the range clause also accepts an integer.
 
 Since Go 1.23 it also accepts an iterator function.
 
@@ -415,9 +443,13 @@ See: [Function literals](https://go.dev/ref/spec#Function_literals)
 
 ### Multiple return types
 
+#### Call
+
 ```go
 a, b := getMessage()
 ```
+
+#### Definition
 
 ```go
 func getMessage() (a, b string) {
@@ -447,6 +479,8 @@ See: [Named return values](https://go.dev/tour/basics/7)
 
 ### Variadic functions
 
+#### Define
+
 ```go
 func sum(nums ...int) int {
   total := 0
@@ -456,6 +490,8 @@ func sum(nums ...int) int {
   return total
 }
 ```
+
+#### Call
 
 ```go
 sum(1, 2, 3)
@@ -467,6 +503,8 @@ See: [Variadic functions](https://go.dev/ref/spec#Passing_arguments_to_..._param
 
 ### Type parameters
 
+#### Generic function
+
 ```go
 func Map[T, U any](xs []T, f func(T) U) []U {
   out := make([]U, 0, len(xs))
@@ -477,11 +515,15 @@ func Map[T, U any](xs []T, f func(T) U) []U {
 }
 ```
 
+#### Generic type
+
 ```go
 type Stack[T any] struct {
   items []T
 }
 ```
+
+#### Generic method
 
 ```go
 func (s *Stack[T]) Map[U any](f func(T) U) []U {
@@ -493,11 +535,13 @@ func (s *Stack[T]) Map[U any](f func(T) U) []U {
 }
 ```
 
-Go 1.27 allows methods to declare their own type parameters.
+#### Generic alias
 
 ```go
 type Set[T comparable] = map[T]struct{}
 ```
+
+Go 1.27 allows methods to declare their own type parameters.
 
 Since Go 1.24 a type alias may take type parameters.
 
@@ -529,10 +573,14 @@ See: [Type constraints](https://go.dev/ref/spec#Type_constraints)
 
 ### Importing
 
+#### Single imports
+
 ```go
 import "fmt"
 import "math/rand"
 ```
+
+#### Grouped imports
 
 ```go
 import (
@@ -547,12 +595,16 @@ See: [Importing](https://go.dev/tour/basics/2)
 
 ### Aliases
 
+#### Import aliases
+
 ```go
 import r "math/rand"
 import _ "embed"  // side effects
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Using an alias
 
 ```go
 r.Intn(10)
@@ -590,6 +642,8 @@ See: [Packages](https://go.dev/tour/basics/1)
 
 ### Goroutines
 
+#### Main
+
 ```go
 func main() {
   // A "channel"
@@ -608,6 +662,8 @@ func main() {
 ```
 
 <!-- {: data-line="3,6,7,8,13"} -->
+
+#### Push
 
 ```go
 func push(name string, ch chan string) {
@@ -731,10 +787,14 @@ See: [Mutex](https://pkg.go.dev/sync#Mutex)
 
 ### Errors
 
+#### Creating
+
 ```go
 err := errors.New("not found")
 err = fmt.Errorf("load %q: %w", name, err)
 ```
+
+#### Checking
 
 ```go
 if errors.Is(err, os.ErrNotExist) {
@@ -744,12 +804,16 @@ if errors.Is(err, os.ErrNotExist) {
 
 <!-- {: data-line="2"} -->
 
+#### Unwrapping
+
 ```go
 var pathErr *fs.PathError
 if errors.As(err, &pathErr) {
   fmt.Println(pathErr.Path)
 }
 ```
+
+#### Joining
 
 ```go
 err = errors.Join(err1, err2)
@@ -770,12 +834,13 @@ func main() {
 
 <!-- {: data-line="2"} -->
 
-`defer` runs a function when the surrounding function returns.
-Arguments are evaluated immediately, but the call runs later.
+`defer` runs a function when the surrounding function returns. Arguments are evaluated immediately, but the call runs later.
 
 See: [Defer, panic and recover](https://go.dev/blog/defer-panic-and-recover)
 
 ### Deferring functions
+
+#### Simple defer
 
 ```go
 func main() {
@@ -788,7 +853,7 @@ func main() {
 
 <!-- {: data-line="2,3,4"} -->
 
-Lambdas are better suited for defer blocks.
+#### Passing arguments
 
 ```go
 func main() {
@@ -802,6 +867,8 @@ func main() {
 ```
 
 <!-- {: data-line="3,4,5"} -->
+
+Lambdas are better suited for defer blocks.
 
 Arguments are evaluated when `defer` runs; a pointer argument still sees the final value.
 
@@ -829,6 +896,8 @@ See: [Defer, panic and recover](https://go.dev/blog/defer-panic-and-recover)
 
 ### Defining
 
+#### Definition
+
 ```go
 type Vertex struct {
   X int
@@ -837,6 +906,8 @@ type Vertex struct {
 ```
 
 <!-- {: data-line="1,2,3,4"} -->
+
+#### Usage
 
 ```go
 func main() {
@@ -850,14 +921,20 @@ See: [Structs](https://go.dev/tour/moretypes/2)
 
 ### Literals
 
+#### Named fields
+
 ```go
 v := Vertex{X: 1, Y: 2}
 ```
+
+#### Positional fields
 
 ```go
 // Field names can be omitted
 v := Vertex{1, 2}
 ```
+
+#### Partial fields
 
 ```go
 // Y is implicit
@@ -906,11 +983,15 @@ See: [Embedding](https://go.dev/doc/effective_go#embedding)
 
 ### Receivers
 
+#### Type
+
 ```go
 type Vertex struct {
   X, Y float64
 }
 ```
+
+#### Method
 
 ```go
 func (v Vertex) Abs() float64 {
@@ -919,6 +1000,8 @@ func (v Vertex) Abs() float64 {
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Call
 
 ```go
 v := Vertex{1, 2}
@@ -931,6 +1014,8 @@ See: [Methods](https://go.dev/tour/methods/1)
 
 ### Mutation
 
+#### Pointer receiver
+
 ```go
 func (v *Vertex) Scale(f float64) {
   v.X = v.X * f
@@ -939,6 +1024,8 @@ func (v *Vertex) Scale(f float64) {
 ```
 
 <!-- {: data-line="1"} -->
+
+#### Calling it
 
 ```go
 v := Vertex{6, 12}
@@ -1004,12 +1091,16 @@ See: [Interface values](https://go.dev/tour/methods/11)
 
 ### Type assertions
 
+#### Assertion
+
 ```go
 var v any = "hello"  // any = interface{}
 
 s, ok := v.(string)  // comma-ok
 fmt.Println(s, ok)
 ```
+
+#### Type switch
 
 ```go
 switch x := v.(type) {

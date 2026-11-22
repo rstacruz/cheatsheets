@@ -13,13 +13,15 @@ fragments:
   - "aws s3 mb"
   - "aws s3 presign"
   - "aws s3api"
+  - "s3://mybucket/"
   - "--recursive"
   - "--exclude"
+  - "file://pab.json"
   - "--dryrun"
   - "--include"
+  - "Status=Enabled"
   - "--delete"
-  - "--expires-in"
-  - "--content-type"
+  - "CRC64NVME"
 keywords:
   - aws s3 cli
   - s3 cp sync
@@ -46,8 +48,7 @@ aws s3 cp dist/ s3://mybucket/dist/ --recursive \
 aws s3 cp file.txt s3://mybucket/ --no-overwrite
 ```
 
-`--include` only re-includes files an earlier `--exclude` removed, so exclude
-`"*"` first.
+#### Options
 
 | Flag | Effect |
 | --- | --- |
@@ -60,6 +61,8 @@ aws s3 cp file.txt s3://mybucket/ --no-overwrite
 | `--no-progress` | Hide the progress bar |
 
 <!-- {: .-key-values} -->
+
+`--include` only re-includes files an earlier `--exclude` removed, so exclude `"*"` first.
 
 See: [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html)
 
@@ -85,7 +88,7 @@ aws s3 sync ./site s3://mybucket/site --dryrun
 aws s3 sync ./site s3://mybucket/site --size-only
 ```
 
-Sync copies new and changed files only, in either direction.
+#### Options
 
 | Flag | Effect |
 | --- | --- |
@@ -95,6 +98,8 @@ Sync copies new and changed files only, in either direction.
 | `--ignore-glacier-warnings` | Suppress Glacier warnings and exit code 2 |
 
 <!-- {: .-key-values} -->
+
+Sync copies new and changed files only, in either direction.
 
 See: [aws s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
 
@@ -153,7 +158,7 @@ aws s3 cp file.txt s3://mybucket/ --metadata author=me,version=2
 aws s3 cp app.js s3://mybucket/ --cache-control "max-age=31536000"
 ```
 
-Content headers are set at upload time; `head-object` reads them back.
+#### Options
 
 | Flag | Sets |
 | --- | --- |
@@ -166,9 +171,13 @@ Content headers are set at upload time; `head-object` reads them back.
 
 <!-- {: .-key-values} -->
 
+Content headers are set at upload time; `head-object` reads them back.
+
 See: [head-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/head-object.html)
 
 ### Delete
+
+#### Commands
 
 ```bash
 aws s3 rm s3://mybucket/file.txt
@@ -177,8 +186,7 @@ aws s3 rm s3://mybucket/tmp/ --recursive   # destructive
 aws s3api delete-objects --bucket mybucket --delete file://delete.json
 ```
 
-Always dry run `rm --recursive` first; it deletes every key under the prefix.
-`delete-objects` takes up to 1000 keys per call.
+#### delete.json
 
 ```json
 {
@@ -186,6 +194,8 @@ Always dry run `rm --recursive` first; it deletes every key under the prefix.
   "Quiet": true
 }
 ```
+
+Always dry run `rm --recursive` first; it deletes every key under the prefix. `delete-objects` takes up to 1000 keys per call.
 
 See: [aws s3 rm](https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html),
 [delete-objects](https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html)
@@ -209,6 +219,8 @@ See: [aws s3 mb](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html),
 
 ### Versioning and lifecycle
 
+#### Commands
+
 ```bash
 aws s3api put-bucket-versioning --bucket mybucket \
   --versioning-configuration Status=Enabled
@@ -218,8 +230,7 @@ aws s3api put-bucket-lifecycle-configuration --bucket mybucket \
   --lifecycle-configuration file://lifecycle.json
 ```
 
-Versioning keeps every overwrite; lifecycle rules expire or transition
-objects.
+#### lifecycle.json
 
 ```json
 {
@@ -235,13 +246,16 @@ objects.
 }
 ```
 
-`Expiration` only adds delete markers in a versioned bucket;
-`NoncurrentVersionExpiration` clears the old versions.
+Versioning keeps every overwrite; lifecycle rules expire or transition objects.
+
+`Expiration` only adds delete markers in a versioned bucket; `NoncurrentVersionExpiration` clears the old versions.
 
 See: [put-bucket-versioning](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-versioning.html),
 [put-bucket-lifecycle-configuration](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-lifecycle-configuration.html)
 
 ### Policies and CORS
+
+#### Commands
 
 ```bash
 aws s3api get-bucket-policy --bucket mybucket \
@@ -253,7 +267,7 @@ aws s3api put-bucket-cors --bucket mybucket \
   --cors-configuration file://cors.json
 ```
 
-ACLs (`--acl`, `--grants`) are legacy; prefer bucket policies.
+#### cors.json
 
 ```json
 {
@@ -268,10 +282,14 @@ ACLs (`--acl`, `--grants`) are legacy; prefer bucket policies.
 }
 ```
 
+ACLs (`--acl`, `--grants`) are legacy; prefer bucket policies.
+
 See: [put-bucket-policy](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-policy.html),
 [put-bucket-cors](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-bucket-cors.html)
 
 ### Static websites
+
+#### Commands
 
 ```bash
 aws s3 website s3://mybucket/ --index-document index.html \
@@ -280,8 +298,7 @@ aws s3api put-public-access-block --bucket mybucket \
   --public-access-block-configuration file://pab.json
 ```
 
-Website endpoints are public, so the bucket needs a public read policy and
-both policy blocks off. ACL blocks stay on; prefer bucket policies.
+#### pab.json
 
 ```json
 {
@@ -292,10 +309,7 @@ both policy blocks off. ACL blocks stay on; prefer bucket policies.
 }
 ```
 
-The same policy blocks must be off at account level.
-
-For private hosting, serve through CloudFront with an S3 REST origin and OAC,
-then leave every block on.
+Website endpoints are public: keep both policy blocks off at bucket and account level, and prefer bucket policies over ACLs. For private hosting, use CloudFront with an S3 REST origin and OAC.
 
 See: [Hosting a static website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 

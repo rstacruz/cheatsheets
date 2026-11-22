@@ -51,9 +51,7 @@ links:
 
 <!-- {: .-shortcuts} -->
 
-These Emacs-style keys work in every prompt that links Readline, including
-bash, psql, and python. Arrow keys work too when the terminal sends the
-expected escape sequences.
+These Emacs-style keys work in every prompt that links Readline, including bash, psql, and python. Arrow keys work too when the terminal sends the expected escape sequences.
 
 See: [Readline movement commands](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-Movement-Commands)
 
@@ -68,8 +66,7 @@ See: [Readline movement commands](https://tiswww.case.edu/php/chet/readline/read
 
 <!-- {: .-shortcuts} -->
 
-`C-w` stops only at whitespace, so it removes `--flag=value` whole. `M-DEL`
-stops at punctuation too.
+`C-w` stops only at whitespace, so it removes `--flag=value` whole. `M-DEL` stops at punctuation too.
 
 See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-Killing-Commands)
 
@@ -85,8 +82,7 @@ See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readl
 
 <!-- {: .-shortcuts} -->
 
-Killed text lands on the kill ring; press `C-y` then `M-y` to cycle older
-entries. In bash `C-u` is line discard, not the Emacs number prefix.
+Killed text lands on the kill ring; press `C-y` then `M-y` to cycle older entries. In bash `C-u` is line discard, not the Emacs number prefix.
 
 See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-Killing-Commands)
 
@@ -101,8 +97,7 @@ See: [Readline killing commands](https://tiswww.case.edu/php/chet/readline/readl
 
 <!-- {: .-shortcuts} -->
 
-Undo is remembered per history line and steps all the way back to an empty
-line. `M-r` discards the whole edit instead of one step at a time.
+Undo is remembered per history line and steps all the way back to an empty line. `M-r` discards the whole edit instead of one step at a time.
 
 See: [Miscellaneous commands](https://tiswww.case.edu/php/chet/readline/readline.html#Some-Miscellaneous-Commands)
 
@@ -114,8 +109,7 @@ M-2 M-d                     # kill two words forward
 M-5 C-h                     # delete five characters backward
 ```
 
-Digits and `M--` build a count for the next command. `C-u` is the prefix in
-stock Emacs, but bash binds it to `unix-line-discard`.
+Digits and `M--` build a count for the next command. `C-u` is the prefix in stock Emacs, but bash binds it to `unix-line-discard`.
 
 See: [Numeric arguments](https://tiswww.case.edu/php/chet/readline/readline.html#Specifying-Numeric-Arguments)
 
@@ -134,9 +128,7 @@ See: [Numeric arguments](https://tiswww.case.edu/php/chet/readline/readline.html
 
 <!-- {: .-shortcuts} -->
 
-`C-r` is the fastest way to find an earlier command: type a fragment, press
-`C-r` again to walk matches, then `RET`. `M-p` asks for a string instead of
-searching live.
+`C-r` is the fastest way to find an earlier command: type a fragment, press `C-r` again to walk matches, then `RET`. `M-p` asks for a string instead of searching live.
 
 See: [Searching for commands in the history](https://tiswww.case.edu/php/chet/readline/readline.html#Searching-for-Commands-in-the-History)
 
@@ -157,8 +149,7 @@ sudo !!                     # sudo apt install ripgrep
 | `!string` | Most recent command starting with string |
 | `!?string?` | Most recent command containing string |
 
-Event designators pick the history entry to reuse; `!n` takes the number
-printed by `history`.
+Event designators pick the history entry to reuse; `!n` takes the number printed by `history`.
 
 See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Event-Designators.html)
 
@@ -201,8 +192,7 @@ cd !$:h                     # cd /usr/local
 | `!$:h` | Directory part of the last word |
 | `!$:t` | Filename part of the last word |
 
-Single quotes suppress expansion, a backslash escapes `!`, and `set +H` turns
-it off for the session. Add `:p` to any designator to preview the result.
+Single quotes suppress expansion, a backslash escapes `!`, and `set +H` turns it off for the session. Add `:p` to any designator to preview the result.
 
 See: [Modifiers](https://www.gnu.org/software/bash/manual/html_node/Modifiers.html)
 
@@ -230,8 +220,7 @@ shopt -s histappend
 | `HISTFILESIZE` | Entries kept in the history file |
 | `histappend` | Append on exit instead of overwriting |
 
-`HISTIGNORE` patterns must match the whole line, and `&` matches the previous
-history line. Prefix a one-off command with a space once `ignorespace` is set.
+`HISTIGNORE` patterns must match the whole line, and `&` matches the previous history line. Prefix a one-off command with a space once `ignorespace` is set.
 
 See: [Bash variables](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html)
 
@@ -249,9 +238,7 @@ set bell-style none
 set history-size 10000
 ```
 
-`show-all-if-ambiguous` lists completions on the first TAB. Bracketed paste
-inserts a pasted block as one string instead of running each character as a
-key. `history-size` caps Readline's list; in bash raise `HISTSIZE` too.
+`show-all-if-ambiguous` lists completions on the first TAB. Bracketed paste inserts a pasted block as one string instead of running each character as a key. `history-size` caps Readline's list; in bash raise `HISTSIZE` too.
 
 See: [Init file syntax](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html)
 
@@ -263,9 +250,7 @@ See: [Init file syntax](https://www.gnu.org/software/bash/manual/html_node/Readl
 "\e[A": history-search-backward
 ```
 
-`C-x C-r` reloads `~/.inputrc`. Binding `\e[A` to `history-search-backward`
-makes Up search by the prefix already typed. Keys are written `\C-a`
-(Control), `\M-a` (Meta), or spelled out (`Control-u`).
+`C-x C-r` reloads `~/.inputrc`. Binding `\e[A` to `history-search-backward` makes Up search by the prefix already typed. Keys are written `\C-a` (Control), `\M-a` (Meta), or spelled out (`Control-u`).
 
 See: [Readline init file](https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html)
 
@@ -276,8 +261,7 @@ See: [Readline init file](https://www.gnu.org/software/bash/manual/html_node/Rea
 "\C-g": "git status\C-m"
 ```
 
-A macro inserts its text into the line. A trailing `\C-m` presses Return, so
-the second macro runs `git status`.
+A macro inserts its text into the line. A trailing `\C-m` presses Return, so the second macro runs `git status`.
 
 See: [Keyboard macros](https://tiswww.case.edu/php/chet/readline/readline.html#Keyboard-Macros)
 
@@ -297,9 +281,7 @@ $if mode=vi
 $endif
 ```
 
-`$if` tests the application, the editing mode, the terminal, or the Readline
-version. Close each branch with `$endif`; `$else` adds an alternative.
-`$include` reads another init file.
+`$if` tests the application, the editing mode, the terminal, or the Readline version. Close each branch with `$endif`; `$else` adds an alternative. `$include` reads another init file.
 
 See: [Conditional init constructs](https://tiswww.case.edu/php/chet/readline/readline.html#Conditional-Init-Constructs)
 
@@ -319,9 +301,7 @@ set editing-mode vi
 set -o vi
 ```
 
-`Esc` enters command mode; `i`, `a`, `I`, and `A` return to insert mode.
-`set -o vi` changes the running shell, while the inputrc line covers new
-sessions.
+`Esc` enters command mode; `i`, `a`, `I`, and `A` return to insert mode. `set -o vi` changes the running shell, while the inputrc line covers new sessions.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 
@@ -335,8 +315,7 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 | `0` / `$` | Start / end of line |
 | `f` / `t` | Jump to a character |
 
-`Esc` leaves insert mode. Readline implements the POSIX `sh` vi subset, not
-full vi; motions take an operator such as `d` or `c`.
+`Esc` leaves insert mode. Readline implements the POSIX `sh` vi subset, not full vi; motions take an operator such as `d` or `c`.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 
@@ -352,8 +331,7 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 | `p` / `P` | Paste after / before |
 | `u` | Undo |
 
-`i` and `a` return to insert mode. An operator plus a motion edits a range,
-so `d$` deletes to the end of the line.
+`i` and `a` return to insert mode. An operator plus a motion edits a range, so `d$` deletes to the end of the line.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 
@@ -364,8 +342,7 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 | `/` / `?` | Search the history |
 | `n` / `N` | Next / previous match |
 
-Searches walk the command history; `n` repeats the match and `N` reverses the
-direction.
+Searches walk the command history; `n` repeats the match and `N` reverses the direction.
 
 See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#Readline-vi-Mode)
 
@@ -384,8 +361,7 @@ set keymap vi-insert
 bind -m vi-insert '"\C-l": clear-screen'
 ```
 
-Keymaps keep vi insert and command bindings apart: `vi-insert`, `vi-command`,
-`emacs-standard`, `emacs-ctlx`. `bind -m` changes one without an inputrc edit.
+Keymaps keep vi insert and command bindings apart: `vi-insert`, `vi-command`, `emacs-standard`, `emacs-ctlx`. `bind -m` changes one without an inputrc edit.
 
 See: [Keymaps](https://tiswww.case.edu/php/chet/readline/readline.html#Keymaps)
 
@@ -408,8 +384,7 @@ bind -x '"\C-x\C-w": git status'
 bind -m vi-insert '"\C-l": clear-screen'
 ```
 
-`bind -x` runs a shell command; the buffer is in `READLINE_LINE` and the
-cursor in `READLINE_POINT`. `bind -m keymap` scopes a binding to one keymap.
+`bind -x` runs a shell command; the buffer is in `READLINE_LINE` and the cursor in `READLINE_POINT`. `bind -m keymap` scopes a binding to one keymap.
 
 See: [Bash builtins: bind](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
@@ -424,8 +399,7 @@ readline.parse_and_bind('"\\C-l": clear-screen')
 name = input("Name: ")
 ```
 
-Importing `readline` makes `input()` use Readline, so the keys on this sheet
-apply. `parse_and_bind` takes the same syntax as `~/.inputrc`.
+Importing `readline` makes `input()` use Readline, so the keys on this sheet apply. `parse_and_bind` takes the same syntax as `~/.inputrc`.
 
 See: [Python readline](https://docs.python.org/3/library/readline.html)
 

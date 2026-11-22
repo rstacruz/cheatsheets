@@ -55,6 +55,8 @@ See: [Variables](https://kotlinlang.org/docs/basic-syntax.html#variables)
 
 ### Strings
 
+#### Templates
+
 ```kotlin
 val name = "Adam"
 val greeting = "Hello, " + name
@@ -62,7 +64,7 @@ val template = "Hello, $name"
 val upper = "Hi, ${name.uppercase()}"
 ```
 
-String templates interpolate values with `$name` or `${expression}`.
+#### Multiline
 
 ```kotlin
 val raw = """
@@ -70,11 +72,15 @@ val raw = """
 """.trimIndent()
 ```
 
-Triple-quoted strings keep escapes and layout literal; `trimIndent()` strips shared indentation.
+#### Multi-dollar
 
 ```kotlin
 val json = $$"""{ "id": $${id} }"""
 ```
+
+String templates interpolate values with `$name` or `${expression}`.
+
+Triple-quoted strings keep escapes and layout literal; `trimIndent()` strips shared indentation.
 
 `$$` sets how many dollars start an interpolation, for text like JSON.
 
@@ -121,8 +127,6 @@ Members are accessed through the class name, like statics in Java. Use `const va
 See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ## Null safety
-
-<!-- {: .-two-column} -->
 
 ### Nullable types
 
@@ -196,8 +200,6 @@ val car: Car? = input as? Car
 See: [Safe casts](https://kotlinlang.org/docs/null-safety.html#safe-casts)
 
 ## Collections
-
-<!-- {: .-two-column} -->
 
 ### Creation
 
@@ -298,8 +300,6 @@ val total = items.sumOf { it.price }
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
 
 ## Functions
-
-<!-- {: .-two-column} -->
 
 ### Parameters & return types
 
@@ -408,8 +408,6 @@ See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#co
 
 ## Classes
 
-<!-- {: .-two-column} -->
-
 ### Primary constructor
 
 ```kotlin
@@ -472,8 +470,6 @@ Classes are final by default; mark them `open` to allow subclassing. Interfaces 
 See: [Inheritance](https://kotlinlang.org/docs/inheritance.html), [Interfaces](https://kotlinlang.org/docs/interfaces.html)
 
 ## Control flow
-
-<!-- {: .-two-column} -->
 
 ### If statements
 
@@ -559,11 +555,7 @@ See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
 ## Destructuring declarations
 
-<!-- {: .-two-column} -->
-
 ### Objects & lists
-
-Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and map entries.
 
 #### Data classes
 
@@ -592,6 +584,8 @@ for ((key, value) in scores) {
     print("$key = $value")
 }
 ```
+
+Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and map entries.
 
 See: [Destructuring declarations](https://kotlinlang.org/docs/destructuring-declarations.html)
 

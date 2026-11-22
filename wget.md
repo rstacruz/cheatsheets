@@ -150,8 +150,7 @@ See: [HTTP options](https://www.gnu.org/software/wget/manual/wget.html#HTTP-Opti
 | `--password=secret`  | Password                          |
 | `.netrc`             | Keep credentials out of the process list |
 
-Command-line credentials appear in process listings; prefer
-a `.netrc` entry with `machine`, `login` and `password`.
+Command-line credentials appear in process listings; prefer a `.netrc` entry with `machine`, `login` and `password`.
 
 See: [HTTP options](https://www.gnu.org/software/wget/manual/wget.html#HTTP-Options)
 

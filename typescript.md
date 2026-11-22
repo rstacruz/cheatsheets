@@ -257,6 +257,8 @@ See: [Conditional types](https://www.typescriptlang.org/docs/handbook/2/conditio
 
 ### infer
 
+#### Return type
+
 ```ts
 type GetReturn<T> = T extends (...args: unknown[]) => infer R
   ? R
@@ -264,6 +266,8 @@ type GetReturn<T> = T extends (...args: unknown[]) => infer R
 
 type Num = GetReturn<() => number>  // number
 ```
+
+#### First element
 
 ```ts
 type First<T extends unknown[]> =
@@ -324,6 +328,8 @@ See: [Declaring `this`](https://www.typescriptlang.org/docs/handbook/2/functions
 
 ### Type predicates
 
+#### Custom guard
+
 ```ts
 function isString(x: unknown): x is string {
   return typeof x === 'string'
@@ -333,6 +339,8 @@ if (isString(value)) {
   value.toUpperCase()
 }
 ```
+
+#### Inferred filter
 
 ```ts
 const mixed = [1, 'a', 2]

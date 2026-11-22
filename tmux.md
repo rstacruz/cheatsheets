@@ -27,9 +27,7 @@ fragments:
   - "kill-session"
   - "C-b {"
 intro: |
-  tmux is a terminal multiplexer: sessions survive disconnect, and one
-  terminal splits into windows and panes. This sheet covers the `C-b`
-  prefix and scripting commands.
+  tmux is a terminal multiplexer: sessions survive disconnect, and one terminal splits into windows and panes. This sheet covers the `C-b` prefix and scripting commands.
 links:
   - title: tmux manual
     url: https://man.openbsd.org/tmux
@@ -113,8 +111,7 @@ C-b :rename-session work
 C-b :set -g mouse on
 ```
 
-The prompt accepts any tmux command, including settings. Tab completes
-command names.
+The prompt accepts any tmux command, including settings. Tab completes command names.
 
 See: [Commands](https://man.openbsd.org/tmux#COMMANDS)
 
@@ -186,8 +183,6 @@ C-b {  C-b }        # Swap with the previous / next pane
 C-b C-o             # Rotate the panes
 ```
 
-`C-b z` is the fastest way to give one pane the whole terminal.
-
 See: [break-pane](https://man.openbsd.org/tmux#break-pane)
 
 ## Copy mode
@@ -215,8 +210,7 @@ n  N                # Next / previous match
 Escape              # Exit copy mode
 ```
 
-Scrolling with the wheel works in copy mode when mouse support is on.
-`set -g mode-keys vi` swaps in `/`, `?`, and `q`.
+Scrolling with the wheel works in copy mode when mouse support is on. `set -g mode-keys vi` swaps in `/`, `?`, and `q`.
 
 See: [copy-mode](https://man.openbsd.org/tmux#copy-mode)
 
@@ -263,8 +257,7 @@ unbind C-b
 bind C-a send-prefix
 ```
 
-Keep the `send-prefix` line so an application can still receive a literal
-`C-a`.
+Keep the `send-prefix` line so an application can still receive a literal `C-a`.
 
 See: [bind-key](https://man.openbsd.org/tmux#bind-key)
 
@@ -324,8 +317,7 @@ C-b C-b             # Send C-b through to the inner tmux
 C-b : send-prefix   # The same, as a command
 ```
 
-Sessions belong to a server; `tmux -L inner` starts a second server on its
-own socket. `$TMUX` is set inside a session.
+Sessions belong to a server; `tmux -L inner` starts a second server on its own socket. `$TMUX` is set inside a session.
 
 See: [ENVIRONMENT](https://man.openbsd.org/tmux#ENVIRONMENT)
 
@@ -348,8 +340,7 @@ See: [ENVIRONMENT](https://man.openbsd.org/tmux#ENVIRONMENT)
 
 <!-- {: .-shortcuts} -->
 
-`status-left` and `status-right` take the same strings as
-`window-status-format`.
+`status-left` and `status-right` take the same strings as `window-status-format`.
 
 See: [Formats](https://man.openbsd.org/tmux#FORMATS)
 
@@ -362,7 +353,6 @@ See: [Formats](https://man.openbsd.org/tmux#FORMATS)
 #[default]
 ```
 
-Colours are names, `colour0` to `colour255`, or `#rrggbb`. `#[default]`
-resets.
+Colours are names, `colour0` to `colour255`, or `#rrggbb`. `#[default]` resets.
 
 See: [Styles](https://man.openbsd.org/tmux#STYLES)

@@ -5,6 +5,9 @@ category: Plain-text accounting
 tier: t2
 last_verified_with: "Beancount 3.2.3."
 fragments:
+  - "bean-check"
+  - "bean-format"
+  - "fava"
   - "Assets:Cash"
   - "Liabilities:Card"
   - "Expenses:Food"
@@ -16,9 +19,6 @@ fragments:
   - "pad"
   - "commodity"
   - "close"
-  - "bean-check"
-  - "bean-format"
-  - "fava"
 updated: 2026-11-16
 keywords:
   - beancount

@@ -298,7 +298,7 @@ See: [Modes](https://cursor.com/docs/cli/using#modes)
 | Shortcut      | Action                                 |
 | ------------- | -------------------------------------- |
 | `Shift+Tab`   | Rotate Agent, Plan, Ask                |
-| `Shift+Enter` | Newline (iTerm2, Ghostty, Kitty, Warp) |
+| `Shift+Enter` | Newline in supporting terminals       |
 | `Ctrl+J`      | Newline in any terminal                |
 | `\+Enter`     | Newline in any terminal                |
 | ------------- | -------------------------------------- |

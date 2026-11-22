@@ -50,24 +50,9 @@ nix profile install nixpkgs#yt-dlp  # Nix
 yt-dlp --version                    # check it runs
 ```
 
-ffmpeg is required for merging, audio extraction, and embedding. Full
-YouTube support also needs a JS runtime such as deno.
+ffmpeg is required for merging, audio extraction, and embedding. Full YouTube support also needs a JS runtime such as deno.
 
-See: [Installation](https://github.com/yt-dlp/yt-dlp#installation)
-
-### Update
-
-```bash
-yt-dlp -U                    # release binary only
-yt-dlp --update-to nightly   # recommended channel
-brew upgrade yt-dlp          # package installs
-pip install -U "yt-dlp[default]"
-```
-
-`-U` only updates the release binary; use the package manager that
-installed yt-dlp for every other install.
-
-See: [Update](https://github.com/yt-dlp/yt-dlp#update)
+See: [Installation](https://github.com/yt-dlp/yt-dlp#installation), [Updating](https://github.com/yt-dlp/yt-dlp#update)
 
 ### First download
 
@@ -77,8 +62,7 @@ yt-dlp -P ~/Videos URL              # choose a directory
 yt-dlp -f "bv*+ba/b" URL            # the same default pick
 ```
 
-The default is the best video and audio streams, merged with ffmpeg.
-Pass `-F` to see every format first.
+The default is the best video and audio streams, merged with ffmpeg. Pass `-F` to see every format first.
 
 See: [Usage and options](https://github.com/yt-dlp/yt-dlp#usage-and-options)
 
@@ -91,8 +75,7 @@ yt-dlp -F URL          # format IDs, codecs, sizes
 yt-dlp -v -F URL       # also show the sort order
 ```
 
-Format IDs are specific to each extractor, so list them before
-hard-coding one.
+Format IDs are specific to each extractor, so list them before hard-coding one.
 
 See: [Video format options](https://github.com/yt-dlp/yt-dlp#video-format-options)
 
@@ -105,8 +88,7 @@ yt-dlp -f "best[height<=480]" URL
 yt-dlp -f 22/17/18 URL               # first available
 ```
 
-Slash separates fallbacks, `+` merges streams, and brackets filter
-fields. A filter without a selector implies `best`.
+Slash separates fallbacks, `+` merges streams, and brackets filter fields. A filter without a selector implies `best`.
 
 See: [Format selection](https://github.com/yt-dlp/yt-dlp#format-selection)
 
@@ -119,8 +101,7 @@ yt-dlp -S "+size" URL                 # smallest first
 yt-dlp -S "vcodec:h264,acodec:aac" URL
 ```
 
-`-S` changes what `best` means. Fields sort descending unless
-prefixed with `+`.
+`-S` changes what `best` means. Fields sort descending unless prefixed with `+`.
 
 See: [Sorting formats](https://github.com/yt-dlp/yt-dlp#sorting-formats)
 
@@ -133,8 +114,7 @@ yt-dlp -f "bv*+ba/b" -S "vcodec:h264,acodec:aac" \
   --merge-output-format mp4 URL
 ```
 
-The option is ignored when no merge is needed. Add the `-S` line when
-a player needs H.264 and AAC rather than VP9 and Opus.
+The option is ignored when no merge is needed. Add the `-S` line when a player needs H.264 and AAC rather than VP9 and Opus.
 
 See: [Format selection examples](https://github.com/yt-dlp/yt-dlp#format-selection-examples)
 
@@ -159,8 +139,7 @@ yt-dlp -o "%(playlist_title)s/%(title)s.%(ext)s" URL
 | `%(playlist_index)s` | Position in the playlist |
 | `%(ext)s` | Final file extension |
 
-The default is `%(title)s [%(id)s].%(ext)s`. Use `-o` for one run, or
-put it in the config file.
+The default is `%(title)s [%(id)s].%(ext)s`. Use `-o` for one run, or put it in the config file.
 
 See: [Output template](https://github.com/yt-dlp/yt-dlp#output-template)
 
@@ -172,8 +151,7 @@ yt-dlp --windows-filenames URL     # safe on Windows
 yt-dlp --trim-filenames 120 URL    # cap the base name
 ```
 
-`--restrict-filenames` rewrites the title to a short ASCII name, which
-is handy for scripts and other filesystems.
+`--restrict-filenames` rewrites the title to a short ASCII name, which is handy for scripts and other filesystems.
 
 See: [Filesystem options](https://github.com/yt-dlp/yt-dlp#filesystem-options)
 
@@ -184,8 +162,7 @@ yt-dlp -P ~/Videos URL
 yt-dlp -P "temp:/tmp" URL
 ```
 
-`-P` sets a path per file type; temporary files go to `temp:` and
-then move into `home:`. The output template still controls the name.
+`-P` sets a path per file type; temporary files go to `temp:` and then move into `home:`. The output template still controls the name.
 
 See: [Output template examples](https://github.com/yt-dlp/yt-dlp#output-template-examples)
 
@@ -196,8 +173,7 @@ yt-dlp --download-archive archive.txt PLAYLIST
 yt-dlp --download-archive archive.txt --playlist-items 1-10 PLAYLIST
 ```
 
-Each downloaded video ID is recorded, so reruns skip it. Delete the
-file to start over.
+Each downloaded video ID is recorded, so reruns skip it. Delete the file to start over.
 
 See: [Video selection](https://github.com/yt-dlp/yt-dlp#video-selection)
 
@@ -212,8 +188,7 @@ yt-dlp -x --audio-format m4a URL
 yt-dlp -x --audio-quality 0 URL     # best VBR quality
 ```
 
-`-x` needs ffmpeg. Without `--audio-format`, the best audio stream is
-kept as-is instead of being re-encoded.
+`-x` needs ffmpeg. Without `--audio-format`, the best audio stream is kept as-is instead of being re-encoded.
 
 See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-options)
 
@@ -226,8 +201,7 @@ yt-dlp -t mp4 URL    # mp4 with h264/aac
 yt-dlp -t mkv URL    # mkv, any codecs
 ```
 
-Presets bundle the common format and conversion flags. The names are
-stable across releases.
+Presets bundle the common format and conversion flags. The names are stable across releases.
 
 See: [Preset aliases](https://github.com/yt-dlp/yt-dlp#preset-aliases)
 
@@ -253,8 +227,7 @@ yt-dlp --yes-playlist URL     # force the playlist
 yt-dlp --playlist-reverse PLAYLIST
 ```
 
-A `watch?v=…&list=…` URL downloads the playlist by default; add
-`--no-playlist` when you only want the current video.
+A `watch?v=…&list=…` URL downloads the playlist by default; add `--no-playlist` when you only want the current video.
 
 See: [Video selection](https://github.com/yt-dlp/yt-dlp#video-selection)
 
@@ -269,8 +242,7 @@ yt-dlp --write-auto-subs --sub-langs en URL
 yt-dlp --list-subs URL
 ```
 
-`--write-subs` takes uploaded captions, while `--write-auto-subs`
-takes machine-generated ones. `--sub-langs` accepts regex.
+`--write-subs` takes uploaded captions, while `--write-auto-subs` takes machine-generated ones. `--sub-langs` accepts regex.
 
 See: [Subtitle options](https://github.com/yt-dlp/yt-dlp#subtitle-options)
 
@@ -281,8 +253,7 @@ yt-dlp --embed-subs --sub-langs en URL
 yt-dlp --embed-subs --sub-langs "en.*" --merge-output-format mkv URL
 ```
 
-Embedding works only for mp4, webm, and mkv. A bare `--embed-subs`
-fetches the subtitle, embeds it, and deletes the separate file.
+Embedding works only for mp4, webm, and mkv. A bare `--embed-subs` fetches the subtitle, embeds it, and deletes the separate file.
 
 See: [Subtitle options](https://github.com/yt-dlp/yt-dlp#subtitle-options)
 
@@ -294,9 +265,7 @@ yt-dlp --embed-thumbnail URL
 yt-dlp --embed-chapters URL
 ```
 
-`--embed-metadata` also embeds chapters and infojson unless disabled.
-Metadata and chapters need ffmpeg. Thumbnails can embed with mutagen
-or AtomicParsley instead.
+`--embed-metadata` also embeds chapters and infojson unless disabled. Metadata and chapters need ffmpeg. Thumbnails can embed with mutagen or AtomicParsley instead.
 
 See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-options)
 
@@ -310,8 +279,7 @@ yt-dlp --no-continue URL      # restart a partial download
 yt-dlp --no-overwrites URL    # skip files already there
 ```
 
-Downloads use `.part` files and resume by default; `--no-part`
-skips the temporary file but loses resuming.
+Downloads use `.part` files and resume by default; `--no-part` skips the temporary file but loses resuming.
 
 See: [Filesystem options](https://github.com/yt-dlp/yt-dlp#filesystem-options)
 
@@ -324,8 +292,7 @@ yt-dlp --retries 10 URL
 yt-dlp --socket-timeout 30 URL
 ```
 
-`-N` speeds up DASH and HLS downloads; it does not split a plain HTTP
-file.
+`-N` speeds up DASH and HLS downloads; it does not split a plain HTTP file.
 
 See: [Download options](https://github.com/yt-dlp/yt-dlp#download-options)
 
@@ -338,8 +305,7 @@ yt-dlp --sponsorblock-remove all URL
 yt-dlp --sponsorblock-remove default URL
 ```
 
-Sections need ffmpeg. `--sponsorblock-remove` cuts segments by
-category; `default` means `all,-filler`.
+Sections need ffmpeg. `--sponsorblock-remove` cuts segments by category; `default` means `all,-filler`.
 
 See: [SponsorBlock options](https://github.com/yt-dlp/yt-dlp#sponsorblock-options)
 
@@ -353,8 +319,7 @@ yt-dlp --cookies-from-browser chrome URL
 yt-dlp --cookies-from-browser "chrome:Profile 1" URL
 ```
 
-The option reads the browser profile directly, including Firefox
-containers, so no export step is needed.
+The option reads the browser profile directly, including Firefox containers, so no export step is needed.
 
 See: [FAQ: pass cookies](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp)
 
@@ -364,8 +329,7 @@ See: [FAQ: pass cookies](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass
 yt-dlp --cookies cookies.txt URL
 ```
 
-The file is a Netscape-format cookie jar, which browser extensions
-can export and yt-dlp can update in place.
+The file is a Netscape-format cookie jar, which browser extensions can export and yt-dlp can update in place.
 
 See: [Authentication options](https://github.com/yt-dlp/yt-dlp#authentication-options)
 
@@ -379,8 +343,7 @@ yt-dlp --print "%(id)s %(duration_string)s" URL
 yt-dlp --print after_move:filepath URL
 ```
 
-`--print` implies `--simulate`, so it prints metadata without
-downloading unless the stage runs later or you pass `--no-simulate`.
+`--print` implies `--simulate`, so it prints metadata without downloading unless the stage runs later or you pass `--no-simulate`.
 
 See: [Verbosity and simulation options](https://github.com/yt-dlp/yt-dlp#verbosity-and-simulation-options)
 
@@ -392,8 +355,7 @@ yt-dlp --simulate --print title URL
 yt-dlp --no-simulate --print title URL  # download and print
 ```
 
-Use `--simulate` to test a URL, a format selector, or a cookie setup
-without touching the disk.
+Use `--simulate` to test a URL, a format selector, or a cookie setup without touching the disk.
 
 See: [Verbosity and simulation options](https://github.com/yt-dlp/yt-dlp#verbosity-and-simulation-options)
 
@@ -404,8 +366,7 @@ yt-dlp --exec "echo %(filepath)q" URL
 yt-dlp --exec "after_move:echo %(title)q" URL
 ```
 
-The default stage is `after_move`. Without fields, yt-dlp appends the
-quoted file path to the command.
+The default stage is `after_move`. Without fields, yt-dlp appends the quoted file path to the command.
 
 See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-options)
 
@@ -429,8 +390,7 @@ See: [Post-processing options](https://github.com/yt-dlp/yt-dlp#post-processing-
 | Windows | `%APPDATA%\yt-dlp\config` |
 | Portable | `yt-dlp.conf` beside the binary |
 
-One option per line, with no space after the dashes and shell-style
-quoting.
+One option per line, with no space after the dashes and shell-style quoting.
 
 See: [Configuration](https://github.com/yt-dlp/yt-dlp#configuration)
 
@@ -441,8 +401,7 @@ yt-dlp --ignore-config URL              # skip every config file
 yt-dlp --config-locations ./ci.conf URL
 ```
 
-Command-line flags override the config file, and
-`--config-locations` can be repeated.
+Command-line flags override the config file, and `--config-locations` can be repeated.
 
 See: [Configuration](https://github.com/yt-dlp/yt-dlp#configuration)
 

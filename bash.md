@@ -57,6 +57,8 @@ See: [Shell scripts](https://www.gnu.org/software/bash/manual/html_node/Shell-Sc
 
 ### Variables
 
+#### Quoting
+
 ```bash
 name="John"
 echo $name  # see below
@@ -64,13 +66,15 @@ echo "$name"
 echo "${name}!"
 ```
 
-Generally quote your variables unless they contain wildcards to expand or command fragments.
+#### Wildcards and options
 
 ```bash
 wildcard="*.txt"
 options="iv"
 cp -$options $wildcard /tmp
 ```
+
+Generally quote your variables unless they contain wildcards to expand or command fragments.
 
 See: [Shell parameters](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html)
 
@@ -95,6 +99,21 @@ echo "${ printf hi; }"  # 5.3, no fork
 ```
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
+
+### Strict mode
+
+```bash
+set -euo pipefail
+IFS=$'\n\t'
+```
+
+`errexit` skips failures in conditions, in all but the last command of `&&`/`||` lists and pipelines, and in commands negated with `!`.
+
+See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+
+## Conditionals and functions
+
+<!-- {: .-three-column} -->
 
 ### Conditional execution
 
@@ -133,16 +152,9 @@ fi
 
 See: [Conditionals](#conditionals)
 
-### Strict mode
+## Expansions
 
-```bash
-set -euo pipefail
-IFS=$'\n\t'
-```
-
-`errexit` skips failures in conditions, in all but the last command of `&&`/`||` lists and pipelines, and in commands negated with `!`.
-
-See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+<!-- {: .-three-column} -->
 
 ### Brace expansion
 
@@ -161,11 +173,9 @@ echo {A,B}.js
 
 See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
-## Parameter expansions
+### Basic expansions
 
-<!-- {: .-three-column} -->
-
-### Basics
+#### Values and slices
 
 ```bash
 name="John"
@@ -179,12 +189,24 @@ echo "${name:(-2):1}" # h (from right)
 echo "${food:-Cake}"  # food, or Cake
 ```
 
-A negative offset needs a space or parentheses: `${name: -1}`.
+#### Variable length
 
 ```bash
 length=2
 echo "${name:0:length}"  # Jo
 ```
+
+#### Negative offsets
+
+```bash
+echo "${name: -1}"  # n, space before -1
+```
+
+A negative offset needs a space or parentheses.
+
+See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
+### Prefix and suffix removal
 
 ```bash
 str="/path/to/foo.cpp"
@@ -201,11 +223,19 @@ echo "${str##*/}"     # foo.cpp
 echo "${str/foo/bar}" # /path/to/bar.cpp
 ```
 
+See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
+### Substring offsets
+
 ```bash
 str="Hello world"
 echo "${str:6:5}"    # world
 echo "${str: -5:5}"  # world
 ```
+
+See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
+### Path components
 
 ```bash
 src="/path/to/foo.cpp"
@@ -236,6 +266,10 @@ echo "${!pointer}"  # => joe
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
+## Expansion reference
+
+<!-- {: .-three-column} -->
+
 ### Substitution
 
 | Code              | Description                |
@@ -255,22 +289,6 @@ See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_n
 | `${foo/#from/to}` | Replace prefix             |
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
-
-### Comments
-
-```bash
-# Single line comment
-```
-
-```bash
-: '
-This is a
-multi line
-comment
-'
-```
-
-See: [Comments](https://www.gnu.org/software/bash/manual/html_node/Comments.html)
 
 ### Substrings
 
@@ -378,11 +396,15 @@ See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-
 
 ### Reading lines
 
+#### Line by line
+
 ```bash
 while IFS= read -r line; do
   echo "$line"
 done <file.txt
 ```
+
+#### Read all at once
 
 ```bash
 mapfile -t lines < file.txt
@@ -408,11 +430,15 @@ See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Loo
 
 ### Defining functions
 
+#### Function syntax
+
 ```bash
 myfunc() {
     echo "hello $1"
 }
 ```
+
+#### Alternate syntax
 
 ```bash
 # Same as above (alternate syntax)
@@ -420,6 +446,8 @@ function myfunc {
     echo "hello $1"
 }
 ```
+
+#### Call the function
 
 ```bash
 myfunc "John"
@@ -429,12 +457,16 @@ See: [Shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-
 
 ### Returning values
 
+#### Return via output
+
 ```bash
 myfunc() {
     local myresult='some value'
     echo "$myresult"
 }
 ```
+
+#### Capture the output
 
 ```bash
 result=$(myfunc)
@@ -444,11 +476,15 @@ See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/C
 
 ### Raising errors
 
+#### Return a status
+
 ```bash
 myfunc() {
   return 1
 }
 ```
+
+#### Check the status
 
 ```bash
 if myfunc; then
@@ -470,8 +506,7 @@ See: [Exit status](https://www.gnu.org/software/bash/manual/html_node/Exit-Statu
 | `$1`       | First argument                                 |
 | `$_`       | Last argument of the previous command          |
 
-**Note**: `$@` and `$*` must be quoted in order to perform as described.
-Otherwise, they do exactly the same thing (arguments as separate strings).
+**Note**: `$@` and `$*` must be quoted in order to perform as described. Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html).
 
@@ -480,8 +515,6 @@ See [Special parameters](https://www.gnu.org/software/bash/manual/html_node/Spec
 <!-- {: .-three-column} -->
 
 ### Conditions
-
-`[[` is a shell keyword returning `0` (true) or `1` (false); any command with that exit-status logic works too.
 
 | Condition                | Description           |
 | ------------------------ | --------------------- |
@@ -501,7 +534,11 @@ See [Special parameters](https://www.gnu.org/software/bash/manual/html_node/Spec
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Arithmetic comparison |
 
-#### More conditions
+`[[` is a shell keyword returning `0` (true) or `1` (false); any command with that exit-status logic works too.
+
+See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
+
+### More conditions
 
 | Condition            | Description              |
 | -------------------- | ------------------------ |
@@ -533,7 +570,9 @@ See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/htm
 
 See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
 
-### Example
+### String tests
+
+#### String checks
 
 ```bash
 # String
@@ -546,6 +585,8 @@ else
 fi
 ```
 
+#### Combinations
+
 ```bash
 # Combinations
 if [[ -n "$X" && -n "$Y" ]]; then
@@ -553,10 +594,18 @@ if [[ -n "$X" && -n "$Y" ]]; then
 fi
 ```
 
+#### Equality
+
 ```bash
 # Equal
 if [[ "$A" == "$B" ]]
 ```
+
+See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
+
+### Pattern and numeric tests
+
+#### Regex
 
 ```bash
 # Regex
@@ -565,7 +614,7 @@ if [[ "$date" =~ ^([0-9]{4})- ]]; then
 fi
 ```
 
-`BASH_REMATCH` holds the whole match, then each capture group.
+#### Arithmetic
 
 ```bash
 if (( a < b )); then
@@ -573,11 +622,15 @@ if (( a < b )); then
 fi
 ```
 
+#### File test
+
 ```bash
 if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
+
+`BASH_REMATCH` holds the whole match, then each capture group.
 
 See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
 
@@ -585,9 +638,13 @@ See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node
 
 ### Defining arrays
 
+#### Literal list
+
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
 ```
+
+#### Index by index
 
 ```bash
 Fruits[0]="Apple"
@@ -642,9 +699,13 @@ See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
 ### Defining
 
+#### Declare
+
 ```bash
 declare -A sounds
 ```
+
+#### Add entries
 
 ```bash
 sounds[dog]="bark"
@@ -715,8 +776,7 @@ shopt -s extglob     # Extended patterns: @(a|b), !(a)
 
 `globskipdots` is on by default since bash 5.2. `GLOBSORT` picks the glob sort key (`name`, `size`, `mtime`), with `-` to reverse (bash 5.3).
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
-matches.
+Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob matches.
 
 See: [The shopt builtin](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
 
@@ -745,13 +805,13 @@ See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Even
 
 ### Operations
 
-| Code                 | Description                                                           |
-| -------------------- | --------------------------------------------------------------------- |
-| `!!`                 | Execute last command again                                            |
-| `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
-| `!$:t`               | Expand only basename from last parameter of most recent command       |
-| `!$:h`               | Expand only directory from last parameter of most recent command      |
+| Code                 | Description                        |
+| -------------------- | ---------------------------------- |
+| `!!`                 | Execute last command again         |
+| `!!:s/<FROM>/<TO>/`  | Replace first `<FROM>` with `<TO>` |
+| `!!:gs/<FROM>/<TO>/` | Replace every `<FROM>` with `<TO>` |
+| `!$:t`               | Basename of the last argument      |
+| `!$:h`               | Directory of the last argument     |
 
 `!!` and `!$` can be replaced with any valid expansion.
 
@@ -759,29 +819,35 @@ See: [Modifiers](https://www.gnu.org/software/bash/manual/html_node/Modifiers.ht
 
 ### Slices
 
-| Code     | Description                                                                              |
-| -------- | ---------------------------------------------------------------------------------------- |
-| `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
-| `!^`     | Expand first argument from most recent command                                           |
-| `!$`     | Expand last token from most recent command                                               |
-| `!!:n-m` | Expand range of tokens from most recent command                                          |
-| `!!:n-$` | Expand `n`th token to last from most recent command                                      |
+| Code     | Description                        |
+| -------- | ---------------------------------- |
+| `!!:n`   | Token `n` (`0` is the command)     |
+| `!^`     | First argument of the last command |
+| `!$`     | Last token of the last command     |
+| `!!:n-m` | Tokens `n` through `m`             |
+| `!!:n-$` | Tokens `n` through the last        |
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 
 See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html)
 
-## Miscellaneous
+## Arithmetic and redirection
 
 ### Numeric calculations
+
+#### Evaluate
 
 ```bash
 echo $((a + 200))      # Add 200 to $a
 ```
 
+#### Random
+
 ```bash
 echo $((RANDOM % 200))  # Random number 0..199
 ```
+
+#### Typed variables
 
 ```bash
 declare -i count  # Declare as type integer
@@ -801,6 +867,8 @@ See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Comma
 
 ### Redirection
 
+#### Output
+
 ```bash
 python hello.py > output.txt     # stdout to file
 python hello.py >> output.txt    # stdout to file, append
@@ -811,6 +879,8 @@ python hello.py >output.txt 2>&1 # both, same as &>
 python hello.py &>/dev/null      # both to null
 echo "$0: warning: too many users" >&2  # diagnostic
 ```
+
+#### Input
 
 ```bash
 python hello.py < foo.txt      # feed foo.txt to stdin for python
@@ -830,11 +900,13 @@ See: [Bash builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Bui
 
 ### Trap errors
 
+#### Simple trap
+
 ```bash
 trap 'echo Error at about $LINENO' ERR
 ```
 
-or
+#### With a handler
 
 ```bash
 traperr() {
@@ -846,6 +918,8 @@ trap traperr ERR
 ```
 
 See: [The trap builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+
+## Strings and patterns
 
 ### Case/switch
 
@@ -905,7 +979,7 @@ WELCOME TO DEVHINTS
 
 | Command option | Description                                         |
 | -------------- | --------------------------------------------------- |
-| `-c`           | Operations apply to characters not in the given set |
+| `-c`           | Complement the given set                            |
 | `-d`           | Delete characters                                   |
 | `-s`           | Replaces repeated characters with single occurrence |
 | `-t`           | Truncates                                           |
@@ -929,6 +1003,8 @@ dir=${BASH_SOURCE[0]%/*}
 
 See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-BASH_005fSOURCE)
 
+## Options and input
+
 ### Getting options
 
 #### Short options
@@ -946,8 +1022,6 @@ done
 shift $((OPTIND - 1))
 ```
 
-`OPTARG` holds the option value; `OPTIND` is the next argument index.
-
 #### Long options
 
 ```bash
@@ -961,6 +1035,8 @@ while [[ "$1" == -* && "$1" != "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 ```
+
+`OPTARG` holds the option value; `OPTIND` is the next argument index.
 
 See: [getopts](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts)
 
@@ -1004,19 +1080,25 @@ See: [Process substitution](https://www.gnu.org/software/bash/manual/html_node/P
 
 ### Reading input
 
+#### Prompts
+
 ```bash
 read -r -p "Proceed? [y/n] " ans
 IFS= read -s -r -p "Password: " pass  # no echo
 echo "$ans"
 ```
 
-`-r` keeps backslashes literal, `-p` prints a prompt, and `-s` hides input.
+#### One character
 
 ```bash
 read -n 1 ans    # One character
 ```
 
+`-r` keeps backslashes literal, `-p` prints a prompt, and `-s` hides input.
+
 See: [The read builtin](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-read)
+
+## Shell state checks
 
 ### Special variables
 

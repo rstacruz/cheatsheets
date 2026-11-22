@@ -45,9 +45,7 @@ new Intl.DurationFormat('en-US').format(duration)
 // → '1 hr, 30 min'
 ```
 
-Pass a plain object, not a `Date` or a millisecond count. The ten fields
-(`years` through `nanoseconds`) are optional, but at least one is required;
-values must be integers that share the same sign.
+Pass a plain object, not a `Date` or a millisecond count. The ten fields (`years` through `nanoseconds`) are optional, but at least one is required; values must be integers that share the same sign.
 
 See: [DurationFormat() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat) _(developer.mozilla.org)_
 
@@ -65,9 +63,7 @@ format('narrow')  // → '1h 30m'
 format('digital') // → '1:30:00'
 ```
 
-`'short'` is the default. `'digital'` renders `h:mm:ss`, so seconds always
-appear; date units stay in prose, so `{ days: 2, hours: 3 }` becomes
-`'2 days, 3:00:00'`.
+`'short'` is the default. `'digital'` renders `h:mm:ss`, so seconds always appear; date units stay in prose, so `{ days: 2, hours: 3 }` becomes `'2 days, 3:00:00'`.
 
 See: [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#style) _(developer.mozilla.org)_
 
@@ -84,8 +80,7 @@ format('de-DE') // → '1 Stunde, 30 Minuten'
 format('ja-JP') // → '1 時間 30 分'
 ```
 
-Word order, plural forms, and separators come from the locale. Output varies
-between ICU versions and engines, so never compare it to hardcoded strings.
+Word order, plural forms, and separators come from the locale. Output varies between ICU versions and engines, so never compare it to hardcoded strings.
 
 See: [Intl.DurationFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) _(developer.mozilla.org)_
 
@@ -116,9 +111,7 @@ df.format(duration)
 | `fractionalDigits` | `0` to `9` |
 <!-- {: .-headers} -->
 
-Per-unit styles default to `style`; under `'digital'`, the date units fall
-back to `'short'`. Setting a unit's style makes it display even at zero
-unless its `…Display` is `'auto'`.
+Per-unit styles default to `style`; under `'digital'`, the date units fall back to `'short'`. Setting a unit's style makes it display even at zero unless its `…Display` is `'auto'`.
 
 See: [DurationFormat() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat) _(developer.mozilla.org)_
 
@@ -134,8 +127,7 @@ df.format({ minutes: 45 })
 // → '0 hours, 45 min'
 ```
 
-Zero-valued units are hidden by default. `'always'` keeps one on screen, which
-stops columns and timers from jumping as values change.
+Zero-valued units are hidden by default. `'always'` keeps one on screen, which stops columns and timers from jumping as values change.
 
 See: [Hide zero-value fields](https://github.com/tc39/proposal-intl-duration-format#hide-zero-value-fields) _(github.com)_
 
@@ -154,9 +146,7 @@ format(2) // → '0:00:12.34'
 format(5) // → '0:00:12.34500'
 ```
 
-Digits are truncated toward zero, not rounded, and short values are padded
-with trailing zeros. Omit `fractionalDigits` to show as many digits as the
-input needs, up to nine.
+Digits are truncated toward zero, not rounded, and short values are padded with trailing zeros. Omit `fractionalDigits` to show as many digits as the input needs, up to nine.
 
 See: [Display fractional values](https://github.com/tc39/proposal-intl-duration-format#display-fractional-values) _(github.com)_
 
@@ -175,8 +165,7 @@ parts.map(p => `${p.type}: ${p.value}`)
 //    'unit: minutes']
 ```
 
-Numbers arrive as `integer` (or `decimal` and `fraction`), separators as
-`literal`, and unit names as `unit`, so each piece can be styled on its own.
+Numbers arrive as `integer` (or `decimal` and `fraction`), separators as `literal`, and unit names as `unit`, so each piece can be styled on its own.
 
 See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/formatToParts) _(developer.mozilla.org)_
 
@@ -193,8 +182,7 @@ const { locale, style, hours } = df.resolvedOptions()
 // hours: 'narrow'
 ```
 
-`resolvedOptions()` reports the locale and every unit style after defaults
-are applied, including the `…Display` values.
+`resolvedOptions()` reports the locale and every unit style after defaults are applied, including the `…Display` values.
 
 See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/resolvedOptions) _(developer.mozilla.org)_
 
@@ -212,8 +200,7 @@ See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 | Bun | 1.0.3 |
 <!-- {: .-headers} -->
 
-The proposal reached Stage 4 in December 2024. Runtimes ship it with their
-bundled ICU data, so older versions have no `Intl.DurationFormat` at all.
+The proposal reached Stage 4 in December 2024. Runtimes ship it with their bundled ICU data, so older versions have no `Intl.DurationFormat` at all.
 
 See: [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat#browser_compatibility) _(developer.mozilla.org)_
 
@@ -225,8 +212,7 @@ const formatter = 'DurationFormat' in Intl
   : null
 ```
 
-Check for the constructor before using it, and load the FormatJS polyfill
-where it is missing.
+Check for the constructor before using it, and load the FormatJS polyfill where it is missing.
 
 See: [FormatJS polyfill](https://formatjs.github.io/docs/polyfills/intl-durationformat) _(formatjs.github.io)_
 
@@ -251,7 +237,6 @@ new Intl.NumberFormat('en-US', {
 // → '2 hours'
 ```
 
-Use `Intl.DurationFormat` for elapsed lengths, `Intl.RelativeTimeFormat` for
-points in time, and a `unit` `Intl.NumberFormat` for one standalone quantity.
+Use `Intl.DurationFormat` for elapsed lengths, `Intl.RelativeTimeFormat` for points in time, and a `unit` `Intl.NumberFormat` for one standalone quantity.
 
 See: [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat) _(developer.mozilla.org)_

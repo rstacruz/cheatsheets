@@ -32,6 +32,24 @@ links:
 
 ## Getting started
 
+### First requests
+
+#### POST JSON
+
+```bash
+# POST JSON
+curl --json '{"name": "Ada"}' https://api.example.com/users
+```
+
+#### Follow redirects
+
+```bash
+# Follow redirects and save the body
+curl -fL -o page.html https://example.com
+```
+
+See: [Using curl](https://ec.haxx.se/usingcurl/)
+
 ### Options
 
 ```bash
@@ -147,8 +165,7 @@ See: [--http3](https://curl.se/docs/manpage.html#--http3)
 --expand-data '{{TOKEN:trim}}'
 ```
 
-Only `--expand-*` options expand `{{name}}`. Functions include `trim`,
-`json`, `url`, `b64`, and `64dec`.
+Only `--expand-*` options expand `{{name}}`. Functions include `trim`, `json`, `url`, `b64`, and `64dec`.
 
 See: [--variable](https://curl.se/docs/manpage.html#--variable)
 
@@ -160,8 +177,7 @@ See: [--variable](https://curl.se/docs/manpage.html#--variable)
 -q                  # --disable: ignore .curlrc
 ```
 
-curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then
-`$HOME/.curlrc`. Write one option per line, without leading dashes.
+curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then `$HOME/.curlrc`. Write one option per line, without leading dashes.
 
 See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 
@@ -169,27 +185,25 @@ See: [Config file](https://ec.haxx.se/cmdline/configfile.html)
 
 <!-- {: .-one-column} -->
 
-### Common recipes
-
-```bash
-# POST JSON
-curl --json '{"name": "Ada"}' https://api.example.com/users
-```
+### Upload a file
 
 ```bash
 # Upload a file
 curl -F name=Ada -F avatar=@photo.jpg https://example.com/upload
 ```
 
-```bash
-# Follow redirects and save the body
-curl -fL -o page.html https://example.com
-```
+See: [Using curl](https://ec.haxx.se/usingcurl/)
+
+### Check and download
+
+#### Status code
 
 ```bash
 # Check the status code
 curl -s -o /dev/null -w '%{http_code}\n' https://example.com
 ```
+
+#### Download with retries
 
 ```bash
 # Download with retries

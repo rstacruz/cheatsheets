@@ -57,9 +57,7 @@ nf.format(1234567.891)  // → '1,234,567.891'
 nf.format(-0.5)         // → '-0.5'
 ```
 
-`locales` takes a BCP 47 tag or an array of them; unsupported tags fall back to
-the runtime default. The default style is `'decimal'`. Output depends on the
-runtime's ICU data; reuse a formatter in loops.
+`locales` takes a BCP 47 tag or an array of them; unsupported tags fall back to the runtime default. The default style is `'decimal'`. Output depends on the runtime's ICU data; reuse a formatter in loops.
 
 See: [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
 
@@ -91,8 +89,7 @@ new Intl.NumberFormat('en-US', {
 // → '$1,234.50'
 ```
 
-`currency` is required for this style and takes an ISO 4217 code. The default
-display is the locale's symbol.
+`currency` is required for this style and takes an ISO 4217 code. The default display is the locale's symbol.
 
 See: [currency](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency)
 
@@ -110,6 +107,8 @@ new Intl.NumberFormat('en-US', {
 See: [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style)
 
 ### Units
+
+#### Basic usage
 
 ```js
 new Intl.NumberFormat('en-US', {
@@ -138,8 +137,7 @@ liter('long').format(2.5)    // → '2.5 liters'
 ```
 <!-- {: .-wrap} -->
 
-`unit` takes an identifier such as `liter`; `unitDisplay` defaults to
-`'short'`.
+`unit` takes an identifier such as `liter`; `unitDisplay` defaults to `'short'`.
 
 See: [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2)
 
@@ -181,8 +179,7 @@ cad('narrowSymbol').format(1234.5)  // → '$1,234.50'
 ```
 <!-- {: .-wrap} -->
 
-`narrowSymbol` drops the country prefix, `code` prints the ISO code, and `name`
-spells the currency out with the locale's plural rules.
+`narrowSymbol` drops the country prefix, `code` prints the ISO code, and `name` spells the currency out with the locale's plural rules.
 
 See: [currencyDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencydisplay)
 
@@ -197,8 +194,7 @@ new Intl.NumberFormat('en-US', {
 // → '($1,234.50)'
 ```
 
-`'standard'` (the default) writes `-$1,234.50`; `'accounting'` wraps negatives
-in parentheses where the locale does.
+`'standard'` (the default) writes `-$1,234.50`; `'accounting'` wraps negatives in parentheses where the locale does.
 
 See: [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign)
 
@@ -233,8 +229,7 @@ new Intl.NumberFormat('en-US', {
 // → '2 million'
 ```
 
-`compactDisplay` defaults to `'short'`. Compact notation rounds by significant
-digits unless fraction digits are set.
+`compactDisplay` defaults to `'short'`. Compact notation rounds by significant digits unless fraction digits are set.
 
 See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation)
 
@@ -251,8 +246,7 @@ new Intl.NumberFormat('en-US', {
 ```
 <!-- {: .-wrap} -->
 
-`scientific` prints one leading digit; `engineering` groups the exponent in
-threes.
+`scientific` prints one leading digit; `engineering` groups the exponent in threes.
 
 See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation)
 
@@ -278,8 +272,7 @@ fraction({ maximumFractionDigits: 0 }).format(42.666)
 ```
 <!-- {: .-wrap} -->
 
-Decimal numbers default to `minimumFractionDigits: 0` and
-`maximumFractionDigits: 3`; currency defaults use the currency's minor unit.
+Decimal numbers default to `minimumFractionDigits: 0` and `maximumFractionDigits: 3`; currency defaults use the currency's minor unit.
 
 See: [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits)
 
@@ -303,8 +296,7 @@ sig({ minimumSignificantDigits: 5 }).format(1.5)
 ```
 <!-- {: .-wrap} -->
 
-Significant digits win over fraction digits unless `roundingPriority` says
-otherwise.
+Significant digits win over fraction digits unless `roundingPriority` says otherwise.
 
 See: [maximumSignificantDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumsignificantdigits)
 
@@ -333,9 +325,7 @@ strip.format(1)    // → '1'
 strip.format(1.5)  // → '1.50'
 ```
 
-`roundingMode` defaults to `'halfExpand'`; other values include `'ceil'`,
-`'floor'`, `'trunc'`, and `'halfEven'`. `stripIfInteger` hides all-zero
-fractions but keeps real decimals.
+`roundingMode` defaults to `'halfExpand'`; other values include `'ceil'`, `'floor'`, `'trunc'`, and `'halfEven'`. `stripIfInteger` hides all-zero fractions but keeps real decimals.
 
 See: [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode)
 
@@ -361,8 +351,7 @@ sign('never').format(-42)      // → '42'
 ```
 <!-- {: .-wrap} -->
 
-`'auto'` (the default) signs negatives only; `'negative'` also hides negative
-zero.
+`'auto'` (the default) signs negatives only; `'negative'` also hides negative zero.
 
 See: [signDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#signdisplay)
 
@@ -385,8 +374,7 @@ enUS({ useGrouping: 'min2' }).format(12345)   // → '12,345'
 ```
 <!-- {: .-wrap} -->
 
-`'auto'` is the default; `'min2'` groups only when a group holds two or more
-digits. Indian English groups differently (`12,34,567`).
+`'auto'` is the default; `'min2'` groups only when a group holds two or more digits. Indian English groups differently (`12,34,567`).
 
 See: [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping)
 
@@ -436,8 +424,7 @@ nf.formatToParts(1234.5)
 | `nan` | `NaN` |
 <!-- {: .-headers} -->
 
-Joining every `value` reproduces `format()`. Use the parts to style digits or
-insert markup.
+Joining every `value` reproduces `format()`. Use the parts to style digits or insert markup.
 
 See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts)
 
@@ -460,8 +447,7 @@ usd.formatRange(3, 5)      // → '$3 – $5'
 usd.formatRange(2.9, 3.1)  // → '~$3'
 ```
 
-`formatRangeToParts()` adds a `source` of `startRange`, `endRange`, or
-`shared`. Both need Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+.
+`formatRangeToParts()` adds a `source` of `startRange`, `endRange`, or `shared`. Both need Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+.
 
 See: [formatRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange)
 
@@ -502,8 +488,7 @@ See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 | `en-IN` | `12,34,567.891` | `₹1,234.50` |
 <!-- {: .-headers} -->
 
-Grouping, decimal marks, and symbol placement come from CLDR data, so the same
-code prints differently per locale.
+Grouping, decimal marks, and symbol placement come from CLDR data, so the same code prints differently per locale.
 
 See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
@@ -518,8 +503,7 @@ new Intl.NumberFormat('ar-EG', {
 // → '1,234.5'
 ```
 
-`numberingSystem` overrides the locale's digits; `'latn'` is Western, `'arab'`
-Arabic-Indic, and `'hanidec'` Chinese numerals.
+`numberingSystem` overrides the locale's digits; `'latn'` is Western, `'arab'` Arabic-Indic, and `'hanidec'` Chinese numerals.
 
 See: [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem)
 
@@ -533,9 +517,7 @@ See: [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 // → '$1,234.50'
 ```
 
-`toLocaleString()` is equivalent to
-`new Intl.NumberFormat(locale, options).format(number)`, but builds a
-formatter per call.
+`toLocaleString()` is equivalent to `new Intl.NumberFormat(locale, options).format(number)`, but builds a formatter per call.
 
 See: [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
 
@@ -627,7 +609,6 @@ new Intl.NumberFormat('en-US', {
 ```
 <!-- {: .-wrap} -->
 
-Missing `currency` or `unit`, invalid enums, and contradictory digit ranges
-throw.
+Missing `currency` or `unit`, invalid enums, and contradictory digit ranges throw.
 
 See: [Exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#exceptions)

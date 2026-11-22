@@ -27,9 +27,7 @@ keywords:
   - workspaces
   - panes
 intro: |
-  [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
-  agents: persistent sessions of workspaces, tabs, and panes, with agent
-  detection built in.
+  [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding agents: persistent sessions of workspaces, tabs, and panes, with agent detection built in.
 links:
   - title: Herdr documentation
     url: https://herdr.dev/tui/docs/
@@ -48,11 +46,21 @@ links:
 | `prefix+c` | New tab |
 | `prefix+v` / `prefix+minus` | Split right / down |
 | `prefix+h/j/k/l` | Move between panes |
+<!-- {: .-shortcuts} -->
+
+The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
+
+### Workspaces and detach
+
+| Shortcut | Action |
+| --- | --- |
 | `prefix+w` | Workspace navigation |
 | `prefix+q` | Detach; everything keeps running |
 <!-- {: .-shortcuts} -->
 
-The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
 
 [Herdr keys cheatsheet](./herdr-keys)
 <!-- {: .-crosslink} -->
@@ -90,9 +98,7 @@ herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
 
-A pane is a real terminal, preserved across detach. An agent is a process
-Herdr recognizes in a pane. A session is a persistent server namespace;
-`herdr` attaches to the default one.
+A pane is a real terminal, preserved across detach. An agent is a process Herdr recognizes in a pane. A session is a persistent server namespace; `herdr` attaches to the default one.
 
 See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 

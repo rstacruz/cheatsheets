@@ -95,6 +95,8 @@ const { name, ...rest } = user   // rest → { age: 36 }
 
 ### Map and Set
 
+#### Set
+
 ```js
 const seen = new Set([1, 2, 2])  // → Set {1, 2}
 seen.add(3)                      // → Set {1, 2, 3}
@@ -102,6 +104,8 @@ seen.has(2)                      // → true
 seen.size                        // → 3
 [...seen]                        // → [1, 2, 3]
 ```
+
+#### Map
 
 ```js
 const ages = new Map([['Ada', 36]])
@@ -156,6 +160,8 @@ new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 const d = Temporal.PlainDate.from('2026-11-05')
 d.add({ months: 1 })    // → 2026-12-05
 Temporal.Now.instant()  // → Temporal.Instant
+Temporal.Now.plainDateISO()     // → current local date
+Temporal.Duration.from('P2D')   // → 2 days
 ```
 
 A modern replacement for `Date`; plain dates have no time zone.

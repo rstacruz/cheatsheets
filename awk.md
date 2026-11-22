@@ -48,8 +48,7 @@ awk -v limit=10 '$3 > limit' data.tsv
 awk -f report.awk data.tsv
 ```
 
-`-F` sets the field separator and `-v` defines a variable before the
-program runs.
+`-F` sets the field separator and `-v` defines a variable before the program runs.
 
 See: [Invoking awk](https://www.gnu.org/software/gawk/manual/gawk.html#Invoking-Awk)
 
@@ -114,9 +113,7 @@ awk -F, '{ print $2 }' file.csv
 awk 'BEGIN { FS = ","; OFS = "\t" } { $1 = $1; print }'
 ```
 
-Assigning a field rebuilds `$0` with `OFS`, which is the usual
-CSV-to-TSV trick. The default `FS = " "` splits on runs of spaces and
-tabs.
+Assigning a field rebuilds `$0` with `OFS`, which is the usual CSV-to-TSV trick. The default `FS = " "` splits on runs of spaces and tabs.
 
 See: [Field separators](https://www.gnu.org/software/gawk/manual/gawk.html#Field-Separators)
 
@@ -150,8 +147,6 @@ See: [Record separators](https://www.gnu.org/software/gawk/manual/gawk.html#Reco
 | `SUBSEP` | Key separator for `a[i,j]` |
 | `ENVIRON["HOME"]` | Environment variables |
 
-<!-- {: .-shortcuts} -->
-
 `ARGV` and `ARGC` are standard; `ARGIND` is a gawk addition.
 
 See: [Built-in variables](https://www.gnu.org/software/gawk/manual/gawk.html#Built_002din-Variables)
@@ -164,8 +159,7 @@ awk '{ total += $2 } END { print total }' file
 awk 'BEGIN { OFS = ":" } { $1 = $1; print }' file
 ```
 
-`-v` sets a variable before `BEGIN`; an assignment after the program sets
-one while reading.
+`-v` sets a variable before `BEGIN`; an assignment after the program sets one while reading.
 
 See: [Variables](https://www.gnu.org/software/gawk/manual/gawk.html#Using-Variables)
 
@@ -212,8 +206,7 @@ awk '{ if (match($0, /[0-9]+/)) print RSTART, RLENGTH }' file
 awk '{ print toupper($1), tolower($2) }' file
 ```
 
-`match()` sets `RSTART` and `RLENGTH`; `~` tests a regex without setting
-them.
+`match()` sets `RSTART` and `RLENGTH`; `~` tests a regex without setting them.
 
 See: [match](https://www.gnu.org/software/gawk/manual/gawk.html#String-Functions)
 
@@ -227,8 +220,7 @@ awk 'BEGIN { printf "%03d %x %c\n", 7, 255, 65 }'
 awk '{ s = sprintf("%s: %d", $1, $2); print s }' file
 ```
 
-`printf` takes a format and a comma-separated list; `print` separates its
-arguments with `OFS` and ends with `ORS`.
+`printf` takes a format and a comma-separated list; `print` separates its arguments with `OFS` and ends with `ORS`.
 
 See: [Printf](https://www.gnu.org/software/gawk/manual/gawk.html#Printf)
 
@@ -252,8 +244,7 @@ awk 'BEGIN { print "10" < "9" }'     # String compare: 1
 awk 'BEGIN { print 10 < 9 }'         # Numeric compare: 0
 ```
 
-A field is a numeric string when it looks like a number; `+0` forces a
-number.
+A field is a numeric string when it looks like a number; `+0` forces a number.
 
 See: [Conversion](https://www.gnu.org/software/gawk/manual/gawk.html#Conversion)
 
@@ -278,8 +269,7 @@ gawk 'BEGIN { PROCINFO["sorted_in"] = "@ind_str_asc" }
       END { for (k in count) print k }' file
 ```
 
-`for (k in a)` visits keys in unspecified order unless gawk's
-`sorted_in` is set.
+`for (k in a)` visits keys in unspecified order unless gawk's `sorted_in` is set.
 
 See: [Array traversal](https://www.gnu.org/software/gawk/manual/gawk.html#Controlling-Array-Traversal)
 
@@ -291,8 +281,7 @@ awk '{ total[$1, $2] += $3 } END { for (k in total) print k }'
 awk 'BEGIN { a["x", "y"] = 1; if (("x", "y") in a) print "yes" }'
 ```
 
-`a[i,j]` joins the keys with `SUBSEP`. `delete a` clears the whole array
-in gawk.
+`a[i,j]` joins the keys with `SUBSEP`. `delete a` clears the whole array in gawk.
 
 See: [Delete](https://www.gnu.org/software/gawk/manual/gawk.html#Delete)
 
@@ -327,8 +316,7 @@ awk '/^#/ { next } { print }' file
 awk 'NR == 10 { exit } { print }' file
 ```
 
-`next` skips the rest of the record; `exit` runs `END` unless it is
-already in `END`.
+`next` skips the rest of the record; `exit` runs `END` unless it is already in `END`.
 
 See: [Next statement](https://www.gnu.org/software/gawk/manual/gawk.html#Next-Statement)
 
@@ -366,8 +354,7 @@ awk 'NR == FNR { seen[$0] = 1; next }
      $0 in seen' a.txt b.txt       # Lines in both files
 ```
 
-`NR == FNR` holds while the first file is read; an empty first file breaks
-the trick.
+`NR == FNR` holds while the first file is read; an empty first file breaks the trick.
 
 See: [FNR](https://www.gnu.org/software/gawk/manual/gawk.html#Auto_002dset)
 

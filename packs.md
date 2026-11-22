@@ -84,6 +84,8 @@ Move a file or directory from one pack to another, from the monolith or another 
 
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 
+## Pack structure
+
 ### Move a pack to a folder
 
 ```bash
@@ -120,9 +122,9 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 $ bin/packs rename
 ```
 
-Rename a pack.
-
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
+
+## Inspect packs
 
 ### Get pack info
 
@@ -146,6 +148,7 @@ Describe a command, or print a tree of all commands.
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 
 ## Packs validity
+<!-- {: .-three-column} -->
 
 ### Validate all packs
 
@@ -178,6 +181,7 @@ Runs `bin/packwerk update-todo`.
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 
 ## Lints
+<!-- {: .-three-column} -->
 
 ### Lint package_todo.yml
 
@@ -203,7 +207,8 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ### List top violations
 
 ```bash
-$ bin/packs list_top_violations type [ packs/your_pack ]
+$ bin/packs list_top_violations type \
+  [ packs/your_pack ]
 ```
 
 List top violations of a type (`dependency`, `privacy`, `layer`) for a pack, or all packs.

@@ -337,8 +337,7 @@ jq -n -c --arg name Ada --argjson n 2 '{name: $name, n: $n}'
 # → {"name":"Ada","n":2}
 ```
 
-`--arg` always makes a string, `--argjson` parses JSON. `--slurpfile v
-f.json` reads a file into `$v`; `--rawfile v f.txt` reads plain text.
+`--arg` always makes a string, `--argjson` parses JSON. `--slurpfile v f.json` reads a file into `$v`; `--rawfile v f.txt` reads plain text.
 
 See: [Invoking jq](https://jqlang.org/manual/#invoking-jq)
 

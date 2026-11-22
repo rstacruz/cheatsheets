@@ -43,8 +43,6 @@ links:
 
 ## Quick start
 
-<!-- {: .-two-column} -->
-
 ### Installing React
 
 ```sh
@@ -174,15 +172,17 @@ Pass the handler, not a call, and wrap arguments in an arrow; call `e.preventDef
 
 ## State
 
-<!-- {: .-two-column} -->
-
 ### useState
+
+#### Numbers
 
 ```jsx
 const [count, setCount] = useState(0)
 setCount(count + 1)
 setCount(c => c + 1)  // when the next value depends on the previous
 ```
+
+#### Objects and arrays
 
 ```jsx
 setUser({ ...user, name: 'Ana' })
@@ -231,6 +231,8 @@ Prefer a reducer when updates are complex or depend on several values. See: [use
 
 ### Actions (v19)
 
+#### Form action
+
 ```jsx
 const [error, submitAction, isPending] =
   useActionState(async (prev, formData) => {
@@ -245,7 +247,7 @@ const [error, submitAction, isPending] =
 
 <!-- {: data-line="1,2,3,4"} -->
 
-An action prop takes a function (sync or async) that React runs in a Transition; `useOptimistic` shows an optimistic result. See: [useActionState](https://react.dev/reference/react/useActionState)
+#### Form status
 
 ```jsx
 import { useFormStatus } from 'react-dom'
@@ -256,6 +258,8 @@ function Submit() {
 }
 ```
 <!-- {: data-line="4"} -->
+
+An action prop takes a function (sync or async) that React runs in a Transition; `useOptimistic` shows an optimistic result. See: [useActionState](https://react.dev/reference/react/useActionState)
 
 `useFormStatus` reads the parent form's state; render it inside the `<form>`. See: [useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus)
 
@@ -278,9 +282,9 @@ Shows the next state immediately while an action runs, then reconciles with the 
 
 ## Effects
 
-<!-- {: .-two-column} -->
-
 ### useEffect
+
+#### Subscription
 
 ```jsx
 useEffect(() => {
@@ -291,6 +295,8 @@ useEffect(() => {
 ```
 
 <!-- {: data-line="4"} -->
+
+#### Interval
 
 ```jsx
 useEffect(() => {
@@ -356,7 +362,6 @@ useEffect(() => {
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## Concurrent UI
-<!-- {: .-two-column} -->
 
 ### Activity (v19.2)
 
@@ -382,9 +387,9 @@ Animates enter, exit, update and share for transitions and Suspense reveals. See
 
 ## Refs
 
-<!-- {: .-two-column} -->
-
 ### useRef
+
+#### Object ref
 
 ```jsx
 const inputRef = useRef(null)
@@ -392,7 +397,7 @@ useEffect(() => inputRef.current.focus(), [])
 return <input ref={inputRef} />
 ```
 
-A mutable `.current` box that persists without re-rendering. See: [useRef](https://react.dev/reference/react/useRef)
+#### Callback ref
 
 ```jsx
 <input
@@ -404,9 +409,13 @@ A mutable `.current` box that persists without re-rendering. See: [useRef](https
 ```
 <!-- {: data-line="4"} -->
 
+A mutable `.current` box that persists without re-rendering. See: [useRef](https://react.dev/reference/react/useRef)
+
 Ref callbacks may return a cleanup function, called when the node detaches. See: [ref callback](https://react.dev/reference/react-dom/components/common#ref-callback)
 
 ### Ref as a prop (v19)
+
+#### Passing ref
 
 ```jsx
 function Input({ ref, ...props }) {
@@ -414,12 +423,14 @@ function Input({ ref, ...props }) {
 }
 ```
 
-v19 passes `ref` as a normal prop; `forwardRef` still works but is legacy (docs plan to deprecate it). See: [forwardRef](https://react.dev/reference/react/forwardRef)
+#### Fragment ref
 
 ```jsx
 import { Fragment } from 'react'
 <Fragment ref={ref}>{rows}</Fragment>
 ```
+
+v19 passes `ref` as a normal prop; `forwardRef` still works but is legacy (docs plan to deprecate it). See: [forwardRef](https://react.dev/reference/react/forwardRef)
 
 19.3 attaches refs to fragments, yielding a `FragmentInstance` with DOM-like methods. See: [Fragment](https://react.dev/reference/react/Fragment)
 
@@ -435,10 +446,14 @@ Exposes a custom imperative API instead of the DOM node; rarely needed. See: [us
 
 ### Portals and inner HTML
 
+#### Portal
+
 ```jsx
 import { createPortal } from 'react-dom'
 createPortal(<Modal />, document.getElementById('modal-root'))
 ```
+
+#### Inner HTML
 
 ```jsx
 <div dangerouslySetInnerHTML={{ __html: trustedHtml }} />
@@ -447,8 +462,6 @@ createPortal(<Modal />, document.getElementById('modal-root'))
 A portal renders elsewhere in the DOM while keeping the React tree; `dangerouslySetInnerHTML` injects raw HTML, so never pass untrusted input. See: [createPortal](https://react.dev/reference/react-dom/createPortal)
 
 ## Context
-
-<!-- {: .-two-column} -->
 
 ### createContext and useContext
 
@@ -464,11 +477,19 @@ function Toolbar() {
 
 <!-- {: data-line="5"} -->
 
+Context passes data down without prop drilling; v19 renders `<Context>` itself as the provider. See: [useContext](https://react.dev/reference/react/useContext)
+
+### Provider variants
+
 ```jsx
 <ThemeContext value="dark">…</ThemeContext>  // v19+
 <ThemeContext.Provider value="dark">…</ThemeContext.Provider>
 // ^ still works in v19; docs plan to deprecate
 ```
+
+The `Provider` element still works in v19; docs plan to deprecate it. See: [createContext](https://react.dev/reference/react/createContext)
+
+### Custom context hook
 
 ```jsx
 function useTheme() {
@@ -480,11 +501,9 @@ function useTheme() {
 
 <!-- {: data-line="3"} -->
 
-Context passes data down without prop drilling and v19 renders `<Context>` itself as the provider; wrapping `useContext` names the value and fails loudly outside a provider. See: [useContext](https://react.dev/reference/react/useContext) · [createContext](https://react.dev/reference/react/createContext)
+Wrapping `useContext` names the value and fails loudly outside a provider. See: [useContext](https://react.dev/reference/react/useContext)
 
 ## Custom hooks
-
-<!-- {: .-two-column} -->
 
 ### Rules of hooks
 
@@ -527,8 +546,6 @@ const id = useId()
 
 ## Performance
 
-<!-- {: .-two-column} -->
-
 ### memo, useMemo and useCallback
 
 ```jsx
@@ -545,10 +562,14 @@ Cache components and values only when measurement shows a need — [React Compil
 
 ### useTransition and useDeferredValue
 
+#### Transition
+
 ```jsx
 const [isPending, startTransition] = useTransition()
 startTransition(() => setQuery(input))
 ```
+
+#### Deferred value
 
 ```jsx
 const deferredQuery = useDeferredValue(query)
@@ -572,8 +593,6 @@ Subscribes safely to an external store in concurrent rendering; the third argume
 
 ## Suspense and lazy
 
-<!-- {: .-two-column} -->
-
 ### lazy and Suspense
 
 ```jsx
@@ -596,8 +615,6 @@ Reads a promise (suspends) or a context (no suspend); unlike hooks it may be con
 
 ## Rendering and SSR
 
-<!-- {: .-two-column} -->
-
 ### Client rendering
 
 ```jsx
@@ -618,22 +635,25 @@ Hydration markup must match the client render. See: [Client APIs](https://react.
 
 ### Server rendering
 
+#### String rendering
+
 ```jsx
 import { renderToString } from 'react-dom/server'
 const html = renderToString(<App />)  // sync, no streaming
 ```
 
-`renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense.
+#### Streaming and prerendering
 
 ```jsx
 import { prerender } from 'react-dom/static'
 const { prelude } = await prerender(<App />)
 ```
 
+`renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense.
+
 `prerender` and `prerenderToNodeStream` wait for data; 19.2 adds `resume` for partial pre-rendering.
 
-`cache(fn)` dedupes Server Component work; `cacheSignal()` returns an
-AbortSignal aborted when the render ends.
+`cache(fn)` dedupes Server Component work; `cacheSignal()` returns an AbortSignal aborted when the render ends.
 
 See: [Server APIs](https://react.dev/reference/react-dom/server) · [prerender](https://react.dev/reference/react-dom/static/prerender)
 
@@ -645,8 +665,7 @@ import { browser } from 'react-dom'
 use(browser())  // suspends on the server, not the client
 ```
 
-Marks a Client Component as browser-only; its nearest Suspense fallback
-renders during SSR.
+Marks a Client Component as browser-only; its nearest Suspense fallback renders during SSR.
 
 See: [browser](https://react.dev/reference/react-dom/browser)
 
@@ -668,8 +687,6 @@ React hoists metadata tags to `<head>`; `preload`, `preinit`, `preconnect` and `
 See: [preload](https://react.dev/reference/react-dom/preload) · [title](https://react.dev/reference/react-dom/components/title)
 
 ## Error handling
-
-<!-- {: .-two-column} -->
 
 ### Error boundaries
 
@@ -714,8 +731,6 @@ See: [createRoot](https://react.dev/reference/react-dom/client/createRoot#parame
 
 ## Legacy APIs
 
-<!-- {: .-two-column} -->
-
 ### Rendering and lifecycle
 
 | Legacy | Modern |
@@ -754,8 +769,6 @@ See: [forwardRef](https://react.dev/reference/react/forwardRef)
 See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work and are the only way to write an error boundary; see the [React v16 cheatsheet](react@16) for the class-era API.
 
 ## Also see
-
-<!-- {: .-two-column} -->
 
 - [React documentation](https://react.dev/) _(react.dev)_
 - [React API reference](https://react.dev/reference/react) _(react.dev)_

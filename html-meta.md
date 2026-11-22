@@ -85,6 +85,8 @@ See: [OpenGraph protocol](https://developers.facebook.com/docs/opengraphprotocol
 - `article:section`
 - `article:tag`
 
+<!-- {: .-enum-wide} -->
+
 ### Apple-only
 
 ```html

@@ -52,7 +52,7 @@ links:
   - offsetX
   - offsetY
 
-<!-- {: .-six-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Window
 
@@ -69,7 +69,7 @@ links:
   - height
   - width
 
-<!-- {: .-six-column} -->
+<!-- {: .-enum-lines} -->
 
 #### jQuery
 

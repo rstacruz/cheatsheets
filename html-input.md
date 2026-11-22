@@ -37,14 +37,14 @@ weight: -3
 * **text**
 * search
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Time
 
 * date
 * time
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Time (not widely supported)
 
@@ -61,7 +61,7 @@ weight: -3
 * **radio**
 * **checkbox**
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Buttons
 
@@ -70,14 +70,14 @@ weight: -3
 * submit
 * image
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Numeric
 
 * number
 * range
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 ## Examples
 

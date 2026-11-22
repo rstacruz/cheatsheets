@@ -316,6 +316,60 @@ Add `{: .-four-column}` to make large lists.
 
 Add `{: .-also-see}`.
 
+## Enumeration grids
+
+<!-- {: .-one-column} -->
+
+### Two values
+
+- `ios`
+- `android`
+
+<!-- {: .-enum} -->
+
+Two values fill two tiles at every width.
+
+### Six values
+
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+
+<!-- {: .-enum} -->
+
+Six values render 4 across on desktop and 2 across when narrow.
+
+### Long values
+
+- `article:published_time`
+- `article:modified_time`
+- `article:expiration_time`
+- `article:author`
+- `article:section`
+- `article:tag`
+
+<!-- {: .-enum-wide} -->
+
+Long values cap at two columns with `.-enum-wide`.
+
+### Ruled rows
+
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+- `md`
+- `json`
+
+<!-- {: .-enum-lines} -->
+
+Horizontal rules span each row; the final rule is clipped.
+
 ## Paragraphs
 
 <!-- {: .-three-column} -->

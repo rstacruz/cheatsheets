@@ -377,6 +377,44 @@ Use tables for quick scanning when showing reference information.
 These are the basic data types in Elixir.
 ````
 
+### lists/enumeration-items
+
+🤖 Check: `lists/enumeration-items`.
+
+Use a list, not a table, for enumerable values — flags, file types, modes, names — when no item needs a description, default, or link. Write commands in a code block instead.
+
+- Two or more items; one term or short phrase each, at most 8 words.
+- No sentence punctuation, nested lists, or extra blocks.
+- Add `<!-- {: .-enum} -->` after the list; the check flags qualifying lists that omit it.
+- Link lists and lists with descriptions belong in a table, not a grid.
+
+````md
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+<!-- {: .-enum} -->
+````
+
+### lists/enumeration-width
+
+🤖 Check: `lists/enumeration-width`.
+
+Choose the class from the longest item; the check enforces the boundary.
+
+- 13 characters or fewer: `.-enum`. There is no `.-enum-small`; `.-enum` is the short form.
+- 14 characters or more: `.-enum-wide`, capped at two columns; at least one item must be that long.
+- `.-enum-lines` shares the 13-character limit and swaps tiles for horizontal rules.
+
+````md
+- `article:published_time`
+- `article:modified_time`
+- `article:tag`
+<!-- {: .-enum-wide} -->
+````
+
 ### code/inline-comments
 
 Use inline comments to explain results, equivalents, or provide context.

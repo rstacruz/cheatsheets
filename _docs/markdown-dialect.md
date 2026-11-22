@@ -116,6 +116,18 @@ Tables use kramdown's dialect, not GFM's.
 <!-- {: .-also-see} -->
 ````
 
+- `.-enum` lays short values out as a 2- or 4-tile grid; `.-enum-wide` caps at 2 columns for longer values.
+- `.-enum-lines` replaces tiles with horizontal rules between rows; the final rule is clipped.
+- All three drop bullet dots; items wrap instead of clipping.
+- `.-enum` and `.-enum-lines` expect items of 13 characters or fewer; `.-enum-wide` expects at least one item of 14 or more.
+
+````md
+- `ios`
+- `android`
+- `web`
+<!-- {: .-enum} -->
+````
+
 ## Jekyll tags
 
 Liquid is gone, but two legacy tags still expand:

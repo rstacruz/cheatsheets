@@ -4,7 +4,7 @@ category: Others
 subtitle: Date format codes by tool
 weight: -5
 updated: 2026-11-18
-last_verified_with: "Current strftime, JavaScript, PHP, Go, Java, Swift and C# date APIs."
+last_verified_with: "strftime, JavaScript, PHP, Go, Java, Swift and C# date APIs."
 tier: t1
 fragments:
   - "YYYY-MM-DD"

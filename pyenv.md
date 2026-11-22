@@ -3,7 +3,7 @@ title: pyenv
 subtitle: Python version manager
 category: Package managers
 updated: 2026-11-21
-last_verified_with: "Current pyenv 2.8.15."
+last_verified_with: "pyenv 2.8.15."
 tier: t1
 fragments:
   - "pyenv install"

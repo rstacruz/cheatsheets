@@ -3,7 +3,7 @@ title: Paseo CLI
 subtitle: Multi-agent coding CLI
 category: Agents
 updated: 2026-11-21
-last_verified_with: "Current paseo 0.16.2."
+last_verified_with: "paseo 0.16.2."
 tier: t1
 fragments:
   - "paseo"

@@ -3,7 +3,7 @@ title: tmux
 subtitle: Terminal multiplexer
 category: Shell
 updated: 2026-11-18
-last_verified_with: "Current tmux 3.8."
+last_verified_with: "tmux 3.8."
 tier: t1
 fragments:
   - "C-b"

@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 const NOTE_DATE =
   /\b(?:19|20)\d{2}-\d{1,2}(?:-\d{1,2})?\b|\b\d{1,2}[/-]\d{1,2}[/-](?:19|20)\d{2}\b|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+(?:19|20)\d{2}\b|\b\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(?:19|20)\d{2}\b/i
+const NOTE_PR = /#\d+\b/
 
 export const SheetLinkSchema = z.object({
   title: z.string().min(1).describe('Link text.'),
@@ -48,6 +49,9 @@ export const SheetFrontmatterSchema = z
       .refine((value) => !NOTE_DATE.test(value), {
         message:
           '`last_verified_with` must not contain dates; use versions only'
+      })
+      .refine((value) => !NOTE_PR.test(value), {
+        message: '`last_verified_with` must not contain PR numbers'
       })
       .optional()
       .describe(

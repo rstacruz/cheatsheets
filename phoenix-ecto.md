@@ -3,7 +3,7 @@ title: "Phoenix: Ecto"
 subtitle: Database wrapper for Elixir
 category: Elixir
 updated: 2026-11-22
-last_verified_with: "Current Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6, Ecto 3.14.3, SQLite."
+last_verified_with: "Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6, Ecto 3.14.3, SQLite."
 intro: |
   Ecto maps Elixir structs to a database and validates changes before persisting them. This reference covers schemas, changesets, Repo calls and queries.
 links:

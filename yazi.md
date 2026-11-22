@@ -19,7 +19,7 @@ fragments:
   - "cc"
   - "<C-a>"
 updated: 2026-11-16
-last_verified_with: "Current Yazi 26.9.1."
+last_verified_with: "Yazi 26.9.1."
 keywords:
   - yazi
   - yazi.toml

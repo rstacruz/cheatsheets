@@ -4,7 +4,7 @@ subtitle: Locale-aware duration formatter
 category: Browser APIs
 tier: t1
 updated: 2026-11-18
-last_verified_with: "Current Node 26 (ICU)."
+last_verified_with: "Node 26 (ICU)."
 fragments:
   - "DurationFormat"
   - "{ hours: 1"

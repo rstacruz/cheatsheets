@@ -4,7 +4,7 @@ subtitle: JSON processor
 category: CLI
 tier: t1
 updated: 2026-11-18
-last_verified_with: "Current jq 1.8.2."
+last_verified_with: "jq 1.8.2."
 fragments:
   - "jq '.'"
   - ".users[]"

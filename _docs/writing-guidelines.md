@@ -16,11 +16,11 @@ updated: 2024-01-01
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
-- **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `Current <tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` are rejected.
+- **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
 
 ```yaml
-last_verified_with: "Current Conventional Commits 1.0.0, curl 8.23.0."
-last_verified_with: "Current Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6."
+last_verified_with: "Conventional Commits 1.0.0, curl 8.23.0."
+last_verified_with: "Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6."
 ```
 
 

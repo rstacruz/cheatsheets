@@ -4,7 +4,7 @@ subtitle: On-demand agent instructions
 category: Agents
 tags: [Featured]
 updated: 2026-11-11
-last_verified_with: "Current Agent Skills specification (unversioned)."
+last_verified_with: "Agent Skills specification (unversioned)."
 tier: t1
 fragments:
   - "SKILL.md"

@@ -3,7 +3,7 @@ title: Markdown
 subtitle: Plain-text markup format
 category: Markup
 tier: t1
-last_verified_with: "Current CommonMark and GFM syntax."
+last_verified_with: "CommonMark and GFM syntax."
 fragments:
   - "# Heading"
   - "**bold**"

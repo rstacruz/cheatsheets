@@ -4,7 +4,7 @@ subtitle: Find the first bad commit
 category: Git
 tier: t1
 updated: 2026-11-21
-last_verified_with: "Current Git."
+last_verified_with: "Git."
 fragments:
   - "bisect start"
   - "bisect bad"

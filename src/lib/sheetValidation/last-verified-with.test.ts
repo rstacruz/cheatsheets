@@ -1,6 +1,6 @@
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
-const note = 'Current Conventional Commits 1.0.0, curl 8.23.0.'
+const note = 'Conventional Commits 1.0.0, curl 8.23.0.'
 
 const TIERED = {
   fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
@@ -47,12 +47,21 @@ it.each([
   ).toThrow(/must not contain dates/)
 })
 
-it.each(['Current yt-dlp 2026.10.26.', 'Current mise v2026.11.1.'])(
+it.each(['yt-dlp 2026.10.26.', 'mise v2026.11.1.', 'C# 12 APIs.'])(
   'accepts version-shaped numbers: %s',
   (value) => {
     expect(
       SheetFrontmatterSchema.parse({ last_verified_with: value })
         .last_verified_with
     ).toBe(value)
+  }
+)
+
+it.each(['git 2.56.0 (PR #2383)', 'curl 8.23.0 #123'])(
+  'rejects PR numbers in the note: %s',
+  (value) => {
+    expect(() =>
+      SheetFrontmatterSchema.parse({ last_verified_with: value })
+    ).toThrow(/must not contain PR numbers/)
   }
 )

@@ -3,7 +3,7 @@ title: Docker CLI
 subtitle: Container engine CLI
 category: Devops
 tier: t1
-last_verified_with: "Current Docker 29.9.2."
+last_verified_with: "Docker 29.9.2."
 fragments:
   - "docker pull"
   - "docker run -it"

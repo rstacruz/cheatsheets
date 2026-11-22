@@ -180,13 +180,13 @@ See: [Directory setuid and setgid](https://www.gnu.org/software/coreutils/manual
 ### Sticky bit
 
 ```bash
-$ chmod 777 shared/
+$ chmod 00777 shared/
 $ chmod +t shared/
 $ stat -c '%A %a' shared/
 drwxrwxrwt 1777
 ```
 
-On a shared directory, only an entry's owner can remove it; the leading digit becomes `1`.
+A leading `0` clears inherited special bits. On a shared directory, unprivileged users can remove only their own entries; the directory owner and root are exempt.
 
 See: [File permissions](https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html)
 
@@ -203,6 +203,7 @@ $ chmod 4755 program
 | `4`   | setuid  |
 | `2`   | setgid  |
 | `1`   | sticky  |
+<!-- {: .-headers} -->
 
 Combine it with the three access digits, eg `chmod 2755 shared/`.
 

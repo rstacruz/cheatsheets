@@ -32,6 +32,8 @@ links:
 
 ## Getting started
 
+<!-- {: .-three-column} -->
+
 ### Standard input
 
 <!-- {: .-prime} -->
@@ -94,10 +96,13 @@ See: [POSIX xargs](https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/
 
 ## NUL-delimited input
 
+<!-- {: .-three-column} -->
+
 ### NUL input from find
 
 ```bash
-$ find . -name '*.txt' -print0 | xargs -0 -n 1 echo
+$ find . -name '*.txt' -print0 \
+    | xargs -0 -n 1 echo
 ./my file.txt
 ./notes.txt
 ```

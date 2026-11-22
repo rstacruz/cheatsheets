@@ -157,7 +157,7 @@ See: [ssh_config(5)](https://man.openbsd.org/ssh_config.5)
 ### Effective configuration
 
 ```bash
-$ ssh -G -F ./config github | grep -E '^(user|hostname|port) '
+$ ssh -G -F ~/.ssh/config github | grep -E '^(user|hostname|port) '
 user git
 hostname github.com
 port 22

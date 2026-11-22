@@ -1,6 +1,6 @@
 ---
 title: SSH
-subtitle: Secure remote shell and tunnels
+subtitle: Encrypted remote shell client
 category: Networking
 tier: t2
 updated: 2026-11-23

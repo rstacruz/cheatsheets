@@ -308,6 +308,8 @@ You can use the following shorthands to declare attribute accessor methods in cl
 * `attr_reader`
 * `attr_writer`
 
+<!-- {: .-enum-lines} -->
+
 ### Private method (to be implemented)
 
 ```ruby
@@ -593,6 +595,8 @@ Use the annotations to keep the comments concise.
 - `OPTIMIZE`
 - `HACK`
 - `REVIEW`
+
+<!-- {: .-enum-lines} -->
 
 ### I/O
 

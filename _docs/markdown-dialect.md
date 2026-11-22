@@ -117,7 +117,7 @@ Tables use kramdown's dialect, not GFM's.
 ````
 
 - `.-enum` lays short values out as a 2- or 4-tile grid; `.-enum-wide` caps at 2 columns for longer values.
-- `.-enum-lines` replaces tiles with ruled rows: horizontal rules span a row, vertical rules stop at them.
+- `.-enum-lines` replaces tiles with horizontal rules between rows; the final rule is clipped.
 - All three drop bullet dots; items wrap instead of clipping.
 - `.-enum` and `.-enum-lines` expect items of 13 characters or fewer; `.-enum-wide` expects at least one item of 14 or more.
 

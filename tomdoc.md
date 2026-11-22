@@ -33,6 +33,8 @@ See [tomdoc.org](http://tomdoc.org/).
 - `Internal`
 - `Public`
 
+<!-- {: .-enum-lines} -->
+
 ### Options
 
 ```ruby

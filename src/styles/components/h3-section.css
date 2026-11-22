@@ -245,16 +245,6 @@ ul.-also-see.-also-see.-also-see {
   overflow-wrap: break-word;
 }
 
-.h3-section > .body > ul.-enum-lines > li:not(:nth-child(4n)) {
-  border-right: solid 1px var(--line-color);
-}
-
-@media (max-width: 480px) {
-  .h3-section > .body > ul.-enum-lines > li:nth-child(2n) {
-    border-right: 0;
-  }
-}
-
 .h3-section > .body > ul.-enum-lines > li::before {
   display: none;
 }

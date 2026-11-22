@@ -368,7 +368,7 @@ Long values cap at two columns with `.-enum-wide`.
 
 <!-- {: .-enum-lines} -->
 
-Rules span each row; vertical lines stop at each rule.
+Horizontal rules span each row; the final rule is clipped.
 
 ## Paragraphs
 

@@ -129,6 +129,8 @@ Reflex classes can use the following callbacks. [Full Docs](http://docs.stimulus
 - `around_reflex`
 - `after_reflex`
 
+<!-- {: .-enum-lines} -->
+
 ### Client-side callbacks (generic)
 
 StimulusReflex controllers automatically support five generic lifecycle callback methods.

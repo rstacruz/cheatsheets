@@ -1,5 +1,7 @@
 ---
 title: Markdown
+seo_title: Markdown cheatsheet — syntax, tables, links
+description: "Markdown cheatsheet: headings, lists, tables, links, code and HTML. CommonMark and GFM syntax reference."
 subtitle: Plain-text markup format
 category: Markup
 tier: t1

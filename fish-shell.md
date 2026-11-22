@@ -1,5 +1,7 @@
 ---
 title: Fish shell
+seo_title: Fish shell cheatsheet — syntax, variables, functions
+description: "Fish shell cheatsheet: syntax, variables, functions, control flow and history."
 subtitle: Interactive shell with autosuggestions
 category: Shell
 prism_languages: [fish]

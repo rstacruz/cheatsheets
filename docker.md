@@ -1,5 +1,7 @@
 ---
 title: Docker CLI
+seo_title: Docker cheatsheet — commands, flags, examples
+description: "Docker cheatsheet: commands, flags, containers, images, volumes and logs. Copy-paste examples."
 subtitle: Container engine CLI
 category: Devops
 tier: t1

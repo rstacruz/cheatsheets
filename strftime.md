@@ -1,5 +1,7 @@
 ---
 title: strftime format
+seo_title: strftime cheatsheet — format codes, examples
+description: "strftime cheatsheet: date and time format codes, presets and examples for Ruby and UNIX date."
 category: Others
 subtitle: Date format reference
 weight: -5

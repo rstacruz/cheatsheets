@@ -40,7 +40,7 @@ links:
     url: https://dev.mysql.com/doc/refman/9.7/en/join.html
 ---
 
-## Inner joins
+## Joining tables
 
 ### Match rows in both tables
 
@@ -64,26 +64,28 @@ Bob   103       15
 
 See: [PostgreSQL inner joins](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-### Same-name columns
+### Diagram
 
-```sql
-SELECT o.order_id, s.status
-FROM orders AS o
-JOIN shipments AS s USING (order_id);
-```
-
-#### Result
+#### Query
 
 ```
-order_id  status
---------  -------
-101       shipped
-103       pending
+SELECT * FROM a INNER JOIN b
 ```
 
-`USING` merges the shared column into one output column.
+#### Overlap
 
-See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
+```
+┌────────┐
+│ a  ┌───┼────┐
+│    │ ∩ │    │
+└────┼───┘  b │
+     └────────┘
+```
+<!-- {: .-box-chars.-setup} -->
+
+The intersection is the inner join; each circle adds its outer rows.
+
+See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 
 ## Outer joins
 <!-- {: .-three-column} -->
@@ -392,28 +394,26 @@ See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
 See: [PostgreSQL join types](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-### Diagram
+### Same-name columns
 
-#### Query
+```sql
+SELECT o.order_id, s.status
+FROM orders AS o
+JOIN shipments AS s USING (order_id);
+```
+
+#### Result
 
 ```
-SELECT * FROM a INNER JOIN b
+order_id  status
+--------  -------
+101       shipped
+103       pending
 ```
 
-#### Overlap
+`USING` merges the shared column into one output column.
 
-```
-┌────────┐
-│ a  ┌───┼────┐
-│    │ ∩ │    │
-└────┼───┘  b │
-     └────────┘
-```
-<!-- {: .-box-chars.-setup} -->
-
-The intersection is the inner join; each circle adds its outer rows.
-
-See: [SQLite joins](https://www.sqlite.org/lang_select.html)
+See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
 ### Sample data
 

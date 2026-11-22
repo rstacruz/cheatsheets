@@ -196,7 +196,13 @@ length=2
 echo "${name:0:length}"  # Jo
 ```
 
-A negative offset needs a space or parentheses: `${name: -1}`.
+#### Negative offsets
+
+```bash
+echo "${name: -1}"  # n, space before -1
+```
+
+A negative offset needs a space or parentheses.
 
 See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -823,17 +829,23 @@ See: [Modifiers](https://www.gnu.org/software/bash/manual/html_node/Modifiers.ht
 
 See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html)
 
-## Miscellaneous
+## Arithmetic and redirection
 
 ### Numeric calculations
+
+#### Evaluate
 
 ```bash
 echo $((a + 200))      # Add 200 to $a
 ```
 
+#### Random
+
 ```bash
 echo $((RANDOM % 200))  # Random number 0..199
 ```
+
+#### Typed variables
 
 ```bash
 declare -i count  # Declare as type integer
@@ -853,6 +865,8 @@ See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Comma
 
 ### Redirection
 
+#### Output
+
 ```bash
 python hello.py > output.txt     # stdout to file
 python hello.py >> output.txt    # stdout to file, append
@@ -863,6 +877,8 @@ python hello.py >output.txt 2>&1 # both, same as &>
 python hello.py &>/dev/null      # both to null
 echo "$0: warning: too many users" >&2  # diagnostic
 ```
+
+#### Input
 
 ```bash
 python hello.py < foo.txt      # feed foo.txt to stdin for python
@@ -882,11 +898,13 @@ See: [Bash builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Bui
 
 ### Trap errors
 
+#### Simple trap
+
 ```bash
 trap 'echo Error at about $LINENO' ERR
 ```
 
-or
+#### With a handler
 
 ```bash
 traperr() {
@@ -898,6 +916,8 @@ trap traperr ERR
 ```
 
 See: [The trap builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+
+## Strings and patterns
 
 ### Case/switch
 
@@ -957,7 +977,7 @@ WELCOME TO DEVHINTS
 
 | Command option | Description                                         |
 | -------------- | --------------------------------------------------- |
-| `-c`           | Operations apply to characters not in the given set |
+| `-c`           | Complement the given set                            |
 | `-d`           | Delete characters                                   |
 | `-s`           | Replaces repeated characters with single occurrence |
 | `-t`           | Truncates                                           |
@@ -981,6 +1001,8 @@ dir=${BASH_SOURCE[0]%/*}
 
 See: [BASH_SOURCE](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-BASH_005fSOURCE)
 
+## Options and input
+
 ### Getting options
 
 #### Short options
@@ -998,8 +1020,6 @@ done
 shift $((OPTIND - 1))
 ```
 
-`OPTARG` holds the option value; `OPTIND` is the next argument index.
-
 #### Long options
 
 ```bash
@@ -1013,6 +1033,8 @@ while [[ "$1" == -* && "$1" != "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 ```
+
+`OPTARG` holds the option value; `OPTIND` is the next argument index.
 
 See: [getopts](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-getopts)
 
@@ -1056,19 +1078,25 @@ See: [Process substitution](https://www.gnu.org/software/bash/manual/html_node/P
 
 ### Reading input
 
+#### Prompts
+
 ```bash
 read -r -p "Proceed? [y/n] " ans
 IFS= read -s -r -p "Password: " pass  # no echo
 echo "$ans"
 ```
 
-`-r` keeps backslashes literal, `-p` prints a prompt, and `-s` hides input.
+#### One character
 
 ```bash
 read -n 1 ans    # One character
 ```
 
+`-r` keeps backslashes literal, `-p` prints a prompt, and `-s` hides input.
+
 See: [The read builtin](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html#index-read)
+
+## Shell state checks
 
 ### Special variables
 

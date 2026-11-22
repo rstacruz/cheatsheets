@@ -38,7 +38,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Use the `github-pages` version listed in [Dependency versions](https://pages.github.com/versions/); the gem pulls in matching Jekyll and plugin versions.
+The `~> 232` pin is a snapshot; use the version on [Dependency versions](https://pages.github.com/versions/) for new sites. The gem pulls in matching Jekyll and plugin versions.
 
 ### Enable extra plugins
 
@@ -132,6 +132,8 @@ See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/
 
 Built from a local build with `repository: rstacruz/cheatsheets`.
 
+See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)
+
 ### List public repositories
 
 ```liquid
@@ -158,9 +160,13 @@ See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/
 https://gist.github.com/parkr/c08ee0f2726fd0e3909d.js
 ```
 
-The tag writes a `<script>` tag with this URL into the page.
+#### One file
 
-Add a filename after the ID to embed one file: `{% gist c08ee0f2726fd0e3909d test.md %}`.
+```liquid
+{% gist c08ee0f2726fd0e3909d test.md %}
+```
+
+A filename embeds just that file from the Gist.
 
 See: [jekyll-gist](https://github.com/jekyll/jekyll-gist)
 
@@ -223,6 +229,8 @@ baseurl: /project
 ```
 
 Project sites live under a path; user sites use an empty `baseurl`.
+
+See: [Configuration options](https://jekyllrb.com/docs/configuration/)
 
 ### Resolve paths in templates
 

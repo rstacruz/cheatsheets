@@ -118,9 +118,10 @@ See: [resolves](https://sinonjs.org/concepts/stubs/api/resolves)
 ### Callbacks
 
 ```js
+const stub = sinon.stub().callsArg(0)
 const callback = sinon.spy()
-sinon.stub().callsArg(0)(callback)
 
+stub(callback)
 callback.calledOnce // → true
 ```
 
@@ -167,6 +168,39 @@ sinon.match({ url: '/x' }).test({ url: '/x' }) // → true
 
 See: [Matchers](https://sinonjs.org/concepts/matchers/)
 
+## Cleanup
+
+### Default sandbox
+
+```js
+const obj = { hello: 'world' }
+sinon.stub(obj, 'hello').value('Sinon')
+obj.hello // → 'Sinon'
+
+sinon.restore()
+obj.hello // → 'world'
+```
+
+Since Sinon 5, `sinon` is a sandbox; call `sinon.restore()` in `afterEach`.
+
+See: [Sandboxes](https://sinonjs.org/concepts/sandboxes/)
+
+### Custom sandbox
+
+```js
+const sandbox = sinon.createSandbox()
+const obj = { hello: 'world' }
+sandbox.stub(obj, 'hello').value('Banana')
+obj.hello // → 'Banana'
+
+sandbox.restore()
+obj.hello // → 'world'
+```
+
+Use `createSandbox()` when a test needs its own configuration or isolation; `sinon.sandbox.create()` is gone.
+
+See: [Sandbox API](https://sinonjs.org/concepts/sandboxes/api)
+
 ## Time
 
 ### Fake timers
@@ -185,7 +219,7 @@ clock.restore()
 
 See: [Fake timers](https://sinonjs.org/concepts/fake-timers/)
 
-### Freeze the date
+### Frozen date
 
 ```js
 const clock = sinon.useFakeTimers({
@@ -193,15 +227,14 @@ const clock = sinon.useFakeTimers({
   toFake: ['Date']
 })
 
-new Date().toISOString()
-// → '2024-01-01T00:00:00.000Z'
+new Date().toISOString() // → '2024-01-01T00:00:00.000Z'
 
 clock.restore()
 ```
 
 Sinon 19+ fakes all timers by default; `toFake` limits the replacement.
 
-See: [Migration guide](https://sinonjs.org/guides/migration)
+See: [useFakeTimers](https://sinonjs.org/concepts/fake-timers/use-fake-timers)
 
 ## HTTP
 
@@ -241,35 +274,3 @@ Sinon 20 removed its XHR fakes; nise fakes are not restored by `sinon.restore()`
 
 See: [Migration guide](https://sinonjs.org/guides/migration)
 
-## Cleanup
-
-### Default sandbox
-
-```js
-const obj = { hello: 'world' }
-sinon.stub(obj, 'hello').value('Sinon')
-obj.hello // → 'Sinon'
-
-sinon.restore()
-obj.hello // → 'world'
-```
-
-Since Sinon 5, `sinon` is a sandbox; call `sinon.restore()` in `afterEach`.
-
-See: [Sandboxes](https://sinonjs.org/concepts/sandboxes/)
-
-### Custom sandbox
-
-```js
-const sandbox = sinon.createSandbox()
-const obj = { hello: 'world' }
-sandbox.stub(obj, 'hello').value('Banana')
-obj.hello // → 'Banana'
-
-sandbox.restore()
-obj.hello // → 'world'
-```
-
-Use `createSandbox()` only for divergent config; `sinon.sandbox.create()` is gone.
-
-See: [Sandbox API](https://sinonjs.org/concepts/sandboxes/api)

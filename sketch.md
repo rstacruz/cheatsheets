@@ -346,17 +346,31 @@ See: [Style](https://www.sketch.com/docs/shortcuts/mac/#style)
 
 See: [Export](https://www.sketch.com/docs/shortcuts/mac/#export)
 
-### Shapes and vectors
+### Shapes
 
 | Shortcut  | Description             |
 | ---       | ---                     |
 | `⌃⌘T`     | Transform shape         |
-| `⌥⌘A`     | Union shapes            |
 | --------- | ----------------------- |
+| `⌥⌘A`     | Add shapes              |
+| `⌥⌘U`     | Union shapes            |
+| `⌥⌘S`     | Subtract shapes         |
+| `⌥⌘I`     | Intersect shapes        |
+| `⌥⌘X`     | Difference shapes       |
+
+<!-- {: .-shortcuts} -->
+
+See: [Shapes](https://www.sketch.com/docs/shortcuts/mac/#shapes)
+
+### Vector editing
+
+| Shortcut  | Description             |
+| ---       | ---                     |
 | `⇥` `⇧⇥`  | Next/previous point     |
 | `⌥`       | Show all handle points  |
 | `⌃`       | Click: place point      |
 | `⇧`       | Click: 45° point        |
+| --------- | ----------------------- |
 | `⌥1`      | No pixel snapping       |
 | `⌥2`      | Full-pixel snapping     |
 | `⌥3`      | Half-pixel snapping     |
@@ -406,25 +420,33 @@ See: [Text](https://www.sketch.com/docs/shortcuts/mac/#text)
 
 See: [Components](https://www.sketch.com/docs/shortcuts/mac/#components)
 
-### Assets and Command Bar
+### Assets view
 
 | Shortcut | Description          |
 | ---      | ---                  |
 | `⌥⌘F`    | Find component       |
 | `⌘1`-`⌘6` | Switch asset panel  |
-| -------- | -------------------- |
-| `⌘F`     | Open filter menu     |
-| `⌘↓`     | Filter at location   |
-| `⌘↑`     | Go to parent group   |
-| `⌥⌘↑`    | Go to current library |
-| `⌃⌥⌘↑`   | Go to all components |
+
+<!-- {: .-shortcuts} -->
+
+See: [Assets view](https://www.sketch.com/docs/shortcuts/mac/#assets-view)
+
+### Command Bar
+
+| Shortcut | Description             |
+| ---      | ---                     |
+| `⌘F`     | Open filter menu        |
+| `⌘↓`     | Filter at location      |
+| `⌘↑`     | Go to parent group      |
+| `⌥⌘↑`    | Go to current library   |
+| `⌃⌥⌘↑`   | Go to all components    |
 | `⌘P`     | Preserve size on replace |
 
 <!-- {: .-shortcuts} -->
 
-See: [Command Bar](https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-command-bar/)
+Keys apply while the Command Bar is open.
 
-Filter and navigation keys apply while the Command Bar is open.
+See: [Command Bar](https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-command-bar/)
 
 ## Inspector math
 

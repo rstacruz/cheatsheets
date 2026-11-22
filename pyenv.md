@@ -31,8 +31,7 @@ keywords:
   - pyenv virtualenv
   - pyenv plugins
 intro: |
-  [pyenv](https://github.com/pyenv/pyenv) installs Python versions, selects
-  them per project, and exposes their commands through shims.
+  [pyenv](https://github.com/pyenv/pyenv) installs Python versions, selects them per project, and exposes their commands through shims.
 links:
   - title: pyenv documentation
     url: https://github.com/pyenv/pyenv

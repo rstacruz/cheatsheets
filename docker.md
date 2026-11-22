@@ -82,9 +82,7 @@ docker run [options] IMAGE [COMMAND] [ARG...]
       --pull always          # missing (default), always, never
 ```
 
-Creates and starts a container from an image. Takes the same options
-as `docker create`, plus the detach options (`-d`, `--detach-keys`,
-`--sig-proxy`).
+Creates and starts a container from an image. Takes the same options as `docker create`, plus the detach options (`-d`, `--detach-keys`, `--sig-proxy`).
 
 See: [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
 
@@ -144,8 +142,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 docker buildx ls
 ```
 
-`docker build` is an alias for `docker buildx build`. Multi-platform
-output needs `--push` or `--output`.
+`docker build` is an alias for `docker buildx build`. Multi-platform output needs `--push` or `--output`.
 
 See: [docker buildx](https://docs.docker.com/reference/cli/docker/buildx/)
 
@@ -223,13 +220,17 @@ docker rm -f web         # force-remove a running container
 See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 
 ## Clean up
+<!-- {: .-three-column} -->
 
 ### `system prune`
 
 ```bash
-docker system prune            # stopped containers, networks, cache
-docker system prune -a         # also unused images, all build cache
-docker system prune --volumes  # also anonymous volumes
+docker system prune
+# stopped containers, networks, cache
+docker system prune -a
+# also unused images, all build cache
+docker system prune --volumes
+# also anonymous volumes
 ```
 
 Removes stopped containers, unused networks, dangling images, and unused build cache. `-a` also removes all unused images and build cache; `--volumes` also removes anonymous volumes.
@@ -249,8 +250,10 @@ See: [docker container prune](https://docs.docker.com/reference/cli/docker/conta
 ### `image prune`
 
 ```bash
-docker image prune        # dangling images
-docker image prune -a     # all unused images
+docker image prune
+# dangling images
+docker image prune -a
+# all unused images
 ```
 
 See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/prune/)
@@ -258,8 +261,10 @@ See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/pru
 ### `builder prune`
 
 ```bash
-docker builder prune        # remove build cache
-docker builder prune -a     # also internal/frontend images
+docker builder prune
+# remove build cache
+docker builder prune -a
+# also internal/frontend images
 ```
 
 See: [docker buildx prune](https://docs.docker.com/reference/cli/docker/buildx/prune/)
@@ -267,8 +272,10 @@ See: [docker buildx prune](https://docs.docker.com/reference/cli/docker/buildx/p
 ### `volume prune`
 
 ```bash
-docker volume prune       # anonymous volumes
-docker volume prune -a    # all unused volumes
+docker volume prune
+# anonymous volumes
+docker volume prune -a
+# all unused volumes
 ```
 
 See: [docker volume prune](https://docs.docker.com/reference/cli/docker/volume/prune/)

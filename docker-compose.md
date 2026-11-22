@@ -100,11 +100,15 @@ See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker
 
 ### Building and images
 
+#### Build
+
 ```yaml
 services:
   web:
     build: .
 ```
+
+#### Build options
 
 ```yaml
 services:
@@ -116,7 +120,7 @@ services:
         APP_HOME: app
 ```
 
-A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments.
+#### Image
 
 ```yaml
 services:
@@ -124,11 +128,13 @@ services:
     image: ghcr.io/example/app:1.0
 ```
 
-`image` accepts a registry path, tag, or digest.
+A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments. `image` accepts a registry path, tag, or digest.
 
 See: [build](https://docs.docker.com/reference/compose-file/build/)
 
 ### Ports
+
+#### Published ports
 
 ```yaml
 services:
@@ -138,6 +144,8 @@ services:
       - "8000:80"        # host:container
       - "127.0.0.1:8001:8001"
 ```
+
+#### Exposed ports
 
 ```yaml
 services:
@@ -152,11 +160,15 @@ See: [ports](https://docs.docker.com/reference/compose-file/services/#ports) and
 
 ### Command and entrypoint
 
+#### Command
+
 ```yaml
 services:
   web:
     command: bundle exec thin -p 3000
 ```
+
+#### Entrypoint
 
 ```yaml
 services:
@@ -170,12 +182,16 @@ See: [command](https://docs.docker.com/reference/compose-file/services/#command)
 
 ### Environment
 
+#### Environment
+
 ```yaml
 services:
   web:
     environment:
       RACK_ENV: development
 ```
+
+#### env_file
 
 ```yaml
 services:
@@ -191,12 +207,16 @@ See: [environment](https://docs.docker.com/reference/compose-file/services/#envi
 
 ### Dependencies
 
+#### Short syntax
+
 ```yaml
 services:
   web:
     depends_on:
       - db
 ```
+
+#### Long syntax
 
 ```yaml
 services:
@@ -207,7 +227,7 @@ services:
         restart: true
 ```
 
-Long syntax waits for health or successful completion and can restart dependents.
+#### Links
 
 ```yaml
 services:
@@ -215,6 +235,8 @@ services:
     links:
       - db:database
 ```
+
+Long syntax waits for health or successful completion and can restart dependents.
 
 Links add an alias and implicit dependency; networks are preferred.
 
@@ -224,11 +246,15 @@ See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depen
 
 ### Restart and resources
 
+#### Restart
+
 ```yaml
 services:
   web:
     restart: unless-stopped
 ```
+
+#### Resource limits
 
 ```yaml
 services:
@@ -301,6 +327,7 @@ Labels add metadata to containers.
 See: [labels](https://docs.docker.com/reference/compose-file/services/#labels)
 
 ## Networking and storage
+<!-- {: .-three-column} -->
 
 ### Networks
 
@@ -484,7 +511,6 @@ services:
       FOO: !reset null
 ```
 
-The override file merges into the base; `!reset` clears a value
-and `!override` replaces it instead of appending.
+The override file merges into the base; `!reset` clears a value and `!override` replaces it instead of appending.
 
 See: [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)

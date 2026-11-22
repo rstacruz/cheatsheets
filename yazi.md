@@ -26,9 +26,7 @@ keywords:
   - keymap.toml
   - terminal file manager
 intro: |
-  [Yazi](https://yazi-rs.github.io/) is a fast terminal file manager written in
-  Rust. It previews images, video, PDFs, and archives, and is configured with
-  three TOML files.
+  [Yazi](https://yazi-rs.github.io/) is a fast terminal file manager written in Rust. It previews images, video, PDFs, and archives, and is configured with three TOML files.
 links:
   - title: Yazi documentation
     url: https://yazi-rs.github.io/docs/quick-start/
@@ -63,8 +61,7 @@ printf '%s %s\n' \
 sudo apt update && sudo apt install yazi
 ```
 
-`file(1)` is required; `ffmpeg`, `7z`, `jq`, `poppler`, `fd`, `rg`, `fzf`, and
-`zoxide` unlock extra previews and searches. A Nerd Font is recommended.
+`file(1)` is required; `ffmpeg`, `7z`, `jq`, `poppler`, `fd`, `rg`, `fzf`, and `zoxide` unlock extra previews and searches. A Nerd Font is recommended.
 
 See: [Installation](https://yazi-rs.github.io/docs/installation)
 
@@ -95,9 +92,7 @@ function y() {
 
 <!-- {: data-line="3"} -->
 
-Add it to your shell rc and run `y` instead of `yazi`; the parent shell then
-follows Yazi's last directory. Fish, Nushell, PowerShell, and other ports are
-in the docs.
+Add it to your shell rc and run `y` instead of `yazi`; the parent shell then follows Yazi's last directory. Fish, Nushell, PowerShell, and other ports are in the docs.
 
 See: [Shell wrapper](https://yazi-rs.github.io/docs/quick-start#shell-wrapper)
 
@@ -159,8 +154,7 @@ See: [tab_create](https://yazi-rs.github.io/docs/configuration/keymap#mgr.tab_cr
 | `;` | Run a shell command |
 | `:` | Run a shell command, blocking |
 
-`O` lists every opener the matching `[open]` rule allows. `;` and `:` run in
-the current directory.
+`O` lists every opener the matching `[open]` rule allows. `;` and `:` run in the current directory.
 
 See: [open](https://yazi-rs.github.io/docs/configuration/keymap#mgr.open)
 
@@ -182,8 +176,7 @@ See: [open](https://yazi-rs.github.io/docs/configuration/keymap#mgr.open)
 | `<C-a>` / `<C-r>` | Select all / invert selection |
 | `v` / `V` | Visual mode |
 
-`y` copies and `x` cuts; both act on the selection, or on the hovered file
-when nothing is selected.
+`y` copies and `x` cuts; both act on the selection, or on the hovered file when nothing is selected.
 
 See: [yank](https://yazi-rs.github.io/docs/configuration/keymap#mgr.yank)
 
@@ -195,8 +188,7 @@ See: [yank](https://yazi-rs.github.io/docs/configuration/keymap#mgr.yank)
 | `A` | Bulk create, one path per line |
 | `r` | Rename, cursor before extension |
 
-A trailing `/` makes a directory. `A` opens a text buffer, then creates every
-path in it. `r` renames the selection together when several files are marked.
+A trailing `/` makes a directory. `A` opens a text buffer, then creates every path in it. `r` renames the selection together when several files are marked.
 
 See: [create](https://yazi-rs.github.io/docs/configuration/keymap#mgr.create)
 
@@ -210,8 +202,6 @@ See: [create](https://yazi-rs.github.io/docs/configuration/keymap#mgr.create)
 | `cd` | Copy the directory path |
 | `cf` | Copy the filename |
 | `cn` | Copy the filename without extension |
-
-`d` moves files to the trash; `D` skips it.
 
 See: [remove](https://yazi-rs.github.io/docs/configuration/keymap#mgr.remove)
 
@@ -233,8 +223,7 @@ See: [remove](https://yazi-rs.github.io/docs/configuration/keymap#mgr.remove)
 | `,s` / `,S` | Sort by size |
 | `,r` | Sort randomly |
 
-Uppercase variants reverse the order. Defaults live under `[mgr]` in
-`yazi.toml`.
+Uppercase variants reverse the order. Defaults live under `[mgr]` in `yazi.toml`.
 
 See: [sort](https://yazi-rs.github.io/docs/configuration/keymap#mgr.sort)
 
@@ -288,8 +277,7 @@ See: [search](https://yazi-rs.github.io/docs/configuration/keymap#mgr.search)
 
 <!-- {: .-shortcuts} -->
 
-Spot shows the MIME type, size, and permissions — useful when writing `[open]`
-rules.
+Spot shows the MIME type, size, and permissions — useful when writing `[open]` rules.
 
 See: [spot](https://yazi-rs.github.io/docs/configuration/keymap#mgr.spot)
 
@@ -305,10 +293,7 @@ set -ga update-environment TERM_PROGRAM
 
 <!-- {: data-line="1"} -->
 
-These settings let tmux pass image protocols through. Yazi picks kitty,
-iTerm2, WezTerm, Sixel, Überzug++, or Chafa automatically. Outside a
-supported terminal, install `ueberzugpp` or `chafa`. Code, JSON, folders,
-PDFs, and archives preview through built-in plugins.
+These settings let tmux pass image protocols through. Yazi picks kitty, iTerm2, WezTerm, Sixel, Überzug++, or Chafa automatically. Outside a supported terminal, install `ueberzugpp` or `chafa`. Code, JSON, folders, PDFs, and archives preview through built-in plugins.
 
 See: [image preview](https://yazi-rs.github.io/docs/image-preview)
 
@@ -324,8 +309,7 @@ wrap       = "yes"
 tab_size   = 2
 ```
 
-Images render at the smaller of these limits and the terminal size. Run
-`ya cache clear` after changing the image limits.
+Images render at the smaller of these limits and the terminal size. Run `ya cache clear` after changing the image limits.
 
 See: [preview](https://yazi-rs.github.io/docs/configuration/yazi#preview)
 
@@ -353,8 +337,7 @@ cat "$tmp"          # one selected path per line
 rm -f "$tmp"
 ```
 
-With `--chooser-file`, `Enter` or `o` writes the selected paths and exits, so
-shells and editors can use Yazi as a file picker.
+With `--chooser-file`, `Enter` or `o` writes the selected paths and exits, so shells and editors can use Yazi as a file picker.
 
 See: [Helix picker example](https://yazi-rs.github.io/docs/tips#helix)
 
@@ -373,8 +356,7 @@ mime = "text/*"
 use  = "edit"
 ```
 
-`block = true` hands the terminal to the editor and waits. `%s` expands to the
-selected paths; `for` limits the opener to an OS.
+`block = true` hands the terminal to the editor and waits. `%s` expands to the selected paths; `for` limits the opener to an OS.
 
 See: [opener](https://yazi-rs.github.io/docs/configuration/yazi#opener)
 
@@ -389,8 +371,7 @@ See: [opener](https://yazi-rs.github.io/docs/configuration/yazi#opener)
 | `theme.toml` | Colors and flavors |
 | `init.lua` | Plugin setup |
 
-Files live in `~/.config/yazi/` (`%AppData%\yazi\config\` on Windows). Set
-`YAZI_CONFIG_HOME` to use another directory.
+Files live in `~/.config/yazi/` (`%AppData%\yazi\config\` on Windows). Set `YAZI_CONFIG_HOME` to use another directory.
 
 See: [configuration](https://yazi-rs.github.io/docs/configuration/overview)
 
@@ -408,8 +389,7 @@ linemode    = "size"
 max_width   = 1000
 ```
 
-Only the keys you set override the defaults; the shipped file is the full
-reference.
+Only the keys you set override the defaults; the shipped file is the full reference.
 
 See: [yazi.toml](https://yazi-rs.github.io/docs/configuration/yazi)
 
@@ -429,8 +409,7 @@ run  = "tab_create --current"
 desc = "New tab here"
 ```
 
-`prepend_keymap` wins over the defaults, `append_keymap` loses to them, and
-`keymap` replaces the layer.
+`prepend_keymap` wins over the defaults, `append_keymap` loses to them, and `keymap` replaces the layer.
 
 See: [keymap.toml](https://yazi-rs.github.io/docs/configuration/keymap)
 
@@ -447,8 +426,7 @@ light = "catppuccin-latte"
 cwd = { fg = "#89b4fa" }
 ```
 
-Install flavors with `ya pkg add yazi-rs/flavors:catppuccin-mocha`. Colors take
-hex values or named colors.
+Install flavors with `ya pkg add yazi-rs/flavors:catppuccin-mocha`. Colors take hex values or named colors.
 
 See: [theme.toml](https://yazi-rs.github.io/docs/configuration/theme)
 
@@ -471,8 +449,7 @@ prepend_rules = [
 ]
 ```
 
-`%s` expands to all selected paths, `%s1` to the first. `block` waits for the
-program; `orphan` keeps it running after Yazi exits.
+`%s` expands to all selected paths, `%s1` to the first. `block` waits for the program; `orphan` keeps it running after Yazi exits.
 
 See: [opener](https://yazi-rs.github.io/docs/configuration/yazi#opener)
 
@@ -488,8 +465,7 @@ ya pkg install                   # restore from package.toml
 ya pkg upgrade                   # update all packages
 ```
 
-`ya pkg` clones packages into `plugins/` or `flavors/` and records them in
-`package.toml`.
+`ya pkg` clones packages into `plugins/` or `flavors/` and records them in `package.toml`.
 
 See: [package manager](https://yazi-rs.github.io/docs/cli#pm)
 
@@ -502,8 +478,7 @@ ya pub my-event --str hello    # publish a DDS message
 ya env                         # print environment info
 ```
 
-`ya emit` targets the current instance through `$YAZI_ID`; `ya emit-to` takes
-an explicit ID.
+`ya emit` targets the current instance through `$YAZI_ID`; `ya emit-to` takes an explicit ID.
 
 See: [ya emit](https://yazi-rs.github.io/docs/dds#ya-emit)
 
@@ -521,7 +496,6 @@ prepend_preloaders = [
 ]
 ```
 
-Previewers draw a file type; preloaders cache it. Initialize plugins in
-`init.lua`.
+Previewers draw a file type; preloaders cache it. Initialize plugins in `init.lua`.
 
 See: [plugin rules](https://yazi-rs.github.io/docs/configuration/yazi#plugin)

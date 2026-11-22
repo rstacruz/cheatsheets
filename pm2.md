@@ -247,8 +247,7 @@ pm2 start app.js --watch --ignore-watch node_modules
 | `--watch`            | Watch the app directory    |
 | `--watch-delay 1`    | Debounce restarts by 1s    |
 
-Use `--watch` in development; production restarts belong to reloads and
-deploys.
+Use `--watch` in development; production restarts belong to reloads and deploys.
 
 See: [Watch & restart](https://pm2.keymetrics.io/docs/usage/watch-and-restart/)
 

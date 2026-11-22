@@ -33,8 +33,7 @@ keywords:
   - pacman wrapper
   - PKGBUILD
 intro: |
-  [Yay](https://jguer.github.io/yay/) wraps pacman to install Arch packages
-  from the official repos and the AUR, resolving dependencies before building.
+  [Yay](https://jguer.github.io/yay/) wraps pacman to install Arch packages from the official repos and the AUR, resolving dependencies before building.
 links:
   - title: Yay manual
     url: https://jguer.github.io/yay/man.html

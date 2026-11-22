@@ -73,8 +73,7 @@ terraform apply tfplan
 terraform show -json tfplan > tfplan.json
 ```
 
-Saved plans can contain sensitive configuration and values. JSON output exposes
-sensitive values in plain text, so protect generated JSON files.
+Saved plans can contain sensitive configuration and values. JSON output exposes sensitive values in plain text, so protect generated JSON files.
 
 See: [Create a plan](https://developer.hashicorp.com/terraform/cli/commands/plan)
 
@@ -90,14 +89,15 @@ terraform apply -refresh-only
 terraform plan -minimal-refresh
 ```
 
-`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes.
-`-minimal-refresh` refreshes only resources with planned changes.
+`-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes.
 
 See: [Terraform CLI](https://developer.hashicorp.com/terraform/cli/commands)
 
 ## Configuration
 
 ### Terraform and providers
+
+#### Provider requirements
 
 ```hcl
 terraform {
@@ -116,14 +116,15 @@ provider "aws" {
 }
 ```
 
+#### Lock providers
+
 ```bash
 terraform providers lock \
   -platform=linux_amd64 \
   -platform=darwin_arm64
 ```
 
-Commit `.terraform.lock.hcl`; do not commit `.terraform/`. Lock entries are
-per-platform, so lock each platform your CI runs.
+Commit `.terraform.lock.hcl`; do not commit `.terraform/`. Lock entries are per-platform, so lock each platform your CI runs.
 
 See: [Provider requirements](https://developer.hashicorp.com/terraform/language/providers/requirements), [providers lock](https://developer.hashicorp.com/terraform/cli/commands/providers/lock)
 
@@ -194,23 +195,28 @@ See: [Input variables](https://developer.hashicorp.com/terraform/language/values
 
 ### Set input values
 
+#### CLI and environment
+
 ```bash
 terraform apply -var='environment=prod'
 terraform apply -var-file='prod.tfvars'
 export TF_VAR_environment=prod
 ```
 
+#### tfvars file
+
 ```hcl
 # terraform.tfvars
 environment = "prod"
 ```
 
-Precedence increases from environment variables, `terraform.tfvars(.json)`,
-`*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
+Precedence increases from environment variables, `terraform.tfvars(.json)`, `*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
 
 See: [Assign variable values](https://developer.hashicorp.com/terraform/language/values/variables#assign-values-to-variables)
 
 ### Local values and outputs
+
+#### Configuration
 
 ```hcl
 locals {
@@ -232,14 +238,15 @@ output "token" {
 }
 ```
 
+#### CLI
+
 ```bash
 terraform output
 terraform output -raw instance_ip
 terraform output -json
 ```
 
-Naming a sensitive output, or using `-raw` or `-json`, exposes its value in
-plain text.
+Naming a sensitive output, or using `-raw` or `-json`, exposes its value in plain text.
 
 See: [Local values](https://developer.hashicorp.com/terraform/language/values/locals), [Output values](https://developer.hashicorp.com/terraform/language/values/outputs)
 
@@ -259,8 +266,7 @@ resource "aws_db_instance" "main" {
 }
 ```
 
-Ephemeral values are omitted from plan and state files; write-only arguments
-accept them.
+Ephemeral values are omitted from plan and state files; write-only arguments accept them.
 
 See: [Manage sensitive data](https://developer.hashicorp.com/terraform/language/manage-sensitive-data)
 
@@ -408,12 +414,13 @@ resource "aws_instance" "web" {
 }
 ```
 
-`prevent_destroy` does not protect an object after its configuration is removed.
-Set `destroy = false` to remove it from state without destroying it.
+`prevent_destroy` does not protect an object after its configuration is removed. Set `destroy = false` to remove it from state without destroying it.
 
 See: [Meta-arguments](https://developer.hashicorp.com/terraform/language/meta-arguments), [Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
 
 ### Actions
+
+#### Define an action
 
 ```hcl
 action "aws_lambda_invoke" "example" {
@@ -423,12 +430,13 @@ action "aws_lambda_invoke" "example" {
 }
 ```
 
+#### Invoke an action
+
 ```bash
 terraform apply -invoke=action.aws_lambda_invoke.example
 ```
 
-Actions run provider-defined day-2 operations; trigger them from the CLI or
-`lifecycle.action_trigger`.
+Actions run provider-defined day-2 operations; trigger them from the CLI or `lifecycle.action_trigger`.
 
 See: [Invoke an action](https://developer.hashicorp.com/terraform/language/invoke-actions)
 
@@ -488,6 +496,8 @@ See: [Modules](https://developer.hashicorp.com/terraform/language/modules)
 
 ### Backends
 
+#### Backend configuration
+
 ```hcl
 terraform {
   backend "s3" {
@@ -499,15 +509,15 @@ terraform {
 }
 ```
 
+#### Initialize
+
 ```bash
 terraform init -migrate-state   # after changing the backend
 terraform init -reconfigure     # ignore saved backend config
 terraform init -backend-config=prod.s3.tfbackend
 ```
 
-S3 backend locking needs `use_lockfile`; the older `dynamodb_table` is
-deprecated. Keep credentials out of configuration and pass them with
-`-backend-config`.
+S3 backend locking needs `use_lockfile`; the older `dynamodb_table` is deprecated. Keep credentials out of configuration and pass them with `-backend-config`.
 
 See: [Backends](https://developer.hashicorp.com/terraform/language/backend), [S3 backend](https://developer.hashicorp.com/terraform/language/backend/s3)
 
@@ -526,12 +536,14 @@ See: [state list](https://developer.hashicorp.com/terraform/cli/commands/state/l
 
 ### Move or remove addresses
 
+#### State commands
+
 ```bash
 terraform state mv aws_instance.old aws_instance.web
 terraform state rm aws_instance.web
 ```
 
-Prefer configuration-driven `moved` and `removed` blocks for reviewable changes.
+#### Configuration blocks
 
 ```hcl
 moved {
@@ -545,9 +557,13 @@ removed {
 }
 ```
 
+Prefer configuration-driven `moved` and `removed` blocks for reviewable changes.
+
 See: [Refactoring](https://developer.hashicorp.com/terraform/language/modules/develop/refactoring), [removed block](https://developer.hashicorp.com/terraform/language/block/removed)
 
 ### Import existing resources
+
+#### Import block
 
 ```hcl
 import {
@@ -555,6 +571,8 @@ import {
   id = "i-0123456789abcdef0"
 }
 ```
+
+#### Apply or import
 
 ```bash
 terraform plan
@@ -564,8 +582,7 @@ terraform apply
 terraform import aws_instance.web i-0123456789abcdef0
 ```
 
-Import associates an existing object with a resource address. Use `identity`
-instead of `id` when the provider defines a resource identity.
+Import associates an existing object with a resource address. Use `identity` instead of `id` when the provider defines a resource identity.
 
 See: [Import](https://developer.hashicorp.com/terraform/language/import)
 
@@ -586,14 +603,15 @@ list "aws_instance" "web" {
 }
 ```
 
+#### Query commands
+
 ```bash
 terraform query
 terraform query -generate-config-out=import.tf
 terraform query -json
 ```
 
-Queries find unmanaged resources; generated config contains `import` and
-`resource` blocks.
+Queries find unmanaged resources; generated config contains `import` and `resource` blocks.
 
 See: [Import resources in bulk](https://developer.hashicorp.com/terraform/language/import/bulk)
 
@@ -631,8 +649,7 @@ resource "aws_instance" "web" {
 }
 ```
 
-Provisioners run only at create or destroy time, never on updates. Destroy-time
-provisioners use a `when` argument. Prefer purpose-built resources.
+Provisioners run only at create or destroy time, never on updates. Destroy-time provisioners use a `when` argument. Prefer purpose-built resources.
 
 See: [Provisioners](https://developer.hashicorp.com/terraform/language/provisioners)
 
@@ -651,8 +668,7 @@ check "health_check" {
 }
 ```
 
-Checks run after plan and apply; a failing `assert` warns instead of failing
-the run. Data sources nested in a `check` block are read last.
+Checks run after plan and apply; a failing `assert` warns instead of failing the run. Data sources nested in a `check` block are read last.
 
 See: [`check` block](https://developer.hashicorp.com/terraform/language/block/check)
 
@@ -712,14 +728,15 @@ run "plan" {
 }
 ```
 
+#### Run tests
+
 ```bash
 terraform test
 terraform test -filter=tests/web.tftest.hcl
 terraform test -junit-xml=report.xml
 ```
 
-Tests run in separate in-memory state, starting empty. Use `-verbose` to print
-each run's plan or state.
+Tests run in separate in-memory state, starting empty. Use `-verbose` to print each run's plan or state.
 
 See: [terraform test](https://developer.hashicorp.com/terraform/cli/commands/test)
 

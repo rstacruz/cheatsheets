@@ -3,245 +3,353 @@ title: Ansible modules
 subtitle: Module reference for playbooks
 category: Ansible
 prism_languages: [yaml]
-updated: 2017-10-03
+updated: 2026-11-22
+keywords:
+  - "ansible.builtin.apt"
+  - "ansible.builtin.copy"
+  - "ansible.builtin.debug"
+  - "ansible.builtin.template"
+intro: |
+  Modules are the units of work in a playbook. Use fully qualified names such as `ansible.builtin.apt` so tasks resolve to the intended collection.
+links:
+  - title: Ansible playbooks
+    url: https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html
+  - title: Module index
+    url: https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/index.html
+  - title: Delegation and local actions
+    url: https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_delegation.html
+  - title: Installing Ansible
+    url: https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html
 ---
 
 {% raw %}
 
-## Format
+## Playbook basics
 
-### Basic file
+### First play
 
 ```yaml
 ---
-- hosts: production
-  remote_user: root
+- name: Configure web servers
+  hosts: web
+  become: true
   tasks:
-  - ···
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
 ```
 
-Place your modules inside `tasks`.
+Modules run under `tasks`; `become` escalates privileges.
 
-### Task formats
+See: [Ansible playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html)
 
-#### One-line
+### Task keywords
 
 ```yaml
-- apt: pkg=vim state=present
+- name: Write nginx config
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: Restart nginx
+  tags: [config]
+
+- name: Start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+  when: ansible_facts['distribution'] == 'Debian'
 ```
 
-#### Map
+Use `when` for conditions, `loop` for repetition, and `notify` for handlers.
+
+See: [Playbook keywords](https://docs.ansible.com/projects/ansible/latest/reference_appendices/playbooks_keywords.html)
+
+### Module arguments
 
 ```yaml
-- apt:
-    pkg: vim
+- ansible.builtin.debug: msg=hello
+
+- ansible.builtin.debug:
+    msg: hello
+```
+
+Prefer the mapping form: it handles lists and nested options cleanly.
+
+See: [Ansible playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html)
+
+## Packages
+
+### Install packages
+
+```yaml
+- name: Install packages
+  ansible.builtin.apt:
+    name: [nginx, curl]
     state: present
+    update_cache: true
 ```
 
-#### Foldable scalar
+Pass a list to `name` so apt handles it in one transaction.
+
+See: [apt module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html)
+
+### Remove and upgrade
+
+#### Remove
 
 ```yaml
-- apt: >
-    pkg=vim
-    state=present
+- name: Remove a package
+  ansible.builtin.apt:
+    name: curl
+    state: absent
 ```
 
-Define your tasks in any of these formats. One-line format is preferred for short declarations, while maps are preferred for longer.
-
-## Modules
-
-### Aptitude
-
-#### Packages
+#### Upgrade
 
 ```yaml
-- apt:
-    pkg: nodejs
-    state: present # absent | latest
-    update_cache: yes
-    force: no
+- name: Upgrade installed packages
+  ansible.builtin.apt:
+    upgrade: dist
+    update_cache: true
 ```
 
-#### Deb files
+See: [apt module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html)
+
+### Local package files
 
 ```yaml
-- apt:
-    deb: "https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb"
+- name: Install a downloaded deb
+  ansible.builtin.apt:
+    deb: /tmp/nginx.deb
 ```
 
-#### Repositories
+See: [apt module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html)
+
+### APT repositories
 
 ```yaml
-- apt_repository:
-    repo: "deb https://··· raring main"
-    state: present
+- name: Add a signed APT repository
+  ansible.builtin.deb822_repository:
+    name: example
+    types: deb
+    uris: https://repo.example.com/debian
+    suites: stable
+    components: [main]
+    signed_by: https://repo.example.com/key.asc
 ```
 
-#### Repository keys
+`deb822_repository` manages the key and source together; `apt_key` and `apt_repository` are deprecated and removed in core 2.25.
+
+See: [deb822_repository module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/deb822_repository_module.html)
+
+## Source control
+
+### Clone a repository
 
 ```yaml
-- apt_key:
-    id: AC40B2F7
-    url: "http://···"
-    state: present
+- name: Clone a repository
+  ansible.builtin.git:
+    repo: https://github.com/example/app.git
+    dest: /srv/app
+    version: main
+    depth: 1
 ```
 
-### git
+Use HTTPS or SSH URLs; GitHub disabled unauthenticated `git://` in 2022.
+
+See: [git module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/git_module.html)
+
+### Configure git
 
 ```yaml
-- git:
-    repo: git://github.com/
-    dest: /srv/checkout
-    version: master
-    depth: 10
-    bare: yes
-```
-
-See: [git module](https://devdocs.io/ansible/git_module)
-
-### git_config
-
-```yaml
-- git_config:
+- name: Set a global git option
+  community.general.git_config:
     name: user.email
-    scope: global # local | system
+    scope: global
     value: hi@example.com
 ```
 
-See: [git_config module](https://devdocs.io/ansible/git_config_module)
+`git_config` lives in `community.general`, not `ansible-core`; `scope` defaults to `system`.
 
-### user
+See: [git_config module](https://docs.ansible.com/projects/ansible/latest/collections/community/general/git_config_module.html)
+
+## Users and services
+
+### User account
 
 ```yaml
-- user:
-    state: present
+- name: Create a service account
+  ansible.builtin.user:
     name: git
-    system: yes
+    system: true
     shell: /bin/sh
-    groups: admin
-    comment: "Git Version Control"
+    groups: [wheel]
+    append: true
+    comment: Git Version Control
 ```
 
-See: [user module](https://devdocs.io/ansible/user_module)
+`append` is required with `groups` in core 2.21+ and keeps existing memberships.
 
-### service
+See: [user module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/user_module.html)
+
+### Service state
 
 ```yaml
-- service:
+- name: Start and enable nginx
+  ansible.builtin.service:
     name: nginx
     state: started
-    enabled: yes     # optional
+    enabled: true
 ```
 
-See: [service module](https://devdocs.io/ansible/service_module)
+`service` is portable; use `ansible.builtin.systemd_service` for masking or daemon reloads.
 
-## Shell
+See: [service module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/service_module.html)
 
-### shell
+## Shell and scripts
+
+### Shell command
 
 ```yaml
-- shell: apt-get install nginx -y
+- name: Append a line once
+  ansible.builtin.shell:
+    cmd: "echo hello >> /tmp/hello.txt"
+    creates: /tmp/hello.txt
 ```
 
-#### Extra options
+Prefer `ansible.builtin.command` when pipes and redirects are not needed.
+
+See: [shell module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/shell_module.html)
+
+### Multiline shell
 
 ```yaml
-- shell: echo hello
-  args:
-    creates: /path/file  # skip if this exists
-    removes: /path/file  # skip if this is missing
-    chdir: /path         # cd here before running
-```
-
-#### Multiline example
-
-```yaml
-- shell: |
+- name: Run several commands
+  ansible.builtin.shell: |
     echo "hello there"
     echo "multiple lines"
 ```
 
-See: [shell module](https://devdocs.io/ansible/shell_module)
+See: [shell module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/shell_module.html)
 
-### script
+### Script file
 
 ```yaml
-- script: /x/y/script.sh
-  args:
-    creates: /path/file  # skip if this exists
-    removes: /path/file  # skip if this is missing
-    chdir: /path         # cd here before running
+- name: Run a local script on the target
+  ansible.builtin.script:
+    cmd: files/setup.sh
+    creates: /tmp/setup.done
 ```
 
-See: [script module](https://devdocs.io/ansible/script_module)
+The script is read from the controller; `creates` is checked on the target.
+
+See: [script module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/script_module.html)
 
 ## Files
 
-### file
+### Directories
 
 ```yaml
-- file:
-    path: /etc/dir
-    state: directory # file | link | hard | touch | absent
-
-    # Optional:
-    owner: bin
-    group: wheel
-    mode: 0644
-    recurse: yes  # mkdir -p
-    force: yes    # ln -nfs
+- name: Create a directory
+  ansible.builtin.file:
+    path: /etc/myapp
+    state: directory
+    mode: "0755"
 ```
 
-See: [file module](https://devdocs.io/ansible/file_module)
+See: [file module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/file_module.html)
 
-### copy
+### Recursive attributes and links
+
+#### Apply attributes recursively
 
 ```yaml
-- copy:
-    src: /app/config/nginx.conf
+- name: Set ownership recursively
+  ansible.builtin.file:
+    path: /etc/myapp
+    state: directory
+    owner: root
+    group: root
+    recurse: true
+```
+
+#### Create a link
+
+```yaml
+- name: Link the active config
+  ansible.builtin.file:
+    src: /etc/myapp/config.yml
+    dest: /etc/myapp/current.yml
+    state: link
+    force: true
+```
+
+`recurse` applies attributes to contents; `state: directory` creates missing parents.
+
+See: [file module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/file_module.html)
+
+### Copy files
+
+```yaml
+- name: Copy a config file
+  ansible.builtin.copy:
+    src: files/nginx.conf
     dest: /etc/nginx/nginx.conf
-
-    # Optional:
-    owner: user
-    group: user
-    mode: 0644
-    backup: yes
+    mode: "0644"
+    backup: true
 ```
 
-See: [copy module](https://devdocs.io/ansible/copy_module)
+See: [copy module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/copy_module.html)
 
-### template
+### Render templates
 
 ```yaml
-- template:
-    src: config/redis.j2
+- name: Render a config file
+  ansible.builtin.template:
+    src: redis.conf.j2
     dest: /etc/redis.conf
-
-    # Optional:
-    owner: user
-    group: user
-    mode: 0644
-    backup: yes
+    mode: "0644"
 ```
 
-See: [template module](https://devdocs.io/ansible/template_module)
+Use `template` for Jinja variables; `copy` for static files.
 
-## Local actions
+See: [template module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/template_module.html)
 
-### local_action
+## Output and delegation
+
+### Run on the controller
 
 ```yaml
-- name: do something locally
-  local_action: shell echo hello
+- name: Read the controller hostname
+  ansible.builtin.command: hostname
+  delegate_to: localhost
 ```
 
-### debug
+The `local_action:` shorthand still works, but `delegate_to` is preferred.
+
+See: [Delegation and local actions](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_delegation.html)
+
+### Print messages
+
+#### Fact
 
 ```yaml
-- debug:
-    msg: "Hello {{ var }}"
+- name: Show a fact
+  ansible.builtin.debug:
+    var: "ansible_facts['distribution']"
 ```
 
-See: [debug module](https://devdocs.io/ansible/debug_module)
+#### Message
+
+```yaml
+- name: Show the target
+  ansible.builtin.debug:
+    msg: "Deploying {{ inventory_hostname }}"
+```
+
+`debug` always runs on the control node.
+
+See: [debug module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/debug_module.html)
+
 {% endraw %}
-

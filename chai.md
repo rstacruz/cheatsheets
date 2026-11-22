@@ -135,38 +135,6 @@ expect(() => 1 + 1).to.not.throw()
 
 See: [throw](https://www.chaijs.com/api/bdd/#throwerrorlike-errmsgmatcher-msg)
 
-## Should
-
-### Enable should
-
-```js
-import { should } from 'chai'
-
-should()
-```
-
-Call once to add a `should` getter to every object.
-
-See: [should style](https://www.chaijs.com/guide/styles/#should)
-
-### Using should
-
-```js
-import { should } from 'chai'
-
-should()
-
-const tea = 'green'
-const nums = [1, 2]
-const cup = { tea: 'green' }
-
-tea.should.equal('green')
-nums.should.have.lengthOf(2)
-cup.should.have.property('tea')
-```
-
-See: [expect / should API](https://www.chaijs.com/api/bdd/)
-
 ## Assert
 <!-- {: .-three-column} -->
 
@@ -300,6 +268,38 @@ expect([{ a: 1 }]).to.deep.include({ a: 1 })
 `not` negates the assertion; the others change how values are compared.
 
 See: [not](https://www.chaijs.com/api/bdd/#not), [deep](https://www.chaijs.com/api/bdd/#deep)
+
+## Should
+
+### Enable should
+
+```js
+import { should } from 'chai'
+
+should()
+```
+
+Call once to add a `should` getter to every object.
+
+See: [should style](https://www.chaijs.com/guide/styles/#should)
+
+### Using should
+
+```js
+import { should } from 'chai'
+
+should()
+
+const tea = 'green'
+const nums = [1, 2]
+const cup = { tea: 'green' }
+
+tea.should.equal('green')
+nums.should.have.lengthOf(2)
+cup.should.have.property('tea')
+```
+
+See: [expect / should API](https://www.chaijs.com/api/bdd/)
 
 ## Plugins
 

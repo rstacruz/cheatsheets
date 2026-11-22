@@ -54,7 +54,7 @@ See: [General](https://www.sketch.com/docs/shortcuts/mac/#general)
 | `⇧⌘S`     | Duplicate document      |
 | `⌥⇧⌘S`    | Save As                 |
 | `⇧⌘N`     | New page                |
-| `fn↑` `↓` | Previous/next page      |
+| `fn↑↓`    | Previous/next page      |
 
 <!-- {: .-shortcuts} -->
 
@@ -94,7 +94,7 @@ See: [Interface](https://www.sketch.com/docs/shortcuts/mac/#interface)
 
 <!-- {: .-shortcuts} -->
 
-See: [Canvas](https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-canvas/#zooming-and-navigating-the-canvas)
+See: [Zooming and navigating](https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-canvas/#zooming-and-navigating-the-canvas)
 
 ### Navigate
 
@@ -288,8 +288,8 @@ See: [Vector editing](https://www.sketch.com/docs/shortcuts/mac/#vector-editing)
 | `Space`      | Move without reparenting |
 | `⇧`          | Move along one axis     |
 | `⌃`          | Move without snapping   |
-| `←→↑↓`       | Move 1px                |
-| `⇧←→↑↓`      | Move 10px               |
+| `←→↑↓`       | Move by 1px             |
+| `⇧←→↑↓`      | Move by 10px            |
 | `⌥⌘` + drag  | Move selection          |
 | `⌥`          | Duplicate while moving  |
 

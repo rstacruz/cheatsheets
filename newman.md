@@ -41,58 +41,53 @@ links:
 
 ### First run
 
+#### Command
+
 ```bash
-$ newman run collection.json -e env.json
+$ newman run collection.json -e env.json \
+    --reporter-cli-no-summary
+```
+
+#### Output
+
+```text
 newman
 
 Users API
 
 → Get user
-  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 31ms]
+  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 26ms]
   ✓  status is 200
   ✓  user has a name
 
 ❏ Health
 ↳ Health check
   GET http://127.0.0.1:3210/health [200 OK, 166B, 2ms]
-
-┌─────────────────────────┬──────────────────┬──────────────────┐
-│                         │         executed │           failed │
-├─────────────────────────┼──────────────────┼──────────────────┤
-│              iterations │                1 │                0 │
-├─────────────────────────┼──────────────────┼──────────────────┤
-│                requests │                2 │                0 │
-├─────────────────────────┼──────────────────┼──────────────────┤
-│            test-scripts │                1 │                0 │
-├─────────────────────────┼──────────────────┼──────────────────┤
-│      prerequest-scripts │                0 │                0 │
-├─────────────────────────┼──────────────────┼──────────────────┤
-│              assertions │                2 │                0 │
-├─────────────────────────┴──────────────────┴──────────────────┤
-│ total run duration: 68ms                                      │
-├───────────────────────────────────────────────────────────────┤
-│ total data received: 32B (approx)                             │
-├───────────────────────────────────────────────────────────────┤
-│ average response time: 16ms [min: 2ms, max: 31ms, s.d.: 14ms] │
-└───────────────────────────────────────────────────────────────┘
 ```
 
-`-e` supplies an exported environment; omit it when the collection uses literal URLs.
+`-e` supplies an exported environment. The summary flag keeps this example short; drop it for the statistics table.
 
 See: [Newman CLI docs](https://learning.postman.com/docs/reference/newman-cli/command-line-integration-with-newman/)
 
 ### Select a folder
 
+#### Command
+
 ```bash
 $ newman run collection.json -e env.json \
     --folder Health --reporter-cli-no-summary
+```
+
+#### Output
+
+```text
 newman
 
 Users API
 
 ❏ Health
 ↳ Health check
-  GET http://127.0.0.1:3210/health [200 OK, 166B, 57ms]
+  GET http://127.0.0.1:3210/health [200 OK, 166B, 24ms]
 ```
 
 Repeat `--folder` to run multiple folders or individual requests.
@@ -101,17 +96,24 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 
 ### Inline variables
 
+#### Command
+
 ```bash
 $ newman run collection.json \
     --env-var baseUrl=http://127.0.0.1:3210 \
     --env-var userId=2 \
     --reporter-cli-no-summary
+```
+
+#### Output
+
+```text
 newman
 
 Users API
 
 → Get user
-  GET http://127.0.0.1:3210/users/2 [200 OK, 178B, 24ms]
+  GET http://127.0.0.1:3210/users/2 [200 OK, 178B, 39ms]
   ✓  status is 200
   ✓  user has a name
 
@@ -134,34 +136,20 @@ Globals have lower precedence than environment variables. Use `--global-var key=
 
 See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-collection-file-source-options)
 
-### Skip the summary
-
-```bash
-$ newman run collection.json -e env.json \
-    --reporter-cli-no-summary
-```
-
-The statistics table is dropped; request and assertion lines remain.
-
-See: [CLI reporter](https://github.com/postmanlabs/newman#cli-reporter)
-
-### TLS options
-
-```bash
-$ newman run collection.json -e env.json -k
-```
-
-`-k` skips certificate validation. Client certificates use `--ssl-client-cert` and `--ssl-client-key`.
-
-See: [SSL](https://github.com/postmanlabs/newman#ssl)
-
 ## Iterations
 
 ### Repeat a run
 
+#### Command
+
 ```bash
 $ newman run collection.json -e env.json \
-    -n 2 --reporter-cli-no-summary
+    --folder 'Get user' -n 2 --reporter-cli-no-summary
+```
+
+#### Output
+
+```text
 newman
 
 Users API
@@ -169,33 +157,25 @@ Users API
 Iteration 1/2
 
 → Get user
-  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 50ms]
+  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 26ms]
   ✓  status is 200
   ✓  user has a name
-
-❏ Health
-↳ Health check
-  GET http://127.0.0.1:3210/health [200 OK, 166B, 6ms]
 
 Iteration 2/2
 
 → Get user
-  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 8ms]
+  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 2ms]
   ✓  status is 200
   ✓  user has a name
-
-❏ Health
-↳ Health check
-  GET http://127.0.0.1:3210/health [200 OK, 166B, 3ms]
 ```
 
-`-n` sets the iteration count; each iteration reruns every request.
+`-n` sets the iteration count; `--folder` narrows the output to one request.
 
 See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-collection-file-source-options)
 
 ### Data-driven runs
 
-#### data.json
+#### Data file
 
 ```json
 [
@@ -208,7 +188,12 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 
 ```bash
 $ newman run collection.json -e env.json \
-    -d data.json --reporter-cli-no-summary
+    --folder 'Get user' -d data.json --reporter-cli-no-summary
+```
+
+#### Output
+
+```text
 newman
 
 Users API
@@ -216,24 +201,16 @@ Users API
 Iteration 1/2
 
 → Get user
-  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 73ms]
+  GET http://127.0.0.1:3210/users/1 [200 OK, 176B, 24ms]
   ✓  status is 200
   ✓  user has a name
-
-❏ Health
-↳ Health check
-  GET http://127.0.0.1:3210/health [200 OK, 166B, 9ms]
 
 Iteration 2/2
 
 → Get user
-  GET http://127.0.0.1:3210/users/2 [200 OK, 178B, 5ms]
+  GET http://127.0.0.1:3210/users/2 [200 OK, 178B, 2ms]
   ✓  status is 200
   ✓  user has a name
-
-❏ Health
-↳ Health check
-  GET http://127.0.0.1:3210/health [200 OK, 166B, 4ms]
 ```
 
 Each row supplies one iteration; `{{userId}}` reads its `userId` field.
@@ -339,6 +316,18 @@ $ newman run collection.json -e env.json --silent
 `--silent` hides all output; `--color off` removes ANSI colors.
 
 See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-collection-file-source-options)
+
+## Connection options
+
+### TLS options
+
+```bash
+$ newman run collection.json -e env.json -k
+```
+
+`-k` skips certificate validation. Client certificates use `--ssl-client-cert` and `--ssl-client-key`.
+
+See: [SSL](https://github.com/postmanlabs/newman#ssl)
 
 ### Timeouts and pacing
 

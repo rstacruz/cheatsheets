@@ -157,10 +157,11 @@ See: [Facts vs decisions](https://www.aihero.dev/skills-grilling)
 
 ### Dependencies
 
-- **`/grill-me`** `grilling`
-- **`/grill-with-docs`** `grilling` and `domain-modeling`
-- **Partial load** Good interview, no paper trail
-<!-- {: .-prose-list} -->
+| Skill | Needs |
+| --- | --- |
+| `/grill-me` | `grilling` |
+| `/grill-with-docs` | `grilling` and `domain-modeling` |
+| Partial load | Good interview, no paper trail |
 
 A one-line wrapper delegates with a Skill tool call. Selective installs miss the primitives; ask the agent which skills it loaded if the round has no recommendations.
 
@@ -221,10 +222,11 @@ See: [Grillable and ungrillable](https://www.aihero.dev/skills-grill-me)
 
 ### What lands where
 
-- **A project term** `GLOSSARY.md`, inline, the moment it resolves
-- **Hard to reverse, surprising, a real trade-off** `docs/adr/NNNN-slug.md`
-- **Everything else** The conversation, and nowhere else
-<!-- {: .-prose-list} -->
+| Resolved | Lands in |
+| --- | --- |
+| A project term | `GLOSSARY.md`, inline, the moment it resolves |
+| Hard to reverse, surprising, a real trade-off | An ADR under `docs/adr/NNNN-slug.md` |
+| Everything else | The conversation, and nowhere else |
 
 Only `grill-with-docs` writes these files. `/grill-me` leaves no workspace behind, so feed its conversation straight to `/to-spec` if you want a durable record.
 

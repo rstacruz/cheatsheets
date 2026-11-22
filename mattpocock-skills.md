@@ -45,11 +45,12 @@ See: [Setup skill](https://www.aihero.dev/skills-setup-matt-pocock-skills)
 
 ### What setup writes
 
-- **`docs/agents/issue-tracker.md`** GitHub, GitLab, local markdown, or described workflow
-- **`docs/agents/domain.md`** Single- or multi-context doc layout
-- **`docs/agents/triage-labels.md`** Label mapping, only with `triage` installed
-- **`CLAUDE.md` or `AGENTS.md`** `## Agent skills` block pointing at those files
-<!-- {: .-prose-list} -->
+| File | Contents |
+| --- | --- |
+| `docs/agents/issue-tracker.md` | GitHub, GitLab, local markdown, or described workflow |
+| `docs/agents/domain.md` | Single- or multi-context doc layout |
+| `docs/agents/triage-labels.md` | Label mapping, only with `triage` installed |
+| `CLAUDE.md` or `AGENTS.md` | `## Agent skills` block pointing at those files |
 
 See: [Setup SKILL.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills/engineering/setup-matt-pocock-skills/SKILL.md)
 
@@ -205,11 +206,12 @@ See: [domain-modeling](https://www.aihero.dev/skills-domain-modeling)
 
 ### Tracker
 
-- **GitHub** Issues via `gh`
-- **GitLab** Issues via `glab`
-- **Local markdown** `.scratch/<feature>/issues/NN-slug.md`
-- **Other** Freeform workflow described in prose
-<!-- {: .-prose-list} -->
+| Tracker | Ticket store |
+| --- | --- |
+| GitHub | Issues via `gh` |
+| GitLab | Issues via `glab` |
+| Local markdown | Files under `.scratch/<feature>/issues/NN-slug.md` |
+| Other | Freeform workflow described in prose |
 
 See: [Local tracker template](https://github.com/mattpocock/skills/blob/v1.3.2/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md)
 
@@ -227,9 +229,14 @@ See: [implement](https://www.aihero.dev/skills-implement)
 
 ### TDD loop
 
+```text
+red   -> failing test at an agreed seam
+green -> minimum code to pass
+```
+
+- **One slice at a time** Repeat red-green; refactoring belongs in review
 - **Implementation-coupled** Breaks on refactor, not behaviour
 - **Tautological** Assertion recomputes the expected value
-- **Refactor** Belongs in review, not in the loop
 <!-- {: .-prose-list} -->
 
 See: [tdd](https://www.aihero.dev/skills-tdd)

@@ -432,7 +432,9 @@ Use a list, not a table, for enumerable values — flags, file types, modes, nam
 
 ### lists/prose-list
 
-Use `.-prose-list` for a card whose items are a short term and a description, instead of a two-column table. Bold the term and put the description after it.
+Use `.-prose-list` for guidance cards whose items are a short term and a prose description. Bold the term; its description appears beneath it with no bullet.
+
+Use a two-column table instead for short mappings and reference values, such as dependencies, file paths and triage labels.
 
 ````md
 - **Tracer bullet** Narrow path through schema, API, UI and tests

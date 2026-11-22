@@ -3,6 +3,7 @@ title: Conventional Commits
 subtitle: Structured messages that drive releases
 category: Git
 tier: t1
+last_verified_with: "Current Conventional Commits 1.0.0 APIs; last edited 2026-11."
 fragments:
   - "feat:"
   - "fix:"

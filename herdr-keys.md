@@ -3,6 +3,7 @@ title: Herdr keys
 subtitle: Terminal keyboard shortcuts
 category: Agents
 updated: 2026-11-05
+last_verified_with: "Keybindings verified on herdr 0.9.5; last edited 2026-11 (PR #2315)."
 tier: t1
 fragments:
   - "prefix"

@@ -3,6 +3,7 @@ title: Cursor CLI
 subtitle: Cursor terminal agent
 category: Agents
 updated: 2026-11-15
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 tier: t1
 fragments:
   - "agent"

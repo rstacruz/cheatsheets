@@ -3,6 +3,7 @@ title: pm2
 subtitle: Node.js process manager
 category: Node.js
 updated: 2026-11-18
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 tier: t2
 fragments:
   - "pm2 start"

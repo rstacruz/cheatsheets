@@ -4,6 +4,7 @@ subtitle: Locale-aware relative time
 category: Browser APIs
 tier: t1
 updated: 2026-11-18
+last_verified_with: "Outputs verified on Node 26.13 (full ICU), matched Chromium 157; last edited 2026-11 (PR #2359)."
 fragments:
   - "Intl.Relative"
   - "RelativeTime"

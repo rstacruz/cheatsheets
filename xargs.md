@@ -3,6 +3,7 @@ title: Xargs
 subtitle: Command-line argument builder
 category: Shell
 updated: 2026-11-21
+last_verified_with: "verified on GNU xargs 0.8.0; last edited 2026-11."
 tier: t1
 fragments:
   - "xargs -t -n 1"

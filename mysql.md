@@ -2,6 +2,7 @@
 title: MySQL
 subtitle: Relational database server
 updated: 2026-11-11
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 tier: t1
 fragments:
   - "SELECT *"

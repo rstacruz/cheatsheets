@@ -3,6 +3,7 @@ title: Readline
 subtitle: Line editing for CLI prompts
 category: Shell
 tier: t1
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 fragments:
   - "~/.inputrc"
   - "C-a"

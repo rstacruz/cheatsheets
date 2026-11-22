@@ -3,6 +3,7 @@ title: tmux
 subtitle: Terminal multiplexer
 category: Shell
 updated: 2026-11-18
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 tier: t1
 fragments:
   - "C-b"

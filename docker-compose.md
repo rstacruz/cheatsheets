@@ -5,6 +5,7 @@ category: Devops
 prism_languages: [yaml]
 weight: -1
 updated: 2026-11-11
+last_verified_with: "Examples verified with docker compose config on Docker 29.9.2; last edited 2026-11."
 tier: t1
 fragments:
   - "compose up"

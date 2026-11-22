@@ -3,6 +3,7 @@ title: Herdr agents
 subtitle: Coding agent state detection
 category: Agents
 updated: 2026-11-15
+last_verified_with: "Commands verified on herdr 0.9.5; last edited 2026-11 (PR #2315)."
 tier: t1
 fragments:
   - "agent start"

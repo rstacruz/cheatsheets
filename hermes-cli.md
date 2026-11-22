@@ -19,6 +19,7 @@ fragments:
   - "--cli"
   - "--usage-file"
 updated: 2026-11-11
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 keywords:
   - AI assistant
   - CLI

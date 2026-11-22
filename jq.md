@@ -4,6 +4,7 @@ subtitle: JSON processor
 category: CLI
 tier: t1
 updated: 2026-11-18
+last_verified_with: "Examples verified on jq 1.8.2; last edited 2026-11 (PR #2360)."
 fragments:
   - "jq '.'"
   - ".users[]"

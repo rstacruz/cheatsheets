@@ -3,6 +3,7 @@ title: ripgrep
 subtitle: Fast recursive search tool
 category: Shell
 updated: 2026-11-22
+last_verified_with: "Examples verified on ripgrep 15.2.0."
 tier: t1
 fragments:
   - "rg TODO"

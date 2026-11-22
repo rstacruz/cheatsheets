@@ -22,6 +22,7 @@ fragments:
   - 'str1 = """'
   - "# comment"
 updated: 2026-11-18
+last_verified_with: "Current TOML 1.1.0 APIs; last edited 2026-11."
 intro: |
   [TOML](https://toml.io/) is a minimal config file format that maps
   unambiguously to a hash table. This sheet covers the syntax used in

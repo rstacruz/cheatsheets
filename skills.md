@@ -4,6 +4,7 @@ subtitle: On-demand agent instructions
 category: Agents
 tags: [Featured]
 updated: 2026-11-11
+last_verified_with: "Last edited 2026-11; upstream version not recorded."
 tier: t1
 fragments:
   - "SKILL.md"

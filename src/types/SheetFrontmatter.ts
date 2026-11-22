@@ -44,7 +44,7 @@ export const SheetFrontmatterSchema = z
       .max(160)
       .optional()
       .describe(
-        'Versions and runtime used to verify examples. Hint for future updates (max 160 chars).'
+        'Versions and runtime used to verify examples (max 160 chars). Required for t1 and t2 sheets.'
       ),
     tier: z
       .enum(['t1', 't2'])
@@ -109,12 +109,20 @@ export const SheetFrontmatterSchema = z
   })
   .superRefine((value, ctx) => {
     if (value.tier !== 't1' && value.tier !== 't2') return
-    if (value.fragments) return
+    if (!value.fragments) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['fragments'],
+        message: '`fragments` is required for t1 and t2 sheets'
+      })
+    }
+
+    if (value.last_verified_with) return
 
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
-      path: ['fragments'],
-      message: '`fragments` is required for t1 and t2 sheets'
+      path: ['last_verified_with'],
+      message: '`last_verified_with` is required for t1 and t2 sheets'
     })
   })
 

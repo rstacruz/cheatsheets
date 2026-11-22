@@ -5,6 +5,7 @@ prism_languages: [go, bash]
 weight: -3
 category: C-like
 updated: 2026-11-11
+last_verified_with: "Examples verified on Go 1.27.3; last edited 2026-11 (PR #2314, #2375)."
 tier: t1
 fragments:
   - "package main"

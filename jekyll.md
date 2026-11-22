@@ -26,7 +26,7 @@ links:
 gem install jekyll bundler
 ```
 
-Ruby 2.7+ is required. On Ruby 3+, add `webrick` if `serve` fails to start.
+Ruby 2.7+ is required.
 See: [Installation](https://jekyllrb.com/docs/installation/)
 
 ### Create a site

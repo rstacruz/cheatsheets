@@ -231,7 +231,7 @@ await pipeline(Readable.from([{ name: 'a' }, { name: 'b' }]),
 // → { total: 2 }
 ```
 
-`_transform()` emits one chunk per input; `_flush()` emits a final chunk.
+Here `_transform()` emits one chunk per input; `_flush()` adds a final one. Transforms may emit zero or more chunks per input.
 
 See: [implementing a transform stream](https://nodejs.org/api/stream.html#implementing-a-transform-stream)
 

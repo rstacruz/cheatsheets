@@ -1,5 +1,7 @@
 ---
 title: Emmet
+seo_title: Emmet cheatsheet — abbreviations, HTML, CSS
+description: "Emmet abbreviations: HTML and CSS nesting, numbering and attributes. Reference."
 subtitle: HTML abbreviation expander
 category: Markup
 prism_languages: [html, css]

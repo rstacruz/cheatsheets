@@ -1,5 +1,7 @@
 ---
 title: Claude Code
+seo_title: Claude Code cheatsheet — commands, flags, hooks
+description: "Claude Code commands: flags, hooks, MCP and settings. CLI and configuration reference."
 subtitle: AI coding agent
 category: Agents
 tags: [Featured]

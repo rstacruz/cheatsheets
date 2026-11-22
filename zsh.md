@@ -1,5 +1,7 @@
 ---
 title: Zsh
+seo_title: Zsh cheatsheet — commands, globbing, completion
+description: "Zsh commands: globbing, completion, prompt, options and startup files. Copy-paste reference."
 subtitle: Interactive shell
 category: Shell
 tier: t1

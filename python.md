@@ -1,5 +1,7 @@
 ---
 title: Python
+seo_title: Python cheatsheet — lists, dicts, strings
+description: "Python lists: dicts, strings, iteration, comprehensions and file handling. Reference."
 subtitle: Readable language for scripting
 category: Python
 ---

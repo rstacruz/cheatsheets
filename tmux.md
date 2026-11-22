@@ -1,5 +1,7 @@
 ---
 title: tmux
+seo_title: tmux cheatsheet — sessions, windows, panes
+description: "tmux sessions: windows, panes, copy mode and key bindings. Copy-paste command reference."
 subtitle: Terminal multiplexer
 category: Shell
 updated: 2026-11-18

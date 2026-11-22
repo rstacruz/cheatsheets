@@ -1,5 +1,7 @@
 ---
-title: Xpath
+title: XPath
+seo_title: XPath cheatsheet — syntax, contains(), axes
+description: "XPath syntax: contains(), text(), axes, predicates and browser console examples. Reference."
 subtitle: Query language for XML
 category: HTML
 tier: t1
@@ -19,8 +21,6 @@ fragments:
   - "@id"
   - "not(expr)"
 weight: -5
-description: |
-  $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.
 updated: 2026-11-05
 last_verified_with: "XPath 1.0."
 intro: |

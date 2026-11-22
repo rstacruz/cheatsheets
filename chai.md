@@ -1,5 +1,6 @@
 ---
 title: Chai.js
+seo_title: Chai cheatsheet — expect, should, assert
 subtitle: JavaScript assertion library
 category: JavaScript testing
 weight: -3
@@ -12,7 +13,7 @@ links:
     url: https://www.chaijs.com/
   - title: Assertion API
     url: https://www.chaijs.com/api/
-description: One-page reference to Chai's expect, should, and assert APIs.
+description: "Chai assertions: expect, should and assert styles for Node and browser tests. Reference."
 ---
 
 ## Expect

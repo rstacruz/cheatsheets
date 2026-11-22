@@ -42,10 +42,11 @@ links:
 ```bash
 ssh user@host
 ssh -p 2222 user@host
+ssh ssh://user@host:2222
 ssh host  # uses a config alias
 ```
 
-`-l` sets the login name and `-i` selects a key. The destination may also be `ssh://user@host:2222`.
+`-l` sets the login name and `-i` selects a key.
 
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 

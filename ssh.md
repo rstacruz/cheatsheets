@@ -98,7 +98,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub \
 
 The public key is appended to the remote `authorized_keys`.
 
-See: [ssh-copy-id(1)](https://man.openbsd.org/ssh-copy-id.1)
+See: [ssh-copy-id(1)](https://github.com/openssh/openssh-portable/blob/master/contrib/ssh-copy-id.1)
 
 ### Inspect a key
 

@@ -7,6 +7,7 @@ export function getJSONLDsForPage(page: {
   slug: string
   frontmatter: {
     title?: string
+    seo_title?: string
     description?: string
     category?: string
   }
@@ -16,9 +17,9 @@ export function getJSONLDsForPage(page: {
   const url = getPageURL(page)
   const category = page.frontmatter.category ?? 'Others'
   const categoryAnchor = category.toLowerCase().replace(/ /g, '-')
-  const headline = page.frontmatter.title
-    ? `${page.frontmatter.title} cheatsheet`
-    : ''
+  const headline =
+    page.frontmatter.seo_title ??
+    (page.frontmatter.title ? `${page.frontmatter.title} cheatsheet` : '')
 
   const newsArticle: JsonLdDocument = {
     '@context': 'http://schema.org',

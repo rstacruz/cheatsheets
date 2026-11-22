@@ -85,7 +85,7 @@ test('/knex', async ({ page }) => {
   await expectMeta(page, {
     name: 'description',
     content:
-      'One-page guide to Knex: usage, examples, and more. Knex is an SQL query builder for Node.js. This guide targets v0.13.0.'
+      'Knex cheatsheet. Knex is an SQL query builder for Node.js. This guide targets v0.13.0.'
   })
 
   // Share buttons
@@ -119,6 +119,6 @@ test('/tests/keywords_test', async ({ page }) => {
   await expectMeta(page, {
     name: 'description',
     content:
-      'Variables · Functions · Interpolation · Brace expansions · Loops · Conditional execution · Command substitution · One-page guide to Intro test'
+      'Intro test cheatsheet: Variables, Functions, Interpolation, Brace expansions, Loops.'
   })
 })

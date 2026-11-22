@@ -16,7 +16,7 @@ it('works', () => {
       {
         "@context": "http://schema.org",
         "@type": "NewsArticle",
-        "description": "A React cheatsheet · One-page guide to React",
+        "description": "A React cheatsheet",
         "headline": "React cheatsheet",
         "image": [
           "https://assets.devhints.io/previews/react.jpg",
@@ -50,4 +50,18 @@ it('works', () => {
       },
     ]
   `)
+})
+
+it('uses seo_title for the headline', () => {
+  const page = {
+    slug: 'react',
+    frontmatter: {
+      title: 'React',
+      seo_title: 'React cheatsheet — hooks',
+      category: 'JavaScript'
+    }
+  }
+
+  const output = getJSONLDsForPage(page)
+  expect(output[0]).toMatchObject({ headline: 'React cheatsheet — hooks' })
 })

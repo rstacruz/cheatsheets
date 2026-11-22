@@ -7,11 +7,11 @@ exports[`getSEOPropsForPage() > title only 1`] = `
   },
   "meta": {
     "app:pageurl": "https://devhints.io/react",
-    "description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+    "description": "React cheatsheet: usage, examples, and snippets.",
   },
   "metaProperties": {
     "article:tag": [],
-    "og:description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+    "og:description": "React cheatsheet: usage, examples, and snippets.",
     "og:image": "https://assets.devhints.io/previews/react.jpg",
     "og:image:height": "471",
     "og:image:width": "900",
@@ -19,7 +19,7 @@ exports[`getSEOPropsForPage() > title only 1`] = `
     "og:title": "React cheatsheet",
     "og:type": "article",
     "og:url": "https://devhints.io/react",
-    "twitter:description": "The one-page guide to React: usage, examples, links, snippets, and more.",
+    "twitter:description": "React cheatsheet: usage, examples, and snippets.",
     "twitter:image": "https://assets.devhints.io/previews/react.jpg",
     "twitter:title": "React cheatsheet",
   },
@@ -34,11 +34,11 @@ exports[`getSEOPropsForPage() > with Markdown description 1`] = `
   },
   "meta": {
     "app:pageurl": "https://devhints.io/react",
-    "description": "A React cheatsheet (Markdown text) · One-page guide to React",
+    "description": "A React cheatsheet (Markdown text)",
   },
   "metaProperties": {
     "article:tag": [],
-    "og:description": "A React cheatsheet (Markdown text) · One-page guide to React",
+    "og:description": "A React cheatsheet (Markdown text)",
     "og:image": "https://assets.devhints.io/previews/react.jpg",
     "og:image:height": "471",
     "og:image:width": "900",
@@ -46,7 +46,7 @@ exports[`getSEOPropsForPage() > with Markdown description 1`] = `
     "og:title": "React cheatsheet",
     "og:type": "article",
     "og:url": "https://devhints.io/react",
-    "twitter:description": "A React cheatsheet (Markdown text) · One-page guide to React",
+    "twitter:description": "A React cheatsheet (Markdown text)",
     "twitter:image": "https://assets.devhints.io/previews/react.jpg",
     "twitter:title": "React cheatsheet",
   },
@@ -61,11 +61,11 @@ exports[`getSEOPropsForPage() > with description 1`] = `
   },
   "meta": {
     "app:pageurl": "https://devhints.io/react",
-    "description": "A React cheatsheet · One-page guide to React",
+    "description": "A React cheatsheet",
   },
   "metaProperties": {
     "article:tag": [],
-    "og:description": "A React cheatsheet · One-page guide to React",
+    "og:description": "A React cheatsheet",
     "og:image": "https://assets.devhints.io/previews/react.jpg",
     "og:image:height": "471",
     "og:image:width": "900",
@@ -73,7 +73,7 @@ exports[`getSEOPropsForPage() > with description 1`] = `
     "og:title": "React cheatsheet",
     "og:type": "article",
     "og:url": "https://devhints.io/react",
-    "twitter:description": "A React cheatsheet · One-page guide to React",
+    "twitter:description": "A React cheatsheet",
     "twitter:image": "https://assets.devhints.io/previews/react.jpg",
     "twitter:title": "React cheatsheet",
   },
@@ -88,11 +88,11 @@ exports[`getSEOPropsForPage() > with description, keywords 1`] = `
   },
   "meta": {
     "app:pageurl": "https://devhints.io/react",
-    "description": "A React cheatsheet · One-page guide to React",
+    "description": "A React cheatsheet",
   },
   "metaProperties": {
     "article:tag": [],
-    "og:description": "A React cheatsheet · One-page guide to React",
+    "og:description": "A React cheatsheet",
     "og:image": "https://assets.devhints.io/previews/react.jpg",
     "og:image:height": "471",
     "og:image:width": "900",
@@ -100,7 +100,7 @@ exports[`getSEOPropsForPage() > with description, keywords 1`] = `
     "og:title": "React cheatsheet",
     "og:type": "article",
     "og:url": "https://devhints.io/react",
-    "twitter:description": "A React cheatsheet · One-page guide to React",
+    "twitter:description": "A React cheatsheet",
     "twitter:image": "https://assets.devhints.io/previews/react.jpg",
     "twitter:title": "React cheatsheet",
   },
@@ -115,11 +115,11 @@ exports[`getSEOPropsForPage() > with keywords 1`] = `
   },
   "meta": {
     "app:pageurl": "https://devhints.io/react",
-    "description": "hooks · components · props · One-page guide to React",
+    "description": "React cheatsheet: hooks, components, props.",
   },
   "metaProperties": {
     "article:tag": [],
-    "og:description": "hooks · components · props · One-page guide to React",
+    "og:description": "React cheatsheet: hooks, components, props.",
     "og:image": "https://assets.devhints.io/previews/react.jpg",
     "og:image:height": "471",
     "og:image:width": "900",
@@ -127,10 +127,37 @@ exports[`getSEOPropsForPage() > with keywords 1`] = `
     "og:title": "React cheatsheet",
     "og:type": "article",
     "og:url": "https://devhints.io/react",
-    "twitter:description": "hooks · components · props · One-page guide to React",
+    "twitter:description": "React cheatsheet: hooks, components, props.",
     "twitter:image": "https://assets.devhints.io/previews/react.jpg",
     "twitter:title": "React cheatsheet",
   },
   "title": "React cheatsheet",
+}
+`;
+
+exports[`getSEOPropsForPage() > with seo_title 1`] = `
+{
+  "links": {
+    "canonical": "https://devhints.io/react",
+  },
+  "meta": {
+    "app:pageurl": "https://devhints.io/react",
+    "description": "React cheatsheet: usage, examples, and snippets.",
+  },
+  "metaProperties": {
+    "article:tag": [],
+    "og:description": "React cheatsheet: usage, examples, and snippets.",
+    "og:image": "https://assets.devhints.io/previews/react.jpg",
+    "og:image:height": "471",
+    "og:image:width": "900",
+    "og:site_name": "Devhints.io cheatsheets",
+    "og:title": "React cheatsheet — hooks",
+    "og:type": "article",
+    "og:url": "https://devhints.io/react",
+    "twitter:description": "React cheatsheet: usage, examples, and snippets.",
+    "twitter:image": "https://assets.devhints.io/previews/react.jpg",
+    "twitter:title": "React cheatsheet — hooks",
+  },
+  "title": "React cheatsheet — hooks",
 }
 `;

@@ -227,7 +227,7 @@ The function must return `{:ok, value}` or `{:error, reason}`; `Repo.rollback/1`
 ```elixir
 from p in Post,
   where: p.title == "Hello",
-  where: [state: "published"],
+  where: [views: 1],
   order_by: [desc: p.inserted_at],
   limit: 1,
   offset: 0,

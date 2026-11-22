@@ -53,7 +53,7 @@ $ stat -c '%A %a' secrets.txt
 -rw-r----- 640
 ```
 
-Each digit adds read (4), write (2), and execute (1) for owner, group, and others.
+The three digits set read (4), write (2), and execute (1) for owner, group, and others, respectively.
 
 See: [Numeric modes](https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html)
 
@@ -104,7 +104,7 @@ $ chmod u=rw file.txt
 
 See: [Setting permissions](https://www.gnu.org/software/coreutils/manual/html_node/Setting-Permissions.html)
 
-### Recursive
+### Apply recursively
 
 ```bash
 $ chmod -R go-w \
@@ -148,7 +148,7 @@ $ stat -c '%A %a' script.sh
 
 `stat` prints both forms, which is handy after a recursive change.
 
-See: [chmod invocation](https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html)
+See: [stat invocation](https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html)
 
 ## Special bits
 <!-- {: .-three-column} -->
@@ -193,7 +193,7 @@ See: [File permissions](https://www.gnu.org/software/coreutils/manual/html_node/
 ### Numeric special bits
 
 ```bash
-$ chmod 4755 program
+$ chmod 2755 shared/
 ```
 
 #### Leading digit

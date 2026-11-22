@@ -2,7 +2,7 @@
 title: Cron
 subtitle: Unix job scheduler
 category: CLI
-updated: 2026-11-22
+updated: 2024-03-17
 weight: -3
 ---
 
@@ -22,17 +22,16 @@ Min  Hour Day  Mon  Weekday
 *    *    *    *    *  command to be executed
 ```
 
-#### Fields
-
-```mermaid
-flowchart LR
-  accTitle: Cron fields
-  accDescr: Five fields in order, from minute to weekday.
-  Minute["`**Minute**<br>0..59`"] --> Hour["`**Hour**<br>0..23`"]
-  Hour --> Day["`**Day**<br>1..31`"]
-  Day --> Month["`**Month**<br>1..12`"]
-  Month --> Weekday["`**Weekday**<br>0=Sun .. 6=Sat`"]
 ```
+┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)
+```
+
+<!-- {: .-setup.-box-chars} -->
 
 ### Operators
 

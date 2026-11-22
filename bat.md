@@ -74,10 +74,15 @@ printf '{"ok": true}\n' | bat -l json
 #### Output
 
 ```
-{"ok": true}
+─────┬──────────────────────────────────
+     │ STDIN
+─────┼──────────────────────────────────
+   1 │ {"ok": true}
+─────┴──────────────────────────────────
 ```
+<!-- {: .-box-chars} -->
 
-`bat` drops decorations when it detects a pipe. `-l` sets the language when there is no filename to infer one from.
+`bat` labels piped input `STDIN`. `-l` sets the language when there is no filename to infer one from; piping bat's own output drops the decorations.
 
 See: [File concatenation](https://github.com/sharkdp/bat#file-concatenation)
 

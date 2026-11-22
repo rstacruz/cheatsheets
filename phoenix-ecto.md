@@ -262,7 +262,7 @@ from p in Post,
   select: p
 ```
 
-Use `join: c in assoc(p, :comments)` with a defined association.
+Use a defined association with `assoc/2`.
 
 ### Grouping
 
@@ -275,7 +275,7 @@ from(p in Post,
 #=> [{"Hello", 1}]
 ```
 
-Group by a primary key when selecting grouped rows.
+Include the primary key when grouping joined rows.
 
 ## References
 

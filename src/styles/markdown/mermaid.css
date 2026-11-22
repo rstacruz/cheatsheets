@@ -56,7 +56,7 @@
 .MermaidDiagram__frame:hover .MermaidDiagram__canvas svg,
 .MermaidDiagram__frame:focus-visible .MermaidDiagram__canvas svg,
 .MermaidDiagram.is-zoomed .MermaidDiagram__canvas svg {
-  transform: scale(1.8);
+  transform: scale(1.5);
 }
 
 .MermaidDiagram__caption {

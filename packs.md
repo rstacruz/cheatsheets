@@ -3,6 +3,7 @@ title: Packs (ruby)
 subtitle: Modular packaging for Ruby apps
 category: Ruby libraries
 updated: 2026-11-18
+last_verified_with: "packs 0.3.0."
 tier: t2
 fragments:
   - "bin/packs"

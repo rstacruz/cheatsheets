@@ -3,6 +3,7 @@ title: Herdr
 subtitle: Terminal workspace manager
 category: Agents
 updated: 2026-11-11
+last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:
   - "herdr"

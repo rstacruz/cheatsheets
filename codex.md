@@ -3,6 +3,7 @@ title: Codex
 subtitle: Terminal coding agent
 category: Agents
 updated: 2026-11-11
+last_verified_with: "codex-cli 0.167.1."
 tier: t1
 fragments:
   - "codex"

@@ -3,6 +3,7 @@ title: pm2
 subtitle: Node.js process manager
 category: Node.js
 updated: 2026-11-18
+last_verified_with: "PM2 7.1.2."
 tier: t2
 fragments:
   - "pm2 start"

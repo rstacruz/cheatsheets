@@ -4,6 +4,7 @@ subtitle: Node.js package manager
 category: JavaScript
 weight: -1
 updated: 2026-11-11
+last_verified_with: "npm 12 APIs."
 tier: t1
 fragments:
   - "npm install"

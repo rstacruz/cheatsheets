@@ -20,6 +20,7 @@ fragments:
   - "satisfies"
 tags: [Featured]
 updated: 2026-11-11
+last_verified_with: "TypeScript 7."
 intro: |
   TypeScript adds static types to JavaScript; they're erased during builds.
   `tsc` 7 is the native compiler; defaults include `strict`, `module: esnext`

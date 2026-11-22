@@ -4,6 +4,7 @@ subtitle: Modal text editor
 category: Vim
 tags: [Featured]
 updated: 2026-11-11
+last_verified_with: "Vim 9.2."
 tier: t1
 fragments:
   - ":wq"

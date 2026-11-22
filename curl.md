@@ -4,6 +4,7 @@ subtitle: Command-line HTTP client
 category: Networking
 tags: [Featured]
 updated: 2026-11-11
+last_verified_with: "cURL 8.23.0."
 tier: t1
 fragments:
   - "curl -s"

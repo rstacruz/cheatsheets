@@ -6,6 +6,7 @@ updated: 2026-11-18
 authors:
   - github: ryanSN
 tier: t2
+last_verified_with: "rollup 4.68.8."
 fragments:
   - "rollup -c"
   - "rollup -c -w"

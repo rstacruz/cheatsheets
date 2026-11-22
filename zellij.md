@@ -15,7 +15,7 @@ fragments:
   - "C-n"
   - "C-h"
   - "M-f"
-  - 'NewPane "Down"'
+  - "C-p d"
   - "C-s s"
   - "C-p s"
   - "zellij run --"
@@ -29,7 +29,7 @@ keywords:
   - layouts
   - sessions
 intro: |
-  Zellij is a terminal workspace with panes, tabs, and sessions that survive disconnects; mode keys start with `C-p`, `C-t`, `C-s`, or `C-o`.
+  Zellij is a terminal workspace with panes, tabs, and sessions that keep running after you disconnect.
 links:
   - title: Documentation
     url: https://zellij.dev/documentation/
@@ -75,15 +75,15 @@ See: [Documentation](https://zellij.dev/documentation/)
 
 ### Mode keys
 
-| Keys | Mode | KDL action |
-| --- | --- | --- |
-| `C-p` | Pane | `SwitchToMode "Pane"` |
-| `C-t` | Tab | `SwitchToMode "Tab"` |
-| `C-s` | Scroll | `SwitchToMode "Scroll"` |
-| `C-o` | Session | `SwitchToMode "Session"` |
-| `C-n` | Resize | `SwitchToMode "Resize"` |
-| `C-h` | Move | `SwitchToMode "Move"` |
-| `C-b` | Tmux | `SwitchToMode "Tmux"` |
+| Keys | Mode |
+| --- | --- |
+| `C-p` | Pane mode |
+| `C-t` | Tab mode |
+| `C-s` | Scroll mode |
+| `C-o` | Session mode |
+| `C-n` | Resize mode |
+| `C-h` | Move mode |
+| `C-b` | Tmux mode |
 
 <!-- {: .-shortcuts} -->
 
@@ -93,12 +93,14 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Quit and detach
 
-```text
-C-q            Quit
-C-o d          Detach
-C-g            Lock and unlock
-Enter, Esc     Back to Normal mode
-```
+| Keys | Action |
+| --- | --- |
+| `C-q` | Quit |
+| `C-o d` | Detach; the session keeps running |
+| `C-g` | Lock or unlock |
+| `Enter`, `Esc` | Back to Normal mode |
+
+<!-- {: .-shortcuts} -->
 
 `C-q` ends the session; `C-o d` leaves it running for `zellij a`.
 
@@ -111,15 +113,15 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Pane mode
 
-| Keys | Action | KDL action |
-| --- | --- | --- |
-| `C-p n` | New pane | `NewPane` |
-| `C-p d` | New pane below | `NewPane "Down"` |
-| `C-p r` | New pane right | `NewPane "Right"` |
-| `C-p a` | Floating pane | `NewFloatingPane` |
-| `C-p s` | Stack a pane | `NewPane "stacked"` |
-| `C-p p` | Switch focus | `SwitchFocus` |
-| `C-p ;` | Previous focus | `FocusLastPane` |
+| Keys | Action |
+| --- | --- |
+| `C-p n` | New pane |
+| `C-p d` | New pane below |
+| `C-p r` | New pane right |
+| `C-p a` | Floating pane |
+| `C-p s` | Stack a pane |
+| `C-p p` | Switch focus |
+| `C-p ;` | Previous focus |
 
 <!-- {: .-shortcuts} -->
 
@@ -129,50 +131,58 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Move and resize
 
-```text
-C-p h        MoveFocus "Left"
-C-p j        MoveFocus "Down"
-C-p k        MoveFocus "Up"
-C-p l        MoveFocus "Right"
-M-h          MoveFocusOrTab "Left"
-M-l          MoveFocusOrTab "Right"
-M-=          Resize "Increase"
-M--          Resize "Decrease"
-C-n h        Resize "Increase Left"
-C-n H        Resize "Decrease Left"
-```
+| Keys | Action |
+| --- | --- |
+| `C-p h` | Focus left |
+| `C-p j` | Focus down |
+| `C-p k` | Focus up |
+| `C-p l` | Focus right |
+| --- |
+| `M-h` | Focus left or previous tab |
+| `M-l` | Focus right or next tab |
+| `M-=` | Grow |
+| `M--` | Shrink |
+| `C-n h` | Grow the left edge |
+| `C-n H` | Shrink the left edge |
 
-`C-n` opens Resize mode; `h/j/k/l` grow edges and `H/J/K/L` shrink them.
+<!-- {: .-shortcuts} -->
+
+`C-n` opens Resize mode; `j/k/l` grow the other edges.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Fullscreen and floating
 
-```text
-C-p f        ToggleFocusFullscreen
-C-p Shift-f  ToggleFocusNoUiFullscreen
-C-p z        TogglePaneFrames
-C-p Shift-z  ToggleBars
-C-p w        ToggleFloatingPanes
-C-p e        TogglePaneEmbedOrFloating
-M-f          ToggleFloatingPanes
-C-p i        TogglePanePinned
-```
+| Keys | Action |
+| --- | --- |
+| `C-p f` | Fullscreen the focused pane |
+| `C-p Shift-f` | Fullscreen without the UI bars |
+| `C-p z` | Toggle pane frames |
+| `C-p Shift-z` | Toggle bars |
+| --- |
+| `C-p w` | Toggle floating panes |
+| `C-p e` | Float or embed the pane |
+| `M-f` | Toggle floating panes |
+| `C-p i` | Pin the pane |
 
-`M-f` toggles every floating pane in the tab from any mode except Locked mode.
+<!-- {: .-shortcuts} -->
+
+`M-f` toggles every floating pane except in Locked mode.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Close, rename, and stack
 
-```text
-C-p x        CloseFocus
-C-p c        PaneNameInput 0
-C-p s        NewPane "stacked"
-C-p Shift-s  ToggleStackListOrientation
-M-p          TogglePaneInGroup
-M-Shift-p    ToggleGroupMarking
-```
+| Keys | Action |
+| --- | --- |
+| `C-p x` | Close the pane |
+| `C-p c` | Rename the pane |
+| `C-p s` | Stack a new pane |
+| `C-p Shift-s` | Change stack title direction |
+| `M-p` | Toggle the pane group |
+| `M-Shift-p` | Toggle group marking |
+
+<!-- {: .-shortcuts} -->
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
@@ -180,15 +190,15 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Tab mode
 
-| Keys | Action | KDL action |
-| --- | --- | --- |
-| `C-t n` | New tab | `NewTab` |
-| `C-t x` | Close tab | `CloseTab` |
-| `C-t r` | Rename tab | `TabNameInput` |
-| `C-t h/l` | Previous / next tab | `GoToPreviousTab`, `GoToNextTab` |
-| `C-t 1-9` | Jump to tab | `GoToTab` |
-| `C-t Tab` | Last tab | `ToggleTab` |
-| `C-t s` | Sync input | `ToggleActiveSyncTab` |
+| Keys | Action |
+| --- | --- |
+| `C-t n` | New tab |
+| `C-t x` | Close tab |
+| `C-t r` | Rename tab |
+| `C-t h/l` | Previous / next tab |
+| `C-t 1-9` | Jump to tab |
+| `C-t Tab` | Last tab |
+| `C-t s` | Sync input to every pane |
 
 <!-- {: .-shortcuts} -->
 
@@ -198,15 +208,17 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Break and swap
 
-```text
-C-t b            BreakPane
-C-t [            BreakPaneLeft
-C-t ]            BreakPaneRight
-C-t Space        NextSwapLayout
-C-t Shift-Space  PreviousSwapLayout
-M-i              MoveTab "Left"
-M-o              MoveTab "Right"
-```
+| Keys | Action |
+| --- | --- |
+| `C-t b` | Break pane into a tab |
+| `C-t [` | Break pane left |
+| `C-t ]` | Break pane right |
+| `C-t Space` | Next swap layout |
+| `C-t Shift-Space` | Previous swap layout |
+| `M-i` | Move tab left |
+| `M-o` | Move tab right |
+
+<!-- {: .-shortcuts} -->
 
 Break a pane into a tab, or cycle the tab's swap layout.
 
@@ -217,18 +229,19 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Scroll mode
 
-```text
-C-s             SwitchToMode "Scroll"
-j / Down        ScrollDown
-k / Up          ScrollUp
-C-f / PageDown  PageScrollDown
-C-b / PageUp    PageScrollUp
-d               HalfPageScrollDown
-u               HalfPageScrollUp
-[               ScrollToPreviousPrompt
-]               ScrollToNextPrompt
-C-c             ScrollToBottom
-```
+| Keys | Action |
+| --- | --- |
+| `C-s` | Scroll mode |
+| `j` / `Down` | Scroll down |
+| `k` / `Up` | Scroll up |
+| `C-f` / `PageDown` | Page down |
+| `C-b` / `PageUp` | Page up |
+| --- |
+| `d` | Half page down |
+| `u` | Half page up |
+| `[` | Previous prompt |
+| `]` | Next prompt |
+| `C-c` | Scroll to bottom |
 
 `C-s` enters and leaves Scroll mode; `Esc` also returns.
 
@@ -236,33 +249,31 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Search and copy
 
-```text
-C-s s         SwitchToMode "EnterSearch"
-n             Search "down"
-p             Search "up"
-c             SearchToggleOption
-                "CaseSensitivity"
-w             SearchToggleOption "Wrap"
-o             SearchToggleOption
-                "WholeWord"
-C-s e         EditScrollback
-C-s c         CopyLastCommandOutput
-```
+| Keys | Action |
+| --- | --- |
+| `C-s s` | Search forward |
+| `n` | Next match |
+| `p` | Previous match |
+| `c` | Case sensitivity |
+| --- |
+| `w` | Wrap |
+| `o` | Whole word |
+| `C-s e` | Edit scrollback |
+| `C-s c` | Copy last command output |
 
-`c`, `w`, and `o` toggle case sensitivity, wrap, and whole-word matching.
+`c`, `w`, and `o` toggle search options.
 
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ### Mouse wheel
 
-```text
-ScrollUp         Scroll 3
-ScrollDown       Scroll 3
-Alt ScrollUp     ScrollToPrompt "previous"
-Alt ScrollDown   ScrollToPrompt "next"
-Ctrl ScrollUp    ResizeScroll "increase"
-Ctrl ScrollDown  ResizeScroll "decrease"
-```
+| Input | Action |
+| --- | --- |
+| `ScrollUp` / `ScrollDown` | Scroll three lines |
+| `Alt ScrollUp` | Previous prompt |
+| `Alt ScrollDown` | Next prompt |
+| `Ctrl ScrollUp` | Grow |
+| `Ctrl ScrollDown` | Shrink |
 
 Hold Shift to temporarily disable mouse handling.
 
@@ -298,7 +309,7 @@ layout {
 }
 ```
 
-No built-in `stacked` layout in 0.46.0; use `NewPane "stacked"` or `zellij run --stacked`.
+No built-in `stacked` layout in 0.46.0; use `C-p s` or `zellij run --stacked`.
 
 See: [Layouts](https://zellij.dev/documentation/layouts)
 
@@ -339,17 +350,17 @@ See: [Layouts](https://zellij.dev/documentation/layouts)
 
 ### Session keys
 
-```text
-C-o d         Detach
-C-o r         SwitchToMode
-              "RenameSession"
-C-o Tab       ToggleSession
-C-o Left      GoToPreviousSession
-C-o Right     GoToNextSession
-C-o n         GoToNextAttention
-C-o w         LaunchOrFocusPlugin
-              "session-manager"
-```
+| Keys | Action |
+| --- | --- |
+| `C-o d` | Detach |
+| `C-o r` | Rename session |
+| `C-o Tab` | Switch session |
+| `C-o Left` | Previous session |
+| `C-o Right` | Next session |
+| `C-o n` | Next pane needing attention |
+| `C-o w` | Session manager |
+
+<!-- {: .-shortcuts} -->
 
 Detaching keeps programs running; reattach with `zellij a`.
 

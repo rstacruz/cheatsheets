@@ -25,11 +25,9 @@ fragments:
   - "%s"
   - "MMM d, yyyy"
 intro: |
-  A date format is a pattern of tokens that tells a library how to write
-  or read a date.
-
-  The same format has a different spelling in every language: `%Y-%m-%d`
-  in strftime, `YYYY-MM-DD` in Moment, `yyyy-MM-dd` in Java.
+  A date format is a pattern of tokens for reading and writing dates.
+  Spelling varies: `%Y-%m-%d` in strftime, `YYYY-MM-DD` in Moment,
+  `yyyy-MM-dd` in Java.
 links:
   - title: ISO 8601
     url: https://www.iso.org/iso-8601-date-and-time-format.html

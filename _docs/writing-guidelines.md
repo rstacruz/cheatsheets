@@ -395,7 +395,7 @@ Float.parse("34.1")      # → {34.1, ""}
 
 🤖 Check: `frontmatter/introduction`.
 
-Set `intro` frontmatter; it renders as the first card. Keep paragraphs under 25 words and links to at most four first-party sources.
+Set `intro` frontmatter; it renders as the first card. Write one paragraph under 25 words, with links to at most four first-party sources.
 
 ````yaml
 intro: |

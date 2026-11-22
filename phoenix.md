@@ -21,7 +21,7 @@ updated: 2026-11-22
 mix archive.install hex phx_new
 ```
 
-Requires Elixir 1.17+, Erlang 25+, and a database (PostgreSQL by default).
+Requires Elixir 1.17+ and Erlang 25+. PostgreSQL is the default database; pass `--database` for another adapter or `--no-ecto` to skip it.
 
 See: [Installation](https://hexdocs.pm/phoenix/installation.html)
 

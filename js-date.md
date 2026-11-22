@@ -41,6 +41,9 @@ new Date(2014, 2, 1, 13, 0, 59, 0)
 
 See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
 
+[ISO 8601 cheatsheet](./iso8601)
+<!-- {: .-crosslink} -->
+
 ### Arguments
 
 | Date | Year | Month | Day | Hour | Min | Sec | Milli |

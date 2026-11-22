@@ -562,6 +562,10 @@ wget --quiet --output-document=out.html https://example.com
 
 Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
 
+### cards/first-h2-first-journey
+
+The opening H2 should be the reader's first journey through the tool: the everyday action, not the API taxonomy. Defer configuration details and internals to later sections.
+
 ### prose/paragraphs-last
 
 🤖 Check: `prose/paragraphs-last`.

@@ -211,7 +211,6 @@ ssh -J bastion internal
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 
 ## Troubleshoot
-<!-- {: .-three-column} -->
 
 ### Verbose output
 

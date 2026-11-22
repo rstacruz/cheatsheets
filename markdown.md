@@ -37,13 +37,15 @@ links:
 ---
 
 ## Getting started
+<!-- {: .-three-column} -->
 
 ### Basic example
 
 ```markdown
 # Title
 
-A paragraph with **bold**, *italic*, and `code`.
+A paragraph with **bold**, *italic*, and
+`code`.
 
 - First item
 - Second item

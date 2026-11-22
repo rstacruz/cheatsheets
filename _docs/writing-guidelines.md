@@ -286,6 +286,10 @@ format(' hi ') // 'hi'
 
 Split an oversized "All options" card into focused cards like `Style options` and `Digit options`.
 
+### cards/no-updates-card
+
+Do not add an `### Updates` or `### Upgrading` card for generic install or update instructions. Update mechanics belong in the project's own docs; link there instead. Keep such a card only when update behaviour is central to the tool's purpose, as it can be for package managers like npm or mise.
+
 ### cards/short-trailing-prose
 
 🤖 Check: `cards/short-trailing-prose`.

@@ -155,19 +155,6 @@ See: [Triage](https://www.aihero.dev/skills-triage)
 
 See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/invocation.md)
 
-### Updates
-
-- **Claude Code plugin** Updates by default
-- **Codex plugin** Updates at startup by default
-- **Copilot plugin** Needs one-time `autoUpdate: true`
-- **VS Code plugin** Updates daily by default
-- **skills.sh copy** `npx skills@latest update`, then `add` again
-<!-- {: .-prose-list} -->
-
-Re-run setup to switch trackers or restart its config; stale templates can drift from newer skills.
-
-See: [Install block](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/install-block.md)
-
 ## Planning
 
 ### Spec

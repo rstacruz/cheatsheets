@@ -57,22 +57,23 @@ many_to_many :tags, MyApp.Blog.Tag,
 
 | Type |
 | --- |
-| `:string` |
-| `:text` |
+| `:id` |
+| `:binary_id` |
 | `:integer` |
 | `:float` |
 | `:decimal` |
 | `:boolean` |
 | --- |
+| `:string` |
+| `:binary` |
+| `:bitstring` |
+| `{:array, inner_type}` |
+| `:map` |
+| --- |
 | `:date` |
 | `:time` |
 | `:naive_datetime` |
 | `:utc_datetime` |
-| `:uuid` |
-| --- |
-| `:binary` |
-| `:map` |
-| `{:array, :string}` |
 
 <!-- {: .-left-align} -->
 

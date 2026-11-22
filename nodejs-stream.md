@@ -37,7 +37,7 @@ console.log(objects.readableHighWaterMark)  // → 16
 console.log(bytes.readableHighWaterMark)    // → 65536
 ```
 
-Object-mode high-water marks count objects; others count bytes.
+Object-mode marks count objects; byte streams count bytes, and string streams count UTF-16 code units.
 
 See: [object mode](https://nodejs.org/api/stream.html#object-mode)
 

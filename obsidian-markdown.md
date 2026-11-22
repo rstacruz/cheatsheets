@@ -1,6 +1,6 @@
 ---
 title: Obsidian Markdown
-subtitle: Wikilinks, callouts, and embeds
+subtitle: Wikilink, callout, and embed syntax
 category: Apps
 tier: t2
 last_verified_with: "Obsidian 1.15.1."
@@ -55,14 +55,14 @@ One `#` targets a heading in the current note; repeat it for each nested level.
 
 See: [Internal links](https://help.obsidian.md/links)
 
-### Markdown links
+### Markdown links and URIs
 
 ```md
 [Launch](Projects/Launch%20plan.md)
 [Note](obsidian://open?vault=MainVault&file=Note.md)
 ```
 
-Markdown links also work; encode spaces in the destination as `%20`.
+Markdown links work too; encode spaces as `%20`. An `obsidian://` URI can open a note in another vault.
 
 See: [Basic formatting syntax](https://help.obsidian.md/syntax)
 
@@ -131,6 +131,7 @@ Unknown types fall back to `note`; type names are case-insensitive.
 See: [Callouts](https://help.obsidian.md/callouts)
 
 ## Embeds and blocks
+<!-- {: .-three-column} -->
 
 ### Embed a note
 

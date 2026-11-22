@@ -25,7 +25,9 @@ def multiplex(text, count)
 end
 ```
 
-See [tomdoc.org](http://tomdoc.org/).
+A TomDoc block sits directly above a method: a `#` line, a short description, then optional sections in a fixed order.
+
+See: [TomDoc specification](http://tomdoc.org/).
 
 ### Tags
 
@@ -35,6 +37,10 @@ See [tomdoc.org](http://tomdoc.org/).
 
 <!-- {: .-enum-lines} -->
 
+Status tags prefix the description and signal API stability.
+
+See: [Description section](http://tomdoc.org/#description).
+
 ### Options
 
 ```ruby
@@ -43,6 +49,10 @@ See [tomdoc.org](http://tomdoc.org/).
 #           :weight - The Float weight to restrict by. The weight should
 #                     be specified in grams (optional).
 ```
+
+Hashes list their valid options like arguments, with defaults in parentheses.
+
+See: [Arguments section](http://tomdoc.org/#arguments).
 
 ### Yields
 
@@ -67,6 +77,10 @@ See [tomdoc.org](http://tomdoc.org/).
 #   multi-line comment.
 ```
 
+The first line names what a block receives; the rest document return values and exceptions.
+
+See: [Yields](http://tomdoc.org/#yields) and [Returns](http://tomdoc.org/#returns).
+
 ### Signatures
 
 ```ruby
@@ -75,3 +89,7 @@ See [tomdoc.org](http://tomdoc.org/).
 #   find_by_<field>[_and_<field>...](args)
 #
 ```
+
+Signatures describe dynamically generated methods: `<>` marks required parts, `[]` optional parts, and `...` repeats.
+
+See: [Signature section](http://tomdoc.org/#signature).

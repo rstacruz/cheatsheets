@@ -86,13 +86,15 @@ order_id  status
 See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
 ## Outer joins
+<!-- {: .-three-column} -->
 
 ### Left join
 
 ```sql
 SELECT c.name, o.order_id, o.total
 FROM customers AS c
-LEFT JOIN orders AS o ON o.customer_id = c.id;
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id;
 ```
 
 #### Result
@@ -115,7 +117,8 @@ See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 ```sql
 SELECT c.name, o.order_id
 FROM customers AS c
-RIGHT JOIN orders AS o ON o.customer_id = c.id;
+RIGHT JOIN orders AS o
+  ON o.customer_id = c.id;
 ```
 
 #### Result
@@ -138,7 +141,8 @@ See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 ```sql
 SELECT c.name, o.order_id
 FROM customers AS c
-FULL OUTER JOIN orders AS o ON o.customer_id = c.id;
+FULL OUTER JOIN orders AS o
+  ON o.customer_id = c.id;
 ```
 
 #### Result
@@ -157,35 +161,14 @@ Both sides survive; unmatched columns are `NULL`.
 
 See: [PostgreSQL outer joins](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
-### Filter in the ON clause
-
-```sql
-SELECT c.name, o.order_id
-FROM customers AS c
-LEFT JOIN orders AS o
-  ON o.customer_id = c.id AND o.total > 30;
-```
-
-#### Result
-
-```
-name  order_id
-----  --------
-Ada   102
-Bob   NULL
-Cy    NULL
-```
-
-Conditions in `ON` keep unmatched left rows; `WHERE` would drop them.
-
-See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
-
 ## Join variations
+<!-- {: .-three-column} -->
 
 ### Cross join
 
 ```sql
-SELECT COUNT(*) FROM customers CROSS JOIN orders;
+SELECT COUNT(*)
+FROM customers CROSS JOIN orders;
 ```
 
 #### Result
@@ -203,9 +186,11 @@ See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 ### Self join
 
 ```sql
-SELECT e.name AS employee, m.name AS manager
+SELECT e.name AS employee,
+  m.name AS manager
 FROM employees AS e
-JOIN employees AS m ON m.id = e.manager_id;
+JOIN employees AS m
+  ON m.id = e.manager_id;
 ```
 
 #### Result
@@ -227,8 +212,10 @@ See: [PostgreSQL self-joins](https://www.postgresql.org/docs/current/tutorial-jo
 ```sql
 SELECT c.name, o.order_id, s.status
 FROM customers AS c
-JOIN orders AS o ON o.customer_id = c.id
-JOIN shipments AS s ON s.order_id = o.order_id;
+JOIN orders AS o
+  ON o.customer_id = c.id
+JOIN shipments AS s
+  ON s.order_id = o.order_id;
 ```
 
 #### Result
@@ -245,13 +232,15 @@ Each `JOIN` adds a table; conditions can reference earlier ones.
 See: [PostgreSQL joining multiple tables](https://www.postgresql.org/docs/current/tutorial-join.html)
 
 ## Common patterns
+<!-- {: .-three-column} -->
 
 ### Find unmatched rows
 
 ```sql
 SELECT c.name
 FROM customers AS c
-LEFT JOIN orders AS o ON o.customer_id = c.id
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id
 WHERE o.order_id IS NULL;
 ```
 
@@ -267,14 +256,42 @@ A left join plus `IS NULL` finds customers without orders.
 
 See: [PostgreSQL join reference](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
+### Filter in the ON clause
+
+```sql
+SELECT c.name, o.order_id
+FROM customers AS c
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id
+  AND o.total > 30;
+```
+
+#### Result
+
+```
+name  order_id
+----  --------
+Ada   102
+Bob   NULL
+Cy    NULL
+```
+
+Conditions in `ON` keep unmatched left rows; `WHERE` would drop them.
+
+See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
+
 ### Emulate a full join
 
 ```sql
-SELECT c.name, o.order_id FROM customers AS c
-LEFT JOIN orders AS o ON o.customer_id = c.id
+SELECT c.name, o.order_id
+FROM customers AS c
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id
 UNION ALL
-SELECT c.name, o.order_id FROM customers AS c
-RIGHT JOIN orders AS o ON o.customer_id = c.id
+SELECT c.name, o.order_id
+FROM customers AS c
+RIGHT JOIN orders AS o
+  ON o.customer_id = c.id
 WHERE c.id IS NULL;
 ```
 
@@ -295,6 +312,7 @@ MySQL has no `FULL OUTER JOIN`; union a left and a right join.
 See: [MySQL UNION syntax](https://dev.mysql.com/doc/refman/9.7/en/union.html)
 
 ## Dialect notes
+<!-- {: .-three-column} -->
 
 ### SQLite
 
@@ -317,7 +335,8 @@ See: [SQLite 3.39.0 release](https://www.sqlite.org/releaselog/3_39_0.html)
 ```sql
 SELECT order_id, s.status
 FROM orders AS o
-FULL OUTER JOIN shipments AS s USING (order_id);
+FULL OUTER JOIN shipments AS s
+  USING (order_id);
 ```
 
 #### Result

@@ -50,6 +50,8 @@ FROM customers AS c
 JOIN orders AS o ON o.customer_id = c.id;
 ```
 
+<!-- {: data-line="3"} -->
+
 #### Result
 
 ```
@@ -71,6 +73,8 @@ See: [PostgreSQL inner joins](https://www.postgresql.org/docs/current/tutorial-j
 ```
 SELECT * FROM a INNER JOIN b
 ```
+
+<!-- {: data-line="1"} -->
 
 #### Overlap
 
@@ -99,6 +103,8 @@ LEFT JOIN orders AS o
   ON o.customer_id = c.id;
 ```
 
+<!-- {: data-line="3,4"} -->
+
 #### Result
 
 ```
@@ -123,6 +129,8 @@ RIGHT JOIN orders AS o
   ON o.customer_id = c.id;
 ```
 
+<!-- {: data-line="3,4"} -->
+
 #### Result
 
 ```
@@ -146,6 +154,8 @@ FROM customers AS c
 FULL OUTER JOIN orders AS o
   ON o.customer_id = c.id;
 ```
+
+<!-- {: data-line="3,4"} -->
 
 #### Result
 
@@ -173,6 +183,8 @@ SELECT COUNT(*)
 FROM customers CROSS JOIN orders;
 ```
 
+<!-- {: data-line="2"} -->
+
 #### Result
 
 ```
@@ -194,6 +206,8 @@ FROM employees AS e
 JOIN employees AS m
   ON m.id = e.manager_id;
 ```
+
+<!-- {: data-line="4,5"} -->
 
 #### Result
 
@@ -219,6 +233,8 @@ JOIN orders AS o
 JOIN shipments AS s
   ON s.order_id = o.order_id;
 ```
+
+<!-- {: data-line="3-6"} -->
 
 #### Result
 
@@ -246,6 +262,8 @@ LEFT JOIN orders AS o
 WHERE o.order_id IS NULL;
 ```
 
+<!-- {: data-line="3,4"} -->
+
 #### Result
 
 ```
@@ -267,6 +285,8 @@ LEFT JOIN orders AS o
   ON o.customer_id = c.id
   AND o.total > 30;
 ```
+
+<!-- {: data-line="3-5"} -->
 
 #### Result
 
@@ -296,6 +316,8 @@ RIGHT JOIN orders AS o
   ON o.customer_id = c.id
 WHERE c.id IS NULL;
 ```
+
+<!-- {: data-line="3-4,8-9"} -->
 
 #### Result
 
@@ -341,6 +363,8 @@ FULL OUTER JOIN shipments AS s
   USING (order_id);
 ```
 
+<!-- {: data-line="3,4"} -->
+
 #### Result
 
 ```
@@ -364,6 +388,8 @@ SELECT o.order_id, s.status
 FROM orders AS o
 JOIN shipments AS s USING (order_id);
 ```
+
+<!-- {: data-line="3"} -->
 
 #### Result
 
@@ -401,6 +427,8 @@ SELECT o.order_id, s.status
 FROM orders AS o
 JOIN shipments AS s USING (order_id);
 ```
+
+<!-- {: data-line="3"} -->
 
 #### Result
 

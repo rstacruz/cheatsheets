@@ -42,11 +42,11 @@ links:
     url: https://pcre.org/current/doc/html/pcre2syntax.html
 ---
 
-## Getting started
+## Search a project
 
 <!-- {: .-three-column} -->
 
-### Basic search
+### Find a match
 <!-- {: .-prime} -->
 
 ```bash
@@ -66,7 +66,7 @@ Each match prints its path and matching line; `-n` adds line numbers.
 
 See: [ripgrep repository](https://github.com/BurntSushi/ripgrep)
 
-### Paths
+### Search a path
 
 ```bash
 rg TODO src
@@ -77,27 +77,24 @@ Pass files or directories after the pattern to narrow the search.
 
 See: `rg --help` (USAGE)
 
-### Files to search
+### List files with matches
 
 ```bash
-rg --files
+rg -l TODO
 ```
 
 #### Output
 
 ```
 scratch.md
-notes.txt
-config.yml
-README.md
 tests/main_test.rs
 src/lib.rs
 src/main.rs
 ```
 
-`--files` lists what rg would search, after ignore rules are applied.
+`-l` prints only the paths that contain a match.
 
-See: `rg --help` (--files)
+See: `rg --help` (-l)
 
 ## Search patterns
 
@@ -159,6 +156,28 @@ Both forms find the same matches; `-e` may be repeated.
 See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 
 ## Files and globs
+
+### Files to search
+
+```bash
+rg --files
+```
+
+#### Output
+
+```
+scratch.md
+notes.txt
+config.yml
+README.md
+tests/main_test.rs
+src/lib.rs
+src/main.rs
+```
+
+`--files` lists what rg would search, after ignore rules are applied.
+
+See: `rg --help` (--files)
 
 ### Include globs
 
@@ -294,9 +313,7 @@ rg -I -n port src
 
 See: `rg --help` (-H, -I, --column)
 
-### Counts and file lists
-
-#### Counting lines
+### Count matching lines
 
 ```bash
 rg -c TODO src tests
@@ -310,24 +327,9 @@ src/lib.rs:1
 src/main.rs:1
 ```
 
-#### Listing files
-
-```bash
-rg -l TODO
-```
-
-#### Output
-
-```
-scratch.md
-tests/main_test.rs
-src/lib.rs
-src/main.rs
-```
-
 `--count-matches` counts matches rather than matching lines.
 
-See: `rg --help` (-c, -l, --count-matches)
+See: `rg --help` (-c, --count-matches)
 
 ### Only matching text
 

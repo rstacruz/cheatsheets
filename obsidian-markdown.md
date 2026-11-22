@@ -1,6 +1,6 @@
 ---
 title: Obsidian Markdown
-subtitle: Markdown syntax for Obsidian notes
+subtitle: Wikilinks, callouts, and embeds
 category: Apps
 tier: t2
 last_verified_with: "Obsidian 1.15.1."

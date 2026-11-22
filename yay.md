@@ -3,7 +3,7 @@ title: Yay
 subtitle: AUR helper for Arch Linux
 category: Package managers
 updated: 2026-11-22
-last_verified_with: "Verified on yay v13.0.0; last edited 2026-11."
+last_verified_with: "Current yay v13.0.0."
 tier: t1
 fragments:
   - "yay"

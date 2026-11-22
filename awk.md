@@ -3,7 +3,7 @@ title: awk
 subtitle: Text processing language
 category: Shell
 updated: 2026-11-18
-last_verified_with: "Examples verified on awk 1.32.0; last edited 2026-11."
+last_verified_with: "Current awk 1.32.0."
 tier: t1
 fragments:
   - "awk '{print $1}'"

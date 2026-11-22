@@ -4,7 +4,7 @@ subtitle: Locale-aware number formatter
 category: Browser APIs
 tier: t1
 updated: 2026-11-18
-last_verified_with: "Examples verified on Node 26.13.1; last edited 2026-11 (PR #2356)."
+last_verified_with: "Current Node 26.13.1."
 fragments:
   - "NumberFormat"
   - "format(1234.5)"

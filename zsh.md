@@ -4,7 +4,7 @@ subtitle: Interactive shell
 category: Shell
 tier: t1
 updated: 2026-11-18
-last_verified_with: "Last edited 2026-11; upstream version not recorded."
+last_verified_with: "Current Zsh 5.9.2."
 fragments:
   - "setopt"
   - "bindkey"

@@ -4,7 +4,7 @@ subtitle: AI coding agent
 category: Agents
 tags: [Featured]
 updated: 2026-11-18
-last_verified_with: "Examples verified on Claude Code 2.1.322 CLI; last edited 2026-11."
+last_verified_with: "Current Claude Code 2.1.322."
 tier: t1
 fragments:
   - "claude"

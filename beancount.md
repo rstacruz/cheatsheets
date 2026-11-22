@@ -3,7 +3,7 @@ title: Beancount
 subtitle: Plain-text double-entry accounting
 category: Plain-text accounting
 tier: t1
-last_verified_with: "Examples verified on Beancount 3.2.3; BQL checked with bean-query; last edited 2026-11."
+last_verified_with: "Current Beancount 3.2.3."
 fragments:
   - "Assets:Cash"
   - "Liabilities:Card"

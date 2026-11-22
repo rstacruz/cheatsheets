@@ -1,7 +1,6 @@
 import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 
-const note =
-  'Ecto 3.14 / Phoenix 1.8; verified on Elixir 1.18.6 + Ecto 3.14.3 + SQLite.'
+const note = 'Current Conventional Commits 1.0.0, curl 8.23.0.'
 
 const TIERED = {
   fragments: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']

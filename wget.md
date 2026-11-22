@@ -3,7 +3,7 @@ title: Wget
 subtitle: Non-interactive network downloader
 category: Networking
 updated: 2026-11-22
-last_verified_with: "Verified on GNU Wget 1.25.0; last edited 2026-11."
+last_verified_with: "Current GNU Wget 1.25.0."
 tier: t1
 fragments:
   - "wget URL"

@@ -4,7 +4,7 @@ subtitle: Core scripting language
 category: JavaScript
 weight: -10
 updated: 2026-11-11
-last_verified_with: "Current ES2022–2026 APIs; last edited 2026-11 (PR #2308)."
+last_verified_with: "Current ES2022–2026 APIs."
 tier: t1
 fragments:
   - "const res"

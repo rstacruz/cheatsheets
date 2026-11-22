@@ -21,7 +21,7 @@ fragments:
   - "../hotfix"
   - "prunable"
 updated: 2026-11-18
-last_verified_with: "Commands verified on git 2.56.0; last edited 2026-11 (PR #2358)."
+last_verified_with: "Current git 2.56.0."
 intro: |
   A linked worktree shares objects, refs, and config but keeps its own
   HEAD, index, and files. It suits parallel branches, hotfixes, and agent

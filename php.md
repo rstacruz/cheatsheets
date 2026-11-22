@@ -3,7 +3,7 @@ title: PHP
 subtitle: General-purpose scripting language
 category: C-like
 updated: 2026-11-21
-last_verified_with: "Examples verified on PHP 8.5.12."
+last_verified_with: "Current PHP 8.5.12."
 tier: t1
 prism_languages: [php]
 fragments:

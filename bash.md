@@ -4,7 +4,7 @@ subtitle: Shell scripting language
 category: Shell
 tags: [Featured]
 updated: 2026-11-11
-last_verified_with: "Current Bash 5.3 APIs; examples verified on Bash 5.3.20; last edited 2026-11."
+last_verified_with: "Current Bash 5.3, Bash 5.3.20."
 tier: t1
 fragments:
   - "#!/usr/bin/env"

@@ -3,7 +3,7 @@ title: uv
 subtitle: Python package and project manager
 category: Package managers
 updated: 2026-11-21
-last_verified_with: "Verified on uv 0.13.9; last edited 2026-11."
+last_verified_with: "Current uv 0.13.9."
 tier: t1
 fragments:
   - "uv init"

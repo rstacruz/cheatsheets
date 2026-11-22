@@ -22,7 +22,7 @@ weight: -5
 description: |
   $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.
 updated: 2026-11-05
-last_verified_with: "Current XPath 1.0 APIs; last edited 2026-11."
+last_verified_with: "Current XPath 1.0."
 intro: |
   XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
 links:

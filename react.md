@@ -4,7 +4,7 @@ subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
 updated: 2026-11-11
-last_verified_with: "Current React 19.0–19.3 APIs; last edited 2026-11."
+last_verified_with: "Current React 19.0–19.3 APIs."
 tier: t1
 fragments:
   - "<App />"

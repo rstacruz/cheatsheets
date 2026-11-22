@@ -19,7 +19,7 @@ fragments:
   - "502 Bad Gateway"
   - "503 Unavailable"
 updated: 2026-11-11
-last_verified_with: "Current RFC 9110 / IANA registry; last edited 2026-11 (PR #2306)."
+last_verified_with: "Current RFC 9110 / IANA registry."
 description: |
   List of HTTP Status codes and links to description.
 intro: |

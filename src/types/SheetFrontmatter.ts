@@ -44,7 +44,7 @@ export const SheetFrontmatterSchema = z
       .max(160)
       .optional()
       .describe(
-        'Versions and runtime used to verify examples (max 160 chars). Required for t1 and t2 sheets.'
+        'Versions the examples target (max 160 chars). Required for t1 and t2 sheets.'
       ),
     tier: z
       .enum(['t1', 't2'])

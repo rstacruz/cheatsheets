@@ -3,7 +3,7 @@ title: Kotlin
 subtitle: JVM programming language
 category: C-like
 updated: 2026-11-11
-last_verified_with: "Snippets verified on Kotlin 2.4.21; last edited 2026-11 (PR #2311)."
+last_verified_with: "Current Kotlin 2.4.21."
 tier: t2
 fragments:
   - "val"

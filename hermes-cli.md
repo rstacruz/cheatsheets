@@ -19,7 +19,7 @@ fragments:
   - "--cli"
   - "--usage-file"
 updated: 2026-11-11
-last_verified_with: "Last edited 2026-11; upstream version not recorded."
+last_verified_with: "Current Hermes CLI commands and flags from the official docs."
 keywords:
   - AI assistant
   - CLI

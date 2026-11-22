@@ -166,6 +166,7 @@ See: [Block edits to protected files](https://code.claude.com/docs/en/hooks-guid
   }
 }
 ```
+<!-- {: data-highlight="permission_prompt|idle_prompt"} -->
 
 `permission_prompt` waits about six seconds; `idle_prompt` about 60 seconds.
 
@@ -215,6 +216,7 @@ See: [Add context for Claude](https://code.claude.com/docs/en/hooks#add-context-
   "asyncRewake": true
 }
 ```
+<!-- {: data-highlight="asyncRewake"} -->
 
 Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and shows stderr as a system reminder.
 

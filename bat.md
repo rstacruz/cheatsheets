@@ -106,6 +106,7 @@ bat -l json config.json
 bat --list-languages
 bat --file-name hello.py < snippet
 ```
+<!-- {: data-highlight="-l json"} -->
 
 `-l` accepts a language name or file extension. Use `--file-name` with stdin so `bat` can infer the language.
 
@@ -130,6 +131,7 @@ bat -H 3 hello.py
 bat -H 2:4 hello.py
 bat -H :3 hello.py
 ```
+<!-- {: data-highlight="-H 2:4"} -->
 
 `-H` draws a background behind the selected lines. It accepts line numbers and ranges such as `N:M`, `:N`, `N:` and `N:+M`.
 
@@ -180,6 +182,7 @@ See: [Output style](https://github.com/sharkdp/bat#output-style)
 ```bash
 bat -A config.yml
 ```
+<!-- {: data-highlight="-A config.yml"} -->
 
 #### Output
 
@@ -205,6 +208,7 @@ bat --wrap=character hello.py
 bat -S hello.py
 bat --terminal-width 80 hello.py
 ```
+<!-- {: data-highlight="--wrap=character"} -->
 
 `--wrap=character` wraps long lines; `-S` chops them. `--terminal-width` overrides the detected width.
 
@@ -254,6 +258,7 @@ See: [Automatic paging](https://github.com/sharkdp/bat#automatic-paging)
 bat -d notes.txt
 bat -d --diff-context=1 notes.txt
 ```
+<!-- {: data-highlight="--diff-context=1"} -->
 
 #### Output
 
@@ -282,6 +287,7 @@ See: [Git integration](https://github.com/sharkdp/bat#git-integration)
 fzf --preview "bat --color=always \
   --style=numbers --line-range=:500 {}"
 ```
+<!-- {: data-highlight="--line-range=:500"} -->
 
 Force colors for previews; `--line-range` keeps long files fast to load.
 
@@ -314,6 +320,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 export MANPAGER="bat -plman"
 man 2 select
 ```
+<!-- {: data-highlight="-plman"} -->
 
 `-plman` combines plain style with the manpage syntax.
 

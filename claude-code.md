@@ -63,6 +63,7 @@ claude auth login            # sign in again
 claude auth login --console  # bill to a Console account
 claude auth status           # JSON status; --text for plain
 ```
+<!-- {: data-highlight="--console"} -->
 
 See: [Authentication](https://code.claude.com/docs/en/authentication)
 
@@ -330,6 +331,7 @@ CLAUDE.local.md       # personal notes, not committed
 git diff | claude -p "review this diff for bugs"
 claude -p "check src/ for security issues"
 ```
+<!-- {: data-highlight="-p"} -->
 
 In a session, `/code-review` reviews the diff, `/code-review 1234` a pull request, and `/security-review` scans for vulnerabilities.
 
@@ -358,6 +360,7 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 claude --bg "migrate the auth tests"  # detach immediately
 claude agents                         # monitor and dispatch
 ```
+<!-- {: data-highlight="--bg"} -->
 
 Inside a session, `/background` detaches it and `/batch` fans work out across worktrees.
 

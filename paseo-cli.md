@@ -83,6 +83,7 @@ paseo run --output-schema schema.json "name this branch"
 paseo run --new-workspace worktree --worktree-mode branch-off \
   --new-branch feature/x --base origin/main "implement feature X"
 ```
+<!-- {: data-highlight="--no-wait"} -->
 
 A bare `run` in an interactive shell creates a local workspace; `--no-wait` returns while the agent keeps running. `--output-schema` cannot combine with `--no-wait`.
 
@@ -122,6 +123,7 @@ paseo send <id> --image screenshot.png "what's wrong here?"
 paseo send <id> --behavior steer "continue on this path"
 paseo send <id> --no-wait "run this task"
 ```
+<!-- {: data-highlight="--behavior steer"} -->
 
 Agent-originated sends steer the running turn by default; other sends interrupt.
 
@@ -180,6 +182,7 @@ paseo workspace create --isolation worktree \
 paseo workspace create --isolation local --background \
   --path /path/to/repo
 ```
+<!-- {: data-highlight="--background"} -->
 
 `--background` hides a workspace from default discovery; `--no-background` overrides caller inheritance.
 
@@ -280,6 +283,7 @@ paseo --host localhost:6767 host add \
 paseo --host localhost:6767 host ls --json
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
+<!-- {: data-highlight="--host"} -->
 
 `--host` also accepts pairing offers; relay connections are end-to-end encrypted and SSH hosts must already run a daemon.
 
@@ -297,6 +301,7 @@ paseo schedule create --cron "0 9 * * 1-5" \
   --timezone America/New_York --name morning-triage \
   "Review overnight CI failures."
 ```
+<!-- {: data-highlight="--every"} -->
 
 `--every` compiles to cron, not a rolling interval; schedules default to UTC and `--run-now` fires once at creation.
 
@@ -328,6 +333,7 @@ paseo heartbeat create --cron "*/20 * * * *" \
 paseo heartbeat update <id> --cron "*/10 * * * *"
 paseo heartbeat delete <id>
 ```
+<!-- {: data-highlight="--cron"} -->
 
 Heartbeats need `PASEO_AGENT_ID` and raw `--cron`. `--every` presets apply only to new-agent schedules.
 
@@ -438,6 +444,7 @@ paseo usage ls --refresh
 paseo usage inspect <report-id>
 paseo usage ls --json
 ```
+<!-- {: data-highlight="--refresh"} -->
 
 Quota reports come from the host and `--refresh` bypasses the five-minute cache.
 

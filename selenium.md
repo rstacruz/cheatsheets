@@ -74,6 +74,7 @@ from selenium import webdriver
 
 driver = webdriver.Firefox()
 ```
+<!-- {: data-highlight="Firefox()"} -->
 
 Swap `Firefox()` for `Chrome()`, `Edge()`, or `Safari()`; Selenium Manager resolves the driver.
 
@@ -108,6 +109,7 @@ all_fields = driver.find_elements(
     By.TAG_NAME, "input"
 )
 ```
+<!-- {: data-highlight="find_elements"} -->
 
 `find_element()` raises when missing; `find_elements()` returns an empty list.
 
@@ -138,6 +140,7 @@ buttons = driver.find_elements(
     "form button[type=submit]"
 )
 ```
+<!-- {: data-highlight="By.CSS_SELECTOR"} -->
 
 CSS selectors suit ids, classes, and structural queries.
 
@@ -151,6 +154,7 @@ totals = driver.find_elements(
     "//tr[contains(@class,'total')]"
 )
 ```
+<!-- {: data-highlight="By.XPATH"} -->
 
 Use XPath when the target depends on text or ancestor position.
 
@@ -275,6 +279,7 @@ title = driver.execute_script(
 snapshot = driver.accessibility_snapshot()
 print(snapshot.to_text())
 ```
+<!-- {: data-highlight="to_text()"} -->
 
 The 4.53 snapshot returns a node whose `to_text()` gives accessibility text.
 
@@ -375,6 +380,7 @@ driver.switch_to.frame(frame)
 driver.switch_to.parent_frame()
 driver.switch_to.default_content()
 ```
+<!-- {: data-highlight="default_content()"} -->
 
 Return to the top document before locating page-level elements.
 
@@ -409,6 +415,7 @@ cookies = driver.get_cookies()
 driver.delete_cookie("n")
 driver.delete_all_cookies()
 ```
+<!-- {: data-highlight="add_cookie"} -->
 
 Navigate to the cookie's domain before adding one.
 
@@ -426,6 +433,7 @@ options.add_argument("--headless=new")
 options.page_load_strategy = "eager"
 driver = webdriver.Chrome(options=options)
 ```
+<!-- {: data-highlight="page_load_strategy"} -->
 
 Page-load strategy controls navigation, not clicks on elements.
 
@@ -440,6 +448,7 @@ options = webdriver.ChromeOptions()
 options.enable_bidi = True
 driver = webdriver.Chrome(options=options)
 ```
+<!-- {: data-highlight="enable_bidi"} -->
 
 Enable BiDi before using `driver.script` or `driver.network`.
 

@@ -1,6 +1,6 @@
 ---
 title: Watchexec
-subtitle: Run commands when files change
+subtitle: Runs commands when files change
 category: CLI
 weight: -1
 updated: 2026-11-22
@@ -74,10 +74,10 @@ watchexec --postpone -- make
 ### Include by glob
 
 ```bash
-watchexec -f '*/src/**/*' -- make
+watchexec -f 'src/**/*' -- make
 ```
 
-Patterns match absolute paths, so start non-absolute globs with `*/`.
+Patterns match paths relative to the project origin; `**` spans directories.
 
 ### Ignore by glob
 

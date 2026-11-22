@@ -2,7 +2,7 @@
 title: ripgrep
 subtitle: Fast recursive search tool
 category: Shell
-updated: 2026-11-21
+updated: 2026-11-22
 tier: t1
 fragments:
   - "rg TODO"
@@ -43,6 +43,8 @@ links:
 ---
 
 ## Getting started
+
+<!-- {: .-three-column} -->
 
 ### Basic search
 <!-- {: .-prime} -->
@@ -98,6 +100,8 @@ src/main.rs
 See: `rg --help` (--files)
 
 ## Search patterns
+
+<!-- {: .-three-column} -->
 
 ### Regex and fixed strings
 
@@ -376,6 +380,8 @@ See: `rg --help` (--passthru)
 
 ## Multiline and PCRE2
 
+<!-- {: .-three-column} -->
+
 ### Multiline search
 
 ```bash
@@ -425,12 +431,13 @@ See: `rg --help` (--engine)
 
 ## Integration
 
-### With find
+<!-- {: .-three-column} -->
 
-#### xargs
+### With find (xargs)
 
 ```bash
-find src tests -name '*.rs' -print0 | xargs -0 rg -H -n TODO
+find src tests -name '*.rs' -print0 \
+  | xargs -0 rg -H -n TODO
 ```
 
 #### Output
@@ -441,10 +448,15 @@ src/main.rs:3:    // TODO: bind the port
 src/lib.rs:2:    // TODO: validate input
 ```
 
-#### exec
+`-print0`/`-0` handle spaces; `-H` keeps filenames for single-file batches.
+
+See: [find(1)](https://man7.org/linux/man-pages/man1/find.1.html)
+
+### With find (exec)
 
 ```bash
-find src tests -name '*.rs' -exec rg -H -n TODO {} +
+find src tests -name '*.rs' \
+  -exec rg -H -n TODO {} +
 ```
 
 #### Output
@@ -455,7 +467,7 @@ src/main.rs:3:    // TODO: bind the port
 tests/main_test.rs:1:// TODO: add a test
 ```
 
-`-print0`/`-0` handle spaces in paths; `-H` keeps filenames when a batch contains only one file.
+`-exec ... +` batches matched files into one rg call.
 
 See: [find(1)](https://man7.org/linux/man-pages/man1/find.1.html)
 

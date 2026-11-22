@@ -67,13 +67,19 @@ many_to_many :tags, MyApp.Blog.Tag,
 | `:string` |
 | `:binary` |
 | `:bitstring` |
-| `{:array, inner_type}` |
 | `:map` |
+| `{:map, inner_type}` |
+| `{:array, inner_type}` |
 | --- |
 | `:date` |
 | `:time` |
+| `:time_usec` |
 | `:naive_datetime` |
+| `:naive_datetime_usec` |
 | `:utc_datetime` |
+| `:utc_datetime_usec` |
+| --- |
+| `:duration` |
 
 <!-- {: .-left-align} -->
 

@@ -1,0 +1,7 @@
+[
+  "cursor-cli:254: command in column 2; commands belong in the first column",
+  "phoenix-routing:38: command in column 2; commands belong in the first column",
+  "phoenix-routing:42: command in column 2; commands belong in the first column",
+  "xpath:42: command in column 2; commands belong in the first column",
+  "xpath:146: command in column 2; commands belong in the first column"
+]

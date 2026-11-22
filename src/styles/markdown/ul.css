@@ -70,3 +70,18 @@
     minmax(max(10rem, calc(50% - 4px)), 1fr)
   );
 }
+
+.MarkdownBody ul.-prose-list {
+  & > li {
+    display: grid;
+    grid-template-columns: minmax(0, 13rem) 1fr;
+    gap: 2px 12px;
+  }
+
+  @media (max-width: 640px) {
+    & > li {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+}

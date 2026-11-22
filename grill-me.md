@@ -42,11 +42,10 @@ links:
 
 ### What it does
 
-| Start with | End with |
-| --- | --- |
-| A loose idea, not a plan | Decisions you can commit to |
-| A fresh conversation | The same conversation handed to `/to-spec` |
-| No repo | Nothing written to disk |
+- **A loose idea, not a plan** Decisions you can commit to
+- **A fresh conversation** The same conversation handed to `/to-spec`
+- **No repo** Nothing written to disk
+<!-- {: .-prose-list} -->
 
 It runs the `grilling` primitive under another name. You type `/grill-me`; the agent never invokes it on its own. The session is stateless, so the result stays in the conversation.
 
@@ -54,13 +53,13 @@ See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 
 ### Front doors
 
-| What is in front of you | Reach for |
+| Command | Situation |
 | --- | --- |
-| Anything, anywhere | `/grill-me` |
-| A repo, one session | `/grill-with-docs` |
-| Fog spans sessions | `/wayfinder` |
-| A question you must see or feel | `/prototype` |
-| A bare interview | `/grilling` |
+| `/grill-me` | Anything, anywhere |
+| `/grill-with-docs` | A repo, one session |
+| `/wayfinder` | Fog spans sessions |
+| `/prototype` | A question you must see or feel |
+| `/grilling` | A bare interview |
 
 `/grill-me` and `/grill-with-docs` are the two user-invoked front doors; both run the same interview. `/wayfinder` and `/prototype` are separate routes.
 
@@ -107,6 +106,27 @@ The next round contains only questions those two answers unblocked. Later rounds
 
 See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 
+### One at a time
+
+```text
+# add to your global CLAUDE.md
+When grilling, ask one question at a time.
+```
+
+The round-based default is a supported setting, not the only mode. Readers who prefer a slower cadence use this opt-out.
+
+See: [One question at a time](https://www.aihero.dev/skills-grilling)
+
+### Plan mode off
+
+- **Plan mode on** The agent hurries to produce a plan
+- **Plan mode off** Rounds continue until the frontier is empty
+<!-- {: .-prose-list} -->
+
+The session ends when every branch is visited. The agent then asks you to confirm shared understanding before it acts; it does not start building on its own.
+
+See: [Start a fresh conversation](https://www.aihero.dev/skills-grill-me)
+
 ## How it runs
 
 ### Tree and frontier
@@ -135,16 +155,29 @@ A running exploration is an unsettled prerequisite. Only the questions downstrea
 
 See: [Facts vs decisions](https://www.aihero.dev/skills-grilling)
 
+### Dependencies
+
+- **`/grill-me`** `grilling`
+- **`/grill-with-docs`** `grilling` and `domain-modeling`
+- **Partial load** Good interview, no paper trail
+<!-- {: .-prose-list} -->
+
+A one-line wrapper delegates with a Skill tool call. Selective installs miss the primitives; ask the agent which skills it loaded if the round has no recommendations.
+
+See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/invocation.md)
+
+[Agent skills cheatsheet](./skills)
+<!-- {: .-crosslink} -->
+
 ## Running one well
 
 ### Answering a round
 
-| Answer | Meaning |
-| --- | --- |
-| `1 yes` | Accept the recommendation for Q1 |
-| `1 no` | Reject it |
-| `2 the second option` | Pick a listed alternative |
-| "answer the recommendation" | Use when the recommendation argues against its own question |
+- **`1 yes`** Accept the recommendation for Q1
+- **`1 no`** Reject it
+- **`2 the second option`** Pick a listed alternative
+- **"answer the recommendation"** Use when the recommendation argues against its own question
+<!-- {: .-prose-list} -->
 
 Numbered answers work because the format is fixed. Add a reason when it changes what the agent asks next.
 
@@ -152,24 +185,33 @@ See: [The round](https://www.aihero.dev/skills-grilling)
 
 ### Steering
 
-| Move | Why |
-| --- | --- |
-| Push back on a vague question | Scope belongs to you |
-| Say "I don't know" | A real answer; often a prototype signal |
-| Count rounds, not questions | Forty-six questions over four rounds is ordinary |
-| Around 200 questions | Scope signal, not a cap: split the work |
-| No question cap | A cap is out of scope on purpose |
+- **Push back on a vague question** Scope belongs to you
+- **Say "I don't know"** A real answer; often a prototype signal
+- **Count rounds, not questions** Forty-six questions over four rounds is ordinary
+- **Around 200 questions** Scope signal, not a cap: split the work
+- **No question cap** A cap is out of scope on purpose
+<!-- {: .-prose-list} -->
 
 Long sessions drift into the dumb zone, where questions get worse. Ask it to wrap up, or accept the plan where it stands.
 
 See: [Long sessions and passivity](https://www.aihero.dev/skills-grill-me)
 
+### Passivity
+
+- **"Agreed, agreed, agreed"** Push back or ask for more detail
+- **Scope drifting** Say so in the round
+- **End with no disagreement** You did not need the session
+<!-- {: .-prose-list} -->
+
+The quality of your answers decides the result. A long interview is not evidence that you decided anything.
+
+See: [A conversation, not an interview](https://www.aihero.dev/skills-grill-me)
+
 ### Ungrillable
 
-| Question | Move |
-| --- | --- |
-| "How should this interaction feel?" | Stop asking, build a throwaway |
-| "One long form or three pages?" | Use `/prototype`, look, then answer in one line |
+- **"How should this interaction feel?"** Stop asking, build a throwaway
+- **"One long form or three pages?"** Use `/prototype`, look, then answer in one line
+<!-- {: .-prose-list} -->
 
 Talking cannot settle a question that needs something to react to. Building the throwaway is faster than rephrasing the same question.
 
@@ -179,12 +221,10 @@ See: [Grillable and ungrillable](https://www.aihero.dev/skills-grill-me)
 
 ### What lands where
 
-| Resolved | Lands in |
-| --- | --- |
-| A project term | `GLOSSARY.md`, inline, the moment it resolves |
-| Hard to reverse, surprising, a real trade-off | `docs/adr/NNNN-slug.md` |
-| Everything else | The conversation, and nowhere else |
-<!-- {: .-headers} -->
+- **A project term** `GLOSSARY.md`, inline, the moment it resolves
+- **Hard to reverse, surprising, a real trade-off** `docs/adr/NNNN-slug.md`
+- **Everything else** The conversation, and nowhere else
+<!-- {: .-prose-list} -->
 
 Only `grill-with-docs` writes these files. `/grill-me` leaves no workspace behind, so feed its conversation straight to `/to-spec` if you want a durable record.
 
@@ -213,54 +253,3 @@ Context, decision, and reason in one to three sentences.
 Files are numbered `docs/adr/NNNN-slug.md`. All three gates must pass, so most sessions produce none; a sharper glossary with zero ADRs is normal.
 
 See: [ADR-FORMAT.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills/engineering/domain-modeling/ADR-FORMAT.md)
-
-## Gotchas
-
-### Plan mode off
-
-| Setting | Effect |
-| --- | --- |
-| Plan mode on | The agent hurries to produce a plan |
-| Plan mode off | Rounds continue until the frontier is empty |
-
-The session ends when every branch is visited. The agent then asks you to confirm shared understanding before it acts; it does not start building on its own.
-
-See: [Start a fresh conversation](https://www.aihero.dev/skills-grill-me)
-
-### Dependencies
-
-| Skill | Needs |
-| --- | --- |
-| `/grill-me` | `grilling` |
-| `/grill-with-docs` | `grilling` and `domain-modeling` |
-| Partial load | Good interview, no paper trail |
-
-A one-line wrapper delegates with a Skill tool call. Selective installs miss the primitives; ask the agent which skills it loaded if the round has no recommendations.
-
-See: [Invocation rules](https://github.com/mattpocock/skills/blob/v1.3.2/.agents/invocation.md)
-
-[Agent skills cheatsheet](./skills)
-<!-- {: .-crosslink} -->
-
-### One at a time
-
-```text
-# add to your global CLAUDE.md
-When grilling, ask one question at a time.
-```
-
-The round-based default is a supported setting, not the only mode. Readers who prefer a slower cadence use this opt-out.
-
-See: [One question at a time](https://www.aihero.dev/skills-grilling)
-
-### Passivity
-
-| Signal | Response |
-| --- | --- |
-| "Agreed, agreed, agreed" | Push back or ask for more detail |
-| Scope drifting | Say so in the round |
-| End with no disagreement | You did not need the session |
-
-The quality of your answers decides the result. A long interview is not evidence that you decided anything.
-
-See: [A conversation, not an interview](https://www.aihero.dev/skills-grill-me)

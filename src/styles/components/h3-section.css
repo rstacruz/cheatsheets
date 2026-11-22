@@ -253,6 +253,21 @@ ul.-also-see.-also-see.-also-see {
   border-top: 0;
 }
 
+/* Variant: prose list — bold term on the left, description on the right */
+.h3-section > .body > ul.-prose-list > li {
+  padding-left: 16px;
+  overflow-wrap: break-word;
+}
+
+.h3-section > .body > ul.-prose-list > li::before {
+  display: none;
+}
+
+.h3-section > .body > ul.-prose-list > li > strong:first-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .h3-section.-intro {
   & > .body > p {
     font-size: var(--fs-1);

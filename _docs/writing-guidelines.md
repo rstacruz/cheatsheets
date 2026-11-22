@@ -199,6 +199,26 @@ CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress co
 | `--bare`               | Skip hooks, plugins, and memory  |
 ````
 
+### tables/command-first
+
+🤖 Check: `tables/command-first`.
+
+In a table that lists slash commands, put the command in the first column and its description after it. A command mentioned inside prose does not count as a command column.
+
+````md
+| Command | Situation |
+| --- | --- |
+| `/grill-me` | Idea is fuzzy, no repo |
+````
+
+Do not put the command in a later column:
+
+````md
+| Situation | Command |
+| --- | --- |
+| Idea is fuzzy, no repo | `/grill-me` |
+````
+
 ### tables/shortcut-keys
 
 🤖 Check: `tables/shortcut-keys`.
@@ -403,6 +423,18 @@ Use a list, not a table, for enumerable values — flags, file types, modes, nam
 - `java`
 <!-- {: .-enum} -->
 ````
+
+### lists/prose-list
+
+Use `.-prose-list` for a card whose items are a short term and a description, instead of a two-column table. Bold the term and put the description after it.
+
+````md
+- **Tracer bullet** Narrow path through schema, API, UI and tests
+- **Demoable** Verifiable on its own
+<!-- {: .-prose-list} -->
+````
+
+Command lookups stay tables with the command first; see `tables/command-first`.
 
 ### lists/enumeration-width
 

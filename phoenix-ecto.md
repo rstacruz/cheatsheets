@@ -18,7 +18,7 @@ links:
 
 ```bash
 $ mix phx.gen.context Accounts User users \
-    name:string age:integer
+    name:string email:string age:integer
 ```
 
 Use `mix phx.gen.html` or `mix phx.gen.json` to add controllers and views.
@@ -31,6 +31,7 @@ defmodule MyApp.Accounts.User do
 
   schema "users" do
     field :name, :string
+    field :email, :string
     field :age, :integer
     field :password, :string, virtual: true
 

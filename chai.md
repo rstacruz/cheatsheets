@@ -288,8 +288,12 @@ See: [plugins guide](https://www.chaijs.com/guide/plugins/)
 ### jQuery assertions
 
 ```js
-import { expect } from 'chai'
+import { expect, use } from 'chai'
 import $ from 'jquery'
+import chaiJquery from 'chai-jquery'
+
+globalThis.jQuery = $
+use(chaiJquery)
 
 const $el = $(
   '<a class="tea active" href="/tea" ' +

@@ -498,7 +498,9 @@ See: [pages-gem](https://github.com/github/pages-gem)
 
 ```html
 {% highlight ruby mark_lines="1 2" %}
-def hello; end
+def hello
+  puts "world"
+end
 {% endhighlight %}
 ```
 

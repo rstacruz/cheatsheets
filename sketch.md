@@ -21,7 +21,6 @@ links:
 ---
 
 ## Essentials
-<!-- {: .-three-column} -->
 
 ### General
 
@@ -59,6 +58,8 @@ See: [General](https://www.sketch.com/docs/shortcuts/mac/#general)
 
 <!-- {: .-shortcuts} -->
 
+Setting Open & Save to "Your Mac" swaps the Open keys; disabling Auto Save replaces Duplicate with Save As.
+
 See: [Document](https://www.sketch.com/docs/shortcuts/mac/#document)
 
 ### Interface
@@ -75,7 +76,6 @@ See: [Document](https://www.sketch.com/docs/shortcuts/mac/#document)
 See: [Interface](https://www.sketch.com/docs/shortcuts/mac/#interface)
 
 ## Canvas
-<!-- {: .-three-column} -->
 
 ### Zoom
 
@@ -247,6 +247,40 @@ See: [Selecting layers](https://www.sketch.com/docs/designing/layer-basics/selec
 
 See: [Edit](https://www.sketch.com/docs/shortcuts/mac/#edit)
 
+### Shapes
+
+| Shortcut  | Description             |
+| ---       | ---                     |
+| `⌃⌘T`     | Transform shape         |
+| --------- | ----------------------- |
+| `⌥⌘A`     | Add shapes              |
+| `⌥⌘U`     | Union shapes            |
+| `⌥⌘S`     | Subtract shapes         |
+| `⌥⌘I`     | Intersect shapes        |
+| `⌥⌘X`     | Difference shapes       |
+
+<!-- {: .-shortcuts} -->
+
+See: [Shapes](https://www.sketch.com/docs/shortcuts/mac/#shapes)
+
+### Vector editing
+
+| Shortcut  | Description             |
+| ---       | ---                     |
+| `⇥` `⇧⇥`  | Next/previous point     |
+| `⌥`       | Show all handle points  |
+| `⌃`       | Click: place point      |
+| `⇧`       | Click: 45° point        |
+| --------- | ----------------------- |
+| `⌥1`      | No pixel snapping       |
+| `⌥2`      | Full-pixel snapping     |
+| `⌥3`      | Half-pixel snapping     |
+| `⌥4`      | Quarter-pixel snapping  |
+
+<!-- {: .-shortcuts} -->
+
+See: [Vector editing](https://www.sketch.com/docs/shortcuts/mac/#vector-editing)
+
 ### Move
 
 | Shortcut     | Description             |
@@ -345,40 +379,6 @@ See: [Style](https://www.sketch.com/docs/shortcuts/mac/#style)
 <!-- {: .-shortcuts} -->
 
 See: [Export](https://www.sketch.com/docs/shortcuts/mac/#export)
-
-### Shapes
-
-| Shortcut  | Description             |
-| ---       | ---                     |
-| `⌃⌘T`     | Transform shape         |
-| --------- | ----------------------- |
-| `⌥⌘A`     | Add shapes              |
-| `⌥⌘U`     | Union shapes            |
-| `⌥⌘S`     | Subtract shapes         |
-| `⌥⌘I`     | Intersect shapes        |
-| `⌥⌘X`     | Difference shapes       |
-
-<!-- {: .-shortcuts} -->
-
-See: [Shapes](https://www.sketch.com/docs/shortcuts/mac/#shapes)
-
-### Vector editing
-
-| Shortcut  | Description             |
-| ---       | ---                     |
-| `⇥` `⇧⇥`  | Next/previous point     |
-| `⌥`       | Show all handle points  |
-| `⌃`       | Click: place point      |
-| `⇧`       | Click: 45° point        |
-| --------- | ----------------------- |
-| `⌥1`      | No pixel snapping       |
-| `⌥2`      | Full-pixel snapping     |
-| `⌥3`      | Half-pixel snapping     |
-| `⌥4`      | Quarter-pixel snapping  |
-
-<!-- {: .-shortcuts} -->
-
-See: [Vector editing](https://www.sketch.com/docs/shortcuts/mac/#vector-editing)
 
 ## Text and components
 

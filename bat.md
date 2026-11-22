@@ -131,7 +131,7 @@ bat -H 2:4 hello.py
 bat -H :3 hello.py
 ```
 
-`-H` highlights a background behind the selected lines. It accepts line numbers and ranges such as `:N`, `N:` and `N:+M`.
+`-H` draws a background behind the selected lines. It accepts line numbers and ranges such as `N:M`, `:N`, `N:` and `N:+M`.
 
 See: `bat --help` (--highlight-line)
 
@@ -162,13 +162,14 @@ bat --style=default,-grid hello.py
 
 #### Components
 
-| Component         | Effect                     |
-| ----------------- | -------------------------- |
-| `numbers`         | Line numbers               |
-| `changes`         | Git change markers         |
-| `header-filename` | Filename above the content |
-| `grid`            | Lines around the sidebar   |
-| `snip`            | Separator between ranges   |
+| Component         | Effect                      |
+| ----------------- | --------------------------- |
+| `numbers`         | Line numbers                |
+| `changes`         | Git change markers          |
+| `header-filename` | Filename above the content  |
+| `header`          | Alias for `header-filename` |
+| `grid`            | Lines around the sidebar    |
+| `snip`            | Separator between ranges    |
 
 `--style` replaces the default set. Prefix components with `+` or `-` to adjust it instead.
 
@@ -209,7 +210,7 @@ bat --terminal-width 80 hello.py
 
 See: `bat --help` (--wrap, -S, --terminal-width)
 
-## Select lines
+## Output views
 
 ### Print a range
 
@@ -230,7 +231,7 @@ bat -r 2:4 hello.py
 ```
 <!-- {: .-box-chars} -->
 
-`:40` starts at the top, `40:` runs to the end, and `30:+10` prints lines 30 through 40.
+`N:M` prints a range; `:40` starts at the top, `40:` runs to the end, and `30:+10` prints lines 30 through 40.
 
 See: `bat --help` (-r)
 
@@ -338,7 +339,7 @@ See: [Configuration file](https://github.com/sharkdp/bat#configuration-file)
 | `BAT_THEME`       | Default theme              |
 | `BAT_STYLE`       | Default style components   |
 | `BAT_PAGER`       | Pager command              |
-| `BAT_PAGING`      | `auto`, `never`, or `always` |
+| `BAT_PAGING`      | `auto`, `never`, `always`   |
 | `BAT_CONFIG_PATH` | Config file location       |
 
 Flags take precedence over environment variables, which take precedence over the config file.

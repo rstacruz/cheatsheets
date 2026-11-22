@@ -29,9 +29,7 @@ keywords:
   - layouts
   - sessions
 intro: |
-  Zellij is a terminal workspace with panes, tabs, and sessions that survive disconnects.
-
-  Mode keys drive panes, tabs, scrolling, and sessions: `C-p`, `C-t`, `C-s`, `C-o`.
+  Zellij is a terminal workspace with panes, tabs, and sessions that survive disconnects; mode keys start with `C-p`, `C-t`, `C-s`, or `C-o`.
 links:
   - title: Documentation
     url: https://zellij.dev/documentation/
@@ -215,6 +213,7 @@ Break a pane into a tab, or cycle the tab's swap layout.
 See: [Keybindings](https://zellij.dev/documentation/keybindings)
 
 ## Scrolling and search
+<!-- {: .-three-column} -->
 
 ### Scroll mode
 
@@ -224,8 +223,10 @@ j / Down        ScrollDown
 k / Up          ScrollUp
 C-f / PageDown  PageScrollDown
 C-b / PageUp    PageScrollUp
-d / u           HalfPageScrollDown, HalfPageScrollUp
-[ / ]           ScrollToPreviousPrompt, ScrollToNextPrompt
+d               HalfPageScrollDown
+u               HalfPageScrollUp
+[               ScrollToPreviousPrompt
+]               ScrollToNextPrompt
 C-c             ScrollToBottom
 ```
 
@@ -239,9 +240,11 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 C-s s         SwitchToMode "EnterSearch"
 n             Search "down"
 p             Search "up"
-c             SearchToggleOption "CaseSensitivity"
+c             SearchToggleOption
+                "CaseSensitivity"
 w             SearchToggleOption "Wrap"
-o             SearchToggleOption "WholeWord"
+o             SearchToggleOption
+                "WholeWord"
 C-s e         EditScrollback
 C-s c         CopyLastCommandOutput
 ```
@@ -253,9 +256,12 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 ### Mouse wheel
 
 ```text
-ScrollUp / ScrollDown           Scroll 3
-Alt ScrollUp / Alt ScrollDown   ScrollToPrompt "previous", "next"
-Ctrl ScrollUp / Ctrl ScrollDown ResizeScroll "increase", "decrease"
+ScrollUp         Scroll 3
+ScrollDown       Scroll 3
+Alt ScrollUp     ScrollToPrompt "previous"
+Alt ScrollDown   ScrollToPrompt "next"
+Ctrl ScrollUp    ResizeScroll "increase"
+Ctrl ScrollDown  ResizeScroll "decrease"
 ```
 
 Hold Shift to temporarily disable mouse handling.
@@ -263,6 +269,7 @@ Hold Shift to temporarily disable mouse handling.
 See: [Compatibility](https://zellij.dev/documentation/compatibility.html)
 
 ## Layouts
+<!-- {: .-three-column} -->
 
 ### Built-in layouts
 
@@ -319,7 +326,7 @@ See: [Layouts](https://zellij.dev/documentation/layouts)
 zellij -l compact
 zellij -s work -l ~/layouts/dev.kdl
 zellij --layout-string 'layout { pane; }'
-zellij -n compact            # Always start a new session
+zellij -n compact     # New session
 zellij action dump-layout
 ```
 
@@ -328,17 +335,20 @@ zellij action dump-layout
 See: [Layouts](https://zellij.dev/documentation/layouts)
 
 ## Sessions
+<!-- {: .-three-column} -->
 
 ### Session keys
 
 ```text
 C-o d         Detach
-C-o r         SwitchToMode "RenameSession"
+C-o r         SwitchToMode
+              "RenameSession"
 C-o Tab       ToggleSession
 C-o Left      GoToPreviousSession
 C-o Right     GoToNextSession
 C-o n         GoToNextAttention
-C-o w         LaunchOrFocusPlugin "session-manager"
+C-o w         LaunchOrFocusPlugin
+              "session-manager"
 ```
 
 Detaching keeps programs running; reattach with `zellij a`.
@@ -348,9 +358,9 @@ See: [Keybindings](https://zellij.dev/documentation/keybindings)
 ### Session commands
 
 ```bash
-zellij a -c work             # Attach or create
-zellij a -c -b work          # Create detached
-zellij w work                # Watch read-only
+zellij a -c work       # Attach or create
+zellij a -c -b work    # Create detached
+zellij w work          # Watch read-only
 ```
 
 See: [Documentation](https://zellij.dev/documentation/)

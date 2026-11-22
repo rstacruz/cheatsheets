@@ -241,7 +241,7 @@ See: [Includes](https://jekyllrb.com/docs/includes/)
 [Page]({% link about.md %})
 ```
 
-Jekyll 4 adds `baseurl` and fails the build when the target is missing.
+Since Jekyll 4, `link` and `post_url` prepend `baseurl`, and the build fails when the target is missing.
 See: [Links](https://jekyllrb.com/docs/liquid/tags/#links)
 
 ### Comments and raw

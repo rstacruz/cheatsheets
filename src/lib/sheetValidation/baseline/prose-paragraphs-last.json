@@ -122,7 +122,6 @@
   "ledger#Queries",
   "ledger-format#Accounts",
   "ledger-format#Balance assertion",
-  "markdown#ATX headings",
   "minimist#Help and version",
   "minimist#Result",
   "minitest#Minitest::Mock",

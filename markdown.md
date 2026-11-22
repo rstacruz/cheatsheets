@@ -3,7 +3,7 @@ title: Markdown
 subtitle: Plain-text markup format
 category: Markup
 tier: t1
-last_verified_with: "CommonMark and GFM syntax."
+last_verified_with: "CommonMark 0.31.2, GFM 0.29-gfm."
 fragments:
   - "# Heading"
   - "**bold**"
@@ -20,7 +20,7 @@ fragments:
   - "1. item"
   - "[^1]"
 weight: -1
-updated: 2026-11-11
+updated: 2026-11-22
 keywords:
   - markdown syntax
   - commonmark
@@ -55,9 +55,24 @@ A paragraph with **bold**, *italic*, and `code`.
 
 See: [Markdown reference](https://commonmark.org/help/)
 
+### Paragraphs
+
+```markdown
+First paragraph.
+
+Second paragraph,
+still one paragraph.
+```
+
+Blank lines separate paragraphs; a single newline stays within one.
+
+See: [Paragraphs](https://spec.commonmark.org/0.31.2/#paragraphs)
+
 ## Headings
 
 ### ATX headings
+
+#### Levels
 
 ```markdown
 # Heading 1
@@ -68,13 +83,15 @@ See: [Markdown reference](https://commonmark.org/help/)
 ###### Heading 6
 ```
 
-One to six `#`s, then a space or end of line; seven or more stay literal.
+#### Closing hashes
 
 ```markdown
 ## Heading 2 ##
+
+####### Seven hashes
 ```
 
-Closing `#`s need a space before them.
+Closing `#`s need a space before them; seven or more stay literal.
 
 See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 
@@ -157,10 +174,14 @@ See: [List items](https://spec.commonmark.org/0.31.2/#list-items)
 
 ### Ordered lists
 
+#### Automatic numbering
+
 ```markdown
 1. First
 2. Second
 ```
+
+#### Starting number
 
 ```markdown
 3. Starts at three
@@ -184,6 +205,7 @@ A GFM extension; the marker must start the item's first paragraph.
 See: [Task list items](https://github.github.com/gfm/#task-list-items-extension-)
 
 ## Links
+<!-- {: .-three-column} -->
 
 ### Inline links
 
@@ -208,7 +230,7 @@ See: [Links](https://spec.commonmark.org/0.31.2/#links)
 [CommonMark]: https://commonmark.org/
 ```
 
-Definitions may appear anywhere and are not rendered. `[]` reuses the label; no brackets is the shortcut form.
+Definitions can follow the links but cannot interrupt a paragraph; they are not rendered. `[]` reuses the label; no brackets is the shortcut form.
 
 See: [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
@@ -275,7 +297,6 @@ Angle brackets are optional; use them when the URI has spaces or unbalanced pare
 See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
-
 <!-- {: .-three-column} -->
 
 ### Inline code
@@ -285,7 +306,7 @@ See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Sche
 `` `code` ``
 ```
 
-A code span ends with a backtick run of the same length; one space inside each end is stripped.
+A code span ends with a backtick run of the same length. When content starts and ends with one space, both are stripped.
 
 See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 
@@ -297,7 +318,7 @@ const x = 1
 ```
 `````
 
-The info string's first word is the language; a backtick info string cannot contain backticks.
+By convention the info string's first word is the language; a backtick info string cannot contain backticks.
 
 See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
 
@@ -357,9 +378,13 @@ See: [Thematic breaks](https://spec.commonmark.org/0.31.2/#thematic-breaks)
 
 ### HTML
 
+#### Inline HTML
+
 ```markdown
 Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 ```
+
+#### HTML block
 
 ```html
 <div class="note">

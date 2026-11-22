@@ -216,6 +216,7 @@ See: [Run hooks in the background](https://code.claude.com/docs/en/hooks#run-hoo
 | `PostCompact` | After compaction |
 | `ConfigChange` | A settings file changes |
 | `SessionEnd` | Session terminates |
+<!-- {: .-headers} -->
 
 See: [Hook lifecycle](https://code.claude.com/docs/en/hooks#hook-lifecycle)
 
@@ -228,6 +229,7 @@ See: [Hook lifecycle](https://code.claude.com/docs/en/hooks#hook-lifecycle)
 | `Stop` | Claude finishes responding |
 | `StopFailure` | Turn ends on an API error |
 | `Notification` | A notification is sent |
+<!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 
@@ -241,6 +243,7 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | `PostToolUse` | Tool call succeeds |
 | `PostToolUseFailure` | Tool call fails |
 | `PostToolBatch` | A parallel batch resolves |
+<!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 
@@ -254,6 +257,7 @@ See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 | `InstructionsLoaded` | CLAUDE.md is loaded |
 | `SubagentStart` | A subagent is spawned |
 | `SubagentStop` | A subagent finishes |
+<!-- {: .-headers} -->
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 

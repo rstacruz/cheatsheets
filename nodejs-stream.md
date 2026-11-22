@@ -135,9 +135,10 @@ const slow = new Writable({
 })
 console.log(slow.write('a'))  // → true
 console.log(slow.write('b'))  // → false
-slow.on('drain', () => console.log('drain'))
-slow.end()
-// → drain
+slow.on('drain', () => {
+  console.log('drain')
+  slow.end()
+})
 ```
 
 Wait for `drain` after `write()` returns `false`. `pipeline()` handles this for you.

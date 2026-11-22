@@ -114,6 +114,7 @@ uv add --script script.py rich
 See: [Scripts](https://docs.astral.sh/uv/guides/scripts/)
 
 ## Dependencies
+<!-- {: .-three-column} -->
 
 ### Add and remove
 
@@ -155,6 +156,7 @@ uv pip list
 See: [uv tree](https://docs.astral.sh/uv/reference/cli/#uv-tree)
 
 ## Python versions
+<!-- {: .-three-column} -->
 
 ### List and install
 

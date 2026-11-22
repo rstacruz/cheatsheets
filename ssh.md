@@ -127,8 +127,6 @@ See: [ssh-agent(1)](https://man.openbsd.org/ssh-agent.1)
 
 ### Host aliases
 
-#### ~/.ssh/config
-
 ```bash
 Host github
     HostName github.com

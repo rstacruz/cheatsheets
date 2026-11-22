@@ -10,9 +10,9 @@ changes, whatever its tier.
 | `t2`   | About every 6 weeks | Stable tools, languages, standards |
 | (none) | Best effort         | Everything else                    |
 
-Tiers are not rendered, and they do not change how a sheet is written. Both
-tiers need `fragments` and `last_verified_with` (see
-[writing guidelines](writing-guidelines.md#frontmatter)).
+Tiers are not rendered, but they do change the authoring rules that apply:
+both tiers need `fragments` and `last_verified_with`, plus the tiered-sheet
+section rules (see [writing guidelines](writing-guidelines.md#frontmatter)).
 
 ## Choosing a tier
 

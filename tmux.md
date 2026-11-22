@@ -24,10 +24,9 @@ fragments:
   - "kill-session"
   - "C-b {"
 intro: |
-  tmux is a terminal multiplexer: sessions keep running after you
-  disconnect, and one terminal splits into windows and panes.
-
-  This sheet covers the default `C-b` prefix and the commands for scripting.
+  tmux is a terminal multiplexer: sessions survive disconnect, and one
+  terminal splits into windows and panes. This sheet covers the `C-b`
+  prefix and scripting commands.
 links:
   - title: tmux manual
     url: https://man.openbsd.org/tmux

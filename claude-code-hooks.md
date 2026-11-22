@@ -47,8 +47,7 @@ PreToolUse  →  "Edit|Write"  →  command
 Notification → ""             →  command
 ```
 
-A hook event fires at a lifecycle point. Its matcher group filters the
-event, then matching handlers run in parallel.
+A hook event fires at a lifecycle point. Its matcher group filters the event, then matching handlers run in parallel.
 
 See: [Hooks reference](https://code.claude.com/docs/en/hooks)
 
@@ -70,8 +69,7 @@ See: [Hooks reference](https://code.claude.com/docs/en/hooks)
 }
 ```
 
-Run `/hooks` to confirm the hook loaded. On macOS, use `osascript` instead
-of `notify-send`.
+Run `/hooks` to confirm the hook loaded. On macOS, use `osascript` instead of `notify-send`.
 
 See: [Set up your first hook](https://code.claude.com/docs/en/hooks-guide#set-up-your-first-hook)
 
@@ -95,8 +93,7 @@ See: [Set up your first hook](https://code.claude.com/docs/en/hooks-guide#set-up
 }
 ```
 
-The script reads `.tool_input.file_path` with `jq`, then formats that file.
-Make it executable with `chmod +x`.
+The script reads `.tool_input.file_path` with `jq`, then formats that file. Make it executable with `chmod +x`.
 
 See: [Auto-format code after edits](https://code.claude.com/docs/en/hooks-guide#auto-format-code-after-edits)
 
@@ -132,8 +129,7 @@ esac
 exit 0
 ```
 
-Exit 2 blocks the edit and shows stderr to Claude. Use the permission
-system for hard allow and deny rules.
+Exit 2 blocks the edit and shows stderr to Claude. Use the permission system for hard allow and deny rules.
 
 See: [Block edits to protected files](https://code.claude.com/docs/en/hooks-guide#block-edits-to-protected-files)
 
@@ -204,8 +200,7 @@ See: [Add context for Claude](https://code.claude.com/docs/en/hooks#add-context-
 }
 ```
 
-Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and
-shows stderr as a system reminder.
+Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and shows stderr as a system reminder.
 
 See: [Run hooks in the background](https://code.claude.com/docs/en/hooks#run-hooks-in-the-background)
 
@@ -232,7 +227,7 @@ See: [Hook lifecycle](https://code.claude.com/docs/en/hooks#hook-lifecycle)
 | `UserPromptExpansion` | A command expands into a prompt |
 | `Stop` | Claude finishes responding |
 | `StopFailure` | Turn ends on an API error |
-| `Notification` | Claude is waiting for input |
+| `Notification` | A notification is sent |
 
 See: [Hook events](https://code.claude.com/docs/en/hooks#hook-events)
 
@@ -292,8 +287,7 @@ See: [Hook locations](https://code.claude.com/docs/en/hooks#hook-locations)
 | `mcp__memory__.*` | Regex: server tools |
 <!-- {: .-headers} -->
 
-Regex applies when the value contains characters outside letters, digits,
-`_`, `-`, spaces, `,`, and `|`.
+Regex applies when the value contains characters outside letters, digits, `_`, `-`, spaces, `,`, and `|`.
 
 See: [Matcher patterns](https://code.claude.com/docs/en/hooks#matcher-patterns)
 
@@ -329,22 +323,20 @@ See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fi
 }
 ```
 
-`if` filters five tool events; on other events the hook never runs.
-Commands default to 600s, prompts to 30s, and agents to 60s.
+`if` filters five tool events; on other events the hook never runs. Commands default to 600s, prompts to 30s, and agents to 60s.
 
 See: [Common fields](https://code.claude.com/docs/en/hooks#common-fields)
 
 ### Disable
 
-```bash
-/hooks                                   # browse loaded hooks
-claude --settings '{"disableAllHooks": true}'
-claude -p --bare "review this"           # skip hooks and plugins
-```
+| Command | Effect |
+| --- | --- |
+| `/hooks` | Browse loaded hooks |
+| `claude --settings '{"disableAllHooks": true}'` | Disable for one run |
+| `claude -p --bare "review this"` | Skip hooks and plugins |
+<!-- {: .-headers} -->
 
-`disableAllHooks` temporarily disables unmanaged hooks; managed hooks need
-managed settings. `--settings` overrides project settings for one run.
-Delete a hook's entry to remove it.
+`disableAllHooks` temporarily disables unmanaged hooks; managed hooks need managed settings. `--settings` overrides project settings for one run. Delete a hook's entry to remove it.
 
 See: [Disable or remove hooks](https://code.claude.com/docs/en/hooks#disable-or-remove-hooks)
 
@@ -359,8 +351,7 @@ See: [Disable or remove hooks](https://code.claude.com/docs/en/hooks#disable-or-
 | other | Non-blocking error |
 <!-- {: .-headers} -->
 
-`onFailure: "block"` also blocks on hook failure. Some events can't block;
-there, exit 2 only shows stderr.
+`onFailure: "block"` also blocks on hook failure. On events that cannot block, exit 2 is ignored or only surfaces stderr; see [exit code behavior per event](https://code.claude.com/docs/en/hooks#exit-code-2-behavior-per-event).
 
 See: [Exit code output](https://code.claude.com/docs/en/hooks#exit-code-output)
 
@@ -390,8 +381,7 @@ See: [JSON output](https://code.claude.com/docs/en/hooks#json-output)
 | `terminalSequence` | Emit an allowed OSC sequence |
 <!-- {: .-headers} -->
 
-`permissionDecision` and `additionalContext` are per-event; put them in
-`hookSpecificOutput` with `hookEventName`.
+`permissionDecision` and `additionalContext` are per-event; put them in `hookSpecificOutput` with `hookEventName`.
 
 See: [Decision control](https://code.claude.com/docs/en/hooks#decision-control)
 

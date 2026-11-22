@@ -20,7 +20,7 @@ links:
 
 ### Any change
 
-```console
+```sh
 $ watchexec -- echo ran
 [Running: echo ran]
 ran

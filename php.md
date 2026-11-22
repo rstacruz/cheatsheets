@@ -297,8 +297,6 @@ See: [String functions](https://www.php.net/manual/en/ref.strings.php)
 
 ### Multiline strings
 
-#### Heredoc
-
 ```php
 <?php
 $name = 'Ada';

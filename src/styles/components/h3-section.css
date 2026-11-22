@@ -231,6 +231,12 @@ ul.-also-see.-also-see.-also-see {
   border-radius: 0;
 }
 
+/* Clip the final rule without depending on the number of items in the last row */
+.h3-section > .body > ul.-enum-lines {
+  clip-path: inset(0 0 1px 0);
+  margin-bottom: -1px;
+}
+
 .h3-section > .body > ul.-enum-lines > li {
   padding: 8px 12px;
   border: 0;

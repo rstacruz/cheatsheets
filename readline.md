@@ -2,7 +2,7 @@
 title: Readline
 subtitle: Line editing for CLI prompts
 category: Shell
-tier: t1
+tier: t2
 last_verified_with: "GNU Readline 8.3."
 fragments:
   - "~/.inputrc"

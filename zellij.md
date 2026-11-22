@@ -4,7 +4,7 @@ subtitle: Terminal workspace with panes
 category: Shell
 updated: 2026-11-21
 last_verified_with: "zellij 0.46.0."
-tier: t1
+tier: t2
 fragments:
   - "C-p"
   - "C-t"

@@ -2,7 +2,7 @@
 title: Git rebase
 subtitle: Replay and rewrite commits
 category: Git
-tier: t1
+tier: t2
 fragments:
   - "git rebase"
   - "git rebase -i"

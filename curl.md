@@ -5,7 +5,7 @@ category: Networking
 tags: [Featured]
 updated: 2026-11-11
 last_verified_with: "cURL 8.23.0."
-tier: t1
+tier: t2
 fragments:
   - "curl -s"
   - "-X POST"

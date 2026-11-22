@@ -2,7 +2,7 @@
 title: Intl.NumberFormat
 subtitle: Locale-aware number formatter
 category: Browser APIs
-tier: t1
+tier: t2
 updated: 2026-11-18
 last_verified_with: "Node 26.13.1."
 fragments:

@@ -61,7 +61,7 @@ export const SheetFrontmatterSchema = z
       .enum(['t1', 't2'])
       .optional()
       .describe(
-        'Review tier: t1 is audited before t2. Not a cadence; not rendered.'
+        'Review tier: t1 sheets move often; see `_docs/tiers.md`. Not rendered.'
       ),
     fragments: z
       .array(z.string().trim().min(1).max(16))

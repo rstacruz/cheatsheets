@@ -2,7 +2,7 @@
 title: Beancount
 subtitle: Plain-text double-entry accounting
 category: Plain-text accounting
-tier: t1
+tier: t2
 last_verified_with: "Beancount 3.2.3."
 fragments:
   - "Assets:Cash"

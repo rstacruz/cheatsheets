@@ -4,7 +4,7 @@ subtitle: AUR helper for Arch Linux
 category: Package managers
 updated: 2026-11-22
 last_verified_with: "yay v13.0.0."
-tier: t1
+tier: t2
 fragments:
   - "yay"
   - "yay -Syu"

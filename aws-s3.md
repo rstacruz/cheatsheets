@@ -4,7 +4,7 @@ subtitle: Object storage service
 category: Devops
 updated: 2026-11-11
 last_verified_with: "AWS CLI S3 APIs."
-tier: t1
+tier: t2
 fragments:
   - "aws s3 cp"
   - "aws s3 sync"

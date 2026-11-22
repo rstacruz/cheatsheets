@@ -2,7 +2,7 @@
 title: Terraform
 subtitle: Infrastructure as code tool
 category: Devops
-tier: t1
+tier: t2
 fragments:
   - "terraform init"
   - "terraform plan"

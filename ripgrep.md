@@ -4,7 +4,7 @@ subtitle: Fast recursive search tool
 category: Shell
 updated: 2026-11-22
 last_verified_with: "ripgrep 15.2.0."
-tier: t1
+tier: t2
 fragments:
   - "rg TODO"
   - "-n"

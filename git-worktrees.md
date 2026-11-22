@@ -2,7 +2,7 @@
 title: Git worktrees
 subtitle: Parallel checkouts from one repository
 category: Git
-tier: t1
+tier: t2
 fragments:
   - "worktree add"
   - "worktree list"

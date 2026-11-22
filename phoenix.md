@@ -4,7 +4,7 @@ subtitle: Web framework for Elixir
 category: Elixir
 weight: -1
 intro: |
-  Phoenix builds server-rendered pages, JSON APIs, and real-time features in Elixir.
+  Phoenix builds server-rendered pages, JSON APIs, and real-time features in Elixir. Sections link to fuller `phoenix-*` cheatsheets.
 links:
   - title: Phoenix guides
     url: https://hexdocs.pm/phoenix/overview.html
@@ -21,7 +21,7 @@ updated: 2026-11-22
 mix archive.install hex phx_new
 ```
 
-Requires Elixir 1.17+ and Erlang 25+. PostgreSQL is the default database; pass `--database` for another adapter or `--no-ecto` to skip it.
+Elixir 1.17+ and Erlang/OTP 25+ are required. PostgreSQL is the default database.
 
 See: [Installation](https://hexdocs.pm/phoenix/installation.html)
 
@@ -34,7 +34,7 @@ mix ecto.create
 mix phx.server
 ```
 
-Open http://localhost:4000; use `iex -S mix phx.server` for an IEx session.
+Open http://localhost:4000. Use `iex -S mix phx.server` to keep an IEx session.
 
 See: [Up and running](https://hexdocs.pm/phoenix/up_and_running.html)
 
@@ -78,6 +78,7 @@ See: [Directory structure](https://hexdocs.pm/phoenix/directory_structure.html)
 ```elixir
 get "/", PageController, :home
 post "/sessions", SessionController, :create
+live "/counter", CounterLive
 resources "/users", UserController, only: [:index, :show]
 resources "/posts", PostController, except: [:delete]
 resources "/users", UserController do
@@ -129,13 +130,11 @@ See: [Scoped routes](https://hexdocs.pm/phoenix/routing.html#scoped-routes)
 ### Inspect routes
 
 ```sh
-$ mix phx.routes
+mix phx.routes
 GET  /users     HelloWeb.UserController :index
 GET  /users/:id HelloWeb.UserController :show
 GET  /users/:user_id/posts HelloWeb.PostController :index
 ```
-
-The output lists each verb, path, controller, and action.
 
 See: [mix phx.routes](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Routes.html)
 
@@ -154,26 +153,37 @@ defmodule HelloWeb.HelloController do
   def show(conn, %{"id" => id}) do
     render(conn, :show, id: id)
   end
+
+  def health(conn, _params) do
+    json(conn, %{status: "ok"})
+  end
+
+  def created(conn, _params) do
+    conn
+    |> put_status(:created)
+    |> text("created")
+  end
+
 end
 ```
 
-Actions receive `conn` and request `params`; `render/2` finds `HelloHTML`.
+Actions receive `conn` and request `params`; `render/2` renders through `HelloWeb.HelloHTML`.
 
 See: [Controllers](https://hexdocs.pm/phoenix/controllers.html)
 
 ### Response helpers
 
-| Helper                                  | Response                 |
-| --------------------------------------- | ------------------------ |
-| `text(conn, "Hello")`                   | 200, `text/plain`        |
-| `json(conn, %{message: "Hello"})`        | 200, `{"message":"Hello"}` |
-| `html(conn, "<h1>Hello</h1>")`           | 200, raw HTML            |
-| `redirect(conn, to: ~p"/users")`         | 302, `Location: /users`  |
-| `render(conn, :show, post: post)`        | HTML via `HelloHTML`     |
-| `Plug.Conn.put_status(conn, :created)`   | 201 status               |
-| `Plug.Conn.send_resp(conn, 204, "")`     | 204, no body             |
+| Helper                                 | Effect                     |
+| -------------------------------------- | -------------------------- |
+| `text(conn, "Hello")`                  | 200, `text/plain`          |
+| `json(conn, %{message: "Hello"})`      | 200, `{"message":"Hello"}` |
+| `html(conn, "<h1>Hello</h1>")`         | 200, raw HTML              |
+| `redirect(conn, to: ~p"/users")`       | 302, `Location: /users`    |
+| `render(conn, :show, post: post)`      | HTML via `HelloHTML`       |
+| `Plug.Conn.put_status(conn, :created)` | 201 status                 |
+| `Plug.Conn.send_resp(conn, 204, "")`   | 204, no body               |
 
-`text/2`, `json/2`, and `html/2` set the body and content type together.
+Controller helpers render or redirect; `Plug.Conn` calls set status or send bytes directly.
 
 See: [Phoenix.Controller](https://hexdocs.pm/phoenix/Phoenix.Controller.html)
 
@@ -188,7 +198,7 @@ See: [Phoenix.Controller](https://hexdocs.pm/phoenix/Phoenix.Controller.html)
 
 HEEx escapes values and compiles templates into function components.
 
-See: [Request life-cycle](https://hexdocs.pm/phoenix/request_lifecycle.html)
+See: [Phoenix.Component](https://phoenix-live-view.hexdocs.pm/Phoenix.Component.html#sigil_H/2)
 
 ### Conn fields
 
@@ -202,24 +212,25 @@ conn.scheme        # → :http
 conn.port          # → 80
 ```
 
-Values from `Plug.Test.conn("GET", "/posts/1?utm_source=twitter")`.
+Sample `conn` from `Plug.Test.conn("GET", "/posts/1?utm_source=twitter")`.
 
 [Phoenix conn cheatsheet](./phoenix-conn)
 <!-- {: .-crosslink} -->
 
-## Data
+## Ecto
 
 ### Generators
 
 ```sh
 mix phx.gen.html Accounts User users name:string age:integer
+mix phx.gen.auth Accounts User users
 mix phx.gen.json Accounts User users name:string age:integer
 mix phx.gen.live Accounts User users name:string
 mix phx.gen.context Accounts User users name:string
 mix phx.gen.schema User users name:string
 ```
 
-HTML, JSON, LiveView, and context generators create tests; `phx.gen.schema` creates only a schema and migration.
+Generators create contexts and tests; `phx.gen.schema` creates only a schema and migration.
 
 See: [mix phx.gen.html](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Html.html)
 
@@ -235,7 +246,7 @@ def changeset(user, attrs) do
 end
 ```
 
-`email: "bad"` gives `valid?: false` with `{"has invalid format", [validation: :format]}`.
+`email: "bad"` gives `valid?: false`, with `errors: [email: {"has invalid format", [validation: :format]}]`.
 
 See: [Ecto.Changeset](https://hexdocs.pm/ecto/Ecto.Changeset.html)
 
@@ -250,7 +261,7 @@ Repo.update!(changeset)
 Repo.delete!(user)
 ```
 
-`Repo` takes a schema or query and returns structs, lists, or changesets.
+`Repo` queries return structs or lists; bang variants raise on failure.
 
 [Phoenix Ecto cheatsheet](./phoenix-ecto)
 <!-- {: .-crosslink} -->
@@ -271,44 +282,7 @@ Migrations live in `priv/repo/migrations/`.
 [Phoenix migrations cheatsheet](./phoenix-migrations)
 <!-- {: .-crosslink} -->
 
-## Real-time features
-
-### PubSub
-
-```elixir
-Phoenix.PubSub.subscribe(Hello.PubSub, "room:lobby")
-Phoenix.PubSub.broadcast(
-  Hello.PubSub,
-  "room:lobby",
-  {:new_message, msg}
-)
-Phoenix.PubSub.unsubscribe(Hello.PubSub, "room:lobby")
-```
-
-The application supervisor starts PubSub; subscribers receive broadcasts as messages.
-
-See: [Channels](https://hexdocs.pm/phoenix/channels.html)
-
-### Channels
-
-```elixir
-defmodule HelloWeb.RoomChannel do
-  use HelloWeb, :channel
-
-  def join("room:lobby", _payload, socket) do
-    {:ok, socket}
-  end
-
-  def handle_in("shout", payload, socket) do
-    broadcast(socket, "shout", payload)
-    {:noreply, socket}
-  end
-end
-```
-
-Clients join topics over the socket declared in `lib/hello_web/endpoint.ex`.
-
-See: [mix phx.gen.channel](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Channel.html)
+## LiveView and real time
 
 ### LiveView
 
@@ -336,6 +310,49 @@ end
 
 See: [Phoenix.LiveView](https://phoenix-live-view.hexdocs.pm/Phoenix.LiveView.html)
 
+### Channels
+
+```elixir
+defmodule HelloWeb.RoomChannel do
+  use HelloWeb, :channel
+
+  def join("room:lobby", _payload, socket) do
+    {:ok, socket}
+  end
+
+  def handle_in("shout", payload, socket) do
+    broadcast(socket, "shout", payload)
+    {:noreply, socket}
+  end
+end
+```
+
+Clients join topics over the socket declared in `lib/hello_web/endpoint.ex`.
+
+See: [Phoenix.Channel](https://hexdocs.pm/phoenix/Phoenix.Channel.html)
+
+### PubSub
+
+```elixir
+Phoenix.PubSub.subscribe(Hello.PubSub, "room:lobby")
+Phoenix.PubSub.broadcast(
+  Hello.PubSub,
+  "room:lobby",
+  {:new_message, msg}
+)
+Phoenix.PubSub.broadcast_from!(
+  Hello.PubSub,
+  self(),
+  "room:lobby",
+  {:new_message, msg}
+)
+Phoenix.PubSub.unsubscribe(Hello.PubSub, "room:lobby")
+```
+
+The app supervisor starts PubSub; `broadcast_from!/4` excludes the sender.
+
+See: [Phoenix.PubSub](https://phoenix-pubsub.hexdocs.pm/Phoenix.PubSub.html)
+
 ## Testing
 
 ### Controller tests
@@ -356,6 +373,25 @@ end
 
 See: [Testing](https://hexdocs.pm/phoenix/testing.html)
 
+### LiveView tests
+
+```elixir
+defmodule HelloWeb.CounterLiveTest do
+  use HelloWeb.ConnCase, async: true
+  import Phoenix.LiveViewTest
+
+  test "increments", %{conn: conn} do
+    {:ok, view, html} = live(conn, ~p"/counter")
+    assert html =~ "0"
+    assert render_click(view, "inc") =~ "1"
+  end
+end
+```
+
+`live/2` mounts a connected view; `render_click/2` sends events to it.
+
+See: [Phoenix.LiveViewTest](https://phoenix-live-view.hexdocs.pm/Phoenix.LiveViewTest.html)
+
 ### Running tests
 
 ```sh
@@ -363,13 +399,15 @@ mix test
 mix test test/hello_web/controllers/
 mix test test/hello_web/controllers/page_controller_test.exs:8
 mix test --only slow
+mix test --failed
+mix test --stale
 ```
 
-Line numbers and tags select subsets of the suite.
+Line numbers, tags, and flags select subsets of the suite.
 
 See: [Running tests](https://hexdocs.pm/phoenix/testing.html#running-tests)
 
 ## Also see
 
 - [Phoenix framework site](https://www.phoenixframework.org/)
-- [Phoenix guides](https://hexdocs.pm/phoenix/overview.html)
+- [Phoenix changelog](https://hexdocs.pm/phoenix/changelog.html)

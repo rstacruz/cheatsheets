@@ -61,15 +61,21 @@ See: [Ansible playbooks](https://docs.ansible.com/projects/ansible/latest/playbo
   when: ansible_facts['distribution'] == 'Debian'
 ```
 
-Use `when` for conditions, `loop` for repetition, and `notify` for handlers.
+Use `when` for conditions, `tags` for selection, and `notify` for handlers.
 
 See: [Playbook keywords](https://docs.ansible.com/projects/ansible/latest/reference_appendices/playbooks_keywords.html)
 
 ### Module arguments
 
+#### Short form
+
 ```yaml
 - ansible.builtin.debug: msg=hello
+```
 
+#### Mapping form
+
+```yaml
 - ansible.builtin.debug:
     msg: hello
 ```
@@ -285,7 +291,7 @@ See: [file module](https://docs.ansible.com/projects/ansible/latest/collections/
     force: true
 ```
 
-`recurse` applies attributes to contents; `state: directory` creates missing parents.
+`state: directory` creates missing parents; `recurse` applies attributes to contents and `force: true` replaces a file with a link.
 
 See: [file module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/file_module.html)
 
@@ -316,7 +322,7 @@ Use `template` for Jinja variables; `copy` for static files.
 
 See: [template module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/template_module.html)
 
-## Output and delegation
+## Delegation and output
 
 ### Run on the controller
 

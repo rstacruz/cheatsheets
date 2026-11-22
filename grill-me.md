@@ -42,12 +42,12 @@ links:
 
 ### What it does
 
-- **A loose idea, not a plan** Decisions you can commit to
-- **A fresh conversation** The same conversation handed to `/to-spec`
-- **No repo** Nothing written to disk
+- **Input** A loose idea, not a plan
+- **Output** Decisions you can commit to
+- **Constraint** No repo; nothing written to disk
 <!-- {: .-prose-list} -->
 
-It runs the `grilling` primitive under another name. You type `/grill-me`; the agent never invokes it on its own. The session is stateless, so the result stays in the conversation.
+`/grill-me` runs the `grilling` primitive under another name. You type `/grill-me`; the agent never invokes it on its own. The session is stateless, so the result stays in the conversation.
 
 See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 
@@ -55,13 +55,13 @@ See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 
 | Command | Situation |
 | --- | --- |
-| `/grill-me` | Anything, anywhere |
-| `/grill-with-docs` | A repo, one session |
+| `/grill-me` | Idea is fuzzy, no repo |
+| `/grill-with-docs` | Fuzzy, in a repo |
 | `/wayfinder` | Fog spans sessions |
 | `/prototype` | A question you must see or feel |
 | `/grilling` | A bare interview |
 
-`/grill-me` and `/grill-with-docs` are the two user-invoked front doors; both run the same interview. `/wayfinder` and `/prototype` are separate routes.
+`/grill-me` and `/grill-with-docs` are the two user-invoked front doors; both run the same interview. `/wayfinder` and `/prototype` are separate routes. `/grilling` is the bare primitive underneath both.
 
 See: [Front doors](https://www.aihero.dev/skills-grilling)
 

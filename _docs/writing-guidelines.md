@@ -434,6 +434,8 @@ Use `.-prose-list` for a card whose items are a short term and a description, in
 <!-- {: .-prose-list} -->
 ````
 
+Descriptions may contain inline code; keep the bolded term first on the line.
+
 Command lookups stay tables with the command first; see `tables/command-first`.
 
 ### lists/enumeration-width

@@ -109,7 +109,7 @@ Tables use kramdown's dialect, not GFM's.
 - Tight and loose lists follow CommonMark; a blank line between items makes the list loose and wraps items in `<p>`.
 - Don't indent wrapped item text; continuation lines start at column 0.
 - `.-also-see` lays a link list out as a row; `.-six-column` and `.-four-column` lay items out in columns.
-- `.-prose-list` lays out `- **term** description` items as two columns with no bullet; it is the list form of a two-column description table.
+- `.-prose-list` lays out `- **term** description` items as two columns with no bullet; descriptions may contain inline code.
 
 ````md
 * [Alpha](/alpha)

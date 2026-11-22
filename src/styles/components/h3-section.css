@@ -253,8 +253,9 @@ ul.-also-see.-also-see.-also-see {
   border-top: 0;
 }
 
-/* Variant: prose list — bold term on the left, description on the right */
+/* Variant: prose list — bold term floats beside a description that can hold code */
 .h3-section > .body > ul.-prose-list > li {
+  display: flow-root;
   padding-left: 16px;
   overflow-wrap: break-word;
 }
@@ -264,8 +265,19 @@ ul.-also-see.-also-see.-also-see {
 }
 
 .h3-section > .body > ul.-prose-list > li > strong:first-child {
+  float: left;
+  width: min(13rem, 45%);
+  margin-right: 12px;
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .h3-section > .body > ul.-prose-list > li > strong:first-child {
+    float: none;
+    width: auto;
+    margin-right: 0;
+  }
 }
 
 .h3-section.-intro {

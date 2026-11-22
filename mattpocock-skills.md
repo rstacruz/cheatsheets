@@ -114,6 +114,8 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 
 ### Which command
 
+#### Find the skill
+
 | Command | Situation |
 | --- | --- |
 | `/ask-matt` | Unsure which skill fits |
@@ -121,10 +123,14 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 | `/grill-with-docs` | Fuzzy, in a repo |
 | `/wayfinder` | Fog spans sessions |
 | `/to-spec` | Decided, need a durable spec |
+<!-- {: .-headers} -->
+
+#### Build the work
+
+| Command | Situation |
 | --- | --- |
 | `/to-tickets` | Spec ready to slice |
-| `/implement` | Tickets exist, ready to code |
-| `/implement` | Decided, fits one session |
+| `/implement` | Decided, ready to code |
 | `/implement-spec` | Whole spec, many tickets |
 <!-- {: .-headers} -->
 
@@ -142,7 +148,7 @@ See: [Triage](https://www.aihero.dev/skills-triage)
 
 ### Invocation
 
-- **Human only** `/grill-me`, `/to-spec`, `/implement`, `/triage`, `/setup-matt-pocock-skills`
+- **Human only** `/grill-me`, `/grill-with-docs`, `/to-spec`, `/implement`, `/triage`, `/setup-matt-pocock-skills`
 - **Model or human, via Skill tool** `grilling`, `tdd`, `code-review`, `pr`
 - **Never** A Skill tool call to a user-invoked skill
 <!-- {: .-prose-list} -->

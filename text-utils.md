@@ -330,7 +330,7 @@ $ cut -d, -f3 people.csv \
 
 See: [cut invocation](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html)
 
-### Top two lines
+### Most frequent lines
 
 ```bash
 $ sort colors.txt | uniq -c \

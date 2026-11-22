@@ -6,7 +6,7 @@ subtitle: Terminal multiplexer
 category: Shell
 updated: 2026-11-18
 last_verified_with: "tmux 3.8."
-tier: t1
+tier: t2
 fragments:
   - "C-b"
   - "tmux new -s work"

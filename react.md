@@ -5,7 +5,7 @@ category: JavaScript libraries
 tags: [Featured]
 updated: 2026-11-11
 last_verified_with: "React 19.0–19.3 APIs."
-tier: t1
+tier: t2
 fragments:
   - "<App />"
   - "useState"

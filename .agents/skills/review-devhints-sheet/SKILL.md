@@ -33,6 +33,6 @@ One block per sheet, most severe finding first:
 - One line per finding: slug, problem, `file:line`.
 - Tag automated findings `[auto]`, judgement calls `[manual]`.
 - Unmapped findings use `content/priority`, `content/accuracy`, `content/consistency`, `content/links`, `content/staleness`, or `content/minor`.
-- `fragments` and `frontmatter/h3-links` are required only on tiered sheets; on untiered sheets they are advisory, not violations.
+- `fragments` and `frontmatter/h3-links` are required only on [tiered sheets](../../../_docs/tiers.md); on untiered sheets they are advisory, not violations.
 - End each sheet with `passes`, `needs fixes`, or `needs rewrite`.
 - Don't list what passes unless asked.

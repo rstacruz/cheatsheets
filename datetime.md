@@ -7,7 +7,7 @@ subtitle: Date format codes by tool
 weight: -5
 updated: 2026-11-18
 last_verified_with: "strftime, JavaScript, PHP, Go, Java, Swift and C# date APIs."
-tier: t1
+tier: t2
 fragments:
   - "YYYY-MM-DD"
   - "%Y-%m-%d"

@@ -6,7 +6,7 @@ weight: -3
 category: C-like
 updated: 2026-11-11
 last_verified_with: "Go 1.27.3."
-tier: t1
+tier: t2
 fragments:
   - "package main"
   - "func main()"

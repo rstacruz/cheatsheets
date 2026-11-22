@@ -2,7 +2,7 @@
 title: Git bisect
 subtitle: Find the first bad commit
 category: Git
-tier: t1
+tier: t2
 updated: 2026-11-21
 last_verified_with: "Git."
 fragments:

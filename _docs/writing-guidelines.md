@@ -17,6 +17,7 @@ updated: 2024-01-01
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 - **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
+- **Tier:** `t1` for sheets that move often, `t2` for slower ones; see [review tiers](tiers.md). Omit it for best-effort sheets.
 
 ```yaml
 last_verified_with: "Conventional Commits 1.0.0, curl 8.23.0."
@@ -26,7 +27,7 @@ last_verified_with: "Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6."
 
 ### Fragments
 
-Every T1 and T2 sheet needs `fragments`: 12–20 short strings shown muted with
+Every [T1 and T2 sheet](tiers.md) needs `fragments`: 12–20 short strings shown muted with
 a bottom fade on the sheet's homepage card. They are decoration, not
 documentation.
 

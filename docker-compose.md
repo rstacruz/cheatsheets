@@ -6,7 +6,7 @@ prism_languages: [yaml]
 weight: -1
 updated: 2026-11-11
 last_verified_with: "Docker 29.9.2."
-tier: t1
+tier: t2
 fragments:
   - "compose up"
   - "compose down"

@@ -5,7 +5,7 @@ category: JavaScript
 weight: -10
 updated: 2026-11-11
 last_verified_with: "ES2022–2026 APIs."
-tier: t1
+tier: t2
 fragments:
   - "const res"
   - "n => n * 2"

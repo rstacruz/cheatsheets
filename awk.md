@@ -4,7 +4,7 @@ subtitle: Text processing language
 category: Shell
 updated: 2026-11-18
 last_verified_with: "awk 1.32.0."
-tier: t1
+tier: t2
 fragments:
   - "awk '{print $1}'"
   - "-F:"

@@ -4,7 +4,7 @@ subtitle: Command-line argument builder
 category: Shell
 updated: 2026-11-21
 last_verified_with: "GNU xargs 0.8.0."
-tier: t1
+tier: t2
 fragments:
   - "xargs -t -n 1"
   - "-print0"

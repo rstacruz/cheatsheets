@@ -4,7 +4,7 @@ seo_title: Zsh cheatsheet — commands, globbing, completion
 description: "Zsh commands: globbing, completion, prompt, options and startup files. Copy-paste reference."
 subtitle: Interactive shell
 category: Shell
-tier: t1
+tier: t2
 updated: 2026-11-18
 last_verified_with: "Zsh 5.9.2."
 fragments:

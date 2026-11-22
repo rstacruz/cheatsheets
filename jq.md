@@ -2,7 +2,7 @@
 title: jq
 subtitle: JSON processor
 category: CLI
-tier: t1
+tier: t2
 updated: 2026-11-18
 last_verified_with: "jq 1.8.2."
 fragments:

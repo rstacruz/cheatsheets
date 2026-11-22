@@ -138,10 +138,11 @@ See: `bat --help` (--highlight-line)
 ```bash
 bat -n hello.py
 bat -p hello.py
+bat --style=plain hello.py
 bat -pp hello.py
 ```
 
-`-n` shows only line numbers. `-p` removes all decorations; `-pp` also disables paging.
+`-n` shows only line numbers. `-p` is shorthand for `--style=plain`; `-pp` also disables paging.
 
 See: `bat --help` (-n, -p)
 

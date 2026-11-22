@@ -3,7 +3,7 @@ title: Matt Pocock skills
 subtitle: Spec-to-PR agent workflow
 category: Agents
 tier: t2
-updated: 2026-11-22
+updated: 2026-11-23
 last_verified_with: mattpocock-skills 1.3.2.
 fragments:
   - "/grill-with-docs"
@@ -94,12 +94,25 @@ See: [pr](https://www.aihero.dev/skills-pr)
 
 ### Flow
 
-```text
-/grill-with-docs ─▶ /to-spec ─▶ /to-tickets ─▶ /implement
-        │                                              │
-        ├─ GLOSSARY.md, ADRs                          ├─▶ /code-review
-        └─ /wayfinder when multi-session             └─▶ /pr ─▶ /retro
-/triage ─▶ ready-for-agent ─▶ /implement
+```mermaid
+flowchart LR
+  accTitle: Matt Pocock skills flow
+  accDescr: Spec-to-PR flow, with triage feeding implementation.
+  G["`**/grill-with-docs**<br>shared understanding`"]
+  S["`**/to-spec**<br>durable spec`"]
+  T["`**/to-tickets**<br>demoable slices`"]
+  I["`**/implement**<br>one ticket, one commit`"]
+  C["`**/code-review**<br>standards and spec`"]
+  P["`**/pr**<br>body and evidence`"]
+  R["`**/retro**<br>environment changes`"]
+  D["`**GLOSSARY.md, ADRs**<br>domain docs`"]
+  W["`**/wayfinder**<br>multi-session fog`"]
+  Q["`**/triage**<br>incoming issues`"]
+  E["`**ready-for-agent**<br>queue`"]
+  G --> S --> T --> I --> C --> P --> R
+  G --> D
+  G --> W
+  Q --> E --> I
 ```
 
 See: [Flow map](https://www.aihero.dev/skills-ask-matt)

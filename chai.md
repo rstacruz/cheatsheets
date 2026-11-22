@@ -55,7 +55,6 @@ expect(false).to.be.false
 expect(null).to.be.null
 expect(undefined).to.be.undefined
 expect({}).to.exist
-expect([]).to.be.empty
 ```
 
 These assertions are getters: leave off the parentheses.
@@ -72,6 +71,7 @@ expect({ a: 1, b: 2 }).to.include({ a: 1 })
 expect([1, 2]).to.have.members([2, 1])
 expect({ a: 1, b: 2 }).to.have.all.keys('a', 'b')
 expect([1, 2, 3]).to.have.lengthOf(3)
+expect([]).to.be.empty
 ```
 
 See: [include](https://www.chaijs.com/api/bdd/#includeval-msg), [members](https://www.chaijs.com/api/bdd/#membersset-msg)
@@ -118,34 +118,6 @@ expect(() => 1 + 1).to.not.throw()
 
 See: [throw](https://www.chaijs.com/api/bdd/#throwerrorlike-errmsgmatcher-msg)
 
-## Chaining
-
-### Language chains
-
-```
-.to .be .been .is .that .which .and .has .have
-.with .at .of .same .but .does .still .also
-```
-
-These words do nothing; they make assertions read like sentences.
-
-See: [language chains](https://www.chaijs.com/api/bdd/#language-chains)
-
-### Modifiers
-
-```js
-import { expect } from 'chai'
-
-expect({ a: 1 }).to.not.have.property('b')
-expect({ a: 1 }).to.have.own.property('a')
-expect([1, 2]).to.have.ordered.members([1, 2])
-expect([{ a: 1 }]).to.deep.include({ a: 1 })
-```
-
-`not` negates the assertion; the others change how values are compared.
-
-See: [not](https://www.chaijs.com/api/bdd/#not), [deep](https://www.chaijs.com/api/bdd/#deep)
-
 ## Should
 
 ### Enable should
@@ -160,7 +132,7 @@ Call once to add a `should` getter to every object.
 
 See: [should style](https://www.chaijs.com/guide/styles/#should)
 
-### Assertions
+### Using should
 
 ```js
 import { should } from 'chai'
@@ -186,7 +158,7 @@ See: [expect / should API](https://www.chaijs.com/api/bdd/)
 import { assert } from 'chai'
 
 assert(1 === 1, 'one is one')
-assert.equal(3, '3')              // == 
+assert.equal(3, '3')              // ==
 assert.strictEqual(3, 3)          // ===
 assert.deepEqual({ a: 1 }, { a: 1 })
 assert.notEqual(3, 4)
@@ -249,13 +221,22 @@ import { assert } from 'chai'
 assert.include([1, 2], 2)
 assert.deepInclude([{ a: 1 }], { a: 1 })
 assert.lengthOf([1, 2], 2)
+```
+
+See: [include](https://www.chaijs.com/api/assert/#includehaystack-needle-message)
+
+### Properties
+
+```js
+import { assert } from 'chai'
+
 assert.property({ a: 1 }, 'a')
 assert.propertyVal({ a: 1 }, 'a', 1)
 assert.nestedProperty({ a: { b: 2 } }, 'a.b')
 assert.hasAllKeys({ a: 1, b: 2 }, ['a', 'b'])
 ```
 
-See: [include](https://www.chaijs.com/api/assert/#includehaystack-needle-message), [property](https://www.chaijs.com/api/assert/#propertyobject-property-message)
+See: [property](https://www.chaijs.com/api/assert/#propertyobject-property-message)
 
 ### Errors
 
@@ -268,17 +249,45 @@ assert.doesNotThrow(() => 1 + 1)
 
 See: [throws](https://www.chaijs.com/api/assert/#throwsfn-errorlikestringregexp-stringregexp-message)
 
-## Plugins
+## Chaining
 
-### Register a plugin
+### Language chains
+
+```
+.to .be .been .is .that .which .and .has .have
+.with .at .of .same .but .does .still .also
+```
+
+These words do nothing; they make assertions read like sentences.
+
+See: [language chains](https://www.chaijs.com/api/bdd/#language-chains)
+
+### Modifiers
 
 ```js
-import * as chai from 'chai'
+import { expect } from 'chai'
+
+expect({ a: 1 }).to.not.have.property('b')
+expect({ a: 1 }).to.have.own.property('a')
+expect([1, 2]).to.have.ordered.members([1, 2])
+expect([{ a: 1 }]).to.deep.include({ a: 1 })
+```
+
+`not` negates the assertion; the others change how values are compared.
+
+See: [not](https://www.chaijs.com/api/bdd/#not), [deep](https://www.chaijs.com/api/bdd/#deep)
+
+## Plugins
+
+### Register chai-jquery
+
+```js
+import { use } from 'chai'
 import $ from 'jquery'
 import chaiJquery from 'chai-jquery'
 
 globalThis.jQuery = $
-chai.use(chaiJquery)
+use(chaiJquery)
 ```
 
 Browser setup: `chai-jquery` reads jQuery from the global scope.

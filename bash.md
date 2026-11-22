@@ -534,7 +534,11 @@ See [Special parameters](https://www.gnu.org/software/bash/manual/html_node/Spec
 | ---                      | ---                   |
 | `(( NUM < NUM ))`        | Arithmetic comparison |
 
-#### More conditions
+`[[` is a shell keyword returning `0` (true) or `1` (false); any command with that exit-status logic works too.
+
+See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
+
+### More conditions
 
 | Condition            | Description              |
 | -------------------- | ------------------------ |
@@ -544,8 +548,6 @@ See [Special parameters](https://www.gnu.org/software/bash/manual/html_node/Spec
 | `[[ ! EXPR ]]`       | Not                      |
 | `[[ X && Y ]]`       | And                      |
 | `[[ X || Y ]]`       | Or                       |
-
-`[[` is a shell keyword returning `0` (true) or `1` (false); any command with that exit-status logic works too.
 
 See: [Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
 

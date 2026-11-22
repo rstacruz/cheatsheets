@@ -11,9 +11,11 @@ links:
   - title: Phoenix source
     url: https://github.com/phoenixframework/phoenix
 updated: 2026-11-22
+last_verified_with: "Phoenix 1.8.17 / LiveView 1.2.15; verified on Elixir 1.19.7 + Erlang/OTP 28 in a generated app."
 ---
 
 ## Getting started
+<!-- {: .-three-column} -->
 
 ### Install the generator
 
@@ -57,12 +59,12 @@ See: [mix phx.new](https://phx-new.hexdocs.pm/Mix.Tasks.Phx.New.html)
 
 ```text
 hello/
-├── assets/        # JS and CSS sources
-├── config/        # config.exs, dev.exs, runtime.exs
+├── assets/        # JS and CSS
+├── config/        # config.exs
 ├── lib/
-│   ├── hello/     # repo.ex, application.ex
-│   └── hello_web/ # controllers/, components/, router.ex
-├── priv/          # static/, repo/migrations/
+│   ├── hello/     # domain
+│   └── hello_web/ # controllers, web
+├── priv/          # static, migrations
 └── test/
 ```
 <!-- {: .-box-chars} -->
@@ -218,15 +220,20 @@ Sample `conn` from `Plug.Test.conn("GET", "/posts/1?utm_source=twitter")`.
 <!-- {: .-crosslink} -->
 
 ## Ecto
+<!-- {: .-three-column} -->
 
 ### Generators
 
 ```sh
-mix phx.gen.html Accounts User users name:string age:integer
+mix phx.gen.html Accounts User users \
+  name:string age:integer
 mix phx.gen.auth Accounts User users
-mix phx.gen.json Accounts User users name:string age:integer
-mix phx.gen.live Accounts User users name:string
-mix phx.gen.context Accounts User users name:string
+mix phx.gen.json Accounts User users \
+  name:string age:integer
+mix phx.gen.live Accounts User users \
+  name:string
+mix phx.gen.context Accounts User users \
+  name:string
 mix phx.gen.schema User users name:string
 ```
 
@@ -255,7 +262,8 @@ See: [Ecto.Changeset](https://hexdocs.pm/ecto/Ecto.Changeset.html)
 ```elixir
 Repo.all(User)
 Repo.get!(User, 17)
-Repo.get_by(User, email: "ada@example.com")
+Repo.get_by(User,
+  email: "ada@example.com")
 Repo.insert!(%User{name: "Ada"})
 Repo.update!(changeset)
 Repo.delete!(user)
@@ -283,6 +291,7 @@ Migrations live in `priv/repo/migrations/`.
 <!-- {: .-crosslink} -->
 
 ## LiveView and real time
+<!-- {: .-three-column} -->
 
 ### LiveView
 
@@ -294,13 +303,16 @@ defmodule HelloWeb.CounterLive do
     {:ok, assign(socket, count: 0)}
   end
 
-  def handle_event("inc", _params, socket) do
-    {:noreply, update(socket, :count, &(&1 + 1))}
+  def handle_event("inc", _p, socket) do
+    {:noreply,
+      update(socket, :count, &(&1 + 1))}
   end
 
   def render(assigns) do
     ~H"""
-    <button phx-click="inc">{@count}</button>
+    <button phx-click="inc">
+      {@count}
+    </button>
     """
   end
 end
@@ -316,12 +328,12 @@ See: [Phoenix.LiveView](https://phoenix-live-view.hexdocs.pm/Phoenix.LiveView.ht
 defmodule HelloWeb.RoomChannel do
   use HelloWeb, :channel
 
-  def join("room:lobby", _payload, socket) do
+  def join("room:lobby", _p, socket) do
     {:ok, socket}
   end
 
-  def handle_in("shout", payload, socket) do
-    broadcast(socket, "shout", payload)
+  def handle_in("shout", msg, socket) do
+    broadcast(socket, "shout", msg)
     {:noreply, socket}
   end
 end
@@ -334,7 +346,10 @@ See: [Phoenix.Channel](https://hexdocs.pm/phoenix/Phoenix.Channel.html)
 ### PubSub
 
 ```elixir
-Phoenix.PubSub.subscribe(Hello.PubSub, "room:lobby")
+Phoenix.PubSub.subscribe(
+  Hello.PubSub,
+  "room:lobby"
+)
 Phoenix.PubSub.broadcast(
   Hello.PubSub,
   "room:lobby",
@@ -346,7 +361,10 @@ Phoenix.PubSub.broadcast_from!(
   "room:lobby",
   {:new_message, msg}
 )
-Phoenix.PubSub.unsubscribe(Hello.PubSub, "room:lobby")
+Phoenix.PubSub.unsubscribe(
+  Hello.PubSub,
+  "room:lobby"
+)
 ```
 
 The app supervisor starts PubSub; `broadcast_from!/4` excludes the sender.

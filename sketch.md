@@ -352,11 +352,15 @@ See: [Export](https://www.sketch.com/docs/shortcuts/mac/#export)
 | ---       | ---                     |
 | `⌃⌘T`     | Transform shape         |
 | `⌥⌘A`     | Union shapes            |
+| --------- | ----------------------- |
 | `⇥` `⇧⇥`  | Next/previous point     |
 | `⌥`       | Show all handle points  |
 | `⌃`       | Click: place point      |
 | `⇧`       | Click: 45° point        |
-| `⌥1`-`⌥4` | Pixel snapping levels   |
+| `⌥1`      | No pixel snapping       |
+| `⌥2`      | Full-pixel snapping     |
+| `⌥3`      | Half-pixel snapping     |
+| `⌥4`      | Quarter-pixel snapping  |
 
 <!-- {: .-shortcuts} -->
 
@@ -368,6 +372,7 @@ See: [Vector editing](https://www.sketch.com/docs/shortcuts/mac/#vector-editing)
 
 | Shortcut   | Description          |
 | ---        | ---                  |
+| `⌥⇧⌘V`     | Paste as rich text   |
 | `⌘T`       | Change typeface      |
 | `⌘B`       | Bold                 |
 | `⌘I`       | Italic               |
@@ -377,7 +382,7 @@ See: [Vector editing](https://www.sketch.com/docs/shortcuts/mac/#vector-editing)
 | `⌃⌥L`      | Loosen spacing       |
 | `⌃⌥T`      | Tighten spacing      |
 | `⇧⌘{`      | Align left           |
-| `⇧⌘\|`     | Align center         |
+| <code>⇧⌘&#124;</code> | Align center         |
 | `⇧⌘}`      | Align right          |
 | `⌥⌘O`      | Convert to outlines  |
 
@@ -413,11 +418,13 @@ See: [Components](https://www.sketch.com/docs/shortcuts/mac/#components)
 | `⌘↑`     | Go to parent group   |
 | `⌥⌘↑`    | Go to current library |
 | `⌃⌥⌘↑`   | Go to all components |
-| `⌘P`     | Preserve dimensions  |
+| `⌘P`     | Preserve size on replace |
 
 <!-- {: .-shortcuts} -->
 
 See: [Command Bar](https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-command-bar/)
+
+Filter and navigation keys apply while the Command Bar is open.
 
 ## Inspector math
 

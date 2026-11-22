@@ -53,7 +53,7 @@ $ stat -c '%A %a' secrets.txt
 -rw-r----- 640
 ```
 
-The three digits set read (4), write (2), and execute (1) for owner, group, and others, respectively.
+Each digit sets read (4), write (2), and execute (1) for one of owner, group, and others.
 
 See: [Numeric modes](https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html)
 

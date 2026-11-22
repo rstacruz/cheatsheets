@@ -13,7 +13,7 @@ links:
     url: https://help.puppet.com/bolt/current/topics/bolt_command_reference.htm
 keywords: [Puppet Bolt, tasks, plans, inventory]
 intro: |
-  [Bolt](https://help.puppet.com/bolt/current/topics/bolt.htm) runs commands, tasks, plans, and Puppet code on remote targets without a Puppet server. Bolt 5.x installs from authenticated packages.
+  [Bolt](https://help.puppet.com/bolt/current/topics/bolt.htm) runs commands, tasks, plans, and Puppet code on remote targets without a Puppet server. Install it from Puppet's authenticated package repositories.
 ---
 
 ## Run something
@@ -38,7 +38,7 @@ bolt task run package -t web \
   action=status name=vim
 ```
 
-Task names are `module::task`; `init` tasks use the module name alone.
+`package` is an `init` task, so it uses the module name alone; other tasks are `module::task`.
 
 See: [Running tasks](https://help.puppet.com/bolt/current/topics/bolt_running_tasks.htm)
 
@@ -55,7 +55,7 @@ See: [Running plans](https://help.puppet.com/bolt/current/topics/bolt_running_pl
 ## Make a project
 <!-- {: .-three-column} -->
 
-### Initialize
+### Initialize a project
 
 ```sh
 mkdir myproject && cd myproject
@@ -131,7 +131,7 @@ bolt command run whoami \
 | `-t, --targets`   | Hosts, groups, or globs      |
 | `--rerun failure` | Targets that failed last run |
 
-See: [Specify targets](https://help.puppet.com/bolt/current/topics/running_bolt_commands.htm#specify-targets)
+An `@` prefix reads target names from a file, one per line.
 
 ### Authenticate
 

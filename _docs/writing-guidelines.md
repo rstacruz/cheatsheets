@@ -358,19 +358,16 @@ Use tables for quick scanning when showing reference information.
 These are the basic data types in Elixir.
 ````
 
-### lists/enumeration
+### lists/enumeration-items
 
-🤖 Check: `lists/enumeration`.
+🤖 Check: `lists/enumeration-items`.
 
-Short, like-shaped values read faster as a list than a table. Use a list for flags, file types, modes, names, and values when no item needs a description.
+Use a list, not a table, for enumerable values — flags, file types, modes, names — when no item needs a description, default, or link. Write commands in a code block instead.
 
-- One term or short phrase per item; no trailing period.
-- Add `<!-- {: .-enum} -->` after the list for a 2- or 4-tile grid.
-- `.-enum` items stay at 13 characters or fewer; use `.-enum-wide` when any value is 14 or more (it caps at two columns).
-- `.-enum-lines` trades tiles for ruled rows when values should read as a continuous list.
-- Use a table when items need descriptions, defaults, or links.
-- Use a code block when the items are commands or syntax.
-- Don't nest lists in the grid; split the card or group with H4s.
+- Two or more items; one term or short phrase each, at most 8 words.
+- No sentence punctuation, nested lists, or extra blocks.
+- Add `<!-- {: .-enum} -->` after the list; the check flags qualifying lists that omit it.
+- Link lists and lists with descriptions belong in a table, not a grid.
 
 ````md
 - `rust`
@@ -380,6 +377,23 @@ Short, like-shaped values read faster as a list than a table. Use a list for fla
 - `rb`
 - `java`
 <!-- {: .-enum} -->
+````
+
+### lists/enumeration-width
+
+🤖 Check: `lists/enumeration-width`.
+
+Choose the class from the longest item; the check enforces the boundary.
+
+- 13 characters or fewer: `.-enum`. There is no `.-enum-small`; `.-enum` is the short form.
+- 14 characters or more: `.-enum-wide`, capped at two columns; at least one item must be that long.
+- `.-enum-lines` shares the 13-character limit and swaps tiles for horizontal rules.
+
+````md
+- `article:published_time`
+- `article:modified_time`
+- `article:tag`
+<!-- {: .-enum-wide} -->
 ````
 
 ### code/inline-comments

@@ -216,7 +216,7 @@ See: [Add context for Claude](https://code.claude.com/docs/en/hooks#add-context-
   "asyncRewake": true
 }
 ```
-<!-- {: data-highlight="asyncRewake"} -->
+<!-- {: data-highlight='"async"'} -->
 
 Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and shows stderr as a system reminder.
 

@@ -212,6 +212,7 @@ select.select_by_value("volvo")
 select.select_by_visible_text("Saab")
 select.select_by_index(2)
 ```
+<!-- {: data-highlight="select_by_value, select_by_visible_text, select_by_index"} -->
 
 `deselect_all()` is available only on multi-selects.
 
@@ -279,7 +280,7 @@ title = driver.execute_script(
 snapshot = driver.accessibility_snapshot()
 print(snapshot.to_text())
 ```
-<!-- {: data-highlight="to_text()"} -->
+<!-- {: data-highlight="execute_script"} -->
 
 The 4.53 snapshot returns a node whose `to_text()` gives accessibility text.
 

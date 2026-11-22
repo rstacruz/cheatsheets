@@ -83,7 +83,6 @@ paseo run --output-schema schema.json "name this branch"
 paseo run --new-workspace worktree --worktree-mode branch-off \
   --new-branch feature/x --base origin/main "implement feature X"
 ```
-<!-- {: data-highlight="--no-wait"} -->
 
 A bare `run` in an interactive shell creates a local workspace; `--no-wait` returns while the agent keeps running. `--output-schema` cannot combine with `--no-wait`.
 
@@ -123,7 +122,6 @@ paseo send <id> --image screenshot.png "what's wrong here?"
 paseo send <id> --behavior steer "continue on this path"
 paseo send <id> --no-wait "run this task"
 ```
-<!-- {: data-highlight="--behavior steer"} -->
 
 Agent-originated sends steer the running turn by default; other sends interrupt.
 

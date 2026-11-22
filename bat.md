@@ -258,7 +258,7 @@ See: [Automatic paging](https://github.com/sharkdp/bat#automatic-paging)
 bat -d notes.txt
 bat -d --diff-context=1 notes.txt
 ```
-<!-- {: data-highlight="--diff-context=1"} -->
+<!-- {: data-highlight="-d"} -->
 
 #### Output
 
@@ -287,7 +287,7 @@ See: [Git integration](https://github.com/sharkdp/bat#git-integration)
 fzf --preview "bat --color=always \
   --style=numbers --line-range=:500 {}"
 ```
-<!-- {: data-highlight="--line-range=:500"} -->
+<!-- {: data-highlight="--color=always"} -->
 
 Force colors for previews; `--line-range` keeps long files fast to load.
 

@@ -331,7 +331,6 @@ CLAUDE.local.md       # personal notes, not committed
 git diff | claude -p "review this diff for bugs"
 claude -p "check src/ for security issues"
 ```
-<!-- {: data-highlight="-p"} -->
 
 In a session, `/code-review` reviews the diff, `/code-review 1234` a pull request, and `/security-review` scans for vulnerabilities.
 

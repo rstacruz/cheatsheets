@@ -278,11 +278,38 @@ b
 <!-- {: data-line="2"} -->
 ````
 
+### code/highlight-the-message
+
+Every highlight — a `data-line` band or a `data-highlight` token — must illustrate the card's main message. Tint the flag, value, or line that carries the point; leave secondary options and edge cases to the prose.
+
+**Good:** the card is about printing a range, so the range flag is tinted.
+
+````md
+### Print a range
+
+```bash
+bat -r 2:4 hello.py
+```
+<!-- {: data-highlight="-r 2:4"} -->
+````
+
+**Bad:** the card is about Git changes, but the tint lands on a context option instead of `-d`.
+
+````md
+### Show Git changes
+
+```bash
+bat -d notes.txt
+bat -d --diff-context=1 notes.txt
+```
+<!-- {: data-highlight="--diff-context=1"} -->
+````
+
 ### code/highlight-the-token
 
 🤖 Check: `code/data-highlight-in-block`.
 
-When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name, and keep it to one token per block; split the example if two compete.
+When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, comma-separated.
 
 ````md
 ```python

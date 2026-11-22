@@ -235,7 +235,7 @@ uv export --format requirements.txt -o requirements.txt
 uv export --format pylock.toml -o pylock.toml
 uv export --format cyclonedx1.5 -o sbom.json
 ```
-<!-- {: data-highlight="cyclonedx1.5"} -->
+<!-- {: data-highlight="--format requirements.txt"} -->
 
 `cyclonedx1.5` is experimental.
 

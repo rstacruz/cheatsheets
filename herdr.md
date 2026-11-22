@@ -67,12 +67,12 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 flowchart TD
   accTitle: Herdr session layout
   accDescr: Sessions hold workspaces, tabs, and panes.
-  Session["session<br>persistent server namespace"]
-  Workspace["w1<br>workspace<br>one repo or task"]
-  Tab1["w1:t1<br>tab<br>agents, logs, server, review"]
-  Tab2["w1:t2<br>tab"]
-  Pane1["w1:p1<br>pane<br>real terminal, may host an agent"]
-  Pane2["w1:p2<br>pane"]
+  Session["`**session**<br>persistent server namespace`"]
+  Workspace["`w1<br>**workspace**<br>one repo or task`"]
+  Tab1["`w1:t1<br>**tab**<br>agents, logs, server, review`"]
+  Tab2["`w1:t2<br>**tab**`"]
+  Pane1["`w1:p1<br>**pane**<br>real terminal, may host an agent`"]
+  Pane2["`w1:p2<br>**pane**`"]
   Session --> Workspace
   Workspace --> Tab1
   Workspace --> Tab2

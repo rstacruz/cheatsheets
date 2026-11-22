@@ -45,17 +45,17 @@ links:
 flowchart LR
   accTitle: Hook anatomy
   accDescr: PreToolUse uses Edit|Write; Notification an empty matcher.
-  subgraph event [Event]
+  subgraph event ["`**Event**`"]
     direction TB
     PreToolUse["PreToolUse"]
     Notification["Notification"]
   end
-  subgraph matcher [Matcher group]
+  subgraph matcher ["`**Matcher group**`"]
     direction TB
     EditWrite["Edit|Write"]
     Empty["#quot;#quot;"]
   end
-  subgraph handler [Handler]
+  subgraph handler ["`**Handler**`"]
     direction TB
     Command["command"]
   end

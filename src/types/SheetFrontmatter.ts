@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+const NOTE_DATE =
+  /\b(?:19|20)\d{2}-\d{1,2}(?:-\d{1,2})?\b|\b\d{1,2}[/-]\d{1,2}[/-](?:19|20)\d{2}\b|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+(?:19|20)\d{2}\b|\b\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(?:19|20)\d{2}\b/i
+
 export const SheetLinkSchema = z.object({
   title: z.string().min(1).describe('Link text.'),
   url: z.string().min(1).describe('Absolute URL or page-relative path.')
@@ -42,6 +45,10 @@ export const SheetFrontmatterSchema = z
     last_verified_with: z
       .string()
       .max(160)
+      .refine((value) => !NOTE_DATE.test(value), {
+        message:
+          '`last_verified_with` must not contain dates; use versions only'
+      })
       .optional()
       .describe(
         'Versions the examples target (max 160 chars). Required for t1 and t2 sheets.'

@@ -5,7 +5,7 @@ description: "Claude Code commands: flags, hooks, MCP and settings. CLI and conf
 subtitle: AI coding agent
 category: Agents
 tags: [Featured]
-updated: 2026-11-18
+updated: 2026-11-23
 last_verified_with: "Claude Code 2.1.322."
 tier: t1
 fragments:
@@ -267,6 +267,21 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 Run `/config` to edit settings, or pass `--settings file.json` for one session. See: [Settings](https://code.claude.com/docs/en/settings)
 
+### Hooks
+
+| Hook | Fires when |
+| --- | --- |
+| `PreToolUse` | Before a tool call |
+| `PostToolUse` | After a tool call |
+| `SessionStart` | A session starts |
+| `Stop` | Claude finishes a reply |
+<!-- {: .-headers} -->
+
+Hooks run shell commands at lifecycle events. Define them in `.claude/settings.json`; `/hooks` lists the loaded ones. See: [Hooks](https://code.claude.com/docs/en/hooks)
+
+[Claude Code hooks cheatsheet](./claude-code-hooks)
+<!-- {: .-crosslink} -->
+
 ### Environment variables
 
 | Variable                          | Purpose                                |
@@ -352,6 +367,7 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 <!-- {: .-one-column} -->
 
 - [Claude Code commands cheatsheet](./claude-code-commands)
+- [Claude Code hooks cheatsheet](./claude-code-hooks)
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_
 - [Interactive mode](https://code.claude.com/docs/en/interactive-mode) _(code.claude.com)_

@@ -186,7 +186,7 @@ Repo.aggregate(Post, :count, :id) #=> 3
 {:ok, user} = Repo.delete(user)
 ```
 
-`insert_or_update/2` needs a struct loaded from the database.
+`insert_or_update/2` updates when the struct was loaded from the database; otherwise it inserts.
 
 ### Bulk
 

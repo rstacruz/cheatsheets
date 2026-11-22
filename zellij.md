@@ -3,6 +3,7 @@ title: Zellij
 subtitle: Terminal workspace with panes
 category: Shell
 updated: 2026-11-21
+last_verified_with: "Current zellij 0.46.0."
 tier: t1
 fragments:
   - "C-p"

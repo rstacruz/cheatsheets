@@ -176,7 +176,7 @@ Repo.exists?(Post)                #=> true
 Repo.aggregate(Post, :count, :id) #=> 3
 ```
 
-`Repo.one/2` returns `nil` when no row matches; `!` variants raise.
+`Repo.one/2` returns `nil` for no rows and raises for multiple; `one!/2` also raises for no rows.
 
 ### Writing
 

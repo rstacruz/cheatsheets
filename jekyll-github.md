@@ -3,6 +3,7 @@ title: Jekyll for GitHub Pages
 subtitle: GitHub Pages build settings
 category: Jekyll
 updated: 2026-11-22
+last_verified_with: "Jekyll 3.10.0 / github-pages 232; Docker ruby:3.1, verified 2026-11-22."
 keywords:
   - github-pages gem
   - site.github

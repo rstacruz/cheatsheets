@@ -83,9 +83,12 @@ export const SheetFrontmatterSchema = z
     intro: z
       .string()
       .max(500)
+      .refine((value) => !/^[ \t\r]*$/m.test(value.trim()), {
+        message: '`intro` must be a single paragraph'
+      })
       .optional()
       .describe(
-        'Introduction card text in Markdown (max 500 chars). Also used in meta descriptions.'
+        'One Markdown paragraph (max 500 chars). Also used in meta descriptions.'
       ),
     links: z
       .array(SheetLinkSchema)

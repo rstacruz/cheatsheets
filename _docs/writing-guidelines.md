@@ -395,7 +395,7 @@ Float.parse("34.1")      # → {34.1, ""}
 
 🤖 Check: `frontmatter/introduction`.
 
-Set `intro` frontmatter; it renders as the first card. Keep paragraphs under 25 words and links to at most four first-party sources.
+Set `intro` frontmatter; it renders as the first card. Write one paragraph under 25 words, with links to at most four first-party sources.
 
 ````yaml
 intro: |
@@ -561,6 +561,10 @@ wget --quiet --output-document=out.html https://example.com
 🤖 Check: `cards/two-h3-per-h2`.
 
 Every listed H2 needs at least two H3 cards; a footer that only lists links is exempt.
+
+### cards/first-h2-first-journey
+
+The opening H2 should be the reader's first journey through the tool: the everyday action, not the API taxonomy. Defer configuration details and internals to later sections.
 
 ### prose/paragraphs-last
 

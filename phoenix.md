@@ -179,7 +179,7 @@ See: [Phoenix.Controller](https://hexdocs.pm/phoenix/Phoenix.Controller.html)
 
 ### Templates
 
-```heex
+```html
 <Layouts.app flash={@flash}>
   <h1>Hello {@name}</h1>
   <a href={~p"/users"}>Users</a>

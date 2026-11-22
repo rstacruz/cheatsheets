@@ -42,6 +42,8 @@ See: [Quickstart](https://jekyllrb.com/docs/)
 
 ### Commands
 
+#### Live reload
+
 ```bash
 jekyll serve --livereload
 ```
@@ -97,7 +99,7 @@ See: [Directory structure](https://jekyllrb.com/docs/structure/)
 ```yaml
 title: My site
 url: https://example.com
-baseurl: /blog
+baseurl: /base
 theme: minima
 exclude: [Gemfile, vendor]
 include: [.htaccess]
@@ -142,7 +144,7 @@ See: [Front matter](https://jekyllrb.com/docs/front-matter/)
 ### Post metadata
 
 ```yaml
-date: 2017-11-07 09:00:00 +0000
+date: 2017-11-07
 categories: [html, css]
 tags: [intro, web]
 permalink: /hello/
@@ -265,7 +267,7 @@ See: [Liquid tags](https://jekyllrb.com/docs/liquid/tags/)
 {{ jekyll.environment }}
 ```
 
-Config keys appear under `site`; layout content appears as `content`.
+Config keys appear under `site`; `jekyll` exposes build details.
 See: [Variables](https://jekyllrb.com/docs/variables/)
 
 ### Data files
@@ -504,7 +506,7 @@ end
 {% endhighlight %}
 ```
 
-Rouge is the default; `linenos` adds line numbers.
+Rouge is the default; `linenos` numbers lines and `mark_lines` highlights them.
 See: [Code highlighting](https://jekyllrb.com/docs/liquid/tags/#code-snippet-highlighting)
 
 ## Also see

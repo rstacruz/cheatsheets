@@ -253,29 +253,26 @@ ul.-also-see.-also-see.-also-see {
   border-top: 0;
 }
 
-/* Variant: prose list — two columns of term/description cells with dividers */
+/* Variant: prose list — small bordered cards in a two-column grid */
 .h3-section > .body > ul.-prose-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
   margin: 0;
   padding: 0;
 }
 
-.h3-section > .body > ul.-prose-list > li {
+.h3-section > .body > ul.-prose-list > li,
+.h3-section > .body > ul.-prose-list > li + li {
+  margin: 0;
   padding: 8px 12px;
+  border: solid 1px var(--line-color);
+  border-radius: 6px;
   overflow-wrap: break-word;
 }
 
-.h3-section > .body > ul.-prose-list > li + li {
-  border-top: 0;
-}
-
-.h3-section > .body > ul.-prose-list > li:nth-child(n + 3) {
-  border-top: solid 1px var(--line-color);
-}
-
-.h3-section > .body > ul.-prose-list > li:nth-child(even) {
-  border-left: solid 1px var(--line-color);
+.h3-section > .body > ul.-prose-list > li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .h3-section > .body > ul.-prose-list > li::before {
@@ -290,14 +287,6 @@ ul.-also-see.-also-see.-also-see {
 @media (max-width: 640px) {
   .h3-section > .body > ul.-prose-list {
     grid-template-columns: 1fr;
-  }
-
-  .h3-section > .body > ul.-prose-list > li:nth-child(n + 2) {
-    border-top: solid 1px var(--line-color);
-  }
-
-  .h3-section > .body > ul.-prose-list > li:nth-child(even) {
-    border-left: 0;
   }
 }
 

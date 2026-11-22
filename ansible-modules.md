@@ -24,6 +24,48 @@ links:
 
 {% raw %}
 
+## Configure a host
+
+### Install a package
+
+```yaml
+- name: Install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+```
+
+Installs a package from the configured repositories.
+
+See: [apt module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html)
+
+### Copy a config file
+
+```yaml
+- name: Write an nginx config
+  ansible.builtin.copy:
+    content: "listen 8080;\n"
+    dest: /etc/nginx/listen.conf
+    mode: "0644"
+```
+
+Writes a static file from the controller.
+
+See: [copy module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/copy_module.html)
+
+### Start a service
+
+```yaml
+- name: Start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+```
+
+Leaves the service running without changing its boot setting.
+
+See: [service module](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/service_module.html)
+
 ## Playbook basics
 
 ### First play

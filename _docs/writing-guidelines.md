@@ -309,7 +309,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, comma-separated.
+When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, semicolon-separated.
 
 ````md
 ```python

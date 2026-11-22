@@ -1,3 +1,4 @@
+import { parseHighlightSpec } from './inlineHighlight'
 import { render } from './render'
 
 it('h3 only', async () => {
@@ -249,11 +250,11 @@ describe('inline highlights', () => {
     )
   })
 
-  it('accepts several comma-separated tokens', async () => {
+  it('accepts several semicolon-separated tokens', async () => {
     const { html } = await render(
       fenced(
         ['driver.save_screenshot("page.png")', 'pdf = driver.print_page()'],
-        'save_screenshot, print_page'
+        'save_screenshot; print_page'
       )
     )
     expect(html).toContain(
@@ -269,5 +270,12 @@ describe('inline highlights', () => {
       fenced(['driver.save_screenshot("page.png")'], 'wait_for')
     )
     expect(html).not.toContain('inline-highlight')
+  })
+
+  it('splits only on semicolons, so commas stay in a token', () => {
+    expect(parseHighlightSpec('save_screenshot; print_page, flush')).toEqual([
+      'save_screenshot',
+      'print_page, flush'
+    ])
   })
 })

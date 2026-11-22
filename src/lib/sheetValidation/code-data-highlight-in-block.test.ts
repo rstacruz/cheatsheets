@@ -65,7 +65,7 @@ describe('code/data-highlight-in-block: findMissingHighlights()', () => {
 
   it.each([
     'save_screenshot',
-    'save_screenshot, screenshot',
+    'save_screenshot; screenshot',
     'driver.save_screenshot'
   ])('allows a token present in the block %s', (spec) => {
     expect(
@@ -81,7 +81,7 @@ describe('code/data-highlight-in-block: findMissingHighlights()', () => {
 
   it('flags only the missing tokens', () => {
     expect(
-      findMissingHighlights(fenced(['bat -r 2:4 hello.py'], '-r 2:4, --theme'))
+      findMissingHighlights(fenced(['bat -r 2:4 hello.py'], '-r 2:4; --theme'))
     ).toEqual([{ line: 5, text: 'data-highlight not found in block: --theme' }])
   })
 

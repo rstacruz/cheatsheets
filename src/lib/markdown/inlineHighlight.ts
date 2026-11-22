@@ -4,7 +4,7 @@ import { visit } from 'unist-util-visit'
 /**
  * Wraps text matching `data-highlight` in `.inline-highlight` spans, so a
  * fenced block can point at one API name instead of shading the whole line.
- * The spec is a comma-separated list of literal, case-sensitive strings.
+ * The spec is a semicolon-separated list of literal, case-sensitive strings.
  */
 
 const HIGHLIGHT_CLASS = 'inline-highlight'
@@ -26,11 +26,11 @@ type PropertyValue =
   | undefined
   | Array<string | number>
 
-/** `data-highlight="a, b"` → `["a", "b"]` */
+/** `data-highlight="a; b"` → `["a", "b"]` */
 export function parseHighlightSpec(value: PropertyValue): string[] {
   const values = Array.isArray(value) ? value.map(String) : [String(value)]
   return values.flatMap((item) =>
-    item.split(',').flatMap((part) => {
+    item.split(';').flatMap((part) => {
       const token = part.trim()
       return token ? [token] : []
     })

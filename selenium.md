@@ -212,7 +212,7 @@ select.select_by_value("volvo")
 select.select_by_visible_text("Saab")
 select.select_by_index(2)
 ```
-<!-- {: data-highlight="select_by_value, select_by_visible_text, select_by_index"} -->
+<!-- {: data-highlight="select_by_value; select_by_visible_text; select_by_index"} -->
 
 `deselect_all()` is available only on multi-selects.
 

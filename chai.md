@@ -199,20 +199,6 @@ assert.isDefined(null)
 
 See: [isOk](https://www.chaijs.com/api/assert/#isokobject-message), [exists](https://www.chaijs.com/api/assert/#exists)
 
-### Numbers
-
-```js
-import { assert } from 'chai'
-
-assert.isAbove(5, 3)
-assert.isAtLeast(5, 5)
-assert.isBelow(3, 5)
-assert.isAtMost(5, 5)
-assert.closeTo(1.5, 1.52, 0.1)
-```
-
-See: [isAbove](https://www.chaijs.com/api/assert/#isabovevaluetocheck-valuetobeabove-message), [closeTo](https://www.chaijs.com/api/assert/#closetoactual-expected-delta-message)
-
 ### Collections
 
 ```js
@@ -237,6 +223,20 @@ assert.hasAllKeys({ a: 1, b: 2 }, ['a', 'b'])
 ```
 
 See: [property](https://www.chaijs.com/api/assert/#propertyobject-property-message)
+
+### Numbers
+
+```js
+import { assert } from 'chai'
+
+assert.isAbove(5, 3)
+assert.isAtLeast(5, 5)
+assert.isBelow(3, 5)
+assert.isAtMost(5, 5)
+assert.closeTo(1.5, 1.52, 0.1)
+```
+
+See: [isAbove](https://www.chaijs.com/api/assert/#isabovevaluetocheck-valuetobeabove-message), [closeTo](https://www.chaijs.com/api/assert/#closetoactual-expected-delta-message)
 
 ### Errors
 

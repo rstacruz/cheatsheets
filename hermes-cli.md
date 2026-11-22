@@ -110,7 +110,7 @@ answer=$(hermes -z "summarize this" < notes.txt)
 hermes -z "review this diff" --usage-file usage.json
 ```
 
-`-z` prints only the final answer. Use `chat --oneshot -q` when tool output should reach stdout too.
+#### Options
 
 | Code  | `-z`                     | `chat -q`              |
 | ----- | ------------------------ | ---------------------- |
@@ -120,6 +120,8 @@ hermes -z "review this diff" --usage-file usage.json
 | `130` | Interrupted              | Interrupted            |
 
 <!-- {: .-shortcuts} -->
+
+`-z` prints only the final answer. Use `chat --oneshot -q` when tool output should reach stdout too.
 
 See: [Scripted one-shot](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes--z-prompt--scripted-one-shot)
 

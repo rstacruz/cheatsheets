@@ -27,8 +27,7 @@ keywords:
   - asdf alternative
   - project tasks
 intro: |
-  [mise](https://mise.jdx.dev) installs and switches dev tool versions per project
-  and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
+  [mise](https://mise.jdx.dev) installs and switches dev tool versions per project and manages env vars and tasks. This reference covers the CLI and `mise.toml`.
 links:
   - title: mise documentation
     url: https://mise.jdx.dev
@@ -78,9 +77,7 @@ mise activate fish | source
 
 <!-- {: data-line="1,2"} -->
 
-Activation re-exports `PATH` and project env on every prompt.
-Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` —
-then restart the shell.
+Activation re-exports `PATH` and project env on every prompt. Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` — then restart the shell.
 
 See: [mise activate](https://mise.jdx.dev/cli/activate.html)
 
@@ -92,8 +89,7 @@ export PATH="$HOME/.local/share/mise/shims:$PATH"   # equivalent
 mise reshim                      # after external installs
 ```
 
-Shims give editors and scripts a stable path; `mise activate` supports
-more features (env vars, hooks), so prefer it interactively.
+Shims give editors and scripts a stable path; `mise activate` supports more features (env vars, hooks), so prefer it interactively.
 
 See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 
@@ -119,11 +115,9 @@ See: [Shims](https://mise.jdx.dev/dev-tools/shims.html)
 | `mise tasks ls`     | List project tasks       |
 | `mise doctor`       | Check the install        |
 
-`mise exec` and `mise run` load tools and env without activation — use them in
-scripts and CI.
+`mise exec` and `mise run` load tools and env without activation — use them in scripts and CI.
 
-See: [Getting started](https://mise.jdx.dev/getting-started.html),
-[Walkthrough](https://mise.jdx.dev/walkthrough.html)
+See: [Getting started](https://mise.jdx.dev/getting-started.html), [Walkthrough](https://mise.jdx.dev/walkthrough.html)
 
 ### Update
 
@@ -136,12 +130,13 @@ mise upgrade --bump node      # latest overall, rewrites mise.toml
 
 `mise settings self_update.auto=true` keeps the mise binary current; package-manager installs update via their manager.
 
-See: [mise self-update](https://mise.jdx.dev/cli/self-update.html),
-[mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
+See: [mise self-update](https://mise.jdx.dev/cli/self-update.html), [mise upgrade](https://mise.jdx.dev/cli/upgrade.html)
 
 ## Tools
 
 ### Add tools
+
+#### Use and record
 
 ```bash
 mise use node@24 python@3.13     # install + record in mise.toml
@@ -153,17 +148,17 @@ mise use                         # interactive tool picker
 
 <!-- {: data-line="1"} -->
 
+#### Config written
+
 ```toml
 [tools]
 node = "24"
 python = "3.13"
 ```
 
-`use` writes to the lowest-precedence config in the nearest config directory.
-No version means `latest`; activation or `mise exec` picks it up.
+`use` writes to the lowest-precedence config in the nearest config directory. No version means `latest`; activation or `mise exec` picks it up.
 
-See: [mise use](https://mise.jdx.dev/cli/use.html),
-[dev tools](https://mise.jdx.dev/dev-tools/)
+See: [mise use](https://mise.jdx.dev/cli/use.html), [dev tools](https://mise.jdx.dev/dev-tools/)
 
 ### Install tools
 
@@ -175,8 +170,7 @@ mise install --include-task-tools
 mise uninstall node@18.0.0       # remove installed version only
 ```
 
-`install` downloads without touching `mise.toml`; `uninstall` removes a version,
-`mise unuse` edits the config.
+`install` downloads without touching `mise.toml`; `uninstall` removes a version, `mise unuse` edits the config.
 
 See: [mise install](https://mise.jdx.dev/cli/install.html)
 
@@ -194,8 +188,7 @@ shfmt = "path:./shfmt"  # existing directory
 
 <!-- {: data-line="5,6,7"} -->
 
-A request is a range; an exact version is a pin. `prefix:` disambiguates a
-release named exactly `1.19`. Aliases like `lts` are not universal.
+A request is a range; an exact version is a pin. `prefix:` disambiguates a release named exactly `1.19`. Aliases like `lts` are not universal.
 
 See: [Version requests](https://mise.jdx.dev/dev-tools/versions.html)
 
@@ -212,8 +205,7 @@ mise where node@20         # install directory
 
 `which` explains a surprising `node -v`; `where` finds the install tree.
 
-See: [mise ls](https://mise.jdx.dev/cli/ls.html),
-[mise which](https://mise.jdx.dev/cli/which.html)
+See: [mise ls](https://mise.jdx.dev/cli/ls.html), [mise which](https://mise.jdx.dev/cli/which.html)
 
 ### Lock and prune
 
@@ -226,11 +218,9 @@ mise ls --prunable
 
 <!-- {: data-line="1,2"} -->
 
-`mise.lock` records resolved versions for teammates and CI; `prune` deletes
-only versions unused by any tracked config or executed stub.
+`mise.lock` records resolved versions for teammates and CI; `prune` deletes only versions unused by any tracked config or executed stub.
 
-See: [mise lock](https://mise.jdx.dev/dev-tools/mise-lock.html),
-[mise prune](https://mise.jdx.dev/cli/prune.html)
+See: [mise lock](https://mise.jdx.dev/dev-tools/mise-lock.html), [mise prune](https://mise.jdx.dev/cli/prune.html)
 
 ## Backends
 
@@ -242,8 +232,7 @@ mise registry node         # → core:node
 mise registry -b core      # all built-in tools
 ```
 
-The registry maps names like `node`, `terraform`, or `ripgrep` to a backend,
-so you rarely need to name one. `mise search --all` queries package registries.
+The registry maps names like `node`, `terraform`, or `ripgrep` to a backend, so you rarely need to name one. `mise search --all` queries package registries.
 
 See: [Tool registry](https://mise.jdx.dev/registry.html)
 
@@ -261,11 +250,9 @@ See: [Tool registry](https://mise.jdx.dev/registry.html)
 | `go:`     | Go modules (`go:github.com/DarthSim/hivemind`) |
 | `asdf:`   | asdf plugins (`asdf:owner/plugin`)             |
 
-Package backends need their runtime declared — e.g.
-`mise use rust@stable cargo:starship`.
+Package backends need their runtime declared — e.g. `mise use rust@stable cargo:starship`.
 
-See: [Backends](https://mise.jdx.dev/dev-tools/backends/),
-[Registry](https://mise.jdx.dev/registry.html)
+See: [Backends](https://mise.jdx.dev/dev-tools/backends/), [Registry](https://mise.jdx.dev/registry.html)
 
 ### Examples
 
@@ -281,8 +268,7 @@ mise use cargo:starship               # crates.io crate
 
 Add a version the same way: `mise use github:BurntSushi/ripgrep@14`.
 
-See: [Aqua](https://mise.jdx.dev/dev-tools/backends/aqua.html),
-[GitHub](https://mise.jdx.dev/dev-tools/backends/github.html)
+See: [Aqua](https://mise.jdx.dev/dev-tools/backends/aqua.html), [GitHub](https://mise.jdx.dev/dev-tools/backends/github.html)
 
 ### One-off and session tools
 
@@ -294,15 +280,15 @@ mise shell node@20                  # this shell session only
 mise shell --unset node
 ```
 
-`exec` scopes tools and env to one command; `shell` exports them until the
-session ends and needs activation.
+`exec` scopes tools and env to one command; `shell` exports them until the session ends and needs activation.
 
-See: [mise exec](https://mise.jdx.dev/cli/exec.html),
-[mise shell](https://mise.jdx.dev/cli/shell.html)
+See: [mise exec](https://mise.jdx.dev/cli/exec.html), [mise shell](https://mise.jdx.dev/cli/shell.html)
 
 ## Configuration
 
 ### mise.toml
+
+#### Config file
 
 ```toml
 [tools]
@@ -315,13 +301,14 @@ NODE_ENV = "development"
 run = "echo hello"
 ```
 
+#### Inspect config
+
 ```bash
 mise config ls      # files mise loaded, in order
 mise ls --current
 ```
 
-Commit `mise.toml`; put machine-local overrides in `mise.local.toml` and
-gitignore it.
+Commit `mise.toml`; put machine-local overrides in `mise.local.toml` and gitignore it.
 
 See: [Configuration](https://mise.jdx.dev/configuration.html)
 
@@ -335,8 +322,7 @@ mise.local.toml              # local overrides, gitignored
 .tool-versions               # asdf file, read when present
 ```
 
-Parent directories cascade; the closest file wins per key, and
-`[tools]`/`[env]` merge additively.
+Parent directories cascade; the closest file wins per key, and `[tools]`/`[env]` merge additively.
 
 See: [mise.toml](https://mise.jdx.dev/configuration.html#mise-toml)
 
@@ -348,8 +334,7 @@ mise settings add idiomatic_version_file_enable_tools python
 mise settings add idiomatic_version_file_enable_tools ruby
 ```
 
-`.nvmrc`, `.python-version`, and `.ruby-version` are ignored until their tool
-is listed.
+`.nvmrc`, `.python-version`, and `.ruby-version` are ignored until their tool is listed.
 
 See: [Idiomatic version files](https://mise.jdx.dev/configuration.html#idiomatic-version-files)
 
@@ -370,8 +355,7 @@ idiomatic_version_file_enable_tools = ["node"]
 trusted_config_paths = ["~/work/trusted"]
 ```
 
-Settings control mise itself; project env vars belong in `[env]`. Settings
-with no `--local` write to the global config.
+Settings control mise itself; project env vars belong in `[env]`. Settings with no `--local` write to the global config.
 
 See: [Settings](https://mise.jdx.dev/configuration/settings.html)
 
@@ -387,8 +371,7 @@ See: [Settings](https://mise.jdx.dev/configuration/settings.html)
 | `MISE_LOG_LEVEL=debug`      | trace/debug/info/warn/error        |
 | `MISE_CEILING_PATHS=~/src`  | stop config search upwards         |
 
-`MISE_NO_CONFIG=1`, `MISE_NO_ENV=1`, and `MISE_NO_HOOKS=1` skip config, env,
-and hooks for one invocation.
+`MISE_NO_CONFIG=1`, `MISE_NO_ENV=1`, and `MISE_NO_HOOKS=1` skip config, env, and hooks for one invocation.
 
 See: [Environment variables](https://mise.jdx.dev/configuration/environment-variables.html)
 
@@ -404,15 +387,15 @@ mise trust --ignore
 
 Config files can run code through tasks and hooks. Normal mode auto-trusts the active config on `mise run`, `mise install`, `mise exec`, and `mise watch`.
 
-Simple tool-only files need no trust; paranoid mode requires explicit,
-content-bound trust for non-global files.
+Simple tool-only files need no trust; paranoid mode requires explicit, content-bound trust for non-global files.
 
-See: [mise trust](https://mise.jdx.dev/cli/trust.html),
-[paranoid mode](https://mise.jdx.dev/paranoid.html)
+See: [mise trust](https://mise.jdx.dev/cli/trust.html), [paranoid mode](https://mise.jdx.dev/paranoid.html)
 
 ## Environments
 
 ### Set variables
+
+#### In config
 
 ```toml
 [env]
@@ -422,23 +405,28 @@ CACHE_DIR = false              # unset it
 LOG_LEVEL = { default = "info" }
 ```
 
+#### From the CLI
+
 ```bash
 mise set NODE_ENV=development
 mise env                        # print exported variables
 eval "$(mise env -s zsh)"
 ```
 
-`[env]` reaches activated shells, `mise exec`, and tasks. `mise set` writes to
-`mise.toml`.
+`[env]` reaches activated shells, `mise exec`, and tasks. `mise set` writes to `mise.toml`.
 
 See: [Environments](https://mise.jdx.dev/environments/)
 
 ### Load .env files
 
+#### One file
+
 ```toml
 [env]
 _.file = ".env"                # a single file
 ```
+
+#### Several files
 
 ```toml
 [env]
@@ -448,29 +436,33 @@ _.file = [                     # or several
 ]
 ```
 
-Dotenv, JSON, YAML, and TOML are supported, and paths resolve against the
-config root. `MISE_ENV_FILE=.env` autoloads from the current directory upwards.
+Dotenv, JSON, YAML, and TOML are supported, and paths resolve against the config root. `MISE_ENV_FILE=.env` autoloads from the current directory upwards.
 
 See: [Environments](https://mise.jdx.dev/environments/)
 
 ### PATH
+
+#### One entry
 
 ```toml
 [env]
 _.path = "./node_modules/.bin"  # one entry
 ```
 
+#### Several entries
+
 ```toml
 [env]
 _.path = ["tools/bin", "{{config_root}}/bin"]  # or several
 ```
 
+#### Inspect PATH
+
 ```bash
 mise env --paths                # PATH entries mise manages
 ```
 
-Relative entries resolve against the config root, so they keep working from
-subdirectories.
+Relative entries resolve against the config root, so they keep working from subdirectories.
 
 See: [Environments](https://mise.jdx.dev/environments/)
 
@@ -484,12 +476,9 @@ DATABASE_URL = { required = true }
 API_KEY = { value = "sk-...", redact = true }
 ```
 
-`required` fails `mise env` when unset; `redact` masks the value in task
-output. Secrets do not belong in committed config — `mise.local.toml` is
-still plaintext.
+`required` fails `mise env` when unset; `redact` masks the value in task output. Secrets do not belong in committed config — `mise.local.toml` is still plaintext.
 
-See: [Secrets](https://mise.jdx.dev/environments/secrets/),
-[Environments](https://mise.jdx.dev/environments/)
+See: [Secrets](https://mise.jdx.dev/environments/secrets/), [Environments](https://mise.jdx.dev/environments/)
 
 ## Tasks
 
@@ -520,8 +509,7 @@ mise tasks ls
 mise tasks info test
 ```
 
-`mise run` with no task opens a picker (or runs `default`), and installs
-missing tools first.
+`mise run` with no task opens a picker (or runs `default`), and installs missing tools first.
 
 See: [Running tasks](https://mise.jdx.dev/tasks/running-tasks.html)
 
@@ -542,8 +530,7 @@ sources = ["src/**/*.rs", "Cargo.toml"]
 outputs = ["target/debug/app"]
 ```
 
-`depends` runs first and only once; `depends_post` runs after;
-`sources`/`outputs` skip a task whose outputs are newer.
+`depends` runs first and only once; `depends_post` runs after; `sources`/`outputs` skip a task whose outputs are newer.
 
 See: [Task config](https://mise.jdx.dev/tasks/task-configuration.html)
 
@@ -561,8 +548,7 @@ See: [Task config](https://mise.jdx.dev/tasks/task-configuration.html)
 cargo build --profile "$usage_profile"
 ```
 
-Scripts live in `mise-tasks/`, `.mise/tasks/`, or `mise/tasks/`, must be
-executable (`chmod +x`), and `#USAGE` defines flags as `usage_*` env vars.
+Scripts live in `mise-tasks/`, `.mise/tasks/`, or `mise/tasks/`, must be executable (`chmod +x`), and `#USAGE` defines flags as `usage_*` env vars.
 
 See: [File tasks](https://mise.jdx.dev/tasks/file-tasks.html)
 

@@ -139,8 +139,7 @@ npm pkg delete scripts.lint
 npm pkg fix
 ```
 
-`npm pkg` edits JSON without reformatting it; `fix` applies the corrections
-`npm publish` would otherwise make.
+`npm pkg` edits JSON without reformatting it; `fix` applies the corrections `npm publish` would otherwise make.
 
 See: [npm pkg](https://docs.npmjs.com/cli/v12/commands/npm-pkg/)
 
@@ -177,12 +176,16 @@ See: [npm version](https://docs.npmjs.com/cli/v12/commands/npm-version/)
 
 ### Define workspaces
 
+#### package.json
+
 ```json
 {
   "name": "app",
   "workspaces": ["packages/a", "packages/b"]
 }
 ```
+
+#### Add a workspace
 
 ```bash
 npm init -w ./packages/c
@@ -203,8 +206,7 @@ npm run test --workspaces --if-present
 npm publish -w a
 ```
 
-`-w` takes a package name or folder path and can repeat. `--workspaces` runs
-across all of them in `package.json` order.
+`-w` takes a package name or folder path and can repeat. `--workspaces` runs across all of them in `package.json` order.
 
 See: [Running commands in workspaces](https://docs.npmjs.com/cli/v12/using-npm/workspaces/#running-commands-in-the-context-of-workspaces)
 
@@ -283,8 +285,7 @@ See: [Package spec](https://docs.npmjs.com/cli/v12/using-npm/package-spec/)
 | `>=1.2 <2` | Space means AND     |
 | `*`        | Any version         |
 
-`^` allows minor and patch upgrades, `~` patch only. A prerelease only matches
-a range that itself includes a prerelease.
+`^` allows minor and patch upgrades, `~` patch only. A prerelease only matches a range that itself includes a prerelease.
 
 See: [Semantic Versioning](https://semver.org/)
 

@@ -274,12 +274,14 @@ See: [throws](https://www.chaijs.com/api/assert/#throwsfn-errorlikestringregexp-
 
 ```js
 import * as chai from 'chai'
+import jquery from 'jquery'
 import chaiJquery from 'chai-jquery'
 
+globalThis.jQuery = globalThis.$ = jquery(window)
 chai.use(chaiJquery)
 ```
 
-Plugins add assertions to `expect`, `should`, and `assert`.
+Plugins extend Chai's assertions; `chai-jquery` expects a global `jQuery`.
 
 See: [plugins guide](https://www.chaijs.com/guide/plugins/)
 
@@ -288,7 +290,10 @@ See: [plugins guide](https://www.chaijs.com/guide/plugins/)
 ```js
 import { expect } from 'chai'
 
-const $el = $('.tea')
+const $el = $(
+  '<a class="tea active" href="/tea" ' +
+    'style="display:none">Buy tea</a>'
+)
 
 expect($el).to.have.class('active')
 expect($el).to.have.attr('href', '/tea')
@@ -297,6 +302,6 @@ expect($el).to.contain('tea')
 expect($el).to.have.text('Buy tea')
 ```
 
-Requires `chai-jquery` and a global `jQuery` object.
+The element is built in memory, so no page markup is needed.
 
 See: [chai-jquery](https://github.com/chaijs/chai-jquery)

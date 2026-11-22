@@ -13,23 +13,59 @@ links:
     url: https://sinonjs.org/guides/migration
 ---
 
-## Doubles
+## Test a call
+<!-- {: .-three-column} -->
 
-### Fakes
+### Spy on a method
 
 ```js
 const sinon = require('sinon')
 
-const fake = sinon.fake.returns(42)
-fake() // → 42
-fake.callCount // → 1
+const obj = {
+  greet: name => 'hi ' + name
+}
+const spy = sinon.spy(obj, 'greet')
+
+obj.greet('Ada') // → 'hi Ada'
+spy.calledOnce // → true
+spy.restore()
 ```
 
-Fakes are immutable; prefer them to spies and stubs for new code.
+Wraps the original method and records its calls.
 
-See: [Fakes](https://sinonjs.org/concepts/fakes/)
+See: [Spies](https://sinonjs.org/concepts/spies/)
 
-### Spies
+### Stub a return value
+
+```js
+const stub = sinon.stub().returns(42)
+stub.withArgs('x').returns('x')
+
+stub() // → 42
+stub('x') // → 'x'
+stub('y') // → 42
+```
+
+See: [Stubs](https://sinonjs.org/concepts/stubs/)
+
+### Verify the call
+
+```js
+const spy = sinon.spy()
+spy('Ada')
+
+sinon.assert.calledOnce(spy)
+sinon.assert.calledWith(spy, 'Ada')
+```
+
+Assertions throw when they fail.
+
+See: [Assertions](https://sinonjs.org/concepts/assertions/)
+
+## Other doubles
+<!-- {: .-three-column} -->
+
+### Standalone spies
 
 ```js
 const spy = sinon.spy()
@@ -39,23 +75,21 @@ spy.calledOnce // → true
 spy.firstCall.args // → [ 'Ada' ]
 ```
 
-Use `sinon.spy(fn)` to wrap a function without changing its behavior.
+Use a standalone spy to pass a callback into code under test.
 
 See: [Spies](https://sinonjs.org/concepts/spies/)
 
-### Stubs
+### Fakes
 
 ```js
-const stub = sinon.stub().returns(42)
-stub() // → 42
-stub.withArgs('x').returns('x')
-stub('x') // → 'x'
-stub('y') // → 42
+const fake = sinon.fake.returns(42)
+fake() // → 42
+fake.callCount // → 1
 ```
 
-Use `sinon.stub(obj, 'method')` to replace an existing method.
+Fakes are immutable; prefer them for new code.
 
-See: [Stubs](https://sinonjs.org/concepts/stubs/)
+See: [Fakes](https://sinonjs.org/concepts/fakes/)
 
 ### Mocks
 
@@ -75,6 +109,7 @@ Mocks couple tests to implementation details; prefer an explicit assertion.
 See: [Mocks](https://sinonjs.org/concepts/mocks/)
 
 ## Call behavior
+<!-- {: .-three-column} -->
 
 ### Consecutive calls
 
@@ -92,7 +127,8 @@ See: [onCall](https://sinonjs.org/concepts/stubs/api/on-call)
 ### Errors
 
 ```js
-const stub = sinon.stub().throws(new TypeError('bad'))
+const stub = sinon.stub()
+  .throws(new TypeError('bad'))
 
 try {
   stub()
@@ -106,7 +142,8 @@ See: [throws](https://sinonjs.org/concepts/stubs/api/throws)
 ### Async doubles
 
 ```js
-const stub = sinon.stub().resolves({ ok: true })
+const stub = sinon.stub()
+  .resolves({ ok: true })
 
 await stub() // → { ok: true }
 ```
@@ -118,7 +155,8 @@ See: [resolves](https://sinonjs.org/concepts/stubs/api/resolves)
 ### Callbacks
 
 ```js
-const stub = sinon.stub().callsArg(0)
+const stub = sinon.stub()
+  .callsArg(0)
 const callback = sinon.spy()
 
 stub(callback)
@@ -128,20 +166,7 @@ callback.calledOnce // → true
 See: [callsArg](https://sinonjs.org/concepts/stubs/api/calls-arg)
 
 ## Inspection
-
-### Assertions
-
-```js
-const spy = sinon.spy()
-spy({ url: '/x', method: 'GET' })
-
-sinon.assert.calledOnce(spy)
-sinon.assert.calledWithMatch(spy, { url: '/x' })
-```
-
-Assertions throw when they fail.
-
-See: [Assertions](https://sinonjs.org/concepts/assertions/)
+<!-- {: .-three-column} -->
 
 ### Call data
 
@@ -149,9 +174,24 @@ See: [Assertions](https://sinonjs.org/concepts/assertions/)
 const spy = sinon.spy()
 spy({ url: '/x' })
 
-spy.args // → [ [ { url: '/x' } ] ]
-spy.firstCall.args // → [ { url: '/x' } ]
+spy.args
+// → [ [ { url: '/x' } ] ]
+spy.firstCall.args
+// → [ { url: '/x' } ]
 spy.callCount // → 1
+```
+
+See: [Spy API](https://sinonjs.org/concepts/spies/api)
+
+### Call order
+
+```js
+const a = sinon.spy()
+const b = sinon.spy()
+a(); b()
+
+a.calledBefore(b) // → true
+b.calledAfter(a) // → true
 ```
 
 See: [Spy API](https://sinonjs.org/concepts/spies/api)
@@ -160,10 +200,12 @@ See: [Spy API](https://sinonjs.org/concepts/spies/api)
 
 ```js
 const spy = sinon.spy()
-spy({ url: '/x', method: 'GET' })
+spy({ url: '/x' })
 
-spy.calledWithMatch({ method: 'GET' }) // → true
-sinon.match({ url: '/x' }).test({ url: '/x' }) // → true
+spy.calledWithMatch({ url: '/x' })
+// → true
+sinon.match({ url: '/x' })
+  .test({ url: '/x' }) // → true
 ```
 
 See: [Matchers](https://sinonjs.org/concepts/matchers/)
@@ -273,4 +315,3 @@ server.restore()
 Sinon 20 removed its XHR fakes; nise fakes are not restored by `sinon.restore()`. In Node, define a global `XMLHttpRequest` before loading nise.
 
 See: [Migration guide](https://sinonjs.org/guides/migration)
-

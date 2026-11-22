@@ -3,8 +3,8 @@ title: SQL joins
 subtitle: Combine rows across tables
 category: Databases
 weight: -1
-updated: 2026-11-22
-last_verified_with: "SQLite 3.54.0."
+updated: 2026-11-23
+last_verified_with: "SQLite 3.54.0, PostgreSQL 19, MySQL 9.7."
 tier: t2
 fragments:
   - "INNER JOIN"
@@ -30,7 +30,7 @@ keywords:
   - full outer join
   - cross join
 intro: |
-  SQL joins combine rows from tables. Match columns with `ON` or `USING`, or pair rows with `CROSS JOIN`. Sample tables are listed below.
+  SQL joins combine rows from tables. Match columns with `ON` or `USING`, or pair rows with `CROSS JOIN`. Examples use the sample tables below.
 links:
   - title: PostgreSQL join tutorial
     url: https://www.postgresql.org/docs/current/tutorial-join.html
@@ -66,15 +66,16 @@ Bob   103       15
 
 See: [PostgreSQL inner joins](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-### Diagram
+### How joins overlap
 
 #### Query
 
-```
-SELECT * FROM a INNER JOIN b
+```sql
+SELECT * FROM a
+JOIN b ON b.a_id = a.id;
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-line="2"} -->
 
 #### Overlap
 
@@ -87,7 +88,7 @@ SELECT * FROM a INNER JOIN b
 ```
 <!-- {: .-box-chars.-setup} -->
 
-The intersection is the inner join; each circle adds its outer rows.
+The overlap is an inner join; add one circle's exclusive rows for a left or right join.
 
 See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 
@@ -262,7 +263,7 @@ LEFT JOIN orders AS o
 WHERE o.order_id IS NULL;
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-line="3-5"} -->
 
 #### Result
 
@@ -317,7 +318,7 @@ RIGHT JOIN orders AS o
 WHERE c.id IS NULL;
 ```
 
-<!-- {: data-line="3-4,8-9"} -->
+<!-- {: data-line="3-5,8-10"} -->
 
 #### Result
 
@@ -384,20 +385,23 @@ See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-t
 ### MySQL
 
 ```sql
-SELECT o.order_id, s.status
-FROM orders AS o
-JOIN shipments AS s USING (order_id);
+SELECT c.name, COUNT(o.order_id) AS orders
+FROM customers AS c
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id
+GROUP BY c.name;
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-line="3-5"} -->
 
 #### Result
 
 ```
-order_id  status
---------  -------
-101       shipped
-103       pending
+name  orders
+----  ------
+Ada   2
+Bob   1
+Cy    0
 ```
 
 `JOIN`, `LEFT`, and `RIGHT` work; emulate `FULL` with `UNION ALL`.
@@ -415,12 +419,11 @@ See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 | `RIGHT JOIN` | All right rows |
 | `FULL OUTER JOIN` | All rows from both |
 | `CROSS JOIN` | Every pair of rows |
-| `USING (col)` | Join on shared column names |
 <!-- {: .-headers} -->
 
 See: [PostgreSQL join types](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-### Same-name columns
+### USING clause
 
 ```sql
 SELECT o.order_id, s.status

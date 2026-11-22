@@ -1,10 +1,11 @@
 ---
 title: SQL
-subtitle: Query language hub
+subtitle: Relational query language
 category: Databases
-updated: 2026-11-22
+weight: -10
+updated: 2026-11-23
 intro: |
-  SQL references on devhints.io: joins, PostgreSQL, and MySQL.
+  Quick reference for SQL queries, with links to joins, PostgreSQL, PostgreSQL JSON, and MySQL cheatsheets.
 links:
   - title: SQL joins cheatsheet
     url: ./sql-join
@@ -12,9 +13,12 @@ links:
     url: ./postgresql
   - title: MySQL cheatsheet
     url: ./mysql
+  - title: PostgreSQL JSON cheatsheet
+    url: ./postgresql-json
 ---
 
 ## Querying
+<!-- {: .-three-column} -->
 
 ### Reading rows
 
@@ -24,20 +28,28 @@ SELECT DISTINCT customer_id FROM orders;
 SELECT COUNT(*) FROM orders;
 SELECT customer_id, SUM(total) AS spent
 FROM orders GROUP BY customer_id;
-SELECT name FROM customers ORDER BY name DESC LIMIT 2;
+SELECT name FROM customers
+ORDER BY name DESC LIMIT 2;
 ```
 
 ### Joins
 
 ```sql
-SELECT c.name, o.order_id FROM customers AS c
+SELECT c.name, o.order_id
+FROM customers AS c
 JOIN orders AS o ON o.customer_id = c.id;
-SELECT c.name, o.order_id FROM customers AS c
-LEFT JOIN orders AS o ON o.customer_id = c.id;
-SELECT c.name, o.order_id FROM customers AS c
-FULL OUTER JOIN orders AS o ON o.customer_id = c.id;
-SELECT COUNT(*) FROM customers CROSS JOIN orders;
-SELECT o.order_id, s.status FROM orders AS o
+SELECT c.name, o.order_id
+FROM customers AS c
+LEFT JOIN orders AS o
+  ON o.customer_id = c.id;
+SELECT c.name, o.order_id
+FROM customers AS c
+FULL OUTER JOIN orders AS o
+  ON o.customer_id = c.id;
+SELECT COUNT(*)
+FROM customers CROSS JOIN orders;
+SELECT o.order_id, s.status
+FROM orders AS o
 JOIN shipments AS s USING (order_id);
 ```
 
@@ -50,9 +62,11 @@ JOIN shipments AS s USING (order_id);
 SELECT COUNT(*) FROM orders;
 SELECT SUM(total) FROM orders;
 SELECT AVG(total) FROM orders;
-SELECT customer_id, COUNT(*) AS n FROM orders GROUP BY customer_id;
+SELECT customer_id, COUNT(*) AS n
+FROM orders GROUP BY customer_id;
 SELECT customer_id, SUM(total) AS spent
-FROM orders GROUP BY customer_id HAVING SUM(total) > 30;
+FROM orders GROUP BY customer_id
+HAVING SUM(total) > 30;
 ```
 
 ## Dialects

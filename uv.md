@@ -57,6 +57,7 @@ uv init --app hello
 uv init --lib libby
 uv init --bare
 ```
+<!-- {: data-highlight="--bare"} -->
 
 Creates `pyproject.toml`, `.python-version`, `README.md` and `.gitignore`; `--bare` writes only `pyproject.toml`.
 

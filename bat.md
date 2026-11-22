@@ -217,6 +217,7 @@ See: `bat --help` (--wrap, -S, --terminal-width)
 ```bash
 bat -r 2:4 hello.py
 ```
+<!-- {: data-highlight="-r 2:4"} -->
 
 #### Output
 

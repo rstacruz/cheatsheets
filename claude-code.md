@@ -341,6 +341,7 @@ See: [Review locally with /code-review](https://code.claude.com/docs/en/code-rev
 # One-shot JSON output for scripts
 claude -p "list the failing tests" --output-format json
 ```
+<!-- {: data-highlight="--output-format json"} -->
 
 ```bash
 # Pipe logs in

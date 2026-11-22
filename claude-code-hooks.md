@@ -342,6 +342,7 @@ See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fi
   ]
 }
 ```
+<!-- {: data-highlight="Bash(git *)"} -->
 
 `if` filters five tool events; on other events the hook never runs. Commands default to 600s, prompts to 30s, and agents to 60s.
 

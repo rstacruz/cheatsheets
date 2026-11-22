@@ -266,6 +266,7 @@ verdict=$(paseo run --provider claude --output-schema schema.json \
   "ensure tests all pass")
 echo "$verdict" | jq -e '.criteria_met == true'
 ```
+<!-- {: data-highlight="--output-schema"} -->
 
 A builder plus a verifier can loop until the verdict passes; `jq` reads the JSON schema output.
 

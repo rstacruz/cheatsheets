@@ -237,5 +237,5 @@ See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
 [scp cheatsheet](./scp)
 <!-- {: .-crosslink} -->
 
-[rsync cheatsheet](./rsync)
+[Rsync cheatsheet](./rsync)
 <!-- {: .-crosslink} -->

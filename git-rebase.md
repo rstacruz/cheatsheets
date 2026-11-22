@@ -26,9 +26,7 @@ fragments:
   - "ORIG_HEAD"
 updated: 2026-11-21
 intro: |
-  Interactive rebase replays commits onto a new base. The todo list lets you reorder, reword, squash, fixup, edit, or drop them.
-
-  Rebasing changes commit IDs, so avoid shared history that teammates have pulled. Coordinate first, then force-push the rewritten branch.
+  Interactive rebase replays local commits onto a new base to reorder, reword, squash, edit, or drop them; rewritten commits get new hashes.
 links:
   - title: git-rebase manual
     url: https://git-scm.com/docs/git-rebase
@@ -95,8 +93,15 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 
 ### Reword a message
 
+#### Command
+
 ```bash
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 efad3ce fix typo
 ddc466d add user docs
 877bace add feature
@@ -109,8 +114,15 @@ See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Squash commits
 
+#### Command
+
 ```bash
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 4478bd3 fix typo
 a0639e0 add feature and docs
 c6adc97 add base
@@ -122,8 +134,15 @@ See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Fixup commits
 
+#### Command
+
 ```bash
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 126448a add docs
 877bace add feature
 c6adc97 add base
@@ -164,8 +183,15 @@ See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 
 ### Drop a commit
 
+#### Command
+
 ```bash
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 fe338df fix typo
 877bace add feature
 c6adc97 add base
@@ -226,9 +252,16 @@ See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resol
 
 ### Abort a rebase
 
+#### Commands
+
 ```bash
 $ git rebase --abort
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 61763ac fix typo
 adc2cdb add docs
 877bace add feature
@@ -254,8 +287,15 @@ See: [git reflog](https://git-scm.com/docs/git-reflog)
 
 ### Mark commits
 
+#### Command
+
 ```bash
 $ git log --oneline
+```
+
+#### Output
+
+```bash
 157df43 squash! add docs
 d7c42b4 fixup! add feature
 ```
@@ -301,8 +341,15 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 
 ### Rebase onto a new base
 
+#### Command
+
 ```bash
 $ git rebase --onto main 9def53e topic
+```
+
+#### Output
+
+```bash
 Rebasing (1/2)
 Rebasing (2/2)
 Successfully rebased and updated refs/heads/topic.

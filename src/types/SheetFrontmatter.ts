@@ -39,6 +39,13 @@ export const SheetFrontmatterSchema = z
       .optional()
       .describe('`Featured` puts the sheet on the home page.'),
     updated: z.date().optional().describe('"Last updated" and recent lists.'),
+    last_verified_with: z
+      .string()
+      .max(160)
+      .optional()
+      .describe(
+        'Versions and runtime used to verify examples. Hint for future updates (max 160 chars).'
+      ),
     tier: z
       .enum(['t1', 't2'])
       .optional()

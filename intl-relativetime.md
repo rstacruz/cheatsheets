@@ -56,9 +56,7 @@ const de = new Intl.RelativeTimeFormat('de-DE', {
 ```
 <!-- {: .-wrap} -->
 
-`locales` is a BCP 47 tag or an array of tags; the first supported one wins.
-Call the constructor with `new` — a plain call throws `TypeError`. Options
-also accept `localeMatcher` (default `'best fit'`) and `numberingSystem`.
+`locales` is a BCP 47 tag or an array of tags; the first supported one wins. Call the constructor with `new` — a plain call throws `TypeError`. Options also accept `localeMatcher` (default `'best fit'`) and `numberingSystem`.
 
 See: [Intl.RelativeTimeFormat() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat)
 
@@ -78,9 +76,7 @@ const rtf = new Intl.RelativeTimeFormat('default', opts)
 rtf.resolvedOptions().locale  // → 'en-US'
 ```
 
-Pass `'default'` to mean the runtime's own locale when you still have options
-to send. Leaving the argument out works the same:
-`new Intl.RelativeTimeFormat(undefined, opts)`.
+Pass `'default'` to mean the runtime's own locale when you still have options to send. Leaving the argument out works the same: `new Intl.RelativeTimeFormat(undefined, opts)`.
 
 See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
@@ -120,10 +116,7 @@ rtf.format(-3, 'month')   // → '3 months ago'
 | `second` | `1 second ago` | `in 2 seconds` |
 <!-- {: .-headers} -->
 
-Negative is the past, positive the future; zero counts as future
-(`'in 0 days'`). Unit names stay singular: `'day'`, never `'days'`. Values
-aren't rounded, so `-1.5` renders as `'1.5 days ago'`. An unknown unit throws
-`RangeError`.
+Negative is the past, positive the future; zero counts as future (`'in 0 days'`). Unit names stay singular: `'day'`, never `'days'`. Values aren't rounded, so `-1.5` renders as `'1.5 days ago'`. An unknown unit throws `RangeError`.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format)
 
@@ -150,9 +143,7 @@ rtf.format(-1, 'week')    // → 'last week'
 ```
 <!-- {: .-wrap} -->
 
-`'auto'` uses a wording only where the locale has one for that value and
-unit; `2` stays numeric. The default, `'always'`, prints `'1 day ago'` and
-`'in 0 days'`.
+`'auto'` uses a wording only where the locale has one for that value and unit; `2` stays numeric. The default, `'always'`, prints `'1 day ago'` and `'in 0 days'`.
 
 See: [numeric option](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#numeric)
 
@@ -175,8 +166,7 @@ rtf('narrow').format(2, 'day')    // → 'in 2d'
 ```
 <!-- {: .-wrap} -->
 
-`'long'` is the default; `'narrow'` is the most compact. `numeric: 'auto'`
-wordings such as `'yesterday'` survive both styles.
+`'long'` is the default; `'narrow'` is the most compact. `numeric: 'auto'` wordings such as `'yesterday'` survive both styles.
 
 See: [style option](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#style)
 
@@ -211,8 +201,7 @@ new Intl.RelativeTimeFormat('en-US', { numeric: 'auto' })
 ```
 <!-- {: .-wrap} -->
 
-Parts are `literal`, `integer`, `decimal` or `fraction`. A phrase with no
-number at all is a single `literal` part.
+Parts are `literal`, `integer`, `decimal` or `fraction`. A phrase with no number at all is a single `literal` part.
 
 See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts)
 
@@ -240,8 +229,7 @@ rtf.resolvedOptions()
 // }
 ```
 
-It reports the locale that matched, plus the default for every option you
-left out.
+It reports the locale that matched, plus the default for every option you left out.
 
 See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions)
 
@@ -273,9 +261,7 @@ rtf('ja-JP').format(-2, 'day')  // → '2 日前'
 ```
 <!-- {: .-wrap} -->
 
-You supply the number and the unit; word order, prepositions and plural
-endings come from the locale data. At long style `en-US` and `en-GB` agree on
-`'1 day ago'`; the abbreviation is where they part.
+You supply the number and the unit; word order, prepositions and plural endings come from the locale data. At long style `en-US` and `en-GB` agree on `'1 day ago'`; the abbreviation is where they part.
 
 See: [ECMA-402 RelativeTimeFormat objects](https://tc39.es/ecma402/#relativetimeformat-objects)
 
@@ -288,9 +274,7 @@ See: [ECMA-402 RelativeTimeFormat objects](https://tc39.es/ecma402/#relativetime
 | `-5` | `5 days ago` | `vor 5 Tagen` | `5 дней назад` |
 <!-- {: .-headers} -->
 
-Plural selection belongs to the locale, so `-1`, `-2` and `-5` each get their
-own form without extra work. `ja-JP` has no count agreement: `1 日前`,
-`2 日前`.
+Plural selection belongs to the locale, so `-1`, `-2` and `-5` each get their own form without extra work. `ja-JP` has no count agreement: `1 日前`, `2 日前`.
 
 See: [Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)
 
@@ -317,8 +301,7 @@ rtf.format((then - now) / 86_400_000, 'day')
 ```
 <!-- {: .-wrap} -->
 
-The formatter never reads a clock. Subtract the dates yourself, divide down
-to the unit you want, and keep the sign.
+The formatter never reads a clock. Subtract the dates yourself, divide down to the unit you want, and keep the sign.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format)
 
@@ -356,7 +339,6 @@ timeAgo(new Date('2026-11-16T12:00:00Z'), now)  // '2 days ago'
 ```
 <!-- {: .-wrap} -->
 
-`Math.round()` picks a whole unit, and the sign is kept so past values stay
-negative. Add month and year branches when you need coarser output.
+`Math.round()` picks a whole unit, and the sign is kept so past values stay negative. Add month and year branches when you need coarser output.
 
 See: [Date.now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)

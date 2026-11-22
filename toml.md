@@ -203,8 +203,7 @@ odt2 = 1979-05-27T00:32:00-07:00
 now = 1979-05-27T07:32Z
 ```
 
-RFC 3339 with an offset; `T` may be a space. Omitting seconds, as in `now`,
-is a 1.1.0 addition.
+RFC 3339 with an offset; `T` may be a space. Omitting seconds, as in `now`, is a 1.1.0 addition.
 
 See: [Offset Date-Time](https://toml.io/en/v1.1.0#offset-date-time)
 
@@ -227,8 +226,7 @@ lt1 = 07:32:00
 lt2 = 00:32:00.5
 ```
 
-See: [Local date](https://toml.io/en/v1.1.0#local-date),
-[Local time](https://toml.io/en/v1.1.0#local-time)
+See: [Local date](https://toml.io/en/v1.1.0#local-date), [Local time](https://toml.io/en/v1.1.0#local-time)
 
 ## Arrays
 <!-- {: .-three-column} -->

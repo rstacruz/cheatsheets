@@ -58,8 +58,7 @@ links:
 
 <!-- {: .-headers} -->
 
-Each pattern writes 5 June 2013, 23:05 UTC. The `Intl` row is shaped by the
-locale, so it can differ from machine to machine.
+Each pattern writes 5 June 2013, 23:05 UTC. The `Intl` row is shaped by the locale, so it can differ from machine to machine.
 
 See: [Date field symbols](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)
 
@@ -84,8 +83,7 @@ See: [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)
 2013-06-05 23:05:00Z        # Space instead of T
 ```
 
-RFC 3339 is the internet profile of ISO 8601, and what `toISOString()`
-emits. Most parsers accept the space, but not all of them.
+RFC 3339 is the internet profile of ISO 8601, and what `toISOString()` emits. Most parsers accept the space, but not all of them.
 
 See: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)
 
@@ -96,8 +94,7 @@ Wed, 05 Jun 2013 23:05:00 +0000
 05 Jun 2013 23:05:00 GMT
 ```
 
-Email headers use this format. RFC 5322 obsoletes RFC 2822 with the same
-date syntax.
+Email headers use this format. RFC 5322 obsoletes RFC 2822 with the same date syntax.
 
 See: [RFC 5322](https://www.rfc-editor.org/rfc/rfc5322#section-3.3)
 
@@ -108,8 +105,7 @@ date +%s                    # 1370473500
 date -d @1370473500         # GNU date: Wed Jun 5 2013
 ```
 
-Seconds since `1970-01-01T00:00:00Z`, ignoring leap seconds. JavaScript
-and Java's `Date` count milliseconds.
+Seconds since `1970-01-01T00:00:00Z`, ignoring leap seconds. JavaScript and Java's `Date` count milliseconds.
 
 See: [date(1)](https://man7.org/linux/man-pages/man1/date.1.html)
 
@@ -122,8 +118,7 @@ SELECT strftime('%Y-%m-%d', 'now');      -- SQLite
 SELECT FORMAT(GETDATE(), 'yyyy-MM-dd');  -- SQL Server
 ```
 
-MySQL and SQLite copy strftime tokens; PostgreSQL and SQL Server use their
-own patterns.
+MySQL and SQLite copy strftime tokens; PostgreSQL and SQL Server use their own patterns.
 
 See: [PostgreSQL formatting](https://www.postgresql.org/docs/current/functions-formatting.html)
 
@@ -134,9 +129,7 @@ format   Date -> String   # tokens: %Y-%m-%d
 parse    String -> Date   # the same pattern, or a parser
 ```
 
-Parsing and formatting share a pattern in strftime, Moment, Go, and Java,
-but not everywhere: JavaScript's `Date` reliably parses only ISO 8601, and
-PHP's `DateTime::createFromFormat` takes its own token set.
+Parsing and formatting share a pattern in strftime, Moment, Go, and Java, but not everywhere: JavaScript's `Date` reliably parses only ISO 8601, and PHP's `DateTime::createFromFormat` takes its own token set.
 
 See: [Date.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
 
@@ -154,8 +147,7 @@ new Intl.DateTimeFormat('en-GB', {
 date.toISOString()       // 2013-06-05T23:05:00.000Z
 ```
 
-`Intl` is for humans and follows the locale; `toISOString()` is always
-UTC and always ISO 8601.
+`Intl` is for humans and follows the locale; `toISOString()` is always UTC and always ISO 8601.
 
 See: [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
 
@@ -166,8 +158,7 @@ date('Y-m-d H:i:s');            // 2013-06-05 23:05:00
 date('D, d M Y', $timestamp);   // Wed, 05 Jun 2013
 ```
 
-PHP has its own tokens. `strftime()` was deprecated in PHP 8.1, so use
-`date()` or `DateTime::format()`.
+PHP has its own tokens. `strftime()` was deprecated in PHP 8.1, so use `date()` or `DateTime::format()`.
 
 See: [PHP date()](https://www.php.net/manual/en/function.date.php)
 
@@ -179,8 +170,7 @@ t.Format(time.RFC3339)
 t.Format("Mon, 02 Jan 2006")
 ```
 
-A Go layout is a sample date, not a pattern: `Mon Jan 2 15:04:05 MST 2006`.
-Change the sample to change the output.
+A Go layout is a sample date, not a pattern: `Mon Jan 2 15:04:05 MST 2006`. Change the sample to change the output.
 
 See: [time.Format](https://pkg.go.dev/time#Time.Format)
 
@@ -192,8 +182,7 @@ DateTimeFormatter.ISO_LOCAL_DATE.format(now);
 DateTimeFormatter.RFC_1123_DATE_TIME.format(now);
 ```
 
-`yyyy` is the calendar year; `YYYY` is the week-based year, which differs
-near New Year.
+`yyyy` is the calendar year; `YYYY` is the week-based year, which differs near New Year.
 
 See: [DateTimeFormatter](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html)
 
@@ -207,8 +196,7 @@ f.string(from: date)
 ISO8601DateFormatter().string(from: date)
 ```
 
-`DateFormatter` follows Unicode TR35 patterns. `ISO8601DateFormatter` is
-the safe way to write ISO 8601.
+`DateFormatter` follows Unicode TR35 patterns. `ISO8601DateFormatter` is the safe way to write ISO 8601.
 
 See: [DateFormatter](https://developer.apple.com/documentation/foundation/dateformatter)
 

@@ -236,8 +236,7 @@ REVOKE INSERT ON app.* FROM 'app'@'localhost';
 DROP USER 'app'@'localhost';
 ```
 
-Host `%` matches any host; prefer `localhost` for local clients. Accounts default
-to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
+Host `%` matches any host; prefer `localhost` for local clients. Accounts default to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
 
 See: [CREATE USER](https://dev.mysql.com/doc/refman/9.7/en/create-user.html), [GRANT](https://dev.mysql.com/doc/refman/9.7/en/grant.html)
 
@@ -267,7 +266,7 @@ See: [Using roles](https://dev.mysql.com/doc/refman/9.7/en/roles.html)
 
 ### Reset root password
 
-Stop the running server first, then start recovery mode.
+#### Stop and start recovery
 
 ```bash
 sudo systemctl stop mysql   # or: /etc/init.d/mysql stop
@@ -275,16 +274,20 @@ sudo mysqld_safe --user=mysql --skip-grant-tables --skip-networking &
 mysql -u root
 ```
 
+#### Set the password
+
 ```sql
 FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_secret';
 ```
 
+#### Shut down recovery
+
 ```bash
 mysqladmin -u root -p shutdown
 ```
 
-Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
+Stop the running server first, then start recovery mode. Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
 
 See: [How to reset the root password](https://dev.mysql.com/doc/refman/9.7/en/resetting-permissions.html)
 

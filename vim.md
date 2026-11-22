@@ -254,8 +254,6 @@ Operators
 
 ### Usage
 
-Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
-
 <!-- {: .-setup} -->
 
 | Operator | Motion |
@@ -264,6 +262,8 @@ Operators let you operate in a range of text (defined by *motion*). These are pe
 | Operator | Motion |
 
 <!-- {: .-css-breakdown} -->
+
+Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 
 See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 
@@ -291,8 +291,6 @@ See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 
 ### Examples
 
-Combine operators with *motions* to use them.
-
 <!-- {: .-setup} -->
 
 | Shortcut               | Description                               |
@@ -303,6 +301,8 @@ Combine operators with *motions* to use them.
 | _2_`dd`                | Delete 2 lines                            |
 | `d`_ip_                | Delete a text object _(inside paragraph)_ |
 | _(in visual mode)_ `d` | Delete selection                          |
+
+Combine operators with *motions* to use them.
 
 See: `:help motion.txt`
 

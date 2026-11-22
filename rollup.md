@@ -50,13 +50,13 @@ keywords:
 
 ### Install locally
 
-#### Terminal
-
 ```bash
 npm install --save-dev rollup
 ```
 
-#### Check version
+See: [Installing Rollup locally](https://rollupjs.org/tutorial/#installing-rollup-locally)
+
+### Check version
 
 ```bash
 npx rollup --version
@@ -64,7 +64,7 @@ npx rollup --version
 
 Use `npx` for local commands without a global install.
 
-See: [Installing Rollup locally](https://rollupjs.org/tutorial/#installing-rollup-locally)
+See: [CLI reference](https://rollupjs.org/command-line-interface/)
 
 ### Bundle from the CLI
 

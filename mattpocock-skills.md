@@ -4,7 +4,7 @@ subtitle: Spec-to-PR agent workflow
 category: Agents
 tier: t2
 updated: 2026-11-22
-last_verified_with: mattpocock-skills 1.3.2
+last_verified_with: mattpocock-skills 1.3.2.
 fragments:
   - "/grill-with-docs"
   - "/to-spec"
@@ -112,8 +112,8 @@ See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 | `/to-spec` | seam check confirmed, spec published `ready-for-agent` |
 | `/to-tickets` | numbered breakdown approved, demoable slices with blocking edges |
 | `/implement` | typecheck, single tests, full suite once, review, commit |
-| `/code-review` | resolvable fixed point, non-empty diff, Standards and Spec reports |
-| `/pr` | body has Summary, before/after Evidence, door and blast radius |
+| `/code-review` | resolvable point, non-empty diff, Standards and Spec reports |
+| `/pr` | body: Summary, before/after Evidence, door, blast radius |
 
 See: [Flow map](https://www.aihero.dev/skills-ask-matt)
 
@@ -146,8 +146,8 @@ See: [Router](https://www.aihero.dev/skills-ask-matt)
 | Command | Role |
 | --- | --- |
 | `/triage` | Moves incoming issues through state roles to `ready-for-agent` |
-| `/handoff` | Writes a portable summary into the OS temp dir |
-| `/retro` | Suggests changes to the agent's environment after a session |
+| `/handoff` | Portable summary in the OS temp dir |
+| `/retro` | Suggests environment changes after a session |
 
 See: [Triage](https://www.aihero.dev/skills-triage)
 

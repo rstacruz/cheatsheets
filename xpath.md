@@ -145,14 +145,6 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
-<style>
-/* ensure tables align */
-table.xp {table-layout: fixed;}
-table.xp tr>:nth-child(1) {width: 35%;}
-table.xp tr>:nth-child(2) {width: auto;}
-table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
-</style>
-
 ### Class check
 
 ```bash
@@ -213,20 +205,23 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 
 ### Steps
 
+#### Element and predicates
+
 ```bash
 //div
 //div[@name='box']
 //*[@id='link']
 ```
 
-A step may have an element name (`div`) and [predicates](#predicates) (`[...]`). Both are optional.
-They can also be these other things:
+#### Node tests
 
 ```bash
 //a/text()     #=> text nodes
 //a/@href      #=> href attributes
 //a/*          #=> child elements
 ```
+
+A step may have an element name (`div`) and [predicates](#predicates) (`[...]`); it can also name text nodes, attributes, or child elements.
 
 See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
 
@@ -246,6 +241,8 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Operators
 
+#### Comparison
+
 ```bash
 # Comparison
 //a[@id = "xyz"]
@@ -253,11 +250,15 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //a[@price > 25]
 ```
 
+#### Logic
+
 ```bash
 # Logic (and/or)
 //div[@id="head" and position()=2]
 //div[(h1 or p) and not(@hidden)]
 ```
+
+#### Arithmetic
 
 ```bash
 # Arithmetic (div and mod, not / and %)
@@ -272,18 +273,20 @@ See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
 ### Using nodes
 
+#### Count nodes
+
 ```bash
 # Use them inside functions
 //ul[count(li) > 2]
 //ul[count(li[@class='hide']) > 0]
 ```
 
+#### Test for children
+
 ```bash
 # This returns `<ul>` that has a `<li>` child
 //ul[li]
 ```
-
-You can use nodes inside predicates.
 
 See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
@@ -356,6 +359,8 @@ See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-
 
 ### String functions
 
+#### Functions
+
 ```bash
 contains()              # //font[contains(@class, 'head')]
 starts-with()           # //font[starts-with(@class, 'head')]
@@ -369,6 +374,8 @@ translate()             # translate('ABC', 'ABC', 'abc') => 'abc'
 string()                # string(//a/@href) => '/home'
 ```
 
+#### Case-insensitive match
+
 ```bash
 # Case-insensitive text match
 //button[contains(
@@ -377,6 +384,8 @@ string()                # string(//a/@href) => '/home'
   'go'
 )]
 ```
+
+#### Suffix match
 
 ```bash
 # href ends with .pdf
@@ -428,13 +437,15 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 
 ### Child axis
 
+#### Default axis
+
 ```bash
 # both the same
 //ul/li/a
 //child::ul/child::li/child::a
 ```
 
-`child::` is the default axis. This makes `//a/b/c` work.
+#### Predicates
 
 ```bash
 # both the same
@@ -443,11 +454,15 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //ul[child::li]
 ```
 
+#### Counting children
+
 ```bash
 # both the same
 //ul[count(li) > 2]
 //ul[count(child::li) > 2]
 ```
+
+`child::` is the default axis. This makes `//a/b/c` work.
 
 See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child)
 
@@ -517,18 +532,19 @@ See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 
 ### Find a parent
 
+#### Direct child
+
 ```bash
 //section[h1[@id='section-name']]
 ```
 
-Finds a `<section>` that directly contains `h1#section-name`.
+#### Any descendant
 
 ```bash
 //section[.//h1[@id='section-name']]
 ```
 
-Finds a `<section>` that contains `h1#section-name` anywhere.
-The leading `.` makes the inner path relative to the section.
+The first finds a `<section>` that directly contains `h1#section-name`; the second finds one that contains it anywhere, with the leading `.` making the inner path relative to the section.
 
 See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child), [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#descendant-or-self)
 

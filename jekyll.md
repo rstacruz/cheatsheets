@@ -361,9 +361,9 @@ See: [Pagination](https://jekyllrb.com/docs/pagination/)
 ### Permalinks
 
 ```yaml
-permalink: date   # /:year/:month/:day/:title.html
-permalink: pretty # /:year/:month/:day/:title/
-permalink: none   # /:title/
+permalink: date   # /:categories/:year/:month/:day/:title:output_ext
+permalink: pretty # /:categories/:year/:month/:day/:title/
+permalink: none   # /:categories/:title:output_ext
 ```
 
 A post can override this with its own `permalink` in front matter.

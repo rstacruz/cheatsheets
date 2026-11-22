@@ -126,7 +126,7 @@ bat -H 2:4 hello.py
 bat -H :3 hello.py
 ```
 
-`-H` gives the selected lines a background highlight; its ranges use the same form as `-r`.
+`-H` highlights a background behind the selected lines. It accepts line numbers and ranges such as `:N`, `N:` and `N:+M`.
 
 See: `bat --help` (--highlight-line)
 

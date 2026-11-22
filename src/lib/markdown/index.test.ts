@@ -296,6 +296,51 @@ describe('kramdown tables', () => {
   })
 })
 
+describe('mermaid diagrams', () => {
+  it('renders a titled fence as a diagram figure', async () => {
+    const input = [
+      '```mermaid title="Hook anatomy"',
+      'flowchart LR',
+      '  A["A"] --> B["B"]',
+      '```'
+    ].join('\n')
+    const { html } = await renderMarkdown(input)
+    expect(html).toContain(
+      '<figure class="MermaidDiagram" data-mermaid-diagram="">'
+    )
+    expect(html).toContain(
+      '<pre class="mermaid MermaidDiagram__source">flowchart LR\n  A["A"] --> B["B"]\n</pre>'
+    )
+    expect(html).toContain(
+      '<figcaption class="MermaidDiagram__caption">Hook anatomy</figcaption>'
+    )
+    expect(html).not.toContain('language-mermaid')
+    expect(html).not.toContain('token ')
+  })
+
+  it('falls back to accTitle, then a hidden caption', async () => {
+    const titled = await renderMarkdown(
+      '```mermaid\nflowchart LR\n  accTitle: Acc title\n  A --> B\n```'
+    )
+    expect(titled.html).toContain(
+      '<figcaption class="MermaidDiagram__caption">Acc title</figcaption>'
+    )
+
+    const untitled = await renderMarkdown(
+      '```mermaid\nflowchart LR\n  A --> B\n```'
+    )
+    expect(untitled.html).toContain(
+      '<figcaption class="MermaidDiagram__caption MermaidDiagram__caption--hidden">Diagram</figcaption>'
+    )
+  })
+
+  it('does not touch other fenced languages', async () => {
+    expect((await renderMarkdown('```ruby\nx\n```')).html).toBe(
+      '<pre><code class="language-ruby">x\n</code></pre>'
+    )
+  })
+})
+
 describe('typography', () => {
   it('leaves punctuation as written', async () => {
     expect((await renderMarkdown('a -- b --- c ... "q" \'s\'')).html).toBe(

@@ -41,10 +41,26 @@ links:
 
 ### Anatomy
 
-```
-Event          Matcher group     Handler
-PreToolUse  →  "Edit|Write"  →  command
-Notification → ""             →  command
+```mermaid title="Event to handler"
+flowchart LR
+  accTitle: Hook anatomy
+  accDescr: PreToolUse uses Edit|Write; Notification an empty matcher.
+  subgraph event [Event]
+    direction TB
+    PreToolUse["PreToolUse"]
+    Notification["Notification"]
+  end
+  subgraph matcher [Matcher group]
+    direction TB
+    EditWrite["Edit|Write"]
+    Empty["#quot;#quot;"]
+  end
+  subgraph handler [Handler]
+    direction TB
+    Command["command"]
+  end
+  PreToolUse --> EditWrite --> Command
+  Notification --> Empty --> Command
 ```
 
 A hook event fires at a lifecycle point. Its matcher group filters the event, then matching handlers run in parallel.

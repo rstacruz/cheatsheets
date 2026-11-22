@@ -139,6 +139,7 @@ const headingStyles = {
   @import '../styles/markdown/a-em.css';
   @import '../styles/markdown/code.css';
   @import '../styles/markdown/headings.css';
+  @import '../styles/markdown/mermaid.css';
   @import '../styles/markdown/p.css';
   @import '../styles/markdown/table.css';
   @import '../styles/markdown/ul.css';
@@ -154,8 +155,10 @@ const headingStyles = {
   import { setupNoPreview } from '~/scripts/v2017/behaviors_2/no-preview'
   import { setupAnchors } from '~/scripts/v2017/behaviors_2/anchors'
   import { setupLineHighlights } from '~/scripts/v2017/behaviors_2/line-highlights'
+  import { setupMermaid } from '~/scripts/v2017/behaviors_2/mermaid'
 
   setupNoPreview()
   setupAnchors()
   setupLineHighlights()
+  setupMermaid()
 </script>

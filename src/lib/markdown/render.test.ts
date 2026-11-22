@@ -213,3 +213,55 @@ it('keeps link rows out of a list that ends the intro', async () => {
   expect(html).not.toContain('<li><p>one')
   expect(html).toContain('<li><a href="./docs">Docs</a>')
 })
+
+describe('inline highlights', () => {
+  const fenced = (code: string[], spec: string) =>
+    [
+      '```python',
+      ...code,
+      '```',
+      '',
+      `<!-- {: data-highlight="${spec}"} -->`
+    ].join('\n')
+
+  it('wraps the matching text, not the whole line', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'save_screenshot')
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight">save_screenshot</span>'
+    )
+    expect(html).not.toContain('<span class="inline-highlight">driver')
+  })
+
+  it('wraps matches that cross Prism tokens', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'driver.save_screenshot')
+    )
+    expect(html).toContain('<span class="inline-highlight">driver</span>')
+    expect(html).toContain('<span class="inline-highlight">.</span>')
+    expect(html).toContain(
+      '<span class="inline-highlight">save_screenshot</span>'
+    )
+  })
+
+  it('accepts several comma-separated tokens', async () => {
+    const { html } = await render(
+      fenced(
+        ['driver.save_screenshot("page.png")', 'pdf = driver.print_page()'],
+        'save_screenshot, print_page'
+      )
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight">save_screenshot</span>'
+    )
+    expect(html).toContain('<span class="inline-highlight">print_page</span>')
+  })
+
+  it('leaves a block alone when no text matches', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'wait_for')
+    )
+    expect(html).not.toContain('inline-highlight')
+  })
+})

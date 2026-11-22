@@ -461,6 +461,7 @@ element = driver.find_element(
 element.screenshot("body.png")
 pdf = driver.print_page(pp.PrintOptions())
 ```
+<!-- {: data-highlight="save_screenshot"} -->
 
 Full-page capture needs Firefox classic or WebDriver BiDi; `print_page()` returns a PDF string.
 

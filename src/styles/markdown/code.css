@@ -61,6 +61,11 @@
     margin-top: 0;
   }
 
+  /* Inline highlight: `data-highlight` in a fenced block */
+  & .inline-highlight {
+    background: rgb(20 175 131 / 12%);
+  }
+
   & .line-highlight::before,
   & .line-highlight::after {
     display: none;

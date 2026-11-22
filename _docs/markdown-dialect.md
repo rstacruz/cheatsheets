@@ -70,7 +70,7 @@ are fine.
 Use fenced code blocks; indented code is rejected by CI.
 
 - Put the language on the fence: ` ```ruby `.
-- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-line="1,3-5"` highlights lines, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
+- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-line="1,3-5"` highlights lines, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
 - Keep code lines at 70 characters or less (42 inside `.-three-column`).
 
 ````md
@@ -79,6 +79,8 @@ puts "hi"
 ```
 <!-- {: .-setup data-line="1"} -->
 ````
+
+`data-highlight` takes a comma-separated list of literal strings and tints every occurrence inside the block. Use it to point at one API name without shading its whole line.
 
 A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
 

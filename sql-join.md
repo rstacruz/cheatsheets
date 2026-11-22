@@ -30,14 +30,14 @@ keywords:
   - full outer join
   - cross join
 intro: |
-  SQL joins combine rows from two or more table references. Match columns with `ON` or `USING`, or pair every row with `CROSS JOIN`.
+  SQL joins combine rows from tables. Match columns with `ON` or `USING`, or pair rows with `CROSS JOIN`. Sample tables are listed below.
 links:
   - title: PostgreSQL join tutorial
     url: https://www.postgresql.org/docs/current/tutorial-join.html
   - title: SQLite SELECT and joins
     url: https://www.sqlite.org/lang_select.html
   - title: MySQL JOIN syntax
-    url: https://dev.mysql.com/doc/refman/8.4/en/join.html
+    url: https://dev.mysql.com/doc/refman/9.7/en/join.html
 ---
 
 ## Inner joins
@@ -131,7 +131,7 @@ NULL  104
 
 Every right row survives, including order 104 with no customer.
 
-See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
 ### Full outer join
 
@@ -180,7 +180,7 @@ Conditions in `ON` keep unmatched left rows; `WHERE` would drop them.
 
 See: [PostgreSQL JOIN clauses](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
-## Other joins
+## Join variations
 
 ### Cross join
 
@@ -218,11 +218,11 @@ Cy        Ada
 Dee       Bob
 ```
 
-Alias the same table twice to match rows within it.
+Alias the same table twice to match rows within it; employees with no manager (Ada) are dropped.
 
 See: [PostgreSQL self-joins](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-### Multiple tables
+### Join three tables
 
 ```sql
 SELECT c.name, o.order_id, s.status
@@ -244,7 +244,7 @@ Each `JOIN` adds a table; conditions can reference earlier ones.
 
 See: [PostgreSQL joining multiple tables](https://www.postgresql.org/docs/current/tutorial-join.html)
 
-## Patterns
+## Common patterns
 
 ### Find unmatched rows
 
@@ -267,7 +267,7 @@ A left join plus `IS NULL` finds customers without orders.
 
 See: [PostgreSQL join reference](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
-### Full join without FULL
+### Emulate a full join
 
 ```sql
 SELECT c.name, o.order_id FROM customers AS c
@@ -292,7 +292,7 @@ NULL  104
 
 MySQL has no `FULL OUTER JOIN`; union a left and a right join.
 
-See: [MySQL UNION syntax](https://dev.mysql.com/doc/refman/8.4/en/union.html)
+See: [MySQL UNION syntax](https://dev.mysql.com/doc/refman/9.7/en/union.html)
 
 ## Dialect notes
 
@@ -355,7 +355,7 @@ order_id  status
 
 `JOIN`, `LEFT`, and `RIGHT` work; emulate `FULL` with `UNION ALL`.
 
-See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
 ## Reference
 

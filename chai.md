@@ -13,7 +13,7 @@ links:
     url: https://www.chaijs.com/
   - title: Assertion API
     url: https://www.chaijs.com/api/
-description: "Chai cheatsheet: expect, should and assert assertions for Node and browser tests."
+description: "Chai cheatsheet: expect, should and assert styles for Node and browser tests."
 ---
 
 ## Expect

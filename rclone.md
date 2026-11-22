@@ -1,7 +1,7 @@
 ---
 title: rclone
 seo_title: rclone cheatsheet — commands, remotes, sync
-description: "rclone cheatsheet: config, list remotes, copy, sync, check and important flags."
+description: "rclone cheatsheet: config, list remotes, copy, sync, check and general flags."
 subtitle: Cloud storage sync tool
 category: Networking
 ---

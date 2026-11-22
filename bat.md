@@ -224,7 +224,7 @@ bat -r 2:4 hello.py
 ```
 <!-- {: .-box-chars} -->
 
-`:40` starts at the top, `40:` runs to the end, and `30:+10` prints ten lines from 30.
+`:40` starts at the top, `40:` runs to the end, and `30:+10` prints lines 30 through 40.
 
 See: `bat --help` (-r)
 

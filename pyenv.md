@@ -45,15 +45,18 @@ links:
 
 ## Getting started
 
+<!-- {: .-three-column} -->
+
 ### Install
 
 ```bash
-curl -fsSL https://pyenv.run | bash   # installer
-brew install pyenv                    # Homebrew
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv   # manual
+curl -fsSL https://pyenv.run | bash
+brew install pyenv
+git clone https://github.com/pyenv/\
+pyenv.git ~/.pyenv
 ```
 
-The pyenv.run installer bundles pyenv-doctor, pyenv-update, and pyenv-virtualenv. Most Python versions are built from source.
+The pyenv.run installer bundles pyenv-doctor, pyenv-update, and pyenv-virtualenv; Homebrew and a Git checkout work too. Most Python versions are built from source.
 
 See: [Installation](https://github.com/pyenv/pyenv#installation), [Build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
 
@@ -81,6 +84,8 @@ See: [pyenv init](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-i
 See: [Commands reference](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md)
 
 ## Python versions
+
+<!-- {: .-three-column} -->
 
 ### Available versions
 
@@ -145,6 +150,8 @@ See: [pyenv shell](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-
 
 ## Shims
 
+<!-- {: .-three-column} -->
+
 ### How shims work
 
 pyenv puts its `shims` directory first on `PATH`. Each shim forwards `python`, `pip`, and other commands to the selected version; missing commands fall through to `system`.
@@ -175,10 +182,13 @@ See: [pyenv rehash](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv
 
 ## Virtual environments
 
+<!-- {: .-three-column} -->
+
 ### pyenv-virtualenv
 
 ```bash
-git clone https://github.com/pyenv/pyenv-virtualenv.git \
+git clone https://github.com/pyenv/\
+pyenv-virtualenv.git \
   "$(pyenv root)/plugins/pyenv-virtualenv"
 ```
 

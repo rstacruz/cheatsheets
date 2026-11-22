@@ -6,26 +6,24 @@ updated: 2026-11-18
 last_verified_with: "Claude Code slash commands from the official commands reference."
 tier: t1
 fragments:
-  - "/help"
-  - "/compact"
-  - "/context"
-  - "/plan"
-  - "/goal"
-  - "/resume"
-  - "/rewind"
-  - "/branch"
+  - "/claude-api"
+  - "CLAUDE.md"
+  - "/ultrareview"
   - "/code-review"
-  - "/diff"
-  - "/background"
+  - "--fix"
+  - "/subtask <task>"
+  - "/permissions"
+  - "/compact"
+  - "/resume"
   - "/fork"
   - "/tasks"
-  - "/permissions"
+  - "/background"
   - "/memory"
   - "/mcp"
   - "/model"
   - "/status"
-  - "/usage"
   - "/skills"
+  - "/team-onboarding"
 keywords:
   - Slash commands
   - Commands
@@ -192,67 +190,67 @@ See: [Commands](https://code.claude.com/docs/en/commands)
 
 #### Files and memory
 
-| Command       | Description                     |
-| ------------- | ------------------------------- |
-| `/init`       | Generate a starter CLAUDE.md    |
-| `/memory`     | Edit memory files               |
-| `/add-dir`    | Add a working directory         |
-| `/cd`         | Move the session directory      |
-| `/permissions`| Allow, ask, and deny rules      |
-| `/hooks`      | View hook configurations        |
+| Command        | Description                     |
+| -------------- | ------------------------------- |
+| `/init`        | Generate a starter CLAUDE.md    |
+| `/memory`      | Edit memory files               |
+| `/add-dir`     | Add a working directory         |
+| `/cd`          | Move the session directory      |
+| `/permissions` | Allow, ask, and deny rules      |
+| `/hooks`       | View hook configurations        |
 
 #### Extensions
 
-| Command          | Description                    |
-| ---------------- | ------------------------------ |
-| `/mcp`           | Manage MCP connections         |
-| `/plugin`        | Manage plugins                 |
-| `/reload-plugins`| Apply plugin changes           |
-| ---------------- | ------------------------------ |
-| `/agents`        | Create or manage subagents     |
-| `/skills`        | List and filter skills         |
-| `/reload-skills` | Rescan skill directories       |
-| `/doctor`        | Run a setup checkup            |
-| `/debug`         | Diagnose runtime issues        |
-| `/import`        | Import another agent's setup   |
-| `/ide`           | Manage IDE integrations        |
-| `/chrome`        | Configure Chrome integration   |
+| Command           | Description                    |
+| ----------------- | ------------------------------ |
+| `/mcp`            | Manage MCP connections         |
+| `/plugin`         | Manage plugins                 |
+| `/reload-plugins` | Apply plugin changes           |
+| ----------------- | ------------------------------ |
+| `/agents`         | Create or manage subagents     |
+| `/skills`         | List and filter skills         |
+| `/reload-skills`  | Rescan skill directories       |
+| `/doctor`         | Run a setup checkup            |
+| `/debug`          | Diagnose runtime issues        |
+| `/import`         | Import another agent's setup   |
+| `/ide`            | Manage IDE integrations        |
+| `/chrome`         | Configure Chrome integration   |
 
 See: [Memory](https://code.claude.com/docs/en/memory)
 
 ### Integrations
 
-| Command               | Description                     |
-| --------------------- | ------------------------------- |
-| `/install-github-app` | Install the Claude GitHub App   |
-| `/install-slack-app`  | Install the Claude Slack app    |
+| Command               | Description                       |
+| --------------------- | --------------------------------- |
+| `/install-github-app` | Install the Claude GitHub App     |
+| `/install-slack-app`  | Install the Claude Slack app      |
 | `/web-setup`          | Connect GitHub for cloud sessions |
-| `/remote-control`     | Control from claude.ai          |
-| --------------------- | ------------------------------- |
-| `/setup-bedrock`      | Configure Amazon Bedrock        |
-| `/setup-vertex`       | Configure Google Cloud          |
-| `/team-onboarding`    | Generate a team onboarding guide|
-| `/list-agents`        | List messageable sessions       |
+| `/remote-control`     | Control from claude.ai            |
+| --------------------- | --------------------------------- |
+| `/setup-bedrock`      | Configure Amazon Bedrock          |
+| `/setup-vertex`       | Configure Google Cloud            |
+| `/team-onboarding`    | Generate a team onboarding guide  |
+| `/list-agents`        | List messageable sessions         |
 
 See: [Claude Code on the web](https://code.claude.com/docs/en/claude-code-on-the-web)
 
 ### Bundled skills
 
-| Command                 | Description                    |
-| ----------------------- | ------------------------------ |
-| `/run`                  | Launch and drive your app      |
-| `/verify`               | Prove a change works           |
-| `/run-skill-generator`  | Teach `/run` your project      |
-| `/deep-research`        | Research with cited sources    |
-| `/dataviz`              | Design charts and dashboards   |
-| `/design`               | Draft UI artboards             |
-| ----------------------- | ------------------------------ |
-| `/slides`               | Build a presentation           |
-| `/claude-api`           | Load Claude API reference      |
-| `/claude-in-chrome`     | Drive a task in the browser    |
-| `/update-config`        | Apply a settings change        |
-| `/fewer-permission-prompts` | Build an allowlist        |
-| `/artifacts`            | List and attach artifacts      |
+| Command                     | Description                    |
+| --------------------------- | ------------------------------ |
+| `/run`                      | Launch and drive your app      |
+| `/verify`                   | Prove a change works           |
+| `/run-skill-generator`      | Teach `/run` your project      |
+| `/deep-research`            | Research with cited sources    |
+| `/dataviz`                  | Design charts and dashboards   |
+| `/design`                   | Draft UI artboards             |
+| --------------------------- | ------------------------------ |
+| `/slides`                   | Build a presentation           |
+| `/claude-api`               | Load Claude API reference      |
+| `/claude-in-chrome`         | Drive a task in the browser    |
+| `/update-config`            | Apply a settings change        |
+| `/fewer-permission-prompts` | Build an allowlist             |
+| `/artifacts`                | List and attach artifacts      |
 
 Type `/` to see every skill your install ships. See: [Skills](https://code.claude.com/docs/en/skills)
 

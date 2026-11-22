@@ -120,37 +120,37 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 
 ### Flags
 
-| Flag                              | Description                   |
-| --------------------------------- | ----------------------------- |
-| `-m, --model <model>`             | Choose the model              |
-| `-p, --profile <name>`            | Layer a profile over config   |
-| ---                               | ---                           |
-| `-s, --sandbox <mode>`            | Set the sandbox policy        |
+| Flag                              | Description                             |
+| --------------------------------- | --------------------------------------- |
+| `-m, --model <model>`             | Choose the model                        |
+| `-p, --profile <name>`            | Layer a profile over config             |
+| --------------------------------- | --------------------------------------- |
+| `-s, --sandbox <mode>`            | Set the sandbox policy                  |
 | `-a, --ask-for-approval <policy>` | `on-request` or `never`; no `untrusted` |
-| `-C, --cd <dir>`                  | Set the working directory     |
-| `--add-dir <dir>`                 | Grant another writable folder |
-| `--worktree`                      | Run in a managed git worktree |
-| ---                               | ---                           |
-| `--search`                        | Enable live web search        |
-| `-i, --image <file>`              | Attach images to the prompt   |
-| `-c key=value`                    | Override any config value     |
+| `-C, --cd <dir>`                  | Set the working directory               |
+| `--add-dir <dir>`                 | Grant another writable folder           |
+| `--worktree`                      | Run in a managed git worktree           |
+| --------------------------------- | --------------------------------------- |
+| `--search`                        | Enable live web search                  |
+| `-i, --image <file>`              | Attach images to the prompt             |
+| `-c key=value`                    | Override any config value               |
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Other flags
 
-| Flag                                         | Description                    |
-| -------------------------------------------- | ------------------------------ |
-| `--oss`                                      | Use a local open-source model  |
+| Flag                                         | Description                                   |
+| -------------------------------------------- | --------------------------------------------- |
+| `--oss`                                      | Use a local open-source model                 |
 | `--local-provider <provider>`                | Local backend for `--oss`: lmstudio or ollama |
 | `--approve-for-me`                           | Auto-review approvals; replaces `--full-auto` |
-| `--no-alt-screen`                            | Keep output in terminal scrollback |
-| ---                                          | ---                            |
-| `--enable <feature>`                         | Enable optional features       |
-| `--disable <feature>`                        | Turn an optional feature off   |
-| `--no-daemon`                                | Skip the shared background server |
-| `--strict-config`                            | Reject unknown config keys     |
-| `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
+| `--no-alt-screen`                            | Keep output in terminal scrollback            |
+| -------------------------------------------- | --------------------------------------------- |
+| `--enable <feature>`                         | Enable optional features                      |
+| `--disable <feature>`                        | Turn an optional feature off                  |
+| `--no-daemon`                                | Skip the shared background server             |
+| `--strict-config`                            | Reject unknown config keys                    |
+| `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing                 |
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -294,18 +294,18 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 
 #### Session
 
-| Shortcut    | Description                        |
-| ----------- | ---------------------------------- |
-| `Ctrl+C`    | Close the session                  |
-| `Ctrl+R`    | Search prompt history              |
-| ---         | ---                                |
-| `Ctrl+O`    | Copy the latest response           |
-| `Ctrl+L`    | Clear the terminal view            |
+| Shortcut    | Description                            |
+| ----------- | -------------------------------------- |
+| `Ctrl+C`    | Close the session                      |
+| `Ctrl+R`    | Search prompt history                  |
+| ----------- | -------------------------------------- |
+| `Ctrl+O`    | Copy the latest response               |
+| `Ctrl+L`    | Clear the terminal view                |
 | `Ctrl+G`    | Edit the prompt in `$VISUAL`/`$EDITOR` |
-| ---         | ---                                |
-| `Esc` `Esc` | Edit the previous message and fork |
-| `Alt+R`     | Toggle raw scrollback              |
-| `Up` `Down` | Restore draft history              |
+| ----------- | -------------------------------------- |
+| `Esc` `Esc` | Edit the previous message and fork     |
+| `Alt+R`     | Toggle raw scrollback                  |
+| `Up` `Down` | Restore draft history                  |
 
 <!-- {: .-shortcuts} -->
 
@@ -336,12 +336,16 @@ Paste an image into the composer. See: [Image inputs](https://learn.chatgpt.com/
 
 ### Config file
 
+#### Locations
+
 ```bash
 ~/.codex/config.toml            # user settings
 .codex/config.toml              # project settings (trusted projects)
 $CODEX_HOME/<name>.config.toml  # profile, selected with --profile
 /etc/codex/config.toml          # system defaults (Unix)
 ```
+
+#### Settings
 
 ```toml
 model = "gpt-6.1-sol"

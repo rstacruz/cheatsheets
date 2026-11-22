@@ -6,6 +6,9 @@ updated: 2026-11-15
 last_verified_with: "herdr 0.9.5."
 tier: t1
 fragments:
+  - "herdr agent"
+  - "herdr agent wait"
+  - "herdr agent read"
   - "agent start"
   - "agent prompt"
   - "agent wait"
@@ -16,10 +19,10 @@ fragments:
   - "working"
   - "blocked"
   - "done"
-  - "herdr agent"
   - "--timeout"
   - "--kind claude"
   - "--until working"
+  - "--lines 120"
 keywords:
   - coding agents
   - agent states
@@ -27,9 +30,7 @@ keywords:
   - integrations
   - terminal
 intro: |
-  Herdr detects coding agents inside panes, tracks their `idle`, `working`,
-  `blocked`, `done`, and `unknown` states, and rolls state up to tabs and
-  workspaces. This reference covers the `herdr agent` command group.
+  Herdr detects coding agents inside panes, tracks their `idle`, `working`, `blocked`, `done`, and `unknown` states, and rolls state up to tabs and workspaces. This reference covers the `herdr agent` command group.
 links:
   - title: Agents
     url: https://herdr.dev/tui/docs/agents/
@@ -40,72 +41,6 @@ links:
   - title: Herdr cheatsheet
     url: "./herdr"
 ---
-
-## Supported agents
-
-### Integration and detection
-
-- Herdr supports the agent, or the agent supports Herdr
-- Either way you see `idle`, `working`, and `blocked`, and can wait on it from scripts
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
-
-### A–C
-
-| Agent | Kind | Notes |
-| --- | --- | --- |
-| Amp | `amp` | detected only |
-| Antigravity CLI | `agy` | integration; install `antigravity-cli` |
-| Claude Code | `claude` | integration |
-| Cline | `cline` | detected only, less tested |
-| Codex | `codex` | integration |
-| --- | --- | --- |
-| Command Code | — | reports its own state |
-| Crush | — | reports its own state |
-| Cursor Agent CLI | `cursor` | integration |
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
-
-### D–K
-
-| Agent | Kind | Notes |
-| --- | --- | --- |
-| Devin CLI | `devin` | integration |
-| Droid | `droid` | integration |
-| Gemini CLI | `gemini` | detected only, less tested |
-| GitHub Copilot CLI | `copilot` | integration |
-| Grok CLI | `grok` | integration |
-| --- | --- | --- |
-| Hermes Agent | `hermes` | integration |
-| Kilo Code CLI | `kilo` | integration; reports state |
-| Kimi Code CLI | `kimi` | integration; reports state |
-| Kiro CLI | `kiro` | detected; reports state |
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
-
-### L–Q
-
-| Agent | Kind | Notes |
-| --- | --- | --- |
-| Letta Code | `letta` | integration; CLI install only |
-| Maki | `maki` | detected only |
-| MastraCode | `mastracode` | integration; state needs it |
-| Muse Code | `muse` | reports its own state |
-| OMP | `omp` | integration; state needs it |
-| --- | --- | --- |
-| OpenCode | `opencode` | integration; reports state |
-| Pi | `pi` | integration; reports state |
-| Prime Agent | — | reports its own state |
-| Qoder CLI | `qodercli` | integration |
-| Qwen Code | `qwen` | integration |
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
-
-### Unrecognized agents
-
-An agent that reports its resume command returns in the same session after a restart. Unrecognized agents still run as plain terminals; prefix a wrapper with `HERDR_AGENT=claude` so Herdr sees the agent.
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
 ## Agents
 
@@ -219,7 +154,6 @@ herdr agent attach reviewer --takeover   # another client owns input
 Herdr validates keys before writing bytes. Inspect a blocked agent with `agent get` and `agent read`. `attach` takes over the terminal; detach with `ctrl+b q`, and send a literal `ctrl+b` as `ctrl+b ctrl+b`.
 
 [Herdr keys cheatsheet](./herdr-keys)
-
 <!-- {: .-crosslink} -->
 
 ### Patterns
@@ -261,6 +195,72 @@ herdr agent read reviewer --source detection --lines 40
 Herdr returns JSON; extract IDs with `jq`, and target a live agent name or explicit pane ID rather than the UI-focused pane.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#recipes)
+
+## Supported agents
+
+### Integration and detection
+
+- Herdr supports the agent, or the agent supports Herdr
+- Either way you see `idle`, `working`, and `blocked`, and can wait on it from scripts
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### A–C
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Amp | `amp` | detected only |
+| Antigravity CLI | `agy` | integration; install `antigravity-cli` |
+| Claude Code | `claude` | integration |
+| Cline | `cline` | detected only, less tested |
+| Codex | `codex` | integration |
+| --- | --- | --- |
+| Command Code | — | reports its own state |
+| Crush | — | reports its own state |
+| Cursor Agent CLI | `cursor` | integration |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### D–K
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Devin CLI | `devin` | integration |
+| Droid | `droid` | integration |
+| Gemini CLI | `gemini` | detected only, less tested |
+| GitHub Copilot CLI | `copilot` | integration |
+| Grok CLI | `grok` | integration |
+| --- | --- | --- |
+| Hermes Agent | `hermes` | integration |
+| Kilo Code CLI | `kilo` | integration; reports state |
+| Kimi Code CLI | `kimi` | integration; reports state |
+| Kiro CLI | `kiro` | detected; reports state |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### L–Q
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Letta Code | `letta` | integration; CLI install only |
+| Maki | `maki` | detected only |
+| MastraCode | `mastracode` | integration; state needs it |
+| Muse Code | `muse` | reports its own state |
+| OMP | `omp` | integration; state needs it |
+| --- | --- | --- |
+| OpenCode | `opencode` | integration; reports state |
+| Pi | `pi` | integration; reports state |
+| Prime Agent | — | reports its own state |
+| Qoder CLI | `qodercli` | integration |
+| Qwen Code | `qwen` | integration |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### Unrecognized agents
+
+An agent that reports its resume command returns in the same session after a restart. Unrecognized agents still run as plain terminals; prefix a wrapper with `HERDR_AGENT=claude` so Herdr sees the agent.
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
 
 ## Integrations
 

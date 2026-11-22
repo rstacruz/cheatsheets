@@ -109,7 +109,7 @@ changeset
 |> validate_acceptance(:terms)
 ```
 
-Validations run only on fields present in the changeset.
+Most validations skip fields absent from `changes`; `validate_required/3` checks them too.
 
 ### Constraints
 

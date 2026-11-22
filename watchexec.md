@@ -16,9 +16,10 @@ links:
     url: https://github.com/watchexec/watchexec/blob/main/doc/watchexec.1.md
 ---
 
-## Watch and run
+## Getting started
+<!-- {: .-three-column} -->
 
-### Any change
+### Run a command
 
 ```bash
 $ watchexec -- echo ran
@@ -27,49 +28,43 @@ ran
 [Command was successful]
 ```
 
-The command runs once at startup, then after each change. Stop with `Ctrl+C`.
+Runs once at startup, then after each change. Stop with `Ctrl+C`.
 
-### Command flags
+### By extension
 
 ```bash
-watchexec -w src -- rsync -a src dest
+watchexec -e js,jsx npm test
 ```
 
-Use `--` before flags meant for the command.
+`-e` takes comma-separated extensions or repeated flags.
 
-### File extensions
-
-```bash
-watchexec --exts js,jsx -- npm test
-```
-
-`-e` accepts comma-separated extensions or repeated flags.
-
-### Selected paths
+### In selected paths
 
 ```bash
-watchexec -w lib -w test -- npm test
+watchexec -w lib -w test \
+  npm test
 ```
 
 Without `-w`, the current directory is watched recursively.
 
-### Delayed and first-change runs
-
-#### Wait after events
+### Wait for a change
 
 ```bash
-watchexec --delay-run 1s -- make
+watchexec -p -- make
 ```
 
-#### First change only
+`-p` skips the startup run.
+
+### After a short delay
 
 ```bash
-watchexec --postpone -- make
+watchexec -d 200ms -- make
 ```
 
-`--postpone` skips the startup run and waits for a change.
+`-d` coalesces bursts; the default is 50ms.
 
 ## Filter events
+<!-- {: .-three-column} -->
 
 ### Include by glob
 
@@ -128,15 +123,64 @@ watchexec --print-events -- make
 
 Prints the events that triggered each run.
 
-## Long-running commands
+## Long-running services
+<!-- {: .-three-column} -->
 
 ### Restart on change
 
 ```bash
-watchexec --restart -- node server.js
+watchexec -r -- node server.js
 ```
 
 `-r` restarts a command that is still running.
+
+### Signal on change
+
+```bash
+watchexec --signal SIGHUP -- \
+  nginx -g 'daemon off;'
+```
+
+`--signal` implies `-o signal`; `--stop-signal` controls restart's stop signal.
+
+### Fail fast
+
+```bash
+watchexec --exit-on-error -- npm test
+```
+
+Exits on the first non-zero command result.
+
+## Command control
+<!-- {: .-three-column} -->
+
+### Command flags
+
+```bash
+watchexec -w src -- \
+  rsync -a src dest
+```
+
+`--` separates watchexec flags from the command's flags.
+
+### Shell
+
+```bash
+watchexec --shell=bash -- \
+  'echo $BASH_VERSION'
+```
+
+Use `-n` or `--shell=none` to execute the program directly.
+
+### Quiet and clear
+
+```bash
+watchexec --clear --quiet -- make
+```
+
+`-c` clears the screen; `-q` hides the runner's status lines.
+
+## Process control
 
 ### Busy updates
 
@@ -154,15 +198,6 @@ watchexec -o queue -- npm test
 | `signal`     | Send the `--signal` signal      |
 <!-- {: .-headers} -->
 
-### Signal instead of restart
-
-```bash
-watchexec --signal SIGHUP -- \
-  nginx -g 'daemon off;'
-```
-
-`--signal` implies `-o signal`; `--stop-signal` controls restart's stop signal.
-
 ### Stop and timeouts
 
 #### Restart timeout
@@ -179,39 +214,16 @@ watchexec --timeout 30s -- ./long-job
 
 `--stop-signal` sets the shutdown signal (default SIGTERM); `--timeout` ends a run that takes too long.
 
-### Fail fast
-
-```bash
-watchexec --exit-on-error -- npm test
-```
-
-Exits on the first non-zero command result.
-
 ## Interaction and output
+<!-- {: .-three-column} -->
 
 ### Keypress controls
 
 ```bash
-watchexec --interactive -- npm test
+watchexec -I -- npm test
 ```
 
 With a TTY: `r` restart, `s` stop, `p` pause, `q` quit.
-
-### Shell
-
-```bash
-watchexec --shell=bash -- 'echo $BASH_VERSION'
-```
-
-Use `-n` or `--shell=none` to execute the program directly.
-
-### Quiet and clear
-
-```bash
-watchexec --clear --quiet -- make
-```
-
-`-c` clears the screen; `-q` hides the runner's status lines.
 
 ### Changed paths
 
@@ -230,6 +242,7 @@ watchexec --only-emit-events
 Emits JSON events to stdout without running a command.
 
 ## Install
+<!-- {: .-three-column} -->
 
 ### Package managers
 
@@ -245,7 +258,11 @@ See [known packages](https://github.com/watchexec/watchexec/blob/main/doc/packag
 cargo install watchexec-cli
 ```
 
-The Cargo package is `watchexec-cli`; prebuilt binaries are on [GitHub releases](https://github.com/watchexec/watchexec/releases/latest).
+The Cargo package is `watchexec-cli`.
+
+### Prebuilt binaries
+
+[GitHub releases](https://github.com/watchexec/watchexec/releases/latest) has archives for Linux, macOS, and Windows.
 
 ## Also see
 

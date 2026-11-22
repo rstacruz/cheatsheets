@@ -2,7 +2,6 @@
 title: PostgreSQL JSON
 subtitle: Types, operators and functions
 category: Databases
-prism_languages: [sql]
 updated: 2026-11-22
 last_verified_with: PostgreSQL 19.0 (postgres:19 Docker image), psql 19.0
 keywords: [postgres, jsonb, jsonpath, json functions]
@@ -71,7 +70,7 @@ SELECT '{"tags":["dev"]}'::jsonb ? 'tags' AS has_key,    -- t
 | Operator      | Test                          |
 | ---           | ---                           |
 | `?` _text_    | Top-level key or array item   |
-| `?\|` _text[]_ | Any of the keys or items     |
+| <code>?&#124;</code> _text[]_ | Any of the keys or items     |
 | `?&` _text[]_ | All of the keys or items      |
 | `@>` _jsonb_  | Left contains right           |
 | `<@` _jsonb_  | Left is contained in right    |
@@ -117,10 +116,12 @@ SELECT jsonb_set('{"a":1}'::jsonb, '{b}', '2', false) AS no_add;
 SELECT jsonb_set_lax('{"a":1}'::jsonb, '{b}', NULL,
   true, 'use_json_null') AS set_null;
 -- {"a": 1, "b": null}
+SELECT jsonb_strip_nulls(
+  '{"a":1,"b":null,"c":{"d":null}}') AS clean;
+-- {"a": 1, "c": {}}
 ```
 
-`jsonb_set` creates a missing final key by default; `false` disables it.
-`jsonb_set_lax` decides what an SQL `NULL` replacement does.
+`jsonb_set` creates a missing final key by default; `false` disables it. `jsonb_set_lax` handles SQL `NULL` replacements, and `jsonb_strip_nulls` drops null object fields.
 
 ### Insert values
 
@@ -133,6 +134,18 @@ SELECT jsonb_insert(
 ```
 
 Inserts before the array element at the path; `true` inserts after it.
+
+### Subscript assignment
+
+```sql
+SELECT ('{"a":{"b":1}}'::jsonb)['a']['b']; -- 1
+CREATE TEMP TABLE documents (data jsonb);
+INSERT INTO documents VALUES ('{"a":1}');
+UPDATE documents SET data['a'] = '2';
+SELECT data FROM documents; -- {"a": 2}
+```
+
+Subscripting creates missing objects and pads arrays with `null` (14+).
 
 ## Build JSON
 
@@ -236,6 +249,34 @@ SELECT jsonb_path_query_array('{"a":[1,2,3]}',
 
 `$` is the document root, `@` the current item, `$min` a supplied variable.
 
+## SQL/JSON functions
+
+### Scalar extraction
+
+```sql
+SELECT JSON_VALUE('{"a":123.45}'::jsonb, '$.a' RETURNING float) AS n;
+-- 123.45
+SELECT JSON_EXISTS(
+  '{"a":[1,2,3]}'::jsonb, '$.a[*] ? (@ > 2)') AS found;
+-- t
+SELECT JSON_QUERY('{"a":[1,2]}'::jsonb, '$.a') AS arr;
+-- [1, 2]
+```
+
+`JSON_VALUE` returns a scalar, `JSON_EXISTS` a boolean, `JSON_QUERY` JSON (17+).
+
+### Rows from JSON
+
+```sql
+SELECT * FROM JSON_TABLE(
+  '[{"a":1},{"a":2}]'::jsonb, '$[*]'
+  COLUMNS (id FOR ORDINALITY, n int PATH '$.a')) AS jt;
+-- 1 | 1
+-- 2 | 2
+```
+
+`JSON_TABLE` turns JSON arrays into typed rows (17+).
+
 ## Index JSON
 
 ### GIN indexes
@@ -258,13 +299,12 @@ CREATE INDEX users_path_idx ON users
 
 | Operator            | `jsonb_ops` | `jsonb_path_ops` |
 | ---                 | ---         | ---              |
-| `?`, `?\|`, `?&`    | Yes         | No               |
+| `?`, <code>?&#124;</code>, `?&`    | Yes         | No               |
 | `@>`, `@?`, `@@`    | Yes         | Yes              |
 
 <!-- {: .-headers} -->
 
-`jsonb_path_ops` is smaller and faster for containment and path matches, but
-cannot answer key-existence queries.
+`jsonb_path_ops` is smaller and faster for containment and path matches, but cannot answer key-existence queries.
 
 ## References
 

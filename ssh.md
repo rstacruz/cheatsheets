@@ -1,0 +1,242 @@
+---
+title: SSH
+subtitle: Secure remote shell and tunnels
+category: Networking
+tier: t2
+updated: 2026-11-23
+last_verified_with: "OpenSSH 10.6p1."
+fragments:
+  - "ssh user@host"
+  - "ssh -p 2222"
+  - "ssh -i key"
+  - "-l deploy"
+  - "-L 8080:80"
+  - "-R 9000:5432"
+  - "-D 1080"
+  - "-J bastion"
+  - "-N"
+  - "-v"
+  - "~/.ssh/config"
+  - "IdentityFile"
+  - "ProxyJump"
+  - "ed25519"
+  - "ssh-add -l"
+  - "known_hosts"
+intro: |
+  OpenSSH's `ssh` opens encrypted remote shells and tunnels. This sheet covers logins, keys, config, forwarding, and diagnostics.
+links:
+  - title: OpenSSH manuals
+    url: https://www.openssh.com/manual.html
+  - title: ssh(1)
+    url: https://man.openbsd.org/ssh.1
+  - title: ssh_config(5)
+    url: https://man.openbsd.org/ssh_config.5
+---
+
+## Connect
+<!-- {: .-three-column} -->
+
+### Log in
+<!-- {: .-prime} -->
+
+```bash
+ssh user@host
+ssh -p 2222 user@host
+ssh host  # uses a config alias
+```
+
+`-l` sets the login name and `-i` selects a key. The destination may also be `ssh://user@host:2222`.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### Run a command
+
+```bash
+ssh host uptime
+ssh host 'ls -l /var/log'
+ssh -t host htop
+```
+
+Arguments after the destination form one command sent to the remote shell. `-t` forces a TTY.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### Escape sequences
+
+| Key   | Action               |
+| ----- | -------------------- |
+| `~.`  | Disconnect           |
+| `~^Z` | Suspend the session  |
+| `~#`  | List forwarded ports |
+| `~?`  | Show all escapes     |
+
+<!-- {: .-shortcuts} -->
+
+Escapes work only at the start of a line in a TTY session.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+## Keys
+<!-- {: .-three-column} -->
+
+### Create a key
+
+```bash
+ssh-keygen -t ed25519 -C "me@example.com"
+```
+
+This writes `~/.ssh/id_ed25519` and its `.pub` file. Set a passphrase when prompted.
+
+See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
+
+### Install a key
+
+```bash
+ssh-copy-id -i ~/.ssh/id_ed25519.pub \
+  user@host
+```
+
+The public key is appended to the remote `authorized_keys`.
+
+See: [ssh-copy-id(1)](https://man.openbsd.org/ssh-copy-id.1)
+
+### Inspect a key
+
+```bash
+ssh-keygen -lf ~/.ssh/id_ed25519.pub
+```
+
+Prints the bit length, fingerprint, comment, and algorithm.
+
+See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
+
+### Use an agent
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+ssh-add -l
+```
+
+The agent holds decrypted keys so passphrases are entered once.
+
+See: [ssh-agent(1)](https://man.openbsd.org/ssh-agent.1)
+
+## Config
+
+### Host aliases
+
+#### ~/.ssh/config
+
+```bash
+Host github
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+```
+
+`ssh github` now uses this user, host, and key.
+
+See: [ssh_config(5)](https://man.openbsd.org/ssh_config.5)
+
+### Wildcards
+
+```bash
+Host *.internal
+    User deploy
+    ProxyJump bastion
+
+Host prod.internal
+    HostName 10.0.0.5
+```
+
+The first matching block wins, so list specific hosts before wildcards.
+
+See: [ssh_config(5)](https://man.openbsd.org/ssh_config.5)
+
+### Effective configuration
+
+```bash
+$ ssh -G -F ./config github | grep -E '^(user|hostname|port) '
+user git
+hostname github.com
+port 22
+```
+
+`-G` resolves options and exits; `-F` checks the given file.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+## Forwarding
+<!-- {: .-three-column} -->
+
+### Local port
+
+```bash
+ssh -N -L 8080:localhost:80 user@host
+```
+
+Local port 8080 reaches port 80 as seen from `host`.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### Remote port
+
+```bash
+ssh -N -R 9000:localhost:5432 user@host
+```
+
+Port 9000 on `host` reaches port 5432 on the client.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### SOCKS proxy
+
+```bash
+ssh -N -D 1080 user@host
+```
+
+The client listens on 1080 and forwards through `host`.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### Jump host
+
+```bash
+ssh -J bastion internal
+```
+
+`-J` connects through `bastion`; `ProxyJump` does the same in config.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+## Troubleshoot
+<!-- {: .-three-column} -->
+
+### Verbose output
+
+```bash
+ssh -vvv user@host
+```
+
+Three `-v` flags give the most detail about config and authentication.
+
+See: [ssh(1)](https://man.openbsd.org/ssh.1)
+
+### Changed host key
+
+```bash
+ssh-keygen -R host
+```
+
+This removes stale keys from `known_hosts`. Verify the new fingerprint before reconnecting.
+
+See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
+
+## Also see
+
+[scp cheatsheet](./scp)
+<!-- {: .-crosslink} -->
+
+[rsync cheatsheet](./rsync)
+<!-- {: .-crosslink} -->

@@ -4,7 +4,7 @@ subtitle: Filter and transform text streams
 category: Shell
 tier: t2
 updated: 2026-11-23
-last_verified_with: "GNU coreutils 9.8 (sort, uniq, cut, tr, tee)."
+last_verified_with: "GNU coreutils 9.12 (sort, uniq, cut, tr, tee)."
 fragments:
   - "sort -u"
   - "sort -rn"
@@ -200,7 +200,7 @@ cy
 
 See: [cut invocation](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html)
 
-### By byte position
+### By character position
 
 ```bash
 $ cut -c1-3 colors.txt
@@ -212,7 +212,7 @@ blu
 red
 ```
 
-`-c` selects columns by position; `-c1-8` is a range, `-c5-` runs to the end.
+`-c` selects characters by position; `-b` selects bytes. `-c1-8` is a range, `-c5-` runs to the end.
 
 See: [cut invocation](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html)
 

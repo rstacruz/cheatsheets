@@ -87,11 +87,12 @@ See: [Paragraphs](https://spec.commonmark.org/0.31.2/#paragraphs)
 
 ```markdown
 ## Heading 2 ##
+## Heading 2 #######
 
 ####### Seven hashes
 ```
 
-Closing `#`s need a space before them; seven or more stay literal.
+Closing `#`s may be any length when preceded by a space; seven or more opening `#`s stay literal.
 
 See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 

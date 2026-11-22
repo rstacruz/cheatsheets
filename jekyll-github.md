@@ -40,17 +40,14 @@ bundle exec jekyll serve
 
 Use the `github-pages` version listed in [Dependency versions](https://pages.github.com/versions/); the gem pulls in matching Jekyll and plugin versions.
 
-### List plugins locally
+### Enable extra plugins
 
 ```yaml
 plugins:
-  - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-mentions
   - jekyll-redirect-from
 ```
 
-Pages enables its default plugins without this list. A local `jekyll build` needs each plugin listed, or Liquid reports `Unknown tag 'gist'`.
+Pages enables its default plugins without a `plugins` entry. Add other supported plugins here; the `github-pages` gem loads them for local builds.
 
 See: [Plugins](https://jekyllrb.com/docs/plugins/)
 
@@ -62,6 +59,8 @@ See: [Plugins](https://jekyllrb.com/docs/plugins/)
 | --- | --- | --- |
 | User | `username.github.io` | `username.github.io` |
 | Project | any name | `username.github.io/project` |
+
+<!-- {: .-headers} -->
 
 Set the source to a branch and folder (root or `/docs`) in repository settings. User sites need the `username.github.io` repository name.
 
@@ -210,7 +209,7 @@ redirect_to: https://example.com
 <meta http-equiv="refresh" content="0; url=https://example.com">
 ```
 
-Both keys can hold a single string instead of a list. The plugin also writes `_site/redirects.json`; set `redirect_from.json: false` to skip it.
+Both keys can hold a single string instead of a list. The plugin also writes `_site/redirects.json`; set `json: false` under `redirect_from` in `_config.yml` to skip it.
 
 See: [redirect_to](https://github.com/jekyll/jekyll-redirect-from#redirect-to)
 

@@ -84,7 +84,8 @@ See: [Newman CLI docs](https://learning.postman.com/docs/reference/newman-cli/co
 ### Select a folder
 
 ```bash
-$ newman run collection.json -e env.json --folder Health
+$ newman run collection.json -e env.json \
+    --folder Health --reporter-cli-no-summary
 newman
 
 Users API

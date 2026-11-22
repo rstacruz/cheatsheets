@@ -4,6 +4,7 @@ subtitle: JavaScript assertion library
 category: JavaScript testing
 weight: -3
 updated: 2026-11-22
+last_verified_with: "Chai 6.3.0 ESM; verified on Node 26.13.1 with chai-jquery 2.1.0 and jQuery 3.7.1 in a browser-like jsdom harness."
 intro: |
   [Chai](https://www.chaijs.com/) is a JavaScript assertion library with expect, should, and assert styles. Examples target Chai 6 and use ESM imports.
 links:
@@ -15,15 +16,17 @@ description: One-page reference to Chai's expect, should, and assert APIs.
 ---
 
 ## Expect
+<!-- {: .-three-column} -->
 
 ### Equality
 
 ```js
 import { expect } from 'chai'
 
-expect(2).to.equal(2)              // strict equality
+expect(2).to.equal(2)  // strict equality
 expect('2').not.to.equal(2)
-expect({ a: 1 }).to.eql({ a: 1 })  // deep equality
+expect({ a: 1 })
+  .to.eql({ a: 1 })  // deep equality
 expect([1, 2]).to.deep.equal([1, 2])
 ```
 
@@ -38,7 +41,8 @@ import { expect } from 'chai'
 
 expect('tea').to.be.a('string')
 expect([1, 2]).to.be.an('array')
-expect(new Error()).to.be.instanceOf(Error)
+expect(new Error())
+  .to.be.instanceOf(Error)
 expect(() => {}).to.be.a('function')
 ```
 
@@ -67,9 +71,11 @@ See: [ok](https://www.chaijs.com/api/bdd/#ok), [exist](https://www.chaijs.com/ap
 import { expect } from 'chai'
 
 expect([1, 2, 3]).to.include(2)
-expect({ a: 1, b: 2 }).to.include({ a: 1 })
+expect({ a: 1, b: 2 })
+  .to.include({ a: 1 })
 expect([1, 2]).to.have.members([2, 1])
-expect({ a: 1, b: 2 }).to.have.all.keys('a', 'b')
+expect({ a: 1, b: 2 })
+  .to.have.all.keys('a', 'b')
 expect([1, 2, 3]).to.have.lengthOf(3)
 expect([]).to.be.empty
 ```
@@ -81,11 +87,19 @@ See: [include](https://www.chaijs.com/api/bdd/#includeval-msg), [members](https:
 ```js
 import { expect } from 'chai'
 
-const user = { name: 'Ada', address: { city: 'London' } }
+const user = {
+  name: 'Ada',
+  address: { city: 'London' }
+}
 
-expect(user).to.have.property('name', 'Ada')
-expect(user).to.have.nested.property('address.city', 'London')
-expect({ x: { a: 1 } }).to.have.deep.property('x', { a: 1 })
+expect(user)
+  .to.have.property('name', 'Ada')
+expect(user)
+  .to.have.nested
+  .property('address.city', 'London')
+expect({ x: { a: 1 } })
+  .to.have.deep
+  .property('x', { a: 1 })
 ```
 
 See: [property](https://www.chaijs.com/api/bdd/#propertyname-val-msg), [nested](https://www.chaijs.com/api/bdd/#nested)
@@ -110,9 +124,12 @@ See: [within](https://www.chaijs.com/api/bdd/#withinstart-finish-msg), [closeTo]
 ```js
 import { expect } from 'chai'
 
-expect(() => { throw new TypeError('oops') })
+expect(() => {
+  throw new TypeError('oops')
+})
   .to.throw(TypeError, 'oops')
-expect(() => JSON.parse('bad')).to.throw(SyntaxError)
+expect(() => JSON.parse('bad'))
+  .to.throw(SyntaxError)
 expect(() => 1 + 1).to.not.throw()
 ```
 
@@ -151,6 +168,7 @@ cup.should.have.property('tea')
 See: [expect / should API](https://www.chaijs.com/api/bdd/)
 
 ## Assert
+<!-- {: .-three-column} -->
 
 ### Equality
 
@@ -218,8 +236,12 @@ import { assert } from 'chai'
 
 assert.property({ a: 1 }, 'a')
 assert.propertyVal({ a: 1 }, 'a', 1)
-assert.nestedProperty({ a: { b: 2 } }, 'a.b')
-assert.hasAllKeys({ a: 1, b: 2 }, ['a', 'b'])
+assert.nestedProperty(
+  { a: { b: 2 } }, 'a.b'
+)
+assert.hasAllKeys(
+  { a: 1, b: 2 }, ['a', 'b']
+)
 ```
 
 See: [property](https://www.chaijs.com/api/assert/#propertyobject-property-message)
@@ -243,7 +265,9 @@ See: [isAbove](https://www.chaijs.com/api/assert/#isabovevaluetocheck-valuetobea
 ```js
 import { assert } from 'chai'
 
-assert.throws(() => JSON.parse('bad'), SyntaxError)
+assert.throws(
+  () => JSON.parse('bad'), SyntaxError
+)
 assert.doesNotThrow(() => 1 + 1)
 ```
 

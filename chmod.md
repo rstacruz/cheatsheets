@@ -11,7 +11,7 @@ fragments:
   - "chmod -R"
   - "u+x"
   - "go-w"
-  - "a+r"
+  - "a+x"
   - "u=rw"
   - "--reference"
   - "-R"

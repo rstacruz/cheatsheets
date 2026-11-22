@@ -3,6 +3,7 @@ title: "Phoenix: Ecto"
 subtitle: Database wrapper for Elixir
 category: Elixir
 updated: 2026-11-22
+last_verified_with: "Current Ecto 3.14 / Phoenix 1.8 APIs; examples verified on Elixir 1.18.6 + Ecto 3.14.3 + SQLite."
 intro: |
   Ecto maps Elixir structs to a database and validates changes before persisting them. This reference covers schemas, changesets, Repo calls and queries.
 links:
@@ -12,7 +13,7 @@ links:
     url: https://hexdocs.pm/ecto/crud.html
 ---
 
-## Schemas
+## Create and read records
 
 ### Generating
 
@@ -22,6 +23,51 @@ $ mix phx.gen.context Accounts User users \
 ```
 
 Use `mix phx.gen.html` or `mix phx.gen.json` to add controllers and views.
+
+### Defining
+
+```elixir
+import Ecto.Changeset
+
+def changeset(user, attrs \\ %{}) do
+  user
+  |> cast(attrs, [:name, :email, :age])
+  |> validate_required([:name, :email])
+  |> validate_format(:email, ~r/@/)
+  |> validate_inclusion(:age, 18..100)
+  |> unique_constraint(:email)
+end
+```
+
+Cast external params with `cast/3`; use `change/2` for trusted values.
+
+### Writing
+
+```elixir
+{:ok, user} = Repo.insert(changeset)
+{:error, changeset} = Repo.insert(changeset)
+{:ok, user} = Repo.update(changeset)
+{:ok, user} = Repo.insert_or_update(changeset)
+{:ok, user} = Repo.delete(user)
+```
+
+`insert_or_update/2` updates when the struct was loaded from the database; otherwise it inserts.
+
+### Fetching
+
+```elixir
+Repo.get(User, 1)
+Repo.get_by(User, email: "john@example.com")
+Repo.get_by!(User, email: "john@example.com")
+Repo.get_by(User, email: "missing@example.com") #=> nil
+Repo.one(from p in Post, where: p.title == "Hello")
+Repo.exists?(Post)                #=> true
+Repo.aggregate(Post, :count, :id) #=> 3
+```
+
+`Repo.one/2` returns `nil` for no rows and raises for multiple; `one!/2` also raises for no rows.
+
+## Schemas
 
 ### Schema
 
@@ -84,23 +130,6 @@ many_to_many :tags, MyApp.Blog.Tag,
 <!-- {: .-left-align} -->
 
 ## Changesets
-
-### Defining
-
-```elixir
-import Ecto.Changeset
-
-def changeset(user, attrs \\ %{}) do
-  user
-  |> cast(attrs, [:name, :email, :age])
-  |> validate_required([:name, :email])
-  |> validate_format(:email, ~r/@/)
-  |> validate_inclusion(:age, 18..100)
-  |> unique_constraint(:email)
-end
-```
-
-Cast external params with `cast/3`; use `change/2` for trusted values.
 
 ### Validations
 
@@ -169,32 +198,6 @@ add_error(changeset, :name, "taken")
 `force_change/3` records a change even when the value is unchanged.
 
 ## Repo
-
-### Fetching
-
-```elixir
-Repo.get(User, 1)
-Repo.get_by(User, email: "john@example.com")
-Repo.get_by!(User, email: "john@example.com")
-Repo.get_by(User, email: "missing@example.com") #=> nil
-Repo.one(from p in Post, where: p.title == "Hello")
-Repo.exists?(Post)                #=> true
-Repo.aggregate(Post, :count, :id) #=> 3
-```
-
-`Repo.one/2` returns `nil` for no rows and raises for multiple; `one!/2` also raises for no rows.
-
-### Writing
-
-```elixir
-{:ok, user} = Repo.insert(changeset)
-{:error, changeset} = Repo.insert(changeset)
-{:ok, user} = Repo.update(changeset)
-{:ok, user} = Repo.insert_or_update(changeset)
-{:ok, user} = Repo.delete(user)
-```
-
-`insert_or_update/2` updates when the struct was loaded from the database; otherwise it inserts.
 
 ### Bulk
 

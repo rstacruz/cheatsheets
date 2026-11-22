@@ -16,6 +16,7 @@ updated: 2024-01-01
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
+- **Last verified with:** optional note (max 160 chars) recording the versions and runtime used to check examples. It hints to future updaters what needs re-verification.
 
 ### Fragments
 

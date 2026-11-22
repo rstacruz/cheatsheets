@@ -78,10 +78,23 @@ export const SheetFrontmatterSchema = z
       .describe(
         'Search keywords. Appears in meta descriptions, and helps in search.'
       ),
+    seo_title: z
+      .string()
+      .trim()
+      .max(60)
+      .optional()
+      .describe(
+        'Full <title> override (max 60 chars). Defaults to "<title> cheatsheet".'
+      ),
     description: z
       .string()
+      .trim()
+      .transform((value) => value.replace(/\s+/g, ' '))
+      .refine((value) => value.length <= 155, {
+        message: 'Description must be 155 characters or fewer'
+      })
       .optional()
-      .describe('Custom meta description. Takes precedence over keywords.'),
+      .describe('Full meta description, used verbatim (max 155 chars).'),
     deprecated: z
       .boolean()
       .optional()

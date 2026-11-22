@@ -40,7 +40,8 @@ export function getSEOPropsForHome() {
 export function getSEOPropsForPage(
   page: Pick<SheetPage, 'slug' | 'frontmatter'>
 ) {
-  const title = `${page.frontmatter.title} cheatsheet`
+  const title =
+    page.frontmatter.seo_title ?? `${page.frontmatter.title} cheatsheet`
   const description = getDescription(page)
   const image = getPageImage(page)
   const url = getPageURL(page)
@@ -79,6 +80,8 @@ export function getSEOPropsForPage(
  * Return a description for a page
  */
 
+export const MAX_DESCRIPTION = 155
+
 export function getDescription(page: {
   frontmatter: {
     title?: string
@@ -87,38 +90,32 @@ export function getDescription(page: {
     keywords?: string[]
   }
 }) {
-  const t = {
-    withDescriptionAndIntro: `{description} {intro}`,
-    withDescription: `{description} · One-page guide to {title}`,
-    withKeywordsAndIntro: `{keywords} · {intro}`,
-    withKeywords: `{keywords} · One-page guide to {title}`,
-    withIntro: `One-page guide to {title}: usage, examples, and more. {intro}`,
-    default: `The one-page guide to {title}: usage, examples, links, snippets, and more.`
+  const { title = '', description, intro, keywords = [] } = page.frontmatter
+
+  if (description) {
+    return clamp(toPlainText(description), MAX_DESCRIPTION)
   }
 
-  let fmt: string = t.default
+  const lead = title ? `${title} cheatsheet` : 'Cheatsheet'
+  const introText = toPlainText(intro ?? '')
 
-  if (page.frontmatter.description && page.frontmatter.intro) {
-    fmt = t.withDescriptionAndIntro
-  } else if (page.frontmatter.description) {
-    fmt = t.withDescription
-  } else if (page.frontmatter.keywords && page.frontmatter.intro) {
-    fmt = t.withKeywordsAndIntro
-  } else if (page.frontmatter.keywords) {
-    fmt = t.withKeywords
-  } else if (page.frontmatter.intro) {
-    fmt = t.withIntro
-  } else {
-    fmt = t.default
-  }
+  if (introText) return clamp(`${lead}. ${introText}`, MAX_DESCRIPTION)
 
-  return fmt
-    .replace('{title}', () => page.frontmatter.title ?? '')
-    .replace('{keywords}', () => (page.frontmatter.keywords ?? []).join(' · '))
-    .replace('{intro}', () => toPlainText(page.frontmatter.intro ?? ''))
-    .replace('{description}', () =>
-      toPlainText(page.frontmatter.description ?? '')
-    )
+  const tokens = keywords.slice(0, 5).join(', ')
+  if (tokens) return clamp(`${lead}: ${tokens}.`, MAX_DESCRIPTION)
+
+  return `${lead}: usage, examples, and snippets.`
+}
+
+/**
+ * Cut at a word boundary; never exceed max.
+ */
+
+function clamp(text: string, max: number) {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max - 1)
+  const at = cut.lastIndexOf(' ')
+  return (at > 0 ? cut.slice(0, at) : cut).replace(/[,;:.\s]+$/, '') + '…'
 }
 
 /**

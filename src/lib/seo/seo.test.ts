@@ -1,4 +1,4 @@
-import { getSEOPropsForPage, toPlainText } from './seo'
+import { getSEOPropsForPage, MAX_DESCRIPTION, toPlainText } from './seo'
 
 const slug = 'react'
 const title = 'React'
@@ -27,6 +27,38 @@ describe('getSEOPropsForPage()', () => {
   runTest({
     title: 'with keywords',
     input: { slug, frontmatter: { title, keywords } }
+  })
+  runTest({
+    title: 'with seo_title',
+    input: {
+      slug,
+      frontmatter: { title, seo_title: 'React cheatsheet — hooks' }
+    }
+  })
+
+  test('seo_title overrides the generated title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, seo_title: 'React cheatsheet — hooks' }
+    })
+    expect(output.title).toEqual('React cheatsheet — hooks')
+  })
+
+  test('uses the description verbatim, without the intro', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, description, intro: 'Intro text' }
+    })
+    expect(output.meta.description).toEqual(description)
+  })
+
+  test('clamps long descriptions', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, description: 'word '.repeat(50) }
+    })
+    expect(output.meta.description.length).toBeLessThanOrEqual(MAX_DESCRIPTION)
+    expect(output.meta.description.endsWith('…')).toBe(true)
   })
 
   function runTest({ title, input }: { title: string; input: any }) {

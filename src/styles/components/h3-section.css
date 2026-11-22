@@ -253,31 +253,15 @@ ul.-also-see.-also-see.-also-see {
   border-top: 0;
 }
 
-/* Variant: prose list — bold term floats beside a description that can hold code */
+/* Variant: prose list — bold term on its own line, description beneath */
 .h3-section > .body > ul.-prose-list > li {
-  display: flow-root;
-  padding-left: 16px;
+  padding: 8px 12px 8px 36px;
   overflow-wrap: break-word;
 }
 
-.h3-section > .body > ul.-prose-list > li::before {
-  display: none;
-}
-
 .h3-section > .body > ul.-prose-list > li > strong:first-child {
-  float: left;
-  width: min(13rem, 45%);
-  margin-right: 12px;
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 640px) {
-  .h3-section > .body > ul.-prose-list > li > strong:first-child {
-    float: none;
-    width: auto;
-    margin-right: 0;
-  }
+  display: block;
+  margin-bottom: 2px;
 }
 
 .h3-section.-intro {

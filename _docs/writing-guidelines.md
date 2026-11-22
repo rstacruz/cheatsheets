@@ -16,6 +16,7 @@ updated: 2024-01-01
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
+- **Last verified with:** optional note (max 160 chars) recording the versions and runtime used to check examples. It hints to future updaters what needs re-verification.
 
 ### Fragments
 
@@ -95,7 +96,7 @@ H3 content length:
 - PRE elements can have:
   - `<!-- {: .-setup} -->` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
-  - `<!-- {: .-three-column} -->` - use if the H3's are short, and if there are at least 3 H3's in the H2.
+  - `<!-- {: .-three-column} -->` - prefer for H2s with 3+ short H3 cards; wrap code rather than fall back to two columns.
   - `<!-- {: .-two-column} -->` - the default (don't add this since it's the default)
 
 ## Cross-linking sheets
@@ -211,7 +212,7 @@ Keypress columns get `.-shortcuts`. Use `.-shortcuts-right` when the key column 
 
 🤖 Check: `code/wrap-long-lines`.
 
-Code lines stay under 70 characters (42 in `.-three-column` sections). Wrap onto more lines rather than exceed the limit; add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`.
+Code lines stay under 70 characters (42 in `.-three-column` sections). Wrap onto more lines rather than exceed the limit; add `.-wrap` when a line still overflows, and break arrow bodies as `=> (` … `)`. Wrapping is never a reason to avoid `.-three-column`.
 
 ````js
 const fraction = (options) => (
@@ -278,6 +279,24 @@ Invalid input returns an error object.
 🤖 Check: `cards/size-limits`.
 
 Keep a card under four tables and 50 lines; split it before adding another table.
+
+### cards/prefer-three-column
+
+Prefer `.-three-column` for an H2 with three or more short cards. Column width isn't a reason to stay two-column: wrap code to 42 characters, using `\` continuations where the language allows.
+
+Skip when a card holds a wide table or wrapping breaks copy-paste (long quoted strings, JSON).
+
+````md
+## Manage
+<!-- {: .-three-column} -->
+
+### Configure
+
+```sh
+curl -fsSL https://example.com/config \
+  --output config.json
+```
+````
 
 ### workflow/verify-output-against-runtime
 

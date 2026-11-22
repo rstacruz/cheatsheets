@@ -2,212 +2,286 @@
 title: "Phoenix: Ecto"
 subtitle: Database wrapper for Elixir
 category: Elixir
-tags: [WIP]
-updated: 2017-08-30
+updated: 2026-11-22
+last_verified_with: "Current Ecto 3.14 / Phoenix 1.8 APIs; examples verified on Elixir 1.18.6 + Ecto 3.14.3 + SQLite."
+intro: |
+  Ecto maps Elixir structs to a database and validates changes before persisting them. This reference covers schemas, changesets, Repo calls and queries.
+links:
+  - title: Ecto documentation
+    url: https://hexdocs.pm/ecto
+  - title: Basic CRUD guide
+    url: https://hexdocs.pm/ecto/crud.html
 ---
 
-## Schemas
-
-<!-- {: .-three-column} -->
+## Create and read records
 
 ### Generating
 
 ```bash
-$ mix phx.gen.html \
-    Accounts \       # domain
-    Profile \        # schema
-    profiles \       # table name
-    email:string \
-    age:integer
+$ mix phx.gen.context Accounts User users \
+    name:string email:string age:integer
 ```
+
+Use `mix phx.gen.html` or `mix phx.gen.json` to add controllers and views.
+
+### Defining
+
+```elixir
+import Ecto.Changeset
+
+def changeset(user, attrs \\ %{}) do
+  user
+  |> cast(attrs, [:name, :email, :age])
+  |> validate_required([:name, :email])
+  |> validate_format(:email, ~r/@/)
+  |> validate_inclusion(:age, 18..100)
+  |> unique_constraint(:email)
+end
+```
+
+Cast external params with `cast/3`; use `change/2` for trusted values.
+
+### Writing
+
+```elixir
+{:ok, user} = Repo.insert(changeset)
+{:error, changeset} = Repo.insert(changeset)
+{:ok, user} = Repo.update(changeset)
+{:ok, user} = Repo.insert_or_update(changeset)
+{:ok, user} = Repo.delete(user)
+```
+
+`insert_or_update/2` updates when the struct was loaded from the database; otherwise it inserts.
+
+### Fetching
+
+```elixir
+Repo.get(User, 1)
+Repo.get_by(User, email: "john@example.com")
+Repo.get_by!(User, email: "john@example.com")
+Repo.get_by(User, email: "missing@example.com") #=> nil
+Repo.one(from p in Post, where: p.title == "Hello")
+Repo.exists?(Post)                #=> true
+Repo.aggregate(Post, :count, :id) #=> 3
+```
+
+`Repo.one/2` returns `nil` for no rows and raises for multiple; `one!/2` also raises for no rows.
+
+## Schemas
 
 ### Schema
 
 ```elixir
-defmodule Myapp.Accounts.User do
+defmodule MyApp.Accounts.User do
   use Ecto.Schema
 
   schema "users" do
-    field :name
+    field :name, :string
+    field :email, :string
     field :age, :integer
-    field :password, virtual: true
+    field :password, :string, virtual: true
 
-    timestamps()
+    has_many :posts, MyApp.Posts.Post
+    timestamps(type: :utc_datetime)
   end
 end
 ```
 
+### Associations
+
+```elixir
+belongs_to :user, MyApp.Accounts.User
+has_one :profile, MyApp.Accounts.Profile
+has_many :comments, MyApp.Blog.Comment
+many_to_many :tags, MyApp.Blog.Tag,
+  join_through: "posts_tags"
+```
+
+`has_many` and `many_to_many` are loaded with `preload:` in queries.
+
 ### Field types
 
-| Field |
+| Type |
 | --- |
 | `:id` |
-| `:binary` |
-| `:boolean` |
-| `:string` |
-| --- |
+| `:binary_id` |
 | `:integer` |
 | `:float` |
 | `:decimal` |
+| `:boolean` |
 | --- |
-| `{:array, inner_type}` |
+| `:string` |
+| `:binary` |
+| `:bitstring` |
 | `:map` |
+| `{:map, inner_type}` |
+| `{:array, inner_type}` |
+| --- |
+| `:date` |
+| `:time` |
+| `:time_usec` |
+| `:naive_datetime` |
+| `:naive_datetime_usec` |
+| `:utc_datetime` |
+| `:utc_datetime_usec` |
+| --- |
+| `:duration` |
 
 <!-- {: .-left-align} -->
 
 ## Changesets
 
-### Changesets
+### Validations
 
 ```elixir
-def changeset(user, params \\ :empty) do
-  %User{}
-  |> Ecto.Changeset.change   # basic casting to changeset
-
-  user
-  |> cast(params, ~w(name email), ~w(age)) # params to Changeset
-
-  |> validate_format(:email, ~r/@/)
-
-  |> validate_inclusion(:age, 18..100)
-  |> validate_exclusion(:role, ~w(admin superadmin))
-  |> validate_subset(:pets, ~w(cat dog parrot whale))
-
-  |> validate_length(:body, min: 1)
-  |> validate_length(:body, min: 1, max: 160)
-  |> validate_length(:partners, is: 2)
-
-  |> validate_number(:pi, greater_than: 3)
-  |> validate_number(:pi, less_than: 4)
-  |> validate_number(:pi, equal_to: 42)
-
-  |> validate_change(:title, fn _, _ -> [])
-  |> validate_confirmation(:password, message: "does not match")
-
-  |> unique_constraint(:email)
-  |> foreign_key_constraint(:post_id)
-  |> assoc_constraint(:post)      # ensure post_id exists
-  |> no_assoc_constraint(:post)   # negative (useful for deletions)
-end
+changeset
+|> validate_required([:name, :email])
+|> validate_format(:email, ~r/@/)
+|> validate_inclusion(:age, 18..100)
+|> validate_exclusion(:role, ["admin", "owner"])
+|> validate_subset(:pets, ["cat", "dog"])
+|> validate_length(:bio, min: 1, max: 160)
+|> validate_number(:price, greater_than: 0)
+|> validate_confirmation(:password)
+|> validate_acceptance(:terms)
 ```
 
-### Changeset fields
+Most validations skip fields absent from `changes`; `validate_required/3` checks them too.
+
+### Constraints
 
 ```elixir
-changeset.valid?
-changeset.errors     #=> [title: "empty"]
-
-changeset.changes    #=> %{}
-changeset.params[:title]
-
-changeset.required   #=> [:title]
-changeset.optional   #=> [:body]
+changeset
+|> unique_constraint(:email)
+|> foreign_key_constraint(:post_id)
+|> assoc_constraint(:post)
+|> no_assoc_constraint(:comments)
 ```
 
-### Updating
+Add matching database indexes or foreign keys; `assoc_constraint/3` needs a `belongs_to`.
+
+### Inspecting
 
 ```elixir
-changeset #(or model)
-|> change(title: "New title")
-|> change(%{ title: "New title" })
-|> put_change(:title, "New title")
-|> force_change(:title, "New title")
-|> update_change(:title, &(&1 <> "..."))
-
-|> delete_change(:title)
-|> merge(other_changeset)
-
-|> add_error(:title, "empty")
+changeset.valid?   #=> true
+changeset.errors   #=> []
+changeset.required #=> [:name, :email]
+changeset.changes
+#=> %{name: "Mary", email: "mary@example.com", age: 42}
+changeset.params
+#=> %{"age" => "42", "email" => "mary@example.com", "name" => "Mary"}
 ```
 
-### Getting
+### Reading values
 
 ```elixir
-get_change(changeset, :title)    #=> "hi" (if changed)
-get_field(changeset, :title)     #=> "hi" (even if unchanged)
-
-fetch_change(changeset, :title)  #=> {:ok, "hi"} | :error
-fetch_field(changeset, :title)   #=> {:changes | :model, "value"} | :error
+get_change(changeset, :name)   #=> "New"
+get_field(changeset, :name)    #=> "New"
+fetch_change(changeset, :name) #=> {:ok, "New"}
+fetch_field(changeset, :name)  #=> {:changes, "New"}
 ```
+
+`get_field/2` also reads the unchanged value from `changeset.data`.
+
+### Changing
+
+```elixir
+change(user, name: "New")
+put_change(changeset, :name, "New")
+force_change(changeset, :email, "forced@example.com")
+update_change(changeset, :age, &(&1 + 1))
+delete_change(changeset, :age)
+merge(changeset, other_changeset)
+add_error(changeset, :name, "taken")
+```
+
+`force_change/3` records a change even when the value is unchanged.
 
 ## Repo
 
-### Get one
+### Bulk
 
 ```elixir
-Repo.get(User, id)
-Repo.get_by(User, email: "john@hello.com")  #=> %User{} | nil
-
-# also get! get_by!
+Repo.insert_all(Post, [[title: "A"], [title: "B"]])
+Repo.update_all(Post, set: [title: "Title"])
+Repo.update_all(Post, inc: [views: 1])
+Repo.delete_all(from p in Post, where: p.id < 10)
 ```
 
-### Create/update
+Bulk calls bypass changesets and callbacks.
+
+### Transactions
 
 ```elixir
-changeset |> Repo.update
-changeset |> Repo.insert
-changeset |> Repo.insert_or_update
+Repo.transact(fn ->
+  with {:ok, _user} <- Repo.insert(user_changeset),
+       {:ok, post} <- Repo.insert(post_changeset) do
+    {:ok, post}
+  end
+end)
 ```
 
-```
-User
-|> Ecto.Changeset.change(%{name: "hi"})
-|> Repo.insert
-```
+The function must return `{:ok, value}` or `{:error, reason}`; `Repo.rollback/1` exits early.
 
-## Many
+## Queries
 
-### Queries
+### Keyword queries
 
 ```elixir
 from p in Post,
   where: p.title == "Hello",
-  where: [state: "Sweden"],
-
+  where: [views: 1],
+  order_by: [desc: p.inserted_at],
   limit: 1,
-  offset: 10,
-
-  order_by: c.name,
-  order_by: [c.name, c.title],
-  order_by: [asc: c.name, desc: c.title],
-
+  offset: 0,
   preload: [:comments],
-  preload: [comments: {c, likes: l}],
-
-  join: c in assoc(c, :comments),
-  join: p in Post, on: c.post_id == p.id,
-  group_by: p,
-
-  select: p,
-  select: {p.title, p.description},
-  select: [p.title, p.description],
+  select: p
 ```
 
-### Get many
+`from` builds a query without running it; pass it to `Repo.all/1`.
+
+### Piped queries
 
 ```elixir
-Repo.all(User)
-```
+title = "Hello"
 
-### Update many
-
-```elixir
-Repo.update_all(Post, set: [title: "Title"])
-Repo.update_all(Post, inc: [views: 1])
-```
-
-### Chaining `_all` with queries
-
-```elixir
-from(p in Post, where: p.id < 10)
-|> Repo.update_all(...)
-
-from(p in Post, where: p.id < 10)
+Post
+|> where([p], p.title == ^title)
+|> order_by([p], desc: p.id)
+|> limit(5)
+|> select([p], p.title)
 |> Repo.all()
+#=> ["Hello"]
 ```
+
+Use `^` for external values and `import Ecto.Query` for the macros.
+
+### Joining
+
+```elixir
+from p in Post,
+  join: c in assoc(p, :comments),
+  where: c.body == "Nice",
+  select: p
+```
+
+Use a defined association with `assoc/2`.
+
+### Grouping
+
+```elixir
+from(p in Post,
+  join: c in assoc(p, :comments),
+  group_by: p.id,
+  select: {p.title, count(c.id)})
+|> Repo.all()
+#=> [{"Hello", 1}]
+```
+
+Include the primary key when grouping joined rows.
 
 ## References
 
-<!-- {: .-one-column} -->
-
-- Based on Ecto 1.3.
+- [Ecto documentation](https://hexdocs.pm/ecto)
+- [Basic CRUD](https://hexdocs.pm/ecto/crud.html)
+- [Phoenix generators](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html)

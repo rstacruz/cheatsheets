@@ -80,8 +80,7 @@ export function rehypeMermaid() {
       const title = stringProperty(node.properties.dataDiagramTitle)
       const description = stringProperty(node.properties.dataDiagramDescription)
       const caption = title ?? 'Diagram'
-      const label = title ?? caption
-      const parts = [`${label}.`, 'Hover, focus, or tap to zoom.']
+      const parts = [`${caption}.`, 'Hover, focus, or tap to zoom.']
       if (description) parts.push(description)
 
       const frameProperties: Properties = {

@@ -80,7 +80,7 @@ puts "hi"
 <!-- {: .-setup data-line="1"} -->
 ````
 
-A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. They never count as a Prism language.
+A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
 
 - Add `title="..."` to the fence for the visible caption; it also names the diagram for assistive tech.
 - `accTitle:` and `accDescr:` inside the source are the fallbacks.

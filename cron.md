@@ -2,7 +2,7 @@
 title: Cron
 subtitle: Unix job scheduler
 category: CLI
-updated: 2024-03-17
+updated: 2026-11-22
 weight: -3
 ---
 

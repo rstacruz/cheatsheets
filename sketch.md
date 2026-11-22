@@ -367,6 +367,8 @@ See: [Align and layout](https://www.sketch.com/docs/shortcuts/mac/#align-and-lay
 
 <!-- {: .-shortcuts} -->
 
+With Include corners disabled, `⌃⌥⌘V` pastes with corners instead.
+
 See: [Style](https://www.sketch.com/docs/shortcuts/mac/#style)
 
 ### Export

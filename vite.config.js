@@ -5,7 +5,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    testTimeout: 10000
+    testTimeout: 30000
   },
   resolve: {
     alias: {

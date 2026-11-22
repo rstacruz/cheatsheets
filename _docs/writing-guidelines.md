@@ -203,7 +203,9 @@ CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress co
 
 🤖 Check: `tables/command-first`.
 
-In a table that lists slash commands, put the command in the first column and its description after it. A command mentioned inside prose does not count as a command column.
+In a table where a row has a cell made only of backticked code, put that code in the first column and its description after it. Commands, flags, values and paths all count.
+
+Code mentioned inside a description does not count as a code column.
 
 ````md
 | Command | Situation |

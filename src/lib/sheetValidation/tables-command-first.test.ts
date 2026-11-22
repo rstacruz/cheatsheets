@@ -4,8 +4,8 @@ import { SEP_LINE, scanFences } from './utils'
 
 type Finding = { line: number; text: string }
 
-/** A cell that starts with a backticked slash command, optionally with args */
-const COMMAND_CELL = /^\s*`\/[a-z][\w-]*(?:\s+[^`]*)?`/i
+/** A cell made only of backticked code tokens, optionally comma-separated */
+const CODE_CELL = /^\s*`[^`]+`(?:\s*,\s*`[^`]+`)*\s*$/
 
 function cellsOf(row: string) {
   return row
@@ -16,7 +16,7 @@ function cellsOf(row: string) {
     .map((cell) => cell.trim())
 }
 
-/** Flags table rows that put a slash command after another column */
+/** Flags table rows that put a code cell after another column */
 function findLateCommandCells(source: string): Finding[] {
   const lines = source.split('\n')
   const { fenced } = scanFences(lines)
@@ -42,12 +42,12 @@ function findLateCommandCells(source: string): Finding[] {
     ) {
       if (!SEP_LINE.test(lines[index])) {
         const column = cellsOf(lines[index]).findIndex((cell) =>
-          COMMAND_CELL.test(cell)
+          CODE_CELL.test(cell)
         )
         if (column > 0) {
           found.push({
             line: index + 1,
-            text: `command in column ${column + 1}; commands belong in the first column`
+            text: `code cell in column ${column + 1}; code belongs in the first column`
           })
         }
       }
@@ -68,7 +68,7 @@ describe('tables/command-first: findLateCommandCells()', () => {
     expect(findLateCommandCells(input)).toEqual([
       {
         line: 3,
-        text: 'command in column 2; commands belong in the first column'
+        text: 'code cell in column 2; code belongs in the first column'
       }
     ])
   })
@@ -91,11 +91,21 @@ describe('tables/command-first: findLateCommandCells()', () => {
     expect(findLateCommandCells(input)).toEqual([])
   })
 
-  test('ignores backticked paths in later columns', () => {
+  test('flags a non-command code cell that sits after the description', () => {
     const input = [
-      '| Package | Cache |',
+      '| Setting | Value |',
       '| --- | --- |',
-      '| npm | `/root/.npm` |'
+      '| Hook type | `command` |'
+    ].join('\n')
+    expect(findLateCommandCells(input)).toHaveLength(1)
+  })
+
+  test('allows a code mention at the start of a description', () => {
+    const input = [
+      '| Event | Fires when |',
+      '| --- | --- |',
+      '| `SessionStart` | Session begins or resumes |',
+      '| `DirectoryAdded` | `/add-dir` adds a directory |'
     ].join('\n')
     expect(findLateCommandCells(input)).toEqual([])
   })

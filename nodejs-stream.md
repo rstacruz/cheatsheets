@@ -11,36 +11,6 @@ links:
 updated: 2026-11-22
 ---
 
-## Stream types
-
-### Core types
-
-| Type          | Role                      |
-| ---           | ---                       |
-| `Readable`    | Source of data            |
-| `Writable`    | Destination for data      |
-| `Duplex`      | Both, independently       |
-| `Transform`   | Duplex that modifies data |
-| `PassThrough` | Transform that echoes     |
-
-See: [types of streams](https://nodejs.org/api/stream.html#types-of-streams)
-
-### Object mode
-
-```js
-import { Readable } from 'node:stream'
-
-const objects = new Readable({ objectMode: true, read() {} })
-const bytes = new Readable({ read() {} })
-
-console.log(objects.readableHighWaterMark)  // → 16
-console.log(bytes.readableHighWaterMark)    // → 65536
-```
-
-Object-mode marks count objects; byte streams count bytes, and string streams count UTF-16 code units.
-
-See: [object mode](https://nodejs.org/api/stream.html#object-mode)
-
 ## Reading streams
 
 ### Async iteration
@@ -56,7 +26,7 @@ for await (const chunk of Readable.from(['a', 'b', 'c'])) {
 // → c
 ```
 
-Async iterators install an error handler and end with the stream.
+`for await` attaches an error handler and stops when the stream ends.
 
 See: [async iterators](https://nodejs.org/api/stream.html#streams-compatibility-with-async-generators-and-async-iterators)
 
@@ -93,7 +63,7 @@ source.pause()   // stop emitting data
 source.resume()  // resume emitting data
 ```
 
-Streams start paused. `data`, `pipe()`, and `resume()` switch to flowing mode.
+`readableFlowing` is `null` until a reader attaches; `data`, `pipe()`, and `resume()` set it to `true`.
 
 See: [two reading modes](https://nodejs.org/api/stream.html#two-reading-modes)
 
@@ -193,7 +163,7 @@ pipeline(Readable.from(['a', 'b']), out, (err) => {
 // → done
 ```
 
-The callback version is exported from `node:stream` itself.
+`pipeline` is also available from `node:stream` as a callback function.
 
 See: [pipeline callback API](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-callback)
 
@@ -231,7 +201,7 @@ await pipeline(Readable.from([{ name: 'a' }, { name: 'b' }]),
 // → { total: 2 }
 ```
 
-Here `_transform()` emits one chunk per input; `_flush()` adds a final one. Transforms may emit zero or more chunks per input.
+`_transform()` emits one indexed chunk per input; `_flush()` appends a `{ total }` summary. A transform may emit zero or more chunks per input.
 
 See: [implementing a transform stream](https://nodejs.org/api/stream.html#implementing-a-transform-stream)
 
@@ -274,13 +244,13 @@ try {
 }
 ```
 
-Aborting destroys the pipeline. `stream.destroy(err)` also emits `error`, then `close`.
+Aborting destroys the pipeline. `stream.destroy(err)` emits `error` then `close`.
 
 See: [pipeline options](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options)
 
-### Web streams
+## Web streams
 
-#### To web
+### To web
 
 ```js
 import { Readable } from 'node:stream'
@@ -293,7 +263,9 @@ for await (const chunk of web) {
 // → b
 ```
 
-#### From web
+See: [Readable.toWeb()](https://nodejs.org/api/stream.html#streamreadabletowebstreamreadable-options)
+
+### From web
 
 ```js
 import { Writable } from 'node:stream'
@@ -307,9 +279,21 @@ node.end('hi')
 
 `Readable.fromWeb()` and `Writable.toWeb()` convert in the other direction.
 
-See: [web stream interoperability](https://nodejs.org/api/stream.html#streamreadablefromwebreadablestream-options)
+See: [Writable.fromWeb()](https://nodejs.org/api/stream.html#streamwritablefromwebwritablestream-options)
 
 ## Creating streams
+
+### Core types
+
+| Type          | Role                             |
+| ---           | ---                              |
+| `Readable`    | Source of data                   |
+| `Writable`    | Destination for data             |
+| `Duplex`      | Reads and writes independently   |
+| `Transform`   | Modifies chunks as they pass through |
+| `PassThrough` | Transform that echoes input      |
+
+See: [types of streams](https://nodejs.org/api/stream.html#types-of-streams)
 
 ### Readable
 
@@ -335,7 +319,7 @@ for await (const n of new Counter(3)) {
 // → 2
 ```
 
-`push(null)` ends the stream; `objectMode` allows non-Buffer values.
+`push(null)` ends the stream; `objectMode` lets it carry arbitrary values.
 
 See: [implementing a readable stream](https://nodejs.org/api/stream.html#implementing-a-readable-stream)
 
@@ -356,11 +340,11 @@ for await (const n of Readable.from(ticks())) {
 // → 3
 ```
 
-`Readable.from()` also accepts plain iterables such as arrays.
+`Readable.from()` wraps an async generator; plain iterables work too.
 
 See: [creating streams from async generators](https://nodejs.org/api/stream.html#creating-readable-streams-with-async-generators)
 
-### Duplex and PassThrough
+### PassThrough
 
 ```js
 import { PassThrough } from 'node:stream'
@@ -371,9 +355,25 @@ pass.end('ping')
 // → echo: ping
 ```
 
-`Duplex` reads and writes independently; `PassThrough` echoes what you write.
+`PassThrough` echoes every write back on its readable side.
 
 See: [PassThrough](https://nodejs.org/api/stream.html#class-streampassthrough)
+
+### Object mode
+
+```js
+import { Readable } from 'node:stream'
+
+const objects = new Readable({ objectMode: true, read() {} })
+const bytes = new Readable({ read() {} })
+
+console.log(objects.readableHighWaterMark)  // → 16
+console.log(bytes.readableHighWaterMark)    // → 65536
+```
+
+Use `objectMode` to carry arbitrary values. Its high-water mark counts items (16) instead of bytes (65536); string streams count UTF-16 code units.
+
+See: [object mode](https://nodejs.org/api/stream.html#object-mode)
 
 ## Also see
 

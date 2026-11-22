@@ -63,7 +63,21 @@
 
   /* Inline highlight: `data-highlight` in a fenced block */
   & .inline-highlight {
-    background: rgb(20 175 131 / 12%);
+    background: rgb(20 175 131 / 14%);
+    padding-block: 1px;
+  }
+
+  /* Only the outer fragments pad sideways, so split tokens stay contiguous */
+  & .inline-highlight--start {
+    padding-left: 2px;
+    border-start-start-radius: 3px;
+    border-end-start-radius: 3px;
+  }
+
+  & .inline-highlight--end {
+    padding-right: 2px;
+    border-start-end-radius: 3px;
+    border-end-end-radius: 3px;
   }
 
   & .line-highlight::before,

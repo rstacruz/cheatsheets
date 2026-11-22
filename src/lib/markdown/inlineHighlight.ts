@@ -61,11 +61,14 @@ export function findMatches(text: string, tokens: string[]): Match[] {
   return matches
 }
 
-function highlight(value: string): Element {
+function highlight(value: string, first: boolean, last: boolean): Element {
+  const className = [HIGHLIGHT_CLASS]
+  if (first) className.push(`${HIGHLIGHT_CLASS}--start`)
+  if (last) className.push(`${HIGHLIGHT_CLASS}--end`)
   return {
     type: 'element',
     tagName: 'span',
-    properties: { className: [HIGHLIGHT_CLASS] },
+    properties: { className },
     children: [{ type: 'text', value }]
   }
 }
@@ -90,7 +93,13 @@ function slice(
         value: value.slice(cursor - start, from - start)
       })
     }
-    pieces.push(highlight(value.slice(from - start, to - start)))
+    pieces.push(
+      highlight(
+        value.slice(from - start, to - start),
+        match.start >= start,
+        match.end <= end
+      )
+    )
     cursor = to
   }
 

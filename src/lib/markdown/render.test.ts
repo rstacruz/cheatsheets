@@ -229,19 +229,23 @@ describe('inline highlights', () => {
       fenced(['driver.save_screenshot("page.png")'], 'save_screenshot')
     )
     expect(html).toContain(
-      '<span class="inline-highlight">save_screenshot</span>'
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
     )
-    expect(html).not.toContain('<span class="inline-highlight">driver')
+    expect(html).not.toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">driver'
+    )
   })
 
-  it('wraps matches that cross Prism tokens', async () => {
+  it('pads only the outer fragments of a match crossing Prism tokens', async () => {
     const { html } = await render(
       fenced(['driver.save_screenshot("page.png")'], 'driver.save_screenshot')
     )
-    expect(html).toContain('<span class="inline-highlight">driver</span>')
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start">driver</span>'
+    )
     expect(html).toContain('<span class="inline-highlight">.</span>')
     expect(html).toContain(
-      '<span class="inline-highlight">save_screenshot</span>'
+      '<span class="inline-highlight inline-highlight--end">save_screenshot</span>'
     )
   })
 
@@ -253,9 +257,11 @@ describe('inline highlights', () => {
       )
     )
     expect(html).toContain(
-      '<span class="inline-highlight">save_screenshot</span>'
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
     )
-    expect(html).toContain('<span class="inline-highlight">print_page</span>')
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">print_page</span>'
+    )
   })
 
   it('leaves a block alone when no text matches', async () => {

@@ -142,12 +142,12 @@ See: [ssh_config(5)](https://man.openbsd.org/ssh_config.5)
 ### Wildcards
 
 ```bash
+Host prod.internal
+    HostName 10.0.0.5
+
 Host *.internal
     User deploy
     ProxyJump bastion
-
-Host prod.internal
-    HostName 10.0.0.5
 ```
 
 The first matching block wins, so list specific hosts before wildcards.

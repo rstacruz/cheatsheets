@@ -132,7 +132,7 @@ rg -S todo
 rg -w port
 ```
 
-Matching is case-sensitive by default; `-i` ignores case, `-S` only for all-lowercase patterns, and `-w` matches whole words.
+Case-sensitive by default. `-i` ignores case, `-S` only for all-lowercase patterns, `-w` matches whole words.
 
 See: `rg --help` (-i, -S, -w)
 
@@ -396,7 +396,7 @@ fn main() {
     // TODO: bind the port
 ```
 
-`-U` lets patterns span lines; `(?s)` makes `.` match newlines, and `--multiline-dotall` applies that to every pattern.
+`-U` spans lines; `(?s)` makes `.` match newlines; `--multiline-dotall` applies that globally.
 
 See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 

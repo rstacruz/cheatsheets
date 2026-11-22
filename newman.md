@@ -145,6 +145,16 @@ The statistics table is dropped; request and assertion lines remain.
 
 See: [CLI reporter](https://github.com/postmanlabs/newman#cli-reporter)
 
+### TLS options
+
+```bash
+$ newman run collection.json -e env.json -k
+```
+
+`-k` skips certificate validation. Client certificates use `--ssl-client-cert` and `--ssl-client-key`.
+
+See: [SSL](https://github.com/postmanlabs/newman#ssl)
+
 ## Iterations
 
 ### Repeat a run
@@ -271,7 +281,7 @@ $ newman run collection.json -e env.json \
     -r junit --reporter-junit-export run.xml
 ```
 
-The XML has one `testcase` per assertion, ready for a CI dashboard.
+The XML groups assertions by name into one `testcase` per named test in each request, ready for a CI dashboard.
 
 See: [JUnit reporter](https://github.com/postmanlabs/newman#junitxml-reporter)
 
@@ -300,7 +310,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 
 ## CI and automation
 
-### Fail on test errors
+### Stop on first failure
 
 ```bash
 $ newman run collection.json -e env.json --bail failure
@@ -387,13 +397,3 @@ $ newman run "https://api.getpostman.com/collections/$UID" \
 Fetch collection and environment URLs from the Postman API; Newman accepts either as a source.
 
 See: [Postman API](https://github.com/postmanlabs/newman#using-newman-with-the-postman-api)
-
-### TLS options
-
-```bash
-$ newman run collection.json -e env.json -k
-```
-
-`-k` skips certificate validation. Client certificates use `--ssl-client-cert` and `--ssl-client-key`.
-
-See: [SSL](https://github.com/postmanlabs/newman#ssl)

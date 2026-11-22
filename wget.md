@@ -2,7 +2,7 @@
 title: Wget
 subtitle: Non-interactive network downloader
 category: Networking
-updated: 2026-11-21
+updated: 2026-11-22
 tier: t1
 fragments:
   - "wget URL"
@@ -32,7 +32,39 @@ links:
     url: https://man7.org/linux/man-pages/man1/wget.1.html
 ---
 
-## Getting started
+## Download a file
+
+### Save a URL
+
+```bash
+wget https://example.com/archive.zip
+```
+
+Wget saves the response under the URL's filename in the current directory.
+
+See: [Invoking](https://www.gnu.org/software/wget/manual/wget.html#Invoking)
+
+### Choose a filename
+
+```bash
+wget -O page.html https://example.com/docs
+```
+
+`-O` writes the body to `page.html` instead of the remote filename.
+
+See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
+
+### Resume a partial download
+
+```bash
+wget -c https://example.com/archive.zip
+```
+
+`-c` continues a download left incomplete by an earlier run.
+
+See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Download-Options)
+
+## Download options
 
 ### Basic download
 

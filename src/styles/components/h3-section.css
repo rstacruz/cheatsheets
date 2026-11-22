@@ -193,6 +193,70 @@ ul.-also-see.-also-see.-also-see {
   }
 }
 
+/*
+ * Variant: Enumeration grid
+ * Tile overrides live here: this file loads after ul.css and owns the list chrome.
+ */
+
+.h3-section > .body > ul.-enum,
+.h3-section > .body > ul.-enum-wide {
+  margin: 0;
+  padding: 0;
+}
+
+.h3-section > .body > ul.-enum > li,
+.h3-section > .body > ul.-enum-wide > li {
+  margin: 0;
+  padding: 8px 12px;
+  border: solid 1px var(--line-color);
+  border-radius: 6px;
+  list-style: none;
+  overflow-wrap: break-word;
+}
+
+.h3-section > .body > ul.-enum > li::before,
+.h3-section > .body > ul.-enum-wide > li::before {
+  display: none;
+}
+
+.h3-section > .body > ul.-enum > li + li,
+.h3-section > .body > ul.-enum-wide > li + li {
+  border-top: solid 1px var(--line-color);
+}
+
+/* Variant: Enumeration grid with ruled rows instead of tiles */
+
+.h3-section > .body > ul.-enum-lines,
+.h3-section > .body > ul.-enum-lines > li {
+  border-radius: 0;
+}
+
+.h3-section > .body > ul.-enum-lines > li {
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: solid 1px var(--line-color);
+  list-style: none;
+  overflow-wrap: break-word;
+}
+
+.h3-section > .body > ul.-enum-lines > li:not(:nth-child(4n)) {
+  border-right: solid 1px var(--line-color);
+}
+
+@media (max-width: 480px) {
+  .h3-section > .body > ul.-enum-lines > li:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+.h3-section > .body > ul.-enum-lines > li::before {
+  display: none;
+}
+
+.h3-section > .body > ul.-enum-lines > li + li {
+  border-top: 0;
+}
+
 .h3-section.-intro {
   & > .body > p {
     font-size: var(--fs-1);

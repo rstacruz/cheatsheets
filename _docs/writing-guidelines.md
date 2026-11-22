@@ -358,6 +358,30 @@ Use tables for quick scanning when showing reference information.
 These are the basic data types in Elixir.
 ````
 
+### lists/enumeration
+
+🤖 Check: `lists/enumeration`.
+
+Short, like-shaped values read faster as a list than a table. Use a list for flags, file types, modes, names, and values when no item needs a description.
+
+- One term or short phrase per item; no trailing period.
+- Add `<!-- {: .-enum} -->` after the list for a 2- or 4-tile grid.
+- `.-enum` items stay at 13 characters or fewer; use `.-enum-wide` when any value is 14 or more (it caps at two columns).
+- `.-enum-lines` trades tiles for ruled rows when values should read as a continuous list.
+- Use a table when items need descriptions, defaults, or links.
+- Use a code block when the items are commands or syntax.
+- Don't nest lists in the grid; split the card or group with H4s.
+
+````md
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+<!-- {: .-enum} -->
+````
+
 ### code/inline-comments
 
 Use inline comments to explain results, equivalents, or provide context.

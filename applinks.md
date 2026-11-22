@@ -31,6 +31,8 @@ category: HTML
  * `windows_phone`
  * `web`
 
+<!-- {: .-enum} -->
+
 ### Reference
 
  * [applinks.org](http://applinks.org/documentation/)

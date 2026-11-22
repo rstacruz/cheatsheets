@@ -276,7 +276,7 @@ try {
 
 Aborting destroys the pipeline. `stream.destroy(err)` also emits `error`, then `close`.
 
-See: [addAbortSignal()](https://nodejs.org/api/stream.html#streamaddabortsignalsignal-stream)
+See: [pipeline options](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options)
 
 ### Web streams
 

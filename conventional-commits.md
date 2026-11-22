@@ -21,9 +21,7 @@ fragments:
   - "revert:"
 updated: 2026-11-16
 intro: |
-  [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) maps
-  commit messages to SemVer releases. This reference covers message grammar,
-  recommended types, breaking-change markers, and the tooling that reads them.
+  [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) maps commit messages to SemVer releases. This reference covers message grammar, recommended types, breaking-change markers, and the tooling that reads them.
 links:
   - title: Conventional Commits 1.0.0
     url: https://www.conventionalcommits.org/en/v1.0.0/
@@ -58,8 +56,7 @@ links:
 
 <!-- {: .-headers} -->
 
-The colon and space after the prefix are required, so `feat:add` does not
-parse. The `!` sits immediately before the colon.
+The colon and space after the prefix are required, so `feat:add` does not parse. The `!` sits immediately before the colon.
 
 See: [Specification summary](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 
@@ -82,9 +79,7 @@ See: [Specification summary](https://www.conventionalcommits.org/en/v1.0.0/#summ
 
 <!-- {: .-headers} -->
 
-Only `feat` and `fix` have spec-defined meanings. The rest are the
-`@commitlint/config-conventional` set; additional types are allowed, but they
-carry no semver meaning unless marked breaking.
+Only `feat` and `fix` have spec-defined meanings. The rest are the `@commitlint/config-conventional` set; additional types are allowed, but they carry no semver meaning unless marked breaking.
 
 See: [config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional)
 
@@ -96,9 +91,7 @@ fix(parser): handle empty input
 docs(api): document the retry option
 ```
 
-A scope names the section of the codebase: a package, module, or route.
-Parentheses are required. Parsers treat type and scope as case-insensitive, so
-pick one casing and keep it.
+A scope names the section of the codebase: a package, module, or route. Parentheses are required. Parsers treat type and scope as case-insensitive, so pick one casing and keep it.
 
 See: [Specification](https://www.conventionalcommits.org/en/v1.0.0/#specification)
 
@@ -125,9 +118,7 @@ Closes #124
 
 <!-- {: .-headers} -->
 
-Body and footers each start after one blank line. Tokens replace spaces with
-`-`, except `BREAKING CHANGE`; a value may span lines until the next token.
-`BREAKING-CHANGE` is a synonym.
+Body and footers each start after one blank line. Tokens replace spaces with `-`, except `BREAKING CHANGE`; a value may span lines until the next token. `BREAKING-CHANGE` is a synonym.
 
 See: [git interpret-trailers](https://git-scm.com/docs/git-interpret-trailers)
 
@@ -141,8 +132,7 @@ See: [git interpret-trailers](https://git-scm.com/docs/git-interpret-trailers)
 
 <!-- {: .-headers} -->
 
-The footer form is uppercase and works with any type. With `!` alone, the
-description must describe the break. Both forms may appear together.
+The footer form is uppercase and works with any type. With `!` alone, the description must describe the break. Both forms may appear together.
 
 See: [Specification](https://www.conventionalcommits.org/en/v1.0.0/#specification)
 
@@ -172,8 +162,7 @@ git commit \
   -m 'Reviewed-by: Z'
 ```
 
-Each `-m` becomes a paragraph, separated by a blank line, so a body and footers
-fit without an editor.
+Each `-m` becomes a paragraph, separated by a blank line, so a body and footers fit without an editor.
 
 See: [Examples](https://www.conventionalcommits.org/en/v1.0.0/#examples)
 
@@ -185,9 +174,7 @@ revert: let us never again speak of the noodle incident
 Refs: 676104e, a215868
 ```
 
-The spec leaves revert handling to tooling, and recommends this shape: a
-`revert` type plus a footer naming the reverted SHAs. `git revert` writes
-`Revert "..."`, which does not parse, so reword the subject.
+The spec leaves revert handling to tooling, and recommends this shape: a `revert` type plus a footer naming the reverted SHAs. `git revert` writes `Revert "..."`, which does not parse, so reword the subject.
 
 See: [Revert commits](https://www.conventionalcommits.org/en/v1.0.0/#how-does-conventional-commits-handle-revert-commits)
 
@@ -204,9 +191,7 @@ git commit -m 'feat(auth): add login with SSO'
 git merge --no-ff feature/login -m 'feat(auth): add SSO'
 ```
 
-A squash leaves one commit, so the PR title carries the type. Plain merge
-commits do not parse, and tools skip them. Contributors can commit freely when
-a maintainer edits the squash message.
+A squash leaves one commit, so the PR title carries the type. Plain merge commits do not parse, and tools skip them. Contributors can commit freely when a maintainer edits the squash message.
 
 See: [Contributor workflow](https://www.conventionalcommits.org/en/v1.0.0/#do-all-my-contributors-need-to-use-the-conventional-commits-specification)
 
@@ -214,8 +199,7 @@ See: [Contributor workflow](https://www.conventionalcommits.org/en/v1.0.0/#do-al
 
 ### Semver
 
-Each commit maps to a release bump, and tools pick the highest one since the
-last tag.
+Each commit maps to a release bump, and tools pick the highest one since the last tag.
 
 [Semver cheatsheet](./semver)
 <!-- {: .-crosslink} -->
@@ -232,24 +216,21 @@ See: [Semantic Versioning](https://semver.org/)
 
 <!-- {: .-headers} -->
 
-The highest bump wins, so a breaking `fix:` is still a major release. Breaking
-changes count whatever the commit type.
+The highest bump wins, so a breaking `fix:` is still a major release. Breaking changes count whatever the commit type.
 
 See: [Conventional Commits and SemVer](https://www.conventionalcommits.org/en/v1.0.0/#how-does-this-relate-to-semver)
 
 ### Release tools
 
-| Tool | Command | Behaviour |
-| --- | --- | --- |
-| [semantic-release](https://semantic-release.org/) | `npx semantic-release` | tags and publishes |
-| [standard-version](https://github.com/conventional-changelog/standard-version) | `npx standard-version` | bumps files, writes changelog |
-| [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) | `npx commit-and-tag-version` | maintained fork of standard-version |
+| Command                      | Tool                                                                                 | Behaviour                           |
+| ---------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------- |
+| `npx semantic-release`       | [semantic-release](https://semantic-release.org/)                                    | tags and publishes                  |
+| `npx standard-version`       | [standard-version](https://github.com/conventional-changelog/standard-version)       | bumps files, writes changelog       |
+| `npx commit-and-tag-version` | [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) | maintained fork of standard-version |
 
 <!-- {: .-headers} -->
 
-semantic-release runs on the release branch after CI. standard-version is
-deprecated: its README recommends release-please, while the fork keeps the same
-local workflow.
+semantic-release runs on the release branch after CI. standard-version is deprecated: its README recommends release-please, while the fork keeps the same local workflow.
 
 See: [semantic-release docs](https://semantic-release.org/)
 
@@ -267,8 +248,7 @@ git log --no-merges --format='%s' v1.2.0..HEAD |
   sort | uniq -c | sort -rn
 ```
 
-Replace the range with your last tag. The expression drops the scope and `!`
-and skips subjects that do not parse, so the output is a count per type.
+Replace the range with your last tag. The expression drops the scope and `!` and skips subjects that do not parse, so the output is a count per type.
 
 See: [git log](https://git-scm.com/docs/git-log)
 
@@ -295,8 +275,7 @@ pnpm exec husky init
 echo 'npx --no -- commitlint --edit "$1"' > .husky/commit-msg
 ```
 
-The hook checks the message file before the commit lands. Lint the same range
-in CI with `npx commitlint --from origin/master --to HEAD`.
+The hook checks the message file before the commit lands. Lint the same range in CI with `npx commitlint --from origin/master --to HEAD`.
 
 See: [Local setup](https://commitlint.js.org/guides/local-setup.html)
 
@@ -309,7 +288,6 @@ pnpm exec commitizen init cz-conventional-changelog \
 pnpm exec cz
 ```
 
-`cz` prompts for the parts and writes the message, so contributors do not need
-the grammar memorised.
+`cz` prompts for the parts and writes the message, so contributors do not need the grammar memorised.
 
 See: [cz-cli](https://github.com/commitizen/cz-cli)

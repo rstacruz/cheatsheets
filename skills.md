@@ -28,7 +28,7 @@ keywords:
   - Claude Code skills
   - Codex skills
 intro: |
-  [Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
+  [Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references loaded on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
 links:
   - title: Agent Skills specification
     url: https://agentskills.io/specification
@@ -72,13 +72,19 @@ See: [SKILL.md format](https://agentskills.io/specification)
 
 ### Locations
 
-| Harness | Project | User |
-| --- | --- | --- |
-| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
-| Codex | `.agents/skills/` | `~/.agents/skills/` |
-| Gemini CLI | `.gemini/skills/` | `~/.gemini/skills/` |
-| Cursor | `.cursor/skills/` | `~/.cursor/skills/` |
-| Copilot | `.github/skills/` | `~/.copilot/skills/` |
+| Path                 | Harness     | Scope   |
+| -------------------- | ----------- | ------- |
+| `.claude/skills/`    | Claude Code | project |
+| `~/.claude/skills/`  | Claude Code | user    |
+| `.agents/skills/`    | Codex       | project |
+| `~/.agents/skills/`  | Codex       | user    |
+| `.gemini/skills/`    | Gemini CLI  | project |
+| `~/.gemini/skills/`  | Gemini CLI  | user    |
+| -------------------- | ----------- | ------- |
+| `.cursor/skills/`    | Cursor      | project |
+| `~/.cursor/skills/`  | Cursor      | user    |
+| `.github/skills/`    | Copilot     | project |
+| `~/.copilot/skills/` | Copilot     | user    |
 <!-- {: .-headers} -->
 
 Codex and Claude Code also scan parent directories; most harnesses read `.agents/skills/`. Review `allowed-tools` and scripts before trusting a repo skill.

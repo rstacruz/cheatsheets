@@ -9,10 +9,10 @@ category: Markup
 <!-- {: .-prime} -->
 
 ```ruby
-# Public: Duplicate some text an arbitrary number of times.
+# Public: Repeat text a given number of times.
 #
 # text  - The String to be duplicated.
-# count - The Integer number of times to duplicate the text.
+# count - Integer number of times to repeat the text.
 #
 # Examples
 #
@@ -44,10 +44,10 @@ See: [Description section](http://tomdoc.org/#description).
 ### Options
 
 ```ruby
-# options - The Hash options used to refine the selection (default: {}):
+# options - Hash options used to refine the selection (default: {}):
 #           :color  - The String color to restrict by (optional).
-#           :weight - The Float weight to restrict by. The weight should
-#                     be specified in grams (optional).
+#           :weight - The Float weight to restrict by, in grams
+#                     (optional).
 ```
 
 Hashes list their valid options like arguments, with defaults in parentheses.

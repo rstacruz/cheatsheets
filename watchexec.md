@@ -20,7 +20,7 @@ links:
 
 ### Any change
 
-```sh
+```bash
 $ watchexec -- echo ran
 [Running: echo ran]
 ran
@@ -87,7 +87,7 @@ watchexec -i 'target/**' -- make test
 
 Repeat `-i` for more patterns; ignore files are loaded too.
 
-### Ignore files
+### Disable ignore files
 
 ```bash
 watchexec --ignore-nothing -- make
@@ -99,7 +99,7 @@ By default, `.gitignore`, `.ignore`, and built-in patterns apply.
 
 ```bash
 watchexec --fs-events create -- \
-  s3 sync . s3://my-bucket
+  aws s3 sync . s3://my-bucket
 ```
 
 Choices: `access`, `create`, `remove`, `rename`, `modify`, `metadata`.
@@ -152,6 +152,7 @@ watchexec -o queue -- npm test
 | `queue`      | Run again after this run ends   |
 | `restart`    | Stop and start again            |
 | `signal`     | Send the `--signal` signal      |
+<!-- {: .-headers} -->
 
 ### Signal instead of restart
 
@@ -167,8 +168,7 @@ watchexec --signal SIGHUP -- \
 #### Restart timeout
 
 ```bash
-watchexec -r --stop-signal SIGKILL \
-  --stop-timeout 5s -- my_server
+watchexec -r --stop-timeout 5s -- my_server
 ```
 
 #### Run timeout
@@ -177,7 +177,7 @@ watchexec -r --stop-signal SIGKILL \
 watchexec --timeout 30s -- ./long-job
 ```
 
-`--stop-signal` stops a restart; `--timeout` ends a run that takes too long.
+`--stop-signal` sets the shutdown signal (default SIGTERM); `--timeout` ends a run that takes too long.
 
 ### Fail fast
 

@@ -1,7 +1,7 @@
 ---
 title: Moment.js
 seo_title: Moment.js cheatsheet — format, parse, add
-description: "Moment.js cheatsheet: format, parsing, add, subtract, time zones and duration."
+description: "Moment.js format: parsing, add, subtract, time zones and duration. Date reference."
 subtitle: Date manipulation library
 category: JavaScript libraries
 updated: 2026-11-14

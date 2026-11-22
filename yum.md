@@ -1,7 +1,7 @@
 ---
 title: Yum
 seo_title: Yum cheatsheet — install, update, remove
-description: "Yum cheatsheet: install, update, remove, search, list and repository commands."
+description: "Yum commands: install, update, remove, search, list and repositories. Reference."
 subtitle: RPM package manager
 category: Package managers
 updated: 2024-02-07

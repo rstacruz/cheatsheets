@@ -1,7 +1,7 @@
 ---
 title: pm2
 seo_title: pm2 cheatsheet — commands, logs, restart
-description: "pm2 cheatsheet: commands for list, describe, restart, logs, stop and delete. Process manager reference."
+description: "pm2 commands: list, describe, restart, logs, stop and delete. Process manager reference."
 subtitle: Node.js process manager
 category: Node.js
 updated: 2026-11-18

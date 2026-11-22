@@ -5,7 +5,7 @@ subtitle: Ruby version manager
 category: Ruby
 updated: 2018-02-20
 weight: -1
-description: "rbenv cheatsheet: install, versions, global, local and rehash commands."
+description: "rbenv versions: install, global, local and rehash commands. Ruby version manager reference."
 intro: |
   [rbenv](https://github.com/rbenv/rbenv) lets you manage installations of multiple Ruby versions.
 links:

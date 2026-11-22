@@ -1,7 +1,7 @@
 ---
 title: Cron
 seo_title: Cron cheatsheet — syntax, crontab, examples
-description: "Cron syntax cheatsheet: the five-field format, operators, special strings and crontab examples."
+description: "Cron syntax: the five-field format, operators, special strings and crontab examples. Reference."
 subtitle: Unix job scheduler
 category: CLI
 updated: 2024-03-17

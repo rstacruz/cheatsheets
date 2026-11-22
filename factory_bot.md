@@ -1,7 +1,7 @@
 ---
 title: Factory Bot
 seo_title: Factory Bot cheatsheet — associations, traits
-description: "Factory Bot cheatsheet: define factories, associations, traits, hooks and sequences."
+description: "Factory Bot factories: define associations, traits, hooks and sequences. Reference."
 subtitle: Ruby test data factory library
 category: Ruby libraries
 weight: -3

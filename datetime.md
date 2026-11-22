@@ -1,7 +1,7 @@
 ---
 title: Date & time formats
 seo_title: Date format cheatsheet — ISO 8601, strftime, SQL
-description: "Date format cheatsheet: ISO 8601, strftime, Moment, Java, SQL, JavaScript and Unix time. Token reference with examples."
+description: "Date format tokens: ISO 8601, strftime, Moment, Java, SQL, JavaScript and Unix time. Reference with examples."
 category: Others
 subtitle: Date format codes by tool
 weight: -5

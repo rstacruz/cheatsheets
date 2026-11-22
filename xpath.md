@@ -1,7 +1,7 @@
 ---
 title: XPath
 seo_title: XPath cheatsheet — syntax, contains(), axes
-description: "XPath cheatsheet: syntax, contains(), text(), axes, predicates and browser console examples."
+description: "XPath syntax: contains(), text(), axes, predicates and browser console examples. Reference."
 subtitle: Query language for XML
 category: HTML
 tier: t1

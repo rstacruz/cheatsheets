@@ -63,12 +63,12 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 
 ### Escape sequences
 
-| Key   | Action               |
-| ----- | -------------------- |
-| `~.`  | Disconnect           |
-| `~^Z` | Suspend the session  |
-| `~#`  | List forwarded ports |
-| `~?`  | Show all escapes     |
+| Key   | Action                     |
+| ----- | -------------------------- |
+| `~.`  | Disconnect                 |
+| `~^Z` | Suspend the session        |
+| `~#`  | List forwarded connections |
+| `~?`  | Show all escapes           |
 
 <!-- {: .-shortcuts} -->
 

@@ -703,11 +703,11 @@ try {
 
 #### Hierarchy
 
-| Base         | Examples                     |
-| ------------ | ---------------------------- |
-| `Throwable`  | `Error`, `Exception`         |
-| `Error`      | `TypeError`, `ValueError`    |
-| `Exception`  | `RuntimeException`, `LogicException` |
+| Base         | Examples                                   |
+| ------------ | ------------------------------------------ |
+| `Throwable`  | `Error`, `Exception`                       |
+| `Error`      | `TypeError`, `ValueError`                  |
+| `Exception`  | `RuntimeException`, `LogicException`       |
 
 Catch `Throwable` to handle both errors and exceptions.
 

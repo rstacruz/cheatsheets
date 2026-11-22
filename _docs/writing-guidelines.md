@@ -199,6 +199,28 @@ CLI flags and slash commands get a plain table. `.-shortcuts` is for keypress co
 | `--bare`               | Skip hooks, plugins, and memory  |
 ````
 
+### tables/command-first
+
+🤖 Check: `tables/command-first`.
+
+In a table where a row has a cell made only of backticked code, put that code in the first column and its description after it. Commands, flags, values and paths all count.
+
+Code mentioned inside a description does not count as a code column.
+
+````md
+| Command | Situation |
+| --- | --- |
+| `/grill-me` | Idea is fuzzy, no repo |
+````
+
+Do not put the command in a later column:
+
+````md
+| Situation | Command |
+| --- | --- |
+| Idea is fuzzy, no repo | `/grill-me` |
+````
+
 ### tables/shortcut-keys
 
 🤖 Check: `tables/shortcut-keys`.
@@ -278,6 +300,10 @@ format(' hi ') // 'hi'
 ### cards/split-all-options
 
 Split an oversized "All options" card into focused cards like `Style options` and `Digit options`.
+
+### cards/no-updates-card
+
+Do not add an `### Updates` or `### Upgrading` card for generic install or update instructions. Update mechanics belong in the project's own docs; link there instead. Keep such a card only when update behaviour is central to the tool's purpose, as it can be for package managers like npm or mise.
 
 ### cards/short-trailing-prose
 
@@ -418,6 +444,22 @@ Use a list, not a table, for enumerable values — flags, file types, modes, nam
 - `java`
 <!-- {: .-enum} -->
 ````
+
+### lists/term-tiles
+
+Prefer `.-term-tiles` for a card whose items pair a short term with a prose description. Use it instead of a two-column table when descriptions need a sentence or inline code.
+
+- Bold the term; the description follows it on the same source line and renders beneath it.
+- Items are small bordered cards in a two-column grid with no bullets.
+- An odd last item spans both columns; narrow screens collapse to one column.
+
+````md
+- **Tracer bullet** Narrow path through schema, API, UI and tests
+- **Demoable** Verifiable on its own
+<!-- {: .-term-tiles} -->
+````
+
+Use a two-column table for short mappings and reference values (dependencies, file paths, triage labels). Command lookups stay tables with the command first; see `tables/command-first`.
 
 ### lists/enumeration-width
 

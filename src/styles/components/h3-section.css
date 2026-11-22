@@ -253,6 +253,43 @@ ul.-also-see.-also-see.-also-see {
   border-top: 0;
 }
 
+/* Variant: term tiles — small bordered cards in a two-column grid */
+.h3-section > .body > ul.-term-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+.h3-section > .body > ul.-term-tiles > li,
+.h3-section > .body > ul.-term-tiles > li + li {
+  margin: 0;
+  padding: 8px 12px;
+  border: solid 1px var(--line-color);
+  border-radius: 6px;
+  overflow-wrap: break-word;
+}
+
+.h3-section > .body > ul.-term-tiles > li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.h3-section > .body > ul.-term-tiles > li::before {
+  display: none;
+}
+
+.h3-section > .body > ul.-term-tiles > li > strong:first-child {
+  display: block;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 640px) {
+  .h3-section > .body > ul.-term-tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
 .h3-section.-intro {
   & > .body > p {
     font-size: var(--fs-1);

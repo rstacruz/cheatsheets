@@ -3,7 +3,7 @@ title: PostgreSQL JSON
 subtitle: Types, operators and functions
 category: Databases
 updated: 2026-11-22
-last_verified_with: PostgreSQL 19.0 (postgres:19 Docker image), psql 19.0
+last_verified_with: "PostgreSQL 19.0 (postgres:19 Docker image), psql 19.0"
 keywords: [postgres, jsonb, jsonpath, json functions]
 intro: |
   PostgreSQL stores JSON as `json` (exact text) or `jsonb` (binary, indexable). This sheet covers extraction, containment, updates, and SQL/JSON paths.
@@ -12,9 +12,11 @@ links:
     url: https://www.postgresql.org/docs/current/functions-json.html
   - title: JSON data types
     url: https://www.postgresql.org/docs/current/datatype-json.html
+  - title: Indexing jsonb
+    url: https://www.postgresql.org/docs/current/datatype-json.html#JSON-INDEXING
 ---
 
-## Query jsonb
+## Query JSON
 
 ### Extract fields
 
@@ -27,15 +29,15 @@ SELECT '{"name":"John"}'::jsonb -> 'name' AS j,  -- "John"
 
 | Operator      | Extracts             | Result  |
 | ---           | ---                  | ---     |
-| `->` _text_   | Object field         | `jsonb` |
-| `->>` _text_  | Object field         | `text`  |
+| `->` _text_   | Object key           | `jsonb` |
+| `->>` _text_  | Object key           | `text`  |
 | `->` _int_    | Array item (0-based) | `jsonb` |
 | `#>` _text[]_ | Nested path          | `jsonb` |
 | `#>>` _text[]_ | Nested path         | `text`  |
 
 <!-- {: .-headers} -->
 
-`->` returns JSON and `->>` returns text. Negative indexes count from the end: `'["a","b"]'::jsonb -> -1` is `"b"`.
+Negative indexes count from the end: `'["a","b"]'::jsonb -> -1` is `"b"`.
 
 ### Query a table
 
@@ -47,7 +49,7 @@ INSERT INTO users VALUES
 SELECT id FROM users WHERE data->>'name' = 'John'; -- 1
 ```
 
-The examples below reuse `users`.
+Most examples below reuse `users`.
 
 ### Extract paths
 
@@ -92,7 +94,7 @@ SELECT '["a"]'::jsonb || '["b"]'::jsonb AS appended;
 
 Object merges are shallow; the right value wins. Arrays append.
 
-### Delete keys
+### Delete keys and items
 
 ```sql
 SELECT '{"a":1,"b":2}'::jsonb - 'a' AS dropped;
@@ -123,7 +125,7 @@ SELECT jsonb_strip_nulls(
 
 `jsonb_set` creates a missing final key by default; `false` disables it. `jsonb_set_lax` handles SQL `NULL` replacements, and `jsonb_strip_nulls` drops null object fields.
 
-### Insert values
+### Insert elements
 
 ```sql
 SELECT jsonb_insert('{"a":[1,2]}'::jsonb, '{a,1}', '"x"') AS before;
@@ -137,8 +139,15 @@ Inserts before the array element at the path; `true` inserts after it.
 
 ### Subscript assignment
 
+#### Read
+
 ```sql
 SELECT ('{"a":{"b":1}}'::jsonb)['a']['b']; -- 1
+```
+
+#### Update
+
+```sql
 CREATE TEMP TABLE documents (data jsonb);
 INSERT INTO documents VALUES ('{"a":1}');
 UPDATE documents SET data['a'] = '2';
@@ -209,7 +218,7 @@ SELECT jsonb_array_length('["a","b"]') AS n; -- 2
 
 `jsonb_array_elements` returns `jsonb` values instead of `text`.
 
-### Type and format
+### Types and pretty-print
 
 ```sql
 SELECT jsonb_typeof('null'::jsonb) AS kind; -- null
@@ -226,7 +235,7 @@ SELECT jsonb_pretty('{"a":[1,2]}'::jsonb) AS pretty;
 
 ## SQL/JSON paths
 
-### Match paths
+### Path predicates
 
 ```sql
 SELECT '{"a":[1,2,3]}'::jsonb @? '$.a[*] ? (@ > 1)' AS any; -- t
@@ -235,7 +244,7 @@ SELECT '{"a":[1,2,3]}'::jsonb @@ '$.a[*] > 1' AS is_true; -- t
 
 `@?` checks whether a path returns any item; `@@` evaluates a predicate.
 
-### Extract with paths
+### Query with jsonpath
 
 ```sql
 SELECT * FROM jsonb_path_query(
@@ -305,10 +314,4 @@ CREATE INDEX users_path_idx ON users
 <!-- {: .-headers} -->
 
 `jsonb_path_ops` is smaller and faster for containment and path matches, but cannot answer key-existence queries.
-
-## References
-
-- [JSON functions and operators](https://www.postgresql.org/docs/current/functions-json.html)
-- [JSON data types](https://www.postgresql.org/docs/current/datatype-json.html)
-- [Indexing jsonb](https://www.postgresql.org/docs/current/datatype-json.html#JSON-INDEXING)
 

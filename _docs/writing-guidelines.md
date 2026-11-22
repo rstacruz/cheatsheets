@@ -268,7 +268,7 @@ flowchart LR
 
 🤖 Check: `code/data-line-in-block`.
 
-Every `data-line` reference must fall inside its fenced block; don't point past the last line.
+Every `data-line` reference must fall inside its fenced block; don't point past the last line. When only one token matters, use `data-highlight` instead.
 
 ````md
 ```elixir
@@ -276,6 +276,34 @@ a
 b
 ```
 <!-- {: data-line="2"} -->
+````
+
+### code/highlight-the-token
+
+🤖 Check: `code/data-highlight-in-block`.
+
+When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name, and keep it to one token per block; split the example if two compete.
+
+````md
+```python
+driver.save_screenshot("page.png")
+```
+<!-- {: data-highlight="save_screenshot"} -->
+````
+
+Use `data-line` instead when the whole line, or a range, is the lesson.
+
+### code/data-highlight-in-block
+
+🤖 Check: `code/data-highlight-in-block`.
+
+Every `data-highlight` token must appear literally in its fenced block. The check catches typos that would otherwise render nothing.
+
+````md
+```bash
+bat -r 2:4 hello.py
+```
+<!-- {: data-highlight="-r 2:4"} -->
 ````
 
 ### code/split-setup-and-use

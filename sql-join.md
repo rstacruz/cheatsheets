@@ -30,7 +30,7 @@ keywords:
   - full outer join
   - cross join
 intro: |
-  SQL joins combine rows from two or more tables using a matching condition. This sheet covers inner, outer, cross, self, and multi-table joins.
+  SQL joins combine rows from two or more table references. Match columns with `ON` or `USING`, or pair every row with `CROSS JOIN`.
 links:
   - title: PostgreSQL join tutorial
     url: https://www.postgresql.org/docs/current/tutorial-join.html
@@ -108,7 +108,7 @@ Cy    NULL      NULL
 
 Every left row survives; missing right columns are `NULL`.
 
-See: [SQLite joins](https://www.sqlite.org/lang_select.html#the_joins_and_the_from_clause)
+See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 
 ### Right join
 
@@ -191,14 +191,14 @@ SELECT COUNT(*) FROM customers CROSS JOIN orders;
 #### Result
 
 ```
-count
------
+COUNT(*)
+--------
 12
 ```
 
 Every left row pairs with every right row: `3 × 4 = 12`.
 
-See: [SQLite joins](https://www.sqlite.org/lang_select.html#the_joins_and_the_from_clause)
+See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 
 ### Self join
 
@@ -315,7 +315,7 @@ See: [SQLite 3.39.0 release](https://www.sqlite.org/releaselog/3_39_0.html)
 ### PostgreSQL
 
 ```sql
-SELECT o.order_id, s.status
+SELECT order_id, s.status
 FROM orders AS o
 FULL OUTER JOIN shipments AS s USING (order_id);
 ```
@@ -329,7 +329,7 @@ order_id  status
 102       NULL
 103       pending
 104       NULL
-NULL      lost
+105       lost
 ```
 
 Full joins are native; `USING` keeps one merged join column.
@@ -368,7 +368,7 @@ See: [MySQL JOIN syntax](https://dev.mysql.com/doc/refman/8.4/en/join.html)
 | `RIGHT JOIN` | All right rows |
 | `FULL OUTER JOIN` | All rows from both |
 | `CROSS JOIN` | Every pair of rows |
-| `USING (col)` | Inner join on shared columns |
+| `USING (col)` | Join on shared column names |
 <!-- {: .-headers} -->
 
 See: [PostgreSQL join types](https://www.postgresql.org/docs/current/tutorial-join.html)
@@ -394,7 +394,7 @@ SELECT * FROM a INNER JOIN b
 
 The intersection is the inner join; each circle adds its outer rows.
 
-See: [SQLite joins](https://www.sqlite.org/lang_select.html#the_joins_and_the_from_clause)
+See: [SQLite joins](https://www.sqlite.org/lang_select.html)
 
 ### Sample data
 

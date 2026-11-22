@@ -274,14 +274,14 @@ See: [throws](https://www.chaijs.com/api/assert/#throwsfn-errorlikestringregexp-
 
 ```js
 import * as chai from 'chai'
-import jquery from 'jquery'
+import $ from 'jquery'
 import chaiJquery from 'chai-jquery'
 
-globalThis.jQuery = globalThis.$ = jquery(window)
+globalThis.jQuery = $
 chai.use(chaiJquery)
 ```
 
-Plugins extend Chai's assertions; `chai-jquery` expects a global `jQuery`.
+Browser setup: `chai-jquery` reads jQuery from the global scope.
 
 See: [plugins guide](https://www.chaijs.com/guide/plugins/)
 
@@ -289,6 +289,7 @@ See: [plugins guide](https://www.chaijs.com/guide/plugins/)
 
 ```js
 import { expect } from 'chai'
+import $ from 'jquery'
 
 const $el = $(
   '<a class="tea active" href="/tea" ' +
@@ -302,6 +303,6 @@ expect($el).to.contain('tea')
 expect($el).to.have.text('Buy tea')
 ```
 
-The element is built in memory, so no page markup is needed.
+Browser only. The element is built in memory, so no page markup is needed.
 
 See: [chai-jquery](https://github.com/chaijs/chai-jquery)

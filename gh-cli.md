@@ -111,11 +111,21 @@ See: [gh repo clone](https://cli.github.com/manual/gh_repo_clone)
 
 ### Create
 
+#### Interactive
+
+```bash
+# prompts for name and visibility
+gh repo create
+```
+<!-- {: data-highlight="gh repo create"} -->
+
+#### From this directory
+
 ```bash
 gh repo create my-tool --private \
   --source=. --push
 ```
-<!-- {: data-highlight="gh repo create"} -->
+<!-- {: data-highlight="--source=."} -->
 
 `--source` uses the current directory's git history; `--push` uploads existing commits.
 
@@ -368,8 +378,6 @@ gh issue create --parent 100
 ```
 <!-- {: data-highlight="--parent"} -->
 
-`--parent` creates a sub-issue.
-
 See: [gh issue create](https://cli.github.com/manual/gh_issue_create)
 
 ### List and filter
@@ -429,7 +437,7 @@ gh issue comment 123 \
 ```bash
 gh issue view 123 --web
 ```
-<!-- {: data-highlight="gh issue view 123 --web"} -->
+<!-- {: data-highlight="--web"} -->
 
 `--comments` (`-c`) includes the comment thread; `--web` opens the issue.
 
@@ -662,7 +670,6 @@ gh release view v1.2.0
 ```bash
 gh release view --web
 ```
-<!-- {: data-highlight="--web"} -->
 
 See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
@@ -757,7 +764,11 @@ gh api repos/{owner}/{repo}/issues \
 ```
 <!-- {: data-highlight="-f title='Bug'"} -->
 
-#### GraphQL
+`--jq` filters the response; `{owner}` and `{repo}` expand from the current repo. `-f` sends a string and switches to POST, so the `issues` line creates an issue.
+
+See: [gh api](https://cli.github.com/manual/gh_api)
+
+### GraphQL
 
 ```bash
 gh api graphql \
@@ -765,9 +776,9 @@ gh api graphql \
 ```
 <!-- {: data-highlight="graphql"} -->
 
-`--jq` filters the response; `{owner}` and `{repo}` expand from the current repo. `-f` sends a string and switches to POST, so the `issues` line creates an issue.
+Queries the GraphQL API; `-f query=` sends the document.
 
-See: [gh api](https://cli.github.com/manual/gh_api)
+See: [GitHub GraphQL API](https://docs.github.com/en/graphql)
 
 ### JSON output
 
@@ -869,7 +880,7 @@ gh config list
 ```
 <!-- {: data-highlight="gh config set"} -->
 
-On Linux, settings live in `~/.config/gh/config.yml`.
+On Linux, the config directory is `$GH_CONFIG_DIR`, else `$XDG_CONFIG_HOME/gh`, else `~/.config/gh`.
 
 See: [gh config](https://cli.github.com/manual/gh_config)
 
@@ -879,9 +890,10 @@ See: [gh config](https://cli.github.com/manual/gh_config)
 export GH_TOKEN=$(gh auth token)
 export GH_REPO=cli/cli
 export GH_HOST=github.com
+export GH_CONFIG_DIR=~/.config/gh
 ```
 <!-- {: data-highlight="GH_TOKEN"} -->
 
-`GH_TOKEN` takes precedence over stored credentials; `GH_REPO` and `GH_HOST` set defaults.
+`GH_TOKEN` takes precedence over stored credentials; `GH_REPO` and `GH_HOST` set defaults, and `GH_CONFIG_DIR` overrides the config directory.
 
 See: [gh help environment](https://cli.github.com/manual/gh_help_environment)

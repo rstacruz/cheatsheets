@@ -142,8 +142,9 @@ See: [gh repo fork](https://cli.github.com/manual/gh_repo_fork)
 gh repo view
 gh repo view cli/cli --web
 ```
+<!-- {: data-highlight="gh repo view"} -->
 
-#### Files and issues
+#### Files, issues, and PRs
 
 ```bash
 gh browse src/main.ts
@@ -218,7 +219,7 @@ gh pr checks --required
 ```
 <!-- {: data-highlight="--watch"} -->
 
-`--watch` refreshes until checks finish; `--required` hides optional jobs.
+`--watch` refreshes until checks finish; `--required` shows only required checks.
 
 See: [gh pr checks](https://cli.github.com/manual/gh_pr_checks)
 
@@ -295,7 +296,7 @@ gh issue view 123 --web
 ```
 <!-- {: data-highlight="--comments"} -->
 
-`gh issue view --web` opens the issue; `-c` includes the comment thread.
+`--comments` (`-c`) includes the comment thread; `--web` opens the issue.
 
 See: [gh issue view](https://cli.github.com/manual/gh_issue_view)
 
@@ -310,7 +311,7 @@ gh issue close 123 \
 ```
 <!-- {: data-highlight="--duplicate-of"} -->
 
-`--duplicate-of` marks the canonical issue; a `Fixes #123` line in a PR closes the issue on merge.
+`--duplicate-of` closes the issue as a duplicate of the one you pass; a `Fixes #123` line in a PR closes it on merge.
 
 See: [gh issue close](https://cli.github.com/manual/gh_issue_close)
 
@@ -340,15 +341,25 @@ See: [gh run list](https://cli.github.com/manual/gh_run_list)
 gh run watch 123456789
 gh run watch --compact \
   --exit-status
-gh run view 123456789 \
-  --log-failed
-gh run rerun 123456789 --failed
 ```
 <!-- {: data-highlight="--exit-status"} -->
 
 `--exit-status` fails the command when the run fails, which suits CI scripts.
 
 See: [gh run watch](https://cli.github.com/manual/gh_run_watch)
+
+### Inspect and rerun
+
+```bash
+gh run view 123456789 \
+  --log-failed
+gh run rerun 123456789 --failed
+```
+<!-- {: data-highlight="--log-failed; --failed"} -->
+
+`--log-failed` prints only failed steps; `--failed` reruns only failed jobs.
+
+See: [gh run view](https://cli.github.com/manual/gh_run_view), [gh run rerun](https://cli.github.com/manual/gh_run_rerun)
 
 ### Run a workflow
 

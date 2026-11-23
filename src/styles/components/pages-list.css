@@ -59,9 +59,16 @@
 
 .pages-list > .snippet-list {
   grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 24px;
   border-top: solid 1px var(--line-color);
+}
+
+@media (min-width: 769px) {
+  .pages-list > .snippet-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .pages-list .snippet-item {

@@ -4,13 +4,15 @@ link_title: CSS variables
 subtitle: Custom properties and fallbacks
 category: CSS
 layout: snippet
-last_verified_with: "CSS Custom Properties for Cascading Variables Module Level 1."
+last_verified_with: "CSS Custom Properties Module Level 1, CSS Properties and Values API Level 1."
 updated: 2026-11-24
 links:
   - title: MDN custom properties
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
   - title: CSS Custom Properties Module Level 1
     url: https://www.w3.org/TR/css-variables-1/
+  - title: CSS Properties and Values API Level 1
+    url: https://www.w3.org/TR/css-properties-values-api-1/
 ---
 
 ## Custom properties
@@ -42,7 +44,7 @@ a {
 ```
 <!-- {: data-highlight="var(--accent, tomato)"} -->
 
-**Provides a fallback.** The second argument is used when `--accent` is unset or invalid; see [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
+**Provides a fallback.** Used when `--accent` is not defined; a defined value that is invalid for the property does not fall back; see [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
 
 ### Theme override
 <!-- {: .-snippet} -->
@@ -55,7 +57,16 @@ a {
 ```
 <!-- {: data-highlight=".dark"} -->
 
-**Overrides values in a scope.** Descendants inherit the new tokens, so theming needs no new selectors; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+#### Usage
+
+```css
+body {
+  background: var(--bg, white);
+  color: var(--fg, black);
+}
+```
+
+**Overrides values in a scope.** Descendants of `.dark` inherit the new tokens, and the fallbacks keep the light theme readable; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ### Change from JavaScript
 <!-- {: .-snippet} -->

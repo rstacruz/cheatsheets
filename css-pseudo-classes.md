@@ -30,7 +30,7 @@ a:focus-visible {
 ```
 <!-- {: data-highlight=":focus-visible"} -->
 
-**Styles pointer and keyboard states.** `:focus-visible` matches only keyboard focus, so mouse clicks do not flash an outline; see [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
+**Styles pointer and keyboard states.** `:focus-visible` matches when the browser wants a visible focus ring, usually for keyboard focus; mouse clicks on links and buttons do not trigger it; see [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
 
 ### First and last child
 <!-- {: .-snippet} -->
@@ -64,13 +64,13 @@ tr:nth-child(odd) {
 <!-- {: .-snippet} -->
 
 ```css
-input:not(:placeholder-shown):invalid {
+input:user-invalid {
   border-color: red;
 }
 ```
-<!-- {: data-highlight=":not(:placeholder-shown)"} -->
+<!-- {: data-highlight=":user-invalid"} -->
 
-**Styles only fields the user has filled.** `:placeholder-shown` is false once text is entered, so empty required fields stay untouched; see [:placeholder-shown](https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown).
+**Styles invalid fields after interaction.** `:user-invalid` waits until the user edits or submits the form, so empty required fields stay untouched; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
 
 ### Parent from children
 <!-- {: .-snippet} -->

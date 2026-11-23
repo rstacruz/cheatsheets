@@ -34,8 +34,8 @@ body {
 ```css
 body {
   font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+    "Segoe UI", Roboto, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial, sans-serif;
 }
 ```
 <!-- {: data-highlight="-apple-system"} -->
@@ -53,4 +53,4 @@ code, pre {
 ```
 <!-- {: data-highlight="ui-monospace"} -->
 
-**Picks the platform's monospace font.** `ui-monospace` covers Safari and Chromium, and the named families cover older browsers; see [ui-monospace](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#ui-monospace).
+**Picks the platform's monospace font.** Safari uses `ui-monospace`, while other browsers fall through to Menlo, Consolas, or Liberation Mono; see [ui-monospace](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#ui-monospace).

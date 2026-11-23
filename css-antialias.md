@@ -26,15 +26,15 @@ body {
 
 **Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
-### Sharper text
+### Restore the default
 <!-- {: .-snippet} -->
 
 ```css
 body {
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 ```
-<!-- {: data-highlight="subpixel-antialiased"} -->
+<!-- {: data-highlight="auto"} -->
 
-**Reverts to subpixel rendering.** Subpixel antialiasing is sharper on non-retina displays but looks heavier on dark backgrounds; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
+**Restores the browser defaults.** `auto` lets each engine choose its smoothing; on current macOS that is grayscale, matching the rest of the system; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).

@@ -16,7 +16,7 @@ links:
 ## Nesting
 <!-- {: .-snippets} -->
 
-### Child selector
+### Descendant selector
 <!-- {: .-snippet} -->
 
 ```css

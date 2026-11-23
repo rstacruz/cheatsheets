@@ -54,7 +54,9 @@ utilities can override them:
   `@layer components { … }`. Import-level `layer(components)` is not used: a
   `layer()` import of a file that uses `@reference` fails the build (`@source`
   cannot be nested).
-- Unlayered CSS beats every utility. Do not add it.
+- Unlayered CSS beats every utility. Do not add it, with one exception:
+  `src/styles/components/autocomplete.css` stays unlayered to outrank the
+  unlayered `autocompleter/autocomplete.css` vendor sheet it overrides.
 
 ## Stylelint
 

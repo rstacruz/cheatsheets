@@ -110,12 +110,19 @@
     &.comment {
       color: var(--syntax-comment);
     }
+  }
+}
 
-    /* TOML section headers (`[keys]`) tokenize as `.table`; the global
-     `.table { display: table }` rule otherwise breaks them onto their own
-     lines */
-    &.table {
-      display: inline;
-    }
+/*
+ * TOML section headers (`[keys]`) tokenize as `.table`, and Tailwind derives a
+ * `.table { display: table }` utility from the `table` tag name in
+ * `src/lib/markdown/tables.ts` even though no markup uses it. That utility
+ * would break the headers onto their own lines, so the counter-rule has to sit
+ * in the utilities layer: a components-layer rule loses to a utility whatever
+ * its specificity.
+ */
+@layer utilities {
+  .token.table {
+    display: inline;
   }
 }

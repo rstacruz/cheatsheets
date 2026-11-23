@@ -1,41 +1,9 @@
 import { ATTRIBUTE_COMMENT, parseAttributes } from '~/lib/markdown/comments'
 import { isSheetSlug } from './baseline'
 import { sheetSources } from './sheets'
-import { FENCE_LINE, scanFences } from './utils'
+import { findFences } from './utils'
 
 type Finding = { line: number; text: string }
-type FenceBlock = { closeLine: number; codeLines: number }
-
-/** Fenced blocks with the 1-based line of their closer and rendered line count */
-function findFences(lines: string[]): FenceBlock[] {
-  const { fenced } = scanFences(lines)
-  const blocks: FenceBlock[] = []
-
-  for (let index = 0; index < lines.length; index++) {
-    if (!fenced[index] || (index > 0 && fenced[index - 1])) continue
-    const opener = FENCE_LINE.exec(lines[index])?.[2] ?? ''
-    let end = index + 1
-    while (end < lines.length && fenced[end]) end++
-
-    const last = end - 1
-    const closer = last > index ? FENCE_LINE.exec(lines[last] ?? '') : null
-    const closed =
-      closer !== null &&
-      closer[2][0] === opener[0] &&
-      closer[2].length >= opener.length &&
-      closer[3].trim() === ''
-    const code = lines.slice(index + 1, closed ? last : end)
-    // The parser drops one trailing newline from a fence's code value
-    if (code.at(-1)?.trim() === '') code.pop()
-    blocks.push({
-      closeLine: (closed ? last : end - 1) + 1,
-      codeLines: code.length
-    })
-    index = end - 1
-  }
-
-  return blocks
-}
 
 /** Every number named by a `data-line` spec, including both range ends */
 function referencedLines(spec: string): number[] {
@@ -66,12 +34,12 @@ function findInvalidDataLines(source: string): Finding[] {
       if (spec !== undefined) {
         const invalid = referencedLines(String(spec)).filter(
           (value) =>
-            !Number.isInteger(value) || value < 1 || value > fence.codeLines
+            !Number.isInteger(value) || value < 1 || value > fence.code.length
         )
         if (invalid.length > 0) {
           found.push({
             line: index + 1,
-            text: `data-line references ${invalid.join(', ')} outside 1-${fence.codeLines}`
+            text: `data-line references ${invalid.join(', ')} outside 1-${fence.code.length}`
           })
         }
       }

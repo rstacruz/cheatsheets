@@ -106,6 +106,7 @@ bat -l json config.json
 bat --list-languages
 bat --file-name hello.py < snippet
 ```
+<!-- {: data-highlight="-l json"} -->
 
 `-l` accepts a language name or file extension. Use `--file-name` with stdin so `bat` can infer the language.
 
@@ -118,6 +119,7 @@ bat --theme=TwoDark hello.py
 BAT_THEME=TwoDark bat hello.py
 bat --list-themes
 ```
+<!-- {: data-highlight="--theme=TwoDark"} -->
 
 The theme follows the terminal's light or dark background by default. `BAT_THEME` makes a choice permanent.
 
@@ -130,6 +132,7 @@ bat -H 3 hello.py
 bat -H 2:4 hello.py
 bat -H :3 hello.py
 ```
+<!-- {: data-highlight="-H 2:4"} -->
 
 `-H` draws a background behind the selected lines. It accepts line numbers and ranges such as `N:M`, `:N`, `N:` and `N:+M`.
 
@@ -146,6 +149,7 @@ bat -p hello.py
 bat --style=plain hello.py
 bat -pp hello.py
 ```
+<!-- {: data-highlight="-n; --style=plain"} -->
 
 `-n` shows only line numbers. `-p` is shorthand for `--style=plain`; `-pp` also disables paging.
 
@@ -159,6 +163,7 @@ bat --style=numbers,changes,header \
   hello.py
 bat --style=default,-grid hello.py
 ```
+<!-- {: data-highlight="--style"} -->
 
 #### Components
 
@@ -180,6 +185,7 @@ See: [Output style](https://github.com/sharkdp/bat#output-style)
 ```bash
 bat -A config.yml
 ```
+<!-- {: data-highlight="-A config.yml"} -->
 
 #### Output
 
@@ -205,6 +211,7 @@ bat --wrap=character hello.py
 bat -S hello.py
 bat --terminal-width 80 hello.py
 ```
+<!-- {: data-highlight="--wrap=character"} -->
 
 `--wrap=character` wraps long lines; `-S` chops them. `--terminal-width` overrides the detected width.
 
@@ -217,6 +224,7 @@ See: `bat --help` (--wrap, -S, --terminal-width)
 ```bash
 bat -r 2:4 hello.py
 ```
+<!-- {: data-highlight="-r 2:4"} -->
 
 #### Output
 
@@ -242,6 +250,7 @@ bat --paging=never hello.py
 bat -P hello.py
 bat --pager='less -R' hello.py
 ```
+<!-- {: data-highlight="--paging=never"} -->
 
 `bat` pages only when the output exceeds one screen. Piped output never pages. `-P` is short for `--paging=never`.
 
@@ -253,6 +262,7 @@ See: [Automatic paging](https://github.com/sharkdp/bat#automatic-paging)
 bat -d notes.txt
 bat -d --diff-context=1 notes.txt
 ```
+<!-- {: data-highlight="-d"} -->
 
 #### Output
 
@@ -281,6 +291,7 @@ See: [Git integration](https://github.com/sharkdp/bat#git-integration)
 fzf --preview "bat --color=always \
   --style=numbers --line-range=:500 {}"
 ```
+<!-- {: data-highlight="--color=always"} -->
 
 Force colors for previews; `--line-range` keeps long files fast to load.
 
@@ -292,6 +303,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 tail -f app.log | bat --paging=never \
   -l log
 ```
+<!-- {: data-highlight="-l log"} -->
 
 Disable paging for a live stream, and name the language when a path cannot provide it.
 
@@ -302,6 +314,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 ```bash
 git show HEAD:src/main.py | bat -l py
 ```
+<!-- {: data-highlight="-l py"} -->
 
 Older file versions have no path on disk, so set the language explicitly.
 
@@ -313,6 +326,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 export MANPAGER="bat -plman"
 man 2 select
 ```
+<!-- {: data-highlight="-plman"} -->
 
 `-plman` combines plain style with the manpage syntax.
 
@@ -327,6 +341,7 @@ bat --config-file
 bat --generate-config-file
 bat cache --build
 ```
+<!-- {: data-highlight="--config-file"} -->
 
 The config file holds default flags, one per line. Rebuild the cache after adding themes or syntaxes.
 

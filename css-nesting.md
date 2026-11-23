@@ -8,7 +8,7 @@ last_verified_with: "CSS Nesting Module Level 1."
 updated: 2026-11-24
 links:
   - title: MDN CSS nesting
-    url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using
   - title: Nesting selector
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector
 ---
@@ -30,7 +30,7 @@ links:
 ```
 <!-- {: data-highlight=".title"} -->
 
-**Nests a descendant rule.** The browser reads this as `.card .title`, so no preprocessor is needed; see [nested selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting).
+**Nests a descendant rule.** The browser reads this as `.card .title`, so no preprocessor is needed; see [nested selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using).
 
 ### State on the parent
 <!-- {: .-snippet} -->
@@ -60,7 +60,7 @@ links:
 ```
 <!-- {: data-highlight="&.featured"} -->
 
-**Joins classes on the same element.** Without `&`, the nested selector gets a space and matches a descendant instead; see [compound selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#compound_selectors).
+**Joins classes on the same element.** Without `&`, the nested selector gets a space and matches a descendant instead; see [compound selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#compound_selectors).
 
 ### Media query
 <!-- {: .-snippet} -->
@@ -90,4 +90,4 @@ links:
 ```
 <!-- {: data-highlight="& + &"} -->
 
-**Styles a card that follows another card.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#combinators).
+**Styles a card that follows another card.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using#combinators).

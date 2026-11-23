@@ -66,7 +66,7 @@ body {
 }
 ```
 
-**Scopes new values to `.dark`.** Descendants inherit them, and the `var()` fallbacks cover elements outside the scope; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+**Scopes new values to `.dark`.** Descendants inherit them; the `var()` fallbacks apply where `.dark` is not an ancestor; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ### Set from JavaScript
 <!-- {: .-snippet} -->

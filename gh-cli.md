@@ -128,7 +128,7 @@ gh repo fork cli/cli --clone
 gh repo fork --org my-org \
   --remote
 ```
-<!-- {: data-highlight="--clone"} -->
+<!-- {: data-highlight="gh repo fork"} -->
 
 The fork becomes `origin`; the original repository is added as `upstream`.
 

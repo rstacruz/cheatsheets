@@ -56,9 +56,10 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ssh host uptime
 ssh host 'ls -l /var/log'
 ssh -t host htop
+ssh host -- -l
 ```
 
-Arguments after the destination form one command sent to the remote shell. `-t` forces a TTY.
+Arguments after the destination form one command sent to the remote shell. `-t` forces a TTY; `--` ends option parsing for commands starting with `-`.
 
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 

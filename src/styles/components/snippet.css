@@ -42,20 +42,6 @@
   border-top: 0;
 }
 
-.h3-section.-snippet > .body > h4 {
-  margin: 0;
-  padding: 12px 16px 4px;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--base-mute4);
-  font-family: var(--font-monospace);
-  font-size: var(--fs-n1);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .h3-section.-snippet > .body > p {
   padding: 16px;
   border: 0;

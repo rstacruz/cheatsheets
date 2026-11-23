@@ -936,6 +936,16 @@ claude -p "list failing tests" \
   --output-format json
 ```
 
+### snippet/bold-summary
+
+🤖 Check: `snippet/bold-summary`.
+
+Start each explanation paragraph with a bold one-sentence summary of what the snippet does, then add detail and the link.
+
+```md
+**Creates a scheduled task.** `--every` compiles to cron, and schedules default to UTC. See [schedules](https://paseo.sh/docs/schedules-cli#create).
+```
+
 ## Checks
 
 Sheet checks live in `src/lib/sheetValidation/`. Run them with:

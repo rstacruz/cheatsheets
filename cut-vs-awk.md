@@ -37,7 +37,7 @@ alice
 bob
 ```
 
-`cut` is the smallest choice for fixed delimiters and field numbers; see [cut](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html).
+**Extracts fields by delimiter.** `cut` is the smallest choice for fixed delimiters and field numbers; see [cut](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html).
 
 ### awk by whitespace
 <!-- {: .-snippet} -->
@@ -61,7 +61,7 @@ alice
 bob
 ```
 
-`awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts whitespace-separated fields.** `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
 
 ### awk by delimiter
 <!-- {: .-snippet} -->
@@ -85,4 +85,4 @@ alice
 bob
 ```
 
-`-F` sets the field separator, so awk is the better fit once splitting needs logic; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).

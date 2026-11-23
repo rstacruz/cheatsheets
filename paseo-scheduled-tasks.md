@@ -23,7 +23,7 @@ paseo schedule create --every 30m \
 ```
 <!-- {: data-highlight="--every 30m"} -->
 
-`--every` compiles to cron, not a rolling interval; schedules default to UTC. See [schedules](https://paseo.sh/docs/schedules-cli#create).
+**Creates a scheduled task.** `--every` compiles to cron, not a rolling interval; schedules default to UTC. See [schedules](https://paseo.sh/docs/schedules-cli#create).
 
 ### Cron cadence
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ paseo schedule create --cron "0 9 * * 1-5" \
 ```
 <!-- {: data-highlight="--cron"} -->
 
-`--cron` takes a standard five-field expression; `--run-now` also fires once at creation. See [cadence](https://paseo.sh/docs/schedules-cli#cadence).
+**Creates a cron-scheduled task.** `--cron` takes a standard five-field expression; `--run-now` also fires once at creation. See [cadence](https://paseo.sh/docs/schedules-cli#cadence).
 
 ### Inspect runs
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ paseo schedule logs <id>
 ```
 <!-- {: data-highlight="logs"} -->
 
-Shows recent runs for one schedule; use `paseo schedule ls` to find its id. See [manage schedules](https://paseo.sh/docs/schedules-cli#manage).
+**Inspects a schedule's runs.** Shows recent runs for one schedule; use `paseo schedule ls` to find its id. See [manage schedules](https://paseo.sh/docs/schedules-cli#manage).
 
 ### Pause a schedule
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ paseo schedule pause <id>
 ```
 <!-- {: data-highlight="pause"} -->
 
-Stops future runs without deleting the schedule; `paseo schedule resume <id>` turns it back on. See [manage schedules](https://paseo.sh/docs/schedules-cli#manage).
+**Pauses future runs.** Keeps the schedule; `paseo schedule resume <id>` turns it back on. See [manage schedules](https://paseo.sh/docs/schedules-cli#manage).

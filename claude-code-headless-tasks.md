@@ -24,7 +24,7 @@ claude -p "summarize the failing tests"
 ```
 <!-- {: data-highlight="-p"} -->
 
-`-p` prints the answer and exits; pipe context in through stdin. See [headless mode](https://code.claude.com/docs/en/headless).
+**Runs one prompt and exits.** `-p` prints the answer; pipe context in through stdin. See [headless mode](https://code.claude.com/docs/en/headless).
 
 ### Review a diff
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ git diff | claude -p "review this diff for bugs"
 ```
 <!-- {: data-highlight="git diff"} -->
 
-Pipes the diff as context and returns a review. See [headless mode](https://code.claude.com/docs/en/headless).
+**Reviews a diff from stdin.** Pipes the diff as context and returns a review. See [headless mode](https://code.claude.com/docs/en/headless).
 
 ### JSON output
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ claude -p "list failing tests" \
 ```
 <!-- {: data-highlight="--output-format json"} -->
 
-Returns a JSON envelope with `result`, session, and cost fields. See the [CLI reference](https://code.claude.com/docs/en/cli-reference).
+**Emits a JSON result.** Returns an envelope with `result`, session, and cost fields. See the [CLI reference](https://code.claude.com/docs/en/cli-reference).
 
 ### Pre-approve tools
 <!-- {: .-snippet} -->
@@ -56,4 +56,4 @@ claude -p "fix the lint errors" \
 ```
 <!-- {: data-highlight="--allowedTools"} -->
 
-Headless runs cannot answer prompts, so pre-approve only the tools the task needs. See [headless mode](https://code.claude.com/docs/en/headless).
+**Pre-approves tools for unattended runs.** Headless runs cannot answer prompts, so list only the tools the task needs. See [headless mode](https://code.claude.com/docs/en/headless).

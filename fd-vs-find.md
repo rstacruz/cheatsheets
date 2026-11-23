@@ -41,7 +41,7 @@ src/app.test.ts
 src/lib/util.ts
 ```
 
-`fd` uses regex, respects gitignore, and skips hidden files by default; see [fd](https://github.com/sharkdp/fd).
+**Finds files with a regex.** `fd` respects gitignore and skips hidden files by default; see [fd](https://github.com/sharkdp/fd).
 
 ### fd with a command
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ src/lib/util.ts
 5 src/lib/util.ts
 ```
 
-`-x` runs a command once per match, with `{}` available as the path; see [fd](https://github.com/sharkdp/fd).
+**Runs a command on each match.** `-x` passes the path as `{}`; see [fd](https://github.com/sharkdp/fd).
 
 ### find by name
 <!-- {: .-snippet} -->
@@ -92,7 +92,7 @@ node_modules/pkg/index.ts
 ./src/app.test.ts
 ```
 
-`find` is portable and scriptable but needs explicit pruning and ignores; see [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).
+**Finds files by name portably.** `find` needs explicit pruning and ignores; see [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).
 
 ### find with exec
 <!-- {: .-snippet} -->
@@ -116,4 +116,4 @@ src/app.test.ts
 20 ./src/app.test.ts
 ```
 
-`-exec ... +` batches matches into a single command instead of one call per file. See [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).
+**Runs a command on matched files.** `-exec ... +` batches matches into one call instead of one per file. See [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).

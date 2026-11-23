@@ -24,7 +24,7 @@ links:
 ```
 <!-- {: data-highlight="mise run update"} -->
 
-Run tasks through cron with an absolute project path and a `PATH` that includes `mise`; see [running tasks](https://mise.jdx.dev/tasks/running-tasks.html).
+**Runs a mise task from cron.** Use an absolute project path and a `PATH` that includes `mise`; see [running tasks](https://mise.jdx.dev/tasks/running-tasks.html).
 
 ### Systemd service
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ ExecStart=/home/me/.local/bin/mise run update
 ```
 <!-- {: data-highlight="ExecStart"} -->
 
-A systemd timer can trigger this service; use absolute paths because user services have a minimal environment. See [systemd.timer](https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html).
+**Runs a mise task from systemd.** A timer can trigger this service; use absolute paths because user services have a minimal environment. See [systemd.timer](https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html).
 
 ### Watch for changes
 <!-- {: .-snippet} -->
@@ -46,4 +46,4 @@ mise watch build
 ```
 <!-- {: data-highlight="mise watch"} -->
 
-`mise watch` reruns a task when its `sources` change, not on a clock; see [mise watch](https://mise.jdx.dev/cli/watch.html).
+**Reruns a task on source changes.** `mise watch` responds to `sources`, not a clock; see [mise watch](https://mise.jdx.dev/cli/watch.html).

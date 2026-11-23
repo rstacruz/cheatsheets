@@ -33,7 +33,7 @@ banana
 cherry
 ```
 
-Quoting `"${fruits[@]}"` keeps one element per iteration, even when values contain spaces; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Loops over array values safely.** Quoting `"${fruits[@]}"` keeps one element per iteration, even when values contain spaces; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 
 ### Indices
 <!-- {: .-snippet} -->
@@ -53,7 +53,7 @@ done
 2: cherry
 ```
 
-`!` expands to the array indices, which is useful when the position matters; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Loops over array indices.** `!` expands to the indices, which is useful when the position matters; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 
 ### C-style loop
 <!-- {: .-snippet} -->
@@ -65,4 +65,4 @@ done
 ```
 <!-- {: data-highlight="${#fruits[@]}"} -->
 
-`${#array[@]}` is the array length; this form is handy when you need the numeric index. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
+**Loops with a numeric index.** `${#array[@]}` is the array length; this form is handy when you need the index. See [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).

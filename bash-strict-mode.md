@@ -22,7 +22,7 @@ set -euo pipefail
 ```
 <!-- {: data-highlight="-euo pipefail"} -->
 
-`-e` exits on errors, `-u` rejects unset variables, and `-o pipefail` catches failures in pipelines; see [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html).
+**Enables strict error and variable checks.** `-e` exits on errors, `-u` rejects unset variables, and `-o pipefail` catches pipeline failures; see [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html).
 
 ### Catch errors
 <!-- {: .-snippet} -->
@@ -33,7 +33,7 @@ trap 'echo "error on line $LINENO" >&2' ERR
 ```
 <!-- {: data-highlight="ERR"} -->
 
-`-E` makes the `ERR` trap fire inside functions and subshells; see [trap](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-trap).
+**Adds an error trap with line numbers.** `-E` makes the `ERR` trap fire inside functions and subshells; see [trap](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-trap).
 
 ### Safer word splitting
 <!-- {: .-snippet} -->
@@ -43,4 +43,4 @@ IFS=$'\n\t'
 ```
 <!-- {: data-highlight="IFS"} -->
 
-Limits word splitting to newlines and tabs instead of every space; see [IFS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-IFS).
+**Restricts word splitting.** `IFS` is set to newlines and tabs instead of every space; see [IFS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-IFS).

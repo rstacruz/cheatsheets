@@ -22,7 +22,7 @@ opencode run "explain this repo"
 ```
 <!-- {: data-highlight="opencode run"} -->
 
-Sends one prompt, prints the reply, and exits. See [opencode run](https://opencode.ai/docs/cli/commands#run).
+**Runs OpenCode non-interactively.** Sends one prompt, prints the reply, and exits. See [opencode run](https://opencode.ai/docs/cli/commands#run).
 
 ### Continue a session
 <!-- {: .-snippet} -->
@@ -32,7 +32,7 @@ opencode run --continue "go on"
 ```
 <!-- {: data-highlight="--continue"} -->
 
-Continues the latest session instead of starting a new one. See [opencode run](https://opencode.ai/docs/cli/commands#run).
+**Resumes the last session.** Continues it instead of starting a new one. See [opencode run](https://opencode.ai/docs/cli/commands#run).
 
 ### JSON output
 <!-- {: .-snippet} -->
@@ -42,7 +42,7 @@ opencode run --format json "list TODOs" | jq
 ```
 <!-- {: data-highlight="--format json"} -->
 
-Emits one JSON object per line for scripts and `jq`. See [opencode run](https://opencode.ai/docs/cli/commands#run).
+**Emits JSON lines for scripts.** Produces one JSON object per line for `jq`. See [opencode run](https://opencode.ai/docs/cli/commands#run).
 
 ### Standalone CI run
 <!-- {: .-snippet} -->
@@ -52,4 +52,4 @@ opencode run --standalone "review the diff"
 ```
 <!-- {: data-highlight="--standalone"} -->
 
-Gives the run its own server, which keeps secrets and sessions out of the shared daemon. See [opencode run](https://opencode.ai/docs/cli/commands#run).
+**Isolates the run in its own server.** Keeps secrets and sessions out of the shared daemon. See [opencode run](https://opencode.ai/docs/cli/commands#run).

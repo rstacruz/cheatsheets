@@ -24,7 +24,7 @@ git branch -d old-name
 ```
 <!-- {: data-highlight="-d"} -->
 
-Deletes a local branch only when Git can prove it is merged; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--d).
+**Safely deletes a merged branch.** Git refuses when the branch has unmerged commits; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--d).
 
 ### Unmerged local branch
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ git branch -D old-name
 ```
 <!-- {: data-highlight="-D"} -->
 
-Forces deletion even with unmerged commits, so check the commits first; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--D).
+**Deletes unmerged work.** Forces deletion even with unmerged commits, so check them first; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--D).
 
 ### Remote branch
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ git push origin --delete old-name
 ```
 <!-- {: data-highlight="--delete"} -->
 
-Deletes the branch on `origin`; local branches and other clones are untouched. See the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).
+**Removes the branch on the remote.** Local branches and other clones are untouched. See the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).
 
 ### Stale tracking refs
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ git fetch --prune
 ```
 <!-- {: data-highlight="--prune"} -->
 
-Removes local `origin/*` refs whose remote branch is gone; see the [git-fetch manual](https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---prune).
+**Prunes stale remote-tracking refs.** Removes local `origin/*` refs whose remote branch is gone; see the [git-fetch manual](https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---prune).

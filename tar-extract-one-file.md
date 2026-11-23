@@ -31,7 +31,7 @@ notes.md
 path/to/file
 ```
 
-`-t` lists members and `-f` names the archive; find the exact path before extracting. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/list.html).
+**Lists archive members.** `-t` lists and `-f` names the archive; find the exact path before extracting. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/list.html).
 
 ### Extract one member
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ tar -xf archive.tar.gz path/to/file
 path/to/file
 ```
 
-`-x` extracts and `-f` selects the archive; pass the exact member path. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
+**Extracts one archive member.** `-x` extracts and `-f` selects the archive; pass the exact path. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
 
 ### Print to stdout
 <!-- {: .-snippet} -->
@@ -63,7 +63,7 @@ tar -xOf archive.tar.gz path/to/file
 file contents
 ```
 
-`-O` writes the member to stdout instead of creating a file. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
+**Prints a member to stdout.** `-O` writes instead of creating a file. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
 
 ### Match a pattern
 <!-- {: .-snippet} -->
@@ -80,4 +80,4 @@ docs/readme.md
 notes.md
 ```
 
-GNU tar needs `--wildcards` before it treats a member name as a glob. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/wildcards.html).
+**Extracts members by glob.** GNU tar needs `--wildcards` before it treats a name as a pattern. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/wildcards.html).

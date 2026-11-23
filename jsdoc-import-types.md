@@ -26,7 +26,7 @@ links:
 ```
 <!-- {: data-highlight="@typedef"} -->
 
-Names the default export's type `Bar` without a runtime import. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
+**Aliases the default export type.** Names it `Bar` without a runtime import. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
 
 ### Named import
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ Names the default export's type `Bar` without a runtime import. See [import type
 ```
 <!-- {: data-highlight="@import"} -->
 
-TypeScript 5.5+ imports the named type `Bar` without adding a runtime import. See the [5.5 release notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/).
+**Imports a named type without runtime code.** TypeScript 5.5+ supports this for `Bar`; see the [5.5 release notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/).
 
 ### Default import
 <!-- {: .-snippet} -->
@@ -46,4 +46,4 @@ TypeScript 5.5+ imports the named type `Bar` without adding a runtime import. Se
 ```
 <!-- {: data-highlight="default as"} -->
 
-Imports the default export as the type `Bar`; use this when you need an alias. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).
+**Imports the default export as an alias.** Use this when you need a named type. See [import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types).

@@ -38,7 +38,7 @@ bar bar
 bar baz
 ```
 
-Edits the file in place without a backup; `g` replaces every match on each line. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
+**Edits a file without a backup.** `g` replaces every match on each line. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
 
 ### Keep a backup
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ sed -i.bak 's/foo/bar/g' file.txt
 ```
 <!-- {: data-highlight="-i.bak"} -->
 
-Writes `file.txt.bak` before editing; the suffix follows `-i` with no space. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
+**Keeps a backup before editing.** Writes `file.txt.bak`; the suffix follows `-i` with no space. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
 
 ### macOS and BSD
 <!-- {: .-snippet} -->
@@ -58,7 +58,7 @@ sed -i '' 's/foo/bar/g' file.txt
 ```
 <!-- {: data-highlight="-i ''"} -->
 
-BSD sed requires an explicit backup suffix; an empty string means no backup. See [BSD sed](https://man.openbsd.org/sed.1).
+**Handles BSD sed's backup argument.** BSD sed requires an explicit suffix; an empty string means no backup. See [BSD sed](https://man.openbsd.org/sed.1).
 
 ### Extended regex
 <!-- {: .-snippet} -->
@@ -82,4 +82,4 @@ baz baz
 bazqux
 ```
 
-`-E` enables extended regular expressions such as `|` and groups. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
+**Enables extended regular expressions.** `-E` supports `|` and groups. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).

@@ -24,7 +24,7 @@ git reset --soft HEAD~1
 ```
 <!-- {: data-highlight="--soft"} -->
 
-Moves HEAD back one commit and leaves its changes staged; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---soft).
+**Undoes the commit but keeps changes staged.** Moves HEAD back one commit and stages the changes; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---soft).
 
 ### Keep changes unstaged
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ git reset --mixed HEAD~1
 ```
 <!-- {: data-highlight="--mixed"} -->
 
-Moves HEAD back and unstages the changes but keeps the working files; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---mixed).
+**Undoes the commit and unstages changes.** Moves HEAD back but keeps the working files; see [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---mixed).
 
 ### Discard changes
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ git reset --hard HEAD~1
 ```
 <!-- {: data-highlight="--hard"} -->
 
-Deletes the commit and its changes from the working tree; only use it for unpublished work. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---hard).
+**Discards the commit and its changes.** Deletes them from the working tree; only use it for unpublished work. See [git-reset](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---hard).
 
 ### Undo a pushed commit
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ git revert HEAD
 ```
 <!-- {: data-highlight="revert"} -->
 
-Creates a new commit that reverses the last one, keeping shared history intact. See [git-revert](https://git-scm.com/docs/git-revert).
+**Reverses a pushed commit safely.** Creates a new commit that reverses the last one, keeping shared history intact. See [git-revert](https://git-scm.com/docs/git-revert).

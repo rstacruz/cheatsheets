@@ -82,6 +82,13 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
       continue
     }
 
+    if (explanation.children[0]?.type !== 'strong') {
+      found.push({
+        line,
+        text: `H3 "${title}" needs a bold summary at the start of its explanation`
+      })
+    }
+
     let linked = false
     visit(explanation, 'link', () => {
       linked = true
@@ -120,7 +127,7 @@ describe('findSnippetLayoutIssues()', () => {
       'git branch -m new-name',
       '```',
       '',
-      'Renames the checked-out branch. See the [git-branch manual](https://git-scm.com/docs/git-branch).'
+      '**Renames the checked-out branch.** See the [git-branch manual](https://git-scm.com/docs/git-branch).'
     ].join('\n')
 
   const sheet = (h2Class = H2_CLASS) =>
@@ -174,9 +181,9 @@ describe('findSnippetLayoutIssues()', () => {
         'git branch -m new-name',
         '```',
         '',
-        'Renames the checked-out branch. See the [git-branch manual](https://git-scm.com/docs/git-branch).'
+        '**Renames the checked-out branch.** See the [git-branch manual](https://git-scm.com/docs/git-branch).'
       ].join('\n'),
-      'See the [git-branch manual](https://git-scm.com/docs/git-branch).'
+      '**See the [git-branch manual](https://git-scm.com/docs/git-branch).**'
     )
     expect(findSnippetLayoutIssues(input)).toEqual([
       {
@@ -196,10 +203,23 @@ describe('findSnippetLayoutIssues()', () => {
     ])
   })
 
+  test('flags an explanation without a bold summary', () => {
+    const input = sheet().replace(
+      '**Renames the checked-out branch.** See the [git-branch manual](https://git-scm.com/docs/git-branch).',
+      'Renames the checked-out branch. See the [git-branch manual](https://git-scm.com/docs/git-branch).'
+    )
+    expect(findSnippetLayoutIssues(input)).toEqual([
+      {
+        line: 4,
+        text: 'H3 "Current branch" needs a bold summary at the start of its explanation'
+      }
+    ])
+  })
+
   test('flags an explanation without a link', () => {
     const input = sheet().replace(
-      'Renames the checked-out branch. See the [git-branch manual](https://git-scm.com/docs/git-branch).',
-      'Renames the checked-out branch.'
+      '**Renames the checked-out branch.** See the [git-branch manual](https://git-scm.com/docs/git-branch).',
+      '**Renames the checked-out branch.**'
     )
     expect(findSnippetLayoutIssues(input)).toEqual([
       {

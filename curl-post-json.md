@@ -24,7 +24,7 @@ curl -X POST https://api.example.com/items \
 ```
 <!-- {: data-highlight="-d"} -->
 
-`-H` sets the content type and `-d` sends the body; see [curl](https://curl.se/docs/manpage.html#-d).
+**Sends a JSON request body.** `-H` sets the content type and `-d` sends the body; see [curl](https://curl.se/docs/manpage.html#-d).
 
 ### Body from a file
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ curl -X POST https://api.example.com/items \
 ```
 <!-- {: data-highlight="@item.json"} -->
 
-`@file` reads the request body from a file, keeping shell quoting out of the way. See [curl](https://curl.se/docs/manpage.html#-d).
+**Sends a JSON body from a file.** `@file` keeps shell quoting out of the way. See [curl](https://curl.se/docs/manpage.html#-d).
 
 ### JSON shortcut
 <!-- {: .-snippet} -->
@@ -47,4 +47,4 @@ curl --json '{"name":"Ada"}' \
 ```
 <!-- {: data-highlight="--json"} -->
 
-`--json` sets the JSON headers and POST method in one flag; see [curl](https://curl.se/docs/manpage.html#--json).
+**Sends JSON with one flag.** `--json` sets the headers and POST method; see [curl](https://curl.se/docs/manpage.html#--json).

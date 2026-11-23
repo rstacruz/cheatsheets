@@ -23,6 +23,20 @@ cut -d: -f1 /etc/passwd
 ```
 <!-- {: data-highlight="-d: -f1"} -->
 
+#### Input
+
+```text
+alice:1000
+bob:1001
+```
+
+#### Output
+
+```text
+alice
+bob
+```
+
 `cut` is the smallest choice for fixed delimiters and field numbers; see [cut](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html).
 
 ### awk by whitespace
@@ -33,6 +47,20 @@ awk '{print $1}' file.txt
 ```
 <!-- {: data-highlight="$1"} -->
 
+#### Input
+
+```text
+alice 1000
+bob   1001
+```
+
+#### Output
+
+```text
+alice
+bob
+```
+
 `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
 
 ### awk by delimiter
@@ -42,5 +70,19 @@ awk '{print $1}' file.txt
 awk -F: '{print $1}' /etc/passwd
 ```
 <!-- {: data-highlight="-F:"} -->
+
+#### Input
+
+```text
+alice:1000
+bob:1001
+```
+
+#### Output
+
+```text
+alice
+bob
+```
 
 `-F` sets the field separator, so awk is the better fit once splitting needs logic; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).

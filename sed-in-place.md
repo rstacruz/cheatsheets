@@ -24,6 +24,20 @@ sed -i 's/foo/bar/g' file.txt
 ```
 <!-- {: data-highlight="-i"} -->
 
+#### Input
+
+```text
+foo bar
+foo baz
+```
+
+#### Output
+
+```text
+bar bar
+bar baz
+```
+
 Edits the file in place without a backup; `g` replaces every match on each line. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).
 
 ### Keep a backup
@@ -53,5 +67,19 @@ BSD sed requires an explicit backup suffix; an empty string means no backup. See
 sed -E 's/(foo|bar)/baz/g' file.txt
 ```
 <!-- {: data-highlight="-E"} -->
+
+#### Input
+
+```text
+foo bar
+bazqux
+```
+
+#### Output
+
+```text
+baz baz
+bazqux
+```
 
 `-E` enables extended regular expressions such as `|` and groups. See [GNU sed](https://www.gnu.org/software/sed/manual/html_node/Invoking-sed.html).

@@ -24,6 +24,20 @@ rg 'foo' -r 'bar'
 ```
 <!-- {: data-highlight="-r"} -->
 
+#### Input
+
+```text
+foo bar
+baz
+```
+
+#### Output
+
+```text
+bar bar
+baz
+```
+
 Prints the replaced lines without touching files; `-r` is short for `--replace`. See the [ripgrep guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md).
 
 ### Whole-word matches
@@ -33,6 +47,18 @@ Prints the replaced lines without touching files; `-r` is short for `--replace`.
 rg -w 'foo' -r 'bar'
 ```
 <!-- {: data-highlight="-w"} -->
+
+#### Input
+
+```text
+foo foobar
+```
+
+#### Output
+
+```text
+bar foobar
+```
 
 `-w` limits the replacement to whole-word matches; see [ripgrep options](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#common-options).
 
@@ -44,6 +70,18 @@ rg -l -0 'foo' | xargs -0 sed -i 's/foo/bar/g'
 ```
 <!-- {: data-highlight="xargs -0"} -->
 
+#### Input
+
+```text
+foo
+```
+
+#### Output
+
+```text
+bar
+```
+
 `-l -0` lists matching files as NUL-separated paths, then `xargs -0` runs `sed -i` safely; see the [sed manual](https://www.gnu.org/software/sed/manual/sed.html#Invoking-sed).
 
 ### Capture groups
@@ -53,5 +91,17 @@ rg -l -0 'foo' | xargs -0 sed -i 's/foo/bar/g'
 rg -o '(\w+)@(\w+)' -r '$2:$1'
 ```
 <!-- {: data-highlight="$2:$1"} -->
+
+#### Input
+
+```text
+ada@example
+```
+
+#### Output
+
+```text
+example:ada
+```
 
 `-o` prints only matches and `$1`/`$2` reuse capture groups; see [regex syntax](https://docs.rs/regex/latest/regex/#syntax).

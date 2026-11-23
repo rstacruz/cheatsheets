@@ -58,20 +58,26 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
     const content = nodes.filter(
       (node) => !(node.type === 'html' && node.value.trim().startsWith('<!--'))
     )
-    const [code, explanation] = content
+    const explanation = content.at(-1)
+    const left = content.slice(0, -1)
+    const hasCode = left.some((node) => node.type === 'code')
+    const leftIsValid = left.every(
+      (node) =>
+        node.type === 'code' || (node.type === 'heading' && node.depth === 4)
+    )
 
-    if (code?.type !== 'code' || explanation?.type !== 'paragraph') {
+    if (!hasCode) {
       found.push({
         line,
-        text: `H3 "${title}" must hold one code block followed by one explanation paragraph`
+        text: `H3 "${title}" needs at least one code block before the explanation`
       })
       continue
     }
 
-    if (content.length !== 2) {
+    if (!leftIsValid || explanation?.type !== 'paragraph') {
       found.push({
         line,
-        text: `H3 "${title}" must hold only the code block and the explanation paragraph`
+        text: `H3 "${title}" must hold code blocks and H4 labels, then one explanation paragraph`
       })
       continue
     }
@@ -124,6 +130,30 @@ describe('findSnippetLayoutIssues()', () => {
     expect(findSnippetLayoutIssues(sheet())).toEqual([])
   })
 
+  test('accepts H4-labelled input and output blocks', () => {
+    const input = sheet().replace(
+      ['```bash', 'git branch -m new-name', '```'].join('\n'),
+      [
+        '```bash',
+        'git branch -m new-name',
+        '```',
+        '',
+        '#### Input',
+        '',
+        '```text',
+        'old-name',
+        '```',
+        '',
+        '#### Output',
+        '',
+        '```text',
+        'new-name',
+        '```'
+      ].join('\n')
+    )
+    expect(findSnippetLayoutIssues(input)).toEqual([])
+  })
+
   test('flags an H2 without the snippet class', () => {
     expect(findSnippetLayoutIssues(sheet('-two-column'))).toEqual([
       { line: 1, text: 'H2 "Renaming" needs the .-snippets class' }
@@ -151,7 +181,7 @@ describe('findSnippetLayoutIssues()', () => {
     expect(findSnippetLayoutIssues(input)).toEqual([
       {
         line: 4,
-        text: 'H3 "Current branch" must hold one code block followed by one explanation paragraph'
+        text: 'H3 "Current branch" needs at least one code block before the explanation'
       }
     ])
   })
@@ -161,7 +191,7 @@ describe('findSnippetLayoutIssues()', () => {
     expect(findSnippetLayoutIssues(input)).toEqual([
       {
         line: 4,
-        text: 'H3 "Current branch" must hold only the code block and the explanation paragraph'
+        text: 'H3 "Current branch" must hold code blocks and H4 labels, then one explanation paragraph'
       }
     ])
   })

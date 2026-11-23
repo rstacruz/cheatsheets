@@ -194,7 +194,7 @@ setUser({ ...user, name: 'Ana' })
 setItems(items => [...items, item])
 setItems(items => items.filter(i => i.id !== id))
 ```
-<!-- {: data-highlight="[...items, item]"} -->
+<!-- {: data-highlight="{ ...user, name: 'Ana' }; [...items, item]; items.filter(i => i.id !== id)"} -->
 
 State is a per-render snapshot and is immutable — replace it, never mutate in place. See: [useState](https://react.dev/reference/react/useState)
 

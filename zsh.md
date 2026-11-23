@@ -66,7 +66,7 @@ ls *(m0)          # modified today
 ls *(m-4)         # modified within 4 days
 ls *(om[1,3])     # three newest files
 ```
-<!-- {: data-highlight="*(.)"} -->
+<!-- {: data-highlight="*(.); *(m0); *(m-4); *(om[1,3])"} -->
 
 #### Qualifiers
 

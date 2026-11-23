@@ -91,7 +91,6 @@ Object.entries(user)             // → [["name", "Ada"], ["age", 36]]
 const { name, ...rest } = user   // rest → { age: 36 }
 ({ ...user, age: 37 })           // → { name: "Ada", age: 37 }
 ```
-<!-- {: data-highlight="Object.keys; Object.entries"} -->
 
 [JavaScript Objects cheatsheet](./js-object)
 

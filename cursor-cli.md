@@ -369,7 +369,7 @@ agent models                      # same, as a subcommand
 /model auto                       # let Cursor route
 agent --model gpt-5 "fix tests"   # pin one for a run
 ```
-<!-- {: data-highlight="--list-models; /model; --model gpt-5"} -->
+<!-- {: data-highlight="--list-models; agent models; /model; --model gpt-5"} -->
 
 Fresh installs start on Auto. Team restrictions shrink the list; a blocked `--model` exits with a restriction message.
 

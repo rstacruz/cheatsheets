@@ -83,7 +83,6 @@ $name = 'Ada';  // string
 echo $x;        // 10
 echo $name;     // Ada
 ```
-<!-- {: data-highlight="$x"} -->
 
 See: [Variables](https://www.php.net/manual/en/language.variables.basics.php)
 
@@ -140,7 +139,7 @@ $f = 3.14;   // float
 $e = 1_000;  // int
 echo $i + $f; // 45.14
 ```
-<!-- {: data-highlight="1_000"} -->
+<!-- {: data-highlight="42; 3.14; 1_000"} -->
 
 See: [Integers](https://www.php.net/manual/en/language.types.integer.php)
 

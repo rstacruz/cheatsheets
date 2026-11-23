@@ -214,7 +214,7 @@ type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6
 const point = { x: 4, y: 2 } as const
 // point: { readonly x: 4; readonly y: 2 }
 ```
-<!-- {: data-highlight="as const; 'north' | 'south'"} -->
+<!-- {: data-highlight="as const; 'north' | 'south'; 1 | 2 | 3 | 4 | 5 | 6"} -->
 
 See: [Literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
 
@@ -520,7 +520,7 @@ export default class Circle {}
 export type { User } from './user'
 export type * from './types'
 ```
-<!-- {: data-highlight="export type"} -->
+<!-- {: data-highlight="export"} -->
 
 See: [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
 

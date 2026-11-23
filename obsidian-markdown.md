@@ -38,7 +38,7 @@ links:
 [[Projects/Launch]]
 [[Note|Alias]]
 ```
-<!-- {: data-highlight="[[Note|Alias]]"} -->
+<!-- {: data-highlight="[[Note]]; [[Projects/Launch]]; [[Note|Alias]]"} -->
 
 Links resolve by file name without an extension; folder paths start at the vault root. The pipe sets the display text.
 

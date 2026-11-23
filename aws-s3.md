@@ -89,7 +89,7 @@ aws s3 sync s3://mybucket/backup ./backup --delete   # destructive
 aws s3 sync ./site s3://mybucket/site --dryrun
 aws s3 sync ./site s3://mybucket/site --size-only
 ```
-<!-- {: data-highlight="--delete"} -->
+<!-- {: data-highlight="aws s3 sync"} -->
 
 #### Options
 
@@ -294,7 +294,7 @@ aws s3api put-bucket-cors --bucket mybucket \
   ]
 }
 ```
-<!-- {: data-highlight="AllowedOrigins; AllowedMethods"} -->
+<!-- {: data-highlight="AllowedOrigins; AllowedMethods; AllowedHeaders; MaxAgeSeconds"} -->
 
 ACLs (`--acl`, `--grants`) are legacy; prefer bucket policies.
 

@@ -186,7 +186,6 @@ num := 3 + 4i     // complex128
 num := byte('a')  // uint8 alias
 num := 'a'        // rune (int32)
 ```
-<!-- {: data-highlight="byte('a')"} -->
 
 #### Other types
 
@@ -194,7 +193,7 @@ num := 'a'        // rune (int32)
 var u uint = 7        // unsigned
 var p float32 = 22.7  // 32-bit float
 ```
-<!-- {: data-highlight="float32"} -->
+<!-- {: data-highlight="uint; float32"} -->
 
 #### Built-ins
 
@@ -610,7 +609,7 @@ See: [Type constraints](https://go.dev/ref/spec#Type_constraints)
 import "fmt"
 import "math/rand"
 ```
-<!-- {: data-highlight="math/rand"} -->
+<!-- {: data-highlight="fmt; math/rand"} -->
 
 #### Grouped imports
 

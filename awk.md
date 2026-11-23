@@ -63,7 +63,6 @@ NR == 1                   # Pattern only: print the line
            { print $2 }   # Action only: every line
 END        { ... }        # Once, after all input
 ```
-<!-- {: data-highlight="BEGIN; END"} -->
 
 A program is a list of `pattern { action }` rules; either part is optional.
 
@@ -296,7 +295,7 @@ awk '{ delete count[$1] }' file
 awk '{ total[$1, $2] += $3 } END { for (k in total) print k }'
 awk 'BEGIN { a["x", "y"] = 1; if (("x", "y") in a) print "yes" }'
 ```
-<!-- {: data-highlight="delete count[$1]"} -->
+<!-- {: data-highlight='delete count[$1]; total[$1, $2]; a["x", "y"]'} -->
 
 `a[i,j]` joins the keys with `SUBSEP`. `delete a` clears the whole array in gawk.
 

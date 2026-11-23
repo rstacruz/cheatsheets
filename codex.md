@@ -418,7 +418,6 @@ codex review --uncommitted
 codex review --base main
 git diff | codex exec "review this diff for bugs"
 ```
-<!-- {: data-highlight="--base main"} -->
 
 Inside a session, `/review` reviews the working tree and `/diff` shows the changes.
 

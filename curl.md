@@ -180,7 +180,7 @@ See: [--variable](https://curl.se/docs/manpage.html#--variable)
 -K -                # read options from stdin
 -q                  # --disable: ignore .curlrc
 ```
-<!-- {: data-highlight="-K curlrc"} -->
+<!-- {: data-highlight="-K curlrc; -K -; -q"} -->
 
 curl reads `$CURL_HOME/.curlrc`, `$XDG_CONFIG_HOME/curlrc`, then `$HOME/.curlrc`. Write one option per line, without leading dashes.
 

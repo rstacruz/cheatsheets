@@ -213,7 +213,6 @@ odt1 = 1979-05-27T07:32:00Z
 odt2 = 1979-05-27T00:32:00-07:00
 now = 1979-05-27T07:32Z
 ```
-<!-- {: data-highlight="-07:00"} -->
 
 RFC 3339 with an offset; `T` may be a space. Omitting seconds, as in `now`, is a 1.1.0 addition.
 
@@ -225,7 +224,7 @@ See: [Offset Date-Time](https://toml.io/en/v1.1.0#offset-date-time)
 ldt1 = 1979-05-27T07:32:00
 ldt2 = 1979-05-27T07:32:00.5
 ```
-<!-- {: data-highlight="1979-05-27T07:32:00"} -->
+<!-- {: data-highlight="1979-05-27T07:32:00; 1979-05-27T07:32:00.5"} -->
 
 No offset means wall-clock time, not an instant.
 
@@ -252,7 +251,6 @@ integers = [ 1, 2, 3 ]
 colors = [ "red", "blue" ]
 nested = [ [ 1, 2 ], [3, 4, 5] ]
 ```
-<!-- {: data-highlight="[ 1, 2, 3 ]"} -->
 
 See: [Array](https://toml.io/en/v1.1.0#array)
 
@@ -338,7 +336,6 @@ See: [Array of Tables](https://toml.io/en/v1.1.0#array-of-tables)
 name = { first = "Tom", last = "Preston-Werner" }
 point = {x=1}
 ```
-<!-- {: data-highlight="point = {x=1}"} -->
 
 Inline tables are self-contained; keys cannot be added outside braces.
 

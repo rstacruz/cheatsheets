@@ -99,7 +99,6 @@ See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 ## Heading 2 ##
 ## Heading 2 #######
 ```
-<!-- {: data-highlight="#######"} -->
 
 Closing `#`s may be any length when preceded by a space.
 
@@ -132,7 +131,6 @@ See: [Setext headings](https://spec.commonmark.org/0.31.2/#setext-headings)
 ***bold italic***
 ~~strikethrough~~
 ```
-<!-- {: data-highlight="*italic*; **bold**; ~~strikethrough~~"} -->
 
 `_` does not emphasize inside words (`foo_bar_baz`); `*` does (`foo*bar*baz`).
 
@@ -147,7 +145,6 @@ See: [Emphasis](https://spec.commonmark.org/0.31.2/#emphasis-and-strong-emphasis
 \`not code\`
 \# not a heading
 ```
-<!-- {: data-highlight="\*"} -->
 
 A backslash escapes any ASCII punctuation; before anything else it stays literal.
 
@@ -247,7 +244,7 @@ See: [Links](https://spec.commonmark.org/0.31.2/#links)
 [cm]: https://spec.commonmark.org/0.31.2/
 [CommonMark]: https://commonmark.org/
 ```
-<!-- {: data-highlight="[CommonMark][cm]; [CommonMark][]"} -->
+<!-- {: data-highlight="[CommonMark][cm]; [CommonMark][]; [CommonMark]"} -->
 
 Definitions can follow the links but cannot interrupt a paragraph; they are not rendered. `[]` reuses the label; no brackets is the shortcut form.
 

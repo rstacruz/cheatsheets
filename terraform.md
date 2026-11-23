@@ -729,7 +729,7 @@ See: [terraform console](https://developer.hashicorp.com/terraform/cli/commands/
 TF_LOG=DEBUG terraform plan
 TF_LOG=TRACE TF_LOG_PATH=terraform.log terraform apply
 ```
-<!-- {: data-highlight="TF_LOG=DEBUG; TF_LOG_PATH=terraform.log"} -->
+<!-- {: data-highlight="TF_LOG; TF_LOG_PATH"} -->
 
 Logs may contain sensitive values.
 

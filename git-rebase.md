@@ -62,7 +62,7 @@ pick 877bace # add feature
 pick adc2cdb # add docs
 pick 61763ac # fix typo
 ```
-<!-- {: data-highlight="pick 877bace"} -->
+<!-- {: data-highlight="pick"} -->
 
 Git replays these lines top to bottom; deleting one drops that commit.
 

@@ -216,7 +216,7 @@ yay -Pw                 # new Arch news
 yay -Pww                # all available news
 yay -Pwq                # news titles only
 ```
-<!-- {: data-highlight="-Ps; -Pd; -Pw"} -->
+<!-- {: data-highlight="-Ps"} -->
 
 `-Ps` also reports orphaned, out-of-date, and missing AUR packages.
 

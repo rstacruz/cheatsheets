@@ -225,7 +225,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //a/@href      #=> href attributes
 //a/*          #=> child elements
 ```
-<!-- {: data-highlight="text(); @href"} -->
+<!-- {: data-highlight="text(); @href; *"} -->
 
 A step may have an element name (`div`) and [predicates](#predicates) (`[...]`); it can also name text nodes, attributes, or child elements.
 
@@ -256,7 +256,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //a[@id != "xyz"]
 //a[@price > 25]
 ```
-<!-- {: data-highlight="!="} -->
+<!-- {: data-highlight="=; !=; >"} -->
 
 #### Logic
 

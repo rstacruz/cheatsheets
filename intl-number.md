@@ -73,7 +73,7 @@ new Intl.NumberFormat('default', opts).format(0.25)
 new Intl.NumberFormat(undefined, opts).format(0.25)
 // → '25%'
 ```
-<!-- {: .-wrap data-highlight="'default'"} -->
+<!-- {: .-wrap data-highlight="'default'; undefined"} -->
 
 `'default'` and `undefined` both mean "use the runtime's default locale".
 

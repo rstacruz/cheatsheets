@@ -128,7 +128,6 @@ mise outdated                 # newer versions in the current range
 mise upgrade node             # upgrade within the request (24.x)
 mise upgrade --bump node      # latest overall, rewrites mise.toml
 ```
-<!-- {: data-highlight="--bump"} -->
 
 `mise settings self_update.auto=true` keeps the mise binary current; package-manager installs update via their manager.
 
@@ -171,7 +170,6 @@ mise install node@20.19.0        # exact version
 mise install --include-task-tools
 mise uninstall node@18.0.0       # remove installed version only
 ```
-<!-- {: data-highlight="--include-task-tools"} -->
 
 `install` downloads without touching `mise.toml`; `uninstall` removes a version, `mise unuse` edits the config.
 
@@ -235,7 +233,6 @@ mise search jq             # search the registry
 mise registry node         # → core:node
 mise registry -b core      # all built-in tools
 ```
-<!-- {: data-highlight="-b core"} -->
 
 The registry maps names like `node`, `terraform`, or `ripgrep` to a backend, so you rarely need to name one. `mise search --all` queries package registries.
 
@@ -396,7 +393,6 @@ mise trust --all             # dir, parents, subdirs
 mise untrust mise.toml
 mise trust --ignore
 ```
-<!-- {: data-highlight="--ignore"} -->
 
 Config files can run code through tasks and hooks. Normal mode auto-trusts the active config on `mise run`, `mise install`, `mise exec`, and `mise watch`.
 
@@ -417,7 +413,6 @@ RUST_TEST_THREADS = "1"
 CACHE_DIR = false              # unset it
 LOG_LEVEL = { default = "info" }
 ```
-<!-- {: data-highlight="CACHE_DIR = false"} -->
 
 #### From the CLI
 
@@ -584,7 +579,6 @@ mise use -g watchexec@latest   # mise watch needs watchexec
 mise watch build               # rerun on source changes
 mise watch test --clear
 ```
-<!-- {: data-highlight="--clear"} -->
 
 Watches the task's `sources`; arguments after `--` go to the task.
 

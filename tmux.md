@@ -131,7 +131,6 @@ C-b l               # Last active window
 C-b w               # Choose a window from a list
 C-b f               # Find by name or visible text
 ```
-<!-- {: data-highlight="C-b c"} -->
 
 The status bar lists windows; `*` marks the active one.
 
@@ -159,7 +158,6 @@ C-b %               # Split left and right
 C-b "               # Split top and bottom
 C-b :split-window -h -l 30   # Split 30 columns wide
 ```
-<!-- {: data-highlight="C-b %"} -->
 
 Each split runs its own shell, inside the same window.
 
@@ -237,7 +235,6 @@ set -g history-limit 50000
 set -g renumber-windows on
 set -sg escape-time 10
 ```
-<!-- {: data-highlight="base-index 1; pane-base-index 1"} -->
 
 tmux reads `~/.tmux.conf` when the server starts, not on every attach.
 

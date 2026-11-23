@@ -150,7 +150,7 @@ hermes auth add anthropic --type oauth  # browser login
 hermes auth list                        # show credential pools
 hermes auth reset openrouter            # clear cooldowns
 ```
-<!-- {: data-highlight="hermes auth add; hermes auth list; hermes auth reset"} -->
+<!-- {: data-highlight="hermes auth"} -->
 
 Subcommands: `add`, `list`, `remove`, `reset`, `priority`, `refresh`, `status`, and `logout`.
 

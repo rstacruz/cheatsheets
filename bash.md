@@ -65,7 +65,7 @@ echo $name  # see below
 echo "$name"
 echo "${name}!"
 ```
-<!-- {: data-highlight="${name}"} -->
+<!-- {: data-highlight='$name; "$name"; ${name}'} -->
 
 #### Wildcards and options
 
@@ -88,7 +88,7 @@ echo "Hi $name"  #=> Hi John
 echo 'Hi $name'  #=> Hi $name
 echo $'Hi\nJohn'  # Hi, then John
 ```
-<!-- {: data-highlight="'Hi $name'"} -->
+<!-- {: data-line="2-4"} -->
 
 See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 
@@ -100,7 +100,7 @@ echo "I'm in `pwd`"  # deprecated
 echo "$(< file.txt)"  # no fork
 echo "${ printf hi; }"  # 5.3, no fork
 ```
-<!-- {: data-highlight="$(< file.txt)"} -->
+<!-- {: data-line="1-4"} -->
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
@@ -197,7 +197,6 @@ echo "${name:(-1)}"   # n (from right)
 echo "${name:(-2):1}" # h (from right)
 echo "${food:-Cake}"  # food, or Cake
 ```
-<!-- {: data-highlight="${name/J/j}; ${name:0:2}; ${food:-Cake}"} -->
 
 #### Variable length
 
@@ -234,7 +233,6 @@ echo "${str##*/}"     # foo.cpp
 
 echo "${str/foo/bar}" # /path/to/bar.cpp
 ```
-<!-- {: data-highlight="${str%.cpp}; ${str##*.}; ${str#*/}"} -->
 
 See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -690,7 +688,7 @@ Fruits[0]="Apple"
 Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
-<!-- {: data-highlight="Fruits[0]"} -->
+<!-- {: data-highlight="Fruits[0]; Fruits[1]; Fruits[2]"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -706,7 +704,6 @@ echo "${#Fruits[3]}"     # Length of the Nth element
 echo "${Fruits[@]:3:2}"  # From position 3, length 2
 echo "${!Fruits[@]}"     # Indices
 ```
-<!-- {: data-highlight="${Fruits[-1]}; ${Fruits[@]}; ${#Fruits[@]}; ${!Fruits[@]}"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -721,7 +718,6 @@ Fruits=("${Fruits[@]}")                 # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
 mapfile -t lines < datafile             # One line per element
 ```
-<!-- {: data-highlight="Fruits+=('Watermelon'); unset 'Fruits[2]'"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -757,7 +753,7 @@ sounds[cow]="moo"
 sounds[bird]="tweet"
 sounds[wolf]="howl"
 ```
-<!-- {: data-highlight="sounds[dog]"} -->
+<!-- {: data-highlight="sounds[dog]; sounds[cow]; sounds[bird]; sounds[wolf]"} -->
 
 `declare -A` creates an associative array (bash 4+).
 

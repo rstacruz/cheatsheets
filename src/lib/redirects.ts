@@ -91,3 +91,17 @@ export function isSheetPath(path: string): boolean {
 export function sheetSlug(path: string): string {
   return path.replace(/\.md$/, '')
 }
+
+/**
+ * Slugs of removed sheets that still need a redirect. `paths` are git paths
+ * from a deleted-files diff, eg `wip/php.md`.
+ */
+export function unredirectedSheets(paths: string[], rules: RedirectRule[]) {
+  const sources = new Set(rules.map((rule) => rule.source))
+
+  return paths.flatMap((path) => {
+    if (!isSheetPath(path)) return []
+    const slug = sheetSlug(path)
+    return sources.has(`/${slug}`) ? [] : [slug]
+  })
+}

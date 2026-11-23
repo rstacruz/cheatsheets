@@ -1,8 +1,14 @@
 import { execFileSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { getPages } from './page'
-import { isSheetPath, parseRedirects, sheetSlug, targetSlug } from './redirects'
+import {
+  isSheetPath,
+  parseRedirects,
+  sheetSlug,
+  targetSlug,
+  unredirectedSheets
+} from './redirects'
 
 // Vitest runs from the repo root; import.meta.url is not a file URL in tests
 const root = process.cwd()
@@ -44,8 +50,8 @@ function resolveBase() {
   return null
 }
 
-/** Files removed by the branch. Renames show up as a delete plus an add */
-function deletedPaths(baseSha: string) {
+/** Files removed between two commits. Renames show up as a delete plus an add */
+function deletedPaths(baseSha: string, headSha = 'HEAD') {
   const output = git([
     'diff',
     '--name-status',
@@ -53,7 +59,7 @@ function deletedPaths(baseSha: string) {
     '--diff-filter=D',
     '--no-renames',
     baseSha,
-    'HEAD'
+    headSha
   ])
   return output.split('\0').filter((token) => token && token !== 'D')
 }
@@ -104,15 +110,47 @@ test('the pull request base commit is available', () => {
 test.skipIf(!base)('removed sheets redirect their old URL', () => {
   if (!base) throw new Error('no base commit')
 
-  const sources = new Set(rules.map((rule) => rule.source))
-  const missing = deletedPaths(base.sha).flatMap((path) => {
-    if (!isSheetPath(path)) return []
-    const slug = sheetSlug(path)
-    return sources.has(`/${slug}`) ? [] : [slug]
-  })
+  const missing = unredirectedSheets(deletedPaths(base.sha), rules)
 
   expect(
     missing,
     'Add a rule to public/_redirects, eg `/old /new 301`'
   ).toEqual([])
+})
+
+describe('unredirectedSheets', () => {
+  const redirect = (source: string) => ({ source, target: '/', status: 301 })
+
+  test('flags removed sheets that have no rule', () => {
+    expect(unredirectedSheets(['php.md', 'wip/php.md'], [])).toEqual([
+      'php',
+      'wip/php'
+    ])
+  })
+
+  test('accepts removed sheets that have a rule', () => {
+    expect(unredirectedSheets(['wip/php.md'], [redirect('/wip/php')])).toEqual(
+      []
+    )
+  })
+
+  test('ignores files that are not pages', () => {
+    expect(
+      unredirectedSheets(['README.md', '_docs/tiers.md', 'docs/a/b.md'], [])
+    ).toEqual([])
+  })
+})
+
+test('sheet paths are root or one directory deep', () => {
+  expect(isSheetPath('php.md')).toBe(true)
+  expect(isSheetPath('wip/php.md')).toBe(true)
+  expect(isSheetPath('README.md')).toBe(false)
+  expect(isSheetPath('_docs/tiers.md')).toBe(false)
+  expect(isSheetPath('docs/a/b.md')).toBe(false)
+  expect(sheetSlug('wip/php.md')).toEqual('wip/php')
+})
+
+test('deletedPaths finds a known removal in a commit range', () => {
+  // 3ad25b5a5 promoted wip/php.md to php.md
+  expect(deletedPaths('3ad25b5a5^', '3ad25b5a5')).toContain('wip/php.md')
 })

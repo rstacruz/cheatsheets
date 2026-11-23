@@ -4,12 +4,14 @@ import { renderMarkdown } from './index'
 export type IntroOptions = {
   intro?: string
   links?: SheetLink[]
+  /** Put the card after the last section instead of before the first */
+  atEnd?: boolean
 }
 
 /** Renders the Introduction card as the first card in the first section list */
 export async function insertIntroCard(
   html: string,
-  { intro, links }: IntroOptions
+  { intro, links, atEnd }: IntroOptions
 ): Promise<string> {
   const parts: string[] = []
   if (intro?.trim()) {
@@ -27,6 +29,13 @@ export async function insertIntroCard(
     `<h3 class="-intro" id="${id}">Introduction</h3>` +
     `<div class="body -intro">${parts.join('')}</div>` +
     `</section>`
+
+  if (atEnd) {
+    const closes = [...html.matchAll(/<\/div>\s*<\/section>/g)]
+    const close = closes.at(-1)
+    if (!close || close.index === undefined) return html + card
+    return html.slice(0, close.index) + card + html.slice(close.index)
+  }
 
   const marker = '<div class="body h3-section-list'
   const at = html.indexOf(marker)

@@ -95,6 +95,19 @@ describe('intro card', () => {
     expect(html).not.toContain('-intro')
   })
 
+  it('inserts the card at the end when asked', async () => {
+    const { html } = await render(
+      '## Sun\n\n### One\nx\n\n## Moon\n\n### Two\ny',
+      { intro: 'Hello', atEnd: true }
+    )
+    expect(html.indexOf('id="two"')).toBeLessThan(
+      html.indexOf('id="introduction"')
+    )
+    expect(html).toContain(
+      '<p>y</p></div></section><section class="h3-section -intro">'
+    )
+  })
+
   it('inserts the card in the first section list', async () => {
     const { html } = await render('### One\nx', {
       intro: 'Hello **world**',

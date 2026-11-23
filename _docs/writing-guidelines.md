@@ -576,7 +576,7 @@ Choose the class from the longest item; the check enforces the boundary.
 
 ### code/inline-comments
 
-Use inline comments to explain results, equivalents, or provide context.
+Use inline comments to explain results, equivalents, or provide context. When a card shows several commands, prefer a leading `#` caption on each fenced block; see `code/comment-led-blocks`.
 
 ````markdown
 ### Pattern matching
@@ -792,7 +792,27 @@ No paragraph may be followed by a code block or table in a card. Fold the note i
 
 🤖 Check: `code/one-example-per-block`.
 
-A code block holds one example. Start a new fence instead of stacking commented examples.
+A code block holds one example. Start a new fence instead of stacking commented examples. For adjacent `#` captions, see `code/comment-led-blocks`.
+
+### code/comment-led-blocks
+
+When a card shows several commands, give each step its own fenced block led by a `#` comment. Don't mix commented and uncommented commands in one fence, and don't put two `#` captions in the same fence. Add H4s only when the fences show different workflows, such as Pull and Push; caption-led fences need no H4.
+
+````md
+### Manage remotes
+
+```sh
+# preview untracked deletions
+git clean -nd
+```
+
+```sh
+# delete untracked files
+git clean -fd
+```
+````
+
+A comment should say what the command changes, not restate it: `# switch to a branch` above `git switch feat/login` adds nothing. Use trailing comments only for results and equivalents; see `code/inline-comments`.
 
 ### frontmatter/h3-links
 

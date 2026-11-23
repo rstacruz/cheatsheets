@@ -57,12 +57,18 @@ See: [git status](https://git-scm.com/docs/git-status)
 ```sh
 # stage one file
 git add file.txt
-# stage everything
-git add .
-# stage hunks
-git add -p
 ```
 <!-- {: data-highlight="git add"} -->
+
+```sh
+# stage all changes
+git add .
+```
+
+```sh
+# stage hunks one at a time
+git add -p
+```
 
 `-p` stages hunks one at a time.
 
@@ -90,20 +96,26 @@ git commit --amend --no-edit
 ```sh
 # download and merge remote commits
 git pull
+```
+<!-- {: data-highlight="git pull"} -->
+
+```sh
 # replay local commits on top
 git pull --rebase
 ```
-<!-- {: data-highlight="git pull"} -->
 
 #### Push
 
 ```sh
-# push the current branch
+# publish the current branch
 git push
+```
+<!-- {: data-highlight="git push"} -->
+
+```sh
 # publish a new branch with upstream
 git push -u origin feat/login
 ```
-<!-- {: data-highlight="git push"} -->
 
 `--rebase` replays local commits on top of the pulled branch; `-u` records the upstream branch.
 
@@ -127,9 +139,12 @@ See: [git switch](https://git-scm.com/docs/git-switch)
 ### Switch branches
 
 ```sh
-# switch to a branch
+# work on an existing branch
 git switch feat/login
 git switch main
+```
+
+```sh
 # return to the previous branch
 git switch -
 ```
@@ -159,6 +174,9 @@ See: [git branch](https://git-scm.com/docs/git-branch)
 ```sh
 # switch to the target
 git switch main
+```
+
+```sh
 # merge the branch
 git merge feat/login
 ```
@@ -241,8 +259,12 @@ See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resol
 #### Restore tracked files
 
 ```sh
-# revert working edits
+# restore one file
 git restore file.txt
+```
+
+```sh
+# restore all tracked files
 git restore .
 ```
 
@@ -251,6 +273,10 @@ git restore .
 ```sh
 # preview untracked deletions
 git clean -nd
+```
+
+```sh
+# delete untracked files
 git clean -fd
 ```
 <!-- {: data-highlight="git clean -fd"} -->
@@ -285,12 +311,20 @@ See: [git reset](https://git-scm.com/docs/git-reset)
 ### Revert a commit
 
 ```sh
+# revert the tip
 git revert HEAD
+```
+<!-- {: data-highlight="git revert"} -->
+
+```sh
+# revert an older commit
 git revert <sha>
+```
+
+```sh
 # stage the revert without committing
 git revert --no-commit <sha>
 ```
-<!-- {: data-highlight="git revert"} -->
 
 Revert adds history rather than rewriting it, so it is safe on shared branches.
 
@@ -335,25 +369,45 @@ See: [git merge](https://git-scm.com/docs/git-merge)
 ### Save work
 
 ```sh
+# stash tracked changes
 git stash
+```
+
+```sh
 # label the stash
 git stash push -m "wip"
+```
+<!-- {: data-highlight="git stash push"} -->
+
+```sh
 # include untracked files
 git stash -u
 ```
-<!-- {: data-highlight="git stash push"} -->
 
 See: [git stash](https://git-scm.com/docs/git-stash)
 
 ### Restore work
 
 ```sh
+# list saved stashes
 git stash list
+```
+
+```sh
+# apply and drop the latest
 git stash pop
-git stash apply stash@{1}
-git stash drop
 ```
 <!-- {: data-highlight="git stash pop"} -->
+
+```sh
+# apply without dropping
+git stash apply stash@{1}
+```
+
+```sh
+# drop an entry
+git stash drop
+```
 
 `pop` applies and deletes; `apply` keeps the entry.
 
@@ -499,18 +553,24 @@ See: [git push](https://git-scm.com/docs/git-push#OPTIONS)
 #### Inspect and add
 
 ```sh
-# list remotes
+# show configured remotes
 git remote -v
-# add a remote
-git remote add origin <url>
 ```
 <!-- {: data-highlight="git remote"} -->
+
+```sh
+# register a remote
+git remote add origin <url>
+```
 
 #### Change a remote
 
 ```sh
 # change its URL
 git remote set-url origin <url>
+```
+
+```sh
 # rename it
 git remote rename origin upstream
 ```
@@ -532,10 +592,18 @@ git fetch --all
 
 ```sh
 # drop stale remote refs
+```
+
+```sh
+# drop stale remote refs
 git fetch --prune
-git remote prune origin
 ```
 <!-- {: data-highlight="--prune"} -->
+
+```sh
+# older form
+git remote prune origin
+```
 
 Prune removes remote-tracking refs whose branch is gone.
 
@@ -548,16 +616,22 @@ See: [git fetch](https://git-scm.com/docs/git-fetch)
 ```sh
 # list tags
 git tag
+```
+<!-- {: data-highlight="git tag"} -->
+
+```sh
 # annotate a release
 git tag -a v1.0.0 -m "Release"
 ```
-<!-- {: data-highlight="git tag"} -->
 
 #### Push
 
 ```sh
 # push one tag
 git push origin v1.0.0
+```
+
+```sh
 # push all tags
 git push --tags
 ```
@@ -567,6 +641,9 @@ git push --tags
 ```sh
 # delete locally
 git tag -d v1.0.0
+```
+
+```sh
 # delete remotely
 git push origin --delete v1.0.0
 ```
@@ -584,16 +661,27 @@ See: [git tag](https://git-scm.com/docs/git-tag)
 
 ```sh
 # set author details
+```
+
+```sh
+# set author name
 git config --global user.name "Rico"
-git config --global user.email me@x.io
 ```
 <!-- {: data-highlight="git config"} -->
+
+```sh
+# set author email
+git config --global user.email me@x.io
+```
 
 #### Editor and settings
 
 ```sh
 # set the message editor
 git config --global core.editor vim
+```
+
+```sh
 # show all settings
 git config --list
 ```
@@ -617,6 +705,9 @@ git init -b main
 ```sh
 # clone a repository
 git clone git@github.com:me/app.git
+```
+
+```sh
 # skip history
 git clone --depth 1 <url>
 ```
@@ -655,6 +746,9 @@ git worktree add -b hotfix ../hotfix
 ```sh
 # show linked worktrees
 git worktree list
+```
+
+```sh
 # remove a checkout
 git worktree remove ../hotfix
 ```
@@ -672,16 +766,22 @@ Each worktree has its own `HEAD`, index, and files; objects are shared.
 # mark the tip as bad
 git bisect start
 git bisect bad
+```
+<!-- {: data-highlight="git bisect"} -->
+
+```sh
 # point at a known-good commit
 git bisect good <sha>
 ```
-<!-- {: data-highlight="git bisect"} -->
 
 #### Run and reset
 
 ```sh
 # let the test decide
 git bisect run npm test
+```
+
+```sh
 # restore the branch
 git bisect reset
 ```
@@ -711,6 +811,9 @@ Delete local branches already merged into the current one.
 ```sh
 # show a repo summary
 git summary
+```
+
+```sh
 # ignore a path
 git ignore node_modules
 ```
@@ -720,10 +823,13 @@ git ignore node_modules
 ```sh
 # start a feature
 git feature login
+```
+<!-- {: data-highlight="git feature"} -->
+
+```sh
 # finish it
 git feature finish login
 ```
-<!-- {: data-highlight="git feature"} -->
 
 `git-extras` adds summary, ignore, and feature commands.
 

@@ -87,11 +87,15 @@ ORDER BY total DESC, id ASC;
 
 SELECT name FROM customers
 ORDER BY name
+LIMIT 10;
+
+SELECT name FROM customers
+ORDER BY name
 LIMIT 10 OFFSET 20;
 ```
 <!-- {: data-highlight="OFFSET"} -->
 
-`ORDER BY` sorts, `DESC` reverses it, and `LIMIT`/`OFFSET` page results. SQL Server uses `OFFSET ... FETCH` instead of `LIMIT`.
+`ORDER BY` sorts, `DESC` reverses it, and `LIMIT` caps rows. `OFFSET` skips ahead for paging; SQL Server uses `OFFSET ... FETCH`.
 
 See: [PostgreSQL LIMIT](https://www.postgresql.org/docs/current/queries-limit.html)
 
@@ -113,17 +117,17 @@ ORDER BY spent DESC;
 
 See: [PostgreSQL GROUP BY](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP)
 
-## Combining results
+## Joins and subqueries
 
 ### Join tables
 
 ```sql
-SELECT c.name, o.id, o.total
+SELECT c.name, o.order_id, o.total
 FROM customers AS c
 JOIN orders AS o
   ON o.customer_id = c.id;
 
-SELECT c.name, o.id, o.total
+SELECT c.name, o.order_id, o.total
 FROM customers AS c
 LEFT JOIN orders AS o
   ON o.customer_id = c.id;
@@ -217,14 +221,8 @@ UPDATE accounts
 SET balance = balance + 10
 WHERE id = 1;
 COMMIT;
-
-BEGIN;
-UPDATE accounts
-SET balance = balance + 10
-WHERE id = 1;
-ROLLBACK;
 ```
-<!-- {: data-highlight="ROLLBACK"} -->
+<!-- {: data-highlight="COMMIT"} -->
 
 `BEGIN` starts a transaction; `COMMIT` saves it and `ROLLBACK` discards it. Keep transactions short.
 
@@ -294,8 +292,7 @@ See: [PostgreSQL CREATE INDEX](https://www.postgresql.org/docs/current/sql-creat
 ### Drop and truncate
 
 ```sql
-ALTER TABLE accounts RENAME TO users;
-DROP TABLE users;
+DROP TABLE accounts;
 TRUNCATE TABLE orders;
 ```
 <!-- {: data-highlight="TRUNCATE"} -->

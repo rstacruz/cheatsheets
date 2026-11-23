@@ -54,3 +54,42 @@
   font-weight: normal;
   color: var(--base-a);
 }
+
+/* Condensed snippet list */
+
+.pages-list > .snippet-list {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  border-top: solid 1px var(--line-color);
+}
+
+.pages-list .snippet-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: solid 1px var(--line-color);
+  text-decoration: none;
+}
+
+.pages-list .snippet-item:hover .snippet-item__title,
+.pages-list .snippet-item:focus .snippet-item__title {
+  color: var(--base-a);
+}
+
+.snippet-item__title {
+  font-family: var(--font-manrope);
+  font-weight: 600;
+  color: var(--base-head);
+}
+
+.snippet-item__subtitle {
+  color: var(--base-mute3);
+  font-size: 13px;
+}
+
+.snippet-item__arrow {
+  margin-left: auto;
+  color: var(--base-a3);
+}

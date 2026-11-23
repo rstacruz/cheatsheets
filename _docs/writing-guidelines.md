@@ -104,6 +104,8 @@ Renames the checked-out branch; see the [git-branch manual](https://git-scm.com/
 
 `pnpm test` checks the layout marker, the classes, the code-first body, and the explanation link. Review snippet layouts on the T2 cadence.
 
+Snippet pages are left out of the normal homepage category, featured, and recent lists. They appear in a condensed **Snippets** list at the end of the homepage instead.
+
 ## Content organisation
 
 - **Progressive complexity:** Start with basics, move to advanced

@@ -136,7 +136,7 @@ LEFT JOIN orders AS o
 
 `JOIN` keeps matching rows; `LEFT JOIN` keeps every left row and fills missing right columns with `NULL`.
 
-See: [SQL joins cheatsheet](./sql-join)
+See: [PostgreSQL joins](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)
 
 ### Subqueries
 
@@ -300,3 +300,20 @@ TRUNCATE TABLE orders;
 `DROP TABLE` deletes the table and its data; `TRUNCATE` clears rows faster but keeps the table. SQLite has no `TRUNCATE`: use `DELETE FROM`.
 
 See: [PostgreSQL TRUNCATE](https://www.postgresql.org/docs/current/sql-truncate.html)
+
+## Also see
+
+### Join patterns
+
+[SQL joins cheatsheet](./sql-join)
+<!-- {: .-crosslink} -->
+
+### PostgreSQL
+
+[PostgreSQL cheatsheet](./postgresql)
+<!-- {: .-crosslink} -->
+
+### MySQL
+
+[MySQL cheatsheet](./mysql)
+<!-- {: .-crosslink} -->

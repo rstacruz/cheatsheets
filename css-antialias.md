@@ -1,37 +1,54 @@
 ---
-title: CSS antialiasing
-subtitle: Font smoothing snippet
+title: How to antialias text in CSS
+link_title: CSS antialiasing
+subtitle: Font smoothing on macOS
 category: CSS
-updated: 2017-10-13
-intro: |
-  Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
+layout: snippet
+last_verified_with: "MDN font-smooth reference."
+updated: 2026-11-24
 links:
-  - title: maxvoltar.com
-    url: http://maxvoltar.com/archive/-webkit-font-smoothing
+  - title: MDN font-smooth
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
 ---
 
-### Antialias
+## Smoothing
+<!-- {: .-snippets} -->
 
-<!-- {: .-prime} -->
+### Antialiased text
+<!-- {: .-snippet} -->
 
 ```css
-* {
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 ```
+<!-- {: data-highlight="antialiased"} -->
 
-### Support
+**Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
- * Firefox 25+ on OSX
- * Webkits (Chrome, Safari, etc)
+### Dark themes
+<!-- {: .-snippet} -->
 
-## References
+```css
+.dark body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+<!-- {: data-highlight=".dark body"} -->
 
-<!-- {: .-one-column} -->
+**Applies smoothing only in dark mode.** Grayscale antialiasing makes light text look lighter, which suits dark backgrounds; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
- * [maxvoltar.com](http://maxvoltar.com/archive/-webkit-font-smoothing)
- * [maximilianhoffman.com](http://maximilianhoffmann.com/posts/better-font-rendering-on-osx)
- * [ilikekillnerds.com](http://ilikekillnerds.com/2010/12/a-solution-to-stop-font-face-fonts-looking-bold-on-mac-browsers/)
+### Restore the default
+<!-- {: .-snippet} -->
 
-<!-- {: .-also-see} -->
+```css
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+```
+<!-- {: data-highlight="subpixel-antialiased"} -->
+
+**Reverts to the browser's default rendering.** Subpixel antialiasing is sharper on non-retina displays; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).

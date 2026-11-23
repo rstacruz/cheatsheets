@@ -1,9 +1,12 @@
 import { mapGlobToPages } from '../page'
 import {
   getArchivedPages,
+  getFeaturedPages,
   getListedSheetCount,
   getPagesByCategory,
+  getRecentPages,
   getRelatedPages,
+  getSnippetPages,
   getTopPages
 } from './queries'
 
@@ -33,6 +36,16 @@ const pages = mapGlobToPages({
     'archived: Old and unmaintained.',
     '---',
     'e'
+  ].join('\n'),
+  snippet: [
+    '---',
+    'title: Snippet',
+    'category: Test',
+    'layout: snippet',
+    'tags: [Featured]',
+    'updated: 2024-01-01',
+    '---',
+    's'
   ].join('\n')
 })
 
@@ -60,6 +73,24 @@ test('category listings skip deprecated sheets', () => {
   expect(slugs).toContain('alpha')
   expect(slugs).not.toContain('beta')
   expect(slugs).not.toContain('gamma')
+})
+
+test('homepage listings exclude snippets when asked', () => {
+  const categorySlugs = getPagesByCategory(pages, {
+    excludeSnippets: true
+  })['Others'].pages.map((page) => page.slug)
+
+  expect(categorySlugs).not.toContain('snippet')
+  expect(
+    getFeaturedPages(pages, { excludeSnippets: true }).map((page) => page.slug)
+  ).not.toContain('snippet')
+  expect(
+    getRecentPages(pages, { excludeSnippets: true }).map((page) => page.slug)
+  ).not.toContain('snippet')
+})
+
+test('snippet pages are collected separately', () => {
+  expect(getSnippetPages(pages).map((page) => page.slug)).toEqual(['snippet'])
 })
 
 test('archived sheets are unlisted', () => {
@@ -117,6 +148,6 @@ test('archive pages skip listed sheets and test fixtures', () => {
 })
 
 test('listed count excludes hidden, deprecated, and archived sheets', () => {
-  expect(getListedSheetCount(pages)).toBe(2)
+  expect(getListedSheetCount(pages)).toBe(3)
   expect(getListedSheetCount(archivePages)).toBe(1)
 })

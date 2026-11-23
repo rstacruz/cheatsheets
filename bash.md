@@ -1226,5 +1226,7 @@ See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 
 <!-- {: .-one-column} -->
 
+- [Bash strict mode cheatsheet](./bash-strict-mode)
+- [Bash array loop cheatsheet](./bash-array-loop)
 - [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
 - [Bash changelog](https://tiswww.case.edu/php/chet/bash/CHANGES) _(case.edu)_

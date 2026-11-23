@@ -168,3 +168,8 @@ See: [Block tags](https://jsdoc.app/#block-tags) _(jsdoc.app)_
 Prefer `alias` over `name`.
 
 See: [@alias](https://jsdoc.app/tags-alias) _(jsdoc.app)_
+
+## Also see
+
+[JSDoc import types cheatsheet](./jsdoc-import-types)
+<!-- {: .-crosslink} -->

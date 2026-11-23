@@ -1,6 +1,6 @@
 import type { JsonLdDocument } from '~/types/JsonLdDocument'
 import { site } from '../../config'
-import { getDescription, getPageImage, getPageURL } from './seo'
+import { getDescription, getPageImage, getPageTitle, getPageURL } from './seo'
 
 export function getJSONLDsForPage(page: {
   // TODO: rename getJsonLdSchemasForPage
@@ -8,6 +8,7 @@ export function getJSONLDsForPage(page: {
   frontmatter: {
     title?: string
     seo_title?: string
+    layout?: string
     description?: string
     category?: string
   }
@@ -17,9 +18,7 @@ export function getJSONLDsForPage(page: {
   const url = getPageURL(page)
   const category = page.frontmatter.category ?? 'Others'
   const categoryAnchor = category.toLowerCase().replace(/ /g, '-')
-  const headline =
-    page.frontmatter.seo_title ??
-    (page.frontmatter.title ? `${page.frontmatter.title} cheatsheet` : '')
+  const headline = getPageTitle(page)
 
   const newsArticle: JsonLdDocument = {
     '@context': 'http://schema.org',

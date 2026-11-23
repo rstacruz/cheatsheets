@@ -18,7 +18,15 @@ export const SheetFrontmatterSchema = z
       .transform((x) => x.toString())
       .pipe(z.string())
       .optional()
-      .describe('Sheet name. Falls back to the filename.'),
+      .describe('Sheet, H1, and <title> text. Falls back to the filename.'),
+    link_title: z
+      .string()
+      .trim()
+      .min(1)
+      .optional()
+      .describe(
+        'Short title for link lists such as the homepage. Falls back to `title`.'
+      ),
 
     subtitle: z
       .string()
@@ -62,6 +70,12 @@ export const SheetFrontmatterSchema = z
       .optional()
       .describe(
         'Review tier: t1 sheets move often; see `_docs/tiers.md`. Not rendered.'
+      ),
+    layout: z
+      .enum(['snippet'])
+      .optional()
+      .describe(
+        'Page layout: `snippet` uses the two-column snippet cards and omits "cheatsheet" from the H1.'
       ),
     fragments: z
       .array(z.string().trim().min(1).max(16))

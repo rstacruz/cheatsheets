@@ -474,3 +474,6 @@ See: [Snapshots](https://opencode.ai/docs/snapshots)
 
 [Codex cheatsheet](./codex)
 <!-- {: .-crosslink} -->
+
+[OpenCode headless tasks cheatsheet](./opencode-headless-tasks)
+<!-- {: .-crosslink} -->

@@ -54,3 +54,10 @@ tar -tzf archive.tar.gz
 | `f`    | filename of the archive                                                 |
 | `v`    | verbose, display what is inflated or deflated                           |
 | `a`    | unlike of `z`, determine compression based on file extension            |
+
+## Also see
+
+### Extract one file
+
+[tar extract one file cheatsheet](./tar-extract-one-file)
+<!-- {: .-crosslink} -->

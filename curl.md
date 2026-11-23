@@ -219,3 +219,10 @@ curl -fL --retry 3 -O https://example.com/file.tar.gz
 <!-- {: data-highlight="--retry 3"} -->
 
 See: [Using curl](https://ec.haxx.se/usingcurl/)
+
+## Also see
+
+### JSON requests
+
+[curl POST JSON cheatsheet](./curl-post-json)
+<!-- {: .-crosslink} -->

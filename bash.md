@@ -67,16 +67,15 @@ echo "${name}!"
 ```
 <!-- {: data-highlight='$name; "$name"; ${name}'} -->
 
-#### Wildcards and options
+#### Wildcards
 
 ```bash
 wildcard="*.txt"
-options="iv"
-cp -$options $wildcard /tmp
+cp $wildcard /tmp
 ```
-<!-- {: data-highlight="$options $wildcard"} -->
+<!-- {: data-highlight="$wildcard"} -->
 
-Generally quote your variables unless they contain wildcards to expand or command fragments.
+Generally quote your variables unless they contain wildcards to expand.
 
 See: [Shell parameters](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html)
 

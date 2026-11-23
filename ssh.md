@@ -63,21 +63,6 @@ Arguments after the destination form one command sent to the remote shell. `-t` 
 
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 
-### Escape sequences
-
-| Key   | Action                     |
-| ----- | -------------------------- |
-| `~.`  | Disconnect                 |
-| `~^Z` | Suspend the session        |
-| `~#`  | List forwarded connections |
-| `~?`  | Show all escapes           |
-
-<!-- {: .-shortcuts} -->
-
-Escapes work only at the start of a line in a TTY session.
-
-See: [ssh(1)](https://man.openbsd.org/ssh.1)
-
 ## Keys
 <!-- {: .-three-column} -->
 
@@ -244,8 +229,12 @@ See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
 
 ## Also see
 
+### scp
+
 [scp cheatsheet](./scp)
 <!-- {: .-crosslink} -->
+
+### Rsync
 
 [Rsync cheatsheet](./rsync)
 <!-- {: .-crosslink} -->

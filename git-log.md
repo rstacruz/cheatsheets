@@ -2,6 +2,8 @@
 title: git log
 subtitle: Commit history viewer
 category: Git
+updated: 2026-11-23
+last_verified_with: "Git 2.56.0."
 ---
 
 ### Revision ranges
@@ -14,22 +16,28 @@ git log v1.0.0             # tag
 git log master develop
 
 git log v2.0..master       # reachable from *master* but not *v2.0*
-git log v2.0...master      # reachable from *master* and *v2.0*, but not both
+git log v2.0...master      # reachable from either, but not both
 ```
 
 See [gitrevisions](./git-revisions).
 
 ### Basic filters
 
+#### Count and skip
+
 ```bash
 -n, --max-count=2
     --skip=2
 ```
 
+#### By date
+
 ```bash
     --since="1 week ago"
     --until="yesterday"
 ```
+
+#### By person
 
 ```bash
     --author="Rico"
@@ -38,11 +46,15 @@ See [gitrevisions](./git-revisions).
 
 ### Search
 
+#### By message or code
+
 ```bash
     --grep="Merge pull request"   # in commit messages
     -S"console.log"               # in code
     -G"foo.*"                     # in code (regex)
 ```
+
+#### Refine matches
 
 ```bash
     --invert-grep
@@ -51,14 +63,20 @@ See [gitrevisions](./git-revisions).
 
 ### Limiting
 
+#### Merge commits
+
 ```bash
     --merges
     --no-merges
 ```
 
+#### First parent only
+
 ```bash
     --first-parent          # no stuff from merged branches
 ```
+
+#### By ref
 
 ```bash
     --branches="feature/*"

@@ -2,7 +2,8 @@
 title: GNU grep
 subtitle: Pattern search utility
 category: CLI
-updated: 2021-08-23
+updated: 2026-11-23
+last_verified_with: "GNU grep 3.12."
 ---
 
 ### Usage
@@ -58,12 +59,12 @@ PCRE has even more options such as additional anchors and character classes, loo
 ### Output Options
 
 ```bash
--c, --count           # print the count of matching lines. suppresses normal output
-    --color[=WHEN]    # applies color to the matches. WHEN is never, always, or auto
+-c, --count           # count matching lines, suppress normal output
+    --color[=WHEN]    # color matches: never, always, or auto
 -m, --max-count=NUM   # stop reading after max count is reached
 -o, --only-matching   # only print the matched part of a line
 -q, --quiet, --silent
--s, --no-messages     # suppress error messages about nonexistent or unreadable files
+-s, --no-messages     # suppress errors on unreadable files
 ```
 
 ### Context Options
@@ -71,7 +72,7 @@ PCRE has even more options such as additional anchors and character classes, loo
 ```bash
 -B NUM, --before-context=NUM  # print NUM lines before a match
 -A NUM, --after-context=NUM   # print NUM lines after a match
--C NUM, -NUM, --context=NUM   # print NUM lines before and after a match
+-C NUM, -NUM, --context=NUM   # NUM lines before and after a match
 ```
 
 ### Examples

@@ -2,18 +2,23 @@
 title: CSS flexbox
 subtitle: One-dimensional layout system
 category: CSS
-updated: 2020-06-13
+updated: 2026-11-23
+last_verified_with: "CSS Flexible Box Layout specification, MDN guides."
 prism_languages: [css]
 weight: -3
 ---
 
 ### Simple example
 
+#### Container
+
 ```css
 .container {
   display: flex;
 }
 ```
+
+#### Items
 
 ```css
 .container > div {
@@ -23,28 +28,38 @@ weight: -3
 
 ### Container
 
+#### Opening brace
+
 ```css
 .container {
 ```
 
 <!-- {: .-setup} -->
 
+#### Display
+
 ```css
   display: flex;
   display: inline-flex;
 ```
 
+#### Direction
+
 ```css
-  flex-direction: row;            /* ltr - default */
-  flex-direction: row-reverse;    /* rtl */
+  flex-direction: row;            /* inline axis, default */
+  flex-direction: row-reverse;    /* reverse inline axis */
   flex-direction: column;         /* top-bottom */
   flex-direction: column-reverse; /* bottom-top */
 ```
+
+#### Wrapping
 
 ```css
   flex-wrap: nowrap; /* one-line */
   flex-wrap: wrap;   /* multi-line */
 ```
+
+#### Alignment
 
 ```css
   align-items: flex-start; /* vertical-align to top */
@@ -52,6 +67,8 @@ weight: -3
   align-items: center;     /* vertical-align to center */
   align-items: stretch;    /* same height on all (default) */
 ```
+
+#### Distribution
 
 ```css
   justify-content: flex-start;    /* [xxx        ] */
@@ -62,6 +79,8 @@ weight: -3
   justify-content: space-evenly;  /* [  x  x  x  ] */
 ```
 
+#### Closing brace
+
 ```css
 }
 ```
@@ -70,11 +89,15 @@ weight: -3
 
 ### Child
 
+#### Selector
+
 ```css
 .container > div {
 ```
 
 <!-- {: .-setup} -->
+
+#### Flex shorthand
 
 ```css
   /* This: */
@@ -86,14 +109,20 @@ weight: -3
   flex-basis: auto;
 ```
 
+#### Order
+
 ```css
   order: 1;
 ```
+
+#### Alignment
 
 ```css
   align-self: flex-start;  /* left */
   margin-left: auto;       /* right */
 ```
+
+#### Closing brace
 
 ```css
 }
@@ -198,5 +227,5 @@ Vertically-center all items.
 
 <!-- {: .-one-column} -->
 
- * [MDN: Using CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes)
- * [Ultimate flexbox cheatsheet](https://www.sketchingwithcss.com/samplechapter/cheatsheet.html)
+ * [MDN: CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout)
+ * [Flexbox cheatsheet](https://flexbox.malven.co/)

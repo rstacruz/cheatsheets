@@ -31,6 +31,7 @@ Min  Hour Day  Mon  Weekday
 
 #### Field ranges
 
+<!-- Deliberately kept as ASCII art: the aligned columns are the illustration. -->
 ```
 ┬    ┬    ┬    ┬    ┬
 │    │    │    │    └─  Weekday  (0-7, 0/7=Sun)
@@ -41,6 +42,7 @@ Min  Hour Day  Mon  Weekday
 ```
 
 <!-- {: .-setup.-box-chars} -->
+<!-- End illustration; keep this diagram as-is. -->
 
 ### Operators
 

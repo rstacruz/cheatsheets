@@ -75,10 +75,9 @@ gh auth status
 gh auth switch
 gh auth setup-git
 ```
-<!-- {: data-highlight="gh auth login; gh auth status; gh auth switch"} -->
+<!-- {: data-highlight="gh auth login; gh auth setup-git"} -->
 
-`gh auth login` walks through a browser or token flow. `setup-git` wires git
-to use gh as its credential helper.
+`gh auth login` walks through a browser or token flow. `setup-git` wires git to use gh as its credential helper.
 
 See: [gh auth login](https://cli.github.com/manual/gh_auth_login)
 
@@ -91,8 +90,7 @@ gh issue status
 ```
 <!-- {: data-highlight="gh status"} -->
 
-`gh status` combines assigned issues and PRs, review requests, mentions, and
-recent activity.
+`gh status` combines assigned issues and PRs, review requests, mentions, and recent activity.
 
 See: [gh status](https://cli.github.com/manual/gh_status)
 
@@ -131,8 +129,7 @@ gh repo create --source=. --private --push
 ```
 <!-- {: data-highlight="--source=."} -->
 
-`--source` uses the current directory's git history; `--push` uploads
-existing commits.
+`--source` uses the current directory's git history; `--push` uploads existing commits.
 
 See: [gh repo create](https://cli.github.com/manual/gh_repo_create)
 
@@ -142,7 +139,7 @@ See: [gh repo create](https://cli.github.com/manual/gh_repo_create)
 gh repo fork cli/cli --clone
 gh repo fork --org my-org --remote
 ```
-<!-- {: data-highlight="--org my-org"} -->
+<!-- {: data-highlight="--clone"} -->
 
 The fork becomes `origin`; the original repository is added as `upstream`.
 
@@ -155,11 +152,11 @@ gh repo view
 gh repo view cli/cli --web
 gh browse src/main.ts
 gh browse 42
+gh browse -n 42
 ```
 <!-- {: data-highlight="gh browse"} -->
 
-`gh browse` accepts an issue or PR number, file path, or commit SHA. `-n`
-prints the URL instead of opening it.
+`gh browse` accepts an issue or PR number, file path, or commit SHA. `-n` prints the URL instead of opening it.
 
 See: [gh browse](https://cli.github.com/manual/gh_browse)
 
@@ -174,8 +171,7 @@ gh pr create -t "Fix login" -F -
 ```
 <!-- {: data-highlight="--fill"} -->
 
-`--fill` uses the commits for the title and body; `-F -` reads the body from
-stdin.
+`--fill` uses the commits for the title and body; `-F -` reads the body from stdin.
 
 See: [gh pr create](https://cli.github.com/manual/gh_pr_create)
 
@@ -213,12 +209,10 @@ See: [gh pr checkout](https://cli.github.com/manual/gh_pr_checkout)
 gh pr checks
 gh pr checks --watch --fail-fast
 gh pr checks --required
-gh run rerun 123456789 --failed
 ```
 <!-- {: data-highlight="--watch"} -->
 
-`gh pr checks` exits 8 while checks are pending. `--required` hides optional
-jobs.
+`--watch` refreshes until checks finish; `--required` hides optional jobs.
 
 See: [gh pr checks](https://cli.github.com/manual/gh_pr_checks)
 
@@ -230,10 +224,9 @@ gh pr review --request-changes -b "Add tests"
 gh pr comment -b "LGTM"
 gh pr comment --edit-last -F -
 ```
-<!-- {: data-highlight="--request-changes"} -->
+<!-- {: data-highlight="gh pr review; gh pr comment"} -->
 
-`--comment` leaves a review comment without approving; `--edit-last` updates
-your last comment.
+`gh pr review` approves or requests changes; `gh pr comment` leaves a plain comment, and `--edit-last` updates your last one.
 
 See: [gh pr review](https://cli.github.com/manual/gh_pr_review)
 
@@ -246,8 +239,7 @@ gh pr merge 123 --merge
 ```
 <!-- {: data-highlight="--auto"} -->
 
-`--auto` enables auto-merge; if the base branch uses a merge queue, the PR
-joins it once required checks pass.
+`--auto` enables auto-merge; if the base branch uses a merge queue, the PR joins it once required checks pass.
 
 See: [gh pr merge](https://cli.github.com/manual/gh_pr_merge)
 
@@ -262,8 +254,7 @@ gh issue create --parent 100
 ```
 <!-- {: data-highlight="--parent"} -->
 
-`--parent` creates a sub-issue; `--blocked-by` and `--blocking` record
-dependencies.
+`--parent` creates a sub-issue.
 
 See: [gh issue create](https://cli.github.com/manual/gh_issue_create)
 
@@ -277,8 +268,7 @@ gh issue list --state all -L 50
 ```
 <!-- {: data-highlight="-a @me"} -->
 
-`-a @me` filters to your issues; `--search` takes GitHub search syntax such as
-`no:assignee`.
+`-a @me` filters to your issues; `--search` takes GitHub search syntax such as `no:assignee`.
 
 See: [gh issue list](https://cli.github.com/manual/gh_issue_list)
 
@@ -304,8 +294,7 @@ gh issue close 123 --duplicate-of 456
 ```
 <!-- {: data-highlight="--duplicate-of"} -->
 
-`--comment` adds a closing note. A `Fixes #123` line in a PR closes the issue
-on merge.
+`--duplicate-of` marks the canonical issue; a `Fixes #123` line in a PR closes the issue on merge.
 
 See: [gh issue close](https://cli.github.com/manual/gh_issue_close)
 
@@ -376,8 +365,7 @@ gh release create v1.2.0 dist/*.tgz
 ```
 <!-- {: data-highlight="--generate-notes"} -->
 
-Assets after the tag are uploaded with the release; `--target` sets the
-commit.
+`--generate-notes` writes notes from merged PRs; assets after the tag are uploaded with the release.
 
 See: [gh release create](https://cli.github.com/manual/gh_release_create)
 
@@ -391,8 +379,7 @@ gh release download -p '*.rpm' -D /tmp
 ```
 <!-- {: data-highlight="--pattern"} -->
 
-Without a tag, `gh release download` uses the latest release and needs
-`--pattern` or `--archive`. `--archive` fetches source, not assets.
+Without a tag, pass `--pattern` or `--archive`; gh uses the latest release. `--archive` fetches source, not assets.
 
 See: [gh release download](https://cli.github.com/manual/gh_release_download)
 
@@ -404,8 +391,6 @@ gh release view v1.2.0
 gh release view v1.2.0 --web
 ```
 <!-- {: data-highlight="gh release view"} -->
-
-`gh release view` prints the notes and assets; `--web` opens the release page.
 
 See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
@@ -433,8 +418,7 @@ gh search prs --draft --author=@me
 ```
 <!-- {: data-highlight="--review-requested=@me"} -->
 
-Both accept a free-text query and field filters such as `--author` and
-`--state`.
+Both accept a free-text query and field filters such as `--author` and `--state`.
 
 See: [gh search issues](https://cli.github.com/manual/gh_search_issues), [gh search prs](https://cli.github.com/manual/gh_search_prs)
 
@@ -448,9 +432,7 @@ gh api graphql -f query='{ viewer { login } }'
 ```
 <!-- {: data-highlight="--jq '.stargazers_count'"} -->
 
-`{owner}` and `{repo}` expand from the current repo. `-F` adds a typed field;
-`-f` sends a string and switches to POST, so the `issues` line creates an
-issue.
+`--jq` filters the response; `{owner}` and `{repo}` expand from the current repo. `-f` sends a string and switches to POST, so the `issues` line creates an issue.
 
 See: [gh api](https://cli.github.com/manual/gh_api)
 
@@ -464,8 +446,7 @@ gh pr list --json number \
 ```
 <!-- {: data-highlight="--jq '.[].title'"} -->
 
-`--json` prints JSON; `--jq` or `--template` filters it. Omit the field list
-to see available fields.
+`--jq` and `--template` need `--json`; omit the field list to see available fields.
 
 See: [gh help formatting](https://cli.github.com/manual/gh_help_formatting)
 
@@ -520,7 +501,6 @@ export GH_HOST=github.com         # default hostname
 ```
 <!-- {: data-highlight="GH_TOKEN"} -->
 
-`GH_TOKEN` takes precedence over stored credentials; set it in CI to skip
-`gh auth login`.
+`GH_TOKEN` takes precedence over stored credentials; set it in CI to skip `gh auth login`.
 
 See: [gh help environment](https://cli.github.com/manual/gh_help_environment)

@@ -1,89 +1,87 @@
 /*
  * Design tokens
+ *
+ * Semantic roles only. Components and Markdown CSS ask for these names;
+ * `mildindigo` ramp steps live in `tailwind.css` and are reached through
+ * these roles.
  */
 
 :root {
   /*
-   * Metrics
+   * shadcn-compatible roles
    */
 
-  --code-size: 0.96em;
-  --code-line-height: 1.5;
-  --area-width: 1232px;
+  --background: #fafafc;
+  --foreground: #345;
+  --heading: #111;
+  --card: #fff;
+  --card-foreground: #345;
+  --primary: var(--color-mildindigo-600);
+  --primary-foreground: #fff;
+  --secondary: #f1f3f8;
+  --secondary-foreground: #345;
+  --muted: #f3f5fc;
+  --muted-foreground: #556677;
+  --muted-foreground-subtle: #7c8fa2;
+  --muted-foreground-faint: #8899aa;
+  --muted-foreground-strong: #44525f;
+  --muted-foreground-bright: #5e7683;
+  --accent: #e7eaf2;
+  --accent-foreground: #345;
+  --destructive: #9f1239;
+  --destructive-surface: #fff1f2;
+  --destructive-foreground: #fff;
+  --border: rgb(85 102 119 / 18%);
+  --border-strong: rgb(85 102 119 / 30%);
+  --ring: var(--primary);
 
   /*
-   * Fonts
+   * Brand roles (mildindigo)
    */
 
-  --font-system-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-system-mono:
-    'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
-    Courier, monospace;
-  --font-body: 'Geist Variable', var(--font-system-sans);
-  --font-heading: var(--font-system-sans);
-  --font-monospace: cousine, var(--font-system-mono);
+  --primary-strong: var(--color-mildindigo-700);
+  --primary-active: var(--color-mildindigo-800);
+  --primary-deep: var(--color-mildindigo-900);
+  --primary-subtle: var(--color-mildindigo-400);
+  --primary-faint: var(--color-mildindigo-300);
+  --primary-surface: #f7f5fc; /* snippet tint, intentionally off-ramp */
+  --primary-heading: var(--color-mildindigo-800);
+  --primary-muted: var(--color-mildindigo-500);
+  --brand-gradient: linear-gradient(
+    5deg,
+    var(--color-mildindigo-600),
+    var(--color-mildindigo-400)
+  );
 
   /*
-   * Base colors
+   * Link / highlight
    */
 
-  --base-body: #fafafc;
-  --base-panel: white;
-  --base-head: #111;
-  --base-text: #345;
-  --base-mute: #556677;
-
-  --base-a: #745fb5; /* indigo */
-  --base-b: #26648e; /* blue */
-  --base-c: #14af83; /* teal */
-
-  --base-a3: #969bcf;
-  --base-a7: #673d85;
-  --base-b3: #3ac1cb;
-  --base-b7: #15234d;
-  --base-mute7: #333d47;
-  --base-mute6: #44525f;
-  --base-mute4: #667a8f;
-  --base-mute3: #7c8fa2;
-
-  --body-bg: #fafafc;
-  --gray-bg: #f3f5fc;
-  --gray-text: #556677;
-
-  /* Sheet cards: a quiet fill, slightly darker on hover */
-  --base-card: #f1f3f8;
-  --base-card-hover: #e7eaf2;
-
-  --line-color: rgb(85 102 119 / 18%);
-  --dark-line-color: rgb(85 102 119 / 30%);
-
-  --base-a-gradient: linear-gradient(5deg, #745fb5, #9066b8);
+  --link: #26648e;
+  --link-hover: #3ac1cb;
+  --link-visited: #15234d;
+  --link-bright: #2e90ae;
+  --link-dark: #1d406e;
+  --highlight: #14af83;
+  --highlight-bright: #15b89a;
+  --highlight-dark: #108b68;
 
   /*
-   * Derived colors
+   * Syntax / overlays
    */
 
-  --base-a-hover: #5f4aa1;
-  --base-a-dark: #4f3d85;
-  --base-a-darker: #3e3069;
-  --base-a-bright: #9a6dbb;
-  --base-a-brighter: #b796cf;
-  --base-b-bright: #2e90ae;
-  --base-b-dark: #1d406e;
-  --base-c-bright: #15b89a;
-  --base-c-dark: #108b68;
-  --base-mute-bright: #5e7683;
-  --gray-text-bright: #8899aa;
+  --syntax-punctuation: #669;
+  --syntax-comment: #569;
+  --overlay: rgb(0 0 0 / 20%);
+  --overlay-soft: rgb(0 0 0 / 12%);
+  --mask-opaque: #000; /* structural mask, not themeable */
 
   /*
-   * Shadows
+   * Layout
    */
 
-  --shadow2: 0 1px 1px rgb(85 102 119 / 55%);
-  --shadow3: 0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%);
-  --shadow6:
-    0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%),
-    0 8px 12px rgb(58 193 203 / 10%);
+  --content-width: 1232px;
+
+  /* --mermaid-origin is set by scripts/v2017/behaviors_2/mermaid.ts;
+     CSS keeps its fallback */
 }

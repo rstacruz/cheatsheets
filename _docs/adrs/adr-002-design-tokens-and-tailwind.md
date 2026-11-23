@@ -79,7 +79,7 @@ The six fluid steps move into `@theme static` as `clamp()` expressions that repr
 | — | `--text-5xl` | 42px |
 | `--fs-8` | removed with the dead `.main-heading` rules | — |
 
-Line-height pairs are set explicitly on the new scale (`1.5`/`1.6`/`1.4`/`1.3`/`1.2`) so `text-3xl` does not inherit Tailwind's fixed 2.25rem line-height under a 36px font. Components that set line-height explicitly keep doing so. The `text-*` utilities become the public type API, and plain CSS uses `var(--text-*)`.
+Line-height pairs are set explicitly on the new scale (`1.5`/`1.6`/`1.4`/`1.3`/`1.2`). Tailwind's defaults are ratios tuned to its own sizes (`--text-3xl--line-height` is `calc(2.25 / 1.875)`), so they would not reproduce the site's heading rhythm; the explicit ratios do. Components that set line-height explicitly keep doing so. The `text-*` utilities become the public type API, and plain CSS uses `var(--text-*)`.
 
 ### 5. Migration: incremental Tailwind, but `@apply` is encouraged
 
@@ -108,20 +108,20 @@ Stylelint is the deterministic gate. There is no hand-rolled style-validation su
   - `declaration-no-important`.
 - Overrides disable colour-value rules in `tokens.css` and `tailwind.css`, which own raw values.
 - `icons.generated.css` is ignored.
-- A `lint:css:check` script joins `pnpm ci` through the existing `npm:*:check` glob.
+- A `lint:css:check` script joins `pnpm run ci` through the existing `npm:*:check` glob.
 
 ## Consequences
 
 - One token vocabulary from the first merged change. The rename is a large mechanical diff, but there is no half-migrated state and no permanent legacy-name exception.
 - Stylelint adds two dev dependencies and a config file, but replaces ad-hoc checks with an established tool and built-in rules.
 - `@apply` becomes a first-class form. CSS now depends on the Tailwind theme for colour, type, radius, and shadow; raw values fail lint.
-- The type scale becomes a single Tailwind namespace. A few `text-*` utilities change size (`text-xl` 17.5→20px, `text-2xl` 21→24px, `text-3xl` 26.25→30–36px), and line-heights are now explicit ratios. The migration PR is screenshot-reviewed at 480/768/1280px.
+- The type scale becomes a single Tailwind namespace. A few `text-*` utilities change size (`text-sm` 12.25→13–14px, `text-xl` 17.5→20px, `text-2xl` 21→24px, `text-3xl` 26.25→30–36px), and line-heights are now explicit ratios. The migration PR is screenshot-reviewed at 480/768/1280px.
 - Raw radii migrate to the scale; 1px/3px collapse to 2px. This is the only intended geometry change in the token migration.
 - Brand and grey normalization changes values: `--base-a` → `mildindigo-600`, the gradient → 600→400, `text-zinc-*` → semantic text, and table links `#35a` → `--link`. The migration PR lists these for screenshot review.
 - After layering, utilities can override component CSS. A few existing utility/component overlaps may render differently; the layering change is reviewed on its own.
 - `@theme inline` is required for the colour bridge; `@theme static` is required for the type scale, radius, shadows, fonts, and `mildindigo` palette.
 - Dark mode is still out of scope, but a semantic layer makes it a later switch rather than a rewrite.
-- A conventions doc (`_docs/css-conventions.md`) must land with the first implementation PR.
+- A conventions doc (`_docs/css-conventions.md`) lands with this decision, so contributors can apply the rules before the first rename.
 
 ## History
 

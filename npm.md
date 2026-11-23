@@ -64,6 +64,7 @@ See: [npm install](https://docs.npmjs.com/cli/v12/commands/npm-install/)
 npm ci
 npm ci --omit=dev
 ```
+<!-- {: data-highlight="npm ci"} -->
 
 `npm ci` requires a lockfile, removes `node_modules`, and never writes the lockfile.
 
@@ -111,6 +112,7 @@ See: [npm audit](https://docs.npmjs.com/cli/v12/commands/npm-audit/)
 npm explain lodash
 npm why lodash
 ```
+<!-- {: data-highlight="npm explain; npm why"} -->
 
 `npm why` is an alias for `npm explain`.
 
@@ -123,6 +125,7 @@ npm doctor
 npm cache verify
 npm cache clean --force
 ```
+<!-- {: data-highlight="npm doctor"} -->
 
 `npm doctor` checks the registry, cache, permissions, and environment.
 
@@ -138,6 +141,7 @@ npm pkg set keywords[0]="cli"
 npm pkg delete scripts.lint
 npm pkg fix
 ```
+<!-- {: data-highlight="npm pkg"} -->
 
 `npm pkg` edits JSON without reformatting it; `fix` applies the corrections `npm publish` would otherwise make.
 
@@ -184,6 +188,7 @@ See: [npm version](https://docs.npmjs.com/cli/v12/commands/npm-version/)
   "workspaces": ["packages/a", "packages/b"]
 }
 ```
+<!-- {: data-highlight="workspaces"} -->
 
 #### Add a workspace
 
@@ -191,6 +196,7 @@ See: [npm version](https://docs.npmjs.com/cli/v12/commands/npm-version/)
 npm init -w ./packages/c
 npm install
 ```
+<!-- {: data-highlight="npm init -w"} -->
 
 `npm install` symlinks every workspace into the root `node_modules`.
 
@@ -205,6 +211,7 @@ npm run test --workspaces
 npm run test --workspaces --if-present
 npm publish -w a
 ```
+<!-- {: data-highlight="-w; --workspaces"} -->
 
 `-w` takes a package name or folder path and can repeat. `--workspaces` runs across all of them in `package.json` order.
 
@@ -219,6 +226,7 @@ npm run build
 npm run build -- --watch
 npm test
 ```
+<!-- {: data-highlight="npm run"} -->
 
 Arguments after `--` pass through to the script.
 
@@ -230,6 +238,7 @@ See: [npm run](https://docs.npmjs.com/cli/v12/commands/npm-run/)
 npx prettier --write .
 npm exec -- prettier --write .
 ```
+<!-- {: data-highlight="npx; npm exec"} -->
 
 `npx` is shorthand for `npm exec`; both use local binaries first.
 
@@ -245,6 +254,7 @@ npm publish
 npm publish --access public
 npm publish --tag beta
 ```
+<!-- {: data-highlight="npm publish"} -->
 
 See: [npm publish](https://docs.npmjs.com/cli/v12/commands/npm-publish/)
 
@@ -255,6 +265,7 @@ npm deprecate pkg@"< 0.2.0" "critical bug fixed in 0.2.0"
 npm owner add user pkg
 npm owner ls pkg
 ```
+<!-- {: data-highlight="npm deprecate; npm owner"} -->
 
 See: [npm deprecate](https://docs.npmjs.com/cli/v12/commands/npm-deprecate/), [npm owner](https://docs.npmjs.com/cli/v12/commands/npm-owner/)
 
@@ -296,6 +307,7 @@ npm i user/repo --allow-git=all
 npm i github:user/repo#main --allow-git=all
 npm i https://site.com/archive.tgz --allow-remote=all
 ```
+<!-- {: data-highlight="--allow-git=all; --allow-remote=all"} -->
 
 npm 12 blocks git and remote URL dependencies by default; opt in per command or in `.npmrc`.
 

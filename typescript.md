@@ -45,6 +45,7 @@ function fail(msg: string): never {
   throw new Error(msg)
 }
 ```
+<!-- {: data-highlight="string[]; [string, number]; unknown; never"} -->
 
 #### Primitives
 
@@ -79,6 +80,7 @@ enum Color {
 
 let c: Color = Color.Green
 ```
+<!-- {: data-highlight="enum"} -->
 
 Numeric enums are union enums; enums are not erasable syntax.
 
@@ -96,6 +98,7 @@ function add(a: number, b: number): number {
 
 const double = (n: number) => n * 2
 ```
+<!-- {: data-highlight="const; let"} -->
 
 See: [Variable declarations](https://www.typescriptlang.org/docs/handbook/variable-declarations.html)
 
@@ -108,6 +111,7 @@ const input = value as string
 const len = (input as string).length
 const upper = (<string>value).toUpperCase()  // not in .tsx
 ```
+<!-- {: data-highlight="as; <string>"} -->
 
 `as` is preferred; angle brackets do not work in `.tsx` files.
 
@@ -122,6 +126,7 @@ function printLabel(options: { label: string }) {
   console.log(options.label)
 }
 ```
+<!-- {: data-highlight="{ label: string }"} -->
 
 See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 
@@ -136,6 +141,7 @@ function printLabel(options: LabelOptions) {
   console.log(options.label)
 }
 ```
+<!-- {: data-highlight="interface LabelOptions"} -->
 
 See: [Object types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 
@@ -147,6 +153,7 @@ interface User {
   age?: number
 }
 ```
+<!-- {: data-highlight="age?"} -->
 
 See: [Optional properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#optional-properties)
 
@@ -157,6 +164,7 @@ interface User {
   readonly id: number
 }
 ```
+<!-- {: data-highlight="readonly"} -->
 
 See: [Readonly properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties)
 
@@ -167,6 +175,7 @@ interface Dict {
   [key: string]: unknown[]
 }
 ```
+<!-- {: data-highlight="[key: string]"} -->
 
 Same shape as `Record<string, unknown[]>`.
 
@@ -180,6 +189,7 @@ See: [Index signatures](https://www.typescriptlang.org/docs/handbook/2/objects.h
 type Name = string | string[]
 type Point = { x: number; y: number }
 ```
+<!-- {: data-highlight="type Name; type Point"} -->
 
 See: [Type aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
 
@@ -191,6 +201,7 @@ interface Circle { radius: number }
 
 type ColorfulCircle = Colorful & Circle
 ```
+<!-- {: data-highlight="Colorful & Circle"} -->
 
 See: [Intersection types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types)
 
@@ -203,6 +214,7 @@ type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6
 const point = { x: 4, y: 2 } as const
 // point: { readonly x: 4; readonly y: 2 }
 ```
+<!-- {: data-highlight="as const; 'north' | 'south'"} -->
 
 See: [Literal types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
 
@@ -220,6 +232,7 @@ interface Building {
 
 type Walls = Building['room']['walls']  // string[]
 ```
+<!-- {: data-highlight="Building['room']['walls']"} -->
 
 See: [Indexed access types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html)
 
@@ -230,6 +243,7 @@ type Point = { x: number; y: number }
 
 type P = keyof Point  // 'x' | 'y'
 ```
+<!-- {: data-highlight="keyof Point"} -->
 
 See: [keyof type operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
 
@@ -241,6 +255,7 @@ const user = { name: 'Ada', age: 36 }
 type User = typeof user
 // { name: string; age: number }
 ```
+<!-- {: data-highlight="typeof user"} -->
 
 See: [typeof type operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)
 
@@ -252,6 +267,7 @@ type ToArray<T> = T extends unknown ? T[] : never
 type StrOrNum = ToArray<string | number>
 // string[] | number[]
 ```
+<!-- {: data-highlight="T extends unknown ? T[] : never"} -->
 
 See: [Conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
 
@@ -266,6 +282,7 @@ type GetReturn<T> = T extends (...args: unknown[]) => infer R
 
 type Num = GetReturn<() => number>  // number
 ```
+<!-- {: data-highlight="infer R"} -->
 
 #### First element
 
@@ -275,6 +292,7 @@ type First<T extends unknown[]> =
 
 type Str = First<['hello', 1]>  // 'hello'
 ```
+<!-- {: data-highlight="infer F"} -->
 
 See: [Inferring within conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
 
@@ -288,6 +306,7 @@ type TrimLeft<S extends string> =
 
 type Trimmed = TrimLeft<'  hello'>  // 'hello'
 ```
+<!-- {: data-highlight="${Space}${infer Rest}"} -->
 
 See: [Template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
 
@@ -304,6 +323,7 @@ function getUser(cb: (user: User) => void) {
 
 getUser(user => console.log(user.name))
 ```
+<!-- {: data-highlight="(user: User) => void"} -->
 
 See: [Function types](https://www.typescriptlang.org/docs/handbook/2/functions.html)
 
@@ -323,6 +343,7 @@ function object(
 const result = object.call({ a: 0, b: 0 }, 1, 2)
 // result: { a: number; b: number }
 ```
+<!-- {: data-highlight="this:"} -->
 
 See: [Declaring `this`](https://www.typescriptlang.org/docs/handbook/2/functions.html#declaring-this-in-a-function)
 
@@ -339,6 +360,7 @@ if (isString(value)) {
   value.toUpperCase()
 }
 ```
+<!-- {: data-highlight="x is string"} -->
 
 #### Inferred filter
 
@@ -347,6 +369,7 @@ const mixed = [1, 'a', 2]
 const nums = mixed.filter(x => typeof x === 'number')
 // number[] (inferred predicate, 5.5)
 ```
+<!-- {: data-highlight="mixed.filter"} -->
 
 See: [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
 
@@ -367,6 +390,7 @@ class Point {
   }
 }
 ```
+<!-- {: data-highlight="static instances"} -->
 
 See: [Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
 
@@ -388,6 +412,7 @@ class Pixel extends Point3D implements Colored {
   color = '#000'
 }
 ```
+<!-- {: data-highlight="extends Point3D; implements Colored"} -->
 
 See: [Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
 
@@ -401,6 +426,7 @@ class Point {
   ) {}
 }
 ```
+<!-- {: data-highlight="public x; public y"} -->
 
 Not erasable syntax; see [erasable syntax](#erasable-syntax).
 
@@ -414,6 +440,7 @@ class Point {
   value!: number
 }
 ```
+<!-- {: data-highlight="value!"} -->
 
 See: [Strict property initialization](https://www.typescriptlang.org/docs/handbook/2/classes.html#--strictpropertyinitialization)
 
@@ -433,6 +460,7 @@ class Greeter {
   }
 }
 ```
+<!-- {: data-highlight="@logged"} -->
 
 See: [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html)
 
@@ -451,6 +479,7 @@ class Greeter<T> {
 
 const greeter = new Greeter<string>('Hello')
 ```
+<!-- {: data-highlight="Greeter<T>; Greeter<string>"} -->
 
 See: [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 
@@ -463,6 +492,7 @@ function pluck<T, K extends keyof T>(obj: T, key: K): T[K] {
 
 const name = pluck({ name: 'Ada' }, 'name')  // string
 ```
+<!-- {: data-highlight="K extends keyof T"} -->
 
 See: [Generic constraints](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
 
@@ -476,6 +506,7 @@ declare function tuple<const T extends readonly unknown[]>(
 const t = tuple([1, 'a'])
 // readonly [1, 'a']
 ```
+<!-- {: data-highlight="const T"} -->
 
 See: [const type parameters](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#const-type-parameters)
 
@@ -489,6 +520,7 @@ export default class Circle {}
 export type { User } from './user'
 export type * from './types'
 ```
+<!-- {: data-highlight="export type"} -->
 
 See: [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
 
@@ -498,6 +530,7 @@ See: [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
 import type { User } from './user'
 import { createUser, type NewUser } from './user'
 ```
+<!-- {: data-highlight="import type; type NewUser"} -->
 
 `verbatimModuleSyntax` keeps these imports as written.
 
@@ -536,6 +569,7 @@ const palette = {
 palette.red    // number[]
 palette.green  // string
 ```
+<!-- {: data-highlight="satisfies Palette"} -->
 
 See: [satisfies](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html#the-satisfies-operator)
 
@@ -552,6 +586,7 @@ class Resource {
   using file = new Resource()
 }  // logs "closed" at block exit
 ```
+<!-- {: data-highlight="Symbol.dispose; using file"} -->
 
 `using` and `await using` dispose resources at scope exit; add `esnext.disposable` to `lib`.
 

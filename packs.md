@@ -44,6 +44,7 @@ keywords:
 ```bash
 $ bin/packs create packs/pack_name
 ```
+<!-- {: data-highlight="create"} -->
 
 #### Example
 
@@ -61,6 +62,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 $ bin/packs make_public path/to/file.rb
 $ bin/packs make_public path/to/directory
 ```
+<!-- {: data-highlight="make_public"} -->
 
 #### Example
 
@@ -79,6 +81,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 $ bin/packs move packs/destination_pack path/to/file.rb
 $ bin/packs move packs/destination_pack path/to/directory
 ```
+<!-- {: data-highlight="move"} -->
 
 Move a file or directory from one pack to another, from the monolith or another pack.
 
@@ -91,6 +94,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs move_to_folder packs/foo path/to/directory
 ```
+<!-- {: data-highlight="move_to_folder"} -->
 
 Move `packs/foo` to `path/to/directory`, which must not contain a `package.yml`.
 
@@ -101,6 +105,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs move_to_parent packs/child_pack packs/parent_pack
 ```
+<!-- {: data-highlight="move_to_parent"} -->
 
 Set `packs/child_pack` as a child of `packs/parent_pack`.
 
@@ -111,6 +116,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs add_dependency packs/from_pack packs/to_pack
 ```
+<!-- {: data-highlight="add_dependency"} -->
 
 Add `packs/to_pack` to `packs/from_pack/package.yml` dependencies, sorted and deduplicated.
 
@@ -121,6 +127,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs rename
 ```
+<!-- {: data-highlight="rename"} -->
 
 See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 
@@ -131,6 +138,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs get_info [ packs/my_pack packs/my_other_pack ]
 ```
+<!-- {: data-highlight="get_info"} -->
 
 Show size and violations for packs.
 
@@ -155,6 +163,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs validate
 ```
+<!-- {: data-highlight="validate"} -->
 
 Runs `bin/packwerk validate` to detect cycles.
 
@@ -165,6 +174,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs check [ packs/pack_name ]
 ```
+<!-- {: data-highlight="check"} -->
 
 Runs `bin/packwerk check`.
 
@@ -175,6 +185,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs update
 ```
+<!-- {: data-highlight="update"} -->
 
 Runs `bin/packwerk update-todo`.
 
@@ -188,6 +199,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 ```bash
 $ bin/packs lint_package_todo_yml_files
 ```
+<!-- {: data-highlight="lint_package_todo_yml_files"} -->
 
 Check `package_todo.yml` files for formatting issues.
 
@@ -199,6 +211,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 $ bin/packs lint_package_yml_files \
   [ packs/my_pack packs/my_other_pack ]
 ```
+<!-- {: data-highlight="lint_package_yml_files"} -->
 
 Lint `package.yml` files.
 
@@ -210,6 +223,7 @@ See: [CLI documentation](https://github.com/rubyatscale/packs#cli-documentation)
 $ bin/packs list_top_violations type \
   [ packs/your_pack ]
 ```
+<!-- {: data-highlight="list_top_violations"} -->
 
 List top violations of a type (`dependency`, `privacy`, `layer`) for a pack, or all packs.
 
@@ -227,6 +241,7 @@ pack_paths:
   - "{packs,utilities,deprecated}/*/*"
   - "gems/*"
 ```
+<!-- {: data-highlight="pack_paths"} -->
 
 Configure where packs live.
 
@@ -239,6 +254,7 @@ See: [Configuration](https://github.com/rubyatscale/packs#configuration)
 ```yaml
 readme_template_path: my_folder/README_STUFF.md
 ```
+<!-- {: data-highlight="readme_template_path"} -->
 
 Customize the generated README template via `README_TEMPLATE.md`.
 

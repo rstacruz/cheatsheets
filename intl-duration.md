@@ -44,6 +44,7 @@ const duration = { hours: 1, minutes: 30 }
 new Intl.DurationFormat('en-US').format(duration)
 // → '1 hr, 30 min'
 ```
+<!-- {: data-highlight="format(duration)"} -->
 
 Pass a plain object, not a `Date` or a millisecond count. The ten fields (`years` through `nanoseconds`) are optional, but at least one is required; values must be integers that share the same sign.
 
@@ -62,6 +63,7 @@ format('short')   // → '1 hr, 30 min'
 format('narrow')  // → '1h 30m'
 format('digital') // → '1:30:00'
 ```
+<!-- {: data-highlight="style"} -->
 
 `'short'` is the default. `'digital'` renders `h:mm:ss`, so seconds always appear; date units stay in prose, so `{ days: 2, hours: 3 }` becomes `'2 days, 3:00:00'`.
 
@@ -79,6 +81,7 @@ format('en-US') // → '1 hour, 30 minutes'
 format('de-DE') // → '1 Stunde, 30 Minuten'
 format('ja-JP') // → '1 時間 30 分'
 ```
+<!-- {: data-highlight="locale"} -->
 
 Word order, plural forms, and separators come from the locale. Output varies between ICU versions and engines, so never compare it to hardcoded strings.
 
@@ -98,6 +101,7 @@ const df = new Intl.DurationFormat('en', {
 df.format(duration)
 // → '1 hour, 46:40'
 ```
+<!-- {: data-highlight="hours: 'long'"} -->
 
 #### Option values
 
@@ -126,6 +130,7 @@ const df = new Intl.DurationFormat('en-US', {
 df.format({ minutes: 45 })
 // → '0 hours, 45 min'
 ```
+<!-- {: data-highlight="hoursDisplay: 'always'"} -->
 
 Zero-valued units are hidden by default. `'always'` keeps one on screen, which stops columns and timers from jumping as values change.
 
@@ -145,6 +150,7 @@ format()  // → '0:00:12.345'
 format(2) // → '0:00:12.34'
 format(5) // → '0:00:12.34500'
 ```
+<!-- {: data-highlight="fractionalDigits"} -->
 
 Digits are truncated toward zero, not rounded, and short values are padded with trailing zeros. Omit `fractionalDigits` to show as many digits as the input needs, up to nine.
 
@@ -164,6 +170,7 @@ parts.map(p => `${p.type}: ${p.value}`)
 //    'literal: , ', 'integer: 30', 'literal:  ',
 //    'unit: minutes']
 ```
+<!-- {: data-highlight="formatToParts"} -->
 
 Numbers arrive as `integer` (or `decimal` and `fraction`), separators as `literal`, and unit names as `unit`, so each piece can be styled on its own.
 
@@ -181,6 +188,7 @@ const { locale, style, hours } = df.resolvedOptions()
 // style: 'narrow'
 // hours: 'narrow'
 ```
+<!-- {: data-highlight="resolvedOptions()"} -->
 
 `resolvedOptions()` reports the locale and every unit style after defaults are applied, including the `…Display` values.
 
@@ -211,6 +219,7 @@ const formatter = 'DurationFormat' in Intl
   ? new Intl.DurationFormat('en-US')
   : null
 ```
+<!-- {: data-highlight="'DurationFormat' in Intl"} -->
 
 Check for the constructor before using it, and load the FormatJS polyfill where it is missing.
 
@@ -225,6 +234,7 @@ new Intl.RelativeTimeFormat('en-US')
   .format(-3, 'days')
 // → '3 days ago'
 ```
+<!-- {: data-highlight="RelativeTimeFormat"} -->
 
 #### Single quantities
 
@@ -236,6 +246,7 @@ new Intl.NumberFormat('en-US', {
 }).format(2)
 // → '2 hours'
 ```
+<!-- {: data-highlight="unit: 'hour'"} -->
 
 Use `Intl.DurationFormat` for elapsed lengths, `Intl.RelativeTimeFormat` for points in time, and a `unit` `Intl.NumberFormat` for one standalone quantity.
 

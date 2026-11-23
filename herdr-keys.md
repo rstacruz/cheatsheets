@@ -47,6 +47,7 @@ links:
 [keys]
 prefix = "ctrl+a"   # or "f12"
 ```
+<!-- {: data-highlight="ctrl+a"} -->
 
 Herdr reserves one key instead of dozens. Press it (default `ctrl+b`), release, then press an action key: `prefix+c` is `ctrl+b`, then `c`. `prefix+?` lists every active binding; `/` filters that list.
 
@@ -287,6 +288,7 @@ See: [Editing text fields](https://herdr.dev/tui/docs/keyboard/#editing-text-fie
 [keys]
 prefix = "ctrl+a"                        # or ["ctrl+space", "f12"]
 ```
+<!-- {: data-highlight="ctrl+space; f12"} -->
 
 Every binding is configurable, including the prefix; an action can carry several shortcuts.
 
@@ -302,6 +304,7 @@ split_vertical = ["prefix+v", "ctrl+alt+d"]
 split_horizontal = ["prefix+minus", "ctrl+alt+shift+d"]
 zoom = ["prefix+z", "ctrl+alt+z"]
 ```
+<!-- {: data-highlight="next_tab; new_tab; split_vertical; split_horizontal"} -->
 
 Direct chords skip the prefix, and `ctrl+alt` is the safest family to look at.
 

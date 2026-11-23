@@ -42,6 +42,7 @@ git worktree add ../hotfix hotfix
 git worktree add ../next
 git worktree add ../fix -b fix main
 ```
+<!-- {: data-highlight="git worktree add"} -->
 
 The first form checks out an existing branch. Without a branch, `add` checks out or creates the branch named after the path. `-b` creates a branch from a start point, `HEAD` by default. The path must be empty or missing.
 
@@ -55,6 +56,7 @@ git worktree add -B reset ../reset main
 git worktree add --orphan -b empty ../empty
 git worktree add ../prev -
 ```
+<!-- {: data-highlight="--track; -B; --orphan"} -->
 
 `--track` marks a start point as upstream; it is implied for a remote-tracking branch. `-B` resets an existing branch. `--orphan` starts an unborn branch with an empty index. A bare `-` means `@{-1}`, the previous branch.
 
@@ -66,6 +68,7 @@ See: [git worktree options](https://git-scm.com/docs/git-worktree#_options)
 git worktree add --detach ../review origin/main
 git worktree add --no-checkout -b sparse ../sparse main
 ```
+<!-- {: data-highlight="--detach; --no-checkout"} -->
 
 `--detach` leaves HEAD off any branch, so a review worktree cannot claim a branch. `--no-checkout` skips the initial checkout for sparse or custom setups.
 
@@ -80,6 +83,7 @@ git worktree list
 git worktree list -v
 git worktree list --porcelain
 ```
+<!-- {: data-highlight="-v; --porcelain"} -->
 
 #### Output
 
@@ -100,6 +104,7 @@ See: [List output format](https://git-scm.com/docs/git-worktree#_list_output_for
 cat ../hotfix/.git
 # gitdir: /repo/.git/worktrees/hotfix
 ```
+<!-- {: data-highlight="gitdir: /repo/.git/worktrees/hotfix"} -->
 
 #### Shared state
 
@@ -120,6 +125,7 @@ See: [gitrepository-layout](https://git-scm.com/docs/gitrepository-layout#Docume
 git worktree remove ../hotfix
 git worktree remove --force ../dirty
 ```
+<!-- {: data-highlight="git worktree remove"} -->
 
 `remove` deletes the directory and its admin entry, but leaves the branch and its commits. It refuses modified or untracked files; `--force` discards them. A locked worktree needs `--force` twice. The main worktree cannot be removed.
 
@@ -131,6 +137,7 @@ See: [git worktree remove](https://git-scm.com/docs/git-worktree#_commands)
 git worktree prune -n -v
 git worktree prune
 ```
+<!-- {: data-highlight="git worktree prune"} -->
 
 `prune` removes admin entries whose worktree directory is gone, which happens after a manual `rm -rf`. `-n` reports without removing; `-v` names each entry. Automatic pruning runs from `git gc` after `gc.worktreePruneExpire`, three months by default.
 
@@ -142,6 +149,7 @@ See: [gc.worktreePruneExpire](https://git-scm.com/docs/git-config#Documentation/
 git worktree lock --reason "usb drive" ../hotfix
 git worktree unlock ../hotfix
 ```
+<!-- {: data-highlight="git worktree lock"} -->
 
 Locking prevents `prune`, `move`, and `remove` from touching the entry. Use it for worktrees on removable or network paths. `add --lock` locks at creation without a race window.
 
@@ -154,12 +162,14 @@ See: [git worktree lock](https://git-scm.com/docs/git-worktree#_commands)
 ```bash
 git worktree move ../hotfix ../hotfix-2
 ```
+<!-- {: data-highlight="git worktree move"} -->
 
 #### After a manual move
 
 ```bash
 git worktree repair ../hotfix-2
 ```
+<!-- {: data-highlight="git worktree repair"} -->
 
 `move` updates the admin files. If you move a directory by hand, the entry becomes `prunable`; run `repair` from the moved worktree, or in the main worktree with its new path. Main and submodule worktrees cannot be moved.
 
@@ -173,6 +183,7 @@ See: [git worktree repair](https://git-scm.com/docs/git-worktree#_commands)
 git worktree add ../other main
 # fatal: 'main' is already used by worktree at '/repo'
 ```
+<!-- {: data-highlight="fatal: 'main' is already used by worktree"} -->
 
 A branch can be checked out in only one worktree; `git checkout` enforces the same rule. `--force` overrides it, but two checkouts invite lost commits. Use a detached worktree when the same commit is enough.
 
@@ -185,6 +196,7 @@ git config extensions.worktreeConfig true
 cd ../hotfix
 git config --worktree core.sparseCheckout true
 ```
+<!-- {: data-highlight="extensions.worktreeConfig; --worktree"} -->
 
 Config is shared by default: remotes, aliases, and hooks all come from the main `.git`. With `extensions.worktreeConfig`, `git config --worktree` writes the linked worktree's `config.worktree`, which is read after the shared config.
 
@@ -198,6 +210,7 @@ cd ../sparse
 git sparse-checkout set --cone src docs
 git read-tree -mu HEAD
 ```
+<!-- {: data-highlight="git sparse-checkout set --cone; git read-tree -mu HEAD"} -->
 
 Patterns live in `.git/worktrees/<id>/info/sparse-checkout`, and `set` turns on `extensions.worktreeConfig` so `core.sparseCheckout` stays per worktree. `read-tree` fills the empty index.
 
@@ -234,6 +247,7 @@ See: [git worktree examples](https://git-scm.com/docs/git-worktree#_examples)
 git fetch origin pull/123/head
 git worktree add --detach ../review FETCH_HEAD
 ```
+<!-- {: data-highlight="pull/123/head; FETCH_HEAD"} -->
 
 The fetch ref works on GitHub and other forges that expose `pull/<n>/head`. A detached worktree keeps the review off your branch list; remove it when the review lands.
 
@@ -245,6 +259,7 @@ See: [Checking out pull requests locally](https://docs.github.com/en/pull-reques
 git worktree add -b hotfix ../hotfix main
 cd ../hotfix && npm test
 ```
+<!-- {: data-highlight="git worktree add -b hotfix ../hotfix main"} -->
 
 The hotfix builds and tests in its own directory while the feature checkout stays dirty. Commit on `hotfix`, then remove the worktree; the branch and commit remain.
 
@@ -256,6 +271,7 @@ See: [git worktree examples](https://git-scm.com/docs/git-worktree#_examples)
 git clone --bare git@github.com:me/repo.git repo.git
 git -C repo.git worktree add ../main main
 ```
+<!-- {: data-highlight="git clone --bare; git -C repo.git worktree add"} -->
 
 A bare repository has no checkout of its own, so each checkout lives in a sibling directory while sharing one object store. This layout suits dotfiles and build hosts.
 
@@ -267,6 +283,7 @@ See: [git clone --bare](https://git-scm.com/docs/git-clone#Documentation/git-clo
 git worktree add -b task-42 ../wt-42 origin/main
 git worktree remove ../wt-42
 ```
+<!-- {: data-highlight="git worktree add -b task-42 ../wt-42 origin/main"} -->
 
 Each agent gets an isolated index and working directory while objects and refs stay shared, so creating one is cheap. Name worktrees after the task or agent, and remove them when the run finishes. Avoid two agents on one branch.
 

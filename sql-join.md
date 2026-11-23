@@ -344,6 +344,7 @@ See: [MySQL UNION syntax](https://dev.mysql.com/doc/refman/9.7/en/union.html)
 ```sql
 SELECT sqlite_version();
 ```
+<!-- {: data-highlight="sqlite_version()"} -->
 
 #### Result
 

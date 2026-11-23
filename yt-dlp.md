@@ -74,6 +74,7 @@ See: [Usage and options](https://github.com/yt-dlp/yt-dlp#usage-and-options)
 yt-dlp -F URL          # format IDs, codecs, sizes
 yt-dlp -v -F URL       # also show the sort order
 ```
+<!-- {: data-highlight="-F"} -->
 
 Format IDs are specific to each extractor, so list them before hard-coding one.
 
@@ -87,6 +88,7 @@ yt-dlp -f "bv*[height<=720]+ba/b" URL
 yt-dlp -f "best[height<=480]" URL
 yt-dlp -f 22/17/18 URL               # first available
 ```
+<!-- {: data-highlight="-f"} -->
 
 Slash separates fallbacks, `+` merges streams, and brackets filter fields. A filter without a selector implies `best`.
 
@@ -100,6 +102,7 @@ yt-dlp -S "res:720,fps" URL           # 720p, then fps
 yt-dlp -S "+size" URL                 # smallest first
 yt-dlp -S "vcodec:h264,acodec:aac" URL
 ```
+<!-- {: data-highlight="-S"} -->
 
 `-S` changes what `best` means. Fields sort descending unless prefixed with `+`.
 
@@ -113,6 +116,7 @@ yt-dlp --merge-output-format mkv URL
 yt-dlp -f "bv*+ba/b" -S "vcodec:h264,acodec:aac" \
   --merge-output-format mp4 URL
 ```
+<!-- {: data-highlight="--merge-output-format"} -->
 
 The option is ignored when no merge is needed. Add the `-S` line when a player needs H.264 and AAC rather than VP9 and Opus.
 
@@ -127,6 +131,7 @@ yt-dlp -o "%(title)s.%(ext)s" URL
 yt-dlp -o "%(uploader)s/%(upload_date)s - %(title)s.%(ext)s" URL
 yt-dlp -o "%(playlist_title)s/%(title)s.%(ext)s" URL
 ```
+<!-- {: data-highlight="-o"} -->
 
 #### Fields
 
@@ -150,6 +155,7 @@ yt-dlp --restrict-filenames URL    # ASCII, no spaces or &
 yt-dlp --windows-filenames URL     # safe on Windows
 yt-dlp --trim-filenames 120 URL    # cap the base name
 ```
+<!-- {: data-highlight="--restrict-filenames"} -->
 
 `--restrict-filenames` rewrites the title to a short ASCII name, which is handy for scripts and other filesystems.
 
@@ -161,6 +167,7 @@ See: [Filesystem options](https://github.com/yt-dlp/yt-dlp#filesystem-options)
 yt-dlp -P ~/Videos URL
 yt-dlp -P "temp:/tmp" URL
 ```
+<!-- {: data-highlight="-P"} -->
 
 `-P` sets a path per file type; temporary files go to `temp:` and then move into `home:`. The output template still controls the name.
 
@@ -172,6 +179,7 @@ See: [Output template examples](https://github.com/yt-dlp/yt-dlp#output-template
 yt-dlp --download-archive archive.txt PLAYLIST
 yt-dlp --download-archive archive.txt --playlist-items 1-10 PLAYLIST
 ```
+<!-- {: data-highlight="--download-archive"} -->
 
 Each downloaded video ID is recorded, so reruns skip it. Delete the file to start over.
 
@@ -187,6 +195,7 @@ yt-dlp -x --audio-format mp3 URL    # convert to mp3
 yt-dlp -x --audio-format m4a URL
 yt-dlp -x --audio-quality 0 URL     # best VBR quality
 ```
+<!-- {: data-highlight="-x"} -->
 
 `-x` needs ffmpeg. Without `--audio-format`, the best audio stream is kept as-is instead of being re-encoded.
 
@@ -200,6 +209,7 @@ yt-dlp -t aac URL    # audio, aac
 yt-dlp -t mp4 URL    # mp4 with h264/aac
 yt-dlp -t mkv URL    # mkv, any codecs
 ```
+<!-- {: data-highlight="-t"} -->
 
 Presets bundle the common format and conversion flags. The names are stable across releases.
 
@@ -214,6 +224,7 @@ yt-dlp --playlist-items 1-5 PLAYLIST
 yt-dlp --playlist-items "1:3,7,-5::2" PLAYLIST
 yt-dlp --playlist-items 1-3,8 PLAYLIST
 ```
+<!-- {: data-highlight="--playlist-items"} -->
 
 Ranges use `START:STOP:STEP`; negative indexes count from the end.
 
@@ -226,6 +237,7 @@ yt-dlp --no-playlist URL      # just the video
 yt-dlp --yes-playlist URL     # force the playlist
 yt-dlp --playlist-reverse PLAYLIST
 ```
+<!-- {: data-highlight="--no-playlist"} -->
 
 A `watch?v=…&list=…` URL downloads the playlist by default; add `--no-playlist` when you only want the current video.
 
@@ -241,6 +253,7 @@ yt-dlp --write-subs --sub-langs "en.*,ja" URL
 yt-dlp --write-auto-subs --sub-langs en URL
 yt-dlp --list-subs URL
 ```
+<!-- {: data-highlight="--write-subs; --write-auto-subs"} -->
 
 `--write-subs` takes uploaded captions, while `--write-auto-subs` takes machine-generated ones. `--sub-langs` accepts regex.
 
@@ -252,6 +265,7 @@ See: [Subtitle options](https://github.com/yt-dlp/yt-dlp#subtitle-options)
 yt-dlp --embed-subs --sub-langs en URL
 yt-dlp --embed-subs --sub-langs "en.*" --merge-output-format mkv URL
 ```
+<!-- {: data-highlight="--embed-subs"} -->
 
 Embedding works only for mp4, webm, and mkv. A bare `--embed-subs` fetches the subtitle, embeds it, and deletes the separate file.
 
@@ -264,6 +278,7 @@ yt-dlp --embed-metadata URL
 yt-dlp --embed-thumbnail URL
 yt-dlp --embed-chapters URL
 ```
+<!-- {: data-highlight="--embed-metadata"} -->
 
 `--embed-metadata` also embeds chapters and infojson unless disabled. Metadata and chapters need ffmpeg. Thumbnails can embed with mutagen or AtomicParsley instead.
 
@@ -278,6 +293,7 @@ yt-dlp --no-part URL          # write straight to the output
 yt-dlp --no-continue URL      # restart a partial download
 yt-dlp --no-overwrites URL    # skip files already there
 ```
+<!-- {: data-highlight="--no-part"} -->
 
 Downloads use `.part` files and resume by default; `--no-part` skips the temporary file but loses resuming.
 
@@ -291,6 +307,7 @@ yt-dlp -N 4 URL               # parallel fragments
 yt-dlp --retries 10 URL
 yt-dlp --socket-timeout 30 URL
 ```
+<!-- {: data-highlight="--limit-rate; -N"} -->
 
 `-N` speeds up DASH and HLS downloads; it does not split a plain HTTP file.
 
@@ -304,6 +321,7 @@ yt-dlp --download-sections "*10:15-inf" URL
 yt-dlp --sponsorblock-remove all URL
 yt-dlp --sponsorblock-remove default URL
 ```
+<!-- {: data-highlight="--download-sections; --sponsorblock-remove"} -->
 
 Sections need ffmpeg. `--sponsorblock-remove` cuts segments by category; `default` means `all,-filler`.
 
@@ -318,6 +336,7 @@ yt-dlp --cookies-from-browser firefox URL
 yt-dlp --cookies-from-browser chrome URL
 yt-dlp --cookies-from-browser "chrome:Profile 1" URL
 ```
+<!-- {: data-highlight="--cookies-from-browser"} -->
 
 The option reads the browser profile directly, including Firefox containers, so no export step is needed.
 
@@ -328,6 +347,7 @@ See: [FAQ: pass cookies](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass
 ```bash
 yt-dlp --cookies cookies.txt URL
 ```
+<!-- {: data-highlight="--cookies"} -->
 
 The file is a Netscape-format cookie jar, which browser extensions can export and yt-dlp can update in place.
 
@@ -342,6 +362,7 @@ yt-dlp --print "%(title)s" URL
 yt-dlp --print "%(id)s %(duration_string)s" URL
 yt-dlp --print after_move:filepath URL
 ```
+<!-- {: data-highlight="--print"} -->
 
 `--print` implies `--simulate`, so it prints metadata without downloading unless the stage runs later or you pass `--no-simulate`.
 
@@ -354,6 +375,7 @@ yt-dlp --simulate URL                   # extract, write nothing
 yt-dlp --simulate --print title URL
 yt-dlp --no-simulate --print title URL  # download and print
 ```
+<!-- {: data-highlight="--simulate"} -->
 
 Use `--simulate` to test a URL, a format selector, or a cookie setup without touching the disk.
 
@@ -365,6 +387,7 @@ See: [Verbosity and simulation options](https://github.com/yt-dlp/yt-dlp#verbosi
 yt-dlp --exec "echo %(filepath)q" URL
 yt-dlp --exec "after_move:echo %(title)q" URL
 ```
+<!-- {: data-highlight="--exec"} -->
 
 The default stage is `after_move`. Without fields, yt-dlp appends the quoted file path to the command.
 
@@ -400,6 +423,7 @@ See: [Configuration](https://github.com/yt-dlp/yt-dlp#configuration)
 yt-dlp --ignore-config URL              # skip every config file
 yt-dlp --config-locations ./ci.conf URL
 ```
+<!-- {: data-highlight="--ignore-config; --config-locations"} -->
 
 Command-line flags override the config file, and `--config-locations` can be repeated.
 

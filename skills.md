@@ -118,6 +118,7 @@ disable-model-invocation: true   # only /name runs it
 paths: "src/**/*.ts"             # activate on matching files
 context: fork                    # run in a subagent
 ```
+<!-- {: data-highlight="disable-model-invocation; paths; context: fork"} -->
 
 These extras work in Claude Code, but claude.ai uploads and the Skills API accept only the six spec fields.
 
@@ -133,6 +134,7 @@ interface:
 policy:
   allow_implicit_invocation: false
 ```
+<!-- {: data-highlight="display_name; allow_implicit_invocation"} -->
 
 Codex keeps UI metadata and invocation policy in `agents/openai.yaml`.
 
@@ -147,6 +149,7 @@ description: >
   Extracts text and tables from PDFs, fills forms, and merges files.
   Use when the user mentions PDFs, forms, or document extraction.
 ```
+<!-- {: data-highlight="description"} -->
 
 Lead with the capability, then words a user would type. Third person: the description is injected into the system prompt. `Helps with documents` never triggers.
 
@@ -199,6 +202,7 @@ See: [Plan, validate, execute](https://agentskills.io/skill-creation/best-practi
 ```bash
 python scripts/analyze.py input.pdf > fields.json
 ```
+<!-- {: data-highlight="scripts/analyze.py"} -->
 
 Non-interactive only: flags, env vars, or stdin. Data to stdout, diagnostics to stderr, `--help` works, and say whether to run or read it.
 
@@ -214,6 +218,7 @@ See: [Using scripts](https://agentskills.io/skill-creation/using-scripts)
   { "query": "rename this branch", "should_trigger": false }
 ]
 ```
+<!-- {: data-highlight="should_trigger"} -->
 
 Write about 20 queries (8–10 positive, 8–10 negative), run each three times, and keep a 60/40 train/validation split.
 
@@ -229,6 +234,7 @@ See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-
   "expected_output": "Every page read; text saved to output.txt"
 }
 ```
+<!-- {: data-highlight="expected_output"} -->
 
 Cases live in `evals/evals.json`. Run each with and without the skill, grade the assertions, and read the traces; wasted exploration means vague instructions.
 

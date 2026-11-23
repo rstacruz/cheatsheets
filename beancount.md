@@ -111,6 +111,7 @@ See: [Accounts](https://beancount.github.io/docs/beancount_language_syntax/#acco
 2024-01-01 open Assets:Cash                     ; any currency
 2025-01-01 close Assets:Cash
 ```
+<!-- {: data-highlight="open; close"} -->
 
 The currency list constrains what an account may hold. A posting before `open`
 or after `close` is an error; `close` takes no currency.
@@ -124,6 +125,7 @@ See: [Open](https://beancount.github.io/docs/beancount_language_syntax/#open)
   name: "US Dollar"
   asset-class: "cash"
 ```
+<!-- {: data-highlight="commodity"} -->
 
 Declaring a commodity is optional; using it is enough. The directive attaches
 metadata that plugins and reports read.
@@ -147,6 +149,7 @@ See: [Commodity](https://beancount.github.io/docs/beancount_language_syntax/#com
   Expenses:Food             5.00 USD
   Assets:Bank:Checking
 ```
+<!-- {: data-highlight="Cafe Mogador; Lamb tagine"} -->
 
 Two strings are payee then narration; one string is just the narration. An
 empty narration keeps a payee without a description.
@@ -170,6 +173,7 @@ pushtag #berlin
   Expenses:Travel
 poptag #berlin
 ```
+<!-- {: data-highlight="#berlin; ^invoice-42; pushtag; poptag"} -->
 
 `*` is settled and `!` needs review; `txn` is the spelled-out form of `*`.
 `pushtag`/`poptag` apply a tag to every transaction between them.
@@ -187,6 +191,7 @@ See: [Tags](https://beancount.github.io/docs/beancount_language_syntax/#tags)
   Assets:Bank:Checking    -61.20 USD
   Expenses:Food            61.20 USD
 ```
+<!-- {: data-highlight="; 37.45 USD"} -->
 
 At most one posting per currency may omit its amount; Beancount fills it in so
 the weights sum to zero.
@@ -201,6 +206,7 @@ See: [Amount interpolation](https://beancount.github.io/docs/beancount_language_
 2024-02-01 balance Assets:Bank:Checking   1000.00 USD
 2024-02-01 balance Assets:Cash             210.00 CAD
 ```
+<!-- {: data-highlight="balance"} -->
 
 The check runs at the start of the date, one commodity at a time, and includes
 child accounts and every lot.
@@ -213,6 +219,7 @@ See: [Balance assertions](https://beancount.github.io/docs/beancount_language_sy
 2024-02-01 balance Assets:Bank:Checking   1000.00 ~ 0.01 USD
 2024-02-01 balance Assets:Funds            319.020 ~ 0.002 RGAGX
 ```
+<!-- {: data-highlight="~"} -->
 
 An assertion tolerates one unit in its last digit, so `319.020` accepts
 `319.019` to `319.021`. `~` overrides that for one line.
@@ -225,6 +232,7 @@ See: [Explicit tolerances](https://beancount.github.io/docs/precision_tolerances
 2024-01-02 pad Assets:Bank:Checking Equity:Opening-Balances
 2024-01-03 balance Assets:Bank:Checking   1000.00 USD
 ```
+<!-- {: data-highlight="pad"} -->
 
 If the next assertion needs more units, Beancount inserts a `P` transaction for
 the difference against the second account.
@@ -247,6 +255,7 @@ See: [Pad](https://beancount.github.io/docs/beancount_language_syntax/#pad)
   Assets:Bank:Checking   -100.00 USD @@ 135.00 CAD
   Assets:CAD              135.00 CAD
 ```
+<!-- {: data-highlight="price; @ 1.35 CAD; @@ 135.00 CAD"} -->
 
 `@` is a per-unit price and `@@` is the total. A price on a posting sets its
 weight when it has no cost.
@@ -267,6 +276,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
   Assets:Bank:Checking   1979.00 USD
   Income:CapitalGains
 ```
+<!-- {: data-highlight="{183.07 USD}"} -->
 
 #### Total cost
 
@@ -275,6 +285,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
   Assets:Broker:HOOL      10 HOOL {{1830.70 USD}}
   Assets:Bank:Checking
 ```
+<!-- {: data-highlight="{{1830.70 USD}}"} -->
 
 #### Labelled lot
 
@@ -287,6 +298,7 @@ See: [Prices](https://beancount.github.io/docs/beancount_language_syntax/#prices
   Assets:Broker:HOOL      -5 HOOL {183.07 USD, "lot-a"}
   Assets:Bank:Checking
 ```
+<!-- {: data-highlight="lot-a"} -->
 
 Braces hold the cost basis. A reduction must match one lot: name its cost, its
 date or its label, or write `{}` when only one lot fits. `open` selects the
@@ -302,6 +314,7 @@ See: [How inventories work](https://beancount.github.io/docs/how_inventories_wor
 2024-03-02 note Assets:Bank:Checking "Called about the wire"
 2024-03-02 document Assets:Bank:Checking "stmts/2024-03.pdf"
 ```
+<!-- {: data-highlight="note; document"} -->
 
 Both appear in the account's journal. `document` points at a file that must
 exist on disk.
@@ -315,6 +328,7 @@ See: [Notes](https://beancount.github.io/docs/beancount_language_syntax/#notes)
 2024-03-02 query "food" "SELECT account, sum(position)"
 2024-03-02 custom "budget" "Expenses:Food" TRUE 500.00 USD
 ```
+<!-- {: data-highlight="event; query; custom"} -->
 
 `event` records a value over time, `query` saves a BQL statement, and `custom`
 carries directives that plugins define.
@@ -330,6 +344,7 @@ See: [Events](https://beancount.github.io/docs/beancount_language_syntax/#events
     decision: "scheduled"
   Assets:Bank:Checking
 ```
+<!-- {: data-highlight="statement:; decision:"} -->
 
 Indented `key: value` lines attach to the directive, or to a posting when
 indented further. Keys start lowercase; values may be dates, accounts, tags,
@@ -345,6 +360,7 @@ See: [Metadata](https://beancount.github.io/docs/beancount_language_syntax/#meta
 include "accounts.beancount"
 include "transactions/2024.beancount"
 ```
+<!-- {: data-highlight="include"} -->
 
 Paths are relative to the including file. Everything is merged before sorting
 by date, so the include order does not matter.
@@ -358,6 +374,7 @@ option "title" "Personal Ledger"
 option "operating_currency" "USD"
 option "documents" "/home/me/statements"
 ```
+<!-- {: data-highlight="option"} -->
 
 `documents` scans a directory of `<Account>/<YYYY-MM-DD>.*` files and adds a
 `document` entry for each hit. `operating_currency` only affects reports, and
@@ -372,6 +389,7 @@ See: [Options reference](https://beancount.github.io/docs/beancount_options_refe
 ```bash
 bean-check ledger.beancount    # silent when valid
 ```
+<!-- {: data-highlight="bean-check"} -->
 
 Parses the file, runs plugins and verifies assertions. Errors print as
 `file:line: message`.
@@ -383,6 +401,7 @@ See: [bean-check](https://beancount.github.io/docs/running_beancount_and_generat
 ```bash
 bean-format -i ledger.beancount    # align amounts in place
 ```
+<!-- {: data-highlight="-i"} -->
 
 Aligns posting amounts into one column. It works on lines, not on parsed
 entries, so it never reports ledger errors.
@@ -395,6 +414,7 @@ See: [bean-format](https://beancount.github.io/docs/running_beancount_and_genera
 bean-report ledger.beancount balances
 bean-report ledger.beancount print
 ```
+<!-- {: data-highlight="bean-report"} -->
 
 Beancount 2 shipped `bean-report`; version 3 dropped it. Use `bean-query` or
 Fava for the same reports.
@@ -406,6 +426,7 @@ See: [Running Beancount](https://beancount.github.io/docs/running_beancount_and_
 ```bash
 fava ledger.beancount    # http://localhost:5000
 ```
+<!-- {: data-highlight="fava"} -->
 
 Fava is the web UI: journal, balance sheet, income statement, documents, and a
 BQL editor.
@@ -420,6 +441,7 @@ See: [Fava](https://beancount.github.io/fava/)
 bean-query ledger.beancount
 bean-query ledger.beancount 'BALANCES AT COST'
 ```
+<!-- {: data-highlight="bean-query"} -->
 
 With no query it opens a shell. `-f csv` writes CSV and `-q` hides load errors.
 
@@ -433,6 +455,7 @@ See: [Beancount Query Language](https://beancount.github.io/docs/beancount_query
 SELECT date, payee, position
 WHERE account ~ "Expenses:Food" AND year = 2024
 ```
+<!-- {: data-highlight="WHERE"} -->
 
 #### Entry filter
 
@@ -440,6 +463,7 @@ WHERE account ~ "Expenses:Food" AND year = 2024
 SELECT DISTINCT date, narration
 FROM has_account("Expenses")
 ```
+<!-- {: data-highlight="FROM"} -->
 
 `WHERE` filters postings; `FROM` filters whole transactions and keeps their
 postings together. `~` is a regex match and `IN` tests tags and links.
@@ -455,6 +479,7 @@ SELECT account, sum(position)
 GROUP BY account
 ORDER BY account
 ```
+<!-- {: data-highlight="sum(position)"} -->
 
 #### Cost basis
 
@@ -462,6 +487,7 @@ ORDER BY account
 SELECT account, cost(sum(position))
 GROUP BY account
 ```
+<!-- {: data-highlight="cost(sum(position))"} -->
 
 `SUM(position)` builds an inventory; `UNITS()` and `COST()` collapse it to a
 single amount.
@@ -475,6 +501,7 @@ BALANCES AT COST
 JOURNAL "Assets:Bank" AT COST
 PRINT FROM year = 2024
 ```
+<!-- {: data-highlight="BALANCES; JOURNAL; PRINT"} -->
 
 `BALANCES`, `JOURNAL` and `PRINT` expand to SELECTs.
 `FROM CLOSE ON 2024-12-31 CLEAR` turns one into a period report.

@@ -40,6 +40,7 @@ links:
 $x('//div')          // array of elements
 $x('//li', ul)       // search within a node
 ```
+<!-- {: data-highlight="$x"} -->
 
 Works in Firefox and Chromium browsers.
 
@@ -55,6 +56,7 @@ const result = document.evaluate(
 result.snapshotLength     // => 3
 result.snapshotItem(0)    // first match
 ```
+<!-- {: data-highlight="document.evaluate"} -->
 
 Use `document.evaluate()` outside devtools; `$x()` is a console helper.
 
@@ -150,6 +152,7 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 ```bash
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
 ```
+<!-- {: data-highlight="normalize-space(@class)"} -->
 
 XPath has no space-separated token operator. Wrap the attribute in spaces and search for the token; this also works for `rel`.
 
@@ -162,6 +165,7 @@ See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 ```bash
 //ul/li[1]/a[@href]
 ```
+<!-- {: data-highlight="//"} -->
 
 #### Syntax
 
@@ -212,6 +216,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //div[@name='box']
 //*[@id='link']
 ```
+<!-- {: data-highlight="[@name='box']"} -->
 
 #### Node tests
 
@@ -220,6 +225,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //a/@href      #=> href attributes
 //a/*          #=> child elements
 ```
+<!-- {: data-highlight="text(); @href"} -->
 
 A step may have an element name (`div`) and [predicates](#predicates) (`[...]`); it can also name text nodes, attributes, or child elements.
 
@@ -234,6 +240,7 @@ See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Loc
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
+<!-- {: data-highlight="[@class="head"]"} -->
 
 Keeps only the nodes for which the condition is true. Predicates can be chained.
 
@@ -249,6 +256,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //a[@id != "xyz"]
 //a[@price > 25]
 ```
+<!-- {: data-highlight="!="} -->
 
 #### Logic
 
@@ -257,6 +265,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //div[@id="head" and position()=2]
 //div[(h1 or p) and not(@hidden)]
 ```
+<!-- {: data-highlight="and; or"} -->
 
 #### Arithmetic
 
@@ -266,6 +275,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //item[@price div 2 > 4]
 //item[position() mod 2 = 1]
 ```
+<!-- {: data-highlight="div; mod"} -->
 
 Use comparison and logic operators to make conditionals.
 
@@ -280,6 +290,7 @@ See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 //ul[count(li) > 2]
 //ul[count(li[@class='hide']) > 0]
 ```
+<!-- {: data-highlight="count(li)"} -->
 
 #### Test for children
 
@@ -287,6 +298,7 @@ See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 # This returns `<ul>` that has a `<li>` child
 //ul[li]
 ```
+<!-- {: data-highlight="[li]"} -->
 
 See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
@@ -301,6 +313,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //ol/li[position()=2] # same as above
 //ol/li[position()>1] # all but the first
 ```
+<!-- {: data-highlight="(//a)[1]"} -->
 
 Predicates apply to each parent's matches. Wrap the path in `()` to index the whole result.
 
@@ -312,6 +325,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //a[1][@href='/']
 //a[@href='/'][1]
 ```
+<!-- {: data-highlight="[1][@href='/']; [@href='/'][1]"} -->
 
 Order is significant: these two are different.
 
@@ -322,6 +336,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ```bash
 //section[.//h1[@id='hi']]
 ```
+<!-- {: data-highlight=".//h1"} -->
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
@@ -340,6 +355,7 @@ count()                 # //ul[count(li) > 2]
 position()              # //ol/li[position()=2]
 last()                  # //ul/li[last()]
 ```
+<!-- {: data-highlight="name(); local-name(); namespace-uri(); id('item1')"} -->
 
 `text()` and `@attr` are node tests, not functions ([steps](#steps)).
 
@@ -354,6 +370,7 @@ true()
 false()
 lang('en')              # //p[lang('en')]
 ```
+<!-- {: data-highlight="not(expr); boolean(expr)"} -->
 
 See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Boolean-Functions)
 
@@ -373,6 +390,7 @@ normalize-space()       # //p[normalize-space() = 'Hi']
 translate()             # translate('ABC', 'ABC', 'abc') => 'abc'
 string()                # string(//a/@href) => '/home'
 ```
+<!-- {: data-highlight="contains(); starts-with(); substring(); concat()"} -->
 
 #### Case-insensitive match
 
@@ -384,6 +402,7 @@ string()                # string(//a/@href) => '/home'
   'go'
 )]
 ```
+<!-- {: data-highlight="translate(.,"} -->
 
 #### Suffix match
 
@@ -391,6 +410,7 @@ string()                # string(//a/@href) => '/home'
 # href ends with .pdf
 //a[substring(@href, string-length(@href) - 2) = 'pdf']
 ```
+<!-- {: data-highlight="string-length(@href)"} -->
 
 XPath 1.0 has no `ends-with()`; use `substring()`. XPath 2.0 adds `ends-with()` and `matches()`.
 
@@ -404,6 +424,7 @@ floor(3.7)              # => 3
 ceiling(3.2)            # => 4
 round(3.5)              # => 4
 ```
+<!-- {: data-highlight="floor(3.7); ceiling(3.2); round(3.5)"} -->
 
 See: [Number functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Number-Functions)
 
@@ -416,6 +437,7 @@ boolean(0)              # => false
 boolean('')             # => false
 boolean('x')            # => true
 ```
+<!-- {: data-highlight="string(2); number('3.14')"} -->
 
 See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#boolean)
 
@@ -430,6 +452,7 @@ See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference
 //ul/descendant-or-self::li   # ul li
 //ul/ancestor-or-self::li[1]  # $('ul').closest('li')
 ```
+<!-- {: data-highlight="following-sibling::; descendant-or-self::"} -->
 
 Steps are separated by `/`, usually picking child nodes. Use `::` to pick a different axis.
 
@@ -444,6 +467,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //ul/li/a
 //child::ul/child::li/child::a
 ```
+<!-- {: data-highlight="child::"} -->
 
 #### Predicates
 
@@ -453,6 +477,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //ul[li]
 //ul[child::li]
 ```
+<!-- {: data-highlight="child::li"} -->
 
 #### Counting children
 
@@ -461,6 +486,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //ul[count(li) > 2]
 //ul[count(child::li) > 2]
 ```
+<!-- {: data-highlight="count(child::li)"} -->
 
 `child::` is the default axis. This makes `//a/b/c` work.
 
@@ -473,6 +499,7 @@ See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 //div//h4
 //div/descendant-or-self::node()/child::h4
 ```
+<!-- {: data-highlight="descendant-or-self::node()"} -->
 
 `//` is short for `descendant-or-self::node()/`.
 
@@ -510,6 +537,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 ```bash
 //a | //span
 ```
+<!-- {: data-highlight="|"} -->
 
 Use `|` to join two expressions.
 
@@ -537,12 +565,14 @@ See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 ```bash
 //section[h1[@id='section-name']]
 ```
+<!-- {: data-highlight="[h1[@id='section-name']]"} -->
 
 #### Any descendant
 
 ```bash
 //section[.//h1[@id='section-name']]
 ```
+<!-- {: data-highlight="[.//h1[@id='section-name']]"} -->
 
 The first finds a `<section>` that directly contains `h1#section-name`; the second finds one that contains it anywhere, with the leading `.` making the inner path relative to the section.
 
@@ -555,6 +585,7 @@ See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
   contains(concat(' ', normalize-space(@class), ' '), ' box ')
 ][1]
 ```
+<!-- {: data-highlight="ancestor-or-self::*"} -->
 
 Works like jQuery's `$().closest('.box')`.
 
@@ -565,6 +596,7 @@ See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XP
 ```bash
 //item[@price > 2*@discount]
 ```
+<!-- {: data-highlight="@price > 2*@discount"} -->
 
 Finds `<item>` whose price is more than twice its discount.
 

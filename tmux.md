@@ -48,6 +48,7 @@ tmux ls                   # List sessions
 tmux a                    # Attach to the most recent session
 tmux a -t work            # Attach to a named session
 ```
+<!-- {: data-highlight="-s work; -t work"} -->
 
 `tmux a` is short for `attach-session`; `tmux new` is `new-session`.
 
@@ -61,6 +62,7 @@ C-b s               # Choose another session
 C-b (  C-b )        # Previous / next session
 C-b $               # Rename the current session
 ```
+<!-- {: data-highlight="C-b d"} -->
 
 Detaching leaves every program running; `tmux a` returns to it.
 
@@ -73,6 +75,7 @@ tmux kill-session -t work       # Kill one session
 tmux kill-session -a -t work    # Kill all except work
 tmux kill-server                # Kill every session and the server
 ```
+<!-- {: data-highlight="kill-session"} -->
 
 `C-b :kill-session` kills the session you are in.
 
@@ -110,6 +113,7 @@ C-b :split-window -h
 C-b :rename-session work
 C-b :set -g mouse on
 ```
+<!-- {: data-highlight="C-b :"} -->
 
 The prompt accepts any tmux command, including settings. Tab completes command names.
 
@@ -127,6 +131,7 @@ C-b l               # Last active window
 C-b w               # Choose a window from a list
 C-b f               # Find by name or visible text
 ```
+<!-- {: data-highlight="C-b c"} -->
 
 The status bar lists windows; `*` marks the active one.
 
@@ -139,6 +144,7 @@ C-b ,               # Rename the window
 C-b &               # Kill the window (asks first)
 C-b .               # Move it to another index
 ```
+<!-- {: data-highlight="C-b ,; C-b &"} -->
 
 Closing the last pane in a window closes the window.
 
@@ -153,6 +159,7 @@ C-b %               # Split left and right
 C-b "               # Split top and bottom
 C-b :split-window -h -l 30   # Split 30 columns wide
 ```
+<!-- {: data-highlight="C-b %"} -->
 
 Each split runs its own shell, inside the same window.
 
@@ -169,6 +176,7 @@ C-b M-← M-→         # Resize by five cells
 C-b z               # Zoom the pane to fill the window
 C-b Space           # Cycle through the preset layouts
 ```
+<!-- {: data-highlight="C-b ← ↑ ↓ →"} -->
 
 With `set -g mouse on`, click a pane to focus it.
 
@@ -182,6 +190,7 @@ C-b !               # Break the pane into its own window
 C-b {  C-b }        # Swap with the previous / next pane
 C-b C-o             # Rotate the panes
 ```
+<!-- {: data-highlight="C-b x; C-b !"} -->
 
 See: [break-pane](https://man.openbsd.org/tmux#break-pane)
 
@@ -195,6 +204,7 @@ C-Space             # Start selection (emacs keys)
 M-w                 # Copy the selection and exit
 C-b ]               # Paste it
 ```
+<!-- {: data-highlight="C-Space; M-w"} -->
 
 `set -g mode-keys vi` switches to `Space` to select and `Enter` to copy.
 
@@ -209,6 +219,7 @@ C-r                 # Search backward
 n  N                # Next / previous match
 Escape              # Exit copy mode
 ```
+<!-- {: data-highlight="C-s; C-r"} -->
 
 Scrolling with the wheel works in copy mode when mouse support is on. `set -g mode-keys vi` swaps in `/`, `?`, and `q`.
 
@@ -226,6 +237,7 @@ set -g history-limit 50000
 set -g renumber-windows on
 set -sg escape-time 10
 ```
+<!-- {: data-highlight="base-index 1; pane-base-index 1"} -->
 
 tmux reads `~/.tmux.conf` when the server starts, not on every attach.
 
@@ -238,12 +250,14 @@ See: [Options](https://man.openbsd.org/tmux#OPTIONS)
 ```bash
 bind r source-file ~/.tmux.conf \; display "Reloaded"
 ```
+<!-- {: data-highlight="bind r"} -->
 
 #### From the shell
 
 ```bash
 tmux source-file ~/.tmux.conf
 ```
+<!-- {: data-highlight="source-file"} -->
 
 The first line adds `C-b r`; the second reloads on demand.
 
@@ -256,6 +270,7 @@ set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 ```
+<!-- {: data-highlight="prefix C-a"} -->
 
 Keep the `send-prefix` line so an application can still receive a literal `C-a`.
 
@@ -270,6 +285,7 @@ tmux new-session -d -s work
 tmux new -d -s build 'npm run build'
 tmux has-session -t work 2>/dev/null || tmux new -d -s work
 ```
+<!-- {: data-highlight="-d"} -->
 
 `-d` starts in the background; the last line creates the session if missing.
 
@@ -281,6 +297,7 @@ See: [new-session](https://man.openbsd.org/tmux#new-session)
 tmux send-keys -t work:0 'git pull' C-m
 tmux send-keys -t work:0.1 'ls -l' Enter
 ```
+<!-- {: data-highlight="send-keys"} -->
 
 `C-m` is Enter. A target is `session:window.pane`.
 
@@ -292,6 +309,7 @@ See: [send-keys](https://man.openbsd.org/tmux#send-keys)
 tmux capture-pane -p -t work:0
 tmux capture-pane -p -S -100 -t work:0   # Last 100 lines
 ```
+<!-- {: data-highlight="-S -100"} -->
 
 `capture-pane` prints the visible screen; `-S` reaches into the scrollback.
 
@@ -305,6 +323,7 @@ See: [capture-pane](https://man.openbsd.org/tmux#capture-pane)
 ssh host -t tmux a -t work
 ssh host -t 'tmux new -A -s main'
 ```
+<!-- {: data-highlight="new -A"} -->
 
 `-t` forces a TTY; `new -A` attaches to the session or creates it.
 
@@ -316,6 +335,7 @@ See: [tmux wiki](https://github.com/tmux/tmux/wiki)
 C-b C-b             # Send C-b through to the inner tmux
 C-b : send-prefix   # The same, as a command
 ```
+<!-- {: data-highlight="C-b C-b"} -->
 
 Sessions belong to a server; `tmux -L inner` starts a second server on its own socket. `$TMUX` is set inside a session.
 
@@ -352,6 +372,7 @@ See: [Formats](https://man.openbsd.org/tmux#FORMATS)
 #[bg=default]
 #[default]
 ```
+<!-- {: data-highlight="#[fg=yellow,bold]; #[default]"} -->
 
 Colours are names, `colour0` to `colour255`, or `#rrggbb`. `#[default]` resets.
 

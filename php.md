@@ -39,6 +39,7 @@ links:
 <?php
 echo 'Hello, world!';
 ```
+<!-- {: data-highlight="<?php"} -->
 
 A block opens with `<?php`; `?>` closes it (optional at end of file). `<?=` is shorthand for `echo`.
 
@@ -69,6 +70,7 @@ $ php hello.php        # Hello, world!
 $ php -a               # REPL
 $ php -l hello.php     # lint syntax
 ```
+<!-- {: data-highlight="-a; -l"} -->
 
 See: [Command-line usage](https://www.php.net/manual/en/features.commandline.usage.php)
 
@@ -81,6 +83,7 @@ $name = 'Ada';  // string
 echo $x;        // 10
 echo $name;     // Ada
 ```
+<!-- {: data-highlight="$x"} -->
 
 See: [Variables](https://www.php.net/manual/en/language.variables.basics.php)
 
@@ -94,6 +97,7 @@ define('GREETING', 'Hello');
 echo MAX;       // 100
 echo GREETING;  // Hello
 ```
+<!-- {: data-highlight="const; define"} -->
 
 See: [Constants](https://www.php.net/manual/en/language.constants.php)
 
@@ -106,6 +110,7 @@ See: [Constants](https://www.php.net/manual/en/language.constants.php)
 /* block */
 /** docblock */
 ```
+<!-- {: data-highlight="//; #; /*; /**"} -->
 
 See: [Comments](https://www.php.net/manual/en/language.basic-syntax.comments.php)
 
@@ -120,6 +125,7 @@ $s = 'single';
 $t = 'double';
 echo $s . $t; // singledouble
 ```
+<!-- {: data-highlight="$s . $t"} -->
 
 Single quotes are literal; double quotes interpolate variables.
 
@@ -134,6 +140,7 @@ $f = 3.14;   // float
 $e = 1_000;  // int
 echo $i + $f; // 45.14
 ```
+<!-- {: data-highlight="1_000"} -->
 
 See: [Integers](https://www.php.net/manual/en/language.types.integer.php)
 
@@ -144,6 +151,7 @@ See: [Integers](https://www.php.net/manual/en/language.types.integer.php)
 var_dump(true); // bool(true)
 var_dump(null); // NULL
 ```
+<!-- {: data-highlight="true; null"} -->
 
 See: [Booleans](https://www.php.net/manual/en/language.types.boolean.php)
 
@@ -158,6 +166,7 @@ function id(int|string $x): int|string
 
 echo id(7); // 7
 ```
+<!-- {: data-highlight="int|string"} -->
 
 Union types accept any listed type; `mixed` accepts anything.
 
@@ -171,6 +180,7 @@ var_dump('5' + 2);   // int(7)
 var_dump(5 == '5');  // bool(true)
 var_dump(5 === '5'); // bool(false)
 ```
+<!-- {: data-highlight="==; ==="} -->
 
 Loose comparisons coerce; `===` compares type and value.
 
@@ -186,6 +196,7 @@ $fruits = ['apple', 'banana', 'pear'];
 echo $fruits[1];     // banana
 echo count($fruits); // 3
 ```
+<!-- {: data-highlight="count($fruits)"} -->
 
 See: [Arrays](https://www.php.net/manual/en/language.types.array.php)
 
@@ -199,6 +210,7 @@ $prices = [
 ];
 echo $prices['banana']; // 30
 ```
+<!-- {: data-highlight="=>"} -->
 
 #### Cast to object
 
@@ -208,6 +220,7 @@ $prices = ['apple' => 20, 'banana' => 30];
 $object = (object) $prices;
 echo $object->banana; // 30
 ```
+<!-- {: data-highlight="(object)"} -->
 
 An `(object)` cast turns string keys into readable properties.
 
@@ -223,6 +236,7 @@ array_push($items, 'd');
 unset($items[0]);
 echo implode(',', $items); // b,c,d
 ```
+<!-- {: data-highlight="$items[]; array_push; unset"} -->
 
 See: [Array functions](https://www.php.net/manual/en/ref.array.php)
 
@@ -236,6 +250,7 @@ $nums = [3, 1, 2];
 sort($nums);
 echo implode(',', $nums); // 1,2,3
 ```
+<!-- {: data-highlight="sort"} -->
 
 #### Map and filter
 
@@ -248,6 +263,7 @@ echo implode(',', $doubled); // 2,4,6
 $even = array_filter([1, 2, 3, 4], fn($n) => $n % 2 === 0);
 echo implode(',', $even); // 2,4
 ```
+<!-- {: data-highlight="array_map; array_filter"} -->
 
 See: [array_map](https://www.php.net/manual/en/function.array-map.php)
 
@@ -259,6 +275,7 @@ $user = ['Ada', 'admin'];
 [$name, $role] = $user;
 echo "$name: $role"; // Ada: admin
 ```
+<!-- {: data-highlight="[$name, $role]"} -->
 
 See: [Array destructuring](https://www.php.net/manual/en/language.types.array.php)
 
@@ -272,6 +289,7 @@ $name = 'world';
 echo "Hello, $name"; // Hello, world
 echo 'Hello, $name'; // Hello, $name
 ```
+<!-- {: data-highlight="$name"} -->
 
 #### Complex syntax
 
@@ -280,6 +298,7 @@ echo 'Hello, $name'; // Hello, $name
 $user = ['name' => 'Ada'];
 echo "Hi, {$user['name']}!"; // Hi, Ada!
 ```
+<!-- {: data-highlight="user['name']"} -->
 
 See: [String parsing](https://www.php.net/manual/en/language.types.string.php#language.types.string.parsing)
 
@@ -293,6 +312,7 @@ echo str_replace('o', '0', 'hello'); // hell0
 echo trim('  hi  ');                 // hi
 echo implode(', ', ['a', 'b']);      // a, b
 ```
+<!-- {: data-highlight="strtoupper; strlen; str_replace; trim"} -->
 
 See: [String functions](https://www.php.net/manual/en/ref.strings.php)
 
@@ -305,6 +325,7 @@ echo <<<TEXT
 Hello, $name
 TEXT;
 ```
+<!-- {: data-highlight="<<<TEXT"} -->
 
 A nowdoc uses `<<<'TEXT'` so variables stay literal.
 
@@ -318,6 +339,7 @@ $name = 'Ada';
 $age = 36;
 echo sprintf('%s is %d', $name, $age); // Ada is 36
 ```
+<!-- {: data-highlight="sprintf"} -->
 
 See: [sprintf](https://www.php.net/manual/en/function.sprintf.php)
 
@@ -337,6 +359,7 @@ if ($x > 10) {
     echo 'small';
 }
 ```
+<!-- {: data-highlight="if; elseif; else"} -->
 
 See: [if](https://www.php.net/manual/en/control-structures.if.php)
 
@@ -351,6 +374,7 @@ echo match ($x) {
     default => 0,
 }; // 2
 ```
+<!-- {: data-highlight="match"} -->
 
 `match` uses strict comparison and needs no `break`.
 
@@ -369,6 +393,7 @@ switch ($x) {
         echo 'other';
 }
 ```
+<!-- {: data-highlight="switch"} -->
 
 See: [switch](https://www.php.net/manual/en/control-structures.switch.php)
 
@@ -381,6 +406,7 @@ foreach ($fruits as $i => $fruit) {
     echo "$i: $fruit\n";
 }
 ```
+<!-- {: data-highlight="foreach"} -->
 
 #### Output
 
@@ -400,6 +426,7 @@ while ($i > 0) {
     $i--;
 }
 ```
+<!-- {: data-highlight="for; while"} -->
 
 See: [foreach](https://www.php.net/manual/en/control-structures.foreach.php), [for](https://www.php.net/manual/en/control-structures.for.php)
 
@@ -412,6 +439,7 @@ $b = 'fallback';
 echo $a ?? $b; // fallback
 echo $a ?: $b; // fallback
 ```
+<!-- {: data-highlight="??; ?:"} -->
 
 #### Nullsafe
 
@@ -420,6 +448,7 @@ echo $a ?: $b; // fallback
 $user = null;
 echo $user?->name ?? 'guest'; // guest
 ```
+<!-- {: data-highlight="?->"} -->
 
 `??` tests for null; `?:` tests truthiness. `?->` short-circuits on null.
 
@@ -438,6 +467,7 @@ function add(int $a, int $b): int
 
 echo add(2, 3); // 5
 ```
+<!-- {: data-highlight="function add"} -->
 
 See: [User-defined functions](https://www.php.net/manual/en/functions.user-defined.php)
 
@@ -454,6 +484,7 @@ function repeat(string $s, int $n = 2): string
 
 echo repeat('ab'); // abab
 ```
+<!-- {: data-highlight="$n = 2"} -->
 
 #### Named arguments
 
@@ -466,6 +497,7 @@ function greet(string $hi, string $name): string
 
 echo greet(name: 'Ada', hi: 'Hi'); // Hi, Ada
 ```
+<!-- {: data-highlight="name:; hi:"} -->
 
 Named arguments can skip defaults and ignore order.
 
@@ -483,6 +515,7 @@ function sum(int ...$nums): int
 echo sum(1, 2, 3);          // 6
 echo sum(...[1, 2, 3, 4]);  // 10
 ```
+<!-- {: data-highlight="..."} -->
 
 `...` collects extra arguments in a parameter and unpacks them in a call.
 
@@ -495,6 +528,7 @@ See: [Variadic functions](https://www.php.net/manual/en/functions.arguments.php#
 $double = fn($x) => $x * 2;
 echo $double(5); // 10
 ```
+<!-- {: data-highlight="fn($x) => $x"} -->
 
 Arrow functions capture outer variables by value and are single expressions.
 
@@ -511,6 +545,7 @@ $greet = function (string $name) use ($prefix): string {
 
 echo $greet('Ada'); // Hi, Ada
 ```
+<!-- {: data-highlight="use ($prefix)"} -->
 
 See: [Anonymous functions](https://www.php.net/manual/en/functions.anonymous.php)
 
@@ -525,6 +560,7 @@ var_dump(isset($x));     // bool(false)
 var_dump(empty($x));     // bool(true)
 var_dump(is_string($x)); // bool(false)
 ```
+<!-- {: data-highlight="isset; empty; is_string"} -->
 
 #### Options array
 
@@ -540,6 +576,7 @@ var_dump(isset($options['key']), empty($options['key']));
 var_dump(isset($options['blank']), empty($options['blank']));
 var_dump(isset($options['nothing']), empty($options['nothing']));
 ```
+<!-- {: data-highlight="'blank' => ''; 'nothing' => null"} -->
 
 #### Output
 
@@ -563,6 +600,7 @@ See: [isset](https://www.php.net/manual/en/function.isset.php)
 $x = ['a' => 1];
 var_dump($x);
 ```
+<!-- {: data-highlight="var_dump"} -->
 
 #### Output
 
@@ -585,6 +623,7 @@ $user = ['name' => 'Ada', 'roles' => ['admin', 'editor']];
 $json = json_encode($user);
 echo $json; // {"name":"Ada","roles":["admin","editor"]}
 ```
+<!-- {: data-highlight="json_encode"} -->
 
 #### Decode
 
@@ -593,6 +632,7 @@ echo $json; // {"name":"Ada","roles":["admin","editor"]}
 $data = json_decode('{"name":"Ada"}', true);
 echo $data['name']; // Ada
 ```
+<!-- {: data-highlight="json_decode"} -->
 
 Pass `true` to `json_decode()` for arrays instead of objects.
 
@@ -604,6 +644,7 @@ See: [JSON functions](https://www.php.net/manual/en/ref.json.php)
 <?php
 echo date('Y-m-d', strtotime('2026-11-21')); // 2026-11-21
 ```
+<!-- {: data-highlight="date; strtotime"} -->
 
 #### DateTime
 
@@ -612,6 +653,7 @@ echo date('Y-m-d', strtotime('2026-11-21')); // 2026-11-21
 $date = new DateTime('2026-11-21');
 echo $date->format('l, F j, Y'); // Saturday, November 21, 2026
 ```
+<!-- {: data-highlight="DateTime"} -->
 
 `DateTime` handles time zones and date arithmetic per instance.
 
@@ -627,6 +669,7 @@ echo $m[0]; // 555-1234
 echo $m[1]; // 555
 echo $m[2]; // 1234
 ```
+<!-- {: data-highlight="preg_match"} -->
 
 #### Replace
 
@@ -634,6 +677,7 @@ echo $m[2]; // 1234
 <?php
 echo preg_replace('/\s+/', '-', 'a b  c'); // a-b-c
 ```
+<!-- {: data-highlight="preg_replace"} -->
 
 See: [PCRE functions](https://www.php.net/manual/en/ref.pcre.php)
 
@@ -644,6 +688,7 @@ See: [PCRE functions](https://www.php.net/manual/en/ref.pcre.php)
 file_put_contents('note.txt', "hello\n");
 echo file_get_contents('note.txt'); // hello
 ```
+<!-- {: data-highlight="file_put_contents; file_get_contents"} -->
 
 See: [Filesystem functions](https://www.php.net/manual/en/ref.filesystem.php)
 
@@ -661,6 +706,7 @@ try {
     echo "done\n";
 }
 ```
+<!-- {: data-highlight="try; catch; finally"} -->
 
 #### Output
 
@@ -687,6 +733,7 @@ function divide(int $a, int $b): float
 
 echo divide(6, 2); // 3
 ```
+<!-- {: data-highlight="throw new InvalidArgumentException"} -->
 
 See: [throw](https://www.php.net/manual/en/language.exceptions.php#language.exceptions.throw)
 
@@ -700,6 +747,7 @@ try {
     echo get_class($e); // TypeError
 }
 ```
+<!-- {: data-highlight="Throwable"} -->
 
 #### Hierarchy
 
@@ -732,6 +780,7 @@ try {
     echo $e->field;        // email
 }
 ```
+<!-- {: data-highlight="extends RuntimeException"} -->
 
 See: [Extending exceptions](https://www.php.net/manual/en/language.exceptions.extending.php)
 
@@ -755,6 +804,7 @@ $bob = new Person();
 $bob->name = 'bob';
 echo $bob->greet(); // Hi, bob
 ```
+<!-- {: data-highlight="class Person"} -->
 
 See: [Classes](https://www.php.net/manual/en/language.oop5.basic.php)
 
@@ -773,6 +823,7 @@ class Point
 $p = new Point(2, 3);
 echo $p->x + $p->y; // 5
 ```
+<!-- {: data-highlight="public int $x; public int $y"} -->
 
 Promoted parameters declare and assign properties in one step.
 
@@ -802,6 +853,7 @@ $c->inc();
 $c->inc(2);
 echo $c->get(); // 3
 ```
+<!-- {: data-highlight="$this->value"} -->
 
 See: [Properties](https://www.php.net/manual/en/language.oop5.properties.php)
 
@@ -828,6 +880,7 @@ class Person
 $bob = (new Person())->setName('bob');
 echo $bob->getName(); // bob
 ```
+<!-- {: data-highlight="getName; setName"} -->
 
 Returning `$this` enables fluent chains.
 
@@ -862,6 +915,7 @@ class Dog extends Animal
 
 echo (new Dog('Rex'))->speak(); // Rex says woof
 ```
+<!-- {: data-highlight="implements Speakable; extends Animal"} -->
 
 See: [Inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php)
 
@@ -882,6 +936,7 @@ class Config
 Config::set('debug', true);
 var_dump(Config::$items['debug']); // bool(true)
 ```
+<!-- {: data-highlight="self::$items"} -->
 
 See: [Static properties and methods](https://www.php.net/manual/en/language.oop5.static.php)
 
@@ -906,6 +961,7 @@ class Post
 
 echo (new Post())->label(); // Post
 ```
+<!-- {: data-highlight="use Loggable"} -->
 
 See: [Traits](https://www.php.net/manual/en/language.oop5.traits.php)
 
@@ -922,6 +978,7 @@ enum Status: string
 $status = Status::from('live');
 echo $status->value; // live
 ```
+<!-- {: data-highlight="Status::from; ->value"} -->
 
 Backed enums expose `->value` and `::from()`.
 
@@ -944,6 +1001,7 @@ class Service
     public function go(): void {}
 }
 ```
+<!-- {: data-highlight="#[Attribute]; #[Attr]"} -->
 
 Attributes are read through reflection; `#[Attribute]` marks an attribute class.
 

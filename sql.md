@@ -51,7 +51,7 @@ SELECT name AS customer, email
 FROM customers;
 SELECT DISTINCT customer_id FROM orders;
 ```
-<!-- {: data-highlight="DISTINCT"} -->
+<!-- {: data-highlight="SELECT *"} -->
 
 `*` reads every column and `AS` renames an output column. `DISTINCT` drops duplicate rows.
 
@@ -73,7 +73,7 @@ SELECT * FROM orders
 WHERE placed_at BETWEEN '2026-01-01'
   AND '2026-03-31';
 ```
-<!-- {: data-highlight="IS NULL"} -->
+<!-- {: data-highlight="WHERE"} -->
 
 `AND` and `OR` combine conditions; `IN`, `BETWEEN`, `LIKE`, and `IS NULL` cover common tests. Use `IS NULL`, never `= NULL`.
 
@@ -93,7 +93,7 @@ SELECT name FROM customers
 ORDER BY name
 LIMIT 10 OFFSET 20;
 ```
-<!-- {: data-highlight="OFFSET"} -->
+<!-- {: data-highlight="ORDER BY; LIMIT"} -->
 
 `ORDER BY` sorts, `DESC` reverses it, and `LIMIT` caps rows. `OFFSET` skips ahead for paging; SQL Server uses `OFFSET ... FETCH`.
 
@@ -111,7 +111,7 @@ GROUP BY customer_id
 HAVING SUM(total) > 100
 ORDER BY spent DESC;
 ```
-<!-- {: data-highlight="HAVING"} -->
+<!-- {: data-highlight="GROUP BY"} -->
 
 `GROUP BY` makes one row per key; aggregates collapse each group. `WHERE` filters rows before grouping, `HAVING` filters groups after.
 
@@ -132,7 +132,7 @@ FROM customers AS c
 LEFT JOIN orders AS o
   ON o.customer_id = c.id;
 ```
-<!-- {: data-highlight="LEFT JOIN"} -->
+<!-- {: data-highlight="JOIN; LEFT"} -->
 
 `JOIN` keeps matching rows; `LEFT JOIN` keeps every left row and fills missing right columns with `NULL`.
 
@@ -153,7 +153,7 @@ WHERE EXISTS (
   WHERE o.customer_id = c.id
 );
 ```
-<!-- {: data-highlight="EXISTS"} -->
+<!-- {: data-highlight="IN; EXISTS"} -->
 
 `IN` compares against a list; `EXISTS` stops at the first match. Both can replace a join when you only need one side.
 
@@ -193,7 +193,7 @@ UPDATE accounts
 SET balance = 0
 WHERE customer_id = 42;
 ```
-<!-- {: data-highlight="WHERE"} -->
+<!-- {: data-highlight="UPDATE"} -->
 
 `SET` assigns new values. Always add `WHERE` unless you mean every row.
 
@@ -222,7 +222,7 @@ SET balance = balance + 10
 WHERE id = 1;
 COMMIT;
 ```
-<!-- {: data-highlight="COMMIT"} -->
+<!-- {: data-highlight="BEGIN"} -->
 
 `BEGIN` starts a transaction; `COMMIT` saves it and `ROLLBACK` discards it. Keep transactions short.
 
@@ -245,7 +245,7 @@ CREATE TABLE accounts (
     DEFAULT CURRENT_TIMESTAMP
 );
 ```
-<!-- {: data-highlight="PRIMARY KEY"} -->
+<!-- {: data-highlight="CREATE TABLE"} -->
 
 `PRIMARY KEY`, `UNIQUE`, `NOT NULL`, `CHECK`, and `REFERENCES` reject invalid rows. `ON DELETE CASCADE` removes child rows with their parent. Auto-increment differs: SQLite `INTEGER PRIMARY KEY`, PostgreSQL `GENERATED ALWAYS AS IDENTITY`, MySQL `AUTO_INCREMENT`.
 
@@ -266,7 +266,7 @@ ALTER TABLE accounts
 ALTER TABLE accounts
   DROP COLUMN last_login;
 ```
-<!-- {: data-highlight="ALTER COLUMN"} -->
+<!-- {: data-highlight="ADD COLUMN; RENAME COLUMN; ALTER COLUMN; DROP COLUMN"} -->
 
 `ADD`, `RENAME`, `ALTER COLUMN`, and `DROP COLUMN` change a table in place. SQLite lacks `ALTER COLUMN TYPE`; MySQL uses `MODIFY COLUMN`.
 
@@ -283,7 +283,7 @@ CREATE UNIQUE INDEX customers_email_idx
 
 DROP INDEX orders_customer_id_idx;
 ```
-<!-- {: data-highlight="CREATE UNIQUE INDEX"} -->
+<!-- {: data-highlight="CREATE INDEX; CREATE UNIQUE INDEX"} -->
 
 Indexes speed up lookups and sorts; `CREATE UNIQUE INDEX` also enforces uniqueness. MySQL drops with `DROP INDEX name ON table`.
 
@@ -295,7 +295,7 @@ See: [PostgreSQL CREATE INDEX](https://www.postgresql.org/docs/current/sql-creat
 DROP TABLE accounts;
 TRUNCATE TABLE orders;
 ```
-<!-- {: data-highlight="TRUNCATE"} -->
+<!-- {: data-highlight="DROP TABLE; TRUNCATE"} -->
 
 `DROP TABLE` deletes the table and its data; `TRUNCATE` clears rows faster but keeps the table. SQLite has no `TRUNCATE`: use `DELETE FROM`.
 

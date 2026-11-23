@@ -2,7 +2,8 @@
 title: Vim helpfiles
 subtitle: Help file authoring reference
 category: Vim
-updated: 2017-09-09
+updated: 2026-11-23
+last_verified_with: "Vim 9.2."
 ---
 
 ## Writing help files
@@ -24,10 +25,10 @@ Use `ft=help` to preview it, and `ft=text` to edit it.
 ```nohighlight
 *ack.txt*   Plugin that integrates ack with Vim
 
-==============================================================================
-USAGE INSTRUCTIONS                                                 *ack-usage*
+======================================================================
+USAGE INSTRUCTIONS                                         *ack-usage*
 
-:Ack[!] {pattern}                                                       *:Ack*
+:Ack[!] {pattern}                                               *:Ack*
 
     Search recursively for {pattern}. See |:AckAdd|.
     Also see http://beyondgrep.com for more information.
@@ -90,19 +91,20 @@ It's customary to start a file with a tag of the filename, plus a description.
 ### Heading
 
 ```
-==============================================================================
-CONTENTS                                                     *potion-contents*
+======================================================================
+CONTENTS                                             *potion-contents*
 ```
 
 Starts with `ALL CAPS`, ends with `*a-tag*`
 
 ### Notes
-Using `*Todo` and `*Error` will highlight your notes.
 
 ```
 	*Todo something to do
 	*Error something wrong
 ```
+
+Using `*Todo` and `*Error` will highlight your notes.
 
 ### Final modeline
 
@@ -114,11 +116,15 @@ vim:tw=78:ts=8:ft=help:norl:
 
 ### Table of contents
 
+#### Tag links
+
 ```nohighlight
 |rails-introduction|            Introduction and Feature Summary
 |rails-commands|                General Commands
 |rails-navigation|              Navigation
 ```
+
+#### Numbered entries
 
 ```nohighlight
     1.Intro...................................|ergonomic|

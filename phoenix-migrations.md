@@ -3,16 +3,19 @@ title: "Phoenix: Ecto migrations"
 subtitle: Database migration tasks
 category: Elixir
 weight: -1
-updated: 2020-02-23
+updated: 2026-11-23
+last_verified_with: "Phoenix 1.8.17, Ecto 3.14.3, Ecto SQL 3.14.0."
 ---
 
 ### Creating
 
+#### Generate
+
 ```bash
 $ mix ecto.gen.migration update_posts_table
-  creating priv/repo/migrations/20160602085927_update_posts_table.exs
-  ···
 ```
+
+#### Apply or undo
 
 ```bash
 $ mix ecto.migrate
@@ -21,20 +24,22 @@ $ mix ecto.rollback
 
 Creates a migration (no models).
 
-### Creating models
+### Creating schemas
 
 ```bash
-$ mix phoenix.gen.model Message messages user_id:integer content:text
+$ mix phx.gen.schema Message messages \
+    user_id:references:users content:text
 ```
 
-This is only for Phoenix 1.2 or older; models aren't available in Phoenix 1.3+.
+Generates a schema and migration; `phoenix.gen.model` is gone since Phoenix 1.3.
 
 ### Creating context
 
 ```bash
-$ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
+$ mix phx.gen.context Images Album albums \
+    title:string subtitle:string privacy:string
 ```
- 
+
 ## Migration functions
 
 ### Creating tables
@@ -58,10 +63,14 @@ create table(:documents) do
   timestamps  # inserted_at and updated_at
 end
 
-create_if_not_exists table(:documents) do: ... end
+create_if_not_exists table(:documents) do
+  add :title, :string
+end
 ```
 
 ### Other operations
+
+#### Alter columns
 
 ```elixir
 alter table(:posts) do
@@ -71,15 +80,21 @@ alter table(:posts) do
 end
 ```
 
+#### Rename
+
 ```elixir
 rename table(:posts), :title, to: :summary
 rename table(:posts), to: table(:new_posts)
 ```
 
+#### Drop
+
 ```elixir
 drop table(:documents)
 drop_if_exists table(:documents)
 ```
+
+#### Reference a table
 
 ```elixir
 table(:documents)
@@ -103,4 +118,4 @@ execute create: "posts", capped: true, size: 1024
 
 ## References
 
-- [Ecto.Migration](http://devdocs.io/phoenix/ecto/ecto.migration)
+- [Ecto.Migration](https://hexdocs.pm/ecto_sql/Ecto.Migration.html)

@@ -3,7 +3,8 @@ title: Org Mode
 subtitle: Emacs note organizer
 tags: [WIP]
 category: Apps
-updated: 2018-02-19
+updated: 2026-11-23
+last_verified_with: "GNU Emacs Org mode 9.8.10."
 intro: |
   [Org mode](https://orgmode.org/) is for keeping hierarchal notes (and more) in Emacs.
 links:
@@ -25,7 +26,8 @@ links:
 
 ** Sub-heading
 
-   Two stars mark a 2nd-level subheading (h2).
+   Two stars mark a 2nd-level
+   subheading (h2).
 ```
 
 ### Lists
@@ -59,7 +61,7 @@ _underline_
 * TODO buy airplane
 ```
 
-Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
+Cycle with `S-LEFT` / `S-RIGHT`; list TODOs with `C-c / t`.
 
 ## Shortcuts
 
@@ -67,15 +69,15 @@ Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 
 ### Basic shortcuts
 
-| Description    | Shortcut             |
-| ---            | ---                  |
-| (Un) fold      | `TAB` / `S-TAB`      |
-| Move up        | `M-UP` / `M-DOWN`    |
-| New headline   | `M-RET`              |
-| Cycle workflow | `S-LEFT` / `S-RIGHT` |
-| Cycle priority | `S-UP` / `S-DOWN` |
+| Shortcut             | Description    |
+| ---                  | ---            |
+| `TAB` / `S-TAB`      | (Un) fold      |
+| `M-UP` / `M-DOWN`    | Move up        |
+| `M-RET`              | New headline   |
+| `S-LEFT` / `S-RIGHT` | Cycle workflow |
+| `S-UP` / `S-DOWN`    | Cycle priority |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts} -->
 
 ### Timer
 

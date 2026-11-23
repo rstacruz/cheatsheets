@@ -71,14 +71,14 @@ are fine.
 Use fenced code blocks; indented code is rejected by CI.
 
 - Put the language on the fence: ` ```ruby `.
-- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-line="1,3-5"` highlights lines, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
+- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
 - Keep code lines at 70 characters or less (42 inside `.-three-column`).
 
 ````md
 ```ruby
 puts "hi"
 ```
-<!-- {: .-setup data-line="1"} -->
+<!-- {: .-setup data-highlight="puts"} -->
 ````
 
 `data-highlight` takes a semicolon-separated list of literal strings and tints every occurrence inside the block. Matches stop at identifier boundaries, so `-d` does not match inside `--diff-context`. Use it to point at one API name without shading its whole line.

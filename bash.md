@@ -87,7 +87,7 @@ echo "Hi $name"  #=> Hi John
 echo 'Hi $name'  #=> Hi $name
 echo $'Hi\nJohn'  # Hi, then John
 ```
-<!-- {: data-line="2-4"} -->
+<!-- {: data-highlight='"Hi $name"'} -->
 
 See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 
@@ -99,7 +99,7 @@ echo "I'm in `pwd`"  # deprecated
 echo "$(< file.txt)"  # no fork
 echo "${ printf hi; }"  # 5.3, no fork
 ```
-<!-- {: data-line="1-4"} -->
+<!-- {: data-highlight='"$(< file.txt)"'} -->
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
@@ -910,7 +910,7 @@ See: [Shell arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell
 (cd somedir; echo "I'm now in $PWD")
 pwd # still in first directory
 ```
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="$PWD"} -->
 
 See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html)
 

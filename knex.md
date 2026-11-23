@@ -47,7 +47,7 @@ knex('users')
   .then(rows => ···)
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="'hi@example.com'"} -->
 
 See: [Select](#select-1)
 
@@ -58,7 +58,7 @@ knex('users')
   .insert({ email: 'hi@example.com' })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="insert"} -->
 
 See: [Insert](#insert-1)
 
@@ -70,7 +70,7 @@ knex('users')
   .update({ email: 'hi@example.com' })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="update"} -->
 
 See: [Update](#update-1)
 
@@ -129,7 +129,7 @@ var knex = require('knex')({
 })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="connection"} -->
 
 See: [Initializing the library](http://knexjs.org/#Installation-client)
 
@@ -144,7 +144,7 @@ var pg = require('knex')({
 })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="process.env.DATABASE_URL"} -->
 
 ### Connect via Sqlite
 
@@ -155,7 +155,7 @@ var knex = require('knex')({
 })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="sqlite"} -->
 
 ## Select
 

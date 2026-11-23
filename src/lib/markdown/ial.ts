@@ -28,7 +28,7 @@ export function restoreCodeLanguage() {
 
 /**
  * Moves non-`language-*` attributes from `<code>` to `<pre>`, matching
- * kramdown: `<pre class="-setup" data-line="1"><code class="language-ruby">`
+ * kramdown: `<pre class="-setup" data-highlight="x"><code class="language-ruby">`
  */
 export function hoistCodeAttrs() {
   return (tree: HastRoot) => {

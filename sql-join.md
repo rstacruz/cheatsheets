@@ -50,7 +50,7 @@ FROM customers AS c
 JOIN orders AS o ON o.customer_id = c.id;
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="o.customer_id"} -->
 
 #### Result
 
@@ -75,7 +75,7 @@ SELECT * FROM a
 JOIN b ON b.a_id = a.id;
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="JOIN"} -->
 
 #### Overlap
 
@@ -104,7 +104,7 @@ LEFT JOIN orders AS o
   ON o.customer_id = c.id;
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="LEFT"} -->
 
 #### Result
 
@@ -130,7 +130,7 @@ RIGHT JOIN orders AS o
   ON o.customer_id = c.id;
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="RIGHT"} -->
 
 #### Result
 
@@ -156,7 +156,7 @@ FULL OUTER JOIN orders AS o
   ON o.customer_id = c.id;
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="OUTER"} -->
 
 #### Result
 
@@ -184,7 +184,7 @@ SELECT COUNT(*)
 FROM customers CROSS JOIN orders;
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="CROSS"} -->
 
 #### Result
 
@@ -208,7 +208,7 @@ JOIN employees AS m
   ON m.id = e.manager_id;
 ```
 
-<!-- {: data-line="4,5"} -->
+<!-- {: data-highlight="e.manager_id"} -->
 
 #### Result
 
@@ -235,7 +235,7 @@ JOIN shipments AS s
   ON s.order_id = o.order_id;
 ```
 
-<!-- {: data-line="3-6"} -->
+<!-- {: data-highlight="s.order_id"} -->
 
 #### Result
 
@@ -263,7 +263,7 @@ LEFT JOIN orders AS o
 WHERE o.order_id IS NULL;
 ```
 
-<!-- {: data-line="3-5"} -->
+<!-- {: data-highlight="o.order_id"} -->
 
 #### Result
 
@@ -287,7 +287,7 @@ LEFT JOIN orders AS o
   AND o.total > 30;
 ```
 
-<!-- {: data-line="3-5"} -->
+<!-- {: data-highlight="ON"} -->
 
 #### Result
 
@@ -318,7 +318,7 @@ RIGHT JOIN orders AS o
 WHERE c.id IS NULL;
 ```
 
-<!-- {: data-line="3-5,8-10"} -->
+<!-- {: data-highlight="c.id"} -->
 
 #### Result
 
@@ -365,7 +365,7 @@ FULL OUTER JOIN shipments AS s
   USING (order_id);
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="shipments"} -->
 
 #### Result
 
@@ -393,7 +393,7 @@ LEFT JOIN orders AS o
 GROUP BY c.name;
 ```
 
-<!-- {: data-line="3-5"} -->
+<!-- {: data-highlight="c.name"} -->
 
 #### Result
 
@@ -432,7 +432,7 @@ FROM orders AS o
 JOIN shipments AS s USING (order_id);
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="USING"} -->
 
 #### Result
 

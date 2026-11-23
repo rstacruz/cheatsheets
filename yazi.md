@@ -90,7 +90,7 @@ function y() {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="--cwd-file"} -->
 
 Add it to your shell rc and run `y` instead of `yazi`; the parent shell then follows Yazi's last directory. Fish, Nushell, PowerShell, and other ports are in the docs.
 
@@ -291,7 +291,7 @@ set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="passthrough"} -->
 
 These settings let tmux pass image protocols through. Yazi picks kitty, iTerm2, WezTerm, Sixel, Überzug++, or Chafa automatically. Outside a supported terminal, install `ueberzugpp` or `chafa`. Code, JSON, folders, PDFs, and archives preview through built-in plugins.
 

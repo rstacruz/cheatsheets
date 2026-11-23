@@ -62,7 +62,7 @@ IO.puts "Hello, " <> user.name
 users = [ "Tom", "Dick", "Harry" ]
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight='"Harry"'} -->
 
 ```elixir
 Enum.map(users, fn user ->
@@ -78,7 +78,7 @@ source
 |> print()
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="transform"} -->
 
 ```elixir
 # Same as:
@@ -94,7 +94,7 @@ user = %{name: "Tom", age: 23}
 %{name: username} = user
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="username"} -->
 
 This sets `username` to `"Tom"`.
 
@@ -108,7 +108,7 @@ end
 user = %{name: "Tom", age: 23}
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="greet"} -->
 
 Pattern matching works in function parameters too.
 

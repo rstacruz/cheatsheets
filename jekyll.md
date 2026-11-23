@@ -136,7 +136,7 @@ title: Hello
 Hello!
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="layout"} -->
 
 Front matter must be first; empty `---` pairs still enable Liquid.
 See: [Front matter](https://jekyllrb.com/docs/front-matter/)

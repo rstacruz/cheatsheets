@@ -302,7 +302,7 @@ class Programmer < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="=>"} -->
 
 ```ruby
 class Project < ActiveRecord::Base
@@ -311,7 +311,7 @@ class Project < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight=":assignments"} -->
 
 ```ruby
 class Assignment
@@ -320,7 +320,7 @@ class Assignment
 end
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight=":programmer"} -->
 
 ### Many-to-many (HABTM)
 
@@ -342,7 +342,7 @@ class Post
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight=":attachments"} -->
 
 ```ruby
 class Image
@@ -350,7 +350,7 @@ class Image
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="polymorphic"} -->
 
 And in migrations:
 
@@ -360,7 +360,7 @@ create_table :images do |t|
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="t.references"} -->
 
 Validation
 ----------
@@ -378,7 +378,7 @@ class Person < ActiveRecord::Base
   validates :name,     presence: true
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="validates"} -->
 
 ```ruby
   # Acceptance
@@ -476,7 +476,7 @@ class Person < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight=":foo_cant_be_nil"} -->
 
 ### Errors
 
@@ -547,7 +547,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="serialize"} -->
 
 ```ruby
 user = User.create(
@@ -569,7 +569,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight=":preferences"} -->
 
 ```ruby
 # Reading it raises SerializationTypeMismatch
@@ -596,7 +596,7 @@ class Song < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-line="4,8"} -->
+<!-- {: data-highlight="minutes"} -->
 
 See: <http://api.rubyonrails.org/classes/ActiveRecord/Base.html>
 

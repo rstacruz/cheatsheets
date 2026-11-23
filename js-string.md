@@ -66,7 +66,7 @@ See: [charAt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 'hello'.indexOf('z')        // → -1
 ```
 
-<!-- {: data-line="6"} -->
+<!-- {: data-highlight="indexOf"} -->
 
 Searches return `-1` (or `false`) when the substring is absent.
 
@@ -100,7 +100,7 @@ See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 '5'.padEnd(3, '0')        // → "500"
 ```
 
-<!-- {: data-line="7,8"} -->
+<!-- {: data-highlight="padStart"} -->
 
 ```js
 'e\u0301'.normalize('NFC')   // → "é" (one code point)
@@ -149,7 +149,7 @@ See: [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 'ABC'.toLowerCase()        // → "abc"
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="localeCompare"} -->
 
 `localeCompare()` returns a negative, zero, or positive number for sorting.
 

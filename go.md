@@ -284,7 +284,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="getPointer"} -->
 
 #### Returning an address
 
@@ -295,7 +295,7 @@ func getPointer() (p *int) {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="a"} -->
 
 #### Allocating
 
@@ -304,7 +304,7 @@ p := new(int)
 *p = 234
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="p"} -->
 
 #### New with a value
 
@@ -346,7 +346,7 @@ if day == "sunday" || day == "saturday" {
 }
 ```
 
-<!-- {: data-line="1,3,5"} -->
+<!-- {: data-highlight="=="} -->
 
 See: [If](https://go.dev/tour/flowcontrol/5)
 
@@ -358,7 +358,7 @@ if _, err := doThing(); err != nil {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="!="} -->
 
 An `if` can run a statement before the condition. Its variables are scoped to the `if`.
 
@@ -457,7 +457,7 @@ myfunc := func() bool {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="myfunc"} -->
 
 Functions are first-class objects.
 
@@ -480,7 +480,7 @@ func getMessage() (a, b string) {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight='"Hello"'} -->
 
 See: [Multiple results](https://go.dev/tour/basics/6)
 
@@ -494,7 +494,7 @@ func split(sum int) (x, y int) {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="return"} -->
 
 By defining the return value names in the signature, a `return` (no args) will return variables with those names.
 
@@ -634,7 +634,7 @@ import r "math/rand"
 import _ "embed"  // side effects
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight='"math/rand"'} -->
 
 #### Using an alias
 
@@ -696,7 +696,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="3,6,7,8,13"} -->
+<!-- {: data-highlight="fmt.Println"} -->
 
 #### Push
 
@@ -707,7 +707,7 @@ func push(name string, ch chan string) {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="ch"} -->
 
 Channels are concurrency-safe communication objects, used in goroutines.
 
@@ -726,7 +726,7 @@ ch <- 3
 // all goroutines are asleep - deadlock!
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="chan"} -->
 
 Buffered channels limit the number of messages they can hold.
 
@@ -759,7 +759,7 @@ ch <- 3
 close(ch)
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="close"} -->
 
 #### Iterates across a channel until closed
 
@@ -769,7 +769,7 @@ for i := range ch {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="range"} -->
 
 #### Closed if `ok == false`
 
@@ -797,7 +797,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="1,4,7,11"} -->
+<!-- {: data-highlight="WaitGroup"} -->
 
 `wg.Go` (Go 1.25+) adds and runs a task; `Add` and `Done` still work.
 
@@ -841,7 +841,7 @@ if errors.Is(err, os.ErrNotExist) {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="..."} -->
 
 #### Unwrapping
 
@@ -873,7 +873,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="defer"} -->
 
 `defer` runs a function when the surrounding function returns. Arguments are evaluated immediately, but the call runs later.
 
@@ -892,7 +892,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="2,3,4"} -->
+<!-- {: data-highlight="func"} -->
 
 #### Passing arguments
 
@@ -907,7 +907,7 @@ func main() {
 }
 ```
 
-<!-- {: data-line="3,4,5"} -->
+<!-- {: data-highlight="fmt.Printf"} -->
 
 Lambdas are better suited for defer blocks.
 
@@ -947,7 +947,7 @@ type Vertex struct {
 }
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="Vertex"} -->
 
 #### Usage
 
@@ -1047,7 +1047,7 @@ func (v Vertex) Abs() float64 {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="float64"} -->
 
 #### Call
 
@@ -1072,7 +1072,7 @@ func (v *Vertex) Scale(f float64) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Scale"} -->
 
 #### Calling it
 

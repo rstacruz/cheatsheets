@@ -23,7 +23,7 @@ export { x as y }               // renamed export
 export default function () {}   // default export (one per module)
 ```
 
-<!-- {: data-line="5"} -->
+<!-- {: data-highlight="export"} -->
 
 ```js
 export { x } from './x.js'      // re-export named
@@ -44,7 +44,7 @@ import './setup.js'                   // side effects only
 import def, { a } from './mod.js'     // default + named
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="'./mod.js'"} -->
 
 Static imports are hoisted and must be top-level. Named imports are live
 bindings, reflecting later changes in the exporting module.

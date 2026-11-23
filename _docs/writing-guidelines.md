@@ -302,23 +302,9 @@ flowchart LR
 ```
 ````
 
-### code/data-line-in-block
-
-🤖 Check: `code/data-line-in-block`.
-
-Every `data-line` reference must fall inside its fenced block; don't point past the last line. When only one token matters, use `data-highlight` instead.
-
-````md
-```elixir
-a
-b
-```
-<!-- {: data-line="2"} -->
-````
-
 ### code/highlight-the-message
 
-Every highlight — a `data-line` band or a `data-highlight` token — must illustrate the card's main message. Tint the flag, value, or line that carries the point; leave secondary options and edge cases to the prose.
+Every `data-highlight` token must illustrate the card's main message. Tint the flag or value that carries the point; leave secondary options and edge cases to the prose.
 
 **Good:** the card is about printing a range, so the range flag is tinted.
 
@@ -368,8 +354,6 @@ ssh-keygen -t ed25519 -C "me@example.com"
 ````
 
 `-t ed25519` only chooses a key type.
-
-Use `data-line` instead when the whole line, or a range, is the lesson.
 
 ### code/highlight-limit
 

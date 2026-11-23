@@ -28,7 +28,7 @@ const user = {
 }
 ```
 
-<!-- {: data-line="5-7"} -->
+<!-- {: data-highlight="'role'"} -->
 
 ```js
 const opts = { ...defaults, visible: true }
@@ -49,7 +49,7 @@ user.address?.city       // → undefined (no address)
 user.nickname ?? 'anon'  // → 'anon' (nullish fallback)
 ```
 
-<!-- {: data-line="4-5"} -->
+<!-- {: data-highlight="?."} -->
 
 ```js
 const { a, b = 1, ...rest } = obj
@@ -82,7 +82,7 @@ delete user.age          // → true
 'age' in user            // → false
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="user.age"} -->
 
 Assigning a computed key adds or overwrites a property; `delete` removes one.
 
@@ -147,7 +147,7 @@ Object.is(NaN, NaN)   // → true
 Object.is(0, -0)      // → false
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="==="} -->
 
 `===` compares object identity, not contents; `Object.is()` treats `NaN` as equal to itself.
 

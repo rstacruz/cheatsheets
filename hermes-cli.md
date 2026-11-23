@@ -390,7 +390,7 @@ hermes chat -q "review this diff" --format stream-json
 hermes chat --safe-mode --model gpt-4.1 -q "Config bug?"
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="--format"} -->
 
 `stream-json` emits one JSON event per line. `--safe-mode` ignores your setup, so a broken config cannot block the run.
 

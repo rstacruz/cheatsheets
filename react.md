@@ -91,7 +91,7 @@ function Hello({ name }) {
 }
 ```
 
-<!-- {: data-line="3,4,5"} -->
+<!-- {: data-highlight='"greeting"'} -->
 
 Capitalised functions that return JSX. See: [Your first component](https://react.dev/learn/your-first-component)
 
@@ -112,7 +112,7 @@ Capitalised functions that return JSX. See: [Your first component](https://react
 </>
 ```
 
-<!-- {: data-line="4,5,6,7,8"} -->
+<!-- {: data-highlight="LoginButton"} -->
 
 `{}` embeds expressions, attributes are camelCase and `<>…</>` is a fragment; `null` and booleans render nothing. See: [Writing markup with JSX](https://react.dev/learn/writing-markup-with-jsx)
 
@@ -136,7 +136,7 @@ function Avatar({ src, alt, size = 64 }) {
 />
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Avatar"} -->
 
 Defaults come from parameters (v19 dropped function defaultProps; classes keep theirs); spread extras with `{...props}`. See: [Passing props](https://react.dev/learn/passing-props-to-a-component)
 
@@ -170,7 +170,7 @@ Keys must be stable and unique among siblings. See: [Rendering lists](https://re
 </form>
 ```
 
-<!-- {: data-line="4,9"} -->
+<!-- {: data-highlight="e.preventDefault"} -->
 
 Pass the handler, not a call, and wrap arguments in an arrow; call `e.preventDefault()` to stop browser defaults. See: [Responding to events](https://react.dev/learn/responding-to-events)
 
@@ -233,7 +233,7 @@ const [state, dispatch] = useReducer(reducer, { count: 0 })
 dispatch({ type: 'increment' })
 ```
 
-<!-- {: data-line="7"} -->
+<!-- {: data-highlight="useReducer"} -->
 
 Prefer a reducer when updates are complex or depend on several values. See: [useReducer](https://react.dev/reference/react/useReducer)
 
@@ -253,7 +253,7 @@ const [error, submitAction, isPending] =
 </form>
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="=>"} -->
 
 #### Form status
 
@@ -265,7 +265,7 @@ function Submit() {
   return <button disabled={pending}>Save</button>
 }
 ```
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="useFormStatus"} -->
 
 An action prop takes a function (sync or async) that React runs in a Transition; `useOptimistic` shows an optimistic result. See: [useActionState](https://react.dev/reference/react/useActionState)
 
@@ -284,7 +284,7 @@ async function addTodo(formData) {
   await saveTodo(formData)
 }
 ```
-<!-- {: data-line="1,2,3"} -->
+<!-- {: data-highlight="useOptimistic"} -->
 
 Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter inside an action or transition. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
@@ -302,7 +302,7 @@ useEffect(() => {
 }, [roomId])  // re-runs when roomId changes
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="connection.disconnect"} -->
 
 #### Interval
 
@@ -332,7 +332,7 @@ useEffect(() => {
 }, [id])
 ```
 
-<!-- {: data-line="10"} -->
+<!-- {: data-highlight="controller.abort"} -->
 
 Abort in the cleanup to drop stale responses, ignoring the expected `AbortError`. See: [Fetching data](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
 
@@ -350,7 +350,7 @@ useEffect(() => {
 }, [roomId])
 ```
 
-<!-- {: data-line="1,2,3"} -->
+<!-- {: data-highlight="useEffectEvent"} -->
 
 Reads the latest props and state without re-running the effect, so it stays out of the deps. See: [useEffectEvent](https://react.dev/reference/react/useEffectEvent)
 
@@ -366,7 +366,7 @@ useEffect(() => {
 })
 ```
 
-<!-- {: data-line="5,6,7"} -->
+<!-- {: data-highlight="setFullName"} -->
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
 
@@ -419,7 +419,7 @@ return <input ref={inputRef} />
   }}
 />
 ```
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="node.blur"} -->
 
 A mutable `.current` box that persists without re-rendering. See: [useRef](https://react.dev/reference/react/useRef)
 
@@ -492,7 +492,7 @@ function Toolbar() {
 }
 ```
 
-<!-- {: data-line="5"} -->
+<!-- {: data-highlight="useContext"} -->
 
 Context passes data down without prop drilling; v19 renders `<Context>` itself as the provider. See: [useContext](https://react.dev/reference/react/useContext)
 
@@ -517,7 +517,7 @@ function useTheme() {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="'useTheme needs a provider'"} -->
 
 Wrapping `useContext` names the value and fails loudly outside a provider. See: [useContext](https://react.dev/reference/react/useContext)
 
@@ -548,7 +548,7 @@ function useOnlineStatus() {
 }
 ```
 
-<!-- {: data-line="8,9,10,11"} -->
+<!-- {: data-highlight="online"} -->
 
 A custom hook is just a function that calls other hooks. See: [Custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks)
 
@@ -575,7 +575,7 @@ const visible = useMemo(() => filter(items, query), [items, query])
 const onSelect = useCallback(id => setSelected(id), [])
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="useMemo"} -->
 
 Cache components and values only when measurement shows a need — [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1) (stable since Oct 2025) auto-memoises, removing most manual calls. See: [memo](https://react.dev/reference/react/memo)
 
@@ -608,7 +608,7 @@ const isOnline = useSyncExternalStore(
 )
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="true"} -->
 
 Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 
@@ -652,7 +652,7 @@ hydrateRoot(
 )
 ```
 
-<!-- {: data-line="6,7,8,9"} -->
+<!-- {: data-highlight="document.getElementById"} -->
 
 Hydration markup must match the client render. See: [Client APIs](https://react.dev/reference/react-dom/client)
 
@@ -738,7 +738,7 @@ class ErrorBoundary extends Component {
 }
 ```
 
-<!-- {: data-line="4,5,6"} -->
+<!-- {: data-highlight="getDerivedStateFromError"} -->
 
 Still the only built-in way to catch render errors, and still a class; [react-error-boundary](https://github.com/bvaughn/react-error-boundary) wraps it with a hooks-friendly API. See: [Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 

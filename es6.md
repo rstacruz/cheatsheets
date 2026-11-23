@@ -24,7 +24,7 @@ function fn () {
 }
 ```
 
-<!-- {: data-line="2,4"} -->
+<!-- {: data-highlight="let"} -->
 
 #### Const
 
@@ -94,7 +94,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="constructor"} -->
 
 #### Methods
 
@@ -104,7 +104,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="getArea"} -->
 
 #### Calling superclass methods
 
@@ -114,7 +114,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="super.expand"} -->
 
 #### Static methods
 
@@ -125,7 +125,7 @@ class Circle extends Shape {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="createFromDiameter"} -->
 
 Syntactic sugar for prototypes.
 See: [Classes](https://babeljs.io/learn-es2015/#classes)
@@ -137,7 +137,7 @@ const byte = 2 ** 8
 // Same as: Math.pow(2, 8)
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="**"} -->
 
 Promises
 --------
@@ -153,7 +153,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Promise"} -->
 
 For asynchronous programming.
 See: [Promises](https://babeljs.io/learn-es2015/#promises)
@@ -166,7 +166,7 @@ promise
   .catch((error) => { ··· })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="=>"} -->
 
 
 ### Using promises with finally
@@ -178,7 +178,7 @@ promise
   .finally(() => { // logic independent of success/error })
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="finally"} -->
 
 The handler is called when the promise is fulfilled or rejected.
 
@@ -202,7 +202,7 @@ async function run () {
 }
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="getTweets"} -->
 
 `async` functions are another way of using functions.
 
@@ -221,7 +221,7 @@ Destructuring
 const [first, last] = ['Nikola', 'Tesla']
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Nikola'"} -->
 
 #### Objects
 
@@ -232,7 +232,7 @@ let {title, author} = {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="author"} -->
 
 Supports for matching arrays and objects.
 See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
@@ -259,7 +259,7 @@ function greet({ name, greeting }) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="greeting"} -->
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
@@ -275,7 +275,7 @@ function greet({ name = 'Rauno' } = {}) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Rauno'"} -->
 
 ```js
 greet() // Hi Rauno!
@@ -290,7 +290,7 @@ function printCoordinates({ left: x, top: y }) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="printCoordinates"} -->
 
 ```js
 printCoordinates({ left: 25, top: 90 })
@@ -306,7 +306,7 @@ for (let {title, artist} of songs) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="artist"} -->
 
 The assignment expressions work in loops, too.
 
@@ -317,7 +317,7 @@ The assignment expressions work in loops, too.
 const { id, ...detail } = song;
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="..."} -->
 
 Extract some keys individually and remaining keys in the object using rest (...) operator
 
@@ -336,7 +336,7 @@ const options = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="defaults"} -->
 
 #### without Object spread
 
@@ -362,7 +362,7 @@ const users = [
 ]
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="editors"} -->
 
 #### without Array spread
 
@@ -389,7 +389,7 @@ function greet (name = 'Jerry') {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Jerry'"} -->
 
 #### Rest arguments
 
@@ -400,7 +400,7 @@ function fn(x, ...y) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="function"} -->
 
 #### Spread
 
@@ -409,7 +409,7 @@ fn(...[1, 2, 3])
 // same as fn(1, 2, 3)
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="fn"} -->
 
 Default, rest, spread.
 See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread)
@@ -424,7 +424,7 @@ setTimeout(() => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="setTimeout"} -->
 
 #### With arguments
 
@@ -434,7 +434,7 @@ readFile('text.txt', (err, data) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'text.txt'"} -->
 
 #### Implicit return
 ```js
@@ -447,7 +447,7 @@ numbers.map(n => ({
 // Implicitly returning objects requires parentheses around the object
 ```
 
-<!-- {: data-line="1,4,5,6"} -->
+<!-- {: data-highlight="numbers.map"} -->
 
 Like functions but with `this` preserved.
 See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)
@@ -475,7 +475,7 @@ const App = {
 // Same as: App = { start: function () {···} }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="start"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -492,7 +492,7 @@ const App = {
 }
 ```
 
-<!-- {: data-line="2,5"} -->
+<!-- {: data-highlight="get"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -506,7 +506,7 @@ let handlers = {
 // Same as: handlers = { 'onclick': true }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="event"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -522,7 +522,7 @@ Object.entries(fatherJS)
 // [["age", 57], ["name", "Brendan Eich"]]
 ```
 
-<!-- {: data-line="3,5"} -->
+<!-- {: data-highlight="Object.entries"} -->
 
 
 Modules

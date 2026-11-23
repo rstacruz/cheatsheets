@@ -48,7 +48,7 @@ See: [Delimiters](https://vuejs.org/v2/api/#delimiters)
 <a :href="url">...</a>
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="..."} -->
 
 #### True or false will add or remove attribute
 ```html
@@ -110,7 +110,7 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 <button @click="addToCart">...
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight='"addToCart"'} -->
 
 #### Arguments can be passed
 ```html
@@ -156,7 +156,7 @@ See: [Events](https://vuejs.org/v2/guide/events.html)
 </li>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight='"item.id"'} -->
 
 #### To access the position in the array
 ```html
@@ -226,7 +226,7 @@ Vue.component('my-component', {
 })
 ```
 
-<!-- {: data-line="3, 8, 16, 21, 28, 34, 39"} -->
+<!-- {: data-highlight="component"} -->
 
 See: [Components Basics](https://vuejs.org/v2/guide/components.html)
 
@@ -329,7 +329,7 @@ Slots
 </div>
 ```
 
-<!-- {: data-line="3,4,5"} -->
+<!-- {: data-highlight="slot"} -->
 
 #### Use of component with data for slot
 ```html
@@ -338,7 +338,7 @@ Slots
 </my-component>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="This"} -->
 
 See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 
@@ -359,7 +359,7 @@ See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 </div>
 ```
 
-<!-- {: data-line="3,6,9"} -->
+<!-- {: data-highlight='"header"'} -->
 
 #### Use of component with data for slots
 ```html
@@ -370,7 +370,7 @@ See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 </app-layout>
 ```
 
-<!-- {: data-line="2,3,4"} -->
+<!-- {: data-highlight='"footer"'} -->
 
 See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 

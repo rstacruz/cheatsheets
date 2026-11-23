@@ -31,7 +31,7 @@ weight: -3
 }
 ```
 
-<!-- {: data-line="2,3,4,5"} -->
+<!-- {: data-highlight='"0.1.0"'} -->
 
 Highlighted lines are required.
 

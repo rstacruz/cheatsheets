@@ -595,7 +595,7 @@ See: [GitHub Actions](https://cursor.com/docs/cli/github-actions)
 ```text
 & refactor the auth module and add tests
 ```
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="refactor"} -->
 
 Prefix a message with `&` to hand it to a Cloud Agent; pick it up later at [cursor.com/agents](https://cursor.com/agents).
 

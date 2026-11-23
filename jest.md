@@ -24,7 +24,7 @@ Testing
 npm install --save-dev jest babel-jest
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="--save-dev"} -->
 
 ```js
 /* Add to package.json */
@@ -214,7 +214,7 @@ test('works with promises', () => {
 })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="=>"} -->
 
 ```js
 test('works with async/await', async () => {
@@ -223,7 +223,7 @@ test('works with async/await', async () => {
 })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="hello"} -->
 
 Return promises, or use async/await.
 See: [Async tutorial](https://jestjs.io/docs/tutorial-async)
@@ -237,7 +237,7 @@ it('works', () => {
 })
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="toMatchSnapshot"} -->
 
 First run creates a snapshot. Subsequent runs match the saved snapshot.
 See: [Snapshot testing](https://jestjs.io/docs/snapshot-testing)
@@ -260,7 +260,7 @@ it('works', () => {
 })
 ```
 
-<!-- {: data-line="2,3,4"} -->
+<!-- {: data-highlight="renderer"} -->
 
 React's test renderer can be used for Jest snapshots.
 See: [Snapshot test](https://jestjs.io/docs/tutorial-react-native#snapshot-test)
@@ -329,7 +329,7 @@ Fn.mock.instances
 // → [a, b]
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="instances"} -->
 
 See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockinstances)
 
@@ -347,7 +347,7 @@ fn.mock.calls[0][0]    // → 123
 fn.mock.calls[1][0]    // → 456
 ```
 
-<!-- {: data-line="1,2,3"} -->
+<!-- {: data-highlight="calls"} -->
 
 See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockcalls)
 
@@ -372,7 +372,7 @@ const fn = jest.fn()
   .mockImplementationOnce(() => 2)
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="mockImplementationOnce"} -->
 
 ```js
 fn()    // → 1

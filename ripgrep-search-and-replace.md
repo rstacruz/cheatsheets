@@ -2,7 +2,7 @@
 title: Ripgrep search and replace
 h1_title: How to search and replace with ripgrep
 subtitle: Preview replacements safely
-category: Shell
+category: Command line recipes
 layout: snippet
 last_verified_with: "ripgrep 15.1.0."
 updated: 2026-11-23

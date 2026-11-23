@@ -35,6 +35,7 @@ export const carbon = {
 // most 12. Enforced by src/lib/categories.test.ts.
 export const categories = [
   'Agents',
+  'Task automation',
   'JavaScript',
   'Browser APIs',
   'JavaScript libraries',
@@ -46,6 +47,7 @@ export const categories = [
   'Markup',
   'CLI',
   'Shell',
+  'Command line recipes',
   'Networking',
   'Media tools',
   'Package managers',

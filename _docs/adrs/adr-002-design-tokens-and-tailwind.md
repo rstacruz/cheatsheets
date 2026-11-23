@@ -16,7 +16,7 @@ Tailwind v4 is the build engine, so the design system can live in its theme inst
 4. **One type scale, in Tailwind's namespace.** `--text-*` holds the fluid steps as `clamp()` with explicit line-height ratios. There is no second scale.
 5. **`@apply` is encouraged inside CSS** for theme-driven declarations. Use `var(--token)` when the token is an operand or when `@apply` hides the intent, and `font-size: var(--text-*)` when only the size should change, because `text-*` also applies its line-height. A file using `@apply` starts with `@reference '/src/styles/tailwind.css';`.
 6. **Component CSS is layered.** `base.css` sits in `@layer base`; component and Markdown CSS sit in `@layer components`, so utilities can override them without `!important`. Documented exceptions are fine when a vendor sheet cannot be layered.
-7. **The lint gate states the target, not the current tree.** Stylelint encodes these rules: token families for colour, type, and radius; no legacy names; no `!important`. Existing violations live in a committed suppressions file; new code must pass. No hand-rolled validation suite.
+7. **The lint gate states the target, not the current tree.** Stylelint encodes these rules: token families for colour, type, and radius; no unknown tokens; no `!important`. Existing violations live in a committed suppressions file; new code must pass. No hand-rolled validation suite.
 
 ## Consequences
 

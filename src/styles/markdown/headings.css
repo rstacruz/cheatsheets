@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   margin-bottom: 24px;
-  margin-top: 64px;
   position: relative;
 
   @media (max-width: 768px) {
@@ -19,7 +18,7 @@
     margin-top: 32px;
   }
 
-  font-size: var(--fs-6);
+  font-size: var(--text-3xl);
   line-height: 1.2;
   font-weight: 200;
   font-family: var(--font-heading);
@@ -31,15 +30,15 @@
   padding: 0;
   margin-bottom: 16px;
   font-family: var(--font-heading);
-  font-size: var(--fs-2);
+  font-size: var(--text-lg);
   font-weight: 400;
-  color: var(--base-a);
+  color: var(--primary);
 }
 
 .MarkdownBody {
   & a,
   & a:visited {
-    color: var(--base-b);
+    color: var(--link);
     text-decoration: none;
   }
 
@@ -49,7 +48,7 @@
 
   & em {
     font-style: normal;
-    color: var(--gray-text);
+    color: var(--muted-foreground);
   }
 
   & iframe {

@@ -9,7 +9,7 @@
   line-height: 46px;
   text-align: center;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   transition: all 100ms linear;
 
   /* Smaller on mobile */
@@ -22,14 +22,14 @@
   /* Colors */
   &,
   &:visited {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
   }
 
   /* Active */
   &:hover,
   &:focus {
-    color: white;
-    background: var(--base-a);
+    color: var(--primary-foreground);
+    background: var(--primary);
     opacity: 1;
   }
 
@@ -37,11 +37,11 @@
   & > svg {
     display: inline-block; /* Tailwind preflight makes svg block-level */
     vertical-align: middle;
-    color: var(--base-text);
+    color: var(--foreground);
   }
 
   &:hover > svg,
   &:focus > svg {
-    color: white;
+    color: var(--primary-foreground);
   }
 }

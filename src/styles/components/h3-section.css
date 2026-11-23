@@ -8,21 +8,12 @@
  * Heading
  */
 
-.h3-section > .body {
-  @apply bg-white;
-  @apply overflow-x-auto;
-  @apply rounded-[12px];
-  padding: 4px;
-  @apply [&>pre]:m-0 [&>pre]:p-4;
-  border: solid 1px var(--line-color);
-}
-
 .h3-section > h3 {
-  @apply border-t-mildindigo-500 border-t-2;
-  @apply text-mildindigo-800;
+  @apply border-t-primary-muted border-t-2;
+  @apply text-primary-heading;
   @apply text-xl;
   @apply pt-4;
-  @apply font-manrope font-extrabold tracking-[-0.02em];
+  @apply font-manrope font-extrabold tracking-manrope;
   @apply mt-0 mb-4 whitespace-nowrap overflow-hidden;
 }
 
@@ -31,15 +22,22 @@
  */
 
 .h3-section > .body {
+  @apply bg-card;
+  @apply overflow-x-auto;
+  @apply rounded-2xl;
+  padding: 4px;
+  @apply [&>pre]:m-0 [&>pre]:p-4;
+  border: solid 1px var(--border);
+
   /* Inset content follows the card corners: 12px card − 4px gutter */
   & > :first-child {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
   }
 
   & > :last-child {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
   }
 
   /* Lists */
@@ -66,14 +64,14 @@
     display: inline-block;
     width: 4px;
     height: 4px;
-    background: var(--gray-text);
-    border-radius: 50%;
+    background: var(--muted-foreground);
+    border-radius: var(--radius-circle);
     left: 16px;
     top: 18px;
   }
 
   & > ul > li + li {
-    border-top: solid 1px var(--line-color);
+    border-top: solid 1px var(--border);
   }
 
   /* Paragraphs */
@@ -84,13 +82,13 @@
   }
 
   & > p:first-of-type {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
   }
 
   & > p:last-of-type {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
   }
 
   /* The card gutter already supplies the outer 4px */
@@ -106,39 +104,39 @@
 
   /* Headings in between bodies */
   & > h4 {
-    font-size: var(--fs-n1);
+    font-size: var(--text-xs);
     margin: 4px 0;
     padding: 4px 16px;
     font-weight: normal;
-    background: var(--gray-bg);
-    color: var(--gray-text);
+    background: var(--muted);
+    color: var(--muted-foreground);
     border: 0;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
   }
 
   /* Description paragraphs */
   & > p,
   & :not(li) > p {
-    background: var(--gray-bg);
-    color: var(--base-text);
+    background: var(--muted);
+    color: var(--foreground);
 
     /* Links */
     & a,
     & a:visited {
-      color: var(--base-text);
+      color: var(--foreground);
       text-decoration: none;
       font-weight: bold;
-      border-bottom: solid 1px var(--line-color);
+      border-bottom: solid 1px var(--border);
     }
 
     & a:hover {
-      color: var(--base-b);
+      color: var(--link);
     }
   }
 
   /* Line divisions: keep mixed sections apart, but not the gray tiles */
   & > :where(:not(:first-child):not(p):not(h4)) {
-    border-top: solid 1px var(--line-color);
+    border-top: solid 1px var(--border);
   }
 
   & > p + *,
@@ -161,15 +159,15 @@
 ul.-also-see.-also-see.-also-see {
   display: flex;
   flex-wrap: wrap;
-  background: var(--gray-bg);
+  background: var(--muted);
 
   & > li {
     flex: 1 0 20%;
     padding: 24px;
-    border-top: solid 1px var(--dark-line-color);
+    border-top: solid 1px var(--border-strong);
 
     & + li {
-      border-left: solid 1px var(--dark-line-color);
+      border-left: solid 1px var(--border-strong);
     }
   }
 
@@ -183,12 +181,12 @@ ul.-also-see.-also-see.-also-see {
   }
 
   & > li > a {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     display: block;
   }
 
   & > li > em {
-    font-size: var(--fs-n1);
+    font-size: var(--text-xs);
     display: block;
   }
 }
@@ -208,8 +206,8 @@ ul.-also-see.-also-see.-also-see {
 .h3-section > .body > ul.-enum-wide > li {
   margin: 0;
   padding: 8px 12px;
-  border: solid 1px var(--line-color);
-  border-radius: 6px;
+  border: solid 1px var(--border);
+  border-radius: var(--radius-md);
   list-style: none;
   overflow-wrap: break-word;
 }
@@ -221,7 +219,7 @@ ul.-also-see.-also-see.-also-see {
 
 .h3-section > .body > ul.-enum > li + li,
 .h3-section > .body > ul.-enum-wide > li + li {
-  border-top: solid 1px var(--line-color);
+  border-top: solid 1px var(--border);
 }
 
 /* Variant: Enumeration grid with ruled rows instead of tiles */
@@ -240,7 +238,7 @@ ul.-also-see.-also-see.-also-see {
 .h3-section > .body > ul.-enum-lines > li {
   padding: 8px 12px;
   border: 0;
-  border-bottom: solid 1px var(--line-color);
+  border-bottom: solid 1px var(--border);
   list-style: none;
   overflow-wrap: break-word;
 }
@@ -266,8 +264,8 @@ ul.-also-see.-also-see.-also-see {
 .h3-section > .body > ul.-term-tiles > li + li {
   margin: 0;
   padding: 8px 12px;
-  border: solid 1px var(--line-color);
-  border-radius: 6px;
+  border: solid 1px var(--border);
+  border-radius: var(--radius-md);
   overflow-wrap: break-word;
 }
 
@@ -292,7 +290,7 @@ ul.-also-see.-also-see.-also-see {
 
 .h3-section.-intro {
   & > .body > p {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
   }
 
   & > .body > ul > li {
@@ -305,7 +303,7 @@ ul.-also-see.-also-see.-also-see {
   }
 
   & > .body > ul > li > a {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     display: block;
     font-weight: bold;
   }
@@ -321,7 +319,7 @@ ul.-also-see.-also-see.-also-see {
     mask: var(--icon-md-arrow-forward) center center / 24px 24px no-repeat;
     -webkit-mask: var(--icon-md-arrow-forward) center center / 24px 24px
       no-repeat;
-    color: var(--base-a3);
+    color: var(--primary-subtle);
     position: absolute;
     right: 16px;
     top: 50%;
@@ -329,7 +327,7 @@ ul.-also-see.-also-see.-also-see {
   }
 
   & > .body > ul > li:hover > a::before {
-    color: var(--base-a);
+    color: var(--primary);
   }
 
   & > .body > ul > li > a::after {
@@ -343,6 +341,6 @@ ul.-also-see.-also-see.-also-see {
   }
 
   & > .body > ul > li em {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
   }
 }

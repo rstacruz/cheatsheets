@@ -5,23 +5,23 @@
 .related-posts-callout {
   display: flex;
   text-decoration: none;
-  background: var(--base-a-gradient);
+  background: var(--brand-gradient);
   padding: 32px;
   align-items: center;
   justify-content: center;
-  color: white;
-  border-radius: 2px;
-  box-shadow: var(--shadow2);
-  text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  text-shadow: 0 1px 1px var(--overlay);
 
   &,
   &:visited {
-    color: white;
+    color: var(--primary-foreground);
   }
 
   &:hover,
   &:focus {
-    background: var(--base-a-hover);
+    background: var(--primary-strong);
   }
 
   & > .text {
@@ -35,16 +35,16 @@
     width: 64px;
     height: 64px;
     margin: 0 auto 16px;
-    border: solid 2px var(--base-a-brighter);
-    border-radius: 50%;
+    border: solid 2px var(--primary-faint);
+    border-radius: var(--radius-circle);
 
     & > svg {
-      color: var(--base-a-brighter);
+      color: var(--primary-faint);
     }
   }
 
   & > .text > .description {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     line-height: 1.4;
     font-weight: 300;
     display: block;

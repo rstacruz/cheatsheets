@@ -10,13 +10,13 @@
 }
 
 .h2-section h2 {
-  @apply font-manrope font-extrabold tracking-[-0.02em];
-  @apply text-3xl text-zinc-950 target:text-mildindigo-600;
+  @apply font-manrope font-extrabold tracking-manrope;
+  @apply text-3xl text-heading target:text-primary;
   @apply scroll-mt-6;
 }
 
 a.local-anchor {
-  @apply text-2xl ml-2 text-mildindigo-500 opacity-0;
+  @apply text-2xl ml-2 text-primary-muted opacity-0;
   @apply focus:opacity-100;
 
   /* Tailwind v4 gates `hover:` behind @media (hover: hover); keep the plain

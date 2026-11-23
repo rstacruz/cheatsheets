@@ -24,6 +24,23 @@ fd '\.ts$' src
 ```
 <!-- {: data-highlight="fd"} -->
 
+#### Input
+
+```text
+src/app.ts
+src/app.test.ts
+src/lib/util.ts
+src/readme.md
+```
+
+#### Output
+
+```text
+src/app.ts
+src/app.test.ts
+src/lib/util.ts
+```
+
 `fd` uses regex, respects gitignore, and skips hidden files by default; see [fd](https://github.com/sharkdp/fd).
 
 ### fd with a command
@@ -33,6 +50,22 @@ fd '\.ts$' src
 fd -e ts -x wc -l
 ```
 <!-- {: data-highlight="-x"} -->
+
+#### Input
+
+```text
+src/app.ts
+src/app.test.ts
+src/lib/util.ts
+```
+
+#### Output
+
+```text
+10 src/app.ts
+20 src/app.test.ts
+5 src/lib/util.ts
+```
 
 `-x` runs a command once per match, with `{}` available as the path; see [fd](https://github.com/sharkdp/fd).
 
@@ -44,6 +77,21 @@ find . -name '*.ts' -not -path '*/node_modules/*'
 ```
 <!-- {: data-highlight="-not -path"} -->
 
+#### Input
+
+```text
+src/app.ts
+src/app.test.ts
+node_modules/pkg/index.ts
+```
+
+#### Output
+
+```text
+./src/app.ts
+./src/app.test.ts
+```
+
 `find` is portable and scriptable but needs explicit pruning and ignores; see [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).
 
 ### find with exec
@@ -53,5 +101,19 @@ find . -name '*.ts' -not -path '*/node_modules/*'
 find . -name '*.ts' -exec wc -l {} +
 ```
 <!-- {: data-highlight="-exec"} -->
+
+#### Input
+
+```text
+src/app.ts
+src/app.test.ts
+```
+
+#### Output
+
+```text
+10 ./src/app.ts
+20 ./src/app.test.ts
+```
 
 `-exec ... +` batches matches into a single command instead of one call per file. See [find](https://www.gnu.org/software/findutils/manual/html_node/find_html/).

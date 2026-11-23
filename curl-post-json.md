@@ -24,6 +24,12 @@ curl -X POST https://api.example.com/items \
 ```
 <!-- {: data-highlight="-H"} -->
 
+#### Output
+
+```json
+{"id":1,"name":"Ada"}
+```
+
 `-H` sets the content type and `-d` sends the body; see [curl](https://curl.se/docs/manpage.html#-d).
 
 ### Body from a file
@@ -36,6 +42,12 @@ curl -X POST https://api.example.com/items \
 ```
 <!-- {: data-highlight="@item.json"} -->
 
+#### Output
+
+```json
+{"id":2,"name":"Grace"}
+```
+
 `@file` reads the request body from a file, keeping shell quoting out of the way. See [curl](https://curl.se/docs/manpage.html#-d).
 
 ### JSON shortcut
@@ -46,5 +58,11 @@ curl --json '{"name":"Ada"}' \
   https://api.example.com/items
 ```
 <!-- {: data-highlight="--json"} -->
+
+#### Output
+
+```json
+{"id":3,"name":"Ada"}
+```
 
 `--json` sets the JSON headers and POST method in one flag; see [curl](https://curl.se/docs/manpage.html#--json).

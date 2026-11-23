@@ -22,6 +22,15 @@ tar -tf archive.tar.gz
 ```
 <!-- {: data-highlight="-tf"} -->
 
+#### Output
+
+```text
+docs/
+docs/readme.md
+notes.md
+path/to/file
+```
+
 `-t` lists members and `-f` names the archive; find the exact path before extracting. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/list.html).
 
 ### Extract one member
@@ -31,6 +40,12 @@ tar -tf archive.tar.gz
 tar -xf archive.tar.gz path/to/file
 ```
 <!-- {: data-highlight="-xf"} -->
+
+#### Output
+
+```text
+path/to/file
+```
 
 `-x` extracts and `-f` selects the archive; pass the exact member path. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
 
@@ -42,6 +57,12 @@ tar -xOf archive.tar.gz path/to/file
 ```
 <!-- {: data-highlight="-xOf"} -->
 
+#### Output
+
+```text
+file contents
+```
+
 `-O` writes the member to stdout instead of creating a file. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/extracting-files.html).
 
 ### Match a pattern
@@ -51,5 +72,12 @@ tar -xOf archive.tar.gz path/to/file
 tar -xf archive.tar.gz --wildcards '*.md'
 ```
 <!-- {: data-highlight="--wildcards"} -->
+
+#### Output
+
+```text
+docs/readme.md
+notes.md
+```
 
 GNU tar needs `--wildcards` before it treats a member name as a glob. See [GNU tar](https://www.gnu.org/software/tar/manual/html_node/wildcards.html).

@@ -25,6 +25,14 @@ done
 ```
 <!-- {: data-highlight="${fruits[@]}"} -->
 
+#### Output
+
+```text
+apple
+banana
+cherry
+```
+
 Quoting `"${fruits[@]}"` keeps one element per iteration, even when values contain spaces; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 
 ### Indices
@@ -36,6 +44,14 @@ for i in "${!fruits[@]}"; do
 done
 ```
 <!-- {: data-highlight="${!fruits[@]}"} -->
+
+#### Output
+
+```text
+0: apple
+1: banana
+2: cherry
+```
 
 `!` expands to the array indices, which is useful when the position matters; see [arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html).
 

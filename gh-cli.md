@@ -21,12 +21,12 @@ fragments:
   - "gh run watch"
   - "gh run list"
   - "gh release view"
-  - "-p '*.deb'"
+  - "-p '*.rpm'"
   - "gh search repos"
   - "gh api"
   - "--json"
   - "--jq"
-  - "-R owner/repo"
+  - "-R cli/cli"
   - "gh alias set"
 keywords:
   - GitHub CLI
@@ -343,7 +343,7 @@ See: [gh run watch](https://cli.github.com/manual/gh_run_watch)
 ```bash
 gh run download 123456789
 gh run download 123456789 -n build -D dist
-gh run download 123456789 -p '*.zip'
+gh run download 123456789 -p 'build*'
 ```
 <!-- {: data-highlight="-n build"} -->
 
@@ -391,8 +391,8 @@ gh release download -p '*.rpm' -D /tmp
 ```
 <!-- {: data-highlight="--pattern"} -->
 
-Without a tag, `gh release download` uses the latest release. `--archive`
-fetches source, not assets.
+Without a tag, `gh release download` uses the latest release and needs
+`--pattern` or `--archive`. `--archive` fetches source, not assets.
 
 See: [gh release download](https://cli.github.com/manual/gh_release_download)
 
@@ -488,7 +488,7 @@ See: [gh alias set](https://cli.github.com/manual/gh_alias_set)
 ### Extensions
 
 ```bash
-gh extension install cli/gh-dash
+gh extension install dlvhdr/gh-dash
 gh extension list
 gh extension upgrade --all
 ```

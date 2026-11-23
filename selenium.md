@@ -252,7 +252,7 @@ ActionChains(driver).key_down(
     Keys.SHIFT
 ).perform()
 ```
-<!-- {: data-highlight="key_down; key_up; send_keys"} -->
+<!-- {: data-highlight="key_down; key_up"} -->
 
 `key_down()` and `key_up()` hold a modifier during other input.
 
@@ -271,7 +271,7 @@ ActionChains(driver).move_to_element(
     menu
 ).pause(0.5).click(item).perform()
 ```
-<!-- {: data-highlight="move_to_element; pause; click; perform"} -->
+<!-- {: data-highlight="move_to_element; pause; perform"} -->
 
 Chain moves, pauses, drags, and scrolls, then call `perform()`.
 

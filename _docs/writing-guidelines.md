@@ -339,7 +339,9 @@ select.select_by_index(2)
 
 ### code/vary-highlights
 
-Don't repeat the same highlight token across cards in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
+🤖 Check: `code/vary-highlights`.
+
+Don't repeat the same highlight token across code blocks in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
 
 **Good:** the "Sort lines" card tints `sort`; the field cards tint `-k2,2n` and `-k3,3`.
 

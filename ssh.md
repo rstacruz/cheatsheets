@@ -85,7 +85,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh-keygen -t ed25519 -C "me@example.com"
 ```
-<!-- {: data-highlight="-t ed25519"} -->
+<!-- {: data-highlight="ssh-keygen"} -->
 
 This writes `~/.ssh/id_ed25519` and its `.pub` file. Set a passphrase when prompted.
 
@@ -97,7 +97,7 @@ See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
 ssh-copy-id -i ~/.ssh/id_ed25519.pub \
   user@host
 ```
-<!-- {: data-highlight="-i"} -->
+<!-- {: data-highlight="ssh-copy-id"} -->
 
 The public key is appended to the remote `authorized_keys`.
 
@@ -136,7 +136,7 @@ Host github
     User git
     IdentityFile ~/.ssh/id_ed25519
 ```
-<!-- {: data-highlight="Host; HostName; User; IdentityFile"} -->
+<!-- {: data-highlight="Host"} -->
 
 `ssh github` now uses this user, host, and key.
 
@@ -166,7 +166,7 @@ user git
 hostname github.com
 port 22
 ```
-<!-- {: data-highlight="-G; -F"} -->
+<!-- {: data-highlight="-G"} -->
 
 `-G` resolves options and exits; `-F` checks the given file.
 
@@ -237,7 +237,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh-keygen -R host
 ```
-<!-- {: data-highlight="-R host"} -->
+<!-- {: data-highlight="-R"} -->
 
 This removes stale keys from `known_hosts`. Verify the new fingerprint before reconnecting.
 

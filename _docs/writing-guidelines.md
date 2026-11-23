@@ -309,7 +309,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Tint the subject the card names: when the card is about a command, highlight the command name rather than a setup option; when it is about a behaviour, highlight the flag or value that implements it. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python
@@ -317,6 +317,19 @@ driver.save_screenshot("page.png")
 ```
 <!-- {: data-highlight="save_screenshot"} -->
 ````
+
+**When the card teaches a command, tint the command name**
+
+````md
+### Create a key
+
+```bash
+ssh-keygen -t ed25519 -C "me@example.com"
+```
+<!-- {: data-highlight="ssh-keygen"} -->
+````
+
+`-t ed25519` only chooses a key type; it leaves the card's subject untinted.
 
 Use `data-line` instead when the whole line, or a range, is the lesson.
 

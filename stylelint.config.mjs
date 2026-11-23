@@ -30,6 +30,22 @@ export default {
       '/^box-shadow$/': ['/^--shadow-/', semanticColor],
       '/^text-shadow$/': [semanticColor, '/^--shadow-/']
     },
+    /* Values must come from the theme, not be copied into the declaration */
+    'declaration-property-value-disallowed-list': {
+      '/^font-family$/': [
+        '/^(?!(var\\(--font-)|inherit$|initial$|unset$|revert$|revert-layer$)/'
+      ],
+      '/^font-size$/': [
+        '/^(?!(var\\(--text-)|1em$|1rem$|inherit$|initial$|unset$|revert$|revert-layer$|smaller$|larger$)/'
+      ],
+      '/^line-height$/': [
+        '/^(?!(var\\(--leading-)|[0-9.]+$|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
+      ],
+      '/^letter-spacing$/': [
+        '/^(?!(var\\(--tracking-)|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
+      ],
+      '/^border-radius$/': ['/[0-9.]+(px|rem|em|%)/']
+    },
     'at-rule-no-unknown': [
       true,
       {
@@ -65,7 +81,7 @@ export default {
       }
     ],
     'declaration-no-important': true,
-    'no-descending-specificity': null,
+    'no-descending-specificity': true,
     'import-notation': 'string'
   },
   overrides: [

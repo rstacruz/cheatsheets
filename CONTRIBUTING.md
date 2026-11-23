@@ -73,6 +73,8 @@ Redirects are defined in `public/_redirects`, one rule per line:
 /es2015 /es6 301
 ```
 
+When you rename or remove a sheet, add a rule from its old URL. CI fails a pull request that deletes a sheet without one (`src/lib/redirects.test.ts`).
+
 The file is copied into the build output, so static hosts that support the `_redirects` format will pick it up.
 
 ## Site configuration

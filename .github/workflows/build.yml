@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The redirects test diffs against the pull request base
+          fetch-depth: 0
       # pnpm version from packageManager, Node.js from .node-version
       - uses: pnpm/setup@v3
         with:

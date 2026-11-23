@@ -92,7 +92,7 @@ Line-height pairs are set explicitly on the new scale (`1.5`/`1.6`/`1.4`/`1.3`/`
 
 ### 6. Cascade: put component CSS in `@layer components`
 
-Component and Markdown styles are imported with `layer(components)` so Tailwind utilities can override them. `base.css` is imported as a JS module, so it cannot use `@import … layer()`; wrap its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
+Each component and Markdown file wraps its own contents in `@layer components { … }` so Tailwind utilities can override them. Import-level `layer(components)` is the tidier form, but this build drops it and the lifted `@reference` then fails in Tailwind. `base.css` is imported as a JS module, so it cannot use `@import … layer()` either; wrap its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
 
 ### 7. Enforcement: Stylelint in CI
 

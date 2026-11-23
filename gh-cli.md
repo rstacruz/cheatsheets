@@ -96,11 +96,12 @@ See: [gh status](https://cli.github.com/manual/gh_status)
 
 ## Repositories
 
+<!-- {: .-three-column} -->
+
 ### Clone
 
 ```bash
 gh repo clone cli/cli
-gh repo clone cli/cli my-cli -- --depth=1
 ```
 <!-- {: data-highlight="gh repo clone"} -->
 
@@ -111,10 +112,10 @@ See: [gh repo clone](https://cli.github.com/manual/gh_repo_clone)
 ### Create
 
 ```bash
-gh repo create my-tool --private --clone
-gh repo create --source=. --private --push
+gh repo create my-tool --private \
+  --source=. --push
 ```
-<!-- {: data-highlight="--source=."} -->
+<!-- {: data-highlight="--source=.; --push"} -->
 
 `--source` uses the current directory's git history; `--push` uploads existing commits.
 
@@ -124,7 +125,8 @@ See: [gh repo create](https://cli.github.com/manual/gh_repo_create)
 
 ```bash
 gh repo fork cli/cli --clone
-gh repo fork --org my-org --remote
+gh repo fork --org my-org \
+  --remote
 ```
 <!-- {: data-highlight="--clone"} -->
 
@@ -134,9 +136,16 @@ See: [gh repo fork](https://cli.github.com/manual/gh_repo_fork)
 
 ### View and open
 
+#### Repo details
+
 ```bash
 gh repo view
 gh repo view cli/cli --web
+```
+
+#### Files and issues
+
+```bash
 gh browse src/main.ts
 gh browse 42
 gh browse -n 42
@@ -149,14 +158,21 @@ See: [gh browse](https://cli.github.com/manual/gh_browse)
 
 ## Pull requests
 
+<!-- {: .-three-column} -->
+
 ### Create
 
 ```bash
-gh pr create --fill
-gh pr create --draft --base develop
+# interactive
+gh pr create
+```
+
+```bash
+# non-interactive
+gh pr create --fill --base develop
 gh pr create -t "Fix login" -F -
 ```
-<!-- {: data-highlight="--fill"} -->
+<!-- {: data-highlight="--fill; -F -"} -->
 
 `--fill` uses the commits for the title and body; `-F -` reads the body from stdin.
 
@@ -166,11 +182,13 @@ See: [gh pr create](https://cli.github.com/manual/gh_pr_create)
 
 ```bash
 gh pr list
-gh pr list --author @me --state all
-gh pr list --search "review:required"
+gh pr list --author @me \
+  --state all
+gh pr list --search \
+  "review:required"
 gh pr list -l bug -L 50
 ```
-<!-- {: data-highlight="--search"} -->
+<!-- {: data-highlight="--search; -l"} -->
 
 `--search` takes GitHub search syntax; `-l` repeats for multiple labels.
 
@@ -194,7 +212,8 @@ See: [gh pr checkout](https://cli.github.com/manual/gh_pr_checkout)
 
 ```bash
 gh pr checks
-gh pr checks --watch --fail-fast
+gh pr checks --watch \
+  --fail-fast
 gh pr checks --required
 ```
 <!-- {: data-highlight="--watch"} -->
@@ -207,7 +226,8 @@ See: [gh pr checks](https://cli.github.com/manual/gh_pr_checks)
 
 ```bash
 gh pr review --approve
-gh pr review --request-changes -b "Add tests"
+gh pr review \
+  --request-changes -b "Add tests"
 gh pr comment -b "LGTM"
 gh pr comment --edit-last -F -
 ```
@@ -220,7 +240,8 @@ See: [gh pr review](https://cli.github.com/manual/gh_pr_review)
 ### Merge
 
 ```bash
-gh pr merge --squash --delete-branch
+gh pr merge --squash \
+  --delete-branch
 gh pr merge --auto --rebase
 gh pr merge 123 --merge
 ```
@@ -232,10 +253,14 @@ See: [gh pr merge](https://cli.github.com/manual/gh_pr_merge)
 
 ## Issues
 
+<!-- {: .-three-column} -->
+
 ### Create
 
 ```bash
-gh issue create -t "Login fails" -b "Steps to reproduce"
+gh issue create \
+  -t "Login fails" \
+  -b "Steps to reproduce"
 gh issue create -l bug -a @me
 gh issue create --parent 100
 ```
@@ -250,7 +275,8 @@ See: [gh issue create](https://cli.github.com/manual/gh_issue_create)
 ```bash
 gh issue list
 gh issue list -a @me -l bug
-gh issue list --search "is:open no:assignee"
+gh issue list --search \
+  "is:open no:assignee"
 gh issue list --state all -L 50
 ```
 <!-- {: data-highlight="-a @me"} -->
@@ -263,7 +289,8 @@ See: [gh issue list](https://cli.github.com/manual/gh_issue_list)
 
 ```bash
 gh issue view 123 --comments
-gh issue comment 123 -b "Fixed in #456"
+gh issue comment 123 \
+  -b "Fixed in #456"
 gh issue view 123 --web
 ```
 <!-- {: data-highlight="--comments"} -->
@@ -276,8 +303,10 @@ See: [gh issue view](https://cli.github.com/manual/gh_issue_view)
 
 ```bash
 gh issue close 123
-gh issue close 123 --reason "not planned"
-gh issue close 123 --duplicate-of 456
+gh issue close 123 \
+  --reason "not planned"
+gh issue close 123 \
+  --duplicate-of 456
 ```
 <!-- {: data-highlight="--duplicate-of"} -->
 
@@ -287,12 +316,17 @@ See: [gh issue close](https://cli.github.com/manual/gh_issue_close)
 
 ## Actions
 
+<!-- {: .-three-column} -->
+
 ### List runs
 
 ```bash
 gh run list
-gh run list --workflow ci.yml --status failure
-gh run list --branch main --limit 10
+gh run list \
+  --workflow ci.yml \
+  --status failure
+gh run list --branch main \
+  --limit 10
 ```
 <!-- {: data-highlight="--status failure"} -->
 
@@ -304,8 +338,10 @@ See: [gh run list](https://cli.github.com/manual/gh_run_list)
 
 ```bash
 gh run watch 123456789
-gh run watch --compact --exit-status
-gh run view 123456789 --log-failed
+gh run watch --compact \
+  --exit-status
+gh run view 123456789 \
+  --log-failed
 gh run rerun 123456789 --failed
 ```
 <!-- {: data-highlight="--exit-status"} -->
@@ -314,26 +350,15 @@ gh run rerun 123456789 --failed
 
 See: [gh run watch](https://cli.github.com/manual/gh_run_watch)
 
-### Download artifacts
-
-```bash
-gh run download 123456789
-gh run download 123456789 -n build -D dist
-gh run download 123456789 -p 'build*'
-```
-<!-- {: data-highlight="-n build"} -->
-
-`-n` selects artifact names; `-p` matches artifact names with a glob.
-
-See: [gh run download](https://cli.github.com/manual/gh_run_download)
-
 ### Run a workflow
 
 ```bash
 gh workflow list
 gh workflow run ci.yml
-gh workflow run deploy.yml -f environment=staging
-gh workflow run deploy.yml --ref my-branch
+gh workflow run deploy.yml \
+  -f environment=staging
+gh workflow run deploy.yml \
+  --ref my-branch
 ```
 <!-- {: data-highlight="-f environment=staging"} -->
 
@@ -343,12 +368,17 @@ See: [gh workflow run](https://cli.github.com/manual/gh_workflow_run)
 
 ## Releases
 
+<!-- {: .-three-column} -->
+
 ### Create
 
 ```bash
-gh release create v1.2.0 --generate-notes
-gh release create v1.2.0 --draft -F notes.md
-gh release create v1.2.0 dist/*.tgz
+gh release create v1.2.0 \
+  --generate-notes
+gh release create v1.2.0 \
+  --draft -F notes.md
+gh release create v1.2.0 \
+  dist/*.tgz
 ```
 <!-- {: data-highlight="--generate-notes"} -->
 
@@ -360,11 +390,14 @@ See: [gh release create](https://cli.github.com/manual/gh_release_create)
 
 ```bash
 gh release download v1.2.0
-gh release download --pattern '*.deb'
-gh release download v1.2.0 --archive=zip
-gh release download -p '*.rpm' -D /tmp
+gh release download \
+  --pattern '*.deb'
+gh release download v1.2.0 \
+  --archive=zip
+gh release download \
+  -p '*.rpm' -D /tmp
 ```
-<!-- {: data-highlight="--pattern"} -->
+<!-- {: data-highlight="--pattern; --archive"} -->
 
 Without a tag, pass `--pattern` or `--archive`; gh uses the latest release. `--archive` fetches source, not assets.
 
@@ -383,12 +416,18 @@ See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
 ## Search and API
 
+<!-- {: .-three-column} -->
+
 ### Search repositories
 
 ```bash
-gh search repos "static site generator" --language go
-gh search repos --owner cli --topic gh-extension
-gh search repos "database" --sort stars --limit 10
+gh search repos \
+  "static site generator" \
+  --language go
+gh search repos --owner cli \
+  --topic gh-extension
+gh search repos "database" \
+  --sort stars --limit 10
 ```
 <!-- {: data-highlight="--sort stars"} -->
 
@@ -399,11 +438,15 @@ See: [gh search repos](https://cli.github.com/manual/gh_search_repos)
 ### Search issues and PRs
 
 ```bash
-gh search issues "panic" --repo cli/cli
-gh search prs --review-requested=@me --state=open
-gh search prs --draft --author=@me
+gh search issues "panic" \
+  --repo cli/cli
+gh search prs \
+  --review-requested=@me \
+  --state=open
+gh search prs --draft \
+  --author=@me
 ```
-<!-- {: data-highlight="--review-requested=@me"} -->
+<!-- {: data-highlight="gh search issues; gh search prs"} -->
 
 Both accept a free-text query and field filters such as `--author` and `--state`.
 
@@ -413,9 +456,12 @@ See: [gh search issues](https://cli.github.com/manual/gh_search_issues), [gh sea
 
 ```bash
 gh api repos/cli/cli
-gh api repos/cli/cli --jq '.stargazers_count'
-gh api repos/{owner}/{repo}/issues -f title='Bug'
-gh api graphql -f query='{ viewer { login } }'
+gh api repos/cli/cli \
+  --jq '.stargazers_count'
+gh api repos/{owner}/{repo}/issues \
+  -f title='Bug'
+gh api graphql \
+  -f query='{ viewer { login } }'
 ```
 <!-- {: data-highlight="--jq '.stargazers_count'"} -->
 
@@ -426,18 +472,23 @@ See: [gh api](https://cli.github.com/manual/gh_api)
 ### JSON output
 
 ```bash
-gh pr list --json number,title,author
-gh pr list --json number,title --jq '.[].title'
+gh pr list --json \
+  number,title,author
+gh pr list --json number,title \
+  --jq '.[].title'
 gh pr list --json number \
-  --template '{{range .}}#{{.number}} {{end}}'
+  --template \
+  '{{range .}}#{{.number}} {{end}}'
 ```
-<!-- {: data-highlight="--jq '.[].title'"} -->
+<!-- {: data-highlight="--jq '.[].title'; --template"} -->
 
 `--jq` and `--template` need `--json`; omit the field list to see available fields.
 
 See: [gh help formatting](https://cli.github.com/manual/gh_help_formatting)
 
 ## Configuration
+
+<!-- {: .-three-column} -->
 
 ### Target another repo
 
@@ -448,7 +499,7 @@ gh release list -R cli/cli
 ```
 <!-- {: data-highlight="-R cli/cli"} -->
 
-`-R` takes `OWNER/REPO`; `GH_REPO` sets a default for repository commands.
+`-R` takes `OWNER/REPO` for one command.
 
 See: [gh manual](https://cli.github.com/manual/gh_help_reference)
 
@@ -456,8 +507,10 @@ See: [gh manual](https://cli.github.com/manual/gh_help_reference)
 
 ```bash
 gh alias set pv 'pr view'
-gh alias set bugs 'issue list --label bug'
-gh alias set --shell count 'gh pr list --json number | jq length'
+gh alias set bugs \
+  'issue list --label bug'
+gh alias set --shell count \
+  'gh pr list --json number | jq length'
 gh alias list
 ```
 <!-- {: data-highlight="gh alias set"} -->
@@ -486,7 +539,7 @@ gh config set editor nvim
 gh config set git_protocol ssh
 gh config list
 ```
-<!-- {: data-highlight="git_protocol ssh"} -->
+<!-- {: data-highlight="gh config set"} -->
 
 On Linux, settings live in `~/.config/gh/config.yml`.
 
@@ -495,12 +548,12 @@ See: [gh config](https://cli.github.com/manual/gh_config)
 ### Environment
 
 ```bash
-export GH_TOKEN=$(gh auth token)  # reuse the stored token
-export GH_REPO=cli/cli            # default repository
-export GH_HOST=github.com         # default hostname
+export GH_TOKEN=$(gh auth token)
+export GH_REPO=cli/cli
+export GH_HOST=github.com
 ```
 <!-- {: data-highlight="GH_TOKEN"} -->
 
-`GH_TOKEN` takes precedence over stored credentials; set it in CI to skip `gh auth login`.
+`GH_TOKEN` takes precedence over stored credentials; `GH_REPO` and `GH_HOST` set defaults.
 
 See: [gh help environment](https://cli.github.com/manual/gh_help_environment)

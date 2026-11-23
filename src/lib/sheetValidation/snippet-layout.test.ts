@@ -46,6 +46,23 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
     })
   }
 
+  const h2s = headings.filter((heading) => heading.level === 2)
+  if (h2s.length !== 1) {
+    found.push({
+      line: h2s[1]?.line ?? 1,
+      text: `snippet page needs exactly one H2 (found ${h2s.length})`
+    })
+  }
+
+  const firstH2 = h2s[0]
+  const firstH3 = headings.find((heading) => heading.level === 3)
+  if (firstH2 && firstH3 && firstH3.line < firstH2.line) {
+    found.push({
+      line: firstH3.line,
+      text: 'snippet H3 cards must come after the H2'
+    })
+  }
+
   for (const { heading, nodes } of h3Sections(processor.parse(source))) {
     if (!heading.position) continue
     const line = heading.position.start.line
@@ -171,6 +188,29 @@ describe('findSnippetLayoutIssues()', () => {
     const input = sheet().replace(`<!-- {: .${H3_CLASS}} -->`, '')
     expect(findSnippetLayoutIssues(input)).toEqual([
       { line: 4, text: 'H3 "Current branch" needs the .-snippet class' }
+    ])
+  })
+
+  test('flags a second H2', () => {
+    const input = `${sheet()}\n\n## Second\n<!-- {: .-snippets} -->`
+    expect(findSnippetLayoutIssues(input)).toEqual([
+      { line: 13, text: 'snippet page needs exactly one H2 (found 2)' }
+    ])
+  })
+
+  test('flags H3 cards before the H2', () => {
+    const early = [
+      `### Early`,
+      `<!-- {: .${H3_CLASS}} -->`,
+      '',
+      '```bash',
+      'x',
+      '```',
+      '',
+      '**Summary.** [docs](https://example.com).'
+    ].join('\n')
+    expect(findSnippetLayoutIssues(`${early}\n\n${sheet()}`)).toEqual([
+      { line: 1, text: 'snippet H3 cards must come after the H2' }
     ])
   })
 

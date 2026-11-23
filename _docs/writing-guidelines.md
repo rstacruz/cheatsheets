@@ -75,7 +75,9 @@ Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
 ## Snippet layout
 
-Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
+See [Snippets](snippets.md) for the format and rules.
+
+Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`. Each H3 holds one or more code blocks (with optional H4 labels) followed by one explanation paragraph that opens with a bold summary and includes the upstream documentation link.
 
 ```yaml
 ---
@@ -924,6 +926,12 @@ The first card holds the shortest working command. Variants, flags, and edge cas
 ### snippet/size-budget
 
 A snippet sheet holds roughly 3–6 H3 cards and stays under about 120 lines. Split the topic when it grows larger.
+
+### snippet/max-h3s
+
+🤖 Check: `snippet/max-h3s`.
+
+Keep a snippet to six H3 cards at most. Split a larger topic into another snippet or a full sheet.
 
 ### snippet/code-line-length
 

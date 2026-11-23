@@ -62,7 +62,7 @@ $ sort colors.txt | uniq -c | sort -rn
       2 blue
       1 green
 ```
-<!-- {: data-highlight="uniq -c; sort -rn"} -->
+<!-- {: data-highlight="uniq -c"} -->
 
 `sort` groups equal lines, `uniq -c` counts each run, and `sort -rn` orders by count, largest first.
 
@@ -103,7 +103,7 @@ blue
 green
 red
 ```
-<!-- {: data-highlight="sort -u"} -->
+<!-- {: data-highlight="-u"} -->
 
 `-u` sorts and removes duplicate lines in one pass.
 
@@ -158,7 +158,7 @@ bob,25,ops
 ann,30,dev
 cy,41,dev
 ```
-<!-- {: data-highlight="sort"} -->
+<!-- {: data-highlight="-k2,2n"} -->
 
 `-t,` splits on commas; `-k2,2n` sorts field two as a number.
 
@@ -172,7 +172,7 @@ ann,30,dev
 cy,41,dev
 bob,25,ops
 ```
-<!-- {: data-highlight="sort"} -->
+<!-- {: data-highlight="-k3,3"} -->
 
 `-k3,3` limits the key to field three; adding `r` reverses the order.
 
@@ -186,7 +186,7 @@ cy,41,dev
 ann,30,dev
 bob,25,ops
 ```
-<!-- {: data-highlight="sort; -k3,3; -k2,2nr"} -->
+<!-- {: data-highlight="-k3,3 -k2,2nr"} -->
 
 The first key groups by role; the second sorts each group by descending age.
 
@@ -262,7 +262,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 $ echo 'a-b-c' | tr -d '-'
 abc
 ```
-<!-- {: data-highlight="-d"} -->
+<!-- {: data-highlight="tr -d"} -->
 
 `-d` removes matching characters; use `tr -d '\r'` to strip carriage returns.
 
@@ -327,7 +327,7 @@ See: [tee invocation](https://www.gnu.org/software/coreutils/manual/html_node/te
 $ echo shared | tee a.txt b.txt
 shared
 ```
-<!-- {: data-highlight="tee; a.txt b.txt"} -->
+<!-- {: data-highlight="a.txt b.txt"} -->
 
 Several paths write the same stream to each file.
 

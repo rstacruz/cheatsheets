@@ -95,3 +95,10 @@ find . -newerBt "24 hours ago"
 find . -type f -mtime +29 # find files modified more than 30 days ago
 find . -type f -newermt 2016-08-07 \! -newermt 2016-08-08 # find in date range
 ```
+
+## Also see
+
+### fd vs find
+
+[fd vs find cheatsheet](./fd-vs-find)
+<!-- {: .-crosslink} -->

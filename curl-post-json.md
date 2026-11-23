@@ -22,7 +22,7 @@ curl -X POST https://api.example.com/items \
   -H 'Content-Type: application/json' \
   -d '{"name":"Ada"}'
 ```
-<!-- {: data-highlight="-H"} -->
+<!-- {: data-highlight="-d"} -->
 
 #### Output
 

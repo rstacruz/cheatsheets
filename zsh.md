@@ -860,6 +860,15 @@ zcalc -e '2**10'    # 1024
 
 See: [User contributions](https://zsh.sourceforge.io/Doc/Release/User-Contributions.html)
 
+### Text utilities
+
+Coreutils such as `sort`, `uniq`, `cut`, `tr` and `tee` work the same in zsh.
+
+[Shell text utilities cheatsheet](./text-utils)
+<!-- {: .-crosslink} -->
+
+See: [GNU coreutils manual](https://www.gnu.org/software/coreutils/manual/html_node/)
+
 ## Also see
 
 - [Bash cheatsheet](./bash)

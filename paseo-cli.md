@@ -285,7 +285,7 @@ paseo --host localhost:6767 host add \
 paseo --host localhost:6767 host ls --json
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
-<!-- {: data-highlight="--host"} -->
+<!-- {: data-highlight="host add; host ls"} -->
 
 `--host` also accepts pairing offers; relay connections are end-to-end encrypted and SSH hosts must already run a daemon.
 

@@ -309,7 +309,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Tint the subject the card names: when the card is about a command, highlight the command name rather than a setup option; when it is about a behaviour, highlight the flag or value that implements it. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python
@@ -349,6 +349,16 @@ select.select_by_index(2)
 ```
 <!-- {: data-highlight="select_by_value; select_by_visible_text; select_by_index"} -->
 ````
+
+### code/vary-highlights
+
+🤖 Check: `code/vary-highlights`.
+
+Don't repeat the same highlight token across code blocks in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
+
+**Good:** the "Sort lines" card tints `sort`; the field cards tint `-k2,2n` and `-k3,3`.
+
+**Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
 
 ### code/data-highlight-in-block
 

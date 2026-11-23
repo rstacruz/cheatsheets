@@ -47,7 +47,6 @@
     font-size: 1em;
   }
 
-
   /* Inline highlight: `data-highlight` in a fenced block */
   & .inline-highlight {
     background: rgb(20 175 131 / 14%);
@@ -66,7 +65,6 @@
     border-start-end-radius: 3px;
     border-end-end-radius: 3px;
   }
-
 }
 
 .MarkdownBody pre.-setup,

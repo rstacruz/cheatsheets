@@ -34,46 +34,6 @@ links:
     url: https://git-scm.com/docs/gitglossary
 ---
 
-## Start a repository
-<!-- {: .-three-column} -->
-
-### Configure identity
-
-```sh
-git config --global user.name "Ada"
-git config --global user.email me@x.io
-git config --global core.editor vim
-git config --list
-```
-
-Commits record this name and email; `core.editor` selects the message editor.
-
-See: [git config](https://git-scm.com/docs/git-config)
-
-### Create a repository
-
-```sh
-git init -b main
-git clone git@github.com:me/app.git
-git clone --depth 1 <url>
-```
-
-`clone` copies a repository; `init` starts an empty one.
-
-See: [git init](https://git-scm.com/docs/git-init), [git clone](https://git-scm.com/docs/git-clone)
-
-### Ignore files
-
-```gitignore
-node_modules/
-*.log
-!keep.log
-```
-
-`!` re-includes a path that an earlier pattern excluded.
-
-See: [gitignore](https://git-scm.com/docs/gitignore)
-
 ## Everyday changes
 <!-- {: .-three-column} -->
 
@@ -127,7 +87,7 @@ git push
 git push -u origin feature
 ```
 
-`--rebase` replays local commits on top; `-u` records the upstream branch.
+`--rebase` replays local commits on top of the pulled branch; `-u` records the upstream branch.
 
 See: [git pull](https://git-scm.com/docs/git-pull), [git push](https://git-scm.com/docs/git-push)
 
@@ -184,6 +144,7 @@ git push origin --delete feature
 <!-- {: .-crosslink} -->
 
 ## Conflicts
+<!-- {: .-three-column} -->
 
 ### Resolve a conflict
 
@@ -193,7 +154,7 @@ git add story.txt
 git commit
 ```
 
-`UU` means both sides modified; `AA`, `DU`, and `UD` are unmerged too. For a merge, edit, stage, and commit; during a rebase or cherry-pick, continue the operation instead.
+`UU` means both sides modified; other unmerged paths show `AA`, `DU`, `UD`, `AU`, `UA`, or `DD`. For a merge, edit, stage, and commit; during a rebase or cherry-pick, continue instead.
 
 See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
 
@@ -201,9 +162,9 @@ See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resol
 
 | Marker | Meaning |
 | --- | --- |
-| `<<<<<<< HEAD` | Start of your version |
+| `<<<<<<< HEAD` | Start of the `HEAD` side |
 | `=======` | Divider |
-| `>>>>>>> feature` | End of the incoming version |
+| `>>>>>>> feature` | End of the other side |
 <!-- {: .-headers} -->
 
 Markers bracket the two sides; edit the file to keep one or both.
@@ -266,14 +227,40 @@ See: [git revert](https://git-scm.com/docs/git-revert)
 
 ```sh
 git reflog
-git reset --hard HEAD@{1}
 git reset --hard ORIG_HEAD
 git restore --source=ORIG_HEAD file.txt
 ```
 
-`HEAD@{1}` reverses the last reset or commit; `ORIG_HEAD` reverses the last rebase or merge.
+`ORIG_HEAD` is the tip before the last rebase, merge, or reset. For other moves, pick a reflog entry: `git reset --hard HEAD@{n}`.
 
 See: [git reflog](https://git-scm.com/docs/git-reflog)
+
+## Stash
+
+### Save work
+
+```sh
+git stash
+git stash push -m "wip"
+git stash -u
+```
+
+`-u` includes untracked files; `-m` labels the entry.
+
+See: [git stash](https://git-scm.com/docs/git-stash)
+
+### Restore work
+
+```sh
+git stash list
+git stash pop
+git stash apply stash@{1}
+git stash drop
+```
+
+`pop` applies and deletes; `apply` keeps the entry.
+
+See: [git stash](https://git-scm.com/docs/git-stash)
 
 ## History
 <!-- {: .-three-column} -->
@@ -355,33 +342,6 @@ Tig opens the log, status, or blame in a terminal UI.
 
 [Tig cheatsheet](./tig)
 <!-- {: .-crosslink} -->
-
-## Stash
-
-### Save work
-
-```sh
-git stash
-git stash push -m "wip"
-git stash -u
-```
-
-`-u` includes untracked files; `-m` labels the entry.
-
-See: [git stash](https://git-scm.com/docs/git-stash)
-
-### Restore work
-
-```sh
-git stash list
-git stash pop
-git stash apply stash@{1}
-git stash drop
-```
-
-`pop` applies and deletes; `apply` keeps the entry.
-
-See: [git stash](https://git-scm.com/docs/git-stash)
 
 ## Rewrite history
 <!-- {: .-three-column} -->
@@ -467,6 +427,46 @@ git push origin --delete v1.0.0
 `-a` creates an annotated tag; tags are not pushed by default, and `-d` deletes only the local tag.
 
 See: [git tag](https://git-scm.com/docs/git-tag)
+
+## Start a repository
+<!-- {: .-three-column} -->
+
+### Configure identity
+
+```sh
+git config --global user.name "Ada"
+git config --global user.email me@x.io
+git config --global core.editor vim
+git config --list
+```
+
+Commits record this name and email; `core.editor` selects the message editor.
+
+See: [git config](https://git-scm.com/docs/git-config)
+
+### Create a repository
+
+```sh
+git init -b main
+git clone git@github.com:me/app.git
+git clone --depth 1 <url>
+```
+
+`clone` copies a repository; `init` starts an empty one.
+
+See: [git init](https://git-scm.com/docs/git-init), [git clone](https://git-scm.com/docs/git-clone)
+
+### Ignore files
+
+```gitignore
+node_modules/
+*.log
+!keep.log
+```
+
+`!` re-includes a path that an earlier pattern excluded.
+
+See: [gitignore](https://git-scm.com/docs/gitignore)
 
 ## Workflows and tools
 <!-- {: .-three-column} -->

@@ -77,6 +77,7 @@ See: [Newman CLI docs](https://learning.postman.com/docs/reference/newman-cli/co
 $ newman run collection.json -e env.json \
     --folder Health --reporter-cli-no-summary
 ```
+<!-- {: data-highlight="--folder Health"} -->
 
 #### Output
 
@@ -104,6 +105,7 @@ $ newman run collection.json \
     --env-var userId=2 \
     --reporter-cli-no-summary
 ```
+<!-- {: data-highlight="--env-var baseUrl=http://127.0.0.1:3210; --env-var userId=2"} -->
 
 #### Output
 
@@ -131,6 +133,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 ```bash
 $ newman run collection.json -g globals.json -e env.json
 ```
+<!-- {: data-highlight="-g globals.json"} -->
 
 Globals have lower precedence than environment variables. Use `--global-var key=value` to set one inline.
 
@@ -146,6 +149,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 $ newman run collection.json -e env.json \
     --folder 'Get user' -n 2 --reporter-cli-no-summary
 ```
+<!-- {: data-highlight="-n 2"} -->
 
 #### Output
 
@@ -183,6 +187,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
   { "userId": "2" }
 ]
 ```
+<!-- {: data-highlight="userId"} -->
 
 #### Command
 
@@ -190,6 +195,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 $ newman run collection.json -e env.json \
     --folder 'Get user' -d data.json --reporter-cli-no-summary
 ```
+<!-- {: data-highlight="-d data.json"} -->
 
 #### Output
 
@@ -222,6 +228,7 @@ See: [Data files](https://learning.postman.com/docs/postman/collection-runs/work
 ```bash
 $ newman run collection.json -e env.json -d data.csv
 ```
+<!-- {: data-highlight="-d data.csv"} -->
 
 CSV headers become variable names, so each row can supply `{{userId}}` and more.
 
@@ -234,6 +241,7 @@ See: [Data files](https://learning.postman.com/docs/postman/collection-runs/work
 ```bash
 $ newman run collection.json -e env.json -r cli,json,junit
 ```
+<!-- {: data-highlight="-r cli,json,junit"} -->
 
 Built-in reporters are `cli`, `json`, `junit`, `progress`, and `emojitrain`. Explicit `-r` disables the CLI reporter unless `cli` is included.
 
@@ -246,6 +254,7 @@ $ newman run collection.json -e env.json \
     -r cli,json \
     --reporter-json-export run.json
 ```
+<!-- {: data-highlight="--reporter-json-export run.json"} -->
 
 Without a path, Newman writes the report into `newman/` in the working directory.
 
@@ -257,6 +266,7 @@ See: [JSON reporter](https://github.com/postmanlabs/newman#json-reporter)
 $ newman run collection.json -e env.json \
     -r junit --reporter-junit-export run.xml
 ```
+<!-- {: data-highlight="--reporter-junit-export run.xml"} -->
 
 The XML groups assertions by name into one `testcase` per named test in each request, ready for a CI dashboard.
 
@@ -269,6 +279,7 @@ $ newman run collection.json -e env.json \
     --reporter-cli-show-timestamps \
     --reporter-cli-no-assertions
 ```
+<!-- {: data-highlight="--reporter-cli-show-timestamps; --reporter-cli-no-assertions"} -->
 
 Other switches include `--reporter-cli-no-summary`, `--reporter-cli-no-console`, and `--reporter-cli-no-banner`.
 
@@ -280,6 +291,7 @@ See: [CLI reporter](https://github.com/postmanlabs/newman#cli-reporter)
 $ newman run collection.json -e env.json \
     --export-environment final-env.json
 ```
+<!-- {: data-highlight="--export-environment final-env.json"} -->
 
 Also available: `--export-globals`, `--export-collection`, and `--export-cookie-jar`.
 
@@ -292,6 +304,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 ```bash
 $ newman run collection.json -e env.json --bail failure
 ```
+<!-- {: data-highlight="--bail failure"} -->
 
 Failed assertions exit 1; `--bail failure` stops after the current test script. `--bail folder` aborts the run when a folder is invalid.
 
@@ -302,6 +315,7 @@ See: [Newman in CI](https://learning.postman.com/docs/reference/newman-cli/comma
 ```bash
 $ newman run collection.json -e env.json -x
 ```
+<!-- {: data-highlight="-x"} -->
 
 `-x` (`--suppress-exit-code`) exits 0 even when tests fail.
 
@@ -312,6 +326,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 ```bash
 $ newman run collection.json -e env.json --silent
 ```
+<!-- {: data-highlight="--silent"} -->
 
 `--silent` hides all output; `--color off` removes ANSI colors.
 
@@ -324,6 +339,7 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 ```bash
 $ newman run collection.json -e env.json -k
 ```
+<!-- {: data-highlight="-k"} -->
 
 `-k` skips certificate validation. Client certificates use `--ssl-client-cert` and `--ssl-client-key`.
 
@@ -336,6 +352,7 @@ $ newman run collection.json -e env.json \
     --timeout-request 5000 \
     --delay-request 100
 ```
+<!-- {: data-highlight="--timeout-request 5000; --delay-request 100"} -->
 
 Durations are milliseconds. `--timeout` caps the whole run and `--timeout-script` caps scripts.
 
@@ -360,6 +377,7 @@ newman.run(
   }
 )
 ```
+<!-- {: data-highlight="newman.run"} -->
 
 The callback receives a run summary with stats, assertions, and failures.
 
@@ -371,6 +389,7 @@ See: [Node library](https://github.com/postmanlabs/newman#using-newman-as-a-libr
 $ docker run --rm -v "$PWD:/etc/newman" \
     -t postman/newman run collection.json -e env.json
 ```
+<!-- {: data-highlight="postman/newman"} -->
 
 Mount the folder holding the collection and environment at `/etc/newman`.
 
@@ -382,6 +401,7 @@ See: [Docker image](https://hub.docker.com/r/postman/newman/)
 $ newman run "https://api.getpostman.com/collections/$UID" \
     --postman-api-key "$POSTMAN_API_KEY"
 ```
+<!-- {: data-highlight="--postman-api-key"} -->
 
 Fetch collection and environment URLs from the Postman API; Newman accepts either as a source.
 

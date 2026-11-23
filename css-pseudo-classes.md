@@ -70,7 +70,7 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":user-invalid"} -->
 
-**Styles invalid fields after interaction.** `:user-invalid` waits until the user edits or submits the form, so empty required fields stay untouched; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
+**Styles invalid fields after interaction.** `:user-invalid` matches only after the user edits or submits the form, so untouched fields are not marked invalid on load; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
 
 ### Parent from children
 <!-- {: .-snippet} -->
@@ -82,7 +82,7 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":has(img)"} -->
 
-**Styles a parent from its children.** `:has()` matches when the element contains a matching descendant; see [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
+**Styles a parent from its children.** `:has()` takes a relative selector, so `:has(img)` matches an element containing an image; see [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
 
 ### Group selectors
 <!-- {: .-snippet} -->

@@ -48,7 +48,8 @@ body {
 ```css
 code, pre {
   font-family: ui-monospace, SFMono-Regular,
-    Menlo, Consolas, monospace;
+    Menlo, Consolas, "Liberation Mono",
+    monospace;
 }
 ```
 <!-- {: data-highlight="ui-monospace"} -->

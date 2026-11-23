@@ -6,15 +6,17 @@ export type IntroOptions = {
   links?: SheetLink[]
   /** Put the card after the last section instead of before the first */
   atEnd?: boolean
+  /** Render only the links, under this title */
+  linksTitle?: string
 }
 
-/** Renders the Introduction card as the first card in the first section list */
+/** Renders the generated Introduction or Related links card */
 export async function insertIntroCard(
   html: string,
-  { intro, links, atEnd }: IntroOptions
+  { intro, links, atEnd, linksTitle }: IntroOptions
 ): Promise<string> {
   const parts: string[] = []
-  if (intro?.trim()) {
+  if (!linksTitle && intro?.trim()) {
     parts.push((await renderMarkdown(intro.trim())).html)
   }
   if (links?.length) {
@@ -23,10 +25,17 @@ export async function insertIntroCard(
   }
   if (!parts.length) return html
 
-  const id = uniqueId(html, 'introduction')
+  const title = linksTitle ?? 'Introduction'
+  const id = uniqueId(
+    html,
+    title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+  )
   const card =
     `<section class="h3-section -intro">` +
-    `<h3 class="-intro" id="${id}">Introduction</h3>` +
+    `<h3 class="-intro" id="${id}">${title}</h3>` +
     `<div class="body -intro">${parts.join('')}</div>` +
     `</section>`
 

@@ -5,8 +5,6 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 updated: 2026-11-23
-intro: |
-  Rename a branch locally with `git branch -m`, then publish the new name and delete the old remote ref.
 links:
   - title: git-branch manual
     url: https://git-scm.com/docs/git-branch

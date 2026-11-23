@@ -32,7 +32,8 @@ const editUrl = getEditLink(page)
 const mkdn = await render(page.markdown, {
   intro: page.frontmatter.intro,
   links: page.frontmatter.links,
-  atEnd: snippetLayout
+  atEnd: snippetLayout,
+  linksTitle: snippetLayout ? 'Related links' : undefined
 })
 const seoProps = getSEOPropsForPage(page)
 const jsonLdSchemas = getJSONLDsForPage(page)

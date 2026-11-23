@@ -108,6 +108,29 @@ describe('intro card', () => {
     )
   })
 
+  it('renders only related links when linksTitle is set', async () => {
+    const { html } = await render('### One\nx', {
+      intro: 'Hidden intro',
+      links: [{ title: 'Docs', url: './docs' }],
+      atEnd: true,
+      linksTitle: 'Related links'
+    })
+    expect(html).not.toContain('Hidden intro')
+    expect(html).toContain(
+      '<h3 class="-intro" id="related-links">Related links</h3>'
+    )
+    expect(html).toContain('<a href="./docs">Docs</a>')
+  })
+
+  it('renders no links card without links', async () => {
+    const { html } = await render('### One\nx', {
+      intro: 'Hidden intro',
+      linksTitle: 'Related links'
+    })
+    expect(html).not.toContain('Hidden intro')
+    expect(html).not.toContain('Related links')
+  })
+
   it('inserts the card in the first section list', async () => {
     const { html } = await render('### One\nx', {
       intro: 'Hello **world**',

@@ -74,12 +74,15 @@ Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
 ## Snippet layout
 
-Set `layout: snippet` for a microsheet built from one-command cards. The H1 omits "cheatsheet". Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
+Set `layout: snippet` for a microsheet built from one-command cards. The H1 omits "cheatsheet". The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
 
 ```yaml
 ---
 title: Git rename branch
 layout: snippet
+links:
+  - title: git-branch manual
+    url: https://git-scm.com/docs/git-branch
 ---
 ```
 

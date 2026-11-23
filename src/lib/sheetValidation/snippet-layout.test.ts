@@ -57,24 +57,29 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
     const content = nodes.filter(
       (node) => !(node.type === 'html' && node.value.trim().startsWith('<!--'))
     )
-    const first = content[0]
+    const [code, explanation] = content
 
-    if (first?.type !== 'code') {
+    if (code?.type !== 'code' || explanation?.type !== 'paragraph') {
       found.push({
         line,
-        text: `H3 "${title}" must start with a code block`
+        text: `H3 "${title}" must hold one code block followed by one explanation paragraph`
       })
+      continue
     }
 
-    const explanation = content.find((node) => {
-      if (node.type !== 'paragraph') return false
-      let linked = false
-      visit(node, 'link', () => {
-        linked = true
+    if (content.length !== 2) {
+      found.push({
+        line,
+        text: `H3 "${title}" must hold only the code block and the explanation paragraph`
       })
-      return linked
+      continue
+    }
+
+    let linked = false
+    visit(explanation, 'link', () => {
+      linked = true
     })
-    if (!explanation) {
+    if (!linked) {
       found.push({
         line,
         text: `H3 "${title}" needs an explanation paragraph with a link`
@@ -130,7 +135,20 @@ describe('findSnippetLayoutIssues()', () => {
       'See the [git-branch manual](https://git-scm.com/docs/git-branch).'
     )
     expect(findSnippetLayoutIssues(input)).toEqual([
-      { line: 4, text: 'H3 "Current branch" must start with a code block' }
+      {
+        line: 4,
+        text: 'H3 "Current branch" must hold one code block followed by one explanation paragraph'
+      }
+    ])
+  })
+
+  test('flags extra content after the explanation', () => {
+    const input = `${sheet()}\n\nAnother paragraph.`
+    expect(findSnippetLayoutIssues(input)).toEqual([
+      {
+        line: 4,
+        text: 'H3 "Current branch" must hold only the code block and the explanation paragraph'
+      }
     ])
   })
 

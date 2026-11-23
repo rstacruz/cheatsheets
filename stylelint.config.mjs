@@ -45,7 +45,9 @@ export default {
         '/^(?!(var\\(--tracking-)|0$|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
       ],
       '/^(border-radius|border-(top|bottom|left|right)-(left|right)-radius|border-(start|end)-(start|end)-radius)$/':
-        ['/[0-9.]+(px|rem|em|%)/']
+        [
+          '/[0-9.]+(px|rem|em|ex|ch|cap|ic|lh|rlh|pt|pc|cm|mm|in|q|vw|vh|vi|vb|vmin|vmax|svw|svh|svi|svb|svmin|svmax|lvw|lvh|lvi|lvb|lvmin|lvmax|dvw|dvh|dvi|dvb|dvmin|dvmax|cqw|cqh|cqi|cqb|cqmin|cqmax|%)/i'
+        ]
     },
     'at-rule-no-unknown': [
       true,

@@ -9,7 +9,7 @@ rules is [ADR 002](adrs/adr-002-design-tokens-and-tailwind.md).
 | --- | --- | --- |
 | Primitives (`--color-mildindigo-600`) | `src/styles/tailwind.css` | Token files only |
 | Semantic roles (`--background`, `--primary`, `--muted-foreground`) | `src/styles/tokens.css` | Component and Markdown CSS |
-| Type scale (`--text-base`, `--text-base--line-height`) | `src/styles/font-scale.css` | `font-size`/`line-height` and `text-*` utilities |
+| Type scale (`--text-base`, `--text-base--line-height`) | `src/styles/font-scale.css` | `font-size` and `text-*` utilities |
 | Tailwind colour aliases (`--color-primary`) | `src/styles/tailwind.css` | Utilities and `@apply` |
 
 Components ask for the role, never the ramp step: `var(--primary)`, not

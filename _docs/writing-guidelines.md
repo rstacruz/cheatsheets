@@ -306,6 +306,30 @@ flowchart LR
 
 Every `data-highlight` token must illustrate the card's main message. Tint the flag or value that carries the point; leave secondary options and edge cases to the prose.
 
+**Anchor on the keyword the card is named after.** Start with the clause or command that gives the card its title: `WHERE` on "Filter rows", `ORDER BY` and `LIMIT` on "Sort and limit", `CREATE TABLE` on "Create table". A narrower option such as `DISTINCT`, `OFFSET`, or `PRIMARY KEY` is a bad default; tint it only when that option is the card's subject.
+
+**Good:** the card is about creating a table, so the command is tinted.
+
+````md
+### Create table
+
+```sql
+CREATE TABLE accounts (id INTEGER PRIMARY KEY);
+```
+<!-- {: data-highlight="CREATE TABLE"} -->
+````
+
+**Bad:** the card is about creating a table, but the tint lands on a constraint detail.
+
+````md
+### Create table
+
+```sql
+CREATE TABLE accounts (id INTEGER PRIMARY KEY);
+```
+<!-- {: data-highlight="PRIMARY KEY"} -->
+````
+
 **Good:** the card is about printing a range, so the range flag is tinted.
 
 ````md

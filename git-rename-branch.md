@@ -2,7 +2,7 @@
 title: Git rename branch
 subtitle: Rename local and remote branches
 category: Git
-tier: snippet
+layout: snippet
 last_verified_with: "git 2.56.0."
 updated: 2026-11-23
 intro: |

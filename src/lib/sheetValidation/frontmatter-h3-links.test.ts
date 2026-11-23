@@ -338,9 +338,7 @@ test('every tiered sheet gives each H3 a link or See', async () => {
   const tiered = pages.filter(
     (page) =>
       !page.slug.includes('/') &&
-      (page.frontmatter.tier === 't1' ||
-        page.frontmatter.tier === 't2' ||
-        page.frontmatter.tier === 'snippet')
+      (page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2')
   )
   expect(tiered.length).toBeGreaterThan(0)
   expect(

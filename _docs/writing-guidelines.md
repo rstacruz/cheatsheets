@@ -16,8 +16,9 @@ updated: 2024-01-01
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
-- **Last verified with:** required for t1, t2, and snippet sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
-- **Tier:** `t1` for sheets that move often, `t2` for slower ones, `snippet` for microsheets; see [review tiers](tiers.md). Omit it for best-effort sheets.
+- **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
+- **Tier:** `t1` for sheets that move often, `t2` for slower ones; see [review tiers](tiers.md). Omit it for best-effort sheets.
+- **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
 
 ```yaml
 last_verified_with: "Conventional Commits 1.0.0, curl 8.23.0."
@@ -71,6 +72,33 @@ A category is a nav group. Its order in `src/config.ts` is the nav order; `Other
 
 Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
+## Snippet layout
+
+Set `layout: snippet` for a microsheet built from one-command cards. The H1 omits "cheatsheet". Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
+
+```yaml
+---
+title: Git rename branch
+layout: snippet
+---
+```
+
+````md
+## Renaming
+<!-- {: .-snippets} -->
+
+### Current branch
+<!-- {: .-snippet} -->
+
+```bash
+git branch -m new-name
+```
+
+Renames the checked-out branch; see the [git-branch manual](https://git-scm.com/docs/git-branch).
+````
+
+`pnpm test` checks the layout marker, the classes, the code-first body, and the explanation link. Review snippet layouts on the T2 cadence.
+
 ## Content organisation
 
 - **Progressive complexity:** Start with basics, move to advanced
@@ -100,7 +128,7 @@ H3 content length:
 - Documentation is in the format of Markdown with attribute comments (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
   - `<!-- {: .-prime} -->` - Visually highlighted section. Only use once per document at most.
-  - `<!-- {: .-snippet} -->` - Snippet card; pair with `.-snippets` on its H2. See [review tiers](tiers.md#snippet-sheets).
+  - `<!-- {: .-snippet} -->` - Snippet card; pair with `.-snippets` on its H2. See [snippet layout](#snippet-layout).
 - PRE elements can have:
   - `<!-- {: .-setup} -->` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:

@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
+import { SheetFrontmatterSchema } from '~/types/SheetFrontmatter'
 import { getPages } from '../page'
 import { isSheetSlug } from './baseline'
 import { scanHeadings } from './outline'
@@ -90,6 +91,13 @@ export function findSnippetLayoutIssues(source: string): Finding[] {
   return found
 }
 
+test('the schema accepts layout: snippet', () => {
+  expect(SheetFrontmatterSchema.parse({ layout: 'snippet' }).layout).toBe(
+    'snippet'
+  )
+  expect(() => SheetFrontmatterSchema.parse({ tier: 'snippet' })).toThrow()
+})
+
 describe('findSnippetLayoutIssues()', () => {
   const card = (title = 'Current branch') =>
     [
@@ -169,7 +177,8 @@ describe('findSnippetLayoutIssues()', () => {
 test('every snippet sheet uses the snippet layout', async () => {
   const findings: string[] = []
   for (const page of Object.values(await getPages())) {
-    if (!isSheetSlug(page.slug) || page.frontmatter.tier !== 'snippet') continue
+    if (!isSheetSlug(page.slug) || page.frontmatter.layout !== 'snippet')
+      continue
     for (const { line, text } of findSnippetLayoutIssues(page.markdown)) {
       findings.push(`${page.slug}:${line}: ${text}`)
     }

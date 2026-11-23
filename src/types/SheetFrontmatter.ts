@@ -55,13 +55,19 @@ export const SheetFrontmatterSchema = z
       })
       .optional()
       .describe(
-        'Versions the examples target (max 160 chars). Required for t1, t2, and snippet sheets.'
+        'Versions the examples target (max 160 chars). Required for t1 and t2 sheets.'
       ),
     tier: z
-      .enum(['t1', 't2', 'snippet'])
+      .enum(['t1', 't2'])
       .optional()
       .describe(
-        'Review tier: t1 sheets move often; snippet sheets use the two-column snippet layout; see `_docs/tiers.md`. Not rendered.'
+        'Review tier: t1 sheets move often; see `_docs/tiers.md`. Not rendered.'
+      ),
+    layout: z
+      .enum(['snippet'])
+      .optional()
+      .describe(
+        'Page layout: `snippet` uses the two-column snippet cards and omits "cheatsheet" from the H1.'
       ),
     fragments: z
       .array(z.string().trim().min(1).max(16))
@@ -132,10 +138,8 @@ export const SheetFrontmatterSchema = z
     path: ['links']
   })
   .superRefine((value, ctx) => {
-    const cadenceTier = value.tier === 't1' || value.tier === 't2'
-    if (!cadenceTier && value.tier !== 'snippet') return
-
-    if (cadenceTier && !value.fragments) {
+    if (value.tier !== 't1' && value.tier !== 't2') return
+    if (!value.fragments) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['fragments'],
@@ -148,7 +152,7 @@ export const SheetFrontmatterSchema = z
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       path: ['last_verified_with'],
-      message: '`last_verified_with` is required for t1, t2, and snippet sheets'
+      message: '`last_verified_with` is required for t1 and t2 sheets'
     })
   })
 

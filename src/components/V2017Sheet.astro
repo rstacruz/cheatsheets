@@ -37,6 +37,7 @@ const tags = page.frontmatter.tags ?? []
 const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
 const title: string = page.frontmatter.title ?? page.slug
+const snippetLayout = page.frontmatter.layout === 'snippet'
 const editUrl = getEditLink(page)
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
@@ -80,7 +81,9 @@ const headingStyles = {
     <header class={headingStyles.root} role="banner">
       <h1 class={headingStyles.h1}>
         <span class={headingStyles.title}>{title}</span>
-        <span class={headingStyles.suffix}> cheatsheet</span>
+        {snippetLayout ? null : (
+          <span class={headingStyles.suffix}> cheatsheet</span>
+        )}
       </h1>
 
       {/* Publicite */}

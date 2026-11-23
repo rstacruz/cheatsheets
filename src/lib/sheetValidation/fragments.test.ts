@@ -22,12 +22,6 @@ test('the schema allows untiered sheets to omit fragments', () => {
   expect(SheetFrontmatterSchema.parse({}).fragments).toBeUndefined()
 })
 
-test('the schema allows snippet sheets to omit fragments', () => {
-  expect(
-    SheetFrontmatterSchema.parse({ ...VERIFIED, tier: 'snippet' }).fragments
-  ).toBeUndefined()
-})
-
 test('the schema accepts 12 to 20 fragments', () => {
   expect(
     SheetFrontmatterSchema.parse({ ...VERIFIED, tier: 't1', fragments: twelve })

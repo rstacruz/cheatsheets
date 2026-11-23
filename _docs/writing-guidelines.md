@@ -907,6 +907,24 @@ See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 See: `:help motion.txt`
 ````
 
+### snippet/title-is-a-query
+
+`title` is what a reader would type: "How to undo a Git commit". Put the short homepage label in `link_title` (2–5 words): "Undo a Git commit".
+
+```yaml
+title: How to undo a Git commit
+link_title: Undo a Git commit
+layout: snippet
+```
+
+### snippet/lead-with-answer
+
+The first card holds the shortest working command. Variants, flags, and edge cases come after. A reader should be able to copy the first block and finish the common task.
+
+### snippet/size-budget
+
+A snippet sheet holds roughly 3–6 H3 cards and stays under about 120 lines. Split the topic when it grows larger.
+
 ## Checks
 
 Sheet checks live in `src/lib/sheetValidation/`. Run them with:

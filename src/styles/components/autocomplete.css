@@ -1,32 +1,37 @@
-@layer components {
-  /* Overrides for npm:autocompleter */
+/*
+ * Overrides for npm:autocompleter.
+ *
+ * Deliberately unlayered: `autocompleter/autocomplete.css` is imported from JS
+ * in SearchForm.astro, so it cannot carry `layer()`, and unlayered rules beat
+ * every layer. Layer this file and the vendor's border, padding, and hover
+ * colours win instead. Revisit if the vendor sheet is ever layered.
+ */
 
-  .autocomplete {
-    border: none;
-    padding: 0.5rem;
-    padding-top: 0;
-    border-bottom-left-radius: var(--radius-sm);
-    border-bottom-right-radius: var(--radius-sm);
-    box-shadow: var(--shadow-md);
-    transform: translate(-8px, -2px);
-  }
+.autocomplete {
+  border: none;
+  padding: 0.5rem;
+  padding-top: 0;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  transform: translate(-8px, -2px);
+}
 
-  .autocomplete > div {
-    padding: 0.5rem;
-    border-radius: var(--radius-sm);
-  }
+.autocomplete > div {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+}
 
-  .autocomplete > div:hover:not(.group) {
-    background: var(--background);
-  }
+.autocomplete > div:hover:not(.group) {
+  background: var(--background);
+}
 
-  .autocomplete > div + div:not(.selected) {
-    box-shadow: inset 0 1px var(--border);
-  }
+.autocomplete > div + div:not(.selected) {
+  box-shadow: inset 0 1px var(--border);
+}
 
-  .autocomplete > div.selected,
-  .autocomplete > div.selected:hover {
-    background: var(--highlight);
-    color: var(--primary-foreground);
-  }
+.autocomplete > div.selected,
+.autocomplete > div.selected:hover {
+  background: var(--highlight);
+  color: var(--primary-foreground);
 }

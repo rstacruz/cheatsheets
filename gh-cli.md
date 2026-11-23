@@ -429,7 +429,7 @@ gh issue comment 123 \
 ```bash
 gh issue view 123 --web
 ```
-<!-- {: data-highlight="--web"} -->
+<!-- {: data-highlight="gh issue view 123 --web"} -->
 
 `--comments` (`-c`) includes the comment thread; `--web` opens the issue.
 
@@ -437,7 +437,7 @@ See: [gh issue view](https://cli.github.com/manual/gh_issue_view)
 
 ### Close
 
-#### Close
+#### Default
 
 ```bash
 gh issue close 123
@@ -477,7 +477,7 @@ gh run list
 ```
 <!-- {: data-highlight="gh run list"} -->
 
-#### By workflow
+#### Failures by workflow
 
 ```bash
 gh run list \
@@ -662,7 +662,7 @@ gh release view v1.2.0
 ```bash
 gh release view --web
 ```
-<!-- {: data-highlight="gh release view --web"} -->
+<!-- {: data-highlight="--web"} -->
 
 See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
@@ -687,7 +687,7 @@ gh search repos \
 gh search repos --owner cli \
   --topic gh-extension
 ```
-<!-- {: data-highlight="--owner cli"} -->
+<!-- {: data-highlight="--owner cli; --topic gh-extension"} -->
 
 #### By stars
 
@@ -720,7 +720,7 @@ gh search prs \
 ```
 <!-- {: data-highlight="--review-requested=@me"} -->
 
-#### Drafts
+#### Your drafts
 
 ```bash
 gh search prs --draft \

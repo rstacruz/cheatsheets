@@ -61,10 +61,12 @@ pnpm lint:css:check   # report violations; runs in pnpm run ci
 pnpm lint:css         # fix what can be fixed automatically
 ```
 
-Rule of thumb: raw values fail. Hex colours, `rgb()`, `hsl()`, named colours,
-unknown custom properties, and a token from the wrong family (a `--radius-*` in
-`color`) are CI errors. Only the token files (`tokens.css`, `tailwind.css`, and
-`font-scale.css`) hold raw values; `icons.generated.css` is ignored.
+Rule of thumb: colour literals fail lint. Hex colours, `rgb()`, `hsl()`, named
+colours, unknown custom properties, and a token from the wrong family (a
+`--radius-*` in `color`) are CI errors. Raw values belong in the token files
+(`tokens.css`, `tailwind.css`, and `font-scale.css`); `icons.generated.css` is
+ignored. Raw lengths elsewhere pass lint until the touch-it, rename-it rule
+migrates them.
 
 Shorthand declarations can trip the allowed-list. Tune
 `declaration-property-custom-property-allowed-list` for that property family;

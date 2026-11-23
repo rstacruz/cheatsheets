@@ -64,7 +64,7 @@ The full mapping lives in the implementation plan.
 
 ### 4. Type scale: Tailwind's `--text-*` namespace
 
-The six fluid steps move into `@theme static` as `clamp()` expressions that reproduce the current values, including the two-slope steps via `min()`.
+The five surviving fluid steps move into `@theme static` as `clamp()` expressions that reproduce the current values; the two-slope `--fs-6` step uses `min()`.
 
 | Current | New | Value |
 | --- | --- | --- |

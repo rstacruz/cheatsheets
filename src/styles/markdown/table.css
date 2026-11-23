@@ -110,8 +110,8 @@
   }
 
   /*
- * Key-value pairs (like in css)
- */
+   * Key-value pairs (like in css)
+   */
 
   .MarkdownBody table.-key-values {
     & tbody tr td + td code {

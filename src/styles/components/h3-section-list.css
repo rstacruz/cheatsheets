@@ -2,9 +2,9 @@
 
 @layer components {
   /*
- * H3 section list:
- * The body that is isotoped.
- */
+   * H3 section list:
+   * The body that is isotoped.
+   */
 
   .h3-section-list {
     @apply px-0 gap-6 lg:gap-8 my-0;
@@ -16,8 +16,8 @@
   }
 
   /*
- * Two column (default)
- */
+   * Two column (default)
+   */
 
   .h3-section-list,
   .h3-section-list.-two-column {
@@ -27,8 +27,8 @@
   }
 
   /*
- * One column
- */
+   * One column
+   */
 
   .h3-section-list.-one-column {
     @media (min-width: 769px) {
@@ -41,8 +41,8 @@
   }
 
   /*
- * Three column
- */
+   * Three column
+   */
 
   .h3-section-list.-three-column {
     @media (min-width: 769px) {

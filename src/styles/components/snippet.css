@@ -2,10 +2,10 @@
   /*
    * Snippet tier
    *
- * `.-snippets` on the H2 keeps each card full width.
- * `.-snippet` on an H3 puts the code block on the left and the
- * explanation paragraph on the right.
- */
+   * `.-snippets` on the H2 keeps each card full width.
+   * `.-snippet` on an H3 puts the code block on the left and the
+   * explanation paragraph on the right.
+   */
 
   .h3-section-list.-snippets,
   .h3-section-list.-snippets-panes,
@@ -71,12 +71,12 @@
   }
 
   /*
- * Prototype variants
- *
- * `.-snippets` is the default above.
- * `.-snippets-panes` separates the code and explanation into two tiles.
- * `.-snippets-compact` narrows the code column and gives it an accent.
- */
+   * Prototype variants
+   *
+   * `.-snippets` is the default above.
+   * `.-snippets-panes` separates the code and explanation into two tiles.
+   * `.-snippets-compact` narrows the code column and gives it an accent.
+   */
 
   .h3-section-list.-snippets-panes .h3-section.-snippet > .body {
     gap: 4px;

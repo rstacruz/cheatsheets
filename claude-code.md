@@ -5,7 +5,7 @@ description: "Claude Code commands: flags, hooks, MCP and settings. CLI and conf
 subtitle: AI coding agent
 category: Agents
 tags: [Featured]
-updated: 2026-11-18
+updated: 2026-11-23
 last_verified_with: "Claude Code 2.1.322."
 tier: t1
 fragments:
@@ -63,6 +63,7 @@ claude auth login            # sign in again
 claude auth login --console  # bill to a Console account
 claude auth status           # JSON status; --text for plain
 ```
+<!-- {: data-highlight="--console"} -->
 
 See: [Authentication](https://code.claude.com/docs/en/authentication)
 
@@ -267,6 +268,21 @@ See: [Interactive mode](https://code.claude.com/docs/en/interactive-mode)
 
 Run `/config` to edit settings, or pass `--settings file.json` for one session. See: [Settings](https://code.claude.com/docs/en/settings)
 
+### Hooks
+
+| Hook | Fires when |
+| --- | --- |
+| `PreToolUse` | Before a tool call |
+| `PostToolUse` | After a tool call |
+| `SessionStart` | A session starts |
+| `Stop` | Claude finishes a reply |
+<!-- {: .-headers} -->
+
+Hooks run shell commands at lifecycle events. Define them in `.claude/settings.json`; `/hooks` lists the loaded ones. See: [Hooks](https://code.claude.com/docs/en/hooks)
+
+[Claude Code hooks cheatsheet](./claude-code-hooks)
+<!-- {: .-crosslink} -->
+
 ### Environment variables
 
 | Variable                          | Purpose                                |
@@ -326,11 +342,13 @@ See: [Review locally with /code-review](https://code.claude.com/docs/en/code-rev
 # One-shot JSON output for scripts
 claude -p "list the failing tests" --output-format json
 ```
+<!-- {: data-highlight="--output-format json"} -->
 
 ```bash
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
+<!-- {: data-highlight="-p"} -->
 
 `--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster. It ignores OAuth credentials, so set `ANTHROPIC_API_KEY`.
 
@@ -342,6 +360,7 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 claude --bg "migrate the auth tests"  # detach immediately
 claude agents                         # monitor and dispatch
 ```
+<!-- {: data-highlight="--bg"} -->
 
 Inside a session, `/background` detaches it and `/batch` fans work out across worktrees.
 
@@ -352,6 +371,7 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 <!-- {: .-one-column} -->
 
 - [Claude Code commands cheatsheet](./claude-code-commands)
+- [Claude Code hooks cheatsheet](./claude-code-hooks)
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_
 - [Interactive mode](https://code.claude.com/docs/en/interactive-mode) _(code.claude.com)_

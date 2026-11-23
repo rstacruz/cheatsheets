@@ -1,3 +1,4 @@
+import { findMatches, parseHighlightSpec } from './inlineHighlight'
 import { render } from './render'
 
 it('h3 only', async () => {
@@ -212,4 +213,79 @@ it('keeps link rows out of a list that ends the intro', async () => {
   expect(html.match(/<ul>/g)).toHaveLength(2)
   expect(html).not.toContain('<li><p>one')
   expect(html).toContain('<li><a href="./docs">Docs</a>')
+})
+
+describe('inline highlights', () => {
+  const fenced = (code: string[], spec: string) =>
+    [
+      '```python',
+      ...code,
+      '```',
+      '',
+      `<!-- {: data-highlight="${spec}"} -->`
+    ].join('\n')
+
+  it('wraps the matching text, not the whole line', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'save_screenshot')
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
+    )
+    expect(html).not.toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">driver'
+    )
+  })
+
+  it('pads only the outer fragments of a match crossing Prism tokens', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'driver.save_screenshot')
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start">driver</span>'
+    )
+    expect(html).toContain('<span class="inline-highlight">.</span>')
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--end">save_screenshot</span>'
+    )
+  })
+
+  it('accepts several semicolon-separated tokens', async () => {
+    const { html } = await render(
+      fenced(
+        ['driver.save_screenshot("page.png")', 'pdf = driver.print_page()'],
+        'save_screenshot; print_page'
+      )
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">print_page</span>'
+    )
+  })
+
+  it('leaves a block alone when no text matches', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'wait_for')
+    )
+    expect(html).not.toContain('inline-highlight')
+  })
+
+  it('splits only on semicolons, so commas stay in a token', () => {
+    expect(parseHighlightSpec('save_screenshot; print_page, flush')).toEqual([
+      'save_screenshot',
+      'print_page, flush'
+    ])
+  })
+
+  it('matches on identifier boundaries', () => {
+    expect(findMatches('bat -d --diff-context=1', ['-d'])).toEqual([
+      { start: 4, end: 6 }
+    ])
+    expect(findMatches('myfield.text context', ['text'])).toEqual([
+      { start: 8, end: 12 }
+    ])
+    expect(findMatches('find_elements', ['find_element'])).toEqual([])
+  })
 })

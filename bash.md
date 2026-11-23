@@ -991,6 +991,9 @@ WELCOME TO DEVHINTS
 | `[:alpha:]`    | All letters                                         |
 | `[:alnum:]`    | All letters and digits                              |
 
+[Shell text utilities cheatsheet](./text-utils)
+<!-- {: .-crosslink} -->
+
 See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-invocation.html)
 
 ### Directory of script

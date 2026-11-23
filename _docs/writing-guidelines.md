@@ -268,7 +268,7 @@ flowchart LR
 
 🤖 Check: `code/data-line-in-block`.
 
-Every `data-line` reference must fall inside its fenced block; don't point past the last line.
+Every `data-line` reference must fall inside its fenced block; don't point past the last line. When only one token matters, use `data-highlight` instead.
 
 ````md
 ```elixir
@@ -276,6 +276,101 @@ a
 b
 ```
 <!-- {: data-line="2"} -->
+````
+
+### code/highlight-the-message
+
+Every highlight — a `data-line` band or a `data-highlight` token — must illustrate the card's main message. Tint the flag, value, or line that carries the point; leave secondary options and edge cases to the prose.
+
+**Good:** the card is about printing a range, so the range flag is tinted.
+
+````md
+### Print a range
+
+```bash
+bat -r 2:4 hello.py
+```
+<!-- {: data-highlight="-r 2:4"} -->
+````
+
+**Bad:** the card is about Git changes, but the tint lands on a context option instead of `-d`.
+
+````md
+### Show Git changes
+
+```bash
+bat -d notes.txt
+bat -d --diff-context=1 notes.txt
+```
+<!-- {: data-highlight="--diff-context=1"} -->
+````
+
+### code/highlight-the-token
+
+🤖 Check: `code/data-highlight-in-block`.
+
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+
+````md
+```python
+driver.save_screenshot("page.png")
+```
+<!-- {: data-highlight="save_screenshot"} -->
+````
+
+**When the card teaches a command, tint the command name**
+
+````md
+### Create a key
+
+```bash
+ssh-keygen -t ed25519 -C "me@example.com"
+```
+<!-- {: data-highlight="ssh-keygen"} -->
+````
+
+`-t ed25519` only chooses a key type.
+
+Use `data-line` instead when the whole line, or a range, is the lesson.
+
+### code/highlight-limit
+
+🤖 Check: `code/highlight-limit`.
+
+At most four `data-highlight` tokens per block. Highlight sibling methods together when they carry the card's point; split the card or drop incidental tokens when the list grows.
+
+````md
+### Select lists
+
+```python
+select.select_by_value("volvo")
+select.select_by_visible_text("Saab")
+select.select_by_index(2)
+```
+<!-- {: data-highlight="select_by_value; select_by_visible_text; select_by_index"} -->
+````
+
+### code/vary-highlights
+
+🤖 Check: `code/vary-highlights`.
+
+Don't repeat the same highlight token across code blocks in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
+
+**Good:** the "Sort lines" card tints `sort`; the field cards tint `-k2,2n` and `-k3,3`.
+
+**Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
+
+### code/data-highlight-in-block
+
+🤖 Check: `code/data-highlight-in-block`.
+
+Every `data-highlight` token must appear literally in its fenced block. The check catches typos that would otherwise render nothing.
+
+````md
+```bash
+bat -r 2:4 hello.py
+```
+<!-- {: data-highlight="-r 2:4"} -->
 ````
 
 ### code/split-setup-and-use

@@ -97,6 +97,7 @@ herdr tab list --workspace w1      # w1:t1, w1:t2, ...
 herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
+<!-- {: data-highlight="--workspace w1"} -->
 
 A pane is a real terminal, preserved across detach. An agent is a process Herdr recognizes in a pane. A session is a persistent server namespace; `herdr` attaches to the default one.
 

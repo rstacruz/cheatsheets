@@ -75,6 +75,9 @@ ISO 8601 sorts lexicographically and needs no locale. `Z` means UTC.
 
 See: [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)
 
+[ISO 8601 cheatsheet](./iso8601)
+<!-- {: .-crosslink} -->
+
 ### RFC 3339
 
 ```

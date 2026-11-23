@@ -55,6 +55,7 @@ links:
 npm install -g @getpaseo/cli
 paseo                         # starts daemon, then offers pairing
 ```
+<!-- {: data-highlight="@getpaseo/cli"} -->
 
 The desktop app bundles a daemon; Paseo does not ship a coding agent, so install at least one provider CLI.
 
@@ -149,6 +150,7 @@ paseo permit deny <id> --all
 paseo agent mode <id> --list
 paseo agent mode <id> plan
 ```
+<!-- {: data-highlight="plan"} -->
 
 Permission requests are per-agent; modes are provider-specific.
 
@@ -180,6 +182,7 @@ paseo workspace create --isolation worktree \
 paseo workspace create --isolation local --background \
   --path /path/to/repo
 ```
+<!-- {: data-highlight="--background"} -->
 
 `--background` hides a workspace from default discovery; `--no-background` overrides caller inheritance.
 
@@ -195,6 +198,7 @@ paseo workspace create --isolation worktree \
   --mode checkout-branch --branch feature/existing \
   --worktree-slug existing-copy
 ```
+<!-- {: data-highlight="--worktree-mode branch-off"} -->
 
 Worktree modes are `branch-off`, `checkout-branch`, and `checkout-pr`; `paseo.json` scripts attach to the worktree.
 
@@ -253,6 +257,7 @@ agent_id=$(paseo run --no-wait --quiet \
 paseo wait "$agent_id"
 paseo agent detach <id>
 ```
+<!-- {: data-highlight="detach"} -->
 
 `PASEO_AGENT_ID` makes a new run a subagent in the same workspace unless `--workspace` is set. Detach changes only the parent relationship and the agent keeps running.
 
@@ -266,6 +271,7 @@ verdict=$(paseo run --provider claude --output-schema schema.json \
   "ensure tests all pass")
 echo "$verdict" | jq -e '.criteria_met == true'
 ```
+<!-- {: data-highlight="--output-schema"} -->
 
 A builder plus a verifier can loop until the verdict passes; `jq` reads the JSON schema output.
 
@@ -279,6 +285,7 @@ paseo --host localhost:6767 host add \
 paseo --host localhost:6767 host ls --json
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
+<!-- {: data-highlight="host add; host ls"} -->
 
 `--host` also accepts pairing offers; relay connections are end-to-end encrypted and SSH hosts must already run a daemon.
 
@@ -296,6 +303,7 @@ paseo schedule create --cron "0 9 * * 1-5" \
   --timezone America/New_York --name morning-triage \
   "Review overnight CI failures."
 ```
+<!-- {: data-highlight="--every"} -->
 
 `--every` compiles to cron, not a rolling interval; schedules default to UTC and `--run-now` fires once at creation.
 
@@ -327,6 +335,7 @@ paseo heartbeat create --cron "*/20 * * * *" \
 paseo heartbeat update <id> --cron "*/10 * * * *"
 paseo heartbeat delete <id>
 ```
+<!-- {: data-highlight="--cron"} -->
 
 Heartbeats need `PASEO_AGENT_ID` and raw `--cron`. `--every` presets apply only to new-agent schedules.
 
@@ -343,6 +352,7 @@ paseo daemon config set daemon.relay.enabled false \
   --home ~/.paseo
 paseo daemon reload --home ~/.paseo
 ```
+<!-- {: data-highlight="daemon.listen; daemon.relay.enabled"} -->
 
 `reload` applies runtime-safe changes and never restarts implicitly.
 
@@ -371,6 +381,7 @@ paseo daemon pair --relay
 paseo daemon pair --json
 paseo --host "$OFFER_URL" ls
 ```
+<!-- {: data-highlight="--relay"} -->
 
 Relay is off by default; `--relay` opts in.
 
@@ -386,6 +397,7 @@ paseo ls --format yaml
 paseo ls -q
 paseo --no-color ls
 ```
+<!-- {: data-highlight="--json"} -->
 
 Most commands accept these output flags; `-q` prints IDs only.
 
@@ -398,6 +410,7 @@ paseo --home ~/.paseo ls
 paseo --host devbox:6767 project ls
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
+<!-- {: data-highlight="--home; --host"} -->
 
 Selectors work before or after the command. Two selectors yield `TARGET_AMBIGUOUS`; there is no default-port fallback.
 
@@ -411,6 +424,7 @@ PASEO_HOST=devbox:6767 paseo ls
 echo "$PASEO_AGENT_ID"        # set inside agent sessions
 echo "$PASEO_WORKSPACE_ID"    # current agent's workspace
 ```
+<!-- {: data-highlight="PASEO_HOME; PASEO_HOST; PASEO_AGENT_ID; PASEO_WORKSPACE_ID"} -->
 
 Flags override environment selectors; the agent variables are read-only inside sessions.
 
@@ -437,6 +451,7 @@ paseo usage ls --refresh
 paseo usage inspect <report-id>
 paseo usage ls --json
 ```
+<!-- {: data-highlight="--refresh"} -->
 
 Quota reports come from the host and `--refresh` bypasses the five-minute cache.
 

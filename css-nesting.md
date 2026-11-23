@@ -90,4 +90,4 @@ links:
 ```
 <!-- {: data-highlight="& + &"} -->
 
-**Styles a sibling of the parent.** `& + &` matches any `.card` that follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#combinators).
+**Styles a sibling of the parent.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#combinators).

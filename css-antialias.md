@@ -4,7 +4,6 @@ link_title: CSS antialiasing
 subtitle: Font smoothing on macOS
 category: CSS
 layout: snippet
-last_verified_with: "MDN font-smooth reference."
 updated: 2026-11-24
 links:
   - title: MDN font-smooth
@@ -27,7 +26,7 @@ body {
 
 **Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
-### Restore the default
+### Sharper text
 <!-- {: .-snippet} -->
 
 ```css
@@ -38,4 +37,4 @@ body {
 ```
 <!-- {: data-highlight="subpixel-antialiased"} -->
 
-**Reverts to the browser's default rendering.** Subpixel antialiasing is sharper on non-retina displays; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
+**Reverts to subpixel rendering.** Subpixel antialiasing is sharper on non-retina displays but looks heavier on dark backgrounds; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).

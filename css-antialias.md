@@ -27,19 +27,6 @@ body {
 
 **Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
-### Dark themes
-<!-- {: .-snippet} -->
-
-```css
-.dark body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-```
-<!-- {: data-highlight=".dark body"} -->
-
-**Applies smoothing only in dark mode.** Grayscale antialiasing makes light text look lighter, which suits dark backgrounds; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
-
 ### Restore the default
 <!-- {: .-snippet} -->
 

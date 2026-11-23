@@ -90,21 +90,31 @@ pnpm lint:css:check   # new violations; runs in pnpm run ci
 pnpm lint:css         # apply safe fixes
 ```
 
-The rules require token families for colour, font family, font size,
-line-height, letter-spacing, radius, and shadow. Legacy names, unknown tokens,
-a token from the wrong family, raw colour literals, and `!important` fail.
-Descending specificity fails too.
+Colour, font family, font size, letter-spacing, and radius must come from a
+token; the gate rejects raw values for those families. Raw colour literals are
+allowed only in `tokens.css` and `tailwind.css` (`icons.generated.css` is
+ignored). `line-height` may stay a unitless number; a `var()` there must be a
+`--leading-*` token. Legacy names, unknown tokens, a token from the wrong
+family, and `!important` fail. Descending specificity fails too.
 
-Fix the code when a rule fires. Do not grow the suppressions file to let new
-code through. If an exception is genuinely unavoidable, suppress that rule for
-that file and leave a comment saying why:
+Fix the code when a rule fires. Do not add entries to the suppressions file to
+let new code through: it is the legacy baseline, and every fix removes one.
+
+For a genuinely unavoidable exception, disable the rule at that line and say
+why:
+
+```css
+/* stylelint-disable-next-line <rule> -- why this one must stay */
+```
+
+Adding a rule to the gate baselines its backlog once:
 
 ```sh
 pnpm exec stylelint "src/styles/**/*.css" --suppress=<rule> --suppress-location=stylelint-suppressions.json
 ```
 
-Suppressions are a debt ledger. Fix the old occurrence and regenerate the file
-instead of carrying the entry forever.
+When you fix the last occurrence of a baselined rule in a file, delete that
+entry from `stylelint-suppressions.json`.
 
 ## Touch it, rename it
 

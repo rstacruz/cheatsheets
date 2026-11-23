@@ -55,6 +55,7 @@ codex                 # first run opens a browser login
 codex login           # sign in again
 codex login status    # show the current account
 ```
+<!-- {: data-highlight="codex login"} -->
 
 Codex works with a ChatGPT plan or an API key. For scripts, pipe a key in: `printenv OPENAI_API_KEY | codex login --with-api-key`. See: [Authentication](https://learn.chatgpt.com/docs/auth)
 
@@ -66,6 +67,7 @@ codex "explain this repo"  # start with a prompt
 codex resume --last        # reopen the latest chat
 codex fork --last          # branch the latest chat
 ```
+<!-- {: data-highlight="codex resume; codex fork"} -->
 
 `codex resume` scopes `--last` to the current directory; add `--all` to search every session. See: [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -162,6 +164,7 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 codex -s workspace-write -a on-request  # Auto
 codex -s read-only -a never             # read-only, no prompts
 ```
+<!-- {: data-highlight="-s workspace-write; -a on-request"} -->
 
 #### Modes
 
@@ -186,6 +189,7 @@ codex exec --json "list failing tests"  # JSONL events
 codex exec --ephemeral "triage issues"  # write no session files
 codex exec resume --last "fix them"     # continue the last run
 ```
+<!-- {: data-highlight="codex exec"} -->
 
 `codex exec` runs read-only by default; add `--sandbox workspace-write` to allow edits. `-o file` writes the final message to a file. See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -196,6 +200,7 @@ codex review --uncommitted   # staged, unstaged, and untracked
 codex review --base main     # changes against a base branch
 codex review --commit <sha>  # a single commit
 ```
+<!-- {: data-highlight="codex review"} -->
 
 Pass exactly one target, or give custom instructions as a prompt. `--title` only works with `--commit`. See: [Code review](https://learn.chatgpt.com/docs/code-review)
 
@@ -378,6 +383,7 @@ See: [Environment variables](https://learn.chatgpt.com/docs/config-file/environm
 AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
+<!-- {: data-highlight="AGENTS.md"} -->
 
 Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB by default (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
@@ -389,16 +395,19 @@ Each directory contributes one file — `AGENTS.override.md` if present, else `A
 # Machine-readable events for scripts
 codex exec --json "list the failing tests" | jq
 ```
+<!-- {: data-highlight="--json"} -->
 
 ```bash
 # Capture the final message in a file
 codex exec -o summary.md "summarize this repo"
 ```
+<!-- {: data-highlight="-o summary.md"} -->
 
 ```bash
 # Use an API key inline in CI
 CODEX_API_KEY=$KEY codex exec "triage open bugs"
 ```
+<!-- {: data-highlight="CODEX_API_KEY"} -->
 
 See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -421,6 +430,7 @@ codex cloud list                # recent cloud chats
 codex cloud exec --env <id> "fix the flaky test"
 codex apply <task-id>           # apply the diff locally
 ```
+<!-- {: data-highlight="codex cloud exec"} -->
 
 `codex cloud exec` needs `--env`; add `--attempts 2` for best-of-N. See: [Codex Cloud](https://learn.chatgpt.com/docs/cloud)
 
@@ -433,6 +443,7 @@ codex mcp add my-server -- npx my-mcp-server        # stdio
 codex mcp add remote --url https://example.com/mcp  # HTTP
 codex mcp list
 ```
+<!-- {: data-highlight="codex mcp add"} -->
 
 Add `--env KEY=VALUE` for stdio servers, or `--bearer-token-env-var VAR` for HTTP.
 
@@ -445,6 +456,7 @@ codex mcp login my-server             # OAuth, opens a browser
 codex mcp login my-server --scopes read,write
 codex mcp logout my-server
 ```
+<!-- {: data-highlight="codex mcp login"} -->
 
 OAuth works with streamable HTTP servers that support it. Stored credentials live in the store set by `mcp_oauth_credentials_store` (auto, file, or keyring). See: [MCP](https://learn.chatgpt.com/docs/extend/mcp)
 

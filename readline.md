@@ -108,6 +108,7 @@ M-3 C-b                     # back three characters
 M-2 M-d                     # kill two words forward
 M-5 C-h                     # delete five characters backward
 ```
+<!-- {: data-highlight="M-3; M-2; M-5"} -->
 
 Digits and `M--` build a count for the next command. `C-u` is the prefix in stock Emacs, but bash binds it to `unix-line-discard`.
 
@@ -138,6 +139,7 @@ See: [Searching for commands in the history](https://tiswww.case.edu/php/chet/re
 apt install ripgrep
 sudo !!                     # sudo apt install ripgrep
 ```
+<!-- {: data-highlight="!!"} -->
 
 #### Event designators
 
@@ -159,6 +161,7 @@ See: [Event designators](https://www.gnu.org/software/bash/manual/html_node/Even
 cp report.txt /tmp/backup.txt
 echo !^ !$                  # report.txt /tmp/backup.txt
 ```
+<!-- {: data-highlight="!^; !$"} -->
 
 #### Word designators
 
@@ -182,6 +185,7 @@ grep -r todo src
 ls /usr/local/bin
 cd !$:h                     # cd /usr/local
 ```
+<!-- {: data-highlight="^todo^FIXME^; !$:h"} -->
 
 #### Modifiers
 
@@ -205,6 +209,7 @@ HISTSIZE=10000
 HISTFILESIZE=20000
 shopt -s histappend
 ```
+<!-- {: data-highlight="HISTCONTROL; HISTIGNORE; HISTSIZE; HISTFILESIZE"} -->
 
 #### Values
 
@@ -237,6 +242,7 @@ set enable-bracketed-paste on
 set bell-style none
 set history-size 10000
 ```
+<!-- {: data-highlight="completion-ignore-case; show-all-if-ambiguous; enable-bracketed-paste; history-size"} -->
 
 `show-all-if-ambiguous` lists completions on the first TAB. Bracketed paste inserts a pasted block as one string instead of running each character as a key. `history-size` caps Readline's list; in bash raise `HISTSIZE` too.
 
@@ -249,6 +255,7 @@ See: [Init file syntax](https://www.gnu.org/software/bash/manual/html_node/Readl
 "\e[1;5C": forward-word
 "\e[A": history-search-backward
 ```
+<!-- {: data-highlight="re-read-init-file; forward-word; history-search-backward"} -->
 
 `C-x C-r` reloads `~/.inputrc`. Binding `\e[A` to `history-search-backward` makes Up search by the prefix already typed. Keys are written `\C-a` (Control), `\M-a` (Meta), or spelled out (`Control-u`).
 
@@ -260,6 +267,7 @@ See: [Readline init file](https://www.gnu.org/software/bash/manual/html_node/Rea
 "\C-o": "> output"
 "\C-g": "git status\C-m"
 ```
+<!-- {: data-highlight="\C-m"} -->
 
 A macro inserts its text into the line. A trailing `\C-m` presses Return, so the second macro runs `git status`.
 
@@ -280,6 +288,7 @@ $if mode=vi
   "\C-l": clear-screen
 $endif
 ```
+<!-- {: data-highlight="$if; $endif; $include"} -->
 
 `$if` tests the application, the editing mode, the terminal, or the Readline version. Close each branch with `$endif`; `$else` adds an alternative. `$include` reads another init file.
 
@@ -294,12 +303,14 @@ See: [Conditional init constructs](https://tiswww.case.edu/php/chet/readline/rea
 ```ini
 set editing-mode vi
 ```
+<!-- {: data-highlight="editing-mode vi"} -->
 
 #### This shell
 
 ```bash
 set -o vi
 ```
+<!-- {: data-highlight="set -o vi"} -->
 
 `Esc` enters command mode; `i`, `a`, `I`, and `A` return to insert mode. `set -o vi` changes the running shell, while the inputrc line covers new sessions.
 
@@ -354,12 +365,14 @@ See: [Readline vi mode](https://tiswww.case.edu/php/chet/readline/readline.html#
 set keymap vi-insert
 "\C-l": clear-screen
 ```
+<!-- {: data-highlight="keymap vi-insert"} -->
 
 #### bind
 
 ```bash
 bind -m vi-insert '"\C-l": clear-screen'
 ```
+<!-- {: data-highlight="bind -m"} -->
 
 Keymaps keep vi insert and command bindings apart: `vi-insert`, `vi-command`, `emacs-standard`, `emacs-ctlx`. `bind -m` changes one without an inputrc edit.
 
@@ -376,6 +389,7 @@ bind -q kill-word            # keys bound to one function
 bind -v                      # current variable values
 bind -s                      # macros
 ```
+<!-- {: data-highlight="bind -P; bind -l; bind -q; bind -v"} -->
 
 #### Shell commands
 
@@ -383,6 +397,7 @@ bind -s                      # macros
 bind -x '"\C-x\C-w": git status'
 bind -m vi-insert '"\C-l": clear-screen'
 ```
+<!-- {: data-highlight="bind -x"} -->
 
 `bind -x` runs a shell command; the buffer is in `READLINE_LINE` and the cursor in `READLINE_POINT`. `bind -m keymap` scopes a binding to one keymap.
 
@@ -398,6 +413,7 @@ readline.parse_and_bind('"\\C-l": clear-screen')
 
 name = input("Name: ")
 ```
+<!-- {: data-highlight="parse_and_bind"} -->
 
 Importing `readline` makes `input()` use Readline, so the keys on this sheet apply. `parse_and_bind` takes the same syntax as `~/.inputrc`.
 

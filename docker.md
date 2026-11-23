@@ -48,6 +48,7 @@ docker pull debian:trixie-slim
 docker pull redis:8
 docker pull --platform linux/amd64 redis:8
 ```
+<!-- {: data-highlight="docker pull"} -->
 
 Downloads an image from a registry. `docker run` pulls missing images automatically. Use `--platform` to fetch a specific architecture.
 
@@ -60,6 +61,7 @@ docker run -it debian:trixie-slim /bin/bash
 docker run -d --name web -p 5000:5000 myapp:1.0
 docker run --rm -it -v "$PWD":/app -w /app node:24 npm test
 ```
+<!-- {: data-highlight="docker run"} -->
 
 #### Options
 
@@ -94,6 +96,7 @@ docker ps -a              # include stopped containers
 docker ps -q              # IDs only
 docker ps --format 'table {{.Names}}\t{{.Status}}'
 ```
+<!-- {: data-highlight="docker ps"} -->
 
 See: [docker ps](https://docs.docker.com/reference/cli/docker/container/ls/)
 
@@ -105,6 +108,7 @@ docker logs -f web              # follow output
 docker logs --tail 100 web      # last 100 lines
 docker logs --since 10m web     # since a duration
 ```
+<!-- {: data-highlight="docker logs"} -->
 
 See: [docker logs](https://docs.docker.com/reference/cli/docker/container/logs/)
 
@@ -114,6 +118,7 @@ See: [docker logs](https://docs.docker.com/reference/cli/docker/container/logs/)
 docker exec -it web /bin/bash
 docker exec web tail -f log/development.log
 ```
+<!-- {: data-highlight="docker exec"} -->
 
 Runs a command in a running container. Use `-it` for interactive shells.
 
@@ -128,6 +133,7 @@ docker build -t myapp:1.0 .
 docker build --platform linux/amd64 -t myapp:1.0 .
 docker build --build-arg APP_HOME=/app -t myapp:1.0 .
 ```
+<!-- {: data-highlight="docker build"} -->
 
 Builds an image from a `Dockerfile` in the current directory.
 
@@ -141,6 +147,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
   -t me/app:1.0 --push .
 docker buildx ls
 ```
+<!-- {: data-highlight="docker buildx"} -->
 
 `docker build` is an alias for `docker buildx build`. Multi-platform output needs `--push` or `--output`.
 
@@ -153,6 +160,7 @@ docker images
 docker images -a     # include intermediate and dangling images
 docker image ls      # alias
 ```
+<!-- {: data-highlight="docker images"} -->
 
 See: [docker images](https://docs.docker.com/reference/cli/docker/image/ls/)
 
@@ -162,6 +170,7 @@ See: [docker images](https://docs.docker.com/reference/cli/docker/image/ls/)
 docker tag myapp:1.0 me/myapp:1.0
 docker tag myapp:1.0 registry.example.com/myapp:1.0
 ```
+<!-- {: data-highlight="docker tag"} -->
 
 The tag defaults to `latest` when omitted.
 
@@ -173,6 +182,7 @@ See: [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/)
 docker login registry.example.com
 docker push registry.example.com/myapp:1.0
 ```
+<!-- {: data-highlight="docker push"} -->
 
 The image name determines which registry it is pushed to.
 
@@ -184,6 +194,7 @@ See: [docker push](https://docs.docker.com/reference/cli/docker/image/push/)
 docker rmi myapp:1.0
 docker rmi b750fe78269d
 ```
+<!-- {: data-highlight="docker rmi"} -->
 
 See: [docker rmi](https://docs.docker.com/reference/cli/docker/image/rm/)
 
@@ -194,6 +205,7 @@ See: [docker rmi](https://docs.docker.com/reference/cli/docker/image/rm/)
 ```bash
 docker create --name cache --expose 6379 redis:8
 ```
+<!-- {: data-highlight="docker create"} -->
 
 Creates a container without starting it. Use `docker start` to run it.
 
@@ -207,6 +219,7 @@ docker stop web
 docker restart web
 docker kill web          # stop immediately (SIGKILL)
 ```
+<!-- {: data-highlight="docker start; docker stop; docker restart; docker kill"} -->
 
 See: [docker start](https://docs.docker.com/reference/cli/docker/container/start/) and [docker stop](https://docs.docker.com/reference/cli/docker/container/stop/)
 
@@ -216,6 +229,7 @@ See: [docker start](https://docs.docker.com/reference/cli/docker/container/start
 docker rm web
 docker rm -f web         # force-remove a running container
 ```
+<!-- {: data-highlight="docker rm"} -->
 
 See: [docker rm](https://docs.docker.com/reference/cli/docker/container/rm/)
 
@@ -232,6 +246,7 @@ docker system prune -a
 docker system prune --volumes
 # also anonymous volumes
 ```
+<!-- {: data-highlight="docker system prune"} -->
 
 Removes stopped containers, unused networks, dangling images, and unused build cache. `-a` also removes all unused images and build cache; `--volumes` also removes anonymous volumes.
 
@@ -242,6 +257,7 @@ See: [docker system prune](https://docs.docker.com/reference/cli/docker/system/p
 ```bash
 docker container prune
 ```
+<!-- {: data-highlight="docker container prune"} -->
 
 Removes all stopped containers.
 
@@ -255,6 +271,7 @@ docker image prune
 docker image prune -a
 # all unused images
 ```
+<!-- {: data-highlight="docker image prune"} -->
 
 See: [docker image prune](https://docs.docker.com/reference/cli/docker/image/prune/)
 
@@ -266,6 +283,7 @@ docker builder prune
 docker builder prune -a
 # also internal/frontend images
 ```
+<!-- {: data-highlight="docker builder prune"} -->
 
 See: [docker buildx prune](https://docs.docker.com/reference/cli/docker/buildx/prune/)
 
@@ -277,6 +295,7 @@ docker volume prune
 docker volume prune -a
 # all unused volumes
 ```
+<!-- {: data-highlight="docker volume prune"} -->
 
 See: [docker volume prune](https://docs.docker.com/reference/cli/docker/volume/prune/)
 
@@ -285,6 +304,7 @@ See: [docker volume prune](https://docs.docker.com/reference/cli/docker/volume/p
 ```bash
 docker system df
 ```
+<!-- {: data-highlight="docker system df"} -->
 
 Shows disk usage by images, containers, volumes, and build cache.
 
@@ -295,6 +315,7 @@ See: [docker system df](https://docs.docker.com/reference/cli/docker/system/df/)
 ```bash
 docker system events
 ```
+<!-- {: data-highlight="docker system events"} -->
 
 Streams real-time daemon events. Alias for `docker events`.
 

@@ -66,6 +66,7 @@ See: [Installation](https://github.com/pyenv/pyenv#installation), [Build depende
 pyenv init --install
 exec "$SHELL"
 ```
+<!-- {: data-highlight="--install"} -->
 
 This adds the init lines to the shell rc and puts shims first on `PATH`. For manual setup, use `eval "$(pyenv init - bash)"` in the interactive rc.
 
@@ -94,6 +95,7 @@ pyenv install --list
 pyenv install -l | grep 3.12
 pyenv latest --known 3.12
 ```
+<!-- {: data-highlight="--list; --known"} -->
 
 Without `--known`, `pyenv latest` only considers installed versions.
 
@@ -107,6 +109,7 @@ pyenv install 3.12
 pyenv uninstall 3.11.9
 pyenv prefix 3.12.16
 ```
+<!-- {: data-highlight="pyenv install; pyenv uninstall"} -->
 
 A partial version installs the latest known patch release. Versions live under `$(pyenv root)/versions`.
 
@@ -119,6 +122,7 @@ pyenv global 3.12.16
 pyenv global system 3.12.16
 pyenv global
 ```
+<!-- {: data-highlight="pyenv global"} -->
 
 Writes `$(pyenv root)/version`; list multiple versions to search them in order.
 
@@ -130,6 +134,7 @@ See: [pyenv global](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv
 pyenv local 3.12.16
 pyenv local --unset
 ```
+<!-- {: data-highlight="pyenv local"} -->
 
 Writes `.python-version` in the current directory. Child directories inherit it; parent directories can pin their own.
 
@@ -143,6 +148,7 @@ pyenv shell --unset
 PYENV_VERSION=3.12.16 python
 pyenv exec python --version
 ```
+<!-- {: data-highlight="pyenv shell; PYENV_VERSION; pyenv exec"} -->
 
 `pyenv shell` needs shell integration; `PYENV_VERSION` works without it. Selection order is shell, local file, parent files, global.
 
@@ -164,6 +170,7 @@ See: [Understanding shims](https://github.com/pyenv/pyenv#understanding-shims)
 pyenv which python
 pyenv whence pip
 ```
+<!-- {: data-highlight="pyenv which; pyenv whence"} -->
 
 `which` follows the current selection; `whence` lists every installation that provides the command.
 
@@ -175,6 +182,7 @@ See: [pyenv which](https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-
 pyenv rehash
 pyenv shims
 ```
+<!-- {: data-highlight="pyenv rehash"} -->
 
 pyenv reshims on installs and uninstalls. Run `pyenv rehash` after adding executables outside pyenv.
 
@@ -204,6 +212,7 @@ See: [pyenv-virtualenv installation](https://github.com/pyenv/pyenv-virtualenv#i
 pyenv virtualenv 3.12.16 myenv
 pyenv virtualenv myenv
 ```
+<!-- {: data-highlight="pyenv virtualenv"} -->
 
 #### Manage
 
@@ -211,6 +220,7 @@ pyenv virtualenv myenv
 pyenv virtualenvs
 pyenv uninstall myenv
 ```
+<!-- {: data-highlight="pyenv virtualenvs"} -->
 
 The one-argument form uses the active version; `uninstall` removes the environment.
 
@@ -222,6 +232,7 @@ See: [pyenv-virtualenv usage](https://github.com/pyenv/pyenv-virtualenv#usage)
 pyenv activate myenv
 pyenv deactivate
 ```
+<!-- {: data-highlight="pyenv activate; pyenv deactivate"} -->
 
 Activation needs shell integration: load `pyenv init` and `eval "$(pyenv virtualenv-init -)"` in the shell rc. `virtualenv-init` also follows `.python-version` when changing directories.
 
@@ -233,6 +244,7 @@ See: [Activate virtualenv](https://github.com/pyenv/pyenv-virtualenv#activate-vi
 pyenv local myenv
 pyenv version
 ```
+<!-- {: data-highlight="myenv"} -->
 
 `pyenv local myenv` stores the environment name in `.python-version`.
 
@@ -245,6 +257,7 @@ python -m venv .venv
 source .venv/bin/activate
 deactivate
 ```
+<!-- {: data-highlight="venv"} -->
 
 The stdlib module needs no plugin; pyenv still selects the interpreter version.
 
@@ -268,6 +281,7 @@ See: [Plugins wiki](https://github.com/pyenv/pyenv/wiki/Plugins)
 ```bash
 pyenv update
 ```
+<!-- {: data-highlight="pyenv update"} -->
 
 Updates pyenv and every installed plugin. Homebrew installs use `brew upgrade pyenv` instead.
 
@@ -280,6 +294,7 @@ See: [pyenv-update](https://github.com/pyenv/pyenv-update)
 ```bash
 cd "$(pyenv root)" && git pull
 ```
+<!-- {: data-highlight="git pull"} -->
 
 For a Git checkout. Use `pyenv update` above to refresh plugins too.
 

@@ -56,6 +56,7 @@ a b
 c d
 e
 ```
+<!-- {: data-highlight="-n 2"} -->
 
 `-n` caps the arguments per invocation; the last batch may be shorter.
 
@@ -70,6 +71,7 @@ a
 echo b
 b
 ```
+<!-- {: data-highlight="-t"} -->
 
 `-t` prints each command to stderr before running it.
 
@@ -90,6 +92,7 @@ $ printf '' | xargs echo | wc -l
 $ printf '' | xargs -r echo | wc -l
 0
 ```
+<!-- {: data-highlight="-r"} -->
 
 GNU xargs runs the command once with no arguments; `-r` skips it.
 
@@ -107,6 +110,7 @@ $ find . -name '*.txt' -print0 \
 ./my file.txt
 ./notes.txt
 ```
+<!-- {: data-highlight="-0"} -->
 
 `-0` reads NUL-terminated items, so spaces and newlines stay in one argument.
 
@@ -119,6 +123,7 @@ $ printf 'a b\0c d\0' | xargs -0 -n 1 echo
 a b
 c d
 ```
+<!-- {: data-highlight="\0"} -->
 
 Pair `-0` with a producer that emits `\0`-terminated records.
 
@@ -132,6 +137,7 @@ a
 b
 c
 ```
+<!-- {: data-highlight="-d,"} -->
 
 `-d` sets a single-character delimiter; it is a GNU extension.
 
@@ -146,6 +152,7 @@ $ printf 'one\ntwo words\n' | xargs -I {} echo 'item: {}'
 item: one
 item: two words
 ```
+<!-- {: data-highlight="-I {}"} -->
 
 `-I` replaces each `{}` and runs the command once per item.
 
@@ -158,6 +165,7 @@ $ find . -name '*.txt' -print0 | xargs -0 -I {} echo 'file: {}'
 file: ./my file.txt
 file: ./notes.txt
 ```
+<!-- {: data-highlight="-0 -I {}"} -->
 
 `-I` implies one item per command, so keep `-0` when names may contain spaces.
 
@@ -172,6 +180,7 @@ $ find . -name '*.txt' -print0 | xargs -0 -P 4 -n 1 wc -l
 1 ./my file.txt
 2 ./notes.txt
 ```
+<!-- {: data-highlight="-P 4"} -->
 
 `-P` runs up to four commands at once; output order follows completion.
 
@@ -187,6 +196,7 @@ start b
 end b
 end a
 ```
+<!-- {: data-highlight="-P 2 -I {}"} -->
 
 Combine `-P` with `-I` for one independent job per item.
 

@@ -47,6 +47,7 @@ new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2
 })
 ```
+<!-- {: data-highlight="Intl.NumberFormat"} -->
 
 #### Formatting
 
@@ -56,6 +57,7 @@ const nf = new Intl.NumberFormat('en-US')
 nf.format(1234567.891)  // → '1,234,567.891'
 nf.format(-0.5)         // → '-0.5'
 ```
+<!-- {: data-highlight="format"} -->
 
 `locales` takes a BCP 47 tag or an array of them; unsupported tags fall back to the runtime default. The default style is `'decimal'`. Output depends on the runtime's ICU data; reuse a formatter in loops.
 
@@ -71,7 +73,7 @@ new Intl.NumberFormat('default', opts).format(0.25)
 new Intl.NumberFormat(undefined, opts).format(0.25)
 // → '25%'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'default'; undefined"} -->
 
 `'default'` and `undefined` both mean "use the runtime's default locale".
 
@@ -88,6 +90,7 @@ new Intl.NumberFormat('en-US', {
 }).format(1234.5)
 // → '$1,234.50'
 ```
+<!-- {: data-highlight="currency: 'USD'"} -->
 
 `currency` is required for this style and takes an ISO 4217 code. The default display is the locale's symbol.
 
@@ -101,6 +104,7 @@ new Intl.NumberFormat('en-US', {
 }).format(0.256)
 // → '26%'
 ```
+<!-- {: data-highlight="style: 'percent'"} -->
 
 `percent` multiplies by 100 and formats with the locale's percent sign.
 
@@ -117,6 +121,7 @@ new Intl.NumberFormat('en-US', {
 }).format(50)
 // → '50 km/h'
 ```
+<!-- {: data-highlight="unit: 'kilometer-per-hour'"} -->
 
 #### Formatter
 
@@ -135,7 +140,7 @@ liter('short').format(2.5)   // → '2.5 L'
 liter('narrow').format(2.5)  // → '2.5L'
 liter('long').format(2.5)    // → '2.5 liters'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'short'; 'narrow'; 'long'"} -->
 
 `unit` takes an identifier such as `liter`; `unitDisplay` defaults to `'short'`.
 
@@ -154,7 +159,7 @@ const usd = (currencyDisplay) => (
   })
 )
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="currencyDisplay"} -->
 
 #### Output
 
@@ -163,7 +168,7 @@ usd('symbol').format(1234.5)        // → '$1,234.50'
 usd('code').format(1234.5)          // → 'USD 1,234.50'
 usd('name').format(1234.5)          // → '1,234.50 US dollars'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'symbol'; 'code'; 'name'"} -->
 
 #### Narrow symbols
 
@@ -177,7 +182,7 @@ const cad = (currencyDisplay) => (
 cad('symbol').format(1234.5)        // → 'CA$1,234.50'
 cad('narrowSymbol').format(1234.5)  // → '$1,234.50'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="narrowSymbol"} -->
 
 `narrowSymbol` drops the country prefix, `code` prints the ISO code, and `name` spells the currency out with the locale's plural rules.
 
@@ -193,6 +198,7 @@ new Intl.NumberFormat('en-US', {
 }).format(-1234.5)
 // → '($1,234.50)'
 ```
+<!-- {: data-highlight="currencySign: 'accounting'"} -->
 
 `'standard'` (the default) writes `-$1,234.50`; `'accounting'` wraps negatives in parentheses where the locale does.
 
@@ -209,6 +215,7 @@ const compact = new Intl.NumberFormat('en-US', {
   notation: 'compact'
 })
 ```
+<!-- {: data-highlight="notation: 'compact'"} -->
 
 #### Output
 
@@ -228,6 +235,7 @@ new Intl.NumberFormat('en-US', {
 }).format(2000000)
 // → '2 million'
 ```
+<!-- {: data-highlight="compactDisplay: 'long'"} -->
 
 `compactDisplay` defaults to `'short'`. Compact notation rounds by significant digits unless fraction digits are set.
 
@@ -244,7 +252,7 @@ new Intl.NumberFormat('en-US', {
   notation: 'engineering'
 }).format(987654321)  // → '987.654E6'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="notation: 'scientific'; notation: 'engineering'"} -->
 
 `scientific` prints one leading digit; `engineering` groups the exponent in threes.
 
@@ -270,7 +278,7 @@ fraction({ minimumFractionDigits: 2 }).format(42)
 fraction({ maximumFractionDigits: 0 }).format(42.666)
 // → '43'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="minimumFractionDigits; maximumFractionDigits"} -->
 
 Decimal numbers default to `minimumFractionDigits: 0` and `maximumFractionDigits: 3`; currency defaults use the currency's minor unit.
 
@@ -294,7 +302,7 @@ sig({ maximumSignificantDigits: 3 }).format(1234.5)
 sig({ minimumSignificantDigits: 5 }).format(1.5)
 // → '1.5000'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="maximumSignificantDigits; minimumSignificantDigits"} -->
 
 Significant digits win over fraction digits unless `roundingPriority` says otherwise.
 
@@ -312,6 +320,7 @@ const floor = new Intl.NumberFormat('en-US', {
 
 floor.format(1.9)  // → '1'
 ```
+<!-- {: data-highlight="roundingMode: 'floor'"} -->
 
 #### Trailing zeros
 
@@ -324,6 +333,7 @@ const strip = new Intl.NumberFormat('en-US', {
 strip.format(1)    // → '1'
 strip.format(1.5)  // → '1.50'
 ```
+<!-- {: data-highlight="trailingZeroDisplay: 'stripIfInteger'"} -->
 
 `roundingMode` defaults to `'halfExpand'`; other values include `'ceil'`, `'floor'`, `'trunc'`, and `'halfEven'`. `stripIfInteger` hides all-zero fractions but keeps real decimals.
 
@@ -340,7 +350,7 @@ const sign = (signDisplay) => (
   new Intl.NumberFormat('en-US', { signDisplay })
 )
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="signDisplay"} -->
 
 #### Output
 
@@ -349,7 +359,7 @@ sign('always').format(42)      // → '+42'
 sign('exceptZero').format(0)   // → '0'
 sign('never').format(-42)      // → '42'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'always'; 'exceptZero'; 'never'"} -->
 
 `'auto'` (the default) signs negatives only; `'negative'` also hides negative zero.
 
@@ -372,7 +382,7 @@ enUS({ useGrouping: false }).format(1234567)  // → '1234567'
 enUS({ useGrouping: 'min2' }).format(999)     // → '999'
 enUS({ useGrouping: 'min2' }).format(12345)   // → '12,345'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="useGrouping"} -->
 
 `'auto'` is the default; `'min2'` groups only when a group holds two or more digits. Indian English groups differently (`12,34,567`).
 
@@ -400,7 +410,7 @@ nf.formatToParts(1234.5)
 //    { type: 'group', value: ',' },
 //    ...]
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="formatToParts"} -->
 
 #### Part types
 
@@ -446,6 +456,7 @@ const usd = new Intl.NumberFormat('en-US', {
 usd.formatRange(3, 5)      // → '$3 – $5'
 usd.formatRange(2.9, 3.1)  // → '~$3'
 ```
+<!-- {: data-highlight="formatRange"} -->
 
 `formatRangeToParts()` adds a `source` of `startRange`, `endRange`, or `shared`. Both need Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+.
 
@@ -469,7 +480,7 @@ nf.resolvedOptions().locale       // → 'de-DE'
 nf.resolvedOptions().unit         // → 'kilometer'
 nf.resolvedOptions().unitDisplay  // → 'short'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="resolvedOptions"} -->
 
 `resolvedOptions()` returns the locale and every option after defaults apply.
 
@@ -502,6 +513,7 @@ new Intl.NumberFormat('ar-EG', {
 }).format(1234.5)
 // → '1,234.5'
 ```
+<!-- {: data-highlight="numberingSystem: 'latn'"} -->
 
 `numberingSystem` overrides the locale's digits; `'latn'` is Western, `'arab'` Arabic-Indic, and `'hanidec'` Chinese numerals.
 
@@ -516,6 +528,7 @@ See: [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 })
 // → '$1,234.50'
 ```
+<!-- {: data-highlight="toLocaleString"} -->
 
 `toLocaleString()` is equivalent to `new Intl.NumberFormat(locale, options).format(number)`, but builds a formatter per call.
 

@@ -150,7 +150,6 @@ paseo permit deny <id> --all
 paseo agent mode <id> --list
 paseo agent mode <id> plan
 ```
-<!-- {: data-highlight="plan"} -->
 
 Permission requests are per-agent; modes are provider-specific.
 

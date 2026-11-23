@@ -53,6 +53,7 @@ zellij -s work              # Name it
 zellij -l compact           # Load a layout
 zellij -s work -l compact   # Both
 ```
+<!-- {: data-highlight="-s work; -l compact"} -->
 
 `-s` names the session; `-l` loads a built-in or saved layout.
 
@@ -69,6 +70,7 @@ zellij a work                # Attach by name
 zellij attach -c work        # Create if missing
 zellij k work                # Kill a session
 ```
+<!-- {: data-highlight="zellij ls; zellij a; zellij k"} -->
 
 `ls` aliases `list-sessions`; `a` aliases `attach`.
 
@@ -298,6 +300,7 @@ layout {
     }
 }
 ```
+<!-- {: data-highlight="tab-bar; status-bar"} -->
 
 #### compact
 
@@ -309,6 +312,7 @@ layout {
     }
 }
 ```
+<!-- {: data-highlight="compact-bar"} -->
 
 No built-in `stacked` layout in 0.46.0; use `C-p s` or `zellij run --stacked`.
 
@@ -327,6 +331,7 @@ layout {
     }
 }
 ```
+<!-- {: data-highlight="split_direction"} -->
 
 Save under `layout_dir` or pass the path with `--layout`.
 
@@ -341,6 +346,7 @@ zellij --layout-string 'layout { pane; }'
 zellij -n compact     # New session
 zellij action dump-layout
 ```
+<!-- {: data-highlight="--layout-string; -n compact; action dump-layout"} -->
 
 `-l` can add a tab when called inside a session.
 
@@ -374,6 +380,7 @@ zellij a -c work       # Attach or create
 zellij a -c -b work    # Create detached
 zellij w work          # Watch read-only
 ```
+<!-- {: data-highlight="-c work; -b work; zellij w"} -->
 
 See: [Documentation](https://zellij.dev/documentation/)
 
@@ -387,6 +394,7 @@ zellij run -c -- sleep 5
 zellij run -n build -- cargo build
 zellij run --stacked -- tail -f log
 ```
+<!-- {: data-highlight="-d down; --stacked"} -->
 
 `run` returns a pane ID; `-d` takes `down`, `right`, `left`, or `up`.
 
@@ -404,6 +412,7 @@ zellij action new-tab --layout compact
 zellij action list-panes
 zellij action dump-screen
 ```
+<!-- {: data-highlight="zellij ac; zellij action"} -->
 
 `ac` aliases `action`; these commands target the active session.
 
@@ -419,6 +428,7 @@ zellij setup --dump-config
 zellij setup --dump-keybinds default
 zellij setup --dump-layout default
 ```
+<!-- {: data-highlight="zellij setup --check; --dump-config"} -->
 
 Config lives in `~/.config/zellij/config.kdl`; `setup --check` prints its paths.
 
@@ -433,6 +443,7 @@ keybinds preset="default" primary="Ctrl" secondary="Alt" {
     }
 }
 ```
+<!-- {: data-highlight="preset"} -->
 
 Bindings layer on the preset; add `clear-defaults=true` to replace it.
 
@@ -447,6 +458,7 @@ default_layout "compact"
 layout_dir "/path/to/my/layout_dir"
 mouse_mode false
 ```
+<!-- {: data-highlight="theme_dark; theme_light; default_layout"} -->
 
 Use `theme` to pin one theme; `theme_dark` and `theme_light` follow the host palette.
 

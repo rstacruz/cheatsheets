@@ -44,7 +44,7 @@ new Intl.RelativeTimeFormat()
 new Intl.RelativeTimeFormat(locales)
 new Intl.RelativeTimeFormat(locales, options)
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="Intl.RelativeTimeFormat"} -->
 
 #### Formatter
 
@@ -54,7 +54,7 @@ const de = new Intl.RelativeTimeFormat('de-DE', {
   numeric: 'auto'
 })
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'de-DE'"} -->
 
 `locales` is a BCP 47 tag or an array of tags; the first supported one wins. Call the constructor with `new` — a plain call throws `TypeError`. Options also accept `localeMatcher` (default `'best fit'`) and `numberingSystem`.
 
@@ -68,13 +68,14 @@ See: [Intl.RelativeTimeFormat() constructor](https://developer.mozilla.org/en-US
 const opts = { numeric: 'auto', style: 'short' }
 const rtf = new Intl.RelativeTimeFormat('default', opts)
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'default'"} -->
 
 #### Output
 
 ```js
 rtf.resolvedOptions().locale  // → 'en-US'
 ```
+<!-- {: data-highlight="rtf.resolvedOptions().locale"} -->
 
 Pass `'default'` to mean the runtime's own locale when you still have options to send. Leaving the argument out works the same: `new Intl.RelativeTimeFormat(undefined, opts)`.
 
@@ -99,7 +100,7 @@ rtf.format(2, 'day')      // → 'in 2 days'
 rtf.format(1, 'year')     // → 'in 1 year'
 rtf.format(-3, 'month')   // → '3 months ago'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="format(-1, 'day')"} -->
 
 #### Units
 
@@ -129,7 +130,7 @@ const rtf = new Intl.RelativeTimeFormat('en-US', {
   numeric: 'auto'
 })
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="numeric: 'auto'"} -->
 
 #### Output
 
@@ -141,7 +142,7 @@ rtf.format(0, 'second')   // → 'now'
 rtf.format(-2, 'day')     // → '2 days ago'
 rtf.format(-1, 'week')    // → 'last week'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'yesterday'; 'tomorrow'; 'today'; 'now'"} -->
 
 `'auto'` uses a wording only where the locale has one for that value and unit; `2` stays numeric. The default, `'always'`, prints `'1 day ago'` and `'in 0 days'`.
 
@@ -156,6 +157,7 @@ const rtf = (style) => (
   new Intl.RelativeTimeFormat('en-US', { style })
 )
 ```
+<!-- {: data-highlight="style"} -->
 
 #### Output
 
@@ -164,7 +166,7 @@ rtf('short').format(-1, 'hour')   // → '1 hr. ago'
 rtf('narrow').format(-1, 'hour')  // → '1h ago'
 rtf('narrow').format(2, 'day')    // → 'in 2d'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'short'; 'narrow'"} -->
 
 `'long'` is the default; `'narrow'` is the most compact. `numeric: 'auto'` wordings such as `'yesterday'` survive both styles.
 
@@ -190,7 +192,7 @@ rtf.formatToParts(-2, 'day')
 //   { type: 'literal', value: ' days ago' }
 // ]
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="formatToParts"} -->
 
 #### Without a number
 
@@ -199,7 +201,7 @@ new Intl.RelativeTimeFormat('en-US', { numeric: 'auto' })
   .formatToParts(-1, 'day')
 // → [{ type: 'literal', value: 'yesterday' }]
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="formatToParts(-1, 'day')"} -->
 
 Parts are `literal`, `integer`, `decimal` or `fraction`. A phrase with no number at all is a single `literal` part.
 
@@ -215,7 +217,7 @@ const rtf = new Intl.RelativeTimeFormat('de-DE', {
   style: 'short'
 })
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="style: 'short'"} -->
 
 #### Output
 
@@ -228,6 +230,7 @@ rtf.resolvedOptions()
 //   numberingSystem: 'latn'
 // }
 ```
+<!-- {: data-highlight="rtf.resolvedOptions()"} -->
 
 It reports the locale that matched, plus the default for every option you left out.
 
@@ -244,6 +247,7 @@ const rtf = (locale, style) => (
   new Intl.RelativeTimeFormat(locale, { style })
 )
 ```
+<!-- {: data-highlight="locale"} -->
 
 #### Output
 
@@ -251,7 +255,7 @@ const rtf = (locale, style) => (
 rtf('en-US', 'short').format(-1, 'hour')  // → '1 hr. ago'
 rtf('en-GB', 'short').format(-1, 'hour')  // → '1 hr ago'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'en-US'; 'en-GB'"} -->
 
 #### Long style
 
@@ -259,7 +263,7 @@ rtf('en-GB', 'short').format(-1, 'hour')  // → '1 hr ago'
 rtf('de-DE').format(-2, 'day')  // → 'vor 2 Tagen'
 rtf('ja-JP').format(-2, 'day')  // → '2 日前'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="rtf('de-DE'); rtf('ja-JP')"} -->
 
 You supply the number and the unit; word order, prepositions and plural endings come from the locale data. At long style `en-US` and `en-GB` agree on `'1 day ago'`; the abbreviation is where they part.
 
@@ -299,7 +303,7 @@ const then = new Date('2026-11-16T12:00:00Z')
 rtf.format((then - now) / 86_400_000, 'day')
 // → '2 days ago'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="86_400_000"} -->
 
 The formatter never reads a clock. Subtract the dates yourself, divide down to the unit you want, and keep the sign.
 
@@ -326,7 +330,7 @@ const timeAgo = (date, now = Date.now()) => {
   return rtf.format(Math.round(s / 86_400), 'day')
 }
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="timeAgo"} -->
 
 #### Usage
 
@@ -337,7 +341,7 @@ timeAgo(new Date('2026-11-18T11:59:30Z'), now)  // '30 seconds ago'
 timeAgo(new Date('2026-11-18T09:00:00Z'), now)  // '3 hours ago'
 timeAgo(new Date('2026-11-16T12:00:00Z'), now)  // '2 days ago'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'30 seconds ago'; '3 hours ago'; '2 days ago'"} -->
 
 `Math.round()` picks a whole unit, and the sign is kept so past values stay negative. Add month and year branches when you need coarser output.
 

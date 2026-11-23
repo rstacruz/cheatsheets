@@ -54,6 +54,7 @@ herdr agent start reviewer --kind codex --pane w1:p2 --timeout 30000
 herdr agent start reviewer --kind claude --pane w1:p2 \
   -- --model sonnet
 ```
+<!-- {: data-highlight="herdr agent start"} -->
 
 `--kind` takes a kind from Supported agents. Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents; a name clears when the agent exits.
 
@@ -69,6 +70,7 @@ herdr agent prompt reviewer "Ship it" --wait --timeout 120000
 herdr agent prompt reviewer "Keep going" --wait --until working
 herdr agent wait reviewer --until blocked --timeout 120000
 ```
+<!-- {: data-highlight="--wait; --until"} -->
 
 `--wait` settles on the first `idle`, `done`, or `blocked` state. `--until`
 can be repeated. Submitting to a blocked agent is rejected before input.
@@ -116,6 +118,7 @@ herdr agent read reviewer --source recent-unwrapped --lines 120
 herdr agent explain reviewer
 herdr agent explain --file screen.txt --agent codex --json
 ```
+<!-- {: data-highlight="herdr agent list; herdr agent get; herdr agent explain"} -->
 
 #### Read sources
 
@@ -135,6 +138,7 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 ```bash
 herdr agent read reviewer --source recent --lines 200
 ```
+<!-- {: data-highlight="--lines 200"} -->
 
 With an idle alternate-screen agent, `--lines` beyond the visible screen scrolls its transcript. While the agent is busy, the read returns `agent_not_idle`.
 
@@ -150,6 +154,7 @@ herdr agent rename reviewer reviewer-2
 herdr agent rename reviewer --clear
 herdr agent attach reviewer --takeover   # another client owns input
 ```
+<!-- {: data-highlight="send-keys; focus; rename; attach"} -->
 
 Herdr validates keys before writing bytes. Inspect a blocked agent with `agent get` and `agent read`. `attach` takes over the terminal; detach with `ctrl+b q`, and send a literal `ctrl+b` as `ctrl+b ctrl+b`.
 
@@ -271,6 +276,7 @@ herdr integration install claude
 herdr integration uninstall claude
 herdr integration status --outdated-only
 ```
+<!-- {: data-highlight="herdr integration install; herdr integration status"} -->
 
 #### Install values
 

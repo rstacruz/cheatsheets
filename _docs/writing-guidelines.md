@@ -360,6 +360,39 @@ Don't repeat the same highlight token across code blocks in a sheet. A tint that
 
 **Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
 
+### code/highlight-parallel-set
+
+When a block lists parallel alternatives — flags, expansion forms, quote
+styles, array operations — don't tint one member picked at random. Tint the
+shared syntax, tint every member (within `code/highlight-limit`), tint the
+single form the card's prose explicitly teaches, or leave the block
+unhighlighted. A lone tint on an uncommon option reads as a mistake.
+
+**Good:** the card teaches all three flags, so all three are tinted.
+
+````md
+```bash
+grep -i foo file
+grep -r foo dir
+grep -n foo file
+```
+<!-- {: data-highlight="-i; -r; -n"} -->
+````
+
+**Bad:** one uncommon expansion is tinted out of many alternatives.
+
+````md
+```bash
+echo "${name}"
+echo "${name/J/j}"
+echo "${name:0:2}"
+```
+<!-- {: data-highlight="${name/J/j}"} -->
+````
+
+Long reference lists with no single lesson need no highlight; the card's
+`See:` line already points to the full reference.
+
 ### code/data-highlight-in-block
 
 🤖 Check: `code/data-highlight-in-block`.

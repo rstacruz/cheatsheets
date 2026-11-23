@@ -48,6 +48,7 @@ links:
 ```sh
 npm install react react-dom
 ```
+<!-- {: data-highlight="react react-dom"} -->
 
 TypeScript projects also need `@types/react` and `@types/react-dom`.
 
@@ -59,6 +60,7 @@ See: [Installation](https://react.dev/learn/installation)
 import { createRoot } from 'react-dom/client'
 createRoot(document.getElementById('root')).render(<App />)
 ```
+<!-- {: data-highlight="createRoot"} -->
 
 The automatic JSX runtime (v17+) means no `import React`. See: [createRoot](https://react.dev/reference/react-dom/client/createRoot)
 
@@ -67,6 +69,7 @@ The automatic JSX runtime (v17+) means no `import React`. See: [createRoot](http
 ```jsx
 <StrictMode><App /></StrictMode>
 ```
+<!-- {: data-highlight="<StrictMode>"} -->
 
 Re-runs renders, effects and ref callbacks an extra time in development to surface impure logic; no effect in production. See: [StrictMode](https://react.dev/reference/react/StrictMode)
 
@@ -144,6 +147,7 @@ Defaults come from parameters (v19 dropped function defaultProps; classes keep t
   <li key={item.id}>{item.name}</li>
 ))}
 ```
+<!-- {: data-highlight="key={item.id}"} -->
 
 Keys must be stable and unique among siblings. See: [Rendering lists](https://react.dev/learn/rendering-lists)
 
@@ -181,6 +185,7 @@ const [count, setCount] = useState(0)
 setCount(count + 1)
 setCount(c => c + 1)  // when the next value depends on the previous
 ```
+<!-- {: data-highlight="setCount(c => c + 1)"} -->
 
 #### Objects and arrays
 
@@ -189,6 +194,7 @@ setUser({ ...user, name: 'Ana' })
 setItems(items => [...items, item])
 setItems(items => items.filter(i => i.id !== id))
 ```
+<!-- {: data-highlight="{ ...user, name: 'Ana' }; [...items, item]; items.filter(i => i.id !== id)"} -->
 
 State is a per-render snapshot and is immutable — replace it, never mutate in place. See: [useState](https://react.dev/reference/react/useState)
 
@@ -198,6 +204,7 @@ State is a per-render snapshot and is immutable — replace it, never mutate in 
 const [name, setName] = useState('')
 <input value={name} onChange={e => setName(e.target.value)} />
 ```
+<!-- {: data-highlight="value={name}"} -->
 
 React owns the value, so the input always reflects state. See: [input](https://react.dev/reference/react-dom/components/input)
 
@@ -209,6 +216,7 @@ function Parent() {
   return <Search value={query} onChange={setQuery} />
 }
 ```
+<!-- {: data-highlight="onChange={setQuery}"} -->
 
 Move shared state to the closest common parent and pass value + setter down. See: [Sharing state](https://react.dev/learn/sharing-state-between-components)
 
@@ -304,6 +312,7 @@ useEffect(() => {
   return () => clearInterval(id)
 }, [])  // once on mount; twice in StrictMode dev
 ```
+<!-- {: data-highlight="clearInterval"} -->
 
 Synchronises a component with an external system and cleans up timers, subscriptions and listeners. See: [useEffect](https://react.dev/reference/react/useEffect)
 
@@ -371,6 +380,7 @@ import { Activity } from 'react'
   <Sidebar />
 </Activity>
 ```
+<!-- {: data-highlight="Activity"} -->
 
 Hides children with `display: none`, unmounts effects, and keeps their state and DOM. See: [Activity](https://react.dev/reference/react/Activity)
 
@@ -382,6 +392,7 @@ import { ViewTransition } from 'react'
   <Page />
 </ViewTransition>
 ```
+<!-- {: data-highlight="ViewTransition"} -->
 
 Animates enter, exit, update and share for transitions and Suspense reveals. See: [ViewTransition](https://react.dev/reference/react/ViewTransition) · [addTransitionType](https://react.dev/reference/react/addTransitionType)
 
@@ -396,6 +407,7 @@ const inputRef = useRef(null)
 useEffect(() => inputRef.current.focus(), [])
 return <input ref={inputRef} />
 ```
+<!-- {: data-highlight="useRef"} -->
 
 #### Callback ref
 
@@ -422,6 +434,7 @@ function Input({ ref, ...props }) {
   return <input ref={ref} {...props} />
 }
 ```
+<!-- {: data-highlight="ref={ref}"} -->
 
 #### Fragment ref
 
@@ -429,6 +442,7 @@ function Input({ ref, ...props }) {
 import { Fragment } from 'react'
 <Fragment ref={ref}>{rows}</Fragment>
 ```
+<!-- {: data-highlight="<Fragment ref={ref}>"} -->
 
 v19 passes `ref` as a normal prop; `forwardRef` still works but is legacy (docs plan to deprecate it). See: [forwardRef](https://react.dev/reference/react/forwardRef)
 
@@ -441,6 +455,7 @@ useImperativeHandle(ref, () => ({
   play: () => videoRef.current.play()
 }), [])
 ```
+<!-- {: data-highlight="useImperativeHandle"} -->
 
 Exposes a custom imperative API instead of the DOM node; rarely needed. See: [useImperativeHandle](https://react.dev/reference/react/useImperativeHandle)
 
@@ -452,12 +467,14 @@ Exposes a custom imperative API instead of the DOM node; rarely needed. See: [us
 import { createPortal } from 'react-dom'
 createPortal(<Modal />, document.getElementById('modal-root'))
 ```
+<!-- {: data-highlight="createPortal"} -->
 
 #### Inner HTML
 
 ```jsx
 <div dangerouslySetInnerHTML={{ __html: trustedHtml }} />
 ```
+<!-- {: data-highlight="dangerouslySetInnerHTML"} -->
 
 A portal renders elsewhere in the DOM while keeping the React tree; `dangerouslySetInnerHTML` injects raw HTML, so never pass untrusted input. See: [createPortal](https://react.dev/reference/react-dom/createPortal)
 
@@ -486,6 +503,7 @@ Context passes data down without prop drilling; v19 renders `<Context>` itself a
 <ThemeContext.Provider value="dark">…</ThemeContext.Provider>
 // ^ still works in v19; docs plan to deprecate
 ```
+<!-- {: data-highlight="ThemeContext.Provider"} -->
 
 The `Provider` element still works in v19; docs plan to deprecate it. See: [createContext](https://react.dev/reference/react/createContext)
 
@@ -541,6 +559,7 @@ const id = useId()
 <label htmlFor={id}>Name</label>
 <input id={id} />
 ```
+<!-- {: data-highlight="useId"} -->
 
 `useId` gives SSR-safe ids for accessibility; `useDebugValue(label)` labels a hook in DevTools. See: [useId](https://react.dev/reference/react/useId)
 
@@ -568,12 +587,14 @@ Cache components and values only when measurement shows a need — [React Compil
 const [isPending, startTransition] = useTransition()
 startTransition(() => setQuery(input))
 ```
+<!-- {: data-highlight="useTransition"} -->
 
 #### Deferred value
 
 ```jsx
 const deferredQuery = useDeferredValue(query)
 ```
+<!-- {: data-highlight="useDeferredValue"} -->
 
 `useTransition` marks an update non-blocking so urgent ones (typing) stay responsive; `useDeferredValue` renders a stale value first, then catches up. See: [useTransition](https://react.dev/reference/react/useTransition) · [useDeferredValue](https://react.dev/reference/react/useDeferredValue)
 
@@ -599,6 +620,7 @@ Subscribes safely to an external store in concurrent rendering; the third argume
 const Chart = lazy(() => import('./Chart'))
 <Suspense fallback={<Spinner />}><Chart /></Suspense>
 ```
+<!-- {: data-highlight="lazy; Suspense"} -->
 
 Code-splits a component; the fallback shows while it loads. See: [Suspense](https://react.dev/reference/react/Suspense)
 
@@ -610,6 +632,7 @@ function Comments({ commentsPromise }) {
   return comments.map(c => <p key={c.id}>{c.text}</p>)
 }
 ```
+<!-- {: data-highlight="use(commentsPromise)"} -->
 
 Reads a promise (suspends) or a context (no suspend); unlike hooks it may be conditional. Promises must be cached. See: [use](https://react.dev/reference/react/use)
 
@@ -641,6 +664,7 @@ Hydration markup must match the client render. See: [Client APIs](https://react.
 import { renderToString } from 'react-dom/server'
 const html = renderToString(<App />)  // sync, no streaming
 ```
+<!-- {: data-highlight="renderToString"} -->
 
 #### Streaming and prerendering
 
@@ -648,6 +672,7 @@ const html = renderToString(<App />)  // sync, no streaming
 import { prerender } from 'react-dom/static'
 const { prelude } = await prerender(<App />)
 ```
+<!-- {: data-highlight="prerender"} -->
 
 `renderToPipeableStream` (Node) and `renderToReadableStream` (web) stream with Suspense.
 
@@ -664,6 +689,7 @@ import { use } from 'react'
 import { browser } from 'react-dom'
 use(browser())  // suspends on the server, not the client
 ```
+<!-- {: data-highlight="browser()"} -->
 
 Marks a Client Component as browser-only; its nearest Suspense fallback renders during SSR.
 
@@ -681,6 +707,7 @@ import { preload, prefetchDNS } from 'react-dom'
 preload('/font.woff2', { as: 'font' })
 prefetchDNS('https://cdn.example.com')
 ```
+<!-- {: data-highlight="preload; prefetchDNS"} -->
 
 React hoists metadata tags to `<head>`; `preload`, `preinit`, `preconnect` and `prefetchDNS` emit resource hints.
 
@@ -724,6 +751,7 @@ createRoot(node, {
   onRecoverableError: (error, info) => log(error, info)
 })
 ```
+<!-- {: data-highlight="onUncaughtError; onCaughtError; onRecoverableError"} -->
 
 Root options report errors caught by boundaries, uncaught errors and recoverable errors.
 

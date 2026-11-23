@@ -38,6 +38,7 @@ links:
 [[Projects/Launch]]
 [[Note|Alias]]
 ```
+<!-- {: data-highlight="[[Note]]; [[Projects/Launch]]; [[Note|Alias]]"} -->
 
 Links resolve by file name without an extension; folder paths start at the vault root. The pipe sets the display text.
 
@@ -50,6 +51,7 @@ See: [Internal links](https://help.obsidian.md/links)
 [[Note#Heading]]
 [[Note#Heading#Details]]
 ```
+<!-- {: data-highlight="[[#Heading]]; [[Note#Heading#Details]]"} -->
 
 One `#` targets a heading in the current note; repeat it for each nested level.
 
@@ -61,6 +63,7 @@ See: [Internal links](https://help.obsidian.md/links)
 [Launch](Projects/Launch%20plan.md)
 [Note](obsidian://open?vault=MainVault&file=Note.md)
 ```
+<!-- {: data-highlight="obsidian://"} -->
 
 Markdown links work too; encode spaces as `%20`. An `obsidian://` URI can open a note in another vault.
 
@@ -75,6 +78,7 @@ See: [Basic formatting syntax](https://help.obsidian.md/syntax)
 > Version 1.15 is out.
 > Supports **bold** and [[Note]].
 ```
+<!-- {: data-highlight="[!note]"} -->
 
 A callout is a blockquote whose first line is `[!type]`; text after the type is the title.
 
@@ -89,6 +93,7 @@ See: [Callouts](https://help.obsidian.md/callouts)
 > [!warning]+ Caution
 > Expanded by default.
 ```
+<!-- {: data-highlight="> [!tip]-; > [!warning]+"} -->
 
 `+` starts expanded, `-` starts collapsed.
 
@@ -101,6 +106,7 @@ See: [Callouts](https://help.obsidian.md/callouts)
 > > [!todo] To group related notes.
 > > > [!example] Up to many levels.
 ```
+<!-- {: data-highlight="> > [!todo]"} -->
 
 Each quote level adds one callout layer.
 
@@ -138,6 +144,7 @@ See: [Callouts](https://help.obsidian.md/callouts)
 ```md
 ![[Note]]
 ```
+<!-- {: data-highlight="![[Note]]"} -->
 
 The `!` prefix renders the linked file inline; edits to the source show up here.
 
@@ -149,6 +156,7 @@ See: [Embed files](https://help.obsidian.md/embeds)
 ![[Note#Heading]]
 ![[Note#^id]]
 ```
+<!-- {: data-highlight="#^id"} -->
 
 Append `#Heading` or `#^id` to embed just that section or block.
 
@@ -161,6 +169,7 @@ See: [Embed files](https://help.obsidian.md/embeds)
 ![[image.png|320x200]]
 ![[Document.pdf#page=3&height=400]]
 ```
+<!-- {: data-highlight="320x200; page=3"} -->
 
 Width-only sizing keeps the aspect ratio; PDFs accept `#page=N` and `#height=N`.
 
@@ -175,6 +184,7 @@ The key decision. ^id
 
 ^quote-of-the-day
 ```
+<!-- {: data-highlight="^id"} -->
 
 Put `^id` at the end of a paragraph, or on its own line after a structured block. IDs allow letters, digits, and dashes.
 
@@ -197,6 +207,7 @@ due: 2026-11-30
 done: false
 ---
 ```
+<!-- {: data-highlight="---"} -->
 
 Properties are YAML at the top of a note. Each name must be unique in that note.
 
@@ -220,6 +231,7 @@ See: [Properties](https://help.obsidian.md/properties)
 ```md
 #meeting #tag/subtag #Project_Apollo
 ```
+<!-- {: data-highlight="#tag/subtag"} -->
 
 Tags allow letters, digits, `_`, `-`, and `/` (nesting), but no spaces. They are case-insensitive.
 
@@ -234,6 +246,7 @@ tags:
   - personal
 ---
 ```
+<!-- {: data-highlight="tags:"} -->
 
 Property tags work like inline tags; `tag:inbox` also matches nested tags.
 
@@ -248,6 +261,7 @@ See: [Properties](https://help.obsidian.md/properties)
 - [x] Write draft
   - [ ] Add citations
 ```
+<!-- {: data-highlight="[ ]; [x]"} -->
 
 List items starting with `[ ]` become checkboxes; indent to nest subtasks.
 
@@ -260,6 +274,7 @@ See: [Basic formatting syntax](https://help.obsidian.md/syntax)
 - [?] Eggs
 - [-] Skydiving
 ```
+<!-- {: data-highlight="[?]; [-]"} -->
 
 Any character inside the brackets counts as complete, while `[ ]` stays open.
 
@@ -274,6 +289,7 @@ See: [Basic formatting syntax](https://help.obsidian.md/syntax)
 
 ==🔴 Urgent==
 ```
+<!-- {: data-highlight="==🔴 Urgent=="} -->
 
 Six color emojis tint a highlight: 🔴 🟠 🟡 🟢 🔵 🟣; otherwise the theme color is used.
 
@@ -288,6 +304,7 @@ Visible %%comment%% text.
 A block comment can span lines.
 %%
 ```
+<!-- {: data-highlight="%%"} -->
 
 Comments hide in Reading view. An unclosed block comment hides the rest of the note.
 
@@ -303,12 +320,14 @@ A claim with a note.[^note]
 [^note]: Source text.
   Continues on the next line.
 ```
+<!-- {: data-highlight="[^note]"} -->
 
 #### Inline footnotes
 
 ```md
 A claim with a note.^[Inline source text.]
 ```
+<!-- {: data-highlight="^[Inline source text.]"} -->
 
 Inline footnotes render in Reading view only.
 

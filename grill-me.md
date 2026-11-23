@@ -81,6 +81,7 @@ See: [Front doors](https://www.aihero.dev/skills-grilling)
 
 ➡️ <your recommended answer>
 ```
+<!-- {: data-highlight="➡️"} -->
 
 The whole frontier arrives at once. Each question is numbered, titled, and followed by a recommendation on its own `➡️` line. Word questions so "yes" accepts the recommendation.
 
@@ -101,6 +102,7 @@ You: 1 yes
 
 You: 2 keep it for one release
 ```
+<!-- {: data-highlight="You:"} -->
 
 The next round contains only questions those two answers unblocked. Later rounds build on earlier ones instead of restating them.
 
@@ -112,6 +114,7 @@ See: [grill-me docs](https://www.aihero.dev/skills-grill-me)
 # add to your global CLAUDE.md
 When grilling, ask one question at a time.
 ```
+<!-- {: data-highlight="ask one question at a time"} -->
 
 The round-based default is a supported setting, not the only mode. Readers who prefer a slower cadence use this opt-out.
 
@@ -138,6 +141,7 @@ storage
 └── retention: how long?
     └── delete: hard or soft?
 ```
+<!-- {: data-highlight="├──; └──"} -->
 
 A decision branches into the decisions hanging off it. The frontier is every branch whose prerequisites are settled; a round asks all of it. Questions depending on another open question wait for a later round.
 
@@ -238,6 +242,7 @@ See: [The paper trail](https://www.aihero.dev/skills-grill-with-docs)
 A request for goods from a customer.
 _Avoid_: Purchase, transaction
 ```
+<!-- {: data-highlight="_Avoid_:"} -->
 
 One or two sentences define what a term *is*. Keep project-specific terms only; implementation detail and specs do not belong in the glossary.
 
@@ -250,6 +255,7 @@ See: [GLOSSARY-FORMAT.md](https://github.com/mattpocock/skills/blob/v1.3.2/skill
 
 Context, decision, and reason in one to three sentences.
 ```
+<!-- {: data-highlight="Context, decision, and reason"} -->
 
 Files are numbered `docs/adr/NNNN-slug.md`. All three gates must pass, so most sessions produce none; a sharper glossary with zero ADRs is normal.
 

@@ -38,6 +38,7 @@ links:
 ```text
 /setup-matt-pocock-skills
 ```
+<!-- {: data-highlight="/setup-matt-pocock-skills"} -->
 
 Once per repo, before other engineering skills. It explores the repo, confirms answers one section at a time, and writes repo-local markdown. Only the human can invoke it.
 
@@ -59,6 +60,7 @@ See: [Setup SKILL.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills/en
 ```text
 /grill-with-docs add SSO for the admin console
 ```
+<!-- {: data-highlight="/grill-with-docs"} -->
 
 The result is shared understanding you hand to `/to-spec`; the next sheet covers how the interview runs.
 
@@ -73,6 +75,7 @@ See: [grill-with-docs](https://www.aihero.dev/skills-grill-with-docs)
 /to-spec add SSO for the admin console
 /to-tickets #42
 ```
+<!-- {: data-highlight="/to-spec; /to-tickets"} -->
 
 /to-spec synthesises the conversation without a new interview; `/to-tickets` slices the spec into demoable work with blocking edges.
 
@@ -85,6 +88,7 @@ See: [to-spec](https://www.aihero.dev/skills-to-spec)
 /code-review main
 /pr
 ```
+<!-- {: data-highlight="/implement; /code-review; /pr"} -->
 
 One ticket per fresh context. `/implement` drives red-green tests at the agreed seams, calls review and commits; `/pr` shapes the body.
 
@@ -208,6 +212,7 @@ See: [to-tickets](https://www.aihero.dev/skills-to-tickets)
 A request for payment sent to a customer after delivery.
 _Avoid_: Bill, payment request
 ```
+<!-- {: data-highlight="**Invoice**; _Avoid_"} -->
 
 #### ADRs
 
@@ -250,6 +255,7 @@ See: [implement](https://www.aihero.dev/skills-implement)
 red   -> failing test at an agreed seam
 green -> minimum code to pass
 ```
+<!-- {: data-highlight="red; green"} -->
 
 #### Pitfalls
 
@@ -272,5 +278,6 @@ See: [tdd](https://www.aihero.dev/skills-tdd)
 **Door:** two-way
 **Blast Radius:** docs only
 ```
+<!-- {: data-highlight="## Summary; ## Evidence"} -->
 
 See: [code-review](https://www.aihero.dev/skills-code-review)

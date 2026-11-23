@@ -63,7 +63,7 @@ claude auth login            # sign in again
 claude auth login --console  # bill to a Console account
 claude auth status           # JSON status; --text for plain
 ```
-<!-- {: data-highlight="--console"} -->
+<!-- {: data-highlight="claude auth login"} -->
 
 See: [Authentication](https://code.claude.com/docs/en/authentication)
 

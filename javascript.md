@@ -43,6 +43,7 @@ const name = 'Ada'
 'a,b,c'.split(',')         // → ["a", "b", "c"]
 'hello'.slice(1, 3)        // → "el"
 ```
+<!-- {: data-highlight="trim; includes; split; slice"} -->
 
 [JavaScript Strings cheatsheet](./js-string)
 
@@ -57,6 +58,7 @@ parseInt('42px', 10)       // → 42
 Math.max(1, 2, 3)          // → 3
 Number.isInteger(2.5)      // → false
 ```
+<!-- {: data-highlight="parseInt; toFixed; toLocaleString; Number.isInteger"} -->
 
 [JavaScript Numbers cheatsheet](./js-number)
 
@@ -72,6 +74,7 @@ list.find(n => n > 1)      // → 2
 list.includes(2)           // → true
 [...list, 4]               // → [1, 2, 3, 4]
 ```
+<!-- {: data-highlight="map; filter; find; ...list"} -->
 
 [JavaScript Arrays cheatsheet](./js-array)
 
@@ -104,6 +107,7 @@ seen.has(2)                      // → true
 seen.size                        // → 3
 [...seen]                        // → [1, 2, 3]
 ```
+<!-- {: data-highlight="new Set; add; has"} -->
 
 #### Map
 
@@ -114,6 +118,7 @@ ages.get('Ada')                  // → 36
 ages.has('Bob')                  // → true
 [...ages.keys()]                 // → ['Ada', 'Bob']
 ```
+<!-- {: data-highlight="new Map; set; get; keys"} -->
 
 [JavaScript Map and Set cheatsheet](./js-map-set)
 
@@ -133,6 +138,7 @@ await Array.fromAsync(gen())        // → collected values
 await Promise.try(risky)            // → rejects on sync throw
 structuredClone(obj)                // → deep copy
 ```
+<!-- {: data-highlight="toSorted; Object.groupBy; Promise.withResolvers; structuredClone"} -->
 
 Recent additions (ES2022–2026); `structuredClone` is a Web API, not ECMAScript.
 
@@ -148,6 +154,7 @@ Date.now()                 // → ms since epoch
 new Date(2014, 2, 1)       // → Sat Mar 01 2014, local midnight
 new Date(0).toISOString()  // → "1970-01-01T00:00:00.000Z"
 ```
+<!-- {: data-highlight="toISOString; getFullYear; Date.now"} -->
 
 [JavaScript Date cheatsheet](./js-date)
 
@@ -163,6 +170,7 @@ Temporal.Now.instant()  // → Temporal.Instant
 Temporal.Now.plainDateISO()     // → current local date
 Temporal.Duration.from('P2D')   // → 2 days
 ```
+<!-- {: data-highlight="Temporal.PlainDate.from; Temporal.Now; Temporal.Duration"} -->
 
 A modern replacement for `Date`; plain dates have no time zone.
 
@@ -184,6 +192,7 @@ try {
 }
 await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ```
+<!-- {: data-highlight="Promise.all"} -->
 
 [JavaScript Async cheatsheet](./js-async)
 
@@ -199,6 +208,7 @@ await Promise.allSettled([a(), b()])  // → every result, never rejects
 await Promise.race([a(), b()])        // → first settled, either way
 await Promise.any([a(), b()])         // → first fulfilled (ES2021)
 ```
+<!-- {: data-highlight="Promise.allSettled; Promise.race; Promise.any; then"} -->
 
 [Promises cheatsheet](./promise)
 
@@ -217,6 +227,7 @@ await fetch('/save', {
   body: JSON.stringify(data)
 })
 ```
+<!-- {: data-highlight="fetch('/data.json')"} -->
 
 [fetch() cheatsheet](./js-fetch)
 
@@ -232,6 +243,7 @@ import * as math from './math.js'
 import data from './data.json' with { type: 'json' }
 const { default: Chart } = await import('./chart.js')
 ```
+<!-- {: data-highlight="export; import; with { type: 'json' }"} -->
 
 [JavaScript Modules cheatsheet](./js-modules)
 
@@ -246,6 +258,7 @@ const fn = (x = 1) => x * 2
 const message = `Hello ${name}`
 for (const item of list) console.log(item)
 ```
+<!-- {: data-highlight="[first, ...rest]; { title, ...others }; for (const item of list)"} -->
 
 [ES2015+ cheatsheet](./es6)
 

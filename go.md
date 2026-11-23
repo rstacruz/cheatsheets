@@ -97,6 +97,7 @@ var x, y int
 var x, y int = 1, 2
 var x, msg = 1, "Hello, world!"
 ```
+<!-- {: data-highlight="var"} -->
 
 #### Declaration list
 
@@ -109,6 +110,7 @@ var (
   f, g string
 )
 ```
+<!-- {: data-highlight="var ("} -->
 
 #### Shortcut of above (infers type)
 
@@ -116,6 +118,7 @@ var (
 msg := "Hello"
 x, msg := 1, "Hello"
 ```
+<!-- {: data-highlight=":="} -->
 
 Short declarations infer the type and only work inside functions.
 
@@ -141,6 +144,7 @@ const (
   Saturday
 )
 ```
+<!-- {: data-highlight="const"} -->
 
 Constants can be character, string, boolean, or numeric values.
 
@@ -157,6 +161,7 @@ See: [Constants](https://go.dev/tour/basics/15)
 ```go
 str := "Hello"
 ```
+<!-- {: data-highlight="Hello"} -->
 
 #### Multiline
 
@@ -164,6 +169,7 @@ str := "Hello"
 str := `Multiline
 string`
 ```
+<!-- {: data-highlight="Multiline"} -->
 
 Strings are of type `string`.
 
@@ -187,6 +193,7 @@ num := 'a'        // rune (int32)
 var u uint = 7        // unsigned
 var p float32 = 22.7  // 32-bit float
 ```
+<!-- {: data-highlight="uint; float32"} -->
 
 #### Built-ins
 
@@ -194,6 +201,7 @@ var p float32 = 22.7  // 32-bit float
 lo := min(3, 9)   // 3
 hi := max(3, 9)   // 9
 ```
+<!-- {: data-highlight="min; max"} -->
 
 `byte` and `rune` are aliases for `uint8` and `int32`.
 
@@ -205,6 +213,7 @@ See: [Numeric types](https://go.dev/ref/spec#Numeric_types)
 // var numbers [5]int
 numbers := [...]int{0, 0, 0, 0, 0}
 ```
+<!-- {: data-highlight="[...]int"} -->
 
 Arrays have a fixed size.
 
@@ -217,12 +226,14 @@ See: [Arrays](https://go.dev/tour/moretypes/6)
 ```go
 slice := []int{2, 3, 4}
 ```
+<!-- {: data-highlight="[]int{2, 3, 4}"} -->
 
 #### Byte slice
 
 ```go
 slice := []byte("Hello")
 ```
+<!-- {: data-highlight="[]byte"} -->
 
 #### With make
 
@@ -230,6 +241,7 @@ slice := []byte("Hello")
 s := make([]int, 3, 5)  // len 3, cap 5
 s = append(s, 4)
 ```
+<!-- {: data-highlight="make"} -->
 
 #### Helpers
 
@@ -238,6 +250,7 @@ s := []int{3, 1, 2}
 slices.Sort(s)        // [1 2 3]
 slices.Contains(s, 2) // true
 ```
+<!-- {: data-highlight="slices.Sort; slices.Contains"} -->
 
 Slices have a dynamic size, unlike arrays.
 
@@ -254,6 +267,7 @@ delete(m, "a")
 v, ok := m["b"]  // comma-ok
 clear(m)
 ```
+<!-- {: data-highlight="ok"} -->
 
 A missing key returns the zero value; `ok` reports whether it exists.
 
@@ -297,6 +311,7 @@ p := new(int)
 ```go
 q := new(42)  // pointer to 42
 ```
+<!-- {: data-highlight="new(42)"} -->
 
 Pointers point to a memory location of a variable. Go is fully garbage-collected and has no pointer arithmetic.
 
@@ -311,6 +326,7 @@ i := 2
 f := float64(i)
 u := uint(i)
 ```
+<!-- {: data-highlight="float64(i); uint(i)"} -->
 
 See: [Type conversions](https://go.dev/tour/basics/13)
 
@@ -361,6 +377,7 @@ default:
   work()
 }
 ```
+<!-- {: data-highlight="fallthrough"} -->
 
 See: [Switch](https://go.dev/wiki/Switch)
 
@@ -373,6 +390,7 @@ for count := 0; count <= 10; count++ {
   fmt.Println("My counter is at", count)
 }
 ```
+<!-- {: data-highlight="count := 0; count <= 10; count++"} -->
 
 #### Over an integer
 
@@ -381,6 +399,7 @@ for i := range 3 {
   fmt.Println(i)  // 0 1 2
 }
 ```
+<!-- {: data-highlight="range 3"} -->
 
 #### Over an iterator
 
@@ -390,6 +409,7 @@ for n := range nums {
   fmt.Println(n)
 }
 ```
+<!-- {: data-highlight="slices.Values"} -->
 
 Since Go 1.22 the range clause also accepts an integer.
 
@@ -405,6 +425,7 @@ for i, val := range entry {
   fmt.Printf("%d: %s\n", i, val)
 }
 ```
+<!-- {: data-highlight="range entry"} -->
 
 Since Go 1.22 each iteration gets its own loop variables.
 
@@ -418,6 +439,7 @@ for n < 42 {
   n += guess()
 }
 ```
+<!-- {: data-highlight="for n < 42"} -->
 
 That's Go's only loop: `for` with just a condition.
 
@@ -448,6 +470,7 @@ See: [Function literals](https://go.dev/ref/spec#Function_literals)
 ```go
 a, b := getMessage()
 ```
+<!-- {: data-highlight="a, b := getMessage()"} -->
 
 #### Definition
 
@@ -490,12 +513,14 @@ func sum(nums ...int) int {
   return total
 }
 ```
+<!-- {: data-highlight="...int"} -->
 
 #### Call
 
 ```go
 sum(1, 2, 3)
 ```
+<!-- {: data-highlight="sum(1, 2, 3)"} -->
 
 See: [Variadic functions](https://go.dev/ref/spec#Passing_arguments_to_..._parameters)
 
@@ -514,6 +539,7 @@ func Map[T, U any](xs []T, f func(T) U) []U {
   return out
 }
 ```
+<!-- {: data-highlight="[T, U any]"} -->
 
 #### Generic type
 
@@ -522,6 +548,7 @@ type Stack[T any] struct {
   items []T
 }
 ```
+<!-- {: data-highlight="[T any]"} -->
 
 #### Generic method
 
@@ -534,12 +561,14 @@ func (s *Stack[T]) Map[U any](f func(T) U) []U {
   return out
 }
 ```
+<!-- {: data-highlight="Map[U any]"} -->
 
 #### Generic alias
 
 ```go
 type Set[T comparable] = map[T]struct{}
 ```
+<!-- {: data-highlight="[T comparable]"} -->
 
 Go 1.27 allows methods to declare their own type parameters.
 
@@ -562,6 +591,7 @@ func Sum[T Number](xs []T) T {
   return total
 }
 ```
+<!-- {: data-highlight="~int | ~int64 | ~float64"} -->
 
 `~T` accepts any type whose underlying type is `T`.
 
@@ -579,6 +609,7 @@ See: [Type constraints](https://go.dev/ref/spec#Type_constraints)
 import "fmt"
 import "math/rand"
 ```
+<!-- {: data-highlight="fmt; math/rand"} -->
 
 #### Grouped imports
 
@@ -588,6 +619,7 @@ import (
   "math/rand"  // gives rand.Intn
 )
 ```
+<!-- {: data-highlight="import ("} -->
 
 Both are the same.
 
@@ -609,6 +641,7 @@ import _ "embed"  // side effects
 ```go
 r.Intn(10)
 ```
+<!-- {: data-highlight="r.Intn"} -->
 
 A `_` alias imports a package only for its side effects.
 
@@ -621,6 +654,7 @@ func Hello() {
   // ...
 }
 ```
+<!-- {: data-highlight="func Hello()"} -->
 
 Exported names begin with capital letters.
 
@@ -631,6 +665,7 @@ See: [Exported names](https://go.dev/tour/basics/3)
 ```go
 package hello
 ```
+<!-- {: data-highlight="package hello"} -->
 
 Every package file has to start with `package`.
 
@@ -707,6 +742,7 @@ case <-time.After(time.Second):
   fmt.Println("timeout")
 }
 ```
+<!-- {: data-highlight="select"} -->
 
 `select` waits on multiple channel operations and runs the first ready one.
 
@@ -740,6 +776,7 @@ for i := range ch {
 ```go
 v, ok := <-ch
 ```
+<!-- {: data-highlight="v, ok := <-ch"} -->
 
 See: [Range and close](https://go.dev/tour/concurrency/4)
 
@@ -778,6 +815,7 @@ func inc() {
   count++
 }
 ```
+<!-- {: data-highlight="mu.Lock(); mu.Unlock()"} -->
 
 A `sync.Mutex` serialises access to shared state.
 
@@ -793,6 +831,7 @@ See: [Mutex](https://pkg.go.dev/sync#Mutex)
 err := errors.New("not found")
 err = fmt.Errorf("load %q: %w", name, err)
 ```
+<!-- {: data-highlight="%w"} -->
 
 #### Checking
 
@@ -812,12 +851,14 @@ if errors.As(err, &pathErr) {
   fmt.Println(pathErr.Path)
 }
 ```
+<!-- {: data-highlight="errors.As"} -->
 
 #### Joining
 
 ```go
 err = errors.Join(err1, err2)
 ```
+<!-- {: data-highlight="errors.Join"} -->
 
 `%w` wraps an error so `errors.Is` and `errors.As` can inspect it.
 
@@ -885,6 +926,7 @@ defer func() {
 
 panic("boom")
 ```
+<!-- {: data-highlight="recover; panic"} -->
 
 `recover` stops a panic and returns its value, but only inside a deferred function.
 
@@ -916,6 +958,7 @@ func main() {
   fmt.Println(v.X, v.Y)
 }
 ```
+<!-- {: data-highlight="v.X = 4"} -->
 
 See: [Structs](https://go.dev/tour/moretypes/2)
 
@@ -926,6 +969,7 @@ See: [Structs](https://go.dev/tour/moretypes/2)
 ```go
 v := Vertex{X: 1, Y: 2}
 ```
+<!-- {: data-highlight="Vertex{X: 1, Y: 2}"} -->
 
 #### Positional fields
 
@@ -933,6 +977,7 @@ v := Vertex{X: 1, Y: 2}
 // Field names can be omitted
 v := Vertex{1, 2}
 ```
+<!-- {: data-highlight="Vertex{1, 2}"} -->
 
 #### Partial fields
 
@@ -940,6 +985,7 @@ v := Vertex{1, 2}
 // Y is implicit
 v := Vertex{X: 1}
 ```
+<!-- {: data-highlight="Vertex{X: 1}"} -->
 
 You can also specify field names.
 
@@ -951,6 +997,7 @@ See: [Struct literals](https://go.dev/tour/moretypes/5)
 v := &Vertex{1, 2}
 v.X = 2
 ```
+<!-- {: data-highlight="&Vertex{1, 2}"} -->
 
 Doing `v.X` is the same as doing `(*v).X`, when `v` is a pointer.
 
@@ -974,6 +1021,7 @@ u := User{
 }
 fmt.Println(u.ID)  // promoted field
 ```
+<!-- {: data-highlight="u.ID"} -->
 
 Embedding promotes the fields and methods of the embedded type.
 
@@ -1007,6 +1055,7 @@ func (v Vertex) Abs() float64 {
 v := Vertex{1, 2}
 v.Abs()
 ```
+<!-- {: data-highlight="v.Abs()"} -->
 
 There are no classes, but you can define functions with _receivers_.
 
@@ -1032,6 +1081,7 @@ v := Vertex{6, 12}
 v.Scale(0.5)
 // `v` is updated
 ```
+<!-- {: data-highlight="v.Scale(0.5)"} -->
 
 By defining your receiver as a pointer (`*Vertex`), you can do mutations.
 
@@ -1047,6 +1097,7 @@ type Shape interface {
   Perimeter() float64
 }
 ```
+<!-- {: data-highlight="Area() float64; Perimeter() float64"} -->
 
 See: [Interfaces](https://go.dev/tour/methods/9)
 
@@ -1057,6 +1108,7 @@ type Rectangle struct {
   Length, Width float64
 }
 ```
+<!-- {: data-highlight="Rectangle"} -->
 
 Struct `Rectangle` implicitly implements interface `Shape` by implementing all of its methods.
 
@@ -1073,6 +1125,7 @@ func (r Rectangle) Perimeter() float64 {
   return 2 * (r.Length + r.Width)
 }
 ```
+<!-- {: data-highlight="Area; Perimeter"} -->
 
 The methods defined in `Shape` are implemented in `Rectangle`.
 
@@ -1086,6 +1139,7 @@ func main() {
   fmt.Printf("%T %v %v\n", r, r.Area(), r.Perimeter())
 }
 ```
+<!-- {: data-highlight="var r Shape"} -->
 
 See: [Interface values](https://go.dev/tour/methods/11)
 
@@ -1099,6 +1153,7 @@ var v any = "hello"  // any = interface{}
 s, ok := v.(string)  // comma-ok
 fmt.Println(s, ok)
 ```
+<!-- {: data-highlight="v.(string)"} -->
 
 #### Type switch
 
@@ -1110,6 +1165,7 @@ case int:
   fmt.Println("int", x)
 }
 ```
+<!-- {: data-highlight="v.(type)"} -->
 
 `any` is an alias for `interface{}`, added in Go 1.18.
 

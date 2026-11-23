@@ -65,16 +65,17 @@ echo $name  # see below
 echo "$name"
 echo "${name}!"
 ```
+<!-- {: data-highlight='$name; "$name"; ${name}'} -->
 
-#### Wildcards and options
+#### Wildcards
 
 ```bash
 wildcard="*.txt"
-options="iv"
-cp -$options $wildcard /tmp
+cp $wildcard /tmp
 ```
+<!-- {: data-highlight="$wildcard"} -->
 
-Generally quote your variables unless they contain wildcards to expand or command fragments.
+Generally quote your variables unless they contain wildcards to expand.
 
 See: [Shell parameters](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html)
 
@@ -86,6 +87,7 @@ echo "Hi $name"  #=> Hi John
 echo 'Hi $name'  #=> Hi $name
 echo $'Hi\nJohn'  # Hi, then John
 ```
+<!-- {: data-line="2-4"} -->
 
 See: [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 
@@ -97,6 +99,7 @@ echo "I'm in `pwd`"  # deprecated
 echo "$(< file.txt)"  # no fork
 echo "${ printf hi; }"  # 5.3, no fork
 ```
+<!-- {: data-line="1-4"} -->
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
@@ -106,6 +109,7 @@ See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/C
 set -euo pipefail
 IFS=$'\n\t'
 ```
+<!-- {: data-highlight="set -euo pipefail"} -->
 
 `errexit` skips failures in conditions, in all but the last command of `&&`/`||` lists and pipelines, and in commands negated with `!`.
 
@@ -121,6 +125,7 @@ See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Se
 git commit && git push
 git commit || echo "Commit failed"
 ```
+<!-- {: data-highlight="&&; ||"} -->
 
 See: [Lists](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
 
@@ -135,6 +140,7 @@ get_name() {
 
 echo "You are $(get_name)"
 ```
+<!-- {: data-highlight="get_name()"} -->
 
 See: [Functions](#functions)
 
@@ -149,6 +155,7 @@ elif [[ -n "$string" ]]; then
   echo "String is not empty"
 fi
 ```
+<!-- {: data-highlight="-z"} -->
 
 See: [Conditionals](#conditionals)
 
@@ -161,6 +168,7 @@ See: [Conditionals](#conditionals)
 ```bash
 echo {A,B}.js
 ```
+<!-- {: data-highlight="{A,B}.js"} -->
 
 #### Expansion forms
 
@@ -195,12 +203,14 @@ echo "${food:-Cake}"  # food, or Cake
 length=2
 echo "${name:0:length}"  # Jo
 ```
+<!-- {: data-highlight="${name:0:length}"} -->
 
 #### Negative offsets
 
 ```bash
 echo "${name: -1}"  # n, space before -1
 ```
+<!-- {: data-highlight="${name: -1}"} -->
 
 A negative offset needs a space or parentheses.
 
@@ -232,6 +242,7 @@ str="Hello world"
 echo "${str:6:5}"    # world
 echo "${str: -5:5}"  # world
 ```
+<!-- {: data-highlight="${str:6:5}; ${str: -5:5}"} -->
 
 See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -243,6 +254,7 @@ base=${src##*/}   # foo.cpp (basename)
 dir=${src%$base}  # /path/to/ (dirname)
 dir=${src%/*}     # /path/to (dirname)
 ```
+<!-- {: data-highlight="${src##*/}; ${src%/*}"} -->
 
 See: [Parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -253,6 +265,7 @@ prefix_a=one
 prefix_b=two
 echo "${!prefix_*}"  # prefix_a prefix_b
 ```
+<!-- {: data-highlight="${!prefix_*}"} -->
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -263,6 +276,7 @@ name=joe
 pointer=name
 echo "${!pointer}"  # => joe
 ```
+<!-- {: data-highlight="${!pointer}"} -->
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -318,6 +332,7 @@ str="hello world!"
 echo "${str^}"   # Hello world!
 echo "${str^^}"  # HELLO WORLD!
 ```
+<!-- {: data-highlight="${str,}; ${str,,}; ${str^}; ${str^^}"} -->
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
@@ -363,6 +378,7 @@ for i in /etc/rc.*; do
   echo "$i"
 done
 ```
+<!-- {: data-highlight="for i in /etc/rc.*"} -->
 
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
@@ -373,6 +389,7 @@ for ((i = 0; i < 100; i++)); do
   echo "$i"
 done
 ```
+<!-- {: data-highlight="for ((i = 0; i < 100; i++))"} -->
 
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
@@ -383,6 +400,7 @@ for i in {1..5}; do
     echo "Welcome $i"
 done
 ```
+<!-- {: data-highlight="{1..5}"} -->
 
 #### With step size
 
@@ -391,6 +409,7 @@ for i in {5..50..5}; do
     echo "Welcome $i"
 done
 ```
+<!-- {: data-highlight="{5..50..5}"} -->
 
 See: [Brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
@@ -403,12 +422,14 @@ while IFS= read -r line; do
   echo "$line"
 done <file.txt
 ```
+<!-- {: data-highlight="while IFS= read -r line"} -->
 
 #### Read all at once
 
 ```bash
 mapfile -t lines < file.txt
 ```
+<!-- {: data-highlight="mapfile -t lines"} -->
 
 `read` in a pipeline runs in a subshell. `shopt -s lastpipe` (plus `set +m` interactively) keeps the last stage in the current shell.
 
@@ -421,6 +442,7 @@ while true; do
   ···
 done
 ```
+<!-- {: data-highlight="while true"} -->
 
 See: [Looping constructs](https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html)
 
@@ -437,6 +459,7 @@ myfunc() {
     echo "hello $1"
 }
 ```
+<!-- {: data-highlight="myfunc()"} -->
 
 #### Alternate syntax
 
@@ -446,12 +469,14 @@ function myfunc {
     echo "hello $1"
 }
 ```
+<!-- {: data-highlight="function myfunc"} -->
 
 #### Call the function
 
 ```bash
 myfunc "John"
 ```
+<!-- {: data-highlight="myfunc"} -->
 
 See: [Shell functions](https://www.gnu.org/software/bash/manual/html_node/Shell-Functions.html)
 
@@ -465,12 +490,14 @@ myfunc() {
     echo "$myresult"
 }
 ```
+<!-- {: data-highlight="$myresult"} -->
 
 #### Capture the output
 
 ```bash
 result=$(myfunc)
 ```
+<!-- {: data-highlight="$(myfunc)"} -->
 
 See: [Command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 
@@ -483,6 +510,7 @@ myfunc() {
   return 1
 }
 ```
+<!-- {: data-highlight="return 1"} -->
 
 #### Check the status
 
@@ -493,6 +521,7 @@ else
   echo "failure"
 fi
 ```
+<!-- {: data-highlight="if myfunc"} -->
 
 See: [Exit status](https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html)
 
@@ -584,6 +613,7 @@ else
   echo "This never happens"
 fi
 ```
+<!-- {: data-highlight="-n"} -->
 
 #### Combinations
 
@@ -593,6 +623,7 @@ if [[ -n "$X" && -n "$Y" ]]; then
   echo "Both are set"
 fi
 ```
+<!-- {: data-highlight="&& -n"} -->
 
 #### Equality
 
@@ -600,6 +631,7 @@ fi
 # Equal
 if [[ "$A" == "$B" ]]
 ```
+<!-- {: data-highlight="=="} -->
 
 See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
 
@@ -613,6 +645,7 @@ if [[ "$date" =~ ^([0-9]{4})- ]]; then
   echo "${BASH_REMATCH[1]}"
 fi
 ```
+<!-- {: data-highlight="=~"} -->
 
 #### Arithmetic
 
@@ -621,6 +654,7 @@ if (( a < b )); then
    echo "$a is smaller than $b"
 fi
 ```
+<!-- {: data-highlight="(( a < b ))"} -->
 
 #### File test
 
@@ -629,6 +663,7 @@ if [[ -e "file.txt" ]]; then
   echo "file exists"
 fi
 ```
+<!-- {: data-highlight="-e"} -->
 
 `BASH_REMATCH` holds the whole match, then each capture group.
 
@@ -643,6 +678,7 @@ See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
 ```
+<!-- {: data-highlight="Fruits=('Apple' 'Banana' 'Orange')"} -->
 
 #### Index by index
 
@@ -651,6 +687,7 @@ Fruits[0]="Apple"
 Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
+<!-- {: data-highlight="Fruits[0]; Fruits[1]; Fruits[2]"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -690,6 +727,7 @@ for i in "${arrayName[@]}"; do
   echo "$i"
 done
 ```
+<!-- {: data-highlight="${arrayName[@]}"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -704,6 +742,7 @@ See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 ```bash
 declare -A sounds
 ```
+<!-- {: data-highlight="declare -A sounds"} -->
 
 #### Add entries
 
@@ -713,6 +752,7 @@ sounds[cow]="moo"
 sounds[bird]="tweet"
 sounds[wolf]="howl"
 ```
+<!-- {: data-highlight="sounds[dog]; sounds[cow]; sounds[bird]; sounds[wolf]"} -->
 
 `declare -A` creates an associative array (bash 4+).
 
@@ -727,6 +767,7 @@ echo "${!sounds[@]}"  # All keys
 echo "${#sounds[@]}"  # Number of elements
 unset sounds[dog]     # Delete dog
 ```
+<!-- {: data-highlight="${#sounds[@]}; unset sounds[dog]"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -739,6 +780,7 @@ for val in "${sounds[@]}"; do
   echo "$val"
 done
 ```
+<!-- {: data-highlight="${sounds[@]}"} -->
 
 #### Iterate over keys
 
@@ -747,6 +789,7 @@ for key in "${!sounds[@]}"; do
   echo "$key"
 done
 ```
+<!-- {: data-highlight="${!sounds[@]}"} -->
 
 See: [Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html)
 
@@ -760,6 +803,7 @@ set -o errexit    # Exit on error
 set -o pipefail   # Fail if any pipe stage fails
 set -o nounset    # Error on unset variables
 ```
+<!-- {: data-highlight="set -o noclobber; set -o errexit; set -o pipefail; set -o nounset"} -->
 
 See: [The set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
@@ -773,6 +817,7 @@ shopt -s dotglob     # Wildcards match dotfiles
 shopt -s globstar    # ** matches recursively
 shopt -s extglob     # Extended patterns: @(a|b), !(a)
 ```
+<!-- {: data-highlight="shopt -s nullglob; shopt -s failglob; shopt -s globstar; shopt -s extglob"} -->
 
 `globskipdots` is on by default since bash 5.2. `GLOBSORT` picks the glob sort key (`name`, `size`, `mtime`), with `-` to reverse (bash 5.3).
 
@@ -840,12 +885,14 @@ See: [Word designators](https://www.gnu.org/software/bash/manual/html_node/Word-
 ```bash
 echo $((a + 200))      # Add 200 to $a
 ```
+<!-- {: data-highlight="$((a + 200))"} -->
 
 #### Random
 
 ```bash
 echo $((RANDOM % 200))  # Random number 0..199
 ```
+<!-- {: data-highlight="$((RANDOM % 200))"} -->
 
 #### Typed variables
 
@@ -853,6 +900,7 @@ echo $((RANDOM % 200))  # Random number 0..199
 declare -i count  # Declare as type integer
 count+=1          # Increment
 ```
+<!-- {: data-highlight="declare -i count"} -->
 
 See: [Shell arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)
 
@@ -862,6 +910,7 @@ See: [Shell arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell
 (cd somedir; echo "I'm now in $PWD")
 pwd # still in first directory
 ```
+<!-- {: data-line="1"} -->
 
 See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html)
 
@@ -879,6 +928,7 @@ python hello.py >output.txt 2>&1 # both, same as &>
 python hello.py &>/dev/null      # both to null
 echo "$0: warning: too many users" >&2  # diagnostic
 ```
+<!-- {: data-highlight="2>&1; &>/dev/null"} -->
 
 #### Input
 
@@ -886,6 +936,7 @@ echo "$0: warning: too many users" >&2  # diagnostic
 python hello.py < foo.txt      # feed foo.txt to stdin for python
 diff <(ls -r) <(ls)            # Compare two stdout without files
 ```
+<!-- {: data-highlight="<(ls -r); <(ls)"} -->
 
 See: [Redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
 
@@ -895,6 +946,7 @@ See: [Redirections](https://www.gnu.org/software/bash/manual/html_node/Redirecti
 command -V cd
 #=> cd is a shell builtin
 ```
+<!-- {: data-highlight="command -V cd"} -->
 
 See: [Bash builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
@@ -905,6 +957,7 @@ See: [Bash builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Bui
 ```bash
 trap 'echo Error at about $LINENO' ERR
 ```
+<!-- {: data-highlight="trap 'echo Error at about $LINENO' ERR"} -->
 
 #### With a handler
 
@@ -916,6 +969,7 @@ traperr() {
 set -o errtrace
 trap traperr ERR
 ```
+<!-- {: data-highlight="trap traperr ERR"} -->
 
 See: [The trap builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
 
@@ -934,6 +988,7 @@ case "$1" in
     ;;
 esac
 ```
+<!-- {: data-highlight="case"} -->
 
 See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html)
 
@@ -942,6 +997,7 @@ See: [Conditional constructs](https://www.gnu.org/software/bash/manual/html_node
 ```bash
 source "${BASH_SOURCE[0]%/*}/../share/foo.sh"
 ```
+<!-- {: data-highlight="${BASH_SOURCE[0]%/*}"} -->
 
 `BASH_SOURCE` points at the file even when the script is sourced.
 
@@ -965,6 +1021,7 @@ printf '%s\n' '#!/bin/bash' 'echo hello' >file
 # format string is applied to each group of arguments
 printf '%i+%i=%i\n' 1 2 3  4 5 9
 ```
+<!-- {: data-highlight="printf"} -->
 
 See: [The printf builtin](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
@@ -974,6 +1031,7 @@ See: [The printf builtin](https://www.gnu.org/software/bash/manual/html_node/Bas
 echo "Welcome To Devhints" | tr '[:lower:]' '[:upper:]'
 WELCOME TO DEVHINTS
 ```
+<!-- {: data-highlight="tr '[:lower:]' '[:upper:]'"} -->
 
 #### Options
 
@@ -1001,6 +1059,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 ```bash
 dir=${BASH_SOURCE[0]%/*}
 ```
+<!-- {: data-highlight="dir=${BASH_SOURCE[0]%/*}"} -->
 
 `BASH_SOURCE` is the path as invoked; `shopt -s bash_source_fullpath` (bash 5.3) makes it absolute.
 
@@ -1024,6 +1083,7 @@ while getopts ":Vs:f" opt; do
 done
 shift $((OPTIND - 1))
 ```
+<!-- {: data-highlight="getopts"} -->
 
 #### Long options
 
@@ -1038,6 +1098,7 @@ while [[ "$1" == -* && "$1" != "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 ```
+<!-- {: data-highlight="--version; --string; --flag"} -->
 
 `OPTARG` holds the option value; `OPTIND` is the next argument index.
 
@@ -1050,6 +1111,7 @@ cat <<EOF
 hello world
 EOF
 ```
+<!-- {: data-highlight="<<EOF"} -->
 
 Heredoc feeds multiple lines to stdin. Unquoted markers expand variables; `'EOF'` disables expansion.
 
@@ -1060,6 +1122,7 @@ See: [Here documents](https://www.gnu.org/software/bash/manual/html_node/Redirec
 ```sh
 tr '[:lower:]' '[:upper:]' <<< "Will be uppercased, even $variable"
 ```
+<!-- {: data-highlight="<<<"} -->
 
 Herestring allows a string to be treated as a standard input (stdin). See [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Here-Strings).
 
@@ -1071,11 +1134,13 @@ while IFS= read -r line; do
   echo "$line"
 done < <(myfunc)
 ```
+<!-- {: data-highlight="<(myfunc)"} -->
 
 ```sh
 # compare content of two folders
 diff <(ls "$dir1") <(ls "$dir2")
 ```
+<!-- {: data-highlight='<(ls "$dir1")'} -->
 
 Process substitution treats a command's input or output as a file.
 
@@ -1090,12 +1155,14 @@ read -r -p "Proceed? [y/n] " ans
 IFS= read -s -r -p "Password: " pass  # no echo
 echo "$ans"
 ```
+<!-- {: data-highlight="-r -p; -s"} -->
 
 #### One character
 
 ```bash
 read -n 1 ans    # One character
 ```
+<!-- {: data-highlight="-n 1"} -->
 
 `-r` keeps backslashes literal, `-p` prints a prompt, and `-s` hides input.
 
@@ -1129,6 +1196,7 @@ pwd # /home/user/foo/bar
 cd -
 pwd # /home/user/foo
 ```
+<!-- {: data-highlight="cd -"} -->
 
 See: [The cd builtin](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
 
@@ -1139,6 +1207,7 @@ if ping -c 1 google.com; then
   echo "It appears you have a working internet connection"
 fi
 ```
+<!-- {: data-highlight="if ping -c 1 google.com"} -->
 
 See: [Exit status](https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html)
 
@@ -1149,6 +1218,7 @@ if grep -q 'foo' ~/.bash_history; then
   echo "You appear to have typed 'foo' in the past"
 fi
 ```
+<!-- {: data-highlight="grep -q 'foo'"} -->
 
 See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 

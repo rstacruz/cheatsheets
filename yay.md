@@ -107,6 +107,7 @@ yay -S --needed foo     # skip packages already installed
 yay -Ss foo             # search names and descriptions
 yay -Si foo             # show details
 ```
+<!-- {: data-highlight="yay -S foo; yay -Ss foo"} -->
 
 See: [Examples](https://github.com/Jguer/yay#examples-of-custom-operations)
 
@@ -117,6 +118,7 @@ yay -Syu                # upgrade repo and AUR packages
 yay -Sua                # upgrade AUR packages only
 yay -Syu --devel        # also check -git packages
 ```
+<!-- {: data-highlight="-Syu; -Sua; --devel"} -->
 
 `--devel` compares the Git commit hashes stored at install time.
 
@@ -130,6 +132,7 @@ yay -Yc                 # remove unneeded dependencies
 yay -Ycc                # also drop optional dependencies
 yay -Sc                 # clean AUR cache and untracked files
 ```
+<!-- {: data-highlight="-R; -Yc; -Ycc; -Sc"} -->
 
 `yay -Sc` keeps VCS sources so devel packages can pull updates.
 
@@ -145,6 +148,7 @@ yay -Syu --repo
 yay -Syu --aur
 yay -Ss foo --aur
 ```
+<!-- {: data-highlight="--repo; --aur"} -->
 
 `--repo` and `--aur` limit sysupgrade to one source; dependencies still resolve from both.
 
@@ -157,6 +161,7 @@ yay -B ./pkg
 yay -Bi ./pkg
 yay -Bi ./pkg --mflags "--skipchecksums"
 ```
+<!-- {: data-highlight="-Bi; --mflags"} -->
 
 AUR dependencies are resolved before makepkg runs. Only skip integrity checks for sources you trust.
 
@@ -169,6 +174,7 @@ yay -G foo
 yay -Gp foo
 yay -Gf foo
 ```
+<!-- {: data-highlight="-G; -Gp; -Gf"} -->
 
 `-G` uses ABS for repo packages and the AUR otherwise. `-p` prints; `-f` overwrites.
 
@@ -180,6 +186,7 @@ See: [getpkgbuild options](https://jguer.github.io/yay/man.html)
 yay -Y --gendb
 yay -Y --devel --save
 ```
+<!-- {: data-highlight="--gendb; --devel --save"} -->
 
 Run `--gendb` once after migration; only Git sources are tracked.
 
@@ -191,6 +198,7 @@ See: [First use](https://github.com/Jguer/yay#first-use)
 yay -Wv foo
 yay -Wu foo
 ```
+<!-- {: data-highlight="-Wv; -Wu"} -->
 
 Voting needs `AUR_USERNAME` and `AUR_PASSWORD`.
 
@@ -208,6 +216,7 @@ yay -Pw                 # new Arch news
 yay -Pww                # all available news
 yay -Pwq                # news titles only
 ```
+<!-- {: data-highlight="-Ps"} -->
 
 `-Ps` also reports orphaned, out-of-date, and missing AUR packages.
 
@@ -219,6 +228,7 @@ See: [Show options](https://jguer.github.io/yay/man.html)
 yay --editmenu --diffmenu=false --save
 yay --noanswerupgrade --save
 ```
+<!-- {: data-highlight="--save"} -->
 
 `--save` writes to `config.json`. `--answerupgrade` preselects a reply; `--noanswerupgrade` clears it.
 

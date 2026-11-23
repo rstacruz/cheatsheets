@@ -7,8 +7,9 @@
  * and the two-slope steps (30px and 40px) use `min()` to pick the steeper
  * slope between 480–768px and 768–1280px.
  *
- * Line-height pairs are explicit ratios: Tailwind's default `--text-3xl`
- * line-height is a fixed `2.25rem`, which would sit below a 36px font.
+ * Line-height pairs are explicit ratios so each step pins the site's rhythm
+ * instead of inheriting Tailwind's defaults (unitless `calc()` ratios such as
+ * `calc(2.25 / 1.875)` for `--text-3xl`).
  */
 
 @theme static {

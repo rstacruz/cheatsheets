@@ -60,7 +60,7 @@
     font-family: 'Handjet', var(--font-mono);
     font-size: 16px;
     line-height: 18px;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--tracking-chip);
     white-space: nowrap;
   }
 

@@ -64,6 +64,34 @@ function deletedPaths(baseSha: string, headSha = 'HEAD') {
   return output.split('\0').filter((token) => token && token !== 'D')
 }
 
+/** Routes Astro or `public/` serve in addition to markdown pages */
+function staticRoutes() {
+  const routes = new Set<string>([''])
+
+  for (const entry of readdirSync(join(root, 'src/pages'), {
+    withFileTypes: true
+  })) {
+    if (!entry.isFile() || !/\.(?:astro|ts)$/.test(entry.name)) continue
+    const name = entry.name.replace(/\.(?:astro|ts)$/, '')
+    if (name.includes('[')) continue
+    routes.add(name === 'index' ? '' : name)
+  }
+
+  for (const entry of readdirSync(join(root, 'public'), {
+    withFileTypes: true
+  })) {
+    if (!entry.isFile() || entry.name.startsWith('_')) continue
+    routes.add(entry.name)
+  }
+
+  return routes
+}
+
+async function livePaths() {
+  const pages = await getPages()
+  return new Set([...Object.keys(pages), ...staticRoutes()])
+}
+
 const base = resolveBase()
 
 test('the redirect file is well formed', () => {
@@ -71,21 +99,27 @@ test('the redirect file is well formed', () => {
 })
 
 test('redirect sources do not shadow live pages', async () => {
-  const pages = await getPages()
+  const live = await livePaths()
   const shadowing = rules.flatMap((rule) =>
-    pages[rule.source.slice(1)] ? [rule.source] : []
+    live.has(rule.source.slice(1)) ? [rule.source] : []
   )
   expect(shadowing).toEqual([])
 })
 
 test('redirect targets are live pages or external URLs', async () => {
-  const pages = await getPages()
+  const live = await livePaths()
   const missing = rules.flatMap((rule) => {
     const slug = targetSlug(rule.target)
-    if (slug === null || slug === '' || pages[slug]) return []
+    if (slug === null || live.has(slug)) return []
     return [`${rule.source} -> ${rule.target}`]
   })
   expect(missing).toEqual([])
+})
+
+test('the live set includes non-markdown routes', async () => {
+  const live = await livePaths()
+  expect(live.has('archive')).toBe(true)
+  expect(live.has('robots.txt')).toBe(true)
 })
 
 test('redirects do not chain', () => {

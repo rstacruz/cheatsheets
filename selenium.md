@@ -74,6 +74,7 @@ from selenium import webdriver
 
 driver = webdriver.Firefox()
 ```
+<!-- {: data-highlight="Firefox()"} -->
 
 Swap `Firefox()` for `Chrome()`, `Edge()`, or `Safari()`; Selenium Manager resolves the driver.
 
@@ -108,6 +109,7 @@ all_fields = driver.find_elements(
     By.TAG_NAME, "input"
 )
 ```
+<!-- {: data-highlight="find_element; find_elements"} -->
 
 `find_element()` raises when missing; `find_elements()` returns an empty list.
 
@@ -125,6 +127,7 @@ inner = host.shadow_root.find_element(
     By.CSS_SELECTOR, "button"
 )
 ```
+<!-- {: data-highlight="shadow_root"} -->
 
 Search inside an element or shadow root to narrow scope.
 
@@ -138,6 +141,7 @@ buttons = driver.find_elements(
     "form button[type=submit]"
 )
 ```
+<!-- {: data-highlight="By.CSS_SELECTOR"} -->
 
 CSS selectors suit ids, classes, and structural queries.
 
@@ -151,6 +155,7 @@ totals = driver.find_elements(
     "//tr[contains(@class,'total')]"
 )
 ```
+<!-- {: data-highlight="By.XPATH"} -->
 
 Use XPath when the target depends on text or ancestor position.
 
@@ -170,6 +175,7 @@ locator = rel.locate_with(
 )
 field = locator.above({By.ID: "password"})
 ```
+<!-- {: data-highlight="locate_with"} -->
 
 Relative locators describe position next to another element.
 
@@ -191,6 +197,7 @@ driver.find_element(
     By.CSS_SELECTOR, "button"
 ).click()
 ```
+<!-- {: data-highlight="send_keys; clear; click"} -->
 
 Element commands cover the everyday interaction surface.
 
@@ -208,6 +215,7 @@ select.select_by_value("volvo")
 select.select_by_visible_text("Saab")
 select.select_by_index(2)
 ```
+<!-- {: data-highlight="select_by_value; select_by_visible_text; select_by_index"} -->
 
 `deselect_all()` is available only on multi-selects.
 
@@ -222,6 +230,7 @@ field.get_attribute("class")
 field.is_displayed()
 field.is_enabled()
 ```
+<!-- {: data-highlight="text; get_attribute; is_displayed; is_enabled"} -->
 
 Read these properties to assert state after an interaction.
 
@@ -243,6 +252,7 @@ ActionChains(driver).key_down(
     Keys.SHIFT
 ).perform()
 ```
+<!-- {: data-highlight="key_down; key_up; send_keys"} -->
 
 `key_down()` and `key_up()` hold a modifier during other input.
 
@@ -261,6 +271,7 @@ ActionChains(driver).move_to_element(
     menu
 ).pause(0.5).click(item).perform()
 ```
+<!-- {: data-highlight="move_to_element; pause; click; perform"} -->
 
 Chain moves, pauses, drags, and scrolls, then call `perform()`.
 
@@ -275,6 +286,7 @@ title = driver.execute_script(
 snapshot = driver.accessibility_snapshot()
 print(snapshot.to_text())
 ```
+<!-- {: data-highlight="execute_script"} -->
 
 The 4.53 snapshot returns a node whose `to_text()` gives accessibility text.
 
@@ -288,6 +300,7 @@ See: [Browser interactions](https://www.selenium.dev/documentation/webdriver/int
 ```python
 driver.implicitly_wait(0.5)
 ```
+<!-- {: data-highlight="implicitly_wait"} -->
 
 Applies to every lookup in the session; don't mix it with explicit waits.
 
@@ -303,6 +316,7 @@ element = wait.until(
     lambda d: d.find_element(By.ID, "msg")
 )
 ```
+<!-- {: data-highlight="WebDriverWait"} -->
 
 Poll up to 10 seconds for a truthy result; `until_not()` inverts it.
 
@@ -323,6 +337,7 @@ wait.until(
     )
 )
 ```
+<!-- {: data-highlight="title_is; visibility_of_element_located"} -->
 
 Prefer conditions over raw lookups; they ignore missing elements while polling.
 
@@ -360,6 +375,7 @@ driver.switch_to.window(
 )
 driver.close()
 ```
+<!-- {: data-highlight="new_window; window_handles"} -->
 
 `close()` ends the current context; `quit()` ends the whole session.
 
@@ -375,6 +391,7 @@ driver.switch_to.frame(frame)
 driver.switch_to.parent_frame()
 driver.switch_to.default_content()
 ```
+<!-- {: data-highlight="default_content()"} -->
 
 Return to the top document before locating page-level elements.
 
@@ -393,6 +410,7 @@ alert = ui.WebDriverWait(
 print(alert.text)
 alert.accept()
 ```
+<!-- {: data-highlight="alert_is_present; accept"} -->
 
 Use `dismiss()` to cancel, or `send_keys()` to answer a prompt.
 
@@ -409,6 +427,7 @@ cookies = driver.get_cookies()
 driver.delete_cookie("n")
 driver.delete_all_cookies()
 ```
+<!-- {: data-highlight="add_cookie"} -->
 
 Navigate to the cookie's domain before adding one.
 
@@ -426,6 +445,7 @@ options.add_argument("--headless=new")
 options.page_load_strategy = "eager"
 driver = webdriver.Chrome(options=options)
 ```
+<!-- {: data-highlight="page_load_strategy"} -->
 
 Page-load strategy controls navigation, not clicks on elements.
 
@@ -440,6 +460,7 @@ options = webdriver.ChromeOptions()
 options.enable_bidi = True
 driver = webdriver.Chrome(options=options)
 ```
+<!-- {: data-highlight="enable_bidi"} -->
 
 Enable BiDi before using `driver.script` or `driver.network`.
 
@@ -461,6 +482,7 @@ element = driver.find_element(
 element.screenshot("body.png")
 pdf = driver.print_page(pp.PrintOptions())
 ```
+<!-- {: data-highlight="save_screenshot"} -->
 
 Full-page capture needs Firefox classic or WebDriver BiDi; `print_page()` returns a PDF string.
 
@@ -478,6 +500,7 @@ script.add_javascript_error_handler(
     logs.append
 )
 ```
+<!-- {: data-highlight="add_console_message_handler; add_javascript_error_handler"} -->
 
 Both handlers need BiDi enabled before use.
 
@@ -493,6 +516,7 @@ driver.network.add_request_handler(
     "before_request", on_request
 )
 ```
+<!-- {: data-highlight="add_request_handler"} -->
 
 The callback receives each outgoing request; BiDi must be enabled.
 
@@ -507,6 +531,7 @@ logging.getLogger("selenium").setLevel(
     logging.DEBUG
 )
 ```
+<!-- {: data-highlight="DEBUG"} -->
 
 Shows the WebDriver commands sent by the Python client.
 

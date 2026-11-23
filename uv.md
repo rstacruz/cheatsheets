@@ -57,6 +57,7 @@ uv init --app hello
 uv init --lib libby
 uv init --bare
 ```
+<!-- {: data-highlight="--bare"} -->
 
 Creates `pyproject.toml`, `.python-version`, `README.md` and `.gitignore`; `--bare` writes only `pyproject.toml`.
 
@@ -70,6 +71,7 @@ uv version 1.2.3
 uv version --bump minor
 uv version --dry-run
 ```
+<!-- {: data-highlight="--bump minor"} -->
 
 `uv version` reads and updates `[project].version` in `pyproject.toml`.
 
@@ -97,6 +99,7 @@ See: [uv run](https://docs.astral.sh/uv/reference/cli/#uv-run)
 uv run --with rich python main.py
 uv run --with 'pandas>=2' -m notebook
 ```
+<!-- {: data-highlight="--with"} -->
 
 Packages passed to `--with` exist for this invocation only.
 
@@ -109,6 +112,7 @@ uv run script.py
 uv run --script script.py
 uv add --script script.py rich
 ```
+<!-- {: data-highlight="--script"} -->
 
 `--script` uses PEP 723 dependencies embedded in the file.
 
@@ -126,6 +130,7 @@ uv add --dev pytest
 uv add --group docs mkdocs
 uv remove rich
 ```
+<!-- {: data-highlight="--dev"} -->
 
 `uv add` updates `pyproject.toml`, `uv.lock`, and the `.venv`.
 
@@ -138,6 +143,7 @@ uv add --optional pdf reportlab
 uv sync --group docs
 uv sync --no-dev
 ```
+<!-- {: data-highlight="--optional"} -->
 
 `--dev` is shorthand for `--group dev`; `--optional` adds an extra.
 
@@ -151,6 +157,7 @@ uv tree -d 2
 uv tree --invert --package markdown-it-py
 uv pip list
 ```
+<!-- {: data-highlight="--invert"} -->
 
 `uv tree` shows resolved versions; `--invert` finds who needs a package.
 
@@ -190,6 +197,7 @@ uv run -p 3.12 python main.py
 uv sync -p 3.12
 uv python find 3.12
 ```
+<!-- {: data-highlight="-p 3.12"} -->
 
 `-p` is shorthand for `--python` and applies to one command; `uv python find` prints its path.
 
@@ -204,6 +212,7 @@ uv lock
 uv lock --check
 uv lock --dry-run
 ```
+<!-- {: data-highlight="--check"} -->
 
 `--check` verifies `uv.lock` matches the project; `--dry-run` previews changes.
 
@@ -216,6 +225,7 @@ uv lock -U
 uv lock -P rich
 uv lock --upgrade-group dev
 ```
+<!-- {: data-highlight="-U; -P"} -->
 
 `-U` upgrades all locked packages; `-P` upgrades one package.
 
@@ -228,6 +238,7 @@ uv export --format requirements.txt -o requirements.txt
 uv export --format pylock.toml -o pylock.toml
 uv export --format cyclonedx1.5 -o sbom.json
 ```
+<!-- {: data-highlight="--format requirements.txt"} -->
 
 `cyclonedx1.5` is experimental.
 
@@ -298,6 +309,7 @@ uv build --sdist
 uv build --wheel
 uv build -o dist
 ```
+<!-- {: data-highlight="--sdist; --wheel"} -->
 
 Writes a source distribution and wheel into `dist/`.
 
@@ -310,6 +322,7 @@ uv publish --token "$UV_PUBLISH_TOKEN"
 uv publish --trusted-publishing always
 uv publish --dry-run
 ```
+<!-- {: data-highlight="$UV_PUBLISH_TOKEN"} -->
 
 Trusted publishing or `$UV_PUBLISH_TOKEN` keeps a literal token out of the command.
 

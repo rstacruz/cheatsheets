@@ -63,6 +63,7 @@ claude auth login            # sign in again
 claude auth login --console  # bill to a Console account
 claude auth status           # JSON status; --text for plain
 ```
+<!-- {: data-highlight="--console"} -->
 
 See: [Authentication](https://code.claude.com/docs/en/authentication)
 
@@ -341,11 +342,13 @@ See: [Review locally with /code-review](https://code.claude.com/docs/en/code-rev
 # One-shot JSON output for scripts
 claude -p "list the failing tests" --output-format json
 ```
+<!-- {: data-highlight="--output-format json"} -->
 
 ```bash
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
+<!-- {: data-highlight="-p"} -->
 
 `--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster. It ignores OAuth credentials, so set `ANTHROPIC_API_KEY`.
 
@@ -357,6 +360,7 @@ See: [Headless mode](https://code.claude.com/docs/en/headless)
 claude --bg "migrate the auth tests"  # detach immediately
 claude agents                         # monitor and dispatch
 ```
+<!-- {: data-highlight="--bg"} -->
 
 Inside a session, `/background` detaches it and `/batch` fans work out across worktrees.
 

@@ -50,7 +50,9 @@ Tailwind declares `theme, base, components, utilities`. Styles land in layers so
 utilities can override them:
 
 - `src/styles/base.css` wraps its contents in `@layer base { … }`.
-- Component and Markdown CSS is imported with `layer(components)`.
+- Each file in `src/styles/components/` and `src/styles/markdown/` wraps its
+  contents in `@layer components { … }`. The `<style is:global>` blocks import
+  them plainly; Vite drops `layer()` from those `@import`s.
 - Unlayered CSS beats every utility. Do not add it.
 
 ## Stylelint

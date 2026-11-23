@@ -92,7 +92,7 @@ Line-height pairs are set explicitly on the new scale (`1.5`/`1.6`/`1.4`/`1.3`/`
 
 ### 6. Cascade: put component CSS in `@layer components`
 
-Component and Markdown styles are imported with `layer(components)` so Tailwind utilities can override them. `base.css` is imported as a JS module, so it cannot use `@import … layer()`; wrap its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
+Component and Markdown styles live in `@layer components` so Tailwind utilities can override them. Each file declares its own layer: Vite drops `layer()` from the `<style is:global>` `@import`s, and `base.css` is a JS import that cannot use `@import … layer()` at all, so it wraps its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
 
 ### 7. Enforcement: Stylelint in CI
 
@@ -126,6 +126,7 @@ Stylelint is the deterministic gate. There is no hand-rolled style-validation su
 ## History
 
 - 2026-11-23 — decision recorded. Assessment: rlab `notes/26JDH-devhints/report-2026-1123-css-token-assessment.md`.
+- 2026-11-24 — implemented: token vocabulary and Stylelint gate (#2446), cascade layers (#2447). The gate rejects a raw hex, an unknown custom property, and a token from the wrong family.
 
 ## Alternatives
 

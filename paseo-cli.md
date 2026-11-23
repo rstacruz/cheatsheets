@@ -424,6 +424,7 @@ PASEO_HOST=devbox:6767 paseo ls
 echo "$PASEO_AGENT_ID"        # set inside agent sessions
 echo "$PASEO_WORKSPACE_ID"    # current agent's workspace
 ```
+<!-- {: data-highlight="PASEO_HOME; PASEO_HOST; PASEO_AGENT_ID; PASEO_WORKSPACE_ID"} -->
 
 Flags override environment selectors; the agent variables are read-only inside sessions.
 

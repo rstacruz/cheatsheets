@@ -16,6 +16,7 @@
 - **Framework**: Astro with TypeScript (strict mode), Tailwind CSS
 - **Imports**: Use `~/` alias for `src/` directory
 - **Styles**: plain CSS partials in `src/styles/`; Tailwind utilities in markup
+- **CSS tokens**: colours, type, radii, and `@apply` rules live in [`_docs/css-conventions.md`](_docs/css-conventions.md)
 - **Types**: Use Zod schemas for runtime validation (see `SheetFrontmatter.ts`); TypeScript strict mode enabled
 - **Naming**: camelCase for variables/functions, PascalCase for components/types
 - **Error handling**: Distinguish operational (expected) vs unexpected errors; return error objects for operational errors

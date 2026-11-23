@@ -147,7 +147,7 @@ Object.is(NaN, NaN)   // → true
 Object.is(0, -0)      // → false
 ```
 
-<!-- {: data-highlight="=="} -->
+<!-- {: data-highlight="==="} -->
 
 `===` compares object identity, not contents; `Object.is()` treats `NaN` as equal to itself.
 

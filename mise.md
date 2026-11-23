@@ -586,7 +586,6 @@ See: [mise watch](https://mise.jdx.dev/cli/watch.html)
 
 ## Also see
 
-- [Mise scheduled tasks cheatsheet](./mise-schedule-tasks)
 - [mise documentation](https://mise.jdx.dev)
 - [Configuration reference](https://mise.jdx.dev/configuration.html)
 - [CLI reference](https://mise.jdx.dev/cli/)

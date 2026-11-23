@@ -114,7 +114,7 @@ Stylelint is the deterministic gate. There is no hand-rolled style-validation su
 
 - One token vocabulary from the first merged change. The rename is a large mechanical diff, but there is no half-migrated state and no permanent legacy-name exception.
 - Stylelint adds two dev dependencies and a config file, but replaces ad-hoc checks with an established tool and built-in rules.
-- `@apply` becomes a first-class form. CSS now depends on the Tailwind theme for colour, type, radius, and shadow; raw values fail lint.
+- `@apply` becomes a first-class form. CSS now depends on the Tailwind theme for colour, type, radius, and shadow. Raw colour literals fail lint, and the token-family rule rejects a `var()` reference outside the declaration's family; raw sizes and radii in files not yet touched are migrated by the touch-it, rename-it rule.
 - The type scale becomes a single Tailwind namespace. A few `text-*` utilities change size (`text-sm` 12.25→13–14px, `text-xl` 17.5→20px, `text-2xl` 21→24px, `text-3xl` 26.25→30–36px), and line-heights are now explicit ratios. The migration PR is screenshot-reviewed at 480/768/1280px.
 - Raw radii migrate to the scale; 1px/3px collapse to 2px. This is the only intended geometry change in the token migration.
 - Brand and grey normalization changes values: `--base-a` → `mildindigo-600`, the gradient → 600→400, `text-zinc-*` → semantic text, and table links `#35a` → `--link`. The migration PR lists these for screenshot review.

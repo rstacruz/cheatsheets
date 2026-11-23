@@ -8,8 +8,9 @@ rules is [ADR 002](adrs/adr-002-design-tokens-and-tailwind.md).
 | Tier | Lives in | Use in |
 | --- | --- | --- |
 | Primitives (`--color-mildindigo-600`) | `src/styles/tailwind.css` | Token files only |
-| Semantic roles (`--background`, `--primary`, `--text-base`) | `src/styles/tokens.css`, `src/styles/font-scale.css` | Component and Markdown CSS |
-| Tailwind aliases (`--color-primary`, `--text-base`) | `src/styles/tailwind.css` | Utilities and `@apply` |
+| Semantic roles (`--background`, `--primary`, `--muted-foreground`) | `src/styles/tokens.css` | Component and Markdown CSS |
+| Type scale (`--text-base`, `--text-base--line-height`) | `src/styles/font-scale.css` | `font-size` and `text-*` utilities |
+| Tailwind colour aliases (`--color-primary`) | `src/styles/tailwind.css` | Utilities and `@apply` |
 
 Components ask for the role, never the ramp step: `var(--primary)`, not
 `var(--color-mildindigo-600)`.
@@ -56,13 +57,16 @@ utilities can override them:
 ## Stylelint
 
 ```sh
-pnpm lint:css:check   # report violations; runs in pnpm ci
+pnpm lint:css:check   # report violations; runs in pnpm run ci
 pnpm lint:css         # fix what can be fixed automatically
 ```
 
-Rule of thumb: raw values fail. Hex colours, `rgb()`, `hsl()`, named colours,
-unknown custom properties, and a token from the wrong family (a `--radius-*` in
-`color`) are CI errors. Only `tokens.css` and `tailwind.css` hold raw values.
+Rule of thumb: colour literals fail lint. Hex colours, `rgb()`, `hsl()`, named
+colours, unknown custom properties, and a token from the wrong family (a
+`--radius-*` in `color`) are CI errors. Raw values belong in the token files
+(`tokens.css`, `tailwind.css`, and `font-scale.css`); `icons.generated.css` is
+ignored. Raw lengths elsewhere pass lint until the touch-it, rename-it rule
+migrates them.
 
 Shorthand declarations can trip the allowed-list. Tune
 `declaration-property-custom-property-allowed-list` for that property family;

@@ -23,7 +23,7 @@ fragments:
   - "IdentityFile"
   - "ssh -t host htop"
 intro: |
-  OpenSSH's `ssh` opens encrypted remote shells and tunnels. This sheet covers logins, keys, config, forwarding, and diagnostics.
+  OpenSSH's `ssh` opens encrypted remote shells and tunnels. This sheet covers logins, keys, config, forwarding, and troubleshooting.
 links:
   - title: OpenSSH manuals
     url: https://www.openssh.com/manual.html
@@ -191,7 +191,7 @@ ssh -N -R 9000:localhost:5432 user@host
 ```
 <!-- {: data-highlight="-R 9000:localhost:5432"} -->
 
-`-L` listens locally and reaches port 80 from `host`; `-R` listens on `host` and reaches the client.
+`-L` listens locally and reaches port 80 from `host`; `-R` listens on `host` and reaches the client. `-N` holds the connection open without a shell.
 
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 

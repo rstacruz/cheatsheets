@@ -329,7 +329,7 @@ ssh-keygen -t ed25519 -C "me@example.com"
 <!-- {: data-highlight="ssh-keygen"} -->
 ````
 
-`-t ed25519` only chooses a key type; it leaves the card's subject untinted.
+`-t ed25519` only chooses a key type.
 
 Use `data-line` instead when the whole line, or a range, is the lesson.
 

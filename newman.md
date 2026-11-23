@@ -235,11 +235,13 @@ CSV headers become variable names, so each row can supply `{{userId}}` and more.
 See: [Data files](https://learning.postman.com/docs/postman/collection-runs/working-with-data-files/)
 
 ## Reports and exports
+<!-- {: .-three-column} -->
 
 ### Built-in reporters
 
 ```bash
-$ newman run collection.json -e env.json -r cli,json,junit
+$ newman run collection.json -e env.json \
+    -r cli,json,junit
 ```
 <!-- {: data-highlight="-r cli,json,junit"} -->
 
@@ -264,7 +266,8 @@ See: [JSON reporter](https://github.com/postmanlabs/newman#json-reporter)
 
 ```bash
 $ newman run collection.json -e env.json \
-    -r junit --reporter-junit-export run.xml
+    -r junit \
+    --reporter-junit-export run.xml
 ```
 <!-- {: data-highlight="--reporter-junit-export run.xml"} -->
 
@@ -298,11 +301,13 @@ Also available: `--export-globals`, `--export-collection`, and `--export-cookie-
 See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-collection-file-source-options)
 
 ## CI and automation
+<!-- {: .-three-column} -->
 
 ### Stop on first failure
 
 ```bash
-$ newman run collection.json -e env.json --bail failure
+$ newman run collection.json -e env.json \
+    --bail failure
 ```
 <!-- {: data-highlight="--bail failure"} -->
 
@@ -313,7 +318,8 @@ See: [Newman in CI](https://learning.postman.com/docs/reference/newman-cli/comma
 ### Suppress the exit code
 
 ```bash
-$ newman run collection.json -e env.json -x
+$ newman run collection.json -e env.json \
+    -x
 ```
 <!-- {: data-highlight="-x"} -->
 
@@ -324,7 +330,8 @@ See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-col
 ### Quiet output
 
 ```bash
-$ newman run collection.json -e env.json --silent
+$ newman run collection.json -e env.json \
+    --silent
 ```
 <!-- {: data-highlight="--silent"} -->
 
@@ -359,6 +366,7 @@ Durations are milliseconds. `--timeout` caps the whole run and `--timeout-script
 See: [Command-line options](https://github.com/postmanlabs/newman#newman-run-collection-file-source-options)
 
 ## Integrations
+<!-- {: .-three-column} -->
 
 ### Node.js library
 
@@ -367,13 +375,17 @@ const newman = require('newman')
 
 newman.run(
   {
-    collection: require('./collection.json'),
+    collection: require(
+      './collection.json'
+    ),
     environment: require('./env.json'),
     reporters: 'cli'
   },
   (err, summary) => {
     if (err) throw err
-    console.log(summary.run.stats.assertions.total) // 2
+    console.log(
+      summary.run.stats.assertions.total
+    ) // 2
   }
 )
 ```
@@ -387,7 +399,8 @@ See: [Node library](https://github.com/postmanlabs/newman#using-newman-as-a-libr
 
 ```bash
 $ docker run --rm -v "$PWD:/etc/newman" \
-    -t postman/newman run collection.json -e env.json
+    -t postman/newman \
+    run collection.json -e env.json
 ```
 <!-- {: data-highlight="postman/newman"} -->
 
@@ -398,7 +411,8 @@ See: [Docker image](https://hub.docker.com/r/postman/newman/)
 ### From the Postman API
 
 ```bash
-$ newman run "https://api.getpostman.com/collections/$UID" \
+$ newman run "https://api.getpostman.com/\
+collections/$UID" \
     --postman-api-key "$POSTMAN_API_KEY"
 ```
 <!-- {: data-highlight="--postman-api-key"} -->

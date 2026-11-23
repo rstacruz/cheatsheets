@@ -25,7 +25,7 @@ export default {
       '/^font-family$/': ['/^--font-/'],
       '/^font-size$/': ['/^--text-/'],
       '/^line-height$/': ['/^--leading-/'],
-      '/^(border-radius|border-(top|bottom|left|right)-(left|right)-radius)$/':
+      '/^(border-radius|border-(top|bottom|left|right)-(left|right)-radius|border-(start|end)-(start|end)-radius)$/':
         ['/^--radius/'],
       '/^box-shadow$/': ['/^--shadow-/', semanticColor],
       '/^text-shadow$/': [semanticColor, '/^--shadow-/']
@@ -42,9 +42,10 @@ export default {
         '/^(?!(var\\(--leading-)|[0-9.]+$|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
       ],
       '/^letter-spacing$/': [
-        '/^(?!(var\\(--tracking-)|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
+        '/^(?!(var\\(--tracking-)|0$|normal$|inherit$|initial$|unset$|revert$|revert-layer$)/'
       ],
-      '/^border-radius$/': ['/[0-9.]+(px|rem|em|%)/']
+      '/^(border-radius|border-(top|bottom|left|right)-(left|right)-radius|border-(start|end)-(start|end)-radius)$/':
+        ['/[0-9.]+(px|rem|em|%)/']
     },
     'at-rule-no-unknown': [
       true,

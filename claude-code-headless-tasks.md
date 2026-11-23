@@ -40,7 +40,8 @@ Pipes the diff as context and returns a review. See [headless mode](https://code
 <!-- {: .-snippet} -->
 
 ```bash
-claude -p "list failing tests" --output-format json
+claude -p "list failing tests" \
+  --output-format json
 ```
 <!-- {: data-highlight="--output-format json"} -->
 

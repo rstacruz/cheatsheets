@@ -925,6 +925,17 @@ The first card holds the shortest working command. Variants, flags, and edge cas
 
 A snippet sheet holds roughly 3–6 H3 cards and stays under about 120 lines. Split the topic when it grows larger.
 
+### snippet/code-line-length
+
+🤖 Check: `snippet/code-line-length`.
+
+Keep snippet code lines to 49 characters or fewer. The left column is narrower than a full sheet, so wrap long commands with `\` continuations instead of relying on horizontal scrolling.
+
+```bash
+claude -p "list failing tests" \
+  --output-format json
+```
+
 ## Checks
 
 Sheet checks live in `src/lib/sheetValidation/`. Run them with:

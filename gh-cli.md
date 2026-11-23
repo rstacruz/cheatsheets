@@ -115,7 +115,7 @@ See: [gh repo clone](https://cli.github.com/manual/gh_repo_clone)
 gh repo create my-tool --private \
   --source=. --push
 ```
-<!-- {: data-highlight="--source=.; --push"} -->
+<!-- {: data-highlight="gh repo create"} -->
 
 `--source` uses the current directory's git history; `--push` uploads existing commits.
 
@@ -173,7 +173,7 @@ gh pr create
 gh pr create --fill --base develop
 gh pr create -t "Fix login" -F -
 ```
-<!-- {: data-highlight="--fill; -F -"} -->
+<!-- {: data-highlight="gh pr create"} -->
 
 `--fill` uses the commits for the title and body; `-F -` reads the body from stdin.
 
@@ -189,7 +189,7 @@ gh pr list --search \
   "review:required"
 gh pr list -l bug -L 50
 ```
-<!-- {: data-highlight="--search; -l"} -->
+<!-- {: data-highlight="gh pr list"} -->
 
 `--search` takes GitHub search syntax; `-l` repeats for multiple labels.
 
@@ -203,7 +203,7 @@ gh pr view 123 --comments
 gh pr checkout 123
 gh pr diff 123 --name-only
 ```
-<!-- {: data-highlight="gh pr checkout"} -->
+<!-- {: data-highlight="gh pr view; gh pr checkout; gh pr diff"} -->
 
 `gh pr checkout` creates a local branch that tracks the PR head.
 
@@ -246,7 +246,7 @@ gh pr merge --squash \
 gh pr merge --auto --rebase
 gh pr merge 123 --merge
 ```
-<!-- {: data-highlight="--auto"} -->
+<!-- {: data-highlight="gh pr merge"} -->
 
 `--auto` enables auto-merge; if the base branch uses a merge queue, the PR joins it once required checks pass.
 
@@ -265,7 +265,7 @@ gh issue create \
 gh issue create -l bug -a @me
 gh issue create --parent 100
 ```
-<!-- {: data-highlight="--parent"} -->
+<!-- {: data-highlight="gh issue create"} -->
 
 `--parent` creates a sub-issue.
 
@@ -280,7 +280,7 @@ gh issue list --search \
   "is:open no:assignee"
 gh issue list --state all -L 50
 ```
-<!-- {: data-highlight="-a @me"} -->
+<!-- {: data-highlight="gh issue list"} -->
 
 `-a @me` filters to your issues; `--search` takes GitHub search syntax such as `no:assignee`.
 
@@ -294,7 +294,7 @@ gh issue comment 123 \
   -b "Fixed in #456"
 gh issue view 123 --web
 ```
-<!-- {: data-highlight="--comments"} -->
+<!-- {: data-highlight="gh issue view; gh issue comment"} -->
 
 `--comments` (`-c`) includes the comment thread; `--web` opens the issue.
 
@@ -309,7 +309,7 @@ gh issue close 123 \
 gh issue close 123 \
   --duplicate-of 456
 ```
-<!-- {: data-highlight="--duplicate-of"} -->
+<!-- {: data-highlight="gh issue close"} -->
 
 `--duplicate-of` closes the issue as a duplicate of the one you pass; a `Fixes #123` line in a PR closes it on merge.
 
@@ -329,7 +329,7 @@ gh run list \
 gh run list --branch main \
   --limit 10
 ```
-<!-- {: data-highlight="--status failure"} -->
+<!-- {: data-highlight="gh run list"} -->
 
 `--status` also takes `in_progress`, `queued`, and `success`.
 
@@ -342,7 +342,7 @@ gh run watch 123456789
 gh run watch --compact \
   --exit-status
 ```
-<!-- {: data-highlight="--exit-status"} -->
+<!-- {: data-highlight="gh run watch"} -->
 
 `--exit-status` fails the command when the run fails, which suits CI scripts.
 
@@ -355,7 +355,7 @@ gh run view 123456789 \
   --log-failed
 gh run rerun 123456789 --failed
 ```
-<!-- {: data-highlight="--log-failed; --failed"} -->
+<!-- {: data-highlight="gh run view; gh run rerun"} -->
 
 `--log-failed` prints only failed steps; `--failed` reruns only failed jobs.
 
@@ -371,7 +371,7 @@ gh workflow run deploy.yml \
 gh workflow run deploy.yml \
   --ref my-branch
 ```
-<!-- {: data-highlight="-f environment=staging"} -->
+<!-- {: data-highlight="gh workflow run"} -->
 
 `-f` sets a `workflow_dispatch` input; repeat it for more inputs.
 
@@ -391,7 +391,7 @@ gh release create v1.2.0 \
 gh release create v1.2.0 \
   dist/*.tgz
 ```
-<!-- {: data-highlight="--generate-notes"} -->
+<!-- {: data-highlight="gh release create"} -->
 
 `--generate-notes` writes notes from merged PRs; assets after the tag are uploaded with the release.
 
@@ -408,7 +408,7 @@ gh release download v1.2.0 \
 gh release download \
   -p '*.rpm' -D /tmp
 ```
-<!-- {: data-highlight="--pattern; --archive"} -->
+<!-- {: data-highlight="gh release download"} -->
 
 Without a tag, pass `--pattern` or `--archive`; gh uses the latest release. `--archive` fetches source, not assets.
 
@@ -440,7 +440,7 @@ gh search repos --owner cli \
 gh search repos "database" \
   --sort stars --limit 10
 ```
-<!-- {: data-highlight="--sort stars"} -->
+<!-- {: data-highlight="gh search repos"} -->
 
 `--sort` takes `stars`, `forks`, `updated`, or `help-wanted-issues`.
 
@@ -474,7 +474,7 @@ gh api repos/{owner}/{repo}/issues \
 gh api graphql \
   -f query='{ viewer { login } }'
 ```
-<!-- {: data-highlight="--jq '.stargazers_count'"} -->
+<!-- {: data-highlight="gh api"} -->
 
 `--jq` filters the response; `{owner}` and `{repo}` expand from the current repo. `-f` sends a string and switches to POST, so the `issues` line creates an issue.
 
@@ -491,7 +491,7 @@ gh pr list --json number \
   --template \
   '{{range .}}#{{.number}} {{end}}'
 ```
-<!-- {: data-highlight="--jq '.[].title'; --template"} -->
+<!-- {: data-highlight="--json"} -->
 
 `--jq` and `--template` need `--json`; omit the field list to see available fields.
 

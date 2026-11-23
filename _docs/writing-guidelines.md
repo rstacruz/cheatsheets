@@ -355,6 +355,20 @@ ssh-keygen -t ed25519 -C "me@example.com"
 
 `-t ed25519` only chooses a key type.
 
+Tint a secondary option only when the card is about that option. In a "Create" card, `gh repo create` is the lesson and `--source` is an implementation detail.
+
+````md
+### Create
+
+```bash
+gh repo create my-tool --private \
+  --source=. --push
+```
+<!-- {: data-highlight="gh repo create"} -->
+````
+
+A flag-first card keeps its flag: "Print a range" tints `-r 2:4`, and "Watch CI checks" tints `--watch`.
+
 ### code/highlight-limit
 
 🤖 Check: `code/highlight-limit`.

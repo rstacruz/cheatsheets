@@ -66,22 +66,48 @@ function deletedPaths(baseSha: string, headSha = 'HEAD') {
 
 /** Routes Astro or `public/` serve in addition to markdown pages */
 function staticRoutes() {
-  const routes = new Set<string>([''])
+  return new Set([
+    '',
+    ...pageRoutes(join(root, 'src/pages')),
+    ...publicRoutes(join(root, 'public'))
+  ])
+}
 
-  for (const entry of readdirSync(join(root, 'src/pages'), {
-    withFileTypes: true
-  })) {
-    if (!entry.isFile() || !/\.(?:astro|ts)$/.test(entry.name)) continue
-    const name = entry.name.replace(/\.(?:astro|ts)$/, '')
-    if (name.includes('[')) continue
-    routes.add(name === 'index' ? '' : name)
+/** Page routes under `src/pages`, skipping private and dynamic paths */
+function pageRoutes(dir: string, prefix = '') {
+  const routes: string[] = []
+
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    // Astro ignores `_` paths; `[x]` is dynamic
+    if (entry.name.startsWith('_') || entry.name.includes('[')) continue
+    const path = prefix ? `${prefix}/${entry.name}` : entry.name
+
+    if (entry.isDirectory()) {
+      routes.push(...pageRoutes(join(dir, entry.name), path))
+      continue
+    }
+    if (!/\.(?:astro|ts)$/.test(entry.name)) continue
+
+    const name = path.replace(/\.(?:astro|ts)$/, '')
+    routes.push(name.replace(/(?:^|\/)index$/, ''))
   }
 
-  for (const entry of readdirSync(join(root, 'public'), {
-    withFileTypes: true
-  })) {
-    if (!entry.isFile() || entry.name.startsWith('_')) continue
-    routes.add(entry.name)
+  return routes
+}
+
+/** Static files under `public/`, as paths relative to the site root */
+function publicRoutes(dir: string, prefix = '') {
+  const routes: string[] = []
+
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith('_')) continue
+    const path = prefix ? `${prefix}/${entry.name}` : entry.name
+
+    if (entry.isDirectory()) {
+      routes.push(...publicRoutes(join(dir, entry.name), path))
+    } else {
+      routes.push(path)
+    }
   }
 
   return routes
@@ -129,6 +155,8 @@ test('the live set includes non-markdown routes', async () => {
   const live = await livePaths()
   expect(live.has('archive')).toBe(true)
   expect(live.has('robots.txt')).toBe(true)
+  expect(live.has('test_scenarios/seo_tags_test')).toBe(true)
+  expect(live.has('assets/favicon.png')).toBe(true)
 })
 
 test('redirects do not chain', () => {

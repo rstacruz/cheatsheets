@@ -175,25 +175,23 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ## Forwarding
 <!-- {: .-three-column} -->
 
-### Local port
+### Local and remote ports
+
+#### Local
 
 ```bash
 ssh -N -L 8080:localhost:80 user@host
 ```
 <!-- {: data-highlight="-L 8080:localhost:80"} -->
 
-Local port 8080 reaches port 80 as seen from `host`.
-
-See: [ssh(1)](https://man.openbsd.org/ssh.1)
-
-### Remote port
+#### Remote
 
 ```bash
 ssh -N -R 9000:localhost:5432 user@host
 ```
 <!-- {: data-highlight="-R 9000:localhost:5432"} -->
 
-Port 9000 on `host` reaches port 5432 on the client.
+`-L` listens locally and reaches port 80 from `host`; `-R` listens on `host` and reaches the client.
 
 See: [ssh(1)](https://man.openbsd.org/ssh.1)
 

@@ -1,119 +1,121 @@
-.MarkdownBody code {
-  color: var(--muted-foreground);
-  font-size: var(--text-code);
-}
+@layer components {
+  .MarkdownBody code {
+    color: var(--muted-foreground);
+    font-size: var(--text-code);
+  }
 
-.MarkdownBody pre,
-.MarkdownBody code {
-  font-family: var(--font-mono);
-}
+  .MarkdownBody pre,
+  .MarkdownBody code {
+    font-family: var(--font-mono);
+  }
 
-/* Reduce line height for box drawing characters */
-.MarkdownBody pre.-box-chars {
-  line-height: 1.32;
-}
+  /* Reduce line height for box drawing characters */
+  .MarkdownBody pre.-box-chars {
+    line-height: 1.32;
+  }
 
-/* For figlet.md */
-.MarkdownBody pre.-figlet {
-  line-height: 1;
-  font-size: 11px;
-}
+  /* For figlet.md */
+  .MarkdownBody pre.-figlet {
+    line-height: 1;
+    font-size: 11px;
+  }
 
-/*
+  /*
  * Undo prism theme styles
  */
 
-.MarkdownBody {
-  & pre {
-    box-shadow: none;
-    border-left: 0;
-    overflow: hidden;
-    overflow-x: auto;
-    background: var(--card);
-    font-size: var(--text-code);
-    line-height: var(--leading-code);
+  .MarkdownBody {
+    & pre {
+      box-shadow: none;
+      border-left: 0;
+      overflow: hidden;
+      overflow-x: auto;
+      background: var(--card);
+      font-size: var(--text-code);
+      line-height: var(--leading-code);
+    }
+
+    & pre.-wrap {
+      white-space: pre-wrap;
+    }
+
+    & pre > code {
+      color: var(--heading);
+      padding: 0;
+      background: transparent;
+      overflow: visible;
+      font-size: 1em;
+    }
+
+    /* Inline highlight: `data-highlight` in a fenced block */
+    & .inline-highlight {
+      background: color-mix(in srgb, var(--highlight) 14%, transparent);
+      padding-block: 1px;
+    }
+
+    /* Only the outer fragments pad sideways, so split tokens stay contiguous */
+    & .inline-highlight--start {
+      padding-left: 2px;
+      border-start-start-radius: var(--radius-xs);
+      border-end-start-radius: var(--radius-xs);
+    }
+
+    & .inline-highlight--end {
+      padding-right: 2px;
+      border-start-end-radius: var(--radius-xs);
+      border-end-end-radius: var(--radius-xs);
+    }
   }
 
-  & pre.-wrap {
-    white-space: pre-wrap;
+  .MarkdownBody pre.-setup,
+  .MarkdownBody p.-setup,
+  .MarkdownBody ul.-setup,
+  .MarkdownBody p.-crosslink {
+    background: var(--muted);
   }
 
-  & pre > code {
-    color: var(--heading);
-    padding: 0;
-    background: transparent;
-    overflow: visible;
-    font-size: 1em;
-  }
-
-  /* Inline highlight: `data-highlight` in a fenced block */
-  & .inline-highlight {
-    background: color-mix(in srgb, var(--highlight) 14%, transparent);
-    padding-block: 1px;
-  }
-
-  /* Only the outer fragments pad sideways, so split tokens stay contiguous */
-  & .inline-highlight--start {
-    padding-left: 2px;
-    border-start-start-radius: var(--radius-xs);
-    border-end-start-radius: var(--radius-xs);
-  }
-
-  & .inline-highlight--end {
-    padding-right: 2px;
-    border-start-end-radius: var(--radius-xs);
-    border-end-end-radius: var(--radius-xs);
-  }
-}
-
-.MarkdownBody pre.-setup,
-.MarkdownBody p.-setup,
-.MarkdownBody ul.-setup,
-.MarkdownBody p.-crosslink {
-  background: var(--muted);
-}
-
-/*
+  /*
  * Syntax highlight
  */
 
-.token {
-  &.tag,
-  &.keyword {
-    color: var(--link);
-  }
+  .token {
+    &.tag,
+    &.keyword {
+      color: var(--link);
+    }
 
-  &.tag {
-    color: var(--link-dark);
-  }
+    &.tag {
+      color: var(--link-dark);
+    }
 
-  &.value,
-  &.string,
-  &.number,
-  &.attr-value,
-  &.boolean,
-  &.regex {
-    color: var(--highlight);
-  }
+    &.value,
+    &.string,
+    &.number,
+    &.attr-value,
+    &.boolean,
+    &.regex {
+      color: var(--highlight);
+    }
 
-  &.function,
-  &.attr-name {
-    color: var(--link-bright);
-  }
+    &.function,
+    &.attr-name {
+      color: var(--link-bright);
+    }
 
-  &.punctuation,
-  &.operator {
-    color: var(--syntax-punctuation);
-  }
+    &.punctuation,
+    &.operator {
+      color: var(--syntax-punctuation);
+    }
 
-  &.comment {
-    color: var(--syntax-comment);
-  }
+    &.comment {
+      color: var(--syntax-comment);
+    }
 
-  /* TOML section headers (`[keys]`) tokenize as `.table`; the global
+    /* TOML section headers (`[keys]`) tokenize as `.table`; the global
      `.table { display: table }` rule otherwise breaks them onto their own
      lines */
-  &.table {
-    display: inline;
+    &.table {
+      display: inline;
+    }
   }
 }

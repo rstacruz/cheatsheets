@@ -1,19 +1,21 @@
-.notice-box {
-  margin-bottom: 24px;
-  color: var(--muted-foreground);
+@layer components {
+  .notice-box {
+    margin-bottom: 24px;
+    color: var(--muted-foreground);
 
-  @media (max-width: 480px) {
-    margin-bottom: 16px;
-  }
+    @media (max-width: 480px) {
+      margin-bottom: 16px;
+    }
 
-  & > svg {
-    display: inline-block;
-    vertical-align: middle;
-    color: var(--muted-foreground-subtle);
-    margin-right: 8px;
-  }
+    & > svg {
+      display: inline-block;
+      vertical-align: middle;
+      color: var(--muted-foreground-subtle);
+      margin-right: 8px;
+    }
 
-  & > a {
-    text-decoration: none;
+    & > a {
+      text-decoration: none;
+    }
   }
 }

@@ -1,72 +1,74 @@
-.MarkdownBody ul.-six-column {
-  display: flex;
-  flex-wrap: wrap;
+@layer components {
+  .MarkdownBody ul.-six-column {
+    display: flex;
+    flex-wrap: wrap;
 
-  & > li {
-    flex: 0 0 16.6666666667%;
+    & > li {
+      flex: 0 0 16.6666666667%;
 
-    @media (max-width: 480px) {
-      flex: 0 0 50%;
+      @media (max-width: 480px) {
+        flex: 0 0 50%;
+      }
+
+      @media (max-width: 768px) {
+        flex: 0 0 25%;
+      }
     }
+  }
 
-    @media (max-width: 768px) {
+  .MarkdownBody ul.-four-column {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > li {
       flex: 0 0 25%;
+
+      @media (max-width: 480px) {
+        flex: 0 0 50%;
+      }
+
+      @media (max-width: 768px) {
+        flex: 0 0 33.3333333333%;
+      }
     }
   }
-}
 
-.MarkdownBody ul.-four-column {
-  display: flex;
-  flex-wrap: wrap;
-
-  & > li {
-    flex: 0 0 25%;
-
-    @media (max-width: 480px) {
-      flex: 0 0 50%;
-    }
-
-    @media (max-width: 768px) {
-      flex: 0 0 33.3333333333%;
-    }
+  .MarkdownBody ul.-enum,
+  .MarkdownBody ul.-enum-wide,
+  .MarkdownBody ul.-enum-lines {
+    display: grid;
+    gap: 4px;
   }
-}
 
-.MarkdownBody ul.-enum,
-.MarkdownBody ul.-enum-wide,
-.MarkdownBody ul.-enum-lines {
-  display: grid;
-  gap: 4px;
-}
+  .MarkdownBody ul.-enum-lines {
+    gap: 0;
+  }
 
-.MarkdownBody ul.-enum-lines {
-  gap: 0;
-}
-
-.MarkdownBody ul.-enum,
-.MarkdownBody ul.-enum-lines {
-  /* 2 tiles in a narrow card, 4 in a wide one, never fewer than 2 */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(max(7.5rem, calc(25% - 4px)), 1fr)
-  );
-}
-
-/* The 14px root makes 7.5rem too small for a phone card: keep two tiles */
-@media (max-width: 480px) {
   .MarkdownBody ul.-enum,
   .MarkdownBody ul.-enum-lines {
+    /* 2 tiles in a narrow card, 4 in a wide one, never fewer than 2 */
     grid-template-columns: repeat(
       auto-fit,
-      minmax(max(8rem, calc(50% - 4px)), 1fr)
+      minmax(max(7.5rem, calc(25% - 4px)), 1fr)
     );
   }
-}
 
-.MarkdownBody ul.-enum-wide {
-  /* Long values cap at 2 columns */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(max(10rem, calc(50% - 4px)), 1fr)
-  );
+  /* The 14px root makes 7.5rem too small for a phone card: keep two tiles */
+  @media (max-width: 480px) {
+    .MarkdownBody ul.-enum,
+    .MarkdownBody ul.-enum-lines {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(max(8rem, calc(50% - 4px)), 1fr)
+      );
+    }
+  }
+
+  .MarkdownBody ul.-enum-wide {
+    /* Long values cap at 2 columns */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(max(10rem, calc(50% - 4px)), 1fr)
+    );
+  }
 }

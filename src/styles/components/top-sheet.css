@@ -1,101 +1,103 @@
-.featured-pages {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.top-sheet[class][class] {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  height: 220px;
-  padding: 16px 18px 18px;
-  overflow: hidden;
-  text-decoration: none;
-  border-radius: var(--radius-xl);
-
-  > .sheet-card__title {
-    color: var(--primary-foreground);
-    font-family: var(--font-manrope);
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 1.25;
-    overflow-wrap: break-word;
+@layer components {
+  .featured-pages {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
   }
 
-  > .sheet-card__subtitle {
-    color: color-mix(in srgb, var(--card) 78%, transparent);
-  }
-
-  > .sheet-card__fragments {
+  .top-sheet[class][class] {
     display: flex;
-    flex: 1 1 auto;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 4px 5px;
-    min-height: 0;
-    margin: 0 0 8px;
-    padding-right: 20%;
+    flex-direction: column;
+    gap: 2px;
+    height: 220px;
+    padding: 16px 18px 18px;
     overflow: hidden;
-    opacity: 0.5;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      var(--mask-opaque) 50%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      var(--mask-opaque) 50%,
-      transparent 100%
-    );
-  }
+    text-decoration: none;
+    border-radius: var(--radius-xl);
 
-  > .sheet-card__fragments > .sheet-card__fragment {
-    flex: 0 0 auto;
-    padding: 1px 7px;
-    border-radius: var(--radius-full);
-    background: var(--overlay-soft);
-    color: color-mix(in srgb, var(--card) 80%, transparent);
-    font-family: 'Handjet', var(--font-mono);
-    font-size: 16px;
-    line-height: 18px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-
-  &:nth-of-type(3n + 1) {
-    background: linear-gradient(15deg, var(--primary), var(--primary-subtle));
-
-    &:hover,
-    &:focus {
-      background: var(--primary-strong);
+    > .sheet-card__title {
+      color: var(--primary-foreground);
+      font-family: var(--font-manrope);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+      overflow-wrap: break-word;
     }
-  }
 
-  &:nth-of-type(3n + 2) {
-    background: linear-gradient(
-      15deg,
-      var(--muted-foreground),
-      var(--muted-foreground-bright)
-    );
-
-    &:hover,
-    &:focus {
-      background: var(--muted-foreground-strong);
+    > .sheet-card__subtitle {
+      color: color-mix(in srgb, var(--card) 78%, transparent);
     }
-  }
 
-  &:nth-of-type(3n + 3) {
-    background: linear-gradient(
-      15deg,
-      var(--highlight),
-      var(--highlight-bright)
-    );
+    > .sheet-card__fragments {
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 4px 5px;
+      min-height: 0;
+      margin: 0 0 8px;
+      padding-right: 20%;
+      overflow: hidden;
+      opacity: 0.5;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        var(--mask-opaque) 50%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        var(--mask-opaque) 50%,
+        transparent 100%
+      );
+    }
 
-    &:hover,
-    &:focus {
-      background: var(--highlight-dark);
+    > .sheet-card__fragments > .sheet-card__fragment {
+      flex: 0 0 auto;
+      padding: 1px 7px;
+      border-radius: var(--radius-full);
+      background: var(--overlay-soft);
+      color: color-mix(in srgb, var(--card) 80%, transparent);
+      font-family: 'Handjet', var(--font-mono);
+      font-size: 16px;
+      line-height: 18px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    &:nth-of-type(3n + 1) {
+      background: linear-gradient(15deg, var(--primary), var(--primary-subtle));
+
+      &:hover,
+      &:focus {
+        background: var(--primary-strong);
+      }
+    }
+
+    &:nth-of-type(3n + 2) {
+      background: linear-gradient(
+        15deg,
+        var(--muted-foreground),
+        var(--muted-foreground-bright)
+      );
+
+      &:hover,
+      &:focus {
+        background: var(--muted-foreground-strong);
+      }
+    }
+
+    &:nth-of-type(3n + 3) {
+      background: linear-gradient(
+        15deg,
+        var(--highlight),
+        var(--highlight-bright)
+      );
+
+      &:hover,
+      &:focus {
+        background: var(--highlight-dark);
+      }
     }
   }
 }

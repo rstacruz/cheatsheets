@@ -1,21 +1,23 @@
-/*
- * Related posts
- */
+@layer components {
+  /*
+   * Related posts
+   */
 
-.related-posts-area {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  background: var(--muted);
+  .related-posts-area {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: var(--muted);
 
-  & > .container {
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: var(--content-width);
-    margin: 0 auto;
-  }
+    & > .container-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
 
-  @media (min-width: 481px) {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    @media (min-width: 481px) {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
   }
 }

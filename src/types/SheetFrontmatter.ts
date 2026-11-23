@@ -29,6 +29,14 @@ export const SheetFrontmatterSchema = z
       })
       .optional()
       .describe('One-line description shown under the title (max 5 words).'),
+    h1_title: z
+      .string()
+      .trim()
+      .min(1)
+      .optional()
+      .describe(
+        'H1 override. Use an article-style heading for snippet layouts.'
+      ),
 
     category: z
       .string()

@@ -1,5 +1,6 @@
 ---
 title: Git rename branch
+h1_title: How to rename a Git branch
 subtitle: Rename local and remote branches
 category: Git
 layout: snippet

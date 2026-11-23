@@ -98,6 +98,13 @@ test('the schema accepts layout: snippet', () => {
   expect(() => SheetFrontmatterSchema.parse({ tier: 'snippet' })).toThrow()
 })
 
+test('the schema accepts an h1_title override', () => {
+  expect(
+    SheetFrontmatterSchema.parse({ h1_title: 'How to rename a Git branch' })
+      .h1_title
+  ).toBe('How to rename a Git branch')
+})
+
 describe('findSnippetLayoutIssues()', () => {
   const card = (title = 'Current branch') =>
     [

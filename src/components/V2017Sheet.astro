@@ -40,7 +40,8 @@ const jsonLdSchemas = getJSONLDsForPage(page)
 const tags = page.frontmatter.tags ?? []
 const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
-const title: string = page.frontmatter.title ?? page.slug
+const title: string =
+  page.frontmatter.h1_title ?? page.frontmatter.title ?? page.slug
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
   : null

@@ -1,5 +1,6 @@
 ---
 title: Git delete branch
+h1_title: How to delete a Git branch
 subtitle: Delete local and remote branches
 category: Git
 layout: snippet

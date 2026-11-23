@@ -2,14 +2,14 @@
   /*
    * Carbon ads
    *
- *     .HeadlinePub
- *       div#carbonads
- *         span
- *           span.carbon-wrap
- *             a.carbon-img > img
- *             a.carbon-text {description}
- *           a.carbon-poweredby {powered by Carbon}
- */
+   *     .HeadlinePub
+   *       div#carbonads
+   *         span
+   *           span.carbon-wrap
+   *             a.carbon-img > img
+   *             a.carbon-text {description}
+   *           a.carbon-poweredby {powered by Carbon}
+   */
 
   .HeadlinePub .carbon-img,
   .HeadlinePub .carbon-text,

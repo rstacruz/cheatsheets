@@ -50,10 +50,10 @@ Tailwind declares `theme, base, components, utilities`. Styles land in layers so
 utilities can override them:
 
 - `src/styles/base.css` wraps its contents in `@layer base { … }`.
-- Each file in `src/styles/components/` and `src/styles/markdown/` wraps its
-  contents in `@layer components { … }`. The `<style is:global>` blocks import
-  them plainly: a `layer()` import of a file that uses `@reference` fails the
-  build (`@source` cannot be nested).
+- Each component and Markdown file wraps its own contents in
+  `@layer components { … }`. Import-level `layer(components)` is not used: a
+  `layer()` import of a file that uses `@reference` fails the build (`@source`
+  cannot be nested).
 - Unlayered CSS beats every utility. Do not add it.
 
 ## Stylelint

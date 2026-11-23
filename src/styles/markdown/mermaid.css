@@ -2,10 +2,10 @@
   /*
    * Mermaid diagrams
    *
- * The SVG is fitted to the card at scale 1. Hover, focus, or tap scales it
- * around the pointer, clipped by the frame so the card never shifts or
- * overflows its column.
- */
+   * The SVG is fitted to the card at scale 1. Hover, focus, or tap scales it
+   * around the pointer, clipped by the frame so the card never shifts or
+   * overflows its column.
+   */
 
   .MermaidDiagram {
     margin: 0;

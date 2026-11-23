@@ -2,12 +2,12 @@
 
 @layer components {
   /*
- * H3 section
- */
+   * H3 section
+   */
 
   /*
- * Heading
- */
+   * Heading
+   */
 
   .h3-section > h3 {
     @apply border-t-primary-muted border-t-2;
@@ -19,8 +19,8 @@
   }
 
   /*
- * Children
- */
+   * Children
+   */
 
   .h3-section > .body {
     @apply bg-card;
@@ -154,8 +154,8 @@
   }
 
   /*
- * Variant: Also see :\
- */
+   * Variant: Also see :\
+   */
 
   ul.-also-see.-also-see.-also-see {
     display: flex;
@@ -193,9 +193,9 @@
   }
 
   /*
- * Variant: Enumeration grid
- * Tile overrides live here: this file loads after ul.css and owns the list chrome.
- */
+   * Variant: Enumeration grid
+   * Tile overrides live here: this file loads after ul.css and owns the list chrome.
+   */
 
   .h3-section > .body > ul.-enum,
   .h3-section > .body > ul.-enum-wide {

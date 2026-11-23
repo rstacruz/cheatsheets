@@ -21,8 +21,8 @@
   }
 
   /*
- * Undo prism theme styles
- */
+   * Undo prism theme styles
+   */
 
   .MarkdownBody {
     & pre {
@@ -75,8 +75,8 @@
   }
 
   /*
- * Syntax highlight
- */
+   * Syntax highlight
+   */
 
   .token {
     &.tag,

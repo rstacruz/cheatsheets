@@ -372,6 +372,7 @@ See: [Agent view](https://code.claude.com/docs/en/agent-view)
 
 - [Claude Code commands cheatsheet](./claude-code-commands)
 - [Claude Code hooks cheatsheet](./claude-code-hooks)
+- [Claude Code headless tasks cheatsheet](./claude-code-headless-tasks)
 - [CLI reference](https://code.claude.com/docs/en/cli-reference) _(code.claude.com)_
 - [Commands](https://code.claude.com/docs/en/commands) _(code.claude.com)_
 - [Interactive mode](https://code.claude.com/docs/en/interactive-mode) _(code.claude.com)_

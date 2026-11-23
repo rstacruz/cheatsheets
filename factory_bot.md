@@ -41,7 +41,7 @@ FactoryBot.define do
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="factory"} -->
 
 See: [Defining factories](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Defining_factories)
 
@@ -104,7 +104,7 @@ factory :post do
 end
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="association"} -->
 
 #### or
 
@@ -125,7 +125,7 @@ factory :post do
 end
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="create"} -->
 
 ## Other features
 
@@ -141,7 +141,7 @@ factory :user do
 end
 ```
 
-<!-- {: data-line="2,3,4"} -->
+<!-- {: data-highlight="trait"} -->
 
 ```ruby
 create :user, :admin
@@ -162,7 +162,7 @@ factory :user do
 end
 ```
 
-<!-- {: data-line="4,5,6"} -->
+<!-- {: data-highlight="::"} -->
 
 ```ruby
 create :sample_user
@@ -184,7 +184,7 @@ factory :sample_user, parent: :user do
 end
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight=":sample_user"} -->
 
 ```ruby
 create :sample_user
@@ -206,7 +206,7 @@ factory :user do
 end
 ```
 
-<!-- {: data-line="2,3,4"} -->
+<!-- {: data-highlight="transient"} -->
 
 ```ruby
 create(user, upcased: true)

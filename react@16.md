@@ -79,7 +79,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="this.props.fullscreen"} -->
 
 Use `this.props` to access properties passed to the component.
 
@@ -106,7 +106,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="state"} -->
 
 Use states (`this.state`) to manage dynamic data.
 
@@ -158,7 +158,7 @@ class Info extends Component {
 }
 ```
 
-<!-- {: data-line="5,6,7,8,9,10"} -->
+<!-- {: data-highlight="this.props"} -->
 
 Nest components to separate concerns.
 
@@ -172,7 +172,7 @@ See: [Composing Components](https://reactjs.org/docs/components-and-props.html#c
 </AlertBox>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="notifications"} -->
 
 ```jsx
 class AlertBox extends Component {
@@ -184,7 +184,7 @@ class AlertBox extends Component {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="children"} -->
 
 Children are passed as the `children` property.
 
@@ -199,7 +199,7 @@ Hello.defaultProps = {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Hello.defaultProps"} -->
 
 See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 
@@ -214,7 +214,7 @@ class Hello extends Component {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="this.state"} -->
 
 Set the default state in the `constructor()`.
 
@@ -226,7 +226,7 @@ class Hello extends Component {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="visible"} -->
 
 See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
@@ -245,7 +245,7 @@ function MyComponent ({ name }) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="MyComponent"} -->
 
 Functional components have no state. Also, their `props` are passed as the first parameter to a function.
 
@@ -261,7 +261,7 @@ class MessageBox extends PureComponent {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="PureComponent"} -->
 
 Performance-optimized version of `React.Component`. Doesn't rerender if props/state hasn't changed.
 
@@ -346,7 +346,7 @@ function Example() {
 }
 ```
 
-<!-- {: data-line="5,10"} -->
+<!-- {: data-highlight="=>"} -->
 
 Hooks are a new addition in React 16.8.
 
@@ -391,7 +391,7 @@ function Example() {
 }
 ```
 
-<!-- {: data-line="6,7,8,9,10"} -->
+<!-- {: data-highlight="document.title"} -->
 
 If you’re familiar with React class lifecycle methods, you can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
 
@@ -424,7 +424,7 @@ function FriendStatus(props) {
 }
 ```
 
-<!-- {: data-line="11,12,13,14"} -->
+<!-- {: data-highlight="ChatAPI.subscribeToFriendStatus"} -->
 
 Effects may also optionally specify how to “clean up” after them by returning a function. 
 
@@ -441,7 +441,7 @@ function FriendStatus(props) {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="props.friend.id"} -->
 
 See: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
 
@@ -494,7 +494,7 @@ class MyComponent extends Component {
 }
 ```
 
-<!-- {: data-line="4,9"} -->
+<!-- {: data-highlight="ref"} -->
 
 Allows access to DOM nodes.
 
@@ -516,7 +516,7 @@ class MyComponent extends Component {
 }
 ```
 
-<!-- {: data-line="5,9"} -->
+<!-- {: data-highlight="event"} -->
 
 Pass functions to attributes like `onChange`.
 
@@ -540,7 +540,7 @@ class VideoPlayer extends Component {
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="props"} -->
 
 Propagates `src="..."` down to the sub-component.
 
@@ -609,7 +609,7 @@ class TodoList extends Component {
 }
 ```
 
-<!-- {: data-line="6,7"} -->
+<!-- {: data-highlight="items.map"} -->
 
 Always supply a `key` property.
 
@@ -653,7 +653,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="3,4,5,6"} -->
+<!-- {: data-highlight="Second"} -->
 
 #### Fragments
 ```js
@@ -667,7 +667,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="3,4,5,6,7,8"} -->
+<!-- {: data-highlight="Fragment"} -->
 
 See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 
@@ -679,7 +679,7 @@ render() {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="'Look ma, no spans!'"} -->
 
 You can return just a string.
 
@@ -696,7 +696,7 @@ class MyComponent extends Component {
 }
 ```
 
-<!-- {: data-line="3,4,5"} -->
+<!-- {: data-highlight="this.setState"} -->
 
 Catch errors via `componentDidCatch`. (React 16+)
 
@@ -713,7 +713,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="2,3,4,5"} -->
+<!-- {: data-highlight="document.getElementById"} -->
 
 This renders `this.props.children` into any location in the DOM.
 
@@ -726,7 +726,7 @@ const el = document.getElementById('app')
 ReactDOM.hydrate(<App />, el)
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="ReactDOM.hydrate"} -->
 
 Use `ReactDOM.hydrate` instead of using `ReactDOM.render` if you're rendering over the output of [ReactDOMServer](https://reactjs.org/docs/react-dom-server.html).
 

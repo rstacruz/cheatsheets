@@ -401,7 +401,7 @@ See: [Redirection](https://www.gnu.org/software/gawk/manual/gawk.html#Redirectio
 awk '{ print $1 }' file | sort | uniq -c | sort -rn
 awk '{ print $1 | "sort -u" }' file
 ```
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight='"sort -u"'} -->
 
 A pipe inside the program stays open; the shell pipe is usually simpler.
 

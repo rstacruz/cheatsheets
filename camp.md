@@ -56,7 +56,7 @@ camp.path('/search', (req, res) => {
 })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="res.query.q"} -->
 
 Also available: `camp.post`, `camp.get`.
 
@@ -72,7 +72,7 @@ camp.path('/blog/:post.html', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="templates"} -->
 
 See: [Templates](https://github.com/espadrine/sc/blob/master/doc/Readme.md#templates)
 
@@ -84,7 +84,7 @@ camp.notFound('/*.lol', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'/*.lol'"} -->
 
 See: [Fall through](https://github.com/espadrine/sc/blob/master/doc/Readme.md#fall-through)
 
@@ -97,7 +97,7 @@ camp.handle((req, res, next) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="handle"} -->
 
 See: [Handlers](https://github.com/espadrine/sc/blob/master/doc/Readme.md#handlers)
 
@@ -116,7 +116,7 @@ camp.path('/blog/:post.html', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1,4,5,6"} -->
+<!-- {: data-highlight="template"} -->
 
 ### Implicit templates
 

@@ -225,7 +225,7 @@ var Model = Backbone.Model.extend({
 })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="validate"} -->
 
 ```js
 obj.validationError  //=> "Can't end before it starts"

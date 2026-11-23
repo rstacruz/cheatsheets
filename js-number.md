@@ -51,7 +51,7 @@ parseFloat('3.14abc')  // → 3.14
 +'42'                  // → 42 (unary plus)
 ```
 
-<!-- {: data-line="5"} -->
+<!-- {: data-highlight="parseInt"} -->
 
 `Number()` rejects trailing junk, while `parseInt()` and `parseFloat()` stop at
 it. Always pass a radix to `parseInt()`.
@@ -70,7 +70,7 @@ Number.MAX_SAFE_INTEGER          // → 9007199254740991
 Number.EPSILON                   // → 2.220446049250313e-16
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="Number.isNaN"} -->
 
 The global `isNaN('x')` coerces its argument and returns `true`;
 `Number.isNaN('x')` is `false`.

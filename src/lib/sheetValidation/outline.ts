@@ -13,6 +13,8 @@ export type Heading = {
   line: number
   /** Heading text without the leading hashes */
   title: string
+  /** Classes from the attribute comment below the heading */
+  classes: string[]
 }
 
 /** Headings outside fenced code, in document order */
@@ -25,10 +27,15 @@ export function scanHeadings(source: string): Heading[] {
     if (fenced[index]) return
     const match = /^(#{1,6})\s+(.*)$/.exec(line)
     if (match) {
+      const classes = String(attributesBelow(lines, index + 1)?.className ?? '')
+        .split(/\s+/)
+        .filter(Boolean)
+
       found.push({
         level: match[1].length,
         line: index + 1,
-        title: match[2].trim()
+        title: match[2].trim(),
+        classes
       })
     }
   })

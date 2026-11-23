@@ -126,7 +126,7 @@ class Person {
 val key = Person.NAME_KEY
 ```
 
-<!-- {: data-line="7"} -->
+<!-- {: data-highlight="Person.NAME_KEY"} -->
 
 Members are accessed through the class name, like statics in Java. Use `const val` for compile-time constants.
 
@@ -158,7 +158,7 @@ if (name != null) {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight='"Length: ${name.length}"'} -->
 
 After the null check, `name` is smart-cast to a non-nullable `String`.
 
@@ -458,7 +458,7 @@ class Person(val name: String) {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="constructor"} -->
 
 #### Default parameters
 
@@ -488,7 +488,7 @@ class Machine : Runner {
 }
 ```
 
-<!-- {: data-line="1,9"} -->
+<!-- {: data-highlight="override"} -->
 
 Classes are final by default; mark them `open` to allow subclassing. Interfaces are implemented with `:`.
 

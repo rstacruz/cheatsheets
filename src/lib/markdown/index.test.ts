@@ -77,13 +77,10 @@ describe('comment attributes', () => {
 
   it('applies one to the fence above it, keeping the language', async () => {
     expect(
-      (
-        await renderMarkdown(
-          '```ruby\nx\n```\n<!-- {: .-setup data-line="1"} -->'
-        )
-      ).html
+      (await renderMarkdown('```ruby\nx\n```\n<!-- {: .-setup .-wrap} -->'))
+        .html
     ).toBe(
-      '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
+      '<pre class="-setup -wrap"><code class="language-ruby">x\n</code></pre>'
     )
   })
 

@@ -5,7 +5,7 @@
 ## Context
 
 Sheets attach layout classes and data attributes to the block above them:
-`.-three-column` on an H2, `.-shortcuts` on a table, `data-line` on a fence.
+`.-three-column` on an H2, `.-shortcuts` on a table, `data-highlight` on a fence.
 The syntax comes from kramdown's inline attribute list, `{: .-class}`, inherited
 with the rest of the kramdown dialect (`_docs/markdown-dialect.md`). Three costs:
 

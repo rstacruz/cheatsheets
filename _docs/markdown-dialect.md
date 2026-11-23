@@ -27,8 +27,9 @@ links:
 
 An H2 starts a section; an H3 is a card inside it. Both get an id from their text.
 
-- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference` (`.-two-column` is the default).
+- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference`, `.-snippets` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
+- Sheets with `layout: snippet` put `.-snippet` on every H3, omit "cheatsheet" from the H1, and end with a Related links card; see [snippet layout](writing-guidelines.md#snippet-layout).
 - The first card is the Introduction, generated from `intro` and `links` frontmatter.
 
 ````md
@@ -70,14 +71,14 @@ are fine.
 Use fenced code blocks; indented code is rejected by CI.
 
 - Put the language on the fence: ` ```ruby `.
-- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-line="1,3-5"` highlights lines, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
+- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
 - Keep code lines at 70 characters or less (42 inside `.-three-column`).
 
 ````md
 ```ruby
 puts "hi"
 ```
-<!-- {: .-setup data-line="1"} -->
+<!-- {: .-setup data-highlight="puts"} -->
 ````
 
 `data-highlight` takes a semicolon-separated list of literal strings and tints every occurrence inside the block. Matches stop at identifier boundaries, so `-d` does not match inside `--diff-context`. Use it to point at one API name without shading its whole line.

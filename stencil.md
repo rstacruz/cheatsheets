@@ -79,7 +79,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-line="5,10,13"} -->
+<!-- {: data-highlight="event"} -->
 
 Stencil uses DOM events.
 
@@ -96,7 +96,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="multiple"} -->
 
 `render()` can return an array of elements.
 
@@ -116,7 +116,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-line="4,5"} -->
+<!-- {: data-highlight="this.isVisible"} -->
 
 Just do assignments. You can't do mutations though, see next section.
 
@@ -151,7 +151,7 @@ See: [Updating arrays](https://stenciljs.com/docs/reactive-data#updating-arrays)
 </my-component>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="friends"} -->
 
 #### Component
 
@@ -161,7 +161,7 @@ render() {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="slot"} -->
 
 You can pass JSX/HTML as child elements. Use the `slot` tag to use them inside your component.
 
@@ -176,7 +176,7 @@ See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 </my-component>
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="'my-header'"} -->
 
 #### Component
 
@@ -189,7 +189,7 @@ render () {
 }
 ```
 
-<!-- {: data-line="3,4"} -->
+<!-- {: data-highlight="'my-footer'"} -->
 
 See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 

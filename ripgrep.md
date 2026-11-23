@@ -516,3 +516,10 @@ src/lib.rs:2:    // TODO: validate input
 rg already skips gitignored files; `git ls-files` narrows the search to tracked files.
 
 See: [git-ls-files](https://git-scm.com/docs/git-ls-files)
+
+## Also see
+
+### Search and replace
+
+[Ripgrep search and replace cheatsheet](./ripgrep-search-and-replace)
+<!-- {: .-crosslink} -->

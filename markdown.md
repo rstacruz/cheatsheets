@@ -55,7 +55,7 @@ A paragraph with **bold**, *italic*, and
 [Link](https://commonmark.org)
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="**"} -->
 
 See: [Markdown reference](https://commonmark.org/help/)
 
@@ -160,7 +160,7 @@ Next line\
 also breaks
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="line"} -->
 
 Line 1 ends in two spaces. Two or more spaces or a trailing backslash insert a `<br>`; a blank line starts a new paragraph.
 

@@ -36,7 +36,7 @@
   & > summary > .count > svg {
     display: inline-block;
     vertical-align: middle;
-    color: var(--primary); /* pinned: the summary goes a7 on hover */
+    color: var(--primary); /* pinned: the summary goes --primary-strong on hover */
     margin: 0 8px;
   }
 

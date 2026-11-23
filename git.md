@@ -182,126 +182,260 @@ git push origin --delete feat/login
 <!-- {: .-crosslink} -->
 
 ## Conflicts
-<!-- {: .-three-column} -->
+
+### See unmerged paths
+
+#### Short status
+
+```sh
+$ git status --short
+UU story.txt
+```
+<!-- {: data-highlight="UU story.txt"} -->
+
+#### Full status
+
+```text
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   story.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+`UU` means both sides modified; other unmerged codes include `AA`, `DU`, `UD`, `AU`, `UA`, and `DD`.
+
+See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
 
 ### Resolve a conflict
 
+#### Check
+
 ```sh
+# list the unmerged paths
 git status --short
+```
+<!-- {: data-highlight="git status --short"} -->
+
+#### Stage
+
+```sh
+# mark the resolved file as fixed
 git add story.txt
+```
+<!-- {: data-highlight="git add story.txt"} -->
+
+#### Commit
+
+```sh
+# record the merge
 git commit
 ```
 
-`UU` means both sides modified; other unmerged paths show `AA`, `DU`, `UD`, `AU`, `UA`, or `DD`. For a merge, edit, stage, and commit; during a rebase or cherry-pick, continue instead.
+During a rebase or cherry-pick, use `git rebase --continue` or `git cherry-pick --continue` instead of `git commit`.
 
 See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
-
-### Conflict markers
-
-| Marker | Meaning |
-| --- | --- |
-| `<<<<<<< HEAD` | Start of the `HEAD` side |
-| `=======` | Divider |
-| `>>>>>>> feat/login` | End of the other side |
-<!-- {: .-headers} -->
-
-Markers bracket the two sides; edit the file to keep one or both.
-
-See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
-
-### Abort an operation
-
-```sh
-git merge --abort
-git rebase --abort
-git cherry-pick --abort
-```
-<!-- {: data-highlight="git merge --abort"} -->
-
-Each returns to the state before the operation started.
-
-See: [git merge](https://git-scm.com/docs/git-merge)
 
 ## Undo
 <!-- {: .-three-column} -->
 
 ### Discard edits
 
+#### Restore a file
+
 ```sh
+# throw away working changes
 git restore file.txt
-git restore .
-git clean -nd
-git clean -fd
 ```
 <!-- {: data-highlight="git restore"} -->
 
-`restore` reverts tracked files; `clean -fd` permanently deletes untracked files (dry run with `-n`).
+#### Restore all tracked files
+
+```sh
+# discard every tracked edit
+git restore .
+```
+
+#### Clean untracked files
+
+```sh
+# preview what would go
+git clean -nd
+# delete untracked files and dirs
+git clean -fd
+```
+<!-- {: data-highlight="git clean -fd"} -->
+
+`clean -fd` permanently deletes untracked files.
 
 See: [git restore](https://git-scm.com/docs/git-restore)
 
 ### Undo a commit
 
+#### Keep changes staged
+
 ```sh
+# soften the last commit
 git reset --soft HEAD~1
+```
+
+#### Keep changes unstaged
+
+```sh
+# drop the commit, keep edits
 git reset HEAD~1
-git reset --hard HEAD~1
 ```
 <!-- {: data-highlight="git reset"} -->
 
-`--soft` keeps changes staged, plain `reset` unstages them, `--hard` discards them.
+#### Discard changes too
+
+```sh
+# drop commit and edits
+git reset --hard HEAD~1
+```
 
 See: [git reset](https://git-scm.com/docs/git-reset)
 
 ### Revert a commit
 
+#### Revert the tip
+
 ```sh
+# make a commit that undoes HEAD
 git revert HEAD
-git revert <sha>
-git revert --no-commit <sha>
 ```
 <!-- {: data-highlight="git revert"} -->
 
-Revert records a new commit, or stages the changes with `--no-commit`, so it is safe on shared branches.
+#### Revert an older commit
+
+```sh
+# undo a specific commit
+git revert <sha>
+```
+
+#### Stage without committing
+
+```sh
+# leave the revert in the index
+git revert --no-commit <sha>
+```
+
+Revert is safe on shared branches: it adds history rather than rewriting it.
 
 See: [git revert](https://git-scm.com/docs/git-revert)
 
 ### Recover lost work
 
+#### Inspect moves
+
 ```sh
+# list recent HEAD moves
 git reflog
+```
+
+#### Restore the tip
+
+```sh
+# undo the last rebase or merge
 git reset --hard ORIG_HEAD
-git restore --source=ORIG_HEAD file.txt
 ```
 <!-- {: data-highlight="ORIG_HEAD"} -->
 
-`ORIG_HEAD` is the tip before the last rebase, merge, or reset. For other moves, pick a reflog entry: `git reset --hard HEAD@{n}`.
+`ORIG_HEAD` is the tip before the last rebase, merge, or reset. For other moves, pick an entry from `reflog` with `git reset --hard HEAD@{n}`.
 
 See: [git reflog](https://git-scm.com/docs/git-reflog)
+
+### Abort an operation
+
+#### Abort a merge
+
+```sh
+# return to pre-merge state
+git merge --abort
+```
+<!-- {: data-highlight="git merge --abort"} -->
+
+#### Abort a rebase
+
+```sh
+# return to pre-rebase state
+git rebase --abort
+```
+
+#### Abort a cherry-pick
+
+```sh
+# return to pre-pick state
+git cherry-pick --abort
+```
+
+Each restores the state before the operation started.
+
+See: [git merge](https://git-scm.com/docs/git-merge)
 
 ## Stash
 
 ### Save work
 
+#### Stash tracked changes
+
 ```sh
+# stash the working tree
 git stash
+```
+
+#### Label a stash
+
+```sh
+# leave a message for later
 git stash push -m "wip"
-git stash -u
 ```
 <!-- {: data-highlight="git stash push"} -->
 
-`-u` includes untracked files; `-m` labels the entry.
+#### Include untracked files
+
+```sh
+# stash tracked and untracked files
+git stash -u
+```
 
 See: [git stash](https://git-scm.com/docs/git-stash)
 
 ### Restore work
 
+#### List stashes
+
 ```sh
+# show saved entries
 git stash list
+```
+
+#### Apply and drop
+
+```sh
+# apply the latest, then remove it
 git stash pop
-git stash apply stash@{1}
-git stash drop
 ```
 <!-- {: data-highlight="git stash pop"} -->
+
+#### Apply without dropping
+
+```sh
+# keep the entry in the list
+git stash apply stash@{1}
+```
+
+#### Drop an entry
+
+```sh
+# delete a stash without applying
+git stash drop
+```
 
 `pop` applies and deletes; `apply` keeps the entry.
 
@@ -343,7 +477,7 @@ See: [git show](https://git-scm.com/docs/git-show), [git blame](https://git-scm.
 ```sh
 git log --grep="fix"
 git log -S"console.log"
-git log --author="Ada"
+git log --author="Rico"
 ```
 <!-- {: data-highlight="-S"} -->
 
@@ -491,7 +625,7 @@ See: [git tag](https://git-scm.com/docs/git-tag)
 ### Configure identity
 
 ```sh
-git config --global user.name "Ada"
+git config --global user.name "Rico"
 git config --global user.email me@x.io
 git config --global core.editor vim
 git config --list
@@ -532,12 +666,27 @@ See: [gitignore](https://git-scm.com/docs/gitignore)
 
 ### Parallel checkouts
 
+#### Add
+
 ```sh
+# create a branch and a linked checkout
 git worktree add -b hotfix ../hotfix
-git worktree list
-git worktree remove ../hotfix
 ```
 <!-- {: data-highlight="git worktree add"} -->
+
+#### List
+
+```sh
+# show linked worktrees
+git worktree list
+```
+
+#### Remove
+
+```sh
+# remove a linked checkout
+git worktree remove ../hotfix
+```
 
 Each worktree has its own `HEAD`, index, and files; objects are shared.
 
@@ -546,45 +695,87 @@ Each worktree has its own `HEAD`, index, and files; objects are shared.
 
 ### Find a bad commit
 
+#### Start
+
 ```sh
+# mark this revision as bad
 git bisect start
 git bisect bad
+# point at a known-good commit
 git bisect good <sha>
-git bisect run npm test
-git bisect reset
 ```
 <!-- {: data-highlight="git bisect"} -->
 
-Bisect tests midpoints between good and bad until it finds the first bad commit.
+#### Automate the search
+
+```sh
+# let the test decide each step
+git bisect run npm test
+```
+
+#### Reset
+
+```sh
+# restore the original checkout
+git bisect reset
+```
+
+Bisect finds the first commit where the test fails.
 
 [Git bisect cheatsheet](./git-bisect)
 <!-- {: .-crosslink} -->
 
 ### Clean up branches
 
+#### Find merged branches
+
 ```sh
+# list branches merged into HEAD
 git branch --merged
-git branch -d old-feature
-git remote prune origin
 ```
 <!-- {: data-highlight="git branch --merged"} -->
 
-Delete local branches already merged into the current one.
+#### Delete one
+
+```sh
+# remove a merged local branch
+git branch -d old-feature
+```
+
+#### Prune remote refs
+
+```sh
+# drop gone remote-tracking branches
+git remote prune origin
+```
+
+See also the Git tricks sheet for more cleanup recipes.
 
 [Git tricks cheatsheet](./git-tricks)
 <!-- {: .-crosslink} -->
 
 ### Extra commands
 
+#### Inspect and ignore
+
 ```sh
+# show a repo summary
 git summary
+# ignore a path
 git ignore node_modules
+```
+
+#### Feature branches
+
+```sh
+# start and finish a feature
 git feature login
 git feature finish login
 ```
 <!-- {: data-highlight="git feature"} -->
 
-`git-extras` adds summary, ignore, and feature commands.
+`git-extras` adds these commands on top of Git.
 
 [Git extras cheatsheet](./git-extras)
 <!-- {: .-crosslink} -->
+

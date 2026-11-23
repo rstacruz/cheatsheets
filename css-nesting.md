@@ -30,9 +30,9 @@ links:
 ```
 <!-- {: data-highlight=".title"} -->
 
-**Nests a descendant rule.** The browser reads this as `.card .title`, so no preprocessor is needed; see [child selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#child_selectors).
+**Nests a descendant rule.** The browser reads this as `.card .title`, so no preprocessor is needed; see [nested selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting).
 
-### Pseudo-classes
+### State on the parent
 <!-- {: .-snippet} -->
 
 ```css
@@ -46,7 +46,7 @@ links:
 ```
 <!-- {: data-highlight="&:hover"} -->
 
-**Targets a state on the parent.** `&` resolves to the outer selector, so this becomes `.button:hover`; see [nesting selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector).
+**Nests a pseudo-class on the parent.** `&` resolves to the outer selector, so this becomes `.button:hover`; see [nesting selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector).
 
 ### Compound selector
 <!-- {: .-snippet} -->
@@ -76,7 +76,7 @@ links:
 ```
 <!-- {: data-highlight="@media (width >= 40rem)"} -->
 
-**Nests a breakpoint.** At-rules apply to the parent selector, keeping responsive rules next to the component; see [nested at-rules](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/At-rules).
+**Nests a breakpoint.** The at-rule wraps the parent rule, keeping responsive rules next to the component; see [nested at-rules](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/At-rules).
 
 ### Sibling combinator
 <!-- {: .-snippet} -->
@@ -90,4 +90,4 @@ links:
 ```
 <!-- {: data-highlight="& + &"} -->
 
-**Styles a sibling of the parent.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#combinators).
+**Styles a card that follows another card.** `& + &` matches any `.card` that immediately follows another `.card`; see [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#combinators).

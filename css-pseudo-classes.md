@@ -30,7 +30,7 @@ a:focus-visible {
 ```
 <!-- {: data-highlight=":focus-visible"} -->
 
-**Styles pointer and keyboard states.** `:focus-visible` matches when the browser wants a visible focus ring, usually for keyboard focus; mouse clicks on links and buttons do not trigger it; see [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
+**Adds a focus ring for keyboard users.** `:focus-visible` matches when the browser wants a visible focus ring; mouse clicks on links and buttons do not trigger it; see [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
 
 ### First and last child
 <!-- {: .-snippet} -->
@@ -46,7 +46,7 @@ li:last-child {
 ```
 <!-- {: data-highlight=":first-child; :last-child"} -->
 
-**Trims spacing at the ends.** Each matches an element only when it is the first or last child of its parent; see [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child).
+**Removes outer margin on the first and last item.** Both match only when the element is the first or last child of its parent; see [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child).
 
 ### Odd rows
 <!-- {: .-snippet} -->
@@ -58,9 +58,9 @@ tr:nth-child(odd) {
 ```
 <!-- {: data-highlight=":nth-child(odd)"} -->
 
-**Zebras a table.** `odd` can also be written `2n+1`, and `even` or `2n` picks the other rows; see [:nth-child()](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child).
+**Zebras a table.** `odd` can also be written `2n+1`, and `even` or `2n` pick the other rows; see [:nth-child()](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child).
 
-### Touched invalid fields
+### Invalid fields after interaction
 <!-- {: .-snippet} -->
 
 ```css
@@ -70,9 +70,9 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":user-invalid"} -->
 
-**Styles invalid fields after interaction.** `:user-invalid` matches only after the user edits or submits the form, so untouched fields are not marked invalid on load; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
+**Styles invalid fields once the user interacts.** `:user-invalid` matches only after the user edits or submits the form, so untouched fields are not marked invalid on load; see [:user-invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid).
 
-### Parent from children
+### Parent selector
 <!-- {: .-snippet} -->
 
 ```css
@@ -82,9 +82,9 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":has(img)"} -->
 
-**Styles a parent from its children.** `:has()` takes a relative selector, so `:has(img)` matches an element containing an image; see [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
+**Styles a parent based on its children.** `:has()` takes a relative selector, so `:has(img)` matches an element containing an image; see [:has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
 
-### Group selectors
+### Zero specificity
 <!-- {: .-snippet} -->
 
 ```css
@@ -94,4 +94,4 @@ input:user-invalid {
 ```
 <!-- {: data-highlight=":where(h1, h2, h3)"} -->
 
-**Groups selectors with zero specificity.** `:where()` adds no specificity, while `:is()` takes the highest of its arguments; see [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where).
+**Styles selectors with zero specificity.** `:where()` groups selectors without adding weight, while `:is()` takes the specificity of its most specific argument; see [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where).

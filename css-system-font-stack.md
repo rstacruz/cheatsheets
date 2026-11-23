@@ -40,7 +40,7 @@ body {
 ```
 <!-- {: data-highlight="-apple-system"} -->
 
-**Works without `system-ui` support.** The list falls through macOS, Windows, Android, and Linux fonts before reaching `sans-serif`; see [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values).
+**Falls back to named fonts for older browsers.** The list walks macOS, Windows, Android, and Linux fonts before reaching `sans-serif`; see [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values).
 
 ### Monospace stack
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ code, pre {
 ```
 <!-- {: data-highlight="ui-monospace"} -->
 
-**Picks the platform's monospace font.** Safari uses `ui-monospace`, while other browsers fall through to Menlo, Consolas, or Liberation Mono; see [ui-monospace](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#ui-monospace).
+**Picks the platform's monospace font.** Safari uses `ui-monospace`; browsers without it fall through to Menlo, Consolas, or Liberation Mono; see [ui-monospace](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#ui-monospace).

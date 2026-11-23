@@ -37,4 +37,4 @@ body {
 ```
 <!-- {: data-highlight="auto"} -->
 
-**Restores the browser defaults.** `auto` lets each engine choose its smoothing; on current macOS that is grayscale, matching the rest of the system; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
+**Reverts to the browser default.** `auto` hands smoothing back to the engine, undoing the rule above in a scoped selector; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).

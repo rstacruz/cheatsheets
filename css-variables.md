@@ -32,7 +32,7 @@ a {
 ```
 <!-- {: data-highlight="var(--accent)"} -->
 
-**Declares a variable on the root element.** Custom properties inherit, so every element can read `--accent`; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+**Declares a custom property on `:root`.** Custom properties inherit, so every element can read `--accent`; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 ### Fallback value
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ a {
 ```
 <!-- {: data-highlight="var(--accent, tomato)"} -->
 
-**Provides a fallback.** Used when `--accent` is not defined; a defined value that is invalid for the property does not fall back; see [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
+**Provides a fallback for an undefined token.** `var(--accent, tomato)` uses `tomato` when `--accent` is missing; a defined value that is invalid for the property does not fall back; see [var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var).
 
 ### Theme override
 <!-- {: .-snippet} -->
@@ -57,7 +57,7 @@ a {
 ```
 <!-- {: data-highlight=".dark"} -->
 
-#### Usage
+#### Reading the tokens
 
 ```css
 body {
@@ -66,9 +66,9 @@ body {
 }
 ```
 
-**Overrides values in a scope.** Descendants of `.dark` inherit the new tokens, and the fallbacks keep the light theme readable; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+**Scopes new values to `.dark`.** Descendants inherit them, and the `var()` fallbacks cover elements outside the scope; see [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-### Change from JavaScript
+### Set from JavaScript
 <!-- {: .-snippet} -->
 
 ```js

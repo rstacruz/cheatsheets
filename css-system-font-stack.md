@@ -1,34 +1,57 @@
 ---
-title: "CSS system fonts"
-subtitle: Native font stack
+title: How to use system fonts in CSS
+link_title: CSS system fonts
+subtitle: Native font stacks
 category: CSS
-weight: -3
+layout: snippet
+last_verified_with: "CSS Fonts Module Level 4."
+updated: 2026-11-24
+links:
+  - title: MDN font-family
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+  - title: CSS Fonts Module Level 4
+    url: https://www.w3.org/TR/css-fonts-4/#generic-font-families
 ---
 
-### System fonts
+## Font stacks
+<!-- {: .-snippets} -->
+
+### System UI font
+<!-- {: .-snippet} -->
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+body {
+  font-family: system-ui, sans-serif;
+}
 ```
+<!-- {: data-highlight="system-ui"} -->
 
-This uses whatever system font is available. See: [System shock - Designing Medium](https://medium.design/system-shock-6b1dc6d6596f?gi=90078e194544) _(medium.com)_
+**Uses the operating system's UI font.** `system-ui` maps to San Francisco on macOS, Segoe UI on Windows, and the desktop default on Linux; see [system-ui](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#system-ui).
 
-### Explanation
+### Named system fonts
+<!-- {: .-snippet} -->
 
-| Font                 | OS                      |
-| ----                 | --                      |
-| `-apple-system`      | OS X (10.11+), iOS (9+) |
-| `BlinkMacSystemFont` | OS X, Chrome            |
-| `Segoe UI`           | Windows                 |
-| ---                  | ---                     |
-| `Roboto`             | Android 4.0+            |
-| `Oxygen`             | Linux, KDE              |
-| `Ubuntu`             | Linux, Ubuntu           |
-| `Cantarell`          | Linux, GNOME            |
-| ---                  | ---                     |
-| `Fira Sans`          | Firefox OS              |
-| `Droid Sans`         | Android (until 3.2)     |
-| `Helvetica Neue`     | OS X (10.9)             |
+```css
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial, sans-serif;
+}
+```
+<!-- {: data-highlight="-apple-system"} -->
+
+**Falls back to named fonts for older browsers.** The list walks macOS, Windows, Android, and Linux fonts before reaching `sans-serif`; see [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values).
+
+### Monospace stack
+<!-- {: .-snippet} -->
+
+```css
+code, pre {
+  font-family: ui-monospace, SFMono-Regular,
+    Menlo, Consolas, "Liberation Mono",
+    monospace;
+}
+```
+<!-- {: data-highlight="ui-monospace"} -->
+
+**Picks the platform's monospace font.** Safari uses `ui-monospace`; browsers without it fall through to Menlo, Consolas, or Liberation Mono; see [ui-monospace](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#ui-monospace).

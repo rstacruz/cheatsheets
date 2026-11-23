@@ -747,7 +747,7 @@ The first card holds the shortest working command. Variants, flags, and edge cas
 
 ### snippet/size-budget
 
-A snippet sheet holds roughly 3–6 H3 cards and stays under about 120 lines. Split the topic when it grows larger.
+A snippet sheet holds 1–6 H3 cards and stays under about 120 lines. Split the topic when it grows larger.
 
 ### snippet/max-h3s
 

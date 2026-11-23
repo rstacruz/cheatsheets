@@ -1,37 +1,40 @@
 ---
-title: CSS antialiasing
-subtitle: Font smoothing snippet
+title: How to antialias text in CSS
+link_title: CSS antialiasing
+subtitle: Font smoothing on macOS
 category: CSS
-updated: 2017-10-13
-intro: |
-  Here's a 4-line snippet on how to get beautiful, antialiased text with CSS.
+layout: snippet
+updated: 2026-11-24
 links:
-  - title: maxvoltar.com
-    url: http://maxvoltar.com/archive/-webkit-font-smoothing
+  - title: MDN font-smooth
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
 ---
 
-### Antialias
+## Smoothing
+<!-- {: .-snippets} -->
 
-<!-- {: .-prime} -->
+### Antialiased text
+<!-- {: .-snippet} -->
 
 ```css
-* {
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 ```
+<!-- {: data-highlight="antialiased"} -->
 
-### Support
+**Switches macOS text to grayscale antialiasing.** Both properties are non-standard, inherited, and ignored outside macOS; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).
 
- * Firefox 25+ on OSX
- * Webkits (Chrome, Safari, etc)
+### Restore the default
+<!-- {: .-snippet} -->
 
-## References
+```css
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+```
+<!-- {: data-highlight="auto"} -->
 
-<!-- {: .-one-column} -->
-
- * [maxvoltar.com](http://maxvoltar.com/archive/-webkit-font-smoothing)
- * [maximilianhoffman.com](http://maximilianhoffmann.com/posts/better-font-rendering-on-osx)
- * [ilikekillnerds.com](http://ilikekillnerds.com/2010/12/a-solution-to-stop-font-face-fonts-looking-bold-on-mac-browsers/)
-
-<!-- {: .-also-see} -->
+**Reverts to the browser default.** `auto` hands smoothing back to the engine, undoing the rule above; see [font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth).

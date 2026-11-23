@@ -8,6 +8,7 @@ export type Props = {
 const props = Astro.props as Props
 const page = props.page
 const url = `/${page.slug}`
+const title = page.frontmatter.link_title ?? page.frontmatter.title ?? page.slug
 
 const t = {
   suffix: 'cheatsheet'
@@ -16,7 +17,7 @@ const t = {
 
 <li class={`related-post-item ${props.class ?? ''}`}>
   <a href={url}>
-    <strong>{page.frontmatter.title}</strong> <span>{t.suffix}</span>
+    <strong>{title}</strong> <span>{t.suffix}</span>
   </a>
 </li>
 

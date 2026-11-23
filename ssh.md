@@ -85,6 +85,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh-keygen -t ed25519 -C "me@example.com"
 ```
+<!-- {: data-highlight="-t ed25519"} -->
 
 This writes `~/.ssh/id_ed25519` and its `.pub` file. Set a passphrase when prompted.
 
@@ -96,6 +97,7 @@ See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
 ssh-copy-id -i ~/.ssh/id_ed25519.pub \
   user@host
 ```
+<!-- {: data-highlight="-i"} -->
 
 The public key is appended to the remote `authorized_keys`.
 
@@ -106,6 +108,7 @@ See: [ssh-copy-id(1)](https://github.com/openssh/openssh-portable/blob/master/co
 ```bash
 ssh-keygen -lf ~/.ssh/id_ed25519.pub
 ```
+<!-- {: data-highlight="-lf"} -->
 
 Prints the bit length, fingerprint, comment, and algorithm.
 
@@ -133,6 +136,7 @@ Host github
     User git
     IdentityFile ~/.ssh/id_ed25519
 ```
+<!-- {: data-highlight="Host; HostName; User; IdentityFile"} -->
 
 `ssh github` now uses this user, host, and key.
 
@@ -148,6 +152,7 @@ Host *.internal
     User deploy
     ProxyJump bastion
 ```
+<!-- {: data-highlight="*.internal"} -->
 
 For each option, the first value wins, so list specific hosts before wildcards.
 
@@ -161,6 +166,7 @@ user git
 hostname github.com
 port 22
 ```
+<!-- {: data-highlight="-G; -F"} -->
 
 `-G` resolves options and exits; `-F` checks the given file.
 
@@ -174,6 +180,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh -N -L 8080:localhost:80 user@host
 ```
+<!-- {: data-highlight="-L 8080:localhost:80"} -->
 
 Local port 8080 reaches port 80 as seen from `host`.
 
@@ -184,6 +191,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh -N -R 9000:localhost:5432 user@host
 ```
+<!-- {: data-highlight="-R 9000:localhost:5432"} -->
 
 Port 9000 on `host` reaches port 5432 on the client.
 
@@ -194,6 +202,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh -N -D 1080 user@host
 ```
+<!-- {: data-highlight="-D 1080"} -->
 
 The client listens on 1080 and forwards through `host`.
 
@@ -204,6 +213,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh -J bastion internal
 ```
+<!-- {: data-highlight="-J bastion"} -->
 
 `-J` connects through `bastion`; `ProxyJump` does the same in config.
 
@@ -216,6 +226,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh -vvv user@host
 ```
+<!-- {: data-highlight="-vvv"} -->
 
 Three `-v` flags give the most detail about config and authentication.
 
@@ -226,6 +237,7 @@ See: [ssh(1)](https://man.openbsd.org/ssh.1)
 ```bash
 ssh-keygen -R host
 ```
+<!-- {: data-highlight="-R host"} -->
 
 This removes stale keys from `known_hosts`. Verify the new fingerprint before reconnecting.
 

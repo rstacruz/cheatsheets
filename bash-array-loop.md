@@ -1,6 +1,6 @@
 ---
-title: Bash array loop
-h1_title: How to loop over a Bash array
+title: How to loop over a Bash array
+link_title: Bash array loop
 subtitle: Iterate arrays safely
 category: Command line recipes
 layout: snippet

@@ -1,6 +1,6 @@
 ---
-title: tar extract one file
-h1_title: How to extract one file from a tar archive
+title: How to extract one file from a tar archive
+link_title: tar extract one file
 subtitle: Extract a single archive member
 category: Command line recipes
 layout: snippet

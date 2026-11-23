@@ -1,6 +1,6 @@
 ---
-title: Bash strict mode
-h1_title: How to enable Bash strict mode
+title: How to enable Bash strict mode
+link_title: Bash strict mode
 subtitle: Fail fast in shell scripts
 category: Command line recipes
 layout: snippet

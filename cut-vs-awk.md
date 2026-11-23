@@ -1,6 +1,6 @@
 ---
-title: cut vs awk
-h1_title: When to use cut vs awk
+title: When to use cut vs awk
+link_title: cut vs awk
 subtitle: Pick fields from text
 category: Command line recipes
 layout: snippet

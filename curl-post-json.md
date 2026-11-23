@@ -1,6 +1,6 @@
 ---
-title: curl POST JSON
-h1_title: How to POST JSON with curl
+title: How to POST JSON with curl
+link_title: curl POST JSON
 subtitle: Send JSON request bodies
 category: Networking
 layout: snippet

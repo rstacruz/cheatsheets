@@ -37,11 +37,19 @@ export function getSEOPropsForHome() {
   }
 }
 
+export function getPageTitle(page: {
+  frontmatter: { title?: string; seo_title?: string; layout?: string }
+}) {
+  const { title = '', seo_title, layout } = page.frontmatter
+  if (seo_title) return seo_title
+  if (layout === 'snippet') return title
+  return `${title} cheatsheet`
+}
+
 export function getSEOPropsForPage(
   page: Pick<SheetPage, 'slug' | 'frontmatter'>
 ) {
-  const title =
-    page.frontmatter.seo_title ?? `${page.frontmatter.title} cheatsheet`
+  const title = getPageTitle(page)
   const description = getDescription(page)
   const image = getPageImage(page)
   const url = getPageURL(page)
@@ -85,18 +93,29 @@ export const MAX_DESCRIPTION = 155
 export function getDescription(page: {
   frontmatter: {
     title?: string
+    layout?: string
     intro?: string
     description?: string
     keywords?: string[]
   }
 }) {
-  const { title = '', description, intro, keywords = [] } = page.frontmatter
+  const {
+    title = '',
+    layout,
+    description,
+    intro,
+    keywords = []
+  } = page.frontmatter
 
   if (description) {
     return clamp(toPlainText(description), MAX_DESCRIPTION)
   }
 
-  const lead = title ? `${title} cheatsheet` : 'Cheatsheet'
+  const lead = title
+    ? layout === 'snippet'
+      ? title
+      : `${title} cheatsheet`
+    : 'Cheatsheet'
   const introText = toPlainText(intro ?? '')
 
   if (introText) return clamp(`${lead}. ${introText}`, MAX_DESCRIPTION)

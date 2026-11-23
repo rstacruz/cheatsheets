@@ -1,6 +1,6 @@
 ---
-title: Mise scheduled tasks
-h1_title: How to schedule mise tasks
+title: How to schedule mise tasks
+link_title: Mise scheduled tasks
 subtitle: Schedule mise tasks with cron
 category: Task automation
 layout: snippet

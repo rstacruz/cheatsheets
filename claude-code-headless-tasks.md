@@ -1,6 +1,6 @@
 ---
-title: Claude Code headless tasks
-h1_title: How to run Claude Code headless
+title: How to run Claude Code headless
+link_title: Claude Code headless tasks
 subtitle: Run Claude Code from scripts
 category: Task automation
 layout: snippet

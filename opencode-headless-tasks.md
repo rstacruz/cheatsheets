@@ -1,6 +1,6 @@
 ---
-title: OpenCode headless tasks
-h1_title: How to run OpenCode headless
+title: How to run OpenCode headless
+link_title: OpenCode headless tasks
 subtitle: Run OpenCode from scripts
 category: Task automation
 layout: snippet

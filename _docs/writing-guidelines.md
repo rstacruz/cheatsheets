@@ -16,7 +16,7 @@ updated: 2024-01-01
 
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
-- **H1 title:** optional override for the page H1. Use an article-style heading ("How to rename a Git branch") when `layout: snippet`.
+- **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
 - **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
 - **Tier:** `t1` for sheets that move often, `t2` for slower ones; see [review tiers](tiers.md). Omit it for best-effort sheets.
 - **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
@@ -75,12 +75,12 @@ Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
 
 ## Snippet layout
 
-Set `layout: snippet` for a microsheet built from one-command cards. Set `h1_title` to an article-style heading; the H1 omits "cheatsheet". The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
+Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use `.-snippets` on the H2 and `.-snippet` on every H3. Each H3 holds one fenced code block followed by one explanation paragraph with the upstream documentation link.
 
 ```yaml
 ---
-title: Git rename branch
-h1_title: How to rename a Git branch
+title: How to rename a Git branch
+link_title: Git rename branch
 layout: snippet
 links:
   - title: git-branch manual

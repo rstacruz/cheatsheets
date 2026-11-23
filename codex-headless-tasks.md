@@ -1,6 +1,6 @@
 ---
-title: Codex headless tasks
-h1_title: How to run Codex headless
+title: How to run Codex headless
+link_title: Codex headless tasks
 subtitle: Run Codex from scripts
 category: Task automation
 layout: snippet

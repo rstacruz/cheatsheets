@@ -112,7 +112,9 @@ const headingStyles = {
             {snippetPages.map((page) => (
               <a href={`/${page.slug}`} class="snippet-item">
                 <span class="snippet-item__title">
-                  {page.frontmatter.title ?? page.slug}
+                  {page.frontmatter.link_title ??
+                    page.frontmatter.title ??
+                    page.slug}
                 </span>
                 {page.frontmatter.subtitle && (
                   <span class="snippet-item__subtitle">

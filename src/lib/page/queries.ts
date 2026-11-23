@@ -93,7 +93,11 @@ export function getSnippetPages(pages: Record<string, SheetPage>): SheetPage[] {
     .filter((page) => isListed(page) && isSnippet(page))
     .sort(
       compare('asc', (page: SheetPage) =>
-        (page.frontmatter.title ?? page.slug).toLowerCase()
+        (
+          page.frontmatter.link_title ??
+          page.frontmatter.title ??
+          page.slug
+        ).toLowerCase()
       )
     )
 }

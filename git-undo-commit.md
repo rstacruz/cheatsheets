@@ -1,6 +1,6 @@
 ---
-title: Git undo commit
-h1_title: How to undo a Git commit
+title: How to undo a Git commit
+link_title: Git undo commit
 subtitle: Reset or revert commits
 category: Git
 layout: snippet

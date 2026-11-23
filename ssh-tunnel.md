@@ -1,6 +1,6 @@
 ---
-title: SSH tunnel
-h1_title: How to create an SSH tunnel
+title: How to create an SSH tunnel
+link_title: SSH tunnel
 subtitle: Forward local and remote ports
 category: Networking
 layout: snippet

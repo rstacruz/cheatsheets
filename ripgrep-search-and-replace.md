@@ -1,6 +1,6 @@
 ---
-title: Ripgrep search and replace
-h1_title: How to search and replace with ripgrep
+title: How to search and replace with ripgrep
+link_title: Ripgrep search and replace
 subtitle: Preview replacements safely
 category: Command line recipes
 layout: snippet

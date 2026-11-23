@@ -1,6 +1,6 @@
 ---
-title: JSDoc import types
-h1_title: How to import JSDoc types
+title: How to import JSDoc types
+link_title: JSDoc import types
 subtitle: Type-only imports for JSDoc
 category: JavaScript
 layout: snippet

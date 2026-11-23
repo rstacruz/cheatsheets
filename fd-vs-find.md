@@ -1,6 +1,6 @@
 ---
-title: fd vs find
-h1_title: When to use fd vs find
+title: When to use fd vs find
+link_title: fd vs find
 subtitle: Find files from the CLI
 category: Command line recipes
 layout: snippet

@@ -1,6 +1,6 @@
 ---
-title: sed in place
-h1_title: How to edit files in place with sed
+title: How to edit files in place with sed
+link_title: sed in place
 subtitle: Replace text in files
 category: Command line recipes
 layout: snippet

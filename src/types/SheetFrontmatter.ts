@@ -18,7 +18,15 @@ export const SheetFrontmatterSchema = z
       .transform((x) => x.toString())
       .pipe(z.string())
       .optional()
-      .describe('Sheet name. Falls back to the filename.'),
+      .describe('Sheet, H1, and <title> text. Falls back to the filename.'),
+    link_title: z
+      .string()
+      .trim()
+      .min(1)
+      .optional()
+      .describe(
+        'Short title for link lists such as the homepage. Falls back to `title`.'
+      ),
 
     subtitle: z
       .string()
@@ -29,14 +37,6 @@ export const SheetFrontmatterSchema = z
       })
       .optional()
       .describe('One-line description shown under the title (max 5 words).'),
-    h1_title: z
-      .string()
-      .trim()
-      .min(1)
-      .optional()
-      .describe(
-        'H1 override. Use an article-style heading for snippet layouts.'
-      ),
 
     category: z
       .string()

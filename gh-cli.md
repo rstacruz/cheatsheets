@@ -94,19 +94,6 @@ gh issue status
 
 See: [gh status](https://cli.github.com/manual/gh_status)
 
-### Target another repository
-
-```bash
-gh pr list -R cli/cli
-gh issue view 42 -R cli/cli
-gh release list -R cli/cli
-```
-<!-- {: data-highlight="-R cli/cli"} -->
-
-`-R` takes `OWNER/REPO`; `GH_REPO` sets a default for repository commands.
-
-See: [gh manual](https://cli.github.com/manual/gh_help_reference)
-
 ## Repositories
 
 ### Clone
@@ -451,6 +438,19 @@ gh pr list --json number \
 See: [gh help formatting](https://cli.github.com/manual/gh_help_formatting)
 
 ## Configuration
+
+### Target another repo
+
+```bash
+gh pr list -R cli/cli
+gh issue view 42 -R cli/cli
+gh release list -R cli/cli
+```
+<!-- {: data-highlight="-R cli/cli"} -->
+
+`-R` takes `OWNER/REPO`; `GH_REPO` sets a default for repository commands.
+
+See: [gh manual](https://cli.github.com/manual/gh_help_reference)
 
 ### Aliases
 

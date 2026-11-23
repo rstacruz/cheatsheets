@@ -21,6 +21,7 @@ links:
 ```bash
 git branch -m new-name
 ```
+<!-- {: data-highlight="-m"} -->
 
 Renames the checked-out branch. `-m` is short for `--move`; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--m).
 
@@ -30,6 +31,7 @@ Renames the checked-out branch. `-m` is short for `--move`; see the [git-branch 
 ```bash
 git branch -m old-name new-name
 ```
+<!-- {: data-highlight="old-name new-name"} -->
 
 Renames a branch without checking it out; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--m).
 
@@ -39,6 +41,7 @@ Renames a branch without checking it out; see the [git-branch manual](https://gi
 ```bash
 git push -u origin new-name
 ```
+<!-- {: data-highlight="-u"} -->
 
 Creates the new remote branch and sets its upstream; `-u` is short for `--set-upstream`. See the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt--u).
 
@@ -48,5 +51,6 @@ Creates the new remote branch and sets its upstream; `-u` is short for `--set-up
 ```bash
 git push origin --delete old-name
 ```
+<!-- {: data-highlight="--delete"} -->
 
 Deletes the old remote branch. Other clones keep their own local `old-name`; see the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).

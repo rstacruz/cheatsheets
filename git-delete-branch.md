@@ -21,6 +21,7 @@ links:
 ```bash
 git branch -d old-name
 ```
+<!-- {: data-highlight="-d"} -->
 
 Deletes a local branch only when Git can prove it is merged; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--d).
 
@@ -30,6 +31,7 @@ Deletes a local branch only when Git can prove it is merged; see the [git-branch
 ```bash
 git branch -D old-name
 ```
+<!-- {: data-highlight="-D"} -->
 
 Forces deletion even with unmerged commits, so check the commits first; see the [git-branch manual](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--D).
 
@@ -39,6 +41,7 @@ Forces deletion even with unmerged commits, so check the commits first; see the 
 ```bash
 git push origin --delete old-name
 ```
+<!-- {: data-highlight="--delete"} -->
 
 Deletes the branch on `origin`; local branches and other clones are untouched. See the [git-push manual](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete).
 
@@ -48,5 +51,6 @@ Deletes the branch on `origin`; local branches and other clones are untouched. S
 ```bash
 git fetch --prune
 ```
+<!-- {: data-highlight="--prune"} -->
 
 Removes local `origin/*` refs whose remote branch is gone; see the [git-fetch manual](https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---prune).

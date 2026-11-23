@@ -4,6 +4,8 @@ seo_title: Python cheatsheet — lists, dicts, strings
 description: "Python lists: dicts, strings, iteration, comprehensions and file handling. Reference."
 subtitle: Readable language for scripting
 category: Python
+updated: 2026-11-23
+last_verified_with: "Python 3.14.10."
 ---
 
 ### Tuples (immutable)
@@ -30,7 +32,7 @@ list.extend(another_list)
 list.insert(index, item)
 list.pop()        # returns and removes last element from the list
 list.pop(i)       # returns and removes i-th element from the list
-list.remove(i)    # removes the first item from the list whose value is i
+list.remove(i)    # removes first item whose value is i
 list1 + list2     # combine two list    
 set(list)         # remove duplicate elements from a list
 
@@ -38,10 +40,10 @@ list.reverse()    # reverses the elements of the list in-place
 list.count(item)
 sum(list)
 
-zip(list1, list2)  # returns list of tuples with n-th element of both list1 and list2
+zip(list1, list2)  # returns an iterator of paired tuples
 list.sort()        # sorts in-place, returns None
 sorted(list)       # returns sorted copy of list
-",".join(list)     # returns a string with list elements separated by comma
+",".join(list)     # joins elements with commas
 
 ```
 
@@ -82,7 +84,7 @@ for key, val in dict.items():
 for index, item in enumerate(list):
 ```
 
-### [String](https://docs.python.org/2/library/stdtypes.html#string-methods)
+### [String](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
 ```py
 str[0:4]
@@ -91,9 +93,9 @@ len(str)
 string.replace("-", " ")
 ",".join(list)
 "hi {0}".format('j')
-f"hi {name}" # same as "hi {}".format('name')
+f"hi {name}" # same as "hi {}".format(name)
 str.find(",")
-str.index(",")   # same, but raises IndexError
+str.index(",")   # same, but raises ValueError
 str.count(",")
 str.split(",")
 
@@ -107,7 +109,7 @@ str.strip()
 
 str.islower()
 
-/* escape characters */
+# Escape characters
 >>> 'doesn\'t'  # use \' to escape the single quote...
     "doesn't"
 >>> "doesn't"  # ...or use double quotes instead
@@ -158,15 +160,19 @@ expr.sub(...)
     
 ### Reading
 
-```py
-file = open("hello.txt", "r") # open in read mode 'r'
-file.close() 
-```
+#### Open and close
 
 ```py
-print(file.read())  # read the entire file and set the cursor at the end of file
-print file.readline() # Reading one line
-file.seek(0, 0) # place the cursor at the beginning of the file
+file = open("hello.txt", "r")  # open in read mode
+file.close()
+```
+
+#### Read content
+
+```py
+print(file.read())      # read from the current position
+print(file.readline())  # read one line
+file.seek(0, 0)         # place the cursor at the start
 ```
 
 ### Writing (overwrite)
@@ -194,7 +200,7 @@ file.close()
 ```py
 with open("welcome.txt", "r") as file:
     # 'file' refers directly to "welcome.txt"
-   data = file.read()
+    data = file.read()
 
-# It closes the file automatically at the end of scope, no need for `file.close()`.
+# The file closes automatically at the end of the block.
 ```

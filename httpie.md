@@ -3,18 +3,19 @@ title: httpie
 subtitle: Human-friendly HTTP client
 category: Networking
 weight: -3
-updated: 2020-07-05
+updated: 2026-11-23
+last_verified_with: "HTTPie CLI 3.2.4."
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
 intro: |
-  [HTTPie](https://httpie.org/) is a command-line HTTP client.
+  [HTTPie](https://httpie.io/) is a command-line HTTP client.
 links:
   - title: HTTPie website
-    url: https://httpie.org/
+    url: https://httpie.io/
   - title: HTTPie documentation
-    url: https://httpie.org/docs
+    url: https://httpie.io/docs/cli
   - title: Try it online
-    url: https://httpie.org/run
+    url: https://httpie.io/cli/run
 ---
 
 ### Parameters
@@ -24,9 +25,8 @@ $ http POST http://example.com/posts/3 \
     Origin:example.com \  # :   HTTP headers
     name="John Doe" \     # =   string
     q=="search" \         # ==  URL parameters (?q=search)
-    age:=29 \             # :=  for non-strings
-    list:='[1,3,4]' \     # :=  json
-    file@file.bin \       # @   attach file
+    age:=29 \             # :=  non-string JSON value
+    list:='[1,3,4]' \     # :=  JSON value
     token=@token.txt \    # =@  read from file (text)
     user:=@user.json      # :=@ read from file (json)
 ```
@@ -36,7 +36,7 @@ $ http POST http://example.com/posts/3 \
 ```bash
 $ http --form POST example.com \
     name="John Smith" \
-    cv=@document.txt
+    cv@document.txt
 ```
 
 ### Raw JSON
@@ -50,7 +50,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
 #### Printing options
 
 ```bash
--v, --verbose            # same as --print=HhBb --all
+-v, --verbose            # print full HTTP exchange; implies --all
 -h, --headers            # same as --print=h
 -b, --body               # same as --print=b
     --all                # print intermediate requests
@@ -59,7 +59,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
                          # h: response headers
                          # b: response body
     --pretty=none        # all | colors | format
-    --json | -j          # Response is serialized as a JSON object.
+    --json | -j          # JSON request data (default); set Accept
 ```
 
 #### Authentication
@@ -69,6 +69,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
 -a, --auth USER:PASS
     --auth-type basic
     --auth-type digest
+    --auth-type bearer
 ```
 
 #### Session
@@ -92,10 +93,10 @@ $ echo '{"hello": "world"}' | http POST example.com/post
 -F, --follow             # follow redirects
     --max-redirects N    # maximum for --follow
     --timeout SECONDS
-    --verify no          # skip SSL verification
+    --verify=no          # skip SSL verification
     --proxy http:http://foo.bar:3128
 ```
 
 ### References
 
-* <https://github.com/jakubroztocil/httpie>
+* <https://github.com/httpie/cli>

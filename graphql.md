@@ -1,7 +1,8 @@
 ---
 title: GraphQL
 subtitle: API query language
-updated: 2019-07-07
+updated: 2026-11-23
+last_verified_with: "GraphQL specification, graphql.org guides."
 category: API
 ---
 
@@ -68,11 +69,9 @@ GraphQL queries look the same for both single items or lists of items.
 
 #### Result
 
-```js
 { hero:
     { id: "1000",
-    { name: "Luke Skywalker" } }
-```
+      name: "Luke Skywalker" } }
 
 <!-- {: .-setup} -->
 
@@ -99,26 +98,31 @@ GraphQL queries look the same for both single items or lists of items.
 ### Operation names and variables
 
 #### Query
+
 ```js
-query FindHero($id: String!) {
+query FindHero($id: ID!) {
   hero(id: $id) { name }
 }
 ```
 
-Just to make things less ambiguous. Also, to use variables, you need an operation name.
-
 #### Variables
 
 ```js
-{ id: '1000' }
+{ id: "1000" }
 ```
+
+The operation type is required to declare variables; naming it is optional but helps debugging.
 
 ### Mutations
 
 #### Query
 
 ```js
-{ createReview($review) { id } }
+mutation CreateReview(
+  $review: ReviewInput!
+) {
+  createReview(review: $review) { id }
+}
 ```
 
 #### Variables
@@ -133,7 +137,7 @@ Just to make things less ambiguous. Also, to use variables, you need an operatio
 { createReview: { id: 5291 } }
 ```
 
-Mutations are just fields that do something when queried.
+Only top-level `Mutation` fields may cause side effects; they run in series.
 
 ### Multiple types
 
@@ -142,7 +146,10 @@ Mutations are just fields that do something when queried.
   search(q: "john") {
     id
     ... on User { name }
-    ... on Comment { body author { name } }
+    ... on Comment {
+      body
+      author { name }
+    }
   }
 }
 ```
@@ -156,7 +163,10 @@ Over HTTP
 #### GET
 
 ```js
-fetch('http://myapi/graphql?query={ me { name } }')
+const q = encodeURIComponent(
+  '{ me { name } }'
+)
+fetch(`http://myapi/graphql?query=${q}`)
 ```
 
 #### POST
@@ -279,5 +289,5 @@ type Query {
 References
 ----------
 
-- <http://graphql.org/learn/queries/>
-- <http://graphql.org/learn/serving-over-http/>
+- <https://graphql.org/learn/queries/>
+- <https://graphql.org/learn/serving-over-http/>

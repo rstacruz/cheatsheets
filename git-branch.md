@@ -2,7 +2,8 @@
 title: Git branches
 subtitle: Branch management workflow
 category: Git
-updated: 2020-02-13
+updated: 2026-11-23
+last_verified_with: "Git 2.56.0."
 ---
 
 ## Working with branches
@@ -57,33 +58,36 @@ List outdated branches that have been merged into the current one.
 git branch -d $branchname
 ```
 
-Deletes the branch only if the changes have been pushed and merged with remote.
+Deletes the branch only if its changes are merged into the current branch.
 
 ### Delete branch forcefully
+
+#### Force delete
 
 ```bash
 git branch -D $branchname
 ```
 
+#### Safe delete
+
 ```bash
 git branch -d $branchname
 ```
 
-> Note: You can also use the -D flag which is synonymous with --delete --force instead of -d. This will delete the branch regardless of its merge status.
-> Delete a branch irrespective of its merged status.
+`-D` is `--delete --force`: it removes unmerged branches too.
 
 ### Delete remote branch
 
 ```bash
-git push origin --delete :$branchname
+git push origin --delete $branchname
 ```
 
 Works for tags, too!
 
-### Get current sha1
+### Get current commit ID
 
 ```bash
-git show-ref HEAD -s
+git rev-parse HEAD
 ```
 ### Reset branch and remove all changes
 

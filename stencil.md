@@ -2,7 +2,8 @@
 title: Stencil
 subtitle: Web component compiler
 category: Build tools
-updated: 2019-05-08
+updated: 2026-11-23
+last_verified_with: "Stencil 4.45.5."
 keywords:
   - "@Component"
   - "@Prop()"
@@ -13,10 +14,12 @@ keywords:
   - "Templating"
   - "Lifecycle"
 intro: |
-  [Stencil](https://github.com/ionic-team/stencil) is a compiler for web components made by the Ionic team. This guide targets Stencil v0.0.5.
+  [Stencil](https://github.com/ionic-team/stencil) is a compiler
+  for web components made by the Ionic team. This guide targets
+  Stencil v4.
 links:
   - title: Handling user input
-    url: https://stenciljs.com/docs/templating/#handling-user-input
+    url: https://stenciljs.com/docs/templating-jsx#handling-user-input
 ---
 
 ## Quick-start guide
@@ -30,7 +33,9 @@ links:
 #### JavaScript
 
 ```js
-import { Component, Prop, State } from '@stencil/core'
+import {
+  Component, Prop, State, h
+} from '@stencil/core'
 
 @Component({
   tag: 'my-component',
@@ -42,7 +47,6 @@ export class MyComponent {
 
   render () {
     return <p>I am {this.name}!</p>
-    )
   }
 }
 ```
@@ -53,7 +57,7 @@ export class MyComponent {
 <my-component name='Groot' />
 ```
 
-That's the same example in the [Readme](https://github.com/ionic-team/stencil), that's as simple as you can get! Just use `<my-component>` like you would use any other HTML tag.
+Same as the [Readme](https://github.com/ionic-team/stencil) example: use `<my-component>` like any other tag.
 
 ### DOM events
 
@@ -62,13 +66,15 @@ export class MyComponent {
   render () {
     return (
       <input
-        onChange={(event: UIEvent) => this.inputChanged(event)}
+        onChange={this.inputChanged}
       />
     )
   }
 
-  inputChanged (event) {
-    console.log('input changed:', event.target.value)
+  inputChanged = (event: Event) => {
+    const el =
+      event.target as HTMLInputElement
+    console.log('changed:', el.value)
   }
 }
 ```
@@ -77,7 +83,7 @@ export class MyComponent {
 
 Stencil uses DOM events.
 
-See: [Handling user input](https://stenciljs.com/docs/templating/#handling-user-input)
+See: [Handling user input](https://stenciljs.com/docs/templating-jsx#handling-user-input)
 
 ### Multiple children
 
@@ -85,7 +91,7 @@ See: [Handling user input](https://stenciljs.com/docs/templating/#handling-user-
 render () {
   return [
     <h1>Hello there</h1>,
-    <p>This component returns multiple nodes</p>
+    <p>Returns multiple nodes</p>
   ]
 }
 ```
@@ -94,7 +100,7 @@ render () {
 
 `render()` can return an array of elements.
 
-See: [Complex template content](https://stenciljs.com/docs/templating#complex-template-content)
+See: [Complex template content](https://stenciljs.com/docs/templating-jsx#complex-template-content)
 
 ## State
 
@@ -114,7 +120,7 @@ export class MyComponent {
 
 Just do assignments. You can't do mutations though, see next section.
 
-See: [Managing component state](https://stenciljs.com/docs/decorators#managing-component-state)
+See: [Managing component state](https://stenciljs.com/docs/state)
 
 ### Updating arrays and objects
 
@@ -133,7 +139,7 @@ this.options = { ...this.options, show: true }
 
 Mutable operations such as `push()` won't work. You'll need to assign a new copy.
 
-See: [Updating arrays](https://stenciljs.com/docs/reactive-data/#updating-arrays)
+See: [Updating arrays](https://stenciljs.com/docs/reactive-data#updating-arrays)
 
 ## Slots
 
@@ -159,7 +165,7 @@ render() {
 
 You can pass JSX/HTML as child elements. Use the `slot` tag to use them inside your component.
 
-See: [Slots](https://stenciljs.com/docs/templating#slots)
+See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 
 ### Multiple slots
 
@@ -185,21 +191,22 @@ render () {
 
 <!-- {: data-highlight="'my-footer'"} -->
 
-See: [Slots](https://stenciljs.com/docs/templating#slots)
+See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 
 ## Lifecycle
 
 ### Lifecycle hooks
 
-| Event                   | Description      |
-| ---                     | ---              |
-| `componentWillLoad()`   | Before rendering |
-| `componentDidLoad()`    | After rendering  |
-| ---                     | ---              |
-| `componentWillUpdate()` | Before updating  |
-| `componentDidUpdate()`  | After updating   |
-| ---                     | ---              |
-| `componentDidUnload()`  | After unmounting |
+| Event                    | Description      |
+| ------------------------ | ---------------- |
+| `componentWillLoad()`    | Before rendering |
+| `componentDidLoad()`     | After rendering  |
+| ---                      | ---              |
+| `componentWillUpdate()`  | Before updating  |
+| `componentDidUpdate()`   | After updating   |
+| ---                      | ---              |
+| `connectedCallback()`    | On DOM attach    |
+| `disconnectedCallback()` | On DOM detach    |
 
 See: [Component lifecycle](https://stenciljs.com/docs/component-lifecycle)
 

@@ -1,6 +1,12 @@
 import { categories } from '../../config'
 import type { SheetPage } from '../page'
-import { hasTag, isListed, isSnippet, isTestFixture } from './accessors'
+import {
+  hasTag,
+  isListed,
+  isSnippet,
+  isTiered,
+  isTestFixture
+} from './accessors'
 
 export type Category = {
   pages: SheetPage[]
@@ -59,6 +65,7 @@ export function getRecentPages(
     .filter(
       (page) =>
         isListed(page) &&
+        isTiered(page) &&
         page.frontmatter.updated &&
         (!excludeSnippets || !isSnippet(page))
     )

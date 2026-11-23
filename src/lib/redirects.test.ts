@@ -150,6 +150,14 @@ test('sheet paths are root or one directory deep', () => {
   expect(sheetSlug('wip/php.md')).toEqual('wip/php')
 })
 
+test('every published page is a sheet path', async () => {
+  const pages = await getPages()
+  const rejected = Object.keys(pages).filter(
+    (slug) => !isSheetPath(`${slug}.md`)
+  )
+  expect(rejected).toEqual([])
+})
+
 test('deletedPaths finds a known removal in a commit range', () => {
   // 3ad25b5a5 promoted wip/php.md to php.md
   expect(deletedPaths('3ad25b5a5^', '3ad25b5a5')).toContain('wip/php.md')

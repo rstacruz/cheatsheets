@@ -16,8 +16,7 @@ export const REDIRECT_STATUSES = [301, 302, 303, 307, 308]
 
 const NON_PAGE_FILES =
   /^(?:README|AGENTS|CONTRIBUTING|404|index|index@2016)\.md$/
-const NON_PAGE_DIRS =
-  /^(?:_docs|_includes|tests|test|artefacts|assets|public|src)\//
+const NON_PAGE_DIRS = /^(?:_docs|artefacts)\//
 
 /** Parses the file, collecting malformed lines instead of throwing */
 export function parseRedirects(text: string) {
@@ -77,8 +76,8 @@ export function targetSlug(target: string): string | null {
 
 /**
  * Markdown files `getPages()` publishes: root-level sheets plus one directory
- * deep. Repo docs, includes, and test fixtures are not pages, so retiring them
- * needs no redirect. Keep in step with the glob in `src/lib/page.ts`.
+ * deep, minus the repo files and docs it negates. A test asserts every
+ * published page passes, so the two cannot drift silently.
  */
 export function isSheetPath(path: string): boolean {
   if (!/^[^/]+(?:\/[^/]+)?\.md$/.test(path)) return false

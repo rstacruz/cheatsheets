@@ -11,7 +11,7 @@ The site's CSS grew before Tailwind was in the build. Today it has:
 - **Two indigo families:** `--base-a (#745fb5)` and `--color-mildindigo-600 (#6f6bb7)` serve the same role.
 - **A type scale outside Tailwind's namespace:** `--fs-n1`…`--fs-8`, expressed with media-query overrides, while markup also uses `text-*` utilities whose rem values resolve against a 14px root.
 - **Token escapes:** 8 raw hex values, raw named colours, and 16 `rgb()` literals across component and Markdown CSS (2 more in generated icons).
-- **Tailwind barely used:** ~2,900 CSS lines across 43 CSS files; 3 files use `@apply`; 24 Astro components share 15 global `<style>` imports.
+- **Tailwind barely used:** ~2,900 CSS lines across 43 CSS files; 3 files use `@apply`; 24 Astro components, 15 of which carry global `<style>` blocks with 42 CSS imports.
 
 Two constraints drive this decision:
 

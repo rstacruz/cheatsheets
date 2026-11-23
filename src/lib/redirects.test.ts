@@ -92,6 +92,15 @@ async function livePaths() {
   return new Set([...Object.keys(pages), ...staticRoutes()])
 }
 
+function hasCommit(ref: string) {
+  try {
+    git(['cat-file', '-e', ref])
+    return true
+  } catch {
+    return false
+  }
+}
+
 const base = resolveBase()
 
 test('the redirect file is well formed', () => {
@@ -192,7 +201,10 @@ test('every published page is a sheet path', async () => {
   expect(rejected).toEqual([])
 })
 
-test('deletedPaths finds a known removal in a commit range', () => {
-  // 3ad25b5a5 promoted wip/php.md to php.md
-  expect(deletedPaths('3ad25b5a5^', '3ad25b5a5')).toContain('wip/php.md')
-})
+test.skipIf(!hasCommit('3ad25b5a5^'))(
+  'deletedPaths finds a known removal in a commit range',
+  () => {
+    // 3ad25b5a5 promoted wip/php.md to php.md
+    expect(deletedPaths('3ad25b5a5^', '3ad25b5a5')).toEqual(['wip/php.md'])
+  }
+)

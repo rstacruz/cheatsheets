@@ -44,6 +44,18 @@ describe('getSEOPropsForPage()', () => {
     expect(output.title).toEqual('React cheatsheet — hooks')
   })
 
+  test('snippet layouts use the title without a cheatsheet suffix', () => {
+    const output = getSEOPropsForPage({
+      slug: 'git-undo-commit',
+      frontmatter: {
+        title: 'How to undo a Git commit',
+        layout: 'snippet'
+      }
+    })
+    expect(output.title).toEqual('How to undo a Git commit')
+    expect(output.meta.description).toContain('How to undo a Git commit')
+  })
+
   test('uses the description verbatim, without the intro', () => {
     const output = getSEOPropsForPage({
       slug,

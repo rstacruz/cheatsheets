@@ -5,7 +5,8 @@ import { getSEOPropsForHome } from '~/lib/seo/seo'
 import {
   getPagesByCategory,
   getFeaturedPages,
-  getRecentPages
+  getRecentPages,
+  getSnippetPages
 } from '~/lib/page/queries'
 import TopNav from '~/components/TopNav.astro'
 import BaseLayout from '~/components/BaseLayout.astro'
@@ -19,15 +20,23 @@ import { typeStyles } from '~/styles/CommonStyles'
 import { urls } from '~/config'
 
 const pages = await getPages()
-const pageCategories = getPagesByCategory(pages)
-const featuredPages = getFeaturedPages(pages, { maxCount: 8 })
-const recentPages = getRecentPages(pages, { maxCount: 12 })
+const pageCategories = getPagesByCategory(pages, { excludeSnippets: true })
+const featuredPages = getFeaturedPages(pages, {
+  maxCount: 8,
+  excludeSnippets: true
+})
+const recentPages = getRecentPages(pages, {
+  maxCount: 12,
+  excludeSnippets: true
+})
+const snippetPages = getSnippetPages(pages)
 
 const seoProps = getSEOPropsForHome()
 const t = {
   title: "Rico's cheatsheets",
   tagline: `Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.`,
   recentlyUpdated: 'Recently updated',
+  snippets: 'Snippets',
   seeSomethingMissing: 'See something missing?',
   requestCheatsheet: 'Request cheatsheet'
 }
@@ -93,6 +102,33 @@ const headingStyles = {
           </>
         )
       })}
+
+      {snippetPages.length > 0 && (
+        <>
+          <h2 class="category item" data-js-searchable-header>
+            <span>{t.snippets}</span>
+          </h2>
+          <div class="snippet-list item">
+            {snippetPages.map((page) => (
+              <a href={`/${page.slug}`} class="snippet-item">
+                <span class="snippet-item__title">
+                  {page.frontmatter.link_title ??
+                    page.frontmatter.title ??
+                    page.slug}
+                </span>
+                {page.frontmatter.subtitle && (
+                  <span class="snippet-item__subtitle">
+                    {page.frontmatter.subtitle}
+                  </span>
+                )}
+                <span class="snippet-item__arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
 
       <div class="message item missing-message">
         <h3>{t.seeSomethingMissing}</h3>

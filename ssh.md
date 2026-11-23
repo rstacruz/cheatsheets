@@ -238,3 +238,8 @@ See: [ssh-keygen(1)](https://man.openbsd.org/ssh-keygen.1)
 
 [Rsync cheatsheet](./rsync)
 <!-- {: .-crosslink} -->
+
+### SSH tunnel
+
+[SSH tunnel cheatsheet](./ssh-tunnel)
+<!-- {: .-crosslink} -->

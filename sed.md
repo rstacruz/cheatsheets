@@ -144,3 +144,10 @@ sed -e '/REGEX/Ip;d' README.md
 
 this invert the previous sed command
 delete everything (excluding lines with REGEX)
+
+## Also see
+
+### In-place edits
+
+[sed in place cheatsheet](./sed-in-place)
+<!-- {: .-crosslink} -->

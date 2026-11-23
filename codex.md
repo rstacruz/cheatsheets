@@ -467,6 +467,7 @@ OAuth works with streamable HTTP servers that support it. Stored credentials liv
 - [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli) _(learn.chatgpt.com)_
 - [Configuration](https://learn.chatgpt.com/docs/config-file/config-basic) _(learn.chatgpt.com)_
 - [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security) _(learn.chatgpt.com)_
+- [Codex headless tasks cheatsheet](./codex-headless-tasks)
 - [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode) _(learn.chatgpt.com)_
 - [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) _(learn.chatgpt.com)_
 - [Best practices](https://learn.chatgpt.com/guides/best-practices) _(learn.chatgpt.com)_

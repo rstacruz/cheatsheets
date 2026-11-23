@@ -482,3 +482,10 @@ paseo plugin disable my-plugin
 Plugins run unsandboxed with the daemon user's access: add only trusted sources.
 
 See: [Plugins](https://paseo.sh/docs/cli#plugins)
+
+## Also see
+
+### Scheduled tasks
+
+[Paseo scheduled tasks cheatsheet](./paseo-scheduled-tasks)
+<!-- {: .-crosslink} -->

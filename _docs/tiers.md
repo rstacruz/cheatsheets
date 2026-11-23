@@ -27,6 +27,12 @@ section rules (see [content organisation](writing-guidelines.md#content-organisa
 When in doubt, use T2. Move a sheet to T1 when its release notes regularly
 change the commands, flags, or syntax the sheet documents.
 
+## Layouts
+
+Layouts are separate from review tiers. A snippet sheet sets
+`layout: snippet`; check it on the T2 cadence. See
+[snippet layout](writing-guidelines.md#snippet-layout) for the authoring rules.
+
 ## Checking a sheet
 
 Compare the examples with upstream docs, then update `last_verified_with` with

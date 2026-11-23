@@ -47,6 +47,11 @@ export function isArchived(page: FrontmatterOnly): boolean {
   return Boolean(page.frontmatter.archived)
 }
 
+/** Snippet-layout sheets get a separate, condensed homepage list */
+export function isSnippet(page: FrontmatterOnly): boolean {
+  return page.frontmatter.layout === 'snippet'
+}
+
 /**
  * Checks if a sheet is a test fixture (lives under tests/)
  */

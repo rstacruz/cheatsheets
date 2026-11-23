@@ -360,3 +360,10 @@ $ sort colors.txt | uniq -c \
 `head` stops the pipeline after the ranked results you need.
 
 See: [sort invocation](https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html)
+
+## Also see
+
+### cut vs awk
+
+[cut vs awk cheatsheet](./cut-vs-awk)
+<!-- {: .-crosslink} -->

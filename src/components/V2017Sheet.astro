@@ -27,9 +27,13 @@ const props = Astro.props as Props
 const page = props.page
 const pages = await getPages()
 const sheetCount = getListedSheetCount(pages)
+const snippetLayout = page.frontmatter.layout === 'snippet'
+const editUrl = getEditLink(page)
 const mkdn = await render(page.markdown, {
   intro: page.frontmatter.intro,
-  links: page.frontmatter.links
+  links: page.frontmatter.links,
+  atEnd: snippetLayout,
+  linksTitle: snippetLayout ? 'Related links' : undefined
 })
 const seoProps = getSEOPropsForPage(page)
 const jsonLdSchemas = getJSONLDsForPage(page)
@@ -37,13 +41,16 @@ const tags = page.frontmatter.tags ?? []
 const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
 const title: string = page.frontmatter.title ?? page.slug
-const editUrl = getEditLink(page)
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
   : null
 
 const styles = {
-  body: cx('V2017Sheet__body max-w-content p-6 md:px-8 mx-auto')
+  body: cx(
+    'V2017Sheet__body',
+    'p-6 md:px-8 mx-auto',
+    snippetLayout ? 'max-w-[900px]' : 'max-w-content'
+  )
 }
 
 const headingStyles = {
@@ -59,6 +66,7 @@ const headingStyles = {
     typeStyles.manrope,
     'text-5xl leading-[1.2] text-zinc-950',
     'text-center md:text-left',
+    snippetLayout && 'text-balance',
     'flex-1'
   ),
   title: cx('MainHeading__title'),
@@ -80,7 +88,9 @@ const headingStyles = {
     <header class={headingStyles.root} role="banner">
       <h1 class={headingStyles.h1}>
         <span class={headingStyles.title}>{title}</span>
-        <span class={headingStyles.suffix}> cheatsheet</span>
+        {snippetLayout ? null : (
+          <span class={headingStyles.suffix}> cheatsheet</span>
+        )}
       </h1>
 
       {/* Publicite */}
@@ -146,6 +156,7 @@ const headingStyles = {
   @import '../styles/components/h2-section.css';
   @import '../styles/components/h3-section.css';
   @import '../styles/components/h3-section-list.css';
+  @import '../styles/components/snippet.css';
   @import '../styles/components/hint-mark.css';
   @import '../styles/components/main-heading.css';
   @import '../styles/components/pre-footer.css';

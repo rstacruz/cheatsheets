@@ -68,3 +68,10 @@ fs.existsSync('file.txt');
 ### References
 
 - <https://nodejs.org/api/fs.html>
+
+## Also see
+
+### Read a file
+
+[Node.js read file cheatsheet](./nodejs-read-file)
+<!-- {: .-crosslink} -->

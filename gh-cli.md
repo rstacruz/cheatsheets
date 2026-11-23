@@ -169,13 +169,13 @@ gh pr create
 ```
 
 ```bash
-# non-interactive
+# non-interactive, branch pushed
 gh pr create --fill --base develop
 gh pr create -t "Fix login" -F -
 ```
 <!-- {: data-highlight="gh pr create"} -->
 
-`--fill` uses the commits for the title and body; `-F -` reads the body from stdin.
+`--fill` uses the commits for the title and body; `-F -` reads the body from stdin. An unpushed branch still prompts.
 
 See: [gh pr create](https://cli.github.com/manual/gh_pr_create)
 

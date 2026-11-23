@@ -1,27 +1,11 @@
-import { ATTRIBUTE_COMMENT, parseAttributes } from '~/lib/markdown/comments'
+import { parseAttributes } from '~/lib/markdown/comments'
 import { parseHighlightSpec } from '~/lib/markdown/inlineHighlight'
+import { commentsAfter } from './attributes'
 import { isSheetSlug } from './baseline'
 import { sheetSources } from './sheets'
 import { findFences } from './utils'
 
 type Finding = { line: number; text: string }
-
-/** Attribute comments directly after a fence's closer, blank lines allowed */
-function commentsAfter(lines: string[], closeLine: number) {
-  const comments: { line: number; attributes: string }[] = []
-  let index = closeLine
-  while (index < lines.length && lines[index].trim() === '') index++
-
-  while (index < lines.length) {
-    const comment = ATTRIBUTE_COMMENT.exec(lines[index].trim())
-    if (!comment) break
-    comments.push({ line: index + 1, attributes: comment[1] ?? '' })
-    index++
-    while (index < lines.length && lines[index].trim() === '') index++
-  }
-
-  return comments
-}
 
 /** `data-highlight` comments naming text that is absent from the block */
 function findMissingHighlights(source: string): Finding[] {

@@ -309,7 +309,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python
@@ -319,6 +319,23 @@ driver.save_screenshot("page.png")
 ````
 
 Use `data-line` instead when the whole line, or a range, is the lesson.
+
+### code/highlight-limit
+
+🤖 Check: `code/highlight-limit`.
+
+At most four `data-highlight` tokens per block. Highlight sibling methods together when they carry the card's point; split the card or drop incidental tokens when the list grows.
+
+````md
+### Select lists
+
+```python
+select.select_by_value("volvo")
+select.select_by_visible_text("Saab")
+select.select_by_index(2)
+```
+<!-- {: data-highlight="select_by_value; select_by_visible_text; select_by_index"} -->
+````
 
 ### code/data-highlight-in-block
 

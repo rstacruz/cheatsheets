@@ -62,6 +62,7 @@ $ sort colors.txt | uniq -c | sort -rn
       2 blue
       1 green
 ```
+<!-- {: data-highlight="uniq -c; sort -rn"} -->
 
 `sort` groups equal lines, `uniq -c` counts each run, and `sort -rn` orders by count, largest first.
 
@@ -101,6 +102,7 @@ blue
 green
 red
 ```
+<!-- {: data-highlight="-u"} -->
 
 `-u` sorts and removes duplicate lines in one pass.
 
@@ -126,6 +128,7 @@ $ sort colors.txt | uniq -d
 blue
 red
 ```
+<!-- {: data-highlight="-d"} -->
 
 `-d` prints one copy of each repeated line; `-u` prints lines that occur once.
 
@@ -153,6 +156,7 @@ bob,25,ops
 ann,30,dev
 cy,41,dev
 ```
+<!-- {: data-highlight="-k2,2n"} -->
 
 `-t,` splits on commas; `-k2,2n` sorts field two as a number.
 
@@ -166,6 +170,7 @@ ann,30,dev
 cy,41,dev
 bob,25,ops
 ```
+<!-- {: data-highlight="-k3,3"} -->
 
 `-k3,3` limits the key to field three; adding `r` reverses the order.
 
@@ -179,6 +184,7 @@ cy,41,dev
 ann,30,dev
 bob,25,ops
 ```
+<!-- {: data-highlight="-k3,3; -k2,2nr"} -->
 
 The first key groups by role; the second sorts each group by descending age.
 
@@ -195,6 +201,7 @@ ann
 bob
 cy
 ```
+<!-- {: data-highlight="-d,; -f1"} -->
 
 `-d` sets the delimiter; `-f` selects fields, starting at one.
 
@@ -211,6 +218,7 @@ gre
 blu
 red
 ```
+<!-- {: data-highlight="-c1-3"} -->
 
 `-c` selects characters by position; `-b` selects bytes. `-c1-8` is a range, `-c5-` runs to the end.
 
@@ -224,6 +232,7 @@ ann,dev
 bob,ops
 cy,dev
 ```
+<!-- {: data-highlight="-f1,3"} -->
 
 `-f1,3` picks two fields; `-f2-` keeps a field and everything after it.
 
@@ -239,6 +248,7 @@ $ echo 'Hello, World!' \
     | tr '[:lower:]' '[:upper:]'
 HELLO, WORLD!
 ```
+<!-- {: data-highlight="[:upper:]"} -->
 
 `tr` maps each character in the first set to the one at the same position in the second. Ranges like `'a-z'` work too.
 
@@ -250,6 +260,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 $ echo 'a-b-c' | tr -d '-'
 abc
 ```
+<!-- {: data-highlight="-d"} -->
 
 `-d` removes matching characters; use `tr -d '\r'` to strip carriage returns.
 
@@ -261,6 +272,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 $ echo 'too   many    spaces' | tr -s ' '
 too many spaces
 ```
+<!-- {: data-highlight="-s"} -->
 
 `-s` collapses each run of matching characters into one.
 
@@ -274,6 +286,7 @@ a
 b
 c
 ```
+<!-- {: data-highlight="'\n'"} -->
 
 Mapping a delimiter to a newline turns a list into one item per line.
 
@@ -288,6 +301,7 @@ See: [tr invocation](https://www.gnu.org/software/coreutils/manual/html_node/tr-
 $ echo hello | tee out.txt
 hello
 ```
+<!-- {: data-highlight="tee out.txt"} -->
 
 `tee` writes stdin to a file and to stdout, so the pipeline keeps running.
 
@@ -299,6 +313,7 @@ See: [tee invocation](https://www.gnu.org/software/coreutils/manual/html_node/te
 $ echo again | tee -a out.txt
 again
 ```
+<!-- {: data-highlight="-a"} -->
 
 `-a` appends instead of replacing the file.
 
@@ -310,6 +325,7 @@ See: [tee invocation](https://www.gnu.org/software/coreutils/manual/html_node/te
 $ echo shared | tee a.txt b.txt
 shared
 ```
+<!-- {: data-highlight="a.txt b.txt"} -->
 
 Several paths write the same stream to each file.
 

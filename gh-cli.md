@@ -38,8 +38,8 @@ keywords:
   - gh api
 intro: |
   [GitHub CLI](https://cli.github.com) works with pull requests, issues, and
-  Actions from the terminal. This reference covers the commands used most
-  often, plus JSON output and `gh api`.
+  Actions from the terminal. This reference covers the most-used commands,
+  JSON output, and `gh api`.
 links:
   - title: GitHub CLI manual
     url: https://cli.github.com/manual/
@@ -77,8 +77,8 @@ gh auth setup-git
 ```
 <!-- {: data-highlight="gh auth login; gh auth status; gh auth switch"} -->
 
-`gh auth login` walks through a browser or token flow. `setup-git` installs
-the credential helper.
+`gh auth login` walks through a browser or token flow. `setup-git` wires git
+to use gh as its credential helper.
 
 See: [gh auth login](https://cli.github.com/manual/gh_auth_login)
 
@@ -105,7 +105,7 @@ gh release list -R cli/cli
 ```
 <!-- {: data-highlight="-R cli/cli"} -->
 
-`-R` takes `OWNER/REPO`; `GH_REPO` sets a default for every command.
+`-R` takes `OWNER/REPO`; `GH_REPO` sets a default for repository commands.
 
 See: [gh manual](https://cli.github.com/manual/gh_help_reference)
 
@@ -246,8 +246,8 @@ gh pr merge 123 --merge
 ```
 <!-- {: data-highlight="--auto"} -->
 
-`--auto` enables auto-merge; the PR enters the merge queue once required
-checks pass.
+`--auto` enables auto-merge; if the base branch uses a merge queue, the PR
+joins it once required checks pass.
 
 See: [gh pr merge](https://cli.github.com/manual/gh_pr_merge)
 
@@ -277,8 +277,8 @@ gh issue list --state all -L 50
 ```
 <!-- {: data-highlight="-a @me"} -->
 
-`--search` accepts GitHub's issue search syntax, including `no:` and `label:`
-filters.
+`-a @me` filters to your issues; `--search` takes GitHub search syntax such as
+`no:assignee`.
 
 See: [gh issue list](https://cli.github.com/manual/gh_issue_list)
 
@@ -414,7 +414,7 @@ See: [gh release view](https://cli.github.com/manual/gh_release_view)
 ### Search repositories
 
 ```bash
-gh search repos "static site generator" --language md
+gh search repos "static site generator" --language go
 gh search repos --owner cli --topic gh-extension
 gh search repos "database" --sort stars --limit 10
 ```
@@ -433,7 +433,8 @@ gh search prs --draft --author=@me
 ```
 <!-- {: data-highlight="--review-requested=@me"} -->
 
-Both commands accept a free-text query plus flags that filter the same fields.
+Both accept a free-text query and field filters such as `--author` and
+`--state`.
 
 See: [gh search issues](https://cli.github.com/manual/gh_search_issues), [gh search prs](https://cli.github.com/manual/gh_search_prs)
 
@@ -448,7 +449,8 @@ gh api graphql -f query='{ viewer { login } }'
 <!-- {: data-highlight="--jq '.stargazers_count'"} -->
 
 `{owner}` and `{repo}` expand from the current repo. `-F` adds a typed field;
-`-f` sends a string.
+`-f` sends a string and switches to POST, so the `issues` line creates an
+issue.
 
 See: [gh api](https://cli.github.com/manual/gh_api)
 
@@ -505,7 +507,7 @@ gh config list
 ```
 <!-- {: data-highlight="git_protocol ssh"} -->
 
-Settings live in `~/.config/gh/config.yml`.
+On Linux, settings live in `~/.config/gh/config.yml`.
 
 See: [gh config](https://cli.github.com/manual/gh_config)
 
@@ -518,7 +520,7 @@ export GH_HOST=github.com         # default hostname
 ```
 <!-- {: data-highlight="GH_TOKEN"} -->
 
-`GH_TOKEN` takes precedence over stored credentials, so CI only needs the
-variable.
+`GH_TOKEN` takes precedence over stored credentials; set it in CI to skip
+`gh auth login`.
 
 See: [gh help environment](https://cli.github.com/manual/gh_help_environment)

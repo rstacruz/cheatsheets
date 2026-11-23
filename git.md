@@ -1,0 +1,512 @@
+---
+title: Git
+subtitle: Everyday version control
+category: Git
+weight: -10
+tier: t2
+fragments:
+  - "git status"
+  - "git add -p"
+  - "git commit"
+  - "git switch -c"
+  - "git merge"
+  - "pull --rebase"
+  - "git push"
+  - "git restore"
+  - "git reset --hard"
+  - "git revert"
+  - "git stash"
+  - "log --oneline"
+  - "git rebase -i"
+  - "git cherry-pick"
+  - "git worktree add"
+  - "git bisect"
+updated: 2026-11-23
+last_verified_with: "git 2.56.0."
+intro: |
+  Git tracks source changes as commits on branches, synced through remotes. This reference covers the everyday commands, with links to the fuller Git sheets.
+links:
+  - title: Git reference
+    url: https://git-scm.com/docs
+  - title: Pro Git book
+    url: https://git-scm.com/book/en/v2
+  - title: gitglossary
+    url: https://git-scm.com/docs/gitglossary
+---
+
+## Start a repository
+<!-- {: .-three-column} -->
+
+### Configure identity
+
+```sh
+git config --global user.name "Ada"
+git config --global user.email me@x.io
+```
+
+Commits record this name and email as the author.
+
+See: [git config](https://git-scm.com/docs/git-config)
+
+### Create a repository
+
+```sh
+git init -b main
+git clone git@github.com:me/app.git
+```
+
+`clone` copies the repository and its history; `init` starts an empty one.
+
+See: [git init](https://git-scm.com/docs/git-init), [git clone](https://git-scm.com/docs/git-clone)
+
+### Ignore files
+
+```gitignore
+node_modules/
+*.log
+!keep.log
+```
+
+`!` re-includes a path that an earlier pattern excluded.
+
+See: [gitignore](https://git-scm.com/docs/gitignore)
+
+## Everyday changes
+<!-- {: .-three-column} -->
+
+### See what changed
+
+```sh
+git status
+git status --short
+git diff
+git diff --staged
+```
+
+`--short` prints one line per path; `--staged` compares the index instead of the working tree.
+
+See: [git status](https://git-scm.com/docs/git-status)
+
+### Stage changes
+
+```sh
+git add file.txt
+git add .
+git add -p
+git restore --staged file.txt
+```
+
+`-p` stages hunks one at a time; `restore --staged` unstages but keeps edits.
+
+See: [git add](https://git-scm.com/docs/git-add)
+
+### Commit
+
+```sh
+git commit -m "Add login form"
+git commit --amend
+git commit --amend --no-edit
+```
+
+`--amend` replaces the last commit; `--no-edit` keeps its message.
+
+[Conventional Commits cheatsheet](./conventional-commits)
+<!-- {: .-crosslink} -->
+
+### Sync with remote
+
+```sh
+git pull
+git pull --rebase
+git push
+git push -u origin feature
+```
+
+`--rebase` replays local commits on top; `-u` records the upstream branch.
+
+See: [git pull](https://git-scm.com/docs/git-pull), [git push](https://git-scm.com/docs/git-push)
+
+## Branches
+<!-- {: .-three-column} -->
+
+### Create and switch
+
+```sh
+git switch -c feature
+git switch main
+git switch -
+```
+
+`-c` creates the branch; `-` returns to the previous one.
+
+See: [git switch](https://git-scm.com/docs/git-switch)
+
+### List branches
+
+```sh
+git branch
+git branch -vv
+git branch -a
+```
+
+`-vv` adds upstream and ahead/behind counts; `-a` includes remotes.
+
+See: [git branch](https://git-scm.com/docs/git-branch)
+
+### Merge a branch
+
+```sh
+git switch main
+git merge feature
+git merge --no-ff feature
+```
+
+`--no-ff` always records a merge commit, even when fast-forward is possible.
+
+See: [git merge](https://git-scm.com/docs/git-merge)
+
+### Delete a branch
+
+```sh
+git branch -d feature
+git push origin --delete feature
+```
+
+`-d` refuses unmerged work; `-D` deletes it anyway.
+
+[Git branches cheatsheet](./git-branch)
+<!-- {: .-crosslink} -->
+
+## Conflicts
+
+### Resolve a conflict
+
+#### Markers
+
+```text
+<<<<<<< HEAD
+MAIN version
+=======
+FEATURE version
+>>>>>>> feature
+```
+
+#### Finish
+
+```sh
+git status --short
+git add story.txt
+git commit
+```
+
+Git marks conflicted paths `UU`. Edit the file, stage it, then commit.
+
+See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
+
+### Abort an operation
+
+```sh
+git merge --abort
+git rebase --abort
+git cherry-pick --abort
+```
+
+Each returns to the state before the operation started.
+
+See: [git merge](https://git-scm.com/docs/git-merge)
+
+## Undo
+<!-- {: .-three-column} -->
+
+### Discard edits
+
+```sh
+git restore file.txt
+git restore .
+git clean -fd
+```
+
+`restore` reverts tracked files; `clean -fd` deletes untracked files too.
+
+See: [git restore](https://git-scm.com/docs/git-restore)
+
+### Undo a commit
+
+```sh
+git reset --soft HEAD~1
+git reset HEAD~1
+git reset --hard HEAD~1
+```
+
+`--soft` keeps changes staged, plain `reset` unstages them, `--hard` discards them.
+
+See: [git reset](https://git-scm.com/docs/git-reset)
+
+### Revert a commit
+
+```sh
+git revert HEAD
+git revert <sha>
+git revert --no-commit <sha>
+```
+
+Revert adds a new commit, so it is safe on shared branches.
+
+See: [git revert](https://git-scm.com/docs/git-revert)
+
+### Recover lost work
+
+```sh
+git reflog
+git reset --hard HEAD@{1}
+git restore --source=HEAD@{1} file.txt
+```
+
+`reflog` lists every recent HEAD move, including resets and rebases.
+
+See: [git reflog](https://git-scm.com/docs/git-reflog)
+
+## History
+<!-- {: .-three-column} -->
+
+### Recent commits
+
+```sh
+git log --oneline
+git log --oneline --graph --all
+git log --stat
+```
+
+`--graph --all` draws branches; `--stat` shows changed files.
+
+[git log cheatsheet](./git-log)
+<!-- {: .-crosslink} -->
+
+### Inspect a commit
+
+```sh
+git show HEAD
+git show <sha> --stat
+git blame file.txt
+```
+
+`show` prints a commit and its diff; `blame` finds the commit for each line.
+
+See: [git show](https://git-scm.com/docs/git-show), [git blame](https://git-scm.com/docs/git-blame)
+
+### Search history
+
+```sh
+git log --grep="fix"
+git log -S"console.log"
+git log --author="Ada"
+```
+
+`-S` finds commits that add or remove a string; `--grep` matches messages.
+
+See: [git log](https://git-scm.com/docs/git-log#_commit_limiting)
+
+### Custom log format
+
+```sh
+git log --pretty="format:%h %s"
+git log --pretty="format:%h %an %ar"
+```
+
+`%h` is the short hash, `%s` the subject, `%an` the author, `%ar` a relative date.
+
+[Git log format string cheatsheet](./git-log-format)
+<!-- {: .-crosslink} -->
+
+### Reference a commit
+
+```text
+HEAD~2      # two commits back
+HEAD^       # first parent
+main@{1}    # previous main
+v1.0.0      # tag
+```
+
+These revisions work anywhere a commit is expected.
+
+[Git revisions cheatsheet](./git-revisions)
+<!-- {: .-crosslink} -->
+
+### Browse with tig
+
+```sh
+tig
+tig status
+tig blame file.txt
+```
+
+Tig opens the log, status, or blame in a terminal UI.
+
+[Tig cheatsheet](./tig)
+<!-- {: .-crosslink} -->
+
+## Stash
+
+### Save work
+
+```sh
+git stash
+git stash push -m "wip"
+git stash -u
+```
+
+`-u` includes untracked files; `-m` labels the entry.
+
+See: [git stash](https://git-scm.com/docs/git-stash)
+
+### Restore work
+
+```sh
+git stash list
+git stash pop
+git stash apply stash@{1}
+git stash drop
+```
+
+`pop` applies and deletes; `apply` keeps the entry.
+
+See: [git stash](https://git-scm.com/docs/git-stash)
+
+## Rewrite history
+<!-- {: .-three-column} -->
+
+### Interactive rebase
+
+```sh
+git rebase -i HEAD~3
+git rebase -i main
+git rebase --continue
+git rebase --abort
+```
+
+The todo list can reorder, squash, reword, or drop commits.
+
+[Git rebase cheatsheet](./git-rebase)
+<!-- {: .-crosslink} -->
+
+### Cherry-pick
+
+```sh
+git cherry-pick <sha>
+git cherry-pick A..B
+git cherry-pick --abort
+```
+
+A range copies commits after `A` up to `B`; `A` itself stays out.
+
+See: [git cherry-pick](https://git-scm.com/docs/git-cherry-pick)
+
+### Keep a clean branch
+
+```sh
+git fetch origin
+git rebase origin/main
+git push --force-with-lease
+```
+
+Rebase your branch, then force-push with lease so others' work is not overwritten.
+
+See: [git push](https://git-scm.com/docs/git-push#_options)
+
+## Remotes and tags
+<!-- {: .-three-column} -->
+
+### Manage remotes
+
+```sh
+git remote -v
+git remote add origin <url>
+git remote set-url origin <url>
+```
+
+`origin` is the conventional name for the clone source.
+
+See: [git remote](https://git-scm.com/docs/git-remote)
+
+### Fetch and prune
+
+```sh
+git fetch --all
+git fetch --prune
+git remote prune origin
+```
+
+Prune removes remote-tracking refs whose branch is gone.
+
+See: [git fetch](https://git-scm.com/docs/git-fetch)
+
+### Tag a release
+
+```sh
+git tag
+git tag -a v1.0.0 -m "Release"
+git push origin v1.0.0
+git tag -d v1.0.0
+```
+
+`-a` creates an annotated tag; tags are not pushed by default.
+
+See: [git tag](https://git-scm.com/docs/git-tag)
+
+## Workflows and tools
+<!-- {: .-three-column} -->
+
+### Parallel checkouts
+
+```sh
+git worktree add -b hotfix ../hotfix
+git worktree list
+git worktree remove ../hotfix
+```
+
+Each worktree has its own `HEAD`, index, and files; objects are shared.
+
+[Git worktrees cheatsheet](./git-worktrees)
+<!-- {: .-crosslink} -->
+
+### Find a bad commit
+
+```sh
+git bisect start
+git bisect bad
+git bisect good <sha>
+git bisect run npm test
+git bisect reset
+```
+
+Bisect tests midpoints between good and bad until it finds the first bad commit.
+
+[Git bisect cheatsheet](./git-bisect)
+<!-- {: .-crosslink} -->
+
+### Clean up branches
+
+```sh
+git branch --merged
+git branch -d old-feature
+git remote prune origin
+```
+
+Delete local branches that are already merged.
+
+[Git tricks cheatsheet](./git-tricks)
+<!-- {: .-crosslink} -->
+
+### Extra commands
+
+```sh
+git summary
+git ignore node_modules
+git feature login
+git feature finish login
+```
+
+`git-extras` adds summary, ignore, and feature commands.
+
+[Git extras cheatsheet](./git-extras)
+<!-- {: .-crosslink} -->

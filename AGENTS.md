@@ -23,7 +23,7 @@
 
 ## Sheet authoring
 
-Consult @_docs/writing-guidelines.md for formatting *.md files, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), @_docs/archiving.md for when to archive a sheet, and @_docs/tiers.md for review cadence. Reviewers and skills refer to rules by stable slugs such as `tables/shortcut-keys`.
+Consult @_docs/writing-guidelines.md for sheet authoring and formatting, @_docs/rules.md for rule slugs and examples, @_docs/markdown-dialect.md for the sheet syntax (attribute lists, tables, fences), @_docs/archiving.md for when to archive a sheet, and @_docs/tiers.md for review cadence. Reviewers and skills cite rule slugs from `_docs/rules.md`.
 
 Verify example outputs against the runtime: run the snippet, capture its real output, and paste it verbatim; watch for NBSP and other invisible characters.
 

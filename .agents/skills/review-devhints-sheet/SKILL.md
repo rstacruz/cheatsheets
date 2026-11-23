@@ -1,15 +1,19 @@
 ---
 name: review-devhints-sheet
-description: Reviews devhints.io sheets against the writing guidelines and reports each violation with its rule slug. Use when evaluating or reviewing *.md sheets, reviewing a sheet PR, or asked to review or lint a sheet.
+description: Reviews devhints.io sheets against the writing guidelines and reports each violation with its rule slug. Use when evaluating or reviewing *.md sheets, reviewing a sheet PR, or asked to review or lint a sheet; run it in a read-only subagent via /autofix-devhints-sheet when the caller owns the fixes.
 ---
 
 # Review devhints sheets
 
-Report violations; fix only when asked.
+Report violations; fix only when asked. To run this review in a read-only subagent, use `/autofix-devhints-sheet`.
+
+## Input
+
+- `$sheets` - filenames to review; defaults to the root sheets in `git diff --name-only '*.md'`.
 
 ## Workflow
 
-1. Read [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md#rules). It is the rulebook — cite its slugs, never restate its rules.
+1. Read [_docs/rules.md](../../../_docs/rules.md). It is the rulebook — cite its slugs, never restate its rules. General authoring guidance is in [_docs/writing-guidelines.md](../../../_docs/writing-guidelines.md).
 2. Review the named sheets; with none, use the root sheets changed in `git diff --name-only '*.md'`.
 3. Run the automated checks:
    ```sh
@@ -26,13 +30,11 @@ One block per sheet, most severe finding first:
 ```markdown
 **superagent.md** — needs rewrite
 
-- **`cards/size-limits`** — one 61-line card, limit 50. `superagent.md:9` [auto]
-- **`frontmatter/introduction`** — no `intro` or `links`. `superagent.md:1` [manual]
+- (file) `content/priority`: ...
+- (line 1) `frontmatter/introduction`: no `intro` or `links`
+- (line 9) `cards/size-limits`: one 61-line card, limit 50
 ```
 
-- One line per finding: slug, problem, `file:line`.
-- Tag automated findings `[auto]`, judgement calls `[manual]`.
-- Unmapped findings use `content/priority`, `content/accuracy`, `content/consistency`, `content/links`, `content/staleness`, or `content/minor`.
-- `fragments` and `frontmatter/h3-links` are required only on [tiered sheets](../../../_docs/tiers.md); on untiered sheets they are advisory, not violations.
+- One line per finding
 - End each sheet with `passes`, `needs fixes`, or `needs rewrite`.
 - Don't list what passes unless asked.

@@ -12,7 +12,7 @@ changes, whatever its tier.
 
 Tiers are not rendered, but they do change the authoring rules that apply:
 both tiers need `fragments` and `last_verified_with`, plus the tiered-sheet
-section rules (see [content organisation](writing-guidelines.md#content-organisation) and [frontmatter/h3-links](writing-guidelines.md#frontmatterh3-links)).
+section rules (see [content organisation](writing-guidelines.md#content-organisation) and [frontmatter/h3-links](rules.md#frontmatterh3-links)).
 
 ## Choosing a tier
 

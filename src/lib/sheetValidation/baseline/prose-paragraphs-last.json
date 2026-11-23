@@ -76,7 +76,6 @@
   "goby#Hello world",
   "goby#Lazy enumeration",
   "goby#`Diggable`",
-  "graphql#Operation names and variables",
   "haml#Inline Attributes",
   "handlebars.js#Helpers",
   "heroku#`pg` - PostgreSQL",
@@ -134,7 +133,6 @@
   "sed#Deleting text",
   "sed#Print everything except matching",
   "sed#Replacements",
-  "semver#Semver",
   "sequel#Model associations",
   "sequel#Open an SQLite memory database",
   "sequel#Transactions",
@@ -150,7 +148,6 @@
   "stylus#Conditional",
   "vagrant#Get started",
   "vim#Usage",
-  "vim-help#Notes",
   "vim-rails#Prefixes",
   "watchman#Getting started",
   "webpack#Mode"

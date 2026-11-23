@@ -2,21 +2,20 @@
 title: Semver
 category: Others
 subtitle: Version numbering convention
-updated: 2019-12-31
+updated: 2026-11-23
+last_verified_with: "Semantic Versioning 2.0.0, node-semver 7.8.6."
 weight: -3
 ---
 
 ### Semver
-
-Given a version number `MAJOR.MINOR.PATCH`:
-
-<!-- {: .-setup} -->
 
 | Part | Description |
 | --- | --- |
 | `MAJOR` | incompatible API changes                 |
 | `MINOR` | add functionality (backwards-compatible) |
 | `PATCH` | bug fixes (backwards-compatible)         |
+
+Given `MAJOR.MINOR.PATCH`, `1.0.0` defines the public API; `0.x.x` is initial development.
 
 ### Simple ranges
 
@@ -106,4 +105,4 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 <!-- {: .-one-column} -->
 
  * <https://semver.org/>
- * <https://docs.npmjs.com/misc/semver>
+ * <https://github.com/npm/node-semver#ranges>

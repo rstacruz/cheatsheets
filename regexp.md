@@ -8,9 +8,10 @@ authors:
   - github: izzergh
   - github: kolapsys
   - github: samtrion
-updated: 2020-03-10
+updated: 2026-11-23
+last_verified_with: "Node 26.13.1, PCRE2 10.43."
 description: |
-  Basic cheatsheets for regular expression
+  Regular expression syntax reference with patterns, anchors, groups, and flags.
 ---
 
 ## RegExp

@@ -3,6 +3,8 @@ title: Rsync
 subtitle: File sync utility
 category: Networking
 weight: -1
+updated: 2026-11-23
+last_verified_with: "rsync 3.5.1."
 ---
 
 ### Basic example
@@ -61,10 +63,14 @@ rsync -avz ./src/ /dest
 
 ### Include options
 
+#### Patterns
+
 ```bash
 --exclude=PATTERN
 --include=PATTERN
 ```
+
+#### From files
 
 ```bash
 --exclude-from=FILE
@@ -72,15 +78,21 @@ rsync -avz ./src/ /dest
 --files-from=FILE    # read list of filenames from FILE
 ```
 
+#### CVS excludes
+
 ```bash
 -C, --cvs-exclude    # exclude from local/global .cvsignore
 ```
 
 ### Archive options
 
+#### Archive mode
+
 ```bash
 -a, --archive    # archive (-rlptgoD)
 ```
+
+#### Individual flags
 
 ```bash
 -r, --recursive
@@ -92,6 +104,8 @@ rsync -avz ./src/ /dest
 -D               # same as --devices --specials
 ```
 
+#### Deletion
+
 ```bash
---delete         # Delete extra files
+--delete         # delete extra files
 ```

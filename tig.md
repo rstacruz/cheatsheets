@@ -2,7 +2,8 @@
 title: Tig
 subtitle: Terminal Git repository browser
 category: Git
-updated: 2022-12-08
+updated: 2026-11-23
+last_verified_with: "tig 2.6.1."
 weight: -3
 ---
 
@@ -25,6 +26,7 @@ $ sudo apt install tig
 | `tig`               | Logs                                         |
 | ---                 | ---                                          |
 | `tig status`        | Status                                       |
+| `tig log`           | Log messages and diffstat                    |
 | `tig blame FILE`    | Blame                                        |
 | ---                 | ---                                          |
 | `tig master`        | Show a branch                                |
@@ -32,6 +34,8 @@ $ sudo apt install tig
 | `tig FILE`          | Show history of file                         |
 | `tig v0.0.3:README` | Show contents of file in a specific revision |
 | `tig -C /repo/path` | Run in dir `/repo/path` (like `git -C`)      |
+| `tig refs`          | Branches, remotes, tags                      |
+| `tig stash`         | Stashes                                      |
 
 You can substitute `git log` → `tig`.
 
@@ -45,6 +49,7 @@ You can substitute `git log` → `tig`.
 | -------- | ------------ |
 | `m`      | Main view    |
 | `d`      | Diff         |
+| `l`      | Log          |
 | `t`      | Tree (files) |
 | `b`      | Blame        |
 | ---      | ---          |
@@ -52,6 +57,9 @@ You can substitute `git log` → `tig`.
 | `c`      | Stage        |
 | `y`      | Stash        |
 | `g`      | Grep         |
+| `p`      | Pager        |
+| `f`      | Blob (file)  |
+| `r`      | Refs         |
 | ---      | ---          |
 | `h`      | Help         |
 
@@ -61,13 +69,13 @@ You can substitute `git log` → `tig`.
 
 | Shortcut  | Description                  |
 | ---       | ---                          |
-| `<enter>` | Enter and open selected line |
-| `<`       | Back to previous view state  |
+| `<enter>` | Open selected line           |
 | `<tab>`   | Move focus to next view      |
 | `R`       | Refresh                      |
+| `O`       | Maximize current view        |
 | `q`       | Close view                   |
 | `Q`       | Close all (quit)             |
-| `,`       | Parent commit                |
+| `,`       | Move to parent               |
 
 <!-- {: .-shortcuts} -->
 
@@ -77,13 +85,13 @@ You can substitute `git log` → `tig`.
 | ---       | ---                          |
 | `/`       | Search                       |
 | `?`       | Search backwards             |
+| `n`  `N`  | Next/previous match          |
 | ---       | ---                          |
 | `j`  `k`  | Up/down                      |
-| `J`  `K`  | Next/previous                |
+| `<home>`  | First line                   |
+| `<end>`   | Last line                    |
 | `<space>` | Page down                    |
 | `-`       | Page up                      |
-| `^D`      | Half page down               |
-| `^U`      | Half page up                 |
 
 <!-- {: .-shortcuts} -->
 
@@ -91,15 +99,16 @@ You can substitute `git log` → `tig`.
 
 | Shortcut  | Description                  |
 | ---       | ---                          |
-| `I`       | Toggle sort order modes      |
-| `i`       | Change sort header           |
+| `o`       | Open option menu             |
 | ---       | ---                          |
 | `D`       | Toggle date display modes    |
 | `A`       | Toggle author display modes  |
+| `G`       | Toggle revision graph        |
 | `#`       | Toggle line numbers          |
 | `~`       | Toggle line graphics         |
-| `F`       | Toggle file names            |
-| `W`       | Toggle ignore space          |
+| `F`       | Toggle ref names             |
+| `W`       | Toggle ignore whitespace     |
+| `X`       | Toggle commit ID             |
 
 <!-- {: .-shortcuts} -->
 
@@ -107,8 +116,8 @@ You can substitute `git log` → `tig`.
 
 | Shortcut  | Description                  |
 | ---       | ---                          |
-| `X`       | Toggle commit sha            |
-| `C`       | Cherry pick a commit         |
+| `C`       | Cherry-pick selected commit  |
+| `H`       | Go to HEAD                   |
 
 <!-- {: .-shortcuts} -->
 
@@ -130,7 +139,7 @@ You can substitute `git log` → `tig`.
 | `u`       | Stage/unstage file or chunk        |
 | `!`       | Revert file or chunk               |
 | `1`       | Stage line                         |
-| `\`       | Split current diff hunk            |
+| `@`       | Next diff chunk                    |
 | `[` `]`   | Increase/decrease the diff context |
 
 <!-- {: .-shortcuts} -->
@@ -145,10 +154,11 @@ You can substitute `git log` → `tig`.
 
 ### `y` - Stash view
 
-| Shortcut  | Description                        |
-| ---       | ---                                |
-| `A`       | Apply selected stash               |
-| `P`       | Pop selected stash                 |
-| `!`       | Drop selected stash                |
+```ini
+# ~/.tigrc
+bind stash A !git stash apply %(stash)
+bind stash P !git stash pop %(stash)
+bind stash ! !git stash drop %(stash)
+```
 
-<!-- {: .-shortcuts} -->
+Tig already binds `A`/`P`/`!` to apply, pop, and drop with a confirmation prompt; the bindings below skip that prompt.

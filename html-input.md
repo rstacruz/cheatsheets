@@ -2,11 +2,13 @@
 title: Input tag
 subtitle: Type and attribute reference
 category: HTML
-updated: 2017-10-30
+updated: 2026-11-23
 weight: -3
 ---
 
 ### Input
+
+#### Common attributes
 
 ```html
  <input ...
@@ -15,15 +17,19 @@ weight: -3
    checked
 ```
 
+#### Focus
+
 ```html
    autofocus
 ```
 
+#### Autofill and keyboards
+
 ```html
-   autocomplete='off'        <!-- autocomplete -->
-   autocompletetype='cc-exp'
-   autocapitalize='off'      <!-- for mobiles -->
-   pattern='\d*'             <!-- force numeric input in iOS -->
+   autocomplete='cc-exp'     <!-- autofill token -->
+   autocapitalize='off'
+   inputmode='numeric'       <!-- mobile keyboard -->
+   pattern='\d*'             <!-- validation -->
 ```
 
 ### Input types
@@ -36,30 +42,32 @@ weight: -3
 * tel
 * **text**
 * search
+* url
 
 <!-- {: .-enum-lines} -->
 
 #### Time
 
 * date
+* datetime-local
 * time
 
-<!-- {: .-enum-lines} -->
+<!-- {: .-four-column} -->
 
-#### Time (not widely supported)
+#### Time (limited or obsolete)
 
 * month
 * week
 * datetime
-* datetime-local
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum} -->
 
 #### Etc
 
 * **file**
 * **radio**
 * **checkbox**
+* color
 
 <!-- {: .-enum-lines} -->
 
@@ -92,10 +100,9 @@ weight: -3
 
 | Type | Example |
 | --- | --- |
-| `type='datetime'` | <input type='datetime'> |
 | `type='datetime-local'` | <input type='datetime-local'> |
 
-`datetime` and `datetime-local` fields are not widely supported.
+`datetime` was removed from the HTML spec; use `datetime-local` and a separate time zone control.
 
 ### Numbers
 
@@ -115,4 +122,4 @@ weight: -3
 
 ## Also see
 
- * <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input>
+ * <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input>

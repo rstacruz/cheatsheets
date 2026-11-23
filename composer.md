@@ -6,6 +6,7 @@ weight: -1
 authors:
   - github: benolot
 updated: 2020-02-23
+last_verified_with: "Composer 2.11.2."
 description: |
   Basic guide on how to use Composer, the PHP Package manager.
 ---

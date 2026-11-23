@@ -46,7 +46,20 @@ const pages = mapGlobToPages({
     'updated: 2024-01-01',
     '---',
     's'
-  ].join('\n')
+  ].join('\n'),
+  tiered: [
+    '---',
+    'category: Test',
+    'tier: t2',
+    'last_verified_with: "Tool 1.0."',
+    'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',
+    'updated: 2024-06-01',
+    '---',
+    't'
+  ].join('\n'),
+  untiered: ['---', 'category: Test', 'updated: 2024-06-02', '---', 'u'].join(
+    '\n'
+  )
 })
 
 test('related pages skip deprecated sheets', () => {
@@ -91,6 +104,14 @@ test('homepage listings exclude snippets when asked', () => {
 
 test('snippet pages are collected separately', () => {
   expect(getSnippetPages(pages).map((page) => page.slug)).toEqual(['snippet'])
+})
+
+test('recent pages only include tiered sheets', () => {
+  const slugs = getRecentPages(pages, { excludeSnippets: true }).map(
+    (page) => page.slug
+  )
+
+  expect(slugs).toEqual(['tiered'])
 })
 
 test('archived sheets are unlisted', () => {
@@ -148,6 +169,6 @@ test('archive pages skip listed sheets and test fixtures', () => {
 })
 
 test('listed count excludes hidden, deprecated, and archived sheets', () => {
-  expect(getListedSheetCount(pages)).toBe(3)
+  expect(getListedSheetCount(pages)).toBe(5)
   expect(getListedSheetCount(archivePages)).toBe(1)
 })

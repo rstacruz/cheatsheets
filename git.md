@@ -154,27 +154,48 @@ See: [git branch](https://git-scm.com/docs/git-branch)
 
 ### Merge a branch
 
+#### Merge
+
 ```sh
+# switch to the target
 git switch main
+# merge the branch
 git merge feat/login
-git merge --no-ff feat/login
 ```
 <!-- {: data-highlight="git merge"} -->
 
-`--no-ff` always records a merge commit, even when fast-forward is possible.
+#### No fast-forward
+
+```sh
+# always record a merge commit
+git merge --no-ff feat/login
+```
 
 See: [git merge](https://git-scm.com/docs/git-merge)
 
 ### Delete a branch
 
+#### Safe delete
+
 ```sh
+# only if merged
 git branch -d feat/login
-git branch -D feat/login
-git push origin --delete feat/login
 ```
 <!-- {: data-highlight="git branch -d"} -->
 
-`-d` refuses unmerged work; `-D` deletes it anyway.
+#### Force delete
+
+```sh
+# discard unmerged work
+git branch -D feat/login
+```
+
+#### Remote branch
+
+```sh
+# delete on the remote
+git push origin --delete feat/login
+```
 
 [Git branches cheatsheet](./git-branch)
 <!-- {: .-crosslink} -->
@@ -217,9 +238,17 @@ See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resol
 
 ### Discard edits
 
+#### Restore tracked files
+
 ```sh
+# revert working edits
 git restore file.txt
 git restore .
+```
+
+#### Clean untracked files
+
+```sh
 # preview untracked deletions
 git clean -nd
 git clean -fd
@@ -232,14 +261,24 @@ See: [git restore](https://git-scm.com/docs/git-restore)
 
 ### Undo a commit
 
+#### Keep changes staged
+
 ```sh
 git reset --soft HEAD~1
+```
+
+#### Keep changes unstaged
+
+```sh
 git reset HEAD~1
-git reset --hard HEAD~1
 ```
 <!-- {: data-highlight="git reset"} -->
 
-`--soft` keeps changes staged, plain `reset` unstages them, `--hard` discards them.
+#### Discard changes too
+
+```sh
+git reset --hard HEAD~1
+```
 
 See: [git reset](https://git-scm.com/docs/git-reset)
 
@@ -259,8 +298,17 @@ See: [git revert](https://git-scm.com/docs/git-revert)
 
 ### Recover lost work
 
+#### Inspect moves
+
 ```sh
+# list recent HEAD moves
 git reflog
+```
+
+#### Restore the tip
+
+```sh
+# undo the last rebase or merge
 git reset --hard ORIG_HEAD
 ```
 <!-- {: data-highlight="ORIG_HEAD"} -->
@@ -448,13 +496,24 @@ See: [git push](https://git-scm.com/docs/git-push#OPTIONS)
 
 ### Manage remotes
 
+#### Inspect and add
+
 ```sh
+# list remotes
 git remote -v
+# add a remote
 git remote add origin <url>
-git remote set-url origin <url>
-git remote rename origin upstream
 ```
 <!-- {: data-highlight="git remote"} -->
+
+#### Change a remote
+
+```sh
+# change its URL
+git remote set-url origin <url>
+# rename it
+git remote rename origin upstream
+```
 
 `origin` is the conventional name for the clone source.
 
@@ -462,8 +521,17 @@ See: [git remote](https://git-scm.com/docs/git-remote)
 
 ### Fetch and prune
 
+#### Fetch
+
 ```sh
+# update every remote
 git fetch --all
+```
+
+#### Prune
+
+```sh
+# drop stale remote refs
 git fetch --prune
 git remote prune origin
 ```
@@ -475,17 +543,35 @@ See: [git fetch](https://git-scm.com/docs/git-fetch)
 
 ### Tag a release
 
+#### Create
+
 ```sh
+# list tags
 git tag
+# annotate a release
 git tag -a v1.0.0 -m "Release"
-git push origin v1.0.0
-git push --tags
-git tag -d v1.0.0
-git push origin --delete v1.0.0
 ```
 <!-- {: data-highlight="git tag"} -->
 
-`-a` creates an annotated tag; tags are not pushed by default, and `-d` deletes only the local tag.
+#### Push
+
+```sh
+# push one tag
+git push origin v1.0.0
+# push all tags
+git push --tags
+```
+
+#### Delete
+
+```sh
+# delete locally
+git tag -d v1.0.0
+# delete remotely
+git push origin --delete v1.0.0
+```
+
+Tags are not pushed by default; `-d` deletes only the local tag.
 
 See: [git tag](https://git-scm.com/docs/git-tag)
 
@@ -494,26 +580,46 @@ See: [git tag](https://git-scm.com/docs/git-tag)
 
 ### Configure identity
 
+#### Author
+
 ```sh
+# set author details
 git config --global user.name "Rico"
 git config --global user.email me@x.io
-git config --global core.editor vim
-git config --list
 ```
 <!-- {: data-highlight="git config"} -->
 
-Commits record this name and email; `core.editor` selects the message editor.
+#### Editor and settings
+
+```sh
+# set the message editor
+git config --global core.editor vim
+# show all settings
+git config --list
+```
+
+Commits record this name and email as the author.
 
 See: [git config](https://git-scm.com/docs/git-config)
 
 ### Create a repository
 
+#### Initialize
+
 ```sh
+# start on main
 git init -b main
-git clone git@github.com:me/app.git
-git clone --depth 1 <url>
 ```
 <!-- {: data-highlight="git init"} -->
+
+#### Clone
+
+```sh
+# clone a repository
+git clone git@github.com:me/app.git
+# skip history
+git clone --depth 1 <url>
+```
 
 `clone` copies a repository; `init` starts an empty one.
 
@@ -536,12 +642,22 @@ See: [gitignore](https://git-scm.com/docs/gitignore)
 
 ### Parallel checkouts
 
+#### Add
+
 ```sh
+# create a branch and a checkout
 git worktree add -b hotfix ../hotfix
-git worktree list
-git worktree remove ../hotfix
 ```
 <!-- {: data-highlight="git worktree add"} -->
+
+#### List and remove
+
+```sh
+# show linked worktrees
+git worktree list
+# remove a checkout
+git worktree remove ../hotfix
+```
 
 Each worktree has its own `HEAD`, index, and files; objects are shared.
 
@@ -550,14 +666,25 @@ Each worktree has its own `HEAD`, index, and files; objects are shared.
 
 ### Find a bad commit
 
+#### Start
+
 ```sh
+# mark the tip as bad
 git bisect start
 git bisect bad
+# point at a known-good commit
 git bisect good <sha>
-git bisect run npm test
-git bisect reset
 ```
 <!-- {: data-highlight="git bisect"} -->
+
+#### Run and reset
+
+```sh
+# let the test decide
+git bisect run npm test
+# restore the branch
+git bisect reset
+```
 
 Bisect finds the first commit where the test fails.
 
@@ -579,10 +706,21 @@ Delete local branches already merged into the current one.
 
 ### Extra commands
 
+#### Inspect and ignore
+
 ```sh
+# show a repo summary
 git summary
+# ignore a path
 git ignore node_modules
+```
+
+#### Feature branches
+
+```sh
+# start a feature
 git feature login
+# finish it
 git feature finish login
 ```
 <!-- {: data-highlight="git feature"} -->

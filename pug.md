@@ -131,7 +131,7 @@ p.
   be prefixed by pipes.
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="p"} -->
 
 ```jade
 script.
@@ -140,7 +140,7 @@ script.
   alert('hello')
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="script"} -->
 
 ### Conditionals
 
@@ -151,7 +151,7 @@ else
   a(href='/login') Sign in
 ```
 
-<!-- {: data-line="1,3"} -->
+<!-- {: data-highlight="authenticated"} -->
 
 See: [Conditionals](https://pugjs.org/language/conditionals.html)
 
@@ -167,7 +167,7 @@ mixin list
     ···
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="mixin"} -->
 
 ```jade
 +list
@@ -183,7 +183,7 @@ mixin pet(name)
   span.pet= name
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="name"} -->
 
 ```jade
 +pet('cat')
@@ -200,7 +200,7 @@ mixin article(title)
     block
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="block"} -->
 
 ```jade
 +article('hello there')

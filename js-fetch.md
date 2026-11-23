@@ -26,7 +26,7 @@ fetch('/data.json')
   .catch(err => ...)
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="console.log"} -->
 
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 

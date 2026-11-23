@@ -47,19 +47,6 @@
     font-size: 1em;
   }
 
-  /* Line highlight */
-  & .line-highlight {
-    background: linear-gradient(
-      to right,
-      rgb(20 175 131 / 5%) 25%,
-      transparent
-    );
-  }
-
-  /* Line highlight ranges */
-  & .line-highlight[data-end] {
-    margin-top: 0;
-  }
 
   /* Inline highlight: `data-highlight` in a fenced block */
   & .inline-highlight {
@@ -80,10 +67,6 @@
     border-end-end-radius: 3px;
   }
 
-  & .line-highlight::before,
-  & .line-highlight::after {
-    display: none;
-  }
 }
 
 .MarkdownBody pre.-setup,

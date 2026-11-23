@@ -23,7 +23,7 @@ function square (n: number) {
 const four = square(2)
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight="square"} -->
 
 Most of what you need to do is to simply add annotations to function arguments!
 
@@ -37,7 +37,7 @@ function square (n: number) {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="const"} -->
 
 `result` is inferred to be a number because `number * number` will result in a number. There's no need to give it annotations.
 
@@ -52,7 +52,7 @@ type Person = {
 }
 ```
 
-<!-- {: data-line="1,2,3,4,5,6"} -->
+<!-- {: data-highlight="type"} -->
 
 ```js
 function greet(user: Person) {
@@ -60,7 +60,7 @@ function greet(user: Person) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Person"} -->
 
 ```js
 greet({ name: 'Miles Davis', ··· })
@@ -114,7 +114,7 @@ type Album = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="name"} -->
 
 ```js
 const a: Album = { }                 // ✗ Error
@@ -135,7 +135,7 @@ type Album = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="string"} -->
 
 ```js
 const a: Album = { } // ✓ OK
@@ -169,7 +169,7 @@ const a: Artist = {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="'House'"} -->
 
 A type with more properties is "wider" and is a subtype of a "narrower" type.
 
@@ -184,7 +184,7 @@ type Artist = {|
 |}
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="Artist"} -->
 
 ```js
 const a: Artist = {
@@ -194,7 +194,7 @@ const a: Artist = {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="genre"} -->
 
 Exact object types prevent extra properties from being added to an object.
 
@@ -208,7 +208,7 @@ type Items = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="key"} -->
 
 See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-as-maps)
 

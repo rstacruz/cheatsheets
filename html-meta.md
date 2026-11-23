@@ -19,7 +19,7 @@ weight: -3
 <meta name='twitter:title' content='···'>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="title"} -->
 
 ```html
 <!-- url -->
@@ -28,7 +28,7 @@ weight: -3
 <meta name='twitter:url' content='http://···'>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="'http://···'"} -->
 
 ```html
 <!-- description -->
@@ -37,7 +37,7 @@ weight: -3
 <meta name='twitter:description' content='···'>
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="meta"} -->
 
 ```html
 <!-- image -->

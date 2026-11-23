@@ -33,7 +33,7 @@ EXPOSE 3000
 CMD ["node", "dist/server.js"]
 ```
 
-<!-- {: data-line="5,6,12,13"} -->
+<!-- {: data-highlight='"dist/server.js"'} -->
 
 Dependencies are installed before the source lands, so editing code skips the install layer.
 
@@ -179,7 +179,7 @@ USER node
 CMD ["node", "dist/server.js"]
 ```
 
-<!-- {: data-line="10,11"} -->
+<!-- {: data-highlight="build"} -->
 
 Only the last stage ships, so compilers, dev dependencies, and source stay out of the image.
 

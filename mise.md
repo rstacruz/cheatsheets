@@ -75,7 +75,7 @@ eval "$(~/.local/bin/mise activate bash)"  # if mise is not on PATH
 mise activate fish | source
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight="activate"} -->
 
 Activation re-exports `PATH` and project env on every prompt. Put it in the interactive rc file — not `~/.profile`/`~/.zprofile` — then restart the shell.
 
@@ -147,7 +147,7 @@ mise use --path .tool-versions --pin node@24
 mise use                         # interactive tool picker
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="python"} -->
 
 #### Config written
 
@@ -187,7 +187,7 @@ shfmt = "path:./shfmt"  # existing directory
 "cargo:owner/tool" = "tag:v1.2.3"  # git ref build
 ```
 
-<!-- {: data-line="5,6,7"} -->
+<!-- {: data-highlight='"path:./shfmt"'} -->
 
 A request is a range; an exact version is a pin. `prefix:` disambiguates a release named exactly `1.19`. Aliases like `lts` are not universal.
 
@@ -218,7 +218,7 @@ mise prune --dry-run       # show unused installed versions
 mise ls --prunable
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight="lock"} -->
 
 `mise.lock` records resolved versions for teammates and CI; `prune` deletes only versions unused by any tracked config or executed stub.
 
@@ -266,7 +266,7 @@ mise use pypi:ruff                    # Python package
 mise use cargo:starship               # crates.io crate
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight=":BurntSushi"} -->
 
 Add a version the same way: `mise use github:BurntSushi/ripgrep@14`.
 

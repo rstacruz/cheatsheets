@@ -55,7 +55,7 @@ describe('code/highlight-limit: findOverLimitHighlights()', () => {
   it('ignores other attributes', () => {
     expect(
       findOverLimitHighlights(
-        ['```python', 'x', '```', '', '<!-- {: data-line="1"} -->'].join('\n')
+        ['```python', 'x', '```', '', '<!-- {: .-setup} -->'].join('\n')
       )
     ).toEqual([])
   })

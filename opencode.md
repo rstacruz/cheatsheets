@@ -283,7 +283,7 @@ See: [Keybinds](https://opencode.ai/docs/cli/keybinds#diff-viewer)
 }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight='"ctrl+space"'} -->
 
 Bindings live in `~/.config/opencode/cli.json`, keyed by the IDs in the keybind table. `"none"` or `false` disables one, and `leader` rebinds the prefix.
 
@@ -323,7 +323,7 @@ See: [Config](https://opencode.ai/docs/config)
 }
 ```
 
-<!-- {: data-line="2,6"} -->
+<!-- {: data-highlight="providers"} -->
 
 References are `provider/model`, with an optional `#variant` for reasoning effort. Variants work in agents, commands, and `--model`; the root `model` key ignores them.
 
@@ -358,7 +358,7 @@ model: anthropic/claude-sonnet-5-5#high
 Review the current changes.
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="subagent"} -->
 
 Markdown agents live in `.opencode/agents/` or `~/.config/opencode/agents/`; the body becomes the system prompt. `mode` is `primary`, `subagent`, or `all`.
 
@@ -375,7 +375,7 @@ See: [Agents](https://opencode.ai/docs/agents)
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight='"git push *"'} -->
 
 Last match wins and unmatched actions ask; defaults allow everything except `.env` reads (`.env.example` stays allowed); actions include `shell`, `edit`, `read`, `glob`, `grep`, `subagent`, `skill`, `webfetch`, `websearch`, `external_directory`, and MCP tools; v1's `permission`, `bash`, `task` names are retired.
 

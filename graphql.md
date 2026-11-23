@@ -259,7 +259,7 @@ type Root {
 }
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="enum"} -->
 
 ### Unions
 
@@ -274,7 +274,7 @@ type Query {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="union"} -->
 
 References
 ----------

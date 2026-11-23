@@ -48,14 +48,14 @@ caps-type()
   letter-spacing: 0.05em
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="caps"} -->
 
 ```stylus
 h5
   caps-type()
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="type"} -->
 
 See [Mixins](#mixins-1) below.
 
@@ -65,7 +65,7 @@ See [Mixins](#mixins-1) below.
 royal-blue = #36a
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="royal"} -->
 
 ```stylus
 div
@@ -84,14 +84,14 @@ red-border()
   border: solid 2px red
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="border"} -->
 
 ```stylus
 div
   red-border()
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="red"} -->
 
 See: [Mixins](http://stylus-lang.com/docs/mixins.html)
 
@@ -103,7 +103,7 @@ border-radius(n)
   border-radius: n
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="radius"} -->
 
 ```stylus
 div
@@ -111,7 +111,7 @@ div
   border-radius(2px)
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="border-radius"} -->
 
 Mixins can be applied in two different ways.
 
@@ -122,7 +122,7 @@ border-radius(n = 2px)
   -webkit-border-radius: n
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="-radius"} -->
 
 ### Block mixins
 
@@ -132,14 +132,14 @@ mobile()
     {block}
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="block"} -->
 
 ```stylus
 +mobile()
   width: 10px
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="mobile"} -->
 
 See: [Block mixins](http://stylus-lang.com/docs/mixins.html#block-mixins)
 
@@ -151,7 +151,7 @@ shadow(offset-x, args...)
   margin-top: offset-x
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="..."} -->
 
 ```stylus
 #login
@@ -172,14 +172,14 @@ add(a, b)
   a + b
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="add"} -->
 
 ```stylus
 body
   padding: add(10px, 5)
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="padding"} -->
 
 See: [Functions](http://stylus-lang.com/docs/functions.html)
 
@@ -190,7 +190,7 @@ add(a, b = 2)
   a + b
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="a"} -->
 
 See: [Argument defaults](http://stylus-lang.com/docs/functions.html#argument-defaults)
 
@@ -206,7 +206,7 @@ shadow(x, y)
   box-shadow: shadow(x: 2, y: 4)
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="shadow"} -->
 
 See: [Named parameters](http://stylus-lang.com/docs/functions.html#named-parameters)
 
@@ -217,7 +217,7 @@ sizes()
   8px 16px
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="16px"} -->
 
 ```stylus
 sizes()[0]  // → 8px
@@ -238,7 +238,7 @@ royal-blue = #36a
 royal-blue ?= #89f
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="blue"} -->
 
 ```stylus
 div
@@ -260,7 +260,7 @@ See: [Conditional assignment](https://stylus-lang.com/docs/operators.html#condit
   margin-top: -(@height / 2)
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="margin"} -->
 
 See: [Property lookup](https://stylus-lang.com/docs/variables.html#property-lookup)
 
@@ -291,7 +291,7 @@ foo: (n)em
 foo: (n * 5)%
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight="em"} -->
 
 ### Lookup
 
@@ -301,7 +301,7 @@ name = 'blue'
 lookup('light-' + name)
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="lookup"} -->
 
 See: [lookup](https://stylus-lang.com/docs/bifs.html#lookupname)
 
@@ -346,7 +346,7 @@ for i in 1..3
     font-size: lookup('font-size-' + i)
 ```
 
-<!-- {: data-line="5"} -->
+<!-- {: data-highlight="for"} -->
 
 ### Definition check
 
@@ -355,7 +355,7 @@ if ohnoes is defined
   color: blue
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="defined"} -->
 
 See: [is defined](https://stylus-lang.com/docs/operators.html#variable-definition-is-defined)
 

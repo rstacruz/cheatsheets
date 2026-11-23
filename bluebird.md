@@ -42,7 +42,7 @@ Those marked with `*` are non-standard Promise API that only work with Bluebird 
 })
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="spread"} -->
 
 Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
 
@@ -59,7 +59,7 @@ Promise.join(
 )
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Promise"} -->
 
 Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
 
@@ -84,14 +84,14 @@ Promise.any(promises)
   })
 ```
 
-<!-- {: data-line="1,8"} -->
+<!-- {: data-highlight="promises"} -->
 
 ```js
 Promise.map(urls, url => fetch(url))
   .then(···)
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="=>"} -->
 
 Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
 
@@ -108,7 +108,7 @@ Promise.props({
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Promise.props"} -->
 
 Use [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
 
@@ -125,7 +125,7 @@ function getPhotos() {
 getPhotos().then(···)
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="Promise.try"} -->
 
 Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 
@@ -136,7 +136,7 @@ var readFile = Promise.promisify(fs.readFile)
 var fs = Promise.promisifyAll(require('fs'))
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="Promise.promisifyAll"} -->
 
 See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
@@ -151,7 +151,7 @@ User.login = Promise.method((email, password) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="method"} -->
 
 See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
@@ -164,7 +164,7 @@ User.login = Promise.coroutine(function* (email, password) {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Promise.coroutine"} -->
 
 See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 

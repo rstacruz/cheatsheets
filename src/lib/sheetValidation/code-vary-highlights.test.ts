@@ -87,7 +87,7 @@ describe('code/vary-highlights: findRepeatedHighlights()', () => {
   it('ignores other attributes', () => {
     expect(
       findRepeatedHighlights(
-        ['```python', 'x', '```', '', '<!-- {: data-line="1"} -->'].join('\n')
+        ['```python', 'x', '```', '', '<!-- {: .-setup} -->'].join('\n')
       )
     ).toEqual([])
   })

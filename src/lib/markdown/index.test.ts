@@ -79,11 +79,11 @@ describe('comment attributes', () => {
     expect(
       (
         await renderMarkdown(
-          '```ruby\nx\n```\n<!-- {: .-setup data-line="1"} -->'
+          '```ruby\nx\n```\n<!-- {: .-setup .-wrap} -->'
         )
       ).html
     ).toBe(
-      '<pre class="-setup" data-line="1"><code class="language-ruby">x\n</code></pre>'
+      '<pre class="-setup -wrap"><code class="language-ruby">x\n</code></pre>'
     )
   })
 

@@ -167,7 +167,7 @@ here.is.some.more()
 
 Code blocks can have headings.
 
-### Highlighted lines
+### Inline highlights
 
 ```js
 app.start(() => {
@@ -176,9 +176,9 @@ app.start(() => {
 })
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="app.start"} -->
 
-Add `{: data-line="3"}` to add line highlights.
+Add `{: data-highlight="app.start"}` to tint one token.
 
 ### Multiple highlights
 
@@ -189,9 +189,9 @@ app.start(() => {
 })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="app.server.port; console.log"} -->
 
-Add `{: data-line="2,3"}` to add multiple line highlights.
+Add `{: data-highlight="app.server.port; console.log"}` to tint several tokens.
 
 ### Setup blocks
 

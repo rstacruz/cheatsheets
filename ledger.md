@@ -84,7 +84,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Cash     $-20  = $500
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="Assets"} -->
 
 `Cash $X = $500` ensures Cash is at $500 after the transaction.
 
@@ -100,7 +100,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Cash              = $500
 ```
 
-<!-- {: data-line="2,7"} -->
+<!-- {: data-highlight=":Cash"} -->
 
 `ACCOUNT = $500` figures out what's needed to make it $500.
 
@@ -112,7 +112,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Rent
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight=":Checking"} -->
 
 ### Commodities
 
@@ -123,7 +123,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Cash
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight=":Fridge"} -->
 
 ```bash
 ; total cost
@@ -132,7 +132,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Cash
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="Fridge"} -->
 
 ```bash
 ; fixed lot prices
@@ -141,7 +141,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Cash
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight=":Gasoline"} -->
 
 ### Commodity definitions
 
@@ -301,7 +301,7 @@ ledger r food and @Starbucks and not dining
   Income: Client name
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="date"} -->
 
 Say you're in business. If you bill a customer, you can enter something like above.
 Then, when you receive the payment, you change it to:
@@ -312,7 +312,7 @@ Then, when you receive the payment, you change it to:
   Income: Client name
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="received"} -->
 
 ## References
 

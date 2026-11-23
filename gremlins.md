@@ -34,7 +34,7 @@ gremlins.createHorde()
   })
 ```
 
-<!-- {: data-line="3,4,5"} -->
+<!-- {: data-highlight="gremlin"} -->
 
 Runs the given function at regular intervals.
 
@@ -74,7 +74,7 @@ gremlins.createHorde()
   })
 ```
 
-<!-- {: data-line="2,6"} -->
+<!-- {: data-highlight="before"} -->
 
 ### Asynchronous
 
@@ -88,7 +88,7 @@ gremlins.createHorde()
   })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="done"} -->
 
 ## References
 

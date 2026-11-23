@@ -79,6 +79,7 @@ red
 red
 red
 ```
+<!-- {: data-highlight="sort"} -->
 
 #### Options
 
@@ -102,7 +103,7 @@ blue
 green
 red
 ```
-<!-- {: data-highlight="-u"} -->
+<!-- {: data-highlight="sort -u"} -->
 
 `-u` sorts and removes duplicate lines in one pass.
 
@@ -116,6 +117,7 @@ red
 blue
 red
 ```
+<!-- {: data-highlight="uniq"} -->
 
 `uniq` compares only neighbouring lines; sort first when duplicates can be apart.
 
@@ -128,7 +130,7 @@ $ sort colors.txt | uniq -d
 blue
 red
 ```
-<!-- {: data-highlight="-d"} -->
+<!-- {: data-highlight="uniq -d"} -->
 
 `-d` prints one copy of each repeated line; `-u` prints lines that occur once.
 
@@ -156,7 +158,7 @@ bob,25,ops
 ann,30,dev
 cy,41,dev
 ```
-<!-- {: data-highlight="-k2,2n"} -->
+<!-- {: data-highlight="sort"} -->
 
 `-t,` splits on commas; `-k2,2n` sorts field two as a number.
 
@@ -170,7 +172,7 @@ ann,30,dev
 cy,41,dev
 bob,25,ops
 ```
-<!-- {: data-highlight="-k3,3"} -->
+<!-- {: data-highlight="sort"} -->
 
 `-k3,3` limits the key to field three; adding `r` reverses the order.
 
@@ -184,7 +186,7 @@ cy,41,dev
 ann,30,dev
 bob,25,ops
 ```
-<!-- {: data-highlight="-k3,3; -k2,2nr"} -->
+<!-- {: data-highlight="sort; -k3,3; -k2,2nr"} -->
 
 The first key groups by role; the second sorts each group by descending age.
 
@@ -313,7 +315,7 @@ See: [tee invocation](https://www.gnu.org/software/coreutils/manual/html_node/te
 $ echo again | tee -a out.txt
 again
 ```
-<!-- {: data-highlight="-a"} -->
+<!-- {: data-highlight="tee -a"} -->
 
 `-a` appends instead of replacing the file.
 
@@ -325,7 +327,7 @@ See: [tee invocation](https://www.gnu.org/software/coreutils/manual/html_node/te
 $ echo shared | tee a.txt b.txt
 shared
 ```
-<!-- {: data-highlight="a.txt b.txt"} -->
+<!-- {: data-highlight="tee; a.txt b.txt"} -->
 
 Several paths write the same stream to each file.
 

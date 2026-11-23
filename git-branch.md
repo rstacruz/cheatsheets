@@ -112,10 +112,13 @@ git push --force
 [Git worktrees cheatsheet](./git-worktrees)
 <!-- {: .-crosslink} -->
 
-### Rename or delete
+### Rename, delete, or undo
 
 [Git rename branch cheatsheet](./git-rename-branch)
 <!-- {: .-crosslink} -->
 
 [Git delete branch cheatsheet](./git-delete-branch)
+<!-- {: .-crosslink} -->
+
+[Git undo commit cheatsheet](./git-undo-commit)
 <!-- {: .-crosslink} -->

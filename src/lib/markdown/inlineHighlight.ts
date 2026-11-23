@@ -37,15 +37,30 @@ export function parseHighlightSpec(value: PropertyValue): string[] {
   )
 }
 
-/** Literal matches for every token, dropping overlaps (longer wins) */
+const WORD_CHAR = /[A-Za-z0-9_]/
+
+/** Literal matches on identifier boundaries, dropping overlaps (longer wins) */
 export function findMatches(text: string, tokens: string[]): Match[] {
   const found: Match[] = []
 
   for (const token of tokens) {
+    const startsWithWord = WORD_CHAR.test(token[0] ?? '')
+    const endsWithWord = WORD_CHAR.test(token.at(-1) ?? '')
     let index = text.indexOf(token)
     while (index !== -1) {
-      found.push({ start: index, end: index + token.length })
-      index = text.indexOf(token, index + token.length)
+      const before = text[index - 1]
+      const after = text[index + token.length]
+      const leftBounded =
+        !startsWithWord || before === undefined || !WORD_CHAR.test(before)
+      const rightBounded =
+        !endsWithWord || after === undefined || !WORD_CHAR.test(after)
+
+      if (leftBounded && rightBounded) {
+        found.push({ start: index, end: index + token.length })
+        index = text.indexOf(token, index + token.length)
+      } else {
+        index = text.indexOf(token, index + 1)
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-import { parseHighlightSpec } from './inlineHighlight'
+import { findMatches, parseHighlightSpec } from './inlineHighlight'
 import { render } from './render'
 
 it('h3 only', async () => {
@@ -277,5 +277,15 @@ describe('inline highlights', () => {
       'save_screenshot',
       'print_page, flush'
     ])
+  })
+
+  it('matches on identifier boundaries', () => {
+    expect(findMatches('bat -d --diff-context=1', ['-d'])).toEqual([
+      { start: 4, end: 6 }
+    ])
+    expect(findMatches('myfield.text context', ['text'])).toEqual([
+      { start: 8, end: 12 }
+    ])
+    expect(findMatches('find_elements', ['find_element'])).toEqual([])
   })
 })

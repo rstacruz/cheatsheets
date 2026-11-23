@@ -51,6 +51,7 @@ links:
 pm2 start app.js --name my-api
 pm2 start server.js -- --port 3000
 ```
+<!-- {: data-highlight="pm2 start"} -->
 
 #### Common flags
 
@@ -71,6 +72,7 @@ See: [Process management](https://pm2.keymetrics.io/docs/usage/process-managemen
 pm2 start app.js -i max
 pm2 start app.js -i 4 --name api
 ```
+<!-- {: data-highlight="-i max"} -->
 
 #### Cluster flags
 
@@ -92,6 +94,7 @@ pm2 start ecosystem.config.js
 pm2 start ecosystem.config.js --only api
 pm2 start ecosystem.config.js --env production
 ```
+<!-- {: data-highlight="ecosystem.config.js"} -->
 
 #### Ecosystem commands
 
@@ -171,6 +174,7 @@ See: [Process management](https://pm2.keymetrics.io/docs/usage/process-managemen
 pm2 reload api
 pm2 scale api 4
 ```
+<!-- {: data-highlight="pm2 reload; pm2 scale"} -->
 
 #### Cluster commands
 
@@ -205,6 +209,7 @@ pm2 logs
 pm2 logs --json --lines 100
 pm2 logs api --err
 ```
+<!-- {: data-highlight="pm2 logs"} -->
 
 #### Log options
 
@@ -239,6 +244,7 @@ See: [Log management](https://pm2.keymetrics.io/docs/usage/log-management/)
 pm2 start app.js --watch
 pm2 start app.js --watch --ignore-watch node_modules
 ```
+<!-- {: data-highlight="--watch"} -->
 
 #### Watch flags
 

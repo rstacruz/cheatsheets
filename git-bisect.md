@@ -44,12 +44,14 @@ git bisect start
 git bisect bad             # HEAD fails
 git bisect good v1.2.0     # last known good tag
 ```
+<!-- {: data-highlight="git bisect start"} -->
 
 #### In one command
 
 ```bash
 git bisect start HEAD v1.2.0
 ```
+<!-- {: data-highlight="HEAD v1.2.0"} -->
 
 #### Output
 
@@ -76,6 +78,7 @@ make test    # placeholder: your project's test command
 git bisect good    # current commit works
 git bisect bad     # current commit fails
 ```
+<!-- {: data-highlight="bisect good; bisect bad"} -->
 
 #### Result
 
@@ -93,6 +96,7 @@ See: [Basic bisect commands](https://git-scm.com/docs/git-bisect#_basic_bisect_c
 git bisect start --term-good=passing --term-bad=failing HEAD HEAD~7
 git bisect terms
 ```
+<!-- {: data-highlight="--term-good=passing; --term-bad=failing"} -->
 
 #### Output
 
@@ -113,6 +117,7 @@ See: [Alternate terms](https://git-scm.com/docs/git-bisect#_alternate_terms)
 git bisect skip                 # current commit cannot be tested
 git bisect skip HEAD~2..HEAD~1  # range of commits
 ```
+<!-- {: data-highlight="bisect skip"} -->
 
 `skip` covers commits that fail for unrelated reasons, such as a broken build. If every remaining commit is skipped, Git lists candidates.
 
@@ -125,6 +130,7 @@ See: [Bisect skip](https://git-scm.com/docs/git-bisect#_bisect_skip)
 ```bash
 git bisect visualize --oneline
 ```
+<!-- {: data-highlight="bisect visualize"} -->
 
 #### Output
 
@@ -143,6 +149,7 @@ c835f75 step 2 (ok)
 ```bash
 git bisect view --stat
 ```
+<!-- {: data-highlight="bisect view"} -->
 
 `view` is an alias. Both open `gitk` when a display exists, else `git log`.
 
@@ -168,6 +175,7 @@ See: [Avoiding testing a commit](https://git-scm.com/docs/git-bisect#_avoiding_t
 ```bash
 git bisect run ./check.sh
 ```
+<!-- {: data-highlight="bisect run"} -->
 
 #### Output
 
@@ -205,6 +213,7 @@ See: [Bisect run](https://git-scm.com/docs/git-bisect#_bisect_run)
 ```bash
 git bisect log > bisect.log
 ```
+<!-- {: data-highlight="bisect log"} -->
 
 #### Log
 
@@ -226,6 +235,7 @@ See: [Bisect log and replay](https://git-scm.com/docs/git-bisect#_bisect_log_and
 git bisect reset
 git bisect replay bisect.log
 ```
+<!-- {: data-highlight="bisect replay"} -->
 
 Delete a wrong `git bisect good` or `git bisect bad` line before replaying.
 
@@ -238,6 +248,7 @@ git bisect reset
 git bisect reset bisect/bad
 git bisect reset HEAD
 ```
+<!-- {: data-highlight="bisect reset"} -->
 
 #### Output
 
@@ -257,6 +268,7 @@ See: [Bisect reset](https://git-scm.com/docs/git-bisect#_bisect_reset)
 ```bash
 git bisect start --no-checkout HEAD HEAD~7
 ```
+<!-- {: data-highlight="--no-checkout"} -->
 
 Git records marks without rewriting files, for builds that manage their own working tree.
 
@@ -269,12 +281,14 @@ See: [Options](https://git-scm.com/docs/git-bisect#_options)
 ```bash
 git bisect start --first-parent HEAD HEAD~7
 ```
+<!-- {: data-highlight="--first-parent"} -->
 
 #### Paths
 
 ```bash
 git bisect start HEAD HEAD~7 -- src/parser
 ```
+<!-- {: data-highlight="src/parser"} -->
 
 `--first-parent` ignores merged side branches; a pathspec considers only commits that touch those paths.
 

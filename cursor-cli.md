@@ -65,6 +65,7 @@ agent login     # sign in again
 agent status    # show account and endpoint
 agent logout    # clear stored credentials
 ```
+<!-- {: data-highlight="agent login"} -->
 
 For scripts, export `CURSOR_API_KEY` or pass `--api-key`. `NO_OPEN_BROWSER=1 agent login` prints the URL instead of opening it.
 
@@ -80,6 +81,7 @@ agent resume              # resume the latest chat
 agent --continue          # alias for --resume=-1
 agent --resume <chat-id>  # resume a specific chat
 ```
+<!-- {: data-highlight="agent ls; agent resume"} -->
 
 `agent create-chat` makes an empty chat and prints its ID; pass it to `--resume`.
 
@@ -176,6 +178,7 @@ agent -p --model gpt-5 "review this diff for bugs"
 agent -p --output-format json "list the TODOs" | jq .result
 agent -p --force "upgrade the test runner"
 ```
+<!-- {: data-highlight="-p"} -->
 
 Print mode follows session approval rules but cannot ask: allowlisted edits run, the rest is rejected.
 
@@ -189,6 +192,7 @@ See: [Using headless CLI](https://cursor.com/docs/cli/headless)
 agent -p --output-format json "explain src/auth.ts"
 agent -p --output-format stream-json "fix the tests"
 ```
+<!-- {: data-highlight="--output-format"} -->
 
 #### Formats
 
@@ -335,6 +339,7 @@ See: [Using Agent in CLI](https://cursor.com/docs/cli/using)
 /shell                        # enter shell mode
 cd packages/web && npm test   # chain cd, it does not persist
 ```
+<!-- {: data-highlight="/shell"} -->
 
 Commands run in your login shell for up to 30 seconds. Servers and interactive prompts are not supported; `Ctrl+O` expands output and `Esc` exits.
 
@@ -364,6 +369,7 @@ agent models                      # same, as a subcommand
 /model auto                       # let Cursor route
 agent --model gpt-5 "fix tests"   # pin one for a run
 ```
+<!-- {: data-highlight="--list-models; agent models; /model; --model gpt-5"} -->
 
 Fresh installs start on Auto. Team restrictions shrink the list; a blocked `--model` exits with a restriction message.
 
@@ -423,6 +429,7 @@ See: [Permissions](https://cursor.com/docs/cli/reference/permissions)
   }
 }
 ```
+<!-- {: data-highlight="allow; deny"} -->
 
 Deny rules win over allow rules, and relative paths are scoped to the workspace. Approval prompts add entries with `Tab`.
 
@@ -435,6 +442,7 @@ agent --sandbox disabled        # use allowlist mode instead
 agent sandbox enable            # keep it on for every run
 agent sandbox run ls --network  # one command, network allowed
 ```
+<!-- {: data-highlight="--sandbox disabled; sandbox enable; --network"} -->
 
 `/sandbox` sets the mode and network access; settings persist. The sandbox allows workspace writes and limits network to `sandbox.json` plus Cursor defaults.
 
@@ -457,6 +465,7 @@ See: [Sandboxing](https://cursor.com/docs/agent/security/run-modes#sandboxing)
 .cursor/cli.json                    # project, permissions only
 $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
 ```
+<!-- {: data-highlight="~/.cursor/cli-config.json; .cursor/cli.json"} -->
 
 #### Example
 
@@ -467,6 +476,7 @@ $CURSOR_CONFIG_DIR/cli-config.json  # custom directory
   "permissions": { "allow": ["Shell(git)"], "deny": ["Shell(rm)"] }
 }
 ```
+<!-- {: data-highlight="version; vimMode; permissions"} -->
 
 `version`, `editor.vimMode`, and `permissions.allow`/`deny` are required. The CLI repairs missing fields and backs up broken files as `.bad`. Project files set only permissions.
 
@@ -481,6 +491,7 @@ See: [Configuration](https://cursor.com/docs/cli/reference/configuration)
 AGENTS.md             # root instructions, committed
 CLAUDE.md             # also read at the root
 ```
+<!-- {: data-highlight=".cursor/rules/*.mdc; AGENTS.md"} -->
 
 #### Frontmatter
 
@@ -491,6 +502,7 @@ globs: src/components/**/*.tsx
 alwaysApply: false
 ---
 ```
+<!-- {: data-highlight="alwaysApply; globs; description"} -->
 
 `alwaysApply` runs a rule every session, `globs` scopes it to matching files, and `description` lets the agent pull it in. Without either, only `@`-mention loads it.
 
@@ -504,6 +516,7 @@ agent mcp list-tools datadog
 agent mcp login datadog
 agent mcp disable datadog
 ```
+<!-- {: data-highlight="mcp list; mcp list-tools; mcp disable"} -->
 
 Servers live in `.cursor/mcp.json` or `~/.cursor/mcp.json`. `--approve-mcps` skips the approval prompt, and ACP sessions ignore team-level servers.
 
@@ -516,6 +529,7 @@ agent -w "upgrade the test runner"
 agent -w auth-fix "fix the flaky auth test"
 agent --workspace ~/src/app -w "fix the tests"
 ```
+<!-- {: data-highlight="-w; --workspace"} -->
 
 Worktrees live under `~/.cursor/worktrees/<repo>/<name>`. `--worktree-base` picks the base ref; `.cursor/worktrees.json` setup runs once the workspace is trusted.
 
@@ -551,6 +565,7 @@ agent -p "review this diff for bugs"
 agent -p --force "fix the failing tests"
 agent -p --output-format json "list the TODOs" | jq .result
 ```
+<!-- {: data-highlight="jq .result"} -->
 
 A failed run exits non-zero and writes the error to stderr; `json` emits no object in that case, so check the exit code before parsing.
 
@@ -569,6 +584,7 @@ See: [Headless CLI](https://cursor.com/docs/cli/headless)
     CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
   run: agent -p --force "fix the failing tests"
 ```
+<!-- {: data-highlight="CURSOR_API_KEY; $GITHUB_PATH"} -->
 
 Store the key with `gh secret set CURSOR_API_KEY`. For CI, encode restrictions in `permissions.allow`/`deny` instead of relying on prompts.
 
@@ -579,6 +595,7 @@ See: [GitHub Actions](https://cursor.com/docs/cli/github-actions)
 ```text
 & refactor the auth module and add tests
 ```
+<!-- {: data-line="1"} -->
 
 Prefix a message with `&` to hand it to a Cloud Agent; pick it up later at [cursor.com/agents](https://cursor.com/agents).
 

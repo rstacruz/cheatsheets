@@ -88,6 +88,7 @@ eval "$(mise activate zsh --shims)"
 export PATH="$HOME/.local/share/mise/shims:$PATH"   # equivalent
 mise reshim                      # after external installs
 ```
+<!-- {: data-highlight="--shims"} -->
 
 Shims give editors and scripts a stable path; `mise activate` supports more features (env vars, hooks), so prefer it interactively.
 
@@ -202,6 +203,7 @@ mise latest node@20        # newest match, without installing
 mise which node            # path of the executable in use
 mise where node@20         # install directory
 ```
+<!-- {: data-highlight="which; where"} -->
 
 `which` explains a surprising `node -v`; `where` finds the install tree.
 
@@ -279,6 +281,7 @@ mise exec --command "node -v"
 mise shell node@20                  # this shell session only
 mise shell --unset node
 ```
+<!-- {: data-highlight="mise exec; mise shell"} -->
 
 `exec` scopes tools and env to one command; `shell` exports them until the session ends and needs activation.
 
@@ -300,6 +303,7 @@ NODE_ENV = "development"
 [tasks.hello]
 run = "echo hello"
 ```
+<!-- {: data-highlight="[tools]; [env]; [tasks.hello]"} -->
 
 #### Inspect config
 
@@ -307,6 +311,7 @@ run = "echo hello"
 mise config ls      # files mise loaded, in order
 mise ls --current
 ```
+<!-- {: data-highlight="mise config ls"} -->
 
 Commit `mise.toml`; put machine-local overrides in `mise.local.toml` and gitignore it.
 
@@ -321,6 +326,7 @@ mise.local.toml              # local overrides, gitignored
 /etc/mise/config.toml        # system defaults
 .tool-versions               # asdf file, read when present
 ```
+<!-- {: data-highlight="mise.local.toml"} -->
 
 Parent directories cascade; the closest file wins per key, and `[tools]`/`[env]` merge additively.
 
@@ -333,6 +339,7 @@ mise settings add idiomatic_version_file_enable_tools node
 mise settings add idiomatic_version_file_enable_tools python
 mise settings add idiomatic_version_file_enable_tools ruby
 ```
+<!-- {: data-highlight="idiomatic_version_file_enable_tools"} -->
 
 `.nvmrc`, `.python-version`, and `.ruby-version` are ignored until their tool is listed.
 
@@ -346,6 +353,7 @@ mise settings set jobs 4         # global config
 mise settings set --local jobs 2 # project override
 mise settings unset --local jobs
 ```
+<!-- {: data-highlight="--local"} -->
 
 #### ~/.config/mise/config.toml
 
@@ -354,6 +362,7 @@ mise settings unset --local jobs
 idiomatic_version_file_enable_tools = ["node"]
 trusted_config_paths = ["~/work/trusted"]
 ```
+<!-- {: data-highlight="trusted_config_paths"} -->
 
 Settings control mise itself; project env vars belong in `[env]`. Settings with no `--local` write to the global config.
 
@@ -412,6 +421,7 @@ mise set NODE_ENV=development
 mise env                        # print exported variables
 eval "$(mise env -s zsh)"
 ```
+<!-- {: data-highlight="-s zsh"} -->
 
 `[env]` reaches activated shells, `mise exec`, and tasks. `mise set` writes to `mise.toml`.
 
@@ -425,6 +435,7 @@ See: [Environments](https://mise.jdx.dev/environments/)
 [env]
 _.file = ".env"                # a single file
 ```
+<!-- {: data-highlight="_.file"} -->
 
 #### Several files
 
@@ -435,6 +446,7 @@ _.file = [                     # or several
   { path = ".secrets.yaml", redact = true },
 ]
 ```
+<!-- {: data-highlight="_.file = ["} -->
 
 Dotenv, JSON, YAML, and TOML are supported, and paths resolve against the config root. `MISE_ENV_FILE=.env` autoloads from the current directory upwards.
 
@@ -448,6 +460,7 @@ See: [Environments](https://mise.jdx.dev/environments/)
 [env]
 _.path = "./node_modules/.bin"  # one entry
 ```
+<!-- {: data-highlight="_.path"} -->
 
 #### Several entries
 
@@ -455,12 +468,14 @@ _.path = "./node_modules/.bin"  # one entry
 [env]
 _.path = ["tools/bin", "{{config_root}}/bin"]  # or several
 ```
+<!-- {: data-highlight="_.path = ["} -->
 
 #### Inspect PATH
 
 ```bash
 mise env --paths                # PATH entries mise manages
 ```
+<!-- {: data-highlight="--paths"} -->
 
 Relative entries resolve against the config root, so they keep working from subdirectories.
 
@@ -475,6 +490,7 @@ redactions = ["SECRET_*", "*_TOKEN"]
 DATABASE_URL = { required = true }
 API_KEY = { value = "sk-...", redact = true }
 ```
+<!-- {: data-highlight="required = true; redact = true"} -->
 
 `required` fails `mise env` when unset; `redact` masks the value in task output. Secrets do not belong in committed config — `mise.local.toml` is still plaintext.
 
@@ -494,6 +510,7 @@ run = ["npm run lint", "npm test"]
 depends = ["build"]
 alias = "t"
 ```
+<!-- {: data-highlight="[tasks.test]; alias"} -->
 
 Tasks run with the project's tools and env, so no activation is needed.
 
@@ -508,6 +525,7 @@ mise run build ::: test     # run several tasks
 mise tasks ls
 mise tasks info test
 ```
+<!-- {: data-highlight="-- --watch; :::"} -->
 
 `mise run` with no task opens a picker (or runs `default`), and installs missing tools first.
 
@@ -529,6 +547,7 @@ run = "cargo build"
 sources = ["src/**/*.rs", "Cargo.toml"]
 outputs = ["target/debug/app"]
 ```
+<!-- {: data-highlight="depends; depends_post; sources; outputs"} -->
 
 `depends` runs first and only once; `depends_post` runs after; `sources`/`outputs` skip a task whose outputs are newer.
 
@@ -547,6 +566,7 @@ See: [Task config](https://mise.jdx.dev/tasks/task-configuration.html)
 #USAGE flag "-p --profile <profile>" default="dev"
 cargo build --profile "$usage_profile"
 ```
+<!-- {: data-highlight="#MISE; #USAGE"} -->
 
 Scripts live in `mise-tasks/`, `.mise/tasks/`, or `mise/tasks/`, must be executable (`chmod +x`), and `#USAGE` defines flags as `usage_*` env vars.
 

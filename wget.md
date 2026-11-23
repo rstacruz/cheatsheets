@@ -50,6 +50,7 @@ See: [Invoking](https://www.gnu.org/software/wget/manual/wget.html#Invoking)
 ```bash
 wget -O page.html https://example.com/docs
 ```
+<!-- {: data-highlight="-O page.html"} -->
 
 `-O` writes the body to `page.html` instead of the remote filename.
 
@@ -60,6 +61,7 @@ See: [Download options](https://www.gnu.org/software/wget/manual/wget.html#Downl
 ```bash
 wget -c https://example.com/archive.zip
 ```
+<!-- {: data-highlight="-c"} -->
 
 `-c` continues a download left incomplete by an earlier run.
 
@@ -327,6 +329,7 @@ See: [Basic startup options](https://www.gnu.org/software/wget/manual/wget.html#
 # Mirror a site for offline browsing
 wget -m -k -p -np https://example.com/
 ```
+<!-- {: data-highlight="-m"} -->
 
 ```bash
 # Resume an interrupted download
@@ -337,22 +340,26 @@ wget -c https://example.com/large.iso
 # Download all PDFs from a page
 wget -r -l 1 -A pdf -np https://example.com/docs/
 ```
+<!-- {: data-highlight="-A pdf"} -->
 
 ```bash
 # Fetch with a custom header and save the body
 wget --header='Authorization: Bearer TOKEN' \
   -O out.json https://api.example.com/data
 ```
+<!-- {: data-highlight="--header"} -->
 
 ```bash
 # Check a URL without downloading
 wget --spider -q https://example.com && echo OK
 ```
+<!-- {: data-highlight="--spider"} -->
 
 ```bash
 # Show response headers
 wget -S --spider https://example.com
 ```
+<!-- {: data-highlight="-S"} -->
 
 See: [Examples](https://www.gnu.org/software/wget/manual/wget.html#Examples)
 
@@ -363,16 +370,19 @@ See: [Examples](https://www.gnu.org/software/wget/manual/wget.html#Examples)
 wget --header='Content-Type: application/json' \
   --post-data='{"name":"Ada"}' https://api.example.com/users
 ```
+<!-- {: data-highlight="--post-data"} -->
 
 ```bash
 # Quiet download with a progress bar only
 wget -q --show-progress https://example.com/file
 ```
+<!-- {: data-highlight="--show-progress"} -->
 
 ```bash
 # Limit download speed
 wget --limit-rate=100k https://example.com/file
 ```
+<!-- {: data-highlight="--limit-rate=100k"} -->
 
 See: [Examples](https://www.gnu.org/software/wget/manual/wget.html#Examples)
 

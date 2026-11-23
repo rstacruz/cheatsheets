@@ -49,6 +49,7 @@ $ git rebase -i HEAD~3
 $ git rebase -i main
 $ git rebase -i --root
 ```
+<!-- {: data-highlight="git rebase -i"} -->
 
 `-i` opens the todo before replay. `HEAD~3` takes the last three commits, `main` those after `main`, and `--root` every commit.
 
@@ -61,6 +62,7 @@ pick 877bace # add feature
 pick adc2cdb # add docs
 pick 61763ac # fix typo
 ```
+<!-- {: data-highlight="pick"} -->
 
 Git replays these lines top to bottom; deleting one drops that commit.
 
@@ -85,6 +87,7 @@ See: [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)
 $ export GIT_SEQUENCE_EDITOR=vim
 $ export GIT_EDITOR=vim
 ```
+<!-- {: data-highlight="GIT_SEQUENCE_EDITOR; GIT_EDITOR"} -->
 
 `GIT_SEQUENCE_EDITOR` opens the todo; `GIT_EDITOR` opens commit messages.
 
@@ -167,6 +170,7 @@ Once you are satisfied with your changes, run
 
   git rebase --continue
 ```
+<!-- {: data-highlight="git commit --amend"} -->
 
 #### After continuing
 
@@ -227,6 +231,7 @@ error: could not apply b0841e8... change line two on topic
 $ git status --short
 UU story.txt
 ```
+<!-- {: data-highlight="UU story.txt"} -->
 
 #### Conflicted file
 
@@ -239,6 +244,7 @@ TOPIC two
 >>>>>>> b0841e8 (change line two on topic)
 three
 ```
+<!-- {: data-highlight="<<<<<<< HEAD; =======; >>>>>>>"} -->
 
 #### Finish
 
@@ -246,6 +252,7 @@ three
 $ git rebase --continue
 Successfully rebased and updated refs/heads/topic.
 ```
+<!-- {: data-highlight="git rebase --continue"} -->
 
 Git marks conflicted paths `UU`; stage each with `git add`, then run `git rebase --continue` or use `--skip` to drop the patch.
 
@@ -259,6 +266,7 @@ See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resol
 $ git rebase --abort
 $ git log --oneline
 ```
+<!-- {: data-highlight="git rebase --abort"} -->
 
 #### Output
 
@@ -279,6 +287,7 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 $ git reflog
 $ git reset --hard ORIG_HEAD
 ```
+<!-- {: data-highlight="git reflog; git reset --hard ORIG_HEAD"} -->
 
 `ORIG_HEAD` holds the branch tip before rebase; the reflog records earlier positions for manual recovery.
 
@@ -300,6 +309,7 @@ $ git log --oneline
 157df43 squash! add docs
 d7c42b4 fixup! add feature
 ```
+<!-- {: data-highlight="fixup!; squash!"} -->
 
 Prefix with `fixup!` to keep the target's message, or `squash!` to edit the combined one.
 
@@ -312,6 +322,7 @@ See: [git commit](https://git-scm.com/docs/git-commit)
 ```bash
 $ git rebase -i --autosquash HEAD~5
 ```
+<!-- {: data-highlight="--autosquash"} -->
 
 #### Resulting todo
 
@@ -322,6 +333,7 @@ pick adc2cdb # add docs
 squash 157df43 # squash! add docs
 pick 61763ac # fix typo
 ```
+<!-- {: data-highlight="fixup d7c42b4; squash 157df43"} -->
 
 `--autosquash` moves marked commits under their targets and converts them before the editor opens.
 
@@ -333,6 +345,7 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 $ git -c rebase.autoSquash=true rebase -i HEAD~5
 $ git config rebase.autoSquash true
 ```
+<!-- {: data-highlight="rebase.autoSquash"} -->
 
 The config setting has the same effect as passing the flag.
 
@@ -347,6 +360,7 @@ See: [git rebase](https://git-scm.com/docs/git-rebase)
 ```bash
 $ git rebase --onto main 9def53e topic
 ```
+<!-- {: data-highlight="git rebase --onto main 9def53e topic"} -->
 
 #### Output
 

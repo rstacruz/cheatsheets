@@ -43,6 +43,7 @@ terraform -version
 terraform -help
 terraform plan -help
 ```
+<!-- {: data-highlight="brew install hashicorp/tap/terraform"} -->
 
 See: [Install Terraform](https://developer.hashicorp.com/terraform/install)
 
@@ -72,6 +73,7 @@ terraform apply tfplan
 
 terraform show -json tfplan > tfplan.json
 ```
+<!-- {: data-highlight="-out=tfplan"} -->
 
 Saved plans can contain sensitive configuration and values. JSON output exposes sensitive values in plain text, so protect generated JSON files.
 
@@ -88,6 +90,7 @@ terraform plan -refresh-only
 terraform apply -refresh-only
 terraform plan -minimal-refresh
 ```
+<!-- {: data-highlight="-detailed-exitcode; -minimal-refresh"} -->
 
 `-detailed-exitcode` returns 0 for no changes, 1 for errors, and 2 for changes. `-minimal-refresh` refreshes only resources with planned changes.
 
@@ -115,6 +118,7 @@ provider "aws" {
   region = "us-east-1"
 }
 ```
+<!-- {: data-highlight="required_providers"} -->
 
 #### Lock providers
 
@@ -123,6 +127,7 @@ terraform providers lock \
   -platform=linux_amd64 \
   -platform=darwin_arm64
 ```
+<!-- {: data-highlight="terraform providers lock"} -->
 
 Commit `.terraform.lock.hcl`; do not commit `.terraform/`. Lock entries are per-platform, so lock each platform your CI runs.
 
@@ -142,6 +147,7 @@ resource "aws_instance" "web" {
 
 # Reference: aws_instance.web.id
 ```
+<!-- {: data-highlight='resource "aws_instance" "web"'} -->
 
 References create implicit dependencies.
 
@@ -162,6 +168,7 @@ data "aws_ami" "ubuntu" {
 
 # Reference: data.aws_ami.ubuntu.id
 ```
+<!-- {: data-highlight='data "aws_ami" "ubuntu"'} -->
 
 Data sources read information without managing its lifecycle.
 
@@ -190,6 +197,7 @@ variable "api_token" {
   nullable  = false
 }
 ```
+<!-- {: data-highlight='variable "environment"; variable "api_token"'} -->
 
 See: [Input variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
@@ -202,6 +210,7 @@ terraform apply -var='environment=prod'
 terraform apply -var-file='prod.tfvars'
 export TF_VAR_environment=prod
 ```
+<!-- {: data-highlight="-var; -var-file; TF_VAR_environment"} -->
 
 #### tfvars file
 
@@ -209,6 +218,7 @@ export TF_VAR_environment=prod
 # terraform.tfvars
 environment = "prod"
 ```
+<!-- {: data-highlight='environment = "prod"'} -->
 
 Precedence increases from environment variables, `terraform.tfvars(.json)`, `*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
 
@@ -237,6 +247,7 @@ output "token" {
   sensitive = true
 }
 ```
+<!-- {: data-highlight='locals; output "instance_ip"; output "token"'} -->
 
 #### CLI
 
@@ -245,6 +256,7 @@ terraform output
 terraform output -raw instance_ip
 terraform output -json
 ```
+<!-- {: data-highlight="-raw; -json"} -->
 
 Naming a sensitive output, or using `-raw` or `-json`, exposes its value in plain text.
 
@@ -265,6 +277,7 @@ resource "aws_db_instance" "main" {
   password_wo_version = 1
 }
 ```
+<!-- {: data-highlight="ephemeral = true"} -->
 
 Ephemeral values are omitted from plan and state files; write-only arguments accept them.
 
@@ -297,6 +310,7 @@ EOT
 
 message = "Enabled: %{if var.enabled}yes%{else}no%{endif}"
 ```
+<!-- {: data-highlight="${var.environment}; <<-EOT; %{if"} -->
 
 See: [Strings and templates](https://developer.hashicorp.com/terraform/language/expressions/strings)
 
@@ -305,6 +319,7 @@ See: [Strings and templates](https://developer.hashicorp.com/terraform/language/
 ```hcl
 instance_type = var.environment == "prod" ? "t3.large" : "t3.micro"
 ```
+<!-- {: data-highlight='? "t3.large" : "t3.micro"'} -->
 
 Both result values must have compatible types.
 
@@ -321,6 +336,7 @@ See: [Conditional expressions](https://developer.hashicorp.com/terraform/languag
   if user.enabled
 }
 ```
+<!-- {: data-highlight="for name in var.names; for user in var.users"} -->
 
 See: [For expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
 
@@ -330,6 +346,7 @@ See: [For expressions](https://developer.hashicorp.com/terraform/language/expres
 aws_instance.web[*].id
 aws_instance.web[*].private_ip
 ```
+<!-- {: data-highlight="[*]"} -->
 
 Splat syntax works with lists, sets, and tuples.
 
@@ -366,6 +383,7 @@ resource "aws_instance" "web" {
 
 # aws_instance.web[0].id
 ```
+<!-- {: data-highlight="count = 3"} -->
 
 Use `count` for nearly identical instances indexed by number.
 
@@ -382,6 +400,7 @@ resource "aws_s3_bucket" "logs" {
 
 # aws_s3_bucket.logs["app"].id
 ```
+<!-- {: data-highlight="for_each"} -->
 
 Use `for_each` when instances need stable keys.
 
@@ -395,6 +414,7 @@ resource "aws_instance" "app" {
   depends_on = [aws_iam_role_policy.app]
 }
 ```
+<!-- {: data-highlight="depends_on = [aws_iam_role_policy.app]"} -->
 
 Use `depends_on` only for dependencies Terraform cannot infer.
 
@@ -413,6 +433,7 @@ resource "aws_instance" "web" {
   }
 }
 ```
+<!-- {: data-highlight="create_before_destroy; prevent_destroy; ignore_changes"} -->
 
 `prevent_destroy` does not protect an object after its configuration is removed. Set `destroy = false` to remove it from state without destroying it.
 
@@ -429,12 +450,14 @@ action "aws_lambda_invoke" "example" {
   }
 }
 ```
+<!-- {: data-highlight='action "aws_lambda_invoke" "example"'} -->
 
 #### Invoke an action
 
 ```bash
 terraform apply -invoke=action.aws_lambda_invoke.example
 ```
+<!-- {: data-highlight="-invoke=action.aws_lambda_invoke.example"} -->
 
 Actions run provider-defined day-2 operations; trigger them from the CLI or `lifecycle.action_trigger`.
 
@@ -454,6 +477,7 @@ module "network" {
 
 # Reference: module.network.vpc_id
 ```
+<!-- {: data-highlight='module "network"'} -->
 
 See: [Module blocks](https://developer.hashicorp.com/terraform/language/block/module)
 
@@ -468,6 +492,7 @@ module "vpc" {
   cidr = "10.0.0.0/16"
 }
 ```
+<!-- {: data-highlight='version = "~> 6.0"'} -->
 
 Pin registry module versions and run `terraform init` after changing sources.
 
@@ -508,6 +533,7 @@ terraform {
   }
 }
 ```
+<!-- {: data-highlight='backend "s3"'} -->
 
 #### Initialize
 
@@ -516,6 +542,7 @@ terraform init -migrate-state   # after changing the backend
 terraform init -reconfigure     # ignore saved backend config
 terraform init -backend-config=prod.s3.tfbackend
 ```
+<!-- {: data-highlight="-migrate-state; -reconfigure; -backend-config=prod.s3.tfbackend"} -->
 
 S3 backend locking needs `use_lockfile`; the older `dynamodb_table` is deprecated. Keep credentials out of configuration and pass them with `-backend-config`.
 
@@ -529,6 +556,7 @@ terraform state show aws_instance.web
 terraform show
 terraform output
 ```
+<!-- {: data-highlight="terraform state list; terraform state show"} -->
 
 State can contain secrets; store remote state securely and restrict access.
 
@@ -542,6 +570,7 @@ See: [state list](https://developer.hashicorp.com/terraform/cli/commands/state/l
 terraform state mv aws_instance.old aws_instance.web
 terraform state rm aws_instance.web
 ```
+<!-- {: data-highlight="terraform state mv; terraform state rm"} -->
 
 #### Configuration blocks
 
@@ -556,6 +585,7 @@ removed {
   lifecycle { destroy = false }
 }
 ```
+<!-- {: data-highlight="moved; removed"} -->
 
 Prefer configuration-driven `moved` and `removed` blocks for reviewable changes.
 
@@ -571,6 +601,7 @@ import {
   id = "i-0123456789abcdef0"
 }
 ```
+<!-- {: data-highlight="import"} -->
 
 #### Apply or import
 
@@ -581,6 +612,7 @@ terraform apply
 # Imperative alternative
 terraform import aws_instance.web i-0123456789abcdef0
 ```
+<!-- {: data-highlight="terraform import aws_instance.web i-0123456789abcdef0"} -->
 
 Import associates an existing object with a resource address. Use `identity` instead of `id` when the provider defines a resource identity.
 
@@ -602,6 +634,7 @@ list "aws_instance" "web" {
   }
 }
 ```
+<!-- {: data-highlight='list "aws_instance" "web"'} -->
 
 #### Query commands
 
@@ -610,6 +643,7 @@ terraform query
 terraform query -generate-config-out=import.tf
 terraform query -json
 ```
+<!-- {: data-highlight="-generate-config-out=import.tf; terraform query -json"} -->
 
 Queries find unmanaged resources; generated config contains `import` and `resource` blocks.
 
@@ -626,6 +660,7 @@ terraform workspace show
 terraform workspace select default
 terraform workspace delete staging
 ```
+<!-- {: data-highlight="terraform workspace new staging; terraform workspace select staging"} -->
 
 CLI workspaces share configuration but use separate state instances.
 
@@ -648,6 +683,7 @@ resource "aws_instance" "web" {
   }
 }
 ```
+<!-- {: data-highlight='provisioner "remote-exec"; provisioner "local-exec"'} -->
 
 Provisioners run only at create or destroy time, never on updates. Destroy-time provisioners use a `when` argument. Prefer purpose-built resources.
 
@@ -667,6 +703,7 @@ check "health_check" {
   }
 }
 ```
+<!-- {: data-highlight='check "health_check"; assert'} -->
 
 Checks run after plan and apply; a failing `assert` warns instead of failing the run. Data sources nested in a `check` block are read last.
 
@@ -682,6 +719,7 @@ terraform console
 > cidrsubnet("10.0.0.0/16", 8, 2)
 "10.0.2.0/24"
 ```
+<!-- {: data-highlight="terraform console"} -->
 
 See: [terraform console](https://developer.hashicorp.com/terraform/cli/commands/console)
 
@@ -691,6 +729,7 @@ See: [terraform console](https://developer.hashicorp.com/terraform/cli/commands/
 TF_LOG=DEBUG terraform plan
 TF_LOG=TRACE TF_LOG_PATH=terraform.log terraform apply
 ```
+<!-- {: data-highlight="TF_LOG; TF_LOG_PATH"} -->
 
 Logs may contain sensitive values.
 
@@ -704,12 +743,14 @@ terraform fmt -check -recursive
 terraform init -backend=false -input=false
 terraform validate
 ```
+<!-- {: data-highlight="-backend=false; -check"} -->
 
 ```bash
 # Initialize the backend before planning:
 terraform init -input=false
 terraform plan -input=false -no-color -detailed-exitcode
 ```
+<!-- {: data-highlight="terraform init -input=false; -no-color"} -->
 
 See: [Automation](https://developer.hashicorp.com/terraform/tutorials/automation/automate-terraform)
 
@@ -727,6 +768,7 @@ run "plan" {
   }
 }
 ```
+<!-- {: data-highlight='run "plan"'} -->
 
 #### Run tests
 
@@ -735,6 +777,7 @@ terraform test
 terraform test -filter=tests/web.tftest.hcl
 terraform test -junit-xml=report.xml
 ```
+<!-- {: data-highlight="-filter=tests/web.tftest.hcl; -junit-xml=report.xml"} -->
 
 Tests run in separate in-memory state, starting empty. Use `-verbose` to print each run's plan or state.
 
@@ -746,6 +789,7 @@ See: [terraform test](https://developer.hashicorp.com/terraform/cli/commands/tes
 terraform plan -target=aws_instance.web
 terraform apply -replace=aws_instance.web
 ```
+<!-- {: data-highlight="-target=aws_instance.web; -replace=aws_instance.web"} -->
 
 Use `-target` only for exceptional recovery, not routine workflows.
 

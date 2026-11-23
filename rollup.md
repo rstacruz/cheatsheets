@@ -53,6 +53,7 @@ keywords:
 ```bash
 npm install --save-dev rollup
 ```
+<!-- {: data-highlight="--save-dev"} -->
 
 See: [Installing Rollup locally](https://rollupjs.org/tutorial/#installing-rollup-locally)
 
@@ -61,6 +62,7 @@ See: [Installing Rollup locally](https://rollupjs.org/tutorial/#installing-rollu
 ```bash
 npx rollup --version
 ```
+<!-- {: data-highlight="--version"} -->
 
 Use `npx` for local commands without a global install.
 
@@ -71,6 +73,7 @@ See: [CLI reference](https://rollupjs.org/command-line-interface/)
 ```bash
 rollup src/main.js -o bundle.js -f es
 ```
+<!-- {: data-highlight="-o bundle.js; -f es"} -->
 
 `-o` sets the output file; `-f` selects the format.
 
@@ -93,6 +96,7 @@ export default {
 rollup -c
 rollup --config rollup.config.prod.mjs
 ```
+<!-- {: data-highlight="-c; --config"} -->
 
 `rollup -c` reads `rollup.config.mjs`; `--config` selects another file.
 
@@ -103,6 +107,7 @@ See: [Configuration files](https://rollupjs.org/command-line-interface/#configur
 ```bash
 rollup -c -w
 ```
+<!-- {: data-highlight="-w"} -->
 
 Rebuild on source changes while the process runs.
 
@@ -122,6 +127,7 @@ export default {
   }
 }
 ```
+<!-- {: data-highlight="file"} -->
 
 `file` names one bundle; `sourcemap` emits a `.map` beside it.
 
@@ -138,6 +144,7 @@ export default {
   ]
 }
 ```
+<!-- {: data-highlight="dir"} -->
 
 Rollup needs `output.dir` when it writes more than one chunk.
 
@@ -154,6 +161,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="input"} -->
 
 Each entry name becomes a chunk in `dist/`.
 
@@ -183,6 +191,7 @@ export default {
   output: { file: 'dist/bundle.js', format: 'es' }
 }
 ```
+<!-- {: data-highlight="external"} -->
 
 `external` leaves matching imports out of the bundle.
 
@@ -202,6 +211,7 @@ export default {
   }
 }
 ```
+<!-- {: data-highlight="globals"} -->
 
 `globals` maps external IDs to browser globals for `iife` builds.
 
@@ -218,6 +228,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="smallest"} -->
 
 `smallest` drops more code but assumes no side effects.
 
@@ -237,6 +248,7 @@ export default {
   }
 }
 ```
+<!-- {: data-highlight="watch"} -->
 
 Apply with `rollup -c -w`.
 
@@ -255,6 +267,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="json()"} -->
 
 Import `.json` files as modules.
 
@@ -271,6 +284,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="nodeResolve()"} -->
 
 Resolve bare imports from `node_modules`.
 
@@ -288,6 +302,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="commonjs()"} -->
 
 Put `commonjs()` before Babel when both plugins are used.
 
@@ -309,6 +324,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="babelHelpers"} -->
 
 Set `babelHelpers` explicitly; `bundled` inlines helpers.
 
@@ -325,6 +341,7 @@ export default {
   output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="terser()"} -->
 
 Run `terser()` last so it minifies the finished bundle.
 

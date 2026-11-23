@@ -90,6 +90,7 @@ feat(lang): add Polish language
 fix(parser): handle empty input
 docs(api): document the retry option
 ```
+<!-- {: data-highlight="(lang); (parser); (api)"} -->
 
 A scope names the section of the codebase: a package, module, or route. Parentheses are required. Parsers treat type and scope as case-insensitive, so pick one casing and keep it.
 
@@ -106,6 +107,7 @@ Reviewed-by: Z
 Refs: #123
 Closes #124
 ```
+<!-- {: data-highlight="Reviewed-by; Refs; Closes"} -->
 
 #### Footer tokens
 
@@ -161,6 +163,7 @@ git commit \
   -m 'Dismiss stale responses by request id.' \
   -m 'Reviewed-by: Z'
 ```
+<!-- {: data-highlight="-m"} -->
 
 Each `-m` becomes a paragraph, separated by a blank line, so a body and footers fit without an editor.
 
@@ -173,6 +176,7 @@ revert: let us never again speak of the noodle incident
 
 Refs: 676104e, a215868
 ```
+<!-- {: data-highlight="revert:"} -->
 
 The spec leaves revert handling to tooling, and recommends this shape: a `revert` type plus a footer naming the reverted SHAs. `git revert` writes `Revert "..."`, which does not parse, so reword the subject.
 
@@ -185,11 +189,13 @@ See: [Revert commits](https://www.conventionalcommits.org/en/v1.0.0/#how-does-co
 git merge --squash feature/login
 git commit -m 'feat(auth): add login with SSO'
 ```
+<!-- {: data-highlight="--squash"} -->
 
 ```bash
 # Merge commit: pass a conventional subject
 git merge --no-ff feature/login -m 'feat(auth): add SSO'
 ```
+<!-- {: data-highlight="--no-ff"} -->
 
 A squash leaves one commit, so the PR title carries the type. Plain merge commits do not parse, and tools skip them. Contributors can commit freely when a maintainer edits the squash message.
 
@@ -240,6 +246,7 @@ See: [semantic-release docs](https://semantic-release.org/)
 # Subjects since the last tag
 git log --no-merges --format='%s' v1.2.0..HEAD
 ```
+<!-- {: data-highlight="--format='%s'"} -->
 
 ```bash
 # Count each type
@@ -247,6 +254,7 @@ git log --no-merges --format='%s' v1.2.0..HEAD |
   sed -nE 's/^([a-zA-Z]+)(\([^)]*\))?!?: .+/\1/p' |
   sort | uniq -c | sort -rn
 ```
+<!-- {: data-highlight="sed -nE"} -->
 
 Replace the range with your last tag. The expression drops the scope and `!` and skips subjects that do not parse, so the output is a count per type.
 
@@ -266,6 +274,7 @@ module.exports = {
   }
 }
 ```
+<!-- {: data-highlight="scope-enum"} -->
 
 #### Husky hook
 
@@ -274,6 +283,7 @@ pnpm add -D @commitlint/cli @commitlint/config-conventional husky
 pnpm exec husky init
 echo 'npx --no -- commitlint --edit "$1"' > .husky/commit-msg
 ```
+<!-- {: data-highlight="--edit"} -->
 
 The hook checks the message file before the commit lands. Lint the same range in CI with `npx commitlint --from origin/master --to HEAD`.
 
@@ -287,6 +297,7 @@ pnpm exec commitizen init cz-conventional-changelog \
   --pnpm --save-dev --save-exact
 pnpm exec cz
 ```
+<!-- {: data-highlight="pnpm exec cz"} -->
 
 `cz` prompts for the parts and writes the message, so contributors do not need the grammar memorised.
 

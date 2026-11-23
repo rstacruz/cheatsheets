@@ -48,6 +48,7 @@ var mutableString: String = "Adam"
 val immutableString: String = "Adam"
 val inferredString = "Adam"
 ```
+<!-- {: data-highlight="var; val"} -->
 
 Use `var` for values that change, `val` for read-only ones. Types are inferred unless annotated.
 
@@ -63,6 +64,7 @@ val greeting = "Hello, " + name
 val template = "Hello, $name"
 val upper = "Hi, ${name.uppercase()}"
 ```
+<!-- {: data-highlight="$name"} -->
 
 #### Multiline
 
@@ -71,12 +73,14 @@ val raw = """
   Hi, $name
 """.trimIndent()
 ```
+<!-- {: data-highlight="trimIndent()"} -->
 
 #### Multi-dollar
 
 ```kotlin
 val json = $$"""{ "id": $${id} }"""
 ```
+<!-- {: data-highlight="$$"} -->
 
 String templates interpolate values with `$name` or `${expression}`.
 
@@ -94,6 +98,7 @@ val doubleNum = 10.0
 val longNum = 10L
 val floatNum = 10.0F
 ```
+<!-- {: data-highlight="10L; 10.0F"} -->
 
 See: [Numbers](https://kotlinlang.org/docs/numbers.html)
 
@@ -105,6 +110,7 @@ val isBusy = false
 val andCondition = isReady && isBusy
 val orCondition = isReady || isBusy
 ```
+<!-- {: data-highlight="&&; ||"} -->
 
 See: [Booleans](https://kotlinlang.org/docs/booleans.html)
 
@@ -134,6 +140,7 @@ See: [Companion objects](https://kotlinlang.org/docs/object-declarations.html#co
 val cannotBeNull: String = null  // compile error
 val canBeNull: String? = null    // ok
 ```
+<!-- {: data-highlight="String?"} -->
 
 A `?` after the type marks it as nullable; non-nullable types reject `null`.
 
@@ -163,6 +170,7 @@ See: [Checking for null](https://kotlinlang.org/docs/null-safety.html#check-for-
 val length: Int? = name?.length
 val head: String? = person?.department?.head?.name
 ```
+<!-- {: data-highlight="?."} -->
 
 `?.` returns `null` instead of throwing when the receiver is null.
 
@@ -175,6 +183,7 @@ val length: Int = name?.length ?: 0
 val head: String = person?.department?.head?.name ?: ""
 val upper: String = name?.uppercase().orEmpty()  // "" if null
 ```
+<!-- {: data-highlight="?:"} -->
 
 `?:` returns the left side when it isn't null, the right side otherwise. `orEmpty()` is shorthand for `?: ""`.
 
@@ -185,6 +194,7 @@ See: [Elvis operator](https://kotlinlang.org/docs/null-safety.html#elvis-operato
 ```kotlin
 val length: Int = name!!.length
 ```
+<!-- {: data-highlight="!!"} -->
 
 `!!` throws a `NullPointerException` when the value is null. Prefer `?.`, `?:`, or `requireNotNull()`.
 
@@ -196,6 +206,7 @@ See: [Not-null assertion](https://kotlinlang.org/docs/null-safety.html#not-null-
 // Returns null instead of throwing ClassCastException
 val car: Car? = input as? Car
 ```
+<!-- {: data-highlight="as?"} -->
 
 See: [Safe casts](https://kotlinlang.org/docs/null-safety.html#safe-casts)
 
@@ -209,6 +220,7 @@ val numList = listOf(1, 2, 3)
 val numSet = setOf(1, 2, 3)
 val mutableNumList = mutableListOf(1, 2, 3)
 ```
+<!-- {: data-highlight="arrayOf; listOf; setOf; mutableListOf"} -->
 
 See: [Constructing collections](https://kotlinlang.org/docs/constructing-collections.html)
 
@@ -220,6 +232,7 @@ val first = numList.first()              // throws if empty
 val firstOrNull = numList.firstOrNull()  // null if empty
 val last = numList.last()
 ```
+<!-- {: data-highlight="first; firstOrNull"} -->
 
 See: [Retrieving elements](https://kotlinlang.org/docs/collection-elements.html)
 
@@ -232,6 +245,7 @@ faceCards["Ace"] = 1
 
 val immutableMap = mapOf("Jack" to 11, "Queen" to 12)
 ```
+<!-- {: data-highlight="mutableMapOf; mapOf"} -->
 
 Reads return `null` for missing keys; `getValue()` throws instead.
 
@@ -246,6 +260,7 @@ val mutableList = immutableList.toMutableList()
 val immutableMap = mapOf("Jack" to 11, "Queen" to 12)
 val mutableMap = immutableMap.toMutableMap()
 ```
+<!-- {: data-highlight="toMutableList(); toMutableMap()"} -->
 
 `listOf()` and `mapOf()` are read-only; use the `mutable*` builders to add, set, or remove.
 
@@ -266,6 +281,7 @@ myList.forEachIndexed { index, item ->
     print("Item at $index is: $item")
 }
 ```
+<!-- {: data-highlight="forEach; forEachIndexed"} -->
 
 See: [Iterators](https://kotlinlang.org/docs/iterators.html)
 
@@ -279,6 +295,7 @@ val noEvens = numList.none { it % 2 == 0 }
 val firstEven = numList.first { it % 2 == 0 }  // throws if none
 val firstEvenOrNull = numList.firstOrNull { it % 2 == 0 }
 ```
+<!-- {: data-highlight="filter; any; all; none"} -->
 
 `it` is the implicit name of a lambda's single parameter.
 
@@ -296,6 +313,7 @@ val byName = items.groupBy { it.name }
 val sorted = items.sortedByDescending { it.price }
 val total = items.sumOf { it.price }
 ```
+<!-- {: data-highlight="map; groupBy; sortedByDescending; sumOf"} -->
 
 See: [Transformations](https://kotlinlang.org/docs/collection-transformations.html), [Grouping](https://kotlinlang.org/docs/collection-grouping.html), [Ordering](https://kotlinlang.org/docs/collection-ordering.html)
 
@@ -338,6 +356,7 @@ callbackIfTrue(someBoolean) {
     print("Condition was true")
 }
 ```
+<!-- {: data-highlight="() -> Unit"} -->
 
 Functions are values: `() -> Unit` is a function type that callback parameters accept.
 
@@ -352,6 +371,7 @@ fun Int.timesTwo(): Int {
 
 val four = 2.timesTwo()
 ```
+<!-- {: data-highlight="Int.timesTwo()"} -->
 
 Extensions add method-like call syntax without modifying the type; calls are resolved statically.
 
@@ -370,6 +390,7 @@ val hello = getGreeting(Person("Adam"))
 // Returns "Welcome, Adam"
 val welcome = getGreeting(Person("Adam"), "Welcome,")
 ```
+<!-- {: data-highlight='= "Hello,"'} -->
 
 See: [Default arguments](https://kotlinlang.org/docs/functions.html#parameters-with-default-values)
 
@@ -385,6 +406,7 @@ val c = Person(name = "Adam", age = 100)
 val d = Person(age = 100)
 val e = Person(age = 100, name = "Adam")
 ```
+<!-- {: data-highlight="name =; age ="} -->
 
 See: [Named arguments](https://kotlinlang.org/docs/functions.html#named-arguments)
 
@@ -401,6 +423,7 @@ class Logger(val tag: String) {
 
 val log = Logger.create("app")
 ```
+<!-- {: data-highlight="Logger.create"} -->
 
 `Logger.create()` is called on the class, like a static factory method in Java. Add `@JvmStatic` so Java can call it as `Logger.create("app")`.
 
@@ -415,6 +438,7 @@ class Person(val name: String, val age: Int)
 
 val adam = Person("Adam", 100)
 ```
+<!-- {: data-highlight="val name: String"} -->
 
 Constructor parameters marked `val` or `var` become properties.
 
@@ -441,6 +465,7 @@ class Person(val name: String) {
 ```kotlin
 class Person(val name: String, val age: Int? = null)
 ```
+<!-- {: data-highlight="Int? = null"} -->
 
 Secondary constructors delegate to the primary one with `: this(...)`; default parameters often replace them.
 
@@ -482,6 +507,7 @@ if (isDone) {
 
 val label = if (isDone) "Done" else "Pending"
 ```
+<!-- {: data-highlight="if (isDone)"} -->
 
 `if` is an expression: it returns the value of the taken branch.
 
@@ -496,6 +522,7 @@ for (i in 0..<10) { }             // 0 to 9, same as until
 for (i in 10 downTo 0 step 2) { }  // 10, 8, 6, ...
 (0..10).forEach { }
 ```
+<!-- {: data-highlight="until; ..<; downTo; step"} -->
 
 See: [For loops](https://kotlinlang.org/docs/control-flow.html#for-loops)
 
@@ -512,6 +539,7 @@ when (direction) {
     Direction.EAST, Direction.WEST -> print("East or West")
 }
 ```
+<!-- {: data-highlight="when (direction)"} -->
 
 #### Without a subject
 
@@ -522,6 +550,7 @@ when {
     else -> print("Zero")
 }
 ```
+<!-- {: data-highlight="when {"} -->
 
 #### With guards
 
@@ -532,6 +561,7 @@ fun label(value: Any): String = when (value) {
     else -> "other"
 }
 ```
+<!-- {: data-highlight="if value.isNotBlank()"} -->
 
 A guard adds an `if` condition to a branch; it requires a subject.
 
@@ -550,6 +580,7 @@ do {
     x--
 } while (x > 0)
 ```
+<!-- {: data-highlight="while; do"} -->
 
 See: [While loops](https://kotlinlang.org/docs/control-flow.html#while-loops)
 
@@ -565,6 +596,7 @@ data class Person(val name: String, val age: Int)
 val person = Person("Adam", 100)
 val (name, age) = person
 ```
+<!-- {: data-highlight="data class"} -->
 
 #### Pairs & arrays
 
@@ -575,6 +607,7 @@ val (first, second) = pair
 val coordinates = arrayOf(1, 2, 3)
 val (x, y, z) = coordinates
 ```
+<!-- {: data-highlight="val (first, second); val (x, y, z)"} -->
 
 #### Maps
 
@@ -584,6 +617,7 @@ for ((key, value) in scores) {
     print("$key = $value")
 }
 ```
+<!-- {: data-highlight="for ((key, value) in scores)"} -->
 
 Destructuring reads `componentN()` functions, so it works with data classes, pairs, arrays, and map entries.
 
@@ -602,6 +636,7 @@ class Person(val name: String, val age: Int) {
     }
 }
 ```
+<!-- {: data-highlight="component1; component2"} -->
 
 Declare `operator fun componentN()` to make a class destructurable. `data class` generates them for you.
 

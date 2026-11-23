@@ -389,6 +389,39 @@ Don't repeat the same highlight token across code blocks in a sheet. A tint that
 
 **Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
 
+### code/highlight-parallel-set
+
+When a block lists parallel alternatives — flags, expansion forms, quote
+styles, array operations — don't tint one member picked at random. Tint the
+shared syntax, tint every member (within `code/highlight-limit`), tint the
+single form the card's prose explicitly teaches, or leave the block
+unhighlighted. A lone tint on an uncommon option reads as a mistake.
+
+**Good:** the card teaches all three flags, so all three are tinted.
+
+````md
+```bash
+grep -i foo file
+grep -r foo dir
+grep -n foo file
+```
+<!-- {: data-highlight="-i; -r; -n"} -->
+````
+
+**Bad:** one uncommon expansion is tinted out of many alternatives.
+
+````md
+```bash
+echo "${name}"
+echo "${name/J/j}"
+echo "${name:0:2}"
+```
+<!-- {: data-highlight="${name/J/j}"} -->
+````
+
+Long reference lists with no single lesson need no highlight; the card's
+`See:` line already points to the full reference.
+
 ### code/data-highlight-in-block
 
 🤖 Check: `code/data-highlight-in-block`.
@@ -605,7 +638,7 @@ Choose the class from the longest item; the check enforces the boundary.
 
 ### code/inline-comments
 
-Use inline comments to explain results, equivalents, or provide context.
+Use inline comments to explain results, equivalents, or provide context. When a card shows several commands, prefer a leading `#` caption on each fenced block; see `code/comment-led-blocks`.
 
 ````markdown
 ### Pattern matching
@@ -821,7 +854,27 @@ No paragraph may be followed by a code block or table in a card. Fold the note i
 
 🤖 Check: `code/one-example-per-block`.
 
-A code block holds one example. Start a new fence instead of stacking commented examples.
+A code block holds one example. Start a new fence instead of stacking commented examples. For adjacent `#` captions, see `code/comment-led-blocks`.
+
+### code/comment-led-blocks
+
+When a card shows several commands, give each step its own fenced block led by a `#` comment. Don't mix commented and uncommented commands in one fence, and don't put two `#` captions in the same fence. Add H4s only when the fences show different workflows, such as Pull and Push; caption-led fences need no H4.
+
+````md
+### Manage remotes
+
+```sh
+# preview untracked deletions
+git clean -nd
+```
+
+```sh
+# delete untracked files
+git clean -fd
+```
+````
+
+A comment should say what the command changes, not restate it: `# switch to a branch` above `git switch feat/login` adds nothing. Use trailing comments only for results and equivalents; see `code/inline-comments`.
 
 ### frontmatter/h3-links
 

@@ -308,6 +308,7 @@ max_height = 1000
 wrap       = "yes"
 tab_size   = 2
 ```
+<!-- {: data-highlight="max_width; max_height"} -->
 
 Images render at the smaller of these limits and the terminal size. Run `ya cache clear` after changing the image limits.
 
@@ -336,6 +337,7 @@ yazi --chooser-file="$tmp"
 cat "$tmp"          # one selected path per line
 rm -f "$tmp"
 ```
+<!-- {: data-highlight="--chooser-file"} -->
 
 With `--chooser-file`, `Enter` or `o` writes the selected paths and exits, so shells and editors can use Yazi as a file picker.
 
@@ -355,6 +357,7 @@ for   = "unix"
 mime = "text/*"
 use  = "edit"
 ```
+<!-- {: data-highlight="block = true"} -->
 
 `block = true` hands the terminal to the editor and waits. `%s` expands to the selected paths; `for` limits the opener to an OS.
 
@@ -408,6 +411,7 @@ on   = "T"
 run  = "tab_create --current"
 desc = "New tab here"
 ```
+<!-- {: data-highlight="prepend_keymap; append_keymap"} -->
 
 `prepend_keymap` wins over the defaults, `append_keymap` loses to them, and `keymap` replaces the layer.
 
@@ -425,6 +429,7 @@ light = "catppuccin-latte"
 [mgr]
 cwd = { fg = "#89b4fa" }
 ```
+<!-- {: data-highlight="dark; light"} -->
 
 Install flavors with `ya pkg add yazi-rs/flavors:catppuccin-mocha`. Colors take hex values or named colors.
 
@@ -448,6 +453,7 @@ prepend_rules = [
 	{ mime = "video/*", use = "play" },
 ]
 ```
+<!-- {: data-highlight="%s; block; orphan"} -->
 
 `%s` expands to all selected paths, `%s1` to the first. `block` waits for the program; `orphan` keeps it running after Yazi exits.
 
@@ -495,6 +501,7 @@ prepend_preloaders = [
 	{ mime = "image/heic", run = "heic" },
 ]
 ```
+<!-- {: data-highlight="prepend_previewers; prepend_preloaders"} -->
 
 Previewers draw a file type; preloaders cache it. Initialize plugins in `init.lua`.
 

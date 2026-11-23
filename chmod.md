@@ -40,6 +40,7 @@ $ chmod u+x script.sh
 $ stat -c '%A %a' script.sh
 -rwxr--r-- 744
 ```
+<!-- {: data-highlight="u+x"} -->
 
 `u`, `g`, `o`, and `a` select who to change; `+`, `-`, and `=` add, remove, or set exact bits. The example starts from mode `644`.
 
@@ -52,6 +53,7 @@ $ chmod 640 secrets.txt
 $ stat -c '%A %a' secrets.txt
 -rw-r----- 640
 ```
+<!-- {: data-highlight="640"} -->
 
 Each digit sets read (4), write (2), and execute (1) for one of owner, group, and others.
 
@@ -64,6 +66,7 @@ $ chmod 755 public/
 $ stat -c '%A %a' public/
 drwxr-xr-x 755
 ```
+<!-- {: data-highlight="755"} -->
 
 On a directory, `r` lists names, `w` creates and removes entries, and `x` allows traversing it.
 
@@ -79,6 +82,7 @@ $ chmod +x script.sh
 $ stat -c '%A %a' script.sh
 -rwxr-xr-- 754
 ```
+<!-- {: data-highlight="+x"} -->
 
 With no class, `+` respects the umask (`0027` here). Use `a+x` to give execute to everyone.
 
@@ -89,6 +93,7 @@ See: [Setting permissions](https://www.gnu.org/software/coreutils/manual/html_no
 ```bash
 $ chmod go-w report.txt
 ```
+<!-- {: data-highlight="go-w"} -->
 
 `-` clears only the named bits and leaves the rest of the mode untouched.
 
@@ -99,6 +104,7 @@ See: [Setting permissions](https://www.gnu.org/software/coreutils/manual/html_no
 ```bash
 $ chmod u=rw file.txt
 ```
+<!-- {: data-highlight="u=rw"} -->
 
 `=` replaces that class's bits; `chmod 644 file.txt` does the same for all three classes.
 
@@ -110,6 +116,7 @@ See: [Setting permissions](https://www.gnu.org/software/coreutils/manual/html_no
 $ chmod -R go-w \
     public/
 ```
+<!-- {: data-highlight="-R"} -->
 
 `-R` applies the change to a whole tree. GNU chmod leaves symlinks alone.
 
@@ -121,6 +128,7 @@ See: [chmod invocation](https://www.gnu.org/software/coreutils/manual/html_node/
 $ chmod --reference=template.txt \
     target.txt
 ```
+<!-- {: data-highlight="--reference"} -->
 
 Copies the exact mode of another file; this option is GNU-specific.
 
@@ -134,6 +142,7 @@ See: [Copying permissions](https://www.gnu.org/software/coreutils/manual/html_no
 $ ls -l --time-style=+%F script.sh
 -rwxr-xr-x 1 rsc users 0 2026-11-23 script.sh
 ```
+<!-- {: data-highlight="-l"} -->
 
 The first ten characters show the file type and the owner, group, and other permission bits.
 
@@ -145,6 +154,7 @@ See: [File permissions](https://www.gnu.org/software/coreutils/manual/html_node/
 $ stat -c '%A %a' script.sh
 -rwxr-xr-x 755
 ```
+<!-- {: data-highlight="%A %a"} -->
 
 `stat` prints both forms, which is handy after a recursive change.
 
@@ -160,6 +170,7 @@ $ chmod u+s program
 $ stat -c '%A %a' program
 -rwsr-xr-x 4755
 ```
+<!-- {: data-highlight="u+s"} -->
 
 The owner's `x` becomes `s` and the numeric mode gains a leading `4`.
 
@@ -172,6 +183,7 @@ $ chmod g+s shared/
 $ stat -c '%A %a' shared/
 drwxr-sr-x 2755
 ```
+<!-- {: data-highlight="g+s"} -->
 
 On a directory, new entries inherit its group; the leading digit becomes `2`.
 
@@ -185,6 +197,7 @@ $ chmod +t shared/
 $ stat -c '%A %a' shared/
 drwxrwxrwt 1777
 ```
+<!-- {: data-highlight="+t"} -->
 
 A leading `0` clears inherited special bits. On a shared directory, unprivileged users can remove only their own entries; the directory owner and root are exempt.
 
@@ -195,6 +208,7 @@ See: [File permissions](https://www.gnu.org/software/coreutils/manual/html_node/
 ```bash
 $ chmod 2755 shared/
 ```
+<!-- {: data-highlight="2755"} -->
 
 #### Leading digit
 

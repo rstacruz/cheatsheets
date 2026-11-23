@@ -52,6 +52,7 @@ ls **/*.js          # any depth
 setopt globdots     # * matches dotfiles too
 ls **/*.js(N)       # N: drop if no match
 ```
+<!-- {: data-highlight="**/"} -->
 
 `**/` works with no options; `globdots` makes wildcards match leading dots.
 
@@ -65,6 +66,7 @@ ls *(m0)          # modified today
 ls *(m-4)         # modified within 4 days
 ls *(om[1,3])     # three newest files
 ```
+<!-- {: data-highlight="*(.); *(m0); *(m-4); *(om[1,3])"} -->
 
 #### Qualifiers
 
@@ -95,6 +97,7 @@ setopt extendedglob
 ls ^*.txt          # everything except .txt
 ls *.js~test*      # .js files not starting test
 ```
+<!-- {: data-highlight="^*.txt; *.js~test*"} -->
 
 Both `^` and `~` need `extendedglob`. `^` negates a whole pattern; `~` subtracts a pattern.
 
@@ -108,6 +111,7 @@ ls (#i)*readme*    # case-insensitive
 ls file<1-9>.txt   # one digit
 ls a##b            # one or more a's
 ```
+<!-- {: data-highlight="(#i); a##b"} -->
 
 `#` repeats the preceding pattern zero or more times, `##` one or more. `(#b)` turns on backreferences for `[[ = ]]`.
 
@@ -121,6 +125,7 @@ zmv -n '(*).txt' '$1.md'    # dry run
 zmv '(*).txt' '$1.md'       # rename
 zmv -W '*.txt' '*.md'       # wildcard form
 ```
+<!-- {: data-highlight="-n; -W"} -->
 
 `-n` prints what would change. `-W` captures `*` automatically, so no `$1` is needed.
 
@@ -133,6 +138,7 @@ ls *.nope        # zsh: no matches found
 setopt nullglob  # drop unmatched patterns
 setopt nonomatch # keep the pattern as typed
 ```
+<!-- {: data-highlight="nullglob; nonomatch"} -->
 
 The default error stops the whole command; the two options change that.
 
@@ -147,6 +153,7 @@ See: [Filename generation](https://zsh.sourceforge.io/Doc/Release/Expansion.html
 echo $ZDOTDIR     # empty means $HOME
 ls ~/.zshenv ~/.zshrc
 ```
+<!-- {: data-highlight=".zshenv; .zshrc"} -->
 
 #### Read order
 
@@ -167,6 +174,7 @@ chsh -s $(which zsh)
 echo $SHELL      # verify
 exec zsh         # switch now
 ```
+<!-- {: data-highlight="chsh"} -->
 
 `chsh` changes the login shell; `$SHELL` updates after you log in again.
 
@@ -178,6 +186,7 @@ See: man chsh
 setopt shwordsplit  # split unquoted $var
 emulate sh -c 'echo hi'
 ```
+<!-- {: data-highlight="emulate sh"} -->
 
 zsh keeps unquoted parameters as one word and indexes arrays from 1.
 
@@ -193,6 +202,7 @@ zsh -f     # no startup files
 zsh -d     # no global rcs
 exec zsh   # restart
 ```
+<!-- {: data-highlight="zsh -f; zsh -d"} -->
 
 `-f` also skips `.zshenv`; `-d` skips `/etc/zsh*`. Use either when debugging a broken config.
 
@@ -208,6 +218,7 @@ print ${(s.:.)v}            # a b c
 print ${(j:,:)${(s.:.)v}}   # a,b,c
 print ${(U)${(q)v}}         # quoted, uppercase
 ```
+<!-- {: data-highlight="(s.:.); (j:,:)"} -->
 
 #### Flags
 
@@ -243,6 +254,7 @@ print ${${(f)lines}[2]}      # two
 arr=(c a b)
 print ${(j:,:)${(o)arr}}     # a,b,c
 ```
+<!-- {: data-highlight="${(f)lines}[2]"} -->
 
 Subscripts apply to the result of the braces around them, so nested expansions read from the inside out.
 
@@ -257,6 +269,7 @@ print ${f:t}    # archive.tar.gz
 print ${f:r}    # /tmp/archive.tar
 print ${f:gs/tmp/var}  # /var/archive.tar.gz
 ```
+<!-- {: data-highlight=":h; :t; :r; :gs/tmp/var"} -->
 
 #### Modifiers
 
@@ -285,6 +298,7 @@ print -l "$arr"        # one word: a b c
 print -l "${(@)arr}"   # one word per element
 print $arr[2]          # b
 ```
+<!-- {: data-highlight="${(@)arr}; $arr[2]"} -->
 
 #### Cartesian product
 
@@ -292,6 +306,7 @@ print $arr[2]          # b
 arr=(a b)
 print $^arr.txt        # a.txt b.txt
 ```
+<!-- {: data-highlight="$^arr"} -->
 
 `"${(@)arr}"` keeps each element a separate word; `$^arr` joins each element with the text that follows.
 
@@ -305,6 +320,7 @@ print -l $v     # a b (one word)
 print -l $=v    # a and b
 print -l $~v    # v used as a pattern
 ```
+<!-- {: data-highlight="$=v; $~v"} -->
 
 Unquoted parameters are not split; `$=` forces splitting and `$~` forces pattern interpretation.
 
@@ -323,6 +339,7 @@ print ${#arr}      # 3
 arr+=(four)
 unset 'arr[2]'
 ```
+<!-- {: data-highlight="$arr[-1]; ${#arr}; arr+=(four)"} -->
 
 Arrays are 1-indexed. Negative indexes count from the end, and `arr+=(x)` appends. Deleting an element leaves a gap, so `${#arr}` is not the highest index.
 
@@ -336,6 +353,7 @@ print $arr[(i)ba*]    # 2, first match
 print $arr[(I)ba*]    # 3, last match
 print $arr[(r)ba*]    # bar, first value
 ```
+<!-- {: data-highlight="(i); (I); (r)"} -->
 
 `(i)` and `(I)` return indexes; `(r)` and `(R)` return values.
 
@@ -351,6 +369,7 @@ print ${(v)map}     # localhost 8080
 print ${(kv)map}    # host localhost port 8080
 print ${(ok)map}    # keys sorted
 ```
+<!-- {: data-highlight="typeset -A; ${(kv)map}"} -->
 
 Declare with `typeset -A`; `${(kv)map}` flattens key/value pairs.
 
@@ -364,6 +383,7 @@ typeset -F f=1.5       # float
 typeset -l lower=ABC   # lowercase
 typeset -T PATH path   # tie PATH to array
 ```
+<!-- {: data-highlight="typeset -i; typeset -F; typeset -l; typeset -T"} -->
 
 #### Attributes
 
@@ -396,6 +416,7 @@ cat !$           # last argument of last command
 !?ls             # last command containing ls
 !-2              # two commands back
 ```
+<!-- {: data-highlight="!!; !*; !$; !-2"} -->
 
 zsh expands these when the line is accepted. `setopt histverify` loads the expansion into the buffer for editing first.
 
@@ -409,6 +430,7 @@ See: [Event designators](https://zsh.sourceforge.io/Doc/Release/Expansion.html#E
 !!:gs/a/b/         # every a to b
 !$:h               # dirname of last argument
 ```
+<!-- {: data-highlight="^old^new; !!:s/a/b/; !!:gs/a/b/"} -->
 
 `^old^new` is shorthand for `!!:s/old/new/`; the `:s` modifier also works on any event.
 
@@ -423,6 +445,7 @@ SAVEHIST=10000        # on disk
 setopt share_history  # sync across sessions
 setopt inc_append_history
 ```
+<!-- {: data-highlight="HISTFILE; share_history; inc_append_history"} -->
 
 `share_history` imports commands from other sessions as they run; `inc_append_history` appends each command immediately.
 
@@ -437,6 +460,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 ```
+<!-- {: data-highlight="history 1; fc -l -10; hist_ignore_space"} -->
 
 `Ctrl-R` starts incremental search. `hist_ignore_space` skips commands starting with a space.
 
@@ -451,6 +475,7 @@ autoload -Uz compinit
 compinit
 compinit -C        # skip the security check
 ```
+<!-- {: data-highlight="compinit"} -->
 
 `compinit` scans `fpath` and writes `~/.zcompdump`; rerun it after adding completion functions.
 
@@ -463,6 +488,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ```
+<!-- {: data-highlight="matcher-list"} -->
 
 Styles are looked up by context pattern; the matcher above ignores case.
 
@@ -476,6 +502,7 @@ _foo() {
 }
 compdef _foo foo
 ```
+<!-- {: data-highlight="_arguments; compdef"} -->
 
 `_arguments` describes options and their arguments. A file starting with `#compdef foo` is autoloaded from `fpath`.
 
@@ -489,6 +516,7 @@ setopt complete_in_word
 setopt always_last_prompt
 unsetopt beep
 ```
+<!-- {: data-highlight="auto_menu; complete_in_word; always_last_prompt"} -->
 
 #### Options
 
@@ -513,6 +541,7 @@ bindkey -v          # vi bindings
 bindkey -M vicmd    # list vi command keys
 bindkey -l          # list keymaps
 ```
+<!-- {: data-highlight="-e; -v; -M vicmd"} -->
 
 `-e` and `-v` switch the main keymap; `-M` selects another for listing.
 
@@ -525,6 +554,7 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^[[A' up-line-or-history
 bindkey -s '^X^E' 'nvim\n'
 ```
+<!-- {: data-highlight="bindkey -s"} -->
 
 #### Notation
 
@@ -549,6 +579,7 @@ my-widget() {
 zle -N my-widget
 bindkey '^G' my-widget
 ```
+<!-- {: data-highlight="LBUFFER; zle -N"} -->
 
 Widgets read and write `$LBUFFER` and `$RBUFFER` around the cursor.
 
@@ -561,6 +592,7 @@ read -k 1 key       # one keypress
 read -q '?Continue? ' && echo yes
 vared -p 'Name: ' name
 ```
+<!-- {: data-highlight="read -k; read -q; vared -p"} -->
 
 `read -k` takes a character count and `-q` returns success for `y`.
 
@@ -573,6 +605,7 @@ zle -l              # list widgets
 bindkey -L          # list bindings
 setopt no_beep
 ```
+<!-- {: data-highlight="zle -l; bindkey -L"} -->
 
 `bindkey -L` prints the commands that recreate the current bindings.
 
@@ -588,6 +621,7 @@ RPROMPT='%T'
 PROMPT2='%_ '
 PROMPT_EOL_MARK='%B%S%#%s%b'
 ```
+<!-- {: data-highlight="PROMPT; RPROMPT; PROMPT2"} -->
 
 `PROMPT` is the main prompt, `RPROMPT` sits at the right edge, and `PROMPT2` shows while a command continues.
 
@@ -599,6 +633,7 @@ See: [Prompt expansion](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.
 PROMPT='%F{green}%~%f %# '
 RPROMPT='%? %T'
 ```
+<!-- {: data-highlight="%F{green}%~; %?"} -->
 
 #### Escapes
 
@@ -632,6 +667,7 @@ See: [Prompt expansion](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.
 setopt prompt_subst
 PROMPT='$(date +%H:%M) %~ %# '
 ```
+<!-- {: data-highlight="prompt_subst"} -->
 
 `prompt_subst` runs command and parameter substitution on every redraw.
 
@@ -646,6 +682,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 precmd() { vcs_info }
 PROMPT='%~ ${vcs_info_msg_0_}%# '
 ```
+<!-- {: data-highlight="vcs_info; vcs_info_msg_0_"} -->
 
 `vcs_info` sets `vcs_info_msg_0_`; calling it from `precmd` refreshes the branch before each prompt.
 
@@ -662,6 +699,7 @@ set -o noclobber
 print ${options[autocd]}   # on
 setopt                     # list enabled options
 ```
+<!-- {: data-highlight="setopt; unsetopt"} -->
 
 Option names ignore case and underscores, so `no_beep` and `nobeep` match.
 
@@ -673,6 +711,7 @@ See: [Options](https://zsh.sourceforge.io/Doc/Release/Options.html)
 setopt autocd extendedglob globdots
 setopt hist_ignore_dups share_history
 ```
+<!-- {: data-highlight="autocd; extendedglob; globdots"} -->
 
 #### Common options
 
@@ -700,6 +739,7 @@ setopt err_exit err_return
 setopt no_unset pipe_fail
 setopt xtrace
 ```
+<!-- {: data-highlight="err_exit; err_return; pipe_fail"} -->
 
 These mirror `set -e`, `set -u`, `pipefail`, and `set -x`. `err_return` returns from a function on a failed command.
 
@@ -712,6 +752,7 @@ emulate -L zsh
 emulate sh -c 'echo $0'
 emulate -L sh
 ```
+<!-- {: data-highlight="emulate -L"} -->
 
 `emulate -L` sets options locally, so changes do not leak to the caller.
 
@@ -726,6 +767,7 @@ See: [Shell emulation](https://zsh.sourceforge.io/Doc/Release/Options.html#Shell
 emulate -L zsh
 setopt extendedglob
 ```
+<!-- {: data-highlight="#!/usr/bin/env zsh"} -->
 
 Start scripts with `emulate -L zsh` so user options and aliases do not change behaviour.
 
@@ -741,6 +783,7 @@ greet() {
 }
 greet Ada one two
 ```
+<!-- {: data-highlight="greet(); local; $argv"} -->
 
 Inside a function `$0` is its name, `$argv` holds its arguments, and `$funcstack` lists the call chain.
 
@@ -752,6 +795,7 @@ See: [Functions](https://zsh.sourceforge.io/Doc/Release/Functions.html)
 zparseopts -D -E -A opts v f:
 print ${opts[-f]}    # value passed to -f
 ```
+<!-- {: data-highlight="-D; -E; -A"} -->
 
 `-D` removes parsed options from `$@`, `-E` keeps scanning past unknown words, and `-A` fills an associative array keyed by option name.
 
@@ -764,6 +808,7 @@ TRAPZERR() { print "failed: $?" }
 TRAPEXIT() { print "bye" }
 TRAPINT() { print "interrupted"; return 1 }
 ```
+<!-- {: data-highlight="TRAPZERR; TRAPEXIT; TRAPINT"} -->
 
 `TRAPZERR` runs on a non-zero status, `TRAPEXIT` at shell exit, and `TRAPINT` on `Ctrl-C`.
 
@@ -776,6 +821,7 @@ autoload -Uz add-zsh-hook
 my_precmd() { print -r -- ready }
 add-zsh-hook precmd my_precmd
 ```
+<!-- {: data-highlight="add-zsh-hook"} -->
 
 `precmd` runs before each prompt, `preexec` after a command is read, and `chpwd` after a directory change.
 
@@ -788,6 +834,7 @@ fpath=(~/.zfunc $fpath)
 autoload -Uz myfunc
 myfunc
 ```
+<!-- {: data-highlight="fpath; autoload -Uz"} -->
 
 A file named `myfunc` in any `fpath` directory is read on first call.
 
@@ -803,6 +850,7 @@ print -r -- 'a\tb'         # raw, no escapes
 print -l a b c             # one per line
 print -f '%s\n' a b        # printf formatting
 ```
+<!-- {: data-highlight="-P; -r; -l; -f"} -->
 
 #### Options
 
@@ -828,6 +876,7 @@ zmodload zsh/mapfile
 print ${(f)mapfile[/etc/hosts]}
 zmodload              # list loaded modules
 ```
+<!-- {: data-highlight="zsh/datetime; zsh/mapfile"} -->
 
 `zsh/stat` adds `stat`, and `zsh/files` adds builtin file commands.
 
@@ -842,6 +891,7 @@ cat <a <b                    # read both
 print hi >a >b               # write both
 print =ls                    # path to ls
 ```
+<!-- {: data-highlight="<(sort a); =(curl -s example.com); <a <b; >a >b"} -->
 
 `<(cmd)` is read-only; `=(cmd)` is a regular file that programs can rewrite. Multios fan input or output across several redirections.
 
@@ -855,6 +905,7 @@ zargs -n 100 -- **/*.log -- gzip
 autoload -Uz zcalc
 zcalc -e '2**10'    # 1024
 ```
+<!-- {: data-highlight="zargs; zcalc"} -->
 
 `zargs` batches a long argument list, like `xargs`; `zcalc` evaluates arithmetic, with `-f` for floats.
 

@@ -53,6 +53,7 @@ links:
 ```bash
 rg TODO
 ```
+<!-- {: data-highlight="TODO"} -->
 
 #### Output
 
@@ -83,6 +84,7 @@ See: `rg --help` (USAGE)
 ```bash
 rg -l TODO
 ```
+<!-- {: data-highlight="-l"} -->
 
 #### Output
 
@@ -110,6 +112,7 @@ rg 'a.b' notes.txt
 # → path a.b
 # → path axb
 ```
+<!-- {: data-highlight="'a.b'"} -->
 
 #### Fixed string
 
@@ -117,6 +120,7 @@ rg 'a.b' notes.txt
 rg -F 'a.b' notes.txt
 # → path a.b
 ```
+<!-- {: data-highlight="-F"} -->
 
 `.` is a regex wildcard; `-F` treats the pattern as literal text.
 
@@ -129,6 +133,7 @@ rg -i todo
 rg -S todo
 rg -w port
 ```
+<!-- {: data-highlight="-i; -S; -w"} -->
 
 Case-sensitive by default. `-i` ignores case, `-S` only for all-lowercase patterns, `-w` matches whole words.
 
@@ -140,6 +145,7 @@ See: `rg --help` (-i, -S, -w)
 rg -x 'port: 8080' config.yml
 rg -v TODO src/lib.rs
 ```
+<!-- {: data-highlight="-x; -v"} -->
 
 `-x` matches the entire line; `-v` selects the lines without a match.
 
@@ -151,6 +157,7 @@ See: `rg --help` (-x, -v)
 rg 'TODO|FIXME'
 rg -e TODO -e FIXME
 ```
+<!-- {: data-highlight="'TODO|FIXME'; -e"} -->
 
 Both forms find the same matches; `-e` may be repeated.
 
@@ -163,6 +170,7 @@ See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 ```bash
 rg --files
 ```
+<!-- {: data-highlight="--files"} -->
 
 #### Output
 
@@ -185,6 +193,7 @@ See: `rg --help` (--files)
 ```bash
 rg -g '*.rs' TODO
 ```
+<!-- {: data-highlight="-g '*.rs'"} -->
 
 #### Output
 
@@ -203,6 +212,7 @@ See: [gitignore patterns](https://git-scm.com/docs/gitignore#_pattern_format)
 ```bash
 rg -g '!tests/**' TODO
 ```
+<!-- {: data-highlight="'!tests/**'"} -->
 
 #### Output
 
@@ -222,6 +232,7 @@ See: [gitignore patterns](https://git-scm.com/docs/gitignore#_pattern_format)
 rg -t rust TODO
 rg -T rust TODO
 ```
+<!-- {: data-highlight="-t; -T"} -->
 
 `-T` inverts the type filter; `rg --type-list` lists the known types.
 
@@ -235,12 +246,14 @@ See: `rg --help` (--type, --type-list)
 rg --hidden -g '!.git/**' token
 # → .hidden.toml:token = "hidden-token"
 ```
+<!-- {: data-highlight="--hidden"} -->
 
 #### Ignored
 
 ```bash
 rg --no-ignore TODO
 ```
+<!-- {: data-highlight="--no-ignore"} -->
 
 #### Output
 
@@ -263,6 +276,7 @@ See: `rg --help` (--hidden, --no-ignore)
 ```bash
 rg -n -C 1 TODO src/main.rs
 ```
+<!-- {: data-highlight="-C 1"} -->
 
 #### Output
 
@@ -289,6 +303,7 @@ See: `rg --help` (-A, -B, -C)
 ```bash
 rg -n -H port src
 ```
+<!-- {: data-highlight="-H"} -->
 
 #### Output
 
@@ -302,6 +317,7 @@ src/main.rs:3:    // TODO: bind the port
 ```bash
 rg -I -n port src
 ```
+<!-- {: data-highlight="-I"} -->
 
 #### Output
 
@@ -319,6 +335,7 @@ See: `rg --help` (-H, -I, --column)
 ```bash
 rg -c TODO src tests
 ```
+<!-- {: data-highlight="-c"} -->
 
 #### Output
 
@@ -338,6 +355,7 @@ See: `rg --help` (-c, --count-matches)
 rg -n -o 'port: \d+' config.yml
 # → 2:port: 8080
 ```
+<!-- {: data-highlight="-o"} -->
 
 `-o` prints each match instead of its whole line.
 
@@ -350,6 +368,7 @@ See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 ```bash
 rg -o 'TODO: (\w+)' -r '$1!' src
 ```
+<!-- {: data-highlight="-r '$1!'"} -->
 
 #### Output
 
@@ -367,6 +386,7 @@ See: `rg --help` (-r)
 ```bash
 rg --passthru -r '<todo>' TODO src/main.rs
 ```
+<!-- {: data-highlight="--passthru"} -->
 
 #### Output
 
@@ -390,6 +410,7 @@ See: `rg --help` (--passthru)
 ```bash
 rg -U '(?s)fn main\(\).*?TODO' src/main.rs
 ```
+<!-- {: data-highlight="-U; (?s)"} -->
 
 #### Output
 
@@ -408,6 +429,7 @@ See: [regex syntax](https://docs.rs/regex/latest/regex/#syntax)
 ```bash
 rg -P '(?<=TODO: )\w+' src tests
 ```
+<!-- {: data-highlight="-P"} -->
 
 #### Output
 
@@ -442,6 +464,7 @@ See: `rg --help` (--engine)
 find src tests -name '*.rs' -print0 \
   | xargs -0 rg -H -n TODO
 ```
+<!-- {: data-highlight="-print0; -0"} -->
 
 #### Output
 
@@ -461,6 +484,7 @@ See: [find(1)](https://man7.org/linux/man-pages/man1/find.1.html)
 find src tests -name '*.rs' \
   -exec rg -H -n TODO {} +
 ```
+<!-- {: data-highlight="-exec"} -->
 
 #### Output
 
@@ -479,6 +503,7 @@ See: [find(1)](https://man7.org/linux/man-pages/man1/find.1.html)
 ```bash
 git ls-files -z | xargs -0 rg -n TODO
 ```
+<!-- {: data-highlight="git ls-files"} -->
 
 #### Output
 

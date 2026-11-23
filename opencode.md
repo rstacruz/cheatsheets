@@ -60,6 +60,7 @@ See: [Intro](https://opencode.ai/docs/)
 opencode auth login anthropic   # sign in from the CLI
 opencode auth list              # list connected accounts
 ```
+<!-- {: data-highlight="/connect"} -->
 
 Catalogs come from [models.dev](https://models.dev), so most providers work once you connect an account or export its API key.
 
@@ -74,6 +75,7 @@ opencode run "explain this repo"  # one-shot: prints and exits
 opencode mini                     # minimal interactive interface
 opencode run --continue "go on"   # continue the latest session
 ```
+<!-- {: data-highlight="opencode mini; --continue"} -->
 
 Sessions live in the shared server's database, so every client sees them. Use `opencode session list --format json` to inspect them.
 
@@ -142,6 +144,7 @@ opencode --standalone                # private server
 opencode --server http://localhost:4096
 opencode service set disabled true   # stop the shared service
 ```
+<!-- {: data-highlight="--standalone"} -->
 
 One background server per user owns sessions and tools. In CI, `opencode run --standalone` gives a run its own server, so a secret reaches it.
 
@@ -192,6 +195,7 @@ agent: plan
 
 Review $ARGUMENTS. Report bugs first.
 ```
+<!-- {: data-highlight="$ARGUMENTS"} -->
 
 Files in `.opencode/commands/` become `/name`; nesting makes `/team/review`. `$1` and `$2` take positional arguments, and `` !`git diff` `` inserts shell output before the prompt is submitted.
 
@@ -297,6 +301,7 @@ opencode.jsonc                     # project root, committed
 .opencode/opencode.jsonc           # project, beats both above
 /etc/opencode/opencode.json        # system dir (Linux), highest
 ```
+<!-- {: data-highlight=".opencode/opencode.jsonc"} -->
 
 Every `.opencode` config overrides every direct config; the system directory outranks both. On macOS that directory is `/Library/Application Support/opencode`. TUI settings live in `~/.config/opencode/cli.json`.
 
@@ -383,6 +388,7 @@ See: [Permissions](https://opencode.ai/docs/permissions)
 AGENTS.md                     # project, committed
 packages/web/AGENTS.md        # loads when that area is read
 ```
+<!-- {: data-highlight="AGENTS.md"} -->
 
 Files combine from the global one down to the workspace; nested files load as the agent explores. Where a directory has no `AGENTS.md`, V2 falls back to `CLAUDE.md` (and `~/.claude/CLAUDE.md` globally).
 
@@ -395,6 +401,7 @@ opencode mcp add context7 --url https://mcp.context7.com/mcp
 opencode mcp add files --global -- npx -y @acme/mcp-files
 opencode mcp list
 ```
+<!-- {: data-highlight="--url; --global"} -->
 
 Remote servers use OAuth by default; run `/mcps` to finish a sign-in. Servers live under `mcp.servers` in the config.
 
@@ -410,6 +417,7 @@ See: [MCP servers](https://opencode.ai/docs/mcp-servers)
 git diff | opencode run "review this diff for bugs"
 opencode run --file src/auth.ts "review error handling"
 ```
+<!-- {: data-highlight="--file"} -->
 
 In the TUI, `/diff` opens the diff viewer and `m` marks files reviewed.
 
@@ -420,6 +428,7 @@ See: [TUI](https://opencode.ai/docs/cli/tui)
 ```bash
 opencode run --format json "list the TODO comments" | jq
 ```
+<!-- {: data-highlight="--format json"} -->
 
 `--format json` emits newline-delimited JSON, so piping into `jq` works.
 
@@ -430,6 +439,7 @@ See: [run](https://opencode.ai/docs/cli/commands#run)
 ```bash
 opencode run --archived "review this diff"
 ```
+<!-- {: data-highlight="--archived"} -->
 
 `--archived` keeps a run out of the session picker and inbox; `opencode session list` still shows it.
 
@@ -441,6 +451,7 @@ See: [run](https://opencode.ai/docs/cli/commands#run)
 /undo     # stage a rollback of the last message and its edits
 /redo     # cancel the staged rollback and restore the work
 ```
+<!-- {: data-highlight="/undo; /redo"} -->
 
 `/undo` returns the prompt to the composer; submitting it commits the rollback. Snapshots bring files back too, and turn off with `"snapshots": false`.
 

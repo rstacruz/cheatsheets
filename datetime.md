@@ -70,6 +70,7 @@ See: [Date field symbols](https://www.unicode.org/reports/tr35/tr35-dates.html#D
 2013-06-05T23:05:00+02:00   # With an offset
 2013-06-05T23:05:00.123Z    # Milliseconds
 ```
+<!-- {: data-highlight="2013-06-05T23:05:00Z"} -->
 
 ISO 8601 sorts lexicographically and needs no locale. `Z` means UTC.
 
@@ -107,6 +108,7 @@ See: [RFC 5322](https://www.rfc-editor.org/rfc/rfc5322#section-3.3)
 date +%s                    # 1370473500
 date -d @1370473500         # GNU date: Wed Jun 5 2013
 ```
+<!-- {: data-highlight="+%s"} -->
 
 Seconds since `1970-01-01T00:00:00Z`, ignoring leap seconds. JavaScript and Java's `Date` count milliseconds.
 
@@ -120,6 +122,7 @@ SELECT to_char(NOW(), 'YYYY-MM-DD');     -- PostgreSQL
 SELECT strftime('%Y-%m-%d', 'now');      -- SQLite
 SELECT FORMAT(GETDATE(), 'yyyy-MM-dd');  -- SQL Server
 ```
+<!-- {: data-highlight="%Y-%m-%d; YYYY-MM-DD"} -->
 
 MySQL and SQLite copy strftime tokens; PostgreSQL and SQL Server use their own patterns.
 
@@ -131,6 +134,7 @@ See: [PostgreSQL formatting](https://www.postgresql.org/docs/current/functions-f
 format   Date -> String   # tokens: %Y-%m-%d
 parse    String -> Date   # the same pattern, or a parser
 ```
+<!-- {: data-highlight="format; parse"} -->
 
 Parsing and formatting share a pattern in strftime, Moment, Go, and Java, but not everywhere: JavaScript's `Date` reliably parses only ISO 8601, and PHP's `DateTime::createFromFormat` takes its own token set.
 
@@ -149,6 +153,7 @@ new Intl.DateTimeFormat('en-GB', {
 
 date.toISOString()       // 2013-06-05T23:05:00.000Z
 ```
+<!-- {: data-highlight="toISOString()"} -->
 
 `Intl` is for humans and follows the locale; `toISOString()` is always UTC and always ISO 8601.
 
@@ -160,6 +165,7 @@ See: [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 date('Y-m-d H:i:s');            // 2013-06-05 23:05:00
 date('D, d M Y', $timestamp);   // Wed, 05 Jun 2013
 ```
+<!-- {: data-highlight="Y-m-d H:i:s"} -->
 
 PHP has its own tokens. `strftime()` was deprecated in PHP 8.1, so use `date()` or `DateTime::format()`.
 
@@ -172,6 +178,7 @@ t.Format("2006-01-02 15:04:05")
 t.Format(time.RFC3339)
 t.Format("Mon, 02 Jan 2006")
 ```
+<!-- {: data-highlight="2006-01-02 15:04:05"} -->
 
 A Go layout is a sample date, not a pattern: `Mon Jan 2 15:04:05 MST 2006`. Change the sample to change the output.
 
@@ -184,6 +191,7 @@ DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(now);
 DateTimeFormatter.ISO_LOCAL_DATE.format(now);
 DateTimeFormatter.RFC_1123_DATE_TIME.format(now);
 ```
+<!-- {: data-highlight="ofPattern"} -->
 
 `yyyy` is the calendar year; `YYYY` is the week-based year, which differs near New Year.
 
@@ -198,6 +206,7 @@ f.string(from: date)
 
 ISO8601DateFormatter().string(from: date)
 ```
+<!-- {: data-highlight="ISO8601DateFormatter"} -->
 
 `DateFormatter` follows Unicode TR35 patterns. `ISO8601DateFormatter` is the safe way to write ISO 8601.
 
@@ -210,6 +219,7 @@ date.ToString("yyyy-MM-dd HH:mm:ss")
 date.ToString("O")      // Round-trip ISO 8601
 date.ToString("R")      // RFC 1123
 ```
+<!-- {: data-highlight="MM; mm"} -->
 
 Custom patterns are case-sensitive: `MM` is the month, `mm` is minutes.
 

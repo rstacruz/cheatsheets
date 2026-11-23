@@ -601,6 +601,7 @@ See: [Insert completion](https://vimhelp.org/insert.txt.html#ins-completion)
 :right [width]
 :left
 ```
+<!-- {: data-highlight=":center; :right; :left"} -->
 
 See: [Aligning text](https://vimhelp.org/change.txt.html#%3Acenter)
 
@@ -622,6 +623,7 @@ See: [Expression register](https://vimhelp.org/insert.txt.html#i_CTRL-R_%3D)
 :cq
 :cquit
 ```
+<!-- {: data-highlight=":cq; :cquit"} -->
 
 Quits like `:qa!`, abandoning changes, and returns an error code. Great for aborting Git commands.
 

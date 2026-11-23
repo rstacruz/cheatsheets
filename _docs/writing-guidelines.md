@@ -806,6 +806,26 @@ intro: |
 
 Use H4s to split an H3 into labelled segments: concept variants, topics, or reference groups. Keep labels short and use 2–4 segments.
 
+Use H4s when a card shows two or more distinct variants or workflows, or two or more code blocks. Leave a single example, a sequence of steps, or alternative syntax for one step (package managers, values of one flag) unlabelled.
+
+````markdown
+### Create
+
+#### Interactive
+
+```bash
+gh pr create
+```
+
+#### Non-interactive
+
+```bash
+gh pr create --fill --base develop
+```
+````
+
+Variants such as `With label` and `As a sub-issue` get their own H4 too.
+
 ````markdown
 ### Parsing
 

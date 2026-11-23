@@ -4,7 +4,7 @@ seo_title: GitHub CLI cheatsheet — gh commands and flags
 description: "GitHub CLI reference: authenticate, clone repos, create and review pull requests, manage issues, watch Actions runs, and script with --json and gh api."
 subtitle: GitHub from the terminal
 category: Git
-updated: 2026-11-23
+updated: 2026-11-24
 last_verified_with: "gh 2.104.0."
 tier: t1
 fragments:
@@ -123,12 +123,20 @@ See: [gh repo create](https://cli.github.com/manual/gh_repo_create)
 
 ### Fork
 
+#### Clone
+
 ```bash
 gh repo fork cli/cli --clone
+```
+<!-- {: data-highlight="gh repo fork"} -->
+
+#### Organization
+
+```bash
 gh repo fork --org my-org \
   --remote
 ```
-<!-- {: data-highlight="gh repo fork"} -->
+<!-- {: data-highlight="--org my-org"} -->
 
 The fork becomes `origin`; the original repository is added as `upstream`.
 
@@ -163,17 +171,20 @@ See: [gh browse](https://cli.github.com/manual/gh_browse)
 
 ### Create
 
-```bash
-# interactive
-gh pr create
-```
+#### Interactive
 
 ```bash
-# non-interactive, branch pushed
+gh pr create
+```
+<!-- {: data-highlight="gh pr create"} -->
+
+#### Non-interactive
+
+```bash
 gh pr create --fill --base develop
 gh pr create -t "Fix login" -F -
 ```
-<!-- {: data-highlight="gh pr create"} -->
+<!-- {: data-highlight="--fill; -F -"} -->
 
 `--fill` uses the commits for the title and body; `-F -` reads the body from stdin. An unpushed branch still prompts.
 
@@ -181,29 +192,63 @@ See: [gh pr create](https://cli.github.com/manual/gh_pr_create)
 
 ### List and filter
 
+#### All
+
 ```bash
 gh pr list
-gh pr list --author @me \
-  --state all
-gh pr list --search \
-  "review:required"
-gh pr list -l bug -L 50
 ```
 <!-- {: data-highlight="gh pr list"} -->
 
-`--search` takes GitHub search syntax; `-l` repeats for multiple labels.
+#### By author
+
+```bash
+gh pr list --author @me \
+  --state all
+```
+<!-- {: data-highlight="--author @me"} -->
+
+#### By search
+
+```bash
+gh pr list --search \
+  "review:required"
+```
+<!-- {: data-highlight="--search"} -->
+
+#### By label
+
+```bash
+gh pr list --label bug -L 50
+```
+<!-- {: data-highlight="--label bug"} -->
+
+`--search` takes GitHub search syntax; `--label` repeats for multiple labels.
 
 See: [gh pr list](https://cli.github.com/manual/gh_pr_list)
 
 ### Inspect and check out
 
+#### View
+
 ```bash
 gh pr view 123
 gh pr view 123 --comments
+```
+<!-- {: data-highlight="gh pr view"} -->
+
+#### Check out
+
+```bash
 gh pr checkout 123
+```
+<!-- {: data-highlight="gh pr checkout"} -->
+
+#### Diff
+
+```bash
 gh pr diff 123 --name-only
 ```
-<!-- {: data-highlight="gh pr view; gh pr checkout; gh pr diff"} -->
+<!-- {: data-highlight="gh pr diff"} -->
 
 `gh pr checkout` creates a local branch that tracks the PR head.
 
@@ -211,13 +256,27 @@ See: [gh pr checkout](https://cli.github.com/manual/gh_pr_checkout)
 
 ### Watch CI checks
 
+#### Status
+
 ```bash
 gh pr checks
+```
+<!-- {: data-highlight="gh pr checks"} -->
+
+#### Watch
+
+```bash
 gh pr checks --watch \
   --fail-fast
-gh pr checks --required
 ```
 <!-- {: data-highlight="--watch"} -->
+
+#### Required
+
+```bash
+gh pr checks --required
+```
+<!-- {: data-highlight="--required"} -->
 
 `--watch` refreshes until checks finish; `--required` shows only required checks.
 
@@ -225,14 +284,28 @@ See: [gh pr checks](https://cli.github.com/manual/gh_pr_checks)
 
 ### Review and comment
 
+#### Approve
+
 ```bash
 gh pr review --approve
+```
+<!-- {: data-highlight="--approve"} -->
+
+#### Request changes
+
+```bash
 gh pr review \
   --request-changes -b "Add tests"
+```
+<!-- {: data-highlight="--request-changes"} -->
+
+#### Comment
+
+```bash
 gh pr comment -b "LGTM"
 gh pr comment --edit-last -F -
 ```
-<!-- {: data-highlight="gh pr review; gh pr comment"} -->
+<!-- {: data-highlight="gh pr comment"} -->
 
 `gh pr review` approves or requests changes; `gh pr comment` leaves a plain comment, and `--edit-last` updates your last one.
 
@@ -240,13 +313,27 @@ See: [gh pr review](https://cli.github.com/manual/gh_pr_review)
 
 ### Merge
 
+#### Squash
+
 ```bash
 gh pr merge --squash \
   --delete-branch
+```
+<!-- {: data-highlight="--squash"} -->
+
+#### Auto-merge
+
+```bash
 gh pr merge --auto --rebase
+```
+<!-- {: data-highlight="--auto"} -->
+
+#### Merge commit
+
+```bash
 gh pr merge 123 --merge
 ```
-<!-- {: data-highlight="gh pr merge"} -->
+<!-- {: data-highlight="--merge"} -->
 
 `--auto` enables auto-merge; if the base branch uses a merge queue, the PR joins it once required checks pass.
 
@@ -258,14 +345,28 @@ See: [gh pr merge](https://cli.github.com/manual/gh_pr_merge)
 
 ### Create
 
+#### With title and body
+
 ```bash
 gh issue create \
   -t "Login fails" \
   -b "Steps to reproduce"
-gh issue create -l bug -a @me
-gh issue create --parent 100
 ```
 <!-- {: data-highlight="gh issue create"} -->
+
+#### With label and assignee
+
+```bash
+gh issue create -l bug --assignee @me
+```
+<!-- {: data-highlight="-l bug; --assignee @me"} -->
+
+#### As a sub-issue
+
+```bash
+gh issue create --parent 100
+```
+<!-- {: data-highlight="--parent"} -->
 
 `--parent` creates a sub-issue.
 
@@ -273,14 +374,34 @@ See: [gh issue create](https://cli.github.com/manual/gh_issue_create)
 
 ### List and filter
 
+#### All
+
 ```bash
 gh issue list
-gh issue list -a @me -l bug
-gh issue list --search \
-  "is:open no:assignee"
-gh issue list --state all -L 50
 ```
 <!-- {: data-highlight="gh issue list"} -->
+
+#### By assignee
+
+```bash
+gh issue list -a @me -l bug
+```
+<!-- {: data-highlight="-a @me"} -->
+
+#### By search
+
+```bash
+gh issue list --search \
+  "is:open no:assignee"
+```
+<!-- {: data-highlight="no:assignee"} -->
+
+#### By state
+
+```bash
+gh issue list --state all -L 50
+```
+<!-- {: data-highlight="--state all"} -->
 
 `-a @me` filters to your issues; `--search` takes GitHub search syntax such as `no:assignee`.
 
@@ -288,13 +409,27 @@ See: [gh issue list](https://cli.github.com/manual/gh_issue_list)
 
 ### Read and comment
 
+#### Read
+
 ```bash
 gh issue view 123 --comments
+```
+<!-- {: data-highlight="gh issue view"} -->
+
+#### Comment
+
+```bash
 gh issue comment 123 \
   -b "Fixed in #456"
+```
+<!-- {: data-highlight="gh issue comment"} -->
+
+#### Open in browser
+
+```bash
 gh issue view 123 --web
 ```
-<!-- {: data-highlight="gh issue view; gh issue comment"} -->
+<!-- {: data-highlight="--web"} -->
 
 `--comments` (`-c`) includes the comment thread; `--web` opens the issue.
 
@@ -302,14 +437,28 @@ See: [gh issue view](https://cli.github.com/manual/gh_issue_view)
 
 ### Close
 
+#### Close
+
 ```bash
 gh issue close 123
+```
+<!-- {: data-highlight="gh issue close"} -->
+
+#### With a reason
+
+```bash
 gh issue close 123 \
   --reason "not planned"
+```
+<!-- {: data-highlight="--reason"} -->
+
+#### As duplicate
+
+```bash
 gh issue close 123 \
   --duplicate-of 456
 ```
-<!-- {: data-highlight="gh issue close"} -->
+<!-- {: data-highlight="--duplicate-of"} -->
 
 `--duplicate-of` closes the issue as a duplicate of the one you pass; a `Fixes #123` line in a PR closes it on merge.
 
@@ -321,15 +470,29 @@ See: [gh issue close](https://cli.github.com/manual/gh_issue_close)
 
 ### List runs
 
+#### Recent
+
 ```bash
 gh run list
+```
+<!-- {: data-highlight="gh run list"} -->
+
+#### By workflow
+
+```bash
 gh run list \
   --workflow ci.yml \
   --status failure
+```
+<!-- {: data-highlight="--status failure"} -->
+
+#### By branch
+
+```bash
 gh run list --branch main \
   --limit 10
 ```
-<!-- {: data-highlight="gh run list"} -->
+<!-- {: data-highlight="--branch main"} -->
 
 `--status` also takes `in_progress`, `queued`, and `success`.
 
@@ -337,12 +500,20 @@ See: [gh run list](https://cli.github.com/manual/gh_run_list)
 
 ### Watch a run
 
+#### Watch
+
 ```bash
 gh run watch 123456789
+```
+<!-- {: data-highlight="gh run watch"} -->
+
+#### Fail on error
+
+```bash
 gh run watch --compact \
   --exit-status
 ```
-<!-- {: data-highlight="gh run watch"} -->
+<!-- {: data-highlight="--exit-status"} -->
 
 `--exit-status` fails the command when the run fails, which suits CI scripts.
 
@@ -350,12 +521,20 @@ See: [gh run watch](https://cli.github.com/manual/gh_run_watch)
 
 ### Inspect and rerun
 
+#### Failed logs
+
 ```bash
 gh run view 123456789 \
   --log-failed
+```
+<!-- {: data-highlight="--log-failed"} -->
+
+#### Rerun failed
+
+```bash
 gh run rerun 123456789 --failed
 ```
-<!-- {: data-highlight="gh run view; gh run rerun"} -->
+<!-- {: data-highlight="--failed"} -->
 
 `--log-failed` prints only failed steps; `--failed` reruns only failed jobs.
 
@@ -363,15 +542,35 @@ See: [gh run view](https://cli.github.com/manual/gh_run_view), [gh run rerun](ht
 
 ### Run a workflow
 
+#### List
+
 ```bash
 gh workflow list
+```
+<!-- {: data-highlight="gh workflow list"} -->
+
+#### Run
+
+```bash
 gh workflow run ci.yml
+```
+<!-- {: data-highlight="gh workflow run"} -->
+
+#### With inputs
+
+```bash
 gh workflow run deploy.yml \
   -f environment=staging
+```
+<!-- {: data-highlight="-f environment=staging"} -->
+
+#### On a branch
+
+```bash
 gh workflow run deploy.yml \
   --ref my-branch
 ```
-<!-- {: data-highlight="gh workflow run"} -->
+<!-- {: data-highlight="--ref"} -->
 
 `-f` sets a `workflow_dispatch` input; repeat it for more inputs.
 
@@ -383,15 +582,29 @@ See: [gh workflow run](https://cli.github.com/manual/gh_workflow_run)
 
 ### Create
 
+#### Generated notes
+
 ```bash
 gh release create v1.2.0 \
   --generate-notes
+```
+<!-- {: data-highlight="gh release create"} -->
+
+#### Draft
+
+```bash
 gh release create v1.2.0 \
   --draft -F notes.md
+```
+<!-- {: data-highlight="--draft"} -->
+
+#### Assets
+
+```bash
 gh release create v1.2.0 \
   dist/*.tgz
 ```
-<!-- {: data-highlight="gh release create"} -->
+<!-- {: data-highlight="dist/*.tgz"} -->
 
 `--generate-notes` writes notes from merged PRs; assets after the tag are uploaded with the release.
 
@@ -399,16 +612,30 @@ See: [gh release create](https://cli.github.com/manual/gh_release_create)
 
 ### Download
 
+#### By tag
+
 ```bash
 gh release download v1.2.0
+```
+<!-- {: data-highlight="gh release download"} -->
+
+#### By pattern
+
+```bash
 gh release download \
   --pattern '*.deb'
-gh release download v1.2.0 \
-  --archive=zip
 gh release download \
   -p '*.rpm' -D /tmp
 ```
-<!-- {: data-highlight="gh release download"} -->
+<!-- {: data-highlight="--pattern"} -->
+
+#### Source archive
+
+```bash
+gh release download v1.2.0 \
+  --archive=zip
+```
+<!-- {: data-highlight="--archive=zip"} -->
 
 Without a tag, pass `--pattern` or `--archive`; gh uses the latest release. `--archive` fetches source, not assets.
 
@@ -416,12 +643,26 @@ See: [gh release download](https://cli.github.com/manual/gh_release_download)
 
 ### List and view
 
+#### List
+
 ```bash
 gh release list
+```
+<!-- {: data-highlight="gh release list"} -->
+
+#### View
+
+```bash
 gh release view v1.2.0
-gh release view v1.2.0 --web
 ```
 <!-- {: data-highlight="gh release view"} -->
+
+#### Open in browser
+
+```bash
+gh release view --web
+```
+<!-- {: data-highlight="gh release view --web"} -->
 
 See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
@@ -431,16 +672,30 @@ See: [gh release view](https://cli.github.com/manual/gh_release_view)
 
 ### Search repositories
 
+#### By language
+
 ```bash
 gh search repos \
   "static site generator" \
   --language go
+```
+<!-- {: data-highlight="gh search repos"} -->
+
+#### By owner and topic
+
+```bash
 gh search repos --owner cli \
   --topic gh-extension
+```
+<!-- {: data-highlight="--owner cli"} -->
+
+#### By stars
+
+```bash
 gh search repos "database" \
   --sort stars --limit 10
 ```
-<!-- {: data-highlight="gh search repos"} -->
+<!-- {: data-highlight="--sort stars"} -->
 
 `--sort` takes `stars`, `forks`, `updated`, or `help-wanted-issues`.
 
@@ -448,16 +703,30 @@ See: [gh search repos](https://cli.github.com/manual/gh_search_repos)
 
 ### Search issues and PRs
 
+#### Issues
+
 ```bash
 gh search issues "panic" \
   --repo cli/cli
+```
+<!-- {: data-highlight="gh search issues"} -->
+
+#### Review requests
+
+```bash
 gh search prs \
   --review-requested=@me \
   --state=open
+```
+<!-- {: data-highlight="--review-requested=@me"} -->
+
+#### Drafts
+
+```bash
 gh search prs --draft \
   --author=@me
 ```
-<!-- {: data-highlight="gh search issues; gh search prs"} -->
+<!-- {: data-highlight="--author=@me"} -->
 
 Both accept a free-text query and field filters such as `--author` and `--state`.
 
@@ -465,16 +734,36 @@ See: [gh search issues](https://cli.github.com/manual/gh_search_issues), [gh sea
 
 ### Call the API
 
+#### Read
+
 ```bash
 gh api repos/cli/cli
+```
+<!-- {: data-highlight="gh api"} -->
+
+#### Filter
+
+```bash
 gh api repos/cli/cli \
   --jq '.stargazers_count'
+```
+<!-- {: data-highlight="--jq '.stargazers_count'"} -->
+
+#### Create
+
+```bash
 gh api repos/{owner}/{repo}/issues \
   -f title='Bug'
+```
+<!-- {: data-highlight="-f title='Bug'"} -->
+
+#### GraphQL
+
+```bash
 gh api graphql \
   -f query='{ viewer { login } }'
 ```
-<!-- {: data-highlight="gh api"} -->
+<!-- {: data-highlight="graphql"} -->
 
 `--jq` filters the response; `{owner}` and `{repo}` expand from the current repo. `-f` sends a string and switches to POST, so the `issues` line creates an issue.
 
@@ -482,16 +771,30 @@ See: [gh api](https://cli.github.com/manual/gh_api)
 
 ### JSON output
 
+#### Fields
+
 ```bash
 gh pr list --json \
   number,title,author
+```
+<!-- {: data-highlight="--json"} -->
+
+#### jq
+
+```bash
 gh pr list --json number,title \
   --jq '.[].title'
+```
+<!-- {: data-highlight="--jq '.[].title'"} -->
+
+#### Template
+
+```bash
 gh pr list --json number \
   --template \
   '{{range .}}#{{.number}} {{end}}'
 ```
-<!-- {: data-highlight="--json"} -->
+<!-- {: data-highlight="--template"} -->
 
 `--jq` and `--template` need `--json`; omit the field list to see available fields.
 
@@ -516,15 +819,29 @@ See: [gh manual](https://cli.github.com/manual/gh_help_reference)
 
 ### Aliases
 
+#### Plain
+
 ```bash
 gh alias set pv 'pr view'
 gh alias set bugs \
   'issue list --label bug'
-gh alias set --shell count \
-  'gh pr list --json number | jq length'
-gh alias list
 ```
 <!-- {: data-highlight="gh alias set"} -->
+
+#### Shell
+
+```bash
+gh alias set --shell count \
+  'gh pr list --json number | jq length'
+```
+<!-- {: data-highlight="--shell"} -->
+
+#### List
+
+```bash
+gh alias list
+```
+<!-- {: data-highlight="gh alias list"} -->
 
 Shell aliases run through `sh`, so pipes and other commands work.
 

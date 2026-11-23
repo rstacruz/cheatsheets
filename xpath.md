@@ -240,7 +240,7 @@ See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Loc
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
-<!-- {: data-highlight="[@class="head"]"} -->
+<!-- {: data-highlight='[@class="head"]'} -->
 
 Keeps only the nodes for which the condition is true. Predicates can be chained.
 

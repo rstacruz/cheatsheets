@@ -516,7 +516,7 @@ agent mcp list-tools datadog
 agent mcp login datadog
 agent mcp disable datadog
 ```
-<!-- {: data-highlight="agent mcp list; list-tools; disable"} -->
+<!-- {: data-highlight="mcp list; mcp list-tools; mcp disable"} -->
 
 Servers live in `.cursor/mcp.json` or `~/.cursor/mcp.json`. `--approve-mcps` skips the approval prompt, and ACP sessions ignore team-level servers.
 
@@ -565,7 +565,7 @@ agent -p "review this diff for bugs"
 agent -p --force "fix the failing tests"
 agent -p --output-format json "list the TODOs" | jq .result
 ```
-<!-- {: data-highlight="--force"} -->
+<!-- {: data-highlight="jq .result"} -->
 
 A failed run exits non-zero and writes the error to stderr; `json` emits no object in that case, so check the exit code before parsing.
 
@@ -595,7 +595,7 @@ See: [GitHub Actions](https://cursor.com/docs/cli/github-actions)
 ```text
 & refactor the auth module and add tests
 ```
-<!-- {: data-highlight="&"} -->
+<!-- {: data-line="1"} -->
 
 Prefix a message with `&` to hand it to a Cloud Agent; pick it up later at [cursor.com/agents](https://cursor.com/agents).
 

@@ -264,6 +264,31 @@ describe('inline highlights', () => {
       '<span class="inline-highlight inline-highlight--start inline-highlight--end">print_page</span>'
     )
   })
+  it('highlights a token containing braces', async () => {
+    const { html } = await render(
+      [
+        '```jsx',
+        '<li key={item.id}>{item.name}</li>',
+        '```',
+        '<!-- {: data-highlight="key={item.id}"} -->'
+      ].join('\n')
+    )
+    expect(html).toContain('inline-highlight')
+    expect(html).not.toContain('<!-- {:')
+  })
+
+  it('highlights a token containing double quotes', async () => {
+    const { html } = await render(
+      [
+        '```bash',
+        'resource "aws_instance" "web"',
+        '```',
+        `<!-- {: data-highlight='resource "aws_instance" "web"'} -->`
+      ].join('\n')
+    )
+    expect(html).toContain('inline-highlight')
+    expect(html).not.toContain('<!-- {:')
+  })
 
   it('leaves a block alone when no text matches', async () => {
     const { html } = await render(

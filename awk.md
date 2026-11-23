@@ -90,7 +90,6 @@ See: [Range patterns](https://www.gnu.org/software/gawk/manual/gawk.html#Ranges)
 --posix        # Strict POSIX mode (gawk)
 --version      # Version (gawk)
 ```
-<!-- {: data-highlight="--posix"} -->
 
 `gawk -i inplace` edits files in place, but it is a GNU extension.
 
@@ -364,7 +363,7 @@ awk '{ s += $1 } END { print s }' file
 awk '{ s += $1 } END { print s/NR }' file
 awk '{ c[$1]++ } END { for (k in c) print c[k], k }' file
 ```
-<!-- {: data-highlight="END { print s }"} -->
+<!-- {: data-highlight="print s"} -->
 
 An unset variable is empty, which counts as 0 in arithmetic.
 
@@ -403,7 +402,7 @@ See: [Redirection](https://www.gnu.org/software/gawk/manual/gawk.html#Redirectio
 awk '{ print $1 }' file | sort | uniq -c | sort -rn
 awk '{ print $1 | "sort -u" }' file
 ```
-<!-- {: data-highlight="sort -u"} -->
+<!-- {: data-line="2"} -->
 
 A pipe inside the program stays open; the shell pipe is usually simpler.
 

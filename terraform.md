@@ -147,7 +147,7 @@ resource "aws_instance" "web" {
 
 # Reference: aws_instance.web.id
 ```
-<!-- {: data-highlight="resource "aws_instance" "web""} -->
+<!-- {: data-highlight='resource "aws_instance" "web"'} -->
 
 References create implicit dependencies.
 
@@ -168,7 +168,7 @@ data "aws_ami" "ubuntu" {
 
 # Reference: data.aws_ami.ubuntu.id
 ```
-<!-- {: data-highlight="data "aws_ami" "ubuntu""} -->
+<!-- {: data-highlight='data "aws_ami" "ubuntu"'} -->
 
 Data sources read information without managing its lifecycle.
 
@@ -197,7 +197,7 @@ variable "api_token" {
   nullable  = false
 }
 ```
-<!-- {: data-highlight="variable "environment"; variable "api_token""} -->
+<!-- {: data-highlight='variable "environment"; variable "api_token"'} -->
 
 See: [Input variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
@@ -218,7 +218,7 @@ export TF_VAR_environment=prod
 # terraform.tfvars
 environment = "prod"
 ```
-<!-- {: data-highlight="environment = "prod""} -->
+<!-- {: data-highlight='environment = "prod"'} -->
 
 Precedence increases from environment variables, `terraform.tfvars(.json)`, `*.auto.tfvars(.json)`, to command-line options (`-var`, `-var-file`).
 
@@ -247,7 +247,7 @@ output "token" {
   sensitive = true
 }
 ```
-<!-- {: data-highlight="locals; output "instance_ip"; output "token""} -->
+<!-- {: data-highlight='locals; output "instance_ip"; output "token"'} -->
 
 #### CLI
 
@@ -319,7 +319,7 @@ See: [Strings and templates](https://developer.hashicorp.com/terraform/language/
 ```hcl
 instance_type = var.environment == "prod" ? "t3.large" : "t3.micro"
 ```
-<!-- {: data-highlight="? "t3.large" : "t3.micro""} -->
+<!-- {: data-highlight='? "t3.large" : "t3.micro"'} -->
 
 Both result values must have compatible types.
 
@@ -450,7 +450,7 @@ action "aws_lambda_invoke" "example" {
   }
 }
 ```
-<!-- {: data-highlight="action "aws_lambda_invoke" "example""} -->
+<!-- {: data-highlight='action "aws_lambda_invoke" "example"'} -->
 
 #### Invoke an action
 
@@ -477,7 +477,7 @@ module "network" {
 
 # Reference: module.network.vpc_id
 ```
-<!-- {: data-highlight="module "network""} -->
+<!-- {: data-highlight='module "network"'} -->
 
 See: [Module blocks](https://developer.hashicorp.com/terraform/language/block/module)
 
@@ -492,7 +492,7 @@ module "vpc" {
   cidr = "10.0.0.0/16"
 }
 ```
-<!-- {: data-highlight="version = "~> 6.0""} -->
+<!-- {: data-highlight='version = "~> 6.0"'} -->
 
 Pin registry module versions and run `terraform init` after changing sources.
 
@@ -533,7 +533,7 @@ terraform {
   }
 }
 ```
-<!-- {: data-highlight="backend "s3""} -->
+<!-- {: data-highlight='backend "s3"'} -->
 
 #### Initialize
 
@@ -634,7 +634,7 @@ list "aws_instance" "web" {
   }
 }
 ```
-<!-- {: data-highlight="list "aws_instance" "web""} -->
+<!-- {: data-highlight='list "aws_instance" "web"'} -->
 
 #### Query commands
 
@@ -683,7 +683,7 @@ resource "aws_instance" "web" {
   }
 }
 ```
-<!-- {: data-highlight="provisioner "remote-exec"; provisioner "local-exec""} -->
+<!-- {: data-highlight='provisioner "remote-exec"; provisioner "local-exec"'} -->
 
 Provisioners run only at create or destroy time, never on updates. Destroy-time provisioners use a `when` argument. Prefer purpose-built resources.
 
@@ -703,7 +703,7 @@ check "health_check" {
   }
 }
 ```
-<!-- {: data-highlight="check "health_check"; assert"} -->
+<!-- {: data-highlight='check "health_check"; assert'} -->
 
 Checks run after plan and apply; a failing `assert` warns instead of failing the run. Data sources nested in a `check` block are read last.
 
@@ -768,7 +768,7 @@ run "plan" {
   }
 }
 ```
-<!-- {: data-highlight="run "plan""} -->
+<!-- {: data-highlight='run "plan"'} -->
 
 #### Run tests
 

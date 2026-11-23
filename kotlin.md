@@ -390,7 +390,7 @@ val hello = getGreeting(Person("Adam"))
 // Returns "Welcome, Adam"
 val welcome = getGreeting(Person("Adam"), "Welcome,")
 ```
-<!-- {: data-highlight="intro:"} -->
+<!-- {: data-highlight='= "Hello,"'} -->
 
 See: [Default arguments](https://kotlinlang.org/docs/functions.html#parameters-with-default-values)
 

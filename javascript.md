@@ -193,7 +193,7 @@ try {
 }
 await new Promise(r => setTimeout(r, 1000))  // wait 1 second
 ```
-<!-- {: data-highlight="await; Promise.all"} -->
+<!-- {: data-highlight="Promise.all"} -->
 
 [JavaScript Async cheatsheet](./js-async)
 

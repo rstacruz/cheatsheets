@@ -284,7 +284,7 @@ mise exec --command "node -v"
 mise shell node@20                  # this shell session only
 mise shell --unset node
 ```
-<!-- {: data-highlight="mise shell"} -->
+<!-- {: data-highlight="mise exec; mise shell"} -->
 
 `exec` scopes tools and env to one command; `shell` exports them until the session ends and needs activation.
 

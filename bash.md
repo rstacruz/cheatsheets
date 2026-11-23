@@ -915,7 +915,7 @@ See: [Shell arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell
 (cd somedir; echo "I'm now in $PWD")
 pwd # still in first directory
 ```
-<!-- {: data-highlight="cd somedir"} -->
+<!-- {: data-line="1"} -->
 
 See: [Command grouping](https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html)
 
@@ -1145,7 +1145,7 @@ done < <(myfunc)
 # compare content of two folders
 diff <(ls "$dir1") <(ls "$dir2")
 ```
-<!-- {: data-highlight="<(ls"} -->
+<!-- {: data-highlight='<(ls "$dir1")'} -->
 
 Process substitution treats a command's input or output as a file.
 

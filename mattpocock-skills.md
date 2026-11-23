@@ -278,6 +278,6 @@ See: [tdd](https://www.aihero.dev/skills-tdd)
 **Door:** two-way
 **Blast Radius:** docs only
 ```
-<!-- {: data-highlight="## Summary; ## Evidence; **Door:**; **Blast Radius:**"} -->
+<!-- {: data-highlight="## Summary; ## Evidence"} -->
 
 See: [code-review](https://www.aihero.dev/skills-code-review)

@@ -138,7 +138,7 @@ str1 = """
 Roses are red
 Violets are blue"""
 ```
-<!-- {: data-highlight="Roses are red"} -->
+<!-- {: data-highlight='"""'} -->
 
 A newline right after `"""` is trimmed; a trailing `\` joins lines.
 
@@ -277,7 +277,7 @@ integers = [
   2, # trailing comma allowed
 ]
 ```
-<!-- {: data-highlight="2, # trailing comma allowed"} -->
+<!-- {: data-highlight="2,"} -->
 
 See: [Array](https://toml.io/en/v1.1.0#array)
 
@@ -338,7 +338,7 @@ See: [Array of Tables](https://toml.io/en/v1.1.0#array-of-tables)
 name = { first = "Tom", last = "Preston-Werner" }
 point = {x=1}
 ```
-<!-- {: data-highlight="x=1"} -->
+<!-- {: data-highlight="point = {x=1}"} -->
 
 Inline tables are self-contained; keys cannot be added outside braces.
 

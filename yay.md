@@ -174,7 +174,7 @@ yay -G foo
 yay -Gp foo
 yay -Gf foo
 ```
-<!-- {: data-highlight="yay -G foo; -Gp; -Gf"} -->
+<!-- {: data-highlight="-G; -Gp; -Gf"} -->
 
 `-G` uses ABS for repo packages and the AUR otherwise. `-p` prints; `-f` overwrites.
 

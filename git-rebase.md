@@ -244,7 +244,7 @@ TOPIC two
 >>>>>>> b0841e8 (change line two on topic)
 three
 ```
-<!-- {: data-highlight="<<<<<<< HEAD; =======; >>>>>>> b0841e8 (change line two on topic)"} -->
+<!-- {: data-highlight="<<<<<<< HEAD; =======; >>>>>>>"} -->
 
 #### Finish
 

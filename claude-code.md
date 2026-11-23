@@ -348,6 +348,7 @@ claude -p "list the failing tests" --output-format json
 # Pipe logs in
 cat build.log | claude -p "explain this failure"
 ```
+<!-- {: data-highlight="-p"} -->
 
 `--bare` skips hooks, plugins, and auto-discovered config so scripted calls start faster. It ignores OAuth credentials, so set `ANTHROPIC_API_KEY`.
 

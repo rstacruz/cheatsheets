@@ -119,6 +119,7 @@ bat --theme=TwoDark hello.py
 BAT_THEME=TwoDark bat hello.py
 bat --list-themes
 ```
+<!-- {: data-highlight="--theme=TwoDark"} -->
 
 The theme follows the terminal's light or dark background by default. `BAT_THEME` makes a choice permanent.
 
@@ -148,6 +149,7 @@ bat -p hello.py
 bat --style=plain hello.py
 bat -pp hello.py
 ```
+<!-- {: data-highlight="-n; --style=plain"} -->
 
 `-n` shows only line numbers. `-p` is shorthand for `--style=plain`; `-pp` also disables paging.
 
@@ -161,6 +163,7 @@ bat --style=numbers,changes,header \
   hello.py
 bat --style=default,-grid hello.py
 ```
+<!-- {: data-highlight="--style"} -->
 
 #### Components
 
@@ -247,6 +250,7 @@ bat --paging=never hello.py
 bat -P hello.py
 bat --pager='less -R' hello.py
 ```
+<!-- {: data-highlight="--paging=never"} -->
 
 `bat` pages only when the output exceeds one screen. Piped output never pages. `-P` is short for `--paging=never`.
 
@@ -299,6 +303,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 tail -f app.log | bat --paging=never \
   -l log
 ```
+<!-- {: data-highlight="-l log"} -->
 
 Disable paging for a live stream, and name the language when a path cannot provide it.
 
@@ -309,6 +314,7 @@ See: [Integration with other tools](https://github.com/sharkdp/bat#integration-w
 ```bash
 git show HEAD:src/main.py | bat -l py
 ```
+<!-- {: data-highlight="-l py"} -->
 
 Older file versions have no path on disk, so set the language explicitly.
 
@@ -335,6 +341,7 @@ bat --config-file
 bat --generate-config-file
 bat cache --build
 ```
+<!-- {: data-highlight="--config-file"} -->
 
 The config file holds default flags, one per line. Rebuild the cache after adding themes or syntaxes.
 

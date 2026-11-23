@@ -309,7 +309,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-When the prose calls out one flag, value, or method, tint that same token in the block with `data-highlight`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, semicolon-separated.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour, not the command name. One token is usually enough; a card about sibling methods can tint all of them, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python

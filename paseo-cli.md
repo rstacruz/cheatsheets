@@ -55,6 +55,7 @@ links:
 npm install -g @getpaseo/cli
 paseo                         # starts daemon, then offers pairing
 ```
+<!-- {: data-highlight="@getpaseo/cli"} -->
 
 The desktop app bundles a daemon; Paseo does not ship a coding agent, so install at least one provider CLI.
 
@@ -149,6 +150,7 @@ paseo permit deny <id> --all
 paseo agent mode <id> --list
 paseo agent mode <id> plan
 ```
+<!-- {: data-highlight="plan"} -->
 
 Permission requests are per-agent; modes are provider-specific.
 
@@ -196,6 +198,7 @@ paseo workspace create --isolation worktree \
   --mode checkout-branch --branch feature/existing \
   --worktree-slug existing-copy
 ```
+<!-- {: data-highlight="--worktree-mode branch-off"} -->
 
 Worktree modes are `branch-off`, `checkout-branch`, and `checkout-pr`; `paseo.json` scripts attach to the worktree.
 
@@ -254,6 +257,7 @@ agent_id=$(paseo run --no-wait --quiet \
 paseo wait "$agent_id"
 paseo agent detach <id>
 ```
+<!-- {: data-highlight="detach"} -->
 
 `PASEO_AGENT_ID` makes a new run a subagent in the same workspace unless `--workspace` is set. Detach changes only the parent relationship and the agent keeps running.
 
@@ -348,6 +352,7 @@ paseo daemon config set daemon.relay.enabled false \
   --home ~/.paseo
 paseo daemon reload --home ~/.paseo
 ```
+<!-- {: data-highlight="daemon.listen; daemon.relay.enabled"} -->
 
 `reload` applies runtime-safe changes and never restarts implicitly.
 
@@ -376,6 +381,7 @@ paseo daemon pair --relay
 paseo daemon pair --json
 paseo --host "$OFFER_URL" ls
 ```
+<!-- {: data-highlight="--relay"} -->
 
 Relay is off by default; `--relay` opts in.
 
@@ -391,6 +397,7 @@ paseo ls --format yaml
 paseo ls -q
 paseo --no-color ls
 ```
+<!-- {: data-highlight="--json"} -->
 
 Most commands accept these output flags; `-q` prints IDs only.
 
@@ -403,6 +410,7 @@ paseo --home ~/.paseo ls
 paseo --host devbox:6767 project ls
 paseo --host "$OFFER_URL" run "fix the failing tests"
 ```
+<!-- {: data-highlight="--home; --host"} -->
 
 Selectors work before or after the command. Two selectors yield `TARGET_AMBIGUOUS`; there is no default-port fallback.
 

@@ -71,6 +71,7 @@ uv version 1.2.3
 uv version --bump minor
 uv version --dry-run
 ```
+<!-- {: data-highlight="--bump minor"} -->
 
 `uv version` reads and updates `[project].version` in `pyproject.toml`.
 
@@ -142,6 +143,7 @@ uv add --optional pdf reportlab
 uv sync --group docs
 uv sync --no-dev
 ```
+<!-- {: data-highlight="--optional"} -->
 
 `--dev` is shorthand for `--group dev`; `--optional` adds an extra.
 
@@ -223,6 +225,7 @@ uv lock -U
 uv lock -P rich
 uv lock --upgrade-group dev
 ```
+<!-- {: data-highlight="-U; -P"} -->
 
 `-U` upgrades all locked packages; `-P` upgrades one package.
 
@@ -306,6 +309,7 @@ uv build --sdist
 uv build --wheel
 uv build -o dist
 ```
+<!-- {: data-highlight="--sdist; --wheel"} -->
 
 Writes a source distribution and wheel into `dist/`.
 

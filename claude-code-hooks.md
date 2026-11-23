@@ -84,6 +84,7 @@ See: [Hooks reference](https://code.claude.com/docs/en/hooks)
   }
 }
 ```
+<!-- {: data-highlight='"Notification"'} -->
 
 Run `/hooks` to confirm the hook loaded. On macOS, use `osascript` instead of `notify-send`.
 
@@ -108,6 +109,7 @@ See: [Set up your first hook](https://code.claude.com/docs/en/hooks-guide#set-up
   }
 }
 ```
+<!-- {: data-highlight='"PostToolUse"'} -->
 
 The script reads `.tool_input.file_path` with `jq`, then formats that file. Make it executable with `chmod +x`.
 
@@ -144,6 +146,7 @@ case "$f" in
 esac
 exit 0
 ```
+<!-- {: data-highlight="exit 2"} -->
 
 Exit 2 blocks the edit and shows stderr to Claude. Use the permission system for hard allow and deny rules.
 
@@ -166,6 +169,7 @@ See: [Block edits to protected files](https://code.claude.com/docs/en/hooks-guid
   }
 }
 ```
+<!-- {: data-highlight="permission_prompt|idle_prompt"} -->
 
 `permission_prompt` waits about six seconds; `idle_prompt` about 60 seconds.
 
@@ -200,6 +204,7 @@ echo '{"hookSpecificOutput":{
   "additionalContext":"Run pnpm test before committing"
 }}'
 ```
+<!-- {: data-highlight="additionalContext"} -->
 
 Injected context stays under 10,000 characters per field.
 
@@ -215,6 +220,7 @@ See: [Add context for Claude](https://code.claude.com/docs/en/hooks#add-context-
   "asyncRewake": true
 }
 ```
+<!-- {: data-highlight='"async"'} -->
 
 Async hooks don't block the turn; `asyncRewake` wakes Claude on exit 2 and shows stderr as a system reminder.
 
@@ -342,6 +348,7 @@ See: [Hook handler fields](https://code.claude.com/docs/en/hooks#hook-handler-fi
   ]
 }
 ```
+<!-- {: data-highlight="Bash(git *)"} -->
 
 `if` filters five tool events; on other events the hook never runs. Commands default to 600s, prompts to 30s, and agents to 60s.
 
@@ -386,6 +393,7 @@ See: [Exit code output](https://code.claude.com/docs/en/hooks#exit-code-output)
   }
 }
 ```
+<!-- {: data-highlight="hookSpecificOutput"} -->
 
 Exit 0 and print only JSON for finer control than exit codes.
 

@@ -42,9 +42,11 @@ links:
 ```sh
 git config --global user.name "Ada"
 git config --global user.email me@x.io
+git config --global core.editor vim
+git config --list
 ```
 
-Commits record this name and email as the author.
+Commits record this name and email; `core.editor` selects the message editor.
 
 See: [git config](https://git-scm.com/docs/git-config)
 
@@ -53,9 +55,10 @@ See: [git config](https://git-scm.com/docs/git-config)
 ```sh
 git init -b main
 git clone git@github.com:me/app.git
+git clone --depth 1 <url>
 ```
 
-`clone` copies the repository and its history; `init` starts an empty one.
+`clone` copies a repository; `init` starts an empty one.
 
 See: [git init](https://git-scm.com/docs/git-init), [git clone](https://git-scm.com/docs/git-clone)
 
@@ -81,9 +84,10 @@ git status
 git status --short
 git diff
 git diff --staged
+git diff --stat
 ```
 
-`--short` prints one line per path; `--staged` compares the index instead of the working tree.
+`--short` prints one line per path; `--staged` compares the index with HEAD.
 
 See: [git status](https://git-scm.com/docs/git-status)
 
@@ -104,11 +108,12 @@ See: [git add](https://git-scm.com/docs/git-add)
 
 ```sh
 git commit -m "Add login form"
+git commit -am "Update docs"
 git commit --amend
 git commit --amend --no-edit
 ```
 
-`--amend` replaces the last commit; `--no-edit` keeps its message.
+`-a` commits tracked files without staging; `--amend` replaces the last commit and `--no-edit` keeps its message.
 
 [Conventional Commits cheatsheet](./conventional-commits)
 <!-- {: .-crosslink} -->
@@ -137,7 +142,7 @@ git switch main
 git switch -
 ```
 
-`-c` creates the branch; `-` returns to the previous one.
+`-c` creates the branch; `-` returns to the previous one. `switch` is the newer branch command; `checkout -b` still works.
 
 See: [git switch](https://git-scm.com/docs/git-switch)
 
@@ -169,6 +174,7 @@ See: [git merge](https://git-scm.com/docs/git-merge)
 
 ```sh
 git branch -d feature
+git branch -D feature
 git push origin --delete feature
 ```
 
@@ -181,25 +187,26 @@ git push origin --delete feature
 
 ### Resolve a conflict
 
-#### Markers
-
-```text
-<<<<<<< HEAD
-MAIN version
-=======
-FEATURE version
->>>>>>> feature
-```
-
-#### Finish
-
 ```sh
 git status --short
 git add story.txt
 git commit
 ```
 
-Git marks conflicted paths `UU`. Edit the file, stage it, then commit.
+`UU` means both sides modified; `AA`, `DU`, and `UD` are unmerged too. For a merge, edit, stage, and commit; during a rebase or cherry-pick, continue the operation instead.
+
+See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
+
+### Conflict markers
+
+| Marker | Meaning |
+| --- | --- |
+| `<<<<<<< HEAD` | Start of your version |
+| `=======` | Divider |
+| `>>>>>>> feature` | End of the incoming version |
+<!-- {: .-headers} -->
+
+Markers bracket the two sides; edit the file to keep one or both.
 
 See: [How to resolve conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts)
 
@@ -223,10 +230,11 @@ See: [git merge](https://git-scm.com/docs/git-merge)
 ```sh
 git restore file.txt
 git restore .
+git clean -nd
 git clean -fd
 ```
 
-`restore` reverts tracked files; `clean -fd` deletes untracked files too.
+`restore` reverts tracked files; `clean -fd` permanently deletes untracked files (dry run with `-n`).
 
 See: [git restore](https://git-scm.com/docs/git-restore)
 
@@ -250,7 +258,7 @@ git revert <sha>
 git revert --no-commit <sha>
 ```
 
-Revert adds a new commit, so it is safe on shared branches.
+Revert records a new commit, or stages the changes with `--no-commit`, so it is safe on shared branches.
 
 See: [git revert](https://git-scm.com/docs/git-revert)
 
@@ -259,10 +267,11 @@ See: [git revert](https://git-scm.com/docs/git-revert)
 ```sh
 git reflog
 git reset --hard HEAD@{1}
-git restore --source=HEAD@{1} file.txt
+git reset --hard ORIG_HEAD
+git restore --source=ORIG_HEAD file.txt
 ```
 
-`reflog` lists every recent HEAD move, including resets and rebases.
+`HEAD@{1}` reverses the last reset or commit; `ORIG_HEAD` reverses the last rebase or merge.
 
 See: [git reflog](https://git-scm.com/docs/git-reflog)
 
@@ -275,6 +284,7 @@ See: [git reflog](https://git-scm.com/docs/git-reflog)
 git log --oneline
 git log --oneline --graph --all
 git log --stat
+git log -p
 ```
 
 `--graph --all` draws branches; `--stat` shows changed files.
@@ -311,6 +321,7 @@ See: [git log](https://git-scm.com/docs/git-log#_commit_limiting)
 ```sh
 git log --pretty="format:%h %s"
 git log --pretty="format:%h %an %ar"
+git shortlog -sn HEAD
 ```
 
 `%h` is the short hash, `%s` the subject, `%an` the author, `%ar` a relative date.
@@ -394,6 +405,7 @@ The todo list can reorder, squash, reword, or drop commits.
 ```sh
 git cherry-pick <sha>
 git cherry-pick A..B
+git cherry-pick --continue
 git cherry-pick --abort
 ```
 
@@ -411,7 +423,7 @@ git push --force-with-lease
 
 Rebase your branch, then force-push with lease so others' work is not overwritten.
 
-See: [git push](https://git-scm.com/docs/git-push#_options)
+See: [git push](https://git-scm.com/docs/git-push#OPTIONS)
 
 ## Remotes and tags
 <!-- {: .-three-column} -->
@@ -422,6 +434,7 @@ See: [git push](https://git-scm.com/docs/git-push#_options)
 git remote -v
 git remote add origin <url>
 git remote set-url origin <url>
+git remote rename origin upstream
 ```
 
 `origin` is the conventional name for the clone source.
@@ -446,10 +459,12 @@ See: [git fetch](https://git-scm.com/docs/git-fetch)
 git tag
 git tag -a v1.0.0 -m "Release"
 git push origin v1.0.0
+git push --tags
 git tag -d v1.0.0
+git push origin --delete v1.0.0
 ```
 
-`-a` creates an annotated tag; tags are not pushed by default.
+`-a` creates an annotated tag; tags are not pushed by default, and `-d` deletes only the local tag.
 
 See: [git tag](https://git-scm.com/docs/git-tag)
 
@@ -492,7 +507,7 @@ git branch -d old-feature
 git remote prune origin
 ```
 
-Delete local branches that are already merged.
+Delete local branches already merged into the current one.
 
 [Git tricks cheatsheet](./git-tricks)
 <!-- {: .-crosslink} -->

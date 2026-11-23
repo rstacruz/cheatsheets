@@ -92,7 +92,7 @@ Line-height pairs are set explicitly on the new scale (`1.5`/`1.6`/`1.4`/`1.3`/`
 
 ### 6. Cascade: put component CSS in `@layer components`
 
-Each component and Markdown file wraps its own contents in `@layer components { … }` so Tailwind utilities can override them. Import-level `layer(components)` is the tidier form, but a `layer()` import of a file that uses `@reference` fails the Tailwind pass (`@source` cannot be nested), so the layer lives in the file. `base.css` is imported as a JS module, so it cannot use `@import … layer()` either; it wraps its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
+Each component and Markdown file wraps its own contents in `@layer components { … }` so Tailwind utilities can override them. The one exception is `src/styles/components/autocomplete.css`, which stays unlayered so it can outrank the JS-imported, unlayered `autocompleter/autocomplete.css` vendor sheet. Import-level `layer(components)` is the tidier form, but a `layer()` import of a file that uses `@reference` fails the Tailwind pass (`@source` cannot be nested), so the layer lives in the file. `base.css` is imported as a JS module, so it cannot use `@import … layer()` either; it wraps its contents in `@layer base { … }`. This is a dedicated change with a visual review of the homepage, a sheet, the archive, and 404.
 
 ### 7. Enforcement: Stylelint in CI
 

@@ -57,6 +57,11 @@ utilities can override them:
 - Unlayered CSS beats every utility. Do not add it, with one exception:
   `src/styles/components/autocomplete.css` stays unlayered to outrank the
   unlayered `autocompleter/autocomplete.css` vendor sheet it overrides.
+- A component class must not reuse a Tailwind utility name: utilities now beat
+  components regardless of specificity, so a colliding hook changes layout
+  (`.container` became `.container-inner` for this reason). When the collision
+  comes from markup we do not control, put the counter-rule in
+  `@layer utilities` — a components-layer rule cannot win.
 
 ## Stylelint
 

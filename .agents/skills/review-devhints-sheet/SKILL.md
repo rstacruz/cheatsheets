@@ -26,13 +26,11 @@ One block per sheet, most severe finding first:
 ```markdown
 **superagent.md** — needs rewrite
 
-- **`cards/size-limits`** — one 61-line card, limit 50. `superagent.md:9` [auto]
-- **`frontmatter/introduction`** — no `intro` or `links`. `superagent.md:1` [manual]
+- (file) `content/priority`: ...
+- (line 1) `frontmatter/introduction`: no `intro` or `links`
+- (line 9) `cards/size-limits`: one 61-line card, limit 50
 ```
 
-- One line per finding: slug, problem, `file:line`.
-- Tag automated findings `[auto]`, judgement calls `[manual]`.
-- Unmapped findings use `content/priority`, `content/accuracy`, `content/consistency`, `content/links`, `content/staleness`, or `content/minor`.
-- `fragments` and `frontmatter/h3-links` are required only on [tiered sheets](../../../_docs/tiers.md); on untiered sheets they are advisory, not violations.
+- One line per finding
 - End each sheet with `passes`, `needs fixes`, or `needs rewrite`.
 - Don't list what passes unless asked.

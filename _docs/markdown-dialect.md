@@ -27,8 +27,9 @@ links:
 
 An H2 starts a section; an H3 is a card inside it. Both get an id from their text.
 
-- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference` (`.-two-column` is the default).
+- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference`, `.-snippets` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
+- Snippet sheets put `.-snippet` on every H3; see [review tiers](tiers.md#snippet-sheets).
 - The first card is the Introduction, generated from `intro` and `links` frontmatter.
 
 ````md

@@ -1,0 +1,104 @@
+/*
+ * Snippet tier
+ *
+ * `.-snippets` on the H2 keeps each card full width.
+ * `.-snippet` on an H3 puts the code block on the left and the
+ * explanation paragraph on the right.
+ */
+
+.h3-section-list.-snippets,
+.h3-section-list.-snippets-panes,
+.h3-section-list.-snippets-compact {
+  @media (min-width: 769px) {
+    columns: 1;
+  }
+
+  & > .h3-section + .h3-section {
+    @media (min-width: 769px) {
+      margin-top: 16px;
+    }
+  }
+}
+
+.h3-section.-snippet > .body {
+  display: flex;
+  flex-direction: column;
+}
+
+.h3-section.-snippet > .body > pre,
+.h3-section.-snippet > .body > p {
+  margin: 0;
+  min-width: 0;
+}
+
+.h3-section.-snippet > .body > pre {
+  flex: 1 1 55%;
+  border: 0;
+}
+
+.h3-section.-snippet > .body > p {
+  flex: 1 1 45%;
+  border: 0;
+}
+
+@media (min-width: 769px) {
+  .h3-section.-snippet > .body {
+    flex-direction: row;
+  }
+
+  .h3-section.-snippet > .body > pre {
+    border-right: solid 1px var(--line-color);
+  }
+}
+
+/*
+ * Prototype variants
+ *
+ * `.-snippets` is the default above.
+ * `.-snippets-panes` separates the code and explanation into two tiles.
+ * `.-snippets-compact` narrows the code column and gives it an accent.
+ */
+
+.h3-section-list.-snippets-panes .h3-section.-snippet > .body {
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.h3-section-list.-snippets-panes .h3-section.-snippet > .body > pre,
+.h3-section-list.-snippets-panes .h3-section.-snippet > .body > p {
+  border: solid 1px var(--line-color);
+  border-radius: 10px;
+  background: var(--base-panel);
+}
+
+.h3-section-list.-snippets-panes .h3-section.-snippet > .body > pre {
+  background: var(--gray-bg);
+}
+
+.h3-section-list.-snippets-compact .h3-section.-snippet > .body {
+  padding: 0;
+}
+
+.h3-section-list.-snippets-compact .h3-section.-snippet > .body > pre {
+  flex: 0 0 42%;
+  border-right: solid 2px var(--base-a3);
+  border-radius: 8px 0 0 8px;
+  background: #f7f5fc;
+}
+
+.h3-section-list.-snippets-compact .h3-section.-snippet > .body > p {
+  flex: 1 1 58%;
+  border-radius: 0 8px 8px 0;
+  background: var(--base-panel);
+  font-size: var(--fs-n1);
+}
+
+@media (max-width: 768px) {
+  .h3-section-list.-snippets-compact .h3-section.-snippet > .body > pre,
+  .h3-section-list.-snippets-compact .h3-section.-snippet > .body > p {
+    border-radius: 8px;
+  }
+}

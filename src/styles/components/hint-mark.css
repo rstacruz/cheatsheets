@@ -14,9 +14,9 @@
     height: 16px;
     line-height: 12px;
     text-align: center;
-    border-radius: 50%;
-    background: rgb(58 193 203 / 30%);
-    color: var(--base-mute);
+    border-radius: var(--radius-circle);
+    background: color-mix(in srgb, var(--link-hover) 30%, transparent);
+    color: var(--muted-foreground);
     margin: 0 0.4em;
   }
 }

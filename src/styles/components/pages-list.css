@@ -17,28 +17,28 @@
   gap: 2px;
   min-width: 0;
   padding: 12px 14px 4rem;
-  border-radius: 10px;
-  background: var(--base-card);
+  border-radius: var(--radius-xl);
+  background: var(--secondary);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    background: var(--base-card-hover);
+    background: var(--accent);
 
     > .sheet-card__title {
-      color: var(--base-a);
+      color: var(--primary);
     }
   }
 
   > .sheet-card__title {
-    color: var(--base-head);
+    color: var(--heading);
     font-family: var(--font-manrope);
     font-weight: 600;
     overflow-wrap: break-word;
   }
 
   > .sheet-card__subtitle {
-    color: var(--base-mute3);
+    color: var(--muted-foreground-subtle);
     font-size: 13px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,12 +47,12 @@
 }
 
 .pages-list > .category {
-  font-size: var(--fs-1);
-  border-bottom: solid 1px var(--dark-line-color);
+  font-size: var(--text-base);
+  border-bottom: solid 1px var(--border-strong);
   margin: 16px 0;
   padding: 0 0 16px 0;
   font-weight: normal;
-  color: var(--base-a);
+  color: var(--primary);
 }
 
 /* Condensed snippet list */
@@ -62,7 +62,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   column-gap: 24px;
-  border-top: solid 1px var(--line-color);
+  border-top: solid 1px var(--border);
 }
 
 @media (min-width: 769px) {
@@ -76,27 +76,27 @@
   align-items: baseline;
   gap: 10px;
   padding: 10px 4px;
-  border-bottom: solid 1px var(--line-color);
+  border-bottom: solid 1px var(--border);
   text-decoration: none;
 }
 
 .pages-list .snippet-item:hover .snippet-item__title,
 .pages-list .snippet-item:focus .snippet-item__title {
-  color: var(--base-a);
+  color: var(--primary);
 }
 
 .snippet-item__title {
   font-family: var(--font-manrope);
   font-weight: 600;
-  color: var(--base-head);
+  color: var(--heading);
 }
 
 .snippet-item__subtitle {
-  color: var(--base-mute3);
+  color: var(--muted-foreground-subtle);
   font-size: 13px;
 }
 
 .snippet-item__arrow {
   margin-left: auto;
-  color: var(--base-a3);
+  color: var(--primary-subtle);
 }

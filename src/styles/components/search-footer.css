@@ -5,14 +5,14 @@
 .search-footer {
   padding-top: 16px;
   padding-bottom: 16px;
-  background: var(--gray-bg);
-  border-top: solid 1px var(--dark-line-color);
-  border-bottom: solid 1px var(--dark-line-color);
+  background: var(--muted);
+  border-top: solid 1px var(--border-strong);
+  border-bottom: solid 1px var(--border-strong);
 
   & > .container {
     padding-left: 16px;
     padding-right: 16px;
-    max-width: var(--area-width);
+    max-width: var(--content-width);
     margin: 0 auto;
   }
 }

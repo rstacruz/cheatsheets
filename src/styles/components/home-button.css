@@ -4,18 +4,18 @@
 
 .home-button {
   display: inline-block;
-  box-shadow: inset 0 0 0 1px var(--dark-line-color);
-  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+  border-radius: var(--radius-circle);
 
   &,
   &:visited {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
   }
 
   &:hover,
   &:focus {
-    background-color: var(--base-a);
-    color: white;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
 
   /* Colour comes from the link: mute, white on hover/focus */

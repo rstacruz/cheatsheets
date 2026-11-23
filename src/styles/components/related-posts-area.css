@@ -5,12 +5,12 @@
 .related-posts-area {
   padding-top: 16px;
   padding-bottom: 16px;
-  background: var(--gray-bg);
+  background: var(--muted);
 
   & > .container {
     padding-left: 16px;
     padding-right: 16px;
-    max-width: var(--area-width);
+    max-width: var(--content-width);
     margin: 0 auto;
   }
 

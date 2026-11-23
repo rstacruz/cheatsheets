@@ -58,7 +58,7 @@
   }
 
   .h3-section.-snippet > .body > :not(p) {
-    border-right: solid 1px var(--line-color);
+    border-right: solid 1px var(--border);
   }
 }
 
@@ -87,13 +87,13 @@
 
 .h3-section-list.-snippets-panes .h3-section.-snippet > .body > pre,
 .h3-section-list.-snippets-panes .h3-section.-snippet > .body > p {
-  border: solid 1px var(--line-color);
-  border-radius: 10px;
-  background: var(--base-panel);
+  border: solid 1px var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
 }
 
 .h3-section-list.-snippets-panes .h3-section.-snippet > .body > pre {
-  background: var(--gray-bg);
+  background: var(--muted);
 }
 
 .h3-section-list.-snippets-compact .h3-section.-snippet > .body {
@@ -102,21 +102,21 @@
 
 .h3-section-list.-snippets-compact .h3-section.-snippet > .body > pre {
   flex: 0 0 42%;
-  border-right: solid 2px var(--base-a3);
-  border-radius: 8px 0 0 8px;
-  background: #f7f5fc;
+  border-right: solid 2px var(--primary-subtle);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  background: var(--primary-surface);
 }
 
 .h3-section-list.-snippets-compact .h3-section.-snippet > .body > p {
   flex: 1 1 58%;
-  border-radius: 0 8px 8px 0;
-  background: var(--base-panel);
-  font-size: var(--fs-n1);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: var(--card);
+  font-size: var(--text-xs);
 }
 
 @media (max-width: 768px) {
   .h3-section-list.-snippets-compact .h3-section.-snippet > .body > pre,
   .h3-section-list.-snippets-compact .h3-section.-snippet > .body > p {
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
   }
 }

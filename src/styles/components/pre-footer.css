@@ -9,7 +9,7 @@
   text-align: center;
 
   & > .icon {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
     opacity: 0.25;
   }
 

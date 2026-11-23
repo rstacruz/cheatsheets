@@ -22,7 +22,7 @@ const styles = {
 
 const headingStyles = {
   root: 'SiteHeading__root my-12 text-center',
-  h1: `SiteHeading__h1 ${typeStyles.manrope} text-5xl text-zinc-950`,
+  h1: `SiteHeading__h1 ${typeStyles.manrope} text-5xl text-heading`,
   tagline: 'SiteHeading__tagline text-xl mt-4'
 }
 ---
@@ -46,7 +46,9 @@ const headingStyles = {
         <PageListItem page={page} />
       ))}
       {archivedPages.length === 0 ? (
-        <p class="item text-center text-zinc-500">No archived cheatsheets.</p>
+        <p class="item text-center text-muted-foreground">
+          No archived cheatsheets.
+        </p>
       ) : null}
     </div>
   </div>

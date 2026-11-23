@@ -2,33 +2,32 @@
   display: inline-block;
   text-decoration: none;
   padding: 8px 16px;
-  border-radius: 3px;
+  border-radius: var(--radius-xs);
 
   &,
   &:visited {
-    background-color: var(--base-a);
-    background: var(--base-a-gradient);
-    color: white;
+    background: var(--brand-gradient);
+    color: var(--primary-foreground);
   }
 
   &:hover,
   &:focus {
-    background: var(--base-a-dark);
+    background: var(--primary-active);
     box-shadow: none;
-    color: white;
+    color: var(--primary-foreground);
   }
 }
 
 .push-button.-dark {
   &,
   &:visited {
-    background: var(--base-a-dark);
-    color: white;
+    background: var(--primary-active);
+    color: var(--primary-foreground);
   }
 
   &:hover,
   &:focus {
-    background: var(--base-a-darker);
-    color: white;
+    background: var(--primary-deep);
+    color: var(--primary-foreground);
   }
 }

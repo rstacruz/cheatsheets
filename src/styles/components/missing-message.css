@@ -3,7 +3,7 @@
   margin: 32px 0;
   display: flex;
   align-items: center;
-  border-top: solid 1px var(--dark-line-color);
+  border-top: solid 1px var(--border-strong);
   padding-top: 16px;
 
   @media (min-width: 769px) {
@@ -17,9 +17,9 @@
   }
 
   & > h3 {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     font-weight: normal;
-    color: var(--base-text);
+    color: var(--foreground);
     flex: 1 0 auto;
     text-align: left;
   }
@@ -34,12 +34,12 @@
     mask: var(--icon-md-arrow-forward) center center / 24px 24px no-repeat;
     -webkit-mask: var(--icon-md-arrow-forward) center center / 24px 24px
       no-repeat;
-    color: var(--base-a);
+    color: var(--primary);
     margin-right: 16px;
   }
 
   & > p {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
     flex: 0 0 auto;
   }
 

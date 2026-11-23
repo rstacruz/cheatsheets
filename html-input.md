@@ -3,7 +3,6 @@ title: Input tag
 subtitle: Type and attribute reference
 category: HTML
 updated: 2026-11-23
-last_verified_with: "HTML Living Standard, MDN reference."
 weight: -3
 ---
 

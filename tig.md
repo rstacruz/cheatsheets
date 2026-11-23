@@ -161,4 +161,4 @@ bind stash P !git stash pop %(stash)
 bind stash ! !git stash drop %(stash)
 ```
 
-Stash has no default actions; bind them in `~/.tigrc`.
+Tig already binds `A`/`P`/`!` to apply, pop, and drop with a confirmation prompt; the bindings below skip that prompt.

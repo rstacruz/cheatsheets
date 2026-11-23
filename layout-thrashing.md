@@ -1,4 +1,5 @@
 ---
+title: Layout thrashing
 subtitle: Forced reflow performance issue
 # Reproduces browser API lists from a 2015 layout audit.
 category: Hidden

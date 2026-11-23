@@ -1,11 +1,11 @@
 ---
 title: Git tricks
 subtitle: Assorted Git recipes
-# Recipes rejected by Git 2.56 and invented output, verified 2026-11-23.
+# Catch-all of niche Git recipes that go stale between releases.
 category: Hidden
 tags: [Archived]
 archived: |
-  This grab bag of recipes included commands rejected by Git 2.56, such as `git rev-parse --show-top-level`, and invented example output. Use the [Git cheatsheet](./git) and [Git's documentation](https://git-scm.com/docs) instead.
+  This catch-all of niche Git recipes duplicates the maintained Git cheatsheet and ages poorly between releases; verified against Git 2.56.0 on 2026-11-23. Use the [Git cheatsheet](./git) and [Git's documentation](https://git-scm.com/docs) instead.
 updated: 2026-11-23
 last_verified_with: "Git 2.56.0."
 ---

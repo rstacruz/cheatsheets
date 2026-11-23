@@ -3,7 +3,7 @@ title: CSS flexbox
 subtitle: One-dimensional layout system
 category: CSS
 updated: 2026-11-23
-last_verified_with: "CSS Flexible Box Layout specification, MDN guides."
+last_verified_with: "CSS Flexible Box Layout Module Level 1."
 prism_languages: [css]
 weight: -3
 ---

@@ -5,7 +5,7 @@ description: "Cron syntax: the five-field format, operators, special strings and
 subtitle: Unix job scheduler
 category: CLI
 updated: 2026-11-23
-last_verified_with: "cronie crontab(5), crontab(1)."
+last_verified_with: "cronie 1.7.2."
 weight: -3
 ---
 

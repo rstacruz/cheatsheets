@@ -1,10 +1,10 @@
 ---
 title: Licenses
-# Duplicates SPDX's canonical license texts (list 3.29.0, 2026-09-16).
+# Duplicates license texts that SPDX maintains canonically (list 3.29.0).
 category: Hidden
 tags: [Archived]
 archived: |
-  This copies license texts that SPDX maintains canonically (list 3.29.0, 2026-09-16); the BSD 3-Clause copy had drifted to a project-specific name. Use the [SPDX License List](https://spdx.org/licenses/) or [Choose a License](https://choosealicense.com/) instead.
+  This reproduces four license texts that SPDX maintains canonically (list 3.29.0, 2026-09-16). Use the [SPDX License List](https://spdx.org/licenses/) or [Choose a License](https://choosealicense.com/) instead.
 subtitle: Open source license texts
 section: Development
 updated: 2026-11-23

@@ -151,6 +151,7 @@ Only top-level `Mutation` fields may cause side effects; they run in series.
       author { name }
     }
   }
+}
 ```
 
 Great for searching.

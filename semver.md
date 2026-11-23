@@ -3,7 +3,7 @@ title: Semver
 category: Others
 subtitle: Version numbering convention
 updated: 2026-11-23
-last_verified_with: "Semantic Versioning 2.0.0, node-semver."
+last_verified_with: "Semantic Versioning 2.0.0, node-semver 7.8.6."
 weight: -3
 ---
 

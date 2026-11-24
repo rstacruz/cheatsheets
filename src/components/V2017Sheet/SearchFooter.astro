@@ -1,4 +1,5 @@
 ---
+import cx from 'clsx'
 import SearchForm from './SearchForm.astro'
 import Icon from '~/components/Icon.astro'
 
@@ -7,16 +8,30 @@ export type Props = {
 }
 
 const props = Astro.props as Props
+
+const styles = {
+  root: 'border-y border-y-border-strong bg-muted py-[16px]',
+  inner: 'mx-auto max-w-content px-[16px]',
+  section: 'flex',
+  search: '[flex:0_1_640px]',
+  links: 'ml-auto flex-initial pl-[16px]',
+  home: cx(
+    'inline-block rounded-circle text-muted-foreground visited:text-muted-foreground',
+    '[box-shadow:inset_0_0_0_1px_var(--border-strong)]',
+    'hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
+    '[&>i>svg]:inline-block [&>i>svg]:align-middle [&>i>svg]:size-[48px] [&>i>svg]:p-[12px]'
+  )
+}
 ---
 
-<footer class="search-footer" data-js-no-preview>
-  <div class="container-inner">
-    <div class="search-footer-section">
-      <div class="search">
-        <SearchForm class="-small" count={props.count} />
+<footer class={styles.root} data-js-no-preview>
+  <div class={styles.inner}>
+    <div class={styles.section}>
+      <div class={styles.search}>
+        <SearchForm size="small" count={props.count} />
       </div>
-      <div class="links">
-        <a class="home-button" href="/">
+      <div class={styles.links}>
+        <a class={styles.home} href="/">
           <i>
             <Icon name="ios-home-outline" size={24} />
           </i>
@@ -25,8 +40,3 @@ const props = Astro.props as Props
     </div>
   </div>
 </footer>
-
-<style is:global>
-  @import '../../styles/components/home-button.css';
-  @import '../../styles/components/search-footer.css';
-</style>

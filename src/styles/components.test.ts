@@ -15,7 +15,6 @@ const LINE_BUDGET: Record<string, number> = {
   'comments-area.css': 26,
   'comments-details.css': 49,
   'comments-section.css': 22,
-  'home-button.css': 27,
   'missing-message.css': 48,
   'notice-box.css': 18,
   'pages-list.css': 89,
@@ -27,8 +26,6 @@ const LINE_BUDGET: Record<string, number> = {
   'related-posts-callout.css': 48,
   'related-posts-group.css': 18,
   'related-posts-section.css': 59,
-  'search-box.css': 105,
-  'search-footer.css': 29,
   'top-sheet.css': 92
 }
 

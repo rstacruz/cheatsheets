@@ -12,16 +12,12 @@ import { join } from 'node:path'
 const LINE_BUDGET: Record<string, number> = {
   'announcements-item.css': 63,
   'announcements-list.css': 16,
-  'autocomplete.css': 32,
-  'back-button.css': 43,
   'comments-area.css': 26,
   'comments-details.css': 49,
   'comments-section.css': 22,
-  'headline-pub.css': 154,
   'home-button.css': 27,
   'missing-message.css': 48,
   'notice-box.css': 18,
-  'page-actions.css': 104,
   'pages-list.css': 89,
   'pre-footer.css': 19,
   'push-button.css': 31,
@@ -33,7 +29,6 @@ const LINE_BUDGET: Record<string, number> = {
   'related-posts-section.css': 59,
   'search-box.css': 105,
   'search-footer.css': 29,
-  'top-nav.css': 87,
   'top-sheet.css': 92
 }
 

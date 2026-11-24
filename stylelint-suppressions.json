@@ -9,7 +9,7 @@
       "count": 2
     }
   },
-  "src/styles/components/autocomplete.css": {
+  "src/styles/vendor/autocomplete.css": {
     "no-descending-specificity": {
       "count": 1
     }
@@ -24,7 +24,7 @@
       "count": 2
     }
   },
-  "src/styles/components/headline-pub.css": {
+  "src/styles/vendor/headline-pub.css": {
     "no-descending-specificity": {
       "count": 3
     }

@@ -23,7 +23,7 @@ links:
 ffmpeg -i in.mp4 out.gif
 ```
 
-**Converts the whole clip with default settings.** Output is large; the palette recipe below gives better colors and a smaller file; see the [ffmpeg documentation](https://ffmpeg.org/documentation.html).
+**Converts the whole clip with default settings.** Output is large; the palette recipe below gives better colors; see the [ffmpeg documentation](https://ffmpeg.org/documentation.html).
 
 ### Better colors
 <!-- {: .-snippet} -->

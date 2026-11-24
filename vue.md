@@ -59,7 +59,7 @@ links:
 ```sh
 npm create vue@latest
 ```
-<!-- {: data-highlight="create vue"} -->
+<!-- {: data-highlight="npm create vue@latest"} -->
 
 Scaffolds a Vite project and offers TypeScript, Vue Router, Pinia, and testing. See: [Quick start](https://vuejs.org/guide/quick-start.html)
 
@@ -511,7 +511,7 @@ Call `use(router)` before `mount()`. See: [Creating the router instance](https:/
 </RouterLink>
 <RouterView />
 ```
-<!-- {: data-highlight="RouterLink; RouterView"} -->
+<!-- {: data-highlight="<RouterLink; </RouterLink>; <RouterView"} -->
 
 `RouterLink` renders an `<a>` without a page reload; `RouterView` renders the matched component. See: [RouterLink](https://router.vuejs.org/api/interfaces/RouterLinkProps.html)
 

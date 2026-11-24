@@ -4,16 +4,16 @@
 
 html,
 body {
-  background: var(--base-body);
+  background: var(--background);
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--base-text);
+  color: var(--foreground);
   overflow-x: hidden;
 }
 
 body {
-  font-size: var(--fs-0);
+  font-size: var(--text-sm);
   padding: 0;
   margin: 0;
 }
@@ -24,12 +24,12 @@ body {
 
 pre,
 code {
-  font-family: var(--font-monospace);
-  letter-spacing: -0.03em;
+  font-family: var(--font-mono);
+  letter-spacing: var(--tracking-code);
 }
 
 pre {
-  font-size: var(--code-size);
+  font-size: var(--text-code);
 }
 
 /*
@@ -46,15 +46,15 @@ pre {
  */
 
 a {
-  color: var(--base-b);
+  color: var(--link);
 }
 
 a:visited {
-  color: var(--base-b7);
+  color: var(--link-visited);
 }
 
 a:hover {
-  color: var(--base-b3);
+  color: var(--link-hover);
 }
 
 /* No tooltips on mobile */

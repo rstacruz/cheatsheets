@@ -9,7 +9,7 @@
   & > .container {
     padding-left: 16px;
     padding-right: 16px;
-    max-width: var(--area-width);
+    max-width: var(--content-width);
     margin: 0 auto;
   }
 
@@ -19,7 +19,7 @@
     display: block;
     background: linear-gradient(
       to right,
-      var(--dark-line-color) 50%,
+      var(--border-strong) 50%,
       transparent
     );
     height: 1px;

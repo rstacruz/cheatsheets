@@ -28,18 +28,15 @@
 
   & > .callout {
     flex: 1 1 33%;
-  }
-
-  & > .group {
-    flex: 1 1 50%;
-  }
-
-  & > .callout {
     display: flex;
 
     & > * {
       flex: 1 0 100%;
     }
+  }
+
+  & > .group {
+    flex: 1 1 50%;
   }
 
   /* Mobile */

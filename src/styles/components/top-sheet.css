@@ -13,10 +13,10 @@
   padding: 16px 18px 18px;
   overflow: hidden;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 
   > .sheet-card__title {
-    color: white;
+    color: var(--primary-foreground);
     font-family: var(--font-manrope);
     font-size: 18px;
     font-weight: 800;
@@ -25,7 +25,7 @@
   }
 
   > .sheet-card__subtitle {
-    color: rgb(255 255 255 / 78%);
+    color: color-mix(in srgb, var(--card) 78%, transparent);
   }
 
   > .sheet-card__fragments {
@@ -39,51 +39,63 @@
     padding-right: 20%;
     overflow: hidden;
     opacity: 0.5;
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      var(--mask-opaque) 50%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      var(--mask-opaque) 50%,
+      transparent 100%
+    );
   }
 
   > .sheet-card__fragments > .sheet-card__fragment {
     flex: 0 0 auto;
     padding: 1px 7px;
-    border-radius: 999px;
-    background: rgb(0 0 0 / 12%);
-    color: rgb(255 255 255 / 80%);
-    font-family: 'Handjet', var(--font-monospace);
+    border-radius: var(--radius-full);
+    background: var(--overlay-soft);
+    color: color-mix(in srgb, var(--card) 80%, transparent);
+    font-family: 'Handjet', var(--font-mono);
     font-size: 16px;
     line-height: 18px;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--tracking-chip);
     white-space: nowrap;
   }
 
   &:nth-of-type(3n + 1) {
-    background: linear-gradient(15deg, var(--base-a), var(--base-a-bright));
+    background: linear-gradient(15deg, var(--primary), var(--primary-subtle));
 
     &:hover,
     &:focus {
-      background: var(--base-a-hover);
+      background: var(--primary-strong);
     }
   }
 
   &:nth-of-type(3n + 2) {
     background: linear-gradient(
       15deg,
-      var(--base-mute),
-      var(--base-mute-bright)
+      var(--muted-foreground),
+      var(--muted-foreground-bright)
     );
 
     &:hover,
     &:focus {
-      background: var(--base-mute6);
+      background: var(--muted-foreground-strong);
     }
   }
 
   &:nth-of-type(3n + 3) {
-    background: linear-gradient(15deg, var(--base-c), var(--base-c-bright));
+    background: linear-gradient(
+      15deg,
+      var(--highlight),
+      var(--highlight-bright)
+    );
 
     &:hover,
     &:focus {
-      background: var(--base-c-dark);
+      background: var(--highlight-dark);
     }
   }
 }

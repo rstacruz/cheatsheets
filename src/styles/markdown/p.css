@@ -12,7 +12,7 @@
   & > a {
     display: block;
     text-decoration: none;
-    color: var(--base-a);
+    color: var(--primary);
     border-bottom: 0;
     box-shadow: none;
     margin: -16px;
@@ -20,7 +20,7 @@
   }
 
   & > a:visited {
-    color: var(--base-a);
+    color: var(--primary);
   }
 
   & > a::before {
@@ -31,18 +31,18 @@
     height: 32px;
     background: var(--icon-md-arrow-forward-white) center center / 16px 16px
       no-repeat;
-    background-color: var(--base-a);
+    background-color: var(--primary);
     margin-right: 16px;
     line-height: 32px;
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
   }
 
   & > a:hover,
   & > a:focus {
-    color: var(--base-a7);
+    color: var(--primary-strong);
 
     &::before {
-      background-color: var(--base-a7);
+      background-color: var(--primary-strong);
     }
   }
 }

@@ -18,16 +18,9 @@
     & {
       height: 48px;
       padding: 8px 0;
-      border-bottom: solid 1px var(--dark-line-color);
+      border-bottom: solid 1px var(--border-strong);
       margin-bottom: 8px;
     }
-  }
-
-  & > .container {
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: var(--area-width);
-    margin: 0 auto;
   }
 }
 
@@ -35,14 +28,14 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: var(--content-width);
+  margin: 0 auto;
 
   & > .left {
     flex: 0 0 auto;
     line-height: 32px;
-  }
-
-  & > .brand {
-    flex: 1 1 auto;
   }
 
   & > .actions {
@@ -51,20 +44,21 @@
   }
 
   & > .brand {
-    font-size: var(--fs-n1);
+    flex: 1 1 auto;
+    font-size: var(--text-xs);
     display: inline-block;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-caps);
     text-decoration: none;
 
     &,
     &:visited {
-      color: var(--base-text);
+      color: var(--foreground);
     }
 
     &:hover {
-      color: var(--base-a);
+      color: var(--primary);
     }
   }
 

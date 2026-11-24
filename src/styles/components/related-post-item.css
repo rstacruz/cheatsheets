@@ -7,8 +7,8 @@
   & > a {
     flex: 1 1 100%;
     display: block;
-    border-radius: 2px;
-    box-shadow: var(--shadow2);
+    border-radius: var(--radius-xs);
+    box-shadow: var(--shadow-sm);
     padding: 16px;
     text-decoration: none;
   }
@@ -16,42 +16,42 @@
   /* Color */
   & > a,
   & > a:visited {
-    background: white;
-    color: var(--base-mute);
+    background: var(--card);
+    color: var(--muted-foreground);
 
     & > strong {
-      color: var(--base-a);
+      color: var(--primary);
     }
 
     &:hover,
     &:focus {
-      color: var(--base-a);
+      color: var(--primary);
     }
 
     &:hover > strong,
     &:focus > strong {
-      color: var(--base-a-dark);
+      color: var(--primary-active);
     }
   }
 
   &:first-of-type > a,
   &:first-of-type > a:visited {
-    background: var(--base-a);
-    color: rgb(255 255 255 / 50%);
+    background: var(--primary);
+    color: color-mix(in srgb, var(--card) 50%, transparent);
 
     & > strong {
-      color: white;
+      color: var(--primary-foreground);
     }
 
     &:hover,
     &:focus {
-      color: white;
-      background: var(--base-a-hover);
+      color: var(--primary-foreground);
+      background: var(--primary-strong);
     }
 
     &:hover > strong,
     &:focus > strong {
-      color: white;
+      color: var(--primary-foreground);
     }
   }
 
@@ -64,11 +64,11 @@
   }
 
   & > a > strong {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     font-weight: normal;
   }
 
   & > a > span {
-    font-size: var(--fs-n1);
+    font-size: var(--text-xs);
   }
 }

@@ -1,6 +1,6 @@
 .notice-box {
   margin-bottom: 24px;
-  color: var(--base-mute);
+  color: var(--muted-foreground);
 
   @media (max-width: 480px) {
     margin-bottom: 16px;
@@ -9,7 +9,7 @@
   & > svg {
     display: inline-block;
     vertical-align: middle;
-    color: var(--base-mute3);
+    color: var(--muted-foreground-subtle);
     margin-right: 8px;
   }
 

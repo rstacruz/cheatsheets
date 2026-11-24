@@ -10,8 +10,8 @@
   }
 
   & > summary {
-    font-size: var(--fs-1);
-    color: var(--base-a);
+    font-size: var(--text-base);
+    color: var(--primary);
     padding: 24px 0;
     white-space: nowrap;
     cursor: pointer;
@@ -21,11 +21,11 @@
   & > summary:focus {
     &,
     & > .suffix {
-      color: var(--base-a7);
+      color: var(--primary-strong);
     }
 
     & > .fauxlink {
-      border-bottom: solid 1px var(--base-a7);
+      border-bottom: solid 1px var(--primary-strong);
     }
   }
 
@@ -36,16 +36,18 @@
   & > summary > .count > svg {
     display: inline-block;
     vertical-align: middle;
-    color: var(--base-a); /* pinned: the summary goes a7 on hover */
+    color: var(
+      --primary
+    ); /* pinned: the summary goes --primary-strong on hover */
     margin: 0 8px;
   }
 
   & > summary > .suffix {
-    color: var(--base-mute);
+    color: var(--muted-foreground);
   }
 
   & > summary > .fauxlink {
     margin-left: 4px;
-    border-bottom: solid 1px rgb(116 95 181 / 25%);
+    border-bottom: solid 1px color-mix(in srgb, var(--primary) 25%, transparent);
   }
 }

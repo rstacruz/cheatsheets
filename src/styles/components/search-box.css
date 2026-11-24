@@ -1,7 +1,7 @@
 .search-box {
-  background: var(--base-panel);
-  box-shadow: var(--shadow3);
-  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-full);
   display: flex;
   height: 64px;
   align-items: center;
@@ -9,13 +9,13 @@
 
   &:focus-within {
     box-shadow:
-      inset 0 0 0 1px var(--base-c),
-      0 0 0 3px rgb(20 175 131 / 10%);
+      inset 0 0 0 1px var(--highlight),
+      0 0 0 3px color-mix(in srgb, var(--highlight) 10%, transparent);
   }
 
   & > input {
     font-family: var(--font-body);
-    font-size: var(--fs-2);
+    font-size: var(--text-lg);
     padding: 16px;
     height: 64px;
     background: transparent;
@@ -23,13 +23,13 @@
     flex: 1 1 auto;
     padding-left: 0;
     font-weight: bold;
-    color: var(--base-head);
+    color: var(--heading);
     min-width: 48px;
     cursor: text; /* Undoes [aria-controls] in sanitize.css */
 
     &::placeholder {
       font-weight: normal;
-      color: var(--base-mute);
+      color: var(--muted-foreground);
     }
   }
 
@@ -38,22 +38,22 @@
   }
 
   & > .prefix {
-    font-size: var(--fs-0);
+    font-size: var(--text-sm);
     display: block;
-    color: rgb(85 102 119 / 50%);
+    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
     font-weight: 400;
     user-select: none;
     line-height: 1.5em;
     padding: 2px 8px;
-    border: solid 1px var(--line-color);
-    border-radius: 999px;
-    background: rgb(250 250 252 / 50%);
+    border: solid 1px var(--border);
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--background) 50%, transparent);
     margin: 0 0 0 19px;
   }
 
   & > .sep {
-    color: rgb(85 102 119 / 50%);
-    font-size: var(--fs-2);
+    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
+    font-size: var(--text-lg);
     margin: 0 8px;
   }
 
@@ -76,7 +76,7 @@
     width: 64px;
     display: grid;
     place-items: center;
-    color: var(--base-head);
+    color: var(--heading);
   }
 
   & > .icon > svg {
@@ -105,7 +105,7 @@
   & > .prefix,
   & > .sep,
   & > input {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
   }
 
   & > .icon {

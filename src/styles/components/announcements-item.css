@@ -1,9 +1,9 @@
 .announcements-item {
   position: relative;
   padding: 16px;
-  box-shadow: var(--shadow6);
-  border-radius: 1px;
-  background: white;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-xs);
+  background: var(--card);
   padding-right: 48px;
   animation: announcements-item-flyin 500ms ease-out;
   transition:
@@ -15,9 +15,9 @@
   }
 
   & > .title {
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     font-weight: normal;
-    color: var(--base-a);
+    color: var(--primary);
     margin: 0;
     padding: 0;
   }
@@ -47,7 +47,7 @@
 
     &:hover,
     &:focus {
-      color: var(--base-a);
+      color: var(--primary);
     }
   }
 

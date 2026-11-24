@@ -30,6 +30,7 @@ Each `styles` entry starts with a stable `ComponentName__part` hook, as in tilno
 5. `svg` is `display:block` after preflight, so icons get `[&>svg]:inline-block [&>svg]:align-middle` on their wrapper or `[&_svg]:…` on the part that owns them.
 6. Gradients use `bg-linear-[15deg,var(--a),var(--b)]`; gradient→solid hovers add `bg-none` (`hover:bg-*` alone only sets `background-color`, leaving the image on top).
 7. Colour utilities live in `@layer utilities`, which outranks `base.css`'s `a`, `a:visited`, and `a:hover` rules, so a `text-*` utility on an anchor pins every link state; add `hover:text-*` only where the colour actually changes.
+8. Theme changes never appear in a `styles` map: utilities read semantic roles, and `light-dark()` stays in the token layer.
 
 ## Where CSS still belongs
 

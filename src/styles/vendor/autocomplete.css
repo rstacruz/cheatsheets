@@ -9,6 +9,8 @@
 
 .autocomplete {
   border: none;
+  background: var(--card);
+  color: var(--foreground);
   padding: 0.5rem;
   padding-top: 0;
   border-bottom-left-radius: var(--radius-sm);
@@ -20,6 +22,11 @@
 .autocomplete > div {
   padding: 0.5rem;
   border-radius: var(--radius-sm);
+}
+
+.autocomplete > div.group {
+  background: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .autocomplete > div:hover:not(.group) {

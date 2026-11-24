@@ -85,7 +85,7 @@
     }
 
     &.tag {
-      color: var(--link-dark);
+      color: var(--link-strong);
     }
 
     &.value,

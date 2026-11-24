@@ -131,7 +131,7 @@ date.daysInMonth  // 30
 
 Months are 1-indexed, unlike `Date`.
 
-See: [Temporal.PlainDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#properties)
+See: [Temporal.PlainDate](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#instance_properties)
 
 ### Update fields
 
@@ -264,7 +264,7 @@ before.hoursInDay         // 23
 
 <!-- {: data-highlight="hoursInDay"} -->
 
-Zoned arithmetic follows the wall clock, so days can be 23 or 25 hours.
+Day arithmetic follows the wall clock, so days can be 23 or 25 hours.
 
 See: [ZonedDateTime and DST](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets)
 

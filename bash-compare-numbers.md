@@ -16,7 +16,7 @@ links:
 ## Comparing
 <!-- {: .-snippets} -->
 
-### Equal
+### Equality
 <!-- {: .-snippet} -->
 
 ```bash
@@ -26,7 +26,7 @@ links:
 
 **Compares two integers for equality.** Inside `[[ ]]` both sides are arithmetic, so `010` is octal; use `==` for strings. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
-### Not equal
+### Inequality
 <!-- {: .-snippet} -->
 
 ```bash
@@ -34,7 +34,7 @@ links:
 ```
 <!-- {: data-highlight="-ne"} -->
 
-**Checks that two integers differ.** Bare words are read as variable names, so an unset name counts as `0`. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Checks that two integers differ.** Both sides are arithmetic, and an empty value counts as `0`. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Ordering
 <!-- {: .-snippet} -->

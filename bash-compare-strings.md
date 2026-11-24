@@ -24,7 +24,7 @@ links:
 ```
 <!-- {: data-highlight="=="} -->
 
-**Checks two strings for equality.** Quote both sides; inside `[[ ]]` neither side undergoes word splitting. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Checks two strings for equality.** Quote both sides: word splitting does not happen inside `[[ ]]`, but an unquoted right side is read as a glob pattern. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Inequality
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ links:
 ```
 <!-- {: data-highlight="<; \<"} -->
 
-**Sorts strings in the current locale.** Inside `[[ ]]`, `<` needs no escape; `[ ]` needs `\<` so the shell does not read a redirection. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Compares strings lexically.** `[[ ]]` uses the current locale; `[ ]` uses ASCII ordering and needs `\<` to avoid a redirection. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Pattern match
 <!-- {: .-snippet} -->

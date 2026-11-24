@@ -53,20 +53,25 @@ function greet {
 
 ```bash
 args() {
-  echo "$# args: $@"
+  echo "$# args"
+  for arg in "$@"; do
+    echo "$arg"
+  done
 }
 
 args one two
 ```
-<!-- {: data-highlight="$#; $@"} -->
+<!-- {: data-highlight='$#; "$@"'} -->
 
 #### Output
 
 ```text
-2 args: one two
+2 args
+one
+two
 ```
 
-**Reads positional parameters inside the body.** `$1` and `$2` are the arguments, `$#` is the count, and `"$@"` is all of them. See [positional parameters](https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html).
+**Reads positional parameters inside the body.** `$1` and `$2` are the arguments, `$#` is the count, and `"$@"` expands to all of them. See [positional parameters](https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html).
 
 ### Local variables
 <!-- {: .-snippet} -->
@@ -87,8 +92,9 @@ greet() {
 ```bash
 is_dir() {
   [[ -d "$1" ]] || return 1
+  echo "$1 is a directory"
 }
 ```
 <!-- {: data-highlight="return 1"} -->
 
-**Returns a status code to the caller.** Without `return`, the function reports the status of its last command. See [return](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).
+**Returns a status code to the caller.** `return 1` stops early; without it the function reports the status of its last command. See [return](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html).

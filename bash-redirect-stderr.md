@@ -43,7 +43,7 @@ ls /missing &>> all.log
 ```
 <!-- {: data-highlight="&>; &>>"} -->
 
-**Shortcut for redirecting stdout and stderr together.** `&>` truncates and `&>>` appends; both are Bash extensions. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
+**Redirects both streams in one step.** `&>` truncates and `&>>` appends; both are Bash extensions. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
 ### Whole script
 <!-- {: .-snippet} -->

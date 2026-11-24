@@ -50,7 +50,7 @@
       display: inline-block;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: var(--tracking-caps);
       text-decoration: none;
 
       &,

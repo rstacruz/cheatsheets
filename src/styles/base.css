@@ -26,7 +26,7 @@
   pre,
   code {
     font-family: var(--font-mono);
-    letter-spacing: -0.03em;
+    letter-spacing: var(--tracking-code);
   }
 
   pre {

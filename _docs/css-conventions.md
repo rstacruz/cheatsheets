@@ -58,29 +58,68 @@ utilities can override them:
 - Unlayered CSS beats every utility. Do not add it, with one exception:
   `src/styles/components/autocomplete.css` stays unlayered to outrank the
   unlayered `autocompleter/autocomplete.css` vendor sheet it overrides.
-- A component class must not reuse a Tailwind utility name: utilities now beat
-  components regardless of specificity, so a colliding hook changes layout
-  (`.container` became `.container-inner` for this reason). When the collision
-  comes from markup we do not control, put the counter-rule in
-  `@layer utilities` — a components-layer rule cannot win.
+- A component class must not reuse a Tailwind utility name: utilities beat
+  components regardless of specificity, so a colliding hook changes layout.
+  When the collision comes from markup we do not control, put the counter-rule
+  in `@layer utilities`; a components-layer rule cannot win.
+
+## Component CSS is deprecated
+
+`src/styles/components/` is legacy. The target is Tailwind utilities in the
+Astro component, with the matching CSS file deleted: `CommentsArea.astro`
+carries the classes, and `comments-area.css` goes away.
+
+Component CSS stays only where Tailwind cannot reach:
+
+- rendered Markdown prose (`h3-section-list`, `snippet`, Markdown typography),
+  which has no markup to hold utilities;
+- vendor overrides, like `autocomplete.css`;
+- structural rules that need pseudo-elements or descendant selectors.
+
+Do not add a new `src/styles/components/*.css` file for an Astro component. The
+migration of the existing files is deferred; when you touch one, move what
+utilities can express.
 
 ## Stylelint
 
+The config states the target, not today's tree. Existing violations are
+baselined in `stylelint-suppressions.json`, so the gate fails only on new ones.
+
 ```sh
-pnpm lint:css:check   # report violations; runs in pnpm run ci
-pnpm lint:css         # fix what can be fixed automatically
+pnpm lint:css:check   # new violations; runs in pnpm run ci
+pnpm lint:css         # apply safe fixes
 ```
 
-Rule of thumb: colour literals fail lint. Hex colours, `rgb()`, `hsl()`, named
-colours, unknown custom properties, and a token from the wrong family (a
-`--radius-*` in `color`) are CI errors. Raw values belong in the token files
-(`tokens.css`, `tailwind.css`, and `font-scale.css`); `icons.generated.css` is
-ignored. Raw lengths elsewhere pass lint until the touch-it, rename-it rule
-migrates them.
+Colour, font family, font size, letter-spacing, and radius must come from a
+token; the gate rejects raw values for those families. Raw colour literals are
+allowed only in `tokens.css` and `tailwind.css` (`icons.generated.css` is
+ignored). `line-height` may stay a unitless number; a `var()` there must be a
+`--leading-*` token. Unknown tokens, a token from the wrong family, and
+`!important` fail. The namespace pattern also rejects most retired names, but
+it cannot know the whole old vocabulary; never reintroduce one. Descending
+specificity fails too.
 
-Shorthand declarations can trip the allowed-list. Tune
-`declaration-property-custom-property-allowed-list` for that property family;
-never add a global disable.
+Fix the code when a rule fires. Do not add entries to the suppressions file to
+let new code through.
+
+For a genuinely unavoidable exception, disable the rule at that line and say
+why:
+
+```css
+/* stylelint-disable-next-line <rule> -- why this one must stay */
+```
+
+A recorded count is a ceiling, not a live total: the check only compares
+against it, so fixing one occurrence does not lower it, and a new one can slip
+in under it. Once the check is green, refresh the baseline so the counts match
+what is left:
+
+```sh
+pnpm lint:css:baseline
+```
+
+Adding a rule to the gate uses the same command with `--suppress=<rule>`, which
+baselines that rule alone.
 
 ## Touch it, rename it
 

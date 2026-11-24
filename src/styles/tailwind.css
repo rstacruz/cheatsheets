@@ -38,6 +38,9 @@
   --text-code: 0.96em;
   --leading-code: 1.5;
   --leading-heading: 1.2;
+  --tracking-code: -0.03em;
+  --tracking-caps: 0.05em;
+  --tracking-chip: 0.02em;
   --tracking-manrope: -0.02em;
 
   --container-snippet: 900px;

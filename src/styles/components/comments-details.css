@@ -12,7 +12,9 @@
 
     & > summary {
       font-size: var(--text-base);
-      color: var(--primary);
+      color: var(
+        --primary
+      ); /* pinned: the summary goes --primary-strong on hover */
       padding: 24px 0;
       white-space: nowrap;
       cursor: pointer;

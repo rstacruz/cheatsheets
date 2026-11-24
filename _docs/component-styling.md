@@ -9,7 +9,7 @@ Astro components carry their classes in markup. A component does not get its own
 import cx from 'clsx'
 
 const styles = {
-  root: 'top-nav relative mb-2 …',
+  root: 'top-nav relative mb-[8px] …',
   title: 'flex-auto text-xs …',
 }
 ---

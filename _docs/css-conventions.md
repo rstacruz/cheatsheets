@@ -115,7 +115,7 @@ in under it. Once the check is green, refresh the baseline so the counts match
 what is left:
 
 ```sh
-pnpm exec stylelint "src/styles/**/*.css" --suppress --suppress-location=stylelint-suppressions.json
+pnpm lint:css:baseline
 ```
 
 Adding a rule to the gate uses the same command with `--suppress=<rule>`, which

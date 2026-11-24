@@ -47,11 +47,13 @@ const [count, setCount] = useState(0)
 ```
 <!-- {: data-highlight="useState"} -->
 
-The setter schedules a re-render; `count` stays fixed for the current render.
+The setter schedules a re-render; the new value appears on the next render.
 
 See: [useState](https://react.dev/reference/react/useState)
 
 ### Updater functions
+
+#### With an updater
 
 ```jsx
 setCount(c => c + 1)
@@ -60,9 +62,25 @@ setUser(u => ({ ...u, name }))
 ```
 <!-- {: data-highlight="c => c + 1"} -->
 
-Pass a function when the next value depends on the previous one; React queues each updater and applies them in order.
+#### Without an updater
 
-See: [Updating state based on the previous state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  function handleClick() {
+    setCount(count + 1)
+    setCount(count + 1)  // still 0 + 1
+  }
+
+  return <button onClick={handleClick}>{count}</button>
+}
+```
+<!-- {: data-highlight="setCount(count + 1)"} -->
+
+Pass a function when the next value depends on the previous one; React queues each updater and applies them in order. Without one, both calls read the same snapshot, so the counter adds one.
+
+See: [Updating state based on the previous state](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) · [State as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 
 ### Lazy initial state
 
@@ -97,26 +115,6 @@ dispatch({ type: 'add', todo })
 Prefer a reducer for related fields or updates that depend on several values. A third argument initialises lazily: `useReducer(reducer, props, init)`.
 
 See: [useReducer](https://react.dev/reference/react/useReducer)
-
-### State is a snapshot
-
-```jsx
-function Counter() {
-  const [count, setCount] = useState(0)
-
-  function handleClick() {
-    setCount(count + 1)
-    setCount(count + 1)  // still 0 + 1
-  }
-
-  return <button onClick={handleClick}>{count}</button>
-}
-```
-<!-- {: data-highlight="setCount(count + 1)"} -->
-
-Both calls read the same snapshot, so the counter adds one. Use an updater to add twice; handlers keep the values from the render that created them.
-
-See: [State as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 
 ## Effects
 
@@ -163,7 +161,7 @@ useEffect(() => {
 ```
 <!-- {: data-highlight="[userId, pageId]"} -->
 
-`[]` runs once after mount, no array runs after every commit, and the list re-runs when a value changes (`Object.is`). Keep values used inside the effect in the list. StrictMode runs setup and cleanup twice in development.
+`[]` runs once after mount; omitting the array re-runs after every commit; a dependency list re-runs when a value changes (`Object.is`). Keep values used in the effect in the list. StrictMode runs setup and cleanup twice in development.
 
 See: [Dependencies](https://react.dev/reference/react/useEffect#specifying-reactive-dependencies)
 
@@ -228,6 +226,23 @@ See: [You might not need an Effect](https://react.dev/learn/you-might-not-need-a
 
 ## Specialized effects
 
+### useLayoutEffect
+
+```jsx
+const ref = useRef(null)
+const [height, setHeight] = useState(0)
+
+useLayoutEffect(() => {
+  const box = ref.current.getBoundingClientRect()
+  setHeight(box.height)
+}, [])
+```
+<!-- {: data-highlight="useLayoutEffect"} -->
+
+Runs before paint, so measurements can update the DOM without a flicker. Reach for `useEffect` otherwise.
+
+See: [useLayoutEffect](https://react.dev/reference/react/useLayoutEffect)
+
 ### useEffectEvent
 
 ```jsx
@@ -247,23 +262,6 @@ useEffect(() => {
 Reads the latest props and state without re-running the effect. Call it from an effect or another Effect Event; added in 19.2.
 
 See: [useEffectEvent](https://react.dev/reference/react/useEffectEvent)
-
-### useLayoutEffect
-
-```jsx
-const ref = useRef(null)
-const [height, setHeight] = useState(0)
-
-useLayoutEffect(() => {
-  const box = ref.current.getBoundingClientRect()
-  setHeight(box.height)
-}, [])
-```
-<!-- {: data-highlight="useLayoutEffect"} -->
-
-Runs before paint, so measurements can update the DOM without a flicker. Reach for `useEffect` otherwise.
-
-See: [useLayoutEffect](https://react.dev/reference/react/useLayoutEffect)
 
 ### useInsertionEffect
 
@@ -308,11 +306,11 @@ See: [useContext](https://react.dev/reference/react/useContext)
 ```
 <!-- {: data-highlight="ThemeContext"} -->
 
-v19 renders the context object itself as the provider. `<ThemeContext.Provider>` still works.
+React 19 renders the context object itself as the provider. `<ThemeContext.Provider>` still works.
 
 See: [createContext](https://react.dev/reference/react/createContext#provider)
 
-### use with context
+### use(context)
 
 ```jsx
 function Rule({ show }) {
@@ -391,7 +389,7 @@ See: [Referencing values with refs](https://react.dev/learn/referencing-values-w
   }}
 />
 ```
-<!-- {: data-highlight="observer.disconnect"} -->
+<!-- {: data-highlight="return () => observer.disconnect()"} -->
 
 A ref callback may return a cleanup that runs when the node detaches (v19).
 
@@ -462,7 +460,7 @@ const onSelect = useCallback(
 ```
 <!-- {: data-highlight="useCallback"} -->
 
-`useCallback(fn, deps)` is `useMemo(() => fn, deps)`; it matters for memoised children and effect dependencies. [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1) (stable since Oct 2025) handles most cases.
+`useCallback(fn, deps)` is `useMemo(() => fn, deps)`; it matters for memoised children and effect dependencies. [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1) handles most cases.
 
 See: [useCallback](https://react.dev/reference/react/useCallback)
 
@@ -604,7 +602,7 @@ Shows the next value while the action runs, then reconciles with the real state;
 
 See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
-### use with a promise
+### use(promise)
 
 ```jsx
 function Comments({ commentsPromise }) {
@@ -668,9 +666,7 @@ function CartProvider({ children }) {
 }
 
 function useCart() {
-  const cart = useContext(CartContext)
-  if (!cart) throw new Error('No CartProvider')
-  return cart
+  return useContext(CartContext)
 }
 ```
 <!-- {: data-highlight="useCart"} -->
@@ -698,6 +694,21 @@ expect(result.current.count).toBe(1)
 `renderHook` mounts a wrapper component; wrap updates in `act` so React flushes them.
 
 See: [renderHook](https://testing-library.com/docs/react-testing-library/api#renderhook)
+
+### useDebugValue
+
+```jsx
+function useDiscount(user) {
+  const discount = user.tier === 'pro' ? 0.2 : 0
+  useDebugValue(discount, d => `${d * 100}% off`)
+  return discount
+}
+```
+<!-- {: data-highlight="useDebugValue"} -->
+
+Labels the hook in React DevTools; the formatter runs only when the hook is inspected.
+
+See: [useDebugValue](https://react.dev/reference/react/useDebugValue)
 
 ## Rules and tooling
 
@@ -730,26 +741,9 @@ Catches conditional hooks, missing effect dependencies and Effect Event misuse; 
 
 See: [eslint-plugin-react-hooks](https://react.dev/reference/eslint-plugin-react-hooks)
 
-### Debugging with useDebugValue
-
-```jsx
-function useDiscount(user) {
-  const discount = user.tier === 'pro' ? 0.2 : 0
-  useDebugValue(discount, d => `${d * 100}% off`)
-  return discount
-}
-```
-<!-- {: data-highlight="useDebugValue"} -->
-
-Labels the hook in React DevTools; the formatter runs only when the hook is inspected.
-
-See: [useDebugValue](https://react.dev/reference/react/useDebugValue)
-
 ## Also see
 
 - [React cheatsheet](./react) — components, JSX and the wider API
-- [Hooks reference](https://react.dev/reference/react/hooks) _(react.dev)_
-- [Rules of hooks](https://react.dev/reference/rules/rules-of-hooks) _(react.dev)_
 - [React v16 cheatsheet](react@16) — class lifecycle equivalents
 
 {%endraw%}

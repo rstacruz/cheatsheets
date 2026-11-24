@@ -116,7 +116,7 @@ function Counter() {
 
 Both calls read the same snapshot, so the counter adds one. Use an updater to add twice; handlers keep the values from the render that created them.
 
-See: [State as a snapshot](https://react.dev/reference/react/useState#state-as-a-snapshot)
+See: [State as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 
 ## Effects
 
@@ -161,7 +161,7 @@ useEffect(() => {
 }, [userId, pageId])
 ```
 
-`[]` runs once after mount, no array runs after every commit, and the list re-runs when a value changes (`Object.is`). Keep values used inside the effect in the list.
+`[]` runs once after mount, no array runs after every commit, and the list re-runs when a value changes (`Object.is`). Keep values used inside the effect in the list. StrictMode runs setup and cleanup twice in development.
 
 See: [Dependencies](https://react.dev/reference/react/useEffect#specifying-reactive-dependencies)
 
@@ -179,7 +179,7 @@ useEffect(() => {
 
 Every subscription, timer and listener needs a matching cleanup; React runs it before the next setup and on unmount.
 
-See: [Cleaning up an effect](https://react.dev/reference/react/useEffect#cleaning-up-an-effect)
+See: [Adding cleanup if needed](https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed)
 
 ### Fetching data
 
@@ -200,6 +200,28 @@ useEffect(() => {
 Abort drops stale responses when `id` changes; ignore the expected `AbortError`. Prefer a framework or query library for real apps.
 
 See: [Fetching data with Effects](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
+
+### When not to use an effect
+
+#### Derive during render
+
+```jsx
+const fullName = first + ' ' + last
+const visible = items.filter(item => item.active)
+```
+
+#### Reset with a key
+
+```jsx
+<Profile key={userId} user={user} />
+```
+<!-- {: data-highlight="key={userId}"} -->
+
+Don't use effects for derived values, event responses or state resets.
+
+See: [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+
+## Specialized effects
 
 ### useEffectEvent
 
@@ -238,25 +260,21 @@ Runs before paint, so measurements can update the DOM without a flicker. Reach f
 
 See: [useLayoutEffect](https://react.dev/reference/react/useLayoutEffect)
 
-### When not to use an effect
-
-#### Derive during render
+### useInsertionEffect
 
 ```jsx
-const fullName = first + ' ' + last
-const visible = items.filter(item => item.active)
+useInsertionEffect(() => {
+  const style = document.createElement('style')
+  style.textContent = css
+  document.head.appendChild(style)
+  return () => style.remove()
+}, [css])
 ```
+<!-- {: data-highlight="useInsertionEffect"} -->
 
-#### Reset with a key
+Runs before layout effects so CSS-in-JS libraries can inject styles; refs are not attached yet.
 
-```jsx
-<Profile key={userId} user={user} />
-```
-<!-- {: data-highlight="key={userId}"} -->
-
-Don't use effects for derived values, event responses or state resets.
-
-See: [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+See: [useInsertionEffect](https://react.dev/reference/react/useInsertionEffect)
 
 ## Context
 
@@ -319,7 +337,7 @@ function useTheme() {
 
 A named hook with a guard fails loudly when the provider is missing.
 
-See: [Building a context provider](https://react.dev/reference/react/useContext#building-a-context-provider)
+See: [Specifying a fallback default value](https://react.dev/reference/react/useContext#specifying-a-fallback-default-value)
 
 ## Refs and DOM
 
@@ -456,7 +474,7 @@ function onChange(e) {
 ```
 <!-- {: data-highlight="startTransition"} -->
 
-Marks updates as non-urgent so typing stays responsive; `isPending` lets you dim stale results. Async functions are allowed in 19.
+Marks updates as non-urgent so typing stays responsive; `isPending` lets you dim stale results.
 
 See: [useTransition](https://react.dev/reference/react/useTransition)
 

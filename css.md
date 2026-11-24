@@ -119,8 +119,19 @@ See: [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-cl
 See: [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child)
 
 ## Fonts
+<!-- {: .-three-column} -->
 
-<!-- {: .-left-reference} -->
+### Shorthand
+<!-- {: .-full-width} -->
+
+|         | style    | weight | size (required) |     | line-height | family            |
+| ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
+| `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
+|         | style    | weight | size (required) |     | line-height | family (required) |
+
+<!-- {: .-css-breakdown} -->
+
+See: [font shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/font#constituent_properties)
 
 ### Properties
 
@@ -141,19 +152,6 @@ See: [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-chil
 <!-- {: .-key-values} -->
 
 See: [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
-
-### Shorthand
-
-<!-- {: .-prime} -->
-
-|         | style    | weight | size (required) |     | line-height | family            |
-| ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
-| `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
-|         | style    | weight | size (required) |     | line-height | family (required) |
-
-<!-- {: .-css-breakdown} -->
-
-See: [font shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/font#constituent_properties)
 
 ### Example
 
@@ -179,7 +177,18 @@ See: [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-tran
 
 ## Background
 
-<!-- {: .-left-reference} -->
+### Shorthand
+<!-- {: .-full-width} -->
+
+|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
+| ------------- | ------ | ------------- | --------- | --------- | --- | -------------- | ----------- | ---------- |
+| `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
+| `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
+|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
+
+<!-- {: .-css-breakdown} -->
+
+See: [background shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/background#constituent_properties)
 
 ### Properties
 
@@ -199,31 +208,33 @@ See: [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-tran
 
 See: [background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
 
-### Shorthand
-
-|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-| ------------- | ------ | ------------- | --------- | --------- | --- | -------------- | ----------- | ---------- |
-| `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
-| `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
-|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-
-<!-- {: .-css-breakdown} -->
-
-See: [background shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/background#constituent_properties)
-
 ### Multiple backgrounds
 
 ```css
 background:
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
   url('bg.jpg') center / cover, #333;
 ```
 
 See: [Using multiple backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
 
 ## Animation
+<!-- {: .-three-column} -->
 
-<!-- {: .-left-reference} -->
+### Shorthand
+<!-- {: .-full-width} -->
+
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
+| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
+| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `running`  |
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
+
+<!-- {: .-css-breakdown} -->
+
+See: [animation shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/animation#constituent_properties)
 
 ### Properties
 
@@ -245,23 +256,14 @@ See: [Using multiple backgrounds](https://developer.mozilla.org/en-US/docs/Web/C
 
 See: [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
 
-### Shorthand
-
-|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
-| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `running`  |
-|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-
-<!-- {: .-css-breakdown} -->
-
-See: [animation shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/animation#constituent_properties)
-
 ### Example
 
 ```css
-animation: bounce 300ms linear 0s infinite normal;
+animation: bounce 300ms linear 0s
+  infinite normal;
 animation: bounce 300ms linear infinite;
-animation: bounce 300ms linear infinite alternate-reverse;
+animation: bounce 300ms linear infinite
+  alternate-reverse;
 animation: bounce 300ms linear 2s infinite
   alternate-reverse forwards running;
 ```

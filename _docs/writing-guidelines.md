@@ -137,6 +137,7 @@ H3 content length:
 - Documentation is in the format of Markdown with attribute comments (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
   - `<!-- {: .-prime} -->` - Visually highlighted section. Only use once per document at most.
+  - `<!-- {: .-full-width} -->` - Spans every column of a multi-column H2, for a wide table followed by narrower cards.
   - `<!-- {: .-snippet} -->` - Snippet card; pair with `.-snippets` on its H2. See [snippet layout](#snippet-layout).
 - PRE elements can have:
   - `<!-- {: .-setup} -->` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.

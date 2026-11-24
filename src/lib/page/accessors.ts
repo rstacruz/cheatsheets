@@ -53,14 +53,6 @@ export function isSnippet(page: FrontmatterOnly): boolean {
 }
 
 /**
- * Sheets on an active review rotation. `t3` is best effort, so it stays out of
- * the recent list while still using the tiered validation rules.
- */
-export function isTiered(page: FrontmatterOnly): boolean {
-  return page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2'
-}
-
-/**
  * Checks if a sheet is a test fixture (lives under tests/)
  */
 

@@ -24,7 +24,7 @@ links:
 ```
 <!-- {: data-highlight="-eq"} -->
 
-**Compares two integers for equality.** `-eq` compares values, so `010` equals `10`; use `==` for strings. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Compares two integers for equality.** Inside `[[ ]]` both sides are arithmetic, so `010` is octal; use `==` for strings. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Not equal
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ links:
 ```
 <!-- {: data-highlight="-ne"} -->
 
-**Checks that two integers differ.** Both sides must be integers, or the test errors out. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Checks that two integers differ.** Bare words are read as variable names, so an unset name counts as `0`. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Ordering
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ links:
 ```
 <!-- {: data-highlight="-lt; -le; -gt; -ge"} -->
 
-**Compares integers by size.** `-lt` and `-le` test less than, `-gt` and `-ge` greater than. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
+**Compares integers by size.** `-lt` and `-gt` are strict; `-le` and `-ge` include equality. See [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ### Arithmetic form
 <!-- {: .-snippet} -->

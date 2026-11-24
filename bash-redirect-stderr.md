@@ -14,7 +14,7 @@ links:
 ## Redirecting
 <!-- {: .-snippets} -->
 
-### Merge into stdout
+### Both streams to one file
 <!-- {: .-snippet} -->
 
 ```bash
@@ -34,7 +34,7 @@ ls /missing 2> errors.log
 
 **Sends only stderr to a file.** `2` is the stderr descriptor, so stdout still prints to the terminal. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
-### Both streams
+### Bash shorthand
 <!-- {: .-snippet} -->
 
 ```bash

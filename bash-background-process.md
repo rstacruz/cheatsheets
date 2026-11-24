@@ -24,7 +24,7 @@ sleep 60 &
 ```
 <!-- {: data-highlight="&"} -->
 
-**Starts the command without waiting.** Bash prints the job number and PID; `$!` holds the PID. See [job control](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Basics.html).
+**Starts the command without waiting.** An interactive shell prints the job number and PID; `$!` holds the PID. See [job control](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Basics.html).
 
 ### List jobs
 <!-- {: .-snippet} -->

@@ -3,7 +3,7 @@ title: Jekyll
 subtitle: Static site generator
 jekyll_escape: true
 prism_languages: [bash, yaml, ruby]
-category: Jekyll
+category: Markup
 updated: 2026-11-22
 last_verified_with: "Jekyll 4.4.1, Ruby 3.4"
 intro: |

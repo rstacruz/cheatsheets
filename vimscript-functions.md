@@ -28,15 +28,17 @@ let colors["pear"] = "green"
 call remove(colors, "apple")
 ```
 
-#### Inspect
+#### Check
 
 ```vim
-" keys, count, emptiness
 echo has_key(colors, "pear")
 echo len(colors)
 echo empty(colors)
+```
 
-" as lists
+#### As lists
+
+```vim
 echo keys(colors)
 echo values(colors)
 echo string(colors)
@@ -71,18 +73,25 @@ Negative indexes count from the end; `get()` returns the default instead of rais
 
 ### Buffer
 
+#### Position
+
 ```vim
-" line, column, end of the line
 echo line(".")
 echo col(".")
 echo col("$")
+```
 
-" lines as a string or a list
+#### Lines
+
+```vim
 echo getline(".")
 echo getline(1, 5)
 call setline(2, "new")
+```
 
-" next blank line, without moving the cursor
+#### Blank lines
+
+```vim
 echo search("^$", "n")
 echo nextnonblank(1)
 echo prevnonblank(10)
@@ -90,12 +99,16 @@ echo prevnonblank(10)
 
 ### Marks
 
+#### Marks
+
 ```vim
-" a mark's position
 echo getpos("'a")
 call setpos("'a", [0, 12, 1, 0])
+```
 
-" the last visual selection
+#### Visual selection
+
+```vim
 echo getpos("'<")
 echo getpos("'>")
 ```
@@ -114,18 +127,25 @@ echo getcurpos()
 
 ### Expand
 
+#### File
+
 ```vim
-" the current file and its parts
 echo expand("%")
 echo expand("%:p")
 echo expand("%:p:h")
+```
 
-" name and extension only
+#### Name and extension
+
+```vim
 echo expand("%:t")
 echo expand("%:r")
 echo expand("%:e")
+```
 
-" the word under the cursor
+#### Word under cursor
+
+```vim
 echo expand("<cword>")
 ```
 
@@ -133,13 +153,17 @@ These take the same modifiers as `:help filename-modifiers`.
 
 ### Files
 
+#### Readability
+
 ```vim
-" readable? size in bytes, working directory
 echo filereadable("file.txt")
 echo getfsize("file.txt")
 echo getcwd()
+```
 
-" path helpers
+#### Path helpers
+
+```vim
 echo fnamemodify("main.c", ":p:h")
 echo fnameescape("a file.txt")
 echo globpath(&rtp, "plugin/foo.vim")
@@ -151,20 +175,27 @@ echo globpath(&rtp, "plugin/foo.vim")
 
 ### Strings
 
+#### Match and replace
+
 ```vim
-" match and replace
 echo "hi" =~ "^h"
 echo substitute("a-b", "-", "_", "g")
 echo matchstr("testing", "test")
 echo matchend("testing", "test")
+```
 
-" slices and positions
+#### Slices and positions
+
+```vim
 echo strpart("abcdef", 3, 2)
 echo stridx("abcdef", "e")
 echo strridx("a.b.c", ".")
 echo split("abc", '\zs')
+```
 
-" lengths in bytes, characters, screen cells
+#### Lengths
+
+```vim
 echo strlen("héllo")
 echo strchars("héllo")
 echo strdisplaywidth("\t")
@@ -185,11 +216,17 @@ call setreg("a", "text")
 
 ### Syntax
 
+#### Identify
+
 ```vim
 let id = synID(line("."), col("."), 1)
 echo synIDattr(id, "name")
 echo synIDattr(synIDtrans(id), "fg")
+```
 
+#### Stack
+
+```vim
 let ids = synstack(line("."), col("."))
 echo map(ids, 'synIDattr(v:val, "name")')
 ```

@@ -268,7 +268,7 @@ for (const path of ['/', '/bash', '/archive', '/404']) {
 const MERMAID_CANVAS = '.MermaidDiagram__canvas svg'
 const MERMAID_ERROR = '.MermaidDiagram__error'
 
-/** Renders carry a fresh id, so compare the markup without it */
+/** Strip per-render ids so markups compare equal */
 function withoutRenderIds(html: string) {
   return html.replaceAll(/mermaid-diagram-\d+/g, 'mermaid-diagram')
 }
@@ -317,7 +317,6 @@ test('drops a stale Mermaid render after two quick toggles', async ({
 
   const light = await mermaidMarkup(page)
 
-  // Dark then back to System in one task: the first run must be dropped.
   await page.evaluate(() => {
     const figure = document.querySelector('.MermaidDiagram')
     const win = window as typeof window & { mermaidRenders?: number }

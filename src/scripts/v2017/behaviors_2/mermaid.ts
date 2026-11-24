@@ -3,8 +3,7 @@
  * interaction. Mermaid itself is imported on demand, so sheets without a
  * diagram never download it.
  *
- * Mermaid bakes fills and strokes into the SVG at render time, so a theme
- * change re-renders from the source kept on the figure.
+ * Mermaid bakes fills and strokes into the SVG at render.
  */
 
 import type { Mermaid, MermaidConfig } from 'mermaid'
@@ -13,7 +12,7 @@ const DIAGRAM = '.MermaidDiagram'
 const ZOOMED = 'is-zoomed'
 const FONT = 'Geist Variable, system-ui, sans-serif'
 
-/** Semantic role to read, and the CSS property that resolves it */
+/** Role variable and the CSS property that resolves it */
 const ROLES = {
   background: ['--card', 'background-color'],
   mainBkg: ['--card', 'background-color'],
@@ -66,7 +65,6 @@ function setupInteractions(frame: HTMLElement) {
   })
 }
 
-/** The scheme the page renders in: a pinned override, else the OS choice */
 function scheme(): 'light' | 'dark' {
   const pinned = document.documentElement.dataset.theme
   if (pinned === 'light' || pinned === 'dark') return pinned
@@ -75,11 +73,7 @@ function scheme(): 'light' | 'dark' {
     : 'light'
 }
 
-/**
- * Resolves the semantic roles through a probe. `getComputedStyle` on a custom
- * property returns `light-dark(…)` unresolved, so the value must land on a real
- * property first.
- */
+/** getComputedStyle leaves light-dark() unresolved, so probe a real property */
 function readRoles(): ThemeVariables {
   const probe = document.createElement('span')
   probe.setAttribute('aria-hidden', 'true')
@@ -105,7 +99,7 @@ function config(): MermaidConfig {
     fontFamily: FONT,
     themeVariables: {
       ...readRoles(),
-      // Mermaid only reads the flag from themeVariables, not the top level
+      // Mermaid reads darkMode only from themeVariables, not top level
       darkMode: scheme() === 'dark',
       fontFamily: FONT,
       fontSize: '14px'
@@ -123,7 +117,7 @@ function showError(figure: HTMLElement, error: Error) {
   console.error('Mermaid diagram failed to render', error)
 }
 
-/** Keeps the source on the figure, then swaps any previous canvas for a new one */
+/** Caches source on the figure for later re-renders */
 async function renderDiagram(
   figure: HTMLElement,
   instance: Mermaid,
@@ -142,7 +136,6 @@ async function renderDiagram(
       `mermaid-diagram-${++counter}`,
       code
     )
-    // A newer theme started while this one rendered; keep what is on screen.
     if (run !== generation) return
 
     const canvas = document.createElement('div')
@@ -166,13 +159,12 @@ async function renderAll(run: number) {
   mermaid.initialize(config())
 
   for (const figure of document.querySelectorAll<HTMLElement>(DIAGRAM)) {
-    // A newer theme landed while this run was rendering; drop the rest.
     if (run !== generation) return
     await renderDiagram(figure, mermaid, run)
   }
 }
 
-/** Serialises renders and drops every run but the newest */
+/** Serialises renders; only the newest run survives */
 function scheduleRender() {
   const run = ++generation
   queue = queue

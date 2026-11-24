@@ -1,7 +1,7 @@
 ---
 title: npm
 subtitle: Node.js package manager
-category: JavaScript
+category: Package managers
 weight: -1
 updated: 2026-11-11
 last_verified_with: "npm 12 APIs."

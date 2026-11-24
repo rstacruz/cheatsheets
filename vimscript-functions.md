@@ -2,243 +2,319 @@
 title: Vimscript functions
 subtitle: Built-in function reference
 category: Vim
+last_verified_with: "Vim 9.2."
+updated: 2026-11-24
 ---
 
-## Dictionaries and lists
+## Collections
 
 ### Dictionaries
+
+#### Define
 
 ```vim
 let colors = {
   \ "apple": "red",
   \ "banana": "yellow"
-}
-
-echo colors["a"]
-echo get(colors, "apple")   " suppress error
-
-remove(colors, "apple")
-
-" :help E715
-if has_key(dict, 'foo')
-if empty(dict)
-keys(dict)
-len(dict)
-
-max(dict)
-min(dict)
-
-count(dict, 'x')
-string(dict)
-
-map(dict, '<>> " . v:val')
-extend(s:fruits, { ... })
+  \ }
 ```
+
+#### Read and update
 
 ```vim
-for key in keys(mydict)
-  echo key . ': ' . mydict(key)
+echo colors["apple"]
+echo get(colors, "kiwi", "none")
+let colors["pear"] = "green"
+call remove(colors, "apple")
+```
+
+#### Check
+
+```vim
+echo has_key(colors, "pear")
+echo len(colors)
+echo empty(colors)
+```
+
+#### As lists
+
+```vim
+echo keys(colors)
+echo values(colors)
+echo string(colors)
+```
+
+#### Iterate
+
+```vim
+for [name, color] in items(colors)
+  echo name . ": " . color
 endfor
 ```
+
+`map()` and `filter()` take an expression string, so `v:val` expands per item: `map(colors, '"<" . v:val . ">"')`.
 
 ### Lists
 
 ```vim
-let mylist = [1, two, 3, "four"]
+let mylist = [1, "two", 3, "four"]
 
-let first = mylist[0]
-let last  = mylist[-1]
-
-" Suppresses errors
-let second = get(mylist, 1)
-let second = get(mylist, 1, "NONE")
+echo mylist[0]
+echo mylist[-1]
+echo get(mylist, 9, "NONE")
+call add(mylist, "five")
+echo len(mylist)
+echo join(mylist, ", ")
 ```
 
-Functions
----------
+Negative indexes count from the end; `get()` returns the default instead of raising `E684`.
+
+## Buffers and positions
 
 ### Buffer
 
+#### Position
+
+```vim
+echo line(".")
+echo col(".")
+echo col("$")
 ```
-line('.')             " current line number
-col('.')
-col('$')
 
-getline('.')          " current line as a string
-getline(1)            " get line 1
-getline(1, 5)         " get lines 1-5
-search('^$')          " next blank line, returns line number
-search('^$','n')      " but don't move cursor
+#### Lines
 
-getcurpos()           " [bufnum, lnum, col, off, curswant]
-getpos('.')           " [bufnum, lnum, col, off]
+```vim
+echo getline(".")
+echo getline(1, 5)
+call setline(2, "new")
+```
 
-nextnonblank(1)       " next non-blank line after line1
-prevnonblank()
+#### Blank lines
+
+```vim
+echo search("^$", "n")
+echo nextnonblank(1)
+echo prevnonblank(10)
 ```
 
 ### Marks
 
-```
-getpos("'a")          " position of a mark
-setpos("'a",...)
+#### Marks
 
-getpos("'<")          " position of selection start
+```vim
+echo getpos("'a")
+call setpos("'a", [0, 12, 1, 0])
+```
+
+#### Visual selection
+
+```vim
+echo getpos("'<")
+echo getpos("'>")
 ```
 
 ### Cursor
 
+```vim
+call cursor(10, 5)
+call cursor(10, 5, 1)
+echo getcurpos()
 ```
-cursor(line,col)      " moves cursor
-cursor(line,col,off,curswant)
 
-getcurpos()           " returns [bufnum,line,col,off,curswant]
-```
+`getcurpos()` returns `[bufnum, lnum, col, off, curswant]`; `cursor()` takes a line, a column, and an optional offset.
+
+## Paths and files
 
 ### Expand
 
-```
-expand('<cword>')      " word under cursor
-expand('%')            " current file
+#### File
 
-" <cword>  current word on cursor
-" :p    full path
-" :h    head
-" :p:h  dirname   (/Users/rsc/project)
-" :t    tail      (file.txt)
-" :r    root      (file)
-" :e    extension (.txt)
-" see :h cmdline-special
+```vim
+echo expand("%")
+echo expand("%:p")
+echo expand("%:p:h")
 ```
+
+#### Name and extension
+
+```vim
+echo expand("%:t")
+echo expand("%:r")
+echo expand("%:e")
+```
+
+#### Word under cursor
+
+```vim
+echo expand("<cword>")
+```
+
+These take the same modifiers as `:help filename-modifiers`.
 
 ### Files
 
-```
-fnameescape('string')
-fnamemodify('main.c', ':p:h')
-fnamemodify(fname, ':e')   " current file extension - see expand()
-filereadable(fname)
-getfsize('file.txt')
-getcwd()
+#### File info
 
-globpath(&rtp, "plugin/commentary.vim")
+```vim
+echo filereadable("file.txt")
+echo getfsize("file.txt")
+echo getcwd()
 ```
 
-### Math
+#### Path helpers
 
-```
-fmod(9, 2)  " modulus
-abs(-0.5)
-sqrt(9)
-
-trunc(1.84)
-floor(1.84)
-ceil(1.84)
-float2nr(3.14)
+```vim
+echo fnamemodify("main.c", ":p:h")
+echo fnameescape("a file.txt")
+echo globpath(&rtp, "plugin/foo.vim")
 ```
 
-### Casting
+`getfsize()` is `-1` for a missing file, and `globpath()` is empty when nothing matches.
 
-```
-str2float('0.2')
-str2nr('240')
-str2nr('ff', '16')
-
-string(0.3)
-```
-
-### Type checking
-
-```
-type(var) == type(0)
-type(var) == type("")
-type(var) == type(function("tr"))
-type(var) == type([])
-type(var) == type({})
-type(var) == type(0.0)
-```
-
-### Date/time
-
-```
-strftime('%c')
-strftime('%c',getftime('file.c'))
-```
+## Text and syntax
 
 ### Strings
 
-```
-if a =~ '\s*'
-substitute(str, '.', 'x', 'g')
-strpart("abcdef", 3, 2)    " == "de" (substring)
-strpart("abcdef", 3)       " == "def"
-stridx("abcdef", "e")      " == 4
-strridx()                  " reverse
+#### Match and replace
 
-matchstr('testing','test')  " == 'test' (or '')
-match('testing','test')     " == 0
-matchend('testing','test')  " == 4
-match('testing','\ctest')   " ignore case
-
-split(str, '\zs')           " split into characters
-
-strlen(str)
-strchars()                  " accounts for composing chars
-strwidth()                  " accounts for ambig characters
-strdisplaywidth()           " accounts for tab stops
-
-toupper(str)
-tolower(str)
-tr('foo', '_-', '  ')
+```vim
+echo "hi" =~ "^h"
+echo substitute("a-b", "-", "_", "g")
+echo matchstr("testing", "test")
+echo matchend("testing", "test")
 ```
 
-### Syntax
+#### Slices and positions
 
-```
-synstack(line('.'),col('.'))   " returns many
-synID(line('.'),col('.'),1)    " only one
-
-synIDattr(id,"bg")
-synIDattr(id,"name")
-synIDtrans()
-
-" syntax stack
-map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+```vim
+echo strpart("abcdef", 3, 2)
+echo stridx("abcdef", "e")
+echo strridx("a.b.c", ".")
+echo split("abc", '\zs')
 ```
 
-### Shell
+#### Lengths
 
+```vim
+echo strlen("héllo")
+echo strchars("héllo")
+echo strdisplaywidth("\t")
 ```
-system('ls '.shellescape(expand('%:h')))
-```
+
+Slicing and indexing count bytes; `strcharpart()` and `strchars()` count characters.
 
 ### Registers
 
-```
-getreg('*')
-getregtype('*')     " v(char), V(line) <ctrl-v>(block)
-```
-
-Comparisons
------------
-
-```
-if name ==# 'John'     " case-sensitive
-if name ==? 'John'     " case-insensitive
-if name == 'John'      " depends on :set ignorecase
-" also: is#, is?, >=#, >=?, and so on
-
-if "hello" =~ '.*'
-if "hello" !~ '.*'
+```vim
+echo getreg('"')
+echo getreg("*")
+echo getregtype('"')
+call setreg("a", "text")
 ```
 
-Executing
----------
+`getregtype()` returns `v` for charwise, `V` for linewise, and `"\<C-v>"` for blockwise.
 
-### Running commands
+### Syntax
 
+#### Identify
+
+```vim
+let id = synID(line("."), col("."), 1)
+echo synIDattr(id, "name")
+echo synIDattr(synIDtrans(id), "fg")
 ```
-normal 'ddahello'
-exe 'normal ^C'  " with expansions
+
+#### Stack
+
+```vim
+let ids = synstack(line("."), col("."))
+echo map(ids, 'synIDattr(v:val, "name")')
+```
+
+## Numbers and types
+
+### Math
+
+```vim
+echo fmod(9, 2)
+echo abs(-0.5)
+echo sqrt(9)
+echo trunc(1.84)
+echo floor(1.84)
+echo ceil(1.84)
+echo round(1.5)
+echo float2nr(3.14)
+echo max([3, 1, 2])
+```
+
+`fmod()`, `sqrt()`, and `trunc()` return Floats; `float2nr()` cuts down to an Integer.
+
+### Casting
+
+```vim
+echo str2nr("240")
+echo str2nr("ff", 16)
+echo str2float("0.2")
+echo string(0.3)
+echo printf("%.2f", 3.14159)
+```
+
+`str2nr()` takes an optional base; `string()` quotes a value as Vimscript source.
+
+### Type checking
+
+```vim
+echo type([]) == v:t_list
+echo type({}) == v:t_dict
+echo type("") == v:t_string
+echo type(0) == v:t_number
+echo type(0.0) == v:t_float
+echo type(v:true) == v:t_bool
+```
+
+`v:t_*` holds the number `type()` returns, so the comparisons read as names.
+
+## Shell and time
+
+### Shell
+
+```vim
+echo system("ls " . shellescape(expand("%:h")))
+echo systemlist("git status --porcelain")
+call system("git commit -m " . shellescape(msg))
+```
+
+`system()` returns the output as one string, and `systemlist()` as a list of lines.
+
+### Date/time
+
+```vim
+echo strftime("%Y-%m-%d %H:%M")
+echo strftime("%c", getftime("file.c"))
+echo localtime()
+```
+
+`getftime()` is the file's modification time; `localtime()` is the current time as a Number.
+
+## Evaluation
+
+### Compare
+
+```vim
+echo "John" ==# "john"
+echo "John" ==? "john"
+echo "hello" =~# "^h"
+echo "hello" !~ "bye"
+```
+
+`==` follows `'ignorecase'`; a trailing `#` or `?` forces case-sensitive or case-insensitive.
+
+### Commands
+
+```vim
+execute "normal! dd"
+execute "normal! gg=G"
 wincmd J
 ```
+
+`normal!` ignores user mappings, and `execute` expands the string first.

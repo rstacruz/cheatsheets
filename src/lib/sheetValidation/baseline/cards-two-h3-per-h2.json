@@ -13,12 +13,8 @@
   "goby#Testing framework",
   "heroku#Database",
   "heroku#Local development",
-  "html-share#Share links",
-  "jinja#Library",
   "knex#Migrations",
-  "ledger-csv#Ledger CSV format",
   "ledger-format#Accounts",
-  "mako#Library",
   "mobx#[Modifiers](http://mobxjs.github.io/mobx/refguide/modifiers.html)",
   "nocode#Nothing",
   "ph-food-delivery#-",
@@ -32,8 +28,6 @@
   "vagrantfile#Vagrantfile",
   "vainglory#Skill tier names",
   "vainglory#T3 items by use",
-  "vimscript-snippets#Autoload",
-  "vimscript-snippets#Misc",
   "vue@1.0.28#API",
   "vue@1.0.28#Vue templates"
 ]

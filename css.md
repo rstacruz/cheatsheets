@@ -2,6 +2,8 @@
 title: CSS
 subtitle: Stylesheet language
 category: CSS
+updated: 2026-11-24
+last_verified_with: "CSS Backgrounds 3, CSS Animations 1 (MDN), Chrome 158, Firefox 161."
 weight: -1
 keywords:
   - "margin, padding, border"
@@ -69,7 +71,7 @@ keywords:
 | ---                  | ---                                        |
 | `:nth-child(3)`      | 3rd child                                  |
 | `:nth-child(3n+2)`   | 2nd child in groups of 3                   |
-| `:nth-child(-n+4)`   |                                            |
+| `:nth-child(-n+4)`   | First 4 children                           |
 | ---                  | ---                                        |
 | `:nth-last-child(2)` |                                            |
 | `:nth-of-type(2)`    |                                            |
@@ -180,8 +182,9 @@ text-transform: lowercase; /* hello */
 ### Multiple backgrounds
 
 ```css
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url('background.jpg') center center / cover, #333;
+background:
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('bg.jpg') center / cover, #333;
 ```
 
 ## Animation
@@ -202,7 +205,7 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | ---                          | ---                                                      |
 | `animation-direction:`       | `normal` `reverse` `alternate` `alternate-reverse`       |
 | `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
-| `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |
+| `animation-play-state:`      | `running` `paused`                                       |
 
 <!-- {: .-key-values} -->
 
@@ -210,7 +213,7 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
 | ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
-| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `reverse`  |
+| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `running`  |
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
 
 <!-- {: .-css-breakdown} -->
@@ -221,11 +224,14 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 animation: bounce 300ms linear 0s infinite normal;
 animation: bounce 300ms linear infinite;
 animation: bounce 300ms linear infinite alternate-reverse;
-animation: bounce 300ms linear 2s infinite alternate-reverse forwards normal;
+animation: bounce 300ms linear 2s infinite
+  alternate-reverse forwards running;
 ```
 
 ### Event
 
 ```js
-.one('webkitAnimationEnd oanimationend msAnimationEnd animationend')
+el.addEventListener('animationend', onEnd)
 ```
+
+`animationend` fires once per element; `animationiteration` fires on each repeat. Vendor prefixes are no longer needed.

@@ -1,53 +1,102 @@
 ---
-title: GitHub pages
-subtitle: GitHub Pages deployment
-category: Jekyll
+title: GitHub Pages
+subtitle: Static site hosting
+category: Hidden
+# Duplicates deployment details now covered by /jekyll-github and the upstream docs.
+tags: [Archived]
+archived: |
+  Archived at maintainer request. Deployment details now live in
+  [Jekyll for GitHub Pages](./jekyll-github) and the
+  [GitHub Pages documentation](https://docs.github.com/en/pages).
+last_verified_with: "GitHub Pages docs, actions/deploy-pages v4."
+updated: 2026-11-24
 ---
 
 ## Custom domains
 
-### Custom domains
+### Enable the domain
 
 ```sh
-$ echo "foobar.com" > CNAME
-$ git commit && git push
+echo "example.com" > CNAME
 ```
 
-Create a `CNAME` file with your domain on it.
+Enter the domain under **Settings → Pages → Custom domain**. Saving commits this `CNAME` file when you publish from a branch; a Pages workflow ignores it.
 
-See: [Setting up a custom domain](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/) _(github.com)_
+See: [Managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 
-### Set up your domain
+### Point DNS at GitHub
 
-Subdomain (like www):
+| Type | Host | Value |
+| --- | --- | --- |
+| `CNAME` | `www` | `<user>.github.io` |
+| --- | --- | --- |
+| `ALIAS` | `@` | `<user>.github.io` |
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+| --- | --- | --- |
+| `AAAA` | `@` | `2606:50c0:8000::153` |
+| `AAAA` | `@` | `2606:50c0:8001::153` |
+| `AAAA` | `@` | `2606:50c0:8002::153` |
+| `AAAA` | `@` | `2606:50c0:8003::153` |
+<!-- {: .-headers} -->
 
-<!-- {: .-setup} -->
+Use `ALIAS` or the `A` records for an apex domain, not both. The `CNAME` target takes no repository name.
 
+### Check the setup
+
+#### Records
+
+```sh
+dig example.com +noall +answer -t A
 ```
- CNAME => username.github.io
+
+#### HTTPS
+
+```sh
+curl -sI http://example.com | head -1
 ```
 
-Apex domains:
+Tick **Enforce HTTPS** once GitHub issues the certificate, which can take 24 hours after DNS resolves.
 
-<!-- {: .-setup} -->
+## Deploy
 
+### From a branch
+
+Under **Settings → Pages**, set **Source** to *Deploy from a branch* and pick the branch and folder (`/` or `/docs`). Jekyll builds on every push.
+
+### With a workflow
+
+```yaml
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
 ```
- ALIAS => username.github.io
-```
 
-Apex domains (alternative):
-
-<!-- {: .-setup} -->
-
-```
-A => 185.199.108.153
-A => 185.199.109.153
-A => 185.199.110.153
-A => 185.199.111.153
-```
+Set **Source** to *GitHub Actions* first, and build `_site` before the upload step. The job needs `pages: write` and `id-token: write`.
 
 ## References
-
 <!-- {: .-one-column} -->
 
 - <https://pages.github.com>

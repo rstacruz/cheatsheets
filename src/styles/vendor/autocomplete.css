@@ -39,6 +39,6 @@
 
 .autocomplete > div.selected,
 .autocomplete > div.selected:hover {
-  background: var(--highlight);
+  background: var(--highlight-solid);
   color: var(--primary-foreground);
 }

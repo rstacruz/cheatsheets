@@ -41,6 +41,14 @@
   .h3-section.-snippet > .body > pre {
     border: 0;
     border-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .h3-section.-snippet > .body > h4 {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .h3-section.-snippet > .body > p {
@@ -56,10 +64,6 @@
     .h3-section.-snippet > .body > p {
       grid-column: 2;
       grid-row: 1 / span 20;
-    }
-
-    .h3-section.-snippet > .body > :not(p) {
-      border-right: solid 1px var(--border);
     }
   }
 

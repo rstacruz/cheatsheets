@@ -30,6 +30,7 @@
   --color-steel-500: #7c8fa2;
   --color-steel-600: #556677;
   --color-steel-700: #334455;
+  --color-steel-750: #262637;
   --color-steel-800: #1d1d31;
   --color-steel-900: #17172a;
   --color-steel-950: #0e0e19;
@@ -105,6 +106,12 @@
   --color-primary-surface: var(--primary-surface);
   --color-primary-heading: var(--primary-heading);
   --color-primary-muted: var(--primary-muted);
+  --color-primary-solid: var(--primary-solid);
+  --color-primary-solid-soft: var(--primary-solid-soft);
+  --color-primary-solid-hover: var(--primary-solid-hover);
+  --color-slate-solid: var(--slate-solid);
+  --color-slate-solid-soft: var(--slate-solid-soft);
+  --color-slate-solid-hover: var(--slate-solid-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -129,6 +136,9 @@
   --color-highlight: var(--highlight);
   --color-highlight-bright: var(--highlight-bright);
   --color-highlight-strong: var(--highlight-strong);
+  --color-highlight-solid: var(--highlight-solid);
+  --color-highlight-solid-soft: var(--highlight-solid-soft);
+  --color-highlight-solid-hover: var(--highlight-solid-hover);
   --color-syntax-punctuation: var(--syntax-punctuation);
   --color-syntax-comment: var(--syntax-comment);
   --color-overlay: var(--overlay);

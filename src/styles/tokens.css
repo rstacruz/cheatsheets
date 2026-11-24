@@ -14,13 +14,13 @@
     var(--color-mildindigo-600),
     var(--color-mildindigo-400)
   );
-  --primary-foreground: light-dark(#fff, #14121f);
+  --primary-foreground: light-dark(#fff, var(--color-steel-50));
   --secondary: light-dark(#f1f3f8, #202038);
   --secondary-foreground: light-dark(
     var(--color-steel-700),
     var(--color-steel-300)
   );
-  --muted: light-dark(var(--color-steel-100), var(--color-steel-800));
+  --muted: light-dark(var(--color-steel-100), var(--color-steel-750));
   --muted-foreground: light-dark(
     var(--color-steel-600),
     var(--color-steel-400)
@@ -51,11 +51,11 @@
   );
   --primary-active: light-dark(
     var(--color-mildindigo-800),
-    var(--color-mildindigo-500)
+    var(--color-mildindigo-700)
   );
   --primary-deep: light-dark(
     var(--color-mildindigo-900),
-    var(--color-mildindigo-400)
+    var(--color-mildindigo-800)
   );
   --primary-subtle: light-dark(
     var(--color-mildindigo-400),
@@ -76,11 +76,33 @@
   );
   --brand-gradient: linear-gradient(
     5deg,
-    light-dark(var(--color-mildindigo-600), var(--color-mildindigo-500)),
-    light-dark(var(--color-mildindigo-400), var(--color-mildindigo-300))
+    light-dark(var(--color-mildindigo-600), var(--color-mildindigo-800)),
+    light-dark(var(--color-mildindigo-400), var(--color-mildindigo-600))
   );
 
-  --icon-crosslink-arrow: var(--icon-md-arrow-forward);
+  /*
+   * Solid surfaces
+   * Pair with --primary-foreground; --primary stays the text accent.
+   */
+
+  --primary-solid: light-dark(
+    var(--color-mildindigo-600),
+    var(--color-mildindigo-700)
+  );
+  --primary-solid-soft: light-dark(
+    var(--color-mildindigo-400),
+    var(--color-mildindigo-600)
+  );
+  --primary-solid-hover: light-dark(
+    var(--color-mildindigo-700),
+    var(--color-mildindigo-800)
+  );
+  --slate-solid: light-dark(#556677, var(--color-steel-700));
+  --slate-solid-soft: light-dark(#5e7683, var(--color-steel-600));
+  --slate-solid-hover: light-dark(#44525f, var(--color-steel-800));
+  --highlight-solid: light-dark(#14af83, #0f7d61);
+  --highlight-solid-soft: light-dark(#15b89a, #156b52);
+  --highlight-solid-hover: light-dark(#108b68, #0e5f49);
 
   /*
    * Link / highlight
@@ -113,16 +135,6 @@
 
   /* --mermaid-origin is set by scripts/v2017/behaviors_2/mermaid.ts;
      CSS keeps its fallback */
-}
-
-/* Image light-dark(): Chrome 150+, Firefox 150+, Safari 27+ (Sept 2026) */
-@supports (background-image: light-dark(url(#), url(#))) {
-  :root {
-    --icon-crosslink-arrow: light-dark(
-      var(--icon-md-arrow-forward-white),
-      var(--icon-md-arrow-forward)
-    );
-  }
 }
 
 :root[data-theme='light'] {

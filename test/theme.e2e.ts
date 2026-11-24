@@ -1,5 +1,7 @@
 import { expect, test, type Page } from '@playwright/test'
 
+type Theme = 'light' | 'dark'
+
 type ThemeSnapshot = {
   background: string
   foreground: string
@@ -11,6 +13,8 @@ const tokens = {
   light: { background: 'rgb(250, 250, 252)', foreground: 'rgb(51, 68, 85)' },
   dark: { background: 'rgb(14, 14, 25)', foreground: 'rgb(203, 208, 224)' }
 }
+
+const TOGGLE = '[data-js-theme-toggle]'
 
 function readTheme(): ThemeSnapshot {
   const root = document.documentElement
@@ -35,16 +39,9 @@ function snapshotAtDomReady(page: Page) {
   )
 }
 
-function captureAtDomReady(page: Page, override?: 'light' | 'dark') {
-  return page.addInitScript((theme) => {
-    if (theme) {
-      const observer = new MutationObserver(() => {
-        if (!document.documentElement) return
-        document.documentElement.dataset.theme = theme
-        observer.disconnect()
-      })
-      observer.observe(document, { childList: true })
-    }
+/** Samples the page in the inline script's window: DOM parsed, module ran. */
+function captureAtDomReady(page: Page) {
+  return page.addInitScript(() => {
     document.addEventListener(
       'DOMContentLoaded',
       () => {
@@ -61,7 +58,48 @@ function captureAtDomReady(page: Page, override?: 'light' | 'dark') {
       },
       { once: true }
     )
-  }, override)
+  })
+}
+
+function seedTheme(page: Page, theme: Theme) {
+  return page.addInitScript(
+    (value) => localStorage.setItem('theme', value),
+    theme
+  )
+}
+
+function storedTheme(page: Page) {
+  return page.evaluate(() => localStorage.getItem('theme'))
+}
+
+function blockStorage(page: Page) {
+  return page.addInitScript(() => {
+    for (const method of ['getItem', 'setItem', 'removeItem'] as const) {
+      Object.defineProperty(Storage.prototype, method, {
+        configurable: true,
+        value() {
+          throw new DOMException('Storage is blocked', 'SecurityError')
+        }
+      })
+    }
+  })
+}
+
+function offered(page: Page, target: Theme) {
+  const toggle = page.locator(TOGGLE)
+  const label =
+    target === 'dark' ? 'Switch to dark theme' : 'Switch to light theme'
+  return [
+    expect(toggle).toHaveAttribute('data-theme-target', target),
+    expect(toggle).toHaveAttribute('aria-label', label),
+    expect(toggle).toHaveAttribute('title', label),
+    expect(toggle.locator(`[data-theme-icon="${target}"]`)).toBeVisible(),
+    expect(toggle.locator('[data-theme-icon="initial"]')).toBeHidden()
+  ]
+}
+
+function opposite(theme: Theme): Theme {
+  return theme === 'dark' ? 'light' : 'dark'
 }
 
 for (const scheme of ['light', 'dark'] as const) {
@@ -76,7 +114,8 @@ for (const scheme of ['light', 'dark'] as const) {
       scheme: 'light dark',
       theme: null
     })
-    expect(await page.evaluate(() => localStorage.getItem('theme'))).toBeNull()
+    expect(await storedTheme(page)).toBeNull()
+    await Promise.all(offered(page, opposite(scheme)))
   })
 
   test(`resolves ${scheme} tokens before first paint`, async ({ page }) => {
@@ -89,19 +128,137 @@ for (const scheme of ['light', 'dark'] as const) {
     expect(await snapshot(page)).toEqual(expected)
   })
 
-  const system = scheme === 'light' ? 'dark' : 'light'
-
-  test(`pins ${scheme} against a system ${system} preference`, async ({
+  test(`applies a stored ${opposite(scheme)} override on a ${scheme} system`, async ({
     page
   }) => {
-    await page.emulateMedia({ colorScheme: system })
-    await captureAtDomReady(page, scheme)
+    const override = opposite(scheme)
+    await page.emulateMedia({ colorScheme: scheme })
+    await seedTheme(page, override)
     await page.goto('/')
 
-    expect(await snapshotAtDomReady(page)).toEqual({
-      ...tokens[scheme],
-      scheme,
-      theme: scheme
+    expect(await snapshot(page)).toEqual({
+      ...tokens[override],
+      scheme: override,
+      theme: override
     })
+    expect(await storedTheme(page)).toBe(override)
+    await Promise.all(offered(page, scheme))
+  })
+
+  test(`paints a stored ${opposite(scheme)} override at DOMContentLoaded`, async ({
+    page
+  }) => {
+    const override = opposite(scheme)
+    await page.emulateMedia({ colorScheme: scheme })
+    await seedTheme(page, override)
+    await captureAtDomReady(page)
+    await page.goto('/')
+
+    const expected = {
+      ...tokens[override],
+      scheme: override,
+      theme: override
+    }
+    expect(await snapshotAtDomReady(page)).toEqual(expected)
+    expect(await snapshot(page)).toEqual(expected)
+  })
+
+  test(`pins ${opposite(scheme)} on a ${scheme} system and returns to System on the next click`, async ({
+    page
+  }) => {
+    await page.emulateMedia({ colorScheme: scheme })
+    await page.goto('/')
+
+    await page.locator(TOGGLE).click()
+
+    expect(await snapshot(page)).toEqual({
+      ...tokens[opposite(scheme)],
+      scheme: opposite(scheme),
+      theme: opposite(scheme)
+    })
+    expect(await storedTheme(page)).toBe(opposite(scheme))
+    await Promise.all(offered(page, scheme))
+
+    // The offered scheme now matches the OS, so the second click clears it.
+    await page.locator(TOGGLE).focus()
+    await page.keyboard.press('Enter')
+
+    await expect
+      .poll(() => snapshot(page))
+      .toEqual({
+        ...tokens[scheme],
+        scheme: 'light dark',
+        theme: null
+      })
+    expect(await storedTheme(page)).toBeNull()
+    await Promise.all(offered(page, opposite(scheme)))
+  })
+}
+
+test('an OS change keeps an explicit override', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await seedTheme(page, 'dark')
+  await page.goto('/')
+
+  await page.emulateMedia({ colorScheme: 'dark' })
+
+  expect(await snapshot(page)).toEqual({
+    ...tokens.dark,
+    scheme: 'dark',
+    theme: 'dark'
+  })
+  expect(await storedTheme(page)).toBe('dark')
+  await Promise.all(offered(page, 'light'))
+})
+
+test('keeps the chosen theme across reloads', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/')
+
+  await page.locator(TOGGLE).click()
+  expect(await storedTheme(page)).toBe('dark')
+
+  await page.reload()
+
+  expect(await snapshot(page)).toEqual({
+    ...tokens.dark,
+    scheme: 'dark',
+    theme: 'dark'
+  })
+  expect(await storedTheme(page)).toBe('dark')
+})
+
+test('falls back to System when storage is blocked', async ({ page }) => {
+  await blockStorage(page)
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await page.goto('/')
+
+  expect(await snapshot(page)).toEqual({
+    ...tokens.dark,
+    scheme: 'light dark',
+    theme: null
+  })
+  await Promise.all(offered(page, 'light'))
+})
+
+test('serves the theme script inline in the head', async ({ request }) => {
+  const html = await (await request.get('/')).text()
+  const script = html.indexOf("localStorage.getItem('theme')")
+  const body = html.indexOf('<body')
+
+  expect(script).toBeGreaterThan(-1)
+  expect(body).toBeGreaterThan(script)
+  expect(html).toContain('<meta name="color-scheme" content="light dark"')
+})
+
+for (const path of ['/', '/bash', '/archive', '/404']) {
+  test(`shows the toggle on ${path} at both widths`, async ({ page }) => {
+    await page.goto(path)
+    const toggle = page.locator(TOGGLE)
+
+    for (const width of [390, 1280]) {
+      await page.setViewportSize({ width, height: 800 })
+      await expect(toggle).toBeVisible()
+    }
   })
 }

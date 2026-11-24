@@ -2,6 +2,7 @@
 import cx from 'clsx'
 import type { SheetPage } from '~/lib/page'
 import SocialList from './SocialList.astro'
+import ThemeToggle from './ThemeToggle.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
 
@@ -68,27 +69,31 @@ const editLink = getEditLink(props.page)
       {t.title}
     </a>
 
-    {props.noShare !== true ? (
-      <div class={styles.actions}>
-        {/* Social share links */}
-        <ul class={styles.socialList}>
-          <SocialList page={props.page} />
-        </ul>
+    <div class={styles.actions}>
+      <ThemeToggle />
 
-        {props.noEdit !== true ? (
-          <ul class={styles.pageActions}>
-            <li
-              class={cx(styles.editItem, 'hint--bottom')}
-              data-hint={t.editOnGitHub}
-            >
-              <a class={styles.editLink} href={editLink}>
-                <Icon name="logo-github" size={16} />
-                <span class={styles.editText}>{t.edit}</span>
-              </a>
-            </li>
+      {props.noShare !== true ? (
+        <>
+          {/* Social share links */}
+          <ul class={styles.socialList}>
+            <SocialList page={props.page} />
           </ul>
-        ) : null}
-      </div>
-    ) : null}
+
+          {props.noEdit !== true ? (
+            <ul class={styles.pageActions}>
+              <li
+                class={cx(styles.editItem, 'hint--bottom')}
+                data-hint={t.editOnGitHub}
+              >
+                <a class={styles.editLink} href={editLink}>
+                  <Icon name="logo-github" size={16} />
+                  <span class={styles.editText}>{t.edit}</span>
+                </a>
+              </li>
+            </ul>
+          ) : null}
+        </>
+      ) : null}
+    </div>
   </div>
 </nav>

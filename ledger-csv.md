@@ -31,6 +31,7 @@ ledger csv --csv-format '%(date),%(payee),%(amount)'
 `--csv-format` takes a format string built from the usual format expressions; wrap a field in `%(quoted(...))` to escape commas and quotes.
 
 ## Output
+<!-- {: .-one-column} -->
 
 ### Default columns
 

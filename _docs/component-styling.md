@@ -9,8 +9,8 @@ Astro components carry their classes in markup. A component does not get its own
 import cx from 'clsx'
 
 const styles = {
-  root: 'top-nav relative mb-[8px] …',
-  title: 'flex-auto text-xs …',
+  root: cx('TopNav__root', 'top-nav relative mb-[8px] …'),
+  title: cx('TopNav__title', 'flex-auto text-xs …'),
 }
 ---
 
@@ -19,9 +19,11 @@ const styles = {
 </nav>
 ```
 
+Each `styles` entry starts with a stable `ComponentName__part` hook, as in tilnotes. The hook carries no CSS; it names the rendered part for debugging and tests. Keep existing hooks that code outside the component depends on.
+
 ## Rules
 
-1. One `styles` key per rendered part; one class string per concern inside it (`cx('…', '…')` when a variant or media block changes).
+1. One `styles` key per rendered part, starting with its BEM-like hook; one class string per concern inside it (`cx('…', '…')` when a variant or media block changes).
 2. Component styling uses utilities on the element: no CSS file, no `@apply`, and no `<style>` block except the cases in Where CSS still belongs.
 3. A media query becomes an arbitrary variant (`max-[480px]:`, `min-[481px]:`, `min-[769px]:`, `min-[1232px]:`, `max-[1264px]:`); pixel breakpoints stay out of the theme.
 4. Conditional colours use `group`/`group-hover:` on a child instead of a descendant selector on the parent.

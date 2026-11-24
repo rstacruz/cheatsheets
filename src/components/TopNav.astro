@@ -21,24 +21,26 @@ const t = {
 }
 
 const styles = {
-  root: 'relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0',
+  root: 'TopNav__root relative mb-[8px] h-[48px] border-b border-b-border-strong py-[8px] text-center leading-[64px] min-[481px]:mb-0 min-[481px]:h-[64px] min-[481px]:border-b-0 min-[481px]:py-0',
   inner:
-    'relative mx-auto flex h-[32px] max-w-content items-center px-[16px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
-  left: 'flex-none leading-[32px] min-[481px]:absolute min-[481px]:left-[16px] min-[481px]:top-[16px]',
+    'TopNav__inner relative mx-auto flex h-[32px] max-w-content items-center px-[16px] leading-[32px] min-[481px]:mt-0 min-[481px]:h-[64px] min-[481px]:leading-[64px]',
+  left: 'TopNav__left flex-none leading-[32px] min-[481px]:absolute min-[481px]:left-[16px] min-[481px]:top-[16px]',
   back: cx(
+    'TopNav__back',
     'grid size-[32px] place-items-center rounded-full text-center text-muted-foreground no-underline transition-all duration-100 ease-linear',
     'hover:bg-primary hover:text-primary-foreground hover:opacity-100 focus:bg-primary focus:text-primary-foreground focus:opacity-100',
     'min-[481px]:size-[48px] min-[1232px]:relative min-[1232px]:-left-[16px]',
     '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus:[&>svg]:text-primary-foreground'
   ),
   brand:
-    'inline-block flex-auto text-xs font-bold leading-[32px] tracking-caps text-foreground uppercase no-underline hover:text-primary max-[481px]:hidden min-[481px]:leading-[64px]',
+    'TopNav__brand inline-block flex-auto text-xs font-bold leading-[32px] tracking-caps text-foreground uppercase no-underline hover:text-primary max-[481px]:hidden min-[481px]:leading-[64px]',
   actions:
-    'flex flex-none max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
-  socialList: 'm-0 h-[32px] list-none p-0',
-  pageActions: 'm-0 ml-[8px] flex h-[32px] list-none p-0',
-  editItem: 'm-0 p-0 max-[769px]:ml-[16px]',
+    'TopNav__actions flex flex-none max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
+  socialList: 'TopNav__socialList m-0 h-[32px] list-none p-0',
+  pageActions: 'TopNav__pageActions m-0 ml-[8px] flex h-[32px] list-none p-0',
+  editItem: 'TopNav__editItem m-0 p-0 max-[769px]:ml-[16px]',
   editLink: cx(
+    'TopNav__editLink',
     'inline-block align-top h-[32px] rounded-xs px-[16px] leading-[32px] text-foreground no-underline transition-all duration-100 ease-linear',
     '[box-shadow:inset_0_0_0_1px_var(--border-strong)]',
     'hover:bg-[image:var(--brand-gradient)] hover:text-primary-foreground hover:shadow-sm',

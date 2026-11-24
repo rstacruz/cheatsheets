@@ -35,6 +35,7 @@ const fragments =
 const featured = props.variant === 'featured'
 const styles = {
   link: cx(
+    'PageListItem__link',
     'group flex min-w-0 flex-col gap-[2px] rounded-xl no-underline',
     featured
       ? cx(
@@ -44,20 +45,28 @@ const styles = {
       : 'bg-secondary px-[14px] pt-[12px] pb-16 hover:bg-accent focus:bg-accent'
   ),
   fragments: cx(
+    'PageListItem__fragments',
     'flex min-h-0 flex-auto flex-wrap content-start gap-x-[5px] gap-y-[4px] overflow-hidden pr-[20%] opacity-50',
     'mb-[8px] [mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]',
     '[-webkit-mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]'
   ),
   fragment: cx(
+    'PageListItem__fragment',
     'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
     '[color:color-mix(in_srgb,var(--card)_80%,transparent)]'
   ),
-  title: featured
-    ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
-    : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary',
-  subtitle: featured
-    ? '[color:color-mix(in_srgb,var(--card)_78%,transparent)]'
-    : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
+  title: cx(
+    'PageListItem__title',
+    featured
+      ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
+      : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary'
+  ),
+  subtitle: cx(
+    'PageListItem__subtitle',
+    featured
+      ? '[color:color-mix(in_srgb,var(--card)_78%,transparent)]'
+      : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
+  )
 }
 ---
 

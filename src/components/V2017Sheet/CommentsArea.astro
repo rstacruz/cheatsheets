@@ -17,27 +17,29 @@ const url = `${site.url}/${props.identifier}`
 const { identifier } = props
 
 const styles = {
-  root: 'mt-[32px] mb-[16px]',
+  root: 'CommentsArea__root mt-[32px] mb-[16px]',
   inner: cx(
+    'CommentsArea__inner',
     'mx-auto max-w-content px-[16px]',
     "before:block before:h-[1px] before:content-['']",
     'before:bg-linear-[to_right,var(--border-strong)_50%,transparent]'
   ),
-  details: '-mb-[16px] open:mb-0',
+  details: 'CommentsArea__details -mb-[16px] open:mb-0',
   summary:
-    'group cursor-pointer whitespace-nowrap py-[24px] text-base text-primary hover:text-primary-strong focus:text-primary-strong',
+    'CommentsArea__summary group cursor-pointer whitespace-nowrap py-[24px] text-base text-primary hover:text-primary-strong focus:text-primary-strong',
   count:
-    'font-bold [&>svg]:mx-[8px] [&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-primary',
+    'CommentsArea__count font-bold [&>svg]:mx-[8px] [&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-primary',
   suffix:
-    'text-muted-foreground group-hover:text-primary-strong group-focus:text-primary-strong',
+    'CommentsArea__suffix text-muted-foreground group-hover:text-primary-strong group-focus:text-primary-strong',
   fauxlink: cx(
+    'CommentsArea__fauxlink',
     'ml-[4px] [border-bottom:solid_1px_color-mix(in_srgb,var(--primary)_25%,transparent)]',
     'group-hover:[border-bottom-color:var(--primary-strong)]',
     'group-focus:[border-bottom-color:var(--primary-strong)]'
   ),
-  section: 'flex',
+  section: 'CommentsArea__section flex',
   comments:
-    'max-[769px]:w-full max-[769px]:[flex:1_0_100%] min-[769px]:[flex:0_1_66%] min-[769px]:min-w-[300px]'
+    'CommentsArea__comments max-[769px]:w-full max-[769px]:[flex:1_0_100%] min-[769px]:[flex:0_1_66%] min-[769px]:min-w-[300px]'
 }
 ---
 

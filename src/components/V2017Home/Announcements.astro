@@ -9,18 +9,19 @@ const body = snarkdown(announcement.body)
   .join('')
 
 const styles = {
-  list: 'fixed bottom-0 left-0 z-10 max-w-[420px] p-0 min-[481px]:p-[16px] min-[769px]:p-[32px]',
+  list: 'Announcements__list fixed bottom-0 left-0 z-10 max-w-[420px] p-0 min-[481px]:p-[16px] min-[769px]:p-[32px]',
   item: cx(
+    'Announcements__item',
     'announcements-item relative hidden rounded-xs bg-card',
     'pt-[16px] pr-[48px] pb-[16px] pl-[16px]',
     '[box-shadow:var(--shadow-lg)]',
     '[transition:opacity_500ms_linear,transform_500ms_ease-out]'
   ),
-  title: 'm-0 p-0 text-base font-normal text-primary',
-  body: '[&>p]:m-0 [&>p]:p-0 [&>p+p]:mt-[1em]',
+  title: 'Announcements__title m-0 p-0 text-base font-normal text-primary',
+  body: 'Announcements__body [&>p]:m-0 [&>p]:p-0 [&>p+p]:mt-[1em]',
   close:
-    'absolute right-0 top-0 m-0 size-[40px] cursor-pointer border-0 bg-transparent p-0 text-center leading-[40px] hover:text-primary focus:text-primary',
-  glyph: String.raw`before:content-['\00D7'] before:text-sm before:leading-[40px]`
+    'Announcements__close absolute right-0 top-0 m-0 size-[40px] cursor-pointer border-0 bg-transparent p-0 text-center leading-[40px] hover:text-primary focus:text-primary',
+  glyph: String.raw`Announcements__glyph before:content-['\00D7'] before:text-sm before:leading-[40px]`
 }
 ---
 

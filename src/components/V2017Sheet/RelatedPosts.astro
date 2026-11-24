@@ -56,40 +56,46 @@ const column = cx(
 )
 
 const styles = {
-  area: 'bg-muted py-[16px] min-[481px]:py-[64px]',
-  inner: 'mx-auto max-w-content px-[16px]',
+  area: 'RelatedPosts__area bg-muted py-[16px] min-[481px]:py-[64px]',
+  inner: 'RelatedPosts__inner mx-auto max-w-content px-[16px]',
   section: cx(
+    'RelatedPosts__section',
     'mx-[-16px] flex max-[1265px]:mx-[-8px]',
     'max-[481px]:flex-wrap min-[481px]:max-[769px]:flex-wrap'
   ),
   callout: cx(
+    'RelatedPosts__callout',
     column,
     'flex flex-[1_1_33%]',
     'max-[481px]:flex-[1_1_100%]',
     'min-[481px]:max-[769px]:flex-[1_1_100%]'
   ),
   group: cx(
+    'RelatedPosts__group',
     column,
     'flex-[1_1_50%]',
     'max-[481px]:flex-[1_1_100%]',
     'min-[481px]:max-[769px]:flex-[1_1_40%]'
   ),
   calloutLink: cx(
+    'RelatedPosts__calloutLink',
     'flex flex-[1_0_100%] items-center justify-center rounded-xs p-[32px] no-underline [box-shadow:var(--shadow-sm)]',
     'bg-[image:var(--brand-gradient)]',
     'text-primary-foreground visited:text-primary-foreground',
     'hover:bg-none hover:bg-primary-strong focus:bg-none focus:bg-primary-strong',
     '[text-shadow:0_1px_1px_var(--overlay)]'
   ),
-  calloutText: 'm-auto text-center',
+  calloutText: 'RelatedPosts__calloutText m-auto text-center',
   calloutIcon: cx(
+    'RelatedPosts__calloutIcon',
     'mx-auto mb-[16px] grid size-[64px] place-items-center rounded-circle border-[2px] border-solid border-primary-faint',
     '[&>svg]:text-primary-faint'
   ),
-  description: 'mb-[16px] block text-base font-light leading-[1.4]',
-  list: 'm-[-4px] flex flex-wrap list-none p-0',
+  description:
+    'RelatedPosts__description mb-[16px] block text-base font-light leading-[1.4]',
+  list: 'RelatedPosts__list m-[-4px] flex flex-wrap list-none p-0',
   heading:
-    'm-0 mb-[16px] border-b border-b-border-strong border-solid p-0 pb-[16px] text-base font-normal leading-[1.2] text-primary'
+    'RelatedPosts__heading m-0 mb-[16px] border-b border-b-border-strong border-solid p-0 pb-[16px] text-base font-normal leading-[1.2] text-primary'
 }
 ---
 

@@ -28,6 +28,7 @@ const placeholder =
 const styles = {
   box: (small: boolean) =>
     cx(
+      'SearchForm__box',
       'flex items-center rounded-full bg-card cursor-text',
       '[box-shadow:var(--shadow-md)]',
       'focus-within:[box-shadow:var(--shadow-focus)]',
@@ -35,6 +36,7 @@ const styles = {
     ),
   prefix: (small: boolean) =>
     cx(
+      'SearchForm__prefix',
       'm-0 block border border-border px-[8px] py-[2px] font-normal leading-[1.5em] select-none rounded-full max-[769px]:hidden',
       '[color:color-mix(in_srgb,var(--muted-foreground)_50%,transparent)]',
       '[background-color:color-mix(in_srgb,var(--background)_50%,transparent)]',
@@ -42,12 +44,14 @@ const styles = {
     ),
   sep: (small: boolean) =>
     cx(
+      'SearchForm__sep',
       'mx-[8px] leading-[1.6] max-[769px]:hidden',
       '[color:color-mix(in_srgb,var(--muted-foreground)_50%,transparent)]',
       small ? 'text-base' : 'text-lg'
     ),
   input: (small: boolean) =>
     cx(
+      'SearchForm__input',
       'min-w-[48px] flex-auto cursor-text border-0 bg-transparent pl-0 font-body font-bold leading-[1.6] text-heading focus:outline-none',
       'placeholder:font-normal placeholder:text-muted-foreground',
       'max-[769px]:pl-[16px]',
@@ -57,6 +61,7 @@ const styles = {
     ),
   icon: (small: boolean) =>
     cx(
+      'SearchForm__icon',
       'order-2 grid place-items-center text-heading',
       small
         ? 'w-[48px] flex-[0_0_48px] [&>svg]:size-[24px]'

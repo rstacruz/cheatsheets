@@ -10,12 +10,13 @@ export type Props = {
 const props = Astro.props as Props
 
 const styles = {
-  root: 'border-y border-y-border-strong bg-muted py-[16px]',
-  inner: 'mx-auto max-w-content px-[16px]',
-  section: 'flex',
-  search: '[flex:0_1_640px]',
-  links: 'ml-auto flex-initial pl-[16px]',
+  root: 'SearchFooter__root border-y border-y-border-strong bg-muted py-[16px]',
+  inner: 'SearchFooter__inner mx-auto max-w-content px-[16px]',
+  section: 'SearchFooter__section flex',
+  search: 'SearchFooter__search [flex:0_1_640px]',
+  links: 'SearchFooter__links ml-auto flex-initial pl-[16px]',
   home: cx(
+    'SearchFooter__home',
     'inline-block rounded-circle text-muted-foreground visited:text-muted-foreground',
     '[box-shadow:inset_0_0_0_1px_var(--border-strong)]',
     'hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',

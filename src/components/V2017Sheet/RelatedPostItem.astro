@@ -18,9 +18,10 @@ const t = {
 const featured = props.featured === true
 
 const styles = {
-  root: 'm-[4px] flex flex-[1_1_auto] list-none p-0 text-left leading-[1.4] min-[481px]:flex-[1_1_40%]',
+  root: 'RelatedPostItem__root m-[4px] flex flex-[1_1_auto] list-none p-0 text-left leading-[1.4] min-[481px]:flex-[1_1_40%]',
   link: featured
     ? cx(
+        'RelatedPostItem__link',
         'group block flex-[1_1_100%] rounded-xs p-[16px] no-underline [box-shadow:var(--shadow-sm)]',
         'bg-primary [color:color-mix(in_srgb,var(--card)_50%,transparent)]',
         'visited:[color:color-mix(in_srgb,var(--card)_50%,transparent)]',
@@ -28,17 +29,19 @@ const styles = {
         'hover:text-primary-foreground focus:text-primary-foreground'
       )
     : cx(
+        'RelatedPostItem__link',
         'group block flex-[1_1_100%] rounded-xs p-[16px] no-underline [box-shadow:var(--shadow-sm)]',
         'bg-card text-muted-foreground visited:text-muted-foreground',
         'hover:text-primary focus:text-primary'
       ),
   title: cx(
+    'RelatedPostItem__title',
     'text-base font-normal leading-[1.4] min-[481px]:block',
     featured
       ? 'text-primary-foreground'
       : 'text-primary group-hover:text-primary-active group-focus:text-primary-active'
   ),
-  suffix: 'text-xs leading-[1.4] min-[481px]:block'
+  suffix: 'RelatedPostItem__suffix text-xs leading-[1.4] min-[481px]:block'
 }
 ---
 

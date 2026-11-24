@@ -14,16 +14,6 @@ links:
 ## Redirecting
 <!-- {: .-snippets} -->
 
-### Errors to a file
-<!-- {: .-snippet} -->
-
-```bash
-ls /missing 2> errors.log
-```
-<!-- {: data-highlight="2>"} -->
-
-**Sends only stderr to a file.** `2` is the stderr descriptor, so stdout still prints to the terminal. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
-
 ### Merge into stdout
 <!-- {: .-snippet} -->
 
@@ -33,6 +23,16 @@ ls /missing > all.log 2>&1
 <!-- {: data-highlight="2>&1"} -->
 
 **Captures both streams in one file.** Order matters: `2>&1` copies the current stdout, so redirect stdout first. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
+
+### Errors to a file
+<!-- {: .-snippet} -->
+
+```bash
+ls /missing 2> errors.log
+```
+<!-- {: data-highlight="2>"} -->
+
+**Sends only stderr to a file.** `2` is the stderr descriptor, so stdout still prints to the terminal. See [redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html).
 
 ### Both streams
 <!-- {: .-snippet} -->

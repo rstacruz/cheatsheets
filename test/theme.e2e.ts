@@ -264,3 +264,57 @@ for (const path of ['/', '/bash', '/archive', '/404']) {
     }
   })
 }
+
+const MERMAID_CANVAS = '.MermaidDiagram__canvas svg'
+const MERMAID_ERROR = '.MermaidDiagram__error'
+
+/** Renders carry a fresh id, so compare the markup without it */
+function withoutRenderIds(html: string) {
+  return html.replaceAll(/mermaid-diagram-\d+/g, 'mermaid-diagram')
+}
+
+async function mermaidMarkup(page: Page) {
+  const markup = await page
+    .locator(MERMAID_CANVAS)
+    .evaluate((node) => node.outerHTML)
+  return withoutRenderIds(markup)
+}
+
+test('re-renders the Mermaid diagram for the chosen theme', async ({
+  page
+}) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/git-revisions')
+  await expect(page.locator(MERMAID_CANVAS)).toBeVisible({ timeout: 15_000 })
+
+  const light = await mermaidMarkup(page)
+  const canvasBox = await page.locator('.MermaidDiagram__canvas').boundingBox()
+  const captionBox = await page
+    .locator('.MermaidDiagram__caption')
+    .boundingBox()
+  expect(captionBox!.y).toBeGreaterThanOrEqual(canvasBox!.y + canvasBox!.height)
+
+  await page.locator(TOGGLE).click()
+
+  await expect
+    .poll(() => mermaidMarkup(page), { timeout: 15_000 })
+    .not.toBe(light)
+  await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
+})
+
+test('drops a stale Mermaid render after two quick toggles', async ({
+  page
+}) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/git-revisions')
+  await expect(page.locator(MERMAID_CANVAS)).toBeVisible({ timeout: 15_000 })
+
+  const light = await mermaidMarkup(page)
+
+  // Dark, then back to System: the second run wins.
+  await page.locator(TOGGLE).click()
+  await page.locator(TOGGLE).click()
+
+  await expect.poll(() => mermaidMarkup(page), { timeout: 15_000 }).toBe(light)
+  await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
+})

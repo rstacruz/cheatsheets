@@ -83,6 +83,7 @@ createApp(App).mount('#app')
 <p>{{ inStock ? 'Yes' : 'No' }}</p>
 <a :href="url">Link</a>
 <div :class="{ active: isActive }">
+  {{ label }}
 </div>
 ```
 <!-- {: data-highlight="{{ product.name }}; :href"} -->
@@ -350,18 +351,22 @@ Hooks register synchronously during setup. See: [Lifecycle hooks](https://vuejs.
 
 #### Parent.vue
 
-```js
+```html
+<script setup>
 import { provide, ref } from 'vue'
 const theme = ref('dark')
 provide('theme', theme)
+</script>
 ```
 <!-- {: data-highlight="provide"} -->
 
 #### Child.vue
 
-```js
+```html
+<script setup>
 import { inject } from 'vue'
 const theme = inject('theme', 'light')
+</script>
 ```
 <!-- {: data-highlight="inject"} -->
 
@@ -400,7 +405,7 @@ watch(query, async (value) => {
 
 Lazy by default; pass `{ immediate: true }` to run once, and `{ deep: true }` for nested changes. See: [Watchers](https://vuejs.org/guide/essentials/watchers.html)
 
-### watchEffect
+### Watch effects
 
 ```js
 import { ref, watchEffect } from 'vue'
@@ -483,6 +488,19 @@ export default router
 ```
 
 Registers `RouterLink` and `RouterView` when passed to `app.use(router)`. See: [Vue Router](https://router.vuejs.org/guide/#Creating-the-router-instance)
+
+### Register the router
+
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+
+createApp(App).use(router).mount('#app')
+```
+<!-- {: data-highlight=".use(router)"} -->
+
+Call `use(router)` before `mount()`. See: [Creating the router instance](https://router.vuejs.org/guide/#Creating-the-router-instance)
 
 ### Links and views
 

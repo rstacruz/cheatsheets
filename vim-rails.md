@@ -133,7 +133,7 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 ### Test
 
 ```vim
-:Espec            # spec/**/*_spec.rb
+:Espec            # spec/spec_helper.rb
 :Eunittest        # unit test or model spec
 :Efunctionaltest  # functional test or controller spec
 :Eintegrationtest # integration test or request spec

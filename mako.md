@@ -16,7 +16,7 @@ Expression: ${x + 1}
 Escaped for HTML: ${html | h}
 ```
 
-`h` escapes HTML; `u`, `x` and `trim` are the other built-in filters.
+`h` escapes HTML; built-in filters also include `u`, `x`, `trim`, `entity`, `str` and `n`.
 
 ### Control structures
 

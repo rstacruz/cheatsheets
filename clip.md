@@ -60,7 +60,7 @@ Pages use the `.clip` extension: one `>` summary, then one `-` description per e
 ```md
 - [c]reate an archive of several [f]iles:
 
-`tar -c {/?file archive: target.tar} {/?path+ input}`
+`tar -cf {/?file archive: target.tar} {/?path+ input}`
 ```
 
 #### Quantifiers

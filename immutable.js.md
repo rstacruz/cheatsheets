@@ -106,7 +106,7 @@ next.getIn(['user', 'profile', 'name'])  // 'Jack'
 next.getIn(['user', 'profile', 'age'])   // 91
 ```
 
-`mergeDeep`, `getIn`, `setIn` and `updateIn` work on `Map`, `List` and `OrderedMap`.
+`mergeDeep` works on `Map` and `OrderedMap`; `getIn`, `setIn` and `updateIn` also work on `List`.
 
 ## References
 

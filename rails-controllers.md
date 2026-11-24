@@ -147,7 +147,7 @@ request.domain(2)       #=> "example.com"
 request.port            #=> 80
 request.protocol        #=> "http://"
 request.query_string    #=> "q=duck+tales"
-request.url             #=> "http://www.example.com/search"
+request.url             #=> "http://…/search?q=duck+tales"
 request.fullpath        #=> "/search?q=duck+tales"
 
 request.headers         #=> an ActionDispatch::Http::Headers

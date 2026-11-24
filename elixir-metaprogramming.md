@@ -87,4 +87,4 @@ defmacro definitions do
 end
 ```
 
-The remaining `Macro.Env` fields are private to macro expansion and must not be read directly.
+The public fields are `module`, `file`, `line`, `function`, `context` and `context_modules`; the rest are private to macro expansion.

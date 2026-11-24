@@ -87,7 +87,7 @@ pass git remote add origin git@example.com:me/store.git
 pass git push -u --all
 ```
 
-Every `pass` command commits on its own.
+Every command that modifies the store commits on its own.
 
 ### Synchronize
 

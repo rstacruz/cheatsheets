@@ -144,7 +144,7 @@ deploy:
 	$(MAKE) -C deploy push
 ```
 
-`$(MAKE)` re-runs make with the current flags; a bare `make` would not inherit them.
+`$(MAKE)` marks the line as recursive, so `make -n`, `-t` and `-q` still run it; both forms inherit the current flags through `MAKEFLAGS`.
 
 ### Options
 

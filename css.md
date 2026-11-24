@@ -225,7 +225,7 @@ animation: bounce 300ms linear 0s infinite normal;
 animation: bounce 300ms linear infinite;
 animation: bounce 300ms linear infinite alternate-reverse;
 animation: bounce 300ms linear 2s infinite
-  alternate-reverse forwards normal;
+  alternate-reverse forwards running;
 ```
 
 ### Event

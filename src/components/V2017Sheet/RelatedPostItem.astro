@@ -23,9 +23,9 @@ const styles = {
     ? cx(
         'RelatedPostItem__link',
         'group block flex-[1_1_100%] rounded-xs p-[16px] no-underline [box-shadow:var(--shadow-sm)]',
-        'bg-primary [color:color-mix(in_srgb,var(--card)_50%,transparent)]',
-        'visited:[color:color-mix(in_srgb,var(--card)_50%,transparent)]',
-        'hover:bg-primary-strong focus:bg-primary-strong',
+        'bg-primary-solid [color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
+        'visited:[color:color-mix(in_srgb,var(--primary-foreground)_50%,transparent)]',
+        'hover:bg-primary-solid-hover focus:bg-primary-solid-hover',
         'hover:text-primary-foreground focus:text-primary-foreground'
       )
     : cx(
@@ -39,7 +39,7 @@ const styles = {
     'text-base font-normal leading-[1.4] min-[481px]:block',
     featured
       ? 'text-primary-foreground'
-      : 'text-primary group-hover:text-primary-active group-focus:text-primary-active'
+      : 'text-primary group-hover:text-primary-strong group-focus:text-primary-strong'
   ),
   suffix: 'RelatedPostItem__suffix text-xs leading-[1.4] min-[481px]:block'
 }

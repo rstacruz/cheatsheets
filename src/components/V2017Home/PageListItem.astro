@@ -5,11 +5,11 @@ import type { SheetPage } from '../../lib/page'
 const CARD_FRAGMENT_COUNT = 22
 const tones = {
   primary:
-    'bg-linear-[15deg,var(--primary),var(--primary-subtle)] hover:bg-none hover:bg-primary-strong focus:bg-none focus:bg-primary-strong',
+    'bg-linear-[15deg,var(--primary-solid),var(--primary-solid-soft)] hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
   slate:
-    'bg-linear-[15deg,var(--muted-foreground),var(--muted-foreground-bright)] hover:bg-none hover:bg-muted-foreground-strong focus:bg-none focus:bg-muted-foreground-strong',
+    'bg-linear-[15deg,var(--slate-solid),var(--slate-solid-soft)] hover:bg-none hover:bg-slate-solid-hover focus:bg-none focus:bg-slate-solid-hover',
   green:
-    'bg-linear-[15deg,var(--highlight),var(--highlight-bright)] hover:bg-none hover:bg-highlight-strong focus:bg-none focus:bg-highlight-strong'
+    'bg-linear-[15deg,var(--highlight-solid),var(--highlight-solid-soft)] hover:bg-none hover:bg-highlight-solid-hover focus:bg-none focus:bg-highlight-solid-hover'
 }
 
 export type Props = {
@@ -53,7 +53,7 @@ const styles = {
   fragment: cx(
     'PageListItem__fragment',
     'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
-    '[color:color-mix(in_srgb,var(--card)_80%,transparent)]'
+    '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
   ),
   title: cx(
     'PageListItem__title',
@@ -64,7 +64,7 @@ const styles = {
   subtitle: cx(
     'PageListItem__subtitle',
     featured
-      ? '[color:color-mix(in_srgb,var(--card)_78%,transparent)]'
+      ? '[color:color-mix(in_srgb,var(--primary-foreground)_78%,transparent)]'
       : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
   )
 }

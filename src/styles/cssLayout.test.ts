@@ -6,7 +6,7 @@ describe('component CSS layout', () => {
   })
 
   it('has no imports from a per-component stylesheet directory', () => {
-    const importing = globSync('src/**/*.astro').filter((file) =>
+    const importing = globSync('src/**/*.{astro,css}').filter((file) =>
       /styles\/components\//.test(readFileSync(file, 'utf8'))
     )
 

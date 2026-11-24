@@ -65,10 +65,7 @@ utilities can override them:
 
 ## Component styling
 
-Components carry Tailwind utilities in their markup, with no matching CSS file.
-`src/styles/vendor/` holds the only component CSS outside Markdown prose, and a
-component `<style>` block is limited to keyframes. See
-[component styling](component-styling.md) for the component shape and rules.
+Components use Tailwind utilities in markup, with no matching CSS file. Component `<style>` blocks only declare keyframes or import Markdown/vendor sheets. See [component styling](component-styling.md) for the shape and rules.
 
 Rendered Markdown prose lives in `src/styles/markdown/` (`h2`/`h3` sections,
 `snippet`, `hint-mark`, typography).

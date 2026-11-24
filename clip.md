@@ -6,6 +6,16 @@ updated: 2026-11-24
 last_verified_with: "CLI Pages syntax 2.7.0."
 keywords:
   - CLI
+tier: t3
+intro: |
+  CLI Pages format for documenting commands: page layout, summary tags, and placeholders.
+links:
+  - title: CLI Pages syntax reference
+    url: https://github.com/command-line-interface-pages/syntax
+  - title: CLI Pages page repository
+    url: https://github.com/command-line-interface-pages/cli-pages
+  - title: CLI Pages tooling
+    url: https://github.com/command-line-interface-pages/v2-tooling
 ---
 
 ## Pages
@@ -25,6 +35,8 @@ keywords:
 
 Pages use the `.clip` extension: one `>` summary, then one `-` description per example.
 
+See: [Base syntax](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/base.md)
+
 ### Summary tags
 
 | Tag | Meaning |
@@ -37,6 +49,8 @@ Pages use the `.clip` extension: one `>` summary, then one `-` description per e
 | `Internal:` | Not called directly |
 | `Deprecated:` | Marked deprecated |
 
+See: [Summary tags](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/base.md#tags)
+
 ## Placeholders
 
 ### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#primitive-placeholders)
@@ -47,6 +61,8 @@ Pages use the `.clip` extension: one `>` summary, then one `-` description per e
 `sleep {int seconds: 2}s`
 ```
 
+See: [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#primitive-placeholders)
+
 ### [Optional placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#optional-primitive-placeholders)
 
 ```md
@@ -54,6 +70,8 @@ Pages use the `.clip` extension: one `>` summary, then one `-` description per e
 
 `display {file? image: rose.jpg}`
 ```
+
+See: [Optional placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#optional-primitive-placeholders)
 
 ### [Repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#repeated-primitive-placeholders)
 
@@ -71,6 +89,8 @@ Pages use the `.clip` extension: one `>` summary, then one `-` description per e
 | `+` | One or more arguments |
 | `2..10` | Between two and ten arguments |
 | `*!` | Zero or more, no repeats |
+
+See: [Repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#repeated-primitive-placeholders)
 
 ## Also see
 

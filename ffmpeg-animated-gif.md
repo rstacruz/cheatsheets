@@ -6,6 +6,9 @@ category: Media tools
 layout: snippet
 last_verified_with: "ffmpeg 9.0.2."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Convert video to animated GIF with ffmpeg, including palette generation, trimming, and resizing.
 links:
   - title: ffmpeg documentation
     url: https://ffmpeg.org/documentation.html

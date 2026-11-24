@@ -4,6 +4,16 @@ subtitle: Python template compiler
 category: Python
 last_verified_with: "Mako 1.4.3."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Mako templates: expressions, control structures, Python blocks, inheritance, and rendering from Python.
+links:
+  - title: Mako syntax documentation
+    url: https://docs.makotemplates.org/en/latest/syntax.html
+  - title: Mako usage documentation
+    url: https://docs.makotemplates.org/en/latest/usage.html
+  - title: Mako on GitHub
+    url: https://github.com/sqlalchemy/mako
 ---
 
 ## Syntax
@@ -18,6 +28,8 @@ Escaped for HTML: ${html | h}
 
 `h` escapes HTML; built-in filters also include `u`, `x`, `trim`, `entity`, `str` and `n`.
 
+See: [Expression substitution](https://docs.makotemplates.org/en/latest/syntax.html#expression-substitution)
+
 ### Control structures
 
 ```
@@ -31,6 +43,8 @@ Escaped for HTML: ${html | h}
 ```
 
 A control line starts with `%`, which may be indented but must come before any text.
+
+See: [Control structures](https://docs.makotemplates.org/en/latest/syntax.html#control-structures)
 
 ### Including Python code
 
@@ -58,6 +72,8 @@ def sign_string(number):
 ```
 
 `<%! %>` runs once when the template compiles, so it cannot read render-time variables.
+
+See: [Python blocks](https://docs.makotemplates.org/en/latest/syntax.html#python-blocks)
 
 ### Special blocks
 
@@ -92,6 +108,8 @@ ${myfunc(42)}
 ```
 
 `<%doc>` holds a comment block; `##` comments out a single line.
+
+See: [Tags](https://docs.makotemplates.org/en/latest/syntax.html#tags)
 
 ### Inheritance
 
@@ -129,6 +147,8 @@ ${post.content}
 
 `${self.body()}` renders the inheriting template; `${self.title()}` renders a block twice, since a name may only be defined once.
 
+See: [Inheritance](https://docs.makotemplates.org/en/latest/syntax.html#inherit)
+
 ## Library
 
 ### Render a string
@@ -139,6 +159,8 @@ from mako.template import Template
 print(Template("hello, ${name}!").render(name="jack"))
 ```
 <!-- {: data-highlight="Template"} -->
+
+See: [Template](https://docs.makotemplates.org/en/latest/usage.html#mako.template.Template)
 
 ### Load templates from disk
 
@@ -151,3 +173,5 @@ print(lookup.get_template("home.html").render())
 <!-- {: data-highlight="TemplateLookup"} -->
 
 `TemplateLookup` resolves `<%inherit>` and `<%include>` paths against its directories.
+
+See: [TemplateLookup](https://docs.makotemplates.org/en/latest/usage.html#mako.lookup.TemplateLookup)

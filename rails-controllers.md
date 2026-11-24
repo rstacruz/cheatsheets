@@ -4,6 +4,16 @@ subtitle: Request handling classes
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Rails controller filters, authentication, request and response objects, and response streaming.
+links:
+  - title: Action Controller overview
+    url: https://guides.rubyonrails.org/action_controller_overview.html
+  - title: ActionController::Base
+    url: https://api.rubyonrails.org/classes/ActionController/Base.html
+  - title: ActionDispatch::Request
+    url: https://api.rubyonrails.org/classes/ActionDispatch/Request.html
 ---
 
 ## Requests
@@ -14,6 +24,8 @@ updated: 2026-11-24
 redirect_to root_url
 redirect_to root_url, notice: "Good."
 ```
+
+See: [redirect_to](https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to)
 
 ### Session, flash, params
 
@@ -31,6 +43,8 @@ params[:page]
 
 `params` merges `query_parameters`, `path_parameters`, and `request_parameters`.
 
+See: [Session](https://guides.rubyonrails.org/action_controller_overview.html#session)
+
 ### Respond to formats
 
 ```ruby
@@ -42,6 +56,8 @@ respond_to do |format|
 end
 ```
 
+See: [respond_to](https://api.rubyonrails.org/classes/ActionController/MimeResponds.html#method-i-respond_to)
+
 ### Default URL options
 
 ```ruby
@@ -51,6 +67,8 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
+
+See: [default_url_options](https://guides.rubyonrails.org/action_controller_overview.html#the-default-url-options-method)
 
 ## Actions
 
@@ -89,6 +107,8 @@ def wrap_in_transaction(&block)
 end
 ```
 
+See: [Controller callbacks](https://guides.rubyonrails.org/action_controller_overview.html#controller-callbacks)
+
 ### Basic authentication
 
 ```ruby
@@ -100,6 +120,8 @@ def authenticate
   end
 end
 ```
+
+See: [Basic authentication](https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html)
 
 ### Digest authentication
 
@@ -118,6 +140,8 @@ end
 
 Uses the `ha1` hash of `username:realm:password`.
 
+See: [Digest authentication](https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Digest.html)
+
 ### Token authentication
 
 ```ruby
@@ -128,6 +152,8 @@ end
 request_http_token_authentication unless is_logged_in
 ```
 
+See: [Token authentication](https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html)
+
 ### Test authentication
 
 ```ruby
@@ -135,6 +161,8 @@ basic = ActionController::HttpAuthentication::Basic
 auth = basic.encode_credentials("root", "alpine")
 get "/notes/1.xml", headers: { "Authorization" => auth }
 ```
+
+See: [encode_credentials](https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html#method-i-encode_credentials)
 
 ## Request and response
 
@@ -167,6 +195,8 @@ request.delete?
 request.head?
 ```
 
+See: [ActionDispatch::Request](https://api.rubyonrails.org/classes/ActionDispatch/Request.html)
+
 ### Response
 
 ```ruby
@@ -179,6 +209,8 @@ response.headers
 
 response.headers["Content-Type"] = "application/pdf"
 ```
+
+See: [ActionDispatch::Response](https://api.rubyonrails.org/classes/ActionDispatch/Response.html)
 
 ### Streaming
 
@@ -196,6 +228,8 @@ send_file Rails.root.join("public", "filename.txt"), \
 ```
 
 `send_data` sends a string; `send_file` streams the file from disk.
+
+See: [send_data](https://api.rubyonrails.org/classes/ActionController/DataStreaming.html#method-i-send_data)
 
 ## Reference
 

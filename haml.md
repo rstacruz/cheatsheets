@@ -5,9 +5,21 @@ category: Markup
 prism_languages: [haml]
 last_verified_with: "Haml 7.5.2."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Haml templates: indentation-based markup, attributes, Ruby code, and filters.
+links:
+  - title: Haml reference
+    url: https://haml.info/docs/yardoc/file.REFERENCE.html
+  - title: Haml website
+    url: https://haml.info/
+  - title: Haml on GitHub
+    url: https://github.com/haml/haml
 ---
 
 ## Markup
+
+<!-- {: .-three-column} -->
 
 ### Doctype
 
@@ -16,6 +28,8 @@ updated: 2026-11-24
 ```
 
 Emits `<!DOCTYPE html>`; `!!! XML` adds an XML prolog first.
+
+See: [Doctype](https://haml.info/docs/yardoc/file.REFERENCE.html#doctype-)
 
 ### Tags
 
@@ -30,6 +44,8 @@ Emits `<!DOCTYPE html>`; `!!! XML` adds an XML prolog first.
 
 Indent two spaces per level and keep it consistent; void elements like `%br` need no trailing slash.
 
+See: [HTML elements](https://haml.info/docs/yardoc/file.REFERENCE.html#html-elements)
+
 ### Classes and IDs
 
 ```haml
@@ -40,6 +56,8 @@ Indent two spaces per level and keep it consistent; void elements like `%br` nee
 ```
 
 `.` adds a class and `#` sets an id; a line with no tag name renders a `div`.
+
+See: [Class and ID attributes](https://haml.info/docs/yardoc/file.REFERENCE.html#class-and-id-attributes)
 
 ## Attributes
 
@@ -61,6 +79,8 @@ Indent two spaces per level and keep it consistent; void elements like `%br` nee
 
 Both forms are current: the hash evaluates Ruby, parentheses stay close to HTML.
 
+See: [Attributes](https://haml.info/docs/yardoc/file.REFERENCE.html#attributes)
+
 ### Boolean attributes
 
 ```haml
@@ -71,6 +91,8 @@ Both forms are current: the hash evaluates Ruby, parentheses stay close to HTML.
 
 `true` renders the bare attribute and `false` leaves it out.
 
+See: [Boolean attributes](https://haml.info/docs/yardoc/file.REFERENCE.html#boolean-attributes)
+
 ### Data attributes
 
 ```haml
@@ -79,7 +101,11 @@ Both forms are current: the hash evaluates Ruby, parentheses stay close to HTML.
 
 Hashes under `data` and `aria` expand to hyphenated attributes, so this renders `data-author-id="123"`.
 
+See: [Data attributes](https://haml.info/docs/yardoc/file.REFERENCE.html#data-attributes)
+
 ## Ruby
+
+<!-- {: .-three-column} -->
 
 ### Comments
 
@@ -89,6 +115,8 @@ Hashes under `data` and `aria` expand to hyphenated attributes, so this renders 
 ```
 
 `-#` drops the line; `/` emits an HTML comment.
+
+See: [Comments](https://haml.info/docs/yardoc/file.REFERENCE.html#comments)
 
 ### Code and output
 
@@ -102,6 +130,8 @@ Hashes under `data` and `aria` expand to hyphenated attributes, so this renders 
 
 `-` runs Ruby and outputs nothing; `=` also inserts the result.
 
+See: [Ruby evaluation](https://haml.info/docs/yardoc/file.REFERENCE.html#ruby-evaluation)
+
 ### Interpolation and escaping
 
 ```haml
@@ -113,6 +143,8 @@ Hashes under `data` and `aria` expand to hyphenated attributes, so this renders 
 
 `&=` always escapes and `!=` never does; plain `=` follows the `:escape_html` option.
 
+See: [Ruby interpolation](https://haml.info/docs/yardoc/file.REFERENCE.html#ruby-interpolation-)
+
 ### Filters
 
 ```haml
@@ -121,3 +153,5 @@ Hashes under `data` and `aria` expand to hyphenated attributes, so this renders 
 ```
 
 `:javascript` and `:css` wrap the block in a tag; `:plain` and `:escaped` leave it as text.
+
+See: [Filters](https://haml.info/docs/yardoc/file.REFERENCE.html#filters)

@@ -4,6 +4,16 @@ subtitle: Macro-based code generation
 category: Elixir
 last_verified_with: "Elixir 1.20.5."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Elixir metaprogramming: quote and unquote, macro definitions, and compile-time environment access.
+links:
+  - title: Metaprogramming guide
+    url: https://hexdocs.pm/elixir/macros.html
+  - title: Kernel.SpecialForms
+    url: https://hexdocs.pm/elixir/Kernel.SpecialForms.html
+  - title: Macro module
+    url: https://hexdocs.pm/elixir/Macro.html
 ---
 
 ## Syntax
@@ -18,6 +28,8 @@ __CALLER__   # environment of the caller, inside a macro
 ```
 
 These are special forms, documented in [Kernel.SpecialForms](https://hexdocs.pm/elixir/Kernel.SpecialForms.html).
+
+See: [Pseudo-variables](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#__CALLER__/0)
 
 ### Quote and unquote
 
@@ -43,6 +55,8 @@ end
 
 A quoted expression is a three-element tuple: call, metadata, arguments. `unquote/1` splices an AST in; other values need `Macro.escape/1`.
 
+See: [quote/2](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#quote/2)
+
 ### Define a macro
 
 #### Macro
@@ -66,6 +80,8 @@ Math.squared(5)   # => 25
 
 `require` makes the macro available. Here `x` is unquoted twice, so `quote bind_quoted: [x: x]` is the safer form.
 
+See: [defmacro/2](https://hexdocs.pm/elixir/Kernel.html#defmacro/2)
+
 ### Environment
 
 #### At compile time
@@ -88,3 +104,5 @@ end
 ```
 
 The public fields are `module`, `file`, `line`, `function`, `context` and `context_modules`; the rest are private to macro expansion.
+
+See: [Macro.Env](https://hexdocs.pm/elixir/Macro.Env.html)

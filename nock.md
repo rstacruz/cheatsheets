@@ -4,6 +4,14 @@ subtitle: HTTP mocking library
 category: JavaScript testing
 last_verified_with: "nock 15.0.6."
 updated: 2026-11-24
+tier: t3
+intro: |
+  HTTP mocking for Node.js tests: intercept requests, specify replies, and block real network calls.
+links:
+  - title: Nock repository and documentation
+    url: https://github.com/nock/nock
+  - title: Nock usage guide
+    url: https://github.com/nock/nock#usage
 ---
 
 ## Intercept
@@ -20,6 +28,8 @@ const scope = nock('https://api.example.com')
 
 Each interceptor answers one matching request and is then consumed.
 
+See: [Nock usage](https://github.com/nock/nock#usage)
+
 ### Verify a call
 
 ```js
@@ -32,6 +42,8 @@ scope.done()
 ```
 
 `done()` throws when the mock went unused; `isDone()` returns a boolean and `nock.pendingMocks()` lists what is outstanding.
+
+See: [Nock expectations](https://github.com/nock/nock#expectations)
 
 ### Replies
 
@@ -49,6 +61,8 @@ nock('https://api.example.com')
 | `.replyWithError('boom')` | Fail like a network error |
 | `.delay(500).reply(200)` | Delay the response |
 
+See: [Specifying replies](https://github.com/nock/nock#specifying-replies)
+
 ### Match queries and headers
 
 ```js
@@ -58,6 +72,8 @@ nock('https://api.example.com')
   .matchHeader('authorization', /^Bearer /)
   .reply(200, [])
 ```
+
+See: [Matching request bodies and headers](https://github.com/nock/nock#request-headers-matching)
 
 ### Filter paths
 
@@ -70,6 +86,8 @@ nock('https://api.example.com')
 
 Rewrites the path before matching, for tokens and other changing values.
 
+See: [Path filtering](https://github.com/nock/nock#path-filtering)
+
 ### Allow real requests
 
 ```js
@@ -80,7 +98,10 @@ nock('https://api.example.com', { allowUnmocked: true })
 
 Unmatched requests on that host reach the network.
 
+See: [Allow unmocked requests](https://github.com/nock/nock#allow-unmocked-requests-on-a-mocked-hostname)
+
 ## Cleanup
+<!-- {: .-three-column} -->
 
 ### Reset between tests
 
@@ -92,6 +113,8 @@ afterEach(() => {
 
 `cleanAll()` removes every interceptor, persisted ones included.
 
+See: [nock.cleanAll](https://github.com/nock/nock#cleanall)
+
 ### Block the network
 
 ```js
@@ -100,6 +123,8 @@ nock.disableNetConnect()
 
 Requests without an interceptor then fail; `nock.enableNetConnect('localhost')` allows one host back.
 
+See: [Disabling requests](https://github.com/nock/nock#disabling-requests)
+
 ### Restore
 
 ```js
@@ -107,3 +132,5 @@ nock.restore()
 ```
 
 `restore()` also stops interception; call `nock.activate()` to resume.
+
+See: [Restoring](https://github.com/nock/nock#restoring)

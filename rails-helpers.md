@@ -4,6 +4,16 @@ subtitle: View helper reference
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Rails view helpers for dates, numbers, tags, caching, translation, and date and time selects.
+links:
+  - title: ActionView::Helpers
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers.html
+  - title: DateHelper
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html
+  - title: NumberHelper
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
 ---
 
 ## Format values
@@ -21,6 +31,8 @@ time_ago_in_words(3.minutes.ago)
 #=> "3 minutes"
 ```
 
+See: [distance_of_time_in_words](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words)
+
 ### Numbers
 
 ```ruby
@@ -33,6 +45,8 @@ number_to_human 12_000_000                    #=> "12 million"
 number_to_human_size 12_000_000               #=> "11.4 MB"
 number_to_phone "5551234"                     #=> "555-1234"
 ```
+
+See: [NumberHelper](https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html)
 
 ### Translation
 
@@ -56,6 +70,8 @@ x_files:
   other: "%{count} files"
 ```
 
+See: [t](https://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html#method-i-t)
+
 ## Markup
 
 ### Tags
@@ -66,6 +82,8 @@ tag.br                        #=> <br>
 tag("img", src: "image.jpg")  #=> <img src="image.jpg" />
 content_tag(:p, "Hello")      #=> <p>Hello</p>
 ```
+
+See: [tag](https://api.rubyonrails.org/classes/ActionView/Helpers/TagHelper.html#method-i-tag)
 
 ### Cache
 
@@ -85,6 +103,8 @@ content_tag(:p, "Hello")      #=> <p>Hello</p>
 <% end %>
 ```
 
+See: [cache](https://api.rubyonrails.org/classes/ActionView/Helpers/CacheHelper.html#method-i-cache)
+
 ### Time tag
 
 ```ruby
@@ -97,6 +117,8 @@ time_tag Date.yesterday, "Yesterday"
 time_tag Date.today, format: :short
 #=> <time datetime="2010-11-04">Nov 04</time>
 ```
+
+See: [time_tag](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-time_tag)
 
 ## Form selects
 
@@ -118,6 +140,8 @@ time_select "article", "start_time", \
 | `prompt`          | `true` or per-part prompts |
 | `include_blank`   | Blank first option         |
 
+See: [time_select](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-time_select)
+
 ### Date select
 
 ```ruby
@@ -137,6 +161,8 @@ date_select "article", "written_on", \
 | `discard_day`       | Drop the day select                 |
 | `default`           | Preselected value or hash           |
 
+See: [date_select](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-date_select)
+
 ### Files
 
 ```haml
@@ -145,6 +171,8 @@ date_select "article", "written_on", \
 ```
 
 `form_with` adds `multipart` automatically when the form has a file field.
+
+See: [file_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field)
 
 ## Reference
 

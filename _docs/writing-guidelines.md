@@ -17,8 +17,8 @@ updated: 2024-01-01
 - **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
 - **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
 - **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
-- **Last verified with:** required for t1 and t2 sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
-- **Tier:** `t1` for sheets that move often, `t2` for slower ones; see [review tiers](tiers.md). Omit it for best-effort sheets.
+- **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
+- **Tier:** `t1` for sheets that move often, `t2` for slower ones, `t3` for best-effort sheets that still get the tiered checks; see [review tiers](tiers.md). Omit it for sheets that need no checks.
 - **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
 
 ```yaml
@@ -58,7 +58,7 @@ fragments:
 - Keep cards distinct; skip generic `--help`, `install`, `usage`.
 - Order for visual rhythm, not importance.
 
-Non-tiered sheets may omit fragments. `pnpm test` enforces presence and length.
+Untiered and `t3` sheets may omit fragments. `pnpm test` enforces presence and length.
 
 ## Categories
 

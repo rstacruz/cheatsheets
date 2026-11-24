@@ -5,6 +5,16 @@ category: JavaScript libraries
 weight: -1
 updated: 2026-11-24
 last_verified_with: "Handlebars 4.7.10, verified on Node 26.13.1."
+tier: t3
+intro: |
+  Handlebars templating: compiling templates, escaping, partials, and helpers.
+links:
+  - title: Handlebars guide
+    url: https://handlebarsjs.com/guide/
+  - title: Handlebars API reference
+    url: https://handlebarsjs.com/api-reference/
+  - title: Handlebars on GitHub
+    url: https://github.com/handlebars-lang/handlebars.js
 ---
 
 {% raw %}
@@ -24,6 +34,8 @@ template({ title: 'Hello' })
 
 `compile` is the slow step, so compile once and call the result with each context.
 
+See: [Handlebars.compile](https://handlebarsjs.com/api-reference/compilation.html)
+
 ### Escaping
 
 ```js
@@ -37,6 +49,8 @@ render({ body: '<b>hi</b>' })
 
 `{{body}}` HTML-escapes the value; `{{{body}}}` inserts it raw.
 
+See: [HTML escaping](https://handlebarsjs.com/guide/expressions.html#html-escaping)
+
 ### Partials
 
 ```js
@@ -49,6 +63,8 @@ Handlebars.compile('<ul>{{> post}}</ul>')({ title: 'Hi' })
 ```
 
 Register a partial once, then include it with `{{> name}}`.
+
+See: [Partials](https://handlebarsjs.com/guide/partials.html#partials)
 
 ## Helpers
 
@@ -83,6 +99,8 @@ Handlebars.compile(source)(context)
 
 Helpers run with the current item as `this`. Return HTML in `new Handlebars.SafeString(...)`, or the template escapes it.
 
+See: [Registering helpers](https://handlebarsjs.com/api-reference/helpers.html)
+
 ### Built-in helpers
 
 ```js
@@ -94,6 +112,8 @@ Handlebars.compile(source)({ posts })
 ```
 
 `each` also exposes `{{@index}}`, `{{@first}}` and `{{@last}}`; `if`, `unless` and `with` wrap a block conditionally.
+
+See: [Built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html#built-in-helpers)
 
 ## References
 

@@ -4,6 +4,17 @@ category: Others
 subtitle: Reference for symbol codepoints
 updated: 2026-11-24
 last_verified_with: "Unicode 18.0.0 charts."
+tier: t3
+intro: |
+  Codepoints for common symbols, shapes, arrows and keyboard keys, plus
+  JavaScript and HTML ways to write them.
+links:
+  - title: Unicode code charts
+    url: https://www.unicode.org/charts/
+  - title: String.fromCodePoint
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
+  - title: HTML named character references
+    url: https://html.spec.whatwg.org/multipage/named-characters.html
 ---
 
 ## Symbols
@@ -25,6 +36,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+2606` | ☆ | white star |
 <!-- {: .-headers} -->
 
+See: [Miscellaneous Symbols](https://www.unicode.org/charts/PDF/U2600.pdf)
+
 ### Bullets
 
 | Code | Symbol | Name |
@@ -36,6 +49,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+2014` | — | em dash |
 | `U+2013` | – | en dash |
 <!-- {: .-headers} -->
+
+See: [General Punctuation](https://www.unicode.org/charts/PDF/U2000.pdf)
 
 ### Checks
 
@@ -49,6 +64,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+00D7` | × | multiplication sign |
 <!-- {: .-headers} -->
 
+See: [Dingbats](https://www.unicode.org/charts/PDF/U2700.pdf)
+
 ### Quotes
 
 | Code | Symbol | Name |
@@ -59,6 +76,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+203A` | › | single angle right |
 <!-- {: .-headers} -->
 
+See: [Latin-1 Supplement](https://www.unicode.org/charts/PDF/U0080.pdf)
+
 ### Spinners
 
 | Frames | Style |
@@ -66,6 +85,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `◜◠◝◞◡◟` | Arc spinner |
 | `❘❙❚` | Tick spinner |
 <!-- {: .-headers} -->
+
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
 
 ## Shapes
 
@@ -84,6 +105,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+25E5` | ◥ | upper right |
 <!-- {: .-headers} -->
 
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
+
 ### Arrows
 
 | Code | Symbol | Name |
@@ -95,6 +118,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+2192` | → | right thin |
 | `U+2B95` | ⮕ | right heavy |
 <!-- {: .-headers} -->
+
+See: [Arrows](https://www.unicode.org/charts/PDF/U2190.pdf)
 
 ### Circles and diamonds
 
@@ -110,6 +135,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+25C7` | ◇ | white diamond |
 | `U+25C6` | ◆ | black diamond |
 <!-- {: .-headers} -->
+
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
 
 ### Suits and marks
 
@@ -128,6 +155,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+2139` | ℹ | information |
 <!-- {: .-headers} -->
 
+See: [Miscellaneous Symbols](https://www.unicode.org/charts/PDF/U2600.pdf)
+
 ## Keyboard
 
 ### Modifier keys
@@ -140,6 +169,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+21EA` | ⇪ | caps lock |
 <!-- {: .-headers} -->
 
+See: [Miscellaneous Technical](https://www.unicode.org/charts/PDF/U2300.pdf)
+
 ### Editing keys
 
 | Code | Symbol | Name |
@@ -148,6 +179,8 @@ last_verified_with: "Unicode 18.0.0 charts."
 | `U+23CE` | ⏎ | return |
 | `U+232B` | ⌫ | delete |
 <!-- {: .-headers} -->
+
+See: [Miscellaneous Technical](https://www.unicode.org/charts/PDF/U2300.pdf)
 
 ## Codepoints
 
@@ -168,6 +201,8 @@ String.fromCodePoint(0x2605) // '★'
 
 `codePointAt` reads every codepoint; `charCodeAt` splits astral ones into surrogate halves.
 
+See: [codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
+
 ### HTML references
 
 ```html
@@ -176,3 +211,5 @@ String.fromCodePoint(0x2605) // '★'
 ```
 
 Both forms work in HTML. See the [named character references](https://html.spec.whatwg.org/multipage/named-characters.html) for the full list.
+
+See: [Named character references](https://html.spec.whatwg.org/multipage/named-characters.html)

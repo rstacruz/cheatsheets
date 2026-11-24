@@ -5,6 +5,14 @@ category: Elixir
 weight: -1
 last_verified_with: "Erlang/OTP 29.1.2 (stdlib 8.1.1)."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Erlang ETS in-memory tables: creation, insert and lookup, match patterns, table types, and ordered traversal.
+links:
+  - title: Erlang ets documentation
+    url: https://www.erlang.org/doc/apps/stdlib/ets.html
+  - title: Match specifications
+    url: https://www.erlang.org/doc/apps/erts/match_spec.html
 ---
 
 ## ETS
@@ -18,6 +26,8 @@ table = :ets.new(:my_table, [])
 
 Defaults to a `:set` with `:protected` access and the key at position 1. The table is owned by the calling process, which deletes it on exit.
 
+See: [new/2](https://www.erlang.org/doc/apps/stdlib/ets.html#new/2)
+
 ### Insert and look up
 
 ```elixir
@@ -28,6 +38,8 @@ Defaults to a `:set` with `:protected` access and the key at position 1. The tab
 <!-- {: data-highlight=":ets.insert; :ets.lookup"} -->
 
 Insert takes a tuple or a list of tuples; the key is element 1 unless `:keypos` says otherwise.
+
+See: [insert/2](https://www.erlang.org/doc/apps/stdlib/ets.html#insert/2)
 
 ### Query with patterns
 
@@ -49,6 +61,8 @@ Insert takes a tuple or a list of tuples; the key is element 1 unless `:keypos` 
 
 `:_` matches any value, so the first pattern scans the whole table. Order is unspecified for `:set` and `:bag` tables.
 
+See: [match_object/2](https://www.erlang.org/doc/apps/stdlib/ets.html#match_object/2)
+
 ### Delete
 
 ```elixir
@@ -58,6 +72,8 @@ Insert takes a tuple or a list of tuples; the key is element 1 unless `:keypos` 
 <!-- {: data-highlight=":ets.delete"} -->
 
 `:ets.delete_all_objects(table)` empties a table but keeps it alive.
+
+See: [delete/1](https://www.erlang.org/doc/apps/stdlib/ets.html#delete/1)
 
 ### Table types
 
@@ -87,6 +103,8 @@ table = :ets.new(:cache, [:named_table, :ordered_set])
 
 A named table is addressed by its atom, and `new/2` returns that name instead of a tid.
 
+See: [table_type()](https://www.erlang.org/doc/apps/stdlib/ets.html#t:table_type/0)
+
 ### Traverse an ordered set
 
 ```elixir
@@ -100,6 +118,8 @@ A named table is addressed by its atom, and `new/2` returns that name instead of
 <!-- {: data-highlight=":ets.first; :ets.last; :ets.next; :ets.prev"} -->
 
 Past the last key these return `:"$end_of_table"`.
+
+See: [Table traversal](https://www.erlang.org/doc/apps/stdlib/ets.html#module-table-traversal)
 
 ## References
 <!-- {: .-one-column} -->

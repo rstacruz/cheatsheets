@@ -6,6 +6,16 @@ subtitle: Cloud storage sync tool
 category: Networking
 updated: 2026-11-24
 last_verified_with: "rclone 1.76.0."
+tier: t3
+intro: |
+  rclone syncs files between cloud storage, local disks, and remote servers. This reference covers remotes, transfers, and common flags.
+links:
+  - title: rclone documentation
+    url: https://rclone.org/docs/
+  - title: rclone commands
+    url: https://rclone.org/commands/
+  - title: rclone filtering
+    url: https://rclone.org/filtering/
 ---
 
 ## Remotes
@@ -20,6 +30,8 @@ rclone config show
 
 `rclone config redacted` prints the same file with secrets masked.
 
+See: [rclone config](https://rclone.org/commands/rclone_config/)
+
 ### List remotes
 
 ```sh
@@ -28,6 +40,8 @@ rclone listremotes --long
 ```
 
 `--long` adds each remote's backend type and description.
+
+See: [rclone listremotes](https://rclone.org/commands/rclone_listremotes/)
 
 ## Browse
 <!-- {: .-three-column} -->
@@ -43,6 +57,8 @@ rclone tree remote:path
 
 `ls` and `lsl` recurse; `lsd` stops after one level.
 
+See: [rclone ls](https://rclone.org/commands/rclone_ls/), [rclone tree](https://rclone.org/commands/rclone_tree/)
+
 ### Measure
 
 ```sh
@@ -51,6 +67,8 @@ rclone about remote:
 ```
 
 `about` reports quota on backends that expose it.
+
+See: [rclone size](https://rclone.org/commands/rclone_size/), [rclone about](https://rclone.org/commands/rclone_about/)
 
 ## Transfer
 <!-- {: .-three-column} -->
@@ -64,6 +82,8 @@ rclone copy src:path dst:path --dry-run
 
 `copy` skips identical files and never deletes from the destination.
 
+See: [rclone copy](https://rclone.org/commands/rclone_copy/)
+
 ### Sync
 
 ```sh
@@ -72,6 +92,8 @@ rclone sync src:path dst:path
 ```
 
 `sync` deletes destination files that are missing from the source.
+
+See: [rclone sync](https://rclone.org/commands/rclone_sync/)
 
 ### Verify
 
@@ -82,6 +104,8 @@ rclone check src:path dst:path --one-way
 
 `check` compares sizes and hashes; `--size-only` is a quick check.
 
+See: [rclone check](https://rclone.org/commands/rclone_check/)
+
 ### Bidirectional
 
 ```sh
@@ -89,6 +113,8 @@ rclone bisync drive:docs ~/docs
 ```
 
 `bisync` propagates changes both ways from each side's last listing; the first run needs `--resync`.
+
+See: [rclone bisync](https://rclone.org/commands/rclone_bisync/)
 
 ## Modify
 <!-- {: .-three-column} -->
@@ -103,6 +129,8 @@ rclone purge remote:path
 
 `purge` removes the path and everything under it.
 
+See: [rclone move](https://rclone.org/commands/rclone_move/), [rclone purge](https://rclone.org/commands/rclone_purge/)
+
 ### Files and directories
 
 ```sh
@@ -110,6 +138,8 @@ rclone mkdir remote:path
 rclone touch remote:path/file.txt
 rclone cat remote:path/file.txt
 ```
+
+See: [rclone mkdir](https://rclone.org/commands/rclone_mkdir/), [rclone cat](https://rclone.org/commands/rclone_cat/)
 
 ## Flags
 
@@ -122,6 +152,8 @@ rclone cat remote:path/file.txt
 | `--transfers 8` | Parallel file transfers (default 4) |
 | `--checkers 16` | Parallel checkers (default 8) |
 
+See: [transfers](https://rclone.org/docs/#transfers-int)
+
 ### Filtering flags
 
 | Flag | Effect |
@@ -133,6 +165,8 @@ rclone cat remote:path/file.txt
 | `--max-size 100M` | Only files under 100 MB |
 | `--fast-list` | Fewer transactions, more memory |
 
+See: [filtering](https://rclone.org/filtering/)
+
 ### Performance flags
 
 | Flag | Effect |
@@ -140,3 +174,5 @@ rclone cat remote:path/file.txt
 | `--multi-thread-cutoff 256Mi` | Multi-thread above this size |
 | `--multi-thread-streams 4` | Streams per multi-threaded file |
 | `--buffer-size 32Mi` | Memory buffer per transfer (16Mi) |
+
+See: [multi-thread cutoff](https://rclone.org/docs/#multi-thread-cutoff)

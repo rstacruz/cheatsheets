@@ -6,14 +6,19 @@ type Props = {
   class?: string
 }
 
+const styles = {
+  root: cx(
+    'NoticeBox__root',
+    'notice-box MarkdownBody mb-[24px] text-muted-foreground max-[481px]:mb-[16px]',
+    '[&>svg]:mr-[8px] [&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-muted-foreground-subtle',
+    '[&>a]:no-underline'
+  )
+}
+
 const { class: className } = Astro.props
 ---
 
-<aside class={cx('notice-box MarkdownBody', className)}>
+<aside class={cx(styles.root, className)}>
   <Icon name="md-information-circle" size={24} />
   <slot />
 </aside>
-
-<style is:global>
-  @import '../../styles/components/notice-box.css';
-</style>

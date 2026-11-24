@@ -1,4 +1,5 @@
 ---
+import cx from 'clsx'
 import { disqus, site } from '../../config'
 import Icon from '~/components/Icon.astro'
 
@@ -14,13 +15,39 @@ export type Props = {
 const props = Astro.props as Props
 const url = `${site.url}/${props.identifier}`
 const { identifier } = props
+
+const styles = {
+  root: 'CommentsArea__root mt-[32px] mb-[16px]',
+  inner: cx(
+    'CommentsArea__inner',
+    'mx-auto max-w-content px-[16px]',
+    "before:block before:h-[1px] before:content-['']",
+    'before:bg-linear-[to_right,var(--border-strong)_50%,transparent]'
+  ),
+  details: 'CommentsArea__details -mb-[16px] open:mb-0',
+  summary:
+    'CommentsArea__summary group cursor-pointer whitespace-nowrap py-[24px] text-base text-primary hover:text-primary-strong focus:text-primary-strong',
+  count:
+    'CommentsArea__count font-bold [&>svg]:mx-[8px] [&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-primary',
+  suffix:
+    'CommentsArea__suffix text-muted-foreground group-hover:text-primary-strong group-focus:text-primary-strong',
+  fauxlink: cx(
+    'CommentsArea__fauxlink',
+    'ml-[4px] [border-bottom:solid_1px_color-mix(in_srgb,var(--primary)_25%,transparent)]',
+    'group-hover:[border-bottom-color:var(--primary-strong)]',
+    'group-focus:[border-bottom-color:var(--primary-strong)]'
+  ),
+  section: 'CommentsArea__section flex',
+  comments:
+    'CommentsArea__comments max-[769px]:w-full max-[769px]:[flex:1_0_100%] min-[769px]:[flex:0_1_66%] min-[769px]:min-w-[300px]'
+}
 ---
 
-<section class="comments-area" id="comments" data-js-no-preview>
-  <div class="container-inner">
-    <details class="comments-details">
-      <summary>
-        <strong class="count">
+<section class={styles.root} id="comments" data-js-no-preview>
+  <div class={styles.inner}>
+    <details class={styles.details}>
+      <summary class={styles.summary}>
+        <strong class={styles.count}>
           <Icon name="md-chatboxes" size={24} />
           <span
             class="disqus-comment-count"
@@ -30,11 +57,11 @@ const { identifier } = props
             0 Comments
           </span>
         </strong>{' '}
-        <span class="suffix">{t.suffix}</span>{' '}
-        <span class="fauxlink">{t.link}</span>
+        <span class={styles.suffix}>{t.suffix}</span>{' '}
+        <span class={styles.fauxlink}>{t.link}</span>
       </summary>
-      <div class="comments-section">
-        <div class="comments">
+      <div class={styles.section}>
+        <div class={styles.comments}>
           <div id="disqus_thread"></div>
         </div>
       </div>
@@ -48,12 +75,6 @@ const { identifier } = props
     })}
   ></noscript>
 </section>
-
-<style is:global>
-  @import '../../styles/components/comments-area.css';
-  @import '../../styles/components/comments-details.css';
-  @import '../../styles/components/comments-section.css';
-</style>
 
 <script>
   import { setupDisqus } from '~/scripts/v2017/behaviors_2/disqus'

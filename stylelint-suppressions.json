@@ -4,68 +4,14 @@
       "count": 1
     }
   },
-  "src/styles/components/announcements-item.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 2
-    }
-  },
-  "src/styles/components/autocomplete.css": {
+  "src/styles/vendor/autocomplete.css": {
     "no-descending-specificity": {
       "count": 1
     }
   },
-  "src/styles/components/back-button.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 2
-    }
-  },
-  "src/styles/components/comments-details.css": {
-    "no-descending-specificity": {
-      "count": 2
-    }
-  },
-  "src/styles/components/headline-pub.css": {
+  "src/styles/vendor/headline-pub.css": {
     "no-descending-specificity": {
       "count": 3
-    }
-  },
-  "src/styles/components/page-actions.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 1
-    },
-    "no-descending-specificity": {
-      "count": 5
-    }
-  },
-  "src/styles/components/pages-list.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 2
-    },
-    "no-descending-specificity": {
-      "count": 2
-    }
-  },
-  "src/styles/components/related-post-item.css": {
-    "no-descending-specificity": {
-      "count": 1
-    }
-  },
-  "src/styles/components/search-box.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 1
-    }
-  },
-  "src/styles/components/top-nav.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 3
-    }
-  },
-  "src/styles/components/top-sheet.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 4
-    },
-    "no-descending-specificity": {
-      "count": 2
     }
   },
   "src/styles/markdown/code.css": {

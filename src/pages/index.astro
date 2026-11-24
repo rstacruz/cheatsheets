@@ -42,7 +42,46 @@ const t = {
 }
 
 const styles = {
-  body: 'V2017Sheet__body max-w-home p-6 md:px-8 mx-auto'
+  body: 'V2017Sheet__body max-w-home p-6 md:px-8 mx-auto',
+  pagesList:
+    'HomePage__pagesList pages-list grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-[16px]',
+  category:
+    'HomePage__category col-span-full my-[16px] border-b border-b-border-strong pb-[16px] text-base font-normal text-primary',
+  snippetList: cx(
+    'HomePage__snippetList',
+    'col-span-full grid grid-cols-[minmax(0,1fr)] gap-x-[24px] border-t border-t-border',
+    'min-[769px]:grid-cols-[repeat(2,minmax(0,1fr))]'
+  ),
+  snippetItem:
+    'HomePage__snippetItem group flex items-baseline gap-[10px] border-b border-b-border px-[4px] py-[10px] no-underline',
+  snippetTitle:
+    'HomePage__snippetTitle font-manrope font-semibold text-heading group-hover:text-primary group-focus:text-primary',
+  snippetSubtitle:
+    'HomePage__snippetSubtitle text-xs leading-[1.6] text-muted-foreground-subtle',
+  snippetArrow: 'HomePage__snippetArrow ml-auto text-primary-subtle',
+  missingMessage: cx(
+    'HomePage__missingMessage',
+    'col-span-full',
+    'my-[32px] flex items-center border-t border-t-border-strong pt-[16px] text-center',
+    'min-[769px]:pt-[32px] max-[481px]:flex-wrap'
+  ),
+  missingTitle: cx(
+    'HomePage__missingTitle',
+    'm-0 flex-[1_0_auto] p-0 text-left text-base font-normal text-foreground',
+    "before:mr-[16px] before:inline-block before:size-[24px] before:content-[''] before:bg-current before:align-middle before:text-primary",
+    'before:[mask:var(--icon-md-arrow-forward)_center/24px_24px_no-repeat]',
+    'before:[-webkit-mask:var(--icon-md-arrow-forward)_center/24px_24px_no-repeat]'
+  ),
+  missingBody:
+    'HomePage__missingBody m-0 flex-[0_0_auto] p-0 text-muted-foreground max-[481px]:mt-[16px]',
+  pushButton: cx(
+    'HomePage__pushButton',
+    'inline-block rounded-xs px-[16px] py-[8px] no-underline',
+    'text-primary-foreground visited:text-primary-foreground',
+    'bg-[image:var(--brand-gradient)]',
+    'hover:bg-none hover:bg-primary-active focus:bg-none focus:bg-primary-active',
+    'hover:[box-shadow:none] focus:[box-shadow:none]'
+  )
 }
 
 const headingStyles = {
@@ -75,12 +114,12 @@ const headingStyles = {
       <div class="mt-8"></div>
     </div>
 
-    <div class="pages-list" role="main">
+    <div class={styles.pagesList} role="main">
       {/* Featured pages */}
       <FeaturedPages pages={featuredPages} />
 
       {/* Recent pages */}
-      <h2 class="category item" data-js-searchable-header>
+      <h2 class={styles.category} data-js-searchable-header>
         <span>{t.recentlyUpdated}</span>
       </h2>
       {recentPages.map((page) => (
@@ -92,7 +131,7 @@ const headingStyles = {
 
         return (
           <>
-            <h2 class="category item" data-js-searchable-header>
+            <h2 class={styles.category} data-js-searchable-header>
               <span>{category.title}</span>
             </h2>
 
@@ -105,23 +144,23 @@ const headingStyles = {
 
       {snippetPages.length > 0 && (
         <>
-          <h2 class="category item" data-js-searchable-header>
+          <h2 class={styles.category} data-js-searchable-header>
             <span>{t.snippets}</span>
           </h2>
-          <div class="snippet-list item">
+          <div class={styles.snippetList}>
             {snippetPages.map((page) => (
-              <a href={`/${page.slug}`} class="snippet-item">
-                <span class="snippet-item__title">
+              <a href={`/${page.slug}`} class={styles.snippetItem}>
+                <span class={styles.snippetTitle}>
                   {page.frontmatter.link_title ??
                     page.frontmatter.title ??
                     page.slug}
                 </span>
                 {page.frontmatter.subtitle && (
-                  <span class="snippet-item__subtitle">
+                  <span class={styles.snippetSubtitle}>
                     {page.frontmatter.subtitle}
                   </span>
                 )}
-                <span class="snippet-item__arrow" aria-hidden="true">
+                <span class={styles.snippetArrow} aria-hidden="true">
                   →
                 </span>
               </a>
@@ -130,16 +169,16 @@ const headingStyles = {
         </>
       )}
 
-      <div class="message item missing-message">
-        <h3>{t.seeSomethingMissing}</h3>
-        <p>
-          <a class="push-button" href={urls.newCheatsheetUrl}>
+      <div class={styles.missingMessage}>
+        <h3 class={styles.missingTitle}>{t.seeSomethingMissing}</h3>
+        <p class={styles.missingBody}>
+          <a class={styles.pushButton} href={urls.newCheatsheetUrl}>
             {t.requestCheatsheet}
           </a>
         </p>
       </div>
 
-      <p class="item pt-8 text-center text-sm text-muted-foreground">
+      <p class="col-span-full pt-8 text-center text-sm text-muted-foreground">
         <a class="hover:underline" href="/archive">
           Archive
         </a>{' '}
@@ -149,10 +188,3 @@ const headingStyles = {
   </div>
   <Announcements />
 </BaseLayout>
-
-<style is:global>
-  @import '../styles/components/missing-message.css';
-  @import '../styles/components/pages-list.css';
-  @import '../styles/components/push-button.css';
-  @import '../styles/components/notice-box.css';
-</style>

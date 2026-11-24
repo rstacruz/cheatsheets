@@ -56,27 +56,19 @@ utilities can override them:
   `layer()` import of a file that uses `@reference` fails the build (`@source`
   cannot be nested).
 - Unlayered CSS beats every utility. Do not add it, with one exception:
-  `src/styles/components/autocomplete.css` stays unlayered to outrank the
+  `src/styles/vendor/autocomplete.css` stays unlayered to outrank the
   unlayered `autocompleter/autocomplete.css` vendor sheet it overrides.
 - A component class must not reuse a Tailwind utility name: utilities beat
   components regardless of specificity, so a colliding hook changes layout.
   When the collision comes from markup we do not control, put the counter-rule
   in `@layer utilities`; a components-layer rule cannot win.
 
-## Component CSS is deprecated
+## Component styling
 
-`src/styles/components/` is legacy. The target is Tailwind utilities in the
-Astro component, with the matching CSS file deleted: `CommentsArea.astro`
-carries the classes, and `comments-area.css` goes away.
+Components use Tailwind utilities in markup, with no matching CSS file. Component `<style>` blocks only declare keyframes or import Markdown/vendor sheets. See [component styling](component-styling.md) for the shape and rules.
 
 Rendered Markdown prose lives in `src/styles/markdown/` (`h2`/`h3` sections,
-`snippet`, `hint-mark`, typography). `src/styles/components/` keeps only Astro
-chrome and rules Tailwind cannot express: vendor overrides, pseudo-elements,
-and descendant selectors.
-
-A ratchet test (`src/styles/components.test.ts`) pins the directory's file set
-and each file's non-blank line count. Delete an entry when you delete a file;
-never add one. When you touch a remaining file, move what utilities can express.
+`snippet`, `hint-mark`, typography).
 
 ## Stylelint
 

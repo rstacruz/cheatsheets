@@ -1,4 +1,5 @@
 ---
+import cx from 'clsx'
 import type { SheetPage } from '~/lib/page'
 import {
   getListedSheetCount,
@@ -46,55 +47,97 @@ const categoryHeading = category
 
 const relatedPages = getRelatedPages(pages, page, { maxCount: 6 })
 const topPages = getTopPages(pages, page, { maxCount: 6 })
+
+const column = cx(
+  'mt-0 mb-0 mr-[16px] ml-[16px]',
+  'max-[1265px]:mr-[8px] max-[1265px]:ml-[8px]',
+  'max-[481px]:mt-[8px] max-[481px]:mb-[8px]',
+  'min-[481px]:max-[769px]:mt-[8px] min-[481px]:max-[769px]:mb-[8px]'
+)
+
+const styles = {
+  area: 'RelatedPosts__area bg-muted py-[16px] min-[481px]:py-[64px]',
+  inner: 'RelatedPosts__inner mx-auto max-w-content px-[16px]',
+  section: cx(
+    'RelatedPosts__section',
+    'mx-[-16px] flex max-[1265px]:mx-[-8px]',
+    'max-[481px]:flex-wrap min-[481px]:max-[769px]:flex-wrap'
+  ),
+  callout: cx(
+    'RelatedPosts__callout',
+    column,
+    'flex flex-[1_1_33%]',
+    'max-[481px]:flex-[1_1_100%]',
+    'min-[481px]:max-[769px]:flex-[1_1_100%]'
+  ),
+  group: cx(
+    'RelatedPosts__group',
+    column,
+    'flex-[1_1_50%]',
+    'max-[481px]:flex-[1_1_100%]',
+    'min-[481px]:max-[769px]:flex-[1_1_40%]'
+  ),
+  calloutLink: cx(
+    'RelatedPosts__calloutLink',
+    'flex flex-[1_0_100%] items-center justify-center rounded-xs p-[32px] no-underline [box-shadow:var(--shadow-sm)]',
+    'bg-[image:var(--brand-gradient)]',
+    'text-primary-foreground visited:text-primary-foreground',
+    'hover:bg-none hover:bg-primary-strong focus:bg-none focus:bg-primary-strong',
+    '[text-shadow:0_1px_1px_var(--overlay)]'
+  ),
+  calloutText: 'RelatedPosts__calloutText m-auto text-center',
+  calloutIcon: cx(
+    'RelatedPosts__calloutIcon',
+    'mx-auto mb-[16px] grid size-[64px] place-items-center rounded-circle border-[2px] border-solid border-primary-faint',
+    '[&>svg]:text-primary-faint'
+  ),
+  description:
+    'RelatedPosts__description mb-[16px] block text-base font-light leading-[1.4]',
+  list: 'RelatedPosts__list m-[-4px] flex flex-wrap list-none p-0',
+  heading:
+    'RelatedPosts__heading m-0 mb-[16px] border-b border-b-border-strong border-solid p-0 pb-[16px] text-base font-normal leading-[1.2] text-primary'
+}
 ---
 
-<footer class="related-posts-area" id="related" data-js-no-preview>
-  <div class="container-inner">
-    <div class="related-posts-section">
+<footer class={styles.area} id="related" data-js-no-preview>
+  <div class={styles.inner}>
+    <div class={styles.section}>
       {/* Callout */}
-      <div class="callout">
-        <a class="related-posts-callout" href="/">
-          <div class="text">
-            <i class="icon">
+      <div class={styles.callout}>
+        <a class={styles.calloutLink} href="/">
+          <div class={styles.calloutText}>
+            <i class={styles.calloutIcon}>
               <Icon name="ios-arrow-back" size={48} />
             </i>
-            <span class="description">{calloutDescription}</span>
-            <PushButton class="-dark">{t.callout.link}</PushButton>
+            <span class={styles.description}>{calloutDescription}</span>
+            <PushButton variant="dark">{t.callout.link}</PushButton>
           </div>
         </a>
       </div>
 
       {/* Posts in the same category */}
-      <div class="group">
-        <div class="related-posts-group">
-          <h3>{categoryHeading}</h3>
+      <div class={styles.group}>
+        <div>
+          <h3 class={styles.heading}>{categoryHeading}</h3>
         </div>
-        <ul class="related-post-list">
-          {relatedPages.map((page) => (
-            <RelatedPostItem page={page} class="item" />
+        <ul class={styles.list}>
+          {relatedPages.map((page, index) => (
+            <RelatedPostItem page={page} featured={index === 0} />
           ))}
         </ul>
       </div>
 
       {/* Top pages */}
-      <div class="group">
-        <div class="related-posts-group">
-          <h3>{t.group.top}</h3>
+      <div class={styles.group}>
+        <div>
+          <h3 class={styles.heading}>{t.group.top}</h3>
         </div>
-        <ul class="related-post-list">
-          {topPages.map((page) => (
-            <RelatedPostItem page={page} class="item" />
+        <ul class={styles.list}>
+          {topPages.map((page, index) => (
+            <RelatedPostItem page={page} featured={index === 0} />
           ))}
         </ul>
       </div>
     </div>
   </div>
 </footer>
-
-<style is:global>
-  @import '../../styles/components/related-posts-area.css';
-  @import '../../styles/components/related-posts-callout.css';
-  @import '../../styles/components/related-posts-group.css';
-  @import '../../styles/components/related-posts-section.css';
-  @import '../../styles/components/related-post-list.css';
-</style>

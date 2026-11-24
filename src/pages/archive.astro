@@ -17,7 +17,9 @@ const t = {
 }
 
 const styles = {
-  body: 'V2017Sheet__body max-w-slim p-6 md:px-8 mx-auto'
+  body: 'V2017Sheet__body max-w-slim p-6 md:px-8 mx-auto',
+  pagesList:
+    'ArchivePage__pagesList pages-list grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-[16px]'
 }
 
 const headingStyles = {
@@ -41,19 +43,15 @@ const headingStyles = {
       <h1 class={headingStyles.h1}>{t.title}</h1>
       <p class={headingStyles.tagline}>{t.description}</p>
     </div>
-    <div class="pages-list" role="main">
+    <div class={styles.pagesList} role="main">
       {archivedPages.map((page) => (
         <PageListItem page={page} />
       ))}
       {archivedPages.length === 0 ? (
-        <p class="item text-center text-muted-foreground">
+        <p class="col-span-full text-center text-muted-foreground">
           No archived cheatsheets.
         </p>
       ) : null}
     </div>
   </div>
 </BaseLayout>
-
-<style is:global>
-  @import '../styles/components/pages-list.css';
-</style>

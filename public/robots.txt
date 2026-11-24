@@ -1,4 +1,5 @@
 # Crawl policy, per RFC 9309: https://www.rfc-editor.org/rfc/rfc9309
+# Last reviewed: 2026-11
 # Sheets are public reference material. Search and AI answer crawlers are
 # welcome; model-training crawlers are not.
 
@@ -19,6 +20,7 @@ User-agent: Applebot-Extended
 User-agent: CCBot
 User-agent: Bytespider
 User-agent: Amazonbot
+User-agent: meta-ExternalAgent
 Disallow: /
 
 Sitemap: https://devhints.io/sitemap.xml

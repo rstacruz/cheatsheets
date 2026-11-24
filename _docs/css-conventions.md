@@ -69,16 +69,14 @@ utilities can override them:
 Astro component, with the matching CSS file deleted: `CommentsArea.astro`
 carries the classes, and `comments-area.css` goes away.
 
-Component CSS stays only where Tailwind cannot reach:
+Rendered Markdown prose lives in `src/styles/markdown/` (`h2`/`h3` sections,
+`snippet`, `hint-mark`, typography). `src/styles/components/` keeps only Astro
+chrome and rules Tailwind cannot express: vendor overrides, pseudo-elements,
+and descendant selectors.
 
-- rendered Markdown prose (`h3-section-list`, `snippet`, Markdown typography),
-  which has no markup to hold utilities;
-- vendor overrides, like `autocomplete.css`;
-- structural rules that need pseudo-elements or descendant selectors.
-
-Do not add a new `src/styles/components/*.css` file for an Astro component. The
-migration of the existing files is deferred; when you touch one, move what
-utilities can express.
+A ratchet test (`src/styles/components.test.ts`) pins the directory's file set
+and each file's non-blank line count. Delete an entry when you delete a file;
+never add one. When you touch a remaining file, move what utilities can express.
 
 ## Stylelint
 
@@ -119,7 +117,11 @@ pnpm lint:css:baseline
 ```
 
 Adding a rule to the gate uses the same command with `--suppress=<rule>`, which
-baselines that rule alone.
+baselines that rule alone:
+
+```sh
+pnpm exec stylelint "src/styles/**/*.css" --suppress=<rule> --suppress-location=stylelint-suppressions.json
+```
 
 ## Touch it, rename it
 

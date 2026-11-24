@@ -1,5 +1,7 @@
-.MainHeading__suffix {
-  color: var(--muted-foreground-subtle);
-  font-family: var(--font-mono);
-  font-weight: 400;
+@layer components {
+  .MainHeading__suffix {
+    color: var(--muted-foreground-subtle);
+    font-family: var(--font-mono);
+    font-weight: 400;
+  }
 }

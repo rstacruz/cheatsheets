@@ -1,4 +1,11 @@
-/* Overrides for npm:autocompleter */
+/*
+ * Overrides for npm:autocompleter.
+ *
+ * Deliberately unlayered: `autocompleter/autocomplete.css` is imported from JS
+ * in SearchForm.astro, so it cannot carry `layer()`, and unlayered rules beat
+ * every layer. Layer this file and the vendor's border, padding, and hover
+ * colours win instead. Revisit if the vendor sheet is ever layered.
+ */
 
 .autocomplete {
   border: none;

@@ -1,93 +1,95 @@
-/*
- * Mermaid diagrams
- *
- * The SVG is fitted to the card at scale 1. Hover, focus, or tap scales it
- * around the pointer, clipped by the frame so the card never shifts or
- * overflows its column.
- */
+@layer components {
+  /*
+   * Mermaid diagrams
+   *
+   * The SVG is fitted to the card at scale 1. Hover, focus, or tap scales it
+   * around the pointer, clipped by the frame so the card never shifts or
+   * overflows its column.
+   */
 
-.MermaidDiagram {
-  margin: 0;
-  padding: 4px;
-}
-
-.MermaidDiagram__frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: var(--card);
-  cursor: zoom-in;
-  touch-action: pan-y;
-
-  &:focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
+  .MermaidDiagram {
+    margin: 0;
+    padding: 4px;
   }
-}
 
-.MermaidDiagram.is-zoomed .MermaidDiagram__frame {
-  cursor: zoom-out;
-}
+  .MermaidDiagram__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--card);
+    cursor: zoom-in;
+    touch-action: pan-y;
 
-.MermaidDiagram__source {
-  margin: 0;
-  padding: 12px;
-  overflow-x: auto;
-  font-size: var(--text-code);
-}
+    &:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+  }
 
-.MermaidDiagram__canvas {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-}
+  .MermaidDiagram.is-zoomed .MermaidDiagram__frame {
+    cursor: zoom-out;
+  }
 
-.MermaidDiagram__canvas svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  transform: scale(1);
-  transform-origin: var(--mermaid-origin, 50% 50%);
-  transition: transform 180ms ease;
-}
+  .MermaidDiagram__source {
+    margin: 0;
+    padding: 12px;
+    overflow-x: auto;
+    font-size: var(--text-code);
+  }
 
-.MermaidDiagram__frame:hover .MermaidDiagram__canvas svg,
-.MermaidDiagram__frame:focus-visible .MermaidDiagram__canvas svg,
-.MermaidDiagram.is-zoomed .MermaidDiagram__canvas svg {
-  transform: scale(1.5);
-}
+  .MermaidDiagram__canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+  }
 
-.MermaidDiagram__caption {
-  margin: 6px 0 0;
-  font-size: var(--text-xs);
-  color: var(--muted-foreground);
-  text-align: center;
-}
-
-.MermaidDiagram__caption--hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
-.MermaidDiagram__error {
-  margin: 0;
-  padding: 8px 12px;
-  color: var(--destructive);
-  background: var(--destructive-surface);
-  font-size: var(--text-xs);
-}
-
-@media (prefers-reduced-motion: reduce) {
   .MermaidDiagram__canvas svg {
-    transition: none;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    transform: scale(1);
+    transform-origin: var(--mermaid-origin, 50% 50%);
+    transition: transform 180ms ease;
+  }
+
+  .MermaidDiagram__frame:hover .MermaidDiagram__canvas svg,
+  .MermaidDiagram__frame:focus-visible .MermaidDiagram__canvas svg,
+  .MermaidDiagram.is-zoomed .MermaidDiagram__canvas svg {
+    transform: scale(1.5);
+  }
+
+  .MermaidDiagram__caption {
+    margin: 6px 0 0;
+    font-size: var(--text-xs);
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+
+  .MermaidDiagram__caption--hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .MermaidDiagram__error {
+    margin: 0;
+    padding: 8px 12px;
+    color: var(--destructive);
+    background: var(--destructive-surface);
+    font-size: var(--text-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .MermaidDiagram__canvas svg {
+      transition: none;
+    }
   }
 }

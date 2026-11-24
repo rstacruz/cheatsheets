@@ -1,9 +1,12 @@
 ---
 title: Vimscript snippets
 subtitle: Common code recipes
-category: Vim
-last_verified_with: "Vim 9.2."
-updated: 2026-11-24
+category: Hidden
+# Recipes duplicated by /vimscript and /vimscript-functions.
+tags: [Archived]
+archived: |
+  These recipes are covered in more depth by [Vim scripting](/vimscript) and
+  [Vimscript functions](/vimscript-functions).
 ---
 
 ## Functions

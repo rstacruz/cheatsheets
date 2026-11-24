@@ -1,11 +1,12 @@
 /*
- * Fluid type scale.
+ * Type scale.
  *
  * The scale is expressed in Tailwind's `--text-*` namespace so utilities and
  * plain CSS share one API. Each `clamp()` reproduces the old media-query
  * steps: 11/13/15/17px below 480px, interpolated to 12/14/16/19px at 768px.
- * The 30px step uses `min()` of its two slopes to reproduce the old kink at
- * 768px; the remaining steps are fixed sizes.
+ *
+ * `--text-3xl` stays at Tailwind's 1.875rem: at the 14px root that is the
+ * 26.25px H2 size the sheet pages used before this scale defined the step.
  *
  * Line-height pairs are explicit ratios so each step pins the site's rhythm
  * instead of inheriting Tailwind's defaults (unitless `calc()` ratios such as
@@ -19,11 +20,7 @@
   --text-lg: clamp(17px, calc(0.694445vw + 13.6667px), 19px);
   --text-xl: 20px;
   --text-2xl: 24px;
-  --text-3xl: clamp(
-    30px,
-    min(calc(1.38889vw + 23.3333px), calc(0.390625vw + 31px)),
-    36px
-  );
+  --text-3xl: 1.875rem;
   --text-4xl: 40px;
   --text-5xl: 42px;
 

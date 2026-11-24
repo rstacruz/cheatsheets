@@ -288,9 +288,6 @@ async function addTodo(formData) {
 
 Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter inside an action or transition. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
-[React hooks cheatsheet](./react-hooks)
-<!-- {: .-crosslink} -->
-
 ## Effects
 
 ### useEffect
@@ -565,6 +562,9 @@ const id = useId()
 <!-- {: data-highlight="useId"} -->
 
 `useId` gives SSR-safe ids for accessibility; `useDebugValue(label)` labels a hook in DevTools. See: [useId](https://react.dev/reference/react/useId)
+
+[React hooks cheatsheet](./react-hooks)
+<!-- {: .-crosslink} -->
 
 ## Performance
 

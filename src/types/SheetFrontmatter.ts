@@ -50,7 +50,12 @@ export const SheetFrontmatterSchema = z
       .array()
       .optional()
       .describe('`Featured` puts the sheet on the home page.'),
-    updated: z.date().optional().describe('"Last updated" and recent lists.'),
+    updated: z
+      .date()
+      .optional()
+      .describe(
+        '"Last updated" and recent lists. Also stamps the <title> of t1 sheets.'
+      ),
     last_verified_with: z
       .string()
       .max(160)
@@ -69,7 +74,7 @@ export const SheetFrontmatterSchema = z
       .enum(['t1', 't2'])
       .optional()
       .describe(
-        'Review tier: t1 sheets move often; see `_docs/tiers.md`. Not rendered.'
+        'Review tier: t1 sheets move often; see `_docs/tiers.md`. Their <title> ends with the `updated` month and year.'
       ),
     layout: z
       .enum(['snippet'])
@@ -98,7 +103,7 @@ export const SheetFrontmatterSchema = z
       .max(60)
       .optional()
       .describe(
-        'Full <title> override (max 60 chars). Defaults to "<title> cheatsheet".'
+        'Full <title> override (max 60 chars). Defaults to "<title> cheatsheet", with " (Nov 2026)" appended for t1 sheets.'
       ),
     description: z
       .string()

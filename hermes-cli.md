@@ -427,5 +427,5 @@ See: [`hermes send`](https://hermes-agent.nousresearch.com/docs/reference/cli-co
 <!-- {: .-one-column} -->
 
 - [Claude Code](./claude-code)
-- [Codex](./codex)
+- [OpenAI Codex](./codex)
 - [Herdr](./herdr)

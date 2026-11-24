@@ -68,7 +68,14 @@ const styles = {
     'before:[-webkit-mask:var(--icon-md-arrow-forward)_center/24px_24px_no-repeat]'
   ),
   missingBody:
-    'm-0 flex-[0_0_auto] p-0 text-muted-foreground max-[481px]:mt-[16px]'
+    'm-0 flex-[0_0_auto] p-0 text-muted-foreground max-[481px]:mt-[16px]',
+  pushButton: cx(
+    'inline-block rounded-xs px-[16px] py-[8px] no-underline',
+    'text-primary-foreground visited:text-primary-foreground',
+    'bg-[image:var(--brand-gradient)]',
+    'hover:bg-none hover:bg-primary-active focus:bg-none focus:bg-primary-active',
+    'hover:[box-shadow:none] focus:[box-shadow:none]'
+  )
 }
 
 const headingStyles = {
@@ -159,7 +166,7 @@ const headingStyles = {
       <div class={styles.missingMessage}>
         <h3 class={styles.missingTitle}>{t.seeSomethingMissing}</h3>
         <p class={styles.missingBody}>
-          <a class="push-button" href={urls.newCheatsheetUrl}>
+          <a class={styles.pushButton} href={urls.newCheatsheetUrl}>
             {t.requestCheatsheet}
           </a>
         </p>
@@ -175,8 +182,3 @@ const headingStyles = {
   </div>
   <Announcements />
 </BaseLayout>
-
-<style is:global>
-  @import '../styles/components/push-button.css';
-  @import '../styles/components/notice-box.css';
-</style>

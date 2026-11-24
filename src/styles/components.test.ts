@@ -10,12 +10,6 @@ import { join } from 'node:path'
  * needed, add it to `src/styles/components/` and justify it in review first.
  */
 const LINE_BUDGET: Record<string, number> = {
-  'comments-area.css': 26,
-  'comments-details.css': 49,
-  'comments-section.css': 22,
-  'notice-box.css': 18,
-  'pre-footer.css': 19,
-  'push-button.css': 31,
   'related-post-item.css': 64,
   'related-post-list.css': 23,
   'related-posts-area.css': 20,

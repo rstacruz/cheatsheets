@@ -1,14 +1,27 @@
 ---
+import cx from 'clsx'
+
 export type Props = {
-  class?: string
+  variant?: 'brand' | 'dark'
 }
-const props = Astro.props as Props
+
+const { variant = 'brand' } = Astro.props as Props
+
+const styles = {
+  root: cx(
+    'inline-block rounded-xs px-[16px] py-[8px] no-underline',
+    'text-primary-foreground visited:text-primary-foreground',
+    'hover:[box-shadow:none] focus:[box-shadow:none]',
+    variant === 'dark'
+      ? 'bg-primary-active hover:bg-primary-deep focus:bg-primary-deep'
+      : cx(
+          'bg-[image:var(--brand-gradient)]',
+          'hover:bg-none hover:bg-primary-active focus:bg-none focus:bg-primary-active'
+        )
+  )
+}
 ---
 
-<div class={`push-button ${props.class ?? ''}`}>
+<div class={styles.root}>
   <slot />
 </div>
-
-<style is:global>
-  @import '../../styles/components/push-button.css';
-</style>

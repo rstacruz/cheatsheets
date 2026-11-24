@@ -1,7 +1,12 @@
 ---
 title: Vimscript snippets
 subtitle: Common code recipes
-category: Vim
+category: Hidden
+# Recipes duplicated by /vimscript and /vimscript-functions.
+tags: [Archived]
+archived: |
+  These recipes are covered in more depth by [Vim scripting](/vimscript) and
+  [Vimscript functions](/vimscript-functions).
 ---
 
 ### Bind function to key and command

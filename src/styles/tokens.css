@@ -28,7 +28,6 @@
   --muted-foreground-subtle: light-dark(#7c8fa2, #8d93ad);
   --muted-foreground-faint: light-dark(#8899aa, #7f86a1);
   --muted-foreground-strong: light-dark(#44525f, #b9bed3);
-  --muted-foreground-bright: light-dark(#5e7683, #c2c7da);
   --accent: light-dark(var(--color-steel-200), #272743);
   --accent-foreground: light-dark(
     var(--color-steel-700),
@@ -60,10 +59,6 @@
   --primary-subtle: light-dark(
     var(--color-mildindigo-400),
     var(--color-mildindigo-500)
-  );
-  --primary-faint: light-dark(
-    var(--color-mildindigo-300),
-    var(--color-mildindigo-700)
   );
   --primary-surface: light-dark(#f7f5fc, #1e1a33);
   --primary-heading: light-dark(
@@ -115,7 +110,6 @@
   --link-strong: light-dark(#1d406e, #a7c6e8);
   --highlight: light-dark(#14af83, #34d3a3);
   --highlight-bright: light-dark(#15b89a, #5ce6bd);
-  --highlight-strong: light-dark(#108b68, #1f9d78);
 
   /*
    * Syntax / overlays

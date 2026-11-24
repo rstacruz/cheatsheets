@@ -27,7 +27,7 @@ together.
 There are no `dark:` utilities or component theme branches. `light-dark()`
 needs Chrome 123+, Safari 17.5+, or Firefox 120+.
 
-Image-valued roles keep a plain fallback in `@supports`: the image form of
+Image-valued roles keep a black fallback in `@supports`: the image form of
 `light-dark()` reached Chrome 150, Firefox 150, and Safari 27 in 2026.
 
 ## Choosing a form

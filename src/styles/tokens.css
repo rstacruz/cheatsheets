@@ -80,7 +80,7 @@
     light-dark(var(--color-mildindigo-400), var(--color-mildindigo-300))
   );
 
-  --icon-crosslink-arrow: var(--icon-md-arrow-forward-white);
+  --icon-crosslink-arrow: var(--icon-md-arrow-forward);
 
   /*
    * Link / highlight

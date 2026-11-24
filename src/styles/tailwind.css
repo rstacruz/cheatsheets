@@ -52,7 +52,8 @@
   --shadow-lg:
     0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%),
     0 8px 12px rgb(58 193 203 / 10%);
-  --shadow-focus: inset 0 0 0 1px var(--highlight),
+  --shadow-focus:
+    inset 0 0 0 1px var(--highlight),
     0 0 0 3px color-mix(in srgb, var(--highlight) 10%, transparent);
 
   --radius: 8px;

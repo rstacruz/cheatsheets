@@ -10,7 +10,7 @@ export function setupDismissable() {
     if (shouldHide(id, chance)) {
       el.parentNode.removeChild(el)
     } else {
-      el.classList.remove('-hide')
+      el.classList.remove('hidden')
     }
   })
 }

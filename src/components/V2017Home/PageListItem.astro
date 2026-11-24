@@ -1,11 +1,21 @@
 ---
+import cx from 'clsx'
 import type { SheetPage } from '../../lib/page'
 
 const CARD_FRAGMENT_COUNT = 22
+const tones = {
+  primary:
+    'bg-linear-[15deg,var(--primary),var(--primary-subtle)] hover:bg-none hover:bg-primary-strong focus:bg-none focus:bg-primary-strong',
+  slate:
+    'bg-linear-[15deg,var(--muted-foreground),var(--muted-foreground-bright)] hover:bg-none hover:bg-muted-foreground-strong focus:bg-none focus:bg-muted-foreground-strong',
+  green:
+    'bg-linear-[15deg,var(--highlight),var(--highlight-bright)] hover:bg-none hover:bg-highlight-dark focus:bg-none focus:bg-highlight-dark'
+}
 
 export type Props = {
   page: SheetPage
-  class?: string
+  variant?: 'list' | 'featured'
+  tone?: keyof typeof tones
   showFragments?: boolean
 }
 const props = Astro.props as Props
@@ -21,19 +31,44 @@ const fragments =
         (_, index) => sourceFragments[index % sourceFragments.length]
       )
     : undefined
+
+const featured = props.variant === 'featured'
+const styles = {
+  link: cx(
+    'group flex min-w-0 flex-col gap-[2px] rounded-xl no-underline',
+    featured
+      ? cx(
+          'h-[220px] overflow-hidden px-[18px] pt-[16px] pb-[18px]',
+          tones[props.tone ?? 'primary']
+        )
+      : 'bg-secondary px-[14px] pt-[12px] pb-16 hover:bg-accent focus:bg-accent'
+  ),
+  fragments: cx(
+    'flex min-h-0 flex-auto flex-wrap content-start gap-x-[5px] gap-y-[4px] overflow-hidden pr-[20%] opacity-50',
+    'mb-[8px] [mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]',
+    '[-webkit-mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]'
+  ),
+  fragment: cx(
+    'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
+    '[color:color-mix(in_srgb,var(--card)_80%,transparent)]'
+  ),
+  title: featured
+    ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
+    : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary',
+  subtitle: featured
+    ? '[color:color-mix(in_srgb,var(--card)_78%,transparent)]'
+    : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
+}
 ---
 
-<a
-  href={url}
-  class={`article sheet-card -item-${page.slug} ${props.class ?? ''}`}
->
+<a href={url} class={styles.link}>
   {fragments && (
-    <span class="sheet-card__fragments" aria-hidden="true">
+    <span class={styles.fragments} aria-hidden="true">
       {fragments.map((fragment) => (
-        <span class="sheet-card__fragment">{fragment}</span>
+        <span class={styles.fragment}>{fragment}</span>
       ))}
     </span>
   )}
-  <span class="sheet-card__title">{title}</span>
-  {subtitle && <span class="sheet-card__subtitle">{subtitle}</span>}
+  <span class={styles.title}>{title}</span>
+  {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
 </a>

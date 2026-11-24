@@ -614,7 +614,7 @@ See: [Cloud Agent](https://cursor.com/docs/cloud-agent)
 - [Rules](https://cursor.com/docs/rules) _(cursor.com)_
 - [Changelog](https://cursor.com/docs/cli/changelog) _(cursor.com)_
 
-[Codex cheatsheet](./codex)
+[OpenAI Codex cheatsheet](./codex)
 <!-- {: .-crosslink} -->
 
 [OpenCode cheatsheet](./opencode)

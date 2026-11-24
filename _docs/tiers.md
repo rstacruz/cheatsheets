@@ -10,9 +10,12 @@ changes, whatever its tier.
 | `t2`   | About every 6 weeks | Stable tools, languages, standards |
 | (none) | Best effort         | Everything else                    |
 
-Tiers are not rendered, but they do change the authoring rules that apply:
-both tiers need `fragments` and `last_verified_with`, plus the tiered-sheet
+Tiers do not appear in the sheet body, but they change the authoring rules that
+apply. Both tiers need `fragments` and `last_verified_with`, plus the tiered-sheet
 section rules (see [content organisation](writing-guidelines.md#content-organisation) and [frontmatter/h3-links](rules.md#frontmatterh3-links)).
+A `t1` sheet's `<title>` ends with the month and year of its `updated` date, eg
+`Bash scripting cheatsheet (Nov 2026)`; keep `updated` current so the stamp does
+not go stale.
 
 ## Choosing a tier
 

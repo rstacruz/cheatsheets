@@ -115,3 +115,9 @@ See: [getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 UTC versions are also available (eg, `.getUTCDate()`, `.setUTCDate()`, etc).
 
 See: [setTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime) _(developer.mozilla.org)_
+
+## Also see
+
+[JavaScript Temporal cheatsheet](./js-temporal)
+
+<!-- {: .-crosslink} -->

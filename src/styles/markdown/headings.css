@@ -19,10 +19,6 @@
       margin-top: 32px;
     }
 
-    font-size: var(--text-3xl);
-    line-height: 1.2;
-    font-weight: 200;
-    font-family: var(--font-heading);
     margin-top: 0;
   }
 

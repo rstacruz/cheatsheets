@@ -88,10 +88,7 @@
     light-dark(var(--color-mildindigo-400), var(--color-mildindigo-300))
   );
 
-  --icon-crosslink-arrow: light-dark(
-    var(--icon-md-arrow-forward-white),
-    var(--icon-md-arrow-forward)
-  );
+  --icon-crosslink-arrow: var(--icon-md-arrow-forward-white);
 
   /*
    * Link / highlight
@@ -124,6 +121,16 @@
 
   /* --mermaid-origin is set by scripts/v2017/behaviors_2/mermaid.ts;
      CSS keeps its fallback */
+}
+
+/* Image light-dark(): Chrome 150+, Firefox 150+, Safari 27+ (Sept 2026) */
+@supports (background-image: light-dark(url(#), url(#))) {
+  :root {
+    --icon-crosslink-arrow: light-dark(
+      var(--icon-md-arrow-forward-white),
+      var(--icon-md-arrow-forward)
+    );
+  }
 }
 
 :root[data-theme='light'] {

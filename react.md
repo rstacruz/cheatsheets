@@ -288,6 +288,9 @@ async function addTodo(formData) {
 
 Shows the next state immediately while an action runs, then reconciles with the server result. Call the setter inside an action or transition. See: [useOptimistic](https://react.dev/reference/react/useOptimistic)
 
+[React hooks cheatsheet](./react-hooks)
+<!-- {: .-crosslink} -->
+
 ## Effects
 
 ### useEffect
@@ -369,6 +372,9 @@ useEffect(() => {
 <!-- {: data-highlight="setFullName"} -->
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
+
+[React hooks cheatsheet](./react-hooks)
+<!-- {: .-crosslink} -->
 
 ## Concurrent UI
 

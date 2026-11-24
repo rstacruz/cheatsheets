@@ -1,9 +1,3 @@
-/**
- * Wires the nav theme toggle. System is the default: `localStorage.theme`
- * holds an explicit `light` or `dark` override, and the inline script in
- * BaseLayout applies it before first paint.
- */
-
 type Theme = 'light' | 'dark'
 
 const KEY = 'theme'
@@ -26,7 +20,6 @@ function effective(): Theme {
   return stored() ?? system()
 }
 
-/** Lets other scripts, such as Mermaid, react to a rendered change. */
 function emit() {
   document.dispatchEvent(
     new CustomEvent('themechange', {
@@ -76,8 +69,6 @@ export function setupThemeToggle() {
     ?.addEventListener('click', () => {
       const target = effective() === 'dark' ? 'light' : 'dark'
 
-      // A click whose target is the OS scheme returns to System; anything
-      // else pins the override.
       if (target === system()) {
         persist(null)
         paint(null)
@@ -90,9 +81,7 @@ export function setupThemeToggle() {
   window
     .matchMedia?.('(prefers-color-scheme: dark)')
     ?.addEventListener('change', () => {
-      // Only System follows the OS; an explicit override stays pinned.
       if (stored() === null) paint(null)
-      else updateUi()
     })
 
   window.addEventListener('storage', (event) => {

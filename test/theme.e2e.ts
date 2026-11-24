@@ -39,7 +39,6 @@ function snapshotAtDomReady(page: Page) {
   )
 }
 
-/** Samples the page in the inline script's window: DOM parsed, module ran. */
 function captureAtDomReady(page: Page) {
   return page.addInitScript(() => {
     document.addEventListener(
@@ -103,22 +102,9 @@ function opposite(theme: Theme): Theme {
 }
 
 for (const scheme of ['light', 'dark'] as const) {
-  test(`follows the system ${scheme} preference without a stored theme`, async ({
+  test(`follows the system ${scheme} preference before first paint`, async ({
     page
   }) => {
-    await page.emulateMedia({ colorScheme: scheme })
-    await page.goto('/')
-
-    expect(await snapshot(page)).toEqual({
-      ...tokens[scheme],
-      scheme: 'light dark',
-      theme: null
-    })
-    expect(await storedTheme(page)).toBeNull()
-    await Promise.all(offered(page, opposite(scheme)))
-  })
-
-  test(`resolves ${scheme} tokens before first paint`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: scheme })
     await captureAtDomReady(page)
     await page.goto('/')
@@ -126,26 +112,11 @@ for (const scheme of ['light', 'dark'] as const) {
     const expected = { ...tokens[scheme], scheme: 'light dark', theme: null }
     expect(await snapshotAtDomReady(page)).toEqual(expected)
     expect(await snapshot(page)).toEqual(expected)
+    expect(await storedTheme(page)).toBeNull()
+    await Promise.all(offered(page, opposite(scheme)))
   })
 
-  test(`applies a stored ${opposite(scheme)} override on a ${scheme} system`, async ({
-    page
-  }) => {
-    const override = opposite(scheme)
-    await page.emulateMedia({ colorScheme: scheme })
-    await seedTheme(page, override)
-    await page.goto('/')
-
-    expect(await snapshot(page)).toEqual({
-      ...tokens[override],
-      scheme: override,
-      theme: override
-    })
-    expect(await storedTheme(page)).toBe(override)
-    await Promise.all(offered(page, scheme))
-  })
-
-  test(`paints a stored ${opposite(scheme)} override at DOMContentLoaded`, async ({
+  test(`applies a stored ${opposite(scheme)} override on a ${scheme} system before first paint`, async ({
     page
   }) => {
     const override = opposite(scheme)
@@ -161,6 +132,8 @@ for (const scheme of ['light', 'dark'] as const) {
     }
     expect(await snapshotAtDomReady(page)).toEqual(expected)
     expect(await snapshot(page)).toEqual(expected)
+    expect(await storedTheme(page)).toBe(override)
+    await Promise.all(offered(page, scheme))
   })
 
   test(`pins ${opposite(scheme)} on a ${scheme} system and returns to System on the next click`, async ({
@@ -179,7 +152,6 @@ for (const scheme of ['light', 'dark'] as const) {
     expect(await storedTheme(page)).toBe(opposite(scheme))
     await Promise.all(offered(page, scheme))
 
-    // The offered scheme now matches the OS, so the second click clears it.
     await page.locator(TOGGLE).focus()
     await page.keyboard.press('Enter')
 
@@ -243,11 +215,10 @@ test('falls back to System when storage is blocked', async ({ page }) => {
 
 test('serves the theme script inline in the head', async ({ request }) => {
   const html = await (await request.get('/')).text()
-  const script = html.indexOf("localStorage.getItem('theme')")
   const body = html.indexOf('<body')
 
-  expect(script).toBeGreaterThan(-1)
-  expect(body).toBeGreaterThan(script)
+  expect(body).toBeGreaterThan(-1)
+  expect(html.slice(0, body)).toContain("localStorage.getItem('theme')")
   expect(html).toContain('<meta name="color-scheme" content="light dark"')
 })
 

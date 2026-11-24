@@ -1,27 +1,29 @@
-/*
- * Disqus
- */
+@layer components {
+  /*
+   * Disqus
+   */
 
-.comments-area {
-  margin: 32px 0 16px 0;
+  .comments-area {
+    margin: 32px 0 16px 0;
 
-  /* Container */
-  & > .container {
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: var(--content-width);
-    margin: 0 auto;
-  }
+    /* Container */
+    & > .container-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
 
-  /* Horizontal line */
-  & > .container::before {
-    content: '';
-    display: block;
-    background: linear-gradient(
-      to right,
-      var(--border-strong) 50%,
-      transparent
-    );
-    height: 1px;
+    /* Horizontal line */
+    & > .container-inner::before {
+      content: '';
+      display: block;
+      background: linear-gradient(
+        to right,
+        var(--border-strong) 50%,
+        transparent
+      );
+      height: 1px;
+    }
   }
 }

@@ -1,17 +1,19 @@
-/*
- * Group
- */
+@layer components {
+  /*
+   * Group
+   */
 
-.related-posts-group {
-  & > h3 {
-    font-size: var(--text-base);
-    color: var(--primary);
-    margin: 0;
-    padding: 0;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: solid 1px var(--border-strong);
-    line-height: 1.2;
-    font-weight: 400;
+  .related-posts-group {
+    & > h3 {
+      font-size: var(--text-base);
+      color: var(--primary);
+      margin: 0;
+      padding: 0;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: solid 1px var(--border-strong);
+      line-height: 1.2;
+      font-weight: 400;
+    }
   }
 }

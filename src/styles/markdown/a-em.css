@@ -1,8 +1,10 @@
-/*
- * For links with sources, eg,
- * [Foo](foo.com) _(foo.com)_
- */
+@layer components {
+  /*
+   * For links with sources, eg,
+   * [Foo](foo.com) _(foo.com)_
+   */
 
-.MarkdownBody.MarkdownBody a + em {
-  opacity: 0.5;
+  .MarkdownBody.MarkdownBody a + em {
+    opacity: 0.5;
+  }
 }

@@ -24,9 +24,8 @@ the OS preference resolves it. An absent `data-theme` means System; `light` or
 resolved value to utilities, so `bg-card` and Markdown's `var(--card)` switch
 together.
 
-There are no `dark:` utilities or component theme branches. Components ask for
-a role; `light-dark()` stays in the token layer. It needs Chrome 123+, Safari
-17.5+, or Firefox 120+.
+There are no `dark:` utilities or component theme branches. `light-dark()`
+needs Chrome 123+, Safari 17.5+, or Firefox 120+.
 
 Image-valued roles keep a plain fallback in `@supports`: the image form of
 `light-dark()` reached Chrome 150, Firefox 150, and Safari 27 in 2026.

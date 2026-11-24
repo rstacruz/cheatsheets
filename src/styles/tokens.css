@@ -1,11 +1,3 @@
-/*
- * Design tokens
- *
- * Semantic roles only. Components and Markdown CSS ask for these names;
- * `steel` and `mildindigo` ramp steps live in `tailwind.css` and are reached
- * through these roles.
- */
-
 :root {
   color-scheme: light dark;
 

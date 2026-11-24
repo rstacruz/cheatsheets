@@ -102,9 +102,14 @@ function config(): MermaidConfig {
     startOnLoad: false,
     securityLevel: 'strict',
     theme: 'base',
-    darkMode: scheme() === 'dark',
     fontFamily: FONT,
-    themeVariables: { ...readRoles(), fontFamily: FONT, fontSize: '14px' },
+    themeVariables: {
+      ...readRoles(),
+      // Mermaid only reads the flag from themeVariables, not the top level
+      darkMode: scheme() === 'dark',
+      fontFamily: FONT,
+      fontSize: '14px'
+    },
     flowchart: { useMaxWidth: true }
   }
 }
@@ -119,36 +124,39 @@ function showError(figure: HTMLElement, error: Error) {
 }
 
 /** Keeps the source on the figure, then swaps any previous canvas for a new one */
-async function renderDiagram(figure: HTMLElement, instance: Mermaid) {
+async function renderDiagram(
+  figure: HTMLElement,
+  instance: Mermaid,
+  run: number
+) {
   const frame = figure.querySelector<HTMLElement>('.MermaidDiagram__frame')
   if (!frame) return
 
   const source = figure.querySelector<HTMLElement>('.MermaidDiagram__source')
-  if (source) {
-    figure.dataset.mermaidSource = source.textContent ?? ''
-    source.remove()
-  }
+  if (source) figure.dataset.mermaidSource = source.textContent ?? ''
   const code = figure.dataset.mermaidSource
   if (!code) return
-
-  figure.querySelector('.MermaidDiagram__canvas')?.remove()
-  figure.querySelector('.MermaidDiagram__error')?.remove()
-  figure.classList.remove('is-error')
 
   try {
     const { svg, bindFunctions } = await instance.render(
       `mermaid-diagram-${++counter}`,
       code
     )
+    // A newer theme started while this one rendered; keep what is on screen.
+    if (run !== generation) return
+
     const canvas = document.createElement('div')
     canvas.className = 'MermaidDiagram__canvas'
     canvas.innerHTML = svg
-    const caption = frame.querySelector('.MermaidDiagram__caption')
-    if (caption) caption.before(canvas)
-    else frame.append(canvas)
+    figure.querySelector('.MermaidDiagram__canvas')?.remove()
+    figure.querySelector('.MermaidDiagram__error')?.remove()
+    figure.classList.remove('is-error')
+    source?.remove()
+    frame.append(canvas)
     figure.classList.add('is-rendered')
     bindFunctions?.(canvas)
   } catch (error) {
+    if (run !== generation) return
     showError(figure, error instanceof Error ? error : new Error(String(error)))
   }
 }
@@ -160,7 +168,7 @@ async function renderAll(run: number) {
   for (const figure of document.querySelectorAll<HTMLElement>(DIAGRAM)) {
     // A newer theme landed while this run was rendering; drop the rest.
     if (run !== generation) return
-    await renderDiagram(figure, mermaid)
+    await renderDiagram(figure, mermaid, run)
   }
 }
 

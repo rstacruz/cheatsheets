@@ -274,10 +274,10 @@ function withoutRenderIds(html: string) {
 }
 
 async function mermaidMarkup(page: Page) {
-  const markup = await page
-    .locator(MERMAID_CANVAS)
-    .evaluate((node) => node.outerHTML)
-  return withoutRenderIds(markup)
+  const markup = await page.evaluate(
+    () => document.querySelector('.MermaidDiagram__canvas svg')?.outerHTML
+  )
+  return markup ? withoutRenderIds(markup) : undefined
 }
 
 test('re-renders the Mermaid diagram for the chosen theme', async ({
@@ -297,8 +297,14 @@ test('re-renders the Mermaid diagram for the chosen theme', async ({
   await page.locator(TOGGLE).click()
 
   await expect
-    .poll(() => mermaidMarkup(page), { timeout: 15_000 })
-    .not.toBe(light)
+    .poll(
+      async () => {
+        const markup = await mermaidMarkup(page)
+        return markup !== undefined && markup !== light
+      },
+      { timeout: 15_000 }
+    )
+    .toBe(true)
   await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
 })
 
@@ -311,10 +317,45 @@ test('drops a stale Mermaid render after two quick toggles', async ({
 
   const light = await mermaidMarkup(page)
 
-  // Dark, then back to System: the second run wins.
-  await page.locator(TOGGLE).click()
-  await page.locator(TOGGLE).click()
+  // Dark then back to System in one task: the first run must be dropped.
+  await page.evaluate(() => {
+    const figure = document.querySelector('.MermaidDiagram')
+    const win = window as typeof window & { mermaidRenders?: number }
+    win.mermaidRenders = 0
+    if (!figure) return
 
-  await expect.poll(() => mermaidMarkup(page), { timeout: 15_000 }).toBe(light)
+    new MutationObserver((records) => {
+      for (const record of records)
+        for (const node of record.addedNodes)
+          if (
+            node instanceof Element &&
+            node.classList.contains('MermaidDiagram__canvas')
+          )
+            win.mermaidRenders = (win.mermaidRenders ?? 0) + 1
+    }).observe(figure, { childList: true, subtree: true })
+
+    ;(document.querySelector('[data-js-theme-toggle]') as HTMLElement).click()
+    ;(document.querySelector('[data-js-theme-toggle]') as HTMLElement).click()
+  })
+
+  await expect
+    .poll(
+      async () => {
+        const renders = await page.evaluate(
+          () =>
+            (window as typeof window & { mermaidRenders?: number })
+              .mermaidRenders
+        )
+        const markup = await mermaidMarkup(page)
+        return (renders ?? 0) > 0 && markup === light
+      },
+      { timeout: 15_000 }
+    )
+    .toBe(true)
+
+  const renders = await page.evaluate(
+    () => (window as typeof window & { mermaidRenders?: number }).mermaidRenders
+  )
+  expect(renders).toBe(1)
   await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
 })

@@ -10,8 +10,8 @@
    */
 
   .h3-section > h3 {
-    @apply border-t-primary-muted border-t-2;
-    @apply text-primary-heading;
+    @apply border-t-border border-t;
+    @apply text-heading;
     @apply text-xl;
     @apply pt-4;
     @apply font-manrope font-extrabold tracking-manrope;

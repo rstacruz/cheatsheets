@@ -44,6 +44,48 @@ describe('getSEOPropsForPage()', () => {
     expect(output.title).toEqual('React cheatsheet — hooks')
   })
 
+  const tierCases: Array<['t1' | 't2' | undefined, string, string]> = [
+    ['t1', '2026-11-11', 'React cheatsheet (Nov 2026)'],
+    ['t1', '2026-01-05', 'React cheatsheet (Jan 2026)'],
+    ['t2', '2026-11-11', 'React cheatsheet'],
+    [undefined, '2026-11-11', 'React cheatsheet']
+  ]
+
+  test.each(tierCases)(
+    '%s sheet updated %s has title %s',
+    (tier, updated, expected) => {
+      const output = getSEOPropsForPage({
+        slug,
+        frontmatter: { title, tier, updated: new Date(updated) }
+      })
+      expect(output.title).toEqual(expected)
+    }
+  )
+
+  test('stamps the updated month after a seo_title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: {
+        title,
+        seo_title: 'React cheatsheet — hooks',
+        tier: 't1',
+        updated: new Date('2026-11-11')
+      }
+    })
+    expect(output.title).toEqual('React cheatsheet — hooks (Nov 2026)')
+    expect(output.metaProperties['og:title']).toEqual(
+      'React cheatsheet — hooks (Nov 2026)'
+    )
+  })
+
+  test('t1 sheets without updated keep the plain title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, tier: 't1' }
+    })
+    expect(output.title).toEqual('React cheatsheet')
+  })
+
   test('snippet layouts use the title without a cheatsheet suffix', () => {
     const output = getSEOPropsForPage({
       slug: 'git-undo-commit',

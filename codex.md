@@ -1,6 +1,5 @@
 ---
 title: OpenAI Codex
-seo_title: OpenAI Codex Cheatsheet (Nov 2026)
 subtitle: Terminal coding agent
 category: Agents
 updated: 2026-11-11

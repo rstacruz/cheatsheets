@@ -37,6 +37,21 @@ export function getSEOPropsForHome() {
   }
 }
 
+const MONTHS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+]
+
 export function getPageTitle(page: {
   frontmatter: { title?: string; seo_title?: string; layout?: string }
 }) {
@@ -46,10 +61,31 @@ export function getPageTitle(page: {
   return `${title} cheatsheet`
 }
 
+/**
+ * Title for `<title>` and social cards. t1 sheets end with the month and
+ * year of their `updated` date, eg "Bash scripting cheatsheet (Nov 2026)".
+ */
+
+export function getSEOTitle(page: {
+  frontmatter: {
+    title?: string
+    seo_title?: string
+    layout?: string
+    tier?: 't1' | 't2'
+    updated?: Date
+  }
+}) {
+  const title = getPageTitle(page)
+  const { tier, updated } = page.frontmatter
+  if (tier !== 't1' || !updated) return title
+  const month = MONTHS[updated.getUTCMonth()]
+  return `${title} (${month} ${updated.getUTCFullYear()})`
+}
+
 export function getSEOPropsForPage(
   page: Pick<SheetPage, 'slug' | 'frontmatter'>
 ) {
-  const title = getPageTitle(page)
+  const title = getSEOTitle(page)
   const description = getDescription(page)
   const image = getPageImage(page)
   const url = getPageURL(page)

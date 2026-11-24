@@ -46,7 +46,7 @@ Temporal.Now.zonedDateTimeISO("Asia/Tokyo")  // today in Tokyo
 
 <!-- {: data-highlight="Temporal.Now"} -->
 
-`Temporal.Now` also has `plainTimeISO()` and `plainDateTimeISO()`.
+`Temporal.Now` also has `plainTimeISO()` and `plainDateTimeISO()`. Ships in Chrome 144+, Firefox 139+, Safari 27.3+, and Node 26.
 
 See: [Temporal.Now](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now)
 
@@ -55,6 +55,7 @@ See: [Temporal.Now](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 ```js
 Temporal.PlainDate.from("2026-11-24")
 Temporal.PlainTime.from("13:45")
+Temporal.PlainDateTime.from("2026-11-24T13:45")
 Temporal.Instant.from("2026-11-24T10:00Z")
 Temporal.ZonedDateTime.from(
   "2026-11-24T10:00[Asia/Tokyo]"
@@ -67,11 +68,24 @@ Strings are ISO 8601 (RFC 9557 when they carry a zone or calendar).
 
 See: [Temporal.PlainDate.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/from), [Temporal.ZonedDateTime.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/from)
 
+### From parts
+
+```js
+Temporal.PlainDate.from({ year: 2026, month: 11, day: 24 })
+// 2026-11-24
+```
+
+Property bags match the shape of form values and JSON payloads.
+
+See: [Temporal.PlainDate.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/from)
+
 ### From a Date
 
 #### Date → Temporal
 
 ```js
+const date = new Date("2026-11-24T10:00:00Z")
+
 const instant = Temporal.Instant.fromEpochMilliseconds(
   date.getTime()
 )
@@ -82,7 +96,7 @@ const instant = Temporal.Instant.fromEpochMilliseconds(
 #### Temporal → Date
 
 ```js
-const date = new Date(instant.epochMilliseconds)
+const back = new Date(instant.epochMilliseconds)
 ```
 
 <!-- {: data-highlight="epochMilliseconds"} -->
@@ -233,6 +247,21 @@ The bracketed zone is part of the string, not an offset.
 
 See: [Temporal.ZonedDateTime](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime)
 
+### From an instant
+
+```js
+const instant = Temporal.Instant.from("2026-11-24T10:00+09:00")
+
+instant.toZonedDateTimeISO("Asia/Tokyo")
+// 2026-11-24T10:00:00+09:00[Asia/Tokyo]
+```
+
+<!-- {: data-highlight="toZonedDateTimeISO"} -->
+
+`ZonedDateTime.from()` needs the `[Zone]` form, not a bare offset.
+
+See: [toZonedDateTimeISO()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant/toZonedDateTimeISO)
+
 ### Change time zone
 
 ```js
@@ -257,14 +286,19 @@ const before = Temporal.ZonedDateTime.from(
   "2026-03-08T01:30[America/New_York]"
 )
 
-before.add({ hours: 1 })  // 2026-03-08T03:30:00-04:00
-before.add({ days: 1 })   // 2026-03-09T01:30:00-04:00
-before.hoursInDay         // 23
+before.add({ hours: 1 })
+// 2026-03-08T03:30:00-04:00[America/New_York]
+before.add({ days: 1 })
+// 2026-03-09T01:30:00-04:00[America/New_York]
+before.hoursInDay  // 23
+
+Temporal.ZonedDateTime.from("2026-03-08T02:30[America/New_York]")
+// 2026-03-08T03:30:00-04:00[America/New_York]
 ```
 
 <!-- {: data-highlight="hoursInDay"} -->
 
-Day arithmetic follows the wall clock, so days can be 23 or 25 hours.
+Day arithmetic follows the wall clock, so days can be 23 or 25 hours. Skipped and repeated times resolve by `disambiguation` (default `compatible`); pass `"reject"` to throw.
 
 See: [ZonedDateTime and DST](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets)
 
@@ -347,8 +381,6 @@ new Intl.DurationFormat("en", { style: "long" })
 ```
 
 <!-- {: data-highlight="Intl.DurationFormat"} -->
-
-`Intl.DurationFormat` formats a `Temporal.Duration` directly.
 
 See: [Intl.DurationFormat cheatsheet](./intl-duration)
 

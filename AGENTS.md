@@ -19,7 +19,7 @@
 - **Styles**: plain CSS partials in `src/styles/`; Tailwind utilities in markup
 - **CSS tokens**: colours, type, radii, and `@apply` rules live in [`_docs/css-conventions.md`](_docs/css-conventions.md)
 - **CSS rules**: a file that uses `@apply` starts with `@reference '/src/styles/tailwind.css';`; a touched file migrates its legacy names and raw values in the same change
-- **CSS files**: do not add to `src/styles/components/` (pinned by `src/styles/components.test.ts`); Markdown prose goes in `src/styles/markdown/`
+- **CSS files**: component styles live in markup — see [_docs/component-styling.md](_docs/component-styling.md); Markdown prose goes in `src/styles/markdown/`, vendor overrides in `src/styles/vendor/`, keyframes in `<style>` blocks; `src/styles/cssLayout.test.ts` guards against per-component CSS directories
 - **Types**: Use Zod schemas for runtime validation (see `SheetFrontmatter.ts`); TypeScript strict mode enabled
 - **Naming**: camelCase for variables/functions, PascalCase for components/types
 - **Error handling**: Distinguish operational (expected) vs unexpected errors; return error objects for operational errors

@@ -3,7 +3,7 @@ title: Bash scripting
 subtitle: Shell scripting language
 category: Shell
 tags: [Featured]
-updated: 2026-11-11
+updated: 2026-11-24
 last_verified_with: "Bash 5.3, Bash 5.3.20."
 tier: t2
 fragments:
@@ -1228,5 +1228,12 @@ See: [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
 
 - [Bash strict mode cheatsheet](./bash-strict-mode)
 - [Bash array loop cheatsheet](./bash-array-loop)
+- [Bash arrays cheatsheet](./bash-arrays)
+- [Bash function cheatsheet](./bash-function)
+- [Bash case statement cheatsheet](./bash-case-statement)
+- [Redirect stderr cheatsheet](./bash-redirect-stderr)
+- [Background process cheatsheet](./bash-background-process)
+- [Compare strings cheatsheet](./bash-compare-strings)
+- [Compare numbers cheatsheet](./bash-compare-numbers)
 - [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
 - [Bash changelog](https://tiswww.case.edu/php/chet/bash/CHANGES) _(case.edu)_

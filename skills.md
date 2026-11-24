@@ -253,4 +253,4 @@ See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills
 - [Copilot agent skills](https://docs.github.com/en/copilot/concepts/customizations/agent-skills)
 - [anthropics/skills](https://github.com/anthropics/skills)
 - [Claude Code cheatsheet](./claude-code) _(devhints.io)_
-- [Codex cheatsheet](./codex) _(devhints.io)_
+- [OpenAI Codex cheatsheet](./codex) _(devhints.io)_

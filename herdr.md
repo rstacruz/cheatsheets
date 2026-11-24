@@ -188,5 +188,5 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 - [tmux](./tmux)
 - [screen](./screen)
 - [Claude Code](./claude-code)
-- [Codex](./codex)
+- [OpenAI Codex](./codex)
 <!-- {: .-also-see} -->

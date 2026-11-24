@@ -1,6 +1,6 @@
 ---
-title: How to run Codex headless
-link_title: Codex headless tasks
+title: How to run OpenAI Codex headless
+link_title: OpenAI Codex headless tasks
 subtitle: Run Codex from scripts
 category: Task automation
 layout: snippet

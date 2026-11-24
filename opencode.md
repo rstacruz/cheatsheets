@@ -472,7 +472,7 @@ See: [Snapshots](https://opencode.ai/docs/snapshots)
 [Claude Code cheatsheet](./claude-code)
 <!-- {: .-crosslink} -->
 
-[Codex cheatsheet](./codex)
+[OpenAI Codex cheatsheet](./codex)
 <!-- {: .-crosslink} -->
 
 [OpenCode headless tasks cheatsheet](./opencode-headless-tasks)

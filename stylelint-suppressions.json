@@ -24,19 +24,9 @@
       "count": 2
     }
   },
-  "src/styles/components/h3-section.css": {
-    "no-descending-specificity": {
-      "count": 13
-    }
-  },
   "src/styles/components/headline-pub.css": {
     "no-descending-specificity": {
       "count": 3
-    }
-  },
-  "src/styles/components/hint-mark.css": {
-    "declaration-property-value-disallowed-list": {
-      "count": 2
     }
   },
   "src/styles/components/page-actions.css": {
@@ -91,6 +81,16 @@
   "src/styles/markdown/table.css": {
     "no-descending-specificity": {
       "count": 18
+    }
+  },
+  "src/styles/markdown/h3-section.css": {
+    "no-descending-specificity": {
+      "count": 13
+    }
+  },
+  "src/styles/markdown/hint-mark.css": {
+    "declaration-property-value-disallowed-list": {
+      "count": 2
     }
   }
 }

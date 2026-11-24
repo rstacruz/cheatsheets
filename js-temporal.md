@@ -39,8 +39,8 @@ links:
 ### Current time
 
 ```js
-Temporal.Now.instant()                  // UTC timestamp
-Temporal.Now.plainDateISO()             // today, local zone
+Temporal.Now.instant()                       // UTC timestamp
+Temporal.Now.plainDateISO()                  // today, local zone
 Temporal.Now.zonedDateTimeISO("Asia/Tokyo")  // today in Tokyo
 ```
 
@@ -61,33 +61,11 @@ Temporal.ZonedDateTime.from(
 )
 ```
 
-<!-- {: data-highlight="PlainDate.from"} -->
+<!-- {: data-highlight="from"} -->
 
 Strings are ISO 8601 (RFC 9557 when they carry a zone or calendar).
 
 See: [Temporal.PlainDate.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/from), [Temporal.ZonedDateTime.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/from)
-
-### Types
-
-| Class | Represents |
-| --- | --- |
-| `Temporal.Instant` | Point in time, in UTC |
-| `Temporal.ZonedDateTime` | Instant plus a time zone |
-| --- | --- |
-| `Temporal.PlainDateTime` | Wall-clock date and time |
-| `Temporal.PlainDate` | Calendar date |
-| `Temporal.PlainTime` | Wall-clock time |
-| --- | --- |
-| `Temporal.PlainYearMonth` | Year and month |
-| `Temporal.PlainMonthDay` | Month and day |
-| --- | --- |
-| `Temporal.Duration` | Amount of time |
-
-<!-- {: .-headers} -->
-
-Plain types have no zone, so they never shift with daylight saving.
-
-See: [Temporal objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal#api_overview)
 
 ### From a Date
 
@@ -112,6 +90,28 @@ const date = new Date(instant.epochMilliseconds)
 `Date` converts through epoch milliseconds; there is no direct cast.
 
 See: [Temporal.Instant.fromEpochMilliseconds()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant/fromEpochMilliseconds)
+
+### Types
+
+| Class | Represents |
+| --- | --- |
+| `Temporal.Instant` | Point in time, in UTC |
+| `Temporal.ZonedDateTime` | Instant plus a time zone |
+| --- | --- |
+| `Temporal.PlainDateTime` | Wall-clock date and time |
+| `Temporal.PlainDate` | Calendar date |
+| `Temporal.PlainTime` | Wall-clock time |
+| --- | --- |
+| `Temporal.PlainYearMonth` | Year and month |
+| `Temporal.PlainMonthDay` | Month and day |
+| --- | --- |
+| `Temporal.Duration` | Amount of time |
+
+<!-- {: .-headers} -->
+
+Plain types have no zone, so they never shift with daylight saving.
+
+See: [Temporal objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal#api_overview)
 
 ## Fields and arithmetic
 
@@ -195,6 +195,23 @@ Rounding defaults to `halfExpand`; pass `roundingMode: "trunc"` to drop the rema
 
 See: [round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/round)
 
+### Calendars
+
+```js
+const date = Temporal.PlainDate.from("2026-11-24")
+const reiwa = date.withCalendar("japanese")
+
+reiwa.toString()  // '2026-11-24[u-ca=japanese]'
+reiwa.era         // 'reiwa'
+reiwa.eraYear     // 8
+```
+
+<!-- {: data-highlight="withCalendar"} -->
+
+`withCalendar()` keeps the day but changes how its fields read.
+
+See: [withCalendar()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar)
+
 ## Time zones
 
 ### Zoned date-time
@@ -260,7 +277,7 @@ Intl.supportedValuesOf("timeZone")  // ['Africa/Abidjan', ...]
 
 <!-- {: data-highlight="timeZoneId"} -->
 
-Zone IDs are IANA names; `offset` is text like `-05:00`.
+Zone IDs are IANA names; `Intl.supportedValuesOf("timeZone")` lists the set.
 
 See: [timeZoneId](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now/timeZoneId)
 
@@ -313,7 +330,7 @@ wait.total("seconds")  // 5400
 
 <!-- {: data-highlight="total"} -->
 
-Totals need `relativeTo` when months or years are involved.
+Totals need `relativeTo` for weeks, months, or years.
 
 See: [total()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/total)
 
@@ -331,7 +348,9 @@ new Intl.DurationFormat("en", { style: "long" })
 
 <!-- {: data-highlight="Intl.DurationFormat"} -->
 
-See: [Intl.DurationFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat)
+`Intl.DurationFormat` formats a `Temporal.Duration` directly.
+
+See: [Intl.DurationFormat cheatsheet](./intl-duration)
 
 ## Formatting
 
@@ -363,20 +382,3 @@ JSON.stringify({ date: value })  // '{"date":"2026-11-24"}'
 `from()` parses those strings back into Temporal values.
 
 See: [Temporal.PlainDate.toJSON()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toJSON)
-
-### Calendars
-
-```js
-const date = Temporal.PlainDate.from("2026-11-24")
-const reiwa = date.withCalendar("japanese")
-
-reiwa.toString()  // '2026-11-24[u-ca=japanese]'
-reiwa.era         // 'reiwa'
-reiwa.eraYear     // 8
-```
-
-<!-- {: data-highlight="withCalendar"} -->
-
-`withCalendar()` keeps the day but changes how its fields read.
-
-See: [withCalendar()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar)

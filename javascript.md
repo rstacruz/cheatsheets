@@ -176,6 +176,10 @@ A modern replacement for `Date`; plain dates have no time zone.
 
 See: [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)
 
+[JavaScript Temporal cheatsheet](./js-temporal)
+
+<!-- {: .-crosslink} -->
+
 ## Async and modules
 
 ### Async

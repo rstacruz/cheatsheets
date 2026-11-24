@@ -90,21 +90,36 @@ pnpm lint:css:check   # new violations; runs in pnpm run ci
 pnpm lint:css         # apply safe fixes
 ```
 
-The rules require token families for colour, font family, font size,
-line-height, letter-spacing, radius, and shadow. Legacy names, unknown tokens,
-a token from the wrong family, raw colour literals, and `!important` fail.
-Descending specificity fails too.
+Colour, font family, font size, letter-spacing, and radius must come from a
+token; the gate rejects raw values for those families. Raw colour literals are
+allowed only in `tokens.css` and `tailwind.css` (`icons.generated.css` is
+ignored). `line-height` may stay a unitless number; a `var()` there must be a
+`--leading-*` token. Unknown tokens, a token from the wrong family, and
+`!important` fail. The namespace pattern also rejects most retired names, but
+it cannot know the whole old vocabulary; never reintroduce one. Descending
+specificity fails too.
 
-Fix the code when a rule fires. Do not grow the suppressions file to let new
-code through. If an exception is genuinely unavoidable, suppress that rule for
-that file and leave a comment saying why:
+Fix the code when a rule fires. Do not add entries to the suppressions file to
+let new code through.
 
-```sh
-pnpm exec stylelint "src/styles/**/*.css" --suppress=<rule> --suppress-location=stylelint-suppressions.json
+For a genuinely unavoidable exception, disable the rule at that line and say
+why:
+
+```css
+/* stylelint-disable-next-line <rule> -- why this one must stay */
 ```
 
-Suppressions are a debt ledger. Fix the old occurrence and regenerate the file
-instead of carrying the entry forever.
+A recorded count is a ceiling, not a live total: the check only compares
+against it, so fixing one occurrence does not lower it, and a new one can slip
+in under it. Once the check is green, refresh the baseline so the counts match
+what is left:
+
+```sh
+pnpm lint:css:baseline
+```
+
+Adding a rule to the gate uses the same command with `--suppress=<rule>`, which
+baselines that rule alone.
 
 ## Touch it, rename it
 

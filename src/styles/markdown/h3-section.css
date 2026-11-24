@@ -10,7 +10,7 @@
    */
 
   .h3-section > h3 {
-    @apply border-t-primary-muted border-t-2;
+    @apply border-t border-t-border;
     @apply text-primary-heading;
     @apply text-xl;
     @apply pt-4;

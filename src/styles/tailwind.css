@@ -101,7 +101,6 @@
   --color-primary-strong: var(--primary-strong);
   --color-primary-active: var(--primary-active);
   --color-primary-deep: var(--primary-deep);
-  --color-primary-faint: var(--primary-faint);
   --color-primary-subtle: var(--primary-subtle);
   --color-primary-surface: var(--primary-surface);
   --color-primary-heading: var(--primary-heading);
@@ -119,7 +118,6 @@
   --color-muted-foreground-subtle: var(--muted-foreground-subtle);
   --color-muted-foreground-faint: var(--muted-foreground-faint);
   --color-muted-foreground-strong: var(--muted-foreground-strong);
-  --color-muted-foreground-bright: var(--muted-foreground-bright);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
@@ -135,7 +133,6 @@
   --color-link-strong: var(--link-strong);
   --color-highlight: var(--highlight);
   --color-highlight-bright: var(--highlight-bright);
-  --color-highlight-strong: var(--highlight-strong);
   --color-highlight-solid: var(--highlight-solid);
   --color-highlight-solid-soft: var(--highlight-solid-soft);
   --color-highlight-solid-hover: var(--highlight-solid-hover);

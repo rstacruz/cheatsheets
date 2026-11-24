@@ -183,6 +183,37 @@ test('an OS change keeps an explicit override', async ({ page }) => {
   await Promise.all(offered(page, 'light'))
 })
 
+test('keeps a stored override that matches the OS until a click', async ({
+  page
+}) => {
+  for (const scheme of ['light', 'dark'] as const) {
+    await page.emulateMedia({ colorScheme: scheme })
+    await page.goto('/')
+    await page.evaluate((theme) => localStorage.setItem('theme', theme), scheme)
+    await page.reload()
+
+    expect(await snapshot(page)).toEqual({
+      ...tokens[scheme],
+      scheme,
+      theme: scheme
+    })
+    await Promise.all(offered(page, opposite(scheme)))
+
+    await page.locator(TOGGLE).click()
+    expect(await storedTheme(page)).toBe(opposite(scheme))
+    expect(await snapshot(page)).toEqual({
+      ...tokens[opposite(scheme)],
+      scheme: opposite(scheme),
+      theme: opposite(scheme)
+    })
+    await Promise.all(offered(page, scheme))
+
+    await page.emulateMedia({ colorScheme: opposite(scheme) })
+    expect(await storedTheme(page)).toBe(opposite(scheme))
+    expect((await snapshot(page)).theme).toBe(opposite(scheme))
+  }
+})
+
 test('keeps the chosen theme across reloads', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' })
   await page.goto('/')

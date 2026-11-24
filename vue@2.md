@@ -31,7 +31,7 @@ Expressions
 </div>
 ```
 
-See: [Delimiters](https://vuejs.org/v2/api/#delimiters)
+See: [Delimiters](https://v2.vuejs.org/v2/api/#delimiters)
 
 ### Binding
 
@@ -61,7 +61,7 @@ See: [Delimiters](https://vuejs.org/v2/api/#delimiters)
 <div :style="{ color: activeColor }">
 ```
 
-See: [v-bind](https://vuejs.org/v2/api/#v-bind)
+See: [v-bind](https://v2.vuejs.org/v2/api/#v-bind)
 
 ### Directives
 
@@ -95,7 +95,7 @@ See: [v-bind](https://vuejs.org/v2/api/#v-bind)
 | `v-model.number="..."` | Always returns a number |
 | `v-model.trim="..."` | Strips whitespace |
 
-See: [Directives](https://vuejs.org/v2/api/#Directives)
+See: [Directives](https://v2.vuejs.org/v2/api/#Directives)
 
 ### Actions/Events
 
@@ -143,7 +143,7 @@ See: [Directives](https://vuejs.org/v2/api/#Directives)
 | `.stop` | Stop all event propagation |
 | `.self ` | Only trigger if event.target is element itself |
 
-See: [Events](https://vuejs.org/v2/guide/events.html)
+See: [Events](https://v2.vuejs.org/v2/guide/events.html)
 
 ### List rendering
 
@@ -174,7 +174,7 @@ See: [Events](https://vuejs.org/v2/guide/events.html)
               :key="item.id">
 ```
 
-See: [List Rendering](https://vuejs.org/v2/guide/list.html)
+See: [List Rendering](https://v2.vuejs.org/v2/guide/list.html)
 
 
 Component
@@ -196,7 +196,7 @@ Vue.component('my-component', {
     email: {
       type: String,
       required: true,
-      default: "none"
+      default: "none",
       validator: function (value) {
         // Should return true if value is valid
       }
@@ -227,24 +227,24 @@ Vue.component('my-component', {
 
 <!-- {: data-highlight="component"} -->
 
-See: [Components Basics](https://vuejs.org/v2/guide/components.html)
+See: [Components Basics](https://v2.vuejs.org/v2/guide/components.html)
 
 ### Lifecycle hooks
 
 | Method | Description |
 | --- | --- |
-| `beforeCreate` | After the instance has been initialized [#](https://vuejs.org/v2/api/#beforeCreate) |
-| `created` | After the instance is created [#](https://vuejs.org/v2/api/#created) |
-| `beforeMount` | Before the first render [#](https://vuejs.org/v2/api/#beforeMount) |
-| `mounted` | After the instance has been mounted [#](https://vuejs.org/v2/api/#mounted) |
+| `beforeCreate` | After the instance has been initialized [#](https://v2.vuejs.org/v2/api/#beforeCreate) |
+| `created` | After the instance is created [#](https://v2.vuejs.org/v2/api/#created) |
+| `beforeMount` | Before the first render [#](https://v2.vuejs.org/v2/api/#beforeMount) |
+| `mounted` | After the instance has been mounted [#](https://v2.vuejs.org/v2/api/#mounted) |
 | --- | --- |
-| `beforeUpdate` | When data changes, before the DOM is patched [#](https://vuejs.org/v2/api/#beforeUpdate) |
-| `updated` | After a data change [#](https://vuejs.org/v2/api/#updated) |
+| `beforeUpdate` | When data changes, before the DOM is patched [#](https://v2.vuejs.org/v2/api/#beforeUpdate) |
+| `updated` | After a data change [#](https://v2.vuejs.org/v2/api/#updated) |
 | --- | --- |
-| `beforeDestroy` | Before the instance is destroyed [#](https://vuejs.org/v2/api/#beforeDestroy) |
-| `destroyed` | After a Vue instance has been destroyed [#](https://vuejs.org/v2/api/#destroyed) |
+| `beforeDestroy` | Before the instance is destroyed [#](https://v2.vuejs.org/v2/api/#beforeDestroy) |
+| `destroyed` | After a Vue instance has been destroyed [#](https://v2.vuejs.org/v2/api/#destroyed) |
 
-See: [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks)
+See: [Lifecycle Hooks](https://v2.vuejs.org/v2/api/#Options-Lifecycle-Hooks)
 
 ### Custom events
 
@@ -268,10 +268,9 @@ this.$emit(
   )
 ```
 
-Use props to pass data into child components,
-custom events to pass data to parent elements.
+Use props to pass data into child components, custom events to pass data to parent elements.
 
-See: [Custom Events](https://vuejs.org/v2/guide/components-custom-events.html)
+See: [Custom Events](https://v2.vuejs.org/v2/guide/components-custom-events.html)
 
 Single file components
 --------
@@ -300,7 +299,7 @@ p {
 </style>
 ```
 
-See: [Single File Components](https://vuejs.org/v2/guide/single-file-components.html)
+See: [Single File Components](https://v2.vuejs.org/v2/guide/single-file-components.html)
 
 ### Separation
 ```html
@@ -311,7 +310,7 @@ See: [Single File Components](https://vuejs.org/v2/guide/single-file-components.
 <style src="./my-component.css"></style>
 ```
 
-See: [What About Separation of Concerns?](https://vuejs.org/v2/guide/single-file-components.html#What-About-Separation-of-Concerns)
+See: [What About Separation of Concerns?](https://v2.vuejs.org/v2/guide/single-file-components.html#What-About-Separation-of-Concerns)
 
 Slots
 --------
@@ -339,7 +338,7 @@ Slots
 
 <!-- {: data-highlight="This"} -->
 
-See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
+See: [Slots](https://v2.vuejs.org/v2/guide/components-slots.html)
 
 ### Multiple slots
 
@@ -371,7 +370,7 @@ See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
 
 <!-- {: data-highlight='"footer"'} -->
 
-See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
+See: [Slots](https://v2.vuejs.org/v2/guide/components-slots.html)
 
 Also see
 --------

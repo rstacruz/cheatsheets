@@ -52,6 +52,7 @@ links:
 {%raw%}
 
 ## Quick start
+<!-- {: .-three-column} -->
 
 ### Create a project
 
@@ -70,9 +71,9 @@ import App from './App.vue'
 
 createApp(App).mount('#app')
 ```
-<!-- {: data-highlight="createApp"} -->
+<!-- {: data-highlight=".mount('#app')"} -->
 
-`App.vue` is the root component; `.mount()` replaces the matching element. See: [createApp](https://vuejs.org/api/application.html#createapp)
+`App.vue` is the root component; `.mount()` renders into the container and replaces its contents. See: [app.mount()](https://vuejs.org/api/application.html#app-mount)
 
 ### Template syntax
 
@@ -104,6 +105,7 @@ state.name = 'Vite'
 Use `.value` in script; refs unwrap automatically in templates. See: [Reactivity fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
 
 ## Directives
+<!-- {: .-three-column} -->
 
 ### Conditionals
 
@@ -121,15 +123,24 @@ Use `.value` in script; refs unwrap automatically in templates. See: [Reactivity
 ### Lists
 
 ```html
-<li v-for="item in items" :key="item.id">
+<li
+  v-for="item in items"
+  :key="item.id"
+>
   {{ item.name }}
 </li>
 
-<li v-for="(item, i) in items" :key="item.id">
+<li
+  v-for="(item, i) in items"
+  :key="item.id"
+>
   {{ i }}: {{ item.name }}
 </li>
 
-<li v-for="(value, key) in object" :key="key">
+<li
+  v-for="(value, key) in object"
+  :key="key"
+>
   {{ key }}: {{ value }}
 </li>
 ```
@@ -168,7 +179,7 @@ Always bind `:key`; prefer a stable id over the array index. See: [List renderin
 ```
 <!-- {: data-highlight="v-model; .number; .trim"} -->
 
-Binds value and input events in one directive; modifiers include `.lazy`, `.number`, `.trim`. See: [Form input bindings](https://vuejs.org/guide/essentials/forms.html)
+Binds the value and its input or change events in one directive; modifiers include `.lazy`, `.number`, `.trim`. See: [Form input bindings](https://vuejs.org/guide/essentials/forms.html)
 
 ## Components
 
@@ -213,6 +224,10 @@ defineProps({
 #### Parent.vue
 
 ```html
+<script setup>
+import Greeting from './Greeting.vue'
+</script>
+
 <template>
   <Greeting name="Ada" />
 </template>
@@ -244,6 +259,7 @@ function click() {
 ```html
 <script setup>
 import { ref } from 'vue'
+import MyButton from './MyButton.vue'
 const count = ref(0)
 </script>
 
@@ -272,6 +288,12 @@ const model = defineModel()
 #### Parent.vue
 
 ```html
+<script setup>
+import { ref } from 'vue'
+import Child from './Child.vue'
+const query = ref('')
+</script>
+
 <template>
   <Child v-model="query" />
 </template>
@@ -296,6 +318,10 @@ const model = defineModel()
 #### Parent.vue
 
 ```html
+<script setup>
+import Card from './Card.vue'
+</script>
+
 <template>
   <Card>
     <template #header>Title</template>
@@ -342,6 +368,7 @@ const theme = inject('theme', 'light')
 Provide values from an ancestor and inject them in any descendant; refs stay reactive. See: [Provide/inject](https://vuejs.org/guide/components/provide-inject.html)
 
 ## Composition API
+<!-- {: .-three-column} -->
 
 ### Computed
 
@@ -382,7 +409,7 @@ const query = ref('')
 const results = ref([])
 
 watchEffect(async () => {
-  results.value = await search(query.value)
+  results.value = await load(query.value)
 })
 ```
 <!-- {: data-highlight="watchEffect"} -->
@@ -428,11 +455,15 @@ export function useCounter() {
 Extract reactive logic into a function that returns refs; call it in setup. See: [Composables](https://vuejs.org/guide/reusability/composables.html)
 
 ## Routing
+<!-- {: .-three-column} -->
 
 ### Router setup
 
 ```js
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
 
@@ -440,14 +471,18 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: Home },
-    { path: '/about', name: 'about', component: About }
+    {
+      path: '/about',
+      name: 'about',
+      component: About
+    }
   ]
 })
 
 export default router
 ```
 
-Registers `RouterLink` and `RouterView` when passed to `app.use(router)`. See: [Vue Router](https://router.vuejs.org/guide/#creating-the-router-instance)
+Registers `RouterLink` and `RouterView` when passed to `app.use(router)`. See: [Vue Router](https://router.vuejs.org/guide/#Creating-the-router-instance)
 
 ### Links and views
 
@@ -548,7 +583,7 @@ const { increment } = store
 ```
 <!-- {: data-highlight="storeToRefs"} -->
 
-Call the store in setup; `storeToRefs()` keeps destructured state reactive. See: [Using a store](https://pinia.vuejs.org/core-concepts/#using-the-store)
+Call the store in setup; `storeToRefs()` keeps destructured state reactive. See: [Using a store](https://pinia.vuejs.org/core-concepts/#Using-the-store)
 
 ## Also see
 

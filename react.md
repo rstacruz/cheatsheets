@@ -3,7 +3,7 @@ title: React.js
 subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
-updated: 2026-11-11
+updated: 2026-11-24
 last_verified_with: "React 19.0–19.3 APIs."
 tier: t2
 fragments:
@@ -253,7 +253,7 @@ const [error, submitAction, isPending] =
 </form>
 ```
 
-<!-- {: data-highlight="=>"} -->
+<!-- {: data-highlight="useActionState"} -->
 
 #### Form status
 
@@ -372,9 +372,6 @@ useEffect(() => {
 <!-- {: data-highlight="setFullName"} -->
 
 Don't use effects to transform data or to react to events. See: [You might not need an effect](https://react.dev/learn/you-might-not-need-an-effect)
-
-[React hooks cheatsheet](./react-hooks)
-<!-- {: .-crosslink} -->
 
 ## Concurrent UI
 
@@ -614,7 +611,7 @@ const isOnline = useSyncExternalStore(
 )
 ```
 
-<!-- {: data-highlight="true"} -->
+<!-- {: data-highlight="useSyncExternalStore"} -->
 
 Subscribes safely to an external store in concurrent rendering; the third argument is the server snapshot. See: [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 
@@ -806,6 +803,7 @@ See: [Legacy APIs](https://react.dev/reference/react/legacy). Classes still work
 
 - [React documentation](https://react.dev/) _(react.dev)_
 - [React API reference](https://react.dev/reference/react) _(react.dev)_
+- [React hooks cheatsheet](react-hooks) — state, effects and custom hooks
 - [TypeScript cheatsheet](typescript) — typed props and hooks
 - [React v16 cheatsheet](react@16) — class components and legacy APIs
 - [React v0.14 cheatsheet](react@0.14) — `React.createClass` era

@@ -3,7 +3,7 @@ title: React hooks
 subtitle: State and effects in components
 category: JavaScript libraries
 updated: 2026-11-24
-last_verified_with: "React 19.3.1 hooks APIs."
+last_verified_with: "React 19.3.1."
 tier: t2
 fragments:
   - "useState"
@@ -129,7 +129,7 @@ useEffect(() => {
   return () => connection.disconnect()
 }, [roomId])
 ```
-<!-- {: data-highlight="connection.disconnect"} -->
+<!-- {: data-highlight="useEffect"} -->
 
 Setup runs after the commit; cleanup runs before the next setup and on unmount.
 
@@ -144,6 +144,7 @@ useEffect(() => {
   logPageView()
 }, [])
 ```
+<!-- {: data-highlight="[]"} -->
 
 #### Every render
 
@@ -160,6 +161,7 @@ useEffect(() => {
   logPageView(userId, pageId)
 }, [userId, pageId])
 ```
+<!-- {: data-highlight="[userId, pageId]"} -->
 
 `[]` runs once after mount, no array runs after every commit, and the list re-runs when a value changes (`Object.is`). Keep values used inside the effect in the list. StrictMode runs setup and cleanup twice in development.
 
@@ -187,7 +189,10 @@ See: [Adding cleanup if needed](https://react.dev/learn/synchronizing-with-effec
 useEffect(() => {
   const controller = new AbortController()
   fetch(`/api/users/${id}`, { signal: controller.signal })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      return res.json()
+    })
     .then(setUser)
     .catch(err => {
       if (err.name !== 'AbortError') setError(err)
@@ -239,7 +244,7 @@ useEffect(() => {
 ```
 <!-- {: data-highlight="useEffectEvent"} -->
 
-Reads the latest props and state without re-running the effect. Call it only from an effect; added in 19.2.
+Reads the latest props and state without re-running the effect. Call it from an effect or another Effect Event; added in 19.2.
 
 See: [useEffectEvent](https://react.dev/reference/react/useEffectEvent)
 
@@ -301,7 +306,7 @@ See: [useContext](https://react.dev/reference/react/useContext)
   <Toolbar />
 </ThemeContext>
 ```
-<!-- {: data-highlight="ThemeContext value"} -->
+<!-- {: data-highlight="ThemeContext"} -->
 
 v19 renders the context object itself as the provider. `<ThemeContext.Provider>` still works.
 
@@ -337,7 +342,7 @@ function useTheme() {
 
 A named hook with a guard fails loudly when the provider is missing.
 
-See: [Specifying a fallback default value](https://react.dev/reference/react/useContext#specifying-a-fallback-default-value)
+See: [Using context](https://react.dev/learn/passing-data-deeply-with-context#step-2-use-the-context)
 
 ## Refs and DOM
 
@@ -457,7 +462,7 @@ const onSelect = useCallback(
 ```
 <!-- {: data-highlight="useCallback"} -->
 
-`useCallback(fn, deps)` is `useMemo(() => fn, deps)`; it matters for memoised children and effect dependencies. React Compiler 1.0 (stable since Oct 2025) handles most cases.
+`useCallback(fn, deps)` is `useMemo(() => fn, deps)`; it matters for memoised children and effect dependencies. [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1) (stable since Oct 2025) handles most cases.
 
 See: [useCallback](https://react.dev/reference/react/useCallback)
 
@@ -704,6 +709,7 @@ See: [renderHook](https://testing-library.com/docs/react-testing-library/api#ren
 | Call them from components or hooks | React needs a render context |
 | Name custom hooks `use…` | The linter recognises them |
 | Never call them conditionally | Order must stay stable |
+<!-- {: .-headers} -->
 
 See: [Rules of hooks](https://react.dev/reference/rules/rules-of-hooks)
 
@@ -720,7 +726,7 @@ export default [
 ```
 <!-- {: data-highlight="reactHooks.configs.flat.recommended"} -->
 
-Catches conditional hooks, missing effect dependencies and stale Effect Events; add it alongside your JSX or TypeScript config.
+Catches conditional hooks, missing effect dependencies and Effect Event misuse; add it alongside your JSX or TypeScript config.
 
 See: [eslint-plugin-react-hooks](https://react.dev/reference/eslint-plugin-react-hooks)
 

@@ -10,6 +10,15 @@ archived: |
   [GitHub Pages documentation](https://docs.github.com/en/pages).
 last_verified_with: "GitHub Pages docs, actions/deploy-pages v4."
 updated: 2026-11-24
+intro: |
+  GitHub Pages static hosting: custom domains, DNS records, and deployment workflows.
+links:
+  - title: GitHub Pages documentation
+    url: https://docs.github.com/en/pages
+  - title: Managing a custom domain
+    url: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+  - title: Configuring a publishing source
+    url: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 ---
 
 ## Custom domains
@@ -44,6 +53,8 @@ See: [Managing a custom domain](https://docs.github.com/en/pages/configuring-a-c
 
 Use `ALIAS` or the `A` records for an apex domain, not both. The `CNAME` target takes no repository name.
 
+See: [Configuring an apex domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)
+
 ### Check the setup
 
 #### Records
@@ -60,11 +71,15 @@ curl -sI http://example.com | head -1
 
 Tick **Enforce HTTPS** once GitHub issues the certificate, which can take 24 hours after DNS resolves.
 
+See: [Troubleshooting custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages)
+
 ## Deploy
 
 ### From a branch
 
 Under **Settings → Pages**, set **Source** to *Deploy from a branch* and pick the branch and folder (`/` or `/docs`). Jekyll builds on every push.
+
+See: [Configuring a publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
 ### With a workflow
 
@@ -95,6 +110,8 @@ jobs:
 ```
 
 Set **Source** to *GitHub Actions* first, and build `_site` before the upload step. The job needs `pages: write` and `id-token: write`.
+
+See: [Using custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 
 ## References
 <!-- {: .-one-column} -->

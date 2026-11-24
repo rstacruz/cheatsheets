@@ -29,6 +29,7 @@ An H2 starts a section; an H3 is a card inside it. Both get an id from their tex
 
 - Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference`, `.-snippets` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
+- `.-full-width` on an H3 spans every column of its H2 section, for a wide table followed by narrower cards.
 - Sheets with `layout: snippet` put `.-snippet` on every H3, omit "cheatsheet" from the H1, and end with a Related links card; see [snippet layout](writing-guidelines.md#snippet-layout).
 - The first card is the Introduction, generated from `intro` and `links` frontmatter.
 

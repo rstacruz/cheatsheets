@@ -336,9 +336,7 @@ describe('findMissingLinksOrSee()', () => {
 test('every tiered sheet gives each H3 a link or See', async () => {
   const pages = Object.values(await getPages())
   const tiered = pages.filter(
-    (page) =>
-      !page.slug.includes('/') &&
-      (page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2')
+    (page) => !page.slug.includes('/') && Boolean(page.frontmatter.tier)
   )
   expect(tiered.length).toBeGreaterThan(0)
   expect(

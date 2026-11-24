@@ -52,11 +52,6 @@ export function isSnippet(page: FrontmatterOnly): boolean {
   return page.frontmatter.layout === 'snippet'
 }
 
-/** Tiered sheets are the ones reviewed on a cadence. */
-export function isTiered(page: FrontmatterOnly): boolean {
-  return page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2'
-}
-
 /**
  * Checks if a sheet is a test fixture (lives under tests/)
  */

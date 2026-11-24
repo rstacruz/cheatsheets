@@ -4,6 +4,16 @@ subtitle: Python templating engine
 category: Python
 last_verified_with: "Jinja 3.1.6."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Jinja templates: expressions, control structures, inheritance, macros, and rendering from Python.
+links:
+  - title: Jinja template documentation
+    url: https://jinja.palletsprojects.com/en/stable/templates/
+  - title: Jinja API reference
+    url: https://jinja.palletsprojects.com/en/stable/api/
+  - title: Jinja on GitHub
+    url: https://github.com/pallets/jinja
 ---
 
 {% raw %}
@@ -21,6 +31,8 @@ updated: 2026-11-24
 
 Undefined values render as an empty string; filters run left to right.
 
+See: [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions)
+
 ### Control structures
 
 ```jinja2
@@ -32,6 +44,8 @@ Undefined values render as an empty string; filters run left to right.
     {% endif %}
 {% endfor %}
 ```
+
+See: [Control structures](https://jinja.palletsprojects.com/en/stable/templates/#list-of-control-structures)
 
 ### Whitespace control
 
@@ -46,6 +60,8 @@ enated.
 ```
 
 A `-` on either side of a tag strips the whitespace next to it.
+
+See: [Whitespace control](https://jinja.palletsprojects.com/en/stable/templates/#whitespace-control)
 
 ### Special blocks
 
@@ -83,6 +99,8 @@ this is a comment
 
 `{% filter %}` applies a filter to its whole body; `{% raw %}` keeps a region away from the renderer.
 
+See: [Filter and raw blocks](https://jinja.palletsprojects.com/en/stable/templates/#filters)
+
 ### Inheritance
 
 #### shared.html
@@ -111,6 +129,8 @@ This is the body
 
 `self.title()` renders a block a second time; a template cannot define the same block name twice.
 
+See: [Template inheritance](https://jinja.palletsprojects.com/en/stable/templates/#template-inheritance)
+
 ## Library
 
 ### Render a string
@@ -123,6 +143,8 @@ template.render(name="John Doe")
 # => 'Hello John Doe!'
 ```
 
+See: [Template](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Template)
+
 ### Load templates from disk
 
 ```python
@@ -134,5 +156,7 @@ template.render(name="John Doe")
 ```
 
 Reach for `Environment` when you need a loader, autoescaping, filters or globals.
+
+See: [Environment](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment)
 
 {% endraw %}

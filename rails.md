@@ -4,6 +4,16 @@ subtitle: Web framework for Ruby
 category: Rails
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Rails request handling, view helpers, rendering, and layouts for controllers, views, and responses.
+links:
+  - title: Action Controller overview
+    url: https://guides.rubyonrails.org/action_controller_overview.html
+  - title: Layouts and rendering
+    url: https://guides.rubyonrails.org/layouts_and_rendering.html
+  - title: ActionView::Helpers
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers.html
 ---
 
 ## Helpers
@@ -20,6 +30,8 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+See: [helper_method](https://api.rubyonrails.org/classes/AbstractController/Helpers/ClassMethods.html#method-i-helper_method)
+
 ### Asset tags
 
 ```erb
@@ -28,6 +40,8 @@ end
 ```
 
 Both tags need Propshaft or Sprockets; importmap apps use `javascript_importmap_tags` instead.
+
+See: [stylesheet_link_tag](https://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-stylesheet_link_tag)
 
 ### Forms
 
@@ -47,6 +61,8 @@ Both tags need Propshaft or Sprockets; importmap apps use `javascript_importmap_
 
 Also: `check_box`, `color_field`, `date_field`, `email_field`, `file_field`, `hidden_field`, `number_field`, `password_field`, `radio_button`, `range_field`, `search_field`, `telephone_field`, `text_area`, `text_field`, `time_field`, `url_field`.
 
+See: [form_with](https://guides.rubyonrails.org/form_helpers.html#creating-forms-with-model-objects)
+
 ## Controllers
 
 ### Controller layout
@@ -60,6 +76,8 @@ class ProjectsController < ApplicationController
   end
 end
 ```
+
+See: [Finding layouts](https://guides.rubyonrails.org/layouts_and_rendering.html#finding-layouts)
 
 ### Before actions
 
@@ -80,6 +98,8 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+See: [before_action](https://guides.rubyonrails.org/action_controller_overview.html#before-action)
+
 ### Default URL options
 
 ```ruby
@@ -90,6 +110,8 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+See: [default_url_options](https://guides.rubyonrails.org/action_controller_overview.html#the-default-url-options-method)
+
 ### Session, flash, params
 
 ```ruby
@@ -97,6 +119,8 @@ session[:what]
 flash[:notice] = "Your session expired"
 params[:id]
 ```
+
+See: [Session](https://guides.rubyonrails.org/action_controller_overview.html#session)
 
 ### Respond to formats
 
@@ -113,7 +137,10 @@ class UsersController < ApplicationController
 end
 ```
 
+See: [respond_to](https://api.rubyonrails.org/classes/ActionController/MimeResponds.html#method-i-respond_to)
+
 ## Responses
+<!-- {: .-three-column} -->
 
 ### Redirect
 
@@ -121,6 +148,8 @@ end
 redirect_to entry_path(@entry)
 redirect_to root_url, notice: "Saved."
 ```
+
+See: [redirect_to](https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to)
 
 ### Render
 
@@ -139,12 +168,17 @@ render location: photo_url(photo)
 
 `render action:` renders that template without running the action; `render nothing:` and `render text:` were removed in Rails 5.1.
 
+See: [Using render](https://guides.rubyonrails.org/layouts_and_rendering.html#using-render)
+
 ### Head-only responses
 
 ```ruby
 head :bad_request
-head :created, location: photo_path(@photo)
+head :created, \
+  location: photo_path(@photo)
 ```
+
+See: [head](https://api.rubyonrails.org/classes/ActionController/Head.html#method-i-head)
 
 ## Layouts
 
@@ -172,6 +206,8 @@ head :created, location: photo_path(@photo)
 <p>Hello, Rails!</p>
 ```
 
+See: [content_for](https://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method)
+
 ### Nested layouts
 
 #### app/views/layouts/news.html.erb
@@ -183,6 +219,8 @@ head :created, location: photo_path(@photo)
 <% end %>
 <%= render template: "layouts/application" %>
 ```
+
+See: [Nested layouts](https://guides.rubyonrails.org/layouts_and_rendering.html#using-nested-layouts)
 
 ## Reference
 

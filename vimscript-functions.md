@@ -4,6 +4,17 @@ subtitle: Built-in function reference
 category: Vim
 last_verified_with: "Vim 9.2."
 updated: 2026-11-24
+tier: t3
+intro: |
+  Reference for Vim's built-in functions: collections, buffers, files,
+  strings, numbers, types, shell, and evaluation.
+links:
+  - title: Vim built-in functions
+    url: https://vimhelp.org/builtin.txt.html
+  - title: Vim script
+    url: https://vimhelp.org/usr_41.txt.html
+  - title: Expression evaluation
+    url: https://vimhelp.org/eval.txt.html
 ---
 
 ## Collections
@@ -54,6 +65,8 @@ endfor
 
 `map()` and `filter()` take an expression string, so `v:val` expands per item: `map(colors, '"<" . v:val . ">"')`.
 
+See: [Dictionary functions](https://vimhelp.org/usr_41.txt.html#dict-functions)
+
 ### Lists
 
 ```vim
@@ -69,7 +82,10 @@ echo join(mylist, ", ")
 
 Negative indexes count from the end; `get()` returns the default instead of raising `E684`.
 
+See: [List functions](https://vimhelp.org/usr_41.txt.html#list-functions)
+
 ## Buffers and positions
+<!-- {: .-three-column} -->
 
 ### Buffer
 
@@ -97,6 +113,8 @@ echo nextnonblank(1)
 echo prevnonblank(10)
 ```
 
+See: [Buffer functions](https://vimhelp.org/usr_41.txt.html#buffer-functions)
+
 ### Marks
 
 #### Marks
@@ -113,6 +131,8 @@ echo getpos("'<")
 echo getpos("'>")
 ```
 
+See: [Mark functions](https://vimhelp.org/usr_41.txt.html#mark-functions)
+
 ### Cursor
 
 ```vim
@@ -122,6 +142,8 @@ echo getcurpos()
 ```
 
 `getcurpos()` returns `[bufnum, lnum, col, off, curswant]`; `cursor()` takes a line, a column, and an optional offset.
+
+See: [Cursor functions](https://vimhelp.org/usr_41.txt.html#cursor-functions)
 
 ## Paths and files
 
@@ -151,6 +173,8 @@ echo expand("<cword>")
 
 These take the same modifiers as `:help filename-modifiers`.
 
+See: [Filename modifiers](https://vimhelp.org/cmdline.txt.html#filename-modifiers)
+
 ### Files
 
 #### File info
@@ -171,7 +195,10 @@ echo globpath(&rtp, "plugin/foo.vim")
 
 `getfsize()` is `-1` for a missing file, and `globpath()` is empty when nothing matches.
 
+See: [File functions](https://vimhelp.org/usr_41.txt.html#file-functions)
+
 ## Text and syntax
+<!-- {: .-three-column} -->
 
 ### Strings
 
@@ -203,6 +230,8 @@ echo strdisplaywidth("\t")
 
 Slicing and indexing count bytes; `strcharpart()` and `strchars()` count characters.
 
+See: [String functions](https://vimhelp.org/usr_41.txt.html#string-functions)
+
 ### Registers
 
 ```vim
@@ -213,6 +242,8 @@ call setreg("a", "text")
 ```
 
 `getregtype()` returns `v` for charwise, `V` for linewise, and `"\<C-v>"` for blockwise.
+
+See: [Register functions](https://vimhelp.org/usr_41.txt.html#register-functions)
 
 ### Syntax
 
@@ -231,7 +262,10 @@ let ids = synstack(line("."), col("."))
 echo map(ids, 'synIDattr(v:val, "name")')
 ```
 
+See: [Syntax functions](https://vimhelp.org/usr_41.txt.html#syntax-functions)
+
 ## Numbers and types
+<!-- {: .-three-column} -->
 
 ### Math
 
@@ -249,6 +283,8 @@ echo max([3, 1, 2])
 
 `fmod()`, `sqrt()`, and `trunc()` return Floats; `float2nr()` cuts down to an Integer.
 
+See: [fmod()](https://vimhelp.org/builtin.txt.html#fmod%28%29)
+
 ### Casting
 
 ```vim
@@ -260,6 +296,8 @@ echo printf("%.2f", 3.14159)
 ```
 
 `str2nr()` takes an optional base; `string()` quotes a value as Vimscript source.
+
+See: [str2nr()](https://vimhelp.org/builtin.txt.html#str2nr%28%29)
 
 ### Type checking
 
@@ -274,6 +312,8 @@ echo type(v:true) == v:t_bool
 
 `v:t_*` holds the number `type()` returns, so the comparisons read as names.
 
+See: [type()](https://vimhelp.org/builtin.txt.html#type%28%29)
+
 ## Shell and time
 
 ### Shell
@@ -286,6 +326,8 @@ call system("git commit -m " . shellescape(msg))
 
 `system()` returns the output as one string, and `systemlist()` as a list of lines.
 
+See: [System functions](https://vimhelp.org/usr_41.txt.html#system-functions)
+
 ### Date/time
 
 ```vim
@@ -295,6 +337,8 @@ echo localtime()
 ```
 
 `getftime()` is the file's modification time; `localtime()` is the current time as a Number.
+
+See: [Date functions](https://vimhelp.org/usr_41.txt.html#date-functions)
 
 ## Evaluation
 
@@ -309,6 +353,8 @@ echo "hello" !~ "bye"
 
 `==` follows `'ignorecase'`; a trailing `#` or `?` forces case-sensitive or case-insensitive.
 
+See: [expr-==](https://vimhelp.org/eval.txt.html#expr-%3D%3D)
+
 ### Commands
 
 ```vim
@@ -318,3 +364,5 @@ wincmd J
 ```
 
 `normal!` ignores user mappings, and `execute` expands the string first.
+
+See: [:normal](https://vimhelp.org/various.txt.html#%3Anormal)

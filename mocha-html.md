@@ -4,6 +4,18 @@ subtitle: Browser test page template
 category: JavaScript testing
 last_verified_with: "Mocha 12.0.3, Chai 6.3.0."
 updated: 2026-11-24
+tier: t3
+intro: |
+  A minimal HTML page that loads Mocha and Chai in the browser and runs ES module tests.
+links:
+  - title: Mocha documentation
+    url: https://mochajs.org/
+  - title: Running Mocha in the browser
+    url: https://mochajs.org/#running-mocha-in-the-browser
+  - title: Chai documentation
+    url: https://www.chaijs.com/
+  - title: Mocha repository
+    url: https://github.com/mochajs/mocha
 ---
 
 ### Template
@@ -49,3 +61,5 @@ updated: 2026-11-24
 ```
 
 Serve the folder, since module imports do not load over `file://`; test files are ES modules that use the global `expect`.
+
+See: [Running Mocha in the browser](https://mochajs.org/#running-mocha-in-the-browser)

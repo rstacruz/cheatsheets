@@ -4,6 +4,14 @@ subtitle: Document markup language
 category: HTML
 last_verified_with: "WHATWG HTML Living Standard, MDN Web Docs."
 updated: 2026-11-24
+tier: t3
+intro: |
+  How to write HTML documents: doctype, metadata, landmarks, media, forms, and tables.
+links:
+  - title: MDN HTML reference
+    url: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference
+  - title: WHATWG HTML Standard
+    url: https://html.spec.whatwg.org/multipage/
 ---
 
 ## Document
@@ -25,6 +33,8 @@ updated: 2026-11-24
 
 The doctype is not an element and comes first; `<meta charset>` belongs in the first 1024 bytes.
 
+See: [Doctype](https://developer.mozilla.org/en-US/docs/Glossary/Doctype)
+
 ### Viewport
 
 ```html
@@ -33,6 +43,8 @@ The doctype is not an element and comes first; `<meta charset>` belongs in the f
 ```
 
 Match the device width, and leave out `user-scalable=no`, which blocks zoom. `viewport-fit=cover` extends the page under a notch.
+
+See: [viewport meta](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/viewport)
 
 ### Icons
 
@@ -43,6 +55,8 @@ Match the device width, and leave out `user-scalable=no`, which blocks zoom. `vi
 ```
 
 Browsers pick the best match; the 180×180 PNG is the iOS home screen icon, and the `-precomposed` suffix is gone since iOS 7.
+
+See: [rel="icon"](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#icon)
 
 ## Metadata
 
@@ -60,6 +74,8 @@ Browsers pick the best match; the 180×180 PNG is the iOS home screen icon, and 
 
 Chat apps and social sites read the Open Graph tags; `twitter:card` picks the large image layout.
 
+See: [The Open Graph protocol](https://ogp.me/)
+
 ### Scripts
 
 ```html
@@ -70,6 +86,8 @@ Chat apps and social sites read the Open Graph tags; `twitter:card` picks the la
 
 `defer` keeps execution order after parsing, `type="module"` defers as well and enables imports, and `async` runs whenever the file arrives.
 
+See: [script element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script)
+
 ### Preload and fonts
 
 ```html
@@ -79,6 +97,8 @@ Chat apps and social sites read the Open Graph tags; `twitter:card` picks the la
 ```
 
 A font preload needs `crossorigin` even for a same-origin file, or the browser fetches it twice.
+
+See: [rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload)
 
 ## Structure
 
@@ -101,6 +121,8 @@ A font preload needs `crossorigin` even for a same-origin file, or the browser f
 
 Keep one `<main>` per page; a `<header>` or `<footer>` inside `<article>` belongs to that article.
 
+See: [ARIA landmark roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/landmark_role)
+
 ### Inline semantics
 
 ```html
@@ -114,6 +136,8 @@ Keep one `<main>` per page; a `<header>` or `<footer>` inside `<article>` belong
 ```
 
 `<b>` and `<i>` only change appearance; `<strong>` and `<em>` also carry meaning.
+
+See: [Inline text semantics](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#inline_text_semantics)
 
 ### Details and dialog
 
@@ -143,6 +167,8 @@ document.querySelector("#confirm").showModal()
 
 `showModal()` traps focus and adds a backdrop; `show()` opens it without the modal behaviour.
 
+See: [dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)
+
 ## Media
 
 ### Images
@@ -156,6 +182,8 @@ document.querySelector("#confirm").showModal()
 
 Always give `width` and `height` to reserve space, and add `loading="lazy"` below the fold.
 
+See: [Responsive images](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images)
+
 ### Picture
 
 ```html
@@ -167,6 +195,8 @@ Always give `width` and `height` to reserve space, and add `loading="lazy"` belo
 
 The `<img>` inside is required: it renders when no `<source>` matches.
 
+See: [picture element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/picture)
+
 ### Video
 
 ```html
@@ -177,6 +207,8 @@ The `<img>` inside is required: it renders when no `<source>` matches.
 ```
 
 `playsinline` stops iOS from taking the video full screen; `crossorigin` is only needed to read frames in a canvas.
+
+See: [video element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video)
 
 ### Links
 
@@ -190,6 +222,8 @@ The `<img>` inside is required: it renders when no `<source>` matches.
 ```
 
 `target="_blank"` already implies `noopener`; add `rel="noreferrer"` to hide the referrer too.
+
+See: [a element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a)
 
 ## Forms
 
@@ -207,6 +241,8 @@ The `<img>` inside is required: it renders when no `<source>` matches.
 ```
 
 A wrapping `<label>` does not need `for`; the `id`/`for` pair covers the rest.
+
+See: [form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form)
 
 ### Input types
 
@@ -234,6 +270,8 @@ A wrapping `<label>` does not need `for`; the `id`/`for` pair covers the rest.
 | `color` | Color picker, `#rrggbb` |
 | `file` | File picker, `accept` filters types |
 
+See: [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
+
 ### Validation
 
 ```html
@@ -243,6 +281,8 @@ A wrapping `<label>` does not need `for`; the `id`/`for` pair covers the rest.
 ```
 
 Validation runs on submit; `novalidate` on the form opts out, and `:invalid` styles a failing field.
+
+See: [Constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation)
 
 ### Select and datalist
 
@@ -267,6 +307,8 @@ Validation runs on submit; `novalidate` on the form opts out, and `:invalid` sty
 
 A `<select>` limits the choice; a `<datalist>` only suggests values and still accepts free text.
 
+See: [select element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select)
+
 ## Tables
 
 ### Basic table
@@ -285,6 +327,8 @@ A `<select>` limits the choice; a `<datalist>` only suggests values and still ac
 
 `<caption>` names the table; `scope` binds each header to its row or column.
 
+See: [table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table)
+
 ### Spanning cells
 
 ```html
@@ -298,6 +342,8 @@ A `<select>` limits the choice; a `<datalist>` only suggests values and still ac
 ```
 
 Keep spans small: layout tables and deep nesting confuse screen readers.
+
+See: [td element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/td)
 
 ## Legacy
 
@@ -322,6 +368,8 @@ Keep spans small: layout tables and deep nesting confuse screen readers.
 
 Browsers still parse most of these so old pages render, but new markup should use the replacement.
 
+See: [Obsolete features](https://html.spec.whatwg.org/multipage/obsolete.html)
+
 ### Conditional comments
 
 ```html
@@ -331,3 +379,5 @@ Browsers still parse most of these so old pages render, but new markup should us
 ```
 
 Downlevel-hidden comments only ran in IE 9 and older; every other browser treats them as comments.
+
+<!-- see: none: conditional comments were an Internet Explorer feature with no current specification -->

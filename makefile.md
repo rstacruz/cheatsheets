@@ -5,6 +5,16 @@ prism_languages: [makefile]
 category: Build tools
 last_verified_with: "GNU Make 4.4.1."
 updated: 2026-11-24
+tier: t3
+intro: |
+  GNU make builds targets from dependency rules. This reference covers variables, pattern rules, functions, and running make.
+links:
+  - title: GNU Make manual
+    url: https://www.gnu.org/software/make/manual/html_node/index.html
+  - title: make(1) manual
+    url: https://man7.org/linux/man-pages/man1/make.1.html
+  - title: GNU Make source
+    url: https://git.savannah.gnu.org/cgit/make.git
 ---
 
 ## Variables
@@ -25,6 +35,8 @@ REV != git rev-parse --short HEAD
 ```
 
 `=` keeps the right-hand side unexpanded, so `FOO` picks up later changes to `NAME`; `:=` freezes it. Quotes are literal, so `FOO = "bar"` stores `"bar"`.
+
+See: [Setting variables](https://www.gnu.org/software/make/manual/html_node/Setting.html)
 
 ### Automatic variables
 
@@ -47,6 +59,8 @@ $*   # stem of the matched pattern rule
 
 `$(@D)` is the target's directory, so `mkdir -p $(@D)` creates it first.
 
+See: [Automatic variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html)
+
 ## Rules
 
 ### Pattern rules
@@ -58,6 +72,8 @@ build/%.o: src/%.c
 ```
 
 `%` matches any non-empty stem, which is also available as `$*`.
+
+See: [Pattern rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html)
 
 ### Phony targets
 
@@ -73,6 +89,8 @@ clean:
 ```
 
 `.PHONY` stops a name from matching a same-named file; `$(RM)` is `rm -f`.
+
+See: [Phony targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html)
 
 ### Command prefixes
 
@@ -91,6 +109,8 @@ build:
 | `-`    | Ignore the command's error           |
 | `+`    | Run even with `-n`, `-t`, or `-q`    |
 
+See: [Recipe syntax](https://www.gnu.org/software/make/manual/html_node/Recipe-Syntax.html)
+
 ### Include files
 
 ```makefile
@@ -99,6 +119,8 @@ include config.mk   # must exist
 ```
 
 Use `-include` (or `sinclude`) for generated `*.d` dependency files.
+
+See: [Including other makefiles](https://www.gnu.org/software/make/manual/html_node/Include.html)
 
 ## Functions
 
@@ -112,6 +134,8 @@ names := $(notdir $(basename $(srcs)))   # app
 ```
 
 `$(srcs:src/%.c=build/%.o)` is the substitution-reference form of `patsubst`.
+
+See: [Text functions](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html)
 
 ### Shell and conditionals
 
@@ -127,6 +151,8 @@ endif
 
 `$(shell cmd)` runs at parse time and trims the trailing newline. Conditionals are decided before any rule runs.
 
+See: [Shell function](https://www.gnu.org/software/make/manual/html_node/Shell-Function.html)
+
 ## Running make
 
 ### Invocation
@@ -137,6 +163,8 @@ make -C src          # run in another directory
 make -f build.mk     # read another makefile
 ```
 
+See: [make(1)](https://man7.org/linux/man-pages/man1/make.1.html)
+
 ### Recursion
 
 ```makefile
@@ -145,6 +173,8 @@ deploy:
 ```
 
 `$(MAKE)` marks the line as recursive, so `make -n`, `-t` and `-q` still run it; both forms inherit the current flags through `MAKEFLAGS`.
+
+See: [make(1)](https://man7.org/linux/man-pages/man1/make.1.html)
 
 ### Options
 
@@ -163,6 +193,8 @@ make -j8 -k target
 | `-f, --file=FILE`      | Read another makefile         |
 | `-k, --keep-going`     | Continue after errors         |
 | `-s, --silent`         | Don't echo commands           |
+
+See: [make(1) options](https://man7.org/linux/man-pages/man1/make.1.html#OPTIONS)
 
 ## Also see
 

@@ -5,6 +5,14 @@ category: Vim
 html_class: key-codes
 last_verified_with: "vim-rails 5.4."
 updated: 2026-11-24
+tier: t3
+intro: |
+  vim-rails commands for alternate files, abbreviations, extraction, and loading Rails files by type.
+links:
+  - title: vim-rails repository
+    url: https://github.com/tpope/vim-rails
+  - title: vim-rails documentation
+    url: https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt
 ---
 
 ## Alternate files
@@ -18,6 +26,8 @@ updated: 2026-11-24
 
 `:AS`, `:AV`, `:AT`, and `:AD` split, tab, and read the file instead.
 
+See: [Alternate and related files](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L94-L136)
+
 ### What it does
 
 | File              | `:A`              | `:R`            |
@@ -25,6 +35,8 @@ updated: 2026-11-24
 | **Model**         | test/models/      | db/schema.rb    |
 | **Controller**    | test/controllers/ | app/views/      |
 | **View**          | test/controllers/ | app/controllers |
+
+See: [Table of alternates](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L130-L136)
 
 ## Abbreviations
 
@@ -46,6 +58,8 @@ updated: 2026-11-24
 
 Type `:Rabbrev` to list the abbreviations for the current buffer.
 
+See: [:Rabbrev](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L586-L600)
+
 ### Model
 
 | Abbrev   | Expansion               |
@@ -54,6 +68,8 @@ Type `:Rabbrev` to list the abbreviations for the current buffer.
 | `hm(`    | has_many                |
 | `ho(`    | has_one                 |
 | `habtm(` | has_and_belongs_to_many |
+
+See: [Abbreviations](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L608-L634)
 
 ### Controllers
 
@@ -64,12 +80,16 @@ Type `:Rabbrev` to list the abbreviations for the current buffer.
 | `rp(`   | render partial: |
 | `rst(`  | respond_to      |
 
+See: [Abbreviations](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L608-L634)
+
 ### View helpers
 
 | Abbrev  | Expansion                 |
 | ---     | ---                       |
 | `dotiw` | distance_of_time_in_words |
 | `taiw`  | time_ago_in_words         |
+
+See: [Abbreviations](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L608-L634)
 
 ## Extracting
 
@@ -81,6 +101,8 @@ Type `:Rabbrev` to list the abbreviations for the current buffer.
 
 Moves lines 2–3 into `app/views/blog/_post.html.erb` and renders it.
 
+See: [Partial extraction](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L404-L449)
+
 ### From a model
 
 ```vim
@@ -88,6 +110,8 @@ Moves lines 2–3 into `app/views/blog/_post.html.erb` and renders it.
 ```
 
 Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
+
+See: [Partial extraction](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L404-L449)
 
 ## Loading files
 
@@ -101,12 +125,16 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 :Emailer <file>       # app/mailers/*.rb
 ```
 
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
+
 ### DB
 
 ```vim
 :Emigration <file>   # db/migrate/*.rb
 :Eschema             # db/schema.rb
 ```
+
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
 
 ### Lib
 
@@ -116,6 +144,8 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 :Etask <file>   # lib/tasks/*.rake
 ```
 
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
+
 ### Assets
 
 ```vim
@@ -123,12 +153,16 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 :Ejavascript    # current controller's JavaScript
 ```
 
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
+
 ### Views
 
 ```vim
 :Eview      # view for the current controller action
 :Elayout    # layout for the current controller
 ```
+
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
 
 ### Test
 
@@ -140,6 +174,8 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 :Efixtures        # fixtures for the current model
 ```
 
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
+
 ### Config
 
 ```vim
@@ -148,6 +184,8 @@ Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
 :Eenvironment             # config/application.rb
 :Eenvironment development # config/environments/development.rb
 ```
+
+See: [File type commands](https://github.com/tpope/vim-rails/blob/v5.4/doc/rails.txt#L139-L285)
 
 ## Reference
 

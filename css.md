@@ -12,6 +12,16 @@ keywords:
   - "display: block, inline, flex"
   - Selectors
   - Properties
+tier: t3
+intro: |
+  CSS selectors, fonts, backgrounds, and animations, with the shorthand forms.
+links:
+  - title: MDN CSS reference
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS
+  - title: MDN CSS selectors
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
+  - title: W3C CSS
+    url: https://www.w3.org/Style/CSS/
 ---
 
 ## Basics
@@ -39,6 +49,8 @@ keywords:
 | `[disabled]`      | Attribute    |
 | `[role="dialog"]` | Attribute    |
 
+See: [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors)
+
 ### Combinators
 
 | Selector            | Description       |
@@ -48,6 +60,8 @@ keywords:
 | `.child + .sibling` | Adjacent sibling  |
 | `.child ~ .sibling` | Far sibling       |
 | `.class1.class2`    | Have both classes |
+
+See: [Combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators)
 
 ### Attribute selectors
 
@@ -59,6 +73,8 @@ keywords:
 | `[href$=".doc"]`   | `$=` Ends in                        |
 | `[href^="/index"]` | `^=` Begins with                    |
 | `[class*="-is-"]`  | `*=` Contains                       |
+
+See: [Attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
 ### Pseudo-classes
 
@@ -82,6 +98,8 @@ keywords:
 | ---                  | ---                                        |
 | `:empty`             | Elements without children                  |
 
+See: [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
 ### Pseudo-class variations
 
 | Selector          |
@@ -98,9 +116,22 @@ keywords:
 
 <!-- {: .-left-align} -->
 
-## Fonts
+See: [:first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child)
 
-<!-- {: .-left-reference} -->
+## Fonts
+<!-- {: .-three-column} -->
+
+### Shorthand
+<!-- {: .-full-width} -->
+
+|         | style    | weight | size (required) |     | line-height | family            |
+| ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
+| `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
+|         | style    | weight | size (required) |     | line-height | family (required) |
+
+<!-- {: .-css-breakdown} -->
+
+See: [font shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/font#constituent_properties)
 
 ### Properties
 
@@ -120,16 +151,7 @@ keywords:
 
 <!-- {: .-key-values} -->
 
-### Shorthand
-
-<!-- {: .-prime} -->
-
-|         | style    | weight | size (required) |     | line-height | family            |
-| ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
-| `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
-|         | style    | weight | size (required) |     | line-height | family (required) |
-
-<!-- {: .-css-breakdown} -->
+See: [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
 
 ### Example
 
@@ -141,6 +163,8 @@ letter-spacing: 0.02em;
 color: #aa3322;
 ```
 
+See: [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)
+
 ### Case
 
 ```css
@@ -149,9 +173,22 @@ text-transform: uppercase; /* HELLO */
 text-transform: lowercase; /* hello */
 ```
 
+See: [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
+
 ## Background
 
-<!-- {: .-left-reference} -->
+### Shorthand
+<!-- {: .-full-width} -->
+
+|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
+| ------------- | ------ | ------------- | --------- | --------- | --- | -------------- | ----------- | ---------- |
+| `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
+| `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
+|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
+
+<!-- {: .-css-breakdown} -->
+
+See: [background shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/background#constituent_properties)
 
 ### Properties
 
@@ -169,27 +206,35 @@ text-transform: lowercase; /* hello */
 
 <!-- {: .-key-values} -->
 
-### Shorthand
-
-|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-| ------------- | ------ | ------------- | --------- | --------- | --- | -------------- | ----------- | ---------- |
-| `background:` | `#ff0` | `url(bg.jpg)` | `left`    | `top`     | `/` | `100px` `auto` | `no-repeat` | `fixed;`   |
-| `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
-|               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
-
-<!-- {: .-css-breakdown} -->
+See: [background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
 
 ### Multiple backgrounds
 
 ```css
 background:
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
   url('bg.jpg') center / cover, #333;
 ```
 
-## Animation
+See: [Using multiple backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
 
-<!-- {: .-left-reference} -->
+## Animation
+<!-- {: .-three-column} -->
+
+### Shorthand
+<!-- {: .-full-width} -->
+
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
+| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
+| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `running`  |
+|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
+
+<!-- {: .-css-breakdown} -->
+
+See: [animation shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/animation#constituent_properties)
 
 ### Properties
 
@@ -209,24 +254,21 @@ background:
 
 <!-- {: .-key-values} -->
 
-### Shorthand
-
-|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-| ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
-| `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `running`  |
-|              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-
-<!-- {: .-css-breakdown} -->
+See: [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
 
 ### Example
 
 ```css
-animation: bounce 300ms linear 0s infinite normal;
+animation: bounce 300ms linear 0s
+  infinite normal;
 animation: bounce 300ms linear infinite;
-animation: bounce 300ms linear infinite alternate-reverse;
+animation: bounce 300ms linear infinite
+  alternate-reverse;
 animation: bounce 300ms linear 2s infinite
   alternate-reverse forwards running;
 ```
+
+See: [Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 
 ### Event
 
@@ -235,3 +277,5 @@ el.addEventListener('animationend', onEnd)
 ```
 
 `animationend` fires once per element; `animationiteration` fires on each repeat. Vendor prefixes are no longer needed.
+
+See: [animationend event](https://developer.mozilla.org/en-US/docs/Web/API/Element/animationend_event)

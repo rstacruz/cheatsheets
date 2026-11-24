@@ -4,6 +4,18 @@ subtitle: Deep-link metadata standard
 category: HTML
 last_verified_with: "App Links 1.0 metadata spec."
 updated: 2026-11-24
+tier: t3
+intro: |
+  App Links meta tags for deep linking from a web page into mobile apps.
+links:
+  - title: App Links metadata reference
+    url: https://developers.facebook.com/documentation/applinks/metadata-reference
+  - title: App Links overview
+    url: https://developers.facebook.com/docs/applinks/overview
+  - title: Apple Universal Links
+    url: https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content
+  - title: Android App Links
+    url: https://developer.android.com/training/app-links
 ---
 
 ## Metadata
@@ -18,6 +30,8 @@ updated: 2026-11-24
 
 `al:ios:url` is required; swap the prefix for `al:iphone` or `al:ipad` to target one device.
 
+See: [App Links metadata reference](https://developers.facebook.com/documentation/applinks/metadata-reference)
+
 ### Android
 
 ```html
@@ -28,6 +42,8 @@ updated: 2026-11-24
 
 `al:android:package` is required; `al:android:class` names the activity to open.
 
+See: [Android metadata](https://developers.facebook.com/documentation/applinks/metadata-reference)
+
 ### Web fallback
 
 ```html
@@ -37,6 +53,8 @@ updated: 2026-11-24
 
 `al:web:url` defaults to the page URL, and `should_fallback` defaults to `true`.
 
+See: [Web fallback metadata](https://developers.facebook.com/documentation/applinks/metadata-reference)
+
 ### Windows
 
 ```html
@@ -45,6 +63,8 @@ updated: 2026-11-24
 ```
 
 Use the `al:windows_universal` or `al:windows_phone` prefix for those platforms; `app_id` takes a GUID.
+
+See: [Windows metadata](https://developers.facebook.com/documentation/applinks/metadata-reference)
 
 ## Reference
 
@@ -60,6 +80,8 @@ Use the `al:windows_universal` or `al:windows_phone` prefix for those platforms;
 - `web`
 <!-- {: .-enum-wide} -->
 
+See: [Device types](https://developers.facebook.com/documentation/applinks/metadata-reference)
+
 ### Navigation
 
 ```json
@@ -72,6 +94,8 @@ Use the `al:windows_universal` or `al:windows_phone` prefix for those platforms;
 
 The linking app sends this object URL-encoded as an `al_applink_data` query parameter, or in the intent extras on Android.
 
+See: [App Links navigation protocol](https://developers.facebook.com/documentation/applinks/navigation-protocol)
+
 ### Crawling
 
 ```http
@@ -79,6 +103,8 @@ Prefer-Html-Meta-Tags: al
 ```
 
 Ask for the `al:` tags with this request header.
+
+See: [Crawling metadata](https://developers.facebook.com/documentation/applinks/add-to-content)
 
 ### Status
 

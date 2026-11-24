@@ -41,7 +41,7 @@ keywords:
   - Vue Router
   - Pinia
 intro: |
-  [Vue.js](https://vuejs.org/) is a progressive framework for building user interfaces. This guide targets Vue 3.5 with the Composition API and `<script setup>`.
+  [Vue.js](https://vuejs.org/) is a progressive framework for building user interfaces. This guide targets Vue 3.5, the Composition API, and script setup.
 links:
   - title: Vue.js guide
     url: https://vuejs.org/guide/introduction.html
@@ -125,7 +125,7 @@ Use `.value` in script; refs unwrap automatically in templates. See: [Reactivity
   {{ item.name }}
 </li>
 
-<li v-for="(item, i) in items" :key="i">
+<li v-for="(item, i) in items" :key="item.id">
   {{ i }}: {{ item.name }}
 </li>
 
@@ -174,7 +174,7 @@ Binds value and input events in one directive; modifiers include `.lazy`, `.numb
 
 ### Single-file component
 
-```vue
+```html
 <script setup>
 import { ref } from 'vue'
 
@@ -197,7 +197,7 @@ A `.vue` file holds template, logic, and styles; `scoped` limits CSS to the comp
 
 #### Greeting.vue
 
-```vue
+```html
 <script setup>
 defineProps({
   name: { type: String, default: 'World' }
@@ -212,7 +212,7 @@ defineProps({
 
 #### Parent.vue
 
-```vue
+```html
 <template>
   <Greeting name="Ada" />
 </template>
@@ -224,7 +224,7 @@ defineProps({
 
 #### MyButton.vue
 
-```vue
+```html
 <script setup>
 const emit = defineEmits(['increase'])
 
@@ -241,7 +241,7 @@ function click() {
 
 #### Parent.vue
 
-```vue
+```html
 <script setup>
 import { ref } from 'vue'
 const count = ref(0)
@@ -258,7 +258,7 @@ const count = ref(0)
 
 #### Child.vue
 
-```vue
+```html
 <script setup>
 const model = defineModel()
 </script>
@@ -271,7 +271,7 @@ const model = defineModel()
 
 #### Parent.vue
 
-```vue
+```html
 <template>
   <Child v-model="query" />
 </template>
@@ -283,7 +283,7 @@ const model = defineModel()
 
 #### Card.vue
 
-```vue
+```html
 <template>
   <div class="card">
     <header><slot name="header" /></header>
@@ -295,7 +295,7 @@ const model = defineModel()
 
 #### Parent.vue
 
-```vue
+```html
 <template>
   <Card>
     <template #header>Title</template>
@@ -379,6 +379,7 @@ Lazy by default; pass `{ immediate: true }` to run once, and `{ deep: true }` fo
 import { ref, watchEffect } from 'vue'
 
 const query = ref('')
+const results = ref([])
 
 watchEffect(async () => {
   results.value = await search(query.value)
@@ -390,7 +391,7 @@ Tracks every reactive value read in the callback and reruns when they change. Se
 
 ### Template refs
 
-```vue
+```html
 <script setup>
 import {
   onMounted,
@@ -432,6 +433,8 @@ Extract reactive logic into a function that returns refs; call it in setup. See:
 
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
+import About from './views/About.vue'
+import Home from './views/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -470,7 +473,7 @@ route.query.page  // ?page=2
 ```
 <!-- {: data-highlight="useRoute"} -->
 
-The route object is reactive; read it in templates, computed values, or watchers. See: [useRoute](https://router.vuejs.org/api/composables.html#useroute)
+The route object is reactive; read it in templates, computed values, or watchers. See: [useRoute](https://router.vuejs.org/api/functions/useroute)
 
 ### Navigation
 
@@ -529,7 +532,7 @@ Refs become state, computed values become getters, and functions become actions.
 
 ### Use a store
 
-```vue
+```html
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/stores/counter'

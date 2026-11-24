@@ -63,7 +63,7 @@ last_verified_with: "Unicode 18.0.0 charts."
 
 | Frames | Style |
 | --- | --- |
-| `◜◠◝◞◡◟` | Braille spinner |
+| `◜◠◝◞◡◟` | Arc spinner |
 | `❘❙❚` | Tick spinner |
 <!-- {: .-headers} -->
 

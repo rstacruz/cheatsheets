@@ -153,7 +153,7 @@ These take the same modifiers as `:help filename-modifiers`.
 
 ### Files
 
-#### Readability
+#### File info
 
 ```vim
 echo filereadable("file.txt")

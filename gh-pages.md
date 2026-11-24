@@ -2,10 +2,10 @@
 title: GitHub Pages
 subtitle: Static site hosting
 category: Hidden
-# Archived at maintainer request; GitHub Pages itself is still supported.
+# Duplicates deployment details now covered by /jekyll-github and the upstream docs.
 tags: [Archived]
 archived: |
-  Archived at maintainer request. GitHub Pages is still supported; see
+  Archived at maintainer request. Deployment details now live in
   [Jekyll for GitHub Pages](./jekyll-github) and the
   [GitHub Pages documentation](https://docs.github.com/en/pages).
 last_verified_with: "GitHub Pages docs, actions/deploy-pages v4."

@@ -4,70 +4,173 @@ seo_title: Yum cheatsheet — install, update, remove
 description: "Yum commands: install, update, remove, search, list and repositories. Reference."
 subtitle: RPM package manager
 category: Package managers
-updated: 2024-02-07
+updated: 2026-11-24
+last_verified_with: "yum 3.4.3, dnf 4.24."
 ---
 
-## Commands
+## Install and remove
+<!-- {: .-three-column} -->
 
-### Help and lists
+### Install and update
 
-```bash
-yum help                     # Display yum commands and options
-yum list available           # List all available packages
-yum list installed           # List all installed packages
-yum list kernel              # List installed and available kernel packages
-yum info vsftpd              # List info about vsftpd package
+```sh
+yum install vsftpd
+yum check-update
+yum update
 ```
 
-### Searching and dependencies
+### Remove and downgrade
 
-```bash
-yum deplist nfs-utils        # List dependencies for nfs-utils
-yum provides "*bin/top"      # Show package containing top command
-yum search samba             # Find packages with samba in name or description
+```sh
+yum remove vsftpd
+yum autoremove httpd
+yum downgrade abc
 ```
 
-### Updating and security
+`autoremove` also drops dependencies nothing else needs.
 
-```bash
-yum updateinfo security      # Get info on available security updates
-yum update --security        # Apply security-related package updates
+## Search and inspect
+<!-- {: .-three-column} -->
+
+### Search
+
+```sh
+yum search samba
+yum info vsftpd
+yum provides "*bin/top"
 ```
 
-### Managing repositories
+### List packages
 
-```bash
-yum repolist                     # Display enabled software repositories
-yum repoinfo rhel-7-server-rpms  # See info on specific repo
-yum repo-pkgs my-rpms list       # List packages from a specific repo
+```sh
+yum list available
+yum list installed
+yum list kernel
 ```
 
-### Installation and upgrades
+### Dependencies
 
-```bash
-yum install vsftpd           # Install the vsftpd package
-yum update                   # Update all packages
-yum downgrade abc            # Downgrade the abc package to an earlier version
-yum autoremove httpd         # Remove httpd and unneeded packages
+```sh
+yum deplist nfs-utils
 ```
 
-### Package groups
+## Repositories
+<!-- {: .-three-column} -->
 
-```bash
-yum groupinstall "Web server"    # Install Web Server packages
+### List and inspect
+
+```sh
+yum repolist
+yum repoinfo rhel-7-server-rpms
 ```
 
-### Troubleshooting
+### Repository packages
 
-```bash
-yum history list             # List all yum transactions
-yum clean packages           # Delete packages saved in cache
+```sh
+yum repo-pkgs my-rpms list
+yum repo-pkgs my-rpms install
 ```
 
-### Popular options
+### Cache
 
-```bash
--y                           # Assume yes if prompted
---disablerepo=epel           # Disable a specific repo for a command
---downloadonly               # Download package to cache but don't install
+```sh
+yum makecache
+yum clean packages
+yum clean all
 ```
+
+## Security updates
+
+### List advisories
+
+```sh
+yum updateinfo list security
+yum updateinfo list bugfix
+```
+
+### Apply
+
+```sh
+yum update --security
+yum update --security --sec-severity=Critical
+```
+
+## Groups
+<!-- {: .-three-column} -->
+
+### Install a group
+
+```sh
+yum groupinstall "Web Server"
+```
+
+### Inspect groups
+
+```sh
+yum groups list
+yum group info "Web Server"
+```
+
+## History
+<!-- {: .-three-column} -->
+
+### Transactions
+
+```sh
+yum history list
+yum history info 12
+```
+
+### Undo
+
+```sh
+yum history undo 12
+yum history rollback 10
+```
+
+`undo` reverts one transaction; `rollback` reverts everything after the given one.
+
+## Options
+
+### Common flags
+
+| Flag | Effect |
+| --- | --- |
+| `-y` | Assume yes to prompts |
+| `--disablerepo=epel` | Skip a repo for this command |
+| `--enablerepo=epel` | Add a repo for this command |
+
+### Download only
+
+```sh
+yum install --downloadonly --downloaddir=/tmp vsftpd
+```
+
+Without `--downloaddir` the RPMs stay in the yum cache.
+
+## Dnf
+
+### Renamed commands
+
+| yum | dnf |
+| --- | --- |
+| `yum groupinstall "Development Tools"` | `dnf group install "Development Tools"` |
+| `yum repo-pkgs my-rpms list` | `dnf repository-packages my-rpms list` |
+| `yum deplist nfs-utils` | `dnf repoquery --deplist nfs-utils` |
+
+### Same commands
+
+- `install`
+- `remove`
+- `update`
+- `search`
+- `list`
+- `info`
+- `provides`
+- `repolist`
+- `history`
+- `updateinfo`
+- `autoremove`
+<!-- {: .-enum} -->
+
+RHEL 8 and later ship dnf, where `yum` is a compatibility wrapper that accepts the same commands.

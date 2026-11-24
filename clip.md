@@ -2,10 +2,13 @@
 title: Command Line Interface Pages
 subtitle: CLI cheatsheet format
 category: CLI
-updated: 2023-02-23
+updated: 2026-11-24
+last_verified_with: "CLI Pages syntax 2.7.0."
 keywords:
   - CLI
 ---
+
+## Pages
 
 ### Page layout
 
@@ -20,7 +23,23 @@ keywords:
 `command argument1 argument2`
 ```
 
-### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#primitive-placeholders)
+Pages use the `.clip` extension: one `>` summary, then one `-` description per example.
+
+### Summary tags
+
+| Tag | Meaning |
+| --- | --- |
+| `More information:` | Link to the documentation |
+| `See also:` | Comma-separated related commands |
+| `Aliases:` | Other names for the command |
+| `Help:` | Flags that print help |
+| `Version:` | Flags that print the version |
+| `Internal:` | Not called directly |
+| `Deprecated:` | Marked deprecated |
+
+## Placeholders
+
+### [Primitive placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#primitive-placeholders)
 
 ```md
 - Delay in [s]econds:
@@ -28,18 +47,34 @@ keywords:
 `sleep {int seconds: 2}s`
 ```
 
-### [Primitive repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/type-specific/cli.md#repeated-primitive-placeholders)
+### [Optional placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#optional-primitive-placeholders)
 
 ```md
-- [c]reate an archive and write it to a [f]ile:
+- Display a specific image:
 
-`tar {option mode: --create, -c} {option: --file, -f} {/?file archive: target.tar} {/?path+ input}`
+`display {file? image: rose.jpg}`
 ```
 
-### Also see
+### [Repeated placeholders](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/type-specific/cli.md#repeated-primitive-placeholders)
 
-<!-- {: .-one-column} -->
+```md
+- [c]reate an archive of several [f]iles:
 
-* [Render](https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view)
-* [Page's repository](https://github.com/command-line-interface-pages/cli-pages)
-* [Syntax](https://github.com/command-line-interface-pages/syntax/blob/main/base.md)
+`tar -c {/?file archive: target.tar} {/?path+ input}`
+```
+
+#### Quantifiers
+
+| Quantifier | Meaning |
+| --- | --- |
+| `*` | Zero or more arguments |
+| `+` | One or more arguments |
+| `2..10` | Between two and ten arguments |
+| `*!` | Zero or more, no repeats |
+
+## Also see
+
+- [Render](https://github.com/command-line-interface-pages/v2-tooling/tree/main/clip-view)
+- [Page repository](https://github.com/command-line-interface-pages/cli-pages)
+- [Syntax reference](https://github.com/command-line-interface-pages/syntax/blob/main/markdown-based/base.md)
+<!-- {: .-also-see} -->

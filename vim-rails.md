@@ -3,162 +3,152 @@ title: Vim-rails
 subtitle: Rails navigation plugin
 category: Vim
 html_class: key-codes
+last_verified_with: "vim-rails 5.4."
+updated: 2026-11-24
 ---
 
-Alternate files
----------------
+## Alternate files
 
-### Alternate files
+### Jump to alternate
 
-| Command | Description |
-| --- | --- |
-| `:A` |  alternate file (test)          |
-| `:R` |  related file (controller/view) |
+| Command | Description                       |
+| ---     | ---                               |
+| `:A`    | Alternate file (test)             |
+| `:R`    | Related file (controller/view)    |
+
+`:AS`, `:AV`, `:AT`, and `:AD` split, tab, and read the file instead.
 
 ### What it does
 
-| .                     | :A                | :R              |
-| ----                  | ---               | ---             |
-| **Model**             | test/models/      | db/schema.rb    |
-| **Controller method** | test/controllers/ | app/views/      |
-| **View template**     | test/views/       | app/controllers |
+| File              | `:A`              | `:R`            |
+| ---               | ---               | ---             |
+| **Model**         | test/models/      | db/schema.rb    |
+| **Controller**    | test/controllers/ | app/views/      |
+| **View**          | test/controllers/ | app/controllers |
 
-Abbreviations
--------------
+## Abbreviations
 
 ### Prefixes
-
-Type `:Rabbrev` for a full list.
 
 | Abbrev  | Expansion        |
 | ---     | ---              |
 | `AC::`  | ActionController |
 | `AR::`  | ActiveRecord     |
 | `AV::`  | ActionView       |
-| `...`   | ...              |
+| `AM::`  | ActionMailer     |
+| `AS::`  | ActiveSupport    |
+| `AD::`  | ActionDispatch   |
 | ---     | ---              |
 | `logd(` | logger.debug     |
 | `logi(` | logger.info      |
-| `...`   | ...              |
+| `logw(` | logger.warn      |
+| `loge(` | logger.error     |
 
-<!-- {:.no-head.greycode} -->
+Type `:Rabbrev` to list the abbreviations for the current buffer.
 
 ### Model
 
-| Abbrev   | Expansion                 |
-| ---      | ---                       |
-| `bt(`    | `belongs_to`              |
-| `hm(`    | `has_many`                |
-| `ho(`    | `has_one`                 |
-| `habtm(` | `has_and_belongs_to_many` |
-
-<!-- {:.no-head.greycode} -->
+| Abbrev   | Expansion               |
+| ---      | ---                     |
+| `bt(`    | belongs_to              |
+| `hm(`    | has_many                |
+| `ho(`    | has_one                 |
+| `habtm(` | has_and_belongs_to_many |
 
 ### Controllers
 
-| Abbrev  | Expansion        |
-| ---     | ---              |
-| `pa[`   | params           |
-| `re(`   | redirect_to      |
-| `rp(`   | render partial:  |
-| `rst(`  | respond_to       |
+| Abbrev  | Expansion       |
+| ---     | ---             |
+| `pa[`   | params          |
+| `re(`   | redirect_to     |
+| `rp(`   | render partial: |
+| `rst(`  | respond_to      |
 
-<!-- {:.no-head.greycode} -->
+### View helpers
 
-### Views
+| Abbrev  | Expansion                 |
+| ---     | ---                       |
+| `dotiw` | distance_of_time_in_words |
+| `taiw`  | time_ago_in_words         |
 
-| Abbrev  | Expansion                   |
-| ---     | ---                         |
-| `dotiw` | `distance_of_time_in_words` |
-| `taiw`  | `time_ago_in_words`         |
+## Extracting
 
-<!-- {:.no-head.greycode} -->
+### From a view
 
-Extracting partials
--------------------
-
-```rb
-# from view => app/views/home/_foo_partial.haml
-  :Rextract home/foo_partial
+```vim
+:2,3Extract post
 ```
 
-```rb
-# from model => app/models/concerns/foo_concern.rb
-  :Rextract FooConcern
+Moves lines 2–3 into `app/views/blog/_post.html.erb` and renders it.
+
+### From a model
+
+```vim
+:Extract FooConcern
 ```
 
-Loading files
--------------
+Creates `app/models/concerns/foo_concern.rb`. `:Rextract` is the old name.
+
+## Loading files
 
 ### App
 
-```
-:Econtroller <file>     # app/controllers/*_controller.rb
-:Ehelper                # app/helpers/*_helper.rb
-:Emodel <file>          # app/models/*.rb
-:Ejob <file>            # app/jobs/*_job.rb
-:Emailer <file>         # app/mailers/*.rb
+```vim
+:Econtroller <file>   # app/controllers/*_controller.rb
+:Ehelper              # app/helpers/*_helper.rb
+:Emodel <file>        # app/models/*.rb
+:Ejob <file>          # app/jobs/*_job.rb
+:Emailer <file>       # app/mailers/*.rb
 ```
 
 ### DB
 
+```vim
+:Emigration <file>   # db/migrate/*.rb
+:Eschema             # db/schema.rb
 ```
-:Emigration <file>     # db/migrations/*.rb
-:Eschema               # db/schema.rb
-```
-    
+
 ### Lib
 
-```
-:Elib <file>      # lib/*.rb
-:Elib             # Gemfile
-:Etask <file>     # lib/tasks/*.rake
+```vim
+:Elib <file>    # lib/*.rb
+:Elib           # Gemfile
+:Etask <file>   # lib/tasks/*.rake
 ```
 
 ### Assets
 
-```
-:Estylesheet
-:Ejavascript
+```vim
+:Estylesheet    # current controller's stylesheet
+:Ejavascript    # current controller's JavaScript
 ```
 
 ### Views
 
-```
-:Eview
-:Elayout
+```vim
+:Eview      # view for the current controller action
+:Elayout    # layout for the current controller
 ```
 
 ### Test
 
-```
-:Espec
-:Eunittest
-  # test/{unit,models,helpers}/*_test.rb
-  # spec/{unit,models,helpers}/*_spec.rb
-
-:Efunctionaltest
-  # test/{functional,controllers,mailers}/*_test.rb
-  # spec/{functional,controllers,mailers}/*_spec.rb
-
-:Eintegrationtest
-  # test/integration/*_test.rb
-  # spec/{features,requests,integration}/*_spec.rb
-  # features/*.feature
-
-:Efixtures
-:Efunctionaltest
+```vim
+:Espec            # spec/**/*_spec.rb
+:Eunittest        # unit test or model spec
+:Efunctionaltest  # functional test or controller spec
+:Eintegrationtest # integration test or request spec
+:Efixtures        # fixtures for the current model
 ```
 
 ### Config
 
-```
-:Einitializer <file>          # config/initializers/*.rb
-:Elocale                      # config/locales/*.yml
-:Eenvironment                 # application.rb
-:Eenvironment development     # config/environments/*.rb
+```vim
+:Einitializer <file>      # config/initializers/*.rb
+:Elocale                  # config/locales/*.yml
+:Eenvironment             # config/application.rb
+:Eenvironment development # config/environments/development.rb
 ```
 
 ## Reference
 
- * [vim-rails](https://github.com/tpope/vim-rails)
+- [vim-rails](https://github.com/tpope/vim-rails)

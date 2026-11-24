@@ -2,15 +2,21 @@
 title: Mako
 subtitle: Python template compiler
 category: Python
+last_verified_with: "Mako 1.4.3."
+updated: 2026-11-24
 ---
 
-### Basic usage
+## Syntax
+
+### Expressions
 
 ```
 Variable x has content: ${x}
 Expression: ${x + 1}
-Escaped for HTML: ${x | h}
+Escaped for HTML: ${html | h}
 ```
+
+`h` escapes HTML; `u`, `x` and `trim` are the other built-in filters.
 
 ### Control structures
 
@@ -24,18 +30,23 @@ Escaped for HTML: ${x | h}
 % endfor
 ```
 
+A control line starts with `%`, which may be indented but must come before any text.
+
 ### Including Python code
 
-```python
+#### Local variables
+
+```
 <%
     greeting = "Hello world!"
-    # arbitrary python code
 %>
+${greeting}
+```
 
+#### Module level
+
+```
 <%!
-# arbitrary python code run at toplevel
-# cannot access variables!
-
 def sign_string(number):
     if number > 0:
         return "positive"
@@ -46,9 +57,13 @@ def sign_string(number):
 %>
 ```
 
+`<%! %>` runs once when the template compiles, so it cannot read render-time variables.
+
 ### Special blocks
 
-```html
+#### Raw text
+
+```
 <%text filter="h">
     This is a raw block where ${nothing is evaluated}
     <%
@@ -56,17 +71,27 @@ def sign_string(number):
     %>
     and <html is escaped> too with "h" filter
 </%text>
+```
 
+#### Reusable def
+
+```
 <%def name="myfunc(x)">
     this is a reusable macro, with arguments: ${x}
 </%def>
 
 ${myfunc(42)}
+```
 
+#### Comment
+
+```
 <%doc>
     this is a comment
 </%doc>
 ```
+
+`<%doc>` holds a comment block; `##` comments out a single line.
 
 ### Inheritance
 
@@ -78,7 +103,7 @@ ${myfunc(42)}
     <title><%block name="title" /></title>
   </head>
   <body>
-    <header><h1><%block name="title" /></h1></header>
+    <header><h1>${self.title()}</h1></header>
     <main>${self.body()}</main>
   </body>
 </html>
@@ -102,13 +127,27 @@ This is the body
 ${post.content}
 ```
 
+`${self.body()}` renders the inheriting template; `${self.title()}` renders a block twice, since a name may only be defined once.
+
 ## Library
 
-### Basic usage
+### Render a string
 
 ```python
 from mako.template import Template
 
-mytemplate = Template("hello, ${name}!")
-print(mytemplate.render(name="jack"))
+print(Template("hello, ${name}!").render(name="jack"))
 ```
+<!-- {: data-highlight="Template"} -->
+
+### Load templates from disk
+
+```python
+from mako.lookup import TemplateLookup
+
+lookup = TemplateLookup(directories=["templates"])
+print(lookup.get_template("home.html").render())
+```
+<!-- {: data-highlight="TemplateLookup"} -->
+
+`TemplateLookup` resolves `<%inherit>` and `<%include>` paths against its directories.

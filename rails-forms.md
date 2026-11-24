@@ -2,26 +2,27 @@
 title: Rails form helpers
 subtitle: Form builder field reference
 category: Rails
+last_verified_with: "Rails 8.1.4.1."
+updated: 2026-11-24
 ---
 
 ## Form builder
 
-### Form builder
+### `form_with`
 
 ```haml
-- form_for @post do |f|
+= form_with model: @post do |f|
 ```
 
-Field names will be prefixed with `post` (the class name), and values will be derived from this object (eg, `f.text_field :name` from `@post.name`).
+Field names are prefixed with `post` (the model's param key), and values come from the object: `f.text_field :name` reads `@post.name`.
 
 ### Options
 
 ```haml
-- form_for @post, |
-  url: { method: 'put', action: 'create' }, |
-  html: { class: 'nifty_form' } |
-  do |f|
+= form_with model: @post, url: posts_path do |f|
 ```
+
+Pass `url:` when there is no model, or to override the generated action; other options become HTML attributes.
 
 ## Fields
 
@@ -29,7 +30,7 @@ Field names will be prefixed with `post` (the class name), and values will be de
 
 ```rb
 f.text_field :title
-f.text_area :body, size: '60x12'
+f.text_area :body, size: "60x12"
 ```
 
 ### Checkbox
@@ -42,10 +43,10 @@ f.label :remember_me, "Remember me"
 ### Radio
 
 ```rb
-f.radio_button :gender, 'male'
+f.radio_button :gender, "male"
 f.label :gender_male, "Male"
 
-f.radio_button :gender, 'female'
+f.radio_button :gender, "female"
 f.label :gender_female, "Female"
 ```
 
@@ -55,7 +56,7 @@ f.label :gender_female, "Female"
 f.label :title
 f.label :title, "Title"
 f.label :title, "Title", class: "title"
-f.label(:post, :terms) { "Accept terms" }
+f.label(:terms) { "Accept terms" }
 ```
 
 ### Submit button
@@ -70,7 +71,51 @@ f.submit "Create"
 f.hidden_field :id
 ```
 
-## Misc
+## Choices
+
+### Fields for
+
+```haml
+= form_with model: @post do |f|
+  = f.fields_for :author do |ff|
+    = ff.text_field :name
+```
+
+Nested fields need `accepts_nested_attributes_for` on the model.
+
+### Select dropdowns
+
+#### With selected value
+
+```rb
+f.select :city_id, [["Lisbon", 1], ["Madrid", 2]], selected: 2
+```
+
+#### Option tags
+
+```rb
+options_for_select [["Lisbon", 1], ["Madrid", 2]], 2
+```
+
+`options_for_select` builds the `<option>` tags; its second argument pre-selects.
+
+### Collections
+
+```rb
+f.collection_select :city_id, City.all, :id, :name
+f.collection_radio_buttons :author_id, Author.all, :id, :name
+```
+
+Arguments are field, collection, value method, and label method.
+
+### Date and time selects
+
+```rb
+f.time_zone_select :time_zone
+f.date_select :birthday
+```
+
+## Details
 
 ### The model
 
@@ -78,38 +123,15 @@ f.hidden_field :id
 f.object
 ```
 
-### Fields for
-
-```haml
-= form_for @post do |f|
-  = fields_for :author, @post.author do |ff|
-    = ff.text_field :name
-```
-
-### Select dropdowns
+### Outside `f`
 
 ```rb
-f.select :city_id, [['Lisbon',1], ['Madrid',2], ...], 4
-# (4 = selected)
-
-options_for_select [['Lisbon',1], ['Madrid',2], ...], 4
-# Just makes <option> tags
+radio_button("post", "category", "rails")
+radio_button("post", "category", "java")
 ```
 
-### Collections
+Both buttons post to `post[category]`; the one matching `@post.category` renders checked.
 
-```
-f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial
-f.collection_select :city_id, City.all, :id, :name
-# (field, collection, value_key, label_key)
-```
-
-### Time select
-
-```rb
-f.time_zone_select :time_zone
-f.date_select :birthday
-```
 ### I18n
 
 ```yaml
@@ -130,23 +152,9 @@ helpers:
       body: "Your body text"
 ```
 
-### Outside `f`
-
-```rb
-radio_button("post", "category", "rails")
-radio_button("post", "category", "java")
-
-# picks from @post.category
-# <input type="radio" id="post_category_rails" name="post[category]"
-#  value="rails" checked="checked" />
-```
-
 ### Reference
 
 ```rb
 select(method, choices = nil, options = {}, html_options = {}, &block)
-  choices == [ ['label', id], ... ]
-
-submit(value=nil, options={})
+submit(value = nil, options = {})
 ```
-

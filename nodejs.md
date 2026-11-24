@@ -2,57 +2,121 @@
 title: Node.js API
 subtitle: Server-side JavaScript API
 category: Node.js
+updated: 2026-11-24
+last_verified_with: "Node.js 26.13.1."
 ---
 
-### Globals
+## Globals
 
+### Module globals
+
+| Global | Availability |
+| --- | --- |
+| `__dirname` | CommonJS only |
+| `__filename` | CommonJS only |
+| `require` | CommonJS only |
+| `module` | CommonJS only |
+| `import.meta.dirname` | ESM only, Node 20.11+ |
+| `import.meta.filename` | ESM only, Node 20.11+ |
+| `import.meta.url` | ESM only, a `file://` URL |
+
+CommonJS scripts get `__dirname`; ESM modules use `import.meta.dirname` instead.
+
+### Process
+
+```js
+process.env.NODE_ENV   // 'production'
+process.argv           // [node, script, '--flag']
+process.exitCode = 1   // let the event loop drain
+process.stdout.write('hi\n')
 ```
-__filename
-__dirname
-```
+
+`process.exit()` skips pending work; prefer setting `exitCode`.
+
+## Child processes
 
 ### exec
 
-```
-var exec = require('child_process').exec,
+```js
+import { exec } from 'node:child_process'
+import { promisify } from 'node:util'
 
-var child = exec('cat *.js bad_file | wc -l',
-  function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-});
+const { stdout } = await promisify(exec)('ls -1')
+
+console.log(stdout)
 ```
 
-### Snippets
+`exec` runs a shell command and buffers output, up to 1 MiB by default.
 
-```
-info = require('../package.json')
-info.version
+### spawn
 
-process.stdout.write(util.inspect(objekt, false, Infinity, true) + '\n');
-```
+```js
+import { spawn } from 'node:child_process'
 
-### Spawn - passthru the in/out
+const child = spawn('git', ['status'], { stdio: 'inherit' })
 
-```
-var spawn = require('child_process').spawn;
-var proc = spawn(bin, argv, { stdio: 'inherit' });
-proc.on('error', function(err) {
-  if (err.code == "ENOENT") { "does not exist" }
-  if (err.code == "EACCES") { "not executable" }
-});
-proc.on('exit', function(code) { ... });
+child.on('error', (err) => {
+  console.error(err.code)  // 'ENOENT' when not installed
+})
 
-// also { stdio: ['pipe', 'pipe', process.stdout] }
-// also { stdio: [process.stdin, process.stderr, process.stdout] }
-
-proc.stdout.on('data', function (data) {
-});
-proc.stderr.on('data', function (data) {
-});
+child.on('exit', (code, signal) => {
+  console.log(code, signal)
+})
 ```
 
-[all]: http://nodejs.org/api/all.html
+Pass arguments as an array; `stdio: 'inherit'` wires the child to your terminal.
+
+### Pipe to a child
+
+```js
+import { spawn } from 'node:child_process'
+
+const child = spawn('grep', ['foo'], {
+  stdio: ['pipe', 'pipe', 'inherit']
+})
+
+child.stdout.on('data', (chunk) => process.stdout.write(chunk))
+child.stdin.end('foo\nbar\n')
+```
+
+### Run and wait
+
+```js
+import { spawnSync } from 'node:child_process'
+
+const { status, error } = spawnSync('definitely-not-installed', [])
+
+status      // null
+error.code  // 'ENOENT'
+```
+
+`spawnSync` blocks until the child exits; `status` is non-zero on failure.
+
+## Modules
+
+### Read package.json
+
+```js
+import pkg from './package.json' with { type: 'json' }
+
+console.log(pkg.version)
+```
+
+ESM needs the `with { type: 'json' }` attribute; CommonJS can `require` JSON directly.
+
+### Inspect values
+
+```js
+import { inspect } from 'node:util'
+
+console.log(inspect({ a: { b: { c: 1 } } }, { depth: Infinity }))
+// { a: { b: { c: 1 } } }
+```
+
+`inspect` keeps nested objects readable; `console.log` uses it by default.
+
+## References
+
+- <https://nodejs.org/docs/latest-v26.x/api/globals.html>
+- <https://nodejs.org/docs/latest-v26.x/api/child_process.html>
+- <https://nodejs.org/docs/latest-v26.x/api/esm.html>

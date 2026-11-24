@@ -2,60 +2,123 @@
 title: Pass
 subtitle: Command-line password store
 category: CLI
+updated: 2026-11-24
+last_verified_with: "pass 1.7.4, pass-otp 1.2.0."
 ---
 
-Reference
----------
+## Store passwords
+<!-- {: .-three-column} -->
 
-### Create
-
-```sh
-$ pass init [-p] <gpg-id>
-$ pass git init
-$ pass git remote add origin <your.git:repository>
-$ pass git push -u --all
-```
-
-### Store
+### Initialize
 
 ```sh
-$ pass insert [-m] twitter.com/rsc
-$ pass generate [-n] twitter.com/rsc length
+pass init me@example.com
+pass init -p work team@example.com
 ```
 
-### Retrieve
+`-p` encrypts one subfolder with its own key.
+
+### Insert
 
 ```sh
-$ pass ls twitter.com/
-$ pass show twitter.com/rsc
-$ pass -c twitter.com/rsc
+pass insert twitter.com/rsc
+pass insert -m amazon/bookreader
 ```
+
+`-m` reads multiple lines until `EOF`; `-e` echoes the input.
+
+### Generate
+
+```sh
+pass generate twitter.com/rsc 20
+pass generate -n -c twitter.com/rsc 20
+```
+
+`-n` drops symbols, `-c` copies to the clipboard, `-i` keeps the rest of the file.
+
+## Read passwords
+<!-- {: .-three-column} -->
+
+### Show
+
+```sh
+pass ls twitter.com/
+pass show twitter.com/rsc
+pass show -c twitter.com/rsc
+```
+
+`-c` copies the first line and clears the clipboard after 45 seconds.
 
 ### Search
 
 ```sh
-$ pass find twitter.com
+pass find twitter.com
+pass grep -i api_key
 ```
 
-### Management
+`find` matches entry names; `grep` decrypts every file and matches contents.
+
+## Manage entries
+<!-- {: .-three-column} -->
+
+### Move, copy, remove
 
 ```sh
-$ pass mv twitter.com twitter.com/rsc
-$ pass rm [-rf] twitter.com
-$ pass cp twitter.com/rsc twitter.com/ricosc
+pass mv twitter.com twitter.com/rsc
+pass cp twitter.com/rsc twitter.com/ricos
+pass rm -r twitter.com
 ```
 
+Entries are re-encrypted for their new folder's key.
+
+### Edit
+
 ```sh
-$ pass edit twitter.com/rsc
+pass edit twitter.com/rsc
 ```
+
+## Git
+
+### Track changes
+
+```sh
+pass git init
+pass git remote add origin git@example.com:me/store.git
+pass git push -u --all
+```
+
+Every `pass` command commits on its own.
 
 ### Synchronize
 
 ```sh
-$ pass git push
-$ pass git pull
+pass git pull --rebase
+pass git push
 ```
 
-## References
+## One-time passwords
 
-* <https://passwordstore.org>
+### Insert a token
+
+```sh
+pass otp insert work/example
+zbarimg -q --raw qr.png | pass otp insert work/example
+```
+
+Needs the `pass-otp` extension.
+
+### Generate a code
+
+```sh
+pass otp work/example
+pass otp -c work/example
+```
+
+`pass otp uri work/example` prints the stored `otpauth://` URI.
+
+## Also see
+
+- [pass homepage](https://www.passwordstore.org)
+- [pass man page](https://git.zx2c4.com/password-store/about/)
+- [pass-otp](https://github.com/tadfisher/pass-otp)
+<!-- {: .-also-see} -->

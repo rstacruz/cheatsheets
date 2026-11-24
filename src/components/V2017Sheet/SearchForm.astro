@@ -30,9 +30,9 @@ const styles = {
     cx(
       'SearchForm__box',
       'flex items-center rounded-full bg-card cursor-text',
-      '[box-shadow:var(--shadow-md)]',
-      'focus-within:[box-shadow:var(--shadow-focus)]',
-      small ? 'h-[48px]' : 'h-[64px]'
+      small ? 'h-[48px]' : 'h-[64px]',
+      small ? '' : '[box-shadow:var(--shadow-md)]',
+      'focus-within:[box-shadow:var(--shadow-focus)]'
     ),
   prefix: (small: boolean) =>
     cx(

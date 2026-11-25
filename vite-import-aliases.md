@@ -18,7 +18,7 @@ links:
 ## Aliasing imports
 <!-- {: .-snippets} -->
 
-### Alias `@` to `src`
+### Alias @ to src
 <!-- {: .-snippet} -->
 
 ```ts
@@ -49,7 +49,7 @@ formatDate(new Date())
 ```
 <!-- {: data-highlight="@/lib/date.js"} -->
 
-**Keeps deep imports short.** Any path starting with `@` is rewritten, so `../../lib/date.js` becomes `@/lib/date.js`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
+**Keeps deep imports short.** Vite rewrites `@/…` imports to `src`, so `@/lib/date.js` stands in for `../../lib/date.js`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
 
 ### Teach TypeScript the paths
 <!-- {: .-snippet} -->
@@ -59,6 +59,7 @@ formatDate(new Date())
 ```json
 {
   "compilerOptions": {
+    "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
@@ -68,7 +69,7 @@ formatDate(new Date())
 ```
 <!-- {: data-highlight="paths"} -->
 
-**Mirrors the alias for editors and `tsc`.** Vite rewrites imports at build time but TypeScript reads only `paths`, so keep both maps in step; see [`paths`](https://www.typescriptlang.org/tsconfig/#paths).
+**Mirrors the alias for editors and `tsc`.** Vite rewrites imports in dev and build, but TypeScript reads only `paths`, so keep both maps in step; see [`paths`](https://www.typescriptlang.org/tsconfig/#paths).
 
 ### Keep targets absolute
 <!-- {: .-snippet} -->
@@ -95,7 +96,7 @@ resolve: {
 ```
 <!-- {: data-highlight="'@': src"} -->
 
-**Uses an absolute path, not a relative one.** A relative alias is substituted as-is and fails when Vite runs from another directory, with `Could not load ./src/…`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
+**Uses an absolute path, not a relative one.** A relative value is used as-is, so dev fails with `Failed to resolve import …` and build warns or fails with `Could not load ./src/…`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
 
 ### Add a second prefix
 <!-- {: .-snippet} -->
@@ -105,7 +106,7 @@ const src = fileURLToPath(
   new URL('./src', import.meta.url),
 )
 const assets = fileURLToPath(
-  new URL('./public/assets', import.meta.url),
+  new URL('./src/assets', import.meta.url),
 )
 
 export default defineConfig({

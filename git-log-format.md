@@ -68,6 +68,12 @@ See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
+### Misc
+
+| Variable | Description |
+| --- | --- |
+| `%n` | new line |
+
 ## Author and committer
 
 ### Author

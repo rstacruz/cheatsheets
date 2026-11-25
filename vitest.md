@@ -115,7 +115,7 @@ describe('cart', () => {
 ```
 <!-- {: data-highlight="describe("} -->
 
-`it` and `test` are the same function; `describe` only groups names.
+`it` and `test` are the same function; `describe` scopes hooks and data to a suite.
 
 See: [describe](https://vitest.dev/api/describe)
 
@@ -146,11 +146,7 @@ it('loads a user', async () => {
 ```
 <!-- {: data-highlight="await"} -->
 
-Return or await the promise; an unhandled rejection fails the run.
-
-See: [test()](https://vitest.dev/api/test#test)
-
-### Polling
+#### Polling
 
 ```js
 await vi.waitFor(() => {
@@ -159,9 +155,9 @@ await vi.waitFor(() => {
 ```
 <!-- {: data-highlight="vi.waitFor"} -->
 
-`vi.waitFor()` retries the callback until it stops throwing. `expect.poll()` is the same idea as a matcher.
+Return or await the promise; an unhandled rejection fails the run. `vi.waitFor()` retries its callback until it stops throwing, and `expect.poll()` does the same as a matcher.
 
-See: [vi.waitFor](https://vitest.dev/api/vi#vi-waitfor)
+See: [test()](https://vitest.dev/api/test#test), [vi.waitFor()](https://vitest.dev/api/vi#vi-waitfor)
 
 ### Setup and teardown
 
@@ -210,22 +206,6 @@ it.todo('write more tests')
 `.only` is rejected when `CI` is set unless you pass `--allowOnly`.
 
 See: [test.only](https://vitest.dev/api/test#test-only)
-
-### Type tests
-
-```ts
-import { expectTypeOf, test } from 'vitest'
-
-test('returns a number', () => {
-  expectTypeOf(add(1, 2))
-    .toEqualTypeOf<number>()
-})
-```
-<!-- {: data-highlight="expectTypeOf"} -->
-
-Type tests live in `*.test-d.ts` files and run with `vitest --typecheck`.
-
-See: [Type testing](https://vitest.dev/guide/testing-types)
 
 ## Mocking
 
@@ -459,7 +439,7 @@ See: [CLI commands](https://vitest.dev/guide/cli#commands)
 | `--coverage` | Coverage report |
 | `--reporter=verbose` | One line per test |
 | `--bail 1` | Stop after the first failure |
-| `--shard 2/4` | Run one CI shard |
+| `--shard 2/4` | One CI shard, run mode only |
 | `--changed` | Tests affected by git changes |
 | `--update` | Rewrite snapshots |
 | `--project unit` | One project only |

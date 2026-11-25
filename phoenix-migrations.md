@@ -33,6 +33,13 @@ $ mix phx.gen.schema Message messages \
 
 Generates a schema and migration; `phoenix.gen.model` is gone since Phoenix 1.3.
 
+### Creating schemas
+```bash
+$ mix phx.gen.schema Blog.Post blog_posts title:string views:integer
+```
+
+This is for Phoenix 1.3+; this replaces models.
+
 ### Creating context
 
 ```bash

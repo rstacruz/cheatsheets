@@ -655,3 +655,11 @@ export default defineConfig({
 `hmr.overlay: false` hides the error overlay. Socket options moved to `server.ws`; the old `server.hmr` fields are deprecated but still synced.
 
 See: [server.ws](https://vite.dev/config/server-options#server-ws)
+
+## Also see
+
+[Webpack cheatsheet](./webpack)
+<!-- {: .-crosslink} -->
+
+[Rollup.js cheatsheet](./rollup)
+<!-- {: .-crosslink} -->

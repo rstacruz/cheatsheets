@@ -37,7 +37,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="alias"} -->
 
-**Points `@` at the `src` folder.** Vite applies the map in dev and in builds; `fileURLToPath` turns the module URL into the absolute path it expects. See [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
+**Points `@` at the `src` folder.** `fileURLToPath` turns the module URL into the absolute path Vite expects in dev and builds; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
 
 ### Import through the alias
 <!-- {: .-snippet} -->
@@ -49,7 +49,7 @@ formatDate(new Date())
 ```
 <!-- {: data-highlight="@/lib/date.js"} -->
 
-**Keeps deep imports short.** Vite rewrites `@/…` imports to `src`, so `@/lib/date.js` stands in for `../../lib/date.js`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
+**Imports from `src` through `@`.** Vite rewrites `@/…` imports to `src`, so `@/lib/date.js` stands in for `../../lib/date.js`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
 
 ### Teach TypeScript the paths
 <!-- {: .-snippet} -->
@@ -69,9 +69,9 @@ formatDate(new Date())
 ```
 <!-- {: data-highlight="paths"} -->
 
-**Mirrors the alias for editors and `tsc`.** Vite rewrites imports in dev and build, but TypeScript reads only `paths`, so keep both maps in step; see [`paths`](https://www.typescriptlang.org/tsconfig/#paths).
+**Mirrors the alias for editors and `tsc`.** TypeScript reads `paths`, not Vite's `alias`, so keep both maps in step; see [`paths`](https://www.typescriptlang.org/tsconfig/#paths).
 
-### Keep targets absolute
+### Relative vs absolute targets
 <!-- {: .-snippet} -->
 
 #### Relative
@@ -94,11 +94,11 @@ resolve: {
   alias: { '@': src },
 }
 ```
-<!-- {: data-highlight="'@': src"} -->
+<!-- {: data-highlight="new URL('./src', import.meta.url)"} -->
 
 **Uses an absolute path, not a relative one.** A relative value is used as-is, so dev fails with `Failed to resolve import …` and build warns or fails with `Could not load ./src/…`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
 
-### Add a second prefix
+### Add a second alias
 <!-- {: .-snippet} -->
 
 ```ts
@@ -117,4 +117,4 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="'@assets'"} -->
 
-**Maps several folders in one object.** A string key matches only at a path boundary, so `@` does not catch `@assets`, and regex keys are allowed in the array form; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).
+**Maps several folders in one object.** A string key matches only at a path boundary, so `@` does not catch `@assets`; see [resolve.alias](https://vite.dev/config/shared-options#resolve-alias).

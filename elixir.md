@@ -143,7 +143,7 @@ else
 end
 ```
 
-See: [if](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#if/2)
+See: [if](https://hexdocs.pm/elixir/Kernel.html#if/2)
 
 ### Case
 

@@ -2,7 +2,7 @@
 title: ES2015+
 subtitle: Modern JavaScript features
 category: JavaScript
-last_verified_with: "ECMAScript 2015."
+last_verified_with: "ECMAScript 2018."
 updated: 2019-11-14
 tier: t3
 weight: -10

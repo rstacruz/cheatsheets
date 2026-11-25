@@ -76,7 +76,7 @@ See: [Command line](https://vite.dev/guide/cli)
 ```
 <!-- {: data-highlight="main.js"} -->
 
-`index.html` is the build entry and part of the module graph, so refs are rebased automatically. There is no template syntax or `%PUBLIC_URL%` placeholder.
+`index.html` is the build entry and part of the module graph, so refs are rebased automatically. `%MODE%`-style placeholders read env values; there is no `%PUBLIC_URL%`.
 
 See: [index.html and project root](https://vite.dev/guide/#index-html-and-project-root)
 
@@ -118,11 +118,11 @@ vite build --base=/app/ --sourcemap
 | `--target <target>` | Transpile target |
 | `--outDir <dir>` | Output directory, `dist` |
 | `--minify [minifier]` | `oxc` by default, `false` to skip |
-| `--manifest [name]` | Emit `.vite/manifest.json` |
+| `--manifest [name]` | Emit a build manifest |
 | `--ssr [entry]` | Build a server entry |
 | `--watch` | Rebuild on change |
 
-Vite 8 bundles with Rolldown and minifies with Oxc. `--minify esbuild` and `terser` remain as opt-ins.
+Vite 8 bundles with Rolldown and minifies with Oxc. `--minify esbuild` and `terser` work only if you install them.
 
 See: [Build CLI](https://vite.dev/guide/cli#build)
 
@@ -187,7 +187,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="alias"} -->
 
-Plain string aliases resolve from the project root. Also add the path to `tsconfig.json` `paths` for editor types.
+Filesystem aliases need absolute paths; a relative value is used as-is and resolves from the working directory. Also add the path to `tsconfig.json` `paths` for editor types.
 
 See: [resolve.alias](https://vite.dev/config/shared-options#resolve-alias)
 
@@ -244,7 +244,7 @@ See: [Using plugins](https://vite.dev/guide/using-plugins)
 
 | Plugin | Framework |
 | --- | --- |
-| `@vitejs/plugin-react` | React, Babel |
+| `@vitejs/plugin-react` | React, Oxc |
 | `@vitejs/plugin-react-swc` | React, SWC |
 | `@vitejs/plugin-vue` | Vue |
 | `@sveltejs/vite-plugin-svelte` | Svelte |
@@ -271,7 +271,7 @@ See: [Official plugins](https://vite.dev/plugins/)
 ```
 <!-- {: data-highlight="transform"} -->
 
-`enforce: 'pre'` runs before Vite's core plugins; `'post'` runs after them. Hooks receive only files matching `filter`.
+`enforce: 'pre'` runs before Vite's core plugins; `'post'` after them but before minify. Hooks receive only files matching `filter`.
 
 See: [Plugin API](https://vite.dev/guide/api-plugin)
 
@@ -301,7 +301,7 @@ See: [configureServer](https://vite.dev/guide/api-plugin#configureserver)
 | `configResolved` | With the final config |
 | `configureServer` | On dev server setup |
 | `transformIndexHtml` | On each HTML entry |
-| `handleHotUpdate` | To filter HMR updates |
+| `hotUpdate` | To customise HMR updates |
 
 Rolldown hooks (`resolveId`, `load`, `transform`) also run in dev, one module at a time.
 
@@ -458,7 +458,7 @@ vite build --ssr src/entry-server.js
 ```
 <!-- {: data-highlight="--ssr"} -->
 
-Writes `dist/entry-server.mjs`. Add `--ssrManifest` to emit the client asset map that `ssrLoadModule` consumers read.
+Writes `dist/entry-server.js`, or `.mjs` when `package.json` has no `"type": "module"`. `--ssrManifest` on the client build emits `.vite/ssr-manifest.json`.
 
 See: [SSR](https://vite.dev/guide/ssr)
 
@@ -522,7 +522,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="envPrefix; envDir"} -->
 
-`envPrefix` replaces the `VITE_` prefix and accepts an array. `envDir` moves where `.env` files are read from; shell vars still take precedence.
+`envPrefix` replaces the `VITE_` prefix and accepts an array. `envDir` sets the directory those files are read from, relative to the project root.
 
 See: [envPrefix](https://vite.dev/config/shared-options#envprefix)
 
@@ -578,7 +578,7 @@ export let count = 0
 
 if (import.meta.hot) {
   import.meta.hot.accept((mod) => {
-    console.log('count is now', mod.count)
+    console.log('count is now', mod?.count)
   })
 }
 ```
@@ -597,7 +597,7 @@ render()
 
 if (import.meta.hot) {
   import.meta.hot.accept('./render.js', (mod) => {
-    mod.render()
+    mod?.render()
   })
 }
 ```
@@ -638,7 +638,7 @@ if (import.meta.hot) {
 
 `invalidate()` pushes the update to importers as if this module never accepted; `hot.decline()` is a no-op kept for compatibility.
 
-See: [hot.invalidate](https://vite.dev/guide/api-hmr#hot-invalidate)
+See: [hot.invalidate](https://vite.dev/guide/api-hmr#hot-invalidate-message-string)
 
 ### WebSocket options
 

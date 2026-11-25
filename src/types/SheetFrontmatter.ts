@@ -4,6 +4,10 @@ const NOTE_DATE =
   /\b(?:19|20)\d{2}-\d{1,2}(?:-\d{1,2})?\b|\b\d{1,2}[/-]\d{1,2}[/-](?:19|20)\d{2}\b|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+(?:19|20)\d{2}\b|\b\d{1,2}\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(?:19|20)\d{2}\b/i
 const NOTE_PR = /#\d+\b/
 
+export const SHEET_LAYOUTS = ['snippet', 'versus'] as const
+
+export type SheetLayout = (typeof SHEET_LAYOUTS)[number]
+
 export const SheetLinkSchema = z.object({
   title: z.string().min(1).describe('Link text.'),
   url: z.string().min(1).describe('Absolute URL or page-relative path.')
@@ -77,10 +81,10 @@ export const SheetFrontmatterSchema = z
         'Review tier: t1 weekly, t2 every six weeks, t3 best effort; see `_docs/tiers.md`. A t1 <title> ends with the `updated` month and year.'
       ),
     layout: z
-      .enum(['snippet'])
+      .enum(SHEET_LAYOUTS)
       .optional()
       .describe(
-        'Page layout: `snippet` uses the two-column snippet cards and omits "cheatsheet" from the H1.'
+        'Page layout: `snippet` uses the two-column snippet cards and omits "cheatsheet" from the H1; `versus` gives every H3 card full width with one H4 column each.'
       ),
     fragments: z
       .array(z.string().trim().min(1).max(16))

@@ -28,12 +28,14 @@ const page = props.page
 const pages = await getPages()
 const sheetCount = getListedSheetCount(pages)
 const snippetLayout = page.frontmatter.layout === 'snippet'
+const versusLayout = page.frontmatter.layout === 'versus'
 const editUrl = getEditLink(page)
 const mkdn = await render(page.markdown, {
   intro: page.frontmatter.intro,
   links: page.frontmatter.links,
   atEnd: snippetLayout,
-  linksTitle: snippetLayout ? 'Related links' : undefined
+  linksTitle: snippetLayout ? 'Related links' : undefined,
+  layout: page.frontmatter.layout
 })
 const seoProps = getSEOPropsForPage(page)
 const jsonLdSchemas = getJSONLDsForPage(page)
@@ -132,7 +134,7 @@ const headingStyles = {
     <div class={headingStyles.spacer}></div>
 
     <main
-      class="post-content MarkdownBody"
+      class={cx('post-content MarkdownBody', versusLayout && '-versus')}
       data-js-main-body
       data-js-anchors
       role="main"
@@ -163,6 +165,7 @@ const headingStyles = {
   @import '../styles/markdown/h3-section.css';
   @import '../styles/markdown/h3-section-list.css';
   @import '../styles/markdown/snippet.css';
+  @import '../styles/markdown/versus.css';
   @import '../styles/markdown/hint-mark.css';
 </style>
 

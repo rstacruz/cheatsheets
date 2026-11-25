@@ -2,6 +2,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
+import type { SheetLayout } from '~/types/SheetFrontmatter'
 import { rehypeInlineHighlight } from './inlineHighlight'
 import { renderMarkdown } from './index'
 import { insertIntroCard, type IntroOptions } from './intro'
@@ -64,10 +65,27 @@ const REHYPE_SECTIONIZE_CONFIG = [
 ]
 
 /**
+ * Versus layout: each H4 starts a column inside its H3 card.
+ */
+
+const VERSUS_H4_CONFIG = {
+  level: 'h4',
+  prelude: { enabled: false },
+  section: {
+    addHeadingClass: true,
+    properties: { className: 'h4-section' },
+    tagName: 'div'
+  }
+}
+
+/**
  * Renders Markdown to HTML and applies some post-processing.
  */
 
-export type RenderOptions = IntroOptions
+export type RenderOptions = IntroOptions & {
+  /** Frontmatter layout; `versus` wraps each H4 block into a column. */
+  layout?: SheetLayout
+}
 
 export async function render(
   input: string,
@@ -76,7 +94,7 @@ export async function render(
   let { html } = await renderMarkdown(input)
   html = addInitialH2(html)
   html = addH3s(html)
-  html = await processRehype(html)
+  html = await processRehype(html, options.layout)
   html = removeBlankHeadings(html)
   html = await insertIntroCard(html, options)
   return { html }
@@ -109,7 +127,15 @@ function removeBlankHeadings(html: string): string {
  * Runs through Rehype to add syntax highlighting and more.
  */
 
-async function processRehype(inputHtml: string): Promise<string> {
+async function processRehype(
+  inputHtml: string,
+  layout?: RenderOptions['layout']
+): Promise<string> {
+  const sectionizeConfig =
+    layout === 'versus'
+      ? [...REHYPE_SECTIONIZE_CONFIG, VERSUS_H4_CONFIG]
+      : REHYPE_SECTIONIZE_CONFIG
+
   const processResult = await unified()
     .use(rehypeParse)
     // @ts-expect-error dunno how to fix this
@@ -117,7 +143,7 @@ async function processRehype(inputHtml: string): Promise<string> {
     .use(rehypeInlineHighlight)
     .use(rehypeStringify)
     // @ts-expect-error dunno how to fix this
-    .use(rehypeSectionize, REHYPE_SECTIONIZE_CONFIG)
+    .use(rehypeSectionize, sectionizeConfig)
     .process(inputHtml)
 
   let html = String(processResult)

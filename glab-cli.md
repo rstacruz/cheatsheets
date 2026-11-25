@@ -505,7 +505,7 @@ See: [glab ci lint](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci
 ### CI variables
 
 ```bash
-glab variable set API_KEY "s3cret" \
+glab variable set API_KEY "s3cret42" \
   --masked --protected
 glab variable set KUBECONFIG \
   "$(cat kubeconfig)" --type file
@@ -622,13 +622,14 @@ Without a tag, `release view` shows the latest release; `--web` opens it in the 
 See: [glab release list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/release/list.md), [glab release view](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/release/view.md)
 
 ## API and JSON
+<!-- {: .-three-column} -->
 
 ### Call the API
 
 ```bash
 glab api projects/:fullpath
 glab api projects/:fullpath/issues
-glab api projects/gitlab-org%2Fcli/releases
+glab api projects/gitlab-org%2Fcli
 ```
 <!-- {: data-highlight=":fullpath"} -->
 
@@ -639,9 +640,11 @@ See: [glab api](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/api/_i
 ### Send a request
 
 ```bash
-glab api --method POST projects/:fullpath/issues \
+glab api --method POST \
+  projects/:fullpath/issues \
   -f title="Bug"
-glab api --method PUT projects/:fullpath/issues/42 \
+glab api --method PUT \
+  projects/:fullpath/issues/42 \
   -f state_event=close
 ```
 <!-- {: data-highlight="--method POST; --method PUT"} -->
@@ -666,7 +669,8 @@ See: [GraphQL API](https://docs.gitlab.com/api/graphql/)
 
 ```bash
 glab api issues --paginate
-glab api issues --paginate --output ndjson \
+glab api issues --paginate \
+  --output ndjson \
   | jq 'select(.state == "opened")'
 ```
 <!-- {: data-highlight="--paginate"} -->
@@ -679,7 +683,8 @@ See: [Pagination](https://docs.gitlab.com/api/rest/#pagination)
 
 ```bash
 glab mr list -F json --jq '.[].title'
-glab issue list -O json | jq -r '.[].iid'
+glab issue list -O json \
+  | jq -r '.[].iid'
 ```
 <!-- {: data-highlight="json"} -->
 
@@ -688,6 +693,7 @@ Both print JSON: `mr list` with `-F json`, `issue list` with `-O json`. In `glab
 See: [glab mr list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md)
 
 ## Configuration
+<!-- {: .-three-column} -->
 
 ### Target another project
 

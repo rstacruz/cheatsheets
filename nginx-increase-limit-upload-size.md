@@ -36,7 +36,7 @@ location /upload/ {
     client_max_body_size 100m;
 }
 ```
-<!-- {: data-highlight="100m"} -->
+<!-- {: data-highlight="location /upload/"} -->
 
 **Raises the limit only for uploads.** A location value overrides the server and `http` levels; see [client_max_body_size](https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size).
 
@@ -46,9 +46,9 @@ location /upload/ {
 ```bash
 sudo nginx -T | grep client_max_body_size
 ```
-<!-- {: data-highlight="client_max_body_size"} -->
+<!-- {: data-highlight="-T"} -->
 
-**Shows every limit in the loaded config.** `-T` prints included files, so you can see which level wins; see [command-line parameters](https://nginx.org/en/docs/switches.html).
+**Shows every configured limit.** `-T` prints included files, so a limit hidden in a snippet still appears; see [command-line parameters](https://nginx.org/en/docs/switches.html).
 
 ### Confirm the rejection
 <!-- {: .-snippet} -->

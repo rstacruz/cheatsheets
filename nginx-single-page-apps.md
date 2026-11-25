@@ -26,7 +26,7 @@ location / {
 ```
 <!-- {: data-highlight="try_files $uri $uri/ /index.html"} -->
 
-**Serves `index.html` for any unknown path.** Existing files are served directly, so assets and API routes keep working; see [try_files](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files).
+**Serves `index.html` for any unknown path.** Existing files are served directly, so assets keep working; see [try_files](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files).
 
 ### Exclude API routes
 <!-- {: .-snippet} -->
@@ -54,4 +54,4 @@ location /assets/ {
 ```
 <!-- {: data-highlight="=404"} -->
 
-**Returns 404 for missing assets instead of `index.html`.** A fallback here would serve HTML with a script content type; see [try_files](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files).
+**Returns 404 for missing assets instead of `index.html`.** A fallback here would return `index.html` as `text/html` for a `.js` URL; see [try_files](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files).

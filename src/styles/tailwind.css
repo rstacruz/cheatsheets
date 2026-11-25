@@ -68,8 +68,8 @@
     0 1px 1px light-dark(rgb(85 102 119 / 40%), rgb(0 0 0 / 70%)),
     0 8px 12px light-dark(rgb(58 193 203 / 10%), rgb(58 193 203 / 8%));
   --shadow-focus:
-    inset 0 0 0 1px var(--highlight),
-    0 0 0 3px color-mix(in srgb, var(--highlight) 10%, transparent);
+    inset 0 0 0 1px var(--ring-focus),
+    0 0 0 3px color-mix(in srgb, var(--ring-focus) 10%, transparent);
 
   --radius: 8px;
   --radius-xs: 2px;

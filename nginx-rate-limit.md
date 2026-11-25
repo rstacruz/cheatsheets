@@ -57,18 +57,23 @@ limit_req_status 429;
 ```nginx
 limit_req_zone $http_x_api_key
   zone=key:10m rate=5r/s;
+
+server {
+    location /api/ {
+        limit_req zone=key burst=10 nodelay;
+    }
+}
 ```
 <!-- {: data-highlight="$http_x_api_key"} -->
 
-**Limits each API key separately.** Any variable works as the key; requests without the header share one empty key; see [limit_req_zone](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_zone).
+**Limits each API key separately.** The header is client-controlled, and requests without it are not counted; see [limit_req_zone](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_zone).
 
 ### Log without enforcing
 <!-- {: .-snippet} -->
 
 ```nginx
 limit_req_dry_run on;
-limit_req_log_level info;
 ```
-<!-- {: data-highlight="limit_req_dry_run on; limit_req_log_level info"} -->
+<!-- {: data-highlight="limit_req_dry_run on"} -->
 
-**Logs excess requests without rejecting them.** The dry-run message appears at `info` level; use it to tune a limit before enforcing it; see [limit_req_dry_run](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_dry_run).
+**Logs excess requests without rejecting them.** The message is logged at `error` level by default; use it to tune a limit before enforcing it; see [limit_req_dry_run](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_dry_run).

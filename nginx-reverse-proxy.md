@@ -41,14 +41,14 @@ location / {
     proxy_pass http://127.0.0.1:3000;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For \
+    proxy_set_header X-Forwarded-For
       $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
 <!-- {: data-highlight="Host; X-Real-IP; X-Forwarded-For; X-Forwarded-Proto"} -->
 
-**Tells the app who the client is.** Without these lines the app sees the proxy address, and `X-Forwarded-For` appends to the chain; see [proxy_set_header](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header).
+**Tells the app who the client is.** By default the app sees the proxy's address; these headers pass the original host, client IP, and protocol, and `X-Forwarded-For` appends to the chain; see [proxy_set_header](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header).
 
 ### Proxy WebSockets
 <!-- {: .-snippet} -->
@@ -63,13 +63,13 @@ location /ws/ {
 ```
 <!-- {: data-highlight="proxy_http_version 1.1; Upgrade; Connection"} -->
 
-**Upgrades the connection for WebSockets.** HTTP/1.1 is required before nginx 1.29.7, and the upgrade headers are hop-by-hop, so nginx must set them; see [WebSocket proxying](https://nginx.org/en/docs/http/websocket.html).
+**Upgrades the connection for WebSockets.** `proxy_http_version 1.1` is the default since nginx 1.29.7; keep it for older versions. The upgrade headers are hop-by-hop, so nginx must set them; see [WebSocket proxying](https://nginx.org/en/docs/http/websocket.html).
 
 ### Stream responses
 <!-- {: .-snippet} -->
 
 ```nginx
-location /events {
+location /events/ {
     proxy_pass http://127.0.0.1:3000;
     proxy_buffering off;
     proxy_read_timeout 1h;

@@ -44,7 +44,7 @@ sudo systemctl reload nginx
 ```
 <!-- {: data-highlight="systemctl reload"} -->
 
-**Reloads through the service manager.** The unit's `ExecReload` runs `nginx -s reload`, so this is the same graceful reload; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
+**Reloads through the service manager.** The unit asks nginx to re-read the config, the same graceful reload as `nginx -s reload`; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
 ### Restart the service
 <!-- {: .-snippet} -->
@@ -54,7 +54,7 @@ sudo systemctl restart nginx
 ```
 <!-- {: data-highlight="systemctl restart"} -->
 
-**Stops and starts the master process.** In-flight requests are dropped, so prefer `reload` for config changes; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
+**Stops and starts the master process.** New connections wait while workers drain, and requests outliving the stop timeout are cut; prefer `reload` for config changes; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
 ### Check the status
 <!-- {: .-snippet} -->

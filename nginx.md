@@ -126,7 +126,7 @@ location /images/ {
 ```
 <!-- {: data-highlight="location /images/"} -->
 
-Matches any URI starting with `/images/`. Prefix locations are checked before regex locations. See [location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location).
+Matches any URI starting with `/images/`. nginx remembers the longest prefix, then checks regexes; a regex match wins unless the prefix uses `^~`. See [location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location).
 
 ### Exact match
 
@@ -204,8 +204,7 @@ Sends every request to the app. The app sees the upstream address in `Host` and 
 ```nginx
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For \
-  $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header X-Forwarded-Proto $scheme;
 ```
 <!-- {: data-highlight="Host; X-Real-IP; X-Forwarded-For; X-Forwarded-Proto"} -->
@@ -278,7 +277,7 @@ server {
 ```
 <!-- {: data-highlight="return 301 https://example.com$request_uri"} -->
 
-Moves an old domain to the new one. Put this block before wildcard blocks that would catch the old host. See [return](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return).
+Moves an old domain to the new one. An exact `server_name` beats a wildcard, so block order does not matter. See [return](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return).
 
 ## TLS
 
@@ -305,7 +304,7 @@ http2 on;
 ```
 <!-- {: data-highlight="http2 on"} -->
 
-Turns on HTTP/2 for the listener. `http2 on` replaced the `listen ... http2` parameter in 1.25.1. See [http2](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#http2).
+Turns on HTTP/2 for the listener. `http2 on` replaced the `listen ... http2` parameter in 1.25.1. See [http2](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2).
 
 ### Restrict TLS versions
 
@@ -323,12 +322,12 @@ Allows only TLS 1.2 and 1.3. With `off`, the client picks the cipher order, whic
 
 ```nginx
 gzip on;
-gzip_types text/css application/javascript \
+gzip_types text/css application/javascript
   application/json image/svg+xml;
 ```
 <!-- {: data-highlight="gzip on; gzip_types"} -->
 
-Compresses the listed types when the client sends `Accept-Encoding: gzip`. `text/html` is always compressed when `gzip on`. See [gzip_types](https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_types).
+Compresses the listed types when the client sends `Accept-Encoding: gzip`. `text/html` is always included, whatever `gzip_types` says. See [gzip_types](https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_types).
 
 ### Cache assets
 
@@ -363,7 +362,7 @@ error_log /var/log/nginx/error.log warn;
 ```
 <!-- {: data-highlight="access_log; error_log"} -->
 
-Writes each request and warnings to the distro log paths. `error_log` also accepts `debug` for troubleshooting. See [access_log](https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log) and [error_log](https://nginx.org/en/docs/ngx_core_module.html#error_log).
+Writes each request and warnings to the distro log paths. `error_log` accepts `debug` on builds with `--with-debug`. See [access_log](https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log) and [error_log](https://nginx.org/en/docs/ngx_core_module.html#error_log).
 
 ### Limit uploads
 
@@ -377,8 +376,7 @@ Rejects larger request bodies with `413`. The default is `1m`, which catches fil
 ### Rate limit
 
 ```nginx
-limit_req_zone $binary_remote_addr zone=api:10m \
-  rate=10r/s;
+limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
 
 server {
     location /api/ {

@@ -78,7 +78,7 @@ glab auth status --show-token
 ```
 <!-- {: data-highlight="glab auth login"} -->
 
-`auth login` walks through OAuth or a token and stores it in the OS keyring; `--stdin` reads a token from a pipe.
+`auth login` walks through OAuth or a token and stores it in the OS keyring when one is available, falling back to the plaintext config file; `--stdin` reads a token from a pipe.
 
 See: [Authenticate with GitLab](https://docs.gitlab.com/cli/authentication/)
 
@@ -114,15 +114,17 @@ See: [glab todo list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/
 
 ### Clone
 
-#### Project
-
 ```bash
 glab repo clone group/project
 glab repo clone group/project mydir
 ```
 <!-- {: data-highlight="glab repo clone"} -->
 
-#### Group
+A fork you own gets an `upstream` remote. Flags after `--` go to `git clone`.
+
+See: [glab repo clone](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/clone.md)
+
+### Clone a group
 
 ```bash
 glab repo clone -g mygroup --paginate
@@ -131,7 +133,7 @@ glab repo clone -g mygroup \
 ```
 <!-- {: data-highlight="-g mygroup"} -->
 
-A fork you own gets an `upstream` remote. Flags after `--` go to `git clone`.
+`--paginate` clones every project in the group; `--archived=false` skips archived ones.
 
 See: [glab repo clone](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/clone.md)
 
@@ -144,7 +146,7 @@ glab repo create --group mygroup
 ```
 <!-- {: data-highlight="glab repo create"} -->
 
-`--internal` and `--public` set visibility; without one, the instance default applies. `--skipGitInit` leaves the local directory untouched.
+`--internal` and `--public` set visibility; without one, the instance default applies. `--skipGitInit` skips `git init` and cloning.
 
 See: [glab repo create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/create.md)
 
@@ -202,7 +204,7 @@ glab repo prune --yes
 ```
 <!-- {: data-highlight="glab repo prune"} -->
 
-`prune` deletes local branches whose merge requests merged; `--merged` checks with Git instead of the API.
+`prune` deletes local branches whose merge requests merged; `--merged` checks with Git instead of the API, but only detects fast-forward merges.
 
 See: [glab repo archive](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/archive.md), [glab repo prune](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/prune.md)
 
@@ -340,6 +342,18 @@ glab mr merge 123 --remove-source-branch
 While a pipeline runs, `merge` enables auto-merge; pass `--auto-merge=false` to merge immediately.
 
 See: [glab mr merge](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/merge.md)
+
+### Close and reopen
+
+```bash
+glab mr close 123
+glab mr reopen 123
+```
+<!-- {: data-highlight="glab mr close; glab mr reopen"} -->
+
+Closed requests keep their branch; `mr list --all` shows them again.
+
+See: [glab mr close](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/close.md)
 
 ## Issues
 <!-- {: .-three-column} -->
@@ -574,7 +588,7 @@ glab release upload v1.2.0 dist/*.tgz
 glab release upload v1.2.0 \
   'logo.png#Logo#image'
 ```
-<!-- {: data-highlight="glab release upload"} -->
+<!-- {: data-highlight="logo.png#Logo#image"} -->
 
 Append `#Display name` and `#type` to a path to control how the asset is listed. `release create` also accepts files after the tag.
 
@@ -700,7 +714,7 @@ glab alias list
 ```
 <!-- {: data-highlight="glab alias set"} -->
 
-`$1`, `$2`, and `$@` expand arguments. `--shell` runs the alias through `sh`, so pipes work.
+`$1` and `$2` expand arguments. `--shell` runs the alias through `sh`, so pipes work and `$@` expands to all arguments.
 
 See: [glab alias set](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/alias/set.md)
 
@@ -714,7 +728,7 @@ glab config path
 ```
 <!-- {: data-highlight="glab config set"} -->
 
-`-g` writes the global file; without it the setting goes to `.git/glab-cli/config.yml` for this repository. Use `config edit` to open either file.
+`-g` writes the global file; without it the setting goes to `.git/glab-cli/config.yml` for this repository. `config edit` opens the global file; add `--local` for the repository file.
 
 See: [glab config set](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/config/set.md)
 

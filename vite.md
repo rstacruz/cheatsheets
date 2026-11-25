@@ -305,7 +305,7 @@ See: [configureServer](https://vite.dev/guide/api-plugin#configureserver)
 
 Rolldown hooks (`resolveId`, `load`, `transform`) also run in dev, one module at a time.
 
-See: [Vite-specific hooks](https://vite.dev/guide/api-plugin#vite-specific-hooks)
+See: [Vite-specific hooks](https://vite.dev/guide/api-plugin#vite-specific-hooks), [hotUpdate](https://vite.dev/guide/api-environment-plugins#the-hotupdate-hook)
 
 ## Dev server
 
@@ -601,7 +601,7 @@ if (import.meta.hot) {
   })
 }
 ```
-<!-- {: data-highlight="./render.js'"} -->
+<!-- {: data-highlight="hot.accept('./render.js'"} -->
 
 Pass an array to accept several dependencies; only the updated module arrives non-null in the callback.
 
@@ -610,27 +610,37 @@ See: [hot.accept(deps)](https://vite.dev/guide/api-hmr#hot-accept-deps-cb)
 ### Preserve state
 
 ```js
-const timer = setInterval(tick, 1000)
+function tick() {}
+
+let ticks = import.meta.hot?.data.ticks ?? 0
+const timer = setInterval(() => {
+  ticks += 1
+  tick()
+}, 1000)
 
 if (import.meta.hot) {
   import.meta.hot.dispose((data) => {
-    data.ticks = 3
+    data.ticks = ticks
     clearInterval(timer)
   })
 }
 ```
 <!-- {: data-highlight="dispose"} -->
 
-`dispose` runs before the module is replaced. `import.meta.hot.data` persists per module, so mutate it instead of reassigning it.
+`dispose` runs before the module is replaced. Values on `import.meta.hot.data` survive into the next instance, so keep mutable state there.
 
 See: [hot.dispose](https://vite.dev/guide/api-hmr#hot-dispose-cb)
 
 ### Force a reload
 
 ```js
+export const version = 2
+
+const canHandle = (mod) => mod?.version === version
+
 if (import.meta.hot) {
   import.meta.hot.accept((mod) => {
-    if (!mod.canPatch) import.meta.hot.invalidate()
+    if (!canHandle(mod)) import.meta.hot.invalidate()
   })
 }
 ```

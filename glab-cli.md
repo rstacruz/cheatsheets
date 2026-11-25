@@ -590,7 +590,7 @@ glab release upload v1.2.0 dist/*.tgz
 glab release upload v1.2.0 \
   'logo.png#Logo#image'
 ```
-<!-- {: data-highlight="logo.png#Logo#image"} -->
+<!-- {: data-highlight="glab release upload"} -->
 
 Append `#Display name` and `#type` to a path to control how the asset is listed. `release create` also accepts files after the tag.
 

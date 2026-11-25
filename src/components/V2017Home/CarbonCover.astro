@@ -6,7 +6,7 @@ const useCarbon = carbon.enabled
 // A/B test: `a` is the current zone, `b` is the cover zone.
 // Force a bucket with `?ad=a` or `?ad=b`; otherwise the choice is sticky.
 const styles = {
-  root: 'HomePage__carbonCover col-span-full min-[640px]:col-span-2',
+  root: 'HomePage__carbonCover col-span-full max-[991px]:order-first min-[640px]:col-span-2',
   slot: 'HomePage__carbonCoverSlot flex h-[280px] w-full items-center justify-center overflow-hidden rounded-xl bg-secondary'
 }
 ---

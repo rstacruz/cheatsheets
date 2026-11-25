@@ -144,7 +144,7 @@ glab repo create --group mygroup
 ```
 <!-- {: data-highlight="glab repo create"} -->
 
-`--internal` and `--public` set visibility; without one, the instance default applies. `--skip-git-init` creates only the remote.
+`--internal` and `--public` set visibility; without one, the instance default applies. `--skip-git-init` leaves the local directory untouched.
 
 See: [glab repo create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/create.md)
 
@@ -250,7 +250,7 @@ glab mr list --label bug --merged
 ```
 <!-- {: data-highlight="--assignee=@me; --reviewer=@me; --merged"} -->
 
-`--closed`, `--merged`, and `--all` pick the state; `--per-page` shows more.
+`--closed` and `--merged` narrow the state; `--all` widens it past open requests.
 
 See: [glab mr list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md)
 
@@ -355,7 +355,7 @@ glab issue create -t "Security" -c
 ```
 <!-- {: data-highlight="glab issue create"} -->
 
-`--template bug` starts from `.gitlab/issue_templates/`; `--description-file -` reads the body from stdin.
+`-c` marks the issue confidential; `--template bug` starts from `.gitlab/issue_templates/`; `--description-file -` reads the body from stdin.
 
 See: [glab issue create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/issue/create.md)
 
@@ -416,7 +416,7 @@ glab issue board create "Sprint 12"
 ```
 <!-- {: data-highlight="glab issue board view"} -->
 
-`board view` is an interactive kanban view; `-a` and `-l` filter its issues.
+`board view` is an interactive kanban view with assignee and label filters.
 
 See: [glab issue board](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/issue/board/_index.md)
 
@@ -632,7 +632,7 @@ glab api --method PUT projects/:fullpath/issues/42 \
 ```
 <!-- {: data-highlight="--method POST; --method PUT"} -->
 
-`-f` sends a string; `-F` converts booleans, numbers, and JSON arrays. Adding a field switches the method to POST, so a GET with params needs `--method GET`.
+`-f` sends a string; `-F` converts booleans, numbers, and JSON arrays. A field makes the request a POST, so a GET with params needs an explicit method.
 
 See: [REST API](https://docs.gitlab.com/api/rest/)
 
@@ -714,7 +714,7 @@ glab config path
 ```
 <!-- {: data-highlight="glab config set"} -->
 
-`-g` writes the global file; without it the setting goes to `.git/glab-cli/config.yml` for this repository. `config edit` opens the file.
+`-g` writes the global file; without it the setting goes to `.git/glab-cli/config.yml` for this repository. Use `config edit` to open either file.
 
 See: [glab config set](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/config/set.md)
 

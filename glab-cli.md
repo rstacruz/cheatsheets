@@ -324,7 +324,7 @@ glab mr note resolve 123 abc12345
 ```
 <!-- {: data-highlight="glab mr note resolve"} -->
 
-The merge request comes first, then the discussion ID or an 8-character prefix. `note list` shows the threads.
+The merge request comes first, then the discussion ID or an 8-character prefix; `note list` shows the threads.
 
 See: [glab mr note](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/note/_index.md)
 
@@ -669,7 +669,7 @@ glab issue list -O json | jq -r '.[].iid'
 ```
 <!-- {: data-highlight="json"} -->
 
-`mr list` takes `-F json`; `issue list` takes `-O json`. In `glab api`, `-F` is an input field instead.
+Both print JSON: `mr list` with `-F json`, `issue list` with `-O json`. In `glab api`, `-F` is an input field instead.
 
 See: [glab mr list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md)
 

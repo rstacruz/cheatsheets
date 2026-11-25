@@ -9,8 +9,6 @@ tier: t3
 
 ## FFaker
 
-<!-- {: .-one-column} -->
-
 ### Installing
 
 ```ruby
@@ -21,8 +19,6 @@ require 'ffaker'
 See: [ffaker usage](https://github.com/ffaker/ffaker#usage)
 
 ### Faker::Address
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Address.city #=> "Autumnside"
@@ -45,8 +41,6 @@ Faker::Address.secondary_address #=> "Suite 560"
 See: [FFaker::Address](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakeraddress)
 
 ### Faker::Company
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Company.name #=> "Pouros-Ondricka"
@@ -74,8 +68,6 @@ See: [FFaker::Company](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#f
 
 ### Faker::Education
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::Education.school #=> "Larkwood Institution"
   #=> "Whiteshire School"
@@ -102,8 +94,6 @@ See: [FFaker::Education](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md
 
 ### Faker::Geolocation
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::Geolocation.lat #=> 40.89505
   #=> 41.77117
@@ -117,8 +107,6 @@ Faker::Geolocation.lng #=> -115.120716573
 See: [FFaker::Geolocation](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakergeolocation)
 
 ### Faker::Internet
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Internet.email #=> "dayna@auer.name"
@@ -154,8 +142,6 @@ See: [FFaker::Internet](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#
 
 ### Faker::Job
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::Job.title #=> "Future Data Assistant"
   #=> "Product Division Technician"
@@ -166,11 +152,7 @@ See: [FFaker::Job](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffake
 
 ## Text
 
-<!-- {: .-one-column} -->
-
 ### Faker::Lorem
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Lorem.word #=> "sint"
@@ -190,8 +172,6 @@ See: [FFaker::Lorem](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffa
 
 ### Faker::Lorem words
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::Lorem.words(4) #=> ["repellat", "quos", ...]
   #=> ["porro", "molestias", "ut", ...]
@@ -210,8 +190,6 @@ See: [FFaker::Lorem](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffa
 
 ### Faker::Lorem paragraphs
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::Lorem.paragraphs(3) #=> ["Iusto mollitia ...", "Possimus ..."]
   #=> ["Ducimus non ...", "Aut eveniet ..."]
@@ -222,8 +200,6 @@ See: [FFaker::Lorem](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffa
 
 ### Faker::HipsterIpsum
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::HipsterIpsum.paragraph #=> "Wayfarers mustache ..."
   #=> "Tofu stumptown cliche ..."
@@ -233,8 +209,6 @@ Faker::HipsterIpsum.paragraph #=> "Wayfarers mustache ..."
 See: [FFaker::HipsterIpsum](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerhipsteripsum)
 
 ### Faker::HTMLIpsum
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::HTMLIpsum.body #=> "<h1>Exercitationem et</h1>..."
@@ -254,11 +228,7 @@ See: [FFaker::HTMLIpsum](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md
 
 ## Names and products
 
-<!-- {: .-one-column} -->
-
 ### Faker::Name
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Name.name #=> "Trevion Herman V"
@@ -286,8 +256,6 @@ See: [FFaker::Name](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffak
 
 ### Faker::PhoneNumber
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::PhoneNumber.phone_number #=> "335-364-4549 x430"
   #=> "040-278-4021 x753"
@@ -301,8 +269,6 @@ Faker::PhoneNumber.short_phone_number #=> "473-412-3192"
 See: [FFaker::PhoneNumber](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerphonenumber)
 
 ### Faker::Product
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::Product.brand #=> "Trouffeforge"
@@ -326,8 +292,6 @@ See: [FFaker::Product](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#f
 
 ### Faker::NameCN
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::NameCN.name #=> "姵书虞"
   #=> "修男嵇"
@@ -349,8 +313,6 @@ Faker::NameCN.last_name #=> "释"
 See: [FFaker::NameCN](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernamecn)
 
 ### Faker::NameDE
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::NameDE.name #=> "Noelle Schuster"
@@ -374,8 +336,6 @@ See: [FFaker::NameDE](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ff
 
 ### Faker::NameJA
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::NameJA.name #=> "飛鳥田部"
   #=> "未杉浦"
@@ -398,11 +358,7 @@ See: [FFaker::NameJA](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ff
 
 ## Locale variants
 
-<!-- {: .-one-column} -->
-
 ### Faker::NameRU
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::NameRU.name #=> "Стелла Карнилина"
@@ -433,8 +389,6 @@ Faker::NameRU.name(:female) #=> "Зиядтдинова Полина Людви�
 See: [FFaker::NameRU](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernameru)
 
 ### Faker::NameSN
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::NameSN.name_sn #=> "mame Djaly Mbodj"
@@ -470,8 +424,6 @@ See: [FFaker::NameSN](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ff
 
 ### Faker::PhoneNumberAU
 
-<!-- {: .-one-column} -->
-
 ```ruby
 Faker::PhoneNumberAU.phone_number       #=> "0495 539 191"
                                         #=> "(05) 6838 2406"
@@ -481,8 +433,6 @@ Faker::PhoneNumberAU.phone_number       #=> "0495 539 191"
 See: [FFaker::PhoneNumberAU](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerphonenumberau)
 
 ### Faker::PhoneNumberSN
-
-<!-- {: .-one-column} -->
 
 ```ruby
 Faker::PhoneNumberSN.phone_number       #=> "77-356-93-09"

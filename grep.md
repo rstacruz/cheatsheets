@@ -4,6 +4,7 @@ subtitle: Pattern search utility
 category: CLI
 updated: 2026-11-23
 last_verified_with: "GNU grep 3.12."
+tier: t3
 ---
 
 ### Usage
@@ -13,6 +14,9 @@ last_verified_with: "GNU grep 3.12."
 ```bash
 grep <options> pattern <file...>
 ```
+<!-- {: data-highlight="grep <options>"} -->
+
+See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
 
 ### Matching options
 
@@ -24,6 +28,9 @@ grep <options> pattern <file...>
 -w, --word-regexp
 -x, --line-regexp
 ```
+<!-- {: data-highlight="-i; -v; -w; -x"} -->
+
+See: [Matching Control](https://www.gnu.org/software/grep/manual/grep.html#Matching-Control)
 
 ### Pattern options
 
@@ -33,6 +40,9 @@ grep <options> pattern <file...>
 -E, --extended-regexp # extended regular expression
 -P, --perl-regexp     # perl compatible regular expression
 ```
+<!-- {: data-highlight="-F; -G; -E; -P"} -->
+
+See: [`grep` Programs](https://www.gnu.org/software/grep/manual/grep.html#grep-Programs)
 
 ### Expressions
 
@@ -45,7 +55,7 @@ In BRE, these characters have a special meaning unless they are escaped with a b
 However, these characters do not have any special meaning unless they are escaped with a backslash:
 
 `? + { } | ( )`
-	
+
 #### Extended Regular Expressions (ERE)
 
 ERE gives all of these characters a special meaning unless they are escaped with a backslash:
@@ -55,6 +65,8 @@ ERE gives all of these characters a special meaning unless they are escaped with
 #### Perl Compatible Regular Expressions (PCRE)
 
 PCRE has even more options such as additional anchors and character classes, lookahead/lookbehind, conditional expressions, comments, and more. See the [regexp cheatsheet](/regexp).
+
+See: [Regular Expressions](https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions)
 
 ### Output Options
 
@@ -66,6 +78,9 @@ PCRE has even more options such as additional anchors and character classes, loo
 -q, --quiet, --silent
 -s, --no-messages     # suppress errors on unreadable files
 ```
+<!-- {: data-highlight="-c; -m; -o; -q"} -->
+
+See: [General Output Control](https://www.gnu.org/software/grep/manual/grep.html#General-Output-Control)
 
 ### Context Options
 
@@ -74,6 +89,9 @@ PCRE has even more options such as additional anchors and character classes, loo
 -A NUM, --after-context=NUM   # print NUM lines after a match
 -C NUM, -NUM, --context=NUM   # NUM lines before and after a match
 ```
+<!-- {: data-highlight="-B; -A; -C"} -->
+
+See: [Context Line Control](https://www.gnu.org/software/grep/manual/grep.html#Context-Line-Control)
 
 ### Examples
 
@@ -82,18 +100,21 @@ PCRE has even more options such as additional anchors and character classes, loo
 # that contains "bar"
 grep -i bar foo.txt
 ```
+<!-- {: data-highlight="grep -i bar foo.txt"} -->
 
 ```bash
 #  match any line in bar.txt that contains
 # either "foo" or "oof"
 grep -E "foo|oof" bar.txt
 ```
+<!-- {: data-highlight="foo|oof"} -->
 
 ```bash
 # match anything that resembles a URL in
 # foo.txt and only print out the match
 grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
 ```
+<!-- {: data-highlight="-oE"} -->
 
 ```bash
 # can also be used with pipes:
@@ -103,6 +124,7 @@ grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
 # containing "PATH"
 grep "export" .bash_profile | grep "PATH"
 ```
+<!-- {: data-highlight="PATH"} -->
 
 ```bash
 # follow the tail of server.log, pipe to grep
@@ -110,3 +132,6 @@ grep "export" .bash_profile | grep "PATH"
 # and include 5 lines of context
 tail -f server.log | grep -iC 5 error
 ```
+<!-- {: data-highlight="-iC"} -->
+
+See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)

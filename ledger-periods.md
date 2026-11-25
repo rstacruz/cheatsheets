@@ -2,9 +2,12 @@
 title: Ledger periods
 subtitle: Period expression syntax
 category: Plain-text accounting
+last_verified_with: "Ledger 3.4.1."
+updated: 2026-11-25
+tier: t3
 links:
-  - title: https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions
-    url: https://ledger-cli.org/3.0/doc/ledger3.html#Period-Expressions
+  - title: Period expressions
+    url: https://ledger-cli.org/doc/ledger3.html#Period-Expressions
 ---
 
 ### Usage
@@ -12,6 +15,7 @@ links:
 ```
 [INTERVAL] [BEGIN] [END]
 ```
+<!-- {: data-highlight="INTERVAL; BEGIN; END"} -->
 
 #### Intervals
 
@@ -34,6 +38,7 @@ bimonthly
 quarterly
 yearly
 ```
+<!-- {: data-highlight="every day; every N days; biweekly; quarterly"} -->
 
 #### Begin
 
@@ -41,6 +46,7 @@ yearly
 from <SPEC>
 since <SPEC>
 ```
+<!-- {: data-highlight="from; since"} -->
 
 #### End
 
@@ -48,6 +54,9 @@ since <SPEC>
 to <SPEC>
 until <SPEC>
 ```
+<!-- {: data-highlight="to; until"} -->
+
+See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)
 
 ### Spec
 
@@ -62,9 +71,15 @@ this week  # or day, month, quarter, year
 next week
 last week
 ```
+<!-- {: data-highlight="2004/10/1; this week; next week; last week"} -->
+
+See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)
 
 ### Examples
 
-```
+```sh
 $ ledger r -p "since last month"
 ```
+<!-- {: data-highlight="ledger r -p; since last month"} -->
+
+See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)

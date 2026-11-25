@@ -2,7 +2,9 @@
 title: Gremlins.js
 subtitle: JavaScript monkey-testing library
 category: JavaScript testing
-updated: 2017-10-22
+updated: 2026-11-25
+tier: t3
+last_verified_with: "Gremlins.js 2.2.0."
 weight: -1
 intro: |
   [Gremlins](https://github.com/marmelab/gremlins.js) is a JavaScript library to do "monkey-testing" by providing random user input (clicks, scrolls, and so on).
@@ -16,13 +18,17 @@ links:
 ### Simple example
 
 ```html
-<script src='https://cdn.jsdelivr.net/npm/gremlins/dist/gremlins.js'></script>
+<script
+  src='https://cdn.jsdelivr.net/npm/gremlins/dist/gremlins.js'>
+</script>
 <script>
 gremlins.createHorde().unleash()
 </script>
 ```
 
 ![](https://camo.githubusercontent.com/130e101ee69d4d9b6f065df0a0404c861eb5ce18/687474703a2f2f7374617469632e6d61726d656c61622e636f6d2f746f646f2e676966?q=99)
+
+See: [Basic usage](https://github.com/marmelab/gremlins.js#basic-usage)
 
 ### Custom gremlins
 
@@ -37,6 +43,8 @@ gremlins.createHorde()
 <!-- {: data-highlight="gremlin"} -->
 
 Runs the given function at regular intervals.
+
+See: [Configuring gremlins](https://github.com/marmelab/gremlins.js#configuring-gremlins)
 
 ### Full example
 
@@ -76,6 +84,8 @@ gremlins.createHorde()
 
 <!-- {: data-highlight="before"} -->
 
+See: [Hooks](https://github.com/marmelab/gremlins.js#executing-code-before-or-after-the-attack)
+
 ### Asynchronous
 
 ```js
@@ -89,6 +99,8 @@ gremlins.createHorde()
 ```
 
 <!-- {: data-highlight="done"} -->
+
+See: [Asynchronous hooks](https://github.com/marmelab/gremlins.js#executing-code-before-or-after-the-attack)
 
 ## References
 

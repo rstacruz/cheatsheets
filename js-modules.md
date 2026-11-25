@@ -3,7 +3,9 @@ title: JavaScript Modules
 subtitle: Syntax for ES modules
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026, Node.js 26.13.1."
+tier: t3
 intro: |
   ES modules (ESM) use `import` and `export`; each module is its own file.
 links:
@@ -25,10 +27,13 @@ export default function () {}   // default export (one per module)
 
 <!-- {: data-highlight="export"} -->
 
+#### Re-exporting
+
 ```js
 export { x } from './x.js'      // re-export named
 export * from './x.js'          // re-export all named
 ```
+<!-- {: data-highlight="export *"} -->
 
 A module has many named exports but only one default.
 
@@ -53,20 +58,29 @@ See: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 
 ### Dynamic imports
 
+#### Import on demand
+
 ```js
 const mod = await import('./mod.js')
 mod.default                        // the default export
 ```
+<!-- {: data-highlight="const mod"} -->
+
+#### Inside a condition
 
 ```js
 if (needsChart) {
   const { Chart } = await import('./chart.js')
 }
 ```
+<!-- {: data-highlight="await import('./chart.js')"} -->
+
+#### Module URL
 
 ```js
 import.meta.url                    // → URL of this module
 ```
+<!-- {: data-highlight="import.meta.url"} -->
 
 `import()` returns a promise, so it works inside conditions. `import.meta.url`
 is the module's own URL.
@@ -137,6 +151,7 @@ import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)
 const legacy = require('./legacy.cjs')
 ```
+<!-- {: data-highlight="createRequire"} -->
 
 In ESM use `import`, not `require`. `createRequire()` builds a `require()` for
 CommonJS packages.

@@ -2,12 +2,17 @@
 title: Nopt
 subtitle: Option parsing library
 category: Node.js
+last_verified_with: "nopt 10.0.1."
+updated: 2026-11-25
+tier: t3
 links:
   - title: https://www.npmjs.org/package/nopt
     url: https://www.npmjs.org/package/nopt
 ---
 
 ### Example
+
+#### Parsing arguments
 
 ```js
 var args = require('nopt')({
@@ -33,6 +38,9 @@ args == {
   }
 }
 ```
+<!-- {: data-highlight="foo; size; many"} -->
+
+#### Handling help flags
 
 ```js
 if (args.help) {
@@ -52,3 +60,6 @@ if (args.version) {
   process.exit(0);
 }
 ```
+<!-- {: data-highlight="args.help; args.version"} -->
+
+See: [nopt README](https://github.com/npm/nopt#readme)

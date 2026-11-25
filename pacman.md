@@ -2,7 +2,9 @@
 title: Pacman
 subtitle: Arch Linux package manager
 category: Linux
-updated: 2018-07-07
+updated: 2026-11-25
+last_verified_with: "pacman 7.1.0."
+tier: t3
 intro: |
   Pacman is the package manager for Arch Linux and its derivatives.
 links:
@@ -26,6 +28,8 @@ links:
 
 <!-- {: .-prime} -->
 
+See: [pacman manual](https://pacman.archlinux.page/pacman.8.html)
+
 ### Query
 
 | Command              | Description                            |
@@ -39,6 +43,8 @@ links:
 | ---                  | ---                                    |
 | `pacman -Qs <query>` | Search installed packages for keywords |
 
+See: [pacman(8)](https://man.archlinux.org/man/pacman.8)
+
 ### Orphans
 
 | Command                       | Description                 |
@@ -48,12 +54,16 @@ links:
 
 Avoid orphans by using `pacman -Rsc` to remove packages, which will remove unneeded dependencies.
 
+See: [Removing unused packages](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans))
+
 ### Other
 
 | Command            | Description                |
 | ------------------ | -------------------------- |
 | `pactree <pkg>`    | What does _pkg_ depend on? |
 | `pactree -r <pkg>` | What depends on _pkg_?     |
+
+See: [pactree(8)](https://man.archlinux.org/man/pactree.8)
 
 ### References
 

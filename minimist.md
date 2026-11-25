@@ -2,15 +2,20 @@
 title: minimist
 subtitle: CLI argument parser
 category: Node.js
+last_verified_with: "minimist 1.2.8."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Usage
+
+#### Load
 
 ```js
 var minimist = require('minimist')
 ```
 
-<!-- {: .-setup} -->
+#### Parse
 
 ```js
 var args = minimist(process.argv.slice(2), {
@@ -19,12 +24,17 @@ var args = minimist(process.argv.slice(2), {
   alias: { v: 'version' }
 })
 ```
+<!-- {: data-highlight="string; boolean; alias"} -->
+
+#### Inspect
 
 ```js
 console.log(args)
 ```
 
-All options are optional, but it's recommended you set `string` and `boolean` at least.
+Set `string` and `boolean` at least.
+
+See: [minimist methods](https://github.com/minimistjs/minimist/blob/main/README.md#methods)
 
 ### All options
 
@@ -39,16 +49,15 @@ var args = minimist(process.argv.slice(2), {
   unknown: function () { ... } /* invoked on unknown param */
 })
 ```
+<!-- {: data-highlight="stopEarly; unknown; default"} -->
 
 All options are optional.
 
+See: [minimist methods](https://github.com/minimistjs/minimist/blob/main/README.md#methods)
+
 ### Result
 
-With `--lang xml --no-pager -h index.js package.json`, you get:
-
-<!-- {: .-setup} -->
-
-```
+```js
 args == {
   lang: 'xml',
   version: false,
@@ -58,13 +67,13 @@ args == {
 }
 ```
 
+Result of `--lang xml --no-pager -h index.js package.json`:
+
+See: [Parsing example](https://github.com/minimistjs/minimist/blob/main/README.md#example)
+
 ## Meow
 
 ### Help and version
-
-Use [meow](https://www.npmjs.com/package/meow) to automatically add support for `--help`, `--version` and more.
-
-<!-- {: .-setup} -->
 
 ```js
 meow(`
@@ -79,8 +88,13 @@ meow(`
   /* minimist options */
 })
 ```
+<!-- {: data-highlight="meow; $0"} -->
+
+Use [meow](https://www.npmjs.com/package/meow) to add `--help` and `--version`.
+
+See: [meow](https://github.com/sindresorhus/meow)
 
 ### Reference
 
- * <https://www.npmjs.org/package/minimist>
- * <https://github.com/substack/minimist>
+* [minimist on npm](https://www.npmjs.com/package/minimist)
+* [minimist source](https://github.com/minimistjs/minimist)

@@ -4,7 +4,23 @@ subtitle: DOM manipulation library
 category: JavaScript libraries
 tags: [WIP]
 weight: -1
+last_verified_with: "jQuery 4.1.0."
+updated: 2026-11-25
+tier: t3
 ---
+
+## Selecting
+
+### Selecting
+
+```js
+$('.box')
+$('#main')
+$('div > p')
+```
+<!-- {: data-highlight="$('.box')"} -->
+
+See: [jQuery()](https://api.jquery.com/jQuery/)
 
 ### Traversing
 
@@ -19,18 +35,24 @@ $('.box')
   .next('div')
   .nextUntil('div')
 ```
+<!-- {: data-highlight=".closest('div')"} -->
+
+See: [Traversing](https://api.jquery.com/category/traversing/)
 
 ## Advanced features
 
 ### Extending selectors
 
 ```js
-$.expr[':'].inline = function (el) {
+$.expr.pseudos.inline = function (el) {
   return $(el).css('display') === 'inline'
 }
 ```
+<!-- {: data-highlight="$.expr.pseudos"} -->
 
-Enables `$(':inline')`
+Enables `$(':inline')`; `$.expr[':']` was removed in jQuery 4.
+
+See: [jQuery.find()](https://api.jquery.com/jQuery.find/)
 
 ### Extend CSS properties
 
@@ -45,11 +67,21 @@ $.cssHooks.someCSSProp = {
 // Disable "px"
 $.cssNumber["someCSSProp"] = true
 ```
+<!-- {: data-highlight="$.cssHooks"} -->
 
-### fn.animate() hooks
+See: [jQuery.cssHooks](https://api.jquery.com/jQuery.cssHooks/), [jQuery.cssNumber](https://api.jquery.com/jQuery.cssNumber/)
+
+### Animation step hooks
 
 ```js
-$.fn.step.someWhatever = function(fx) {
-  // ...
-}
+$('.box').animate({ width: 200 }, {
+  step: function (now, fx) {
+    console.log(fx.prop, now)
+  }
+})
 ```
+<!-- {: data-highlight="step: function"} -->
+
+`$.fn.step` was removed in jQuery 4; use the `step` option.
+
+See: [.animate()](https://api.jquery.com/animate/)

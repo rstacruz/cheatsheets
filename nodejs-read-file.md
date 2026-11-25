@@ -6,6 +6,7 @@ category: Node.js
 layout: snippet
 last_verified_with: "Node.js 26.13.1."
 updated: 2026-11-23
+tier: t3
 links:
   - title: Node.js fs
     url: https://nodejs.org/api/fs.html

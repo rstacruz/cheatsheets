@@ -3,6 +3,9 @@ title: Inkscape
 subtitle: Vector graphics editor
 category: Apps
 tags: [WIP]
+updated: 2026-11-25
+tier: t3
+last_verified_with: "Inkscape 1.4.4."
 ---
 
 ### All
@@ -15,6 +18,8 @@ tags: [WIP]
 
 <!-- {: .-shortcuts} -->
 
+See: [Canvas shortcuts](https://inkscape.org/doc/keys.html#id12)
+
 ### Select tool (F1)
 
 | Key | Action |
@@ -22,6 +27,8 @@ tags: [WIP]
 | `[ ]` | Rotate
 
 <!-- {: .-shortcuts} -->
+
+See: [Selector](https://inkscape.org/doc/keys.html#id49)
 
 ### Edit path (F2)
 
@@ -31,6 +38,8 @@ tags: [WIP]
 
 <!-- {: .-shortcuts} -->
 
+See: [Node tool](https://inkscape.org/doc/keys.html#id64)
+
 ### Dragging an anchor handle
 
 | Key | Action |
@@ -39,3 +48,5 @@ tags: [WIP]
 | `Alt` | ?
 
 <!-- {: .-shortcuts} -->
+
+See: [Node tool: move node handle](https://inkscape.org/doc/keys.html#id64)

@@ -2,6 +2,9 @@
 title: Less.js
 category: CSS
 subtitle: CSS preprocessor
+last_verified_with: "Less 4.9.1."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Functions
@@ -36,6 +39,9 @@ fadeout(@color, amount)
 spin(@color, degrees)
 mix(@a, @b, amount)
 ```
+<!-- {: data-highlight="unit; %; iscolor; fade"} -->
+
+See: [Less functions](https://lesscss.org/functions/)
 
 ### Conditionals
 
@@ -45,4 +51,6 @@ mix(@a, @b, amount)
 .image when (default()) {}
 .image when (e(@shape) = 'circle') { }
 ```
+<!-- {: data-highlight="when; default"} -->
 
+See: [CSS guards](https://lesscss.org/features/#css-guards-feature)

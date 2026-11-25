@@ -5,6 +5,7 @@ tags: [WIP]
 category: Apps
 updated: 2026-11-23
 last_verified_with: "GNU Emacs Org mode 9.8.10."
+tier: t3
 intro: |
   [Org mode](https://orgmode.org/) is for keeping hierarchal notes (and more) in Emacs.
 links:
@@ -30,6 +31,10 @@ links:
    subheading (h2).
 ```
 
+<!-- {: data-highlight="*; **"} -->
+
+See: [Headlines](https://orgmode.org/manual/Headlines.html)
+
 ### Lists
 
 ```org
@@ -44,6 +49,10 @@ To buy:
    + Mozarella
 ```
 
+<!-- {: data-highlight="1.; -; +"} -->
+
+See: [Plain lists](https://orgmode.org/manual/Plain-Lists.html)
+
 ### Inline styles
 
 ```org
@@ -55,13 +64,21 @@ _underline_
 +strike-through+
 ```
 
+<!-- {: data-highlight="*bold*; /italic/; =verbatim=; ~code~"} -->
+
+See: [Emphasis and monospace](https://orgmode.org/manual/Emphasis-and-monospace.html)
+
 ### To do
 
 ```org
 * TODO buy airplane
 ```
 
+<!-- {: data-highlight="TODO"} -->
+
 Cycle with `S-LEFT` / `S-RIGHT`; list TODOs with `C-c / t`.
+
+See: [TODO basics](https://orgmode.org/manual/TODO-Basics.html)
 
 ## Shortcuts
 
@@ -79,6 +96,8 @@ Cycle with `S-LEFT` / `S-RIGHT`; list TODOs with `C-c / t`.
 
 <!-- {: .-shortcuts} -->
 
+See: [Structure editing](https://orgmode.org/manual/Structure-Editing.html)
+
 ### Timer
 
 | Description     | Shortcut        |
@@ -92,6 +111,8 @@ Cycle with `S-LEFT` / `S-RIGHT`; list TODOs with `C-c / t`.
 <!-- {:.-shortcuts-right} -->
 
 You can use this for Pomodoro!
+
+See: [Timers](https://orgmode.org/manual/Timers.html)
 
 ### Agenda
 
@@ -109,6 +130,8 @@ You can use this for Pomodoro!
 
 Start by adding the current file to the agenda (`C-c [`), then use the agenda menu to navigate.
 
+See: [Agenda dispatcher](https://orgmode.org/manual/Agenda-Dispatcher.html)
+
 ### Export
 
 | Description | Shortcut    |
@@ -116,6 +139,8 @@ Start by adding the current file to the agenda (`C-c [`), then use the agenda me
 | Export menu | `C-c` `C-e` |
 
 Lets you export the document as Markdown, HTML, and others.
+
+See: [Export dispatcher](https://orgmode.org/manual/The-Export-Dispatcher.html)
 
 ## References
 

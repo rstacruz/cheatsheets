@@ -2,6 +2,9 @@
 title: Man
 subtitle: Manual page viewer
 category: CLI
+last_verified_with: "man-pages 6.20."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Man paths
@@ -21,3 +24,5 @@ category: CLI
 | `9` | Kernel and Programming Style |
 | --- | --- |
 | `n` | Tcl/Tk |
+
+See: [man-pages(7)](https://man7.org/linux/man-pages/man7/man-pages.7.html)

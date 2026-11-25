@@ -3,7 +3,9 @@ title: JavaScript Strings
 subtitle: String manipulation reference
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   Strings are immutable sequences of UTF-16 code units.
 links:
@@ -17,21 +19,30 @@ links:
 
 ### Creating
 
+#### Quotes and templates
+
 ```js
 const a = 'single'
 const b = "double"
 const c = `template ${a}`    // → "template single"
 ```
+<!-- {: data-highlight="${a}"} -->
+
+#### Multiline
 
 ```js
 const multi = `line one
 line two`
 ```
+<!-- {: data-highlight="line two"} -->
+
+#### Conversion
 
 ```js
 String(42)     // → "42"
 String(null)   // → "null"
 ```
+<!-- {: data-highlight="String(null)"} -->
 
 See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), [String()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String) _(developer.mozilla.org)_
 
@@ -45,11 +56,14 @@ See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 'hello'.charCodeAt(1)  // → 101
 ```
 
+#### Iterating code points
+
 ```js
 for (const ch of 'hi') {
   console.log(ch)    // logs "h", then "i"
 }
 ```
+<!-- {: data-highlight="console.log(ch)"} -->
 
 Strings are immutable: methods return new strings, never change the original.
 
@@ -80,6 +94,7 @@ See: [includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 'hamburger'.substring(6, 3)  // → "bur"  (args swapped)
 'hamburger'.substr(3, 3)     // → "bur"  (deprecated)
 ```
+<!-- {: data-highlight=".substring"} -->
 
 `slice()` takes negative indexes; `substring()` clamps them to `0`.
 
@@ -102,9 +117,12 @@ See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 <!-- {: data-highlight="padStart"} -->
 
+#### Normalization
+
 ```js
 'e\u0301'.normalize('NFC')   // → "é" (one code point)
 ```
+<!-- {: data-highlight=".normalize('NFC')"} -->
 
 See: [toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase), [trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim), [padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) _(developer.mozilla.org)_
 
@@ -116,6 +134,7 @@ See: [toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 'a-b-c'.replaceAll(/-/g, '+')  // → "a+b+c"
 'm-d'.replace(/(\w+)/, '[$1]') // → "[m]-d"
 ```
+<!-- {: data-highlight="replaceAll"} -->
 
 `replace()` changes the first match only; a regex given to `replaceAll()` must
 have the `g` flag.
@@ -129,11 +148,15 @@ See: [replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 'foo'.concat('bar')    // → "foobar"
 ['a', 'b'].join('-')   // → "a-b"
 ```
+<!-- {: data-highlight=".join('-')"} -->
+
+#### Code units
 
 ```js
 '\u{1F600}'.split('').length  // → 2  (UTF-16 units)
 [...'\u{1F600}'].length       // → 1  (code points)
 ```
+<!-- {: data-highlight="[...'\u{1F600}']"} -->
 
 `split('')` cuts code units, so surrogate pairs break; `[...str]` keeps them.
 

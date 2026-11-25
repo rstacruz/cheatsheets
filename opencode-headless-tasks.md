@@ -4,8 +4,25 @@ link_title: OpenCode headless tasks
 subtitle: Run OpenCode from scripts
 category: Task automation
 layout: snippet
-last_verified_with: "opencode 2.3.2."
+last_verified_with: "opencode 2.4.1."
 updated: 2026-11-23
+tier: t1
+fragments:
+  - "opencode run"
+  - "opencode"
+  - "run"
+  - "list TODOs"
+  - "--continue"
+  - "go on"
+  - "| jq"
+  - "--format json"
+  - "json"
+  - "review the diff"
+  - "--standalone"
+  - "this repo"
+  - "explain this"
+  - "--format"
+  - "standalone"
 links:
   - title: opencode run
     url: https://opencode.ai/docs/cli/commands#run

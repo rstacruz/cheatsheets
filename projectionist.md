@@ -2,6 +2,9 @@
 title: Projectionist
 subtitle: Vim file projection plugin
 category: Vim
+tier: t3
+last_verified_with: "vim-projectionist 1.3."
+updated: 2026-11-25
 ---
 
 ### Basic usage
@@ -18,6 +21,9 @@ category: Vim
     ]
   }
 ```
+<!-- {: data-highlight="template"} -->
+
+See: [Configuration](https://github.com/tpope/vim-projectionist)
 
 ### Available options
 
@@ -37,6 +43,9 @@ category: Vim
   }
 }
 ```
+<!-- {: data-highlight="alternate; dispatch; make"} -->
+
+See: [Configuration](https://github.com/tpope/vim-projectionist)
 
 ### Commands
 
@@ -56,6 +65,8 @@ category: Vim
 | `:Lcd` | cd to root using :lcd |
 |---------|-------------|
 | `:ProjectDo {cmd}` | run command in root |
+
+See: [Commands](https://github.com/tpope/vim-projectionist)
 
 ### Reference
 

@@ -34,6 +34,8 @@ intro: |
 links:
   - title: MetaTags README
     url: https://github.com/kpumuk/meta-tags
+last_verified_with: "MetaTags 2.24.0."
+tier: t3
 ---
 
 ## Titles
@@ -44,6 +46,7 @@ links:
 set_meta_tags title: 'Member Login'
 # <title>Member Login</title>
 ```
+<!-- {: data-highlight="Member Login"} -->
 
 Set it in a controller or view, then render it with `display_meta_tags` in the layout.
 
@@ -55,6 +58,7 @@ See: [Titles](https://github.com/kpumuk/meta-tags#titles)
 set_meta_tags site: 'Site Title', title: 'Member Login'
 # <title>Site Title | Member Login</title>
 ```
+<!-- {: data-highlight="site: 'Site Title'"} -->
 
 The site name is joined to the page title with a separator.
 
@@ -71,6 +75,7 @@ set_meta_tags(
 )
 # <title>Member Login · Site Title</title>
 ```
+<!-- {: data-highlight="reverse; separator"} -->
 
 Also use `prefix`, `suffix`, and `lowercase` to tune the rendered title.
 
@@ -84,6 +89,7 @@ set_meta_tags og: {
   site_name: :site
 }
 ```
+<!-- {: data-highlight=":title; site_name"} -->
 
 A symbol mirrors another tag: `og:title` becomes the page title, without the site name.
 
@@ -98,6 +104,7 @@ See: [Mirrored values](https://github.com/kpumuk/meta-tags#mirrored-values)
   <%= display_meta_tags site: 'My website' %>
 </head>
 ```
+<!-- {: data-highlight="display_meta_tags"} -->
 
 Render tags in the layout, where `display_meta_tags` outputs them.
 
@@ -110,6 +117,7 @@ See: [MetaTags usage](https://github.com/kpumuk/meta-tags#metatags-usage)
 <% description 'Member login page.' %>
 <% keywords 'tag1, tag2' %>
 ```
+<!-- {: data-highlight="title; description; keywords"} -->
 
 These helpers set tags in views. `title` also returns the title for headings.
 
@@ -122,6 +130,7 @@ See: [Using MetaTags in view](https://github.com/kpumuk/meta-tags#using-metatags
 ```bash
 rails generate meta_tags:install
 ```
+<!-- {: data-highlight="rails generate meta_tags:install"} -->
 
 Creates `config/initializers/meta_tags.rb` for changing gem defaults.
 
@@ -134,6 +143,7 @@ MetaTags.configure do |config|
   config.truncate_array_items_at_boundaries = true
 end
 ```
+<!-- {: data-highlight="truncate_array_items_at_boundaries"} -->
 
 Set global defaults here once, such as array truncation behavior.
 
@@ -147,6 +157,7 @@ See: [Configuration](https://github.com/kpumuk/meta-tags#configuration)
 set_meta_tags description: 'This is a sample description'
 # <meta name="description" content="This is a sample description">
 ```
+<!-- {: data-highlight="description: 'This is a sample description'"} -->
 
 Search engines may use it for snippets, or use visible page text instead.
 
@@ -158,6 +169,7 @@ See: [Description](https://github.com/kpumuk/meta-tags#description)
 set_meta_tags keywords: %w[keyword1 keyword2 keyword3]
 # <meta name="keywords" content="keyword1, keyword2, keyword3">
 ```
+<!-- {: data-highlight="keywords: %w"} -->
 
 Legacy tag kept for compatibility; Google and Bing ignore it.
 
@@ -169,6 +181,7 @@ See: [Keywords](https://github.com/kpumuk/meta-tags#keywords)
 set_meta_tags canonical: 'http://yoursite.com/canonical/url'
 # <link rel="canonical" href="http://yoursite.com/canonical/url">
 ```
+<!-- {: data-highlight="canonical:"} -->
 
 Consolidate duplicate URLs under one preferred address.
 
@@ -180,6 +193,7 @@ See: [Canonical URL](https://github.com/kpumuk/meta-tags#canonical-url)
 set_meta_tags icon: {href: '/favicon.png', type: 'image/png'}
 # <link rel="icon" type="image/png" href="/favicon.png">
 ```
+<!-- {: data-highlight="icon: {href:"} -->
 
 Pass a path for a default icon, or a hash to set `type` and `sizes`.
 
@@ -191,6 +205,7 @@ See: [Icon](https://github.com/kpumuk/meta-tags#icon)
 set_meta_tags alternate: {'fr' => 'http://yoursite.fr/page'}
 # <link rel="alternate" href="http://yoursite.fr/page" hreflang="fr">
 ```
+<!-- {: data-highlight="alternate:"} -->
 
 Map locale codes to URLs for translated or region-specific pages.
 
@@ -204,6 +219,7 @@ set_meta_tags(
   next: 'http://yoursite.com/url?page=3'
 )
 ```
+<!-- {: data-highlight="prev; next"} -->
 
 Legacy `prev` and `next` hints; Google no longer uses them as an indexing signal.
 
@@ -217,6 +233,7 @@ See: [Pagination links](https://github.com/kpumuk/meta-tags#pagination-links)
 set_meta_tags noindex: true, follow: true
 # <meta name="robots" content="noindex, follow">
 ```
+<!-- {: data-highlight="noindex: true"} -->
 
 Combine `noindex`, `nofollow`, and `follow` as needed; `follow` cancels `nofollow`.
 
@@ -230,6 +247,7 @@ set_meta_tags robots: {
   'max-video-preview' => -1
 }
 ```
+<!-- {: data-highlight="max-snippet; max-video-preview"} -->
 
 Use `robots:` or `googlebot:` hashes for directives beyond the basic helpers.
 
@@ -246,6 +264,7 @@ set_meta_tags og: {
   image: 'http://ia.media-imdb.com/rock.jpg'
 }
 ```
+<!-- {: data-highlight="video.movie"} -->
 
 Nested hashes map to `og:*` properties; arrays emit repeated tags.
 
@@ -259,6 +278,7 @@ set_meta_tags twitter: {
   site: '@username'
 }
 ```
+<!-- {: data-highlight="twitter: {"} -->
 
 X cards render from `twitter:`; Open Graph fields can serve as fallbacks.
 

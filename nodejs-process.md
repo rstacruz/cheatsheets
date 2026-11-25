@@ -2,6 +2,9 @@
 title: process
 subtitle: Process global reference
 category: Node.js
+last_verified_with: "Node.js 26.13.1."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Streams
@@ -25,6 +28,10 @@ function stdin(fn) {
 }
 ```
 
+<!-- {: data-highlight="process.stdout; process.stderr; process.stdin"} -->
+
+See: [process I/O](https://nodejs.org/api/process.html#processstdout)
+
 ### stuff
 
 ```
@@ -35,13 +42,21 @@ process.exit();
 process.exit(1);
 ```
 
+<!-- {: data-highlight="process.argv; process.env; process.exit"} -->
+
+See: [process.argv](https://nodejs.org/api/process.html#processargv)
+
 ### Directories
-    
+
 ```
 process.cwd(); //=> "/tmp"
 process.chdir('dir');
 ```
 
+<!-- {: data-highlight="process.cwd; process.chdir"} -->
+
+See: [process.cwd()](https://nodejs.org/api/process.html#processcwd)
+
 ### References
 
-- <http://nodejs.org/api/process.html>
+See: [process API](https://nodejs.org/api/process.html)

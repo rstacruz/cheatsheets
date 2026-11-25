@@ -2,7 +2,9 @@
 title: HTML emails
 subtitle: Email-compatible HTML markup
 category: HTML
-updated: 2017-08-30
+updated: 2026-11-25
+tier: t3
+last_verified_with: "WHATWG HTML Living Standard."
 ---
 
 ### Properties to avoid
@@ -26,6 +28,8 @@ updated: 2017-08-30
 | `rgba()`             | (Outlook)               |
 | `data-uri`           | (all webmail)           |
 
+<!-- see: none: email-client CSS support has no upstream spec -->
+
 ### Selectors to avoid
 
 | Selector | Where |
@@ -37,6 +41,8 @@ updated: 2017-08-30
 | `E + F`, `E > F` _etc_     | (Outlook, Gmail)        |
 
 Inline your CSS as much as possible.
+
+<!-- see: none: email-client selector support has no upstream spec -->
 
 ### Basic layout
 
@@ -52,6 +58,8 @@ Inline your CSS as much as possible.
 </table>
 ```
 
+See: [HTML table element](https://html.spec.whatwg.org/multipage/tables.html#the-table-element)
+
 ### Responsive
 
 ```html
@@ -61,6 +69,8 @@ Inline your CSS as much as possible.
 ```
 
 `<style>` is supported in the head and body by everything except Gmail. Only use them for responsive styles.
+
+See: [Media Queries](https://www.w3.org/TR/mediaqueries-5/#media-query)
 
 ## References
 

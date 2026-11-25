@@ -11,7 +11,8 @@ links:
   - title: Phoenix source
     url: https://github.com/phoenixframework/phoenix
 updated: 2026-11-22
-last_verified_with: "Phoenix 1.8.17 / LiveView 1.2.15; verified on Elixir 1.19.7 + Erlang/OTP 28 in a generated app."
+last_verified_with: "Phoenix 1.8.17, Phoenix LiveView 1.2.15, Elixir 1.19.7, Erlang/OTP 28."
+tier: t3
 ---
 
 ## Getting started
@@ -22,6 +23,7 @@ last_verified_with: "Phoenix 1.8.17 / LiveView 1.2.15; verified on Elixir 1.19.7
 ```sh
 mix archive.install hex phx_new
 ```
+<!-- {: data-highlight="mix archive.install"} -->
 
 Elixir 1.17+ and Erlang/OTP 25+ are required. PostgreSQL is the default database.
 
@@ -35,6 +37,7 @@ cd hello
 mix ecto.create
 mix phx.server
 ```
+<!-- {: data-highlight="mix phx.new; mix phx.server"} -->
 
 Open http://localhost:4000. Use `iex -S mix phx.server` to keep an IEx session.
 
@@ -50,6 +53,7 @@ mix phx.new hello --no-assets
 mix phx.new hello --no-live
 mix phx.new hello --umbrella
 ```
+<!-- {: data-highlight="--database sqlite3; --no-ecto; --no-html; --no-assets"} -->
 
 `--no-assets` skips esbuild and Tailwind; APIs often use `--no-html --no-assets`.
 
@@ -87,6 +91,7 @@ resources "/users", UserController do
   resources "/posts", PostController
 end
 ```
+<!-- {: data-highlight="get; live; resources"} -->
 
 Nested routes receive `"user_id"` in `params`.
 
@@ -102,6 +107,7 @@ See: [Routing guide](https://hexdocs.pm/phoenix/routing.html)
 ~p"/users/17?#{[admin: true]}"   # → "/users/17?admin=true"
 url(~p"/users")                  # → "http://localhost:4000/users"
 ```
+<!-- {: data-highlight="~p"} -->
 
 `~p` paths are checked against the router at compile time.
 
@@ -124,6 +130,7 @@ scope "/api", HelloWeb, as: :api do
   resources "/users", UserController
 end
 ```
+<!-- {: data-highlight="pipeline :browser; pipe_through :api"} -->
 
 Pipelines apply plugs to the routes in their scope.
 
@@ -137,6 +144,7 @@ GET  /users     HelloWeb.UserController :index
 GET  /users/:id HelloWeb.UserController :show
 GET  /users/:user_id/posts HelloWeb.PostController :index
 ```
+<!-- {: data-highlight="mix phx.routes"} -->
 
 See: [mix phx.routes](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Routes.html)
 
@@ -168,6 +176,7 @@ defmodule HelloWeb.HelloController do
 
 end
 ```
+<!-- {: data-highlight="render"} -->
 
 Actions receive `conn` and request `params`; `render/2` renders through `HelloWeb.HelloHTML`.
 
@@ -197,6 +206,7 @@ See: [Phoenix.Controller](https://hexdocs.pm/phoenix/Phoenix.Controller.html)
   <a href={~p"/users"}>Users</a>
 </Layouts.app>
 ```
+<!-- {: data-highlight="Layouts.app"} -->
 
 HEEx escapes values and compiles templates into function components.
 
@@ -213,6 +223,7 @@ conn.query_string  # → "utm_source=twitter"
 conn.scheme        # → :http
 conn.port          # → 80
 ```
+<!-- {: data-highlight="conn.host; conn.path_info; conn.query_string"} -->
 
 Sample `conn` from `Plug.Test.conn("GET", "/posts/1?utm_source=twitter")`.
 
@@ -236,6 +247,7 @@ mix phx.gen.context Accounts User users \
   name:string
 mix phx.gen.schema User users name:string
 ```
+<!-- {: data-highlight="mix phx.gen.html; mix phx.gen.auth; mix phx.gen.live"} -->
 
 Generators create contexts and tests; `phx.gen.schema` creates only a schema and migration.
 
@@ -252,6 +264,7 @@ def changeset(user, attrs) do
   |> unique_constraint(:email)
 end
 ```
+<!-- {: data-highlight="cast; validate_required; unique_constraint"} -->
 
 `email: "bad"` gives `valid?: false`, with `errors: [email: {"has invalid format", [validation: :format]}]`.
 
@@ -268,6 +281,7 @@ Repo.insert!(%User{name: "Ada"})
 Repo.update!(changeset)
 Repo.delete!(user)
 ```
+<!-- {: data-highlight="Repo.all; Repo.get!; Repo.insert!"} -->
 
 `Repo` queries return structs or lists; bang variants raise on failure.
 
@@ -284,6 +298,7 @@ mix ecto.rollback
 mix ecto.setup
 mix ecto.reset
 ```
+<!-- {: data-highlight="mix ecto.create; mix ecto.gen.migration; mix ecto.migrate"} -->
 
 Migrations live in `priv/repo/migrations/`.
 
@@ -317,6 +332,7 @@ defmodule HelloWeb.CounterLive do
   end
 end
 ```
+<!-- {: data-highlight="phx-click; assign; update"} -->
 
 `phx-click` sends events over the LiveView socket; `assign/2` updates state.
 
@@ -338,6 +354,7 @@ defmodule HelloWeb.RoomChannel do
   end
 end
 ```
+<!-- {: data-highlight="broadcast"} -->
 
 Clients join topics over the socket declared in `lib/hello_web/endpoint.ex`.
 
@@ -366,6 +383,7 @@ Phoenix.PubSub.unsubscribe(
   "room:lobby"
 )
 ```
+<!-- {: data-highlight="Phoenix.PubSub.subscribe; Phoenix.PubSub.broadcast"} -->
 
 The app supervisor starts PubSub; `broadcast_from!/4` excludes the sender.
 
@@ -386,6 +404,7 @@ defmodule HelloWeb.PageControllerTest do
   end
 end
 ```
+<!-- {: data-highlight="html_response"} -->
 
 `ConnCase` builds the conn and imports response helpers.
 
@@ -405,6 +424,7 @@ defmodule HelloWeb.CounterLiveTest do
   end
 end
 ```
+<!-- {: data-highlight="render_click; assert html"} -->
 
 `live/2` mounts a connected view; `render_click/2` sends events to it.
 
@@ -420,6 +440,7 @@ mix test --only slow
 mix test --failed
 mix test --stale
 ```
+<!-- {: data-highlight="mix test --stale; mix test --failed"} -->
 
 Line numbers, tags, and flags select subsets of the suite.
 

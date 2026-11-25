@@ -5,6 +5,7 @@ category: Networking
 weight: -3
 updated: 2026-11-23
 last_verified_with: "HTTPie CLI 3.2.4."
+tier: t3
 description: |
   $ http POST http://example.com name="John" Host:example.com — JSON, cookies, files, auth, and other httpie examples.
 intro: |
@@ -30,6 +31,9 @@ $ http POST http://example.com/posts/3 \
     token=@token.txt \    # =@  read from file (text)
     user:=@user.json      # :=@ read from file (json)
 ```
+<!-- {: data-highlight="Origin:example.com; age:=29; token=@token.txt"} -->
+
+See: [Request items](https://httpie.io/docs/cli/command-line-options#request-items)
 
 ### Forms
 
@@ -38,12 +42,18 @@ $ http --form POST example.com \
     name="John Smith" \
     cv@document.txt
 ```
+<!-- {: data-highlight="--form; cv@document.txt"} -->
+
+See: [Forms](https://httpie.io/docs/cli/command-line-options#forms)
 
 ### Raw JSON
 
 ```bash
 $ echo '{"hello": "world"}' | http POST example.com/post
 ```
+<!-- {: data-highlight="POST example.com/post"} -->
+
+See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-request-body)
 
 ### Options
 
@@ -61,6 +71,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
     --pretty=none        # all | colors | format
     --json | -j          # JSON request data (default); set Accept
 ```
+<!-- {: data-highlight="-v; --print=HhBb; --pretty=none"} -->
 
 #### Authentication
 
@@ -71,6 +82,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
     --auth-type digest
     --auth-type bearer
 ```
+<!-- {: data-highlight="--auth-type bearer"} -->
 
 #### Session
 
@@ -78,6 +90,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
     --session NAME       # store auth and cookies
     --session-read-only NAME
 ```
+<!-- {: data-highlight="--session; --session-read-only"} -->
 
 #### Downloading
 
@@ -86,6 +99,7 @@ $ echo '{"hello": "world"}' | http POST example.com/post
 -c, --continue
 -o, --output FILE
 ```
+<!-- {: data-highlight="-d; -o"} -->
 
 #### Others
 
@@ -96,7 +110,12 @@ $ echo '{"hello": "world"}' | http POST example.com/post
     --verify=no          # skip SSL verification
     --proxy http:http://foo.bar:3128
 ```
+<!-- {: data-highlight="--follow; --verify=no; --proxy"} -->
+
+See: [HTTPie CLI docs](https://httpie.io/docs/cli/command-line-options)
 
 ### References
 
 * <https://github.com/httpie/cli>
+
+See: [HTTPie CLI on GitHub](https://github.com/httpie/cli)

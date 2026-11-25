@@ -3,7 +3,9 @@ title: fetch()
 subtitle: Browser HTTP request function
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026, Node.js 26.13.1."
+tier: t3
 intro: |
   `fetch()` requests a resource over HTTP and returns a promise for the response.
 links:
@@ -26,7 +28,7 @@ fetch('/data.json')
   .catch(err => ...)
 ```
 
-<!-- {: data-highlight="console.log"} -->
+<!-- {: data-highlight="fetch('/data.json')"} -->
 
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
 
@@ -49,6 +51,7 @@ fetch('/data.json')
   res.headers.get('Content-Type')
 })
 ```
+<!-- {: data-highlight="res.json()"} -->
 
 See: [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response), [Response.type](https://developer.mozilla.org/en-US/docs/Web/API/Response/type) _(developer.mozilla.org)_
 
@@ -69,15 +72,21 @@ fetch('/data.json', {
   credentials: 'omit',        // never send cookies
 })
 ```
+<!-- {: data-highlight="credentials: 'include'"} -->
 
 See: [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request), [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) _(developer.mozilla.org)_
 
 ### Catching errors
 
+#### Check status
+
 ```js
 fetch('/data.json')
   .then(checkStatus)
 ```
+<!-- {: data-highlight=".then(checkStatus)"} -->
+
+#### checkStatus()
 
 ```js
 function checkStatus (res) {
@@ -90,6 +99,7 @@ function checkStatus (res) {
   }
 }
 ```
+<!-- {: data-highlight="err.response = res"} -->
 
 `fetch()` rejects only on network errors; check `res.ok` yourself.
 
@@ -100,8 +110,9 @@ See: [Response.ok](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok)
 ```js
 const res = await fetch('https://example.com/data.json')
 ```
+<!-- {: data-highlight="await fetch"} -->
 
-Node 18+ has a global `fetch` (stable in Node 21). On older versions, use
+Node 18+ has a global `fetch`; older versions need
 [undici](https://undici.nodejs.org/) or
 [node-fetch](https://www.npmjs.com/package/node-fetch).
 

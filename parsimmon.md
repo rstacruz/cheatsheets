@@ -2,6 +2,9 @@
 title: Parsimmon
 subtitle: Parser combinator library
 category: Node.js
+last_verified_with: "Parsimmon 1.18.1."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Basic usage
@@ -12,6 +15,10 @@ P.regexp(/[a-z]+/)
 .parse('hello')
 //=> { status: true, value: ['hello'] }
 ```
+
+<!-- {: data-highlight="P.regexp; .parse"} -->
+
+See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)
 
 ### Atoms
 
@@ -24,6 +31,10 @@ P.whitespace
 P.optWhitespace
 P.eof
 ```
+
+<!-- {: data-highlight="P.string; P.oneOf; P.whitespace; P.eof"} -->
+
+See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)
 
 ### Combinators
 
@@ -43,6 +54,10 @@ a.atMost(10)
 a.atLeast(10)
 ```
 
+<!-- {: data-highlight="P.seq; P.alt; P.sepBy; a.or"} -->
+
+See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)
+
 ### Formatting
 
 ```js
@@ -50,6 +65,10 @@ P.seq(P.number, P.oneOf('+-*/'), P.number)
 .map(([left, oper, right]) => ({ oper, left, right }))
 ```
 
+<!-- {: data-highlight=".map"} -->
+
+See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)
+
 ### Reference
 
-- <https://github.com/jneen/parsimmon/blob/master/API.md>
+See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)

@@ -4,7 +4,8 @@ link_title: Git undo commit
 subtitle: Reset or revert commits
 category: Git
 layout: snippet
-last_verified_with: "git 2.56.0."
+last_verified_with: "git 2.56.1."
+tier: t3
 updated: 2026-11-23
 links:
   - title: git-reset manual

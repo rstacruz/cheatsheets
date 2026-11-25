@@ -411,3 +411,12 @@ Cuts off slow clients and closes idle keep-alive connections. `keepalive_timeout
 
 [Restart nginx cheatsheet](./nginx-restart)
 <!-- {: .-crosslink} -->
+
+[nginx rate limit cheatsheet](./nginx-rate-limit)
+<!-- {: .-crosslink} -->
+
+[Increase nginx upload size cheatsheet](./nginx-increase-limit-upload-size)
+<!-- {: .-crosslink} -->
+
+[nginx single-page apps cheatsheet](./nginx-single-page-apps)
+<!-- {: .-crosslink} -->

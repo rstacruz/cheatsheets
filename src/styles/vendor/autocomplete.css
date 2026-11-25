@@ -9,6 +9,8 @@
 
 .autocomplete {
   border: none;
+  background: var(--field);
+  color: var(--foreground);
   padding: 0.5rem;
   padding-top: 0;
   border-bottom-left-radius: var(--radius-sm);
@@ -22,6 +24,11 @@
   border-radius: var(--radius-sm);
 }
 
+.autocomplete > div.group {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
 .autocomplete > div:hover:not(.group) {
   background: var(--background);
 }
@@ -32,6 +39,6 @@
 
 .autocomplete > div.selected,
 .autocomplete > div.selected:hover {
-  background: var(--highlight);
+  background: var(--highlight-solid);
   color: var(--primary-foreground);
 }

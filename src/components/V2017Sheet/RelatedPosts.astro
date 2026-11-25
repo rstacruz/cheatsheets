@@ -82,14 +82,14 @@ const styles = {
     'flex flex-[1_0_100%] items-center justify-center rounded-xs p-[32px] no-underline [box-shadow:var(--shadow-sm)]',
     'bg-[image:var(--brand-gradient)]',
     'text-primary-foreground visited:text-primary-foreground',
-    'hover:bg-none hover:bg-primary-strong focus:bg-none focus:bg-primary-strong',
+    'hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
     '[text-shadow:0_1px_1px_var(--overlay)]'
   ),
   calloutText: 'RelatedPosts__calloutText m-auto text-center',
   calloutIcon: cx(
     'RelatedPosts__calloutIcon',
-    'mx-auto mb-[16px] grid size-[64px] place-items-center rounded-circle border-[2px] border-solid border-primary-faint',
-    '[&>svg]:text-primary-faint'
+    'mx-auto mb-[16px] grid size-[64px] place-items-center rounded-circle border-[2px] border-solid border-primary-foreground',
+    '[&>svg]:text-primary-foreground'
   ),
   description:
     'RelatedPosts__description mb-[16px] block text-base font-light leading-[1.4]',

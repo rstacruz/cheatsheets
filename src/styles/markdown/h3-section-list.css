@@ -15,6 +15,11 @@
     @apply pb-12 pt-0;
   }
 
+  /* A card that spans every column in a multi-column section */
+  .h3-section.-full-width {
+    column-span: all;
+  }
+
   /*
    * Two column (default)
    */

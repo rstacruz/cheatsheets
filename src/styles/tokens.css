@@ -1,80 +1,122 @@
-/*
- * Design tokens
- *
- * Semantic roles only. Components and Markdown CSS ask for these names;
- * `mildindigo` ramp steps live in `tailwind.css` and are reached through
- * these roles.
- */
-
 :root {
+  color-scheme: light dark;
+
   /*
    * shadcn-compatible roles
    */
 
-  --background: #fafafc;
-  --foreground: #345;
-  --heading: #111;
-  --card: #fff;
-  --card-foreground: #345;
-  --primary: var(--color-mildindigo-600);
-  --primary-foreground: #fff;
-  --secondary: #f1f3f8;
-  --secondary-foreground: #345;
-  --muted: #f3f5fc;
-  --muted-foreground: #556677;
-  --muted-foreground-subtle: #7c8fa2;
-  --muted-foreground-faint: #8899aa;
-  --muted-foreground-strong: #44525f;
-  --muted-foreground-bright: #5e7683;
-  --accent: #e7eaf2;
-  --accent-foreground: #345;
-  --destructive: #9f1239;
-  --destructive-surface: #fff1f2;
-  --destructive-foreground: #fff;
-  --border: rgb(85 102 119 / 18%);
-  --border-strong: rgb(85 102 119 / 30%);
+  --background: light-dark(var(--color-steel-50), var(--color-steel-950));
+  --foreground: light-dark(var(--color-steel-700), var(--color-steel-300));
+  --heading: light-dark(var(--color-steel-950), var(--color-steel-50));
+  --card: light-dark(#fff, var(--color-steel-900));
+  --field: light-dark(#fff, var(--color-steel-700));
+  --card-foreground: light-dark(var(--color-steel-700), var(--color-steel-300));
+  --primary: light-dark(
+    var(--color-mildindigo-600),
+    var(--color-mildindigo-400)
+  );
+  --primary-foreground: light-dark(#fff, var(--color-steel-50));
+  --secondary: light-dark(#f1f3f8, #202038);
+  --secondary-foreground: light-dark(
+    var(--color-steel-700),
+    var(--color-steel-300)
+  );
+  --muted: light-dark(var(--color-steel-100), var(--color-steel-750));
+  --muted-foreground: light-dark(
+    var(--color-steel-600),
+    var(--color-steel-400)
+  );
+  --muted-foreground-subtle: light-dark(#7c8fa2, #8d93ad);
+  --muted-foreground-faint: light-dark(#8899aa, #7f86a1);
+  --muted-foreground-strong: light-dark(#44525f, #b9bed3);
+  --accent: light-dark(var(--color-steel-200), #272743);
+  --accent-foreground: light-dark(
+    var(--color-steel-700),
+    var(--color-steel-300)
+  );
+  --destructive: light-dark(#9f1239, #f5a3b8);
+  --destructive-surface: light-dark(#fff1f2, #3a1522);
+  --destructive-foreground: light-dark(#fff, #14121f);
+  --border: light-dark(rgb(85 102 119 / 18%), rgb(158 156 207 / 26%));
+  --border-strong: light-dark(rgb(85 102 119 / 30%), rgb(158 156 207 / 42%));
   --ring: var(--primary);
 
   /*
    * Brand roles (mildindigo)
    */
 
-  --primary-strong: var(--color-mildindigo-700);
-  --primary-active: var(--color-mildindigo-800);
-  --primary-deep: var(--color-mildindigo-900);
-  --primary-subtle: var(--color-mildindigo-400);
-  --primary-faint: var(--color-mildindigo-300);
-  --primary-surface: #f7f5fc; /* snippet tint, intentionally off-ramp */
-  --primary-heading: var(--color-mildindigo-800);
-  --primary-muted: var(--color-mildindigo-500);
+  --primary-strong: light-dark(
+    var(--color-mildindigo-700),
+    var(--color-mildindigo-300)
+  );
+  --primary-active: light-dark(
+    var(--color-mildindigo-800),
+    var(--color-mildindigo-700)
+  );
+  --primary-deep: light-dark(
+    var(--color-mildindigo-900),
+    var(--color-mildindigo-800)
+  );
+  --primary-subtle: light-dark(
+    var(--color-mildindigo-400),
+    var(--color-mildindigo-500)
+  );
+  --primary-surface: light-dark(#f7f5fc, #1e1a33);
+  --primary-muted: light-dark(
+    var(--color-mildindigo-500),
+    var(--color-mildindigo-300)
+  );
   --brand-gradient: linear-gradient(
     5deg,
-    var(--color-mildindigo-600),
-    var(--color-mildindigo-400)
+    light-dark(var(--color-mildindigo-600), var(--color-mildindigo-800)),
+    light-dark(var(--color-mildindigo-400), var(--color-mildindigo-600))
   );
+
+  /*
+   * Solid surfaces
+   * Pair with --primary-foreground; --primary stays the text accent.
+   */
+
+  --primary-solid: light-dark(
+    var(--color-mildindigo-600),
+    var(--color-mildindigo-700)
+  );
+  --primary-solid-soft: light-dark(
+    var(--color-mildindigo-400),
+    var(--color-mildindigo-600)
+  );
+  --primary-solid-hover: light-dark(
+    var(--color-mildindigo-700),
+    var(--color-mildindigo-800)
+  );
+  --slate-solid: light-dark(#556677, var(--color-steel-700));
+  --slate-solid-soft: light-dark(#5e7683, var(--color-steel-600));
+  --slate-solid-hover: light-dark(#44525f, var(--color-steel-800));
+  --highlight-solid: light-dark(#14af83, #0f7d61);
+  --highlight-solid-soft: light-dark(#15b89a, #156b52);
+  --highlight-solid-hover: light-dark(#108b68, #0e5f49);
 
   /*
    * Link / highlight
    */
 
-  --link: #26648e;
-  --link-hover: #3ac1cb;
-  --link-visited: #15234d;
-  --link-bright: #2e90ae;
-  --link-dark: #1d406e;
-  --highlight: #14af83;
-  --highlight-bright: #15b89a;
-  --highlight-dark: #108b68;
+  --link: light-dark(#26648e, #7cc7ea);
+  --link-hover: light-dark(#3ac1cb, #5fd3dd);
+  --link-visited: light-dark(#15234d, #b3a3e8);
+  --link-bright: light-dark(#2e90ae, #66bede);
+  --link-strong: light-dark(#1d406e, #a7c6e8);
+  --highlight: light-dark(#14af83, #34d3a3);
+  --highlight-bright: light-dark(#15b89a, #5ce6bd);
 
   /*
    * Syntax / overlays
    */
 
-  --syntax-punctuation: #669;
-  --syntax-comment: #569;
+  --syntax-punctuation: light-dark(#669, #a9a9c8);
+  --syntax-comment: light-dark(#569, #9a9fbb);
   --overlay: rgb(0 0 0 / 20%);
   --overlay-soft: rgb(0 0 0 / 12%);
-  --mask-opaque: #000; /* structural mask, not themeable */
+  --mask-opaque: #000;
 
   /*
    * Layout
@@ -84,4 +126,12 @@
 
   /* --mermaid-origin is set by scripts/v2017/behaviors_2/mermaid.ts;
      CSS keeps its fallback */
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }

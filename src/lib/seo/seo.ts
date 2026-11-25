@@ -71,7 +71,7 @@ export function getSEOTitle(page: {
     title?: string
     seo_title?: string
     layout?: string
-    tier?: 't1' | 't2'
+    tier?: 't1' | 't2' | 't3'
     updated?: Date
   }
 }) {

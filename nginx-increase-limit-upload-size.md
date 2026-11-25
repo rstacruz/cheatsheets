@@ -9,8 +9,6 @@ updated: 2026-11-25
 links:
   - title: client_max_body_size
     url: https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
-  - title: error_log
-    url: https://nginx.org/en/docs/ngx_core_module.html#error_log
 ---
 
 ## Raising the limit
@@ -49,13 +47,3 @@ sudo nginx -T | grep client_max_body_size
 <!-- {: data-highlight="-T"} -->
 
 **Shows every configured limit.** `-T` prints included files, so a limit hidden in a snippet still appears; see [command-line parameters](https://nginx.org/en/docs/switches.html).
-
-### Confirm the rejection
-<!-- {: .-snippet} -->
-
-```bash
-sudo tail -f /var/log/nginx/error.log
-```
-<!-- {: data-highlight="error.log"} -->
-
-**Confirms nginx is rejecting the upload.** The log says `client intended to send too large body`; see [error_log](https://nginx.org/en/docs/ngx_core_module.html#error_log).

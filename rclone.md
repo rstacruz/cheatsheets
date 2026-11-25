@@ -4,71 +4,175 @@ seo_title: rclone cheatsheet — commands, remotes, sync
 description: "rclone commands: config, list remotes, copy, sync, check and general flags. Reference."
 subtitle: Cloud storage sync tool
 category: Networking
+updated: 2026-11-24
+last_verified_with: "rclone 1.76.0."
+tier: t3
+intro: |
+  rclone syncs files between cloud storage, local disks, and remote servers. This reference covers remotes, transfers, and common flags.
+links:
+  - title: rclone documentation
+    url: https://rclone.org/docs/
+  - title: rclone commands
+    url: https://rclone.org/commands/
+  - title: rclone filtering
+    url: https://rclone.org/filtering/
 ---
 
-### Basic configuration
+## Remotes
+<!-- {: .-three-column} -->
 
-```bash
-rclone config       # Start the interactive configuration wizard to add new remotes
-rclone config show  # Display the current configuration
-rclone listremotes  # List the names of all configured remotes
+### Configure
+
+```sh
+rclone config
+rclone config show
 ```
 
-### Listing files & directories
+`rclone config redacted` prints the same file with secrets masked.
 
-```bash
-rclone ls <remote>:<path>    # List files and file sizes
-rclone lsl <remote>:<path>   # List files, sizes, and modification times
-rclone lsd <remote>:<path>   # List directories only
-rclone tree <remote>:<path>  # List contents in a tree-like structure
+See: [rclone config](https://rclone.org/commands/rclone_config/)
+
+### List remotes
+
+```sh
+rclone listremotes
+rclone listremotes --long
 ```
 
-### Copying & syncing
+`--long` adds each remote's backend type and description.
 
-#### Copy
+See: [rclone listremotes](https://rclone.org/commands/rclone_listremotes/)
 
-```bash
-rclone copy <source> <dest>            # Copy new/changed files
-rclone copy <source> <dest> --dry-run  # Test the copy operation without making changes
+## Browse
+<!-- {: .-three-column} -->
+
+### List files
+
+```sh
+rclone ls remote:path
+rclone lsl remote:path
+rclone lsd remote:path
+rclone tree remote:path
 ```
 
-#### Sync
+`ls` and `lsl` recurse; `lsd` stops after one level.
 
-```bash
-rclone sync <source> <dest>            # Sync source to destination
-rclone sync <source> <dest> --dry-run  # Test the sync operation (recommended before actual sync)
+See: [rclone ls](https://rclone.org/commands/rclone_ls/), [rclone tree](https://rclone.org/commands/rclone_tree/)
+
+### Measure
+
+```sh
+rclone size remote:path
+rclone about remote:
 ```
 
-### Deleting & moving
+`about` reports quota on backends that expose it.
 
-```bash
-rclone move <source> <dest>    # Move files (copy and then delete the source)
-rclone delete <remote>:<path>  # Delete the files in the path
-rclone purge <remote>:<path>   # Delete the path and all of its contents (Irrecoverable!)
-rclone rmdir <remote>:<path>   # Remove an empty directory
+See: [rclone size](https://rclone.org/commands/rclone_size/), [rclone about](https://rclone.org/commands/rclone_about/)
+
+## Transfer
+<!-- {: .-three-column} -->
+
+### Copy
+
+```sh
+rclone copy src:path dst:path
+rclone copy src:path dst:path --dry-run
 ```
 
-### File manipulation
+`copy` skips identical files and never deletes from the destination.
 
-```bash
-rclone mkdir <remote>:<path>           # Create a new directory
-rclone touch <remote>:<path>/file.txt  # Create a new file with the current time
-rclone cat <remote>:<path>/file.txt    # Output the file content to standard output
-rclone check <source> <dest>           # Check if the files in source and dest are identical
+See: [rclone copy](https://rclone.org/commands/rclone_copy/)
+
+### Sync
+
+```sh
+rclone sync src:path dst:path --dry-run
+rclone sync src:path dst:path
 ```
 
-### Important flags (general)
+`sync` deletes destination files that are missing from the source.
 
-```bash
---dry-run                     # Show what would be transferred without doing it
--P or --progress              # Show progress during transfer
---transfers=N                 # Set number of file transfers to run in parallel (default 4)
---checkers=N                  # Set number of checkers to run in parallel (default 8)
---max-age <time>              # Don't transfer files older than <time>
---min-age <time>              # Don't transfer files newer than <time>
---include <filter>            # Include files matching this pattern
---exclude <filter>            # Exclude files matching this pattern
---fast-list                   # Use recursive listing to speed up checks (may use more memory)
---multi-thread-cutoff <size>  # Use multiple threads for files bigger than <size>
---multi-thread-streams <N>    # Number of streams to use for multi-thread transfers
+See: [rclone sync](https://rclone.org/commands/rclone_sync/)
+
+### Verify
+
+```sh
+rclone check src:path dst:path
+rclone check src:path dst:path --one-way
 ```
+
+`check` compares sizes and hashes; `--size-only` is a quick check.
+
+See: [rclone check](https://rclone.org/commands/rclone_check/)
+
+### Bidirectional
+
+```sh
+rclone bisync drive:docs ~/docs
+```
+
+`bisync` propagates changes both ways from each side's last listing; the first run needs `--resync`.
+
+See: [rclone bisync](https://rclone.org/commands/rclone_bisync/)
+
+## Modify
+<!-- {: .-three-column} -->
+
+### Move and delete
+
+```sh
+rclone move src:path dst:path
+rclone delete remote:path
+rclone purge remote:path
+```
+
+`purge` removes the path and everything under it.
+
+See: [rclone move](https://rclone.org/commands/rclone_move/), [rclone purge](https://rclone.org/commands/rclone_purge/)
+
+### Files and directories
+
+```sh
+rclone mkdir remote:path
+rclone touch remote:path/file.txt
+rclone cat remote:path/file.txt
+```
+
+See: [rclone mkdir](https://rclone.org/commands/rclone_mkdir/), [rclone cat](https://rclone.org/commands/rclone_cat/)
+
+## Flags
+
+### Transfer flags
+
+| Flag | Effect |
+| --- | --- |
+| `--dry-run` | Log transfers without doing them |
+| `-P, --progress` | Show live progress |
+| `--transfers 8` | Parallel file transfers (default 4) |
+| `--checkers 16` | Parallel checkers (default 8) |
+
+See: [transfers](https://rclone.org/docs/#transfers-int)
+
+### Filtering flags
+
+| Flag | Effect |
+| --- | --- |
+| `--include '*.jpg'` | Only transfer matching paths |
+| `--exclude '*.tmp'` | Skip matching paths |
+| `--max-age 7d` | Only files newer than a week |
+| `--min-age 7d` | Only files older than a week |
+| `--max-size 100M` | Only files under 100 MB |
+| `--fast-list` | Fewer transactions, more memory |
+
+See: [filtering](https://rclone.org/filtering/)
+
+### Performance flags
+
+| Flag | Effect |
+| --- | --- |
+| `--multi-thread-cutoff 256Mi` | Multi-thread above this size |
+| `--multi-thread-streams 4` | Streams per multi-threaded file |
+| `--buffer-size 32Mi` | Memory buffer per transfer (16Mi) |
+
+See: [multi-thread cutoff](https://rclone.org/docs/#multi-thread-cutoff)

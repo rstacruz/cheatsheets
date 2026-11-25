@@ -61,7 +61,6 @@
   "flux#Subclassing",
   "flux#Updating data",
   "flynn#Using a flynn cluster",
-  "gh-pages#Set up your domain",
   "git-extras#Locking",
   "gnupg#Components",
   "gnupg#Exporting keys",
@@ -76,8 +75,6 @@
   "goby#Hello world",
   "goby#Lazy enumeration",
   "goby#`Diggable`",
-  "haml#Inline Attributes",
-  "handlebars.js#Helpers",
   "heroku#`pg` - PostgreSQL",
   "hledger#Intervals",
   "hledger#Multi-column mode",
@@ -148,7 +145,5 @@
   "stylus#Conditional",
   "vagrant#Get started",
   "vim#Usage",
-  "vim-rails#Prefixes",
-  "watchman#Getting started",
   "webpack#Mode"
 ]

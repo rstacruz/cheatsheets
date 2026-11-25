@@ -44,10 +44,11 @@ describe('getSEOPropsForPage()', () => {
     expect(output.title).toEqual('React cheatsheet — hooks')
   })
 
-  const tierCases: Array<['t1' | 't2' | undefined, string, string]> = [
+  const tierCases: Array<['t1' | 't2' | 't3' | undefined, string, string]> = [
     ['t1', '2026-11-11', 'React cheatsheet (Nov 2026)'],
     ['t1', '2026-01-05', 'React cheatsheet (Jan 2026)'],
     ['t2', '2026-11-11', 'React cheatsheet'],
+    ['t3', '2026-11-11', 'React cheatsheet'],
     [undefined, '2026-11-11', 'React cheatsheet']
   ]
 

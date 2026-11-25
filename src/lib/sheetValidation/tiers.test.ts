@@ -17,7 +17,7 @@ test('every tiered sheet is listed', async () => {
     ).toBe(true)
   }
 
-  for (const tier of ['t1', 't2'] as const) {
+  for (const tier of ['t1', 't2', 't3'] as const) {
     expect(
       tiered.some((page) => page.frontmatter.tier === tier),
       `no sheets in ${tier}`

@@ -87,12 +87,11 @@ See: [Authenticate with GitLab](https://docs.gitlab.com/cli/authentication/)
 ```bash
 glab auth login \
   --hostname gitlab.example.com
-glab config set -g host \
-  gitlab.example.com
+glab config set -g host gitlab.example.com
 ```
 <!-- {: data-highlight="--hostname"} -->
 
-`GITLAB_HOST=gitlab.example.com` overrides the host for a single command.
+`config set -g host` makes it your default host. `GITLAB_HOST` overrides the host for a single command.
 
 See: [Connect to your instance](https://docs.gitlab.com/cli/connection/)
 
@@ -101,11 +100,12 @@ See: [Connect to your instance](https://docs.gitlab.com/cli/connection/)
 ```bash
 glab todo list
 glab todo list --action=assigned
+glab todo list --state done
 glab todo done --all
 ```
 <!-- {: data-highlight="glab todo list"} -->
 
-To-dos collect assignments, mentions, and failed pipelines. `--state done` shows the cleared ones.
+To-dos collect assignments, mentions, and failed pipelines. `--action` filters by reason, `--state done` lists cleared ones, and `todo done --all` clears them.
 
 See: [glab todo list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/todo/list.md)
 
@@ -185,9 +185,7 @@ glab repo list -g mygroup \
 
 See: [glab repo list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/list.md)
 
-### Archive and prune
-
-#### Archive
+### Archive
 
 ```bash
 glab repo archive group/project
@@ -196,7 +194,11 @@ glab repo archive group/project \
 ```
 <!-- {: data-highlight="glab repo archive"} -->
 
-#### Prune
+Downloads the repository's source as a zip; `--format` picks another archive type.
+
+See: [glab repo archive](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/archive.md)
+
+### Prune
 
 ```bash
 glab repo prune --dry-run
@@ -206,7 +208,7 @@ glab repo prune --yes
 
 `prune` deletes local branches whose merge requests merged; `--merged` checks with Git instead of the API, but only detects fast-forward merges.
 
-See: [glab repo archive](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/archive.md), [glab repo prune](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/prune.md)
+See: [glab repo prune](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/prune.md)
 
 ## Merge requests
 <!-- {: .-three-column} -->
@@ -305,7 +307,7 @@ glab mr note create 123 -m "Rename this" \
 ```
 <!-- {: data-highlight="--file src/app.ts"} -->
 
-`--sha` refuses unless the merge request's HEAD matches; `--file` and `--line` leave a comment on the diff.
+`--sha` refuses unless the merge request's HEAD matches; `--file` and `--line` leave a comment on the diff. The `note` subcommands are experimental in glab 1.130.
 
 See: [glab mr approve](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/approve.md), [glab mr note](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/note/_index.md)
 
@@ -351,7 +353,7 @@ glab mr reopen 123
 ```
 <!-- {: data-highlight="glab mr close; glab mr reopen"} -->
 
-Closed requests keep their branch; `mr list --all` includes them.
+Closing keeps the source branch; `mr list --all` includes closed merge requests.
 
 See: [glab mr close](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/close.md)
 
@@ -460,7 +462,7 @@ glab ci status --wait --compact
 ```
 <!-- {: data-highlight="--live; --wait"} -->
 
-`--live` redraws until the pipeline ends; `--wait` returns when it does, without redrawing.
+Reports the current branch's pipeline. `--live` redraws until it ends; `--wait` returns when it does, without redrawing.
 
 See: [glab ci status](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci/status.md)
 
@@ -543,7 +545,7 @@ glab ci cancel pipeline 42
 ```
 <!-- {: data-highlight="glab ci retry; glab ci cancel"} -->
 
-`retry` takes a job name or ID; `cancel` takes IDs and also accepts pipelines. `--dry-run` previews a cancel.
+`retry` takes a job name or ID; `cancel` takes `job <id>` or `pipeline <id>`. `--dry-run` previews a job cancel.
 
 See: [glab ci retry](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci/retry.md), [glab ci cancel](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci/cancel/_index.md)
 
@@ -661,7 +663,7 @@ glab api graphql \
 ```
 <!-- {: data-highlight="graphql"} -->
 
-Other fields become GraphQL variables. Paginated queries need an `$endCursor` variable.
+The `query` field holds the document; any other field becomes a GraphQL variable. Paginated queries need an `$endCursor` variable.
 
 See: [GraphQL API](https://docs.gitlab.com/api/graphql/)
 

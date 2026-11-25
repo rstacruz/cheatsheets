@@ -264,3 +264,97 @@ for (const path of ['/', '/bash', '/archive', '/404']) {
     }
   })
 }
+
+const MERMAID_CANVAS = '.MermaidDiagram__canvas svg'
+const MERMAID_ERROR = '.MermaidDiagram__error'
+
+/** Strip per-render ids so markups compare equal */
+function withoutRenderIds(html: string) {
+  return html.replaceAll(/mermaid-diagram-\d+/g, 'mermaid-diagram')
+}
+
+async function mermaidMarkup(page: Page) {
+  const markup = await page.evaluate(
+    () => document.querySelector('.MermaidDiagram__canvas svg')?.outerHTML
+  )
+  return markup ? withoutRenderIds(markup) : undefined
+}
+
+test('re-renders the Mermaid diagram for the chosen theme', async ({
+  page
+}) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/git-revisions')
+  await expect(page.locator(MERMAID_CANVAS)).toBeVisible({ timeout: 15_000 })
+
+  const light = await mermaidMarkup(page)
+  const canvasBox = await page.locator('.MermaidDiagram__canvas').boundingBox()
+  const captionBox = await page
+    .locator('.MermaidDiagram__caption')
+    .boundingBox()
+  expect(captionBox!.y).toBeGreaterThanOrEqual(canvasBox!.y + canvasBox!.height)
+
+  await page.locator(TOGGLE).click()
+
+  await expect
+    .poll(
+      async () => {
+        const markup = await mermaidMarkup(page)
+        return markup !== undefined && markup !== light
+      },
+      { timeout: 15_000 }
+    )
+    .toBe(true)
+  await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
+})
+
+test('drops a stale Mermaid render after two quick toggles', async ({
+  page
+}) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/git-revisions')
+  await expect(page.locator(MERMAID_CANVAS)).toBeVisible({ timeout: 15_000 })
+
+  const light = await mermaidMarkup(page)
+
+  await page.evaluate(() => {
+    const figure = document.querySelector('.MermaidDiagram')
+    const win = window as typeof window & { mermaidRenders?: number }
+    win.mermaidRenders = 0
+    if (!figure) return
+
+    new MutationObserver((records) => {
+      for (const record of records)
+        for (const node of record.addedNodes)
+          if (
+            node instanceof Element &&
+            node.classList.contains('MermaidDiagram__canvas')
+          )
+            win.mermaidRenders = (win.mermaidRenders ?? 0) + 1
+    }).observe(figure, { childList: true, subtree: true })
+
+    ;(document.querySelector('[data-js-theme-toggle]') as HTMLElement).click()
+    ;(document.querySelector('[data-js-theme-toggle]') as HTMLElement).click()
+  })
+
+  await expect
+    .poll(
+      async () => {
+        const renders = await page.evaluate(
+          () =>
+            (window as typeof window & { mermaidRenders?: number })
+              .mermaidRenders
+        )
+        const markup = await mermaidMarkup(page)
+        return (renders ?? 0) > 0 && markup === light
+      },
+      { timeout: 15_000 }
+    )
+    .toBe(true)
+
+  const renders = await page.evaluate(
+    () => (window as typeof window & { mermaidRenders?: number }).mermaidRenders
+  )
+  expect(renders).toBe(1)
+  await expect(page.locator(MERMAID_ERROR)).toHaveCount(0)
+})

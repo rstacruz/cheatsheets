@@ -14,7 +14,6 @@ import PageListItem from '~/components/V2017Home/PageListItem.astro'
 import FeaturedPages from '~/components/V2017Home/FeaturedPages.astro'
 import Announcements from '~/components/V2017Home/Announcements.astro'
 import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
-import CarbonBox from '~/components/V2017/CarbonBox.astro'
 import SEO from '~/components/SEO/SEO.astro'
 import { typeStyles } from '~/styles/CommonStyles'
 import { urls } from '~/config'
@@ -22,7 +21,7 @@ import { urls } from '~/config'
 const pages = await getPages()
 const pageCategories = getPagesByCategory(pages, { excludeSnippets: true })
 const featuredPages = getFeaturedPages(pages, {
-  maxCount: 8,
+  maxCount: 10,
   excludeSnippets: true
 })
 const recentPages = getRecentPages(pages, {
@@ -103,13 +102,6 @@ const headingStyles = {
     </div>
     <div role="banner">
       <SearchForm isLive />
-
-      <div class="mt-8"></div>
-
-      {/* Publicite */}
-      <div class="pubbox">
-        <CarbonBox />
-      </div>
 
       <div class="mt-8"></div>
     </div>

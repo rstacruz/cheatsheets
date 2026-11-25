@@ -1,6 +1,7 @@
 ---
 import type { SheetPage } from '~/lib/page'
 import '@fontsource/handjet/latin-400.css'
+import CarbonCover from './CarbonCover.astro'
 import PageListItem from './PageListItem.astro'
 
 export type Props = {
@@ -10,20 +11,26 @@ export type Props = {
 const props = Astro.props as Props
 const tones = ['primary', 'slate', 'green'] as const
 
+// Insert the cover ad where featured cards 3 and 4 would sit.
+const CARBON_AFTER_INDEX = 2
+
 const styles = {
-  root: 'FeaturedPages__root col-span-full grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-[16px]'
+  root: 'FeaturedPages__root col-span-full grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-[16px]'
 }
 ---
 
 {props.pages.length > 0 && (
   <div class={styles.root}>
     {props.pages.map((page, index) => (
-      <PageListItem
-        page={page}
-        variant="featured"
-        tone={tones[index % tones.length]}
-        showFragments
-      />
+      <>
+        {index === CARBON_AFTER_INDEX && <CarbonCover />}
+        <PageListItem
+          page={page}
+          variant="featured"
+          tone={tones[index % tones.length]}
+          showFragments
+        />
+      </>
     ))}
   </div>
 )}

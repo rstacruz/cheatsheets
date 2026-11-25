@@ -28,7 +28,10 @@ export const urls = {
 export const carbon = {
   enabled: isProd,
   // src: 'https://cdn.carbonads.com/carbon.js?serve=CE7IK5QM&placement=devhintsio'
-  src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
+  src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio',
+  // Cover format, used in the homepage featured grid
+  coverSrc:
+    'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio&format=cover'
 } as const
 
 // Nav order. Every category except Others holds 3-16 sheets; Others holds at

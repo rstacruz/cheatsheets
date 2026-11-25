@@ -351,7 +351,7 @@ glab mr reopen 123
 ```
 <!-- {: data-highlight="glab mr close; glab mr reopen"} -->
 
-Closed requests keep their branch; `mr list --all` shows them again.
+Closed requests keep their branch; `mr list --all` includes them.
 
 See: [glab mr close](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/close.md)
 

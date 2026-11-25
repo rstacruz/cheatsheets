@@ -178,13 +178,13 @@ Maps `/downloads/a.zip` to `/srv/files/a.zip`. Unlike `root`, `alias` replaces t
 ### Block dotfiles
 
 ```nginx
-location ~ /\. {
+location ~ /\.(?!well-known/) {
     deny all;
 }
 ```
 <!-- {: data-highlight="deny all"} -->
 
-Rejects paths like `/.env` and `/.git/config`. The regex matches a dot anywhere after a slash. See [deny](https://nginx.org/en/docs/http/ngx_http_access_module.html#deny).
+Rejects paths like `/.env` and `/.git/config`, while leaving `/.well-known/` for ACME challenges. The regex matches a dot anywhere after a slash. See [deny](https://nginx.org/en/docs/http/ngx_http_access_module.html#deny).
 
 ## Proxy
 
@@ -339,7 +339,7 @@ location /assets/ {
 ```
 <!-- {: data-highlight="expires 30d"} -->
 
-Adds `Expires` and `Cache-Control` for a month. `add_header` only applies to 2xx and 3xx responses by default. See [expires](https://nginx.org/en/docs/http/ngx_http_headers_module.html#expires).
+Adds `Expires` and `Cache-Control` for a month. `add_header` applies to 200, 201, 204, 206, and the 301/302/303/304/307/308 redirects by default; add `always` to cover other statuses. See [expires](https://nginx.org/en/docs/http/ngx_http_headers_module.html#expires).
 
 ### Revalidate HTML
 
@@ -397,7 +397,7 @@ keepalive_timeout 15s;
 ```
 <!-- {: data-highlight="client_body_timeout 12s; client_header_timeout 12s; keepalive_timeout 15s"} -->
 
-Closes slow clients and idle keep-alive connections. `keepalive_timeout` is how long an idle connection stays open. See [keepalive_timeout](https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout).
+Cuts off clients that stall between reads and closes idle keep-alive connections. `keepalive_timeout` is how long an idle connection stays open. See [keepalive_timeout](https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout).
 
 ## Also see
 

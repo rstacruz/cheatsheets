@@ -182,9 +182,9 @@ location ~ /\.(?!well-known/) {
     deny all;
 }
 ```
-<!-- {: data-highlight="deny all"} -->
+<!-- {: data-highlight="location ~ /\.(?!well-known/)"} -->
 
-Rejects paths like `/.env` and `/.git/config`, while leaving `/.well-known/` for ACME challenges. The regex matches a dot anywhere after a slash. See [deny](https://nginx.org/en/docs/http/ngx_http_access_module.html#deny).
+Rejects paths like `/.env` and `/.git/config`, while leaving `/.well-known/` for ACME challenges. The regex matches a dot after any slash except `/.well-known/`. See [deny](https://nginx.org/en/docs/http/ngx_http_access_module.html#deny).
 
 ## Proxy
 
@@ -244,6 +244,7 @@ location /api/ {
 Replaces `/api/` with `/`, so `/api/users` reaches the app as `/users`. Drop the trailing slash to keep the prefix. See [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass).
 
 ## Redirects
+<!-- {: .-three-column} -->
 
 ### Force HTTPS
 
@@ -260,7 +261,8 @@ Sends every HTTP request to the same path over HTTPS. `$request_uri` keeps the q
 ### Move an old path
 
 ```nginx
-rewrite ^/old/(.*)$ /new/$1 permanent;
+rewrite ^/old/(.*)$ /new/$1
+  permanent;
 ```
 <!-- {: data-highlight="rewrite"} -->
 
@@ -272,14 +274,16 @@ Redirects `/old/a` to `/new/a` with a `301`. `permanent` returns 301; `redirect`
 server {
     listen 80;
     server_name old.example.com;
-    return 301 https://example.com$request_uri;
+    return 301
+      https://example.com$request_uri;
 }
 ```
-<!-- {: data-highlight="return 301 https://example.com$request_uri"} -->
+<!-- {: data-highlight="https://example.com$request_uri"} -->
 
 Moves an old domain to the new one. An exact `server_name` beats a wildcard, so block order does not matter. See [return](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return).
 
 ## TLS
+<!-- {: .-three-column} -->
 
 ### Enable HTTPS
 
@@ -288,13 +292,13 @@ server {
     listen 443 ssl;
     server_name example.com;
 
-    ssl_certificate     /etc/ssl/example.com.pem;
-    ssl_certificate_key /etc/ssl/example.com.key;
+    ssl_certificate /etc/ssl/site.pem;
+    ssl_certificate_key /etc/ssl/site.key;
 }
 ```
 <!-- {: data-highlight="listen 443 ssl"} -->
 
-Terminates TLS for the site. The certificate file must hold the full chain. See [ssl_certificate](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate).
+Terminates TLS for the site. The certificate file holds the leaf certificate; put any intermediates after it. See [ssl_certificate](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate).
 
 ### Enable HTTP/2
 
@@ -317,12 +321,13 @@ ssl_prefer_server_ciphers off;
 Allows only TLS 1.2 and 1.3. With `off`, the client picks the cipher order, which suits modern clients. See [ssl_protocols](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_protocols).
 
 ## Compression and caching
+<!-- {: .-three-column} -->
 
 ### Gzip responses
 
 ```nginx
 gzip on;
-gzip_types text/css application/javascript
+gzip_types text/css text/javascript
   application/json image/svg+xml;
 ```
 <!-- {: data-highlight="gzip on; gzip_types"} -->
@@ -397,7 +402,7 @@ keepalive_timeout 15s;
 ```
 <!-- {: data-highlight="client_body_timeout 12s; client_header_timeout 12s; keepalive_timeout 15s"} -->
 
-Cuts off clients that stall between reads and closes idle keep-alive connections. `keepalive_timeout` is how long an idle connection stays open. See [keepalive_timeout](https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout).
+Cuts off slow clients and closes idle keep-alive connections. `keepalive_timeout` is how long an idle connection stays open. See [keepalive_timeout](https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout).
 
 ## Also see
 

@@ -26,7 +26,7 @@ sudo nginx -s reload
 
 **Applies a new config without dropping connections.** The master validates the file, starts new workers, and drains the old ones; see [controlling nginx](https://nginx.org/en/docs/control.html).
 
-### Test before reloading
+### Validate the config
 <!-- {: .-snippet} -->
 
 ```bash

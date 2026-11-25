@@ -3,7 +3,7 @@ title: ES2015+
 subtitle: Modern JavaScript features
 category: JavaScript
 last_verified_with: "ECMAScript 2018."
-updated: 2019-11-14
+updated: 2026-11-25
 tier: t3
 weight: -10
 intro: |
@@ -254,6 +254,8 @@ const scores = [22, 33]
 const [math = 50, sci = 50, arts = 50] = scores
 ```
 
+#### Result
+
 ```js
 // Result:
 // math === 22, sci === 33, arts === 50
@@ -273,6 +275,8 @@ function greet({ name, greeting }) {
 
 <!-- {: data-highlight="greeting"} -->
 
+#### Call the function
+
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
@@ -291,6 +295,8 @@ function greet({ name = 'Rauno' } = {}) {
 
 <!-- {: data-highlight="'Rauno'"} -->
 
+#### Call with defaults
+
 ```js
 greet() // Hi Rauno!
 greet({ name: 'Larry' }) // Hi Larry!
@@ -307,6 +313,8 @@ function printCoordinates({ left: x, top: y }) {
 ```
 
 <!-- {: data-highlight="printCoordinates"} -->
+
+#### Call the function
 
 ```js
 printCoordinates({ left: 25, top: 90 })
@@ -370,7 +378,7 @@ const options = Object.assign(
 
 The Object spread operator lets you build new objects from other objects.
 
-See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)
 
 ### Array spread
 
@@ -396,7 +404,7 @@ const users = admins
 
 The spread operator lets you build new arrays in the same way.
 
-See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals)
 
 Functions
 ---------
@@ -559,20 +567,28 @@ import 'helpers'
 // aka: require('···')
 ```
 
+#### Default imports
+
 ```js
 import Express from 'express'
 // aka: const Express = require('···').default || require('···')
 ```
+
+#### Named imports
 
 ```js
 import { indent } from 'helpers'
 // aka: const indent = require('···').indent
 ```
 
+#### Namespace imports
+
 ```js
 import * as Helpers from 'helpers'
 // aka: const Helpers = require('···')
 ```
+
+#### Renamed imports
 
 ```js
 import { indentSpaces as indent } from 'helpers'
@@ -589,10 +605,14 @@ export default function () { ··· }
 // aka: module.exports.default = ···
 ```
 
+#### Named exports
+
 ```js
 export function mymethod () { ··· }
 // aka: module.exports.mymethod = ···
 ```
+
+#### Constants
 
 ```js
 export const pi = 3.14159
@@ -613,6 +633,8 @@ function* idMaker () {
   while (true) { yield id++ }
 }
 ```
+
+#### Consume the generator
 
 ```js
 let gen = idMaker()

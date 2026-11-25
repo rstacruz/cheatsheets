@@ -26,6 +26,5 @@ See: [Role directory structure](https://docs.ansible.com/projects/ansible/latest
 
 ### References
 
- * <https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
+ * [Reusing roles](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html)
 
-See: [Reusing roles](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html)

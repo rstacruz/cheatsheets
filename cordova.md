@@ -14,10 +14,14 @@ links:
 
 ### Common commands
 
+#### Plugins
+
 ```
 cordova plugin ls
 cordova plugin add cordova-plugin-camera
 ```
+
+#### Platforms
 
 ```
 cordova platform add ios

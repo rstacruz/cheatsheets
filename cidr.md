@@ -2,7 +2,7 @@
 title: CIDR
 subtitle: IP address range notation
 category: Networking
-last_verified_with: "RFC 4632, RFC 4291."
+last_verified_with: "RFC 4632."
 updated: 2018-05-14
 tier: t3
 ---

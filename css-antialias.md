@@ -4,7 +4,7 @@ link_title: CSS antialiasing
 subtitle: Font smoothing on macOS
 category: CSS
 layout: snippet
-last_verified_with: "CSS Text Module Level 4."
+last_verified_with: "WebKit CSS extensions (non-standard), MDN font-smooth."
 updated: 2026-11-24
 tier: t3
 links:

@@ -63,7 +63,7 @@ alice
 bob
 ```
 
-**Extracts whitespace-separated fields.** `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts whitespace-separated fields.** `awk` collapses runs of whitespace and handles conditions, arithmetic, and formatting; see [Fields](https://www.gnu.org/software/gawk/manual/html_node/Fields.html).
 
 ### awk by delimiter
 <!-- {: .-snippet} -->
@@ -87,4 +87,4 @@ alice
 bob
 ```
 
-**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [awk](https://www.gnu.org/software/gawk/manual/html_node/index.html).
+**Extracts fields with a custom delimiter.** `-F` sets the separator, so awk fits once splitting needs logic; see [Field separators](https://www.gnu.org/software/gawk/manual/html_node/Field-Separators.html).

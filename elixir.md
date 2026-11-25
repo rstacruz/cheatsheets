@@ -4,7 +4,7 @@ subtitle: Functional language on BEAM
 category: Elixir
 tags: [New]
 last_verified_with: "Elixir 1.20."
-updated: 2018-07-04
+updated: 2026-11-25
 tier: t3
 weight: -10
 ---
@@ -29,6 +29,8 @@ end
 
 Greeter.greet("world")
 ```
+
+#### Run
 
 ```bash
 elixir hello.exs
@@ -56,6 +58,8 @@ user = %{
 }
 ```
 
+#### Read a field
+
 ```elixir
 IO.puts "Hello, " <> user.name
 ```
@@ -71,6 +75,8 @@ users = [ "Tom", "Dick", "Harry" ]
 ```
 
 <!-- {: data-highlight='"Harry"'} -->
+
+#### Iterate
 
 ```elixir
 Enum.map(users, fn user ->
@@ -169,7 +175,7 @@ cond do
   2 * 5 == 12 ->
     "Me neither"
   true ->
-    "But I will (this is essentially an else)"
+    "But I will (else)"
 end
 ```
 
@@ -178,14 +184,21 @@ See: [cond](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#cond/1)
 ### With
 
 ```elixir
-with {:ok, {int, _asdf}} <- Integer.parse("123asdf"),
-     {:ok, datetime, _utc_offset} <- DateTime.from_iso8601("2021-10-27T12:00:00Z") do
+iso = "2021-10-27T12:00:00Z"
+with {:ok, {int, _asdf}} <-
+       Integer.parse("123asdf"),
+     {:ok, datetime, _utc_offset} <-
+       DateTime.from_iso8601(iso) do
   DateTime.add(datetime, int, :second)
-  # optional else clause. if not provided and an error occurs, the error is returned
+  # optional else clause; without it,
+  # errors are returned
 else
-  :error -> "couldn't parse integer string"
-  {:error, :invalid_format} -> "couldn't parse date string"
-  _ -> "this will never get hit because all errors are handled"
+  :error ->
+    "couldn't parse integer string"
+  {:error, :invalid_format} ->
+    "couldn't parse date string"
+  _ ->
+    "never hit; all errors handled"
 end
 ```
 
@@ -234,6 +247,8 @@ See: [Basic types](https://hexdocs.pm/elixir/basic-types.html)
 
 ### Type checks
 
+#### Atoms and functions
+
 ```elixir
 is_atom/1
 is_bitstring/1
@@ -244,12 +259,16 @@ is_integer/1
 is_float/1
 ```
 
+#### Binaries and collections
+
 ```elixir
 is_binary/1
 is_list/1
 is_map/1
 is_tuple/1
 ```
+
+#### Other types
 
 ```elixir
 is_nil/1
@@ -280,7 +299,7 @@ Modules
 
 ```elixir
 require Redux   # compiles a module
-import Redux    # compiles, and you can use without the `Redux.` prefix
+import Redux    # compiles; use without the `Redux.` prefix
 
 use Redux       # compiles, and runs Redux.__using__/1
 use Redux, async: true
@@ -315,6 +334,8 @@ import String
 
 <!-- {: .-setup} -->
 
+#### Usage
+
 ```elixir
 str = "hello"
 str |> length()        # → 5
@@ -332,9 +353,15 @@ See: [String](https://hexdocs.pm/elixir/String.html)
 ```elixir
 inspect(object, opts \\ [])
 ```
+
+#### Pipelined
+
 ```elixir
 value |> IO.inspect()
 ```
+
+#### With a label
+
 ```elixir
 value |> IO.inspect(label: "value")
 ```
@@ -352,7 +379,7 @@ rem(a, b)   # remainder (modulo)
 div(a, b)   # integer division
 ```
 
-See: [Arithmetic operators](https://hexdocs.pm/elixir/Kernel.html#abs/1)
+See: [abs/1](https://hexdocs.pm/elixir/Kernel.html#abs/1)
 
 ### Float
 
@@ -362,11 +389,15 @@ import Float
 
 <!-- {: .-setup} -->
 
+#### Set a value
+
 ```elixir
 n = 10.3
 ```
 
 <!-- {: .-setup} -->
+
+#### Round and print
 
 ```elixir
 n |> ceil()            # → 11.0
@@ -374,6 +405,8 @@ n |> ceil(2)           # → 11.30
 n |> to_string()       # → "1.030000+e01"
 n |> to_string([decimals: 2, compact: true])
 ```
+
+#### Parse
 
 ```elixir
 Float.parse("34")  # → { 34.0, "" }
@@ -389,11 +422,15 @@ import Integer
 
 <!-- {: .-setup} -->
 
+#### Set a value
+
 ```elixir
 n = 12
 ```
 
 <!-- {: .-setup} -->
+
+#### Convert
 
 ```elixir
 n |> digits()         # → [1, 2]
@@ -410,6 +447,8 @@ n |> to_charlist(2)   # → '1100'
 n |> to_string(2)     # → "1100"
 ```
 
+#### Parse and rebuild
+
 ```elixir
 parse("12")           # → {12, ""}
 undigits([1, 2])      # → 12
@@ -423,6 +462,8 @@ See: [Integer](https://hexdocs.pm/elixir/Integer.html)
 Float.parse("34.1")    # → {34.1, ""}
 Integer.parse("34")    # → {34, ""}
 ```
+
+#### To strings
 
 ```elixir
 Float.to_string(34.1)  # → "3.4100e+01"
@@ -450,14 +491,20 @@ import Map
 
 <!-- {: .-setup} -->
 
+#### Existing key
+
 ```elixir
 m = %{m | name: "yo"}  # key must exist
 ```
+
+#### New keys
 
 ```elixir
 m |> put(:id, 2)      # → %{id: 2, name: "hi"}
 m |> put_new(:id, 2)  # only if `id` doesn't exist (`||=`)
 ```
+
+#### Merge and change
 
 ```elixir
 m |> put(:b, "Banana")
@@ -465,6 +512,8 @@ m |> merge(%{b: "Banana"})
 m |> update(:a, &(&1 + 1))
 m |> update(:a, fun a -> a + 1 end)
 ```
+
+#### Read and update
 
 ```elixir
 m |> get_and_update(:a, &(&1 || "default"))
@@ -490,6 +539,8 @@ m |> keys()         # → [:id, :name]
 m |> values()       # → [1, "hi"]
 ```
 
+#### To a list
+
 ```elixir
 m |> to_list()      # → [id: 1, name: "hi"]
                     # → [{:id, 1}, {:name, "hi"}]
@@ -503,6 +554,8 @@ See: [Map.get](https://hexdocs.pm/elixir/Map.html#get/3)
 put_in(map, [:b, :c], "Banana")
 put_in(map[:b][:c], "Banana")    # via macros
 ```
+
+#### get_and_update_in
 
 ```elixir
 get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
@@ -538,11 +591,17 @@ See: [Map.from_struct](https://hexdocs.pm/elixir/Map.html#from_struct/1)
 
 ## List
 
+### Import
+
 ```elixir
 import List
 ```
 
 <!-- {: .-setup} -->
+
+See: [import](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#import/1)
+
+### Create
 
 ```elixir
 l = [ 1, 2, 3, 4 ]
@@ -550,15 +609,27 @@ l = [ 1, 2, 3, 4 ]
 
 <!-- {: .-setup} -->
 
+See: [List](https://hexdocs.pm/elixir/List.html)
+
+### Add elements
+
 ```elixir
 l = l ++ [5]         # push (append)
 l = [ 0 | list ]     # unshift (prepend)
 ```
 
+See: [List](https://hexdocs.pm/elixir/List.html)
+
+### Read
+
 ```elixir
 l |> first()
 l |> last()
 ```
+
+See: [List.first](https://hexdocs.pm/elixir/List.html#first/1)
+
+### Flatten
 
 ```elixir
 l |> flatten()
@@ -578,11 +649,15 @@ import Enum
 
 <!-- {: .-setup} -->
 
+#### Set a list
+
 ```elixir
 list = [:a, :b, :c]
 ```
 
 <!-- {: .-setup} -->
+
+#### Read values
 
 ```elixir
 list |> at(0)         # → :a
@@ -590,6 +665,8 @@ list |> count()       # → 3
 list |> empty?()      # → false
 list |> any?()        # → true
 ```
+
+#### Concatenate
 
 ```elixir
 list |> concat([:d])  # → [:a, :b, :c, :d]
@@ -610,6 +687,8 @@ list |> any?(fn)
 list |> empty?(fn)
 ```
 
+#### Reduce example
+
 ```elixir
 [1, 2, 3, 4]
 |> Enum.reduce(0, fn(x, acc) -> x + acc end)
@@ -627,9 +706,13 @@ import Tuple
 
 <!-- {: .-setup} -->
 
+#### Create
+
 ```elixir
 t = { :a, :b }
 ```
+
+#### Read and change
 
 ```elixir
 t |> elem(1)    # like tuple[1]
@@ -698,19 +781,24 @@ See: [def](https://hexdocs.pm/elixir/Kernel.html#def/2)
 
 ## Structs
 
-### Structs
+### Define a struct
 
 ```elixir
 defmodule User do
   defstruct name: "", age: nil
 end
+```
 
+See: [defstruct](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#defstruct/1)
+
+### Use a struct
+
+```elixir
 %User{name: "John", age: 20}
-
 %User{}.struct  # → User
 ```
 
-See: [Structs](http://elixir-lang.org/getting-started/structs.html)
+See: [Structs](https://hexdocs.pm/elixir/structs.html)
 
 ## Protocols
 
@@ -722,6 +810,8 @@ defprotocol Blank do
   def blank?(data)
 end
 ```
+
+#### Implementation
 
 ```elixir
 defimpl Blank, for: List do
@@ -763,10 +853,14 @@ for n <- [1, 2, 3, 4], do: n * n
 for n <- 1..4, do: n * n
 ```
 
+#### Map
+
 ```elixir
 for {key, val} <- %{a: 10, b: 20}, do: val
 # → [10, 20]
 ```
+
+#### Into a map
 
 ```elixir
 for {key, val} <- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
@@ -861,6 +955,8 @@ defmodule Parser do
   @callback extensions() :: [String.t]
 end
 ```
+
+#### Implementation
 
 ```elixir
 defmodule JSONParser do

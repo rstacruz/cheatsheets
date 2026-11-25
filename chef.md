@@ -9,31 +9,40 @@ tier: t3
 
 ### Install
 
-In your server:
-
 <!-- {: .-setup} -->
+
+#### Install curl
 
 ```bash
 $ sudo apt-get install curl
 ```
 
+#### Run the install script
+
 ```bash
-$ curl -L https://omnitruck.chef.io/install.sh | sudo bash
+$ url='https://chefdownload-community.chef.io/install.sh'
+$ curl -L "$url?license_id=<LICENSE_ID>" \
+    | sudo bash -s -- -P chef-ice
 Thank you for installing Chef!
 ```
+
+#### Verify
 
 ```bash
 $ chef-solo -v
 ...
-Chef: 14.5.33
+Chef Infra Client: 19.4.46
 ```
+
+Run these commands on your server.
 
 See: [Chef install script](https://docs.chef.io/chef_install_script/)
 
 ### Start the cookbook
 
 ```bash
- wget http://github.com/chef-cookbooks/chef-repo/tarball/master -O - | tar xzf - --strip-components=1
+ wget http://github.com/chef-cookbooks/chef-repo/tarball/master \
+   -O - | tar xzf - --strip-components=1
 ```
 
 See: [Chef repository](https://docs.chef.io/chef_repo/)
@@ -44,7 +53,7 @@ See: [Chef repository](https://docs.chef.io/chef_repo/)
 $ knife supermarket download mysql
 ```
 
-See: [knife](https://docs.chef.io/workstation/knife/)
+See: [knife](https://docs.chef.io/workstation/latest/tools/knife/)
 
 ### Invoking chef-solo
 
@@ -58,12 +67,16 @@ See: [chef-solo](https://docs.chef.io/client/19/features/chef_solo/ctl_chef_solo
 
 ### Simple compile-from-source
 
+#### Extract the source
+
 ```ruby
 execute "tar --no-same-owner -zxf hi.tar.gz" do
   cwd "/usr/local/src"
   creates "/usr/local/src/node-v#{version}"
 end
 ```
+
+#### Compile
 
 ```ruby
 bash "compile" do

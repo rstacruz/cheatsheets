@@ -33,14 +33,20 @@ attach_file 'Image', '/path/to/image.jpg'
 fill_in 'First Name', with: 'John'
 ```
 
+#### Checkboxes
+
 ```ruby
 check 'A checkbox'
 uncheck 'A checkbox'
 ```
 
+#### Radio buttons
+
 ```ruby
 choose 'A radio button'
 ```
+
+#### Selects
 
 ```ruby
 select 'Option', from: 'Select box'
@@ -56,6 +62,8 @@ within '.classname' do
   click '...'
 end
 ```
+
+#### Fieldsets
 
 ```ruby
 within_fieldset :id do
@@ -79,25 +87,34 @@ page.should have_css('.button')
 
 #### Matchers
 
-| Positive                          | Negative               |
-| ---                               | ---                    |
-| `has_content?`                    | `has_no_content?`      |
-| ---                               | ---                    |
-| `has_css?` _(selector)_           | `has_no_css?`          |
-| ---                               | ---                    |
-| `has_xpath?` _(path)_             | `has_no_xpath?`        |
-| ---                               | ---                    |
-| `has_link?` _(selector)_          | `has_no_link?`         |
-| ---                               | ---                    |
-| `has_button?` _(selector)_        | `has_no_button?`       |
-| ---                               | ---                    |
-| `has_field?` _(selector)_         | `has_no_field?`        |
-| ---                               | ---                    |
-| `has_checked_field?` _(selector)_ | `has_unchecked_field?` |
-| ---                               | ---                    |
-| `has_table?` _(selector)_         | `has_no_table?`        |
-| ---                               | ---                    |
-| `has_select?` _(selector)_        | `has_no_select?`       |
+| Matcher                           | Sense                 |
+| ---                               | ---                   |
+| `has_content?`                    | content present       |
+| `has_no_content?`                 | content absent        |
+| ---                               | ---                   |
+| `has_css?` _(selector)_           | CSS present           |
+| `has_no_css?`                     | CSS absent            |
+| ---                               | ---                   |
+| `has_xpath?` _(path)_             | XPath present         |
+| `has_no_xpath?`                   | XPath absent          |
+| ---                               | ---                   |
+| `has_link?` _(selector)_          | link present          |
+| `has_no_link?`                    | link absent           |
+| ---                               | ---                   |
+| `has_button?` _(selector)_        | button present        |
+| `has_no_button?`                  | button absent         |
+| ---                               | ---                   |
+| `has_field?` _(selector)_         | field present         |
+| `has_no_field?`                   | field absent          |
+| ---                               | ---                   |
+| `has_checked_field?` _(selector)_ | checked field present |
+| `has_unchecked_field?`            | field not checked     |
+| ---                               | ---                   |
+| `has_table?` _(selector)_         | table present         |
+| `has_no_table?`                   | table absent          |
+| ---                               | ---                   |
+| `has_select?` _(selector)_        | select present        |
+| `has_no_select?`                  | select absent         |
 
 <!-- {: .-headers.-left-align} -->
 
@@ -108,14 +125,17 @@ See: [Querying](https://github.com/teamcapybara/capybara#querying)
 ### Selectors
 
 ```ruby
+# Text
 expect(page).to have_button('Save')
 ```
 
 ```ruby
+# CSS selector
 expect(page).to have_button('#submit')
 ```
 
 ```ruby
+# XPath
 expect(page).to have_button('//[@id="submit"]')
 ```
 
@@ -126,10 +146,12 @@ See: [XPath, CSS and selectors](https://github.com/teamcapybara/capybara#xpath-c
 ### RSpec assertions
 
 ```ruby
+# Predicate
 page.has_button?('Save')
 ```
 
 ```ruby
+# Negative matcher
 expect(page).to have_no_button('Save')
 ```
 
@@ -140,10 +162,12 @@ See: [RSpec matchers](https://www.rubydoc.info/gems/capybara/Capybara/RSpecMatch
 ### About negatives
 
 ```ruby
+# have_no_*
 expect(page).to have_no_button('Save')
 ```
 
 ```ruby
+# not_to
 expect(page).not_to have_button('Save')
 ```
 
@@ -161,6 +185,8 @@ expect(page).to \
 
 <!-- {: .-setup} -->
 
+#### Common matchers
+
 ```ruby
   have_current_path(expected_path)
   have_selector '.blank-state'
@@ -174,9 +200,13 @@ expect(page).to \
   have_xpath '//div'
 ```
 
+#### Links
+
 ```ruby
   have_link 'Logout', href: logout_path
 ```
+
+#### Selects
 
 ```ruby
   have_select 'Language',
@@ -184,6 +214,8 @@ expect(page).to \
     options: ['Engish', 'German']
     with_options: ['Engish', 'German'] # partial match
 ```
+
+#### Text
 
 ```ruby
   have_text 'Hello',
@@ -194,8 +226,6 @@ expect(page).to \
 See: [RSpec matchers](https://www.rubydoc.info/gems/capybara/Capybara/RSpecMatchers#have_current_path-instance_method)
 
 ### Common options
-
-All matchers have these options:
 
 <!-- {: .-setup} -->
 
@@ -209,6 +239,8 @@ All matchers have these options:
   maximum: 5
   wait: 10
 ```
+
+All matchers accept these options.
 
 See: [Find query options](https://www.rubydoc.info/gems/capybara/Capybara/Node/Finders#find-instance_method)
 
@@ -235,6 +267,8 @@ within '#delivery' do
 end
 ```
 
+#### Other helpers
+
 ```ruby
 within :xpath, '//article'
 within_fieldset
@@ -242,6 +276,8 @@ within_table
 within_frame
 scope_to
 ```
+
+#### Shortcut
 
 ```ruby
 find('#x').fill_in('Street', with: 'Hello')
@@ -334,17 +370,15 @@ See: [URL blacklisting](https://github.com/teampoltergeist/poltergeist#url-black
 
 ### Debugging
 
-Enable `inspector: true` and then:
-
 <!-- {: .-setup} -->
 
 ```ruby
+# Enable inspector: true, then debug
 page.driver.debug
 ```
 
-To pause execution for a while:
-
 ```ruby
+# Pause execution for a while
 page.driver.pause
 ```
 
@@ -360,9 +394,8 @@ dismiss_confirm { ... }
 accept_prompt(with: 'hi') { ... }
 ```
 
-Alternatively:
-
 ```ruby
+# Via browser driver
 page.driver.browser.switch_to.alert.accept
 ```
 

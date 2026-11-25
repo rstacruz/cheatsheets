@@ -66,7 +66,8 @@ See: [ls description](https://man7.org/linux/man-pages/man1/ls.1.html#DESCRIPTIO
 ### Usage
 
 ```
-tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
+tail [-F | -f | -r] [-bN | -cN | -nN] \
+  [file ...]
 ```
 
 See: [tail synopsis](https://man7.org/linux/man-pages/man1/tail.1.html#SYNOPSIS)
@@ -110,7 +111,7 @@ See: [sudo synopsis](https://man7.org/linux/man-pages/man8/sudo.8.html#SYNOPSIS)
 | --- | --- |
 | `-l` | List allowed commands |
 
-See: [sudo -l](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Options
 
@@ -124,7 +125,7 @@ See: [sudo -l](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 | `-P` | Preserve group vector |
 | `-S` | Read password from stdin |
 
-See: [sudo options](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### File descriptors
 
@@ -132,7 +133,7 @@ See: [sudo options](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTIO
 | --- | --- |
 | `-C fd` | Close all open file descriptors |
 
-See: [sudo -C](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Prompt
 
@@ -140,7 +141,7 @@ See: [sudo -C](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 | --- | --- |
 | `-p prompt` | Custom prompt (-p "%p password:") |
 
-See: [sudo -p](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Interactive
 
@@ -152,7 +153,7 @@ See: [sudo -p](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 | `-u user` | run as this user |
 | `-g group` | run as this group |
 
-See: [sudo -i](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Timestamp
 
@@ -162,7 +163,7 @@ See: [sudo -i](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 | `-k` | invalidate timestamp |
 | `-K` | just like -k |
 
-See: [sudo -v](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+See: [sudo(8) description](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ## wc (Word count)
 
@@ -232,10 +233,6 @@ fgrep  =>  grep -F
 ```
 
 See: [grep description](https://man7.org/linux/man-pages/man1/grep.1.html#DESCRIPTION)
-
-## Other recipes
-
-<!-- {: .-three-column} -->
 
 ### Search-and-replace in all files
 

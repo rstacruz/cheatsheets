@@ -49,53 +49,82 @@ users.project(users[:id])
 See: [Arel::Table#project](https://www.rubydoc.info/gems/arel/Arel/Table#project-instance_method)
 
 ### `join`
-#### basic join
-In ActiveRecord (without Arel), if `:photos` is the name of the association, use `joins`
+
+#### Basic join
+
 ```rb
+# ActiveRecord uses the association name
 users.joins(:photos)
 ```
 
-In Arel, if `photos` is defined as the Arel table,
 ```rb
+# Arel uses the table object
 photos = Photo.arel_table
-users.join(photos) 
-users.join(photos, Arel::Nodes::OuterJoin).on(users[:id].eq(photos[:user_id]))
+users.join(photos)
+users.join(photos, Arel::Nodes::OuterJoin)
+  .on(users[:id].eq(photos[:user_id]))
 ```
 
-#### join with conditions
+#### Join with conditions
+
 ```rb
 users.joins(:photos).merge(Photo.where(published: true))
 ```
 
-If the simpler version doesn't help and you want to add more SQL statements to it:
 ```rb
+# add more SQL conditions when the simple version isn't enough
 users.join(
-   users.join(photos, Arel::Nodes::OuterJoin)
-   .on(photos[:user_id].eq(users[:id]).and(photos[:published].eq(true)))
+  users.join(photos, Arel::Nodes::OuterJoin)
+    .on(
+      photos[:user_id].eq(users[:id])
+        .and(photos[:published].eq(true))
+    )
 )
 ```
 
-#### advanced join
-multiple `joins` with the same table but different meanings and/or conditions
+#### Advanced join
+
 ```rb
 creators = User.arel_table.alias('creators')
 updaters = User.arel_table.alias('updaters')
 photos = Photo.arel_table
 
 photos_with_credits = photos
-.join(photos.join(creators, Arel::Nodes::OuterJoin).on(photos[:created_by_id].eq(creators[:id])))
-.join(photos.join(updaters, Arel::Nodes::OuterJoin).on(photos[:assigned_id].eq(updaters[:id])))
-.project(photos[:name], photos[:created_at], creators[:name].as('creator'), updaters[:name].as('editor'))
+  .join(
+    photos
+      .join(creators, Arel::Nodes::OuterJoin)
+      .on(photos[:created_by_id].eq(creators[:id]))
+  )
+  .join(
+    photos
+      .join(updaters, Arel::Nodes::OuterJoin)
+      .on(photos[:assigned_id].eq(updaters[:id]))
+  )
+  .project(
+    photos[:name],
+    photos[:created_at],
+    creators[:name].as('creator'),
+    updaters[:name].as('editor')
+  )
 
 photos_with_credits.to_sql
-# => "SELECT `photos`.`name`, `photos`.`created_at`, `creators`.`name` AS creator, `updaters`.`name` AS editor FROM `photos` INNER JOIN (SELECT FROM `photos` LEFT OUTER JOIN `users` `creators` ON `photos`.`created_by_id` = `creators`.`id`) INNER JOIN (SELECT FROM `photos` LEFT OUTER JOIN `users` `updaters` ON `photos`.`updated_by_id` = `updaters`.`id`)"
+# => "SELECT `photos`.`name`, `photos`.`created_at`,
+#         `creators`.`name` AS creator, `updaters`.`name` AS editor
+#      FROM `photos` INNER JOIN (SELECT FROM `photos`
+#         LEFT OUTER JOIN `users` `creators`
+#         ON `photos`.`created_by_id` = `creators`.`id`)
+#         INNER JOIN (SELECT FROM `photos`
+#         LEFT OUTER JOIN `users` `updaters`
+#         ON `photos`.`updated_by_id` = `updaters`.`id`)"
 
-# after the request is done, you can use the attributes you named
-# it's as if every Photo record you got has "creator" and "editor" fields, containing creator name and editor name
-photos_with_credits.map{|x|
-  "#{photo.name} - copyright #{photo.created_at.year} #{photo.creator}, edited by #{photo.editor}"
+# named attributes are available on the returned records
+photos_with_credits.map { |x|
+  "#{photo.name} - copyright #{photo.created_at.year} " \
+    "#{photo.creator}, edited by #{photo.editor}"
 }.join('; ')
 ```
+
+Aliases let you join the same table with different meanings.
 
 See: [Arel::Table#join](https://www.rubydoc.info/gems/arel/Arel/Table#join-instance_method)
 
@@ -106,7 +135,7 @@ users.take(5) # => SELECT * FROM users LIMIT 5
 users.skip(4) # => SELECT * FROM users OFFSET 4
 ```
 
-See: [Arel::Table#take](https://www.rubydoc.info/gems/arel/Arel/Table#take-instance_method)
+See: [Arel::Table](https://www.rubydoc.info/gems/arel/Arel/Table)
 
 ### Aggregates
 
@@ -139,16 +168,20 @@ See: [arel_table](https://api.rubyonrails.org/classes/ActiveRecord/Core/ClassMet
 
 ### Clean code with arel
 
-Most of the clever stuff should be in scopes, e.g. the code above could become:
 ```rb
+# keep the clever logic in scopes
 photos_with_credits = Photo.with_creator.with_editor
 ```
 
-You can store requests in variables then add SQL segments:
 ```rb
+# store requests in variables, then add SQL segments
 all_time      = photos_with_credits.count
-this_month    = photos_with_credits.where(photos[:created_at].gteq(Date.today.beginning_of_month))
-recent_photos = photos_with_credits.where(photos[:created_at].gteq(Date.today.beginning_of_month)).limit(5)
+this_month    = photos_with_credits.where(
+  photos[:created_at].gteq(Date.today.beginning_of_month)
+)
+recent_photos = photos_with_credits.where(
+  photos[:created_at].gteq(Date.today.beginning_of_month)
+).limit(5)
 ```
 
 See: [Arel::SelectManager](https://www.rubydoc.info/gems/arel/Arel/SelectManager)

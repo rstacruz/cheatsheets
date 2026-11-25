@@ -89,7 +89,8 @@ See: [Token concatenation](https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html
 
 ```
 #define STR(name) #name
-char * a = STR(object);   #=> char * a = "object";
+char * a = STR(object);
+#=> char * a = "object";
 ```
 
 See: [Stringification](https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html)
@@ -97,7 +98,8 @@ See: [Stringification](https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html)
 ### file and line
 
 ```
-#define LOG(msg) console.log(__FILE__, __LINE__, msg)
+#define LOG(msg) \
+  console.log(__FILE__, __LINE__, msg)
 #=> console.log("file.txt", 3, "hey")
 ```
 

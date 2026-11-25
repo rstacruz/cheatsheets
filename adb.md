@@ -51,7 +51,7 @@ adb tcpip 5555                  # Android 10 and lower, after USB
 `pair` uses the port shown in the pairing dialog; `connect` uses the wireless
 debugging port. `adb mdns services` discovers devices on the network.
 
-See: [Connect over Wi-Fi](https://developer.android.com/tools/adb#wireless-adb-android-11)
+See: [Connect over Wi-Fi](https://developer.android.com/tools/adb#connect-to-a-device-over-wi-fi)
 
 ### Installing apps
 
@@ -74,7 +74,7 @@ adb uninstall -k com.example.app  # keep data
 | `-g`    | Grant all runtime permissions  |
 | `--abi` | Override the device ABI        |
 
-See: [Package manager](https://developer.android.com/tools/adb#pm)
+See: [Install](https://developer.android.com/tools/adb#move)
 
 ## Files and shell
 
@@ -203,7 +203,7 @@ See: [Activity manager](https://developer.android.com/tools/adb#am)
 | `adb disable-verity`        | Disable dm-verity (userdebug)      |
 | `adb shell cmd testharness enable` | Reset a test device         |
 
-See: [Platform tools](https://developer.android.com/tools/releases/platform-tools)
+See: [adb manual](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/docs/user/adb.1.md)
 
 ### Emulator console
 

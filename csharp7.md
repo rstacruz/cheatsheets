@@ -73,6 +73,8 @@ See: [Patterns](https://learn.microsoft.com/en-us/dotnet/csharp/language-referen
 }
 ```
 
+#### Use the tuple
+
 ```csharp
 var names = LookupName(id);
 WriteLine($"found {names.Item1} {names.Item3}.");
@@ -81,8 +83,10 @@ WriteLine($"found {names.Item1} {names.Item3}.");
 #### Tuple elements with name
 
 ```csharp
-(string first, string middle, string last) LookupName(long id) // tuple elements have names
+(string first, string middle, string last) LookupName(long id)
 ```
+
+#### Use named elements
 
 ```csharp
 var names = LookupName(id);
@@ -92,7 +96,8 @@ WriteLine($"found {names.first} {names.last}.");
 #### Tuple Literals
 
 ```csharp
-   return (first: first, middle: middle, last: last); // named tuple elements in a literal
+   // named tuple elements in a literal
+   return (first: first, middle: middle, last: last);
 ```
 
 #### Tuple Deconstruction
@@ -101,13 +106,17 @@ WriteLine($"found {names.first} {names.last}.");
 (var first, var middle, var last) = LookupName(id1);
 WriteLine($"found {first} {last}.");
 ```
-or
+
+#### Deconstruct with var
+
 ```csharp
 var (first, middle, last) = LookupName(id1); // var outside
 ```
-or
+
+#### Assign to existing variables
+
 ```csharp
-(first, middle, last) = LookupName(id2); // assign onto existing variables
+(first, middle, last) = LookupName(id2);
 ```
 
 See: [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
@@ -118,7 +127,9 @@ See: [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-refe
 ```csharp
 public int Fibonacci(int x)
 {
-    if (x < 0) throw new ArgumentException("Less negativity please!", nameof(x));
+    if (x < 0)
+        throw new ArgumentException(
+            "Less negativity please!", nameof(x));
     return Fib(x).current;
 
     (int current, int previous) Fib(int i)
@@ -158,7 +169,8 @@ public ref int Find(int number, int[] numbers)
     {
         if (numbers[i] == number) 
         {
-            return ref numbers[i]; // return the storage location, not the value
+            // return the storage location, not the value
+            return ref numbers[i];
         }
     }
     throw new IndexOutOfRangeException($"{nameof(number)} not found");
@@ -174,16 +186,17 @@ See: [ref returns](https://learn.microsoft.com/en-us/dotnet/csharp/language-refe
 
 ### More Expression Bodied Members
 
-C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:
-
 ```csharp
 class Person
 {
-    private static ConcurrentDictionary<int, string> names = new ConcurrentDictionary<int, string>();
+    private static ConcurrentDictionary<int, string> names =
+        new ConcurrentDictionary<int, string>();
     private int id = GetId();
 
-    public Person(string name) => names.TryAdd(id, name); // constructors
-    ~Person() => names.TryRemove(id, out *);              // destructors
+    // constructors
+    public Person(string name) => names.TryAdd(id, name);
+    // destructors
+    ~Person() => names.TryRemove(id, out *);
     public string Name
     {
         get => names[id];                                 // getters
@@ -191,6 +204,8 @@ class Person
     }
 }
 ```
+
+C# 7.0 adds accessors, constructors, and finalizers to expression bodies.
 
 See: [Expression body definition](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition)
 
@@ -200,13 +215,17 @@ See: [Expression body definition](https://learn.microsoft.com/en-us/dotnet/cshar
 class Person
 {
     public string Name { get; }
-    public Person(string name) => Name = name ?? throw new ArgumentNullException(name);
+    public Person(string name) =>
+        Name = name ?? throw new ArgumentNullException(name);
     public string GetFirstName()
     {
         var parts = Name.Split(" ");
-        return (parts.Length > 0) ? parts[0] : throw new InvalidOperationException("No name!");
+        return (parts.Length > 0)
+            ? parts[0]
+            : throw new InvalidOperationException("No name!");
     }
-    public string GetLastName() => throw new NotImplementedException();
+    public string GetLastName() =>
+        throw new NotImplementedException();
 }
 ```
 

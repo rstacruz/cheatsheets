@@ -6,7 +6,7 @@ subtitle: HTML abbreviation expander
 category: Markup
 prism_languages: [html, css]
 last_verified_with: "Emmet 2.4."
-updated: 2020-07-03
+updated: 2026-11-25
 tier: t3
 intro: |
   Emmet is a markup language for expanding CSS rules into HTML
@@ -20,7 +20,7 @@ links:
 ```css
 nav>ul>li
 ```
-Expands to
+#### Expands to
 ```html
 <nav>
   <ul>
@@ -37,7 +37,7 @@ See: [Child](https://docs.emmet.io/abbreviations/syntax/#child-)
 ```css
 section>p+p+p
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <p></p>
@@ -53,7 +53,7 @@ See: [Sibling](https://docs.emmet.io/abbreviations/syntax/#sibling-)
 ```css
 section>header>h1^footer
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <header>
@@ -70,7 +70,7 @@ See: [Climb up](https://docs.emmet.io/abbreviations/syntax/#climb-up-)
 ```css
 section>(header>nav>ul>li)+footer>p
 ```
-Expands to
+#### Expands to
 ```html
 <section>
   <header>
@@ -93,7 +93,7 @@ See: [Grouping](https://docs.emmet.io/abbreviations/syntax/#grouping-)
 ```css
 ul>li*3
 ```
-Expands to
+#### Expands to
 ```html
 <ul>
   <li></li>
@@ -109,7 +109,7 @@ See: [Multiplication](https://docs.emmet.io/abbreviations/syntax/#multiplication
 ```css
 ul.menu>li.menu__item+li#id_item+li.menu__item#id_2
 ```
-Expands to
+#### Expands to
 ```html
 <ul class="menu">
   <li class="menu__item"></li>
@@ -128,7 +128,7 @@ ul>li.item$$*3
 ul>li.item$@-*3
 ul>li.item$@3*5
 ```
-Expands to
+#### Expands to
 ```html
 <ul>
   <li class="item1"></li>
@@ -167,7 +167,7 @@ See: [Item numbering](https://docs.emmet.io/abbreviations/syntax/#item-numbering
 input[type="text"]
 div[data-attr="test"]
 ```
-Expands to
+#### Expands to
 ```html
 <input type="text" />
 <div data-attr="test"></div>
@@ -180,7 +180,7 @@ See: [Custom attributes](https://docs.emmet.io/abbreviations/syntax/#custom-attr
 ```css
 p{Lorem ipsum}
 ```
-Expands to
+#### Expands to
 ```html
 <p>Lorem ipsum</p>
 ```
@@ -195,7 +195,7 @@ em>.default-inline
 ul>.default-list
 table>.default-table-row>.default-table-column
 ```
-Expands to
+#### Expands to
 ```html
 <div class="default-block"></div>
 <em><span class="default-inline"></span></em>

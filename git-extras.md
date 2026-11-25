@@ -62,7 +62,8 @@ See: [git-summary](https://github.com/tj/git-extras/blob/master/man/git-summary.
 ```sh
 $ git fork strongloop/express
 # sync your fork with the original repository:
-$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+$ git remote add upstream \
+  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
 $ git fetch upstream; git merge upstream/master
 ```
 
@@ -88,10 +89,8 @@ See: [git-ignore](https://github.com/tj/git-extras/blob/master/man/git-ignore.md
 
 ### Locking
 
-Assumes that changes will not be committed.
-
 ```sh
-$ git lock config/database.yml
+$ git lock config/database.yml   # no commits while locked
 $ git unlock config/database.yml
 ```
 
@@ -107,6 +106,5 @@ See: [git-obliterate](https://github.com/tj/git-extras/blob/master/man/git-oblit
 
 ### References
 
-- <https://github.com/tj/git-extras>
+- [git-extras](https://github.com/tj/git-extras)
 
-See: [git-extras](https://github.com/tj/git-extras#readme)

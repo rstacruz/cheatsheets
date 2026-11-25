@@ -17,6 +17,8 @@ tier: t3
 -t DUR           # duration of output (in seconds or HH:MM:SS)
 ```
 
+#### File size
+
 ```bash
 -fs SIZE         # limit file size (bytes)
 ```
@@ -62,7 +64,8 @@ See: [Audio options](https://ffmpeg.org/ffmpeg.html#Audio-Options)
 ### Ringtone conversion using ffmpeg
 
 ```bash
-ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
+ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 \
+  -acodec libfaac -y target.m4r
 ```
 
 See: [Examples](https://ffmpeg.org/ffmpeg.html#Examples-1)
@@ -85,16 +88,22 @@ See: [Manual stream selection](https://ffmpeg.org/ffmpeg.html#Manual-stream-sele
 
 ### To web
 
+#### Without audio
+
 ```bash
 # no audio
 ffmpeg -i input.mov -vcodec h264   -an -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -an output.webm
 ```
 
+#### With audio
+
 ```bash
 ffmpeg -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
 ```
+
+#### Markup
 
 ```html
 <video width="320" height="240" controls>

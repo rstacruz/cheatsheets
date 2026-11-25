@@ -18,7 +18,7 @@ description: |
 ```
          768         1024                1216         1408
 '     '     '     '     '     '     '     '     '     '     '     '
-<---------^------------^------------------^-------------^------------->
+<---------^------------^------------------^-------------^------------>
   mobile      tablet         desktop         widescreen      fullhd
 ```
 
@@ -29,7 +29,9 @@ See: [Responsive breakpoints](https://bulma.io/documentation/start/responsivenes
 ```css
 .container
 ```
-Wrap as many `.column`'s' as you like in a `.columns` wrapper
+
+#### Add columns
+
 ```html
 <div class="columns">
     <div class="column"></div>
@@ -40,11 +42,13 @@ Wrap as many `.column`'s' as you like in a `.columns` wrapper
 </div>
 ```
 
+Wrap as many `.column`'s' as you like in a `.columns` wrapper
+
 See: [Columns](https://bulma.io/documentation/columns/basics/)
 
 ### Modifiers
 
-The following CSS classes affect the **colour**.
+#### Colour classes
 
 ```css
 .is-primary
@@ -55,14 +59,16 @@ The following CSS classes affect the **colour**.
 .is-danger
 ```
 
-The following classes modify the **size**.
+#### Size classes
+
 ```css
 .is-small
 .is-medium
 .is-large
 ```
 
-The following classes modify the **state**.
+#### State classes
+
 ```scss
 .is-outlined
 .is-loading
@@ -72,7 +78,7 @@ See: [Button](https://bulma.io/documentation/elements/button/)
 
 ### Typography Helpers
 
-The following classes modify the **font-size**
+#### Font sizes
 
 | Class         | Font-size             |
 | ---           | ---                   |
@@ -84,7 +90,7 @@ The following classes modify the **font-size**
 | `.is-size-6`  | 1rem                  |
 | `.is-size-7`  | 0.75rem               |
 
-The following classes **align** the text
+#### Text alignment
 
 | Class                 | Alignment                             |
 | ---                   | ---                                   |
@@ -93,7 +99,7 @@ The following classes **align** the text
 | `.has-text-left`.     | Makes the text align to the **left**  |
 | `.has-text-right`     | Makes the text align to the **right** |
 
-The following classes **transform** the text
+#### Text transformation
 
 | Class              | Transformation        |
 | ---                | ---                   |

@@ -3,7 +3,7 @@ title: Figlet
 category: Media tools
 subtitle: ASCII art text renderer
 last_verified_with: "figlet 2.2.5."
-updated: 2018-06-14
+updated: 2026-11-25
 tier: t3
 introduction: |
   [Figlet] renders text as ASCII art. Here's a list of Figlet fonts for Figlet 2.2.5.
@@ -48,6 +48,8 @@ introduction: |
 ```bash
 echo "Hamburger" | figlet -f cybermedium
 ```
+
+#### Output
 
 ```
 _  _ ____ _  _ ___  _  _ ____ ____ ____ ____ 

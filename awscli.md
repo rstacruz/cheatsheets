@@ -56,7 +56,7 @@ aws configure --profile project1
 aws configure --profile project2
 ```
 
-See: [Named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+See: [Using named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-using-profiles)
 
 ## Elastic Beanstalk
 
@@ -69,12 +69,49 @@ See: [Named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-confi
 eb config
 ```
 
-See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>
+See: [Elastic Beanstalk configuration options](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html)
+
+### Deployments
+
+```bash
+eb list
+eb use my-env
+eb deploy
+eb logs
+```
+
+`eb deploy` uploads the working directory to the environment selected by `eb use`.
+
+See: [EB CLI commands](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-cmd-commands.html)
 
 ## ebextensions
 
-* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
-* <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
+### Settings
+
+```yaml
+option_settings:
+  aws:elasticbeanstalk:application:environment:
+    NODE_ENV: production
+```
+
+Config files live in `.ebextensions/` at the repo root and are applied in filename order.
+
+See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html>
+
+### Packages and commands
+
+```yaml
+packages:
+  yum:
+    git: []
+commands:
+  say_hello:
+    command: echo "hello"
+```
+
+These keys install packages and run commands as the instance is provisioned.
+
+See: <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html>
 
 ## Also see
 

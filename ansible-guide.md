@@ -75,7 +75,7 @@ See: [Intro to Playbooks](https://docs.ansible.com/projects/ansible/latest/playb
 
 ## Running
 
-### Running ansible-playbook
+### List the project files
 
 ```
 ~/setup$ ls
@@ -83,24 +83,26 @@ hosts
 playbook.yml
 ```
 
-#### Running the playbook
+See: [Getting started](https://docs.ansible.com/projects/ansible/latest/getting_started/index.html)
+
+### Running ansible-playbook
 
 ```
 ~/setup$ ansible-playbook -i hosts playbook.yml
-PLAY [all] ********************************************************************
+PLAY [all] **************************************************
 
-GATHERING FACTS ***************************************************************
+GATHERING FACTS *********************************************
 ok: [127.0.0.1]
 
-TASK: [install nginx] *********************************************************
+TASK: [install nginx] ****************************************
 ok: [127.0.0.1]
 
-TASK: start nginx every bootup] ***********************************************
+TASK: start nginx every bootup] ******************************
 ok: [127.0.0.1]
 ...
 ```
 
-See: [Executing playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html#executing-a-playbook)
+See: [Running playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html#running-playbooks)
 
 ## Read more
 

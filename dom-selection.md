@@ -32,6 +32,8 @@ sel.addRange(range) //    sets a selection
 sel.removeRange(range) // remove a range
 ```
 
+#### Inspect ranges
+
 ```js
 sel.rangeCount
 sel.getRangeAt(0) // get the 0th range
@@ -47,6 +49,8 @@ sel.collapseToEnd()
 sel.collapseToStart()
 sel.isCollapsed
 ```
+
+#### Check containment
 
 ```js
 sel.containsNode(node)
@@ -65,7 +69,9 @@ See: [Selection.deleteFromDocument()](https://developer.mozilla.org/en-US/docs/W
 ### Events
 
 ```js
-document.addEventListener('selectionchange', () => {})
+document.addEventListener(
+  'selectionchange', () => {}
+)
 ```
 
 See: [selectionchange event](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event)

@@ -54,11 +54,15 @@ See: [Range.collapse()](https://developer.mozilla.org/en-US/docs/Web/API/Range/c
 
 ### Operations
 
+#### Copy and remove
+
 ```js
 range.cloneContents() // copy
 range.extractContents() // cut
 range.deleteContents() // delete
 ```
+
+#### Insert
 
 ```js
 range.insertNode(node)

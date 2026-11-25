@@ -24,14 +24,20 @@ c.fillStyle = '#ff0000'
 c.strokeStyle = '#ff00ff'
 ```
 
+#### Line style
+
 ```js
 c.lineWidth = 5
 c.lineCap = 'round'
 ```
 
+#### Draw a rectangle
+
 ```js
 c.fillRect(10, 20, 200, 100)
 ```
+
+#### Stroke and fill
 
 ```js
 c.stroke()
@@ -45,6 +51,8 @@ See: [fillRect()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderi
 ```js
 c.save()
 ```
+
+#### Restore
 
 ```js
 c.restore()
@@ -74,7 +82,7 @@ c.rotate(Math.PI*2/5)
 c.scale(1.0, 1.0)
 ```
 
-To rotate along origin:
+#### Rotate around a point
 
 ```js
 c.translate(ox, oy)
@@ -82,7 +90,7 @@ c.rotate(theta)
 c.translate(-ox, -oy)
 ```
 
-To scale along origin:
+#### Scale around a point
 
 ```js
 c.translate(-ox*x, -oy*y)
@@ -112,6 +120,8 @@ c.strokeStyle = '#ff00ff';
 c.fillStyle = '#ff00ff';
 ```
 
+#### Shadows
+
 ```js
 c.shadowOffsetX = 0;
 c.shadowOffsetY = 0;
@@ -130,6 +140,8 @@ gr = c.createLinearGradient(x0,y0,x1,y1)
 gr = c.createRadialGradient(x0,y0,r0,x1,y1,r1)
 pat = c.createPattern(image, 'repeat-x')
 ```
+
+#### Apply the gradient
 
 ```js
 c.fillStyle = gr
@@ -161,4 +173,4 @@ See: [beginPath()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRender
 [styles]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors
 [images]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images
 
-See: [node-canvas](https://github.com/Automattic/node-canvas#documentation)
+See: [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)

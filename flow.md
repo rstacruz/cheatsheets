@@ -3,7 +3,7 @@ title: Flow
 subtitle: JavaScript type checker
 category: Build tools
 last_verified_with: "Flow 0.342."
-updated: 2020-07-05
+updated: 2026-11-25
 tier: t3
 weight: -3
 ---
@@ -58,6 +58,8 @@ type Person = {
 
 <!-- {: data-highlight="type"} -->
 
+#### Use the alias
+
 ```js
 function greet(user: Person) {
   console.log('hello', user.name)
@@ -65,6 +67,8 @@ function greet(user: Person) {
 ```
 
 <!-- {: data-highlight="Person"} -->
+
+#### Pass an object
 
 ```js
 greet({ name: 'Miles Davis', ··· })
@@ -82,13 +86,15 @@ const count: number = 200
 
 You typically don't need to do this, function args are often enough.
 
-See: [Variable types](https://flow.org/en/docs/types/variables/)
+See: [Variable types](https://flow.org/en/docs/lang/variables/)
 
 ### Importing and exporting
 
 ```js
 import type { Person } from './types'
 ```
+
+#### Export the type
 
 ```js
 export type Person = {
@@ -103,6 +109,8 @@ See: [Module types](https://flow.org/en/docs/types/modules)
 ```js
 type Action = number | string
 ```
+
+#### Literal unions
 
 ```js
 type Direction = 'left' | 'right'
@@ -121,6 +129,8 @@ type Album = {
 ```
 
 <!-- {: data-highlight="name"} -->
+
+#### Nullable values
 
 ```js
 const a: Album = { }                 // ✗ Error
@@ -142,6 +152,8 @@ type Album = {
 ```
 
 <!-- {: data-highlight="string"} -->
+
+#### Optional values
 
 ```js
 const a: Album = { } // ✓ OK
@@ -167,6 +179,8 @@ type Artist = {
 }
 ```
 
+#### Extra properties
+
 ```js
 const a: Artist = {
   name: 'Miguel Migs',
@@ -179,7 +193,7 @@ const a: Artist = {
 
 A type with more properties is "wider" and is a subtype of a "narrower" type.
 
-See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
+See: [Subtypes](https://flow.org/en/docs/lang/subtypes/#toc-subtypes-of-objects)
 
 ### Exact object types
 
@@ -191,6 +205,8 @@ type Artist = {|
 ```
 
 <!-- {: data-highlight="Artist"} -->
+
+#### Reject extras
 
 ```js
 const a: Artist = {
@@ -204,7 +220,7 @@ const a: Artist = {
 
 Exact object types prevent extra properties from being added to an object.
 
-See: [Exact object types](https://flow.org/en/docs/types/objects/#toc-exact-object-types)
+See: [Exact object types](https://flow.org/en/docs/types/objects/#exact-and-inexact-object-types)
 
 ### Dynamic keys
 
@@ -259,7 +275,7 @@ const countries = {
 type Country = $Keys<typeof countries>
 ```
 
-See: [Enums](https://flow.org/en/docs/types/utilities/#toc-keys)
+See: [Utility types ($Keys)](https://flow.org/en/docs/types/utilities/#toc-keys)
 
 ### Type aliases
 
@@ -312,6 +328,8 @@ See: [Interfaces](https://flow.org/en/docs/types/interfaces/)
 const callback: () => void = function () {}
 ```
 
+#### Generic functions
+
 ```js
 function filter<T> (
   list: Array<T>,
@@ -329,6 +347,8 @@ See: [Functions](https://flow.org/en/docs/types/functions/)
 import type { Person } from '../person'
 import typeof Config from '../config'
 ```
+
+#### Export a type
 
 ```js
 export type Person = { id: string }

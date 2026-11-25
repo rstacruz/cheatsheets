@@ -29,7 +29,9 @@ See: [overflow-y](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y)
 ### Gradient text
 
 ```css
-background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#333));
+background: -webkit-gradient(
+  linear, left top, left bottom, from(#eee), to(#333)
+);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 ```
@@ -46,12 +48,16 @@ See: [Introducing text stroke](http://www.webkit.org/blog/85/introducing-text-st
 
 ### iOS Scrolling prevention
 
+#### Touch handler
+
 ```css
 document.ontouchstart = (e) ->
   $pane = $(e.target).closest('.scrollable>div')
   if $pane.length is 0 or $pane[0].scrollHeight <= $pane.innerHeight()
     e.preventDefault()
 ```
+
+#### Scrollable styles
 
 ```scss
 %ios-scrollable {
@@ -80,8 +86,8 @@ Relevant in iOS6, but maybe not anymore.
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-user-select: none;                /* disable text select */
-  -webkit-touch-callout: none;              /* disable callout, image save panel (popup) */
-  -webkit-tap-highlight-color: transparent; /* "turn off" link highlight */
+  -webkit-touch-callout: none;             /* disable callout */
+  -webkit-tap-highlight-color: transparent; /* no highlight */
 }
 
 a:focus {
@@ -89,9 +95,8 @@ a:focus {
 }
 ```
 
-See: <http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/>
+See: [-webkit-tap-highlight-color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color)
 
-See: <http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/>
 
 Browser hacks
 -------------

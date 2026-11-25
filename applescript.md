@@ -10,9 +10,13 @@ prism_languages: [applescript]
 
 ### Running
 
+#### Run a script
+
 ```applescript
 osascript -e "..."
 ```
+
+#### Show a notification
 
 ```applescript
 display notification "X" with title "Y"
@@ -22,13 +26,19 @@ See: [Running a script](https://developer.apple.com/library/archive/documentatio
 
 ### Comments
 
+#### Single line
+
 ```applescript
 -- This is a single line comment
 ```
 
+#### Alternate syntax
+
 ```applescript
 # This is another single line comment
 ```
+
+#### Multi-line
 
 ```applescript
 (*
@@ -42,10 +52,14 @@ See: [Lexical conventions](https://developer.apple.com/library/archive/documenta
 
 ### Say
 
+#### Default voice
+
 ```applescript
 -- default voice
 say "Hi I am a Mac"
 ```
+
+#### Other voice
 
 ```applescript
 -- specified voice
@@ -56,10 +70,14 @@ See: [say](https://developer.apple.com/library/archive/documentation/AppleScript
 
 ### Beep
 
+#### Once
+
 ```applescript
 -- beep once
 beep
 ```
+
+#### Repeated
 
 ```applescript
 -- beep 10 times

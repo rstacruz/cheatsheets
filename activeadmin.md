@@ -9,8 +9,6 @@ tier: t3
 
 ### Listing scopes
 
-Allows you to filter listings by a certain scope.
-
 <!-- {: .-setup} -->
 
 ```ruby
@@ -18,11 +16,15 @@ scope :draft
 scope :for_approval
 ```
 
+#### Conditional scopes
+
 ```ruby
 scope :public, if: ->{ current_admin_user.can?(...) }
 scope "Unapproved", :pending
 scope("Published") { |books| books.where(:published: true) }
 ```
+
+Filter listings by a certain scope.
 
 See: [Index scopes](https://activeadmin.info/docs/v3/3-index-pages.html#index-scopes)
 
@@ -37,8 +39,6 @@ See: [Index filters](https://activeadmin.info/docs/v3/3-index-pages.html#index-f
 
 ### Custom actions
 
-You can define custom actions for models.
-
 <!-- {: .-setup} -->
 
 ```ruby
@@ -52,7 +52,8 @@ end
 ```ruby
 member_action :publish, method: :put do
   @post.publish!
-  redirect_to admin_posts_path, notice: "The post '#{@post}' has been published!"
+  redirect_to admin_posts_path,
+    notice: "The post '#{@post}' has been published!"
 end
 ```
 
@@ -75,6 +76,8 @@ action_item only: [:edit, :show] do
 end
 ```
 
+You can define custom actions for models.
+
 See: [Member actions](https://activeadmin.info/docs/v3/8-custom-actions.html#member-actions)
 
 ### Columns
@@ -82,6 +85,8 @@ See: [Member actions](https://activeadmin.info/docs/v3/8-custom-actions.html#mem
 ```ruby
 column :foo
 ```
+
+#### Sortable columns
 
 ```ruby
 column :title, sortable: :name do |post|

@@ -156,7 +156,7 @@ glab repo fork --remote
 ```
 <!-- {: data-highlight="--clone; --remote"} -->
 
-Forking asks what to do unless you pass `--clone` or `--remote`.
+Without `--clone` or `--remote`, forking prompts.
 
 See: [glab repo fork](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/fork.md)
 
@@ -416,7 +416,7 @@ glab issue board create "Sprint 12"
 ```
 <!-- {: data-highlight="glab issue board view"} -->
 
-`board view` is an interactive kanban view with assignee and label filters.
+`board view` is an interactive kanban board with assignee and label filters.
 
 See: [glab issue board](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/issue/board/_index.md)
 
@@ -433,7 +433,7 @@ glab ci list --ref main \
 ```
 <!-- {: data-highlight="glab ci list"} -->
 
-`--source merge_request_event` keeps merge request pipelines; `--scope running` keeps active ones.
+`--source merge_request_event` filters to merge request pipelines; `--scope running` shows active ones.
 
 See: [glab ci list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci/list.md)
 
@@ -446,7 +446,7 @@ glab ci status --wait --compact
 ```
 <!-- {: data-highlight="--live; --wait"} -->
 
-`--live` redraws until the pipeline ends; `--wait` returns once the pipeline finishes, without redrawing.
+`--live` redraws until the pipeline ends; `--wait` returns when it does, without redrawing.
 
 See: [glab ci status](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/ci/status.md)
 
@@ -669,7 +669,7 @@ glab issue list -O json | jq -r '.[].iid'
 ```
 <!-- {: data-highlight="json"} -->
 
-List commands spell it differently: `mr list` takes `-F json`, `issue list` takes `-O json`. In `glab api`, `-F` is an input field instead.
+`mr list` takes `-F json`; `issue list` takes `-O json`. In `glab api`, `-F` is an input field instead.
 
 See: [glab mr list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md)
 

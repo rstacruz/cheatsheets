@@ -3,21 +3,56 @@ import { carbon } from '~/config'
 
 const useCarbon = carbon.enabled
 
+// A/B test: `a` is the current zone, `b` is the cover zone.
+// Force a bucket with `?ad=a` or `?ad=b`; otherwise the choice is sticky.
 const styles = {
-  root: 'HomePage__carbonCover col-span-full flex min-h-[280px] items-center justify-center overflow-hidden rounded-xl bg-secondary has-[#carbon-responsive]:min-h-0 min-[640px]:col-span-2',
-  slot: 'HomePage__carbonCoverSlot flex w-full justify-center'
+  root: 'HomePage__carbonCover col-span-full min-[640px]:col-span-2',
+  slot: 'HomePage__carbonCoverSlot flex h-[280px] w-full items-center justify-center overflow-hidden rounded-xl bg-secondary'
 }
 ---
 
 {useCarbon && (
   <div class={styles.root} role="complementary">
-    <div class={styles.slot}>
-      <script
-        async
-        type="text/javascript"
-        src={carbon.coverSrc}
-        id="_carbonads_js"
-      />
+    <div
+      class={styles.slot}
+      data-home-ad-src-a={carbon.src}
+      data-home-ad-src-b={carbon.coverSrc}
+    >
+      <script is:inline>
+        ;(function () {
+          var slot = document.currentScript.parentElement
+          if (!slot) return
+
+          var params = new URLSearchParams(window.location.search)
+          var override = params.get('ad')
+          var bucket = null
+
+          if (override === 'a' || override === 'b') bucket = override
+          if (!bucket) {
+            var match = document.cookie.match(
+              /(?:^|;\s*)devhints_home_ad=([ab])/
+            )
+            if (match) bucket = match[1]
+          }
+          if (!bucket) bucket = Math.random() < 0.5 ? 'a' : 'b'
+
+          document.cookie =
+            'devhints_home_ad=' +
+            bucket +
+            '; path=/; max-age=31536000; samesite=lax'
+          slot.setAttribute('data-home-ad-bucket', bucket)
+
+          var script = document.createElement('script')
+          script.async = true
+          script.type = 'text/javascript'
+          script.id = '_carbonads_js'
+          script.src =
+            bucket === 'a'
+              ? slot.getAttribute('data-home-ad-src-a')
+              : slot.getAttribute('data-home-ad-src-b')
+          slot.appendChild(script)
+        })()
+      </script>
     </div>
   </div>
 )}

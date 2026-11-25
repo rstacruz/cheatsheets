@@ -2,6 +2,7 @@
 title: Git
 subtitle: Everyday version control
 category: Git
+tags: [Featured]
 weight: -10
 tier: t2
 fragments:

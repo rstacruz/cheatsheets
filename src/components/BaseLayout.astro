@@ -23,6 +23,15 @@ const analyticsEnabled = googleAnalytics.enabled
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('theme')
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme
+        }
+      } catch {}
+    </script>
     <meta name="generator" content={Astro.generator} />
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
     {/* Title */}

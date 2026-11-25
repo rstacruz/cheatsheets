@@ -41,3 +41,4 @@ Tailwind v4 is the build engine, so the design system can live in its theme inst
 - 2026-11-23 — decision recorded. Assessment: rlab `notes/26JDH-devhints/report-2026-1123-css-token-assessment.md`.
 - 2026-11-24 — token vocabulary and Stylelint (#2446), cascade layers (#2447).
 - 2026-11-24 — component CSS migrated to Tailwind utilities in a single PR; convention recorded in `../component-styling.md`.
+- 2026-11-24 — dark mode via `light-dark()` tokens and a two-state theme toggle.

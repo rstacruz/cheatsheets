@@ -2,9 +2,10 @@ import type { Element, ElementContent, Root, Text } from 'hast'
 import { visit } from 'unist-util-visit'
 
 /**
- * Wraps text matching `data-highlight` in `.inline-highlight` spans, so a
- * fenced block can point at one API name instead of shading the whole line.
- * The spec is a semicolon-separated list of literal, case-sensitive strings.
+ * Wraps the first text matching each `data-highlight` token in
+ * `.inline-highlight` spans, so a fenced block can point at one API name
+ * instead of shading the whole line. The spec is a semicolon-separated list
+ * of literal, case-sensitive strings.
  */
 
 const HIGHLIGHT_CLASS = 'inline-highlight'
@@ -39,7 +40,10 @@ export function parseHighlightSpec(value: PropertyValue): string[] {
 
 const WORD_CHAR = /[A-Za-z0-9_]/
 
-/** Literal matches on identifier boundaries, dropping overlaps (longer wins) */
+/**
+ * First literal match per token on identifier boundaries, dropping overlaps
+ * (longer wins).
+ */
 export function findMatches(text: string, tokens: string[]): Match[] {
   const found: Match[] = []
 
@@ -57,10 +61,9 @@ export function findMatches(text: string, tokens: string[]): Match[] {
 
       if (leftBounded && rightBounded) {
         found.push({ start: index, end: index + token.length })
-        index = text.indexOf(token, index + token.length)
-      } else {
-        index = text.indexOf(token, index + 1)
+        break
       }
+      index = text.indexOf(token, index + 1)
     }
   }
 

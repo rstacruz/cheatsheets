@@ -22,6 +22,18 @@
   --color-mildindigo-800: #312f60;
   --color-mildindigo-900: #191730;
   --color-mildindigo-950: #0c0c18;
+  --color-steel-50: #fafafc;
+  --color-steel-100: #f3f5fc;
+  --color-steel-200: #e7eaf2;
+  --color-steel-300: #cbd0e0;
+  --color-steel-400: #a8adc4;
+  --color-steel-500: #7c8fa2;
+  --color-steel-600: #556677;
+  --color-steel-700: #334455;
+  --color-steel-750: #262637;
+  --color-steel-800: #1d1d31;
+  --color-steel-900: #17172a;
+  --color-steel-950: #0e0e19;
 
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
@@ -47,14 +59,17 @@
   --container-snippet: 900px;
   --container-home: 1024px;
 
-  --shadow-sm: 0 1px 1px rgb(85 102 119 / 55%);
-  --shadow-md: 0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%);
+  --shadow-sm: 0 1px 1px light-dark(rgb(85 102 119 / 55%), rgb(0 0 0 / 70%));
+  --shadow-md:
+    0 6px 8px light-dark(rgb(85 102 119 / 3%), rgb(0 0 0 / 45%)),
+    0 1px 1px light-dark(rgb(85 102 119 / 40%), rgb(0 0 0 / 70%));
   --shadow-lg:
-    0 6px 8px rgb(85 102 119 / 3%), 0 1px 1px rgb(85 102 119 / 40%),
-    0 8px 12px rgb(58 193 203 / 10%);
+    0 6px 8px light-dark(rgb(85 102 119 / 3%), rgb(0 0 0 / 45%)),
+    0 1px 1px light-dark(rgb(85 102 119 / 40%), rgb(0 0 0 / 70%)),
+    0 8px 12px light-dark(rgb(58 193 203 / 10%), rgb(58 193 203 / 8%));
   --shadow-focus:
-    inset 0 0 0 1px var(--highlight),
-    0 0 0 3px color-mix(in srgb, var(--highlight) 10%, transparent);
+    inset 0 0 0 1px var(--ring-focus),
+    0 0 0 3px color-mix(in srgb, var(--ring-focus) 10%, transparent);
 
   --radius: 8px;
   --radius-xs: 2px;
@@ -80,17 +95,22 @@
   --color-foreground: var(--foreground);
   --color-heading: var(--heading);
   --color-card: var(--card);
+  --color-field: var(--field);
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-strong: var(--primary-strong);
   --color-primary-active: var(--primary-active);
   --color-primary-deep: var(--primary-deep);
-  --color-primary-faint: var(--primary-faint);
   --color-primary-subtle: var(--primary-subtle);
   --color-primary-surface: var(--primary-surface);
-  --color-primary-heading: var(--primary-heading);
   --color-primary-muted: var(--primary-muted);
+  --color-primary-solid: var(--primary-solid);
+  --color-primary-solid-soft: var(--primary-solid-soft);
+  --color-primary-solid-hover: var(--primary-solid-hover);
+  --color-slate-solid: var(--slate-solid);
+  --color-slate-solid-soft: var(--slate-solid-soft);
+  --color-slate-solid-hover: var(--slate-solid-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -98,7 +118,6 @@
   --color-muted-foreground-subtle: var(--muted-foreground-subtle);
   --color-muted-foreground-faint: var(--muted-foreground-faint);
   --color-muted-foreground-strong: var(--muted-foreground-strong);
-  --color-muted-foreground-bright: var(--muted-foreground-bright);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
@@ -111,10 +130,12 @@
   --color-link-hover: var(--link-hover);
   --color-link-visited: var(--link-visited);
   --color-link-bright: var(--link-bright);
-  --color-link-dark: var(--link-dark);
+  --color-link-strong: var(--link-strong);
   --color-highlight: var(--highlight);
   --color-highlight-bright: var(--highlight-bright);
-  --color-highlight-dark: var(--highlight-dark);
+  --color-highlight-solid: var(--highlight-solid);
+  --color-highlight-solid-soft: var(--highlight-solid-soft);
+  --color-highlight-solid-hover: var(--highlight-solid-hover);
   --color-syntax-punctuation: var(--syntax-punctuation);
   --color-syntax-comment: var(--syntax-comment);
   --color-overlay: var(--overlay);

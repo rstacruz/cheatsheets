@@ -11,59 +11,54 @@ const styles = {
 }
 ---
 
-{useCarbon && (
-  <div class={styles.root} role="complementary">
-    <div
-      class={styles.slot}
-      data-home-ad-src-a={carbon.src}
-      data-home-ad-src-b={carbon.coverSrc}
-    >
-      <script is:inline>
-        ;(function () {
-          var slot = document.currentScript.parentElement
-          if (!slot) return
+<div class={styles.root} role="complementary">
+  <div
+    class={styles.slot}
+    data-home-ad-src-a={carbon.src}
+    data-home-ad-src-b={carbon.coverSrc}
+  >
+    {useCarbon && <script is:inline>
+      ;(function () {
+        var slot = document.currentScript.parentElement
+        if (!slot) return
 
-          var params = new URLSearchParams(window.location.search)
-          var override = params.get('ad')
-          var bucket = null
+        var params = new URLSearchParams(window.location.search)
+        var override = params.get('ad')
+        var bucket = null
 
-          if (override === 'a' || override === 'b') bucket = override
-          if (!bucket) {
-            var match = document.cookie.match(
-              /(?:^|;\s*)devhints_home_ad=([ab])/
-            )
-            if (match) bucket = match[1]
-          }
-          if (!bucket) bucket = Math.random() < 0.5 ? 'a' : 'b'
+        if (override === 'a' || override === 'b') bucket = override
+        if (!bucket) {
+          var match = document.cookie.match(/(?:^|;\s*)devhints_home_ad=([ab])/)
+          if (match) bucket = match[1]
+        }
+        if (!bucket) bucket = Math.random() < 0.5 ? 'a' : 'b'
 
-          document.cookie =
-            'devhints_home_ad=' +
-            bucket +
-            '; path=/; max-age=31536000; samesite=lax'
-          slot.setAttribute('data-home-ad-bucket', bucket)
+        document.cookie =
+          'devhints_home_ad=' +
+          bucket +
+          '; path=/; max-age=31536000; samesite=lax'
+        slot.setAttribute('data-home-ad-bucket', bucket)
 
-          // Carbon stacks the cover under 360px, where it runs about 550px
-          // tall. Keep the normal ad in narrow slots instead.
-          var showCover =
-            bucket === 'b' && slot.clientWidth > 0 && slot.clientWidth >= 360
-          slot.setAttribute(
-            'data-home-ad-creative',
-            showCover ? 'cover' : 'default'
-          )
+        // Carbon stacks the cover under 360px, where it runs about 550px
+        // tall. Keep the normal ad in narrow slots instead.
+        var showCover = bucket === 'b' && slot.clientWidth >= 360
+        slot.setAttribute(
+          'data-home-ad-creative',
+          showCover ? 'cover' : 'default'
+        )
 
-          var script = document.createElement('script')
-          script.async = true
-          script.type = 'text/javascript'
-          script.id = '_carbonads_js'
-          script.src = showCover
-            ? slot.getAttribute('data-home-ad-src-b')
-            : slot.getAttribute('data-home-ad-src-a')
-          slot.appendChild(script)
-        })()
-      </script>
-    </div>
+        var script = document.createElement('script')
+        script.async = true
+        script.type = 'text/javascript'
+        script.id = '_carbonads_js'
+        script.src = showCover
+          ? slot.getAttribute('data-home-ad-src-b')
+          : slot.getAttribute('data-home-ad-src-a')
+        slot.appendChild(script)
+      })()
+    </script>}
   </div>
-)}
+</div>
 
 <style is:global>
   @import '../../styles/vendor/home-carbon.css';

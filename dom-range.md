@@ -64,7 +64,7 @@ range.deleteContents() // delete
 range.insertNode(node)
 ```
 
-Both return a DocumentFragment.
+Both `cloneContents()` and `extractContents()` return a DocumentFragment; `insertNode()` returns nothing.
 
 See: [Range methods](https://developer.mozilla.org/en-US/docs/Web/API/Range#instance_methods)
 
@@ -84,7 +84,8 @@ range.startContainer //  => Node
 range.startOffset
 range.endContainer //    => Node
 range.endOffset
-range.commonAncestorContainer // common
+// closest shared ancestor
+range.commonAncestorContainer
 ```
 
 See: [Range properties](https://developer.mozilla.org/en-US/docs/Web/API/Range#instance_properties)

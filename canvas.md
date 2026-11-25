@@ -2,7 +2,7 @@
 title: Canvas
 subtitle: HTML canvas drawing API
 category: Browser APIs
-last_verified_with: "node-canvas 3.2."
+last_verified_with: "WHATWG HTML Standard, Canvas 2D Context."
 updated: 2026-11-25
 tier: t3
 ---

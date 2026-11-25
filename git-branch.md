@@ -31,7 +31,7 @@ git checkout --track origin/$branchname
 
 Gets a branch in a remote.
 
-See: [git checkout --track](https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---track)
+See: [git checkout --track](https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---trackdirectinherit)
 
 ### Delete local remote-tracking branches
 

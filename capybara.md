@@ -296,14 +296,6 @@ end
 
 See: [Asynchronous JavaScript](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
 
-### Misc
-
-```
-drag
-field_labeled
-```
-<!-- see: none: drag and field_labeled were dropped from Capybara -->
-
 ### Page object
 
 ```ruby

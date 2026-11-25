@@ -547,7 +547,7 @@ Object.entries(fatherJS)
 <!-- {: data-highlight="Object.entries"} -->
 
 
-See: [Object.values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+See: [Object.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 
 Modules
 -------

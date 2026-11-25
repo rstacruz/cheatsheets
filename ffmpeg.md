@@ -2,6 +2,9 @@
 title: ffmpeg
 subtitle: Audio and video transcoder
 category: Media tools
+last_verified_with: "FFmpeg 9.1."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Common switches
@@ -18,12 +21,16 @@ category: Media tools
 -fs SIZE         # limit file size (bytes)
 ```
 
+See: [Main options](https://ffmpeg.org/ffmpeg.html#Main-options)
+
 ### Bitrate
 
 ```bash
 -b:v 1M          # video bitrate (1M = 1Mbit/s)
 -b:a 1M          # audio bitrate
 ```
+
+See: [Video options](https://ffmpeg.org/ffmpeg.html#Video-Options)
 
 ### Video
 
@@ -36,6 +43,8 @@ category: Media tools
 -crf N           # 0–51, lower = higher quality
 ```
 
+See: [Video options](https://ffmpeg.org/ffmpeg.html#Video-Options)
+
 ### Audio
 
 ```bash
@@ -46,6 +55,8 @@ category: Media tools
 -vol N           # volume (256=normal)
 ```
 
+See: [Audio options](https://ffmpeg.org/ffmpeg.html#Audio-Options)
+
 ## Example
 
 ### Ringtone conversion using ffmpeg
@@ -53,6 +64,8 @@ category: Media tools
 ```bash
 ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
 ```
+
+See: [Examples](https://ffmpeg.org/ffmpeg.html#Examples-1)
 
 ### Stream selection
 
@@ -67,6 +80,8 @@ ffmpeg -i input1.mp4 -i input2.mp3 -map 0:v -map 1:a output.mkv
 ```
 
 `-map` syntax: `-map INPUT:STREAM_TYPE[:STREAM_INDEX]`
+
+See: [Manual stream selection](https://ffmpeg.org/ffmpeg.html#Manual-stream-selection)
 
 ### To web
 
@@ -87,3 +102,5 @@ ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
   <source src="movie.webm" type='video/ogg'></source>
 </video>
 ```
+
+See: [Video and audio file format conversion](https://ffmpeg.org/ffmpeg.html#Video-and-Audio-file-format-conversion)

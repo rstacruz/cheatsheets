@@ -1,7 +1,10 @@
 ---
 title: Command line stuff
-category: Shell
 subtitle: Unix shell basics
+category: Shell
+last_verified_with: "GNU coreutils 9.12, Bash 5.3."
+updated: 2026-11-25
+tier: t3
 ---
 
 ## List (ls)
@@ -13,6 +16,8 @@ subtitle: Unix shell basics
 ```
 ls [options] [paths]
 ```
+
+See: [ls synopsis](https://man7.org/linux/man-pages/man1/ls.1.html#SYNOPSIS)
 
 ### Format
 
@@ -27,6 +32,8 @@ ls [options] [paths]
 | `-F` | Add / after directories |
 | `-G` | Color |
 
+See: [ls description](https://man7.org/linux/man-pages/man1/ls.1.html#DESCRIPTION)
+
 ### Options
 
 | Switch | Description |
@@ -34,6 +41,8 @@ ls [options] [paths]
 | `-R` | Recurse |
 | `-a` | Include hidden (dotfiles) |
 | `-A` | Include hidden (but not . and ..) |
+
+See: [ls description](https://man7.org/linux/man-pages/man1/ls.1.html#DESCRIPTION)
 
 ### Sorting
 
@@ -48,6 +57,8 @@ ls [options] [paths]
 |---
 | `-h` | Human-readable size (3k) |
 
+See: [ls description](https://man7.org/linux/man-pages/man1/ls.1.html#DESCRIPTION)
+
 ## Tail
 
 <!-- {: .-three-column} -->
@@ -58,6 +69,8 @@ ls [options] [paths]
 tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 ```
 
+See: [tail synopsis](https://man7.org/linux/man-pages/man1/tail.1.html#SYNOPSIS)
+
 ### Modes
 
 | Mode | Description |
@@ -65,6 +78,8 @@ tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 | `-f` | follow |
 | `-F` | follow by filename (accounts for log rotation) |
 | `-r` | Reverse order |
+
+See: [tail description](https://man7.org/linux/man-pages/man1/tail.1.html#DESCRIPTION)
 
 ### Options
 
@@ -74,6 +89,8 @@ tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 | `-cN` | N bytes |
 | `-nN` | N lines |
 | `+N`  | Start from line N |
+
+See: [tail description](https://man7.org/linux/man-pages/man1/tail.1.html#DESCRIPTION)
 
 ## Sudo
 
@@ -85,11 +102,15 @@ tail [-F | -f | -r] [-bN | -cN | -nN] [file ...]
 sudo [options] <command>
 ```
 
+See: [sudo synopsis](https://man7.org/linux/man-pages/man8/sudo.8.html#SYNOPSIS)
+
 ### Listing
 
 | Option | Description |
 | --- | --- |
 | `-l` | List allowed commands |
+
+See: [sudo -l](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Options
 
@@ -103,17 +124,23 @@ sudo [options] <command>
 | `-P` | Preserve group vector |
 | `-S` | Read password from stdin |
 
+See: [sudo options](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+
 ### File descriptors
 
 | Option | Description |
 | --- | --- |
 | `-C fd` | Close all open file descriptors |
 
+See: [sudo -C](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+
 ### Prompt
 
 | Option | Description |
 | --- | --- |
 | `-p prompt` | Custom prompt (-p "%p password:") |
+
+See: [sudo -p](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ### Interactive
 
@@ -125,6 +152,8 @@ sudo [options] <command>
 | `-u user` | run as this user |
 | `-g group` | run as this group |
 
+See: [sudo -i](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
+
 ### Timestamp
 
 | Option | Description |
@@ -132,6 +161,8 @@ sudo [options] <command>
 | `-v` | revalidate timestamp for 5 mins |
 | `-k` | invalidate timestamp |
 | `-K` | just like -k |
+
+See: [sudo -v](https://man7.org/linux/man-pages/man8/sudo.8.html#DESCRIPTION)
 
 ## wc (Word count)
 
@@ -143,6 +174,8 @@ sudo [options] <command>
 ... | wc [options]
 ```
 
+See: [wc synopsis](https://man7.org/linux/man-pages/man1/wc.1.html#SYNOPSIS)
+
 ### Options
 
 | Option | Description |
@@ -151,6 +184,8 @@ sudo [options] <command>
 | `-l` | Lines |
 | `-m` | Characters (incl multi-byte) |
 | `-w` | Words |
+
+See: [wc description](https://man7.org/linux/man-pages/man1/wc.1.html#DESCRIPTION)
 
 ## Grep
 
@@ -161,6 +196,8 @@ sudo [options] <command>
 ```
 grep [options] [pattern] [file ...]
 ```
+
+See: [grep synopsis](https://man7.org/linux/man-pages/man1/grep.1.html#SYNOPSIS)
 
 ### Options
 
@@ -185,12 +222,16 @@ grep [options] [pattern] [file ...]
 | `-v` | --invert-match |
 | `-i` | --ignore-case |
 
+See: [grep options](https://man7.org/linux/man-pages/man1/grep.1.html#OPTIONS)
+
 ### Synonyms
 
 ```
 egrep  =>  grep -E
 fgrep  =>  grep -F
 ```
+
+See: [grep description](https://man7.org/linux/man-pages/man1/grep.1.html#DESCRIPTION)
 
 ## Other recipes
 
@@ -201,3 +242,5 @@ fgrep  =>  grep -F
 ```
 perl -p -i -e 's/hello/HELLO/g' **/*
 ```
+
+See: [perlrun -i](https://perldoc.perl.org/perlrun#-i%5Bextension%5D)

@@ -2,6 +2,9 @@
 title: Ansible roles
 subtitle: Role directory structure
 category: Ansible
+last_verified_with: "ansible-core 2.22."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Structure
@@ -19,6 +22,10 @@ roles/
       main.yml
 ```
 
+See: [Role directory structure](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-directory-structure)
+
 ### References
 
  * <https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html>
+
+See: [Reusing roles](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_reuse_roles.html)

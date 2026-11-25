@@ -2,7 +2,9 @@
 title: CSS Grid
 subtitle: Two-dimensional layout system
 category: CSS
+last_verified_with: "CSS Grid Layout Module Level 1."
 updated: 2019-08-23
+tier: t3
 prism_languages: [css]
 ---
 
@@ -180,6 +182,8 @@ prism_languages: [css]
 
 <!-- {: .-setup} -->
 
+See: [CSS grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout#reference)
+
 ### Child
 
 ```css
@@ -249,6 +253,8 @@ prism_languages: [css]
 ```
 
 <!-- {: .-setup} -->
+
+See: [Line-based placement](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
 
 
 ## References

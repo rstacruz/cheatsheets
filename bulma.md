@@ -4,7 +4,9 @@ subtitle: Flexbox-based CSS framework
 category: CSS
 prism_languages: [css, html]
 weight: -1
+last_verified_with: "Bulma 1.0."
 updated: 2018-11-19
+tier: t3
 authors:
   - github: benolot
 description: |
@@ -19,6 +21,8 @@ description: |
 <---------^------------^------------------^-------------^------------->
   mobile      tablet         desktop         widescreen      fullhd
 ```
+
+See: [Responsive breakpoints](https://bulma.io/documentation/start/responsiveness/)
 
 ### Columns
 
@@ -35,6 +39,8 @@ Wrap as many `.column`'s' as you like in a `.columns` wrapper
     <div class="column"></div>
 </div>
 ```
+
+See: [Columns](https://bulma.io/documentation/columns/basics/)
 
 ### Modifiers
 
@@ -61,6 +67,8 @@ The following classes modify the **state**.
 .is-outlined
 .is-loading
 ```
+
+See: [Button](https://bulma.io/documentation/elements/button/)
 
 ### Typography Helpers
 
@@ -93,6 +101,8 @@ The following classes **transform** the text
 | `.is-lowercase`    | Transforms **all** characters to **lowercase**                     |
 | `.is-uppercase`    | Transforms **all** characters to **uppercase**                     |
 
+See: [Typography helpers](https://bulma.io/documentation/helpers/typography-helpers/)
+
 ### WYSIWYG Content
 
 ```html
@@ -110,3 +120,5 @@ The following classes **transform** the text
 ```
 
 To provide default stylings for commonly generated WYSIWYG contents, use the `.content` class.
+
+See: [Content](https://bulma.io/documentation/elements/content/)

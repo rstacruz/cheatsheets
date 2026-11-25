@@ -2,6 +2,9 @@
 title: "Ansible quickstart"
 subtitle: First-playbook walkthrough
 category: Ansible
+last_verified_with: "ansible-core 2.22."
+updated: 2026-11-25
+tier: t3
 description: |
   A quick guide to getting started with your first Ansible playbook.
 ---
@@ -96,6 +99,8 @@ TASK: start nginx every bootup] ***********************************************
 ok: [127.0.0.1]
 ...
 ```
+
+See: [Executing playbooks](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_intro.html#executing-a-playbook)
 
 ## Read more
 

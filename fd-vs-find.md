@@ -6,6 +6,7 @@ category: Command line recipes
 layout: snippet
 last_verified_with: "fd 10.4.2."
 updated: 2026-11-23
+tier: t3
 links:
   - title: fd repository
     url: https://github.com/sharkdp/fd

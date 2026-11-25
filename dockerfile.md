@@ -3,7 +3,9 @@ title: Dockerfile
 subtitle: Container image build file
 category: Devops
 prism_languages: [docker]
+last_verified_with: "Docker Engine 29.10."
 updated: 2026-11-14
+tier: t3
 intro: |
   A Dockerfile lists the instructions that build a container image; BuildKit, the default builder since Docker 23, runs them in parallel. This reference covers multi-stage builds, cache mounts, secrets, and the instructions you reach for most.
 links:

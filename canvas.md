@@ -2,6 +2,9 @@
 title: Canvas
 subtitle: HTML canvas drawing API
 category: Browser APIs
+last_verified_with: "node-canvas 3.2."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Getting the context
@@ -10,6 +13,8 @@ category: Browser APIs
 var canvas = document.getElementById('c')
 var c = canvas.getContext('2d')
 ```
+
+See: [getContext()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext)
 
 ### Basic drawing
 
@@ -33,6 +38,8 @@ c.stroke()
 c.fill()
 ```
 
+See: [fillRect()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect)
+
 ### Saving and restoring
 
 ```js
@@ -46,6 +53,8 @@ c.restore()
 Saves: `strokeStyle` `fillStyle` `globalAlpha` `lineWidth` `lineCap` `lineJoin` `miterLimit` `shadowOffsetX` `shadowOffsetY` `shadowBlur` `shadowColor`
 `globalCompositeOperation`, Transformations (`translate` `rotate` `scale` `transform` `setTransform`), Clipping path
 
+See: [save()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/save)
+
 
 ### Animation
 
@@ -54,6 +63,8 @@ onframe: function() {
   c.clearRect(0, 0, w, h)
 }
 ```
+
+See: [Basic animations](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations)
 
 ### Transformations
 
@@ -81,6 +92,8 @@ c.translate(ox/x, oy/y)
 
 See [MDN: Transformations][xform].
 
+See: [transform()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform)
+
 ### Image drawing
 
 ```js
@@ -89,6 +102,8 @@ c.drawImage(image, dx, dy, [dw, dh]);
 ```
 
 See [MDN: Images][images].
+
+See: [drawImage()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage)
 
 ### Colors, styles shadows
 
@@ -106,6 +121,8 @@ c.shadowColor = 'rgba(0,0,0,0.2)';
 
 See [MDN: Styles][styles]
 
+See: [Applying styles and colors](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+
 ### Gradients
 
 ```js
@@ -117,6 +134,8 @@ pat = c.createPattern(image, 'repeat-x')
 ```js
 c.fillStyle = gr
 ```
+
+See: [createLinearGradient()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient)
 
 ### Drawing
 
@@ -131,6 +150,8 @@ c.arc(...)
 c.closePath()
 ```
 
+See: [beginPath()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath)
+
 ### More resources
 
   * [Canvas Cheatsheet PDF][pdf]
@@ -139,3 +160,5 @@ c.closePath()
 [xform]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations
 [styles]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors
 [images]: https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images
+
+See: [node-canvas](https://github.com/Automattic/node-canvas#documentation)

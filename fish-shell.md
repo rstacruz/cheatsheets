@@ -5,7 +5,9 @@ description: "Fish shell syntax: variables, functions, control flow and history.
 subtitle: Interactive shell with autosuggestions
 category: Shell
 prism_languages: [fish]
+last_verified_with: "fish 4.9."
 updated: 2026-11-14
+tier: t3
 weight: -1
 intro: |
   fish ships with autosuggestions, syntax highlighting, and tab completions for

@@ -3,7 +3,9 @@ title: Elixir
 subtitle: Functional language on BEAM
 category: Elixir
 tags: [New]
+last_verified_with: "Elixir 1.20."
 updated: 2018-07-04
+tier: t3
 weight: -10
 ---
 
@@ -35,11 +37,15 @@ elixir hello.exs
 
 <!-- {: .-setup} -->
 
+See: [Introduction](https://hexdocs.pm/elixir/introduction.html)
+
 ### Variables
 
 ```elixir
 age = 23
 ```
+
+See: [Basic types](https://hexdocs.pm/elixir/basic-types.html)
 
 ### Maps
 
@@ -56,6 +62,8 @@ IO.puts "Hello, " <> user.name
 
 <!-- {: .-setup} -->
 
+See: [Map](https://hexdocs.pm/elixir/Map.html)
+
 ### Lists
 
 ```elixir
@@ -69,6 +77,8 @@ Enum.map(users, fn user ->
   IO.puts "Hello " <> user
 end)
 ```
+
+See: [List](https://hexdocs.pm/elixir/List.html)
 
 ### Piping
 
@@ -87,6 +97,8 @@ print(transform(source, :hello))
 
 These two are equivalent.
 
+See: [Pipe operator](https://hexdocs.pm/elixir/Kernel.html#%7C%3E/2)
+
 ### Pattern matching
 
 ```elixir
@@ -97,6 +109,8 @@ user = %{name: "Tom", age: 23}
 <!-- {: data-highlight="username"} -->
 
 This sets `username` to `"Tom"`.
+
+See: [Patterns and guards](https://hexdocs.pm/elixir/patterns-and-guards.html#patterns)
 
 ### Pattern matching in functions
 
@@ -112,6 +126,8 @@ user = %{name: "Tom", age: 23}
 
 Pattern matching works in function parameters too.
 
+See: [Patterns and guards](https://hexdocs.pm/elixir/patterns-and-guards.html#where-patterns-and-guards-can-be-used)
+
 Control flow
 ------------
 
@@ -126,6 +142,9 @@ else
   "This will"
 end
 ```
+
+See: [if](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#if/2)
+
 ### Case
 
 ```elixir
@@ -139,6 +158,8 @@ case {1, 2, 3} do
 end
 ```
 
+See: [case](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#case/2)
+
 ### Cond
 
 ```elixir
@@ -151,6 +172,8 @@ cond do
     "But I will (this is essentially an else)"
 end
 ```
+
+See: [cond](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#cond/1)
 
 ### With
 
@@ -166,6 +189,8 @@ else
 end
 ```
 
+See: [with](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#with/1)
+
 ### Errors
 
 ```elixir
@@ -177,6 +202,8 @@ after
   IO.puts("I'm the after clause.")
 end
 ```
+
+See: [try](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#try/1)
 
 ## Types
 
@@ -202,6 +229,8 @@ end
 | `%{a: "hello"}`         | Map             |
 | `%MyStruct{a: "hello"}` | Struct          |
 | `fn -> ... end`         | Function        |
+
+See: [Basic types](https://hexdocs.pm/elixir/basic-types.html)
 
 ### Type checks
 
@@ -230,6 +259,8 @@ is_port/1
 is_reference/1
 ```
 
+See: [Type checks](https://hexdocs.pm/elixir/Kernel.html#is_atom/1)
+
 ### Operators
 
 ```elixir
@@ -239,6 +270,8 @@ left ++ right   # concat lists
 left <> right   # concat string/binary
 left =~ right   # regexp
 ```
+
+See: [Operators](https://hexdocs.pm/elixir/operators.html)
 
 Modules
 -------
@@ -259,6 +292,8 @@ import Redux, only: :macros
 import Foo.{Bar, Baz}
 ```
 
+See: [import](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#import/2)
+
 ### Aliases
 
 ```elixir
@@ -267,6 +302,8 @@ alias Foo.Bar   # same as above
 
 alias Foo.{Bar, Baz}
 ```
+
+See: [alias](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#alias/2)
 
 ## String
 
@@ -288,6 +325,8 @@ str |> capitalize()    # → "Hello"
 str |> match(regex)
 ```
 
+See: [String](https://hexdocs.pm/elixir/String.html)
+
 ### Inspecting objects
 
 ```elixir
@@ -300,6 +339,8 @@ value |> IO.inspect()
 value |> IO.inspect(label: "value")
 ```
 
+See: [inspect](https://hexdocs.pm/elixir/Kernel.html#inspect/2)
+
 ## Numbers
 
 ### Operations
@@ -310,6 +351,8 @@ round(n)
 rem(a, b)   # remainder (modulo)
 div(a, b)   # integer division
 ```
+
+See: [Arithmetic operators](https://hexdocs.pm/elixir/Kernel.html#abs/1)
 
 ### Float
 
@@ -335,6 +378,8 @@ n |> to_string([decimals: 2, compact: true])
 ```elixir
 Float.parse("34")  # → { 34.0, "" }
 ```
+
+See: [Float](https://hexdocs.pm/elixir/Float.html)
 
 ### Integer
 
@@ -370,6 +415,8 @@ parse("12")           # → {12, ""}
 undigits([1, 2])      # → 12
 ```
 
+See: [Integer](https://hexdocs.pm/elixir/Integer.html)
+
 ### Type casting
 
 ```elixir
@@ -382,6 +429,8 @@ Float.to_string(34.1)  # → "3.4100e+01"
 Float.to_string(34.1, [decimals: 2, compact: true])  # → "34.1"
 ```
 
+See: [Float.parse](https://hexdocs.pm/elixir/Float.html#parse/1)
+
 ## Map
 
 ### Defining
@@ -390,6 +439,8 @@ Float.to_string(34.1, [decimals: 2, compact: true])  # → "34.1"
 m = %{name: "hi"}       # atom keys (:name)
 m = %{"name" => "hi"}   # string keys ("name")
 ```
+
+See: [Map](https://hexdocs.pm/elixir/Map.html)
 
 ### Updating
 
@@ -420,12 +471,16 @@ m |> get_and_update(:a, &(&1 || "default"))
 # → {old, new}
 ```
 
+See: [Map.put](https://hexdocs.pm/elixir/Map.html#put/3)
+
 ### Deleting
 
 ```elixir
 m |> delete(:name)  # → %{}
 m |> pop(:name)     # → {"John", %{}}
 ```
+
+See: [Map.delete](https://hexdocs.pm/elixir/Map.html#delete/2)
 
 ### Reading
 
@@ -440,6 +495,8 @@ m |> to_list()      # → [id: 1, name: "hi"]
                     # → [{:id, 1}, {:name, "hi"}]
 ```
 
+See: [Map.get](https://hexdocs.pm/elixir/Map.html#get/3)
+
 ### Deep
 
 ```elixir
@@ -451,6 +508,8 @@ put_in(map[:b][:c], "Banana")    # via macros
 get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
 ```
 
+See: [put_in](https://hexdocs.pm/elixir/Kernel.html#put_in/3)
+
 ### Constructing from lists
 
 ```elixir
@@ -458,6 +517,8 @@ Map.new([{:b, 1}, {:a, 2}])
 Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
 ```
+
+See: [Map.new](https://hexdocs.pm/elixir/Map.html#new/1)
 
 ### Working with structs
 
@@ -472,6 +533,8 @@ Map.from_struct(%AnyStruct{a: "b"})  # → %{a: "b"}
 ```elixir
 struct(AnyStruct, %{a: "b"})  # → %AnyStruct{a: "b"}
 ```
+
+See: [Map.from_struct](https://hexdocs.pm/elixir/Map.html#from_struct/1)
 
 ## List
 
@@ -534,6 +597,8 @@ list |> concat([:d])  # → [:a, :b, :c, :d]
 
 Also, consider streams instead.
 
+See: [Enum](https://hexdocs.pm/elixir/Enum.html)
+
 ### Map/reduce
 
 ```elixir
@@ -549,6 +614,8 @@ list |> empty?(fn)
 [1, 2, 3, 4]
 |> Enum.reduce(0, fn(x, acc) -> x + acc end)
 ```
+
+See: [Enum.map](https://hexdocs.pm/elixir/Enum.html#map/2)
 
 ## Tuple
 
@@ -570,6 +637,8 @@ t |> put_elem(index, value)
 t |> tuple_size()
 ```
 
+See: [Tuple](https://hexdocs.pm/elixir/Tuple.html)
+
 ### Keyword lists
 
 ```elixir
@@ -583,6 +652,8 @@ list = [{"size", 2}, {"type", "shoe"}]
 List.keyfind(list, "size", 0)  # → {"size", 2}
 ```
 
+See: [Keyword](https://hexdocs.pm/elixir/Keyword.html)
+
 ## Functions
 
 ### Lambdas
@@ -591,6 +662,8 @@ List.keyfind(list, "size", 0)  # → {"size", 2}
 square = fn n -> n*n end
 square.(20)
 ```
+
+See: [fn](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#fn/1)
 
 ### & syntax
 
@@ -601,6 +674,8 @@ square.(20)
 square = &Math.square/1
 ```
 
+See: [Capture operator](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#&/1)
+
 ### Running
 
 ```elixir
@@ -609,6 +684,8 @@ apply(fun, args)
 apply(module, fun, args)
 ```
 
+See: [apply](https://hexdocs.pm/elixir/Kernel.html#apply/3)
+
 ### Function heads
 
 ```elixir
@@ -616,6 +693,8 @@ def join(a, b \\ nil)
 def join(a, b) when is_nil(b) do: a
 def join(a, b) do: a <> b
 ```
+
+See: [def](https://hexdocs.pm/elixir/Kernel.html#def/2)
 
 ## Structs
 
@@ -653,6 +732,8 @@ end
 Blank.blank?([])  # → true
 ```
 
+See: [defprotocol](https://hexdocs.pm/elixir/Kernel.html#defprotocol/2)
+
 ### Any
 
 ```elixir
@@ -664,10 +745,14 @@ defmodule User do
 end
 ```
 
+See: [Protocol](https://hexdocs.pm/elixir/Protocol.html)
+
 ### Examples
 
 - `Enumerable` and `Enum.map()`
 - `Inspect` and `inspect()`
+
+See: [Enumerable](https://hexdocs.pm/elixir/Enumerable.html)
 
 ## Comprehensions
 
@@ -687,12 +772,16 @@ for {key, val} <- %{a: 10, b: 20}, do: val
 for {key, val} <- %{a: 10, b: 20}, into: %{}, do: {key, val*val}
 ```
 
+See: [for](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#for/1)
+
 ### Conditions
 
 ```elixir
 for n <- 1..10, rem(n, 2) == 0, do: n
 # → [2, 4, 6, 8, 10]
 ```
+
+See: [for](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#for/1)
 
 ### Complex
 
@@ -704,6 +793,8 @@ for dir <- dirs,
   IO.puts(file)
 end
 ```
+
+See: [for](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#for/1)
 
 ## Misc
 
@@ -725,6 +816,8 @@ def on_def(_env, kind, name, args, guards, body)
 def load_check
 ```
 
+See: [Module](https://hexdocs.pm/elixir/Module.html)
+
 ### Regexp
 
 ```elixir
@@ -732,6 +825,8 @@ exp = ~r/hello/
 exp = ~r/hello/i
 "hello world" =~ exp
 ```
+
+See: [Regex](https://hexdocs.pm/elixir/Regex.html)
 
 ### Sigils
 

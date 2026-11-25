@@ -4,7 +4,9 @@ link_title: cut vs awk
 subtitle: Pick fields from text
 category: Command line recipes
 layout: snippet
+last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."
 updated: 2026-11-23
+tier: t3
 links:
   - title: GNU cut manual
     url: https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html

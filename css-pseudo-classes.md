@@ -6,6 +6,7 @@ category: CSS
 layout: snippet
 last_verified_with: "Selectors Level 4."
 updated: 2026-11-24
+tier: t3
 links:
   - title: MDN pseudo-classes
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes

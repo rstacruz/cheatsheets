@@ -5,6 +5,7 @@ description: "Cron syntax: the five-field format, operators, special strings and
 subtitle: Unix job scheduler
 category: CLI
 updated: 2026-11-23
+tier: t3
 last_verified_with: "cronie 1.7.2."
 weight: -3
 ---
@@ -44,6 +45,8 @@ Min  Hour Day  Mon  Weekday
 <!-- {: .-setup.-box-chars} -->
 <!-- End illustration; keep this diagram as-is. -->
 
+See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)
+
 ### Operators
 
 | Operator | Description                |
@@ -52,6 +55,8 @@ Min  Hour Day  Mon  Weekday
 | `,`      | separate individual values |
 | `-`      | a range of values          |
 | `/`      | divide a value into steps  |
+
+See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)
 
 ### Special strings
 
@@ -67,6 +72,8 @@ Min  Hour Day  Mon  Weekday
 | `@yearly`    | once every year - same as `0 0 1 1 *`  |
 | `@annually`  | same as `@yearly`                      |
 
+See: [Extensions](https://man7.org/linux/man-pages/man5/crontab.5.html#EXTENSIONS)
+
 ### Examples
 
 | Example        | Description                 |
@@ -77,6 +84,8 @@ Min  Hour Day  Mon  Weekday
 | `0 18 * * 1-6` | every week Mon-Sat at 6pm   |
 | `10 2 * * 6,7` | every Sat and Sun on 2:10am |
 | `0 0 * * 0`    | every Sunday midnight       |
+
+See: [Example cron file](https://man7.org/linux/man-pages/man5/crontab.5.html#EXAMPLE_CRON_FILE)
 
 ### Crontab
 
@@ -99,3 +108,5 @@ crontab -l [-u user]
 # Delete crontab file - optional for another user
 crontab -r [-u user]
 ```
+
+See: [crontab(1)](https://man7.org/linux/man-pages/man1/crontab.1.html#OPTIONS)

@@ -2,7 +2,9 @@
 title: Find
 subtitle: File search utility
 category: CLI
+last_verified_with: "GNU findutils 4.11."
 updated: 2026-10-31
+tier: t3
 ---
 
 ### Usage
@@ -12,6 +14,8 @@ updated: 2026-10-31
 ```bash
 find <path> <conditions> <actions>
 ```
+
+See: [Synopsis](https://man7.org/linux/man-pages/man1/find.1.html#SYNOPSIS)
 
 ### Conditions
 
@@ -51,6 +55,8 @@ find <path> <conditions> <actions>
 -newerXt "1 hour ago"    # [t]imestamp
 ```
 
+See: [Expression primaries](https://man7.org/linux/man-pages/man1/find.1.html#EXPRESSION)
+
 ### Access time conditions
 
 ```bash
@@ -65,12 +71,16 @@ find <path> <conditions> <actions>
 
 These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).
 
+See: [Time primaries](https://man7.org/linux/man-pages/man1/find.1.html#EXPRESSION)
+
 ### Condition flow
 
 ```bash
 \! -name "*.c" # NOT named "*.c"
 \( x -or y \)
 ```
+
+See: [Combining primaries](https://man7.org/linux/man-pages/man1/find.1.html#EXPRESSION)
 
 ### Actions
 
@@ -79,6 +89,8 @@ These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).
 -print
 -delete
 ```
+
+See: [Actions](https://man7.org/linux/man-pages/man1/find.1.html#EXPRESSION)
 
 ### Examples
 
@@ -95,6 +107,8 @@ find . -newerBt "24 hours ago"
 find . -type f -mtime +29 # find files modified more than 30 days ago
 find . -type f -newermt 2016-08-07 \! -newermt 2016-08-08 # find in date range
 ```
+
+See: [Examples](https://man7.org/linux/man-pages/man1/find.1.html#EXAMPLES)
 
 ## Also see
 

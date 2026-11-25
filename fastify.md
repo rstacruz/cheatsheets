@@ -2,7 +2,9 @@
 title: Fastify
 subtitle: Fast Node.js web framework
 category: Node.js
+last_verified_with: "Fastify 5.12."
 updated: 2026-11-14
+tier: t3
 intro: |
   [Fastify](https://fastify.dev) is a Node.js web framework with a fast router, JSON-schema validation, and a pino logger. This reference targets Fastify v5.
 links:

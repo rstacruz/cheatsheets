@@ -2,7 +2,9 @@
 title: Flow
 subtitle: JavaScript type checker
 category: Build tools
+last_verified_with: "Flow 0.342."
 updated: 2020-07-05
+tier: t3
 weight: -3
 ---
 
@@ -41,6 +43,8 @@ function square (n: number) {
 
 `result` is inferred to be a number because `number * number` will result in a number. There's no need to give it annotations.
 
+See: [Types and expressions](https://flow.org/en/docs/lang/types-and-expressions/)
+
 ### Type aliases
 
 ```js
@@ -67,6 +71,8 @@ greet({ name: 'Miles Davis', ··· })
 ```
 
 This is the typical way to define the shape of complex objects.
+
+See: [Type aliases](https://flow.org/en/docs/types/aliases/)
 
 ### Variables
 
@@ -237,6 +243,8 @@ See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-a
 | `?number`       | Maybe (number, void, null)   |
 | `a | b`         | Union types                  |
 
+See: [Primitive types](https://flow.org/en/docs/types/primitives/)
+
 ### Enums
 
 ```js
@@ -326,6 +334,8 @@ import typeof Config from '../config'
 export type Person = { id: string }
 ```
 
+See: [Module types](https://flow.org/en/docs/types/modules/)
+
 ### Comment syntax
 
 ```js
@@ -335,6 +345,8 @@ export type Person = { id: string }
 
 function add(n /*: number */) { ... }
 ```
+
+See: [Comment types](https://flow.org/en/docs/types/comments/)
 
 ### React
 
@@ -352,6 +364,8 @@ class Foo extends React.Component<Props, State> {
 }
 ```
 
+See: [React types](https://flow.org/en/docs/react/)
+
 ## Examples
 
 ### Examples
@@ -367,6 +381,8 @@ var a: Class<MyClass> = MyClass
 var b: MyClass = new a()
 ```
 
+See: [Class types](https://flow.org/en/docs/types/classes/)
+
 ### Function signature
 
 ```js
@@ -376,6 +392,8 @@ function fetch (callback: Callback) {
   ···
 }
 ```
+
+See: [Function types](https://flow.org/en/docs/types/functions/)
 
 ## References
 

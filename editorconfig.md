@@ -4,6 +4,7 @@ subtitle: Editor config format
 prism_languages: [ini]
 weight: -1
 updated: 2026-11-23
+tier: t3
 last_verified_with: "EditorConfig spec 0.17.2."
 category: Apps
 ---
@@ -43,6 +44,8 @@ max_line_length = 80
 ```
 
 `utf-8-bom` is allowed but discouraged; `unset` clears any key.
+
+See: [Supported properties](https://editorconfig.org/#supported-properties)
 
 ### Full example
 
@@ -96,6 +99,8 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 ```
+
+See: [Example file](https://editorconfig.org/#example-file)
 
 ### References
 

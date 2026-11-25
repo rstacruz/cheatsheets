@@ -4,6 +4,9 @@ subtitle: SQL abstraction library for Rails
 category: Rails
 intro: |
   Arel is an SQL abstraction library built into Ruby on Rails.
+last_verified_with: "Arel 9.0."
+updated: 2026-11-25
+tier: t3
 links:
   - title: https://github.com/rails/arel
     url: https://github.com/rails/arel
@@ -16,12 +19,16 @@ users = Arel::Table.new(:users)
 users = User.arel_table  # ActiveRecord model
 ```
 
+See: [Arel::Table](https://www.rubydoc.info/gems/arel/Arel/Table)
+
 ### Fields
 
 ```rb
 users[:name]
 users[:id]
 ```
+
+See: [Column access](https://www.rubydoc.info/gems/arel/Arel/Table#[]-instance_method)
 
 ### `where` (restriction)
 
@@ -30,12 +37,16 @@ users.where(users[:name].eq('amy'))
 # SELECT * FROM users WHERE users.name = 'amy'
 ```
 
+See: [Arel::Table#where](https://www.rubydoc.info/gems/arel/Arel/Table#where-instance_method)
+
 ### `select` (projection)
 
 ```rb
 users.project(users[:id])
 # SELECT users.id FROM users
 ```
+
+See: [Arel::Table#project](https://www.rubydoc.info/gems/arel/Arel/Table#project-instance_method)
 
 ### `join`
 #### basic join
@@ -86,12 +97,16 @@ photos_with_credits.map{|x|
 }.join('; ')
 ```
 
+See: [Arel::Table#join](https://www.rubydoc.info/gems/arel/Arel/Table#join-instance_method)
+
 ### `limit` / `offset`
 
 ```rb
 users.take(5) # => SELECT * FROM users LIMIT 5
 users.skip(4) # => SELECT * FROM users OFFSET 4
 ```
+
+See: [Arel::Table#take](https://www.rubydoc.info/gems/arel/Arel/Table#take-instance_method)
 
 ### Aggregates
 
@@ -101,6 +116,8 @@ users.project(users[:id].count)
 users.project(users[:id].count.as('user_count'))
 ```
 
+See: [Arel::Expressions](https://www.rubydoc.info/gems/arel/Arel/Expressions)
+
 ### `order`
 
 ```rb
@@ -109,12 +126,16 @@ users.order(users[:name], users[:age].desc)
 users.reorder(users[:age])
 ```
 
+See: [Arel::Table#order](https://www.rubydoc.info/gems/arel/Arel/Table#order-instance_method)
+
 ### With ActiveRecord
 
 ```rb
 User.arel_table
 User.where(id: 1).arel
 ```
+
+See: [arel_table](https://api.rubyonrails.org/classes/ActiveRecord/Core/ClassMethods.html#method-i-arel_table)
 
 ### Clean code with arel
 
@@ -129,3 +150,5 @@ all_time      = photos_with_credits.count
 this_month    = photos_with_credits.where(photos[:created_at].gteq(Date.today.beginning_of_month))
 recent_photos = photos_with_credits.where(photos[:created_at].gteq(Date.today.beginning_of_month)).limit(5)
 ```
+
+See: [Arel::SelectManager](https://www.rubydoc.info/gems/arel/Arel/SelectManager)

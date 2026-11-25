@@ -1,7 +1,9 @@
 ---
 title: Backbone.js
 subtitle: Frontend MVC library
+last_verified_with: "Backbone.js 1.6."
 updated: 2018-12-06
+tier: t3
 category: JavaScript libraries
 ---
 
@@ -27,6 +29,8 @@ category: JavaScript libraries
 .once('event', callback)   // Only happens once
 ```
 
+See: [Events-on](https://backbonejs.org/#Events-on)
+
 ### Unbinding events
 
 ```js
@@ -36,6 +40,8 @@ object.off(null, onChange)        // `onChange` callback for all events
 object.off(null, null, context)   // all callbacks for `context` all events
 object.off()                      // all
 ```
+
+See: [Events-off](https://backbonejs.org/#Events-off)
 
 ### Events
 
@@ -47,6 +53,8 @@ object.trigger('event')
 view.listenTo(object, event, callback)
 view.stopListening()
 ```
+
+See: [Events-trigger](https://backbonejs.org/#Events-trigger)
 
 ### List of events
 
@@ -66,6 +74,9 @@ view.stopListening()
   * Router:
     * `route:[name]` (params)
     * `route` (router, route, params)
+
+See: [Catalog of events](https://backbonejs.org/#Events-catalog)
+
 ## Views
 
 ### Defining
@@ -100,12 +111,17 @@ var View = Backbone.View.extend({
   render: function() { ··· }
 })
 ```
+
+See: [View-extend](https://backbonejs.org/#View-extend)
+
 ### Instantiating
 
 ```js
 view = new View()
 view = new View({ el: ··· })
 ```
+
+See: [View-constructor](https://backbonejs.org/#View-constructor)
 
 ### Methods
 
@@ -123,6 +139,8 @@ view.delegateEvents()
 view.undelegateEvents()
 ```
 
+See: [View-delegateEvents](https://backbonejs.org/#View-delegateEvents)
+
 ## Models
 
 ### Defining
@@ -138,6 +156,8 @@ var Model = Backbone.Model.extend({
 })
 ```
 
+See: [Model-extend](https://backbonejs.org/#Model-extend)
+
 ### Instantiating
 
 ```js
@@ -147,6 +167,8 @@ var obj = new Model({ title: 'Lolita', author: 'Nabokov' })
 ```js
 var obj = new Model({ collection: ··· })
 ```
+
+See: [Model-constructor](https://backbonejs.org/#Model-constructor)
 
 ### Methods
 
@@ -213,6 +235,8 @@ obj.fetch()
 obj.fetch({ success: callback, error: callback })
 ```
 
+See: [Model-set](https://backbonejs.org/#Model-set)
+
 ### Validation
 
 ```js
@@ -239,6 +263,8 @@ obj.save()
 obj.set({ ··· }, { validate: true })
 ```
 
+See: [Model-validate](https://backbonejs.org/#Model-validate)
+
 ### Custom URLs
 
 ```js
@@ -259,6 +285,8 @@ var Model = Backbone.Model.extend({
 var obj = new Model({ url: ··· })
 var obj = new Model({ urlRoot: ··· })
 ```
+
+See: [Model-url](https://backbonejs.org/#Model-url)
 
 ## References
 

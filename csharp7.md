@@ -2,7 +2,9 @@
 title: C# 7
 subtitle: "C# 7 feature summary"
 category: C-like
+last_verified_with: "C# 7.3."
 updated: 2018-12-06
+tier: t3
 prism_languages: [csharp]
 description: |
   A quick overview of C# 7
@@ -19,6 +21,8 @@ public void PrintCoordinates(Point p)
 ```
 
 `out` is used to declare a variable at the point where it is passed as an argument.
+
+See: [out parameter modifier](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
 
 ### Pattern Matching
 
@@ -54,6 +58,8 @@ switch(shape)
         throw new ArgumentNullException(nameof(shape));
 }
 ```
+
+See: [Patterns](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns)
 
 ### Tuples
 
@@ -104,6 +110,8 @@ or
 (first, middle, last) = LookupName(id2); // assign onto existing variables
 ```
 
+See: [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
+
 
 ### Local Functions
 
@@ -122,6 +130,8 @@ public int Fibonacci(int x)
 }
 ```
 
+See: [Local functions](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions)
+
 ### Literal Improvements
 
 #### Digit Separator inside numbers literals
@@ -136,6 +146,8 @@ var x = 0xAB_CD_EF;
 ```csharp
 var b = 0b1010_1011_1100_1101_1110_1111;
 ```
+
+See: [Integer literals](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#integer-literals)
 
 ### Ref Returns and Locals
 
@@ -158,6 +170,8 @@ place = 9; // replaces 7 with 9 in the array
 WriteLine(array[4]); // prints 9
 ```
 
+See: [ref returns](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#ref-returns)
+
 ### More Expression Bodied Members
 
 C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:
@@ -178,6 +192,8 @@ class Person
 }
 ```
 
+See: [Expression body definition](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition)
+
 ### Throw Expressions 
 
 ```csharp
@@ -193,3 +209,5 @@ class Person
     public string GetLastName() => throw new NotImplementedException();
 }
 ```
+
+See: [throw expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/throw#the-throw-expression)

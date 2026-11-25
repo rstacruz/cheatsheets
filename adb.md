@@ -5,7 +5,9 @@ category: CLI
 weight: -1
 authors:
   - github: ZackNeyland
+last_verified_with: "Android SDK Platform-Tools 37.0.3."
 updated: 2026-11-14
+tier: t3
 intro: |
   [adb](https://developer.android.com/tools/adb) talks to an Android device
   over USB or Wi-Fi. This sheet targets platform-tools 37.

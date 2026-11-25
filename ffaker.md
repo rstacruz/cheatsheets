@@ -2,7 +2,9 @@
 title: FFaker
 subtitle: Fake data generator
 category: Ruby libraries
+last_verified_with: "ffaker 2.25."
 updated: 2017-09-12
+tier: t3
 ---
 
 ## FFaker
@@ -15,6 +17,8 @@ updated: 2017-09-12
 # gem install ffaker
 require 'ffaker'
 ```
+
+See: [ffaker usage](https://github.com/ffaker/ffaker#usage)
 
 ### Faker::Address
 
@@ -43,6 +47,8 @@ Faker::Address.secondary_address        #=> "Suite 560"
                                         #=> "Apt. 332"
                                         #=> "Apt. 411"
 ```
+
+See: [FFaker::Address](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakeraddress)
 
 ### Faker::Company
 
@@ -78,6 +84,8 @@ Faker::Company.position                 #=> "General Corporate President"
                                         #=> "Associate Director"
 ```
 
+See: [FFaker::Company](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakercompany)
+
 ### Faker::Education
 
 <!-- {: .-one-column} -->
@@ -112,6 +120,8 @@ Faker::Education.school_name            #=> "Larkfield"
                                         #=> "Lakepoint"
 ```
 
+See: [FFaker::Education](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakereducation)
+
 ### Faker::Geolocation
 
 <!-- {: .-one-column} -->
@@ -127,6 +137,8 @@ Faker::Geolocation.lng                  #=> -115.120716573
                                         #=> -118.427610513239
                                         #=> -72.204989
 ```
+
+See: [FFaker::Geolocation](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakergeolocation)
 
 ### Faker::Internet
 
@@ -174,6 +186,8 @@ Faker::Internet.domain_suffix           #=> "us"
                                         #=> "biz"
 ```
 
+See: [FFaker::Internet](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerinternet)
+
 ### Faker::Job
 
 <!-- {: .-one-column} -->
@@ -183,6 +197,8 @@ Faker::Job.title                        #=> "Future Data Assistant"
                                         #=> "Product Division Technician"
                                         #=> "Product Research Developer"
 ```
+
+See: [FFaker::Job](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerjob)
 
 ## Text
 
@@ -273,6 +289,8 @@ Faker::Lorem.paragraphs(3)              #=> ["Iusto mollitia sequi nam perspicia
                                         #    quaerat aperiam. Accusantium quis voluptatem dolorem."]
 ```
 
+See: [FFaker::Lorem](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerlorem)
+
 ### Faker::HipsterIpsum
 
 <!-- {: .-one-column} -->
@@ -291,6 +309,8 @@ Faker::HipsterIpsum.paragraph           #=> "Wayfarers mustache thundercats pitc
                                         #    vegan thundercats beard wes anderson brunch. Helvetica mess
                                         #    enger bag lo-fi four l..."
 ```
+
+See: [FFaker::HipsterIpsum](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerhipsteripsum)
 
 ### Faker::HTMLIpsum
 
@@ -334,6 +354,8 @@ Faker::HTMLIpsum.fancy_string           #=> "<a href=\"#distinctio\" title=\"Ten
                                         #    umquam excepturi quod ..."
 ```
 
+See: [FFaker::HTMLIpsum](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerhtmlipsum)
+
 ## Names and products
 
 <!-- {: .-one-column} -->
@@ -372,6 +394,8 @@ Faker::Name.suffix                      #=> "I"
                                         #=> "DDS"
 ```
 
+See: [FFaker::Name](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakername)
+
 ### Faker::PhoneNumber
 
 <!-- {: .-one-column} -->
@@ -387,6 +411,8 @@ Faker::PhoneNumber.short_phone_number   #=> "473-412-3192"
                                         #=> "353-084-1297"
                                         #=> "080-546-2356"
 ```
+
+See: [FFaker::PhoneNumber](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerphonenumber)
 
 ### Faker::Product
 
@@ -416,6 +442,8 @@ Faker::Product.model                    #=> "I-422"
                                         #=> "L6"
 ```
 
+See: [FFaker::Product](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerproduct)
+
 ### Faker::NameCN
 
 <!-- {: .-one-column} -->
@@ -443,6 +471,8 @@ Faker::NameCN.last_name                 #=> "释"
                                         #=> "巩"
                                         #=> "麻"
 ```
+
+See: [FFaker::NameCN](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernamecn)
 
 ### Faker::NameDE
 
@@ -472,6 +502,8 @@ Faker::NameDE.prefix                    #=> "Frau"
                                         #=> "Prof."
 ```
 
+See: [FFaker::NameDE](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernamede)
+
 ### Faker::NameJA
 
 <!-- {: .-one-column} -->
@@ -499,6 +531,8 @@ Faker::NameJA.last_name                 #=> "小栗"
                                         #=> "高江洲"
                                         #=> "友寄"
 ```
+
+See: [FFaker::NameJA](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernameja)
 
 ## Locale variants
 
@@ -543,6 +577,8 @@ Faker::NameRU.name(:female)             #=> "Зиядтдинова Полина
                                         #=> "Андреева Тереза Арсеновна"
                                         #=> "Дарина Минхазова"
 ```
+
+See: [FFaker::NameRU](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernameru)
 
 ### Faker::NameSN
 
@@ -590,6 +626,8 @@ Faker::NameSN.prefix_female             #=> "adjaratou"
                                         #=> "adja"
 ```
 
+See: [FFaker::NameSN](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakernamesn)
+
 ### Faker::PhoneNumberAU
 
 <!-- {: .-one-column} -->
@@ -600,6 +638,8 @@ Faker::PhoneNumberAU.phone_number       #=> "0495 539 191"
                                         #=> "0496 013 652"
 ```
 
+See: [FFaker::PhoneNumberAU](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerphonenumberau)
+
 ### Faker::PhoneNumberSN
 
 <!-- {: .-one-column} -->
@@ -609,3 +649,5 @@ Faker::PhoneNumberSN.phone_number       #=> "77-356-93-09"
                                         #=> "33-891-67-75"
                                         #=> "33-886-02-02"
 ```
+
+See: [FFaker::PhoneNumberSN](https://github.com/ffaker/ffaker/blob/main/REFERENCE.md#ffakerphonenumbersn)

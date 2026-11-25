@@ -2,6 +2,9 @@
 title: ActiveAdmin
 subtitle: Rails admin interface framework
 category: Ruby
+last_verified_with: "ActiveAdmin 3.5."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Listing scopes
@@ -21,12 +24,16 @@ scope "Unapproved", :pending
 scope("Published") { |books| books.where(:published: true) }
 ```
 
+See: [Index scopes](https://activeadmin.info/docs/v3/3-index-pages.html#index-scopes)
+
 ### Sidebar filters
 
 ```ruby
 filter :email
 filter :username
 ```
+
+See: [Index filters](https://activeadmin.info/docs/v3/3-index-pages.html#index-filters)
 
 ### Custom actions
 
@@ -68,6 +75,8 @@ action_item only: [:edit, :show] do
 end
 ```
 
+See: [Member actions](https://activeadmin.info/docs/v3/8-custom-actions.html#member-actions)
+
 ### Columns
 
 ```ruby
@@ -80,6 +89,8 @@ column :title, sortable: :name do |post|
 end
 ```
 
+See: [Customizing the index page](https://activeadmin.info/docs/v3/3-index-pages.html#customizing-the-index-page)
+
 ### Other helpers
 
 ```ruby
@@ -89,6 +100,8 @@ status_tag "You", :warn     # Orange
 status_tag "Failed", :error # Red
 ```
 
+See: [Status tag](https://activeadmin.info/docs/v3/12-arbre-components.html#status-tag)
+
 ### Disabling 'new post'
 
 ```ruby
@@ -97,3 +110,5 @@ ActiveAdmin.register Post do
   # or: config.clear_action_items!
 end
 ```
+
+See: [Disabling actions](https://activeadmin.info/docs/v3/2-resource-customization.html#disabling-actions-on-a-resource)

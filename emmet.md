@@ -5,7 +5,9 @@ description: "Emmet abbreviations: HTML and CSS nesting, numbering and attribute
 subtitle: HTML abbreviation expander
 category: Markup
 prism_languages: [html, css]
+last_verified_with: "Emmet 2.4."
 updated: 2020-07-03
+tier: t3
 intro: |
   Emmet is a markup language for expanding CSS rules into HTML
 links:
@@ -28,6 +30,8 @@ Expands to
 ```
 
 
+See: [Child](https://docs.emmet.io/abbreviations/syntax/#child-)
+
 ### Sibling: +
 
 ```css
@@ -41,6 +45,8 @@ Expands to
   <p></p>
 </section>
 ```
+
+See: [Sibling](https://docs.emmet.io/abbreviations/syntax/#sibling-)
 
 ### Climb Up: ^
 
@@ -56,6 +62,8 @@ Expands to
   <footer></footer>
 </section>
 ```
+
+See: [Climb up](https://docs.emmet.io/abbreviations/syntax/#climb-up-)
 
 ### Grouping: ()
 
@@ -78,6 +86,8 @@ Expands to
 </section>
 ```
 
+See: [Grouping](https://docs.emmet.io/abbreviations/syntax/#grouping-)
+
 ### Multiplication: \*
 
 ```css
@@ -92,6 +102,8 @@ Expands to
 </ul>
 ```
 
+See: [Multiplication](https://docs.emmet.io/abbreviations/syntax/#multiplication-)
+
 ### IDs and Classes: . #
 
 ```css
@@ -105,6 +117,8 @@ Expands to
   <li class="menu__item" id="id_2"></li>
 </ul>
 ```
+
+See: [ID and class](https://docs.emmet.io/abbreviations/syntax/#id-and-class)
 
 ### Numbering: $
 
@@ -145,6 +159,8 @@ Expands to
 </ul>
 ```
 
+See: [Item numbering](https://docs.emmet.io/abbreviations/syntax/#item-numbering-)
+
 ### Attributes: []
 
 ```css
@@ -157,6 +173,8 @@ Expands to
 <div data-attr="test"></div>
 ```
 
+See: [Custom attributes](https://docs.emmet.io/abbreviations/syntax/#custom-attributes)
+
 ### Text: {}
 
 ```css
@@ -166,6 +184,8 @@ Expands to
 ```html
 <p>Lorem ipsum</p>
 ```
+
+See: [Text](https://docs.emmet.io/abbreviations/syntax/#text-)
 
 ### Implicit tags
 
@@ -188,3 +208,5 @@ Expands to
   </tr>
 </table>
 ```
+
+See: [Implicit tag names](https://docs.emmet.io/abbreviations/implicit-names/)

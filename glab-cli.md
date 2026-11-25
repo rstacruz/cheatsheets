@@ -144,7 +144,7 @@ glab repo create --group mygroup
 ```
 <!-- {: data-highlight="glab repo create"} -->
 
-`--internal` and `--public` set visibility; without one, the instance default applies. `--skip-git-init` leaves the local directory untouched.
+`--internal` and `--public` set visibility; without one, the instance default applies. `--skipGitInit` leaves the local directory untouched.
 
 See: [glab repo create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/create.md)
 
@@ -154,7 +154,7 @@ See: [glab repo create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/sourc
 glab repo fork group/project --clone
 glab repo fork --remote
 ```
-<!-- {: data-highlight="--clone"} -->
+<!-- {: data-highlight="--clone; --remote"} -->
 
 Forking asks what to do unless you pass `--clone` or `--remote`.
 
@@ -177,7 +177,7 @@ glab repo list -m
 glab repo list -g mygroup \
   --include-subgroups
 ```
-<!-- {: data-highlight="--include-subgroups"} -->
+<!-- {: data-highlight="glab repo list"} -->
 
 `-m` lists projects you own; `--member` widens that to every project you belong to.
 
@@ -431,7 +431,7 @@ glab ci list --status=failed
 glab ci list --ref main \
   --per-page 10
 ```
-<!-- {: data-highlight="--status=failed"} -->
+<!-- {: data-highlight="glab ci list"} -->
 
 `--source merge_request_event` keeps merge request pipelines; `--scope running` keeps active ones.
 
@@ -542,7 +542,7 @@ glab job artifact main build \
 glab job artifact \
   refs/merge-requests/123/head build
 ```
-<!-- {: data-highlight="--path dist/"} -->
+<!-- {: data-highlight="glab job artifact"} -->
 
 The ref is a branch, tag, or `refs/merge-requests/<iid>/head`. `--list-paths` prints what was fetched.
 
@@ -589,7 +589,7 @@ glab release download v1.2.0 \
 glab release download v1.2.0 \
   --dir /tmp --clobber
 ```
-<!-- {: data-highlight="--asset-name '*.tar.gz'"} -->
+<!-- {: data-highlight="glab release download"} -->
 
 Without a tag it takes the latest release; `--skip-existing` fetches only missing files.
 
@@ -665,11 +665,11 @@ See: [Pagination](https://docs.gitlab.com/api/rest/#pagination)
 
 ```bash
 glab mr list -F json --jq '.[].title'
-glab issue list -F json | jq -r '.[].iid'
+glab issue list -O json | jq -r '.[].iid'
 ```
-<!-- {: data-highlight="-F json"} -->
+<!-- {: data-highlight="json"} -->
 
-`-F json` (`--output`) changes the format of list and view commands; `glab api` reuses `-F` for input fields.
+List commands spell it differently: `mr list` takes `-F json`, `issue list` takes `-O json`. In `glab api`, `-F` is an input field instead.
 
 See: [glab mr list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md)
 
@@ -728,6 +728,6 @@ export GLAB_CHECK_UPDATE=false
 ```
 <!-- {: data-highlight="GITLAB_TOKEN"} -->
 
-`GITLAB_TOKEN` beats the stored token; `GITLAB_HOST` picks the instance. Every config key has a matching variable.
+`GITLAB_TOKEN` beats the stored token; `GITLAB_HOST` picks the instance. Most config keys have a matching variable.
 
 See: [Environment variables](https://docs.gitlab.com/cli/configuration/#environment-variables)

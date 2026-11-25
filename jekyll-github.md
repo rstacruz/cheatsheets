@@ -1,7 +1,7 @@
 ---
 title: Jekyll for GitHub Pages
 subtitle: GitHub Pages build settings
-category: Jekyll
+category: Markup
 updated: 2026-11-22
 last_verified_with: "Jekyll 3.10.0 / github-pages 232, Ruby 3.1."
 keywords:
@@ -9,6 +9,7 @@ keywords:
   - site.github
   - jekyll-gist
   - jekyll-mentions
+tier: t3
 intro: |
   GitHub Pages builds Jekyll sites from a branch or GitHub Actions. This reference covers local setup, metadata, and built-in plugins.
 links:
@@ -40,6 +41,8 @@ bundle exec jekyll serve
 ```
 
 The `~> 232` pin is a snapshot; use the version on [Dependency versions](https://pages.github.com/versions/) for new sites. The gem pulls in matching Jekyll and plugin versions.
+
+See: [Dependency versions](https://pages.github.com/versions/)
 
 ### Enable extra plugins
 
@@ -111,7 +114,7 @@ repository: username/project
 
 Pages infers the repository from the site; local builds need `repository` (or `PAGES_REPO_NWO`) set. Values are exposed under `site.github`.
 
-See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)
+See: [Using site.github](https://jekyll.github.io/github-metadata/site.github/)
 
 ### Link the repository
 
@@ -133,7 +136,7 @@ See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/
 
 Built from a local build with `repository: rstacruz/cheatsheets`.
 
-See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)
+See: [Using site.github](https://jekyll.github.io/github-metadata/site.github/)
 
 ### List public repositories
 
@@ -145,7 +148,7 @@ See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/
 
 Local builds need `JEKYLL_GITHUB_TOKEN` for reliable results; Pages supplies authentication.
 
-See: [Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)
+See: [Using site.github](https://jekyll.github.io/github-metadata/site.github/)
 
 ## Gists and mentions
 

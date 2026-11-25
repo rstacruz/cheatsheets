@@ -83,7 +83,7 @@ expect(page).to have_css('.button')
 page.should have_css('.button')
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="has_css?"} -->
 
 #### Matchers
 
@@ -183,7 +183,7 @@ See: [Capybara::RSpecMatchers](https://www.rubydoc.info/gems/capybara/Capybara/R
 expect(page).to \
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="expect(page).to"} -->
 
 #### Common matchers
 
@@ -227,8 +227,6 @@ See: [RSpec matchers](https://www.rubydoc.info/gems/capybara/Capybara/RSpecMatch
 
 ### Common options
 
-<!-- {: .-setup} -->
-
 ```ruby
   text: 'welcome'
   text: /Hello/
@@ -239,6 +237,7 @@ See: [RSpec matchers](https://www.rubydoc.info/gems/capybara/Capybara/RSpecMatch
   maximum: 5
   wait: 10
 ```
+<!-- {: data-highlight="text; visible; count"} -->
 
 All matchers accept these options.
 
@@ -370,17 +369,17 @@ See: [URL blacklisting](https://github.com/teampoltergeist/poltergeist#url-black
 
 ### Debugging
 
-<!-- {: .-setup} -->
-
 ```ruby
 # Enable inspector: true, then debug
 page.driver.debug
 ```
+<!-- {: data-highlight="page.driver.debug"} -->
 
 ```ruby
 # Pause execution for a while
 page.driver.pause
 ```
+<!-- {: data-highlight="page.driver.pause"} -->
 
 See: [Remote debugging](https://github.com/teampoltergeist/poltergeist#remote-debugging-experimental)
 

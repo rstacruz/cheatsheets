@@ -37,7 +37,7 @@ See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CS
 .container {
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight=".container"} -->
 
 #### Display
 
@@ -45,6 +45,7 @@ See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CS
   display: flex;
   display: inline-flex;
 ```
+<!-- {: data-highlight="display: flex"} -->
 
 #### Direction
 
@@ -88,8 +89,6 @@ See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CS
 }
 ```
 
-<!-- {: .-setup} -->
-
 See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 
 ### Child
@@ -100,7 +99,7 @@ See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CS
 .container > div {
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight=".container > div"} -->
 
 #### Flex shorthand
 
@@ -126,14 +125,13 @@ See: [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CS
   align-self: flex-start;  /* left */
   margin-left: auto;       /* right */
 ```
+<!-- {: data-highlight="align-self: flex-start"} -->
 
 #### Closing brace
 
 ```css
 }
 ```
-
-<!-- {: .-setup} -->
 
 See: [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 

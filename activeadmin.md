@@ -9,12 +9,11 @@ tier: t3
 
 ### Listing scopes
 
-<!-- {: .-setup} -->
-
 ```ruby
 scope :draft
 scope :for_approval
 ```
+<!-- {: data-highlight="scope"} -->
 
 #### Conditional scopes
 
@@ -39,13 +38,12 @@ See: [Index filters](https://activeadmin.info/docs/v3/3-index-pages.html#index-f
 
 ### Custom actions
 
-<!-- {: .-setup} -->
-
 ```ruby
 before_filter only: [:show, :edit, :publish] do
   @post = Post.find(params[:id])
 end
 ```
+<!-- {: data-highlight="before_filter"} -->
 
 #### Make the route
 
@@ -56,6 +54,7 @@ member_action :publish, method: :put do
     notice: "The post '#{@post}' has been published!"
 end
 ```
+<!-- {: data-highlight="member_action"} -->
 
 #### Link it in the index
 

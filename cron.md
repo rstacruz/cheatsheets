@@ -24,11 +24,10 @@ Min  Hour Day  Mon  Weekday
 
 #### Example
 
-<!-- {: .-setup} -->
-
 ```
 *    *    *    *    *  command to be executed
 ```
+<!-- {: data-highlight="command to be executed"} -->
 
 #### Field ranges
 
@@ -42,7 +41,7 @@ Min  Hour Day  Mon  Weekday
 └─────────────────────  Minute   (0..59)
 ```
 
-<!-- {: .-setup.-box-chars} -->
+<!-- {: .-box-chars} -->
 <!-- End illustration; keep this diagram as-is. -->
 
 See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)

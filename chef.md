@@ -9,8 +9,6 @@ tier: t3
 
 ### Install
 
-<!-- {: .-setup} -->
-
 #### Install curl
 
 ```bash

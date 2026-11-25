@@ -37,7 +37,7 @@ elixir hello.exs
 # Hello, world!
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="elixir"} -->
 
 See: [Introduction](https://hexdocs.pm/elixir/introduction.html)
 
@@ -64,7 +64,7 @@ user = %{
 IO.puts "Hello, " <> user.name
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="user.name"} -->
 
 See: [Map](https://hexdocs.pm/elixir/Map.html)
 
@@ -332,7 +332,7 @@ See: [alias](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#alias/2)
 import String
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="String"} -->
 
 #### Usage
 
@@ -387,7 +387,7 @@ See: [abs/1](https://hexdocs.pm/elixir/Kernel.html#abs/1)
 import Float
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="Float"} -->
 
 #### Set a value
 
@@ -395,7 +395,7 @@ import Float
 n = 10.3
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="10.3"} -->
 
 #### Round and print
 
@@ -420,7 +420,7 @@ See: [Float](https://hexdocs.pm/elixir/Float.html)
 import Integer
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="Integer"} -->
 
 #### Set a value
 
@@ -428,7 +428,7 @@ import Integer
 n = 12
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="12"} -->
 
 #### Convert
 
@@ -489,7 +489,7 @@ See: [Map](https://hexdocs.pm/elixir/Map.html)
 import Map
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="Map"} -->
 
 #### Existing key
 
@@ -597,7 +597,7 @@ See: [Map.from_struct](https://hexdocs.pm/elixir/Map.html#from_struct/1)
 import List
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="List"} -->
 
 See: [import](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#import/1)
 
@@ -607,7 +607,7 @@ See: [import](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#import/1)
 l = [ 1, 2, 3, 4 ]
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="[ 1, 2, 3, 4 ]"} -->
 
 See: [List](https://hexdocs.pm/elixir/List.html)
 
@@ -647,7 +647,7 @@ Also see [Enum](#enum).
 import Enum
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="Enum"} -->
 
 #### Set a list
 
@@ -655,7 +655,7 @@ import Enum
 list = [:a, :b, :c]
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="[:a, :b, :c]"} -->
 
 #### Read values
 
@@ -704,7 +704,7 @@ See: [Enum.map](https://hexdocs.pm/elixir/Enum.html#map/2)
 import Tuple
 ```
 
-<!-- {: .-setup} -->
+<!-- {: data-highlight="Tuple"} -->
 
 #### Create
 

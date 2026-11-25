@@ -246,8 +246,6 @@ See: [Transient attributes](http://www.rubydoc.info/gems/factory_bot/file/GETTIN
 
 Place your factories in these locations.
 
-<!-- {: .-setup} -->
-
 See: [Definition file paths](http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md#Definition_file_paths)
 
 ## See also

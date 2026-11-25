@@ -19,7 +19,7 @@ fragments:
   - "toMatchSnapshot"
   - "--coverage"
   - "--update"
-  - "test.projects"
+  - "projects"
   - "environment"
   - "--reporter"
 keywords:
@@ -146,7 +146,11 @@ it('loads a user', async () => {
 ```
 <!-- {: data-highlight="await"} -->
 
-#### Polling
+Return or await the promise; an unhandled rejection fails the run.
+
+See: [test()](https://vitest.dev/api/test#test)
+
+### Polling
 
 ```js
 await vi.waitFor(() => {
@@ -155,9 +159,9 @@ await vi.waitFor(() => {
 ```
 <!-- {: data-highlight="vi.waitFor"} -->
 
-Return or await the promise: an unhandled rejection adds an `Errors 1` line and fails the run.
+`vi.waitFor()` retries the callback until it stops throwing. `expect.poll()` is the same idea as a matcher.
 
-See: [resolves and rejects](https://vitest.dev/api/expect#resolves)
+See: [vi.waitFor](https://vitest.dev/api/vi#vi-waitfor)
 
 ### Setup and teardown
 
@@ -174,7 +178,7 @@ afterAll(async () => {
 ```
 <!-- {: data-highlight="beforeEach(; afterAll("} -->
 
-Hooks run before or after each test or each suite. For once-per-run setup, use `globalSetup`.
+`globalSetup` runs once before the whole run.
 
 See: [Hooks](https://vitest.dev/api/hooks#beforeeach)
 
@@ -206,6 +210,22 @@ it.todo('write more tests')
 `.only` is rejected when `CI` is set unless you pass `--allowOnly`.
 
 See: [test.only](https://vitest.dev/api/test#test-only)
+
+### Type tests
+
+```ts
+import { expectTypeOf, test } from 'vitest'
+
+test('returns a number', () => {
+  expectTypeOf(add(1, 2))
+    .toEqualTypeOf<number>()
+})
+```
+<!-- {: data-highlight="expectTypeOf"} -->
+
+Type tests live in `*.test-d.ts` files and run with `vitest --typecheck`.
+
+See: [Type testing](https://vitest.dev/guide/testing-types)
 
 ## Mocking
 
@@ -247,18 +267,26 @@ See: [Mocking modules](https://vitest.dev/guide/mocking/modules)
 
 ### Spies and globals
 
+#### Spies
+
 ```js
 const spy = vi.spyOn(cart, 'total')
 spy.mockReturnValue(99)
 
+spy.mockRestore()
+```
+<!-- {: data-highlight="vi.spyOn"} -->
+
+#### Globals
+
+```js
 vi.stubGlobal('fetch', vi.fn())
 
-spy.mockRestore()
 vi.unstubAllGlobals()
 ```
-<!-- {: data-highlight="vi.spyOn; vi.stubGlobal"} -->
+<!-- {: data-highlight="vi.stubGlobal"} -->
 
-`spyOn` wraps the real method, so `mockRestore()` puts it back. `vi.stubEnv('NODE_ENV', 'test')` stubs env vars; clear those with `vi.unstubAllEnvs()`.
+`spyOn` wraps the real method, and `mockRestore()` puts it back. `vi.stubEnv('NODE_ENV', 'test')` stubs env vars; clear those with `vi.unstubAllEnvs()`.
 
 See: [vi.spyOn](https://vitest.dev/api/vi#vi-spyon)
 
@@ -317,7 +345,7 @@ it('formats money', () => {
 ```
 <!-- {: data-highlight="toMatchInlineSnapshot"} -->
 
-`-u` writes the value into the test file, next to the assertion.
+The first local run fills the call in place, next to the assertion.
 
 See: [Inline snapshots](https://vitest.dev/guide/snapshot#inline-snapshots)
 
@@ -400,9 +428,9 @@ export default defineConfig({
   },
 })
 ```
-<!-- {: data-highlight="thresholds"} -->
+<!-- {: data-highlight="coverage"} -->
 
-Install `@vitest/coverage-v8`, then run `vitest run --coverage`. A shortfall against `thresholds` fails the run with an `ERROR:` line and exit code 1.
+Install `@vitest/coverage-v8`, then run `vitest run --coverage`. A shortfall against `thresholds` fails the run.
 
 See: [Coverage](https://vitest.dev/guide/coverage)
 
@@ -436,7 +464,7 @@ See: [CLI commands](https://vitest.dev/guide/cli#commands)
 | `--update` | Rewrite snapshots |
 | `--project unit` | One project only |
 
-Flags work on every command, and `vitest --help` lists the rest.
+`vitest --help` lists every flag.
 
 See: [CLI options](https://vitest.dev/guide/cli#options)
 

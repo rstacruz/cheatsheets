@@ -19,9 +19,9 @@ fragments:
   - "--mode staging"
   - "import.meta.hot"
   - "hot.accept"
-  - "build.lib"
+  - "lib:"
   - "resolve.alias"
-  - "base: '/app/'"
+  - "--base=/app/"
 keywords:
   - vite
   - vite.config.ts
@@ -85,7 +85,7 @@ See: [index.html and project root](https://vite.dev/guide/#index-html-and-projec
 ### Start dev server
 
 ```bash
-vite --host 0.0.0.0 --port 3000
+vite --host 0.0.0.0 --port 5174
 ```
 <!-- {: data-highlight="vite"} -->
 
@@ -362,7 +362,11 @@ See: [server.proxy](https://vite.dev/config/server-options#server-proxy)
 ### HTTPS
 
 ```ts
+import basicSsl from '@vitejs/plugin-basic-ssl'
+import { defineConfig } from 'vite'
+
 export default defineConfig({
+  plugins: [basicSsl()],
   server: {
     https: {},
   },
@@ -370,7 +374,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="https: {}"} -->
 
-`https` takes `https.createServer` options, so it needs a `key` and `cert`. For local work, `@vitejs/plugin-basic-ssl` mints a self-signed one. The HTTPS server skips the host allow-list.
+`https` takes `https.createServer` options, so it needs a `key` and `cert`. `basicSsl()` mints and caches a self-signed pair for local work. The HTTPS server skips the host allow-list.
 
 See: [server.https](https://vite.dev/config/server-options#server-https)
 
@@ -482,8 +486,8 @@ See: [SSR](https://vite.dev/guide/ssr)
 
 ```js
 import.meta.env.MODE // 'development' in dev
-import.meta.env.PROD // false in dev
-import.meta.env.DEV // true in dev
+import.meta.env.PROD // false unless NODE_ENV=production
+import.meta.env.DEV // true unless NODE_ENV=production
 import.meta.env.SSR // false in the client build
 import.meta.env.BASE_URL // '/' from `base`
 ```
@@ -548,7 +552,7 @@ import { defineConfig, loadEnv } from 'vite'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    define: { __API__: JSON.stringify(env.API_URL) },
+    define: { __API__: JSON.stringify(env.VITE_API_URL) },
   }
 })
 ```
@@ -579,12 +583,6 @@ See: [TypeScript IntelliSense](https://vite.dev/guide/env-and-mode#intellisense-
 
 ## HMR
 
-### Update boundaries
-
-Editing a module bubbles up to the nearest `import.meta.hot.accept` boundary. Without one, Vite reloads the page; framework plugins register boundaries for components.
-
-See: [Hot module replacement](https://vite.dev/guide/features#hot-module-replacement)
-
 ### Self-accept
 
 ```js
@@ -598,9 +596,9 @@ if (import.meta.hot) {
 ```
 <!-- {: data-highlight="import.meta.hot.accept"} -->
 
-`mod` is `undefined` when the update fails to compile. Vite's static analysis needs the literal text `import.meta.hot.accept(`.
+Edits bubble up to the nearest `import.meta.hot.accept` boundary; without one, Vite reloads the page. `mod` is `undefined` when the update fails to compile, and the call must appear literally as `import.meta.hot.accept(`.
 
-See: [hot.accept](https://vite.dev/guide/api-hmr#hot-accept-cb)
+See: [hot.accept](https://vite.dev/guide/api-hmr#hot-accept-cb), [HMR boundaries](https://vite.dev/guide/features#hot-module-replacement)
 
 ### Accept a dependency
 
@@ -646,13 +644,13 @@ See: [hot.dispose](https://vite.dev/guide/api-hmr#hot-dispose-cb)
 ### Force a reload
 
 ```js
-export const version = 2
-
-const canHandle = (mod) => mod?.version === version
+export const needsFullReload = false
 
 if (import.meta.hot) {
   import.meta.hot.accept((mod) => {
-    if (!canHandle(mod)) import.meta.hot.invalidate()
+    if (!mod || mod.needsFullReload) {
+      import.meta.hot.invalidate()
+    }
   })
 }
 ```

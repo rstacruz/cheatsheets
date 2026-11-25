@@ -138,6 +138,8 @@ See: [expect](https://vitest.dev/api/expect)
 
 ### Async tests
 
+#### Await
+
 ```js
 it('loads a user', async () => {
   const user = await fetchUser(1)
@@ -155,7 +157,7 @@ await vi.waitFor(() => {
 ```
 <!-- {: data-highlight="vi.waitFor"} -->
 
-Return or await the promise; an unhandled rejection fails the run. `vi.waitFor()` retries its callback until it stops throwing, and `expect.poll()` does the same as a matcher.
+Await the promise or return it; an unhandled rejection fails the run. `vi.waitFor()` retries its callback until it stops throwing, and `expect.poll()` does the same as a matcher.
 
 See: [test()](https://vitest.dev/api/test#test), [vi.waitFor()](https://vitest.dev/api/vi#vi-waitfor)
 
@@ -273,6 +275,8 @@ See: [vi.spyOn](https://vitest.dev/api/vi#vi-spyon)
 ### Timers
 
 ```js
+const save = vi.fn()
+
 vi.useFakeTimers()
 setTimeout(save, 500)
 
@@ -343,7 +347,7 @@ See: [Updating snapshots](https://vitest.dev/guide/snapshot#updating-snapshots)
 
 ## Config
 
-### Config file
+### vitest.config.ts
 
 ```ts
 import { defineConfig } from 'vitest/config'
@@ -358,7 +362,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="defineConfig("} -->
 
-Vitest reads `vitest.config.ts` from the root. `globals: true` removes the imports, and TypeScript needs `vitest/globals` in its `types`.
+The root config file overrides `vite.config.ts`. `globals: true` removes the imports, and TypeScript needs `vitest/globals` in its `types`.
 
 See: [Configuring Vitest](https://vitest.dev/config/)
 
@@ -424,7 +428,7 @@ See: [Coverage](https://vitest.dev/guide/coverage)
 | `vitest run` | One run, then exit |
 | `vitest run src/app.test.ts` | Filter by path |
 | `vitest run -t "adds"` | Filter by test name |
-| `vitest related src/util.ts` | Tests importing those files |
+| `vitest related --run src/util.ts` | Tests importing those files |
 | `vitest list` | Print test names |
 | `vitest bench` | Run benchmark files |
 

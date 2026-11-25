@@ -50,7 +50,7 @@ $.expr.pseudos.inline = function (el) {
 ```
 <!-- {: data-highlight="$.expr.pseudos"} -->
 
-Enables `$(':inline')`; `$.expr[':']` was removed in jQuery 4.
+Enables `$(':inline')`; `$.expr[':']` is still an alias for `$.expr.pseudos` in jQuery 4.
 
 See: [jQuery.find()](https://api.jquery.com/jQuery.find/)
 
@@ -82,6 +82,6 @@ $('.box').animate({ width: 200 }, {
 ```
 <!-- {: data-highlight="step: function"} -->
 
-`$.fn.step` was removed in jQuery 4; use the `step` option.
+Use the `step` option to inspect each animation frame.
 
 See: [.animate()](https://api.jquery.com/animate/)

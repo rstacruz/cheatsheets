@@ -45,12 +45,6 @@
     box-shadow: none;
   }
 
-  .h3-section.-snippet > .body > h4 {
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
   .h3-section.-snippet > .body > p {
     padding: 16px;
     border: 0;

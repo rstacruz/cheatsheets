@@ -29,7 +29,7 @@ keywords:
   - import.meta.env
   - HMR
 intro: |
-  [Vite](https://vite.dev) is a dev server and Rolldown-powered bundler for frontend apps. This reference covers the Vite 8 CLI, config, plugins, env vars and HMR.
+  [Vite](https://vite.dev) is a dev server and bundler for frontend apps: CLI, config, plugins, env vars and HMR.
 links:
   - title: Vite documentation
     url: https://vite.dev/guide/
@@ -64,7 +64,7 @@ See: [Scaffolding](https://vite.dev/guide/#scaffolding-your-first-vite-project)
 }
 ```
 
-`vite` starts the dev server. `vite preview` serves the built `dist` for a local check, not production.
+`vite` starts the dev server; `vite preview` serves the built `dist`.
 
 See: [Command line](https://vite.dev/guide/cli)
 
@@ -76,13 +76,13 @@ See: [Command line](https://vite.dev/guide/cli)
 ```
 <!-- {: data-highlight="main.js"} -->
 
-`index.html` is the build entry and part of the module graph, so refs are rebased automatically. `%MODE%`-style placeholders read env values; there is no `%PUBLIC_URL%`.
+`index.html` is the build entry and part of the module graph, so asset URLs are rebased automatically. `%MODE%`-style placeholders read env values; there is no `%PUBLIC_URL%`.
 
 See: [index.html and project root](https://vite.dev/guide/#index-html-and-project-root)
 
 ## CLI
 
-### Dev server
+### Start dev server
 
 ```bash
 vite --host 0.0.0.0 --port 3000
@@ -133,7 +133,7 @@ vite build && vite preview --port 4173
 ```
 <!-- {: data-highlight="vite preview"} -->
 
-Serves `dist` through the middleware for the configured `appType`. Use a real static server or the framework's Node adapter for production.
+Serves the built `dist` locally with the dev server's request handling. Use a real static server or the framework's Node adapter for production.
 
 See: [vite preview](https://vite.dev/guide/cli#vite-preview)
 
@@ -203,7 +203,7 @@ export default defineConfig(({ command, mode }) => ({
 ```
 <!-- {: data-highlight="({ command, mode })"} -->
 
-`command` is `serve` or `build`; `mode` comes from `--mode`. `isSsrBuild` and `isPreview` describe the other two runs.
+`command` is `serve` or `build`; `mode` comes from `--mode`. `isSsrBuild` marks `vite build --ssr`, and `isPreview` marks `vite preview`.
 
 See: [Conditional config](https://vite.dev/config/#conditional-config)
 
@@ -289,7 +289,7 @@ See: [Plugin API](https://vite.dev/guide/api-plugin)
 ```
 <!-- {: data-highlight="configureServer"} -->
 
-Returning a function from the hook installs middleware after Vite's own, so the dev server still handles modules and HTML.
+Middleware registered here runs before Vite's own, so it sees requests first. Return a function from the hook to add middleware after them instead.
 
 See: [configureServer](https://vite.dev/guide/api-plugin#configureserver)
 
@@ -370,7 +370,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="https: {}"} -->
 
-`https` takes `https.createServer` options, so it needs a certificate; `@vitejs/plugin-basic-ssl` mints a self-signed one for local work. The HTTPS server skips the host allow-list.
+`https` takes `https.createServer` options, so it needs a `key` and `cert`. For local work, `@vitejs/plugin-basic-ssl` mints a self-signed one. The HTTPS server skips the host allow-list.
 
 See: [server.https](https://vite.dev/config/server-options#server-https)
 
@@ -424,7 +424,7 @@ The default `baseline-widely-available` means Chrome 111, Edge 111, Firefox 114,
 
 See: [build.target](https://vite.dev/config/build-options#build-target)
 
-### Chunks
+### Code splitting
 
 ```ts
 export default defineConfig({
@@ -478,7 +478,7 @@ See: [SSR](https://vite.dev/guide/ssr)
 
 ## Environment variables
 
-### Built-in flags
+### Built-in constants
 
 ```js
 import.meta.env.MODE // 'development' in dev
@@ -526,7 +526,7 @@ The mode picks `.env.[mode]`. `NODE_ENV` drives `DEV` and `PROD`, and the two ar
 
 See: [Modes](https://vite.dev/guide/env-and-mode#modes)
 
-### Prefix and directory
+### Env prefix and directory
 
 ```ts
 export default defineConfig({
@@ -624,12 +624,9 @@ See: [hot.accept(deps)](https://vite.dev/guide/api-hmr#hot-accept-deps-cb)
 ### Preserve state
 
 ```js
-function tick() {}
-
 let ticks = import.meta.hot?.data.ticks ?? 0
 const timer = setInterval(() => {
   ticks += 1
-  tick()
 }, 1000)
 
 if (import.meta.hot) {

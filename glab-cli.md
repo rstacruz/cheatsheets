@@ -603,7 +603,7 @@ glab release view v1.2.0 --web
 ```
 <!-- {: data-highlight="glab release view"} -->
 
-`--jq` filters the JSON from either command.
+Without a tag, `release view` shows the latest release; `--web` opens it in the browser.
 
 See: [glab release list](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/release/list.md), [glab release view](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/release/view.md)
 

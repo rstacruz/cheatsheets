@@ -105,7 +105,8 @@
   --link-visited: light-dark(#15234d, #b3a3e8);
   --link-bright: light-dark(#2e90ae, #66bede);
   --link-strong: light-dark(#1d406e, #a7c6e8);
-  --highlight: light-dark(#14af83, #34d3a3);
+  --highlight: light-dark(#34d3a3, #34d3a3);
+  --highlight-text: light-dark(#14af83, #34d3a3);
   --highlight-bright: light-dark(#15b89a, #5ce6bd);
 
   /*

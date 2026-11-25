@@ -59,6 +59,11 @@
       grid-column: 2;
       grid-row: 1 / span 20;
     }
+
+    /* Keep the label tile clear of the explanation tile */
+    .h3-section.-snippet > .body > h4 {
+      margin-right: 8px;
+    }
   }
 
   @media (max-width: 768px) {

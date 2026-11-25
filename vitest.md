@@ -61,7 +61,7 @@ pnpm add -D vitest
 
 Vitest reads `vite.config.ts` when no Vitest config exists.
 
-See: [Installing Vitest](https://vitest.dev/guide/#installing-vitest)
+See: [Add Vitest to a project](https://vitest.dev/guide/#adding-vitest-to-your-project)
 
 ### First test
 
@@ -72,21 +72,31 @@ it('adds numbers', () => {
   expect(1 + 1).toBe(2)
 })
 ```
-<!-- {: data-highlight="it"} -->
+<!-- {: data-highlight="it("} -->
 
-Test files match `**/*.{test,spec}.?(c|m)[jt]s?(x)` by default.
+Vitest picks up `*.test.*` and `*.spec.*` files by default.
 
 See: [expect()](https://vitest.dev/api/expect)
 
-### Run and watch
+### Run once
 
 ```bash
-vitest run       # one run, then exit
-vitest           # watch mode
 vitest run src/app.test.ts
 ```
+<!-- {: data-highlight="vitest run"} -->
 
-Watch mode reruns affected tests on save and switches to a single run when stdin is not a TTY or `CI` is set.
+A single run that exits; drop the path to run every test file.
+
+See: [vitest run](https://vitest.dev/guide/cli#vitest-run)
+
+### Watch
+
+```bash
+vitest watch
+```
+<!-- {: data-highlight="vitest watch"} -->
+
+Watch mode reruns affected tests on save. `vitest` alone is the same command, and it falls back to a single run when stdin is not a TTY or `CI` is set.
 
 See: [vitest watch](https://vitest.dev/guide/cli#vitest-watch)
 
@@ -103,11 +113,11 @@ describe('cart', () => {
   })
 })
 ```
-<!-- {: data-highlight="describe"} -->
+<!-- {: data-highlight="describe("} -->
 
 `it` and `test` are the same function; `describe` only groups names.
 
-See: [describe](https://vitest.dev/api/test#describe)
+See: [describe](https://vitest.dev/api/describe)
 
 ### Assertions
 
@@ -145,7 +155,7 @@ await vi.waitFor(() => {
 ```
 <!-- {: data-highlight="vi.waitFor"} -->
 
-Return or await the promise; a floating one fails the test with an unhandled rejection.
+Return or await the promise: an unhandled rejection adds an `Errors 1` line and fails the run.
 
 See: [resolves and rejects](https://vitest.dev/api/expect#resolves)
 
@@ -162,11 +172,11 @@ afterAll(async () => {
   await db.close()
 })
 ```
-<!-- {: data-highlight="beforeEach; afterAll"} -->
+<!-- {: data-highlight="beforeEach(; afterAll("} -->
 
-Hooks run around each test, each file, or the whole run: `beforeEach`, `afterEach`, `beforeAll`, `afterAll`.
+Hooks run before or after each test or each suite. For once-per-run setup, use `globalSetup`.
 
-See: [Setup and teardown](https://vitest.dev/api/test#setup-and-teardown)
+See: [Hooks](https://vitest.dev/api/hooks#beforeeach)
 
 ### Parameterised tests
 
@@ -211,7 +221,7 @@ expect(fn.mock.calls).toEqual([[2]])
 ```
 <!-- {: data-highlight="vi.fn"} -->
 
-`mockReturnValue()`, `mockResolvedValue()` and `mockImplementationOnce()` queue return values; `mock.calls` keeps every argument list.
+`mockReturnValue()` and `mockResolvedValue()` set the result of every call; the `...Once` variants queue one-shot values. `mock.calls` keeps every argument list.
 
 See: [vi.fn](https://vitest.dev/api/vi#vi-fn)
 
@@ -248,7 +258,7 @@ vi.unstubAllGlobals()
 ```
 <!-- {: data-highlight="vi.spyOn; vi.stubGlobal"} -->
 
-`spyOn` wraps the real method, so `mockRestore()` puts it back. `vi.stubEnv('NODE_ENV', 'test')` does the same for env vars.
+`spyOn` wraps the real method, so `mockRestore()` puts it back. `vi.stubEnv('NODE_ENV', 'test')` stubs env vars; clear those with `vi.unstubAllEnvs()`.
 
 See: [vi.spyOn](https://vitest.dev/api/vi#vi-spyon)
 
@@ -265,22 +275,24 @@ vi.useRealTimers()
 ```
 <!-- {: data-highlight="vi.advanceTimersByTime"} -->
 
-Fake timers also take over `Date`, so `vi.setSystemTime(new Date('2026-01-01'))` freezes the clock.
+Fake timers also take over `Date`, so `vi.setSystemTime()` freezes the clock.
 
 See: [Mocking timers](https://vitest.dev/guide/mocking/timers)
 
 ## Snapshots
+<!-- {: .-three-column} -->
 
 ### File snapshots
 
 ```js
 it('renders a user', () => {
-  expect({ id: 1, name: 'Ada' }).toMatchSnapshot()
+  expect({ id: 1, name: 'Ada' })
+    .toMatchSnapshot()
 })
 ```
 <!-- {: data-highlight="toMatchSnapshot"} -->
 
-Snapshots land in `__snapshots__/<file>.snap` next to the test; commit the file. A run fails on a missing snapshot, so create the first one with `-u`.
+The first local run writes `__snapshots__/<file>.snap`; commit it.
 
 See: [Snapshot](https://vitest.dev/guide/snapshot)
 
@@ -290,7 +302,8 @@ See: [Snapshot](https://vitest.dev/guide/snapshot)
 
 ```js
 it('formats money', () => {
-  expect(formatMoney(1200)).toMatchInlineSnapshot()
+  expect(formatMoney(1200))
+    .toMatchInlineSnapshot()
 })
 ```
 
@@ -298,24 +311,25 @@ it('formats money', () => {
 
 ```js
 it('formats money', () => {
-  expect(formatMoney(1200)).toMatchInlineSnapshot(`"$1,200"`)
+  expect(formatMoney(1200))
+    .toMatchInlineSnapshot(`"$1,200"`)
 })
 ```
 <!-- {: data-highlight="toMatchInlineSnapshot"} -->
 
-`vitest run -u` writes the value into the test file, so reviews show the expected output next to the assertion.
+`-u` writes the value into the test file, next to the assertion.
 
 See: [Inline snapshots](https://vitest.dev/guide/snapshot#inline-snapshots)
 
 ### Updating snapshots
 
 ```bash
-vitest run -u          # write changed snapshots
-vitest run -u new      # only add missing ones
+vitest run -u        # write changes
+vitest run -u new    # only add missing
 ```
-<!-- {: data-highlight="-u new"} -->
+<!-- {: data-highlight="-u"} -->
 
-CI runs never write snapshots and fail on missing or obsolete entries. In watch mode, press `u` to accept the current output.
+CI runs do not write snapshots without `-u`, and fail on missing or obsolete ones. Watch mode accepts the current output with `u`.
 
 See: [Updating snapshots](https://vitest.dev/guide/snapshot#updating-snapshots)
 
@@ -334,9 +348,9 @@ export default defineConfig({
   },
 })
 ```
-<!-- {: data-highlight="defineConfig"} -->
+<!-- {: data-highlight="defineConfig("} -->
 
-Vitest reads `vitest.config.ts` from the root. `globals: true` exposes the API without imports, and TypeScript needs `vitest/globals` in `tsconfig.json` `types`.
+Vitest reads `vitest.config.ts` from the root. `globals: true` removes the imports, and TypeScript needs `vitest/globals` in its `types`.
 
 See: [Configuring Vitest](https://vitest.dev/config/)
 
@@ -351,7 +365,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="environment"} -->
 
-`node` is the default; `jsdom`, `happy-dom` and `edge-runtime` come from packages you install. A `// @vitest-environment jsdom` comment at the top of a file overrides the choice.
+`node` is the default; `jsdom`, `happy-dom` and `edge-runtime` come from packages you install. An `@vitest-environment` comment at the top of a file overrides the choice.
 
 See: [Test environment](https://vitest.dev/guide/environment)
 
@@ -369,7 +383,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="projects"} -->
 
-Each entry is a folder, a config file, or an inline config. Run one with `vitest --project unit`.
+Each entry is a folder, a config file, or an inline config. Run one with `--project unit`.
 
 See: [Test projects](https://vitest.dev/guide/projects)
 
@@ -388,7 +402,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="thresholds"} -->
 
-Install `@vitest/coverage-v8`, then run `vitest run --coverage`. A threshold shortfall prints `ERROR: Coverage for lines (50%) does not meet global threshold (80%)` and exits non-zero.
+Install `@vitest/coverage-v8`, then run `vitest run --coverage`. A shortfall against `thresholds` fails the run with an `ERROR:` line and exit code 1.
 
 See: [Coverage](https://vitest.dev/guide/coverage)
 
@@ -425,6 +439,8 @@ See: [CLI commands](https://vitest.dev/guide/cli#commands)
 Flags work on every command, and `vitest --help` lists the rest.
 
 See: [CLI options](https://vitest.dev/guide/cli#options)
+
+## Also see
 
 [Jest cheatsheet](./jest)
 <!-- {: .-crosslink} -->

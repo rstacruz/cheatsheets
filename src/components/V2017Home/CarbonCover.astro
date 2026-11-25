@@ -42,14 +42,22 @@ const styles = {
             '; path=/; max-age=31536000; samesite=lax'
           slot.setAttribute('data-home-ad-bucket', bucket)
 
+          // Carbon stacks the cover under 360px, where it runs about 550px
+          // tall. Keep the normal ad in narrow slots instead.
+          var showCover =
+            bucket === 'b' && slot.clientWidth > 0 && slot.clientWidth >= 360
+          slot.setAttribute(
+            'data-home-ad-creative',
+            showCover ? 'cover' : 'default'
+          )
+
           var script = document.createElement('script')
           script.async = true
           script.type = 'text/javascript'
           script.id = '_carbonads_js'
-          script.src =
-            bucket === 'a'
-              ? slot.getAttribute('data-home-ad-src-a')
-              : slot.getAttribute('data-home-ad-src-b')
+          script.src = showCover
+            ? slot.getAttribute('data-home-ad-src-b')
+            : slot.getAttribute('data-home-ad-src-a')
           slot.appendChild(script)
         })()
       </script>

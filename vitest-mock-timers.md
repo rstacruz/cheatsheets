@@ -68,7 +68,10 @@ expect(tick).toHaveBeenCalledOnce()
 ```js
 vi.useFakeTimers()
 let done = false
-setTimeout(async () => { done = true }, 100)
+setTimeout(async () => {
+  await Promise.resolve()
+  done = true
+}, 100)
 
 await vi.advanceTimersByTimeAsync(100)
 expect(done).toBe(true)
@@ -82,13 +85,13 @@ expect(done).toBe(true)
 
 ```js
 vi.useFakeTimers()
-vi.setSystemTime(new Date('2026-01-01'))
+vi.setSystemTime(new Date(2026, 0, 1))
 
 expect(new Date().getFullYear()).toBe(2026)
 ```
 <!-- {: data-highlight="vi.setSystemTime"} -->
 
-**Pins `Date` to a fixed moment.** Fake timers cover `Date` as well as timers; see [`setSystemTime`](https://vitest.dev/api/vi#vi-setsystemtime).
+**Pins `Date` to a fixed moment.** The numeric constructor stays in local time; fake timers cover `Date` too. See [`setSystemTime`](https://vitest.dev/api/vi#vi-setsystemtime).
 
 ### Restore real timers
 <!-- {: .-snippet} -->

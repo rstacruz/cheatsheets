@@ -522,7 +522,7 @@ See: [CLI options](https://vitest.dev/guide/cli#options)
 
 ## Also see
 
-[How to mock timers in Vitest](./vitest-mock-timers)
+[How to mock timers in Vitest cheatsheet](./vitest-mock-timers)
 <!-- {: .-crosslink} -->
 
 [Jest cheatsheet](./jest)

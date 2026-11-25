@@ -119,23 +119,6 @@ describe('cart', () => {
 
 See: [describe](https://vitest.dev/api/describe)
 
-### Assertions
-
-```js
-expect(3).toBe(3)                       // Object.is
-expect({ id: 1 }).toEqual({ id: 1 })    // deep
-expect({ id: 1, a: 2 }).toMatchObject({ id: 1 })
-expect(() => parse('')).toThrow('empty')
-
-await expect(load(1)).resolves.toBe('ok')
-await expect(load(0)).rejects.toThrow()
-```
-<!-- {: data-highlight="toBe; toEqual; toMatchObject; toThrow"} -->
-
-`expect.soft()` records a failure and keeps the test running; `expect.poll()` retries until it passes.
-
-See: [expect](https://vitest.dev/api/expect)
-
 ### Async tests
 
 #### Await
@@ -157,7 +140,7 @@ await vi.waitFor(() => {
 ```
 <!-- {: data-highlight="vi.waitFor"} -->
 
-Await the promise or return it; an unhandled rejection fails the run. `vi.waitFor()` retries its callback until it stops throwing, and `expect.poll()` does the same as a matcher.
+Await the promise or return it; an unhandled rejection fails the run. `vi.waitFor()` retries its callback until it stops throwing.
 
 See: [test()](https://vitest.dev/api/test#test), [vi.waitFor()](https://vitest.dev/api/vi#vi-waitfor)
 
@@ -208,6 +191,91 @@ it.todo('write more tests')
 `.only` is rejected when `CI` is set unless you pass `--allowOnly`.
 
 See: [test.only](https://vitest.dev/api/test#test-only)
+
+### Type tests
+
+```ts
+import { expectTypeOf, test } from 'vitest'
+
+test('returns a number', () => {
+  expectTypeOf(add(1, 2))
+    .toEqualTypeOf<number>()
+})
+```
+<!-- {: data-highlight="expectTypeOf"} -->
+
+Type tests live in `*.test-d.ts` files and run with `vitest --typecheck`.
+
+See: [Type testing](https://vitest.dev/guide/testing-types)
+
+## Expect
+
+### Matchers
+
+```js
+expect(3).toBe(3)                       // Object.is
+expect({ id: 1 }).toEqual({ id: 1 })    // deep
+expect({ id: 1, a: 2 }).toMatchObject({ id: 1 })
+expect('hello').toContain('ell')
+expect([1, 2]).toHaveLength(2)
+expect(() => parse('')).toThrow('empty')
+```
+<!-- {: data-highlight="toBe; toEqual; toMatchObject; toThrow"} -->
+
+`toBe` compares with `Object.is`, and `toEqual` compares deeply; `toMatchObject` accepts a subset.
+
+See: [expect](https://vitest.dev/api/expect)
+
+### Modifiers
+
+```js
+expect(value).not.toBe(null)
+
+await expect(load(1)).resolves.toBe('ok')
+await expect(load(0)).rejects.toThrow('missing')
+```
+<!-- {: data-highlight="not; resolves; rejects"} -->
+
+`resolves` and `rejects` unwrap a promise, and `not` flips any matcher.
+
+See: [Modifiers](https://vitest.dev/api/expect#not)
+
+### Asymmetric matchers
+
+```js
+expect({ id: 1, name: 'Ada' }).toEqual({
+  id: expect.any(Number),
+  name: expect.stringMatching(/^A/),
+})
+expect([1, 2]).toEqual(expect.arrayContaining([2]))
+expect({ a: 1 }).toEqual({ a: expect.anything() })
+```
+<!-- {: data-highlight="expect.any; expect.stringMatching; expect.arrayContaining"} -->
+
+Use them inside `toEqual` when only part of a value is known.
+
+See: [Asymmetric matchers](https://vitest.dev/api/expect#expect-any)
+
+### Soft and retrying
+
+#### Soft assertions
+
+```js
+expect.soft(1).toBe(1)
+expect.soft(2).toBe(2)
+```
+<!-- {: data-highlight="expect.soft"} -->
+
+#### Polling
+
+```js
+await expect.poll(() => isReady()).toBe(true)
+```
+<!-- {: data-highlight="expect.poll"} -->
+
+`soft` records a failure and keeps the test running; `poll` retries the callback until the assertion passes.
+
+See: [expect.soft](https://vitest.dev/api/expect#soft), [expect.poll](https://vitest.dev/api/expect#poll)
 
 ## Mocking
 
@@ -453,6 +521,9 @@ See: [CLI commands](https://vitest.dev/guide/cli#commands)
 See: [CLI options](https://vitest.dev/guide/cli#options)
 
 ## Also see
+
+[How to mock timers in Vitest](./vitest-mock-timers)
+<!-- {: .-crosslink} -->
 
 [Jest cheatsheet](./jest)
 <!-- {: .-crosslink} -->

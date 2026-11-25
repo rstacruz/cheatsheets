@@ -6,6 +6,7 @@ category: CSS
 layout: snippet
 last_verified_with: "CSS Custom Properties Module Level 1, CSS Properties and Values API Level 1."
 updated: 2026-11-24
+tier: t3
 links:
   - title: MDN custom properties
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties

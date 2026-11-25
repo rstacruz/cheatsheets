@@ -6,6 +6,7 @@ category: CSS
 layout: snippet
 last_verified_with: "CSS Nesting Module Level 1."
 updated: 2026-11-24
+tier: t3
 links:
   - title: MDN CSS nesting
     url: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using

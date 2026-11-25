@@ -3,6 +3,7 @@ title: Git log format string
 subtitle: Log format placeholder reference
 category: Git
 updated: 2026-11-23
+tier: t3
 last_verified_with: "Git 2.56.0."
 weight: -1
 keywords:
@@ -25,6 +26,8 @@ git log --pretty="format:%H"
 ```
 
 See the next tables on format variables.
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ### Hash
 
@@ -49,6 +52,8 @@ See the next tables on format variables.
 | `%P` | parent hash |
 | `%p` | (abbrev) parent hash |
 
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
+
 ### Commit
 
 | Variable | Description |
@@ -60,6 +65,8 @@ See the next tables on format variables.
 | `%d` | ref names, like `--decorate` |
 | `%D` | ref names without wrapping |
 | `%e` | commit encoding |
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ## Author and committer
 
@@ -89,6 +96,8 @@ See the next tables on format variables.
 | `%ai` | author date (iso8601-like) |
 | `%aI` | author date (strict iso8601) |
 
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
+
 ### Committer
 
 #### Name
@@ -114,6 +123,8 @@ See the next tables on format variables.
 | `%ct` | committer date (unix timestamp) |
 | `%ci` | committer date (iso8601-like) |
 | `%cI` | committer date (strict iso8601) |
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ## Also see
 

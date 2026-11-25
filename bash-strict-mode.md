@@ -6,6 +6,7 @@ category: Command line recipes
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-23
+tier: t3
 links:
   - title: Bash set builtin
     url: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html

@@ -6,6 +6,20 @@ category: Task automation
 layout: snippet
 last_verified_with: "Claude Code 2.1.330."
 updated: 2026-11-23
+tier: t1
+fragments:
+  - "claude -p"
+  - "-p"
+  - "--output-format"
+  - "json"
+  - "--allowedTools"
+  - "Read,Edit,Bash"
+  - "git diff |"
+  - "review this diff"
+  - "summarize"
+  - "fix the lint"
+  - "failing tests"
+  - "claude"
 links:
   - title: Claude Code headless mode
     url: https://code.claude.com/docs/en/headless

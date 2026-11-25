@@ -6,6 +6,7 @@ category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 updated: 2026-11-23
+tier: t3
 links:
   - title: git-branch manual
     url: https://git-scm.com/docs/git-branch

@@ -6,6 +6,7 @@ category: Networking
 layout: snippet
 last_verified_with: "curl 8.23.0."
 updated: 2026-11-23
+tier: t3
 links:
   - title: curl manual
     url: https://curl.se/docs/manpage.html

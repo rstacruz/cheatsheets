@@ -48,7 +48,7 @@ pnpm create vite my-app --template react-ts
 ```
 <!-- {: data-highlight="create vite"} -->
 
-Templates are `vanilla`, `vue`, `react`, `svelte`, `solid`, `preact`, `lit` and `qwik`, each with a `-ts` variant. Run `pnpm create vite` alone for prompts.
+Templates are `vanilla`, `vue`, `react`, `svelte`, `solid`, `preact`, `lit` and `qwik`, with `-ts` and `react-compiler` variants. Run `pnpm create vite` alone for prompts.
 
 See: [Scaffolding](https://vite.dev/guide/#scaffolding-your-first-vite-project)
 

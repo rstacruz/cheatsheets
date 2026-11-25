@@ -315,9 +315,9 @@ See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_n
 
 ### Length
 
-| Expression | Description      |
-| ---------- | ---------------- |
-| `${#foo}`  | Length of `$foo` |
+| Expression    | Description      |
+| ------------- | ---------------- |
+| `${#foo[@]}`  | Length of `$foo` |
 
 See: [Shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 

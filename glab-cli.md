@@ -661,7 +661,7 @@ glab api graphql \
 ```
 <!-- {: data-highlight="graphql"} -->
 
-Other fields become GraphQL variables. `--paginate` follows `$endCursor` when the query declares it.
+Other fields become GraphQL variables. Paginated queries need an `$endCursor` variable.
 
 See: [GraphQL API](https://docs.gitlab.com/api/graphql/)
 

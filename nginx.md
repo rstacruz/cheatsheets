@@ -332,7 +332,7 @@ gzip_types text/css text/javascript
 ```
 <!-- {: data-highlight="gzip on; gzip_types"} -->
 
-Compresses the listed types when the client sends `Accept-Encoding: gzip`. `text/html` is always included, whatever `gzip_types` says. See [gzip_types](https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_types).
+Compresses the listed types when the client sends `Accept-Encoding: gzip`. `text/html` is always compressed, whatever `gzip_types` says. See [gzip_types](https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_types).
 
 ### Cache assets
 
@@ -376,7 +376,7 @@ client_max_body_size 20m;
 ```
 <!-- {: data-highlight="client_max_body_size 20m"} -->
 
-Rejects larger request bodies with `413`. The default is `1m`, which catches file uploads. See [client_max_body_size](https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size).
+Rejects larger request bodies with `413`. The default is `1m`; raise it before accepting file uploads. See [client_max_body_size](https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size).
 
 ### Rate limit
 

@@ -77,7 +77,7 @@ location /events/ {
 ```
 <!-- {: data-highlight="proxy_buffering off; proxy_read_timeout 1h"} -->
 
-**Sends each chunk as it arrives.** Buffering is on by default and holds server-sent events until it fills; the timeout closes idle streams; see [proxy_buffering](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering).
+**Sends each chunk as it arrives.** Buffering is on by default and holds server-sent events until the buffer fills; the timeout closes idle streams; see [proxy_buffering](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering).
 
 ### Strip the path prefix
 <!-- {: .-snippet} -->
@@ -89,4 +89,4 @@ location /api/ {
 ```
 <!-- {: data-highlight="http://127.0.0.1:3000/"} -->
 
-**Drops `/api/` before forwarding.** A URI in `proxy_pass` replaces the matched prefix, so `/api/users` reaches the app as `/users`; remove the trailing slash to keep it; see [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass).
+**Drops `/api/` before forwarding.** A URI in `proxy_pass` replaces the matched prefix, so `/api/users` reaches the app as `/users`; remove the trailing slash to keep the prefix; see [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass).

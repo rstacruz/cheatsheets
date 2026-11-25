@@ -54,7 +54,7 @@ sudo systemctl restart nginx
 ```
 <!-- {: data-highlight="systemctl restart"} -->
 
-**Stops and starts the master process.** New connections are refused while the old master drains and until the new one binds, and requests outliving the stop timeout are cut; prefer `reload` for config changes; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
+**Stops and starts the master process.** New connections are refused while the old master drains and until the new one binds. Requests outliving the stop timeout are cut; prefer `reload` for config changes; see [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
 ### Check the status
 <!-- {: .-snippet} -->

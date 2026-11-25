@@ -187,7 +187,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="alias"} -->
 
-Filesystem aliases need absolute paths; a relative value is used as-is and resolves from the working directory. Also add the path to `tsconfig.json` `paths` for editor types.
+Filesystem aliases need absolute paths; a relative value is used as-is instead of being resolved. Also add the path to `tsconfig.json` `paths` for editor types.
 
 See: [resolve.alias](https://vite.dev/config/shared-options#resolve-alias)
 
@@ -254,7 +254,7 @@ See: [Using plugins](https://vite.dev/guide/using-plugins)
 
 Astro, Nuxt and SvelteKit wrap Vite and take their own framework config instead.
 
-See: [Official plugins](https://vite.dev/plugins/)
+See: [Vite plugin registry](https://registry.vite.dev/plugins)
 
 ### Transform files
 
@@ -359,19 +359,33 @@ Matching requests bypass Vite's transforms, so `/api/users` reaches `/users` on 
 
 See: [server.proxy](https://vite.dev/config/server-options#server-proxy)
 
-### TLS and hosts
+### HTTPS
 
 ```ts
 export default defineConfig({
   server: {
     https: {},
+  },
+})
+```
+<!-- {: data-highlight="https: {}"} -->
+
+`https` takes `https.createServer` options, so it needs a certificate; `@vitejs/plugin-basic-ssl` mints a self-signed one for local work. The HTTPS server skips the host allow-list.
+
+See: [server.https](https://vite.dev/config/server-options#server-https)
+
+### Allowed hosts
+
+```ts
+export default defineConfig({
+  server: {
     allowedHosts: ['.example.com'],
   },
 })
 ```
-<!-- {: data-highlight="https: {}; allowedHosts"} -->
+<!-- {: data-highlight="allowedHosts"} -->
 
-`https: {}` needs a certificate; `@vitejs/plugin-basic-ssl` creates a self-signed one. Non-local hostnames must be listed, and `true` disables the DNS-rebinding check.
+Other hostnames are rejected in dev. `localhost` and IP addresses are always allowed, a leading dot covers subdomains, and `true` disables the DNS-rebinding check.
 
 See: [server.allowedHosts](https://vite.dev/config/server-options#server-allowedhosts)
 
@@ -619,6 +633,7 @@ const timer = setInterval(() => {
 }, 1000)
 
 if (import.meta.hot) {
+  import.meta.hot.accept()
   import.meta.hot.dispose((data) => {
     data.ticks = ticks
     clearInterval(timer)

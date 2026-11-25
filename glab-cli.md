@@ -156,7 +156,7 @@ See: [glab repo create](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/sourc
 glab repo fork group/project --clone
 glab repo fork --remote
 ```
-<!-- {: data-highlight="--clone; --remote"} -->
+<!-- {: data-highlight="glab repo fork"} -->
 
 Without `--clone` or `--remote`, forking prompts.
 

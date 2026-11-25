@@ -688,7 +688,7 @@ glab mr list -F json --jq '.[].title'
 glab issue list -O json \
   | jq -r '.[].iid'
 ```
-<!-- {: data-highlight="json"} -->
+<!-- {: data-highlight="-F json; -O json"} -->
 
 Both print JSON: `mr list` with `-F json`, `issue list` with `-O json`. In `glab api`, `-F` is an input field instead.
 

@@ -59,9 +59,7 @@
   --container-snippet: 900px;
   --container-home: 1024px;
 
-  --shadow-xs:
-    0 1px 3px light-dark(rgb(85 102 119 / 8%), rgb(0 0 0 / 30%)),
-    0 1px 1px light-dark(rgb(85 102 119 / 4%), rgb(0 0 0 / 15%));
+  --shadow-xs: 0 12px 24px light-dark(rgb(0 0 0 / 4%), rgb(0 0 0 / 40%));
   --shadow-sm: 0 1px 1px light-dark(rgb(85 102 119 / 55%), rgb(0 0 0 / 70%));
   --shadow-md:
     0 6px 8px light-dark(rgb(85 102 119 / 3%), rgb(0 0 0 / 45%)),

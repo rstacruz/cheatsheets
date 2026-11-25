@@ -9,7 +9,7 @@
 
 .autocomplete {
   border: none;
-  background: var(--card);
+  background: var(--field);
   color: var(--foreground);
   padding: 0.5rem;
   padding-top: 0;

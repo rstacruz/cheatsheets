@@ -9,6 +9,7 @@
   --foreground: light-dark(var(--color-steel-700), var(--color-steel-300));
   --heading: light-dark(var(--color-steel-950), var(--color-steel-50));
   --card: light-dark(#fff, var(--color-steel-900));
+  --field: light-dark(#fff, var(--color-steel-700));
   --card-foreground: light-dark(var(--color-steel-700), var(--color-steel-300));
   --primary: light-dark(
     var(--color-mildindigo-600),

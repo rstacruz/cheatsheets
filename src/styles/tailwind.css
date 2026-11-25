@@ -95,6 +95,7 @@
   --color-foreground: var(--foreground);
   --color-heading: var(--heading);
   --color-card: var(--card);
+  --color-field: var(--field);
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);

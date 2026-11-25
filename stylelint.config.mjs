@@ -1,5 +1,5 @@
 const semanticColor =
-  '/^--(background|foreground|heading|card|card-foreground|primary|primary-.*|secondary|secondary-foreground|muted|muted-foreground.*|accent|accent-foreground|slate|slate-.*|destructive|destructive-.*|border|border-strong|ring|link|link-.*|highlight|highlight-.*|syntax-.*|overlay|overlay-.*|mask-.*|brand-gradient)$/'
+  '/^--(background|foreground|heading|card|card-foreground|field|primary|primary-.*|secondary|secondary-foreground|muted|muted-foreground.*|accent|accent-foreground|slate|slate-.*|destructive|destructive-.*|border|border-strong|ring|link|link-.*|highlight|highlight-.*|syntax-.*|overlay|overlay-.*|mask-.*|brand-gradient)$/'
 
 export default {
   extends: ['stylelint-config-recommended'],
@@ -8,7 +8,7 @@ export default {
   rules: {
     'no-unknown-custom-properties': true,
     'custom-property-pattern':
-      '^(color|font|text|leading|tracking|radius|shadow|container|spacing|background|foreground|heading|card|primary|secondary|muted|accent|slate|destructive|border|ring|link|highlight|overlay|mask|syntax|brand-gradient|content-width|code|icon|mermaid)(-[a-z0-9]+)*(?:--line-height)?$',
+      '^(color|font|text|leading|tracking|radius|shadow|container|spacing|background|foreground|heading|card|field|primary|secondary|muted|accent|slate|destructive|border|ring|link|highlight|overlay|mask|syntax|brand-gradient|content-width|code|icon|mermaid)(-[a-z0-9]+)*(?:--line-height)?$',
     'color-no-hex': true,
     'color-named': 'never',
     'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hsla'],

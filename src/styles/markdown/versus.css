@@ -1,0 +1,88 @@
+@reference '/src/styles/tailwind.css';
+
+@layer components {
+  /*
+   * Versus layout
+   *
+   * `layout: versus` makes every H3 card a full-width row. Each H4 inside
+   * the card starts a column: React, Vue, then comments.
+   */
+
+  .MarkdownBody.-versus .h3-section-list {
+    @media (min-width: 769px) {
+      columns: 1;
+    }
+
+    & > .h3-section + .h3-section {
+      margin-top: 16px;
+    }
+  }
+
+  .MarkdownBody.-versus .h3-section > .body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  /* Tablet: the commentary pane spans both code columns */
+  @media (min-width: 769px) {
+    .MarkdownBody.-versus .h3-section > .body {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .MarkdownBody.-versus .h3-section > .body > .h4-section:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Desktop: three columns, commentary slightly narrower */
+  @media (min-width: 961px) {
+    .MarkdownBody.-versus .h3-section > .body {
+      grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr)
+        minmax(0, 0.8fr);
+    }
+
+    .MarkdownBody.-versus .h3-section > .body > .h4-section:last-child {
+      grid-column: auto;
+    }
+  }
+
+  .MarkdownBody.-versus .h3-section > .body > .h4-section {
+    min-width: 0;
+    overflow: hidden;
+    border: solid 1px var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+
+  .MarkdownBody.-versus .h3-section > .body > .h4-section > h4 {
+    margin: 0;
+    padding: 8px 12px;
+    border-bottom: solid 1px var(--border);
+    background: var(--muted);
+    color: var(--muted-foreground);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+  }
+
+  .MarkdownBody.-versus .h3-section > .body > .h4-section > pre {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 0;
+    background: var(--card);
+  }
+
+  .MarkdownBody.-versus .h3-section > .body > .h4-section > p {
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--muted);
+    color: var(--foreground);
+  }
+}

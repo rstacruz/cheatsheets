@@ -350,3 +350,41 @@ describe('inline highlights', () => {
     expect(findMatches('find_elements', ['find_element'])).toEqual([])
   })
 })
+
+describe('versus layout', () => {
+  const input = [
+    '## State',
+    '',
+    '### Counter',
+    '',
+    '#### React',
+    '',
+    'one',
+    '',
+    '#### Vue',
+    '',
+    'two',
+    '',
+    '#### Comments',
+    '',
+    'three'
+  ].join('\n')
+
+  it('wraps each h4 block into a column', async () => {
+    const { html } = await render(input, { layout: 'versus' })
+
+    expect(html).toContain('<div class="h4-section"><h4 id="react">')
+    expect(html).toContain('<div class="h4-section"><h4 id="vue">')
+    expect(html).toContain('<div class="h4-section"><h4 id="comments">')
+    expect(html).toMatch(
+      /<div class="h4-section"><h4 id="vue">.*?<p>two<\/p>\s*<\/div>/s
+    )
+    expect(html).toContain('<p>three</p></div>')
+  })
+
+  it('leaves h4 blocks alone without the layout', async () => {
+    const { html } = await render(input)
+
+    expect(html).not.toContain('h4-section')
+  })
+})

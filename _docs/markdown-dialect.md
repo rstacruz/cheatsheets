@@ -30,6 +30,7 @@ An H2 starts a section; an H3 is a card inside it. Both get an id from their tex
 - Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference`, `.-snippets` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
 - Sheets with `layout: snippet` put `.-snippet` on every H3, omit "cheatsheet" from the H1, and end with a Related links card; see [snippet layout](writing-guidelines.md#snippet-layout).
+- Sheets with `layout: versus` give every H3 card full width and turn each H4 into a column; see [versus layout](#versus-layout).
 - The first card is the Introduction, generated from `intro` and `links` frontmatter.
 
 ````md
@@ -42,6 +43,35 @@ An H2 starts a section; an H3 is a card inside it. Both get an id from their tex
 { status }
 ```
 ````
+
+### Versus layout
+
+Set `layout: versus` on a comparison sheet. Every H3 becomes a full-width row, and each H4 inside it starts one column. Three H4s give the desktop layout: one subject, the other, then commentary.
+
+````md
+### Local state
+
+#### React
+
+```jsx
+const [count, setCount] = useState(0)
+```
+
+#### Vue
+
+```html
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+```
+
+#### Comments
+
+React state changes through a setter; a Vue ref is mutable.
+````
+
+On tablet the last column spans the row; on mobile the columns stack. Column chrome lives in `versus.css`.
 
 ## Attribute lists
 

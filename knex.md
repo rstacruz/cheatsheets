@@ -33,6 +33,7 @@ knex.schema.createTable('user', (table) => {
   table.increments('id')
   table.string('name')
   table.integer('age')
+  table.timestamps(true, true)
 })
 .then(() => ···)
 ```
@@ -159,15 +160,25 @@ var knex = require('knex')({
 
 ## Select
 
+List all
+
+```js
+const books = await knex("books")
+```
+
+Single result
+
+```js
+const book = await knex("books").where({ id }).first()
+```
+
 ### Where
 
 ```js
-knex
-  .from('books')
-  .select('title', 'author', 'year')
+knex('books')
 ```
 
-#### Where
+#### Where conditions (I)
 
 ```js
   .where('title', 'Hello')
@@ -177,7 +188,7 @@ knex
   .whereNotIn('id', [1, 2, 3])
 ```
 
-#### Where conditions
+#### Where conditions (II)
 
 ```js
   .whereNull('updated_at')
@@ -322,22 +333,12 @@ knex('users')
   .pluck('id')
   .then(ids => { ··· })
 ```
-```js
-knex('users')
-  .first()
-  .then(user => { ··· })
-```
-
-#### Booleans
-
-```js
-  .count('active')
-  .count('active as is_active')
-```
 
 #### Numbers
 
 ```js
+  .count('active')
+  .count('active as is_active')
   .min('age')
   .max('age')
   .sum('age')
@@ -353,6 +354,8 @@ See: [Query builder](http://knexjs.org/#Builder)
 
 ```js
 knex.schema.createTable('accounts', table => {
+//
+})
 ```
 
 #### Columns
@@ -409,6 +412,8 @@ See: [Schema builder](http://knexjs.org/#Schema)
 
 ```js
 knex.schema.table('accounts', table => {
+// similar to create table
+})
 ```
 
 #### Create

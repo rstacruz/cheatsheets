@@ -1,6 +1,7 @@
 # One rule per line: /old /new 301
 # Renamed or removed sheets need a rule here; CI enforces it.
 
+/animated_gif /ffmpeg-animated-gif 301
 /brew /homebrew 301
 /commander-js /commander.js 301
 /css-animation /css#animation 301

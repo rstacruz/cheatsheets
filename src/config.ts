@@ -65,7 +65,6 @@ export const categories = [
   'C-like',
   'Apps',
   'Ansible',
-  'Jekyll',
   'Plain-text accounting',
   'Others'
 ]

@@ -68,13 +68,13 @@ export const SheetFrontmatterSchema = z
       })
       .optional()
       .describe(
-        'Versions the examples target (max 160 chars). Required for t1 and t2 sheets.'
+        'Versions the examples target (max 160 chars). Required for tiered sheets.'
       ),
     tier: z
-      .enum(['t1', 't2'])
+      .enum(['t1', 't2', 't3'])
       .optional()
       .describe(
-        'Review tier: t1 sheets move often; see `_docs/tiers.md`. Their <title> ends with the `updated` month and year.'
+        'Review tier: t1 weekly, t2 every six weeks, t3 best effort; see `_docs/tiers.md`. A t1 <title> ends with the `updated` month and year.'
       ),
     layout: z
       .enum(['snippet'])
@@ -151,8 +151,8 @@ export const SheetFrontmatterSchema = z
     path: ['links']
   })
   .superRefine((value, ctx) => {
-    if (value.tier !== 't1' && value.tier !== 't2') return
-    if (!value.fragments) {
+    if (!value.tier) return
+    if (value.tier !== 't3' && !value.fragments) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['fragments'],
@@ -165,7 +165,7 @@ export const SheetFrontmatterSchema = z
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       path: ['last_verified_with'],
-      message: '`last_verified_with` is required for t1 and t2 sheets'
+      message: '`last_verified_with` is required for tiered sheets'
     })
   })
 

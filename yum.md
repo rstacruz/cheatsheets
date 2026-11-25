@@ -4,70 +4,219 @@ seo_title: Yum cheatsheet — install, update, remove
 description: "Yum commands: install, update, remove, search, list and repositories. Reference."
 subtitle: RPM package manager
 category: Package managers
-updated: 2024-02-07
+updated: 2026-11-24
+last_verified_with: "yum 3.4.3, dnf 4.24."
+tier: t3
+intro: |
+  yum installs, updates, and removes RPM packages and inspects repositories. This reference also maps the commands to dnf.
+links:
+  - title: yum(8) manual
+    url: https://man7.org/linux/man-pages/man8/yum.8.html
+  - title: DNF command reference
+    url: https://dnf.readthedocs.io/en/latest/command_ref.html
+  - title: DNF documentation
+    url: https://dnf.readthedocs.io/en/latest/
 ---
 
-## Commands
+## Install and remove
+<!-- {: .-three-column} -->
 
-### Help and lists
+### Install and update
 
-```bash
-yum help                     # Display yum commands and options
-yum list available           # List all available packages
-yum list installed           # List all installed packages
-yum list kernel              # List installed and available kernel packages
-yum info vsftpd              # List info about vsftpd package
+```sh
+yum install vsftpd
+yum check-update
+yum update
 ```
 
-### Searching and dependencies
+See: [install](https://dnf.readthedocs.io/en/latest/command_ref.html#install-command)
 
-```bash
-yum deplist nfs-utils        # List dependencies for nfs-utils
-yum provides "*bin/top"      # Show package containing top command
-yum search samba             # Find packages with samba in name or description
+### Remove and downgrade
+
+```sh
+yum remove vsftpd
+yum autoremove httpd
+yum downgrade abc
 ```
 
-### Updating and security
+`autoremove` also drops dependencies nothing else needs.
 
-```bash
-yum updateinfo security      # Get info on available security updates
-yum update --security        # Apply security-related package updates
+See: [remove](https://dnf.readthedocs.io/en/latest/command_ref.html#remove-command)
+
+## Search and inspect
+<!-- {: .-three-column} -->
+
+### Search
+
+```sh
+yum search samba
+yum info vsftpd
+yum provides "*bin/top"
 ```
 
-### Managing repositories
+See: [search](https://dnf.readthedocs.io/en/latest/command_ref.html#search-command)
 
-```bash
-yum repolist                     # Display enabled software repositories
-yum repoinfo rhel-7-server-rpms  # See info on specific repo
-yum repo-pkgs my-rpms list       # List packages from a specific repo
+### List packages
+
+```sh
+yum list available
+yum list installed
+yum list kernel
 ```
 
-### Installation and upgrades
+See: [list](https://dnf.readthedocs.io/en/latest/command_ref.html#list-command)
 
-```bash
-yum install vsftpd           # Install the vsftpd package
-yum update                   # Update all packages
-yum downgrade abc            # Downgrade the abc package to an earlier version
-yum autoremove httpd         # Remove httpd and unneeded packages
+### Dependencies
+
+```sh
+yum deplist nfs-utils
 ```
 
-### Package groups
+See: [deplist](https://dnf.readthedocs.io/en/latest/command_ref.html#deplist-command)
 
-```bash
-yum groupinstall "Web server"    # Install Web Server packages
+## Repositories
+<!-- {: .-three-column} -->
+
+### List and inspect
+
+```sh
+yum repolist
+yum repoinfo rhel-7-server-rpms
 ```
 
-### Troubleshooting
+See: [repolist](https://dnf.readthedocs.io/en/latest/command_ref.html#repolist-command)
 
-```bash
-yum history list             # List all yum transactions
-yum clean packages           # Delete packages saved in cache
+### Repository packages
+
+```sh
+yum repo-pkgs my-rpms list
+yum repo-pkgs my-rpms install
 ```
 
-### Popular options
+See: [repository-packages](https://dnf.readthedocs.io/en/latest/command_ref.html#repository-packages-command)
 
-```bash
--y                           # Assume yes if prompted
---disablerepo=epel           # Disable a specific repo for a command
---downloadonly               # Download package to cache but don't install
+### Cache
+
+```sh
+yum makecache
+yum clean packages
+yum clean all
 ```
+
+See: [makecache](https://dnf.readthedocs.io/en/latest/command_ref.html#makecache-command)
+
+## Security updates
+
+### List advisories
+
+```sh
+yum updateinfo list security
+yum updateinfo list bugfix
+```
+
+See: [updateinfo](https://dnf.readthedocs.io/en/latest/command_ref.html#updateinfo-command)
+
+### Apply
+
+```sh
+yum update --security
+yum update --security --sec-severity=Critical
+```
+
+<!-- see: none: --security comes from the yum security plugin, which has no first-party docs page -->
+
+## Groups
+<!-- {: .-three-column} -->
+
+### Install a group
+
+```sh
+yum groupinstall "Web Server"
+```
+
+See: [group](https://dnf.readthedocs.io/en/latest/command_ref.html#group-command)
+
+### Inspect groups
+
+```sh
+yum groups list
+yum group info "Web Server"
+```
+
+See: [grouplist](https://dnf.readthedocs.io/en/latest/command_ref.html#grouplist-command-label)
+
+## History
+<!-- {: .-three-column} -->
+
+### Transactions
+
+```sh
+yum history list
+yum history info 12
+```
+
+See: [history](https://dnf.readthedocs.io/en/latest/command_ref.html#history-command)
+
+### Undo
+
+```sh
+yum history undo 12
+yum history rollback 10
+```
+
+`undo` reverts one transaction; `rollback` reverts everything after the given one.
+
+See: [history](https://dnf.readthedocs.io/en/latest/command_ref.html#history-command)
+
+## Options
+
+### Common flags
+
+| Flag | Effect |
+| --- | --- |
+| `-y` | Assume yes to prompts |
+| `--disablerepo=epel` | Skip a repo for this command |
+| `--enablerepo=epel` | Add a repo for this command |
+
+See: [options](https://dnf.readthedocs.io/en/latest/command_ref.html#options)
+
+### Download only
+
+```sh
+yum install --downloadonly --downloaddir=/tmp vsftpd
+```
+
+Without `--downloaddir` the RPMs stay in the yum cache.
+
+See: [downloadonly](https://dnf.readthedocs.io/en/latest/command_ref.html#downloadonly-label)
+
+## Dnf
+
+### Renamed commands
+
+| yum | dnf |
+| --- | --- |
+| `yum groupinstall "Development Tools"` | `dnf group install "Development Tools"` |
+| `yum repo-pkgs my-rpms list` | `dnf repository-packages my-rpms list` |
+| `yum deplist nfs-utils` | `dnf repoquery --deplist nfs-utils` |
+
+See: [yum to dnf](https://dnf.readthedocs.io/en/latest/cli_vs_yum.html)
+
+### Same commands
+
+- `install`
+- `remove`
+- `update`
+- `search`
+- `list`
+- `info`
+- `provides`
+- `repolist`
+- `history`
+- `updateinfo`
+- `autoremove`
+<!-- {: .-enum} -->
+
+RHEL 8 and later ship dnf, where `yum` is a compatibility wrapper that accepts the same commands.
+
+See: [command reference](https://dnf.readthedocs.io/en/latest/command_ref.html#command-ref-label)

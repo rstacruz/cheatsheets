@@ -141,7 +141,6 @@ storage
 └── retention: how long?
     └── delete: hard or soft?
 ```
-<!-- {: data-highlight="├──; └──"} -->
 
 A decision branches into the decisions hanging off it. The frontier is every branch whose prerequisites are settled; a round asks all of it. Questions depending on another open question wait for a later round.
 
@@ -154,6 +153,8 @@ See: [Tree, frontier, rounds](https://www.aihero.dev/skills-grilling)
 | Fact | Agent | Dispatch a sub-agent with fresh context |
 | Decision | You | Put it to you, then wait |
 | Async mode | Nobody | No consolidated memo in your absence |
+
+<!-- {.-headers} -->
 
 A running exploration is an unsettled prerequisite. Only the questions downstream of it wait; the rest of the frontier still gets asked. An agent answering its own decisions has broken the skill.
 
@@ -237,18 +238,21 @@ See: [The paper trail](https://www.aihero.dev/skills-grill-with-docs)
 
 ### Glossary shape
 
+#### GLOSSARY.md
+
 ```md
 **Order**:
 A request for goods from a customer.
 _Avoid_: Purchase, transaction
 ```
-<!-- {: data-highlight="_Avoid_:"} -->
 
 One or two sentences define what a term *is*. Keep project-specific terms only; implementation detail and specs do not belong in the glossary.
 
 See: [GLOSSARY-FORMAT.md](https://github.com/mattpocock/skills/blob/v1.3.2/skills/engineering/domain-modeling/GLOSSARY-FORMAT.md)
 
 ### ADR shape
+
+#### docs/adr/NNNN-slug.md
 
 ```md
 # Short title of the decision

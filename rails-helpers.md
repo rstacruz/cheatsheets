@@ -2,121 +2,179 @@
 title: Rails helpers
 subtitle: View helper reference
 category: Rails
+last_verified_with: "Rails 8.1.4.1."
+updated: 2026-11-24
+tier: t3
+intro: |
+  Rails view helpers for dates, numbers, tags, caching, translation, and date and time selects.
+links:
+  - title: ActionView::Helpers
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers.html
+  - title: DateHelper
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html
+  - title: NumberHelper
+    url: https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
 ---
+
+## Format values
 
 ### Date
 
-```
-distance_of_time_in_words(Time.now, project.end_date) #=> 3 hours
-distance_of_time_in_words_to_now(project.end_date)    #=> 3 hours
+```ruby
+distance_of_time_in_words(Time.now, project.end_date)
+#=> "about 3 hours"
 
-time_ago_in_words 3.minutes.ago #=> "3 minutes"
+distance_of_time_in_words_to_now(project.end_date)
+#=> "about 3 hours"
+
+time_ago_in_words(3.minutes.ago)
+#=> "3 minutes"
 ```
+
+See: [distance_of_time_in_words](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words)
 
 ### Numbers
 
-```
-number_to_currency 20.33
-number_to_currency 20.33, precision: 0
-number_with_precision 3.14159, precision: 2
-number_to_percentage 32       #=> "32%"
-number_with_delimiter 2048    #=> "2,048"
-number_to_human 12000000      #=> "12 million"
-number_to_human_size 12000000 #=> "12 MB"
-number_to_phone "5551234"     #=> "555-1234"
+```ruby
+number_to_currency 20.33                      #=> "$20.33"
+number_to_currency 20.33, precision: 0        #=> "$20"
+number_with_precision 3.14159, precision: 2   #=> "3.14"
+number_to_percentage 32, precision: 0         #=> "32%"
+number_with_delimiter 2048                    #=> "2,048"
+number_to_human 12_000_000                    #=> "12 million"
+number_to_human_size 12_000_000               #=> "11.4 MB"
+number_to_phone "5551234"                     #=> "555-1234"
 ```
 
-### Cache
+See: [NumberHelper](https://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html)
 
-```
-<% cache project do %>
-<% cache [project, current_user] do %>
+### Translation
 
-<% cache_if admin?, project do %>
-<% cache_unless admin?, project do %>
+```ruby
+t("folders")
+t("folders.save")
+l(Time.now)
 ```
+
+#### Pluralization
+
+```ruby
+t("x_files", count: files.count)
+```
+
+#### Locale file
+
+```yaml
+x_files:
+  one: "one file"
+  other: "%{count} files"
+```
+
+See: [t](https://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html#method-i-t)
+
+## Markup
 
 ### Tags
 
-```
-tag("br")
-tag("img", src: "image.jpg")
-content_tag(:p, "Hello")
-```
-
-### Time select
-
-```
-# Creates a time select tag that, when POSTed, will be stored in the article
-# variable in the sunrise attribute.
-time_select "article", "start_time"
+```ruby
+tag("br")                     #=> <br />
+tag.br                        #=> <br>
+tag("img", src: "image.jpg")  #=> <img src="image.jpg" />
+content_tag(:p, "Hello")      #=> <p>Hello</p>
 ```
 
-```
-# All options are optional
-time_select "article", "start_time", \
-  include_seconds: true,
-  minute_step: 15,
-  prompt: true,
-  prompt: { hour: "Choose hr", minute: "Choose min", second: "Choose sec" },
-  ampm: true
+See: [tag](https://api.rubyonrails.org/classes/ActionView/Helpers/TagHelper.html#method-i-tag)
+
+### Cache
+
+#### Key
+
+```erb
+<% cache [project, current_user] do %>
+  <%= render project %>
+<% end %>
 ```
 
+#### Conditional
+
+```erb
+<% cache_if admin?, project do %>
+  <%= render project %>
+<% end %>
 ```
-# For dates (all options are optional)
-date_select "article", "written_on", \
-  start_year: 1995,
-  use_month_numbers: true,
-  discard_day: true,
-  include_blank: true,
-  order: [:day, :month, :year],
-  default: 3.days.from_now,
-  default: { day: 20 },
-  prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }
-```
+
+See: [cache](https://api.rubyonrails.org/classes/ActionView/Helpers/CacheHelper.html#method-i-cache)
 
 ### Time tag
 
+```ruby
+time_tag Date.today
+#=> <time datetime="2010-11-04">November 04, 2010</time>
+
+time_tag Date.yesterday, "Yesterday"
+#=> <time datetime="2010-11-03">Yesterday</time>
+
+time_tag Date.today, format: :short
+#=> <time datetime="2010-11-04">Nov 04</time>
 ```
-time_tag Date.today 
-#=> '<time datetime="2010-11-04">November 04, 2010<%rtime>'
 
-time_tag Time.now
-#=> '<time datetime="2010-11-04T17:55:45+01:00">November 04, 2010 17:55</time>'
+See: [time_tag](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-time_tag)
 
-time_tag Date.yesterday, 'Yesterday'
-#=> '<time datetime="2010-11-03">Yesterday<%rtime>'
+## Form selects
 
-time_tag Date.today, pubdate: true
-#=> '<time datetime="2010-11-04" pubdate="pubdate">November 04, 2010</time>'
+### Time select
 
-time_tag Date.today, \
-  format: :short_date # (en.time.formats.short_date)
+```ruby
+time_select "article", "start_time", \
+  include_seconds: true, minute_step: 15, ampm: true, \
+  prompt: { hour: "Choose hr", minute: "Choose min" }
 ```
+
+#### Options
+
+| Option            | Description                |
+| ----------------- | -------------------------- |
+| `include_seconds` | Add a seconds select       |
+| `minute_step`     | Minute interval, eg `15`   |
+| `ampm`            | 12-hour clock              |
+| `prompt`          | `true` or per-part prompts |
+| `include_blank`   | Blank first option         |
+
+See: [time_select](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-time_select)
+
+### Date select
+
+```ruby
+date_select "article", "written_on", \
+  start_year: 1995, use_month_numbers: true, \
+  order: %i[day month year], include_blank: true
+```
+
+#### Options
+
+| Option              | Description                         |
+| ------------------- | ----------------------------------- |
+| `start_year`        | First year in the list              |
+| `end_year`          | Last year in the list               |
+| `use_month_numbers` | Show `1` instead of `Jan`           |
+| `order`             | List order, eg `%i[day month year]` |
+| `discard_day`       | Drop the day select                 |
+| `default`           | Preselected value or hash           |
+
+See: [date_select](https://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-date_select)
 
 ### Files
 
-```
-= form_for @post, multipart: true do |f|
+```haml
+= form_with model: @post do |f|
   = f.file_field :picture
 ```
 
-### i18n
+`form_with` adds `multipart` automatically when the form has a file field.
 
-```
-t('folders')
-t('folders.save')
+See: [file_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field)
 
-l(Time.now)
+## Reference
 
-t('x_files', count: files.count)
-# files:
-#    one: 'one file'
-#    other: '%{count} files'
-```
-
-### References
-
-```
-* http://api.rubyonrails.org/classes/ActionView/Helpers.html
-```
+- [ActionView::Helpers](https://api.rubyonrails.org/classes/ActionView/Helpers.html)
+- [FormHelper](https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html)

@@ -62,10 +62,6 @@
     var(--color-mildindigo-500)
   );
   --primary-surface: light-dark(#f7f5fc, #1e1a33);
-  --primary-heading: light-dark(
-    var(--color-mildindigo-800),
-    var(--color-steel-50)
-  );
   --primary-muted: light-dark(
     var(--color-mildindigo-500),
     var(--color-mildindigo-300)

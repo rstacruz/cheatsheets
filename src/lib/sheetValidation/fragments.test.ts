@@ -18,8 +18,11 @@ test('the schema requires fragments for t1 and t2 sheets', () => {
   ).toEqual(twelve)
 })
 
-test('the schema allows untiered sheets to omit fragments', () => {
+test('the schema allows untiered and t3 sheets to omit fragments', () => {
   expect(SheetFrontmatterSchema.parse({}).fragments).toBeUndefined()
+  expect(
+    SheetFrontmatterSchema.parse({ ...VERIFIED, tier: 't3' }).fragments
+  ).toBeUndefined()
 })
 
 test('the schema accepts 12 to 20 fragments', () => {

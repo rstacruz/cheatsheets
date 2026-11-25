@@ -3,7 +3,7 @@ import Icon from './Icon.astro'
 
 const styles = {
   button:
-    'ThemeToggle__button mr-[8px] inline-flex size-8 items-center justify-center rounded-full text-muted-foreground hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring md:size-9'
+    'ThemeToggle__button mr-[8px] inline-flex size-[32px] items-center justify-center rounded-full text-muted-foreground hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring'
 }
 ---
 
@@ -15,13 +15,13 @@ const styles = {
   data-js-theme-toggle
 >
   <span data-theme-icon="initial">
-    <Icon name="contrast-outline" size={20} />
+    <Icon name="contrast-outline" size={18} />
   </span>
   <span data-theme-icon="light" hidden>
-    <Icon name="sunny-outline" size={24} />
+    <Icon name="sunny-outline" size={20} />
   </span>
   <span data-theme-icon="dark" hidden>
-    <Icon name="moon-outline" size={24} />
+    <Icon name="moon-outline" size={20} />
   </span>
 </button>
 

@@ -15,8 +15,7 @@ updated: 2026-11-25
 ---
 
 ## Reference
-
-<!-- {:.-three-column} -->
+<!-- {: .-three-column} -->
 
 ### Creating promises
 
@@ -52,12 +51,16 @@ promise
 
 ### Multiple promises
 
+#### Setup
+
 ```js
 const promises = [
   promise1(),
   promise2() /* ... */
 ]
 ```
+
+#### Promise.all
 
 ```js
 // Succeeds when all succeed
@@ -66,6 +69,8 @@ Promise.all(promises).then((results) => {
 })
 ```
 <!-- {: data-highlight="Promise.all"} -->
+
+#### Promise.race
 
 ```js
 // Succeeds when one finishes first

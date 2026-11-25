@@ -39,7 +39,6 @@ fadeout(@color, amount)
 spin(@color, degrees)
 mix(@a, @b, amount)
 ```
-<!-- {: data-highlight="unit; %; iscolor; fade"} -->
 
 See: [Less functions](https://lesscss.org/functions/)
 
@@ -51,6 +50,6 @@ See: [Less functions](https://lesscss.org/functions/)
 .image when (default()) {}
 .image when (e(@shape) = 'circle') { }
 ```
-<!-- {: data-highlight="when; default"} -->
+<!-- {: data-highlight="when"} -->
 
 See: [CSS guards](https://lesscss.org/features/#css-guards-feature)

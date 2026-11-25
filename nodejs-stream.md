@@ -311,13 +311,13 @@ See: [Writable.fromWeb()](https://nodejs.org/api/stream.html#streamwritablefromw
 
 ### Core types
 
-| Type          | Role                             |
-| ---           | ---                              |
-| `Readable`    | Source of data                   |
-| `Writable`    | Destination for data             |
-| `Duplex`      | Reads and writes independently   |
+| Type          | Role                                 |
+| ---           | ---                                  |
+| `Readable`    | Source of data                       |
+| `Writable`    | Destination for data                 |
+| `Duplex`      | Reads and writes independently       |
 | `Transform`   | Modifies chunks as they pass through |
-| `PassThrough` | Transform that echoes input      |
+| `PassThrough` | Transform that echoes input          |
 
 See: [types of streams](https://nodejs.org/api/stream.html#types-of-streams)
 

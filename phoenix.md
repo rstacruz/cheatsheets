@@ -53,7 +53,7 @@ mix phx.new hello --no-assets
 mix phx.new hello --no-live
 mix phx.new hello --umbrella
 ```
-<!-- {: data-highlight="--database sqlite3; --no-ecto; --no-html; --no-assets"} -->
+<!-- {: data-highlight="--no-html; --no-assets"} -->
 
 `--no-assets` skips esbuild and Tailwind; APIs often use `--no-html --no-assets`.
 
@@ -91,7 +91,7 @@ resources "/users", UserController do
   resources "/posts", PostController
 end
 ```
-<!-- {: data-highlight="get; live; resources"} -->
+<!-- {: data-highlight="get; post; live; resources"} -->
 
 Nested routes receive `"user_id"` in `params`.
 
@@ -130,7 +130,7 @@ scope "/api", HelloWeb, as: :api do
   resources "/users", UserController
 end
 ```
-<!-- {: data-highlight="pipeline :browser; pipe_through :api"} -->
+<!-- {: data-highlight="pipeline :browser; scope"} -->
 
 Pipelines apply plugs to the routes in their scope.
 
@@ -140,8 +140,8 @@ See: [Scoped routes](https://hexdocs.pm/phoenix/routing.html#scoped-routes)
 
 ```sh
 mix phx.routes
-GET  /users     HelloWeb.UserController :index
-GET  /users/:id HelloWeb.UserController :show
+GET  /users                HelloWeb.UserController :index
+GET  /users/:id            HelloWeb.UserController :show
 GET  /users/:user_id/posts HelloWeb.PostController :index
 ```
 <!-- {: data-highlight="mix phx.routes"} -->
@@ -173,7 +173,6 @@ defmodule HelloWeb.HelloController do
     |> put_status(:created)
     |> text("created")
   end
-
 end
 ```
 <!-- {: data-highlight="render"} -->
@@ -184,15 +183,15 @@ See: [Controllers](https://hexdocs.pm/phoenix/controllers.html)
 
 ### Response helpers
 
-| Helper                                 | Effect                     |
-| -------------------------------------- | -------------------------- |
-| `text(conn, "Hello")`                  | 200, `text/plain`          |
-| `json(conn, %{message: "Hello"})`      | 200, `{"message":"Hello"}` |
-| `html(conn, "<h1>Hello</h1>")`         | 200, raw HTML              |
-| `redirect(conn, to: ~p"/users")`       | 302, `Location: /users`    |
-| `render(conn, :show, post: post)`      | HTML via `HelloHTML`       |
-| `Plug.Conn.put_status(conn, :created)` | 201 status                 |
-| `Plug.Conn.send_resp(conn, 204, "")`   | 204, no body               |
+| Helper | Effect |
+| --- | --- |
+| `text(conn, "Hello")` | 200, `text/plain` |
+| `json(conn, %{message: "Hello"})` | 200, `{"message":"Hello"}` |
+| `html(conn, "<h1>Hello</h1>")` | 200, raw HTML |
+| `redirect(conn, to: ~p"/users")` | 302, `Location: /users` |
+| `render(conn, :show, post: post)` | HTML via `HelloHTML` |
+| `Plug.Conn.put_status(conn, :created)` | 201 status |
+| `Plug.Conn.send_resp(conn, 204, "")` | 204, no body |
 
 Controller helpers render or redirect; `Plug.Conn` calls set status or send bytes directly.
 
@@ -247,7 +246,7 @@ mix phx.gen.context Accounts User users \
   name:string
 mix phx.gen.schema User users name:string
 ```
-<!-- {: data-highlight="mix phx.gen.html; mix phx.gen.auth; mix phx.gen.live"} -->
+<!-- {: data-highlight="mix phx.gen.html"} -->
 
 Generators create contexts and tests; `phx.gen.schema` creates only a schema and migration.
 
@@ -298,7 +297,7 @@ mix ecto.rollback
 mix ecto.setup
 mix ecto.reset
 ```
-<!-- {: data-highlight="mix ecto.create; mix ecto.gen.migration; mix ecto.migrate"} -->
+<!-- {: data-highlight="mix ecto.migrate"} -->
 
 Migrations live in `priv/repo/migrations/`.
 
@@ -320,7 +319,7 @@ defmodule HelloWeb.CounterLive do
 
   def handle_event("inc", _p, socket) do
     {:noreply,
-      update(socket, :count, &(&1 + 1))}
+     update(socket, :count, &(&1 + 1))}
   end
 
   def render(assigns) do
@@ -383,7 +382,7 @@ Phoenix.PubSub.unsubscribe(
   "room:lobby"
 )
 ```
-<!-- {: data-highlight="Phoenix.PubSub.subscribe; Phoenix.PubSub.broadcast"} -->
+<!-- {: data-highlight="Phoenix.PubSub"} -->
 
 The app supervisor starts PubSub; `broadcast_from!/4` excludes the sender.
 
@@ -424,7 +423,7 @@ defmodule HelloWeb.CounterLiveTest do
   end
 end
 ```
-<!-- {: data-highlight="render_click; assert html"} -->
+<!-- {: data-highlight="render_click"} -->
 
 `live/2` mounts a connected view; `render_click/2` sends events to it.
 
@@ -440,7 +439,7 @@ mix test --only slow
 mix test --failed
 mix test --stale
 ```
-<!-- {: data-highlight="mix test --stale; mix test --failed"} -->
+<!-- {: data-highlight="mix test"} -->
 
 Line numbers, tags, and flags select subsets of the suite.
 

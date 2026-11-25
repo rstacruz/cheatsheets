@@ -14,20 +14,25 @@ updated: 2026-11-25
 
 ### Format
 
+#### Diagram
+
 ```
 @startuml
 Car : drive()
 Dog : bark()
 @enduml
-
-# plantuml file.uml && open file.png
 ```
 <!-- {: data-highlight="@startuml; @enduml"} -->
+
+#### Render
+
+```bash
+plantuml file.uml && open file.png
+```
 
 See: [PlantUML documentation](https://plantuml.com/)
 
 ## Classes
-
 
 ### Methods
 
@@ -55,7 +60,7 @@ class Car {
   {abstract} void methods()
 }
 ```
-<!-- {: data-highlight="class Car; {static}; {abstract}"} -->
+<!-- {: data-highlight="-private(); #protected(); ~package private(); +public()"} -->
 
 See: [Class diagram](https://plantuml.com/class-diagram)
 
@@ -103,7 +108,7 @@ Driver - Car : drives >
 Car -- Owner : < owns
 Car *-- Wheel : has 4 >
 ```
-<!-- {: data-highlight="has 4"} -->
+<!-- {: data-highlight="drives; owns; has 4"} -->
 
 See: [Class diagram](https://plantuml.com/class-diagram)
 
@@ -134,7 +139,6 @@ Car -- Client.Driver : owns >
 
 See: [Class diagram](https://plantuml.com/class-diagram)
 
-
 ## Activities
 
 ### Simple flow
@@ -154,7 +158,6 @@ See: [Activity diagram](https://plantuml.com/activity-diagram-beta)
 -->[You can put also labels] "Second Activity"
 --> (*)
 ```
-<!-- {: data-highlight="First Activity"} -->
+<!-- {: data-highlight="-->[You can put also labels]"} -->
 
 See: [Activity diagram](https://plantuml.com/activity-diagram-beta)
-

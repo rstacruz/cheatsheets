@@ -53,6 +53,6 @@ git reset --hard HEAD~1
 ```bash
 git revert HEAD
 ```
-<!-- {: data-highlight="revert"} -->
+<!-- {: data-highlight="git revert"} -->
 
 **Reverses a pushed commit safely.** Creates a new commit that reverses the last one, keeping shared history intact. See [git-revert](https://git-scm.com/docs/git-revert).

@@ -112,7 +112,7 @@ See: [@type](https://jsdoc.app/tags-type), [@const](https://jsdoc.app/tags-const
 
 function play(song) {}
 ```
-<!-- {: data-highlight="{@link Song}"} -->
+<!-- {: data-highlight="{Song}"} -->
 
 `@typedef` names an object shape; `@property` describes each field.
 
@@ -128,7 +128,7 @@ See: [@typedef](https://jsdoc.app/tags-typedef) _(jsdoc.app)_
  * @typedef {{title: string, artist: string, year: number}} Song
  */
 ```
-<!-- {: data-highlight="@typedef {{title"} -->
+<!-- {: data-highlight="@typedef {{"} -->
 
 #### Use the type
 

@@ -51,7 +51,7 @@ if (voices.length === 0) {
   }
 }
 ```
-<!-- {: data-highlight="onvoiceschanged"} -->
+<!-- {: data-highlight="getVoices()"} -->
 
 `getVoices()` may return `[]` until the browser loads its voices; the
 `voiceschanged` event fires when they arrive. Set `msg.voice = voices[0]`

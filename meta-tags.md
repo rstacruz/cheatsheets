@@ -3,7 +3,7 @@ title: Meta-tags gem
 subtitle: Rails meta tag helper
 category: Ruby libraries
 weight: -1
-updated: 2026-11-18
+updated: 2026-11-25
 fragments:
   - "set_meta_tags"
   - "display_meta_tag"
@@ -46,7 +46,7 @@ tier: t3
 set_meta_tags title: 'Member Login'
 # <title>Member Login</title>
 ```
-<!-- {: data-highlight="Member Login"} -->
+<!-- {: data-highlight="title: 'Member Login'"} -->
 
 Set it in a controller or view, then render it with `display_meta_tags` in the layout.
 
@@ -169,7 +169,7 @@ See: [Description](https://github.com/kpumuk/meta-tags#description)
 set_meta_tags keywords: %w[keyword1 keyword2 keyword3]
 # <meta name="keywords" content="keyword1, keyword2, keyword3">
 ```
-<!-- {: data-highlight="keywords: %w"} -->
+<!-- {: data-highlight="keywords:"} -->
 
 Legacy tag kept for compatibility; Google and Bing ignore it.
 
@@ -193,7 +193,7 @@ See: [Canonical URL](https://github.com/kpumuk/meta-tags#canonical-url)
 set_meta_tags icon: {href: '/favicon.png', type: 'image/png'}
 # <link rel="icon" type="image/png" href="/favicon.png">
 ```
-<!-- {: data-highlight="icon: {href:"} -->
+<!-- {: data-highlight="icon:"} -->
 
 Pass a path for a default icon, or a hash to set `type` and `sizes`.
 
@@ -264,7 +264,7 @@ set_meta_tags og: {
   image: 'http://ia.media-imdb.com/rock.jpg'
 }
 ```
-<!-- {: data-highlight="video.movie"} -->
+<!-- {: data-highlight="og: {"} -->
 
 Nested hashes map to `og:*` properties; arrays emit repeated tags.
 

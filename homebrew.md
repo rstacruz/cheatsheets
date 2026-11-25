@@ -8,6 +8,8 @@ last_verified_with: "Homebrew 7.0.16."
 category: Package managers
 ---
 
+## Usage
+
 ### Commands
 
 | Command                    | Description                 |

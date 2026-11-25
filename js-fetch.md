@@ -27,7 +27,6 @@ fetch('/data.json')
   })
   .catch(err => ...)
 ```
-
 <!-- {: data-highlight="fetch('/data.json')"} -->
 
 See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(developer.mozilla.org)_
@@ -36,22 +35,22 @@ See: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) _(
 
 ```js
 fetch('/data.json')
-.then(res => {
-  res.text()       // response body (=> Promise)
-  res.json()       // parse via JSON (=> Promise)
-  res.status       //=> 200
-  res.statusText   //=> 'OK'
-  res.redirected   //=> false
-  res.ok           //=> true
-  res.url          //=> 'http://site.com/data.json'
-  res.type         //=> 'basic'
-                   //   ('cors' 'default' 'error'
-                   //    'opaque' 'opaqueredirect')
+  .then(res => {
+    res.text()       // response body (=> Promise)
+    res.json()       // parse via JSON (=> Promise)
+    res.status       //=> 200
+    res.statusText   //=> 'OK'
+    res.redirected   //=> false
+    res.ok           //=> true
+    res.url          //=> 'http://site.com/data.json'
+    res.type         //=> 'basic'
+                     //   ('cors' 'default' 'error'
+                     //    'opaque' 'opaqueredirect')
 
-  res.headers.get('Content-Type')
-})
+    res.headers.get('Content-Type')
+  })
 ```
-<!-- {: data-highlight="res.json()"} -->
+<!-- {: data-highlight="res.text(); res.json()"} -->
 
 See: [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response), [Response.type](https://developer.mozilla.org/en-US/docs/Web/API/Response/type) _(developer.mozilla.org)_
 
@@ -72,7 +71,7 @@ fetch('/data.json', {
   credentials: 'omit',        // never send cookies
 })
 ```
-<!-- {: data-highlight="credentials: 'include'"} -->
+<!-- {: data-highlight="method: 'post'"} -->
 
 See: [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request), [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) _(developer.mozilla.org)_
 
@@ -99,7 +98,7 @@ function checkStatus (res) {
   }
 }
 ```
-<!-- {: data-highlight="err.response = res"} -->
+<!-- {: data-highlight="function checkStatus"} -->
 
 `fetch()` rejects only on network errors; check `res.ok` yourself.
 

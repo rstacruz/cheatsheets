@@ -15,7 +15,7 @@ $ open -u username ftp.host.com
 $ bookmark bookmarkname
 ```
 
-<!-- {: data-highlight="open; bookmark"} -->
+<!-- {: data-highlight="bookmark"} -->
 
 See: [ncftp manual](https://www.ncftp.com/ncftp/doc/ncftp.html)
 
@@ -42,10 +42,9 @@ See: [ncftpput manual](https://www.ncftp.com/ncftp/doc/ncftpput.html)
 ### Upload just the changed files
 
 ```bash
-$ git show --pretty="format:" --name-only HEAD~1
-$ ncftpget -R -C log bookmarkname /www/ .
+$ git show --pretty="format:" --name-only HEAD~1 \
+  | xargs ncftpput bookmarkname /www/
 ```
+<!-- {: data-highlight="ncftpput"} -->
 
-<!-- {: data-highlight="git show; ncftpget -R -C"} -->
-
-See: [ncftpget manual](https://www.ncftp.com/ncftp/doc/ncftpget.html)
+See: [ncftpput manual](https://www.ncftp.com/ncftp/doc/ncftpput.html)

@@ -4,7 +4,7 @@ seo_title: Moment.js cheatsheet — format, parse, add
 description: "Moment.js format: parsing, add, subtract, time zones and duration. Date reference."
 subtitle: Date manipulation library
 category: JavaScript libraries
-updated: 2026-11-14
+updated: 2026-11-25
 last_verified_with: "Moment.js 2.31.0, Moment Timezone 0.6.6."
 tier: t3
 intro: |
@@ -50,7 +50,7 @@ moment.unix(1362096000)                    // seconds
 moment.utc('2013-03-01T00:00:00Z')         // UTC mode
 ```
 
-<!-- {: data-highlight="moment.unix; moment.utc"} -->
+<!-- {: data-highlight="'YYYY-MM-DD'"} -->
 
 Pass `true` for strict parsing of user input. Without a format, non-ISO strings fall back to `Date` and warn.
 
@@ -167,7 +167,7 @@ moment.tz.guess()
 moment.utc().tz('Europe/Paris')
 ```
 
-<!-- {: data-highlight="moment.tz; moment-timezone"} -->
+<!-- {: data-highlight="moment.tz"} -->
 
 Time zones live in the separate `moment-timezone` package, which bundles IANA data.
 

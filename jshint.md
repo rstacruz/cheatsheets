@@ -3,7 +3,7 @@ title: JSHint
 subtitle: JavaScript linter
 category: Build tools
 last_verified_with: "JSHint 2.13.6."
-updated: 2026-10-04
+updated: 2026-11-25
 tier: t3
 intro: |
   JSHint is configured with inline `/* jshint ... */` directives.

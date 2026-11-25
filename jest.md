@@ -27,8 +27,7 @@ Testing
 ```bash
 npm install --save-dev jest babel-jest
 ```
-
-<!-- {: data-highlight="--save-dev"} -->
+<!-- {: data-highlight="npm install"} -->
 
 #### Add a script
 
@@ -46,7 +45,7 @@ npm install --save-dev jest babel-jest
 # Run your tests
 npm test -- --watch
 ```
-<!-- {: data-highlight="--watch"} -->
+<!-- {: data-highlight="npm test"} -->
 
 See: [Getting started](https://jestjs.io/docs/getting-started)
 
@@ -59,7 +58,7 @@ describe('My work', () => {
   })
 })
 ```
-<!-- {: data-highlight="toEqual"} -->
+<!-- {: data-highlight="test('works'"} -->
 
 See: [describe()](https://jestjs.io/docs/api#describename-fn), [test()](https://jestjs.io/docs/api#testname-fn-timeout), [expect()](https://jestjs.io/docs/expect#expectvalue)
 
@@ -75,6 +74,7 @@ describe('My work', () => {
 <!-- {: data-highlight="it('works'"} -->
 
 `it` is an alias for `test`.
+
 See: [test()](https://jestjs.io/docs/api#testname-fn-timeout)
 
 ### Setup
@@ -85,7 +85,7 @@ See: [test()](https://jestjs.io/docs/api#testname-fn-timeout)
 beforeEach(() => { ... })
 afterEach(() => { ... })
 ```
-<!-- {: data-highlight="beforeEach"} -->
+<!-- {: data-highlight="beforeEach; afterEach"} -->
 
 #### Once
 
@@ -93,7 +93,7 @@ afterEach(() => { ... })
 beforeAll(() => { ... })
 afterAll(() => { ... })
 ```
-<!-- {: data-highlight="beforeAll"} -->
+<!-- {: data-highlight="beforeAll; afterAll"} -->
 
 See: [afterAll() and more](https://jestjs.io/docs/api#afterallfn-timeout)
 
@@ -103,10 +103,9 @@ See: [afterAll() and more](https://jestjs.io/docs/api#afterallfn-timeout)
 describe.only(···)
 it.only(···) // alias: fit()
 ```
-<!-- {: data-highlight="describe.only"} -->
+<!-- {: data-highlight="describe.only; it.only"} -->
 
 See: [test.only](https://jestjs.io/docs/api#testonlyname-fn-timeout)
-
 
 ### Skipping tests
 
@@ -114,10 +113,9 @@ See: [test.only](https://jestjs.io/docs/api#testonlyname-fn-timeout)
 describe.skip(···)
 it.skip(···) // alias: xit()
 ```
-<!-- {: data-highlight="describe.skip"} -->
+<!-- {: data-highlight="describe.skip; it.skip"} -->
 
 See: [test.skip](https://jestjs.io/docs/api#testskipname-fn)
-
 
 ### Optional flags
 
@@ -146,6 +144,7 @@ expect(value)
 <!-- {: data-highlight=".toBe"} -->
 
 Note that `toEqual` is a deep equality check.
+
 See: [expect()](https://jestjs.io/docs/expect#expectvalue)
 
 ### Snapshots
@@ -158,6 +157,7 @@ expect(value)
 <!-- {: data-highlight="toMatchInlineSnapshot"} -->
 
 Note that `toMatchInlineSnapshot()` requires Prettier to be set up for the project.
+
 See: [Inline snapshots](https://jestjs.io/docs/snapshot-testing#inline-snapshots)
 
 ### Errors
@@ -260,8 +260,7 @@ test('works with promises', () => {
   })
 })
 ```
-
-<!-- {: data-highlight="=>"} -->
+<!-- {: data-highlight="return new Promise"} -->
 
 #### async/await
 
@@ -271,10 +270,10 @@ test('works with async/await', async () => {
   ···
 })
 ```
-
-<!-- {: data-highlight="hello"} -->
+<!-- {: data-highlight="await foo()"} -->
 
 Return promises, or use async/await.
+
 See: [Async tutorial](https://jestjs.io/docs/tutorial-async)
 
 ### Snapshots
@@ -285,10 +284,10 @@ it('works', () => {
   expect(output).toMatchSnapshot()
 })
 ```
-
 <!-- {: data-highlight="toMatchSnapshot"} -->
 
 First run creates a snapshot. Subsequent runs match the saved snapshot.
+
 See: [Snapshot testing](https://jestjs.io/docs/snapshot-testing)
 
 ### React test renderer
@@ -311,10 +310,10 @@ it('works', () => {
   expect(tree).toMatchSnapshot()
 })
 ```
-
 <!-- {: data-highlight="renderer.create"} -->
 
 React's test renderer can be used for Jest snapshots.
+
 See: [Snapshot test](https://jestjs.io/docs/tutorial-react-native#snapshot-test)
 
 ### Timers
@@ -370,7 +369,7 @@ expect(fn)
   .toHaveBeenCalledWith(arg1, arg2, ...)
   .toHaveBeenLastCalledWith(arg1, arg2, ...)
 ```
-<!-- {: data-highlight=".toHaveBeenCalledTimes"} -->
+<!-- {: data-highlight=".toHaveBeenCalled()"} -->
 
 #### Argument matchers
 
@@ -383,7 +382,7 @@ expect(fn)
   .toHaveBeenCalledWith(expect.stringContaining(string))
   .toHaveBeenCalledWith(expect.stringMatching(regexp))
 ```
-<!-- {: data-highlight="expect.anything()"} -->
+<!-- {: data-highlight="expect."} -->
 
 See: [Mock function assertions](https://jestjs.io/docs/expect#tohavebeencalled)
 
@@ -405,8 +404,7 @@ b = new Fn()
 Fn.mock.instances
 // → [a, b]
 ```
-
-<!-- {: data-highlight="instances"} -->
+<!-- {: data-highlight="Fn.mock.instances"} -->
 
 See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockinstances)
 
@@ -428,8 +426,7 @@ fn.mock.calls.length   // → 2
 fn.mock.calls[0][0]    // → 123
 fn.mock.calls[1][0]    // → 456
 ```
-
-<!-- {: data-highlight="calls"} -->
+<!-- {: data-highlight="fn.mock.calls"} -->
 
 See: [.mock property](https://jestjs.io/docs/mock-function-api#mockfnmockcalls)
 
@@ -448,7 +445,7 @@ const fn = jest.fn(() => 'hello')
 jest.fn().mockReturnValue('hello')
 jest.fn().mockReturnValueOnce('hello')
 ```
-<!-- {: data-highlight="mockReturnValueOnce"} -->
+<!-- {: data-highlight="mockReturnValue"} -->
 
 See: [mockReturnValue()](https://jestjs.io/docs/mock-function-api#mockfnmockreturnvaluevalue), [mockReturnValueOnce()](https://jestjs.io/docs/mock-function-api#mockfnmockreturnvalueoncevalue)
 
@@ -461,7 +458,6 @@ const fn = jest.fn()
   .mockImplementationOnce(() => 1)
   .mockImplementationOnce(() => 2)
 ```
-
 <!-- {: data-highlight="mockImplementationOnce"} -->
 
 #### Call the mock

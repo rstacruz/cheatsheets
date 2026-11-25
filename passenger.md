@@ -8,19 +8,17 @@ last_verified_with: "Passenger 6.2.2."
 updated: 2026-11-25
 ---
 
-### Enabling Phusion passenger
+### Enabling Phusion Passenger
 
-```
+```nginx
 server {
-   listen 80;
-   server_name www.yourhost.com;
-   root /somewhere/public;   # <--- be sure to point to 'public'!
-   passenger_enabled on;
-   autoindex on; # Show directory listings
+    listen 80;
+    server_name www.yourhost.com;
+    root /somewhere/public;  # point this at 'public'!
+    passenger_enabled on;
+    autoindex on;  # show directory listings
 }
 ```
 <!-- {: data-highlight="passenger_enabled on"} -->
-
-This is an example nginx configuration.
 
 See: [passenger_enabled](https://www.phusionpassenger.com/library/config/nginx/reference/#passenger_enabled)

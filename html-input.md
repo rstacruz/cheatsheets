@@ -8,15 +8,17 @@ last_verified_with: "WHATWG HTML Living Standard."
 weight: -3
 ---
 
+## Attributes
+
 ### Input
 
 #### Common attributes
 
 ```html
- <input ...
-   disabled
-   required
-   checked
+<input ...
+  disabled
+  required
+  checked
 ```
 <!-- {: data-highlight="disabled; required; checked"} -->
 
@@ -139,4 +141,4 @@ See: [Text state (type=text)](https://html.spec.whatwg.org/multipage/input.html#
 
 ## Also see
 
- * <https://html.spec.whatwg.org/multipage/input.html#the-input-element>
+* <https://html.spec.whatwg.org/multipage/input.html#the-input-element>

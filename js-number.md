@@ -56,7 +56,6 @@ parseInt('08', 10)     // → 8
 parseFloat('3.14abc')  // → 3.14
 +'42'                  // → 42 (unary plus)
 ```
-
 <!-- {: data-highlight="parseInt"} -->
 
 `Number()` rejects trailing junk, while `parseInt()` and `parseFloat()` stop at
@@ -75,7 +74,6 @@ Number.isSafeInteger(2 ** 53)    // → false
 Number.MAX_SAFE_INTEGER          // → 9007199254740991
 Number.EPSILON                   // → 2.220446049250313e-16
 ```
-
 <!-- {: data-highlight="Number.isNaN"} -->
 
 The global `isNaN('x')` coerces its argument and returns `true`;
@@ -95,7 +93,7 @@ Math.floor(-4.7)    // → -5
 Math.ceil(4.2)      // → 5
 Math.trunc(4.7)     // → 4 (drop the fraction)
 ```
-<!-- {: data-highlight="Math.trunc"} -->
+<!-- {: data-highlight="Math.round; Math.floor; Math.ceil; Math.trunc"} -->
 
 #### toFixed()
 
@@ -104,7 +102,7 @@ Math.trunc(4.7)     // → 4 (drop the fraction)
 (0.1 + 0.2).toFixed(2)      // → "0.30"
 (1.005).toFixed(2)          // → "1.00" (really 1.00499...)
 ```
-<!-- {: data-highlight="(1.005).toFixed(2)"} -->
+<!-- {: data-highlight="toFixed"} -->
 
 `toFixed()` returns a string, and binary floats can make decimal rounding
 surprising.
@@ -124,7 +122,7 @@ Math.sign(-3)         // → -1
 Math.hypot(3, 4)      // → 5
 Math.PI               // → 3.141592653589793
 ```
-<!-- {: data-highlight="Math.hypot"} -->
+<!-- {: data-highlight="Math."} -->
 
 #### Random numbers
 
@@ -169,7 +167,7 @@ fmt({ style: 'unit', unit: 'kilometer' }).format(5)  // → "5 km"
 (3.14159).toPrecision(3)   // → "3.14"
 (12345).toExponential(2)   // → "1.23e+4"
 ```
-<!-- {: data-highlight="toExponential(2)"} -->
+<!-- {: data-highlight="toPrecision(3); toExponential(2)"} -->
 
 `toPrecision()` and `toExponential()` return strings; locale output varies by
 runtime and locale.

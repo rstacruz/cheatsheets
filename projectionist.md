@@ -20,8 +20,9 @@ updated: 2026-11-25
       "export default {} = React.createClass({ ... })"
     ]
   }
+}
 ```
-<!-- {: data-highlight="template"} -->
+<!-- {: data-highlight="app/assets/react/components/*.jsx"} -->
 
 See: [Configuration](https://github.com/tpope/vim-projectionist)
 
@@ -43,31 +44,26 @@ See: [Configuration](https://github.com/tpope/vim-projectionist)
   }
 }
 ```
-<!-- {: data-highlight="alternate; dispatch; make"} -->
 
 See: [Configuration](https://github.com/tpope/vim-projectionist)
 
 ### Commands
 
 | Command | Description |
-|---------|-------------|
+| --- | --- |
 | `:A` | Edit alternate |
 | `:A {file}` | Edit file |
-|---------|-------------|
+| --- | --- |
 | `:AS` | Edit in split |
 | `:AV` | Edit in vsplit |
 | `:AT` | Edit in tab |
-|---------|-------------|
+| --- | --- |
 | `:AD` | Replace with template |
-|---------|-------------|
+| --- | --- |
 | `:Cd` | cd to root |
 | `:Cd {path}` | cd to path in root |
 | `:Lcd` | cd to root using :lcd |
-|---------|-------------|
+| --- | --- |
 | `:ProjectDo {cmd}` | run command in root |
 
 See: [Commands](https://github.com/tpope/vim-projectionist)
-
-### Reference
-
-See [vim-projectionist](https://github.com/tpope/vim-projectionist).

@@ -38,7 +38,6 @@ bimonthly
 quarterly
 yearly
 ```
-<!-- {: data-highlight="every day; every N days; biweekly; quarterly"} -->
 
 #### Begin
 
@@ -71,7 +70,7 @@ this week  # or day, month, quarter, year
 next week
 last week
 ```
-<!-- {: data-highlight="2004/10/1; this week; next week; last week"} -->
+<!-- {: data-highlight="this week; next week; last week"} -->
 
 See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)
 
@@ -80,6 +79,6 @@ See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Express
 ```sh
 $ ledger r -p "since last month"
 ```
-<!-- {: data-highlight="ledger r -p; since last month"} -->
+<!-- {: data-highlight="since last month"} -->
 
 See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)

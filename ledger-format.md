@@ -60,15 +60,15 @@ account Expenses:Food
     eval print("Hello!")
     default
 ```
-<!-- {: data-highlight="note; alias; payee; assert"} -->
+<!-- {: data-highlight="account Expenses:Food"} -->
 
 These directives matter only with `--strict` or `--pedantic`.
 
 See: [Accounts](https://ledger-cli.org/doc/ledger3.html#accounts)
 
-## Others
+## Directives
 
-### Others
+### Defaults
 
 ```
 D $1,000.00     ; set default commodity
@@ -88,6 +88,6 @@ account Home
 include home.journal
 end
 ```
-<!-- {: data-highlight="account Home; include home.journal; end"} -->
+<!-- {: data-highlight="include home.journal"} -->
 
 See: [Journal format](https://ledger-cli.org/doc/ledger3.html#Journal-Format)

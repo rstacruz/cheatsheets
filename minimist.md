@@ -49,7 +49,6 @@ var args = minimist(process.argv.slice(2), {
   unknown: function () { ... } /* invoked on unknown param */
 })
 ```
-<!-- {: data-highlight="stopEarly; unknown; default"} -->
 
 All options are optional.
 
@@ -88,7 +87,7 @@ meow(`
   /* minimist options */
 })
 ```
-<!-- {: data-highlight="meow; $0"} -->
+<!-- {: data-highlight="-h, --help; -v, --version"} -->
 
 Use [meow](https://www.npmjs.com/package/meow) to add `--help` and `--version`.
 

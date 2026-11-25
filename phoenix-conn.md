@@ -8,11 +8,9 @@ last_verified_with: "Plug 1.20.4, Phoenix 1.8.17."
 updated: 2026-11-25
 ---
 
-Request
--------
+## Request
 
 ### Request
-
 <!-- {: .-prime} -->
 
 ```elixir
@@ -23,8 +21,8 @@ conn.request_path  # → "/posts/1"
 conn.query_string  # → "utm_source=twitter"
 conn.port          # → 80
 conn.scheme        # → :http
-conn.peer          # → { {127, 0, 0, 1}, 12345 }
-conn.remote_ip     # → { 151, 236, 219, 228 }
+conn.peer          # → {{127, 0, 0, 1}, 12345}
+conn.remote_ip     # → {151, 236, 219, 228}
 conn.req_headers   # → [{"content-type", "text/plain"}]
 ```
 <!-- {: data-highlight="conn.host; conn.path_info; conn.query_string; conn.req_headers"} -->
@@ -51,11 +49,9 @@ Usually only useful for tests.
 
 See: [put_req_header/3](https://hexdocs.pm/plug/Plug.Conn.html#put_req_header/3)
 
-Response
---------
+## Response
 
 ### Response
-
 <!-- {: .-prime} -->
 
 ```elixir
@@ -75,7 +71,7 @@ See: [Response fields](https://hexdocs.pm/plug/Plug.Conn.html#module-response-fi
 # Plug.Conn
 conn
 |> html("<html><head>...")
-|> json(%{ message: "Hello" })
+|> json(%{message: "Hello"})
 |> text("Hello")
 ```
 <!-- {: data-highlight="html; json; text"} -->
@@ -87,7 +83,7 @@ conn
 |> redirect(external: "http://www.google.com/")
 |> halt()
 ```
-<!-- {: data-highlight="redirect; halt"} -->
+<!-- {: data-highlight="redirect"} -->
 
 #### Headers
 
@@ -98,7 +94,7 @@ conn
 |> put_status(202)
 |> put_status(:not_found)
 ```
-<!-- {: data-highlight="put_status; put_resp_header"} -->
+<!-- {: data-highlight="put_resp_header"} -->
 
 #### Private
 
@@ -134,7 +130,7 @@ conn
 |> put_layout(false)
 |> put_view(ErrorView)
 ```
-<!-- {: data-highlight="put_layout; put_view"} -->
+<!-- {: data-highlight="put_layout"} -->
 
 #### Security
 
@@ -162,11 +158,9 @@ layout(conn)
 
 See: [render/3](https://hexdocs.pm/phoenix/Phoenix.Controller.html#render/3)
 
-Other features
---------------
+## Other features
 
 ### Other fields
-
 <!-- {: .-prime} -->
 
 ```elixir
@@ -182,13 +176,13 @@ See: [Connection fields](https://hexdocs.pm/plug/Plug.Conn.html#module-connectio
 
 ### Accepts
 
-```js
+```elixir
 plug :accepts, ["html", "json"]
 conn |> accepts(["html", "json"])
 get_format(conn)  # → "html"
 conn.accepts
 ```
-<!-- {: data-highlight="plug :accepts; get_format"} -->
+<!-- {: data-highlight="accepts"} -->
 
 See: [get_format/1](https://hexdocs.pm/phoenix/Phoenix.Controller.html#get_format/1)
 
@@ -235,4 +229,3 @@ conn
 See: [fetch_session/1](https://hexdocs.pm/plug/Plug.Conn.html#fetch_session/1)
 
 Also available: `flash` `cookie` `params`
-

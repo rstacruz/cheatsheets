@@ -34,6 +34,6 @@ See: [Report filtering](https://ledger-cli.org/doc/ledger3.html#Report-filtering
 ledger r @taco
 ledger r comment =~ /landline/
 ```
-<!-- {: data-highlight="ledger r; =~"} -->
+<!-- {: data-highlight="@taco; =~"} -->
 
 See: [Complex expressions](https://ledger-cli.org/doc/ledger3.html#Complex-expressions)

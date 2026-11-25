@@ -31,7 +31,7 @@ links:
    subheading (h2).
 ```
 
-<!-- {: data-highlight="*; **"} -->
+<!-- {: data-highlight="*"} -->
 
 See: [Headlines](https://orgmode.org/manual/Headlines.html)
 
@@ -108,7 +108,7 @@ See: [Structure editing](https://orgmode.org/manual/Structure-Editing.html)
 | ---             | ---             |
 | Start countdown | `C-c` `C-x` `;` |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts-right} -->
 
 You can use this for Pomodoro!
 
@@ -126,7 +126,7 @@ See: [Timers](https://orgmode.org/manual/Timers.html)
 | Add date        | `C-c` `.`       |
 | Add time & date | `C-u` `C-c` `.` |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts-right} -->
 
 Start by adding the current file to the agenda (`C-c [`), then use the agenda menu to navigate.
 
@@ -137,6 +137,8 @@ See: [Agenda dispatcher](https://orgmode.org/manual/Agenda-Dispatcher.html)
 | Description | Shortcut    |
 | ---         | ---         |
 | Export menu | `C-c` `C-e` |
+
+<!-- {: .-shortcuts-right} -->
 
 Lets you export the document as Markdown, HTML, and others.
 

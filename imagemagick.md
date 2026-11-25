@@ -12,6 +12,8 @@ links:
     url: https://www.imagemagick.org
 ---
 
+## Commands
+
 ### Common options
 
 | Option              | Description                     |
@@ -58,7 +60,7 @@ convert *.jpg hello.pdf
 
 See: [PDF](https://imagemagick.org/formats/#supported)
 
-### References
+## References
 
 - <https://www.imagemagick.org/>
 

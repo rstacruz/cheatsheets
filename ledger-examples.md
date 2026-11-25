@@ -69,7 +69,7 @@ See: [Generating a monthly register](https://ledger-cli.org/doc/ledger3.html#Gen
   ledger r -p 01/26
   ledger r -p yesterday
 ```
-<!-- {: data-highlight="ledger r -p; yesterday"} -->
+<!-- {: data-highlight="-p 01/26; -p yesterday"} -->
 
 See: [The register command](https://ledger-cli.org/doc/ledger3.html#The-register-command)
 
@@ -79,6 +79,6 @@ See: [The register command](https://ledger-cli.org/doc/ledger3.html#The-register
 # what's everything I got in USD? (--exchange)
   ledger b Assets -X USD
 ```
-<!-- {: data-highlight="ledger b Assets; -X USD"} -->
+<!-- {: data-highlight="-X USD"} -->
 
 See: [Commodity reporting](https://ledger-cli.org/doc/ledger3.html#Commodity-Reporting)

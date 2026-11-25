@@ -24,7 +24,7 @@ links:
 
 See: [Options](https://kramdown.gettalong.org/options.html#available-options)
 
-### For jekyll (gh-pages)
+### For Jekyll (gh-pages)
 
 #### _config.yml
 
@@ -33,7 +33,7 @@ markdown: kramdown
 kramdown:
   input: GFM
 ```
-<!-- {: data-highlight="markdown; input"} -->
+<!-- {: data-highlight="markdown: kramdown; input: GFM"} -->
 
 See: [Jekyll configuration](https://jekyllrb.com/docs/configuration/options/)
 
@@ -75,7 +75,7 @@ A simple paragraph with an ID attribute.
 {:.ruby}
     Some code here
 ```
-<!-- {: data-highlight="{: #para-one}; {: #myid}; {:.cls}"} -->
+<!-- {: data-highlight="{: #para-one}; {:title=; {:.cls}"} -->
 
 See: [Attribute list definitions](https://kramdown.gettalong.org/syntax.html#attribute-list-definitions)
 

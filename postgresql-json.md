@@ -29,13 +29,13 @@ SELECT '{"name":"John"}'::jsonb -> 'name' AS j,  -- "John"
 
 #### Operators
 
-| Operator      | Extracts                  | Result  |
-| ---           | ---                       | ---     |
-| `->`          | Object key (text)         | `jsonb` |
-| `->>`         | Object key (text)         | `text`  |
-| `->`          | Array item (int, 0-based) | `jsonb` |
-| `#>`          | Nested path (text[])      | `jsonb` |
-| `#>>`         | Nested path (text[])      | `text`  |
+| Operator | Extracts | Result |
+| --- | --- | --- |
+| `->` | Object key (text) | `jsonb` |
+| `->>` | Object key (text) | `text` |
+| `->` | Array item (int, 0-based) | `jsonb` |
+| `#>` | Nested path (text[]) | `jsonb` |
+| `#>>` | Nested path (text[]) | `text` |
 
 <!-- {: .-headers} -->
 
@@ -80,13 +80,13 @@ SELECT '{"tags":["dev"]}'::jsonb ? 'tags' AS has_key,    -- t
 
 #### Operators
 
-| Operator      | Test                          |
-| ---           | ---                           |
-| `?` _text_    | Top-level key or array item   |
-| <code>?&#124;</code> _text[]_ | Any of the keys or items     |
-| `?&` _text[]_ | All of the keys or items      |
-| `@>` _jsonb_  | Left contains right           |
-| `<@` _jsonb_  | Left is contained in right    |
+| Operator | Test |
+| --- | --- |
+| `?` _text_ | Top-level key or array item |
+| <code>?&#124;</code> _text[]_ | Any of the keys or items |
+| `?&` _text[]_ | All of the keys or items |
+| `@>` _jsonb_ | Left contains right |
+| `<@` _jsonb_ | Left is contained in right |
 
 <!-- {: .-headers.-left-align} -->
 
@@ -120,7 +120,7 @@ SELECT '["a","b","c"]'::jsonb - 1 AS dropped;
 SELECT '{"a":{"b":1}}'::jsonb #- '{a,b}' AS dropped;
 -- {"a": {}}
 ```
-<!-- {: data-highlight="-; #-"} -->
+<!-- {: data-highlight="- 'a'; - 1; #- '{a,b}'"} -->
 
 `-` removes keys or array items; `#-` removes a nested path.
 
@@ -369,14 +369,13 @@ CREATE INDEX users_path_idx ON users
 
 #### Supported operators
 
-| Operator            | `jsonb_ops` | `jsonb_path_ops` |
-| ---                 | ---         | ---              |
-| `?`, <code>?&#124;</code>, `?&`    | Yes         | No               |
-| `@>`, `@?`, `@@`    | Yes         | Yes              |
+| Operator | `jsonb_ops` | `jsonb_path_ops` |
+| --- | --- | --- |
+| `?`, <code>?&#124;</code>, `?&` | Yes | No |
+| `@>`, `@?`, `@@` | Yes | Yes |
 
 <!-- {: .-headers} -->
 
 `jsonb_path_ops` is smaller and faster for containment and path matches, but cannot answer key-existence queries.
 
 See: [Indexing jsonb](https://www.postgresql.org/docs/current/datatype-json.html#JSON-INDEXING)
-

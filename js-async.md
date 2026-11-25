@@ -30,7 +30,6 @@ async function load() {
 
 load()                     // → Promise
 ```
-
 <!-- {: data-highlight="async function"} -->
 
 #### Handle a rejection
@@ -42,8 +41,7 @@ try {
   console.error(err)       // rejection lands here
 }
 ```
-
-<!-- {: data-highlight="await load()"} -->
+<!-- {: data-highlight="catch"} -->
 
 An `async` function always returns a promise; `await` unwraps it. `return`
 resolves, a throw rejects, and top-level `await` works in ES modules only.
@@ -96,8 +94,7 @@ const id = setTimeout(() => {
 
 clearTimeout(id)
 ```
-
-<!-- {: data-highlight="clearTimeout"} -->
+<!-- {: data-highlight="setTimeout"} -->
 
 #### setInterval()
 
@@ -108,8 +105,7 @@ const id = setInterval(() => {
 
 clearInterval(id)
 ```
-
-<!-- {: data-highlight="clearInterval"} -->
+<!-- {: data-highlight="setInterval"} -->
 
 #### sleep()
 
@@ -135,7 +131,6 @@ fetch('/data.json', { signal: controller.signal })
 
 controller.abort()
 ```
-
 <!-- {: data-highlight="controller.abort"} -->
 
 #### Timeout signal

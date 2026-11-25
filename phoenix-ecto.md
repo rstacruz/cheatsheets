@@ -20,7 +20,7 @@ tier: t3
 
 ```bash
 $ mix phx.gen.context Accounts User users \
-    name:string email:string age:integer
+  name:string email:string age:integer
 ```
 <!-- {: data-highlight="mix phx.gen.context"} -->
 
@@ -74,7 +74,7 @@ Repo.one(from p in Post, where: p.title == "Hello")
 Repo.exists?(Post)                #=> true
 Repo.aggregate(Post, :count, :id) #=> 3
 ```
-<!-- {: data-highlight="Repo.get; Repo.get_by; Repo.one; Repo.aggregate"} -->
+<!-- {: data-highlight="Repo.get; Repo.get_by"} -->
 
 `Repo.one/2` returns `nil` for no rows and raises for multiple; `one!/2` also raises for no rows.
 
@@ -166,7 +166,7 @@ changeset
 |> validate_confirmation(:password)
 |> validate_acceptance(:terms)
 ```
-<!-- {: data-highlight="validate_required; validate_format; validate_inclusion; validate_length"} -->
+<!-- {: data-highlight="validate_required"} -->
 
 Most validations skip fields absent from `changes`; `validate_required/3` checks them too.
 
@@ -227,7 +227,7 @@ delete_change(changeset, :age)
 merge(changeset, other_changeset)
 add_error(changeset, :name, "taken")
 ```
-<!-- {: data-highlight="put_change; force_change; update_change; delete_change"} -->
+<!-- {: data-highlight="force_change"} -->
 
 `force_change/3` records a change even when the value is unchanged.
 
@@ -312,7 +312,7 @@ from p in Post,
   where: c.body == "Nice",
   select: p
 ```
-<!-- {: data-highlight="assoc"} -->
+<!-- {: data-highlight="join:"} -->
 
 Use a defined association with `assoc/2`.
 

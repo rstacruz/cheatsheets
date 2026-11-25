@@ -178,7 +178,6 @@ greet = (greeting, name) => `${greeting}, ${name}!`
 
 #### Bind arguments
 
-
 ```js
 fn = _.partial(fn, 'hi')
 fn('joe')    // → 'hi, joe!'
@@ -275,7 +274,7 @@ See: [pad](https://lodash.com/docs/4.18.1#pad)
 ### Trim
 
 ```js
-_.trim('  str  ')         // → 'str' 
+_.trim('  str  ')         // → 'str'
 _.trimLeft('  str  ')     // → 'str  '
 _.trimRight('  str  ')    // → '  str'
 ```
@@ -335,7 +334,7 @@ _([1, 2, 3])
   .thru((n) => n.reverse())
   .value()
 ```
-<!-- {: data-highlight=".reduce; .tap; .thru; .value"} -->
+<!-- {: data-highlight=".value"} -->
 
 See: [chain](https://lodash.com/docs/4.18.1#chain)
 
@@ -345,6 +344,6 @@ See: [chain](https://lodash.com/docs/4.18.1#chain)
 _(list).map(fn).filter(fn).value()
 _.chain(list).map(fn).value()
 ```
-<!-- {: data-highlight="_.chain"} -->
+<!-- {: data-highlight="_(list); _.chain"} -->
 
 See: [chain](https://lodash.com/docs/4.18.1#chain)

@@ -19,6 +19,8 @@ links:
     url: https://httpie.io/cli/run
 ---
 
+## Requests
+
 ### Parameters
 
 ```bash
@@ -31,7 +33,7 @@ $ http POST http://example.com/posts/3 \
     token=@token.txt \    # =@  read from file (text)
     user:=@user.json      # :=@ read from file (json)
 ```
-<!-- {: data-highlight="Origin:example.com; age:=29; token=@token.txt"} -->
+<!-- {: data-highlight="name=; q==; age:=; token=@"} -->
 
 See: [Request items](https://httpie.io/docs/cli/command-line-options#request-items)
 
@@ -42,7 +44,7 @@ $ http --form POST example.com \
     name="John Smith" \
     cv@document.txt
 ```
-<!-- {: data-highlight="--form; cv@document.txt"} -->
+<!-- {: data-highlight="--form"} -->
 
 See: [Forms](https://httpie.io/docs/cli/command-line-options#forms)
 
@@ -51,13 +53,13 @@ See: [Forms](https://httpie.io/docs/cli/command-line-options#forms)
 ```bash
 $ echo '{"hello": "world"}' | http POST example.com/post
 ```
-<!-- {: data-highlight="POST example.com/post"} -->
+<!-- {: data-highlight="http POST"} -->
 
 See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-request-body)
 
-### Options
+## Options
 
-#### Printing options
+### Printing options
 
 ```bash
 -v, --verbose            # print full HTTP exchange; implies --all
@@ -71,9 +73,11 @@ See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-requ
     --pretty=none        # all | colors | format
     --json | -j          # JSON request data (default); set Accept
 ```
-<!-- {: data-highlight="-v; --print=HhBb; --pretty=none"} -->
+<!-- {: data-highlight="--print=HhBb"} -->
 
-#### Authentication
+See: [Output options](https://httpie.io/docs/cli/command-line-options#output-options)
+
+### Authentication
 
 ```bash
     --session NAME
@@ -82,9 +86,11 @@ See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-requ
     --auth-type digest
     --auth-type bearer
 ```
-<!-- {: data-highlight="--auth-type bearer"} -->
+<!-- {: data-highlight="--auth USER:PASS"} -->
 
-#### Session
+See: [Authentication](https://httpie.io/docs/cli/command-line-options#authentication)
+
+### Session
 
 ```bash
     --session NAME       # store auth and cookies
@@ -92,16 +98,20 @@ See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-requ
 ```
 <!-- {: data-highlight="--session; --session-read-only"} -->
 
-#### Downloading
+See: [Named sessions](https://httpie.io/docs/cli/command-line-options#named-sessions)
+
+### Downloading
 
 ```bash
 -d, --download           # like wget
 -c, --continue
 -o, --output FILE
 ```
-<!-- {: data-highlight="-d; -o"} -->
+<!-- {: data-highlight="-d"} -->
 
-#### Others
+See: [Download mode](https://httpie.io/docs/cli/command-line-options#download-mode)
+
+### Others
 
 ```bash
 -F, --follow             # follow redirects
@@ -110,11 +120,10 @@ See: [Raw request body](https://httpie.io/docs/cli/command-line-options#raw-requ
     --verify=no          # skip SSL verification
     --proxy http:http://foo.bar:3128
 ```
-<!-- {: data-highlight="--follow; --verify=no; --proxy"} -->
 
 See: [HTTPie CLI docs](https://httpie.io/docs/cli/command-line-options)
 
-### References
+## References
 
 * <https://github.com/httpie/cli>
 

@@ -7,16 +7,69 @@ last_verified_with: "GNU grep 3.12."
 tier: t3
 ---
 
-### Usage
+## Usage
 
+### Basic usage
 <!-- {: .-prime} -->
 
 ```bash
 grep <options> pattern <file...>
 ```
-<!-- {: data-highlight="grep <options>"} -->
+<!-- {: data-highlight="grep"} -->
 
 See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
+
+### Examples
+
+#### Case insensitive
+
+```bash
+# match any line in foo.txt that contains "bar"
+grep -i bar foo.txt
+```
+<!-- {: data-highlight="-i"} -->
+
+#### Alternation
+
+```bash
+# match any line in bar.txt that contains
+# either "foo" or "oof"
+grep -E "foo|oof" bar.txt
+```
+<!-- {: data-highlight="foo|oof"} -->
+
+#### Extract URLs
+
+```bash
+# match anything that resembles a URL in
+# foo.txt and only print out the match
+grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
+```
+<!-- {: data-highlight="-oE"} -->
+
+#### Pipelines
+
+```bash
+# match any line that contains "export" in
+# .bash_profile, pipe to another grep that
+# matches any of the first set of matches
+# containing "PATH"
+grep "export" .bash_profile | grep "PATH"
+```
+
+#### Follow and filter
+
+```bash
+# follow the tail of server.log, pipe to grep
+# and print out any line that contains "error"
+# and include 5 lines of context
+tail -f server.log | grep -iC 5 error
+```
+<!-- {: data-highlight="-iC"} -->
+
+See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
+
+## Options
 
 ### Matching options
 
@@ -28,7 +81,6 @@ See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
 -w, --word-regexp
 -x, --line-regexp
 ```
-<!-- {: data-highlight="-i; -v; -w; -x"} -->
 
 See: [Matching Control](https://www.gnu.org/software/grep/manual/grep.html#Matching-Control)
 
@@ -68,7 +120,7 @@ PCRE has even more options such as additional anchors and character classes, loo
 
 See: [Regular Expressions](https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions)
 
-### Output Options
+### Output options
 
 ```bash
 -c, --count           # count matching lines, suppress normal output
@@ -78,11 +130,10 @@ See: [Regular Expressions](https://www.gnu.org/software/grep/manual/grep.html#Re
 -q, --quiet, --silent
 -s, --no-messages     # suppress errors on unreadable files
 ```
-<!-- {: data-highlight="-c; -m; -o; -q"} -->
 
 See: [General Output Control](https://www.gnu.org/software/grep/manual/grep.html#General-Output-Control)
 
-### Context Options
+### Context options
 
 ```bash
 -B NUM, --before-context=NUM  # print NUM lines before a match
@@ -92,46 +143,3 @@ See: [General Output Control](https://www.gnu.org/software/grep/manual/grep.html
 <!-- {: data-highlight="-B; -A; -C"} -->
 
 See: [Context Line Control](https://www.gnu.org/software/grep/manual/grep.html#Context-Line-Control)
-
-### Examples
-
-```bash
-# Case insensitive: match any line in foo.txt
-# that contains "bar"
-grep -i bar foo.txt
-```
-<!-- {: data-highlight="grep -i bar foo.txt"} -->
-
-```bash
-#  match any line in bar.txt that contains
-# either "foo" or "oof"
-grep -E "foo|oof" bar.txt
-```
-<!-- {: data-highlight="foo|oof"} -->
-
-```bash
-# match anything that resembles a URL in
-# foo.txt and only print out the match
-grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
-```
-<!-- {: data-highlight="-oE"} -->
-
-```bash
-# can also be used with pipes:
-# match any line that contains "export" in
-# .bash_profile, pipe to another grep that
-# matches any of the first set of matches
-# containing "PATH"
-grep "export" .bash_profile | grep "PATH"
-```
-<!-- {: data-highlight="PATH"} -->
-
-```bash
-# follow the tail of server.log, pipe to grep
-# and print out any line that contains "error"
-# and include 5 lines of context
-tail -f server.log | grep -iC 5 error
-```
-<!-- {: data-highlight="-iC"} -->
-
-See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)

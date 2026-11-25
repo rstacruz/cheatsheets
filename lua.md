@@ -39,7 +39,7 @@ print [[a multi-line    <-->     print([[a multi-line
 f{x=10, y=20}           <-->     f({x=10, y=20})
 type{}                  <-->     type({})
 ```
-<!-- {: data-highlight="print; dofile; f{x=10"} -->
+<!-- {: data-highlight="dofile 'a.lua'; f{x=10, y=20}; type{}"} -->
 
 See: [Function calls](https://www.lua.org/manual/5.4/manual.html#3.4.10)
 
@@ -190,7 +190,7 @@ setmetatable(mytable, mt)
 
 print(myobject)
 ```
-<!-- {: data-highlight="setmetatable; __index; __newindex; __tostring"} -->
+<!-- {: data-highlight="setmetatable"} -->
 
 See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4)
 
@@ -243,7 +243,7 @@ See: [Values and types](https://www.lua.org/manual/5.4/manual.html#2.1)
 -- Relational (binary)
 -- __eq  __lt  __gt  __le  __ge
    ==    <     >     <=    >=
-~=   -- Not equal, just like !=
+   ~=   -- Not equal, just like !=
 
 -- Arithmetic (binary)
 -- __add  __sub  __muv  __div  __mod  __pow
@@ -253,7 +253,7 @@ See: [Values and types](https://www.lua.org/manual/5.4/manual.html#2.1)
 -- __unm (unary minus)
    -
 ```
-<!-- {: data-highlight="==; ~=; __add; __unm"} -->
+<!-- {: data-highlight="==; ~="} -->
 
 See: [Relational operators](https://www.lua.org/manual/5.4/manual.html#3.4.4)
 
@@ -278,7 +278,6 @@ See: [Logical operators](https://www.lua.org/manual/5.4/manual.html#3.4.5)
 -- __len(array)
 #array
 
-
 -- Indexing
 -- __index(table, key)
 t[key]
@@ -300,7 +299,7 @@ See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4
 
 ## API
 
-### API: Global Functions
+### API: Global functions
 
 ```
 dofile("hello.lua")
@@ -326,7 +325,7 @@ ipairs(t)    -- iterable list of {index, value}
 tonumber("34")
 tonumber("8f", 16)
 ```
-<!-- {: data-highlight="loadfile; assert; rawset; pairs"} -->
+<!-- {: data-highlight="rawset; rawget; pairs; ipairs"} -->
 
 See: [Basic functions (Lua 5.1)](https://www.lua.org/manual/5.1/manual.html#5.2)
 
@@ -356,7 +355,6 @@ s:reverse()
 s:byte()
 s:format()
 ```
-<!-- {: data-highlight="s:find; s:match; s:gsub; s:format"} -->
 
 See: [String manipulation (Lua 5.1)](https://www.lua.org/manual/5.1/manual.html#5.4)
 
@@ -389,7 +387,6 @@ math.sqrt    math.tan     math.tanh
 math.sqrt(144)
 math
 ```
-<!-- {: data-highlight="math.sqrt; math.random; math.max; math.abs"} -->
 
 See: [Mathematical functions](https://www.lua.org/manual/5.4/manual.html#6.7)
 

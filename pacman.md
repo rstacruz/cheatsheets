@@ -34,7 +34,7 @@ See: [pacman manual](https://pacman.archlinux.page/pacman.8.html)
 
 | Command              | Description                            |
 | -------------------- | -------------------------------------- |
-| `pacman -Qe`         | List explictly-installed packages      |
+| `pacman -Qe`         | List explicitly-installed packages     |
 | ---                  | ---                                    |
 | `pacman -Ql <pkg>`   | What files does this package have?     |
 | `pacman -Qii <pkg>`  | List information on package            |

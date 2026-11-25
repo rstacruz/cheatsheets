@@ -46,19 +46,19 @@ See: [Basic reporting commands](https://ledger-cli.org/doc/ledger3.html#Basic-Re
 # what did I spend on most? (--sorted)
   ledger reg Expenses -S amount
 ```
-<!-- {: data-highlight="--sorted; -S amount"} -->
+<!-- {: data-highlight="-S amount"} -->
 
 ```bash
 # how much did I have at this date? (--end)
   ledger bal -e 01/15 ^Assets ^Liabilities
 ```
-<!-- {: data-highlight="-e 01/15; ^Assets"} -->
+<!-- {: data-highlight="-e 01/15"} -->
 
 ```bash
 # how much did I spend and earn this month?
   ledger bal ^Expenses ^Income --invert
 ```
-<!-- {: data-highlight="--invert; ^Expenses"} -->
+<!-- {: data-highlight="--invert"} -->
 
 ```bash
 # how much was spent over the course of 3 days? (totalled)
@@ -89,7 +89,7 @@ See: [Basic format](https://ledger-cli.org/doc/ledger3.html#Basic-format)
 ```
 2008/01/01=2008/01/14 Client invoice
 ```
-<!-- {: data-highlight="2008/01/01=2008/01/14"} -->
+<!-- {: data-highlight="=2008/01/14"} -->
 
 It can mean anything you want, eg, for the estimated date you'll be paid.
 
@@ -102,8 +102,7 @@ See: [Effective dates](https://ledger-cli.org/doc/ledger3.html#Effective-Dates)
   Expenses:Food    $20
   Assets:Cash     $-20  = $500
 ```
-
-<!-- {: data-highlight="Assets"} -->
+<!-- {: data-highlight="= $500"} -->
 
 `Cash $X = $500` ensures Cash is at $500 after the transaction.
 
@@ -120,8 +119,7 @@ See: [Balance assertions](https://ledger-cli.org/doc/ledger3.html#Balance-assert
   Expenses:Food            $20
   Assets:Cash              = $500
 ```
-
-<!-- {: data-highlight=":Cash"} -->
+<!-- {: data-highlight="Assets:Cash              = $500"} -->
 
 `ACCOUNT = $500` figures out what's needed to make it $500.
 
@@ -134,8 +132,7 @@ See: [Balance assignments](https://ledger-cli.org/doc/ledger3.html#Balance-assig
   (Assets:Checking)  -$200
   Expenses:Rent
 ```
-
-<!-- {: data-highlight=":Checking"} -->
+<!-- {: data-highlight="(Assets:Checking)"} -->
 
 See: [Virtual postings](https://ledger-cli.org/doc/ledger3.html#Virtual-postings)
 
@@ -147,8 +144,7 @@ See: [Virtual postings](https://ledger-cli.org/doc/ledger3.html#Virtual-postings
   Assets:Fridge                35 apples @ $0.42
   Assets:Cash
 ```
-
-<!-- {: data-highlight=":Fridge"} -->
+<!-- {: data-highlight="@ $0.42"} -->
 
 ```bash
 ; total cost
@@ -156,8 +152,7 @@ See: [Virtual postings](https://ledger-cli.org/doc/ledger3.html#Virtual-postings
   Assets:Fridge                35 apples @@ $14.70
   Assets:Cash
 ```
-
-<!-- {: data-highlight="Fridge"} -->
+<!-- {: data-highlight="@@ $14.70"} -->
 
 ```bash
 ; fixed lot prices
@@ -165,8 +160,7 @@ See: [Virtual postings](https://ledger-cli.org/doc/ledger3.html#Virtual-postings
   Expenses:Gasoline             11 GAL {=$2.299}
   Assets:Cash
 ```
-
-<!-- {: data-highlight=":Gasoline"} -->
+<!-- {: data-highlight="{=$2.299}"} -->
 
 See: [Commoditized amounts](https://ledger-cli.org/doc/ledger3.html#Commoditized-Amounts)
 
@@ -179,7 +173,7 @@ commodity $
   nomarket
   default
 ```
-<!-- {: data-highlight="commodity; nomarket; default"} -->
+<!-- {: data-highlight="commodity $"} -->
 
 See: [Commodity reporting](https://ledger-cli.org/doc/ledger3.html#Commodity-Reporting)
 
@@ -201,7 +195,6 @@ ledger bal --budget Expenses
 ledger bal --unbudgeted Expenses
 ```
 <!-- {: data-highlight="--budget; --unbudgeted"} -->
-
 
 See: [Budgeting](https://ledger-cli.org/doc/ledger3.html#Budgeting)
 
@@ -233,7 +226,7 @@ interval:
   every N days|weeks|...
   daily|weekly|...
 ```
-<!-- {: data-highlight="every day|week|month|quarter|year; daily|weekly|..."} -->
+<!-- {: data-highlight="every day|week|month|quarter|year; every N days|weeks|...; daily|weekly|..."} -->
 
 ```
 begin:
@@ -257,7 +250,6 @@ $ ledger bal|reg --period "every week"
 ```
 <!-- {: data-highlight="--period"} -->
 
-
 See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)
 
 ### Register
@@ -266,7 +258,6 @@ See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Express
 $ ledger reg
 ```
 <!-- {: data-highlight="$ ledger reg"} -->
-
 
 ```bash
   -D, --daily
@@ -277,7 +268,7 @@ $ ledger reg
   -s, --subtotal
   --start-of-week monday
 ```
-<!-- {: data-highlight="-D, --daily; -W, --weekly; -M, --monthly; --start-of-week"} -->
+<!-- {: data-highlight="-D, --daily; -W, --weekly; -M, --monthly"} -->
 
 ```bash
   -S, --sort date / -date # asc / desc
@@ -305,7 +296,6 @@ See: [The register command](https://ledger-cli.org/doc/ledger3.html#The-register
 -r, --related   # show the other side
                 # "reg -r savings" shows where it comes from)
 ```
-<!-- {: data-highlight="-b, --begin; -C, --cleared; -R, --real; -r, --related"} -->
 
 See: [Report filtering](https://ledger-cli.org/doc/ledger3.html#Report-filtering)
 
@@ -323,7 +313,7 @@ term or term
 not term
 \( term \)
 ```
-<!-- {: data-highlight="^regex$; @payee; =note; #code"} -->
+<!-- {: data-highlight="@payee; %tag; =note; #code"} -->
 
 #### Example
 
@@ -331,7 +321,7 @@ not term
 ledger r ^expenses and @Denny's
 ledger r food and @Starbucks and not dining
 ```
-<!-- {: data-highlight="ledger r"} -->
+<!-- {: data-highlight="^expenses and @Denny's; food and @Starbucks and not dining"} -->
 
 See: [Complex expressions](https://ledger-cli.org/doc/ledger3.html#Complex-expressions)
 
@@ -350,24 +340,25 @@ See: [Basic options](https://ledger-cli.org/doc/ledger3.html#Basic-options)
 
 ### Effective dates
 
+#### Estimated date
+
 ```bash
 2008/01/01=2008/01/14 Client invoice  ;  estimated date you'll be paid
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+<!-- {: data-highlight="2008/01/01=2008/01/14 Client invoice"} -->
 
-<!-- {: data-highlight="date"} -->
-
-Say you're in business. If you bill a customer, you can enter something like above.
-Then, when you receive the payment, you change it to:
+#### Actual date
 
 ```bash
 2008/01/01=2008/01/15 Client invoice ;  actual date money received
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+<!-- {: data-highlight="2008/01/01=2008/01/15"} -->
 
-<!-- {: data-highlight="received"} -->
+Update the date when the payment arrives.
 
 See: [Effective dates](https://ledger-cli.org/doc/ledger3.html#Effective-Dates)
 

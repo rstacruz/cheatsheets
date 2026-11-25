@@ -8,11 +8,12 @@ tier: t3
 ---
 
 ### Basic usage
+
 ```js
 const P = require('parsimmon')
 
 P.regexp(/[a-z]+/)
-.parse('hello')
+  .parse('hello')
 //=> { status: true, value: ['hello'] }
 ```
 
@@ -62,7 +63,7 @@ See: [Parsimmon API](https://github.com/jneen/parsimmon/blob/master/API.md)
 
 ```js
 P.seq(P.number, P.oneOf('+-*/'), P.number)
-.map(([left, oper, right]) => ({ oper, left, right }))
+  .map(([left, oper, right]) => ({ oper, left, right }))
 ```
 
 <!-- {: data-highlight=".map"} -->

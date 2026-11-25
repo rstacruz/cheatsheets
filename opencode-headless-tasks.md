@@ -11,18 +11,16 @@ fragments:
   - "opencode run"
   - "opencode"
   - "run"
-  - "list TODOs"
+  - "explain this"
+  - "this repo"
   - "--continue"
   - "go on"
-  - "| jq"
   - "--format json"
-  - "json"
-  - "review the diff"
-  - "--standalone"
-  - "this repo"
-  - "explain this"
   - "--format"
-  - "standalone"
+  - "json"
+  - "list TODOs"
+  - "| jq"
+  - "jq"
 links:
   - title: opencode run
     url: https://opencode.ai/docs/cli/commands#run
@@ -60,13 +58,3 @@ opencode run --format json "list TODOs" | jq
 <!-- {: data-highlight="--format json"} -->
 
 **Emits JSON lines for scripts.** Produces one JSON object per line for `jq`. See [opencode run](https://opencode.ai/docs/cli/commands#run).
-
-### Standalone CI run
-<!-- {: .-snippet} -->
-
-```bash
-opencode run --standalone "review the diff"
-```
-<!-- {: data-highlight="--standalone"} -->
-
-**Isolates the run in its own server.** Keeps secrets and sessions out of the shared daemon. See [opencode run](https://opencode.ai/docs/cli/commands#run).

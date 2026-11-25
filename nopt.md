@@ -38,19 +38,19 @@ args == {
   }
 }
 ```
-<!-- {: data-highlight="foo; size; many"} -->
+<!-- {: data-highlight="require('nopt')"} -->
 
 #### Handling help flags
 
 ```js
 if (args.help) {
   console.log([
-      'Usage:',
-      '  hicat [options] [file]',
-      '',
-      'Options:',
-      '  -h, --help         print usage information',
-      '  -v, --version      show version info and exit',
+    'Usage:',
+    '  hicat [options] [file]',
+    '',
+    'Options:',
+    '  -h, --help         print usage information',
+    '  -v, --version      show version info and exit',
   ].join('\n'));
   process.exit(0);
 }

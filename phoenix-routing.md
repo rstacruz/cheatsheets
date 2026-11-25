@@ -31,6 +31,8 @@ See: [Routing](https://hexdocs.pm/phoenix/Phoenix.Router.html#module-routing)
 
 ### Resources
 
+#### Routes
+
 ```elixir
 resources "/users", UserController
 resources "/users", UserController, only: [:index, :show]
@@ -38,18 +40,20 @@ resources "/users", UserController, except: [:delete]
 ```
 <!-- {: data-highlight="resources"} -->
 
+#### Options
+
 ```elixir
 resources "/users", UserController,
-  as: :person    # helper name (person_path)
-  name: :person  # ...?
-  param: :id     # name of parameter for this resource
+  as: :person    # named helper (person_path)
+  name: :person  # resource prefix (person_id)
+  param: :id     # route parameter
 ```
 <!-- {: data-highlight="as: :person; name: :person; param: :id"} -->
 
-Generates these routes:
+#### Generated routes
 
 | Path | Method | Helper |
-| ---- | ---- | ---- |
+| --- | --- | --- |
 | `/users` | GET | `user_path(:index)` |
 | `/users/new` | GET | `user_path(:new)` |
 | `/users/:id` | GET | `user_path(:show, user)` |
@@ -57,12 +61,13 @@ Generates these routes:
 | `/users` | POST | `user_path(:create, user)` |
 | `/users/:id` | PATCH/PUT | `user_path(:update, user)` |
 | `/users/:id` | DELETE | `user_path(:delete, user)` |
-
 <!-- {: .-left-align} -->
 
 See: [resources/4](https://hexdocs.pm/phoenix/Phoenix.Router.html#resources/4) _(hexdocs.pm)_
 
 ### Path helpers
+
+#### Paths
 
 ```elixir
 user_path(conn, :index)                 # → /users
@@ -72,10 +77,14 @@ user_path(conn, :show, 17, admin: true) # → /users/17?admin=true
 ```
 <!-- {: data-highlight="user_path"} -->
 
+#### URLs
+
 ```elixir
 user_url(conn, :index) # → "http://localhost:4000/users"
 ```
 <!-- {: data-highlight="user_url"} -->
+
+#### Module helpers
 
 ```elixir
 MyApp.Router.Helpers.user_path(MyApp.Endpoint, :index)
@@ -86,11 +95,15 @@ See: [Helpers (deprecated)](https://hexdocs.pm/phoenix/Phoenix.Router.html#modul
 
 ### Nested resources
 
+#### Routes
+
 ```elixir
 resources "/users", UserController do
   resources "/posts", PostController
 end
 ```
+
+#### Helpers
 
 ```elixir
 user_post_path(:index, 17)     # → /users/17/posts
@@ -102,6 +115,8 @@ See: [Scopes and resources](https://hexdocs.pm/phoenix/Phoenix.Router.html#modul
 
 ### Scoped routes
 
+#### Scope block
+
 ```elixir
 scope "/admin" do
   pipe_through :browser
@@ -110,6 +125,8 @@ end
 # reviews_path() -> /admin/reviews
 ```
 <!-- {: data-highlight="pipe_through :browser"} -->
+
+#### Inline scope
 
 ```elixir
 scope "/admin", as: :admin do: ... end

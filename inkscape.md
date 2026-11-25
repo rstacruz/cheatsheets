@@ -8,13 +8,15 @@ tier: t3
 last_verified_with: "Inkscape 1.4.4."
 ---
 
+## Shortcuts
+
 ### All
 
 | Key | Action |
 | --- | --- |
-| `-` _/_ `=` | Zoom in/out
-| `3` _/_ `4` | Zoom to selection / drawing
-| `5` _/_ `6` | Zoom to page / page width
+| `-` _/_ `=` | Zoom in/out |
+| `3` _/_ `4` | Zoom to selection / drawing |
+| `5` _/_ `6` | Zoom to page / page width |
 
 <!-- {: .-shortcuts} -->
 
@@ -24,7 +26,7 @@ See: [Canvas shortcuts](https://inkscape.org/doc/keys.html#id12)
 
 | Key | Action |
 | --- | --- |
-| `[ ]` | Rotate
+| `[ ]` | Rotate |
 
 <!-- {: .-shortcuts} -->
 
@@ -34,7 +36,7 @@ See: [Selector](https://inkscape.org/doc/keys.html#id49)
 
 | Key | Action |
 | --- | --- |
-| `Ctrl` | constraint
+| `Ctrl` | Constraint |
 
 <!-- {: .-shortcuts} -->
 
@@ -44,8 +46,8 @@ See: [Node tool](https://inkscape.org/doc/keys.html#id64)
 
 | Key | Action |
 | --- | --- |
-| `Ctrl` | snap to 15 degrees
-| `Alt` | ?
+| `Ctrl` | Snap to 15 degrees |
+| `Alt` | ? |
 
 <!-- {: .-shortcuts} -->
 

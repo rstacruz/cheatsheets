@@ -24,7 +24,6 @@ export { a, b }                 // named exports
 export { x as y }               // renamed export
 export default function () {}   // default export (one per module)
 ```
-
 <!-- {: data-highlight="export"} -->
 
 #### Re-exporting
@@ -33,7 +32,7 @@ export default function () {}   // default export (one per module)
 export { x } from './x.js'      // re-export named
 export * from './x.js'          // re-export all named
 ```
-<!-- {: data-highlight="export *"} -->
+<!-- {: data-highlight="export { x } from; export * from"} -->
 
 A module has many named exports but only one default.
 
@@ -48,8 +47,7 @@ import * as ns from './mod.js'        // namespace object
 import './setup.js'                   // side effects only
 import def, { a } from './mod.js'     // default + named
 ```
-
-<!-- {: data-highlight="'./mod.js'"} -->
+<!-- {: data-highlight="import"} -->
 
 Static imports are hoisted and must be top-level. Named imports are live
 bindings, reflecting later changes in the exporting module.
@@ -64,7 +62,7 @@ See: [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 const mod = await import('./mod.js')
 mod.default                        // the default export
 ```
-<!-- {: data-highlight="const mod"} -->
+<!-- {: data-highlight="await import('./mod.js')"} -->
 
 #### Inside a condition
 
@@ -96,6 +94,7 @@ See: [import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 ```html
 <script type="module" src="main.js"></script>
 ```
+<!-- {: data-highlight='type="module"'} -->
 
 Browser modules are deferred by default, and relative specifiers need the file
 extension.
@@ -111,6 +110,7 @@ See: [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 { "imports": { "lodash": "/vendor/lodash.js" } }
 </script>
 ```
+<!-- {: data-highlight='type="importmap"'} -->
 
 Bare specifiers (eg `import 'lodash'`) need an import map.
 
@@ -138,6 +138,7 @@ See: [Node.js: determining module system](https://nodejs.org/api/packages.html#d
 ```json
 { "type": "module" }
 ```
+<!-- {: data-highlight='"type": "module"'} -->
 
 With `"type": "module"`, `.js` files load as ES modules. Without it, they
 default to CommonJS.

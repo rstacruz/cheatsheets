@@ -18,7 +18,7 @@ $('.box')
 $('#main')
 $('div > p')
 ```
-<!-- {: data-highlight="$('.box')"} -->
+<!-- {: data-highlight="$('.box'); $('#main'); $('div > p')"} -->
 
 See: [jQuery()](https://api.jquery.com/jQuery/)
 
@@ -35,7 +35,6 @@ $('.box')
   .next('div')
   .nextUntil('div')
 ```
-<!-- {: data-highlight=".closest('div')"} -->
 
 See: [Traversing](https://api.jquery.com/category/traversing/)
 

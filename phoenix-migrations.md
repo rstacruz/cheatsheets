@@ -8,7 +8,9 @@ last_verified_with: "Phoenix 1.8.17, Ecto 3.14.3, Ecto SQL 3.14.0."
 tier: t3
 ---
 
-### Creating
+## Generators
+
+### Create a migration
 
 #### Generate
 
@@ -25,15 +27,15 @@ $ mix ecto.rollback
 ```
 <!-- {: data-highlight="mix ecto.migrate; mix ecto.rollback"} -->
 
-Creates a migration (no models).
+`ecto.migrate` applies pending migrations; `ecto.rollback` undoes the last one.
 
 See: [mix ecto.gen.migration](https://hexdocs.pm/ecto_sql/Mix.Tasks.Ecto.Gen.Migration.html)
 
-### Creating schemas
+### Create a schema
 
 ```bash
 $ mix phx.gen.schema Message messages \
-    user_id:references:users content:text
+  user_id:references:users content:text
 ```
 <!-- {: data-highlight="mix phx.gen.schema"} -->
 
@@ -41,11 +43,11 @@ Generates a schema and migration; `phoenix.gen.model` is gone since Phoenix 1.3.
 
 See: [mix phx.gen.schema](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html)
 
-### Creating context
+### Create a context
 
 ```bash
 $ mix phx.gen.context Images Album albums \
-    title:string subtitle:string privacy:string
+  title:string subtitle:string privacy:string
 ```
 <!-- {: data-highlight="mix phx.gen.context"} -->
 
@@ -65,20 +67,19 @@ create table(:documents) do
   add :body, :text
   add :age, :integer
   add :price, :float
-  add :price, :float
   add :price, :decimal, precision: 10, scale: 2
   add :published_at, :utc_datetime
   add :group_id, references(:groups)
   add :object, :json
 
-  timestamps  # inserted_at and updated_at
+  timestamps  # inserted_at, updated_at
 end
 
 create_if_not_exists table(:documents) do
   add :title, :string
 end
 ```
-<!-- {: data-highlight="create table; add; timestamps; create_if_not_exists"} -->
+<!-- {: data-highlight="create table; create_if_not_exists"} -->
 
 See: [table/2](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#table/2)
 
@@ -93,7 +94,7 @@ alter table(:posts) do
   remove :views
 end
 ```
-<!-- {: data-highlight="alter table; modify; remove"} -->
+<!-- {: data-highlight="alter table"} -->
 
 #### Rename
 
@@ -117,7 +118,7 @@ drop_if_exists table(:documents)
 table(:documents)
 table(:weather, prefix: :north_america)
 ```
-<!-- {: data-highlight="table(:documents)"} -->
+<!-- {: data-highlight="table("} -->
 
 See: [alter/2](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#alter/2)
 

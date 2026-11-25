@@ -7,6 +7,8 @@ tier: t3
 last_verified_with: "WHATWG HTML Living Standard."
 ---
 
+## CSS support
+
 ### Properties to avoid
 
 | Property             | Where                   |
@@ -44,6 +46,8 @@ Inline your CSS as much as possible.
 
 <!-- see: none: email-client selector support has no upstream spec -->
 
+## Layout
+
 ### Basic layout
 
 ```html
@@ -57,6 +61,7 @@ Inline your CSS as much as possible.
   </tr>
 </table>
 ```
+<!-- {: data-highlight="presentation"} -->
 
 See: [HTML table element](https://html.spec.whatwg.org/multipage/tables.html#the-table-element)
 
@@ -64,11 +69,14 @@ See: [HTML table element](https://html.spec.whatwg.org/multipage/tables.html#the
 
 ```html
 <style>
-@media only screen and (max-device-width: 480px)
+@media only screen and (max-device-width: 480px) {
+  ···
+}
 </style>
 ```
+<!-- {: data-highlight="@media"} -->
 
-`<style>` is supported in the head and body by everything except Gmail. Only use them for responsive styles.
+`<style>` is supported in the head and body by everything except Gmail. Only use it for responsive styles.
 
 See: [Media Queries](https://www.w3.org/TR/mediaqueries-5/#media-query)
 

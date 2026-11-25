@@ -20,15 +20,9 @@ links:
 
 ```bash
 gpg -o key.gpg --export <KEY ID>
+gpg -o key.asc --armor --export <KEY ID>  # ASCII
 ```
 <!-- {: data-highlight="--export"} -->
-
-#### Export in ASCII
-
-```bash
-gpg -o key.asc --armor --export <KEY ID>
-```
-<!-- {: data-highlight="--armor"} -->
 
 Omit `-o` to print the key to `stdout`.
 
@@ -79,7 +73,6 @@ gpg --list-secret-keys
 <!-- {: data-highlight="--list-secret-keys"} -->
 
 See: [Key management](https://gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html)
-
 
 ### Using a keyserver
 
@@ -134,12 +127,11 @@ __NOTE:__ You can use the owner's email or name (or part thereof) instead of the
 
 See: [Trust in `--edit-key`](https://gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#index-keyedit_003atrust)
 
-
 ## Encrypting and decrypting
-
 <!-- {: .-two-column} -->
 
 ### Public key encryption
+
 This will produce an encrypted file, `secret.txt.gpg`, that can only be decrypted by the recipient:
 
 ```bash
@@ -179,13 +171,12 @@ gpg -c secret.txt
 
 See: [Symmetric encryption](https://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#index-symmetric)
 
-
 ### Decrypting a file
 
 ```bash
 gpg -d -o secret.txt secret.txt.gpg
 ```
-<!-- {: data-highlight="-o secret.txt"} -->
+<!-- {: data-highlight="gpg -d"} -->
 
 Symmetric files prompt for a passphrase; omit `-o` to print to `stdout`.
 
@@ -294,5 +285,3 @@ Field Quick Reference:
 | 20      | Origin |
 
 See: [GnuPG Details](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS)
-
-

@@ -53,7 +53,7 @@ proc { ... }.must_output out_or_nil [, err]
 proc { ... }.must_raise exception
 proc { ... }.must_throw sym
 ```
-<!-- {: data-highlight="must_equal; must_include; must_raise; must_output"} -->
+<!-- {: data-highlight="must_equal"} -->
 
 See: [Specs](https://github.com/minitest/minitest/blob/master/README.rdoc#specs)
 
@@ -78,7 +78,7 @@ class TestHipster < Minitest::Test
   end
 end
 ```
-<!-- {: data-highlight="Minitest::Test; refute"} -->
+<!-- {: data-highlight="Minitest::Test"} -->
 
 See: [Minitest::Test](https://docs.seattlerb.org/minitest/Minitest/Test.html)
 
@@ -105,7 +105,7 @@ assert_send
 assert_silent
 assert_throws
 ```
-<!-- {: data-highlight="assert_block; assert_in_delta; assert_includes; assert_silent"} -->
+<!-- {: data-highlight="assert_equal"} -->
 
 See: [Assertions](https://docs.seattlerb.org/minitest/Minitest/Assertions.html)
 

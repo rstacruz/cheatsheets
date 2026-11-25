@@ -8,6 +8,8 @@ last_verified_with: "WHATWG HTML Living Standard, Open Graph protocol."
 weight: -3
 ---
 
+## Metadata
+
 ### Meta tags
 
 #### Character encoding
@@ -29,19 +31,18 @@ weight: -3
 #### URL
 ```html
 <!-- url -->
-<link rel='canonical'       href='http://···'>
-<meta property='og:url'  content='http://···'>
-<meta name='twitter:url' content='http://···'>
+<link rel='canonical'         href='http://···'>
+<meta property='og:url'       content='http://···'>
+<meta name='twitter:url'      content='http://···'>
 ```
-
-<!-- {: data-highlight="'http://···'"} -->
+<!-- {: data-highlight="canonical"} -->
 
 #### Description
 ```html
 <!-- description -->
-<meta name='description'         content='···'>
-<meta property='og:description'  content='···'>
-<meta name='twitter:description' content='···'>
+<meta name='description'          content='···'>
+<meta property='og:description'   content='···'>
+<meta name='twitter:description'  content='···'>
 ```
 
 <!-- {: data-highlight="description"} -->
@@ -145,7 +146,6 @@ See: [Apple: Configuring Web Applications](https://developer.apple.com/library/a
 ```
 <!-- {: data-highlight="theme-color"} -->
 
-
 Android-only.
 
 See: [MDN: theme-color](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/theme-color)
@@ -156,7 +156,6 @@ See: [MDN: theme-color](https://developer.mozilla.org/en-US/docs/Web/HTML/Refere
 <link rel='manifest' href='/manifest.json'>
 ```
 <!-- {: data-highlight="manifest"} -->
-
 
 Android-only.
 
@@ -172,7 +171,7 @@ See: [MDN: rel="manifest"](https://developer.mozilla.org/en-US/docs/Web/HTML/Ref
 <link rel='apple-touch-icon' href='icon@152.png'>
 <meta name='msapplication-square310x310logo' content='icon@310.png'>
 ```
-<!-- {: data-highlight="favicon@32.png"} -->
+<!-- {: data-highlight="rel='icon'"} -->
 
 #### Apple
 ```html
@@ -206,7 +205,7 @@ See: [MDN: rel="icon"](https://developer.mozilla.org/en-US/docs/Web/HTML/Referen
 
 <!-- {: .-one-column} -->
 
- * <https://ogp.me/#types>
- * <https://ogp.me/#metadata>
+* <https://ogp.me/#types>
+* <https://ogp.me/#metadata>
 
 <!-- {: .-also-see} -->

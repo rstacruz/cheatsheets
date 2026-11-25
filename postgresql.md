@@ -20,21 +20,21 @@ last_verified_with: "PostgreSQL 19.0, psql 19.0."
 psql                  # default database, default user
 sudo -u postgres psql # as the postgres role
 ```
-<!-- {: data-highlight="psql; sudo -u postgres psql"} -->
+<!-- {: data-highlight="psql"} -->
 
 See: [psql](https://www.postgresql.org/docs/current/app-psql.html)
 
 ### psql commands
 
-| Command          | Description             |
-| ---              | ---                     |
-| `\du`            | List roles              |
-| `\l`             | List databases          |
-| `\dt`            | List tables             |
-| `\d <table>`     | Describe a table        |
-| `\d+ <table>`    | Describe with sizes     |
-| `\c <database>`  | Connect to a database   |
-| `\q`             | Quit                    |
+| Command | Description |
+| --- | --- |
+| `\du` | List roles |
+| `\l` | List databases |
+| `\dt` | List tables |
+| `\d <table>` | Describe a table |
+| `\d+ <table>` | Describe with sizes |
+| `\c <database>` | Connect to a database |
+| `\q` | Quit |
 
 <!-- {: .-shortcuts} -->
 
@@ -65,6 +65,6 @@ psql -Atc "SELECT * FROM <table>"   # scripting
 psql --no-align --tuples-only \
   --command="SELECT * FROM <table>" # same
 ```
-<!-- {: data-highlight="psql -Atc; --command"} -->
+<!-- {: data-highlight="-Atc; --command"} -->
 
 See: [psql](https://www.postgresql.org/docs/current/app-psql.html)

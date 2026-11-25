@@ -34,7 +34,7 @@ const c = `template ${a}`    // → "template single"
 const multi = `line one
 line two`
 ```
-<!-- {: data-highlight="line two"} -->
+<!-- {: data-highlight="line one; line two"} -->
 
 #### Conversion
 
@@ -42,7 +42,7 @@ line two`
 String(42)     // → "42"
 String(null)   // → "null"
 ```
-<!-- {: data-highlight="String(null)"} -->
+<!-- {: data-highlight="String("} -->
 
 See: [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), [String()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String) _(developer.mozilla.org)_
 
@@ -63,7 +63,7 @@ for (const ch of 'hi') {
   console.log(ch)    // logs "h", then "i"
 }
 ```
-<!-- {: data-highlight="console.log(ch)"} -->
+<!-- {: data-highlight="for (const ch of 'hi')"} -->
 
 Strings are immutable: methods return new strings, never change the original.
 
@@ -79,7 +79,6 @@ See: [charAt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 'hello'.lastIndexOf('l')    // → 3
 'hello'.indexOf('z')        // → -1
 ```
-
 <!-- {: data-highlight="indexOf"} -->
 
 Searches return `-1` (or `false`) when the substring is absent.
@@ -114,7 +113,6 @@ See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 '5'.padStart(3, '0')      // → "005"
 '5'.padEnd(3, '0')        // → "500"
 ```
-
 <!-- {: data-highlight="padStart"} -->
 
 #### Normalization
@@ -148,7 +146,7 @@ See: [replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 'foo'.concat('bar')    // → "foobar"
 ['a', 'b'].join('-')   // → "a-b"
 ```
-<!-- {: data-highlight=".join('-')"} -->
+<!-- {: data-highlight=".split(','); .join('-')"} -->
 
 #### Code units
 
@@ -171,7 +169,6 @@ See: [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 'B'.localeCompare('a')     // → 1
 'ABC'.toLowerCase()        // → "abc"
 ```
-
 <!-- {: data-highlight="localeCompare"} -->
 
 `localeCompare()` returns a negative, zero, or positive number for sorting.

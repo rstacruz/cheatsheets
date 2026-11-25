@@ -29,11 +29,11 @@ weight: -3
   "repository": {
     "type": "git",
     "url": "https://github.com/rstacruz/___.git"
-  },
+  }
 }
 ```
 
-<!-- {: data-highlight='"0.1.0"'} -->
+<!-- {: data-highlight='"name"; "version"'} -->
 
 Highlighted lines are required.
 
@@ -47,9 +47,9 @@ See: [package.json](https://docs.npmjs.com/cli/v12/configuring-npm/package-json)
 "dependencies": {
   "colors":   "*",
   "flatiron": "0.1.x",
-  "flatiron": "~0.1.0",
-  "plates":   "https://github.com/user/project/tarball/branch",
-  "stuff":    "git://github.com/user/project.git#commit-ish"
+  "plates":   "~0.1.0",
+  "stuff":    "https://github.com/user/project/tarball/branch",
+  "thing":    "git://github.com/user/project.git#commit-ish"
 },
 ```
 <!-- {: data-highlight='"*"; "0.1.x"; "~0.1.0"'} -->

@@ -25,6 +25,7 @@ links:
 gremlins.createHorde().unleash()
 </script>
 ```
+<!-- {: data-highlight="gremlins.createHorde().unleash()"} -->
 
 ![](https://camo.githubusercontent.com/130e101ee69d4d9b6f065df0a0404c861eb5ce18/687474703a2f2f7374617469632e6d61726d656c61622e636f6d2f746f646f2e676966?q=99)
 
@@ -39,7 +40,6 @@ gremlins.createHorde()
     document.activeElement.blur()
   })
 ```
-
 <!-- {: data-highlight="gremlin"} -->
 
 Runs the given function at regular intervals.
@@ -81,8 +81,7 @@ gremlins.createHorde()
     console.profileEnd()
   })
 ```
-
-<!-- {: data-highlight="before"} -->
+<!-- {: data-highlight="before; after"} -->
 
 See: [Hooks](https://github.com/marmelab/gremlins.js#executing-code-before-or-after-the-attack)
 
@@ -97,7 +96,6 @@ gremlins.createHorde()
     }, 500)
   })
 ```
-
 <!-- {: data-highlight="done"} -->
 
 See: [Asynchronous hooks](https://github.com/marmelab/gremlins.js#executing-code-before-or-after-the-attack)

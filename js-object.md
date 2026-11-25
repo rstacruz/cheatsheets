@@ -29,8 +29,7 @@ const user = {
   greet() { return 'hi' },   // method shorthand
 }
 ```
-
-<!-- {: data-highlight="'role'"} -->
+<!-- {: data-highlight="['role' + 'Id']"} -->
 
 #### Spread
 
@@ -53,7 +52,6 @@ user[key]                // dynamic key from a variable
 user.address?.city       // → undefined (no address)
 user.nickname ?? 'anon'  // → 'anon' (nullish fallback)
 ```
-
 <!-- {: data-highlight="?."} -->
 
 #### Destructuring
@@ -90,8 +88,7 @@ user.age += 1            // update in place
 delete user.age          // → true
 'age' in user            // → false
 ```
-
-<!-- {: data-highlight="user.age"} -->
+<!-- {: data-highlight="user.age = 36; delete user.age"} -->
 
 Assigning a computed key adds or overwrites a property; `delete` removes one.
 
@@ -157,7 +154,6 @@ a === b               // → false, different references
 Object.is(NaN, NaN)   // → true
 Object.is(0, -0)      // → false
 ```
-
 <!-- {: data-highlight="==="} -->
 
 `===` compares object identity, not contents; `Object.is()` treats `NaN` as equal to itself.

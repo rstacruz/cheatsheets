@@ -63,7 +63,7 @@ list.push(X)            // list == [_,_,_,_,_,X]
 list.unshift(X)         // list == [X,_,_,_,_,_]
 list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
 ```
-<!-- {: data-highlight="unshift"} -->
+<!-- {: data-highlight="push; unshift"} -->
 
 See: [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), [unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) _(developer.mozilla.org)_
 
@@ -103,7 +103,7 @@ list.pop()              // → e    list == [a,b,c,d]
 list.shift()            // → a    list == [b,c,d,e]
 list.splice(2, 1)       // → [c]  list == [a,b,d,e]
 ```
-<!-- {: data-highlight="shift()"} -->
+<!-- {: data-highlight="pop; shift"} -->
 
 See: [pop()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), [shift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) _(developer.mozilla.org)_
 

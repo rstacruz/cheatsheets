@@ -24,7 +24,7 @@ links:
 n = +'4096'    // n === 4096
 s = '' + 200   // s === '200'
 ```
-<!-- {: data-highlight="+'4096'"} -->
+<!-- {: data-highlight="+'4096'; '' + 200"} -->
 
 #### Shortcuts
 
@@ -32,7 +32,7 @@ s = '' + 200   // s === '200'
 now = +new Date()
 isPublished = !!post.publishedAt
 ```
-<!-- {: data-highlight="!!post.publishedAt"} -->
+<!-- {: data-highlight="+new Date(); !!post.publishedAt"} -->
 
 See: [Unary plus](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus) _(developer.mozilla.org)_
 

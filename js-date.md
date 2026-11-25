@@ -54,7 +54,7 @@ new Date("2014-03-01T13:00:59")
 ```js
 new Date(2014, 2, 1, 13, 0, 59, 0)
 ```
-<!-- {: data-highlight="new Date(2014, 2, 1, 13, 0, 59, 0)"} -->
+<!-- {: data-highlight="2014, 2, 1, 13, 0, 59, 0"} -->
 
 See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
 

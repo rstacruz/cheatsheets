@@ -16,6 +16,7 @@ category: API
 ```js
 { status }
 ```
+<!-- {: data-highlight="status"} -->
 
 #### Result
 
@@ -24,7 +25,6 @@ category: API
 ```
 
 See: [GraphQL operations](https://spec.graphql.org/September2026/#sec-Language.Operations)
-
 
 ### Nesting
 
@@ -36,13 +36,11 @@ See: [GraphQL operations](https://spec.graphql.org/September2026/#sec-Language.O
 #### Result
 
 ```js
-{ hero:
-    { name: "Luke Skywalker",
-      height: 1.74 } }
+{ hero: { name: "Luke Skywalker",
+          height: 1.74 } }
 ```
 
 See: [Fields](https://spec.graphql.org/September2026/#sec-Language.Fields)
-
 
 ### Lists
 
@@ -54,12 +52,10 @@ See: [Fields](https://spec.graphql.org/September2026/#sec-Language.Fields)
 #### Result
 
 ```js
-{ friends:
-    [ { name: "Luke Skywalker" },
-      { name: "Han Solo" },
-      { name: "R2D2" } ] }
+{ friends: [ { name: "Luke Skywalker" },
+            { name: "Han Solo" },
+            { name: "R2D2" } ] }
 ```
-
 
 GraphQL queries look the same for both single items or lists of items.
 
@@ -77,13 +73,11 @@ See: [List type](https://spec.graphql.org/September2026/#sec-List)
 #### Result
 
 ```js
-{ hero:
-    { id: "1000",
-      name: "Luke Skywalker" } }
+{ hero: { id: "1000",
+          name: "Luke Skywalker" } }
 ```
 
 See: [Arguments](https://spec.graphql.org/September2026/#sec-Language.Arguments)
-
 
 ### Aliases
 
@@ -98,14 +92,11 @@ See: [Arguments](https://spec.graphql.org/September2026/#sec-Language.Arguments)
 #### Result
 
 ```js
-{ luke:
-    { name: "Luke Skywalker" },
-    han:
-    { name: "Han Solo" } }
+{ luke: { name: "Luke Skywalker" },
+  han: { name: "Han Solo" } }
 ```
 
 See: [Field alias](https://spec.graphql.org/September2026/#sec-Field-Alias)
-
 
 ### Operation names and variables
 
@@ -177,7 +168,6 @@ Great for searching.
 
 See: [Inline fragments](https://spec.graphql.org/September2026/#sec-Inline-Fragments)
 
-
 ## Over HTTP
 
 ### GET requests
@@ -188,7 +178,7 @@ const q = encodeURIComponent(
 )
 fetch(`http://myapi/graphql?query=${q}`)
 ```
-<!-- {: data-highlight="fetch"} -->
+<!-- {: data-highlight="encodeURIComponent"} -->
 
 See: [GET requests](https://graphql.org/learn/serving-over-http/#get-request-and-parameters)
 
@@ -203,7 +193,7 @@ fetch('http://myapi/graphql', {
   })
 })
 ```
-<!-- {: data-highlight="operationName; variables"} -->
+<!-- {: data-highlight="body"} -->
 
 See: [POST requests](https://graphql.org/learn/serving-over-http/#post-request-and-body)
 

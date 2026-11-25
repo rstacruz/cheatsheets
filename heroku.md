@@ -2,7 +2,7 @@
 title: Heroku
 subtitle: Cloud application hosting platform
 category: Devops
-updated: 2026-10-30
+updated: 2026-11-25
 tier: t3
 last_verified_with: "Heroku CLI 11.14.0."
 description: |
@@ -22,7 +22,7 @@ links:
 heroku login
 heroku auth:whoami      # show the logged-in user
 ```
-<!-- {: data-highlight="login; auth:whoami"} -->
+<!-- {: data-highlight="heroku login"} -->
 
 See: [heroku auth:login](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-auth-login)
 
@@ -31,7 +31,7 @@ See: [heroku auth:login](https://devcenter.heroku.com/articles/heroku-cli-comman
 ```bash
 heroku create sushi
 ```
-<!-- {: data-highlight="create sushi"} -->
+<!-- {: data-highlight="heroku create"} -->
 
 #### Deploy
 ```bash
@@ -48,8 +48,7 @@ See: [heroku apps:create](https://devcenter.heroku.com/articles/heroku-cli-comma
 ```bash
 heroku git:remote -a sushi
 ```
-<!-- {: data-highlight="git:remote"} -->
-
+<!-- {: data-highlight="heroku git:remote"} -->
 
 Adds the `heroku` remote to a repo that wasn't created by `heroku create`.
 
@@ -64,7 +63,7 @@ heroku open                  # open in browser
 heroku apps:rename NEWNAME
 heroku apps:destroy -a APP --confirm APP
 ```
-<!-- {: data-highlight="apps:info; apps:destroy"} -->
+<!-- {: data-highlight="heroku apps"} -->
 
 See: [heroku apps](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps)
 
@@ -137,7 +136,7 @@ heroku run bash
 heroku run rails console
 heroku run rake assets:precompile
 ```
-<!-- {: data-highlight="run bash; run rails console"} -->
+<!-- {: data-highlight="heroku run"} -->
 
 See: [heroku run](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-run)
 
@@ -165,20 +164,19 @@ See: [heroku maintenance](https://devcenter.heroku.com/articles/heroku-cli-comma
 
 ## Database
 
-### pg - Create a database
-
+### `pg` - Create a database
 
 ```bash
 heroku addons:create heroku-postgresql:essential-0
 heroku pg:info
 ```
-<!-- {: data-highlight="addons:create; pg:info"} -->
+<!-- {: data-highlight="heroku addons:create"} -->
 
 `addons:create` takes a `SERVICE:PLAN` argument; `addons:add` still works as a hidden alias.
 
 See: [heroku pg:info](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-pg-info-database)
 
-### pg:backups - Backups
+### `pg:backups` - Backups
 
 ```bash
 heroku pg:backups:capture
@@ -230,19 +228,19 @@ See: [heroku domains](https://devcenter.heroku.com/articles/heroku-cli-commands#
 
 ## Local development
 
-### local - Run the Procfile
+### `local` - Run the Procfile
 
 ```bash
 heroku local              # run the Procfile
 heroku local web          # one process type
 ```
-<!-- {: data-highlight="local web"} -->
+<!-- {: data-highlight="heroku local"} -->
 
 Reads config vars from `.env` (change with `-e`).
 
 See: [heroku local](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-local-processname)
 
-### local:run - Run a command
+### `local:run` - Run a command
 
 ```bash
 heroku local:run bin/migrate

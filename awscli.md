@@ -20,10 +20,16 @@ See: [EC2 reference](https://awscli.amazonaws.com/v2/documentation/api/latest/re
 ### S3
 
 ```
+aws s3api create-bucket --bucket mybucket 
+  # To create bucket outside us-east-1 pass
+  --region ap-south-1  
+  --create-bucket-configuration LocationConstraint=ap-south-1
+
 aws s3 ls s3://mybucket
 aws s3 rm s3://mybucket/folder --recursive
 aws s3 cp myfolder s3://mybucket/folder --recursive
 aws s3 sync myfolder s3://mybucket/folder --exclude *.tmp
+aws s3 presign s3://mybucket/Big-Bunny.mp4
 ```
 
 See: [S3 reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html)

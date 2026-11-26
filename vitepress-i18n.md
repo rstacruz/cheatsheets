@@ -75,4 +75,4 @@ locales: {
 ```
 <!-- {: data-highlight="themeConfig:"} -->
 
-**Overrides default-theme strings per locale.** Locale `themeConfig` merges over the shared one, so set only the labels that change. See [per-locale strings](https://vitepress.dev/guide/i18n#per-locale-markdown-strings).
+**Overrides default-theme strings per locale.** Locale `themeConfig` merges over the shared one, so set only the labels that change. See [locale config](https://vitepress.dev/guide/i18n).

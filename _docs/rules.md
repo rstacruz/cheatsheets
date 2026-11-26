@@ -206,7 +206,7 @@ Omit APIs the upstream project marks deprecated. They mislead readers and age fa
 
 ### content/no-github-actions
 
-Don't put GitHub Actions workflow YAML in a sheet unless the sheet is about GitHub Actions. Deployment steps belong in the host's docs. Show the build command and output directory, then link the host's deploy guide.
+Don't add GitHub Actions workflow YAML to a sheet unless the sheet is about GitHub Actions. Deployment steps belong in the host's docs. Show the build command and output directory, then link the host's deploy guide.
 
 **Good:** a VitePress sheet shows `pnpm docs:build` and links the deploy page.
 

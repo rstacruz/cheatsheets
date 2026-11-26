@@ -85,4 +85,4 @@ dayjs.duration(end.diff(start)).humanize()
 ```
 <!-- {: data-highlight="humanize()"} -->
 
-**Turns the milliseconds into a readable span.** `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/plugin/duration).
+**Turns the milliseconds into a readable span.** `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/durations/humanize).

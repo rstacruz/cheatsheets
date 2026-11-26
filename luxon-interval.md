@@ -57,7 +57,7 @@ range.splitBy({ days: 7 })
 ```
 <!-- {: data-highlight="splitBy({ days: 7 })"} -->
 
-**Splits into evenly sized pieces.** The final piece can be zero-length when the range divides exactly; see [splitBy](https://moment.github.io/luxon/api-docs/index.html).
+**Splits into evenly sized pieces.** The final slice can be shorter than the step, and `toISODate()` hides its time when it lands on the same date; see [splitBy](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Contains a moment
 <!-- {: .-snippet} -->

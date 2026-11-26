@@ -79,7 +79,7 @@ d.locale('fr').startOf('week')
 ```
 <!-- {: data-highlight="startOf('week')"} -->
 
-**Divides weeks by locale rules.** French weeks start Monday and US weeks start Sunday; see [Week start](https://day.js.org/docs/en/i18n/i18n).
+**Divides weeks by locale rules.** French weeks start Monday and US weeks start Sunday; see [Week start](https://day.js.org/docs/en/customization/customization).
 
 ### Node ESM paths
 <!-- {: .-snippet} -->

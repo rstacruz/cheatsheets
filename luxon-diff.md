@@ -42,7 +42,7 @@ b.diff(a, ['days', 'hours', 'minutes'])
   .toObject()
 // { days: 10, hours: 2, minutes: 58 }
 ```
-<!-- {: data-highlight="'days', 'hours'"} -->
+<!-- {: data-highlight="'days'; 'hours'; 'minutes'"} -->
 
 **Breaks the gap into calendar units.** Each value is a whole number; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).
 

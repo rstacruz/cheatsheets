@@ -60,29 +60,29 @@ dayjs().fromNow()
 
 **Day.js moves extras into plugins.** `fromNow`, `isBetween`, duration and UTC each need one; see [Plugin list](https://day.js.org/docs/en/plugin/plugin).
 
-### Locales
+### Named formats
 <!-- {: .-snippet} -->
 
 #### Moment
 
 ```js
-moment.locale('fr')
-moment('2014-06-09').format('MMMM')
-// "juin"
+moment('2014-06-09').format('LL')
+// "June 9, 2014"
 ```
 
 #### Day.js
 
 ```js
-import 'dayjs/locale/fr.js'
+import lf from 'dayjs/plugin/localizedFormat.js'
 
-dayjs.locale('fr')
-dayjs('2014-06-09').format('MMMM')
-// "juin"
+dayjs.extend(lf)
+
+dayjs('2014-06-09').format('LL')
+// "June 9, 2014"
 ```
-<!-- {: data-highlight="'dayjs/locale/fr.js'"} -->
+<!-- {: data-highlight="dayjs.extend(lf)"} -->
 
-**Moment bundles every locale; Day.js loads one file per language.** That keeps the default bundle small; see [Locale](https://day.js.org/docs/en/i18n/i18n).
+**Moment's `L` formats are in core; Day.js needs the `localizedFormat` plugin.** Both load one locale file per language; see [Localized format](https://day.js.org/docs/en/plugin/localized-format).
 
 ### Time zones
 <!-- {: .-snippet} -->
@@ -107,25 +107,3 @@ dayjs.utc('2014-06-09T13:32Z')
 <!-- {: data-highlight="dayjs.utc("} -->
 
 **Moment ships zones in `moment-timezone`.** Day.js uses `Intl` plus the `utc` and `timezone` plugins; see [Time zone](https://day.js.org/docs/en/plugin/timezone).
-
-### Migrating a file
-<!-- {: .-snippet} -->
-
-#### Moment
-
-```js
-moment()
-moment.utc()
-moment.duration(2, 'days')
-```
-
-#### Day.js
-
-```js
-dayjs()
-dayjs.utc()
-dayjs.duration(2, 'days')
-```
-<!-- {: data-highlight="dayjs.duration("} -->
-
-**Most calls rename one-to-one.** Load the matching plugin before calling the Day.js version; see [Day.js docs](https://day.js.org/docs/en/parse/parse).

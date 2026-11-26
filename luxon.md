@@ -119,7 +119,7 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `a`   | `AM`    |
 <!-- {: .-headers} -->
 
-#### Zone
+#### Zone and epoch
 
 | Token  | Output   |
 | ------ | -------- |
@@ -466,7 +466,7 @@ range.splitBy({ days: 7 })
 ```
 <!-- {: data-highlight="splitBy({ days: 7 })"} -->
 
-`splitBy()` fills the range with evenly sized pieces. The last piece can be zero-length when the range divides exactly.
+`splitBy()` fills the range with evenly sized pieces. The final slice can be shorter than the step, and `toISODate()` hides its time when it lands on the same date.
 
 See: [Split](https://moment.github.io/luxon/api-docs/index.html)
 

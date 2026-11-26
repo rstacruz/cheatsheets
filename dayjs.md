@@ -73,14 +73,14 @@ See: [Immutability](https://day.js.org/docs/en/parse/parse)
 | --- | --- | --- |
 | Size (gzip) | ~19 kB | ~3 kB |
 | Objects | Mutable | Immutable |
-| Locales | Bundled | One import per locale |
+| Named formats | In core | `localizedFormat` plugin |
 | Time zones | `moment-timezone` package | `utc` + `timezone` plugins |
 | Optional methods | In core | Plugins |
 <!-- {: .-headers} -->
 
-Day.js keeps the Moment API and moves locales, time zones and extras into plugins.
+Day.js keeps the Moment API and moves optional features into plugins.
 
-See: [Day.js vs Moment](https://day.js.org/docs/en/plugin/plugin)
+See: [Installation](https://day.js.org/docs/en/installation/installation), [Moment project status](https://momentjs.com/docs/#/-project-status/)
 
 ## Parsing
 
@@ -563,7 +563,7 @@ d.locale('fr').startOf('week').format('ddd') // "lun."
 
 Week boundaries follow the locale's week-start setting, so French weeks begin on Monday.
 
-See: [Week start](https://day.js.org/docs/en/i18n/i18n)
+See: [Week start](https://day.js.org/docs/en/customization/customization)
 
 ## Durations
 
@@ -595,7 +595,7 @@ dayjs.duration({ days: 2, hours: 3, minutes: 4 })
 
 Square brackets escape literal text. Tokens read the stored units only.
 
-See: [Duration format](https://day.js.org/docs/en/plugin/duration)
+See: [Duration format](https://day.js.org/docs/en/durations/format)
 
 ### Normalize units
 
@@ -627,7 +627,7 @@ dayjs.duration({ hours: 25 }).humanize()     // "a day"
 
 `humanize()` needs the relative time plugin too, and rounds to the largest unit.
 
-See: [Duration humanize](https://day.js.org/docs/en/plugin/duration)
+See: [Duration humanize](https://day.js.org/docs/en/durations/humanize)
 
 ### From a difference
 

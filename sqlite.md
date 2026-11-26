@@ -407,7 +407,7 @@ sqlite3 app.db "PRAGMA optimize;"
 
 `VACUUM` rebuilds and shrinks the file after large deletes; `PRAGMA optimize` updates planner statistics.
 
-See: [VACUUM](https://sqlite.org/lang_vacuum.html)
+See: [VACUUM](https://sqlite.org/lang_vacuum.html), [PRAGMA optimize](https://sqlite.org/pragma.html#pragma_optimize)
 
 ## Backup and restore
 

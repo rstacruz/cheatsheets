@@ -117,6 +117,7 @@ Snippet pages are left out of the normal homepage category, featured, and recent
 - **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
 - **Tables:** keep a card under 20 table rows total; split into more H3s when a reference table grows. See `tables/row-limit`.
+- **Unique headings:** no repeated H2/H3 titles in one sheet; anchors collide. See `headings/unique`.
 
 H2 content length:
 

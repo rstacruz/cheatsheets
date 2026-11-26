@@ -237,6 +237,21 @@ Long reference lists with no single lesson need no highlight; the card's
 
 When an H3 names several operations, tint each one: "Start and end of unit" marks `startOf` and `endOf`; "Min and max" marks both helpers. The title is the reader's checklist, so a method named there should be visible in the block. This is the title-driven case of `code/highlight-parallel-set`.
 
+### code/highlight-call-site
+
+🤖 Check: `code/highlight-call-site`.
+
+A bare-identifier highlight should land on the call, not the import. When a block imports a helper, tint `helper(` or `.helper(` rather than `helper`, or the tint stops on the setup line. A block that only imports has no call site and is left alone.
+
+````md
+```js
+import { isBetween } from 'dayjs/plugin/isBetween'
+
+d.isBetween(start, end)
+```
+<!-- {: data-highlight=".isBetween("} -->
+````
+
 ### code/data-highlight-in-block
 
 🤖 Check: `code/data-highlight-in-block`.
@@ -577,6 +592,28 @@ Keep a card's tables to 20 data rows in total. A reference table past that reads
 | `HH`  | `09`   |
 ````
 
+### tables/label-multiple
+
+🤖 Check: `tables/label-multiple`.
+
+When a card holds two or more tables, give each one an H4 label above it. A reader who lands mid-card should know which table they are reading without counting from the top.
+
+````markdown
+### Tokens
+
+#### Date
+
+| Token  | Meaning |
+| ------ | ------- |
+| `yyyy` | Year    |
+
+#### Time
+
+| Token | Meaning |
+| ----- | ------- |
+| `HH`  | Hour    |
+````
+
 ### prose/omit-redundant
 
 Omit redundant prose. When the code is self-explanatory, add no trailing paragraph.
@@ -751,6 +788,12 @@ Duration.fromObject({ hours: 2, minutes: 30 })
 // "2 hours and 30 minutes"
 ```
 ````
+
+### headings/unique
+
+🤖 Check: `headings/unique`.
+
+Two H2 or H3 headings with the same title in one sheet produce the same anchor, so the second link jumps to the first. Rename the later card, usually with the topic it belongs to, instead of repeating the word.
 
 ### frontmatter/h3-links
 

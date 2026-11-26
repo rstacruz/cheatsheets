@@ -310,7 +310,7 @@ d.set({ month: 1, day: 15 }).toISODate()  // "2014-01-15"
 d.set({ hour: 0, minute: 0 }).toISO()
 // "2014-06-11T00:00:00.000Z"
 ```
-<!-- {: data-highlight="{ month: 1, day: 15 }"} -->
+<!-- {: data-highlight=".set("} -->
 
 `set()` replaces fields; use `plus()` or `minus()` to move by an amount.
 
@@ -327,6 +327,7 @@ const end = DateTime.fromISO('2014-06-10T12:00', { zone: 'utc' })
 end.diff(start, 'days').days    // 1.5
 end.diff(start, 'hours').hours  // 36
 ```
+<!-- {: data-highlight=".diff(start, 'days')"} -->
 
 #### Breakdown
 
@@ -337,7 +338,7 @@ DateTime.fromISO('2014-06-19T12:30', { zone: 'utc' })
   .toObject()
 // { days: 10, hours: 2, minutes: 58 }
 ```
-<!-- {: data-highlight="'days', 'hours', 'minutes'"} -->
+<!-- {: data-highlight=".diff("} -->
 
 `diff()` returns a `Duration`. A single unit gives a fractional count; an array gives whole calendar units.
 
@@ -419,7 +420,7 @@ ny.offset          // -240
 ny.isInDST         // true
 ny.offsetNameShort // "EDT"
 ```
-<!-- {: data-highlight="isInDST"} -->
+<!-- {: data-highlight="zoneName"} -->
 
 Offsets are minutes east of UTC, so `-240` means UTC−4.
 

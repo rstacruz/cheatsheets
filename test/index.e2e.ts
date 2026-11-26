@@ -85,7 +85,7 @@ test('/knex', async ({ page }) => {
   await expectMeta(page, {
     name: 'description',
     content:
-      'Knex cheatsheet. Knex is an SQL query builder for Node.js. This guide targets v0.13.0.'
+      'Knex cheatsheet. Knex is an SQL query builder for Node.js. This guide targets Knex 3.3.0.'
   })
 
   // Share buttons

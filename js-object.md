@@ -3,7 +3,9 @@ title: JavaScript Objects
 subtitle: Key-value object reference
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   Objects are collections of key-value pairs; keys are strings or symbols.
 links:
@@ -27,13 +29,15 @@ const user = {
   greet() { return 'hi' },   // method shorthand
 }
 ```
+<!-- {: data-highlight="['role' + 'Id']"} -->
 
-<!-- {: data-highlight="'role'"} -->
+#### Spread
 
 ```js
 const opts = { ...defaults, visible: true }
 // → { color: 'red', size: 'md', visible: true }
 ```
+<!-- {: data-highlight="...defaults"} -->
 
 Shorthand uses the variable name as the key; spread copies own enumerable properties.
 
@@ -48,13 +52,15 @@ user[key]                // dynamic key from a variable
 user.address?.city       // → undefined (no address)
 user.nickname ?? 'anon'  // → 'anon' (nullish fallback)
 ```
-
 <!-- {: data-highlight="?."} -->
+
+#### Destructuring
 
 ```js
 const { a, b = 1, ...rest } = obj
 const { name: who = 'anon' } = user
 ```
+<!-- {: data-highlight="...rest"} -->
 
 Bracket access takes any expression; `?.` short-circuits on `null` or `undefined`.
 
@@ -67,6 +73,7 @@ See: [Property accessors](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 Object.hasOwn(user, 'name')      // → true (own only, ES2022)
 Object.hasOwn(user, 'toString')  // → false
 ```
+<!-- {: data-highlight="Object.hasOwn"} -->
 
 `in` walks the prototype chain; `Object.hasOwn()` checks own properties only. Older code uses `Object.prototype.hasOwnProperty.call()`.
 
@@ -81,8 +88,7 @@ user.age += 1            // update in place
 delete user.age          // → true
 'age' in user            // → false
 ```
-
-<!-- {: data-highlight="user.age"} -->
+<!-- {: data-highlight="user.age = 36; delete user.age"} -->
 
 Assigning a computed key adds or overwrites a property; `delete` removes one.
 
@@ -119,6 +125,7 @@ Object.entries(user).forEach(([key, value]) => {
   console.log(key, value)
 })
 ```
+<!-- {: data-highlight="Object.entries"} -->
 
 `Object.entries()` with `for...of` visits own enumerable keys only. Prefer it over `for...in`, which also walks inherited keys.
 
@@ -132,6 +139,7 @@ const merged = Object.assign({}, user, extra)
 const deep = structuredClone(user)                // nested objects
 const viaJson = JSON.parse(JSON.stringify(user))  // loses dates
 ```
+<!-- {: data-highlight="structuredClone"} -->
 
 Spread and `Object.assign()` are shallow; `structuredClone()` (Node 17+) copies nested objects. JSON round-trips lose dates, functions, and `undefined`.
 
@@ -146,7 +154,6 @@ a === b               // → false, different references
 Object.is(NaN, NaN)   // → true
 Object.is(0, -0)      // → false
 ```
-
 <!-- {: data-highlight="==="} -->
 
 `===` compares object identity, not contents; `Object.is()` treats `NaN` as equal to itself.

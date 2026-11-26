@@ -2,8 +2,20 @@
 title: Homebrew
 subtitle: Package manager for macOS
 weight: -3
+updated: 2026-11-25
+tier: t3
+last_verified_with: "Homebrew 7.0.16."
 category: Package managers
+intro: |
+  [Homebrew](https://brew.sh) installs software on macOS and Linux. This sheet covers formula and cask commands, upgrades, and maintenance.
+links:
+  - title: Homebrew
+    url: https://brew.sh
+  - title: brew manpage
+    url: https://docs.brew.sh/Manpage
 ---
+
+## Usage
 
 ### Commands
 
@@ -19,6 +31,8 @@ category: Package managers
 | ---                        | ---                         |
 | `brew list --versions git` | See what versions you have  |
 
+See: [brew install](https://docs.brew.sh/Manpage#install-formula)
+
 ### More package commands
 
 | Command                    | Description                 |
@@ -30,6 +44,8 @@ category: Package managers
 | `brew home git`            | Open homepage               |
 | `brew search git`          | Search for formulas         |
 
+See: [brew info](https://docs.brew.sh/Manpage#info-abv-options-formulacask-)
+
 ### Global commands
 
 | Command         | Description              |
@@ -40,6 +56,8 @@ category: Package managers
 | `brew outdated` | What's due for upgrades? |
 | `brew doctor`   | Diagnose brew issues     |
 
+See: [brew update](https://docs.brew.sh/Manpage#update-up-options)
+
 ### Brew Cask commands
 
 | Command                       | Description                           |
@@ -48,6 +66,8 @@ category: Package managers
 | `brew list --cask`            | List installed applications           |
 
 Cask commands are used for interacting with graphical applications.
+
+See: [brew install --cask](https://docs.brew.sh/Manpage#install-options-formulacask-)
 
 ## Also see
 

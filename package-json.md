@@ -1,10 +1,21 @@
 ---
 title: package.json
 subtitle: Manifest for npm packages
-category: Node.js
+category: Node.js libraries
 prism_languages: [json]
-updated: 2020-06-23
+updated: 2026-11-25
+last_verified_with: "npm 12.2.3."
+tier: t3
 weight: -3
+intro: |
+  A `package.json` file declares a Node.js package's metadata, dependencies, scripts, and entry points. This sheet covers common fields and version ranges.
+links:
+  - title: npm package.json
+    url: https://docs.npmjs.com/cli/v12/configuring-npm/package-json
+  - title: package.json dependencies
+    url: https://docs.npmjs.com/cli/v12/configuring-npm/package-json#dependencies
+  - title: npm scripts
+    url: https://docs.npmjs.com/cli/v12/using-npm/scripts
 ---
 
 ### Basic
@@ -27,33 +38,43 @@ weight: -3
   "repository": {
     "type": "git",
     "url": "https://github.com/rstacruz/___.git"
-  },
+  }
 }
 ```
 
-<!-- {: data-highlight='"0.1.0"'} -->
+<!-- {: data-highlight='"name"; "version"'} -->
 
 Highlighted lines are required.
 
+See: [package.json](https://docs.npmjs.com/cli/v12/configuring-npm/package-json)
+
 ### Dependencies
+
+#### Version ranges
 
 ```json
 "dependencies": {
   "colors":   "*",
   "flatiron": "0.1.x",
-  "flatiron": "~0.1.0",
-  "plates":   "https://github.com/user/project/tarball/branch",
-  "stuff":    "git://github.com/user/project.git#commit-ish"
+  "plates":   "~0.1.0",
+  "stuff":    "https://github.com/user/project/tarball/branch",
+  "thing":    "git://github.com/user/project.git#commit-ish"
 },
 ```
+<!-- {: data-highlight='"*"; "0.1.x"; "~0.1.0"'} -->
+
+#### Other dependency fields
 
 ```json
 "devDependencies": { ··· },
 "peerDependencies": { ··· },
 "optionalDependencies": { ··· },
 ```
+<!-- {: data-highlight="devDependencies; peerDependencies; optionalDependencies"} -->
 
-See [Semver cheatsheet](./semver) for explanation of version ranges.
+[Semver cheatsheet](./semver) explains version ranges.
+
+See: [package.json dependencies](https://docs.npmjs.com/cli/v12/configuring-npm/package-json#dependencies)
 
 ### Scripts
 
@@ -62,10 +83,12 @@ See [Semver cheatsheet](./semver) for explanation of version ranges.
   "start": "node ./bin/xxx",       /* npm start */
   "test": "vows --spec --isolate", /* npm test */
   "postinstall": "...",
-  "prepublish": "grunt build",     /* after 'npm install' and before 'npm 
-                                      publish' */
+  "prepublish": "grunt build", /* after install, before publish */
 }
 ```
+<!-- {: data-highlight='"scripts"'} -->
+
+See: [npm scripts](https://docs.npmjs.com/cli/v12/using-npm/scripts)
 
 ### Misc
 
@@ -73,6 +96,9 @@ See [Semver cheatsheet](./semver) for explanation of version ranges.
 "private": true,
 "preferGlobal": true
 ```
+<!-- {: data-highlight='"private"; "preferGlobal"'} -->
+
+See: [private](https://docs.npmjs.com/cli/v12/configuring-npm/package-json#private)
 
 ### Config
 
@@ -86,8 +112,11 @@ See [Semver cheatsheet](./semver) for explanation of version ranges.
   }
 }
 ```
+<!-- {: data-highlight='"config"'} -->
 
 Keys in `config` are exposed as env vars to scripts.
+
+See: [Environment variables](https://docs.npmjs.com/cli/v12/using-npm/config#environment-variables)
 
 ## References
 

@@ -40,6 +40,7 @@ export const categories = [
   'Browser APIs',
   'Internationalization',
   'Number formatting',
+  'String sorting',
   'JavaScript libraries',
   'Date libraries',
   'JavaScript frameworks',

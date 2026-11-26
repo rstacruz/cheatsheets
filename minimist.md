@@ -1,7 +1,7 @@
 ---
 title: minimist
 subtitle: CLI argument parser
-category: Node.js
+category: Node.js libraries
 last_verified_with: "minimist 1.2.8."
 updated: 2026-11-25
 tier: t3

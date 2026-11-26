@@ -1,7 +1,7 @@
 ---
 title: Parsimmon
 subtitle: Parser combinator library
-category: Node.js
+category: Node.js libraries
 last_verified_with: "Parsimmon 1.18.1."
 updated: 2026-11-25
 tier: t3

@@ -150,7 +150,10 @@ H3 content length:
 ## Cross-linking sheets
 
 Sheets can link to related sheets with `.-crosslink`, which renders as a large
-block with an arrow:
+block with an arrow. Reserve it for sheets in the same family: an index and its
+members, a version and its successor, or a retired sheet and its replacement.
+A neighbouring tool or an alternative gets a regular link instead. See
+`crosslinks/directly-related` in [Rules](rules.md).
 
 ````md
 [JavaScript Strings cheatsheet](./js-string)
@@ -161,6 +164,12 @@ block with an arrow:
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
 - Reserve cross-links for directly related sheets: a sibling version, a successor, or the same family. Two languages from different ecosystems are not related, even when they look alike; leave the other sheet out.
+
+For a neighbouring tool, link it plainly:
+
+````md
+- [Fastify cheatsheet](./fastify)
+````
 
 A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
 links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the

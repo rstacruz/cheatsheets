@@ -2,7 +2,7 @@
 title: Node.js API
 subtitle: Server-side JavaScript API
 category: Node.js
-updated: 2026-11-24
+updated: 2026-11-26
 last_verified_with: "Node.js 26.13.1."
 tier: t3
 intro: |
@@ -146,3 +146,8 @@ See: [util.inspect](https://nodejs.org/api/util.html#utilinspectobject-options)
 - <https://nodejs.org/docs/latest-v26.x/api/globals.html>
 - <https://nodejs.org/docs/latest-v26.x/api/child_process.html>
 - <https://nodejs.org/docs/latest-v26.x/api/esm.html>
+
+## Also see
+
+[Express cheatsheet](./express)
+<!-- {: .-crosslink} -->

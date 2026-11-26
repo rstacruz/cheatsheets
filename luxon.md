@@ -215,8 +215,7 @@ See: [ISO](https://moment.github.io/luxon/#/formatting?id=iso-8601)
 const d = DateTime.fromISO('2014-06-09T09:32Z', { zone: 'utc' })
 const base = DateTime.fromISO('2014-06-19T09:32Z', { zone: 'utc' })
 
-d.toRelative({ base })
-// "10 days ago"
+d.toRelative({ base }) // "10 days ago"
 ```
 
 #### Calendar

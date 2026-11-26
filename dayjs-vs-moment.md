@@ -25,8 +25,7 @@ links:
 const d = moment('2014-06-09')
 
 d.add(1, 'day')
-d.format('YYYY-MM-DD')
-// "2014-06-10"
+d.format('YYYY-MM-DD') // "2014-06-10"
 ```
 
 #### Day.js
@@ -37,8 +36,7 @@ const d = dayjs('2014-06-09')
 d.add(1, 'day').format('YYYY-MM-DD')
 // "2014-06-10"
 
-d.format('YYYY-MM-DD')
-// "2014-06-09"
+d.format('YYYY-MM-DD') // "2014-06-09"
 ```
 
 **Moment mutates; Day.js returns a new object.** Code that reuses the value behaves differently in Moment; see [Immutability](https://day.js.org/docs/en/parse/parse).

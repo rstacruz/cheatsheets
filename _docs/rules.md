@@ -778,6 +778,17 @@ A comment should say what the command changes, not restate it: `# switch to a br
 
 Separate statement-and-result groups with a blank line. Keep result comments on their own line, and leave a blank line before the next statement so the block reads as a sequence of examples instead of one run-on transcript.
 
+A call and its result may share a line when the combined line stays under 40 characters; longer results go on their own line.
+
+````md
+```js
+nth(1)   // → '1st'
+nth(2)   // → '2nd'
+nth(11)  // → '11th'
+nth(23)  // → '23rd'
+```
+````
+
 ````md
 ```js
 Duration.fromObject({ hours: 2, minutes: 30 }).toHuman()

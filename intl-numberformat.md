@@ -1,7 +1,7 @@
 ---
 title: Intl.NumberFormat
 subtitle: Locale-aware number formatter
-category: Internationalization
+category: Number formatting
 tier: t2
 updated: 2026-11-18
 last_verified_with: "Node 26.13.1."

@@ -109,4 +109,4 @@ links:
 ```
 <!-- {: data-highlight="ComponentProps<typeof Button>"} -->
 
-**Reuses another component's prop type.** `ComponentProps` also covers `children`; see [`ComponentProps`](https://svelte.dev/docs/svelte/typescript#ComponentProps).
+**Reuses another component's prop type.** `ComponentProps` also covers `children`; see [`ComponentProps`](https://svelte.dev/docs/svelte/svelte#ComponentProps).

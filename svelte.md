@@ -18,7 +18,7 @@ fragments:
   - "class:active"
   - "transition:fade"
   - "onMount"
-  - "setContext"
+  - "createContext"
   - "writable()"
   - "$state.raw"
   - "svelte:window"
@@ -51,7 +51,7 @@ npx sv create my-app
 
 The `sv` CLI scaffolds a Vite project; pick SvelteKit, TypeScript, and your package manager at the prompts.
 
-See: [Creating a project](https://svelte.dev/docs/svelte/creating-a-project)
+See: [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 
 ### Scripts
 
@@ -59,19 +59,19 @@ See: [Creating a project](https://svelte.dev/docs/svelte/creating-a-project)
 # start a dev server with hot reloading
 pnpm dev
 ```
-<!-- {: data-highlight="dev"} -->
+<!-- {: data-highlight="pnpm dev"} -->
 
 ```bash
 # build the production bundle
 pnpm build
 ```
-<!-- {: data-highlight="build"} -->
+<!-- {: data-highlight="pnpm build"} -->
 
 ```bash
 # serve the built bundle locally
 pnpm preview
 ```
-<!-- {: data-highlight="preview"} -->
+<!-- {: data-highlight="pnpm preview"} -->
 
 These run Vite through the scripts `sv create` writes into `package.json`.
 
@@ -96,7 +96,9 @@ See: [Project structure](https://svelte.dev/docs/kit/project-structure)
 </style>
 ```
 
-A `.svelte` file holds script, markup, and styles; `<style>` applies only to this component. See: [Component format](https://svelte.dev/docs/svelte/component)
+A `.svelte` file holds script, markup, and styles; `<style>` applies only to this component.
+
+See: [Svelte files](https://svelte.dev/docs/svelte/svelte-files)
 
 ### Mount an app
 
@@ -332,7 +334,7 @@ See: [key blocks](https://svelte.dev/docs/svelte/key)
 
 `svelte:window`, `svelte:document`, and `svelte:body` bind listeners outside the component; `svelte:element` renders a dynamic tag.
 
-See: [Special elements](https://svelte.dev/docs/svelte/special-elements)
+See: [`svelte:window`](https://svelte.dev/docs/svelte/svelte-window), [`svelte:head`](https://svelte.dev/docs/svelte/svelte-head), [`svelte:element`](https://svelte.dev/docs/svelte/svelte-element)
 
 ## Components
 <!-- {: .-three-column} -->
@@ -416,7 +418,7 @@ See: [Event handling](https://svelte.dev/docs/svelte/basic-markup#Events)
 
 Modifiers like `|preventDefault` are gone; call the method yourself, or use `onsubmitcapture` for the capture phase.
 
-See: [Event modifiers](https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Other-breaking-changes)
+See: [Event modifiers](https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Event-modifiers)
 
 ### Callback props
 
@@ -506,7 +508,7 @@ See: [Snippet props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-
 
 `bind:value` keeps the input and the variable in sync in both directions.
 
-See: [Bindings](https://svelte.dev/docs/svelte/bind)
+See: [Text bindings](https://svelte.dev/docs/svelte/bind#input-bind:value)
 
 ### Checkboxes and groups
 
@@ -537,7 +539,7 @@ See: [Bindings](https://svelte.dev/docs/svelte/bind)
 
 `bind:group` collects the checked values into an array; `bind:checked` holds a boolean.
 
-See: [Checkbox and group bindings](https://svelte.dev/docs/svelte/bind#input-bindings)
+See: [Group bindings](https://svelte.dev/docs/svelte/bind#input-bind:group)
 
 ### Selects
 
@@ -555,11 +557,11 @@ See: [Checkbox and group bindings](https://svelte.dev/docs/svelte/bind#input-bin
   {/each}
 </select>
 ```
-<!-- {: data-highlight="<select"} -->
+<!-- {: data-highlight="bind:value={choice}"} -->
 
 `<select>` binds the chosen option's `value`, not its text.
 
-See: [Select bindings](https://svelte.dev/docs/svelte/bind#select-bindings)
+See: [Select bindings](https://svelte.dev/docs/svelte/bind#select-bind:value)
 
 ### Element refs
 
@@ -604,8 +606,12 @@ See: [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings)
 <script>
   import { onMount } from 'svelte'
 
+  let now = $state(new Date())
+
   onMount(() => {
-    const id = setInterval(tick, 1000)
+    const id = setInterval(() => {
+      now = new Date()
+    }, 1000)
     return () => clearInterval(id)
   })
 </script>
@@ -665,7 +671,7 @@ See: [`tick`](https://svelte.dev/docs/svelte/svelte#tick)
 
 Styling is scoped by default: Svelte adds a hash class and drops selectors that match nothing.
 
-See: [Scoped styles](https://svelte.dev/docs/svelte/styling)
+See: [Scoped styles](https://svelte.dev/docs/svelte/scoped-styles)
 
 ### Global styles
 
@@ -681,9 +687,11 @@ See: [Scoped styles](https://svelte.dev/docs/svelte/styling)
 
 `:global(...)` opts a selector out of scoping, for resets and content you do not own.
 
-See: [Global styles](https://svelte.dev/docs/svelte/styling#Global-styles)
+See: [Global styles](https://svelte.dev/docs/svelte/global-styles)
 
 ### CSS custom properties
+
+#### Card.svelte
 
 ```html
 <script>
@@ -700,9 +708,19 @@ See: [Global styles](https://svelte.dev/docs/svelte/styling#Global-styles)
 ```
 <!-- {: data-highlight="var(--pad, 1rem)"} -->
 
-Custom properties cross the component boundary, so a parent can pass `style="--pad: 2rem"`.
+#### App.svelte
 
-See: [Passing styles](https://svelte.dev/docs/svelte/styling#Passing-styles-to-components)
+```html
+<script>
+  import Card from './Card.svelte'
+</script>
+
+<Card --pad="2rem">Hi</Card>
+```
+
+Custom properties cross the component boundary: setting `--pad` on the component reaches the child's CSS.
+
+See: [Custom properties](https://svelte.dev/docs/svelte/custom-properties)
 
 ### Class and style directives
 
@@ -716,7 +734,7 @@ See: [Passing styles](https://svelte.dev/docs/svelte/styling#Passing-styles-to-c
   {label}
 </button>
 ```
-<!-- {: data-highlight="class:active={selected}"} -->
+<!-- {: data-highlight="class:active={selected}; style:color={color}"} -->
 
 `class:name` toggles a class and `style:prop` sets one property without string concatenation.
 
@@ -747,7 +765,7 @@ export function increment() {
 <button onclick={increment}>{counter.count}</button>
 ```
 
-Only `.svelte.js` files may use runes, and a module cannot export a `let` that gets reassigned; export an object instead.
+Only `.svelte.js` and `.svelte.ts` files may use runes, and a module cannot export a `let` that gets reassigned; export an object instead.
 
 See: [Universal reactivity](https://svelte.dev/docs/svelte/$state#Passing-state-across-modules)
 
@@ -954,7 +972,7 @@ See: [TypeScript in Svelte](https://svelte.dev/docs/svelte/typescript)
 
 `generics` declares type parameters once and infers them at each usage site.
 
-See: [Generic components](https://svelte.dev/docs/svelte/typescript#Generics)
+See: [Generic components](https://svelte.dev/docs/svelte/typescript#Generic-$props)
 
 ### Component props type
 
@@ -970,7 +988,7 @@ const props: ButtonProps = { label: 'Save' }
 
 `ComponentProps` extracts a component's prop type, for wrappers and prop tables.
 
-See: [`ComponentProps`](https://svelte.dev/docs/svelte/typescript#ComponentProps)
+See: [`ComponentProps`](https://svelte.dev/docs/svelte/svelte#ComponentProps)
 
 ### Type checking
 
@@ -988,9 +1006,9 @@ See: [svelte-check](https://svelte.dev/docs/cli/sv-check)
 ### Automated migration
 
 ```bash
-npx sv migrate svelte:5
+npx sv migrate svelte-5
 ```
-<!-- {: data-highlight="svelte:5"} -->
+<!-- {: data-highlight="svelte-5"} -->
 
 The codemod rewrites props, reactivity, events, and slots; review its diff, since runes change where code may live.
 
@@ -1010,7 +1028,7 @@ See: [Migration guide](https://svelte.dev/docs/svelte/v5-migration-guide)
 
 Runes mode is opt-in per component; a component using `$state` or `$props` is already in it.
 
-See: [Runes migration](https://svelte.dev/docs/svelte/v5-migration-guide#Runes)
+See: [Runes migration](https://svelte.dev/docs/svelte/v5-migration-guide#Breaking-changes-in-runes-mode)
 
 ## Beyond the basics
 <!-- {: .-three-column} -->
@@ -1074,3 +1092,18 @@ See: [`{@attach}`](https://svelte.dev/docs/svelte/@attach)
 `$inspect` logs a value whenever it changes, in development only, and is stripped from builds.
 
 See: [`$inspect`](https://svelte.dev/docs/svelte/$inspect)
+
+## Also see
+
+<!-- {: .-one-column} -->
+
+- [Type Svelte props cheatsheet](./svelte-type-props)
+- [Comment in Svelte cheatsheet](./svelte-comments)
+- [Key an each block cheatsheet](./svelte-keyed-each)
+- [Derived vs effect cheatsheet](./svelte-derived-vs-effect)
+- [Snippets vs slots cheatsheet](./svelte-snippets-vs-slots)
+- [Share Svelte state cheatsheet](./svelte-shared-state)
+- [Bind Svelte inputs cheatsheet](./svelte-bind-input)
+- [Migrate to Svelte 5 cheatsheet](./svelte-migrate-v5)
+- [Svelte transitions cheatsheet](./svelte-transitions)
+- [Fetch data in Svelte cheatsheet](./svelte-fetch-data)

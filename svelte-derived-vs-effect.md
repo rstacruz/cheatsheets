@@ -1,6 +1,6 @@
 ---
 title: When to use $derived and $effect in Svelte
-link_title: $derived vs $effect
+link_title: Derived vs effect
 subtitle: Values vs side effects
 category: JavaScript frameworks
 layout: snippet
@@ -30,21 +30,23 @@ links:
 ```
 <!-- {: data-highlight="$derived(`${first} ${last}`)"} -->
 
-**Uses `$derived` for anything that can be computed.** It re-evaluates lazily and never runs during server rendering; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
+**Uses `$derived` for anything that can be computed.** It re-evaluates lazily, and unlike an effect it also runs during server rendering; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
 
 ### Run a side effect with $effect
 <!-- {: .-snippet} -->
 
 ```html
 <script>
-  let theme = $state('dark')
+  let unread = $state(0)
 
   $effect(() => {
-    document.body.dataset.theme = theme
+    document.title = unread
+      ? `(${unread}) Inbox`
+      : 'Inbox'
   })
 </script>
 ```
-<!-- {: data-highlight="$effect"} -->
+<!-- {: data-highlight="document.title"} -->
 
 **Uses `$effect` to reach outside the component.** Writing to the DOM, logging, or starting a browser API is effect work; see [`$effect`](https://svelte.dev/docs/svelte/$effect).
 
@@ -63,7 +65,7 @@ links:
 ```
 <!-- {: data-highlight="return () => ws.close()"} -->
 
-**Returns a cleanup from the effect.** It runs before the next effect and on unmount, so the old socket never lingers; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#When-effects-run-and-when-they-dont).
+**Returns a cleanup from the effect.** It runs before the next effect and on unmount, so the old socket never lingers; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
 
 ### Read without tracking
 <!-- {: .-snippet} -->
@@ -90,14 +92,13 @@ links:
 
 ```html
 <script>
-  let items = $state([])
-  let height = $state(0)
+  let theme = $state('dark')
 
   $effect.pre(() => {
-    height = items.length * 24
+    document.body.dataset.theme = theme
   })
 </script>
 ```
 <!-- {: data-highlight="$effect.pre"} -->
 
-**Uses `$effect.pre` for pre-paint work.** It runs before Svelte applies the pending DOM changes; see [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).
+**Runs before Svelte applies the DOM update.** Reach for it when the attribute must be set ahead of the markup that reads it; see [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).

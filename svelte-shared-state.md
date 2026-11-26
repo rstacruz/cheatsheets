@@ -89,7 +89,7 @@ export const [getUser, setUser] = createContext()
 <p>{user.name}</p>
 ```
 
-**Shares state with descendants only.** `createContext` gives typed `get`/`set` helpers, and each subtree gets its own value; see [`createContext`](https://svelte.dev/docs/svelte/svelte#createContext).
+**Shares state with descendants only.** `createContext` returns typed `get`, `set`, and `has` helpers; a nested provider overrides the value for its subtree, as [createContext](https://svelte.dev/docs/svelte/svelte#createContext) shows.
 
 ### Fall back to a store
 <!-- {: .-snippet} -->

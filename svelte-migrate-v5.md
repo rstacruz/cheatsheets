@@ -37,6 +37,7 @@ npx sv migrate svelte:5
   export let items = []
 </script>
 ```
+<!-- {: data-highlight="export let"} -->
 
 #### After
 
@@ -48,6 +49,7 @@ npx sv migrate svelte:5
   } = $props()
 </script>
 ```
+<!-- {: data-highlight="$props()"} -->
 
 **Replaces `export let` with a destructured `$props()`.** Defaults move into the pattern; see [`$props`](https://svelte.dev/docs/svelte/$props).
 
@@ -74,7 +76,7 @@ npx sv migrate svelte:5
 ```
 <!-- {: data-highlight="$derived(count * 2)"} -->
 
-**Turns `$:` into `$derived`.** A reactive statement that calls a function becomes `$effect`; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
+**Turns `$:` into `$derived`.** Statements with side effects become `run(...)` from `svelte/legacy`, to replace with `$effect` by hand; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
 
 ### Convert event handlers
 <!-- {: .-snippet} -->
@@ -92,7 +94,7 @@ npx sv migrate svelte:5
 ```
 <!-- {: data-highlight="onclick={save}"} -->
 
-**Drops the `on:` prefix.** Modifiers such as `|preventDefault` go too: call the method in the handler; see [Event changes](https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Other-breaking-changes).
+**Drops the `on:` prefix.** Modifiers such as `|preventDefault` go too: call the method in the handler; see [Event changes](https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Event-modifiers).
 
 ### Convert slots
 <!-- {: .-snippet} -->
@@ -115,28 +117,3 @@ npx sv migrate svelte:5
 <!-- {: data-highlight="{@render children()}"} -->
 
 **Replaces `<slot>` with snippet props.** `<slot name="header" />` becomes a `header` prop rendered with `{@render header?.()}`; see [Snippets instead of slots](https://svelte.dev/docs/svelte/v5-migration-guide#Snippets-instead-of-slots).
-
-### Convert the app entry point
-<!-- {: .-snippet} -->
-
-#### Before
-
-```js
-import App from './App.svelte'
-
-const app = new App({ target: document.body })
-```
-
-#### After
-
-```js
-import { mount } from 'svelte'
-import App from './App.svelte'
-
-const app = mount(App, {
-  target: document.body
-})
-```
-<!-- {: data-highlight="mount(App, {"} -->
-
-**Mounts with the `mount` function.** Components are no longer classes, so `new App(...)` stops working; see [`mount`](https://svelte.dev/docs/svelte/imperative-component-api).

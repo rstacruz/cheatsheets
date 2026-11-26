@@ -63,7 +63,7 @@ links:
 ```
 <!-- {: data-highlight="row(item)"} -->
 
-**Turns slot props into snippet arguments.** The parent decides how each item renders; see [Implicit snippet props](https://svelte.dev/docs/svelte/snippet#Implicit-snippet-props).
+**Turns slot props into snippet arguments.** The parent decides how each item renders; see [Implicit props](https://svelte.dev/docs/svelte/snippet#Passing-snippets-to-components-Implicit-props).
 
 ### Provide fallback content
 <!-- {: .-snippet} -->
@@ -79,7 +79,7 @@ links:
   <p>No footer</p>
 {/if}
 ```
-<!-- {: data-highlight="{#if footer}"} -->
+<!-- {: data-highlight="<p>No footer</p>"} -->
 
 **Checks the prop before rendering it.** A snippet prop is `undefined` unless the parent passes one, so the fallback is ordinary markup; see [Snippets](https://svelte.dev/docs/svelte/snippet).
 

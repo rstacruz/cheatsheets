@@ -84,4 +84,4 @@ links:
 ```
 <!-- {: data-highlight="(group.id); (item.id)"} -->
 
-**Keys each level separately.** Give both loops a key so moving an item between groups keeps its identity; see [each blocks](https://svelte.dev/docs/svelte/each).
+**Keys each level separately.** Both loops keep identity across reorders inside their own list; an item moved to another group is recreated, as [each blocks](https://svelte.dev/docs/svelte/each) explains.

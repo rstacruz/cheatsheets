@@ -34,7 +34,7 @@ links:
 ```
 <!-- {: data-highlight="$effect"} -->
 
-**Loads once on mount.** The effect tracks no state, so it runs on mount only; see [`$effect`](https://svelte.dev/docs/svelte/$effect).
+**Loads once on mount.** The effect tracks no state, so it runs on mount only; SvelteKit projects use [`load`](https://svelte.dev/docs/kit/load) instead. See [`$effect`](https://svelte.dev/docs/svelte/$effect).
 
 ### Track loading and errors
 <!-- {: .-snippet} -->
@@ -69,7 +69,6 @@ links:
   <p>{user.name}</p>
 {/if}
 ```
-<!-- {: data-highlight="async function load()"} -->
 
 **Keeps all three states explicit.** An async function keeps the flow readable and `finally` always clears the spinner; see [Await blocks](https://svelte.dev/docs/svelte/await) for the markup equivalent.
 
@@ -98,7 +97,7 @@ links:
 ```
 <!-- {: data-highlight="ctrl.abort()"} -->
 
-**Aborts the previous request when `query` changes.** Each run creates its own controller, and the cleanup cancels stale loads; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#When-effects-run-and-when-they-dont).
+**Aborts the previous request when `query` changes.** Each run creates its own controller, and the cleanup cancels stale loads; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#Understanding-lifecycle).
 
 ### Render a promise with an await block
 <!-- {: .-snippet} -->
@@ -120,18 +119,3 @@ links:
 <!-- {: data-highlight="{#await promise}"} -->
 
 **Branches on the promise's state in markup.** A new `userId` produces a new promise and restarts the block; see [await blocks](https://svelte.dev/docs/svelte/await).
-
-### Move loading into SvelteKit
-<!-- {: .-snippet} -->
-
-#### +page.ts
-
-```ts
-export async function load({ fetch }) {
-  const res = await fetch('/api/user')
-  return { user: await res.json() }
-}
-```
-<!-- {: data-highlight="export async function load"} -->
-
-**Runs before the page renders, on the server and in the browser.** Kit passes the result to `data`; see [`load`](https://svelte.dev/docs/kit/load).

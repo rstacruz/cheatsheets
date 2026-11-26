@@ -50,7 +50,7 @@ links:
   </div>
 {/if}
 ```
-<!-- {: data-highlight="in:fly"} -->
+<!-- {: data-highlight="duration: 200"} -->
 
 **Takes the effect's parameters as an object.** `in:` runs only on arrival, and `duration` is in milliseconds; see [Transition parameters](https://svelte.dev/docs/svelte/transition#Transition-parameters).
 
@@ -70,9 +70,9 @@ links:
   </div>
 {/if}
 ```
-<!-- {: data-highlight="out:fade"} -->
+<!-- {: data-highlight="in:fly; out:fade"} -->
 
-**Uses different effects for each direction.** Pairing `in:` and `out:` is the usual way to get an asymmetric motion; see [Transition directives](https://svelte.dev/docs/svelte/transition#Transition-directives).
+**Uses different effects for each direction.** Pairing `in:` and `out:` is the usual way to get an asymmetric motion; see [in and out](https://svelte.dev/docs/svelte/in-and-out).
 
 ### Animate a reordered list
 <!-- {: .-snippet} -->

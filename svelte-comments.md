@@ -10,7 +10,7 @@ links:
   - title: Template syntax
     url: https://svelte.dev/docs/svelte/basic-markup
   - title: Component format
-    url: https://svelte.dev/docs/svelte/component
+    url: https://svelte.dev/docs/svelte/svelte-files
 ---
 
 ## Comments
@@ -20,12 +20,16 @@ links:
 <!-- {: .-snippet} -->
 
 ```html
-<p>Total: {total}</p>
-<!-- shown in the HTML source -->
-```
-<!-- {: data-highlight="shown in the HTML source"} -->
+<script>
+  let total = 3
+</script>
 
-**Uses an HTML comment.** Markup comments survive into the rendered page, so keep anything private out of them; see [template syntax](https://svelte.dev/docs/svelte/basic-markup).
+<p>Total: {total}</p>
+<!-- a note for the next editor -->
+```
+<!-- {: data-highlight="a note for the next editor"} -->
+
+**Uses an HTML comment.** It compiles away unless `preserveComments` is on, so it never reaches the browser by default; see [Template syntax](https://svelte.dev/docs/svelte/basic-markup).
 
 ### Comment script code
 <!-- {: .-snippet} -->
@@ -37,8 +41,9 @@ links:
   let count = $state(0)
 </script>
 ```
+<!-- {: data-highlight="// a line comment; /* a block comment */"} -->
 
-**Uses JavaScript comments.** Both forms are stripped at compile time, unlike markup comments; see [Component format](https://svelte.dev/docs/svelte/component).
+**Uses JavaScript comments.** Svelte keeps them in the compiled module, and a bundler's minifier drops them in production; see [Svelte files](https://svelte.dev/docs/svelte/svelte-files).
 
 ### Comment styles
 <!-- {: .-snippet} -->
@@ -53,7 +58,7 @@ links:
 ```
 <!-- {: data-highlight="/* scoped to this component */"} -->
 
-**Uses CSS comments inside `<style>`.** They disappear from the compiled CSS; see [Scoped styles](https://svelte.dev/docs/svelte/styling).
+**Uses CSS comments inside `<style>`.** They stay in the compiled CSS until a minifier removes them; see [Scoped styles](https://svelte.dev/docs/svelte/scoped-styles).
 
 ### Comment out a markup block
 <!-- {: .-snippet} -->

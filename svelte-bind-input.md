@@ -29,7 +29,7 @@ links:
 ```
 <!-- {: data-highlight="bind:value={name}"} -->
 
-**Keeps the input and the variable in sync both ways.** No change handler is needed; see [Bindings](https://svelte.dev/docs/svelte/bind).
+**Keeps the input and the variable in sync both ways.** No change handler is needed; see [Text bindings](https://svelte.dev/docs/svelte/bind#input-bind:value).
 
 ### Bind numbers
 <!-- {: .-snippet} -->
@@ -44,7 +44,7 @@ links:
 ```
 <!-- {: data-highlight='type="number"'} -->
 
-**Coerces the value to a number.** Svelte uses `valueAsNumber` for number and range inputs, and `null` when the field is empty; see [Numeric inputs](https://svelte.dev/docs/svelte/bind#input-bindings).
+**Coerces the value to a number.** Number and range inputs bind numbers, and an empty field binds `null`; see [Numeric inputs](https://svelte.dev/docs/svelte/bind#input-bind:value).
 
 ### Bind a checkbox and a group
 <!-- {: .-snippet} -->
@@ -67,7 +67,7 @@ links:
 ```
 <!-- {: data-highlight="bind:group={picked}"} -->
 
-**Collects checked values into an array.** A single checkbox uses `bind:checked` and holds a boolean; see [Checkbox bindings](https://svelte.dev/docs/svelte/bind#input-bindings).
+**Collects checked values into an array.** A single checkbox uses `bind:checked` and holds a boolean; see [Group bindings](https://svelte.dev/docs/svelte/bind#input-bind:group).
 
 ### Bind a select
 <!-- {: .-snippet} -->
@@ -84,25 +84,25 @@ links:
 ```
 <!-- {: data-highlight="bind:value={choice}"} -->
 
-**Binds the chosen option's value.** For `<select multiple>` the value is an array; see [Select bindings](https://svelte.dev/docs/svelte/bind#select-bindings).
+**Binds the chosen option's value.** For `<select multiple>` the value is an array; see [Select bindings](https://svelte.dev/docs/svelte/bind#select-bind:value).
 
-### Debounce with a get/set pair
+### Transform with a get/set pair
 <!-- {: .-snippet} -->
 
 ```html
 <script>
-  let query = $state('')
+  let code = $state('')
 
-  const get = () => query
+  const get = () => code
   const set = (value) =>
-    setTimeout(() => (query = value), 300)
+    (code = value.toUpperCase())
 </script>
 
 <input bind:value={get, set} />
 ```
 <!-- {: data-highlight="bind:value={get, set}"} -->
 
-**Delays the write while keeping the binding.** The input stays responsive and `query` settles after the pause; see [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
+**Transforms the value on each write.** The getter feeds the input and the setter normalises what is stored; see [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
 
 ### Get the DOM node
 <!-- {: .-snippet} -->
@@ -113,7 +113,6 @@ links:
 </script>
 
 <input bind:this={field} />
-
 <button onclick={() => field.focus()}>
   Focus
 </button>

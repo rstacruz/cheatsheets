@@ -276,7 +276,7 @@ Intl.supportedValuesOf('timeZone').slice(0, 3)
 ```
 <!-- {: .-wrap data-highlight="supportedValuesOf('timeZone')"} -->
 
-Lists the primary IANA names the runtime knows. It omits `UTC` and aliases such as `US/Pacific`, which `timeZone` still accepts, so catch the constructor error instead of testing membership.
+Lists the primary IANA names the runtime knows. V8 leaves out `UTC` and aliases such as `US/Pacific`, which `timeZone` still accepts, so catch the constructor error instead of testing membership.
 
 See: [Intl.supportedValuesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf)
 

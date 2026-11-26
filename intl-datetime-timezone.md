@@ -72,4 +72,4 @@ try {
 ```
 <!-- {: .-wrap data-highlight="catch"} -->
 
-**An unknown zone throws when the formatter is built.** Membership in `Intl.supportedValuesOf('timeZone')` is not a substitute: that list leaves out `UTC` and aliases such as `US/Pacific`; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).
+**An unknown zone throws when the formatter is built.** Membership in `Intl.supportedValuesOf('timeZone')` is not a substitute: V8 leaves out `UTC` and every alias such as `US/Pacific`; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).

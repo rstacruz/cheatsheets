@@ -2,6 +2,13 @@
 title: Vim scripting
 subtitle: Scripting language for Vim
 category: Vim
+intro: |
+  Vimscript is Vim's built-in language for variables, functions, loops, and custom commands. This sheet is a quick reference to [Vim's scripting documentation](https://vimhelp.org/usr_41.txt.html).
+links:
+  - title: Vim scripting guide
+    url: https://vimhelp.org/usr_41.txt.html
+  - title: Vim evaluation and functions
+    url: https://vimhelp.org/eval.txt.html
 prism_languages: [vim]
 tier: t3
 last_verified_with: "Vim 9.2."
@@ -21,7 +28,7 @@ echo "Hello, " . name
 
 You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or type the commands individually in normal mode as `:let` and `:echo`.
 
-See: `:help :source`
+See: [`:help :source`](https://vimhelp.org/repeat.txt.html#%3Asource)
 
 ### Learn by example
 
@@ -41,7 +48,7 @@ imap <Tab> <C-R>=SuperTab()<CR>
 
 Another example uses functions, variables, and mappings.
 
-See: `:help usr_41.txt`
+See: [`:help usr_41.txt`](https://vimhelp.org/usr_41.txt.html#usr_41.txt)
 
 ## Variables
 
@@ -52,7 +59,7 @@ let var = "hello"
 ```
 <!-- {: data-highlight="let var"} -->
 
-See: `:help :let`
+See: [`:help :let`](https://vimhelp.org/eval.txt.html#%3Alet)
 
 ### Variable prefixes
 
@@ -65,7 +72,7 @@ let l:foo = 'bar'              " l: local (to function)
 
 The `s:` prefix is also available in function names.
 
-See: `:help local-variables`
+See: [`:help local-variables`](https://vimhelp.org/userfunc.txt.html#local-variables)
 
 ### Other prefixes
 
@@ -79,7 +86,7 @@ echo $PATH             " $  env
 ```
 <!-- {: data-highlight="w:; b:; t:"} -->
 
-See: `:help internal-variables`
+See: [`:help internal-variables`](https://vimhelp.org/eval.txt.html#internal-variables)
 
 ### Vim options
 
@@ -93,7 +100,7 @@ echo &l:option
 
 Prefix Vim options with `&`
 
-See: `:help expr-option`
+See: [`:help expr-option`](https://vimhelp.org/eval.txt.html#expr-option)
 
 ### Operators
 
@@ -107,7 +114,7 @@ let var .= 'string'   " concat
 ```
 <!-- {: data-highlight=".="} -->
 
-See: `:help expr6`, `:help expr-.`, `:help :let+=`
+See: [`:help expr6`](https://vimhelp.org/eval.txt.html#expr6), [`:help expr-.`](https://vimhelp.org/eval.txt.html#expr-.), [`:help :let+=`](https://vimhelp.org/eval.txt.html#%3Alet%2B%3D)
 
 ## Strings
 
@@ -126,7 +133,7 @@ echo "result = " . re   " concatenation
 
 Quoted strings interpret backslash escapes; literal strings do not.
 
-See: `:help expr-quote`, `:help literal-string`
+See: [`:help expr-quote`](https://vimhelp.org/eval.txt.html#expr-quote), [`:help literal-string`](https://vimhelp.org/eval.txt.html#literal-string)
 
 ### String functions
 
@@ -145,7 +152,7 @@ toupper('Hello')
 ```
 <!-- {: data-highlight="strchars"} -->
 
-See: `:help functions`
+See: [`:help functions`](https://vimhelp.org/eval.txt.html#functions)
 
 ## Functions
 
@@ -162,7 +169,7 @@ endfunction
 ```
 <!-- {: data-highlight="function!"} -->
 
-See: `:help user-functions`
+See: [`:help user-functions`](https://vimhelp.org/eval.txt.html#user-functions)
 
 ### Overwriting
 
@@ -178,7 +185,7 @@ endfunction
 
 Add `!` after `function` to overwrite an existing function.
 
-See: `:help E122`
+See: [`:help E122`](https://vimhelp.org/userfunc.txt.html#E122)
 
 ### Namespacing
 
@@ -187,7 +194,7 @@ function! myplugin#hello()
 ```
 <!-- {: data-highlight="myplugin#hello"} -->
 
-See: `:help autoload-functions`
+See: [`:help autoload-functions`](https://vimhelp.org/userfunc.txt.html#autoload-functions)
 
 ### Calling functions
 
@@ -196,7 +203,7 @@ call s:Initialize()
 call s:Initialize("hello")
 ```
 
-See: `:help :call`
+See: [`:help :call`](https://vimhelp.org/userfunc.txt.html#%3Acall)
 
 ### Consuming return values
 
@@ -204,7 +211,7 @@ See: `:help :call`
 echo "Result: " . s:Initialize()
 ```
 
-See: `:help expr-function`
+See: [`:help expr-function`](https://vimhelp.org/eval.txt.html#expr-function)
 
 ### Abortable
 
@@ -216,7 +223,7 @@ endfunction
 
 Aborts when an error occurs.
 
-See: `:help :func-abort`
+See: [`:help :func-abort`](https://vimhelp.org/userfunc.txt.html#%3Afunc-abort)
 
 ### Var arguments
 
@@ -237,7 +244,7 @@ infect('jake', 'bella')
 
 Use `a:0`, `a:1`, and `a:000` for variable arguments.
 
-See: `:help function-argument`
+See: [`:help function-argument`](https://vimhelp.org/userfunc.txt.html#function-argument)
 
 ## Loops
 
@@ -252,7 +259,7 @@ endfor
 ```
 <!-- {: data-highlight="for s in list"} -->
 
-See: `:help :for`
+See: [`:help :for`](https://vimhelp.org/eval.txt.html#%3Afor)
 
 ### While loops
 
@@ -262,7 +269,7 @@ endwhile
 ```
 <!-- {: data-highlight="while x < 5"} -->
 
-See: `:help :while`
+See: [`:help :while`](https://vimhelp.org/eval.txt.html#%3Awhile)
 
 ## Custom commands
 
@@ -275,7 +282,7 @@ command! Save :set fo=want tw=80 nowrap
 
 Custom commands start with uppercase letters. The `!` redefines a command if it already exists.
 
-See: `:help :command`
+See: [`:help :command`](https://vimhelp.org/map.txt.html#%3Acommand)
 
 ### Commands calling functions
 
@@ -293,7 +300,7 @@ function! s:foo()
 endfunction
 ```
 
-See: `:help <SID>`
+See: [`:help <SID>`](https://vimhelp.org/map.txt.html#%3CSID%3E)
 
 ### Commands with arguments
 
@@ -313,7 +320,7 @@ command! -nargs=? Save call script#foo(<args>)
 | `-nargs=+` | 1+ arguments, space separated |
 <!-- {: .-headers} -->
 
-See: `:help :command-nargs`
+See: [`:help :command-nargs`](https://vimhelp.org/map.txt.html#%3Acommand-nargs)
 
 ## Flow
 
@@ -330,7 +337,7 @@ else
 endif
 ```
 
-See: `:help :if`
+See: [`:help :if`](https://vimhelp.org/eval.txt.html#%3Aif)
 
 ### Truthiness
 
@@ -347,7 +354,7 @@ if "xfz"   "=> 0 (false)
 
 No booleans. `0` is false, `1` is true.
 
-See: `:help :if`
+See: [`:help :if`](https://vimhelp.org/eval.txt.html#%3Aif)
 
 ### Operators
 
@@ -358,7 +365,7 @@ if (a && b) || (c && d)
 if !c
 ```
 
-See: `:help expression-syntax`
+See: [`:help expression-syntax`](https://vimhelp.org/eval.txt.html#expression-syntax)
 
 ### Strings
 
@@ -370,7 +377,7 @@ if name == 'John'      " depends on :set ignorecase
 " also: is#, is?, >=#, >=?, and so on
 ```
 
-See: `:help expr-==`
+See: [`:help expr-==`](https://vimhelp.org/eval.txt.html#expr-%3D%3D)
 
 ### Identity operators
 
@@ -382,7 +389,7 @@ a isnot b
 
 Checks if it's the same instance object.
 
-See: `:help expr-is`
+See: [`:help expr-is`](https://vimhelp.org/eval.txt.html#expr-is)
 
 ### Regexp matches
 
@@ -394,7 +401,7 @@ See: `:help expr-is`
 
 `\v` enables "extended" regex mode which allows word boundary (`<>`), `+`, and more.
 
-See: `:help expr-=~`
+See: [`:help expr-=~`](https://vimhelp.org/eval.txt.html#expr-%3D~)
 
 ### Single line
 
@@ -405,7 +412,7 @@ a ? b : c
 
 Use `|` to join lines together.
 
-See: `:help :bar`
+See: [`:help :bar`](https://vimhelp.org/cmdline.txt.html#%3Abar)
 
 ### Boolean logic
 
@@ -415,7 +422,7 @@ if g:use_dispatch && s:has_dispatch
 endif
 ```
 
-See: `:help expr-&&`
+See: [`:help expr-&&`](https://vimhelp.org/eval.txt.html#expr-%26%26)
 
 ## Lists
 
@@ -433,7 +440,7 @@ let second = get(mylist, 1, "NONE")
 ```
 <!-- {: data-highlight="mylist[-1]"} -->
 
-See: `:help list`
+See: [`:help list`](https://vimhelp.org/eval.txt.html#list)
 
 ### Functions
 
@@ -448,7 +455,7 @@ split('hello there world', ' ')
 ```
 <!-- {: data-highlight="copy(list)"} -->
 
-See: `:help list-functions`
+See: [`:help list-functions`](https://vimhelp.org/usr_41.txt.html#list-functions)
 
 ### Concatenation
 
@@ -458,7 +465,7 @@ let mylist += [7, 8]
 ```
 <!-- {: data-highlight="+="} -->
 
-See: `:help list-concatenation`
+See: [`:help list-concatenation`](https://vimhelp.org/eval.txt.html#list-concatenation)
 
 ### Sublists
 
@@ -470,7 +477,7 @@ let shortlist = mylist[2:2]    " one item
 ```
 <!-- {: data-highlight="[2:]"} -->
 
-See: `:help sublist`
+See: [`:help sublist`](https://vimhelp.org/eval.txt.html#sublist)
 
 ### Push
 
@@ -480,7 +487,7 @@ let alist = add(alist, 4)
 ```
 <!-- {: data-highlight="add(alist, 4)"} -->
 
-See: `:help add()`
+See: [`:help add()`](https://vimhelp.org/builtin.txt.html#add%28%29)
 
 ### Map
 
@@ -490,7 +497,7 @@ call filter(files, 'v:val != ""')
 ```
 <!-- {: data-highlight="v:val"} -->
 
-See: `:help map()`, `:help filter()`
+See: [`:help map()`](https://vimhelp.org/builtin.txt.html#map%28%29), [`:help filter()`](https://vimhelp.org/builtin.txt.html#filter%28%29)
 
 ## Dictionaries
 
@@ -507,7 +514,7 @@ echo get(colors, "apple")   " suppress error
 ```
 <!-- {: data-highlight="get(colors"} -->
 
-See: `:help dict`
+See: [`:help dict`](https://vimhelp.org/eval.txt.html#dict)
 
 ### Using dictionaries
 
@@ -526,7 +533,7 @@ map(dict, '<>> " . v:val')
 ```
 <!-- {: data-highlight="has_key"} -->
 
-See: `:help dict-functions`
+See: [`:help dict-functions`](https://vimhelp.org/usr_41.txt.html#dict-functions)
 
 ### Iteration
 
@@ -536,7 +543,7 @@ for key in keys(mydict)
 endfor
 ```
 
-See: `:help :for`
+See: [`:help :for`](https://vimhelp.org/eval.txt.html#%3Afor)
 
 ### Prefixes
 
@@ -546,7 +553,7 @@ keys(s:)
 
 Prefixes (`s:`, `g:`, `l:`, etc) are actually dictionaries.
 
-See: `:help variable-scope`
+See: [`:help variable-scope`](https://vimhelp.org/eval.txt.html#variable-scope)
 
 ### Extending
 
@@ -555,7 +562,7 @@ See: `:help variable-scope`
 call extend(s:fruits, { ... })
 ```
 
-See: `:help extend()`
+See: [`:help extend()`](https://vimhelp.org/builtin.txt.html#extend%28%29)
 
 ## Numbers
 
@@ -568,7 +575,7 @@ float2nr("3.14")
 ```
 <!-- {: data-highlight="str2float"} -->
 
-See: `:help str2nr()`, `:help float2nr()`
+See: [`:help str2nr()`](https://vimhelp.org/builtin.txt.html#str2nr%28%29), [`:help float2nr()`](https://vimhelp.org/builtin.txt.html#float2nr%28%29)
 
 ### Numbers
 
@@ -579,7 +586,7 @@ let int = 0755   " octal
 ```
 <!-- {: data-highlight="0xff"} -->
 
-See: `:help Number`
+See: [`:help Number`](https://vimhelp.org/eval.txt.html#Number)
 
 ### Floats
 
@@ -589,7 +596,7 @@ let fl = 5.4e4
 ```
 <!-- {: data-highlight="5.4e4"} -->
 
-See: `:help Float`
+See: [`:help Float`](https://vimhelp.org/eval.txt.html#Float)
 
 ### Arithmetic
 
@@ -599,7 +606,7 @@ See: `:help Float`
 3 * 2.0   "=> 6.0
 ```
 
-See: `:help expr-star`, `:help expr-/`
+See: [`:help expr-star`](https://vimhelp.org/eval.txt.html#expr-star), [`:help expr-/`](https://vimhelp.org/eval.txt.html#expr-%2F)
 
 ### Math functions
 
@@ -614,7 +621,7 @@ sinh() cosh() tanh()
 asin() acos() atan()
 ```
 
-See: `:help sqrt()`
+See: [`:help sqrt()`](https://vimhelp.org/builtin.txt.html#sqrt%28%29)
 
 ## Vim-isms
 
@@ -628,7 +635,7 @@ execute "e " . fnameescape(filename)
 
 Runs an ex command you typically run with `:`.
 
-See: `:help :execute`
+See: [`:help :execute`](https://vimhelp.org/eval.txt.html#%3Aexecute)
 
 ### Running keystrokes
 
@@ -641,7 +648,7 @@ execute "normal! gg/foo\<cr>dd"
 
 Use `:normal` to execute keystrokes as if typing in normal mode. Combine with `:execute` for special keystrokes.
 
-See: `:help :normal`
+See: [`:help :normal`](https://vimhelp.org/various.txt.html#%3Anormal)
 
 ### Getting filenames
 
@@ -653,7 +660,7 @@ echo expand("%:r")    " path/file
 echo expand("%:e")    " txt
 ```
 
-See: `:help expand()`
+See: [`:help expand()`](https://vimhelp.org/builtin.txt.html#expand%28%29)
 
 ### Silencing
 
@@ -663,7 +670,7 @@ silent g/Aap/p
 
 Suppresses output.
 
-See: `:help :silent`
+See: [`:help :silent`](https://vimhelp.org/various.txt.html#%3Asilent)
 
 ### Echo
 
@@ -675,7 +682,7 @@ echo 'hello'
 echohl WarningMsg | echomsg "=> " . a:msg | echohl None
 ```
 
-See: `:help :echo`
+See: [`:help :echo`](https://vimhelp.org/eval.txt.html#%3Aecho)
 
 ### Settings
 
@@ -687,7 +694,7 @@ set numberwidth=5
 set guioptions+=e
 ```
 
-See: `:help :set`
+See: [`:help :set`](https://vimhelp.org/options.txt.html#%3Aset)
 
 ### Prompts
 
@@ -696,7 +703,7 @@ let result = confirm("Sure?")
 execute "confirm q"
 ```
 
-See: `:help :confirm`
+See: [`:help :confirm`](https://vimhelp.org/editing.txt.html#%3Aconfirm)
 
 ### Built-ins
 
@@ -712,7 +719,7 @@ exists("+option")
 exists("g:...")
 ```
 
-See: `:help exists()`, `:help has()`
+See: [`:help exists()`](https://vimhelp.org/builtin.txt.html#exists%28%29), [`:help has()`](https://vimhelp.org/builtin.txt.html#has%28%29)
 
 ## Mapping
 
@@ -731,7 +738,7 @@ xnoremap
 ```
 <!-- {: data-highlight="nnoremap"} -->
 
-See: `:help map-modes`
+See: [`:help map-modes`](https://vimhelp.org/map.txt.html#map-modes)
 
 ### Explanation
 
@@ -744,7 +751,7 @@ See: `:help map-modes`
 ```
 <!-- {: .-box-chars} -->
 
-See: `:help mapping`
+See: [`:help mapping`](https://vimhelp.org/map.txt.html#mapping)
 
 ### Arguments
 
@@ -755,7 +762,7 @@ See: `:help mapping`
 | `<nowait>` | |
 <!-- {: .-headers} -->
 
-See: `:help :map`
+See: [`:help :map`](https://vimhelp.org/map.txt.html#%3Amap)
 
 ## Syntax
 
@@ -770,7 +777,7 @@ hi Comment
 ```
 <!-- {: data-highlight="ctermfg=4"} -->
 
-See: `:help :highlight`
+See: [`:help :highlight`](https://vimhelp.org/syntax.txt.html#%3Ahighlight)
 
 ### Filetype detection
 
@@ -782,7 +789,7 @@ augroup END
 au Filetype markdown setlocal spell
 ```
 
-See: `:help ftdetect`
+See: [`:help ftdetect`](https://vimhelp.org/filetype.txt.html#ftdetect)
 
 ### Conceal
 
@@ -792,7 +799,7 @@ syn match newLine "<br>" conceal cchar=}
 hi newLine guifg=green
 ```
 
-See: `:help conceal`
+See: [`:help conceal`](https://vimhelp.org/syntax.txt.html#conceal)
 
 ### Region conceal
 
@@ -802,7 +809,7 @@ hi inBold gui=bold
 hi bTag guifg=blue
 ```
 
-See: `:help syn-region`
+See: [`:help syn-region`](https://vimhelp.org/syntax.txt.html#%3Asyn-region)
 
 ### Syntax
 
@@ -824,7 +831,7 @@ flags:
 hi def link markdownH1 htmlH1
 ```
 
-See: `:help syn-match`
+See: [`:help syn-match`](https://vimhelp.org/syntax.txt.html#%3Asyn-match)
 
 ### Include guards
 
@@ -839,4 +846,4 @@ let g:loaded_myplugin = 1
 ```
 <!-- {: data-highlight="g:loaded_myplugin"} -->
 
-See: `:help write-plugin`
+See: [`:help write-plugin`](https://vimhelp.org/usr_51.txt.html#write-plugin)

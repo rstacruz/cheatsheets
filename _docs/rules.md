@@ -137,7 +137,7 @@ bat -d --diff-context=1 notes.txt
 
 🤖 Check: `code/data-highlight-in-block`.
 
-Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
+Give every code block whose subject is named in its H3 a highlight: if the card is "Select lists", tint the `select_by_*` methods; if it is "Print a range", tint `-r 2:4`. Highlight what changes behaviour; tint the command name only when the command itself is the lesson. Tint the complete token the card teaches (`caps-type()`, `border-radius`), never a half token (`caps`, `-radius`). One token is usually enough; a card about sibling methods can tint up to four, semicolon-separated. Skip blocks that are a whole workflow or whose subject has no named token.
 
 ````md
 ```python
@@ -194,11 +194,15 @@ select.select_by_index(2)
 
 🤖 Check: `code/vary-highlights`.
 
-Don't repeat the same highlight token across code blocks in a sheet. A tint that keeps landing on `sort` stops marking what makes a card different. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
+Don't repeat the same highlight token across cards in a sheet: a tint that keeps landing on `sort` stops marking what makes a card different. A define/use pair inside one card may repeat the full API name, since both blocks teach that same subject. Keep the command highlight on the card where the command is the lesson, then use flags or values on the rest.
 
 **Good:** the "Sort lines" card tints `sort`; the field cards tint `-k2,2n` and `-k3,3`.
 
 **Bad:** every sort card tints `sort`, so the tint says nothing about the card being read.
+
+### content/omit-deprecated-apis
+
+Omit APIs the upstream project marks deprecated. They mislead readers and age faster than a cheatsheet. Replace the card with the current API, or link to the project's migration guide when the deprecated API is the sheet's subject. Keep deprecated versions only in explicitly versioned sheets.
 
 ### code/highlight-parallel-set
 

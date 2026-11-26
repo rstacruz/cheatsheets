@@ -27,7 +27,7 @@ pct.format(0.5)    // → '50%'
 ```
 <!-- {: data-highlight="style: 'percent'"} -->
 
-**Sets `style: 'percent'`.** The formatter multiplies by 100 and appends the locale's percent sign; see [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style).
+**Sets `style: 'percent'`.** The formatter multiplies by 100 and places the locale's percent sign; see [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#style).
 
 ### Control the decimals
 <!-- {: .-snippet} -->

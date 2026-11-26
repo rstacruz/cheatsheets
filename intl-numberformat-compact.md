@@ -28,7 +28,7 @@ compact.format(2000000)  // → '2M'
 ```
 <!-- {: data-highlight="notation: 'compact'"} -->
 
-**Sets `notation: 'compact'`.** The formatter picks the unit that matches the value's magnitude and appends a short suffix (`K`, `M`, `B`, or `T`); see [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation).
+**Sets `notation: 'compact'`.** The formatter picks the unit that matches the value's magnitude and appends a short suffix (`K`, `M`, `B`, or `T` in `en-US`); see [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation).
 
 ### Long form
 <!-- {: .-snippet} -->

@@ -65,4 +65,4 @@ acct.format(-1234.5)
 ```
 <!-- {: data-highlight="currencySign: 'accounting'"} -->
 
-**Wraps negative amounts in parentheses.** `'standard'` (the default) prints `-$1,234.50`; see [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign).
+**Wraps negative amounts in parentheses where the locale does.** `'standard'` (the default) prints `-$1,234.50`; see [currencySign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currencysign).

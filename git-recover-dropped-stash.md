@@ -25,7 +25,7 @@ git fsck --unreachable | grep commit
 ```
 <!-- {: data-highlight="git fsck --unreachable"} -->
 
-**Lists unreachable commits.** A dropped or popped stash is unreachable, not gone, until `git gc` prunes it; see [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously).
+**Lists unreachable commits.** A dropped or popped stash is unreachable until `git gc` prunes it. Only the `WIP on`/`On` merge commit is stash-like; `index on` and `untracked files on` commits are rejected. See [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously).
 
 ### Identify the stash
 <!-- {: .-snippet} -->
@@ -55,4 +55,4 @@ git fsck --lost-found
 ```
 <!-- {: data-highlight="git fsck --lost-found"} -->
 
-**Writes dangling objects to `.git/lost-found/`.** Commit objects land under `.git/lost-found/commit/<sha>`; use it to keep them on disk. See [git fsck](https://git-scm.com/docs/git-fsck).
+**Writes dangling object names to `.git/lost-found/`.** Commit names land under `.git/lost-found/commit/<sha>`, but `git gc` can still prune the object; run `git stash store <sha>` to keep it. See [git fsck](https://git-scm.com/docs/git-fsck).

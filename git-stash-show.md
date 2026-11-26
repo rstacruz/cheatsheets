@@ -35,7 +35,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="-p"} -->
 
-**Prints the complete diff.** This is the fastest way to see stashed changes without applying them; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashshowPatch).
+**Prints the complete diff.** Shows the stashed changes without applying them; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Specific stash
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ git stash show -p stash@{1}
 ```
 <!-- {: data-highlight="stash@{1}"} -->
 
-**Reads an older entry.** `stash@{0}` is the newest; see [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashindex).
+**Reads an older entry.** `stash@{0}` is the newest; see [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stash).
 
 ### Untracked files
 <!-- {: .-snippet} -->

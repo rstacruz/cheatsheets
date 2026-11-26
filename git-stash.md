@@ -142,7 +142,7 @@ git stash show -p stash@{2}
 
 A stash reference works anywhere a stash is accepted.
 
-See: [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashindex)
+See: [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stash)
 
 ## Restoring
 
@@ -215,7 +215,7 @@ git stash pop
 git add app.txt
 git stash drop
 ```
-<!-- {: data-highlight="git stash drop"} -->
+<!-- {: data-highlight="git add app.txt"} -->
 
 A conflicting `pop` or `apply` leaves unmerged paths in the tree and keeps the stash entry.
 
@@ -261,7 +261,7 @@ unreachable commit bc2e2d9819a396a80c2ee502fb6aadfb636e923c
 ```
 <!-- {: data-highlight="git fsck --unreachable"} -->
 
-A dropped or popped entry becomes unreachable, not deleted. Stash commits show a `WIP on` or `On <branch>` subject.
+A dropped or popped entry becomes unreachable, not deleted. Only the `WIP on`/`On` merge commit is stash-like; `index on` and `untracked files on` commits are rejected by `stash store`.
 
 See: [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously)
 

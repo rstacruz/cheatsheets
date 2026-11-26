@@ -35,7 +35,7 @@ git stash branch feat/login stash@{1}
 ```
 <!-- {: data-highlight="stash@{1}"} -->
 
-**Uses an older entry.** The branch name must not exist yet; see [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashindex).
+**Uses an older entry.** The branch name must not exist yet; see [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stash).
 
 ### Existing branch
 <!-- {: .-snippet} -->
@@ -63,4 +63,4 @@ git stash drop
 ```
 <!-- {: data-highlight="git stash drop"} -->
 
-**Finishes an apply that stopped on conflicts.** Stage the resolution, then drop. An abort with `Your local changes ... would be overwritten` applies nothing, so keep the stash and retry. See [git stash branch](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-branchbranchnamestash).
+**Finishes an apply that stopped on conflicts.** Stage the resolution, then drop. If local changes blocked the apply, commit or stash them and run `git stash apply`; the branch exists and the stash is kept. See [git stash branch](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-branchbranchnamestash).

@@ -240,6 +240,7 @@ d.minus({ months: 1 }).toISODate() // "2014-05-09"
 d.plus(Duration.fromObject({ hours: 2 })).toISO()
 // "2014-06-09T11:32:00.000Z"
 ```
+<!-- {: data-highlight="plus; minus"} -->
 
 #### Month ends
 

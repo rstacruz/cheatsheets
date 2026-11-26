@@ -182,6 +182,20 @@ shows the shape.
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
 
+### Code spacing
+
+Don't shy from blank lines. Separate setup from use, and put result comments on their own line; a cramped block is harder to scan.
+
+```js
+const d = dayjs()
+
+d.add(1, 'day').format('YYYY-MM-DD')
+// "2014-06-10"
+
+d.format('YYYY-MM-DD')
+// "2014-06-09"
+```
+
 ## Quick starts
 
 - Show the default interactive flow first (keys, TUI). CLI and automation recipes belong in later sections.

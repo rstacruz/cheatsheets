@@ -4,11 +4,28 @@ link_title: OpenCode headless tasks
 subtitle: Run OpenCode from scripts
 category: Task automation
 layout: snippet
-last_verified_with: "opencode 2.3.2."
+last_verified_with: "opencode 2.4.1."
 updated: 2026-11-23
+tier: t1
+fragments:
+  - "opencode run"
+  - "opencode"
+  - "run"
+  - "explain this"
+  - "this repo"
+  - "--continue"
+  - "go on"
+  - "--format json"
+  - "--format"
+  - "json"
+  - "list TODOs"
+  - "| jq"
+  - "jq"
 links:
   - title: opencode run
     url: https://opencode.ai/docs/cli/commands#run
+intro: |
+  [`opencode run`](https://opencode.ai/docs/cli/commands#run) executes one-shot prompts without opening the TUI. This sheet covers JSON output and session continuation.
 ---
 
 ## Headless runs
@@ -43,13 +60,3 @@ opencode run --format json "list TODOs" | jq
 <!-- {: data-highlight="--format json"} -->
 
 **Emits JSON lines for scripts.** Produces one JSON object per line for `jq`. See [opencode run](https://opencode.ai/docs/cli/commands#run).
-
-### Standalone CI run
-<!-- {: .-snippet} -->
-
-```bash
-opencode run --standalone "review the diff"
-```
-<!-- {: data-highlight="--standalone"} -->
-
-**Isolates the run in its own server.** Keeps secrets and sessions out of the shared daemon. See [opencode run](https://opencode.ai/docs/cli/commands#run).

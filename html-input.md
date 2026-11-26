@@ -3,25 +3,38 @@ title: Input tag
 subtitle: Type and attribute reference
 category: HTML
 updated: 2026-11-23
+tier: t3
+last_verified_with: "WHATWG HTML Living Standard."
 weight: -3
+intro: |
+  [The input element](https://html.spec.whatwg.org/multipage/input.html#the-input-element) defines form controls. This sheet covers attributes, input types, and examples for dates, numbers, and text.
+links:
+  - title: input element
+    url: https://html.spec.whatwg.org/multipage/input.html#the-input-element
+  - title: input type attribute
+    url: https://html.spec.whatwg.org/multipage/input.html#attr-input-type
 ---
+
+## Attributes
 
 ### Input
 
 #### Common attributes
 
 ```html
- <input ...
-   disabled
-   required
-   checked
+<input ...
+  disabled
+  required
+  checked
 ```
+<!-- {: data-highlight="disabled; required; checked"} -->
 
 #### Focus
 
 ```html
    autofocus
 ```
+<!-- {: data-highlight="autofocus"} -->
 
 #### Autofill and keyboards
 
@@ -31,6 +44,9 @@ weight: -3
    inputmode='numeric'       <!-- mobile keyboard -->
    pattern='\d*'             <!-- validation -->
 ```
+<!-- {: data-highlight="autocomplete; autocapitalize; inputmode; pattern"} -->
+
+See: [the input element](https://html.spec.whatwg.org/multipage/input.html#the-input-element)
 
 ### Input types
 
@@ -87,6 +103,8 @@ weight: -3
 
 <!-- {: .-enum-lines} -->
 
+See: [input type attribute](https://html.spec.whatwg.org/multipage/input.html#attr-input-type)
+
 ## Examples
 
 ### Dates
@@ -96,6 +114,8 @@ weight: -3
 | `type='date'` | <input type='date'> |
 | `type='time'` | <input type='time'> |
 
+See: [Date state (type=date)](https://html.spec.whatwg.org/multipage/input.html#date-state-(type=date))
+
 ### Datetime
 
 | Type | Example |
@@ -104,12 +124,16 @@ weight: -3
 
 `datetime` was removed from the HTML spec; use `datetime-local` and a separate time zone control.
 
+See: [Local Date and Time state (type=datetime-local)](https://html.spec.whatwg.org/multipage/input.html#local-date-and-time-state-(type=datetime-local))
+
 ### Numbers
 
 | Type | Example |
 | --- | --- |
 | `type='number'` | <input type='number'> |
 | `type='range'` | <input type='range'> |
+
+See: [Number state (type=number)](https://html.spec.whatwg.org/multipage/input.html#number-state-(type=number))
 
 ### Text
 
@@ -120,6 +144,8 @@ weight: -3
 | `type='search'` | <input type='search'> |
 | `type='tel'` | <input type='tel'> |
 
+See: [Text state (type=text)](https://html.spec.whatwg.org/multipage/input.html#text-(type=text)-state-and-search-state-(type=search))
+
 ## Also see
 
- * <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input>
+* <https://html.spec.whatwg.org/multipage/input.html#the-input-element>

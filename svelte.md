@@ -75,7 +75,7 @@ pnpm preview
 
 These run Vite through the scripts `sv create` writes into `package.json`.
 
-See: [Project structure](https://svelte.dev/docs/kit/project-structure)
+See: [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 
 ### Component anatomy
 

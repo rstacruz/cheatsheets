@@ -20,9 +20,9 @@ links:
 <!-- {: .-snippet} -->
 
 ```bash
-npx sv migrate svelte:5
+npx sv migrate svelte-5
 ```
-<!-- {: data-highlight="svelte:5"} -->
+<!-- {: data-highlight="svelte-5"} -->
 
 **Rewrites most of the syntax for you.** It converts props, reactivity, events, and slots, so review its diff instead of editing by hand; see [Migration guide](https://svelte.dev/docs/svelte/v5-migration-guide).
 

@@ -40,7 +40,7 @@ links:
 </script>
 
 <input type="number" bind:value={age} />
-<p>{age + 1}</p>
+<p>Age: {age}</p>
 ```
 <!-- {: data-highlight='type="number"'} -->
 

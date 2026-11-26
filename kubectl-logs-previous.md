@@ -32,18 +32,17 @@ kubectl logs --previous -c api web-0
 ```
 <!-- {: data-highlight="-c api"} -->
 
-**Picks one container in a multi-container pod.** Without `-c`, kubectl refuses to guess and lists the container names. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
+**Picks one container in a multi-container pod.** Without `-c`, kubectl prints that it defaulted to the pod's first container and reads that one. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
 ### Whole deployment
 <!-- {: .-snippet} -->
 
 ```bash
-kubectl logs --previous -l app=web \
-  --max-log-requests=5
+kubectl logs --previous -l app=web
 ```
 <!-- {: data-highlight="-l app=web"} -->
 
-**Reads the previous logs of every matching pod.** `--max-log-requests` caps how many pods it opens at once. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
+**Reads the previous logs of every matching pod.** kubectl opens each pod's log in turn, so a wide selector is slow but complete. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
 ### Follow the restarts
 <!-- {: .-snippet} -->

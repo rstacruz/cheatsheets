@@ -57,4 +57,4 @@ kubectl get secret db \
 ```
 <!-- {: data-highlight="base64decode"} -->
 
-**Decodes with kubectl alone, without `jq` or `base64`.** Go templates run inside kubectl, which helps on minimal machines and CI images. See [Go templates](https://kubernetes.io/docs/reference/kubectl/#go-templates).
+**Decodes with kubectl alone, without `jq` or `base64`.** Go templates run inside kubectl, which helps on minimal machines and CI images. See [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).

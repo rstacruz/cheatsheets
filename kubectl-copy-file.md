@@ -44,7 +44,7 @@ kubectl cp web-0:/var/log/nginx ./nginx-logs
 
 **Copies a directory tree.** Add `-c` to pick a container when the pod runs more than one. See [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/).
 
-### When the copy fails
+### Manual tar pipe
 <!-- {: .-snippet} -->
 
 ```bash
@@ -53,4 +53,4 @@ kubectl exec web-0 -- tar cf - /app/log.txt \
 ```
 <!-- {: data-highlight="tar cf -"} -->
 
-**Pipes files through tar by hand.** `kubectl cp` shells out to `tar`, so images without it need this fallback; it also skips the symlink warning. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).
+**Pipes files through tar by hand.** `kubectl cp` skips symlinks and wraps both ends in `tar`; this pipeline keeps them. Images without `tar`, such as distroless, need `kubectl exec … cat` instead. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).

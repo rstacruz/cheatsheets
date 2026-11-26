@@ -109,11 +109,11 @@ kubectl logs web-5f7c9b8d4-x2vqm
 kubectl logs -f web-5f7c9b8d4-x2vqm
 kubectl logs --tail=100 web-5f7c9b8d4-x2vqm
 kubectl logs --previous web-5f7c9b8d4-x2vqm
-kubectl logs -l app=web --max-log-requests=5
+kubectl logs -f -l app=web --max-log-requests=5
 ```
 <!-- {: data-highlight="kubectl logs"} -->
 
-`--previous` reads the container instance that crashed before the restart. `-l` streams every pod matching a selector.
+`--previous` reads the container instance that crashed before the restart. `-l` streams every pod matching a selector, five at a time by default.
 
 See: [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/)
 
@@ -346,7 +346,7 @@ kubectl top pod web-5f7c9b8d4-x2vqm --containers
 ```
 <!-- {: data-highlight="kubectl top"} -->
 
-Reads metrics-server. Values stay empty until it is installed and has scraped once.
+Requires metrics-server. Without it the command errors, and pods without a sample yet show `<unknown>`.
 
 See: [kubectl top](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/)
 

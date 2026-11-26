@@ -96,4 +96,4 @@ Console.WriteLine(q);   // Point { X = 3, Y = 2 }
 ```
 <!-- {: data-highlight="record struct"} -->
 
-**Gives a struct value equality.** `record struct` avoids the heap; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#record-structs).
+**Gives a struct value equality.** `record struct` stays a value type; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).

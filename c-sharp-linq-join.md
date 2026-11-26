@@ -63,4 +63,4 @@ record City(int Id, string Name);
 ```
 <!-- {: data-highlight="DefaultIfEmpty"} -->
 
-**Keeps rows without a match.** `into` groups the matches and `DefaultIfEmpty` yields null; see [Left outer join](https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/join-operations#perform-left-outer-joins).
+**Keeps rows without a match.** `into` groups the matches and `DefaultIfEmpty` yields null; see [Left outer join](https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/join-operations#emulate-a-left-outer-join).

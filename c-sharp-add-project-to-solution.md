@@ -37,7 +37,7 @@ dotnet new classlib -o lib
 dotnet sln add api/api.csproj lib/lib.csproj
 dotnet sln list
 ```
-<!-- {: data-highlight="dotnet sln list"} -->
+<!-- {: data-highlight="api/api.csproj lib/lib.csproj"} -->
 
 **Adds many projects in one call.** `list` prints what the solution holds; see [dotnet sln list](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#list).
 

@@ -11,7 +11,7 @@ links:
   - title: Nullable reference types
     url: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references
   - title: Nullable contexts
-    url: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts
+    url: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context
 ---
 
 ## Nullability
@@ -27,7 +27,7 @@ links:
 ```
 <!-- {: data-highlight="<Nullable>enable</Nullable>"} -->
 
-**Checks nulls for the whole project.** New templates enable it already; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts).
+**Checks nulls for the whole project.** New templates enable it already; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context).
 
 ### Annotate the type
 <!-- {: .-snippet} -->
@@ -55,6 +55,6 @@ name ??= "Ada";
 Console.WriteLine(safe);   // unknown
 Console.WriteLine(name);   // Ada
 ```
-<!-- {: data-highlight="??= "} -->
+<!-- {: data-highlight="??="} -->
 
-**Falls back instead of dereferencing null.** `??` and `??=` keep the compiler quiet; see [Null-coalescing](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator).
+**Falls back instead of dereferencing null.** `??` and `??=` supply a default; see [Null-coalescing](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator).

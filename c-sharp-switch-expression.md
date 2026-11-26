@@ -71,4 +71,4 @@ Console.WriteLine(Kind("hello"));  // long
 ```
 <!-- {: data-highlight="when s.Length > 3"} -->
 
-**Adds a condition to a type pattern.** `when` runs only after the type matches; see [when guard](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#when-guard).
+**Adds a condition to a type pattern.** `when` runs only after the type matches; see [when](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when).

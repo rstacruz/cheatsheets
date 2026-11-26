@@ -51,10 +51,11 @@ Console.WriteLine($"{n} {big} {d}");
 ```csharp
 using System.Globalization;
 
-var n = int.Parse("1,000",
-    NumberStyles.AllowThousands,
+var n = int.Parse("-1,000",
+    NumberStyles.Integer |
+        NumberStyles.AllowThousands,
     CultureInfo.InvariantCulture);
-Console.WriteLine(n);   // 1000
+Console.WriteLine(n);   // -1000
 ```
 <!-- {: data-highlight="NumberStyles.AllowThousands"} -->
 

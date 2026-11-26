@@ -1,7 +1,7 @@
 ---
-title: How to read a dictionary value in C#
-link_title: C# dictionary lookup
-subtitle: Read keys safely
+title: How to use a dictionary in C#
+link_title: C# dictionary
+subtitle: Read and write keys
 category: C-like
 layout: snippet
 last_verified_with: "C# 15, .NET 11.0.100."

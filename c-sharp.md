@@ -36,7 +36,7 @@ keywords:
   - dotnet CLI
 prism_languages: [csharp]
 intro: |
-  [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) is a statically typed language for .NET. This reference covers syntax, types, nullables, collections, LINQ, async, records, patterns and generics.
+  [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) is a statically typed language for .NET. This reference covers syntax, types, nullables, collections, LINQ, async, records, patterns, generics and the CLI.
 links:
   - title: C# documentation
     url: https://learn.microsoft.com/en-us/dotnet/csharp/
@@ -78,7 +78,7 @@ See: [File-based apps](https://learn.microsoft.com/en-us/dotnet/core/sdk/file-ba
 ```sh
 dotnet build -c Release
 dotnet publish -c Release -o out
-dotnet out/api.dll
+dotnet out/hello.dll
 ```
 <!-- {: data-highlight="dotnet publish"} -->
 
@@ -156,11 +156,11 @@ See: [String interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/lang
 ```csharp
 static int Add(int a, int b = 0) => a + b;
 
-static string Join(params string[] parts) =>
-    string.Join(" ", parts);
+static string Join(params string[] xs) =>
+    string.Join(" ", xs);
 
 Console.WriteLine(Add(2, 3));    // 5
-Console.WriteLine(Join("a", "b"));   // a b
+Console.WriteLine(Join("a", "b"));  // a b
 ```
 <!-- {: data-highlight="=> a + b; params"} -->
 
@@ -183,7 +183,7 @@ See: [Local functions](https://learn.microsoft.com/en-us/dotnet/csharp/programmi
 | `bool` | `Boolean` | `true` |
 | `char` | `Char` | `'A'` |
 | `string` | `String` | `"hi"` |
-| `object` | `Object` | `any` |
+| `object` | `Object` | `new object()` |
 <!-- {: .-headers} -->
 
 `string` and `object` are reference types; the rest are value types
@@ -251,7 +251,7 @@ See: [Nullable value types](https://learn.microsoft.com/en-us/dotnet/csharp/lang
 string? name = null;
 var length = name?.Length;   // null
 var shown = name ?? "anon";  // anon
-name ??= "Ada";              // sets if null
+name ??= "Ada";
 ```
 <!-- {: data-highlight="?.Length; ??="} -->
 
@@ -266,6 +266,7 @@ See: [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/
 ```xml
 <Nullable>enable</Nullable>
 ```
+<!-- {: data-highlight="<Nullable>enable</Nullable>"} -->
 
 #### One file
 
@@ -275,7 +276,7 @@ See: [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/
 
 The templates enable it; warnings like CS8602 flag unchecked nulls
 
-See: [Nullable settings](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts)
+See: [Nullable settings](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context)
 
 ## Collections
 <!-- {: .-three-column} -->
@@ -325,7 +326,8 @@ ages["Cy"] = 25;
 if (ages.TryGetValue("Ada", out var age))
     Console.WriteLine(age);     // 36
 
-var zed = ages.GetValueOrDefault("Zed", -1);
+var zed = ages
+    .GetValueOrDefault("Zed", -1);
 Console.WriteLine(zed);      // -1
 ```
 <!-- {: data-highlight="TryGetValue; GetValueOrDefault"} -->
@@ -509,7 +511,7 @@ static async IAsyncEnumerable<int> CountDown()
 
 `await foreach` consumes items as they arrive, without buffering the sequence
 
-See: [Async streams](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/async-streams)
+See: [Async streams](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/generate-consume-asynchronous-stream)
 
 ### Cancellation
 
@@ -578,9 +580,9 @@ public readonly record struct Point(double X, double Y);
 ```
 <!-- {: data-highlight="record struct"} -->
 
-`record struct` gives a struct value equality and no heap allocation
+`record struct` gives a struct value equality
 
-See: [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#record-structs)
+See: [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct)
 
 ### Required and init
 
@@ -656,7 +658,7 @@ static string Classify(object? o) => o switch
 
 Combine patterns with `and`; `when` adds a condition to a type pattern
 
-See: [Pattern combinators](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#pattern-combinators)
+See: [when](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when), [Logical patterns](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#logical-patterns)
 
 ### List patterns
 
@@ -740,8 +742,9 @@ See: [Generic classes](https://learn.microsoft.com/en-us/dotnet/csharp/programmi
   </PropertyGroup>
 </Project>
 ```
+<!-- {: data-highlight="<TargetFramework>net11.0</TargetFramework>"} -->
 
-`Nullable` turns on null checks; `ImplicitUsings` adds `System` and `System.Linq`
+`Nullable` turns on null checks; `ImplicitUsings` adds common namespaces such as `System`
 
 See: [MSBuild properties](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props)
 

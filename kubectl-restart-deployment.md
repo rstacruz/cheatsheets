@@ -22,7 +22,7 @@ kubectl rollout restart deploy/web
 ```
 <!-- {: data-highlight="kubectl rollout restart"} -->
 
-**Replaces the deployment's pods one at a time.** It works by updating a pod template annotation, so no manifest edit is needed and the deployment records a new revision. See [kubectl rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/).
+**Rolls the deployment's pods gradually.** It works by updating a pod template annotation, so no manifest edit is needed and the deployment records a new revision. See [kubectl rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/).
 
 ### Wait for it to finish
 <!-- {: .-snippet} -->

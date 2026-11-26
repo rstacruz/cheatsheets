@@ -70,7 +70,7 @@ kubectl get pods -o jsonpath='{.items[*].metadata.name}'
 kubectl get pods \
   -o custom-columns=NAME:.metadata.name,IP:.status.podIP
 ```
-<!-- {: data-highlight="-o wide; -o yaml; -o jsonpath"} -->
+<!-- {: data-highlight="-o wide; -o yaml"} -->
 
 `-o wide` adds node and IP columns. `-o yaml` and `-o json` return the whole object, ready to pipe through `yq` or `jq`.
 
@@ -111,7 +111,7 @@ kubectl logs -f web-0
 kubectl logs --tail=100 web-0
 kubectl logs --previous web-0
 kubectl logs -f -l app=web \
-  --max-log-requests=5
+  --max-log-requests=10
 ```
 <!-- {: data-highlight="kubectl logs"} -->
 
@@ -252,7 +252,7 @@ kubectl rollout restart deploy/web
 ```
 <!-- {: data-highlight="rollout restart"} -->
 
-Replaces pods one at a time, following the deployment's update strategy. No manifest change is needed.
+Replaces pods gradually, following the deployment's update strategy. No manifest change is needed.
 
 See: [kubectl rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/)
 

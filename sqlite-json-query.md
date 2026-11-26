@@ -54,7 +54,7 @@ FROM events,
 ```
 <!-- {: data-highlight="json_each("} -->
 
-**Turns each array element into a row.** `json_each` is a table-valued function, so it works in a `FROM` clause; see [json_each](https://sqlite.org/json1.html#the_json_each_and_json_tree_table_valued_functions).
+**Turns each array element into a row.** `json_each` is a table-valued function, so it works in a `FROM` clause; see [json_each](https://sqlite.org/json1.html#table_valued_functions_for_parsing_json_json_each_jsonb_each_json_tree_and_jsonb_tree_).
 
 ### Filter rows
 <!-- {: .-snippet} -->

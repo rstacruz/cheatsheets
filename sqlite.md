@@ -79,7 +79,7 @@ See: [Command-line shell](https://sqlite.org/cli.html)
 
 Dot-commands start at the beginning of a line and take no semicolon.
 
-See: [Dot-commands](https://sqlite.org/cli.html#dot_commands)
+See: [Dot-commands](https://sqlite.org/cli.html)
 
 ### Output formats
 
@@ -136,7 +136,7 @@ sqlite3 app.db ".import --csv --skip 1 users.csv users"
 
 `--skip 1` drops the header row. When the table is missing, `.import` creates it from the header names.
 
-See: [Import](https://sqlite.org/cli.html#import)
+See: [Import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats)
 
 ### Export to CSV
 
@@ -148,7 +148,7 @@ sqlite3 app.db ".mode csv" ".headers on" \
 
 `.once` writes the next query only. `.output` redirects every result until it is changed.
 
-See: [CSV export](https://sqlite.org/cli.html#csv_export)
+See: [CSV export](https://sqlite.org/cli.html#export_to_csv)
 
 ## Schema
 
@@ -408,7 +408,7 @@ sqlite3 app.db ".restore backup.db"
 
 `.backup` takes a consistent copy while other connections are open; copying the file with `cp` can capture a partial write.
 
-See: [Backup and restore](https://sqlite.org/cli.html#backup)
+See: [Backup and restore](https://sqlite.org/cli.html#other_dot_commands)
 
 ### Create a compact copy
 

@@ -8,7 +8,7 @@ last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
   - title: .import
-    url: https://sqlite.org/cli.html#import
+    url: https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats
 ---
 
 ## Importing CSV
@@ -23,7 +23,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight="--skip 1"} -->
 
-**Loads the rows into an existing table.** `--skip 1` drops the header, and columns fill in table order; see [.import](https://sqlite.org/cli.html#import).
+**Loads the rows into an existing table.** `--skip 1` drops the header, and columns fill in table order; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Create a table from the header
 <!-- {: .-snippet} -->
@@ -34,7 +34,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight="--csv"} -->
 
-**Creates the table from the first row.** Column names come from the header; see [.import](https://sqlite.org/cli.html#import).
+**Creates the table from the first row.** Column names come from the header; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Check the imported rows
 <!-- {: .-snippet} -->
@@ -46,4 +46,4 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight="select *"} -->
 
-**Prints the loaded rows.** Run it after an import to confirm the column mapping; see [.import](https://sqlite.org/cli.html#import).
+**Prints the loaded rows.** Run it after an import to confirm the column mapping; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).

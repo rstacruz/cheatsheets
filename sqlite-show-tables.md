@@ -25,7 +25,7 @@ sqlite3 app.db ".tables"
 ```
 <!-- {: data-highlight=".tables"} -->
 
-**Prints every table name.** Pass a pattern to filter, such as `.tables user%`; see [dot-commands](https://sqlite.org/cli.html#dot_commands).
+**Prints every table name.** Pass a pattern to filter, such as `.tables user%`; see [dot-commands](https://sqlite.org/cli.html).
 
 ### Show a table schema
 <!-- {: .-snippet} -->
@@ -46,7 +46,7 @@ CREATE TABLE posts (
 CREATE INDEX posts_user_id ON posts(user_id);
 ```
 
-**Prints the CREATE statement.** It also lists indexes and triggers on the table; see [.schema](https://sqlite.org/cli.html#dot_commands).
+**Prints the CREATE statement.** It also lists indexes and triggers on the table; see [.schema](https://sqlite.org/cli.html).
 
 ### Show columns
 <!-- {: .-snippet} -->
@@ -80,4 +80,4 @@ sqlite3 app.db ".indexes posts"
 posts_user_id
 ```
 
-**Prints the index names.** Without a pattern it lists indexes for the whole database; see [.indexes](https://sqlite.org/cli.html#dot_commands).
+**Prints the index names.** Without a pattern it lists indexes for the whole database; see [.indexes](https://sqlite.org/cli.html).

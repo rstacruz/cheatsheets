@@ -45,6 +45,26 @@ links:
 
 ## Creating a formatter
 
+### Pluralize a word
+
+```js
+const pr = new Intl.PluralRules('en-US')
+const forms = {
+  one: 'item',
+  other: 'items'
+}
+
+const plural = (n) => forms[pr.select(n)]
+
+plural(1)  // → 'item'
+plural(3)  // → 'items'
+```
+<!-- {: data-highlight="plural"} -->
+
+Index a form map with the category, then reuse one formatter. Keep a form for every category the locale uses, not only `one` and `other`.
+
+See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
+
 ### Select a category
 
 #### Constructor
@@ -71,44 +91,64 @@ pr.select(1.5)  // → 'other'
 
 See: [Intl.PluralRules() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
 
-### Pluralize a word
+## Counts and formatting
+
+### Format the count
 
 ```js
 const pr = new Intl.PluralRules('en-US')
-
-const words = {
+const nf = new Intl.NumberFormat('en-US')
+const forms = {
   one: 'item',
   other: 'items'
 }
 
-words[pr.select(1)]  // → 'item'
-words[pr.select(3)]  // → 'items'
-```
-<!-- {: data-highlight="words[pr.select(1)]"} -->
+const count = (n) =>
+  `${nf.format(n)} ${forms[pr.select(n)]}`
 
-Index a form map with the category. Keep a form for every category the locale uses, not only `one` and `other`.
+count(1)     // → '1 item'
+count(1200)  // → '1,200 items'
+```
+<!-- {: data-highlight="nf.format(n)"} -->
+
+The category comes from the raw number; `NumberFormat` only changes the printed digits.
+
+See: [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+
+### Round before selecting
+
+```js
+const pr = new Intl.PluralRules('en')
+
+pr.select(1.4)              // → 'other'
+pr.select(Math.round(1.4))  // → 'one'
+```
+<!-- {: data-highlight="Math.round(1.4)"} -->
+
+Rounding after `select()` can print "1 items". Round once, then pass the same value to both `select()` and `NumberFormat`.
 
 See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
 
-### Reuse a formatter
+### Compact counts
 
 ```js
-const pr = new Intl.PluralRules('en-US')
-const forms = {
-  one: 'apple',
-  other: 'apples'
-}
+const pr = new Intl.PluralRules('fr', {
+  notation: 'compact',
+  compactDisplay: 'long'
+})
+const compact = new Intl.NumberFormat('fr', {
+  notation: 'compact',
+  compactDisplay: 'long'
+})
 
-const plural = (n) => forms[pr.select(n)]
-
-plural(1)  // → 'apple'
-plural(4)  // → 'apples'
+compact.format(1100000)  // → '1,1 million'
+pr.select(1100000)       // → 'many'
 ```
-<!-- {: data-highlight="plural"} -->
+<!-- {: data-highlight="notation: 'compact'"} -->
 
-Build the formatter once and reuse it; constructing one per render is slow in lists.
+Compact notation can change the category: French prints 1,1 million and selects `many`, not `other`. Pass the same notation options to both formatters.
 
-See: [Intl.PluralRules() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
+See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#notation)
 
 ## Cardinal rules
 
@@ -213,7 +253,7 @@ nth(23)  // → '23rd'
 ```
 <!-- {: data-highlight="suffixes[ord.select(n)]"} -->
 
-A suffix map needs all four ordinal categories. Teens such as 11, 12, and 13 fall into `other`; 21, 22, and 23 take `one`, `two`, and `few`.
+A suffix map needs all four ordinal categories; 11, 12, and 13 take `other`.
 
 See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
 
@@ -302,65 +342,6 @@ ja.select(5)  // → 'other'
 Japanese has no plural distinction, so `other` is the only category. A single form covers every count.
 
 See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
-
-## Counts and formatting
-
-### Format the count
-
-```js
-const pr = new Intl.PluralRules('en-US')
-const nf = new Intl.NumberFormat('en-US')
-const forms = {
-  one: 'item',
-  other: 'items'
-}
-
-const count = (n) =>
-  `${nf.format(n)} ${forms[pr.select(n)]}`
-
-count(1)     // → '1 item'
-count(1200)  // → '1,200 items'
-```
-<!-- {: data-highlight="nf.format(n)"} -->
-
-The category comes from the raw number; `NumberFormat` only changes the printed digits.
-
-See: [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
-
-### Round before selecting
-
-```js
-const pr = new Intl.PluralRules('en')
-
-pr.select(1.4)              // → 'other'
-pr.select(Math.round(1.4))  // → 'one'
-```
-<!-- {: data-highlight="Math.round(1.4)"} -->
-
-Rounding after `select()` can print "1 items". Round once, then pass the same value to both `select()` and `NumberFormat`.
-
-See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
-
-### Compact counts
-
-```js
-const pr = new Intl.PluralRules('fr', {
-  notation: 'compact',
-  compactDisplay: 'long'
-})
-const compact = new Intl.NumberFormat('fr', {
-  notation: 'compact',
-  compactDisplay: 'long'
-})
-
-compact.format(1100000)  // → '1,1 million'
-pr.select(1100000)       // → 'many'
-```
-<!-- {: data-highlight="notation: 'compact'"} -->
-
-Compact notation can change the category: French prints 1,1 million and selects `many`, not `other`. Pass the same notation options to both formatters.
-
-See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#notation)
 
 ## Plural ranges
 
@@ -489,8 +470,6 @@ See: [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 | `compactDisplay` | `'short'` (default), `'long'` |
 <!-- {: .-headers} -->
 
-Pass the same notation options to the `NumberFormat` that prints the count.
-
 See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#notation)
 
 ### Type and locale options
@@ -504,6 +483,8 @@ See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 `localeMatcher` controls how a locale tag falls back.
 
 See: [Intl.PluralRules() options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
+
+## Inspecting a formatter
 
 ### resolvedOptions()
 

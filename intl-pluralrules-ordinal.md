@@ -39,7 +39,7 @@ nth(21)  // → '21st'
 ```
 <!-- {: data-highlight="type: 'ordinal'"} -->
 
-**Sets `type: 'ordinal'`.** English cardinal rules only know `one` and `other`, so 2nd and 3rd come out wrong. Ordinal rules return `one`, `two`, `few`, or `other`; teens 11–13 take `th`. See [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type).
+**Maps ordinal categories to suffixes.** Set `type: 'ordinal'` so 2nd and 3rd get their own categories; 11–13 take `th`. See [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type).
 
 ### Check locale coverage
 <!-- {: .-snippet} -->

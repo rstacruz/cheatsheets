@@ -10,6 +10,8 @@ updated: 2026-11-27
 links:
   - title: Build-time data loading
     url: https://vitepress.dev/guide/data-loading
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Data

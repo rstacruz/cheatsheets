@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/guide/i18n
   - title: Site config
     url: https://vitepress.dev/reference/site-config
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Translations

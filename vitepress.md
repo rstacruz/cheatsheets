@@ -208,7 +208,7 @@ pnpm docs:build
 ````
 <!-- {: data-highlight="::: tip; ::: warning; ::: details"} -->
 
-Titles are optional, so `::: danger` works too. `::: code-group` stacks labeled code blocks behind tabs.
+A title after the type is optional, and `info`, `warning` and `danger` render the same box in different colours. `::: code-group` stacks labeled code blocks behind tabs.
 
 See: [Custom containers](https://vitepress.dev/guide/markdown#custom-containers)
 
@@ -257,7 +257,7 @@ export default {
 ```
 <!-- {: data-highlight="extends: DefaultTheme"} -->
 
-Drop a `theme/index.ts` file in to replace the theme; `extends` keeps the default theme and layers on CSS, slots, and components.
+A `theme/index.ts` file makes VitePress use your theme; `extends` keeps the default theme as its base and layers on CSS, slots, and components.
 
 See: [Extending the default theme](https://vitepress.dev/guide/extending-default-theme)
 
@@ -360,3 +360,13 @@ Set `base` when the site serves from a subpath, such as `/acme-docs/`. Root site
 
 See: [Public base path](https://vitepress.dev/guide/deploy#setting-a-public-base-path)
 
+## Also see
+
+- [How to configure the VitePress sidebar](./vitepress-sidebar)
+- [How to enable search in VitePress](./vitepress-local-search)
+- [How to change the VitePress accent colour](./vitepress-accent-colour)
+- [How to use Vue components in VitePress Markdown](./vitepress-vue-components)
+- [How to load data at build time in VitePress](./vitepress-data-loaders)
+- [How to reuse Markdown in VitePress](./vitepress-include-markdown)
+- [How to build a VitePress home page](./vitepress-home-page)
+- [How to add translations to VitePress](./vitepress-i18n)

@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/reference/default-theme-search
   - title: Local search
     url: https://vitepress.dev/reference/default-theme-search#local-search
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Search

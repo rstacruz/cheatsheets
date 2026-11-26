@@ -1,6 +1,6 @@
 ---
 title: How to reuse Markdown in VitePress
-link_title: Reuse Markdown in VitePress
+link_title: VitePress Markdown includes
 subtitle: Includes and code imports
 category: JavaScript libraries
 layout: snippet
@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/guide/markdown
   - title: Markdown file inclusion
     url: https://vitepress.dev/guide/markdown#markdown-file-inclusion
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Reuse
@@ -37,7 +39,7 @@ links:
 ```
 <!-- {: data-highlight="./parts/basics.md{3,}"} -->
 
-**Skips the first two lines.** The braces take a `{start,end}` line range, not the `{2-4}` fence syntax. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
+**Skips the first two lines.** Includes take `{start,end}` ranges such as `{3,}` or `{,10}`; fences and `<<<` imports use dash ranges like `{2-4}`. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
 
 ### Import a code file
 <!-- {: .-snippet} -->

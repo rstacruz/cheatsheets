@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/reference/default-theme-sidebar
   - title: Default theme config
     url: https://vitepress.dev/reference/default-theme-config#sidebar
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Sidebar

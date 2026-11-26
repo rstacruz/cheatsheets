@@ -1,6 +1,6 @@
 ---
 title: How to use Vue components in VitePress Markdown
-link_title: Vue components in VitePress
+link_title: VitePress Vue components
 subtitle: Interactive widgets inside pages
 category: JavaScript libraries
 layout: snippet
@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/guide/using-vue
   - title: Global components
     url: https://vitepress.dev/guide/extending-default-theme#registering-global-components
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Components

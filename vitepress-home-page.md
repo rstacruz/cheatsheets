@@ -12,6 +12,8 @@ links:
     url: https://vitepress.dev/reference/default-theme-home-page
   - title: Frontmatter config
     url: https://vitepress.dev/reference/frontmatter-config
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Home page
@@ -67,7 +69,7 @@ hero:
 
 **Shows a screenshot beside the headline.** Files in `docs/public` are served from the site root, so `/hero.png` needs no import. See [hero image](https://vitepress.dev/reference/default-theme-home-page#hero-section).
 
-### Swap the action style
+### Add a secondary action
 <!-- {: .-snippet} -->
 
 ```md
@@ -81,4 +83,4 @@ actions:
 ```
 <!-- {: data-highlight="theme: alt"} -->
 
-**Mixes a primary and secondary button.** `brand` is filled, `alt` is a quieter button; external links work in either. See [hero actions](https://vitepress.dev/reference/default-theme-home-page#hero-section).
+**Mixes a primary and secondary button.** `brand` is filled and `alt` is quieter; external links work in either. See [hero actions](https://vitepress.dev/reference/default-theme-home-page#hero-section).

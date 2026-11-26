@@ -12,10 +12,29 @@ links:
     url: https://vitepress.dev/guide/extending-default-theme
   - title: Customizing CSS
     url: https://vitepress.dev/guide/extending-default-theme#customizing-css
+  - title: VitePress cheatsheet
+    url: ./vitepress
 ---
 
 ## Colours
 <!-- {: .-snippets} -->
+
+### Load the stylesheet
+<!-- {: .-snippet} -->
+
+#### docs/.vitepress/theme/index.ts
+
+```ts
+import DefaultTheme from 'vitepress/theme'
+import './custom.css'
+
+export default {
+  extends: DefaultTheme
+}
+```
+<!-- {: data-highlight="import './custom.css'"} -->
+
+**Loads the stylesheet on every page.** The import pulls `custom.css` into the theme bundle; `extends` keeps the default theme as the base. See [extending the default theme](https://vitepress.dev/guide/extending-default-theme).
 
 ### Override the brand tokens
 <!-- {: .-snippet} -->
@@ -32,23 +51,6 @@ links:
 <!-- {: data-highlight="--vp-c-brand-1"} -->
 
 **Recolours links and buttons.** VitePress derives hover states from `--vp-c-brand-1` through `--vp-c-brand-3`. See [customizing CSS](https://vitepress.dev/guide/extending-default-theme#customizing-css).
-
-### Load the stylesheet
-<!-- {: .-snippet} -->
-
-#### docs/.vitepress/theme/index.ts
-
-```ts
-import DefaultTheme from 'vitepress/theme'
-import './custom.css'
-
-export default {
-  extends: DefaultTheme
-}
-```
-<!-- {: data-highlight="extends: DefaultTheme"} -->
-
-**Keeps the default theme and adds CSS.** A `theme/index.ts` file switches VitePress to your theme; `extends` layers it on the default one. See [extending the default theme](https://vitepress.dev/guide/extending-default-theme).
 
 ### Tint backgrounds
 <!-- {: .-snippet} -->

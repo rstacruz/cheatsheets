@@ -14,21 +14,6 @@ links:
 ## Case-insensitive sorting
 <!-- {: .-snippets} -->
 
-### Ignore case and accents
-<!-- {: .-snippet} -->
-
-```js
-const collator = new Intl.Collator('en', {
-  sensitivity: 'base'
-})
-
-['b', 'A', 'a', 'B'].sort(collator.compare)
-// → ['A', 'a', 'b', 'B']
-```
-<!-- {: data-highlight="sensitivity: 'base'"} -->
-
-**Collapses case and accents to the base letter.** Ties keep their original order because `sort()` is stable; see [sensitivity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity).
-
 ### Keep accents, ignore case
 <!-- {: .-snippet} -->
 
@@ -43,6 +28,21 @@ collator.compare('a', 'á')  // → negative
 <!-- {: data-highlight="sensitivity: 'accent'"} -->
 
 **Distinguishes accents but not case.** Use it when `cafe` and `café` are different words; see [sensitivity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity).
+
+### Ignore case and accents
+<!-- {: .-snippet} -->
+
+```js
+const collator = new Intl.Collator('en', {
+  sensitivity: 'base'
+})
+
+['b', 'A', 'a', 'B'].sort(collator.compare)
+// → ['A', 'a', 'b', 'B']
+```
+<!-- {: data-highlight="sensitivity: 'base'"} -->
+
+**Collapses case and accents to the base letter.** Ties keep their original order because `sort()` is stable; see [sensitivity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#sensitivity).
 
 ### Compare one pair
 <!-- {: .-snippet} -->

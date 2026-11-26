@@ -27,7 +27,7 @@ numbers.toSorted((a, b) => a - b)
 ```
 <!-- {: data-highlight="a - b" } -->
 
-**Returns the numeric difference.** Positive, negative, and zero results tell `sort()` the order; see [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
+**Returns the numeric difference.** Positive, negative, and zero results tell `toSorted()` the order; see [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
 
 ### Sort numeric strings
 <!-- {: .-snippet} -->

@@ -41,14 +41,12 @@ links:
 ---
 
 ## Sorting
-<!-- {: .-three-column} -->
 
 ### Basic sort
 
 ```js
 const collator = new Intl.Collator('en')
-const fruit = ['banana', 'apple',
-  'Cherry']
+const fruit = ['banana', 'apple', 'Cherry']
 
 fruit.sort(collator.compare)
 // → ['apple', 'banana', 'Cherry']
@@ -56,6 +54,21 @@ fruit.sort(collator.compare)
 <!-- {: data-highlight="sort(collator.compare)"} -->
 
 Without a collator, `.sort()` compares UTF-16 code units, so `Cherry` comes before `apple` and accented letters after `z`. Only the sign of `compare()` is guaranteed; engines usually return `-1` and `1`.
+
+See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
+
+### Descending order
+
+```js
+const collator = new Intl.Collator('en')
+const descending = (a, b) => collator.compare(b, a)
+
+['b', 'a', 'c'].sort(descending)
+// → ['c', 'b', 'a']
+```
+<!-- {: data-highlight="compare(b, a)"} -->
+
+Swapping the arguments negates the order without copying the array; `sort().reverse()` works too but mutates twice.
 
 See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
 
@@ -68,11 +81,9 @@ const users = [
   { name: 'Alice' },
   { name: 'ábel' }
 ]
-const byName = (a, b) => (
-  collator.compare(a.name, b.name)
-)
+const byName = (a, b) => collator.compare(a.name, b.name)
 
-users.sort(byName).map((u) => u.name)
+users.sort(byName).map((user) => user.name)
 // → ['ábel', 'Alice', 'bob']
 ```
 <!-- {: data-highlight="collator.compare(a.name, b.name)"} -->
@@ -99,23 +110,6 @@ people.sort((a, b) => (
 <!-- {: data-highlight="compare(a.last, b.last); compare(a.first, b.first)"} -->
 
 The next key runs only when the previous comparison returns `0`, because `||` short-circuits on any non-zero result.
-
-See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
-
-### Descending order
-
-```js
-const collator = new Intl.Collator('en')
-const descending = (a, b) => (
-  collator.compare(b, a)
-)
-
-['b', 'a', 'c'].sort(descending)
-// → ['c', 'b', 'a']
-```
-<!-- {: data-highlight="compare(b, a)"} -->
-
-Swapping the arguments negates the order without copying the array; `sort().reverse()` works too but mutates twice.
 
 See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
 
@@ -263,11 +257,12 @@ See: [supportedLocalesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ```js
 const collator = new Intl.Collator('en')
+const values = ['file 10', 'file 2']
 const sorted = values.toSorted(collator.compare)
 ```
 <!-- {: data-highlight="toSorted(collator.compare)"} -->
 
-Build the collator once and reuse its `compare`; constructing one inside the comparator is far slower.
+Build the collator once and reuse its `compare`; constructing one per comparison repeats setup work.
 
 See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
 
@@ -314,7 +309,7 @@ collator.resolvedOptions().sensitivity  // → 'variant'
 ```
 <!-- {: data-highlight="resolvedOptions"} -->
 
-`resolvedOptions()` shows the options and locale after fallbacks, which helps confirm a locale was accepted.
+`resolvedOptions()` reports the values selected after defaults: `numeric` is honored and `sensitivity` keeps its `'variant'` default.
 
 See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/resolvedOptions)
 

@@ -1,7 +1,7 @@
 ---
 title: React hooks
 subtitle: State and effects in components
-category: JavaScript libraries
+category: JavaScript frameworks
 updated: 2026-11-24
 last_verified_with: "React 19.3.1."
 tier: t2

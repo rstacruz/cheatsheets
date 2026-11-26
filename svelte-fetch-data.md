@@ -1,0 +1,137 @@
+---
+title: How to fetch data in Svelte
+link_title: Fetch data in Svelte
+subtitle: Loading remote data
+category: JavaScript frameworks
+layout: snippet
+last_verified_with: "Svelte 5.59.2."
+updated: 2026-11-26
+links:
+  - title: $effect
+    url: https://svelte.dev/docs/svelte/$effect
+  - title: await blocks
+    url: https://svelte.dev/docs/svelte/await
+---
+
+## Fetching data
+<!-- {: .-snippets} -->
+
+### Fetch in an effect
+<!-- {: .-snippet} -->
+
+```html
+<script>
+  let user = $state(null)
+
+  $effect(() => {
+    fetch('/api/user')
+      .then((res) => res.json())
+      .then((data) => (user = data))
+  })
+</script>
+
+<p>{user?.name}</p>
+```
+<!-- {: data-highlight="$effect"} -->
+
+**Loads once on mount.** The effect tracks no state, so it runs on mount only; see [`$effect`](https://svelte.dev/docs/svelte/$effect).
+
+### Track loading and errors
+<!-- {: .-snippet} -->
+
+```html
+<script>
+  let loading = $state(true)
+  let error = $state(null)
+  let user = $state(null)
+
+  $effect(() => {
+    load()
+  })
+
+  async function load() {
+    try {
+      const res = await fetch('/api/user')
+      user = await res.json()
+    } catch (e) {
+      error = e.message
+    } finally {
+      loading = false
+    }
+  }
+</script>
+
+{#if loading}
+  <p>Loading…</p>
+{:else if error}
+  <p>{error}</p>
+{:else}
+  <p>{user.name}</p>
+{/if}
+```
+<!-- {: data-highlight="async function load()"} -->
+
+**Keeps all three states explicit.** An async function keeps the flow readable and `finally` always clears the spinner; see [Await blocks](https://svelte.dev/docs/svelte/await) for the markup equivalent.
+
+### Cancel on cleanup
+<!-- {: .-snippet} -->
+
+```html
+<script>
+  let query = $state('')
+  let results = $state([])
+
+  $effect(() => {
+    const search = query
+    const ctrl = new AbortController()
+
+    fetch(`/api/search?q=${search}`, {
+      signal: ctrl.signal
+    })
+      .then((res) => res.json())
+      .then((data) => (results = data))
+      .catch(() => {})
+
+    return () => ctrl.abort()
+  })
+</script>
+```
+<!-- {: data-highlight="ctrl.abort()"} -->
+
+**Aborts the previous request when `query` changes.** Each run creates its own controller, and the cleanup cancels stale loads; see [Effect cleanup](https://svelte.dev/docs/svelte/$effect#When-effects-run-and-when-they-dont).
+
+### Render a promise with an await block
+<!-- {: .-snippet} -->
+
+```html
+<script>
+  let userId = $state(1)
+  let promise = $derived(load(userId))
+</script>
+
+{#await promise}
+  <p>Loading…</p>
+{:then user}
+  <p>{user.name}</p>
+{:catch error}
+  <p>{error.message}</p>
+{/await}
+```
+<!-- {: data-highlight="{#await promise}"} -->
+
+**Branches on the promise's state in markup.** A new `userId` produces a new promise and restarts the block; see [await blocks](https://svelte.dev/docs/svelte/await).
+
+### Move loading into SvelteKit
+<!-- {: .-snippet} -->
+
+#### +page.ts
+
+```ts
+export async function load({ fetch }) {
+  const res = await fetch('/api/user')
+  return { user: await res.json() }
+}
+```
+<!-- {: data-highlight="export async function load"} -->
+
+**Runs before the page renders, on the server and in the browser.** Kit passes the result to `data`; see [`load`](https://svelte.dev/docs/kit/load).

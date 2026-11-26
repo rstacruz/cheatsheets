@@ -23,6 +23,7 @@ import { Duration } from 'luxon'
 Duration.fromObject({ hours: 2, minutes: 30 })
   .toISO()
 // "PT2H30M"
+
 Duration.fromISO('PT1H30M').as('minutes')
 // 90
 ```
@@ -51,6 +52,7 @@ d.toFormat("d'd' h'h' m'm'")
 Duration.fromObject({ hours: 2, minutes: 30 })
   .toHuman()
 // "2 hours, 30 minutes"
+
 Duration.fromObject({ hours: 2, minutes: 30 })
   .toHuman({ listStyle: 'long' })
 // "2 hours and 30 minutes"

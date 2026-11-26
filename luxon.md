@@ -83,11 +83,9 @@ No method mutates in place; assign the result or chain from it.
 
 See: [Math](https://moment.github.io/luxon/#/math)
 
-## Formatting
+## Tokens
 
-### Format tokens
-
-#### Date
+### Date tokens
 
 | Token  | Output   |
 | ------ | -------- |
@@ -104,7 +102,11 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `ccc`  | `Mon`    |
 <!-- {: .-headers} -->
 
-#### Time
+Tokens are case-sensitive: `yyyy` is the year and `YYYY` prints literally.
+
+See: [Formatting](https://moment.github.io/luxon/#/formatting)
+
+### Time tokens
 
 | Token | Output  |
 | ----- | ------- |
@@ -119,7 +121,9 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `a`   | `AM`    |
 <!-- {: .-headers} -->
 
-#### Zone and epoch
+See: [Formatting](https://moment.github.io/luxon/#/formatting)
+
+### Zone and epoch tokens
 
 | Token  | Output   |
 | ------ | -------- |
@@ -130,9 +134,11 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `x`    | `1402306325123` |
 <!-- {: .-headers} -->
 
-Tokens are case-sensitive: `yyyy` is the year and `YYYY` prints literally. The outputs assume a UTC instance.
+The outputs assume a UTC instance.
 
 See: [Formatting](https://moment.github.io/luxon/#/formatting)
+
+## Formatting
 
 ### Locale presets
 
@@ -141,8 +147,10 @@ const d = DateTime.fromISO('2014-06-09T09:32:05Z', { zone: 'utc' })
 
 d.toLocaleString(DateTime.DATE_FULL)
 // "June 9, 2014"
+
 d.toLocaleString(DateTime.DATETIME_MED)
 // "Jun 9, 2014, 9:32 AM"
+
 d.toLocaleString(DateTime.TIME_24_SIMPLE)
 // "09:32"
 ```
@@ -159,6 +167,7 @@ const d = DateTime.fromISO('2014-06-09T09:32:05Z', { zone: 'utc' })
 
 d.setLocale('fr').toLocaleString(DateTime.DATE_FULL)
 // "9 juin 2014"
+
 d.setLocale('fr').toFormat('cccc d LLLL yyyy')
 // "lundi 9 juin 2014"
 ```
@@ -262,6 +271,7 @@ const d = DateTime.fromISO('2026-03-07T09:00',
 
 d.plus({ days: 1 }).toISO()
 // "2026-03-08T09:00:00.000-04:00"
+
 d.plus({ hours: 24 }).toISO()
 // "2026-03-08T10:00:00.000-04:00"
 ```
@@ -278,8 +288,10 @@ const d = DateTime.fromISO('2014-06-11T09:32', { zone: 'utc' })
 
 d.startOf('day').toISO()
 // "2014-06-11T00:00:00.000Z"
+
 d.endOf('month').toISO()
 // "2014-06-30T23:59:59.999Z"
+
 d.startOf('week').toISODate()   // "2014-06-09"
 ```
 <!-- {: data-highlight="startOf('week')"} -->
@@ -352,6 +364,7 @@ const d = DateTime.fromISO('2014-06-09T09:32:00Z')
 
 d.setZone('America/New_York').toISO()
 // "2014-06-09T05:32:00.000-04:00"
+
 d.toUTC().toISO()            // "2014-06-09T09:32:00.000Z"
 d.toLocal().toISO()          // system zone
 ```
@@ -368,6 +381,7 @@ const d = DateTime.fromISO('2014-06-09T09:32:00Z')
 
 d.setZone('America/New_York').toISO()
 // "2014-06-09T05:32:00.000-04:00"
+
 d.setZone('America/New_York', { keepLocalTime: true }).toISO()
 // "2014-06-09T09:32:00.000-04:00"
 ```
@@ -497,6 +511,7 @@ import { Duration } from 'luxon'
 
 Duration.fromObject({ hours: 2, minutes: 30 }).toISO()
 // "PT2H30M"
+
 Duration.fromISO('PT1H30M').as('minutes')       // 90
 Duration.fromMillis(5400000).toFormat('hh:mm')  // "01:30"
 ```
@@ -523,6 +538,7 @@ See: [Duration format](https://moment.github.io/luxon/api-docs/index.html)
 ```js
 Duration.fromObject({ hours: 2, minutes: 30 }).toHuman()
 // "2 hours, 30 minutes"
+
 Duration.fromObject({ hours: 2, minutes: 30 })
   .toHuman({ listStyle: 'long' })
 // "2 hours and 30 minutes"
@@ -538,6 +554,7 @@ See: [Duration human](https://moment.github.io/luxon/api-docs/index.html)
 ```js
 Duration.fromObject({ hours: 25 }).as('days')
 // 1.0416666666666667
+
 Duration.fromObject({ minutes: 150 })
   .shiftTo('hours', 'minutes').toObject()
 // { hours: 2, minutes: 30 }

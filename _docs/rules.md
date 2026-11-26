@@ -553,6 +553,26 @@ Separate tables of 8+ rows with H4 groups or `| --- |` rows.
 | `llll`  | Thu, Aug 2 1985 08:30 PM         |
 ````
 
+### tables/row-limit
+
+🤖 Check: `tables/row-limit`.
+
+Keep a card's tables to 20 data rows in total. A reference table past that reads as a wall; split it into several H3 cards by subject, or start a new H2.
+
+````markdown
+### Date tokens
+
+| Token  | Output |
+| ------ | ------ |
+| `yyyy` | `2014`  |
+
+### Time tokens
+
+| Token | Output |
+| ----- | ------ |
+| `HH`  | `09`   |
+````
+
 ### prose/omit-redundant
 
 Omit redundant prose. When the code is self-explanatory, add no trailing paragraph.
@@ -578,6 +598,10 @@ When the example already shows the detail, skip the note.
 key = "value" # trailing comment
 quoted = "# not a comment"
 ````
+
+### prose/no-marketing
+
+A reference sheet describes its own tool. Leave out bundle-size comparisons, competitor tables and "why choose us" claims: they date quickly and read as marketing. Put a library comparison in its own snippet (eg `dayjs-vs-moment`) or link the upstream project's status page.
 
 ### frontmatter/seo-descriptions
 
@@ -706,6 +730,23 @@ git clean -fd
 ````
 
 A comment should say what the command changes, not restate it: `# switch to a branch` above `git switch feat/login` adds nothing. Use trailing comments only for results and equivalents; see `code/inline-comments`.
+
+### code/space-between-examples
+
+🤖 Check: `code/space-between-examples`.
+
+Separate statement-and-result groups with a blank line. Keep result comments on their own line, and leave a blank line before the next statement so the block reads as a sequence of examples instead of one run-on transcript.
+
+````md
+```js
+Duration.fromObject({ hours: 2, minutes: 30 }).toHuman()
+// "2 hours, 30 minutes"
+
+Duration.fromObject({ hours: 2, minutes: 30 })
+  .toHuman({ listStyle: 'long' })
+// "2 hours and 30 minutes"
+```
+````
 
 ### frontmatter/h3-links
 

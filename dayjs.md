@@ -67,21 +67,6 @@ Every method returns a new instance, so the original is safe to share.
 
 See: [Immutability](https://day.js.org/docs/en/parse/parse)
 
-### Compared with Moment
-
-| Aspect | Moment | Day.js |
-| --- | --- | --- |
-| Size (gzip) | ~19 kB | ~3 kB |
-| Objects | Mutable | Immutable |
-| Named formats | In core | `localizedFormat` plugin |
-| Time zones | `moment-timezone` package | `utc` + `timezone` plugins |
-| Optional methods | In core | Plugins |
-<!-- {: .-headers} -->
-
-Day.js keeps the Moment API and moves optional features into plugins.
-
-See: [Installation](https://day.js.org/docs/en/installation/installation), [Moment project status](https://momentjs.com/docs/#/-project-status/)
-
 ## Parsing
 
 ### ISO strings
@@ -143,11 +128,9 @@ d.unix()          // 1402306325
 
 See: [Conversion](https://day.js.org/docs/en/display/as-iso-string)
 
-## Formatting
+## Tokens
 
-### Format tokens
-
-#### Date
+### Date tokens
 
 | Token  | Output   |
 | ------ | -------- |
@@ -164,7 +147,9 @@ See: [Conversion](https://day.js.org/docs/en/display/as-iso-string)
 | `ddd`  | `Mon`    |
 <!-- {: .-headers} -->
 
-#### Time
+See: [Format](https://day.js.org/docs/en/display/format)
+
+### Time tokens
 
 | Token | Output     |
 | ----- | ---------- |
@@ -184,25 +169,6 @@ See: [Conversion](https://day.js.org/docs/en/display/as-iso-string)
 <!-- {: .-headers} -->
 
 See: [Format](https://day.js.org/docs/en/display/format)
-
-### Named formats
-
-```js
-import localizedFormat from 'dayjs/plugin/localizedFormat.js'
-
-dayjs.extend(localizedFormat)
-
-dayjs('2014-06-09').format('L')     // "06/09/2014"
-dayjs('2014-06-09').format('LL')    // "June 9, 2014"
-dayjs('2014-06-09').format('LLL')   // "June 9, 2014 12:00 AM"
-dayjs('2014-06-09').format('LLLL')  // "Monday, June 9, 2014 12:00 AM"
-dayjs('2014-06-09').format('LT')    // "12:00 AM"
-```
-<!-- {: data-highlight="'LLLL'"} -->
-
-The `L` family follows the active locale, so date order adapts per language.
-
-See: [Localized format](https://day.js.org/docs/en/plugin/localized-format)
 
 ### Advanced tokens
 
@@ -229,6 +195,27 @@ dayjs('2014-06-09T09:32:05Z').format('x')  // "1402306325123"
 `Do` adds the ordinal suffix, `Q` emits the quarter, and `X`/`x` emit Unix seconds and milliseconds.
 
 See: [Advanced format](https://day.js.org/docs/en/plugin/advanced-format)
+
+## Formatting
+
+### Named formats
+
+```js
+import localizedFormat from 'dayjs/plugin/localizedFormat.js'
+
+dayjs.extend(localizedFormat)
+
+dayjs('2014-06-09').format('L')     // "06/09/2014"
+dayjs('2014-06-09').format('LL')    // "June 9, 2014"
+dayjs('2014-06-09').format('LLL')   // "June 9, 2014 12:00 AM"
+dayjs('2014-06-09').format('LLLL')  // "Monday, June 9, 2014 12:00 AM"
+dayjs('2014-06-09').format('LT')    // "12:00 AM"
+```
+<!-- {: data-highlight="'LLLL'"} -->
+
+The `L` family follows the active locale, so date order adapts per language.
+
+See: [Localized format](https://day.js.org/docs/en/plugin/localized-format)
 
 ### Relative time
 
@@ -300,6 +287,7 @@ const d = dayjs('2014-06-09T09:32')
 
 d.startOf('day').format('YYYY-MM-DD HH:mm:ss')
 // "2014-06-09 00:00:00"
+
 d.endOf('month').format('YYYY-MM-DD HH:mm:ss')
 // "2014-06-30 23:59:59"
 ```
@@ -373,7 +361,7 @@ d.isBetween('2014-06-10', '2014-06-15',
   'day', '[]')                            // true
 d.isSameOrBefore('2014-06-10', 'day')     // true
 ```
-<!-- {: data-highlight="'[]'"} -->
+<!-- {: data-highlight="isBetween"} -->
 
 Bounds are exclusive by default; `'[]'` includes both ends.
 
@@ -409,7 +397,7 @@ dayjs.min(dayjs('2014-01-01'), dayjs('2012-01-01'))
 dayjs.max(dayjs('2014-01-01'), dayjs('2012-01-01'))
   .format('YYYY-MM-DD')   // "2014-01-01"
 ```
-<!-- {: data-highlight="dayjs.min"} -->
+<!-- {: data-highlight="dayjs.min; dayjs.max"} -->
 
 Both accept instances as arguments or as one array.
 
@@ -428,6 +416,7 @@ const d = dayjs.utc('2014-06-09T09:32Z')
 
 d.format('YYYY-MM-DDTHH:mm:ssZ')
 // "2014-06-09T09:32:00+00:00"
+
 d.isUTC()      // true
 d.utcOffset()  // 0
 ```
@@ -479,6 +468,7 @@ const d = dayjs.utc('2026-03-08T09:00Z')
 
 d.tz('America/New_York').format()
 // "2026-03-08T05:00:00-04:00"
+
 d.tz('America/New_York', true).format()
 // "2026-03-08T09:00:00-04:00"
 ```
@@ -578,6 +568,7 @@ dayjs.extend(duration)
 dayjs.duration(2, 'days').asHours()   // 48
 dayjs.duration({ hours: 2, minutes: 30 }).toISOString()
 // "PT2H30M"
+
 dayjs.duration(5400000).format('HH:mm')   // "01:30"
 ```
 <!-- {: data-highlight="dayjs.duration(2, 'days')"} -->
@@ -603,6 +594,7 @@ See: [Duration format](https://day.js.org/docs/en/durations/format)
 ```js
 dayjs.duration({ minutes: 150 }).format('HH:mm')
 // "undefined:150"
+
 dayjs.duration(150 * 60 * 1000).format('HH:mm')
 // "02:30"
 ```

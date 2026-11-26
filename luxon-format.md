@@ -47,6 +47,7 @@ const d = DateTime.fromISO(
 
 d.toLocaleString(DateTime.DATE_FULL)
 // "June 9, 2014"
+
 d.toLocaleString(DateTime.TIME_24_SIMPLE)
 // "09:32"
 ```
@@ -79,6 +80,7 @@ const d = DateTime.fromISO(
 
 d.toISO()
 // "2014-06-09T18:32:05.123+09:00"
+
 d.toUTC().toISO()
 // "2014-06-09T09:32:05.123Z"
 ```

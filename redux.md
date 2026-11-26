@@ -2,7 +2,7 @@
 title: Redux
 subtitle: Predictable state container
 category: JavaScript libraries
-updated: 2026-11-14
+updated: 2026-11-26
 weight: -3
 intro: |
   [Redux Toolkit](https://redux.js.org/toolkit/introduction/getting-started) is the standard way to write Redux. This reference targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.

@@ -46,7 +46,7 @@ See: [Installation and news](https://jonas.github.io/tig/#_installation_and_news
 
 You can substitute `git log` → `tig`.
 
-See: [tig(1) examples](https://jonas.github.io/tig/doc/tig.1.html#examples), [revision specification](https://jonas.github.io/tig/doc/manual.html#refspec)
+See: [tig(1) examples](https://jonas.github.io/tig/doc/tig.1.html#_examples), [revision specification](https://jonas.github.io/tig/doc/manual.html#refspec)
 
 ## Shortcut keys
 

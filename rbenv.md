@@ -4,7 +4,7 @@ seo_title: rbenv cheatsheet — install, versions, global
 subtitle: Ruby version manager
 category: Ruby
 tier: t3
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "rbenv 1.3.2, ruby-build 20261119."
 weight: -1
 description: "rbenv versions: install, global, local and rehash commands. Ruby version manager reference."

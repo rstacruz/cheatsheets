@@ -9,7 +9,7 @@ authors:
   - github: izzergh
   - github: kolapsys
   - github: samtrion
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "Node 26.13.1, PCRE2 10.49."
 description: |
   Regular expression syntax reference with patterns, anchors, groups, and flags.

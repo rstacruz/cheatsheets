@@ -95,7 +95,7 @@ Custom generators
 ### Custom generators
 
  * [Guides: generators](https://guides.rubyonrails.org/generators.html)
- * [ActiveRecord::Generators::Base](https://api.rubyonrails.org/classes/Rails/Generators/Base.html)
+ * [Rails::Generators::Base](https://api.rubyonrails.org/classes/Rails/Generators/Base.html)
 
 See: [Rails generators guide](https://guides.rubyonrails.org/generators.html)
 

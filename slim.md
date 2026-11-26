@@ -11,7 +11,7 @@ intro: |
   [Slim](https://github.com/slim-template/slim) is a lightweight Ruby template engine with indentation-based syntax.
 links:
   - title: Slim README
-    url: https://github.com/slim-template/slim#readme
+    url: https://github.com/slim-template/slim
 ---
 
 ## Markup
@@ -179,4 +179,4 @@ See: [Inline tags](https://github.com/slim-template/slim/blob/v5.2.2/README.md#i
 
 - [Slim repository](https://github.com/slim-template/slim)
 
-See: [Slim documentation](https://github.com/slim-template/slim#readme)
+See: [Slim documentation](https://github.com/slim-template/slim)

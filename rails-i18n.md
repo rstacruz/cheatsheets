@@ -206,20 +206,19 @@ See: [Error message scopes](https://guides.rubyonrails.org/i18n.html#error-messa
 #### Key scopes
 
 ```yml
-# Possible scopes (in order):
-activerecord.errors.models.[model_name].attributes. \
-  [attribute_name].[error]
-activerecord.errors.models.[model_name].[error]
-activerecord.errors.messages.[error]
-errors.attributes.[attribute_name].[error]
-errors.messages.[error]
+# [model], [attr] and [key] are placeholders:
+activerecord.errors.models.[model].attributes.[attr].[key]
+activerecord.errors.models.[model].[key]
+activerecord.errors.messages.[key]
+errors.attributes.[attr].[key]
+errors.messages.[key]
 ```
-<!-- {: data-highlight="[error]"} -->
+<!-- {: data-highlight="[model]"} -->
 
 #### Error keys
 
 ```yml
-# Where [error] can be:
+# Where [key] can be:
 validates
   confirmation - :confirmation
   acceptance   - :accepted

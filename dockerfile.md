@@ -1,7 +1,7 @@
 ---
 title: Dockerfile
 subtitle: Container image build file
-category: Devops
+category: Containers
 prism_languages: [docker]
 last_verified_with: "Docker Engine 29.10."
 updated: 2026-11-25

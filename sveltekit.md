@@ -30,7 +30,7 @@ keywords:
   - remote functions
   - cookies
 intro: |
-  [SvelteKit](https://svelte.dev/docs/kit) is the full-stack framework for Svelte, built on Vite. This reference covers SvelteKit 3: routing, loads, actions, hooks, and deployment.
+  [SvelteKit](https://svelte.dev/docs/kit) is the full-stack framework for Svelte, built on Vite. This reference covers SvelteKit 3: routing, loads, actions, hooks, remote functions, and deployment.
 links:
   - title: SvelteKit documentation
     url: https://svelte.dev/docs/kit
@@ -66,23 +66,6 @@ src/
 ```
 
 `src/routes` and `src/app.html` are required; every other file and folder is optional. See: [Project structure](https://svelte.dev/docs/kit/project-structure)
-
-### Configure the app
-
-#### vite.config.ts
-
-```ts
-import adapter from '@sveltejs/adapter-auto'
-import { sveltekit } from '@sveltejs/kit/vite'
-import { defineConfig } from 'vite'
-
-export default defineConfig({
-  plugins: [sveltekit({ adapter: adapter() })]
-})
-```
-<!-- {: data-highlight="sveltekit({ adapter"} -->
-
-SvelteKit 3 takes its options in the Vite plugin; `svelte.config.js` is gone. See: [Configuration](https://svelte.dev/docs/kit/@sveltejs-kit-vite)
 
 ### Dev and build
 
@@ -151,7 +134,7 @@ Layouts wrap child pages and stay mounted across navigation. See: [Layouts](http
 
 ```text
 src/routes/(app)/admin/+page.svelte  → /admin
-src/routes/(marketing)/about/+page.svelte
+src/routes/(marketing)/about/+page.svelte  → /about
 ```
 <!-- {: data-highlight="(app); (marketing)"} -->
 
@@ -565,7 +548,7 @@ export const handleError: HandleServerError = ({ kind, error }) => {
 ```
 <!-- {: data-highlight="kind === 'unknown'"} -->
 
-`handleError` sees every error in v3; return only fields that are safe to show. See: [handleError](https://svelte.dev/docs/kit/hooks#handleError)
+`handleError` sees every error in SvelteKit 3; return only fields that are safe to show. See: [handleError](https://svelte.dev/docs/kit/hooks#handleError)
 
 ## Cookies
 <!-- {: .-three-column} -->
@@ -582,7 +565,7 @@ cookies.set('session', token, {
 ```
 <!-- {: data-highlight="cookies.set"} -->
 
-`httpOnly` defaults to true and `secure` to true outside dev; `path` defaults to `/`. See: [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies)
+`httpOnly` defaults to true and `secure` to true outside development; `path` defaults to `/`. See: [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies)
 
 ### Read a cookie
 
@@ -694,7 +677,7 @@ export const ssr = false
 ```
 <!-- {: data-highlight="ssr = false"} -->
 
-Disables server rendering for the layout and its children, making an SPA. See: [ssr](https://svelte.dev/docs/kit/page-options#ssr)
+Disables server rendering for the layout and its children, making a single-page app. See: [ssr](https://svelte.dev/docs/kit/page-options#ssr)
 
 ### Ship no client JS
 
@@ -807,9 +790,9 @@ sveltekit({ adapter: adapter() })
 ```
 <!-- {: data-highlight="sveltekit({ adapter: adapter() })"} -->
 
-SvelteKit 3 no longer reads `svelte.config.js`. See: [Migrating to v3](https://svelte.dev/docs/kit/migrating-to-sveltekit-3)
+SvelteKit 3 no longer reads `svelte.config.js`. See: [Migrating to SvelteKit 3](https://svelte.dev/docs/kit/migrating-to-sveltekit-3)
 
-### $lib became #lib
+### `$lib` became `#lib`
 
 #### package.json
 
@@ -833,7 +816,7 @@ The alias uses Node subpath imports and needs file extensions. See: [$lib is now
 
 ### Stores became state
 
-#### v2
+#### SvelteKit 2
 
 ```ts
 import { page } from '$app/stores'
@@ -841,7 +824,7 @@ import { page } from '$app/stores'
 $page.url.pathname
 ```
 
-#### v3
+#### SvelteKit 3
 
 ```ts
 import { page } from '$app/state'
@@ -854,16 +837,30 @@ page.url.pathname
 
 ### Env modules moved
 
-#### v2
+#### SvelteKit 2
 
 ```ts
 import { API_KEY } from '$env/static/private'
 ```
 
-#### v3
+#### SvelteKit 3
 
 ```ts
 import { API_KEY } from '$app/env/private'
 ```
 
 `$env/*` is deprecated; declare variables in `src/env.ts` instead. See: [Environment variables](https://svelte.dev/docs/kit/environment-variables)
+
+## Also see
+
+- [SvelteKit load data](./sveltekit-load-data)
+- [SvelteKit form actions](./sveltekit-form-actions)
+- [SvelteKit remote functions](./sveltekit-remote-functions)
+- [SvelteKit route params](./sveltekit-route-params)
+- [SvelteKit cookies](./sveltekit-cookies)
+- [SvelteKit redirects](./sveltekit-redirect)
+- [SvelteKit auth guard](./sveltekit-auth-guard)
+- [SvelteKit env variables](./sveltekit-environment-variables)
+- [SvelteKit prerender](./sveltekit-prerender)
+- [SvelteKit Node deploy](./sveltekit-deploy-node)
+<!-- {: .-also-see} -->

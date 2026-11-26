@@ -115,15 +115,3 @@ export const actions = {
 <!-- {: data-highlight="use:enhance"} -->
 
 **Submits in place and keeps field values.** `form` holds the failed action's return data until the next submit; see [use:enhance](https://svelte.dev/docs/kit/form-actions#Progressive-enhancement-use:enhance).
-
-### Redirect after success
-<!-- {: .-snippet} -->
-
-```ts
-import { redirect } from '@sveltejs/kit'
-
-redirect(303, '/admin')
-```
-<!-- {: data-highlight="redirect(303"} -->
-
-**Turns the POST into a GET.** Use `303` after a successful action; `redirect()` throws, so do not catch it; see [Redirects](https://svelte.dev/docs/kit/form-actions#Anatomy-of-an-action-Redirects).

@@ -63,6 +63,8 @@ export const handle: Handle = async (
 <!-- {: .-snippet} -->
 
 ```ts
+import { redirect } from '@sveltejs/kit'
+
 const isAdmin = (event.route.id ?? '')
   .split('/').includes('admin')
 

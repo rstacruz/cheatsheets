@@ -33,6 +33,8 @@ cookies.set('session', token, {
 <!-- {: .-snippet} -->
 
 ```ts
+import { error } from '@sveltejs/kit'
+
 const token = cookies.get('session')
 
 if (!token) error(401, 'Unauthorized')
@@ -78,36 +80,13 @@ export const actions = {
 ### Read the session in a hook
 <!-- {: .-snippet} -->
 
-#### src/app.d.ts
-
 ```ts
-declare global {
-  namespace App {
-    interface Locals {
-      user: { id: string } | null
-    }
-  }
-}
-export {}
-```
+const session = event.cookies.get('session')
 
-#### src/hooks.server.ts
-
-```ts
-import type { Handle } from '@sveltejs/kit/hooks'
-import { findUser } from
-  '#lib/server/auth.js'
-
-export const handle: Handle = async (
-  { event, resolve }
-) => {
-  const session = event.cookies.get('session')
-  event.locals.user = session
-    ? await findUser(session)
-    : null
-  return resolve(event)
-}
+event.locals.user = session
+  ? await findUser(session)
+  : null
 ```
 <!-- {: data-highlight="findUser(session)"} -->
 
-**Makes the user available to every server load.** Handlers read `locals` instead of the cookie; see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).
+**Makes the user available to every server load.** The `Locals` type and `handle` wrapper live in the [auth guard snippet](./sveltekit-auth-guard); see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).

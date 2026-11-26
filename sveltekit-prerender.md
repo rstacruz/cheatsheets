@@ -1,5 +1,5 @@
 ---
-title: How to prerender pages in SvelteKit
+title: How to prerender pages and disable SSR in SvelteKit
 link_title: SvelteKit prerender
 subtitle: Static HTML at build time
 category: SvelteKit

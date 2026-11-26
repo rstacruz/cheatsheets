@@ -2,8 +2,8 @@
 title: CSS
 subtitle: Stylesheet language
 category: CSS
-updated: 2026-11-24
-last_verified_with: "CSS Backgrounds 3, CSS Animations 1 (MDN), Chrome 158, Firefox 161."
+updated: 2026-11-26
+last_verified_with: "CSS Backgrounds 3, CSS Animations 1 (MDN), Chrome 158, Firefox 160."
 weight: -1
 keywords:
   - "margin, padding, border"
@@ -50,6 +50,9 @@ links:
 | `[role="dialog"]` | Attribute    |
 
 See: [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors)
+
+[XPath cheatsheet](./xpath)
+<!-- {: .-crosslink} -->
 
 ### Combinators
 

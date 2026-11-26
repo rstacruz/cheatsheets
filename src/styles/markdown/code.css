@@ -49,7 +49,7 @@
 
     /* Inline highlight: `data-highlight` in a fenced block */
     & .inline-highlight {
-      background: color-mix(in srgb, var(--highlight) 14%, transparent);
+      background: color-mix(in srgb, var(--highlight) 25%, transparent);
       padding-block: 1px;
     }
 
@@ -85,7 +85,7 @@
     }
 
     &.tag {
-      color: var(--link-dark);
+      color: var(--link-strong);
     }
 
     &.value,
@@ -94,7 +94,7 @@
     &.attr-value,
     &.boolean,
     &.regex {
-      color: var(--highlight);
+      color: var(--highlight-text);
     }
 
     &.function,

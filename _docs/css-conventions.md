@@ -15,6 +15,23 @@ rules is [ADR 002](adrs/adr-002-design-tokens-and-tailwind.md).
 Components ask for the role, never the ramp step: `var(--primary)`, not
 `var(--color-mildindigo-600)`.
 
+## Theming
+
+`tokens.css` owns the theme switch. Each semantic role holds one
+`light-dark(light, dark)` pair, and `:root` sets `color-scheme: light dark` so
+the OS preference resolves it. An absent `data-theme` means System; `light` or
+`dark` on `:root` pins the scheme. The `@theme inline` bridge passes the
+resolved value to utilities, so `bg-card` and Markdown's `var(--card)` switch
+together.
+
+There are no `dark:` utilities or component theme branches. `light-dark()`
+needs Chrome 123+, Safari 17.5+, or Firefox 120+.
+
+`--primary` stays the text and border accent. Solid surfaces (`--primary-solid`,
+`--slate-solid`, `--highlight-solid` and their `-soft`/`-hover` variants) pair
+with `--primary-foreground`, so indigo, slate, and green fills keep light text
+in both themes.
+
 ## Choosing a form
 
 | Situation | Form |

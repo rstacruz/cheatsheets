@@ -16,23 +16,12 @@ weight: -3
 
 ### Format
 
-#### Fields
-
-```
-Min  Hour Day  Mon  Weekday
-```
-
-#### Example
-
-```
-*    *    *    *    *  command to be executed
-```
-<!-- {: data-highlight="command to be executed"} -->
-
-#### Field ranges
-
 <!-- Deliberately kept as ASCII art: the aligned columns are the illustration. -->
 ```
+Min  Hour Day  Mon  Weekday
+
+*    *    *    *    *  command to be executed
+
 ┬    ┬    ┬    ┬    ┬
 │    │    │    │    └─  Weekday  (0-7, 0/7=Sun)
 │    │    │    └──────  Month    (1..12)
@@ -41,8 +30,7 @@ Min  Hour Day  Mon  Weekday
 └─────────────────────  Minute   (0..59)
 ```
 
-<!-- {: .-box-chars} -->
-<!-- End illustration; keep this diagram as-is. -->
+<!-- {: .-box-chars data-highlight="command to be executed"} -->
 
 See: [Crontab format](https://man7.org/linux/man-pages/man5/crontab.5.html#DESCRIPTION)
 

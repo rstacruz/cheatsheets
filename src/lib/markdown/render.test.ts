@@ -326,6 +326,20 @@ describe('inline highlights', () => {
     expect(html).not.toContain('<!-- {:')
   })
 
+  it('wraps only the first occurrence of each token', async () => {
+    const { html } = await render(
+      fenced(
+        [
+          'glab mr merge 123 --squash',
+          'glab mr merge 123 --rebase',
+          'glab mr merge 123 --remove-source-branch'
+        ],
+        'glab mr merge'
+      )
+    )
+    expect(html.match(/inline-highlight--start/g)).toHaveLength(1)
+  })
+
   it('leaves a block alone when no text matches', async () => {
     const { html } = await render(
       fenced(['driver.save_screenshot("page.png")'], 'wait_for')
@@ -348,5 +362,8 @@ describe('inline highlights', () => {
       { start: 8, end: 12 }
     ])
     expect(findMatches('find_elements', ['find_element'])).toEqual([])
+    expect(findMatches('merge one merge two', ['merge'])).toEqual([
+      { start: 0, end: 5 }
+    ])
   })
 })

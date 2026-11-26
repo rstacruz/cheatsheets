@@ -1,7 +1,7 @@
 ---
 title: Yarn
 subtitle: JavaScript package manager
-category: JavaScript libraries
+category: Package managers
 weight: -3
 updated: 2026-11-14
 intro: |

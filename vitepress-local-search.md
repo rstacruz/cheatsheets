@@ -88,4 +88,4 @@ search: {
 ```
 <!-- {: data-highlight="locales:"} -->
 
-**Replaces the search labels per locale.** Keys match the `locales` keys in your site config. See [i18n](https://vitepress.dev/reference/default-theme-search#i18n).
+**Replaces the search labels per locale.** Keys match the `locales` keys in your site config. See [i18n](https://vitepress.dev/reference/default-theme-search#local-search-i18n).

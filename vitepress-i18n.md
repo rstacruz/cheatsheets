@@ -10,8 +10,8 @@ updated: 2026-11-27
 links:
   - title: Internationalization
     url: https://vitepress.dev/guide/i18n
-  - title: Locale config
-    url: https://vitepress.dev/reference/site-config#locales
+  - title: Site config
+    url: https://vitepress.dev/reference/site-config
 ---
 
 ## Translations
@@ -52,7 +52,7 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="locales:"} -->
 
-**Adds a language menu to the nav bar.** `label` is the menu text and `link` the locale's first page. See [locale config](https://vitepress.dev/reference/site-config#locales).
+**Adds a language menu to the nav bar.** `label` is the menu text and `link` the locale's first page. See [locales](https://vitepress.dev/guide/i18n).
 
 ### Translate theme labels
 <!-- {: .-snippet} -->
@@ -75,4 +75,4 @@ locales: {
 ```
 <!-- {: data-highlight="themeConfig:"} -->
 
-**Overrides default-theme strings per locale.** Locale `themeConfig` merges over the shared one, so set only the labels that change. See [locale config](https://vitepress.dev/reference/site-config#locales).
+**Overrides default-theme strings per locale.** Locale `themeConfig` merges over the shared one, so set only the labels that change. See [per-locale strings](https://vitepress.dev/guide/i18n#per-locale-markdown-strings).

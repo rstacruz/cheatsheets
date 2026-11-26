@@ -124,7 +124,7 @@ export default defineConfig({
 
 `defineConfig` supplies types for the config object. Theme options go under `themeConfig` in the same file.
 
-See: [Config resolution](https://vitepress.dev/guide/configuration)
+See: [Config resolution](https://vitepress.dev/reference/site-config#config-resolution)
 
 ### Theme config
 
@@ -331,7 +331,7 @@ themeConfig: {
 
 DocSearch is free for public documentation. Request credentials on the DocSearch site before wiring the options.
 
-See: [Algolia DocSearch](https://vitepress.dev/reference/default-theme-search#algolia-docsearch)
+See: [Algolia DocSearch](https://vitepress.dev/reference/default-theme-search#algolia-search)
 
 ## Deploy
 

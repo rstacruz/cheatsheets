@@ -51,7 +51,7 @@ import { data as posts } from './posts.data.mts'
 ```
 <!-- {: data-highlight="data as posts"} -->
 
-**Imports the resolved data.** The `.data.mts` file sits beside the page and the `data` export holds the loader's return value. See [using data](https://vitepress.dev/guide/data-loading#using-data-from-data-loaders).
+**Imports the resolved data.** The `.data.mts` file sits beside the page and the `data` export holds the loader's return value. See [using data](https://vitepress.dev/guide/data-loading#basic-usage).
 
 ### Type the result
 <!-- {: .-snippet} -->

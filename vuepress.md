@@ -37,8 +37,10 @@ links:
     url: https://v2.vuepress.vuejs.org/guide/
   - title: Default theme config
     url: https://ecosystem.vuejs.press/themes/default/config.html
-  - title: GitHub repository
-    url: https://github.com/vuepress/core
+  - title: Vue.js cheatsheet
+    url: ./vue
+  - title: Vite cheatsheet
+    url: ./vite
 ---
 
 ## Quick start

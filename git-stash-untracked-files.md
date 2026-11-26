@@ -21,7 +21,7 @@ links:
 <!-- {: .-snippet} -->
 
 ```bash
-git stash push -u -m "wip"
+git stash push -u
 ```
 <!-- {: data-highlight="-u"} -->
 
@@ -31,7 +31,7 @@ git stash push -u -m "wip"
 <!-- {: .-snippet} -->
 
 ```bash
-git stash push -a -m "wip"
+git stash push -a
 ```
 <!-- {: data-highlight="-a"} -->
 

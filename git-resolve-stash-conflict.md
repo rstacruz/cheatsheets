@@ -1,7 +1,7 @@
 ---
 title: How to resolve a Git stash conflict
 link_title: Resolve a stash conflict
-subtitle: Clear conflicts after a stash
+subtitle: Fix conflicts after applying
 category: Git workflows
 layout: snippet
 last_verified_with: "git 2.56.0."

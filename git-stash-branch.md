@@ -1,7 +1,7 @@
 ---
 title: How to apply a stash to a new branch
-link_title: Apply stash to branch
-subtitle: Move stash to a branch
+link_title: Apply stash to a branch
+subtitle: Move work to a branch
 category: Git workflows
 layout: snippet
 last_verified_with: "git 2.56.0."
@@ -40,16 +40,18 @@ git stash branch feat/login stash@{1}
 ### Existing branch
 <!-- {: .-snippet} -->
 
-```bash
-# switch first
-git switch feat/login
-```
+#### Switch
 
 ```bash
-# then apply and keep the entry
+git switch feat/login
+```
+<!-- {: data-highlight="git switch feat/login"} -->
+
+#### Apply
+
+```bash
 git stash apply
 ```
-<!-- {: data-highlight="git stash apply"} -->
 
 **Use `apply` when the branch already exists.** `stash branch` is for creating a new one; see [git stash apply](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--quietstash).
 
@@ -57,10 +59,20 @@ git stash apply
 <!-- {: .-snippet} -->
 
 ```bash
-# unmerged paths: resolve, stage, then drop
+# resolve, stage, then drop
 git add app.txt
 git stash drop
 ```
-<!-- {: data-highlight="git stash drop"} -->
+<!-- {: data-highlight="git add app.txt"} -->
 
-**Finishes an apply that stopped on conflicts.** Stage the resolution, then drop. If local changes blocked the apply, commit or stash them and run `git stash apply`; the branch exists and the stash is kept. See [git stash branch](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-branchbranchnamestash).
+**Finishes an apply that stopped on conflicts.** Stage the resolution, then drop; see [resolve a stash conflict](./git-resolve-stash-conflict).
+
+### After an aborted apply
+<!-- {: .-snippet} -->
+
+```bash
+git stash apply
+```
+<!-- {: data-highlight="git stash apply"} -->
+
+**Reruns after clearing local changes.** An abort with `Your local changes ... would be overwritten` leaves you on the new branch with the stash kept; commit or stash those changes first. See [git stash apply](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--quietstash).

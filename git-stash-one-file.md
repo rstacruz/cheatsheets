@@ -1,7 +1,7 @@
 ---
 title: How to stash one file
 link_title: Stash one file
-subtitle: Shelve a single path
+subtitle: Shelve chosen paths
 category: Git workflows
 layout: snippet
 last_verified_with: "git 2.56.0."
@@ -21,7 +21,7 @@ links:
 <!-- {: .-snippet} -->
 
 ```bash
-git stash push -m "wip" -- app.txt
+git stash push -- app.txt
 ```
 <!-- {: data-highlight="-- app.txt"} -->
 
@@ -31,7 +31,7 @@ git stash push -m "wip" -- app.txt
 <!-- {: .-snippet} -->
 
 ```bash
-git stash push -u -m "wip" -- notes.txt
+git stash push -u -- notes.txt
 ```
 <!-- {: data-highlight="-u"} -->
 
@@ -41,7 +41,7 @@ git stash push -u -m "wip" -- notes.txt
 <!-- {: .-snippet} -->
 
 ```bash
-git stash push -m "wip" -- src docs
+git stash push -- src docs
 ```
 <!-- {: data-highlight="-- src docs"} -->
 

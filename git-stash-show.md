@@ -35,7 +35,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="-p"} -->
 
-**Prints the complete diff.** Shows the stashed changes without applying them; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
+**Prints the complete diff without applying it.** See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Specific stash
 <!-- {: .-snippet} -->

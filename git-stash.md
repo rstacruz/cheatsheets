@@ -50,7 +50,7 @@ git stash push -m "wip login"
 
 See: [git stash push](https://git-scm.com/docs/git-stash#_options)
 
-### Include untracked files
+### Include untracked or ignored files
 
 ```sh
 # also stash untracked files
@@ -97,7 +97,7 @@ git stash push --keep-index -m "wip"
 ```
 <!-- {: data-highlight="--keep-index"} -->
 
-Stashes everything but leaves the index in the working tree, so you can test exactly what is staged.
+Stashes everything but leaves staged changes in place in the index and working tree, so you can test exactly what is staged.
 
 See: [--keep-index](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---keep-index)
 
@@ -140,7 +140,7 @@ git stash show -p stash@{2}
 ```
 <!-- {: data-highlight="stash@{2}"} -->
 
-A stash reference works anywhere a stash is accepted.
+Pass `stash@{n}` to `show`, `apply`, `drop`, or `branch`.
 
 See: [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stash)
 
@@ -177,14 +177,16 @@ See: [--index](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---
 
 ### Apply on another branch
 
+#### Switch
+
 ```sh
-# switch first
 git switch feat/login
 ```
 <!-- {: data-highlight="git switch feat/login"} -->
 
+#### Apply
+
 ```sh
-# then restore the stash here
 git stash apply
 ```
 
@@ -247,7 +249,7 @@ git stash clear
 ```
 <!-- {: data-highlight="git stash clear"} -->
 
-Deletes every entry. The underlying commits remain until garbage collection, so `fsck` can still find them.
+Deletes every entry; the commits stay recoverable until `git gc` runs, as after a drop.
 
 See: [git stash clear](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-clear)
 

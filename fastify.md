@@ -480,5 +480,4 @@ See: [Testing](https://fastify.dev/docs/latest/Guides/Testing/)
 
 ## Also see
 
-[Express cheatsheet](./express)
-<!-- {: .-crosslink} -->
+- [Express cheatsheet](./express)

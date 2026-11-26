@@ -414,8 +414,6 @@ See: [Error handling](https://expressjs.com/en/5x/guide/error-handling.html)
 - [Express router cheatsheet](./express-router)
 - [Serve static files cheatsheet](./express-static-files)
 - [Express TypeScript cheatsheet](./express-typescript)
+- [Fastify cheatsheet](./fastify)
 - [Hono](https://hono.dev) _(hono.dev)_
 <!-- {: .-also-see} -->
-
-[Fastify cheatsheet](./fastify)
-<!-- {: .-crosslink} -->

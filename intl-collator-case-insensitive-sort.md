@@ -22,8 +22,11 @@ const collator = new Intl.Collator('en', {
   sensitivity: 'accent'
 })
 
-collator.compare('a', 'A')  // → 0
-collator.compare('a', 'á')  // → negative
+collator.compare('a', 'A')
+// → 0
+
+collator.compare('a', 'á')
+// → negative
 ```
 <!-- {: data-highlight="sensitivity: 'accent'"} -->
 

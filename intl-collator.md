@@ -122,9 +122,14 @@ const collator = new Intl.Collator('en', {
   sensitivity: 'base'
 })
 
-collator.compare('résumé', 'resume')  // → 0
-collator.compare('Apple', 'apple')    // → 0
-collator.compare('a', 'b')            // → negative
+collator.compare('résumé', 'resume')
+// → 0
+
+collator.compare('Apple', 'apple')
+// → 0
+
+collator.compare('a', 'b')
+// → negative
 ```
 <!-- {: data-highlight="sensitivity: 'base'"} -->
 
@@ -166,8 +171,11 @@ const collator = new Intl.Collator('en', {
   ignorePunctuation: true
 })
 
-collator.compare('foo-bar', 'foobar')  // → 0
-collator.compare('co.op', 'coop')      // → 0
+collator.compare('foo-bar', 'foobar')
+// → 0
+
+collator.compare('co.op', 'coop')
+// → 0
 ```
 <!-- {: data-highlight="ignorePunctuation: true"} -->
 
@@ -304,8 +312,11 @@ const collator = new Intl.Collator('en', {
   numeric: true
 })
 
-collator.resolvedOptions().numeric      // → true
-collator.resolvedOptions().sensitivity  // → 'variant'
+collator.resolvedOptions().numeric
+// → true
+
+collator.resolvedOptions().sensitivity
+// → 'variant'
 ```
 <!-- {: data-highlight="resolvedOptions"} -->
 

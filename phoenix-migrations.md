@@ -5,15 +5,28 @@ category: Elixir
 weight: -1
 updated: 2026-11-23
 last_verified_with: "Phoenix 1.8.17, Ecto 3.14.3, Ecto SQL 3.14.0."
+tier: t3
+intro: |
+  Ecto migrations change a Phoenix app's database schema over time. This sheet covers generators, table operations, indices, and raw SQL execution.
+links:
+  - title: Ecto.Migration documentation
+    url: https://hexdocs.pm/ecto_sql/Ecto.Migration.html
+  - title: mix ecto.gen.migration
+    url: https://hexdocs.pm/ecto_sql/Mix.Tasks.Ecto.Gen.Migration.html
+  - title: mix phx.gen.schema
+    url: https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html
 ---
 
-### Creating
+## Generators
+
+### Create a migration
 
 #### Generate
 
 ```bash
 $ mix ecto.gen.migration update_posts_table
 ```
+<!-- {: data-highlight="mix ecto.gen.migration"} -->
 
 #### Apply or undo
 
@@ -21,24 +34,33 @@ $ mix ecto.gen.migration update_posts_table
 $ mix ecto.migrate
 $ mix ecto.rollback
 ```
+<!-- {: data-highlight="mix ecto.migrate; mix ecto.rollback"} -->
 
-Creates a migration (no models).
+`ecto.migrate` applies pending migrations; `ecto.rollback` undoes the last one.
 
-### Creating schemas
+See: [mix ecto.gen.migration](https://hexdocs.pm/ecto_sql/Mix.Tasks.Ecto.Gen.Migration.html)
+
+### Create a schema
 
 ```bash
 $ mix phx.gen.schema Message messages \
-    user_id:references:users content:text
+  user_id:references:users content:text
 ```
+<!-- {: data-highlight="mix phx.gen.schema"} -->
 
 Generates a schema and migration; `phoenix.gen.model` is gone since Phoenix 1.3.
 
-### Creating context
+See: [mix phx.gen.schema](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html)
+
+### Create a context
 
 ```bash
 $ mix phx.gen.context Images Album albums \
-    title:string subtitle:string privacy:string
+  title:string subtitle:string privacy:string
 ```
+<!-- {: data-highlight="mix phx.gen.context"} -->
+
+See: [mix phx.gen.context](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Context.html)
 
 ## Migration functions
 
@@ -54,19 +76,21 @@ create table(:documents) do
   add :body, :text
   add :age, :integer
   add :price, :float
-  add :price, :float
   add :price, :decimal, precision: 10, scale: 2
   add :published_at, :utc_datetime
   add :group_id, references(:groups)
   add :object, :json
 
-  timestamps  # inserted_at and updated_at
+  timestamps  # inserted_at, updated_at
 end
 
 create_if_not_exists table(:documents) do
   add :title, :string
 end
 ```
+<!-- {: data-highlight="create table; create_if_not_exists"} -->
+
+See: [table/2](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#table/2)
 
 ### Other operations
 
@@ -79,6 +103,7 @@ alter table(:posts) do
   remove :views
 end
 ```
+<!-- {: data-highlight="alter table"} -->
 
 #### Rename
 
@@ -86,6 +111,7 @@ end
 rename table(:posts), :title, to: :summary
 rename table(:posts), to: table(:new_posts)
 ```
+<!-- {: data-highlight="rename table"} -->
 
 #### Drop
 
@@ -93,6 +119,7 @@ rename table(:posts), to: table(:new_posts)
 drop table(:documents)
 drop_if_exists table(:documents)
 ```
+<!-- {: data-highlight="drop table; drop_if_exists"} -->
 
 #### Reference a table
 
@@ -100,6 +127,9 @@ drop_if_exists table(:documents)
 table(:documents)
 table(:weather, prefix: :north_america)
 ```
+<!-- {: data-highlight="table("} -->
+
+See: [alter/2](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#alter/2)
 
 ### Indices
 
@@ -108,6 +138,9 @@ create index(:posts, [:slug], concurrently: true)
 create unique_index(:posts, [:slug])
 drop index(:posts, [:name])
 ```
+<!-- {: data-highlight="create index; create unique_index; drop index"} -->
+
+See: [index/3](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#index/3)
 
 ### Execute SQL
 
@@ -115,6 +148,9 @@ drop index(:posts, [:name])
 execute "UPDATE posts SET published_at = NULL"
 execute create: "posts", capped: true, size: 1024
 ```
+<!-- {: data-highlight="execute"} -->
+
+See: [execute/1](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#execute/1)
 
 ## References
 

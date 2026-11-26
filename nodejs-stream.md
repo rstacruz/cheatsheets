@@ -9,6 +9,8 @@ links:
   - title: Stream API documentation
     url: https://nodejs.org/api/stream.html
 updated: 2026-11-22
+last_verified_with: "Node.js 26.13.1."
+tier: t3
 ---
 
 ## Reading streams
@@ -25,6 +27,8 @@ for await (const chunk of Readable.from(['a', 'b', 'c'])) {
 // → b
 // → c
 ```
+
+<!-- {: data-highlight="for await"} -->
 
 `for await` attaches an error handler and stops when the stream ends.
 
@@ -44,6 +48,8 @@ source.on('error', (err) => console.error(err))
 // → end
 ```
 
+<!-- {: data-highlight="source.on"} -->
+
 A `data` listener switches the stream to flowing mode.
 
 See: [event: 'data'](https://nodejs.org/api/stream.html#event-data)
@@ -62,6 +68,8 @@ source.on('data', (chunk) => console.log(chunk))
 source.pause()   // stop emitting data
 source.resume()  // resume emitting data
 ```
+
+<!-- {: data-highlight="readableFlowing; pause; resume"} -->
 
 `readableFlowing` is `null` until a reader attaches; `data`, `pipe()`, and `resume()` set it to `true`.
 
@@ -88,6 +96,8 @@ sink.end(' world')
 // → finish
 ```
 
+<!-- {: data-highlight="new Writable"} -->
+
 Call `done()` once per chunk; `end()` flushes and emits `finish`.
 
 See: [implementing a writable stream](https://nodejs.org/api/stream.html#implementing-a-writable-stream)
@@ -110,6 +120,8 @@ slow.on('drain', () => {
   slow.end()
 })
 ```
+
+<!-- {: data-highlight="highWaterMark; drain"} -->
 
 Wait for `drain` after `write()` returns `false`. `pipeline()` handles this for you.
 
@@ -140,6 +152,8 @@ await pipeline(Readable.from(['hi', 'there']), upper, sink)
 // → THERE
 ```
 
+<!-- {: data-highlight="await pipeline"} -->
+
 `pipeline()` forwards errors, destroys streams on failure, and awaits completion.
 
 See: [pipeline promises API](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options)
@@ -162,6 +176,8 @@ pipeline(Readable.from(['a', 'b']), out, (err) => {
 // → b
 // → done
 ```
+
+<!-- {: data-highlight="pipeline"} -->
 
 `pipeline` is also available from `node:stream` as a callback function.
 
@@ -201,6 +217,8 @@ await pipeline(Readable.from([{ name: 'a' }, { name: 'b' }]),
 // → { total: 2 }
 ```
 
+<!-- {: data-highlight="_transform; _flush"} -->
+
 `_transform()` emits one indexed chunk per input; `_flush()` appends a `{ total }` summary. A transform may emit zero or more chunks per input.
 
 See: [implementing a transform stream](https://nodejs.org/api/stream.html#implementing-a-transform-stream)
@@ -217,6 +235,8 @@ await finished(source, { cleanup: true })
 console.log('finished')
 // → finished
 ```
+
+<!-- {: data-highlight="await finished"} -->
 
 `cleanup: true` removes listeners after settling; the default keeps them.
 
@@ -244,6 +264,8 @@ try {
 }
 ```
 
+<!-- {: data-highlight="AbortController"} -->
+
 Aborting destroys the pipeline. `stream.destroy(err)` emits `error` then `close`.
 
 See: [pipeline options](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options)
@@ -263,6 +285,8 @@ for await (const chunk of web) {
 // → b
 ```
 
+<!-- {: data-highlight="Readable.toWeb"} -->
+
 See: [Readable.toWeb()](https://nodejs.org/api/stream.html#streamreadabletowebstreamreadable-options)
 
 ### From web
@@ -277,6 +301,8 @@ node.end('hi')
 // → hi
 ```
 
+<!-- {: data-highlight="Writable.fromWeb"} -->
+
 `Readable.fromWeb()` and `Writable.toWeb()` convert in the other direction.
 
 See: [Writable.fromWeb()](https://nodejs.org/api/stream.html#streamwritablefromwebwritablestream-options)
@@ -285,13 +311,13 @@ See: [Writable.fromWeb()](https://nodejs.org/api/stream.html#streamwritablefromw
 
 ### Core types
 
-| Type          | Role                             |
-| ---           | ---                              |
-| `Readable`    | Source of data                   |
-| `Writable`    | Destination for data             |
-| `Duplex`      | Reads and writes independently   |
+| Type          | Role                                 |
+| ---           | ---                                  |
+| `Readable`    | Source of data                       |
+| `Writable`    | Destination for data                 |
+| `Duplex`      | Reads and writes independently       |
 | `Transform`   | Modifies chunks as they pass through |
-| `PassThrough` | Transform that echoes input      |
+| `PassThrough` | Transform that echoes input          |
 
 See: [types of streams](https://nodejs.org/api/stream.html#types-of-streams)
 
@@ -319,6 +345,8 @@ for await (const n of new Counter(3)) {
 // → 2
 ```
 
+<!-- {: data-highlight="_read"} -->
+
 `push(null)` ends the stream; `objectMode` lets it carry arbitrary values.
 
 See: [implementing a readable stream](https://nodejs.org/api/stream.html#implementing-a-readable-stream)
@@ -340,6 +368,8 @@ for await (const n of Readable.from(ticks())) {
 // → 3
 ```
 
+<!-- {: data-highlight="Readable.from"} -->
+
 `Readable.from()` wraps an async generator; plain iterables work too.
 
 See: [creating streams from async generators](https://nodejs.org/api/stream.html#creating-readable-streams-with-async-generators)
@@ -354,6 +384,8 @@ pass.on('data', (chunk) => console.log('echo:', chunk.toString()))
 pass.end('ping')
 // → echo: ping
 ```
+
+<!-- {: data-highlight="new PassThrough"} -->
 
 `PassThrough` echoes every write back on its readable side.
 
@@ -370,6 +402,8 @@ const bytes = new Readable({ read() {} })
 console.log(objects.readableHighWaterMark)  // → 16
 console.log(bytes.readableHighWaterMark)    // → 65536
 ```
+
+<!-- {: data-highlight="objectMode"} -->
 
 Use `objectMode` to carry arbitrary values. Its high-water mark counts items (16) instead of bytes (65536); string streams count UTF-16 code units.
 

@@ -2,7 +2,9 @@
 title: JavaScript Arrays
 subtitle: Array manipulation reference
 category: JavaScript
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   Common operations on JavaScript arrays: indexing, slicing, adding and removing
   items, and iterating.
@@ -20,6 +22,7 @@ list.indexOf(b)         // → 1
 list.lastIndexOf(b)     // → 1
 list.includes(b)        // → true
 ```
+<!-- {: data-highlight="list.includes"} -->
 
 See: [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf), [includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) _(developer.mozilla.org)_
 
@@ -32,6 +35,7 @@ list.slice(0,1)         // → [a        ]
 list.slice(1)           // → [  b,c,d,e]
 list.slice(1,2)         // → [  b      ]
 ```
+<!-- {: data-highlight="slice"} -->
 
 #### Mutative
 
@@ -39,6 +43,7 @@ list.slice(1,2)         // → [  b      ]
 re = list.splice(1)     // re = [b,c,d,e]  list == [a]
 re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
 ```
+<!-- {: data-highlight="splice"} -->
 
 See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) _(developer.mozilla.org)_
 
@@ -49,6 +54,7 @@ See: [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 ```js
 list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
 ```
+<!-- {: data-highlight="concat"} -->
 
 #### Mutative
 
@@ -57,20 +63,27 @@ list.push(X)            // list == [_,_,_,_,_,X]
 list.unshift(X)         // list == [X,_,_,_,_,_]
 list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
 ```
+<!-- {: data-highlight="push; unshift"} -->
 
 See: [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), [unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) _(developer.mozilla.org)_
 
 ### Inserting
 
+#### After a reference
+
 ```js
 // after -- [_,_,REF,NEW,_,_]
 list.splice(list.indexOf(REF) + 1, 0, NEW)
 ```
+<!-- {: data-highlight="indexOf(REF) + 1"} -->
+
+#### Before a reference
 
 ```js
 // before -- [_,_,NEW,REF,_,_]
 list.splice(list.indexOf(REF), 0, NEW)
 ```
+<!-- {: data-highlight="indexOf(REF), 0"} -->
 
 See: [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) _(developer.mozilla.org)_
 
@@ -79,6 +92,7 @@ See: [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 ```js
 list.splice(2, 1, X)    // list == [a,b,X,d,e]
 ```
+<!-- {: data-highlight="splice(2, 1, X)"} -->
 
 See: [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) _(developer.mozilla.org)_
 
@@ -89,6 +103,7 @@ list.pop()              // → e    list == [a,b,c,d]
 list.shift()            // → a    list == [b,c,d,e]
 list.splice(2, 1)       // → [c]  list == [a,b,d,e]
 ```
+<!-- {: data-highlight="pop; shift"} -->
 
 See: [pop()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), [shift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) _(developer.mozilla.org)_
 
@@ -104,5 +119,6 @@ list.every(n => ...)             // → Boolean (ES5)
 list.some(n => ...)              // → Boolean (ES5)
 list.reduce((total, n) => ...)   // → single value
 ```
+<!-- {: data-highlight="reduce"} -->
 
 See: [forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach), [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) _(developer.mozilla.org)_

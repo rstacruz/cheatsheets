@@ -1,8 +1,11 @@
 ---
 title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
-category: Browser APIs
+category: Internationalization
 tags: [Featured]
+updated: 2026-11-25
+tier: t3
+last_verified_with: "ECMA-402 13th edition."
 fragments:
   - "DateTimeFormat"
   - "new Date"
@@ -19,11 +22,13 @@ fragments:
   - "hourCycle"
   - "timeZoneName"
 intro: |
-  `Intl.DateTimeFormat` is used to format date strings in JavaScript.
+  `Intl.DateTimeFormat` is used to format date strings in JavaScript. Examples use a UTC `date`, formatted in America/Los_Angeles with the `en-US` locale.
 links:
   - title: Intl.DateTimeFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 ---
+
+## Usage
 
 ### Parsing
 
@@ -32,24 +37,27 @@ links:
 ```js
 const date = new Date(2012, 11, 20, 3, 0, 0)
 ```
+<!-- {: data-highlight="new Date"} -->
 
 #### As UTC time
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
 ```
+<!-- {: data-highlight="Date.UTC"} -->
 
 #### From ISO strings
 
 ```js
 const date = new Date('2018-04-20T12:00:00Z')
 ```
+<!-- {: data-highlight="'2018-04-20T12:00:00Z'"} -->
 
 Note that JavaScript doesn't "store" timezones in a date object. All these date objects, when expressed via `.toString()` or similar, will show the local timezone of the browser, regardless if you parsed UTC dates.
 
-### Formatting dates
+See: [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
-The examples below use the UTC `date` from above, with the browser in America/Los_Angeles and the `en-US` locale.
+### Formatting dates
 
 #### Default formatting
 
@@ -57,6 +65,7 @@ The examples below use the UTC `date` from above, with the browser in America/Lo
 console.log(new Intl.DateTimeFormat().format(date))
 // → '12/19/2012' (assuming America/Los_Angeles)
 ```
+<!-- {: data-highlight="new Intl.DateTimeFormat()"} -->
 
 #### Custom locale
 
@@ -64,6 +73,7 @@ console.log(new Intl.DateTimeFormat().format(date))
 console.log(new Intl.DateTimeFormat('en-GB').format(date))
 // → '19/12/2012' (date-first)
 ```
+<!-- {: data-highlight="'en-GB'"} -->
 
 #### Custom timezone
 
@@ -73,6 +83,9 @@ console.log(new Intl.DateTimeFormat('en-AU', {
 }).format(date))
 // → '20/12/2012'
 ```
+<!-- {: data-highlight="timeZone"} -->
+
+See: [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
 
 ### Custom formats
 
@@ -86,6 +99,7 @@ console.log(new Intl.DateTimeFormat('default', {
 }).format(date))
 // → '7:00:00 PM'
 ```
+<!-- {: data-highlight="hour: 'numeric'; minute: 'numeric'; second: 'numeric'"} -->
 
 #### Date
 
@@ -97,8 +111,11 @@ console.log(new Intl.DateTimeFormat('en-US', {
 }).format(date))
 // → '12/19/2012'
 ```
+<!-- {: data-highlight="year: 'numeric'; month: 'numeric'; day: 'numeric'"} -->
 
 To specify options without a locale, use `'default'` as a locale.
+
+See: [Using options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat#using_options)
 
 ### All options
 
@@ -125,7 +142,8 @@ To specify options without a locale, use `'default'` as a locale.
 }
 ```
 
+See: [DateTimeFormat components table](https://tc39.es/ecma402/#table-datetimeformat-components)
 
 ## References
 
-- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat>
+- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat>

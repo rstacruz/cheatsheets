@@ -15,6 +15,7 @@ import SEO from '~/components/SEO/SEO.astro'
 import NoticeBox from './V2017Sheet/NoticeBox.astro'
 import Icon from './Icon.astro'
 import { getEditLink } from '~/lib/links'
+import { formatShortDate } from '~/lib/dates'
 import { isDeprecated } from '~/lib/page/accessors'
 import { getListedSheetCount } from '~/lib/page/queries'
 import { typeStyles } from '~/styles/CommonStyles'
@@ -40,6 +41,14 @@ const jsonLdSchemas = getJSONLDsForPage(page)
 const tags = page.frontmatter.tags ?? []
 const deprecated = isDeprecated(page)
 const deprecatedBy = page.frontmatter.deprecated_by
+const updated = page.frontmatter.updated
+const lastVerified = page.frontmatter.last_verified_with
+  ?.trim()
+  .replace(/\.$/, '')
+const meta = [
+  updated && `Updated ${formatShortDate(updated)}`,
+  lastVerified && `Verified with ${lastVerified}`
+].filter((part): part is string => Boolean(part))
 const title: string = page.frontmatter.title ?? page.slug
 const archived: string | null = page.frontmatter.archived
   ? `<p>${snarkdown(page.frontmatter.archived)}</p>`
@@ -67,13 +76,18 @@ const headingStyles = {
     'items-center md:items-end'
   ),
   spacer: cx('MainHeading__spacer', 'mt-12'),
+  titleBlock: cx('MainHeading__titleBlock', 'min-w-0 flex-1'),
   h1: cx(
     'MainHeading__h1',
     typeStyles.manrope,
     'text-5xl leading-heading text-heading',
     'text-center md:text-left',
-    snippetLayout && 'text-balance',
-    'flex-1'
+    snippetLayout && 'text-balance'
+  ),
+  meta: cx(
+    'MainHeading__meta',
+    'mt-3 text-sm text-muted-foreground-subtle',
+    'text-center md:text-left'
   ),
   title: cx('MainHeading__title'),
   suffix: 'font-mono font-normal text-muted-foreground-subtle',
@@ -92,12 +106,17 @@ const headingStyles = {
   <TopNav page={page} />
   <div class={styles.body}>
     <header class={headingStyles.root} role="banner">
-      <h1 class={headingStyles.h1}>
-        <span class={headingStyles.title}>{title}</span>
-        {snippetLayout ? null : (
-          <span class={headingStyles.suffix}> cheatsheet</span>
-        )}
-      </h1>
+      <div class={headingStyles.titleBlock}>
+        <h1 class={headingStyles.h1}>
+          <span class={headingStyles.title}>{title}</span>
+          {snippetLayout ? null : (
+            <span class={headingStyles.suffix}> cheatsheet</span>
+          )}
+        </h1>
+        {meta.length > 0 ? (
+          <p class={headingStyles.meta}>{meta.join(' - ')}</p>
+        ) : null}
+      </div>
 
       {/* Publicite */}
       <div class={headingStyles.pubbox} data-js-no-preview>

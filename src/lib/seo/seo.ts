@@ -2,6 +2,7 @@ import snarkdown from 'snarkdown'
 import { site } from '../../config'
 import type { SheetPage } from '../page'
 import { isListed } from '../page/accessors'
+import { formatMonthYear } from '../dates'
 
 export function getSEOPropsForHome() {
   const t = {
@@ -37,21 +38,6 @@ export function getSEOPropsForHome() {
   }
 }
 
-const MONTHS = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
-]
-
 export function getPageTitle(page: {
   frontmatter: { title?: string; seo_title?: string; layout?: string }
 }) {
@@ -78,8 +64,7 @@ export function getSEOTitle(page: {
   const title = getPageTitle(page)
   const { tier, updated } = page.frontmatter
   if (tier !== 't1' || !updated) return title
-  const month = MONTHS[updated.getUTCMonth()]
-  return `${title} (${month} ${updated.getUTCFullYear()})`
+  return `${title} (${formatMonthYear(updated)})`
 }
 
 export function getSEOPropsForPage(

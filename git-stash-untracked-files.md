@@ -10,6 +10,8 @@ updated: 2026-11-27
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
+  - title: Git stash cheatsheet
+    url: /git-stash
 ---
 
 ## Untracked files
@@ -21,6 +23,7 @@ links:
 ```bash
 git stash push -u -m "wip"
 ```
+<!-- {: data-highlight="-u"} -->
 
 **Adds untracked files to the stash.** Tracked changes are always included; see [--include-untracked](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt--u).
 
@@ -30,6 +33,7 @@ git stash push -u -m "wip"
 ```bash
 git stash push -a -m "wip"
 ```
+<!-- {: data-highlight="-a"} -->
 
 **Adds ignored files too.** `-a` means `-u` plus ignored paths such as build output; see [--all](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt--a).
 
@@ -39,6 +43,7 @@ git stash push -a -m "wip"
 ```bash
 git stash pop
 ```
+<!-- {: data-highlight="git stash pop"} -->
 
 **Brings untracked files back as untracked.** `apply` restores the same way but keeps the entry; see [git stash pop](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-pop--index-q--quietstash).
 
@@ -48,5 +53,6 @@ git stash pop
 ```bash
 git stash show -p -u
 ```
+<!-- {: data-highlight="git stash show -p -u"} -->
 
 **Prints untracked content in the stash.** Plain `show` leaves it out; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).

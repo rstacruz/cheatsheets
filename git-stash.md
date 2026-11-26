@@ -129,7 +129,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="git stash show -p"} -->
 
-`show` prints a diffstat by default; `-p` prints the patch. `show -u` adds untracked files when the stash was made with `push -u`.
+`show` prints a diffstat by default; `-p` prints the patch. `show -u` adds untracked files when the stash was made with `push -u` or `-a`.
 
 See: [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash)
 
@@ -158,6 +158,7 @@ git stash pop
 # apply and keep the entry
 git stash apply
 ```
+<!-- {: data-highlight="git stash apply"} -->
 
 `pop` drops the entry after a clean apply; `apply` always keeps it. A conflicted `pop` keeps it too.
 
@@ -180,12 +181,12 @@ See: [--index](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---
 # switch first
 git switch feat/login
 ```
+<!-- {: data-highlight="git switch feat/login"} -->
 
 ```sh
 # then restore the stash here
 git stash apply
 ```
-<!-- {: data-highlight="git stash apply"} -->
 
 Stashes belong to the repository, not a branch, so a stash made on `main` applies on `feat/login`.
 
@@ -271,9 +272,9 @@ git show --stat <sha>
 ```
 <!-- {: data-highlight="git show --stat"} -->
 
-Match the message before restoring. `git show -p <sha>` prints the full change.
+The subject names the stash. `git stash show -p <sha>` prints its diff; add `-u` for untracked files.
 
-See: [git show](https://git-scm.com/docs/git-show)
+See: [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash)
 
 ### Put it back
 
@@ -285,3 +286,13 @@ git stash store -m "recovered work" <sha>
 Re-adds the commit as `stash@{0}`; `git stash pop` then restores it. This also works for a stash popped earlier, if `git gc` has not run since.
 
 See: [git stash store](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-store)
+
+## Also see
+
+- [Stash one file](./git-stash-one-file)
+- [Stash untracked files](./git-stash-untracked-files)
+- [Stash part of a file](./git-stash-part-of-a-file)
+- [View a Git stash](./git-stash-show)
+- [Apply a stash to a new branch](./git-stash-branch)
+- [Resolve a stash conflict](./git-resolve-stash-conflict)
+- [Recover a dropped stash](./git-recover-dropped-stash)

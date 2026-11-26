@@ -10,6 +10,8 @@ updated: 2026-11-27
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
+  - title: Git stash cheatsheet
+    url: /git-stash
 ---
 
 ## Recovering a stash
@@ -21,8 +23,9 @@ links:
 ```bash
 git fsck --unreachable | grep commit
 ```
+<!-- {: data-highlight="git fsck --unreachable"} -->
 
-**Lists unreachable commits.** A dropped or popped stash is unreachable, not gone, until `git gc` runs; see [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously).
+**Lists unreachable commits.** A dropped or popped stash is unreachable, not gone, until `git gc` prunes it; see [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously).
 
 ### Identify the stash
 <!-- {: .-snippet} -->
@@ -30,8 +33,9 @@ git fsck --unreachable | grep commit
 ```bash
 git show --stat <sha>
 ```
+<!-- {: data-highlight="git show --stat"} -->
 
-**Prints the stash message and files.** Look for a `WIP on` or `On <branch>` subject; see [git show](https://git-scm.com/docs/git-show).
+**Prints the stash message.** Look for a `WIP on` or `On <branch>` subject; `git stash show -p <sha>` prints the diff. See [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
 ### Put it back
 <!-- {: .-snippet} -->
@@ -39,6 +43,7 @@ git show --stat <sha>
 ```bash
 git stash store -m "recovered work" <sha>
 ```
+<!-- {: data-highlight="git stash store"} -->
 
 **Re-adds it as `stash@{0}`.** Then `git stash pop` restores the changes; see [git stash store](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-store).
 
@@ -48,5 +53,6 @@ git stash store -m "recovered work" <sha>
 ```bash
 git fsck --lost-found
 ```
+<!-- {: data-highlight="git fsck --lost-found"} -->
 
-**Writes dangling commits to `.git/lost-found/commit/`.** Use it when you want files instead of hashes; see [git fsck](https://git-scm.com/docs/git-fsck).
+**Writes dangling objects to `.git/lost-found/`.** Commit objects land under `.git/lost-found/commit/<sha>`; use it to keep them on disk. See [git fsck](https://git-scm.com/docs/git-fsck).

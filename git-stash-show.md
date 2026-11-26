@@ -10,6 +10,8 @@ updated: 2026-11-27
 links:
   - title: git-stash manual
     url: https://git-scm.com/docs/git-stash
+  - title: Git stash cheatsheet
+    url: /git-stash
 ---
 
 ## Viewing a stash
@@ -21,6 +23,7 @@ links:
 ```bash
 git stash show
 ```
+<!-- {: data-highlight="git stash show"} -->
 
 **Prints a diffstat for the newest stash.** No patch content is shown; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash).
 
@@ -30,6 +33,7 @@ git stash show
 ```bash
 git stash show -p
 ```
+<!-- {: data-highlight="-p"} -->
 
 **Prints the complete diff.** This is the fastest way to see stashed changes without applying them; see [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashshowPatch).
 
@@ -39,6 +43,7 @@ git stash show -p
 ```bash
 git stash show -p stash@{1}
 ```
+<!-- {: data-highlight="stash@{1}"} -->
 
 **Reads an older entry.** `stash@{0}` is the newest; see [stash@{n}](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-stashindex).
 
@@ -48,5 +53,6 @@ git stash show -p stash@{1}
 ```bash
 git stash show -p -u
 ```
+<!-- {: data-highlight="-u"} -->
 
 **Includes untracked files saved with `-u`.** Plain `show` leaves them out; see [--include-untracked](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt---include-untracked).

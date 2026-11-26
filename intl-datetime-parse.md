@@ -56,6 +56,8 @@ new Date(Date.UTC(2026, 10, 26)).toISOString()
 const [y, m, d] = '2026-11-26'.split('-')
 
 new Date(Number(y), Number(m) - 1, Number(d))
+  .toDateString()
+// → 'Thu Nov 26 2026'
 ```
 <!-- {: .-wrap data-highlight="split('-')"} -->
 

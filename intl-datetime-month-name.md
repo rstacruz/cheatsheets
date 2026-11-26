@@ -61,7 +61,7 @@ widths.map((width) => (
 ```
 <!-- {: .-wrap data-highlight="['short', 'narrow']"} -->
 
-**Widths shrink the name, not the locale rules.** `narrow` can collide across months (March and May are both `M`), so keep it for tight tables; see [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month).
+**Widths shorten the name; locale rules still apply.** `narrow` can collide across months (March and May are both `M`), so keep it for tight tables; see [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month).
 
 ### Add the year
 <!-- {: .-snippet} -->

@@ -46,7 +46,7 @@ new Intl.DateTimeFormat().format(date)
 ```
 <!-- {: data-highlight="format(date)"} -->
 
-Examples assume a browser in America/Los_Angeles with the en-US locale, and later cards reuse this `date`. `format()` takes a `Date` or a timestamp; build one formatter and reuse it in loops.
+Examples assume the en-US locale in America/Los_Angeles, so the UTC date above prints as the 19th. Later cards reuse `date`; `format()` takes a `Date` or a timestamp, so build one formatter and reuse it in loops.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format)
 
@@ -95,7 +95,7 @@ new Intl.DateTimeFormat(undefined, opts).format(date)
 ```
 <!-- {: data-highlight="'default'; undefined"} -->
 
-`undefined` means the runtime's locale; `'default'` lands on the same locale because it is an unsupported tag that negotiation drops.
+`'default'` and `undefined` both fall back to the runtime's locale; `'default'` is not a special value, it is an unsupported tag that negotiation drops.
 
 See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
@@ -129,7 +129,7 @@ style('medium', 'short')  // → 'Dec 20, 2012, 3:00 AM'
 
 See: [dateStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#datestyle)
 
-## Date fields
+## Date and time fields
 
 ### Weekday and month names
 
@@ -263,7 +263,7 @@ zone('shortGeneric') // → 'Dec 20, Sydney Time'
 ```
 <!-- {: .-wrap data-highlight="timeZoneName"} -->
 
-`short` prefers the local abbreviation, `…Offset` always prints GMT, and `…Generic` drops daylight saving.
+`short` uses a local abbreviation when the locale has one and falls back to GMT otherwise; `…Offset` always prints GMT, and `…Generic` drops daylight saving.
 
 See: [timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename)
 

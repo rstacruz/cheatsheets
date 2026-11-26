@@ -40,7 +40,7 @@ new Intl.DateTimeFormat(navigator.languages, {
 ```
 <!-- {: .-wrap data-highlight="navigator.languages"} -->
 
-**Tries each tag in order and takes the first supported one.** `languages` holds the full preference list, which suits a translations picker better than a single tag; see [navigator.languages](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages).
+**Tries each tag in order and takes the first supported one.** `navigator.languages` holds the full preference list, so pass it instead of `navigator.language`; see [navigator.languages](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages).
 
 ### Check what was chosen
 <!-- {: .-snippet} -->

@@ -63,7 +63,7 @@ new Intl.DateTimeFormat('en-US', {
 ```
 <!-- {: .-wrap data-highlight="hour12: false"} -->
 
-**The older switch for a 24-hour clock.** `hour12` wins when both options are set, and `hourCycle` adds the `h11`/`h12` and `h23`/`h24` distinctions; see [hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12).
+**The older switch for a 24-hour clock.** `hour12` wins when both options are set, so use `hourCycle` to pick `h11`, `h12`, `h23`, or `h24`; see [hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12).
 
 ### Pick a 24-hour locale
 <!-- {: .-snippet} -->
@@ -76,4 +76,4 @@ new Intl.DateTimeFormat('de-DE', {
 ```
 <!-- {: .-wrap data-highlight="'de-DE'"} -->
 
-**Most of Europe already defaults to 24-hour time.** Locale defaults make no exception explicit, so force the clock when the design needs it; see [timeStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timestyle).
+**Most of Europe already defaults to 24-hour time.** Locale defaults are not guaranteed, so set `hourCycle` when the design needs 24-hour output; see [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).

@@ -2,7 +2,7 @@
 title: When to use fd vs find
 link_title: fd vs find
 subtitle: Find files from the CLI
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "fd 10.5.1."
 updated: 2026-11-23

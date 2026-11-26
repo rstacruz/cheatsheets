@@ -2,7 +2,7 @@
 title: How to stash one file
 link_title: Stash one file
 subtitle: Shelve chosen paths
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3

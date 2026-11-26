@@ -2,7 +2,7 @@
 title: How to write a Bash case statement
 link_title: Bash case statement
 subtitle: Match values with glob patterns
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24

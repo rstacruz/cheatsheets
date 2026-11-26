@@ -2,7 +2,7 @@
 title: How to format a percentage in JavaScript
 link_title: Format percent
 subtitle: Fractions as percent signs
-category: Number formatting
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

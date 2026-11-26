@@ -2,7 +2,7 @@
 title: When to use cut vs awk
 link_title: cut vs awk
 subtitle: Pick fields from text
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "GNU coreutils 9.12, GNU Awk 5.4."
 updated: 2026-11-23

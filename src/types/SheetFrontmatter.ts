@@ -42,7 +42,7 @@ export const SheetFrontmatterSchema = z
       .string()
       .optional()
       .describe(
-        'Nav group. `Hidden` unlists the sheet. Every group except `Others` holds 3-16 sheets; `Others` holds at most 12.'
+        'Nav group. `Hidden` unlists the sheet. Every group except `Others` holds 3-16 non-snippet sheets; `Others` holds at most 12.'
       ),
     weight: z.number().optional().describe('Sorts higher in the "top" lists.'),
     tags: z

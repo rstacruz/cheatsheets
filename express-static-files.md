@@ -2,7 +2,7 @@
 title: How to serve static files in Express
 link_title: Serve static files
 subtitle: Serve a folder with express.static
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."

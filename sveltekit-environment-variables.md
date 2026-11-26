@@ -2,7 +2,7 @@
 title: How to use environment variables in SvelteKit
 link_title: SvelteKit env variables
 subtitle: Secrets and public values
-category: SvelteKit
+category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
 updated: 2026-11-26

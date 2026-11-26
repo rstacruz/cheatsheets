@@ -2,7 +2,7 @@
 title: How to enable CORS in Express
 link_title: Express CORS
 subtitle: Cross-origin requests with cors
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, cors 2.8.6, Node 26.13.1."

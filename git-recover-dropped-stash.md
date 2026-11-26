@@ -2,7 +2,7 @@
 title: How to recover a dropped Git stash
 link_title: Recover a dropped stash
 subtitle: Restore unreachable stash commits
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3

@@ -2,7 +2,7 @@
 title: How to view a Git stash
 link_title: View a Git stash
 subtitle: Inspect stashed changes
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3

@@ -2,7 +2,7 @@
 title: How to use TypeScript with Express
 link_title: Express TypeScript
 subtitle: Typed handlers and bodies
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, TypeScript 7.0.2, Node 26.13.1."

@@ -2,7 +2,7 @@
 title: How to sort strings case-insensitively in JavaScript
 link_title: Case-insensitive sort
 subtitle: Ignore case while sorting
-category: String sorting
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

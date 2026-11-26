@@ -2,7 +2,9 @@
 title: JSHint
 subtitle: JavaScript linter
 category: Build tools
-updated: 2026-10-04
+last_verified_with: "JSHint 2.13.6."
+updated: 2026-11-25
+tier: t3
 intro: |
   JSHint is configured with inline `/* jshint ... */` directives.
 
@@ -13,35 +15,36 @@ links:
 
 ### Relaxing
 
-Enable these options to *not* throw errors in these conditions.
-
-<!-- {: .-setup} -->
-
 ```js
 /* jshint asi: true */
 allow()
 missing_semicolons()
 ```
+<!-- {: data-highlight="asi"} -->
 
 ```js
 /* jshint boss: true */
 if (m = str.match(/.../))
 ```
+<!-- {: data-highlight="boss"} -->
 
 ```js
 /* jshint debug: true */
 debugger;
 ```
+<!-- {: data-highlight="debug"} -->
 
 ```js
 /* jshint eqnull: true */
 if (x == null)
 ```
+<!-- {: data-highlight="eqnull"} -->
 
 ```js
 /* jshint evil: true */
 eval('...')
 ```
+<!-- {: data-highlight="evil"} -->
 
 ```js
 /* jshint expr: true */
@@ -49,17 +52,20 @@ production && minify = true;
 div.innerWidth;
 expect(x).be.true;
 ```
+<!-- {: data-highlight="expr"} -->
 
 ```js
 /* jshint laxcomma: true */     // (deprecated)
 var one = 1
   , two = 2;
 ```
+<!-- {: data-highlight="laxcomma"} -->
 
 ```js
 /* jshint sub: true */          // (deprecated)
 process.env['name_here']
 ```
+<!-- {: data-highlight="sub"} -->
 
 ```js
 /* jshint loopfunc: true */
@@ -67,30 +73,32 @@ for (i = 0; i < 10; i++) {
   (function(i) { ... })(i);
 }
 ```
+<!-- {: data-highlight="loopfunc"} -->
 
 ```js
 /* jshint strict: "global" */
 "use strict";
 ```
+<!-- {: data-highlight="global"} -->
 
-See: [Relaxing options](https://jshint.com/docs/options/#relaxing-options) _(jshint.com)_
+These options suppress the errors shown above.
+
+See: [JSHint options](https://jshint.com/docs/options/)
 
 ### Enforcing
-
-Enable these options to catch more errors.
-
-<!-- {: .-setup} -->
 
 ```js
 /* jshint curly: true */
 while (day)                     // err: use { }'s
   shuffle();
 ```
+<!-- {: data-highlight="curly"} -->
 
 ```js
 /* jshint eqeqeq: true */
 if (a == null)                  // err: use ===
 ```
+<!-- {: data-highlight="eqeqeq"} -->
 
 ```js
 /* jshint esversion: 3 */
@@ -98,32 +106,38 @@ if (a == null)                  // err: use ===
 a.default = function() { ... }; // err: reserved word
 array = [ 1, 2, 3, ];           // err: extra comma
 ```
+<!-- {: data-highlight="esversion: 3"} -->
 
 ```js
 /* jshint forin: true */
 for (key in obj) { ... }        // err: check obj.hasOwnProperty(key)
 ```
+<!-- {: data-highlight="forin"} -->
 
 ```js
 /* jshint freeze: true */
 Array.prototype.count = ...;    // err: don't modify native prototypes
 ```
+<!-- {: data-highlight="freeze"} -->
 
 ```js
 /* jshint esversion: 6 */
 const sum = (a, b) => a + b     // allow ES6 syntax
 ```
+<!-- {: data-highlight="esversion: 6"} -->
 
 ```js
 /* jshint quotmark: single */   // (deprecated)
 /* jshint quotmark: double */
 alert("hi");                    // err: only single allowed
 ```
+<!-- {: data-highlight="quotmark"} -->
 
 ```js
 /* jshint strict: true */
 function() { ... }              // err: need "use strict"
 ```
+<!-- {: data-highlight="strict: true"} -->
 
 ```js
 /* jshint indent: 4, maxlen: 80 */  // (deprecated)
@@ -132,8 +146,11 @@ function() { ... }              // err: need "use strict"
 /* jshint maxstatements: 4 */
 /* jshint maxcomplexity: 5 */
 ```
+<!-- {: data-highlight="maxdepth; maxparams; maxstatements; maxcomplexity"} -->
 
-See: [Enforcing options](https://jshint.com/docs/options/#enforcing-options) _(jshint.com)_
+These options flag more cases as errors.
+
+See: [JSHint options](https://jshint.com/docs/options/)
 
 ### Ignore
 
@@ -141,8 +158,9 @@ See: [Enforcing options](https://jshint.com/docs/options/#enforcing-options) _(j
 /* jshint ignore:start */
 /* jshint ignore:end */
 ```
+<!-- {: data-highlight="ignore:start; ignore:end"} -->
 
-See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jshint.com)_
+See: [Inline configuration](https://jshint.com/docs/#inline-configuration)
 
 ### Globals and environments
 
@@ -151,6 +169,7 @@ See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jsh
 /* globals jQuery */
 /* globals -BAD_LIB */
 ```
+<!-- {: data-highlight="undef; globals"} -->
 
 ```js
 /* jshint devel: true */   console, alert, ...
@@ -158,10 +177,11 @@ See: [Inline configuration](https://jshint.com/docs/#inline-configuration) _(jsh
 /* jshint node: true */    module, exports, console, process, ...
 /* jshint jquery: true */  jQuery, $
 ```
+<!-- {: data-highlight="devel; browser; node; jquery"} -->
 
-See: [Environments](https://jshint.com/docs/options/#environments) _(jshint.com)_
+See: [globals option](https://jshint.com/docs/options/#globals)
 
 ### Also see
 
-* <https://jshint.com/docs/options/>
-* <https://gist.github.com/haschek/2595796>
+* [JSHint options](https://jshint.com/docs/options/)
+* [JSHint options gist](https://gist.github.com/haschek/2595796)

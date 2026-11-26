@@ -2,6 +2,7 @@
 title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
 category: Browser APIs
+tags: [Featured]
 tier: t2
 updated: 2026-11-26
 last_verified_with: "Node 26.13.1 (full ICU)."

@@ -2,7 +2,7 @@
 title: How to edit files in place with sed
 link_title: sed in place
 subtitle: Replace text in files
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "GNU sed 4.10."
 updated: 2026-11-23

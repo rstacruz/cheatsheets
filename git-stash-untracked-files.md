@@ -2,7 +2,7 @@
 title: How to stash untracked files
 link_title: Stash untracked files
 subtitle: Include new files
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3

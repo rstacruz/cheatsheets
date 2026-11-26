@@ -2,7 +2,7 @@
 title: How to use remote functions in SvelteKit
 link_title: SvelteKit remote functions
 subtitle: Type-safe server calls
-category: SvelteKit
+category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2."
 updated: 2026-11-26

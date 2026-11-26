@@ -1,7 +1,7 @@
 ---
 title: Intl.Collator
 subtitle: Locale-aware string comparison
-category: String sorting
+category: Internationalization
 tier: t2
 updated: 2026-11-26
 last_verified_with: "Node 26.13.1."

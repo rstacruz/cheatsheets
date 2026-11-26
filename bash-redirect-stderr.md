@@ -2,7 +2,7 @@
 title: How to redirect stderr in Bash
 link_title: Redirect stderr
 subtitle: Send errors to files
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24

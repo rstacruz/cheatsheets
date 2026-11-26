@@ -2,7 +2,7 @@
 title: How to undo a Git commit
 link_title: Git undo commit
 subtitle: Reset or revert commits
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.1."
 tier: t3

@@ -31,37 +31,30 @@ export const carbon = {
   src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
 } as const
 
-// Nav order. Every category except Others holds 3-16 sheets; Others holds at
-// most 12. Enforced by src/lib/categories.test.ts.
+// Nav order. Every category except Others holds 3-16 non-snippet sheets;
+// Others holds at most 12. Enforced by src/lib/categories.test.ts.
 export const categories = [
   'Agents',
-  'Task automation',
   'JavaScript',
   'Browser APIs',
   'Internationalization',
-  'Number formatting',
-  'String sorting',
   'JavaScript libraries',
   'Date libraries',
   'JavaScript frameworks',
   'JavaScript testing',
   'Build tools',
-  'SvelteKit',
   'Node.js',
   'Node.js libraries',
-  'Web frameworks',
   'CSS',
   'HTML',
   'Markup',
   'CLI',
   'Shell',
-  'Command line recipes',
   'Networking',
   'Media tools',
   'Package managers',
   'Vim',
   'Git',
-  'Git workflows',
   'Containers',
   'Devops',
   'Databases',

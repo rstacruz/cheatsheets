@@ -2,7 +2,7 @@
 title: How to read query params in Express
 link_title: Express query params
 subtitle: Read strings from req.query
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."

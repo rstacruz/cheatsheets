@@ -2,7 +2,7 @@
 title: How to sort strings with numbers in JavaScript
 link_title: Natural sort
 subtitle: Files, versions, and IDs
-category: String sorting
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

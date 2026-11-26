@@ -2,7 +2,7 @@
 title: How to enable Bash strict mode
 link_title: Bash strict mode
 subtitle: Fail fast in shell scripts
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-23

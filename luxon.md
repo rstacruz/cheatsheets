@@ -84,22 +84,23 @@ No method mutates in place; assign the result or chain from it.
 See: [Math](https://moment.github.io/luxon/#/math)
 
 ## Tokens
+<!-- {: .-three-column} -->
 
 ### Date tokens
 
-| Token  | Output   |
-| ------ | -------- |
-| `yyyy` | `2014`   |
-| `yy`   | `14`     |
-| `LLLL` | `June`   |
-| `LLL`  | `Jun`    |
-| `MM`   | `06`     |
-| `M`    | `6`      |
-| --- | --- |
-| `dd`   | `09`     |
-| `d`    | `9`      |
-| `cccc` | `Monday` |
-| `ccc`  | `Mon`    |
+| Token  | Meaning                  | Output   |
+| ------ | ------------------------ | -------- |
+| `yyyy` | Year, four digits        | `2014`   |
+| `yy`   | Year, two digits         | `14`     |
+| `LLLL` | Month name, full         | `June`   |
+| `LLL`  | Month name, short        | `Jun`    |
+| `MM`   | Month, two digits        | `06`     |
+| --- | --- | --- |
+| `M`    | Month, no leading zero   | `6`      |
+| `dd`   | Day of month, two digits | `09`     |
+| `d`    | Day of month             | `9`      |
+| `cccc` | Weekday name, full       | `Monday` |
+| `ccc`  | Weekday name, short      | `Mon`    |
 <!-- {: .-headers} -->
 
 Tokens are case-sensitive: `yyyy` is the year and `YYYY` prints literally.
@@ -108,30 +109,30 @@ See: [Formatting](https://moment.github.io/luxon/#/formatting)
 
 ### Time tokens
 
-| Token | Output  |
-| ----- | ------- |
-| `HH`  | `09`    |
-| `H`   | `9`     |
-| `hh`  | `09`    |
-| `h`   | `9`     |
-| `mm`  | `32`    |
-| --- | --- |
-| `ss`  | `05`    |
-| `SSS` | `123`   |
-| `a`   | `AM`    |
+| Token | Meaning                  | Output  |
+| ----- | ------------------------ | ------- |
+| `HH`  | Hour, 24-hour, two digits | `09`   |
+| `H`   | Hour, 24-hour            | `9`     |
+| `hh`  | Hour, 12-hour, two digits | `09`   |
+| `h`   | Hour, 12-hour            | `9`     |
+| `mm`  | Minute, two digits       | `32`    |
+| --- | --- | --- |
+| `ss`  | Second, two digits       | `05`    |
+| `SSS` | Millisecond, three digits | `123`  |
+| `a`   | Meridiem                 | `AM`    |
 <!-- {: .-headers} -->
 
 See: [Formatting](https://moment.github.io/luxon/#/formatting)
 
 ### Zone and epoch tokens
 
-| Token  | Output   |
-| ------ | -------- |
-| `ZZZZ` | `UTC`    |
-| `ZZ`   | `+00:00` |
-| `Z`    | `+0`     |
-| `X`    | `1402306325` |
-| `x`    | `1402306325123` |
+| Token  | Meaning                      | Output          |
+| ------ | ---------------------------- | --------------- |
+| `ZZZZ` | Zone name, short             | `UTC`           |
+| `ZZ`   | Offset, with colon           | `+00:00`        |
+| `Z`    | Offset, narrow               | `+0`            |
+| `X`    | Unix timestamp, seconds      | `1402306325`    |
+| `x`    | Unix timestamp, milliseconds | `1402306325123` |
 <!-- {: .-headers} -->
 
 The outputs assume a UTC instance.
@@ -294,7 +295,7 @@ d.endOf('month').toISO()
 
 d.startOf('week').toISODate()   // "2014-06-09"
 ```
-<!-- {: data-highlight="startOf('week')"} -->
+<!-- {: data-highlight="startOf('week'); endOf('month')"} -->
 
 `startOf('week')` follows ISO weeks and begins on Monday. `endOf()` lands on the last millisecond.
 

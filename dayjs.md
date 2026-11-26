@@ -129,43 +129,44 @@ d.unix()          // 1402306325
 See: [Conversion](https://day.js.org/docs/en/display/as-iso-string)
 
 ## Tokens
+<!-- {: .-three-column} -->
 
 ### Date tokens
 
-| Token  | Output   |
-| ------ | -------- |
-| `YYYY` | `2014`   |
-| `YY`   | `14`     |
-| `MMMM` | `June`   |
-| `MMM`  | `Jun`    |
-| `MM`   | `06`     |
-| --- | --- |
-| `M`    | `6`      |
-| `DD`   | `09`     |
-| `D`    | `9`      |
-| `dddd` | `Monday` |
-| `ddd`  | `Mon`    |
+| Token  | Meaning                 | Output   |
+| ------ | ----------------------- | -------- |
+| `YYYY` | Year, four digits       | `2014`   |
+| `YY`   | Year, two digits        | `14`     |
+| `MMMM` | Month name, full        | `June`   |
+| `MMM`  | Month name, short       | `Jun`    |
+| `MM`   | Month, two digits       | `06`     |
+| --- | --- | --- |
+| `M`    | Month, no leading zero  | `6`      |
+| `DD`   | Day of month, two digits | `09`    |
+| `D`    | Day of month            | `9`      |
+| `dddd` | Weekday name, full      | `Monday` |
+| `ddd`  | Weekday name, short     | `Mon`    |
 <!-- {: .-headers} -->
 
 See: [Format](https://day.js.org/docs/en/display/format)
 
 ### Time tokens
 
-| Token | Output     |
-| ----- | ---------- |
-| `HH`  | `09`       |
-| `H`   | `9`        |
-| `hh`  | `09`       |
-| `h`   | `9`        |
-| `mm`  | `32`       |
-| `m`   | `32`       |
-| `ss`  | `05`       |
-| --- | --- |
-| `SSS` | `123`      |
-| `A`   | `AM`       |
-| `a`   | `am`       |
-| `Z`   | `+00:00`   |
-| `ZZ`  | `+0000`    |
+| Token | Meaning                  | Output     |
+| ----- | ------------------------ | ---------- |
+| `HH`  | Hour, 24-hour, two digits | `09`      |
+| `H`   | Hour, 24-hour            | `9`        |
+| `hh`  | Hour, 12-hour, two digits | `09`      |
+| `h`   | Hour, 12-hour            | `9`        |
+| `mm`  | Minute, two digits       | `32`       |
+| `m`   | Minute                   | `32`       |
+| `ss`  | Second, two digits       | `05`       |
+| --- | --- | --- |
+| `SSS` | Millisecond, three digits | `123`     |
+| `A`   | Meridiem, uppercase      | `AM`       |
+| `a`   | Meridiem, lowercase      | `am`       |
+| `Z`   | Offset, with colon       | `+00:00`   |
+| `ZZ`  | Offset, without colon    | `+0000`    |
 <!-- {: .-headers} -->
 
 See: [Format](https://day.js.org/docs/en/display/format)
@@ -175,22 +176,37 @@ See: [Format](https://day.js.org/docs/en/display/format)
 #### Ordinal
 
 ```js
-import advancedFormat from 'dayjs/plugin/advancedFormat.js'
+import advancedFormat
+  from 'dayjs/plugin/advancedFormat.js'
 
 dayjs.extend(advancedFormat)
 
-dayjs('2014-06-09').format('Do MMM YY')  // "9th Jun 14"
-dayjs('2014-06-09').format('Q')          // 2
+dayjs('2014-06-09')
+  .format('Do MMM YY')  // "9th Jun 14"
+dayjs('2014-06-09').format('Q')
+// 2
 ```
 <!-- {: data-highlight="'Do MMM YY'"} -->
 
 #### Epoch
 
 ```js
-dayjs('2014-06-09T09:32:05Z').format('X')  // "1402306325"
-dayjs('2014-06-09T09:32:05Z').format('x')  // "1402306325123"
+dayjs('2014-06-09T09:32:05Z')
+  .format('X')  // "1402306325"
+dayjs('2014-06-09T09:32:05Z')
+  .format('x')  // "1402306325123"
 ```
 <!-- {: data-highlight="format('X')"} -->
+
+#### Tokens
+
+| Token | Meaning                      | Output          |
+| ----- | ---------------------------- | --------------- |
+| `Do`  | Day of month, ordinal        | `9th`           |
+| `Q`   | Quarter                      | `2`             |
+| `X`   | Unix timestamp, seconds      | `1402306325`    |
+| `x`   | Unix timestamp, milliseconds | `1402306325123` |
+<!-- {: .-headers} -->
 
 `Do` adds the ordinal suffix, `Q` emits the quarter, and `X`/`x` emit Unix seconds and milliseconds.
 
@@ -291,7 +307,7 @@ d.startOf('day').format('YYYY-MM-DD HH:mm:ss')
 d.endOf('month').format('YYYY-MM-DD HH:mm:ss')
 // "2014-06-30 23:59:59"
 ```
-<!-- {: data-highlight=".endOf('month')"} -->
+<!-- {: data-highlight=".startOf('day'); .endOf('month')"} -->
 
 `endOf()` lands on the last millisecond but `format()` here drops it.
 
@@ -379,7 +395,7 @@ dayjs.extend(isYesterday)
 dayjs().isToday()                       // true
 dayjs().subtract(1, 'day').isYesterday() // true
 ```
-<!-- {: data-highlight="isToday"} -->
+<!-- {: data-highlight="isToday; isYesterday"} -->
 
 Each check ships as its own plugin.
 

@@ -233,6 +233,10 @@ echo "${name:0:2}"
 Long reference lists with no single lesson need no highlight; the card's
 `See:` line already points to the full reference.
 
+### code/highlight-card-title
+
+When an H3 names several operations, tint each one: "Start and end of unit" marks `startOf` and `endOf`; "Min and max" marks both helpers. The title is the reader's checklist, so a method named there should be visible in the block. This is the title-driven case of `code/highlight-parallel-set`.
+
 ### code/data-highlight-in-block
 
 🤖 Check: `code/data-highlight-in-block`.

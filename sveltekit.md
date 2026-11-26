@@ -3,7 +3,7 @@ title: SvelteKit
 subtitle: Full-stack framework for Svelte
 category: SvelteKit
 updated: 2026-11-26
-last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2, Vite 8.3.8, Node 26.13.1."
+last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2, Vite 8.3.8, Node 22.23.5, 26.13.1."
 tier: t2
 fragments:
   - "+page.svelte"
@@ -133,8 +133,9 @@ src/routes/files/[...path]/+page.svelte
 
 ### Layouts
 
+#### src/routes/+layout.svelte
+
 ```html
-<!-- src/routes/+layout.svelte -->
 <script lang="ts">
   let { children } = $props()
 </script>
@@ -533,16 +534,17 @@ export const handle: Handle = async ({ event, resolve }) => {
 import { redirect } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const isAdmin = event.route.id?.startsWith('/admin')
+  const isAdmin = event.route.id
+    ?.split('/').includes('admin')
   if (isAdmin && !event.locals.user) {
     redirect(303, '/login')
   }
   return resolve(event)
 }
 ```
-<!-- {: data-highlight="event.route.id"} -->
+<!-- {: data-highlight="includes('admin')"} -->
 
-Match `event.route.id`, not the pathname: `/%61dmin` still resolves to `/admin`. Prerendered pages bypass `handle`. See: [Auth](https://svelte.dev/docs/kit/auth)
+Match route ids by segment: route groups prefix them (`/(app)/admin`), and `/%61dmin` still resolves to `/admin`. Prerendered pages bypass `handle`. See: [Auth](https://svelte.dev/docs/kit/auth)
 
 ### Log errors
 
@@ -732,7 +734,7 @@ PORT=8080 ORIGIN=https://example.com node build
 ```
 <!-- {: data-highlight="ORIGIN="} -->
 
-`ORIGIN` sets the trusted origin for CSRF checks behind a proxy; missing `src/env.ts` variables stop startup. See: [Environment variables](https://svelte.dev/docs/kit/adapter-node#Environment-variables-PROTOCOL_HEADER-HOST_HEADER-and-PORT_HEADER)
+`ORIGIN` sets the trusted origin for CSRF checks behind a proxy; required runtime variables from `src/env.ts` must be set, or startup fails. See: [Environment variables](https://svelte.dev/docs/kit/adapter-node#Environment-variables-PROTOCOL_HEADER-HOST_HEADER-and-PORT_HEADER)
 
 ### Dockerfile
 

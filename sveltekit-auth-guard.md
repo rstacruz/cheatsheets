@@ -16,6 +16,25 @@ links:
 ## Auth guards
 <!-- {: .-snippets} -->
 
+### Declare locals
+<!-- {: .-snippet} -->
+
+#### src/app.d.ts
+
+```ts
+declare global {
+  namespace App {
+    interface Locals {
+      user: string | null
+    }
+  }
+}
+export {}
+```
+<!-- {: data-highlight="interface Locals"} -->
+
+**Types `event.locals` across the app.** Server loads and actions can then read `locals.user`; see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).
+
 ### Read the session cookie
 <!-- {: .-snippet} -->
 
@@ -36,39 +55,20 @@ export const handle: Handle = async (
 
 **Runs for every request.** The hook loads the user once, before loads and actions; see [handle](https://svelte.dev/docs/kit/hooks#handle).
 
-### Declare locals
-<!-- {: .-snippet} -->
-
-#### src/app.d.ts
-
-```ts
-declare global {
-  namespace App {
-    interface Locals {
-      user: string | null
-    }
-  }
-}
-export {}
-```
-<!-- {: data-highlight="interface Locals"} -->
-
-**Types `event.locals` across the app.** Server loads and actions then read `locals.user` safely; see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).
-
 ### Guard a path
 <!-- {: .-snippet} -->
 
 ```ts
-const isAdmin =
-  event.route.id?.startsWith('/admin')
+const isAdmin = event.route.id
+  ?.split('/').includes('admin')
 
 if (isAdmin && !event.locals.user) {
   redirect(303, '/login')
 }
 ```
-<!-- {: data-highlight="route.id"} -->
+<!-- {: data-highlight="includes('admin')"} -->
 
-**Matches the routed page, not the raw URL.** `/%61dmin` resolves to `/admin`; prerendered pages bypass `handle`; see [Auth](https://svelte.dev/docs/kit/auth).
+**Matches the routed page by segment.** Route groups prefix ids (`/(app)/admin`) and `/%61dmin` resolves to `/admin`; prerendered pages bypass `handle`; see [Auth](https://svelte.dev/docs/kit/auth).
 
 ### Read the user in a load
 <!-- {: .-snippet} -->

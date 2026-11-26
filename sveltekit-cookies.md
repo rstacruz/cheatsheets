@@ -27,7 +27,7 @@ cookies.set('session', token, {
 ```
 <!-- {: data-highlight="cookies.set"} -->
 
-**Writes a `Set-Cookie` header.** `httpOnly` and `secure` default to true, and `path` defaults to `/`; see [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies).
+**Writes a `Set-Cookie` header.** `httpOnly` defaults to true, `secure` to true outside development, and `path` to `/`; see [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies).
 
 ### Read a cookie
 <!-- {: .-snippet} -->
@@ -78,9 +78,24 @@ export const actions = {
 ### Read the session in a hook
 <!-- {: .-snippet} -->
 
+#### src/app.d.ts
+
+```ts
+declare global {
+  namespace App {
+    interface Locals {
+      user: string | null
+    }
+  }
+}
+export {}
+```
+
 #### src/hooks.server.ts
 
 ```ts
+import type { Handle } from '@sveltejs/kit/hooks'
+
 export const handle: Handle = async (
   { event, resolve }
 ) => {

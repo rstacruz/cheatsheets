@@ -107,7 +107,7 @@ let var .= 'string'   " concat
 ```
 <!-- {: data-highlight=".="} -->
 
-See: `:help expr4`
+See: `:help expr6`, `:help expr-.`, `:help :let+=`
 
 ## Strings
 
@@ -415,7 +415,7 @@ if g:use_dispatch && s:has_dispatch
 endif
 ```
 
-See: `:help expr6`
+See: `:help expr-&&`
 
 ## Lists
 
@@ -599,7 +599,7 @@ See: `:help Float`
 3 * 2.0   "=> 6.0
 ```
 
-See: `:help expr4`
+See: `:help expr-star`, `:help expr-/`
 
 ### Math functions
 

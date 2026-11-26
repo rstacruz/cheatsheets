@@ -56,7 +56,7 @@ watchexec -w lib -w test \
 
 Without `-w`, the current directory is watched recursively.
 
-See: [Output](https://github.com/watchexec/watchexec/blob/main/doc/watchexec.1.md#output)
+See: [Options](https://github.com/watchexec/watchexec/blob/main/doc/watchexec.1.md#options)
 
 ### Wait for a change
 

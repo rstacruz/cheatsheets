@@ -608,27 +608,26 @@ user = User.create(
 )
 ```
 
-#### Restrict the class
+#### Restrict the type
 
 ```ruby
 # Only Hash allowed!
 class User < ActiveRecord::Base
-  serialize :preferences, Hash
+  serialize :preferences, type: Hash, coder: YAML
 end
 ```
-<!-- {: data-highlight=":preferences"} -->
+<!-- {: data-highlight="type: Hash"} -->
 
 #### Type mismatch
 
 ```ruby
-# Reading it raises SerializationTypeMismatch
-user = User.create(preferences: %w(one two three))
-User.find(user.id).preferences
+User.create(preferences: %w(one two three))
+# => ActiveRecord::SerializationTypeMismatch
 ```
 
-A class option raises an error when the serialized object is outside the hierarchy.
+A non-Hash value raises a type mismatch instead of being stored.
 
-See: [Serialization API](https://api.rubyonrails.org/classes/ActiveRecord/Serialization.html)
+See: [serialize API](https://api.rubyonrails.org/classes/ActiveRecord/AttributeMethods/Serialization/ClassMethods.html#method-i-serialize)
 
 Other tricks
 ------------

@@ -64,7 +64,7 @@ sed '/begin api/q'
 ```
 <!-- {: data-highlight="begin api"} -->
 
-See: [q command](https://www.gnu.org/software/sed/manual/sed.html#Other-Commands)
+See: [q command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
 
 ### Print until a line, excluding it
 
@@ -120,7 +120,7 @@ sed -e "1a ## HEADING 02:" README.md
 
 Appends a heading after line 1; use `-i` to write the file.
 
-See: [a command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
+See: [a command](https://www.gnu.org/software/sed/manual/sed.html#Other-Commands)
 
 ### Insert before a line number
 
@@ -131,7 +131,7 @@ sed -e "1i # HEADING 01:" README.md
 
 Inserts a heading before line 1.
 
-See: [i command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
+See: [i command](https://www.gnu.org/software/sed/manual/sed.html#Other-Commands)
 
 ### Deleting text
 

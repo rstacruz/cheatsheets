@@ -155,7 +155,7 @@ end
 ```
 <!-- {: data-highlight="source_root"} -->
 
-See: [Generator API](https://api.rubyonrails.org/classes/Rails/Generators/Base.html)
+See: [Rails::Generators::Base API](https://api.rubyonrails.org/classes/Rails/Generators/Base.html)
 
 ### Generators lookup
 
@@ -189,7 +189,7 @@ module Yaffle
     extend ActiveSupport::Concern
 
     included do
-
+    end
 
     module ClassMethods
       def acts_as_yaffle(options = {})

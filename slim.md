@@ -173,8 +173,6 @@ ul
 
 See: [Inline tags](https://github.com/slim-template/slim/blob/v5.2.2/README.md#inline-tags)
 
-## References
-
 ### References
 
 - [Slim repository](https://github.com/slim-template/slim)

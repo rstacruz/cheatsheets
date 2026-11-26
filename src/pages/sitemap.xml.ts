@@ -1,6 +1,7 @@
 import { site } from '~/config'
 import { getPages } from '~/lib/page'
 import { isListed } from '~/lib/page/accessors'
+import { sitemapEntry } from '~/lib/sitemap'
 
 export async function GET() {
   const lines = [

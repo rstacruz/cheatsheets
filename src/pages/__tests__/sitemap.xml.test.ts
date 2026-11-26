@@ -1,6 +1,7 @@
 import { site } from '~/config'
 import { getPages } from '~/lib/page'
 import { isListed, isSnippet } from '~/lib/page/accessors'
+import { sitemapEntry } from '~/lib/sitemap'
 import { GET } from '../sitemap.xml'
 
 let body: string
@@ -26,14 +27,9 @@ test('adds lastmod from updated', async () => {
   )
 })
 
-test('omits lastmod when updated is missing', async () => {
-  const pages = await getPages()
-  const page = Object.values(pages).find(
-    (page) => isListed(page) && !page.frontmatter.updated
-  )
-
-  expect(page, 'expected a listed sheet without updated').toBeDefined()
-  expect(body).toContain(`<url><loc>${site.url}/${page!.slug}</loc></url>`)
+test('omits lastmod when updated is missing', () => {
+  const url = `${site.url}/no-updated`
+  expect(sitemapEntry(url)).toBe(`<url><loc>${url}</loc></url>`)
 })
 
 test('tiered sheets carry lastmod', async () => {

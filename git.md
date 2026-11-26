@@ -413,6 +413,9 @@ git stash drop
 
 See: [git stash](https://git-scm.com/docs/git-stash)
 
+[Git stash cheatsheet](./git-stash)
+<!-- {: .-crosslink} -->
+
 ## History
 <!-- {: .-three-column} -->
 

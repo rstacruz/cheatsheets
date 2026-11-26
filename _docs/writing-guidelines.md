@@ -197,7 +197,7 @@ shows the shape.
 
 ### Code spacing
 
-Don't shy from blank lines. Separate setup from use, and put result comments on their own line; a cramped block is harder to scan. See `code/space-between-examples`.
+Don't shy from blank lines. Separate setup from use, and put long result comments on their own line. A call and result may share a line when the combined line stays under 40 characters; see `code/space-between-examples`.
 
 ```js
 const d = dayjs()

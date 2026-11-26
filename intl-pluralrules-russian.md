@@ -2,7 +2,7 @@
 title: How to pluralize Russian nouns in JavaScript
 link_title: Russian plurals
 subtitle: One, few, and many
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
 updated: 2026-11-26
@@ -30,17 +30,10 @@ const forms = {
 const count = (n) =>
   `${n} ${forms[ru.select(n)]}`
 
-count(1)
-// → '1 товар'
-
-count(2)
-// → '2 товара'
-
-count(5)
-// → '5 товаров'
-
-count(21)
-// → '21 товар'
+count(1) // → '1 товар'
+count(2) // → '2 товара'
+count(5) // → '5 товаров'
+count(21) // → '21 товар'
 ```
 <!-- {: data-highlight="forms[ru.select(n)]"} -->
 
@@ -52,11 +45,8 @@ count(21)
 ```js
 const ru = new Intl.PluralRules('ru')
 
-ru.select(1.5)
-// → 'other'
-
-ru.select(2.5)
-// → 'other'
+ru.select(1.5) // → 'other'
+ru.select(2.5) // → 'other'
 ```
 <!-- {: data-highlight="ru.select(1.5); ru.select(2.5)"} -->
 
@@ -68,8 +58,7 @@ ru.select(2.5)
 ```js
 const ru = new Intl.PluralRules('ru')
 
-ru.select(0)
-// → 'many'
+ru.select(0) // → 'many'
 ```
 <!-- {: data-highlight="ru.select(0)"} -->
 

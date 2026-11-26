@@ -2,7 +2,7 @@
 title: How to list a locale's plural categories
 link_title: Plural categories
 subtitle: Forms each locale needs
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
 updated: 2026-11-26
@@ -37,11 +37,8 @@ const categories = (locale) =>
   new Intl.PluralRules(locale)
     .resolvedOptions().pluralCategories
 
-categories('en')
-// → ['one', 'other']
-
-categories('ja')
-// → ['other']
+categories('en') // → ['one', 'other']
+categories('ja') // → ['other']
 
 categories('ru')
 // → ['one', 'few', 'many', 'other']

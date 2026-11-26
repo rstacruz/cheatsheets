@@ -69,8 +69,7 @@ new Date(Number(y), Number(m) - 1, Number(d))
 ```js
 const date = new Date('26/11/2026')
 
-Number.isNaN(date.getTime())
-// → true
+Number.isNaN(date.getTime()) // → true
 ```
 <!-- {: .-wrap data-highlight="Number.isNaN(date.getTime())"} -->
 

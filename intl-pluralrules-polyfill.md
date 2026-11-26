@@ -2,7 +2,7 @@
 title: How to polyfill Intl.PluralRules
 link_title: PluralRules polyfill
 subtitle: For Hermes and old engines
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "intl-pluralrules 2.0.1, Node 26.13.1."
 updated: 2026-11-26

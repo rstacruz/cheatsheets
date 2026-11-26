@@ -2,7 +2,7 @@
 title: How to format ordinal numbers in JavaScript
 link_title: Ordinal numbers
 subtitle: 1st, 2nd, and 3rd
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
 updated: 2026-11-26
@@ -29,26 +29,10 @@ const suffixes = {
 const nth = (n) =>
   `${n}${suffixes[ord.select(n)]}`
 
-nth(1)
-// → '1st'
-
-nth(2)
-// → '2nd'
-
-nth(3)
-// → '3rd'
-
-nth(11)
-// → '11th'
-
-nth(12)
-// → '12th'
-
-nth(13)
-// → '13th'
-
-nth(21)
-// → '21st'
+nth(1)   // → '1st'
+nth(2)   // → '2nd'
+nth(11)  // → '11th'
+nth(23)  // → '23rd'
 ```
 <!-- {: data-highlight="suffixes"} -->
 

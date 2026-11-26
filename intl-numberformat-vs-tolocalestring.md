@@ -2,7 +2,7 @@
 title: When to use Intl.NumberFormat vs toLocaleString
 link_title: NumberFormat vs toLocaleString
 subtitle: Which number API to use
-category: Internationalization
+category: Number formatting
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

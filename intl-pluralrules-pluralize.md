@@ -2,7 +2,7 @@
 title: How to pluralize a word in JavaScript
 link_title: Pluralize a word
 subtitle: Count-aware word forms
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
 updated: 2026-11-26
@@ -25,11 +25,8 @@ const forms = {
   other: 'items'
 }
 
-forms[pr.select(1)]
-// → 'item'
-
-forms[pr.select(3)]
-// → 'items'
+forms[pr.select(1)] // → 'item'
+forms[pr.select(3)] // → 'items'
 ```
 <!-- {: data-highlight="forms[pr.select(1)]"} -->
 
@@ -67,11 +64,8 @@ const forms = {
 const label = (n) =>
   forms[pr.select(n)] ?? forms.other
 
-label(1)
-// → 'article'
-
-label(1000000)
-// → 'articles'
+label(1) // → 'article'
+label(1000000) // → 'articles'
 ```
 <!-- {: data-highlight="?? forms.other"} -->
 

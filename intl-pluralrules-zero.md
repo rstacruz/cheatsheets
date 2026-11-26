@@ -2,7 +2,7 @@
 title: How to handle zero when pluralizing
 link_title: Zero plurals
 subtitle: English has no zero form
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1 (full ICU)."
 updated: 2026-11-26
@@ -26,11 +26,8 @@ const count = (n) =>
     ? 'No items'
     : `${n} ${forms[pr.select(n)]}`
 
-count(0)
-// → 'No items'
-
-count(1)
-// → '1 item'
+count(0) // → 'No items'
+count(1) // → '1 item'
 ```
 <!-- {: data-highlight="n === 0"} -->
 
@@ -42,11 +39,8 @@ count(1)
 ```js
 const ar = new Intl.PluralRules('ar')
 
-ar.select(0)
-// → 'zero'
-
-ar.select(1)
-// → 'one'
+ar.select(0) // → 'zero'
+ar.select(1) // → 'one'
 ```
 <!-- {: data-highlight="ar.select(0)"} -->
 

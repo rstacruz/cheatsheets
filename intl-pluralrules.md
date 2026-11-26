@@ -1,7 +1,7 @@
 ---
 title: Intl.PluralRules
 subtitle: Locale-aware plural rules
-category: Browser APIs
+category: Internationalization
 tier: t2
 updated: 2026-11-26
 last_verified_with: "Node 26.13.1 (full ICU)."
@@ -56,11 +56,8 @@ const forms = {
 
 const plural = (n) => forms[pr.select(n)]
 
-plural(1)
-// → 'item'
-
-plural(3)
-// → 'items'
+plural(1) // → 'item'
+plural(3) // → 'items'
 ```
 <!-- {: data-highlight="new Intl.PluralRules"} -->
 
@@ -83,14 +80,9 @@ new Intl.PluralRules('ar', { type: 'ordinal' })
 ```js
 const pr = new Intl.PluralRules('en-US')
 
-pr.select(1)
-// → 'one'
-
-pr.select(2)
-// → 'other'
-
-pr.select(1.5)
-// → 'other'
+pr.select(1) // → 'one'
+pr.select(2) // → 'other'
+pr.select(1.5) // → 'other'
 ```
 <!-- {: data-highlight="select"} -->
 
@@ -113,11 +105,8 @@ const forms = {
 const count = (n) =>
   `${nf.format(n)} ${forms[pr.select(n)]}`
 
-count(1)
-// → '1 item'
-
-count(1200)
-// → '1,200 items'
+count(1) // → '1 item'
+count(1200) // → '1,200 items'
 ```
 <!-- {: data-highlight="nf.format(n)"} -->
 
@@ -130,11 +119,8 @@ See: [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 ```js
 const pr = new Intl.PluralRules('en')
 
-pr.select(1.4)
-// → 'other'
-
-pr.select(Math.round(1.4))
-// → 'one'
+pr.select(1.4) // → 'other'
+pr.select(Math.round(1.4)) // → 'one'
 ```
 <!-- {: data-highlight="Math.round; pr.select"} -->
 
@@ -157,8 +143,7 @@ const compact = new Intl.NumberFormat('fr', {
 compact.format(1100000)
 // → '1,1 million'
 
-pr.select(1100000)
-// → 'many'
+pr.select(1100000) // → 'many'
 ```
 <!-- {: data-highlight="notation: 'compact'"} -->
 
@@ -174,11 +159,8 @@ See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 const en = new Intl.PluralRules('en')
 const fr = new Intl.PluralRules('fr')
 
-en.select(0)
-// → 'other'
-
-fr.select(0)
-// → 'one'
+en.select(0) // → 'other'
+fr.select(0) // → 'one'
 ```
 <!-- {: data-highlight="en.select(0); fr.select(0)"} -->
 
@@ -191,14 +173,9 @@ See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 ```js
 const pr = new Intl.PluralRules('en')
 
-pr.select(1)
-// → 'one'
-
-pr.select(1.0)
-// → 'one'
-
-pr.select(1.5)
-// → 'other'
+pr.select(1) // → 'one'
+pr.select(1.0) // → 'one'
+pr.select(1.5) // → 'other'
 ```
 <!-- {: data-highlight="select(1.5)"} -->
 
@@ -213,8 +190,7 @@ const pr = new Intl.PluralRules('en', {
   minimumFractionDigits: 1
 })
 
-pr.select(1)
-// → 'other'
+pr.select(1) // → 'other'
 ```
 <!-- {: data-highlight="minimumFractionDigits"} -->
 
@@ -227,11 +203,8 @@ See: [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 ```js
 const pr = new Intl.PluralRules('en')
 
-pr.select(-1)
-// → 'one'
-
-pr.select(-2)
-// → 'other'
+pr.select(-1) // → 'one'
+pr.select(-2) // → 'other'
 ```
 <!-- {: data-highlight="select(-1)"} -->
 
@@ -248,17 +221,10 @@ const ord = new Intl.PluralRules('en', {
   type: 'ordinal'
 })
 
-ord.select(1)
-// → 'one'
-
-ord.select(2)
-// → 'two'
-
-ord.select(3)
-// → 'few'
-
-ord.select(4)
-// → 'other'
+ord.select(1) // → 'one'
+ord.select(2) // → 'two'
+ord.select(3) // → 'few'
+ord.select(4) // → 'other'
 ```
 <!-- {: data-highlight="type: 'ordinal'"} -->
 
@@ -281,17 +247,10 @@ const suffixes = {
 
 const nth = (n) => `${n}${suffixes[ord.select(n)]}`
 
-nth(1)
-// → '1st'
-
-nth(2)
-// → '2nd'
-
-nth(11)
-// → '11th'
-
-nth(23)
-// → '23rd'
+nth(1)   // → '1st'
+nth(2)   // → '2nd'
+nth(11)  // → '11th'
+nth(23)  // → '23rd'
 ```
 <!-- {: data-highlight="suffixes[ord.select(n)]"} -->
 
@@ -342,23 +301,12 @@ See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 ```js
 const ar = new Intl.PluralRules('ar')
 
-ar.select(0)
-// → 'zero'
-
-ar.select(1)
-// → 'one'
-
-ar.select(2)
-// → 'two'
-
-ar.select(3)
-// → 'few'
-
-ar.select(11)
-// → 'many'
-
-ar.select(100)
-// → 'other'
+ar.select(0) // → 'zero'
+ar.select(1) // → 'one'
+ar.select(2) // → 'two'
+ar.select(3) // → 'few'
+ar.select(11) // → 'many'
+ar.select(100) // → 'other'
 ```
 <!-- {: data-highlight="'ar'"} -->
 
@@ -371,17 +319,10 @@ See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 ```js
 const ru = new Intl.PluralRules('ru')
 
-ru.select(1)
-// → 'one'   (1 товар)
-
-ru.select(2)
-// → 'few'   (2 товара)
-
-ru.select(5)
-// → 'many'  (5 товаров)
-
-ru.select(21)
-// → 'one'   (21 товар)
+ru.select(1) // → 'one'   (1 товар)
+ru.select(2) // → 'few'   (2 товара)
+ru.select(5) // → 'many'  (5 товаров)
+ru.select(21) // → 'one'   (21 товар)
 ```
 <!-- {: data-highlight="ru.select(2); ru.select(5)"} -->
 
@@ -394,11 +335,8 @@ See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 ```js
 const ja = new Intl.PluralRules('ja')
 
-ja.select(1)
-// → 'other'
-
-ja.select(5)
-// → 'other'
+ja.select(1) // → 'other'
+ja.select(5) // → 'other'
 ```
 <!-- {: data-highlight="ja.select(5)"} -->
 
@@ -413,14 +351,9 @@ See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 ```js
 const pl = new Intl.PluralRules('pl')
 
-pl.selectRange(1, 2)
-// → 'few'
-
-pl.selectRange(2, 5)
-// → 'many'
-
-pl.selectRange(5, 1)
-// → 'one'
+pl.selectRange(1, 2) // → 'few'
+pl.selectRange(2, 5) // → 'many'
+pl.selectRange(5, 1) // → 'one'
 ```
 <!-- {: data-highlight="selectRange"} -->
 
@@ -433,11 +366,8 @@ See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 ```js
 const en = new Intl.PluralRules('en')
 
-en.selectRange(1, 1)
-// → 'other'
-
-en.selectRange(1, 3)
-// → 'other'
+en.selectRange(1, 1) // → 'other'
+en.selectRange(1, 3) // → 'other'
 ```
 <!-- {: data-highlight="selectRange(1, 1)"} -->
 
@@ -455,8 +385,7 @@ const range = (start, end) =>
     ? pr.selectRange(start, end)
     : pr.select(end)
 
-range(1, 2)
-// → 'few'
+range(1, 2) // → 'few'
 ```
 <!-- {: data-highlight="pr.selectRange"} -->
 
@@ -565,8 +494,7 @@ const pr = new Intl.PluralRules('ar', {
   type: 'ordinal'
 })
 
-pr.resolvedOptions().locale
-// → 'ar'
+pr.resolvedOptions().locale // → 'ar'
 
 pr.resolvedOptions().pluralCategories
 // → ['other']

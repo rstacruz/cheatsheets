@@ -2,7 +2,7 @@
 title: How to format numbers with units in JavaScript
 link_title: Format units
 subtitle: Values with measurement units
-category: Internationalization
+category: Number formatting
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

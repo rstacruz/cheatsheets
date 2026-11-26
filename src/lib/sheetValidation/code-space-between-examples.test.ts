@@ -89,6 +89,11 @@ describe('findTightExampleGroups()', () => {
     const input = ['foo()', '// "one"', 'bar()'].join('\n')
     expect(findTightExampleGroups(input)).toEqual([])
   })
+
+  test('allows inline results in a compact call list', () => {
+    const input = body(["nth(1) // → '1st'", "nth(2) // → '2nd'"])
+    expect(findTightExampleGroups(input)).toEqual([])
+  })
 })
 
 test('every code block spaces its example groups', async () => {

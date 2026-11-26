@@ -2,7 +2,7 @@
 title: How to format a number as currency in JavaScript
 link_title: Format currency
 subtitle: Dollar amounts per locale
-category: Internationalization
+category: Number formatting
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -61,8 +61,7 @@ const acct = new Intl.NumberFormat('en-US', {
   currencySign: 'accounting'
 })
 
-acct.format(-1234.5)
-// → '($1,234.50)'
+acct.format(-1234.5) // → '($1,234.50)'
 ```
 <!-- {: data-highlight="currencySign: 'accounting'"} -->
 

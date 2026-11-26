@@ -45,19 +45,6 @@ links:
 
 ## Quick start
 
-### Create a project
-
-```sh
-pnpm create vuepress my-docs
-cd my-docs
-pnpm docs:dev
-```
-<!-- {: data-highlight="pnpm create vuepress"} -->
-
-Scaffolds `docs/`, installs dependencies, and can add a GitHub Pages workflow. The dev server runs at `localhost:8080`.
-
-See: [Getting started](https://v2.vuepress.vuejs.org/guide/getting-started.html)
-
 ### Install manually
 
 ```sh
@@ -69,6 +56,19 @@ pnpm add -D @vuepress/bundler-vite@next @vuepress/theme-default@next
 VuePress 2 is pre-release, so install `@next`. With pnpm, install `vue` as a peer dependency too.
 
 See: [Installation](https://v2.vuepress.vuejs.org/guide/getting-started.html#installation)
+
+### Scaffold a starter
+
+```sh
+pnpm create vuepress my-docs
+cd my-docs
+pnpm docs:dev
+```
+<!-- {: data-highlight="pnpm create vuepress"} -->
+
+Scaffolds `docs/`, installs dependencies, and can add a GitHub Pages workflow. The starter ships its own theme config; use the manual install above to follow these examples unchanged.
+
+See: [Getting started](https://v2.vuepress.vuejs.org/guide/getting-started.html)
 
 ### Dev and build
 
@@ -127,7 +127,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="defineUserConfig({"} -->
 
-Put it at `docs/.vuepress/config.ts`. A `vuepress.config.ts` in the working directory takes precedence. The default theme exports `defaultTheme` in 2.0.0-rc.142; earlier 2.0.0-rc releases exported `themeDefault`.
+Put it at `docs/.vuepress/config.ts`. A `vuepress.config.ts` in the working directory takes precedence. The default theme in 2.0.0-rc.142 exports `defaultTheme`; some upstream examples still show `themeDefault`.
 
 See: [Configuration](https://v2.vuepress.vuejs.org/guide/configuration.html)
 
@@ -182,7 +182,7 @@ export default defineUserConfig({
           text: 'Guide',
           items: [
             { text: 'Overview', link: '/guide/' },
-            { text: 'API', link: '/guide/api.md' },
+            { text: 'API', link: '/guide/api' },
           ],
         },
       ],
@@ -253,7 +253,7 @@ export default defineUserConfig({
   }),
 })
 ```
-<!-- {: data-highlight="footer"} -->
+<!-- {: data-highlight="editLink; footer"} -->
 
 `:path` is replaced with the page path. `lastUpdated` reads git history; set it to `false` in a page's frontmatter to hide it there.
 

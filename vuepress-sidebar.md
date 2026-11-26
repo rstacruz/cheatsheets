@@ -30,7 +30,7 @@ theme: defaultTheme({
           },
           {
             text: 'API',
-            link: '/guide/api.md',
+            link: '/guide/api',
           },
         ],
       },

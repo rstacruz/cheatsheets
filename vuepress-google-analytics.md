@@ -43,6 +43,6 @@ export default {
   ],
 }
 ```
-<!-- {: data-highlight="googleAnalyticsPlugin"} -->
+<!-- {: data-highlight="G-XXXXXXXXXX"} -->
 
 **Loads `gtag.js` with your GA4 ID.** Use a `G-` measurement ID, not the old `UA-` tracking ID; `debug: true` sends events to DebugView. See [usage](https://ecosystem.vuejs.press/plugins/analytics/google-analytics.html#usage).

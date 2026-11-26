@@ -21,7 +21,7 @@ fragments:
   - "@id"
   - "not(expr)"
 weight: -5
-updated: 2026-11-05
+updated: 2026-11-26
 last_verified_with: "XPath 1.0."
 intro: |
   XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
@@ -31,6 +31,71 @@ links:
   - title: XPath 1.0 specification
     url: https://www.w3.org/TR/1999/REC-xpath-19991116/
 ---
+
+## Overview
+<!-- {: .-three-column} -->
+
+### What XPath is
+
+```bash
+//ul/li/a[@href]   # linked items
+```
+
+XPath 1.0 selects nodes in HTML and XML documents, including text and attributes. Browsers expose it through `document.evaluate()`.
+
+See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
+
+### CSS vs XPath
+
+| XPath                       | Selects      | CSS            |
+| --------------------------- | ------------ | -------------- |
+| `//div//a`                  | Descendant   | like `div a`   |
+| `//div/a`                   | Direct child | like `div > a` |
+| `//*[@class='card']`        | Class        | like `.card`   |
+| `//button[text()='Submit']` | Text         | —              |
+| `//a/..`                    | Parent       | —              |
+
+<!-- {: .-headers} -->
+
+CSS selects elements; XPath also reaches ancestors, text and attributes.
+
+See: [Comparison with CSS selectors](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Guides/Comparison_with_CSS_selectors)
+
+[CSS cheatsheet](./css)
+<!-- {: .-crosslink} -->
+
+## Finding nodes
+<!-- {: .-three-column} -->
+
+### text()
+
+```bash
+//button[text()='Submit']
+```
+
+Matches an element with `Submit` as a direct text child; `contains(., 'Go')` matches partial text.
+
+See: [Node tests](https://www.w3.org/TR/1999/REC-xpath-19991116/#node-tests)
+
+### contains()
+
+```bash
+//a[contains(@href, 'docs')]
+```
+
+Tests whether a string contains a substring.
+
+See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
+
+### By id
+
+```bash
+//*[@id='main']
+```
+
+Finds the element with `id="main"` anywhere in the tree.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ## Testing
 
@@ -84,7 +149,7 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `#id`                        | `//*[@id="id"]`                                          | [?](#predicates)        |
-| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*         |                         |
+| `.class`                     | `//*[@class="class"]` *...[kinda](#by-class)*            |                         |
 | `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
 | `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
 | `a[rel]`                     | `//a[@rel]`                                              |                         |
@@ -92,7 +157,7 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
 | `a[href$='pdf']`             | `//a[substring(@href, string-length(@href) - 2) = 'pdf']` | [?](#string-functions)  |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
-| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
+| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#by-class)*    |                         |
 
 <!-- {: .xp} -->
 
@@ -118,6 +183,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `h1 ~ #id`                   | `//h1/following-sibling::*[@id="id"]`                    |                         |
 
 <!-- {: .xp} -->
+
+See: [following-sibling axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#following-sibling)
 
 ### jQuery
 
@@ -147,7 +214,7 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
-### Class check
+### By class
 
 ```bash
 //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
@@ -278,6 +345,18 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 <!-- {: data-highlight="div; mod"} -->
 
 Use comparison and logic operators to make conditionals.
+
+See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
+
+### and / or
+
+```bash
+//div[@role='alert' and not(@hidden)]
+//a[@href or @name]
+```
+<!-- {: data-highlight="[@role='alert' and not(@hidden)]"} -->
+
+`and` binds tighter than `or`; group mixed conditions in parentheses.
 
 See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
@@ -441,9 +520,9 @@ boolean('x')            # => true
 
 See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#boolean)
 
-## Axes
+## Navigation
 
-### Using axes
+### Axes
 
 ```bash
 //ul/li                       # ul > li
@@ -532,6 +611,18 @@ There are other axes you can use.
 
 See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes)
 
+### Following
+
+```bash
+//h1/following::p           # later in the document
+//h1/following-sibling::p   # same parent, after h1
+```
+<!-- {: data-highlight="following::"} -->
+
+`following` reaches every node after the context node in document order; `following-sibling::` stays within the same parent.
+
+See: [following axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#following)
+
 ### Unions
 
 ```bash
@@ -558,7 +649,7 @@ count(//*)          # count all elements
 
 See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 
-### Find a parent
+### Parent
 
 #### Direct child
 
@@ -591,16 +682,99 @@ Works like jQuery's `$().closest('.box')`.
 
 See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self)
 
-### Attributes
+
+## Automation
+
+### Selenium (Python)
+
+```python
+from selenium.webdriver.common.by import By
+
+field = driver.find_element(
+    By.XPATH, "//input[@name='q']"
+)
+```
+<!-- {: data-highlight="By.XPATH"} -->
+
+`By.XPATH` takes any expression; `find_elements()` returns every match.
+
+See: [Locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/)
+
+### Selenium (Java)
+
+```java
+WebElement field = driver.findElement(
+  By.xpath("//input[@name='q']")
+);
+```
+<!-- {: data-highlight="By.xpath"} -->
+
+Java uses `By.xpath(...)` with the expression as a string.
+
+See: [Selenium Java locators](https://www.selenium.dev/documentation/webdriver/elements/locators/)
+
+### Playwright
+
+```python
+page.locator(
+    "xpath=//button[text()='Submit']"
+).click()
+```
+<!-- {: data-highlight="xpath="} -->
+
+Prefix an expression with `xpath=` when the syntax is not obvious.
+
+See: [Playwright locators](https://playwright.dev/docs/locators)
+
+### Relative vs absolute
+
+#### Relative
 
 ```bash
-//item[@price > 2*@discount]
+//div[@id='cart']//button
 ```
-<!-- {: data-highlight="@price > 2*@discount"} -->
+<!-- {: data-highlight="//div[@id='cart']"} -->
 
-Finds `<item>` whose price is more than twice its discount.
+#### Absolute
 
-See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
+```bash
+/html/body/div[2]/button
+```
+<!-- {: data-highlight="/html/body/div[2]"} -->
+
+Start from `//` so markup changes do not break the locator.
+
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
+
+### Class in a locator
+
+```bash
+//tr[contains(concat(' ', normalize-space(@class), ' '), ' total ')]
+```
+<!-- {: data-highlight="concat(' ',"} -->
+
+Wrap the class attribute in spaces so `total` matches one token, not `total-row`.
+
+See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
+
+### Waits
+
+```python
+wait = WebDriverWait(driver, 10)
+field = wait.until(
+    EC.presence_of_element_located(
+        (By.XPATH, "//input[@name='q']")
+    )
+)
+```
+<!-- {: data-highlight="WebDriverWait(driver, 10)"} -->
+
+Wait for a matching node instead of assuming it is already in the DOM.
+
+See: [Waits](https://www.selenium.dev/documentation/webdriver/waits/)
+
+[Selenium cheatsheet](./selenium)
+<!-- {: .-crosslink} -->
 
 ## References
 

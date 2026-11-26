@@ -24,7 +24,7 @@ links:
 ```
 <!-- {: data-highlight="contains(text(),"} -->
 
-**Matches buttons whose direct text contains `Go`.** For nested text, use `contains(., 'Go')`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
+**Matches buttons whose first direct text node contains `Go`.** For nested or split text, use `contains(., 'Go')`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Attribute
 <!-- {: .-snippet} -->
@@ -35,19 +35,6 @@ links:
 <!-- {: data-highlight="contains(@href,"} -->
 
 **Matches part of an attribute value.** The test is case-sensitive; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
-
-### Class token
-<!-- {: .-snippet} -->
-
-```bash
-//div[contains(
-  concat(' ', normalize-space(@class), ' '),
-  ' card '
-)]
-```
-<!-- {: data-highlight="normalize-space(@class)"} -->
-
-**Matches `card` as one class token.** The padding stops `card` from matching `discard`; see [normalize-space()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#normalize-space).
 
 ### Multiple values
 <!-- {: .-snippet} -->
@@ -91,4 +78,4 @@ links:
 ```
 <!-- {: data-highlight="contains(@class,"} -->
 
-**`.` reads visible text; `@class` reads the attribute.** Partial class matching also hits `save-outline`; see [location paths](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Paths).
+**`.` reads the element's string value, including hidden descendant text; `@class` reads the attribute.** Partial class matching also hits `save-outline`; for exact class tokens, see [select by class](./xpath-by-class).

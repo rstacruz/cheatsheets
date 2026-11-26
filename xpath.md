@@ -22,9 +22,9 @@ fragments:
   - "not(expr)"
 weight: -5
 updated: 2026-11-26
-last_verified_with: "XPath 1.0."
+last_verified_with: "XPath 1.0, Selenium 4.54.0, Playwright 1.65.1."
 intro: |
-  XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
+  XPath is a query language for selecting nodes in HTML and XML. This reference covers syntax, predicates, axes and automation locators.
 links:
   - title: XPath reference
     url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath
@@ -33,7 +33,6 @@ links:
 ---
 
 ## Overview
-<!-- {: .-three-column} -->
 
 ### What XPath is
 
@@ -51,13 +50,12 @@ See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 | --------------------------- | ------------ | -------------- |
 | `//div//a`                  | Descendant   | like `div a`   |
 | `//div/a`                   | Direct child | like `div > a` |
-| `//*[@class='card']`        | Class        | like `.card`   |
 | `//button[text()='Submit']` | Text         | —              |
 | `//a/..`                    | Parent       | —              |
 
 <!-- {: .-headers} -->
 
-CSS selects elements; XPath also reaches ancestors, text and attributes.
+CSS selects elements; XPath also reaches ancestors, text and attributes. CSS `.card` matches a class token, while XPath's `@class='card'` needs the whole attribute.
 
 See: [Comparison with CSS selectors](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Guides/Comparison_with_CSS_selectors)
 
@@ -70,20 +68,22 @@ See: [Comparison with CSS selectors](https://developer.mozilla.org/en-US/docs/We
 ### text()
 
 ```bash
-//button[text()='Submit']
+//h2[text()='Install']
 ```
+<!-- {: data-highlight="text()='Install'"} -->
 
-Matches an element with `Submit` as a direct text child; `contains(., 'Go')` matches partial text.
+Matches an element whose direct text is `Install`; `contains(., 'all')` matches partial text.
 
 See: [Node tests](https://www.w3.org/TR/1999/REC-xpath-19991116/#node-tests)
 
 ### contains()
 
 ```bash
-//a[contains(@href, 'docs')]
+//p[contains(., 'error')]
 ```
+<!-- {: data-highlight="contains(., 'error')"} -->
 
-Tests whether a string contains a substring.
+Tests whether an element's string value contains a substring.
 
 See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
 
@@ -92,10 +92,22 @@ See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 ```bash
 //*[@id='main']
 ```
+<!-- {: data-highlight="[@id='main']"} -->
 
 Finds the element with `id="main"` anywhere in the tree.
 
 See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
+### By attribute
+
+```bash
+//input[@type='submit']
+```
+<!-- {: data-highlight="[@type='submit']"} -->
+
+Predicates test an attribute's name and value with `[@name='value']`.
+
+See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
 
 ## Testing
 
@@ -118,7 +130,7 @@ const result = document.evaluate(
   '//ul/li', document, null,
   XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
 )
-result.snapshotLength     // => 3
+result.snapshotLength     // number of matches
 result.snapshotItem(0)    // first match
 ```
 <!-- {: data-highlight="document.evaluate"} -->
@@ -144,6 +156,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
+See: [Location paths](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Paths)
+
 ### Attribute selectors
 
 | CSS                          | XPath                                                    | ?                       |
@@ -161,6 +175,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Order selectors
 
 | CSS                          | XPath                                                    | ?                       |
@@ -174,11 +190,13 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Siblings
 
 | CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
+| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#axes)              |
 | `h1 + ul`                    | `//h1/following-sibling::*[1][self::ul]`                 |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::*[@id="id"]`                    |                         |
 
@@ -196,6 +214,8 @@ See: [following-sibling axis](https://developer.mozilla.org/en-US/docs/Web/XML/X
 | `$('span').text()`           | `//span/text()`                                          |                         |
 
 <!-- {: .xp} -->
+
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
 
 ### Other things
 
@@ -325,15 +345,6 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ```
 <!-- {: data-highlight="=; !=; >"} -->
 
-#### Logic
-
-```bash
-# Logic (and/or)
-//div[@id="head" and position()=2]
-//div[(h1 or p) and not(@hidden)]
-```
-<!-- {: data-highlight="and; or"} -->
-
 #### Arithmetic
 
 ```bash
@@ -344,7 +355,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ```
 <!-- {: data-highlight="div; mod"} -->
 
-Use comparison and logic operators to make conditionals.
+Use comparison and arithmetic operators to make conditionals; `and`/`or` live in the next card.
 
 See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
@@ -429,7 +440,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 name()                  # //*[starts-with(name(), 'h')]
 local-name()            # //*[local-name()='item']
 namespace-uri()
-id('item1')             # element with id="item1"
+id('item1')             # XML ID (DTD-typed)
 count()                 # //ul[count(li) > 2]
 position()              # //ol/li[position()=2]
 last()                  # //ul/li[last()]
@@ -449,7 +460,6 @@ true()
 false()
 lang('en')              # //p[lang('en')]
 ```
-<!-- {: data-highlight="not(expr); boolean(expr)"} -->
 
 See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Boolean-Functions)
 
@@ -489,7 +499,7 @@ string()                # string(//a/@href) => '/home'
 # href ends with .pdf
 //a[substring(@href, string-length(@href) - 2) = 'pdf']
 ```
-<!-- {: data-highlight="string-length(@href)"} -->
+<!-- {: data-highlight="substring(@href, string-length(@href) - 2) = 'pdf'"} -->
 
 XPath 1.0 has no `ends-with()`; use `substring()`. XPath 2.0 adds `ends-with()` and `matches()`.
 
@@ -503,7 +513,7 @@ floor(3.7)              # => 3
 ceiling(3.2)            # => 4
 round(3.5)              # => 4
 ```
-<!-- {: data-highlight="floor(3.7); ceiling(3.2); round(3.5)"} -->
+<!-- {: data-highlight="sum(//item/@price); floor(3.7); ceiling(3.2); round(3.5)"} -->
 
 See: [Number functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Number-Functions)
 
@@ -516,7 +526,6 @@ boolean(0)              # => false
 boolean('')             # => false
 boolean('x')            # => true
 ```
-<!-- {: data-highlight="string(2); number('3.14')"} -->
 
 See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#boolean)
 
@@ -619,7 +628,7 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 ```
 <!-- {: data-highlight="following::"} -->
 
-`following` reaches every node after the context node in document order; `following-sibling::` stays within the same parent.
+`following` reaches nodes after the context node in document order, excluding its descendants, attributes and namespace nodes; `following-sibling::` stays within the same parent.
 
 See: [following axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#following)
 
@@ -685,7 +694,9 @@ See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XP
 
 ## Automation
 
-### Selenium (Python)
+### Selenium and Playwright
+
+#### Python
 
 ```python
 from selenium.webdriver.common.by import By
@@ -696,11 +707,7 @@ field = driver.find_element(
 ```
 <!-- {: data-highlight="By.XPATH"} -->
 
-`By.XPATH` takes any expression; `find_elements()` returns every match.
-
-See: [Locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/)
-
-### Selenium (Java)
+#### Java
 
 ```java
 WebElement field = driver.findElement(
@@ -709,11 +716,7 @@ WebElement field = driver.findElement(
 ```
 <!-- {: data-highlight="By.xpath"} -->
 
-Java uses `By.xpath(...)` with the expression as a string.
-
-See: [Selenium Java locators](https://www.selenium.dev/documentation/webdriver/elements/locators/)
-
-### Playwright
+#### Playwright
 
 ```python
 page.locator(
@@ -722,9 +725,9 @@ page.locator(
 ```
 <!-- {: data-highlight="xpath="} -->
 
-Prefix an expression with `xpath=` when the syntax is not obvious.
+Selenium takes `By.XPATH` (Java: `By.xpath`); Playwright accepts `xpath=` or auto-detects a leading `//`.
 
-See: [Playwright locators](https://playwright.dev/docs/locators)
+See: [Selenium locators](https://www.selenium.dev/documentation/webdriver/elements/locators/), [Playwright locators](https://playwright.dev/docs/locators)
 
 ### Relative vs absolute
 
@@ -757,23 +760,10 @@ Wrap the class attribute in spaces so `total` matches one token, not `total-row`
 
 See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
 
-### Waits
-
-```python
-wait = WebDriverWait(driver, 10)
-field = wait.until(
-    EC.presence_of_element_located(
-        (By.XPATH, "//input[@name='q']")
-    )
-)
-```
-<!-- {: data-highlight="WebDriverWait(driver, 10)"} -->
-
-Wait for a matching node instead of assuming it is already in the DOM.
-
-See: [Waits](https://www.selenium.dev/documentation/webdriver/waits/)
-
 [Selenium cheatsheet](./selenium)
+<!-- {: .-crosslink} -->
+
+[XPath in Selenium cheatsheet](./xpath-selenium)
 <!-- {: .-crosslink} -->
 
 ## References

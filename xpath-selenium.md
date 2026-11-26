@@ -4,7 +4,7 @@ link_title: XPath in Selenium
 subtitle: Locate and wait for elements
 category: JavaScript testing
 layout: snippet
-last_verified_with: "Selenium 4.53.0, Playwright 1.64.1."
+last_verified_with: "Selenium 4.54.0, Playwright 1.65.1."
 updated: 2026-11-26
 links:
   - title: Selenium locator strategies
@@ -54,7 +54,7 @@ page.locator(
 ```
 <!-- {: data-highlight="xpath="} -->
 
-**Prefixes the expression with `xpath=`.** Playwright treats unprefixed strings as CSS; see [locators](https://playwright.dev/docs/locators).
+**Prefixes the expression with `xpath=`.** The prefix is optional: Playwright auto-detects strings starting with `//` or `..` as XPath; see [locators](https://playwright.dev/docs/locators).
 
 ### Relative vs absolute
 <!-- {: .-snippet} -->
@@ -92,6 +92,7 @@ page.locator(
 <!-- {: .-snippet} -->
 
 ```python
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import (
     WebDriverWait,
 )

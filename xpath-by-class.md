@@ -41,7 +41,7 @@ links:
   ' active '
 )]
 ```
-<!-- {: data-highlight="active"} -->
+<!-- {: data-highlight="card; active"} -->
 
 **Requires both tokens in any order.** Chained predicates each perform a token test; see [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).
 
@@ -53,7 +53,7 @@ links:
 ```
 <!-- {: data-highlight="contains(@class, 'card')"} -->
 
-**Matches a substring of the class attribute.** A class like `card-header` also matches; use the token form for exact classes; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
+**Matches a substring of the class attribute.** A class like `card-header` also matches, so use the token form for exact classes; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Starts with
 <!-- {: .-snippet} -->
@@ -63,7 +63,7 @@ links:
 ```
 <!-- {: data-highlight="starts-with(@class,"} -->
 
-**Matches classes at the start of the attribute.** Useful for BEM-style prefixes; see [starts-with()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#starts-with).
+**Matches when the class attribute starts with `card-`.** Useful for BEM-style prefixes; see [starts-with()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#starts-with).
 
 ### Class plus position
 <!-- {: .-snippet} -->

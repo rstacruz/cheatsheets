@@ -42,7 +42,7 @@ links:
 ```bash
 //div[@id='a' or @id='b' and @hidden]
 ```
-<!-- {: data-highlight="' and @hidden"} -->
+<!-- {: data-highlight="@id='b' and @hidden"} -->
 
 **`and` binds tighter than `or`.** This reads as `a or (b and hidden)`; see [booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans).
 

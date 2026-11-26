@@ -33,21 +33,21 @@ test('every file logo exists under public/', () => {
   }
 })
 
-test('every tiered and featured sheet has a logo', async () => {
+// Tiers are broad review cadences, not a logo shortlist. The homepage's
+// featured cards are the set that always renders a mark.
+test('every featured sheet has a logo', async () => {
   const pages = await rootPages()
-  const needsLogo = pages.filter(
+  const featured = pages.filter(
     (page) =>
-      isListed(page) &&
-      (page.frontmatter.tier ||
-        page.frontmatter.tags?.some((tag) => tag === 'Featured'))
+      isListed(page) && page.frontmatter.tags?.some((tag) => tag === 'Featured')
   )
 
-  expect(needsLogo.length).toBeGreaterThan(0)
+  expect(featured.length).toBeGreaterThan(0)
 
-  for (const page of needsLogo) {
+  for (const page of featured) {
     expect(
       sheetLogos[page.slug],
-      `${page.slug} is tiered/featured but has no logo`
+      `${page.slug} is featured but has no logo`
     ).toBeDefined()
   }
 })

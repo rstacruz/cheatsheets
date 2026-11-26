@@ -4,8 +4,6 @@
   align-items: center;
   justify-content: center;
   flex: none;
-  width: var(--logo-size);
-  height: var(--logo-size);
 }
 
 .logo-tile > svg,
@@ -16,7 +14,15 @@
   height: auto;
 }
 
-/* Image marks that carry their own canvas get rounded corners. */
-.logo-tile > img {
-  border-radius: 22%;
+/* Dark artwork needs flipping when the surface itself is dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .logo-tile--mono > svg,
+  :root:not([data-theme='light']) .logo-tile--mono > img {
+    filter: invert(1);
+  }
+}
+
+:root[data-theme='dark'] .logo-tile--mono > svg,
+:root[data-theme='dark'] .logo-tile--mono > img {
+  filter: invert(1);
 }

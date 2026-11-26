@@ -11,10 +11,14 @@
  * `tier` is a review field and never drives rendering.
  */
 
-export type SheetLogo =
+export type SheetLogo = (
   | { kind: 'set'; set: 'logos' | 'simple-icons' | 'devicon'; name: string }
   | { kind: 'glyph'; set: 'icon-park-outline'; name: string }
   | { kind: 'file'; src: string }
+) & {
+  /** Dark artwork on a transparent canvas; inverted in dark mode. */
+  mono?: true
+}
 
 export const sheetLogos: Record<string, SheetLogo> = {
   bash: { kind: 'set', set: 'logos', name: 'bash-icon' },
@@ -29,17 +33,17 @@ export const sheetLogos: Record<string, SheetLogo> = {
   vim: { kind: 'set', set: 'logos', name: 'vim' },
   xpath: { kind: 'glyph', set: 'icon-park-outline', name: 'code' },
   'aws-s3': { kind: 'set', set: 'logos', name: 'aws-s3' },
-  codex: { kind: 'set', set: 'logos', name: 'codex' },
+  codex: { kind: 'set', set: 'logos', name: 'codex', mono: true },
   curl: { kind: 'set', set: 'simple-icons', name: 'curl' },
   datetime: { kind: 'glyph', set: 'icon-park-outline', name: 'calendar' },
   docker: { kind: 'set', set: 'logos', name: 'docker-icon' },
-  herdr: { kind: 'file', src: '/assets/logos/herdr.svg' },
-  'herdr-agents': { kind: 'file', src: '/assets/logos/herdr.svg' },
-  'herdr-keys': { kind: 'file', src: '/assets/logos/herdr.svg' },
+  herdr: { kind: 'file', src: '/assets/logos/herdr.svg', mono: true },
+  'herdr-agents': { kind: 'file', src: '/assets/logos/herdr.svg', mono: true },
+  'herdr-keys': { kind: 'file', src: '/assets/logos/herdr.svg', mono: true },
   'hermes-cli': { kind: 'set', set: 'simple-icons', name: 'hermes' },
   'http-status': { kind: 'glyph', set: 'icon-park-outline', name: 'info' },
   markdown: { kind: 'set', set: 'simple-icons', name: 'markdown' },
-  mise: { kind: 'file', src: '/assets/logos/mise.svg' },
+  mise: { kind: 'file', src: '/assets/logos/mise.svg', mono: true },
   mysql: { kind: 'set', set: 'logos', name: 'mysql-icon' },
   npm: { kind: 'set', set: 'logos', name: 'npm-icon' },
   opencode: { kind: 'set', set: 'simple-icons', name: 'opencode' },

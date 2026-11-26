@@ -5,6 +5,15 @@ category: JavaScript testing
 last_verified_with: "Mocha 12.0.3."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Mocha](https://mochajs.org/) is a JavaScript test runner for BDD and TDD styles. This sheet covers async tests, hooks, and assertions.
+links:
+  - title: Mocha documentation
+    url: https://mochajs.org/
+  - title: BDD interface
+    url: https://mochajs.org/interfaces/bdd/
+  - title: Asynchronous code
+    url: https://mochajs.org/features/asynchronous-code/
 ---
 
 ### BDD

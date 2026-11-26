@@ -5,6 +5,14 @@ category: Ruby
 last_verified_with: "Minitest 6.1.0, minitest-mock 5.27.0, minitest-reporters 1.8.0."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Minitest](https://github.com/minitest/minitest) is a lightweight Ruby testing
+  library. This sheet covers spec syntax, assertions, mocks, and reporters.
+links:
+  - title: Minitest on GitHub
+    url: https://github.com/minitest/minitest
+  - title: Minitest API documentation
+    url: https://docs.seattlerb.org/minitest/
 ---
 
 ### Usage

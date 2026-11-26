@@ -337,6 +337,7 @@ item.valid?
 item.invalid?
 
 class Person < ActiveRecord::Base
+
   # Presence
   validates :name,     presence: true
 
@@ -355,6 +356,7 @@ See: [Validations](https://guides.rubyonrails.org/active_record_validations.html
 
 ```ruby
 class Person < ActiveRecord::Base
+
   # Unique
   validates :slug,     uniqueness: true
   validates :slug,     uniqueness: { case_sensitive: false }
@@ -375,6 +377,7 @@ See: [Uniqueness](https://guides.rubyonrails.org/active_record_validations.html#
 
 ```ruby
 class Person < ActiveRecord::Base
+
   # Length
   validates :name,     length: { minimum: 2 }
   validates :bio,      length: { maximum: 500 }
@@ -398,6 +401,7 @@ See: [Length](https://guides.rubyonrails.org/active_record_validations.html#leng
 
 ```ruby
 class Person < ActiveRecord::Base
+
   # Include/exclude
   validates :gender,   inclusion: %w(male female)
   validates :gender,   inclusion: { in: %w(male female) }
@@ -419,6 +423,7 @@ See: [Inclusion and exclusion](https://guides.rubyonrails.org/active_record_vali
 
 ```ruby
 class Person < ActiveRecord::Base
+
   # Validate the associated records to ensure they're valid as well
   has_many :books
   validates_associated :books
@@ -432,6 +437,7 @@ See: [validates-associated](https://guides.rubyonrails.org/active_record_validat
 
 ```ruby
 class Person < ActiveRecord::Base
+
   # Multiple
   validates :login, :email, presence: true
 
@@ -439,6 +445,7 @@ class Person < ActiveRecord::Base
   validates :description, presence: true, if: :published?
   validates :description, presence: true, if: lambda { |obj| .. }
   validates :title, presence: true, on: :save
+
   # :save | :create | :update
 end
 ```

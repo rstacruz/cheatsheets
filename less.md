@@ -5,6 +5,15 @@ subtitle: CSS preprocessor
 last_verified_with: "Less 4.9.1."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Less](https://lesscss.org/) is a CSS preprocessor that extends CSS with
+  variables, mixins, and functions. This sheet covers built-in functions and
+  conditional rules.
+links:
+  - title: Less documentation
+    url: https://lesscss.org/
+  - title: Functions reference
+    url: https://lesscss.org/functions/
 ---
 
 ### Functions

@@ -1,10 +1,19 @@
 ---
 title: minimist
 subtitle: CLI argument parser
-category: Node.js
+category: Node.js libraries
 last_verified_with: "minimist 1.2.8."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [minimist](https://github.com/minimistjs/minimist) parses Node.js command-line
+  arguments into an object. This sheet covers options, aliases, and parsing
+  results.
+links:
+  - title: minimist on GitHub
+    url: https://github.com/minimistjs/minimist
+  - title: minimist methods
+    url: https://github.com/minimistjs/minimist/blob/main/README.md#methods
 ---
 
 ### Usage

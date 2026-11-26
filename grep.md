@@ -5,9 +5,14 @@ category: CLI
 updated: 2026-11-23
 last_verified_with: "GNU grep 3.12."
 tier: t3
+intro: |
+  [GNU grep](https://www.gnu.org/software/grep/) searches files with regular expressions. This sheet covers options, patterns, and common examples.
+links:
+  - title: GNU grep manual
+    url: https://www.gnu.org/software/grep/manual/
+  - title: grep(1) reference
+    url: https://www.gnu.org/software/grep/manual/grep.html
 ---
-## Usage
-
 ## Usage
 
 ### Basic usage
@@ -25,7 +30,6 @@ See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
 #### Case insensitive
 
 ```bash
-# match any line in foo.txt that contains "bar"
 grep -i bar foo.txt
 ```
 <!-- {: data-highlight="-i"} -->
@@ -33,8 +37,6 @@ grep -i bar foo.txt
 #### Alternation
 
 ```bash
-# match any line in bar.txt that contains
-# either "foo" or "oof"
 grep -E "foo|oof" bar.txt
 ```
 <!-- {: data-highlight="foo|oof"} -->
@@ -42,8 +44,6 @@ grep -E "foo|oof" bar.txt
 #### Extract URLs
 
 ```bash
-# match anything that resembles a URL in
-# foo.txt and only print out the match
 grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
 ```
 <!-- {: data-highlight="-oE"} -->
@@ -51,22 +51,17 @@ grep -oE "https?://((\w+[_-]?)+\.?)+" foo.txt
 #### Pipelines
 
 ```bash
-# match any line that contains "export" in
-# .bash_profile, pipe to another grep that
-# matches any of the first set of matches
-# containing "PATH"
 grep "export" .bash_profile | grep "PATH"
 ```
 
 #### Follow and filter
 
 ```bash
-# follow the tail of server.log, pipe to grep
-# and print out any line that contains "error"
-# and include 5 lines of context
 tail -f server.log | grep -iC 5 error
 ```
 <!-- {: data-highlight="-iC"} -->
+
+Follows the log with five context lines around each match.
 
 See: [Usage examples](https://www.gnu.org/software/grep/manual/grep.html#Usage)
 

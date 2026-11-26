@@ -40,7 +40,7 @@ export const store = configureStore({
   }
 })
 ```
-<!-- {: data-highlight="configureStore"} -->
+<!-- {: data-highlight="configureStore({"} -->
 
 `configureStore` combines slice reducers, adds thunk middleware, and enables DevTools and development checks.
 
@@ -87,7 +87,7 @@ const counterSlice = createSlice({
 export const { incremented, added } = counterSlice.actions
 export default counterSlice.reducer
 ```
-<!-- {: data-highlight="createSlice"} -->
+<!-- {: data-highlight="createSlice({"} -->
 
 `createSlice` generates the action creators and types. Reducers may mutate `state`; Immer keeps it immutable.
 
@@ -107,7 +107,7 @@ export const fetchUser = createAsyncThunk(
   }
 )
 ```
-<!-- {: data-highlight="createAsyncThunk"} -->
+<!-- {: data-highlight="createAsyncThunk("} -->
 
 The thunk dispatches `pending`, `fulfilled`, and `rejected` actions; `rejectWithValue()` sets the rejected payload.
 
@@ -148,7 +148,7 @@ export const selectTotal = createSelector([selectItems], (items) =>
   items.reduce((total, item) => total + item.price, 0)
 )
 ```
-<!-- {: data-highlight="createSelector"} -->
+<!-- {: data-highlight="createSelector(["} -->
 
 `createSelector` memoizes derived values, so components skip re-rendering when inputs are unchanged.
 
@@ -280,7 +280,7 @@ function Counter () {
   )
 }
 ```
-<!-- {: data-highlight="useAppSelector"} -->
+<!-- {: data-highlight="useAppSelector(("} -->
 
 Select the smallest value you need; `useSelector` re-renders when the returned reference changes.
 

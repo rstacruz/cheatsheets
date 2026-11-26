@@ -41,6 +41,7 @@ See: [Advanced integration using Railties](https://guides.rubyonrails.org/plugin
 module NewPlugin
   class Railtie < Rails::Railtie
     initializer "newplugin.initialize" do |app|
+
       # Subscribe to Rails notifications: controllers, AR, etc.
       ActiveSupport::Notifications.subscribe do |*args|
         event = ActiveSupport::Notifications::Event.new(*args)

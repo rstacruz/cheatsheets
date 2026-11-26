@@ -363,6 +363,7 @@ dataset.sql # "SELECT * FROM items"
 dataset.delete_sql # "DELETE FROM items"
 dataset.where(:name => 'sequel').exists
 # "EXISTS ( SELECT * FROM items WHERE name = 'sequel' )"
+
 dataset.columns #=> array of columns in the result set, does a SELECT
 DB.schema(:items)
 # => [[:id, {:type=>:integer, ...}],

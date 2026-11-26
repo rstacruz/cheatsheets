@@ -3,9 +3,9 @@ title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
 category: Internationalization
 tags: [Featured]
-updated: 2026-11-25
-tier: t3
-last_verified_with: "ECMA-402 13th edition."
+tier: t2
+updated: 2026-11-26
+last_verified_with: "Node 26.13.1 (full ICU)."
 fragments:
   - "DateTimeFormat"
   - "format(date)"
@@ -24,7 +24,8 @@ fragments:
   - "'Asia/Tokyo'"
   - "toLocaleDateStr"
 intro: |
-  `Intl.DateTimeFormat` is used to format date strings in JavaScript. Examples use a UTC `date`, formatted in America/Los_Angeles with the `en-US` locale.
+  `Intl.DateTimeFormat` formats a date for a locale, time zone, and calendar.
+  This sheet covers the options, the output parts, and the parsing traps.
 links:
   - title: Intl.DateTimeFormat
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
@@ -34,23 +35,12 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
 ---
 
-## Usage
+## Formatting a date
 
-### Parsing
-
-#### As local time
-
-```js
-const date = new Date(2012, 11, 20, 3, 0, 0)
-```
-<!-- {: data-highlight="new Date"} -->
-
-#### As UTC time
+### Basic usage
 
 ```js
 const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
-```
-<!-- {: data-highlight="Date.UTC"} -->
 
 new Intl.DateTimeFormat().format(date)
 // → '12/19/2012'
@@ -73,15 +63,13 @@ format('en-GB')  // → '20/12/2012'
 format('de-DE')  // → '20.12.2012'
 format('ja-JP')  // → '2012/12/20'
 ```
-<!-- {: data-highlight="'2018-04-20T12:00:00Z'"} -->
+<!-- {: data-highlight="'en-US'; 'en-GB'; 'de-DE'; 'ja-JP'"} -->
 
 Field order, separators, and digits come from CLDR data, so the same `Date` prints differently per locale. Unsupported tags fall back to the runtime default.
 
-See: [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
-### Formatting dates
-
-#### Default formatting
+### Locale arrays
 
 ```js
 new Intl.DateTimeFormat(['xx-YY', 'en-US'], {
@@ -90,7 +78,7 @@ new Intl.DateTimeFormat(['xx-YY', 'en-US'], {
 }).format(date)
 // → 'December 20, 2012'
 ```
-<!-- {: data-highlight="new Intl.DateTimeFormat()"} -->
+<!-- {: data-highlight="['xx-YY', 'en-US']"} -->
 
 The first supported tag wins, so pass the visitor's preferences in order.
 
@@ -99,10 +87,7 @@ See: [locale negotiation](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 ### Options without a locale
 
 ```js
-console.log(new Intl.DateTimeFormat('en-GB').format(date))
-// → '19/12/2012' (date-first)
-```
-<!-- {: data-highlight="'en-GB'"} -->
+const opts = { dateStyle: 'long', timeZone: 'UTC' }
 
 new Intl.DateTimeFormat('default', opts).format(date)
 // → 'December 20, 2012'
@@ -332,9 +317,6 @@ new Intl.DateTimeFormat('en-GB', {
 }).format(date)
 // → '20/12/2012'
 ```
-<!-- {: data-highlight="timeZone"} -->
-
-See: [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
 
 #### ISO output
 
@@ -342,7 +324,7 @@ See: [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 date.toISOString()
 // → '2012-12-20T03:00:00.000Z'
 ```
-<!-- {: data-highlight="hour: 'numeric'; minute: 'numeric'; second: 'numeric'"} -->
+<!-- {: data-highlight="toISOString"} -->
 
 There are no `YYYY-MM-DD` pattern tokens. Pick a locale whose order matches, or use `toISOString()` for machine-readable UTC.
 
@@ -356,13 +338,9 @@ See: [DateTimeFormat() constructor](https://developer.mozilla.org/en-US/docs/Web
 new Date('2012-12-20').toLocaleDateString('en-US')
 // → '12/19/2012'
 ```
-<!-- {: data-highlight="year: 'numeric'; month: 'numeric'; day: 'numeric'"} -->
+<!-- {: data-highlight="'2012-12-20'"} -->
 
-To specify options without a locale, use `'default'` as a locale.
-
-See: [Using options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat#using_options)
-
-### All options
+#### With a time
 
 ```js
 new Date('2012-12-20T00:00:00').toLocaleDateString('en-US')
@@ -456,8 +434,18 @@ new Intl.DateTimeFormat('en-US').format(new Date('nope'))
 // RangeError: Invalid time value
 ```
 
-See: [DateTimeFormat components table](https://tc39.es/ecma402/#table-datetimeformat-components)
+Bad zones throw when the formatter is built; invalid dates throw on `format()`. Check `Number.isNaN(date.getTime())` for untrusted input.
 
 See: [Exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#exceptions)
 
-- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat>
+## Also see
+
+<!-- {: .-one-column} -->
+
+- [Date as YYYY-MM-DD](./intl-datetime-iso)
+- [Date as DD/MM/YYYY](./intl-datetime-dd-mm-yyyy)
+- [Date in another time zone](./intl-datetime-timezone)
+- [24-hour time](./intl-datetime-24-hour)
+- [Date in the user's locale](./intl-datetime-visitor-locale)
+- [Get the month name](./intl-datetime-month-name)
+- [Parse a date string](./intl-datetime-parse)

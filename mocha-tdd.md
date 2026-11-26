@@ -5,6 +5,14 @@ category: JavaScript testing
 last_verified_with: "Mocha 12.0.3."
 updated: 2026-11-25
 tier: t3
+intro: |
+  Mocha's TDD interface defines `suite`, `test`, `setup`, and `teardown` for
+  JavaScript tests. This sheet covers async tests and Chai assertions.
+links:
+  - title: Mocha TDD interface
+    url: https://mochajs.org/interfaces/tdd/
+  - title: Mocha documentation
+    url: https://mochajs.org/
 ---
 
 ### TDD

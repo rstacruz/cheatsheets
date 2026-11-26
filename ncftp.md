@@ -5,6 +5,15 @@ category: Networking
 last_verified_with: "NcFTP Client 3.3.0."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [ncftp](https://www.ncftp.com/ncftp/) is an interactive FTP client with bookmarks and recursive transfers. This sheet covers bookmarking and bulk uploads or downloads.
+links:
+  - title: NcFTP Client
+    url: https://www.ncftp.com/ncftp/
+  - title: ncftp manual
+    url: https://www.ncftp.com/ncftp/doc/ncftp.html
+  - title: ncftpput manual
+    url: https://www.ncftp.com/ncftp/doc/ncftpput.html
 ---
 
 ### Bookmarking

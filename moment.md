@@ -3,7 +3,7 @@ title: Moment.js
 seo_title: Moment.js cheatsheet — format, parse, add
 description: "Moment.js format: parsing, add, subtract, time zones and duration. Date reference."
 subtitle: Date manipulation library
-category: JavaScript libraries
+category: Date libraries
 updated: 2026-11-25
 last_verified_with: "Moment.js 2.31.0, Moment Timezone 0.6.6."
 tier: t3
@@ -69,7 +69,7 @@ m.unix()                // seconds
 m.valueOf()             // milliseconds
 ```
 
-<!-- {: data-highlight="m.format; m.fromNow; m.diff"} -->
+<!-- {: data-highlight="m.format; m.from; m.diff"} -->
 
 `diff()` truncates toward zero; add `true` as a third argument for a float.
 

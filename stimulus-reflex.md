@@ -305,6 +305,7 @@ class CommentReflex < ApplicationReflex
 
   def create
     # ...
+
   end
 
   private

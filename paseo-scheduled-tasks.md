@@ -22,6 +22,8 @@ fragments:
   - "schedule ls"
   - "schedule pause"
   - "resume <id>"
+intro: |
+  Paseo schedules run coding agents on a cron or interval cadence. This sheet covers creating, inspecting, pausing, and resuming scheduled tasks from the CLI.
 links:
   - title: Paseo schedules CLI
     url: https://paseo.sh/docs/schedules-cli

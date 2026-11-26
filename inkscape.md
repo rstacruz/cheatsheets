@@ -6,6 +6,13 @@ tags: [WIP]
 updated: 2026-11-25
 tier: t3
 last_verified_with: "Inkscape 1.4.4."
+intro: |
+  [Inkscape](https://inkscape.org/) is a vector graphics editor. This sheet covers keyboard shortcuts for the canvas, selector, and node tools.
+links:
+  - title: Inkscape
+    url: https://inkscape.org/
+  - title: Inkscape keyboard shortcuts
+    url: https://inkscape.org/doc/keys.html
 ---
 
 ## Shortcuts

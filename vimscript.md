@@ -804,7 +804,7 @@ hi bTag guifg=blue
 
 See: [`:help syn-region`](https://vimhelp.org/syntax.txt.html#%3Asyn-region)
 
-### Syntax
+### Syntax rules
 
 ```vim
 syn match :name ":regex" :flags

@@ -5,6 +5,14 @@ subtitle: Lightweight scripting language
 last_verified_with: "Lua 5.1.5, Lua 5.4.9."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Lua](https://www.lua.org/) is a lightweight scripting language. This sheet
+  covers syntax, tables, metatables, operators, and standard library functions.
+links:
+  - title: Lua 5.4 reference manual
+    url: https://www.lua.org/manual/5.4/manual.html
+  - title: Lua 5.1 reference manual
+    url: https://www.lua.org/manual/5.1/manual.html
 ---
 
 ## Basic examples

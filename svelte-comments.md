@@ -9,7 +9,7 @@ updated: 2026-11-26
 links:
   - title: Template syntax
     url: https://svelte.dev/docs/svelte/basic-markup
-  - title: Component format
+  - title: Svelte files
     url: https://svelte.dev/docs/svelte/svelte-files
 ---
 

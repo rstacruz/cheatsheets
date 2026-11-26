@@ -4,7 +4,7 @@ link_title: VuePress Google Analytics
 subtitle: Track page views with GA4
 category: JavaScript libraries
 layout: snippet
-last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-google-analytics 2.0.0-rc.138."
+last_verified_with: "VuePress 2.0.0-rc.33, @vuepress/plugin-google-analytics 2.0.0-rc.142."
 updated: 2026-11-27
 links:
   - title: Google Analytics plugin

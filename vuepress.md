@@ -66,7 +66,7 @@ pnpm docs:dev
 ```
 <!-- {: data-highlight="pnpm create vuepress"} -->
 
-Scaffolds `docs/`, installs dependencies, and can add a GitHub Pages workflow. The starter ships its own theme config; use the manual install above to follow these examples unchanged.
+Scaffolds `docs/`, installs dependencies, and can add a GitHub Pages workflow. The starter ships its own theme config; use the manual install route to follow these examples unchanged.
 
 See: [Getting started](https://v2.vuepress.vuejs.org/guide/getting-started.html)
 
@@ -391,7 +391,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="hostname"} -->
 
-A `hostname` enables the theme's SEO and sitemap plugins. The build writes `sitemap.xml` and `robots.txt` into the output directory.
+A `hostname` enables the theme's SEO and sitemap plugins. The SEO plugin writes `robots.txt`; the sitemap plugin writes `sitemap.xml`.
 
 See: [Default theme plugins](https://ecosystem.vuejs.press/themes/default/plugin.html)
 

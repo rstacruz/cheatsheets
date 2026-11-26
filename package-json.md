@@ -1,7 +1,7 @@
 ---
 title: package.json
 subtitle: Manifest for npm packages
-category: Node.js
+category: Node.js libraries
 prism_languages: [json]
 updated: 2026-11-25
 last_verified_with: "npm 12.2.3."

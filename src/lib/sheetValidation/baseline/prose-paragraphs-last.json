@@ -37,6 +37,7 @@
   "goby#Lazy enumeration",
   "goby#`Diggable`",
   "ie#IE polyfills",
+  "js-speech#Voices",
   "jscoverage#package.json",
   "mocha-blanket#Quickstart guide",
   "mocha-blanket#Travis + coveralls.io support",

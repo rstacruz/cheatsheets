@@ -47,6 +47,8 @@ export const categories = [
   'Build tools',
   'SvelteKit',
   'Node.js',
+  'Node.js libraries',
+  'Web frameworks',
   'CSS',
   'HTML',
   'Markup',

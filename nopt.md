@@ -1,7 +1,7 @@
 ---
 title: Nopt
 subtitle: Option parsing library
-category: Node.js
+category: Node.js libraries
 last_verified_with: "nopt 10.0.1."
 updated: 2026-11-25
 tier: t3

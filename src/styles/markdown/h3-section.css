@@ -26,7 +26,6 @@
     @apply bg-card;
     @apply overflow-x-auto;
     @apply rounded-2xl;
-    @apply shadow-xs;
     padding: 4px;
     @apply [&>pre]:m-0 [&>pre]:p-4;
     border: solid 1px var(--border);

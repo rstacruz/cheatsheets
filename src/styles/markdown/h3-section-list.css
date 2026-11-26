@@ -8,6 +8,7 @@
 
   .h3-section-list {
     @apply px-0 gap-6 lg:gap-8 my-0;
+    filter: drop-shadow(var(--shadow-xs));
   }
 
   .h3-section {

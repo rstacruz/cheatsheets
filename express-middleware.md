@@ -57,7 +57,7 @@ app.get('/admin', auth, (req, res) => {
 ```
 <!-- {: data-highlight="auth"} -->
 
-**Returns early instead of calling `next()`.** Pass it as a route handler, or mount it with `app.use('/admin', auth)`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
+**Sends a 401 unless the request carries an `authorization` header.** Pass it as a route handler, or mount it with `app.use('/admin', auth)`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
 
 ### Order of execution
 <!-- {: .-snippet} -->

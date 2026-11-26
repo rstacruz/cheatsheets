@@ -18,8 +18,10 @@ links:
 ## Routing
 <!-- {: .-snippets} -->
 
-### users.js
+### Create a router
 <!-- {: .-snippet} -->
+
+#### users.js
 
 ```js
 import { Router } from 'express'
@@ -35,8 +37,10 @@ export default router
 
 **Groups related routes in their own file.** `Router()` returns middleware with the same routing methods as `app`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
 
-### app.js
+### Mount the router
 <!-- {: .-snippet} -->
+
+#### app.js
 
 ```js
 import users from './users.js'
@@ -50,6 +54,8 @@ app.use('/users', users)
 ### Router-level middleware
 <!-- {: .-snippet} -->
 
+#### users.js
+
 ```js
 router.use((req, res, next) => {
   console.log('users', req.method)
@@ -58,4 +64,4 @@ router.use((req, res, next) => {
 ```
 <!-- {: data-highlight="router.use"} -->
 
-**Runs for this router only.** Mount it inside the module so the guard stays out of `app.js`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
+**Runs for this router only.** Mount it inside `users.js` so `app.js` only mounts. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).

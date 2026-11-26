@@ -40,17 +40,19 @@ npm i -D typescript @types/express @types/node
 
 ```ts
 import express from 'express'
+import type { Request, Response } from 'express'
 
 const app = express()
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.json({ ok: true })
 })
 
 app.listen(3000)
 ```
+<!-- {: data-highlight="Request; Response"} -->
 
-**Types the handlers from the import.** Install the types once and every `app.get` callback is checked. See [@types/express](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/express).
+**Types the handlers explicitly.** The types come from `@types/express`; install once and every callback is checked. See [@types/express](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/express).
 
 ### Route parameters
 <!-- {: .-snippet} -->

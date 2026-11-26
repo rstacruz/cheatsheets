@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 app.listen(3000)
 ```
 
-Express 5 requires Node 18 or newer. The static examples use `import.meta.dirname`, which needs Node 20.11 or newer. Examples use ESM; CommonJS uses `require('express')`.
+Express 5 requires Node 18 or newer. Examples use ESM; CommonJS uses `require('express')`.
 
 See: [Hello world](https://expressjs.com/en/starter/hello-world.html)
 
@@ -156,6 +156,21 @@ Repeating a key gives an array. Express 5's default `simple` parser leaves `?use
 
 See: [req.query](https://expressjs.com/en/5x/api/request/#reqquery)
 
+### Request headers
+
+```js
+app.get('/users/:id', (req, res) => {
+  const auth = req.get('authorization')
+  const host = req.headers.host
+  res.json({ auth, host })
+})
+```
+<!-- {: data-highlight="req.get"} -->
+
+`req.get()` is case-insensitive; `req.headers` holds the lowercase header map.
+
+See: [req.get](https://expressjs.com/en/5x/api/request/#reqget)
+
 ### Router modules
 
 #### users.js
@@ -199,7 +214,7 @@ app.use(logger)
 ```
 <!-- {: data-highlight="next()"} -->
 
-Call `next()` to continue or send a response. Falling through to neither hangs the request.
+Call `next()` to continue or send a response. A middleware that neither responds nor calls `next()` hangs the request.
 
 See: [Writing middleware](https://expressjs.com/en/5x/guide/writing-middleware.html)
 
@@ -252,7 +267,7 @@ app.use('/assets', express.static('dist'))
 ```
 <!-- {: data-highlight="'/assets'"} -->
 
-An absolute root keeps the directory correct when the app starts from another cwd; relative roots resolve against `process.cwd()`.
+An absolute root keeps the directory correct when the app starts from another cwd; relative roots resolve against `process.cwd()`. `import.meta.dirname` needs Node 20.11 or newer.
 
 See: [Serving static files](https://expressjs.com/en/starter/static-files.html)
 
@@ -399,9 +414,8 @@ See: [Error handling](https://expressjs.com/en/5x/guide/error-handling.html)
 - [Express router cheatsheet](./express-router)
 - [Serve static files cheatsheet](./express-static-files)
 - [Express TypeScript cheatsheet](./express-typescript)
+- [Hono](https://hono.dev) _(hono.dev)_
 <!-- {: .-also-see} -->
 
 [Fastify cheatsheet](./fastify)
 <!-- {: .-crosslink} -->
-
-[Hono](https://hono.dev)

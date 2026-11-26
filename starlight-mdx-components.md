@@ -1,5 +1,5 @@
 ---
-title: How to use Starlight components in Markdown
+title: How to use Starlight components in MDX
 link_title: Starlight MDX components
 subtitle: Steps, tabs and trees
 category: JavaScript libraries

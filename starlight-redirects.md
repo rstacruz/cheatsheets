@@ -41,4 +41,4 @@ redirects: {
 ```
 <!-- {: data-highlight="'/setup/'"} -->
 
-**Maps every old path in one object.** Keys and values are site-root paths, so each starts with `/`; see [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).
+**Maps every old path in one object.** Keys are site-root paths and values are paths or absolute URLs; see [Astro redirects](https://docs.astro.build/en/guides/routing/#redirects).

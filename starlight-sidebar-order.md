@@ -41,7 +41,7 @@ sidebar: [
 ```
 <!-- {: data-highlight="guides/install"} -->
 
-**Lists links in the order written.** Slugs must match files under `src/content/docs/`; a renamed file leaves a dead link; see [sidebar](https://starlight.astro.build/guides/sidebar/).
+**Lists links in the order written.** Slugs must match files under `src/content/docs/`; a stale slug fails the build; see [sidebar](https://starlight.astro.build/guides/sidebar/).
 
 ### Collapse a group
 <!-- {: .-snippet} -->

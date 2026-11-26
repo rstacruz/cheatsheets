@@ -10,7 +10,7 @@ links:
   - title: CSS and styling
     url: https://starlight.astro.build/guides/css-and-tailwind/
   - title: props.css
-    url: https://github.com/withastro/starlight/blob/main/packages/starlight/style/props.css
+    url: https://github.com/withastro/starlight/blob/main/packages/starlight/src/style/props.css
 ---
 
 ## Theming

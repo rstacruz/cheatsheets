@@ -1,6 +1,6 @@
 ---
-title: How to add a project to a solution
-link_title: dotnet add to sln
+title: How to add a project to a .NET solution
+link_title: dotnet sln add
 subtitle: Manage solution files
 category: C-like
 layout: snippet
@@ -40,14 +40,3 @@ dotnet sln list
 <!-- {: data-highlight="api/api.csproj lib/lib.csproj"} -->
 
 **Adds many projects in one call.** `list` prints what the solution holds; see [dotnet sln list](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#list).
-
-### Reference another project
-<!-- {: .-snippet} -->
-
-```sh
-dotnet add api/api.csproj \
-  reference lib/lib.csproj
-```
-<!-- {: data-highlight="reference"} -->
-
-**Links two projects without a package.** The reference lands in the project file; see [dotnet add reference](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference).

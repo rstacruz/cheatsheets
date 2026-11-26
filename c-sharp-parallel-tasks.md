@@ -36,7 +36,7 @@ static async Task<int> LoadAsync(int id)
 ```
 <!-- {: data-highlight="Task.WhenAll"} -->
 
-**Runs tasks at the same time.** Starting them before awaiting overlaps the work; see [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
+**Runs tasks at the same time.** Start each task before awaiting; `WhenAll` gathers the results. See [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
 
 ### Map a list to tasks
 <!-- {: .-snippet} -->
@@ -58,7 +58,7 @@ static async Task<int> LoadAsync(int id)
 
 **Fans out one task per item.** `WhenAll` keeps the order of the input; see [Task.WhenAll](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall).
 
-### Stop waiting early
+### Race a timeout
 <!-- {: .-snippet} -->
 
 ```csharp

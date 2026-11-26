@@ -27,7 +27,7 @@ links:
 ```
 <!-- {: data-highlight="<Nullable>enable</Nullable>"} -->
 
-**Checks nulls for the whole project.** New templates enable it already; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context).
+**Checks nulls for the whole project.** New templates enable it by default; see [Nullable contexts](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-context).
 
 ### Annotate the type
 <!-- {: .-snippet} -->
@@ -41,9 +41,9 @@ Console.WriteLine(name.Length);        // 3
 ```
 <!-- {: data-highlight="string? nickname"} -->
 
-**Marks a value that may be null.** `string?` opts into the null check; see [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references).
+**Marks a value that may be null.** Without `?`, assigning `null` produces a warning; see [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references).
 
-### Handle the null
+### Fall back when null
 <!-- {: .-snippet} -->
 
 ```csharp

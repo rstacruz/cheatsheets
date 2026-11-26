@@ -31,7 +31,7 @@ foreach (var g in words.GroupBy(w => w[0]))
 ```
 <!-- {: data-highlight="GroupBy"} -->
 
-**Groups items by a key.** `GroupBy` yields one grouping per key; see [GroupBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby).
+**Groups items by a key.** Each group exposes `Key` and enumerates its items; see [GroupBy](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby).
 
 ### Store groups in a dictionary
 <!-- {: .-snippet} -->

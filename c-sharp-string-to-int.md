@@ -62,4 +62,4 @@ Console.WriteLine(n);   // -1000
 ```
 <!-- {: data-highlight="NumberStyles.AllowThousands"} -->
 
-**Reads separators and signs.** Culture and styles decide grouping; see [NumberStyles](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.numberstyles).
+**Reads separators and signs.** Culture and styles decide how thousands separators are read. See [NumberStyles](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.numberstyles).

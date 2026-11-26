@@ -17,7 +17,7 @@ links:
 ## Lookups
 <!-- {: .-snippets} -->
 
-### Try a key
+### Check for a key
 <!-- {: .-snippet} -->
 
 ```csharp
@@ -67,4 +67,4 @@ Console.WriteLine(counts["ada"]);   // 2
 ```
 <!-- {: data-highlight="TryAdd"} -->
 
-**Writes a key in one step.** `TryAdd` leaves an existing key alone; see [TryAdd](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd).
+**Writes a key, adding or updating it.** `TryAdd` leaves an existing key alone; see [TryAdd](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd).

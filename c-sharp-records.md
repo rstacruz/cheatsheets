@@ -80,7 +80,7 @@ Console.WriteLine(a == changed);   // False
 ```
 <!-- {: data-highlight="a == b"} -->
 
-**Compares every property.** Two records match when all values match; see [Value equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#value-equality).
+**Compares values, not references.** Two records match when every property matches. See [Value equality](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#value-equality).
 
 ### Use a record struct
 <!-- {: .-snippet} -->
@@ -102,4 +102,4 @@ var q = p with { X = 3 };
 Console.WriteLine(q);   // Point { X = 3, Y = 2 }
 ```
 
-**Gives a struct value equality.** `record struct` stays a value type; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).
+**Adds value equality to a struct.** `record struct` stays a value type; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).

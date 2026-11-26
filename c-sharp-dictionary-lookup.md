@@ -65,6 +65,6 @@ counts.TryAdd("bob", 1);    // only if missing
 
 Console.WriteLine(counts["ada"]);   // 2
 ```
-<!-- {: data-highlight="TryAdd"} -->
+<!-- {: data-highlight='["ada"] = 1; += 1; TryAdd'} -->
 
 **Writes a key, adding or updating it.** `TryAdd` leaves an existing key alone; see [TryAdd](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd).

@@ -15,19 +15,18 @@ links:
 ## Solutions
 <!-- {: .-snippets} -->
 
-### Create and add
+### Create a solution
 <!-- {: .-snippet} -->
 
 ```sh
 dotnet new sln -n shop
 dotnet new console -o api
-dotnet sln add api/api.csproj
 ```
-<!-- {: data-highlight="dotnet sln add"} -->
+<!-- {: data-highlight="dotnet new sln"} -->
 
-**Registers a project in the solution.** A solution groups projects for one build; see [dotnet sln](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln).
+**Starts a solution beside a project.** `new sln` writes `shop.slnx` in .NET 11; see [dotnet sln](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln).
 
-### Add several projects
+### Add projects
 <!-- {: .-snippet} -->
 
 ```sh
@@ -35,6 +34,6 @@ dotnet new classlib -o lib
 dotnet sln add api/api.csproj lib/lib.csproj
 dotnet sln list
 ```
-<!-- {: data-highlight="api/api.csproj lib/lib.csproj"} -->
+<!-- {: data-highlight="dotnet sln add"} -->
 
-**Adds many projects in one call.** `list` prints what the solution holds; see [dotnet sln list](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#list).
+**Registers projects in the solution.** `sln add` takes several at once; `list` prints them. See [dotnet sln list](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#list).

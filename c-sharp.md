@@ -1,5 +1,7 @@
 ---
 title: C#
+seo_title: C# cheatsheet — syntax, LINQ, records
+description: "C# reference: syntax, types, nullables, collections, LINQ, async, records, patterns and generics."
 subtitle: Modern .NET language
 category: C-like
 updated: 2026-11-26
@@ -113,6 +115,7 @@ public class Order
     public int Id { get; set; }
 }
 ```
+<!-- {: data-highlight="namespace"} -->
 
 A file-scoped namespace ends with `;` and covers the whole file.
 
@@ -661,7 +664,7 @@ if (value is int n && n > 10)
 if (value is not string { Length: > 0 })
     Console.WriteLine("not text");
 ```
-<!-- {: data-highlight="is int n; is not"} -->
+<!-- {: data-highlight="is int n; { Length: > 0 }"} -->
 
 `is` tests a type and binds it; property patterns match members.
 

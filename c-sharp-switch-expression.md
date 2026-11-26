@@ -69,6 +69,6 @@ Console.WriteLine(Kind(3));        // positive
 Console.WriteLine(Kind("hey"));    // other
 Console.WriteLine(Kind("hello"));  // long
 ```
-<!-- {: data-highlight="when s.Length > 3"} -->
+<!-- {: data-highlight="string s when s.Length > 3"} -->
 
 **Adds a condition to a type pattern.** `when` runs only after the type matches; see [when](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when).

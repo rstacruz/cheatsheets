@@ -46,7 +46,7 @@ const clock = (hourCycle) => (
 clock('h23') // → '00:00'
 clock('h24') // → '24:00'
 ```
-<!-- {: .-wrap data-highlight="clock('h24')"} -->
+<!-- {: .-wrap data-highlight="clock('h23'); clock('h24')"} -->
 
 **`h24` prints midnight as `24:00`.** `h23` prints `00:00` instead, which is what sorters and parsers expect; see [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle).
 

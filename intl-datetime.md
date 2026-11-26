@@ -90,6 +90,7 @@ const opts = { dateStyle: 'long', timeZone: 'UTC' }
 
 new Intl.DateTimeFormat('default', opts).format(date)
 // → 'December 20, 2012'
+
 new Intl.DateTimeFormat(undefined, opts).format(date)
 // → 'December 20, 2012'
 ```
@@ -212,7 +213,7 @@ clock('h12')  // → '12:00 AM'
 clock('h23')  // → '00:00'
 clock('h24')  // → '24:00'
 ```
-<!-- {: .-wrap} -->
+<!-- {: .-wrap data-highlight="'h11'; 'h12'; 'h23'; 'h24'"} -->
 
 `h11` and `h12` are 12-hour, `h23` and `h24` are 24-hour. `hour12` overrides `hourCycle`, and `h24` prints midnight as `24:00`.
 
@@ -261,7 +262,7 @@ zone('short')        // → 'Dec 20, GMT+11'
 zone('longOffset')   // → 'Dec 20, GMT+11:00'
 zone('shortGeneric') // → 'Dec 20, Sydney Time'
 ```
-<!-- {: .-wrap data-highlight="timeZoneName"} -->
+<!-- {: .-wrap data-highlight="zone('short'); zone('longOffset'); zone('shortGeneric')"} -->
 
 `short` uses a local abbreviation when the locale has one and falls back to GMT otherwise; `…Offset` always prints GMT, and `…Generic` drops daylight saving.
 

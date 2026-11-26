@@ -58,15 +58,3 @@ new Date(2026, 10, 26, 15, 30).toISOString()
 
 **Returns the full ISO timestamp.** Drop `slice(0, 10)` when the time matters; the trailing `Z` marks it as UTC; see [Date.toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
 
-### Use a year-first locale
-<!-- {: .-snippet} -->
-
-```js
-new Intl.DateTimeFormat('sv-SE', {
-  dateStyle: 'short'
-}).format(new Date(2026, 10, 26))
-// → '2026-11-26'
-```
-<!-- {: .-wrap data-highlight="'sv-SE'"} -->
-
-**`sv-SE` orders dates year-first.** Its output is not guaranteed across ICU versions, so use it for display and `toISOString()` for data; see [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).

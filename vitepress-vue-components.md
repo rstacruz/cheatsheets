@@ -26,7 +26,7 @@ links:
 <Counter />
 
 <script setup>
-import Counter from '../components/Counter.vue'
+import Counter from '../ui/Counter.vue'
 </script>
 ```
 <!-- {: data-highlight="<Counter />"} -->
@@ -36,7 +36,7 @@ import Counter from '../components/Counter.vue'
 ### Write the component
 <!-- {: .-snippet} -->
 
-#### docs/components/Counter.vue
+#### docs/ui/Counter.vue
 
 ```html
 <script setup>
@@ -62,7 +62,7 @@ const count = ref(0)
 
 ```ts
 import DefaultTheme from 'vitepress/theme'
-import Counter from '../components/Counter.vue'
+import Counter from '../../ui/Counter.vue'
 
 export default {
   extends: DefaultTheme,

@@ -70,37 +70,9 @@ Set the source to a branch and folder (root or `/docs`) in repository settings. 
 
 See: [Configuring a publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-### Actions workflow
+### Actions source
 
-```yaml
-name: Deploy Jekyll
-on:
-  push:
-    branches: [master]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/configure-pages@v5
-      - uses: actions/jekyll-build-pages@v1
-      - uses: actions/upload-pages-artifact@v4
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-Choose **GitHub Actions** as the source. The `pages: write` and `id-token: write` permissions let the deploy job publish the artifact.
+Set **GitHub Actions** as the source in repository settings when a custom workflow builds and uploads the site. The workflow itself belongs in the Pages docs, since it changes with `actions/*` releases.
 
 See: [Using custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 

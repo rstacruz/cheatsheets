@@ -48,7 +48,7 @@ search: {
 
 **Adds page context under each hit.** Results then show the surrounding heading and text, not just the title. See [local search options](https://vitepress.dev/reference/default-theme-search#local-search).
 
-### Loosen matching
+### Require every word
 <!-- {: .-snippet} -->
 
 ```ts
@@ -57,16 +57,15 @@ search: {
   options: {
     miniSearch: {
       searchOptions: {
-        fuzzy: 0.2,
-        prefix: true
+        combineWith: 'AND'
       }
     }
   }
 }
 ```
-<!-- {: data-highlight="fuzzy: 0.2; prefix: true"} -->
+<!-- {: data-highlight="combineWith: 'AND'"} -->
 
-**Accepts typos and partial words.** `fuzzy` sets how many characters may differ and `prefix` matches from the start of a term. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
+**Narrows results to pages with all the terms.** The default `OR` matches any word; `AND` is stricter. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
 
 ### Translate the UI
 <!-- {: .-snippet} -->

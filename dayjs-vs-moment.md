@@ -1,7 +1,7 @@
 ---
-title: When to use Day.js vs Moment.js
+title: Day.js vs Moment.js differences
 link_title: Day.js vs Moment
-subtitle: API and bundle differences
+subtitle: API and plugin differences
 category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Moment 2.30.1."
@@ -90,6 +90,8 @@ dayjs('2014-06-09').format('LL')
 #### Moment
 
 ```js
+import moment from 'moment-timezone'
+
 moment('2014-06-09T13:32Z')
   .tz('America/New_York')
   .format()
@@ -99,11 +101,17 @@ moment('2014-06-09T13:32Z')
 #### Day.js
 
 ```js
+import utc from 'dayjs/plugin/utc.js'
+import tz from 'dayjs/plugin/timezone.js'
+
+dayjs.extend(utc)
+dayjs.extend(tz)
+
 dayjs.utc('2014-06-09T13:32Z')
   .tz('America/New_York')
   .format()
 // "2014-06-09T09:32:00-04:00"
 ```
-<!-- {: data-highlight="dayjs.utc("} -->
+<!-- {: data-highlight=".tz('America/New_York')"} -->
 
 **Moment ships zones in `moment-timezone`.** Day.js uses `Intl` plus the `utc` and `timezone` plugins; see [Time zone](https://day.js.org/docs/en/plugin/timezone).

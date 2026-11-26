@@ -64,7 +64,7 @@ bad.invalidReason  // "unit out of range"
 ```
 <!-- {: data-highlight="isValid"} -->
 
-Unlike Day.js, Luxon refuses a bad value instead of rolling it into a nearby date. Check `isValid` before formatting or storing.
+Luxon marks a bad value invalid instead of rolling it into a nearby date. Check `isValid` before formatting or storing.
 
 See: [Validity](https://moment.github.io/luxon/#/validity)
 
@@ -130,7 +130,7 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `x`    | `1402306325123` |
 <!-- {: .-headers} -->
 
-Luxon tokens are case-sensitive and mostly unpunctuated: `yyyy` is a year, `YYYY` is not. The `X` and `x` tokens emit seconds and milliseconds. The outputs assume a UTC instance.
+Tokens are case-sensitive: `yyyy` is the year and `YYYY` prints literally. The outputs assume a UTC instance.
 
 See: [Formatting](https://moment.github.io/luxon/#/formatting)
 
@@ -344,7 +344,7 @@ The zone option reads a naive string as wall time in that zone. It also applies 
 
 See: [Zones](https://moment.github.io/luxon/#/zones)
 
-### Convert a zone
+### Convert to a zone
 
 ```js
 const d = DateTime.fromISO('2014-06-09T09:32:00Z')

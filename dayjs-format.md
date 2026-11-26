@@ -74,17 +74,3 @@ dayjs('2014-06-09').format('[on] YYYY-MM-DD')
 <!-- {: data-highlight="'[on] YYYY-MM-DD'"} -->
 
 **Square brackets escape literal words.** Without them, `on` would be read as tokens; see [Format](https://day.js.org/docs/en/display/format).
-
-### Another locale
-<!-- {: .-snippet} -->
-
-```js
-import 'dayjs/locale/fr.js'
-
-dayjs('2014-06-09').locale('fr')
-  .format('dddd D MMMM YYYY')
-// "lundi 9 juin 2014"
-```
-<!-- {: data-highlight=".locale('fr')"} -->
-
-**Formats with a locale loaded at runtime.** English ships by default; see [Loading locale](https://day.js.org/docs/en/i18n/loading-into-nodejs).

@@ -1,5 +1,5 @@
 ---
-title: How to work with time zones in Luxon
+title: How to convert time zones in Luxon
 link_title: Luxon time zones
 subtitle: Convert, parse and inspect zones
 category: Date libraries
@@ -14,7 +14,7 @@ links:
 ## Handling zones
 <!-- {: .-snippets} -->
 
-### Convert an instant
+### Convert to a zone
 <!-- {: .-snippet} -->
 
 ```js
@@ -40,7 +40,7 @@ DateTime.fromISO('2026-03-08T09:00',
 
 **Reads naive input as wall time in that zone.** Without the option the system zone applies; see [Zones](https://moment.github.io/luxon/#/zones).
 
-### Keep the clock time
+### Keep the wall clock
 <!-- {: .-snippet} -->
 
 ```js

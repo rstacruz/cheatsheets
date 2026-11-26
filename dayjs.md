@@ -63,7 +63,7 @@ next.format('YYYY-MM-DD')    // "2014-06-10"
 ```
 <!-- {: data-highlight="start.add(1, 'day')"} -->
 
-Every method returns a new instance, so the original is safe to share. Moment mutates in place instead.
+Every method returns a new instance, so the original is safe to share.
 
 See: [Immutability](https://day.js.org/docs/en/parse/parse)
 
@@ -244,7 +244,7 @@ now.add(2, 'hours').from(now)       // "in 2 hours"
 ```
 <!-- {: data-highlight=".from(now)"} -->
 
-`fromNow()` compares against the clock; `from(other)` keeps output stable. Thresholds run on 44 seconds, 45 minutes, 22 hours, 26 days and 11 months.
+`fromNow()` compares against the clock; `from(other)` keeps output stable.
 
 See: [Relative time](https://day.js.org/docs/en/plugin/relative-time)
 
@@ -411,7 +411,7 @@ dayjs.max(dayjs('2014-01-01'), dayjs('2012-01-01'))
 ```
 <!-- {: data-highlight="dayjs.min"} -->
 
-Both take either a list or an array of instances.
+Both accept instances as arguments or as one array.
 
 See: [Min max](https://day.js.org/docs/en/plugin/min-max)
 
@@ -507,7 +507,7 @@ dayjs.tz.guess()   // "America/New_York"
 ```
 <!-- {: data-highlight="tz.guess()"} -->
 
-`guess()` asks `Intl` for the system zone, so it needs full ICU data in Node and minimal runtimes.
+`guess()` asks `Intl` for the system zone, so it depends on the runtime's ICU data.
 
 See: [Time zone guessing](https://day.js.org/docs/en/plugin/timezone)
 

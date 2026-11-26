@@ -1,5 +1,5 @@
 ---
-title: How to split a date range into weeks in Luxon
+title: How to split and measure date ranges in Luxon
 link_title: Luxon intervals
 subtitle: Split and measure date ranges
 category: Date libraries

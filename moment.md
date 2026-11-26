@@ -117,12 +117,12 @@ See: [Durations](https://momentjs.com/docs/#/durations/)
 ```js
 .format('L')      // 06/09/2014
 .format('l')      // 6/9/2014
-.format('LL')     // June 9 2014
-.format('ll')     // Jun 9 2014
-.format('LLL')    // June 9 2014 9:32 PM
-.format('lll')    // Jun 9 2014 9:32 PM
-.format('LLLL')   // Monday, June 9 2014 9:32 PM
-.format('llll')   // Mon, Jun 9 2014 9:32 PM
+.format('LL')     // June 9, 2014
+.format('ll')     // Jun 9, 2014
+.format('LLL')    // June 9, 2014 12:00 AM
+.format('lll')    // Jun 9, 2014 12:00 AM
+.format('LLLL')   // Monday, June 9, 2014 12:00 AM
+.format('llll')   // Mon, Jun 9, 2014 12:00 AM
 ```
 
 The `L` tokens follow the active locale, so date order adapts to each language.

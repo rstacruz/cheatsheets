@@ -37,7 +37,7 @@ ON CONFLICT(id) DO NOTHING;
 ```
 <!-- {: data-highlight="DO NOTHING"} -->
 
-**Skips the insert instead of failing.** For a single row it behaves like `INSERT OR IGNORE`; see [UPSERT](https://sqlite.org/lang_upsert.html).
+**Skips the insert instead of failing.** Only the targeted conflict is ignored, while `INSERT OR IGNORE` also ignores other constraint failures; see [UPSERT](https://sqlite.org/lang_upsert.html).
 
 ### Upsert on a unique column
 <!-- {: .-snippet} -->

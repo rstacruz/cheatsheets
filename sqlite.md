@@ -52,7 +52,7 @@ sqlite3 :memory:    # temporary in-memory database
 ```
 <!-- {: data-highlight="sqlite3 app.db; sqlite3 :memory:"} -->
 
-A file database is created on the first write. `:memory:` disappears on exit.
+The file is created when the database is first opened. `:memory:` disappears on exit.
 
 See: [Command-line shell](https://sqlite.org/cli.html)
 
@@ -331,7 +331,7 @@ See: [Date and time functions](https://sqlite.org/lang_datefunc.html)
 | `PRAGMA integrity_check` | Verify the database file |
 | `PRAGMA optimize` | Refresh query-planner statistics |
 
-`foreign_keys` and `busy_timeout` apply to one connection. `journal_mode` and `user_version` persist in the file.
+`foreign_keys` and `busy_timeout` apply to one connection. Only `journal_mode=WAL` and `user_version` persist in the file.
 
 See: [PRAGMA](https://sqlite.org/pragma.html)
 

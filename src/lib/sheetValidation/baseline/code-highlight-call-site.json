@@ -1,6 +1,8 @@
 [
+  "js-modules#createRequire",
   "nodejs-read-file#readFile",
   "nodejs-read-file#readFileSync",
+  "nodejs-stream#pipeline",
   "react#createPortal",
   "react#createRoot",
   "react#prefetchDNS",

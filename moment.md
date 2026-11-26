@@ -69,7 +69,7 @@ m.unix()                // seconds
 m.valueOf()             // milliseconds
 ```
 
-<!-- {: data-highlight="m.format; m.fromNow; m.diff"} -->
+<!-- {: data-highlight="m.format; m.from; m.diff"} -->
 
 `diff()` truncates toward zero; add `true` as a third argument for a float.
 

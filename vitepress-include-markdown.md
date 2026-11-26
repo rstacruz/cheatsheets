@@ -27,7 +27,7 @@ links:
 ```
 <!-- {: data-highlight="./parts/basics.md"} -->
 
-**Inlines another Markdown file.** Paths are relative to the current page; `@` starts at the site root. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
+**Inlines another Markdown file.** Paths are relative to the current page; `@` starts at the source root (`srcDir`). See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
 
 ### Slice the included file
 <!-- {: .-snippet} -->
@@ -37,7 +37,7 @@ links:
 ```
 <!-- {: data-highlight="./parts/basics.md{3,}"} -->
 
-**Skips the first two lines.** The braces take line numbers and ranges, the same syntax code blocks use. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
+**Skips the first two lines.** The braces take a `{start,end}` line range, not the `{2-4}` fence syntax. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
 
 ### Import a code file
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ links:
 ```
 <!-- {: data-highlight="<<< @/snippets/config.ts"} -->
 
-**Embeds a real source file.** `@` resolves from the site root and the file's extension sets the language. See [import code snippets](https://vitepress.dev/guide/markdown#import-code-snippets).
+**Embeds a real source file.** `@` resolves from the source root (`srcDir`) and the file's extension sets the language. See [import code snippets](https://vitepress.dev/guide/markdown#import-code-snippets).
 
 ### Highlight imported lines
 <!-- {: .-snippet} -->

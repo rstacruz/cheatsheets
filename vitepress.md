@@ -237,7 +237,7 @@ See: [Code blocks](https://vitepress.dev/guide/markdown#line-highlighting-in-cod
 ````
 <!-- {: data-highlight="<!--@include:; <<< @/snippets/config.ts{2-4}"} -->
 
-`@` resolves from the site root. `<<<` imports a code file and its `{2-4}` picks highlighted lines.
+`@` resolves from the source root (`srcDir`). `<<<` imports a code file and its `{2-4}` picks highlighted lines.
 
 See: [Markdown file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion)
 
@@ -341,7 +341,7 @@ See: [Algolia DocSearch](https://vitepress.dev/reference/default-theme-search#al
 pnpm docs:build
 pnpm docs:preview
 ```
-<!-- {: data-highlight="docs:preview"} -->
+<!-- {: data-highlight="docs:build"} -->
 
 The build fails on dead links unless `ignoreDeadLinks` allows them. Upload `.vitepress/dist` to any static host.
 

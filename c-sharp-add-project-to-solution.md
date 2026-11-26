@@ -10,8 +10,6 @@ tier: t3
 links:
   - title: dotnet sln
     url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln
-  - title: dotnet add reference
-    url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference
 ---
 
 ## Solutions

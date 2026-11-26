@@ -33,7 +33,7 @@ else
 ```
 <!-- {: data-highlight="TryGetValue"} -->
 
-**Returns false for a missing key.** `TryGetValue` never throws; see [TryGetValue](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.trygetvalue).
+**Returns false for a missing key.** `TryGetValue` doesn't throw when the key is missing; see [TryGetValue](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.trygetvalue).
 
 ### Fall back to a default
 <!-- {: .-snippet} -->

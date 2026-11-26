@@ -8,7 +8,7 @@ tier: t2
 fragments:
   - "dotnet new"
   - "dotnet run"
-  - "var x = 1"
+  - "var count = 3"
   - "Console.Write"
   - "record Person("
   - "record struct"
@@ -17,11 +17,11 @@ fragments:
   - "??="
   - "List<string>"
   - "Dictionary<"
-  - "Where(x =>"
+  - "Where(n =>"
   - "GroupBy("
   - "await Task"
   - "Task.WhenAll"
-  - "is not null"
+  - "is not string"
   - "switch {"
   - "where T :"
 keywords:
@@ -811,25 +811,28 @@ See: [dotnet sln](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln
 ### Packages
 
 ```sh
-dotnet add api/api.csproj package Humanizer
-dotnet list api package
+dotnet package add Humanizer \
+  --project api/api.csproj
+dotnet package list --project api/api.csproj
 ```
-<!-- {: data-highlight="dotnet add"} -->
+<!-- {: data-highlight="dotnet package add"} -->
 
 `add package` resolves the latest version; `list package` prints what is installed.
 
-See: [dotnet add package](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package)
+See: [dotnet package add](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-package-add)
 
 ### Project references
 
 ```sh
-dotnet add api/api.csproj reference lib/lib.csproj
+dotnet new classlib -o lib
+dotnet reference add lib/lib.csproj \
+  --project api/api.csproj
 ```
-<!-- {: data-highlight="reference"} -->
+<!-- {: data-highlight="reference add"} -->
 
 A project reference links two projects without a package.
 
-See: [dotnet add reference](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference)
+See: [dotnet reference add](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-reference-add)
 
 ### Tests
 
@@ -845,6 +848,8 @@ See: [dotnet test](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-te
 
 ## Also see
 
+<!-- {: .-one-column} -->
+
 - [C# group by cheatsheet](./c-sharp-linq-group-by)
 - [C# join lists cheatsheet](./c-sharp-linq-join)
 - [C# distinct values cheatsheet](./c-sharp-distinct-by)
@@ -853,9 +858,8 @@ See: [dotnet test](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-te
 - [C# records cheatsheet](./c-sharp-records)
 - [C# switch expression cheatsheet](./c-sharp-switch-expression)
 - [C# nullable types cheatsheet](./c-sharp-nullable-reference-types)
-- [C# add project to solution cheatsheet](./c-sharp-add-project-to-solution)
+- [dotnet sln add cheatsheet](./c-sharp-add-project-to-solution)
 - [C# parallel tasks cheatsheet](./c-sharp-parallel-tasks)
-<!-- {: .-one-column} -->
 
 [TypeScript cheatsheet](./typescript)
 <!-- {: .-crosslink} -->

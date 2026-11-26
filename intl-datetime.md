@@ -1,7 +1,7 @@
 ---
 title: Intl.DateTimeFormat
 subtitle: Locale-aware date formatter
-category: Browser APIs
+category: Internationalization
 tags: [Featured]
 updated: 2026-11-25
 tier: t3

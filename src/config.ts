@@ -38,6 +38,7 @@ export const categories = [
   'Task automation',
   'JavaScript',
   'Browser APIs',
+  'Internationalization',
   'JavaScript libraries',
   'Date libraries',
   'JavaScript frameworks',

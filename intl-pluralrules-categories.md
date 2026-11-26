@@ -39,8 +39,10 @@ const categories = (locale) =>
 
 categories('en')
 // → ['one', 'other']
+
 categories('ja')
 // → ['other']
+
 categories('ru')
 // → ['one', 'few', 'many', 'other']
 ```

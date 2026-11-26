@@ -25,8 +25,11 @@ const forms = {
   other: 'items'
 }
 
-forms[pr.select(1)]  // → 'item'
-forms[pr.select(3)]  // → 'items'
+forms[pr.select(1)]
+// → 'item'
+
+forms[pr.select(3)]
+// → 'items'
 ```
 <!-- {: data-highlight="forms[pr.select(1)]"} -->
 
@@ -43,6 +46,7 @@ const plural = (n, forms) =>
 
 plural(1, { one: 'day', other: 'days' })
 // → 'day'
+
 plural(2, { one: 'day', other: 'days' })
 // → 'days'
 ```
@@ -63,8 +67,11 @@ const forms = {
 const label = (n) =>
   forms[pr.select(n)] ?? forms.other
 
-label(1)        // → 'article'
-label(1000000)  // → 'articles'
+label(1)
+// → 'article'
+
+label(1000000)
+// → 'articles'
 ```
 <!-- {: data-highlight="?? forms.other"} -->
 

@@ -29,13 +29,26 @@ const suffixes = {
 const nth = (n) =>
   `${n}${suffixes[ord.select(n)]}`
 
-nth(1)   // → '1st'
-nth(2)   // → '2nd'
-nth(3)   // → '3rd'
-nth(11)  // → '11th'
-nth(12)  // → '12th'
-nth(13)  // → '13th'
-nth(21)  // → '21st'
+nth(1)
+// → '1st'
+
+nth(2)
+// → '2nd'
+
+nth(3)
+// → '3rd'
+
+nth(11)
+// → '11th'
+
+nth(12)
+// → '12th'
+
+nth(13)
+// → '13th'
+
+nth(21)
+// → '21st'
 ```
 <!-- {: data-highlight="type: 'ordinal'"} -->
 

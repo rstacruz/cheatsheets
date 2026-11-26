@@ -43,7 +43,7 @@ import 'intl-pluralrules'
 // App.tsx, with Hermes
 import 'intl-pluralrules'
 ```
-<!-- {: data-highlight="Hermes"} -->
+<!-- {: data-highlight="import 'intl-pluralrules'"} -->
 
 **Imports the polyfill before i18next.** Without it, i18next resolves only `_one`/`_other` keys, so non-English locales break. See [React Native and Expo](https://www.i18next.com/react/react-native).
 
@@ -54,7 +54,8 @@ import 'intl-pluralrules'
 import PluralRules from
   'intl-pluralrules/plural-rules'
 
-new PluralRules('en').select(1)  // → 'one'
+new PluralRules('en').select(1)
+// → 'one'
 ```
 <!-- {: data-highlight="intl-pluralrules/plural-rules"} -->
 

@@ -26,8 +26,11 @@ const count = (n) =>
     ? 'No items'
     : `${n} ${forms[pr.select(n)]}`
 
-count(0)  // → 'No items'
-count(1)  // → '1 item'
+count(0)
+// → 'No items'
+
+count(1)
+// → '1 item'
 ```
 <!-- {: data-highlight="n === 0"} -->
 
@@ -39,8 +42,11 @@ count(1)  // → '1 item'
 ```js
 const ar = new Intl.PluralRules('ar')
 
-ar.select(0)  // → 'zero'
-ar.select(1)  // → 'one'
+ar.select(0)
+// → 'zero'
+
+ar.select(1)
+// → 'one'
 ```
 <!-- {: data-highlight="ar.select(0)"} -->
 

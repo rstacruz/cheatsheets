@@ -4,6 +4,9 @@ subtitle: Document range API
 category: Browser APIs
 intro: |
   Quick reference to the HTML [DOM createRange API](https://devdocs.io/dom/range).
+last_verified_with: "WHATWG DOM Standard."
+updated: 2026-11-25
+tier: t3
 links:
   - title: Range
     url: https://developer.mozilla.org/en-US/docs/Web/API/Range
@@ -11,7 +14,7 @@ links:
 
 ## Reference
 
-<!-- {:.-three-column} -->
+<!-- {: .-three-column} -->
 
 ### Creating ranges
 
@@ -19,9 +22,9 @@ links:
 var range = document.createRange()
 ```
 
-See: <https://devdocs.io/dom/document/createrange>
+See: [Document.createRange()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createRange)
 
-## Methods
+### Methods
 
 ```js
 range
@@ -37,33 +40,45 @@ range
   .selectNodeContents(node)
 ```
 
-See: <https://devdocs.io/dom/range>
+See: [Range](https://developer.mozilla.org/en-US/docs/Web/API/Range#instance_methods)
 
 ### Collapsing
 
 ```js
-range.collapse() // to end (a single point)
-range.collapse(true) // to start (a single point)
+range.collapse() // to end
+range.collapse(true) // to start
 range.collapsed // true | false
 ```
 
+See: [Range.collapse()](https://developer.mozilla.org/en-US/docs/Web/API/Range/collapse)
+
 ### Operations
 
+#### Copy and remove
+
 ```js
-range.cloneContents() // copy => DocumentFragment
-range.extractContents() // cut  => DocumentFragment
+range.cloneContents() // copy
+range.extractContents() // cut
 range.deleteContents() // delete
 ```
+
+#### Insert
 
 ```js
 range.insertNode(node)
 ```
+
+Both `cloneContents()` and `extractContents()` return a DocumentFragment; `insertNode()` returns nothing.
+
+See: [Range methods](https://developer.mozilla.org/en-US/docs/Web/API/Range#instance_methods)
 
 ### String
 
 ```js
 range.toString()
 ```
+
+See: [Range.toString()](https://developer.mozilla.org/en-US/docs/Web/API/Range/toString)
 
 ### Read-only attributes
 
@@ -73,5 +88,8 @@ range.startContainer //  => Node
 range.startOffset
 range.endContainer //    => Node
 range.endOffset
-range.commonAncestorContainer // closest of start and end containers
+// closest shared ancestor
+range.commonAncestorContainer
 ```
+
+See: [Range properties](https://developer.mozilla.org/en-US/docs/Web/API/Range#instance_properties)

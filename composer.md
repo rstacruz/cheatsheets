@@ -6,6 +6,7 @@ weight: -1
 authors:
   - github: benolot
 updated: 2020-02-23
+tier: t3
 last_verified_with: "Composer 2.11.2."
 description: |
   Basic guide on how to use Composer, the PHP Package manager.
@@ -23,6 +24,8 @@ All composer commands, depending on your install, may need to use `php composer.
 
 A dry run changes nothing; otherwise `install` creates `composer.lock`, which belongs in the repository so a rerun after fetching changes restores exact dependencies.
 
+See: [install](https://getcomposer.org/doc/03-cli.md#install-i)
+
 ### Updating packages
 
 | Command                                       | Description                     |
@@ -36,11 +39,15 @@ A dry run changes nothing; otherwise `install` creates `composer.lock`, which be
 
 This command changes only the `composer.lock` file.
 
+See: [update](https://getcomposer.org/doc/03-cli.md#update-u-upgrade)
+
 ### Updating autoloader
 
 | Command                    | Description                        |
 | ---                        | ---                                |
 | `composer dumpautoload -o` | Generates optimized autoload files |
+
+See: [dump-autoload](https://getcomposer.org/doc/03-cli.md#dump-autoload-dumpautoload)
 
 ### Adding packages
 
@@ -51,6 +58,8 @@ This command changes only the `composer.lock` file.
 | `composer require vendor/package --dev` | Adds `package` from `vendor` to composer.json's `require-dev` section and installs it.            |
 
 This command changes both the `composer.json` and `composer.lock` files.
+
+See: [require](https://getcomposer.org/doc/03-cli.md#require-r)
 
 ### Passing versions
 
@@ -69,6 +78,8 @@ This command changes both the `composer.json` and `composer.lock` files.
 | ---                                             | ---                                      |
 | `composer require vendor/pkg "dev-BRANCH_NAME"` | From the branch `BRANCH_NAME`            |
 
+See: [Writing version constraints](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints)
+
 ### Removing packages
 
 | Command                   | Description                                                 |
@@ -77,8 +88,12 @@ This command changes both the `composer.json` and `composer.lock` files.
 
 This command changes both the `composer.json` and `composer.lock` files.
 
+See: [remove](https://getcomposer.org/doc/03-cli.md#remove-rm-uninstall)
+
 ### Verifying
 
 | Command                      | Description                                                                |
 | ---------------------------- | -------------------------------------------------------------------------- |
 | `composer outdated --direct` | Show only packages that are outdated directly required by the root package |
+
+See: [outdated](https://getcomposer.org/doc/03-cli.md#outdated)

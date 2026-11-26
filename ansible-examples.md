@@ -2,6 +2,9 @@
 title: Ansible examples
 subtitle: Sample playbooks and roles
 category: Ansible
+last_verified_with: "ansible-core 2.22."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Examples

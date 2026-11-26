@@ -2,6 +2,9 @@
 title: CSS tricks
 subtitle: Assorted CSS snippets
 category: CSS
+last_verified_with: "CSS Snapshot 2026."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Heading kerning pairs and ligature
@@ -12,6 +15,8 @@ h1, h2, h3 {
 }
 ```
 
+See: [text-rendering](https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering#values)
+
 ### Native-like iOS scrolling
 
 ```css
@@ -19,13 +24,19 @@ h1, h2, h3 {
 overflow-y: auto;
 ```
 
+See: [overflow-y](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y)
+
 ### Gradient text
 
 ```css
-background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#333));
+background: -webkit-gradient(
+  linear, left top, left bottom, from(#eee), to(#333)
+);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 ```
+
+See: [background-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip#text)
 
 ### Text stroke
 
@@ -37,12 +48,16 @@ See: [Introducing text stroke](http://www.webkit.org/blog/85/introducing-text-st
 
 ### iOS Scrolling prevention
 
+#### Touch handler
+
 ```css
 document.ontouchstart = (e) ->
   $pane = $(e.target).closest('.scrollable>div')
   if $pane.length is 0 or $pane[0].scrollHeight <= $pane.innerHeight()
     e.preventDefault()
 ```
+
+#### Scrollable styles
 
 ```scss
 %ios-scrollable {
@@ -63,14 +78,16 @@ document.ontouchstart = (e) ->
 
 Relevant in iOS6, but maybe not anymore.
 
+<!-- see: none: legacy iOS WebKit scrolling workaround, no upstream doc -->
+
 ### UIWebView optimizations
 
 ```css
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-user-select: none;                /* disable text select */
-  -webkit-touch-callout: none;              /* disable callout, image save panel (popup) */
-  -webkit-tap-highlight-color: transparent; /* "turn off" link highlight */
+  -webkit-touch-callout: none;             /* disable callout */
+  -webkit-tap-highlight-color: transparent; /* no highlight */
 }
 
 a:focus {
@@ -78,9 +95,8 @@ a:focus {
 }
 ```
 
-See: <http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/>
+See: [-webkit-tap-highlight-color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color)
 
-See: <http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/>
 
 Browser hacks
 -------------
@@ -92,6 +108,8 @@ Browser hacks
 Not recommended, but here they are if you ever need them. Note that vendor
 prefixes may go away eventually.
 
+<!-- see: none: house caveat, no upstream doc -->
+
 ### Mozilla-only
 
 ```css
@@ -100,9 +118,13 @@ prefixes may go away eventually.
 }
 ```
 
+See: [@document](https://developer.mozilla.org/en-US/docs/Web/CSS/@document)
+
 ### Webkit-only
 
 ```css
 @media all and (-webkit-min-device-pixel-ratio: 1) {
 }
 ```
+
+See: [-webkit-device-pixel-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio)

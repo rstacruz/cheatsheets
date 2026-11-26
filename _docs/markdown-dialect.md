@@ -82,7 +82,7 @@ puts "hi"
 <!-- {: .-setup data-highlight="puts"} -->
 ````
 
-`data-highlight` takes a semicolon-separated list of literal strings and tints every occurrence inside the block. Matches stop at identifier boundaries, so `-d` does not match inside `--diff-context`. Use it to point at one API name without shading its whole line.
+`data-highlight` takes a semicolon-separated list of literal strings and tints the first occurrence of each token inside the block. Matches stop at identifier boundaries, so `-d` does not match inside `--diff-context`. Use it to point at one API name without shading its whole line.
 
 A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
 

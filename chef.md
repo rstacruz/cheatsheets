@@ -2,34 +2,48 @@
 title: Chef
 subtitle: Infrastructure automation platform
 category: Devops
+last_verified_with: "Chef Infra Client 19.4."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Install
 
-In your server:
-
-<!-- {: .-setup} -->
+#### Install curl
 
 ```bash
 $ sudo apt-get install curl
 ```
 
+#### Run the install script
+
 ```bash
-$ curl -L https://omnitruck.chef.io/install.sh | sudo bash
+$ url='https://chefdownload-community.chef.io/install.sh'
+$ curl -L "$url?license_id=<LICENSE_ID>" \
+    | sudo bash -s -- -P chef-ice
 Thank you for installing Chef!
 ```
+
+#### Verify
 
 ```bash
 $ chef-solo -v
 ...
-Chef: 14.5.33
+Chef Infra Client: 19.4.46
 ```
+
+Run these commands on your server.
+
+See: [Chef install script](https://docs.chef.io/chef_install_script/)
 
 ### Start the cookbook
 
 ```bash
- wget http://github.com/chef-cookbooks/chef-repo/tarball/master -O - | tar xzf - --strip-components=1
+ wget http://github.com/chef-cookbooks/chef-repo/tarball/master \
+   -O - | tar xzf - --strip-components=1
 ```
+
+See: [Chef repository](https://docs.chef.io/chef_repo/)
 
 ### Knife
 
@@ -37,15 +51,21 @@ Chef: 14.5.33
 $ knife supermarket download mysql
 ```
 
+See: [knife](https://docs.chef.io/workstation/latest/tools/knife/)
+
 ### Invoking chef-solo
 
 ```bash
 $ chef-solo -c solo.rb -j web.json
 ```
 
+See: [chef-solo](https://docs.chef.io/client/19/features/chef_solo/ctl_chef_solo/)
+
 ## Examples
 
 ### Simple compile-from-source
+
+#### Extract the source
 
 ```ruby
 execute "tar --no-same-owner -zxf hi.tar.gz" do
@@ -53,6 +73,8 @@ execute "tar --no-same-owner -zxf hi.tar.gz" do
   creates "/usr/local/src/node-v#{version}"
 end
 ```
+
+#### Compile
 
 ```ruby
 bash "compile" do
@@ -66,6 +88,8 @@ bash "compile" do
 end
 ```
 
+See: [execute resource](https://docs.chef.io/resources/execute/)
+
 ### remote file
 
 ```ruby
@@ -77,6 +101,8 @@ remote_file "/usr/local/src/hi.tar.gz" do
 end
 ```
 
+See: [remote_file resource](https://docs.chef.io/resources/remote_file/)
+
 ### ruby_block
 
 ```ruby
@@ -85,6 +111,8 @@ ruby_block "name" do
   not_if { File.exists?(...) }
 end
 ```
+
+See: [ruby_block resource](https://docs.chef.io/resources/ruby_block/)
 
 ### Execute
 
@@ -97,12 +125,16 @@ execute "name" do
 end
 ```
 
+See: [execute resource](https://docs.chef.io/resources/execute/)
+
 ### Conditions
 
 ```ruby
   creates "/usr/local/src/node-v#{version}/node"
   not_if { File.exists?('...') }
 ```
+
+See: [Guards](https://docs.chef.io/resources/execute/#guards)
 
 ## Also see
 

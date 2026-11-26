@@ -3,6 +3,7 @@ title: ExUnit
 subtitle: Elixir test framework
 category: Elixir
 updated: 2026-11-23
+tier: t3
 last_verified_with: "ExUnit 1.20.5."
 ---
 
@@ -18,6 +19,8 @@ defmodule MyTest do
 end
 ```
 
+See: [ExUnit.Case](https://hexdocs.pm/ex_unit/ExUnit.Case.html#test/2)
+
 ### Capture IO
 
 ```elixir
@@ -32,11 +35,15 @@ test "capture io" do
 end
 ```
 
+See: [capture_io/1](https://hexdocs.pm/ex_unit/ExUnit.CaptureIO.html#capture_io/1)
+
 ### Capture logs
 
 ```elixir
 ExUnit.start(capture_log: true)
 ```
+
+See: [Log capture](https://hexdocs.pm/ex_unit/ExUnit.Case.html#module-log-capture)
 
 ### Async
 
@@ -46,6 +53,8 @@ defmodule AssertionTest do
   use ExUnit.Case, async: true
 end
 ```
+
+See: [Async tests](https://hexdocs.pm/ex_unit/ExUnit.Case.html#module-process-architecture)
 
 ### Assertions
 
@@ -86,6 +95,8 @@ test "it works", %{name: name} do
 end
 ```
 
+See: [Test context](https://hexdocs.pm/ex_unit/ExUnit.Callbacks.html#module-context)
+
 ### Setup
 
 ```elixir
@@ -103,6 +114,8 @@ describe "a block" do
   end
 end
 ```
+
+See: [setup/1](https://hexdocs.pm/ex_unit/ExUnit.Callbacks.html#setup/1)
 
 ## Also see
 

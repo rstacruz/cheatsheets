@@ -3,7 +3,8 @@ title: Bolt
 subtitle: Puppet task and plan runner
 category: Devops
 updated: 2026-11-22
-last_verified_with: "Bolt 4.0.0 CLI on Linux x86_64; examples cross-checked against 5.2.1 docs."
+tier: t3
+last_verified_with: "Bolt 5.2.1."
 links:
   - title: Bolt documentation
     url: https://help.puppet.com/bolt/current/topics/bolt.htm
@@ -132,6 +133,8 @@ bolt command run whoami \
 | `--rerun failure` | Targets that failed last run |
 
 An `@` prefix reads target names from a file, one per line.
+
+See: [Specify targets](https://help.puppet.com/bolt/current/topics/running_bolt_commands.htm#specify-targets)
 
 ### Authenticate
 

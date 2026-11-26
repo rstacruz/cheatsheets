@@ -24,7 +24,8 @@ const collator = new Intl.Collator('en', {
   sensitivity: 'base'
 })
 
-collator.compare('résumé', 'resume')  // → 0
+collator.compare('résumé', 'resume')
+// → 0
 ```
 <!-- {: data-highlight="sensitivity: 'base'"} -->
 
@@ -38,7 +39,8 @@ const strip = (text) => text
   .normalize('NFD')
   .replace(/\p{M}/gu, '')
 
-strip('résumé')  // → 'resume'
+strip('résumé')
+// → 'resume'
 ```
 <!-- {: data-highlight="normalize('NFD')" } -->
 

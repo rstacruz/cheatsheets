@@ -20,7 +20,8 @@ links:
 <!-- {: .-snippet} -->
 
 ```js
-'a'.localeCompare('b', 'en')  // → negative
+'a'.localeCompare('b', 'en')
+// → negative
 ```
 <!-- {: data-highlight="localeCompare"} -->
 

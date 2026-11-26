@@ -192,7 +192,8 @@ const upper = new Intl.Collator('en', {
   caseFirst: 'upper'
 })
 
-upper.compare('a', 'A')  // → positive
+upper.compare('a', 'A')
+// → positive
 ```
 <!-- {: data-highlight="caseFirst: 'upper'"} -->
 
@@ -203,7 +204,8 @@ const lower = new Intl.Collator('en', {
   caseFirst: 'lower'
 })
 
-lower.compare('a', 'A')  // → negative
+lower.compare('a', 'A')
+// → negative
 ```
 <!-- {: data-highlight="caseFirst: 'lower'"} -->
 

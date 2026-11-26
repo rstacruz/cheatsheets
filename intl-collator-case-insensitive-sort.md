@@ -55,7 +55,8 @@ const collator = new Intl.Collator('en', {
   sensitivity: 'base'
 })
 
-collator.compare('HELLO', 'hello')  // → 0
+collator.compare('HELLO', 'hello')
+// → 0
 ```
 <!-- {: data-highlight="compare('HELLO', 'hello')" } -->
 

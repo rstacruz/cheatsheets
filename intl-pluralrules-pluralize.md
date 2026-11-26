@@ -46,7 +46,7 @@ plural(1, { one: 'day', other: 'days' })
 plural(2, { one: 'day', other: 'days' })
 // → 'days'
 ```
-<!-- {: data-highlight="forms[pr.select(n)]"} -->
+<!-- {: data-highlight="plural"} -->
 
 **Wraps the lookup in a helper.** Pass one form map per noun, with every category the locale uses. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
 

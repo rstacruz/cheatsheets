@@ -34,7 +34,7 @@ import 'intl-pluralrules'
 ```
 <!-- {: data-highlight="intl-pluralrules"} -->
 
-**Loads it before any translation code.** The package keeps a complete native implementation and fills only missing methods and locales. See [README](https://github.com/eemeli/intl-pluralrules).
+**Loads it before any translation code.** The package loads only when the native API is incomplete, then fills in methods and locale data. See [README](https://github.com/eemeli/intl-pluralrules).
 
 ### Cover React Native's Hermes
 <!-- {: .-snippet} -->
@@ -45,7 +45,7 @@ import 'intl-pluralrules'
 ```
 <!-- {: data-highlight="Hermes"} -->
 
-**Fixes silent English fallback on Hermes.** Hermes has no full `Intl`, so i18next pluralization needs the polyfill. See [React Native and Expo](https://www.i18next.com/react/react-native).
+**Breaks non-English keys on Hermes.** Without `Intl.PluralRules`, i18next resolves only `_one`/`_other` keys, so import the polyfill. See [React Native and Expo](https://www.i18next.com/react/react-native).
 
 ### Use the ponyfill
 <!-- {: .-snippet} -->

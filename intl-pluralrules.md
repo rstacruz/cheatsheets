@@ -104,7 +104,7 @@ const plural = (n) => forms[pr.select(n)]
 plural(1)  // → 'apple'
 plural(4)  // → 'apples'
 ```
-<!-- {: data-highlight="forms[pr.select(n)]"} -->
+<!-- {: data-highlight="plural"} -->
 
 Build the formatter once and reuse it; constructing one per render is slow in lists.
 
@@ -303,55 +303,6 @@ Japanese has no plural distinction, so `other` is the only category. A single fo
 
 See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 
-## Plural ranges
-
-### Select a range
-
-```js
-const pl = new Intl.PluralRules('pl')
-
-pl.selectRange(1, 2)  // → 'few'
-pl.selectRange(2, 5)  // → 'many'
-pl.selectRange(5, 1)  // → 'one'
-```
-<!-- {: data-highlight="selectRange"} -->
-
-`selectRange()` picks a form for a span. In Polish, 5–1 switches to `one` because the range ends at 1.
-
-See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
-
-### English ranges
-
-```js
-const en = new Intl.PluralRules('en')
-
-en.selectRange(1, 1)  // → 'other'
-en.selectRange(1, 3)  // → 'other'
-```
-<!-- {: data-highlight="selectRange(1, 1)"} -->
-
-English uses `other` for every range, including 1–1. Select the form from the range, not from the start number.
-
-See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
-
-### Fallback without selectRange
-
-```js
-const pr = new Intl.PluralRules('pl')
-
-const range = (start, end) =>
-  pr.selectRange
-    ? pr.selectRange(start, end)
-    : pr.select(end)
-
-range(1, 2)  // → 'few'
-```
-<!-- {: data-highlight="pr.selectRange"} -->
-
-Older engines lack `selectRange()`, which needs Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+. Fall back to the end number or load the polyfill.
-
-See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
-
 ## Counts and formatting
 
 ### Format the count
@@ -409,7 +360,56 @@ pr.select(1100000)       // → 'many'
 
 Compact notation can change the category: French prints 1,1 million and selects `many`, not `other`. Pass the same notation options to both formatters.
 
-See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation)
+See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#notation)
+
+## Plural ranges
+
+### Select a range
+
+```js
+const pl = new Intl.PluralRules('pl')
+
+pl.selectRange(1, 2)  // → 'few'
+pl.selectRange(2, 5)  // → 'many'
+pl.selectRange(5, 1)  // → 'one'
+```
+<!-- {: data-highlight="selectRange"} -->
+
+`selectRange()` picks a form for a span. In Polish, 5–1 switches to `one` because the range ends at 1.
+
+See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
+
+### English ranges
+
+```js
+const en = new Intl.PluralRules('en')
+
+en.selectRange(1, 1)  // → 'other'
+en.selectRange(1, 3)  // → 'other'
+```
+<!-- {: data-highlight="selectRange(1, 1)"} -->
+
+English uses `other` for every range, including 1–1. Select the form from the range, not from the start number.
+
+See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
+
+### Fallback without selectRange
+
+```js
+const pr = new Intl.PluralRules('pl')
+
+const range = (start, end) =>
+  pr.selectRange
+    ? pr.selectRange(start, end)
+    : pr.select(end)
+
+range(1, 2)  // → 'few'
+```
+<!-- {: data-highlight="pr.selectRange"} -->
+
+Older engines lack `selectRange()`, which needs Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+. Fall back to the end number or load the polyfill.
+
+See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
 
 ## Polyfills and support
 
@@ -429,7 +429,7 @@ import 'intl-pluralrules'
 ```
 <!-- {: data-highlight="intl-pluralrules"} -->
 
-The polyfill keeps the native implementation when it is complete and only fills in the gaps, including `selectRange()` and fraction-digit support.
+The package loads only when the native API is incomplete, then fills in methods and locale data, including `selectRange()`.
 
 See: [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules)
 
@@ -441,7 +441,7 @@ import 'intl-pluralrules'
 ```
 <!-- {: data-highlight="Hermes"} -->
 
-Hermes ships without full `Intl`, so i18next pluralization falls back to English. Import the polyfill once at the app entry point.
+Hermes ships without full `Intl`, so i18next resolves only `_one` and `_other` keys and locales with more forms break. Import the polyfill once at the app entry point.
 
 See: [React Native and Expo](https://www.i18next.com/react/react-native)
 
@@ -461,11 +461,10 @@ See: [supportedLocalesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ## Options reference
 
-### Constructor options
+### Digit options
 
 | Option | Values |
 | --- | --- |
-| `type` | `'cardinal'` (default), `'ordinal'` |
 | `minimumIntegerDigits` | 1–21 |
 | `minimumFractionDigits` | 0–100 |
 | `maximumFractionDigits` | 0–100 |
@@ -474,15 +473,35 @@ See: [supportedLocalesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 | `maximumSignificantDigits` | 1–21 |
 | `roundingIncrement` | 1 (default), 2, 5, 10, 20, 25, 50, … |
 | `roundingMode` | `'halfExpand'` (default), `'ceil'`, `'floor'`, `'trunc'`, `'expand'`, `'halfEven'`, … |
+| `roundingPriority` | `'auto'` (default), `'morePrecision'`, `'lessPrecision'` |
+| `trailingZeroDisplay` | `'auto'` (default), `'stripIfInteger'` |
+<!-- {: .-headers} -->
+
+These use the same names and defaults as `Intl.NumberFormat`. Increments above 1 need `maximumFractionDigits: 0`.
+
+See: [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
+
+### Notation options
+
+| Option | Values |
 | --- | --- |
 | `notation` | `'standard'` (default), `'scientific'`, `'engineering'`, `'compact'` |
 | `compactDisplay` | `'short'` (default), `'long'` |
-| `roundingPriority` | `'auto'` (default), `'morePrecision'`, `'lessPrecision'` |
-| `trailingZeroDisplay` | `'auto'` (default), `'stripIfInteger'` |
+<!-- {: .-headers} -->
+
+Pass the same notation options to the `NumberFormat` that prints the count.
+
+See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#notation)
+
+### Type and locale options
+
+| Option | Values |
+| --- | --- |
+| `type` | `'cardinal'` (default), `'ordinal'` |
 | `localeMatcher` | `'best fit'` (default), `'lookup'` |
 <!-- {: .-headers} -->
 
-These options use the same names and defaults as `Intl.NumberFormat`.
+`localeMatcher` controls how a locale tag falls back.
 
 See: [Intl.PluralRules() options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
 

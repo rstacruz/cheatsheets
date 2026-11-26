@@ -138,7 +138,7 @@ pr.select(1.5)  // → 'other'
 ```
 <!-- {: data-highlight="select(1.5)"} -->
 
-For English, only the integer 1 is `one`; every decimal, including 0.5, is `other`.
+For English, only 1 is `one`; `1.0` still counts as 1, and other decimals such as 1.5 are `other`.
 
 See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
 
@@ -348,7 +348,7 @@ range(1, 2)  // → 'few'
 ```
 <!-- {: data-highlight="pr.selectRange"} -->
 
-Older engines lack `selectRange()`. Fall back to the end number, or load the `intl-pluralrules` polyfill, which adds the method.
+Older engines lack `selectRange()`, which needs Chrome 106+, Firefox 116+, Safari 15.4+, or Node 19+. Fall back to the end number or load the polyfill.
 
 See: [selectRange()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange)
 

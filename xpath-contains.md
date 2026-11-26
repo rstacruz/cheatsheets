@@ -78,4 +78,4 @@ links:
 ```
 <!-- {: data-highlight="contains(@class,"} -->
 
-**`.` reads the element's string value, including hidden descendant text; `@class` reads the attribute.** Partial class matching also hits `save-outline`; for exact class tokens, see [select by class](./xpath-by-class) and [location paths](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Paths).
+**`.` reads all descendant text; `@class` reads the attribute.** Partial class matching also hits `save-outline`; for exact tokens see [select by class](./xpath-by-class).

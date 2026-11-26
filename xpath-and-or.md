@@ -44,7 +44,7 @@ links:
 ```
 <!-- {: data-highlight="@id='b' and @hidden"} -->
 
-**`and` binds tighter than `or`.** This reads as `a or (b and hidden)`; see [booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans).
+**`and` binds tighter than `or`.** This reads as `@id='a' or (@id='b' and @hidden)`; see [booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans).
 
 ### Group conditions
 <!-- {: .-snippet} -->
@@ -75,4 +75,4 @@ links:
 ```
 <!-- {: data-highlight="][@role="} -->
 
-**Chained predicates act like `and`.** They apply left to right, so place `[1]` deliberately; see [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).
+**Chained predicates act like `and` and apply left to right.** `//a[1][@href]` picks the first `a` then tests it; `//a[@href][1]` tests then picks; see [predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates).

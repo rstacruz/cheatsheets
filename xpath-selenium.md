@@ -42,7 +42,7 @@ WebElement field = driver.findElement(
 ```
 <!-- {: data-highlight="By.xpath"} -->
 
-**Java passes the expression as a string.** Use `findElements` to collect all matches; see [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
+**Java uses `By.xpath` with the expression as a string.** `findElements` collects all matches; see [locator strategies](https://www.selenium.dev/documentation/webdriver/elements/locators/).
 
 ### Playwright
 <!-- {: .-snippet} -->
@@ -61,32 +61,36 @@ page.locator(
 
 #### Relative
 
-```bash
-//div[@id='cart']//button
+```python
+driver.find_element(
+    By.XPATH, "//div[@id='cart']//button"
+)
 ```
 <!-- {: data-highlight="//div[@id='cart']"} -->
 
 #### Absolute
 
-```bash
-/html/body/div[2]/button
+```python
+driver.find_element(
+    By.XPATH, "/html/body/div[2]/button"
+)
 ```
 <!-- {: data-highlight="/html/body/div[2]"} -->
 
-**Starts from a landmark instead of the document root.** Absolute paths break when markup changes; see [abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev) and the [XPath cheatsheet](./xpath).
+**Uses a landmark instead of the document root.** Absolute paths break when markup changes; see [abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev) and the [XPath cheatsheet](./xpath).
 
 ### Class idiom
 <!-- {: .-snippet} -->
 
-```bash
-//tr[contains(
-  concat(' ', normalize-space(@class), ' '),
-  ' total '
-)]
+```python
+button = driver.find_element(
+    By.XPATH,
+    "//button[contains(@class, 'primary')]"
+)
 ```
-<!-- {: data-highlight="normalize-space(@class)"} -->
+<!-- {: data-highlight="contains(@class, 'primary')"} -->
 
-**Matches `total` as one class token.** Plain `contains(@class, 'total')` also matches `total-row`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains) and the [XPath cheatsheet](./xpath).
+**Matches a class substring.** `primary-outline` also matches; for exact tokens, use the padded `normalize-space` form in the [XPath cheatsheet](./xpath); see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains).
 
 ### Waits
 <!-- {: .-snippet} -->

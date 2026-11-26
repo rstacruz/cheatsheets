@@ -239,9 +239,12 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ### By class
 
 ```bash
-//div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
+//div[contains(
+  concat(' ', normalize-space(@class), ' '),
+  ' foobar '
+)]
 ```
-<!-- {: data-highlight="normalize-space(@class)"} -->
+<!-- {: data-highlight="' foobar '"} -->
 
 XPath has no space-separated token operator. Wrap the attribute in spaces and search for the token; this also works for `rel`.
 
@@ -357,7 +360,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ```
 <!-- {: data-highlight="div; mod"} -->
 
-Use comparison and arithmetic operators to make conditionals; `and`/`or` live in the next card.
+Comparison and arithmetic operators build predicates.
 
 See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
@@ -747,7 +750,7 @@ See: [Selenium locators](https://www.selenium.dev/documentation/webdriver/elemen
 ```
 <!-- {: data-highlight="/html/body/div[2]"} -->
 
-Start from `//` so markup changes do not break the locator.
+Prefer a landmark-based path over a full `/html/body/...` chain; absolute paths break when markup changes.
 
 See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
 

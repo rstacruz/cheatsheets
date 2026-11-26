@@ -16,7 +16,7 @@ fragments:
   - "hour: 'numeric'"
   - "weekday: 'long'"
   - "month: 'short'"
-  - "hourCycle: 'h23'"
+  - "clock('h23')"
   - "year: 'numeric'"
   - "formatToParts"
   - "resolvedOptions"
@@ -81,7 +81,7 @@ new Intl.DateTimeFormat(['xx-YY', 'en-US'], {
 
 The first supported tag wins, so pass the visitor's preferences in order.
 
-See: [locale negotiation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation)
+See: [locale negotiation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation)
 
 ### Options without a locale
 
@@ -276,7 +276,7 @@ Intl.supportedValuesOf('timeZone').slice(0, 3)
 ```
 <!-- {: .-wrap data-highlight="supportedValuesOf('timeZone')"} -->
 
-Lists the IANA zones the runtime knows. Validate a zone from a form or URL against it before formatting.
+Lists the primary IANA names the runtime knows. It omits `UTC` and aliases such as `US/Pacific`, which `timeZone` still accepts, so catch the constructor error instead of testing membership.
 
 See: [Intl.supportedValuesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf)
 
@@ -315,7 +315,6 @@ new Intl.DateTimeFormat('en-GB', {
 }).format(date)
 // → '20/12/2012'
 ```
-<!-- {: data-highlight="'en-GB'"} -->
 
 #### ISO output
 
@@ -382,6 +381,7 @@ See: [toLocaleDateString()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 | --- | --- |
 | `dateStyle` | `'full'`, `'long'`, `'medium'`, `'short'` |
 | `calendar` | e.g. `'gregory'`, `'buddhist'`, `'japanese'` |
+<!-- {: .-headers} -->
 
 See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
 
@@ -393,11 +393,13 @@ See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaS
 | `minute` | `'numeric'`, `'2-digit'` |
 | `second` | `'numeric'`, `'2-digit'` |
 | `fractionalSecondDigits` | `1` to `3` |
+| `dayPeriod` | `'narrow'`, `'short'`, `'long'` |
 | `timeStyle` | `'full'`, `'long'`, `'medium'`, `'short'` |
 | --- | --- |
 | `hour12` | `true`, `false` |
 | `hourCycle` | `'h11'`, `'h12'`, `'h23'`, `'h24'` |
 | `timeZoneName` | `'short'`, `'long'`, `'shortOffset'`, `'longOffset'`, `'shortGeneric'`, `'longGeneric'` |
+<!-- {: .-headers} -->
 
 See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
 
@@ -410,6 +412,7 @@ See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaS
 | `calendar` | e.g. `'gregory'`, `'iso8601'` |
 | `localeMatcher` | `'best fit'` (default), `'lookup'` |
 | `formatMatcher` | `'best fit'` (default), `'basic'` |
+<!-- {: .-headers} -->
 
 See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
 
@@ -433,3 +436,15 @@ new Intl.DateTimeFormat('en-US').format(new Date('nope'))
 Bad zones throw when the formatter is built; invalid dates throw on `format()`. Check `Number.isNaN(date.getTime())` for untrusted input.
 
 See: [Exceptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#exceptions)
+
+## Also see
+
+<!-- {: .-one-column} -->
+
+- [Date as YYYY-MM-DD](./intl-datetime-iso)
+- [Date as DD/MM/YYYY](./intl-datetime-dd-mm-yyyy)
+- [Date in another time zone](./intl-datetime-timezone)
+- [24-hour time](./intl-datetime-24-hour)
+- [Date in the user's locale](./intl-datetime-visitor-locale)
+- [Get the month name](./intl-datetime-month-name)
+- [Parse a date string](./intl-datetime-parse)

@@ -37,13 +37,14 @@ new Intl.DateTimeFormat('en-US', {
 ```js
 const clock = (hourCycle) => (
   new Intl.DateTimeFormat('en-US', {
-    hour: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
     hourCycle
   }).format(new Date(2026, 10, 26, 0, 0))
 )
 
-clock('h23') // → '00'
-clock('h24') // → '24'
+clock('h23') // → '00:00'
+clock('h24') // → '24:00'
 ```
 <!-- {: .-wrap data-highlight="clock('h24')"} -->
 

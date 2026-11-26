@@ -27,20 +27,7 @@ new Intl.DateTimeFormat(undefined, {
 ```
 <!-- {: .-wrap data-highlight="undefined"} -->
 
-**Falls back to the runtime's default locale.** In Node that is the `LANG` setting; in a browser it is the UI language; see [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
-
-### Pass navigator.language
-<!-- {: .-snippet} -->
-
-```js
-new Intl.DateTimeFormat(navigator.language, {
-  dateStyle: 'medium'
-}).format(new Date(2026, 10, 26))
-// → 'Nov 26, 2026' (en-US)
-```
-<!-- {: .-wrap data-highlight="navigator.language"} -->
-
-**Uses the browser's primary language.** This is the same value the formatter picks by default, so passing it is only useful when the tag is stored or logged; see [navigator.language](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
+**Falls back to the runtime's default locale.** In Node that is the `LANG` setting; in a browser it is the UI language, which is also `navigator.language`; see [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
 ### Offer the whole preference list
 <!-- {: .-snippet} -->

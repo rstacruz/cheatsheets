@@ -44,7 +44,7 @@ new Intl.DateTimeFormat('en-GB', {
 ```
 <!-- {: .-wrap data-highlight="year: '2-digit'"} -->
 
-**Shortens the year to two digits.** The seconds-vs-year ambiguity is why two-digit years stay out of machine-readable output; see [year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year).
+**Shortens the year to two digits.** ISO 8601 interchange dates require a four-digit year, so keep this width for display only; see [year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year).
 
 ### Build the string by hand
 <!-- {: .-snippet} -->

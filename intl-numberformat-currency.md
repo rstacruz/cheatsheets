@@ -2,7 +2,7 @@
 title: How to format a number as currency in JavaScript
 link_title: Format currency
 subtitle: Dollar amounts per locale
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

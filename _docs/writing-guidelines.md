@@ -163,6 +163,7 @@ A neighbouring tool or an alternative gets a regular link instead. See
 - Put the link on its own paragraph, with the attribute comment on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
+- Reserve cross-links for directly related sheets: a sibling version, a successor, or the same family. Two languages from different ecosystems are not related, even when they look alike; leave the other sheet out.
 
 For a neighbouring tool, link it plainly:
 

@@ -56,4 +56,4 @@ kubectl get namespaces
 ```
 <!-- {: data-highlight="kubectl get namespaces"} -->
 
-**Shows the namespaces you can reach.** Shorten the resource to `ns`, and add `-A` to any command to search every namespace instead. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+**Shows the namespaces you can reach.** Shorten the resource to `ns`; add `-A` to a listing command, such as `kubectl get pods -A`, to search every namespace. See [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).

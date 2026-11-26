@@ -79,7 +79,7 @@ See: [Output options](https://kubernetes.io/docs/reference/kubectl/#output-optio
 ### `describe` - Show details
 
 ```bash
-kubectl describe pod web-5f7c9b8d4-x2vqm
+kubectl describe pod web-0
 kubectl describe node worker-1
 ```
 <!-- {: data-highlight="kubectl describe"} -->
@@ -101,28 +101,31 @@ Prints the API reference for a field, including the values it accepts. `--recurs
 See: [kubectl explain](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_explain/)
 
 ## Logs and shell
+<!-- {: .-three-column} -->
 
 ### `logs` - Read pod logs
 
 ```bash
-kubectl logs web-5f7c9b8d4-x2vqm
-kubectl logs -f web-5f7c9b8d4-x2vqm
-kubectl logs --tail=100 web-5f7c9b8d4-x2vqm
-kubectl logs --previous web-5f7c9b8d4-x2vqm
-kubectl logs -f -l app=web --max-log-requests=5
+kubectl logs web-0
+kubectl logs -f web-0
+kubectl logs --tail=100 web-0
+kubectl logs --previous web-0
+kubectl logs -f -l app=web \
+  --max-log-requests=5
 ```
 <!-- {: data-highlight="kubectl logs"} -->
 
-`--previous` reads the container instance that crashed before the restart. `-l` streams every pod matching a selector, five at a time by default.
+`--previous` reads the container instance that crashed before the restart. `-l` reads every pod matching a selector; with `-f`, kubectl follows at most five streams unless `--max-log-requests` raises the cap.
 
 See: [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/)
 
 ### `exec` - Run a command in a pod
 
 ```bash
-kubectl exec web-5f7c9b8d4-x2vqm -- ls /app
-kubectl exec -it web-5f7c9b8d4-x2vqm -- sh
-kubectl exec -it web-5f7c9b8d4-x2vqm -c nginx -- bash
+kubectl exec web-0 -- ls /app
+kubectl exec -it web-0 -- sh
+kubectl exec -it web-0 \
+  -c nginx -- bash
 ```
 <!-- {: data-highlight="kubectl exec"} -->
 
@@ -133,22 +136,23 @@ See: [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubec
 ### `port-forward` - Open a local tunnel
 
 ```bash
-kubectl port-forward pod/web-5f7c9b8d4-x2vqm 8080:80
+kubectl port-forward pod/web-0 8080:80
 kubectl port-forward svc/web 8080:80
 kubectl port-forward deploy/web 8080:80
-kubectl port-forward svc/web :80     # random local port
+kubectl port-forward svc/web :80
 ```
 <!-- {: data-highlight="kubectl port-forward"} -->
 
-Forwards a pod or service port to localhost for testing. The tunnel stays open until you interrupt it.
+Forwards a pod or service port to localhost for testing. Omitting the local port picks a free one; the tunnel stays open until you interrupt it.
 
 See: [kubectl port-forward](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/)
 
 ### `cp` - Copy files
 
 ```bash
-kubectl cp web-5f7c9b8d4-x2vqm:/app/log.txt ./log.txt
-kubectl cp ./config.yaml web-5f7c9b8d4-x2vqm:/app/config.yaml
+kubectl cp web-0:/app/log.txt ./log.txt
+kubectl cp ./config.yaml \
+  web-0:/app/config.yaml
 ```
 <!-- {: data-highlight="kubectl cp"} -->
 
@@ -157,6 +161,7 @@ Copies into or out of a container. The container image needs `tar` for `kubectl 
 See: [kubectl cp](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp/)
 
 ## Apply and delete
+<!-- {: .-three-column} -->
 
 ### `apply` - Apply manifests
 
@@ -185,9 +190,12 @@ See: [kubectl diff](https://kubernetes.io/docs/reference/kubectl/generated/kubec
 ### `create` - Generate a manifest
 
 ```bash
-kubectl create deployment web --image=nginx:1.29 \
-  --dry-run=client -o yaml > web.yaml
-kubectl create namespace staging --dry-run=client -o yaml
+kubectl create deployment web \
+  --image=nginx:1.29 \
+  --dry-run=client \
+  -o yaml > web.yaml
+kubectl create namespace staging \
+  --dry-run=client -o yaml
 ```
 <!-- {: data-highlight="--dry-run=client"} -->
 
@@ -198,7 +206,7 @@ See: [kubectl create](https://kubernetes.io/docs/reference/kubectl/generated/kub
 ### `delete` - Delete resources
 
 ```bash
-kubectl delete pod web-5f7c9b8d4-x2vqm
+kubectl delete pod web-0
 kubectl delete -f deployment.yaml
 kubectl delete pods -l app=web
 kubectl delete namespace staging
@@ -210,12 +218,14 @@ Deleting a pod alone lets its controller start a replacement. Delete the deploym
 See: [kubectl delete](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_delete/)
 
 ## Rollouts
+<!-- {: .-three-column} -->
 
 ### `rollout status` - Wait for a rollout
 
 ```bash
 kubectl rollout status deploy/web
-kubectl rollout status deploy/web --timeout=60s
+kubectl rollout status deploy/web \
+  --timeout=60s
 ```
 <!-- {: data-highlight="rollout status"} -->
 
@@ -237,7 +247,8 @@ See: [kubectl rollout restart](https://kubernetes.io/docs/reference/kubectl/gene
 ### `set image` - Change the image
 
 ```bash
-kubectl set image deploy/web nginx=nginx:1.29
+kubectl set image deploy/web \
+  nginx=nginx:1.29
 ```
 <!-- {: data-highlight="kubectl set image"} -->
 
@@ -250,7 +261,8 @@ See: [kubectl set image](https://kubernetes.io/docs/reference/kubectl/generated/
 ```bash
 kubectl rollout history deploy/web
 kubectl rollout undo deploy/web
-kubectl rollout undo deploy/web --to-revision=2
+kubectl rollout undo deploy/web \
+  --to-revision=2
 ```
 <!-- {: data-highlight="rollout undo"} -->
 
@@ -262,7 +274,8 @@ See: [kubectl rollout undo](https://kubernetes.io/docs/reference/kubectl/generat
 
 ```bash
 kubectl scale deploy/web --replicas=3
-kubectl autoscale deploy/web --min=2 --max=5 --cpu=70%
+kubectl autoscale deploy/web \
+  --min=2 --max=5 --cpu=70%
 ```
 <!-- {: data-highlight="kubectl scale; kubectl autoscale"} -->
 
@@ -324,12 +337,15 @@ kubectl create namespace staging
 See: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
 ## Debug
+<!-- {: .-three-column} -->
 
 ### `events` - Recent events
 
 ```bash
-kubectl get events --sort-by=.lastTimestamp
-kubectl get events -A --field-selector type=Warning
+kubectl get events \
+  --sort-by=.lastTimestamp
+kubectl get events -A \
+  --field-selector type=Warning
 ```
 <!-- {: data-highlight="kubectl get events"} -->
 
@@ -342,21 +358,24 @@ See: [Event reference](https://kubernetes.io/docs/reference/kubernetes-api/clust
 ```bash
 kubectl top pods
 kubectl top nodes
-kubectl top pod web-5f7c9b8d4-x2vqm --containers
+kubectl top pod web-0 --containers
 ```
 <!-- {: data-highlight="kubectl top"} -->
 
-Requires metrics-server. Without it the command errors, and pods without a sample yet show `<unknown>`.
+Requires metrics-server. Without the API kubectl errors, and a pod with no sample reports its metrics as not found.
 
 See: [kubectl top](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/)
 
 ### `debug` - Debug a pod or node
 
 ```bash
-kubectl debug -it web-5f7c9b8d4-x2vqm \
-  --image=busybox:1.37 --target=nginx
-kubectl debug node/worker-1 -it --image=busybox:1.37
-kubectl debug web-5f7c9b8d4-x2vqm --copy-to=web-debug \
+kubectl debug -it web-0 \
+  --image=busybox:1.37 \
+  --target=nginx
+kubectl debug node/worker-1 -it \
+  --image=busybox:1.37
+kubectl debug web-0 \
+  --copy-to=web-debug \
   --image=busybox:1.37
 ```
 <!-- {: data-highlight="kubectl debug"} -->

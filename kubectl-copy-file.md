@@ -53,4 +53,4 @@ kubectl exec web-0 -- tar cf - /app/log.txt \
 ```
 <!-- {: data-highlight="tar cf -"} -->
 
-**Pipes files through tar by hand.** `kubectl cp` skips symlinks and wraps both ends in `tar`; this pipeline keeps them. Images without `tar`, such as distroless, need `kubectl exec … cat` instead. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).
+**Pipes files through tar by hand.** `kubectl cp` wraps both ends in `tar` and skips symlinks with a warning; this pipeline keeps them and shows tar's errors. See [kubectl exec](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_exec/).

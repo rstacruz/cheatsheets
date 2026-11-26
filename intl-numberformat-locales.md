@@ -58,4 +58,4 @@ new Intl.NumberFormat('ar-EG', {
 ```
 <!-- {: data-highlight="numberingSystem: 'latn'"} -->
 
-**Forces Western digits with `numberingSystem: 'latn'`.** Arabic locales otherwise use Arabic-Indic digits; see [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem).
+**Forces Western digits with `numberingSystem: 'latn'`.** Egyptian Arabic otherwise uses Arabic-Indic digits; see [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#numberingsystem).

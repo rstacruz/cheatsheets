@@ -27,7 +27,7 @@ speed.format(50)   // → '50 km/h'
 ```
 <!-- {: data-highlight="unit: 'kilometer-per-hour'"} -->
 
-**Sets `style: 'unit'` with a unit identifier.** The identifier is a sanctioned string such as `kilometer-per-hour`, not free text; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
+**Sets `style: 'unit'` with a unit identifier.** `unit` takes a fixed identifier such as `kilometer-per-hour`, not free text; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
 
 ### Choose the unit label
 <!-- {: .-snippet} -->

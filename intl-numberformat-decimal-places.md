@@ -43,7 +43,7 @@ nf.format(1.005)   // → '1.01'
 ```
 <!-- {: data-highlight="maximumFractionDigits: 2"} -->
 
-**Caps the fraction without padding `1.5` to `1.50`.** The default minimum is 0; see [maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits).
+**Caps the fraction at two digits without padding.** `1.5` stays `1.5`, and the default minimum is 0; see [maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits).
 
 ### Change the rounding mode
 <!-- {: .-snippet} -->
@@ -59,4 +59,4 @@ floor.format(-1.9)  // → '-2'
 ```
 <!-- {: data-highlight="roundingMode: 'floor'"} -->
 
-**Rounds toward negative infinity with `'floor'`.** Other modes include `'ceil'`, `'trunc'`, and `'halfEven'`; the default is `'halfExpand'`; see [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode).
+**Rounds toward negative infinity with `'floor'`.** Other modes include `'ceil'`, `'trunc'`, and `'halfEven'`; the default is `'halfExpand'`. See [roundingMode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode).

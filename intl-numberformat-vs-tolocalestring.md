@@ -43,4 +43,4 @@ prices.map((price) => nf.format(price))
 ```
 <!-- {: data-highlight="nf.format(price)"} -->
 
-**Builds the formatter once and reuses it.** `toLocaleString()` constructs a formatter per call, which is slower in loops and renders; see [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
+**Builds the formatter once and reuses it.** `toLocaleString()` constructs a formatter per call, which is slower in loops; see [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).

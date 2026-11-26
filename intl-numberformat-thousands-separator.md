@@ -25,7 +25,7 @@ nf.format(1234.5)   // → '1,234.5'
 ```
 <!-- {: data-highlight="format(1234567)"} -->
 
-**Groups digits in threes by default.** Plain decimal formatting needs no options beyond the locale; see [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
+**Groups digits in threes by default.** Decimal formatting needs no options beyond the locale; see [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
 
 ### Turn grouping off
 <!-- {: .-snippet} -->
@@ -53,4 +53,4 @@ new Intl.NumberFormat('de-DE').format(1234567)
 ```
 <!-- {: data-highlight="'en-IN'; 'de-DE'"} -->
 
-**Uses the locale's grouping and decimal mark.** Indian English groups the last three first, then pairs; see [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+**Uses the locale's grouping.** Indian English groups the last three digits first, then pairs; see [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).

@@ -380,7 +380,6 @@ See: [toLocaleDateString()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 | `day` | `'numeric'`, `'2-digit'` |
 | --- | --- |
 | `dateStyle` | `'full'`, `'long'`, `'medium'`, `'short'` |
-| `calendar` | e.g. `'gregory'`, `'buddhist'`, `'japanese'` |
 <!-- {: .-headers} -->
 
 See: [DateTimeFormat options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)

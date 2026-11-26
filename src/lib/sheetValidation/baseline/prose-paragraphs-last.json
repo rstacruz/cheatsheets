@@ -49,7 +49,6 @@
   "hledger#Queries",
   "hledger#Smart dates",
   "ie#IE polyfills",
-  "intl-datetime#Formatting dates",
   "js-speech#Voices",
   "jscoverage#package.json",
   "jshint#Enforcing",

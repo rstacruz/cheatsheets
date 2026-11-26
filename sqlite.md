@@ -196,7 +196,7 @@ CREATE TABLE users (
 
 See: [STRICT tables](https://sqlite.org/stricttables.html)
 
-### Primary keys
+### Primary keys and rowids
 
 ```sql
 CREATE TABLE tags (
@@ -204,7 +204,7 @@ CREATE TABLE tags (
   slug TEXT
 ) WITHOUT ROWID;
 ```
-<!-- {: data-highlight="WITHOUT ROWID"} -->
+<!-- {: data-highlight="PRIMARY KEY; WITHOUT ROWID"} -->
 
 Every table has a hidden `rowid` unless `WITHOUT ROWID` is set. `AUTOINCREMENT` prevents rowid reuse, at some cost.
 

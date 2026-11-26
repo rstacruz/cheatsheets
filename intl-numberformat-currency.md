@@ -34,16 +34,16 @@ usd.format(9.99)    // → '$9.99'
 <!-- {: .-snippet} -->
 
 ```js
-const usd = (currencyDisplay) =>
+const formatter = (currencyDisplay) =>
   new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     currencyDisplay
   })
 
-usd('code').format(1234.5)
+formatter('code').format(1234.5)
 // → 'USD 1,234.50'
-usd('name').format(1234.5)
+formatter('name').format(1234.5)
 // → '1,234.50 US dollars'
 ```
 <!-- {: data-highlight="'code'; 'name'"} -->

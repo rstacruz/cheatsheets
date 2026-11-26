@@ -522,7 +522,7 @@ with sqlite3.connect('backup.db') as target:
 ```
 <!-- {: data-highlight=".backup("} -->
 
-The backup API copies pages atomically, safe while other connections use the database.
+The backup API makes a consistent copy, safe while other connections use the database.
 
 See: [Connection.backup](https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.backup)
 

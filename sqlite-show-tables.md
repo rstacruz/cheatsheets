@@ -43,6 +43,7 @@ CREATE TABLE posts (
   user_id INTEGER REFERENCES users(id),
   title TEXT
 );
+CREATE INDEX posts_user_id ON posts(user_id);
 ```
 
 **Prints the CREATE statement.** It also lists indexes and triggers on the table; see [.schema](https://sqlite.org/cli.html#dot_commands).

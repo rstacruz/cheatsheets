@@ -83,4 +83,4 @@ with sqlite3.connect('backup.db') as target:
 ```
 <!-- {: data-highlight=".backup("} -->
 
-**Copies pages atomically.** The copy is safe while other connections keep using the source; see [Connection.backup](https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.backup).
+**Makes a consistent copy.** The copy is safe while other connections keep using the source; see [Connection.backup](https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.backup).

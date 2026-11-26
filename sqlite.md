@@ -31,8 +31,7 @@ keywords:
   - sqlite show tables
   - sqlite pragma
 intro: |
-  SQLite is an embedded SQL database kept in one file. The `sqlite3` CLI runs
-  SQL and dot-commands; Python ships a `sqlite3` module.
+  SQLite is an embedded SQL database kept in one file. The `sqlite3` CLI runs SQL and dot-commands; Python ships a `sqlite3` module.
 links:
   - title: SQLite documentation
     url: https://sqlite.org/docs.html
@@ -52,7 +51,7 @@ sqlite3 :memory:    # temporary in-memory database
 ```
 <!-- {: data-highlight="sqlite3 app.db; sqlite3 :memory:"} -->
 
-The file is created when the database is first opened. `:memory:` disappears on exit.
+`:memory:` disappears when the process exits.
 
 See: [Command-line shell](https://sqlite.org/cli.html)
 
@@ -77,7 +76,7 @@ See: [Command-line shell](https://sqlite.org/cli.html)
 | `.restore <file>` | Load a database copy |
 | `.quit` | Exit |
 
-Dot-commands start at the beginning of a line and take no semicolon.
+Dot-commands start at the beginning of a line and need no semicolon.
 
 See: [Dot-commands](https://sqlite.org/cli.html)
 
@@ -121,7 +120,7 @@ See: [Output formats](https://sqlite.org/cli.html#output_formats)
 ```sh
 sqlite3 app.db < schema.sql
 ```
-<!-- {: data-highlight="schema.sql"} -->
+<!-- {: data-highlight="< schema.sql"} -->
 
 Inside a session, `.read schema.sql` runs the same file.
 
@@ -134,7 +133,7 @@ sqlite3 app.db ".import --csv --skip 1 users.csv users"
 ```
 <!-- {: data-highlight=".import --csv"} -->
 
-`--skip 1` drops the header row. If the table is missing, omit `--skip 1` so the header row names the columns.
+`--skip 1` drops the header row. When creating a new table, omit `--skip 1` so the header row names the columns.
 
 See: [Import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats)
 
@@ -152,7 +151,7 @@ See: [CSV export](https://sqlite.org/cli.html#export_to_csv)
 
 ## Schema
 
-### Types
+### Storage classes
 
 | Storage class | Stores |
 | --- | --- |
@@ -178,7 +177,7 @@ CREATE TABLE users (
 ```
 <!-- {: data-highlight="CREATE TABLE"} -->
 
-`INTEGER PRIMARY KEY` aliases the hidden rowid. Timestamps have no dedicated type; store them as text, real, or integer.
+`INTEGER PRIMARY KEY` aliases the hidden rowid.
 
 See: [CREATE TABLE](https://sqlite.org/lang_createtable.html)
 
@@ -206,7 +205,7 @@ CREATE TABLE tags (
 ```
 <!-- {: data-highlight="PRIMARY KEY; WITHOUT ROWID"} -->
 
-Every table has a hidden `rowid` unless `WITHOUT ROWID` is set. `AUTOINCREMENT` prevents rowid reuse, at some cost.
+Every table has a hidden `rowid` unless `WITHOUT ROWID` is set. `AUTOINCREMENT` prevents rowid reuse but adds overhead.
 
 See: [ROWID and the INTEGER PRIMARY KEY](https://sqlite.org/lang_createtable.html#rowid)
 
@@ -245,11 +244,11 @@ CREATE UNIQUE INDEX users_email ON users(email);
 ```
 <!-- {: data-highlight="CREATE INDEX; CREATE UNIQUE INDEX"} -->
 
-Index columns used in joins and filters. A unique index also enforces the constraint.
+Index the columns used in joins and filters. A unique index also enforces the constraint.
 
 See: [CREATE INDEX](https://sqlite.org/lang_createindex.html)
 
-## Queries
+## Writing rows
 
 ### Upsert
 
@@ -276,6 +275,8 @@ RETURNING id, title;
 `RETURNING` also works with `UPDATE` and `DELETE`.
 
 See: [RETURNING](https://sqlite.org/lang_returning.html)
+
+## Reading values
 
 ### Query JSON
 
@@ -314,7 +315,7 @@ SQLite has no date type: store ISO-8601 text or Unix seconds and use these funct
 
 See: [Date and time functions](https://sqlite.org/lang_datefunc.html)
 
-## PRAGMA
+## Pragmas
 
 ### Common pragmas
 
@@ -331,7 +332,7 @@ See: [Date and time functions](https://sqlite.org/lang_datefunc.html)
 | `PRAGMA integrity_check` | Verify the database file |
 | `PRAGMA optimize` | Refresh query-planner statistics |
 
-`foreign_keys` and `busy_timeout` apply to one connection. Only `journal_mode=WAL` and `user_version` persist in the file.
+`foreign_keys` and `busy_timeout` apply to one connection.
 
 See: [PRAGMA](https://sqlite.org/pragma.html)
 
@@ -353,7 +354,7 @@ sqlite3 app.db "PRAGMA foreign_keys=ON;"
 ```
 <!-- {: data-highlight="foreign_keys=ON"} -->
 
-Foreign keys are off by default, so enable them on every connection, including in Python.
+Enable foreign keys on every connection, including in Python.
 
 See: [Foreign keys](https://sqlite.org/foreignkeys.html)
 
@@ -369,24 +370,44 @@ SELECT name, type FROM pragma_table_info('users');
 #### Indexes
 
 ```sql
-PRAGMA index_list('posts');
+SELECT name FROM pragma_index_list('users');
 ```
-<!-- {: data-highlight="index_list("} -->
+<!-- {: data-highlight="pragma_index_list("} -->
 
 The `pragma_*` functions are table-valued, so they work in joins and filters.
 
 See: [table_info](https://sqlite.org/pragma.html#pragma_table_info)
 
-### Check and maintain
+### Check integrity
 
 ```sh
 sqlite3 app.db "PRAGMA integrity_check;"
 ```
 <!-- {: data-highlight="integrity_check"} -->
 
-Prints `ok` for a healthy file. `VACUUM` rebuilds and shrinks the database; `PRAGMA optimize` refreshes statistics.
+Prints `ok` for a healthy file.
 
 See: [integrity_check](https://sqlite.org/pragma.html#pragma_integrity_check)
+
+### Compact and optimize
+
+#### Rebuild
+
+```sh
+sqlite3 app.db "VACUUM;"
+```
+<!-- {: data-highlight="VACUUM;"} -->
+
+#### Refresh statistics
+
+```sh
+sqlite3 app.db "PRAGMA optimize;"
+```
+<!-- {: data-highlight="optimize"} -->
+
+`VACUUM` rebuilds and shrinks the file after large deletes; `PRAGMA optimize` updates planner statistics.
+
+See: [VACUUM](https://sqlite.org/lang_vacuum.html)
 
 ## Backup and restore
 
@@ -435,6 +456,7 @@ sqlite3 app.db ".dump" > dump.sql
 ```sh
 sqlite3 new.db < dump.sql
 ```
+<!-- {: data-highlight="dump.sql"} -->
 
 The dump holds schema and data as SQL statements, which also restores into another database.
 
@@ -477,6 +499,7 @@ conn.execute(
     'SELECT name FROM users WHERE id = :id',
     {'id': 1},
 ).fetchone()
+# ('Ada',)
 ```
 <!-- {: data-highlight=":id"} -->
 
@@ -499,7 +522,7 @@ The `with` block commits on success and rolls back on error. It does not close t
 
 See: [Transactions](https://docs.python.org/3/library/sqlite3.html#sqlite3-controlling-transactions)
 
-### Rows as dictionaries
+### Rows by column name
 
 ```python
 conn.row_factory = sqlite3.Row

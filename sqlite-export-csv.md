@@ -4,6 +4,7 @@ link_title: Export SQLite to CSV
 subtitle: Write query results to CSV
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:

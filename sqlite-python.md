@@ -4,6 +4,7 @@ link_title: SQLite in Python
 subtitle: Query a database with sqlite3
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "Python 3.14.10, SQLite 3.54.0."
 updated: 2026-11-27
 links:

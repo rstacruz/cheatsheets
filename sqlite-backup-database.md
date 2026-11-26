@@ -4,6 +4,7 @@ link_title: Back up SQLite
 subtitle: Safe copies and SQL dumps
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
@@ -13,7 +14,7 @@ links:
     url: https://sqlite.org/lang_vacuum.html
 ---
 
-## Backing up
+## Backing up and restoring
 <!-- {: .-snippets} -->
 
 ### Copy with .backup
@@ -54,4 +55,4 @@ sqlite3 app.db ".restore backup.db"
 ```
 <!-- {: data-highlight=".restore backup.db"} -->
 
-**Copies a SQLite database file into the open database.** Unlike `.dump`, the source must be a database file, not a SQL script; see [restore](https://sqlite.org/cli.html#other_dot_commands).
+**Copies a SQLite database file into the current database.** Unlike `.dump`, the source must be a database file, not a SQL script; see [restore](https://sqlite.org/cli.html#other_dot_commands).

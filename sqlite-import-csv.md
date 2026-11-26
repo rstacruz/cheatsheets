@@ -4,6 +4,7 @@ link_title: Import CSV into SQLite
 subtitle: Load rows with dot-import
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
@@ -23,7 +24,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight=".import"} -->
 
-**Creates the table from the first row.** Column names come from the header; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
+**Creates the table from the header row.** Columns have no declared type; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Import into an existing table
 <!-- {: .-snippet} -->
@@ -44,6 +45,6 @@ sqlite3 app.db \
   ".mode box" ".headers on" \
   "select * from users;"
 ```
-<!-- {: data-highlight="select *"} -->
+<!-- {: data-highlight=".headers on"} -->
 
 **Prints the loaded rows.** Run it after an import to confirm the column mapping; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).

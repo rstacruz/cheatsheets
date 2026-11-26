@@ -4,6 +4,7 @@ link_title: Upsert in SQLite
 subtitle: Insert or update a row
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:

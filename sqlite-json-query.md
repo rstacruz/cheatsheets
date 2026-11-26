@@ -4,6 +4,7 @@ link_title: Query JSON in SQLite
 subtitle: Extract values from JSON columns
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
@@ -66,4 +67,4 @@ WHERE json_extract(payload, '$.type')
 ```
 <!-- {: data-highlight="WHERE json_extract("} -->
 
-**Keeps rows whose JSON field matches.** Index the expression with `CREATE INDEX ... ON events(json_extract(payload, '$.type'))` for large tables; see [JSON functions](https://sqlite.org/json1.html).
+**Keeps rows whose JSON field matches.** Index the expression for large tables; see [JSON functions](https://sqlite.org/json1.html).

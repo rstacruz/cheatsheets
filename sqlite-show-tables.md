@@ -4,6 +4,7 @@ link_title: Show tables in SQLite
 subtitle: List tables, schema and columns
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
@@ -13,7 +14,7 @@ links:
     url: https://sqlite.org/pragma.html#pragma_table_info
 ---
 
-## Listing tables
+## Inspecting tables
 <!-- {: .-snippets} -->
 
 ### List tables
@@ -64,7 +65,7 @@ sqlite3 app.db "PRAGMA table_info(posts);"
 2|title|TEXT|0||0
 ```
 
-**Lists each column with its type.** The `pk` field marks primary-key columns; see [table_info](https://sqlite.org/pragma.html#pragma_table_info).
+**Lists each column with its type.** The second field is the name and the last field is `1` for primary-key columns; see [table_info](https://sqlite.org/pragma.html#pragma_table_info).
 
 ### Show indexes
 <!-- {: .-snippet} -->

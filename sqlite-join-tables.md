@@ -4,6 +4,7 @@ link_title: Join tables in SQLite
 subtitle: Combine rows from two tables
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:

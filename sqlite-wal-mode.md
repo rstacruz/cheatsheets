@@ -4,6 +4,7 @@ link_title: Enable WAL mode
 subtitle: Improve read and write concurrency
 category: Databases
 layout: snippet
+tier: t3
 last_verified_with: "SQLite 3.54.0."
 updated: 2026-11-27
 links:
@@ -22,7 +23,7 @@ links:
 ```sh
 sqlite3 app.db "PRAGMA journal_mode=WAL;"
 ```
-<!-- {: data-highlight="WAL"} -->
+<!-- {: data-highlight="journal_mode=WAL"} -->
 
 **Switches the file to write-ahead logging.** It prints `wal`, and the setting persists in the file; see [WAL](https://sqlite.org/wal.html).
 

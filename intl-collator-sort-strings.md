@@ -2,7 +2,7 @@
 title: How to sort strings in JavaScript
 link_title: Sort strings
 subtitle: Alphabetical order by locale
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -54,9 +54,9 @@ const words = ['ápple', 'banana', 'Apple']
 words.sort(collator.compare)
 // → ['Apple', 'ápple', 'banana']
 ```
-<!-- {: data-highlight="['ápple', 'banana', 'Apple']" } -->
+<!-- {: data-highlight="words.sort(collator.compare)" } -->
 
-**Treats accents as secondary.** `Apple` and `ápple` share a base letter, so they group together; see [sorting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator#sorting).
+**Treats accents as secondary.** `Apple` and `ápple` share a base letter, so they group together; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
 
 ### Descending order
 <!-- {: .-snippet} -->

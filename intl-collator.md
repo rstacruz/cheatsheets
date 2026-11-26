@@ -1,7 +1,7 @@
 ---
 title: Intl.Collator
 subtitle: Locale-aware string comparison
-category: Browser APIs
+category: Internationalization
 tier: t2
 updated: 2026-11-26
 last_verified_with: "Node 26.13.1."
@@ -30,7 +30,7 @@ keywords:
   - case-insensitive sort
 intro: |
   `Intl.Collator` compares strings by a locale's rules, so sorting respects
-  accents, case, and digits. The same rules power `localeCompare`.
+  accents, case, and language rules. The same rules power `localeCompare`.
 links:
   - title: Intl.Collator
     url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
@@ -53,7 +53,7 @@ fruit.sort(collator.compare)
 ```
 <!-- {: data-highlight="sort(collator.compare)"} -->
 
-Without a collator, `.sort()` compares UTF-16 code units, so `Cherry` comes before `apple` and accented letters after `z`. `toSorted()` takes the same comparator.
+Without a collator, `.sort()` compares UTF-16 code units, so `Cherry` comes before `apple` and accented letters after `z`. Only the sign of `compare()` is guaranteed; engines usually return `-1` and `1`.
 
 See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare)
 
@@ -124,7 +124,7 @@ const collator = new Intl.Collator('en', {
 
 collator.compare('résumé', 'resume')  // → 0
 collator.compare('Apple', 'apple')    // → 0
-collator.compare('a', 'b')            // → -1
+collator.compare('a', 'b')            // → negative
 ```
 <!-- {: data-highlight="sensitivity: 'base'"} -->
 
@@ -155,7 +155,7 @@ files.sort(collator.compare)
 ```
 <!-- {: data-highlight="numeric: true"} -->
 
-Digit runs compare by value, so versions like `1.9` come before `1.10`. A leading `-` is still punctuation, so negative numbers need a numeric comparator.
+Digit runs compare by value, so versions like `1.9` come before `1.10`. The minus sign is punctuation, so sort negative numeric strings with `(a, b) => Number(a) - Number(b)`.
 
 See: [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#numeric)
 
@@ -177,18 +177,27 @@ See: [ignorePunctuation](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Case order
 
+#### Upper first
+
 ```js
 const upper = new Intl.Collator('en', {
   caseFirst: 'upper'
 })
+
+upper.compare('a', 'A')  // → positive
+```
+<!-- {: data-highlight="caseFirst: 'upper'"} -->
+
+#### Lower first
+
+```js
 const lower = new Intl.Collator('en', {
   caseFirst: 'lower'
 })
 
-upper.compare('a', 'A')  // → 1
-lower.compare('a', 'A')  // → -1
+lower.compare('a', 'A')  // → negative
 ```
-<!-- {: data-highlight="caseFirst: 'upper'; caseFirst: 'lower'"} -->
+<!-- {: data-highlight="caseFirst: 'lower'"} -->
 
 The default `'false'` follows the locale; English sorts lowercase first, so `caseFirst: 'upper'` flips the pair.
 
@@ -275,7 +284,7 @@ See: [localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 | --- | --- |
 | `usage` | `'sort'` (default), `'search'` |
 | `sensitivity` | `'variant'` (default), `'base'`, `'accent'`, `'case'` |
-| `ignorePunctuation` | `false` (default), `true` |
+| `ignorePunctuation` | `false` (default; `true` for Thai), `true` |
 | `numeric` | `false` (default), `true` |
 | `caseFirst` | `'false'` (default), `'upper'`, `'lower'` |
 | `collation` | e.g. `'phonebk'`, `'pinyin'`, `'emoji'` |
@@ -304,15 +313,22 @@ See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Errors
 
+#### Invalid locale
+
 ```js
 new Intl.Collator('en_US')
 // RangeError: Invalid language tag: en_US
+```
+<!-- {: data-highlight="'en_US'"} -->
 
+#### Invalid option
+
+```js
 new Intl.Collator('en', { usage: 'nope' })
 // RangeError: Value nope out of range for
 // Intl.Collator options property usage
 ```
-<!-- {: data-highlight="RangeError"} -->
+<!-- {: data-highlight="'nope'"} -->
 
 Malformed tags and invalid enum values throw `RangeError`; unsupported locales or collations are not errors and fall back.
 

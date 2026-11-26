@@ -2,7 +2,7 @@
 title: How to sort strings case-insensitively in JavaScript
 link_title: Case-insensitive sort
 subtitle: Ignore case while sorting
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -38,7 +38,7 @@ const collator = new Intl.Collator('en', {
 })
 
 collator.compare('a', 'A')  // → 0
-collator.compare('a', 'á')  // → -1
+collator.compare('a', 'á')  // → negative
 ```
 <!-- {: data-highlight="sensitivity: 'accent'"} -->
 

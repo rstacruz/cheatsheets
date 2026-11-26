@@ -2,7 +2,7 @@
 title: How to compare strings ignoring accents in JavaScript
 link_title: Ignore accents
 subtitle: Compare résumé with resume
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -44,7 +44,7 @@ strip('résumé')  // → 'resume'
 
 **Removes combining marks from the string.** Keep the original for display; the stripped copy is only for comparing or indexing; see [normalize()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
 
-### Sort unaccented first
+### Sort by base letters
 <!-- {: .-snippet} -->
 
 ```js
@@ -56,6 +56,6 @@ const words = ['zebra', 'árbol', 'Apple']
 words.sort(collator.compare)
 // → ['Apple', 'árbol', 'zebra']
 ```
-<!-- {: data-highlight="['zebra', 'árbol', 'Apple']" } -->
+<!-- {: data-highlight="words.sort(collator.compare)" } -->
 
-**Groups `árbol` with the a-words.** Accents do not move a word to the end of the list; see [sorting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator#sorting).
+**Groups `árbol` with the a-words.** Accents do not move a word to the end of the list; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).

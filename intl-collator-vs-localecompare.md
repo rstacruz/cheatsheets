@@ -2,7 +2,7 @@
 title: Intl.Collator vs localeCompare
 link_title: Collator vs localeCompare
 subtitle: When to use each
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -20,11 +20,11 @@ links:
 <!-- {: .-snippet} -->
 
 ```js
-'a'.localeCompare('b', 'en')  // → -1
+'a'.localeCompare('b', 'en')  // → negative
 ```
 <!-- {: data-highlight="localeCompare"} -->
 
-**Reads best for a single comparison.** It applies the same collation rules without keeping a formatter; see [localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+**Reads best for a single comparison.** It applies the same collation rules without reusing a collator instance; see [localeCompare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
 
 ### Reuse a collator
 <!-- {: .-snippet} -->
@@ -40,7 +40,7 @@ list.toSorted(collator.compare)
 ```
 <!-- {: data-highlight="toSorted(collator.compare)"} -->
 
-**Builds the formatter once for repeated sorts.** A collator avoids constructing options inside every comparison; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
+**Builds one collator for repeated sorts.** A collator avoids constructing options inside every comparison; see [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare).
 
 ### Pass the same options
 <!-- {: .-snippet} -->

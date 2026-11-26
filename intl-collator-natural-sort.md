@@ -2,7 +2,7 @@
 title: How to sort strings with numbers in JavaScript
 link_title: Natural sort
 subtitle: Files, versions, and IDs
-category: Browser APIs
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26
@@ -42,7 +42,7 @@ const versions = ['1.10', '1.9', '1.2']
 versions.sort(collator.compare)
 // → ['1.2', '1.9', '1.10']
 ```
-<!-- {: data-highlight="['1.10', '1.9', '1.2']" } -->
+<!-- {: data-highlight="versions.sort(collator.compare)" } -->
 
 **Handles each number separately.** Dots stay punctuation, so every dotted segment compares as a number; see [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#numeric).
 

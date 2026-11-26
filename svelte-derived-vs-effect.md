@@ -101,7 +101,11 @@ links:
   })
 </script>
 
-<div bind:this={log}>…</div>
+<div bind:this={log}>
+  {#each messages as message}
+    <p>{message}</p>
+  {/each}
+</div>
 ```
 <!-- {: data-highlight="$effect.pre"} -->
 

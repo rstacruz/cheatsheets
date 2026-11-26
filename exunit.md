@@ -1,7 +1,10 @@
 ---
 title: ExUnit
+subtitle: Elixir test framework
 category: Elixir
-updated: 2018-11-19
+updated: 2026-11-23
+tier: t3
+last_verified_with: "ExUnit 1.20.5."
 ---
 
 ### Test cases
@@ -9,13 +12,14 @@ updated: 2018-11-19
 ```elixir
 defmodule MyTest do
   use ExUnit.Case
-  use ExUnit.Case, async: true  # for async
 
   test "the truth" do
     assert 1 + 1 == 2
   end
 end
 ```
+
+See: [ExUnit.Case](https://hexdocs.pm/ex_unit/ExUnit.Case.html#test/2)
 
 ### Capture IO
 
@@ -31,11 +35,15 @@ test "capture io" do
 end
 ```
 
+See: [capture_io/1](https://hexdocs.pm/ex_unit/ExUnit.CaptureIO.html#capture_io/1)
+
 ### Capture logs
 
 ```elixir
-config :ex_unit, capture_logs: true
+ExUnit.start(capture_log: true)
 ```
+
+See: [Log capture](https://hexdocs.pm/ex_unit/ExUnit.Case.html#module-log-capture)
 
 ### Async
 
@@ -45,6 +53,8 @@ defmodule AssertionTest do
   use ExUnit.Case, async: true
 end
 ```
+
+See: [Async tests](https://hexdocs.pm/ex_unit/ExUnit.Case.html#module-process-architecture)
 
 ### Assertions
 
@@ -56,17 +66,20 @@ assert_raise ArithmeticError, fn ->
   1 + "test"
 end
 
-assert_raise ArithmeticError, "message", fn -> ...
-assert_raise ArithmeticError, ~r/message/, fn -> ...
+assert_raise ArithmeticError, ~r/bad argument/, fn ->
+  1 / 0
+end
 
 flunk "This should've been an error"
 ```
 
-See: [Assertions](http://devdocs.io/elixir/ex_unit/exunit.assertions)
+See: [Assertions](https://hexdocs.pm/ex_unit/ExUnit.Assertions.html)
 
 ## Setup
 
 ### Pattern matching
+
+#### Setup
 
 ```elixir
 setup do
@@ -74,14 +87,17 @@ setup do
 end
 ```
 
+#### Use
+
 ```elixir
 test "it works", %{name: name} do
   assert name == "John"
 end
 ```
 
-### Setup
+See: [Test context](https://hexdocs.pm/ex_unit/ExUnit.Callbacks.html#module-context)
 
+### Setup
 
 ```elixir
 defp my_hook(_context) do
@@ -99,9 +115,10 @@ describe "a block" do
 end
 ```
 
+See: [setup/1](https://hexdocs.pm/ex_unit/ExUnit.Callbacks.html#setup/1)
 
 ## Also see
 
 <!-- {: .-one-column} -->
 
-* [ExUnit Docs](http://devdocs.io/elixir/ex_unit/exunit#configure/1)
+* [ExUnit docs](https://hexdocs.pm/ex_unit/)

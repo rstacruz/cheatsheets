@@ -56,3 +56,41 @@ export function scanFences(lines: string[]) {
 
   return { fenced, indent }
 }
+
+export type FenceBlock = {
+  /** 1-based line of the closer; the last line for an unclosed fence */
+  closeLine: number
+  /** Lines inside the fence, without the parser's trailing newline */
+  code: string[]
+}
+
+/** Fenced blocks with their 1-based closer line and content lines */
+export function findFences(lines: string[]): FenceBlock[] {
+  const { fenced } = scanFences(lines)
+  const blocks: FenceBlock[] = []
+
+  for (let index = 0; index < lines.length; index++) {
+    if (!fenced[index] || (index > 0 && fenced[index - 1])) continue
+    const opener = FENCE_LINE.exec(lines[index])?.[2] ?? ''
+    let end = index + 1
+    while (end < lines.length && fenced[end]) end++
+
+    const last = end - 1
+    const closer = last > index ? FENCE_LINE.exec(lines[last] ?? '') : null
+    const closed =
+      closer !== null &&
+      closer[2][0] === opener[0] &&
+      closer[2].length >= opener.length &&
+      closer[3].trim() === ''
+    const code = lines.slice(index + 1, closed ? last : end)
+    // The parser drops one trailing newline from a fence's code value
+    if (code.at(-1)?.trim() === '') code.pop()
+    blocks.push({
+      closeLine: (closed ? last : end - 1) + 1,
+      code
+    })
+    index = end - 1
+  }
+
+  return blocks
+}

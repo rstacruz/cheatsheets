@@ -1,5 +1,6 @@
 ---
 import type { SheetPage } from '~/lib/page'
+import '@fontsource/handjet/latin-400.css'
 import PageListItem from './PageListItem.astro'
 
 export type Props = {
@@ -7,12 +8,22 @@ export type Props = {
 }
 
 const props = Astro.props as Props
+const tones = ['primary', 'slate', 'green'] as const
+
+const styles = {
+  root: 'FeaturedPages__root col-span-full grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-[16px]'
+}
 ---
 
-{props.pages.map((page) => (
-  <PageListItem page={page} class="top-sheet" />
-))}
-
-<style is:global>
-  @import '../../styles/components/top-sheet.css';
-</style>
+{props.pages.length > 0 && (
+  <div class={styles.root}>
+    {props.pages.map((page, index) => (
+      <PageListItem
+        page={page}
+        variant="featured"
+        tone={tones[index % tones.length]}
+        showFragments
+      />
+    ))}
+  </div>
+)}

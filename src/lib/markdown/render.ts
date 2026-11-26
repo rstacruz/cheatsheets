@@ -2,6 +2,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import { unified } from 'unified'
+import { rehypeInlineHighlight } from './inlineHighlight'
 import { renderMarkdown } from './index'
 import { insertIntroCard, type IntroOptions } from './intro'
 import { plugin as rehypeSectionize } from '@rstacruz/rehype-sectionize'
@@ -113,6 +114,7 @@ async function processRehype(inputHtml: string): Promise<string> {
     .use(rehypeParse)
     // @ts-expect-error dunno how to fix this
     .use(rehypePrism, PRISM_CONFIG)
+    .use(rehypeInlineHighlight)
     .use(rehypeStringify)
     // @ts-expect-error dunno how to fix this
     .use(rehypeSectionize, REHYPE_SECTIONIZE_CONFIG)

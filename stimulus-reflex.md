@@ -1,12 +1,24 @@
 ---
 title: StimulusReflex
+subtitle: Rails reactive page updates
 category: Ruby
-updated: 2021-01-07
+intro: |
+  StimulusReflex updates Rails pages reactively over WebSockets using server-side reflexes and morphs.
+links:
+  - title: Reflexes guide
+    url: https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes
+  - title: Morph modes
+    url: https://v3-4-docs.docs.stimulusreflex.com/guide/morph-modes
+  - title: Lifecycle
+    url: https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle
+tier: t3
+last_verified_with: "StimulusReflex 3.5.5."
+updated: 2026-11-26
 ---
 
-### via Data Attributes
+## Getting started
 
-Trigger reflexes without writing any javascript with the `data-reflex` attribute.
+### via Data Attributes
 
 #### index.html.erb
 
@@ -25,14 +37,17 @@ Trigger reflexes without writing any javascript with the `data-reflex` attribute
 ```ruby
 class CounterReflex < StimulusReflex::Reflex
   def increment
-    @count = element.dataset[:count].to_i + element.dataset[:step].to_i
+    @count = element.dataset[:count].to_i +
+      element.dataset[:step].to_i
   end
 end
 ```
 
-### from Stimulus.js Controller
+Trigger reflexes without writing any JavaScript with `data-reflex`.
 
-Stimulus.js controllers registered with StimulusReflex can use the `stimulate` method to trigger reflexes
+See: [Declaring reflexes](https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes#declaring-a-reflex-in-html-with-data-attributes)
+
+### from Stimulus.js Controller
 
 #### index.html.erb
 
@@ -67,32 +82,38 @@ export default class extends Controller {
 class CounterReflex < StimulusReflex::Reflex
   def increment(step = 1)
     session[:count] = session[:count].to_i + step
-   end
+  end
 end
 ```
+
+Stimulus controllers registered with StimulusReflex can call `stimulate` to trigger reflexes.
+
+See: [Calling reflexes](https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes#calling-a-reflex-in-a-stimulus-controller)
 
 ## Morphs
 
 ### Selector morphs
 
-Instead of refreshing the entire page, you can specify a portion of the page to update with `morph(selector, content)`
+#### show.html.erb
 
 ```html
-<!-- show.html.erb -->
 <header data-reflex="click->Example#change">
-  <%= render partial: "path/to/foo", locals: {message: "Am I the medium or the massage?"} %>
+  <%= render partial: "path/to/foo",
+    locals: { message: "Am I the medium or the massage?" } %>
 </header>
 ```
 
+#### _foo.html.erb
+
 ```html
-<!-- _foo.html.erb -->
 <div id="foo">
   <span class="spa"><%= message %></span>
 </div>
 ```
 
+#### example_reflex.rb
+
 ```ruby
-# example_reflex.rb
 class ExampleReflex < ApplicationReflex
   def change
     morph "#foo", "Your muscles... they are so tight."
@@ -100,12 +121,15 @@ class ExampleReflex < ApplicationReflex
 end
 ```
 
+Instead of refreshing the entire page, use `morph(selector, content)` to update one portion.
+
+See: [Selector morphs](https://v3-4-docs.docs.stimulusreflex.com/guide/morph-modes#selector-morphs)
+
 ### Nothing morph
 
-Use `morph :nothing` in reflexes that do something on the server without updating the client.
+#### example_reflex.rb
 
 ```ruby
-# example_reflex.rb
 class ExampleReflex < ApplicationReflex
   def change
     LongRunningJob.perform_later
@@ -114,15 +138,23 @@ class ExampleReflex < ApplicationReflex
 end
 ```
 
+Use `morph :nothing` when a Reflex does server-side work without updating the client.
+
+See: [Nothing morphs](https://v3-4-docs.docs.stimulusreflex.com/guide/morph-modes#nothing-morphs)
+
 ## Lifecycle
 
 ### Server-side callbacks
 
-Reflex classes can use the following callbacks. [Full Docs](http://docs.stimulusreflex.com/lifecycle#server-side-reflex-callbacks)
+Reflex classes can use the following callbacks.
 
 - `before_reflex`
 - `around_reflex`
 - `after_reflex`
+
+<!-- {: .-enum-lines} -->
+
+See: [Server-side callbacks](https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle#server-side-reflex-callbacks)
 
 ### Client-side callbacks (generic)
 
@@ -131,9 +163,11 @@ StimulusReflex controllers automatically support five generic lifecycle callback
 - `beforeReflex(element, reflex, noop, reflexId)` prior to sending a request over the web socket
 - `reflexSuccess(element, reflex, noop, reflexId)` after the server side Reflex succeeds and the DOM has been updated
 - `reflexError(element, reflex, error, reflexId)` whenever the server side Reflex raises an error
-- `reflexHalted(element, reflex, noop, reflexId)` reflex canceled with throw :abort in the before_reflex callback
+- `reflexHalted(element, reflex, noop, reflexId)` reflex canceled with raise :abort in the before_reflex callback
 - `afterReflex(element, reflex, noop, reflexId)` after both success and error
 - `finalizeReflex(element, reflex, noop, reflexId)` after both success and error
+
+See: [Generic life-cycle methods](https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle#generic-life-cycle-methods)
 
 ### Client-side callbacks (custom)
 
@@ -145,6 +179,8 @@ StimulusReflex controllers can define up to five custom lifecycle callback metho
 - `addOneHalted(element, reflex, noop, reflexId)`
 - `afterAddOne(element, reflex, noop, reflexId)`
 - `finalizeAddOne(element, reflex, noop, reflexId)`
+
+See: [Custom life-cycle methods](https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle#custom-life-cycle-methods)
 
 ### Client-side events
 
@@ -163,15 +199,17 @@ There are also events related to the StimulusReflex library setting up and conne
 - `stimulus-reflex:rejected`
 - `stimulus-reflex:ready`
 
+See: [Life-cycle events](https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle#life-cycle-events)
+
 ## Helpful tips
 
 ### Forms
 
-If a Reflex is called on a form element - or a child of that form element - then the data for the whole form will be properly serialized and made available to the Reflex action method as the `params` accessor. [Read more](http://docs.stimulusreflex.com/working-with-forms)
+A Reflex on a form (or its child) serializes the whole form into `params`.
+
+See: [Working with forms](https://v3-4-docs.docs.stimulusreflex.com/guide/working-with-forms)
 
 ### Promises
-
-`stimulate()` method returns a promise
 
 ```javascript
 this.stimulate('Comments#create')
@@ -179,21 +217,29 @@ this.stimulate('Comments#create')
   .catch(() => this.handleError())
 ```
 
+The `stimulate()` method returns a promise, so callbacks can chain from it.
+
+See: [Promises](https://v3-4-docs.docs.stimulusreflex.com/guide/lifecycle#promises)
+
 ### Inheriting data-attributes from parent elements
 
-You can use the `data-reflex-dataset="combined"` directive to scoop all data attributes up the DOM hierarchy and pass them as part of the Reflex payload.
+#### new.html.erb
 
 ```html
-<!-- new.html.erb -->
 <div data-post-id="<%= @post.id %>">
   <div data-category-id="<%= @category.id %>">
-    <button data-reflex="click->Comment#create" data-reflex-dataset="combined">Create</button>
+    <button
+      data-reflex="click->Comment#create"
+      data-reflex-dataset="combined"
+      >Create</button
+    >
   </div>
 </div>
 ```
 
-```html
-# comment_reflex.rb
+#### comment_reflex.rb
+
+```ruby
 class CommentReflex < ApplicationReflex
   def create
     puts element.dataset["post-id"]
@@ -202,47 +248,74 @@ class CommentReflex < ApplicationReflex
 end
 ```
 
+Use `data-reflex-dataset="combined"` to pass attributes from parent elements in the Reflex payload.
+
+See: [Inheriting data attributes](https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes#inheriting-data-attributes-from-parent-elements)
+
 ### Reflex root
 
-Instead of updating your entire page, you can specify exactly which parts of the DOM will be updated using the `data-reflex-root` attribute. [Full docs](http://docs.stimulusreflex.com/morph-modes#scoping-page-morphs)
+#### index.html.erb
 
 ```text
-<!-- index.html.erb -->
 <div data-reflex-root="[forward],[backward]">
-  <input type="text" value="<%= @words %>" data-reflex="keyup->Example#words">
+  <input type="text" value="<%= @words %>"
+    data-reflex="keyup->Example#words">
   <div forward><%= @words %></div>
   <div backward><%= @words&.reverse %></div>
 </div>
 ```
 
+#### example_reflex.rb
+
 ```ruby
-# example_reflex.rb
+class ExampleReflex < ApplicationReflex
   def words
     @words = element[:value]
   end
+end
 ```
+
+Use `data-reflex-root` to limit which parts of the DOM a Reflex updates.
+
+See: [Scoping page morphs](https://v3-4-docs.docs.stimulusreflex.com/guide/morph-modes#scoping-page-morphs)
 
 ### Permanent elements
 
-Add data-reflex-permanent to any element in your DOM, and it will be left unchanged by full-page Reflex updates and morph calls that re-render partials.
+#### index.html.erb
 
 ```erb
-<!-- index.html.erb -->
 <div data-reflex-permanent>
   <iframe src="https://ghbtns.com/github-btn.html?user=hopsoft&repo=stimulus_reflex&type=star&count=true" frameborder="0" scrolling="0" class="ghbtn"></iframe>
   <iframe src="https://ghbtns.com/github-btn.html?user=hopsoft&repo=stimulus_reflex&type=fork&count=true" frameborder="0" scrolling="0" class="ghbtn"></iframe>
 </div>
 ```
+<!-- {: .-wrap} -->
+
+Add `data-reflex-permanent` to leave an element unchanged by full-page updates and morphs.
+
+See: [Permanent elements](https://v3-4-docs.docs.stimulusreflex.com/guide/morph-modes#permanent-elements)
 
 ### Aborting a reflex
 
-call `raise :abort` within a reflex method to cancel it.
+#### comment_reflex.rb
 
 ```ruby
-# comment_reflex.rb
 class CommentReflex < ApplicationReflex
+  before_reflex :halt
+
   def create
+    # ...
+
+  end
+
+  private
+
+  def halt
     raise :abort
   end
 end
 ```
+
+Call `raise :abort` in a `before_reflex` callback to cancel a Reflex.
+
+See: [Aborting a reflex](https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes#aborting-a-reflex)

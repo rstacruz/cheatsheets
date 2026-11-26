@@ -1,8 +1,11 @@
 ---
 title: JavaScript Date
+subtitle: Date and time API
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) represents a moment in time.
 links:
@@ -14,31 +17,49 @@ links:
 
 ### Constructor
 
+#### Now
+
 ```js
 // Now
 new Date()
 ```
+<!-- {: data-highlight="new Date()"} -->
+
+#### From timestamp
 
 ```js
 // ms since epoch
 new Date(1393678859000)
 ```
+<!-- {: data-highlight="1393678859000"} -->
+
+#### From a date string
 
 ```js
 // Date format
 new Date("March 1, 2014 13:00:59")
 ```
+<!-- {: data-highlight='"March 1, 2014 13:00:59"'} -->
+
+#### From ISO 8601
 
 ```js
 // ISO date format
 new Date("2014-03-01T13:00:59")
 ```
+<!-- {: data-highlight='"2014-03-01T13:00:59"'} -->
+
+#### From components
 
 ```js
 new Date(2014, 2, 1, 13, 0, 59, 0)
 ```
+<!-- {: data-highlight="2014, 2, 1, 13, 0, 59, 0"} -->
 
 See: [Date() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date) _(developer.mozilla.org)_
+
+[ISO 8601 cheatsheet](./iso8601)
+<!-- {: .-crosslink} -->
 
 ### Arguments
 
@@ -111,3 +132,9 @@ See: [getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 UTC versions are also available (eg, `.getUTCDate()`, `.setUTCDate()`, etc).
 
 See: [setTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime) _(developer.mozilla.org)_
+
+## Also see
+
+[JavaScript Temporal cheatsheet](./js-temporal)
+
+<!-- {: .-crosslink} -->

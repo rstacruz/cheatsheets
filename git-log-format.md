@@ -1,7 +1,10 @@
 ---
 title: Git log format string
+subtitle: Log format placeholder reference
 category: Git
-updated: 2017-10-18
+updated: 2026-11-23
+tier: t3
+last_verified_with: "Git 2.56.0."
 weight: -1
 keywords:
   - "git log --pretty=format:%H"
@@ -23,6 +26,8 @@ git log --pretty="format:%H"
 ```
 
 See the next tables on format variables.
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ### Hash
 
@@ -47,16 +52,21 @@ See the next tables on format variables.
 | `%P` | parent hash |
 | `%p` | (abbrev) parent hash |
 
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
+
 ### Commit
 
 | Variable | Description |
 | --- | --- |
 | `%s` | commit subject |
-| `%f` | commit subject, filename style |
+| `%f` | sanitized subject (filename-safe) |
 | `%b` | commit body |
-| --- | --- |
-| `%d` | ref names |
-| `%e` | encoding |
+| `%B` | raw body (subject + body) |
+| `%d` | ref names, like `--decorate` |
+| `%D` | ref names without wrapping |
+| `%e` | commit encoding |
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ## Author and committer
 
@@ -83,7 +93,10 @@ See the next tables on format variables.
 | `%aD` | author date (rfc2822) |
 | `%ar` | author date (relative) |
 | `%at` | author date (unix timestamp) |
-| `%ai` | author date (iso8601) |
+| `%ai` | author date (iso8601-like) |
+| `%aI` | author date (strict iso8601) |
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ### Committer
 
@@ -108,7 +121,10 @@ See the next tables on format variables.
 | `%cD` | committer date (rfc2822) |
 | `%cr` | committer date (relative) |
 | `%ct` | committer date (unix timestamp) |
-| `%ci` | committer date (iso8601) |
+| `%ci` | committer date (iso8601-like) |
+| `%cI` | committer date (strict iso8601) |
+
+See: [Pretty formats](https://git-scm.com/docs/git-log#_pretty_formats)
 
 ## Also see
 

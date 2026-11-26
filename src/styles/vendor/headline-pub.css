@@ -1,0 +1,180 @@
+@layer components {
+  /*
+   * Carbon ads
+   *
+   *     .HeadlinePub
+   *       div#carbonads
+   *         span
+   *           span.carbon-wrap
+   *             a.carbon-img > img
+   *             a.carbon-text {description}
+   *           a.carbon-poweredby {powered by Carbon}
+   */
+
+  .HeadlinePub .carbon-img,
+  .HeadlinePub .carbon-text,
+  .HeadlinePub .carbon-poweredby {
+    text-decoration: none;
+  }
+
+  /* Increase hit area */
+  .HeadlinePub .carbon-text,
+  .HeadlinePub .carbon-poweredby {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .HeadlinePub .carbon-img > img {
+    width: 130px;
+    height: 100px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-xs);
+    background: color-mix(in srgb, var(--muted-foreground) 20%, transparent);
+    color: transparent;
+  }
+
+  .HeadlinePub .carbon-img:hover img {
+    transform: translate3d(0, -1px, 0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .HeadlinePub .carbon-text,
+  .HeadlinePub .carbon-text:visited {
+    color: var(--foreground);
+  }
+
+  /* Allow line breaks */
+  .HeadlinePub .carbon-text::after {
+    content: '  ';
+  }
+
+  .HeadlinePub .carbon-text:hover,
+  .HeadlinePub .carbon-poweredby:hover {
+    color: var(--link);
+  }
+
+  .HeadlinePub .carbon-poweredby,
+  .HeadlinePub .carbon-poweredby:visited {
+    display: block;
+    margin-top: 8px;
+    white-space: nowrap;
+    color: var(--muted-foreground);
+  }
+
+  .HeadlinePub {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Hide placeholders after carbon has loaded */
+    & #carbonads ~ .placeholder {
+      opacity: 0;
+      transition: opacity 250ms linear;
+      pointer-events: none;
+    }
+
+    & > .placeholder {
+      background-image: linear-gradient(
+        92deg,
+        color-mix(in srgb, var(--muted-foreground) 10%, transparent),
+        color-mix(in srgb, var(--muted-foreground) 17%, transparent) 15%,
+        color-mix(in srgb, var(--muted-foreground) 10%, transparent) 30%
+      );
+      background-size: 450px 100%;
+      background-repeat: repeat;
+      animation: 2.5s ease-in-out infinite placeholder-swish;
+      border-radius: var(--radius-xs);
+      position: absolute;
+      display: block;
+    }
+
+    & > .placeholder.-one {
+      left: 0;
+      top: 0;
+      width: 130px;
+      height: 100px;
+    }
+
+    & > .placeholder.-two,
+    & > .placeholder.-three,
+    & > .placeholder.-four {
+      left: 154px;
+      right: 0;
+      top: 6px;
+      height: 8px;
+    }
+
+    & > .placeholder.-three {
+      top: 28px;
+    }
+
+    & > .placeholder.-four {
+      top: 50px;
+      right: auto;
+      width: 68.88px;
+    }
+
+    /* Make the ad show up above the placeholder */
+    & #carbonads {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Carbon wrapper */
+    &,
+    & > div > span {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      height: 100px;
+      text-align: left;
+    }
+
+    .HighlightPubFirstLine & > div > span:first-line {
+      font-weight: bold;
+    }
+
+    /* Clearfix */
+    & > div > span::after {
+      content: '';
+      display: table;
+      clear: both;
+      zoom: 1;
+    }
+
+    & .carbon-img {
+      float: left;
+      margin-right: 24px;
+    }
+  }
+
+  #carbonads {
+    animation: 500ms ease-out pub-text-enter;
+  }
+
+  @keyframes placeholder-swish {
+    0% {
+      background-position: -150px 0%;
+    }
+
+    50% {
+      background-position: 300px 0%;
+    }
+
+    100% {
+      background-position: 300px 0%;
+    }
+  }
+
+  @keyframes pub-text-enter {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

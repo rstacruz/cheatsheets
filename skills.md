@@ -1,9 +1,26 @@
 ---
 title: Agent skills
+subtitle: On-demand agent instructions
 category: Agents
 tags: [Featured]
 updated: 2026-11-11
-tier: t1
+last_verified_with: "Agent Skills specification (unversioned)."
+tier: t2
+fragments:
+  - "SKILL.md"
+  - "name:"
+  - "description:"
+  - ".claude/skills/"
+  - ".agents/skills/"
+  - "allowed-tools"
+  - "references/"
+  - "scripts/"
+  - "assets/"
+  - "context: fork"
+  - "license"
+  - "compatibility"
+  - "metadata"
+  - "paths:"
 keywords:
   - SKILL.md
   - agent skills
@@ -11,7 +28,7 @@ keywords:
   - Claude Code skills
   - Codex skills
 intro: |
-  [Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references that agents load on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
+  [Agent Skills](https://agentskills.io) is an open standard for instructions, scripts, and references loaded on demand. This reference covers layout, frontmatter, writing patterns, and discovery.
 links:
   - title: Agent Skills specification
     url: https://agentskills.io/specification
@@ -55,13 +72,19 @@ See: [SKILL.md format](https://agentskills.io/specification)
 
 ### Locations
 
-| Harness | Project | User |
-| --- | --- | --- |
-| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
-| Codex | `.agents/skills/` | `~/.agents/skills/` |
-| Gemini CLI | `.gemini/skills/` | `~/.gemini/skills/` |
-| Cursor | `.cursor/skills/` | `~/.cursor/skills/` |
-| Copilot | `.github/skills/` | `~/.copilot/skills/` |
+| Path                 | Harness     | Scope   |
+| -------------------- | ----------- | ------- |
+| `.claude/skills/`    | Claude Code | project |
+| `~/.claude/skills/`  | Claude Code | user    |
+| `.agents/skills/`    | Codex       | project |
+| `~/.agents/skills/`  | Codex       | user    |
+| `.gemini/skills/`    | Gemini CLI  | project |
+| `~/.gemini/skills/`  | Gemini CLI  | user    |
+| -------------------- | ----------- | ------- |
+| `.cursor/skills/`    | Cursor      | project |
+| `~/.cursor/skills/`  | Cursor      | user    |
+| `.github/skills/`    | Copilot     | project |
+| `~/.copilot/skills/` | Copilot     | user    |
 <!-- {: .-headers} -->
 
 Codex and Claude Code also scan parent directories; most harnesses read `.agents/skills/`. Review `allowed-tools` and scripts before trusting a repo skill.
@@ -95,6 +118,7 @@ disable-model-invocation: true   # only /name runs it
 paths: "src/**/*.ts"             # activate on matching files
 context: fork                    # run in a subagent
 ```
+<!-- {: data-highlight="disable-model-invocation; paths; context: fork"} -->
 
 These extras work in Claude Code, but claude.ai uploads and the Skills API accept only the six spec fields.
 
@@ -102,13 +126,15 @@ See: [Frontmatter reference](https://code.claude.com/docs/en/skills#frontmatter-
 
 ### Codex
 
+#### agents/openai.yaml
+
 ```yaml
-# agents/openai.yaml
 interface:
   display_name: "Release notes"
 policy:
   allow_implicit_invocation: false
 ```
+<!-- {: data-highlight="display_name; allow_implicit_invocation"} -->
 
 Codex keeps UI metadata and invocation policy in `agents/openai.yaml`.
 
@@ -123,6 +149,7 @@ description: >
   Extracts text and tables from PDFs, fills forms, and merges files.
   Use when the user mentions PDFs, forms, or document extraction.
 ```
+<!-- {: data-highlight="description"} -->
 
 Lead with the capability, then words a user would type. Third person: the description is injected into the system prompt. `Helps with documents` never triggers.
 
@@ -175,6 +202,7 @@ See: [Plan, validate, execute](https://agentskills.io/skill-creation/best-practi
 ```bash
 python scripts/analyze.py input.pdf > fields.json
 ```
+<!-- {: data-highlight="scripts/analyze.py"} -->
 
 Non-interactive only: flags, env vars, or stdin. Data to stdout, diagnostics to stderr, `--help` works, and say whether to run or read it.
 
@@ -190,6 +218,7 @@ See: [Using scripts](https://agentskills.io/skill-creation/using-scripts)
   { "query": "rename this branch", "should_trigger": false }
 ]
 ```
+<!-- {: data-highlight="should_trigger"} -->
 
 Write about 20 queries (8–10 positive, 8–10 negative), run each three times, and keep a 60/40 train/validation split.
 
@@ -205,6 +234,7 @@ See: [Optimizing descriptions](https://agentskills.io/skill-creation/optimizing-
   "expected_output": "Every page read; text saved to output.txt"
 }
 ```
+<!-- {: data-highlight="expected_output"} -->
 
 Cases live in `evals/evals.json`. Run each with and without the skill, grade the assertions, and read the traces; wasted exploration means vague instructions.
 
@@ -223,4 +253,4 @@ See: [Evaluating skills](https://agentskills.io/skill-creation/evaluating-skills
 - [Copilot agent skills](https://docs.github.com/en/copilot/concepts/customizations/agent-skills)
 - [anthropics/skills](https://github.com/anthropics/skills)
 - [Claude Code cheatsheet](./claude-code) _(devhints.io)_
-- [Codex cheatsheet](./codex) _(devhints.io)_
+- [OpenAI Codex cheatsheet](./codex) _(devhints.io)_

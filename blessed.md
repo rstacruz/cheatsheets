@@ -1,7 +1,12 @@
 ---
 title: Blessed
+subtitle: Terminal UI library
 category: Hidden
 # Unmaintained since 2016; API frozen at v0.1.81 (community fork neo-blessed).
+tags: [Archived]
+archived: |
+  Blessed has been unmaintained since 2016, frozen at v0.1.81. Try
+  [Ink](https://github.com/vadimdemedes/ink) or the `neo-blessed` fork.
 ---
 
 ### Screen

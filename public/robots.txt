@@ -1,0 +1,26 @@
+# Crawl policy, per RFC 9309: https://www.rfc-editor.org/rfc/rfc9309
+# Last reviewed: 2026-11
+# Sheets are public reference material. Search and AI answer crawlers are
+# welcome; model-training crawlers are not.
+
+User-agent: *
+Allow: /
+
+# AI answer crawlers: may index sheets so they can be cited in answers.
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+Allow: /
+
+# AI training crawlers: sheets are not licensed for model training.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-ExternalAgent
+Disallow: /
+
+Sitemap: https://devhints.io/sitemap.xml

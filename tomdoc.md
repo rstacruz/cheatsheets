@@ -1,17 +1,28 @@
 ---
 title: Tomdoc
+subtitle: Ruby documentation format
 category: Markup
+intro: |
+  TomDoc is a documentation format for Ruby code.
+links:
+  - title: TomDoc source repository
+    url: https://github.com/mojombo/tomdoc
+tier: t3
+last_verified_with: "TomDoc 1.0.0-rc1 specification."
+updated: 2026-11-26
 ---
+
+## Basics
 
 ### Tomdoc
 
 <!-- {: .-prime} -->
 
 ```ruby
-# Public: Duplicate some text an arbitrary number of times.
+# Public: Repeat text a given number of times.
 #
 # text  - The String to be duplicated.
-# count - The Integer number of times to duplicate the text.
+# count - Integer number of times to repeat the text.
 #
 # Examples
 #
@@ -23,8 +34,11 @@ def multiplex(text, count)
   text * count
 end
 ```
+<!-- {: data-highlight="# Public:"} -->
 
-See [tomdoc.org](http://tomdoc.org/).
+A TomDoc block sits directly above a method: a `#` line, a short description, then optional sections in a fixed order.
+
+See: [TomDoc specification](http://tomdoc.org/).
 
 ### Tags
 
@@ -32,37 +46,44 @@ See [tomdoc.org](http://tomdoc.org/).
 - `Internal`
 - `Public`
 
+<!-- {: .-enum-lines} -->
+
+Status tags prefix the description and signal API stability.
+
+See: [Description section](http://tomdoc.org/#description).
+
+## Method sections
+
 ### Options
 
 ```ruby
-# options - The Hash options used to refine the selection (default: {}):
+# options - Hash options used to refine the selection (default: {}):
 #           :color  - The String color to restrict by (optional).
-#           :weight - The Float weight to restrict by. The weight should
-#                     be specified in grams (optional).
+#           :weight - The Float weight to restrict by, in grams
+#                     (optional).
 ```
+<!-- {: data-highlight="# options"} -->
+
+Hashes list their valid options like arguments, with defaults in parentheses.
+
+See: [Arguments section](http://tomdoc.org/#arguments).
 
 ### Yields
 
 ```ruby
 # Yields the Integer index of the iteration.
-```
-
-```ruby
 # Returns the duplicated String.
-```
-
-```ruby
 # Returns nothing.
-```
-
-```ruby
 # Raises Errno::ENOENT if the file can't be found.
-```
-
-```ruby
 # Returns something else and this is a wrapped
 #   multi-line comment.
 ```
+
+<!-- {: data-highlight="# Yields; # Returns; # Raises"} -->
+
+The first line names what a block receives; the rest document return values and exceptions.
+
+See: [Yields](http://tomdoc.org/#yields) and [Returns](http://tomdoc.org/#returns).
 
 ### Signatures
 
@@ -72,3 +93,8 @@ See [tomdoc.org](http://tomdoc.org/).
 #   find_by_<field>[_and_<field>...](args)
 #
 ```
+<!-- {: data-highlight="find_by_<field>[_and_<field>...](args)"} -->
+
+Signatures describe dynamically generated methods: `<>` marks required parts, `[]` optional parts, and `...` repeats.
+
+See: [Signature section](http://tomdoc.org/#signature).

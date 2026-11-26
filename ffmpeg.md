@@ -1,6 +1,10 @@
 ---
 title: ffmpeg
-category: CLI
+subtitle: Audio and video transcoder
+category: Media tools
+last_verified_with: "FFmpeg 9.1."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Common switches
@@ -13,9 +17,13 @@ category: CLI
 -t DUR           # duration of output (in seconds or HH:MM:SS)
 ```
 
+#### File size
+
 ```bash
 -fs SIZE         # limit file size (bytes)
 ```
+
+See: [Main options](https://ffmpeg.org/ffmpeg.html#Main-options)
 
 ### Bitrate
 
@@ -23,6 +31,8 @@ category: CLI
 -b:v 1M          # video bitrate (1M = 1Mbit/s)
 -b:a 1M          # audio bitrate
 ```
+
+See: [Video options](https://ffmpeg.org/ffmpeg.html#Video-Options)
 
 ### Video
 
@@ -35,6 +45,8 @@ category: CLI
 -crf N           # 0–51, lower = higher quality
 ```
 
+See: [Video options](https://ffmpeg.org/ffmpeg.html#Video-Options)
+
 ### Audio
 
 ```bash
@@ -45,27 +57,38 @@ category: CLI
 -vol N           # volume (256=normal)
 ```
 
+See: [Audio options](https://ffmpeg.org/ffmpeg.html#Audio-Options)
+
 ## Example
 
 ### Ringtone conversion using ffmpeg
 
 ```bash
-ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
+ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 \
+  -acodec libfaac -y target.m4r
 ```
+
+See: [Examples](https://ffmpeg.org/ffmpeg.html#Examples-1)
 
 ### Stream selection
 
 ```bash
 # video from 1st file, audio from 2nd
 ffmpeg -i input1.mp4 -i input2.mp4 -map 0:v:0 -map 1:a:0 output.mp4
+```
 
+```bash
 # all video from 1st file, all audio from 2nd
 ffmpeg -i input1.mp4 -i input2.mp3 -map 0:v -map 1:a output.mkv
 ```
 
 `-map` syntax: `-map INPUT:STREAM_TYPE[:STREAM_INDEX]`
 
+See: [Manual stream selection](https://ffmpeg.org/ffmpeg.html#Manual-stream-selection)
+
 ### To web
+
+#### Without audio
 
 ```bash
 # no audio
@@ -73,10 +96,14 @@ ffmpeg -i input.mov -vcodec h264   -an -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -an output.webm
 ```
 
+#### With audio
+
 ```bash
 ffmpeg -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
 ```
+
+#### Markup
 
 ```html
 <video width="320" height="240" controls>
@@ -84,3 +111,5 @@ ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
   <source src="movie.webm" type='video/ogg'></source>
 </video>
 ```
+
+See: [Video and audio file format conversion](https://ffmpeg.org/ffmpeg.html#Video-and-Audio-file-format-conversion)

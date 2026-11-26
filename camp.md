@@ -1,7 +1,12 @@
 ---
 title: Camp
+subtitle: Express-compatible web framework
 category: Hidden
 # Abandoned; last npm release was 18.1.1 (2021).
+tags: [Archived]
+archived: |
+  Camp has been abandoned; its last npm release was 18.1.1 in 2021. Use
+  Express, Fastify, or Koa instead.
 updated: 2017-09-21
 weight: -1
 intro: |
@@ -51,7 +56,7 @@ camp.path('/search', (req, res) => {
 })
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="res.query.q"} -->
 
 Also available: `camp.post`, `camp.get`.
 
@@ -67,7 +72,7 @@ camp.path('/blog/:post.html', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="templates"} -->
 
 See: [Templates](https://github.com/espadrine/sc/blob/master/doc/Readme.md#templates)
 
@@ -79,7 +84,7 @@ camp.notFound('/*.lol', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'/*.lol'"} -->
 
 See: [Fall through](https://github.com/espadrine/sc/blob/master/doc/Readme.md#fall-through)
 
@@ -92,7 +97,7 @@ camp.handle((req, res, next) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="handle"} -->
 
 See: [Handlers](https://github.com/espadrine/sc/blob/master/doc/Readme.md#handlers)
 
@@ -111,7 +116,7 @@ camp.path('/blog/:post.html', (req, res) => {
 })
 ```
 
-<!-- {: data-line="1,4,5,6"} -->
+<!-- {: data-highlight="template"} -->
 
 ### Implicit templates
 

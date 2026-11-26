@@ -1,7 +1,12 @@
 ---
 title: jscoverage
+subtitle: Code coverage tool
 category: Hidden
 # Discontinued after 0.6.0 (2015); replaced by istanbul/nyc.
+tags: [Archived]
+archived: |
+  jscoverage was discontinued after 0.6.0 in 2015. Use
+  [istanbul/nyc](https://istanbul.js.org/) instead.
 updated: 2026-10-04
 intro: |
   A small guide into installing [jscoverage](https://www.npmjs.com/package/jscoverage). Also see [mocha-blanket](./mocha-blanket).

@@ -1,6 +1,13 @@
 ---
 title: Git tricks
-category: Git
+subtitle: Assorted Git recipes
+# Catch-all of niche Git recipes that go stale between releases.
+category: Hidden
+tags: [Archived]
+archived: |
+  This catch-all of niche Git recipes duplicates the maintained Git cheatsheet and ages poorly between releases; verified against Git 2.56.0 on 2026-11-23. Use the [Git cheatsheet](./git) and [Git's documentation](https://git-scm.com/docs) instead.
+updated: 2026-11-23
+last_verified_with: "Git 2.56.0."
 ---
 
 ### Refs
@@ -17,20 +24,30 @@ HEAD~5      # 5 commits before head
 # create a new branch
   git checkout -b $branchname
   git push origin $branchname --set-upstream
+```
 
+```
 # get a remote branch
   git fetch origin
   git checkout --track origin/$branchname
+```
 
+```
 # delete local remote-tracking branches (lol)
   git remote prune origin
+```
 
+```
 # list merged branches
   git branch -a --merged
+```
 
+```
 # delete remote branch
   git push origin :$branchname
-  
+```
+
+```
 # go back to previous branch
   git checkout -
 ```
@@ -40,7 +57,9 @@ HEAD~5      # 5 commits before head
 ```
 # Rebase your changes on top of the remote master
   git pull --rebase upstream master
-  
+```
+
+```
 # Squash multiple commits into one for a cleaner git log
 # (on the following screen change the word pick to either 'f' or 's')
   git rebase -i $commit_ref
@@ -54,10 +73,14 @@ Submodules
 ```
 # Import .gitmodules
   git submodule init
+```
 
+```
 # Clone missing submodules, and checkout commits
   git submodule update --init --recursive
+```
 
+```
 # Update remote URLs in .gitmodules
 # (Use when you changed remotes in submodules)
   git submodule sync
@@ -70,15 +93,15 @@ Diff
 
 ```
 git diff --stat
-app/a.txt    | 2 +-
-app/b.txt    | 8 ++----
-2 files changed, 10 insertions(+), 84 deletions(-)
+ a.txt | 3 ++-
+ b.txt | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 ```
 
 ### Just filenames
 
 ```
-git diff --summary
+git diff --name-only
 ```
 
 Log options
@@ -106,36 +129,50 @@ Misc
 ### Cherry pick
 
 ```
-git rebase 76acada^
+  git cherry-pick $commit
 ```
 
 ### Misc
 
 ```
-# get current sha1 (?)
-  git show-ref HEAD -s
+# get current commit ID
+  git rev-parse HEAD
+```
 
+```
 # show single commit info
-  git log -1 f5a960b5
+  git log -1 $commit
+```
 
+```
 # Go back up to root directory
-  cd "$(git rev-parse --show-top-level)"
+  cd "$(git rev-parse --show-toplevel)"
 ```
 
 ## Short log
 
-```
- $ git shortlog
- $ git shortlog HEAD~20..    # last 20 commits
+### Grouped by author
 
- James Dean (1):
-     Commit here
-     Commit there
-
- Frank Sinatra (5):
-     Another commit
-     This other commit
 ```
+git shortlog HEAD
+Ada Lovelace (1):
+      Initial files
+
+Grace Hopper (3):
+      Add more lines
+      Follow-up 1
+      Follow-up 2
+```
+
+### Count contributions
+
+```
+git shortlog -sne HEAD
+     3	Grace Hopper <grace@example.com>
+     1	Ada Lovelace <ada@example.com>
+```
+
+Use a range such as `HEAD~20..HEAD` to count a release.
 
 ## Bisect
 
@@ -170,11 +207,9 @@ git log -G"foo.*"              # search in code (regex)
 ### GPG signing
 
 ```
-git config set user.signingkey <GPG KEY ID>       # Sets GPG key to use for signing
-
-git commit -m "Implement feature Y" --gpg-sign    # Or -S, GPG signs commit
-
-git config set commit.gpgsign true                # Sign commits by default
-git commit -m "Implement feature Y" --no-gpg-sign # Do not sign
+git config set user.signingkey "$KEY_ID"  # key to sign with
+git commit -m "Implement feature Y" -S     # sign this commit
+git config set commit.gpgsign true         # sign by default
+git commit -m "Implement feature Y" --no-gpg-sign
 ```
     

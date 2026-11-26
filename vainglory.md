@@ -1,7 +1,12 @@
 ---
 title: Vainglory
+subtitle: Mobile MOBA game
 category: Hidden
 # Live service shut down in 2020; Community Edition development halted in 2020.
+tags: [Archived]
+archived: |
+  The Vainglory live service shut down in 2020, and Community Edition
+  development halted the same year. The game is no longer playable.
 ---
 
 ## T3 items by use

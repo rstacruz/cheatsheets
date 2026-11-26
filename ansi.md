@@ -1,8 +1,12 @@
 ---
 title: Ansi codes
-category: CLI
+subtitle: ANSI terminal color codes
+category: Shell
 intro: |
   Quick reference to ANSI color codes.
+last_verified_with: "ECMA-48 5th edition, ANSI X3.64."
+updated: 2026-11-25
+tier: t3
 links:
   - title: ANSI escape code
     url: https://en.wikipedia.org/wiki/ANSI_escape_code
@@ -13,6 +17,8 @@ links:
 ```
 \033[#m
 ```
+
+See: [ECMA-48](https://ecma-international.org/publications-and-standards/standards/ecma-48/)
 
 ### ANSI codes
 
@@ -33,6 +39,8 @@ links:
 1A     move up 1 line
 ```
 
+See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html)
+
 ### Colors
 
 ```
@@ -46,9 +54,13 @@ links:
 7      white
 ```
 
+See: [ECMA-48](https://ecma-international.org/publications-and-standards/standards/ecma-48/)
+
 ### Bash utilities
 
 ```sh
 hide_cursor() { printf "\e[?25l"; }
 show_cursor() { printf "\e[?25h"; }
 ```
+
+See: [console_codes(4)](https://man7.org/linux/man-pages/man4/console_codes.4.html)

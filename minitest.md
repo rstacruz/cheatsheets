@@ -1,11 +1,23 @@
 ---
 title: Minitest
+subtitle: Lightweight Ruby test suite
 category: Ruby
+last_verified_with: "Minitest 6.1.0, minitest-mock 5.27.0, minitest-reporters 1.8.0."
+updated: 2026-11-25
+tier: t3
+intro: |
+  [Minitest](https://github.com/minitest/minitest) is a lightweight Ruby testing
+  library. This sheet covers spec syntax, assertions, mocks, and reporters.
+links:
+  - title: Minitest on GitHub
+    url: https://github.com/minitest/minitest
+  - title: Minitest API documentation
+    url: https://docs.seattlerb.org/minitest/
 ---
 
 ### Usage
 
-```
+```ruby
 require 'minitest/autorun'
 
 describe "X" do
@@ -19,10 +31,13 @@ describe "X" do
   end
 end
 ```
+<!-- {: data-highlight="describe; before; after; let"} -->
+
+See: [Unit tests](https://github.com/minitest/minitest/blob/master/README.rdoc#unit-tests)
 
 ### Specs (.must/.wont)
 
-```
+```ruby
 expect(x)
 .must_be :==, 0
 .must_equal b
@@ -46,10 +61,13 @@ proc { ... }.must_output out_or_nil [, err]
 proc { ... }.must_raise exception
 proc { ... }.must_throw sym
 ```
+<!-- {: data-highlight="must_equal"} -->
+
+See: [Specs](https://github.com/minitest/minitest/blob/master/README.rdoc#specs)
 
 ### Test
 
-```
+```ruby
 class TestHipster < Minitest::Test
   def setup
     @subject = ["silly hats", "skinny jeans"]
@@ -68,10 +86,13 @@ class TestHipster < Minitest::Test
   end
 end
 ```
+<!-- {: data-highlight="Minitest::Test"} -->
+
+See: [Minitest::Test](https://docs.seattlerb.org/minitest/Minitest/Test.html)
 
 ### Assertions
 
-```
+```ruby
 assert
 assert_block { ... }
 assert_empty
@@ -92,13 +113,15 @@ assert_send
 assert_silent
 assert_throws
 ```
+<!-- {: data-highlight="assert_equal"} -->
+
+See: [Assertions](https://docs.seattlerb.org/minitest/Minitest/Assertions.html)
 
 ### Minitest::Mock
 
-A simple and clean mock system. There two essential methods at our disposal: expect and verify.
-
-```
+```ruby
 require 'minitest/autorun'
+require 'minitest/mock'
 
 describe Twipster, "Make every tweet a hipster tweet." do
   before do
@@ -106,18 +129,23 @@ describe Twipster, "Make every tweet a hipster tweet." do
     @twipster = Twipster.new(@twitter)
   end
 
-  it "should append a #lolhipster hashtag and update Twitter with our status" do
+  it "appends a hashtag and updates Twitter" do
     tweet = "Skyrim? Too mainstream."
     @twitter.expect :update, true, ["#{tweet} #lolhipster"]
     @twipster.submit(tweet)
-    assert @twitter.verify # verifies tweet and hashtag was passed to `@twitter.update`
+    assert @twitter.verify
   end
 end
 ```
+<!-- {: data-highlight="@twitter.expect; @twitter.verify"} -->
+
+Minitest 6 ships mocks separately; set expectations with `expect` and check them with `verify`.
+
+See: [minitest-mock](https://github.com/minitest/minitest-mock)
 
 ### Reporters
 
-```
+```ruby
 gem 'minitest-reporters'
 
 require 'minitest/reporters'
@@ -125,3 +153,6 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 [Default, Spec, Progress, RubyMate, RubyMine, JUnit]
 ```
+<!-- {: data-highlight="Minitest::Reporters.use!; SpecReporter"} -->
+
+See: [minitest-reporters](https://github.com/minitest-reporters/minitest-reporters)

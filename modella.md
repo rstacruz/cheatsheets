@@ -1,7 +1,12 @@
 ---
 title: Modella
+subtitle: JavaScript model library
 category: Hidden
 # Last release 0.2.14 (2014); unmaintained.
+tags: [Archived]
+archived: |
+  Modella's last release was 0.2.14 in 2014 and it is unmaintained. Use a
+  maintained model layer instead.
 prism_languages: [coffeescript]
 intro: |
   [Modella](https://www.npmjs.com/package/modella) allows you to create simple models in JavaScript. This is a guide on basic usage of Modella in CoffeeScript.

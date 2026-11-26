@@ -1,5 +1,6 @@
 ---
 title: Angular.js
+subtitle: Legacy single-page app framework
 category: Hidden
 # AngularJS 1.x reached end of life on 2021-12-31.
 tags: [Archived]

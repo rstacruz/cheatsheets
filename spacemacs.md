@@ -1,13 +1,16 @@
 ---
 title: Spacemacs
+subtitle: Emacs configuration distribution
 category: Apps
-updated: 2020-05-22
+updated: 2026-11-26
 tags: [WIP]
 intro: |
-  [Spacemacs](http://spacemacs.org) is a distribution for Emacs.
+  Spacemacs is a distribution for Emacs.
 links:
   - title: Spacemacs
     url: https://www.spacemacs.org/
+tier: t3
+last_verified_with: "Spacemacs develop, Emacs 31.1."
 ---
 
 Shortcuts
@@ -34,6 +37,8 @@ Shortcuts
 
 <!-- {: .-shortcuts.-prime} -->
 
+See: [Key bindings](https://www.spacemacs.org/doc/DOCUMENTATION.html#key-bindings)
+
 ### More
 
 | Shortcut    | Description |
@@ -43,6 +48,8 @@ Shortcuts
 | `SPC` `/`   | Search      |
 
 <!-- {: .-shortcuts} -->
+
+See: [Executing Vim and Emacs commands](https://www.spacemacs.org/doc/DOCUMENTATION.html#executing-vim-and-emacs-exm-x-commands)
 
 ### `SPC` `h` - Help
 
@@ -57,6 +64,8 @@ Shortcuts
 
 <!-- {: .-shortcuts} -->
 
+See: [Getting help](https://www.spacemacs.org/doc/DOCUMENTATION.html#getting-help)
+
 ### `SPC` `f` - File
 
 | Shortcut | Description   |
@@ -70,6 +79,8 @@ Shortcuts
 
 <!-- {: .-shortcuts} -->
 
+See: [Buffers and files](https://www.spacemacs.org/doc/DOCUMENTATION.html#buffers-and-files)
+
 ### `SPC` `b` - Buffer
 
 | Shortcut | Description                |
@@ -79,6 +90,8 @@ Shortcuts
 | `d`      | Delete buffer (`:bd`)      |
 
 <!-- {: .-shortcuts} -->
+
+See: [Buffers and files](https://www.spacemacs.org/doc/DOCUMENTATION.html#buffers-and-files)
 
 ### `SPC` `f` `e` - Config
 
@@ -90,6 +103,8 @@ Shortcuts
 | `R`      | Reload config            |
 
 <!-- {: .-shortcuts} -->
+
+See: [Dotfile configuration](https://www.spacemacs.org/doc/DOCUMENTATION.html#dotfile-configuration)
 
 ### `SPC` `w` - Window
 
@@ -108,6 +123,8 @@ Shortcuts
 
 <!-- {: .-shortcuts} -->
 
+See: [Window manipulation](https://www.spacemacs.org/doc/DOCUMENTATION.html#window-manipulation)
+
 ### `SPC` `p` - Project
 
 | Shortcut | Description             |
@@ -125,6 +142,8 @@ Shortcuts
 
 <!-- {: .-shortcuts} -->
 
+See: [Managing projects](https://www.spacemacs.org/doc/DOCUMENTATION.html#managing-projects)
+
 ### `SPC` `l` `w` - Workspaces
 
 | Shortcut    | Description                 |
@@ -138,6 +157,8 @@ Shortcuts
 
 <!-- {: .-shortcuts} -->
 
+See: [Workspace key bindings](https://www.spacemacs.org/doc/DOCUMENTATION.html#workspace-key-bindings)
+
 ### `SPC` `t` - Toggle
 
 | Shortcut | Description  |
@@ -145,6 +166,8 @@ Shortcuts
 | `n`      | Line numbers |
 
 <!-- {: .-shortcuts} -->
+
+See: [Toggles](https://www.spacemacs.org/doc/DOCUMENTATION.html#toggles-1)
 
 ### `SPC` `j` - Jump
 
@@ -155,6 +178,8 @@ Shortcuts
 | `w`      | Word        |
 
 <!-- {: .-shortcuts} -->
+
+See: [Jumping, joining and splitting](https://www.spacemacs.org/doc/DOCUMENTATION.html#jumping-joining-and-splitting)
 
 ## More shortcuts
 
@@ -168,6 +193,8 @@ Shortcuts
 | `,` `h` `1` | Insert H1              |
 
 <!-- {: .-shortcuts} -->
+
+See: [Major mode leader key](https://www.spacemacs.org/doc/DOCUMENTATION.html#major-mode-leader-key)
 
 ### Other layers
 
@@ -191,6 +218,8 @@ Shortcuts
 
 Version control is provided by Magit.
 
+See: [Available layers](https://www.spacemacs.org/doc/DOCUMENTATION.html#available-layers)
+
 ### Emacs standard
 
 #### File
@@ -208,6 +237,8 @@ Version control is provided by Magit.
 | `C-c` `C-k` |               | Abort            |
 
 <!-- {: .-shortcuts} -->
+
+See: [Vim key bindings](https://www.spacemacs.org/doc/DOCUMENTATION.html#vim-key-bindings)
 
 ## References
 

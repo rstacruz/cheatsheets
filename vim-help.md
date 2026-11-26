@@ -1,7 +1,19 @@
 ---
 title: Vim helpfiles
+subtitle: Help file authoring reference
 category: Vim
-updated: 2017-09-09
+intro: |
+  Vim helpfiles document plugins and features in `:help`.
+links:
+  - title: Writing Vim help files
+    url: https://vimhelp.org/helphelp.txt.html#help-writing
+  - title: Help notation
+    url: https://vimhelp.org/helphelp.txt.html#help-notation
+  - title: Tags
+    url: https://vimhelp.org/tagsrch.txt.html#tag
+updated: 2026-11-26
+last_verified_with: "Vim 9.2."
+tier: t3
 ---
 
 ## Writing help files
@@ -15,18 +27,21 @@ updated: 2017-09-09
 :set ft=help
 :set ft=text
 ```
+<!-- {: data-highlight="ft=help; ft=text"} -->
 
 Use `ft=help` to preview it, and `ft=text` to edit it.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Example
 
 ```nohighlight
 *ack.txt*   Plugin that integrates ack with Vim
 
-==============================================================================
-USAGE INSTRUCTIONS                                                 *ack-usage*
+======================================================================
+USAGE INSTRUCTIONS                                         *ack-usage*
 
-:Ack[!] {pattern}                                                       *:Ack*
+:Ack[!] {pattern}                                               *:Ack*
 
     Search recursively for {pattern}. See |:AckAdd|.
     Also see http://beyondgrep.com for more information.
@@ -34,7 +49,9 @@ USAGE INSTRUCTIONS                                                 *ack-usage*
 vim:tw=78:ts=8:ft=help:norl:
 ```
 
-This is a cheatsheet for writing Vim help files. See: `:help help-writing`
+This is a cheatsheet for writing Vim help files.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ## Syntax
 
@@ -62,11 +79,15 @@ This is a cheatsheet for writing Vim help files. See: `:help help-writing`
 | `=====`              | Separator      |                     |
 | `-----`              | Separator      |                     |
 
+See: [Help notation](https://vimhelp.org/helphelp.txt.html#help-notation)
+
 ### Tags
 
  * Tags are created with asterisks, eg, `*potion-usage*`
  * Links to tags are `|potion-usage|`
  * Press `^]` to jump to a tag
+
+See: [Tags](https://vimhelp.org/tagsrch.txt.html#tag)
 
 ### Code blocks
 
@@ -78,6 +99,8 @@ Example: >
 
 Surround with `>` and `<` characters
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### File header
 
 ```
@@ -86,32 +109,45 @@ Surround with `>` and `<` characters
 
 It's customary to start a file with a tag of the filename, plus a description.
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### Heading
 
 ```
-==============================================================================
-CONTENTS                                                     *potion-contents*
+======================================================================
+CONTENTS                                             *potion-contents*
 ```
 
 Starts with `ALL CAPS`, ends with `*a-tag*`
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### Notes
-Using `*Todo` and `*Error` will highlight your notes.
 
 ```
 	*Todo something to do
 	*Error something wrong
 ```
+<!-- {: data-highlight="*Todo; *Error"} -->
+
+Using `*Todo` and `*Error` will highlight your notes.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Final modeline
 
 ```nohighlight
 vim:tw=78:ts=8:ft=help:norl:
 ```
+<!-- {: data-highlight="vim:tw=78:ts=8:ft=help:norl:"} -->
+
+See: [Modeline](https://vimhelp.org/options.txt.html#modeline)
 
 ## Conventions
 
 ### Table of contents
+
+#### Tag links
 
 ```nohighlight
 |rails-introduction|            Introduction and Feature Summary
@@ -119,11 +155,15 @@ vim:tw=78:ts=8:ft=help:norl:
 |rails-navigation|              Navigation
 ```
 
+#### Numbered entries
+
 ```nohighlight
     1.Intro...................................|ergonomic|
     2.Note to use..............................|CAPSLOCK|
     3.Insert Mode Remappings............|ergonomicInsert|
 ```
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Author lines
 
@@ -131,3 +171,5 @@ vim:tw=78:ts=8:ft=help:norl:
 Author:  Jack Hackness <captain@time.com>         *xyz-author*
 License: Same terms as Vim itself (see |license|)
 ```
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)

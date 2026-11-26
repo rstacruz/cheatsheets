@@ -1,8 +1,12 @@
 import { mapGlobToPages } from '../page'
 import {
   getArchivedPages,
+  getFeaturedPages,
+  getListedSheetCount,
   getPagesByCategory,
+  getRecentPages,
   getRelatedPages,
+  getSnippetPages,
   getTopPages
 } from './queries'
 
@@ -32,6 +36,38 @@ const pages = mapGlobToPages({
     'archived: Old and unmaintained.',
     '---',
     'e'
+  ].join('\n'),
+  snippet: [
+    '---',
+    'title: Snippet',
+    'category: Test',
+    'layout: snippet',
+    'tags: [Featured]',
+    'updated: 2024-01-01',
+    '---',
+    's'
+  ].join('\n'),
+  tiered: [
+    '---',
+    'category: Test',
+    'tier: t2',
+    'last_verified_with: "Tool 1.0."',
+    'fragments: [a, b, c, d, e, f, g, h, i, j, k, l]',
+    'updated: 2024-06-01',
+    '---',
+    't'
+  ].join('\n'),
+  untiered: ['---', 'category: Test', 'updated: 2024-06-02', '---', 'u'].join(
+    '\n'
+  ),
+  tieredT3: [
+    '---',
+    'category: Test',
+    'tier: t3',
+    'last_verified_with: "Tool 1.0."',
+    'updated: 2024-06-03',
+    '---',
+    't3'
   ].join('\n')
 })
 
@@ -59,6 +95,33 @@ test('category listings skip deprecated sheets', () => {
   expect(slugs).toContain('alpha')
   expect(slugs).not.toContain('beta')
   expect(slugs).not.toContain('gamma')
+})
+
+test('homepage listings exclude snippets when asked', () => {
+  const categorySlugs = getPagesByCategory(pages, {
+    excludeSnippets: true
+  })['Others'].pages.map((page) => page.slug)
+
+  expect(categorySlugs).not.toContain('snippet')
+  expect(
+    getFeaturedPages(pages, { excludeSnippets: true }).map((page) => page.slug)
+  ).not.toContain('snippet')
+  expect(
+    getRecentPages(pages, { excludeSnippets: true }).map((page) => page.slug)
+  ).not.toContain('snippet')
+})
+
+test('snippet pages are collected separately', () => {
+  expect(getSnippetPages(pages).map((page) => page.slug)).toEqual(['snippet'])
+})
+
+test('recent pages only include t1 and t2 sheets', () => {
+  const slugs = getRecentPages(pages, { excludeSnippets: true }).map(
+    (page) => page.slug
+  )
+
+  expect(slugs).toEqual(['tiered'])
+  expect(slugs).not.toContain('tieredT3')
 })
 
 test('archived sheets are unlisted', () => {
@@ -113,4 +176,9 @@ test('archive pages skip listed sheets and test fixtures', () => {
 
   expect(slugs).not.toContain('react')
   expect(slugs).not.toContain('tests/basic')
+})
+
+test('listed count excludes hidden, deprecated, and archived sheets', () => {
+  expect(getListedSheetCount(pages)).toBe(6)
+  expect(getListedSheetCount(archivePages)).toBe(1)
 })

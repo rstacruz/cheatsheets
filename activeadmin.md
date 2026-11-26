@@ -1,24 +1,31 @@
 ---
 title: ActiveAdmin
+subtitle: Rails admin interface framework
 category: Ruby
+last_verified_with: "ActiveAdmin 3.5."
+updated: 2026-11-25
+tier: t3
 ---
 
 ### Listing scopes
-
-Allows you to filter listings by a certain scope.
-
-<!-- {: .-setup} -->
 
 ```ruby
 scope :draft
 scope :for_approval
 ```
+<!-- {: data-highlight="scope"} -->
+
+#### Conditional scopes
 
 ```ruby
 scope :public, if: ->{ current_admin_user.can?(...) }
 scope "Unapproved", :pending
 scope("Published") { |books| books.where(:published: true) }
 ```
+
+Filter listings by a certain scope.
+
+See: [Index scopes](https://activeadmin.info/docs/v3/3-index-pages.html#index-scopes)
 
 ### Sidebar filters
 
@@ -27,26 +34,27 @@ filter :email
 filter :username
 ```
 
+See: [Index filters](https://activeadmin.info/docs/v3/3-index-pages.html#index-filters)
+
 ### Custom actions
-
-You can define custom actions for models.
-
-<!-- {: .-setup} -->
 
 ```ruby
 before_filter only: [:show, :edit, :publish] do
   @post = Post.find(params[:id])
 end
 ```
+<!-- {: data-highlight="before_filter"} -->
 
 #### Make the route
 
 ```ruby
 member_action :publish, method: :put do
   @post.publish!
-  redirect_to admin_posts_path, notice: "The post '#{@post}' has been published!"
+  redirect_to admin_posts_path,
+    notice: "The post '#{@post}' has been published!"
 end
 ```
+<!-- {: data-highlight="member_action"} -->
 
 #### Link it in the index
 
@@ -67,17 +75,25 @@ action_item only: [:edit, :show] do
 end
 ```
 
+You can define custom actions for models.
+
+See: [Member actions](https://activeadmin.info/docs/v3/8-custom-actions.html#member-actions)
+
 ### Columns
 
 ```ruby
 column :foo
 ```
 
+#### Sortable columns
+
 ```ruby
 column :title, sortable: :name do |post|
   strong post.title
 end
 ```
+
+See: [Customizing the index page](https://activeadmin.info/docs/v3/3-index-pages.html#customizing-the-index-page)
 
 ### Other helpers
 
@@ -88,6 +104,8 @@ status_tag "You", :warn     # Orange
 status_tag "Failed", :error # Red
 ```
 
+See: [Status tag](https://activeadmin.info/docs/v3/12-arbre-components.html#status-tag)
+
 ### Disabling 'new post'
 
 ```ruby
@@ -96,3 +114,5 @@ ActiveAdmin.register Post do
   # or: config.clear_action_items!
 end
 ```
+
+See: [Disabling actions](https://activeadmin.info/docs/v3/2-resource-customization.html#disabling-actions-on-a-resource)

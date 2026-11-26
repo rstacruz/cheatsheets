@@ -1,8 +1,20 @@
 ---
 title: Ledger CLI
-category: Ledger
-updated: 2020-05-23
+subtitle: Plain-text accounting tool
+category: Plain-text accounting
+last_verified_with: "Ledger 3.4.1."
+updated: 2026-11-25
+tier: t3
 weight: -5
+intro: |
+  [Ledger](https://ledger-cli.org/) is a command-line, plain-text double-entry accounting tool. This sheet covers journal syntax, reporting commands, queries, and commodity handling.
+links:
+  - title: Ledger manual
+    url: https://ledger-cli.org/doc/ledger3.html
+  - title: Basic reporting commands
+    url: https://ledger-cli.org/doc/ledger3.html#Basic-Reporting-Commands
+  - title: Ledger repository
+    url: https://github.com/ledger/ledger
 ---
 
 ### Basic usage
@@ -11,11 +23,13 @@ weight: -5
 $ ledger bal
 $ ledger reg
 ```
+<!-- {: data-highlight="ledger bal; ledger reg"} -->
 
 ```bash
 $ ledger reg grocery  # show entries for 'grocery'
 $ ledger bal assets   # check if i'm broke
 ```
+<!-- {: data-highlight="ledger reg grocery; ledger bal assets"} -->
 
 ```bash
   -b 01/01   # --begin
@@ -23,6 +37,9 @@ $ ledger bal assets   # check if i'm broke
   -S date    # --sort
   -S amount
 ```
+<!-- {: data-highlight="-b; -e; -S"} -->
+
+See: [Basic reporting commands](https://ledger-cli.org/doc/ledger3.html#Basic-Reporting-Commands)
 
 ### Examples
 
@@ -32,30 +49,36 @@ $ ledger bal assets   # check if i'm broke
   ledger bal Income and Job       # all
   ledger bal Expenses and not (Drinks or Food)
 ```
+<!-- {: data-highlight="Rent Transportation; Income and Job"} -->
 
 ```bash
 # what did I spend on most? (--sorted)
   ledger reg Expenses -S amount
 ```
+<!-- {: data-highlight="-S amount"} -->
 
 ```bash
 # how much did I have at this date? (--end)
   ledger bal -e 01/15 ^Assets ^Liabilities
 ```
+<!-- {: data-highlight="-e 01/15"} -->
 
 ```bash
 # how much did I spend and earn this month?
   ledger bal ^Expenses ^Income --invert
 ```
+<!-- {: data-highlight="--invert"} -->
 
 ```bash
 # how much was spent over the course of 3 days? (totalled)
   ledger reg -b 01/25 -e 01/27 --subtotal
   ledger reg -b 01/25 -e 01/27 --subtotal grocery
 ```
+<!-- {: data-highlight="--subtotal"} -->
 
-Format
-------
+See: [Report filtering](https://ledger-cli.org/doc/ledger3.html#Report-filtering)
+
+## Format
 
 ### Basic format
 
@@ -64,16 +87,22 @@ Format
   Expenses:Rent   $600.00
   Assets:Savings
 ```
+<!-- {: data-highlight="Expenses:Rent; Assets:Savings"} -->
 
 `*` = cleared, `!` = pending
+
+See: [Basic format](https://ledger-cli.org/doc/ledger3.html#Basic-format)
 
 ### Secondary dates
 
 ```
 2008/01/01=2008/01/14 Client invoice
 ```
+<!-- {: data-highlight="=2008/01/14"} -->
 
 It can mean anything you want, eg, for the estimated date you'll be paid.
+
+See: [Effective dates](https://ledger-cli.org/doc/ledger3.html#Effective-Dates)
 
 ### Balance assertions
 
@@ -82,10 +111,11 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Food    $20
   Assets:Cash     $-20  = $500
 ```
-
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="= $500"} -->
 
 `Cash $X = $500` ensures Cash is at $500 after the transaction.
+
+See: [Balance assertions](https://ledger-cli.org/doc/ledger3.html#Balance-assertions)
 
 ### Balance assignment
 
@@ -98,10 +128,11 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Food            $20
   Assets:Cash              = $500
 ```
-
-<!-- {: data-line="2,7"} -->
+<!-- {: data-highlight="Assets:Cash              = $500"} -->
 
 `ACCOUNT = $500` figures out what's needed to make it $500.
+
+See: [Balance assignments](https://ledger-cli.org/doc/ledger3.html#Balance-assignments)
 
 ### Payables
 
@@ -110,8 +141,9 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   (Assets:Checking)  -$200
   Expenses:Rent
 ```
+<!-- {: data-highlight="(Assets:Checking)"} -->
 
-<!-- {: data-line="2"} -->
+See: [Virtual postings](https://ledger-cli.org/doc/ledger3.html#Virtual-postings)
 
 ### Commodities
 
@@ -121,8 +153,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Fridge                35 apples @ $0.42
   Assets:Cash
 ```
-
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="@ $0.42"} -->
 
 ```bash
 ; total cost
@@ -130,8 +161,7 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Assets:Fridge                35 apples @@ $14.70
   Assets:Cash
 ```
-
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="@@ $14.70"} -->
 
 ```bash
 ; fixed lot prices
@@ -139,8 +169,9 @@ It can mean anything you want, eg, for the estimated date you'll be paid.
   Expenses:Gasoline             11 GAL {=$2.299}
   Assets:Cash
 ```
+<!-- {: data-highlight="{=$2.299}"} -->
 
-<!-- {: data-line="3"} -->
+See: [Commoditized amounts](https://ledger-cli.org/doc/ledger3.html#Commoditized-Amounts)
 
 ### Commodity definitions
 
@@ -151,6 +182,9 @@ commodity $
   nomarket
   default
 ```
+<!-- {: data-highlight="commodity $"} -->
+
+See: [Commodity reporting](https://ledger-cli.org/doc/ledger3.html#Commodity-Reporting)
 
 ### Budgeting
 
@@ -163,13 +197,15 @@ commodity $
 
 ~ Yearly
 ```
+<!-- {: data-highlight="~ Monthly; ~ Yearly"} -->
 
 ```bash
 ledger bal --budget Expenses
 ledger bal --unbudgeted Expenses
 ```
+<!-- {: data-highlight="--budget; --unbudgeted"} -->
 
-<!-- {: .-setup} -->
+See: [Budgeting](https://ledger-cli.org/doc/ledger3.html#Budgeting)
 
 ### Comments
 
@@ -180,15 +216,18 @@ ledger bal --unbudgeted Expenses
 | also line comment
 * also line comment
 ```
+<!-- {: data-highlight="# also line comment; % also line comment; | also line comment; * also line comment"} -->
 
-Querying
---------
+See: [Comments and metadata](https://ledger-cli.org/doc/ledger3.html#Commenting-on-your-Journal)
+
+## Querying
 
 ### Periods
 
 ```
 [interval] [begin] [end]
 ```
+<!-- {: data-highlight="[interval] [begin] [end]"} -->
 
 ```
 interval:
@@ -196,6 +235,7 @@ interval:
   every N days|weeks|...
   daily|weekly|...
 ```
+<!-- {: data-highlight="every day|week|month|quarter|year; every N days|weeks|...; daily|weekly|..."} -->
 
 ```
 begin:
@@ -203,28 +243,30 @@ begin:
 end:
   to <spec>
 ```
+<!-- {: data-highlight="from <spec>; to <spec>"} -->
 
 ```
 spec:
   2004
   2004/10/1
 ```
+<!-- {: data-highlight="2004/10/1"} -->
 
 ```bash
 $ ledger bal|reg --period "until aug"
 $ ledger bal|reg --period "last oct"
 $ ledger bal|reg --period "every week"
 ```
+<!-- {: data-highlight="--period"} -->
 
-<!-- {: .-setup} -->
+See: [Period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions)
 
 ### Register
 
 ```bash
 $ ledger reg
 ```
-
-<!-- {: .-setup} -->
+<!-- {: data-highlight="$ ledger reg"} -->
 
 ```bash
   -D, --daily
@@ -235,11 +277,15 @@ $ ledger reg
   -s, --subtotal
   --start-of-week monday
 ```
+<!-- {: data-highlight="-D, --daily; -W, --weekly; -M, --monthly"} -->
 
 ```bash
   -S, --sort date / -date # asc / desc
   -S, --sort amount
 ```
+<!-- {: data-highlight="-S, --sort; -date"} -->
+
+See: [The register command](https://ledger-cli.org/doc/ledger3.html#The-register-command)
 
 ### Filters
 
@@ -260,6 +306,8 @@ $ ledger reg
                 # "reg -r savings" shows where it comes from)
 ```
 
+See: [Report filtering](https://ledger-cli.org/doc/ledger3.html#Report-filtering)
+
 ### Queries
 
 ```
@@ -274,13 +322,17 @@ term or term
 not term
 \( term \)
 ```
+<!-- {: data-highlight="@payee; %tag; =note; #code"} -->
 
-Example:
+#### Example
 
 ```
 ledger r ^expenses and @Denny's
 ledger r food and @Starbucks and not dining
 ```
+<!-- {: data-highlight="^expenses and @Denny's; food and @Starbucks and not dining"} -->
+
+See: [Complex expressions](https://ledger-cli.org/doc/ledger3.html#Complex-expressions)
 
 ### Display
 
@@ -291,33 +343,39 @@ ledger r food and @Starbucks and not dining
                      # [other] show subtotals
 --flat
 ```
+<!-- {: data-highlight="-n, --collapse; -s, --subtotal; --flat"} -->
+
+See: [Basic options](https://ledger-cli.org/doc/ledger3.html#Basic-options)
 
 ### Effective dates
+
+#### Estimated date
 
 ```bash
 2008/01/01=2008/01/14 Client invoice  ;  estimated date you'll be paid
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+<!-- {: data-highlight="2008/01/01=2008/01/14 Client invoice"} -->
 
-<!-- {: data-line="1"} -->
-
-Say you're in business. If you bill a customer, you can enter something like above.
-Then, when you receive the payment, you change it to:
+#### Actual date
 
 ```bash
 2008/01/01=2008/01/15 Client invoice ;  actual date money received
   Assets:Accounts Receivable            $100.00
   Income: Client name
 ```
+<!-- {: data-highlight="2008/01/01=2008/01/15"} -->
 
-<!-- {: data-line="1"} -->
+Update the date when the payment arrives.
+
+See: [Effective dates](https://ledger-cli.org/doc/ledger3.html#Effective-Dates)
 
 ## References
 
 <!-- {: .-one-column} -->
 
-* <http://ledger-cli.org/3.0/doc/ledger3.html>
-* <https://gist.github.com/agaviria/3317397>
+* [Ledger 3 manual](https://ledger-cli.org/doc/ledger3.html)
+* [Ledger examples gist](https://gist.github.com/agaviria/3317397)
 
 <!-- {: .-also-see} -->

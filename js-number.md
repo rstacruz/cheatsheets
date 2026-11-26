@@ -1,8 +1,11 @@
 ---
 title: JavaScript Numbers
+subtitle: Floating-point number reference
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   JavaScript numbers are 64-bit floats (IEEE 754), so `0.1 + 0.2` is not exactly
   `0.3`; use BigInt beyond 2^53.
@@ -26,12 +29,16 @@ links:
 1_000_000   // → 1000000 (numeric separators)
 1e3         // → 1000 (exponent)
 ```
+<!-- {: data-highlight="1_000_000"} -->
+
+#### Special values
 
 ```js
 Infinity     // → Infinity
 -Infinity    // → -Infinity
 NaN          // → NaN (Not a Number)
 ```
+<!-- {: data-highlight="NaN"} -->
 
 `Infinity` and `NaN` are numbers too: `typeof Infinity === 'number'`.
 
@@ -49,8 +56,7 @@ parseInt('08', 10)     // → 8
 parseFloat('3.14abc')  // → 3.14
 +'42'                  // → 42 (unary plus)
 ```
-
-<!-- {: data-line="5"} -->
+<!-- {: data-highlight="parseInt"} -->
 
 `Number()` rejects trailing junk, while `parseInt()` and `parseFloat()` stop at
 it. Always pass a radix to `parseInt()`.
@@ -68,8 +74,7 @@ Number.isSafeInteger(2 ** 53)    // → false
 Number.MAX_SAFE_INTEGER          // → 9007199254740991
 Number.EPSILON                   // → 2.220446049250313e-16
 ```
-
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="Number.isNaN"} -->
 
 The global `isNaN('x')` coerces its argument and returns `true`;
 `Number.isNaN('x')` is `false`.
@@ -88,12 +93,16 @@ Math.floor(-4.7)    // → -5
 Math.ceil(4.2)      // → 5
 Math.trunc(4.7)     // → 4 (drop the fraction)
 ```
+<!-- {: data-highlight="Math.round; Math.floor; Math.ceil; Math.trunc"} -->
+
+#### toFixed()
 
 ```js
 (2.5).toFixed(0)            // → "3"
 (0.1 + 0.2).toFixed(2)      // → "0.30"
 (1.005).toFixed(2)          // → "1.00" (really 1.00499...)
 ```
+<!-- {: data-highlight="toFixed"} -->
 
 `toFixed()` returns a string, and binary floats can make decimal rounding
 surprising.
@@ -113,11 +122,15 @@ Math.sign(-3)         // → -1
 Math.hypot(3, 4)      // → 5
 Math.PI               // → 3.141592653589793
 ```
+<!-- {: data-highlight="Math."} -->
+
+#### Random numbers
 
 ```js
 Math.random()        // → 0 <= n < 1
 Math.random() * 10   // → 0 <= n < 10
 ```
+<!-- {: data-highlight="Math.random() * 10"} -->
 
 `Math.random()` is not cryptographically secure; use `crypto.getRandomValues()`
 for tokens and keys.
@@ -126,11 +139,16 @@ See: [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gl
 
 ### Formatting
 
+#### Locale output
+
 ```js
 const n = 1234567.891
 
 n.toLocaleString('en-US')   // → "1,234,567.891"
 ```
+<!-- {: data-highlight="toLocaleString('en-US')"} -->
+
+#### NumberFormat
 
 ```js
 const fmt = (opts) => new Intl.NumberFormat('en-US', opts)
@@ -141,11 +159,15 @@ fmt({ style: 'percent' }).format(0.25)      // → "25%"
 fmt({ notation: 'compact' }).format(12345)  // → "12K"
 fmt({ style: 'unit', unit: 'kilometer' }).format(5)  // → "5 km"
 ```
+<!-- {: data-highlight="Intl.NumberFormat"} -->
+
+#### Precision and exponent
 
 ```js
 (3.14159).toPrecision(3)   // → "3.14"
 (12345).toExponential(2)   // → "1.23e+4"
 ```
+<!-- {: data-highlight="toPrecision(3); toExponential(2)"} -->
 
 `toPrecision()` and `toExponential()` return strings; locale output varies by
 runtime and locale.
@@ -163,10 +185,14 @@ BigInt(123)      // → 123n
 10n / 3n         // → 3n (truncates)
 1n < 2           // → true
 ```
+<!-- {: data-highlight="123n"} -->
+
+#### Mixed arithmetic
 
 ```js
 1n + 1           // TypeError: Cannot mix BigInt and other types
 ```
+<!-- {: data-highlight="1n + 1"} -->
 
 `BigInt` holds arbitrarily large integers. Comparisons work across types, but
 mixing a BigInt and a Number in arithmetic throws.

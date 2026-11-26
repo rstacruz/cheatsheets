@@ -1,0 +1,34 @@
+@reference '/src/styles/tailwind.css';
+
+@layer components {
+  /*
+   * h2 section
+   */
+
+  .h2-section {
+    @apply [&:first-child>h2]:hidden;
+    @apply md:mt-16 md:first-of-type:mt-0;
+  }
+
+  .h2-section h2 {
+    @apply font-manrope font-extrabold tracking-manrope;
+    @apply text-3xl text-heading target:text-primary;
+    @apply scroll-mt-6;
+  }
+
+  a.local-anchor {
+    @apply text-2xl ml-2 text-primary-muted opacity-0;
+    @apply focus:opacity-100;
+
+    /* Tailwind v4 gates `hover:` behind @media (hover: hover); keep the plain
+       hover rule so touch behaves as before. */
+    &:hover {
+      @apply opacity-100;
+      text-decoration-line: none;
+    }
+  }
+
+  .h2-section h2:hover a.local-anchor {
+    @apply opacity-100;
+  }
+}

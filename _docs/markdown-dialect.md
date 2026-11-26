@@ -27,8 +27,10 @@ links:
 
 An H2 starts a section; an H3 is a card inside it. Both get an id from their text.
 
-- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference` (`.-two-column` is the default).
+- Layout classes go on the H2: `.-three-column`, `.-one-column`, `.-left-reference`, `.-snippets` (`.-two-column` is the default).
 - `.-prime` highlights a single H3, once per sheet at most.
+- `.-full-width` on an H3 spans every column of its H2 section, for a wide table followed by narrower cards.
+- Sheets with `layout: snippet` put `.-snippet` on every H3, omit "cheatsheet" from the H1, and end with a Related links card; see [snippet layout](writing-guidelines.md#snippet-layout).
 - The first card is the Introduction, generated from `intro` and `links` frontmatter.
 
 ````md
@@ -70,14 +72,31 @@ are fine.
 Use fenced code blocks; indented code is rejected by CI.
 
 - Put the language on the fence: ` ```ruby `.
-- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-line="1,3-5"` highlights lines, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
+- Put an attribute comment after the closing fence: `.-setup` mutes the block, `data-highlight="save_screenshot"` tints matching text, `.-wrap` wraps long lines, `.-box-chars` tightens box drawing.
 - Keep code lines at 70 characters or less (42 inside `.-three-column`).
 
 ````md
 ```ruby
 puts "hi"
 ```
-<!-- {: .-setup data-line="1"} -->
+<!-- {: .-setup data-highlight="puts"} -->
+````
+
+`data-highlight` takes a semicolon-separated list of literal strings and tints the first occurrence of each token inside the block. Matches stop at identifier boundaries, so `-d` does not match inside `--diff-context`. Use it to point at one API name without shading its whole line.
+
+A `mermaid` fence renders as a diagram instead of highlighted code. Diagrams fit the card and zoom on hover, focus, or tap. Mermaid is not a Prism language; these fences bypass highlighting.
+
+- Name the diagram with `accTitle:` and describe it with `accDescr:` inside the source.
+- Don't put a `title="..."` on the fence; CI rejects it.
+- Bold each node's label and add a short description after `<br>`.
+
+````md
+```mermaid
+flowchart LR
+  accTitle: Hook anatomy
+  PreToolUse["`**PreToolUse**<br>before a tool call`"]
+  PreToolUse --> Edit["`**Edit|Write**<br>either tool`"]
+```
 ````
 
 ## Tables
@@ -109,11 +128,24 @@ Tables use kramdown's dialect, not GFM's.
 - Tight and loose lists follow CommonMark; a blank line between items makes the list loose and wraps items in `<p>`.
 - Don't indent wrapped item text; continuation lines start at column 0.
 - `.-also-see` lays a link list out as a row; `.-six-column` and `.-four-column` lay items out in columns.
+- `.-term-tiles` lays items out as bordered cards in a two-column grid; an odd last item spans both columns. Each bold term sits above its description with no bullet, and descriptions may contain inline code.
 
 ````md
 * [Alpha](/alpha)
 * [Beta](/beta)
 <!-- {: .-also-see} -->
+````
+
+- `.-enum` lays short values out as a 2- or 4-tile grid; `.-enum-wide` caps at 2 columns for longer values.
+- `.-enum-lines` replaces tiles with horizontal rules between rows; the final rule is clipped.
+- All three drop bullet dots; items wrap instead of clipping.
+- `.-enum` and `.-enum-lines` expect items of 13 characters or fewer; `.-enum-wide` expects at least one item of 14 or more.
+
+````md
+- `ios`
+- `android`
+- `web`
+<!-- {: .-enum} -->
 ````
 
 ## Jekyll tags

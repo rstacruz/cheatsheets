@@ -3,7 +3,7 @@
   "plugins": ["typescript", "unicorn", "oxc"],
   "categories": { "correctness": "error" },
   "env": { "browser": true },
-  "ignorePatterns": ["dist/**"],
+  "ignorePatterns": ["dist/**", "artefacts/**"],
   "rules": {
     "typescript/no-explicit-any": "warn"
   },

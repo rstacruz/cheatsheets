@@ -1,12 +1,20 @@
 ---
 title: Screen resolutions
-updated: 2020-07-03
+category: Others
+subtitle: Screen resolution and density table
+intro: |
+  A table of common screen resolutions, pixel densities, device pixel ratios, and physical sizes, with W3C resolution units.
+links:
+  - title: "CSS Values and Units Level 4: resolution"
+    url: https://www.w3.org/TR/css-values-4/#resolution
+updated: 2026-11-26
 weight: -1
+tier: t3
+last_verified_with: "W3C CSS Values and Units 4."
 ---
 
 ## Resolutions
 
-<!-- {: .-one-column} -->
 
 ### Mobile
 
@@ -41,6 +49,8 @@ weight: -1
 
 <!-- {: .-headers} -->
 
+See: [resolution](https://www.w3.org/TR/css-values-4/#resolution)
+
 ### Tablet
 
 | Resolution | DPPX | Actual resolution | DPPI    | Actual PPI | Size | Devices          |
@@ -49,3 +59,5 @@ weight: -1
 | 1024 x 768 | @2x  | 2048 x 1536       | 132 ppi | 264 ppi    | 9.7" | iPad Air         |
 
 <!-- {: .-headers} -->
+
+See: [resolution](https://www.w3.org/TR/css-values-4/#resolution)

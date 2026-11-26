@@ -1,8 +1,25 @@
 ---
 title: HTTP Status
+subtitle: Three-digit response code list
 category: API
 tier: t2
+fragments:
+  - "200 OK"
+  - "201 Created"
+  - "204 No Content"
+  - "301 Moved"
+  - "400 Bad Request"
+  - "401 Unauthorized"
+  - "403 Forbidden"
+  - "404 Not Found"
+  - "418 I'm a teapot"
+  - "500 Error"
+  - "302 Found"
+  - "307 Redirect"
+  - "502 Bad Gateway"
+  - "503 Unavailable"
 updated: 2026-11-11
+last_verified_with: "RFC 9110 / IANA registry."
 description: |
   List of HTTP Status codes and links to description.
 intro: |

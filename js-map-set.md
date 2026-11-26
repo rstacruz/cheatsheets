@@ -1,8 +1,11 @@
 ---
 title: JavaScript Map and Set
+subtitle: Keyed and unique-value collections
 category: JavaScript
 weight: -3
-updated: 2026-10-04
+updated: 2026-11-25
+last_verified_with: "ECMAScript 2026."
+tier: t3
 intro: |
   Map and Set hold keyed or unique values, keep insertion order, and are
   iterable.
@@ -15,6 +18,8 @@ links:
 
 ### Map
 
+#### Basic methods
+
 ```js
 const map = new Map()
 map.set('a', 1).set('b', 2)   // set() chains, returns map
@@ -24,8 +29,9 @@ map.size                      // → 2 (property, not a method)
 map.delete('a')               // → true
 map.clear()                   // removes everything
 ```
+<!-- {: data-highlight="map.set"} -->
 
-<!-- {: data-line="2"} -->
+#### Key identity
 
 ```js
 const key = {}
@@ -35,8 +41,9 @@ map.get({})         // → undefined (different object)
 map.set(NaN, 'x')
 map.get(NaN)        // → 'x' (SameValueZero)
 ```
+<!-- {: data-highlight="map.get"} -->
 
-<!-- {: data-line="3"} -->
+#### Iteration
 
 ```js
 const map = new Map([['a', 1], ['b', 2]])
@@ -47,8 +54,7 @@ for (const [key, value] of map) console.log(key, value)
 [...map]            // same as entries
 map.forEach((value, key) => ...)
 ```
-
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="for (const [key, value] of map)"} -->
 
 Plain objects coerce keys to strings; Map keeps the original key type. Keys
 compare with SameValueZero, so `NaN` equals `NaN`.
@@ -56,6 +62,8 @@ compare with SameValueZero, so `NaN` equals `NaN`.
 See: [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Map.set()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set), [Map.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) _(developer.mozilla.org)_
 
 ### Set
+
+#### Basic methods
 
 ```js
 const set = new Set([1, 2, 2, 3])
@@ -65,8 +73,9 @@ set.add(4)           // returns the set
 set.delete(2)        // → true
 set.clear()
 ```
+<!-- {: data-highlight="set.add"} -->
 
-<!-- {: data-line="1"} -->
+#### Dedupe and iterate
 
 ```js
 [...new Set([1, 1, 2])]      // → [1, 2] (dedupe)
@@ -75,8 +84,7 @@ for (const value of set) console.log(value)
 [...set]                     // → ['a', 'b']
 [...set.keys()]              // same as values
 ```
-
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="new Set([1, 1, 2])"} -->
 
 Sets store unique values; adding an existing value is a no-op. Iteration
 follows insertion order.
@@ -92,8 +100,7 @@ new Map(Object.entries(obj))  // plain object to a Map
 Array.from(set)               // set to array
 [...set]                      // → array
 ```
-
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Object.fromEntries"} -->
 
 `Object.fromEntries()` stringifies keys, and `Object.entries()` reads only own
 enumerable string keys.
@@ -102,6 +109,8 @@ See: [Object.fromEntries()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ### WeakMap and WeakSet
 
+#### WeakMap
+
 ```js
 const cache = new WeakMap()
 cache.set(element, { data: 1 })
@@ -109,8 +118,9 @@ cache.get(element)   // → { data: 1 }
 cache.has(element)   // → true
 cache.delete(element)
 ```
+<!-- {: data-highlight="WeakMap"} -->
 
-<!-- {: data-line="1"} -->
+#### WeakSet
 
 ```js
 const seen = new WeakSet()
@@ -118,6 +128,7 @@ seen.add(element)
 seen.has(element)    // → true
 seen.delete(element)
 ```
+<!-- {: data-highlight="WeakSet"} -->
 
 Keys must be objects or non-registered symbols, entries are not enumerable,
 and they are garbage collected with the key. There is no `.size` or `.clear()`.

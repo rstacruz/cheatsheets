@@ -3,7 +3,8 @@ import type { Properties } from 'hast'
 import { visit } from 'unist-util-visit'
 
 /** Attributes for the block above: `<!-- {: .-two-column} -->` */
-export const ATTRIBUTE_COMMENT = /^<!--\s*\{:([^}]*)\}\s*-->$/s
+export const ATTRIBUTE_COMMENT =
+  /^<!--\s*\{:((?:[^}"']|"[^"]*"|'[^']*')*)\}\s*-->$/s
 
 /** Containers whose children are blocks; elsewhere the comment is left as text */
 const BLOCK_PARENTS: Record<string, boolean> = Object.fromEntries(

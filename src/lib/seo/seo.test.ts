@@ -1,4 +1,4 @@
-import { getSEOPropsForPage, toPlainText } from './seo'
+import { getSEOPropsForPage, MAX_DESCRIPTION, toPlainText } from './seo'
 
 const slug = 'react'
 const title = 'React'
@@ -27,6 +27,93 @@ describe('getSEOPropsForPage()', () => {
   runTest({
     title: 'with keywords',
     input: { slug, frontmatter: { title, keywords } }
+  })
+  runTest({
+    title: 'with seo_title',
+    input: {
+      slug,
+      frontmatter: { title, seo_title: 'React cheatsheet — hooks' }
+    }
+  })
+
+  test('seo_title overrides the generated title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, seo_title: 'React cheatsheet — hooks' }
+    })
+    expect(output.title).toEqual('React cheatsheet — hooks')
+  })
+
+  const tierCases: Array<['t1' | 't2' | 't3' | undefined, string, string]> = [
+    ['t1', '2026-11-11', 'React cheatsheet (Nov 2026)'],
+    ['t1', '2026-01-05', 'React cheatsheet (Jan 2026)'],
+    ['t2', '2026-11-11', 'React cheatsheet'],
+    ['t3', '2026-11-11', 'React cheatsheet'],
+    [undefined, '2026-11-11', 'React cheatsheet']
+  ]
+
+  test.each(tierCases)(
+    '%s sheet updated %s has title %s',
+    (tier, updated, expected) => {
+      const output = getSEOPropsForPage({
+        slug,
+        frontmatter: { title, tier, updated: new Date(updated) }
+      })
+      expect(output.title).toEqual(expected)
+    }
+  )
+
+  test('stamps the updated month after a seo_title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: {
+        title,
+        seo_title: 'React cheatsheet — hooks',
+        tier: 't1',
+        updated: new Date('2026-11-11')
+      }
+    })
+    expect(output.title).toEqual('React cheatsheet — hooks (Nov 2026)')
+    expect(output.metaProperties['og:title']).toEqual(
+      'React cheatsheet — hooks (Nov 2026)'
+    )
+  })
+
+  test('t1 sheets without updated keep the plain title', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, tier: 't1' }
+    })
+    expect(output.title).toEqual('React cheatsheet')
+  })
+
+  test('snippet layouts use the title without a cheatsheet suffix', () => {
+    const output = getSEOPropsForPage({
+      slug: 'git-undo-commit',
+      frontmatter: {
+        title: 'How to undo a Git commit',
+        layout: 'snippet'
+      }
+    })
+    expect(output.title).toEqual('How to undo a Git commit')
+    expect(output.meta.description).toContain('How to undo a Git commit')
+  })
+
+  test('uses the description verbatim, without the intro', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, description, intro: 'Intro text' }
+    })
+    expect(output.meta.description).toEqual(description)
+  })
+
+  test('clamps long descriptions', () => {
+    const output = getSEOPropsForPage({
+      slug,
+      frontmatter: { title, description: 'word '.repeat(50) }
+    })
+    expect(output.meta.description.length).toBeLessThanOrEqual(MAX_DESCRIPTION)
+    expect(output.meta.description.endsWith('…')).toBe(true)
   })
 
   function runTest({ title, input }: { title: string; input: any }) {

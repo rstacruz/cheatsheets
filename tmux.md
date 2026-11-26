@@ -1,180 +1,376 @@
 ---
 title: tmux
-category: CLI
-updated: 2024-04-08
+seo_title: tmux cheatsheet — sessions, windows, panes
+description: "tmux sessions: windows, panes, copy mode and key bindings. Copy-paste command reference."
+subtitle: Terminal multiplexer
+category: Shell
+updated: 2026-11-18
+last_verified_with: "tmux 3.8."
+tier: t2
+fragments:
+  - "C-b"
+  - "tmux new -s work"
+  - "tmux a -t work"
+  - "C-b %"
+  - 'C-b "'
+  - "C-b c"
+  - "C-b ["
+  - "C-b z"
+  - "C-b d"
+  - "C-b w"
+  - "C-b ,"
+  - "C-b ?"
+  - "set -g mouse on"
+  - "new-session -d"
+  - "send-keys"
+  - "capture-pane"
+  - "kill-session"
+  - "C-b {"
+intro: |
+  tmux is a terminal multiplexer: sessions survive disconnect, and one terminal splits into windows and panes. This sheet covers the `C-b` prefix and scripting commands.
+links:
+  - title: tmux manual
+    url: https://man.openbsd.org/tmux
+  - title: tmux wiki
+    url: https://github.com/tmux/tmux/wiki
+  - title: tmux options
+    url: https://man.openbsd.org/tmux#OPTIONS
 ---
 
-### Commands
+## Sessions
+
+### Start and attach
+
+```bash
+tmux                      # Start an unnamed session
+tmux new -s work          # Start a session named work
+tmux ls                   # List sessions
+tmux a                    # Attach to the most recent session
+tmux a -t work            # Attach to a named session
+```
+<!-- {: data-highlight="-s work; -t work"} -->
+
+`tmux a` is short for `attach-session`; `tmux new` is `new-session`.
+
+See: [new-session](https://man.openbsd.org/tmux#new-session)
+
+### Detach and switch
 
 ```
-$ tmux
-  -u        # UTF8 mode
-  -S ~/.tmux.socket
+C-b d               # Detach; the session keeps running
+C-b s               # Choose another session
+C-b (  C-b )        # Previous / next session
+C-b $               # Rename the current session
 ```
+<!-- {: data-highlight="C-b d"} -->
 
-#### Sessions
+Detaching leaves every program running; `tmux a` returns to it.
 
+See: [attach-session](https://man.openbsd.org/tmux#attach-session)
+
+### Kill
+
+```bash
+tmux kill-session -t work       # Kill one session
+tmux kill-session -a -t work    # Kill all except work
+tmux kill-server                # Kill every session and the server
 ```
-$ tmux new
-$ tmux new -s session_name
+<!-- {: data-highlight="kill-session"} -->
 
-$ tmux attach # Default session
-$ tmux attach -t session_name
+`C-b :kill-session` kills the session you are in.
 
-$ tmux switch -t session_name
+See: [kill-session](https://man.openbsd.org/tmux#kill-session)
 
-$ tmux ls     # List sessions
+## Prefix
 
-$ tmux detach
+### Everyday chords
 
-$ tmux kill-session      # kill current or most recent session
-$ tmux kill-session -t session_name
-$ tmux kill-session -t . # kill current session (.)
-$ tmux kill-session -a   # kill sessions except for the current one
-```
-
-#### Windows
-
-```
-$ tmux new-window
-
-$ tmux kill-window       # kill current window
-$ tmux kill-window -t :1 # kill window by index
-$ tmux kill-window -a    # kill all windows except the current window
-```
-
-### Help
-
-```
-C-b ?
-```
-
-### Scrolling
-
-```
-C-b [       # Enter scroll mode then press up and down, you can also scroll with mouse support enabled (`set -g mouse on` in `~/.tmux.conf`)
-```
-
-### Copy/paste
-
-```
-C-b [       # 1. Enter scroll mode first
-Space       # 2. Start selecting and move around
-Enter       # 3. Press enter to copy
-C-b ]       # Paste
-```
-
-### Panes
-
-```
-C-b %       # vert
-C-b "       # horiz
-C-b hkjl    # navigation
-C-b HJKL    # resize
-C-b o       # next window
-C-b q       # show pane numbers
-C-b x       # close pane
-
-C-b { or }  # move windows around
-```
-
-### Windows
-
-```
-C-b c       # New window
-C-b 1       # Go to window 1
-C-b n       # Go to next window
-C-b p       # Go to previous window
-C-b w       # List all window
-C-b &       # Kill the window
-```
-
-### Detach/attach
-
-```
-C-b d       # Detach
-C-b ( )     # Switch through sessions
-$ tmux attach
-```
-
-### Search in buffer
-
-```
-C-b [       # 1. Enter scroll mode first, you can also scroll with mouse support enabled
-C-s         # 2. Enter search mode, type pattern then press Enter to start search
-n or N      # 3. Go to the previous or next match
-C-c         # 4. Exit search and scroll mode
-```
-
-### Niceties
-
-```
-C-b t       # Display a clock, press any key to quit
-```
-
-## Status formats
-
-```
-setw -g window-status-format `#[fg=8,bg=default]#I`
-```
-
-See `message-command-style` in the man page.
-
-### Attribute/colors
-
-| Key | Description |
+| Chord | Action |
 | --- | --- |
-| `#[fg=1]` | standard color |
-| `#[fg=yellow]` | yellow |
-| `#[bold]` | bold |
-| `#[fg=colour240]` | 256 color |
-| `#[fg=default]` | default |
-| `#[fg=1,bg=2]` | combinations |
-| `#[default]` | reset |
-
-### Colors
-
- * `black` `red` `green` `yellow` `blue` `magenta` `cyan` `white`
- * `brightred` (and so on)
- * `colour0` ... `colour255`
- * `#333` (rgb hex)
-
-### Attributes
-
- * `bold` `underscore` `blink` `noreverse` `hidden` `dim` `italics`
-
-### Variables
-
-| Key | Description |
+| `C-b ?` | List all key bindings |
+| `C-b :` | Open the command prompt |
+| `C-b d` | Detach from the session |
 | --- | --- |
-| `#(date)` | shell command |
+| `C-b [` | Enter copy mode |
+| `C-b ]` | Paste the top buffer |
+| `C-b w` | Pick a window |
+| `C-b s` | Pick a session |
+| `C-b q` | Show pane numbers |
+| `C-b z` | Zoom the current pane |
+| `C-b t` | Show a clock |
+
+<!-- {: .-shortcuts} -->
+
+`C-b` is the default prefix; every chord on this page starts with it.
+
+See: [Key bindings](https://man.openbsd.org/tmux#KEY_BINDINGS)
+
+### Command prompt
+
+```
+C-b :new-window
+C-b :split-window -h
+C-b :rename-session work
+C-b :set -g mouse on
+```
+<!-- {: data-highlight="C-b :"} -->
+
+The prompt accepts any tmux command, including settings. Tab completes command names.
+
+See: [Commands](https://man.openbsd.org/tmux#COMMANDS)
+
+## Windows
+
+### Create and switch
+
+```
+C-b c               # New window
+C-b 1               # Jump to window 1 (through 9)
+C-b n  C-b p        # Next / previous window
+C-b l               # Last active window
+C-b w               # Choose a window from a list
+C-b f               # Find by name or visible text
+```
+
+The status bar lists windows; `*` marks the active one.
+
+See: [Windows and panes](https://man.openbsd.org/tmux#WINDOWS_AND_PANES)
+
+### Rename and close
+
+```
+C-b ,               # Rename the window
+C-b &               # Kill the window (asks first)
+C-b .               # Move it to another index
+```
+<!-- {: data-highlight="C-b ,; C-b &"} -->
+
+Closing the last pane in a window closes the window.
+
+See: [kill-window](https://man.openbsd.org/tmux#kill-window)
+
+## Panes
+
+### Split
+
+```
+C-b %               # Split left and right
+C-b "               # Split top and bottom
+C-b :split-window -h -l 30   # Split 30 columns wide
+```
+
+Each split runs its own shell, inside the same window.
+
+See: [split-window](https://man.openbsd.org/tmux#split-window)
+
+### Navigate and resize
+
+```
+C-b ← ↑ ↓ →         # Move to the pane in that direction
+C-b o               # Next pane
+C-b q               # Show pane numbers; press one to jump
+C-b C-← C-→         # Resize by one cell
+C-b M-← M-→         # Resize by five cells
+C-b z               # Zoom the pane to fill the window
+C-b Space           # Cycle through the preset layouts
+```
+<!-- {: data-highlight="C-b ← ↑ ↓ →"} -->
+
+With `set -g mouse on`, click a pane to focus it.
+
+See: [select-pane](https://man.openbsd.org/tmux#select-pane)
+
+### Close and rearrange
+
+```
+C-b x               # Kill the pane (asks first)
+C-b !               # Break the pane into its own window
+C-b {  C-b }        # Swap with the previous / next pane
+C-b C-o             # Rotate the panes
+```
+<!-- {: data-highlight="C-b x; C-b !"} -->
+
+See: [break-pane](https://man.openbsd.org/tmux#break-pane)
+
+## Copy mode
+
+### Select and copy
+
+```
+C-b [               # Enter copy mode
+C-Space             # Start selection (emacs keys)
+M-w                 # Copy the selection and exit
+C-b ]               # Paste it
+```
+<!-- {: data-highlight="C-Space; M-w"} -->
+
+`set -g mode-keys vi` switches to `Space` to select and `Enter` to copy.
+
+See: [copy-mode](https://man.openbsd.org/tmux#copy-mode)
+
+### Search and scroll
+
+```
+C-b [               # Enter copy mode
+C-s                 # Search forward
+C-r                 # Search backward
+n  N                # Next / previous match
+Escape              # Exit copy mode
+```
+<!-- {: data-highlight="C-s; C-r"} -->
+
+Scrolling with the wheel works in copy mode when mouse support is on. `set -g mode-keys vi` swaps in `/`, `?`, and `q`.
+
+See: [copy-mode](https://man.openbsd.org/tmux#copy-mode)
+
+## Config
+
+### Settings
+
+```bash
+set -g mouse on
+set -g base-index 1
+setw -g pane-base-index 1
+set -g history-limit 50000
+set -g renumber-windows on
+set -sg escape-time 10
+```
+
+tmux reads `~/.tmux.conf` when the server starts, not on every attach.
+
+See: [Options](https://man.openbsd.org/tmux#OPTIONS)
+
+### Reload
+
+#### From a key
+
+```bash
+bind r source-file ~/.tmux.conf \; display "Reloaded"
+```
+<!-- {: data-highlight="bind r"} -->
+
+#### From the shell
+
+```bash
+tmux source-file ~/.tmux.conf
+```
+<!-- {: data-highlight="source-file"} -->
+
+The first line adds `C-b r`; the second reloads on demand.
+
+See: [source-file](https://man.openbsd.org/tmux#source-file)
+
+### Change the prefix
+
+```bash
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+```
+<!-- {: data-highlight="prefix C-a"} -->
+
+Keep the `send-prefix` line so an application can still receive a literal `C-a`.
+
+See: [bind-key](https://man.openbsd.org/tmux#bind-key)
+
+## Scripting
+
+### Detached sessions
+
+```bash
+tmux new-session -d -s work
+tmux new -d -s build 'npm run build'
+tmux has-session -t work 2>/dev/null || tmux new -d -s work
+```
+<!-- {: data-highlight="-d"} -->
+
+`-d` starts in the background; the last line creates the session if missing.
+
+See: [new-session](https://man.openbsd.org/tmux#new-session)
+
+### send-keys
+
+```bash
+tmux send-keys -t work:0 'git pull' C-m
+tmux send-keys -t work:0.1 'ls -l' Enter
+```
+<!-- {: data-highlight="send-keys"} -->
+
+`C-m` is Enter. A target is `session:window.pane`.
+
+See: [send-keys](https://man.openbsd.org/tmux#send-keys)
+
+### Reading output
+
+```bash
+tmux capture-pane -p -t work:0
+tmux capture-pane -p -S -100 -t work:0   # Last 100 lines
+```
+<!-- {: data-highlight="-S -100"} -->
+
+`capture-pane` prints the visible screen; `-S` reaches into the scrollback.
+
+See: [capture-pane](https://man.openbsd.org/tmux#capture-pane)
+
+## Remote and nested
+
+### SSH
+
+```bash
+ssh host -t tmux a -t work
+ssh host -t 'tmux new -A -s main'
+```
+<!-- {: data-highlight="new -A"} -->
+
+`-t` forces a TTY; `new -A` attaches to the session or creates it.
+
+See: [tmux wiki](https://github.com/tmux/tmux/wiki)
+
+### Nested sessions
+
+```
+C-b C-b             # Send C-b through to the inner tmux
+C-b : send-prefix   # The same, as a command
+```
+<!-- {: data-highlight="C-b C-b"} -->
+
+Sessions belong to a server; `tmux -L inner` starts a second server on its own socket. `$TMUX` is set inside a session.
+
+See: [ENVIRONMENT](https://man.openbsd.org/tmux#ENVIRONMENT)
+
+## Status bar
+
+### Format strings
+
+| Format | Shows |
 | --- | --- |
-| `#I` | window index |
-| `#S` | session name |
-| `#W` | window name |
-| `#F` | window flags |
+| `#S` | Session name |
+| `#I` | Window index |
+| `#W` | Window name |
+| `#F` | Window flags |
+| `#P` | Pane index |
 | --- | --- |
+| `#T` | Pane title |
 | `#H` | Hostname |
-| `#h` | Hostname, short |
-| `#D` | pane id |
-| `#P` | pane index |
-| `#T` | pane title |
+| `#(cmd)` | Output of a shell command |
+| `#{?condition,a,b}` | Conditional |
 
-## Options
+<!-- {: .-shortcuts} -->
+
+`status-left` and `status-right` take the same strings as `window-status-format`.
+
+See: [Formats](https://man.openbsd.org/tmux#FORMATS)
+
+### Styles
 
 ```
-set -g status-justify [left|centre|right]
-set -g status-left '...'
-
-setw -g window-status-style
-setw -g window-status-activity-style
-setw -g window-status-bell-style
-setw -g window-status-content-style
-setw -g window-status-current-style
-setw -g window-status-last-style
-
-setw -g window-status-format
-setw -g window-status-current-format
-
-setw -g window-status-separator
+#[fg=yellow,bold]
+#[fg=colour240]
+#[bg=default]
+#[default]
 ```
+<!-- {: data-highlight="#[fg=yellow,bold]; #[default]"} -->
+
+Colours are names, `colour0` to `colour255`, or `#rrggbb`. `#[default]` resets.
+
+See: [Styles](https://man.openbsd.org/tmux#STYLES)

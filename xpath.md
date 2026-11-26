@@ -1,19 +1,113 @@
 ---
-title: Xpath
+title: XPath
+seo_title: XPath cheatsheet — syntax, contains(), axes
+description: "XPath syntax: contains(), text(), axes, predicates and browser console examples. Reference."
+subtitle: Query language for XML
 category: HTML
-tier: t1
+tier: t2
+fragments:
+  - "//div"
+  - "//a"
+  - "@href"
+  - "text()"
+  - "[1]"
+  - "parent::"
+  - "following"
+  - "contains()"
+  - "count()"
+  - "//*"
+  - "//span"
+  - "/html/body"
+  - "@id"
+  - "not(expr)"
 weight: -5
-description: |
-  $x('//div//p//*') == $('div p *'), $x('//*[@id="item"]') == $('#item'), and many other XPath examples.
-updated: 2026-11-05
+updated: 2026-11-26
+last_verified_with: "XPath 1.0, Selenium 4.54.0, Playwright 1.65.1."
 intro: |
-  XPath selects nodes in HTML and XML. Browsers implement XPath 1.0 through `document.evaluate()`; devtools add the `$x()` helper.
+  XPath is a query language for selecting nodes in HTML and XML. This reference covers syntax, predicates, axes and automation locators.
 links:
   - title: XPath reference
     url: https://developer.mozilla.org/en-US/docs/Web/XML/XPath
   - title: XPath 1.0 specification
     url: https://www.w3.org/TR/1999/REC-xpath-19991116/
 ---
+
+## Overview
+
+### What XPath is
+
+```bash
+//ul/li/a[@href]   # linked items
+```
+
+XPath 1.0 selects nodes in HTML and XML documents, including text and attributes. Browsers expose it through `document.evaluate()`.
+
+See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
+
+### CSS vs XPath
+
+| XPath                       | Selects      | CSS            |
+| --------------------------- | ------------ | -------------- |
+| `//div//a`                  | Descendant   | like `div a`   |
+| `//div/a`                   | Direct child | like `div > a` |
+| `//button[text()='Submit']` | Text         | —              |
+| `//a/..`                    | Parent       | —              |
+
+<!-- {: .-headers} -->
+
+CSS selects elements; XPath also reaches ancestors, text and attributes. CSS `.card` matches a class token, while XPath's `@class='card'` needs the whole attribute.
+
+See: [Comparison with CSS selectors](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Guides/Comparison_with_CSS_selectors)
+
+[CSS cheatsheet](./css)
+<!-- {: .-crosslink} -->
+
+## Finding nodes
+<!-- {: .-three-column} -->
+
+### text()
+
+```bash
+//h2[text()='Install']
+```
+<!-- {: data-highlight="text()='Install'"} -->
+
+Matches an element whose direct text is `Install`; `contains(., 'all')` matches partial text.
+
+See: [Node tests](https://www.w3.org/TR/1999/REC-xpath-19991116/#node-tests)
+
+### contains()
+
+```bash
+//p[contains(., 'error')]
+```
+<!-- {: data-highlight="contains(., 'error')"} -->
+
+Tests whether an element's string value contains a substring.
+
+See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
+
+### By id
+
+```bash
+//*[@id='main']
+```
+<!-- {: data-highlight="[@id='main']"} -->
+
+Finds the element with `id="main"` anywhere in the tree.
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
+### By attribute
+
+```bash
+//input[@type='submit']
+```
+<!-- {: data-highlight="[@type='submit']"} -->
+
+Predicates test an attribute's name and value with `[@name='value']`.
+
+See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
 
 ## Testing
 
@@ -23,6 +117,7 @@ links:
 $x('//div')          // array of elements
 $x('//li', ul)       // search within a node
 ```
+<!-- {: data-highlight="$x"} -->
 
 Works in Firefox and Chromium browsers.
 
@@ -35,9 +130,10 @@ const result = document.evaluate(
   '//ul/li', document, null,
   XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
 )
-result.snapshotLength     // => 3
+result.snapshotLength     // number of matches
 result.snapshotItem(0)    // first match
 ```
+<!-- {: data-highlight="document.evaluate"} -->
 
 Use `document.evaluate()` outside devtools; `$x()` is a console helper.
 
@@ -60,12 +156,14 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
+See: [Location paths](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Paths)
+
 ### Attribute selectors
 
 | CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
 | `#id`                        | `//*[@id="id"]`                                          | [?](#predicates)        |
-| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*         |                         |
+| `.class`                     | `//*[@class="class"]` *...[kinda](#by-class)*            |                         |
 | `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
 | `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
 | `a[rel]`                     | `//a[@rel]`                                              |                         |
@@ -73,9 +171,11 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
 | `a[href$='pdf']`             | `//a[substring(@href, string-length(@href) - 2) = 'pdf']` | [?](#string-functions)  |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
-| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
+| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#by-class)*    |                         |
 
 <!-- {: .xp} -->
+
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Order selectors
 
@@ -90,15 +190,19 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### Siblings
 
 | CSS                          | XPath                                                    | ?                       |
 | ----                         | ----                                                     | --                      |
-| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
+| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#axes)              |
 | `h1 + ul`                    | `//h1/following-sibling::*[1][self::ul]`                 |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::*[@id="id"]`                    |                         |
 
 <!-- {: .xp} -->
+
+See: [following-sibling axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#following-sibling)
 
 ### jQuery
 
@@ -110,6 +214,8 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 | `$('span').text()`           | `//span/text()`                                          |                         |
 
 <!-- {: .xp} -->
+
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
 
 ### Other things
 
@@ -128,19 +234,17 @@ See: [Using XPath in JavaScript](https://developer.mozilla.org/en-US/docs/Web/XM
 
 <!-- {: .xp} -->
 
-<style>
-/* ensure tables align */
-table.xp {table-layout: fixed;}
-table.xp tr>:nth-child(1) {width: 35%;}
-table.xp tr>:nth-child(2) {width: auto;}
-table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
-</style>
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
-### Class check
+### By class
 
 ```bash
-//div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]
+//div[contains(
+  concat(' ', normalize-space(@class), ' '),
+  ' foobar '
+)]
 ```
+<!-- {: data-highlight="' foobar '"} -->
 
 XPath has no space-separated token operator. Wrap the attribute in spaces and search for the token; this also works for `rel`.
 
@@ -153,6 +257,7 @@ See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 ```bash
 //ul/li[1]/a[@href]
 ```
+<!-- {: data-highlight="//"} -->
 
 #### Syntax
 
@@ -196,20 +301,25 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 
 ### Steps
 
+#### Element and predicates
+
 ```bash
 //div
 //div[@name='box']
 //*[@id='link']
 ```
+<!-- {: data-highlight="[@name='box']"} -->
 
-A step may have an element name (`div`) and [predicates](#predicates) (`[...]`). Both are optional.
-They can also be these other things:
+#### Node tests
 
 ```bash
 //a/text()     #=> text nodes
 //a/@href      #=> href attributes
 //a/*          #=> child elements
 ```
+<!-- {: data-highlight="text(); @href; *"} -->
+
+A step may have an element name (`div`) and [predicates](#predicates) (`[...]`); it can also name text nodes, attributes, or child elements.
 
 See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Location-Steps)
 
@@ -222,6 +332,7 @@ See: [Location steps](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Loc
 //div[@class="head"]
 //div[@class="head"][@id="top"]
 ```
+<!-- {: data-highlight='[@class="head"]'} -->
 
 Keeps only the nodes for which the condition is true. Predicates can be chained.
 
@@ -229,18 +340,17 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
 ### Operators
 
+#### Comparison
+
 ```bash
 # Comparison
 //a[@id = "xyz"]
 //a[@id != "xyz"]
 //a[@price > 25]
 ```
+<!-- {: data-highlight="=; !=; >"} -->
 
-```bash
-# Logic (and/or)
-//div[@id="head" and position()=2]
-//div[(h1 or p) and not(@hidden)]
-```
+#### Arithmetic
 
 ```bash
 # Arithmetic (div and mod, not / and %)
@@ -248,25 +358,42 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //item[@price div 2 > 4]
 //item[position() mod 2 = 1]
 ```
+<!-- {: data-highlight="div; mod"} -->
 
-Use comparison and logic operators to make conditionals.
+Comparison and arithmetic operators build predicates.
+
+See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
+
+### and / or
+
+```bash
+//div[@role='alert' and not(@hidden)]
+//a[@href or @name]
+```
+<!-- {: data-highlight="[@role='alert' and not(@hidden)]"} -->
+
+`and` binds tighter than `or`; group mixed conditions in parentheses.
 
 See: [Booleans](https://www.w3.org/TR/1999/REC-xpath-19991116/#booleans)
 
 ### Using nodes
+
+#### Count nodes
 
 ```bash
 # Use them inside functions
 //ul[count(li) > 2]
 //ul[count(li[@class='hide']) > 0]
 ```
+<!-- {: data-highlight="count(li)"} -->
+
+#### Test for children
 
 ```bash
 # This returns `<ul>` that has a `<li>` child
 //ul[li]
 ```
-
-You can use nodes inside predicates.
+<!-- {: data-highlight="[li]"} -->
 
 See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 
@@ -281,6 +408,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //ol/li[position()=2] # same as above
 //ol/li[position()>1] # all but the first
 ```
+<!-- {: data-highlight="(//a)[1]"} -->
 
 Predicates apply to each parent's matches. Wrap the path in `()` to index the whole result.
 
@@ -292,6 +420,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 //a[1][@href='/']
 //a[@href='/'][1]
 ```
+<!-- {: data-highlight="[1][@href='/']; [@href='/'][1]"} -->
 
 Order is significant: these two are different.
 
@@ -302,6 +431,7 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 ```bash
 //section[.//h1[@id='hi']]
 ```
+<!-- {: data-highlight=".//h1"} -->
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
@@ -315,11 +445,12 @@ See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
 name()                  # //*[starts-with(name(), 'h')]
 local-name()            # //*[local-name()='item']
 namespace-uri()
-id('item1')             # element with id="item1"
+id('item1')             # XML ID (DTD-typed)
 count()                 # //ul[count(li) > 2]
 position()              # //ol/li[position()=2]
 last()                  # //ul/li[last()]
 ```
+<!-- {: data-highlight="name(); local-name(); namespace-uri(); id('item1')"} -->
 
 `text()` and `@attr` are node tests, not functions ([steps](#steps)).
 
@@ -339,6 +470,8 @@ See: [Boolean functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-
 
 ### String functions
 
+#### Functions
+
 ```bash
 contains()              # //font[contains(@class, 'head')]
 starts-with()           # //font[starts-with(@class, 'head')]
@@ -351,6 +484,9 @@ normalize-space()       # //p[normalize-space() = 'Hi']
 translate()             # translate('ABC', 'ABC', 'abc') => 'abc'
 string()                # string(//a/@href) => '/home'
 ```
+<!-- {: data-highlight="contains(); starts-with(); substring(); concat()"} -->
+
+#### Case-insensitive match
 
 ```bash
 # Case-insensitive text match
@@ -360,11 +496,15 @@ string()                # string(//a/@href) => '/home'
   'go'
 )]
 ```
+<!-- {: data-highlight="translate(.,"} -->
+
+#### Suffix match
 
 ```bash
 # href ends with .pdf
 //a[substring(@href, string-length(@href) - 2) = 'pdf']
 ```
+<!-- {: data-highlight="substring(@href, string-length(@href) - 2) = 'pdf'"} -->
 
 XPath 1.0 has no `ends-with()`; use `substring()`. XPath 2.0 adds `ends-with()` and `matches()`.
 
@@ -378,6 +518,7 @@ floor(3.7)              # => 3
 ceiling(3.2)            # => 4
 round(3.5)              # => 4
 ```
+<!-- {: data-highlight="sum(//item/@price); floor(3.7); ceiling(3.2); round(3.5)"} -->
 
 See: [Number functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Number-Functions)
 
@@ -393,9 +534,9 @@ boolean('x')            # => true
 
 See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#string), [number()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#number), [boolean()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#boolean)
 
-## Axes
+## Navigation
 
-### Using axes
+### Axes
 
 ```bash
 //ul/li                       # ul > li
@@ -404,6 +545,7 @@ See: [string()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference
 //ul/descendant-or-self::li   # ul li
 //ul/ancestor-or-self::li[1]  # $('ul').closest('li')
 ```
+<!-- {: data-highlight="following-sibling::; descendant-or-self::"} -->
 
 Steps are separated by `/`, usually picking child nodes. Use `::` to pick a different axis.
 
@@ -411,13 +553,16 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 
 ### Child axis
 
+#### Default axis
+
 ```bash
 # both the same
 //ul/li/a
 //child::ul/child::li/child::a
 ```
+<!-- {: data-highlight="child::"} -->
 
-`child::` is the default axis. This makes `//a/b/c` work.
+#### Predicates
 
 ```bash
 # both the same
@@ -425,12 +570,18 @@ See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axe
 //ul[li]
 //ul[child::li]
 ```
+<!-- {: data-highlight="child::li"} -->
+
+#### Counting children
 
 ```bash
 # both the same
 //ul[count(li) > 2]
 //ul[count(child::li) > 2]
 ```
+<!-- {: data-highlight="count(child::li)"} -->
+
+`child::` is the default axis. This makes `//a/b/c` work.
 
 See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child)
 
@@ -441,6 +592,7 @@ See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
 //div//h4
 //div/descendant-or-self::node()/child::h4
 ```
+<!-- {: data-highlight="descendant-or-self::node()"} -->
 
 `//` is short for `descendant-or-self::node()/`.
 
@@ -473,11 +625,24 @@ There are other axes you can use.
 
 See: [Axes](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes)
 
+### Following
+
+```bash
+//h1/following::p           # later in the document
+//h1/following-sibling::p   # same parent, after h1
+```
+<!-- {: data-highlight="following::"} -->
+
+`following` reaches nodes after the context node in document order, excluding its descendants, attributes and namespace nodes; `following-sibling::` stays within the same parent.
+
+See: [following axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#following)
+
 ### Unions
 
 ```bash
 //a | //span
 ```
+<!-- {: data-highlight="|"} -->
 
 Use `|` to join two expressions.
 
@@ -498,20 +663,23 @@ count(//*)          # count all elements
 
 See: [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath)
 
-### Find a parent
+### Parent
+
+#### Direct child
 
 ```bash
 //section[h1[@id='section-name']]
 ```
+<!-- {: data-highlight="[h1[@id='section-name']]"} -->
 
-Finds a `<section>` that directly contains `h1#section-name`.
+#### Any descendant
 
 ```bash
 //section[.//h1[@id='section-name']]
 ```
+<!-- {: data-highlight="[.//h1[@id='section-name']]"} -->
 
-Finds a `<section>` that contains `h1#section-name` anywhere.
-The leading `.` makes the inner path relative to the section.
+The first finds a `<section>` that directly contains `h1#section-name`; the second finds one that contains it anywhere, with the leading `.` making the inner path relative to the section.
 
 See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#child), [descendant-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#descendant-or-self)
 
@@ -522,20 +690,86 @@ See: [Child axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Referen
   contains(concat(' ', normalize-space(@class), ' '), ' box ')
 ][1]
 ```
+<!-- {: data-highlight="ancestor-or-self::*"} -->
 
 Works like jQuery's `$().closest('.box')`.
 
 See: [ancestor-or-self axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self)
 
-### Attributes
+
+## Automation
+
+### Selenium and Playwright
+
+#### Python
+
+```python
+from selenium.webdriver.common.by import By
+
+field = driver.find_element(
+    By.XPATH, "//input[@name='q']"
+)
+```
+<!-- {: data-highlight="By.XPATH"} -->
+
+#### Java
+
+```java
+WebElement field = driver.findElement(
+  By.xpath("//input[@name='q']")
+);
+```
+<!-- {: data-highlight="By.xpath"} -->
+
+#### Playwright
+
+```python
+page.locator(
+    "xpath=//button[text()='Submit']"
+).click()
+```
+<!-- {: data-highlight="xpath="} -->
+
+Selenium takes `By.XPATH` (Java: `By.xpath`); Playwright accepts `xpath=` or auto-detects a leading `//`.
+
+See: [Selenium locators](https://www.selenium.dev/documentation/webdriver/elements/locators/), [Playwright locators](https://playwright.dev/docs/locators)
+
+### Relative vs absolute
+
+#### Relative
 
 ```bash
-//item[@price > 2*@discount]
+//div[@id='cart']//button
 ```
+<!-- {: data-highlight="//div[@id='cart']"} -->
 
-Finds `<item>` whose price is more than twice its discount.
+#### Absolute
 
-See: [Attribute axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
+```bash
+/html/body/div[2]/button
+```
+<!-- {: data-highlight="/html/body/div[2]"} -->
+
+Prefer a landmark-based path over a full `/html/body/...` chain; absolute paths break when markup changes.
+
+See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev)
+
+### Class in a locator
+
+```bash
+//tr[contains(concat(' ', normalize-space(@class), ' '), ' total ')]
+```
+<!-- {: data-highlight="concat(' ',"} -->
+
+Wrap the class attribute in spaces so `total` matches one token, not `total-row`.
+
+See: [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains)
+
+[Selenium cheatsheet](./selenium)
+<!-- {: .-crosslink} -->
+
+[XPath in Selenium cheatsheet](./xpath-selenium)
+<!-- {: .-crosslink} -->
 
 ## References
 

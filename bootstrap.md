@@ -1,8 +1,15 @@
 ---
 title: Bootstrap
+subtitle: CSS component framework
 prism_languages: [scss, haml, html]
 weight: -1
-category: CSS
+category: Hidden
+# Documents Bootstrap 3, end-of-life 2019-07-24; its LESS vars and classes were removed in 4/5.
+tags: [Archived]
+archived: |
+  This documents Bootstrap 3, which reached end of life on 24 July 2019. The
+  LESS variables and grid classes shown here were removed in Bootstrap 4 and
+  5. Use [Bootstrap 5](https://getbootstrap.com/docs/5.3/).
 description: |
   .container .row .col-md-6, @screen-sm-min, .form-control, grids, .modal-content, tooltips, and other Bootstrap CSS examples.
 ---

@@ -1,7 +1,10 @@
 ---
 title: Flow
-category: JavaScript libraries
-updated: 2020-07-05
+subtitle: JavaScript type checker
+category: Build tools
+last_verified_with: "Flow 0.342."
+updated: 2026-11-25
+tier: t3
 weight: -3
 ---
 
@@ -22,7 +25,7 @@ function square (n: number) {
 const four = square(2)
 ```
 
-<!-- {: data-line="1,2"} -->
+<!-- {: data-highlight="square"} -->
 
 Most of what you need to do is to simply add annotations to function arguments!
 
@@ -36,9 +39,11 @@ function square (n: number) {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="const"} -->
 
 `result` is inferred to be a number because `number * number` will result in a number. There's no need to give it annotations.
+
+See: [Types and expressions](https://flow.org/en/docs/lang/types-and-expressions/)
 
 ### Type aliases
 
@@ -51,7 +56,9 @@ type Person = {
 }
 ```
 
-<!-- {: data-line="1,2,3,4,5,6"} -->
+<!-- {: data-highlight="type"} -->
+
+#### Use the alias
 
 ```js
 function greet(user: Person) {
@@ -59,13 +66,17 @@ function greet(user: Person) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Person"} -->
+
+#### Pass an object
 
 ```js
 greet({ name: 'Miles Davis', ··· })
 ```
 
 This is the typical way to define the shape of complex objects.
+
+See: [Type aliases](https://flow.org/en/docs/types/aliases/)
 
 ### Variables
 
@@ -75,13 +86,15 @@ const count: number = 200
 
 You typically don't need to do this, function args are often enough.
 
-See: [Variable types](https://flow.org/en/docs/types/variables/)
+See: [Variable types](https://flow.org/en/docs/lang/variables/)
 
 ### Importing and exporting
 
 ```js
 import type { Person } from './types'
 ```
+
+#### Export the type
 
 ```js
 export type Person = {
@@ -96,6 +109,8 @@ See: [Module types](https://flow.org/en/docs/types/modules)
 ```js
 type Action = number | string
 ```
+
+#### Literal unions
 
 ```js
 type Direction = 'left' | 'right'
@@ -113,7 +128,9 @@ type Album = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="name"} -->
+
+#### Nullable values
 
 ```js
 const a: Album = { }                 // ✗ Error
@@ -134,7 +151,9 @@ type Album = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="string"} -->
+
+#### Optional values
 
 ```js
 const a: Album = { } // ✓ OK
@@ -160,6 +179,8 @@ type Artist = {
 }
 ```
 
+#### Extra properties
+
 ```js
 const a: Artist = {
   name: 'Miguel Migs',
@@ -168,11 +189,11 @@ const a: Artist = {
 }
 ```
 
-<!-- {: data-line="6"} -->
+<!-- {: data-highlight="'House'"} -->
 
 A type with more properties is "wider" and is a subtype of a "narrower" type.
 
-See: [Width subtyping](https://flow.org/en/docs/lang/width-subtyping/)
+See: [Subtypes](https://flow.org/en/docs/lang/subtypes/#toc-subtypes-of-objects)
 
 ### Exact object types
 
@@ -183,7 +204,9 @@ type Artist = {|
 |}
 ```
 
-<!-- {: data-line="1,4"} -->
+<!-- {: data-highlight="Artist"} -->
+
+#### Reject extras
 
 ```js
 const a: Artist = {
@@ -193,11 +216,11 @@ const a: Artist = {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="genre"} -->
 
 Exact object types prevent extra properties from being added to an object.
 
-See: [Exact object types](https://flow.org/en/docs/types/objects/#toc-exact-object-types)
+See: [Exact object types](https://flow.org/en/docs/types/objects/#exact-and-inexact-object-types)
 
 ### Dynamic keys
 
@@ -207,7 +230,7 @@ type Items = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="key"} -->
 
 See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-as-maps)
 
@@ -236,6 +259,8 @@ See: [Dynamic object keys](https://flow.org/en/docs/types/objects/#toc-objects-a
 | `?number`       | Maybe (number, void, null)   |
 | `a | b`         | Union types                  |
 
+See: [Primitive types](https://flow.org/en/docs/types/primitives/)
+
 ### Enums
 
 ```js
@@ -250,7 +275,7 @@ const countries = {
 type Country = $Keys<typeof countries>
 ```
 
-See: [Enums](https://flow.org/en/docs/types/utilities/#toc-keys)
+See: [Utility types ($Keys)](https://flow.org/en/docs/types/utilities/#toc-keys)
 
 ### Type aliases
 
@@ -303,6 +328,8 @@ See: [Interfaces](https://flow.org/en/docs/types/interfaces/)
 const callback: () => void = function () {}
 ```
 
+#### Generic functions
+
 ```js
 function filter<T> (
   list: Array<T>,
@@ -321,9 +348,13 @@ import type { Person } from '../person'
 import typeof Config from '../config'
 ```
 
+#### Export a type
+
 ```js
 export type Person = { id: string }
 ```
+
+See: [Module types](https://flow.org/en/docs/types/modules/)
 
 ### Comment syntax
 
@@ -334,6 +365,8 @@ export type Person = { id: string }
 
 function add(n /*: number */) { ... }
 ```
+
+See: [Comment types](https://flow.org/en/docs/types/comments/)
 
 ### React
 
@@ -351,6 +384,8 @@ class Foo extends React.Component<Props, State> {
 }
 ```
 
+See: [React types](https://flow.org/en/docs/react/)
+
 ## Examples
 
 ### Examples
@@ -366,6 +401,8 @@ var a: Class<MyClass> = MyClass
 var b: MyClass = new a()
 ```
 
+See: [Class types](https://flow.org/en/docs/types/classes/)
+
 ### Function signature
 
 ```js
@@ -375,6 +412,8 @@ function fetch (callback: Callback) {
   ···
 }
 ```
+
+See: [Function types](https://flow.org/en/docs/types/functions/)
 
 ## References
 

@@ -1,15 +1,27 @@
 ---
 title: regexp
+subtitle: Regular expression syntax
 category: Others
+intro: |
+  A reference for regular expression syntax: character classes, anchors, groups, quantifiers, and lookarounds in JavaScript and PCRE2.
+links:
+  - title: MDN regular expressions guide
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
+  - title: MDN regular expression syntax reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions
+  - title: PCRE2 syntax reference
+    url: https://www.pcre2.org/doc/pcre2syntax/
+tier: t3
 weight: -1
 authors:
   - github: rizqyhi
   - github: izzergh
   - github: kolapsys
   - github: samtrion
-updated: 2020-03-10
+updated: 2026-11-26
+last_verified_with: "Node 26.13.1, PCRE2 10.49."
 description: |
-  Basic cheatsheets for regular expression
+  Regular expression syntax reference with patterns, anchors, groups, and flags.
 ---
 
 ## RegExp
@@ -35,11 +47,13 @@ description: |
 | `[[:print:]]` | Any printable character including spaces |
 | `[^abc]`      | Any character except `a`, `b` or `c`     |
 
+See: [Character class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_class), [Character class escape](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+
 ### Anchors
 
 | Pattern | Description            |
 | ------- | ---------------------- |
-| `\G`    | Start of match         |
+| `\G`    | Start of match (PCRE2) |
 | `^`     | Start of string \*     |
 | `$`     | End of string \*       |
 | `\A`    | Start of string        |
@@ -54,6 +68,8 @@ description: |
 
 For multiline patterns (`m` flag), `^` and `$` will act as start and end of line.
 
+See: [Input boundary assertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion), [Buffer boundary assertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion)
+
 ### Escaped characters
 
 | Pattern    | Description                            |
@@ -62,6 +78,8 @@ For multiline patterns (`m` flag), `^` and `$` will act as start and end of line
 | `\t`       | Tab                                    |
 | `\n`       | Newline                                |
 | `\r`       | Carriage return                        |
+
+See: [Character escape](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 
 ### Groups
 
@@ -72,6 +90,8 @@ For multiline patterns (`m` flag), `^` and `$` will act as start and end of line
 | `(?:abc)` | Match `abc`, but don't capture                           |
 | `\1`      | Substituted with text matched of the 1st capturing group |
 
+See: [Capturing group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group), [Non-capturing group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group), [Disjunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction), [Backreference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
+
 
 ### Quantifiers
 
@@ -81,9 +101,11 @@ For multiline patterns (`m` flag), `^` and `$` will act as start and end of line
 | `a+`     | Match 1 or more       |
 | `a?`     | Match 0 or 1          |
 | `a{5}`   | Match exactly 5       |
-| `a{,3}`  | Match up to 3         |
+| `a{0,3}` | Match up to 3         |
 | `a{3,}`  | Match 3 or more       |
 | `a{1,3}` | Match between 1 and 3 |
+
+See: [Quantifier](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
 
 ### Lookahead & Lookbehind
 
@@ -94,3 +116,5 @@ For multiline patterns (`m` flag), `^` and `$` will act as start and end of line
 | ---          | ---                                       |
 | `(?<=a)b`    | Match `b` in `crabs` but not in `cribs`   |
 | `(?<!a)b`    | Match `b` in `fib` but not in `fab`       |
+
+See: [Lookahead assertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion), [Lookbehind assertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)

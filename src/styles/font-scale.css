@@ -1,54 +1,36 @@
 /*
- * Fluid type scale.
+ * Type scale.
  *
- * Six steps of the old modular scale, interpolated between 480px, 768px,
- * and 1280px. Below 480px the 480px step applies; above 1280px the 1280px
- * step applies.
+ * The scale is expressed in Tailwind's `--text-*` namespace so utilities and
+ * plain CSS share one API. Each `clamp()` reproduces the old media-query
+ * steps: 11/13/15/17px below 480px, interpolated to 12/14/16/19px at 768px.
  *
- * The interpolations are written as `vw` coefficient + px intercept. That
- * is the form the CSS minifier folded the previous per-element `calc()`s
- * into; keeping the same numbers makes the computed sizes identical.
+ * `--text-3xl` stays at Tailwind's 1.875rem: at the 14px root that is the
+ * 26.25px H2 size the sheet pages used before this scale defined the step.
+ *
+ * Line-height pairs are explicit ratios so each step pins the site's rhythm
+ * instead of inheriting Tailwind's defaults (unitless `calc()` ratios such as
+ * `calc(2.25 / 1.875)` for `--text-3xl`).
  */
 
-:root {
-  --fs-n1: 11px;
-  --fs-0: 13px;
-  --fs-1: 15px;
-  --fs-2: 17px;
-  --fs-6: 30px;
-  --fs-8: 40px;
-}
+@theme static {
+  --text-xs: clamp(11px, calc(0.347222vw + 9.33333px), 12px);
+  --text-sm: clamp(13px, calc(0.347222vw + 11.3333px), 14px);
+  --text-base: clamp(15px, calc(0.347222vw + 13.3333px), 16px);
+  --text-lg: clamp(17px, calc(0.694445vw + 13.6667px), 19px);
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 1.875rem;
+  --text-4xl: 40px;
+  --text-5xl: 42px;
 
-@media (min-width: 480px) and (max-width: 768px) {
-  :root {
-    --fs-n1: calc(0.347222vw + 9.33333px);
-    --fs-0: calc(0.347222vw + 11.3333px);
-    --fs-1: calc(0.347222vw + 13.3333px);
-    --fs-2: calc(0.694445vw + 13.6667px);
-    --fs-6: calc(1.38889vw + 23.3333px);
-    --fs-8: calc(2.08333vw + 30px);
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --fs-n1: 12px;
-    --fs-0: 14px;
-    --fs-1: 16px;
-    --fs-2: 19px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1280px) {
-  :root {
-    --fs-6: calc(0.390625vw + 31px);
-    --fs-8: calc(0.585938vw + 41.5px);
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --fs-6: 36px;
-    --fs-8: 49px;
-  }
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.6;
+  --text-base--line-height: 1.6;
+  --text-lg--line-height: 1.4;
+  --text-xl--line-height: 1.3;
+  --text-2xl--line-height: 1.3;
+  --text-3xl--line-height: 1.2;
+  --text-4xl--line-height: 1.2;
+  --text-5xl--line-height: 1.2;
 }

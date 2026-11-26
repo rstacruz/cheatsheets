@@ -1,3 +1,4 @@
+import { findMatches, parseHighlightSpec } from './inlineHighlight'
 import { render } from './render'
 
 it('h3 only', async () => {
@@ -94,6 +95,42 @@ describe('intro card', () => {
     expect(html).not.toContain('-intro')
   })
 
+  it('inserts the card at the end when asked', async () => {
+    const { html } = await render(
+      '## Sun\n\n### One\nx\n\n## Moon\n\n### Two\ny',
+      { intro: 'Hello', atEnd: true }
+    )
+    expect(html.indexOf('id="two"')).toBeLessThan(
+      html.indexOf('id="introduction"')
+    )
+    expect(html).toContain(
+      '<p>y</p></div></section><section class="h3-section -intro">'
+    )
+  })
+
+  it('renders only related links when linksTitle is set', async () => {
+    const { html } = await render('### One\nx', {
+      intro: 'Hidden intro',
+      links: [{ title: 'Docs', url: './docs' }],
+      atEnd: true,
+      linksTitle: 'Related links'
+    })
+    expect(html).not.toContain('Hidden intro')
+    expect(html).toContain(
+      '<h3 class="-intro" id="related-links">Related links</h3>'
+    )
+    expect(html).toContain('<a href="./docs">Docs</a>')
+  })
+
+  it('renders no links card without links', async () => {
+    const { html } = await render('### One\nx', {
+      intro: 'Hidden intro',
+      linksTitle: 'Related links'
+    })
+    expect(html).not.toContain('Hidden intro')
+    expect(html).not.toContain('Related links')
+  })
+
   it('inserts the card in the first section list', async () => {
     const { html } = await render('### One\nx', {
       intro: 'Hello **world**',
@@ -186,6 +223,24 @@ it('inserts the intro card inside the first h2 section', async () => {
   `)
 })
 
+it('keeps a mermaid diagram through post-processing', async () => {
+  const input = [
+    '### Diagram',
+    '',
+    '```mermaid',
+    'flowchart LR',
+    '  accTitle: Hook anatomy',
+    '  A["A"] --> B["B"]',
+    '```'
+  ].join('\n')
+  const { html } = await render(input)
+  expect(html).toContain('<figure class="MermaidDiagram"')
+  expect(html).toContain('<pre class="mermaid MermaidDiagram__source">')
+  expect(html).toContain('Hook anatomy</figcaption>')
+  expect(html).not.toContain('language-mermaid')
+  expect(html).not.toContain('class="token')
+})
+
 it('keeps link rows out of a list that ends the intro', async () => {
   const { html } = await render('### One\nx', {
     intro: '- one\n- two',
@@ -194,4 +249,121 @@ it('keeps link rows out of a list that ends the intro', async () => {
   expect(html.match(/<ul>/g)).toHaveLength(2)
   expect(html).not.toContain('<li><p>one')
   expect(html).toContain('<li><a href="./docs">Docs</a>')
+})
+
+describe('inline highlights', () => {
+  const fenced = (code: string[], spec: string) =>
+    [
+      '```python',
+      ...code,
+      '```',
+      '',
+      `<!-- {: data-highlight="${spec}"} -->`
+    ].join('\n')
+
+  it('wraps the matching text, not the whole line', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'save_screenshot')
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
+    )
+    expect(html).not.toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">driver'
+    )
+  })
+
+  it('pads only the outer fragments of a match crossing Prism tokens', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'driver.save_screenshot')
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start">driver</span>'
+    )
+    expect(html).toContain('<span class="inline-highlight">.</span>')
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--end">save_screenshot</span>'
+    )
+  })
+
+  it('accepts several semicolon-separated tokens', async () => {
+    const { html } = await render(
+      fenced(
+        ['driver.save_screenshot("page.png")', 'pdf = driver.print_page()'],
+        'save_screenshot; print_page'
+      )
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">save_screenshot</span>'
+    )
+    expect(html).toContain(
+      '<span class="inline-highlight inline-highlight--start inline-highlight--end">print_page</span>'
+    )
+  })
+  it('highlights a token containing braces', async () => {
+    const { html } = await render(
+      [
+        '```jsx',
+        '<li key={item.id}>{item.name}</li>',
+        '```',
+        '<!-- {: data-highlight="key={item.id}"} -->'
+      ].join('\n')
+    )
+    expect(html).toContain('inline-highlight')
+    expect(html).not.toContain('<!-- {:')
+  })
+
+  it('highlights a token containing double quotes', async () => {
+    const { html } = await render(
+      [
+        '```bash',
+        'resource "aws_instance" "web"',
+        '```',
+        `<!-- {: data-highlight='resource "aws_instance" "web"'} -->`
+      ].join('\n')
+    )
+    expect(html).toContain('inline-highlight')
+    expect(html).not.toContain('<!-- {:')
+  })
+
+  it('wraps only the first occurrence of each token', async () => {
+    const { html } = await render(
+      fenced(
+        [
+          'glab mr merge 123 --squash',
+          'glab mr merge 123 --rebase',
+          'glab mr merge 123 --remove-source-branch'
+        ],
+        'glab mr merge'
+      )
+    )
+    expect(html.match(/inline-highlight--start/g)).toHaveLength(1)
+  })
+
+  it('leaves a block alone when no text matches', async () => {
+    const { html } = await render(
+      fenced(['driver.save_screenshot("page.png")'], 'wait_for')
+    )
+    expect(html).not.toContain('inline-highlight')
+  })
+
+  it('splits only on semicolons, so commas stay in a token', () => {
+    expect(parseHighlightSpec('save_screenshot; print_page, flush')).toEqual([
+      'save_screenshot',
+      'print_page, flush'
+    ])
+  })
+
+  it('matches on identifier boundaries', () => {
+    expect(findMatches('bat -d --diff-context=1', ['-d'])).toEqual([
+      { start: 4, end: 6 }
+    ])
+    expect(findMatches('myfield.text context', ['text'])).toEqual([
+      { start: 8, end: 12 }
+    ])
+    expect(findMatches('find_elements', ['find_element'])).toEqual([])
+    expect(findMatches('merge one merge two', ['merge'])).toEqual([
+      { start: 0, end: 5 }
+    ])
+  })
 })

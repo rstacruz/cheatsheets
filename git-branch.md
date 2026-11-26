@@ -1,7 +1,10 @@
 ---
 title: Git branches
+subtitle: Branch management workflow
 category: Git
-updated: 2020-02-13
+updated: 2026-11-23
+tier: t3
+last_verified_with: "Git 2.56.0."
 ---
 
 ## Working with branches
@@ -17,6 +20,8 @@ git push origin $branchname --set-upstream
 
 Creates a new branch locally then pushes it.
 
+See: [git checkout](https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt--bnew-branch)
+
 ### Getting from remote
 
 ```bash
@@ -26,6 +31,8 @@ git checkout --track origin/$branchname
 
 Gets a branch in a remote.
 
+See: [git checkout --track](https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---trackdirectinherit)
+
 ### Delete local remote-tracking branches
 
 ```bash
@@ -33,6 +40,8 @@ git remote prune origin
 ```
 
 Deletes `origin/*` branches in your local copy. Doesn't affect the remote.
+
+See: [git remote prune](https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-prune)
 
 ### List existing branches
 
@@ -42,6 +51,8 @@ git branch --list
 
 Existing branches are listed. Current branch will be highlighted with an asterisk.
 
+See: [git branch --list](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt---list)
+
 ### List merged branches
 
 ```bash
@@ -50,54 +61,92 @@ git branch -a --merged
 
 List outdated branches that have been merged into the current one.
 
+See: [git branch --merged](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt---mergedcommit)
+
 ### Delete a local branch
 
 ```bash
 git branch -d $branchname
 ```
 
-Deletes the branch only if the changes have been pushed and merged with remote.
+Deletes the branch only if its changes are merged into the current branch.
+
+See: [git branch --delete](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--d)
 
 ### Delete branch forcefully
+
+#### Force delete
 
 ```bash
 git branch -D $branchname
 ```
 
+#### Safe delete
+
 ```bash
 git branch -d $branchname
 ```
 
-> Note: You can also use the -D flag which is synonymous with --delete --force instead of -d. This will delete the branch regardless of its merge status.
-> Delete a branch irrespective of its merged status.
+`-D` is `--delete --force`: it removes unmerged branches too.
+
+See: [git branch --delete --force](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt--D)
 
 ### Delete remote branch
 
 ```bash
-git push origin --delete :$branchname
+git push origin --delete $branchname
 ```
 
 Works for tags, too!
 
-### Get current sha1
+See: [git push --delete](https://git-scm.com/docs/git-push#Documentation/git-push.txt---delete)
+
+### Get current commit ID
 
 ```bash
-git show-ref HEAD -s
+git rev-parse HEAD
 ```
+
+See: [git rev-parse](https://git-scm.com/docs/git-rev-parse)
+
 ### Reset branch and remove all changes
 
 ```bash
 git reset --hard
 ```
 
+See: [git reset --hard](https://git-scm.com/docs/git-reset#Documentation/git-reset.txt---hard)
+
 ### Undo commits to a specific commit
 
 ```bash
 git reset --hard $commit_id
+```
 
+```bash
 # Now push safely to your branch
 git push --force-with-lease
+```
 
+```bash
 # Or push brutally to your branch
 git push --force
 ```
+
+See: [git reset](https://git-scm.com/docs/git-reset)
+
+### Worktrees
+
+[Git worktrees cheatsheet](./git-worktrees)
+<!-- {: .-crosslink} -->
+
+### Rename, delete, or undo
+
+[Git rename branch cheatsheet](./git-rename-branch)
+<!-- {: .-crosslink} -->
+
+[Git delete branch cheatsheet](./git-delete-branch)
+<!-- {: .-crosslink} -->
+
+[Git undo commit cheatsheet](./git-undo-commit)
+<!-- {: .-crosslink} -->

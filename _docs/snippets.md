@@ -1,0 +1,9 @@
+# Snippets
+
+A snippet is a short, single-task sheet. Set `layout: snippet` to get a 900px page, an article-style H1 without "cheatsheet", and two-column cards: code on the left, a bold one-sentence summary and link on the right. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`.
+
+Set `title` to the article heading ("How to undo a Git commit") and `link_title` to the short homepage label ("Git undo commit"). Snippets are listed in their own section at the end of the homepage.
+
+Keep each snippet to 1–6 H3 cards and under about 120 lines. Code lines stay at 49 characters or fewer, and the page ends with a Related links card.
+
+See: [Writing guidelines](writing-guidelines.md) · [Review tiers](tiers.md)

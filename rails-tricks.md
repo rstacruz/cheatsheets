@@ -1,5 +1,6 @@
 ---
 title: Rails tricks
+subtitle: Assorted Rails tips
 category: Rails
 tags: [Archived]
 archived: This sheet may describe practices that might be outdated.
@@ -13,7 +14,9 @@ in config/environments/development.rb:
 # Source maps for Sass
 config.sass.debug_info = true
 config.sass.line_comments = false
+```
 
+```
 # Don't break apart
 config.assets.debug = false
 ```
@@ -38,8 +41,9 @@ en:
 
 ### Exception handling
 
+#### config/application.rb
+
 ```
-# config/application.rb
 config.exceptions_app = self.routes
 
 get '/404', to: 'errors#not_found'

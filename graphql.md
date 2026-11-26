@@ -1,7 +1,19 @@
 ---
 title: GraphQL
-updated: 2019-07-07
+subtitle: API query language
+updated: 2026-11-23
+last_verified_with: "GraphQL specification, graphql.org guides."
+tier: t3
 category: API
+intro: |
+  [GraphQL](https://graphql.org/) is a query language for APIs. This sheet covers queries, HTTP requests, mutations, and schema types.
+links:
+  - title: GraphQL
+    url: https://graphql.org/
+  - title: GraphQL specification
+    url: https://spec.graphql.org/September2026/
+  - title: GraphQL learn
+    url: https://graphql.org/learn/
 ---
 
 ## Queries
@@ -13,6 +25,7 @@ category: API
 ```js
 { status }
 ```
+<!-- {: data-highlight="status"} -->
 
 #### Result
 
@@ -20,42 +33,42 @@ category: API
 { status: 'available' }
 ```
 
-<!-- {: .-setup} -->
+See: [GraphQL operations](https://spec.graphql.org/September2026/#sec-Language.Operations)
 
 ### Nesting
 
 ```js
 { hero { name height } }
 ```
+<!-- {: data-highlight="hero"} -->
 
 #### Result
 
 ```js
-{ hero:
-    { name: "Luke Skywalker",
-      height: 1.74 } }
+{ hero: { name: "Luke Skywalker",
+          height: 1.74 } }
 ```
 
-<!-- {: .-setup} -->
+See: [Fields](https://spec.graphql.org/September2026/#sec-Language.Fields)
 
 ### Lists
 
 ```js
 { friends { name } }
 ```
+<!-- {: data-highlight="friends"} -->
 
 #### Result
 
 ```js
-{ friends:
-    [ { name: "Luke Skywalker" },
-      { name: "Han Solo" },
-      { name: "R2D2" } ] }
+{ friends: [ { name: "Luke Skywalker" },
+            { name: "Han Solo" },
+            { name: "R2D2" } ] }
 ```
 
-<!-- {: .-setup} -->
-
 GraphQL queries look the same for both single items or lists of items.
+
+See: [List type](https://spec.graphql.org/September2026/#sec-List)
 
 ### Lookups
 
@@ -64,16 +77,16 @@ GraphQL queries look the same for both single items or lists of items.
   hero(id: "1000") { id name }
 }
 ```
+<!-- {: data-highlight="hero(id:"} -->
 
 #### Result
 
 ```js
-{ hero:
-    { id: "1000",
-    { name: "Luke Skywalker" } }
+{ hero: { id: "1000",
+          name: "Luke Skywalker" } }
 ```
 
-<!-- {: .-setup} -->
+See: [Arguments](https://spec.graphql.org/September2026/#sec-Language.Arguments)
 
 ### Aliases
 
@@ -83,42 +96,50 @@ GraphQL queries look the same for both single items or lists of items.
   han: hero(id: "1001") { name }
 }
 ```
+<!-- {: data-highlight="luke:; han:"} -->
 
 #### Result
 
 ```js
-{ luke:
-    { name: "Luke Skywalker" },
-    han:
-    { name: "Han Solo" } }
+{ luke: { name: "Luke Skywalker" },
+  han: { name: "Han Solo" } }
 ```
 
-<!-- {: .-setup} -->
+See: [Field alias](https://spec.graphql.org/September2026/#sec-Field-Alias)
 
 ### Operation names and variables
 
 #### Query
+
 ```js
-query FindHero($id: String!) {
+query FindHero($id: ID!) {
   hero(id: $id) { name }
 }
 ```
-
-Just to make things less ambiguous. Also, to use variables, you need an operation name.
+<!-- {: data-highlight="query FindHero"} -->
 
 #### Variables
 
 ```js
-{ id: '1000' }
+{ id: "1000" }
 ```
+
+The operation type is required to declare variables; naming it is optional but helps debugging.
+
+See: [Operation type and name](https://graphql.org/learn/queries/#operation-type-and-name)
 
 ### Mutations
 
 #### Query
 
 ```js
-{ createReview($review) { id } }
+mutation CreateReview(
+  $review: ReviewInput!
+) {
+  createReview(review: $review) { id }
+}
 ```
+<!-- {: data-highlight="mutation CreateReview"} -->
 
 #### Variables
 
@@ -132,7 +153,9 @@ Just to make things less ambiguous. Also, to use variables, you need an operatio
 { createReview: { id: 5291 } }
 ```
 
-Mutations are just fields that do something when queried.
+Only top-level `Mutation` fields may cause side effects; they run in series.
+
+See: [Mutation](https://spec.graphql.org/September2026/#sec-Mutation)
 
 ### Multiple types
 
@@ -141,24 +164,34 @@ Mutations are just fields that do something when queried.
   search(q: "john") {
     id
     ... on User { name }
-    ... on Comment { body author { name } }
+    ... on Comment {
+      body
+      author { name }
+    }
   }
 }
 ```
+<!-- {: data-highlight="... on User; ... on Comment"} -->
 
 Great for searching.
 
+See: [Inline fragments](https://spec.graphql.org/September2026/#sec-Inline-Fragments)
 
-Over HTTP
----------
+## Over HTTP
 
-#### GET
+### GET requests
 
 ```js
-fetch('http://myapi/graphql?query={ me { name } }')
+const q = encodeURIComponent(
+  '{ me { name } }'
+)
+fetch(`http://myapi/graphql?query=${q}`)
 ```
+<!-- {: data-highlight="encodeURIComponent"} -->
 
-#### POST
+See: [GET requests](https://graphql.org/learn/serving-over-http/#get-request-and-parameters)
+
+### POST requests
 
 ```js
 fetch('http://myapi/graphql', {
@@ -169,9 +202,11 @@ fetch('http://myapi/graphql', {
   })
 })
 ```
+<!-- {: data-highlight="body"} -->
 
-Schema
-------
+See: [POST requests](https://graphql.org/learn/serving-over-http/#post-request-and-body)
+
+## Schema
 
 <!-- {: .-three-column} -->
 
@@ -188,8 +223,9 @@ type User {
   name: String
 }
 ```
+<!-- {: data-highlight="type Query; type User"} -->
 
-See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png)
+See: [Type language](https://graphql.org/learn/schema/#type-language)
 
 ### Built in types
 
@@ -224,6 +260,8 @@ See: [sogko/graphql-shorthand-notation-cheat-sheet](https://raw.githubuserconten
 | `[String]!` | Required list of strings |
 | `[String!]!` | Required list of required strings |
 
+See: [Scalar types](https://graphql.org/learn/schema/#scalar-types)
+
 ### Mutations
 
 ```js
@@ -231,6 +269,9 @@ type Mutation {
   users(params: ListUsersInput): [User]!
 }
 ```
+<!-- {: data-highlight="type Mutation"} -->
+
+See: [Query, Mutation, and Subscription types](https://graphql.org/learn/schema/#the-query-mutation-and-subscription-types)
 
 ### Interfaces
 
@@ -244,6 +285,9 @@ type User implements Entity {
   name: String
 }
 ```
+<!-- {: data-highlight="interface Entity; implements Entity"} -->
+
+See: [Interface types](https://graphql.org/learn/schema/#interface-types)
 
 ### Enums
 
@@ -258,7 +302,9 @@ type Root {
 }
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="enum"} -->
+
+See: [Enum types](https://graphql.org/learn/schema/#enum-types)
 
 ### Unions
 
@@ -273,10 +319,10 @@ type Query {
 }
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="union"} -->
 
-References
-----------
+See: [Union types](https://graphql.org/learn/schema/#union-types)
 
-- <http://graphql.org/learn/queries/>
-- <http://graphql.org/learn/serving-over-http/>
+## References
+- <https://graphql.org/learn/queries/>
+- <https://graphql.org/learn/serving-over-http/>

@@ -1,11 +1,15 @@
 ---
 title: YARD
+subtitle: Ruby documentation generator
 category: Markup
 intro: |
   Quick reference for YARD tags in Ruby documentation.
 links:
   - title: YARD documentation
     url: https://yardoc.org/
+tier: t3
+last_verified_with: "YARD 0.9.45."
+updated: 2026-11-26
 ---
 
 ### Method documentation
@@ -27,6 +31,8 @@ end
 
 YARD tags begin with `@` at the start of a comment line.
 
+See: [Tags overview](https://github.com/lsegal/yard/blob/main/docs/Tags.md)
+
 ## Parameters and return values
 
 ### Parameters
@@ -39,6 +45,8 @@ YARD tags begin with `@` at the start of a comment line.
 
 For keyword parameters, use `@param`.
 
+See: [Adding tags](https://github.com/lsegal/yard/blob/main/docs/GettingStarted.md#adding-tags-to-documentation)
+
 ### Return values
 
 ```ruby
@@ -48,11 +56,15 @@ For keyword parameters, use `@param`.
 
 Use multiple `@return` tags for distinct return cases.
 
+See: [Common tag syntaxes](https://github.com/lsegal/yard/blob/main/docs/Tags.md#common-tag-syntaxes)
+
 ### Exceptions
 
 ```ruby
 # @raise [AccountBalanceError] if funds are insufficient
 ```
+
+See: [Common tag syntaxes](https://github.com/lsegal/yard/blob/main/docs/Tags.md#common-tag-syntaxes)
 
 ### Options hash
 
@@ -65,6 +77,8 @@ Use multiple `@return` tags for distinct return cases.
 ```
 
 Use `@option` for keys inside an options hash, not for keyword parameters.
+
+See: [Hash types](https://github.com/lsegal/yard/blob/main/docs/Tags.md#hashes)
 
 ## Types
 
@@ -82,6 +96,8 @@ Use `@option` for keys inside an options hash, not for keyword parameters.
 
 YARD type declarations are conventions rather than Ruby runtime checks.
 
+See: [Type list conventions](https://github.com/lsegal/yard/blob/main/docs/Tags.md#type-list-conventions)
+
 ### Reference tags
 
 ```ruby
@@ -89,13 +105,17 @@ YARD type declarations are conventions rather than Ruby runtime checks.
 # @param host [String] the host name
 def clean(user, host)
 end
+```
 
+```ruby
 # @param (see #clean)
 def activate(user, host)
 end
 ```
 
 `(see OBJECT)` copies matching tag data from another documented object.
+
+See: [Reference tags](https://github.com/lsegal/yard/blob/main/docs/Tags.md#reference-tags)
 
 ## Examples and links
 
@@ -108,6 +128,8 @@ end
 
 The optional text after `@example` becomes the example title.
 
+See: [Adding tags](https://github.com/lsegal/yard/blob/main/docs/GettingStarted.md#adding-tags-to-documentation)
+
 ### Object references
 
 ```text
@@ -115,6 +137,8 @@ The optional text after `@example` becomes the example title.
 {User#name}
 {User#name Display name}
 ```
+
+See: [Linking objects](https://github.com/lsegal/yard/blob/main/docs/GettingStarted.md#customized-yard-markup)
 
 ### Common tags
 
@@ -139,12 +163,12 @@ The optional text after `@example` becomes the example title.
 | `@yieldparam` | Block parameter |
 | `@yieldreturn` | Block return value |
 
+See: [List of tags](https://github.com/lsegal/yard/blob/main/docs/GettingStarted.md#list-of-tags)
+
 ## Also see
 
-<!-- {: .-one-column} -->
-
-- <https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md>
-- <https://www.rubydoc.info/gems/yard/file/docs/Tags.md>
-- <https://yardoc.org/types.html>
+- [Getting started](https://github.com/lsegal/yard/blob/main/docs/GettingStarted.md)
+- [Tags overview](https://github.com/lsegal/yard/blob/main/docs/Tags.md)
+- [Types parser](https://yardoc.org/types.html)
 
 <!-- {: .-also-see} -->

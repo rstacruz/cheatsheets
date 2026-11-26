@@ -1,7 +1,13 @@
 ---
 title: Harvey.js
+subtitle: Media query helper library
 category: Hidden
 # Discontinued (repo archived); the sheet points to enquire.js/matchMedia.
+tags: [Archived]
+archived: |
+  Harvey.js was discontinued and its repository archived. Use
+  [`matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
+  or [enquire.js](https://github.com/WickyNilliams/enquire.js) instead.
 intro: |
   [Harvey.js](http://harvesthq.github.io/harvey/) helps you build responsive interfaces.
 links:

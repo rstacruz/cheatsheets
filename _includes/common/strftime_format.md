@@ -9,7 +9,6 @@
 | Example         | Output                    |
 | ---             | ---                       |
 | `%m/%d/%Y`      | `06/05/2013`              |
-| `%A, %B %e, %Y` | `Wednesday, June 5, 2013` |
 | `%F`            | `2013-06-05`              |
 | `%b %e %a`      | `Jun 5 Wed`               |
 
@@ -19,13 +18,10 @@
 
 | Example    | Output     |
 | ---        | ---        |
-| `%H:%M`    | `23:05`    |
 | `%I:%M %p` | `11:05 PM` |
 | `%T`       | `23:05:00` |
 
 <!-- {: .-shortcuts} -->
-
-Used by Ruby, UNIX `date`, and many more.
 
 See: [strftime](https://pubs.opengroup.org/onlinepubs/9799919799/functions/strftime.html)
 

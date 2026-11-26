@@ -5,10 +5,6 @@ export const site = {
   title: 'Devhints.io cheatsheets'
 } as const
 
-export const etc = {
-  advertisedSheetCount: 357
-} as const
-
 export const disqus = {
   enabled: true,
   host: 'devhints.disqus.com'
@@ -25,7 +21,8 @@ export const github = {
 } as const
 
 export const urls = {
-  newCheatsheetUrl: 'https://github.com/rstacruz/cheatsheets/issues/907'
+  newCheatsheetUrl:
+    'https://github.com/rstacruz/cheatsheets/issues/new?template=request-cheatsheet.yml'
 } as const
 
 export const carbon = {
@@ -34,21 +31,34 @@ export const carbon = {
   src: 'https://pubsrv.devhints.io/carbon.js?serve=CE7IK5QM&placement=devhintsio'
 } as const
 
+// Nav order. Every category except Others holds 3-16 non-snippet sheets;
+// Others holds at most 12. Enforced by src/lib/categories.test.ts.
 export const categories = [
   'Agents',
   'JavaScript',
+  'Browser APIs',
+  'Internationalization',
   'JavaScript libraries',
+  'Date libraries',
+  'JavaScript frameworks',
+  'JavaScript testing',
+  'Build tools',
+  'Node.js',
+  'Node.js libraries',
   'CSS',
-  'React',
   'HTML',
+  'Markup',
   'CLI',
+  'Shell',
+  'Networking',
+  'Media tools',
+  'Package managers',
   'Vim',
   'Git',
+  'Containers',
   'Devops',
   'Databases',
   'API',
-  'Node.js',
-  'Markup',
   'Linux',
   'Ruby',
   'Rails',
@@ -56,14 +66,9 @@ export const categories = [
   'Python',
   'Elixir',
   'C-like',
-  'Java & JVM',
-  'PHP',
-  'macOS',
   'Apps',
   'Ansible',
-  'Analytics',
-  'Jekyll',
-  'Ledger',
+  'Plain-text accounting',
   'Others'
 ]
 

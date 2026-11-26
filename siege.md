@@ -1,18 +1,27 @@
 ---
 title: Siege
-category: Others
+subtitle: HTTP load testing tool
+category: Networking
+tier: t3
+last_verified_with: "Siege 4.2.2."
+updated: 2026-11-26
 intro: |
-  [Siege](https://www.joedog.org/siege/) is an HTTP and HTTPS load testing tool.
+  Siege is an HTTP and HTTPS load testing tool.
 links:
   - title: Siege
     url: https://www.joedog.org/siege/
 ---
+
+## Usage
 
 ### Basic usage
 
 ```sh
 siege -b -c=10 -t=5m "http://..."
 ```
+<!-- {: data-highlight="siege"} -->
+
+See: [Invocation](https://www.joedog.org/siege/manual#a02)
 
 ### Options
 
@@ -46,6 +55,8 @@ siege -b -c=10 -t=5m "http://..."
 -T, --content-type="text/html"
 ```
 
+See: [Command-line options](https://www.joedog.org/siege/manual#a02)
+
 ### References
 
-Also see: [siegerc](https://gist.github.com/stansmet/3067988)
+Also see: [Siege README](https://www.joedog.org/siege/readme)

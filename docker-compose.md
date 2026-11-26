@@ -1,10 +1,27 @@
 ---
 title: docker-compose
-category: Devops
+subtitle: Multi-container app definition
+category: Containers
 prism_languages: [yaml]
 weight: -1
 updated: 2026-11-11
-tier: t1
+last_verified_with: "Docker 29.9.2."
+tier: t2
+fragments:
+  - "compose up"
+  - "compose down"
+  - "compose up -d"
+  - "compose logs -f"
+  - "compose build"
+  - "compose ps"
+  - "compose exec"
+  - "compose config"
+  - "compose pull"
+  - "compose restart"
+  - "compose run"
+  - "compose push"
+  - "compose stop"
+  - "compose watch"
 keywords:
   - docker compose
   - compose file
@@ -22,8 +39,9 @@ links:
 
 ### Basic example
 
+#### compose.yaml
+
 ```yaml
-# compose.yaml
 services:
   web:
     build: .
@@ -47,6 +65,7 @@ See: [Compose quickstart](https://docs.docker.com/compose/gettingstarted/)
 docker-compose up -d   # v1, retired
 docker compose up -d   # current plugin
 ```
+<!-- {: data-highlight="docker compose"} -->
 
 Compose v1 is retired; use the `docker compose` plugin (currently v5).
 
@@ -82,11 +101,16 @@ See: [docker compose CLI reference](https://docs.docker.com/reference/cli/docker
 
 ### Building and images
 
+#### Build
+
 ```yaml
 services:
   web:
     build: .
 ```
+<!-- {: data-highlight="build: ."} -->
+
+#### Build options
 
 ```yaml
 services:
@@ -97,20 +121,24 @@ services:
       args:
         APP_HOME: app
 ```
+<!-- {: data-highlight="context; dockerfile; args"} -->
 
-A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments.
+#### Image
 
 ```yaml
 services:
   web:
     image: ghcr.io/example/app:1.0
 ```
+<!-- {: data-highlight="image:"} -->
 
-`image` accepts a registry path, tag, or digest.
+A context path builds from `./Dockerfile`; the mapping form adds a Dockerfile and build arguments. `image` accepts a registry path, tag, or digest.
 
 See: [build](https://docs.docker.com/reference/compose-file/build/)
 
 ### Ports
+
+#### Published ports
 
 ```yaml
 services:
@@ -120,6 +148,9 @@ services:
       - "8000:80"        # host:container
       - "127.0.0.1:8001:8001"
 ```
+<!-- {: data-highlight="ports:"} -->
+
+#### Exposed ports
 
 ```yaml
 services:
@@ -127,6 +158,7 @@ services:
     expose:
       - "3000"
 ```
+<!-- {: data-highlight="expose:"} -->
 
 Quote mappings to avoid YAML base-60 parsing. `expose` opens ports to linked services without publishing them.
 
@@ -134,17 +166,23 @@ See: [ports](https://docs.docker.com/reference/compose-file/services/#ports) and
 
 ### Command and entrypoint
 
+#### Command
+
 ```yaml
 services:
   web:
     command: bundle exec thin -p 3000
 ```
+<!-- {: data-highlight="command:"} -->
+
+#### Entrypoint
 
 ```yaml
 services:
   web:
     entrypoint: ["/app/start.sh"]
 ```
+<!-- {: data-highlight="entrypoint:"} -->
 
 `command` overrides the image's CMD; `entrypoint` overrides its ENTRYPOINT. Both accept a string or list.
 
@@ -152,12 +190,17 @@ See: [command](https://docs.docker.com/reference/compose-file/services/#command)
 
 ### Environment
 
+#### Environment
+
 ```yaml
 services:
   web:
     environment:
       RACK_ENV: development
 ```
+<!-- {: data-highlight="environment:"} -->
+
+#### env_file
 
 ```yaml
 services:
@@ -166,6 +209,7 @@ services:
       - .env
       - .development.env
 ```
+<!-- {: data-highlight="env_file:"} -->
 
 Environment values can use a mapping or a list. `env_file` loads variables from files.
 
@@ -173,12 +217,17 @@ See: [environment](https://docs.docker.com/reference/compose-file/services/#envi
 
 ### Dependencies
 
+#### Short syntax
+
 ```yaml
 services:
   web:
     depends_on:
       - db
 ```
+<!-- {: data-highlight="depends_on:"} -->
+
+#### Long syntax
 
 ```yaml
 services:
@@ -188,8 +237,9 @@ services:
         condition: service_healthy
         restart: true
 ```
+<!-- {: data-highlight="condition: service_healthy"} -->
 
-Long syntax waits for health or successful completion and can restart dependents.
+#### Links
 
 ```yaml
 services:
@@ -197,6 +247,9 @@ services:
     links:
       - db:database
 ```
+<!-- {: data-highlight="links:"} -->
+
+Long syntax waits for health or successful completion and can restart dependents.
 
 Links add an alias and implicit dependency; networks are preferred.
 
@@ -206,11 +259,16 @@ See: [depends_on](https://docs.docker.com/reference/compose-file/services/#depen
 
 ### Restart and resources
 
+#### Restart
+
 ```yaml
 services:
   web:
     restart: unless-stopped
 ```
+<!-- {: data-highlight="restart:"} -->
+
+#### Resource limits
 
 ```yaml
 services:
@@ -221,6 +279,7 @@ services:
           cpus: "0.50"
           memory: 512M
 ```
+<!-- {: data-highlight="limits:"} -->
 
 Policies: `no`, `always`, `on-failure`, `unless-stopped`. `deploy.resources.limits` caps CPUs and memory.
 
@@ -239,6 +298,7 @@ services:
       start_period: 10s
       start_interval: 5s
 ```
+<!-- {: data-highlight="healthcheck:"} -->
 
 `test` accepts `CMD`, `CMD-SHELL`, or `NONE`; `start_interval` sets the probe rate during startup.
 
@@ -251,6 +311,7 @@ services:
   web:
     user: "1000:1000"
 ```
+<!-- {: data-highlight="user:"} -->
 
 Runs the container process as the given user and group.
 
@@ -264,6 +325,7 @@ services:
     devices:
       - "/dev/ttyUSB0:/dev/ttyUSB0"
 ```
+<!-- {: data-highlight="devices:"} -->
 
 Maps host devices into the container.
 
@@ -277,12 +339,14 @@ services:
     labels:
       com.example.description: "Accounting web app"
 ```
+<!-- {: data-highlight="labels:"} -->
 
 Labels add metadata to containers.
 
 See: [labels](https://docs.docker.com/reference/compose-file/services/#labels)
 
 ## Networking and storage
+<!-- {: .-three-column} -->
 
 ### Networks
 
@@ -294,6 +358,7 @@ services:
 networks:
   frontend:
 ```
+<!-- {: data-highlight="networks:"} -->
 
 Creates a `frontend` network and attaches `web` to it.
 
@@ -307,6 +372,7 @@ networks:
     external: true
     name: shared_frontend
 ```
+<!-- {: data-highlight="external: true"} -->
 
 `external: true` uses a network Compose does not create; `name` is its actual name.
 
@@ -323,6 +389,7 @@ services:
     extra_hosts:
       - "somehost=192.168.1.100"
 ```
+<!-- {: data-highlight="dns; extra_hosts"} -->
 
 `dns` sets resolvers; `extra_hosts` adds `/etc/hosts` entries.
 
@@ -339,6 +406,7 @@ services:
 volumes:
   dbdata:
 ```
+<!-- {: data-highlight="volumes:"} -->
 
 Named volumes persist data; bind mounts use a host path such as `./data:/data`.
 
@@ -355,6 +423,7 @@ secrets:
   my_secret:
     file: ./my_secret.txt
 ```
+<!-- {: data-highlight="secrets:"} -->
 
 Secrets mount at `/run/secrets/<name>` and are read-only.
 
@@ -371,6 +440,7 @@ configs:
   http_config:
     file: ./httpd.conf
 ```
+<!-- {: data-highlight="configs:"} -->
 
 Configs mount non-sensitive files at `/<name>` by default.
 
@@ -385,6 +455,7 @@ services:
       - redis_1
       - project_db_1:mysql
 ```
+<!-- {: data-highlight="external_links:"} -->
 
 Links containers from another Compose application.
 
@@ -402,6 +473,7 @@ services:
     image: busybox
     profiles: ["debug"]
 ```
+<!-- {: data-highlight="profiles:"} -->
 
 Run with `docker compose --profile debug up`.
 
@@ -420,6 +492,7 @@ services:
         - action: rebuild
           path: package.json
 ```
+<!-- {: data-highlight="watch:"} -->
 
 Syncs files and rebuilds on changes. Run `docker compose watch`.
 
@@ -434,6 +507,7 @@ services:
   web:
     image: nginx:stable
 ```
+<!-- {: data-highlight="include:"} -->
 
 Loads another Compose file into the project. Include can also fetch OCI or Git sources.
 
@@ -448,6 +522,7 @@ services:
       file: common.yml
       service: webapp
 ```
+<!-- {: data-highlight="extends:"} -->
 
 Reuses a service definition from another file.
 
@@ -455,8 +530,9 @@ See: [extends](https://docs.docker.com/reference/compose-file/services/#extends)
 
 ### Merge overrides
 
+#### compose.override.yaml
+
 ```yaml
-# compose.override.yaml
 services:
   app:
     ports: !override
@@ -464,8 +540,8 @@ services:
     environment:
       FOO: !reset null
 ```
+<!-- {: data-highlight="!override; !reset"} -->
 
-The override file merges into the base; `!reset` clears a value
-and `!override` replaces it instead of appending.
+The override file merges into the base; `!reset` clears a value and `!override` replaces it instead of appending.
 
 See: [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)

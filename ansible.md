@@ -1,6 +1,13 @@
 ---
 title: Ansible
-category: Ansible
+subtitle: Configuration management tool
+category: Hidden
+# Documents Ansible 1.x syntax; only_if and $var were removed, sudo/user replaced by become.
+tags: [Archived]
+archived: |
+  This documents Ansible 1.x syntax: `only_if` and `$var` were removed in
+  Ansible 1.5/1.6, and `sudo:`/`user:` were replaced by `become*` in 2.0.
+  Use the [Ansible quickstart](https://devhints.io/ansible-guide) instead.
 links:
   - title: https://www.ansible.com/
     url: https://www.ansible.com/

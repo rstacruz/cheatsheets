@@ -1,648 +1,520 @@
 ---
 title: Jekyll
+subtitle: Static site generator
 jekyll_escape: true
 prism_languages: [bash, yaml, ruby]
-category: Jekyll
-updated: 2018-08-25
+category: Markup
+updated: 2026-11-22
+last_verified_with: "Jekyll 4.4.1, Ruby 3.4"
+tier: t3
+intro: |
+  Jekyll builds static sites from Markdown, HTML, and Liquid templates. This reference covers the CLI, configuration, templating, and blogging.
+links:
+  - title: Jekyll documentation
+    url: https://jekyllrb.com/docs/
+  - title: Liquid documentation
+    url: https://shopify.github.io/liquid/
 ---
 
 {% raw %}
 
-### Installation
+## Get started
+<!-- {: .-three-column} -->
+
+### Install
 
 ```bash
-# Install the gems
 gem install jekyll bundler
 ```
 
+Ruby 2.7+ is required.
+See: [Installation](https://jekyllrb.com/docs/installation/)
+
+### Create a site
+
 ```bash
-# Create a new site at `./myblog`
 jekyll new myblog
 cd myblog
-```
-
-```bash
-# Optional: if you're targeting github-pages,
-# use this Gemfile instead.
-cat > Gemfile <<-END
-source 'https://rubygems.org'
-gem 'github-pages', group: :jekyll_plugins
-END
-```
-
-```bash
 bundle exec jekyll serve
 ```
 
-See: [Jekyll quickstart](https://jekyllrb.com/docs/quickstart/)<br>
-See: [github/pages-gem](https://github.com/github/pages-gem)
+Open <http://localhost:4000>. Use `jekyll new --blank` to skip the theme.
+See: [Quickstart](https://jekyllrb.com/docs/)
 
-### Directories
+### Commands
+
+#### Live reload
+
+```bash
+jekyll serve --livereload
+```
+
+#### Daily commands
+
+| Command           | Action                   |
+| ----------------- | ------------------------ |
+| `jekyll b`        | Build into `_site`       |
+| `jekyll s`        | Watch and serve          |
+| `jekyll doctor`   | Check configuration      |
+| `jekyll clean`    | Remove generated files   |
+
+#### Useful flags
+
+| Flag                | Action               |
+| ------------------- | -------------------- |
+| `-l, --livereload`  | Reload the browser   |
+| `-D, --drafts`      | Include drafts       |
+| `--unpublished`     | Include hidden posts |
+| `-I, --incremental` | Rebuild changed      |
+
+See: [Command line usage](https://jekyllrb.com/docs/usage/)
+
+## Project structure
+<!-- {: .-three-column} -->
+
+### Layout
 
 ```
-./
+.
 ├── _config.yml
-│
 ├── _data/
-│   └── ...
-│
 ├── _drafts/
-│   └── ...
-│
-├── _posts/
-│   └── 2014-01-01-hello.md
-│
+├── _includes/
 ├── _layouts/
-│   ├── default.html
-│   └── post.html
-│
-├── _includes/             - partials
-│   ├── header.html
-│   └── footer.html
-│
+├── _posts/
+├── _sass/
+├── _plugins/
+├── assets/
+├── index.html
 └── _site/
-    └── ...
 ```
 
 <!-- {: .-box-chars} -->
 
-## Front-matter
+See: [Directory structure](https://jekyllrb.com/docs/structure/)
 
+### Configuration
+
+#### _config.yml
+
+```yaml
+title: My site
+url: https://example.com
+baseurl: /base
+theme: minima
+exclude: [Gemfile, vendor]
+include: [.htaccess]
+```
+
+Jekyll reads `_config.yml` once per build; restart `serve` after edits.
+See: [Configuration](https://jekyllrb.com/docs/configuration/)
+
+### Defaults
+
+```yaml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Me
+```
+
+More specific scopes win; front matter overrides defaults.
+See: [Front matter defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/)
+
+## Front matter
 <!-- {: .-three-column} -->
 
-### Basic frontmatter
+### Basic front matter
 
 ```
 ---
 layout: post
 title: Hello
 ---
-Hello! this is my post.
+Hello!
 ```
 
-<!-- {: data-line="1,2,3,4"} -->
+<!-- {: data-highlight="layout"} -->
 
-Attach metadata to a page by adding them on top of the page, delimited by `---`.
-See: [Front-matter](https://jekyllrb.com/docs/frontmatter/)
+Front matter must be first; empty `---` pairs still enable Liquid.
+See: [Front matter](https://jekyllrb.com/docs/front-matter/)
 
-### Other frontmatter stuff
+### Post metadata
 
 ```yaml
-permalink: '/hello'
+date: 2017-11-07
+categories: [html, css]
+tags: [intro, web]
+permalink: /hello/
 published: false
-category: apple
-categories: ['html', 'css']
-tags: ['html', 'css']
 ```
 
-### Configuration
+Posts also accept `layout: none` to skip a default layout.
+See: [Front matter](https://jekyllrb.com/docs/front-matter/)
 
-In `_config.yml`:
-
-<!-- {: .-setup} -->
+### Custom variables
 
 ```yaml
-source: .
-destination: _site
-exclude:
-- Gemfile
-- Gemfile.lock
-include: ['.htaccess']
+---
+author: Ada
+---
+By {{ page.author }}
 ```
 
-All config keys are optional.
-See: [Configuration](https://jekyllrb.com/docs/configuration/)
+Custom keys become `page.<key>` in templates.
+See: [Variables](https://jekyllrb.com/docs/variables/)
 
-Markup
-------
+## Templating
 
-<!-- {: .-three-column} -->
-
-### Page variables
+### Output
 
 ```html
-<title>
-  {{ page.title }}
-</title>
+<h1>{{ page.title }}</h1>
 ```
 
-<!-- {: data-line="2"} -->
+Double braces print a value; `|` pipes it through filters.
+See: [Liquid](https://jekyllrb.com/docs/liquid/)
 
-
-### Filters
+### Logic
 
 ```html
-<p>
-  {{ page.description | truncate_words: 20 }}
-</p>
+{% if page.tags contains "intro" %}
+  Featured
+{% endif %}
 ```
 
-<!-- {: data-line="2"} -->
+#### Tags
+
+| Tag                             | Use             |
+| ------------------------------- | --------------- |
+| `{% assign x = y %}`            | Set a variable  |
+| `{% capture x %}…{% endcapture %}` | Capture text  |
+| `{% if %}` / `{% unless %}`     | Branch          |
+| `{% for x in items %}`          | Loop            |
+| `{% case %}`                    | Switch          |
+| `{% comment %}`                 | Comment out     |
+
+See: [Liquid tags](https://jekyllrb.com/docs/liquid/tags/)
 
 ### Loops
 
 ```html
-{% for post in site.posts %}
+{% for post in site.posts limit: 5 %}
   <a href="{{ post.url }}">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.date | date_to_string }}</p>
+    {{ post.title }}
   </a>
 {% endfor %}
 ```
 
-<!-- {: data-line="1,6"} -->
+#### Loop variables
 
-### Dates
+| Variable         | Value             |
+| ---------------- | ----------------- |
+| `forloop.index`  | 1-based index     |
+| `forloop.first`  | First iteration   |
+| `forloop.last`   | Last iteration    |
 
-```html
-{{ page.date | date: "%b %d, %Y" }}
-```
+Use `offset:` and `limit:` to slice a collection.
+See: [Liquid tags](https://jekyllrb.com/docs/liquid/tags/)
 
-### Conditionals
+### Includes
 
-```html
-{% if page.image.feature %}
-  ...
-{% elsif xyz %}
-  ...
-{% else %}
-  ...
-{% endif %}
-```
-
-<!-- {: data-line="1,3,5,7"} -->
+#### Include a file
 
 ```html
-{% if page.category == 'React' %}
-{% if page.category == 'React' or page.featured %}
-{% if page.tags contains 'Featured' %}
-```
-
-### Case
-
-```html
-{% case shipping.title %}
-  {% when 'international' %}
-     Arriving in 2-3 weeks
-  {% when 'Domestic' %}
-     Arriving in 2-3 days
-  {% else %}
-     Thank you for your order!
-{% endcase %}
-```
-
-<!-- {: data-line="1,2,4,6,8"} -->
-
-### Includes (partials)
-
-```
 {% include header.html %}
 ```
 
-<!-- {: data-line="1"} -->
+#### Pass a parameter
 
 ```html
-<!-- Including local vars -->
-{% include header.html page=page %}
+{% include note.html content="Hi" %}
 ```
 
-<!-- {: data-line="2"} -->
+Parameters are read as `{{ include.content }}` in `_includes/note.html`.
+See: [Includes](https://jekyllrb.com/docs/includes/)
 
-### Comments
+### Links
 
 ```html
-{% comment %}
-  This is a comment!
-{% endcomment %}
+[Post]({% post_url 2017-11-07-hello %})
+[Page]({% link about.md %})
 ```
 
-<!-- {: data-line="1,3"} -->
+Since Jekyll 4, `link` and `post_url` prepend `baseurl`, and the build fails when the target is missing.
+See: [Links](https://jekyllrb.com/docs/liquid/tags/#links)
 
-## Variables
-
-### Top-level variables
-
-
-| Variable | Description |
-| --- | --- |
-| `{{ site }}` | Data from `config.yml` |
-| `{{ page }}` | From frontmatter, and page-specific info |
-| `{{ content }}` | HTML content (use in layouts) |
-| `{{ paginator }}` | Paginator |
-
-See: [Variables](https://jekyllrb.com/docs/variables/)
-
-### Site
+### Comments and raw
 
 ```html
-{{ site.time }}
+{% comment %}Hidden{% endcomment %}
+{% raw %}{{ literal }}{% endraw %}
 ```
 
-<!-- {: .-setup} -->
+Use `raw` to print Liquid syntax; see `render_with_liquid: false` for pages.
+See: [Liquid tags](https://jekyllrb.com/docs/liquid/tags/)
 
-#### Variables
-
-| Variable | Description |
-| --- | --- |
-| `site.time` | Current time |
-| `site.pages` | List of pages |
-| `site.posts` | List of blog posts |
-| `site.related_posts` | List of posts related to current |
-| `site.categories.CATEGORY` | List |
-| `site.tags.TAG` | List |
-| `site.static_files` | List |
-
-### Page
-
-```html
-{{ page.content }}  - un-rendered content
-{{ page.title }}
-{{ page.excerpt }}  - un-rendered excerpt
-{{ page.url }}
-{{ page.date }}
-{{ page.id }}       - unique id for RSS feeds
-{{ page.categories }}
-{{ page.tags }}
-{{ page.path }}
-{{ page.dir }}
-{{ page.excerpt | remove: '<p>' | remove: '</p>' }}
-{{ page.excerpt | strip_html }}
-```
-
-```html
-<!-- blog pagination: -->
-{{ page.next }}
-{{ page.previous }}
-```
-
-Filters
--------
-
+## Data and collections
 <!-- {: .-three-column} -->
 
-### Dates
-
-```ruby
-{{ site.time | date: "%Y %m %d" }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter | Output |
-| --- | --- |
-| `date_to_xmlschema` | → `2008-11-07T13:07:54-08:00` |
-| `date_to_rfc822` | → `Mon, 07 Nov 2008 13:07:54 -0800` |
-| `date_to_string` | → `07 Nov 2008` |
-| `date_to_long_string` | → `07 November 2008` |
-| `date:` _'%Y %m %d'_ | → `2017 Nov  7` |
-
-### Preprocessors
-
-
-```ruby
-{{ page.description | markdownify }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter | Description |
-| --- | --- |
-| `textilize` | Textile |
-| `markdownify` | Markdown |
-| `jsonify` | JSON |
-| `sassify` | Sass |
-| `scssify` | SCSS |
-| `smartify` | Smartypants |
-
-### Array filters
-
-```ruby
-{{ site.pages | where: "year", "2014" }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter | Description |
-| --- | --- |
-| `where:` _"year", "2014"_ | |
-| `where_exp:` _"item", "item.year >= 2014"_ | |
-| --- | --- |
-| `group_by:` _"genre"_   | → `{name, items}` |
-| `group_by_exp:` _"item", "item.genre"_   | → `{name, items}` |
-| --- | --- |
-| `sort` | |
-| `sort:` _'author'_ | |
-| --- | --- |
-| `uniq` | |
-| --- | --- |
-| `first` | |
-| `last` | |
-| `join:` _','_ | |
-| `array_to_sentence_string` | → `"X, Y and Z"` |
-| --- | --- |
-| `map:` _'post'_ | Works like 'pluck' |
-| --- | --- |
-| `size` | |
-| `push:` _'xxx'_ | Adds an item |
-
-### String filters
-
-```ruby
-{{ page.title | default: "xxx" }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter                             | Description |
-| ---                                | ---         |
-| `default:` _'xxx'_                 |             |
-| ---                                | ---         |
-| `upcase`                           |             |
-| `downcase`                         |             |
-| ---                                | ---         |
-| `remove:` _'p'_                    |             |
-| `replace:` _'super', 'mega'_       |             |
-| `remove_first:` _'p'_              |             |
-| `replace_first:` _'super', 'mega'_ |             |
-| ---                                | ---         |
-| `truncate:` _5_                    |             |
-| `truncatewords:` _20_              |             |
-| ---                                | ---         |
-| `prepend:` _'Mr. '_                |             |
-| `append:` _'Jr.'_                  |             |
-| ---                                | ---         |
-| `camelize`                         |             |
-| `capitalize`                       |             |
-| `strip_html`                       |             |
-| `strip_newlines`                   |             |
-| `newlines_to_br`                   |             |
-| ---                                | ---         |
-| `split:` _','_                     |             |
-| ---                                | ---         |
-| `escape`                           |             |
-| `escape_once`                      |             |
-| ---                                | ---         |
-| `slice:` _-3, 3_                   |             |
-
-See: [String filters](https://docs.shopify.com/themes/liquid-documentation/filters)
-
-### String filters (Jekyll-only)
-
-```ruby
-{{ page.excerpt | number_of_words }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter | Description |
-| --- | --- |
-| `number_of_words` | |
-| `slugify` | |
-| --- | --- |
-| `xml_escape` | → `CDATA` |
-| `cgi_escape` | → `foo%2Cbar` |
-| `uri_escape` | → `foo,%20bar` |
-
-### Numbers
-
-```
-{{ site.posts.size | minus: 2 }}
-```
-
-<!-- {: .-setup} -->
-
-#### Filters
-
-| Filter | Description |
-| --- | --- |
-| `minus:` _2_ | |
-| `plus:` _2_ | |
-| `times:` _2_ | |
-| `divided_by:` _2_ | |
-| `modulo:` _2_ | |
-| --- | --- |
-| `ceil` | |
-| `floor` | |
-| `round` | |
-
-## Paginator
-
-### Paginator setup
-
-Add this to `_config.yml`:
-
-<!-- {: .-setup} -->
-
-```yml
-paginate: 5
-paginate_path: "blog/:num"
-```
-
-See: [Paginator](https://jekyllrb.com/docs/pagination/)
-
-### Numbers
-
-```
-{{ paginator.page }}         - page number
-{{ paginator.total_posts }}
-{{ paginator.total_pages }}
-{{ paginator.per_page }}
-```
-
-### Iterating through posts
-
-```
-{% for post in paginator.posts %} ... {% endfor %}
-```
-
-### Previous button
-
-```
-{% if paginator.total_pages > 1 %}
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}">Previous</a>
-  {% else %}
-  {% endif %}
-{% endif %}
-```
-
-```
-{{ paginator.next_page }}     - page number
-{{ paginator.next_page_path }}
-```
-
-## Blogging
-
-### Paths
-
-```
-_posts/YEAR-MONTH-DAY-title.md
-```
-
-See: [Blogging](https://jekyllrb.com/docs/posts/)
-
-### Image paths
-
-```
-![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
-```
-
-See: [Image paths](https://jekyllrb.com/docs/posts/#including-images-and-resources)
-
-### Drafts
-
-```
-vi _drafts/a-draft-post.md
-jekyll build --drafts
-```
-
-Posts in `_drafts` only show up in development, but not production.
-See: [Drafts](https://jekyllrb.com/docs/drafts/)
-
-### Defining excerpts
-
-```
----
-title: My blog post
-excerpt: This post is about cats
----
-
-Hello, let's talk about cats. (···)
-```
-
-Put a key `excerpt` in the frontmatter.
-See: [Excerpts](https://jekyllrb.com/docs/posts/#post-excerpts)
-
-### Displaying excerpts
+### Site variables
 
 ```html
-{{ post.excerpt }}
+{{ site.title }}
+{{ site.posts.size }}
+{{ jekyll.environment }}
 ```
+
+Config keys appear under `site`; `jekyll` exposes build details.
+See: [Variables](https://jekyllrb.com/docs/variables/)
+
+### Data files
+
+#### _data/members.yml
+
+```yaml
+- name: Ada
+```
+
+#### Template
 
 ```html
-{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-{{ post.excerpt | strip_html }}
-```
-
-### Excerpt separator
-
-```html
----
-excerpt_separator: <!--more-->
----
-
-Excerpt here
-<!--more-->
-More post body here
-```
-
-Alternatively, you can put excerpts inline in your post by defining `excerpt_separator`.
-
-### Permalinks
-
-```
-# _config.yml
-permalink: date   # /:categories/:year/:month/:day/:title.html
-permalink: pretty # /:categories/:year/:month/:day/:title/
-permalink: none   # /:categories/:title.html
-permalink: "/:title"
-```
-
-See: [Permalinks](https://jekyllrb.com/docs/permalinks/)
-
-## More features
-
-### Data
-
-```
-_data/members.yml
-```
-
-<!-- {: .-setup} -->
-
-```
 {% for member in site.data.members %}
-  ...
+  {{ member.name }}
 {% endfor %}
 ```
 
-See: [Data](https://jekyllrb.com/docs/datafiles/)
+JSON, CSV, and TSV files work too.
+See: [Data files](https://jekyllrb.com/docs/datafiles/)
 
 ### Collections
 
-```yml
-# _config.yml
+#### _config.yml
+
+```yaml
 collections:
-  - authors
+  authors:
+    output: true
 ```
 
-<!-- {: .-setup} -->
-
-```yml
-# _/authors/a-n-roquelaire.md
----
-name: A. N. Roquelaire
-real_name: Anne Rice
----
-```
-
-```
-{% for author in site.authors %}
-```
-
-See: [Collections](https://jekyllrb.com/docs/collections/)
-
-### Code highlighter
+#### Template
 
 ```html
-{% highlight ruby linenos %}
-def show
-  ...
+{% for author in site.authors %}
+  {{ author.name }}
+{% endfor %}
+```
+
+Documents live in `_authors/`; `output: true` writes their pages.
+See: [Collections](https://jekyllrb.com/docs/collections/)
+
+## Blogging
+
+### Posts
+
+```
+_posts/2026-11-22-hello.md
+```
+
+The filename sets the date; front matter is required.
+See: [Posts](https://jekyllrb.com/docs/posts/)
+
+### Excerpts
+
+```yaml
+---
+excerpt_separator: <!--more-->
+---
+```
+
+Or set `excerpt:` in front matter; render it with `post.excerpt`.
+See: [Post excerpts](https://jekyllrb.com/docs/posts/#post-excerpts)
+
+### Drafts
+
+```bash
+jekyll serve --drafts
+```
+
+Drafts live in `_drafts/` with undated names and need `--drafts` to show.
+See: [Drafts](https://jekyllrb.com/docs/posts/#drafts)
+
+### Pagination
+
+#### Gemfile
+
+```ruby
+gem "jekyll-paginate", group: :jekyll_plugins
+```
+
+#### _config.yml
+
+```yaml
+plugins: [jekyll-paginate]
+paginate: 5
+paginate_path: "/blog/page:num/"
+```
+
+Use `blog/index.html` (not Markdown) and no front-matter `permalink`.
+See: [Pagination](https://jekyllrb.com/docs/pagination/)
+
+### Permalinks
+
+```yaml
+permalink: date   # /:categories/:year/:month/:day/:title:output_ext
+permalink: pretty # /:categories/:year/:month/:day/:title/
+permalink: none   # /:categories/:title:output_ext
+```
+
+A post can override this with its own `permalink` in front matter.
+See: [Permalinks](https://jekyllrb.com/docs/permalinks/)
+
+### Asset paths
+
+```html
+![Screenshot]({{ '/assets/screenshot.jpg' | relative_url }})
+```
+
+Root-relative `/assets/...` works too when `baseurl` is empty.
+See: [Images and resources](https://jekyllrb.com/docs/posts/#including-images-and-resources)
+
+## Filters
+
+### Dates
+
+```html
+{{ page.date | date_to_string }}
+```
+
+#### With `date: 2017-11-07` (UTC)
+
+| Filter                  | Output                            |
+| ----------------------- | --------------------------------- |
+| `date: "%b %d, %Y"`     | `Nov 07, 2017`                    |
+| `date_to_string`        | `07 Nov 2017`                     |
+| `date_to_long_string`   | `07 November 2017`                |
+| `date_to_xmlschema`     | `2017-11-07T00:00:00+00:00`       |
+| `date_to_rfc822`        | `Tue, 07 Nov 2017 00:00:00 +0000` |
+
+<!-- {: .-headers} -->
+
+See: [Liquid filters](https://jekyllrb.com/docs/liquid/filters/)
+
+### URLs
+
+```html
+{{ '/assets/style.css' | relative_url }}
+```
+
+#### With `url: https://example.com` and `baseurl: /base`
+
+| Filter         | Output                                         |
+| -------------- | ---------------------------------------------- |
+| `relative_url` | `/base/assets/style.css`                       |
+| `absolute_url` | `https://example.com/base/assets/style.css`    |
+
+<!-- {: .-headers} -->
+
+See: [Liquid filters](https://jekyllrb.com/docs/liquid/filters/)
+
+### Arrays
+
+```html
+{{ site.posts | where: "author", "Ada" | map: "title" }}
+```
+
+#### Filters
+
+| Filter                          | Use                     |
+| ------------------------------- | ----------------------- |
+| `where` / `where_exp`           | Select matching items   |
+| `find` / `find_exp`             | First match (4.1)       |
+| `group_by` / `group_by_exp`     | Group into `{name, items}` |
+| `sort` / `uniq` / `sample`      | Reorder or reduce       |
+| `push` / `pop` / `shift`        | Copy and modify         |
+| `jsonify`                       | Serialize to JSON       |
+
+See: [Liquid filters](https://jekyllrb.com/docs/liquid/filters/)
+
+### Strings and escaping
+
+```html
+{{ page.title | truncatewords: 20 }}
+```
+
+#### Liquid
+
+| Filter                         | Use                    |
+| ------------------------------ | ---------------------- |
+| `default` / `escape`           | Fallback, HTML escape  |
+| `truncate` / `truncatewords`   | Cut to length          |
+| `strip_html` / `strip_newlines` | Strip markup           |
+| `newline_to_br`                | Newlines to `<br />`   |
+| `slugify`                      | URL-safe slug          |
+
+#### Jekyll
+
+| Filter                     | Output                        |
+| -------------------------- | ----------------------------- |
+| `number_of_words`          | `"Hello world!"` → `2`        |
+| `cgi_escape`               | `foo, bar; baz?` → `foo%2C+bar%3B+baz%3F` |
+| `uri_escape`               | Percent-encode a URI          |
+| `normalize_whitespace`     | Collapse whitespace           |
+| `array_to_sentence_string` | `foo, bar, and baz`           |
+
+See: [Liquid filters](https://jekyllrb.com/docs/liquid/filters/)
+
+## Extending
+
+### Plugins
+
+#### Gemfile
+
+```ruby
+group :jekyll_plugins do
+  gem "jekyll-feed"
+end
+```
+
+#### _config.yml
+
+```yaml
+plugins: [jekyll-feed]
+```
+
+Gems in the `:jekyll_plugins` group are loaded automatically.
+See: [Plugins](https://jekyllrb.com/docs/plugins/)
+
+### GitHub Pages
+
+```ruby
+gem "github-pages", group: :jekyll_plugins
+```
+
+The gem pins Jekyll 3.10; use GitHub Actions for Jekyll 4 builds.
+See: [pages-gem](https://github.com/github/pages-gem)
+
+### Highlighting
+
+```html
+{% highlight ruby mark_lines="1 2" %}
+def hello
+  puts "world"
 end
 {% endhighlight %}
 ```
 
-Integration
------------
+Rouge is the default; `linenos` numbers lines and `mark_lines` highlights them.
+See: [Code highlighting](https://jekyllrb.com/docs/liquid/tags/#code-snippet-highlighting)
 
-### Bundler
-
-In `_plugins/bundler.rb`:
-
-<!-- {: .-setup} -->
-
-```ruby
-require "bunder/setup"
-Bundler.require :default
-```
-
-### Compass
-
-  * [Compass](https://gist.github.com/parkr/2874934)
-  * [Asset pipeline](https://github.com/matthodan/jekyll-asset-pipeline)
-
-Also see
---------
-
+## Also see
 <!-- {: .-one-column} -->
 
-* [Jekyll docs](https://jekyllrb.com/docs/home/) _jekyllrb.com_
-* [CloudCannon Jekyll cheatsheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/) _cloudcannon.com_
-* [Jekyll: templates](https://jekyllrb.com/docs/templates/) _jekyllrb.com_
-* [Liquid: output](https://docs.shopify.com/themes/liquid-basics/output) _shopify.com_
-* [Liquid: logic](https://docs.shopify.com/themes/liquid-basics/logic) _shopify.com_
-* [Liquid: filters](https://docs.shopify.com/themes/liquid-documentation/filters) _shopify.com_
-* [Liquid for designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) _github.com/Shopify_
+* [Jekyll docs](https://jekyllrb.com/docs/) _jekyllrb.com_
+* [Liquid docs](https://shopify.github.io/liquid/) _shopify.github.io_
 
 <!-- {: .-also-see} -->
 

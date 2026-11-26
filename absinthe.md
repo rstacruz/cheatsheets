@@ -1,5 +1,6 @@
 ---
 title: Absinthe
+subtitle: GraphQL server framework for Elixir
 category: Hidden
 tags: [WIP]
 updated: 2017-10-10
@@ -31,7 +32,7 @@ defmodule Blog.Web.Router do
 end
 ```
 
-<!-- {: data-line="4,5"} -->
+<!-- {: data-highlight="Plug"} -->
 
 Absinthe is a Plug, and you pass it one **Schema**.
 
@@ -59,7 +60,7 @@ defmodule Blog.Schema do
 end
 ```
 
-<!-- {: data-line="5,6,7,8,9,10"} -->
+<!-- {: data-highlight="Blog.PostResolver.all"} -->
 
 This schema will account for `{ posts { ··· } }`. It returns a **Type** of `:post`, and delegates to a **Resolver**.
 
@@ -75,7 +76,7 @@ defmodule Blog.PostResolver do
 end
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="Blog.Repo.all"} -->
 
 This is the function that the schema delegated the `posts` query to.
 
@@ -96,7 +97,7 @@ defmodule Blog.Schema.Types do
 end
 ```
 
-<!-- {: data-line="4,5,6,7,8,9"} -->
+<!-- {: data-highlight='"A blog post"'} -->
 
 This defines a type `:post`, which is used by the resolver.
 
@@ -121,7 +122,7 @@ query do
 end
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="arg"} -->
 
 #### Resolver
 
@@ -131,7 +132,7 @@ def find(%{id: id} = args, _info) do
 end
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="_info"} -->
 
 See: [Query arguments](http://absinthe-graphql.org/tutorial/query-arguments/)
 
@@ -159,7 +160,7 @@ mutation do
 end
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="mutation"} -->
 
 See: [Mutations](http://absinthe-graphql.org/tutorial/mutations/)
 

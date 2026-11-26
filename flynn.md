@@ -1,7 +1,12 @@
 ---
 title: Flynn
+subtitle: Open-source platform as a service
 category: Hidden
 # Discontinued and unmaintained; repo archived 2021, infrastructure shut down.
+tags: [Archived]
+archived: |
+  Flynn was discontinued; its repository was archived in 2021 and the hosted
+  infrastructure shut down. Use Kubernetes or a managed PaaS instead.
 ---
 
 ### General workflow

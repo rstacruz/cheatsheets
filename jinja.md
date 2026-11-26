@@ -1,20 +1,41 @@
 ---
 title: Jinja
+subtitle: Python templating engine
 category: Python
+last_verified_with: "Jinja 3.1.6."
+updated: 2026-11-24
+tier: t3
+intro: |
+  Jinja templates: expressions, control structures, inheritance, macros, and rendering from Python.
+links:
+  - title: Jinja template documentation
+    url: https://jinja.palletsprojects.com/en/stable/templates/
+  - title: Jinja API reference
+    url: https://jinja.palletsprojects.com/en/stable/api/
+  - title: Jinja on GitHub
+    url: https://github.com/pallets/jinja
 ---
 
 {% raw %}
-### Basic usage
 
-```
+## Syntax
+
+### Expressions
+
+```jinja2
 - variable x has content: {{ x }}
 - expression: {{ x + 1 }}
-- escaped for HTML: {{ x | e }}
+- escaped for HTML: {{ html | e }}
+- default value: {{ missing | default("n/a") }}
 ```
+
+Undefined values render as an empty string; filters run left to right.
+
+See: [Expressions](https://jinja.palletsprojects.com/en/stable/templates/#expressions)
 
 ### Control structures
 
-```
+```jinja2
 {% for x in range(5) %}
     {% if x % 2 == 0 %}
         {{ x }} is even!
@@ -24,9 +45,11 @@ category: Python
 {% endfor %}
 ```
 
-### Whitespace trimming
+See: [Control structures](https://jinja.palletsprojects.com/en/stable/templates/#list-of-control-structures)
 
-```
+### Whitespace control
+
+```jinja2
 these are
 {{ "three" }}
 lines.
@@ -36,9 +59,15 @@ this is conc
 enated.
 ```
 
+A `-` on either side of a tag strips the whitespace next to it.
+
+See: [Whitespace control](https://jinja.palletsprojects.com/en/stable/templates/#whitespace-control)
+
 ### Special blocks
 
-```
+#### Filter and raw
+
+```jinja2
 {% filter e %}{% endraw %}
 { {%- if 0 -%}{%- endif -%} % raw %}
 {%- raw -%}
@@ -48,38 +77,49 @@ enated.
 {% endraw %}
 { {%- if 0 -%}{%- endif -%} % endraw %}{% raw %}
 {% endfilter %}
+```
 
+#### Macro
+
+```jinja2
 {% macro myfunc(x) %}
     this is a reusable macro, with arguments: {{x}}
 {% endmacro %}
 
 {{ myfunc(42) }}
+```
 
+#### Comment
+
+```jinja2
 {#
 this is a comment
 #}
 ```
 
+`{% filter %}` applies a filter to its whole body; `{% raw %}` keeps a region away from the renderer.
+
+See: [Filter and raw blocks](https://jinja.palletsprojects.com/en/stable/templates/#filters)
 
 ### Inheritance
 
 #### shared.html
 
-```
+```html
 <html>
   <head>
-    <title>{%block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <header><h1>{% block title %}{% endblock %}</h1></header>
-    <main>{% block content %}{% endblock %}</main>
+    <h1>{{ self.title() }}</h1>
+    {% block content %}{% endblock %}
   </body>
 </html>
 ```
 
 #### home.html
 
-```
+```html
 {% extends "shared.html" %}
 {% block title %}Welcome to my site{% endblock %}
 {% block content %}
@@ -87,14 +127,36 @@ This is the body
 {% endblock %}
 ```
 
+`self.title()` renders a block a second time; a template cannot define the same block name twice.
+
+See: [Template inheritance](https://jinja.palletsprojects.com/en/stable/templates/#template-inheritance)
+
 ## Library
 
-### Basic usage
+### Render a string
 
 ```python
 from jinja2 import Template
-template = Template('Hello {{ name }}!')
-template.render(name='John Doe') == u'Hello John Doe!'
+
+template = Template("Hello {{ name }}!")
+template.render(name="John Doe")
+# => 'Hello John Doe!'
 ```
+
+See: [Template](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Template)
+
+### Load templates from disk
+
+```python
+from jinja2 import Environment, FileSystemLoader
+
+env = Environment(loader=FileSystemLoader("templates"))
+template = env.get_template("page.html")
+template.render(name="John Doe")
+```
+
+Reach for `Environment` when you need a loader, autoescaping, filters or globals.
+
+See: [Environment](https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment)
 
 {% endraw %}

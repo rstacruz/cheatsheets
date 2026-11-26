@@ -1,379 +1,616 @@
 ---
 title: Vue.js
-category: JavaScript
-updated: 2019-12-26
+subtitle: Progressive UI framework
+category: JavaScript frameworks
+updated: 2026-11-24
+last_verified_with: "Vue 3.5.46, Vue Router 5.5.1, Pinia 4.1.0."
+tier: t2
+fragments:
+  - "createApp"
+  - "<script setup>"
+  - "ref()"
+  - "reactive()"
+  - "computed()"
+  - "v-model"
+  - "v-for"
+  - ":key"
+  - "@click"
+  - "defineProps"
+  - "defineEmits"
+  - "defineModel"
+  - "<slot>"
+  - "onMounted"
+  - "watch()"
+  - "provide()"
+  - "RouterView"
+  - "defineStore"
 weight: -10
+keywords:
+  - Vue 3
+  - Composition API
+  - script setup
+  - ref
+  - reactive
+  - computed
+  - watch
+  - defineProps
+  - defineEmits
+  - defineModel
+  - v-model
+  - v-for
+  - Vue Router
+  - Pinia
 intro: |
-  [Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
+  [Vue.js](https://vuejs.org/) is a progressive framework for building user interfaces. This guide targets Vue 3.5, the Composition API, and script setup.
 links:
-  - title: Vue 2 API
-    url: https://v2.vuejs.org/v2/api/#delimiters
+  - title: Vue.js guide
+    url: https://vuejs.org/guide/introduction.html
+  - title: API reference
+    url: https://vuejs.org/api/
 ---
 
 {%raw%}
 
-Expressions
-----------
-
+## Quick start
 <!-- {: .-three-column} -->
 
-### Expressions
+### Create a project
+
+```sh
+npm create vue@latest
+```
+<!-- {: data-highlight="npm create vue@latest"} -->
+
+Scaffolds a Vite project and offers TypeScript, Vue Router, Pinia, and testing. See: [Quick start](https://vuejs.org/guide/quick-start.html)
+
+### Mount the app
+
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+```
+<!-- {: data-highlight=".mount('#app')"} -->
+
+`App.vue` is the root component; `.mount()` renders into the container and replaces its contents. See: [app.mount()](https://vuejs.org/api/application.html#app-mount)
+
+### Template syntax
 
 ```html
-<div id="app">
-  <p>I have a {{ product }}</p>
-  <p>{{ product + 's' }}</p>
-  <p>{{ isWorking ? 'YES' : 'NO' }}</p>
-  <p>{{ product.getSalePrice() }}</p>
+<p>{{ product.name }}</p>
+<p>{{ price * 1.2 }}</p>
+<p>{{ inStock ? 'Yes' : 'No' }}</p>
+<a :href="url">Link</a>
+<div :class="{ active: isActive }">
+  {{ label }}
 </div>
 ```
+<!-- {: data-highlight="{{ product.name }}; :href"} -->
 
-See: [Delimiters](https://vuejs.org/v2/api/#delimiters)
+`{{ }}` renders text; `:` binds an attribute to a JavaScript expression. See: [Template syntax](https://vuejs.org/guide/essentials/template-syntax.html)
 
-### Binding
+### Reactivity
 
-```html
-<a v-bind:href="url">...</a>
+```js
+import { reactive, ref } from 'vue'
+
+const count = ref(0)
+const state = reactive({ name: 'Vue' })
+
+count.value++
+state.name = 'Vite'
 ```
+<!-- {: data-highlight="ref; reactive"} -->
 
-#### Shorthand syntax
-```html
-<a :href="url">...</a>
-```
+Use `.value` in script; refs unwrap automatically in templates. See: [Reactivity fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
 
-<!-- {: data-line="1"} -->
+## Directives
+<!-- {: .-three-column} -->
 
-#### True or false will add or remove attribute
-```html
-<button :disabled="isButtonDisabled">...
-```
+### Conditionals
 
-#### If isActive is truthy, the class ‘active’ will appear
-```html
-<div :class="{ active: isActive }">...
-```
-
-#### Style color set to value of activeColor
-```html
-<div :style="{ color: activeColor }">
-```
-
-See: [v-bind](https://vuejs.org/v2/api/#v-bind)
-
-### Directives
-
-#### Element inserted/removed based on truthiness
 ```html
 <p v-if="inStock">{{ product }}</p>
+<p v-else-if="onSale">On sale</p>
+<p v-else>Sold out</p>
+
+<p v-show="showDetails">Details</p>
 ```
+<!-- {: data-highlight="v-if; v-show"} -->
+
+`v-if` mounts and unmounts; `v-show` toggles `display: none`. See: [Conditional rendering](https://vuejs.org/guide/essentials/conditional.html)
+
+### Lists
+
 ```html
-<p v-else-if="onSale">...</p>
-<p v-else>...</p>
-```
+<li
+  v-for="item in items"
+  :key="item.id"
+>
+  {{ item.name }}
+</li>
 
-#### Toggles the display: none CSS property
-```html
-<p v-show="showProductDetails">...</p>
-```
+<li
+  v-for="(item, i) in items"
+  :key="item.id"
+>
+  {{ i }}: {{ item.name }}
+</li>
 
-#### Two-way data binding
-```html
-<input v-model="firstName" >
-```
-
-#### Modifiers
-
-| Method | Description |
-| --- | --- |
-| `v-model.lazy="..."` | Syncs input after change event |
-| `v-model.number="..."` | Always returns a number |
-| `v-model.trim="..."` | Strips whitespace |
-
-See: [Directives](https://vuejs.org/v2/api/#Directives)
-
-### Actions/Events
-
-#### Calls addToCart method on component
-```html
-<button v-on:click="addToCart">...
-```
-
-#### Shorthand syntax
-```html
-<button @click="addToCart">...
-```
-
-<!-- {: data-line="1"} -->
-
-#### Arguments can be passed
-```html
-<button @click="addToCart(product)">...
-```
-
-#### To prevent default behavior (e.g. page reload)
-```html
-<form @submit.prevent="addProduct">...
-```
-
-#### Only trigger once
-```html
-<img @mouseover.once="showImage">...
-```
-
-#### Modifiers
-
-| Method | Description |
-| --- | --- |
-| `.stop` | Stop all event propagation |
-| `.self ` | Only trigger if event.target is element itself |
-
-#### Keyboard entry example
-```html
-<input @keyup.enter="submit">
-```
-
-#### Call onCopy when control-c is pressed
-```html
-<input @keyup.ctrl.c="onCopy">
-```
-
-See: [Events](https://vuejs.org/v2/guide/events.html)
-
-### List rendering
-
-#### The `:key` is always recommended
-```html
-<li v-for="item in items"
-    :key="item.id">
-  {{ item }}
+<li
+  v-for="(value, key) in object"
+  :key="key"
+>
+  {{ key }}: {{ value }}
 </li>
 ```
+<!-- {: data-highlight="v-for; :key"} -->
 
-<!-- {: data-line="2"} -->
+Always bind `:key`; prefer a stable id over the array index. See: [List rendering](https://vuejs.org/guide/essentials/list.html)
 
-#### To access the position in the array
+### Events
+
 ```html
-<li v-for="(item, index) in items">...
-```
+<button @click="addToCart">Add</button>
+<button @click="addToCart(product)">
+  Add
+</button>
 
-#### To iterate through objects
+<form @submit.prevent="save">…</form>
+<input @keyup.enter="submit">
+
+<img @mouseover.once="show">
+```
+<!-- {: data-highlight="@click; .prevent"} -->
+
+`@click` is shorthand for `v-on:click`; modifiers include `.prevent`, `.stop`, `.once`, and key names. See: [Event handling](https://vuejs.org/guide/essentials/event-handling.html)
+
+### Form binding
+
 ```html
-<li v-for="(value, key) in object">...
+<input v-model="firstName">
+<input v-model.number="age">
+<input v-model.trim="name">
+<textarea v-model="bio"></textarea>
+<select v-model="picked">
+  <option>A</option>
+  <option>B</option>
+</select>
 ```
+<!-- {: data-highlight="v-model; .number; .trim"} -->
 
-#### Using `v-for` with a component
+Binds the value and its input or change events in one directive; modifiers include `.lazy`, `.number`, `.trim`. See: [Form input bindings](https://vuejs.org/guide/essentials/forms.html)
+
+## Components
+
+### Single-file component
+
 ```html
-<cart-product v-for="item in products"
-              :product="item"
-              :key="item.id">
-```
+<script setup>
+import { ref } from 'vue'
 
-See: [List Rendering](https://vuejs.org/v2/guide/list.html)
+const greeting = ref('Hello')
+</script>
 
-
-Component
---------
-
-### Component anatomy
-
-```js
-Vue.component('my-component', {
-  components: {
-    // Components that can be used in the template
-    ProductComponent,
-    ReviewComponent
-  },
-  props: {
-    // The parameters the component accepts
-    message: String,
-    product: Object,
-    email: {
-      type: String,
-      required: true,
-      default: "none"
-      validator: function (value) {
-        // Should return true if value is valid
-      }
-    }
-  },
-  data: function() {
-    // `data` must be a function
-    return {
-      firstName: 'Vue',
-      lastName: 'Mastery'
-    }
-  },
-  computed: {
-    // Return cached values until dependencies change
-    fullName: function () {
-      return this.firstName + ' ' + this.lastName
-    }
-  },
-  watch: {
-    // Called when firstName changes value
-    firstName: function (value, oldValue) { ... }
-  },
-  methods: { ... },
-  template: '<span>{{ message }}</span>',
-  // Can also use backticks in `template` for multi-line
-})
-```
-
-<!-- {: data-line="3, 8, 16, 21, 28, 34, 39"} -->
-
-See: [Components Basics](https://vuejs.org/v2/guide/components.html)
-
-### Lifecycle hooks
-
-| Method | Description |
-| --- | --- |
-| `beforeCreate` | After the instance has been initialized [#](https://vuejs.org/v2/api/#beforeCreate) |
-| `created` | After the instance is created [#](https://vuejs.org/v2/api/#created) |
-| `beforeMount` | Before the first render [#](https://vuejs.org/v2/api/#beforeMount) |
-| `mounted` | After the instance has been mounted [#](https://vuejs.org/v2/api/#mounted) |
-| --- | --- |
-| `beforeUpdate` | When data changes, before the DOM is patched [#](https://vuejs.org/v2/api/#beforeUpdate) |
-| `updated` | After a data change [#](https://vuejs.org/v2/api/#updated) |
-| --- | --- |
-| `beforeDestroy` | Before the instance is destroyed [#](https://vuejs.org/v2/api/#beforeDestroy) |
-| `destroyed` | After a Vue instance has been destroyed [#](https://vuejs.org/v2/api/#destroyed) |
-
-See: [Lifecycle Hooks](https://vuejs.org/v2/api/#Options-Lifecycle-Hooks)
-
-### Custom events
-
-#### Set listener on component, within its parent
-```html
-<button-counter v-on:incrementBy="incWithVal">
-```
-
-#### Inside parent component
-```js
-methods: {
-  incWithVal: function (toAdd) { ... }
-}
-```
-
-#### Inside button-counter template
-```js
-this.$emit(
-    'incrementBy', // Custom event name
-    5 // Data sent up to parent
-  )
-```
-
-Use props to pass data into child components,
-custom events to pass data to parent elements.
-
-See: [Custom Events](https://vuejs.org/v2/guide/components-custom-events.html)
-
-Single file components
---------
-
-### Single file
-```html
 <template>
   <p>{{ greeting }} World!</p>
 </template>
 
-<script>
-module.exports = {
-  data: function () {
-    return {
-      greeting: 'Hello'
-    }
-  }
+<style scoped>
+p { text-align: center; }
+</style>
+```
+<!-- {: data-highlight="<script setup>"} -->
+
+A `.vue` file holds template, logic, and styles; `scoped` limits CSS to the component. See: [Single-file components](https://vuejs.org/guide/scaling-up/sfc.html)
+
+### Props
+
+#### Greeting.vue
+
+```html
+<script setup>
+defineProps({
+  name: { type: String, default: 'World' }
+})
+</script>
+
+<template>
+  <p>Hello {{ name }}</p>
+</template>
+```
+<!-- {: data-highlight="defineProps"} -->
+
+#### Parent.vue
+
+```html
+<script setup>
+import Greeting from './Greeting.vue'
+</script>
+
+<template>
+  <Greeting name="Ada" />
+</template>
+```
+
+`defineProps()` declares attributes passed in from the parent; use kebab-case in templates. See: [Props](https://vuejs.org/guide/components/props.html)
+
+### Emits
+
+#### MyButton.vue
+
+```html
+<script setup>
+const emit = defineEmits(['increase'])
+
+function click() {
+  emit('increase', 5)
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
+<template>
+  <button @click="click">Add</button>
+</template>
+```
+<!-- {: data-highlight="defineEmits"} -->
+
+#### Parent.vue
+
+```html
+<script setup>
+import { ref } from 'vue'
+import MyButton from './MyButton.vue'
+const count = ref(0)
+</script>
+
+<template>
+  <MyButton @increase="count += $event" />
+</template>
 ```
 
-See: [Single File Components](https://vuejs.org/v2/guide/single-file-components.html)
+`defineEmits()` declares emitted events; `$event` holds the payload. See: [Component events](https://vuejs.org/guide/components/events.html)
 
-### Separation
+### Component v-model
+
+#### Child.vue
+
+```html
+<script setup>
+const model = defineModel()
+</script>
+
+<template>
+  <input v-model="model">
+</template>
+```
+<!-- {: data-highlight="defineModel"} -->
+
+#### Parent.vue
+
+```html
+<script setup>
+import { ref } from 'vue'
+import Child from './Child.vue'
+const query = ref('')
+</script>
+
+<template>
+  <Child v-model="query" />
+</template>
+```
+
+`defineModel()` (3.4+) declares a `modelValue` prop and `update:modelValue` event. Named models use `defineModel('title')` and `v-model:title`. See: [Component v-model](https://vuejs.org/guide/components/v-model.html)
+
+### Slots
+
+#### Card.vue
+
 ```html
 <template>
-  <div>This will be pre-compiled</div>
+  <div class="card">
+    <header><slot name="header" /></header>
+    <slot>No content</slot>
+  </div>
 </template>
-<script src="./my-component.js"></script>
-<style src="./my-component.css"></style>
 ```
+<!-- {: data-highlight='<slot name="header" />'} -->
 
-See: [What About Separation of Concerns?](https://vuejs.org/v2/guide/single-file-components.html#What-About-Separation-of-Concerns)
+#### Parent.vue
 
-Slots
---------
-
-### Using a single slot
-
-#### Component template
 ```html
-<div>
-  <h2>I'm a title</h2>
-  <slot>
-    Only displayed if no slot content
-  </slot>
-</div>
+<script setup>
+import Card from './Card.vue'
+</script>
+
+<template>
+  <Card>
+    <template #header>Title</template>
+    <p>Body</p>
+  </Card>
+</template>
 ```
+<!-- {: data-highlight="#header"} -->
 
-<!-- {: data-line="3,4,5"} -->
+`<slot>` renders parent content; `#name` is shorthand for `v-slot:name`, and inner content is the fallback. See: [Slots](https://vuejs.org/guide/components/slots.html)
 
-#### Use of component with data for slot
+### Lifecycle hooks
+
+| Hook | Runs |
+| --- | --- |
+| `onBeforeMount` | Before the first render |
+| `onMounted` | After the component mounts |
+| `onBeforeUpdate` | Before a DOM update |
+| `onUpdated` | After a DOM update |
+| `onBeforeUnmount` | Before teardown |
+| `onUnmounted` | After teardown |
+
+Hooks register synchronously during setup. See: [Lifecycle hooks](https://vuejs.org/guide/essentials/lifecycle.html)
+
+### Provide and inject
+
+#### Parent.vue
+
 ```html
-<my-component>
-  <p>This will go in the slot</p>
-</my-component>
+<script setup>
+import { provide, ref } from 'vue'
+const theme = ref('dark')
+provide('theme', theme)
+</script>
 ```
+<!-- {: data-highlight="provide"} -->
 
-<!-- {: data-line="2"} -->
+#### Child.vue
 
-See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
-
-### Multiple slots
-
-#### Component template
 ```html
-<div class="container">
-  <header>
-    <slot name="header"></slot>
-  </header>
-  <main>
-    <slot>Default content</slot>
-  </main>
-  <footer>
-    <slot name="footer"></slot>
-  </footer>
-</div>
+<script setup>
+import { inject } from 'vue'
+const theme = inject('theme', 'light')
+</script>
 ```
+<!-- {: data-highlight="inject"} -->
 
-<!-- {: data-line="3,6,9"} -->
+Provide values from an ancestor and inject them in any descendant; refs stay reactive. See: [Provide/inject](https://vuejs.org/guide/components/provide-inject.html)
 
-#### Use of component with data for slots
+## Composition API
+<!-- {: .-three-column} -->
+
+### Computed
+
+```js
+import { computed, ref } from 'vue'
+
+const firstName = ref('Ada')
+const fullName = computed(() => (
+  `${firstName.value} Lovelace`
+))
+```
+<!-- {: data-highlight="computed"} -->
+
+Caches the result until a dependency changes; read `.value` in script. See: [Computed properties](https://vuejs.org/guide/essentials/computed.html)
+
+### Watchers
+
+```js
+import { ref, watch } from 'vue'
+
+const query = ref('')
+const results = ref([])
+
+watch(query, async (value) => {
+  results.value = await search(value)
+})
+```
+<!-- {: data-highlight="watch"} -->
+
+Lazy by default; pass `{ immediate: true }` to run once, and `{ deep: true }` for nested changes. See: [Watchers](https://vuejs.org/guide/essentials/watchers.html)
+
+### Watch effects
+
+```js
+import { ref, watchEffect } from 'vue'
+
+const query = ref('')
+const results = ref([])
+
+watchEffect(async () => {
+  results.value = await load(query.value)
+})
+```
+<!-- {: data-highlight="watchEffect"} -->
+
+Tracks every reactive value read in the callback and reruns when they change. See: [watchEffect](https://vuejs.org/guide/essentials/watchers.html#watcheffect)
+
+### Template refs
+
 ```html
-<app-layout>
-  <h1 slot="header">Page title</h1>
-  <p>the main content.</p>
-  <p slot="footer">Contact info</p>
-</app-layout>
+<script setup>
+import {
+  onMounted,
+  useTemplateRef
+} from 'vue'
+
+const input = useTemplateRef('input')
+onMounted(() => input.value.focus())
+</script>
+
+<template>
+  <input ref="input">
+</template>
+```
+<!-- {: data-highlight="useTemplateRef"} -->
+
+`useTemplateRef()` (3.5+) reads the matching `ref` attribute. See: [Template refs](https://vuejs.org/guide/essentials/template-refs.html)
+
+### Composables
+
+#### useCounter.js
+
+```js
+import { ref } from 'vue'
+
+export function useCounter() {
+  const count = ref(0)
+  const increment = () => count.value++
+  return { count, increment }
+}
+```
+<!-- {: data-highlight="useCounter"} -->
+
+Extract reactive logic into a function that returns refs; call it in setup. See: [Composables](https://vuejs.org/guide/reusability/composables.html)
+
+## Routing
+<!-- {: .-three-column} -->
+
+### Router setup
+
+```js
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
+import About from './views/About.vue'
+import Home from './views/Home.vue'
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: Home },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
+    }
+  ]
+})
+
+export default router
 ```
 
-<!-- {: data-line="2,3,4"} -->
+Registers `RouterLink` and `RouterView` when passed to `app.use(router)`. See: [Vue Router](https://router.vuejs.org/guide/#Creating-the-router-instance)
 
-See: [Slots](https://vuejs.org/v2/guide/components-slots.html)
+### Register the router
 
-Also see
---------
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 
-* [Vue CLI](https://cli.vuejs.org/) _(cli.vuejs.org)_
-* [Vue Router](https://router.vuejs.org/) _(router.vuejs.org)_
-* [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) _(chrome.google.com)_
-* [Nuxt.js](https://nuxtjs.org/) _(nuxtjs.org)_
-* [Vue.js v1.0.28 cheatsheet](vue@1.0.28/) _Legacy version_
+createApp(App).use(router).mount('#app')
+```
+<!-- {: data-highlight=".use(router)"} -->
+
+Call `use(router)` before `mount()`. See: [Creating the router instance](https://router.vuejs.org/guide/#Creating-the-router-instance)
+
+### Links and views
+
+```html
+<RouterLink to="/">Home</RouterLink>
+<RouterLink :to="{ name: 'about' }">
+  About
+</RouterLink>
+<RouterView />
+```
+<!-- {: data-highlight="<RouterLink; </RouterLink>; <RouterView"} -->
+
+`RouterLink` renders an `<a>` without a page reload; `RouterView` renders the matched component. See: [RouterLink](https://router.vuejs.org/api/interfaces/RouterLinkProps.html)
+
+### Current route
+
+```js
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+route.params.id   // /users/:id
+route.query.page  // ?page=2
+```
+<!-- {: data-highlight="useRoute"} -->
+
+The route object is reactive; read it in templates, computed values, or watchers. See: [useRoute](https://router.vuejs.org/api/functions/useroute)
+
+### Navigation
+
+```js
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+router.push('/about')
+router.replace({ name: 'about' })
+```
+<!-- {: data-highlight="router.push"} -->
+
+`push()` adds a history entry; `replace()` swaps the current one. See: [Programmatic navigation](https://router.vuejs.org/guide/essentials/navigation.html)
+
+## State with Pinia
+
+### Install
+
+#### Shell
+
+```sh
+npm install pinia @vue/devtools-api
+```
+
+#### main.js
+
+```js
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+
+createApp(App).use(createPinia()).mount('#app')
+```
+<!-- {: data-highlight="createPinia"} -->
+
+Pinia 4 needs `@vue/devtools-api` as a peer dependency. See: [Pinia installation](https://pinia.vuejs.org/getting-started.html)
+
+### Create a store
+
+#### stores/counter.js
+
+```js
+import { computed, ref } from 'vue'
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const double = computed(() => count.value * 2)
+  const increment = () => count.value++
+  return { count, double, increment }
+})
+```
+<!-- {: data-highlight="defineStore"} -->
+
+Refs become state, computed values become getters, and functions become actions. See: [Defining a store](https://pinia.vuejs.org/core-concepts/)
+
+### Use a store
+
+```html
+<script setup>
+import { storeToRefs } from 'pinia'
+import { useCounterStore } from '@/stores/counter'
+
+const store = useCounterStore()
+const { count } = storeToRefs(store)
+const { increment } = store
+</script>
+
+<template>
+  <button @click="increment">{{ count }}</button>
+</template>
+```
+<!-- {: data-highlight="storeToRefs"} -->
+
+Call the store in setup; `storeToRefs()` keeps destructured state reactive. See: [Using a store](https://pinia.vuejs.org/core-concepts/#Using-the-store)
+
+## Also see
+
+- [Vue.js documentation](https://vuejs.org/) _(vuejs.org)_
+- [Vue Router](https://router.vuejs.org/) _(router.vuejs.org)_
+- [Pinia](https://pinia.vuejs.org/) _(pinia.vuejs.org)_
+- [Nuxt](https://nuxt.com/) _(nuxt.com)_
+- [Vue DevTools](https://devtools.vuejs.org/) _(devtools.vuejs.org)_
+- [Vue 2 cheatsheet](vue@2) — options API and `new Vue()`
+- [Vue 1 cheatsheet](vue@1.0.28) — legacy version
 
 {%endraw%}

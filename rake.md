@@ -1,7 +1,20 @@
 ---
 title: Rake
+subtitle: Ruby build task runner
 category: Ruby
+intro: |
+  Rake is a Ruby task runner for defining and invoking build tasks.
+links:
+  - title: Rake documentation
+    url: https://ruby.github.io/rake/doc/rakefile_rdoc.html
+  - title: Rake repository
+    url: https://github.com/ruby/rake
+tier: t3
+last_verified_with: "Rake 13.4.2."
+updated: 2026-11-26
 ---
+
+## Tasks
 
 ### Basic syntax
 
@@ -21,6 +34,9 @@ end
 
 # rake foo:bar
 ```
+<!-- {: data-highlight="namespace; task"} -->
+
+See: [Tasks](https://ruby.github.io/rake/doc/rakefile_rdoc.html#tasks)
 
 ### Rake task with arguments
 
@@ -32,3 +48,6 @@ end
 
 # rake workit[234]
 ```
+<!-- {: data-highlight="task :workit, [:id]"} -->
+
+See: [Tasks with arguments](https://ruby.github.io/rake/doc/rakefile_rdoc.html#tasks-with-arguments)

@@ -1,10 +1,15 @@
 ---
 title: Goby
+subtitle: Ruby-like scripting language
 prism_languages: [ruby]
 weight: -3
 updated: 2018-12-06
 category: Hidden
 # Development stopped; the goby-lang/goby repository was archived in July 2025.
+tags: [Archived]
+archived: |
+  Goby development stopped and the `goby-lang/goby` repository was archived in
+  July 2025. Use Ruby instead.
 intro: |
   Goby's language design is based on Ruby language's, slim and shaped up. Differences in syntax between them is very small.
 links:
@@ -115,14 +120,20 @@ Should be "`@[a-z][a-z0-9_]+`"(snake_case).
 ```ruby
 # array literal
 a, b, c = [1, 2, 3]
+```
 
+```ruby
 # array with '*'
 a = [1, 2, 3]
 x, y, z = *a
+```
 
+```ruby
 # array literal with '*'
 a, b, c = *[1, 2, 3]
+```
 
+```ruby
 # bare assignment: unsupported
 a, b, c = 1, 2, 3  #=> unexpected 3 Line: 0
 ```
@@ -296,6 +307,8 @@ You can use the following shorthands to declare attribute accessor methods in cl
 * `attr_accessor`
 * `attr_reader`
 * `attr_writer`
+
+<!-- {: .-enum-lines} -->
 
 ### Private method (to be implemented)
 
@@ -582,6 +595,8 @@ Use the annotations to keep the comments concise.
 - `OPTIMIZE`
 - `HACK`
 - `REVIEW`
+
+<!-- {: .-enum-lines} -->
 
 ### I/O
 
@@ -957,11 +972,15 @@ Using `/ /` is to be implemented.
 # numbered capture
 'abcd'.match(Regexp.new('(b.)'))
 #=> #<MatchData 0:"bc" 1:"bc">
+```
 
+```ruby
 # named capture
 'abcd'.match(Regexp.new('a(?<first>b)(?<second>c)'))
 #=> #<MatchData 0:"abc" first:"b" second:"c">
+```
 
+```ruby
 # converting to hash
 » 'abcd'.match(Regexp.new('a(?<first>b)(?<second>c)')).to_h
 #» { 0: "abc", first: "b", second: "c" }

@@ -1,7 +1,12 @@
 ---
 title: Virtual-dom
+subtitle: Virtual DOM library
 category: Hidden
 # No release since 2.1.1 (2015); unmaintained.
+tags: [Archived]
+archived: |
+  virtual-dom has had no release since 2.1.1 in 2015 and is unmaintained. Use
+  Preact or React instead.
 ---
 
 ### About

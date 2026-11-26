@@ -1,10 +1,13 @@
 ---
 title: Knex
-updated: 2020-06-03
+subtitle: SQL query builder
+last_verified_with: "Knex 3.3.0."
+updated: 2026-11-25
+tier: t3
 category: Databases
 intro: |
-  [Knex](http://knexjs.org/) is an SQL query builder for Node.js.
-  This guide targets v0.13.0.
+  [Knex](https://knexjs.org/) is an SQL query builder for Node.js.
+  This guide targets Knex 3.3.0.
 links:
   - title: Knex documentation
     url: https://knexjs.org/guide/
@@ -19,24 +22,28 @@ links:
 ```js
 require('knex')({
   client: 'pg',
-  connection: 'postgres://user:pass@localhost:5432/dbname'
+  connection: 'postgres://user:pass@' +
+    'localhost:5432/dbname'
 })
 ```
+<!-- {: data-highlight="require('knex')"} -->
 
-See: [Connect](#connect-1)
+See: [Installation](https://knexjs.org/guide/#installation)
 
 ### Create table
 
 ```js
-knex.schema.createTable('user', (table) => {
-  table.increments('id')
-  table.string('name')
-  table.integer('age')
-})
-.then(() => ···)
+knex.schema
+  .createTable('user', (table) => {
+    table.increments('id')
+    table.string('name')
+    table.integer('age')
+  })
+  .then(() => ···)
 ```
+<!-- {: data-highlight="createTable"} -->
 
-See: [Schema](#schema)
+See: [Create table](https://knexjs.org/guide/schema-builder.html#createtable)
 
 ### Select
 
@@ -45,10 +52,9 @@ knex('users')
   .where({ email: 'hi@example.com' })
   .then(rows => ···)
 ```
+<!-- {: data-highlight="where"} -->
 
-<!-- {: data-line="2"} -->
-
-See: [Select](#select-1)
+See: [Selects](https://knexjs.org/guide/query-builder.html#select)
 
 ### Insert
 
@@ -56,10 +62,9 @@ See: [Select](#select-1)
 knex('users')
   .insert({ email: 'hi@example.com' })
 ```
+<!-- {: data-highlight="insert"} -->
 
-<!-- {: data-line="2"} -->
-
-See: [Insert](#insert-1)
+See: [Insert](https://knexjs.org/guide/query-builder.html#insert)
 
 ### Update
 
@@ -68,33 +73,34 @@ knex('users')
   .where({ id: 135 })
   .update({ email: 'hi@example.com' })
 ```
+<!-- {: data-highlight="update"} -->
 
-<!-- {: data-line="2,3"} -->
-
-See: [Update](#update-1)
+See: [Update](https://knexjs.org/guide/query-builder.html#update)
 
 ### Migrations
 
 ```bash
 knex init
 knex migrate:make migration_name
-knex migrate:make migration_name -x ts # Generates a TypeScript migration file
+knex migrate:make migration_name -x ts
 knex migrate:latest
 knex migrate:rollback
 ```
+<!-- {: data-highlight="knex migrate:"} -->
 
-See: [Migrations](#migrations-1)
+See: [Migration CLI](https://knexjs.org/guide/migrations.html#migration-cli)
 
 ### Seeds
 
 ```bash
 knex seed:make seed_name
-knex seed:make seed_name -x ts # Generates a TypeScript seed file
+knex seed:make seed_name -x ts  # TS seed
 knex seed:run # Runs all seed files
-knex seed:run --specific=seed-filename.js # Runs a specific seed file
+knex seed:run --specific=seed-filename.js
 ```
+<!-- {: data-highlight="seed:make; seed:run"} -->
 
-See: [Seeds](http://knexjs.org/#Seeds)
+See: [Seed CLI](https://knexjs.org/guide/migrations.html#seed-cli)
 
 ## Connect
 
@@ -106,12 +112,12 @@ See: [Seeds](http://knexjs.org/#Seeds)
 | --- | --- |
 | `pg` | PostgreSQL |
 | `mysql` | MySQL or MariaDB |
-| `sqlite3` | Sqlite3 |
+| `sqlite3` | SQLite 3 |
 | `mssql` | MSSQL |
 
 Install any of these packages along with `knex`.
 
-See: [Node.js installation](http://knexjs.org/#Installation-node)
+See: [Installation](https://knexjs.org/guide/#installation)
 
 ### Connect via host
 
@@ -127,10 +133,9 @@ var knex = require('knex')({
   pool: { min: 0, max: 7 }
 })
 ```
+<!-- {: data-highlight="connection"} -->
 
-<!-- {: data-line="2,3"} -->
-
-See: [Initializing the library](http://knexjs.org/#Installation-client)
+See: [Node.js installation](https://knexjs.org/guide/#node-js)
 
 ### Connect via URL
 
@@ -142,19 +147,23 @@ var pg = require('knex')({
   pool: { min: 0, max: 7 }
 })
 ```
+<!-- {: data-highlight="process.env.DATABASE_URL"} -->
 
-<!-- {: data-line="2,3"} -->
+See: [Configuration options](https://knexjs.org/guide/#configuration-options)
 
-### Connect via Sqlite
+### Connect via SQLite
 
 ```js
 var knex = require('knex')({
   client: 'sqlite3',
-  connection: { filename: './mydb.sqlite' }
+  connection: {
+    filename: './mydb.sqlite'
+  }
 })
 ```
+<!-- {: data-highlight="client: 'sqlite3'"} -->
 
-<!-- {: data-line="2,3"} -->
+See: [Node.js installation](https://knexjs.org/guide/#node-js)
 
 ## Select
 
@@ -175,6 +184,7 @@ knex
   .whereNot(···)
   .whereNotIn('id', [1, 2, 3])
 ```
+<!-- {: data-highlight="whereIn; whereNotIn"} -->
 
 #### Where conditions
 
@@ -182,20 +192,24 @@ knex
   .whereNull('updated_at')
   .whereNotNull(···)
 ```
+<!-- {: data-highlight="whereNull; whereNotNull"} -->
 
 ```js
   .whereExists('updated_at')
   .whereNotExists(···)
 ```
+<!-- {: data-highlight="whereExists; whereNotExists"} -->
 
 ```js
   .whereBetween('votes', [1, 100])
   .whereNotBetween(···)
 ```
+<!-- {: data-highlight="whereBetween; whereNotBetween"} -->
 
 ```js
   .whereRaw('id = ?', [1])
 ```
+<!-- {: data-highlight="whereRaw"} -->
 
 #### Where grouping
 
@@ -206,8 +220,9 @@ knex
       .orWhere('id', '>', 10)
   })
 ```
+<!-- {: data-highlight="orWhere"} -->
 
-See: [Where clauses](http://knexjs.org/#Builder-wheres)
+See: [Where clauses](https://knexjs.org/guide/query-builder.html#where-clauses)
 
 ### Join
 
@@ -221,12 +236,14 @@ knex('users')
   .join('contacts', 'users.id', '=', 'contacts.id')
   .join('contacts', {'users.id': 'contacts.id'})
 ```
+<!-- {: data-highlight="join"} -->
 
 #### Strings
 
 ```js
   .join('accounts', 'accounts.type', '=', knex.raw('?', ['admin']))
 ```
+<!-- {: data-highlight="knex.raw"} -->
 
 #### Directions
 
@@ -239,12 +256,14 @@ knex('users')
   .fullOuterJoin(···)
   .crossJoin(···)
 ```
+<!-- {: data-highlight="leftJoin; rightJoin; fullOuterJoin; crossJoin"} -->
 
 #### Raw
 
 ```js
   .joinRaw('natural full join table1')
 ```
+<!-- {: data-highlight="joinRaw"} -->
 
 #### Grouping
 
@@ -266,8 +285,9 @@ knex('users')
       .onNotExists(···)
   })
 ```
+<!-- {: data-highlight="on; orOn"} -->
 
-See: [Join methods](http://knexjs.org/#Builder-join)
+See: [Join methods](https://knexjs.org/guide/query-builder.html#join-methods)
 
 ### Others
 
@@ -275,6 +295,7 @@ See: [Join methods](http://knexjs.org/#Builder-join)
 knex('users')
   .distinct()
 ```
+<!-- {: data-highlight="distinct"} -->
 
 #### Group
 
@@ -282,12 +303,15 @@ knex('users')
   .groupBy('count')
   .groupByRaw('year WITH ROLLUP')
 ```
+<!-- {: data-highlight="groupBy; groupByRaw"} -->
 
 #### Order
+
 ```js
   .orderBy('name', 'desc')
   .orderByRaw('name DESC')
 ```
+<!-- {: data-highlight="orderBy; orderByRaw"} -->
 
 #### Offset/limit
 
@@ -295,6 +319,7 @@ knex('users')
   .offset(10)
   .limit(20)
 ```
+<!-- {: data-highlight="offset; limit"} -->
 
 #### Having
 
@@ -302,30 +327,39 @@ knex('users')
   .having('count', '>', 100)
   .havingIn('count', [1, 100])
 ```
+<!-- {: data-highlight="having; havingIn"} -->
 
 #### Union
 
 ```js
-  .union(function() {
+  .union(function () {
     this.select(···)
   })
   .unionAll(···)
 ```
+<!-- {: data-highlight="union; unionAll"} -->
 
-See: [Query builder](http://knexjs.org/#Builder)
+See: [Query builder](https://knexjs.org/guide/query-builder.html#select)
 
 ### Etc
+
+#### Pluck
 
 ```js
 knex('users')
   .pluck('id')
   .then(ids => { ··· })
 ```
+<!-- {: data-highlight="pluck"} -->
+
+#### First
+
 ```js
 knex('users')
   .first()
   .then(user => { ··· })
 ```
+<!-- {: data-highlight="first"} -->
 
 #### Booleans
 
@@ -333,6 +367,7 @@ knex('users')
   .count('active')
   .count('active as is_active')
 ```
+<!-- {: data-highlight="count"} -->
 
 #### Numbers
 
@@ -343,8 +378,9 @@ knex('users')
   .sumDistinct('age')
   .avg('age')
 ```
+<!-- {: data-highlight="min; max; sum; avg"} -->
 
-See: [Query builder](http://knexjs.org/#Builder)
+See: [Query builder](https://knexjs.org/guide/query-builder.html#pluck)
 
 ## Schema
 
@@ -353,6 +389,7 @@ See: [Query builder](http://knexjs.org/#Builder)
 ```js
 knex.schema.createTable('accounts', table => {
 ```
+<!-- {: data-highlight="knex.schema.createTable"} -->
 
 #### Columns
 
@@ -378,6 +415,7 @@ knex.schema.createTable('accounts', table => {
   table.unique(['email', 'company_id'])
   table.dropUnique(···)
 ```
+<!-- {: data-highlight="unique; dropUnique"} -->
 
 #### Indices
 
@@ -386,6 +424,7 @@ knex.schema.createTable('accounts', table => {
     .references('companies.id')
   table.dropForeign(···)
 ```
+<!-- {: data-highlight="foreign; references; dropForeign"} -->
 
 #### Variations
 
@@ -394,27 +433,28 @@ knex.schema.createTable('accounts', table => {
     .unsigned()
     .references('users.id')
 ```
+<!-- {: data-highlight="unsigned"} -->
 
 ```js
 })
 .then(() => ···)
 ```
 
-<!-- {: .-setup} -->
-
-See: [Schema builder](http://knexjs.org/#Schema)
+See: [Schema builder](https://knexjs.org/guide/schema-builder.html#createtable)
 
 ### Alter table
 
 ```js
 knex.schema.table('accounts', table => {
 ```
+<!-- {: data-highlight="knex.schema.table"} -->
 
 #### Create
 
 ```js
   table.string('first_name')
 ```
+<!-- {: data-highlight="table.string"} -->
 
 #### Alter
 
@@ -422,6 +462,7 @@ knex.schema.table('accounts', table => {
   table.string('first_name').alter()
   table.renameColumn('admin', 'is_admin')
 ```
+<!-- {: data-highlight="alter; renameColumn"} -->
 
 #### Drop
 
@@ -429,29 +470,34 @@ knex.schema.table('accounts', table => {
   table.dropColumn('admin')
   table.dropTimestamps('created_at')
 ```
+<!-- {: data-highlight="dropColumn; dropTimestamps"} -->
 
 ```js
 })
 ```
 
-<!-- {: .-setup} -->
-
-See: [Schema builder](http://knexjs.org/#Schema)
+See: [Schema builder](https://knexjs.org/guide/schema-builder.html#altertable)
 
 ### Other methods
+
+#### Rename and drop
 
 ```js
 knex.schema
   .renameTable('persons', 'people')
   .dropTable('persons')
 ```
+<!-- {: data-highlight="renameTable; dropTable"} -->
+
+#### Check
 
 ```js
   .hasTable('users').then(exists => ···)
   .hasColumn('users', 'id').then(exists => ···)
 ```
+<!-- {: data-highlight="hasTable; hasColumn"} -->
 
-See: [Schema builder](http://knexjs.org/#Schema)
+See: [Schema builder](https://knexjs.org/guide/schema-builder.html#renametable)
 
 ## Modifying
 
@@ -477,8 +523,9 @@ knex('users')
     { name: 'Hutch' }
   ])
 ```
+<!-- {: data-highlight=".insert(["} -->
 
-See: [Insert](http://knexjs.org/#Builder-insert)
+See: [Insert](https://knexjs.org/guide/query-builder.html#insert)
 
 ### Update
 
@@ -487,8 +534,9 @@ knex('users')
   .where({ id: 2 })
   .update({ name: 'Homer' })
 ```
+<!-- {: data-highlight="name: 'Homer'"} -->
 
-See: [Update](http://knexjs.org/#Builder-update)
+See: [Update](https://knexjs.org/guide/query-builder.html#update)
 
 ### Delete
 
@@ -497,8 +545,9 @@ knex('users')
   .where({ id: 2 })
   .del()
 ```
+<!-- {: data-highlight=".del()"} -->
 
-See: [Delete](http://knexjs.org/#Builder-del)
+See: [Delete](https://knexjs.org/guide/query-builder.html#del-delete)
 
 ## Migrations
 
@@ -509,6 +558,7 @@ See: [Delete](http://knexjs.org/#Builder-del)
 ```
 ./node_modules/.bin/knex init
 ```
+<!-- {: data-highlight="knex init"} -->
 
 #### Create a migration
 
@@ -516,6 +566,11 @@ See: [Delete](http://knexjs.org/#Builder-del)
 knex migrate:make migration_name
 knex migrate:make migration_name --env production
 ```
+<!-- {: data-highlight="knex migrate:make"} -->
+
+See: [Knexfile](https://knexjs.org/guide/migrations.html#knexfile-js)
+
+### Running migrations
 
 #### Run migrations
 
@@ -523,6 +578,7 @@ knex migrate:make migration_name --env production
 knex migrate:latest
 knex migrate:latest --env production
 ```
+<!-- {: data-highlight="migrate:latest"} -->
 
 #### Rollback
 
@@ -530,5 +586,6 @@ knex migrate:latest --env production
 knex migrate:rollback
 knex migrate:rollback --env production
 ```
+<!-- {: data-highlight="migrate:rollback"} -->
 
-See: [Migrations](http://knexjs.org/#Migrations)
+See: [Migration CLI](https://knexjs.org/guide/migrations.html#migration-cli)

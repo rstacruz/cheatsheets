@@ -1,10 +1,22 @@
 ---
 title: Lodash
+subtitle: JavaScript utility library
 category: JavaScript libraries
 weight: -3
-updated: 2020-06-24
 description: |
   This is not a complete list.
+last_verified_with: "Lodash 4.18.1."
+updated: 2026-11-25
+tier: t3
+intro: |
+  [Lodash](https://lodash.com/) is a JavaScript utility library for arrays,
+  objects, strings, and functions. This sheet covers common methods with short
+  examples.
+links:
+  - title: Lodash documentation
+    url: https://lodash.com/docs/
+  - title: Lodash on GitHub
+    url: https://github.com/lodash/lodash
 ---
 
 ## Collections
@@ -16,8 +28,11 @@ _.filter(list, (n) => n % 2)    // → Array
 _.find(list, (n) => n % 2)      // → item
 _.findLast(list, ...)           // → item
 ```
+<!-- {: data-highlight="_.filter; _.find; _.findLast"} -->
 
 Works for both arrays and objects.
+
+See: [filter](https://lodash.com/docs/4.18.1#filter)
 
 ### Accessing
 
@@ -25,6 +40,9 @@ Works for both arrays and objects.
 _.at([ abcd ], 0)               // → [ a ] - same as list[0]
 _.at([ abcd ], [ 0, 1 ])        // → [ ab ]
 ```
+<!-- {: data-highlight="_.at"} -->
+
+See: [at](https://lodash.com/docs/4.18.1#at)
 
 ### Set/get
 
@@ -33,6 +51,9 @@ _.set(object, 'users[0].name', value)
 _.get(object, 'users[0].name')
 _.get(object, ['users', 0, 'name'])
 ```
+<!-- {: data-highlight="_.set; _.get"} -->
+
+See: [get](https://lodash.com/docs/4.18.1#get)
 
 ### Iteration
 
@@ -42,11 +63,15 @@ _.forEachRight(list, ...)
 
 _.map(list, ...)
 ```
+<!-- {: data-highlight="_.forEach; _.map"} -->
 
 ```js
 _.every(users, (u) => u.active)  // → true|false (aka _.all)
 _.any(users, ...)                // → true|false (aka _.some)
 ```
+<!-- {: data-highlight="_.every; _.any"} -->
+
+See: [forEach](https://lodash.com/docs/4.18.1#forEach)
 
 ## Array
 
@@ -60,6 +85,9 @@ _.fill(Array(4), 'x')          // → [ 'x', 'x', 'x', 'x' ]
 _.flatten
 _.flattenDeep
 ```
+<!-- {: data-highlight="_.chunk; _.compact; _.fill; _.flatten"} -->
+
+See: [chunk](https://lodash.com/docs/4.18.1#chunk)
 
 ### Filtering
 
@@ -70,11 +98,13 @@ _.take([ abcdef ], 2)          // → [ ab     ]
 _.takeRight([ abcdef ], 2)     // → [     de ]
 _.slice([ abcdef ], 2, 4)      // → [   cd   ]
 ```
+<!-- {: data-highlight="_.drop; _.take; _.slice"} -->
 
 ```js
 _.initial([ abcdef ])          // → [ abcde  ] - dropRight(list, 1)
 _.rest([ abcdef ])             // → [  bcdef ] - takeRight(list, 1)
 ```
+<!-- {: data-highlight="_.initial; _.rest"} -->
 
 ```js
 _.dropWhile(list, 'active')            // works like filter
@@ -83,14 +113,19 @@ _.dropWhile(list, { active: true })
 _.dropWhile(list, (n) => ...)
 _.dropRightWhile(list, ...)
 ```
+<!-- {: data-highlight="_.dropWhile; _.dropRightWhile"} -->
 
 ```js
 _.without([ abcde ], b)        // → [ acde ]
 ```
+<!-- {: data-highlight="_.without"} -->
 
 ```js
 _.remove(list, (n) => n % 2)
 ```
+<!-- {: data-highlight="_.remove"} -->
+
+See: [drop](https://lodash.com/docs/4.18.1#drop)
 
 ### Accessing
 
@@ -98,6 +133,9 @@ _.remove(list, (n) => n % 2)
 _.first([ abcdef ])            // → a
 _.last([ abcdef ])             // → f
 ```
+<!-- {: data-highlight="_.first; _.last"} -->
+
+See: [head](https://lodash.com/docs/4.18.1#head)
 
 ### Sets
 
@@ -107,10 +145,14 @@ _.difference([ abc ], [ bc ])       // → [ a    ]
 _.intersection([ abc ], [ bcd ])    // → [  bc  ]
 _.union([ abc ], [ bcd ])           // → [ abcd ] (unique)
 ```
+<!-- {: data-highlight="_.uniq; _.difference; _.intersection; _.union"} -->
 
 ```js
 Array#concat()
 ```
+<!-- {: data-highlight="concat"} -->
+
+See: [uniq](https://lodash.com/docs/4.18.1#uniq)
 
 ### Indexes
 
@@ -118,25 +160,32 @@ Array#concat()
 _.findIndex(list, fn)
 _.findLastIndex(list, fn)
 ```
+<!-- {: data-highlight="_.findIndex; _.findLastIndex"} -->
 
 ```js
 _.sortedIndex(list, val)
 _.sortedLastIndex(list, val)
 ```
+<!-- {: data-highlight="_.sortedIndex; _.sortedLastIndex"} -->
 
 ```js
 _.indexOf(list, val)
 ```
+<!-- {: data-highlight="_.indexOf"} -->
+
+See: [findIndex](https://lodash.com/docs/4.18.1#findIndex)
 
 ## Functions
 
 ### Partial application
 
+#### Define greet
+
 ```js
 greet = (greeting, name) => `${greeting}, ${name}!`
 ```
 
-<!-- {: .-setup} -->
+#### Bind arguments
 
 ```js
 fn = _.partial(fn, 'hi')
@@ -145,6 +194,9 @@ fn('joe')    // → 'hi, joe!'
 fn = _.partial(fn, 'joe')
 fn('yo')     // → 'yo, joe!'
 ```
+<!-- {: data-highlight="_.partial"} -->
+
+See: [partial](https://lodash.com/docs/4.18.1#partial)
 
 ### Currying
 
@@ -152,6 +204,9 @@ fn('yo')     // → 'yo, joe!'
 _.curry(greet)('hi')         // → function(name)
 _.curryRight(greet)('joe')   // → function(greet)
 ```
+<!-- {: data-highlight="_.curry; _.curryRight"} -->
+
+See: [curry](https://lodash.com/docs/4.18.1#curry)
 
 ## Decorating functions
 
@@ -161,6 +216,9 @@ _.curryRight(greet)('joe')   // → function(greet)
 _.throttle(fn)
 _.debounce(fn)
 ```
+<!-- {: data-highlight="_.throttle; _.debounce"} -->
+
+See: [throttle](https://lodash.com/docs/4.18.1#throttle)
 
 ### Limiting
 
@@ -169,6 +227,9 @@ _.before(5, fn)         // only works 5 times
 _.after(5, fn)          // works only after 5 times
 _.once(fn)              // like _.before(fn, 1)
 ```
+<!-- {: data-highlight="_.before; _.after; _.once"} -->
+
+See: [before](https://lodash.com/docs/4.18.1#before)
 
 ### Etc
 
@@ -183,6 +244,9 @@ _.negate(fn)
 _.memoize(fn)
 _.memoize(fn, ...)
 ```
+<!-- {: data-highlight="_.wrap; _.delay; _.negate; _.memoize"} -->
+
+See: [wrap](https://lodash.com/docs/4.18.1#wrap)
 
 ## Strings
 
@@ -195,6 +259,9 @@ _.snakeCase('hello world')    // → 'hello_world'
 _.kebabCase('hello world')    // → 'hello-world'
 _.camelCase('hello world')    // → 'helloWorld'
 ```
+<!-- {: data-highlight="_.capitalize; _.startCase; _.snakeCase; _.kebabCase"} -->
+
+See: [capitalize](https://lodash.com/docs/4.18.1#capitalize)
 
 ### Padding
 
@@ -209,14 +276,20 @@ _.padEnd('abc', 3)        // → 'abc'
 _.padEnd('abc', 6)        // → 'abc   '
 _.padEnd('abc', 6, '_-')  // → 'abc_-_'
 ```
+<!-- {: data-highlight="_.pad; _.padStart; _.padEnd"} -->
+
+See: [pad](https://lodash.com/docs/4.18.1#pad)
 
 ### Trim
 
 ```js
-_.trim('  str  ')         // → 'str' 
+_.trim('  str  ')         // → 'str'
 _.trimLeft('  str  ')     // → 'str  '
 _.trimRight('  str  ')    // → '  str'
 ```
+<!-- {: data-highlight="_.trim; _.trimLeft; _.trimRight"} -->
+
+See: [trim](https://lodash.com/docs/4.18.1#trim)
 
 ### Etc
 
@@ -225,11 +298,15 @@ _.repeat('-', 2)              // → '--'
 _.deburr('déjà vu')           // → 'deja vu'
 _.trunc('hello world', 5)     // → 'hello...'
 ```
+<!-- {: data-highlight="_.repeat; _.deburr; _.trunc"} -->
 
 ```js
 _.startsWith('abc', 'a')   // → true
 _.endsWith('abc', 'c')     // → true
 ```
+<!-- {: data-highlight="_.startsWith; _.endsWith"} -->
+
+See: [repeat](https://lodash.com/docs/4.18.1#repeat)
 
 ## Objects
 
@@ -239,6 +316,9 @@ _.endsWith('abc', 'c')     // → true
 _.keys(obj)
 _.values(obj)
 ```
+<!-- {: data-highlight="_.keys; _.values"} -->
+
+See: [keys](https://lodash.com/docs/4.18.1#keys)
 
 ### Merging
 
@@ -247,6 +327,9 @@ _.assign(obj, source)
 _.merge(obj, source)
 _.cloneDeep(obj)
 ```
+<!-- {: data-highlight="_.assign; _.merge; _.cloneDeep"} -->
+
+See: [assign](https://lodash.com/docs/4.18.1#assign)
 
 ## Chaining
 
@@ -260,6 +343,9 @@ _([1, 2, 3])
   .thru((n) => n.reverse())
   .value()
 ```
+<!-- {: data-highlight=".value"} -->
+
+See: [chain](https://lodash.com/docs/4.18.1#chain)
 
 ### Implicit chaining
 
@@ -267,3 +353,6 @@ _([1, 2, 3])
 _(list).map(fn).filter(fn).value()
 _.chain(list).map(fn).value()
 ```
+<!-- {: data-highlight="_(list); _.chain"} -->
+
+See: [chain](https://lodash.com/docs/4.18.1#chain)

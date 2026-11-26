@@ -1,6 +1,7 @@
 import { site } from '~/config'
 import { getPages } from '~/lib/page'
 import { isListed } from '~/lib/page/accessors'
+import { sitemapEntry } from '~/lib/sitemap'
 
 export async function GET() {
   const lines = [
@@ -10,9 +11,11 @@ export async function GET() {
 
   const visiblePages = Object.values(await getPages()).filter(isListed)
 
+  // Search engines ignore priority/changefreq; lastmod must be a real edit
   for (const page of visiblePages) {
-    const url = `${site.url}/${page.slug}`
-    lines.push(`<url><loc>${url}</loc></url>`)
+    lines.push(
+      sitemapEntry(`${site.url}/${page.slug}`, page.frontmatter.updated)
+    )
   }
 
   lines.push(`</urlset>`)

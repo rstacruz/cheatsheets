@@ -1,8 +1,11 @@
 ---
 title: Org Mode
+subtitle: Emacs note organizer
 tags: [WIP]
 category: Apps
-updated: 2018-02-19
+updated: 2026-11-23
+last_verified_with: "GNU Emacs Org mode 9.8.10."
+tier: t3
 intro: |
   [Org mode](https://orgmode.org/) is for keeping hierarchal notes (and more) in Emacs.
 links:
@@ -24,8 +27,13 @@ links:
 
 ** Sub-heading
 
-   Two stars mark a 2nd-level subheading (h2).
+   Two stars mark a 2nd-level
+   subheading (h2).
 ```
+
+<!-- {: data-highlight="*"} -->
+
+See: [Headlines](https://orgmode.org/manual/Headlines.html)
 
 ### Lists
 
@@ -41,6 +49,10 @@ To buy:
    + Mozarella
 ```
 
+<!-- {: data-highlight="1.; -; +"} -->
+
+See: [Plain lists](https://orgmode.org/manual/Plain-Lists.html)
+
 ### Inline styles
 
 ```org
@@ -52,13 +64,21 @@ _underline_
 +strike-through+
 ```
 
+<!-- {: data-highlight="*bold*; /italic/; =verbatim=; ~code~"} -->
+
+See: [Emphasis and monospace](https://orgmode.org/manual/Emphasis-and-monospace.html)
+
 ### To do
 
 ```org
 * TODO buy airplane
 ```
 
-Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
+<!-- {: data-highlight="TODO"} -->
+
+Cycle with `S-LEFT` / `S-RIGHT`; list TODOs with `C-c / t`.
+
+See: [TODO basics](https://orgmode.org/manual/TODO-Basics.html)
 
 ## Shortcuts
 
@@ -66,15 +86,17 @@ Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 
 ### Basic shortcuts
 
-| Description    | Shortcut             |
-| ---            | ---                  |
-| (Un) fold      | `TAB` / `S-TAB`      |
-| Move up        | `M-UP` / `M-DOWN`    |
-| New headline   | `M-RET`              |
-| Cycle workflow | `S-LEFT` / `S-RIGHT` |
-| Cycle priority | `S-UP` / `S-DOWN` |
+| Shortcut             | Description    |
+| ---                  | ---            |
+| `TAB` / `S-TAB`      | (Un) fold      |
+| `M-UP` / `M-DOWN`    | Move up        |
+| `M-RET`              | New headline   |
+| `S-LEFT` / `S-RIGHT` | Cycle workflow |
+| `S-UP` / `S-DOWN`    | Cycle priority |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts} -->
+
+See: [Structure editing](https://orgmode.org/manual/Structure-Editing.html)
 
 ### Timer
 
@@ -86,9 +108,11 @@ Cycle by using `S-LEFT` / `S-RIGHT`. List all TODO's via `C-c C-v`.
 | ---             | ---             |
 | Start countdown | `C-c` `C-x` `;` |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts-right} -->
 
 You can use this for Pomodoro!
+
+See: [Timers](https://orgmode.org/manual/Timers.html)
 
 ### Agenda
 
@@ -102,9 +126,11 @@ You can use this for Pomodoro!
 | Add date        | `C-c` `.`       |
 | Add time & date | `C-u` `C-c` `.` |
 
-<!-- {:.-shortcuts-right} -->
+<!-- {: .-shortcuts-right} -->
 
 Start by adding the current file to the agenda (`C-c [`), then use the agenda menu to navigate.
+
+See: [Agenda dispatcher](https://orgmode.org/manual/Agenda-Dispatcher.html)
 
 ### Export
 
@@ -112,7 +138,11 @@ Start by adding the current file to the agenda (`C-c [`), then use the agenda me
 | ---         | ---         |
 | Export menu | `C-c` `C-e` |
 
+<!-- {: .-shortcuts-right} -->
+
 Lets you export the document as Markdown, HTML, and others.
+
+See: [Export dispatcher](https://orgmode.org/manual/The-Export-Dispatcher.html)
 
 ## References
 

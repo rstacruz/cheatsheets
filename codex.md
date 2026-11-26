@@ -1,9 +1,27 @@
 ---
-title: Codex
+title: OpenAI Codex
+subtitle: Terminal coding agent
 category: Agents
 updated: 2026-11-11
-tier: t2
+last_verified_with: "codex-cli 0.167.1."
+tier: t1
+fragments:
+  - "codex"
+  - "codex exec"
+  - "codex resume"
+  - "codex fork"
+  - "codex review"
+  - "codex login"
+  - "codex mcp"
+  - "--model"
+  - "--sandbox"
+  - "--search"
+  - "codex cloud"
+  - "codex apply"
+  - "codex doctor"
+  - "--worktree"
 keywords:
+  - OpenAI Codex
   - AI assistant
   - CLI
   - Slash commands
@@ -38,6 +56,7 @@ codex                 # first run opens a browser login
 codex login           # sign in again
 codex login status    # show the current account
 ```
+<!-- {: data-highlight="codex login"} -->
 
 Codex works with a ChatGPT plan or an API key. For scripts, pipe a key in: `printenv OPENAI_API_KEY | codex login --with-api-key`. See: [Authentication](https://learn.chatgpt.com/docs/auth)
 
@@ -49,6 +68,7 @@ codex "explain this repo"  # start with a prompt
 codex resume --last        # reopen the latest chat
 codex fork --last          # branch the latest chat
 ```
+<!-- {: data-highlight="codex resume; codex fork"} -->
 
 `codex resume` scopes `--last` to the current directory; add `--all` to search every session. See: [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
@@ -103,47 +123,51 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 
 ### Flags
 
-| Flag                              | Description                   |
-| --------------------------------- | ----------------------------- |
-| `-m, --model <model>`             | Choose the model              |
-| `-p, --profile <name>`            | Layer a profile over config   |
-| ---                               | ---                           |
-| `-s, --sandbox <mode>`            | Set the sandbox policy        |
+| Flag                              | Description                             |
+| --------------------------------- | --------------------------------------- |
+| `-m, --model <model>`             | Choose the model                        |
+| `-p, --profile <name>`            | Layer a profile over config             |
+| --------------------------------- | --------------------------------------- |
+| `-s, --sandbox <mode>`            | Set the sandbox policy                  |
 | `-a, --ask-for-approval <policy>` | `on-request` or `never`; no `untrusted` |
-| `-C, --cd <dir>`                  | Set the working directory     |
-| `--add-dir <dir>`                 | Grant another writable folder |
-| `--worktree`                      | Run in a managed git worktree |
-| ---                               | ---                           |
-| `--search`                        | Enable live web search        |
-| `-i, --image <file>`              | Attach images to the prompt   |
-| `-c key=value`                    | Override any config value     |
-
-<!-- {: .-shortcuts} -->
+| `-C, --cd <dir>`                  | Set the working directory               |
+| `--add-dir <dir>`                 | Grant another writable folder           |
+| `--worktree`                      | Run in a managed git worktree           |
+| --------------------------------- | --------------------------------------- |
+| `--search`                        | Enable live web search                  |
+| `-i, --image <file>`              | Attach images to the prompt             |
+| `-c key=value`                    | Override any config value               |
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Other flags
 
-| Flag                                         | Description                    |
-| -------------------------------------------- | ------------------------------ |
-| `--oss`                                      | Use a local open-source model  |
+| Flag                                         | Description                                   |
+| -------------------------------------------- | --------------------------------------------- |
+| `--oss`                                      | Use a local open-source model                 |
 | `--local-provider <provider>`                | Local backend for `--oss`: lmstudio or ollama |
 | `--approve-for-me`                           | Auto-review approvals; replaces `--full-auto` |
-| `--no-alt-screen`                            | Keep output in terminal scrollback |
-| ---                                          | ---                            |
-| `--enable <feature>`                         | Enable optional features       |
-| `--disable <feature>`                        | Turn an optional feature off   |
-| `--no-daemon`                                | Skip the shared background server |
-| `--strict-config`                            | Reject unknown config keys     |
-| `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing  |
-
-<!-- {: .-shortcuts} -->
+| `--no-alt-screen`                            | Keep output in terminal scrollback            |
+| -------------------------------------------- | --------------------------------------------- |
+| `--enable <feature>`                         | Enable optional features                      |
+| `--disable <feature>`                        | Turn an optional feature off                  |
+| `--no-daemon`                                | Skip the shared background server             |
+| `--strict-config`                            | Reject unknown config keys                    |
+| `--dangerously-bypass-approvals-and-sandbox` | Skip approvals and sandboxing                 |
 
 See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)
 
 ### Sandbox and approvals
 
 <!-- {: .-prime} -->
+
+```bash
+codex -s workspace-write -a on-request  # Auto
+codex -s read-only -a never             # read-only, no prompts
+```
+<!-- {: data-highlight="-s workspace-write; -a on-request"} -->
+
+#### Modes
 
 | Mode                 | Effect                          |
 | -------------------- | ------------------------------- |
@@ -152,11 +176,6 @@ See: [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surf
 | `danger-full-access` | No sandbox at all               |
 
 <!-- {: .-shortcuts} -->
-
-```bash
-codex -s workspace-write -a on-request  # Auto
-codex -s read-only -a never             # read-only, no prompts
-```
 
 Auto is the default preset: edits in the workspace, approval to leave it, network off until `sandbox_workspace_write.network_access = true`.
 
@@ -171,6 +190,7 @@ codex exec --json "list failing tests"  # JSONL events
 codex exec --ephemeral "triage issues"  # write no session files
 codex exec resume --last "fix them"     # continue the last run
 ```
+<!-- {: data-highlight="codex exec"} -->
 
 `codex exec` runs read-only by default; add `--sandbox workspace-write` to allow edits. `-o file` writes the final message to a file. See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -181,6 +201,7 @@ codex review --uncommitted   # staged, unstaged, and untracked
 codex review --base main     # changes against a base branch
 codex review --commit <sha>  # a single commit
 ```
+<!-- {: data-highlight="codex review"} -->
 
 Pass exactly one target, or give custom instructions as a prompt. `--title` only works with `--commit`. See: [Code review](https://learn.chatgpt.com/docs/code-review)
 
@@ -200,8 +221,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/compact`       | Summarize to free up context       |
 | `/rename <name>` | Rename the current chat            |
 
-<!-- {: .-shortcuts} -->
-
 #### Control
 
 | Command             | Description                  |
@@ -213,8 +232,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/model`            | Choose the active model      |
 | `/fast`             | Toggle the Fast service tier |
 
-<!-- {: .-shortcuts} -->
-
 #### Inspect
 
 | Command   | Description                    |
@@ -225,8 +242,6 @@ Pass exactly one target, or give custom instructions as a prompt. `--title` only
 | `/usage`  | Show account token usage       |
 | `/copy`   | Copy the latest response       |
 | `/export` | Export the chat as Markdown    |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -240,8 +255,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/worktree`   | Continue in a managed git worktree |
 | `/recap`      | Summarize the chat, keep context   |
 | `/raw`        | Toggle raw scrollback              |
-
-<!-- {: .-shortcuts} -->
 
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
@@ -259,8 +272,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/hooks`        | Manage lifecycle hooks         |
 | `/experimental` | Toggle experimental features   |
 
-<!-- {: .-shortcuts} -->
-
 #### Interface
 
 | Command       | Description                    |
@@ -272,8 +283,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/vim`        | Toggle Vim composer mode       |
 | `/keymap`     | Remap TUI shortcuts            |
 
-<!-- {: .-shortcuts} -->
-
 #### Account
 
 | Command     | Description                        |
@@ -283,8 +292,6 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 | `/logout`   | Sign out                           |
 | `/quit`     | Exit the CLI (also `/exit`)        |
 
-<!-- {: .-shortcuts} -->
-
 See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in-slash-commands)
 
 ## Interactive mode
@@ -293,18 +300,18 @@ See: [Slash commands](https://learn.chatgpt.com/docs/developer-commands#built-in
 
 #### Session
 
-| Shortcut    | Description                        |
-| ----------- | ---------------------------------- |
-| `Ctrl+C`    | Close the session                  |
-| `Ctrl+R`    | Search prompt history              |
-| ---         | ---                                |
-| `Ctrl+O`    | Copy the latest response           |
-| `Ctrl+L`    | Clear the terminal view            |
+| Shortcut    | Description                            |
+| ----------- | -------------------------------------- |
+| `Ctrl+C`    | Close the session                      |
+| `Ctrl+R`    | Search prompt history                  |
+| ----------- | -------------------------------------- |
+| `Ctrl+O`    | Copy the latest response               |
+| `Ctrl+L`    | Clear the terminal view                |
 | `Ctrl+G`    | Edit the prompt in `$VISUAL`/`$EDITOR` |
-| ---         | ---                                |
-| `Esc` `Esc` | Edit the previous message and fork |
-| `Alt+R`     | Toggle raw scrollback              |
-| `Up` `Down` | Restore draft history              |
+| ----------- | -------------------------------------- |
+| `Esc` `Esc` | Edit the previous message and fork     |
+| `Alt+R`     | Toggle raw scrollback                  |
+| `Up` `Down` | Restore draft history                  |
 
 <!-- {: .-shortcuts} -->
 
@@ -335,12 +342,16 @@ Paste an image into the composer. See: [Image inputs](https://learn.chatgpt.com/
 
 ### Config file
 
+#### Locations
+
 ```bash
 ~/.codex/config.toml            # user settings
 .codex/config.toml              # project settings (trusted projects)
 $CODEX_HOME/<name>.config.toml  # profile, selected with --profile
 /etc/codex/config.toml          # system defaults (Unix)
 ```
+
+#### Settings
 
 ```toml
 model = "gpt-6.1-sol"
@@ -373,6 +384,7 @@ See: [Environment variables](https://learn.chatgpt.com/docs/config-file/environm
 AGENTS.md            # project instructions, committed
 ~/.codex/AGENTS.md   # global defaults for every repo
 ```
+<!-- {: data-highlight="AGENTS.md"} -->
 
 Each directory contributes one file — `AGENTS.override.md` if present, else `AGENTS.md` — concatenated from the repo root down, up to 32 KiB by default (`project_doc_max_bytes`). See: [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
@@ -383,15 +395,20 @@ Each directory contributes one file — `AGENTS.override.md` if present, else `A
 ```bash
 # Machine-readable events for scripts
 codex exec --json "list the failing tests" | jq
+```
+<!-- {: data-highlight="--json"} -->
 
+```bash
 # Capture the final message in a file
 codex exec -o summary.md "summarize this repo"
+```
+<!-- {: data-highlight="-o summary.md"} -->
 
+```bash
 # Use an API key inline in CI
 CODEX_API_KEY=$KEY codex exec "triage open bugs"
 ```
-
-<!-- {: data-line="2,5,8"} -->
+<!-- {: data-highlight="CODEX_API_KEY"} -->
 
 See: [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode)
 
@@ -414,6 +431,7 @@ codex cloud list                # recent cloud chats
 codex cloud exec --env <id> "fix the flaky test"
 codex apply <task-id>           # apply the diff locally
 ```
+<!-- {: data-highlight="codex cloud exec"} -->
 
 `codex cloud exec` needs `--env`; add `--attempts 2` for best-of-N. See: [Codex Cloud](https://learn.chatgpt.com/docs/cloud)
 
@@ -426,6 +444,7 @@ codex mcp add my-server -- npx my-mcp-server        # stdio
 codex mcp add remote --url https://example.com/mcp  # HTTP
 codex mcp list
 ```
+<!-- {: data-highlight="codex mcp add"} -->
 
 Add `--env KEY=VALUE` for stdio servers, or `--bearer-token-env-var VAR` for HTTP.
 
@@ -438,6 +457,7 @@ codex mcp login my-server             # OAuth, opens a browser
 codex mcp login my-server --scopes read,write
 codex mcp logout my-server
 ```
+<!-- {: data-highlight="codex mcp login"} -->
 
 OAuth works with streamable HTTP servers that support it. Stored credentials live in the store set by `mcp_oauth_credentials_store` (auto, file, or keyring). See: [MCP](https://learn.chatgpt.com/docs/extend/mcp)
 
@@ -448,6 +468,7 @@ OAuth works with streamable HTTP servers that support it. Stored credentials liv
 - [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli) _(learn.chatgpt.com)_
 - [Configuration](https://learn.chatgpt.com/docs/config-file/config-basic) _(learn.chatgpt.com)_
 - [Approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security) _(learn.chatgpt.com)_
+- [OpenAI Codex headless tasks cheatsheet](./codex-headless-tasks)
 - [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode) _(learn.chatgpt.com)_
 - [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) _(learn.chatgpt.com)_
 - [Best practices](https://learn.chatgpt.com/guides/best-practices) _(learn.chatgpt.com)_

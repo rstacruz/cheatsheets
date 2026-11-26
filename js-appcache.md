@@ -1,7 +1,13 @@
 ---
 title: applicationCache
+subtitle: Deprecated offline caching API
 category: Hidden
 # window.applicationCache was removed from browsers; use Service Workers.
+tags: [Archived]
+archived: |
+  `window.applicationCache` was removed from browsers. Use
+  [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+  instead.
 updated: 2026-10-04
 ---
 

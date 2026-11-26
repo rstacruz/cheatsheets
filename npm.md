@@ -1,9 +1,26 @@
 ---
 title: npm
-category: JavaScript
+subtitle: Node.js package manager
+category: Package managers
 weight: -1
 updated: 2026-11-11
-tier: t2
+last_verified_with: "npm 12 APIs."
+tier: t1
+fragments:
+  - "npm install"
+  - "npm ci"
+  - "npm i -D"
+  - "npm run"
+  - "npm test"
+  - "npm ls"
+  - "npm outdated"
+  - "npm audit"
+  - "npm publish"
+  - "npm why lodash"
+  - "npm explain"
+  - "npm doctor"
+  - "npm pkg get"
+  - "npm pack"
 intro: |
   [npm](https://docs.npmjs.com/cli/v12/) is the package manager for Node.js. This reference covers everyday commands, package specifiers, and npm 12 defaults.
 links:
@@ -47,6 +64,7 @@ See: [npm install](https://docs.npmjs.com/cli/v12/commands/npm-install/)
 npm ci
 npm ci --omit=dev
 ```
+<!-- {: data-highlight="npm ci"} -->
 
 `npm ci` requires a lockfile, removes `node_modules`, and never writes the lockfile.
 
@@ -94,6 +112,7 @@ See: [npm audit](https://docs.npmjs.com/cli/v12/commands/npm-audit/)
 npm explain lodash
 npm why lodash
 ```
+<!-- {: data-highlight="npm explain; npm why"} -->
 
 `npm why` is an alias for `npm explain`.
 
@@ -106,6 +125,7 @@ npm doctor
 npm cache verify
 npm cache clean --force
 ```
+<!-- {: data-highlight="npm doctor"} -->
 
 `npm doctor` checks the registry, cache, permissions, and environment.
 
@@ -121,9 +141,9 @@ npm pkg set keywords[0]="cli"
 npm pkg delete scripts.lint
 npm pkg fix
 ```
+<!-- {: data-highlight="npm pkg"} -->
 
-`npm pkg` edits JSON without reformatting it; `fix` applies the corrections
-`npm publish` would otherwise make.
+`npm pkg` edits JSON without reformatting it; `fix` applies the corrections `npm publish` would otherwise make.
 
 See: [npm pkg](https://docs.npmjs.com/cli/v12/commands/npm-pkg/)
 
@@ -160,17 +180,23 @@ See: [npm version](https://docs.npmjs.com/cli/v12/commands/npm-version/)
 
 ### Define workspaces
 
+#### package.json
+
 ```json
 {
   "name": "app",
   "workspaces": ["packages/a", "packages/b"]
 }
 ```
+<!-- {: data-highlight="workspaces"} -->
+
+#### Add a workspace
 
 ```bash
 npm init -w ./packages/c
 npm install
 ```
+<!-- {: data-highlight="npm init -w"} -->
 
 `npm install` symlinks every workspace into the root `node_modules`.
 
@@ -185,9 +211,9 @@ npm run test --workspaces
 npm run test --workspaces --if-present
 npm publish -w a
 ```
+<!-- {: data-highlight="-w; --workspaces"} -->
 
-`-w` takes a package name or folder path and can repeat. `--workspaces` runs
-across all of them in `package.json` order.
+`-w` takes a package name or folder path and can repeat. `--workspaces` runs across all of them in `package.json` order.
 
 See: [Running commands in workspaces](https://docs.npmjs.com/cli/v12/using-npm/workspaces/#running-commands-in-the-context-of-workspaces)
 
@@ -200,6 +226,7 @@ npm run build
 npm run build -- --watch
 npm test
 ```
+<!-- {: data-highlight="npm run"} -->
 
 Arguments after `--` pass through to the script.
 
@@ -211,6 +238,7 @@ See: [npm run](https://docs.npmjs.com/cli/v12/commands/npm-run/)
 npx prettier --write .
 npm exec -- prettier --write .
 ```
+<!-- {: data-highlight="npx; npm exec"} -->
 
 `npx` is shorthand for `npm exec`; both use local binaries first.
 
@@ -226,6 +254,7 @@ npm publish
 npm publish --access public
 npm publish --tag beta
 ```
+<!-- {: data-highlight="npm publish"} -->
 
 See: [npm publish](https://docs.npmjs.com/cli/v12/commands/npm-publish/)
 
@@ -236,6 +265,7 @@ npm deprecate pkg@"< 0.2.0" "critical bug fixed in 0.2.0"
 npm owner add user pkg
 npm owner ls pkg
 ```
+<!-- {: data-highlight="npm deprecate; npm owner"} -->
 
 See: [npm deprecate](https://docs.npmjs.com/cli/v12/commands/npm-deprecate/), [npm owner](https://docs.npmjs.com/cli/v12/commands/npm-owner/)
 
@@ -266,8 +296,7 @@ See: [Package spec](https://docs.npmjs.com/cli/v12/using-npm/package-spec/)
 | `>=1.2 <2` | Space means AND     |
 | `*`        | Any version         |
 
-`^` allows minor and patch upgrades, `~` patch only. A prerelease only matches
-a range that itself includes a prerelease.
+`^` allows minor and patch upgrades, `~` patch only. A prerelease only matches a range that itself includes a prerelease.
 
 See: [Semantic Versioning](https://semver.org/)
 
@@ -278,6 +307,7 @@ npm i user/repo --allow-git=all
 npm i github:user/repo#main --allow-git=all
 npm i https://site.com/archive.tgz --allow-remote=all
 ```
+<!-- {: data-highlight="--allow-git=all; --allow-remote=all"} -->
 
 npm 12 blocks git and remote URL dependencies by default; opt in per command or in `.npmrc`.
 

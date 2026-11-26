@@ -1,29 +1,52 @@
 ---
 title: Input tag
+subtitle: Type and attribute reference
 category: HTML
-updated: 2017-10-30
+updated: 2026-11-23
+tier: t3
+last_verified_with: "WHATWG HTML Living Standard."
 weight: -3
+intro: |
+  [The input element](https://html.spec.whatwg.org/multipage/input.html#the-input-element) defines form controls. This sheet covers attributes, input types, and examples for dates, numbers, and text.
+links:
+  - title: input element
+    url: https://html.spec.whatwg.org/multipage/input.html#the-input-element
+  - title: input type attribute
+    url: https://html.spec.whatwg.org/multipage/input.html#attr-input-type
 ---
+
+## Attributes
 
 ### Input
 
+#### Common attributes
+
 ```html
- <input ...
-   disabled
-   required
-   checked
+<input ...
+  disabled
+  required
+  checked
 ```
+<!-- {: data-highlight="disabled; required; checked"} -->
+
+#### Focus
 
 ```html
    autofocus
 ```
+<!-- {: data-highlight="autofocus"} -->
+
+#### Autofill and keyboards
 
 ```html
-   autocomplete='off'        <!-- autocomplete -->
-   autocompletetype='cc-exp'
-   autocapitalize='off'      <!-- for mobiles -->
-   pattern='\d*'             <!-- force numeric input in iOS -->
+   autocomplete='cc-exp'     <!-- autofill token -->
+   autocapitalize='off'
+   inputmode='numeric'       <!-- mobile keyboard -->
+   pattern='\d*'             <!-- validation -->
 ```
+<!-- {: data-highlight="autocomplete; autocapitalize; inputmode; pattern"} -->
+
+See: [the input element](https://html.spec.whatwg.org/multipage/input.html#the-input-element)
 
 ### Input types
 
@@ -35,32 +58,34 @@ weight: -3
 * tel
 * **text**
 * search
+* url
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Time
 
 * date
+* datetime-local
 * time
 
 <!-- {: .-four-column} -->
 
-#### Time (not widely supported)
+#### Time (limited or obsolete)
 
 * month
 * week
 * datetime
-* datetime-local
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum} -->
 
 #### Etc
 
 * **file**
 * **radio**
 * **checkbox**
+* color
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Buttons
 
@@ -69,14 +94,16 @@ weight: -3
 * submit
 * image
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Numeric
 
 * number
 * range
 
-<!-- {: .-four-column} -->
+<!-- {: .-enum-lines} -->
+
+See: [input type attribute](https://html.spec.whatwg.org/multipage/input.html#attr-input-type)
 
 ## Examples
 
@@ -87,14 +114,17 @@ weight: -3
 | `type='date'` | <input type='date'> |
 | `type='time'` | <input type='time'> |
 
+See: [Date state (type=date)](https://html.spec.whatwg.org/multipage/input.html#date-state-(type=date))
+
 ### Datetime
 
 | Type | Example |
 | --- | --- |
-| `type='datetime'` | <input type='datetime'> |
 | `type='datetime-local'` | <input type='datetime-local'> |
 
-`datetime` and `datetime-local` fields are not widely supported.
+`datetime` was removed from the HTML spec; use `datetime-local` and a separate time zone control.
+
+See: [Local Date and Time state (type=datetime-local)](https://html.spec.whatwg.org/multipage/input.html#local-date-and-time-state-(type=datetime-local))
 
 ### Numbers
 
@@ -102,6 +132,8 @@ weight: -3
 | --- | --- |
 | `type='number'` | <input type='number'> |
 | `type='range'` | <input type='range'> |
+
+See: [Number state (type=number)](https://html.spec.whatwg.org/multipage/input.html#number-state-(type=number))
 
 ### Text
 
@@ -112,6 +144,8 @@ weight: -3
 | `type='search'` | <input type='search'> |
 | `type='tel'` | <input type='tel'> |
 
+See: [Text state (type=text)](https://html.spec.whatwg.org/multipage/input.html#text-(type=text)-state-and-search-state-(type=search))
+
 ## Also see
 
- * <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input>
+* <https://html.spec.whatwg.org/multipage/input.html#the-input-element>

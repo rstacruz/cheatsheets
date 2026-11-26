@@ -1,7 +1,24 @@
 ---
 title: MySQL
+subtitle: Relational database server
 updated: 2026-11-11
+last_verified_with: "MySQL 9.7 LTS."
 tier: t2
+fragments:
+  - "SELECT *"
+  - "LEFT JOIN"
+  - "WHERE"
+  - "GROUP BY"
+  - "CREATE TABLE"
+  - "ALTER TABLE"
+  - "INSERT INTO"
+  - "UPDATE"
+  - "CREATE INDEX"
+  - "SHOW TABLES"
+  - "SHOW DATABASES"
+  - "DESCRIBE t"
+  - "CREATE DATABASE"
+  - "COUNT(*)"
 category: Databases
 intro: |
   [MySQL](https://dev.mysql.com/doc/refman/9.7/en/) is an open-source relational database. This reference covers MySQL 9.7 LTS SQL, clients, and server administration.
@@ -25,6 +42,7 @@ SELECT * FROM t ORDER BY col1, col2 DESC;
 SELECT * FROM t LIMIT 10 OFFSET 20;
 SELECT col, COUNT(*) FROM t GROUP BY col HAVING COUNT(*) > 1;
 ```
+<!-- {: data-highlight="SELECT"} -->
 
 See: [SELECT statement](https://dev.mysql.com/doc/refman/9.7/en/select.html)
 
@@ -37,6 +55,7 @@ SELECT * FROM t1 RIGHT JOIN t2 ON t1.id = t2.id;
 SELECT * FROM t1 CROSS JOIN t2;
 SELECT * FROM t1 JOIN t2 USING (id);
 ```
+<!-- {: data-highlight="JOIN; LEFT JOIN; RIGHT JOIN; CROSS JOIN"} -->
 
 See: [JOIN clause](https://dev.mysql.com/doc/refman/9.7/en/join.html)
 
@@ -66,6 +85,7 @@ SELECT id,
   ROW_NUMBER() OVER (PARTITION BY grp ORDER BY id) AS rn
 FROM t;
 ```
+<!-- {: data-highlight="WITH; ROW_NUMBER()"} -->
 
 See: [WITH](https://dev.mysql.com/doc/refman/9.7/en/with.html), [Window functions](https://dev.mysql.com/doc/refman/9.7/en/window-functions.html)
 
@@ -81,6 +101,7 @@ INSERT INTO t (id, col1) VALUES (1, 'a') AS new
   ON DUPLICATE KEY UPDATE col1 = new.col1;
 INSERT INTO t1 (col1) SELECT col1 FROM t2;
 ```
+<!-- {: data-highlight="INSERT INTO"} -->
 
 See: [INSERT](https://dev.mysql.com/doc/refman/9.7/en/insert.html), [ON DUPLICATE KEY UPDATE](https://dev.mysql.com/doc/refman/9.7/en/insert-on-duplicate.html)
 
@@ -92,6 +113,7 @@ UPDATE t1 JOIN t2 ON t1.id = t2.id
   SET t1.col1 = t2.col1;
 UPDATE t SET col1 = col1 + 1 ORDER BY id LIMIT 10;
 ```
+<!-- {: data-highlight="UPDATE"} -->
 
 See: [UPDATE statement](https://dev.mysql.com/doc/refman/9.7/en/update.html)
 
@@ -103,6 +125,7 @@ DELETE FROM t ORDER BY id LIMIT 10;
 DELETE t1 FROM t1 JOIN t2 ON t1.id = t2.id;
 TRUNCATE TABLE t;
 ```
+<!-- {: data-highlight="DELETE FROM; TRUNCATE TABLE"} -->
 
 See: [DELETE statement](https://dev.mysql.com/doc/refman/9.7/en/delete.html)
 
@@ -116,6 +139,7 @@ USE app;
 ALTER DATABASE app CHARACTER SET utf8mb4;
 DROP DATABASE app;
 ```
+<!-- {: data-highlight="CREATE DATABASE"} -->
 
 See: [CREATE DATABASE](https://dev.mysql.com/doc/refman/9.7/en/create-database.html)
 
@@ -132,6 +156,7 @@ CREATE TABLE IF NOT EXISTS t2 (id INT PRIMARY KEY);
 CREATE TEMPORARY TABLE tmp (id INT);
 CREATE TABLE t3 LIKE t;
 ```
+<!-- {: data-highlight="CREATE TABLE"} -->
 
 See: [CREATE TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/create-table.html)
 
@@ -147,6 +172,7 @@ ALTER TABLE t ALTER COLUMN col SET DEFAULT 'x';
 ALTER TABLE t ALTER COLUMN col DROP DEFAULT;
 ALTER TABLE t RENAME TO t2;
 ```
+<!-- {: data-highlight="ALTER TABLE"} -->
 
 See: [ALTER TABLE statement](https://dev.mysql.com/doc/refman/9.7/en/alter-table.html)
 
@@ -164,6 +190,7 @@ ALTER TABLE t ADD CONSTRAINT fk_org
   FOREIGN KEY (org_id) REFERENCES org (id);
 ALTER TABLE t ADD CONSTRAINT chk CHECK (qty > 0);
 ```
+<!-- {: data-highlight="FOREIGN KEY; CHECK"} -->
 
 See: [FOREIGN KEY constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-foreign-keys.html), [CHECK constraints](https://dev.mysql.com/doc/refman/9.7/en/create-table-check-constraints.html)
 
@@ -176,6 +203,7 @@ CREATE INDEX idx_multi ON t (col1, col2);
 ALTER TABLE t ADD INDEX idx_col (col);
 DROP INDEX idx_name ON t;
 ```
+<!-- {: data-highlight="CREATE INDEX"} -->
 
 See: [CREATE INDEX](https://dev.mysql.com/doc/refman/9.7/en/create-index.html)
 
@@ -192,6 +220,7 @@ SHOW CREATE TABLE t;
 SHOW INDEX FROM t;
 SHOW GRANTS FOR CURRENT_USER;
 ```
+<!-- {: data-highlight="SHOW; DESCRIBE"} -->
 
 See: [SHOW statements](https://dev.mysql.com/doc/refman/9.7/en/show.html)
 
@@ -204,6 +233,7 @@ KILL 123;
 KILL QUERY 123;
 KILL CONNECTION 123;
 ```
+<!-- {: data-highlight="SHOW PROCESSLIST"} -->
 
 See: [KILL statement](https://dev.mysql.com/doc/refman/9.7/en/kill.html), [SHOW PROCESSLIST](https://dev.mysql.com/doc/refman/9.7/en/show-processlist.html)
 
@@ -218,9 +248,9 @@ GRANT SELECT, INSERT ON app.* TO 'app'@'localhost';
 REVOKE INSERT ON app.* FROM 'app'@'localhost';
 DROP USER 'app'@'localhost';
 ```
+<!-- {: data-highlight="CREATE USER; GRANT"} -->
 
-Host `%` matches any host; prefer `localhost` for local clients. Accounts default
-to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
+Host `%` matches any host; prefer `localhost` for local clients. Accounts default to `caching_sha2_password`; `mysql_native_password` was removed in 9.0.
 
 See: [CREATE USER](https://dev.mysql.com/doc/refman/9.7/en/create-user.html), [GRANT](https://dev.mysql.com/doc/refman/9.7/en/grant.html)
 
@@ -231,6 +261,7 @@ ALTER USER 'app'@'localhost' IDENTIFIED BY 'new_secret';
 SET PASSWORD FOR 'app'@'localhost' = 'new_secret';
 SET PASSWORD = 'new_secret';
 ```
+<!-- {: data-highlight="ALTER USER"} -->
 
 `ALTER USER` is preferred over `SET PASSWORD`.
 
@@ -245,29 +276,36 @@ GRANT 'read_only' TO 'app'@'localhost';
 SET DEFAULT ROLE 'read_only' TO 'app'@'localhost';
 DROP ROLE 'read_only';
 ```
+<!-- {: data-highlight="CREATE ROLE; SET DEFAULT ROLE"} -->
 
 See: [Using roles](https://dev.mysql.com/doc/refman/9.7/en/roles.html)
 
 ### Reset root password
 
-Stop the running server first, then start recovery mode.
+#### Stop and start recovery
 
 ```bash
 sudo systemctl stop mysql   # or: /etc/init.d/mysql stop
 sudo mysqld_safe --user=mysql --skip-grant-tables --skip-networking &
 mysql -u root
 ```
+<!-- {: data-highlight="--skip-grant-tables"} -->
+
+#### Set the password
 
 ```sql
 FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_secret';
 ```
+<!-- {: data-highlight="FLUSH PRIVILEGES"} -->
+
+#### Shut down recovery
 
 ```bash
 mysqladmin -u root -p shutdown
 ```
 
-Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
+Stop the running server first, then start recovery mode. Restart MySQL normally afterwards. On systemd systems, start `mysqld` with the same flags and `--user=mysql` instead of `mysqld_safe`.
 
 See: [How to reset the root password](https://dev.mysql.com/doc/refman/9.7/en/resetting-permissions.html)
 
@@ -280,6 +318,7 @@ mysqldump -u root -p --single-transaction \
   --routines --triggers app > app.sql
 mysqldump -u root -p --no-data app > schema.sql
 ```
+<!-- {: data-highlight="--single-transaction"} -->
 
 `--single-transaction` gives a consistent InnoDB snapshot without locking tables.
 
@@ -291,6 +330,7 @@ See: [mysqldump](https://dev.mysql.com/doc/refman/9.7/en/mysqldump.html)
 mysql -u root -p -e 'CREATE DATABASE IF NOT EXISTS app'
 mysql -u root -p app < app.sql
 ```
+<!-- {: data-highlight="< app.sql"} -->
 
 See: [Executing SQL from a file](https://dev.mysql.com/doc/refman/9.7/en/mysql-batch-commands.html)
 
@@ -301,6 +341,7 @@ mysqlcheck -u root -p --all-databases
 mysqlcheck -u root -p --all-databases --fast
 mysqlcheck -u root -p --auto-repair app
 ```
+<!-- {: data-highlight="--fast; --auto-repair"} -->
 
 `--fast` checks only tables that were not closed properly. `--auto-repair` cannot repair InnoDB tables; `REPAIR TABLE` supports MyISAM, ARCHIVE, and CSV only.
 
@@ -375,6 +416,7 @@ ALTER TABLE t ADD COLUMN name VARCHAR(50)
   GENERATED ALWAYS AS (doc->>'$.name') STORED,
   ADD INDEX (name);
 ```
+<!-- {: data-highlight="doc->>'$.name'; JSON_SET; GENERATED ALWAYS AS"} -->
 
 Index a generated column to index a JSON field.
 

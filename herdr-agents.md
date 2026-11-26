@@ -1,8 +1,28 @@
 ---
 title: Herdr agents
+subtitle: Coding agent state detection
 category: Agents
-updated: 2026-11-11
-tier: t2
+updated: 2026-11-15
+last_verified_with: "herdr 0.9.5."
+tier: t1
+fragments:
+  - "herdr agent"
+  - "herdr agent wait"
+  - "herdr agent read"
+  - "agent start"
+  - "agent prompt"
+  - "agent wait"
+  - "--kind codex"
+  - "--wait"
+  - "--until blocked"
+  - "idle"
+  - "working"
+  - "blocked"
+  - "done"
+  - "--timeout"
+  - "--kind claude"
+  - "--until working"
+  - "--lines 120"
 keywords:
   - coding agents
   - agent states
@@ -10,9 +30,7 @@ keywords:
   - integrations
   - terminal
 intro: |
-  Herdr detects coding agents inside panes, tracks their `idle`, `working`,
-  `blocked`, `done`, and `unknown` states, and rolls state up to tabs and
-  workspaces. This reference covers the `herdr agent` command group.
+  Herdr detects coding agents inside panes, tracks their `idle`, `working`, `blocked`, `done`, and `unknown` states, and rolls state up to tabs and workspaces. This reference covers the `herdr agent` command group.
 links:
   - title: Agents
     url: https://herdr.dev/tui/docs/agents/
@@ -26,113 +44,21 @@ links:
 
 ## Agents
 
-### Supported agents
-
-Agents get support in one of two ways: Herdr supports them, or they support
-Herdr themselves. Either way you see each agent's `idle`, `working`, and
-`blocked` state and can wait on it from scripts.
-
-#### Supported by Herdr, with an integration
-
-| Agent | Integration | Notes |
-| --- | --- | --- |
-| Claude Code | `claude` | |
-| Codex | `codex` | |
-| GitHub Copilot CLI | `copilot` | |
-| Cursor Agent CLI | `cursor` | |
-| OpenCode | `opencode` | also reports state |
-| Pi | `pi` | also reports state |
-| OMP | `omp` | state requires the integration |
-| --- | --- | --- |
-| Droid | `droid` | |
-| Devin CLI | `devin` | |
-| Kimi Code CLI | `kimi` | also reports state |
-| Kilo Code CLI | `kilo` | also reports state |
-| Hermes Agent | `hermes` | |
-| Qoder CLI | `qodercli` | |
-| Qwen Code | `qwen` | |
-| --- | --- | --- |
-| Letta Code | `letta` | CLI install only |
-| MastraCode | `mastracode` | state requires the integration |
-| Grok CLI | `grok` | |
-| Antigravity CLI | `antigravity-cli` | |
-
-#### Detected, state only
-
-These agents get state detection without an integration: Amp, Kiro CLI,
-Maki, and Gemini CLI and Cline (both less tested).
-
-#### Supported by the agent
-
-These agents report their own state; there is nothing to install.
-
-- [Command Code](https://commandcode.ai)
-- [Crush](https://github.com/charmbracelet/crush)
-- [Kiro CLI](https://kiro.dev/cli/)
-- [Muse Code](https://dev.meta.ai/products/muse-code)
-- [Prime Agent](https://github.com/PrimeIntellect-ai/prime-agent)
-
-An agent that also reports its resume command comes back in the same session
-after a server restart.
-
-Agents Herdr does not recognize still run normally in panes; they just show
-up as plain terminals.
-
-A host-visible wrapper can hide the agent; prefix its command with
-`HERDR_AGENT=claude` so Herdr uses that agent's manifest.
-
-See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
-
 ### Start an agent
 
 ```bash
+# needs an interactive shell at its prompt; never moves layout
+# returns once the agent is ready; timeout defaults to 30000 ms
 herdr agent start reviewer --kind codex --pane w1:p2
 herdr agent start reviewer --kind codex --pane w1:p2 --timeout 30000
 herdr agent start reviewer --kind claude --pane w1:p2 \
   -- --model sonnet
 ```
+<!-- {: data-highlight="herdr agent start"} -->
 
-The pane must be an available interactive shell at its prompt. `agent start`
-never creates, splits, or moves layout. It returns once the expected agent is
-detected in the same terminal and is ready for input; the startup timeout
-defaults to 30000 ms (max 300000).
+`--kind` takes a kind from Supported agents. Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents; a name clears when the agent exits.
 
-#### Kinds
-
-| Kind | Agent |
-| --- | --- |
-| `claude` | Claude Code |
-| `codex` | Codex |
-| `copilot` | GitHub Copilot CLI |
-| `cursor` | Cursor Agent CLI |
-| `opencode` | OpenCode |
-| `pi` | Pi |
-| `omp` | OMP |
-| --- | --- |
-| `droid` | Droid |
-| `devin` | Devin CLI |
-| `kimi` | Kimi Code CLI |
-| `kilo` | Kilo Code CLI |
-| `hermes` | Hermes Agent |
-| `qodercli` | Qoder CLI |
-| `qwen` | Qwen Code |
-| --- | --- |
-| `letta` | Letta Code |
-| `mastracode` | MastraCode |
-| `grok` | Grok CLI |
-| `agy` | Antigravity CLI |
-| `amp` | Amp |
-| `kiro` | Kiro CLI |
-| `maki` | Maki |
-| `gemini` | Gemini CLI |
-| `cline` | Cline |
-| `muse` | Muse Code |
-
-Names must match `[a-z][a-z0-9_-]{0,31}` and be unique among live agents.
-A name follows the current pane occupant and clears when the agent exits,
-is released, or is replaced. Targets accept a unique live agent name or the
-pane ID currently hosting the agent; terminal IDs and bare kind labels are
-not accepted.
+Targets take a live agent name or its pane ID; bare kinds are rejected.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#agent-identity-and-launch)
 
@@ -144,19 +70,24 @@ herdr agent prompt reviewer "Ship it" --wait --timeout 120000
 herdr agent prompt reviewer "Keep going" --wait --until working
 herdr agent wait reviewer --until blocked --timeout 120000
 ```
+<!-- {: data-highlight="--wait; --until"} -->
 
 `--wait` settles on the first `idle`, `done`, or `blocked` state. `--until`
-can be repeated for specific states. Submitting to an already-blocked agent
-is rejected with `agent_blocked` before any input is sent.
+can be repeated. Submitting to a blocked agent is rejected before input.
 
-When an accepted prompt starts from another non-working state, `--wait`
-requires an observed `working` or `blocked` state within 5 s; otherwise it
-returns `agent_prompt_stalled`. A caller `--timeout` that expires first
-returns `timeout`. The wait tracks lifecycle state, not one turn — if the
-agent is already working, that turn's completion may match.
+Standalone `agent wait` uses the same defaults; `--timeout` bounds it.
 
-Standalone `agent wait` matches the same settled defaults; add `--until` for
-a state-specific wait. Without `--timeout` it waits indefinitely.
+See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-control-surface)
+
+### Wait timing
+
+| Situation | Result |
+| --- | --- |
+| Prompt accepted from a non-working state | Needs `working` or `blocked` within 5 s |
+| That 5 s window passes | `agent_prompt_stalled` |
+| A caller `--timeout` expires first | `timeout` |
+
+The wait tracks lifecycle state, not one turn: an already-working agent's current turn may satisfy it.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-control-surface)
 
@@ -170,14 +101,13 @@ See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#choose-the-
 | `done` | Finished; you have not looked at it yet |
 | `unknown` | Present, but Herdr cannot classify it |
 
-`idle` and `done` are the same underlying state; `done` is the unseen
-variant. Focus commands mark it seen; CLI reads do not.
+`done` is the unseen variant of `idle`; focus marks it seen, CLI reads do not.
 
-The sidebar rolls state up: a `blocked` agent makes its pane, tab, and
-workspace look blocked, a `working` agent makes the workspace active, and a
-`done` agent stays visible until you view it.
+The sidebar rolls state up: `blocked` marks its pane, tab, and workspace blocked; `working` makes the workspace active; `done` stays visible until viewed.
 
 See: [Agents](https://herdr.dev/tui/docs/agents/#how-status-works)
+
+## Inspect and control
 
 ### Inspect
 
@@ -188,6 +118,7 @@ herdr agent read reviewer --source recent-unwrapped --lines 120
 herdr agent explain reviewer
 herdr agent explain --file screen.txt --agent codex --json
 ```
+<!-- {: data-highlight="herdr agent list; herdr agent get; herdr agent explain"} -->
 
 #### Read sources
 
@@ -198,14 +129,18 @@ herdr agent explain --file screen.txt --agent codex --json
 | `recent-unwrapped` | Recent output, soft wraps joined |
 | `detection` | Bottom-buffer snapshot used for detection |
 
-`agent get` shows the resolved agent and its state. `agent explain` reports
-detection state, the matched rule, and why an idle fallback happened; add
-`--json` for machine-readable output. On `agent read`, use `--format ansi`
-(or `--ansi`) when colors and styling are evidence.
+`agent get` shows the resolved state. `agent explain` reports detection, the matched rule, and idle fallbacks; add `--json` for machine output. Use `--ansi` when styling is evidence.
 
-For an idle alternate-screen agent, `recent` with `--lines` beyond the
-visible screen scrolls its transcript; while the agent is not idle, that
-read returns `agent_not_idle`.
+See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
+
+### Scrollback reads
+
+```bash
+herdr agent read reviewer --source recent --lines 200
+```
+<!-- {: data-highlight="--lines 200"} -->
+
+With an idle alternate-screen agent, `--lines` beyond the visible screen scrolls its transcript. While the agent is busy, the read returns `agent_not_idle`.
 
 See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/#agents)
 
@@ -217,43 +152,14 @@ herdr agent send-keys reviewer ctrl+c
 herdr agent focus reviewer
 herdr agent rename reviewer reviewer-2
 herdr agent rename reviewer --clear
-herdr agent attach reviewer --takeover
+herdr agent attach reviewer --takeover   # another client owns input
 ```
+<!-- {: data-highlight="send-keys; focus; rename; attach"} -->
 
-Herdr validates all keys before writing any bytes to the pane. Inspect a
-blocked agent with `agent get` and `agent read` before deciding what input
-to send. `attach` takes over the current terminal; detach with `ctrl+b q`,
-and send a literal `ctrl+b` with `ctrl+b ctrl+b`. Use `--takeover` when
-another attach client already owns input.
+Herdr validates keys before writing bytes. Inspect a blocked agent with `agent get` and `agent read`. `attach` takes over the terminal; detach with `ctrl+b q`, and send a literal `ctrl+b` as `ctrl+b ctrl+b`.
 
 [Herdr keys cheatsheet](./herdr-keys)
-
 <!-- {: .-crosslink} -->
-
-### Integrations
-
-```bash
-herdr integration install claude
-herdr integration uninstall claude
-herdr integration status --outdated-only
-```
-
-Install values: `pi`, `omp`, `claude`, `codex`, `copilot`, `devin`,
-`droid`, `kimi`, `opencode`, `kilo`, `hermes`, `qodercli`, `qwen`,
-`cursor`, `mastracode`, `antigravity-cli`, `grok`, `letta`.
-
-Every integration tells Herdr which session the agent is in, so the same
-session resumes after a server restart. Turn that off with
-`[session] resume_agents_on_restore = false`.
-
-Native restore needs current integrations; check `herdr integration status`
-after upgrading.
-
-The Pi, OMP, Kimi, OpenCode, Kilo, and MastraCode integrations also report
-state; while they report, Herdr uses that instead of reading the screen.
-The others leave state to screen detection.
-
-See: [Integrations](https://herdr.dev/tui/docs/integrations/)
 
 ### Patterns
 
@@ -291,7 +197,106 @@ herdr agent get reviewer
 herdr agent read reviewer --source detection --lines 40
 ```
 
-Herdr returns JSON; extract IDs with `jq`, and target a live agent name or
-explicit pane ID rather than the UI-focused pane.
+Herdr returns JSON; extract IDs with `jq`, and target a live agent name or explicit pane ID rather than the UI-focused pane.
 
 See: [Agent automation](https://herdr.dev/tui/docs/agent-automation/#recipes)
+
+## Supported agents
+
+### Integration and detection
+
+- Herdr supports the agent, or the agent supports Herdr
+- Either way you see `idle`, `working`, and `blocked`, and can wait on it from scripts
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### A–C
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Amp | `amp` | detected only |
+| Antigravity CLI | `agy` | integration; install `antigravity-cli` |
+| Claude Code | `claude` | integration |
+| Cline | `cline` | detected only, less tested |
+| Codex | `codex` | integration |
+| --- | --- | --- |
+| Command Code | — | reports its own state |
+| Crush | — | reports its own state |
+| Cursor Agent CLI | `cursor` | integration |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### D–K
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Devin CLI | `devin` | integration |
+| Droid | `droid` | integration |
+| Gemini CLI | `gemini` | detected only, less tested |
+| GitHub Copilot CLI | `copilot` | integration |
+| Grok CLI | `grok` | integration |
+| --- | --- | --- |
+| Hermes Agent | `hermes` | integration |
+| Kilo Code CLI | `kilo` | integration; reports state |
+| Kimi Code CLI | `kimi` | integration; reports state |
+| Kiro CLI | `kiro` | detected; reports state |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### L–Q
+
+| Agent | Kind | Notes |
+| --- | --- | --- |
+| Letta Code | `letta` | integration; CLI install only |
+| Maki | `maki` | detected only |
+| MastraCode | `mastracode` | integration; state needs it |
+| Muse Code | `muse` | reports its own state |
+| OMP | `omp` | integration; state needs it |
+| --- | --- | --- |
+| OpenCode | `opencode` | integration; reports state |
+| Pi | `pi` | integration; reports state |
+| Prime Agent | — | reports its own state |
+| Qoder CLI | `qodercli` | integration |
+| Qwen Code | `qwen` | integration |
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+### Unrecognized agents
+
+An agent that reports its resume command returns in the same session after a restart. Unrecognized agents still run as plain terminals; prefix a wrapper with `HERDR_AGENT=claude` so Herdr sees the agent.
+
+See: [Agents](https://herdr.dev/tui/docs/agents/#supported-agents)
+
+## Integrations
+
+### Installing integrations
+
+```bash
+herdr integration install claude
+herdr integration uninstall claude
+herdr integration status --outdated-only
+```
+<!-- {: data-highlight="herdr integration install; herdr integration status"} -->
+
+#### Install values
+
+- `pi`, `omp`, `claude`, `codex`, `copilot`, `devin`, `droid`
+- `kimi`, `opencode`, `kilo`, `hermes`, `qodercli`, `qwen`
+- `cursor`, `mastracode`, `antigravity-cli`, `grok`, `letta`
+
+Every integration tells Herdr which session the agent is in, so the session resumes after a restart. Turn that off with `[session] resume_agents_on_restore = false`.
+
+Native restore needs current integrations; check `herdr integration status` after upgrading.
+
+See: [Integrations](https://herdr.dev/tui/docs/integrations/)
+
+### State reporting
+
+| Integration | State |
+| --- | --- |
+| `pi`, `omp`, `kimi`, `opencode`, `kilo`, `mastracode` | Reported by the agent |
+| Others | Read from the screen |
+
+Integrations that report state have it used instead of screen detection; the rest rely on the screen.
+
+See: [Integrations](https://herdr.dev/tui/docs/integrations/)

@@ -1,8 +1,25 @@
 ---
 title: Herdr
+subtitle: Terminal workspace manager
 category: Agents
-updated: 2026-11-11
-tier: t2
+updated: 2026-11-22
+last_verified_with: "herdr 0.9.5."
+tier: t1
+fragments:
+  - "herdr"
+  - "prefix+c"
+  - "prefix+v"
+  - "prefix+h/j/k/l"
+  - "prefix+q"
+  - "prefix+?"
+  - "herdr workspace"
+  - "herdr tab"
+  - "herdr pane"
+  - "herdr agent"
+  - "herdr session"
+  - "prefix+w"
+  - "prefix+n"
+  - "prefix+p"
 keywords:
   - terminal workspace manager
   - AI coding agents
@@ -10,9 +27,7 @@ keywords:
   - workspaces
   - panes
 intro: |
-  [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding
-  agents: persistent sessions of workspaces, tabs, and panes, with agent
-  detection built in.
+  [Herdr](https://herdr.dev) is a terminal workspace manager for AI coding agents: persistent sessions of workspaces, tabs, and panes, with agent detection built in.
 links:
   - title: Herdr documentation
     url: https://herdr.dev/tui/docs/
@@ -31,11 +46,21 @@ links:
 | `prefix+c` | New tab |
 | `prefix+v` / `prefix+minus` | Split right / down |
 | `prefix+h/j/k/l` | Move between panes |
+<!-- {: .-shortcuts} -->
+
+The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
+
+### Workspaces and detach
+
+| Shortcut | Action |
+| --- | --- |
 | `prefix+w` | Workspace navigation |
 | `prefix+q` | Detach; everything keeps running |
 <!-- {: .-shortcuts} -->
 
-The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
+See: [Keyboard](https://herdr.dev/tui/docs/keyboard/)
 
 [Herdr keys cheatsheet](./herdr-keys)
 <!-- {: .-crosslink} -->
@@ -44,20 +69,26 @@ The prefix is `ctrl+b` by default; `prefix+?` lists every active binding.
 
 ### Concepts
 
-```
-session
-└── w1            workspace   project container (one repo or task)
-    ├── w1:t1     tab         layout: agents, logs, server, review
-    │   ├── w1:p1 pane        a real terminal; can host an agent
-    │   └── w1:p2 pane
-    └── w1:t2     tab
-```
-<!-- {: .-box-chars} -->
+#### Layout
 
-A pane is a real terminal, preserved across client detach. An agent is a
-process Herdr recognizes inside a pane. A session is a persistent server
-namespace; `herdr` attaches to the default session. Public IDs are opaque
-handles: `w1`, `w1:t1`, `w1:p1`.
+```mermaid
+flowchart TD
+  accTitle: Herdr session layout
+  accDescr: Sessions hold workspaces, tabs, and panes.
+  Session["`**session**<br>persistent server namespace`"]
+  Workspace["`w1<br>**workspace**<br>one repo or task`"]
+  Tab1["`w1:t1<br>**tab**<br>agents, logs, server, review`"]
+  Tab2["`w1:t2<br>**tab**`"]
+  Pane1["`w1:p1<br>**pane**<br>real terminal, may host an agent`"]
+  Pane2["`w1:p2<br>**pane**`"]
+  Session --> Workspace
+  Workspace --> Tab1
+  Workspace --> Tab2
+  Tab1 --> Pane1
+  Tab1 --> Pane2
+```
+
+#### Commands
 
 ```bash
 herdr session list                 # persistent server namespaces
@@ -66,24 +97,20 @@ herdr tab list --workspace w1      # w1:t1, w1:t2, ...
 herdr pane list --workspace w1     # w1:p1, w1:p2, ...
 herdr pane current --current       # the calling pane's ID
 ```
+<!-- {: data-highlight="--workspace w1"} -->
+
+A pane is a real terminal, preserved across detach. An agent is a process Herdr recognizes in a pane. A session is a persistent server namespace; `herdr` attaches to the default one.
 
 See: [Concepts](https://herdr.dev/tui/docs/concepts/)
 
 ### Quick start
 
 ```bash
-herdr
+herdr     # launch, or reattach to a session
+claude    # run an agent; Herdr detects it
 ```
 
-Launch or reattach to the default session.
-
-```bash
-claude
-```
-
-Run an agent in the focused pane; Herdr detects it automatically. Use the
-prefix keys to split a pane (`prefix+v`), open a tab (`prefix+c`), and
-detach (`prefix+q`) — panes and agents keep running.
+Split with `prefix+v`, open a tab with `prefix+c`, and detach with `prefix+q`; panes and agents keep running.
 
 See: [Quick start](https://herdr.dev/tui/docs/quick-start/)
 
@@ -161,5 +188,5 @@ See: [CLI reference](https://herdr.dev/tui/docs/cli-reference/)
 - [tmux](./tmux)
 - [screen](./screen)
 - [Claude Code](./claude-code)
-- [Codex](./codex)
+- [OpenAI Codex](./codex)
 <!-- {: .-also-see} -->

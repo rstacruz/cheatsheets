@@ -1,8 +1,25 @@
 ---
 title: Hermes CLI
+subtitle: Terminal AI agent CLI
 category: Agents
-tier: t2
+tier: t1
+fragments:
+  - "hermes"
+  - "hermes chat"
+  - "hermes -z"
+  - "hermes -c"
+  - "hermes setup"
+  - "hermes model"
+  - "--oneshot"
+  - "--model"
+  - "--provider"
+  - "--worktree"
+  - "--quiet"
+  - "--tui"
+  - "--cli"
+  - "--usage-file"
 updated: 2026-11-11
+last_verified_with: "Hermes CLI commands and flags from the official docs."
 keywords:
   - AI assistant
   - CLI
@@ -39,6 +56,7 @@ hermes setup --portal   # Portal login, provider, Tool Gateway
 hermes setup            # full reconfiguration wizard
 hermes setup model      # one section at a time
 ```
+<!-- {: data-highlight="hermes setup"} -->
 
 Sections are `model`, `tts`, `terminal`, `gateway`, `tools`, and `agent`. Returning users get the wizard with current values as defaults.
 
@@ -53,6 +71,7 @@ hermes chat --oneshot -q "Summarize this repo"
 hermes -c                                  # continue the last session
 hermes --resume latest --in ./my-project
 ```
+<!-- {: data-highlight="hermes chat; --oneshot; -c; --resume"} -->
 
 On a real TTY, `-q` submits the prompt literally and stays interactive. `--oneshot` answers and exits.
 
@@ -81,8 +100,6 @@ See: [Running the CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli
 | `--worktree`              | Start in an isolated git worktree    |
 | `--safe-mode`             | Disable all customizations           |
 
-<!-- {: .-shortcuts} -->
-
 `--tui` opens the newer TUI; `--cli` forces the classic prompt_toolkit REPL.
 
 See: [`hermes chat`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-chat)
@@ -94,8 +111,9 @@ hermes -z "What's the capital of France?"  # → Paris.
 answer=$(hermes -z "summarize this" < notes.txt)
 hermes -z "review this diff" --usage-file usage.json
 ```
+<!-- {: data-highlight="-z"} -->
 
-`-z` prints only the final answer. Use `chat --oneshot -q` when tool output should reach stdout too.
+#### Options
 
 | Code  | `-z`                     | `chat -q`              |
 | ----- | ------------------------ | ---------------------- |
@@ -106,6 +124,8 @@ hermes -z "review this diff" --usage-file usage.json
 
 <!-- {: .-shortcuts} -->
 
+`-z` prints only the final answer. Use `chat --oneshot -q` when tool output should reach stdout too.
+
 See: [Scripted one-shot](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes--z-prompt--scripted-one-shot)
 
 ### Models
@@ -115,6 +135,7 @@ hermes model   # provider wizard: keys, OAuth, endpoints
 /model         # switch configured providers and models
 hermes chat --model anthropic/claude-sonnet-4
 ```
+<!-- {: data-highlight="hermes model; /model; --model"} -->
 
 `hermes model` adds providers; `/model` can only switch the ones already set up. Override per run with `--model` or `--provider`.
 
@@ -129,6 +150,7 @@ hermes auth add anthropic --type oauth  # browser login
 hermes auth list                        # show credential pools
 hermes auth reset openrouter            # clear cooldowns
 ```
+<!-- {: data-highlight="hermes auth"} -->
 
 Subcommands: `add`, `list`, `remove`, `reset`, `priority`, `refresh`, `status`, and `logout`.
 
@@ -152,15 +174,28 @@ See: [`hermes auth`](https://hermes-agent.nousresearch.com/docs/reference/cli-co
 
 <!-- {: .-shortcuts} -->
 
-On WSL, prefer `gateway run` inside tmux; systemd support is unreliable there.
+See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-gateway)
+
+### WSL
 
 ```bash
 tmux new -s hermes 'hermes gateway run'
 ```
+<!-- {: data-highlight="gateway run"} -->
+
+On WSL, prefer `gateway run` inside tmux; systemd support is unreliable there.
 
 See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-gateway)
 
 ### Sessions
+
+```bash
+hermes sessions prune --dry-run
+hermes sessions export sessions.jsonl
+```
+<!-- {: data-highlight="hermes sessions prune; hermes sessions export"} -->
+
+#### Subcommands
 
 | Subcommand        | Description                               |
 | ----------------- | ----------------------------------------- |
@@ -178,11 +213,6 @@ See: [`hermes gateway`](https://hermes-agent.nousresearch.com/docs/reference/cli
 <!-- {: .-shortcuts} -->
 
 `prune` defaults to sessions older than 90 days; run it with `--dry-run` first.
-
-```bash
-hermes sessions prune --dry-run
-hermes sessions export sessions.jsonl
-```
 
 See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-sessions)
 
@@ -205,8 +235,6 @@ See: [`hermes sessions`](https://hermes-agent.nousresearch.com/docs/reference/cl
 | `/branch [name]`    | Copy the session to a new branch         |
 | `/save <format>`    | Export as JSON, Markdown, or HTML        |
 
-<!-- {: .-shortcuts} -->
-
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
 
 ### Model, context, and status
@@ -218,8 +246,6 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/status`  | Show session details and a recap     |
 | `/usage`   | Show tokens, cost, and account limits |
 | `/config`  | Show the current configuration       |
-
-<!-- {: .-shortcuts} -->
 
 See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#interactive-cli-slash-commands)
 
@@ -235,8 +261,6 @@ See: [CLI slash commands](https://hermes-agent.nousresearch.com/docs/reference/s
 | `/loop [interval] <prompt>`           | Re-run a prompt on a schedule        |
 | `/heartbeat every <interval> <prompt>` | Repeat a prompt while the session is idle |
 
-<!-- {: .-shortcuts} -->
-
 See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#session)
 
 ### Tools and skills
@@ -248,8 +272,6 @@ See: [Session commands](https://hermes-agent.nousresearch.com/docs/reference/sla
 | `/skills`      | Search, install, and manage skills     |
 | `/memory`      | Review pending memory writes           |
 | `/reload-mcp`  | Reload MCP servers and their tools     |
-
-<!-- {: .-shortcuts} -->
 
 See: [Tools and skills](https://hermes-agent.nousresearch.com/docs/reference/slash-commands#tools--skills)
 
@@ -267,6 +289,7 @@ quick_commands:
     type: alias
     target: /gmail unread
 ```
+<!-- {: data-highlight="exec; alias"} -->
 
 `exec` runs a shell command; `alias` points at another slash command.
 
@@ -301,6 +324,7 @@ See: [Keybindings](https://hermes-agent.nousresearch.com/docs/user-guide/cli#key
 > !git status
 > !pytest -x tests/hermes_cli
 ```
+<!-- {: data-highlight="!"} -->
 
 `!` runs on your own machine and skips the model. A pasted block shows a one-line preview.
 
@@ -318,6 +342,7 @@ hermes config set model.default claude-sonnet-4
 hermes config check
 hermes config migrate
 ```
+<!-- {: data-highlight="hermes config"} -->
 
 Dotted keys edit `config.yaml`; `UPPER_SNAKE` names are written to `.env`. `hermes config path` and `env-path` print each file.
 
@@ -331,6 +356,7 @@ hermes profile create work --clone
 hermes profile use work
 hermes -p work chat -q "Hello from work"
 ```
+<!-- {: data-highlight="hermes profile; -p"} -->
 
 Each profile has its own config, sessions, skills, and home. `-p` overrides the sticky default for one command.
 
@@ -364,7 +390,7 @@ hermes chat -q "review this diff" --format stream-json
 hermes chat --safe-mode --model gpt-4.1 -q "Config bug?"
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="--format"} -->
 
 `stream-json` emits one JSON event per line. `--safe-mode` ignores your setup, so a broken config cannot block the run.
 
@@ -377,6 +403,7 @@ hermes -w                     # session in a worktree
 hermes -w -z "Fix issue #123" # one-shot in a worktree
 /worktree new my-experiment   # mid-session worktree
 ```
+<!-- {: data-highlight="-w; /worktree new"} -->
 
 Exiting an interactive session asks whether to keep or archive a dirty tree. One-shot runs keep it for the stale sweep; `hermes worktree restore` brings an archive back.
 
@@ -389,6 +416,7 @@ hermes gateway setup
 hermes send --to telegram "deploy finished"
 echo "RAM 92%" | hermes send --to telegram:-1001234567890
 ```
+<!-- {: data-highlight="hermes send; --to"} -->
 
 `/handoff telegram` moves a live session into a chat thread; `hermes send` posts without an agent turn.
 
@@ -399,5 +427,5 @@ See: [`hermes send`](https://hermes-agent.nousresearch.com/docs/reference/cli-co
 <!-- {: .-one-column} -->
 
 - [Claude Code](./claude-code)
-- [Codex](./codex)
+- [OpenAI Codex](./codex)
 - [Herdr](./herdr)

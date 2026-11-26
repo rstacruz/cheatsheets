@@ -1,116 +1,215 @@
 ---
 title: Unicode symbols
+category: Others
+subtitle: Reference for symbol codepoints
+updated: 2026-11-24
+last_verified_with: "Unicode 18.0.0 charts."
+tier: t3
+intro: |
+  Codepoints for common symbols, shapes, arrows and keyboard keys, plus
+  JavaScript and HTML ways to write them.
+links:
+  - title: Unicode code charts
+    url: https://www.unicode.org/charts/
+  - title: String.fromCodePoint
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
+  - title: HTML named character references
+    url: https://html.spec.whatwg.org/multipage/named-characters.html
 ---
 
-### Symbols
+## Symbols
 
-```
-✈   \u2708 airplane
-❄   \u2744 snowflake
-⚑   \u2691 flag
-☯   \u262f yinyang
-♞   \u265e horse
-☀   \u2600 rays
-⚠   \u26a0 warning
+### Common symbols
 
-★   star
-☆   star2
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2708` | ✈ | airplane |
+| `U+2744` | ❄ | snowflake |
+| `U+2691` | ⚑ | black flag |
+| `U+2690` | ⚐ | white flag |
+| `U+262F` | ☯ | yin yang |
+| --- | --- | --- |
+| `U+265E` | ♞ | black knight |
+| `U+2600` | ☀ | black sun with rays |
+| `U+26A0` | ⚠ | warning sign |
+| `U+2605` | ★ | black star |
+| `U+2606` | ☆ | white star |
+<!-- {: .-headers} -->
 
-⚐   \u2690 flag
-⚑   \u2691 flag
-```
+See: [Miscellaneous Symbols](https://www.unicode.org/charts/PDF/U2600.pdf)
 
 ### Bullets
 
-```
-•   \u2022
-·   \u00b7
-┄   \u2504
-—   \u2014 (mdash)
-–   \u2013 (ndash)
-◦   \u25e6 circle
-```
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2022` | • | bullet |
+| `U+00B7` | · | middle dot |
+| `U+25E6` | ◦ | white bullet |
+| `U+2504` | ┄ | triple dash |
+| `U+2014` | — | em dash |
+| `U+2013` | – | en dash |
+<!-- {: .-headers} -->
+
+See: [General Punctuation](https://www.unicode.org/charts/PDF/U2000.pdf)
 
 ### Checks
 
-```
-✓   \u2713 check
-✕   \u2715
-✗   \u2717 x mark
-✘   \u2718 x mark bold
-❏   \u274f checkbox
-×   times
-```
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2713` | ✓ | check mark |
+| `U+2715` | ✕ | multiplication x |
+| `U+2717` | ✗ | ballot x |
+| `U+2718` | ✘ | heavy ballot x |
+| `U+274F` | ❏ | shadowed square |
+| `U+00D7` | × | multiplication sign |
+<!-- {: .-headers} -->
 
+See: [Dingbats](https://www.unicode.org/charts/PDF/U2700.pdf)
+
+### Quotes
+
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+00AB` | « | double angle left |
+| `U+00BB` | » | double angle right |
+| `U+2039` | ‹ | single angle left |
+| `U+203A` | › | single angle right |
+<!-- {: .-headers} -->
+
+See: [Latin-1 Supplement](https://www.unicode.org/charts/PDF/U0080.pdf)
 
 ### Spinners
 
-```
-  ◜◠◝◞◡◟
-  ❘❙❚
-```
+| Frames | Style |
+| --- | --- |
+| `◜◠◝◞◡◟` | Arc spinner |
+| `❘❙❚` | Tick spinner |
+<!-- {: .-headers} -->
 
-### Triangles and arrows
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
 
-```
-▲
-▼
-▶
+## Shapes
 
-⬅   \u2b05
-⬆   \u2b06
-⬇   \u2b07
+### Triangles
 
-◢
-◣
-◤
-◥
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+25B2` | ▲ | up |
+| `U+25BC` | ▼ | down |
+| `U+25B6` | ▶ | right |
+| `U+25B8` | ▸ | right small |
+| --- | --- | --- |
+| `U+25E2` | ◢ | lower right |
+| `U+25E3` | ◣ | lower left |
+| `U+25E4` | ◤ | upper left |
+| `U+25E5` | ◥ | upper right |
+<!-- {: .-headers} -->
 
-«   &laquo;
-»   &raquo;
-‹   &lsaquo;
-›   &rsaquo;
-•   &middot;
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
 
-⌘ – &#x2318; – &#8984; – Command Key
-⌥ – &#x2325; – &#8997; – Option Key
-⇧ – &#x21E7; – &#8679; – Shift Key
-⎋ – &#x238B; – &#9099; – ESC Key
-⇪ – &#x21ea; – &#8682; – Capslock
-⏎ – &#x23ce; – &#9166; – Return
-⌫ – &#x232b; – &#9003; – Delete / Backspace
+### Arrows
 
-▸   \u25b8 right arrow
-▹
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2B05` | ⬅ | left |
+| `U+2B06` | ⬆ | up |
+| `U+2B07` | ⬇ | down |
+| `U+27A1` | ➡ | right |
+| `U+2192` | → | right thin |
+| `U+2B95` | ⮕ | right heavy |
+<!-- {: .-headers} -->
 
-◇   \u25c7
-◆
+See: [Arrows](https://www.unicode.org/charts/PDF/U2190.pdf)
 
-◐
-◑
-◒
-◓
+### Circles and diamonds
 
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+25CF` | ● | black circle |
+| `U+25CB` | ○ | white circle |
+| `U+25D0` | ◐ | left half |
+| `U+25D1` | ◑ | right half |
+| --- | --- | --- |
+| `U+25D2` | ◒ | lower half |
+| `U+25D3` | ◓ | upper half |
+| `U+25C7` | ◇ | white diamond |
+| `U+25C6` | ◆ | black diamond |
+<!-- {: .-headers} -->
 
-♠   \u2660
-♣   \u2663
-♥   \u2665
-♦   \u2666
+See: [Geometric Shapes](https://www.unicode.org/charts/PDF/U25A0.pdf)
 
+### Suits and marks
 
-✂  scissors
-ℹ information &#008505;
-♡ heart &#009825;
-⚙ cog or gear &#009881;
-✉ envelope &#009993;
-✎ pencil &#009998;
-```
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2660` | ♠ | spade |
+| `U+2663` | ♣ | club |
+| `U+2665` | ♥ | heart |
+| `U+2666` | ♦ | diamond |
+| `U+2661` | ♡ | white heart |
+| --- | --- | --- |
+| `U+2702` | ✂ | scissors |
+| `U+2709` | ✉ | envelope |
+| `U+270E` | ✎ | pencil |
+| `U+2699` | ⚙ | gear |
+| `U+2139` | ℹ | information |
+<!-- {: .-headers} -->
+
+See: [Miscellaneous Symbols](https://www.unicode.org/charts/PDF/U2600.pdf)
+
+## Keyboard
+
+### Modifier keys
+
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+2318` | ⌘ | command |
+| `U+2325` | ⌥ | option |
+| `U+21E7` | ⇧ | shift |
+| `U+21EA` | ⇪ | caps lock |
+<!-- {: .-headers} -->
+
+See: [Miscellaneous Technical](https://www.unicode.org/charts/PDF/U2300.pdf)
+
+### Editing keys
+
+| Code | Symbol | Name |
+| --- | --- | --- |
+| `U+238B` | ⎋ | escape |
+| `U+23CE` | ⏎ | return |
+| `U+232B` | ⌫ | delete |
+<!-- {: .-headers} -->
+
+See: [Miscellaneous Technical](https://www.unicode.org/charts/PDF/U2300.pdf)
+
+## Codepoints
 
 ### JavaScript
 
-```
-"x".charCodeAt(0)
-"x".charCodeAt(0).toString(16)
+#### Codepoint
 
-http://www.danshort.com/HTMLentities/index.php?w=dingb
+```js
+'☆'.codePointAt(0).toString(16) // '2606'
 ```
+
+#### From a codepoint
+
+```js
+String.fromCodePoint(0x2605) // '★'
+'\u2606' // '☆'
+```
+
+`codePointAt` reads every codepoint; `charCodeAt` splits astral ones into surrogate halves.
+
+See: [codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
+
+### HTML references
+
+```html
+&#x2605; <!-- ★ -->
+&#9733;  <!-- ★ -->
+```
+
+Both forms work in HTML. See the [named character references](https://html.spec.whatwg.org/multipage/named-characters.html) for the full list.
+
+See: [Named character references](https://html.spec.whatwg.org/multipage/named-characters.html)

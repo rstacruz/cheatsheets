@@ -1,10 +1,13 @@
 ---
 title: rbenv
+seo_title: rbenv cheatsheet — install, versions, global
+subtitle: Ruby version manager
 category: Ruby
-updated: 2018-02-20
+tier: t3
+updated: 2026-11-26
+last_verified_with: "rbenv 1.3.2, ruby-build 20261119."
 weight: -1
-description: |
-  A one-page guide to rbenv Ruby version manager, with usage examples and more.
+description: "rbenv versions: install, global, local and rehash commands. Ruby version manager reference."
 intro: |
   [rbenv](https://github.com/rbenv/rbenv) lets you manage installations of multiple Ruby versions.
 links:
@@ -17,24 +20,27 @@ links:
 #### Install rbenv and ruby-build
 
 ```bash
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git \
+  ~/.rbenv/plugins/ruby-build
 ```
+<!-- {: data-highlight="git clone"} -->
 
-#### Add to ~/.bash_profile
+#### Set up your shell
 
 ```bash
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+~/.rbenv/bin/rbenv init bash
 ```
+<!-- {: data-highlight="rbenv init"} -->
 
 #### Verify installation
 
 ```bash
 type rbenv   # → "rbenv is a function"
 ```
+<!-- {: data-highlight="type rbenv"} -->
 
-These are generic instructions; there may be rbenv packages available for your OS.
+These are generic instructions; your OS may provide an rbenv package. You can also add `eval "$(rbenv init - bash)"` to your shell profile yourself.
 
 See: [Installation](https://github.com/rbenv/rbenv#installation)
 
@@ -44,14 +50,16 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 | ---                     | ---                         |
 | `rbenv install -l`      | List all available versions |
 | ---                     | ---                         |
-| `rbenv install 2.2.1`   | Install Ruby _2.2.1_        |
-| `rbenv uninstall 2.2.1` | Uninstall Ruby _2.2.1_      |
+| `rbenv install 3.1.2`   | Install Ruby _3.1.2_        |
+| `rbenv uninstall 3.1.2` | Uninstall Ruby _3.1.2_      |
 | ---                     | ---                         |
 | `rbenv versions`        | See installed versions      |
 | `rbenv version`         | See current version         |
 | ---                     | ---                         |
 | `rbenv which <NAME>`    | Display path to executable  |
-| `rbenv rehash`          | Re-write binstubs           |
+| `rbenv rehash`          | Create shims (automatic)    |
+
+See: [Command reference](https://github.com/rbenv/rbenv#command-reference)
 
 ## Using versions
 
@@ -61,30 +69,36 @@ See: [Installation](https://github.com/rbenv/rbenv#installation)
 
 | Command               | Description                 |
 | ---                   | ---                         |
-| `rbenv local 2.2.2`   | Use Ruby _2.2.2_ in project |
+| `rbenv local 3.1.2`   | Use Ruby _3.1.2_ in project |
 | `rbenv local --unset` | Undo above                  |
 
 Application-specific version numbers are stored in `.ruby-version`.
+
+See: [rbenv local](https://github.com/rbenv/rbenv#rbenv-local)
 
 ### Globally
 
 | Command                | Description               |
 | ---                    | ---                       |
-| `rbenv global 2.2.2`   | Use Ruby _2.2.2_ globally |
+| `rbenv global 3.1.2`   | Use Ruby _3.1.2_ globally |
 | `rbenv global --unset` | Undo above                |
 
 Global version numbers are stored in `~/.rbenv/version`.
+
+See: [rbenv global](https://github.com/rbenv/rbenv#rbenv-global)
 
 ### Shell
 
 | Command               | Description               |
 | ---                   | ---                       |
-| `rbenv shell 2.2.2`   | Use Ruby _2.2.2_ in shell |
+| `rbenv shell 3.1.2`   | Use Ruby _3.1.2_ in shell |
 | `rbenv shell --unset` | Undo above                |
 
 Shell-local version numbers are stored as environment variables.
 
+See: [rbenv shell](https://github.com/rbenv/rbenv#rbenv-shell)
+
 ## References
 
 - [rbenv project page](https://github.com/rbenv/rbenv) _(github.com)_
-- [rbenv ubuntu server cheatsheet](https://gist.github.com/rahul286/7160839f4425a3b7e718) _(gist.github.com)_
+- [rbenv command reference](https://github.com/rbenv/rbenv#command-reference) _(github.com)_

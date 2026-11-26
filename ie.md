@@ -1,7 +1,12 @@
 ---
 title: Internet Explorer
+subtitle: Retired web browser
 category: Hidden
 # Internet Explorer was retired on 2022-06-15.
+tags: [Archived]
+archived: |
+  Internet Explorer was retired on 15 June 2022. Test in current Edge, Chrome,
+  Firefox, and Safari instead.
 updated: 2018-03-06
 ---
 

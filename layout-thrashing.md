@@ -1,11 +1,16 @@
 ---
 title: Layout thrashing
-category: HTML
+subtitle: Forced reflow performance issue
+# Reproduces browser API lists from a 2015 layout audit.
+category: Hidden
+tags: [Archived]
+archived: |
+  This reproduces the browser-specific property lists from a 2015 layout audit rather than current browser APIs. Use the [web.dev guide](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing) instead.
 description: ""
-updated: 2017-10-19
+updated: 2026-11-23
 weight: -1
 intro: |
-  These are CSS properties that will cause "layout thrashing". Avoid changing them to prevent bottlenecks in your UI performance.
+  These DOM properties and methods can force synchronous layout. Batch reads before writes to avoid bottlenecks in your UI performance.
 links:
   - title: Layout thrashing
     url: https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing
@@ -51,7 +56,7 @@ links:
   - offsetX
   - offsetY
 
-<!-- {: .-six-column} -->
+<!-- {: .-enum-lines} -->
 
 #### Window
 
@@ -68,7 +73,7 @@ links:
   - height
   - width
 
-<!-- {: .-six-column} -->
+<!-- {: .-enum-lines} -->
 
 #### jQuery
 
@@ -84,8 +89,25 @@ links:
 
 <!-- {: .-six-column} -->
 
+### Read, then write
+
+```js
+// Bad: read-write-read-write forces layout
+for (const p of paragraphs) {
+  p.style.width = `${box.offsetWidth}px`;
+}
+
+// Good: read once, then write
+const width = box.offsetWidth;
+for (const p of paragraphs) {
+  p.style.width = `${width}px`;
+}
+```
+
+Batch style reads before writes to avoid forced reflow.
+
 ## Also see
 
- * <http://www.kellegous.com/j/2013/01/26/layout-performance/>
+ * <https://kellegous.com/j/2013/01/26/layout-performance/>
  * <https://gist.github.com/desandro/4657744>
- * <http://stackoverflow.com/questions/17199958/why-does-setting-textcontent-cause-layout-thrashing>
+ * <https://stackoverflow.com/questions/17199958/why-does-setting-textcontent-cause-layout-thrashing>

@@ -1,128 +1,203 @@
 ---
 title: Makefile
+subtitle: Build automation file
 prism_languages: [makefile]
-category: CLI
+category: Build tools
+last_verified_with: "GNU Make 4.4.1."
+updated: 2026-11-24
+tier: t3
+intro: |
+  GNU make builds targets from dependency rules. This reference covers variables, pattern rules, functions, and running make.
+links:
+  - title: GNU Make manual
+    url: https://www.gnu.org/software/make/manual/html_node/index.html
+  - title: make(1) manual
+    url: https://man7.org/linux/man-pages/man1/make.1.html
+  - title: GNU Make source
+    url: https://git.savannah.gnu.org/cgit/make.git
 ---
 
-### Var assignment
+## Variables
+
+### Assignment
 
 ```makefile
-foo  = "bar"
-bar  = $(foo) foo  # dynamic (renewing) assignment
-foo := "boo"       # one time assignment, $(bar) now is "boo foo"
-foo ?= /usr/local  # safe assignment, $(foo) and $(bar) still the same
-bar += world       # append, "boo foo world"
-foo != echo fooo   # exec shell command and assign to foo
-# $(bar) now is "fooo foo world"
+# recursive: expanded where it is used
+FOO = $(NAME)-debug
+# simple: expanded right here
+NAME := app
+# only when not already set
+VERSION ?= 1.0
+# append, with a space
+NAME += -beta
+# shell output
+REV != git rev-parse --short HEAD
 ```
 
-`=` expressions are only evaluated when they're being used.
+`=` keeps the right-hand side unexpanded, so `FOO` picks up later changes to `NAME`; `:=` freezes it. Quotes are literal, so `FOO = "bar"` stores `"bar"`.
 
-### Magic variables
+See: [Setting variables](https://www.gnu.org/software/make/manual/html_node/Setting.html)
+
+### Automatic variables
 
 ```makefile
-out.o: src.c src.h
-  $@   # "out.o" (target)
-  $<   # "src.c" (first prerequisite)
-  $^   # "src.c src.h" (all prerequisites)
-
-%.o: %.c
-  $*   # the 'stem' with which an implicit rule matches ("foo" in "foo.c")
-
-also:
-  $+   # prerequisites (all, with duplication)
-  $?   # prerequisites (new ones)
-  $|   # prerequisites (order-only?)
-
-  $(@D) # target directory
+build/app.o: src/app.c src/app.h
+	$(CC) -c $< -o $@
 ```
+
+#### Shorthand
+
+```makefile
+$@   # target name
+$<   # first prerequisite
+$^   # all prerequisites, deduplicated
+$+   # all prerequisites, with duplicates
+$?   # prerequisites newer than the target
+$|   # order-only prerequisites
+$*   # stem of the matched pattern rule
+```
+
+`$(@D)` is the target's directory, so `mkdir -p $(@D)` creates it first.
+
+See: [Automatic variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html)
+
+## Rules
+
+### Pattern rules
+
+```makefile
+build/%.o: src/%.c
+	@mkdir -p $(@D)
+	$(CC) -c $< -o $@
+```
+
+`%` matches any non-empty stem, which is also available as `$*`.
+
+See: [Pattern rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html)
+
+### Phony targets
+
+```makefile
+.PHONY: all test clean
+all: build/app
+
+test: all
+	./build/app --test
+
+clean:
+	$(RM) -r build
+```
+
+`.PHONY` stops a name from matching a same-named file; `$(RM)` is `rm -f`.
+
+See: [Phony targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html)
 
 ### Command prefixes
 
-| Prefix | Description                                 |
-| ------ | ------------------------------------------- |
-| `-`    | Ignore errors                               |
-| `@`    | Don't print command                         |
-| `+`    | Run even if Make is in 'don't execute' mode |
-
 ```makefile
 build:
-    @echo "compiling"
-    -gcc $< $@
-
--include .depend
+	@echo "compiling"    # @ hides the command
+	-$(CC) -c maybe.c    # - ignores its error
+	+$(MAKE) -C vendor   # + runs under make -n
 ```
 
-### Find files
+#### Prefixes
+
+| Prefix | Effect                               |
+| ------ | ------------------------------------ |
+| `@`    | Don't echo the command               |
+| `-`    | Ignore the command's error           |
+| `+`    | Run even with `-n`, `-t`, or `-q`    |
+
+See: [Recipe syntax](https://www.gnu.org/software/make/manual/html_node/Recipe-Syntax.html)
+
+### Include files
 
 ```makefile
-js_files  := $(wildcard test/*.js)
-all_files := $(shell find images -name "*")
+include config.mk   # must exist
+-include deps.mk    # optional, no error when missing
 ```
 
-### Substitutions
+Use `-include` (or `sinclude`) for generated `*.d` dependency files.
+
+See: [Including other makefiles](https://www.gnu.org/software/make/manual/html_node/Include.html)
+
+## Functions
+
+### Text functions
 
 ```makefile
-file     = $(SOURCE:.cpp=.o)   # foo.cpp => foo.o
-outputs  = $(files:src/%.coffee=lib/%.js)
-
-outputs  = $(patsubst %.c, %.o, $(wildcard *.c))
-assets   = $(patsubst images/%, assets/%, $(wildcard images/*))
+srcs  := $(wildcard src/*.c)
+objs  := $(patsubst src/%.c,build/%.o,$(srcs))
+dirs  := $(sort $(dir $(srcs)))          # src/
+names := $(notdir $(basename $(srcs)))   # app
 ```
 
-### More functions
+`$(srcs:src/%.c=build/%.o)` is the substitution-reference form of `patsubst`.
+
+See: [Text functions](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html)
+
+### Shell and conditionals
 
 ```makefile
-$(strip $(string_var))
+REV := $(shell git rev-parse --short HEAD)
 
-$(filter %.less, $(files))
-$(filter-out %.less, $(files))
+ifeq ($(shell uname),Darwin)
+  CFLAGS += -I/opt/homebrew/include
+else
+  CFLAGS += -I/usr/include
+endif
 ```
 
-### Building files
+`$(shell cmd)` runs at parse time and trims the trailing newline. Conditionals are decided before any rule runs.
+
+See: [Shell function](https://www.gnu.org/software/make/manual/html_node/Shell-Function.html)
+
+## Running make
+
+### Invocation
+
+```sh
+make -j8 build/app   # one target, 8 jobs
+make -C src          # run in another directory
+make -f build.mk     # read another makefile
+```
+
+See: [make(1)](https://man7.org/linux/man-pages/man1/make.1.html)
+
+### Recursion
 
 ```makefile
-%.o: %.c
-  ffmpeg -i $< > $@   # Input and output
-  foo $^
+deploy:
+	$(MAKE) -C deploy push
 ```
 
-### Includes
+`$(MAKE)` marks the line as recursive, so `make -n`, `-t` and `-q` still run it; both forms inherit the current flags through `MAKEFLAGS`.
 
-```makefile
--include foo.make
-```
+See: [make(1)](https://man7.org/linux/man-pages/man1/make.1.html)
 
 ### Options
 
 ```sh
-make
-  -e, --environment-overrides
-  -B, --always-make
-  -s, --silent
-  -j, --jobs=N   # parallel processing
+make -j8 -k target
 ```
 
-### Conditionals
+#### Options
 
-```makefile
-foo: $(objects)
-ifeq ($(CC),gcc)
-  $(CC) -o foo $(objects) $(libs_for_gcc)
-else
-  $(CC) -o foo $(objects) $(normal_libs)
-endif
-```
+| Flag                   | Description                   |
+| ---------------------- | ----------------------------- |
+| `-j, --jobs=N`         | Run up to N jobs at once      |
+| `-n, --dry-run`        | Print commands without running |
+| `-B, --always-make`    | Rebuild every target          |
+| `-C, --directory=DIR`  | Change directory first        |
+| `-f, --file=FILE`      | Read another makefile         |
+| `-k, --keep-going`     | Continue after errors         |
+| `-s, --silent`         | Don't echo commands           |
 
-### Recursive
+See: [make(1) options](https://man7.org/linux/man-pages/man1/make.1.html#OPTIONS)
 
-```makefile
-deploy:
-  $(MAKE) deploy2
-```
-
-### Further reading
+## Also see
 
 - [isaacs's Makefile](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
 - [Your Makefiles are wrong](https://tech.davis-hansson.com/p/make/)
-- [Manual](https://www.gnu.org/software/make/manual/html_node/index.html)
+- [GNU Make manual](https://www.gnu.org/software/make/manual/html_node/index.html)

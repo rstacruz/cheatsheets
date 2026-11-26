@@ -1,11 +1,15 @@
 ---
 title: ReStructuredText
+subtitle: ReStructuredText markup language
 category: Markup
 intro: |
   ReStructuredText is a markup language for writing documents.
 links:
-  - title: https://en.wikipedia.org/wiki/ReStructuredText
-    url: https://en.wikipedia.org/wiki/ReStructuredText
+  - title: Docutils reStructuredText reference
+    url: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
+tier: t3
+last_verified_with: "Docutils 0.23."
+updated: 2026-11-26
 ---
 
 ### Comments
@@ -16,6 +20,9 @@ links:
 .. contents::
 .. |substitute| replace:: replacement name
 ```
+<!-- {: data-highlight=".. include::"} -->
+
+See: [Comments](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#comments)
 
 ### Headings
 
@@ -33,7 +40,10 @@ Hello there. |substitute| **This is bold**
 
 .. _link: http://link.org
 ```
-    
+<!-- {: data-highlight="======="} -->
+
+See: [Section titles](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#section-titles)
+
 ### PDF page break
 
 ```
@@ -41,9 +51,12 @@ Hello there. |substitute| **This is bold**
 
    PageBreak oneColumn
 ```
-    
+<!-- {: data-highlight=".. raw:: pdf"} -->
+
+See: [raw directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#raw)
+
 ### Link targets
-    
+
 ```
 Internal link target_.
 
@@ -51,9 +64,12 @@ Internal link target_.
 
 This is where _target will end up in.
 ```
-    
+<!-- {: data-highlight=".. _target:"} -->
+
+See: [Internal hyperlink targets](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#internal-hyperlink-targets)
+
 ### Tables (?)
-    
+
 ```
 .. class:: hash-table
 
@@ -66,3 +82,6 @@ This is where _target will end up in.
    * - :key:`Preparation time:`
      - :val:`30 hours`
 ```
+<!-- {: data-highlight=".. list-table::"} -->
+
+See: [list-table directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table)

@@ -1,5 +1,6 @@
 ---
 title: Vue.js v1.0.28
+subtitle: Legacy Vue 1 API
 category: JavaScript
 deprecated: true
 deprecated_by: /vue
@@ -92,8 +93,9 @@ new Vue({
 ## Vue templates
 Via [vueify](https://www.npmjs.com/package/vueify)
 
+#### app.vue
+
 ```js
-// app.vue
 <template>
   <h1 class="red">{{msg}}</h1>
 </template>

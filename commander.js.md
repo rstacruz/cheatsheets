@@ -1,6 +1,10 @@
 ---
 title: Commander.js
-category: JavaScript libraries
+subtitle: Node.js CLI framework
+category: Node.js libraries
+last_verified_with: "Commander.js 15.1."
+updated: 2026-11-25
+tier: t3
 links:
   - title: https://github.com/tj/commander.js/
     url: https://github.com/tj/commander.js/
@@ -11,6 +15,8 @@ links:
 ```
 var cli = require('commander');
 ```
+
+See: [Quick start](https://github.com/tj/commander.js#quick-start)
 
 ### Options
 
@@ -24,6 +30,8 @@ cli
   .parse(process.argv);
 ```
 
+See: [Options](https://github.com/tj/commander.js#options)
+
 ### Help
 
 ```
@@ -32,6 +40,8 @@ cli
 })
 ```
 
+See: [Automated help](https://github.com/tj/commander.js#automated-help)
+
 ### Commands
 
 ```
@@ -39,10 +49,14 @@ cli.outputHelp();
 cli.args == ["hello"];
 ```
 
+See: [Commands](https://github.com/tj/commander.js#commands)
+
 ### Other useful things
 
 ```
 process.exit(0);
 ```
+
+See: [process.exit()](https://nodejs.org/api/process.html#processexitcode)
 
 

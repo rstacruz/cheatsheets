@@ -1,5 +1,7 @@
 ---
 title: Cheatsheet styles
+category: Hidden
+subtitle: Styling reference for cheatsheets
 tags: [WIP]
 updated: 2017-10-26
 intro: |
@@ -165,7 +167,7 @@ here.is.some.more()
 
 Code blocks can have headings.
 
-### Highlighted lines
+### Inline highlights
 
 ```js
 app.start(() => {
@@ -174,9 +176,9 @@ app.start(() => {
 })
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="app.start"} -->
 
-Add `{: data-line="3"}` to add line highlights.
+Add `{: data-highlight="app.start"}` to tint one token.
 
 ### Multiple highlights
 
@@ -187,9 +189,9 @@ app.start(() => {
 })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="app.server.port; console.log"} -->
 
-Add `{: data-line="2,3"}` to add multiple line highlights.
+Add `{: data-highlight="app.server.port; console.log"}` to tint several tokens.
 
 ### Setup blocks
 
@@ -313,6 +315,60 @@ Add `{: .-four-column}` to make large lists.
 <!-- {: .-also-see} -->
 
 Add `{: .-also-see}`.
+
+## Enumeration grids
+
+<!-- {: .-one-column} -->
+
+### Two values
+
+- `ios`
+- `android`
+
+<!-- {: .-enum} -->
+
+Two values fill two tiles at every width.
+
+### Six values
+
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+
+<!-- {: .-enum} -->
+
+Six values render 4 across on desktop and 2 across when narrow.
+
+### Long values
+
+- `article:published_time`
+- `article:modified_time`
+- `article:expiration_time`
+- `article:author`
+- `article:section`
+- `article:tag`
+
+<!-- {: .-enum-wide} -->
+
+Long values cap at two columns with `.-enum-wide`.
+
+### Ruled rows
+
+- `rust`
+- `js`
+- `py`
+- `go`
+- `rb`
+- `java`
+- `md`
+- `json`
+
+<!-- {: .-enum-lines} -->
+
+Horizontal rules span each row; the final rule is clipped.
 
 ## Paragraphs
 

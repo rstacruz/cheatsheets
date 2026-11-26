@@ -1,7 +1,10 @@
 ---
 title: ES2015+
+subtitle: Modern JavaScript features
 category: JavaScript
-updated: 2019-11-14
+last_verified_with: "ECMAScript 2018."
+updated: 2026-11-25
+tier: t3
 weight: -10
 intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
@@ -23,7 +26,7 @@ function fn () {
 }
 ```
 
-<!-- {: data-line="2,4"} -->
+<!-- {: data-highlight="let"} -->
 
 #### Const
 
@@ -93,7 +96,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="constructor"} -->
 
 #### Methods
 
@@ -103,7 +106,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="getArea"} -->
 
 #### Calling superclass methods
 
@@ -113,7 +116,7 @@ class Circle extends Shape {
   }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="super.expand"} -->
 
 #### Static methods
 
@@ -124,7 +127,7 @@ class Circle extends Shape {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="createFromDiameter"} -->
 
 Syntactic sugar for prototypes.
 See: [Classes](https://babeljs.io/learn-es2015/#classes)
@@ -136,7 +139,9 @@ const byte = 2 ** 8
 // Same as: Math.pow(2, 8)
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="**"} -->
+
+See: [Exponentiation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 
 Promises
 --------
@@ -152,7 +157,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="Promise"} -->
 
 For asynchronous programming.
 See: [Promises](https://babeljs.io/learn-es2015/#promises)
@@ -165,8 +170,10 @@ promise
   .catch((error) => { ··· })
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="=>"} -->
 
+
+See: [Promise.prototype.then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
 
 ### Using promises with finally
 
@@ -177,10 +184,12 @@ promise
   .finally(() => { // logic independent of success/error })
 ```
 
-<!-- {: data-line="4"} -->
+<!-- {: data-highlight="finally"} -->
 
 The handler is called when the promise is fulfilled or rejected.
 
+
+See: [Promise.prototype.finally](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
 
 ### Promise functions
 
@@ -190,6 +199,8 @@ Promise.race(···)
 Promise.reject(···)
 Promise.resolve(···)
 ```
+
+See: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Async-await
 
@@ -201,7 +212,7 @@ async function run () {
 }
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="getTweets"} -->
 
 `async` functions are another way of using functions.
 
@@ -220,7 +231,7 @@ Destructuring
 const [first, last] = ['Nikola', 'Tesla']
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Nikola'"} -->
 
 #### Objects
 
@@ -231,7 +242,7 @@ let {title, author} = {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="author"} -->
 
 Supports for matching arrays and objects.
 See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
@@ -243,12 +254,16 @@ const scores = [22, 33]
 const [math = 50, sci = 50, arts = 50] = scores
 ```
 
+#### Result
+
 ```js
 // Result:
 // math === 22, sci === 33, arts === 50
 ```
 
 Default values can be assigned while destructuring arrays or objects.
+
+See: [Destructuring default values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value)
 
 ### Function arguments
 
@@ -258,13 +273,17 @@ function greet({ name, greeting }) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="greeting"} -->
+
+#### Call the function
 
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
 Destructuring of objects and arrays can also be done in function arguments.
+
+See: [Destructuring function arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#unpacking_properties_from_objects_passed_as_a_function_parameter)
 
 ### Default values
 
@@ -274,12 +293,16 @@ function greet({ name = 'Rauno' } = {}) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Rauno'"} -->
+
+#### Call with defaults
 
 ```js
 greet() // Hi Rauno!
 greet({ name: 'Larry' }) // Hi Larry!
 ```
+
+See: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
 ### Reassigning keys
 
@@ -289,13 +312,17 @@ function printCoordinates({ left: x, top: y }) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="printCoordinates"} -->
+
+#### Call the function
 
 ```js
 printCoordinates({ left: 25, top: 90 })
 ```
 
 This example assigns `x` to the value of the `left` key.
+
+See: [Assigning to new variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#assigning_to_new_variable_names)
 
 ### Loops
 
@@ -305,10 +332,12 @@ for (let {title, artist} of songs) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="artist"} -->
 
 The assignment expressions work in loops, too.
 
+
+See: [Destructuring in for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#for_of_iteration_and_destructuring)
 
 ### Object destructuring
 
@@ -316,10 +345,12 @@ The assignment expressions work in loops, too.
 const { id, ...detail } = song;
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="..."} -->
 
 Extract some keys individually and remaining keys in the object using rest (...) operator
 
+
+See: [Rest properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#rest_properties_and_rest_elements)
 
 Spread
 ------
@@ -335,7 +366,7 @@ const options = {
 }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="defaults"} -->
 
 #### without Object spread
 
@@ -347,7 +378,7 @@ const options = Object.assign(
 
 The Object spread operator lets you build new objects from other objects.
 
-See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)
 
 ### Array spread
 
@@ -361,7 +392,7 @@ const users = [
 ]
 ```
 
-<!-- {: data-line="2,3"} -->
+<!-- {: data-highlight="editors"} -->
 
 #### without Array spread
 
@@ -373,7 +404,7 @@ const users = admins
 
 The spread operator lets you build new arrays in the same way.
 
-See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals)
 
 Functions
 ---------
@@ -388,7 +419,7 @@ function greet (name = 'Jerry') {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'Jerry'"} -->
 
 #### Rest arguments
 
@@ -399,7 +430,7 @@ function fn(x, ...y) {
 }
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="function"} -->
 
 #### Spread
 
@@ -408,7 +439,7 @@ fn(...[1, 2, 3])
 // same as fn(1, 2, 3)
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="fn"} -->
 
 Default, rest, spread.
 See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread)
@@ -423,7 +454,7 @@ setTimeout(() => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="setTimeout"} -->
 
 #### With arguments
 
@@ -433,7 +464,7 @@ readFile('text.txt', (err, data) => {
 })
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="'text.txt'"} -->
 
 #### Implicit return
 ```js
@@ -446,7 +477,7 @@ numbers.map(n => ({
 // Implicitly returning objects requires parentheses around the object
 ```
 
-<!-- {: data-line="1,4,5,6"} -->
+<!-- {: data-highlight="numbers.map"} -->
 
 Like functions but with `this` preserved.
 See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)
@@ -474,7 +505,7 @@ const App = {
 // Same as: App = { start: function () {···} }
 ```
 
-<!-- {: data-line="2"} -->
+<!-- {: data-highlight="start"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -491,7 +522,7 @@ const App = {
 }
 ```
 
-<!-- {: data-line="2,5"} -->
+<!-- {: data-highlight="get"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -505,7 +536,7 @@ let handlers = {
 // Same as: handlers = { 'onclick': true }
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="event"} -->
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -521,8 +552,10 @@ Object.entries(fatherJS)
 // [["age", 57], ["name", "Brendan Eich"]]
 ```
 
-<!-- {: data-line="3,5"} -->
+<!-- {: data-highlight="Object.entries"} -->
 
+
+See: [Object.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 
 Modules
 -------
@@ -534,20 +567,28 @@ import 'helpers'
 // aka: require('···')
 ```
 
+#### Default imports
+
 ```js
 import Express from 'express'
 // aka: const Express = require('···').default || require('···')
 ```
+
+#### Named imports
 
 ```js
 import { indent } from 'helpers'
 // aka: const indent = require('···').indent
 ```
 
+#### Namespace imports
+
 ```js
 import * as Helpers from 'helpers'
 // aka: const Helpers = require('···')
 ```
+
+#### Renamed imports
 
 ```js
 import { indentSpaces as indent } from 'helpers'
@@ -564,10 +605,14 @@ export default function () { ··· }
 // aka: module.exports.default = ···
 ```
 
+#### Named exports
+
 ```js
 export function mymethod () { ··· }
 // aka: module.exports.mymethod = ···
 ```
+
+#### Constants
 
 ```js
 export const pi = 3.14159
@@ -588,6 +633,8 @@ function* idMaker () {
   while (true) { yield id++ }
 }
 ```
+
+#### Consume the generator
 
 ```js
 let gen = idMaker()

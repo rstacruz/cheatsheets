@@ -1,7 +1,12 @@
 ---
 title: Deis
+subtitle: Kubernetes PaaS platform
 category: Hidden
 # Discontinued (final release 2017); repo archived 2021.
+tags: [Archived]
+archived: |
+  Deis was discontinued (final release 2017) and its repository was archived
+  in 2021. Use Kubernetes or a managed PaaS instead.
 ---
 
 ### Deploy

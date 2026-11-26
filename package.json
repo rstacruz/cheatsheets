@@ -10,10 +10,13 @@
     "dev": "node scripts/build-icons.mjs && astro dev",
     "fmt:check": "oxfmt --check .",
     "fmt:format": "oxfmt --write .",
-    "format": "concurrently -m 1 \"npm:lint:format\" \"npm:fmt:format\"",
+    "format": "concurrently -m 1 \"npm:lint:format\" \"npm:fmt:format\" \"npm:lint:css\"",
     "icons": "node scripts/build-icons.mjs",
     "icons:check": "node scripts/build-icons.mjs --check",
     "lint:check": "oxlint --report-unused-disable-directives-severity=error .",
+    "lint:css": "stylelint --fix \"src/styles/**/*.css\" --suppress-location=stylelint-suppressions.json",
+    "lint:css:baseline": "stylelint \"src/styles/**/*.css\" --suppress",
+    "lint:css:check": "stylelint \"src/styles/**/*.css\" --suppress-location=stylelint-suppressions.json",
     "lint:format": "oxlint --fix .",
     "preview": "astro preview",
     "start": "astro dev",
@@ -23,7 +26,9 @@
   "dependencies": {
     "@astrojs/partytown": "^2.1.9",
     "@astrojs/ts-plugin": "^1.10.12",
+    "@fontsource-variable/geist": "^5.3.0",
     "@fontsource/cousine": "^5.0.15",
+    "@fontsource/handjet": "^5.3.1",
     "@fontsource/manrope": "^5.0.19",
     "@mapbox/rehype-prism": "^0.9.0",
     "@playwright/test": "^1.64.1",
@@ -31,7 +36,7 @@
     "@tailwindcss/vite": "^4.3.4",
     "@types/mapbox__rehype-prism": "^0.8.3",
     "@types/mdast": "^4.0.4",
-    "astro": "^7.4.5",
+    "astro": "^7.4.7",
     "autocompleter": "^9.1.0",
     "clsx": "^2.1.1",
     "concurrently": "^10.0.6",
@@ -39,6 +44,7 @@
     "gray-matter": "^4.0.3",
     "happy-dom": "^21.0.4",
     "hint.css": "^2.7.0",
+    "mermaid": "^12.3.0",
     "playwright": "^1.64.1",
     "prismjs": "1.30.0",
     "rehype-parse": "^9.0.1",
@@ -68,7 +74,9 @@
     "@types/unist": "^3.0.3",
     "mdast-util-to-hast": "^13.2.1",
     "oxfmt": "0.75.0",
-    "oxlint": "1.90.0"
+    "oxlint": "1.90.0",
+    "stylelint": "^18.1.0",
+    "stylelint-config-recommended": "^19.1.0"
   },
   "packageManager": "pnpm@12.16.1+sha512.091d1dee7927575661b25dab3c2ae31cafc1c54d6b71ed6a6600cf0c1cb10434a447eae14015f1b23e2e6bedeed79df94a932e2164d2832280dce3fb32f656d1"
 }

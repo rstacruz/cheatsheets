@@ -1,6 +1,13 @@
 ---
 title: CircleCI
-category: Devops
+subtitle: CI configuration reference
+category: Hidden
+# CircleCI 1.0 stopped running builds on 2018-08-31; circle.yml is no longer read.
+tags: [Archived]
+archived: |
+  CircleCI 1.0 stopped running builds on 31 August 2018, so `circle.yml` is no
+  longer read. Use `.circleci/config.yml`; see the
+  [configuration reference](https://circleci.com/docs/reference/configuration-reference/).
 links:
   - title: https://circleci.com/docs/config-sample
     url: https://circleci.com/docs/config-sample

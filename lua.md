@@ -1,13 +1,25 @@
 ---
 title: Lua
+category: Others
+subtitle: Lightweight scripting language
+last_verified_with: "Lua 5.1.5, Lua 5.4.9."
+updated: 2026-11-25
+tier: t3
+intro: |
+  [Lua](https://www.lua.org/) is a lightweight scripting language. This sheet
+  covers syntax, tables, metatables, operators, and standard library functions.
+links:
+  - title: Lua 5.4 reference manual
+    url: https://www.lua.org/manual/5.4/manual.html
+  - title: Lua 5.1 reference manual
+    url: https://www.lua.org/manual/5.1/manual.html
 ---
 
 ## Basic examples
 
 ### References
 
-- <https://www.lua.org/pil/13.html>
-- <http://lua-users.org/wiki/ObjectOrientedProgramming>
+See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4)
 
 ### Comments
 
@@ -16,6 +28,9 @@ title: Lua
 --[[ Multiline
      comment ]]
 ```
+<!-- {: data-highlight="--[[; --"} -->
+
+See: [Lexical conventions](https://www.lua.org/manual/5.4/manual.html#3.1)
 
 ### Invoking functions
 
@@ -23,7 +38,8 @@ title: Lua
 print()
 print("Hi")
 
--- You can omit parentheses if the argument is one string or table literal
+-- Parentheses may be omitted with one string
+-- or table literal argument
 print "Hello World"     <-->     print("Hello World")
 dofile 'a.lua'          <-->     dofile ('a.lua')
 print [[a multi-line    <-->     print([[a multi-line
@@ -31,6 +47,9 @@ print [[a multi-line    <-->     print([[a multi-line
 f{x=10, y=20}           <-->     f({x=10, y=20})
 type{}                  <-->     type({})
 ```
+<!-- {: data-highlight="dofile 'a.lua'; f{x=10, y=20}; type{}"} -->
+
+See: [Function calls](https://www.lua.org/manual/5.4/manual.html#3.4.10)
 
 ### Tables / arrays
 
@@ -47,6 +66,9 @@ array = { "a", "b", "c", "d" }
 print(array[2])       -- "b" (one-indexed)
 print(#array)         -- 4 (length)
 ```
+<!-- {: data-highlight="t.a; #array"} -->
+
+See: [Table constructors](https://www.lua.org/manual/5.4/manual.html#3.4.9)
 
 ### Loops
 
@@ -71,6 +93,9 @@ while x do
   if condition then break end
 end
 ```
+<!-- {: data-highlight="while; for; repeat"} -->
+
+See: [Control structures](https://www.lua.org/manual/5.4/manual.html#3.3.4)
 
 ### Conditionals
 
@@ -83,6 +108,9 @@ else
   print("no")
 end
 ```
+<!-- {: data-highlight="if; elseif; else"} -->
+
+See: [Control structures](https://www.lua.org/manual/5.4/manual.html#3.3.4)
 
 ### Variables
 
@@ -90,6 +118,9 @@ end
 local x = 2
 two, four = 2, 4
 ```
+<!-- {: data-highlight="local x; two, four"} -->
+
+See: [Variables](https://www.lua.org/manual/5.4/manual.html#3.2)
 
 ### Functions
 
@@ -120,6 +151,9 @@ end
 
 doAction('write', "Shirley", "Abed")
 ```
+<!-- {: data-highlight="function; local function; doAction"} -->
+
+See: [Function definitions](https://www.lua.org/manual/5.4/manual.html#3.4.11)
 
 ### Lookups
 
@@ -140,6 +174,9 @@ mytable:y(a, b)
 function X:y(z) .. end
 function X.y(self, z) .. end
 ```
+<!-- {: data-highlight="mytable.x; mytable:y; function X:y"} -->
+
+See: [Function calls](https://www.lua.org/manual/5.4/manual.html#3.4.10)
 
 ## More concepts
 
@@ -161,6 +198,9 @@ setmetatable(mytable, mt)
 
 print(myobject)
 ```
+<!-- {: data-highlight="setmetatable"} -->
+
+See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4)
 
 ### Classes
 
@@ -188,6 +228,9 @@ end
 a = Account:new(9000)
 a:withdraw(200)    -- method call
 ```
+<!-- {: data-highlight="Account:new; self:report"} -->
+
+See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4)
 
 ### Constants
 
@@ -196,6 +239,9 @@ nil
 false
 true
 ```
+<!-- {: data-highlight="nil; false; true"} -->
+
+See: [Values and types](https://www.lua.org/manual/5.4/manual.html#2.1)
 
 ## Operators (and their metatable names)
 
@@ -205,7 +251,7 @@ true
 -- Relational (binary)
 -- __eq  __lt  __gt  __le  __ge
    ==    <     >     <=    >=
-~=   -- Not equal, just like !=
+   ~=   -- Not equal, just like !=
 
 -- Arithmetic (binary)
 -- __add  __sub  __muv  __div  __mod  __pow
@@ -215,6 +261,9 @@ true
 -- __unm (unary minus)
    -
 ```
+<!-- {: data-highlight="==; ~="} -->
+
+See: [Relational operators](https://www.lua.org/manual/5.4/manual.html#3.4.4)
 
 ### Logic
 
@@ -226,6 +275,9 @@ not true       --> false
 0 and 20       --> 20
 10 and 20      --> 20
 ```
+<!-- {: data-highlight="and; not"} -->
+
+See: [Logical operators](https://www.lua.org/manual/5.4/manual.html#3.4.5)
 
 ### Tables
 
@@ -233,7 +285,6 @@ not true       --> false
 -- Length
 -- __len(array)
 #array
-
 
 -- Indexing
 -- __index(table, key)
@@ -250,10 +301,13 @@ t[key]=value
 -- Call
 -- __call(func, ...)
 ```
+<!-- {: data-highlight="__len; __concat; __call"} -->
+
+See: [Metatables and metamethods](https://www.lua.org/manual/5.4/manual.html#2.4)
 
 ## API
 
-### API: Global Functions
+### API: Global functions
 
 ```
 dofile("hello.lua")
@@ -262,14 +316,16 @@ loadfile("hello.lua")
 assert(x)    -- x or (raise an error)
 assert(x, "failed")
 
-type(var)   -- "nil" | "number" | "string" | "boolean" | "table" | "function" | "thread" | "userdata"
+type(var)  -- "nil", "number", "string", "boolean",
+           -- "table", "function", "thread", "userdata"
 
 -- Does /not/ invoke meta methods (__index and __newindex)
 rawset(t, index, value)    -- Like t[index] = value
 rawget(t, index)           -- Like t[index]
 
 _G  -- Global context
-setfenv(1, {})  -- 1: current function, 2: caller, and so on -- {}: the new _G
+setfenv(1, {})  -- 1: current function, 2: caller,
+                -- {}: the new global environment
 
 pairs(t)     -- iterable list of {key, value}
 ipairs(t)    -- iterable list of {index, value}
@@ -277,6 +333,9 @@ ipairs(t)    -- iterable list of {index, value}
 tonumber("34")
 tonumber("8f", 16)
 ```
+<!-- {: data-highlight="rawset; rawget; pairs; ipairs"} -->
+
+See: [Basic functions (Lua 5.1)](https://www.lua.org/manual/5.1/manual.html#5.2)
 
 ### API: Strings
 
@@ -305,6 +364,8 @@ s:byte()
 s:format()
 ```
 
+See: [String manipulation (Lua 5.1)](https://www.lua.org/manual/5.1/manual.html#5.4)
+
 ### API: Tables
 
 ```
@@ -317,6 +378,9 @@ table.concat
 table.sort
 table.remove(t, 4)
 ```
+<!-- {: data-highlight="table.insert; table.remove; table.sort; table.concat"} -->
+
+See: [Table manipulation (Lua 5.1)](https://www.lua.org/manual/5.1/manual.html#5.5)
 
 ### API: Math
 
@@ -332,6 +396,8 @@ math.sqrt(144)
 math
 ```
 
+See: [Mathematical functions](https://www.lua.org/manual/5.4/manual.html#6.7)
+
 ### API: Misc
 
 ```
@@ -346,3 +412,6 @@ file:read()
 file:lines()
 file:close()
 ```
+<!-- {: data-highlight="io.output; io.write; io.lines; io.open"} -->
+
+See: [Input and output facilities](https://www.lua.org/manual/5.4/manual.html#6.8)

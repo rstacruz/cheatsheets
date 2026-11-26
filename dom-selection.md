@@ -1,8 +1,12 @@
 ---
 title: DOM Selection
-category: JavaScript
+subtitle: Text selection API
+category: Browser APIs
 intro: |
   Quick introduction to the HTML [DOM selection API](https://devdocs.io/dom/selection).
+last_verified_with: "WHATWG DOM Standard, Selection API."
+updated: 2026-11-25
+tier: t3
 links:
   - title: Selection
     url: https://developer.mozilla.org/en-US/docs/Web/API/Selection
@@ -18,7 +22,7 @@ links:
 var sel = document.getSelection()
 ```
 
-See: <https://devdocs.io/dom/selection>
+See: [Selection](https://developer.mozilla.org/en-US/docs/Web/API/Selection)
 
 ### Methods
 
@@ -28,10 +32,14 @@ sel.addRange(range) //    sets a selection
 sel.removeRange(range) // remove a range
 ```
 
+#### Inspect ranges
+
 ```js
 sel.rangeCount
 sel.getRangeAt(0) // get the 0th range
 ```
+
+See: [Selection methods](https://developer.mozilla.org/en-US/docs/Web/API/Selection#instance_methods)
 
 ### Collapsing
 
@@ -42,9 +50,13 @@ sel.collapseToStart()
 sel.isCollapsed
 ```
 
+#### Check containment
+
 ```js
 sel.containsNode(node)
 ```
+
+See: [Selection.collapse()](https://developer.mozilla.org/en-US/docs/Web/API/Selection/collapse)
 
 ### Deleting
 
@@ -52,8 +64,14 @@ sel.containsNode(node)
 sel.deleteFromDocument()
 ```
 
+See: [Selection.deleteFromDocument()](https://developer.mozilla.org/en-US/docs/Web/API/Selection/deleteFromDocument)
+
 ### Events
 
 ```js
-document.addEventListener('selectionchange', () => {})
+document.addEventListener(
+  'selectionchange', () => {}
+)
 ```
+
+See: [selectionchange event](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event)

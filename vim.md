@@ -1,13 +1,29 @@
 ---
 title: Vim
+subtitle: Modal text editor
 category: Vim
 tags: [Featured]
 updated: 2026-11-11
-tier: t1
+last_verified_with: "Vim 9.2."
+tier: t2
+fragments:
+  - ":wq"
+  - ":q!"
+  - "i"
+  - "Esc"
+  - "dd"
+  - "yy"
+  - "p"
+  - "/pattern"
+  - ":%s/foo/bar/g"
+  - "vip"
+  - "u"
+  - "gg"
+  - "G"
+  - "x"
 weight: -10
 intro: |
   [Vim](https://www.vim.org/) is a highly efficient text editor. This reference covers Vim 9.2.
-
   For shortcut notation, see `:help key-notation`. Run `:Tutor` for the built-in tutorial.
 links:
   - title: Vim documentation
@@ -238,8 +254,6 @@ Operators
 
 ### Usage
 
-Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
-
 <!-- {: .-setup} -->
 
 | Operator | Motion |
@@ -248,6 +262,8 @@ Operators let you operate in a range of text (defined by *motion*). These are pe
 | Operator | Motion |
 
 <!-- {: .-css-breakdown} -->
+
+Operators let you operate in a range of text (defined by *motion*). These are performed in normal mode.
 
 See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 
@@ -275,8 +291,6 @@ See: [Operators](https://vimhelp.org/motion.txt.html#operator)
 
 ### Examples
 
-Combine operators with *motions* to use them.
-
 <!-- {: .-setup} -->
 
 | Shortcut               | Description                               |
@@ -287,6 +301,8 @@ Combine operators with *motions* to use them.
 | _2_`dd`                | Delete 2 lines                            |
 | `d`_ip_                | Delete a text object _(inside paragraph)_ |
 | _(in visual mode)_ `d` | Delete selection                          |
+
+Combine operators with *motions* to use them.
 
 See: `:help motion.txt`
 
@@ -585,6 +601,7 @@ See: [Insert completion](https://vimhelp.org/insert.txt.html#ins-completion)
 :right [width]
 :left
 ```
+<!-- {: data-highlight=":center; :right; :left"} -->
 
 See: [Aligning text](https://vimhelp.org/change.txt.html#%3Acenter)
 
@@ -593,6 +610,8 @@ See: [Aligning text](https://vimhelp.org/change.txt.html#%3Acenter)
 | Shortcut      | Description                               |
 | ---           | ---                                       |
 | `<C-R>=128/2` | Shows the result of the division : '64'   |
+
+<!-- {: .-shortcuts} -->
 
 Do this in insert mode.
 
@@ -604,6 +623,7 @@ See: [Expression register](https://vimhelp.org/insert.txt.html#i_CTRL-R_%3D)
 :cq
 :cquit
 ```
+<!-- {: data-highlight=":cq; :cquit"} -->
 
 Quits like `:qa!`, abandoning changes, and returns an error code. Great for aborting Git commands.
 

@@ -7,13 +7,106 @@ Fields and their meanings live in [`src/types/SheetFrontmatter.ts`](https://gith
 ```yaml
 ---
 title: React
+subtitle: UI library
 category: JavaScript libraries
 tags: [Featured]
 updated: 2024-01-01
 ---
 ```
 
-- **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list.
+- **Category:** must be one of the values in `src/config.ts` `categories`, or `Hidden` to unlist the sheet. Unknown values silently fall into `Others`; `pnpm test` enforces the list and the [size limits](#categories).
+- **Subtitle:** one line shown under the title, at most 5 words. It should read naturally after the title: *Python* is a **readable language for scripting**. Sentence case, no leading article, no trailing period. Prefer a concrete noun over a vague one ("CLI argument parser", not "command line tool"). `pnpm test` enforces presence and the word limit.
+- **Link title:** optional short title for homepage and other link lists. Falls back to `title`.
+- **Last verified with:** required for tiered sheets, optional elsewhere (max 160 chars). Records the versions the examples target. Use `<tool> <version>.`, with several versions separated by commas. No dates or PR numbers; `updated:` already records the edit date. ISO dates like `2026-11` and PR references like `#2383` are rejected.
+- **Tier:** `t1` for sheets that move often, `t2` for slower ones, `t3` for best-effort sheets that still get the tiered checks; see [review tiers](tiers.md). Omit it for sheets that need no checks.
+- **Layout:** `snippet` uses the two-column snippet cards and drops "cheatsheet" from the H1. See [snippet layout](#snippet-layout).
+
+```yaml
+last_verified_with: "Conventional Commits 1.0.0, curl 8.23.0."
+last_verified_with: "Ecto 3.14 / Phoenix 1.8, Elixir 1.18.6."
+```
+
+
+### Fragments
+
+Every [T1 and T2 sheet](tiers.md) needs `fragments`: 12–20 short strings shown muted with
+a bottom fade on the sheet's homepage card. They are decoration, not
+documentation.
+
+```yaml
+fragments:
+  - "curl -s"
+  - "-X POST"
+  - "--compressed"
+  - "-H 'X-Foo: bar'"
+  - "-d @file"
+  - "-F file=@path"
+  - "-o file"
+  - "-L"
+  - "-I"
+  - "--http2"
+  - "-O"
+  - "-u user:pass"
+```
+
+- Copy commands, flags, or syntax from the sheet; never add a new command.
+- Keep each fragment to 16 characters or fewer. Mid-token clipping is expected.
+- The first two or three should identify the tool without the title.
+- Mix shapes: commands, flags, values, syntax, codes. Avoid a run of flags.
+- Quote every entry: YAML reads `-X`, `#`, `*` and `:` as syntax.
+- No sentences, Markdown formatting, or trailing punctuation.
+- Keep cards distinct; skip generic `--help`, `install`, `usage`.
+- Order for visual rhythm, not importance.
+
+Untiered and `t3` sheets may omit fragments. `pnpm test` enforces presence and length.
+
+## Categories
+
+A category is a nav group. Its order in `src/config.ts` is the nav order; `Others` stays last.
+
+- **Sizes:** every listed category except `Others` holds 3-16 non-snippet sheets; `Others` holds at most 12. Hidden, deprecated, and archived sheets don't count.
+- **New sheets:** file under the closest existing category. Don't create a category for one sheet.
+- **New categories:** add one only when at least 3 non-snippet sheets share it, in nav order in `src/config.ts`. The donor category must stay at 3 or more.
+- **Splitting:** when a category passes 16 non-snippet sheets, split it along a subject line (runtime vs library, language vs tool), not alphabetically. Both sides must stay within 3-16.
+- **Merging:** when a category falls below 3 non-snippet sheets, fold it into its closest parent and remove it from `src/config.ts`.
+- **Others:** a last resort. If it is full, pick the closest category or split one; don't add a new "Misc".
+
+Run `pnpm vitest run src/lib/categories.test.ts` after moving sheets.
+
+## Snippet layout
+
+See [Snippets](snippets.md) for the format and rules.
+
+Set `layout: snippet` for a microsheet built from one-command cards. Set `title` to an article-style heading; it becomes both the `<title>` and the H1, without a "cheatsheet" suffix. Set `link_title` to the short label used in homepage links. The `intro:` field is ignored; a **Related links** card is generated from `links` at the end of the page. Use exactly one H2 marked `.-snippets`, and mark every H3 `.-snippet`. Each H3 holds one or more code blocks (with optional H4 labels) followed by one explanation paragraph that opens with a bold summary and includes the upstream documentation link.
+
+```yaml
+---
+title: How to rename a Git branch
+link_title: Git rename branch
+layout: snippet
+links:
+  - title: git-branch manual
+    url: https://git-scm.com/docs/git-branch
+---
+```
+
+````md
+## Renaming
+<!-- {: .-snippets} -->
+
+### Current branch
+<!-- {: .-snippet} -->
+
+```bash
+git branch -m new-name
+```
+
+Renames the checked-out branch; see the [git-branch manual](https://git-scm.com/docs/git-branch).
+````
+
+`pnpm test` checks the layout marker, the classes, the code-first body, and the explanation link. Review snippet layouts on the T2 cadence.
+
+Snippet pages are left out of the normal homepage category, featured, and recent lists. They appear in a condensed **Snippets** list at the end of the homepage instead.
 
 ## Content organisation
 
@@ -21,7 +114,10 @@ updated: 2024-01-01
 - **Logical sections:** Group related functionality together
 - **H2 and H3:** Organise documents into H2 and H3 sections
 - **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
+- **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
+- **Tables:** keep a card under 20 table rows total; split into more H3s when a reference table grows. See `tables/row-limit`.
+- **Unique headings:** no repeated H2/H3 titles in one sheet; anchors collide. See `headings/unique`.
 
 H2 content length:
 
@@ -43,16 +139,21 @@ H3 content length:
 - Documentation is in the format of Markdown with attribute comments (see [Markdown dialect](/_docs/markdown-dialect) for the syntax)
 - H3's can have the following class names:
   - `<!-- {: .-prime} -->` - Visually highlighted section. Only use once per document at most.
+  - `<!-- {: .-full-width} -->` - Spans every column of a multi-column H2, for a wide table followed by narrower cards.
+  - `<!-- {: .-snippet} -->` - Snippet card; pair with `.-snippets` on its H2. See [snippet layout](#snippet-layout).
 - PRE elements can have:
   - `<!-- {: .-setup} -->` - Visually muted section. Used for sections with less importance. Deprecated, use sparingly.
 - H2's can have:
-  - `<!-- {: .-three-column} -->` - use if the H3's are short, and if there are at least 3 H3's in the H2.
+  - `<!-- {: .-three-column} -->` - prefer for H2s with 3+ short H3 cards; wrap code rather than fall back to two columns.
   - `<!-- {: .-two-column} -->` - the default (don't add this since it's the default)
 
 ## Cross-linking sheets
 
 Sheets can link to related sheets with `.-crosslink`, which renders as a large
-block with an arrow:
+block with an arrow. Reserve it for sheets in the same family: an index and its
+members, a version and its successor, or a retired sheet and its replacement.
+A neighbouring tool or an alternative gets a regular link instead. See
+`crosslinks/directly-related` in [Rules](rules.md).
 
 ````md
 [JavaScript Strings cheatsheet](./js-string)
@@ -62,6 +163,13 @@ block with an arrow:
 - Put the link on its own paragraph, with the attribute comment on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
+- Reserve cross-links for directly related sheets: a sibling version, a successor, or the same family. Two languages from different ecosystems are not related, even when they look alike; leave the other sheet out.
+
+For a neighbouring tool, link it plainly:
+
+````md
+- [Fastify cheatsheet](./fastify)
+````
 
 A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
 links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the
@@ -73,24 +181,33 @@ substantial example (at least five use cases per code block) rather than a
 sparse two-line snippet. The Arrays section in [javascript.md](/javascript)
 shows the shape.
 
-## Code blocks
-
-- Maximum line width is 70 characters
-- In `.-three-column` sections, maximum is 42 characters
-- Wrap onto more lines rather than exceed the limit
-- Blocks of 5+ lines should add `<!-- {: data-line="…"} -->` after the closing fence to highlight the relevant line(s); skip when nothing is worth highlighting
-- A table that follows a code block needs an H4 in between (eg `#### Options`), or it reads as part of the block
 
 ## Writing guidelines
 
 - Aim for brevity
-- Paragraphs that follow a code block: 25 words max
+- Prose comes last in a card: no paragraph may be followed by a code block or table. Fold the note into the block, or split the card
+- Two code blocks in a card need an H4 between them, so each block has a label; a caption-led block is self-labelled, so it needs no H4
 - Table descriptions: keep them short — 8 words max. Prefer parentheticals over separate sentences
 - Sentence case headings, never Title Case
-- Omit explanations if they are obvious
+- Omit explanations if they are obvious. See `prose/omit-redundant`.
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
+- Keep marketing and competitor comparisons out of reference sheets; see `prose/no-marketing`.
+
+### Code spacing
+
+Don't shy from blank lines. Separate setup from use, and put long result comments on their own line. A call and result may share a line when the combined line stays under 40 characters; see `code/space-between-examples`.
+
+```js
+const d = dayjs()
+
+d.add(1, 'day').format('YYYY-MM-DD')
+// "2014-06-10"
+
+d.format('YYYY-MM-DD')
+// "2014-06-09"
+```
 
 ## Quick starts
 
@@ -105,147 +222,6 @@ shows the shape.
 4. **Quick reference**: Dense information for experienced developers
 5. **Learning path**: Logical progression for newcomers
 
-## H3 writing guidelines
-
-- End each H3 with a documentation link in its last content block, or add a `See:` line anywhere in the section.
-- `See:` must start a line at column 0 and begin a paragraph; `See also:` and mid-paragraph `See:` do not count. The line may be linkless: ``See: `:help motion.txt` ``.
-- Only inline links count: `[text](url)`. Autolinks, bare URLs, reference-style links, images, links in code, and absolute `devhints.io` links do not count; links to other sheets do.
-- Prefer upstream project docs, specifications, or the project repository.
-- Do not link community wikis, Q&A sites, or blog posts unless the upstream project officially endorses them as its documentation (for example, the Arch Wiki).
-- If no authoritative page covers the section, a linkless `See:` line is valid; use it instead of linking an unofficial source.
-- Only when the section has no authoritative documentation and no useful reference to point at, add `<!-- see: none: short reason -->` at column 0, on its own line.
-
-  ```md
-  ### Browser console
-  <!-- see: none: browser-only, no upstream docs -->
-  ```
-
-- Prefer to write explanations *after* a pre/table. Example:
-
-  ````markdown
-  ### Setting default props
-
-  ```jsx
-  Hello.defaultProps = {
-    color: 'blue'
-  }
-  ```
-
-  Default properties are used if no properties are given.
-
-  See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
-  ````
-
-- When an example has multiple files, use H4 as filename markers. Example:
-
-  ````markdown
-  ### via Data Attributes
-
-  #### index.html.erb
-
-  ```html
-  <a
-    href="#"
-    data-reflex="click->CounterReflex#increment"
-    data-step="1"
-    data-count="<%= @count.to_i %>"
-    >Increment <%= @count.to_i %></a
-  >
-  ```
-
-  #### counter_reflex.rb
-
-  ```ruby
-  class CounterReflex < StimulusReflex::Reflex
-    def increment
-      @count = element.dataset[:count].to_i + element.dataset[:step].to_i
-    end
-  end
-  ```
-
-  Trigger reflexes without writing any javascript with the `data-reflex` attribute.
-
-  ````
-
-- When showing reference information, use tables for quick scanning. Example:
-
-  ````markdown
-  ### Primitives
-
-  | Sample                  | Type            |
-  | ---                     | ---             |
-  | `nil`                   | Nil/null        |
-  | `true` _/_ `false`      | Boolean         |
-  | ---                     | ---             |
-  | `23`                    | Integer         |
-  | `3.14`                  | Float           |
-  | ---                     | ---             |
-  | `"hello"`               | Binary string   |
-  | `:hello`                | Atom            |
-
-  These are the basic data types in Elixir.
-  ````
-
-- Use inline comments to explain results, equivalents, or provide context. Example:
-
-  ````markdown
-  ### Pattern matching
-
-  ```elixir
-  user = %{name: "Tom", age: 23}
-  %{name: username} = user  # → username = "Tom"
-  ```
-
-  ### Piping
-
-  ```elixir
-  source
-  |> transform(:hello)     # Step 1: transform the data
-  |> print()               # Step 2: output the result
-  ```
-
-  ```elixir
-  # Same as:
-  print(transform(source, :hello))
-  ```
-
-  ### Type conversions
-
-  ```elixir
-  Integer.parse("34")      # → {34, ""}
-  Float.parse("34.1")      # → {34.1, ""}
-  ```
-  ````
-
-## H4 sub-headings
-
-Use H4s to split an H3 into labelled segments: concept variants ("As UTC time"), topics ("Sessions"), or reference groups ("All options").
-
-Example:
-
-````markdown
-### Parsing
-
-#### As local time
-
-```js
-const date = new Date(2012, 11, 20, 3, 0, 0)
-```
-
-#### As UTC time
-
-```js
-const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0))
-```
-````
-
-- Keep labels short (1-4 words)
-- Prefer 2-4 segments per H3
-
-### Filename markers
-
-When an example spans multiple files, use each filename as its H4, one code block per file (see the example under H3 writing guidelines).
-
 ## Deprecated sheets
 
 - Outdated versions go to `<name>@<version series>.md` files (eg `phoenix@1.2.md`).
@@ -253,6 +229,8 @@ When an example spans multiple files, use each filename as its H4, one code bloc
 - Set `deprecated_by: /<newer sheet>` to link the notice to the newer sheet; this alone also marks the sheet deprecated.
 
 ## Archived sheets
+
+See [`archiving.md`](archiving.md) for when a sheet is worth archiving.
 
 - Set `archived: <note>` for an obsolete sheet with no newer version. The note renders as Markdown in a notice.
 - Archived sheets are unlisted like `category: Hidden` and appear on the [archive page](https://devhints.io/archive).
@@ -270,118 +248,6 @@ When an example spans multiple files, use each filename as its H4, one code bloc
 
 Ensure syntax highlighting languages are part of [PrismJS's supported languages](https://github.com/PrismJS/prism/tree/v1.29.0/components).
 
-## Introduction
+## Rules
 
-- Set `intro` frontmatter; it renders as the first card on the sheet.
-- Max 25 words per paragraph, 500 characters in total.
-- Up to 4 `links`, and at least 1 whenever `intro` is set. These should be reputable, first-party sources as much as possible.
-- Link sources (`_(hostname)_`) are inferred from the URL; do not write them.
-
-```yaml
-intro: |
-  [Claude Code](https://code.claude.com/docs) is Anthropic's AI coding assistant for the terminal. This reference covers the most commonly used commands, flags, and settings.
-
-links:
-  - title: Claude Code documentation
-    url: https://code.claude.com/docs
-  - title: GitHub repository
-    url: https://github.com/anthropics/claude-code
-```
-
-The card is generated; never write an `### Introduction` card by hand.
-
-## Tables: separating
-
-Separating tables is preferred when a table grows to 8 or more rows.
-
-### Option A: H4s and multiple tables
-
-````markdown
-### Examples
-
-#### Date
-
-| Example                   | Output                 |
-| ------------------------- | ---------------------- |
-| `YYYY-MM-DD`              | 2014-01-01             |
-| `dddd, MMMM Do YYYY`      | Friday, May 16th 2014  |
-| `dddd [the] Do [of] MMMM` | Friday the 16th of May |
-
-#### Time
-
-| Example   | Output   |
-| --------- | -------- |
-| `hh:mm a` | 12:30 pm |
-
-````
-
-### Option B: horizontal lines
-
-````markdown
-| Example | Output                           |
-| ------- | -------------------------------- |
-| `LT`    | 8:30 PM                          |
-| `LTS`   | 8:30:25 PM                       |
-| ---     | ---                              |
-| `LL`    | August 2 1985                    |
-| `ll`    | Aug 2 1985                       |
-| ---     | ---                              |
-| `LLL`   | August 2 1985 08:30 PM           |
-| `lll`   | Aug 2 1985 08:30 PM              |
-| ---     | ---                              |
-| `LLLL`  | Thursday, August 2 1985 08:30 PM |
-| `llll`  | Thu, Aug 2 1985 08:30 PM         |
-````
-
-## Checks
-
-Sheet checks live in `src/lib/sheetValidation/`. Run them with:
-
-```bash
-pnpm vitest run src/lib/sheetValidation
-```
-
-Legacy violations are recorded under `src/lib/sheetValidation/baseline/`, so
-only new ones fail. Regenerate the baselines after cleaning sheets up:
-
-```bash
-UPDATE_SHEET_BASELINE=1 pnpm vitest run src/lib/sheetValidation
-```
-
-The `every tiered sheet gives each H3 a link or See` check covers `tier: t1` and `tier: t2` sheets (see [H3 writing guidelines](#h3-writing-guidelines)). The rule is fully enforced; `baseline/seeLinks.json` is empty. H3s from `{% include %}` files are out of scope.
-
-Two shape checks cover every sheet: each H2 needs at least two H3s (`baseline/structure.json`), and a table after a code block needs an H4 in between (`baseline/tableIntros.json`).
-
-## SEO descriptions
-
-- Write `keywords` + `intro` for SEO purposes (preferred).
-- `description` + `intro` is also supported.
-
-### Option A: Keywords (and intro)
-
-Set `keywords` (and optionally `intro`). This is the easiest and the preferred
-way for now.
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-React.Component · render() · componentDidMount() · props/state · React is a
-JavaScript library for building web...
-```
-
-### Option B: Description (and intro)
-
-Set `description` (and optionally `intro`)
-
-```
-React cheatsheet - devhints.io
-------------------------------
-https://devhints.io/react ▼
-One-page reference to React and its API. React is a JavaScript library for
-building web user interfaces...
-```
-
-### Option C: Intro only
-
-If you left out `description` or `keywords`, a default description will be added.
+Rule slugs, examples, and the automated checks live in [Rules](rules.md).

@@ -1,10 +1,13 @@
 ---
 title: adb (Android Debug Bridge)
+subtitle: Android device debugging bridge
 category: CLI
 weight: -1
 authors:
   - github: ZackNeyland
+last_verified_with: "Android SDK Platform-Tools 37.0.3."
 updated: 2026-11-14
+tier: t3
 intro: |
   [adb](https://developer.android.com/tools/adb) talks to an Android device
   over USB or Wi-Fi. This sheet targets platform-tools 37.
@@ -48,7 +51,7 @@ adb tcpip 5555                  # Android 10 and lower, after USB
 `pair` uses the port shown in the pairing dialog; `connect` uses the wireless
 debugging port. `adb mdns services` discovers devices on the network.
 
-See: [Connect over Wi-Fi](https://developer.android.com/tools/adb#wireless-adb-android-11)
+See: [Connect over Wi-Fi](https://developer.android.com/tools/adb#connect-to-a-device-over-wi-fi)
 
 ### Installing apps
 
@@ -71,7 +74,7 @@ adb uninstall -k com.example.app  # keep data
 | `-g`    | Grant all runtime permissions  |
 | `--abi` | Override the device ABI        |
 
-See: [Package manager](https://developer.android.com/tools/adb#pm)
+See: [Install](https://developer.android.com/tools/adb#move)
 
 ## Files and shell
 
@@ -100,13 +103,15 @@ See: [Copy files](https://developer.android.com/tools/adb#copyfiles)
 | `adb shell pm list packages -3`     | Third-party packages only  |
 | `adb exec-out screencap -p > a.png` | Raw stdout, no pty         |
 
-#### Quoting
+See: [Issue shell commands](https://developer.android.com/tools/adb#shellcommands)
 
-Arguments are passed like `ssh`, so quote twice for the device shell:
+### Quoting
 
 ```bash
 adb shell setprop key "'two words'"
 ```
+
+Arguments are passed like `ssh`, so quote twice for the device shell.
 
 See: [Issue shell commands](https://developer.android.com/tools/adb#shellcommands)
 
@@ -198,7 +203,7 @@ See: [Activity manager](https://developer.android.com/tools/adb#am)
 | `adb disable-verity`        | Disable dm-verity (userdebug)      |
 | `adb shell cmd testharness enable` | Reset a test device         |
 
-See: [Platform tools](https://developer.android.com/tools/releases/platform-tools)
+See: [adb manual](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/docs/user/adb.1.md)
 
 ### Emulator console
 

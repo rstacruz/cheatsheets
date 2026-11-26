@@ -1,7 +1,13 @@
 ---
 title: Firebase
+subtitle: Backend as a service
+category: Hidden
+# Documents the pre-2016 Firebase API (`new Firebase()`), removed in SDK 3.
 prism_languages: [coffeescript]
-tags: [WIP]
+tags: [Archived]
+archived: |
+  This documents the Firebase 2.x API (`new Firebase()`), removed in the 3.x
+  SDK. See [Firebase for web](https://firebase.google.com/docs/web).
 ---
 
 ### Authenticating

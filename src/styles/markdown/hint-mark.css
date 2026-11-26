@@ -1,0 +1,24 @@
+@layer components {
+  .hint-mark {
+    cursor: help;
+
+    & > i::before {
+      content: '?';
+      font-size: 11px;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    & > i {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      line-height: 12px;
+      text-align: center;
+      border-radius: var(--radius-circle);
+      background: color-mix(in srgb, var(--link-hover) 30%, transparent);
+      color: var(--muted-foreground);
+      margin: 0 0.4em;
+    }
+  }
+}

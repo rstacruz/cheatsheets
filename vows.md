@@ -1,7 +1,12 @@
 ---
 title: Vows
+subtitle: Asynchronous test framework
 category: Hidden
 # Unmaintained; final release 0.8.3 (2019).
+tags: [Archived]
+archived: |
+  Vows is unmaintained; its final release was 0.8.3 in 2019. Use a maintained
+  test runner such as Vitest or Jest.
 ---
 
 ### About vows

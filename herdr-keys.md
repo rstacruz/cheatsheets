@@ -1,8 +1,27 @@
 ---
 title: Herdr keys
+subtitle: Terminal keyboard shortcuts
 category: Agents
 updated: 2026-11-05
-tier: t2
+last_verified_with: "herdr 0.9.5."
+tier: t1
+fragments:
+  - "herdr"
+  - "herdr keys"
+  - "[keys]"
+  - "prefix+?"
+  - "prefix+c"
+  - "prefix+v"
+  - "prefix+minus"
+  - "prefix+h/j/k/l"
+  - "prefix+z"
+  - "prefix+x"
+  - "prefix+tab"
+  - "prefix+e"
+  - "prefix+r"
+  - "prefix+1..9"
+  - "ctrl+b"
+  - "prefix+shift+r"
 keywords:
   - keyboard shortcuts
   - keybindings
@@ -10,9 +29,7 @@ keywords:
   - copy mode
   - terminal multiplexer
 intro: |
-  [Herdr](https://herdr.dev) is mouse-native; keyboard control is optional.
-  This reference covers the prefix, default bindings, navigate and copy
-  modes, and custom keybindings.
+  [Herdr](https://herdr.dev) is mouse-native; keyboard control is optional. This reference covers the prefix, default bindings, navigate and copy modes, and custom keybindings.
 links:
   - title: Keyboard
     url: https://herdr.dev/tui/docs/keyboard/
@@ -30,13 +47,11 @@ links:
 [keys]
 prefix = "ctrl+a"   # or "f12"
 ```
+<!-- {: data-highlight="ctrl+a"} -->
 
-Herdr reserves one key instead of dozens. Press it (default `ctrl+b`),
-release, then press an action key: `prefix+c` is `ctrl+b`, then `c`.
-`prefix+?` lists every active binding; `/` filters that list.
+Herdr reserves one key instead of dozens. Press it (default `ctrl+b`), release, then press an action key: `prefix+c` is `ctrl+b`, then `c`. `prefix+?` lists every active binding; `/` filters that list.
 
 [Herdr cheatsheet](./herdr)
-
 <!-- {: .-crosslink} -->
 
 ### Learn these first
@@ -121,7 +136,6 @@ See: [The rest, by task](https://herdr.dev/tui/docs/keyboard/#the-rest-by-task)
 <!-- {: .-shortcuts} -->
 
 [Herdr agents cheatsheet](./herdr-agents)
-
 <!-- {: .-crosslink} -->
 
 ## Navigate mode
@@ -161,9 +175,7 @@ See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
 
 <!-- {: .-shortcuts} -->
 
-Its keys win while it is open, independent of `focus_pane_*`. `esc`,
-`enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved;
-`navigate_*` config fields take other plain keys.
+Its keys win while it is open, independent of `focus_pane_*`. `esc`, `enter`, `tab`/`shift+tab`, `left`/`right`, and `1..9` stay reserved; `navigate_*` config fields take other plain keys.
 
 See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
 
@@ -264,28 +276,36 @@ See: [Editing text fields](https://herdr.dev/tui/docs/keyboard/#editing-text-fie
 
 <!-- {: .-shortcuts} -->
 
-These keys apply to Herdr-owned fields (dialogs, filters, copy-mode
-search), not the shell or agent in a pane. Cut text stays in the field;
-`Alt` shortcuts need a terminal that reports Alt/Meta.
+These keys apply to Herdr-owned fields (dialogs, filters, copy-mode search), not the shell or agent in a pane. Cut text stays in the field; `Alt` shortcuts need a terminal that reports Alt/Meta.
 
 See: [Editing text fields](https://herdr.dev/tui/docs/keyboard/#editing-text-fields)
 
 ## Custom bindings
 
-### Binding syntax
+### Prefix choices
 
 ```toml
 [keys]
 prefix = "ctrl+a"                        # or ["ctrl+space", "f12"]
+```
+<!-- {: data-highlight="ctrl+space; f12"} -->
+
+Every binding is configurable, including the prefix; an action can carry several shortcuts.
+
+See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)
+
+### Action bindings
+
+```toml
+[keys]
 next_tab = ["prefix+n", "ctrl+alt+]"]    # no prefix needed
 new_tab = ["prefix+c", "ctrl+alt+c"]
 split_vertical = ["prefix+v", "ctrl+alt+d"]
 split_horizontal = ["prefix+minus", "ctrl+alt+shift+d"]
 zoom = ["prefix+z", "ctrl+alt+z"]
 ```
+<!-- {: data-highlight="next_tab; new_tab; split_vertical; split_horizontal"} -->
 
-Every binding is configurable, including the prefix; an action can carry
-several shortcuts. Direct chords skip the prefix, and `ctrl+alt` is the
-safest family to look at.
+Direct chords skip the prefix, and `ctrl+alt` is the safest family to look at.
 
 See: [Keybindings](https://herdr.dev/tui/docs/configuration/#keybindings)

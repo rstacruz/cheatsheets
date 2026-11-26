@@ -1,6 +1,6 @@
 import { categories } from '../../config'
 import type { SheetPage } from '../page'
-import { hasTag, isListed, isTestFixture } from './accessors'
+import { hasTag, isListed, isSnippet, isTestFixture } from './accessors'
 
 export type Category = {
   pages: SheetPage[]
@@ -12,7 +12,11 @@ export type Category = {
  * Returns categories and their corresponding pages.
  */
 
-export function getPagesByCategory(pages: Record<string, SheetPage>) {
+export function getPagesByCategory(
+  pages: Record<string, SheetPage>,
+  options?: { excludeSnippets?: boolean }
+) {
+  const { excludeSnippets = false } = options ?? {}
   const pageCategories: Record<string, Category> = {}
 
   for (const category of categories) {
@@ -21,6 +25,7 @@ export function getPagesByCategory(pages: Record<string, SheetPage>) {
 
   for (const page of Object.values(pages)) {
     if (!isListed(page)) continue
+    if (excludeSnippets && isSnippet(page)) continue
 
     const categoryName = page.frontmatter.category ?? 'Others'
     if (!categoryName) continue
@@ -34,17 +39,31 @@ export function getPagesByCategory(pages: Record<string, SheetPage>) {
 }
 
 /**
+ * Counts listed sheets, excluding hidden, deprecated, and archived ones.
+ */
+export function getListedSheetCount(pages: Record<string, SheetPage>): number {
+  return Object.values(pages).filter(isListed).length
+}
+
+/**
  * Returns categories and their corresponding pages.
  */
 
 export function getRecentPages(
   pages: Record<string, SheetPage>,
-  options?: { maxCount?: number }
+  options?: { maxCount?: number; excludeSnippets?: boolean }
 ): SheetPage[] {
-  const { maxCount = 8 } = options ?? {}
+  const { maxCount = 8, excludeSnippets = false } = options ?? {}
 
+  // The recent list follows the active t1/t2 rotation, not best-effort t3.
   return Object.values(pages)
-    .filter((page) => isListed(page) && page.frontmatter.updated)
+    .filter(
+      (page) =>
+        isListed(page) &&
+        (page.frontmatter.tier === 't1' || page.frontmatter.tier === 't2') &&
+        page.frontmatter.updated &&
+        (!excludeSnippets || !isSnippet(page))
+    )
     .sort(compare('desc', (page: SheetPage) => page.frontmatter.updated ?? ''))
     .slice(0, maxCount)
 }
@@ -55,14 +74,34 @@ export function getRecentPages(
 
 export function getFeaturedPages(
   pages: Record<string, SheetPage>,
-  options?: { maxCount?: number }
+  options?: { maxCount?: number; excludeSnippets?: boolean }
 ): SheetPage[] {
-  const { maxCount = 8 } = options ?? {}
+  const { maxCount = 8, excludeSnippets = false } = options ?? {}
 
   return Object.values(pages)
-    .filter((page) => isListed(page) && hasTag(page, 'Featured'))
+    .filter(
+      (page) =>
+        isListed(page) &&
+        hasTag(page, 'Featured') &&
+        (!excludeSnippets || !isSnippet(page))
+    )
     .sort(compare('asc', (page: SheetPage) => page.slug ?? ''))
     .slice(0, maxCount)
+}
+
+/** Snippet-layout sheets for the condensed homepage list */
+export function getSnippetPages(pages: Record<string, SheetPage>): SheetPage[] {
+  return Object.values(pages)
+    .filter((page) => isListed(page) && isSnippet(page))
+    .sort(
+      compare('asc', (page: SheetPage) =>
+        (
+          page.frontmatter.link_title ??
+          page.frontmatter.title ??
+          page.slug
+        ).toLowerCase()
+      )
+    )
 }
 
 /**

@@ -1,5 +1,6 @@
 ---
 title: Divshot
+subtitle: Static site hosting service
 category: Hidden
 # Divshot shut down in 2015.
 tags: [Archived]

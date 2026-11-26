@@ -1,195 +1,356 @@
 ---
 title: Rollup.js
-category: JavaScript libraries
-updated: 2020-01-29
+subtitle: JavaScript module bundler with tree-shaking
+category: Build tools
+updated: 2026-11-18
 authors:
   - github: ryanSN
-keywords:
-  - rollup.watch
-  - bundle
-  - rollup.config.js
+tier: t2
+last_verified_with: "rollup 4.68.8."
+fragments:
+  - "rollup -c"
+  - "rollup -c -w"
+  - "npx rollup"
+  - "-o bundle.js"
+  - "-f es"
+  - "input:"
+  - "output:"
+  - "output.dir"
+  - "format: 'es'"
+  - "dist/cjs"
+  - "external:"
+  - "globals:"
+  - "treeshake:"
+  - "watch:"
+  - "nodeResolve()"
+  - "commonjs()"
+  - "babelHelpers"
+  - "terser()"
 intro: |
-  [Rollup](https://rollupjs.org/) Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
+  Rollup bundles ES modules into a single file or chunks. It tree-shakes
+  unused code and uses plugins for JSON, CommonJS, Babel, and minification.
 links:
-  - title: Rollup
+  - title: Rollup documentation
     url: https://rollupjs.org/
+  - title: CLI reference
+    url: https://rollupjs.org/command-line-interface/
+  - title: Configuration options
+    url: https://rollupjs.org/configuration-options/
+  - title: Official plugins
+    url: https://github.com/rollup/plugins
+keywords:
+  - rollup
+  - rollup.config.js
+  - module bundler
+  - tree-shaking
+  - rollup plugins
 ---
 
-### Basic config
+## Getting started
 
-#### rollup.config.js
+### Install locally
+
+```bash
+npm install --save-dev rollup
+```
+<!-- {: data-highlight="--save-dev"} -->
+
+See: [Installing Rollup locally](https://rollupjs.org/tutorial/#installing-rollup-locally)
+
+### Check version
+
+```bash
+npx rollup --version
+```
+<!-- {: data-highlight="--version"} -->
+
+Use `npx` for local commands without a global install.
+
+See: [CLI reference](https://rollupjs.org/command-line-interface/)
+
+### Bundle from the CLI
+
+```bash
+rollup src/main.js -o bundle.js -f es
+```
+<!-- {: data-highlight="-o bundle.js; -f es"} -->
+
+`-o` sets the output file; `-f` selects the format.
+
+See: [Quick start](https://rollupjs.org/introduction/#quick-start)
+
+### Use a config file
+
+#### rollup.config.mjs
+
+```js
+export default {
+  input: 'src/main.js',
+  output: { file: 'dist/bundle.js', format: 'es' }
+}
+```
+
+#### Terminal
+
+```bash
+rollup -c
+rollup --config rollup.config.prod.mjs
+```
+<!-- {: data-highlight="-c; --config"} -->
+
+`rollup -c` reads `rollup.config.mjs`; `--config` selects another file.
+
+See: [Configuration files](https://rollupjs.org/command-line-interface/#configuration-files)
+
+### Watch files
+
+```bash
+rollup -c -w
+```
+<!-- {: data-highlight="-w"} -->
+
+Rebuild on source changes while the process runs.
+
+See: [Command line flags](https://rollupjs.org/command-line-interface/#command-line-flags)
+
+## Output
+
+### Single file
 
 ```js
 export default {
   input: 'src/main.js',
   output: {
-    file: 'bundle.js',
-    format: 'cjs'
+    file: 'dist/bundle.js',
+    format: 'es',
+    sourcemap: true
   }
 }
 ```
-#### Terminal
+<!-- {: data-highlight="file"} -->
 
-```bash
-npm install -D rollup
-```
+`file` names one bundle; `sourcemap` emits a `.map` beside it.
 
-#### Commands
-
-| Command                                | Description         |
-| ---                                    | ---                 |
-| `rollup -c -o bundle.js`               | bundle using config |
-| `rollup main.js --o bundle.js --f cjs` | bundle              |
-| `rollup --watch`                       | bundle continuously |
-
-You may need to use `./node_modules/.bin/rollup` as a command if you did not install rollup globally.
+See: [output.file](https://rollupjs.org/configuration-options/#output-file)
 
 ### Multiple outputs
 
-#### rollup.config.js
+```js
+export default {
+  input: 'src/main.js',
+  output: [
+    { dir: 'dist/es', format: 'es' },
+    { dir: 'dist/cjs', format: 'cjs' }
+  ]
+}
+```
+<!-- {: data-highlight="dir"} -->
+
+Rollup needs `output.dir` when it writes more than one chunk.
+
+See: [output.dir](https://rollupjs.org/configuration-options/#output-dir)
+
+### Multiple entries
 
 ```js
-export default [
-  {
-    input: 'src/main.js',
-    output: {
-      file: __dirname + '/public/main.js',
-      format: 'cjs',
-      name: 'main'
-    }
+export default {
+  input: {
+    main: 'src/main.js',
+    admin: 'src/admin.js'
   },
-  {
-    input: 'src/vendor.js',
-    output: {
-      file: __dirname + 'public/vendor.js',
-      format: 'cjs',
-      name: 'vendor'
-    }
+  output: { dir: 'dist', format: 'es' }
+}
+```
+<!-- {: data-highlight="input"} -->
+
+Each entry name becomes a chunk in `dist/`.
+
+See: [input](https://rollupjs.org/configuration-options/#input)
+
+### Output formats
+
+| Format | Description |
+| --- | --- |
+| `es` | ES modules (default) |
+| `cjs` | CommonJS |
+| `iife` | Browser script |
+| `umd` | Universal modules |
+| `amd` | AMD modules |
+| `system` | SystemJS modules |
+
+See: [output.format](https://rollupjs.org/configuration-options/#output-format)
+
+## Dependencies
+
+### Keep packages external
+
+```js
+export default {
+  input: 'src/main.js',
+  external: ['lodash'],
+  output: { file: 'dist/bundle.js', format: 'es' }
+}
+```
+<!-- {: data-highlight="external"} -->
+
+`external` leaves matching imports out of the bundle.
+
+See: [external](https://rollupjs.org/configuration-options/#external)
+
+### Map externals to globals
+
+```js
+export default {
+  input: 'src/main.js',
+  external: ['jquery'],
+  output: {
+    file: 'dist/bundle.js',
+    format: 'iife',
+    name: 'app',
+    globals: { jquery: '$' }
   }
-]
+}
 ```
+<!-- {: data-highlight="globals"} -->
 
-This creates `main.js` and `vendor.js`.
+`globals` maps external IDs to browser globals for `iife` builds.
 
-## Using plugins
+See: [output.globals](https://rollupjs.org/configuration-options/#output-globals)
 
-### Plugins
+## Build behaviour
 
-#### Terminal
+### Tree-shaking
 
-```bash
-npm install -D @rollup/plugin-json
+```js
+export default {
+  input: 'src/main.js',
+  treeshake: 'smallest',
+  output: { dir: 'dist', format: 'es' }
+}
 ```
+<!-- {: data-highlight="smallest"} -->
 
-#### rollup.config.js
+`smallest` drops more code but assumes no side effects.
+
+See: [treeshake](https://rollupjs.org/configuration-options/#treeshake)
+
+### Watch config
+
+```js
+export default {
+  input: 'src/main.js',
+  output: { dir: 'dist', format: 'es' },
+  watch: {
+    include: 'src/**',
+    exclude: 'node_modules/**',
+    buildDelay: 300,
+    clearScreen: false
+  }
+}
+```
+<!-- {: data-highlight="watch"} -->
+
+Apply with `rollup -c -w`.
+
+See: [watch](https://rollupjs.org/configuration-options/#watch)
+
+## Plugins
+
+### JSON files
 
 ```js
 import json from '@rollup/plugin-json'
 
 export default {
   input: 'src/main.js',
-  output: {
-    file: 'bundle.js',
-    format: 'cjs'
-  },
-  plugins: [ json() ]
+  plugins: [json()],
+  output: { dir: 'dist', format: 'es' }
 }
-
 ```
+<!-- {: data-highlight="json()"} -->
 
-### npm packages
+Import `.json` files as modules.
 
-#### Terminal
-```bash
-npm install -D @rollup/plugin-node-resolve
-```
+See: [@rollup/plugin-json](https://github.com/rollup/plugins/tree/master/packages/json)
 
-#### rollup.config.js
+### Node modules
+
 ```js
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 export default {
   input: 'src/main.js',
-  output: {
-    file: 'bundle.js',
-    format: 'cjs'
-  },
-  plugins: [ resolve() ]
+  plugins: [nodeResolve()],
+  output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="nodeResolve()"} -->
 
-When you run a npm run build, no warning is emitted and contains the imported modules.
+Resolve bare imports from `node_modules`.
 
-### Peer dependencies
+See: [@rollup/plugin-node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve)
 
-#### Terminal
-
-```bash
-npm install -D @rollup/plugin-node-resolve
-```
-
-#### rollup.config.js
+### CommonJS modules
 
 ```js
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 
 export default {
   input: 'src/main.js',
-  output: {
-    file: 'bundle.js',
-    format: 'cjs'
-  },
-  plugins: [resolve({
-    // pass custom options to the resolve plugin
-    customResolveOptions: {
-      moduleDirectory: 'node_modules'
-    }
-  })],
-  // indicate which modules should be treated as external
-  external: ['lodash']
+  plugins: [nodeResolve(), commonjs()],
+  output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="commonjs()"} -->
+
+Put `commonjs()` before Babel when both plugins are used.
+
+See: [@rollup/plugin-commonjs](https://github.com/rollup/plugins/tree/master/packages/commonjs)
 
 ### Babel
 
-#### Terminal
-
-```bash
-npm install -D @rollup/plugin-babel
-```
-
-#### rollup.config.js
-
 ```js
-import resolve from '@rollup/plugin-node-resolve'
-import babel from '@rollup/plugin-babel'
+import { babel } from '@rollup/plugin-babel'
 
 export default {
   input: 'src/main.js',
-  output: {
-    file: 'bundle.js',
-    format: 'cjs'
-  },
   plugins: [
-    resolve(),
     babel({
-      exclude: 'node_modules/**' // only transpile our source code
+      babelHelpers: 'bundled',
+      presets: ['@babel/preset-env']
     })
-  ]
+  ],
+  output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="babelHelpers"} -->
 
-#### src/.babelrc
+Set `babelHelpers` explicitly; `bundled` inlines helpers.
+
+See: [@rollup/plugin-babel](https://github.com/rollup/plugins/tree/master/packages/babel)
+
+### Minify with terser
 
 ```js
-{
-  "presets": [
-    ["latest", {
-      "es2015": {
-        "modules": false
-      }
-    }]
-  ],
-  "plugins": ["external-helpers"]
+import terser from '@rollup/plugin-terser'
+
+export default {
+  input: 'src/main.js',
+  plugins: [terser()],
+  output: { dir: 'dist', format: 'es' }
 }
 ```
+<!-- {: data-highlight="terser()"} -->
+
+Run `terser()` last so it minifies the finished bundle.
+
+See: [@rollup/plugin-terser](https://github.com/rollup/plugins/tree/master/packages/terser)
+
+## Also see
+
+- [Rollup](https://rollupjs.org/)
+- [CLI reference](https://rollupjs.org/command-line-interface/)
+- [Configuration options](https://rollupjs.org/configuration-options/)
+- [Official plugins](https://github.com/rollup/plugins)
+- [Awesome Rollup](https://github.com/rollup/awesome)

@@ -1,6 +1,13 @@
 ---
 title: Riot.js
-category: JavaScript libraries
+subtitle: Tiny component UI library
+category: Hidden
+# Pre-Riot-4 tag API; riot.route and old lifecycle hooks are gone.
+tags: [Archived]
+archived: |
+  This is the pre-Riot-4 tag API. Riot 4 (2019) rewrote the tag format and
+  lifecycle hooks, and removed `riot.route` from core. See the
+  [migration guide](https://riot.js.org/migration-guide/).
 intro: |
   Riot is a UI library for JavaScript.
 links:

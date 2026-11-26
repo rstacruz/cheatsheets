@@ -1,0 +1,42 @@
+{
+  "src/styles/base.css": {
+    "declaration-property-value-disallowed-list": {
+      "count": 1
+    }
+  },
+  "src/styles/vendor/autocomplete.css": {
+    "no-descending-specificity": {
+      "count": 1
+    }
+  },
+  "src/styles/vendor/headline-pub.css": {
+    "no-descending-specificity": {
+      "count": 3
+    }
+  },
+  "src/styles/markdown/code.css": {
+    "declaration-property-value-disallowed-list": {
+      "count": 1
+    }
+  },
+  "src/styles/markdown/p.css": {
+    "declaration-property-value-disallowed-list": {
+      "count": 1
+    }
+  },
+  "src/styles/markdown/table.css": {
+    "no-descending-specificity": {
+      "count": 18
+    }
+  },
+  "src/styles/markdown/h3-section.css": {
+    "no-descending-specificity": {
+      "count": 13
+    }
+  },
+  "src/styles/markdown/hint-mark.css": {
+    "declaration-property-value-disallowed-list": {
+      "count": 2
+    }
+  }
+}

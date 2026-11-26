@@ -8,6 +8,7 @@ import rehypeStringify from 'rehype-stringify'
 import { commentAttributes } from './comments'
 import { expandJekyll } from './jekyll'
 import { hoistCodeAttrs, restoreCodeLanguage } from './ial'
+import { rehypeMermaid, remarkMermaid } from './mermaid'
 import {
   encodeKramdownTables,
   kramdownTableHandler,
@@ -28,6 +29,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     .use(remarkGfm)
     .use(commentAttributes)
     .use(restoreCodeLanguage)
+    .use(remarkMermaid)
     .use(kramdownTables)
     .use(remarkRehype, {
       allowDangerousHtml: true,
@@ -35,6 +37,7 @@ export async function renderMarkdown(input: string): Promise<{ html: string }> {
     })
     .use(rehypeRaw)
     .use(hoistCodeAttrs)
+    .use(rehypeMermaid)
     .use(rehypeSlug)
     .use(rehypeStringify, { allowDangerousHtml: true, closeSelfClosing: true })
     .process(md)

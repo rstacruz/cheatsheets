@@ -61,7 +61,10 @@ Add a CSS-only glyph to `USED` in `scripts/build-icons.mjs`, then run `pnpm icon
 
 ## Cheatsheet guidelines
 
-See `_docs/writing-guidelines.md` for content and formatting guidelines.
+See `_docs/writing-guidelines.md` for content and formatting guidelines,
+`_docs/rules.md` for the rule slugs and examples, and `_docs/archiving.md` for
+when to archive a sheet.
+See `_docs/tiers.md` for what T1 and T2 mean and when a sheet needs a check.
 
 ## Setting up redirects
 
@@ -70,6 +73,8 @@ Redirects are defined in `public/_redirects`, one rule per line:
 ```
 /es2015 /es6 301
 ```
+
+When you rename or remove a sheet, add a rule from its old URL. CI fails a pull request that deletes a sheet without one (`src/lib/redirects.test.ts`).
 
 The file is copied into the build output, so static hosts that support the `_redirects` format will pick it up.
 

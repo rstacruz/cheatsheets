@@ -1,9 +1,28 @@
 ---
 title: Markdown
+seo_title: Markdown cheatsheet — syntax, tables, links
+description: "Markdown syntax: headings, lists, tables, links, code and HTML. CommonMark and GFM reference."
+subtitle: Plain-text markup format
 category: Markup
 tier: t2
+last_verified_with: "CommonMark 0.31.2, GFM 0.29-gfm."
+fragments:
+  - "# Heading"
+  - "**bold**"
+  - "*italic*"
+  - "~~strike~~"
+  - "`code`"
+  - "[text](url)"
+  - "![alt](img)"
+  - "> A quote"
+  - "- First item"
+  - "- [ ] Open"
+  - "---"
+  - "| a | b |"
+  - "1. item"
+  - "[^1]"
 weight: -1
-updated: 2026-11-11
+updated: 2026-11-22
 keywords:
   - markdown syntax
   - commonmark
@@ -20,13 +39,15 @@ links:
 ---
 
 ## Getting started
+<!-- {: .-three-column} -->
 
 ### Basic example
 
 ```markdown
 # Title
 
-A paragraph with **bold**, *italic*, and `code`.
+A paragraph with **bold**, *italic*, and
+`code`.
 
 - First item
 - Second item
@@ -34,11 +55,25 @@ A paragraph with **bold**, *italic*, and `code`.
 [Link](https://commonmark.org)
 ```
 
-<!-- {: data-line="3"} -->
+<!-- {: data-highlight="**"} -->
 
 See: [Markdown reference](https://commonmark.org/help/)
 
+### Paragraphs
+
+```markdown
+First paragraph.
+
+Second paragraph,
+still one paragraph.
+```
+
+Blank lines separate paragraphs; a single newline stays inside the paragraph.
+
+See: [Paragraphs](https://spec.commonmark.org/0.31.2/#paragraphs)
+
 ## Headings
+<!-- {: .-three-column} -->
 
 ### ATX headings
 
@@ -49,15 +84,23 @@ See: [Markdown reference](https://commonmark.org/help/)
 #### Heading 4
 ##### Heading 5
 ###### Heading 6
+
+####### Seven hashes
 ```
+<!-- {: data-highlight="#"} -->
 
 One to six `#`s, then a space or end of line; seven or more stay literal.
 
+See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
+
+### Closing hashes
+
 ```markdown
 ## Heading 2 ##
+## Heading 2 #######
 ```
 
-Closing `#`s need a space before them.
+Closing `#`s may be any length when preceded by a space.
 
 See: [ATX headings](https://spec.commonmark.org/0.31.2/#atx-headings)
 
@@ -70,6 +113,7 @@ Heading 1
 Heading 2
 ---------
 ```
+<!-- {: data-highlight="=========; ---------"} -->
 
 Either underline can be any length. It must sit directly under the text; with a blank line between, `---` becomes a thematic break.
 
@@ -116,7 +160,7 @@ Next line\
 also breaks
 ```
 
-<!-- {: data-line="1"} -->
+<!-- {: data-highlight="line"} -->
 
 Line 1 ends in two spaces. Two or more spaces or a trailing backslash insert a `<br>`; a blank line starts a new paragraph.
 
@@ -133,6 +177,7 @@ See: [Hard line breaks](https://spec.commonmark.org/0.31.2/#hard-line-breaks)
 - Item
   - Nested item
 ```
+<!-- {: data-highlight="- Item"} -->
 
 `-`, `*`, and `+` all work; changing the marker starts a new list. Nested items align to the parent's content column, and blank lines between items make the list loose (each item wrapped in `<p>`).
 
@@ -140,17 +185,23 @@ See: [List items](https://spec.commonmark.org/0.31.2/#list-items)
 
 ### Ordered lists
 
+#### Automatic numbering
+
 ```markdown
 1. First
 2. Second
 ```
+<!-- {: data-highlight="1. First"} -->
+
+#### Starting number
 
 ```markdown
 3. Starts at three
 4. Next
 ```
+<!-- {: data-highlight="3. Starts at three"} -->
 
-The first number sets `start`; later numbers are ignored. `1)` also works; one to nine digits, and changing the delimiter starts a new list.
+The first number sets `start`; later numbers are ignored. `1)` also works, and markers take up to nine digits. Changing the delimiter starts a new list.
 
 See: [Lists](https://spec.commonmark.org/0.31.2/#lists)
 
@@ -161,12 +212,14 @@ See: [Lists](https://spec.commonmark.org/0.31.2/#lists)
 - [x] Done
   - [X] Nested done
 ```
+<!-- {: data-highlight="[ ]; [x]"} -->
 
 A GFM extension; the marker must start the item's first paragraph.
 
 See: [Task list items](https://github.github.com/gfm/#task-list-items-extension-)
 
 ## Links
+<!-- {: .-three-column} -->
 
 ### Inline links
 
@@ -175,6 +228,7 @@ See: [Task list items](https://github.github.com/gfm/#task-list-items-extension-
 [text](https://example.com "Title")
 [text](</my file.md>)
 ```
+<!-- {: data-highlight="[text](</my file.md>)"} -->
 
 Angle brackets allow spaces in the destination.
 
@@ -190,8 +244,9 @@ See: [Links](https://spec.commonmark.org/0.31.2/#links)
 [cm]: https://spec.commonmark.org/0.31.2/
 [CommonMark]: https://commonmark.org/
 ```
+<!-- {: data-highlight="[CommonMark][cm]; [CommonMark][]; [CommonMark]"} -->
 
-Definitions may appear anywhere and are not rendered. `[]` reuses the label; no brackets is the shortcut form.
+Definitions can follow the links but cannot interrupt a paragraph; they are not rendered. `[]` reuses the label; no brackets is the shortcut form.
 
 See: [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
@@ -205,6 +260,7 @@ https://example.com
 www.example.com
 me@example.com
 ```
+<!-- {: data-highlight="<https://example.com>; www.example.com"} -->
 
 Angle forms are CommonMark; bare URLs, `www.` hosts and emails are the GFM extension. Trailing punctuation stays outside the link.
 
@@ -217,6 +273,7 @@ Here is a note.[^1]
 
 [^1]: Footnote text.
 ```
+<!-- {: data-highlight="[^1]"} -->
 
 A GitHub extension, absent from GFM 0.29 but rendered by GitHub and devhints. Notes appear at the bottom regardless of source position.
 
@@ -232,6 +289,7 @@ See: [Footnotes](https://docs.github.com/en/get-started/writing-on-github/gettin
 ![Alt text](/img/logo.png)
 ![Alt text](/img/logo.png "Logo")
 ```
+<!-- {: data-highlight="![Alt text](/img/logo.png)"} -->
 
 See: [Images](https://spec.commonmark.org/0.31.2/#images)
 
@@ -242,6 +300,7 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images)
 
 [logo]: /img/logo.png "Logo"
 ```
+<!-- {: data-highlight="![Alt text][logo]"} -->
 
 See: [Images](https://spec.commonmark.org/0.31.2/#images), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
@@ -252,13 +311,13 @@ See: [Images](https://spec.commonmark.org/0.31.2/#images), [Link reference defin
 
 [dot]: <data:image/png;base64,...>
 ```
+<!-- {: data-highlight="![Dot][dot]"} -->
 
 Angle brackets are optional; use them when the URI has spaces or unbalanced parentheses.
 
 See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data), [Link reference definitions](https://spec.commonmark.org/0.31.2/#link-reference-definitions)
 
 ## Code
-
 <!-- {: .-three-column} -->
 
 ### Inline code
@@ -267,8 +326,9 @@ See: [Data URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Sche
 `code`
 `` `code` ``
 ```
+<!-- {: data-highlight="`code`"} -->
 
-A code span ends with a backtick run of the same length; one space inside each end is stripped.
+A code span opens and closes with backtick runs of the same length. When content starts and ends with one space, both are stripped.
 
 See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 
@@ -279,8 +339,9 @@ See: [Code spans](https://spec.commonmark.org/0.31.2/#code-spans)
 const x = 1
 ```
 `````
+<!-- {: data-highlight="js"} -->
 
-The info string's first word is the language; a backtick info string cannot contain backticks.
+By convention the info string's first word is the language; a backtick info string cannot contain backticks.
 
 See: [Fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks)
 
@@ -293,6 +354,7 @@ const x = 1
 ```
 ````
 `````
+<!-- {: data-highlight="````"} -->
 
 A fence inside another needs a longer outer fence, or tildes. The closing fence must match the opening character and be at least as long.
 
@@ -304,6 +366,7 @@ See: [Creating and highlighting code blocks](https://docs.github.com/en/get-star
     four spaces
     make a code block
 ```
+<!-- {: data-highlight="four spaces"} -->
 
 Four spaces indent a code block in CommonMark.
 
@@ -321,6 +384,7 @@ See: [Indented code blocks](https://spec.commonmark.org/0.31.2/#indented-code-bl
 >
 > > Nested quote
 ```
+<!-- {: data-highlight=">"} -->
 
 `>` may be omitted on lazy paragraph continuation lines. A `>` on the blank line keeps one quote; without it they become two.
 
@@ -333,6 +397,7 @@ See: [Block quotes](https://spec.commonmark.org/0.31.2/#block-quotes)
 ***
 ___
 ```
+<!-- {: data-highlight="---; ***; ___"} -->
 
 Three or more matching `-`, `*`, or `_`, optionally spaced. Directly under text, `---` is a Setext H2 instead.
 
@@ -340,15 +405,21 @@ See: [Thematic breaks](https://spec.commonmark.org/0.31.2/#thematic-breaks)
 
 ### HTML
 
+#### Inline HTML
+
 ```markdown
 Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 ```
+<!-- {: data-highlight="<kbd>Ctrl</kbd>"} -->
+
+#### HTML block
 
 ```html
 <div class="note">
   <p>Raw HTML block.</p>
 </div>
 ```
+<!-- {: data-highlight="<div"} -->
 
 Inline tags pass through. A `<div>` block runs to a blank line and its contents are not parsed as Markdown. GitHub filters `<script>`, `<style>` and similar tags.
 
@@ -364,6 +435,7 @@ See: [Raw HTML](https://spec.commonmark.org/0.31.2/#raw-html), [HTML blocks](htt
 | Alpha | 1     |
 | Beta  | 2     |
 ```
+<!-- {: data-highlight="| ----- | ----- |"} -->
 
 Header and delimiter rows must match in cell count; body rows pad or truncate. Cells hold inline content; escape a pipe as `\|`.
 
@@ -376,6 +448,7 @@ See: [Tables](https://github.github.com/gfm/#tables-extension-)
 | :--- | :----: | ----: |
 | a    | b      | c     |
 ```
+<!-- {: data-highlight=":---; :----:; ----:"} -->
 
 See: [Tables](https://github.github.com/gfm/#tables-extension-)
 

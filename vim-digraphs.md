@@ -1,7 +1,20 @@
 ---
 title: Vim digraphs
+subtitle: Special character input reference
 category: Vim
+intro: |
+  Vim digraphs let you type characters not available on your keyboard with Ctrl-K followed by two keys.
+links:
+  - title: Digraph table
+    url: https://vimhelp.org/digraph.txt.html#digraph-table
+  - title: Using digraphs
+    url: https://vimhelp.org/digraph.txt.html#digraphs-use
+tier: t3
+last_verified_with: "Vim 9.2."
+updated: 2026-11-26
 ---
+
+## Typing
 
 ### Typing digraphs in insert mode
 
@@ -10,6 +23,8 @@ category: Vim
 ```
 
 <!-- {:.light} -->
+
+See: [Digraph input](https://vimhelp.org/digraph.txt.html#digraphs-use)
 
 ### Listing digraphs
 
@@ -20,6 +35,8 @@ category: Vim
 ```
 
 <!-- {:.lights} -->
+
+See: [`:digraphs`](https://vimhelp.org/digraph.txt.html#%3Adigraphs)
 
 ## Reference
 
@@ -45,6 +62,8 @@ category: Vim
 | ✓  | ✗  |
 | OK | XX |
 
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
+
 ### Dots and bullets
 
 |  |  |  |  |  |  |  |  |  |
@@ -56,6 +75,8 @@ category: Vim
 | --- | --- | --- | --- | --- |
 | ⊙  | ⊚  | ◎   | □  | ▪  |
 | 0. | 02 | 0o  | OS | sB |
+
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
 
 ### Math
 
@@ -75,6 +96,8 @@ category: Vim
 | ¼  | ½  | ¾  | ₃  | ₂  | ³  | ²  |
 | 14 | 12 | 34 | 3s | 2s | 3S | 2S |
 
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
+
 ### Set Theory
 
 |  |  |  |  |  |  |
@@ -86,6 +109,8 @@ category: Vim
 | --- | --- | --- | --- |
 | ∩                 | ∪          | ⊂           | ⊃             |
 | (U *intersection* | )U *union* | (C *subset* | )C *superset* |
+
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
 
 ### Greek
 
@@ -109,6 +134,8 @@ category: Vim
 | Τ  | τ  | Υ  | υ  | Φ  | φ  | Χ  | χ  | Ψ  | ψ  | Ω  | ω  |
 | T* | t* | U* | u* | F* | f* | X* | x* | Q* | q* | W* | w* |
 
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
+
 ### Triangles
 
 |  |  |  |  |
@@ -126,6 +153,8 @@ category: Vim
 | »  | «  | 〈 | 〉 | ‹  | ›  |
 | >> | << | </ | /> | <1 | >1 |
 
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
+
 ### Arrows
 
 |  |  |  |  |  |  |
@@ -137,6 +166,8 @@ category: Vim
 | --- | --- | --- |
 | ⇐  | ⇒  | ⇔  |
 | <= | => | == |
+
+See: [Digraph table](https://vimhelp.org/digraph.txt.html#digraph-table)
 
 <style>
 .all table tr td { text-align: center; }

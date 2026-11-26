@@ -1,14 +1,28 @@
 ---
 title: Rails i18n
+subtitle: Translation and localization
 category: Rails
+intro: |
+  Rails I18n provides translations, localization, and formatting helpers.
+links:
+  - title: Rails I18n guide
+    url: https://guides.rubyonrails.org/i18n.html
+  - title: ruby-i18n/i18n repository
+    url: https://github.com/ruby-i18n/i18n
+  - title: ActiveSupport::NumberHelper API
+    url: https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html
+tier: t3
+last_verified_with: "Rails 8.1.4.1."
+updated: 2026-11-26
 ---
 
 ### References
 
- * <http://guides.rubyonrails.org/i18n.html>
- * <http://rails-i18n.org/wiki>
- * <https://github.com/svenfuchs/i18n>
+ * <https://guides.rubyonrails.org/i18n.html>
+ * <https://github.com/ruby-i18n/i18n>
  * <https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml>
+
+See: [Rails I18n guide](https://guides.rubyonrails.org/i18n.html)
 
 ### Example
 
@@ -21,6 +35,7 @@ t(:hello, scope: [:my, :messages])
 
 t('my.messages.hello', default: "Hello")
 ```
+<!-- {: data-highlight="t('my.messages.hello')"} -->
 
 #### YAML
 
@@ -31,11 +46,14 @@ en:
       hello: "Hello"
 ```
 
+See: [Using translations in views and controllers](https://guides.rubyonrails.org/i18n.html#using-translations-in-views-and-controllers)
+
 ### Interpolation
 
 ```rb
 t('hello', name: "John")
 ```
+<!-- {: data-highlight='name: "John"'} -->
 
 #### YAML
 
@@ -43,12 +61,15 @@ t('hello', name: "John")
 hello: "Hello %{name}"
 ```
 
+See: [Passing variables to translations](https://guides.rubyonrails.org/i18n.html#passing-variables-to-translations)
+
 ### Lazy lookup
 
 ```rb
 # from the 'books/index' view
 t('.title')
 ```
+<!-- {: data-highlight="t('.title')"} -->
 
 #### YAML
 
@@ -59,20 +80,25 @@ en:
       title: "Título"
 ```
 
+See: [Lazy lookup](https://guides.rubyonrails.org/i18n.html#lazy-lookup)
+
 ### Plural
 
 ```rb
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
+<!-- {: data-highlight="count: 1"} -->
+
 
 #### YAML
 
 ```yml
 inbox:
-  one: 'one message',
+  one: 'one message'
   other: '%{count} messages'
 ```
+See: [Pluralization](https://guides.rubyonrails.org/i18n.html#pluralization)
 
 ## Localizing
 
@@ -82,6 +108,8 @@ inbox:
 l(Time.now)
 l(Time.now, format: :short)
 ```
+<!-- {: data-highlight="format: :short"} -->
+
 
 #### YAML
 
@@ -93,12 +121,15 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
 ```
+See: [Adding date and time formats](https://guides.rubyonrails.org/i18n.html#adding-date-time-formats)
 
 ### Date
 
 ```rb
 l(Date.today)
 ```
+<!-- {: data-highlight="l(Date.today)"} -->
+
 
 #### YAML
 
@@ -110,6 +141,7 @@ en:
       long: "%B %d, %Y"   # June 25, 2015
       short: "%b %d"      # Jun 25
 ```
+See: [Adding date and time formats](https://guides.rubyonrails.org/i18n.html#adding-date-time-formats)
 
 ## ActiveRecord
 
@@ -119,6 +151,8 @@ en:
 User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 ```
+<!-- {: data-highlight="model_name.human"} -->
+
 
 #### YAML
 
@@ -131,12 +165,14 @@ en:
         one: "Child"
         other: "Children"
 ```
+See: [Active Model methods](https://guides.rubyonrails.org/i18n.html#active-model-methods)
 
 ### Attributes
 
 ```rb
-User.human_attribute_for :name   #=> "Name"
+User.human_attribute_name :name   #=> "Name"
 ```
+<!-- {: data-highlight="human_attribute_name"} -->
 
 #### YAML
 
@@ -150,11 +186,9 @@ en:
         email: "Email"
 ```
 
-### Error messages
+See: [Active Model methods](https://guides.rubyonrails.org/i18n.html#active-model-methods)
 
-```rb
-error_messages_for(...)
-```
+### Error messages
 
 #### YAML
 
@@ -168,21 +202,26 @@ activerecord:
             blank: "Please enter a name."
 ```
 
+See: [Error message scopes](https://guides.rubyonrails.org/i18n.html#error-message-scopes)
+
 ### Scopes
 
-Possible scopes (in order):
+#### Key scopes
 
 ```yml
-activerecord.errors.models.[model_name].attributes.[attribute_name].[error]
-activerecord.errors.models.[model_name].[error]
-activerecord.errors.messages.[error]
-errors.attributes.[attribute_name].[error]
-errors.messages.[error]
+# [model], [attr] and [key] are placeholders:
+activerecord.errors.models.[model].attributes.[attr].[key]
+activerecord.errors.models.[model].[key]
+activerecord.errors.messages.[key]
+errors.attributes.[attr].[key]
+errors.messages.[key]
 ```
+<!-- {: data-highlight="[model]; [attr]; [key]"} -->
 
-Where `[error]` can be:
+#### Error keys
 
 ```yml
+# Where [key] can be:
 validates
   confirmation - :confirmation
   acceptance   - :accepted
@@ -195,12 +234,16 @@ validates
   numericality - :not_a_number
 ```
 
+See: [Error message scopes](https://guides.rubyonrails.org/i18n.html#error-message-scopes)
+
 ### Form labels
 
 ```rb
-form_for @post do
+form_with model: @post do |f|
   f.label :body
+end
 ```
+<!-- {: data-highlight="f.label"} -->
 
 #### YAML
 
@@ -212,12 +255,16 @@ helpers:
       body: "Your body text"
 ```
 
+See: [Form helpers](https://guides.rubyonrails.org/i18n.html#form-helpers)
+
 ### Submit buttons
 
 ```rb
-form_for @post do
+form_with model: @post do |f|
   f.submit
+end
 ```
+<!-- {: data-highlight="f.submit"} -->
 
 #### YAML
 
@@ -233,9 +280,13 @@ helpers:
       create: "Publish article"
       update: "Update article"
 ```
- 
+
+See: [Form helpers](https://guides.rubyonrails.org/i18n.html#form-helpers)
+
 
 ## Numbers
+
+### Number helpers
 
 ```rb
 number_to_delimited(2000)             #=> "2,000"
@@ -245,12 +296,17 @@ number_to_rounded(3.14, precision: 0) #=> "3"
 number_to_human(12_000)               #=> "12 Thousand"
 number_to_human_size(12345)           #=> "12.3 kb"
 ```
+<!-- {: data-highlight="number_to_delimited(2000)"} -->
+
+See: [NumberHelper API](https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html)
 
 ### Delimited
 
 ```rb
 number_to_delimited(n)
 ```
+<!-- {: data-highlight="number_to_delimited"} -->
+
 
 #### YAML
 
@@ -263,14 +319,17 @@ number:
     significant: false
     strip_insignificant_zeroes: false
 ```
+See: [number_to_delimited](https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html#method-i-number_to_delimited)
 
 ### Currencies
 
-```rb
+#### Helper
+
+```ruby
 number_to_currency(n)
 ```
 
-<!-- {:.light} -->
+#### Locale keys
 
 ```yml
 number:
@@ -283,12 +342,16 @@ number:
       precision: 3
       # (see number.format)
 ```
+<!-- {: data-highlight="%u%n"} -->
+
+See: [number_to_currency](https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html#method-i-number_to_currency)
 
 ### Percentage
 
 ```rb
 number_to_percentage(n)
 ```
+<!-- {: data-highlight="number_to_percentage"} -->
 
 #### YAML
 
@@ -300,6 +363,8 @@ number:
       # (see number.format)
 ```
 
+See: [number_to_percentage](https://api.rubyonrails.org/classes/ActiveSupport/NumberHelper.html#method-i-number_to_percentage)
+
 ## Programmatic access
 
 ### Programmatic access
@@ -310,7 +375,17 @@ I18n.locale = :en
 I18n.default_locale = :en
 
 I18n.available_locales
+```
+<!-- {: data-highlight="store_translations"} -->
 
+See: [Storing custom translations](https://guides.rubyonrails.org/i18n.html#storing-custom-translations)
+
+### Translate and localize
+
+```rb
 I18n.translate :ok   # aka, I18n.t
 I18n.localize date   # aka, I18n.l
 ```
+<!-- {: data-highlight="translate; localize"} -->
+
+See: [I18n API features](https://guides.rubyonrails.org/i18n.html#overview-of-the-i18n-api-features)

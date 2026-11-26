@@ -1,18 +1,83 @@
 ---
+import cx from 'clsx'
 import type { SheetPage } from '../../lib/page'
+
+const CARD_FRAGMENT_COUNT = 22
+const tones = {
+  primary:
+    'bg-linear-[15deg,var(--primary-solid),var(--primary-solid-soft)] hover:bg-none hover:bg-primary-solid-hover focus:bg-none focus:bg-primary-solid-hover',
+  slate:
+    'bg-linear-[15deg,var(--slate-solid),var(--slate-solid-soft)] hover:bg-none hover:bg-slate-solid-hover focus:bg-none focus:bg-slate-solid-hover',
+  green:
+    'bg-linear-[15deg,var(--highlight-solid),var(--highlight-solid-soft)] hover:bg-none hover:bg-highlight-solid-hover focus:bg-none focus:bg-highlight-solid-hover'
+}
 
 export type Props = {
   page: SheetPage
-  class?: string
+  variant?: 'list' | 'featured'
+  tone?: keyof typeof tones
+  showFragments?: boolean
 }
 const props = Astro.props as Props
 const page = props.page
 const url = `/${page.slug}`
+const title = page.frontmatter.link_title ?? page.frontmatter.title ?? page.slug
+const subtitle = page.frontmatter.subtitle
+const sourceFragments = page.frontmatter.fragments ?? []
+const fragments =
+  props.showFragments && sourceFragments.length > 0
+    ? Array.from(
+        { length: CARD_FRAGMENT_COUNT },
+        (_, index) => sourceFragments[index % sourceFragments.length]
+      )
+    : undefined
+
+const featured = props.variant === 'featured'
+const styles = {
+  link: cx(
+    'PageListItem__link',
+    'group flex min-w-0 flex-col gap-[2px] rounded-xl no-underline',
+    featured
+      ? cx(
+          'h-[220px] overflow-hidden px-[18px] pt-[16px] pb-[18px]',
+          tones[props.tone ?? 'primary']
+        )
+      : 'bg-secondary px-[14px] pt-[12px] pb-16 hover:bg-accent focus:bg-accent'
+  ),
+  fragments: cx(
+    'PageListItem__fragments',
+    'flex min-h-0 flex-auto flex-wrap content-start gap-x-[5px] gap-y-[4px] overflow-hidden pr-[20%] opacity-50',
+    'mb-[8px] [mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]',
+    '[-webkit-mask-image:linear-gradient(to_bottom,var(--mask-opaque)_50%,transparent)]'
+  ),
+  fragment: cx(
+    'PageListItem__fragment',
+    'flex-none rounded-full bg-overlay-soft px-[7px] py-px font-handjet text-base leading-[18px] tracking-chip whitespace-nowrap',
+    '[color:color-mix(in_srgb,var(--primary-foreground)_80%,transparent)]'
+  ),
+  title: cx(
+    'PageListItem__title',
+    featured
+      ? 'font-manrope text-lg leading-[1.25] font-extrabold wrap-break-word text-primary-foreground'
+      : 'font-manrope font-semibold wrap-break-word text-heading group-hover:text-primary group-focus:text-primary'
+  ),
+  subtitle: cx(
+    'PageListItem__subtitle',
+    featured
+      ? '[color:color-mix(in_srgb,var(--primary-foreground)_78%,transparent)]'
+      : 'truncate text-xs leading-[1.6] text-muted-foreground-subtle'
+  )
+}
 ---
 
-<a href={url} class={`article item -item-${page.slug} ${props.class ?? ''}`}>
-  <span class="info">
-    <code class="slug">{page.slug}</code>
-    <span class="title">{page.frontmatter.title ?? page.slug}</span>
-  </span>
+<a href={url} class={styles.link}>
+  {fragments && (
+    <span class={styles.fragments} aria-hidden="true">
+      {fragments.map((fragment) => (
+        <span class={styles.fragment}>{fragment}</span>
+      ))}
+    </span>
+  )}
+  <span class={styles.title}>{title}</span>
+  {subtitle && <span class={styles.subtitle}>{subtitle}</span>}
 </a>

@@ -1,14 +1,16 @@
 ---
 import 'autocompleter/autocomplete.css'
 
-import { etc } from '../../config'
+import cx from 'clsx'
 import Icon from '~/components/Icon.astro'
 
-export type Props = {
-  class?: string
-  /** True for the homepage */
-  isLive: boolean
+type BaseProps = {
+  size?: 'default' | 'small'
 }
+
+export type Props =
+  | (BaseProps & { isLive: true })
+  | (BaseProps & { isLive?: false; count: number })
 const t = {
   prefix: 'devhints.io',
   defaultPlaceholder: 'Search {size}+ cheatsheets',
@@ -16,29 +18,73 @@ const t = {
 }
 
 const props = Astro.props as Props
+const small = props.size === 'small'
 
-let placeholder = props.isLive ? t.homePlaceholder : t.defaultPlaceholder
+const placeholder =
+  props.isLive === true
+    ? t.homePlaceholder
+    : t.defaultPlaceholder.replace('{size}', props.count.toString())
 
-placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
+const styles = {
+  box: (small: boolean) =>
+    cx(
+      'SearchForm__box',
+      'flex items-center rounded-full bg-field cursor-text',
+      small ? 'h-[48px]' : 'h-[64px]',
+      small ? '' : '[box-shadow:var(--shadow-md)]',
+      'focus-within:[box-shadow:var(--shadow-focus)]'
+    ),
+  prefix: (small: boolean) =>
+    cx(
+      'SearchForm__prefix',
+      'm-0 block border border-border px-[8px] py-[2px] font-normal leading-[1.5em] select-none rounded-full max-[769px]:hidden',
+      '[color:color-mix(in_srgb,var(--muted-foreground)_50%,transparent)]',
+      '[background-color:color-mix(in_srgb,var(--background)_50%,transparent)]',
+      small ? 'ml-[11px] text-base' : 'ml-[19px] text-sm'
+    ),
+  sep: (small: boolean) =>
+    cx(
+      'SearchForm__sep',
+      'mx-[8px] leading-[1.6] max-[769px]:hidden',
+      '[color:color-mix(in_srgb,var(--muted-foreground)_50%,transparent)]',
+      small ? 'text-base' : 'text-lg'
+    ),
+  input: (small: boolean) =>
+    cx(
+      'SearchForm__input',
+      'min-w-[48px] flex-auto cursor-text border-0 bg-transparent pl-0 font-body font-bold leading-[1.6] text-heading focus:outline-none',
+      'placeholder:font-normal placeholder:text-muted-foreground',
+      'max-[769px]:pl-[16px]',
+      small
+        ? 'h-[48px] py-[8px] pr-[8px] text-base'
+        : 'h-[64px] py-[16px] pr-[16px] text-lg'
+    ),
+  icon: (small: boolean) =>
+    cx(
+      'SearchForm__icon',
+      'order-2 grid place-items-center text-heading',
+      small
+        ? 'w-[48px] flex-[0_0_48px] [&>svg]:size-[24px]'
+        : 'w-[64px] flex-[0_0_64px] [&>svg]:size-[32px]'
+    )
+}
 ---
 
-<form class="search" action="/" method="get" data-js-search-form>
-  <label class={`search-box ${props.class ?? ''}`}>
-    <span class="prefix">{t.prefix}</span>
-    <span class="sep">/</span>
-    {
-      <input
-        name="q"
-        type="text"
-        class="input"
-        {...(props.isLive ? { autofocus: true } : {})}
-        data-js-search-input
-        placeholder={placeholder}
-        autocomplete="off"
-      />
-    }
-    <span class="icon">
-      <Icon name="md-search" size={32} />
+<form action="/" method="get" data-js-search-form>
+  <label class={styles.box(small)}>
+    <span class={styles.prefix(small)}>{t.prefix}</span>
+    <span class={styles.sep(small)}>/</span>
+    <input
+      name="q"
+      type="text"
+      class={styles.input(small)}
+      {...(props.isLive ? { autofocus: true } : {})}
+      data-js-search-input
+      placeholder={placeholder}
+      autocomplete="off"
+    />
+    <span class={styles.icon(small)}>
+      <Icon name="md-search" size={small ? 24 : 32} />
     </span>
   </label>
 </form>
@@ -66,6 +112,5 @@ placeholder = placeholder.replace('{size}', etc.advertisedSheetCount.toString())
 </script>
 
 <style is:global>
-  @import '../../styles/components/search-box.css';
-  @import '../../styles/components/autocomplete.css';
+  @import '../../styles/vendor/autocomplete.css';
 </style>

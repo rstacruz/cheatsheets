@@ -40,7 +40,7 @@ git status --short
 git add app.txt
 ```
 
-**Stages the resolution.** Edit the file and remove the `<<<<<<<` markers first; see [git add](https://git-scm.com/docs/git-add).
+**Stages the resolution.** Edit the file and clear the `<<<<<<<`, `=======`, and `>>>>>>>` markers first; see [git add](https://git-scm.com/docs/git-add).
 
 ### Drop the kept stash
 <!-- {: .-snippet} -->

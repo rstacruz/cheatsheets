@@ -31,7 +31,7 @@ git fsck --unreachable | grep commit
 git show --stat <sha>
 ```
 
-**Prints the stash message and files.** Look for an `On <branch>: <message>` subject; see [git show](https://git-scm.com/docs/git-show).
+**Prints the stash message and files.** Look for a `WIP on` or `On <branch>` subject; see [git show](https://git-scm.com/docs/git-show).
 
 ### Put it back
 <!-- {: .-snippet} -->

@@ -18,7 +18,7 @@ fragments:
   - "--index"
   - "--keep-index"
   - "stash@{1}"
-  - "refs/stash"
+  - "git stash show"
   - "--unreachable"
 updated: 2026-11-27
 last_verified_with: "git 2.56.0."
@@ -129,7 +129,7 @@ git stash show -p
 ```
 <!-- {: data-highlight="git stash show -p"} -->
 
-`show` prints a diffstat by default; `-p` prints the patch. `-u` includes untracked files saved with `-u`.
+`show` prints a diffstat by default; `-p` prints the patch. `show -u` adds untracked files when the stash was made with `push -u`.
 
 See: [git stash show](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-show-u--include-untracked--only-untrackeddiff-optionsstash)
 
@@ -260,7 +260,7 @@ unreachable commit bc2e2d9819a396a80c2ee502fb6aadfb636e923c
 ```
 <!-- {: data-highlight="git fsck --unreachable"} -->
 
-A dropped or popped entry becomes unreachable, not deleted. Stash commits show an `On <branch>: <message>` subject.
+A dropped or popped entry becomes unreachable, not deleted. Stash commits show a `WIP on` or `On <branch>` subject.
 
 See: [Recovering stashed changes](https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-Recoveringstashentriesthatwerecleareddroppederroneously)
 

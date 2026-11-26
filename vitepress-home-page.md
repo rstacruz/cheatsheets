@@ -2,7 +2,7 @@
 title: How to build a VitePress home page
 link_title: VitePress home page
 subtitle: Hero, actions and feature cards
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."

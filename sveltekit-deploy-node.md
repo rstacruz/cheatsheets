@@ -2,7 +2,7 @@
 title: How to deploy SvelteKit with Node
 link_title: SvelteKit Node deploy
 subtitle: Run a Node server
-category: SvelteKit
+category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1, Node 22.23.5, 26.13.1."
 updated: 2026-11-26

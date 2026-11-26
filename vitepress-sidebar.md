@@ -2,7 +2,7 @@
 title: How to configure the VitePress sidebar
 link_title: VitePress sidebar
 subtitle: Sections, groups and per-page rules
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."

@@ -2,7 +2,7 @@
 title: How to load data at build time in VitePress
 link_title: VitePress data loaders
 subtitle: Fetch once, render statically
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."

@@ -2,7 +2,7 @@
 title: How to reuse Markdown in VitePress
 link_title: Reuse Markdown in VitePress
 subtitle: Includes and code imports
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."

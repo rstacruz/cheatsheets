@@ -2,7 +2,7 @@
 title: How to enable search in VitePress
 link_title: VitePress search
 subtitle: Local index without a service
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Node 26.13.1."

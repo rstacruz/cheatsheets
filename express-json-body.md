@@ -2,7 +2,7 @@
 title: How to parse a JSON body in Express
 link_title: Parse JSON body
 subtitle: Read req.body with express.json
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."

@@ -2,7 +2,7 @@
 title: How to run OpenCode headless
 link_title: OpenCode headless tasks
 subtitle: Run OpenCode from scripts
-category: Task automation
+category: Agents
 layout: snippet
 last_verified_with: "opencode 2.4.1."
 updated: 2026-11-23

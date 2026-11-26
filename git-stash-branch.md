@@ -2,7 +2,7 @@
 title: How to apply a stash to a new branch
 link_title: Apply stash to a branch
 subtitle: Move work to a branch
-category: Git workflows
+category: Git
 layout: snippet
 last_verified_with: "git 2.56.0."
 tier: t3

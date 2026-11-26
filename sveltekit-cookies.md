@@ -2,7 +2,7 @@
 title: How to set cookies in SvelteKit
 link_title: SvelteKit cookies
 subtitle: Sessions and user state
-category: SvelteKit
+category: JavaScript frameworks
 layout: snippet
 last_verified_with: "SvelteKit 3.4.1."
 updated: 2026-11-26

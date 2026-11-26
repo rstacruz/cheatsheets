@@ -2,7 +2,7 @@
 title: How to use Vue components in VitePress Markdown
 link_title: Vue components in VitePress
 subtitle: Interactive widgets inside pages
-category: Static site generators
+category: JavaScript libraries
 layout: snippet
 tier: t3
 last_verified_with: "VitePress 1.6.4, Vue 3.5.13, Node 26.13.1."

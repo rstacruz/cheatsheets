@@ -2,7 +2,7 @@
 title: How to sort strings in JavaScript
 link_title: Sort strings
 subtitle: Alphabetical order by locale
-category: String sorting
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

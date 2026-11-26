@@ -2,7 +2,7 @@
 title: How to run a Bash command in the background
 link_title: Background process
 subtitle: Run jobs without blocking
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24

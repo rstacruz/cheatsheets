@@ -2,7 +2,7 @@
 title: How to handle errors in Express
 link_title: Express error handling
 subtitle: Error handlers and 404s
-category: Web frameworks
+category: Node.js libraries
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."

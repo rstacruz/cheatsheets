@@ -2,7 +2,7 @@
 title: How to schedule Paseo tasks
 link_title: Paseo scheduled tasks
 subtitle: Run agents on a schedule
-category: Task automation
+category: Agents
 layout: snippet
 tier: t1
 last_verified_with: "Paseo 0.17.4."

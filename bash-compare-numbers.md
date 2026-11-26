@@ -2,7 +2,7 @@
 title: How to compare numbers in Bash
 link_title: Compare numbers
 subtitle: Test integers in shell scripts
-category: Command line recipes
+category: CLI
 layout: snippet
 last_verified_with: "Bash 5.3.0."
 updated: 2026-11-24

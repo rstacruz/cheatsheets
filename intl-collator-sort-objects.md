@@ -2,7 +2,7 @@
 title: How to sort an array of objects by a string property
 link_title: Sort objects
 subtitle: By name and second key
-category: String sorting
+category: Internationalization
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

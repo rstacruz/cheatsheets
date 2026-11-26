@@ -62,7 +62,7 @@ if (!event.locals.user) {
 ```
 <!-- {: data-highlight="event.locals.user"} -->
 
-**Runs before the page loads.** Redirect inside `handle` so client-side navigation cannot skip the check; see [Auth](https://svelte.dev/docs/kit/auth).
+**Runs before dynamic pages load.** Redirect inside `handle`, not a layout load; prerendered pages bypass it; see [Auth](https://svelte.dev/docs/kit/auth).
 
 ### Redirect after login on the client
 <!-- {: .-snippet} -->

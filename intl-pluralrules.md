@@ -59,9 +59,9 @@ const plural = (n) => forms[pr.select(n)]
 plural(1)  // → 'item'
 plural(3)  // → 'items'
 ```
-<!-- {: data-highlight="plural"} -->
+<!-- {: data-highlight="new Intl.PluralRules"} -->
 
-Index a form map with the category, then reuse one formatter. Keep a form for every category the locale uses, not only `one` and `other`.
+Create one formatter, then index a form map with the category. Keep a form for every category the locale uses, not only `one` and `other`.
 
 See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
 
@@ -74,7 +74,6 @@ new Intl.PluralRules()
 new Intl.PluralRules('en-US')
 new Intl.PluralRules('ar', { type: 'ordinal' })
 ```
-<!-- {: data-highlight="Intl.PluralRules"} -->
 
 #### Select
 

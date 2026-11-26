@@ -28,7 +28,7 @@ nf.format(1.005)  // → '1.01'
 ```
 <!-- {: data-highlight="minimumFractionDigits; maximumFractionDigits"} -->
 
-**Sets both fraction limits to 2.** `minimumFractionDigits` pads whole numbers and `maximumFractionDigits` rounds the rest; see [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits).
+**Sets both fraction limits to 2.** `minimumFractionDigits` pads short fractions and `maximumFractionDigits` rounds the rest; see [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits).
 
 ### Round without padding
 <!-- {: .-snippet} -->

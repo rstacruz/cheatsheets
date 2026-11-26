@@ -56,7 +56,7 @@ html  // → '<b>$</b>1,234.50'
 
 **Maps the parts to markup and joins them.** Check `type` instead of matching text, because symbols and spacing vary by locale; see [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts).
 
-### Superscript the cents
+### Superscript the fraction
 <!-- {: .-snippet} -->
 
 ```js

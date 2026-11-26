@@ -42,7 +42,7 @@ pct.format(0.256)  // → '25.6%'
 ```
 <!-- {: data-highlight="maximumFractionDigits: 1"} -->
 
-**Trims the fraction with `maximumFractionDigits`.** Percent defaults to whole numbers; use `minimumFractionDigits` to pad instead; see [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
+**Keeps one decimal with `maximumFractionDigits: 1`.** Percent style rounds to whole numbers by default; set `minimumFractionDigits` to pad shorter values. See [digit options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options).
 
 ### Pass a fraction, not a percentage
 <!-- {: .-snippet} -->

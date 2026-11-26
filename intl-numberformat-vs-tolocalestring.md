@@ -1,5 +1,5 @@
 ---
-title: Intl.NumberFormat vs toLocaleString
+title: When to use Intl.NumberFormat vs toLocaleString
 link_title: NumberFormat vs toLocaleString
 subtitle: Which number API to use
 category: Internationalization
@@ -26,7 +26,7 @@ links:
 ```
 <!-- {: data-highlight="toLocaleString"} -->
 
-**Formats a single value without building a formatter.** `toLocaleString()` takes the same locales and options; see [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
+**Formats a single value without keeping a formatter.** `toLocaleString()` takes the same locales and options; see [toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
 
 ### Reuse in a loop
 <!-- {: .-snippet} -->

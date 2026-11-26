@@ -1,5 +1,5 @@
 ---
-title: How to format units in JavaScript
+title: How to format numbers with units in JavaScript
 link_title: Format units
 subtitle: Values with measurement units
 category: Internationalization
@@ -47,7 +47,7 @@ liter('long').format(2.5)    // → '2.5 liters'
 
 **Switches `unitDisplay` between an abbreviation and a phrase.** The default is `'short'`, which prints `2.5 L`; see [unitDisplay](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unitdisplay).
 
-### Data sizes
+### File sizes
 <!-- {: .-snippet} -->
 
 ```js
@@ -59,4 +59,4 @@ new Intl.NumberFormat('en-US', {
 ```
 <!-- {: data-highlight="unit: 'megabyte'"} -->
 
-**Formats a file size as `1.5 MB`.** The formatter labels the value but never converts it; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).
+**Labels a number as megabytes without converting it.** Convert bytes to megabytes yourself before formatting; see [unit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#unit_2).

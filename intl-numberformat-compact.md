@@ -22,12 +22,13 @@ const compact = new Intl.NumberFormat('en-US', {
   notation: 'compact'
 })
 
+compact.format(1000)     // → '1K'
 compact.format(1234)     // → '1.2K'
 compact.format(2000000)  // → '2M'
 ```
 <!-- {: data-highlight="notation: 'compact'"} -->
 
-**Sets `notation: 'compact'`.** The formatter picks the largest matching unit and appends a short suffix (`K`, `M`, `B`, or `T`); see [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation).
+**Sets `notation: 'compact'`.** The formatter picks the unit that matches the value's magnitude and appends a short suffix (`K`, `M`, `B`, or `T`); see [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation).
 
 ### Long form
 <!-- {: .-snippet} -->

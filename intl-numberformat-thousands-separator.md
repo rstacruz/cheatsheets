@@ -23,9 +23,9 @@ const nf = new Intl.NumberFormat('en-US')
 nf.format(1234567)  // → '1,234,567'
 nf.format(1234.5)   // → '1,234.5'
 ```
-<!-- {: data-highlight="format(1234567)"} -->
+<!-- {: data-highlight="'en-US'"} -->
 
-**Groups digits in threes by default.** Decimal formatting needs no options beyond the locale; see [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
+**Groups digits in threes for `en-US` by default.** Grouping rules come from the locale; see [useGrouping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#usegrouping).
 
 ### Turn grouping off
 <!-- {: .-snippet} -->

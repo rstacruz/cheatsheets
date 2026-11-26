@@ -22,7 +22,7 @@ links:
 ```sh
 sqlite3 app.db "PRAGMA journal_mode=WAL;"
 ```
-<!-- {: data-highlight="journal_mode=WAL"} -->
+<!-- {: data-highlight="WAL"} -->
 
 **Switches the file to write-ahead logging.** It prints `wal`, and the setting persists in the file; see [WAL](https://sqlite.org/wal.html).
 
@@ -32,9 +32,9 @@ sqlite3 app.db "PRAGMA journal_mode=WAL;"
 ```sh
 sqlite3 app.db "PRAGMA journal_mode;"
 ```
-<!-- {: data-highlight="journal_mode;"} -->
+<!-- {: data-highlight="journal_mode"} -->
 
-**Prints the current journal mode.** A new connection inherits the mode stored in the file; see [journal_mode](https://sqlite.org/pragma.html#pragma_journal_mode).
+**Prints the current journal mode.** WAL persists across connections; other modes revert; see [journal_mode](https://sqlite.org/pragma.html#pragma_journal_mode).
 
 ### Wait for locks
 <!-- {: .-snippet} -->

@@ -14,7 +14,18 @@ links:
 ## Importing CSV
 <!-- {: .-snippets} -->
 
-### Import into a table
+### Create a table from the header
+<!-- {: .-snippet} -->
+
+```sh
+sqlite3 app.db \
+  ".import --csv people.csv people"
+```
+<!-- {: data-highlight=".import"} -->
+
+**Creates the table from the first row.** Column names come from the header; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
+
+### Import into an existing table
 <!-- {: .-snippet} -->
 
 ```sh
@@ -23,18 +34,7 @@ sqlite3 app.db \
 ```
 <!-- {: data-highlight="--skip 1"} -->
 
-**Loads the rows into an existing table.** `--skip 1` drops the header, and columns fill in table order; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
-
-### Create a table from the header
-<!-- {: .-snippet} -->
-
-```sh
-sqlite3 app.db \
-  ".import --csv people.csv people"
-```
-<!-- {: data-highlight="--csv"} -->
-
-**Creates the table from the first row.** Column names come from the header; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
+**Loads rows into a table that already exists.** `--skip 1` drops the header, and columns fill in table order; see [.import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 
 ### Check the imported rows
 <!-- {: .-snippet} -->

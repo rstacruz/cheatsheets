@@ -54,4 +54,4 @@ sqlite3 app.db ".restore backup.db"
 ```
 <!-- {: data-highlight=".restore backup.db"} -->
 
-**Replaces the current database contents.** The source file is read into the open database, so it stays a normal database file; see [restore](https://sqlite.org/cli.html#other_dot_commands).
+**Copies a SQLite database file into the open database.** Unlike `.dump`, the source must be a database file, not a SQL script; see [restore](https://sqlite.org/cli.html#other_dot_commands).

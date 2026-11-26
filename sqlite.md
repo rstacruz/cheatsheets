@@ -12,7 +12,7 @@ fragments:
   - ".mode box"
   - ".headers on"
   - ".import --csv"
-  - ".backup app.db"
+  - ".backup"
   - "PRAGMA"
   - "journal_mode=WAL"
   - "foreign_keys=ON"
@@ -67,7 +67,7 @@ See: [Command-line shell](https://sqlite.org/cli.html)
 | --- | --- |
 | `.mode <mode>` | Set output format |
 | `.headers on` | Show column names |
-| `.import <file> <table>` | Import CSV or text |
+| `.import <file> <table>` | Import rows from a file |
 | `.output <file>` | Send output to a file |
 | --- | --- |
 | `.once <file>` | Send one query to a file |
@@ -134,7 +134,7 @@ sqlite3 app.db ".import --csv --skip 1 users.csv users"
 ```
 <!-- {: data-highlight=".import --csv"} -->
 
-`--skip 1` drops the header row. If the table is missing, omit it so the header names the columns.
+`--skip 1` drops the header row. If the table is missing, omit `--skip 1` so the header row names the columns.
 
 See: [Import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats)
 
@@ -154,7 +154,7 @@ See: [CSV export](https://sqlite.org/cli.html#export_to_csv)
 
 ### Types
 
-| Type | Stores |
+| Storage class | Stores |
 | --- | --- |
 | `INTEGER` | Whole numbers |
 | `REAL` | Floating point |
@@ -162,7 +162,7 @@ See: [CSV export](https://sqlite.org/cli.html#export_to_csv)
 | `BLOB` | Raw bytes |
 | `NULL` | Missing value |
 
-Declared types such as `VARCHAR(80)` map to one of five affinities, and lengths are not enforced.
+Declared types such as `VARCHAR(80)` map to an affinity (`TEXT`, `NUMERIC`, `INTEGER`, `REAL`, `BLOB`), and lengths are not enforced.
 
 See: [Datatypes](https://sqlite.org/datatype3.html)
 
@@ -320,10 +320,10 @@ See: [Date and time functions](https://sqlite.org/lang_datefunc.html)
 
 | Pragma | Effect |
 | --- | --- |
-| `PRAGMA journal_mode` | Read or set `delete`, `wal`, `memory` |
+| `PRAGMA journal_mode` | Journal mode; `wal` persists |
 | `PRAGMA foreign_keys` | Enforce foreign keys (off by default) |
 | `PRAGMA busy_timeout` | Wait for locks, in milliseconds |
-| `PRAGMA synchronous` | Durability: `FULL`, `NORMAL`, `OFF` |
+| `PRAGMA synchronous` | Durability: `EXTRA`, `FULL`, `NORMAL`, `OFF` |
 | --- | --- |
 | `PRAGMA user_version` | Store a schema version |
 | `PRAGMA table_info(t)` | Columns, types, and defaults |
@@ -435,7 +435,6 @@ sqlite3 app.db ".dump" > dump.sql
 ```sh
 sqlite3 new.db < dump.sql
 ```
-<!-- {: data-highlight="new.db"} -->
 
 The dump holds schema and data as SQL statements, which also restores into another database.
 
@@ -479,7 +478,7 @@ conn.execute(
     {'id': 1},
 ).fetchone()
 ```
-<!-- {: data-highlight="= :id"} -->
+<!-- {: data-highlight=":id"} -->
 
 Never format values into SQL; placeholders handle quoting and types.
 

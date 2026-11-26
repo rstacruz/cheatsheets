@@ -2,7 +2,7 @@
 title: How to sort numbers in JavaScript
 link_title: Sort numbers
 subtitle: Numeric, not lexicographic
-category: Internationalization
+category: String sorting
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

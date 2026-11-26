@@ -2,7 +2,7 @@
 title: Intl.Collator vs localeCompare
 link_title: Collator vs localeCompare
 subtitle: When to use each
-category: Internationalization
+category: String sorting
 layout: snippet
 last_verified_with: "Node 26.13.1."
 updated: 2026-11-26

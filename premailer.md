@@ -8,6 +8,9 @@ intro: |
 links:
   - title: Premailer
     url: https://github.com/premailer/premailer/
+tier: t3
+last_verified_with: "Premailer 1.33.0."
+updated: 2026-11-25
 ---
 
 ### Custom CSS properties
@@ -30,3 +33,6 @@ table {
   -premailer-cellspacing: 32px;
 }
 ```
+<!-- {: data-highlight="-premailer-width; -premailer-height; -premailer-cellpadding; -premailer-cellspacing"} -->
+
+See: [Premailer repository](https://github.com/premailer/premailer)

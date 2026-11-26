@@ -116,6 +116,8 @@ Snippet pages are left out of the normal homepage category, featured, and recent
 - **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
 - **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
+- **Tables:** keep a card under 20 table rows total; split into more H3s when a reference table grows. See `tables/row-limit`.
+- **Unique headings:** no repeated H2/H3 titles in one sheet; anchors collide. See `headings/unique`.
 
 H2 content length:
 
@@ -181,6 +183,21 @@ shows the shape.
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
+- Keep marketing and competitor comparisons out of reference sheets; see `prose/no-marketing`.
+
+### Code spacing
+
+Don't shy from blank lines. Separate setup from use, and put result comments on their own line; a cramped block is harder to scan. See `code/space-between-examples`.
+
+```js
+const d = dayjs()
+
+d.add(1, 'day').format('YYYY-MM-DD')
+// "2014-06-10"
+
+d.format('YYYY-MM-DD')
+// "2014-06-09"
+```
 
 ## Quick starts
 

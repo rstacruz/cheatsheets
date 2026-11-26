@@ -24,6 +24,7 @@
 /handlebars-js /handlebars.js 301
 /harvey-js /harvey.js 301
 /immutable-js /immutable.js 301
+/intl-number /intl-numberformat 301
 /jade /pug 301
 /jinja2 /jinja 301
 /package.json /package-json 301

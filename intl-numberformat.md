@@ -70,6 +70,7 @@ const opts = { style: 'percent' }
 
 new Intl.NumberFormat('default', opts).format(0.25)
 // → '25%'
+
 new Intl.NumberFormat(undefined, opts).format(0.25)
 // → '25%'
 ```
@@ -275,6 +276,7 @@ const fraction = (options) => (
 ```js
 fraction({ minimumFractionDigits: 2 }).format(42)
 // → '42.00'
+
 fraction({ maximumFractionDigits: 0 }).format(42.666)
 // → '43'
 ```
@@ -299,6 +301,7 @@ const sig = (options) => (
 ```js
 sig({ maximumSignificantDigits: 3 }).format(1234.5)
 // → '1,230'
+
 sig({ minimumSignificantDigits: 5 }).format(1.5)
 // → '1.5000'
 ```
@@ -508,6 +511,7 @@ See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 ```js
 new Intl.NumberFormat('ar-EG').format(1234.5)
 // → '١٬٢٣٤٫٥'
+
 new Intl.NumberFormat('ar-EG', {
   numberingSystem: 'latn'
 }).format(1234.5)

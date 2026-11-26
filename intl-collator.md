@@ -41,12 +41,14 @@ links:
 ---
 
 ## Sorting
+<!-- {: .-three-column} -->
 
 ### Basic sort
 
 ```js
 const collator = new Intl.Collator('en')
-const fruit = ['banana', 'apple', 'Cherry']
+const fruit = ['banana', 'apple',
+  'Cherry']
 
 fruit.sort(collator.compare)
 // → ['apple', 'banana', 'Cherry']
@@ -66,9 +68,11 @@ const users = [
   { name: 'Alice' },
   { name: 'ábel' }
 ]
-const byName = (a, b) => collator.compare(a.name, b.name)
+const byName = (a, b) => (
+  collator.compare(a.name, b.name)
+)
 
-users.sort(byName).map((user) => user.name)
+users.sort(byName).map((u) => u.name)
 // → ['ábel', 'Alice', 'bob']
 ```
 <!-- {: data-highlight="collator.compare(a.name, b.name)"} -->
@@ -102,7 +106,9 @@ See: [compare()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 ```js
 const collator = new Intl.Collator('en')
-const descending = (a, b) => collator.compare(b, a)
+const descending = (a, b) => (
+  collator.compare(b, a)
+)
 
 ['b', 'a', 'c'].sort(descending)
 // → ['c', 'b', 'a']
@@ -204,6 +210,7 @@ The default `'false'` follows the locale; English sorts lowercase first, so `cas
 See: [caseFirst](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#casefirst)
 
 ## Locales
+<!-- {: .-three-column} -->
 
 ### Locale sort order
 

@@ -165,7 +165,7 @@ themeConfig: {
   }
 }
 ```
-<!-- {: data-highlight="'/guide/': ["} -->
+<!-- {: data-highlight="sidebar:"} -->
 
 An array gives one sidebar for the whole site. An object keyed by path gives each section its own, and `collapsed: true` folds a group.
 
@@ -280,13 +280,13 @@ See: [Customizing CSS](https://vitepress.dev/guide/extending-default-theme#custo
 
 ### Vue components
 
-```md
-# Counter
+#### docs/guide/counter.md
 
+```md
 <Counter />
 
 <script setup>
-import Counter from '../components/Counter.vue'
+import Counter from '../ui/Counter.vue'
 </script>
 ```
 <!-- {: data-highlight="<Counter />"} -->

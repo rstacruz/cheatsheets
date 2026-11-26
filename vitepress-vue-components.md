@@ -20,9 +20,9 @@ links:
 ### Use a component on a page
 <!-- {: .-snippet} -->
 
-```md
-# Counter
+#### docs/guide/counter.md
 
+```md
 <Counter />
 
 <script setup>

@@ -102,7 +102,7 @@ links:
 ```
 <!-- {: data-highlight="bind:value={get, set}"} -->
 
-**Transforms the value on each write.** The getter feeds the input and the setter normalises what is stored; see [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
+**Uses a function binding to transform each write.** The getter feeds the input and the setter normalises what is stored; see [Function bindings](https://svelte.dev/docs/svelte/bind#Function-bindings).
 
 ### Get the DOM node
 <!-- {: .-snippet} -->

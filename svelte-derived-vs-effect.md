@@ -92,13 +92,17 @@ links:
 
 ```html
 <script>
-  let theme = $state('dark')
+  let messages = $state([])
+  let log = $state()
 
   $effect.pre(() => {
-    document.body.dataset.theme = theme
+    const height = log?.scrollHeight
+    console.log(messages.length, height)
   })
 </script>
+
+<div bind:this={log}>…</div>
 ```
 <!-- {: data-highlight="$effect.pre"} -->
 
-**Runs before Svelte applies the DOM update.** Reach for it when the attribute must be set ahead of the markup that reads it; see [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).
+**Reads the DOM before Svelte applies the update.** `height` is the pre-update measurement, which a plain `$effect` reports only once the DOM has grown; see [`$effect.pre`](https://svelte.dev/docs/svelte/$effect#$effect.pre).

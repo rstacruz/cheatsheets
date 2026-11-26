@@ -76,7 +76,7 @@ npx sv migrate svelte-5
 ```
 <!-- {: data-highlight="$derived(count * 2)"} -->
 
-**Turns `$:` into `$derived`.** Statements with side effects become `run(...)` from `svelte/legacy`, to replace with `$effect` by hand; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
+**Turns `$:` into `$derived`.** Statements with side effects become `run(...)` from `svelte/legacy`; replace those with `$effect` by hand; see [`$derived`](https://svelte.dev/docs/svelte/$derived).
 
 ### Convert event handlers
 <!-- {: .-snippet} -->

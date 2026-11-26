@@ -70,7 +70,7 @@ links:
 {/if}
 ```
 
-**Keeps all three states explicit.** An async function keeps the flow readable and `finally` always clears the spinner; see [Await blocks](https://svelte.dev/docs/svelte/await) for the markup equivalent.
+**Keeps all three states explicit.** An async function keeps the flow readable and `finally` always clears the spinner; see [Await blocks](https://svelte.dev/docs/svelte/await) for the `{#await}` alternative to these three states.
 
 ### Cancel on cleanup
 <!-- {: .-snippet} -->

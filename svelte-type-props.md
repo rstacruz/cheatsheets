@@ -72,7 +72,7 @@ links:
 ```
 <!-- {: data-highlight="children: Snippet"} -->
 
-**Types slot content as a `Snippet`.** Mark it optional with `children?: Snippet` when the component works empty; see [Snippets](https://svelte.dev/docs/svelte/snippet).
+**Types the `children` snippet.** Mark it optional with `children?: Snippet` when the component works empty; see [Snippets](https://svelte.dev/docs/svelte/snippet).
 
 ### Type bindable props
 <!-- {: .-snippet} -->

@@ -102,12 +102,15 @@ links:
   import { fade } from 'svelte/transition'
 
   let visible = $state(true)
+  let inner = $state(true)
 </script>
 
 {#if visible}
-  <p transition:fade|global>Saved</p>
+  {#if inner}
+    <p transition:fade|global>Saved</p>
+  {/if}
 {/if}
 ```
 <!-- {: data-highlight="transition:fade|global"} -->
 
-**Plays even when the block's parent is not transitioning.** Transitions are local by default, and `|global` opts out; see [Local vs global](https://svelte.dev/docs/svelte/transition#Local-vs-global).
+**Plays even when the outer block is removed.** Transitions are local by default, so without `|global` toggling `visible` would skip the fade; see [Local vs global](https://svelte.dev/docs/svelte/transition#Local-vs-global).

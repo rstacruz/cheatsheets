@@ -433,7 +433,7 @@ See: [Event modifiers](https://svelte.dev/docs/svelte/v5-migration-guide#Event-c
 ```
 <!-- {: data-highlight="onselect"} -->
 
-Component events (`createEventDispatcher`) give way to plain function props, which type and spread like any other prop.
+Component events (`createEventDispatcher`) give way to plain function props, which are typed and spread like any other prop.
 
 See: [Callback props](https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Component-events)
 
@@ -1010,7 +1010,7 @@ npx sv migrate svelte-5
 ```
 <!-- {: data-highlight="svelte-5"} -->
 
-The codemod rewrites props, reactivity, events, and slots; review its diff, since runes change where code may live.
+The codemod rewrites props, reactivity, events, and slots; review its diff, since `$:` blocks with side effects stay as `run(...)` shims.
 
 See: [Migration guide](https://svelte.dev/docs/svelte/v5-migration-guide)
 

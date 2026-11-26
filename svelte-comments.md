@@ -31,7 +31,7 @@ links:
 
 **Uses an HTML comment.** It compiles away unless `preserveComments` is on, so it never reaches the browser by default; see [Template syntax](https://svelte.dev/docs/svelte/basic-markup).
 
-### Comment script code
+### Comment script
 <!-- {: .-snippet} -->
 
 ```html
@@ -45,7 +45,7 @@ links:
 
 **Uses JavaScript comments.** Svelte keeps them in the compiled module, and a bundler's minifier drops them in production; see [Svelte files](https://svelte.dev/docs/svelte/svelte-files).
 
-### Comment styles
+### Comment CSS
 <!-- {: .-snippet} -->
 
 ```html

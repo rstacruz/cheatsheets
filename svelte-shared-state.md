@@ -103,4 +103,17 @@ export const count = writable(0)
 ```
 <!-- {: data-highlight="writable(0)"} -->
 
-**Keeps the subscription API for libraries.** Components still read `$count`, and `get(count)` reads it imperatively; see [Stores](https://svelte.dev/docs/svelte/stores).
+#### Counter.svelte
+
+```html
+<script>
+  import { count } from './stores.js'
+  const inc = (n) => n + 1
+</script>
+
+<button onclick={() => count.update(inc)}>
+  {$count}
+</button>
+```
+
+**Keeps the subscription API for libraries.** Components read `$count` and call `count.update(...)` to write it; see [Stores](https://svelte.dev/docs/svelte/stores).

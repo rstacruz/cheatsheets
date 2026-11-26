@@ -136,7 +136,7 @@ pr.select(1.4)
 pr.select(Math.round(1.4))
 // → 'one'
 ```
-<!-- {: data-highlight="Math.round(1.4)"} -->
+<!-- {: data-highlight="Math.round; pr.select"} -->
 
 Rounding after `select()` can print "1 items". Round once, then pass the same value to both `select()` and `NumberFormat`.
 
@@ -383,7 +383,7 @@ ru.select(5)
 ru.select(21)
 // → 'one'   (21 товар)
 ```
-<!-- {: data-highlight="'ru'"} -->
+<!-- {: data-highlight="ru.select(2); ru.select(5)"} -->
 
 Russian uses `one` for 1 and 21, `few` for 2–4 and 22–24, and `many` for 0 and 5–20. The noun in the message must match the chosen form.
 

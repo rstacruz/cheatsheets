@@ -50,7 +50,7 @@ nth(13)
 nth(21)
 // → '21st'
 ```
-<!-- {: data-highlight="type: 'ordinal'"} -->
+<!-- {: data-highlight="suffixes"} -->
 
 **Maps ordinal categories to suffixes.** Set `type: 'ordinal'` so 2nd and 3rd get their own categories; 11–13 take `th`. See [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type).
 

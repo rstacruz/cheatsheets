@@ -3,7 +3,7 @@ title: Stylus
 subtitle: Indentation-based CSS preprocessor
 category: CSS
 intro: |
-  Stylus is an indentation-based CSS preprocessor with variables, mixins, functions, and built-ins. This reference covers syntax and the built-in API.
+  Stylus is an indentation-based CSS preprocessor with variables, mixins, functions, and built-ins.
 links:
   - title: Stylus documentation
     url: https://stylus-lang.com/
@@ -34,7 +34,6 @@ updated: 2026-11-26
 }
 ```
 
-Stylus is a CSS pre-processor.
 
 See: [Stylus documentation](https://stylus-lang.com/)
 
@@ -52,7 +51,7 @@ Also works! The colon is optional, as well. This is typically the syntax used wi
 
 See: [CSS style syntax](https://stylus-lang.com/docs/css-style)
 
-### Mixins
+### Defining mixins
 
 #### Define
 
@@ -207,7 +206,7 @@ See: [Rest params](https://stylus-lang.com/docs/vargs#rest-params)
 
 <!-- {: .-three-column} -->
 
-### Functions
+### Defining functions
 
 #### Define
 
@@ -504,7 +503,10 @@ tint(color, 50%)  // mix with white
 shade(color, 50%) // mix with black
 ```
 
-#### Strings
+
+See: [Built-in functions](https://stylus-lang.com/docs/bifs)
+
+### String functions
 
 ```stylus
 unquote(string)

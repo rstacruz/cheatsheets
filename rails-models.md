@@ -48,7 +48,7 @@ items = Model
 
   .limit(2)
   .offset(1)
-  .uniq
+  .distinct
 ```
 <!-- {: data-highlight="where; order"} -->
 
@@ -211,9 +211,9 @@ belongs_to :parent, :foreign_key => 'parent_id', class_name: 'Folder'
 has_many :folders, :foreign_key => 'parent_id', class_name: 'Folder'
 
 has_many :comments,                -> { order('posted_on DESC') }
-has_many :comments,    :include    => :author
+has_many :comments, -> { includes(:author) }
 has_many :people,      :class_name => "Person"
-has_many :people,      :conditions => "deleted = 0"
+has_many :people, -> { where(deleted: 0) }
 has_many :tracks,                  -> { order(:position) }
 has_many :comments,    :dependent  => :nullify
 has_many :comments,    :dependent  => :destroy
@@ -221,11 +221,6 @@ has_many :tags,        :as         => :taggable
 has_many :reports,     :readonly   => true
 has_many :subscribers, :through    => :subscriptions,
   class_name: "User", :source => :user
-has_many :subscribers, :finder_sql =>
-    'SELECT DISTINCT people.* ' +
-    'FROM people p, post_subscriptions ps ' +
-    'WHERE ps.post_id = #{id} AND ps.person_id = p.id ' +
-    'ORDER BY p.first_name'
 ```
 <!-- {: data-highlight="has_many"} -->
 
@@ -241,10 +236,7 @@ belongs_to :author,
   :select         => "*"
   :counter_cache  => true
   :counter_cache  => :custom_counter
-  :include        => "Book"
   :readonly       => true
-
-  :conditions     => 'published = true'
 
   :touch          => true
   :touch          => :authors_last_updated_at
@@ -295,16 +287,9 @@ See: [has-many-through](https://guides.rubyonrails.org/association_basics.html#h
 
 ```ruby
 has_and_belongs_to_many :projects
-has_and_belongs_to_many :projects,
-  :include => [ :milestones, :manager ]
 has_and_belongs_to_many :nations, :class_name => "Country"
 has_and_belongs_to_many :categories, :join_table => "prods_cats"
 has_and_belongs_to_many :categories, :readonly => true
-has_and_belongs_to_many :active_projects,
-  join_table: 'developers_projects',
-  delete_sql: "DELETE FROM developers_projects " \
-    "WHERE active=1 AND developer_id = #{id} " \
-    "AND project_id = #{record.id}"
 ```
 <!-- {: data-highlight="has_and_belongs_to_many"} -->
 
@@ -532,7 +517,7 @@ Article.joins(:category, :comments)
 Article.joins(comments: :guest)
 ```
 
-#### SQL
+#### Raw SQL join
 
 ```ruby
 Author.joins(

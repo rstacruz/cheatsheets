@@ -3,7 +3,7 @@ title: Ubuntu
 subtitle: Linux distribution
 category: Linux
 intro: |
-  Ubuntu is a Debian-based Linux distribution. This reference covers apt package management, dpkg queries, and service commands.
+  Ubuntu is a Debian-based Linux distribution.
 links:
   - title: aptitude(8)
     url: https://manpages.debian.org/bookworm/aptitude/aptitude.8.en.html

@@ -3,7 +3,7 @@ title: rTorrent
 subtitle: Terminal BitTorrent client
 category: Networking
 intro: |
-  [rTorrent](https://rakshasa.github.io/rtorrent/) is a terminal BitTorrent client. Here are its shortcut keys.
+  rTorrent is a terminal BitTorrent client. Here are its shortcut keys.
 links:
   - title: rTorrent
     url: https://rakshasa.github.io/rtorrent/

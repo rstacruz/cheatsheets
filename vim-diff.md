@@ -5,7 +5,7 @@ category: Vim
 updated: 2026-11-26
 weight: -10
 intro: |
-  [Vim](https://www.vim.org/) is a very efficient text editor. This reference follows Vim 9.2.
+  Vim is a very efficient text editor. This reference follows Vim 9.2.
 links:
   - title: Vim
     url: https://www.vim.org/

@@ -5,7 +5,7 @@ description: "Python lists: dicts, strings, iteration, comprehensions and file h
 subtitle: Readable language for scripting
 category: Python
 intro: |
-  Python is a general-purpose language for scripting and applications. This reference covers built-in types, strings, comprehensions, and file handling.
+  Python is a general-purpose language for scripting and applications.
 links:
   - title: Python tutorial
     url: https://docs.python.org/3/tutorial/index.html

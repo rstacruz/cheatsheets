@@ -3,7 +3,7 @@ title: Vagrantfile
 subtitle: Vagrant configuration file
 category: Devops
 intro: |
-  A [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) defines boxes, networking, providers, and provisioning for Vagrant development environments. This sheet covers the common configuration options.
+  A Vagrantfile defines boxes, networking, providers, and provisioning for Vagrant development environments.
 links:
   - title: Vagrantfile documentation
     url: https://developer.hashicorp.com/vagrant/docs/vagrantfile

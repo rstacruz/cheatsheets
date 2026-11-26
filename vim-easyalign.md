@@ -5,7 +5,7 @@ html_class: key-codes
 hljs_languages: [vim]
 category: Vim
 intro: |
-  The [vim-easy-align](https://github.com/junegunn/vim-easy-align) plugin aligns text interactively by delimiters or regular expressions. This sheet covers commands, options, and common examples.
+  The vim-easy-align plugin aligns text interactively by delimiters or regular expressions.
 links:
   - title: vim-easy-align repository
     url: https://github.com/junegunn/vim-easy-align

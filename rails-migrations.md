@@ -3,7 +3,7 @@ title: Rails migrations
 subtitle: Database schema migrations
 category: Rails
 intro: |
-  Rails migrations evolve a database schema through versioned Ruby files. This reference covers generating, writing, and running migrations.
+  Rails migrations evolve a database schema through versioned Ruby files.
 links:
   - title: Active Record migrations guide
     url: https://guides.rubyonrails.org/active_record_migrations.html
@@ -100,8 +100,8 @@ See: [Changing columns](https://guides.rubyonrails.org/active_record_migrations.
 
 ### Use models
 
-```
-class AddFlagToProduct < ActiveRecord::Migration
+```ruby
+class AddFlagToProduct < ActiveRecord::Migration[8.1]
   class Product < ActiveRecord::Base
   end
  

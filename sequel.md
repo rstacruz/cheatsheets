@@ -312,7 +312,7 @@ DB.transaction do # BEGIN issued only here
       :first_name => 'Inigo', :last_name => 'Montoya'
     }
   end
-end # COMMIT issued only here
+end # COMMIT issued only here; nested transactions are re-entrant
 ```
 
 #### Rollback on error
@@ -332,7 +332,7 @@ end # ROLLBACK issued and no error raised
 ```
 <!-- {: data-highlight="DB.transaction"} -->
 
-Database#transaction is re-entrant; raising `Sequel::Rollback` aborts without re-raising.
+Raising `Sequel::Rollback` aborts without re-raising.
 
 See: [Database transactions](https://sequel.jeremyevans.net/doc/transactions.html)
 

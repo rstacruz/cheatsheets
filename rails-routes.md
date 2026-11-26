@@ -3,7 +3,7 @@ title: Routes
 subtitle: URL routing reference
 category: Rails
 intro: |
-  Rails routes map URLs to controller actions. This reference covers resources, member and collection routes, constraints, and path helpers.
+  Rails routes map URLs to controller actions.
 links:
   - title: Rails routing guide
     url: https://guides.rubyonrails.org/routing.html
@@ -76,7 +76,7 @@ resource :coder
 
 # CodersController:
 # new    =>    GET /coder/new
-# create =>   POST /coder/new
+# create =>   POST /coder
 # show   =>    GET /coder
 # edit   =>    GET /coder/edit
 # update => PATCH /coder

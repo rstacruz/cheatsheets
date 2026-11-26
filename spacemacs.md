@@ -5,7 +5,7 @@ category: Apps
 updated: 2026-11-26
 tags: [WIP]
 intro: |
-  [Spacemacs](https://www.spacemacs.org/) is a distribution for Emacs.
+  Spacemacs is a distribution for Emacs.
 links:
   - title: Spacemacs
     url: https://www.spacemacs.org/

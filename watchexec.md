@@ -7,7 +7,7 @@ keywords:
   - "watchexec --exts js,jsx -- npm test"
   - "watchexec --restart -- node server.js"
 intro: |
-  [Watchexec](https://watchexec.github.io/) runs a command when files change, with no language runtime or repository required.
+  Watchexec runs a command when files change, with no language runtime or repository required.
 links:
   - title: Watchexec documentation
     url: https://watchexec.github.io/

@@ -7,7 +7,7 @@ last_verified_with: "ShellJS 0.10.0."
 updated: 2026-11-26
 weight: -1
 intro: |
-  [ShellJS](https://github.com/shelljs/shelljs) is a portable (Windows/Linux/macOS) implementation of Unix shell commands on top of the Node.js API.
+  ShellJS is a portable (Windows/Linux/macOS) implementation of Unix shell commands on top of the Node.js API.
 links:
   - title: ShellJS
     url: https://github.com/shelljs/shelljs

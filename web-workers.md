@@ -9,7 +9,7 @@ keywords:
   - Transferable objects
   - Background thread
 intro: |
-  Web workers run JavaScript on a background thread. This reference covers creating workers, two-way messaging, transferable objects, and shutdown.
+  Web workers run JavaScript on a background thread.
 links:
   - title: MDN Web Workers API
     url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API

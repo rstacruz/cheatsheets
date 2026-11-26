@@ -3,7 +3,7 @@ title: Universal JS module loader
 subtitle: Universal module definition pattern
 category: Build tools
 intro: |
-  [UMD](https://github.com/umdjs/umd) is a pattern for JavaScript modules that work in browsers, CommonJS, and AMD environments. This sheet collects the common templates.
+  UMD is a pattern for JavaScript modules that work in browsers, CommonJS, and AMD environments. This sheet collects the common templates.
 links:
   - title: UMD repository
     url: https://github.com/umdjs/umd

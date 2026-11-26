@@ -3,7 +3,7 @@ title: ReStructuredText
 subtitle: ReStructuredText markup language
 category: Markup
 intro: |
-  [ReStructuredText](https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html) is a markup language for writing documents.
+  ReStructuredText is a markup language for writing documents.
 links:
   - title: Docutils reStructuredText reference
     url: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html

@@ -8,7 +8,7 @@ tier: t3
 last_verified_with: "Slim 5.2.2."
 updated: 2026-11-26
 intro: |
-  [Slim](https://github.com/slim-template/slim) is a lightweight Ruby template engine with indentation-based syntax.
+  Slim is a lightweight Ruby template engine with indentation-based syntax.
 links:
   - title: Slim README
     url: https://github.com/slim-template/slim

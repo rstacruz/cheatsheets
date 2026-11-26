@@ -3,7 +3,7 @@ title: ZNC bouncer
 category: Networking
 subtitle: IRC bouncer
 intro: |
-  A quick reference to the [ZNC](https://wiki.znc.in/ZNC) IRC bouncer's common commands.
+  A quick reference to the ZNC IRC bouncer's common commands.
 links:
   - title: ZNC
     url: https://wiki.znc.in/ZNC

@@ -3,7 +3,7 @@ title: Qunit
 subtitle: JavaScript test framework
 category: JavaScript testing
 intro: |
-  A quick reference for the [QUnit](https://qunitjs.com/) testing library in JavaScript.
+  A quick reference for the QUnit testing library in JavaScript.
 links:
   - title: QUnit documentation
     url: https://qunitjs.com/
@@ -30,17 +30,17 @@ See: [QUnit.test](https://qunitjs.com/api/QUnit/test/), [QUnit.module](https://q
 
 ```js
 QUnit.testStart(function)
-QUnit.testEnd(function)
+QUnit.testDone(function)
 ```
-<!-- {: data-highlight="QUnit.testStart; QUnit.testEnd"} -->
+<!-- {: data-highlight="QUnit.testStart; QUnit.testDone"} -->
 
 #### Module callbacks
 
 ```js
 QUnit.moduleStart(function)
-QUnit.moduleEnd(function)
+QUnit.moduleDone(function)
 ```
-<!-- {: data-highlight="QUnit.moduleStart; QUnit.moduleEnd"} -->
+<!-- {: data-highlight="QUnit.moduleStart; QUnit.moduleDone"} -->
 
 #### Run callbacks
 

@@ -7,8 +7,7 @@ weight: -5
 keywords:
   - Variables
   - mixins
-  - darken()
-  - adjust-color()
+  - color.adjust()
   - "@for @each @while @if @else"
   - "$list: (a b c)"
   - "$map: (a: b, c: d)"
@@ -168,6 +167,8 @@ See: [@extend](https://sass-lang.com/documentation/at-rules/extend)
 
 ```scss
 @use './other_sass_file';
+@use 'sass:color';
+@use 'sass:math';
 ```
 <!-- {: data-highlight="@use"} -->
 
@@ -193,117 +194,133 @@ See: [Color functions](https://sass-lang.com/documentation/modules/color)
 ### Mixing
 
 ```scss
-mix($a, $b, 10%)   // 10% a, 90% b
+@use 'sass:color';
+
+color.mix($a, $b, 10%)  // 10% a, 90% b
 ```
-<!-- {: data-highlight="mix($a, $b, 10%)"} -->
+<!-- {: data-highlight="color.mix($a, $b, 10%)"} -->
 
-See: [mix()](https://sass-lang.com/documentation/modules/color#mix)
+See: [color.mix()](https://sass-lang.com/documentation/modules/color#mix)
 
 
-### Modifying HSLA
+### Modifying colors
 
 #### Lightness
 
 ```scss
-darken($color, 5%)
-lighten($color, 5%)
+@use 'sass:color';
+
+color.adjust($color, $lightness: -5%)
+color.adjust($color, $lightness: 5%)
 ```
-<!-- {: data-highlight="darken"} -->
+<!-- {: data-highlight="color.adjust($color, $lightness: -5%)"} -->
 
 
 #### Saturation
 
 ```scss
-saturate($color, 5%)
-desaturate($color, 5%)
-grayscale($color)
+@use 'sass:color';
+
+color.adjust($color, $saturation: 5%)
+color.adjust($color, $saturation: -5%)
+color.grayscale($color)  // saturation: 0%
 ```
-<!-- {: data-highlight="saturate"} -->
+<!-- {: data-highlight="color.grayscale($color)"} -->
 
 
 #### Hue
 
 ```scss
-adjust-hue($color, 15deg)
-complement($color)    // like adjust-hue(_, 180deg)
-invert($color)
+@use 'sass:color';
+
+color.adjust($color, $hue: 15deg)
+color.complement($color)  // hue + 180deg
+color.invert($color)
 ```
-<!-- {: data-highlight="adjust-hue"} -->
+<!-- {: data-highlight="color.adjust($color, $hue: 15deg); color.complement($color); color.invert($color)"} -->
 
 
 #### Opacity
 
 ```scss
-fade-in($color, .5)   // aka opacify()
-fade-out($color, .5)  // aka transparentize() - halves the opacity
-rgba($color, .5)      // sets alpha to .5
-```
-<!-- {: data-highlight="fade-in"} -->
+@use 'sass:color';
 
-See: [Color functions](https://sass-lang.com/documentation/modules/color)
+color.adjust($color, $alpha: .5)
+color.adjust($color, $alpha: -.5)
+color.change($color, $alpha: .5)  // sets alpha
+```
+<!-- {: data-highlight="color.change($color, $alpha: .5)"} -->
+
+See: [color.adjust()](https://sass-lang.com/documentation/modules/color#adjust), [color.change()](https://sass-lang.com/documentation/modules/color#change)
 
 
 ### Getting individual values
 
-#### HSLA
+#### HSL channels
 
 ```scss
-hue($color)         // → 0deg..360deg
-saturation($color)  // → 0%..100%
-lightness($color)   // → 0%..100%
-alpha($color)       // → 0..1 (aka opacity())
+@use 'sass:color';
+
+color.channel($color, 'hue')        // 0deg..360deg
+color.channel($color, 'saturation') // 0%..100%
+color.channel($color, 'lightness')  // 0%..100%
+color.channel($color, 'alpha')      // 0..1
 ```
-<!-- {: data-highlight="hue($color)"} -->
+<!-- {: data-highlight="color.channel($color, 'hue')"} -->
 
 
-#### RGB
+#### RGB channels
 
 ```scss
-red($color)         // → 0..255
-green($color)
-blue($color)
+@use 'sass:color';
+
+color.channel($color, 'red')   // 0..255
+color.channel($color, 'green')
+color.channel($color, 'blue')
 ```
-<!-- {: data-highlight="red($color)"} -->
+<!-- {: data-highlight="color.channel($color, 'red')"} -->
 
+See: [color.channel()](https://sass-lang.com/documentation/modules/color#channel)
 
-See: [hue()](https://sass-lang.com/documentation/modules/color#hue), [red()](https://sass-lang.com/documentation/modules/color#red)
 
 ### Adjustments
 
 #### Fixed amounts
 
 ```scss
-// Changes by fixed amounts
-adjust-color($color, $blue: 5)
-adjust-color($color, $lightness: -30%)   // like darken(_, 30%)
-adjust-color($color, $alpha: -0.4)       // like fade-out(_, .4)
-adjust-color($color, $hue: 30deg)        // like adjust-hue(_, 15deg)
+@use 'sass:color';
+
+color.adjust($color, $blue: 5)
+color.adjust($color, $lightness: -30%)
+color.adjust($color, $alpha: -0.4)
+color.adjust($color, $hue: 30deg)
 ```
-<!-- {: data-highlight="adjust-color($color, $blue: 5)"} -->
+<!-- {: data-highlight="color.adjust($color, $blue: 5)"} -->
 
 
 #### Scaled amounts
 
 ```scss
-// Changes via percentage
-scale-color($color, $lightness: 50%)
+@use 'sass:color';
+
+color.scale($color, $lightness: 50%)
 ```
-<!-- {: data-highlight="scale-color"} -->
+<!-- {: data-highlight="color.scale($color, $lightness: 50%)"} -->
 
 
 #### Set values
 
 ```scss
-// Changes one property completely
-change-color($color, $hue: 180deg)
-change-color($color, $blue: 250)
+@use 'sass:color';
+
+color.change($color, $hue: 180deg)
+color.change($color, $blue: 250)
 ```
-<!-- {: data-highlight="change-color"} -->
+<!-- {: data-highlight="color.change($color, $blue: 250)"} -->
 
+Supported channels: `$red`, `$green`, `$blue`, `$hue`, `$saturation`, `$lightness`, `$alpha`. Pass `$space:` for other color spaces.
 
-Supported: `$red` `$green` `$blue` `$hue` `$saturation` `$lightness` `$alpha`
-
-See: [adjust-color()](https://sass-lang.com/documentation/modules/color#adjust-color)
+See: [color.adjust()](https://sass-lang.com/documentation/modules/color#adjust), [color.scale()](https://sass-lang.com/documentation/modules/color#scale), [color.change()](https://sass-lang.com/documentation/modules/color#change)
 
 
 ## Other functions
@@ -313,42 +330,50 @@ See: [adjust-color()](https://sass-lang.com/documentation/modules/color#adjust-c
 #### Quotes
 
 ```scss
-unquote('hello')
-quote(hello)
+@use 'sass:string';
+
+string.unquote('hello')
+string.quote(hello)
 ```
-<!-- {: data-highlight="unquote('hello')"} -->
+<!-- {: data-highlight="string.unquote('hello')"} -->
 
 
 #### Case
 
 ```scss
-to-upper-case(hello)
-to-lower-case(hello)
+@use 'sass:string';
+
+string.to-upper-case(hello)
+string.to-lower-case(hello)
 ```
-<!-- {: data-highlight="to-upper-case"} -->
+<!-- {: data-highlight="string.to-upper-case"} -->
 
 
 #### Substrings
 
 ```scss
-str-length(hello world)
-str-slice(hello, 2, 5)      // "ello" - it's 1-based, not 0-based
-str-insert("abcd", "X", 1)  // "Xabcd"
-```
-<!-- {: data-highlight="str-length"} -->
+@use 'sass:string';
 
-See: [String functions](https://sass-lang.com/documentation/modules/string)
+string.str-length(hello world)
+string.str-slice(hello, 2, 5)      // "ello" - 1-based, not 0-based
+string.str-insert("abcd", "X", 1)  // "Xabcd"
+```
+<!-- {: data-highlight="string.str-length"} -->
+
+See: [sass:string](https://sass-lang.com/documentation/modules/string)
 
 
 ### Units
 
 ```scss
-unit(3em)        // 'em'
-unitless(100px)  // false
-```
-<!-- {: data-highlight="unit(3em)"} -->
+@use 'sass:math';
 
-See: [unit()](https://sass-lang.com/documentation/modules/math#unit)
+math.unit(3em)        // 'em'
+math.unitless(100px)  // false
+```
+<!-- {: data-highlight="math.unit(3em)"} -->
+
+See: [math.unit()](https://sass-lang.com/documentation/modules/math#unit)
 
 
 ### Numbers
@@ -356,32 +381,38 @@ See: [unit()](https://sass-lang.com/documentation/modules/math#unit)
 #### Rounding
 
 ```scss
-floor(3.5)
-ceil(3.5)
-round(3.5)
-abs(3.5)
+@use 'sass:math';
+
+math.floor(3.5)
+math.ceil(3.5)
+math.round(3.5)
+math.abs(3.5)
 ```
-<!-- {: data-highlight="floor(3.5)"} -->
+<!-- {: data-highlight="math.floor(3.5)"} -->
 
 
 #### Bounds
 
 ```scss
-min(1, 2, 3)
-max(1, 2, 3)
+@use 'sass:math';
+
+math.min(1, 2, 3)
+math.max(1, 2, 3)
 ```
-<!-- {: data-highlight="min(1, 2, 3)"} -->
+<!-- {: data-highlight="math.min(1, 2, 3); math.max(1, 2, 3)"} -->
 
 
 #### Percentages
 
 ```scss
-percentage(.5)   // 50%
-random(3)        // 0..3
-```
-<!-- {: data-highlight="percentage(.5)"} -->
+@use 'sass:math';
 
-See: [Number functions](https://sass-lang.com/documentation/modules/math)
+math.percentage(.5)  // 50%
+math.random(3)       // 1..3
+```
+<!-- {: data-highlight="math.percentage(.5)"} -->
+
+See: [sass:math](https://sass-lang.com/documentation/modules/math)
 
 
 ### Misc
@@ -389,34 +420,53 @@ See: [Number functions](https://sass-lang.com/documentation/modules/math)
 #### Existence checks
 
 ```scss
-variable-exists(red)    // checks for $red
-mixin-exists(red-text)  // checks for @mixin red-text
-function-exists(redify)
+@use 'sass:meta';
+
+$red: #f00;
+meta.variable-exists('red')   // true, current scope
+meta.mixin-exists('red-text')
+meta.function-exists('redify')
 ```
-<!-- {: data-highlight="variable-exists(red)"} -->
+<!-- {: data-highlight="meta.variable-exists('red')"} -->
 
 
 #### Global scope
 
 ```scss
-global-variable-exists(red)
+@use 'sass:meta';
+
+$red: #f00;
+meta.global-variable-exists('red')  // true, ignores local scope
 ```
-<!-- {: data-highlight="global-variable-exists(red)"} -->
+<!-- {: data-highlight="meta.global-variable-exists('red')"} -->
+
+See: [sass:meta](https://sass-lang.com/documentation/modules/meta)
 
 
-#### Selectors
+#### Combine selectors
 
 ```scss
-selector-append('.menu', 'li', 'a')   // .menu li a
-selector-nest('.menu', '&:hover li')  // .menu:hover li
-selector-extend(...)
-selector-parse(...)
-selector-replace(...)
-selector-unify(...)
-```
-<!-- {: data-highlight="selector-append"} -->
+@use 'sass:selector';
 
-See: [Meta functions](https://sass-lang.com/documentation/modules/meta)
+selector.append('.menu', ':hover')        // .menu:hover
+selector.nest('.menu', '&:hover li')      // .menu:hover li
+selector.extend('a.disabled', 'a', '.link')
+selector.unify('a', '.disabled')          // a.disabled
+```
+<!-- {: data-highlight="selector.append('.menu', ':hover'); selector.nest('.menu', '&:hover li'); selector.extend('a.disabled', 'a', '.link'); selector.unify('a', '.disabled')"} -->
+
+
+#### Inspect selectors
+
+```scss
+@use 'sass:selector';
+
+selector.parse('.menu li')
+selector.replace('.menu li', 'li', 'a')  // .menu a
+```
+<!-- {: data-highlight="selector.replace('.menu li', 'li', 'a')"} -->
+
+See: [sass:selector](https://sass-lang.com/documentation/modules/selector)
 
 
 ## Loops
@@ -503,8 +553,10 @@ See: [@if](https://sass-lang.com/documentation/at-rules/control/if)
 ### Interpolation
 
 ```scss
+@use 'sass:meta';
+
 .#{$klass} { ... }      // Class
-call($function-name)    // Functions
+meta.call(meta.get-function($function-name))  // Functions
 
 @media #{$tablet}
 font: #{$size}/#{$line-height}
@@ -518,14 +570,16 @@ See: [Interpolation](https://sass-lang.com/documentation/interpolation)
 ### Lists
 
 ```scss
+@use 'sass:list';
+
 $list: (a b c);
 
-nth($list, 1)  // starts with 1
-length($list)
+list.nth($list, 1)  // starts with 1
+list.length($list)
 
 @each $item in $list { ... }
 ```
-<!-- {: data-highlight="nth($list, 1)"} -->
+<!-- {: data-highlight="list.nth($list, 1)"} -->
 
 See: [Lists](https://sass-lang.com/documentation/values/lists)
 
@@ -533,11 +587,13 @@ See: [Lists](https://sass-lang.com/documentation/values/lists)
 ### Maps
 
 ```scss
+@use 'sass:map';
+
 $map: (key1: value1, key2: value2, key3: value3);
 
-map-get($map, key1)
+map.get($map, key1)
 ```
-<!-- {: data-highlight="map-get($map, key1)"} -->
+<!-- {: data-highlight="map.get($map, key1)"} -->
 
 See: [Maps](https://sass-lang.com/documentation/values/maps)
 

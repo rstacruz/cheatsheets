@@ -7,7 +7,7 @@ updated: 2026-11-26
 tier: t3
 last_verified_with: "Yarn 4.19.0."
 intro: |
-  [Yarn](https://yarnpkg.com/) is a package manager for JavaScript. This reference covers Yarn 4 (the Berry line): Corepack installs, the modern CLI, workspaces, constraints, and Plug'n'Play.
+  [Yarn](https://yarnpkg.com/) is a package manager for JavaScript.
 links:
   - title: Yarn documentation
     url: https://yarnpkg.com/getting-started/install

@@ -3,7 +3,7 @@ title: Vim scripting
 subtitle: Scripting language for Vim
 category: Vim
 intro: |
-  Vimscript is Vim's built-in language for variables, functions, loops, and custom commands. This sheet is a quick reference to [Vim's scripting documentation](https://vimhelp.org/usr_41.txt.html).
+  Vimscript is Vim's built-in language for variables, functions, loops, and custom commands. This sheet is a quick reference to Vim's scripting documentation.
 links:
   - title: Vim scripting guide
     url: https://vimhelp.org/usr_41.txt.html
@@ -116,7 +116,7 @@ See: [`:help expr6`](https://vimhelp.org/eval.txt.html#expr6), [`:help expr-.`](
 
 ## Strings
 
-### Strings
+### String literals
 
 ```vim
 let str = "String"
@@ -153,7 +153,7 @@ See: [`:help functions`](https://vimhelp.org/eval.txt.html#functions)
 
 ## Functions
 
-### Functions
+### Defining functions
 
 ```vim
 " prefix with s: for local script-only functions
@@ -270,7 +270,7 @@ See: [`:help :while`](https://vimhelp.org/eval.txt.html#%3Awhile)
 
 ## Custom commands
 
-### Custom commands
+### Defining commands
 
 ```vim
 command! Save :set fo=want tw=80 nowrap
@@ -422,7 +422,7 @@ See: [`:help expr-&&`](https://vimhelp.org/eval.txt.html#expr-%26%26)
 
 ## Lists
 
-### Lists
+### List basics
 
 ```vim
 let mylist = [1, two, 3, "four"]
@@ -495,7 +495,7 @@ See: [`:help map()`](https://vimhelp.org/builtin.txt.html#map%28%29), [`:help fi
 
 ## Dictionaries
 
-### Dictionaries
+### Dictionary basics
 
 ```vim
 let colors = {
@@ -570,7 +570,7 @@ float2nr("3.14")
 
 See: [`:help str2nr()`](https://vimhelp.org/builtin.txt.html#str2nr%28%29), [`:help float2nr()`](https://vimhelp.org/builtin.txt.html#float2nr%28%29)
 
-### Numbers
+### Number literals
 
 ```vim
 let int = 1000

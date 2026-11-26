@@ -7,7 +7,7 @@ last_verified_with: "Tabular 1.0.0."
 updated: 2026-11-26
 weight: -1
 intro: |
-  [Tabular](https://github.com/godlygeek/tabular) is a Vim script for text alignment.
+  Tabular is a Vim script for text alignment.
 links:
   - title: Tabular
     url: https://github.com/godlygeek/tabular

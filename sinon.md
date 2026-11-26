@@ -7,7 +7,7 @@ tier: t3
 last_verified_with: "Sinon 22.1.0."
 updated: 2026-11-26
 intro: |
-  [Sinon](https://sinonjs.org/) records calls, replaces functions, and fakes time in JavaScript tests. This sheet covers Sinon 22.
+  Sinon records calls, replaces functions, and fakes time in JavaScript tests.
 links:
   - title: Sinon documentation
     url: https://sinonjs.org/

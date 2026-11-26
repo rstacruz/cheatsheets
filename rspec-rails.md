@@ -3,7 +3,7 @@ title: Rspec-rails
 subtitle: Rails testing integration
 category: Ruby
 intro: |
-  RSpec is a Ruby library for testing. [rspec-rails](https://github.com/rspec/rspec-rails) is its Rails integration.
+  RSpec is a Ruby library for testing. rspec-rails is its Rails integration.
 links:
   - title: https://rspec.info/
     url: https://rspec.info/

@@ -21,13 +21,13 @@ last_verified_with: "procps-ng top 4.0.7."
 | `m`       | switches memory view  |
 | `1`       | switches cpu view     |
 | ---       | ---                   |
-| `V`       | Forest view           |
+| `V`       | switch to forest view |
 | `c`       | show full path        |
 | `q`       | quits the program     |
 
 <!-- {: .-shortcuts} -->
 
-See: [Interactive commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)
+See: [Display commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)
 
 ### Processes and sorting
 
@@ -40,7 +40,7 @@ See: [Interactive commands](https://man7.org/linux/man-pages/man1/top.1.html#4._
 
 <!-- {: .-shortcuts} -->
 
-See: [Interactive commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)
+See: [Sorting commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)
 
 ### Search and filters
 
@@ -48,9 +48,9 @@ See: [Interactive commands](https://man7.org/linux/man-pages/man1/top.1.html#4._
 | --------- | --------------------- |
 | `Shift+l` | searches for string   |
 | `o`       | adds a filter         |
-| `u`       | filter user           |
+| `u`       | filter by user        |
 | `=`       | clears filters        |
 
 <!-- {: .-shortcuts} -->
 
-See: [Interactive commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)
+See: [Filter commands](https://man7.org/linux/man-pages/man1/top.1.html#4._INTERACTIVE_Commands)

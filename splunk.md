@@ -10,9 +10,7 @@ keywords:
   - stats by
   - timechart
 intro: |
-  [Splunk](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6)
-  searches machine data with SPL. This reference covers the search commands,
-  statistics, field extraction, and lookups you reach for most.
+  Splunk searches machine data with SPL.
 links:
   - title: SPL search reference
     url: https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6
@@ -177,7 +175,7 @@ the field is present; `count` counts all events.
 
 See: [stats](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/search-commands/stats)
 
-### eventstats and streamstats
+### Per-event statistics
 
 #### eventstats
 

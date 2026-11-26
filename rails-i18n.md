@@ -3,7 +3,7 @@ title: Rails i18n
 subtitle: Translation and localization
 category: Rails
 intro: |
-  Rails I18n provides translations, localization, and formatting helpers. This reference covers locale files, interpolation, pluralization, and number helpers.
+  Rails I18n provides translations, localization, and formatting helpers.
 links:
   - title: Rails I18n guide
     url: https://guides.rubyonrails.org/i18n.html

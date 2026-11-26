@@ -42,4 +42,4 @@ Ruby's `Time#strftime` accepts the same codes.
 
 See: [Time#strftime](https://docs.ruby-lang.org/en/3.4/Time.html#method-i-strftime)
 
-{% include common/strftime_format.md title="strftime" %}
+{% include common/strftime_format.md title="Format codes" %}

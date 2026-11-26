@@ -3,7 +3,7 @@ title: StimulusReflex
 subtitle: Rails reactive page updates
 category: Ruby
 intro: |
-  StimulusReflex updates Rails pages reactively over WebSockets using server-side reflexes and morphs. This reference covers reflexes, morph modes, and lifecycle callbacks.
+  StimulusReflex updates Rails pages reactively over WebSockets using server-side reflexes and morphs.
 links:
   - title: Reflexes guide
     url: https://v3-4-docs.docs.stimulusreflex.com/guide/reflexes

@@ -6,7 +6,7 @@ tier: t3
 last_verified_with: "Siege 4.2.2."
 updated: 2026-11-26
 intro: |
-  [Siege](https://www.joedog.org/siege/) is an HTTP and HTTPS load testing tool.
+  Siege is an HTTP and HTTPS load testing tool.
 links:
   - title: Siege
     url: https://www.joedog.org/siege/

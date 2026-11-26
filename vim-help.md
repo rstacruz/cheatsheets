@@ -3,7 +3,7 @@ title: Vim helpfiles
 subtitle: Help file authoring reference
 category: Vim
 intro: |
-  Vim helpfiles document plugins and features in `:help`. This sheet covers file layout, [help syntax](https://vimhelp.org/helphelp.txt.html#help-writing), tags, and authoring conventions.
+  Vim helpfiles document plugins and features in `:help`.
 links:
   - title: Writing Vim help files
     url: https://vimhelp.org/helphelp.txt.html#help-writing

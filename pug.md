@@ -3,7 +3,7 @@ title: Pug
 subtitle: HTML template engine
 category: JavaScript libraries
 intro: |
-  Pug is an HTML template engine with indentation-based syntax, mixins, and inheritance. This reference covers the language and API.
+  Pug is an HTML template engine with indentation-based syntax, mixins, and inheritance.
 links:
   - title: Pug language documentation
     url: https://pugjs.org/language/tags.html

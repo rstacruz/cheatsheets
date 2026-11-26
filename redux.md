@@ -5,7 +5,7 @@ category: JavaScript libraries
 updated: 2026-11-26
 weight: -3
 intro: |
-  [Redux Toolkit](https://redux.js.org/toolkit/introduction/getting-started) is the standard way to write Redux. This reference targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.
+  Redux Toolkit is the standard way to write Redux. It targets Redux Toolkit 2.x and React-Redux 9.x, covering slices, thunks, RTK Query, and hooks.
 links:
   - title: Redux Toolkit documentation
     url: https://redux.js.org/toolkit/introduction/getting-started

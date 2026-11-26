@@ -3,7 +3,7 @@ title: Weechat
 subtitle: Terminal IRC client
 category: Apps
 intro: |
-  [WeeChat](https://weechat.org/files/doc/stable/weechat_user.en.html) is a terminal IRC client. This sheet lists keyboard shortcuts for buffers, windows, and search from the user guide.
+  WeeChat is a terminal IRC client.
 links:
   - title: WeeChat user guide
     url: https://weechat.org/files/doc/stable/weechat_user.en.html

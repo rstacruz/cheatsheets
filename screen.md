@@ -10,7 +10,7 @@ keywords:
   - Command
   - Line
 intro: |
-  [GNU Screen](https://www.gnu.org/software/screen/manual/screen.html) is a terminal multiplexer for running several shells in one session. This sheet covers its commands and key bindings.
+  [GNU Screen](https://www.gnu.org/software/screen/manual/screen.html) is a terminal multiplexer for running several shells in one session.
 links:
   - title: GNU's manual
     url: https://www.gnu.org/software/screen/manual/screen.html#Commands

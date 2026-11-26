@@ -863,9 +863,3 @@ See: [dotnet test](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-te
 - [C# nullable types cheatsheet](./c-sharp-nullable-reference-types)
 - [dotnet sln add cheatsheet](./c-sharp-add-project-to-solution)
 - [C# parallel tasks cheatsheet](./c-sharp-parallel-tasks)
-
-[TypeScript cheatsheet](./typescript)
-<!-- {: .-crosslink} -->
-
-[Kotlin cheatsheet](./kotlin)
-<!-- {: .-crosslink} -->

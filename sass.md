@@ -167,15 +167,13 @@ See: [@extend](https://sass-lang.com/documentation/at-rules/extend)
 ### Composing
 
 ```scss
-@import './other_sass_file';
 @use './other_sass_file';
 ```
 <!-- {: data-highlight="@use"} -->
 
+The `.scss` or `.sass` extension is optional.
 
-`@import` is deprecated; prefer `@use`. The `.scss` or `.sass` extension is optional.
-
-See: [@import](https://sass-lang.com/documentation/at-rules/import), [@use](https://sass-lang.com/documentation/at-rules/use)
+See: [@use](https://sass-lang.com/documentation/at-rules/use)
 
 
 ## Color functions

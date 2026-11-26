@@ -190,12 +190,6 @@ See: [Active Model methods](https://guides.rubyonrails.org/i18n.html#active-mode
 
 ### Error messages
 
-```rb
-# Legacy Rails 2 helper; render errors in views instead
-error_messages_for(...)
-```
-<!-- {: data-highlight="error_messages_for"} -->
-
 #### YAML
 
 ```yml

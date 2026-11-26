@@ -190,47 +190,6 @@ Person.group(:city).count
 
 See: [Calculations API](https://api.rubyonrails.org/classes/ActiveRecord/Calculations.html)
 
-### Dynamic attribute-based finders
-
-#### Single record
-
-```ruby
-# Given a field called `name`, returns one record
-Person.find_by_name(name)
-Person.find_last_by_name(name)
-Person.find_or_create_by_name(name)
-Person.find_or_initialize_by_name(name)
-```
-<!-- {: data-highlight="find_by_name; find_last_by_name; find_or_create_by_name; find_or_initialize_by_name"} -->
-
-#### List of records
-
-```ruby
-# Returns a list of records
-Person.find_all_by_name(name)
-```
-<!-- {: data-highlight="find_all_by_name"} -->
-
-#### Bang methods
-
-```ruby
-# Add a bang to make it raise an exception
-Person.find_by_name!(name)
-```
-<!-- {: data-highlight="find_by_name!"} -->
-
-#### Scoped finders
-
-```ruby
-# You may use `scoped` instead of `find`
-Person.scoped_by_user_name
-```
-<!-- {: data-highlight="scoped_by_user_name"} -->
-
-Legacy finders; modern code uses `find_by`.
-
-See: [Dynamic finder methods](https://guides.rubyonrails.org/active_record_querying.html#dynamic-finder-methods)
-
 Associations
 ------------
 

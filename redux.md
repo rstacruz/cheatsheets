@@ -286,39 +286,6 @@ Select the smallest value you need; `useSelector` re-renders when the returned r
 
 See: [Hooks](https://redux.js.org/react-redux/api/hooks)
 
-## Legacy Redux
-
-### createStore
-
-```js
-import { legacy_createStore as createStore } from 'redux'
-
-const store = createStore(counter, { value: 0 })
-```
-<!-- {: data-highlight="legacy_createStore as createStore"} -->
-
-`createStore` is deprecated: it renders with a strikethrough but still works. Use `configureStore` in new code.
-
-See: [createStore](https://redux.js.org/api/createstore)
-
-### connect
-
-```js
-import { connect } from 'react-redux'
-
-export default connect(
-  (state) => ({ message: state.message }),
-  (dispatch) => ({
-    onMessageClick: (message) => dispatch({ type: 'click', message })
-  })
-)(App)
-```
-<!-- {: data-highlight="connect"} -->
-
-`connect` is deprecated as of React-Redux 9.3.0. It still works, but the hooks above are simpler and type better.
-
-See: [connect](https://redux.js.org/react-redux/api/connect)
-
 ## References
 
 * [Redux Toolkit docs](https://redux.js.org/toolkit/introduction/getting-started) _(redux.js.org)_

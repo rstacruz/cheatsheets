@@ -192,12 +192,11 @@ See: [Using scope](https://guides.rubyonrails.org/routing.html#using-scope)
 ### Rack middleware
 
 ```ruby
-# Yes, Sprockets is middleware
-match '/application.js' => Sprockets
+mount MyRackApp, at: '/app'
 ```
-<!-- {: data-highlight="Sprockets"} -->
+<!-- {: data-highlight="mount MyRackApp"} -->
 
-Sprockets is a legacy example; modern apps mount Rack apps with `mount`.
+Mount Rack apps at a path with `mount`.
 
 See: [Routing to Rack applications](https://guides.rubyonrails.org/routing.html#routing-to-rack-applications)
 
@@ -319,15 +318,6 @@ root :to => 'welcome#index'
 # See how all your routes lay out with "rake routes"
 ```
 
-#### Legacy wildcard route
-
-```ruby
-# This is a legacy wild controller route, not
-# recommended for RESTful applications.
-# Note: it makes all actions in every controller
-# accessible via GET requests.
-match ':controller(/:action(/:id(.:format)))'
-```
 
 See: [Rails routing guide](https://guides.rubyonrails.org/routing.html)
 

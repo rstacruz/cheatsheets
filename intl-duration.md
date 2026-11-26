@@ -1,7 +1,7 @@
 ---
 title: Intl.DurationFormat
 subtitle: Locale-aware duration formatter
-category: Browser APIs
+category: Internationalization
 tier: t2
 updated: 2026-11-18
 last_verified_with: "Node 26 (ICU)."

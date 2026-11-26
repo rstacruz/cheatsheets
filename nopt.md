@@ -8,6 +8,8 @@ tier: t3
 links:
   - title: https://www.npmjs.org/package/nopt
     url: https://www.npmjs.org/package/nopt
+intro: |
+  [nopt](https://github.com/npm/nopt) parses command-line options with type definitions and shorthands from npm. This sheet covers option schemas and help handling.
 ---
 
 ### Example

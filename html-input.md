@@ -6,6 +6,13 @@ updated: 2026-11-23
 tier: t3
 last_verified_with: "WHATWG HTML Living Standard."
 weight: -3
+intro: |
+  [The input element](https://html.spec.whatwg.org/multipage/input.html#the-input-element) defines form controls. This sheet covers attributes, input types, and examples for dates, numbers, and text.
+links:
+  - title: input element
+    url: https://html.spec.whatwg.org/multipage/input.html#the-input-element
+  - title: input type attribute
+    url: https://html.spec.whatwg.org/multipage/input.html#attr-input-type
 ---
 
 ## Attributes

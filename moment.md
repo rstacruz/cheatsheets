@@ -28,12 +28,12 @@ See: [Project status](https://momentjs.com/news/)
 
 | Library | Notes |
 | --- | --- |
-| [Day.js](https://day.js.org/) | ~2 kB, Moment-compatible API |
+| [Day.js](https://day.js.org/) | ~3 kB, Moment-compatible API |
 | [date-fns](https://date-fns.org/) | Functions, tree-shakeable, immutable |
 | [Luxon](https://moment.github.io/luxon/) | `Intl` zones and locales |
 | [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) | Built into the language |
 
-Temporal is Stage 4 (ES2026) and ships in Chrome and Edge 144+, Firefox 139+, and Node 26; Safari needs a polyfill.
+Temporal is Stage 4 (ES2026) and ships in Chrome and Edge 144+, Firefox 139+, Safari 27.3+, and Node 26.
 
 See: [You don't need Moment.js](https://github.com/you-dont-need/You-Dont-Need-Momentjs)
 
@@ -62,7 +62,7 @@ See: [Parsing](https://momentjs.com/docs/#/parsing/)
 m.format()              // ISO 8601 with offset
 m.format('dddd')        // "Friday"
 m.format('MMM Do YY')   // "Mar 1st 13"
-m.fromNow()             // "7 years ago"
+m.from(moment('2013-03-08'))  // "7 days ago"
 m.calendar()            // "03/01/2013"
 m.diff(other, 'days')   // whole days
 m.unix()                // seconds
@@ -113,7 +113,7 @@ See: [Query](https://momentjs.com/docs/#/query/)
 const d = moment.duration(2, 'days')
 d.asHours()                                  // 48
 d.humanize()                                 // "2 days"
-moment.duration(90, 'minutes').humanize()    // "an hour"
+moment.duration(90, 'minutes').humanize()    // "2 hours"
 ```
 
 <!-- {: data-highlight="moment.duration; asHours; humanize"} -->
@@ -129,12 +129,12 @@ See: [Durations](https://momentjs.com/docs/#/durations/)
 ```js
 .format('L')      // 06/09/2014
 .format('l')      // 6/9/2014
-.format('LL')     // June 9 2014
-.format('ll')     // Jun 9 2014
-.format('LLL')    // June 9 2014 9:32 PM
-.format('lll')    // Jun 9 2014 9:32 PM
-.format('LLLL')   // Monday, June 9 2014 9:32 PM
-.format('llll')   // Mon, Jun 9 2014 9:32 PM
+.format('LL')     // June 9, 2014
+.format('ll')     // Jun 9, 2014
+.format('LLL')    // June 9, 2014 12:00 AM
+.format('lll')    // Jun 9, 2014 12:00 AM
+.format('LLLL')   // Monday, June 9, 2014 12:00 AM
+.format('llll')   // Mon, Jun 9, 2014 12:00 AM
 ```
 
 <!-- {: data-highlight="'L'; 'l'"} -->

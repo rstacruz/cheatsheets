@@ -116,6 +116,8 @@ Snippet pages are left out of the normal homepage category, featured, and recent
 - **Every H2 needs at least two H3s:** one card renders as a stub; a footer that only lists links (`Also see`, `References`) is the exception.
 - **No H2 preamble:** start every H2 with an H3; intro text belongs in a card.
 - **Most-used first:** order H2s by how often a reader reaches for them; for an interactive tool, keyboard and everyday commands come before reference material.
+- **Tables:** keep a card under 20 table rows total; split into more H3s when a reference table grows. See `tables/row-limit`.
+- **Unique headings:** no repeated H2/H3 titles in one sheet; anchors collide. See `headings/unique`.
 
 H2 content length:
 
@@ -148,7 +150,10 @@ H3 content length:
 ## Cross-linking sheets
 
 Sheets can link to related sheets with `.-crosslink`, which renders as a large
-block with an arrow:
+block with an arrow. Reserve it for sheets in the same family: an index and its
+members, a version and its successor, or a retired sheet and its replacement.
+A neighbouring tool or an alternative gets a regular link instead. See
+`crosslinks/directly-related` in [Rules](rules.md).
 
 ````md
 [JavaScript Strings cheatsheet](./js-string)
@@ -158,6 +163,13 @@ block with an arrow:
 - Put the link on its own paragraph, with the attribute comment on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
+- Reserve cross-links for directly related sheets: a sibling version, a successor, or the same family. Two languages from different ecosystems are not related, even when they look alike; leave the other sheet out.
+
+For a neighbouring tool, link it plainly:
+
+````md
+- [Fastify cheatsheet](./fastify)
+````
 
 A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
 links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the
@@ -181,6 +193,21 @@ shows the shape.
 - Omit mechanics (stdout and JSON shapes, exit codes, internal tokens) unless the sheet is about them
 - Leave out third-party trivia (eg which desktop owns a key chord); link the upstream docs instead
 - Link install and upgrade instructions rather than restating them
+- Keep marketing and competitor comparisons out of reference sheets; see `prose/no-marketing`.
+
+### Code spacing
+
+Don't shy from blank lines. Separate setup from use, and put long result comments on their own line. A call and result may share a line when the combined line stays under 40 characters; see `code/space-between-examples`.
+
+```js
+const d = dayjs()
+
+d.add(1, 'day').format('YYYY-MM-DD')
+// "2014-06-10"
+
+d.format('YYYY-MM-DD')
+// "2014-06-09"
+```
 
 ## Quick starts
 

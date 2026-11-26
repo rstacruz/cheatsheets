@@ -4,6 +4,7 @@
 /animated_gif /ffmpeg-animated-gif 301
 /brew /homebrew 301
 /commander-js /commander.js 301
+/csharp7 /c-sharp 301
 /css-animation /css#animation 301
 /css-background /css#background 301
 /css-font /css#fonts 301
@@ -24,6 +25,7 @@
 /handlebars-js /handlebars.js 301
 /harvey-js /harvey.js 301
 /immutable-js /immutable.js 301
+/intl-number /intl-numberformat 301
 /jade /pug 301
 /jinja2 /jinja 301
 /package.json /package-json 301

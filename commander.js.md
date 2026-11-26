@@ -1,7 +1,7 @@
 ---
 title: Commander.js
 subtitle: Node.js CLI framework
-category: Node.js
+category: Node.js libraries
 last_verified_with: "Commander.js 15.1."
 updated: 2026-11-25
 tier: t3

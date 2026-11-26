@@ -5,6 +5,15 @@ updated: 2026-11-23
 last_verified_with: "GraphQL specification, graphql.org guides."
 tier: t3
 category: API
+intro: |
+  [GraphQL](https://graphql.org/) is a query language for APIs. This sheet covers queries, HTTP requests, mutations, and schema types.
+links:
+  - title: GraphQL
+    url: https://graphql.org/
+  - title: GraphQL specification
+    url: https://spec.graphql.org/September2026/
+  - title: GraphQL learn
+    url: https://graphql.org/learn/
 ---
 
 ## Queries

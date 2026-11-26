@@ -6,6 +6,13 @@ updated: 2026-11-25
 tier: t3
 last_verified_with: "Homebrew 7.0.16."
 category: Package managers
+intro: |
+  [Homebrew](https://brew.sh) installs software on macOS and Linux. This sheet covers formula and cask commands, upgrades, and maintenance.
+links:
+  - title: Homebrew
+    url: https://brew.sh
+  - title: brew manpage
+    url: https://docs.brew.sh/Manpage
 ---
 
 ## Usage

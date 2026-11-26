@@ -1,12 +1,21 @@
 ---
 title: package.json
 subtitle: Manifest for npm packages
-category: Node.js
+category: Node.js libraries
 prism_languages: [json]
 updated: 2026-11-25
 last_verified_with: "npm 12.2.3."
 tier: t3
 weight: -3
+intro: |
+  A `package.json` file declares a Node.js package's metadata, dependencies, scripts, and entry points. This sheet covers common fields and version ranges.
+links:
+  - title: npm package.json
+    url: https://docs.npmjs.com/cli/v12/configuring-npm/package-json
+  - title: package.json dependencies
+    url: https://docs.npmjs.com/cli/v12/configuring-npm/package-json#dependencies
+  - title: npm scripts
+    url: https://docs.npmjs.com/cli/v12/using-npm/scripts
 ---
 
 ### Basic

@@ -6,6 +6,15 @@ updated: 2026-11-25
 tier: t3
 last_verified_with: "WHATWG HTML Living Standard, Open Graph protocol."
 weight: -3
+intro: |
+  [Meta tags](https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element) add document metadata. This sheet covers charset, description, Open Graph, Apple tags, and progressive web app tags.
+links:
+  - title: meta element
+    url: https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element
+  - title: Open Graph protocol
+    url: https://ogp.me/
+  - title: Safari supported meta tags
+    url: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
 ---
 
 ## Metadata

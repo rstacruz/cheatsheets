@@ -6,6 +6,15 @@ last_verified_with: "Ledger 3.4.1."
 updated: 2026-11-25
 tier: t3
 weight: -5
+intro: |
+  [Ledger](https://ledger-cli.org/) is a command-line, plain-text double-entry accounting tool. This sheet covers journal syntax, reporting commands, queries, and commodity handling.
+links:
+  - title: Ledger manual
+    url: https://ledger-cli.org/doc/ledger3.html
+  - title: Basic reporting commands
+    url: https://ledger-cli.org/doc/ledger3.html#Basic-Reporting-Commands
+  - title: Ledger repository
+    url: https://github.com/ledger/ledger
 ---
 
 ### Basic usage

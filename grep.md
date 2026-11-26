@@ -6,6 +6,7 @@ updated: 2026-11-23
 last_verified_with: "GNU grep 3.12."
 tier: t3
 ---
+## Usage
 
 ## Usage
 

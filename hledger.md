@@ -5,6 +5,8 @@ category: Plain-text accounting
 updated: 2026-11-25
 tier: t3
 last_verified_with: "hledger 1.52.4."
+intro: |
+  [hledger](https://hledger.org) is a plain-text double-entry accounting tool. This sheet covers reports, queries, periods, display formats, and commands.
 links:
   - title: hledger
     url: https://hledger.org

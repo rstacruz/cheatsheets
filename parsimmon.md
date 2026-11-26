@@ -5,6 +5,13 @@ category: Node.js
 last_verified_with: "Parsimmon 1.18.1."
 updated: 2026-11-25
 tier: t3
+intro: |
+  Parsimmon builds parsers by composing small atoms and combinators. This sheet covers basic usage, atoms, combinators, formatting, and the API reference.
+links:
+  - title: Parsimmon API
+    url: https://github.com/jneen/parsimmon/blob/master/API.md
+  - title: Parsimmon repository
+    url: https://github.com/jneen/parsimmon
 ---
 
 ### Basic usage

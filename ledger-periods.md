@@ -8,6 +8,8 @@ tier: t3
 links:
   - title: Period expressions
     url: https://ledger-cli.org/doc/ledger3.html#Period-Expressions
+intro: |
+  Ledger's [period expressions](https://ledger-cli.org/doc/ledger3.html#Period-Expressions) select date ranges for reports. This sheet covers intervals, begin and end dates, and worked examples.
 ---
 
 ### Usage

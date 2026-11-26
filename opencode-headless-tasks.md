@@ -24,6 +24,8 @@ fragments:
 links:
   - title: opencode run
     url: https://opencode.ai/docs/cli/commands#run
+intro: |
+  [`opencode run`](https://opencode.ai/docs/cli/commands#run) executes one-shot prompts without opening the TUI. This sheet covers JSON output and session continuation.
 ---
 
 ## Headless runs

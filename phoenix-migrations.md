@@ -6,6 +6,15 @@ weight: -1
 updated: 2026-11-23
 last_verified_with: "Phoenix 1.8.17, Ecto 3.14.3, Ecto SQL 3.14.0."
 tier: t3
+intro: |
+  Ecto migrations change a Phoenix app's database schema over time. This sheet covers generators, table operations, indices, and raw SQL execution.
+links:
+  - title: Ecto.Migration documentation
+    url: https://hexdocs.pm/ecto_sql/Ecto.Migration.html
+  - title: mix ecto.gen.migration
+    url: https://hexdocs.pm/ecto_sql/Mix.Tasks.Ecto.Gen.Migration.html
+  - title: mix phx.gen.schema
+    url: https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html
 ---
 
 ## Generators

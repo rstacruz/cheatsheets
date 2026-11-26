@@ -5,6 +5,11 @@ category: Vim
 tier: t3
 last_verified_with: "vim-projectionist 1.3."
 updated: 2026-11-25
+intro: |
+  Vim-projectionist maps file paths to alternate files, templates, and commands. This sheet covers configuration, available options, and the commands it adds.
+links:
+  - title: vim-projectionist repository
+    url: https://github.com/tpope/vim-projectionist
 ---
 
 ### Basic usage

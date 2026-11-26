@@ -1,10 +1,20 @@
 ---
 title: HTML emails
 subtitle: Email-compatible HTML markup
-category: HTML
+category: Hidden
+# Static email-client CSS support tables go stale; caniemail.com is current.
+tags: [Archived]
+archived: |
+  Email-client CSS support changes with each client release, so this static support table cannot stay current. Use [Can I email](https://www.caniemail.com/) instead.
 updated: 2026-11-25
-tier: t3
 last_verified_with: "WHATWG HTML Living Standard."
+intro: |
+  [HTML email](https://www.caniemail.com/) markup for Outlook and webmail clients, with table-based layout and CSS support notes.
+links:
+  - title: Can I email
+    url: https://www.caniemail.com/
+  - title: HTML tables
+    url: https://html.spec.whatwg.org/multipage/tables.html#the-table-element
 ---
 
 ## CSS support

@@ -6,6 +6,15 @@ weight: -1
 tier: t3
 last_verified_with: "Phoenix 1.8.17."
 updated: 2026-11-25
+intro: |
+  Phoenix routes map URLs to controller actions. This sheet covers single routes, resources and their options, path helpers, nested resources, and scopes.
+links:
+  - title: Phoenix routing guide
+    url: https://hexdocs.pm/phoenix/routing.html
+  - title: Phoenix.Router documentation
+    url: https://hexdocs.pm/phoenix/Phoenix.Router.html
+  - title: mix phx.routes
+    url: https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Routes.html
 ---
 
 ### Showing routes

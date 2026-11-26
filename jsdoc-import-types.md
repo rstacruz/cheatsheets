@@ -7,6 +7,8 @@ layout: snippet
 last_verified_with: "TypeScript 7.0.2."
 updated: 2026-11-23
 tier: t3
+intro: |
+  TypeScript's [JSDoc import types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types) bring type-only references into JavaScript files. This sheet shows `@typedef` aliases and `@import` syntaxes.
 links:
   - title: JSDoc-supported types
     url: https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#import-types

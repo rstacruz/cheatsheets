@@ -12,6 +12,8 @@ links:
     url: https://nodejs.org/api/fs.html
   - title: Node.js readline
     url: https://nodejs.org/api/readline.html
+intro: |
+  Read files in Node.js with `fs` promises, callbacks, synchronous helpers, or streams. This sheet covers text, JSON, and line-by-line reads.
 ---
 
 ## Reading

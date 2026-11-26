@@ -7,6 +7,15 @@ weight: -1
 last_verified_with: "jQuery 4.1.0."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [jQuery](https://api.jquery.com/) is a JavaScript library for selecting and traversing DOM elements. This sheet covers selectors, traversal methods, selector extensions, and CSS hooks.
+links:
+  - title: jQuery API documentation
+    url: https://api.jquery.com/
+  - title: jQuery Learning Center
+    url: https://learn.jquery.com/
+  - title: jQuery repository
+    url: https://github.com/jquery/jquery
 ---
 
 ## Selecting

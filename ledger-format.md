@@ -5,6 +5,15 @@ category: Plain-text accounting
 last_verified_with: "Ledger 3.4.1."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Ledger](https://ledger-cli.org/) stores double-entry transactions in plain-text journals. This sheet covers journal syntax, balance assertions, account names, and directives.
+links:
+  - title: Journal format
+    url: https://ledger-cli.org/doc/ledger3.html#Journal-Format
+  - title: Balance assertions
+    url: https://ledger-cli.org/doc/ledger3.html#Balance-assertions
+  - title: Ledger manual
+    url: https://ledger-cli.org/doc/ledger3.html
 ---
 
 ### Example

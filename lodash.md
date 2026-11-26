@@ -8,6 +8,15 @@ description: |
 last_verified_with: "Lodash 4.18.1."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [Lodash](https://lodash.com/) is a JavaScript utility library for arrays,
+  objects, strings, and functions. This sheet covers common methods with short
+  examples.
+links:
+  - title: Lodash documentation
+    url: https://lodash.com/docs/
+  - title: Lodash on GitHub
+    url: https://github.com/lodash/lodash
 ---
 
 ## Collections

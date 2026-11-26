@@ -5,6 +5,14 @@ category: CLI
 last_verified_with: "man-pages 6.20."
 updated: 2026-11-25
 tier: t3
+intro: |
+  [man](https://www.kernel.org/doc/man-pages/) displays system manual pages on
+  Unix. This sheet lists the standard section numbers and their meanings.
+links:
+  - title: Linux man-pages project
+    url: https://www.kernel.org/doc/man-pages/
+  - title: man-pages(7)
+    url: https://man7.org/linux/man-pages/man7/man-pages.7.html
 ---
 
 ### Man paths

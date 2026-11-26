@@ -2,8 +2,9 @@
 title: Stencil
 subtitle: Web component compiler
 category: Build tools
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "Stencil 4.45.5."
+tier: t3
 keywords:
   - "@Component"
   - "@Prop()"
@@ -145,6 +146,8 @@ See: [Updating arrays](https://stenciljs.com/docs/reactive-data#updating-arrays)
 
 ### Using slot
 
+#### HTML
+
 ```html
 <my-component>
   <span>Hello, friends</span>
@@ -168,6 +171,8 @@ You can pass JSX/HTML as child elements. Use the `slot` tag to use them inside y
 See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 
 ### Multiple slots
+
+#### HTML
 
 ```html
 <my-component>
@@ -219,6 +224,8 @@ export class MyComponent {
   }
 }
 ```
+
+See: [componentWillUpdate()](https://stenciljs.com/docs/component-lifecycle#componentwillupdate)
 
 ## References
 

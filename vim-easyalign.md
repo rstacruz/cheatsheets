@@ -4,6 +4,9 @@ subtitle: Interactive alignment plugin
 html_class: key-codes
 hljs_languages: [vim]
 category: Vim
+tier: t3
+last_verified_with: "vim-easy-align 2.10.0, Vim 9.2."
+updated: 2026-11-26
 ---
 
 ## Command mode
@@ -16,11 +19,15 @@ category: Vim
 :EasyAlign \       " \ means space
 ```
 
+See: [Using predefined alignment rules](https://github.com/junegunn/vim-easy-align#using-predefined-alignment-rules)
+
 ### Align by regexp
 
 ```vim
 :EasyAlign /[:;]+/
 ```
+
+See: [Using regular expression](https://github.com/junegunn/vim-easy-align#using-regular-expression)
 
 ### Specify which
 
@@ -29,6 +36,8 @@ category: Vim
 :EasyAlign 3 |     " align by 3rd `|`
 :EasyAlign * |     " align by all `|`s
 ```
+
+See: [Alignments over multiple occurrences](https://github.com/junegunn/vim-easy-align#alignments-over-multiple-occurrences-of-delimiters)
 
 ### Add options
 
@@ -44,12 +53,16 @@ category: Vim
          "    alignment of the delimiter itself
 ```
 
+See: [List of options](https://github.com/junegunn/vim-easy-align#list-of-options)
+
 ### Spaces are optional
 
 ```vim
 :EasyAlign * /[;:]+/ l3
 :EasyAlign*/[;:]+/l3
 ```
+
+See: [EasyAlign command](https://github.com/junegunn/vim-easy-align#easyalign-command)
 
 ## Examples
 
@@ -61,12 +74,16 @@ banana  += apple
 cake   ||= banana
 ```
 
+See: [Using predefined alignment rules](https://github.com/junegunn/vim-easy-align#using-predefined-alignment-rules)
+
 ### `:EasyAlign :` (for json or yaml)
 
 ```
 url:      jdbc:mysql://localhost/test
 database: test
 ```
+
+See: [Using predefined alignment rules](https://github.com/junegunn/vim-easy-align#using-predefined-alignment-rules)
 
 ### `:EasyAlign *|` (markdown tables)
 
@@ -75,6 +92,8 @@ database: test
 | `1`       | on 1st occurrence             |
 | `2`       | on 2nd occurrence (and so on) |
 ```
+
+See: [Aligning table cells](https://github.com/junegunn/vim-easy-align#aligning-table-cells)
 
 ## Interactive mode
 
@@ -85,9 +104,11 @@ database: test
 | `{Visual}` `⏎` | activate for selection |
 | `ga` `{motion}` | activate for motion/text object |
 
-<!-- {:.greycode} -->
+<!-- {: .-shortcuts} -->
 
 Then press options (if available), then a delimiter.
+
+See: [Quick start guide](https://github.com/junegunn/vim-easy-align#quick-start-guide)
 
 ### Interactive mode options
 
@@ -98,14 +119,18 @@ Then press options (if available), then a delimiter.
 | `<ctrl-r>` `4 ⏎` | Set `right_margin` |
 | `↓` | no margin |
 
-<!-- {:.greycode} -->
+<!-- {: .-shortcuts} -->
+
+See: [Alignment options in interactive mode](https://github.com/junegunn/vim-easy-align#alignment-options-in-interactive-mode)
 
 ### Example
 
 - `gaip` `<ctrl-l>` `8⏎` `=` - puts 8 spaces before the equal sign
 
+See: [Examples using predefined rules](https://github.com/junegunn/vim-easy-align#examples-using-predefined-rules)
+
 ## Also see
 
 - [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-- [Examples](https://github.com/junegunn/vim-easy-align#examples)
-- [Alignment options](https://github.com/junegunn/vim-easy-align#alignment-options)
+- [Examples](https://github.com/junegunn/vim-easy-align#examples-using-predefined-rules)
+- [List of options](https://github.com/junegunn/vim-easy-align#list-of-options)

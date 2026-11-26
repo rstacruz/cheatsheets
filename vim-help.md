@@ -2,8 +2,9 @@
 title: Vim helpfiles
 subtitle: Help file authoring reference
 category: Vim
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "Vim 9.2."
+tier: t3
 ---
 
 ## Writing help files
@@ -17,8 +18,11 @@ last_verified_with: "Vim 9.2."
 :set ft=help
 :set ft=text
 ```
+<!-- {: data-highlight="ft=help"} -->
 
 Use `ft=help` to preview it, and `ft=text` to edit it.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Example
 
@@ -36,7 +40,9 @@ USAGE INSTRUCTIONS                                         *ack-usage*
 vim:tw=78:ts=8:ft=help:norl:
 ```
 
-This is a cheatsheet for writing Vim help files. See: `:help help-writing`
+This is a cheatsheet for writing Vim help files.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ## Syntax
 
@@ -64,11 +70,15 @@ This is a cheatsheet for writing Vim help files. See: `:help help-writing`
 | `=====`              | Separator      |                     |
 | `-----`              | Separator      |                     |
 
+See: [Help notation](https://vimhelp.org/helphelp.txt.html#help-notation)
+
 ### Tags
 
  * Tags are created with asterisks, eg, `*potion-usage*`
  * Links to tags are `|potion-usage|`
  * Press `^]` to jump to a tag
+
+See: [Tags](https://vimhelp.org/tagsrch.txt.html#tag)
 
 ### Code blocks
 
@@ -80,6 +90,8 @@ Example: >
 
 Surround with `>` and `<` characters
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### File header
 
 ```
@@ -87,6 +99,8 @@ Surround with `>` and `<` characters
 ```
 
 It's customary to start a file with a tag of the filename, plus a description.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Heading
 
@@ -97,20 +111,28 @@ CONTENTS                                             *potion-contents*
 
 Starts with `ALL CAPS`, ends with `*a-tag*`
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### Notes
 
 ```
 	*Todo something to do
 	*Error something wrong
 ```
+<!-- {: data-highlight="*Todo"} -->
 
 Using `*Todo` and `*Error` will highlight your notes.
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 
 ### Final modeline
 
 ```nohighlight
 vim:tw=78:ts=8:ft=help:norl:
 ```
+<!-- {: data-highlight="vim:tw=78"} -->
+
+See: [Modeline](https://vimhelp.org/options.txt.html#modeline)
 
 ## Conventions
 
@@ -132,9 +154,13 @@ vim:tw=78:ts=8:ft=help:norl:
     3.Insert Mode Remappings............|ergonomicInsert|
 ```
 
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
+
 ### Author lines
 
 ```nohighlight
 Author:  Jack Hackness <captain@time.com>         *xyz-author*
 License: Same terms as Vim itself (see |license|)
 ```
+
+See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)

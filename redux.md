@@ -11,6 +11,8 @@ links:
     url: https://redux.js.org/toolkit/introduction/getting-started
   - title: GitHub repository
     url: https://github.com/reduxjs/redux-toolkit
+tier: t3
+last_verified_with: "Redux Toolkit 2.15.0, React-Redux 9.3.1."
 ---
 
 ## Store
@@ -20,6 +22,7 @@ links:
 ```bash
 npm install @reduxjs/toolkit react-redux
 ```
+<!-- {: data-highlight="npm install @reduxjs/toolkit react-redux"} -->
 
 `@reduxjs/toolkit` bundles Redux, Immer, and Reselect; `react-redux` provides the bindings.
 
@@ -37,6 +40,7 @@ export const store = configureStore({
   }
 })
 ```
+<!-- {: data-highlight="export const store = configureStore"} -->
 
 `configureStore` combines slice reducers, adds thunk middleware, and enables DevTools and development checks.
 
@@ -54,6 +58,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(api.middleware)
 })
 ```
+<!-- {: data-highlight="middleware: (getDefaultMiddleware)"} -->
 
 `getDefaultMiddleware()` keeps the defaults typed; use `.concat()` or `.prepend()` rather than spreading.
 
@@ -82,6 +87,7 @@ const counterSlice = createSlice({
 export const { incremented, added } = counterSlice.actions
 export default counterSlice.reducer
 ```
+<!-- {: data-highlight="createSlice"} -->
 
 `createSlice` generates the action creators and types. Reducers may mutate `state`; Immer keeps it immutable.
 
@@ -101,6 +107,7 @@ export const fetchUser = createAsyncThunk(
   }
 )
 ```
+<!-- {: data-highlight="createAsyncThunk"} -->
 
 The thunk dispatches `pending`, `fulfilled`, and `rejected` actions; `rejectWithValue()` sets the rejected payload.
 
@@ -123,6 +130,7 @@ extraReducers: (builder) => {
     })
 }
 ```
+<!-- {: data-highlight=".addCase(fetchUser.pending; .addCase(fetchUser.fulfilled; .addCase(fetchUser.rejected"} -->
 
 Handle lifecycle actions in `extraReducers`, one `builder.addCase()` per action creator.
 
@@ -140,6 +148,7 @@ export const selectTotal = createSelector([selectItems], (items) =>
   items.reduce((total, item) => total + item.price, 0)
 )
 ```
+<!-- {: data-highlight="createSelector"} -->
 
 `createSelector` memoizes derived values, so components skip re-rendering when inputs are unchanged.
 
@@ -179,6 +188,7 @@ export const api = createApi({
 
 export const { useGetUserQuery, useUpdateUserMutation } = api
 ```
+<!-- {: data-highlight="createApi"} -->
 
 One API slice per base URL. `tagTypes` powers cache invalidation after mutations.
 
@@ -196,6 +206,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(api.middleware)
 })
 ```
+<!-- {: data-highlight="api.middleware"} -->
 
 Both the reducer and the middleware are required; the middleware drives caching, invalidation, and polling.
 
@@ -213,6 +224,7 @@ function User ({ id }: { id: number }) {
   return <p>{data?.name}</p>
 }
 ```
+<!-- {: data-highlight="useGetUserQuery(id)"} -->
 
 Hooks fetch on mount, refetch when the argument changes, and share one cache entry per argument.
 
@@ -233,6 +245,7 @@ createRoot(document.getElementById('root')!).render(
   </Provider>
 )
 ```
+<!-- {: data-highlight="<Provider store={store}>"} -->
 
 `<Provider>` supplies the store to `useSelector` and `useDispatch`. Wrap the app once, at the root.
 
@@ -247,6 +260,7 @@ import type { RootState, AppDispatch } from './store'
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
 export const useAppSelector = useSelector.withTypes<RootState>()
 ```
+<!-- {: data-highlight="withTypes<AppDispatch>; withTypes<RootState>"} -->
 
 `withTypes` is a no-op at runtime; it types both hooks for the whole app.
 
@@ -266,6 +280,7 @@ function Counter () {
   )
 }
 ```
+<!-- {: data-highlight="useAppSelector((state)"} -->
 
 Select the smallest value you need; `useSelector` re-renders when the returned reference changes.
 
@@ -280,6 +295,7 @@ import { legacy_createStore as createStore } from 'redux'
 
 const store = createStore(counter, { value: 0 })
 ```
+<!-- {: data-highlight="legacy_createStore as createStore"} -->
 
 `createStore` is deprecated: it renders with a strikethrough but still works. Use `configureStore` in new code.
 
@@ -297,13 +313,13 @@ export default connect(
   })
 )(App)
 ```
+<!-- {: data-highlight="connect("} -->
 
 `connect` is deprecated as of React-Redux 9.3.0. It still works, but the hooks above are simpler and type better.
 
 See: [connect](https://redux.js.org/react-redux/api/connect)
 
 ## References
-<!-- {: .-one-column} -->
 
 * [Redux Toolkit docs](https://redux.js.org/toolkit/introduction/getting-started) _(redux.js.org)_
 * [Migrating to modern Redux](https://redux.js.org/usage/migrating-to-modern-redux) _(redux.js.org)_

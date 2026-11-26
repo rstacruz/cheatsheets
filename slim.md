@@ -4,7 +4,17 @@ subtitle: Ruby template engine
 category: Ruby libraries
 prism_languages: [jade]
 weight: -1
+tier: t3
+last_verified_with: "Slim 5.2.2."
+updated: 2026-11-26
+intro: |
+  [Slim](https://github.com/slim-template/slim) is a lightweight Ruby template engine with indentation-based syntax.
+links:
+  - title: Slim README
+    url: https://github.com/slim-template/slim#readme
 ---
+
+## Markup
 
 ### Example
 
@@ -23,6 +33,8 @@ html
       content='this is the song that never ends')
 ```
 
+See: [Syntax example](https://github.com/slim-template/slim/blob/v5.2.2/README.md#syntax-example)
+
 ### Attributes
 
 ```jade
@@ -33,6 +45,8 @@ meta name="author" content=author
 
 You can use parentheses, brackets, or none at all.
 
+See: [Attributes](https://github.com/slim-template/slim/blob/v5.2.2/README.md#attributes)
+
 ### Ruby attributes
 
 ```jade
@@ -41,6 +55,8 @@ a class=[:menu,:highlight]
 
 You can use Ruby expressions in attributes.
 
+See: [Ruby attributes](https://github.com/slim-template/slim/blob/v5.2.2/README.md#ruby-attributes)
+
 ### Hash attributes
 
 ```jade
@@ -48,6 +64,10 @@ You can use Ruby expressions in attributes.
 ```
 
 You can destructure Ruby hashes as attributes.
+
+See: [Splat attributes](https://github.com/slim-template/slim/blob/v5.2.2/README.md#splat-attributes-)
+
+## Ruby and embedded engines
 
 ### Inline Ruby
 
@@ -59,6 +79,8 @@ ruby:
 
 div= foobar
 ```
+
+See: [Embedded engines](https://github.com/slim-template/slim/blob/v5.2.2/README.md#embedded-engines-markdown-)
 
 ### Inline Markdown
 
@@ -73,6 +95,8 @@ markdown:
 Slim can handle your [Markdown](https://daringfireball.net/projects/markdown/syntax) content for longer content blocks or `code`.
 Depending on your parser, like [Kramdown](https://kramdown.gettalong.org/quickref.html), other features might work, like assigning attributes or classes.
 
+See: [Embedded engines](https://github.com/slim-template/slim/blob/v5.2.2/README.md#embedded-engines-markdown-)
+
 ### Embedded JavaScript
 
 ```jade
@@ -80,6 +104,7 @@ javascript:
   alert('Slim supports embedded javascript!')
 ```
 
+See: [Embedded engines](https://github.com/slim-template/slim/blob/v5.2.2/README.md#embedded-engines-markdown-)
 
 ### Comments
 
@@ -87,6 +112,8 @@ javascript:
 / Comment
 /! HTML comment
 ```
+
+See: [Code comments](https://github.com/slim-template/slim/blob/v5.2.2/README.md#code-comment-), [HTML comments](https://github.com/slim-template/slim/blob/v5.2.2/README.md#html-comment-)
 
 ### Ruby
 
@@ -97,6 +124,10 @@ javascript:
   div
 ```
 
+See: [Control code](https://github.com/slim-template/slim/blob/v5.2.2/README.md#control-code--), [Output](https://github.com/slim-template/slim/blob/v5.2.2/README.md#output-), [Output without HTML escaping](https://github.com/slim-template/slim/blob/v5.2.2/README.md#output-without-html-escaping-)
+
+## Whitespace and HTML
+
 ### Verbatim text
 
 ```jade
@@ -104,6 +135,8 @@ div
   | This is text
     it is nice
 ```
+
+See: [Verbatim text](https://github.com/slim-template/slim/blob/v5.2.2/README.md#verbatim-text-)
 
 ### Advanced whitespaces
 
@@ -118,6 +151,8 @@ div
   =< 'This prepends a whitespace'
 ```
 
+See: [Trailing and leading whitespace](https://github.com/slim-template/slim/blob/v5.2.2/README.md#trailing-and-leading-whitespace--), [Output modifiers](https://github.com/slim-template/slim/blob/v5.2.2/README.md#output-)
+
 ### Inline HTML
 
 ```jade
@@ -127,6 +162,8 @@ div
 </div>
 ```
 
+See: [Inline HTML](https://github.com/slim-template/slim/blob/v5.2.2/README.md#inline-html-)
+
 ### Inline tags
 
 ```jade
@@ -134,6 +171,12 @@ ul
   li: a(href='/') Home
 ```
 
+See: [Inline tags](https://github.com/slim-template/slim/blob/v5.2.2/README.md#inline-tags)
+
+## References
+
 ### References
 
-- <http://slim-lang.com/>
+- [Slim repository](https://github.com/slim-template/slim)
+
+See: [Slim documentation](https://github.com/slim-template/slim#readme)

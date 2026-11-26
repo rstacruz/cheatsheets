@@ -2,7 +2,7 @@
 title: Splunk
 subtitle: Machine data search platform
 category: Devops
-updated: 2026-11-15
+updated: 2026-11-26
 keywords:
   - Splunk SPL
   - SPL search commands
@@ -20,6 +20,8 @@ links:
     url: https://help.splunk.com/en/splunk-enterprise/search/search-tutorial/10.6
   - title: SPL for SQL users
     url: https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/quick-reference/splunk-spl-for-sql-users
+tier: t3
+last_verified_with: "Splunk Enterprise 10.6."
 ---
 
 ## Getting started
@@ -177,10 +179,14 @@ See: [stats](https://help.splunk.com/en/splunk-enterprise/search/spl-search-refe
 
 ### eventstats and streamstats
 
+#### eventstats
+
 ```splunk-spl
 | eventstats avg(bytes) AS avg_bytes by host
 | eval delta = bytes - avg_bytes
 ```
+
+#### streamstats
 
 ```splunk-spl
 | streamstats window=10 avg(bytes) AS avg_10

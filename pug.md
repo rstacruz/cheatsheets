@@ -3,8 +3,10 @@ title: Pug
 subtitle: HTML template engine
 category: JavaScript libraries
 prism_languages: [jade]
-updated: 2017-10-30
+updated: 2026-11-26
 weight: -3
+tier: t3
+last_verified_with: "Pug 3.0.4."
 ---
 
 ## Pug
@@ -24,43 +26,40 @@ html(lang='en')
 
   - javascript()
 ```
+<!-- {: data-highlight="doctype html; html(lang='en')"} -->
+
+See: [Doctype](https://pugjs.org/language/doctype.html), [Tags](https://pugjs.org/language/tags.html)
 
 ### Elements
 
 ```jade
 div
   | Just a div
-```
 
-```jade
 .search
   | A div, with class 'search'
-```
 
-```jade
 h1 A heading with text
-```
 
-```jade
 h1= page.title
-```
 
-```jade
 div.class
 div.class1.class2
 h1.header
 ```
+<!-- {: data-highlight="h1= page.title; div.class1.class2"} -->
+
+See: [Tags](https://pugjs.org/language/tags.html)
 
 ### Attributes
 
 ```jade
 input(type='text' name='q' autofocus)
-```
 
-```jade
-- var authenticated = true
-body(class=authenticated ? 'authed' : 'anon')
+- var auth = true
+body(class=auth ? 'authed' : 'anon')
 ```
+<!-- {: data-highlight="input(type='text' name='q' autofocus)"} -->
 
 See: [Attributes](https://pugjs.org/language/attributes.html)
 
@@ -68,19 +67,16 @@ See: [Attributes](https://pugjs.org/language/attributes.html)
 
 ```jade
 // This comment will appear in the HTML
-```
 
-```jade
 //- This is a silent comment
-```
 
-```jade
 //-
   Nesting inside a comment creates
   a comment block
 ```
+<!-- {: data-highlight="//-"} -->
 
-See: [Comments](https://pugjs.org/language/attributes.html)
+See: [Comments](https://pugjs.org/language/comments.html)
 
 ### Iteration
 
@@ -89,8 +85,13 @@ ul
   each user in users
     li= user
 ```
+<!-- {: data-highlight="each user in users"} -->
+
+See: [each](https://pugjs.org/language/iteration.html#each)
 
 ### Layouts
+
+#### Page
 
 ```jade
 //- page.pug
@@ -102,6 +103,9 @@ block title
 block content
   | hello
 ```
+<!-- {: data-highlight="extends layout.pug; block content"} -->
+
+#### Layout
 
 ```jade
 //- layout.pug
@@ -111,27 +115,38 @@ body
   block content
 ```
 
+See: [Inheritance](https://pugjs.org/language/inheritance.html)
+
 ### Includes (partials)
+
+#### Include
 
 ```jade
 include ./includes/head.pug
 ```
+<!-- {: data-highlight="include ./includes/head.pug"} -->
+
+#### Filtered include
 
 ```jade
 include:markdown article.md
 ```
+<!-- {: data-highlight="include:markdown"} -->
 
 See: [Includes](https://pugjs.org/language/includes.html)
 
 ### Multiline text
+
+#### Text block
 
 ```jade
 p.
   This is text that doesn't need to
   be prefixed by pipes.
 ```
-
 <!-- {: data-highlight="p"} -->
+
+#### Script block
 
 ```jade
 script.
@@ -139,8 +154,9 @@ script.
   // JavaScript and stuff
   alert('hello')
 ```
-
 <!-- {: data-highlight="script"} -->
+
+See: [Block in a tag](https://pugjs.org/language/plain-text.html#block-in-a-tag)
 
 ### Conditionals
 
@@ -161,37 +177,48 @@ See: [Conditionals](https://pugjs.org/language/conditionals.html)
 
 ### Mixins
 
+#### Definition
+
 ```jade
 mixin list
   ul
     ···
 ```
+<!-- {: data-highlight="mixin list"} -->
 
-<!-- {: data-highlight="mixin"} -->
+#### Call
 
 ```jade
 +list
 ```
+<!-- {: data-highlight="+list"} -->
 
-Mixins allow you to create reusable code blocks.
+Mixins create reusable code blocks.
+
 See: [Mixins](https://pugjs.org/language/mixins.html)
 
 ### Mixin attributes
+
+#### Definition
 
 ```jade
 mixin pet(name)
   span.pet= name
 ```
-
 <!-- {: data-highlight="name"} -->
+
+#### Call
 
 ```jade
 +pet('cat')
 ```
+<!-- {: data-highlight="+pet('cat')"} -->
 
 See: [Mixin attributes](https://pugjs.org/language/mixins.html#mixin-attributes)
 
 ### Mixin blocks
+
+#### Definition
 
 ```jade
 mixin article(title)
@@ -199,12 +226,14 @@ mixin article(title)
     h2.title= title
     block
 ```
-
 <!-- {: data-highlight="block"} -->
+
+#### Call
 
 ```jade
 +article('hello there')
   p Content goes here
 ```
+<!-- {: data-highlight="+article('hello there')"} -->
 
 See: [Mixin blocks](https://pugjs.org/language/mixins.html#mixin-blocks)

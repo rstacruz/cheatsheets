@@ -3,7 +3,9 @@ title: Yarn
 subtitle: JavaScript package manager
 category: Package managers
 weight: -3
-updated: 2026-11-14
+updated: 2026-11-26
+tier: t3
+last_verified_with: "Yarn 4.19.0."
 intro: |
   [Yarn](https://yarnpkg.com/) is a package manager for JavaScript. This reference covers Yarn 4 (the Berry line): Corepack installs, the modern CLI, workspaces, constraints, and Plug'n'Play.
 links:
@@ -20,13 +22,16 @@ links:
 ### Install
 
 ```bash
-corepack enable           # enable the version shim
+npm install -g corepack    # Node 25+
+corepack enable            # bundled Corepack
 yarn --version            # reads packageManager
 yarn init -2              # start a Yarn 4 project
 yarn set version stable   # move to the latest 4.x
 ```
 
-Yarn 4 needs Node 18.12+. Corepack reads the `packageManager` field, so every contributor runs the pinned release.
+<!-- {: data-highlight="corepack enable"} -->
+
+Yarn 4 needs Node 18.12+. Corepack is bundled with Node 14.19–24; Node 25+ installs it from npm. The `packageManager` field pins the release per project.
 
 See: [Installation](https://yarnpkg.com/getting-started/install)
 
@@ -34,11 +39,13 @@ See: [Installation](https://yarnpkg.com/getting-started/install)
 
 ```json
 {
-  "packageManager": "yarn@4.18.1"
+  "packageManager": "yarn@4.19.0"
 }
 ```
 
-Commit `package.json`; Corepack installs that exact version per project. Change it with `corepack use yarn@4.18.1`.
+<!-- {: data-highlight="packageManager"} -->
+
+Commit `package.json`; Corepack installs that exact version per project. Change it with `corepack use yarn@4.19.0`.
 
 See: [corepack](https://nodejs.org/api/corepack.html)
 
@@ -49,6 +56,8 @@ corepack enable
 yarn set version stable
 yarn install
 ```
+
+<!-- {: data-highlight="yarn set version stable"} -->
 
 Rename settings from `.yarnrc` and `.npmrc` into `.yarnrc.yml`, then commit the lockfile and config.
 
@@ -88,6 +97,8 @@ yarn install --immutable --immutable-cache
 yarn install --mode=update-lockfile
 ```
 
+<!-- {: data-highlight="--immutable"} -->
+
 `--immutable` fails if the lockfile would change, and defaults on in CI. `--immutable-cache` also fails when the cache changes.
 
 See: [yarn install](https://yarnpkg.com/cli/install)
@@ -101,6 +112,8 @@ yarn add -E react
 yarn add -P react
 yarn remove lodash
 ```
+
+<!-- {: data-highlight="yarn add; yarn remove"} -->
 
 `-D` is dev, `-P` is peer, `-E` is exact, `-T` is tilde. Yarn writes to the nearest workspace.
 
@@ -116,6 +129,8 @@ yarn upgrade-interactive
 yarn dedupe
 ```
 
+<!-- {: data-highlight="yarn up"} -->
+
 `yarn up` ignores manifest ranges and updates every workspace; `-i` prompts, `-R` resolves again without touching manifests.
 
 See: [yarn up](https://yarnpkg.com/cli/up)
@@ -129,6 +144,8 @@ See: [yarn up](https://yarnpkg.com/cli/up)
   "workspaces": ["packages/*"]
 }
 ```
+
+<!-- {: data-highlight="workspaces"} -->
 
 Each match is a package with its own `package.json`; Yarn links them and installs once at the root.
 
@@ -144,6 +161,8 @@ See: [Workspaces](https://yarnpkg.com/features/workspaces)
 }
 ```
 
+<!-- {: data-highlight="workspace:^"} -->
+
 `workspace:` resolves to the local package. `workspace:^` becomes `^<version>` after publishing.
 
 See: [Workspaces](https://yarnpkg.com/features/workspaces)
@@ -157,11 +176,15 @@ yarn workspaces focus @my-org/app
 yarn workspaces focus -A --production
 ```
 
+<!-- {: data-highlight="workspaces foreach"} -->
+
 `-A` is all workspaces, `-t` is topological order, `-p` is parallel. `focus` installs one workspace's deps.
 
 See: [workspaces foreach](https://yarnpkg.com/cli/workspaces/foreach)
 
 ### Constraints
+
+#### Rule
 
 ```js
 // yarn.config.cjs
@@ -174,10 +197,16 @@ module.exports = {
 }
 ```
 
+<!-- {: data-highlight="Yarn.dependencies"} -->
+
+#### Check
+
 ```bash
 yarn constraints
 yarn constraints --fix
 ```
+
+<!-- {: data-highlight="--fix"} -->
 
 Constraints declare rules across workspaces; `--fix` rewrites manifests to satisfy them. Yarn 4 uses JavaScript rather than Prolog.
 
@@ -193,6 +222,8 @@ See: [Constraints](https://yarnpkg.com/features/constraints)
 nodeLinker: pnp
 ```
 
+<!-- {: data-highlight="nodeLinker: pnp"} -->
+
 Yarn 4 resolves packages from zip archives through a `.pnp.cjs` loader, so no `node_modules` is created. Set `nodeLinker: node-modules` to opt out.
 
 See: [Plug'n'Play](https://yarnpkg.com/features/pnp)
@@ -205,6 +236,8 @@ See: [Plug'n'Play](https://yarnpkg.com/features/pnp)
 enableGlobalCache: false
 ```
 
+<!-- {: data-highlight="enableGlobalCache: false"} -->
+
 Committing `.yarn/cache` and `.pnp.cjs` makes a checkout behave like an install. Yarn 4 leaves zero-install off for new projects.
 
 See: [Cache strategies](https://yarnpkg.com/features/caching)
@@ -215,6 +248,8 @@ See: [Cache strategies](https://yarnpkg.com/features/caching)
 yarn dlx create-vite
 yarn dlx -p typescript -p ts-node ts-node -e "1 + 1"
 ```
+
+<!-- {: data-highlight="yarn dlx"} -->
 
 `dlx` installs into a temporary environment and runs the binary in the current directory.
 
@@ -229,12 +264,13 @@ yarn npm login
 yarn npm audit
 ```
 
+<!-- {: data-highlight="npmRegistryServer"} -->
+
 Settings live in `.yarnrc.yml`; `.npmrc` is ignored. Registries use `npmRegistryServer`, tokens use `npmAuthToken`.
 
 See: [Configuration](https://yarnpkg.com/configuration/yarnrc)
 
 ## References
-<!-- {: .-one-column} -->
 
 * [Yarn documentation](https://yarnpkg.com/) _(yarnpkg.com)_
 * [Yarn 4 release notes](https://yarnpkg.com/blog/release/4.0) _(yarnpkg.com)_

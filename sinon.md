@@ -3,7 +3,9 @@ title: Sinon
 subtitle: Test double library for JavaScript
 category: JavaScript testing
 weight: -1
-updated: 2026-11-22
+tier: t3
+last_verified_with: "Sinon 22.1.0."
+updated: 2026-11-26
 intro: |
   [Sinon](https://sinonjs.org/) records calls, replaces functions, and fakes time in JavaScript tests. This sheet covers Sinon 22.
 links:

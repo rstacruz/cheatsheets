@@ -2,7 +2,9 @@
 title: Textile
 subtitle: Lightweight markup language
 category: Markup
-updated: 2026-11-14
+tier: t3
+last_verified_with: "Textile 4.1.6."
+updated: 2026-11-26
 weight: -1
 ---
 
@@ -32,22 +34,27 @@ See: [Phrase modifiers](https://textile-lang.com/category/phrase-modifiers/)
 ### Blocks
 
 ```textile
+# first-level heading
 h1. Header 1
 ```
 
 ```textile
+# second-level heading
 h2. Header 2
 ```
 
 ```textile
+# blockquote
 bq. Blockquote
 ```
 
 ```textile
+# CSS class
 p(classname). Class.
 ```
 
 ```textile
+# element id
 p(#id). ID.
 ```
 
@@ -55,9 +62,13 @@ See: [Block modifiers](https://textile-lang.com/category/block-modifiers/)
 
 ### Lists
 
+#### Ordered
+
 ```textile
 # ordered list
 ```
+
+#### Unordered
 
 ```textile
 * unordered list
@@ -125,9 +136,13 @@ See: [Special characters](https://textile-lang.com/doc/special-characters)
 
 ### Footnotes
 
+#### Reference
+
 ```textile
 Footnotes[1].
 ```
+
+#### Definition
 
 ```textile
 fn1. Something.

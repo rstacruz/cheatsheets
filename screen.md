@@ -2,7 +2,6 @@
 title: Screen
 subtitle: GNU terminal multiplexer
 category: Shell
-updated: 2024-02-03
 keywords:
   - Screen
   - Linux
@@ -16,6 +15,9 @@ intro: |
 links:
   - title: GNU's manual
     url: https://www.gnu.org/software/screen/manual/screen.html#Commands
+tier: t3
+last_verified_with: "GNU Screen 5.0.3."
+updated: 2026-11-26
 ---
 
 ## Basics
@@ -31,6 +33,8 @@ links:
 | `screen -ls` _or_ <br /> `screen -list`   | List all sessions                                                                        |
 | `screen -r [name]`        | Reattach to a screen (optionally by name)                                                |
 
+See: [Invoking Screen](https://www.gnu.org/software/screen/manual/screen.html#Invoking-Screen)
+
 ### Screens
 
 | Keybind         | Description                                                                              |
@@ -44,6 +48,8 @@ links:
 
 <!-- {: .-shortcuts} -->
 
+See: [Default key bindings](https://www.gnu.org/software/screen/manual/screen.html#Default-Key-Bindings)
+
 ### Visual pleasure
 
 | Keybind                         | Description                  |
@@ -56,6 +62,8 @@ links:
 
 <!-- {: .-shortcuts} -->
 
+See: [split command](https://www.gnu.org/software/screen/manual/screen.html#Split)
+
 ### Accessibility
 
 | Keybind         | Description                                         |
@@ -67,3 +75,5 @@ links:
 | `ctrl+a ctrl+w` | See a list of all screen tabs in the current screen |
 
 <!-- {: .-shortcuts} -->
+
+See: [Command index](https://www.gnu.org/software/screen/manual/screen.html#Command-Index)

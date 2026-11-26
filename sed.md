@@ -7,143 +7,165 @@ intro: |
 links:
   - title: GNU sed manual
     url: https://www.gnu.org/software/sed/manual/sed.html
+tier: t3
+last_verified_with: "GNU sed 4.10."
+updated: 2026-11-26
 ---
 
 ### Replacements
 
-#### In-place replacement (GNU)
+#### In-place (GNU)
 
 ```bash
 sed -i -e 's/foo/bar/' example.md
 ```
+<!-- {: data-highlight="-i -e"} -->
 
-In GNU sed: use `-i` without arg.
+GNU sed takes `-i` without an argument.
 
-#### In-place replacement (BSD)
+#### In-place (BSD)
 
 ```bash
 sed -i '' -e 's/foo/bar/' example.md
 ```
+<!-- {: data-highlight="-i ''"} -->
 
-In OSX, `-i ''` is required.
+On macOS, `-i ''` is required.
 
-#### In-place Multiple replacements
-
-```bash
-sed -i 's/match1/replace1/g; s/match2/replace2/g' \
-
-```
-
-replace different matches with different values
+#### Multiple substitutions
 
 ```bash
-sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' \
-
+sed -i 's/match1/replace1/g; s/match2/replace2/g' example.md
 ```
+<!-- {: data-highlight="s/match1/replace1/g"} -->
 
-replace multiple matches with the same value
+Change different matches to different values.
+
+#### One value for several matches
+
+```bash
+sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' example.md
+```
+<!-- {: data-highlight="MATCH1\|MATCH2"} -->
+
+Change several matches to one value.
+
+See: [The s command](https://www.gnu.org/software/sed/manual/sed.html#The-_0022s_0022-Command)
+
 
 ## File regions
 
-<!-- {:.-three-column} -->
+<!-- {: .-three-column} -->
 
-### Print until a certain line is met
+### Print until a line is met
 
 ```bash
 sed '/begin api/q'
 ```
+<!-- {: data-highlight="begin api"} -->
 
-### Print until a certain line is met, but not that line
+See: [q command](https://www.gnu.org/software/sed/manual/sed.html#Other-Commands)
+
+### Print until a line, excluding it
 
 ```bash
 sed '/^# begin/,$d'
 ```
+<!-- {: data-highlight=",$d"} -->
 
-### Print everything after a given line
+See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Addresses)
+
+### Print after a given line
 
 ```bash
 sed -n '/end api/,$p'
 ```
+<!-- {: data-highlight="$p"} -->
 
-Print after a given line is found.
+Prints everything after the line is found.
 
-### Print everything except matching
+See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Addresses)
+
+### Print except matching lines
 
 ```bash
 sed -n '/regex/!p'
 ```
+<!-- {: data-highlight="!p"} -->
 
-Print everything except lines matching regex. Useful for printing files with comments.
-
-#### Printing REGEX ranges
+#### Regex ranges
 
 ```bash
 sed -n -e '/^START$/,/^END$/p'
 ```
+<!-- {: data-highlight="^START$"} -->
 
-suppress output and print REGEX range
-include (^START$,^END$) lines.
-
-**OR** without "-n" (same result)
+#### Without -n
 
 ```bash
 sed -e '/^START$/,/^END$/p;d'
 ```
+<!-- {: data-highlight="^END$"} -->
 
-print REGEX range and delete other
-output, the [;] character means run another
-expression on the input file which is 'd' stands for delete .
+Prints all lines except those matching the regex. The first range prints only the range; the second deletes other lines.
 
-### Append a text after a specific line number
+See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Addresses)
+
+### Append after a line number
 
 ```bash
 sed -e "1a ## HEADING 02:" README.md
 ```
+<!-- {: data-highlight="1a"} -->
 
-this appends "## HEADING 02:" after the first line in the file README.md
-and print the result to stdout replace -e with -i to write the file .
+Appends a heading after line 1; use `-i` to write the file.
 
-### Insert text before a specific line number
+See: [a command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
+
+### Insert before a line number
 
 ```bash
 sed -e "1i # HEADING 01:" README.md
 ```
+<!-- {: data-highlight="1i"} -->
 
-the same as appending but before the first line.
+Inserts a heading before line 1.
+
+See: [i command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
 
 ### Deleting text
 
-#### With line number
+#### By line number
 
 ```bash
 sed -e "1,5d" README.md
 ```
+<!-- {: data-highlight="1,5d"} -->
 
-delete a RANGE (i.e. including lines 1 to 5)
+#### Keep only those lines
 
 ```bash
 sed -e '1,5!d' README.md
 ```
+<!-- {: data-highlight="1,5!d"} -->
 
-delete everything (i.e. excluding lines 1 to 5)
-it is better to quote sed expressions with single quotes
-especially when there is a [!] character.
-
-#### With REGEX matching
+#### Case-insensitive matches
 
 ```bash
 sed -e "/REGEX/Id" README.md
 ```
+<!-- {: data-highlight="/REGEX/I"} -->
 
-delete lines with /REGEX/ matched
-/I is for insensitive search
+#### Keep matches
 
 ```bash
 sed -e '/REGEX/Ip;d' README.md
 ```
+<!-- {: data-highlight="/REGEX/Ip"} -->
 
-this invert the previous sed command
-delete everything (excluding lines with REGEX)
+`1,5d` deletes lines 1–5; `1,5!d` keeps them. `/REGEX/Id` deletes matches; `Ip;d` keeps them. Quote expressions with single quotes when they contain `!`.
+
+See: [Common commands](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
 
 ## Also see
 

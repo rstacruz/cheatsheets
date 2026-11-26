@@ -2,7 +2,7 @@
 title: Ractive.js
 subtitle: Template-driven UI library
 category: JavaScript libraries
-updated: 2026-11-14
+updated: 2026-11-26
 intro: |
   Ractive is a template-driven UI library for JavaScript.
 links:
@@ -10,6 +10,8 @@ links:
     url: https://ractive.js.org/
   - title: GitHub repository
     url: https://github.com/ractivejs/ractive
+tier: t3
+last_verified_with: "Ractive 1.4.4."
 ---
 
 {% raw %}
@@ -40,6 +42,9 @@ new Ractive({
   oncomplete () {} // on finish animations
 })
 ```
+<!-- {: data-highlight="new Ractive; twoway"} -->
+
+See: [Initialization options](https://ractive.js.org/api/#initialization-options)
 
 ## Instance methods
 
@@ -57,6 +62,9 @@ view.merge('list', [a,b,c])
 
 view.get('a')
 ```
+<!-- {: data-highlight="view.add; view.set; view.get"} -->
+
+See: [ractive.add](https://ractive.js.org/api/#ractiveadd), [ractive.set](https://ractive.js.org/api/#ractiveset)
 
 ### Nodes and components
 
@@ -67,6 +75,9 @@ view.findAll('.klass')
 view.findComponent('photo')
 view.findAllComponents('photo')
 ```
+<!-- {: data-highlight="view.find; view.findComponent"} -->
+
+See: [ractive.find](https://ractive.js.org/api/#ractivefind), [ractive.findComponent](https://ractive.js.org/api/#ractivefindcomponent)
 
 ### Events
 
@@ -75,6 +86,9 @@ view.on('event', function() { ... })
 view.off('event', fn)
 view.fire('event')
 ```
+<!-- {: data-highlight="view.on; view.fire"} -->
+
+See: [ractive.on](https://ractive.js.org/api/#ractiveon), [ractive.fire](https://ractive.js.org/api/#ractivefire)
 
 ### Others
 
@@ -89,6 +103,9 @@ view.observe({ 'name': function() { ... } })
 view.toHTML()  //=> String
 view.render()
 ```
+<!-- {: data-highlight="view.updateModel; view.toHTML"} -->
+
+See: [ractive.update](https://ractive.js.org/api/#ractiveupdate), [ractive.toHTML](https://ractive.js.org/api/#ractivetohtml)
 
 ## Components and templates
 
@@ -100,6 +117,9 @@ View = Ractive.extend({
 })
 new View()
 ```
+<!-- {: data-highlight="Ractive.extend"} -->
+
+See: [Ractive.extend](https://ractive.js.org/api/#ractiveextend)
 
 ### Components
 
@@ -114,6 +134,7 @@ ractive = new Ractive({
   }
 });
 ```
+<!-- {: data-highlight="components"} -->
 
 See: [Components](https://ractive.js.org/api/#components)
 
@@ -123,6 +144,9 @@ See: [Components](https://ractive.js.org/api/#components)
 // Global partials
 Ractive.partials.x = "<..>"
 ```
+<!-- {: data-highlight="Ractive.partials"} -->
+
+See: [Partials](https://ractive.js.org/api/#partials)
 
 ## Events
 
@@ -131,8 +155,9 @@ Ractive.partials.x = "<..>"
 ```js
 view.on('teardown', fn)
 ```
+<!-- {: data-highlight="teardown"} -->
 
-See: [Events](https://ractive.js.org/api/#ractiveon)
+See: [ractive.on](https://ractive.js.org/api/#ractiveon)
 
 ### DOM Events
 
@@ -148,6 +173,9 @@ view.on('sort', function (e, column) {
   console.log('sorting by', column);
 });
 ```
+<!-- {: data-highlight="on-click"} -->
+
+See: [Events](https://ractive.js.org/api/#events)
 
 ### Observing
 
@@ -156,6 +184,9 @@ view.observe("name", function (name) {
   console.log("Changed name to", name);
 }, { init: false });
 ```
+<!-- {: data-highlight="view.observe"} -->
+
+See: [ractive.observe](https://ractive.js.org/api/#ractiveobserve)
 
 ## Extensions
 
@@ -180,16 +211,22 @@ Body: {{{unescaped}}}
 
 {{#statusDogs[selected]}}
 ```
+<!-- {: data-highlight="{{#mylist:i}}"} -->
+
+See: [Mustaches](https://ractive.js.org/api/#mustaches)
 
 ### Computed sections
 
-This transforms the `list` data via a helper function called `sort()`.
+#### Template
 
 ```html
 {{#each sort(list, 'name') as item: num}}
   <li>{{num}} - {{item.name}}</li>
 {{/each}}
 ```
+<!-- {: data-highlight="{{#each"} -->
+
+#### Helper
 
 ```js
 data: {
@@ -200,6 +237,9 @@ data: {
   }
 }
 ```
+<!-- {: data-highlight="sort: function"} -->
+
+This transforms `list` via the `sort()` helper.
 
 See: [Each sections](https://ractive.js.org/api/#each-sections)
 
@@ -225,6 +265,9 @@ Ractive.transitions.bump = function(t, params) {
   t.complete();
 };
 ```
+<!-- {: data-highlight="Ractive.transitions.bump"} -->
+
+See: [Transitions](https://ractive.js.org/api/#transitions)
 
 ### [Decorators](https://ractive.js.org/api/#decorators)
 
@@ -246,17 +289,23 @@ decorators: {
 
 tooltip: function (node, a, b, two, c) { ... }
 ```
+<!-- {: data-highlight="tooltip: function"} -->
+
+See: [Decorators](https://ractive.js.org/api/#decorators)
 
 ### [Adaptors](https://ractive.js.org/api/#adaptors)
 
 ```js
 myAdaptor = {
   filter: function (object, keypath, ractive) {
-    // return `true` if a particular object is of the type we want to adapt
+    // return `true` if the object is of the type
+    // we want to adapt
   },
   wrap: function (ractive, object, keypath, prefixer) {
     // set up event bindings here
-    object.on('change', function () { ractive.set(prefixer({...})); });
+    object.on('change', function () {
+      ractive.set(prefixer({...}))
+    })
     // then return a wrapper:
     return {
       teardown: function () { .. },
@@ -270,6 +319,9 @@ myAdaptor = {
   }
 };
 ```
+<!-- {: data-highlight="filter: function; wrap: function"} -->
+
+See: [Adaptors](https://ractive.js.org/api/#adaptors)
 
 ### [Computed properties](https://ractive.js.org/api/#computed)
 
@@ -290,5 +342,8 @@ new Ractive({
   }
 });
 ```
+<!-- {: data-highlight="computed; perimeter"} -->
+
+See: [Computed properties](https://ractive.js.org/api/#computed)
 
 {% endraw %}

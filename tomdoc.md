@@ -2,7 +2,12 @@
 title: Tomdoc
 subtitle: Ruby documentation format
 category: Markup
+tier: t3
+last_verified_with: "TomDoc 1.0.0-rc1 specification."
+updated: 2026-11-26
 ---
+
+## Basics
 
 ### Tomdoc
 
@@ -24,6 +29,7 @@ def multiplex(text, count)
   text * count
 end
 ```
+<!-- {: data-highlight="# Public"} -->
 
 A TomDoc block sits directly above a method: a `#` line, a short description, then optional sections in a fixed order.
 
@@ -41,6 +47,8 @@ Status tags prefix the description and signal API stability.
 
 See: [Description section](http://tomdoc.org/#description).
 
+## Method sections
+
 ### Options
 
 ```ruby
@@ -49,6 +57,7 @@ See: [Description section](http://tomdoc.org/#description).
 #           :weight - The Float weight to restrict by, in grams
 #                     (optional).
 ```
+<!-- {: data-highlight="# options"} -->
 
 Hashes list their valid options like arguments, with defaults in parentheses.
 
@@ -58,24 +67,14 @@ See: [Arguments section](http://tomdoc.org/#arguments).
 
 ```ruby
 # Yields the Integer index of the iteration.
-```
-
-```ruby
 # Returns the duplicated String.
-```
-
-```ruby
 # Returns nothing.
-```
-
-```ruby
 # Raises Errno::ENOENT if the file can't be found.
-```
-
-```ruby
 # Returns something else and this is a wrapped
 #   multi-line comment.
 ```
+
+<!-- {: data-highlight="# Yields; # Returns; # Raises"} -->
 
 The first line names what a block receives; the rest document return values and exceptions.
 
@@ -89,6 +88,7 @@ See: [Yields](http://tomdoc.org/#yields) and [Returns](http://tomdoc.org/#return
 #   find_by_<field>[_and_<field>...](args)
 #
 ```
+<!-- {: data-highlight="# Signature"} -->
 
 Signatures describe dynamically generated methods: `<>` marks required parts, `[]` optional parts, and `...` repeats.
 

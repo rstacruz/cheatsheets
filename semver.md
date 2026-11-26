@@ -2,9 +2,10 @@
 title: Semver
 category: Others
 subtitle: Version numbering convention
-updated: 2026-11-23
+updated: 2026-11-26
 last_verified_with: "Semantic Versioning 2.0.0, node-semver 7.8.6."
 weight: -3
+tier: t3
 ---
 
 ### Semver
@@ -17,6 +18,8 @@ weight: -3
 
 Given `MAJOR.MINOR.PATCH`, `1.0.0` defines the public API; `0.x.x` is initial development.
 
+See: [Summary](https://semver.org/spec/v2.0.0.html#summary)
+
 ### Simple ranges
 
 ```
@@ -26,8 +29,11 @@ Given `MAJOR.MINOR.PATCH`, `1.0.0` defines the public API; `0.x.x` is initial de
  <1.2.3
 >=1.2.3
 ```
+<!-- {: data-highlight=">=1.2.3"} -->
 
 Note that suffixed versions (`1.2.3-rc1`) are not matched.
+
+See: [Ranges](https://github.com/npm/node-semver#ranges)
 
 ### Ranges
 
@@ -51,7 +57,7 @@ Note that suffixed versions (`1.2.3-rc1`) are not matched.
 | `*`      | any version         |                    |
 | `x`      | same                |                    |
 
-<!-- {: .-shortcuts} -->
+See: [Tilde ranges](https://github.com/npm/node-semver#tilde-ranges-123-12-1), [Caret ranges](https://github.com/npm/node-semver#caret-ranges-123-025-004)
 
 ### Hyphenated ranges
 
@@ -76,6 +82,8 @@ When the right is partial (eg, `2.3`), missing pieces are assumed to be `x` (eg,
 
 When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, `1.2.0`).
 
+See: [Hyphen ranges](https://github.com/npm/node-semver#hyphen-ranges-xyz---abc)
+
 ### Combining ranges
 
 | Range              | Description           |
@@ -83,11 +91,16 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 | `>=0.14 <16`       | And (space-separated) |
 | `0.14.x || 15.x.x` | Or (pipe-separated)   |
 
+See: [Advanced range syntax](https://github.com/npm/node-semver#advanced-range-syntax)
+
 ### Pre-releases
 
 ```
 1.2.3-prerelease+build
 ```
+<!-- {: data-highlight="1.2.3-prerelease+build"} -->
+
+See: [Prerelease tags](https://github.com/npm/node-semver#prerelease-tags)
 
 ### Explanation
 
@@ -98,11 +111,10 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 | `0.x.x` | is for "initial development" |
 | `1.x.x` | means public API is defined |
 
-<!-- {: .-shortcuts} -->
+See: [Semantic Versioning specification](https://semver.org/spec/v2.0.0.html#semantic-versioning-specification-semver)
 
 ## References
 
-<!-- {: .-one-column} -->
 
  * <https://semver.org/>
  * <https://github.com/npm/node-semver#ranges>

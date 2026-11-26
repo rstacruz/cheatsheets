@@ -8,11 +8,12 @@ intro: |
 links:
   - title: Ruby documentation
     url: https://docs.ruby-lang.org/en/
+tier: t3
+last_verified_with: "Ruby 4.1.0."
+updated: 2026-11-26
 ---
 
 ### Reference
-
-<!-- {:.-one-column} -->
 
 | Code                    | Description                                               |
 | ----------------------- | --------------------------------------------------------- |
@@ -37,3 +38,5 @@ links:
 | ---                     | ---                                                       |
 | `$-i` `$-l` `$-p` `$-v` | Command line switches                                     |
 | `$-v` (or `$VERBOSE`)   | verbose mode                                              |
+
+See: [Global variables](https://docs.ruby-lang.org/en/master/language/globals_md.html)

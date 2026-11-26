@@ -7,29 +7,32 @@ intro: |
 links:
   - title: https://github.com/pry/pry
     url: https://github.com/pry/pry
+tier: t3
+last_verified_with: "Pry 0.16.1, pry-gem 1.0.0, pry-rails 0.3.11, hirb 0.7.3, pry-rescue 1.6.0, pry-remote 0.1.8."
+updated: 2026-11-26
 ---
 
 ### cd
 
 ```
 > cd Array
-```
-
-```nohighlight
 > ls
   Array.methods: [] try_convert
   Array#methods: & * + abbrev assoc at ...
-```
-
-```
 > show-source
 ```
+<!-- {: data-highlight="cd Array; show-source"} -->
+
+See: [Navigating around state](https://github.com/pry/pry#navigating-around-state), [Code browsing](https://github.com/pry/pry#code-browsing)
 
 ### Code
 
 ```nohighlight
 > show-method Array#select
 ```
+<!-- {: data-highlight="show-method"} -->
+
+See: [Code browsing](https://github.com/pry/pry#code-browsing)
 
 ### Docs
 
@@ -40,6 +43,9 @@ links:
 > cd Gem
 > show-doc try_activate
 ```
+<!-- {: data-highlight="ri; show-doc"} -->
+
+See: [Documentation browsing](https://github.com/pry/pry#documentation-browsing)
 
 ### Finding
 
@@ -50,12 +56,18 @@ links:
   Enumerable#each_slice
   ...
 ```
+<!-- {: data-highlight="find-method"} -->
+
+See: [find-method command](https://github.com/pry/pry/blob/master/lib/pry/commands/find_method.rb)
 
 ### Editing
 
 ```
 > edit Pry#repl
 ```
+<!-- {: data-highlight="edit"} -->
+
+See: [Edit methods](https://github.com/pry/pry#edit-methods)
 
 ### Gems
 
@@ -64,6 +76,9 @@ links:
 > gem-install foo
 > gem-list
 ```
+<!-- {: data-highlight="gem-cd; gem-install; gem-list"} -->
+
+See: [pry-gem manual](https://github.com/pry/pry-gem#manual)
 
 ### Misc commands
 
@@ -71,16 +86,22 @@ links:
 > hist          # History
 > wtf?          # Trace of recent exception
 ```
+<!-- {: data-highlight="hist; wtf?"} -->
+
+See: [Command history](https://github.com/pry/pry/blob/master/lib/pry/commands/hist.rb), [wtf?](https://github.com/pry/pry/blob/master/lib/pry/commands/wtf.rb)
 
 ## Rails
 
 ### Rails console
 
-Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
-
-```
+```sh
 $ pry -r ./config/environment
 ```
+<!-- {: data-highlight="pry -r ./config/environment"} -->
+
+Also consider [pry-rails](https://rubygems.org/gems/pry-rails).
+
+See: [Use Pry as your Rails console](https://github.com/pry/pry#use-pry-as-your-rails-console)
 
 ### Rails
 
@@ -89,6 +110,9 @@ $ pry -r ./config/environment
 > show-routes
 > show-middleware
 ```
+<!-- {: data-highlight="show-models; show-routes"} -->
+
+See: [pry-rails usage](https://github.com/pry/pry-rails#usage)
 
 ### ls
 
@@ -106,67 +130,95 @@ $ pry -r ./config/environment
 
 > ls -G xx   # Grep by regex
 ```
+<!-- {: data-highlight="ls -m; ls -M; ls -g; ls -c"} -->
+
+See: [ls command](https://github.com/pry/pry/blob/master/lib/pry/commands/ls.rb)
 
 ## Shell and plugins
 
 ### Shell integration
 
-shell-mode adds dir to the prompt.
+#### Shell mode
 
-```
+```text
 pry(main)> shell-mode
 pry(main):/home/x $
 ```
+<!-- {: data-highlight="shell-mode"} -->
 
-Commands with `.` are shell commands.
+#### Dot-prefixed commands
 
-```
+```text
 pry(main)> .cat hello.txt
 ```
+<!-- {: data-highlight=".cat"} -->
+
+Shell mode adds the directory to the prompt; commands with `.` run in the shell.
+
+See: [Command shell integration](https://github.com/pry/pry#command-shell-integration)
 
 ### hirb
-Add the [hirb](https://rubygems.org/gems/hirb) gem.
 
-```
+```rb
 > table User.all
 > view User.all
 > view User.all, fields: %w[id name email]
 ```
+<!-- {: data-highlight="table; view"} -->
+
+Add the [hirb](https://rubygems.org/gems/hirb) gem.
+
+See: [Views](https://github.com/cldwalker/hirb#views-anytime-anywhere)
 
 ### pry-rescue
-Add the [pry-rescue](https://github.com/ConradIrwin/pry-rescue) gem.
+
+#### Block form
 
 ```rb
 Pry::rescue {
   # raise exceptions here
 }
 ```
+<!-- {: data-highlight="Pry::rescue"} -->
 
-Or run:
+#### Rescue command
 
-```
+```sh
 bundle exec rescue rspec
 ```
+<!-- {: data-highlight="bundle exec rescue rspec"} -->
 
-Additional commands:
+#### Inspect the exception
 
-```
+```text
 pry(main)> cd-cause
 pry(main)> try-again
 ```
+<!-- {: data-highlight="cd-cause; try-again"} -->
+
+Add the [pry-rescue](https://rubygems.org/gems/pry-rescue) gem.
+
+See: [Usage](https://github.com/ConradIrwin/pry-rescue#usage), [cd-cause](https://github.com/ConradIrwin/pry-rescue#cd-cause), [try-again](https://github.com/ConradIrwin/pry-rescue#try-again)
 
 ### pry-remote
-Add the [pry-remote](https://github.com/Mon-Ouie/pry-remote) gem.
+
+#### In your code
 
 ```rb
-# In your code:
 binding.remote_pry
 ```
+<!-- {: data-highlight="binding.remote_pry"} -->
 
-```rb
-# In the shell:
+#### In the shell
+
+```sh
 bundle exec pry-remote
 ```
+<!-- {: data-highlight="bundle exec pry-remote"} -->
+
+Add the [pry-remote](https://rubygems.org/gems/pry-remote) gem.
+
+See: [pry-remote](https://github.com/Mon-Ouie/pry-remote)
 
 ## Reference
 

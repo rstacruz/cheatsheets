@@ -2,6 +2,9 @@
 title: Routes
 subtitle: URL routing reference
 category: Rails
+tier: t3
+last_verified_with: "Rails 8.1.4.1."
+updated: 2026-11-26
 ---
 
 ## Resources
@@ -14,10 +17,9 @@ resources :photos
 # PhotosController:
 # index  =>    GET /photos
 # new    =>    GET /photos/new
-# create =>   POST /photos/new
-# show   =>    GET /photos/:id
+# create =>   POST /photos
 # edit   =>    GET /photos/:id/edit
-# update =>    PUT /photos/:id
+# update => PATCH /photos/:id
 # delete => DELETE /photos/:id
 #
 # Helpers:
@@ -25,6 +27,9 @@ resources :photos
 # photo_path(id)
 # edit_photo_path(id)
 ```
+<!-- {: data-highlight="resources :photos"} -->
+
+See: [Resource routing](https://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default)
 
 ### Custom actions
 
@@ -36,24 +41,29 @@ resources :photos do
   get 'preview', on: :member     # (..same as the first)
 end
 ```
+<!-- {: data-highlight="member; collection"} -->
+
+See: [Adding member routes](https://guides.rubyonrails.org/routing.html#adding-member-routes)
 
 ### Options
 
 ```
 resources :photos,
-  path_names: { new: 'brand_new' }    # /photos/1/brand_new
-  path: 'postings'                    # /postings
-  only: :index
-  only: [:index, :show]
-  except: :show
-  except: [:index, :show]
-
-  shallow: true                       # also generate shallow routes
-  shalow_path: 'secret'
+  path_names: { new: 'brand_new' },  # /photos/brand_new
+  path: 'postings',                  # /postings
+  only: :index,
+  # or: only: [:index, :show]
+  # or: except: :show
+  # or: except: [:index, :show]
+  shallow: true,                     # also generate shallow routes
+  shallow_path: 'secret',
   shallow_prefix: 'secret'
 ```
+<!-- {: data-highlight="only; except; shallow"} -->
 
-## Single resource (`resource`)
+See: [Customizing resourceful routes](https://guides.rubyonrails.org/routing.html#customizing-resourceful-routes)
+
+### Single resource (`resource`)
 
 ```
 resource :coder
@@ -63,11 +73,16 @@ resource :coder
 # create =>   POST /coder/new
 # show   =>    GET /coder
 # edit   =>    GET /coder/edit
-# update =>    PUT /coder
+# update => PATCH /coder
 # delete => DELETE /coder
 ```
+<!-- {: data-highlight="resource :coder"} -->
+
+See: [Singular resources](https://guides.rubyonrails.org/routing.html#singular-resources)
 
 ## Matching (`match`)
+
+### Match
 
 ```
 match 'photo/:id' => 'photos#show'  # /photo/what-is-it
@@ -81,18 +96,23 @@ match 'photo/*path' => 'photos#unknown'    # /photo/what/ever
 # params[:format] == 'jpg'
 match 'photos/:id' => 'photos#show', :defaults => { :format => 'jpg' }
 ```
+<!-- {: data-highlight="match"} -->
+
+See: [Non-resourceful routes](https://guides.rubyonrails.org/routing.html#non-resourceful-routes)
 
 ### Get/post
 
-`get` is the same as `match via: :get`.
-
-```
+```ruby
 get 'photo/:id' => 'photos#show'
 # same as match 'photo/:id' => 'photos#show', via: :get
 
 post 'photo/:id' => 'photos#update'
-# same as match 'photo/:id' => 'photos#show', via: :post
 ```
+<!-- {: data-highlight="get; post"} -->
+
+`get` and `post` are shortcuts for `match ... via:`.
+
+See: [HTTP verb constraints](https://guides.rubyonrails.org/routing.html#http-verb-constraints)
 
 ### Redirection
 
@@ -100,6 +120,9 @@ post 'photo/:id' => 'photos#update'
 match '/stories' => redirect('/posts')
 match '/stories/:name' => redirect('/posts/%{name}')
 ```
+<!-- {: data-highlight="redirect"} -->
+
+See: [Redirection](https://guides.rubyonrails.org/routing.html#redirection)
 
 ### Named
 
@@ -107,7 +130,10 @@ match '/stories/:name' => redirect('/posts/%{name}')
 # logout_path
 match 'exit' => 'sessions#destroy', as: :logout
 ```
-    
+<!-- {: data-highlight="as: :logout"} -->
+
+See: [Naming routes](https://guides.rubyonrails.org/routing.html#naming-routes)
+
 ### Constraints
 
 ```
@@ -120,6 +146,9 @@ namespace 'admin' do
   end
 end
 ```
+<!-- {: data-highlight="constraints"} -->
+
+See: [Request-based constraints](https://guides.rubyonrails.org/routing.html#request-based-constraints)
 
 ### Custom constraints
 
@@ -139,6 +168,9 @@ TwitterClone::Application.routes.draw do
     :constraints => BlacklistConstraint.new
 end
 ```
+<!-- {: data-highlight="matches?"} -->
+
+See: [Advanced constraints](https://guides.rubyonrails.org/routing.html#advanced-constraints)
 
 ### Scopes
 
@@ -147,6 +179,9 @@ scope 'admin', constraints: { subdomain: 'admin' } do
   resources ...
 end
 ```
+<!-- {: data-highlight="scope"} -->
+
+See: [Using scope](https://guides.rubyonrails.org/routing.html#using-scope)
 
 ### Rack middleware
 
@@ -154,6 +189,11 @@ end
 # Yes, Sprockets is middleware
 match '/application.js' => Sprockets
 ```
+<!-- {: data-highlight="Sprockets"} -->
+
+Sprockets is a legacy example; modern apps mount Rack apps with `mount`.
+
+See: [Routing to Rack applications](https://guides.rubyonrails.org/routing.html#routing-to-rack-applications)
 
 ### Route helpers
 
@@ -161,6 +201,9 @@ match '/application.js' => Sprockets
 projects_path   # /projects
 projects_url    # http://site.com/projects
 ```
+<!-- {: data-highlight="_path; _url"} -->
+
+See: [Path and URL helpers](https://guides.rubyonrails.org/routing.html#path-and-url-helpers)
 
 
 ### Default help text
@@ -182,7 +225,8 @@ match 'products/:id' => 'catalog#view'
 #### Dynamic segments
 
 ```
-# Keep in mind you can assign values other than :controller and :action
+# Keep in mind you can assign values other than
+# :controller and :action
 ```
 
 #### Named route
@@ -201,7 +245,8 @@ match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
 #### Resource route
 
 ```
-# Sample resource route (maps HTTP verbs to controller actions automatically):
+# Sample resource route (maps HTTP verbs to controller
+# actions automatically):
 resources :products
 ```
 
@@ -271,15 +316,21 @@ root :to => 'welcome#index'
 #### Legacy wildcard route
 
 ```
-# This is a legacy wild controller route that's not recommended for RESTful applications.
-# Note: This route will make all actions in every controller accessible via GET requests.
+# This is a legacy wild controller route, not
+# recommended for RESTful applications.
+# Note: it makes all actions in every controller
+# accessible via GET requests.
 match ':controller(/:action(/:id(.:format)))'
 ```
 
+See: [Rails routing guide](https://guides.rubyonrails.org/routing.html)
+
 ### References
 
- * [Guides/Routing](http://guides.rubyonrails.org/routing.html)
+ * [Guides: Routing](https://guides.rubyonrails.org/routing.html)
 
- * [ActionDispatch::Routing::Mapper](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
+ * [ActionDispatch::Routing::Mapper](https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
 (See included modules)
+
+See: [ActionDispatch::Routing::Mapper](https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html)
 

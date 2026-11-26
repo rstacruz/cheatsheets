@@ -4,8 +4,9 @@ seo_title: Python cheatsheet — lists, dicts, strings
 description: "Python lists: dicts, strings, iteration, comprehensions and file handling. Reference."
 subtitle: Readable language for scripting
 category: Python
-updated: 2026-11-23
-last_verified_with: "Python 3.14.10."
+updated: 2026-11-26
+last_verified_with: "Python 3.15.2."
+tier: t3
 ---
 
 ### Tuples (immutable)
@@ -13,6 +14,9 @@ last_verified_with: "Python 3.14.10."
 ```py
 tuple = ()
 ```
+<!-- {: data-highlight="tuple = ()"} -->
+
+See: [Tuples](https://docs.python.org/3/library/stdtypes.html#tuples)
 
 ### Lists (mutable)
 
@@ -33,7 +37,7 @@ list.insert(index, item)
 list.pop()        # returns and removes last element from the list
 list.pop(i)       # returns and removes i-th element from the list
 list.remove(i)    # removes first item whose value is i
-list1 + list2     # combine two list    
+list1 + list2     # combine two lists
 set(list)         # remove duplicate elements from a list
 
 list.reverse()    # reverses the elements of the list in-place
@@ -44,8 +48,10 @@ zip(list1, list2)  # returns an iterator of paired tuples
 list.sort()        # sorts in-place, returns None
 sorted(list)       # returns sorted copy of list
 ",".join(list)     # joins elements with commas
-
 ```
+<!-- {: data-highlight="list.append; list.pop; list.sort; sorted(list)"} -->
+
+See: [Lists](https://docs.python.org/3/library/stdtypes.html#lists)
 
 ### Dict
 
@@ -63,6 +69,9 @@ dict.get("key", "optional return value if no key")
 dict.setdefault("key", 1)
 **dict           # expands all k/v pairs in place
 ```
+<!-- {: data-highlight="dict.keys; dict.get; dict.setdefault"} -->
+
+See: [Dictionaries](https://docs.python.org/3/library/stdtypes.html#dict)
 
 ### Set
 
@@ -70,8 +79,11 @@ dict.setdefault("key", 1)
 set = set()
 set = {1, 2, 3}
 set.add(4)
-set.remove(2) 
+set.remove(2)
 ```
+<!-- {: data-highlight="set.add; set.remove"} -->
+
+See: [Sets](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset)
 
 ### Iteration
 
@@ -83,6 +95,9 @@ for i in range(1, 9, 2):  # 1, 3, 5, 7
 for key, val in dict.items():
 for index, item in enumerate(list):
 ```
+<!-- {: data-highlight="range; dict.items; enumerate"} -->
+
+See: [for statements](https://docs.python.org/3/reference/compound_stmts.html#the-for-statement)
 
 ### [String](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
@@ -121,6 +136,9 @@ str.islower()
 >>> '"Isn\'t," they said.'
     '"Isn\'t," they said.'
 ```
+<!-- {: data-highlight="string.replace; str.find; str.split"} -->
+
+See: [String methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
 ### Casting
 
@@ -131,6 +149,9 @@ str(int)
 str(float)
 'string'.encode()
 ```
+<!-- {: data-highlight="int(str); float(str); str(int)"} -->
+
+See: [Built-in types](https://docs.python.org/3/library/stdtypes.html)
 
 ### Comprehensions
 
@@ -141,6 +162,9 @@ map(fn, list)                    # .map, returns iterator
 filter(fn, list)                 # .filter, returns iterator
 [fn(i) for i in list if i > 0]   # .filter.map
 ```
+<!-- {: data-highlight="[fn(i) for i in list]; [fn(i) for i in list if i > 0]"} -->
+
+See: [List displays](https://docs.python.org/3/reference/expressions.html#list-displays)
 
 ### Regex
 
@@ -155,9 +179,11 @@ expr = re.compile(r'^...$')
 expr.match(...)
 expr.sub(...)
 ```
+<!-- {: data-highlight="re.match; re.sub; re.compile"} -->
+
+See: [Regular expression operations](https://docs.python.org/3/library/re.html)
 
 ## File manipulation
-    
 ### Reading
 
 #### Open and close
@@ -167,6 +193,8 @@ file = open("hello.txt", "r")  # open in read mode
 file.close()
 ```
 
+<!-- {: data-highlight="file.close"} -->
+
 #### Read content
 
 ```py
@@ -175,25 +203,35 @@ print(file.readline())  # read one line
 file.seek(0, 0)         # place the cursor at the start
 ```
 
+<!-- {: data-highlight="file.readline; file.seek"} -->
+
+See: [io.IOBase.readline](https://docs.python.org/3/library/io.html#io.IOBase.readline)
+
 ### Writing (overwrite)
 
 ```py
 file = open("hello.txt", "w") # open in write mode 'w'
-file.write("Hello World") 
+file.write("Hello World")
 
-text_lines = ["First line", "Second line", "Last line"] 
+text_lines = ["First line", "Second line", "Last line"]
 file.writelines(text_lines)
 
 file.close()
 ```
+<!-- {: data-highlight="file.writelines"} -->
+
+See: [io.IOBase.writelines](https://docs.python.org/3/library/io.html#io.IOBase.writelines)
 
 ### Writing (append)
 
 ```py
 file = open("Hello.txt", "a") # open in append mode
-file.write("Hello World again")  
+file.write("Hello World again")
 file.close()
 ```
+<!-- {: data-highlight="open"} -->
+
+See: [open()](https://docs.python.org/3/library/functions.html#open)
 
 ### Context manager
 
@@ -204,3 +242,6 @@ with open("welcome.txt", "r") as file:
 
 # The file closes automatically at the end of the block.
 ```
+<!-- {: data-highlight="with open"} -->
+
+See: [the with statement](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)

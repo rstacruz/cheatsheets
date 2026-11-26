@@ -2,7 +2,12 @@
 title: Sublime Text
 subtitle: Text editor shortcuts
 category: Apps
+tier: t3
+last_verified_with: "Sublime Text 4 build 4215."
+updated: 2026-11-26
 ---
+
+## Editing shortcuts
 
 ### Select & Expand
 
@@ -18,6 +23,8 @@ category: Apps
 
 Replace ⌘ with Ctrl on Windows and Linux.
 
+See: [Key bindings](https://www.sublimetext.com/docs/key_bindings.html)
+
 ### Code Folding
 
 | Shortcut | Description |
@@ -32,6 +39,8 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 <!-- {: .-shortcuts} -->
 
+See: [Key bindings](https://www.sublimetext.com/docs/key_bindings.html)
+
 ### Editing
 
 | Shortcut | Description |
@@ -43,6 +52,10 @@ Replace ⌘ with Ctrl on Windows and Linux.
 | `⌘ ⇧ ↓` | move line down |
 
 <!-- {: .-shortcuts} -->
+
+See: [Key bindings](https://www.sublimetext.com/docs/key_bindings.html)
+
+## Find and open
 
 ### Goto
 
@@ -57,6 +70,8 @@ Replace ⌘ with Ctrl on Windows and Linux.
 
 <!-- {: .-shortcuts} -->
 
+See: [Key bindings](https://www.sublimetext.com/docs/key_bindings.html)
+
 ### Command line
 
 ```sh
@@ -65,3 +80,5 @@ $ subl README.md
 ```
 
 Use `subl` to open files in Sublime from the terminal.
+
+See: [Command line interface](https://www.sublimetext.com/docs/command_line.html)

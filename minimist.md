@@ -1,7 +1,7 @@
 ---
 title: minimist
 subtitle: CLI argument parser
-category: Node.js
+category: Node.js libraries
 ---
 
 ### Usage

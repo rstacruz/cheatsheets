@@ -10,9 +10,9 @@ tier: t3
 keywords: [express router, express routes files, express.Router]
 links:
   - title: express.Router
-    url: https://expressjs.com/en/5x/guide/routing.html#express-router
+    url: https://expressjs.com/en/5x/guide/routing/#expressrouter
   - title: Using middleware guide
-    url: https://expressjs.com/en/5x/guide/using-middleware.html
+    url: https://expressjs.com/en/5x/guide/using-middleware/
 ---
 
 ## Routing
@@ -32,7 +32,7 @@ router.get('/:id', getUser)
 export default router
 ```
 
-**Groups related routes in their own file.** `Router()` returns middleware with the same methods as `app`. See [express.Router](https://expressjs.com/en/5x/guide/routing.html#express-router).
+**Groups related routes in their own file.** `Router()` returns middleware with the same routing methods as `app`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
 
 ### app.js
 <!-- {: .-snippet} -->
@@ -43,7 +43,7 @@ import users from './users.js'
 app.use('/users', users)
 ```
 
-**Mounts the router on a prefix.** Paths inside `users.js` stay relative to `/users`. See [express.Router](https://expressjs.com/en/5x/guide/routing.html#express-router).
+**Mounts the router on a prefix.** Paths inside `users.js` stay relative to `/users`. See [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter).
 
 ### Router-level middleware
 <!-- {: .-snippet} -->

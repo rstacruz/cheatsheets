@@ -12,7 +12,7 @@ links:
   - title: "@types/express"
     url: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/express
   - title: Express 5 API reference
-    url: https://expressjs.com/en/5x/api.html
+    url: https://expressjs.com/en/5x/api/
 ---
 
 ## TypeScript
@@ -69,4 +69,4 @@ app.post('/users', (req, res) => {
 })
 ```
 
-**Casts the untyped body.** `express.json()` does not validate it, so pair the cast with Zod for runtime checks. See [express.json()](https://expressjs.com/en/5x/api.html#express.json).
+**Casts the untyped body.** `express.json()` does not validate it, so pair the cast with Zod for runtime checks. See [express.json()](https://expressjs.com/en/5x/api/express/#expressjson).

@@ -10,7 +10,7 @@ tier: t3
 keywords: [express query params, express req.query, express query string]
 links:
   - title: req.query reference
-    url: https://expressjs.com/en/5x/api.html#req.query
+    url: https://expressjs.com/en/5x/api/request/#reqquery
   - title: Express 5 migration
     url: https://expressjs.com/en/guide/migrating-5.html#reqquery
 ---
@@ -28,7 +28,7 @@ app.get('/search', (req, res) => {
 })
 ```
 
-**Reads strings from `req.query`.** Every value is a string, so convert numbers yourself. See [req.query](https://expressjs.com/en/5x/api.html#req.query).
+**Reads strings from `req.query`.** Single values are strings, so convert numbers yourself. See [req.query](https://expressjs.com/en/5x/api/request/#reqquery).
 
 ### Repeated keys
 <!-- {: .-snippet} -->
@@ -40,7 +40,7 @@ app.get('/search', (req, res) => {
 })
 ```
 
-**Repeated keys arrive as arrays.** A single `tag` is still a string, so check with `Array.isArray()`. See [req.query](https://expressjs.com/en/5x/api.html#req.query).
+**Repeated keys arrive as arrays.** A single `tag` is still a string, so check with `Array.isArray()`. See [req.query](https://expressjs.com/en/5x/api/request/#reqquery).
 
 ### Defaults and numbers
 <!-- {: .-snippet} -->
@@ -52,7 +52,7 @@ app.get('/search', (req, res) => {
 })
 ```
 
-**Coerces the string and falls back to `1`.** `Number(undefined)` is `NaN`, which is falsy. See [req.query](https://expressjs.com/en/5x/api.html#req.query).
+**Coerces the string and falls back to `1`.** `Number(undefined)` is `NaN`, which is falsy. See [req.query](https://expressjs.com/en/5x/api/request/#reqquery).
 
 ### Nested keys
 <!-- {: .-snippet} -->

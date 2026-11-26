@@ -37,7 +37,7 @@ links:
   - title: Express documentation
     url: https://expressjs.com/
   - title: Express 5 API reference
-    url: https://expressjs.com/en/5x/api.html
+    url: https://expressjs.com/en/5x/api/
   - title: GitHub repository
     url: https://github.com/expressjs/express
 ---
@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 app.listen(3000)
 ```
 
-Express 5 requires Node 18 or newer. Examples use ESM; CommonJS uses `require('express')`.
+Express 5 requires Node 18 or newer. The static examples use `import.meta.dirname`, which needs Node 20.11 or newer. Examples use ESM; CommonJS uses `require('express')`.
 
 See: [Hello world](https://expressjs.com/en/starter/hello-world.html)
 
@@ -76,7 +76,7 @@ app.post('/users', (req, res) => {
 
 `express.json()` parses `application/json` into `req.body`. Without a parser, `req.body` stays `undefined`.
 
-See: [express.json()](https://expressjs.com/en/5x/api.html#express.json)
+See: [express.json()](https://expressjs.com/en/5x/api/express/#expressjson)
 
 ## Routing
 
@@ -131,7 +131,7 @@ app.get('/files/*splat', (req, res) => {
 ```
 <!-- {: data-highlight="/*splat"} -->
 
-A named wildcard captures the remaining segments as an array. A bare `*` no longer matches.
+A named wildcard captures the remaining segments as an array. A bare `*` is rejected when the route is registered, so name the wildcard.
 
 See: [Path route matching](https://expressjs.com/en/guide/migrating-5.html#path-route-matching-syntax)
 
@@ -148,7 +148,7 @@ app.get('/search', (req, res) => {
 
 Repeating a key gives an array. Express 5's default `simple` parser leaves `?user[name]=x` flat as `'user[name]'`.
 
-See: [req.query](https://expressjs.com/en/5x/api.html#req.query)
+See: [req.query](https://expressjs.com/en/5x/api/request/#reqquery)
 
 ### Router modules
 
@@ -177,7 +177,7 @@ app.use('/users', users)
 
 A router is middleware: mount it on a prefix and paths inside it stay relative.
 
-See: [express.Router](https://expressjs.com/en/5x/guide/routing.html#express-router)
+See: [express.Router](https://expressjs.com/en/5x/guide/routing/#expressrouter)
 
 ## Middleware
 
@@ -223,7 +223,7 @@ See: [Using middleware](https://expressjs.com/en/5x/guide/using-middleware.html)
 
 `express.urlencoded({ extended: true })` adds nested form fields; the default only handles flat keys.
 
-See: [Built-in middleware](https://expressjs.com/en/5x/api.html#express)
+See: [Built-in middleware](https://expressjs.com/en/5x/guide/using-middleware/#built-in-middleware)
 
 ### Static files
 
@@ -280,7 +280,7 @@ res.redirect(301, '/new')
 
 `res.status()` only sets the code; a body method still has to send the response.
 
-See: [Response methods](https://expressjs.com/en/5x/api.html#res)
+See: [Response methods](https://expressjs.com/en/5x/api/response/#methods)
 
 ### Files
 
@@ -293,7 +293,7 @@ res.sendStatus(404) // 'Not Found'
 
 Paths must be absolute unless you pass `{ root }`. `download` sets `Content-Disposition`.
 
-See: [res.sendFile](https://expressjs.com/en/5x/api.html#res.sendFile)
+See: [res.sendFile](https://expressjs.com/en/5x/api/response/#ressendfile)
 
 ### Templates
 
@@ -381,7 +381,18 @@ See: [Error handling](https://expressjs.com/en/5x/guide/error-handling.html)
 
 ## Also see
 
+<!-- {: .-one-column} -->
+
+- [Express CORS cheatsheet](./express-cors)
+- [Express error handling cheatsheet](./express-error-handling)
+- [Parse JSON body cheatsheet](./express-json-body)
+- [Express middleware cheatsheet](./express-middleware)
+- [Express query params cheatsheet](./express-query-params)
+- [Express router cheatsheet](./express-router)
+- [Serve static files cheatsheet](./express-static-files)
+- [Express TypeScript cheatsheet](./express-typescript)
+
 [Fastify cheatsheet](./fastify)
 <!-- {: .-crosslink} -->
 
-[Hono](https://hono.dev) keeps the `app.get` and middleware style with a smaller footprint.
+[Hono](https://hono.dev)

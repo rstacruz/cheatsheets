@@ -12,7 +12,7 @@ links:
   - title: Serving static files
     url: https://expressjs.com/en/starter/static-files.html
   - title: express.static() reference
-    url: https://expressjs.com/en/5x/api.html#express.static
+    url: https://expressjs.com/en/5x/api/express/#expressstatic
 ---
 
 ## Static files
@@ -42,7 +42,7 @@ const dir = path.join(
 app.use(express.static(dir))
 ```
 
-**Keeps the directory correct from any cwd.** Relative roots resolve against `process.cwd()`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
+**Keeps the directory correct from any cwd.** `import.meta.dirname` needs Node 20.11 or newer; relative roots resolve against `process.cwd()`. See [serving static files](https://expressjs.com/en/starter/static-files.html).
 
 ### Mount at a prefix
 <!-- {: .-snippet} -->
@@ -62,4 +62,4 @@ app.use(
 )
 ```
 
-**Stops `/` serving `index.html`.** Requests for `/` then fall through to your routes. See [express.static()](https://expressjs.com/en/5x/api.html#express.static).
+**Stops `/` serving `index.html`.** Requests for `/` then fall through to your routes. See [express.static()](https://expressjs.com/en/5x/api/express/#expressstatic).

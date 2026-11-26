@@ -1,7 +1,7 @@
 ---
 title: package.json
 subtitle: Manifest for npm packages
-category: Node.js
+category: Node.js libraries
 prism_languages: [json]
 updated: 2020-06-23
 weight: -3

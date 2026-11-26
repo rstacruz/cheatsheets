@@ -10,9 +10,9 @@ tier: t3
 keywords: [express json body, express body parser, express req.body]
 links:
   - title: express.json() reference
-    url: https://expressjs.com/en/5x/api.html#express.json
+    url: https://expressjs.com/en/5x/api/express/#expressjson
   - title: express.urlencoded() reference
-    url: https://expressjs.com/en/5x/api.html#express.urlencoded
+    url: https://expressjs.com/en/5x/api/express/#expressurlencoded
 ---
 
 ## Request bodies
@@ -29,7 +29,7 @@ app.post('/users', (req, res) => {
 })
 ```
 
-**Parses `application/json` into `req.body`.** Without a parser, `req.body` stays `undefined`. See [express.json()](https://expressjs.com/en/5x/api.html#express.json).
+**Parses `application/json` into `req.body`.** Without a parser, `req.body` stays `undefined`. See [express.json()](https://expressjs.com/en/5x/api/express/#expressjson).
 
 ### Form bodies
 <!-- {: .-snippet} -->
@@ -38,7 +38,7 @@ app.post('/users', (req, res) => {
 app.use(express.urlencoded({ extended: true }))
 ```
 
-**Parses HTML form posts.** `extended: true` allows nested fields; the default only handles flat keys. See [express.urlencoded()](https://expressjs.com/en/5x/api.html#express.urlencoded).
+**Parses HTML form posts.** `extended: true` allows nested fields; the default only handles flat keys. See [express.urlencoded()](https://expressjs.com/en/5x/api/express/#expressurlencoded).
 
 ### Size limit
 <!-- {: .-snippet} -->
@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json({ limit: '1mb' }))
 ```
 
-**Caps the request body.** Larger payloads fail with a 413 that reaches your error handler. See [express.json()](https://expressjs.com/en/5x/api.html#express.json).
+**Caps the request body.** Larger payloads fail with a 413 that reaches your error handler. See [express.json()](https://expressjs.com/en/5x/api/express/#expressjson).
 
 ### Missing body
 <!-- {: .-snippet} -->
@@ -59,4 +59,4 @@ app.post('/users', (req, res) => {
 })
 ```
 
-**Guards against unparsed bodies.** Optional chaining avoids a crash when the client sends no JSON. See [req.body](https://expressjs.com/en/5x/api.html#req.body).
+**Guards against unparsed bodies.** Optional chaining avoids a crash when the client sends no JSON. See [req.body](https://expressjs.com/en/5x/api/request/#reqbody).

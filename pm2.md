@@ -3,7 +3,7 @@ title: pm2
 seo_title: pm2 cheatsheet — commands, logs, restart
 description: "pm2 commands: list, describe, restart, logs, stop and delete. Process manager reference."
 subtitle: Node.js process manager
-category: Node.js
+category: Node.js libraries
 updated: 2026-11-18
 last_verified_with: "PM2 7.1.2."
 tier: t2

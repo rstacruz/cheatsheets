@@ -37,7 +37,7 @@ d.format('YYYY-MM-DD')   // "2014-06-09"
 ```
 <!-- {: data-highlight=".add(1, 'day')"} -->
 
-**Moment mutates; Day.js returns a new object.** Code that keeps reusing a Moment value behaves differently after a migration; see [Immutability](https://day.js.org/docs/en/parse/parse).
+**Moment mutates; Day.js returns a new object.** Code that reuses the value behaves differently in Moment; see [Immutability](https://day.js.org/docs/en/parse/parse).
 
 ### Plugins
 <!-- {: .-snippet} -->

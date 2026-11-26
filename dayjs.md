@@ -483,7 +483,7 @@ d.tz('America/New_York', true).format()
 ```
 <!-- {: data-highlight=", true)"} -->
 
-The second argument keeps the clock time and moves the instant, which is what a day boundary or a reminder usually wants.
+The second argument keeps the clock time and moves the instant.
 
 See: [Time zone](https://day.js.org/docs/en/plugin/timezone)
 

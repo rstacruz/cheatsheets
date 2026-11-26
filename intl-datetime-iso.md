@@ -26,7 +26,7 @@ new Date('2026-11-26T15:30:00Z')
 ```
 <!-- {: .-wrap data-highlight="slice(0, 10)"} -->
 
-**Cuts the ISO string to ten characters.** `toISOString()` prints UTC, so west of Greenwich it can return tomorrow's date for a local afternoon; see [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+**Cuts the ISO string to ten characters.** `toISOString()` prints UTC, so a local evening can show the next day; see [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
 
 ### Format the local date
 <!-- {: .-snippet} -->

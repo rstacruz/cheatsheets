@@ -74,6 +74,9 @@ const fmt = new Intl.DateTimeFormat('en-GB', {
   dateStyle: 'medium',
   timeZone: 'UTC'
 })
+
+fmt.format(new Date('2026-11-26T15:30:00Z'))
+// → '26 Nov 2026'
 ```
 <!-- {: .-wrap data-highlight="timeZone: 'UTC'"} -->
 

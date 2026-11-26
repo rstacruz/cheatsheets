@@ -46,7 +46,7 @@ new Intl.DateTimeFormat().format(date)
 ```
 <!-- {: data-highlight="format(date)"} -->
 
-Examples here assume a browser in America/Los_Angeles. `format()` takes a `Date` or a timestamp; build one formatter and reuse it in loops.
+Examples assume a browser in America/Los_Angeles, and later cards reuse this `date`. `format()` takes a `Date` or a timestamp; build one formatter and reuse it in loops.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format)
 
@@ -154,14 +154,20 @@ See: [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/G
 #### Long form
 
 ```js
-fmt({ year: 'numeric', month: 'long', day: 'numeric' })
+new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+  timeZone: 'UTC'
+}).format(date)
 // → 'December 20, 2012'
 ```
 
 #### Two-digit
 
 ```js
-fmt({ year: '2-digit', month: '2-digit', day: '2-digit' })
+new Intl.DateTimeFormat('en-US', {
+  year: '2-digit', month: '2-digit', day: '2-digit',
+  timeZone: 'UTC'
+}).format(date)
 // → '12/20/12'
 ```
 <!-- {: data-highlight="'2-digit'"} -->
@@ -304,7 +310,8 @@ See: [formatToParts()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
   month: '2-digit',
-  day: '2-digit'
+  day: '2-digit',
+  timeZone: 'UTC'
 }).format(date)
 // → '20/12/2012'
 ```

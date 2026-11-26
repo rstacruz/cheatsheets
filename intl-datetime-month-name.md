@@ -50,9 +50,9 @@ monthName(10) // → 'November'
 <!-- {: .-snippet} -->
 
 ```js
-const month = ['short', 'narrow']
+const widths = ['short', 'narrow']
 
-month.map((width) => (
+widths.map((width) => (
   new Intl.DateTimeFormat('en-US', {
     month: width
   }).format(new Date(2026, 10, 1))

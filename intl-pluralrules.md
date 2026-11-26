@@ -393,17 +393,21 @@ See: [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 ### Compact counts
 
 ```js
-const pr = new Intl.PluralRules('en')
-const compact = new Intl.NumberFormat('en', {
-  notation: 'compact'
+const pr = new Intl.PluralRules('fr', {
+  notation: 'compact',
+  compactDisplay: 'long'
+})
+const compact = new Intl.NumberFormat('fr', {
+  notation: 'compact',
+  compactDisplay: 'long'
 })
 
-compact.format(1200)  // → '1.2K'
-pr.select(1200)       // → 'other'
+compact.format(1100000)  // → '1,1 million'
+pr.select(1100000)       // → 'many'
 ```
 <!-- {: data-highlight="notation: 'compact'"} -->
 
-Compact notation does not change the category; 1200 still selects the form for 1200, even though it prints as 1.2K.
+Compact notation can change the category: French prints 1,1 million and selects `many`, not `other`. Pass the same notation options to both formatters.
 
 See: [notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#notation)
 
@@ -468,11 +472,17 @@ See: [supportedLocalesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 | --- | --- |
 | `minimumSignificantDigits` | 1–21 |
 | `maximumSignificantDigits` | 1–21 |
+| `roundingIncrement` | 1 (default), 2, 5, 10, 20, 25, 50, … |
 | `roundingMode` | `'halfExpand'` (default), `'ceil'`, `'floor'`, `'trunc'`, `'expand'`, `'halfEven'`, … |
+| --- | --- |
+| `notation` | `'standard'` (default), `'scientific'`, `'engineering'`, `'compact'` |
+| `compactDisplay` | `'short'` (default), `'long'` |
+| `roundingPriority` | `'auto'` (default), `'morePrecision'`, `'lessPrecision'` |
+| `trailingZeroDisplay` | `'auto'` (default), `'stripIfInteger'` |
 | `localeMatcher` | `'best fit'` (default), `'lookup'` |
 <!-- {: .-headers} -->
 
-The digit options use the same names and defaults as `Intl.NumberFormat`.
+These options use the same names and defaults as `Intl.NumberFormat`.
 
 See: [Intl.PluralRules() options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
 
@@ -496,13 +506,21 @@ See: [resolvedOptions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Errors and edge cases
 
+#### Without new
+
 ```js
 Intl.PluralRules('en')
 // TypeError: Constructor Intl.PluralRules requires 'new'
-
-new Intl.PluralRules('en').select(NaN)  // → 'other'
 ```
 <!-- {: data-highlight="requires 'new'"} -->
+
+#### Special values
+
+```js
+new Intl.PluralRules('en').select(NaN)
+// → 'other'
+```
+<!-- {: data-highlight="select(NaN)"} -->
 
 `new` is required. `NaN` and `Infinity` fall into `other`, and numeric strings are coerced to numbers.
 

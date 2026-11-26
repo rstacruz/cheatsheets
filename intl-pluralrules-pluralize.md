@@ -54,15 +54,18 @@ plural(2, { one: 'day', other: 'days' })
 <!-- {: .-snippet} -->
 
 ```js
-const pr = new Intl.PluralRules('ru')
-const forms = { one: 'товар', other: 'товара' }
+const pr = new Intl.PluralRules('fr')
+const forms = {
+  one: 'article',
+  other: 'articles'
+}
 
 const label = (n) =>
   forms[pr.select(n)] ?? forms.other
 
-label(1)  // → 'товар'
-label(2)  // → 'товара'
+label(1)        // → 'article'
+label(1000000)  // → 'articles'
 ```
 <!-- {: data-highlight="?? forms.other"} -->
 
-**Falls back to `other`.** Every locale has an `other` form, so it covers categories a translation leaves out; Russian `few` falls back here. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).
+**Falls back to `other`.** Every locale has an `other` form, so it covers categories a translation leaves out; French `many` falls back here. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).

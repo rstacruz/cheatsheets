@@ -41,7 +41,7 @@ conn.execute(
 ).fetchone()
 # ('Ada',)
 ```
-<!-- {: data-highlight="SELECT name FROM users WHERE id = ?"} -->
+<!-- {: data-highlight="= ?"} -->
 
 **Passes values separately from SQL.** Placeholders handle quoting and types; see [placeholders](https://docs.python.org/3/library/sqlite3.html#sqlite3-placeholders).
 

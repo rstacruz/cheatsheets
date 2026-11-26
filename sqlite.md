@@ -50,7 +50,7 @@ links:
 sqlite3 app.db      # create or open a file
 sqlite3 :memory:    # temporary in-memory database
 ```
-<!-- {: data-highlight="sqlite3 app.db"} -->
+<!-- {: data-highlight="sqlite3 app.db; sqlite3 :memory:"} -->
 
 A file database is created on the first write. `:memory:` disappears on exit.
 
@@ -134,7 +134,7 @@ sqlite3 app.db ".import --csv --skip 1 users.csv users"
 ```
 <!-- {: data-highlight=".import --csv"} -->
 
-`--skip 1` drops the header row. When the table is missing, `.import` creates it from the header names.
+`--skip 1` drops the header row. If the table is missing, omit it so the header names the columns.
 
 See: [Import](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats)
 
@@ -479,7 +479,7 @@ conn.execute(
     {'id': 1},
 ).fetchone()
 ```
-<!-- {: data-highlight=":id"} -->
+<!-- {: data-highlight="= :id"} -->
 
 Never format values into SQL; placeholders handle quoting and types.
 

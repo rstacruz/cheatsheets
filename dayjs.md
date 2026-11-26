@@ -377,7 +377,7 @@ d.isBetween('2014-06-10', '2014-06-15',
   'day', '[]')                            // true
 d.isSameOrBefore('2014-06-10', 'day')     // true
 ```
-<!-- {: data-highlight="isBetween"} -->
+<!-- {: data-highlight=".isBetween("} -->
 
 Bounds are exclusive by default; `'[]'` includes both ends.
 
@@ -395,7 +395,7 @@ dayjs.extend(isYesterday)
 dayjs().isToday()                       // true
 dayjs().subtract(1, 'day').isYesterday() // true
 ```
-<!-- {: data-highlight="isToday; isYesterday"} -->
+<!-- {: data-highlight=".isToday(); .isYesterday()"} -->
 
 Each check ships as its own plugin.
 

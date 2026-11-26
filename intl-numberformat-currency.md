@@ -43,6 +43,7 @@ const formatter = (currencyDisplay) =>
 
 formatter('code').format(1234.5)
 // → 'USD 1,234.50'
+
 formatter('name').format(1234.5)
 // → '1,234.50 US dollars'
 ```

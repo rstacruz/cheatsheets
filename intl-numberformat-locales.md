@@ -23,6 +23,7 @@ const en = new Intl.NumberFormat('en-US')
 
 de.format(1234567.891)
 // → '1.234.567,891'
+
 en.format(1234567.891)
 // → '1,234,567.891'
 ```

@@ -42,4 +42,4 @@ app/
 ```
 <!-- {: data-highlight="(marketing)"} -->
 
-**Drops the parentheses from the URL.** Route groups give a section its own layout; a leading underscore keeps a folder out of routing. See [route groups](https://nextjs.org/docs/app/api-reference/file-conventions/route-groups).
+**Keeps these folders out of the URL.** Route groups, `(name)`, share a layout without adding a segment; a leading underscore opts a folder out of routing. See [route groups](https://nextjs.org/docs/app/api-reference/file-conventions/route-groups).

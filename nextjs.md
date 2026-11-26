@@ -167,7 +167,7 @@ export default async function Page({
 ```
 <!-- {: data-highlight="await params"} -->
 
-`params` and `searchParams` are Promises in Next.js 15 and later. Await them in an async page or layout before reading a value.
+`params` and `searchParams` are Promises in Next.js 15 and later. Await `params` in an async page or layout, and `searchParams` in a page, before reading a value.
 
 See: [Page props](https://nextjs.org/docs/app/api-reference/file-conventions/page#props)
 
@@ -267,15 +267,34 @@ See: [Passing data](https://nextjs.org/docs/app/getting-started/server-and-clien
 
 ### Two caching models
 
-| Model | Use when |
-| --- | --- |
-| Cache Components | New apps; `use cache` |
-| Fetch options | Apps without `cacheComponents`; `force-cache` |
+| Cache with | Model | When |
+| --- | --- | --- |
+| `use cache` | Cache Components | New apps; enable `cacheComponents` |
+| `cache: 'force-cache'` | Fetch options | Flag off |
+| `next.revalidate` | Fetch options | Flag off |
 <!-- {: .-headers} -->
 
-Next.js 16.4 scaffolds enable `cacheComponents` and `partialPrefetching`. With the flag on, exporting `dynamic` or `revalidate` makes the build error; the fetch-option cards below apply when it is off.
+Projects created with `create-next-app` in Next.js 16.4 enable `cacheComponents` and `partialPrefetching` by default. With `cacheComponents` on, exporting `dynamic` or `revalidate` fails the build; the fetch-option cards below apply only when the flag is off.
 
 See: [Cache Components](https://nextjs.org/docs/app/getting-started/caching)
+
+### Cache with `use cache`
+
+```tsx
+import { cacheLife, cacheTag } from 'next/cache'
+
+async function getPosts() {
+  'use cache'
+  cacheLife('hours')
+  cacheTag('posts')
+  return db.post.findMany()
+}
+```
+<!-- {: data-highlight="'use cache'"} -->
+
+With Cache Components, `use cache` caches the result of an async function. Enable it with `cacheComponents: true` in `next.config.js`; 16.4 scaffolds also enable `partialPrefetching`. `cacheLife` sets the lifetime; without it, the default profile applies.
+
+See: [use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 
 ### Fetch in a page
 
@@ -329,7 +348,7 @@ See: [revalidate](https://nextjs.org/docs/app/api-reference/functions/fetch#opti
 
 ### Invalidate by tag
 
-#### Fetch
+#### Fetch without Cache Components
 
 ```tsx
 const res = await fetch(url, {
@@ -351,27 +370,9 @@ export async function savePost(title: string) {
 ```
 <!-- {: data-highlight="revalidateTag('posts', 'max')"} -->
 
-Tags mark cached data for on-demand invalidation. The second `revalidateTag` argument is part of the Next.js 16 signature; `'max'` serves stale content while the refresh runs.
+Tags mark cached data for on-demand invalidation. The second `revalidateTag` argument is part of the Next.js 16 signature; `'max'` serves stale content while the refresh runs. Under Cache Components, tag `use cache` with `cacheTag`.
 
 See: [revalidateTag](https://nextjs.org/docs/app/api-reference/functions/revalidateTag)
-
-### Cache a database query
-
-```tsx
-import { cacheLife, cacheTag } from 'next/cache'
-
-async function getPosts() {
-  'use cache'
-  cacheLife('hours')
-  cacheTag('posts')
-  return db.post.findMany()
-}
-```
-<!-- {: data-highlight="'use cache'"} -->
-
-With Cache Components, `use cache` caches the result of an async function. Enable it with `cacheComponents: true` in `next.config.js`; pair it with `partialPrefetching: true`. `cacheLife` sets the lifetime, or the default profile applies.
-
-See: [use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 
 ## Route handlers
 
@@ -633,11 +634,15 @@ export function authHeader() {
 ```
 <!-- {: data-highlight="API_SECRET"} -->
 
-Only `NEXT_PUBLIC_` variables are inlined into the browser bundle. Everything else stays on the server, so never put a secret behind the public prefix. Rebuild after changing `NEXT_PUBLIC_` variables.
+Only `NEXT_PUBLIC_` variables are inlined into the browser bundle. Everything else stays on the server, so never put a secret behind the public prefix. Restart the dev server after changing `NEXT_PUBLIC_` variables; rebuild for production.
 
 See: [Environment variables](https://nextjs.org/docs/app/guides/environment-variables)
 
 ## Also see
 
+- [App Router files](./nextjs-app-router-files)
+- [Caching](./nextjs-fetch-cache)
+- [Route handlers](./nextjs-route-handler)
+- [Client components](./nextjs-server-client-components)
 - [React cheatsheet](./react)
 - [Next.js examples](https://github.com/vercel/next.js/tree/canary/examples)

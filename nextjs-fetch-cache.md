@@ -1,7 +1,7 @@
 ---
-title: How to cache a fetch request in Next.js
-link_title: Fetch caching
-subtitle: Opt in and out
+title: How to cache data in Next.js
+link_title: Next.js caching
+subtitle: Fetch options and use cache
 category: JavaScript libraries
 layout: snippet
 last_verified_with: "Next.js 16.4.6."
@@ -11,7 +11,7 @@ links:
     url: https://nextjs.org/docs/app/api-reference/functions/fetch
 ---
 
-## Fetch caching
+## Caching
 <!-- {: .-snippets} -->
 
 ### Cache a response

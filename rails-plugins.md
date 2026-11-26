@@ -2,6 +2,13 @@
 title: Rails plugins
 subtitle: Engine plugin authoring
 category: Rails
+intro: |
+  Rails plugins extend the framework through gems and engines. This reference covers generating plugins, engines, and generators.
+links:
+  - title: Rails plugins guide
+    url: https://guides.rubyonrails.org/plugins.html
+  - title: Generators guide
+    url: https://guides.rubyonrails.org/generators.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-26

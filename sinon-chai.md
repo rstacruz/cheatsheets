@@ -5,6 +5,8 @@ category: JavaScript testing
 tier: t3
 last_verified_with: "Sinon-chai 4.0.1, Sinon 22.1.0."
 updated: 2026-11-26
+intro: |
+  Sinon-chai provides Chai assertions for Sinon spies, stubs, and mocks. This reference covers setup, assertions, and examples.
 links:
   - title: Sinon-chai
     url: https://github.com/chaijs/sinon-chai

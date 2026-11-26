@@ -2,6 +2,13 @@
 title: Semver
 category: Others
 subtitle: Version numbering convention
+intro: |
+  Semantic versioning rules and node-semver range syntax, from exact versions to tilde, caret, hyphen, and prerelease ranges.
+links:
+  - title: Semantic Versioning 2.0.0
+    url: https://semver.org/spec/v2.0.0.html
+  - title: node-semver README
+    url: https://github.com/npm/node-semver
 updated: 2026-11-26
 last_verified_with: "Semantic Versioning 2.0.0, node-semver 7.8.6."
 weight: -3

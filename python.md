@@ -4,6 +4,15 @@ seo_title: Python cheatsheet — lists, dicts, strings
 description: "Python lists: dicts, strings, iteration, comprehensions and file handling. Reference."
 subtitle: Readable language for scripting
 category: Python
+intro: |
+  Python is a general-purpose language for scripting and applications. This reference covers built-in types, strings, comprehensions, and file handling.
+links:
+  - title: Python tutorial
+    url: https://docs.python.org/3/tutorial/index.html
+  - title: Built-in types
+    url: https://docs.python.org/3/library/stdtypes.html
+  - title: Built-in functions
+    url: https://docs.python.org/3/library/functions.html
 updated: 2026-11-26
 last_verified_with: "Python 3.15.2."
 tier: t3

@@ -2,6 +2,13 @@
 title: Rails migrations
 subtitle: Database schema migrations
 category: Rails
+intro: |
+  Rails migrations evolve a database schema through versioned Ruby files. This reference covers generating, writing, and running migrations.
+links:
+  - title: Active Record migrations guide
+    url: https://guides.rubyonrails.org/active_record_migrations.html
+  - title: ActiveRecord::Migration API
+    url: https://api.rubyonrails.org/classes/ActiveRecord/Migration.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-26

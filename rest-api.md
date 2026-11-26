@@ -3,6 +3,13 @@ title: RESTful API
 subtitle: REST convention reference
 updated: 2026-11-26
 category: API
+intro: |
+  REST API conventions for status codes, error responses, versioning, authentication, and HTTP methods, based on RFC 9110.
+links:
+  - title: "RFC 9110: HTTP semantics"
+    url: https://www.rfc-editor.org/rfc/rfc9110.html
+  - title: HTTP API design guide
+    url: https://github.com/interagent/http-api-design
 tier: t3
 last_verified_with: "HTTP Semantics RFC 9110."
 ---

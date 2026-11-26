@@ -2,6 +2,15 @@
 title: regexp
 subtitle: Regular expression syntax
 category: Others
+intro: |
+  A reference for regular expression syntax: character classes, anchors, groups, quantifiers, and lookarounds in JavaScript and PCRE2.
+links:
+  - title: MDN regular expressions guide
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
+  - title: MDN regular expression syntax reference
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions
+  - title: PCRE2 syntax reference
+    url: https://www.pcre2.org/doc/pcre2syntax/
 tier: t3
 weight: -1
 authors:

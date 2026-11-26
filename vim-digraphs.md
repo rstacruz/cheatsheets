@@ -2,6 +2,13 @@
 title: Vim digraphs
 subtitle: Special character input reference
 category: Vim
+intro: |
+  Vim [digraphs](https://vimhelp.org/digraph.txt.html#digraphs-use) let you type characters not available on your keyboard with Ctrl-K followed by two keys. This sheet lists the common symbols.
+links:
+  - title: Digraph table
+    url: https://vimhelp.org/digraph.txt.html#digraph-table
+  - title: Using digraphs
+    url: https://vimhelp.org/digraph.txt.html#digraphs-use
 tier: t3
 last_verified_with: "Vim 9.2."
 updated: 2026-11-26

@@ -2,6 +2,13 @@
 title: Yaml
 subtitle: Human-readable data format
 category: Markup
+intro: |
+  [YAML](https://yaml.org/spec/1.2.2/) is a human-readable data serialization format. This sheet covers dictionaries, lists, block scalars, anchors, and merge keys.
+links:
+  - title: YAML 1.2.2 specification
+    url: https://yaml.org/spec/1.2.2/
+  - title: Merge key type
+    url: https://yaml.org/type/merge.html
 prism_languages: [yaml]
 tier: t3
 last_verified_with: "YAML 1.2.2."

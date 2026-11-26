@@ -2,6 +2,13 @@
 title: Routes
 subtitle: URL routing reference
 category: Rails
+intro: |
+  Rails routes map URLs to controller actions. This reference covers resources, member and collection routes, constraints, and path helpers.
+links:
+  - title: Rails routing guide
+    url: https://guides.rubyonrails.org/routing.html
+  - title: ActionDispatch::Routing::Mapper API
+    url: https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-26

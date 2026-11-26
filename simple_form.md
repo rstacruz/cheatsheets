@@ -2,6 +2,13 @@
 title: SimpleForm
 category: Rails
 subtitle: Rails form builder
+intro: |
+  A Rails form builder reference for generating inputs, buttons, and custom wrappers with Simple Form.
+links:
+  - title: Simple Form README
+    url: https://github.com/heartcombo/simple_form
+  - title: Simple Form usage guide
+    url: https://github.com/heartcombo/simple_form#usage
 tags: [WIP]
 tier: t3
 last_verified_with: "Simple Form 5.4.1."

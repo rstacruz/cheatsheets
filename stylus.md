@@ -2,6 +2,15 @@
 title: Stylus
 subtitle: Indentation-based CSS preprocessor
 category: CSS
+intro: |
+  Stylus is an indentation-based CSS preprocessor with variables, mixins, functions, and built-ins. This reference covers syntax and the built-in API.
+links:
+  - title: Stylus documentation
+    url: https://stylus-lang.com/
+  - title: Mixins
+    url: https://stylus-lang.com/docs/mixins
+  - title: Built-in functions
+    url: https://stylus-lang.com/docs/bifs
 prism_languages: [stylus]
 weight: -3
 tier: t3

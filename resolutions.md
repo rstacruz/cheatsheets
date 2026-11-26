@@ -2,6 +2,11 @@
 title: Screen resolutions
 category: Others
 subtitle: Screen resolution and density table
+intro: |
+  A table of common screen resolutions, pixel densities, device pixel ratios, and physical sizes, with W3C resolution units.
+links:
+  - title: "CSS Values and Units Level 4: resolution"
+    url: https://www.w3.org/TR/css-values-4/#resolution
 updated: 2026-11-26
 weight: -1
 tier: t3

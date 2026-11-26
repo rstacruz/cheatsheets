@@ -2,6 +2,13 @@
 title: Rake
 subtitle: Ruby build task runner
 category: Ruby
+intro: |
+  Rake is a Ruby task runner for defining and invoking build tasks. This reference covers task syntax, arguments, namespaces, and prerequisites.
+links:
+  - title: Rake documentation
+    url: https://ruby.github.io/rake/doc/rakefile_rdoc.html
+  - title: Rake repository
+    url: https://github.com/ruby/rake
 tier: t3
 last_verified_with: "Rake 13.4.2."
 updated: 2026-11-26

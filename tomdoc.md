@@ -2,6 +2,11 @@
 title: Tomdoc
 subtitle: Ruby documentation format
 category: Markup
+intro: |
+  TomDoc is a documentation format for Ruby code. This reference covers its sections for descriptions, arguments, yields, returns, and signatures.
+links:
+  - title: TomDoc source repository
+    url: https://github.com/mojombo/tomdoc
 tier: t3
 last_verified_with: "TomDoc 1.0.0-rc1 specification."
 updated: 2026-11-26

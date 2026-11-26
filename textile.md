@@ -2,6 +2,15 @@
 title: Textile
 subtitle: Lightweight markup language
 category: Markup
+intro: |
+  Textile is a lightweight markup language for formatting web text. This reference covers phrase and block modifiers, links, images, and lists.
+links:
+  - title: Textile documentation
+    url: https://textile-lang.com/
+  - title: Phrase modifiers
+    url: https://textile-lang.com/category/phrase-modifiers/
+  - title: Links
+    url: https://textile-lang.com/doc/links
 tier: t3
 last_verified_with: "Textile 4.1.6."
 updated: 2026-11-26

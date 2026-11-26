@@ -2,6 +2,13 @@
 title: Sublime Text
 subtitle: Text editor shortcuts
 category: Apps
+intro: |
+  Sublime Text is a cross-platform code editor. This reference covers its keyboard shortcuts and command-line interface.
+links:
+  - title: Key bindings
+    url: https://www.sublimetext.com/docs/key_bindings.html
+  - title: Command line interface
+    url: https://www.sublimetext.com/docs/command_line.html
 tier: t3
 last_verified_with: "Sublime Text 4 build 4215."
 updated: 2026-11-26

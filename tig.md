@@ -2,6 +2,15 @@
 title: Tig
 subtitle: Terminal Git repository browser
 category: Git
+intro: |
+  Tig is a terminal browser for Git repositories and history. This reference covers installation, views, key bindings, and configuration.
+links:
+  - title: Tig website
+    url: https://jonas.github.io/tig/
+  - title: Tig manual
+    url: https://jonas.github.io/tig/doc/manual.html
+  - title: tigrc configuration
+    url: https://jonas.github.io/tig/doc/tigrc.5.html
 updated: 2026-11-26
 last_verified_with: "tig 2.6.1."
 weight: -3

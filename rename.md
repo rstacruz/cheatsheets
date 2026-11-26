@@ -2,6 +2,13 @@
 title: rename
 subtitle: Batch file renamer
 category: CLI
+intro: |
+  Batch rename files with Perl-style regex substitutions, extension replacements, and options for simulation or interactive use.
+links:
+  - title: rename homepage
+    url: http://plasmasturm.org/code/rename/
+  - title: rename tutorial
+    url: http://plasmasturm.org/code/rename/#TUTORIAL
 tier: t3
 last_verified_with: "rename 1.601."
 updated: 2026-11-26

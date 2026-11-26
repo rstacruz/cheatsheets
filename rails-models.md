@@ -2,6 +2,15 @@
 title: Rails models
 subtitle: ActiveRecord model reference
 category: Rails
+intro: |
+  Rails models wrap database tables with Active Record: associations, validations, queries, callbacks, and persistence.
+links:
+  - title: Active Record basics
+    url: https://guides.rubyonrails.org/active_record_basics.html
+  - title: Active Record query interface
+    url: https://guides.rubyonrails.org/active_record_querying.html
+  - title: ActiveRecord::Base API
+    url: https://api.rubyonrails.org/classes/ActiveRecord/Base.html
 tier: t3
 last_verified_with: "Rails 8.1.4.1."
 updated: 2026-11-26

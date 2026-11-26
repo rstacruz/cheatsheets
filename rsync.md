@@ -1,6 +1,11 @@
 ---
 title: Rsync
 subtitle: File sync utility
+intro: |
+  A quick reference for rsync commands and flags covering syncing directories, filtering files, compression, backups, and updates.
+links:
+  - title: rsync(1) manual
+    url: https://download.samba.org/pub/rsync/rsync.1
 category: Networking
 weight: -1
 updated: 2026-11-26

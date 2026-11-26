@@ -25,7 +25,7 @@ links:
 
 <!--@include: ./parts/basics.md-->
 ```
-<!-- {: data-highlight="<!--@include: ./parts/basics.md-->"} -->
+<!-- {: data-highlight="./parts/basics.md"} -->
 
 **Inlines another Markdown file.** Paths are relative to the current page; `@` starts at the site root. See [file inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion).
 

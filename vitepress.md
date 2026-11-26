@@ -21,7 +21,7 @@ fragments:
   - "::: tip"
   - "::: code-group"
   - "<!--@include:"
-  - "withMermaid"
+  - "enhanceApp"
 keywords:
   - vitepress
   - vitepress config
@@ -283,13 +283,13 @@ See: [Customizing CSS](https://vitepress.dev/guide/extending-default-theme#custo
 ```md
 # Counter
 
-<Counter :start="3" />
+<Counter />
 
 <script setup>
 import Counter from '../components/Counter.vue'
 </script>
 ```
-<!-- {: data-highlight="<Counter :start="3" />"} -->
+<!-- {: data-highlight="<Counter />"} -->
 
 Any `.vue` file works in Markdown. Register widely used components in `enhanceApp` inside `theme/index.ts` instead of importing them per page.
 

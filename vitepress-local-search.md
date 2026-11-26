@@ -20,8 +20,9 @@ links:
 ### Enable local search
 <!-- {: .-snippet} -->
 
+#### docs/.vitepress/config.mts
+
 ```ts
-// docs/.vitepress/config.mts
 themeConfig: {
   search: {
     provider: 'local'
@@ -65,7 +66,7 @@ search: {
 ```
 <!-- {: data-highlight="fuzzy: 0.2; prefix: true"} -->
 
-**Accepts typos and partial words.** `fuzzy` is the edit distance ratio and `prefix` matches from the start of a term. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
+**Accepts typos and partial words.** `fuzzy` sets how many characters may differ and `prefix` matches from the start of a term. See [miniSearch options](https://vitepress.dev/reference/default-theme-search#minisearch-options).
 
 ### Translate the UI
 <!-- {: .-snippet} -->

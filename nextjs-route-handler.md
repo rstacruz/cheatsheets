@@ -57,4 +57,4 @@ export async function POST(request: Request) {
 ```
 <!-- {: data-highlight="request.json()"} -->
 
-**Reads JSON from the request body.** Return a status code in the second argument; unsupported methods answer with 405. See [HTTP methods](https://nextjs.org/docs/app/api-reference/file-conventions/route#http-methods).
+**Reads JSON from the request body.** Return a status code in the second argument; unsupported methods answer with 405. See [HTTP methods](https://nextjs.org/docs/app/getting-started/route-handlers).

@@ -44,6 +44,7 @@ links:
 ---
 
 ## Quick start
+<!-- {: .-three-column} -->
 
 ### Create a project
 
@@ -53,7 +54,7 @@ cd my-app
 npm run dev
 ```
 
-The scaffold prompts for TypeScript, Tailwind, and the App Router. The dev server listens on port 3000.
+The recommended defaults include TypeScript, Tailwind, and the App Router. The dev server listens on port 3000.
 
 See: [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
 
@@ -115,6 +116,7 @@ export default function Page() {
   return <h1>Hello Next.js</h1>
 }
 ```
+<!-- {: data-highlight="Page"} -->
 
 The root layout is required and must render `<html>` and `<body>`. Layouts wrap child routes and keep their state on navigation; pages render the route's own UI.
 
@@ -178,6 +180,7 @@ export default function Loading() {
   return <p>Loading posts...</p>
 }
 ```
+<!-- {: data-highlight="Loading"} -->
 
 #### app/blog/error.tsx
 
@@ -188,13 +191,13 @@ export default function Error({ reset }: { reset: () => void }) {
   return <button onClick={reset}>Try again</button>
 }
 ```
-<!-- {: data-highlight="reset"} -->
+<!-- {: data-highlight="Error; reset"} -->
 
 `loading.tsx` wraps the segment in Suspense. `error.tsx` must be a Client Component and receives the error plus a `reset` function. Call `notFound()` to render `not-found.tsx`.
 
 See: [loading.js](https://nextjs.org/docs/app/api-reference/file-conventions/loading)
 
-## Server and Client Components
+## Server and client components
 
 ### Server components
 
@@ -262,6 +265,18 @@ See: [Passing data](https://nextjs.org/docs/app/getting-started/server-and-clien
 
 ## Data fetching and caching
 
+### Two caching models
+
+| Model | Use when |
+| --- | --- |
+| Cache Components | New apps; `use cache` |
+| Fetch options | Apps without `cacheComponents`; `force-cache` |
+<!-- {: .-headers} -->
+
+Next.js 16.4 scaffolds enable `cacheComponents` and `partialPrefetching`. With the flag on, exporting `dynamic` or `revalidate` makes the build error; the fetch-option cards below apply when it is off.
+
+See: [Cache Components](https://nextjs.org/docs/app/getting-started/caching)
+
 ### Fetch in a page
 
 ```tsx
@@ -273,7 +288,7 @@ export default async function Page() {
 ```
 <!-- {: data-highlight="await fetch"} -->
 
-`fetch` is available directly in Server Components. Without a cache option it is not cached, but a static route still fetches once during `next build` because the route is prerendered.
+`fetch` works in Server Components. Without Cache Components, requests are uncached but a static route still fetches once during `next build`. With `cacheComponents` on, data is dynamic by default.
 
 See: [fetch](https://nextjs.org/docs/app/api-reference/functions/fetch)
 
@@ -286,7 +301,7 @@ const res = await fetch(url, {
 ```
 <!-- {: data-highlight="'force-cache'"} -->
 
-`force-cache` stores the response across requests. Only 200 responses are cached, and the URL, method, headers, and body form the cache key.
+Without Cache Components, `force-cache` stores the response across requests. Only 200 responses are cached, and the URL, method, headers, and body form the cache key.
 
 See: [cache options](https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache)
 
@@ -308,7 +323,7 @@ export const revalidate = 60
 ```
 <!-- {: data-highlight="export const revalidate"} -->
 
-`next.revalidate` sets a per-request lifetime in seconds. The route segment `revalidate` export sets a default for the page or layout; the lowest value in the route wins.
+Without Cache Components, `next.revalidate` sets a per-request lifetime in seconds. The route segment `revalidate` export sets a default for the page or layout; the lowest value in the route wins. With `cacheComponents` on, use `cacheLife` instead.
 
 See: [revalidate](https://nextjs.org/docs/app/api-reference/functions/fetch#optionsnextrevalidate)
 
@@ -340,7 +355,7 @@ Tags mark cached data for on-demand invalidation. The second `revalidateTag` arg
 
 See: [revalidateTag](https://nextjs.org/docs/app/api-reference/functions/revalidateTag)
 
-### Cache a query with Cache Components
+### Cache a database query
 
 ```tsx
 import { cacheLife, cacheTag } from 'next/cache'
@@ -354,7 +369,7 @@ async function getPosts() {
 ```
 <!-- {: data-highlight="'use cache'"} -->
 
-`use cache` caches the result of an async function. Enable it with `cacheComponents: true` in `next.config.js`, and pair it with `cacheLife` so the entry has a lifetime.
+With Cache Components, `use cache` caches the result of an async function. Enable it with `cacheComponents: true` in `next.config.js`; pair it with `partialPrefetching: true`. `cacheLife` sets the lifetime, or the default profile applies.
 
 See: [use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 
@@ -374,7 +389,7 @@ export async function POST(request: Request) {
   return Response.json(body, { status: 201 })
 }
 ```
-<!-- {: data-highlight="Response.json"} -->
+<!-- {: data-highlight="GET; POST; Response.json"} -->
 
 A `route.ts` file handles HTTP methods directly. Unsupported methods return 405; a route file cannot sit beside a `page.tsx` in the same segment.
 
@@ -429,13 +444,13 @@ export async function GET() {
 ```
 <!-- {: data-highlight="'force-static'"} -->
 
-Route handlers are not cached by default. Opt a `GET` handler into static rendering with `dynamic = 'force-static'`; other methods are never cached.
+Without Cache Components, route handlers are not cached by default. Opt a `GET` handler into static rendering with `dynamic = 'force-static'`; other methods are never cached. Exporting `dynamic` errors when `cacheComponents` is on.
 
 See: [Caching](https://nextjs.org/docs/app/getting-started/route-handlers#caching)
 
 ## Mutations
 
-### Define a Server Action
+### Define a server action
 
 #### app/lib/actions.ts
 
@@ -541,6 +556,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === '/login') return
   const session = request.cookies.get('session')
   if (!session) {
     return NextResponse.redirect(new URL('/login', request.url))
@@ -549,7 +565,7 @@ export function proxy(request: NextRequest) {
 ```
 <!-- {: data-highlight="request.cookies.get('session')"} -->
 
-Proxy can redirect unauthenticated users, but it is not a security boundary. Check authorization again inside Server Actions and Route Handlers.
+Proxy can redirect unauthenticated users, but it is not a security boundary. Skip the login path so unauthenticated visitors can reach it, and check authorization again inside Server Actions and Route Handlers.
 
 See: [Data security](https://nextjs.org/docs/app/guides/data-security)
 
@@ -574,7 +590,7 @@ const nextConfig = {
 
 module.exports = nextConfig
 ```
-<!-- {: data-highlight="redirects()"} -->
+<!-- {: data-highlight="module.exports = nextConfig"} -->
 
 `next.config.js` is loaded at build time; restart the dev server after editing it. A `next.config.ts` file works the same way.
 
@@ -617,7 +633,7 @@ export function authHeader() {
 ```
 <!-- {: data-highlight="API_SECRET"} -->
 
-Only `NEXT_PUBLIC_` variables are inlined into the browser bundle. Everything else stays on the server, so never put a secret behind the public prefix. Rebuild after changing them.
+Only `NEXT_PUBLIC_` variables are inlined into the browser bundle. Everything else stays on the server, so never put a secret behind the public prefix. Rebuild after changing `NEXT_PUBLIC_` variables.
 
 See: [Environment variables](https://nextjs.org/docs/app/guides/environment-variables)
 

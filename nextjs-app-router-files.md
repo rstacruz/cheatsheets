@@ -27,7 +27,7 @@ app/
   blog/[slug]/page.tsx  # /blog/:slug
   api/hello/route.ts    # /api/hello
 ```
-<!-- {: data-highlight="page.tsx"} -->
+<!-- {: data-highlight="page.tsx; route.ts"} -->
 
 **Maps files to URLs.** A folder is routable only when it holds `page.tsx` or `route.ts`; `layout.tsx` wraps every child segment. See [project structure](https://nextjs.org/docs/app/getting-started/project-structure).
 

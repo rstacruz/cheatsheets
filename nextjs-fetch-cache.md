@@ -24,7 +24,7 @@ const res = await fetch(url, {
 ```
 <!-- {: data-highlight="'force-cache'"} -->
 
-**Reuses a stored response across requests.** Without a cache option, `fetch` is not cached; a static route still fetches once during `next build`. See [cache options](https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache).
+**Reuses a stored response.** Without Cache Components, a request with no cache option is not cached; a static route still fetches once during `next build`. See [cache options](https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache).
 
 ### Revalidate on a timer
 <!-- {: .-snippet} -->
@@ -36,7 +36,7 @@ const res = await fetch(url, {
 ```
 <!-- {: data-highlight="revalidate: 60"} -->
 
-**Sets a lifetime in seconds.** After 60 seconds the next request refetches in the background and caches the new response. See [revalidate](https://nextjs.org/docs/app/api-reference/functions/fetch#optionsnextrevalidate).
+**Sets a lifetime in seconds.** Without Cache Components, after 60 seconds the next request refetches in the background and caches the new response. See [revalidate](https://nextjs.org/docs/app/api-reference/functions/fetch#optionsnextrevalidate).
 
 ### Opt out of caching
 <!-- {: .-snippet} -->
@@ -48,7 +48,7 @@ const res = await fetch(url, {
 ```
 <!-- {: data-highlight="'no-store'"} -->
 
-**Fetches on every request.** Use it for per-user or rapidly changing data; the route becomes dynamic. See [no-store](https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache).
+**Fetches on every request.** Without Cache Components, use it for per-user or rapidly changing data; the route becomes dynamic. See [no-store](https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache).
 
 ### Cache a database query
 <!-- {: .-snippet} -->
@@ -65,4 +65,4 @@ async function getPosts() {
 ```
 <!-- {: data-highlight="'use cache'"} -->
 
-**Caches a function result.** Enable `cacheComponents` in `next.config.js`; `cacheLife` sets the lifetime and `cacheTag` allows invalidation. See [use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache).
+**Caches a function result.** This card requires `cacheComponents`; the fetch options above do not. `cacheLife` sets the lifetime and `cacheTag` allows invalidation. See [use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache).

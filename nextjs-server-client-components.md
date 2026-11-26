@@ -55,4 +55,4 @@ export default function Page() {
 ```
 <!-- {: data-highlight="<Counter"} -->
 
-**Keeps the page on the server.** The page stays a Server Component; only `Counter` and its imports are sent to the browser. See [composition](https://nextjs.org/docs/app/getting-started/server-and-client-components#composition-patterns).
+**Keeps the page on the server.** The page stays a Server Component; only `Counter` and its imports are sent to the browser. See [composition](https://nextjs.org/docs/app/getting-started/server-and-client-components#interleaving-server-and-client-components).

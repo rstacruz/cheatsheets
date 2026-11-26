@@ -13,11 +13,9 @@ export async function GET() {
 
   // Search engines ignore priority/changefreq; lastmod must be a real edit
   for (const page of visiblePages) {
-    const url = `${site.url}/${page.slug}`
-    const lastmod = page.frontmatter.updated
-      ? `<lastmod>${page.frontmatter.updated.toISOString().slice(0, 10)}</lastmod>`
-      : ''
-    lines.push(`<url><loc>${url}</loc>${lastmod}</url>`)
+    lines.push(
+      sitemapEntry(`${site.url}/${page.slug}`, page.frontmatter.updated)
+    )
   }
 
   lines.push(`</urlset>`)

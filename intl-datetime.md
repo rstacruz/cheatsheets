@@ -46,7 +46,7 @@ new Intl.DateTimeFormat().format(date)
 ```
 <!-- {: data-highlight="format(date)"} -->
 
-Examples assume a browser in America/Los_Angeles, and later cards reuse this `date`. `format()` takes a `Date` or a timestamp; build one formatter and reuse it in loops.
+Examples assume a browser in America/Los_Angeles with the en-US locale, and later cards reuse this `date`. `format()` takes a `Date` or a timestamp; build one formatter and reuse it in loops.
 
 See: [format()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format)
 
@@ -62,7 +62,7 @@ format('en-GB')  // → '20/12/2012'
 format('de-DE')  // → '20.12.2012'
 format('ja-JP')  // → '2012/12/20'
 ```
-<!-- {: data-highlight="'de-DE'"} -->
+<!-- {: data-highlight="'en-US'; 'en-GB'; 'de-DE'; 'ja-JP'"} -->
 
 Field order, separators, and digits come from CLDR data, so the same `Date` prints differently per locale. Unsupported tags fall back to the runtime default.
 
@@ -95,7 +95,7 @@ new Intl.DateTimeFormat(undefined, opts).format(date)
 ```
 <!-- {: data-highlight="'default'; undefined"} -->
 
-`'default'` and `undefined` both mean the runtime's own locale.
+`undefined` means the runtime's locale; `'default'` lands on the same locale because it is an unsupported tag that negotiation drops.
 
 See: [locales argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 

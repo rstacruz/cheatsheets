@@ -58,14 +58,18 @@ new Intl.DateTimeFormat('en-US', {
 
 **Appends the offset instead of a region name.** `'short'` uses an abbreviation when the zone has one; `'longGeneric'` drops daylight saving; see [timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename).
 
-### List the known zones
+### Catch an unknown zone
 <!-- {: .-snippet} -->
 
 ```js
-Intl.supportedValuesOf('timeZone')
-  .includes('Asia/Tokyo')
-// → true
+try {
+  new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Mars/Base'
+  })
+} catch (error) {
+  error.name // → 'RangeError'
+}
 ```
-<!-- {: .-wrap data-highlight="supportedValuesOf"} -->
+<!-- {: .-wrap data-highlight="catch"} -->
 
-**Checks a zone before passing it through.** An unknown name throws a `RangeError` when the formatter is built; see [Intl.supportedValuesOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf).
+**An unknown zone throws when the formatter is built.** Membership in `Intl.supportedValuesOf('timeZone')` is not a substitute: that list leaves out `UTC` and aliases such as `US/Pacific`; see [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone).

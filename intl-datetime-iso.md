@@ -52,7 +52,7 @@ iso // → '2026-11-26'
 
 ```js
 new Date(2026, 10, 26, 15, 30).toISOString()
-// → '2026-11-26T23:30:00.000Z'
+// → '2026-11-26T23:30:00.000Z' (UTC-8)
 ```
 <!-- {: .-wrap data-highlight="toISOString"} -->
 

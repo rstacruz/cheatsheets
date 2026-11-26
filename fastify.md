@@ -3,7 +3,7 @@ title: Fastify
 subtitle: Fast Node.js web framework
 category: Node.js
 last_verified_with: "Fastify 5.12."
-updated: 2026-11-14
+updated: 2026-11-26
 tier: t3
 intro: |
   [Fastify](https://fastify.dev) is a Node.js web framework with a fast router, JSON-schema validation, and a pino logger. This reference targets Fastify v5.
@@ -477,3 +477,8 @@ test('GET /', async (t) => {
 Call the same `build()` helper the server calls, so tests exercise the real plugin tree.
 
 See: [Testing](https://fastify.dev/docs/latest/Guides/Testing/)
+
+## Also see
+
+[Express cheatsheet](./express)
+<!-- {: .-crosslink} -->

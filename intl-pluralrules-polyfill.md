@@ -1,0 +1,61 @@
+---
+title: How to polyfill Intl.PluralRules
+link_title: PluralRules polyfill
+subtitle: For Hermes and old engines
+category: Browser APIs
+layout: snippet
+last_verified_with: "intl-pluralrules 2.0.1, Node 26.13.1."
+updated: 2026-11-26
+links:
+  - title: intl-pluralrules on npm
+    url: https://www.npmjs.com/package/intl-pluralrules
+  - title: intl-pluralrules README
+    url: https://github.com/eemeli/intl-pluralrules
+---
+
+## Polyfilling PluralRules
+<!-- {: .-snippets} -->
+
+### Install
+<!-- {: .-snippet} -->
+
+```sh
+npm install intl-pluralrules
+```
+<!-- {: data-highlight="npm install"} -->
+
+**Installs the polyfill.** Version 2 adds `selectRange()` and fraction-digit support. See [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules).
+
+### Import once
+<!-- {: .-snippet} -->
+
+```js
+import 'intl-pluralrules'
+```
+<!-- {: data-highlight="intl-pluralrules"} -->
+
+**Loads it before any translation code.** The package keeps a complete native implementation and fills only missing methods and locales. See [README](https://github.com/eemeli/intl-pluralrules).
+
+### Cover React Native's Hermes
+<!-- {: .-snippet} -->
+
+```js
+// App.tsx, with Hermes
+import 'intl-pluralrules'
+```
+<!-- {: data-highlight="Hermes"} -->
+
+**Fixes silent English fallback on Hermes.** Hermes has no full `Intl`, so i18next pluralization needs the polyfill. See [React Native and Expo](https://www.i18next.com/react/react-native).
+
+### Use the ponyfill
+<!-- {: .-snippet} -->
+
+```js
+import PluralRules
+  from 'intl-pluralrules/plural-rules'
+
+new PluralRules('en').select(1)  // → 'one'
+```
+<!-- {: data-highlight="intl-pluralrules/plural-rules"} -->
+
+**Leaves `Intl` untouched.** The ponyfill avoids patching globals and supports `selectRange()`. See [README](https://github.com/eemeli/intl-pluralrules).

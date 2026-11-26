@@ -36,7 +36,8 @@ Interval.fromDateTimes(start, end).toISODate()
 <!-- {: .-snippet} -->
 
 ```js
-const range = Interval.fromDateTimes(start, end)
+const range = Interval.fromISO(
+  '2026-01-01T09:00Z/2026-01-15T17:30Z')
 
 range.length('hours')   // 344.5
 range.count('days')     // 15
@@ -49,6 +50,9 @@ range.count('days')     // 15
 <!-- {: .-snippet} -->
 
 ```js
+const range = Interval.fromISO(
+  '2026-01-01T09:00Z/2026-01-15T17:30Z')
+
 range.splitBy({ days: 7 })
   .map((part) => part.toISODate())
 // ["2026-01-01/2026-01-08",
@@ -63,22 +67,27 @@ range.splitBy({ days: 7 })
 <!-- {: .-snippet} -->
 
 ```js
+const range = Interval.fromISO(
+  '2026-01-01T09:00Z/2026-01-15T17:30Z')
 const noon = DateTime.fromISO('2026-01-10T12:00',
   { zone: 'utc' })
 
-range.contains(noon)   // true
-range.contains(end)    // false
-range.contains(end, { inclusive: true })
+range.contains(noon)      // true
+range.contains(range.end) // false
+range.contains(range.end.minus({ seconds: 1 }))
 // true
 ```
-<!-- {: data-highlight="inclusive: true"} -->
+<!-- {: data-highlight="minus("} -->
 
-**Endpoints are excluded by default.** Pass `inclusive` to include them; see [contains](https://moment.github.io/luxon/api-docs/index.html).
+**The end is exclusive.** Test the last instant with `minus()`; see [contains](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Overlaps
 <!-- {: .-snippet} -->
 
 ```js
+const range = Interval.fromISO(
+  '2026-01-01T09:00Z/2026-01-15T17:30Z')
+
 const next = Interval.fromDateTimes(
   range.start.plus({ days: 5 }),
   range.end

@@ -183,16 +183,6 @@ See: [Conversion](https://day.js.org/docs/en/display/as-iso-string)
 | `ZZ`  | `+0000`    |
 <!-- {: .-headers} -->
 
-#### Epoch
-
-| Token | Output          |
-| ----- | --------------- |
-| `X`   | `1402306325`    |
-| `x`   | `1402306325123` |
-<!-- {: .-headers} -->
-
-The `X` and `x` tokens emit seconds and milliseconds.
-
 See: [Format](https://day.js.org/docs/en/display/format)
 
 ### Named formats
@@ -214,7 +204,9 @@ The `L` family follows the active locale, so date order adapts per language.
 
 See: [Localized format](https://day.js.org/docs/en/plugin/localized-format)
 
-### Ordinal formats
+### Advanced tokens
+
+#### Ordinal
 
 ```js
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
@@ -226,7 +218,15 @@ dayjs('2014-06-09').format('Q')          // 2
 ```
 <!-- {: data-highlight="'Do MMM YY'"} -->
 
-`Do` adds the ordinal suffix and `Q` emits the quarter.
+#### Epoch
+
+```js
+dayjs('2014-06-09T09:32:05Z').format('X')  // "1402306325"
+dayjs('2014-06-09T09:32:05Z').format('x')  // "1402306325123"
+```
+<!-- {: data-highlight="format('X')"} -->
+
+`Do` adds the ordinal suffix, `Q` emits the quarter, and `X`/`x` emit Unix seconds and milliseconds.
 
 See: [Advanced format](https://day.js.org/docs/en/plugin/advanced-format)
 
@@ -426,7 +426,8 @@ dayjs.extend(utc)
 
 const d = dayjs.utc('2014-06-09T09:32Z')
 
-d.format()     // "2014-06-09T09:32:00+00:00"
+d.format('YYYY-MM-DDTHH:mm:ssZ')
+// "2014-06-09T09:32:00+00:00"
 d.isUTC()      // true
 d.utcOffset()  // 0
 ```

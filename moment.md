@@ -26,12 +26,12 @@ See: [Project status](https://momentjs.com/news/)
 
 | Library | Notes |
 | --- | --- |
-| [Day.js](https://day.js.org/) | ~2 kB, Moment-compatible API |
+| [Day.js](https://day.js.org/) | ~3 kB, Moment-compatible API |
 | [date-fns](https://date-fns.org/) | Functions, tree-shakeable, immutable |
 | [Luxon](https://moment.github.io/luxon/) | `Intl` zones and locales |
 | [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) | Built into the language |
 
-Temporal is Stage 4 (ES2026) and ships in Chrome and Edge 144+, Firefox 139+, and Node 26; Safari needs a polyfill.
+Temporal is Stage 4 (ES2026) and ships in Chrome and Edge 144+, Firefox 139+, Safari 27.3+, and Node 26.
 
 See: [You don't need Moment.js](https://github.com/you-dont-need/You-Dont-Need-Momentjs)
 
@@ -58,7 +58,7 @@ See: [Parsing](https://momentjs.com/docs/#/parsing/)
 m.format()              // ISO 8601 with offset
 m.format('dddd')        // "Friday"
 m.format('MMM Do YY')   // "Mar 1st 13"
-m.fromNow()             // "7 years ago"
+m.from(moment('2013-03-08'))  // "7 days ago"
 m.calendar()            // "03/01/2013"
 m.diff(other, 'days')   // whole days
 m.unix()                // seconds
@@ -103,7 +103,7 @@ See: [Query](https://momentjs.com/docs/#/query/)
 const d = moment.duration(2, 'days')
 d.asHours()                                  // 48
 d.humanize()                                 // "2 days"
-moment.duration(90, 'minutes').humanize()    // "an hour"
+moment.duration(90, 'minutes').humanize()    // "2 hours"
 ```
 
 Durations convert units, and can be passed to `m.add(d)` or `m.subtract(d)`.

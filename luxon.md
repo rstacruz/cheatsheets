@@ -130,14 +130,14 @@ See: [Math](https://moment.github.io/luxon/#/math)
 | `x`    | `1402306325123` |
 <!-- {: .-headers} -->
 
-Luxon tokens are case-sensitive and mostly unpunctuated: `yyyy` is a year, `YYYY` is not. The `X` and `x` tokens emit seconds and milliseconds.
+Luxon tokens are case-sensitive and mostly unpunctuated: `yyyy` is a year, `YYYY` is not. The `X` and `x` tokens emit seconds and milliseconds. The outputs assume a UTC instance.
 
 See: [Formatting](https://moment.github.io/luxon/#/formatting)
 
 ### Locale presets
 
 ```js
-const d = DateTime.fromISO('2014-06-09T09:32:05Z')
+const d = DateTime.fromISO('2014-06-09T09:32:05Z', { zone: 'utc' })
 
 d.toLocaleString(DateTime.DATE_FULL)
 // "June 9, 2014"
@@ -155,7 +155,7 @@ See: [Locale strings](https://moment.github.io/luxon/#/formatting?id=presets)
 ### Custom locale
 
 ```js
-const d = DateTime.fromISO('2014-06-09T09:32:05Z')
+const d = DateTime.fromISO('2014-06-09T09:32:05Z', { zone: 'utc' })
 
 d.setLocale('fr').toLocaleString(DateTime.DATE_FULL)
 // "9 juin 2014"
@@ -183,9 +183,10 @@ See: [Escaping](https://moment.github.io/luxon/#/formatting?id=escaping)
 ### ISO output
 
 ```js
-const d = DateTime.fromISO('2014-06-09T09:32:05.123Z')
+const d = DateTime.fromISO('2014-06-09T09:32:05.123Z',
+  { zone: 'Asia/Tokyo' })
 
-d.toISO()          // "2014-06-09T09:32:05.123+00:00"
+d.toISO()          // "2014-06-09T18:32:05.123+09:00"
 d.toUTC().toISO()  // "2014-06-09T09:32:05.123Z"
 d.toISODate()      // "2014-06-09"
 d.toISOWeekDate()  // "2014-W24-1"
@@ -201,9 +202,10 @@ See: [ISO](https://moment.github.io/luxon/#/formatting?id=iso-8601)
 #### Exact
 
 ```js
-const d = DateTime.fromISO('2014-06-09T09:32Z')
+const d = DateTime.fromISO('2014-06-09T09:32Z', { zone: 'utc' })
+const base = DateTime.fromISO('2014-06-19T09:32Z', { zone: 'utc' })
 
-d.toRelative({ base: DateTime.fromISO('2014-06-19T09:32Z') })
+d.toRelative({ base })
 // "10 days ago"
 ```
 
@@ -477,11 +479,11 @@ range.contains(DateTime.fromISO('2026-01-10T00:00',
   { zone: 'America/New_York' }))   // true
 
 range.contains(end)                        // false
-range.contains(end, { inclusive: true })   // true
+range.contains(end.minus({ seconds: 1 }))  // true
 ```
-<!-- {: data-highlight="inclusive: true"} -->
+<!-- {: data-highlight="end.minus("} -->
 
-Endpoints are excluded by default; pass `inclusive` to count them.
+The end is exclusive; test the last instant with `minus()`.
 
 See: [Contains](https://moment.github.io/luxon/api-docs/index.html)
 
@@ -565,7 +567,8 @@ See: [Info](https://moment.github.io/luxon/api-docs/index.html)
 ### Week numbers
 
 ```js
-const d = DateTime.fromISO('2026-11-26')
+const d = DateTime.fromISO('2026-11-26', { zone: 'utc' })
+  .setLocale('en-US')
 
 d.weekNumber       // 48 (ISO)
 d.localWeekNumber  // 47 (US)

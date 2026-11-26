@@ -158,6 +158,7 @@ block with an arrow:
 - Put the link on its own paragraph, with the attribute comment on the next line.
 - Link text: the target sheet's title plus "cheatsheet".
 - Link with a page-relative path, eg `./js-string`.
+- Reserve cross-links for directly related sheets: a sibling version, a successor, or the same family. Two languages from different ecosystems are not related, even when they look alike; leave the other sheet out.
 
 A sheet can also act as an **index** for a family of sheets: [javascript.md](/javascript)
 links to every core JavaScript sheet, and [phoenix.md](/phoenix) links to the

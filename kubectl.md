@@ -100,7 +100,7 @@ Prints the API reference for a field, including the values it accepts. `--recurs
 
 See: [kubectl explain](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_explain/)
 
-## Logs and shell
+## Logs, shell and files
 <!-- {: .-three-column} -->
 
 ### `logs` - Read pod logs
@@ -183,7 +183,7 @@ kubectl diff -f deployment.yaml
 ```
 <!-- {: data-highlight="kubectl diff"} -->
 
-Prints a unified diff of the live object against the file. It exits 1 when the cluster differs and 0 when the file matches.
+Prints a unified diff of the live object against the file, so you can review changes before applying them.
 
 See: [kubectl diff](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_diff/)
 
@@ -202,6 +202,18 @@ kubectl create namespace staging \
 `--dry-run=client -o yaml` writes a starter manifest without touching the cluster.
 
 See: [kubectl create](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/)
+
+### `edit` - Change a live object
+
+```bash
+kubectl edit deploy/web
+kubectl edit svc/web
+```
+<!-- {: data-highlight="kubectl edit"} -->
+
+Opens the live object in your editor and applies it when you save. Handy for a quick image or replica change without a manifest.
+
+See: [kubectl edit](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_edit/)
 
 ### `delete` - Delete resources
 
@@ -270,7 +282,7 @@ Reverts to the previous revision, or the one named with `--to-revision`.
 
 See: [kubectl rollout undo](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_undo/)
 
-### `scale` - Change replicas
+### `scale` / `autoscale` - Change replicas
 
 ```bash
 kubectl scale deploy/web --replicas=3
@@ -315,8 +327,8 @@ See: [kubectl config use-context](https://kubernetes.io/docs/reference/kubectl/g
 ```bash
 kubectl config set-context --current \
   --namespace=staging
-kubectl config view --minify --output \
-  'jsonpath={..namespace}'
+kubectl config view --minify \
+  -o jsonpath='{..namespace}'
 ```
 <!-- {: data-highlight="--namespace=staging"} -->
 
@@ -328,11 +340,11 @@ See: [kubectl config set-context](https://kubernetes.io/docs/reference/kubectl/g
 
 ```bash
 kubectl get pods -n staging
-kubectl create namespace staging
+kubectl get pods --all-namespaces
 ```
 <!-- {: data-highlight="-n staging"} -->
 
-`-n` applies to one command; `--all-namespaces` covers every namespace. Namespaces must exist before objects land in them.
+`-n` applies to one command; `--all-namespaces` covers every namespace.
 
 See: [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 
@@ -362,7 +374,7 @@ kubectl top pod web-0 --containers
 ```
 <!-- {: data-highlight="kubectl top"} -->
 
-Requires metrics-server. Without the API kubectl errors, and a pod with no sample reports its metrics as not found.
+Requires metrics-server; without it the command fails, and a pod that has not been sampled yet has no metrics to show.
 
 See: [kubectl top](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/)
 

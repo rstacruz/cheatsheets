@@ -44,7 +44,7 @@ kubectl logs --previous -l app=web
 
 **Reads the previous logs of every matching pod.** A pod that never restarted has no previous logs, which stops the run; add `--ignore-errors` to skip it. See [kubectl logs](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/).
 
-### Follow the restarts
+### Stream the current log
 <!-- {: .-snippet} -->
 
 ```bash

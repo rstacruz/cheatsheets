@@ -185,7 +185,7 @@ router.get('/:id', getUser)
 
 export default router
 ```
-<!-- {: data-highlight="Router"} -->
+<!-- {: data-highlight="Router()"} -->
 
 #### app.js
 

@@ -2,7 +2,7 @@
 title: How to delete a Git branch
 link_title: Git delete branch
 subtitle: Delete local and remote branches
-category: Git
+category: Git workflows
 layout: snippet
 last_verified_with: "git 2.56.0."
 updated: 2026-11-23

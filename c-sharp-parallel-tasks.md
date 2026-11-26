@@ -70,6 +70,12 @@ var timeout = Task.Delay(1000);
 var done = await Task.WhenAny(all, timeout);
 
 Console.WriteLine(done == all);   // True
+
+static async Task<int> LoadAsync(int id)
+{
+    await Task.Delay(10);
+    return id * 10;
+}
 ```
 <!-- {: data-highlight="Task.WhenAny"} -->
 

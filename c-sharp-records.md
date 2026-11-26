@@ -85,15 +85,21 @@ Console.WriteLine(a == changed);   // False
 ### Use a record struct
 <!-- {: .-snippet} -->
 
+#### Point.cs
+
 ```csharp
 public readonly record struct Point(
     int X, int Y);
+```
+<!-- {: data-highlight="record struct"} -->
 
+#### Program.cs
+
+```csharp
 var p = new Point(1, 2);
 var q = p with { X = 3 };
 
 Console.WriteLine(q);   // Point { X = 3, Y = 2 }
 ```
-<!-- {: data-highlight="record struct"} -->
 
 **Gives a struct value equality.** `record struct` stays a value type; see [Record structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#record-struct).

@@ -134,6 +134,20 @@ var label = $"{name}: {count}";
 
 See: [Declarations](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/declarations)
 
+### Literals
+
+```csharp
+var million = 1_000_000;
+var mask = 0b1010_0000;
+var hex = 0xAB_CD;
+var half = 0.5f;
+```
+<!-- {: data-highlight="1_000_000; 0b"} -->
+
+`_` groups digits, while `0b` and `0x` write binary and hex
+
+See: [Integer literals](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#integer-literals)
+
 ### Strings
 
 ```csharp
@@ -210,6 +224,23 @@ Structs copy on assignment; classes share one instance
 
 See: [Structs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct), [Classes](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes)
 
+### Tuples
+
+```csharp
+var pair = ("Ada", 36);
+Console.WriteLine(pair.Item1);   // Ada
+
+(string Name, int Age) user = ("Ada", 36);
+Console.WriteLine(user.Name);    // Ada
+
+var (name, age) = user;
+```
+<!-- {: data-highlight="(string Name, int Age)"} -->
+
+A tuple groups values positionally; names and deconstruction make it readable
+
+See: [Tuple types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples)
+
 ### Conversions
 
 ```csharp
@@ -258,6 +289,22 @@ name ??= "Ada";
 `?.` short-circuits to null; `??=` assigns when the left side is null
 
 See: [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references)
+
+### Throw on null
+
+```csharp
+string? name = null;
+
+var safe = name ??
+    throw new InvalidOperationException();
+
+Console.WriteLine(safe);
+```
+<!-- {: data-highlight="throw"} -->
+
+`throw` is an expression, so `??` can reject null inline
+
+See: [throw expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-expression)
 
 ### Enable nullability
 
@@ -797,6 +844,18 @@ dotnet test tests
 See: [dotnet test](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test)
 
 ## Also see
+
+- [C# group by cheatsheet](./c-sharp-linq-group-by)
+- [C# join lists cheatsheet](./c-sharp-linq-join)
+- [C# distinct values cheatsheet](./c-sharp-distinct-by)
+- [C# dictionary cheatsheet](./c-sharp-dictionary-lookup)
+- [C# string to int cheatsheet](./c-sharp-string-to-int)
+- [C# records cheatsheet](./c-sharp-records)
+- [C# switch expression cheatsheet](./c-sharp-switch-expression)
+- [C# nullable types cheatsheet](./c-sharp-nullable-reference-types)
+- [Add a project to a solution cheatsheet](./c-sharp-add-project-to-solution)
+- [C# parallel tasks cheatsheet](./c-sharp-parallel-tasks)
+<!-- {: .-one-column} -->
 
 [TypeScript cheatsheet](./typescript)
 <!-- {: .-crosslink} -->

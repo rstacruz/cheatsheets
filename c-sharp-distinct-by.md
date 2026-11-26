@@ -41,7 +41,7 @@ var people = new[] {
 };
 
 foreach (var p in people.DistinctBy(p => p.City))
-    Console.WriteLine(p.Name);   // Ada, Bob
+    Console.WriteLine(p.Name);
 
 record Person(string Name, string City);
 ```

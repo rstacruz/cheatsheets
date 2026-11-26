@@ -35,15 +35,18 @@ Console.WriteLine(bad);           // False
 <!-- {: .-snippet} -->
 
 ```csharp
+using System.Globalization;
+
 int n = int.Parse("42");
 long big = long.Parse("9999999999");
-double d = double.Parse("3.14");
+double d = double.Parse(
+    "3.14", CultureInfo.InvariantCulture);
 
 Console.WriteLine($"{n} {big} {d}");
 ```
 <!-- {: data-highlight="int.Parse"} -->
 
-**Throws on bad input.** Each numeric type has its own `Parse`; see [Parse](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse).
+**Throws on bad input.** Pass a culture when the format is fixed; see [Parse](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse).
 
 ### Parse formatted numbers
 <!-- {: .-snippet} -->

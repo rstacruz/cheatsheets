@@ -292,5 +292,6 @@ See: [git-worktree](https://git-scm.com/docs/git-worktree)
 ## Also see
 
 - [Git branches cheatsheet](./git-branch)
+- [Git stash cheatsheet](./git-stash)
 - [Git tricks cheatsheet](./git-tricks)
 - [git log cheatsheet](./git-log)

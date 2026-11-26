@@ -46,6 +46,7 @@ export const categories = [
   'JavaScript frameworks',
   'JavaScript testing',
   'Build tools',
+  'Static site generators',
   'SvelteKit',
   'Node.js',
   'Node.js libraries',

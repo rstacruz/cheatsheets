@@ -204,6 +204,14 @@ Don't repeat the same highlight token across cards in a sheet: a tint that keeps
 
 Omit APIs the upstream project marks deprecated. They mislead readers and age faster than a cheatsheet. Replace the card with the current API, or link to the project's migration guide when the deprecated API is the sheet's subject. Keep deprecated versions only in explicitly versioned sheets.
 
+### content/no-github-actions
+
+Don't put GitHub Actions workflow YAML in a sheet unless the sheet is about GitHub Actions. Deployment steps belong in the host's docs. Show the build command and output directory, then link the host's deploy guide.
+
+**Good:** a VitePress sheet shows `pnpm docs:build` and links the deploy page.
+
+**Bad:** the same sheet embeds a 30-line `deploy.yml` for GitHub Pages.
+
 ### code/highlight-parallel-set
 
 When a block lists parallel alternatives — flags, expansion forms, quote

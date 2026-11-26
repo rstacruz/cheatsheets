@@ -83,4 +83,10 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="adapter-static"} -->
 
-**Emits files for any static host.** Use `adapter-static` when no server-side code runs; see [adapter-static](https://svelte.dev/docs/kit/adapter-static).
+#### src/routes/+layout.ts
+
+```ts
+export const prerender = true
+```
+
+**Emits files for any static host.** Every route must be prerendered or given a `fallback`; see [adapter-static](https://svelte.dev/docs/kit/adapter-static).

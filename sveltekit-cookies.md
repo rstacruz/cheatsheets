@@ -84,7 +84,7 @@ export const actions = {
 declare global {
   namespace App {
     interface Locals {
-      user: string | null
+      user: { id: string } | null
     }
   }
 }
@@ -95,15 +95,19 @@ export {}
 
 ```ts
 import type { Handle } from '@sveltejs/kit/hooks'
+import { findUser } from
+  '#lib/server/auth.js'
 
 export const handle: Handle = async (
   { event, resolve }
 ) => {
-  event.locals.user =
-    event.cookies.get('session') ?? null
+  const session = event.cookies.get('session')
+  event.locals.user = session
+    ? await findUser(session)
+    : null
   return resolve(event)
 }
 ```
-<!-- {: data-highlight="event.locals.user"} -->
+<!-- {: data-highlight="findUser(session)"} -->
 
 **Makes the user available to every server load.** Handlers read `locals` instead of the cookie; see [locals](https://svelte.dev/docs/kit/hooks#handle-locals).

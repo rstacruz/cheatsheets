@@ -25,7 +25,7 @@ links:
 declare global {
   namespace App {
     interface Locals {
-      user: string | null
+      user: { id: string } | null
     }
   }
 }
@@ -42,25 +42,29 @@ export {}
 
 ```ts
 import type { Handle } from '@sveltejs/kit/hooks'
+import { findUser } from
+  '#lib/server/auth.js'
 
 export const handle: Handle = async (
   { event, resolve }
 ) => {
-  event.locals.user =
-    event.cookies.get('session') ?? null
+  const session = event.cookies.get('session')
+  event.locals.user = session
+    ? await findUser(session)
+    : null
   return resolve(event)
 }
 ```
-<!-- {: data-highlight="event.cookies.get"} -->
+<!-- {: data-highlight="findUser(session)"} -->
 
-**Runs for every request.** The hook loads the user once, before loads and actions; see [handle](https://svelte.dev/docs/kit/hooks#handle).
+**Looks up the session before every request.** The hook fills `locals` once, before loads and actions; see [handle](https://svelte.dev/docs/kit/hooks#handle).
 
 ### Guard a path
 <!-- {: .-snippet} -->
 
 ```ts
-const isAdmin = event.route.id
-  ?.split('/').includes('admin')
+const isAdmin = (event.route.id ?? '')
+  .split('/').includes('admin')
 
 if (isAdmin && !event.locals.user) {
   redirect(303, '/login')

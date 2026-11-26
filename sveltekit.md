@@ -72,7 +72,7 @@ src/
 #### vite.config.ts
 
 ```ts
-import adapter from '@sveltejs/adapter-node'
+import adapter from '@sveltejs/adapter-auto'
 import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
 
@@ -509,7 +509,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 declare global {
   namespace App {
     interface Locals {
-      user: string | null
+      user: { id: string } | null
     }
   }
 }
@@ -520,8 +520,12 @@ export {}
 #### src/hooks.server.ts
 
 ```ts
+import type { Handle } from '@sveltejs/kit/hooks'
+import { findUser } from '#lib/server/auth.js'
+
 export const handle: Handle = async ({ event, resolve }) => {
-  event.locals.user = event.cookies.get('session') ?? null
+  const session = event.cookies.get('session')
+  event.locals.user = session ? await findUser(session) : null
   return resolve(event)
 }
 ```
@@ -532,10 +536,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 ```ts
 import { redirect } from '@sveltejs/kit'
+import type { Handle } from '@sveltejs/kit/hooks'
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const isAdmin = event.route.id
-    ?.split('/').includes('admin')
+  const isAdmin = (event.route.id ?? '')
+    .split('/').includes('admin')
   if (isAdmin && !event.locals.user) {
     redirect(303, '/login')
   }
@@ -582,6 +587,8 @@ cookies.set('session', token, {
 ### Read a cookie
 
 ```ts
+import { error } from '@sveltejs/kit'
+
 const token = cookies.get('session')
 
 if (!token) error(401, 'Unauthorized')
@@ -773,7 +780,13 @@ export default defineConfig({
 ```
 <!-- {: data-highlight="adapter-static"} -->
 
-`adapter-static` writes HTML files for hosts without a server. See: [adapter-static](https://svelte.dev/docs/kit/adapter-static)
+#### src/routes/+layout.ts
+
+```ts
+export const prerender = true
+```
+
+`adapter-static` writes HTML files for hosts without a server. Every route must be prerendered or given a `fallback`. See: [adapter-static](https://svelte.dev/docs/kit/adapter-static)
 
 ## SvelteKit 3 changes
 

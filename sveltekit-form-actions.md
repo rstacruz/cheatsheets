@@ -77,11 +77,17 @@ export const actions = {
 ```ts
 import { fail } from '@sveltejs/kit'
 
-if (!email.includes('@')) {
-  return fail(400, {
-    email,
-    message: 'Enter a valid email'
-  })
+export const actions = {
+  default: async ({ request }) => {
+    const form = await request.formData()
+    const email = String(form.get('email'))
+    if (!email.includes('@')) {
+      return fail(400, {
+        email,
+        message: 'Enter a valid email'
+      })
+    }
+  }
 }
 ```
 <!-- {: data-highlight="fail(400"} -->

@@ -29,7 +29,7 @@ export const variables = defineEnvVars({
 ```
 <!-- {: data-highlight="defineEnvVars"} -->
 
-**Validates values at startup.** Every variable is private unless it sets `public: true`; see [Environment variables](https://svelte.dev/docs/kit/environment-variables).
+**Declares the variables the app may read.** `{ public: true }` exposes one; add a `schema` to validate at startup; see [Environment variables](https://svelte.dev/docs/kit/environment-variables).
 
 ### Import a secret
 <!-- {: .-snippet} -->

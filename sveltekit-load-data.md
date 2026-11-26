@@ -24,9 +24,9 @@ links:
 ```ts
 import type { PageServerLoad } from './$types'
 
-export async function load(
-  { params }: PageServerLoad
-) {
+export const load: PageServerLoad = async ({
+  params
+}) => {
   const post = await db.post.findUnique({
     where: { slug: params.slug }
   })

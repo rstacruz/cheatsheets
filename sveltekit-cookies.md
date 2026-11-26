@@ -71,7 +71,7 @@ export const actions = {
   }
 }
 ```
-<!-- {: data-highlight="httpOnly"} -->
+<!-- {: data-highlight="redirect(303,"} -->
 
 **Sets the session, then redirects.** The cookie is sent with the redirect response; see [Form actions](https://svelte.dev/docs/kit/form-actions).
 

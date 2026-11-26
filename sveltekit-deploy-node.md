@@ -4,7 +4,7 @@ link_title: SvelteKit Node deploy
 subtitle: Run a Node server
 category: SvelteKit
 layout: snippet
-last_verified_with: "SvelteKit 3.4.1, Node 22.17."
+last_verified_with: "SvelteKit 3.4.1, Node 26.13.1."
 updated: 2026-11-26
 links:
   - title: adapter-node
@@ -62,7 +62,7 @@ PORT=8080 ORIGIN=https://example.com \
 ```
 <!-- {: data-highlight="ORIGIN="} -->
 
-**Overrides the defaults at runtime.** `ORIGIN` is the trusted origin for CSRF checks behind a proxy; see [Environment variables](https://svelte.dev/docs/kit/adapter-node#Environment-variables).
+**Overrides the defaults at runtime.** `ORIGIN` is the trusted origin for CSRF checks behind a proxy; required `src/env.ts` variables must be set too; see [Environment variables](https://svelte.dev/docs/kit/adapter-node#Environment-variables).
 
 ### Build a Docker image
 <!-- {: .-snippet} -->

@@ -59,15 +59,16 @@ export {}
 <!-- {: .-snippet} -->
 
 ```ts
-if (event.url.pathname.startsWith('/admin')) {
-  if (!event.locals.user) {
-    redirect(303, '/login')
-  }
+const isAdmin =
+  event.route.id?.startsWith('/admin')
+
+if (isAdmin && !event.locals.user) {
+  redirect(303, '/login')
 }
 ```
-<!-- {: data-highlight="startsWith('/admin')"} -->
+<!-- {: data-highlight="route.id"} -->
 
-**Redirects anonymous visitors to login.** Guard here, not in a layout load: layout loads can be skipped on client navigation; see [Auth](https://svelte.dev/docs/kit/auth).
+**Matches the routed page, not the raw URL.** `/%61dmin` resolves to `/admin`; prerendered pages bypass `handle`; see [Auth](https://svelte.dev/docs/kit/auth).
 
 ### Read the user in a load
 <!-- {: .-snippet} -->

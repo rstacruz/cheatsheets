@@ -89,4 +89,4 @@ export function load({ url }) {
 ```
 <!-- {: data-highlight="searchParams.get"} -->
 
-**Reads `?q=` from the URL.** Query strings are not params; use `url.searchParams` in a load or `$app/state`; see [Using URL data](https://svelte.dev/docs/kit/load#Using-URL-data).
+**Reads `?q=` from the URL.** Query strings are not params; use `url.searchParams` in a load, or `page.url.searchParams` from `$app/state`; see [Using URL data](https://svelte.dev/docs/kit/load#Using-URL-data).

@@ -3,7 +3,7 @@ title: SvelteKit
 subtitle: Full-stack framework for Svelte
 category: SvelteKit
 updated: 2026-11-26
-last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2, Vite 8.3.8, Node 22.17."
+last_verified_with: "SvelteKit 3.4.1, Svelte 5.59.2, Vite 8.3.8, Node 26.13.1."
 tier: t2
 fragments:
   - "+page.svelte"
@@ -41,7 +41,6 @@ links:
 ---
 
 ## Quick start
-<!-- {: .-two-column} -->
 
 ### Create an app
 
@@ -66,7 +65,7 @@ src/
 └ env.ts           # environment variables
 ```
 
-`src/routes` holds the app; every other file and folder is optional. See: [Project structure](https://svelte.dev/docs/kit/project-structure)
+`src/routes` and `src/app.html` are required; every other file and folder is optional. See: [Project structure](https://svelte.dev/docs/kit/project-structure)
 
 ### Configure the app
 
@@ -128,7 +127,7 @@ The folder name declares the param, so `/blog/hello` gives `slug: 'hello'`. See:
 src/routes/docs/[[lang]]/+page.svelte
 src/routes/files/[...path]/+page.svelte
 ```
-<!-- {: data-highlight="[...path]"} -->
+<!-- {: data-highlight="[[lang]]; [...path]"} -->
 
 `[[lang]]` matches `/docs` and `/docs/fr`; `[...path]` matches `/files/a/b`. See: [Optional parameters](https://svelte.dev/docs/kit/advanced-routing#Optional-parameters)
 
@@ -153,7 +152,7 @@ Layouts wrap child pages and stay mounted across navigation. See: [Layouts](http
 src/routes/(app)/admin/+page.svelte  → /admin
 src/routes/(marketing)/about/+page.svelte
 ```
-<!-- {: data-highlight="(app)"} -->
+<!-- {: data-highlight="(app); (marketing)"} -->
 
 Parentheses group routes and layouts without adding a URL segment. See: [Route groups](https://svelte.dev/docs/kit/advanced-routing#Advanced-layouts-(group))
 
@@ -347,8 +346,17 @@ The `?/register` query selects the `register` action; `action="/login?/register"
 ```ts
 import { fail } from '@sveltejs/kit'
 
-if (!email.includes('@')) {
-  return fail(400, { email, message: 'Enter a valid email' })
+export const actions = {
+  default: async ({ request }) => {
+    const form = await request.formData()
+    const email = String(form.get('email'))
+    if (!email.includes('@')) {
+      return fail(400, {
+        email,
+        message: 'Enter a valid email'
+      })
+    }
+  }
 }
 ```
 <!-- {: data-highlight="fail(400"} -->
@@ -525,15 +533,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 import { redirect } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
-  if (event.url.pathname.startsWith('/admin')) {
-    if (!event.locals.user) redirect(303, '/login')
+  const isAdmin = event.route.id?.startsWith('/admin')
+  if (isAdmin && !event.locals.user) {
+    redirect(303, '/login')
   }
   return resolve(event)
 }
 ```
-<!-- {: data-highlight="startsWith('/admin')"} -->
+<!-- {: data-highlight="event.route.id"} -->
 
-Guard in `handle`, not a layout load: layout loads can be skipped on client navigation. See: [Auth](https://svelte.dev/docs/kit/auth)
+Match `event.route.id`, not the pathname: `/%61dmin` still resolves to `/admin`. Prerendered pages bypass `handle`. See: [Auth](https://svelte.dev/docs/kit/auth)
 
 ### Log errors
 
@@ -566,7 +575,7 @@ cookies.set('session', token, {
 ```
 <!-- {: data-highlight="cookies.set"} -->
 
-`httpOnly` and `secure` default to true; `path` defaults to `/` in v3. See: [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies)
+`httpOnly` defaults to true and `secure` to true outside dev; `path` defaults to `/`. See: [Cookies](https://svelte.dev/docs/kit/@sveltejs-kit#Cookies)
 
 ### Read a cookie
 
@@ -606,7 +615,7 @@ export const variables = defineEnvVars({
 ```
 <!-- {: data-highlight="defineEnvVars"} -->
 
-`defineEnvVars` validates values at startup; every variable is private by default. See: [Environment variables](https://svelte.dev/docs/kit/environment-variables)
+`defineEnvVars` declares typed variables and takes a `schema` to validate them; variables stay private unless `public: true`. See: [Environment variables](https://svelte.dev/docs/kit/environment-variables)
 
 ### Receive private values
 
@@ -723,7 +732,7 @@ PORT=8080 ORIGIN=https://example.com node build
 ```
 <!-- {: data-highlight="ORIGIN="} -->
 
-`ORIGIN` sets the trusted origin for CSRF checks behind a proxy. See: [ORIGIN](https://svelte.dev/docs/kit/adapter-node#Environment-variables-PROTOCOL_HEADER-HOST_HEADER-and-PORT_HEADER)
+`ORIGIN` sets the trusted origin for CSRF checks behind a proxy; missing `src/env.ts` variables stop startup. See: [Environment variables](https://svelte.dev/docs/kit/adapter-node#Environment-variables-PROTOCOL_HEADER-HOST_HEADER-and-PORT_HEADER)
 
 ### Dockerfile
 
@@ -764,7 +773,7 @@ export default defineConfig({
 
 `adapter-static` writes HTML files for hosts without a server. See: [adapter-static](https://svelte.dev/docs/kit/adapter-static)
 
-## Upgrading from 2
+## SvelteKit 3 changes
 
 ### Config moved to Vite
 
@@ -805,7 +814,7 @@ SvelteKit 3 no longer reads `svelte.config.js`. See: [Migrating to v3](https://s
 import { format } from '#lib/format.js'
 ```
 
-The alias uses Node subpath imports and needs file extensions. See: [$lib is now #lib](https://svelte.dev/docs/kit/migrating-to-sveltekit-3#$lib-is-now-$lib)
+The alias uses Node subpath imports and needs file extensions. See: [$lib is now #lib](https://svelte.dev/docs/kit/migrating-to-sveltekit-3#$lib-is-now-lib)
 
 ### Stores became state
 
@@ -835,7 +844,6 @@ page.url.pathname
 ```ts
 import { API_KEY } from '$env/static/private'
 ```
-<!-- {: data-highlight="static/private"} -->
 
 #### v3
 

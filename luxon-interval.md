@@ -2,13 +2,13 @@
 title: How to split a date range into weeks in Luxon
 link_title: Luxon intervals
 subtitle: Split and measure date ranges
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 updated: 2026-11-26
 links:
   - title: Luxon intervals
-    url: https://moment.github.io/luxon/#/intervals
+    url: https://moment.github.io/luxon/#/tour?id=intervals
 ---
 
 ## Working with intervals
@@ -30,7 +30,7 @@ Interval.fromDateTimes(start, end).toISODate()
 ```
 <!-- {: data-highlight="Interval.fromDateTimes"} -->
 
-**Builds an interval from two DateTimes.** Reversed endpoints produce an invalid interval; see [Intervals](https://moment.github.io/luxon/#/intervals).
+**Builds an interval from two DateTimes.** Reversed endpoints produce an invalid interval; see [Intervals](https://moment.github.io/luxon/#/tour?id=intervals).
 
 ### Measure
 <!-- {: .-snippet} -->
@@ -43,7 +43,7 @@ range.count('days')     // 15
 ```
 <!-- {: data-highlight="count('days')"} -->
 
-**`length()` is elapsed time; `count()` counts calendar units.** This range touches 15 days; see [length](https://moment.github.io/luxon/api-docs/classes/interval.html#length).
+**`length()` is elapsed time; `count()` counts calendar units.** This range touches 15 days; see [length](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Split into weeks
 <!-- {: .-snippet} -->
@@ -57,7 +57,7 @@ range.splitBy({ days: 7 })
 ```
 <!-- {: data-highlight="splitBy({ days: 7 })"} -->
 
-**Splits into evenly sized pieces.** The final piece can be zero-length when the range divides exactly; see [splitBy](https://moment.github.io/luxon/api-docs/classes/interval.html#splitBy).
+**Splits into evenly sized pieces.** The final piece can be zero-length when the range divides exactly; see [splitBy](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Contains a moment
 <!-- {: .-snippet} -->
@@ -73,7 +73,7 @@ range.contains(end, { inclusive: true })
 ```
 <!-- {: data-highlight="inclusive: true"} -->
 
-**Endpoints are excluded by default.** Pass `inclusive` to include them; see [contains](https://moment.github.io/luxon/api-docs/classes/interval.html#contains).
+**Endpoints are excluded by default.** Pass `inclusive` to include them; see [contains](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Overlaps
 <!-- {: .-snippet} -->
@@ -90,4 +90,4 @@ range.intersection(next).toISODate()
 ```
 <!-- {: data-highlight="overlaps"} -->
 
-**Tests whether two ranges share time.** `intersection()` returns the overlap; see [overlaps](https://moment.github.io/luxon/api-docs/classes/interval.html#overlaps).
+**Tests whether two ranges share time.** `intersection()` returns the overlap; see [overlaps](https://moment.github.io/luxon/api-docs/index.html).

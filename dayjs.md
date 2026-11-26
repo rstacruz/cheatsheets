@@ -3,7 +3,7 @@ title: Day.js
 seo_title: Day.js cheatsheet — format, diff, time zones
 description: "Day.js reference: parsing, formatting, diff, plugins, UTC, time zones and durations."
 subtitle: Lightweight date library
-category: JavaScript libraries
+category: Date libraries
 tier: t2
 fragments:
   - "dayjs()"
@@ -65,7 +65,7 @@ next.format('YYYY-MM-DD')    // "2014-06-10"
 
 Every method returns a new instance, so the original is safe to share. Moment mutates in place instead.
 
-See: [Immutability](https://day.js.org/docs/en/parse/parse#immutable)
+See: [Immutability](https://day.js.org/docs/en/parse/parse)
 
 ### Compared with Moment
 
@@ -497,7 +497,7 @@ dayjs('2014-06-09T09:32Z').utcOffset(-300)
 
 `utcOffset()` works in minutes and knows no DST rules. Use an IANA zone via `tz()` for real places.
 
-See: [UTC offset](https://day.js.org/docs/en/plugin/utc#utcoffset)
+See: [UTC offset](https://day.js.org/docs/en/plugin/utc)
 
 ### Detect the zone
 
@@ -508,7 +508,7 @@ dayjs.tz.guess()   // "America/New_York"
 
 `guess()` asks `Intl` for the system zone, so it needs full ICU data in Node and minimal runtimes.
 
-See: [Time zone guessing](https://day.js.org/docs/en/plugin/timezone#guessing-user-timezone)
+See: [Time zone guessing](https://day.js.org/docs/en/plugin/timezone)
 
 ## Locales
 
@@ -595,7 +595,7 @@ dayjs.duration({ days: 2, hours: 3, minutes: 4 })
 
 Square brackets escape literal text. Tokens read the stored units only.
 
-See: [Duration format](https://day.js.org/docs/en/plugin/duration#format)
+See: [Duration format](https://day.js.org/docs/en/plugin/duration)
 
 ### Normalize units
 
@@ -627,7 +627,7 @@ dayjs.duration({ hours: 25 }).humanize()     // "a day"
 
 `humanize()` needs the relative time plugin too, and rounds to the largest unit.
 
-See: [Duration humanize](https://day.js.org/docs/en/plugin/duration#humanize)
+See: [Duration humanize](https://day.js.org/docs/en/plugin/duration)
 
 ### From a difference
 

@@ -3,7 +3,7 @@ title: Moment.js
 seo_title: Moment.js cheatsheet — format, parse, add
 description: "Moment.js format: parsing, add, subtract, time zones and duration. Date reference."
 subtitle: Date manipulation library
-category: JavaScript libraries
+category: Date libraries
 updated: 2026-11-14
 intro: |
   [Moment.js](https://momentjs.com/docs/) parses, formats, and manipulates dates. It is a legacy project in maintenance mode: fine for existing code, discouraged for new projects.

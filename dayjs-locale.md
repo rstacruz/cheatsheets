@@ -2,7 +2,7 @@
 title: How to change the locale in Day.js
 link_title: Day.js locale
 subtitle: Load and switch locales
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
 updated: 2026-11-26
@@ -32,12 +32,14 @@ dayjs.locale('fr')
 <!-- {: .-snippet} -->
 
 ```js
+dayjs.locale('fr')
+
 dayjs('2014-06-09').format('MMMM dddd')
 // "juin lundi"
 ```
 <!-- {: data-highlight="'MMMM dddd'"} -->
 
-**Uses the active locale for names.** The global default is French from the previous step; see [i18n](https://day.js.org/docs/en/i18n/i18n).
+**Uses the active locale for names.** After `dayjs.locale('fr')`, new instances format in French; see [i18n](https://day.js.org/docs/en/i18n/i18n).
 
 ### One instance only
 <!-- {: .-snippet} -->

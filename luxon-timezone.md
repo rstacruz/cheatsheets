@@ -2,7 +2,7 @@
 title: How to work with time zones in Luxon
 link_title: Luxon time zones
 subtitle: Convert, parse and inspect zones
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 updated: 2026-11-26
@@ -68,7 +68,7 @@ DateTime.fromISO('2026-06-01T12:00').toISO()
 ```
 <!-- {: data-highlight="Settings.defaultZone"} -->
 
-**Sets the zone for new DateTimes.** Existing instances keep their zone; see [Settings](https://moment.github.io/luxon/#/zones?id=default-zone).
+**Sets the zone for new DateTimes.** Existing instances keep their zone; see [Settings](https://moment.github.io/luxon/#/zones?id=changing-the-default-zone).
 
 ### Inspect a zone
 <!-- {: .-snippet} -->
@@ -83,7 +83,7 @@ ny.isInDST    // true
 ```
 <!-- {: data-highlight="isInDST"} -->
 
-**Reports the offset in minutes east of UTC.** `-240` means UTC−4; see [Zone API](https://moment.github.io/luxon/api-docs/classes/datetime.html#zoneName).
+**Reports the offset in minutes east of UTC.** `-240` means UTC−4; see [Zone API](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Fixed offsets
 <!-- {: .-snippet} -->
@@ -95,4 +95,4 @@ DateTime.fromISO('2026-06-01T12:00',
 ```
 <!-- {: data-highlight="'UTC+5:30'"} -->
 
-**Pins a fixed offset.** It ignores DST, so prefer an IANA zone; see [Fixed offsets](https://moment.github.io/luxon/#/zones?id=fixed-offset-zones).
+**Pins a fixed offset.** It ignores DST, so prefer an IANA zone; see [Fixed offsets](https://moment.github.io/luxon/#/zones?id=specifying-a-zone).

@@ -3,7 +3,7 @@ title: Luxon
 seo_title: Luxon cheatsheet — format, diff, time zones
 description: "Luxon reference: DateTime, Duration and Interval, with formatting, time zones and DST."
 subtitle: Date and time library
-category: JavaScript libraries
+category: Date libraries
 tier: t2
 fragments:
   - "DateTime.now()"
@@ -150,7 +150,7 @@ d.toLocaleString(DateTime.TIME_24_SIMPLE)
 
 Presets render through `Intl`, so they adapt to the locale and to the runtime's ICU data.
 
-See: [Locale strings](https://moment.github.io/luxon/#/formatting?id=locale-strings)
+See: [Locale strings](https://moment.github.io/luxon/#/formatting?id=presets)
 
 ### Custom locale
 
@@ -166,7 +166,7 @@ d.setLocale('fr').toFormat('cccc d LLLL yyyy')
 
 `setLocale()` affects only that instance's output, not the global default.
 
-See: [Locales](https://moment.github.io/luxon/#/intl?id=locales)
+See: [Locales](https://moment.github.io/luxon/#/intl?id=how-locales-work)
 
 ### Escaping text
 
@@ -220,7 +220,7 @@ DateTime.fromISO('2026-11-24T10:00', { zone: 'utc' })
 
 `toRelative()` counts elapsed time; `toRelativeCalendar()` names the calendar day. Both need `Intl.RelativeTimeFormat`.
 
-See: [Relative time](https://moment.github.io/luxon/#/formatting?id=relative-time)
+See: [Relative time](https://moment.github.io/luxon/api-docs/index.html)
 
 ## Math
 
@@ -266,7 +266,7 @@ d.plus({ hours: 24 }).toISO()
 
 `days` keep the wall clock across a DST change; `hours` are exact elapsed time.
 
-See: [DST and math](https://moment.github.io/luxon/#/math?id=dst-and-math)
+See: [DST and math](https://moment.github.io/luxon/#/zones?id=math-across-dsts)
 
 ### Start and end of unit
 
@@ -283,7 +283,7 @@ d.startOf('week').toISODate()   // "2014-06-09"
 
 `startOf('week')` follows ISO weeks and begins on Monday. `endOf()` lands on the last millisecond.
 
-See: [Start and end](https://moment.github.io/luxon/#/math?id=start-and-end-of-units)
+See: [Start and end](https://moment.github.io/luxon/#/tour?id=math)
 
 ### Set fields
 
@@ -298,7 +298,7 @@ d.set({ hour: 0, minute: 0 }).toISO()
 
 `set()` replaces fields; use `plus()` or `minus()` to move by an amount.
 
-See: [Set](https://moment.github.io/luxon/#/math?id=setting-values)
+See: [Set](https://moment.github.io/luxon/#/tour?id=set)
 
 ### Differences
 
@@ -388,7 +388,7 @@ DateTime.fromISO('2026-06-01T12:00').toISO()
 
 `Settings.defaultZone` replaces the system zone for new DateTimes. Use `Settings.now` to freeze the clock in tests.
 
-See: [Settings](https://moment.github.io/luxon/#/zones?id=default-zone)
+See: [Settings](https://moment.github.io/luxon/#/zones?id=changing-the-default-zone)
 
 ### Zone info
 
@@ -405,7 +405,7 @@ ny.offsetNameShort // "EDT"
 
 Offsets are minutes east of UTC, so `-240` means UTC−4.
 
-See: [Zone API](https://moment.github.io/luxon/api-docs/classes/datetime.html#zoneName)
+See: [Zone API](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Fixed offsets
 
@@ -418,7 +418,7 @@ DateTime.fromISO('2026-06-01T12:00', { zone: 'UTC+5:30' })
 
 A fixed offset never follows DST. Prefer an IANA zone for real places.
 
-See: [Fixed offset zones](https://moment.github.io/luxon/#/zones?id=fixed-offset-zones)
+See: [Fixed offset zones](https://moment.github.io/luxon/#/zones?id=specifying-a-zone)
 
 ## Intervals
 
@@ -439,7 +439,7 @@ range.toISODate()   // "2026-01-01/2026-01-15"
 
 An interval is an ordered pair of DateTimes. `fromDateTimes()` returns an invalid interval when the end is before the start.
 
-See: [Intervals](https://moment.github.io/luxon/#/intervals)
+See: [Intervals](https://moment.github.io/luxon/#/tour?id=intervals)
 
 ### Measure an interval
 
@@ -453,7 +453,7 @@ range.toDuration(['days', 'hours', 'minutes']).toObject()
 
 `length()` is exact elapsed time; `count()` counts calendar units the interval touches.
 
-See: [Interval length](https://moment.github.io/luxon/api-docs/classes/interval.html#length)
+See: [Interval length](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Split into weeks
 
@@ -468,7 +468,7 @@ range.splitBy({ days: 7 })
 
 `splitBy()` fills the range with evenly sized pieces. The last piece can be zero-length when the range divides exactly.
 
-See: [Split](https://moment.github.io/luxon/api-docs/classes/interval.html#splitBy)
+See: [Split](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Contains
 
@@ -483,7 +483,7 @@ range.contains(end, { inclusive: true })   // true
 
 Endpoints are excluded by default; pass `inclusive` to count them.
 
-See: [Contains](https://moment.github.io/luxon/api-docs/classes/interval.html#contains)
+See: [Contains](https://moment.github.io/luxon/api-docs/index.html)
 
 ## Durations
 
@@ -501,7 +501,7 @@ Duration.fromMillis(5400000).toFormat('hh:mm')  // "01:30"
 
 A duration is a bag of units with no zone. It records the units you gave it, not a span of time.
 
-See: [Durations](https://moment.github.io/luxon/#/math?id=durations)
+See: [Durations](https://moment.github.io/luxon/#/tour?id=durations)
 
 ### Format a duration
 
@@ -513,7 +513,7 @@ Duration.fromObject({ days: 2, hours: 3, minutes: 4 })
 
 Quote literal letters so they are not read as units.
 
-See: [Duration format](https://moment.github.io/luxon/api-docs/classes/duration.html#toFormat)
+See: [Duration format](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Human readable
 
@@ -526,9 +526,9 @@ Duration.fromObject({ hours: 2, minutes: 30 })
 ```
 <!-- {: data-highlight="toHuman("} -->
 
-`toHuman()` replaced `humanize()` in Luxon 3.7. It formats each unit with `Intl.NumberFormat` and joins them with `Intl.ListFormat`.
+`toHuman()` formats each unit with `Intl.NumberFormat` and joins them with `Intl.ListFormat`.
 
-See: [Duration human](https://moment.github.io/luxon/api-docs/classes/duration.html#toHuman)
+See: [Duration human](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Convert units
 
@@ -543,7 +543,7 @@ Duration.fromObject({ minutes: 150 })
 
 `as()` returns a fraction; `shiftTo()` moves whole units into the units you name.
 
-See: [Duration units](https://moment.github.io/luxon/api-docs/classes/duration.html#shiftTo)
+See: [Duration units](https://moment.github.io/luxon/api-docs/index.html)
 
 ## Locales and info
 
@@ -560,7 +560,7 @@ Info.weekdays('long', { locale: 'fr' })[0]     // "lundi"
 
 `Info` reads names from `Intl` instead of bundling locale tables.
 
-See: [Info](https://moment.github.io/luxon/api-docs/classes/info.html)
+See: [Info](https://moment.github.io/luxon/api-docs/index.html)
 
 ### Week numbers
 
@@ -569,14 +569,14 @@ const d = DateTime.fromISO('2026-11-26')
 
 d.weekNumber       // 48 (ISO)
 d.localWeekNumber  // 47 (US)
-Info.getStartOfWeek()              // 7
-Info.getStartOfWeek({ locale: 'fr' })  // 1
+Info.getStartOfWeek({ locale: 'en-US' })   // 7
+Info.getStartOfWeek({ locale: 'fr' })      // 1
 ```
 <!-- {: data-highlight="localWeekNumber"} -->
 
 ISO weeks start on Monday; the locale week can start on Sunday, which shifts the week number.
 
-See: [Week numbers](https://moment.github.io/luxon/#/math?id=week-numbers)
+See: [Week numbers](https://moment.github.io/luxon/#/intl?id=locale-based-weeks)
 
 ### DST support
 
@@ -588,7 +588,7 @@ Info.hasDST('Asia/Tokyo')         // false
 
 `hasDST()` reports whether a zone uses daylight saving at all.
 
-See: [Info API](https://moment.github.io/luxon/api-docs/classes/info.html#hasDST)
+See: [Info API](https://moment.github.io/luxon/api-docs/index.html)
 
 ## References
 <!-- {: .-one-column} -->

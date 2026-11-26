@@ -2,7 +2,7 @@
 title: When to use Day.js vs Moment.js
 link_title: Day.js vs Moment
 subtitle: API and bundle differences
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Moment 2.30.1."
 updated: 2026-11-26

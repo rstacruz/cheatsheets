@@ -2,7 +2,7 @@
 title: How to get the difference between two dates in Day.js
 link_title: Day.js date difference
 subtitle: Days, hours and months
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
 updated: 2026-11-26
@@ -65,7 +65,7 @@ end.diff(start, 'months')   // 3
 ```
 <!-- {: data-highlight="'months'"} -->
 
-**Counts whole month boundaries.** The 32-minute gap keeps this at 3 months, not 4; see [Difference](https://day.js.org/docs/en/display/difference).
+**Counts whole month boundaries.** The end lands 9½ hours short of four months, so this stays at 3; see [Difference](https://day.js.org/docs/en/display/difference).
 
 ### Humanize the gap
 <!-- {: .-snippet} -->
@@ -85,4 +85,4 @@ dayjs.duration(end.diff(start)).humanize()
 ```
 <!-- {: data-highlight="humanize()"} -->
 
-**Turns the milliseconds into a readable span.** `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/plugin/duration#humanize).
+**Turns the milliseconds into a readable span.** `diff()` already returns milliseconds; see [Duration](https://day.js.org/docs/en/plugin/duration).

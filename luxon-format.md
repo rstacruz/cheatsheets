@@ -2,7 +2,7 @@
 title: How to format a date with Luxon
 link_title: Luxon format
 subtitle: Tokens and locale presets
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 updated: 2026-11-26
@@ -51,7 +51,7 @@ d.toLocaleString(DateTime.TIME_24_SIMPLE)
 ```
 <!-- {: data-highlight="TIME_24_SIMPLE"} -->
 
-**Uses built-in `Intl` presets.** They follow the locale and the runtime's ICU data; see [Locale strings](https://moment.github.io/luxon/#/formatting?id=locale-strings).
+**Uses built-in `Intl` presets.** They follow the locale and the runtime's ICU data; see [Locale strings](https://moment.github.io/luxon/#/formatting?id=presets).
 
 ### Another locale
 <!-- {: .-snippet} -->
@@ -65,7 +65,7 @@ d.setLocale('fr')
 ```
 <!-- {: data-highlight="setLocale('fr')"} -->
 
-**Renders in another locale for one instance.** No locale files are needed; see [Locales](https://moment.github.io/luxon/#/intl?id=locales).
+**Renders in another locale for one instance.** No locale files are needed; see [Locales](https://moment.github.io/luxon/#/intl?id=how-locales-work).
 
 ### ISO output
 <!-- {: .-snippet} -->

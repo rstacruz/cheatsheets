@@ -2,7 +2,7 @@
 title: How to convert time zones with Day.js
 link_title: Day.js time zones
 subtitle: utc and timezone plugins
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
 updated: 2026-11-26
@@ -63,7 +63,7 @@ dayjs.tz.guess()   // "America/New_York"
 ```
 <!-- {: data-highlight="tz.guess()"} -->
 
-**Asks `Intl` for the system zone.** It needs the timezone plugin and full ICU data; see [Guessing](https://day.js.org/docs/en/plugin/timezone#guessing-user-timezone).
+**Asks `Intl` for the system zone.** It needs the timezone plugin and full ICU data; see [Guessing](https://day.js.org/docs/en/plugin/timezone).
 
 ### Fixed offsets
 <!-- {: .-snippet} -->
@@ -76,4 +76,4 @@ dayjs.utc('2014-06-09T13:32Z')
 ```
 <!-- {: data-highlight=".utcOffset(-300)"} -->
 
-**Sets a fixed offset in minutes.** It ignores DST, so prefer `tz()` for real places; see [UTC offset](https://day.js.org/docs/en/plugin/utc#utcoffset).
+**Sets a fixed offset in minutes.** It ignores DST, so prefer `tz()` for real places; see [UTC offset](https://day.js.org/docs/en/plugin/utc).

@@ -2,7 +2,7 @@
 title: How to get the difference between two dates in Luxon
 link_title: Luxon date difference
 subtitle: Days, hours and months
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 updated: 2026-11-26
@@ -14,7 +14,7 @@ links:
 ## Comparing dates
 <!-- {: .-snippets} -->
 
-### Whole days
+### Fractional days
 <!-- {: .-snippet} -->
 
 ```js
@@ -59,9 +59,9 @@ a.diff(b, 'hours').hours   // -23
 ```
 <!-- {: data-highlight="'hours'"} -->
 
-**Counts exact elapsed hours.** A spring-forward day has 23 hours, so the two noon dates are not 24 apart; see [DST and math](https://moment.github.io/luxon/#/math?id=dst-and-math).
+**Counts exact elapsed hours.** A spring-forward day has 23 hours, so the two noon dates are not 24 apart; see [DST and math](https://moment.github.io/luxon/#/zones?id=math-across-dsts).
 
-### Whole months
+### Fractional months
 <!-- {: .-snippet} -->
 
 ```js
@@ -74,4 +74,4 @@ b.diff(a, 'months').months   // 3.986...
 ```
 <!-- {: data-highlight="'months'"} -->
 
-**Months come back fractional.** A 32-minute gap shortens the span, so floor the result or pass `['months', 'days']`; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).
+**Months come back fractional.** The end lands 9½ hours short of four months, so floor the result or pass `['months', 'days']`; see [Diff](https://moment.github.io/luxon/#/math?id=diffs).

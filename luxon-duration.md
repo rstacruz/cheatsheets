@@ -2,13 +2,13 @@
 title: How to format a duration in Luxon
 link_title: Luxon duration
 subtitle: Build, format and humanize
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Luxon 3.7.2, Node 26.13.1."
 updated: 2026-11-26
 links:
   - title: Luxon durations
-    url: https://moment.github.io/luxon/#/math?id=durations
+    url: https://moment.github.io/luxon/#/tour?id=durations
 ---
 
 ## Working with durations
@@ -28,7 +28,7 @@ Duration.fromISO('PT1H30M').as('minutes')
 ```
 <!-- {: data-highlight="Duration.fromObject"} -->
 
-**Builds a duration from units or ISO 8601.** It stays a unit bag, not an instant; see [Durations](https://moment.github.io/luxon/#/math?id=durations).
+**Builds a duration from units or ISO 8601.** It stays a unit bag, not an instant; see [Durations](https://moment.github.io/luxon/#/tour?id=durations).
 
 ### Format tokens
 <!-- {: .-snippet} -->
@@ -42,7 +42,7 @@ d.toFormat("d'd' h'h' m'm'")
 ```
 <!-- {: data-highlight="toFormat("} -->
 
-**Formats with duration tokens.** Missing units print as zero, and quoted letters stay literal; see [Duration format](https://moment.github.io/luxon/api-docs/classes/duration.html#toFormat).
+**Formats with duration tokens.** Missing units print as zero, and quoted letters stay literal; see [Duration format](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Human readable
 <!-- {: .-snippet} -->
@@ -57,7 +57,7 @@ Duration.fromObject({ hours: 2, minutes: 30 })
 ```
 <!-- {: data-highlight="toHuman("} -->
 
-**Renders through `Intl`.** `toHuman()` replaced `humanize()` in Luxon 3.7; see [toHuman](https://moment.github.io/luxon/api-docs/classes/duration.html#toHuman).
+**Renders through `Intl`.** `toHuman()` uses `Intl.NumberFormat` and `Intl.ListFormat`; see [toHuman](https://moment.github.io/luxon/api-docs/index.html).
 
 ### Shift units
 <!-- {: .-snippet} -->
@@ -69,7 +69,7 @@ Duration.fromObject({ minutes: 150 })
 ```
 <!-- {: data-highlight="shiftTo("} -->
 
-**Carries whole units into the named ones.** `as()` returns a fraction instead; see [shiftTo](https://moment.github.io/luxon/api-docs/classes/duration.html#shiftTo).
+**Carries whole units into the named ones.** `as()` returns a fraction instead; see [shiftTo](https://moment.github.io/luxon/api-docs/index.html).
 
 ### From two dates
 <!-- {: .-snippet} -->

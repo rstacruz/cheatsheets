@@ -2,7 +2,7 @@
 title: How to format a date with Day.js
 link_title: Day.js format
 subtitle: Format dates as strings
-category: JavaScript libraries
+category: Date libraries
 layout: snippet
 last_verified_with: "Day.js 1.11.23, Node 26.13.1."
 updated: 2026-11-26
@@ -81,8 +81,9 @@ dayjs('2014-06-09').format('[on] YYYY-MM-DD')
 ```js
 import 'dayjs/locale/fr.js'
 
-dayjs('2014-06-09').locale('fr').format('LL')
-// "9 juin 2014"
+dayjs('2014-06-09').locale('fr')
+  .format('dddd D MMMM YYYY')
+// "lundi 9 juin 2014"
 ```
 <!-- {: data-highlight=".locale('fr')"} -->
 

@@ -62,6 +62,7 @@ export const categories = [
   'Vim',
   'Git',
   'Git workflows',
+  'Containers',
   'Devops',
   'Databases',
   'API',

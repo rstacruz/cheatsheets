@@ -1,0 +1,48 @@
+---
+title: How to export a SQLite table to CSV
+link_title: Export SQLite to CSV
+subtitle: Write query results to CSV
+category: Databases
+layout: snippet
+last_verified_with: "SQLite 3.54.0."
+updated: 2026-11-27
+links:
+  - title: CSV export
+    url: https://sqlite.org/cli.html#csv_export
+---
+
+## Exporting CSV
+<!-- {: .-snippets} -->
+
+### Export one query
+<!-- {: .-snippet} -->
+
+```sh
+sqlite3 app.db ".mode csv" ".headers on" \
+  ".once users.csv" "select * from users;"
+```
+<!-- {: data-highlight=".once users.csv"} -->
+
+**Writes one result to a file.** `.once` reverts to stdout after the query; see [CSV export](https://sqlite.org/cli.html#csv_export).
+
+### Export from the shell
+<!-- {: .-snippet} -->
+
+```sh
+sqlite3 -header -csv app.db \
+  "select * from users;" > users.csv
+```
+<!-- {: data-highlight="-header -csv"} -->
+
+**Sets the format with CLI flags.** The output is redirected by the shell, so no dot-commands are needed; see [command-line shell](https://sqlite.org/cli.html#csv_export).
+
+### Export every result
+<!-- {: .-snippet} -->
+
+```sh
+sqlite3 app.db ".mode csv" ".headers on" \
+  ".output out.csv" "select * from users;"
+```
+<!-- {: data-highlight=".output out.csv"} -->
+
+**Redirects all output until reset.** Use `.output` for several queries and `.once` for just one; see [CSV export](https://sqlite.org/cli.html#csv_export).

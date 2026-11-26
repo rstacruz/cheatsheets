@@ -21,7 +21,7 @@ updated: 2026-11-26
   Array#methods: & * + abbrev assoc at ...
 > show-source
 ```
-<!-- {: data-highlight="cd Array; show-source"} -->
+<!-- {: data-highlight="cd Array"} -->
 
 See: [Navigating around state](https://github.com/pry/pry#navigating-around-state), [Code browsing](https://github.com/pry/pry#code-browsing)
 
@@ -110,7 +110,7 @@ See: [Use Pry as your Rails console](https://github.com/pry/pry#use-pry-as-your-
 > show-routes
 > show-middleware
 ```
-<!-- {: data-highlight="show-models; show-routes"} -->
+<!-- {: data-highlight="show-models; show-routes; show-middleware"} -->
 
 See: [pry-rails usage](https://github.com/pry/pry-rails#usage)
 
@@ -130,7 +130,7 @@ See: [pry-rails usage](https://github.com/pry/pry-rails#usage)
 
 > ls -G xx   # Grep by regex
 ```
-<!-- {: data-highlight="ls -m; ls -M; ls -g; ls -c"} -->
+<!-- {: data-highlight="ls"} -->
 
 See: [ls command](https://github.com/pry/pry/blob/master/lib/pry/commands/ls.rb)
 

@@ -67,7 +67,7 @@ See: [Versioning in the Accept header](https://github.com/interagent/http-api-de
 ```bash
 curl -is https://$TOKEN@api.example.com/
 ```
-<!-- {: data-highlight="curl -is"} -->
+<!-- {: data-highlight="https://$TOKEN@api.example.com/"} -->
 
 See: [HTTP authentication](https://www.rfc-editor.org/rfc/rfc9110.html#name-http-authentication)
 

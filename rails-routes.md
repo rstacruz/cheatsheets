@@ -18,7 +18,7 @@ updated: 2026-11-26
 
 ### Multiple resources (`resources`)
 
-```
+```ruby
 resources :photos
 
 # PhotosController:
@@ -40,7 +40,7 @@ See: [Resource routing](https://guides.rubyonrails.org/routing.html#resource-rou
 
 ### Custom actions
 
-```
+```ruby
 resources :photos do
   member { get 'preview' }       # /photo/1/preview
   collection { get 'search' }    # /photos/search
@@ -54,7 +54,7 @@ See: [Adding member routes](https://guides.rubyonrails.org/routing.html#adding-m
 
 ### Options
 
-```
+```ruby
 resources :photos,
   path_names: { new: 'brand_new' },  # /photos/brand_new
   path: 'postings',                  # /postings
@@ -66,13 +66,12 @@ resources :photos,
   shallow_path: 'secret',
   shallow_prefix: 'secret'
 ```
-<!-- {: data-highlight="only; except; shallow"} -->
 
 See: [Customizing resourceful routes](https://guides.rubyonrails.org/routing.html#customizing-resourceful-routes)
 
 ### Single resource (`resource`)
 
-```
+```ruby
 resource :coder
 
 # CodersController:
@@ -91,7 +90,7 @@ See: [Singular resources](https://guides.rubyonrails.org/routing.html#singular-r
 
 ### Match
 
-```
+```ruby
 match 'photo/:id' => 'photos#show'  # /photo/what-is-it
 match 'photo/:id', id: /[0-9]+/     # /photo/0192
 match 'photo/:id' => 'photos#show', constraints: { id: /[0-9]+/ }
@@ -123,7 +122,7 @@ See: [HTTP verb constraints](https://guides.rubyonrails.org/routing.html#http-ve
 
 ### Redirection
 
-```
+```ruby
 match '/stories' => redirect('/posts')
 match '/stories/:name' => redirect('/posts/%{name}')
 ```
@@ -133,7 +132,7 @@ See: [Redirection](https://guides.rubyonrails.org/routing.html#redirection)
 
 ### Named
 
-```
+```ruby
 # logout_path
 match 'exit' => 'sessions#destroy', as: :logout
 ```
@@ -143,7 +142,7 @@ See: [Naming routes](https://guides.rubyonrails.org/routing.html#naming-routes)
 
 ### Constraints
 
-```
+```ruby
 match '/', constraints: { subdomain: 'admin' }
 
 # admin.site.com/admin/photos
@@ -159,7 +158,7 @@ See: [Request-based constraints](https://guides.rubyonrails.org/routing.html#req
 
 ### Custom constraints
 
-```
+```ruby
 class BlacklistConstraint
   def initialize
     @ips = Blacklist.retrieve_ips
@@ -181,7 +180,7 @@ See: [Advanced constraints](https://guides.rubyonrails.org/routing.html#advanced
 
 ### Scopes
 
-```
+```ruby
 scope 'admin', constraints: { subdomain: 'admin' } do
   resources ...
 end
@@ -192,7 +191,7 @@ See: [Using scope](https://guides.rubyonrails.org/routing.html#using-scope)
 
 ### Rack middleware
 
-```
+```ruby
 # Yes, Sprockets is middleware
 match '/application.js' => Sprockets
 ```
@@ -204,11 +203,11 @@ See: [Routing to Rack applications](https://guides.rubyonrails.org/routing.html#
 
 ### Route helpers
 
-```
+```ruby
 projects_path   # /projects
 projects_url    # http://site.com/projects
 ```
-<!-- {: data-highlight="_path; _url"} -->
+<!-- {: data-highlight="projects_path; projects_url"} -->
 
 See: [Path and URL helpers](https://guides.rubyonrails.org/routing.html#path-and-url-helpers)
 
@@ -217,41 +216,41 @@ See: [Path and URL helpers](https://guides.rubyonrails.org/routing.html#path-and
 
 #### Priority
 
-```
+```ruby
 # The priority is based upon order of creation:
 # first created -> highest priority.
 ```
 
 #### Regular route
 
-```
+```ruby
 # Sample of regular route:
 match 'products/:id' => 'catalog#view'
 ```
 
 #### Dynamic segments
 
-```
+```ruby
 # Keep in mind you can assign values other than
 # :controller and :action
 ```
 
 #### Named route
 
-```
+```ruby
 # Sample of named route:
 match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
 ```
 
 #### Invoking named routes
 
-```
+```ruby
 # This route can be invoked with purchase_url(:id => product.id)
 ```
 
 #### Resource route
 
-```
+```ruby
 # Sample resource route (maps HTTP verbs to controller
 # actions automatically):
 resources :products
@@ -259,7 +258,7 @@ resources :products
 
 #### Resource options
 
-```
+```ruby
 # Sample resource route with options:
 resources :products do
   member do
@@ -275,7 +274,7 @@ end
 
 #### Sub-resources
 
-```
+```ruby
 # Sample resource route with sub-resources:
 resources :products do
   resources :comments, :sales
@@ -285,7 +284,7 @@ end
 
 #### Nested sub-resources
 
-```
+```ruby
 # Sample resource route with more complex sub-resources
 resources :products do
   resources :comments
@@ -297,7 +296,7 @@ end
 
 #### Namespace
 
-```
+```ruby
 # Sample resource route within a namespace:
 namespace :admin do
   # Directs /admin/products/* to Admin::ProductsController
@@ -308,7 +307,7 @@ end
 
 #### Root route
 
-```
+```ruby
 # You can have the root of your site routed with "root"
 # just remember to delete public/index.html.
 root :to => 'welcome#index'
@@ -316,13 +315,13 @@ root :to => 'welcome#index'
 
 #### Inspecting routes
 
-```
+```ruby
 # See how all your routes lay out with "rake routes"
 ```
 
 #### Legacy wildcard route
 
-```
+```ruby
 # This is a legacy wild controller route, not
 # recommended for RESTful applications.
 # Note: it makes all actions in every controller

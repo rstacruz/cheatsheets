@@ -90,7 +90,7 @@ Model
   .last
   .find_nth(4, [offset])
 ```
-<!-- {: data-highlight="find; find_by; exists?"} -->
+<!-- {: data-highlight="find; find_by_email; exists?"} -->
 
 See: [FinderMethods API](https://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html)
 
@@ -201,7 +201,7 @@ Person.find_last_by_name(name)
 Person.find_or_create_by_name(name)
 Person.find_or_initialize_by_name(name)
 ```
-<!-- {: data-highlight="find_by_name"} -->
+<!-- {: data-highlight="find_by_name; find_last_by_name; find_or_create_by_name; find_or_initialize_by_name"} -->
 
 #### List of records
 
@@ -308,7 +308,7 @@ class Programmer < ActiveRecord::Base
   has_many :projects, :through => :assignments
 end
 ```
-<!-- {: data-highlight="=>"} -->
+<!-- {: data-highlight="has_many :projects, :through => :assignments"} -->
 
 #### Project
 
@@ -318,7 +318,7 @@ class Project < ActiveRecord::Base
   has_many :programmers, :through => :assignments
 end
 ```
-<!-- {: data-highlight=":assignments"} -->
+<!-- {: data-highlight="has_many :programmers, :through => :assignments"} -->
 
 #### Assignment
 
@@ -328,7 +328,7 @@ class Assignment
   belongs_to :programmer
 end
 ```
-<!-- {: data-highlight=":programmer"} -->
+<!-- {: data-highlight="belongs_to :programmer"} -->
 
 See: [has-many-through](https://guides.rubyonrails.org/association_basics.html#has-many-through)
 
@@ -360,7 +360,7 @@ class Post
   has_many :attachments, as: :parent
 end
 ```
-<!-- {: data-highlight=":attachments"} -->
+<!-- {: data-highlight="has_many :attachments, as: :parent"} -->
 
 #### Image
 
@@ -369,7 +369,7 @@ class Image
   belongs_to :parent, polymorphic: true
 end
 ```
-<!-- {: data-highlight="polymorphic"} -->
+<!-- {: data-highlight="polymorphic: true"} -->
 
 #### Migration
 
@@ -423,7 +423,7 @@ class Person < ActiveRecord::Base
   validates :code,     format: { with: /regex/ }
 end
 ```
-<!-- {: data-highlight="uniqueness:; format:"} -->
+<!-- {: data-highlight="uniqueness: true; format: /regex/"} -->
 
 See: [Uniqueness](https://guides.rubyonrails.org/active_record_validations.html#uniqueness), [Format](https://guides.rubyonrails.org/active_record_validations.html#format)
 
@@ -446,7 +446,7 @@ class Person < ActiveRecord::Base
     too_long:  "must have at most %{count} words" }
 end
 ```
-<!-- {: data-highlight="length:"} -->
+<!-- {: data-highlight="length: { minimum: 2 }"} -->
 
 See: [Length](https://guides.rubyonrails.org/active_record_validations.html#length)
 
@@ -467,7 +467,7 @@ class Person < ActiveRecord::Base
   # ... odd, even, equal_to
 end
 ```
-<!-- {: data-highlight="numericality:"} -->
+<!-- {: data-highlight="inclusion: %w(male female); exclusion: %w(xyz); numericality: true"} -->
 
 See: [Inclusion and exclusion](https://guides.rubyonrails.org/active_record_validations.html#inclusion-and-exclusion), [Numericality](https://guides.rubyonrails.org/active_record_validations.html#numericality)
 
@@ -498,7 +498,7 @@ class Person < ActiveRecord::Base
   # :save | :create | :update
 end
 ```
-<!-- {: data-highlight="if:; on:"} -->
+<!-- {: data-highlight="if: :published?; on: :save"} -->
 
 See: [Conditional validations](https://guides.rubyonrails.org/active_record_validations.html#conditional-validations)
 
@@ -514,7 +514,7 @@ class Person < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-highlight=":foo_cant_be_nil"} -->
+<!-- {: data-highlight="validate :foo_cant_be_nil"} -->
 
 See: [Custom methods](https://guides.rubyonrails.org/active_record_validations.html#custom-methods)
 
@@ -591,7 +591,7 @@ See: [Joining tables](https://guides.rubyonrails.org/active_record_querying.html
 where('name = ?', 'John')
 where(['name = :name', { name: 'John' }])
 ```
-<!-- {: data-highlight="name = ?"} -->
+<!-- {: data-highlight="where('name = ?', 'John')"} -->
 
 See: [Array conditions](https://guides.rubyonrails.org/active_record_querying.html#array-conditions)
 
@@ -657,7 +657,7 @@ class Song < ActiveRecord::Base
 end
 ```
 
-<!-- {: data-highlight="minutes"} -->
+<!-- {: data-highlight="write_attribute; read_attribute"} -->
 
 See: [Overwriting default accessors](https://api.rubyonrails.org/classes/ActiveRecord/Base.html#class-activerecord-base-overwriting-default-accessors)
 

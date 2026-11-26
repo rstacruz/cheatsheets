@@ -36,7 +36,7 @@ See: [Summary](https://semver.org/spec/v2.0.0.html#summary)
  <1.2.3
 >=1.2.3
 ```
-<!-- {: data-highlight=">=1.2.3"} -->
+<!-- {: data-highlight="=1.2.3; >1.2.3; <1.2.3; >=1.2.3"} -->
 
 Note that suffixed versions (`1.2.3-rc1`) are not matched.
 

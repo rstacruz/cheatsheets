@@ -24,7 +24,7 @@ def add(left, right)
   left + right
 end
 ```
-<!-- {: data-highlight="# Adds two numbers.; def add"} -->
+<!-- {: data-highlight="# Adds two numbers.; def add(left, right)"} -->
 
 RDoc associates a comment with the Ruby object immediately below it.
 
@@ -62,7 +62,7 @@ See: [Links](https://ruby.github.io/rdoc/doc/markup_reference/rdoc_rdoc.html#lin
 == Section
 === Subsection
 ```
-<!-- {: data-highlight="= Page title"} -->
+<!-- {: data-highlight="= Page title; == Section; === Subsection"} -->
 
 See: [Headings](https://ruby.github.io/rdoc/doc/markup_reference/rdoc_rdoc.html#headings)
 

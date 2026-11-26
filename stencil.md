@@ -80,7 +80,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-highlight="event"} -->
+<!-- {: data-highlight="onChange"} -->
 
 Stencil uses DOM events.
 
@@ -97,7 +97,7 @@ render () {
 }
 ```
 
-<!-- {: data-highlight="multiple"} -->
+<!-- {: data-highlight="return ["} -->
 
 `render()` can return an array of elements.
 
@@ -117,7 +117,7 @@ export class MyComponent {
 }
 ```
 
-<!-- {: data-highlight="this.isVisible"} -->
+<!-- {: data-highlight="@State()"} -->
 
 Just do assignments. You can't do mutations though, see next section.
 
@@ -154,8 +154,6 @@ See: [Updating arrays](https://stenciljs.com/docs/reactive-data#updating-arrays)
 </my-component>
 ```
 
-<!-- {: data-highlight="friends"} -->
-
 #### Component
 
 ```js
@@ -181,7 +179,7 @@ See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 </my-component>
 ```
 
-<!-- {: data-highlight="'my-header'"} -->
+<!-- {: data-highlight="slot='my-header'; slot='my-footer'"} -->
 
 #### Component
 
@@ -194,7 +192,7 @@ render () {
 }
 ```
 
-<!-- {: data-highlight="'my-footer'"} -->
+<!-- {: data-highlight="name='my-header'; name='my-footer'"} -->
 
 See: [Slots](https://stenciljs.com/docs/templating-jsx#slots)
 

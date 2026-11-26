@@ -26,7 +26,6 @@ rake spec:requests
 rake spec:routing
 rake spec:views
 ```
-<!-- {: data-highlight="rake spec:controllers"} -->
 
 See: [Getting started](https://rspec.info/features/8-0/rspec-rails/Getting-started/)
 
@@ -111,7 +110,7 @@ describe "routing to profiles" do
   end
 end
 ```
-<!-- {: data-highlight="route_to("} -->
+<!-- {: data-highlight="route_to"} -->
 
 See: [Routing specs](https://rspec.info/features/8-0/rspec-rails/routing-specs/)
 
@@ -166,7 +165,6 @@ be_routable
 have_http_status(500)
 have_http_status(:created)
 ```
-<!-- {: data-highlight="be_a_new(Widget)"} -->
 
 See: [Matchers](https://rspec.info/features/8-0/rspec-rails/matchers/)
 
@@ -181,6 +179,6 @@ travel_to Time.new(2014, 11, 14, 01, 04, 44) do
   ...
 end
 ```
-<!-- {: data-highlight="travel_to"} -->
+<!-- {: data-highlight="travel_to; travel_back"} -->
 
 See: [ActiveSupport::Testing::TimeHelpers](https://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html)

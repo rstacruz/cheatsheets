@@ -102,7 +102,7 @@ See: [rsync(1) --backup](https://download.samba.org/pub/rsync/rsync.1#opt--backu
 --include-from=FILE
 --files-from=FILE    # read list of filenames from FILE
 ```
-<!-- {: data-highlight="--exclude-from=FILE; --include-from=FILE"} -->
+<!-- {: data-highlight="--exclude-from=FILE; --include-from=FILE; --files-from=FILE"} -->
 
 #### CVS excludes
 

@@ -24,7 +24,6 @@ weight: -10
 let name = "John"
 echo "Hello, " . name
 ```
-<!-- {: data-highlight="let name"} -->
 
 You can either put this in a script (`script.vim`) and run it (`:source script.vim`), or type the commands individually in normal mode as `:let` and `:echo`.
 
@@ -57,7 +56,7 @@ See: [`:help usr_41.txt`](https://vimhelp.org/usr_41.txt.html#usr_41.txt)
 ```vim
 let var = "hello"
 ```
-<!-- {: data-highlight="let var"} -->
+<!-- {: data-highlight="let"} -->
 
 See: [`:help :let`](https://vimhelp.org/eval.txt.html#%3Alet)
 
@@ -112,7 +111,6 @@ let var -= 2
 let var += 5
 let var .= 'string'   " concat
 ```
-<!-- {: data-highlight=".="} -->
 
 See: [`:help expr6`](https://vimhelp.org/eval.txt.html#expr6), [`:help expr-.`](https://vimhelp.org/eval.txt.html#expr-.), [`:help :let+=`](https://vimhelp.org/eval.txt.html#%3Alet%2B%3D)
 
@@ -129,7 +127,7 @@ let literal = 'that''s enough'  " double '' => '
 
 echo "result = " . re   " concatenation
 ```
-<!-- {: data-highlight="let literal"} -->
+<!-- {: data-highlight="'literal, no \ escaping'; 'that''s enough'"} -->
 
 Quoted strings interpret backslash escapes; literal strings do not.
 
@@ -150,7 +148,6 @@ join(['a', 'b'], ',')  "=> 'a,b'
 tolower('Hello')
 toupper('Hello')
 ```
-<!-- {: data-highlight="strchars"} -->
 
 See: [`:help functions`](https://vimhelp.org/eval.txt.html#functions)
 
@@ -307,7 +304,7 @@ See: [`:help <SID>`](https://vimhelp.org/map.txt.html#%3CSID%3E)
 ```vim
 command! -nargs=? Save call script#foo(<args>)
 ```
-<!-- {: data-highlight="-nargs"} -->
+<!-- {: data-highlight="-nargs=?"} -->
 
 #### Arguments
 
@@ -350,7 +347,6 @@ if "1"     "=> 1 (true)
 if "456"   "=> 1 (true)
 if "xfz"   "=> 0 (false)
 ```
-<!-- {: data-highlight="if 1"} -->
 
 No booleans. `0` is false, `1` is true.
 
@@ -385,7 +381,7 @@ See: [`:help expr-==`](https://vimhelp.org/eval.txt.html#expr-%3D%3D)
 a is b
 a isnot b
 ```
-<!-- {: data-highlight="isnot"} -->
+<!-- {: data-highlight="is; isnot"} -->
 
 Checks if it's the same instance object.
 
@@ -438,7 +434,6 @@ let last  = mylist[-1]
 let second = get(mylist, 1)
 let second = get(mylist, 1, "NONE")
 ```
-<!-- {: data-highlight="mylist[-1]"} -->
 
 See: [`:help list`](https://vimhelp.org/eval.txt.html#list)
 
@@ -453,7 +448,6 @@ let sortedlist = sort(copy(list))
 
 split('hello there world', ' ')
 ```
-<!-- {: data-highlight="copy(list)"} -->
 
 See: [`:help list-functions`](https://vimhelp.org/usr_41.txt.html#list-functions)
 
@@ -463,7 +457,7 @@ See: [`:help list-functions`](https://vimhelp.org/usr_41.txt.html#list-functions
 let longlist = mylist + [5, 6]
 let mylist += [7, 8]
 ```
-<!-- {: data-highlight="+="} -->
+<!-- {: data-highlight="+; +="} -->
 
 See: [`:help list-concatenation`](https://vimhelp.org/eval.txt.html#list-concatenation)
 
@@ -475,7 +469,7 @@ let shortlist = mylist[2:]     " same
 
 let shortlist = mylist[2:2]    " one item
 ```
-<!-- {: data-highlight="[2:]"} -->
+<!-- {: data-highlight="mylist[2:-1]; mylist[2:]; mylist[2:2]"} -->
 
 See: [`:help sublist`](https://vimhelp.org/eval.txt.html#sublist)
 
@@ -512,7 +506,7 @@ let colors = {
 echo colors["a"]
 echo get(colors, "apple")   " suppress error
 ```
-<!-- {: data-highlight="get(colors"} -->
+<!-- {: data-highlight='get(colors, "apple")'} -->
 
 See: [`:help dict`](https://vimhelp.org/eval.txt.html#dict)
 
@@ -531,7 +525,6 @@ count(dict, 'x')
 string(dict)
 map(dict, '<>> " . v:val')
 ```
-<!-- {: data-highlight="has_key"} -->
 
 See: [`:help dict-functions`](https://vimhelp.org/usr_41.txt.html#dict-functions)
 
@@ -573,7 +566,7 @@ str2float("2.3")
 str2nr("3")
 float2nr("3.14")
 ```
-<!-- {: data-highlight="str2float"} -->
+<!-- {: data-highlight="str2float; str2nr; float2nr"} -->
 
 See: [`:help str2nr()`](https://vimhelp.org/builtin.txt.html#str2nr%28%29), [`:help float2nr()`](https://vimhelp.org/builtin.txt.html#float2nr%28%29)
 
@@ -584,7 +577,7 @@ let int = 1000
 let int = 0xff
 let int = 0755   " octal
 ```
-<!-- {: data-highlight="0xff"} -->
+<!-- {: data-highlight="1000; 0xff; 0755"} -->
 
 See: [`:help Number`](https://vimhelp.org/eval.txt.html#Number)
 
@@ -594,7 +587,7 @@ See: [`:help Number`](https://vimhelp.org/eval.txt.html#Number)
 let fl = 100.1
 let fl = 5.4e4
 ```
-<!-- {: data-highlight="5.4e4"} -->
+<!-- {: data-highlight="100.1; 5.4e4"} -->
 
 See: [`:help Float`](https://vimhelp.org/eval.txt.html#Float)
 
@@ -631,7 +624,7 @@ See: [`:help sqrt()`](https://vimhelp.org/builtin.txt.html#sqrt%28%29)
 execute "vsplit"
 execute "e " . fnameescape(filename)
 ```
-<!-- {: data-highlight="fnameescape"} -->
+<!-- {: data-highlight="execute"} -->
 
 Runs an ex command you typically run with `:`.
 
@@ -736,7 +729,7 @@ inoremap
 xnoremap
 ...
 ```
-<!-- {: data-highlight="nnoremap"} -->
+<!-- {: data-highlight="map"} -->
 
 See: [`:help map-modes`](https://vimhelp.org/map.txt.html#map-modes)
 
@@ -775,7 +768,7 @@ hi Comment
   ctermfg=4
   guifg=#80a0ff
 ```
-<!-- {: data-highlight="ctermfg=4"} -->
+<!-- {: data-highlight="hi Comment"} -->
 
 See: [`:help :highlight`](https://vimhelp.org/syntax.txt.html#%3Ahighlight)
 

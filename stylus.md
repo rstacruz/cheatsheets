@@ -62,7 +62,7 @@ caps-type()
   letter-spacing: 0.05em
 ```
 
-<!-- {: data-highlight="caps"} -->
+<!-- {: data-highlight="caps-type()"} -->
 
 #### Call
 
@@ -71,7 +71,7 @@ h5
   caps-type()
 ```
 
-<!-- {: data-highlight="type"} -->
+<!-- {: data-highlight="caps-type()"} -->
 
 See: [Mixins](https://stylus-lang.com/docs/mixins)
 
@@ -83,7 +83,7 @@ See: [Mixins](https://stylus-lang.com/docs/mixins)
 royal-blue = #36a
 ```
 
-<!-- {: data-highlight="royal"} -->
+<!-- {: data-highlight="royal-blue"} -->
 
 #### Use
 
@@ -91,6 +91,8 @@ royal-blue = #36a
 div
   color: royal-blue
 ```
+
+<!-- {: data-highlight="royal-blue"} -->
 
 See: [Variables](https://stylus-lang.com/docs/variables)
 
@@ -130,7 +132,7 @@ border-radius(n)
   border-radius: n
 ```
 
-<!-- {: data-highlight="radius"} -->
+<!-- {: data-highlight="border-radius"} -->
 
 #### Call
 
@@ -153,7 +155,7 @@ border-radius(n = 2px)
   -webkit-border-radius: n
 ```
 
-<!-- {: data-highlight="-radius"} -->
+<!-- {: data-highlight="n = 2px"} -->
 
 See: [Argument defaults](https://stylus-lang.com/docs/functions#argument-defaults)
 
@@ -291,7 +293,7 @@ royal-blue = #36a
 royal-blue ?= #89f
 ```
 
-<!-- {: data-highlight="blue"} -->
+<!-- {: data-highlight="royal-blue ?= #89f"} -->
 
 #### Use
 

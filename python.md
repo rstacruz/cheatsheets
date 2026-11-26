@@ -212,7 +212,7 @@ print(file.readline())  # read one line
 file.seek(0, 0)         # place the cursor at the start
 ```
 
-<!-- {: data-highlight="file.readline; file.seek"} -->
+<!-- {: data-highlight="file.read; file.readline; file.seek"} -->
 
 See: [io.IOBase.readline](https://docs.python.org/3/library/io.html#io.IOBase.readline)
 
@@ -238,7 +238,7 @@ file = open("Hello.txt", "a") # open in append mode
 file.write("Hello World again")
 file.close()
 ```
-<!-- {: data-highlight="open"} -->
+<!-- {: data-highlight='open("Hello.txt", "a")'} -->
 
 See: [open()](https://docs.python.org/3/library/functions.html#open)
 
@@ -251,6 +251,6 @@ with open("welcome.txt", "r") as file:
 
 # The file closes automatically at the end of the block.
 ```
-<!-- {: data-highlight="with open"} -->
+<!-- {: data-highlight='with open("welcome.txt", "r") as file'} -->
 
 See: [the with statement](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)

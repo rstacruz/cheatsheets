@@ -34,7 +34,7 @@ def multiplex(text, count)
   text * count
 end
 ```
-<!-- {: data-highlight="# Public"} -->
+<!-- {: data-highlight="# Public:"} -->
 
 A TomDoc block sits directly above a method: a `#` line, a short description, then optional sections in a fixed order.
 
@@ -93,7 +93,7 @@ See: [Yields](http://tomdoc.org/#yields) and [Returns](http://tomdoc.org/#return
 #   find_by_<field>[_and_<field>...](args)
 #
 ```
-<!-- {: data-highlight="# Signature"} -->
+<!-- {: data-highlight="find_by_<field>[_and_<field>...](args)"} -->
 
 Signatures describe dynamically generated methods: `<>` marks required parts, `[]` optional parts, and `...` repeats.
 

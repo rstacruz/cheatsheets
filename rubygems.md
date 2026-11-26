@@ -60,6 +60,6 @@ See: [gem-open](https://github.com/fnando/gem-open)
 ```sh
 cd $(basename `gem which rake`)  # Go to a gem's path
 ```
-<!-- {: data-highlight="basename"} -->
+<!-- {: data-highlight="gem which"} -->
 
 See: [gem which](https://guides.rubygems.org/command-reference/#gem-which)

@@ -34,6 +34,6 @@ See: [Form usage](https://github.com/heartcombo/simple_form#usage)
 ```ruby
 simple_form_for @x, wrapper: :small
 ```
-<!-- {: data-highlight="wrapper:"} -->
+<!-- {: data-highlight="wrapper: :small"} -->
 
 See: [The wrappers API](https://github.com/heartcombo/simple_form#the-wrappers-api)

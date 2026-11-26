@@ -21,7 +21,7 @@ updated: 2026-11-26
 ```bash
 npm install --save-dev webpack webpack-cli
 ```
-<!-- {: data-highlight="npm install"} -->
+<!-- {: data-highlight="webpack; webpack-cli"} -->
 
 `webpack` is the library; `webpack-cli` provides the `webpack` command.
 
@@ -43,7 +43,7 @@ module.exports = {
   }
 }
 ```
-<!-- {: data-highlight="contenthash"} -->
+<!-- {: data-highlight="module.exports"} -->
 
 `output.path` must be absolute. Name the file `webpack.config.mjs`, or set `"type": "module"` in `package.json`, to use `export default`.
 
@@ -91,7 +91,7 @@ output: {
   publicPath: '/'
 }
 ```
-<!-- {: data-highlight="chunkFilename"} -->
+<!-- {: data-highlight="output"} -->
 
 #### Filename tokens
 
@@ -146,7 +146,7 @@ module.exports = {
   ]
 }
 ```
-<!-- {: data-highlight="DefinePlugin"} -->
+<!-- {: data-highlight="webpack.DefinePlugin; webpack.ProgressPlugin"} -->
 
 Plugins hook into the compiler; most are classes you instantiate with `new`. Since 5.109 webpack handles HTML natively through an HTML entry or `output.html`, replacing `html-webpack-plugin`.
 
@@ -216,7 +216,7 @@ module.exports = {
   }
 }
 ```
-<!-- {: data-highlight="css-loader"} -->
+<!-- {: data-highlight="style-loader; css-loader"} -->
 
 `css-loader` resolves `@import` and `url()`; `style-loader` injects the result with a `<style>` tag. Use `mini-css-extract-plugin` to emit a real `.css` file instead.
 
@@ -268,7 +268,7 @@ module.exports = {
   }
 }
 ```
-<!-- {: data-highlight="asset/resource"} -->
+<!-- {: data-highlight="asset/resource; asset/inline; asset/source; asset"} -->
 
 #### Types
 
@@ -349,7 +349,7 @@ module.exports = {
   }
 }
 ```
-<!-- {: data-highlight="runtimeChunk"} -->
+<!-- {: data-highlight="[contenthash]; runtimeChunk"} -->
 
 A `[contenthash]` filename changes only when that file changes. Splitting the runtime into its own chunk stops boilerplate churn from renaming every bundle.
 

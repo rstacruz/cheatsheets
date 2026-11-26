@@ -19,7 +19,7 @@ links:
 ```sh
 siege -b -c=10 -t=5m "http://..."
 ```
-<!-- {: data-highlight="-b"} -->
+<!-- {: data-highlight="siege"} -->
 
 See: [Invocation](https://www.joedog.org/siege/manual#a02)
 

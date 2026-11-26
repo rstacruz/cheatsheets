@@ -421,29 +421,6 @@ selector-unify(...)
 See: [Meta functions](https://sass-lang.com/documentation/modules/meta)
 
 
-## Feature checks
-
-### Feature check
-
-```scss
-feature-exists(global-variable-shadowing)
-```
-<!-- {: data-highlight="feature-exists"} -->
-
-See: [feature-exists()](https://sass-lang.com/documentation/modules/meta#feature-exists)
-
-
-### Features
-
-* global-variable-shadowing
-* extend-selector-pseudoclass
-* units-level-3
-* at-error
-<!-- {: .-enum-wide} -->
-
-See: [Feature checks](https://sass-lang.com/documentation/modules/meta#feature-exists)
-
-
 ## Loops
 
 ### For loops

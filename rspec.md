@@ -22,7 +22,7 @@ rake spec         # Run all
 rake spec/models/mymodel_spec.rb
 rake spec/models/mymodel_spec.rb:27
 ```
-<!-- {: data-highlight="rake -T spec"} -->
+<!-- {: data-highlight="rake spec"} -->
 
 See: [Rake task](https://rspec.info/features/3-13/rspec-core/command-line/rake-task/)
 
@@ -66,7 +66,7 @@ after :all do
   # after this suite
 end
 ```
-<!-- {: data-highlight="before :each"} -->
+<!-- {: data-highlight="before :each; before :all; after :all"} -->
 
 See: [Before and after hooks](https://rspec.info/features/3-13/rspec-core/hooks/before-and-after-hooks/)
 
@@ -106,7 +106,7 @@ expect(5).to equal value
 expect(5).to be_between(1, 10)
 expect(5).to be_within(0.05).of value
 ```
-<!-- {: data-highlight="be_within"} -->
+<!-- {: data-highlight="be_between; be_within"} -->
 
 See: [Comparisons](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/comparisons/)
 
@@ -137,7 +137,7 @@ expect(x).to be_zero    # Integer#zero?
 expect(x).to be_empty   # Array#empty?
 expect(x).to have_key   # Hash#has_key?
 ```
-<!-- {: data-highlight="be_zero"} -->
+<!-- {: data-highlight="be_zero; be_empty; have_key"} -->
 
 See: [Predicates](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/predicates/)
 
@@ -148,7 +148,7 @@ expect(obj).to be_an_instance_of MyClass
 expect(obj).to be_a_kind_of MyClass
 expect(obj).to respond_to :save!
 ```
-<!-- {: data-highlight="be_an_instance_of"} -->
+<!-- {: data-highlight="be_an_instance_of; be_a_kind_of"} -->
 
 See: [Types](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/types/)
 
@@ -159,7 +159,7 @@ expect { user.save! }.to raise_error
 expect { user.save! }.to raise_error(ExceptionName, /msg/)
 expect { user.save! }.to throw :symbol
 ```
-<!-- {: data-highlight="raise_error"} -->
+<!-- {: data-highlight="raise_error; throw"} -->
 
 See: [Raise error](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/raise-error/)
 
@@ -193,7 +193,7 @@ expect { thing.destroy }.to \
   change(Thing, :count)
   .by(-1)
 ```
-<!-- {: data-highlight="change(thing, :status)"} -->
+<!-- {: data-highlight="change"} -->
 
 See: [Change](https://rspec.info/features/3-13/rspec-expectations/built-in-matchers/change/)
 
@@ -205,7 +205,7 @@ See: [Change](https://rspec.info/features/3-13/rspec-expectations/built-in-match
 book = double('book')
 book = instance_double('Book', pages: 250)
 ```
-<!-- {: data-highlight="instance_double"} -->
+<!-- {: data-highlight="double; instance_double"} -->
 
 See: [Test doubles](https://rspec.info/features/3-13/rspec-mocks/basics/test-doubles/)
 
@@ -259,7 +259,7 @@ module UserSpecHelper
   end
 end
 ```
-<!-- {: data-highlight="valid_user_attributes"} -->
+<!-- {: data-highlight="UserSpecHelper"} -->
 
 See: [Modules](https://rspec.info/features/3-13/rspec-core/helper-methods/modules/)
 

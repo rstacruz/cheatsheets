@@ -40,7 +40,7 @@ export const store = configureStore({
   }
 })
 ```
-<!-- {: data-highlight="export const store = configureStore"} -->
+<!-- {: data-highlight="configureStore"} -->
 
 `configureStore` combines slice reducers, adds thunk middleware, and enables DevTools and development checks.
 
@@ -58,7 +58,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(api.middleware)
 })
 ```
-<!-- {: data-highlight="middleware: (getDefaultMiddleware)"} -->
+<!-- {: data-highlight="getDefaultMiddleware().concat(api.middleware)"} -->
 
 `getDefaultMiddleware()` keeps the defaults typed; use `.concat()` or `.prepend()` rather than spreading.
 
@@ -130,7 +130,7 @@ extraReducers: (builder) => {
     })
 }
 ```
-<!-- {: data-highlight=".addCase(fetchUser.pending; .addCase(fetchUser.fulfilled; .addCase(fetchUser.rejected"} -->
+<!-- {: data-highlight="fetchUser.pending; fetchUser.fulfilled; fetchUser.rejected"} -->
 
 Handle lifecycle actions in `extraReducers`, one `builder.addCase()` per action creator.
 
@@ -206,7 +206,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(api.middleware)
 })
 ```
-<!-- {: data-highlight="api.middleware"} -->
+<!-- {: data-highlight="api.reducerPath; api.middleware"} -->
 
 Both the reducer and the middleware are required; the middleware drives caching, invalidation, and polling.
 
@@ -280,7 +280,7 @@ function Counter () {
   )
 }
 ```
-<!-- {: data-highlight="useAppSelector((state)"} -->
+<!-- {: data-highlight="useAppSelector"} -->
 
 Select the smallest value you need; `useSelector` re-renders when the returned reference changes.
 
@@ -313,7 +313,7 @@ export default connect(
   })
 )(App)
 ```
-<!-- {: data-highlight="connect("} -->
+<!-- {: data-highlight="connect"} -->
 
 `connect` is deprecated as of React-Redux 9.3.0. It still works, but the hooks above are simpler and type better.
 

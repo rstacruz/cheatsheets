@@ -25,7 +25,7 @@ DB = Sequel.postgres('my_db',
   :host => 'localhost')
 DB = Sequel.ado('mydb')
 ```
-<!-- {: data-highlight="DB ="} -->
+<!-- {: data-highlight="Sequel.connect; Sequel.postgres; Sequel.ado"} -->
 
 See: [Connecting to a database](https://sequel.jeremyevans.net/doc/opening_databases.html)
 
@@ -71,7 +71,7 @@ See: [Using SQL](https://sequel.jeremyevans.net/doc/sql.html#label-You+Can+Just+
 dataset = DB[:items]
 dataset = DB.from(:items)
 ```
-<!-- {: data-highlight="DB[:items]"} -->
+<!-- {: data-highlight="DB[:items]; DB.from(:items)"} -->
 
 See: [Dataset basics](https://sequel.jeremyevans.net/doc/dataset_basics.html)
 

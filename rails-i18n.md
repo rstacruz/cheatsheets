@@ -53,7 +53,7 @@ See: [Using translations in views and controllers](https://guides.rubyonrails.or
 ```rb
 t('hello', name: "John")
 ```
-<!-- {: data-highlight="name:"} -->
+<!-- {: data-highlight='name: "John"'} -->
 
 #### YAML
 
@@ -88,7 +88,7 @@ See: [Lazy lookup](https://guides.rubyonrails.org/i18n.html#lazy-lookup)
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
-<!-- {: data-highlight="count:"} -->
+<!-- {: data-highlight="count: 1"} -->
 
 
 #### YAML
@@ -222,7 +222,7 @@ activerecord.errors.messages.[key]
 errors.attributes.[attr].[key]
 errors.messages.[key]
 ```
-<!-- {: data-highlight="[model]"} -->
+<!-- {: data-highlight="[model]; [attr]; [key]"} -->
 
 #### Error keys
 

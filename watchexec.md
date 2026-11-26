@@ -230,7 +230,7 @@ See: [Command](https://github.com/watchexec/watchexec/blob/main/doc/watchexec.1.
 ```bash
 watchexec --clear --quiet -- make
 ```
-<!-- {: data-highlight="--clear"} -->
+<!-- {: data-highlight="--clear; --quiet"} -->
 
 `-c` clears the screen; `-q` hides the runner's status lines.
 

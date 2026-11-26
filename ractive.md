@@ -224,7 +224,7 @@ See: [Mustaches](https://ractive.js.org/api/#mustaches)
   <li>{{num}} - {{item.name}}</li>
 {{/each}}
 ```
-<!-- {: data-highlight="{{#each"} -->
+<!-- {: data-highlight="{{#each sort(list, 'name') as item: num}}"} -->
 
 #### Helper
 

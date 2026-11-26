@@ -19,7 +19,7 @@ updated: 2026-11-26
 ```bash
 sed -i -e 's/foo/bar/' example.md
 ```
-<!-- {: data-highlight="-i -e"} -->
+<!-- {: data-highlight="-i"} -->
 
 GNU sed takes `-i` without an argument.
 
@@ -37,7 +37,7 @@ On macOS, `-i ''` is required.
 ```bash
 sed -i 's/match1/replace1/g; s/match2/replace2/g' example.md
 ```
-<!-- {: data-highlight="s/match1/replace1/g"} -->
+<!-- {: data-highlight="s/match1/replace1/g; s/match2/replace2/g"} -->
 
 Change different matches to different values.
 
@@ -46,7 +46,7 @@ Change different matches to different values.
 ```bash
 sed -i 's/\(MATCH1\|MATCH2\)/VALUE/g' example.md
 ```
-<!-- {: data-highlight="MATCH1\|MATCH2"} -->
+<!-- {: data-highlight="\(MATCH1\|MATCH2\)"} -->
 
 Change several matches to one value.
 
@@ -62,7 +62,7 @@ See: [The s command](https://www.gnu.org/software/sed/manual/sed.html#The-_0022s
 ```bash
 sed '/begin api/q'
 ```
-<!-- {: data-highlight="begin api"} -->
+<!-- {: data-highlight="/begin api/q"} -->
 
 See: [q command](https://www.gnu.org/software/sed/manual/sed.html#Common-Commands)
 
@@ -71,7 +71,7 @@ See: [q command](https://www.gnu.org/software/sed/manual/sed.html#Common-Command
 ```bash
 sed '/^# begin/,$d'
 ```
-<!-- {: data-highlight=",$d"} -->
+<!-- {: data-highlight="/^# begin/,$d"} -->
 
 See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Addresses)
 
@@ -80,7 +80,7 @@ See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Ad
 ```bash
 sed -n '/end api/,$p'
 ```
-<!-- {: data-highlight="$p"} -->
+<!-- {: data-highlight="/end api/,$p"} -->
 
 Prints everything after the line is found.
 
@@ -91,21 +91,21 @@ See: [Range addresses](https://www.gnu.org/software/sed/manual/sed.html#Range-Ad
 ```bash
 sed -n '/regex/!p'
 ```
-<!-- {: data-highlight="!p"} -->
+<!-- {: data-highlight="/regex/!p"} -->
 
 #### Regex ranges
 
 ```bash
 sed -n -e '/^START$/,/^END$/p'
 ```
-<!-- {: data-highlight="^START$"} -->
+<!-- {: data-highlight="/^START$/,/^END$/p"} -->
 
 #### Without -n
 
 ```bash
 sed -e '/^START$/,/^END$/p;d'
 ```
-<!-- {: data-highlight="^END$"} -->
+<!-- {: data-highlight="d"} -->
 
 Prints all lines except those matching the regex. The first range prints only the range; the second deletes other lines.
 

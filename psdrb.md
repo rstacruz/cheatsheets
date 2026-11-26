@@ -86,7 +86,7 @@ node.text[:right]
 node.text[:bottom]
 node.text[:transform]      #=> (Hash)
 ```
-<!-- {: data-highlight="node.text[:value]; node.text[:font]"} -->
+<!-- {: data-highlight="node.text[:value]; node.text[:font][:name]"} -->
 
 See: [Text data example](https://github.com/layervault/psd.rb/blob/master/examples/export_text_data.rb)
 
@@ -98,7 +98,7 @@ fx = node.info[:object_effects]
 fx.data['Scl ']   # ?
 fx.data['GrFl']   # Gradient fill
 ```
-<!-- {: data-highlight="object_effects"} -->
+<!-- {: data-highlight="node.info[:object_effects]"} -->
 
 See: [Layer effects info](https://github.com/layervault/psd.rb/blob/master/lib/psd/layer/info/layer_effects.rb)
 
@@ -112,7 +112,7 @@ node.mask["left"]
 node.mask["bottom"]
 node.mask["right"]
 ```
-<!-- {: data-highlight="mask_size"} -->
+<!-- {: data-highlight='node.mask["mask_size"]'} -->
 
 See: [Layer mask](https://github.com/layervault/psd.rb/blob/master/lib/psd/layer/mask.rb)
 

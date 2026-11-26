@@ -27,7 +27,7 @@ tier: t3
 :set ft=help
 :set ft=text
 ```
-<!-- {: data-highlight="ft=help"} -->
+<!-- {: data-highlight="ft=help; ft=text"} -->
 
 Use `ft=help` to preview it, and `ft=text` to edit it.
 
@@ -128,7 +128,7 @@ See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 	*Todo something to do
 	*Error something wrong
 ```
-<!-- {: data-highlight="*Todo"} -->
+<!-- {: data-highlight="*Todo; *Error"} -->
 
 Using `*Todo` and `*Error` will highlight your notes.
 
@@ -139,7 +139,7 @@ See: [Writing help files](https://vimhelp.org/helphelp.txt.html#help-writing)
 ```nohighlight
 vim:tw=78:ts=8:ft=help:norl:
 ```
-<!-- {: data-highlight="vim:tw=78"} -->
+<!-- {: data-highlight="vim:tw=78:ts=8:ft=help:norl:"} -->
 
 See: [Modeline](https://vimhelp.org/options.txt.html#modeline)
 

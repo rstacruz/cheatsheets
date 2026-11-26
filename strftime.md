@@ -25,7 +25,7 @@ links:
 date +%Y-%m-%d
 date +'%A, %B %e, %Y'
 ```
-<!-- {: data-highlight="+%Y-%m-%d"} -->
+<!-- {: data-highlight="+%Y-%m-%d; +'%A, %B %e, %Y'"} -->
 
 The POSIX `date` command uses the same format codes as `strftime`.
 

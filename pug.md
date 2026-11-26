@@ -81,7 +81,7 @@ See: [Attributes](https://pugjs.org/language/attributes.html)
   Nesting inside a comment creates
   a comment block
 ```
-<!-- {: data-highlight="//-"} -->
+<!-- {: data-highlight="//; //-"} -->
 
 See: [Comments](https://pugjs.org/language/comments.html)
 
@@ -151,7 +151,7 @@ p.
   This is text that doesn't need to
   be prefixed by pipes.
 ```
-<!-- {: data-highlight="p"} -->
+<!-- {: data-highlight="p."} -->
 
 #### Script block
 
@@ -161,7 +161,7 @@ script.
   // JavaScript and stuff
   alert('hello')
 ```
-<!-- {: data-highlight="script"} -->
+<!-- {: data-highlight="script."} -->
 
 See: [Block in a tag](https://pugjs.org/language/plain-text.html#block-in-a-tag)
 
@@ -174,7 +174,7 @@ else
   a(href='/login') Sign in
 ```
 
-<!-- {: data-highlight="authenticated"} -->
+<!-- {: data-highlight="if authenticated; else"} -->
 
 See: [Conditionals](https://pugjs.org/language/conditionals.html)
 
@@ -212,7 +212,7 @@ See: [Mixins](https://pugjs.org/language/mixins.html)
 mixin pet(name)
   span.pet= name
 ```
-<!-- {: data-highlight="name"} -->
+<!-- {: data-highlight="mixin pet(name)"} -->
 
 #### Call
 

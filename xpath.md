@@ -234,6 +234,8 @@ See: [Abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-ab
 
 <!-- {: .xp} -->
 
+See: [Predicates](https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates)
+
 ### By class
 
 ```bash

@@ -73,7 +73,7 @@ page.locator(
 ```
 <!-- {: data-highlight="/html/body/div[2]"} -->
 
-**Starts from a landmark instead of the document root.** Absolute paths break when markup changes; see the [XPath cheatsheet](./xpath).
+**Starts from a landmark instead of the document root.** Absolute paths break when markup changes; see [abbreviated syntax](https://www.w3.org/TR/1999/REC-xpath-19991116/#path-abbrev) and the [XPath cheatsheet](./xpath).
 
 ### Class idiom
 <!-- {: .-snippet} -->
@@ -86,7 +86,7 @@ page.locator(
 ```
 <!-- {: data-highlight="normalize-space(@class)"} -->
 
-**Matches `total` as one class token.** Plain `contains(@class, 'total')` also matches `total-row`; see the [XPath cheatsheet](./xpath).
+**Matches `total` as one class token.** Plain `contains(@class, 'total')` also matches `total-row`; see [contains()](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions#contains) and the [XPath cheatsheet](./xpath).
 
 ### Waits
 <!-- {: .-snippet} -->

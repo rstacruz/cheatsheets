@@ -2,7 +2,7 @@
 title: How to handle errors in Express
 link_title: Express error handling
 subtitle: Error handlers and 404s
-category: Node.js
+category: Web frameworks
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."
@@ -27,6 +27,7 @@ app.use((err, req, res, next) => {
   res.json({ error: err.message })
 })
 ```
+<!-- {: data-highlight="(err, req, res, next)"} -->
 
 **Catches every error passed with `next(err)`.** Register it last, after routes; the four parameters mark it as an error handler. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).
 
@@ -39,6 +40,7 @@ app.get('/users', async (req, res) => {
   res.json(users)
 })
 ```
+<!-- {: data-highlight="async"} -->
 
 **Forwards rejected promises automatically.** Express 5 sends them to the error handler, so no `try/catch` is needed. See the [migration guide](https://expressjs.com/en/guide/migrating-5.html#rejected-promises-handled-from-middleware-and-handlers).
 
@@ -50,6 +52,7 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Not found' })
 })
 ```
+<!-- {: data-highlight="res.status(404)"} -->
 
 **Answers unmatched routes.** Put it after every route and before the error handler. See the [FAQ](https://expressjs.com/en/starter/faq.html#how-do-i-handle-404-responses).
 
@@ -57,9 +60,12 @@ app.use((req, res) => {
 <!-- {: .-snippet} -->
 
 ```js
-const err = new Error('Forbidden')
-err.status = 403
-throw err
+app.get('/admin', (req, res) => {
+  const err = new Error('Forbidden')
+  err.status = 403
+  throw err
+})
 ```
+<!-- {: data-highlight="err.status"} -->
 
 **Sets the code the error handler sends.** Any `Error` without `status` becomes a 500. See [error handling](https://expressjs.com/en/5x/guide/error-handling.html).

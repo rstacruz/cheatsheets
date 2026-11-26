@@ -1,7 +1,7 @@
 ---
 title: Express
 subtitle: Node.js web framework
-category: Node.js
+category: Web frameworks
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."
 tier: t2
@@ -79,11 +79,14 @@ app.post('/users', (req, res) => {
 See: [express.json()](https://expressjs.com/en/5x/api/express/#expressjson)
 
 ## Routing
+<!-- {: .-three-column} -->
 
 ### Route methods
 
 ```js
-app.get('/health', (req, res) => res.send('ok'))
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
 app.post('/users', createUser)
 app.put('/users/:id', updateUser)
 app.delete('/users/:id', deleteUser)
@@ -99,7 +102,8 @@ See: [Routing](https://expressjs.com/en/5x/guide/routing.html)
 ```js
 // GET /users/42
 app.get('/users/:id', (req, res) => {
-  res.json({ id: req.params.id }) // '42'
+  res.json({ id: req.params.id })
+  // '42'
 })
 ```
 <!-- {: data-highlight="req.params.id"} -->
@@ -112,7 +116,8 @@ See: [Route parameters](https://expressjs.com/en/5x/guide/routing.html#route-par
 
 ```js
 app.get('/users{/:id}', (req, res) => {
-  res.json({ id: req.params.id ?? null })
+  const id = req.params.id ?? null
+  res.json({ id })
 })
 ```
 <!-- {: data-highlight="{/:id}"} -->
@@ -126,7 +131,8 @@ See: [Path route matching](https://expressjs.com/en/guide/migrating-5.html#path-
 ```js
 // GET /files/a/b/c.txt
 app.get('/files/*splat', (req, res) => {
-  res.json(req.params.splat) // ['a', 'b', 'c.txt']
+  res.json(req.params.splat)
+  // ['a', 'b', 'c.txt']
 })
 ```
 <!-- {: data-highlight="/*splat"} -->
@@ -141,7 +147,7 @@ See: [Path route matching](https://expressjs.com/en/guide/migrating-5.html#path-
 // GET /search?q=redis&tag=a&tag=b
 app.get('/search', (req, res) => {
   const { q, tag } = req.query
-  res.json({ q, tag }) // 'redis', ['a', 'b']
+  res.json({ q, tag })
 })
 ```
 <!-- {: data-highlight="req.query"} -->
@@ -204,7 +210,7 @@ app.use(express.json()) // parse the body
 app.use(auth)           // authenticate
 app.get('/me', (req, res) => res.json(req.user))
 ```
-<!-- {: data-highlight="app.use"} -->
+<!-- {: data-highlight="auth"} -->
 
 Middleware and routes run in registration order, so parsers and guards go before the routes that need them.
 
@@ -246,7 +252,7 @@ app.use('/assets', express.static('dist'))
 ```
 <!-- {: data-highlight="'/assets'"} -->
 
-An absolute root keeps the directory correct when the app starts from another cwd.
+An absolute root keeps the directory correct when the app starts from another cwd; relative roots resolve against `process.cwd()`.
 
 See: [Serving static files](https://expressjs.com/en/starter/static-files.html)
 
@@ -265,7 +271,7 @@ app.use(morgan('dev'))
 
 `helmet` sets security headers, `cors` allows cross-origin requests, and `morgan` logs requests.
 
-See: [helmet](https://helmetjs.github.io/), [cors](https://github.com/expressjs/cors), [morgan](https://github.com/expressjs/morgan)
+See: [helmet](https://helmet.js.org/), [cors](https://github.com/expressjs/cors), [morgan](https://github.com/expressjs/morgan)
 
 ## Responses
 
@@ -277,6 +283,7 @@ res.status(204).end()
 res.send('text')
 res.redirect(301, '/new')
 ```
+<!-- {: data-highlight="res.status(201).json"} -->
 
 `res.status()` only sets the code; a body method still has to send the response.
 
@@ -320,6 +327,7 @@ Install the engine (`npm i ejs`); `views` defaults to `./views`.
 See: [Template engines](https://expressjs.com/en/5x/guide/using-template-engines.html)
 
 ## Errors
+<!-- {: .-three-column} -->
 
 ### Error handler
 
@@ -355,7 +363,9 @@ See: [Rejected promises](https://expressjs.com/en/guide/migrating-5.html#rejecte
 
 ```js
 app.use((req, res) => {
-  res.status(404).json({ error: 'Not found' })
+  res.status(404).json({
+    error: 'Not found'
+  })
 })
 ```
 <!-- {: data-highlight="res.status(404)"} -->
@@ -381,8 +391,6 @@ See: [Error handling](https://expressjs.com/en/5x/guide/error-handling.html)
 
 ## Also see
 
-<!-- {: .-one-column} -->
-
 - [Express CORS cheatsheet](./express-cors)
 - [Express error handling cheatsheet](./express-error-handling)
 - [Parse JSON body cheatsheet](./express-json-body)
@@ -391,6 +399,7 @@ See: [Error handling](https://expressjs.com/en/5x/guide/error-handling.html)
 - [Express router cheatsheet](./express-router)
 - [Serve static files cheatsheet](./express-static-files)
 - [Express TypeScript cheatsheet](./express-typescript)
+<!-- {: .-also-see} -->
 
 [Fastify cheatsheet](./fastify)
 <!-- {: .-crosslink} -->

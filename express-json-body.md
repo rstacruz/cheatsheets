@@ -2,7 +2,7 @@
 title: How to parse a JSON body in Express
 link_title: Parse JSON body
 subtitle: Read req.body with express.json
-category: Node.js
+category: Web frameworks
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."
@@ -28,6 +28,7 @@ app.post('/users', (req, res) => {
   res.status(201).json(req.body)
 })
 ```
+<!-- {: data-highlight="express.json()"} -->
 
 **Parses `application/json` into `req.body`.** Without a parser, `req.body` stays `undefined`. See [express.json()](https://expressjs.com/en/5x/api/express/#expressjson).
 
@@ -37,6 +38,7 @@ app.post('/users', (req, res) => {
 ```js
 app.use(express.urlencoded({ extended: true }))
 ```
+<!-- {: data-highlight="extended: true"} -->
 
 **Parses HTML form posts.** `extended: true` allows nested fields; the default only handles flat keys. See [express.urlencoded()](https://expressjs.com/en/5x/api/express/#expressurlencoded).
 
@@ -46,6 +48,7 @@ app.use(express.urlencoded({ extended: true }))
 ```js
 app.use(express.json({ limit: '1mb' }))
 ```
+<!-- {: data-highlight="limit: '1mb'"} -->
 
 **Caps the request body.** Larger payloads fail with a 413 that reaches your error handler. See [express.json()](https://expressjs.com/en/5x/api/express/#expressjson).
 
@@ -58,5 +61,6 @@ app.post('/users', (req, res) => {
   res.json({ name })
 })
 ```
+<!-- {: data-highlight="req.body?.name"} -->
 
 **Guards against unparsed bodies.** Optional chaining avoids a crash when the client sends no JSON. See [req.body](https://expressjs.com/en/5x/api/request/#reqbody).

@@ -1,7 +1,7 @@
 ---
 title: Fastify
 subtitle: Fast Node.js web framework
-category: Node.js libraries
+category: Web frameworks
 last_verified_with: "Fastify 5.12."
 updated: 2026-11-26
 tier: t3

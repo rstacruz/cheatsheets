@@ -2,7 +2,7 @@
 title: How to write Express middleware
 link_title: Express middleware
 subtitle: Functions that run before routes
-category: Node.js
+category: Web frameworks
 layout: snippet
 updated: 2026-11-26
 last_verified_with: "Express 5.3.0, Node 26.13.1."
@@ -29,6 +29,7 @@ const logger = (req, res, next) => {
 
 app.use(logger)
 ```
+<!-- {: data-highlight="next()"} -->
 
 **Runs on every request.** Call `next()` to continue; a middleware that neither responds nor calls it hangs the request. See [writing middleware](https://expressjs.com/en/5x/guide/writing-middleware.html).
 
@@ -45,6 +46,7 @@ const auth = (req, res, next) => {
   })
 }
 ```
+<!-- {: data-highlight="res.status(401)"} -->
 
 #### Protected route
 
@@ -53,6 +55,7 @@ app.get('/admin', auth, (req, res) => {
   res.json({ ok: true })
 })
 ```
+<!-- {: data-highlight="auth"} -->
 
 **Returns early instead of calling `next()`.** Pass it as a route handler, or mount it with `app.use('/admin', auth)`. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).
 
@@ -66,5 +69,6 @@ app.get('/me', (req, res) => {
   res.json(req.user)
 })
 ```
+<!-- {: data-highlight="app.use"} -->
 
 **Runs middleware in registration order.** Parsers and guards must come before the routes that read their results. See [using middleware](https://expressjs.com/en/5x/guide/using-middleware.html).

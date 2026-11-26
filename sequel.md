@@ -2,6 +2,9 @@
 title: Sequel
 subtitle: Ruby database toolkit
 category: Ruby libraries
+tier: t3
+last_verified_with: "Sequel 5.110.0."
+updated: 2026-11-26
 intro: |
   Sequel is a database toolkit for Ruby.
 links:
@@ -17,17 +20,25 @@ require 'sequel'
 
 DB = Sequel.sqlite('my_blog.db')
 DB = Sequel.connect('postgres://user:password@localhost/my_db')
-DB = Sequel.postgres('my_db', :user => 'user', :password => 'password', :host => 'localhost')
+DB = Sequel.postgres('my_db',
+  :user => 'user', :password => 'password',
+  :host => 'localhost')
 DB = Sequel.ado('mydb')
 ```
+<!-- {: data-highlight="Sequel.connect; Sequel.postgres; Sequel.ado"} -->
+
+See: [Connecting to a database](https://sequel.jeremyevans.net/doc/opening_databases.html)
 
 ### Open an SQLite memory database
-
-Without a filename argument, the sqlite adapter will setup a new sqlite database in memory.
 
 ```
 DB = Sequel.sqlite
 ```
+<!-- {: data-highlight="Sequel.sqlite"} -->
+
+Without a filename argument, the SQLite adapter creates an in-memory database.
+
+See: [SQLite adapter](https://sequel.jeremyevans.net/doc/opening_databases.html#label-sqlite)
 
 ### Logging SQL statements
 
@@ -38,10 +49,13 @@ DB = Sequel.sqlite '', :loggers => [Logger.new($stdout)]
 DB.loggers << Logger.new(...)
 ```
 
+See: [Connection options](https://sequel.jeremyevans.net/doc/opening_databases.html#label-General+connection+options)
+
 ### Using raw SQL
 
 ```
-DB.run "CREATE TABLE users (name VARCHAR(255) NOT NULL, age INT(3) NOT NULL)"
+DB.run "CREATE TABLE users (name VARCHAR(255) NOT NULL, " \
+  "age INT(3) NOT NULL)"
 dataset = DB["SELECT age FROM users WHERE name = ?", name]
 dataset.map(:age)
 DB.fetch("SELECT name FROM users") do |row|
@@ -49,24 +63,35 @@ DB.fetch("SELECT name FROM users") do |row|
 end
 ```
 
+See: [Using SQL](https://sequel.jeremyevans.net/doc/sql.html#label-You+Can+Just+Use+SQL)
+
 ### Create a dataset
 
 ```
 dataset = DB[:items]
 dataset = DB.from(:items)
 ```
+<!-- {: data-highlight="DB[:items]; DB.from(:items)"} -->
+
+See: [Dataset basics](https://sequel.jeremyevans.net/doc/dataset_basics.html)
 
 ### Most dataset methods are chainable
 
 ```
-dataset = DB[:managers].where(:salary => 5000..10000).order(:name, :department)
+dataset = DB[:managers]
+  .where(:salary => 5000..10000)
+  .order(:name, :department)
 ```
+
+See: [Dataset basics: chainability](https://sequel.jeremyevans.net/doc/dataset_basics.html#label-Basics)
 
 ### Insert rows
 
 ```
 dataset.insert(:name => 'Sharon', :grade => 50)
 ```
+
+See: [Dataset basics: methods that execute SQL](https://sequel.jeremyevans.net/doc/dataset_basics.html#label-Methods+that+execute+code+on+the+database)
 
 ### Retrieve rows
 
@@ -76,12 +101,16 @@ dataset.all # => [{...}, {...}, ...]
 dataset.first # => {...}
 ```
 
+See: [Dataset API](https://sequel.jeremyevans.net/rdoc/classes/Sequel/Dataset.html)
+
 ### Update/Delete rows
 
 ```
 dataset.filter(~:active).delete
 dataset.filter('price < ?', 100).update(:active => true)
 ```
+
+See: [Dataset basics: methods that execute SQL](https://sequel.jeremyevans.net/doc/dataset_basics.html#label-Methods+that+execute+code+on+the+database)
 
 ### Datasets are Enumerable
 
@@ -93,7 +122,9 @@ dataset.inject(0){|sum, r| sum + r[:value]}
 dataset.sum(:value) # same as above
 ```
 
-### Filtering (see also doc/dataset_filtering.rdoc)
+See: [Dataset API](https://sequel.jeremyevans.net/rdoc/classes/Sequel/Dataset.html)
+
+### Filtering
 
 #### Equality
 
@@ -135,6 +166,10 @@ DB[:items].filter(:name.like('AL%'))
 DB[:items].filter(:name => /^AL/)
 ```
 
+See: [Dataset filtering](https://sequel.jeremyevans.net/doc/dataset_filtering.html)
+
+### Logical and mathematical filters
+
 #### AND/OR/NOT
 
 ```
@@ -155,6 +190,8 @@ DB[:items].filter{price - 100 < avg(price)}.sql
 # SELECT * FROM items WHERE ((price - 100) < avg(price))
 ```
 
+See: [Virtual row blocks](https://sequel.jeremyevans.net/doc/virtual_rows.html)
+
 ### Ordering
 
 ```
@@ -163,6 +200,8 @@ dataset.reverse_order(:kind)
 dataset.order(:kind.desc, :name)
 ```
 
+See: [Dataset basics](https://sequel.jeremyevans.net/doc/dataset_basics.html)
+
 ### Limit/Offset
 
 ```
@@ -170,15 +209,27 @@ dataset.limit(30) # LIMIT 30
 dataset.limit(30, 10) # LIMIT 30 OFFSET 10
 ```
 
+See: [Dataset basics](https://sequel.jeremyevans.net/doc/dataset_basics.html)
+
 ### Joins
 
 ```
-DB[:items].left_outer_join(:categories, :id => :category_id).sql
-# SELECT * FROM items LEFT OUTER JOIN categories ON categories.id = items.category_id
+DB[:items]
+  .left_outer_join(:categories, :id => :category_id)
+  .sql
+# SELECT * FROM items LEFT OUTER JOIN categories
+#   ON categories.id = items.category_id
 
-DB[:items].join(:categories, :id => :category_id).join(:groups, :id => :items__group_id)
-# SELECT * FROM items INNER JOIN categories ON categories.id = items.category_id INNER JOIN groups ON groups.id = items.group_id
+DB[:items]
+  .join(:categories, :id => :category_id)
+  .join(:groups, :id => :items__group_id)
+  .sql
+# SELECT * FROM items INNER JOIN categories
+#   ON categories.id = items.category_id
+#   INNER JOIN groups ON groups.id = items.group_id
 ```
+
+See: [Dataset basics](https://sequel.jeremyevans.net/doc/dataset_basics.html)
 
 ### Aggregate functions methods
 
@@ -193,6 +244,8 @@ dataset.group_and_count(:category)
 dataset.group(:category).select(:category, :AVG.sql_function(:price))
 ```
 
+See: [Dataset basics: aggregate methods](https://sequel.jeremyevans.net/doc/dataset_basics.html#label-Methods+that+execute+code+on+the+database)
+
 ### SQL Functions / Literals
 
 ```
@@ -202,6 +255,8 @@ dataset.update(:updated_at => 'NOW()'.lit)
 dataset.update(:updated_at => "DateValue('1/1/2001')".lit)
 dataset.update(:updated_at => :DateValue.sql_function('1/1/2001'))
 ```
+
+See: [Sequel for SQL users](https://sequel.jeremyevans.net/doc/sql.html)
 
 ### Schema Manipulation
 
@@ -224,6 +279,8 @@ DB.create_table :test do
 end
 ```
 
+See: [Schema modification](https://sequel.jeremyevans.net/doc/schema_modification.html)
+
 ### Aliasing
 
 ```
@@ -233,74 +290,100 @@ DB[:items___items_table].select(:items_table__name___item_name)
 # SELECT items_table.name AS item_name FROM items AS items_table
 ```
 
+See: [Sequel for SQL users](https://sequel.jeremyevans.net/doc/sql.html)
+
 ### Transactions
 
-```
+#### Basic transaction
+
+```ruby
 DB.transaction do
   dataset.insert(:first_name => 'Inigo', :last_name => 'Montoya')
   dataset.insert(:first_name => 'Farm', :last_name => 'Boy')
 end # Either both are inserted or neither are inserted
 ```
 
-Database#transaction is re-entrant:
+#### Re-entrant transactions
 
-```
+```ruby
 DB.transaction do # BEGIN issued only here
-  DB.transaction
-    dataset << {:first_name => 'Inigo', :last_name => 'Montoya'}
+  DB.transaction do
+    dataset << {
+      :first_name => 'Inigo', :last_name => 'Montoya'
+    }
   end
-end # COMMIT issued only here
+end # COMMIT issued only here; nested transactions are re-entrant
 ```
 
-Transactions are aborted if an error is raised:
+#### Rollback on error
 
-```
+```ruby
 DB.transaction do
   raise "some error occurred"
 end # ROLLBACK issued and the error is re-raised
 ```
 
-Transactions can also be aborted by raising Sequel::Rollback:
+#### Explicit rollback
 
-```
+```ruby
 DB.transaction do
   raise(Sequel::Rollback) if something_bad_happened
 end # ROLLBACK issued and no error raised
 ```
+<!-- {: data-highlight="DB.transaction"} -->
 
-Savepoints can be used if the database supports it:
+Raising `Sequel::Rollback` aborts without re-raising.
 
-```
+See: [Database transactions](https://sequel.jeremyevans.net/doc/transactions.html)
+
+### Savepoints
+
+```ruby
 DB.transaction do
-  dataset << {:first_name => 'Farm', :last_name => 'Boy'} # Inserted
-  DB.transaction(:savepoint=>true) # This savepoint is rolled back
-    dataset << {:first_name => 'Inigo', :last_name => 'Montoya'} # Not inserted
+  dataset << { :first_name => 'Farm', :last_name => 'Boy' } # Inserted
+  DB.transaction(:savepoint => true) do
+    dataset << {
+      :first_name => 'Inigo', :last_name => 'Montoya'
+    } # Not inserted
     raise(Sequel::Rollback) if something_bad_happened
   end
-  dataset << {:first_name => 'Prince', :last_name => 'Humperdink'} # Inserted
+  dataset << {
+    :first_name => 'Prince', :last_name => 'Humperdink'
+  } # Inserted
 end
 ```
+<!-- {: data-highlight=":savepoint => true"} -->
 
-### Miscellaneous:
+See: [Database transactions](https://sequel.jeremyevans.net/doc/transactions.html)
+
+### Miscellaneous
 
 ```
 dataset.sql # "SELECT * FROM items"
 dataset.delete_sql # "DELETE FROM items"
-dataset.where(:name => 'sequel').exists # "EXISTS ( SELECT * FROM items WHERE name = 'sequel' )"
+dataset.where(:name => 'sequel').exists
+# "EXISTS ( SELECT * FROM items WHERE name = 'sequel' )"
+
 dataset.columns #=> array of columns in the result set, does a SELECT
-DB.schema(:items) => [[:id, {:type=>:integer, ...}], [:name, {:type=>:string, ...}], ...]
+DB.schema(:items)
+# => [[:id, {:type=>:integer, ...}],
+#     [:name, {:type=>:string, ...}], ...]
 ```
+
+See: [Dataset API](https://sequel.jeremyevans.net/rdoc/classes/Sequel/Dataset.html)
 
 ---
 
 ### Documents
 
 ```
-http://sequel.rubyforge.org/rdoc/files/doc/association_basics_rdoc.html
-http://sequel.rubyforge.org/rdoc/classes/Sequel/Schema/Generator.html
-http://sequel.rubyforge.org/rdoc/files/doc/validations_rdoc.html
-http://sequel.rubyforge.org/rdoc/classes/Sequel/Model.html
+https://sequel.jeremyevans.net/doc/association_basics.html
+https://sequel.jeremyevans.net/doc/schema_modification.html
+https://sequel.jeremyevans.net/doc/validations.html
+https://sequel.jeremyevans.net/rdoc/classes/Sequel/Model.html
 ```
+
+See: [Sequel documentation](https://sequel.jeremyevans.net/documentation.html)
 
 ### Alter table
 
@@ -329,7 +412,11 @@ database.alter_table :deals do
 end
 ```
 
+See: [Schema modification](https://sequel.jeremyevans.net/doc/schema_modification.html)
+
 ### Model associations
+
+#### Define associations
 
 ```
 class Deal < Sequel::Model
@@ -342,7 +429,7 @@ class Deal < Sequel::Model
 
   one_to_many   :files,
     key:        :deal_id,
-    class:      :DataFile,
+    class:      :DataFile
 
   many_to_one   :parent, class: self
   one_to_many   :children, key: :parent_id, class: self
@@ -350,9 +437,11 @@ class Deal < Sequel::Model
   one_to_many :gold_albums, class: :Album do |ds|
     ds.filter { copies_sold > 50000 }
   end
+end
 ```
+<!-- {: data-highlight="many_to_many; one_to_many; many_to_one"} -->
 
-Provided by many_to_many
+#### Use associations
 
 ```
 Deal[1].images
@@ -360,6 +449,8 @@ Deal[1].add_image
 Deal[1].remove_image
 Deal[1].remove_all_images
 ```
+
+See: [Model associations](https://sequel.jeremyevans.net/doc/association_basics.html)
 
 ### Validations
 
@@ -370,8 +461,8 @@ def validate
 
     validates_presence [:title, :site]
     validates_unique :name
-    validates_format /\Ahttps?:\/\//, :website, :message=>'is not a valid URL'
-    validates_includes %w(a b c), :type
+    validates_format(/\Ahttps?:\/\//, :website,
+      :message => 'is not a valid URL')
     validates_integer :rating
     validates_numeric :number
     validates_type String, [:title, :description]
@@ -396,6 +487,8 @@ end
 deal.errors
 ```
 
+See: [Model validations](https://sequel.jeremyevans.net/doc/validations.html)
+
 ### Model stuff
 
 ```
@@ -412,6 +505,8 @@ deal.modified?
 
 deal.lock!
 ```
+
+See: [Sequel object model](https://sequel.jeremyevans.net/doc/object_model.html)
 
 ### Callbacks
 
@@ -431,6 +526,8 @@ before_destroy
 DELETE QUERY
 after_destroy
 ```
+
+See: [Model hooks](https://sequel.jeremyevans.net/doc/model_hooks.html)
 
 ### Schema
 
@@ -461,6 +558,8 @@ class Deal < Sequel::Model
 end
 ```
 
+See: [Model API](https://sequel.jeremyevans.net/rdoc/classes/Sequel/Model.html)
+
 ### Unrestrict primary key
 
 ```
@@ -468,3 +567,5 @@ Category.create id: 'travel'   # error
 Category.unrestrict_primary_key
 Category.create id: 'travel'   # ok
 ```
+
+See: [Mass assignment](https://sequel.jeremyevans.net/doc/mass_assignment.html)

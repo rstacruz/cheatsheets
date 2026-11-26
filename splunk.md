@@ -2,7 +2,7 @@
 title: Splunk
 subtitle: Machine data search platform
 category: Devops
-updated: 2026-11-15
+updated: 2026-11-26
 keywords:
   - Splunk SPL
   - SPL search commands
@@ -10,9 +10,7 @@ keywords:
   - stats by
   - timechart
 intro: |
-  [Splunk](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6)
-  searches machine data with SPL. This reference covers the search commands,
-  statistics, field extraction, and lookups you reach for most.
+  Splunk searches machine data with SPL.
 links:
   - title: SPL search reference
     url: https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6
@@ -20,6 +18,8 @@ links:
     url: https://help.splunk.com/en/splunk-enterprise/search/search-tutorial/10.6
   - title: SPL for SQL users
     url: https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/quick-reference/splunk-spl-for-sql-users
+tier: t3
+last_verified_with: "Splunk Enterprise 10.6."
 ---
 
 ## Getting started
@@ -175,12 +175,16 @@ the field is present; `count` counts all events.
 
 See: [stats](https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/10.6/search-commands/stats)
 
-### eventstats and streamstats
+### Per-event statistics
+
+#### eventstats
 
 ```splunk-spl
 | eventstats avg(bytes) AS avg_bytes by host
 | eval delta = bytes - avg_bytes
 ```
+
+#### streamstats
 
 ```splunk-spl
 | streamstats window=10 avg(bytes) AS avg_10

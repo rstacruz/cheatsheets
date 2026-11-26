@@ -2,7 +2,6 @@
 title: Web workers
 subtitle: Browser background threads
 category: Browser APIs
-updated: 2026-11-15
 keywords:
   - Worker
   - postMessage
@@ -10,7 +9,7 @@ keywords:
   - Transferable objects
   - Background thread
 intro: |
-  Web workers run JavaScript on a background thread. This reference covers creating workers, two-way messaging, transferable objects, and shutdown.
+  Web workers run JavaScript on a background thread.
 links:
   - title: MDN Web Workers API
     url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
@@ -18,6 +17,9 @@ links:
     url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
   - title: HTML specification, workers
     url: https://html.spec.whatwg.org/multipage/workers.html
+tier: t3
+last_verified_with: "HTML Living Standard, Web Workers."
+updated: 2026-11-26
 ---
 
 ## Creating a worker
@@ -69,11 +71,11 @@ See: [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 
 ### Worker kinds
 
-| Kind | Constructor | Reached from |
+| Constructor | Kind | Reached from |
 | --- | --- | --- |
-| Dedicated | `new Worker(url)` | The creating script only |
-| Shared | `new SharedWorker(url)` | Many contexts, via `.port` |
-| Service | `navigator.serviceWorker.register(url)` | Pages it controls |
+| `new Worker(url)` | Dedicated | The creating script only |
+| `new SharedWorker(url)` | Shared | Many contexts, via `.port` |
+| `navigator.serviceWorker.register(url)` | Service | Pages it controls |
 
 <!-- {: .-headers} -->
 

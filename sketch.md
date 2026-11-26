@@ -2,7 +2,7 @@
 title: Sketch
 subtitle: Mac vector design app
 category: Apps
-updated: 2026-11-22
+updated: 2026-11-26
 keywords:
   - "⌘K: Command Bar"
   - "F: Frame"
@@ -18,6 +18,8 @@ links:
     url: https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-command-bar/
   - title: The Canvas
     url: https://www.sketch.com/docs/interface-and-settings/the-mac-app-interface/the-canvas/
+tier: t3
+last_verified_with: "Sketch 2026.4."
 ---
 
 ## Essentials

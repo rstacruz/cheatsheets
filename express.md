@@ -102,8 +102,8 @@ See: [Routing](https://expressjs.com/en/5x/guide/routing.html)
 ```js
 // GET /users/42
 app.get('/users/:id', (req, res) => {
-  res.json({ id: req.params.id })
-  // '42'
+  const id = req.params.id // '42'
+  res.json({ id })
 })
 ```
 <!-- {: data-highlight="req.params.id"} -->
@@ -131,8 +131,8 @@ See: [Path route matching](https://expressjs.com/en/guide/migrating-5.html#path-
 ```js
 // GET /files/a/b/c.txt
 app.get('/files/*splat', (req, res) => {
-  res.json(req.params.splat)
-  // ['a', 'b', 'c.txt']
+  const splat = req.params.splat
+  res.json(splat) // ['a', 'b', 'c.txt']
 })
 ```
 <!-- {: data-highlight="/*splat"} -->
@@ -165,7 +165,7 @@ app.get('/users/:id', (req, res) => {
   res.json({ auth, host })
 })
 ```
-<!-- {: data-highlight="req.get"} -->
+<!-- {: data-highlight="req.get; req.headers"} -->
 
 `req.get()` is case-insensitive; `req.headers` holds the lowercase header map.
 

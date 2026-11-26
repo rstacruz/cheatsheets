@@ -285,7 +285,7 @@ ru.select(21)  // → 'one'   (21 товар)
 ```
 <!-- {: data-highlight="'ru'"} -->
 
-Russian uses `one` for 1 and 21, `few` for 2–4 and 22–24, and `many` for 5–20. The noun in the message must match the chosen form.
+Russian uses `one` for 1 and 21, `few` for 2–4 and 22–24, and `many` for 0 and 5–20. The noun in the message must match the chosen form.
 
 See: [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 

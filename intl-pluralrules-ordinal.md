@@ -39,7 +39,7 @@ nth(21)  // → '21st'
 ```
 <!-- {: data-highlight="type: 'ordinal'"} -->
 
-**Sets `type: 'ordinal'`.** Cardinal rules would print 1th; ordinal rules return `one`, `two`, `few`, or `other`. Teens such as 11–13 take `th`, while 21–23 use the suffix for their last digit. See [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type).
+**Sets `type: 'ordinal'`.** Cardinal rules only know `one` and `other`, so 2nd and 3rd come out wrong; ordinal rules return `one`, `two`, `few`, or `other`. Teens such as 11–13 take `th`, while 21–23 use the suffix for their last digit. See [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type).
 
 ### Check locale coverage
 <!-- {: .-snippet} -->

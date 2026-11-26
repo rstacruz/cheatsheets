@@ -37,7 +37,7 @@ count(21)  // → '21 товар'
 ```
 <!-- {: data-highlight="forms[ru.select(n)]"} -->
 
-**Maps all four Russian categories.** Russian uses `one` for 1 and 21, `few` for 2–4, `many` for 5–20, and `other` for fractions. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
+**Maps all four Russian categories.** Russian uses `one` for numbers ending in 1 but not 11, `few` for 2–4 but not 12–14, `many` for 0 and 5–20, and `other` for fractions. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
 
 ### Send fractions to other
 <!-- {: .-snippet} -->

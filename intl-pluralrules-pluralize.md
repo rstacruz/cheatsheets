@@ -30,7 +30,7 @@ forms[pr.select(3)]  // → 'items'
 ```
 <!-- {: data-highlight="forms[pr.select(1)]"} -->
 
-**Picks a word form from the category.** `select()` returns `one` or `other`; use it as the map key. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
+**Picks a word form from the category.** For English, `select()` returns `one` or `other`; use it as the map key. See [select()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select).
 
 ### Wrap the lookup
 <!-- {: .-snippet} -->

@@ -44,4 +44,4 @@ ar.select(1)  // → 'one'
 ```
 <!-- {: data-highlight="ar.select(0)"} -->
 
-**Uses the built-in `zero` category.** Arabic, Welsh, and Latvian define a `zero` form, so their maps need a `zero` key. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).
+**Uses the built-in `zero` category.** Arabic, Welsh, and Latvian, among others, define a `zero` form, so their maps need a `zero` key. See [CLDR plural rules](https://cldr.unicode.org/index/cldr-spec/plural-rules).

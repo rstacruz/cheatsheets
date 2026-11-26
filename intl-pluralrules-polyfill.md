@@ -24,7 +24,7 @@ npm install intl-pluralrules
 ```
 <!-- {: data-highlight="npm install"} -->
 
-**Installs the polyfill.** Version 2 adds `selectRange()` and fraction-digit support. See [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules).
+**Installs the polyfill.** It also implements `selectRange()` and fraction-digit options. See [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules).
 
 ### Import once
 <!-- {: .-snippet} -->
@@ -51,8 +51,8 @@ import 'intl-pluralrules'
 <!-- {: .-snippet} -->
 
 ```js
-import PluralRules
-  from 'intl-pluralrules/plural-rules'
+import PluralRules from
+  'intl-pluralrules/plural-rules'
 
 new PluralRules('en').select(1)  // → 'one'
 ```

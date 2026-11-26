@@ -28,7 +28,7 @@ usd.format(9.99)    // → '$9.99'
 ```
 <!-- {: data-highlight="style: 'currency'; currency: 'USD'"} -->
 
-**Sets `style: 'currency'`.** The locale decides symbol placement, grouping, and decimal digits. See [currency](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency).
+**Sets `style: 'currency'`.** The locale decides symbol placement and grouping; decimal digits follow the currency's minor unit. See [currency](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#currency).
 
 ### Choose the display
 <!-- {: .-snippet} -->

@@ -24,7 +24,7 @@ Run the dev server before editing.
 ```
 <!-- {: data-highlight="::: tip"} -->
 
-**Renders a green tip box.** The default title is `TIP`; the theme option `tip` renames it for the whole site. See [hint containers](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).
+**Renders a green tip box.** The default title is `Tips`; add a title after `tip` to override it, or set the theme's `tip` option for every tip box. See [hint containers](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).
 
 ### Add a warning
 <!-- {: .-snippet} -->
@@ -42,10 +42,10 @@ Set `base` before deploying.
 <!-- {: .-snippet} -->
 
 ```md
-::: details
+::: details Output
 The output is in `docs/.vuepress/dist`.
 :::
 ```
 <!-- {: data-highlight="::: details"} -->
 
-**Starts collapsed and expands on click.** `::: details` uses its first line as the summary; `{no-title}` works on the other containers. See [details](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).
+**Starts collapsed and expands on click.** Add a title after `details` to label the toggle; it defaults to `Details`, and `{no-title}` is ignored for this container. See [details](https://ecosystem.vuejs.press/themes/default/markdown.html#hint-containers).

@@ -34,7 +34,7 @@ intro: |
   [VuePress](https://v2.vuepress.vuejs.org/) builds static documentation sites from Markdown with Vue components. This guide targets VuePress 2 and its default theme.
 links:
   - title: VuePress guide
-    url: https://v2.vuepress.vuejs.org/guide/
+    url: https://v2.vuepress.vuejs.org/guide/getting-started.html
   - title: Default theme config
     url: https://ecosystem.vuejs.press/themes/default/config.html
   - title: Vue.js cheatsheet
@@ -127,7 +127,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="defineUserConfig({"} -->
 
-Put it at `docs/.vuepress/config.ts`. A `vuepress.config.ts` in the working directory takes precedence. The default theme exports `defaultTheme` in rc.142; older RCs used `themeDefault`.
+Put it at `docs/.vuepress/config.ts`. A `vuepress.config.ts` in the working directory takes precedence. The default theme exports `defaultTheme` in 2.0.0-rc.142; earlier 2.0.0-rc releases exported `themeDefault`.
 
 See: [Configuration](https://v2.vuepress.vuejs.org/guide/configuration.html)
 
@@ -178,7 +178,13 @@ export default defineUserConfig({
   theme: defaultTheme({
     sidebar: {
       '/guide/': [
-        { text: 'Guide', children: ['/guide/', '/guide/api.md'] },
+        {
+          text: 'Guide',
+          items: [
+            { text: 'Overview', link: '/guide/' },
+            { text: 'API', link: '/guide/api.md' },
+          ],
+        },
       ],
     },
   }),
@@ -186,7 +192,7 @@ export default defineUserConfig({
 ```
 <!-- {: data-highlight="sidebar:"} -->
 
-The object key matches a path prefix. Use `'heading'` (the default) to build from headings, `'structure'` from the file tree, or `false` to hide it.
+The object key matches a path prefix. Use `'heading'` (the default) to build from headings, `'structure'` from the file tree, or `false` to hide it. Group items under `items`, not `children`.
 
 See: [Sidebar](https://ecosystem.vuejs.press/themes/default/config.html#sidebar)
 
@@ -433,7 +439,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v6
+        with:
+          version: 12
       - uses: actions/setup-node@v7
         with:
           node-version: 24

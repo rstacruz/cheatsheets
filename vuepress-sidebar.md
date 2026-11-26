@@ -23,7 +23,16 @@ theme: defaultTheme({
     '/guide/': [
       {
         text: 'Guide',
-        children: ['/guide/', '/guide/api.md'],
+        items: [
+          {
+            text: 'Overview',
+            link: '/guide/',
+          },
+          {
+            text: 'API',
+            link: '/guide/api.md',
+          },
+        ],
       },
     ],
   },
@@ -31,7 +40,7 @@ theme: defaultTheme({
 ```
 <!-- {: data-highlight="'/guide/'"} -->
 
-**Shows a menu under every `/guide/` page.** The key is matched as a path prefix, so nested pages share the sidebar. See [sidebar items](https://ecosystem.vuejs.press/themes/default/config.html#sidebar-items).
+**Shows a menu under every `/guide/` page.** The key is matched as a path prefix, so nested pages share the sidebar. Group items under `items`, not `children`. See [sidebar items](https://ecosystem.vuejs.press/themes/default/config.html#sidebar-items).
 
 ### Generate it from files
 <!-- {: .-snippet} -->

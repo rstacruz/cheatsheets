@@ -46,7 +46,11 @@ jobs:
     environment: github-pages
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v6
+        with:
+          version: 12
       - uses: actions/setup-node@v7
         with:
           node-version: 24

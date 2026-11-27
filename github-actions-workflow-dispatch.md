@@ -67,7 +67,7 @@ gh workflow run ci.yml -f level=debug
 
 ```bash
 # get the ID from gh run list
-gh run watch --compact 1234567890
+gh run watch --compact "$RUN_ID"
 ```
 <!-- {: data-highlight="gh run watch"} -->
 

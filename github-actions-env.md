@@ -27,7 +27,7 @@ env:
 
 **Applies to every job.** An `env` value cannot reference another `env` value. See [env](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env).
 
-### Scope it to a job or step
+### Scope a variable to a job or step
 <!-- {: .-snippet} -->
 
 ```yaml
@@ -44,7 +44,7 @@ jobs:
 
 **More specific wins.** Step env beats job env, which beats workflow env. See [env](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env).
 
-### Read it in a step
+### Read a variable in a step
 <!-- {: .-snippet} -->
 
 ```yaml

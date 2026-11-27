@@ -119,7 +119,7 @@ Runs at 06:00 UTC on weekdays. The shortest interval is 5 minutes, and the run u
 
 See: [schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
 
-### Tag and release
+### Run on a tag push
 
 ```yaml
 on:
@@ -730,11 +730,11 @@ gh run list --workflow=ci.yml
 
 ```bash
 # print only the failed step logs
-gh run view --log-failed
+gh run view "$RUN_ID" --log-failed
 ```
 <!-- {: data-highlight="--log-failed"} -->
 
-The GitHub CLI lists runs and prints only the failed step logs.
+List runs to get a run ID, then view only the failed step logs.
 
 See: [gh run](https://cli.github.com/manual/gh_run)
 

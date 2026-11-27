@@ -1,0 +1,67 @@
+---
+import cx from 'clsx'
+import { site } from '~/config'
+import { getPages } from '~/lib/page'
+import { getSnippetsByCategory } from '~/lib/page/queries'
+import { typeStyles } from '~/styles/CommonStyles'
+import BaseLayout from '~/components/BaseLayout.astro'
+import TopNav from '~/components/TopNav.astro'
+import SnippetLink from '~/components/V2017Home/SnippetLink.astro'
+import SEO from '~/components/SEO/SEO.astro'
+
+const pages = await getPages()
+const snippetCategories = getSnippetsByCategory(pages)
+
+const t = {
+  title: 'Snippets',
+  description: 'Short, single-task cheatsheets for everyday developer work.'
+}
+
+const styles = {
+  body: 'V2017Sheet__body max-w-home p-6 md:px-8 mx-auto',
+  category: cx(
+    'SnippetsPage__category',
+    'mt-[32px] mb-[16px] border-b border-b-border-strong pb-[16px] text-base font-normal text-primary'
+  ),
+  snippetList: cx(
+    'SnippetsPage__snippetList',
+    'grid grid-cols-[minmax(0,1fr)] gap-x-[24px]',
+    'min-[769px]:grid-cols-[repeat(2,minmax(0,1fr))]'
+  )
+}
+
+const headingStyles = {
+  root: 'SiteHeading__root my-12 text-center',
+  h1: `SiteHeading__h1 ${typeStyles.manrope} text-5xl text-heading`,
+  tagline: 'SiteHeading__tagline text-xl mt-4'
+}
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <SEO
+      title="Snippets — Devhints.io cheatsheets"
+      links={{ canonical: `${site.url}/snippets` }}
+      meta={{ description: t.description }}
+    />
+  </Fragment>
+  <TopNav noEdit noBack noShare />
+  <div class={styles.body}>
+    <div class={headingStyles.root}>
+      <h1 class={headingStyles.h1}>{t.title}</h1>
+      <p class={headingStyles.tagline}>{t.description}</p>
+    </div>
+    <div role="main">
+      {snippetCategories.map((category) => (
+        <section>
+          <h2 class={styles.category}>{category.title}</h2>
+          <div class={styles.snippetList}>
+            {category.pages.map((page) => (
+              <SnippetLink page={page} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

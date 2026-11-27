@@ -104,6 +104,27 @@ export function getSnippetPages(pages: Record<string, SheetPage>): SheetPage[] {
     )
 }
 
+/** Listed snippets grouped by nav category, with empty groups removed. */
+export function getSnippetsByCategory(
+  pages: Record<string, SheetPage>
+): Category[] {
+  const grouped = new Map<string, SheetPage[]>()
+
+  for (const page of getSnippetPages(pages)) {
+    const name = page.frontmatter.category
+    const categoryName = name && categories.includes(name) ? name : 'Others'
+    const group = grouped.get(categoryName)
+    if (group) group.push(page)
+    else grouped.set(categoryName, [page])
+  }
+
+  return categories.flatMap((category) => {
+    const groupPages = grouped.get(category)
+    if (!groupPages) return []
+    return [{ id: category, title: category, pages: groupPages }]
+  })
+}
+
 /**
  * Top pages (highest weight)
  */

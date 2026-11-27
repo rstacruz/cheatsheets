@@ -8,10 +8,11 @@ import {
   getRecentPages,
   getSnippetPages
 } from '~/lib/page/queries'
+import { selectWeeklySnippets } from '~/lib/weeklySnippets'
 import TopNav from '~/components/TopNav.astro'
 import BaseLayout from '~/components/BaseLayout.astro'
-import Logo from '~/components/Logo.astro'
 import PageListItem from '~/components/V2017Home/PageListItem.astro'
+import SnippetLink from '~/components/V2017Home/SnippetLink.astro'
 import FeaturedPages from '~/components/V2017Home/FeaturedPages.astro'
 import Announcements from '~/components/V2017Home/Announcements.astro'
 import SearchForm from '~/components/V2017Sheet/SearchForm.astro'
@@ -30,7 +31,7 @@ const recentPages = getRecentPages(pages, {
   maxCount: 12,
   excludeSnippets: true
 })
-const snippetPages = getSnippetPages(pages)
+const snippetPages = selectWeeklySnippets(getSnippetPages(pages), new Date())
 
 const seoProps = getSEOPropsForHome()
 const t = {
@@ -38,6 +39,7 @@ const t = {
   tagline: `Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.`,
   recentlyUpdated: 'Recently updated',
   snippets: 'Snippets',
+  allSnippets: 'See all snippets',
   seeSomethingMissing: 'See something missing?',
   requestCheatsheet: 'Request cheatsheet'
 }
@@ -53,13 +55,10 @@ const styles = {
     'col-span-full grid grid-cols-[minmax(0,1fr)] gap-x-[24px] border-t border-t-border',
     'min-[769px]:grid-cols-[repeat(2,minmax(0,1fr))]'
   ),
-  snippetItem:
-    'HomePage__snippetItem group flex items-baseline gap-[10px] border-b border-b-border px-[4px] py-[10px] no-underline',
-  snippetTitle:
-    'HomePage__snippetTitle font-manrope font-semibold text-heading group-hover:text-primary group-focus:text-primary',
-  snippetSubtitle:
-    'HomePage__snippetSubtitle text-xs leading-[1.6] text-muted-foreground-subtle',
-  snippetArrow: 'HomePage__snippetArrow ml-auto text-primary-subtle',
+  snippetMore: cx(
+    'HomePage__snippetMore',
+    'col-span-full text-center text-sm text-muted-foreground'
+  ),
   missingMessage: cx(
     'HomePage__missingMessage',
     'col-span-full',
@@ -150,28 +149,14 @@ const headingStyles = {
           </h2>
           <div class={styles.snippetList}>
             {snippetPages.map((page) => (
-              <a href={`/${page.slug}`} class={styles.snippetItem}>
-                <Logo
-                  logo={page.frontmatter.logo}
-                  size={20}
-                  class="self-center"
-                />
-                <span class={styles.snippetTitle}>
-                  {page.frontmatter.link_title ??
-                    page.frontmatter.title ??
-                    page.slug}
-                </span>
-                {page.frontmatter.subtitle && (
-                  <span class={styles.snippetSubtitle}>
-                    {page.frontmatter.subtitle}
-                  </span>
-                )}
-                <span class={styles.snippetArrow} aria-hidden="true">
-                  →
-                </span>
-              </a>
+              <SnippetLink page={page} />
             ))}
           </div>
+          <p class={styles.snippetMore}>
+            <a class="text-primary hover:underline" href="/snippets">
+              {t.allSnippets}
+            </a>
+          </p>
         </>
       )}
 

@@ -33,8 +33,15 @@ const styles = {
     'min-[481px]:size-[48px] min-[1232px]:relative min-[1232px]:-left-[16px]',
     '[&>svg]:inline-block [&>svg]:align-middle [&>svg]:text-foreground hover:[&>svg]:text-primary-foreground focus:[&>svg]:text-primary-foreground'
   ),
-  brand:
-    'TopNav__brand inline-block flex-auto text-xs font-bold leading-[32px] tracking-caps text-foreground uppercase no-underline hover:text-primary max-[481px]:hidden min-[481px]:leading-[64px]',
+  brand: cx(
+    'TopNav__brand',
+    'mx-auto block h-[20px] w-[204px] flex-none bg-current',
+    '[--brand-logo:url(/assets/devhints.svg)]',
+    '[mask:var(--brand-logo)_center/contain_no-repeat]',
+    '[-webkit-mask:var(--brand-logo)_center/contain_no-repeat]',
+    'forced-color-adjust-none hover:bg-primary focus:bg-primary',
+    'max-[481px]:hidden'
+  ),
   actions:
     'TopNav__actions flex flex-none items-center gap-[8px] max-[481px]:ml-auto min-[481px]:absolute min-[481px]:right-[16px] min-[481px]:top-[16px]',
   socialList:
@@ -67,9 +74,7 @@ const editLink = getEditLink(props.page)
       </div>
     ) : null}
 
-    <a class={styles.brand} href="/">
-      {t.title}
-    </a>
+    <a class={styles.brand} href="/" aria-label={t.title}></a>
 
     <div class={styles.actions}>
       <ThemeToggle />
